@@ -50,7 +50,7 @@
           "destination": "index.css",
           "format": "css/variables",
           "options": {
-            "selector": ".example-theme",
+            "selector": ".ams-theme",
             "outputReferences": true
           }
         }

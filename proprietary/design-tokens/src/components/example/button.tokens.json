@@ -1,8 +1,8 @@
 {
-  "example": {
+  "ams": {
     "button": {
-      "background-color": { "value": "{example.color.blue.50}" },
-      "color": { "value": "{example.color.grey.100}" }
+      "background-color": { "value": "{ams.color.blue.50}" },
+      "color": { "value": "{ams.color.grey.100}" }
     }
   }
 }

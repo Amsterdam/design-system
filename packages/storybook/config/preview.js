@@ -14,7 +14,7 @@ export const decorators = [
     storyContext.parameters.args = storyContext.args;
 
     return (
-      <div className="example-theme">
+      <div className="ams-theme">
         <Story />
       </div>
     );

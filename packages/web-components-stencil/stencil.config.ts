@@ -3,7 +3,7 @@ import { reactOutputTarget } from '@stencil/react-output-target';
 import { sass } from '@stencil/sass';
 
 export const config: Config = {
-  namespace: 'example',
+  namespace: 'ams',
   srcDir: '../../components/',
   outputTargets: [
     {
