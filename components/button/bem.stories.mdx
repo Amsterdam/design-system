@@ -1,0 +1,38 @@
+<!--
+@license EUPL-1.2
+Copyright (c) 2021 Community for NL Design System
+-->
+
+import { ArgsTable, Canvas, Meta, Story } from "@storybook/addon-docs";
+import "./bem.scss";
+import README from "./README.md";
+
+export const Template = ({ content }) => (
+  <button className="example-button" type="button">
+    <span className="example-button__text">{content}</span>
+  </button>
+);
+
+<Meta
+  title="CSS Component/Button"
+  argTypes={{
+    content: {
+      description: "Set the text content",
+      control: "text",
+    },
+  }}
+  parameters={{
+    status: "IN DEVELOPMENT",
+    notes: { UX: README },
+  }}
+/>
+
+# Example Button
+
+<Canvas>
+  <Story name="Button" args={{ content: "Press me!" }}>
+    {Template.bind({})}
+  </Story>
+</Canvas>
+
+<ArgsTable story="Button" />

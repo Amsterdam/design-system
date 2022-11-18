@@ -1,0 +1,5 @@
+{
+  "rules": {
+    "valid-values-license": ["error", ["SEE LICENSE IN LICENSE.md"]]
+  }
+}

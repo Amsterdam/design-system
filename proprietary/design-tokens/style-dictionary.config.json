@@ -1,0 +1,101 @@
+{
+  "source": ["./src/**/tokens.json", "./src/**/*.tokens.json"],
+  "platforms": {
+    "js": {
+      "transforms": ["attribute/cti", "name/cti/camel", "color/hsl-4"],
+      "buildPath": "dist/",
+      "files": [
+        {
+          "destination": "index.js",
+          "format": "javascript/es6"
+        },
+        {
+          "format": "javascript/module",
+          "destination": "tokens.js"
+        }
+      ]
+    },
+    "json": {
+      "transforms": ["attribute/cti", "name/cti/camel", "color/hsl-4"],
+      "buildPath": "dist/",
+      "files": [
+        {
+          "destination": "index.tokens.json",
+          "format": "json/nested"
+        },
+        {
+          "destination": "index.json",
+          "format": "json/flat"
+        }
+      ]
+    },
+    "css": {
+      "transforms": ["attribute/cti", "name/cti/kebab", "color/hsl-4"],
+      "buildPath": "dist/",
+      "files": [
+        {
+          "destination": "root.css",
+          "format": "css/variables",
+          "options": {
+            "outputReferences": true
+          }
+        }
+      ]
+    },
+    "css-theme": {
+      "transforms": ["attribute/cti", "name/cti/kebab", "color/hsl-4"],
+      "buildPath": "dist/",
+      "files": [
+        {
+          "destination": "index.css",
+          "format": "css/variables",
+          "options": {
+            "selector": ".example-theme",
+            "outputReferences": true
+          }
+        }
+      ]
+    },
+    "scss": {
+      "transforms": ["attribute/cti", "name/cti/kebab", "color/hsl-4"],
+      "buildPath": "dist/",
+      "files": [
+        {
+          "destination": "_variables.scss",
+          "format": "scss/variables",
+          "options": {
+            "outputReferences": true
+          }
+        }
+      ]
+    },
+    "typescript": {
+      "transforms": ["attribute/cti", "name/cti/camel", "color/hsl-4"],
+      "transformGroup": "js",
+      "buildPath": "dist/",
+      "files": [
+        {
+          "format": "typescript/es6-declarations",
+          "destination": "index.d.ts"
+        },
+        {
+          "format": "typescript/module-declarations",
+          "destination": "tokens.d.ts"
+        }
+      ]
+    },
+    "less": {
+      "transforms": ["attribute/cti", "name/cti/kebab", "color/hsl-4"],
+      "buildPath": "dist/",
+      "files": [
+        {
+          "destination": "variables.less",
+          "format": "less/variables",
+          "options": {
+            "outputReferences": true
+          }
+        }
+      ]
+    }
+  }
+}

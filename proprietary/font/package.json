@@ -1,0 +1,22 @@
+{
+  "version": "1.0.0-alpha.0",
+  "author": "Community for NL Design System",
+  "description": "Font assets",
+  "license": "SEE LICENSE IN LICENSE.md",
+  "name": "@example/font",
+  "main": "dist/index.css",
+  "keywords": [
+    "nl-design-system"
+  ],
+  "private": true,
+  "publishConfig": {
+    "access": "public"
+  },
+  "files": [
+    "src"
+  ],
+  "repository": {
+    "type": "git+ssh",
+    "url": "git@github.com:nl-design-system/example.git"
+  }
+}

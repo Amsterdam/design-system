@@ -1,0 +1,16 @@
+/**
+ * @license EUPL-1.2
+ * Copyright (c) 2021 Community for NL Design System
+ */
+
+.example-button {
+  background-color: var(--example-button-background-color);
+  border: 0;
+  color: var(--example-button-color);
+  font-family: system-ui;
+  font-size: 1rem;
+  padding-block-end: 1ex;
+  padding-block-start: 1ex;
+  padding-inline-end: 1ch;
+  padding-inline-start: 1ch;
+}

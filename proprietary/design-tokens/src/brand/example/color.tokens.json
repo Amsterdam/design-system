@@ -1,0 +1,13 @@
+{
+  "example": {
+    "color": {
+      "blue": {
+        "50": { "value": "cornflowerblue" }
+      },
+      "grey": {
+        "100": { "value": "white" },
+        "0": { "value": "black" }
+      }
+    }
+  }
+}
