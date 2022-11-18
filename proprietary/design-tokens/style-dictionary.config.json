@@ -50,7 +50,7 @@
           "destination": "index.css",
           "format": "css/variables",
           "options": {
-            "selector": ".ams-theme",
+            "selector": ".amsterdam-theme",
             "outputReferences": true
           }
         }

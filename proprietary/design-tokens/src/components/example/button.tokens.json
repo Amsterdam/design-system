@@ -1,8 +1,0 @@
-{
-  "ams": {
-    "button": {
-      "background-color": { "value": "{ams.color.blue.50}" },
-      "color": { "value": "{ams.color.grey.100}" }
-    }
-  }
-}

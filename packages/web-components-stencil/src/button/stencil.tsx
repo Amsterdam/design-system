@@ -6,15 +6,15 @@
 import { Component, h } from '@stencil/core';
 
 @Component({
-  tag: 'ams-button',
+  tag: 'amsterdam-button',
   styleUrl: 'index.scss',
   shadow: true,
 })
 export class Button {
   render() {
     return (
-      <button class="ams-button" type="button">
-        <span class="ams-button__text">
+      <button class="amsterdam-button" type="button">
+        <span class="amsterdam-button__text">
           <slot></slot>
         </span>
       </button>

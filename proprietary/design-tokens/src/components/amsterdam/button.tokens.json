@@ -1,0 +1,16 @@
+{
+  "amsterdam": {
+    "button": {
+      "background-color": { "value": "{amsterdam.color.primary-blue}" },
+      "color": { "value": "{amsterdam.color.primary-white}" },
+      "font-weight": { "value": 400 },
+      "padding-block-start": { "value": "8px" },
+      "padding-block-end": { "value": "8px" },
+      "padding-inline-start": { "value": "16px" },
+      "padding-inline-end": { "value": "16px" },
+      "hover": {
+        "background-color": { "value": "{amsterdam.color.dark-blue}" }
+      }
+    }
+  }
+}

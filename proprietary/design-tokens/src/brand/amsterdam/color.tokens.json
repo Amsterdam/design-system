@@ -1,0 +1,22 @@
+{
+  "amsterdam": {
+    "color": {
+      "primary-black": { "value": "#000000" },
+      "primary-white": { "value": "#ffffff" },
+      "primary-blue": { "value": "#004699" },
+      "primary-red": { "value": "#EC0000" },
+      "dark-blue": { "value": "#00387A" },
+      "orange": { "value": "#FF9100" },
+      "yellow": { "value": "#FFE600" },
+      "green": { "value": "#BED200" },
+      "dark-green": { "value": "#00A03C" },
+      "blue": { "value": "#009DEC" },
+      "purple": { "value": "#A00078" },
+      "magenta": { "value": "#E50082" },
+      "neutral-grey1": { "value": "#E6E6E6" },
+      "neutral-grey2": { "value": "#B4B4B4" },
+      "neutral-grey3": { "value": "#767676" },
+      "neutral-grey4": { "value": "#323232" }
+    }
+  }
+}
