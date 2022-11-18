@@ -3,7 +3,7 @@
   "author": "Community for NL Design System",
   "description": "Storybook based on the NL Design System architecture",
   "license": "EUPL-1.2",
-  "name": "@example/storybook",
+  "name": "@amsterdam/storybook",
   "keywords": [
     "nl-design-system"
   ],
@@ -19,7 +19,7 @@
   },
   "devDependencies": {
     "@babel/core": "7.19.1",
-    "@etchteam/storybook-addon-status": "4.2.1",
+    "@etchteam/storybook-addon-status": "4.2.2",
     "@storybook/addon-actions": "6.5.12",
     "@storybook/addon-a11y": "6.5.12",
     "@storybook/addon-docs": "6.5.12",
@@ -33,10 +33,10 @@
     "@storybook/testing-library": "0.0.13",
     "@types/react": "18.0.21",
     "@types/react-dom": "18.0.6",
-    "@example/assets": "workspace:*",
-    "@example/design-tokens": "workspace:*",
-    "@example/font": "workspace:*",
-    "@example/web-components-stencil": "workspace:*",
+    "@amsterdam/assets": "workspace:*",
+    "@amsterdam/design-tokens": "workspace:*",
+    "@amsterdam/font": "workspace:*",
+    "@amsterdam/web-components-stencil": "workspace:*",
     "babel-loader": "8.2.5",
     "css-loader": "5.2.7",
     "react": "18.2.0",

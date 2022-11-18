@@ -34,7 +34,7 @@
     "scripts-type": "error",
     "valid-values-author": "off",
     "valid-values-license": ["error", ["EUPL-1.2"]],
-    "valid-values-name-scope": ["error", ["@example"]],
+    "valid-values-name-scope": ["error", ["@amsterdam"]],
     "valid-values-private": "off",
     "version-format": "error",
     "version-type": "error"

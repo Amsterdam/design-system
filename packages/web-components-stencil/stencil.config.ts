@@ -14,7 +14,7 @@ export const config: Config = {
       type: 'dist-custom-elements-bundle',
     },
     reactOutputTarget({
-      componentCorePackage: '@example/web-components-stencil',
+      componentCorePackage: '@amsterdam/web-components-stencil',
       proxiesFile: '../web-components-react/src/components.ts',
     }),
   ],

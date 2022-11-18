@@ -3,7 +3,7 @@
   "author": "Community for NL Design System",
   "description": "Font assets",
   "license": "SEE LICENSE IN LICENSE.md",
-  "name": "@example/font",
+  "name": "@amsterdam/font",
   "main": "dist/index.css",
   "keywords": [
     "nl-design-system"

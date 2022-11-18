@@ -1,7 +1,7 @@
-import '@example/design-tokens/dist/index.css';
-import '@example/font/src/index.scss';
+import '@amsterdam/design-tokens/dist/index.css';
+import '@amsterdam/font/src/index.scss';
 
-import { defineCustomElements } from '@example/web-components-stencil';
+import { defineCustomElements } from '@amsterdam/web-components-stencil';
 
 defineCustomElements();
 
