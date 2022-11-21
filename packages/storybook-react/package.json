@@ -19,7 +19,7 @@
     "storybook": "start-storybook --config-dir config/ --port 6007 --no-open"
   },
   "devDependencies": {
-    "@babel/core": "7.18.13",
+    "@babel/core": "7.20.2",
     "@gemeente-denhaag/process-steps": "0.1.0-alpha.124",
     "@mdx-js/react": "1.6.22",
     "@storybook/addon-a11y": "6.5.13",
@@ -43,18 +43,18 @@
     "@amsterdam/components": "workspace:*",
     "@amsterdam/design-tokens": "workspace:*",
     "@amsterdam/documentation": "workspace:*",
-    "babel-loader": "8.2.5",
+    "babel-loader": "8.3.0",
     "css-loader": "5.2.7",
     "date-fns": "2.29.3",
     "http-server": "14.1.1",
     "react": "18.2.0",
     "react-dom": "18.2.0",
     "require-from-string": "2.0.2",
-    "sass-loader": "10.3.1",
+    "sass-loader": "10.4.1",
     "storybook": "6.5.13",
     "storybook-addon-pseudo-states": "1.15.1",
     "style-loader": "2.0.0",
-    "typescript": "4.7.4",
-    "webpack": "5.73.0"
+    "typescript": "4.9.3",
+    "webpack": "5.75.0"
   }
 }

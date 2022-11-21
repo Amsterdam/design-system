@@ -18,7 +18,7 @@
     "storybook": "start-storybook --config-dir config/ --port 6006"
   },
   "devDependencies": {
-    "@babel/core": "7.19.6",
+    "@babel/core": "7.20.2",
     "@etchteam/storybook-addon-status": "4.2.2",
     "@storybook/addon-actions": "6.5.13",
     "@storybook/addon-a11y": "6.5.13",
@@ -37,17 +37,17 @@
     "@amsterdam/design-tokens": "workspace:*",
     "@amsterdam/font": "workspace:*",
     "@amsterdam/web-components-stencil": "workspace:*",
-    "babel-loader": "8.2.5",
+    "babel-loader": "8.3.0",
     "css-loader": "5.2.7",
     "react": "18.2.0",
     "react-dom": "18.2.0",
     "require-from-string": "2.0.2",
     "rimraf": "3.0.2",
-    "sass": "1.54.9",
-    "sass-loader": "10.3.1",
+    "sass": "1.56.1",
+    "sass-loader": "10.4.1",
     "style-loader": "2.0.0",
-    "typescript": "4.7.4",
-    "webpack": "5.74.0"
+    "typescript": "4.9.3",
+    "webpack": "5.75.0"
   },
   "dependencies": {}
 }
