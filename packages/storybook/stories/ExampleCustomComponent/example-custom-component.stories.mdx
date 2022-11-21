@@ -4,8 +4,8 @@ Copyright (c) 2021 Community for NL Design System
 -->
 
 import { ArgsTable, Canvas, Meta, Story } from "@storybook/addon-docs";
-import "./bem.scss";
-import README from "./README.md";
+import "../../../../components/example-custom-component/example-custom-component.scss";
+import README from "../../../../components/example-custom-component/README.md";
 
 export const Template = ({ content }) => (
   <button className="amsterdam-button" type="button">
@@ -14,7 +14,7 @@ export const Template = ({ content }) => (
 );
 
 <Meta
-  title="CSS Component/Button"
+  title="CSS Component/Example custom component"
   argTypes={{
     content: {
       description: "Set the text content",
@@ -30,9 +30,9 @@ export const Template = ({ content }) => (
 # Button
 
 <Canvas>
-  <Story name="Button" args={{ content: "Press me!" }}>
+  <Story name="Example custom component" args={{ content: "Press me!" }}>
     {Template.bind({})}
   </Story>
 </Canvas>
 
-<ArgsTable story="Button" />
+<ArgsTable story="Example custom component" />

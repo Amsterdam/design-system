@@ -1,0 +1,88 @@
+<!--
+@license EUPL-1.2
+Copyright (c) 2021 Community for NL Design System
+-->
+
+import { ArgsTable, Canvas, Meta, Story } from "@storybook/addon-docs";
+import "../../../../components/button/button.scss";
+
+export const argTypes = {
+  busy: {
+    description: "Busy",
+    control: "boolean",
+  },
+  disabled: {
+    description: "Disabled",
+    control: "boolean",
+  },
+  focusable: {
+    description: "Focusable",
+    control: "boolean",
+  },
+  textContent: {
+    description: "Content of the button",
+    control: "text",
+  },
+  type: {
+    description: "Type",
+    control: { type: "select" },
+    options: ["button", "reset", "submit"],
+  },
+};
+
+export const decorators = [(story) => <div className="amsterdam-html">{story()}</div>];
+
+export const defaultArgs = {
+  busy: false,
+  disabled: false,
+  focusable: false,
+  textContent: "",
+  type: "button",
+};
+
+export const exampleArgs = {
+  textContent: "Click me!",
+};
+
+export const Button = ({
+  busy = defaultArgs.busy,
+  disabled = defaultArgs.disabled,
+  focusable = defaultArgs.focusable,
+  textContent = defaultArgs.textContent,
+  type = defaultArgs.type,
+}) => (
+  <button
+    className="amsterdam-button"
+    type={type || "button"}
+    aria-busy={busy || null}
+    aria-disabled={(disabled && focusable) || null}
+    disabled={(disabled && !focusable) || null}
+  >
+    {textContent}
+  </button>
+);
+
+<Meta
+  id="css-button"
+  title="CSS Component/Button"
+  component={Button}
+  argTypes={argTypes}
+  args={defaultArgs}
+  parameters={{
+    status: {
+      type: "WORK IN PROGRESS",
+    },
+  }}
+/>
+
+# Button
+
+Styling via the `.amsterdam-button` class name:
+
+<Canvas>
+  <Story name="Default" args={exampleArgs}>
+    {Button.bind({})}
+  </Story>
+</Canvas>
+
+<ArgsTable story="Default" />

@@ -6,6 +6,7 @@ import filesize from 'rollup-plugin-filesize';
 import nodeExternal from 'rollup-plugin-node-externals';
 import nodePolyfills from 'rollup-plugin-node-polyfills';
 import peerDepsExternal from 'rollup-plugin-peer-deps-external';
+import scss from 'rollup-plugin-scss';
 import typescript from 'rollup-plugin-typescript2';
 import packageJson from './package.json';
 
@@ -56,6 +57,7 @@ export default [
         plugins: ['@babel/plugin-transform-runtime'],
       }),
       filesize(),
+      scss(),
     ],
   },
 ];

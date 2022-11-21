@@ -1,0 +1,86 @@
+/**
+ * @license EUPL-1.2
+ * Copyright (c) 2021 Community for NL Design System
+ */
+
+.utrecht-button {
+  align-items: center;
+  border: none;
+  cursor: pointer;
+  display: inline-flex;
+  font-size: clamp(1.125rem, 1.125rem + (0.375 * (100vw - 20rem)) / 100, 1.5rem);
+  font-weight: var(--amsterdam-button-font-weight);
+  line-height: clamp(1.8125rem, 1.8125rem + (0.5625 * (100vw - 20rem)) / 100, 2.375rem);
+  outline-offset: var(--amsterdam-focus-outline-offset);
+  text-decoration: none;
+  transition: color 100ms ease-in-out 0ms, background-color 100ms ease-in-out 0ms;
+  white-space: nowrap;
+}
+
+.utrecht-button--primary-action {
+  background-color: var(--amsterdam-button-primary-background-color);
+  color: var(--amsterdam-button-primary-color);
+  padding-block-end: var(--amsterdam-button-primary-padding-block-end);
+  padding-block-start: var(--amsterdam-button-primary-padding-block-start);
+  padding-inline-end: var(--amsterdam-button-primary-padding-inline-end);
+  padding-inline-start: var(--amsterdam-button-primary-padding-inline-start);
+}
+
+.utrecht-button--primary-action:focus,
+.utrecht-button--primary-action:hover {
+  background-color: var(--amsterdam-button-primary-hover-background-color);
+}
+
+.utrecht-button--primary-action:disabled {
+  background-color: var(--amsterdam-button-primary-disabled-background-color);
+  color: var(--amsterdam-button-primary-disabled-color);
+  cursor: not-allowed;
+}
+
+.utrecht-button--secondary-action {
+  background-color: var(--amsterdam-button-secondary-background-color);
+  box-shadow: var(--amsterdam-button-secondary-box-shadow);
+  color: var(--amsterdam-button-secondary-color);
+  padding-block-end: var(--amsterdam-button-secondary-padding-block-end);
+  padding-block-start: var(--amsterdam-button-secondary-padding-block-start);
+  padding-inline-end: var(--amsterdam-button-secondary-padding-inline-end);
+  padding-inline-start: var(--amsterdam-button-secondary-padding-inline-start);
+}
+
+.utrecht-button--secondary-action:focus,
+.utrecht-button--secondary-action:hover {
+  box-shadow: var(--amsterdam-button-secondary-hover-box-shadow);
+  color: var(--amsterdam-button-secondary-hover-color);
+}
+
+.utrecht-button--secondary-action:disabled {
+  background-color: var(--amsterdam-button-secondary-disabled-background-color);
+  box-shadow: var(--amsterdam-button-secondary-disabled-box-shadow);
+  color: var(--amsterdam-button-secondary-disabled-color);
+  cursor: not-allowed;
+}
+
+.utrecht-button--subtle {
+  background-color: var(--amsterdam-button-tertiary-background-color);
+  color: var(--amsterdam-button-tertiary-color);
+  padding-block-end: var(--amsterdam-button-tertiary-padding-block-end);
+  padding-block-start: var(--amsterdam-button-tertiary-padding-block-start);
+  padding-inline-end: var(--amsterdam-button-tertiary-padding-inline-end);
+  padding-inline-start: var(--amsterdam-button-tertiary-padding-inline-start);
+}
+
+.utrecht-button--subtle:focus,
+.utrecht-button--subtle:hover {
+  box-shadow: var(--amsterdam-button-tertiary-hover-box-shadow);
+}
+
+.utrecht-button--subtle:disabled {
+  box-shadow: none;
+  color: var(--amsterdam-button-tertiary-disabled-color);
+  cursor: not-allowed;
+}
+
+.utrecht-button--small {
+  font-size: clamp(1rem, 1rem + (0.125 * (100vw - 20rem)) / 100, 1.125rem);
+  line-height: clamp(1.375rem, 1.375rem + (0.125 * (100vw - 20rem)) / 100, 1.5rem);
+}

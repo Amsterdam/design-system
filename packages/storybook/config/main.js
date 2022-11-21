@@ -1,9 +1,6 @@
 /* eslint-env node */
 module.exports = {
-  stories: [
-    '../../../documentation/**/*stories.@(js|jsx|mdx|ts|tsx)',
-    '../../../components/**/*stories.@(js|jsx|mdx|ts|tsx)',
-  ],
+  stories: ['../stories'],
   addons: [
     '@etchteam/storybook-addon-status/register',
     '@storybook/addon-a11y/register',
@@ -28,4 +25,10 @@ module.exports = {
       hints: false,
     },
   }),
+  refs: {
+    react: {
+      title: 'React',
+      url: 'http://localhost:6007',
+    },
+  },
 };
