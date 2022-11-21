@@ -11,6 +11,7 @@ export const parameters = {
       date: /Date$/,
     },
   },
+  viewMode: 'docs',
   docs: {
     // Show code by default.
     // Stories without concise code snippets can hide the code at Story level.

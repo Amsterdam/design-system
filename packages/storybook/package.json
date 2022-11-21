@@ -39,6 +39,7 @@
     "@amsterdam/web-components-stencil": "workspace:*",
     "babel-loader": "8.3.0",
     "css-loader": "5.2.7",
+    "lodash.defaultsdeep": "4.6.1",
     "react": "18.2.0",
     "react-dom": "18.2.0",
     "require-from-string": "2.0.2",

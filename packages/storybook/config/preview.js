@@ -1,8 +1,12 @@
+import { defineCustomElements } from '@amsterdam/web-components-stencil';
+import defaultsDeep from 'lodash.defaultsdeep';
+import prettierBabel from 'prettier/parser-babel';
+import prettier from 'prettier/standalone';
+import * as ReactDOMServer from 'react-dom/server';
+
 import '@amsterdam/design-tokens/dist/index.css';
 import '@amsterdam/font/src/index.css';
 import './preview.css';
-
-import { defineCustomElements } from '@amsterdam/web-components-stencil';
 
 defineCustomElements();
 
@@ -21,6 +25,27 @@ export const decorators = [
     );
   },
 ];
+
+// Configure @storybook/addon-docs
+const addonDocs = {
+  docs: {
+    // Show code by default.
+    // Stories without concise code snippets can hide the code at Story level.
+    source: {
+      state: 'open',
+    },
+    transformSource: (src, storyContext) => {
+      // Ensure valid HTML in the Preview source
+      if (storyContext.component) {
+        return prettier.format(
+          ReactDOMServer.renderToStaticMarkup(storyContext.component(storyContext.parameters.args)),
+          { parser: 'babel', plugins: [prettierBabel] },
+        );
+      }
+      return src;
+    },
+  },
+};
 
 // Configure @etchteam/storybook-addon-status
 const addonStatus = {
@@ -60,11 +85,16 @@ const previewTabs = {
   canvas: { title: 'Design Tokens' },
 };
 
-export const parameters = {
-  controls: { expanded: false },
+export const parameters = defaultsDeep(
+  {
+    controls: { expanded: false },
+    // Make the "Docs" tab the default, instead of the "Canvas" tab
+    viewMode: 'docs',
+    options: {
+      panelPosition: 'right',
+    },
+  },
   previewTabs,
   addonStatus,
-  options: {
-    panelPosition: 'right',
-  },
-};
+  addonDocs,
+);
