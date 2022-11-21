@@ -23,7 +23,3 @@ components/components.d.ts
 packages/web-components-stencil/loader
 packages/web-components-react/src/react-component-lib/
 packages/web-components-react/src/components.ts
-
-# TODO: Temp ignore css files
-packages/storybook/config/preview.css
-proprietary/font/src/index.css
