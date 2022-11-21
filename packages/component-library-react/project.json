@@ -1,0 +1,41 @@
+{
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "root": "{workspaceRoot}/packages/react",
+  "sourceRoot": "{projectRoot}",
+  "projectType": "library",
+  "targets": {
+    "build": {
+      "executor": "@nrwl/workspace:run-commands",
+      "outputs": ["{projectRoot}/dist"],
+      "options": {
+        "command": "npm run build",
+        "cwd": "packages/react",
+        "outputPath": "packages/react/dist"
+      },
+      "dependsOn": ["^build"]
+    },
+    "build-watch": {
+      "executor": "@nrwl/workspace:run-commands",
+      "outputs": ["{projectRoot}/dist"],
+      "options": {
+        "command": "npm run build:watch",
+        "cwd": "packages/react"
+      },
+      "dependsOn": ["^build"]
+    },
+    "test": {
+      "executor": "@nrwl/workspace:run-commands",
+      "options": {
+        "command": "npm run test",
+        "cwd": "packages/react"
+      }
+    },
+    "watch-test": {
+      "executor": "@nrwl/workspace:run-commands",
+      "options": {
+        "command": "npm run watch:test",
+        "cwd": "packages/react"
+      }
+    }
+  }
+}

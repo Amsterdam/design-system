@@ -51,7 +51,7 @@
       ],
       "files": ["*.ts", "*.tsx"],
       "parser": "@typescript-eslint/parser",
-      "plugins": ["@typescript-eslint", "import"]
+      "plugins": ["@typescript-eslint", "import", "jest"]
     },
     {
       "extends": [
@@ -73,7 +73,13 @@
       "files": ["*.ts", "*.tsx"],
       "parser": "@typescript-eslint/parser",
       "parserOptions": {
-        "project": ["packages/web-components-react/tsconfig.json", "packages/web-components-stencil/tsconfig.json"]
+        "project": [
+          "packages/component-library-react/tsconfig.json",
+          "packages/component-library-react/tsconfig.test.json",
+          "packages/storybook-react/tsconfig.json",
+          "packages/web-components-react/tsconfig.json",
+          "packages/web-components-stencil/tsconfig.json"
+        ]
       },
       "plugins": ["@typescript-eslint"]
     }

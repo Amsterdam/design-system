@@ -1,0 +1,79 @@
+{
+  "version": "1.0.0-alpha.184",
+  "author": "Community for NL Design System",
+  "description": "React component library bundle for the Municipality of Amsterdam based on the NL Design System architecture",
+  "license": "EUPL-1.2",
+  "name": "@amsterdam/component-library-react",
+  "keywords": [
+    "nl-design-system"
+  ],
+  "private": false,
+  "publishConfig": {
+    "access": "public"
+  },
+  "repository": {
+    "type": "git+ssh",
+    "url": "git@github.com:nl-design-system/utrecht.git"
+  },
+  "sideEffects": false,
+  "scripts": {
+    "build": "rollup -c",
+    "build:watch": "rollup -c --watch",
+    "clean": "rimraf dist/ pages/",
+    "lint": "tsc --project ./tsconfig.json --noEmit && tsc --noEmit --project ./tsconfig.test.json",
+    "test": "mkdir -p pages && NODE_OPTIONS=--experimental-vm-modules jest --verbose",
+    "watch:test": "NODE_OPTIONS=--experimental-vm-modules jest --verbose --watch"
+  },
+  "main": "./dist/index.cjs.js",
+  "module": "./dist/index.esm.js",
+  "types": "./dist/index.d.ts",
+  "files": [
+    "dist/"
+  ],
+  "dependencies": {
+    "clsx": "1.2.1",
+    "date-fns": "2.29.3"
+  },
+  "devDependencies": {
+    "@babel/core": "7.18.10",
+    "@babel/plugin-transform-runtime": "7.18.10",
+    "@babel/preset-env": "7.18.10",
+    "@babel/preset-react": "7.18.6",
+    "@babel/runtime": "7.19.0",
+    "@rollup/plugin-babel": "5.3.1",
+    "@rollup/plugin-commonjs": "22.0.2",
+    "@rollup/plugin-node-resolve": "13.3.0",
+    "@testing-library/dom": "8.16.0",
+    "@testing-library/jest-dom": "5.16.4",
+    "@testing-library/react": "13.3.0",
+    "@testing-library/user-event": "14.4.0",
+    "@types/date-fns": "2.6.0",
+    "@types/jest": "28.1.8",
+    "@types/lodash": "4.14.185",
+    "@types/react": "18.0.17",
+    "@types/testing-library__jest-dom": "5.14.5",
+    "jest": "28.1.3",
+    "jest-environment-jsdom": "28.1.3",
+    "lodash": "4.17.21",
+    "next": "12.2.3",
+    "npm-run-all": "4.1.5",
+    "react": "18.2.0",
+    "react-dom": "18.2.0",
+    "rimraf": "3.0.2",
+    "rollup": "2.76.0",
+    "rollup-plugin-delete": "2.0.0",
+    "rollup-plugin-filesize": "9.1.2",
+    "rollup-plugin-node-externals": "4.1.1",
+    "rollup-plugin-node-polyfills": "0.2.1",
+    "rollup-plugin-peer-deps-external": "2.2.4",
+    "rollup-plugin-postcss": "4.0.2",
+    "rollup-plugin-typescript2": "0.32.1",
+    "sass": "1.54.0",
+    "tslib": "2.4.0",
+    "typescript": "4.7.4"
+  },
+  "peerDependencies": {
+    "react": "16 - 18",
+    "react-dom": "16 - 18"
+  }
+}

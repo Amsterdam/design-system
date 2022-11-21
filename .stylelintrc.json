@@ -145,7 +145,6 @@
     "string-quotes": null,
     "unicode-bom": null,
     "unit-case": null,
-    "unit-disallowed-list": [["s"]],
     "unit-no-unknown": [true],
     "value-keyword-case": ["lower", { "camelCaseSvgKeywords": true }],
     "value-list-comma-newline-after": null,
