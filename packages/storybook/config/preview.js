@@ -1,5 +1,6 @@
 import '@amsterdam/design-tokens/dist/index.css';
-import '@amsterdam/font/src/index.scss';
+import '@amsterdam/font/src/index.css';
+import './preview.css';
 
 import { defineCustomElements } from '@amsterdam/web-components-stencil';
 
