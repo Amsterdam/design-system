@@ -4,7 +4,7 @@
   TODO: having global style would be nice, how would you implement this?
 */
 
-:root {
+body {
   font-family: "Amsterdam Sans", "Arial", sans-serif;
   font-size: clamp(1.125rem, 1.125rem + (0.375 * (100vw - 20rem)) / 100, 1.5rem);
   font-weight: 400;

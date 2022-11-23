@@ -3,10 +3,6 @@
  * Copyright (c) 2022 Robbert Broersma
  */
 
-export { Button } from './Button';
-export {
-  ExampleCustomComponent,
-  PrimaryActionButton,
-  SecondaryActionButton,
-  SubtleButton,
-} from './ExampleCustomComponent';
+export { ExistingWithTokens } from './ExistingWithTokens';
+export { FromScratch } from './FromScratch';
+export { ExistingWithBem } from './ExistingWithBem';
