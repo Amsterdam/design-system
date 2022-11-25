@@ -1,8 +1,10 @@
 <!-- @license CC0-1.0 -->
 
-# Example Design System
+# Amsterdam Design System
 
-This design system is based on the NL Design System architecture.
+Applying design elements from this project is strictly prohibited for organisations that are not part of the Municipality of Amsterdam.
+
+This project is part of a community iniative to use NL Design System components for projects that need to adhere to the Amsterdam Design System.
 
 For more info about the NL Design System and learn about things happening in our open source community, join the `#nl-design-system` Slack via [praatmee.codefor.nl](https://praatmee.codefor.nl)!
 
@@ -26,6 +28,21 @@ You can use any editor you'd like, but in case you use [Visual Studio Code](http
 - [MDX](https://marketplace.visualstudio.com/items?itemName=silvenon.mdx)
 - [Prettier - Code formatter](https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode)
 - [stylelint](https://marketplace.visualstudio.com/items?itemName=stylelint.vscode-stylelint)
+
+To enable correct validation and to fix lint/style errors on save, add this to your VSCode `settings.json`:
+
+```json
+  "css.validate": false,
+  "scss.validate": false,
+  "stylelint.validate": ["css", "scss"],
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": true,
+    "source.fixAll.stylelint": true,
+    "source.fixAll.markdownlint": true
+  },
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "editor.formatOnSave": true,
+```
 
 ## Getting started
 
