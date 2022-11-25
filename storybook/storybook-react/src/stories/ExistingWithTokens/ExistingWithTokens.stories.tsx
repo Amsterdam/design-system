@@ -1,10 +1,10 @@
 import { ComponentMeta, ComponentStory } from '@storybook/react';
-import { ExistingWithTokens } from '../../../../component-library-react/src';
+import { ExistingWithTokens } from '../../../../../packages/component-library-react/src';
 import { argTypes } from './argTypes';
 import '@utrecht/components/button-link/css/index.scss';
 
 export default {
-  title: 'React Component/ExistingWithTokens',
+  title: 'React Components/ExistingWithTokens',
   id: 'react-button',
   component: ExistingWithTokens,
   argTypes,

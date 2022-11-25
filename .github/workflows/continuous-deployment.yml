@@ -129,7 +129,7 @@ jobs:
         uses: actions/upload-artifact@v3
         with:
           name: storybook
-          path: packages/storybook/dist/
+          path: storybook/storybook/dist/
           retention-days: 1
 
   test:
@@ -185,13 +185,13 @@ jobs:
         uses: actions/download-artifact@v3
         with:
           name: storybook
-          path: packages/storybook/dist/
+          path: storybook/storybook/dist/
 
       - name: Continuous Deployment to GitHub Pages
         uses: JamesIves/github-pages-deploy-action@v4.4.1
         with:
           branch: gh-pages
-          folder: packages/storybook/dist/
+          folder: storybook/storybook/dist/
 
   publish-npm:
     runs-on: ubuntu-latest

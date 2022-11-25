@@ -15,9 +15,9 @@
   "workspaces": [
     "./documentation/",
     "./components/",
-    "./components/*",
     "./packages/*",
-    "./proprietary/*"
+    "./proprietary/*",
+    "./storybook/*"
   ],
   "devDependencies": {
     "@lerna-lite/cli": "1.12.0",
@@ -68,7 +68,7 @@
     "prettier": "prettier --write .",
     "publish": "lerna publish from-package --yes",
     "release": "lerna version prerelease --conventional-prerelease --no-changelog --no-private --yes",
-    "start": "node_modules/http-server/bin packages/storybook/dist/",
+    "start": "node_modules/http-server/bin storybook/storybook/dist/",
     "storybook": "npm-run-all --parallel watch:**",
     "test": "npm run test-workspaces",
     "test-update": "npm-run-all --sequential clean lint build test",
@@ -77,8 +77,7 @@
     "update-patch": "npm-check-updates --configFileName .ncurc.patch.js --deep --dep dev,prod --target patch --upgrade && npm install --legacy-peer-deps",
     "update-minor": "npm-check-updates --configFileName .ncurc.minor.js --deep --dep dev,prod --target minor --upgrade && npm install --legacy-peer-deps",
     "update-major": "npm-check-updates --configFileName .ncurc.major.js --deep --dep dev,prod --target latest --upgrade && npm install --legacy-peer-deps",
-    "watch:storybook": "npm run --workspace packages/storybook storybook",
-    "watch:storybook-react": "npm run --workspace packages/storybook-react storybook",
+    "watch:storybook-react": "npm run --workspace storybook/storybook-react storybook",
     "watch:style-dictionary": "lerna run watch:style-dictionary"
   },
   "dependencies": {

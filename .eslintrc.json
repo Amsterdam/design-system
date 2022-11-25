@@ -76,7 +76,7 @@
         "project": [
           "packages/component-library-react/tsconfig.json",
           "packages/component-library-react/tsconfig.test.json",
-          "packages/storybook-react/tsconfig.json",
+          "storybook/storybook-react/tsconfig.json",
           "packages/web-components-react/tsconfig.json",
           "packages/web-components-stencil/tsconfig.json"
         ]

@@ -1,6 +1,6 @@
 {
   "$schema": "../../node_modules/nx/schemas/project-schema.json",
-  "root": "{workspaceRoot}/packages/storybook-react",
+  "root": "{workspaceRoot}/storybook/storybook-react",
   "sourceRoot": "{projectRoot}",
   "projectType": "application",
   "targets": {
@@ -9,15 +9,15 @@
       "outputs": ["{projectRoot}/dist"],
       "options": {
         "command": "npm run build",
-        "cwd": "packages/storybook-react",
-        "outputPath": "packages/storybook-react/dist"
+        "cwd": "storybook/storybook-react",
+        "outputPath": "storybook/storybook-react/dist"
       },
       "dependsOn": ["^build"]
     },
     "serve": {
       "executor": "@nrwl/web:file-server",
       "options": {
-        "buildTarget": "packages-storybook-react:build",
+        "buildTarget": "storybook-storybook-react:build",
         "port": 7008
       }
     },
@@ -25,14 +25,14 @@
       "executor": "@nrwl/workspace:run-commands",
       "options": {
         "command": "npm run start",
-        "cwd": "packages/storybook-react"
+        "cwd": "storybook/storybook-react"
       }
     },
     "storybook": {
       "executor": "@nrwl/workspace:run-commands",
       "options": {
         "command": "npm run storybook -- --no-open",
-        "cwd": "packages/storybook-react"
+        "cwd": "storybook/storybook-react"
       },
       "dependsOn": ["^build"]
     }

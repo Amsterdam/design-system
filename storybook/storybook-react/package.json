@@ -16,11 +16,10 @@
     "build": "build-storybook --output-dir dist/ --config-dir config/ --quiet",
     "clean": "rimraf dist/",
     "start": "http-server dist/",
-    "storybook": "start-storybook --config-dir config/ --port 6007 --no-open"
+    "storybook": "start-storybook --config-dir config/ --port 6006"
   },
   "devDependencies": {
     "@babel/core": "7.20.2",
-    "@gemeente-denhaag/process-steps": "0.1.0-alpha.124",
     "@mdx-js/react": "1.6.22",
     "@storybook/addon-a11y": "6.5.13",
     "@storybook/addon-actions": "6.5.13",
@@ -43,8 +42,6 @@
     "@amsterdam/components": "workspace:*",
     "@amsterdam/design-tokens": "workspace:*",
     "@amsterdam/documentation": "workspace:*",
-    "@utrecht/component-library-css": "1.0.0-alpha.377",
-    "@utrecht/design-tokens": "1.0.0-alpha.370",
     "@utrecht/components": "1.0.0-alpha.338",
     "babel-loader": "8.3.0",
     "css-loader": "5.2.7",

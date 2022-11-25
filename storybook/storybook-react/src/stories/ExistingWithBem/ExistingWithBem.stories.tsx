@@ -1,10 +1,10 @@
 import { ComponentMeta, ComponentStory } from '@storybook/react';
 import '../../../../../components/existing-with-bem/existing-with-bem.scss';
-import { ExistingWithBem } from '../../../../component-library-react/src';
+import { ExistingWithBem } from '../../../../../packages/component-library-react/src';
 import { argTypes } from './argTypes';
 
 export default {
-  title: 'React Component/ExistingWithBem',
+  title: 'React Components/ExistingWithBem',
   id: 'react-existing-with-bem',
   component: ExistingWithBem,
   argTypes,
