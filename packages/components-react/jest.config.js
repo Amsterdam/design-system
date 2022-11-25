@@ -1,10 +1,10 @@
 /* eslint-env node */
-const nextJest = require('next/jest');
+const nextJest = require('next/jest')
 
 // Next Jest config is great for Jest 27 + React + TypeScript, so let's use that as basis
 const createJestConfig = nextJest({
   dir: './',
-});
+})
 
 const customJestConfig = {
   // Add more setup options before each test is run
@@ -13,6 +13,6 @@ const customJestConfig = {
   moduleDirectories: ['node_modules', '<rootDir>/'],
   testEnvironment: 'jest-environment-jsdom',
   testPathIgnorePatterns: ['/dist/'],
-};
+}
 
-module.exports = createJestConfig(customJestConfig);
+module.exports = createJestConfig(customJestConfig)

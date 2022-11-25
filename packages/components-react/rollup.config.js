@@ -1,14 +1,14 @@
-import babel from '@rollup/plugin-babel';
-import commonjs from '@rollup/plugin-commonjs';
-import resolve from '@rollup/plugin-node-resolve';
+import babel from '@rollup/plugin-babel'
+import commonjs from '@rollup/plugin-commonjs'
+import resolve from '@rollup/plugin-node-resolve'
 // import del from 'rollup-plugin-delete';
-import filesize from 'rollup-plugin-filesize';
-import nodeExternal from 'rollup-plugin-node-externals';
-import nodePolyfills from 'rollup-plugin-node-polyfills';
-import peerDepsExternal from 'rollup-plugin-peer-deps-external';
-import scss from 'rollup-plugin-scss';
-import typescript from 'rollup-plugin-typescript2';
-import packageJson from './package.json';
+import filesize from 'rollup-plugin-filesize'
+import nodeExternal from 'rollup-plugin-node-externals'
+import nodePolyfills from 'rollup-plugin-node-polyfills'
+import peerDepsExternal from 'rollup-plugin-peer-deps-external'
+import scss from 'rollup-plugin-scss'
+import typescript from 'rollup-plugin-typescript2'
+import packageJson from './package.json'
 
 // rollup.config.js
 /**
@@ -18,7 +18,7 @@ import packageJson from './package.json';
 export const outputGlobals = {
   react: 'React',
   'react-dom': 'ReactDOM',
-};
+}
 
 export default [
   {
@@ -60,4 +60,4 @@ export default [
       scss(),
     ],
   },
-];
+]

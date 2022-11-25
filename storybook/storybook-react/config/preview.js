@@ -1,7 +1,7 @@
-import '@amsterdam/design-tokens/dist/index.css';
-import './preview.css';
+import '@amsterdam/design-tokens/dist/index.css'
+import './preview.css'
 
-export const decorators = [(Story) => <div className="amsterdam-document amsterdam-theme">{Story()}</div>];
+export const decorators = [(Story) => <div className="amsterdam-document amsterdam-theme">{Story()}</div>]
 
 export const parameters = {
   actions: { argTypesRegex: '^on[A-Z].*' },
@@ -19,4 +19,4 @@ export const parameters = {
       state: 'open',
     },
   },
-};
+}

@@ -1,7 +1,6 @@
 export const argTypes = {
   variant: {
     type: 'select',
-    defaultValue: 'primary',
     options: ['primary', 'secondary', 'tertiary'],
   },
   type: {
@@ -10,10 +9,8 @@ export const argTypes = {
   },
   small: {
     type: 'boolean',
-    defaultValue: false,
   },
   disabled: {
     type: 'boolean',
-    defaultValue: false,
   },
-};
+}

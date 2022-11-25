@@ -1,11 +1,11 @@
-import clsx from 'clsx';
-import { ButtonHTMLAttributes, ForwardedRef, forwardRef, PropsWithChildren } from 'react';
+import clsx from 'clsx'
+import { ButtonHTMLAttributes, ForwardedRef, forwardRef, PropsWithChildren } from 'react'
 
 export interface FromScratchProps extends ButtonHTMLAttributes<HTMLButtonElement> {
-  busy?: boolean;
-  pressed?: boolean;
-  small?: boolean;
-  variant?: string;
+  busy?: boolean
+  pressed?: boolean
+  small?: boolean
+  variant?: string
 }
 
 export const FromScratch = forwardRef(
@@ -43,8 +43,8 @@ export const FromScratch = forwardRef(
       >
         {children}
       </button>
-    );
+    )
   },
-);
+)
 
-FromScratch.displayName = 'FromScratch';
+FromScratch.displayName = 'FromScratch'

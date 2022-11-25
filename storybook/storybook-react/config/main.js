@@ -4,13 +4,12 @@ module.exports = {
     builder: 'webpack5',
     disableTelemetry: true,
   },
-  stories: ['../src/stories/**/*.stories.mdx', '../src/stories/**/*.stories.@(js|jsx|ts|tsx)'],
+  stories: ['../src/**/*.stories.mdx', '../src/**/*.stories.@(js|jsx|ts|tsx)'],
   addons: [
     '@storybook/addon-links',
     '@storybook/addon-essentials',
     '@storybook/addon-interactions',
     '@storybook/addon-a11y',
-    'storybook-addon-pseudo-states',
     '@storybook/preset-scss',
   ],
   features: {
@@ -26,4 +25,4 @@ module.exports = {
       hints: false,
     },
   }),
-};
+}

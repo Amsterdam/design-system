@@ -3,7 +3,7 @@
   "author": "Community for NL Design System",
   "description": "Components for a design system based on the NL Design System architecture",
   "license": "EUPL-1.2",
-  "name": "@amsterdam/components",
+  "name": "@amsterdam/components-css",
   "keywords": [
     "nl-design-system"
   ],
