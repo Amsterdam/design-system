@@ -31,7 +31,7 @@
     "dist/"
   ],
   "dependencies": {
-    "@utrecht/components-react": "1.0.0-alpha.184",
+    "@utrecht/component-library-react": "1.0.0-alpha.184",
     "clsx": "1.2.1",
     "date-fns": "2.29.3"
   },

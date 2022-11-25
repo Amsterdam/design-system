@@ -1,7 +1,7 @@
 import { ComponentMeta, ComponentStory } from '@storybook/react';
 import { FromScratch } from '../../../../../packages/components-react/src';
 import { argTypes } from './argTypes';
-import '../../../../../components/from-scratch/from-scratch.scss';
+import '../../../../../packages/components-css/from-scratch/from-scratch.scss';
 
 export default {
   title: 'React Components/FromScratch',

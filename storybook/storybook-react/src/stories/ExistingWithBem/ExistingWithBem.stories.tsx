@@ -1,5 +1,5 @@
 import { ComponentMeta, ComponentStory } from '@storybook/react';
-import '../../../../../components/existing-with-bem/existing-with-bem.scss';
+import '../../../../../packages/components-css/existing-with-bem/existing-with-bem.scss';
 import { ExistingWithBem } from '../../../../../packages/components-react/src';
 import { argTypes } from './argTypes';
 

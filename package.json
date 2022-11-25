@@ -14,7 +14,6 @@
   },
   "workspaces": [
     "./documentation/",
-    "./components/",
     "./packages/*",
     "./proprietary/*",
     "./storybook/*"
