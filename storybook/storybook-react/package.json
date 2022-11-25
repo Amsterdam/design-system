@@ -10,7 +10,7 @@
   "private": true,
   "repository": {
     "type": "git+ssh",
-    "url": "git@github.com:nl-design-system/utrecht.git"
+    "url": "git@github.com:alimpens/amsterdam.git"
   },
   "scripts": {
     "build": "build-storybook --output-dir dist/ --config-dir config/ --quiet",

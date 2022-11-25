@@ -14,6 +14,6 @@
   "files": [],
   "repository": {
     "type": "git+ssh",
-    "url": "git@github.com:nl-design-system/example.git"
+    "url": "git@github.com:alimpens/amsterdam.git"
   }
 }
