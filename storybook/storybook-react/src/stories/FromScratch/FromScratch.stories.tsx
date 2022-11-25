@@ -1,5 +1,5 @@
 import { ComponentMeta, ComponentStory } from '@storybook/react';
-import { FromScratch } from '../../../../../packages/component-library-react/src';
+import { FromScratch } from '../../../../../packages/components-react/src';
 import { argTypes } from './argTypes';
 import '../../../../../components/from-scratch/from-scratch.scss';
 

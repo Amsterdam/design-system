@@ -38,7 +38,7 @@
     "@storybook/testing-library": "0.0.13",
     "@storybook/theming": "6.5.13",
     "@types/react": "18.0.25",
-    "@amsterdam/component-library-react": "workspace:*",
+    "@amsterdam/components-react": "workspace:*",
     "@amsterdam/components": "workspace:*",
     "@amsterdam/design-tokens": "workspace:*",
     "@amsterdam/documentation": "workspace:*",

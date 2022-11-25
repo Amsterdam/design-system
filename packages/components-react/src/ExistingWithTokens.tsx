@@ -3,7 +3,7 @@
 // I only used tokens to style this component, which illustrates that tokens won't get you very far...
 // You could complete the styling with css, but that's a little confusing imo.
 
-import { ButtonLink as CommunityButtonLink } from '@utrecht/component-library-react';
+import { ButtonLink as CommunityButtonLink } from '@utrecht/components-react';
 import { AnchorHTMLAttributes, PropsWithChildren } from 'react';
 
 // Somehow `placeholder` incorrectly is a global HTML attribute in React, ignore that

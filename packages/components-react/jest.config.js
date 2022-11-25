@@ -13,7 +13,6 @@ const customJestConfig = {
   moduleDirectories: ['node_modules', '<rootDir>/'],
   testEnvironment: 'jest-environment-jsdom',
   testPathIgnorePatterns: ['/dist/'],
-  // transformIgnorePatterns: ['node_modules/(?!@utrecht/web-component-library-react)'],
 };
 
 module.exports = createJestConfig(customJestConfig);

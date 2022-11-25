@@ -73,7 +73,7 @@
     "test": "npm run test-workspaces",
     "test-update": "npm-run-all --sequential clean lint build test",
     "test-workspaces": "lerna run --no-bail test",
-    "prewatch:storybook": "lerna run build:stencil && lerna run build:style-dictionary",
+    "prewatch:storybook": "lerna run build:style-dictionary",
     "update-patch": "npm-check-updates --configFileName .ncurc.patch.js --deep --dep dev,prod --target patch --upgrade && npm install --legacy-peer-deps",
     "update-minor": "npm-check-updates --configFileName .ncurc.minor.js --deep --dep dev,prod --target minor --upgrade && npm install --legacy-peer-deps",
     "update-major": "npm-check-updates --configFileName .ncurc.major.js --deep --dep dev,prod --target latest --upgrade && npm install --legacy-peer-deps",

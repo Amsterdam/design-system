@@ -1,6 +1,6 @@
 // example of restyled existing component: https://github.com/nl-design-system/rvo/blob/master/components/button/css/template.tsx
 
-import { Button as CommunityButton } from '@utrecht/component-library-react';
+import { Button as CommunityButton } from '@utrecht/components-react';
 import clsx from 'clsx';
 import { ButtonHTMLAttributes, PropsWithChildren } from 'react';
 

@@ -3,7 +3,7 @@
   "author": "Community for NL Design System",
   "description": "React component library bundle for the Municipality of Amsterdam based on the NL Design System architecture",
   "license": "EUPL-1.2",
-  "name": "@amsterdam/component-library-react",
+  "name": "@amsterdam/components-react",
   "keywords": [
     "nl-design-system"
   ],
@@ -31,7 +31,7 @@
     "dist/"
   ],
   "dependencies": {
-    "@utrecht/component-library-react": "1.0.0-alpha.184",
+    "@utrecht/components-react": "1.0.0-alpha.184",
     "clsx": "1.2.1",
     "date-fns": "2.29.3"
   },
