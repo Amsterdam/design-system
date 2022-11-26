@@ -1,0 +1,17 @@
+@use "sass:math";
+
+@function calculate-fluid-style($minSizePx, $maxSizePx, $minScreenWidthPx: 320, $maxScreenWidthPx: 1920) {
+  $defaultBaseSize: 16;
+  $minSize: math.div($minSizePx, $defaultBaseSize) * 1rem;
+  $maxSize: math.div($maxSizePx, $defaultBaseSize) * 1rem;
+  $minScreenWidth: math.div($minScreenWidthPx, $defaultBaseSize) * 1rem;
+  $maxScreenWidth: math.div($maxScreenWidthPx, $defaultBaseSize) * 1rem;
+
+  @return clamp(
+    #{$minSize},
+    calc(
+      #{$minSize} + #{math.div($maxSize - $minSize, $maxScreenWidth - $minScreenWidth)} * (100vw - #{$minScreenWidth})
+    ),
+    #{$maxSize}
+  );
+}

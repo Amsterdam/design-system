@@ -1,0 +1,42 @@
+@import "../utils";
+
+.amsterdam-heading {
+  break-after: avoid;
+  break-inside: avoid;
+  color: black;
+  font-weight: 800;
+  margin-block-end: 0;
+  margin-block-start: 0;
+  margin-inline-end: 0;
+  margin-inline-start: 0;
+}
+
+.amsterdam-heading-1 {
+  font-size: calculate-fluid-style(32, 80);
+  line-height: calculate-fluid-style(35, 80);
+}
+
+.amsterdam-heading-2 {
+  font-size: calculate-fluid-style(28, 56);
+  line-height: calculate-fluid-style(34, 62);
+}
+
+.amsterdam-heading-3 {
+  font-size: calculate-fluid-style(24, 40);
+  line-height: calculate-fluid-style(32, 48);
+}
+
+.amsterdam-heading-4 {
+  font-size: calculate-fluid-style(22, 32);
+  line-height: calculate-fluid-style(31, 38);
+}
+
+.amsterdam-heading-5 {
+  font-size: calculate-fluid-style(18, 24);
+  line-height: calculate-fluid-style(25, 31);
+}
+
+.amsterdam-heading-6 {
+  font-size: calculate-fluid-style(16, 18);
+  line-height: calculate-fluid-style(22, 23);
+}
