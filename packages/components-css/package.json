@@ -9,7 +9,7 @@
   ],
   "private": true,
   "devDependencies": {
-    "@babel/core": "7.20.2",
+    "@babel/core": "7.20.5",
     "@mdx-js/react": "1.6.22",
     "@storybook/addon-docs": "6.5.13",
     "react": "18.2.0",
