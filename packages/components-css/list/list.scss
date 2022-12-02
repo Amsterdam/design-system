@@ -1,0 +1,17 @@
+.amsterdam-list {
+  list-style: none;
+  /* stylelint-disable-next-line property-disallowed-list */
+  margin: 0;
+  /* stylelint-disable-next-line property-disallowed-list */
+  padding: 0;
+}
+
+.amsterdam-list-unordered {
+  list-style: square;
+  margin-inline: 1.5rem 0;
+}
+
+.amsterdam-list-ordered {
+  list-style: auto;
+  margin-inline: 1.5rem 0;
+}

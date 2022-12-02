@@ -1,0 +1,16 @@
+@import "../utils";
+
+.amsterdam-paragraph {
+  font-size: calculate-fluid-style(18, 24);
+  line-height: calculate-fluid-style(29, 38);
+}
+
+.amsterdam-paragraph-intro {
+  font-size: calculate-fluid-style(22, 30);
+  line-height: calculate-fluid-style(35, 45);
+}
+
+.amsterdam-paragraph-small {
+  font-size: calculate-fluid-style(16, 18);
+  line-height: calculate-fluid-style(24, 29);
+}

@@ -1,0 +1,9 @@
+@import "normalize.css/normalize";
+@import "../utils";
+
+body {
+  font-family: "Amsterdam Sans", "Arial", sans-serif;
+  font-size: calculate-fluid-style(18, 24);
+  font-weight: 400;
+  line-height: 160%;
+}

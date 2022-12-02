@@ -1,9 +1,12 @@
 /**
  * @license EUPL-1.2
- * Copyright (c) 2022 Robbert Broersma
  */
 
+export { ExistingWithBem } from './ExistingWithBem'
 export { ExistingWithTokens } from './ExistingWithTokens'
 export { FromScratch } from './FromScratch'
-export { ExistingWithBem } from './ExistingWithBem'
+export { Grid } from './Grid'
+export { GridItem } from './GridItem'
 export { Heading } from './Heading'
+export { List } from './List'
+export { Paragraph } from './Paragraph'
