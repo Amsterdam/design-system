@@ -7,3 +7,10 @@ body {
   font-weight: 400;
   line-height: 160%;
 }
+
+/* Use border-box sizing by default for all elements */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}

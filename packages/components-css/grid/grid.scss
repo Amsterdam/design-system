@@ -2,6 +2,8 @@
   column-gap: clamp(16px, 2vw, 24px);
   display: grid;
   grid-template-columns: repeat(4, 1fr);
+  max-width: 1440px;
+  padding-inline: clamp(16px, 2vw, 32px);
 
   @media (min-width: 820px) {
     grid-template-columns: repeat(12, 1fr);

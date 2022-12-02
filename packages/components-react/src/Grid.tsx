@@ -10,5 +10,3 @@ export const Grid = ({ children, className, ...restProps }: PropsWithChildren<HT
     {children}
   </div>
 )
-
-Grid.displayName = 'Grid'

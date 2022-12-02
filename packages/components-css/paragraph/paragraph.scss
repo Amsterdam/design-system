@@ -3,6 +3,7 @@
 .amsterdam-paragraph {
   font-size: calculate-fluid-style(18, 24);
   line-height: calculate-fluid-style(29, 38);
+  margin-block: 0;
 }
 
 .amsterdam-paragraph-intro {

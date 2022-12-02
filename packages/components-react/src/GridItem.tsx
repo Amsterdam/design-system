@@ -41,5 +41,3 @@ export const GridItem = ({
     </div>
   )
 }
-
-GridItem.displayName = 'GridItem'
