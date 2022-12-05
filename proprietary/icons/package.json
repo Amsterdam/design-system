@@ -1,9 +1,10 @@
 {
   "version": "1.0.0-alpha.0",
   "author": "Community for NL Design System",
-  "description": "Assets",
+  "description": "Icon assets",
   "license": "SEE LICENSE IN LICENSE.md",
-  "name": "@amsterdam/assets",
+  "name": "@amsterdam/icons",
+  "main": "static",
   "keywords": [
     "nl-design-system"
   ],
@@ -11,9 +12,17 @@
   "publishConfig": {
     "access": "public"
   },
-  "files": [],
+  "files": [
+    "static"
+  ],
   "repository": {
     "type": "git+ssh",
     "url": "git@github.com:alimpens/amsterdam.git"
+  },
+  "scripts": {
+    "optimize": "svgo -f static"
+  },
+  "devDependencies": {
+    "svgo": "3.0.2"
   }
 }

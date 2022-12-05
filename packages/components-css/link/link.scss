@@ -1,7 +1,7 @@
 @import "../utils";
 
 .amsterdam-link {
-  align-items: baseline;
+  align-items: center;
   color: var(--amsterdam-color-primary-blue);
   display: inline-flex;
   font-size: calculate-fluid-style(18, 24);

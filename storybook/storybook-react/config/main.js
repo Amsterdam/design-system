@@ -17,7 +17,7 @@ module.exports = {
     buildStoriesJson: true,
   },
   framework: '@storybook/react',
-  staticDirs: ['../../../proprietary/assets'],
+  staticDirs: ['../../../proprietary/icons-react'],
   webpackFinal: async (config) => ({
     ...config,
     performance: {

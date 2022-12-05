@@ -65,7 +65,7 @@
     "prettier": "prettier --write .",
     "publish": "lerna publish from-package --yes",
     "release": "lerna version prerelease --conventional-prerelease --no-changelog --no-private --yes",
-    "start": "node_modules/http-server/bin storybook/storybook/dist/",
+    "start": "node_modules/http-server/bin storybook/storybook-react/dist/",
     "storybook": "npm-run-all --parallel watch:**",
     "test": "npm run test-workspaces",
     "test-update": "npm-run-all --sequential clean lint build test",

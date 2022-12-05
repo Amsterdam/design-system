@@ -4,7 +4,7 @@
   "description": "Font assets",
   "license": "SEE LICENSE IN LICENSE.md",
   "name": "@amsterdam/font",
-  "main": "dist/index.css",
+  "main": "static/index.css",
   "keywords": [
     "nl-design-system"
   ],
@@ -13,7 +13,7 @@
     "access": "public"
   },
   "files": [
-    "src"
+    "static"
   ],
   "repository": {
     "type": "git+ssh",

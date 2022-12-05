@@ -1,0 +1,33 @@
+{
+  "version": "1.0.0-alpha.0",
+  "author": "Community for NL Design System",
+  "description": "React icon files",
+  "license": "SEE LICENSE IN LICENSE.md",
+  "name": "@amsterdam/icons-react",
+  "main": "static",
+  "keywords": [
+    "nl-design-system"
+  ],
+  "private": true,
+  "publishConfig": {
+    "access": "public"
+  },
+  "files": [
+    "static"
+  ],
+  "repository": {
+    "type": "git+ssh",
+    "url": "git@github.com:alimpens/amsterdam.git"
+  },
+  "scripts": {
+    "install": "svgr --jsx-runtime automatic --typescript --svg-props focusable={false} --out-dir static -- ../icons/static",
+    "build": "npm install"
+  },
+  "devDependencies": {
+    "@svgr/cli": "6.5.1"
+  },
+  "peerDependencies": {
+    "react": "16 - 18",
+    "react-dom": "16 - 18"
+  }
+}

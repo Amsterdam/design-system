@@ -1,3 +1,3 @@
-# Assets
+# Font
 
-Story any font files here, such as proprietary fonts.
+Font files

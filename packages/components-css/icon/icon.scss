@@ -1,0 +1,30 @@
+@import "../utils";
+
+.amsterdam-icon {
+  align-items: center;
+  display: inline-flex;
+  height: calculate-fluid-style(24, 26);
+  margin-inline-end: 12px;
+
+  /* Offset icon by 2px, because Amsterdam Sans vertical alignment is off */
+  padding-block-end: 2px;
+}
+
+.amsterdam-icon svg {
+  fill: currentColor;
+}
+
+.amsterdam-icon-small svg {
+  height: 1rem;
+  width: 1rem;
+}
+
+.amsterdam-icon-medium svg {
+  height: 1.5rem;
+  width: 1.5rem;
+}
+
+.amsterdam-icon-large svg {
+  height: 2rem;
+  width: 2rem;
+}

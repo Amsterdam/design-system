@@ -20,7 +20,7 @@
   },
   "devDependencies": {
     "@babel/core": "7.20.5",
-    "@mdx-js/react": "2.1.5",
+    "@mdx-js/react": "1.6.22",
     "@storybook/addon-a11y": "6.5.14",
     "@storybook/addon-actions": "6.5.14",
     "@storybook/addon-docs": "6.5.14",
@@ -41,6 +41,7 @@
     "@amsterdam/components-css": "workspace:*",
     "@amsterdam/design-tokens": "workspace:*",
     "@amsterdam/font": "workspace:*",
+    "@amsterdam/icons-react": "workspace:*",
     "@utrecht/components": "1.0.0-alpha.343",
     "babel-loader": "9.1.0",
     "css-loader": "6.7.2",
