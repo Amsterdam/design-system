@@ -1,3 +1,8 @@
+$amsterdam-columns-small: 4;
+$amsterdam-columns-large: 12;
+
+@import "../utils/breakpoint";
+
 .amsterdam-grid {
   column-gap: clamp(16px, 2vw, 24px);
   display: grid;
@@ -5,151 +10,48 @@
   max-width: 1440px;
   padding-inline: clamp(16px, 2vw, 32px);
 
-  @media (min-width: 820px) {
+  @media (min-width: $amsterdam-breakpoint) {
     grid-template-columns: repeat(12, 1fr);
   }
 }
-.amsterdam-col-span-1 {
-  grid-column: span 1 / span 1;
-}
-.amsterdam-col-span-2 {
-  grid-column: span 2 / span 2;
-}
-.amsterdam-col-span-3 {
-  grid-column: span 3 / span 3;
-}
-.amsterdam-col-span-4 {
-  grid-column: span 4 / span 4;
-}
-.amsterdam-col-start-1 {
-  grid-column-start: 1;
-}
-.amsterdam-col-start-2 {
-  grid-column-start: 2;
-}
-.amsterdam-col-start-3 {
-  grid-column-start: 3;
-}
-.amsterdam-col-start-4 {
-  grid-column-start: 4;
-}
-.amsterdam-col-span-1--large {
-  @media (min-width: 820px) {
-    grid-column: span 1 / span 1;
+
+@mixin col-span-x {
+  @for $i from 1 through $amsterdam-columns-small {
+    .amsterdam-col-span-#{$i} {
+      grid-column: span $i / span $i;
+    }
   }
 }
-.amsterdam-col-span-2--large {
-  @media (min-width: 820px) {
-    grid-column: span 2 / span 2;
+
+@mixin col-start-x {
+  @for $i from 1 through $amsterdam-columns-small {
+    .amsterdam-col-start-#{$i} {
+      grid-column-start: $i;
+    }
   }
 }
-.amsterdam-col-span-3--large {
-  @media (min-width: 820px) {
-    grid-column: span 3 / span 3;
+
+@mixin col-span-large-x {
+  @for $i from 1 through $amsterdam-columns-large {
+    .amsterdam-col-span-#{$i}--large {
+      @media (min-width: $amsterdam-breakpoint) {
+        grid-column: span $i / span $i;
+      }
+    }
   }
 }
-.amsterdam-col-span-4--large {
-  @media (min-width: 820px) {
-    grid-column: span 4 / span 4;
+
+@mixin col-start-large-x {
+  @for $i from 1 through $amsterdam-columns-large {
+    .amsterdam-col-start-#{$i}--large {
+      @media (min-width: $amsterdam-breakpoint) {
+        grid-column-start: $i;
+      }
+    }
   }
 }
-.amsterdam-col-span-5--large {
-  @media (min-width: 820px) {
-    grid-column: span 5 / span 5;
-  }
-}
-.amsterdam-col-span-6--large {
-  @media (min-width: 820px) {
-    grid-column: span 6 / span 6;
-  }
-}
-.amsterdam-col-span-7--large {
-  @media (min-width: 820px) {
-    grid-column: span 7 / span 7;
-  }
-}
-.amsterdam-col-span-8--large {
-  @media (min-width: 820px) {
-    grid-column: span 8 / span 8;
-  }
-}
-.amsterdam-col-span-9--large {
-  @media (min-width: 820px) {
-    grid-column: span 9 / span 9;
-  }
-}
-.amsterdam-col-span-10--large {
-  @media (min-width: 820px) {
-    grid-column: span 10 / span 10;
-  }
-}
-.amsterdam-col-span-11--large {
-  @media (min-width: 820px) {
-    grid-column: span 11 / span 11;
-  }
-}
-.amsterdam-col-span-12--large {
-  @media (min-width: 820px) {
-    grid-column: span 12 / span 12;
-  }
-}
-.amsterdam-col-start-1--large {
-  @media (min-width: 820px) {
-    grid-column-start: 1;
-  }
-}
-.amsterdam-col-start-2--large {
-  @media (min-width: 820px) {
-    grid-column-start: 2;
-  }
-}
-.amsterdam-col-start-3--large {
-  @media (min-width: 820px) {
-    grid-column-start: 3;
-  }
-}
-.amsterdam-col-start-4--large {
-  @media (min-width: 820px) {
-    grid-column-start: 4;
-  }
-}
-.amsterdam-col-start-5--large {
-  @media (min-width: 820px) {
-    grid-column-start: 5;
-  }
-}
-.amsterdam-col-start-6--large {
-  @media (min-width: 820px) {
-    grid-column-start: 6;
-  }
-}
-.amsterdam-col-start-7--large {
-  @media (min-width: 820px) {
-    grid-column-start: 7;
-  }
-}
-.amsterdam-col-start-8--large {
-  @media (min-width: 820px) {
-    grid-column-start: 8;
-  }
-}
-.amsterdam-col-start-9--large {
-  @media (min-width: 820px) {
-    grid-column-start: 9;
-  }
-}
-.amsterdam-col-start-10--large {
-  @media (min-width: 820px) {
-    grid-column-start: 10;
-  }
-}
-.amsterdam-col-start-11--large {
-  @media (min-width: 820px) {
-    grid-column-start: 11;
-  }
-}
-.amsterdam-col-start-12--large {
-  @media (min-width: 820px) {
-    grid-column-start: 12;
-  }
-}
+
+@include col-span-x;
+@include col-start-x;
+@include col-span-large-x;
+@include col-start-large-x;
