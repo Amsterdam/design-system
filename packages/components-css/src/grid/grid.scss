@@ -1,12 +1,14 @@
 $amsterdam-columns-small: 4;
 $amsterdam-columns-large: 12;
 
-@import "../utils/breakpoint";
+@import "../../utils/breakpoint";
 
 .amsterdam-grid {
   column-gap: clamp(16px, 2vw, 24px);
   display: grid;
   grid-template-columns: repeat(4, 1fr);
+  /* stylelint-disable-next-line property-disallowed-list */
+  margin: 0 auto;
   max-width: 1440px;
   padding-inline: clamp(16px, 2vw, 32px);
 

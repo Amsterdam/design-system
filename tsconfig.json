@@ -1,6 +1,7 @@
 {
   "compileOnSave": false,
   "compilerOptions": {
+    "jsx": "react",
     "forceConsistentCasingInFileNames": true,
     "strict": true,
     "noImplicitOverride": true,

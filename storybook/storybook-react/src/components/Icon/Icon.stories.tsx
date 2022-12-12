@@ -2,7 +2,7 @@ import { Icon } from '@amsterdam/components-react/src'
 import { Email } from '@amsterdam/icons-react'
 import { ComponentMeta, ComponentStory } from '@storybook/react'
 
-import '@amsterdam/components-css/icon/icon.scss'
+import '@amsterdam/components-css/src/icon/icon.scss'
 
 export default {
   title: 'React Components/Icon',

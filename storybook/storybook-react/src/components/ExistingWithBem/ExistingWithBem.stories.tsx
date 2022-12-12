@@ -2,7 +2,7 @@ import { ExistingWithBem } from '@amsterdam/components-react/src'
 import { ComponentMeta, ComponentStory } from '@storybook/react'
 import { argTypes } from './argTypes'
 
-import '@amsterdam/components-css/existing-with-bem/existing-with-bem.scss'
+import '@amsterdam/components-css/src/existing-with-bem/existing-with-bem.scss'
 
 export default {
   title: 'React Components/ExistingWithBem',

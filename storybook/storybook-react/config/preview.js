@@ -1,5 +1,5 @@
 import '@amsterdam/design-tokens/dist/index.css'
-import '@amsterdam/components-css/document/document.scss'
+import '@amsterdam/components-css/src/document/document.scss'
 import '@amsterdam/font/static/index.css'
 
 export const decorators = [(Story) => <div className="amsterdam-document amsterdam-theme">{Story()}</div>]

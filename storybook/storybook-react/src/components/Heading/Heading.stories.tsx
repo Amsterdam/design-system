@@ -1,7 +1,7 @@
 import { Heading } from '@amsterdam/components-react/src'
 import { ComponentMeta, ComponentStory } from '@storybook/react'
 
-import '@amsterdam/components-css/heading/heading.scss'
+import '@amsterdam/components-css/src/heading/heading.scss'
 
 export default {
   title: 'React Components/Heading',

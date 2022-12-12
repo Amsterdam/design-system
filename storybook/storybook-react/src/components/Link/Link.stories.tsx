@@ -1,8 +1,8 @@
 import { Link } from '@amsterdam/components-react/src'
 import { ComponentMeta, ComponentStory } from '@storybook/react'
 
-import '@amsterdam/components-css/link/link.scss'
-import '@amsterdam/components-css/icon/icon.scss'
+import '@amsterdam/components-css/src/link/link.scss'
+import '@amsterdam/components-css/src/icon/icon.scss'
 
 export default {
   title: 'React Components/Link',

@@ -4,7 +4,6 @@
   "description": "React icon files",
   "license": "SEE LICENSE IN LICENSE.md",
   "name": "@amsterdam/icons-react",
-  "main": "static",
   "keywords": [
     "nl-design-system"
   ],
@@ -12,9 +11,11 @@
   "publishConfig": {
     "access": "public"
   },
+  "main": "./static/index.js",
   "files": [
     "static"
   ],
+  "sideEffects": false,
   "repository": {
     "type": "git+ssh",
     "url": "git@github.com:alimpens/amsterdam.git"

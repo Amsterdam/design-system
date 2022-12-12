@@ -1,7 +1,7 @@
 import { List } from '@amsterdam/components-react/src'
 import { ComponentMeta, ComponentStory } from '@storybook/react'
 
-import '@amsterdam/components-css/list/list.scss'
+import '@amsterdam/components-css/src/list/list.scss'
 
 export default {
   title: 'React Components/List',

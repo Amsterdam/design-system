@@ -8,7 +8,13 @@
     "nl-design-system"
   ],
   "private": true,
+  "scripts": {
+    "build": "sass src/:dist/"
+  },
   "dependencies": {
     "normalize.css": "8.0.1"
+  },
+  "devDependencies": {
+    "sass": "1.56.2"
   }
 }
