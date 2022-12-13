@@ -20,7 +20,7 @@
     "build": "rollup -c",
     "build:watch": "rollup -c --watch",
     "clean": "rimraf dist/ pages/",
-    "lint": "tsc --project ./tsconfig.json --noEmit && tsc --noEmit --project ./tsconfig.test.json",
+    "lint": "tsc --project ./tsconfig.json --noEmit && tsc --noEmit",
     "test": "mkdir -p pages && NODE_OPTIONS=--experimental-vm-modules jest --verbose",
     "watch:test": "NODE_OPTIONS=--experimental-vm-modules jest --verbose --watch"
   },
