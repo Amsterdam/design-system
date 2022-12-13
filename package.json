@@ -48,7 +48,7 @@
     "typescript": "4.9.4"
   },
   "scripts": {
-    "build": "lerna run build --ignore @amsterdam/storybook-react",
+    "build": "lerna run build",
     "clean": "lerna run clean",
     "lint": "npm-run-all --continue-on-error lint:** lint-workspaces",
     "lint:css": "stylelint --allow-empty-input '**/*.{css,scss}'",
