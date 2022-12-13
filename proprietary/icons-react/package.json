@@ -11,7 +11,9 @@
   "publishConfig": {
     "access": "public"
   },
-  "main": "./static/index.js",
+  "main": "dist/index.d.js",
+  "module": "dist/index.esm.js",
+  "types": "dist/index.d.ts",
   "files": [
     "static"
   ],
@@ -21,11 +23,20 @@
     "url": "git@github.com:alimpens/amsterdam.git"
   },
   "scripts": {
-    "install": "svgr --jsx-runtime automatic --typescript --svg-props focusable={false} --out-dir static -- ../icons/static",
-    "build": "npm install"
+    "clean": "rimraf src && rimraf dist",
+    "svgr": "svgr --jsx-runtime automatic --typescript --svg-props focusable={false} --out-dir src -- ../icons/static",
+    "build": "npm run clean && npm run svgr && rollup -c"
   },
   "devDependencies": {
-    "@svgr/cli": "6.5.1"
+    "@rollup/plugin-node-resolve": "15.0.1",
+    "@svgr/cli": "6.5.1",
+    "@types/react": "18.0.26",
+    "react": "18.2.0",
+    "rimraf": "3.0.2",
+    "rollup": "2.79.1",
+    "rollup-plugin-peer-deps-external": "2.2.4",
+    "rollup-plugin-typescript2": "0.34.1",
+    "typescript": "4.9.4"
   },
   "peerDependencies": {
     "react": "16 - 18",

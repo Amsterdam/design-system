@@ -12,6 +12,7 @@
 
 .amsterdam-link:focus,
 .amsterdam-link:hover {
+  outline-offset: var(--amsterdam-focus-outline-offset);
   text-decoration: underline;
 }
 
