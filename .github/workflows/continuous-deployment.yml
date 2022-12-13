@@ -185,13 +185,13 @@ jobs:
         uses: actions/download-artifact@v3
         with:
           name: storybook
-          path: storybook/storybook/dist/
+          path: storybook/storybook-react/dist/
 
       - name: Continuous Deployment to GitHub Pages
         uses: JamesIves/github-pages-deploy-action@v4.4.1
         with:
           branch: gh-pages
-          folder: storybook/storybook/dist/
+          folder: storybook/storybook-react/dist/
 
   publish-npm:
     runs-on: ubuntu-latest

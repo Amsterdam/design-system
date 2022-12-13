@@ -33,10 +33,10 @@
   "dependencies": {
     "@utrecht/component-library-react": "1.0.0-alpha.196",
     "clsx": "1.2.1",
-    "date-fns": "2.29.3"
+    "date-fns": "2.29.3",
+    "@amsterdam/icons-react": "workspace:*"
   },
   "devDependencies": {
-    "@amsterdam/icons-react": "workspace:*",
     "@babel/core": "7.20.5",
     "@babel/plugin-transform-runtime": "7.19.6",
     "@babel/preset-env": "7.20.2",

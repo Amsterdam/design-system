@@ -2,6 +2,7 @@
  * @license EUPL-1.2
  */
 
+import { ChevronRight } from '@amsterdam/icons-react'
 import clsx from 'clsx'
 import { AnchorHTMLAttributes, PropsWithChildren, ReactElement } from 'react'
 import { Icon } from './Icon'
@@ -30,7 +31,7 @@ export const Link = ({
     )}
     {...restProps}
   >
-    {(variant === 'inList' || iconLeft) && <Icon>{iconLeft ? iconLeft : '>'}</Icon>}
+    {(variant === 'inList' || iconLeft) && <Icon>{iconLeft ? iconLeft : <ChevronRight />}</Icon>}
     {children}
     {iconRight && <Icon>{iconRight}</Icon>}
   </a>

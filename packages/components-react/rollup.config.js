@@ -45,7 +45,6 @@ export default [
         include: /node_modules/,
       }),
       nodePolyfills(),
-      // del({ targets: ['dist/*', 'pages/*'] }),
       typescript({ includeDependencies: false }),
       babel({
         presets: ['@babel/preset-react'],
