@@ -3,11 +3,15 @@
 .amsterdam-icon {
   align-items: center;
   display: inline-flex;
+
+  /* TODO: this height should be provided by the text element its part of? */
   height: calculate-fluid-style(24, 26);
+
+  /* TODO: 12px is not part of the design system, what should this be? */
   margin-inline-end: 12px;
 
-  /* Offset icon by 2px, because Amsterdam Sans vertical alignment is off */
-  padding-block-end: 2px;
+  /* Offset icon by 3px, because Amsterdam Sans vertical alignment is off */
+  padding-block-end: 3px;
 }
 
 .amsterdam-icon svg {

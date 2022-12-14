@@ -8,19 +8,11 @@ import { AnchorHTMLAttributes, PropsWithChildren, ReactElement } from 'react'
 import { Icon } from './Icon'
 
 export interface LinkProps extends AnchorHTMLAttributes<HTMLAnchorElement> {
-  variant?: 'standalone' | 'inList' | 'inline'
-  iconLeft?: ReactElement
-  iconRight?: ReactElement
+  variant?: 'standalone' | 'inList' | 'inline' // TODO: standalone can't have an icon, only inList and inline can. Fix this with type unions?
+  icon?: ReactElement
 }
 
-export const Link = ({
-  children,
-  className,
-  iconLeft,
-  iconRight,
-  variant,
-  ...restProps
-}: PropsWithChildren<LinkProps>) => (
+export const Link = ({ children, className, icon, variant, ...restProps }: PropsWithChildren<LinkProps>) => (
   <a
     className={clsx(
       'amsterdam-link',
@@ -31,8 +23,8 @@ export const Link = ({
     )}
     {...restProps}
   >
-    {(variant === 'inList' || iconLeft) && <Icon>{iconLeft ? iconLeft : <ChevronRight />}</Icon>}
+    {variant === 'inList' && <Icon size={icon ? 'medium' : 'small'}>{icon ? icon : <ChevronRight />}</Icon>}
     {children}
-    {iconRight && <Icon>{iconRight}</Icon>}
+    {variant === 'inline' && icon && <Icon>{icon}</Icon>}
   </a>
 )
