@@ -25,7 +25,8 @@
   "scripts": {
     "clean": "rimraf src && rimraf dist",
     "svgr": "svgr --jsx-runtime automatic --typescript --svg-props focusable={false} --out-dir src -- ../icons/static",
-    "build": "npm run clean && npm run svgr && rollup -c"
+    "build": "npm run clean && npm run svgr && rollup -c",
+    "install": "npm run build"
   },
   "devDependencies": {
     "@rollup/plugin-node-resolve": "15.0.1",

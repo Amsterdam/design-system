@@ -1,4 +1,3 @@
-// rollup.config.js
 import resolve from '@rollup/plugin-node-resolve'
 import peerDepsExternal from 'rollup-plugin-peer-deps-external'
 import typescript from 'rollup-plugin-typescript2'
@@ -10,9 +9,7 @@ export const outputGlobals = {
 }
 
 export default {
-  // entry points
   input: './src/index.ts',
-  // output files
   output: [
     {
       file: packageJson.main,
@@ -22,15 +19,10 @@ export default {
     },
     {
       file: packageJson.module,
-      format: 'esm', // ES Modules
+      format: 'esm',
       sourcemap: true,
       globals: outputGlobals,
     },
   ],
-  // Plugins array
-  plugins: [
-    peerDepsExternal(), // prevents bundling peerDependencies
-    resolve(), // resolves package entrypoints
-    typescript({ includeDependencies: false }),
-  ],
+  plugins: [peerDepsExternal(), resolve(), typescript({ includeDependencies: false })],
 }
