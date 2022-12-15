@@ -6,6 +6,35 @@ This project is part of a community iniative to use NL Design System components 
 
 For more info about the NL Design System and learn about things happening in our open source community, join the `#nl-design-system` Slack via [praatmee.codefor.nl](https://praatmee.codefor.nl)!
 
+# Getting started
+
+NOTICE: These packages haven't been published yet, so the following doesn't work at the moment. You can currently only use these instructions when locally linking the packages to a consumer project.
+
+Install the packages you need, for instance:
+
+`npm install @amsterdam/components-react @amsterdam/components-css @amsterdam/design-tokens @amsterdam/font`
+
+Import the packages you need. Don't forget to add the `amsterdam-theme` class to a root element.
+
+```javascript
+import { Paragraph } from "@amsterdam/components-react";
+
+import "@amsterdam/components-css/dist/document/document.css";
+import "@amsterdam/components-css/dist/paragraph/paragraph.css";
+import "@amsterdam/design-tokens/dist/index.css";
+import "@amsterdam/font/static/index.css";
+
+function App() {
+  return (
+    <div className="amsterdam-theme">
+      <Paragraph>Hello world</Paragraph>
+    </div>
+  );
+}
+
+export default App;
+```
+
 # Contributing
 
 ## Install prerequisites
@@ -42,10 +71,20 @@ To enable correct validation and to fix lint/style errors on save, add this to y
   "editor.formatOnSave": true,
 ```
 
-## Getting started
+## Run storybook
 
 - Install dependencies: `pnpm install`
 - Run storybook: `npm run storybook`
+
+## Locally link this library to a local project
+
+If you need to link your local version of this library (to test your unpublished changes, for example) to a local project, follow these steps:
+
+- Go to the root folder of the packages you want to link to (i.e. where its package.json is)
+- Run `npm link`. Do this for all packages you want to link.
+- Go to the root of the project in which you want to consume the packages
+- Run `npm link <package-name>`. If you want to link multiple packages, seperate the package names with a space. For example: `npm link @amsterdam/design-tokens @amsterdam/components-css @amsterdam/font @amsterdam/components-react @amsterdam/icons-react`. Be careful: you have to link all packages in the same namespace together. Doing it one at a time will only link the last one. TODO: is there a workaround for this?
+- Sometimes the local link is severed. Run `npm link @amsterdam/...` again if this happens.
 
 # Code of Conduct
 
