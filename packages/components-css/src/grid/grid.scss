@@ -53,7 +53,31 @@ $amsterdam-columns-large: 12;
   }
 }
 
+@mixin subgrid-span-x {
+  @for $i from 1 through $amsterdam-columns-small {
+    .amsterdam-subgrid-span-#{$i} {
+      column-gap: clamp(16px, 2vw, 24px);
+      display: grid;
+      grid-template-columns: repeat($i, 1fr);
+    }
+  }
+}
+
+@mixin subgrid-span-large-x {
+  @for $i from 1 through $amsterdam-columns-large {
+    .amsterdam-subgrid-span-#{$i}--large {
+      column-gap: clamp(16px, 2vw, 24px);
+      display: grid;
+      @media (min-width: $amsterdam-breakpoint) {
+        grid-template-columns: repeat($i, 1fr);
+      }
+    }
+  }
+}
+
 @include col-span-x;
 @include col-start-x;
 @include col-span-large-x;
 @include col-start-large-x;
+@include subgrid-span-x;
+@include subgrid-span-large-x;

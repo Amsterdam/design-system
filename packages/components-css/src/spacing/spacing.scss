@@ -1,0 +1,60 @@
+@import "../../utils/breakpoint";
+
+$amsterdam-spaces: (
+  "xs": 8px,
+  "s": 16px,
+  "m": 24px,
+  "l": 40px,
+  "xl": 56px,
+  "xxl": 72px,
+);
+$amsterdam-spaces-large: (
+  "xs": 8px,
+  "s": 16px,
+  "m": 24px,
+  "l": 40px,
+  "xl": 80px,
+  "xxl": 120px,
+);
+
+/*
+  utility classes for spacing
+  TODO: currently using :nth-child(n) for higher specificity, find better way to solve this
+*/
+@each $size, $value in $amsterdam-spaces {
+  .amsterdam-space-block-start-#{$size}:nth-child(n) {
+    margin-block-start: $value;
+  }
+  .amsterdam-space-block-end-#{$size}:nth-child(n) {
+    margin-block-end: $value;
+  }
+  .amsterdam-space-inline-start-#{$size}:nth-child(n) {
+    margin-inline-start: $value;
+  }
+  .amsterdam-space-inline-end-#{$size}:nth-child(n) {
+    margin-inline-end: $value;
+  }
+}
+
+@each $size, $value in $amsterdam-spaces-large {
+  .amsterdam-space-block-start-#{$size}--large:nth-child(n) {
+    @media (min-width: $amsterdam-breakpoint) {
+      margin-block-start: $value;
+    }
+  }
+  .amsterdam-space-block-end-#{$size}--large:nth-child(n) {
+    @media (min-width: $amsterdam-breakpoint) {
+      margin-block-end: $value;
+    }
+  }
+  .amsterdam-space-inline-start-#{$size}--large:nth-child(n) {
+    @media (min-width: $amsterdam-breakpoint) {
+      margin-inline-start: $value;
+    }
+  }
+  .amsterdam-space-inline-end-#{$size}--large:nth-child(n) {
+    @media (min-width: $amsterdam-breakpoint) {
+      margin-inline-end: $value;
+    }
+  }
+}

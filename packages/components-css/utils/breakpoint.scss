@@ -1,1 +1,5 @@
-$amsterdam-breakpoint: 820px;
+/*
+  The breakpoint is 820px / 16 = 51.25rems
+  https://developer.mozilla.org/en-US/docs/Web/CSS/@media#accessibility_concerns
+*/
+$amsterdam-breakpoint: 51.25rem;
