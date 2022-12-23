@@ -21,15 +21,11 @@ import { Paragraph } from "@amsterdam/components-react";
 
 import "@amsterdam/components-css/dist/document/document.css";
 import "@amsterdam/components-css/dist/paragraph/paragraph.css";
-import "@amsterdam/design-tokens/dist/index.css";
+import "@amsterdam/design-tokens/dist/root.css";
 import "@amsterdam/font/static/index.css";
 
 function App() {
-  return (
-    <div className="amsterdam-theme">
-      <Paragraph>Hello world</Paragraph>
-    </div>
-  );
+  return <Paragraph>Hello world</Paragraph>;
 }
 
 export default App;

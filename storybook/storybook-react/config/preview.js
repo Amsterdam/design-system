@@ -1,8 +1,6 @@
-import '@amsterdam/design-tokens/dist/index.css'
+import '@amsterdam/design-tokens/dist/root.css'
 import '@amsterdam/components-css/src/document/document.scss'
 import '@amsterdam/font/static/index.css'
-
-export const decorators = [(Story) => <div className="amsterdam-document amsterdam-theme">{Story()}</div>]
 
 export const parameters = {
   actions: { argTypesRegex: '^on[A-Z].*' },
