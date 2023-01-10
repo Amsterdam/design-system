@@ -14,7 +14,7 @@ Install the packages you need, for instance:
 
 `npm install @amsterdam/components-react @amsterdam/components-css @amsterdam/design-tokens @amsterdam/font`
 
-Import the packages you need. Don't forget to add the `amsterdam-theme` class to a root element.
+Import the packages you need.
 
 ```javascript
 import { Paragraph } from "@amsterdam/components-react";
