@@ -1,6 +1,6 @@
 // I haven't used an existing button component here, because storybook imports component css in the head.
 // The imported css from ExistingWithBem would also style this component if I used the same community component.
-// I only used tokens to style this component, which illustrates that tokens won't get you very far...
+// I only used tokens to style this component, which illustrates that tokens won't always get you very far...
 // You could complete the styling with css, but that's a little confusing imo.
 
 import { ButtonLink as CommunityButtonLink } from '@utrecht/component-library-react'
