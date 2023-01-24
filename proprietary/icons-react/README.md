@@ -1,3 +1,3 @@
-# Icon
+# Icons React
 
-Icon svgs
+Icon svgs as React components

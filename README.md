@@ -1,39 +1,16 @@
 <!-- @license CC0-1.0 -->
 
-# Amsterdam Design System
+# Amsterdam Component Library
 
-This project is part of a community iniative to use NL Design System components for projects that need to adhere to the Amsterdam Design System.
+[Demo site with the storybook of the components](https://alimpens.github.io/amsterdam/)
 
-For more info about the NL Design System and learn about things happening in our open source community, join the `#nl-design-system` Slack via [praatmee.codefor.nl](https://praatmee.codefor.nl)!
+## Getting started
 
-# Getting started
+To use the React components in this library, please see the [getting started documentation for the components-react package](./packages/components-react/README.md#Getting started).
 
-NOTICE: These packages haven't been published yet, so the following doesn't work at the moment. You can currently only use these instructions when locally linking the packages to a consumer project.
+## Contributing
 
-Install the packages you need, for instance:
-
-`npm install @amsterdam/components-react @amsterdam/components-css @amsterdam/design-tokens @amsterdam/font`
-
-Import the packages you need.
-
-```javascript
-import { Paragraph } from "@amsterdam/components-react";
-
-import "@amsterdam/components-css/dist/document/document.css";
-import "@amsterdam/components-css/dist/paragraph/paragraph.css";
-import "@amsterdam/design-tokens/dist/root.css";
-import "@amsterdam/font/static/index.css";
-
-function App() {
-  return <Paragraph>Hello world</Paragraph>;
-}
-
-export default App;
-```
-
-# Contributing
-
-## Install prerequisites
+### Install prerequisites
 
 You need to have the following tools installed to run Storybook locally:
 
@@ -41,7 +18,7 @@ You need to have the following tools installed to run Storybook locally:
 - [Node.js and npm](https://nodejs.org/en/)
 - `pnpm`, `npm install -g pnpm`
 
-## Install code editor
+### Install code editor
 
 You can use any editor you'd like, but in case you use [Visual Studio Code](https://code.visualstudio.com/) we recommend the following extensions that are useful for this project:
 
@@ -67,12 +44,12 @@ To enable correct validation and to fix lint/style errors on save, add this to y
   "editor.formatOnSave": true,
 ```
 
-## Run storybook
+### Run storybook
 
 - Install dependencies: `pnpm install`
 - Run storybook: `npm run storybook`
 
-## Locally link this library to a local project
+### Locally link this library to a local project
 
 If you need to link your local version of this library (to test your unpublished changes, for example) to a local project, follow these steps:
 
@@ -82,11 +59,29 @@ If you need to link your local version of this library (to test your unpublished
 - Run `npm link <package-name>`. If you want to link multiple packages, seperate the package names with a space. For example: `npm link @amsterdam/design-tokens @amsterdam/components-css @amsterdam/font @amsterdam/components-react @amsterdam/icons-react`. Be careful: you have to link all packages in the same namespace together. Doing it one at a time will only link the last one. TODO: is there a workaround for this?
 - Sometimes the local link is severed. Run `npm link @amsterdam/...` again if this happens.
 
-# Code of Conduct
+## Amsterdam Design System
+
+TODO: write section.
+
+[https://amsterdam.nl/designsystem](https://amsterdam.nl/designsystem)
+
+## Guidelines
+
+TODO: write guidelines
+
+Guidelines on maintenance, PR process, etc.
+
+## Code of Conduct
 
 We pledge to act and interact in ways that contribute to an open, welcoming, diverse, inclusive, and healthy community. Read [our Code of Conduct](CODE_OF_CONDUCT.md) if you haven't already.
 
-# License
+## NL Design System
+
+This project is part of a community iniative to use NL Design System components for projects that need to adhere to the Amsterdam Design System.
+
+For more info about the NL Design System and learn about things happening in our open source community, join the `#nl-design-system` Slack via [praatmee.codefor.nl](https://praatmee.codefor.nl)!
+
+## License
 
 This project is free and open-source software licensed under the [European Union Public License (EUPL) v1.2](LICENSE.md). Documentation is licensed as [Creative Commons Zero 1.0 Universal (`CC0-1.0`)](https://creativecommons.org/publicdomain/zero/1.0/legalcode). Applying design elements from this project is strictly prohibited for organisations that are not part of the Municipality of Amsterdam.
 

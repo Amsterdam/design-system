@@ -1,3 +1,3 @@
-# Icon
+# Icons
 
 Icon svgs
