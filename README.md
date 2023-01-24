@@ -6,7 +6,7 @@
 
 ## Getting started
 
-To use the React components in this library, please see the [getting started documentation for the components-react package](./packages/components-react/README.md#Getting started).
+To use the React components in this library, please see the [getting started documentation for the components-react package](./packages/components-react/README.md).
 
 ## Contributing
 
