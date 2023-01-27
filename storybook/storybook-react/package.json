@@ -34,7 +34,7 @@
     "@storybook/core-events": "6.5.15",
     "@storybook/manager-webpack5": "6.5.15",
     "@storybook/preset-scss": "1.0.3",
-    "@storybook/react": "6.5.15",
+    "@storybook/react": "6.5.16",
     "@storybook/testing-library": "0.0.13",
     "@types/react": "18.0.27",
     "@amsterdam/components-react": "workspace:*",
