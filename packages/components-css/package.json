@@ -9,7 +9,8 @@
   ],
   "private": true,
   "scripts": {
-    "build": "sass src/:dist/"
+    "build": "sass src/:dist/",
+    "clean": "rimraf dist/"
   },
   "dependencies": {
     "normalize.css": "8.0.1"
