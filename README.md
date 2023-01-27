@@ -2,7 +2,7 @@
 
 # Amsterdam Component Library
 
-[Demo site with the storybook of the components](https://alimpens.github.io/amsterdam/)
+[Demo site with the storybook of the components](https://amsterdam.github.io/design-system/)
 
 ## Getting started
 
