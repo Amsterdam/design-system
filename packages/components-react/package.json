@@ -19,7 +19,7 @@
   "scripts": {
     "build": "rollup -c",
     "build:watch": "rollup -c --watch",
-    "clean": "rimraf dist/ pages/",
+    "clean": "rimraf dist/",
     "lint": "tsc --project ./tsconfig.json --noEmit && tsc --noEmit",
     "test": "jest --verbose",
     "watch:test": "NODE_OPTIONS=--experimental-vm-modules jest --verbose --watch"
@@ -62,7 +62,6 @@
     "postcss": "8.4.21",
     "react": "18.2.0",
     "react-dom": "18.2.0",
-    "rimraf": "4.1.1",
     "rollup": "3.10.1",
     "rollup-plugin-delete": "2.0.0",
     "rollup-plugin-filesize": "9.1.2",
