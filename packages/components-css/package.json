@@ -7,7 +7,7 @@
   "keywords": [
     "nl-design-system"
   ],
-  "private": true,
+  "private": false,
   "scripts": {
     "build": "sass src/:dist/",
     "clean": "rimraf dist/"
