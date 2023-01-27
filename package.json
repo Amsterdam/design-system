@@ -74,7 +74,6 @@
     "update-patch": "npm-check-updates --configFileName .ncurc.patch.js --deep --dep dev,prod --target patch --upgrade && pnpm install",
     "update-minor": "npm-check-updates --configFileName .ncurc.minor.js --deep --dep dev,prod --target minor --upgrade && pnpm install",
     "update-major": "npm-check-updates --configFileName .ncurc.major.js --deep --dep dev,prod --target latest --upgrade && pnpm install",
-    "version": "lerna version",
     "watch:storybook-react": "npm run --workspace storybook/storybook-react storybook",
     "watch:style-dictionary": "lerna run watch:style-dictionary"
   },
