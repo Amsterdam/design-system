@@ -72,7 +72,7 @@
     "rollup-plugin-scss": "4.0.0",
     "rollup-plugin-typescript2": "0.34.1",
     "sass": "1.57.1",
-    "tslib": "2.4.1",
+    "tslib": "2.5.0",
     "typescript": "4.9.4"
   },
   "peerDependencies": {
