@@ -8,7 +8,7 @@
   "keywords": [
     "nl-design-system"
   ],
-  "private": true,
+  "private": false,
   "publishConfig": {
     "access": "public"
   },
