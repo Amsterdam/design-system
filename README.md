@@ -1,6 +1,6 @@
 <!-- @license CC0-1.0 -->
 
-# Amsterdam Component Library
+# Amsterdam Design System
 
 [Demo site with the storybook of the components](https://amsterdam.github.io/design-system/)
 
