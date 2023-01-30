@@ -1,7 +1,6 @@
 {
   "compileOnSave": false,
   "compilerOptions": {
-    "jsx": "react",
     "forceConsistentCasingInFileNames": true,
     "strict": true,
     "noImplicitOverride": true,
@@ -14,8 +13,9 @@
     "experimentalDecorators": true,
     "moduleResolution": "node",
     "importHelpers": true,
-    "target": "ES2015",
+    "target": "es2020",
     "module": "es2020",
     "lib": ["es2020", "dom"]
-  }
+  },
+  "exclude": ["**/node_modules/*"]
 }
