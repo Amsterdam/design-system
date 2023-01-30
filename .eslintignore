@@ -8,5 +8,5 @@ coverage/
 dist/
 tmp/
 
-# Ignore static files
-proprietary/icons-react/static
+# Ignore generated icon files
+proprietary/icons-react
