@@ -1,7 +1,7 @@
 {
   "version": "0.0.1-alpha.0",
   "author": "Community for NL Design System",
-  "description": "Icon assets",
+  "description": "Icon svg files for the City of Amsterdam",
   "license": "SEE LICENSE IN LICENSE.md",
   "name": "@amsterdam/icons",
   "main": "static",
@@ -16,8 +16,9 @@
     "static"
   ],
   "repository": {
-    "type": "git+ssh",
-    "url": "git@github.com:alimpens/amsterdam.git"
+    "type": "git",
+    "url": "https://github.com/Amsterdam/design-system.git",
+    "directory": "proprietary/icons"
   },
   "scripts": {
     "optimize": "svgo -f static"

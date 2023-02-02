@@ -1,7 +1,7 @@
 {
   "version": "0.0.1-alpha.0",
   "author": "Community for NL Design System",
-  "description": "Example design tokens",
+  "description": "Design tokens for components for the City of Amsterdam based on the NL Design System architecture",
   "license": "EUPL-1.2",
   "name": "@amsterdam/design-tokens",
   "keywords": [
@@ -12,8 +12,9 @@
     "access": "public"
   },
   "repository": {
-    "type": "git+ssh",
-    "url": "git@github.com:nl-design-system/example.git"
+    "type": "git",
+    "url": "https://github.com/Amsterdam/design-system.git",
+    "directory": "packages/design-tokens"
   },
   "scripts": {
     "clean": "rimraf dist/",
