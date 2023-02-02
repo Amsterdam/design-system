@@ -8,6 +8,11 @@
     "nl-design-system"
   ],
   "private": false,
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Amsterdam/design-system.git",
+    "directory": "packages/components-css"
+  },
   "scripts": {
     "build": "sass src/:dist/",
     "clean": "rimraf dist/"

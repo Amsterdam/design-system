@@ -12,8 +12,9 @@
     "access": "public"
   },
   "repository": {
-    "type": "git+ssh",
-    "url": "git@github.com:nl-design-system/example.git"
+    "type": "git",
+    "url": "https://github.com/Amsterdam/design-system.git",
+    "directory": "packages/design-tokens"
   },
   "scripts": {
     "clean": "rimraf dist/",

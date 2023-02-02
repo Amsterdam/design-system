@@ -16,8 +16,9 @@
     "static"
   ],
   "repository": {
-    "type": "git+ssh",
-    "url": "git@github.com:alimpens/amsterdam.git"
+    "type": "git",
+    "url": "https://github.com/Amsterdam/design-system.git",
+    "directory": "proprietary/icons"
   },
   "scripts": {
     "optimize": "svgo -f static"
