@@ -64,12 +64,12 @@ If you need to link your local version of this library (to test your unpublished
 
 Follow these contribution guidelines from the NL Design System community:
 
-- [Accessibility](./documentation/nl-design-system//contributing-a11y.md)
-- [CSS](./documentation/nl-design-system/contributing-css.md)
-- [Design Tokens](./documentation/nl-design-system/contributing-design-token.md)
-- [HTML](./documentation/nl-design-system/contributing-html.md)
-- [npm package](./documentation/nl-design-system/contributing-npm-package.md)
-- [Storybook](./documentation/nl-design-system/contributing-storybook.md)
+- [Accessibility](https://nl-design-system.github.io/utrecht/storybook/?path=/docs/nl-design-system-contributing-accessibility--page)
+- [CSS](https://nl-design-system.github.io/utrecht/storybook/?path=/docs/nl-design-system-contributing-css--page)
+- [Design Tokens](https://nl-design-system.github.io/utrecht/storybook/?path=/docs/nl-design-system-contributing-design-tokens--page)
+- [HTML](https://nl-design-system.github.io/utrecht/storybook/?path=/docs/nl-design-system-contributing-html--page)
+- [npm package](https://nl-design-system.github.io/utrecht/storybook/?path=/docs/nl-design-system-contributing-npm-package--page)
+- [Storybook](https://nl-design-system.github.io/utrecht/storybook/?path=/docs/nl-design-system-contributing-storybook--page)
 
 ## Further Amsterdam Design System documentation
 
