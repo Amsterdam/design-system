@@ -60,6 +60,17 @@ If you need to link your local version of this library (to test your unpublished
 - Run `npm link <package-name>`. If you want to link multiple packages, seperate the package names with a space. For example: `npm link @amsterdam/design-tokens @amsterdam/components-css @amsterdam/font @amsterdam/components-react @amsterdam/icons-react`. Be careful: you have to link all packages in the same namespace together. Doing it one at a time will only link the last one. TODO: is there a workaround for this?
 - Sometimes the local link is severed. Run `npm link @amsterdam/...` again if this happens.
 
+### Contribution guidelines
+
+Follow these contribution guidelines from the NL Design System community:
+
+- [Accessibility](./documentation/nl-design-system//contributing-a11y.md)
+- [CSS](./documentation/nl-design-system/contributing-css.md)
+- [Design Tokens](./documentation/nl-design-system/contributing-design-token.md)
+- [HTML](./documentation/nl-design-system/contributing-html.md)
+- [npm package](./documentation/nl-design-system/contributing-npm-package.md)
+- [Storybook](./documentation/nl-design-system/contributing-storybook.md)
+
 ## Further Amsterdam Design System documentation
 
 TODO: write section.
