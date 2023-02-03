@@ -8,7 +8,7 @@
 - You've added or updated the story of the component
 - Your code has the necessary tests written
 - The component is exported in the relevant `index.ts`
-- You've updated the CHANGELOG.md unreleased section
+- You've updated the [changelog](../CHANGELOG.md) unreleased section
 - The component, or all elements of a component for more complex cases, can have an additional class name, to enable restyling
 - The component has an EUPL-1.2 licence and all documentation has a Creative Commons 0 licence (CC0)
 - (willen we hier nog iets zeggen over [progressive enhancement](https://www.gov.uk/service-manual/technology/using-progressive-enhancement)?)
