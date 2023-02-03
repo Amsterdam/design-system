@@ -73,11 +73,18 @@ Please also follow these contribution guidelines from the NL Design System commu
 - [npm package](https://nl-design-system.github.io/utrecht/storybook/?path=/docs/nl-design-system-contributing-npm-package--page)
 - [Storybook](https://nl-design-system.github.io/utrecht/storybook/?path=/docs/nl-design-system-contributing-storybook--page)
 
-## Further Amsterdam Design System documentation
+### Aligning with design/UX
 
-TODO: write section.
+Currently, you can find the most up-to-date documentation on design and UX on [amsterdam.nl/designsystem](https://amsterdam.nl/designsystem). In time, the Storybook(s) in this repository should be the definitive source for documentation on code, design and UX.
 
-[https://amsterdam.nl/designsystem](https://amsterdam.nl/designsystem)
+If you want to add a component, first check if it's already included in the [Design System's Figma](<https://www.figma.com/file/ORa7CBIooPgZj6HsEPBxNR/Design-bibliotheek-(gepubliceerd)?node-id=149%3A1324&t=Ud6eZytawJYnLlyi-0>). TODO: how do people get access to this Figma?
+
+If there is no design, or if you have questions about an existing design, contact ?? TODO: who should they contact? The maintainers of the repo? The designers?
+
+Components have two possible statuses:
+
+- Work-in-progress: the component is added to the library and useable. It adheres to our [definition of done](./documentation/definition-of-done-components.md). It follows [SemVer](https://semver.org/), so any breaking changes to the component require a major version bump. The component has not been checked by the designers.
+- Stable: the same as Work-in-progress, except it has been checked and approved by the designers.
 
 ## Guidelines
 
