@@ -62,7 +62,9 @@ If you need to link your local version of this library (to test your unpublished
 
 ### Contribution guidelines
 
-Follow these contribution guidelines from the NL Design System community:
+Before starting work on a new component, check the [NL Design System community](https://github.com/nl-design-system/) for components that might already do exactly what you want. If these don't exist, or aren't up to our requirements, we can add a new component.
+
+Please also follow these contribution guidelines from the NL Design System community:
 
 - [Accessibility](https://nl-design-system.github.io/utrecht/storybook/?path=/docs/nl-design-system-contributing-accessibility--page)
 - [CSS](https://nl-design-system.github.io/utrecht/storybook/?path=/docs/nl-design-system-contributing-css--page)
