@@ -25,7 +25,7 @@ Install the packages you need, for instance:
 Import the packages you need.
 
 ```javascript
-import { Paragraph } from "@amsterdam/components-react";
+import { Paragraph } from "@amsterdam/design-system-react";
 
 import "@amsterdam/design-system-css/dist/document/document.css";
 import "@amsterdam/design-system-css/dist/paragraph/paragraph.css";

@@ -32,7 +32,7 @@
     "dist/"
   ],
   "dependencies": {
-    "@amsterdam/icons-react": "workspace:*",
+    "@amsterdam/design-system-react-icons": "workspace:*",
     "clsx": "1.2.1",
     "date-fns": "2.29.3"
   },
