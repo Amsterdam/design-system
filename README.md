@@ -60,11 +60,26 @@ If you need to link your local version of this library (to test your unpublished
 - Run `npm link <package-name>`. If you want to link multiple packages, seperate the package names with a space. For example: `npm link @amsterdam/design-system-tokens @amsterdam/design-system-css @amsterdam/design-system-font @amsterdam/design-system-react @amsterdam/design-system-react-icons`. Be careful: you have to link all packages in the same namespace together. Doing it one at a time will only link the last one. TODO: is there a workaround for this?
 - Sometimes the local link is severed. Run `npm link @amsterdam/...` again if this happens.
 
-## Further Amsterdam Design System documentation
+### Contribution guidelines
 
-TODO: write section.
+Before starting work on a new component, check the [NL Design System community](https://github.com/nl-design-system/) for components that might already do exactly what you want. If these don't exist, or aren't up to our requirements, we can add a new component.
 
-[https://amsterdam.nl/designsystem](https://amsterdam.nl/designsystem)
+Please also follow these contribution guidelines from the NL Design System community:
+
+- [Accessibility](https://nl-design-system.github.io/utrecht/storybook/?path=/docs/nl-design-system-contributing-accessibility--page)
+- [CSS](https://nl-design-system.github.io/utrecht/storybook/?path=/docs/nl-design-system-contributing-css--page)
+- [Design Tokens](https://nl-design-system.github.io/utrecht/storybook/?path=/docs/nl-design-system-contributing-design-tokens--page)
+- [HTML](https://nl-design-system.github.io/utrecht/storybook/?path=/docs/nl-design-system-contributing-html--page)
+- [npm package](https://nl-design-system.github.io/utrecht/storybook/?path=/docs/nl-design-system-contributing-npm-package--page)
+- [Storybook](https://nl-design-system.github.io/utrecht/storybook/?path=/docs/nl-design-system-contributing-storybook--page)
+
+### Aligning with design/UX
+
+Currently, you can find the most up-to-date documentation on design and UX on [amsterdam.nl/designsystem](https://amsterdam.nl/designsystem). In time, the Storybook(s) in this repository should be the definitive source for documentation on code, design and UX.
+
+If you want to add a component, first check if it's already included in the [Design System's Figma](<https://www.figma.com/file/ORa7CBIooPgZj6HsEPBxNR/Design-bibliotheek-(gepubliceerd)?node-id=149%3A1324&t=Ud6eZytawJYnLlyi-0>).
+
+If there is no design, or if you have questions about an existing design, please contact [designsystem@amsterdam.nl](designsystem@amsterdam.nl).
 
 ## Guidelines
 
