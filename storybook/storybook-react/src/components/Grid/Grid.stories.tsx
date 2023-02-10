@@ -1,8 +1,8 @@
-import { Grid, GridItem } from '@amsterdam/components-react/src'
+import { Grid, GridItem } from '@amsterdam/design-system-react/src'
 import { ComponentMeta, ComponentStory } from '@storybook/react'
 import { argTypes } from './argTypes'
 
-import '@amsterdam/components-css/src/grid/grid.scss'
+import '@amsterdam/design-system-css/src/grid/grid.scss'
 
 export default {
   title: 'React Components/Grid',

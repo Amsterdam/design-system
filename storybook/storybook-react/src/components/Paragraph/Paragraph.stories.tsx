@@ -1,7 +1,7 @@
-import { Paragraph } from '@amsterdam/components-react/src'
+import { Paragraph } from '@amsterdam/design-system-react/src'
 import { ComponentMeta, ComponentStory } from '@storybook/react'
 
-import '@amsterdam/components-css/src/paragraph/paragraph.scss'
+import '@amsterdam/design-system-css/src/paragraph/paragraph.scss'
 
 export default {
   title: 'React Components/Paragraph',

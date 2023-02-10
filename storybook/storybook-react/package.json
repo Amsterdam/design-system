@@ -1,5 +1,5 @@
 {
-  "version": "0.0.1-alpha.0",
+  "version": "0.0.0",
   "author": "Community for NL Design System",
   "description": "Storybook React website for the City of Amsterdam based on the NL Design System architecture",
   "license": "EUPL-1.2",
@@ -20,13 +20,13 @@
     "storybook": "start-storybook --config-dir config/ --port 6006"
   },
   "devDependencies": {
-    "@amsterdam/components-css": "workspace:*",
-    "@amsterdam/components-react": "workspace:*",
-    "@amsterdam/design-tokens": "workspace:*",
-    "@amsterdam/font": "workspace:*",
-    "@amsterdam/icons-react": "workspace:*",
+    "@amsterdam/design-system-css": "workspace:*",
+    "@amsterdam/design-system-react": "workspace:*",
+    "@amsterdam/design-system-tokens": "workspace:*",
+    "@amsterdam/design-system-font": "workspace:*",
+    "@amsterdam/design-system-react-icons": "workspace:*",
     "@babel/core": "7.20.12",
-    "@mdx-js/react": "1.6.22",
+    "@mdx-js/react": "2.2.1",
     "@storybook/addon-a11y": "6.5.16",
     "@storybook/addon-actions": "6.5.16",
     "@storybook/addon-docs": "6.5.16",
@@ -39,6 +39,7 @@
     "@storybook/components": "6.5.16",
     "@storybook/core-events": "6.5.16",
     "@storybook/manager-webpack5": "6.5.16",
+    "@storybook/mdx2-csf": "0.0.4",
     "@storybook/preset-scss": "1.0.3",
     "@storybook/react": "6.5.16",
     "@storybook/testing-library": "0.0.13",
@@ -53,7 +54,7 @@
     "sass-loader": "13.2.0",
     "storybook": "6.5.16",
     "style-loader": "3.3.1",
-    "typescript": "4.9.4",
+    "typescript": "4.9.5",
     "webpack": "5.75.0"
   }
 }

@@ -15,6 +15,7 @@ module.exports = {
   features: {
     postcss: false,
     buildStoriesJson: true,
+    previewMdx2: true,
   },
   framework: '@storybook/react',
   webpackFinal: async (config) => ({

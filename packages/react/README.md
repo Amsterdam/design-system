@@ -2,9 +2,9 @@
 
 # Component library for React apps
 
-The `@amsterdam/components-react` package contains React implementations of various components. You can use this package in React apps.
+The `@amsterdam/design-system-react` package contains React implementations of various components. You can use this package in React apps.
 
-The CSS components that implement the Utrecht design system class names are published in a separate npm package, so don't forget to install and include `@amsterdam/components-css` too for the styling of the white-label components, as well as a package with design tokens for your theme. TODO: make this easier?
+The CSS components that implement the Utrecht design system class names are published in a separate npm package, so don't forget to install and include `@amsterdam/design-system-css` too for the styling of the white-label components, as well as a package with design tokens for your theme. TODO: make this easier?
 
 ## Stability of the components
 
@@ -20,17 +20,17 @@ TODO: These packages haven't been published yet, so the following doesn't work a
 
 Install the packages you need, for instance:
 
-`npm install @amsterdam/components-react @amsterdam/components-css @amsterdam/design-tokens @amsterdam/font`
+`npm install @amsterdam/design-system-react @amsterdam/design-system-css @amsterdam/design-system-tokens @amsterdam/design-system-font`
 
 Import the packages you need.
 
 ```javascript
-import { Paragraph } from "@amsterdam/components-react";
+import { Paragraph } from "@amsterdam/design-system-react";
 
-import "@amsterdam/components-css/dist/document/document.css";
-import "@amsterdam/components-css/dist/paragraph/paragraph.css";
-import "@amsterdam/design-tokens/dist/root.css";
-import "@amsterdam/font/static/index.css";
+import "@amsterdam/design-system-css/dist/document/document.css";
+import "@amsterdam/design-system-css/dist/paragraph/paragraph.css";
+import "@amsterdam/design-system-tokens/dist/root.css";
+import "@amsterdam/design-system-font/static/index.css";
 
 function App() {
   return <Paragraph>Hello world</Paragraph>;
