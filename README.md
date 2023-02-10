@@ -77,9 +77,9 @@ Please also follow these contribution guidelines from the NL Design System commu
 
 Currently, you can find the most up-to-date documentation on design and UX on [amsterdam.nl/designsystem](https://amsterdam.nl/designsystem). In time, the Storybook(s) in this repository should be the definitive source for documentation on code, design and UX.
 
-If you want to add a component, first check if it's already included in the [Design System's Figma](<https://www.figma.com/file/ORa7CBIooPgZj6HsEPBxNR/Design-bibliotheek-(gepubliceerd)?node-id=149%3A1324&t=Ud6eZytawJYnLlyi-0>). TODO: how do people get access to this Figma?
+If you want to add a component, first check if it's already included in the [Design System's Figma](<https://www.figma.com/file/ORa7CBIooPgZj6HsEPBxNR/Design-bibliotheek-(gepubliceerd)?node-id=149%3A1324&t=Ud6eZytawJYnLlyi-0>).
 
-If there is no design, or if you have questions about an existing design, contact ?? TODO: who should they contact? The maintainers of the repo? The designers?
+If there is no design, or if you have questions about an existing design, please contact [designsystem@amsterdam.nl](designsystem@amsterdam.nl).
 
 Components have two possible statuses:
 
