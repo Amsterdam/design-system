@@ -1,6 +1,6 @@
-import '@amsterdam/design-tokens/dist/root.css'
-import '@amsterdam/components-css/src/document/document.scss'
-import '@amsterdam/font/static/index.css'
+import '@amsterdam/design-system-tokens/dist/root.css'
+import '@amsterdam/design-system-css/src/document/document.scss'
+import '@amsterdam/design-system-font/static/index.css'
 
 export const parameters = {
   actions: { argTypesRegex: '^on[A-Z].*' },
