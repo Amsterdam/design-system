@@ -81,11 +81,6 @@ If you want to add a component, first check if it's already included in the [Des
 
 If there is no design, or if you have questions about an existing design, please contact [designsystem@amsterdam.nl](designsystem@amsterdam.nl).
 
-Components have two possible statuses:
-
-- Work-in-progress: the component is added to the library and useable. It adheres to our [definition of done](./documentation/definition-of-done.md). It follows [SemVer](https://semver.org/), so any breaking changes to the component require a major version bump. The component has not been checked by the designers.
-- Stable: the same as Work-in-progress, except it has been checked and approved by the designers.
-
 ## Guidelines
 
 TODO: write guidelines
