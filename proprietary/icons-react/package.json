@@ -1,9 +1,9 @@
 {
-  "version": "0.0.1-alpha.0",
+  "version": "0.1.0",
   "author": "Community for NL Design System",
   "description": "React icon components for the City of Amsterdam",
   "license": "SEE LICENSE IN LICENSE.md",
-  "name": "@amsterdam/icons-react",
+  "name": "@amsterdam/design-system-react-icons",
   "keywords": [
     "nl-design-system"
   ],

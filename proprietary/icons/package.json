@@ -1,9 +1,9 @@
 {
-  "version": "0.0.1-alpha.0",
+  "version": "0.1.0",
   "author": "Community for NL Design System",
   "description": "Icon svg files for the City of Amsterdam",
   "license": "SEE LICENSE IN LICENSE.md",
-  "name": "@amsterdam/icons",
+  "name": "@amsterdam/design-system-icons",
   "main": "static",
   "keywords": [
     "nl-design-system"
