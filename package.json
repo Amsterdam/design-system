@@ -1,5 +1,5 @@
 {
-  "version": "0.0.1-alpha.0",
+  "version": "0.0.0",
   "author": "Community for NL Design System",
   "description": "Design system based on the NL Design System architecture",
   "license": "EUPL-1.2",
@@ -64,7 +64,7 @@
     "prepare": "husky install",
     "prettier": "prettier --write .",
     "publish": "lerna publish from-package --yes",
-    "release": "lerna version prerelease --conventional-prerelease --no-changelog --no-private --yes",
+    "release": "lerna version --no-changelog --no-private",
     "start": "node_modules/http-server/bin storybook/storybook-react/dist/",
     "storybook": "npm-run-all --parallel watch:**",
     "test": "npm run test-workspaces",
