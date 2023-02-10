@@ -1,6 +1,6 @@
 <!-- @license CC0-1.0 -->
 
-# Definition of done - components
+# Definition of done
 
 ## Generic
 
