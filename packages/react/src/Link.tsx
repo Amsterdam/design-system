@@ -2,7 +2,7 @@
  * @license EUPL-1.2
  */
 
-import { ChevronRight } from '@amsterdam/icons-react'
+import { ChevronRight } from '@amsterdam/design-system-react-icons'
 import clsx from 'clsx'
 import { AnchorHTMLAttributes, PropsWithChildren, ReactElement } from 'react'
 import { Icon } from './Icon'

@@ -9,4 +9,4 @@ dist/
 tmp/
 
 # Ignore generated icon files
-proprietary/icons-react
+proprietary/react-icons

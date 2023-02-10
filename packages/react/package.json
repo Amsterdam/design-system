@@ -1,9 +1,9 @@
 {
-  "version": "0.0.1-alpha.0",
+  "version": "0.1.0",
   "author": "Community for NL Design System",
   "description": "React component library bundle for the City of Amsterdam based on the NL Design System architecture",
   "license": "EUPL-1.2",
-  "name": "@amsterdam/components-react",
+  "name": "@amsterdam/design-system-react",
   "keywords": [
     "nl-design-system"
   ],
@@ -14,7 +14,7 @@
   "repository": {
     "type": "git",
     "url": "https://github.com/Amsterdam/design-system.git",
-    "directory": "packages/components-react"
+    "directory": "packages/react"
   },
   "sideEffects": false,
   "scripts": {
@@ -32,7 +32,7 @@
     "dist/"
   ],
   "dependencies": {
-    "@amsterdam/icons-react": "workspace:*",
+    "@amsterdam/design-system-react-icons": "workspace:*",
     "clsx": "1.2.1",
     "date-fns": "2.29.3"
   },
