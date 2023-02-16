@@ -1,3 +1,5 @@
+<!-- @license CC-BY-4.0 -->
+
 # Gedragscode voor Bijdragers
 
 ## Onze belofte

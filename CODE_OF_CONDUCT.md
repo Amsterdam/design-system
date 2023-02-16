@@ -1,3 +1,5 @@
+<!-- @license CC-BY-4.0 -->
+
 # Code of Conduct
 
 ## Our Pledge

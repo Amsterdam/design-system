@@ -1,5 +1,6 @@
 /**
  * @license EUPL-1.2
+ * Copyright (c) Gemeente Amsterdam
  */
 
 import { ChevronRight } from '@amsterdam/design-system-react-icons'

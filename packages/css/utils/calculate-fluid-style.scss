@@ -1,3 +1,8 @@
+/**
+ * @license EUPL-1.2
+ * Copyright (c) Gemeente Amsterdam
+ */
+
 @use "sass:math";
 
 @function calculate-fluid-style($minSizePx, $maxSizePx, $minScreenWidthPx: 320, $maxScreenWidthPx: 1920) {

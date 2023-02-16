@@ -1,3 +1,8 @@
+/**
+ * @license EUPL-1.2
+ * Copyright (c) Gemeente Amsterdam
+ */
+
 import clsx from 'clsx'
 import { HTMLAttributes, PropsWithChildren } from 'react'
 
