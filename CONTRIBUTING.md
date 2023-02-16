@@ -19,7 +19,7 @@ Currently, you can find the most up-to-date documentation on design and UX on [a
 
 If you want to add a component, first check if it's already included in the [Design System's Figma](<https://www.figma.com/file/ORa7CBIooPgZj6HsEPBxNR/Design-bibliotheek-(gepubliceerd)?node-id=149%3A1324&t=Ud6eZytawJYnLlyi-0>).
 
-If there is no design, or if you have questions about an existing design, please contact [designsystem@amsterdam.nl](designsystem@amsterdam.nl).
+If there is no design, or if you have questions about an existing design, please contact <designsystem@amsterdam.nl>.
 
 ## Install prerequisites
 
