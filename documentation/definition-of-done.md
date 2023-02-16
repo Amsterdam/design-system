@@ -4,7 +4,7 @@
 
 ## Generic
 
-- You've followed [the contribution guidelines](../README.md#contribution-guidelines)
+- You've followed [the contribution guidelines](../CONTRIBUTING.md)
 - You've added or updated the story of the component
 - Your code has the necessary tests written
 - The component is exported in the relevant `index.ts`
