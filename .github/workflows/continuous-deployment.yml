@@ -80,10 +80,16 @@ jobs:
           pnpm install
 
       - name: "Continuous Integration: build"
-        env:
-          BASE_URL: "/utrecht/"
         run: |
           pnpm run --if-present build
+
+      - name: "Continuous Integration: lint"
+        run: |
+          pnpm run --if-present lint
+
+      - name: "Continuous Integration: test"
+        run: |
+          pnpm run --if-present test
 
       - name: "Retain build artifact: storybook"
         uses: actions/upload-artifact@v3
@@ -91,86 +97,6 @@ jobs:
           name: storybook
           path: storybook/storybook-react/dist/
           retention-days: 1
-
-  lint:
-    runs-on: ubuntu-latest
-    needs: build
-
-    steps:
-      - name: Checkout branch
-        uses: actions/checkout@v3
-
-      - name: Set up Node.js version
-        uses: actions/setup-node@v3
-        with:
-          node-version: "16.16.x"
-
-      - uses: pnpm/action-setup@v2.2.4
-        name: Install pnpm
-        id: pnpm-install
-        with:
-          version: 7
-          run_install: false
-
-      - name: Get pnpm store directory
-        id: pnpm-cache
-        run: |
-          echo "::set-output name=pnpm_cache_dir::$(pnpm store path)"
-      - uses: actions/cache@v3
-        name: Setup pnpm cache
-        with:
-          path: ${{ steps.pnpm-cache.outputs.pnpm_cache_dir }}
-          key: ${{ runner.os }}-pnpm-store-${{ hashFiles('**/pnpm-lock.yaml') }}
-          restore-keys: |
-            ${{ runner.os }}-pnpm-store-
-
-      - name: Install dependencies
-        run: |
-          pnpm install
-
-      - name: "Continuous Integration: lint"
-        run: |
-          pnpm run --if-present lint
-
-  test:
-    runs-on: ubuntu-latest
-    needs: build
-
-    steps:
-      - name: Checkout branch
-        uses: actions/checkout@v3
-
-      - name: Set up Node.js version
-        uses: actions/setup-node@v3
-        with:
-          node-version: "16.16.x"
-
-      - uses: pnpm/action-setup@v2.2.4
-        name: Install pnpm
-        id: pnpm-install
-        with:
-          version: 7
-          run_install: false
-
-      - name: Get pnpm store directory
-        id: pnpm-cache
-        run: |
-          echo "::set-output name=pnpm_cache_dir::$(pnpm store path)"
-      - uses: actions/cache@v3
-        name: Setup pnpm cache
-        with:
-          path: ${{ steps.pnpm-cache.outputs.pnpm_cache_dir }}
-          key: ${{ runner.os }}-pnpm-store-${{ hashFiles('**/pnpm-lock.yaml') }}
-          restore-keys: |
-            ${{ runner.os }}-pnpm-store-
-
-      - name: Install dependencies
-        run: |
-          pnpm install
-
-      - name: "Continuous Integration: test"
-        run: |
-          pnpm run --if-present test
 
   publish-website:
     runs-on: ubuntu-latest
