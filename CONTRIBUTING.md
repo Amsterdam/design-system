@@ -79,4 +79,4 @@ Package versioning and publishing is done through Lerna, by the maintainers of t
 
 ## Cooperation with NL Design System
 
-Certain Components available in this repository may become part of the NL Design System component library. When you contribute to this project you allow your contributions to be made a part of the NL Design System component library. The NL Design System project maintainers decide which components will be included in their component library.
+Components in this repository may become part of the NL Design System component library. When you contribute to this project you allow your contributions to be made a part of the NL Design System component library. The NL Design System project maintainers decide which components will be included in their component library.
