@@ -2,7 +2,7 @@
 
 # License
 
-Copyright (c) Gemeente Amsterdam. All rights reserved.
+Copyright (c) 2023 Gemeente Amsterdam. All rights reserved.
 
 The open source license does NOT apply to files in this directory.
 

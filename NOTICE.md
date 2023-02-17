@@ -2,7 +2,7 @@
 
 # Auteursrecht Gemeente Amsterdam
 
-Copyright (c) Gemeente Amsterdam
+Copyright (c) 2023 Gemeente Amsterdam
 
 ## Logo en huisstijl
 
