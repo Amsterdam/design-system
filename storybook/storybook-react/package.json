@@ -17,7 +17,7 @@
     "build": "build-storybook --output-dir dist/ --config-dir config/ --quiet",
     "clean": "rimraf dist/",
     "start": "http-server dist/",
-    "storybook": "start-storybook --config-dir config/ --port 6006"
+    "storybook": "start-storybook --config-dir config/ --port 6007"
   },
   "devDependencies": {
     "@amsterdam/design-system-css": "workspace:*",

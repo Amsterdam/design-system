@@ -1,0 +1,22 @@
+import { ArgsTable, Canvas, Meta, Story } from "@storybook/addon-docs";
+import { argTypes, defaultArgs, Paragraph } from "./story-template";
+
+import "@amsterdam/design-system-css/src/paragraph/paragraph.scss";
+
+<Meta
+  id="css-paragraph"
+  title="CSS Component/Paragraph"
+  component={Paragraph}
+  argTypes={argTypes}
+  args={{ ...defaultArgs, small: true }}
+/>
+
+# Paragraph
+
+Styling via the `<p>` element:
+
+<Canvas>
+  <Story name="Small">{Paragraph.bind({})}</Story>
+</Canvas>
+
+<ArgsTable story="Small" />
