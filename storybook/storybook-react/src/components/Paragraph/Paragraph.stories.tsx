@@ -4,7 +4,7 @@ import { ComponentMeta, ComponentStory } from '@storybook/react'
 import '@amsterdam/design-system-css/src/paragraph/paragraph.scss'
 
 export default {
-  title: 'React Components/Paragraph',
+  title: 'Paragraph',
   id: 'paragraph',
   component: Paragraph,
 } as ComponentMeta<typeof Paragraph>

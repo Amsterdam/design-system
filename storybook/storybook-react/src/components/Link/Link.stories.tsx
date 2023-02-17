@@ -5,7 +5,7 @@ import '@amsterdam/design-system-css/src/link/link.scss'
 import '@amsterdam/design-system-css/src/icon/icon.scss'
 
 export default {
-  title: 'React Components/Link',
+  title: 'Link',
   id: 'link',
   component: Link,
 } as ComponentMeta<typeof Link>

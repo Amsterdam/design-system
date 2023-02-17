@@ -18,4 +18,9 @@ export const parameters = {
       state: 'open',
     },
   },
+  options: {
+    storySort: {
+      order: ['Docs'],
+    },
+  },
 }

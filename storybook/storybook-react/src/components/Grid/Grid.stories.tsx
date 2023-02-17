@@ -5,7 +5,7 @@ import { argTypes } from './argTypes'
 import '@amsterdam/design-system-css/src/grid/grid.scss'
 
 export default {
-  title: 'React Components/Grid',
+  title: 'Grid',
   id: 'grid',
   component: Grid,
   argTypes,

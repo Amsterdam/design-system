@@ -17,6 +17,22 @@ module.exports = {
     postcss: false,
     buildStoriesJson: true,
   },
+  refs: (_, { configType }) => {
+    if (configType === 'DEVELOPMENT') {
+      return {
+        react: {
+          title: 'React Components',
+          url: 'http://localhost:6007',
+        },
+      }
+    }
+    return {
+      react: {
+        title: 'React.js Components',
+        url: '../storybook-react',
+      },
+    }
+  },
   webpackFinal: async (config) => ({
     ...config,
     performance: {

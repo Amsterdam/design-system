@@ -4,7 +4,7 @@ import { ComponentMeta, ComponentStory } from '@storybook/react'
 import '@amsterdam/design-system-css/src/list/list.scss'
 
 export default {
-  title: 'React Components/List',
+  title: 'List',
   id: 'list',
   component: List,
 } as ComponentMeta<typeof List>
