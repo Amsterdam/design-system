@@ -1,5 +1,9 @@
 /* eslint-env node */
 module.exports = {
+  core: {
+    builder: '@storybook/builder-webpack5',
+    disableTelemetry: true,
+  },
   stories: ['../src/**/*.stories.mdx', '../src/**/*.stories.@(js|jsx|ts|tsx)'],
   addons: [
     '@storybook/addon-links',
@@ -8,15 +12,12 @@ module.exports = {
     '@storybook/addon-a11y',
     '@storybook/preset-scss',
   ],
-  framework: '@storybook/react',
-  core: {
-    builder: '@storybook/builder-webpack5',
-    disableTelemetry: true,
-  },
   features: {
     postcss: false,
     buildStoriesJson: true,
+    previewMdx2: true,
   },
+  framework: '@storybook/react',
   refs: (_, { configType }) => {
     if (configType === 'DEVELOPMENT') {
       return {
