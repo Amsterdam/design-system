@@ -5,7 +5,7 @@ import { ComponentMeta, ComponentStory } from '@storybook/react'
 import '@amsterdam/design-system-css/src/icon/icon.scss'
 
 export default {
-  title: 'React Components/Icon',
+  title: 'Icon',
   id: 'icon',
   component: Icon,
 } as ComponentMeta<typeof Icon>

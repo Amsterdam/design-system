@@ -4,7 +4,7 @@ import { ComponentMeta, ComponentStory } from '@storybook/react'
 import '@amsterdam/design-system-css/src/list/list.scss'
 
 export default {
-  title: 'React Components/List',
+  title: 'List',
   id: 'list',
   component: List,
 } as ComponentMeta<typeof List>
@@ -16,9 +16,9 @@ export const Default = Template.bind({})
 Default.args = {
   children: (
     <>
-      <li>List item one</li>
-      <li>List item two</li>
-      <li>List item three</li>
+      <li>Rijbewijs verlengen</li>
+      <li>Verhuizing doorgeven</li>
+      <li>Parkeertijd bezoek doorgeven</li>
     </>
   ),
 }
