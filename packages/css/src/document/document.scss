@@ -3,19 +3,19 @@
  * Copyright (c) 2023 Gemeente Amsterdam
  */
 
-@import "normalize.css";
-@import "../../utils/calculate-fluid-style";
+// @import "normalize.css";
+// @import "../../utils/calculate-fluid-style";
 
-body {
-  font-family: "Amsterdam Sans", "Arial", sans-serif;
-  font-size: calculate-fluid-style(18, 24);
-  font-weight: 400;
-  line-height: 160%;
-}
+// body {
+//   font-family: "Amsterdam Sans", "Arial", sans-serif;
+//   font-size: calculate-fluid-style(18, 24);
+//   font-weight: 400;
+//   line-height: 160%;
+// }
 
-/* Use border-box sizing by default for all elements */
-*,
-*::before,
-*::after {
-  box-sizing: border-box;
-}
+// /* Use border-box sizing by default for all elements */
+// *,
+// *::before,
+// *::after {
+//   box-sizing: border-box;
+// }
