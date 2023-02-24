@@ -16,9 +16,9 @@ export const Default = Template.bind({})
 Default.args = {
   children: (
     <>
-      <li>List item one</li>
-      <li>List item two</li>
-      <li>List item three</li>
+      <li>Rijbewijs verlengen</li>
+      <li>Verhuizing doorgeven</li>
+      <li>Parkeertijd bezoek doorgeven</li>
     </>
   ),
 }

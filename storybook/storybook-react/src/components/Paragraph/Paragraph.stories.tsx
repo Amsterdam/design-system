@@ -14,5 +14,5 @@ const Template: ComponentStory<typeof Paragraph> = (args) => <Paragraph {...args
 export const Default = Template.bind({})
 
 Default.args = {
-  children: 'Hic sunt dracones!',
+  children: 'Jouw typograaf biedt mij zulke exquise schreven!',
 }

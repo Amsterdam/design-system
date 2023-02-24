@@ -18,7 +18,7 @@ export const argTypes = {
 }
 
 export const defaultArgs = {
-  textContent: 'Hic sunt dracones!',
+  textContent: 'Jouw typograaf biedt mij zulke exquise schreven!',
   intro: false,
   small: false,
 }

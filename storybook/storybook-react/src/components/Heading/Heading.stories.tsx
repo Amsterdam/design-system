@@ -14,5 +14,5 @@ const Template: ComponentStory<typeof Heading> = (args) => <Heading {...args} />
 export const Default = Template.bind({})
 
 Default.args = {
-  children: 'Heading',
+  children: 'Jouw typograaf biedt mij zulke exquise schreven!',
 }

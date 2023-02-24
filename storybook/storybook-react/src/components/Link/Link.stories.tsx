@@ -15,5 +15,5 @@ const Template: ComponentStory<typeof Link> = (args) => <Link href="#" {...args}
 export const Default = Template.bind({})
 
 Default.args = {
-  children: 'Link',
+  children: 'Jouw typograaf biedt mij zulke exquise schreven!',
 }
