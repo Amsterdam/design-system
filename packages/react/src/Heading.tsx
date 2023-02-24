@@ -10,8 +10,8 @@ import { ForwardedRef, forwardRef, HTMLAttributes, PropsWithChildren } from 'rea
 type Levels = 1 | 2 | 3 | 4 | 5 | 6
 
 export interface HeadingProps extends HTMLAttributes<HTMLHeadingElement> {
-  level: Levels
-  styleLevel: Levels
+  level?: Levels
+  styleLevel?: Levels
 }
 
 function getElement(level: Levels) {
