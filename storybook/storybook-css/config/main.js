@@ -30,7 +30,7 @@ module.exports = {
     return {
       react: {
         title: 'React.js Components',
-        url: '../storybook-react',
+        url: '../design-system/storybook-react',
       },
     }
   },
