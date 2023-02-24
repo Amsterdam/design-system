@@ -1,9 +1,9 @@
 {
   "version": "0.0.0",
   "author": "Community for NL Design System",
-  "description": "Storybook React website for the City of Amsterdam based on the NL Design System architecture",
+  "description": "Storybook CSS website for the City of Amsterdam based on the NL Design System architecture",
   "license": "EUPL-1.2",
-  "name": "@amsterdam/storybook-react",
+  "name": "@amsterdam/storybook-css",
   "keywords": [
     "nl-design-system"
   ],
@@ -11,49 +11,41 @@
   "repository": {
     "type": "git",
     "url": "https://github.com/Amsterdam/design-system.git",
-    "directory": "storybook/storybook-react"
+    "directory": "storybook/storybook-css"
   },
   "scripts": {
-    "build": "build-storybook --output-dir dist/ --config-dir config/ --quiet",
+    "build": "build-storybook --output-dir dist/ --config-dir config/",
     "clean": "rimraf dist/",
-    "start": "http-server dist/",
-    "storybook": "start-storybook --config-dir config/ --port 6007 --no-open"
+    "storybook": "start-storybook --config-dir config/ --port 6006"
   },
   "devDependencies": {
     "@amsterdam/design-system-css": "workspace:*",
-    "@amsterdam/design-system-react": "workspace:*",
-    "@amsterdam/design-system-tokens": "workspace:*",
     "@amsterdam/design-system-font": "workspace:*",
-    "@amsterdam/design-system-react-icons": "workspace:*",
+    "@amsterdam/design-system-tokens": "workspace:*",
     "@babel/core": "7.20.12",
     "@mdx-js/react": "2.3.0",
     "@storybook/addon-a11y": "6.5.16",
     "@storybook/addon-actions": "6.5.16",
     "@storybook/addon-docs": "6.5.16",
-    "@storybook/addon-essentials": "6.5.16",
     "@storybook/addon-interactions": "6.5.16",
     "@storybook/addon-links": "6.5.16",
-    "@storybook/addons": "6.5.16",
-    "@storybook/api": "6.5.16",
+    "@storybook/addon-viewport": "6.5.16",
     "@storybook/builder-webpack5": "6.5.16",
-    "@storybook/components": "6.5.16",
-    "@storybook/core-events": "6.5.16",
     "@storybook/manager-webpack5": "6.5.16",
     "@storybook/mdx2-csf": "0.0.4",
     "@storybook/preset-scss": "1.0.3",
     "@storybook/react": "6.5.16",
     "@storybook/testing-library": "0.0.13",
-    "@types/react": "18.0.28",
+    "@types/react": "17.0.53",
+    "@types/react-dom": "18.0.11",
     "babel-loader": "9.1.2",
     "css-loader": "6.7.3",
-    "date-fns": "2.29.3",
-    "http-server": "14.1.1",
     "react": "17.0.2",
     "react-dom": "17.0.2",
     "require-from-string": "2.0.2",
+    "sass": "1.58.3",
     "sass-loader": "13.2.0",
-    "storybook": "6.5.16",
-    "style-loader": "3.3.1",
+    "style-loader": "2.0.0",
     "typescript": "4.9.5",
     "webpack": "5.75.0"
   }

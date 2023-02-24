@@ -37,7 +37,6 @@
     "npm-check-updates": "16.7.5",
     "npm-package-json-lint": "6.4.0",
     "npm-run-all": "4.1.5",
-    "nx": "15.7.2",
     "postcss": "8.4.21",
     "prettier": "2.8.4",
     "rimraf": "4.1.2",
@@ -74,6 +73,7 @@
     "update-patch": "npm-check-updates --configFileName .ncurc.patch.js --deep --dep dev,prod --target patch --upgrade && pnpm install",
     "update-minor": "npm-check-updates --configFileName .ncurc.minor.js --deep --dep dev,prod --target minor --upgrade && pnpm install",
     "update-major": "npm-check-updates --configFileName .ncurc.major.js --deep --dep dev,prod --target latest --upgrade && pnpm install",
+    "watch:storybook-css": "npm run --workspace storybook/storybook-css storybook",
     "watch:storybook-react": "npm run --workspace storybook/storybook-react storybook",
     "watch:style-dictionary": "lerna run watch:style-dictionary"
   },

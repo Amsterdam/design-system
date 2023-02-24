@@ -5,7 +5,7 @@ import '@amsterdam/design-system-css/src/link/link.scss'
 import '@amsterdam/design-system-css/src/icon/icon.scss'
 
 export default {
-  title: 'React Components/Link',
+  title: 'Link',
   id: 'link',
   component: Link,
 } as ComponentMeta<typeof Link>
@@ -15,5 +15,5 @@ const Template: ComponentStory<typeof Link> = (args) => <Link href="#" {...args}
 export const Default = Template.bind({})
 
 Default.args = {
-  children: 'Link',
+  children: 'Jouw typograaf biedt mij zulke exquise schreven!',
 }
