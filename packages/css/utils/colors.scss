@@ -1,0 +1,12 @@
+$blue: blue;
+$blue-lighter: rgb(60, 60, 255);
+$red: red;
+$gray: gray;
+
+
+
+:root {
+  --amsterdam-button-primary-action-background-color: #{$blue};
+  --amsterdam-button-primary-action-hover-background-color: #{$blue-lighter};
+  --amsterdam-button-primary-action-disabled-background-color: #{$gray};
+}

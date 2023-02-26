@@ -1,0 +1,53 @@
+{
+  "denhaag": {
+    "color": {
+      "green": {
+        "1": { "value": "hsl(117 28% 87%)", "name": "Green 1" },
+        "2": { "value": "hsl(118 28% 60%)", "name": "Green 2" },
+        "3": { "value": "hsl(138 58% 33%)", "name": "Green 3" },
+        "4": { "value": "hsl(138 57% 27%)", "name": "Green 4" },
+        "5": { "value": "hsl(139 100% 9%)", "name": "Green 5" }
+      },
+      "blue": {
+        "1": { "value": "hsl(208 76% 92%)", "name": "Blue 1" },
+        "2": { "value": "hsl(210 64% 80%)", "name": "Blue 2" },
+        "3": { "value": "hsl(207 80% 35%)", "name": "Blue 3" },
+        "4": { "value": "hsl(207 87% 27%)", "name": "Blue 4" },
+        "5": { "value": "hsl(207 93% 16%)", "name": "Blue 5" }
+      },
+      "ocher": {
+        "1": { "value": "hsl(50 100% 91%)", "name": "Ocher 1" },
+        "2": { "value": "hsl(50 100% 76%)", "name": "Ocher 2" },
+        "3": { "value": "hsl(50 94% 57%)", "name": "Ocher 3" },
+        "4": { "value": "hsl(47 100% 40%)", "name": "Ocher 4" },
+        "5": { "value": "hsl(47 100% 25%)", "name": "Ocher 5" }
+      },
+      "red": {
+        "1": { "value": "hsl(4 100% 92%)", "name": "Red 1" },
+        "2": { "value": "hsl(5 75% 72%)", "name": "Red 2" },
+        "3": { "value": "hsl(6 93% 42%)", "name": "Red 3" },
+        "4": { "value": "hsl(2 100% 32%)", "name": "Red 4" },
+        "5": { "value": "hsl(1 100% 16%)", "name": "Red 5" }
+      },
+      "orange": {
+        "1": { "value": "hsl(34 100% 84%)", "name": "Orange 1" },
+        "2": { "value": "hsl(34 100% 68%)", "name": "Orange 2" },
+        "3": { "value": "hsl(34 100% 47%)", "name": "Orange 3" },
+        "4": { "value": "hsl(23 99% 44%)", "name": "Orange 4" },
+        "5": { "value": "hsl(23 100% 27%)", "name": "Orange 5" }
+      },
+      "grey": {
+        "1": { "value": "hsl(0 0% 95%)", "name": "Grey 1" },
+        "2": { "value": "hsl(0 0% 82%)", "name": "Grey 2" },
+        "3": { "value": "hsl(0 0% 48%)", "name": "Grey 3" },
+        "4": { "value": "hsl(0 0% 29%)", "name": "Grey 4" },
+        "5": { "value": "hsla(0, 0%, 18%, 1)", "name": "Grey 5" }
+      },
+      "warmgrey": {
+        "1": { "value": "hsl(40 18% 97%)", "name": "Warm Grey 1" }
+      },
+      "black": { "value": "hsl(0 0% 0%)", "name": "Black" },
+      "white": { "value": "hsl(0 0% 100%)", "name": "White" }
+    }
+  }
+}

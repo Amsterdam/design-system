@@ -1,0 +1,183 @@
+@import "../../utils/colors";
+
+.amsterdam-button {
+    align-items: center;
+    background-color: var(--amsterdam-button-primary-action-background-color);
+    border: 0;
+    border-radius: var(--amsterdam-button-border-radius);
+    color: var(--amsterdam-button-primary-action-color);
+    cursor: var(--amsterdam-button-cursor, default);
+    display: inline-flex;
+    font-family: var(--amsterdam-button-font-family);
+    font-weight: var(--amsterdam-button-font-weight, 400);
+    font-size: var(--amsterdam-typography-scale-base-font-size);
+    justify-content: center;
+    line-height: 1.5;
+    padding-block-end: var(--amsterdam-button-medium-size-padding-block, var(--amsterdam-button-padding-block));
+    padding-block-start: var(--amsterdam-button-medium-size-padding-block, var(--amsterdam-button-padding-block));
+    padding-inline-end: var(--amsterdam-button-medium-size-padding-inline, var(--amsterdam-button-padding-inline));
+    padding-inline-start: var(--amsterdam-button-medium-size-padding-inline, var(--amsterdam-button-padding-inline));
+    position: relative;
+    text-decoration: none;
+  }
+  
+  a.amsterdam-button {
+    --amsterdam-button-cursor: pointer;
+  }
+  
+  .amsterdam-button--focus::after,
+  .amsterdam-button:focus::after,
+  .amsterdam-button--focus-visible::after,
+  .amsterdam-button:focus-visible::after {
+    border: var(--amsterdam-focus-border);
+    border-radius: var(--amsterdam-border-radius);
+    bottom: -2px;
+    content: "";
+    display: block;
+    left: -2px;
+    position: absolute;
+    right: -2px;
+    top: -2px;
+  }
+  
+  .amsterdam-button--focus-visible,
+  .amsterdam-button:focus-visible {
+    outline: none;
+  }
+  
+  /* Due to the accessibility focus outline overlapping with the border, the outline needs to be repositioned for the border variant */
+  .amsterdam-button--secondary-action.amsterdam-button--focus::after,
+  .amsterdam-button--secondary-action:focus::after {
+    bottom: -3px;
+    left: -3px;
+    right: -3px;
+    top: -3px;
+  }
+  
+  .amsterdam-button.amsterdam-button--hover,
+  .amsterdam-button:hover {
+    background-color: var(--amsterdam-button-primary-action-hover-background-color);
+    color: var(--amsterdam-button-primary-action-hover-color);
+  }
+  
+  .amsterdam-button.amsterdam-button--disabled,
+  .amsterdam-button.amsterdam-button:disabled {
+    background-color: var(--amsterdam-button-primary-action-disabled-background-color);
+    color: var(--amsterdam-button-primary-action-disabled-color);
+  }
+  
+  .amsterdam-button--secondary-action {
+    background-color: var(--amsterdam-button-secondary-action-background-color);
+    border-color: var(--amsterdam-button-secondary-action-border-color);
+    border-style: solid;
+    border-width: var(--amsterdam-button-border-width);
+    color: var(--amsterdam-button-secondary-action-color);
+    padding-block-end: calc(
+      var(--amsterdam-button-medium-size-padding-block, var(--amsterdam-button-padding-block)) -
+        var(--amsterdam-button-border-width)
+    );
+    padding-block-start: calc(
+      var(--amsterdam-button-medium-size-padding-block, var(--amsterdam-button-padding-block)) -
+        var(--amsterdam-button-border-width)
+    );
+    padding-inline-end: calc(
+      var(--amsterdam-button-medium-size-padding-inline, var(--amsterdam-button-padding-inline)) -
+        var(--amsterdam-button-border-width)
+    );
+    padding-inline-start: calc(
+      var(--amsterdam-button-medium-size-padding-inline, var(--amsterdam-button-padding-inline)) -
+        var(--amsterdam-button-border-width)
+    );
+  }
+  
+  .amsterdam-button--secondary-action.amsterdam-button--hover,
+  .amsterdam-button--secondary-action:hover {
+    background-color: var(--amsterdam-button-secondary-action-hover-background-color);
+    border-color: var(--amsterdam-button-secondary-action-hover-border-color);
+    color: var(--amsterdam-button-secondary-action-hover-color);
+  }
+  
+  .amsterdam-button--secondary-action.amsterdam-button--disabled,
+  .amsterdam-button--secondary-action.amsterdam-button:disabled {
+    background-color: var(--amsterdam-button-secondary-action-disabled-background-color);
+    border-color: var(--amsterdam-button-secondary-action-disabled-border-color);
+    color: var(--amsterdam-button-secondary-action-disabled-color);
+  }
+  
+  .amsterdam-button--large {
+    font-size: var(--amsterdam-typography-scale-lg-font-size);
+    padding-block-end: var(--amsterdam-button-large-size-padding-block, var(--amsterdam-button-padding-block));
+    padding-block-start: var(--amsterdam-button-large-size-padding-block, var(--amsterdam-button-padding-block));
+    padding-inline-end: var(--amsterdam-button-large-size-padding-inline, var(--amsterdam-button-padding-inline));
+    padding-inline-start: var(--amsterdam-button-large-size-padding-inline, var(--amsterdam-button-padding-inline));
+    line-height: var(--amsterdam-button-large-size-line-height);
+  }
+  
+  .amsterdam-button--large.amsterdam-button--secondary-action {
+    padding-block-end: calc(
+      var(--amsterdam-button-large-size-padding-block, var(--amsterdam-button-padding-block)) -
+        var(--amsterdam-button-border-width)
+    );
+    padding-block-start: calc(
+      var(--amsterdam-button-large-size-padding-block, var(--amsterdam-button-padding-block)) -
+        var(--amsterdam-button-border-width)
+    );
+    padding-inline-end: calc(
+      var(--amsterdam-button-large-size-padding-inline, var(--amsterdam-button-padding-inline)) -
+        var(--amsterdam-button-border-width)
+    );
+    padding-inline-start: calc(
+      var(--amsterdam-button-large-size-padding-inline, var(--amsterdam-button-padding-inline)) -
+        var(--amsterdam-button-border-width)
+    );
+  }
+  
+  .amsterdam-button__icon > *:first-child {
+    font-size: var(--amsterdam-typography-scale-lg-font-size);
+  }
+  
+  .amsterdam-button--large .amsterdam-button__icon > *:first-child {
+    font-size: var(--amsterdam-typography-scale-xl-font-size);
+  }
+  
+  .amsterdam-button--start-icon .amsterdam-button__icon {
+    display: inherit;
+    margin-inline-end: 8px;
+    margin-inline-start: -4px;
+  }
+  
+  .amsterdam-button--end-icon .amsterdam-button__icon {
+    display: inherit;
+    margin-inline-end: -4px;
+    margin-inline-start: 8px;
+  }
+  
+  .amsterdam-button__sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding-block-start: 0;
+    padding-block-end: 0;
+    padding-inline-start: 0;
+    padding-inline-end: 0;
+    margin-block-start: -1px;
+    margin-block-end: -1px;
+    margin-inline-start: -1px;
+    margin-inline-end: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    border: 0;
+  }
+  
+  .amsterdam-button--icon-only {
+    --amsterdam-button-medium-size-padding-inline: 0.75rem;
+  
+    height: var(--amsterdam-button-icon-only-height);
+    padding-inline-start: var(--amsterdam-button-medium-size-padding-inline);
+    padding-inline-end: var(--amsterdam-button-medium-size-padding-inline);
+  }
+  
+  .amsterdam-button--icon-only .amsterdam-button__icon {
+    height: var(--amsterdam-button-icon-only-icon-height);
+  }
+  
