@@ -1,5 +1,5 @@
 import { render } from '@testing-library/react'
-import { createRef } from 'react'
+import React, { createRef } from 'react'
 import { Paragraph } from './Paragraph'
 import '@testing-library/jest-dom'
 
