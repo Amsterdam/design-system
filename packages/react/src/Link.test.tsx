@@ -1,3 +1,4 @@
+import { Alert } from '@amsterdam/design-system-react-icons'
 import { render, screen } from '@testing-library/react'
 import React, { createRef } from 'react'
 import { Link } from './Link'
@@ -29,13 +30,47 @@ describe('Link', () => {
     expect(link).toHaveClass('amsterdam-link')
   })
 
-  // IT RENDERS THE RIGHT VARIANT CLASSES
+  it('renders the right variant classes', () => {
+    render(
+      <>
+        <Link variant="standalone">Standalone link</Link>
+        <Link variant="inList">Link in list</Link>
+        <Link variant="inline">Inline link</Link>
+      </>,
+    )
 
-  // IT RENDERS A SMALL ICON BEFORE THE CHILDREN WHEN JUST PASSING INLIST
+    const standaloneLink = screen.getByText('Standalone link')
+    const linkInList = screen.getByText('Link in list')
+    const inlineLink = screen.getByText('Inline link')
 
-  // IT RENDERS A BIGGER ICON BEFORE THE CHILDREN  WHEN PASSING INLIST AND AN ICON
+    expect(standaloneLink).toHaveClass('amsterdam-link-standalone')
+    expect(linkInList).toHaveClass('amsterdam-link-inlist')
+    expect(inlineLink).toHaveClass('amsterdam-link-inline')
+  })
 
-  // IT RENDERS AN ICON AFTER THE CHILDREN WHEN PASSING INLINE & ICON
+  it('renders without any icons by default', () => {
+    const { container } = render(<Link />)
+
+    const svgContainer = container.querySelector(':only-child span')
+
+    expect(svgContainer).toBeNull()
+  })
+
+  it('renders small icon when using variant inList', () => {
+    const { container } = render(<Link variant="inList" />)
+
+    const svgContainer = container.querySelector(':only-child span')
+
+    expect(svgContainer).toHaveClass('amsterdam-icon-small')
+  })
+
+  it('renders a bigger icon when using variant inList and passing an icon', () => {
+    const { container } = render(<Link variant="inList" icon={<Alert />} />)
+
+    const svgContainer = container.querySelector(':only-child span')
+
+    expect(svgContainer).toHaveClass('amsterdam-icon-medium')
+  })
 
   it('renders rich text content', () => {
     const { container } = render(
