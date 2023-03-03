@@ -4,5 +4,5 @@
     "noEmit": true
   },
   "include": ["next-env.d.ts", "src/*.test.ts", "src/*.test.tsx"],
-  "exclude": ["**/node_modules/*"]
+  "exclude": ["node_modules"]
 }
