@@ -58,12 +58,22 @@ describe('Paragraph', () => {
     expect(leadParagraph).toHaveClass('amsterdam-paragraph-intro')
   })
 
-  it('can have a custom class name', () => {
+  it('has a small paragraph variant', () => {
+    const { container } = render(<Paragraph variant="small" />)
+
+    const smallParagraph = container.querySelector(':only-child')
+
+    expect(smallParagraph).toHaveClass('amsterdam-paragraph-small')
+  })
+
+  it('can have a additional class name', () => {
     const { container } = render(<Paragraph className="intro" />)
 
     const paragraph = container.querySelector(':only-child')
 
     expect(paragraph).toHaveClass('intro')
+
+    expect(paragraph).toHaveClass('amsterdam-paragraph')
   })
 
   it('supports ForwardRef in React', () => {
