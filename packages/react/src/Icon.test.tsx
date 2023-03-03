@@ -1,6 +1,6 @@
 import { Alert } from '@amsterdam/design-system-react-icons'
 import { render, screen } from '@testing-library/react'
-import React, { createRef } from 'react'
+import { createRef } from 'react'
 import { Icon } from './Icon'
 import '@testing-library/jest-dom'
 
