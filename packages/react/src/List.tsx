@@ -4,12 +4,19 @@
  */
 
 import clsx from 'clsx'
-import { HTMLAttributes, PropsWithChildren } from 'react'
+import { ForwardedRef, forwardRef, HTMLAttributes, PropsWithChildren } from 'react'
 
-export const List = ({ children, className, ...restProps }: PropsWithChildren<HTMLAttributes<HTMLUListElement>>) => {
-  return (
-    <ul className={clsx('amsterdam-list', className)} {...restProps}>
-      {children}
-    </ul>
-  )
-}
+export const List = forwardRef(
+  (
+    { children, className, ...restProps }: PropsWithChildren<HTMLAttributes<HTMLUListElement>>,
+    ref: ForwardedRef<HTMLUListElement>,
+  ) => {
+    return (
+      <ul ref={ref} className={clsx('amsterdam-list', className)} {...restProps}>
+        {children}
+      </ul>
+    )
+  },
+)
+
+List.displayName = 'List'
