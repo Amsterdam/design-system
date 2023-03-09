@@ -21,7 +21,7 @@
     "build": "rollup -c",
     "build:watch": "rollup -c --watch",
     "clean": "rimraf dist/",
-    "lint": "tsc --project ./tsconfig.json --noEmit && tsc --noEmit",
+    "lint": "tsc --project ./tsconfig.json --noEmit && tsc --noEmit --project ./tsconfig.test.json",
     "test": "jest --verbose",
     "watch:test": "NODE_OPTIONS=--experimental-vm-modules jest --verbose --watch"
   },
