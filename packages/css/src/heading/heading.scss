@@ -5,15 +5,22 @@
 
 @import "../../utils/calculate-fluid-style";
 
+@mixin reset {
+  box-sizing: border-box;
+}
+
 .amsterdam-heading {
   break-after: avoid;
   break-inside: avoid;
-  color: black;
-  font-weight: 800;
+  color: var(--amsterdam-color-primary-black);
+  font-family: var(--amsterdam-typography-font-family);
+  font-weight: var(--amsterdam-typography-font-weight-bold);
   margin-block-end: 0;
   margin-block-start: 0;
   margin-inline-end: 0;
   margin-inline-start: 0;
+
+  @include reset;
 }
 
 .amsterdam-heading-1 {

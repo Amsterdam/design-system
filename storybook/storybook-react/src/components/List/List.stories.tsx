@@ -1,4 +1,4 @@
-import { List } from '@amsterdam/design-system-react/src'
+import { Heading, List, Paragraph } from '@amsterdam/design-system-react/src'
 import { ComponentMeta, ComponentStory } from '@storybook/react'
 
 import '@amsterdam/design-system-css/src/list/list.scss'
@@ -16,9 +16,18 @@ export const Default = Template.bind({})
 Default.args = {
   children: (
     <>
-      <li>Rijbewijs verlengen</li>
-      <li>Verhuizing doorgeven</li>
-      <li>Parkeertijd bezoek doorgeven</li>
+      <li>
+        <Heading styleLevel={5}>Parkeren</Heading>
+        <Paragraph>Alles over parkeren en verkeer in de stad.</Paragraph>
+      </li>
+      <li>
+        <Heading styleLevel={5}>Parkeertijd bezoek doorgeven</Heading>
+        <Paragraph>Bezoekers- of kraskaart-vergunning? Geef hier parkeertijd van uw bezoek door.</Paragraph>
+      </li>
+      <li>
+        <Heading styleLevel={5}>Verhuizing doorgeven</Heading>
+        <Paragraph>Naar en binnen Amsterdam.</Paragraph>
+      </li>
     </>
   ),
 }

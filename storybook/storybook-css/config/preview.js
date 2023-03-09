@@ -1,5 +1,4 @@
 import '@amsterdam/design-system-tokens/dist/root.css'
-import '@amsterdam/design-system-css/src/document/document.scss'
 import '@amsterdam/design-system-font/static/index.css'
 
 export const parameters = {

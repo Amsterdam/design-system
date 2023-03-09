@@ -5,10 +5,20 @@
 
 @import "../../utils/calculate-fluid-style";
 
+@mixin reset {
+  box-sizing: border-box;
+  -webkit-text-size-adjust: 100%;
+}
+
 .amsterdam-paragraph {
+  color: var(--amsterdam-color-primary-black);
+  font-family: var(--amsterdam-typography-font-family);
   font-size: calculate-fluid-style(18, 24);
+  font-weight: var(--amsterdam-typography-font-weight-normal);
   line-height: calculate-fluid-style(29, 38);
   margin-block: 0;
+
+  @include reset;
 }
 
 .amsterdam-paragraph-intro {

@@ -27,7 +27,6 @@ Import the packages you need.
 ```javascript
 import { Paragraph } from "@amsterdam/design-system-react";
 
-import "@amsterdam/design-system-css/dist/document/document.css";
 import "@amsterdam/design-system-css/dist/paragraph/paragraph.css";
 import "@amsterdam/design-system-tokens/dist/root.css";
 import "@amsterdam/design-system-font/static/index.css";

@@ -5,14 +5,21 @@
 
 @import "../../utils/calculate-fluid-style";
 
+@mixin reset {
+  box-sizing: border-box;
+}
+
 .amsterdam-link {
   color: var(--amsterdam-color-primary-blue);
   display: inline-flex;
+  font-family: var(--amsterdam-typography-font-family);
   font-size: calculate-fluid-style(18, 24);
-  font-weight: 800;
+  font-weight: var(--amsterdam-typography-font-weight-bold);
   line-height: calculate-fluid-style(29, 38);
   outline-offset: var(--amsterdam-focus-outline-offset);
   text-decoration: none;
+
+  @include reset;
 }
 
 .amsterdam-link:focus,
@@ -23,7 +30,7 @@
 
 .amsterdam-link-standalone {
   box-shadow: inset 0 -2px var(--amsterdam-color-primary-blue);
-  font-weight: 400;
+  font-weight: var(--amsterdam-typography-font-weight-normal);
   transition: box-shadow 100ms ease-in-out, color 100ms ease-in-out;
 }
 
@@ -34,17 +41,16 @@
 }
 
 .amsterdam-link-inline {
-  color: var(--amsterdam-color-primary-blue);
   display: inline;
   font-size: inherit;
-  font-weight: 400;
+  font-weight: var(--amsterdam-typography-font-weight-normal);
   letter-spacing: inherit;
   line-height: inherit;
 }
 
 .amsterdam-link-inlist {
   font-size: calculate-fluid-style(16, 18);
-  font-weight: 400;
+  font-weight: var(--amsterdam-typography-font-weight-normal);
   line-height: calculate-fluid-style(24, 26);
   padding-block: 12px;
 }

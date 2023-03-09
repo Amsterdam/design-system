@@ -1,0 +1,17 @@
+{
+  "amsterdam": {
+    "typography": {
+      "font-family": {
+        "value": "'Amsterdam Sans', Arial, sans-serif"
+      },
+      "font-weight": {
+        "normal": {
+          "value": 400
+        },
+        "bold": {
+          "value": 800
+        }
+      }
+    }
+  }
+}
