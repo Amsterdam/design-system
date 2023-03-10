@@ -8,7 +8,7 @@ The CSS components that implement the Utrecht design system class names are publ
 
 ## Stability of the components
 
-The React components are released as _alpha_ version, which means the components are still work in progress and it is likely that some APIs will between releases.
+The React components are released as _alpha_ version, which means the components are still work in progress and it is likely that some APIs will change between releases.
 
 Make sure you specify the exact version as dependency, so you can schedule to upgrade to the latest version when you have time to test for regression bugs.
 
