@@ -13,5 +13,3 @@ updates:
       interval: "weekly"
     versioning-strategy: "increase-if-necessary"
     open-pull-requests-limit: 20
-    reviewers:
-      - "nl-design-system/sysadmin"
