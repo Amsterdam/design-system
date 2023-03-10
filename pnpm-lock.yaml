@@ -63,9 +63,11 @@ importers:
 
   packages/css:
     specifiers:
+      '@amsterdam/design-system-tokens': workspace:*
       normalize.css: 8.0.1
       sass: 1.58.3
     dependencies:
+      '@amsterdam/design-system-tokens': link:../tokens
       normalize.css: 8.0.1
     devDependencies:
       sass: 1.58.3

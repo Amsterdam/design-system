@@ -51,7 +51,7 @@ describe('Paragraph', () => {
   })
 
   it('has an intro paragraph variant', () => {
-    const { container } = render(<Paragraph variant="intro" />)
+    const { container } = render(<Paragraph size="large" />)
 
     const leadParagraph = container.querySelector(':only-child')
 
@@ -59,7 +59,7 @@ describe('Paragraph', () => {
   })
 
   it('has a small paragraph variant', () => {
-    const { container } = render(<Paragraph variant="small" />)
+    const { container } = render(<Paragraph size="small" />)
 
     const smallParagraph = container.querySelector(':only-child')
 
