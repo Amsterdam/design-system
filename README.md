@@ -18,7 +18,7 @@ We pledge to act and interact in ways that contribute to an open, welcoming, div
 
 ## NL Design System
 
-This project is part of a community iniative to use NL Design System components for projects that need to adhere to the Amsterdam Design System.
+This project is part of a community initiative to use NL Design System components for projects that need to adhere to the Amsterdam Design System.
 
 For more info about the NL Design System and learn about things happening in our open source community, join the `#nl-design-system` Slack via [praatmee.codefor.nl](https://praatmee.codefor.nl)!
 
