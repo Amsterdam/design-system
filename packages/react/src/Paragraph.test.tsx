@@ -42,20 +42,20 @@ describe('Paragraph', () => {
     expect(richText).toBeInTheDocument()
   })
 
-  it('is not an intro paragraph variant by default', () => {
+  it('is not a large paragraph variant by default', () => {
     const { container } = render(<Paragraph />)
 
     const paragraph = container.querySelector(':only-child')
 
-    expect(paragraph).not.toHaveClass('amsterdam-paragraph-intro')
+    expect(paragraph).not.toHaveClass('amsterdam-paragraph-large')
   })
 
-  it('has an intro paragraph variant', () => {
+  it('has a large paragraph variant', () => {
     const { container } = render(<Paragraph size="large" />)
 
     const leadParagraph = container.querySelector(':only-child')
 
-    expect(leadParagraph).toHaveClass('amsterdam-paragraph-intro')
+    expect(leadParagraph).toHaveClass('amsterdam-paragraph-large')
   })
 
   it('has a small paragraph variant', () => {
