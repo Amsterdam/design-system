@@ -19,15 +19,16 @@
   font-weight: var(--amsterdam-typography-font-weight-normal);
   line-height: var(--amsterdam-typography-line-height-160);
   margin-block: 0;
+  max-width: 80ch;
 
   @include reset;
 }
 
 .amsterdam-paragraph-small {
-  font-size: calculate-fluid-style(16, 18);
+  font-size: calculate-fluid-style($amsterdam-typography-font-size-16, $amsterdam-typography-font-size-18);
 }
 
 .amsterdam-paragraph-large {
-  font-size: calculate-fluid-style(22, 30);
+  font-size: calculate-fluid-style($amsterdam-typography-font-size-22, $amsterdam-typography-font-size-30);
   line-height: var(--amsterdam-typography-line-height-150);
 }
