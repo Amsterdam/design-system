@@ -7,7 +7,12 @@ export default {
   title: 'Paragraph',
   id: 'paragraph',
   component: Paragraph,
-  argTypes: { size: { control: 'radio', options: ['large', 'small'] } },
+  argTypes: {
+    size: {
+      control: { type: 'select', labels: { undefined: 'default', large: 'large', small: 'small' } },
+      options: [undefined, 'large', 'small'],
+    },
+  },
 } as ComponentMeta<typeof Paragraph>
 
 const Template: ComponentStory<typeof Paragraph> = (args) => <Paragraph {...args} />
