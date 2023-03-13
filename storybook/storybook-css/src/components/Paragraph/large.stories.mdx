@@ -8,7 +8,7 @@ import "@amsterdam/design-system-css/src/paragraph/paragraph.scss";
   title="CSS Components/Paragraph"
   component={Paragraph}
   argTypes={argTypes}
-  args={{ ...defaultArgs, intro: true }}
+  args={{ ...defaultArgs, size: "large" }}
 />
 
 # Paragraph
@@ -16,7 +16,7 @@ import "@amsterdam/design-system-css/src/paragraph/paragraph.scss";
 Styling via the `<p>` element:
 
 <Canvas>
-  <Story name="Intro">{Paragraph.bind({})}</Story>
+  <Story name="Large">{Paragraph.bind({})}</Story>
 </Canvas>
 
-<ArgsTable story="Intro" />
+<ArgsTable story="Large" />
