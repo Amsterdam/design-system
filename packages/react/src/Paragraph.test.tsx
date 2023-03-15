@@ -1,4 +1,4 @@
-import { render } from '@testing-library/react'
+import { render, screen } from '@testing-library/react'
 import { createRef } from 'react'
 import { Paragraph } from './Paragraph'
 import '@testing-library/jest-dom'
@@ -42,28 +42,28 @@ describe('Paragraph', () => {
     expect(richText).toBeInTheDocument()
   })
 
-  it('is not a large paragraph variant by default', () => {
+  it('is a default paragraph without specifying props', () => {
     const { container } = render(<Paragraph />)
 
     const paragraph = container.querySelector(':only-child')
 
     expect(paragraph).not.toHaveClass('amsterdam-paragraph-large')
+    expect(paragraph).not.toHaveClass('amsterdam-paragraph-small')
   })
 
-  it('has a large paragraph variant', () => {
-    const { container } = render(<Paragraph size="large" />)
+  it('renders the right size classes', () => {
+    render(
+      <>
+        <Paragraph size="small">Small paragraph</Paragraph>
+        <Paragraph size="large">Large paragraph</Paragraph>
+      </>,
+    )
 
-    const leadParagraph = container.querySelector(':only-child')
-
-    expect(leadParagraph).toHaveClass('amsterdam-paragraph-large')
-  })
-
-  it('has a small paragraph variant', () => {
-    const { container } = render(<Paragraph size="small" />)
-
-    const smallParagraph = container.querySelector(':only-child')
+    const smallParagraph = screen.getByText('Small paragraph')
+    const largeParagraph = screen.getByText('Large paragraph')
 
     expect(smallParagraph).toHaveClass('amsterdam-paragraph-small')
+    expect(largeParagraph).toHaveClass('amsterdam-paragraph-large')
   })
 
   it('can have a additional class name', () => {
