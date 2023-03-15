@@ -23,8 +23,7 @@ export const Paragraph = ({ textContent = defaultArgs.textContent, size = defaul
   <p
     className={clsx(
       'amsterdam-paragraph',
-      size === 'large' && 'amsterdam-paragraph-large',
-      size === 'small' && 'amsterdam-paragraph-small',
+      size && `amsterdam-paragraph-${size}`,
     )}
   >
     {textContent}
