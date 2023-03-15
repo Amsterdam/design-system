@@ -20,8 +20,7 @@ export const Paragraph = forwardRef(
       ref={ref}
       className={clsx(
         'amsterdam-paragraph',
-        size === 'small' && 'amsterdam-paragraph-small',
-        size === 'large' && 'amsterdam-paragraph-large',
+        size && `amsterdam-paragraph-${size}`,
         className,
       )}
       {...otherProps}
