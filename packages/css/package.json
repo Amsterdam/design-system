@@ -17,11 +17,8 @@
     "build": "sass src/:dist/",
     "clean": "rimraf dist/"
   },
-  "dependencies": {
-    "@amsterdam/design-system-tokens": "workspace:*",
-    "normalize.css": "8.0.1"
-  },
   "devDependencies": {
+    "@amsterdam/design-system-tokens": "workspace:*",
     "sass": "1.58.3"
   }
 }
