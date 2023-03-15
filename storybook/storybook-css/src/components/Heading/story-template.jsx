@@ -40,8 +40,8 @@ export const defaultArgs = {
 
 export const Heading = ({
   textContent = defaultArgs.textContent,
-  level = defaultArgs.intro,
-  styleLevel = defaultArgs.small,
+  level = defaultArgs.level,
+  styleLevel = defaultArgs.styleLevel,
 }) =>
   React.createElement(
     `h${level}`,
