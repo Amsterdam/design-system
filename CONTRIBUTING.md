@@ -71,9 +71,9 @@ If you need to link your local version of this library (to test your unpublished
 - Run `npm link <package-name>`. If you want to link multiple packages, seperate the package names with a space. For example: `npm link @amsterdam/design-system-tokens @amsterdam/design-system-css @amsterdam/design-system-font @amsterdam/design-system-react @amsterdam/design-system-react-icons`. Be careful: you have to link all packages in the same namespace together. Doing it one at a time will only link the last one. TODO: is there a workaround for this?
 - Sometimes the local link is severed. Run `npm link @amsterdam/...` again if this happens.
 
-## Licencing
+## Licensing
 
-All Javascript, Typescript and style files should start with a licence header. We use the EUPL-1.2 licence for these files. The copyright holder for all files created by people working for the City of Amsterdam is the City of Amsterdam, so add this in a copyright notice below the licence declaration. The year of the copyright notice is the year in which the copyright starts. If you use code from other EUPL-1.2 licensed files that have a copyright notice, don't forget to add this copyright notice as well. So, for a file with code written by someone working for the City of Amsterdam in 2023, but also containing code from another EUPL-1.2 licenced file written by John Doe in 2021, the header would look like this:
+All Javascript, Typescript and style files should start with a license header. We use the EUPL-1.2 license for these files. The copyright holder for all files created by people working for the City of Amsterdam is the City of Amsterdam, so add this in a copyright notice below the license declaration. The year of the copyright notice is the year in which the copyright starts. If you use code from other EUPL-1.2 licensed files that have a copyright notice, don't forget to add this copyright notice as well. So, for a file with code written by someone working for the City of Amsterdam in 2023, but also containing code from another EUPL-1.2 licensed file written by John Doe in 2021, the header would look like this:
 
 ```javascript
 /**
@@ -83,13 +83,13 @@ All Javascript, Typescript and style files should start with a licence header. W
  */
 ```
 
-All documentation files should also start with a licence header. We use the Creative Commons Zero (CC0) licence for this. The licence header looks like this:
+All documentation files should also start with a license header. We use the Creative Commons Zero (CC0) license for this. The license header looks like this:
 
 ```md
 <!-- @license CC0-1.0 -->
 ```
 
-If the content of a documentation file is copied from another source (like our [Code of Conduct](./CODE_OF_CONDUCT.md), for example), use the licence of the original file.
+If the content of a documentation file is copied from another source (like our [Code of Conduct](./CODE_OF_CONDUCT.md), for example), use the license of the original file.
 
 ## Git branching strategy and publishing
 
