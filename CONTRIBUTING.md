@@ -83,7 +83,13 @@ All Javascript, Typescript and style files should start with a licence header. W
  */
 ```
 
-All documentation files should also start with a licence header. We use the Creative Commons Zero (CC0) licence for this. If the content of a documentation file is copied from another source (like our [Code of Conduct](./CODE_OF_CONDUCT.md), for example), use the licence of the original file.
+All documentation files should also start with a licence header. We use the Creative Commons Zero (CC0) licence for this. The licence header looks like this:
+
+```md
+<!-- @license CC0-1.0 -->
+```
+
+If the content of a documentation file is copied from another source (like our [Code of Conduct](./CODE_OF_CONDUCT.md), for example), use the licence of the original file.
 
 ## Git branching strategy and publishing
 
