@@ -18,8 +18,7 @@ export const argTypes = {
     options: [1, 2, 3, 4, 5, 6],
     control: 'select',
     table: {
-      type: { summary: 'number' },
-      defaultValue: { summary: '1' },
+      disable: true,
     },
   },
   styleLevel: {
