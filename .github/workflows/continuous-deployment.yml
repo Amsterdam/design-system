@@ -124,7 +124,7 @@ jobs:
         uses: actions/download-artifact@v3
         with:
           name: storybook-react
-          # React storybook is deployed to the /storybook-react subfolder.
+          # React storybook is deployed to the /storybook-react subdirectory.
           # In the main css storybook, the contents of /storybook-react
           # are also shown using Storybook composition.
           path: dist/storybook/storybook-react
