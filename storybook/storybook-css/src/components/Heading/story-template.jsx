@@ -39,31 +39,31 @@ export const defaultArgs = {
 }
 
 export const heading2Args = {
-  textContent: 'Jouw typograaf biedt mij zulke exquise schreven!',
+  ...defaultArgs,
   level: 2,
   styleLevel: 2,
 }
 
 export const heading3Args = {
-  textContent: 'Jouw typograaf biedt mij zulke exquise schreven!',
+  ...defaultArgs,
   level: 3,
   styleLevel: 3,
 }
 
 export const heading4Args = {
-  textContent: 'Jouw typograaf biedt mij zulke exquise schreven!',
+  ...defaultArgs,
   level: 4,
   styleLevel: 4,
 }
 
 export const heading5Args = {
-  textContent: 'Jouw typograaf biedt mij zulke exquise schreven!',
+  ...defaultArgs,
   level: 5,
   styleLevel: 5,
 }
 
 export const heading6Args = {
-  textContent: 'Jouw typograaf biedt mij zulke exquise schreven!',
+  ...defaultArgs,
   level: 6,
   styleLevel: 6,
 }
