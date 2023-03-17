@@ -1,0 +1,14 @@
+import { ArgsTable, Canvas, Meta, Story } from "@storybook/addon-docs";
+import { argTypes, Heading, heading4Args } from "./story-template";
+
+import "@amsterdam/design-system-css/src/heading/heading.scss";
+
+<Meta id="css-heading" title="CSS Components/Heading" component={Heading} argTypes={argTypes} args={heading4Args} />
+
+# Heading 4
+
+<Canvas>
+  <Story name="Heading 4">{Heading.bind({})}</Story>
+</Canvas>
+
+<ArgsTable story="Heading 4" />

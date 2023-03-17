@@ -38,6 +38,36 @@ export const defaultArgs = {
   styleLevel: 1,
 }
 
+export const heading2Args = {
+  textContent: 'Jouw typograaf biedt mij zulke exquise schreven!',
+  level: 2,
+  styleLevel: 2,
+}
+
+export const heading3Args = {
+  textContent: 'Jouw typograaf biedt mij zulke exquise schreven!',
+  level: 3,
+  styleLevel: 3,
+}
+
+export const heading4Args = {
+  textContent: 'Jouw typograaf biedt mij zulke exquise schreven!',
+  level: 4,
+  styleLevel: 4,
+}
+
+export const heading5Args = {
+  textContent: 'Jouw typograaf biedt mij zulke exquise schreven!',
+  level: 5,
+  styleLevel: 5,
+}
+
+export const heading6Args = {
+  textContent: 'Jouw typograaf biedt mij zulke exquise schreven!',
+  level: 6,
+  styleLevel: 6,
+}
+
 export const Heading = ({
   textContent = defaultArgs.textContent,
   level = defaultArgs.level,
