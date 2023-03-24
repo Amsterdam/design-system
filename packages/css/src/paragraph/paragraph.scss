@@ -9,6 +9,7 @@
 
 @mixin reset {
   box-sizing: border-box;
+  margin-block: 0;
   -webkit-text-size-adjust: 100%;
 }
 
@@ -27,8 +28,6 @@
   );
   font-weight: var(--amsterdam-paragraph-font-weight);
   line-height: var(--amsterdam-paragraph-line-height);
-  margin-block: 0;
-  max-width: 80ch;
 
   @include reset;
 }
