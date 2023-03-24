@@ -5,28 +5,44 @@
 
 @import "../../utils/calculate-fluid-style";
 
+@import "../../node_modules/@amsterdam/design-system-tokens/dist/variables";
+
 @mixin reset {
   box-sizing: border-box;
+  margin-block: 0;
   -webkit-text-size-adjust: 100%;
 }
 
 .amsterdam-paragraph {
-  color: var(--amsterdam-color-primary-black);
-  font-family: var(--amsterdam-typography-font-family);
-  font-size: calculate-fluid-style(18, 24);
-  font-weight: var(--amsterdam-typography-font-weight-normal);
-  line-height: calculate-fluid-style(29, 38);
-  margin-block: 0;
+  color: var(--amsterdam-paragraph-color);
+  font-family: var(--amsterdam-paragraph-font-family);
+
+  /*
+    We don't use the amsterdam-paragraph-font-size variable, because we generate a somewhat
+    complex css rule with a Sass function. The variable is added here so people can
+    overwrite that css rule with their own value.
+  */
+  font-size: var(
+    --amsterdam-paragraph-font-size,
+    calculate-fluid-style($amsterdam-typography-font-size-18, $amsterdam-typography-font-size-24)
+  );
+  font-weight: var(--amsterdam-paragraph-font-weight);
+  line-height: var(--amsterdam-paragraph-line-height);
 
   @include reset;
 }
 
-.amsterdam-paragraph-intro {
-  font-size: calculate-fluid-style(22, 30);
-  line-height: calculate-fluid-style(35, 45);
+.amsterdam-paragraph-small {
+  font-size: var(
+    --amsterdam-paragraph-small-font-size,
+    calculate-fluid-style($amsterdam-typography-font-size-16, $amsterdam-typography-font-size-18)
+  );
 }
 
-.amsterdam-paragraph-small {
-  font-size: calculate-fluid-style(16, 18);
-  line-height: calculate-fluid-style(24, 29);
+.amsterdam-paragraph-large {
+  font-size: var(
+    --amsterdam-paragraph-large-font-size,
+    calculate-fluid-style($amsterdam-typography-font-size-22, $amsterdam-typography-font-size-30)
+  );
+  line-height: var(--amsterdam-paragraph-large-line-height);
 }

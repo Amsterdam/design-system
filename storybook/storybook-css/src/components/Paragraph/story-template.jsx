@@ -9,27 +9,22 @@ import clsx from 'clsx'
 import React from 'react'
 
 export const argTypes = {
-  intro: {
-    control: 'boolean',
-  },
-  small: {
-    control: 'boolean',
+  size: {
+    control: { type: 'select', labels: { undefined: 'default', large: 'large', small: 'small' } },
+    options: [undefined, 'large', 'small'],
   },
 }
 
 export const defaultArgs = {
   textContent: 'Jouw typograaf biedt mij zulke exquise schreven!',
-  intro: false,
-  small: false,
 }
 
-export const Paragraph = ({
-  textContent = defaultArgs.textContent,
-  intro = defaultArgs.intro,
-  small = defaultArgs.small,
-}) => (
+export const Paragraph = ({ textContent = defaultArgs.textContent, size = defaultArgs.size }) => (
   <p
-    className={clsx('amsterdam-paragraph', intro && 'amsterdam-paragraph-intro', small && 'amsterdam-paragraph-small')}
+    className={clsx(
+      'amsterdam-paragraph',
+      size && `amsterdam-paragraph-${size}`,
+    )}
   >
     {textContent}
   </p>

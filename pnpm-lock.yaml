@@ -63,11 +63,10 @@ importers:
 
   packages/css:
     specifiers:
-      normalize.css: 8.0.1
+      '@amsterdam/design-system-tokens': workspace:*
       sass: 1.60.0
-    dependencies:
-      normalize.css: 8.0.1
     devDependencies:
+      '@amsterdam/design-system-tokens': link:../tokens
       sass: 1.60.0
 
   packages/react:
@@ -14598,10 +14597,6 @@ packages:
     resolution: {integrity: sha512-JgkdydFdLe1E5Q7DpLvKVyBZOOwXYGhIbMbOMm3lJ06XKzaiit+qo1HciO3z3IFklStfarzJHVQf9ZcNPTvZlw==}
     engines: {node: '>=12.20'}
     dev: true
-
-  /normalize.css/8.0.1:
-    resolution: {integrity: sha512-qizSNPO93t1YUuUhP22btGOo3chcvDFqFaj2TRybP0DMxkHOCTYwp3n34fel4a31ORXy4m1Xq0Gyqpb5m33qIg==}
-    dev: false
 
   /npm-bundled/3.0.0:
     resolution: {integrity: sha512-Vq0eyEQy+elFpzsKjMss9kxqb9tG3YHg4dsyWuUENuzvSUWe1TCnW/vV9FkhvBk/brEDoDiVd+M1Btosa6ImdQ==}

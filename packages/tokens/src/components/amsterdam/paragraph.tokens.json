@@ -1,0 +1,18 @@
+{
+  "amsterdam": {
+    "paragraph": {
+      "color": { "value": "{amsterdam.color.primary-black}" },
+      "font-family": { "value": "{amsterdam.typography.font-family}" },
+      "font-size": {},
+      "font-weight": { "value": "{amsterdam.typography.font-weight.normal}" },
+      "line-height": { "value": "{amsterdam.typography.line-height.160}" },
+      "small": {
+        "font-size": {}
+      },
+      "large": {
+        "font-size": {},
+        "line-height": { "value": "{amsterdam.typography.line-height.150}" }
+      }
+    }
+  }
+}
