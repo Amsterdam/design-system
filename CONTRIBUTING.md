@@ -83,6 +83,14 @@ All Javascript, Typescript and style files should start with a license header. W
  */
 ```
 
+If you're changing a file that already has a City of Amsterdam copyright notice, but of a different year, you should add the new year to the notice. For example, if the original work is done in 2020, then someone else did some work in 2022, and you add new changes in 2023, the copyright notice should look like this:
+
+```javascript
+/**
+ * Copyright (c) 2020-2023 Gemeente Amsterdam
+ */
+```
+
 All documentation files should also start with a license header. We use the Creative Commons Zero (CC0) license for this. The license header looks like this:
 
 ```md
