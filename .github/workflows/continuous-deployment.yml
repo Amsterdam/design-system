@@ -43,7 +43,7 @@ jobs:
           pnpm install
           pnpm ls --recursive
 
-  build:
+  build-lint-test:
     runs-on: ubuntu-latest
     needs: install
 
@@ -105,7 +105,7 @@ jobs:
           path: storybook/storybook-react/dist/
           retention-days: 1
 
-  publish-website:
+  publish-storybook:
     runs-on: ubuntu-latest
     needs: build
     if: github.ref == 'refs/heads/main'
@@ -124,9 +124,12 @@ jobs:
         uses: actions/download-artifact@v3
         with:
           name: storybook-react
+          # React storybook is deployed to the /storybook-react subdirectory.
+          # In the main css storybook, the contents of /storybook-react
+          # are also shown using Storybook composition.
           path: dist/storybook/storybook-react
 
-      - name: Continuous Deployment to GitHub Pages
+      - name: Deploy to GitHub Pages
         uses: JamesIves/github-pages-deploy-action@v4.4.1
         with:
           branch: gh-pages
