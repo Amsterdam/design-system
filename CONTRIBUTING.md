@@ -107,4 +107,4 @@ Package versioning and publishing is done through Lerna, by the maintainers of t
 
 ## Cooperation with NL Design System
 
-This repository is part of the [NL Design System](https://nldesignsystem.nl/). When you contribute to this project you allow your contributions to be made a part of the NL Design System component library. For more information, please read about [the contribution model of the NL Design System](https://nldesignsystem.nl/meedoen/estafettemodel/).
+This repository is part of the [NL Design System](https://nldesignsystem.nl/). When you contribute to this project you allow your contributions to be made a part of the NL Design System component library. For more information, please read about [their contribution model](https://nldesignsystem.nl/meedoen/estafettemodel/).
