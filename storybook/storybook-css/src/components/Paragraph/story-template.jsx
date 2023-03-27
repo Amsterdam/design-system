@@ -1,5 +1,5 @@
 /**
- * @license EUPL-1.2
+ * @license EUPL-1.2+
  * Copyright (c) 2022 Gemeente Utrecht
  * Copyright (c) 2022 Frameless B.V.
  * Copyright (c) 2023 Gemeente Amsterdam
