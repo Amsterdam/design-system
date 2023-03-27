@@ -20,14 +20,7 @@ export const defaultArgs = {
 }
 
 export const Paragraph = ({ textContent = defaultArgs.textContent, size = defaultArgs.size }) => (
-  <p
-    className={clsx(
-      'amsterdam-paragraph',
-      size && `amsterdam-paragraph-${size}`,
-    )}
-  >
-    {textContent}
-  </p>
+  <p className={clsx('amsterdam-paragraph', size && `amsterdam-paragraph-${size}`)}>{textContent}</p>
 )
 
 export default Paragraph
