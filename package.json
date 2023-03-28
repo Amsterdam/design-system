@@ -74,7 +74,7 @@
     "update-major": "npm-check-updates --configFileName .ncurc.major.js --deep --dep dev,prod --target latest --upgrade && pnpm install",
     "watch:storybook-css": "npm run --workspace storybook/storybook-css storybook",
     "watch:storybook-react": "npm run --workspace storybook/storybook-react storybook",
-    "watch:style-dictionary": "npm run --workspace packages/tokens watch:style-dictionary"
+    "watch:style-dictionary": "npm run --workspace proprietary/tokens watch:style-dictionary"
   },
   "dependencies": {
     "http-server": "14.1.1"

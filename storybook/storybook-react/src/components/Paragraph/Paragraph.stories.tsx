@@ -1,3 +1,8 @@
+/**
+ * @license EUPL-1.2+
+ * Copyright (c) 2023 Gemeente Amsterdam
+ */
+
 import { Paragraph } from '@amsterdam/design-system-react'
 import { ComponentMeta, ComponentStory } from '@storybook/react'
 

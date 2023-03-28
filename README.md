@@ -24,6 +24,6 @@ For more info about the NL Design System and learn about things happening in our
 
 ## License
 
-This project is free and open-source software licensed under the [European Union Public License (EUPL) v1.2](LICENSE.md). Documentation is licensed as [Creative Commons Zero 1.0 Universal (`CC0-1.0`)](https://creativecommons.org/publicdomain/zero/1.0/legalcode). Applying design elements from this project is strictly prohibited for organisations that are not part of the City of Amsterdam.
+This project is free and open-source software licensed under the [European Union Public License (EUPL) v1.2](LICENSE.md) or higher. Documentation is licensed as [Creative Commons Zero 1.0 Universal (`CC0-1.0`)](https://creativecommons.org/publicdomain/zero/1.0/legalcode).
 
 The assets in the `proprietary` directory are not covered by the open source licenses. Each directory in the `proprietary` directory specifies the license that applies to that directory. For more information about proprietary assets, please carefully read the [NOTICE file](NOTICE.md).

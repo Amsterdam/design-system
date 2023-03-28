@@ -1,5 +1,5 @@
 /**
- * @license EUPL-1.2
+ * @license EUPL-1.2+
  * Copyright (c) 2021 Robbert Broersma
  * Copyright (c) 2023 Gemeente Amsterdam
  */
@@ -18,11 +18,7 @@ export const Paragraph = forwardRef(
   ) => (
     <p
       ref={ref}
-      className={clsx(
-        'amsterdam-paragraph',
-        size && `amsterdam-paragraph-${size}`,
-        className,
-      )}
+      className={clsx('amsterdam-paragraph', size && `amsterdam-paragraph-${size}`, className)}
       {...otherProps}
     >
       {children}

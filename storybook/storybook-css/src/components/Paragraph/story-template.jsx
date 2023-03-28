@@ -1,5 +1,5 @@
 /**
- * @license EUPL-1.2
+ * @license EUPL-1.2+
  * Copyright (c) 2022 Gemeente Utrecht
  * Copyright (c) 2022 Frameless B.V.
  * Copyright (c) 2023 Gemeente Amsterdam
@@ -20,14 +20,7 @@ export const defaultArgs = {
 }
 
 export const Paragraph = ({ textContent = defaultArgs.textContent, size = defaultArgs.size }) => (
-  <p
-    className={clsx(
-      'amsterdam-paragraph',
-      size && `amsterdam-paragraph-${size}`,
-    )}
-  >
-    {textContent}
-  </p>
+  <p className={clsx('amsterdam-paragraph', size && `amsterdam-paragraph-${size}`)}>{textContent}</p>
 )
 
 export default Paragraph
