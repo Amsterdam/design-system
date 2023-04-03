@@ -42,7 +42,7 @@
     "@storybook/mdx2-csf": "0.0.4",
     "@storybook/preset-scss": "1.0.3",
     "@storybook/react": "6.5.16",
-    "@storybook/testing-library": "0.0.13",
+    "@storybook/testing-library": "0.1.0",
     "@types/react": "18.0.30",
     "babel-loader": "9.1.2",
     "css-loader": "6.7.3",
