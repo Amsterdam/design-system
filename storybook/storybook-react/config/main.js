@@ -1,7 +1,6 @@
 /* eslint-env node */
 module.exports = {
   core: {
-    builder: 'webpack5',
     disableTelemetry: true,
   },
   stories: ['../src/**/*.stories.mdx', '../src/**/*.stories.@(js|jsx|ts|tsx)'],
@@ -11,18 +10,19 @@ module.exports = {
     '@storybook/addon-interactions',
     '@storybook/addon-a11y',
     '@storybook/preset-scss',
+    '@storybook/addon-mdx-gfm',
   ],
   features: {
     postcss: false,
     buildStoriesJson: true,
     previewMdx2: true,
+    StoryStoreV7: true,
   },
-  framework: '@storybook/react',
-  webpackFinal: async (config) => ({
-    ...config,
-    performance: {
-      // Disable warning for: "asset size exceeds the recommended limit (244 KiB)"
-      hints: false,
-    },
-  }),
+  framework: {
+    name: '@storybook/react-vite',
+    options: {},
+  },
+  docs: {
+    autodocs: true,
+  },
 }
