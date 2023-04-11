@@ -34,7 +34,7 @@
     "@storybook/manager-webpack5": "6.5.16",
     "@storybook/mdx2-csf": "0.0.4",
     "@storybook/preset-scss": "1.0.3",
-    "@storybook/react": "6.5.16",
+    "@storybook/react": "7.0.2",
     "@storybook/testing-library": "0.1.0",
     "@types/react": "18.0.34",
     "@types/react-dom": "18.0.11",
