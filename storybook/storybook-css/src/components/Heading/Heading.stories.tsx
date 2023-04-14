@@ -1,12 +1,12 @@
 /* @license CC0-1.0 */
 
 import type { Meta, StoryObj } from '@storybook/react'
-import { Heading1 } from './Heading1'
+import { Heading } from './Heading'
 
 const meta = {
-  title: 'CSS Component/Heading/Heading 1',
+  title: 'CSS Component/Heading',
   id: 'css-heading-1',
-  component: Heading1,
+  component: Heading,
   argTypes: {
     textContent: {
       table: {
@@ -34,26 +34,45 @@ const meta = {
   },
   tags: ['autodocs'],
   parameters: {
-    tokensPrefix: 'amsterdam-heading-1',
+    tokensPrefix: 'amsterdam-heading',
     docs: {
       description: {
         // TODO import readme.md file
-        component: '# Heading 1',
+        component: 'Heading',
       },
     },
   },
-} as Meta<typeof Heading1>
+} as Meta<typeof Heading>
 
 export default meta
 
-export const Default: StoryObj<typeof Heading1> = {
-  parameters: {
-    status: {
-      type: 'ALPHA',
-    },
-  },
+export const Heading1: StoryObj<typeof Heading> = {
   name: 'Heading 1',
 }
 
+export const Heading2: StoryObj<typeof Heading> = {
+  name: 'Heading 2',
+  args: {
+    level: 2,
+    styleLevel: 2,
+  },
+}
+
+export const Heading3: StoryObj<typeof Heading> = {
+  name: 'Heading 3',
+  args: {
+    level: 3,
+    styleLevel: 3,
+  },
+}
+
+export const Heading4: StoryObj<typeof Heading> = {
+  name: 'Heading 4',
+  args: {
+    level: 4,
+    styleLevel: 4,
+  },
+}
+
 // TODO: add design tokens
-// export const DesignTokens: StoryObj<typeof Heading1> = designTokenStory(meta)
+// export const DesignTokens: StoryObj<typeof Heading> = designTokenStory(meta)

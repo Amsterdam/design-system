@@ -37,22 +37,18 @@ const meta = {
 export default meta
 
 export const Default: StoryObj<typeof Paragraph> = {
-  parameters: {
-    size: 'undefined',
-    textContent: 'Jouw typograaf biedt mij zulke exquise schreven!',
-  },
   name: 'Default',
 }
 
 export const Large: StoryObj<typeof Paragraph> = {
-  parameters: {
+  args: {
     size: 'large',
   },
   name: 'Large',
 }
 
 export const Small: StoryObj<typeof Paragraph> = {
-  parameters: {
+  args: {
     size: 'small',
   },
   name: 'Small',
