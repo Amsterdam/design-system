@@ -7,7 +7,7 @@ Some guidelines to follow to have a consistent way of documenting components.
 Generic documentation of components should be placed in the CSS component folder, `/packages/css/src/{component-name}`. The main file (`README.md`) contains all the generic information about this component.
 Optionally you could have CSS specific documentation. This should be named after the CSS component with a suffix `-css`, e.g. `heading-css.md`.
 
-Every React component has to have a `README.md`. Like the CSS specific documenation, here we can write the React specific documentation if needed.
+Every React component has to have a `README.md`. Like the CSS specific documentation, here we can write the React specific documentation if needed. If there's no React specific documentation, this README.md should only contain a link to the generic documentation in `/packages/css/src/{component-name}/README.md`
 
 ## Documentation content and structure
 
