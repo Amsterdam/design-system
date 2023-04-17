@@ -1,6 +1,6 @@
 # Heading
 
-Een gebruiker zou middels headings een goede indruk moeten krijgen van de content van een webpagina. Een heading zegt iets over de onderstaande content.
+Een heading zegt iets over de onderstaande content. Met behulp van headings kan de gebruiker snel een overzicht krijgen van de structuur van de webpagina. 
 
 ## Toegankelijkheid
 
