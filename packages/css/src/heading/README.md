@@ -2,10 +2,6 @@
 
 Een gebruiker zou middels headings een goede indruk moeten krijgen van de content van een webpagina. Een heading zegt iets over de onderstaande content.
 
-## Toegankelijkheid
-
-Headings en de heading structuur zijn vooral belangrijk voor screen readers en zoekmachines.
-
 ## Richtlijnen
 
 - Een heading omschrijft de content eronder.
