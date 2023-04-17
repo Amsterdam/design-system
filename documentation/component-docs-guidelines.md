@@ -29,7 +29,7 @@ List of reference links.
 
 ### CSS / HTML documentation
 
-A description of the HTML elements you should use and the aria props that are relevant for this component. 
+A description of the HTML elements you should use and the aria props that are relevant for this component.
 
 ### React documentation
 
