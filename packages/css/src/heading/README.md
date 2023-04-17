@@ -11,7 +11,7 @@ Headings en de heading structuur zijn vooral belangrijk voor screen readers en z
 - Één `h1` tag per pagina die het hoofdonderwerp van de pagina beschrijft.
 - Een heading omschrijft de content eronder.
 - Een heading niet gebruiken voor opmaak en styling.
-- Gebruik heading hierarchisch en sla niet een heading niveau over. Dus na een `h1` volgt een `h2` en dus niet een `h3`.
+- Gebruik headings hierarchisch en sla geen heading niveaus over. Dus na een `h1` volgt een `h2` en dus niet een `h3`.
 
 ## Referenties
 
