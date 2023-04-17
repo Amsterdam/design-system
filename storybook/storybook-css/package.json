@@ -30,7 +30,7 @@
     "@storybook/addon-interactions": "6.5.16",
     "@storybook/addon-links": "6.5.16",
     "@storybook/addon-viewport": "6.5.16",
-    "@storybook/builder-webpack5": "6.5.16",
+    "@storybook/builder-webpack5": "7.0.5",
     "@storybook/manager-webpack5": "6.5.16",
     "@storybook/mdx2-csf": "0.0.4",
     "@storybook/preset-scss": "1.0.3",
