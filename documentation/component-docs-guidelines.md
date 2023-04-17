@@ -22,7 +22,7 @@ Introduction text of the component and a general description of the purpose of t
 A list of guidelines and best practices the component needs to adhere to.
 
 **Relevante WCAG eisen**
-List of links to WCAG items plus a short description
+List of links to WCAG items plus a short description.
 
 **Referenties** (optional)
 List of reference links.
