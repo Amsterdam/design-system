@@ -1,6 +1,6 @@
 # Documentation guidelines
 
-Some guidelines to follow for having a consistent way of documentating components.
+Some guidelines to follow to have a consistent way of documenting components.
 
 ## Where to place the documentation files
 
