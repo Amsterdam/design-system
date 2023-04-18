@@ -22,7 +22,6 @@
     "@amsterdam/design-system-css": "workspace:*",
     "@amsterdam/design-system-font": "workspace:*",
     "@amsterdam/design-system-react": "workspace:*",
-    "@amsterdam/design-system-react-icons": "workspace:*",
     "@amsterdam/design-system-tokens": "workspace:*",
     "@babel/core": "7.21.4",
     "@mdx-js/react": "2.3.0",
