@@ -5,7 +5,7 @@ import { Heading } from './Heading'
 
 const meta = {
   title: 'CSS Component/Heading',
-  id: 'css-heading-1',
+  id: 'css-heading',
   component: Heading,
   argTypes: {
     textContent: {
@@ -40,6 +40,8 @@ const meta = {
         // TODO import readme.md file
         component: 'Heading',
       },
+      canvas: { sourceState: 'open' },
+      source: { type: 'dynamic' },
     },
   },
 } as Meta<typeof Heading>
