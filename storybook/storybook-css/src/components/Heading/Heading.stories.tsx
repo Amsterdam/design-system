@@ -1,19 +1,13 @@
 /* @license CC0-1.0 */
 
+import { Heading } from '@amsterdam/design-system-react/src'
 import type { Meta, StoryObj } from '@storybook/react'
-import { Heading } from './Heading'
+import '@amsterdam/design-system-css/src/heading/heading.scss'
 
 const meta = {
-  title: 'CSS Component/Heading',
+  title: 'CSS Components/Heading',
   id: 'css-heading',
   component: Heading,
-  decorators: [
-    (Story) => (
-      <div style={{ display: 'flex', justifyContent: 'center' }}>
-        <Story />
-      </div>
-    ),
-  ],
   argTypes: {
     textContent: {
       table: {
@@ -35,6 +29,7 @@ const meta = {
     },
   },
   args: {
+    children: 'Jouw typograaf biedt mij zulke exquise schreven!',
     level: 1,
     styleLevel: 1,
   },
@@ -56,9 +51,6 @@ export default meta
 
 export const Heading1: StoryObj<typeof Heading> = {
   name: 'Heading 1',
-  args: {
-    textContent: 'Heading 1',
-  },
 }
 
 export const Heading2: StoryObj<typeof Heading> = {
@@ -66,7 +58,6 @@ export const Heading2: StoryObj<typeof Heading> = {
   args: {
     level: 2,
     styleLevel: 2,
-    textContent: 'Heading 2',
   },
 }
 
@@ -75,7 +66,6 @@ export const Heading3: StoryObj<typeof Heading> = {
   args: {
     level: 3,
     styleLevel: 3,
-    textContent: 'Heading 3',
   },
 }
 
@@ -84,9 +74,21 @@ export const Heading4: StoryObj<typeof Heading> = {
   args: {
     level: 4,
     styleLevel: 4,
-    textContent: 'Heading 4',
   },
 }
 
-// TODO: add design tokens
-// export const DesignTokens: StoryObj<typeof Heading> = designTokenStory(meta)
+export const Heading5: StoryObj<typeof Heading> = {
+  name: 'Heading 5',
+  args: {
+    level: 5,
+    styleLevel: 5,
+  },
+}
+
+export const Heading6: StoryObj<typeof Heading> = {
+  name: 'Heading 6',
+  args: {
+    level: 6,
+    styleLevel: 6,
+  },
+}

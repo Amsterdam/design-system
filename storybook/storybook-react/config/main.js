@@ -10,7 +10,6 @@ module.exports = {
     '@storybook/addon-interactions',
     '@storybook/addon-a11y',
     '@storybook/preset-scss',
-    '@storybook/addon-mdx-gfm',
   ],
   features: {
     postcss: false,

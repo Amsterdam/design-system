@@ -1,10 +1,11 @@
 /* @license CC0-1.0 */
 
+import { Paragraph } from '@amsterdam/design-system-react'
 import type { Meta, StoryObj } from '@storybook/react'
-import { Paragraph } from './Paragraph'
+import '@amsterdam/design-system-css/src/paragraph/paragraph.scss'
 
 const meta = {
-  title: 'CSS Component/Paragraph',
+  title: 'CSS Components/Paragraph',
   id: 'css-paragraph',
   component: Paragraph,
   argTypes: {
@@ -19,7 +20,7 @@ const meta = {
     },
   },
   args: {
-    textContent: 'Jouw typograaf biedt mij zulke exquise schreven!',
+    children: 'Jouw typograaf biedt mij zulke exquise schreven!',
     size: undefined,
   },
   tags: ['autodocs'],
@@ -53,6 +54,3 @@ export const Small: StoryObj<typeof Paragraph> = {
   },
   name: 'Small',
 }
-
-// TODO: add design tokens
-// export const DesignTokens: StoryObj<typeof Paragraph> = designTokenStory(meta)
