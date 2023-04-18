@@ -7,6 +7,13 @@ const meta = {
   title: 'CSS Component/Heading',
   id: 'css-heading-1',
   component: Heading,
+  decorators: [
+    (Story) => (
+      <div style={{ display: 'flex', justifyContent: 'center' }}>
+        <Story />
+      </div>
+    ),
+  ],
   argTypes: {
     textContent: {
       table: {
@@ -28,7 +35,6 @@ const meta = {
     },
   },
   args: {
-    textContent: 'Jouw typograaf biedt mij zulke exquise schreven!',
     level: 1,
     styleLevel: 1,
   },
@@ -48,6 +54,9 @@ export default meta
 
 export const Heading1: StoryObj<typeof Heading> = {
   name: 'Heading 1',
+  args: {
+    textContent: 'Heading 1',
+  },
 }
 
 export const Heading2: StoryObj<typeof Heading> = {
@@ -55,6 +64,7 @@ export const Heading2: StoryObj<typeof Heading> = {
   args: {
     level: 2,
     styleLevel: 2,
+    textContent: 'Heading 2',
   },
 }
 
@@ -63,6 +73,7 @@ export const Heading3: StoryObj<typeof Heading> = {
   args: {
     level: 3,
     styleLevel: 3,
+    textContent: 'Heading 3',
   },
 }
 
@@ -71,6 +82,7 @@ export const Heading4: StoryObj<typeof Heading> = {
   args: {
     level: 4,
     styleLevel: 4,
+    textContent: 'Heading 4',
   },
 }
 
