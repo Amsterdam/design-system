@@ -336,9 +336,6 @@ importers:
       '@storybook/testing-library':
         specifier: 0.1.0
         version: 0.1.0
-      '@storybook/theming':
-        specifier: 7.0.4
-        version: 7.0.4(react-dom@18.2.0)(react@18.2.0)
       '@types/react':
         specifier: 18.0.32
         version: 18.0.32
@@ -380,7 +377,7 @@ importers:
         version: 4.9.5
       vite:
         specifier: 4.2.1
-        version: 4.2.1(@types/node@18.15.11)(sass@1.60.0)
+        version: 4.2.1(sass@1.60.0)
 
   storybook/storybook-react:
     devDependencies:
@@ -453,9 +450,6 @@ importers:
       '@storybook/testing-library':
         specifier: 0.1.0
         version: 0.1.0
-      '@storybook/theming':
-        specifier: 7.0.4
-        version: 7.0.4(react-dom@18.2.0)(react@18.2.0)
       '@types/react':
         specifier: 18.0.32
         version: 18.0.32
@@ -485,7 +479,7 @@ importers:
         version: 2.0.2
       sass-loader:
         specifier: 13.2.2
-        version: 13.2.2(sass@1.60.0)(webpack@5.77.0)
+        version: 13.2.2(webpack@5.77.0)
       storybook:
         specifier: 7.0.4
         version: 7.0.4
@@ -497,7 +491,7 @@ importers:
         version: 4.9.5
       vite:
         specifier: 4.2.1
-        version: 4.2.1(@types/node@18.15.11)(sass@1.60.0)
+        version: 4.2.1
 
 packages:
 
@@ -2539,7 +2533,7 @@ packages:
       magic-string: 0.27.0
       react-docgen-typescript: 2.2.2(typescript@4.9.5)
       typescript: 4.9.5
-      vite: 4.2.1(@types/node@18.15.11)(sass@1.60.0)
+      vite: 4.2.1
     dev: true
 
   /@joshwooding/vite-plugin-react-docgen-typescript@0.2.2(typescript@4.9.5)(vite@4.2.1):
@@ -2554,7 +2548,7 @@ packages:
       magic-string: 0.27.0
       react-docgen-typescript: 2.2.2(typescript@4.9.5)
       typescript: 4.9.5
-      vite: 4.2.1(@types/node@18.15.11)(sass@1.60.0)
+      vite: 4.2.1(sass@1.60.0)
     dev: true
 
   /@jridgewell/gen-mapping@0.1.1:
@@ -4201,7 +4195,7 @@ packages:
       remark-slug: 6.1.0
       rollup: 3.20.2
       typescript: 4.9.5
-      vite: 4.2.1(@types/node@18.15.11)(sass@1.60.0)
+      vite: 4.2.1(sass@1.60.0)
     transitivePeerDependencies:
       - supports-color
     dev: true
@@ -4242,7 +4236,7 @@ packages:
       remark-slug: 6.1.0
       rollup: 3.20.2
       typescript: 4.9.5
-      vite: 4.2.1(@types/node@18.15.11)(sass@1.60.0)
+      vite: 4.2.1
     transitivePeerDependencies:
       - supports-color
     dev: true
@@ -4859,7 +4853,7 @@ packages:
       style-loader: '*'
     dependencies:
       css-loader: 6.7.3(webpack@5.77.0)
-      sass-loader: 13.2.2(sass@1.60.0)(webpack@5.77.0)
+      sass-loader: 13.2.2(webpack@5.77.0)
       style-loader: 3.3.2(webpack@5.77.0)
     dev: true
 
@@ -4969,7 +4963,7 @@ packages:
       react: 18.2.0
       react-docgen: 6.0.0-alpha.3
       react-dom: 18.2.0(react@18.2.0)
-      vite: 4.2.1(@types/node@18.15.11)(sass@1.60.0)
+      vite: 4.2.1(sass@1.60.0)
     transitivePeerDependencies:
       - '@preact/preset-vite'
       - '@storybook/mdx1-csf'
@@ -4996,7 +4990,7 @@ packages:
       react: 18.2.0
       react-docgen: 6.0.0-alpha.3
       react-dom: 18.2.0(react@18.2.0)
-      vite: 4.2.1(@types/node@18.15.11)(sass@1.60.0)
+      vite: 4.2.1
     transitivePeerDependencies:
       - '@preact/preset-vite'
       - supports-color
@@ -6032,7 +6026,7 @@ packages:
       '@babel/plugin-transform-react-jsx-source': 7.19.6(@babel/core@7.21.4)
       magic-string: 0.27.0
       react-refresh: 0.14.0
-      vite: 4.2.1(@types/node@18.15.11)(sass@1.60.0)
+      vite: 4.2.1
     transitivePeerDependencies:
       - supports-color
     dev: true
@@ -14784,6 +14778,30 @@ packages:
       webpack: 5.77.0(esbuild@0.17.15)
     dev: true
 
+  /sass-loader@13.2.2(webpack@5.77.0):
+    resolution: {integrity: sha512-nrIdVAAte3B9icfBiGWvmMhT/D+eCDwnk+yA7VE/76dp/WkHX+i44Q/pfo71NYbwj0Ap+PGsn0ekOuU1WFJ2AA==}
+    engines: {node: '>= 14.15.0'}
+    peerDependencies:
+      fibers: '>= 3.1.0'
+      node-sass: ^4.0.0 || ^5.0.0 || ^6.0.0 || ^7.0.0 || ^8.0.0
+      sass: ^1.3.0
+      sass-embedded: '*'
+      webpack: ^5.0.0
+    peerDependenciesMeta:
+      fibers:
+        optional: true
+      node-sass:
+        optional: true
+      sass:
+        optional: true
+      sass-embedded:
+        optional: true
+    dependencies:
+      klona: 2.0.6
+      neo-async: 2.6.2
+      webpack: 5.77.0(esbuild@0.17.15)
+    dev: true
+
   /sass@1.60.0:
     resolution: {integrity: sha512-updbwW6fNb5gGm8qMXzVO7V4sWf7LMXnMly/JEyfbfERbVH46Fn6q02BX7/eHTdKpE7d+oTkMMQpFWNUMfFbgQ==}
     engines: {node: '>=12.0.0'}
@@ -16409,7 +16427,7 @@ packages:
       vfile-message: 3.1.3
     dev: true
 
-  /vite@4.2.1(@types/node@18.15.11)(sass@1.60.0):
+  /vite@4.2.1:
     resolution: {integrity: sha512-7MKhqdy0ISo4wnvwtqZkjke6XN4taqQ2TBaTccLIpOKv7Vp2h4Y+NpmWCnGDeSvvn45KxvWgGyb0MkHvY1vgbg==}
     engines: {node: ^14.18.0 || >=16.0.0}
     hasBin: true
@@ -16434,7 +16452,39 @@ packages:
       terser:
         optional: true
     dependencies:
-      '@types/node': 18.15.11
+      esbuild: 0.17.15
+      postcss: 8.4.21
+      resolve: 1.22.1
+      rollup: 3.20.2
+    optionalDependencies:
+      fsevents: 2.3.2
+    dev: true
+
+  /vite@4.2.1(sass@1.60.0):
+    resolution: {integrity: sha512-7MKhqdy0ISo4wnvwtqZkjke6XN4taqQ2TBaTccLIpOKv7Vp2h4Y+NpmWCnGDeSvvn45KxvWgGyb0MkHvY1vgbg==}
+    engines: {node: ^14.18.0 || >=16.0.0}
+    hasBin: true
+    peerDependencies:
+      '@types/node': '>= 14'
+      less: '*'
+      sass: '*'
+      stylus: '*'
+      sugarss: '*'
+      terser: ^5.4.0
+    peerDependenciesMeta:
+      '@types/node':
+        optional: true
+      less:
+        optional: true
+      sass:
+        optional: true
+      stylus:
+        optional: true
+      sugarss:
+        optional: true
+      terser:
+        optional: true
+    dependencies:
       esbuild: 0.17.15
       postcss: 8.4.21
       resolve: 1.22.1
