@@ -1,6 +1,6 @@
 /* @license CC0-1.0 */
 
-import { Paragraph } from '@amsterdam/design-system-react'
+import { Paragraph } from '@amsterdam/design-system-react/src'
 import type { Meta, StoryObj } from '@storybook/react'
 import '@amsterdam/design-system-css/src/paragraph/paragraph.scss'
 
@@ -24,33 +24,57 @@ const meta = {
     size: undefined,
   },
   tags: ['autodocs'],
-  parameters: {
-    tokensPrefix: 'amsterdam-paragraph',
-    docs: {
-      description: {
-        // TODO import readme.md file
-        component: '# Paragraph',
-      },
-    },
-  },
 } as Meta<typeof Paragraph>
 
 export default meta
 
+/**
+ * Default Paragraph for normal text
+ */
 export const Default: StoryObj<typeof Paragraph> = {
   name: 'Default',
+  parameters: {
+    docs: {
+      source: {
+        language: 'html',
+        code: '<p class="amsterdam-paragraph">Jouw typograaf biedt mij zulke exquise schreven!</p>',
+      },
+    },
+  },
 }
 
+/**
+ * Large Paragraph for large text
+ */
 export const Large: StoryObj<typeof Paragraph> = {
+  name: 'Large',
   args: {
     size: 'large',
   },
-  name: 'Large',
+  parameters: {
+    docs: {
+      source: {
+        language: 'html',
+        code: '<p class="amsterdam-paragraph amsterdam-paragraph-large">Jouw typograaf biedt mij zulke exquise schreven!</p>',
+      },
+    },
+  },
 }
 
+/**
+ * Small Paragraph for small text
+ */
 export const Small: StoryObj<typeof Paragraph> = {
+  name: 'Small',
   args: {
     size: 'small',
   },
-  name: 'Small',
+  parameters: {
+    docs: {
+      source: {
+        language: 'html',
+        code: '<p class="amsterdam-paragraph amsterdam-paragraph-small">Jouw typograaf biedt mij zulke exquise schreven!</p>',
+      },
+    },
+  },
 }
