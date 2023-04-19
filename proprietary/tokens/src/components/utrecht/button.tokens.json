@@ -5,13 +5,27 @@
       "border-color": {},
       "border-radius": {},
       "border-width": {},
-      "color": {},
-      "font-family": {},
-      "font-size": {},
-      "padding-inline-start": {},
-      "padding-inline-end": {},
-      "padding-block-start": {},
-      "padding-block-end": {},
+      "color": {
+        "value": "{amsterdam.color.primary-white}"
+      },
+      "font-family": {
+        "value": "{amsterdam.typography.font-family}"
+      },
+      "font-size": {
+        "value": "{amsterdam.typography.font-size.24}"
+      },
+      "padding-inline-start": {
+        "value": "{amsterdam.spacing.md}"
+      },
+      "padding-inline-end": {
+        "value": "{amsterdam.spacing.md}"
+      },
+      "padding-block-start": {
+        "value": "{amsterdam.spacing.sm}"
+      },
+      "padding-block-end": {
+        "value": "{amsterdam.spacing.sm}"
+      },
       "margin-inline-start": {},
       "margin-inline-end": {},
       "margin-block-start": {},
@@ -20,30 +34,40 @@
         "gap": {}
       },
       "disabled": {
-        "background-color": {},
-        "color": {},
+        "background-color": {
+          "value": "{amsterdam.color.neutral-grey2}"
+        },
+        "color": {
+          "value": "{amsterdam.color.primary-white}"
+        },
         "border-color": {}
       },
       "hover": {
-        "scale": {}
+        "background-color": {
+          "value": "{amsterdam.color.dark-blue}"
+        }
       },
       "focus": {
         "scale": {}
       },
       "primary-action": {
-        "background-color": {},
-        "border-color": {},
-        "border-width": {
-          "comment": "Although the border is not visible, it is needed to match the size of the secondary-action-button appearance"
+        "background-color": {
+          "value": "{amsterdam.color.primary-blue}"
         },
+        "border-color": {},
+        "border-width": {},
         "color": {},
         "disabled": {
-          "background-color": {},
+          "background-color": {
+            "value": "{amsterdam.color.neutral-grey2}"
+          },
           "color": {},
           "border-color": {}
         },
         "hover": {
-          "background-color": {},
+          "background-color": {
+            "value": "{amsterdam.color.dark-blue}"
+          },
           "border-color": {},
           "color": {}
         },
