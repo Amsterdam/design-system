@@ -28,9 +28,6 @@ const meta = {
 
 export default meta
 
-/**
- * Default Paragraph for normal text
- */
 export const Default: StoryObj<typeof Paragraph> = {
   name: 'Default',
   parameters: {
@@ -43,9 +40,6 @@ export const Default: StoryObj<typeof Paragraph> = {
   },
 }
 
-/**
- * Large Paragraph for large text
- */
 export const Large: StoryObj<typeof Paragraph> = {
   name: 'Large',
   args: {
@@ -61,9 +55,6 @@ export const Large: StoryObj<typeof Paragraph> = {
   },
 }
 
-/**
- * Small Paragraph for small text
- */
 export const Small: StoryObj<typeof Paragraph> = {
   name: 'Small',
   args: {

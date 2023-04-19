@@ -33,9 +33,6 @@ const meta = {
 
 export default meta
 
-/**
- * Primary Heading used for page titles
- */
 export const Heading1: StoryObj<typeof Heading> = {
   name: 'Heading 1',
   parameters: {
@@ -48,9 +45,6 @@ export const Heading1: StoryObj<typeof Heading> = {
   },
 }
 
-/**
- * Secondary Heading used for section titles
- */
 export const Heading2: StoryObj<typeof Heading> = {
   name: 'Heading 2',
   args: {
@@ -67,9 +61,6 @@ export const Heading2: StoryObj<typeof Heading> = {
   },
 }
 
-/**
- * Tertiary Heading used for subsection titles
- */
 export const Heading3: StoryObj<typeof Heading> = {
   name: 'Heading 3',
   args: {
@@ -86,9 +77,6 @@ export const Heading3: StoryObj<typeof Heading> = {
   },
 }
 
-/**
- * Quaternary Heading used for subsubsection titles
- */
 export const Heading4: StoryObj<typeof Heading> = {
   name: 'Heading 4',
   args: {
@@ -105,9 +93,6 @@ export const Heading4: StoryObj<typeof Heading> = {
   },
 }
 
-/**
- * Quinary Heading used for subsubsubsection titles
- */
 export const Heading5: StoryObj<typeof Heading> = {
   name: 'Heading 5',
   args: {
@@ -124,9 +109,6 @@ export const Heading5: StoryObj<typeof Heading> = {
   },
 }
 
-/**
- * Senary Heading used for subsubsubsubsection titles
- */
 export const Heading6: StoryObj<typeof Heading> = {
   name: 'Heading 6',
   args: {
