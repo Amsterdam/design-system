@@ -1,0 +1,215 @@
+{
+  "utrecht": {
+    "button": {
+      "background-color": {},
+      "border-color": {},
+      "border-radius": {},
+      "border-width": {},
+      "color": {},
+      "font-family": {},
+      "font-size": {},
+      "padding-inline-start": {},
+      "padding-inline-end": {},
+      "padding-block-start": {},
+      "padding-block-end": {},
+      "margin-inline-start": {},
+      "margin-inline-end": {},
+      "margin-block-start": {},
+      "margin-block-end": {},
+      "icon": {
+        "gap": {}
+      },
+      "disabled": {
+        "background-color": {},
+        "color": {},
+        "border-color": {}
+      },
+      "hover": {
+        "scale": {}
+      },
+      "focus": {
+        "scale": {}
+      },
+      "primary-action": {
+        "background-color": {},
+        "border-color": {},
+        "border-width": {
+          "comment": "Although the border is not visible, it is needed to match the size of the secondary-action-button appearance"
+        },
+        "color": {},
+        "disabled": {
+          "background-color": {},
+          "color": {},
+          "border-color": {}
+        },
+        "hover": {
+          "background-color": {},
+          "border-color": {},
+          "color": {}
+        },
+        "focus": {
+          "background-color": {},
+          "border-color": {},
+          "border-width": {}
+        },
+        "ready": {
+          "background-color": {},
+          "border-color": {},
+          "color": {},
+          "disabled": {
+            "border-color": {}
+          },
+          "hover": {
+            "background-color": {},
+            "border-color": {},
+            "color": {}
+          },
+          "focus": {
+            "background-color": {},
+            "border-color": {}
+          }
+        },
+        "warning": {
+          "background-color": {},
+          "border-color": {},
+          "color": {},
+          "disabled": {
+            "border-color": {}
+          },
+          "hover": {
+            "background-color": {},
+            "border-color": {},
+            "color": {}
+          },
+          "focus": {
+            "background-color": {},
+            "border-color": {}
+          }
+        },
+        "danger": {
+          "background-color": {},
+          "border-color": {},
+          "color": {},
+          "disabled": {
+            "border-color": {}
+          },
+          "hover": {
+            "background-color": {},
+            "border-color": {},
+            "color": {}
+          },
+          "focus": {
+            "background-color": {},
+            "border-color": {}
+          }
+        }
+      },
+      "secondary-action": {
+        "background-color": {},
+        "color": {},
+        "border-color": {},
+        "border-width": {},
+        "hover": {
+          "background-color": {},
+          "color": {},
+          "border-color": {}
+        },
+        "disabled": {
+          "background-color": {},
+          "color": {},
+          "border-color": {}
+        },
+        "danger": {
+          "background-color": {},
+          "border-color": {},
+          "color": {},
+          "disabled": {
+            "border-color": {}
+          },
+          "hover": {
+            "background-color": {},
+            "border-color": {},
+            "color": {}
+          },
+          "focus": {
+            "background-color": {},
+            "border-color": {}
+          }
+        },
+        "warning": {
+          "background-color": {},
+          "border-color": {},
+          "color": {},
+          "disabled": {
+            "border-color": {}
+          },
+          "hover": {
+            "background-color": {},
+            "border-color": {},
+            "color": {}
+          },
+          "focus": {
+            "background-color": {},
+            "border-color": {}
+          }
+        },
+        "ready": {
+          "background-color": {},
+          "border-color": {},
+          "color": {},
+          "disabled": {
+            "border-color": {}
+          },
+          "hover": {
+            "background-color": {},
+            "border-color": {},
+            "color": {}
+          },
+          "focus": {
+            "background-color": {},
+            "border-color": {}
+          }
+        }
+      },
+      "subtle": {
+        "background-color": {},
+        "border-color": {},
+        "border-width": {},
+        "color": {},
+        "font-weight": {},
+        "hover": {
+          "background-color": {},
+          "color": {},
+          "border-color": {}
+        },
+        "focus": {
+          "background-color": {},
+          "color": {},
+          "border-color": {}
+        },
+        "disabled": {
+          "background-color": {},
+          "color": {}
+        },
+        "danger": {
+          "color": {},
+          "hover": {
+            "color": {}
+          },
+          "focus": {
+            "color": {}
+          }
+        },
+        "ready": {
+          "color": {},
+          "hover": {
+            "color": {}
+          },
+          "focus": {
+            "color": {}
+          }
+        }
+      }
+    }
+  }
+}
