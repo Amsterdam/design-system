@@ -129,19 +129,37 @@
         }
       },
       "secondary-action": {
-        "background-color": {},
-        "color": {},
-        "border-color": {},
-        "border-width": {},
+        "background-color": {
+          "value": "{amsterdam.color.primary-white}"
+        },
+        "color": {
+          "value": "{amsterdam.color.primary-blue}"
+        },
+        "border-color": {
+          "value": "{amsterdam.color.primary-blue}"
+        },
+        "border-width": {
+          "value": "{amsterdam.border-width.md}"
+        },
         "hover": {
           "background-color": {},
-          "color": {},
-          "border-color": {}
+          "color": {
+            "value": "{amsterdam.color.dark-blue}"
+          },
+          "border-color": {
+            "value": "{amsterdam.color.dark-blue}"
+          }
         },
         "disabled": {
-          "background-color": {},
-          "color": {},
-          "border-color": {}
+          "background-color": {
+            "value": "{amsterdam.color.primary-white}"
+          },
+          "color": {
+            "value": "{amsterdam.color.neutral-grey2}"
+          },
+          "border-color": {
+            "value": "{amsterdam.color.neutral-grey2}"
+          }
         },
         "danger": {
           "background-color": {},
