@@ -14,7 +14,7 @@
     "directory": "storybook/storybook-css"
   },
   "scripts": {
-    "build": "storybook build --output-dir dist/ --config-dir config/ && touch dist/.nojekyll",
+    "build": "storybook build --output-dir dist/ --config-dir config/",
     "clean": "rimraf dist/",
     "storybook": "storybook dev --config-dir config/ --port 6006"
   },

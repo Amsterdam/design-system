@@ -14,7 +14,7 @@
     "directory": "storybook/storybook-react"
   },
   "scripts": {
-    "build": "storybook build --output-dir dist/ --config-dir config/ --quiet && touch dist/.nojekyll",
+    "build": "storybook build --output-dir dist/ --config-dir config/ --quiet",
     "clean": "rimraf dist/",
     "start": "http-server dist/",
     "storybook": "storybook dev --config-dir config/ --port 6007 --no-open"
