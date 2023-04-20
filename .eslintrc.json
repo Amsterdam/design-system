@@ -62,7 +62,10 @@
         "project": [
           "packages/react/tsconfig.json",
           "packages/react/tsconfig.test.json",
-          "storybook/storybook-react/tsconfig.json"
+          "storybook/storybook-css/tsconfig.json",
+          "storybook/storybook-css/tsconfig.node.json",
+          "storybook/storybook-react/tsconfig.json",
+          "storybook/storybook-react/tsconfig.node.json"
         ]
       },
       "plugins": ["@typescript-eslint"]
