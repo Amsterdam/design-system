@@ -4,7 +4,7 @@
  */
 
 import { Paragraph } from '@amsterdam/design-system-react'
-import { ComponentMeta, ComponentStory } from '@storybook/react'
+import { ComponentStory, Meta } from '@storybook/react'
 
 import '@amsterdam/design-system-css/src/paragraph/paragraph.scss'
 
@@ -18,7 +18,7 @@ export default {
       options: [undefined, 'large', 'small'],
     },
   },
-} as ComponentMeta<typeof Paragraph>
+} as Meta<typeof Paragraph>
 
 const Template: ComponentStory<typeof Paragraph> = (args) => <Paragraph {...args} />
 

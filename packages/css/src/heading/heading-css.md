@@ -1,0 +1,3 @@
+# CSS Heading
+
+Gebruik de juiste heading HTML-elementen als je van deze classes gebruik maakt. De beschikbare elementen zijn: `h1`, `h2`, `h3`, `h4`, `h5` en `h6`. Let bij het kiezen van een heading niveau op de structuur van de pagina. Heading niveaus worden gebruikt om informatie te groeperen. De titel van de pagina krijgt een `h1`. De eerste subtitel een `h2`. De daarna volgende titels van secties die horen bij die subtitel krijgen een `h3`, enzovoort. Als je een nieuwe sectie begint, gebruik je weer een `h2`. Het is toegestaan om stijl en semantiek los van elkaar te trekken. Een `h1` kan bijvoorbeeld de class `amsterdam-heading-2` krijgen. 

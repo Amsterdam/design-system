@@ -7,10 +7,10 @@ Daarom gaan we tussen overheidsorganisaties principes, interactiepatronen en cod
 
 > ⚠️ **LET OP**
 >
-> Het NL Design System bevindt zich momenteel nog in de pilotfase.  
-> Hierdoor is het nu nog niet volwassen genoeg om volledig gebruikt te worden.  
-> Houdt hier dus rekening mee voor je aan de slag gaat.  
-> We zouden het op prijs stellen als je wilt bijdragen om het NLDS tot een succes te maken.  
+> Het NL Design System bevindt zich momenteel nog in de pilotfase.
+> Hierdoor is het nu nog niet volwassen genoeg om volledig gebruikt te worden.
+> Houdt hier dus rekening mee voor je aan de slag gaat.
+> We zouden het op prijs stellen als je wilt bijdragen om het NLDS tot een succes te maken.
 > Dit kan in onze gitlab of met een mailtje aan: NLDesignSystem@gebruikercentraal.nl
 
 ## Wat is een Design System
