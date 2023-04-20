@@ -1,17 +1,19 @@
 {
   "amsterdam": {
     "spacing": {
-      "sm": {
-        "value": "0.5rem"
-      },
-      "md": {
-        "value": "1rem"
-      },
-      "lg": {
-        "value": "1.5rem"
-      },
-      "xl": {
-        "value": "2.5rem"
+      "inset": {
+        "sm": {
+          "value": "0.5rem"
+        },
+        "md": {
+          "value": "1rem"
+        },
+        "lg": {
+          "value": "1.5rem"
+        },
+        "xl": {
+          "value": "2.5rem"
+        }
       }
     }
   }
