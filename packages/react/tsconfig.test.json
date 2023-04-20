@@ -3,6 +3,6 @@
   "compilerOptions": {
     "noEmit": true
   },
-  "include": ["next-env.d.ts", "src/*.test.ts", "src/*.test.tsx"],
+  "include": ["next-env.d.ts", "src/**/*.test.ts", "src/**/*.test.tsx"],
   "exclude": ["node_modules"]
 }
