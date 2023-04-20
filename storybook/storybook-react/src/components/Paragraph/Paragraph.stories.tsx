@@ -4,7 +4,7 @@
  */
 
 import { Paragraph } from '@amsterdam/design-system-react'
-import { ComponentStory, Meta } from '@storybook/react'
+import { Meta } from '@storybook/react'
 
 import '@amsterdam/design-system-css/src/paragraph/paragraph.scss'
 
@@ -14,30 +14,31 @@ export default {
   component: Paragraph,
   argTypes: {
     size: {
-      control: { type: 'select', labels: { undefined: 'default', large: 'large', small: 'small' } },
+      control: {
+        type: 'select',
+        labels: { undefined: 'default', large: 'large', small: 'small' },
+      },
       options: [undefined, 'large', 'small'],
     },
   },
 } as Meta<typeof Paragraph>
 
-const Template: ComponentStory<typeof Paragraph> = (args) => <Paragraph {...args} />
-
-export const Default = Template.bind({})
-
-Default.args = {
-  children: 'Jouw typograaf biedt mij zulke exquise schreven!',
+export const Default = {
+  args: {
+    children: 'Jouw typograaf biedt mij zulke exquise schreven!',
+  },
 }
 
-export const Large = Template.bind({})
-
-Large.args = {
-  ...Default.args,
-  size: 'large',
+export const Large = {
+  args: {
+    ...Default.args,
+    size: 'large',
+  },
 }
 
-export const Small = Template.bind({})
-
-Small.args = {
-  ...Default.args,
-  size: 'small',
+export const Small = {
+  args: {
+    ...Default.args,
+    size: 'small',
+  },
 }
