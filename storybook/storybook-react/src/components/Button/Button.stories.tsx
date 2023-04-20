@@ -14,6 +14,7 @@ export default {
   component: Button,
   args: {
     children: 'Default',
+    disabled: false,
   },
 } as ComponentMeta<typeof Button>
 
@@ -46,5 +47,19 @@ export const ButtonSecondaryDisabled = Template.bind({})
 ButtonSecondaryDisabled.args = {
   children: 'Secondary Disabled',
   variant: 'secondary',
+  disabled: true,
+}
+
+export const ButtonTertiary = Template.bind({})
+ButtonTertiary.args = {
+  children: 'Tertiary',
+  variant: 'tertiary',
+}
+
+export const ButtonTertiaryDisabled = Template.bind({})
+
+ButtonTertiaryDisabled.args = {
+  children: 'Tertiary Disabled',
+  variant: 'tertiary',
   disabled: true,
 }
