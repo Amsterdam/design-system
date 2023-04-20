@@ -15,16 +15,16 @@
         "value": "{amsterdam.typography.font-size.24}"
       },
       "padding-inline-start": {
-        "value": "{amsterdam.spacing.md}"
+        "value": "{amsterdam.spacing.inset.md}"
       },
       "padding-inline-end": {
-        "value": "{amsterdam.spacing.md}"
+        "value": "{amsterdam.spacing.inset.md}"
       },
       "padding-block-start": {
-        "value": "{amsterdam.spacing.sm}"
+        "value": "{amsterdam.spacing.inset.sm}"
       },
       "padding-block-end": {
-        "value": "{amsterdam.spacing.sm}"
+        "value": "{amsterdam.spacing.inset.sm}"
       },
       "margin-inline-start": {},
       "margin-inline-end": {},
@@ -40,7 +40,9 @@
         "color": {
           "value": "{amsterdam.color.primary-white}"
         },
-        "border-color": {}
+        "border-color": {
+          "value": "transparent"
+        }
       },
       "hover": {
         "background-color": {
@@ -214,15 +216,23 @@
         }
       },
       "subtle": {
-        "background-color": {},
+        "background-color": {
+          "value": "transparent"
+        },
         "border-color": {},
-        "border-width": {},
-        "color": {},
+        "border-width": {
+          "value": "{amsterdam.border-width.md}"
+        },
+        "color": {
+          "value": "{amsterdam.color.primary-blue}"
+        },
         "font-weight": {},
         "hover": {
           "background-color": {},
           "color": {},
-          "border-color": {}
+          "border-color": {
+            "value": "{amsterdam.color.neutral-grey3}"
+          }
         },
         "focus": {
           "background-color": {},
@@ -230,8 +240,12 @@
           "border-color": {}
         },
         "disabled": {
-          "background-color": {},
-          "color": {}
+          "background-color": {
+            "value": "transparent"
+          },
+          "color": {
+            "value": "{amsterdam.color.neutral-grey2}"
+          }
         },
         "danger": {
           "color": {},
