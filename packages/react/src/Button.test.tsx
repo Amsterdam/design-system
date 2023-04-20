@@ -1,5 +1,6 @@
 import { render, screen } from '@testing-library/react'
 import '@testing-library/jest-dom'
+import { createRef } from 'react'
 import { Button } from './Button'
 
 describe('Button', () => {
@@ -93,5 +94,15 @@ describe('Button', () => {
     expect(buttonTertiary).toBeInTheDocument()
     expect(buttonTertiary).toHaveClass('utrecht-button--disabled utrecht-button--subtle')
     expect(buttonTertiary).toHaveAttribute('aria-disabled', 'true')
+  })
+
+  it('able to pass a (React) ref', () => {
+    const ref = createRef<HTMLButtonElement>()
+
+    const { container } = render(<Button ref={ref} />)
+
+    const button = container.querySelector(':only-child')
+
+    expect(ref.current).toBe(button)
   })
 })
