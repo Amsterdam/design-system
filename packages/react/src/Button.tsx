@@ -26,7 +26,10 @@ function getAppearance(variant: ButtonProps['variant']): CommunityButtonAppearan
 }
 
 export const Button = forwardRef(
-  ({ children, disabled, variant, ...rest }: PropsWithChildren<ButtonProps>, ref: ForwardedRef<HTMLButtonElement>) => {
+  (
+    { children, disabled, variant = 'primary', ...rest }: PropsWithChildren<ButtonProps>,
+    ref: ForwardedRef<HTMLButtonElement>,
+  ) => {
     return (
       <CommunityButton
         {...rest}
