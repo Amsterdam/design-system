@@ -96,7 +96,7 @@ describe('Button', () => {
     expect(buttonTertiary).toHaveAttribute('aria-disabled', 'true')
   })
 
-  it('able to pass a (React) ref', () => {
+  it('is able to pass a (React) ref', () => {
     const ref = createRef<HTMLButtonElement>()
 
     const { container } = render(<Button ref={ref} />)

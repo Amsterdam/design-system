@@ -141,7 +141,7 @@ describe('Heading', () => {
     expect(heading).toHaveClass('amsterdam-heading')
   })
 
-  it('supports ForwardRef in React', () => {
+  it('is able to pass a (React) ref', () => {
     const ref = createRef<HTMLHeadingElement>()
 
     const { container } = render(<Heading ref={ref} />)
