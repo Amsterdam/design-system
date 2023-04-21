@@ -11,7 +11,10 @@
 
 .utrecht-link {
   font-family: var(--amsterdam-paragraph-font-family);
-  font-size: var(--amsterdam-paragraph-font-family);
+  font-size: var(
+    --amsterdam-paragraph-font-size,
+    calculate-fluid-style($amsterdam-typography-font-size-18, $amsterdam-typography-font-size-24)
+  );
 }
 
 // @mixin reset {

@@ -33,5 +33,5 @@ const meta = {
 export default meta
 
 export const Default: StoryObj<typeof Link> = {
-  name: 'Default link',
+  name: 'Default',
 }

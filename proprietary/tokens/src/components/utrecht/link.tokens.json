@@ -7,7 +7,7 @@
       },
       "text-decoration": { "value": "none" },
       "text-decoration-color": {},
-      "text-underline-offset": { "value": "8px" },
+      "text-underline-offset": { "value": "9px" },
       "font-family": {
         "value": "{amsterdam.typography.font-family}"
       },
