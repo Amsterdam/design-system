@@ -13,7 +13,7 @@ export default {
   title: 'Link',
   id: 'link',
   component: Link,
-} as Meta<typeof Link>
+} satisfies Meta<typeof Link>
 
 const Template: StoryFn<typeof Link> = (args) => <Link href="#" {...args} />
 

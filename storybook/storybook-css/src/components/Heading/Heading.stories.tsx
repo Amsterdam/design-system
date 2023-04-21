@@ -29,7 +29,7 @@ const meta = {
     styleLevel: 1,
   },
   tags: ['autodocs'],
-} as Meta<typeof Heading>
+} satisfies Meta<typeof Heading>
 
 export default meta
 

@@ -21,7 +21,7 @@ export default {
       options: [undefined, 'large', 'small'],
     },
   },
-} as Meta<typeof Paragraph>
+} satisfies Meta<typeof Paragraph>
 
 export const Default = {
   args: {

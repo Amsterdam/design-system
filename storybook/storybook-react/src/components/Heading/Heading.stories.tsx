@@ -12,7 +12,7 @@ export default {
   title: 'Heading',
   id: 'heading',
   component: Heading,
-} as Meta<typeof Heading>
+} satisfies Meta<typeof Heading>
 
 export const Heading1 = {
   args: {
