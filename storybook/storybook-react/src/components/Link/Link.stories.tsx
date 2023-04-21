@@ -4,21 +4,34 @@
  */
 
 import { Link } from '@amsterdam/design-system-react/src'
-import { ComponentMeta, ComponentStory } from '@storybook/react'
+import type { Meta, StoryObj } from '@storybook/react'
 
 import '@amsterdam/design-system-css/src/link/link.scss'
-import '@amsterdam/design-system-css/src/icon/icon.scss'
 
-export default {
+const meta = {
   title: 'Link',
-  id: 'link',
+  id: 'amsterdam-link',
   component: Link,
-} as ComponentMeta<typeof Link>
+  argTypes: {
+    children: {
+      table: {
+        disable: true,
+      },
+    },
+    href: {
+      table: {
+        type: { summary: 'string' },
+      },
+    },
+  },
+  args: {
+    children: 'https://example.com/',
+    // href: '#',
+  },
+} as Meta<typeof Link>
 
-const Template: ComponentStory<typeof Link> = (args) => <Link href="#" {...args} />
+export default meta
 
-export const Default = Template.bind({})
-
-Default.args = {
-  children: 'Jouw typograaf biedt mij zulke exquise schreven!',
+export const Default: StoryObj<typeof Link> = {
+  name: 'Default link',
 }

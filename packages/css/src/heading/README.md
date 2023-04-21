@@ -11,7 +11,7 @@ Een heading zegt iets over de onderstaande content. Met behulp van headings kan 
 ## Relevante WCAG eisen
 
 - [WCAG 1.3.1](https://www.w3.org/WAI/WCAG21/quickref/#qr-content-structure-separation-programmatic):
-Tekst die er uit ziet als een heading wordt ook door een computer herkend als een heading. Door gebruik te maken van het juiste heading niveau is voor alle gebruikers duidelijk hoe de pagina is gestructeerd.
+  Tekst die er uit ziet als een heading wordt ook door een computer herkend als een heading. Door gebruik te maken van het juiste heading niveau is voor alle gebruikers duidelijk hoe de pagina is gestructeerd.
 - [WCAG 2.4.1](https://www.w3.org/WAI/WCAG21/quickref/#qr-navigation-mechanisms-skip): Headings kunnen gebruikt worden om naar een volgende sectie te navigeren met het toetsenbord
 - [WCAG 2.4.6](https://www.w3.org/WAI/WCAG21/quickref/#headings-and-labels): Beschrijf met headings het doel of het onderwerp van de onderliggende content
 - [WCAG 2.4.10](https://www.w3.org/WAI/WCAG21/quickref/#qr-navigation-mechanisms-headings): Gebruik headings om de content te structureren

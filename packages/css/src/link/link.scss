@@ -3,54 +3,57 @@
  * Copyright (c) 2023 Gemeente Amsterdam
  */
 
-@import "../../utils/calculate-fluid-style";
+@import "../../node_modules/@utrecht/components/link/css/mixin";
+@import "../../node_modules/@utrecht/components/link/css";
 
-@mixin reset {
-  box-sizing: border-box;
-}
+// @import "../../utils/calculate-fluid-style";
 
-.amsterdam-link {
-  color: var(--amsterdam-color-primary-blue);
-  display: inline-flex;
-  font-family: var(--amsterdam-typography-font-family);
-  font-size: calculate-fluid-style(18, 24);
-  font-weight: var(--amsterdam-typography-font-weight-bold);
-  line-height: calculate-fluid-style(29, 38);
-  outline-offset: var(--amsterdam-focus-outline-offset);
-  text-decoration: none;
+// @mixin reset {
+//   box-sizing: border-box;
+// }
 
-  @include reset;
-}
+// .amsterdam-link {
+//   color: var(--amsterdam-color-primary-blue);
+//   display: inline-flex;
+//   font-family: var(--amsterdam-typography-font-family);
+//   font-size: calculate-fluid-style(18, 24);
+//   font-weight: var(--amsterdam-typography-font-weight-bold);
+//   line-height: calculate-fluid-style(29, 38);
+//   outline-offset: var(--amsterdam-focus-outline-offset);
+//   text-decoration: none;
 
-.amsterdam-link:focus,
-.amsterdam-link:hover {
-  outline-offset: var(--amsterdam-focus-outline-offset);
-  text-decoration: underline;
-}
+//   @include reset;
+// }
 
-.amsterdam-link-standalone {
-  box-shadow: inset 0 -2px var(--amsterdam-color-primary-blue);
-  font-weight: var(--amsterdam-typography-font-weight-normal);
-  transition: box-shadow 100ms ease-in-out, color 100ms ease-in-out;
-}
+// .amsterdam-link:focus,
+// .amsterdam-link:hover {
+//   outline-offset: var(--amsterdam-focus-outline-offset);
+//   text-decoration: underline;
+// }
 
-.amsterdam-link-standalone:focus,
-.amsterdam-link-standalone:hover {
-  box-shadow: inset 0 -3px var(--amsterdam-color-primary-blue);
-  text-decoration: none;
-}
+// .amsterdam-link-standalone {
+//   box-shadow: inset 0 -2px var(--amsterdam-color-primary-blue);
+//   font-weight: var(--amsterdam-typography-font-weight-normal);
+//   transition: box-shadow 100ms ease-in-out, color 100ms ease-in-out;
+// }
 
-.amsterdam-link-inline {
-  display: inline;
-  font-size: inherit;
-  font-weight: var(--amsterdam-typography-font-weight-normal);
-  letter-spacing: inherit;
-  line-height: inherit;
-}
+// .amsterdam-link-standalone:focus,
+// .amsterdam-link-standalone:hover {
+//   box-shadow: inset 0 -3px var(--amsterdam-color-primary-blue);
+//   text-decoration: none;
+// }
 
-.amsterdam-link-inlist {
-  font-size: calculate-fluid-style(16, 18);
-  font-weight: var(--amsterdam-typography-font-weight-normal);
-  line-height: calculate-fluid-style(24, 26);
-  padding-block: 12px;
-}
+// .amsterdam-link-inline {
+//   display: inline;
+//   font-size: inherit;
+//   font-weight: var(--amsterdam-typography-font-weight-normal);
+//   letter-spacing: inherit;
+//   line-height: inherit;
+// }
+
+// .amsterdam-link-inlist {
+//   font-size: calculate-fluid-style(16, 18);
+//   font-weight: var(--amsterdam-typography-font-weight-normal);
+//   line-height: calculate-fluid-style(24, 26);
+//   padding-block: 12px;
+// }
