@@ -7,12 +7,15 @@
       },
       "text-decoration": { "value": "none" },
       "text-decoration-color": {},
-      "text-underline-offset": { "value": "3px" },
+      "text-underline-offset": { "value": "8px" },
       "font-family": {
         "value": "{amsterdam.typography.font-family}"
       },
       "active": {
         "color": { "value": "{amsterdam.color.primary-blue}" }
+      },
+      "font-size": {
+        "value": "{amsterdam.typography.font-size.18}"
       },
       "focus": {
         "color": { "value": "{amsterdam.color.primary-blue}" },

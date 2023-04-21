@@ -3,6 +3,7 @@
  * Copyright (c) 2023 Gemeente Amsterdam
  */
 
+@import "../../node_modules/@amsterdam/design-system-tokens/dist/variables";
 @import "../../node_modules/@utrecht/components/link/css/mixin";
 @import "../../node_modules/@utrecht/components/link/css";
 
@@ -10,6 +11,7 @@
 
 .utrecht-link {
   font-family: var(--amsterdam-paragraph-font-family);
+  font-size: var(--amsterdam-paragraph-font-family);
 }
 
 // @mixin reset {
