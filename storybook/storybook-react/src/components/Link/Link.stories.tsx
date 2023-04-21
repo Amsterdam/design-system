@@ -26,7 +26,7 @@ const meta = {
   },
   args: {
     children: 'https://example.com/',
-    // href: '#',
+    href: 'http://localhost:6006/?active=none',
   },
 } as Meta<typeof Link>
 

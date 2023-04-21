@@ -6,7 +6,11 @@
 @import "../../node_modules/@utrecht/components/link/css/mixin";
 @import "../../node_modules/@utrecht/components/link/css";
 
-// @import "../../utils/calculate-fluid-style";
+@import "../../utils/calculate-fluid-style";
+
+.utrecht-link {
+  font-family: var(--amsterdam-paragraph-font-family);
+}
 
 // @mixin reset {
 //   box-sizing: border-box;

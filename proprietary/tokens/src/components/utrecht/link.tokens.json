@@ -5,7 +5,7 @@
       "icon": {
         "size": { "value": "1.2em" }
       },
-      "text-decoration": { "value": "underline" },
+      "text-decoration": { "value": "none" },
       "text-decoration-color": {},
       "text-underline-offset": { "value": "3px" },
       "font-family": {
@@ -16,15 +16,15 @@
       },
       "focus": {
         "color": { "value": "{amsterdam.color.primary-blue}" },
-        "text-decoration": { "value": "none" }
+        "text-decoration": { "value": "underline" }
       },
       "hover": {
         "color": { "value": "{amsterdam.color.primary-blue}" },
         "text-decoration": { "value": "underline" },
-        "text-decoration-thickness": { "value": "3px" }
+        "text-decoration-thickness": { "value": "2px" }
       },
       "placeholder": {
-        "color": { "value": "{amsterdam.color.primary-blue}" }
+        "color": { "value": "{amsterdam.color.neutral-grey4}" }
       },
       "visited": {
         "color": { "value": "{amsterdam.color.purple}" }
