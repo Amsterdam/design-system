@@ -1,5 +1,5 @@
 import type { ButtonProps } from '@amsterdam/design-system-react/src'
-import type { Meta, StoryObj } from '@storybook/react'
+import type { Meta, StoryContext, StoryObj } from '@storybook/react'
 import clsx from 'clsx'
 
 import '@amsterdam/design-system-css/src/button/button.scss'
@@ -26,7 +26,6 @@ const meta = {
   component: HTMLButton,
   argTypes: {},
   args: {
-    children: 'Click Me!',
     disabled: false,
   },
   tags: ['autodocs'],
@@ -37,13 +36,16 @@ export default meta
 export const ButtonPrimary: StoryObj<typeof HTMLButton> = {
   name: 'Button Primary',
   args: {
+    children: 'Primary',
     variant: 'primary',
   },
   parameters: {
     docs: {
       source: {
         language: 'html',
-        code: '<button>KLIK ME</button>',
+        transform: (_: string, storyContext: StoryContext) => {
+          return reactToHtmlTransformer(storyContext)
+        },
       },
     },
   },
@@ -52,29 +54,26 @@ export const ButtonPrimary: StoryObj<typeof HTMLButton> = {
 export const ButtonSecondary: StoryObj<typeof HTMLButton> = {
   name: 'Button Secondary',
   args: {
+    children: 'Secondary',
     variant: 'secondary',
   },
   parameters: {
-    docs: {
-      source: {
-        language: 'html',
-        code: '<button>KLIK ME</button>',
-      },
-    },
+    ...ButtonPrimary.parameters,
   },
 }
 
 export const ButtonTertiary: StoryObj<typeof HTMLButton> = {
   name: 'Button Tertiary',
   args: {
+    children: 'Tertiary',
     variant: 'tertiary',
   },
   parameters: {
-    docs: {
-      source: {
-        language: 'html',
-        code: '<button>KLIK ME</button>',
-      },
-    },
+    ...ButtonPrimary.parameters,
   },
+}
+
+// Simple transformer for current button states
+function reactToHtmlTransformer({ args: { variant, children } }: StoryContext<ButtonProps>) {
+  return `<button class="amsterdam-button amsterdam-button--${variant}">${children}</button>`
 }
