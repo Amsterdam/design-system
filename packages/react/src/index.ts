@@ -4,8 +4,8 @@
  */
 
 export * from './Heading'
+export * from './Button'
+export * from './Paragraph'
 export { Icon } from './Icon'
 export { Link } from './Link'
 export { List } from './List'
-export * from './Paragraph'
-export { Button } from './Button'
