@@ -1,7 +1,9 @@
 {
   "utrecht": {
     "button": {
-      "background-color": {},
+      "background-color": {
+        "value": "{amsterdam.color.primary-blue}"
+      },
       "border-color": {},
       "border-radius": {},
       "border-width": {},
@@ -58,7 +60,9 @@
         },
         "border-color": {},
         "border-width": {},
-        "color": {},
+        "color": {
+          "value": "{amsterdam.color.primary-white}"
+        },
         "disabled": {
           "background-color": {
             "value": "{amsterdam.color.neutral-grey2}"

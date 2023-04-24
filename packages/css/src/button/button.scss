@@ -15,6 +15,8 @@
 
 .amsterdam-button--tertiary {
   @extend .utrecht-button--subtle;
+
+  border-color: transparent;
 }
 
 .amsterdam-button:disabled,
