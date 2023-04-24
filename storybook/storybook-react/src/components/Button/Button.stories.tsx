@@ -4,62 +4,52 @@
  */
 
 import { Button } from '@amsterdam/design-system-react/src'
-import { ComponentMeta, ComponentStory } from '@storybook/react'
+import { Meta, StoryObj } from '@storybook/react'
 
 import '@amsterdam/design-system-css/src/button/button.scss'
 
-export default {
+const meta: Meta<typeof Button> = {
   title: 'Button',
-  id: 'button',
+  id: 'css-button',
   component: Button,
   args: {
     children: 'Default',
     disabled: false,
   },
-} as ComponentMeta<typeof Button>
-
-const Template: ComponentStory<typeof Button> = (args) => <Button {...args} />
-
-export const ButtonDefault = Template.bind({})
-
-export const ButtonPrimary = Template.bind({})
-ButtonPrimary.args = {
-  children: 'Primary',
-  variant: 'primary',
+  tags: ['autodocs'],
 }
 
-export const ButtonPrimaryDisabled = Template.bind({})
+export default meta
 
-ButtonPrimaryDisabled.args = {
-  children: 'Primary Disabled',
-  variant: 'primary',
-  disabled: true,
+export const ButtonPrimary: StoryObj<typeof Button> = {
+  name: 'Button Primary',
+  args: {
+    children: 'Primary',
+    variant: 'primary',
+  },
+  argTypes: {
+    variant: {
+      table: {
+        disable: true,
+      },
+    },
+  },
 }
 
-export const ButtonSecondary = Template.bind({})
-ButtonSecondary.args = {
-  children: 'Secondary',
-  variant: 'secondary',
+export const ButtonSecondary: StoryObj<typeof Button> = {
+  name: 'Button Secondary',
+  args: {
+    children: 'Secondary',
+    variant: 'secondary',
+  },
+  argTypes: { ...ButtonPrimary.argTypes },
 }
 
-export const ButtonSecondaryDisabled = Template.bind({})
-
-ButtonSecondaryDisabled.args = {
-  children: 'Secondary Disabled',
-  variant: 'secondary',
-  disabled: true,
-}
-
-export const ButtonTertiary = Template.bind({})
-ButtonTertiary.args = {
-  children: 'Tertiary',
-  variant: 'tertiary',
-}
-
-export const ButtonTertiaryDisabled = Template.bind({})
-
-ButtonTertiaryDisabled.args = {
-  children: 'Tertiary Disabled',
-  variant: 'tertiary',
-  disabled: true,
+export const ButtonTertiary: StoryObj<typeof Button> = {
+  name: 'Button Tertiary',
+  args: {
+    children: 'Tertiary',
+    variant: 'tertiary',
+  },
+  argTypes: { ...ButtonPrimary.argTypes },
 }
