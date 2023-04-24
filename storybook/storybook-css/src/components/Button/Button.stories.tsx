@@ -1,24 +1,8 @@
 import type { ButtonProps } from '@amsterdam/design-system-react/src'
 import type { Meta, StoryContext, StoryObj } from '@storybook/react'
-import clsx from 'clsx'
+import { HTMLButton } from './HTMLButton'
 
 import '@amsterdam/design-system-css/src/button/button.scss'
-
-const HTMLButton = ({ children, disabled, variant }: ButtonProps) => {
-  return (
-    <button
-      className={clsx(
-        'amsterdam-button',
-        variant === 'primary' && 'amsterdam-button--primary',
-        variant === 'secondary' && 'amsterdam-button--secondary',
-        variant === 'tertiary' && 'amsterdam-button--tertiary',
-      )}
-      disabled={disabled}
-    >
-      {children}
-    </button>
-  )
-}
 
 const meta = {
   title: 'CSS Components/Button',

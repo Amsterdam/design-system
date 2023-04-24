@@ -10,7 +10,7 @@ import '@amsterdam/design-system-css/src/button/button.scss'
 
 const meta: Meta<typeof Button> = {
   title: 'Button',
-  id: 'css-button',
+  id: 'react-button',
   component: Button,
   args: {
     children: 'Default',
