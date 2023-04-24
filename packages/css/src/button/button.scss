@@ -1,4 +1,28 @@
 @import "../../node_modules/@utrecht/components/button/css/mixin";
 @import "../../node_modules/@utrecht/components/button/css";
 
-// Hier de tokens van de Utrecht gerbuiken om de Amsterdam classes te maken.
+.amsterdam-button {
+  @include utrecht-button;
+}
+
+.amsterdam-button--primary {
+  @extend .utrecht-button--primary-action;
+}
+
+.amsterdam-button--secondary {
+  @extend .utrecht-button--secondary-action;
+}
+
+.amsterdam-button--tertiary {
+  @extend .utrecht-button--subtle;
+}
+
+.amsterdam-button:disabled,
+.amsterdam-button--disabled {
+  @include utrecht-button--disabled;
+}
+
+.amsterdam-button--hover:not(:disabled, .amsterdam-button--disabled),
+.amsterdam-button:hover:not(:disabled, [aria-disabled="true"], .utrecht-button--disabled) {
+  @include utrecht-button--hover;
+}
