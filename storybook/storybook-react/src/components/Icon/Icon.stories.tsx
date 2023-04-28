@@ -13,7 +13,7 @@ export default {
   title: 'Icon',
   id: 'icon',
   component: Icon,
-} as Meta<typeof Icon>
+} satisfies Meta<typeof Icon>
 
 const Template: StoryFn<typeof Icon> = (args) => (
   <Icon {...args}>

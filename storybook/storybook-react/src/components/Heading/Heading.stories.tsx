@@ -12,45 +12,49 @@ export default {
   title: 'Heading',
   id: 'heading',
   component: Heading,
+  args: {
+    children: 'Jouw typograaf biedt mij zulke exquise schreven!',
+    level: 1,
+    styleLevel: 1,
+  },
+  tags: ['autodocs'],
 } satisfies Meta<typeof Heading>
 
 export const Heading1 = {
-  args: {
-    children: 'Jouw typograaf biedt mij zulke exquise schreven!',
-  },
+  name: 'Heading 1',
 }
 
 export const Heading2 = {
   args: {
-    children: 'Jouw typograaf biedt mij zulke exquise schreven!',
     level: 2,
+    styleLevel: 2,
   },
 }
 
 export const Heading3 = {
   args: {
-    children: 'Jouw typograaf biedt mij zulke exquise schreven!',
     level: 3,
+    styleLevel: 3,
   },
 }
 
 export const Heading4 = {
   args: {
-    children: 'Jouw typograaf biedt mij zulke exquise schreven!',
     level: 4,
+    styleLevel: 4,
   },
 }
 
 export const Heading5 = {
   args: {
-    children: 'Jouw typograaf biedt mij zulke exquise schreven!',
     level: 5,
+    styleLevel: 5,
   },
 }
 
 export const Heading6 = {
   args: {
-    children: 'Jouw typograaf biedt mij zulke exquise schreven!',
     level: 6,
+    styleLevel: 6,
   },
 }

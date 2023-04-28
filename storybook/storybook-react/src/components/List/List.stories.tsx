@@ -12,7 +12,7 @@ export default {
   title: 'List',
   id: 'list',
   component: List,
-} as Meta<typeof List>
+} satisfies Meta<typeof List>
 
 export const Default = {
   args: {
