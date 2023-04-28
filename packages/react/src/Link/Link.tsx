@@ -11,7 +11,9 @@ import { AnchorHTMLAttributes, ForwardedRef, forwardRef, PropsWithChildren } fro
 export interface LinkProps extends AnchorHTMLAttributes<HTMLAnchorElement> {
   href: string
   placeholder?: string
-  variant?: 'standard' | 'extrabold'
+  external?: boolean
+  rel?: string
+  target?: string
 }
 
 export const Link = forwardRef(

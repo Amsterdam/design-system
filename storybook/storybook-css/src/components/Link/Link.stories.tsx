@@ -5,12 +5,11 @@
 
 import { Link } from '@amsterdam/design-system-react/src'
 import type { Meta, StoryObj } from '@storybook/react'
-
 import '@amsterdam/design-system-css/src/link/link.scss'
 
 const meta = {
-  title: 'Link',
-  id: 'amsterdam-link',
+  title: 'CSS Components/Link',
+  id: 'css-link',
   component: Link,
   argTypes: {
     external: {
@@ -65,4 +64,12 @@ export default meta
 
 export const Default: StoryObj<typeof Link> = {
   name: 'Default',
+  parameters: {
+    docs: {
+      source: {
+        language: 'html',
+        code: '<a href="https://amsterdam.github.io/design-system" class="utrecht-link">Linktekst</a>',
+      },
+    },
+  },
 }
