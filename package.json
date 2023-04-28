@@ -44,7 +44,7 @@
     "prettier": "2.8.8",
     "rimraf": "5.0.0",
     "stylelint": "15.6.0",
-    "stylelint-config-standard-scss": "7.0.1",
+    "stylelint-config-standard-scss": "9.0.0",
     "stylelint-order": "6.0.3",
     "typescript": "5.0.4"
   },
