@@ -20,9 +20,7 @@ export default {
   tags: ['autodocs'],
 } satisfies Meta<typeof Heading>
 
-export const Heading1 = {
-  name: 'Heading 1',
-}
+export const Heading1 = {}
 
 export const Heading2 = {
   args: {
