@@ -9,10 +9,44 @@
 
 @import "../../utils/calculate-fluid-style";
 
-.utrecht-link {
+.utrecht-link,
+.amsterdam-link {
   font-family: var(--amsterdam-paragraph-font-family);
   font-size: var(
     --amsterdam-paragraph-font-size,
     calculate-fluid-style($amsterdam-typography-font-size-18, $amsterdam-typography-font-size-24)
   );
+}
+
+.amsterdam-link.amsterdam-link--bold {
+  font-weight: $amsterdam-typography-font-weight-bold;
+}
+
+.amsterdam-link.amsterdam-link--color-black {
+  color: $amsterdam-link-black-color;
+  text-decoration: $amsterdam-link-black-text-decoration;
+
+  &:hover,
+  &:active {
+    cursor: resize;
+    text-decoration: $amsterdam-link-black-hover-text-decoration;
+  }
+
+  &:visited {
+    color: $amsterdam-link-black-visited-color;
+  }
+}
+
+.amsterdam-link.amsterdam-link--color-white {
+  color: $amsterdam-link-white-color;
+  text-decoration: $amsterdam-link-white-text-decoration;
+
+  &:hover,
+  &:active {
+    text-decoration: $amsterdam-link-white-hover-text-decoration;
+  }
+
+  &:visited {
+    color: $amsterdam-link-white-visited-color;
+  }
 }
