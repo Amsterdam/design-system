@@ -34,7 +34,7 @@
   "dependencies": {
     "@amsterdam/design-system-react-icons": "workspace:*",
     "clsx": "1.2.1",
-    "date-fns": "2.29.3"
+    "date-fns": "2.30.0"
   },
   "devDependencies": {
     "@babel/core": "7.21.4",
