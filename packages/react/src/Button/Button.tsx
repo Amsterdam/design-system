@@ -32,7 +32,7 @@ export const Button = forwardRef(
   ) => {
     return (
       <CommunityButton
-        {...rest}
+        {...restProps}
         appearance={getAppearance(variant)}
         ref={ref}
         aria-disabled={disabled ?? false}
