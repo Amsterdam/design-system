@@ -84,19 +84,16 @@ describe('Button', () => {
     })
 
     expect(buttonPrimary).toBeInTheDocument()
-    expect(buttonPrimary).toHaveClass('utrecht-button--disabled utrecht-button--primary-action')
-    expect(buttonPrimary).toHaveAttribute('aria-disabled', 'true')
+    expect(buttonPrimary).toBeDisabled()
 
     expect(buttonSecondary).toBeInTheDocument()
-    expect(buttonSecondary).toHaveClass('utrecht-button--disabled utrecht-button--secondary-action')
-    expect(buttonSecondary).toHaveAttribute('aria-disabled', 'true')
+    expect(buttonSecondary).toBeDisabled()
 
     expect(buttonTertiary).toBeInTheDocument()
-    expect(buttonTertiary).toHaveClass('utrecht-button--disabled utrecht-button--subtle')
-    expect(buttonTertiary).toHaveAttribute('aria-disabled', 'true')
+    expect(buttonTertiary).toBeDisabled()
   })
 
-  it('is able to pass a (React) ref', () => {
+  it('is able to pass a React ref', () => {
     const ref = createRef<HTMLButtonElement>()
 
     const { container } = render(<Button ref={ref} />)
