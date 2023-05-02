@@ -4,7 +4,7 @@ import { createRef } from 'react'
 import { Button } from './Button'
 
 describe('Button', () => {
-  it('renders a button with role element', () => {
+  it('renders an element with role button', () => {
     render(<Button>Click me!</Button>)
 
     const button = screen.getByRole('button', {
