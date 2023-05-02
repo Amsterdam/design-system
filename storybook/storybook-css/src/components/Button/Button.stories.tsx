@@ -1,23 +1,22 @@
-import type { ButtonProps } from '@amsterdam/design-system-react/src'
+import { Button, ButtonProps } from '@amsterdam/design-system-react/src'
 import type { Meta, StoryContext, StoryObj } from '@storybook/react'
-import { HTMLButton } from './HTMLButton'
 
 import '@amsterdam/design-system-css/src/button/button.scss'
 
 const meta = {
   title: 'CSS Components/Button',
   id: 'css-button',
-  component: HTMLButton,
+  component: Button,
   argTypes: {},
   args: {
     disabled: false,
   },
   tags: ['autodocs'],
-} as Meta<typeof HTMLButton>
+} as Meta<typeof Button>
 
 export default meta
 
-export const ButtonPrimary: StoryObj<typeof HTMLButton> = {
+export const ButtonPrimary: StoryObj<typeof Button> = {
   name: 'Button Primary',
   args: {
     children: 'Primary',
@@ -35,7 +34,7 @@ export const ButtonPrimary: StoryObj<typeof HTMLButton> = {
   },
 }
 
-export const ButtonSecondary: StoryObj<typeof HTMLButton> = {
+export const ButtonSecondary: StoryObj<typeof Button> = {
   name: 'Button Secondary',
   args: {
     children: 'Secondary',
@@ -46,7 +45,7 @@ export const ButtonSecondary: StoryObj<typeof HTMLButton> = {
   },
 }
 
-export const ButtonTertiary: StoryObj<typeof HTMLButton> = {
+export const ButtonTertiary: StoryObj<typeof Button> = {
   name: 'Button Tertiary',
   args: {
     children: 'Tertiary',
