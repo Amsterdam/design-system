@@ -56,7 +56,7 @@ describe('Button', () => {
     expect(buttonTertiary).toHaveClass('utrecht-button--subtle')
   })
 
-  it('renders a disbabled button with a specified variant', () => {
+  it('renders a disabled button with a specified variant', () => {
     render(
       <>
         <Button disabled variant="primary">
