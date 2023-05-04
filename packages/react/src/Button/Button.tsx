@@ -8,7 +8,6 @@ import { Button as CommunityButton } from '@utrecht/component-library-react'
 import { ButtonHTMLAttributes, ForwardedRef, forwardRef, PropsWithChildren } from 'react'
 
 export interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
-  // TODO: candidate for being its own type
   variant?: 'primary' | 'secondary' | 'tertiary'
 }
 
@@ -31,13 +30,7 @@ export const Button = forwardRef(
     ref: ForwardedRef<HTMLButtonElement>,
   ) => {
     return (
-      <CommunityButton
-        {...rest}
-        appearance={getAppearance(variant)}
-        ref={ref}
-        aria-disabled={disabled ?? false}
-        disabled={disabled}
-      >
+      <CommunityButton {...rest} appearance={getAppearance(variant)} ref={ref} disabled={disabled}>
         {children}
       </CommunityButton>
     )

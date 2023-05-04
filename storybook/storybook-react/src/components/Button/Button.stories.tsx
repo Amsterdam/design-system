@@ -8,7 +8,7 @@ import { Meta, StoryObj } from '@storybook/react'
 
 import '@amsterdam/design-system-css/src/button/button.scss'
 
-const meta: Meta<typeof Button> = {
+const meta = {
   title: 'Button',
   id: 'react-button',
   component: Button,
@@ -17,11 +17,12 @@ const meta: Meta<typeof Button> = {
     disabled: false,
   },
   tags: ['autodocs'],
-}
+} satisfies Meta<typeof Button>
 
 export default meta
+type Story = StoryObj<typeof meta>
 
-export const ButtonPrimary: StoryObj<typeof Button> = {
+export const ButtonPrimary: Story = {
   name: 'Button Primary',
   args: {
     children: 'Primary',
@@ -36,7 +37,7 @@ export const ButtonPrimary: StoryObj<typeof Button> = {
   },
 }
 
-export const ButtonSecondary: StoryObj<typeof Button> = {
+export const ButtonSecondary: Story = {
   name: 'Button Secondary',
   args: {
     children: 'Secondary',
@@ -45,7 +46,7 @@ export const ButtonSecondary: StoryObj<typeof Button> = {
   argTypes: { ...ButtonPrimary.argTypes },
 }
 
-export const ButtonTertiary: StoryObj<typeof Button> = {
+export const ButtonTertiary: Story = {
   name: 'Button Tertiary',
   args: {
     children: 'Tertiary',

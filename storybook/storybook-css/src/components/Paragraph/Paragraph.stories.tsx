@@ -9,7 +9,7 @@ const meta = {
   id: 'css-paragraph',
   component: Paragraph,
   argTypes: {
-    textContent: {
+    children: {
       table: {
         type: { summary: 'string' },
       },
@@ -24,7 +24,7 @@ const meta = {
     size: undefined,
   },
   tags: ['autodocs'],
-} as Meta<typeof Paragraph>
+} satisfies Meta<typeof Paragraph>
 
 export default meta
 
