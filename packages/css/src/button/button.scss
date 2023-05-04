@@ -1,29 +1,15 @@
 @import "../../node_modules/@utrecht/components/button/css";
 
-.amsterdam-button {
-  @include utrecht-button;
-}
-
-.amsterdam-button--primary {
-  @extend .utrecht-button--primary-action;
-}
-
-.amsterdam-button--secondary {
-  @extend .utrecht-button--secondary-action;
-}
-
-.amsterdam-button--tertiary {
-  @extend .utrecht-button--subtle;
-
-  border-color: transparent;
-}
-
-.amsterdam-button:disabled,
-.amsterdam-button--disabled {
-  @include utrecht-button--disabled;
-}
-
-.amsterdam-button--hover:not(:disabled, .amsterdam-button--disabled),
-.amsterdam-button:hover:not(:disabled, [aria-disabled="true"], .utrecht-button--disabled) {
+// Extending utrecht button hover with box-shadow.
+.utrecht-button--hover:not(:disabled, .utrecht-button--disabled),
+.utrecht-button:hover:not(:disabled, [aria-disabled="true"], .utrecht-button--disabled) {
   @include utrecht-button--hover;
+
+  box-shadow: var(--amsterdam-button-hover-box-shadow);
+}
+
+.utrecht-button--secondary-action {
+  @extend .utrecht-button--secondary-action;
+
+  --amsterdam-button-hover-box-shadow: var(--amsterdam-button-secondary-hover-box-shadow);
 }
