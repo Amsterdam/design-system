@@ -1,15 +1,5 @@
 @import "../../node_modules/@utrecht/components/button/css";
 
-// Extending utrecht button hover with box-shadow.
-.utrecht-button--hover:not(:disabled, .utrecht-button--disabled),
-.utrecht-button:hover:not(:disabled, [aria-disabled="true"], .utrecht-button--disabled) {
-  @include utrecht-button--hover;
-
-  box-shadow: var(--amsterdam-button-hover-box-shadow);
-}
-
-.utrecht-button--secondary-action {
-  @extend .utrecht-button--secondary-action;
-
-  --amsterdam-button-hover-box-shadow: var(--amsterdam-button-secondary-hover-box-shadow);
+.amsterdam-button--secondary:hover {
+  box-shadow: var(--amsterdam-button-secondary-hover-box-shadow);
 }
