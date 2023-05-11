@@ -1,4 +1,0 @@
-import{j as o}from"./clsx.m-3764cf42.js";import{I as c}from"./icon-f119d5f2.js";import"./index-f1f749bf.js";import"./_commonjsHelpers-042e6b4d.js";const m=e=>o("svg",{xmlns:"http://www.w3.org/2000/svg",viewBox:"0 0 32 32",focusable:!1,...e,children:o("path",{d:"M0 4v24h32V4H0zm16.12 12.33L6 8h20.06l-9.94 8.33zM11.33 15 4 21.78V8.94L11.33 15zm1.56 1.28 3.24 2.67 3.08-2.58L27.45 24H4.55l8.34-7.72zm7.87-1.2L28 9v12.8l-7.24-6.72z"})}),n=m;try{Email.displayName="Email",Email.__docgenInfo={description:"",displayName:"Email",props:{}}}catch{}const f={title:"Icon",id:"icon",component:c},i=e=>o(c,{...e,children:o(n,{})}),r={render:i};var a,t,s;r.parameters={...r.parameters,docs:{...(a=r.parameters)==null?void 0:a.docs,source:{originalSource:`{
-  render: Template
-}`,...(s=(t=r.parameters)==null?void 0:t.docs)==null?void 0:s.source}}};const g=["Default"];export{r as Default,g as __namedExportsOrder,f as default};
-//# sourceMappingURL=Icon.stories-1e22afe4.js.map
