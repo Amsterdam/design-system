@@ -5,6 +5,7 @@
  */
 
 import { Button as CommunityButton } from '@utrecht/component-library-react'
+import clsx from 'clsx'
 import { ButtonHTMLAttributes, ForwardedRef, forwardRef, PropsWithChildren } from 'react'
 
 export interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
@@ -26,11 +27,17 @@ function getAppearance(variant: ButtonProps['variant']): CommunityButtonAppearan
 
 export const Button = forwardRef(
   (
-    { children, disabled, variant = 'primary', ...rest }: PropsWithChildren<ButtonProps>,
+    { children, disabled, variant = 'primary', ...restProps }: PropsWithChildren<ButtonProps>,
     ref: ForwardedRef<HTMLButtonElement>,
   ) => {
     return (
-      <CommunityButton {...rest} appearance={getAppearance(variant)} ref={ref} disabled={disabled}>
+      <CommunityButton
+        {...restProps}
+        appearance={getAppearance(variant)}
+        ref={ref}
+        disabled={disabled}
+        className={clsx(variant === 'secondary' && 'amsterdam-button--secondary')}
+      >
         {children}
       </CommunityButton>
     )
