@@ -132,7 +132,7 @@ describe('Heading', () => {
     expect(richText).toBeInTheDocument()
   })
 
-  it('can have a additional class name', () => {
+  it('can have an additional class name', () => {
     const { container } = render(<Heading className="large" />)
 
     const heading = container.querySelector(':only-child')
@@ -141,7 +141,7 @@ describe('Heading', () => {
     expect(heading).toHaveClass('amsterdam-heading')
   })
 
-  it('supports ForwardRef in React', () => {
+  it('is able to pass a React ref', () => {
     const ref = createRef<HTMLHeadingElement>()
 
     const { container } = render(<Heading ref={ref} />)
