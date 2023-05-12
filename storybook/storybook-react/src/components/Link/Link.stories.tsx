@@ -61,14 +61,6 @@ const meta = {
         defaultValue: { summary: '' },
       },
     },
-    placeholder: {
-      name: 'placeholder',
-      type: { name: 'boolean', required: false },
-      table: {
-        category: 'API',
-        defaultValue: { summary: false },
-      },
-    },
   },
   args: {
     children: 'Linktekst',

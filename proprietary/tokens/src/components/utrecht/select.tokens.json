@@ -1,0 +1,39 @@
+{
+  "utrecht": {
+    "select": {
+      "background-color": { "value": "{amsterdam.color.primary-white}" },
+      "background-image": {
+        "value": "url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjQiIGhlaWdodD0iMTUiIHZpZXdCb3g9IjAgMCAyNCAxNSIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHBhdGggZmlsbC1ydWxlPSJldmVub2RkIiBjbGlwLXJ1bGU9ImV2ZW5vZGQiIGQ9Ik0xMiAxNC4zMTc0TDAgMi4zMTczOUwyLjE4MjUyIDAuMTQyNTc4TDEyIDkuOTUyMzVMMjEuODE3NSAwLjE0MjU3OEwyNCAyLjMxNzM5TDEyIDE0LjMxNzRaIiBmaWxsPSJjdXJyZW50Q29sb3IiLz4KPC9zdmc+Cg==')"
+      },
+      "background-position": { "value": "right 23px center" },
+      "background-size": { "value": "24px 15px" },
+      "border-bottom-width": {},
+      "border-color": { "value": "{amsterdam.color.primary-black}" },
+      "border-radius": { "value": "0" },
+      "border-width": { "value": "1px" },
+      "color": { "value": "{amsterdam.color.primary-black}" },
+      "font-family": { "value": "{amsterdam.typography.font-family}" },
+      "font-size": {},
+      "max-inline-size": {},
+      "padding-block-end": { "value": "14px" },
+      "padding-block-start": { "value": "15px" },
+      "padding-inline-end": { "value": "28px" },
+      "padding-inline-start": { "value": "28px" },
+      "disabled": {
+        "background-color": {},
+        "border-color": { "value": "{amsterdam.color.neutral-grey2}" },
+        "color": { "value": "{amsterdam.color.neutral-grey2}" }
+      },
+      "focus": {
+        "background-color": {},
+        "border-color": { "value": "{amsterdam.color.primary-blue}" },
+        "color": {}
+      },
+      "invalid": {
+        "background-color": {},
+        "border-color": { "value": "{amsterdam.color.primary-red}" },
+        "border-width": {}
+      }
+    }
+  }
+}
