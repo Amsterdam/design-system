@@ -31,7 +31,7 @@
     "@storybook/addon-essentials": "7.0.10",
     "@storybook/addon-interactions": "7.0.10",
     "@storybook/addon-links": "7.0.10",
-    "@storybook/addon-viewport": "7.0.10",
+    "@storybook/addon-viewport": "7.0.11",
     "@storybook/blocks": "7.0.10",
     "@storybook/manager-api": "7.0.10",
     "@storybook/mdx2-csf": "1.1.0",
