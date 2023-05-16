@@ -63,6 +63,7 @@
         "color": {
           "value": "{amsterdam.color.primary-white}"
         },
+        "color": {},
         "disabled": {
           "background-color": {
             "value": "{amsterdam.color.neutral-grey2}"
