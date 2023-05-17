@@ -11,7 +11,7 @@ import { AnchorHTMLAttributes, ForwardedRef, forwardRef, PropsWithChildren } fro
 
 export type LinkColor = 'default' | 'black' | 'white'
 
-export type LinkVariant = 'default' | 'bold'
+export type LinkVariant = 'default' | 'bold' | 'inline'
 
 export interface LinkProps extends AnchorHTMLAttributes<HTMLAnchorElement> {
   href: string
@@ -35,6 +35,7 @@ export const Link = forwardRef(
       className={clsx(
         'amsterdam-link',
         {
+          'amsterdam-link--inline': variant === 'inline',
           'amsterdam-link--bold': variant === 'bold',
           'amsterdam-link--color-white': color === 'white',
           'amsterdam-link--color-black': color === 'black',

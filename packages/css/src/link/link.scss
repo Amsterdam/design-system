@@ -18,6 +18,11 @@
   );
 }
 
+.amsterdam-link.amsterdam-link.amsterdam-link--inline {
+  text-decoration: $amsterdam-link-inline-text-decoration;
+  text-underline-offset: $amsterdam-link-inline-text-underline-offset;
+}
+
 .amsterdam-link.amsterdam-link--bold {
   font-weight: $amsterdam-typography-font-weight-bold;
 }

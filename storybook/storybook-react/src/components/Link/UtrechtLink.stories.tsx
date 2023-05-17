@@ -5,10 +5,12 @@
 
 // import { Link } from '@amsterdam/design-system-react/src'
 
+import { Paragraph } from '@amsterdam/design-system-react'
 import type { Meta, StoryObj } from '@storybook/react'
 import { Link } from '@utrecht/component-library-react'
 
 import '@amsterdam/design-system-css/src/link/utrecht_link.scss'
+import '@amsterdam/design-system-css/src/Paragraph/paragraph.scss'
 
 const meta = {
   title: 'Utrecht Link',
@@ -94,10 +96,25 @@ export const Default: StoryObj<typeof Link> = {
   name: 'Default',
 }
 
+export const Inline: StoryObj<typeof Link> = {
+  args: {
+    children: 'typograaf',
+    href: 'https://amsterdam.github.io/design-system',
+    // inline: true,
+  },
+  decorators: [
+    (Story) => (
+      <Paragraph>
+        Jouw <Story /> biedt mij zulke exquise schreven!
+      </Paragraph>
+    ),
+  ],
+}
+
 export const External: StoryObj<typeof Link> = {
   args: {
     children: 'Watch video on YouTube',
-    href: 'https://www.example.com',
+    href: 'https://amsterdam.github.io/design-system',
     external: true,
   },
 }

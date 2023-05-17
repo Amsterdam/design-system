@@ -3,9 +3,10 @@
  * Copyright (c) 2023 Gemeente Amsterdam
  */
 
-import { Link } from '@amsterdam/design-system-react/src'
+import { Link, Paragraph } from '@amsterdam/design-system-react/src'
 import type { Meta, StoryObj } from '@storybook/react'
 import '@amsterdam/design-system-css/src/link/link.scss'
+import '@amsterdam/design-system-css/src/paragraph/paragraph.scss'
 
 const meta = {
   title: 'CSS Components/Link',
@@ -21,8 +22,8 @@ const meta = {
       },
     },
     variant: {
-      control: { type: 'select', labels: { default: 'default', bold: 'bold' } },
-      options: ['default', 'bold'],
+      control: { type: 'select', labels: { default: 'default', bold: 'bold', inline: 'inline' } },
+      options: ['default', 'bold', 'inline'],
       table: {
         category: 'API',
         defaultValue: { summary: 'default' },
@@ -136,6 +137,30 @@ export const White: StoryObj<typeof Link> = {
       <div style={{ background: '#004699', display: 'inline', padding: '16px' }}>
         <Story />
       </div>
+    ),
+  ],
+}
+
+export const Inline: StoryObj<typeof Link> = {
+  name: 'Inline',
+  parameters: {
+    docs: {
+      source: {
+        language: 'html',
+        code: '<p class="amsterdam-paragraph">Jouw <a href="https://amsterdam.github.io/design-system" class="utrecht-link amsterdam-link">typograaf</a> biedt mij zulke exquise schreven!</p>',
+      },
+    },
+  },
+  args: {
+    children: 'typograaf',
+    href: 'https://amsterdam.github.io/design-system',
+    variant: 'inline',
+  },
+  decorators: [
+    (Story) => (
+      <Paragraph>
+        Jouw <Story /> biedt mij zulke exquise schreven!
+      </Paragraph>
     ),
   ],
 }

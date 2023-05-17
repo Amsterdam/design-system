@@ -99,6 +99,39 @@
         "visited": {
           "color": { "value": "{amsterdam.color.primary-black}" }
         }
+      },
+      "inline": {
+        "color": { "value": "{amsterdam.color.primary-blue}" },
+        "icon": {
+          "size": { "value": "1.2em" }
+        },
+        "text-decoration": { "value": "underline" },
+        "text-decoration-color": {},
+        "text-underline-offset": { "value": "initial" },
+        "font-family": {
+          "value": "{amsterdam.typography.font-family}"
+        },
+        "active": {
+          "color": { "value": "{amsterdam.color.primary-blue}" }
+        },
+        "font-size": {
+          "value": "{amsterdam.typography.font-size.18}"
+        },
+        "focus": {
+          "color": { "value": "{amsterdam.color.primary-blue}" },
+          "text-decoration": { "value": "underline" }
+        },
+        "hover": {
+          "color": { "value": "{amsterdam.color.primary-blue}" },
+          "text-decoration": { "value": "underline" },
+          "text-decoration-thickness": { "value": "2px" }
+        },
+        "placeholder": {
+          "color": { "value": "{amsterdam.color.neutral-grey4}" }
+        },
+        "visited": {
+          "color": { "value": "{amsterdam.color.purple}" }
+        }
       }
     }
   }
