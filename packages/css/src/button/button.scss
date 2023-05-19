@@ -1,4 +1,5 @@
-@import "../../node_modules/@utrecht/components/button/css/mixin";
 @import "../../node_modules/@utrecht/components/button/css";
 
-// Hier de tokens van de Utrecht gerbuiken om de Amsterdam classes te maken.
+.amsterdam-button--secondary:hover {
+  box-shadow: var(--amsterdam-button-secondary-hover-box-shadow);
+}
