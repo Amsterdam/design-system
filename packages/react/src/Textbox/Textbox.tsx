@@ -10,7 +10,7 @@ export interface TextboxProps extends InputHTMLAttributes<HTMLInputElement> {
 
 export const Textbox = forwardRef(
   ({ type = 'text', ...restProps }: TextboxProps, ref: ForwardedRef<HTMLInputElement>) => {
-    return <CommunityTextBox {...restProps} readOnly={false} className="amsterdam-textbox" type={type} ref={ref} />
+    return <CommunityTextBox {...restProps} className="amsterdam-textbox" type={type} ref={ref} />
   },
 )
 
