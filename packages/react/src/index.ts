@@ -6,6 +6,7 @@
 export * from './Heading'
 export * from './Button/'
 export * from './Paragraph'
+export * from './Textbox'
 export { Icon } from './Icon'
 export { Link } from './Link'
 export { List } from './List'

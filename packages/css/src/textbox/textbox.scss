@@ -1,0 +1,7 @@
+@import "../../node_modules/@utrecht/components/textbox/css";
+
+.amsterdam-textbox {
+  &:hover {
+    box-shadow: var(--amsterdam-textbox-hover-box-shadow);
+  }
+}
