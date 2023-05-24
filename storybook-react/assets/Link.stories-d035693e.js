@@ -1,0 +1,7 @@
+import{j as a,c as u}from"./clsx.m-51e04ab1.js";import{I as t}from"./icon-44dd45ba.js";import{S as f}from"./index.esm-8d7e00fb.js";import{r as k}from"./index-8db94870.js";import"./_commonjsHelpers-042e6b4d.js";const r=k.forwardRef(({children:s,className:d,icon:e,variant:n,...c},p)=>a.jsxs("a",{ref:p,className:u("amsterdam-link",n==="standalone"&&"amsterdam-link-standalone",n==="inList"&&"amsterdam-link-inlist",n==="inline"&&"amsterdam-link-inline",d),...c,children:[n==="inList"&&a.jsx(t,{size:e?"medium":"small",children:e||a.jsx(f,{})}),s,n==="inline"&&e&&a.jsx(t,{children:e})]}));r.displayName="Link";try{r.displayName="Link",r.__docgenInfo={description:"",displayName:"Link",props:{variant:{defaultValue:null,description:"",name:"variant",required:!1,type:{name:"enum",value:[{value:'"inline"'},{value:'"standalone"'},{value:'"inList"'}]}},icon:{defaultValue:null,description:"",name:"icon",required:!1,type:{name:"ReactElement<any, string | JSXElementConstructor<any>>"}}}}}catch{}const L={title:"Link",id:"link",component:r},x=s=>a.jsx(r,{href:"#",...s}),i={render:x,args:{children:"Jouw typograaf biedt mij zulke exquise schreven!"}};var l,o,m;i.parameters={...i.parameters,docs:{...(l=i.parameters)==null?void 0:l.docs,source:{originalSource:`{
+  render: Template,
+  args: {
+    children: 'Jouw typograaf biedt mij zulke exquise schreven!'
+  }
+}`,...(m=(o=i.parameters)==null?void 0:o.docs)==null?void 0:m.source}}};const v=["Default"];export{i as Default,v as __namedExportsOrder,L as default};
+//# sourceMappingURL=Link.stories-d035693e.js.map
