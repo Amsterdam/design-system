@@ -5,9 +5,8 @@ import '@amsterdam/design-system-css/src/button/button.scss'
 
 const meta = {
   title: 'CSS Components/Button',
-  id: 'css-button',
+  id: 'button',
   component: Button,
-  argTypes: {},
   args: {
     disabled: false,
   },
@@ -18,24 +17,21 @@ export default meta
 
 type Story = StoryObj<typeof meta>
 
-export const ButtonPrimary: Story = {
-  name: 'Button Primary',
+export const Primary: Story = {
   args: {
     children: 'Primary',
     variant: 'primary',
   },
 }
 
-export const ButtonSecondary: Story = {
-  name: 'Button Secondary',
+export const Secondary: Story = {
   args: {
     children: 'Secondary',
     variant: 'secondary',
   },
 }
 
-export const ButtonTertiary: Story = {
-  name: 'Button Tertiary',
+export const Tertiary: Story = {
   args: {
     children: 'Tertiary',
     variant: 'tertiary',

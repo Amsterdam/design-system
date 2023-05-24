@@ -10,7 +10,7 @@ import '@amsterdam/design-system-css/src/button/button.scss'
 
 const meta = {
   title: 'Button',
-  id: 'react-button',
+  id: 'button',
   component: Button,
   args: {
     children: 'Default',
@@ -20,37 +20,26 @@ const meta = {
 } satisfies Meta<typeof Button>
 
 export default meta
+
 type Story = StoryObj<typeof meta>
 
-export const ButtonPrimary: Story = {
-  name: 'Button Primary',
+export const Primary: Story = {
   args: {
     children: 'Primary',
     variant: 'primary',
   },
-  argTypes: {
-    variant: {
-      table: {
-        disable: true,
-      },
-    },
-  },
 }
 
-export const ButtonSecondary: Story = {
-  name: 'Button Secondary',
+export const Secondary: Story = {
   args: {
     children: 'Secondary',
     variant: 'secondary',
   },
-  argTypes: { ...ButtonPrimary.argTypes },
 }
 
-export const ButtonTertiary: Story = {
-  name: 'Button Tertiary',
+export const Tertiary: Story = {
   args: {
     children: 'Tertiary',
     variant: 'tertiary',
   },
-  argTypes: { ...ButtonPrimary.argTypes },
 }
