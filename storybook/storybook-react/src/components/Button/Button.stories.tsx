@@ -4,11 +4,11 @@
  */
 
 import { Button } from '@amsterdam/design-system-react/src'
-import { Meta } from '@storybook/react'
+import { Meta, StoryObj } from '@storybook/react'
 
 import '@amsterdam/design-system-css/src/button/button.scss'
 
-export default {
+const meta = {
   title: 'Button',
   id: 'button',
   component: Button,
@@ -19,21 +19,25 @@ export default {
   tags: ['autodocs'],
 } satisfies Meta<typeof Button>
 
-export const Primary = {
+export default meta
+
+type Story = StoryObj<typeof meta>
+
+export const Primary: Story = {
   args: {
     children: 'Primary',
     variant: 'primary',
   },
 }
 
-export const Secondary = {
+export const Secondary: Story = {
   args: {
     children: 'Secondary',
     variant: 'secondary',
   },
 }
 
-export const Tertiary = {
+export const Tertiary: Story = {
   args: {
     children: 'Tertiary',
     variant: 'tertiary',

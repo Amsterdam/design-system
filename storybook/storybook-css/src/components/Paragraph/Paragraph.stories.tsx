@@ -6,7 +6,7 @@ import '@amsterdam/design-system-css/src/paragraph/paragraph.scss'
 
 const meta = {
   title: 'CSS Components/Paragraph',
-  id: 'css-paragraph',
+  id: 'paragraph',
   component: Paragraph,
   argTypes: {
     children: {
@@ -28,8 +28,9 @@ const meta = {
 
 export default meta
 
-export const Default: StoryObj<typeof Paragraph> = {
-  name: 'Default',
+type Story = StoryObj<typeof meta>
+
+export const Default: Story = {
   parameters: {
     docs: {
       source: {
@@ -40,8 +41,7 @@ export const Default: StoryObj<typeof Paragraph> = {
   },
 }
 
-export const Large: StoryObj<typeof Paragraph> = {
-  name: 'Large',
+export const Large: Story = {
   args: {
     size: 'large',
   },
@@ -55,8 +55,7 @@ export const Large: StoryObj<typeof Paragraph> = {
   },
 }
 
-export const Small: StoryObj<typeof Paragraph> = {
-  name: 'Small',
+export const Small: Story = {
   args: {
     size: 'small',
   },

@@ -4,11 +4,11 @@
  */
 
 import { Heading } from '@amsterdam/design-system-react/src'
-import { Meta } from '@storybook/react'
+import { Meta, StoryObj } from '@storybook/react'
 
 import '@amsterdam/design-system-css/src/heading/heading.scss'
 
-export default {
+const meta = {
   title: 'Heading',
   id: 'heading',
   component: Heading,
@@ -20,37 +20,41 @@ export default {
   tags: ['autodocs'],
 } satisfies Meta<typeof Heading>
 
-export const Heading1 = {}
+export default meta
 
-export const Heading2 = {
+type Story = StoryObj<typeof meta>
+
+export const Heading1: Story = {}
+
+export const Heading2: Story = {
   args: {
     level: 2,
     styleLevel: 2,
   },
 }
 
-export const Heading3 = {
+export const Heading3: Story = {
   args: {
     level: 3,
     styleLevel: 3,
   },
 }
 
-export const Heading4 = {
+export const Heading4: Story = {
   args: {
     level: 4,
     styleLevel: 4,
   },
 }
 
-export const Heading5 = {
+export const Heading5: Story = {
   args: {
     level: 5,
     styleLevel: 5,
   },
 }
 
-export const Heading6 = {
+export const Heading6: Story = {
   args: {
     level: 6,
     styleLevel: 6,

@@ -7,7 +7,6 @@ const meta = {
   title: 'CSS Components/Button',
   id: 'button',
   component: Button,
-  argTypes: {},
   args: {
     disabled: false,
   },
