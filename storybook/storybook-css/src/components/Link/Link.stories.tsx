@@ -5,8 +5,11 @@
 
 import { Link, Paragraph } from '@amsterdam/design-system-react/src'
 import type { Meta, StoryObj } from '@storybook/react'
+
 import '@amsterdam/design-system-css/src/link/link.scss'
 import '@amsterdam/design-system-css/src/paragraph/paragraph.scss'
+
+type Story = StoryObj<typeof Link>
 
 const meta = {
   title: 'CSS Components/Link',
@@ -79,7 +82,7 @@ const meta = {
 
 export default meta
 
-export const Default: StoryObj<typeof Link> = {
+export const Default: Story = {
   name: 'Default',
   parameters: {
     docs: {
@@ -94,7 +97,7 @@ export const Default: StoryObj<typeof Link> = {
 /**
  * Black link with an example yellow background
  */
-export const Black: StoryObj<typeof Link> = {
+export const Black: Story = {
   name: 'Black',
   parameters: {
     docs: {
@@ -119,7 +122,7 @@ export const Black: StoryObj<typeof Link> = {
 /**
  * White link with an example blue background
  */
-export const White: StoryObj<typeof Link> = {
+export const White: Story = {
   name: 'White',
   parameters: {
     docs: {
@@ -141,7 +144,7 @@ export const White: StoryObj<typeof Link> = {
   ],
 }
 
-export const Inline: StoryObj<typeof Link> = {
+export const Inline: Story = {
   name: 'Inline',
   parameters: {
     docs: {

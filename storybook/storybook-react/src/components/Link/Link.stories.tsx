@@ -3,10 +3,12 @@
  * Copyright (c) 2023 Gemeente Amsterdam
  */
 
-import { Link } from '@amsterdam/design-system-react/src'
+import { Link, Paragraph } from '@amsterdam/design-system-react/src'
 import type { Meta, StoryObj } from '@storybook/react'
 
 import '@amsterdam/design-system-css/src/link/link.scss'
+
+type Story = StoryObj<typeof Link>
 
 const meta = {
   title: 'Link',
@@ -73,14 +75,14 @@ const meta = {
 
 export default meta
 
-export const Default: StoryObj<typeof Link> = {
+export const Default: Story = {
   name: 'Default',
 }
 
 /**
  * Black link with an example yellow background
  */
-export const Black: StoryObj<typeof Link> = {
+export const Black: Story = {
   name: 'Black',
   args: {
     color: 'black',
@@ -97,7 +99,7 @@ export const Black: StoryObj<typeof Link> = {
 /**
  * White link with an example blue background
  */
-export const White: StoryObj<typeof Link> = {
+export const White: Story = {
   name: 'White',
   args: {
     color: 'white',
@@ -107,6 +109,22 @@ export const White: StoryObj<typeof Link> = {
       <div style={{ background: '#004699', display: 'inline', padding: '16px' }}>
         <Story />
       </div>
+    ),
+  ],
+}
+
+export const Inline: Story = {
+  name: 'Inline',
+  args: {
+    children: 'typograaf',
+    href: 'https://amsterdam.github.io/design-system',
+    variant: 'inline',
+  },
+  decorators: [
+    (Story) => (
+      <Paragraph>
+        Jouw <Story /> biedt mij zulke exquise schreven!
+      </Paragraph>
     ),
   ],
 }
