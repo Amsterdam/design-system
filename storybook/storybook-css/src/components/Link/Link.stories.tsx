@@ -13,7 +13,7 @@ type Story = StoryObj<typeof Link>
 
 const meta = {
   title: 'CSS Components/Link',
-  id: 'css-link',
+  id: 'link',
   component: Link,
   argTypes: {
     color: {
@@ -62,14 +62,6 @@ const meta = {
       table: {
         category: 'HTML attribute',
         defaultValue: { summary: '' },
-      },
-    },
-    placeholder: {
-      name: 'placeholder',
-      type: { name: 'boolean', required: false },
-      table: {
-        category: 'API',
-        defaultValue: { summary: false },
       },
     },
   },

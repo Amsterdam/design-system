@@ -12,7 +12,7 @@ type Story = StoryObj<typeof Link>
 
 const meta = {
   title: 'Link',
-  id: 'amsterdam-link',
+  id: 'link',
   component: Link,
   argTypes: {
     color: {

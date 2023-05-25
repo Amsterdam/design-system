@@ -14,11 +14,7 @@ export type LinkColor = 'default' | 'black' | 'white'
 export type LinkVariant = 'default' | 'bold' | 'inline'
 
 export interface LinkProps extends AnchorHTMLAttributes<HTMLAnchorElement> {
-  href: string
-  placeholder?: string
   external?: boolean
-  rel?: string
-  target?: string
   color?: LinkColor
   variant?: LinkVariant
 }
