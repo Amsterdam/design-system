@@ -13,7 +13,7 @@ export type LinkColor = 'default' | 'black' | 'white'
 
 export type LinkVariant = 'default' | 'bold' | 'inline'
 
-export interface LinkProps extends AnchorHTMLAttributes<HTMLAnchorElement> {
+export interface LinkProps extends Omit<AnchorHTMLAttributes<HTMLAnchorElement>, 'placeholder'> {
   external?: boolean
   color?: LinkColor
   variant?: LinkVariant
@@ -21,11 +21,11 @@ export interface LinkProps extends AnchorHTMLAttributes<HTMLAnchorElement> {
 
 export const Link = forwardRef(
   (
-    { children, href, placeholder, variant, color, className, ...restProps }: PropsWithChildren<LinkProps>,
+    { children, href, variant, color, className, ...restProps }: PropsWithChildren<LinkProps>,
     ref: ForwardedRef<HTMLAnchorElement>,
   ) => (
     <CommunityLink
-      href={placeholder ? undefined : href}
+      href={href ?? '#'}
       {...restProps}
       ref={ref}
       className={clsx(
