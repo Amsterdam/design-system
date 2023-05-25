@@ -23,7 +23,7 @@ const options: SelectOptions[] = [
 ]
 
 const meta = {
-  title: 'Select',
+  title: 'CSS Components/Select',
   id: 'select',
   component: Select,
   argTypes: {
@@ -84,6 +84,21 @@ export default meta
 
 export const Default: StoryObj<typeof Select> = {
   name: 'Default',
+  parameters: {
+    docs: {
+      source: {
+        language: 'html',
+        code: `
+<select class="utrecht-select utrecht-select--html-select">
+  <option disabled="" value="" class="utrecht-select__option utrecht-select__option--disabled">Select an option</option>
+  <option value="1" class="utrecht-select__option">Option #1</option>
+  <option value="2" class="utrecht-select__option">Option #2</option>
+  <option value="3" class="utrecht-select__option">Option #3</option>
+  <option value="4" class="utrecht-select__option">Option #4</option>
+</select>`,
+      },
+    },
+  },
 }
 
 export const Disabled: StoryObj<typeof Select> = {
@@ -91,11 +106,41 @@ export const Disabled: StoryObj<typeof Select> = {
   args: {
     disabled: true,
   },
+  parameters: {
+    docs: {
+      source: {
+        language: 'html',
+        code: `
+<select disabled class="utrecht-select utrecht-select--html-select">
+  <option disabled="" value="" class="utrecht-select__option utrecht-select__option--disabled">Select an option</option>
+  <option value="1" class="utrecht-select__option">Option #1</option>
+  <option value="2" class="utrecht-select__option">Option #2</option>
+  <option value="3" class="utrecht-select__option">Option #3</option>
+  <option value="4" class="utrecht-select__option">Option #4</option>
+</select>`,
+      },
+    },
+  },
 }
 
 export const Invalid: StoryObj<typeof Select> = {
   name: 'Invalid',
   args: {
     invalid: true,
+  },
+  parameters: {
+    docs: {
+      source: {
+        language: 'html',
+        code: `
+<select aria-invalid="true" class="utrecht-select utrecht-select--html-select utrecht-select--invalid">
+  <option disabled="" value="" class="utrecht-select__option utrecht-select__option--disabled">Select an option</option>
+  <option value="1" class="utrecht-select__option">Option #1</option>
+  <option value="2" class="utrecht-select__option">Option #2</option>
+  <option value="3" class="utrecht-select__option">Option #3</option>
+  <option value="4" class="utrecht-select__option">Option #4</option>
+</select>`,
+      },
+    },
   },
 }
