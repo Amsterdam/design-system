@@ -4,17 +4,21 @@
  */
 
 import { Heading, List, Paragraph } from '@amsterdam/design-system-react/src'
-import { Meta } from '@storybook/react'
+import { Meta, StoryObj } from '@storybook/react'
 
 import '@amsterdam/design-system-css/src/list/list.scss'
 
-export default {
+const meta = {
   title: 'List',
   id: 'list',
   component: List,
 } satisfies Meta<typeof List>
 
-export const Default = {
+export default meta
+
+type Story = StoryObj<typeof meta>
+
+export const Default: Story = {
   args: {
     children: (
       <>

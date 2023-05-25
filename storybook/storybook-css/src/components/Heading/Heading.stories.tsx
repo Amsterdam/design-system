@@ -6,7 +6,7 @@ import '@amsterdam/design-system-css/src/heading/heading.scss'
 
 const meta = {
   title: 'CSS Components/Heading',
-  id: 'css-heading',
+  id: 'heading',
   component: Heading,
   argTypes: {
     level: {
@@ -33,7 +33,9 @@ const meta = {
 
 export default meta
 
-export const Heading1: StoryObj<typeof Heading> = {
+type Story = StoryObj<typeof meta>
+
+export const Heading1: Story = {
   parameters: {
     docs: {
       source: {
@@ -44,7 +46,7 @@ export const Heading1: StoryObj<typeof Heading> = {
   },
 }
 
-export const Heading2: StoryObj<typeof Heading> = {
+export const Heading2: Story = {
   args: {
     level: 2,
     styleLevel: 2,
@@ -59,7 +61,7 @@ export const Heading2: StoryObj<typeof Heading> = {
   },
 }
 
-export const Heading3: StoryObj<typeof Heading> = {
+export const Heading3: Story = {
   args: {
     level: 3,
     styleLevel: 3,
@@ -74,7 +76,7 @@ export const Heading3: StoryObj<typeof Heading> = {
   },
 }
 
-export const Heading4: StoryObj<typeof Heading> = {
+export const Heading4: Story = {
   args: {
     level: 4,
     styleLevel: 4,
@@ -89,7 +91,7 @@ export const Heading4: StoryObj<typeof Heading> = {
   },
 }
 
-export const Heading5: StoryObj<typeof Heading> = {
+export const Heading5: Story = {
   args: {
     level: 5,
     styleLevel: 5,
@@ -104,7 +106,7 @@ export const Heading5: StoryObj<typeof Heading> = {
   },
 }
 
-export const Heading6: StoryObj<typeof Heading> = {
+export const Heading6: Story = {
   args: {
     level: 6,
     styleLevel: 6,

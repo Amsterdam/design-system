@@ -1,0 +1,5 @@
+@import "../../node_modules/@utrecht/components/button/css";
+
+.amsterdam-button--secondary:hover {
+  box-shadow: var(--amsterdam-button-secondary-hover-box-shadow);
+}
