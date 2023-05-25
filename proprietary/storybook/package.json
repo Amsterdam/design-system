@@ -1,0 +1,8 @@
+{
+  "name": "storybook",
+  "version": "1.0.0",
+  "main": "index.js",
+  "devDependencies": {
+    "@storybook/theming": "7.0.17"
+  }
+}
