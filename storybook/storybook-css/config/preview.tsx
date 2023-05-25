@@ -9,11 +9,16 @@ export const parameters = {
       date: /Date$/,
     },
   },
-  viewMode: 'docs',
   docs: {
     // Show code by default.
     canvas: {
       sourceState: 'shown',
     },
   },
+  options: {
+    storySort: {
+      order: ['Docs'],
+    },
+  },
+  viewMode: 'docs',
 }
