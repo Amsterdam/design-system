@@ -1,5 +1,5 @@
 import { addons } from '@storybook/manager-api'
-import amsterdam from '../../../proprietary/storybook/amsterdam'
+import amsterdam from '../../../storybook/storybook-theme/amsterdam'
 
 addons.setConfig({
   theme: amsterdam,

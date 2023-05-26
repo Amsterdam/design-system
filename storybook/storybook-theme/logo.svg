@@ -3,11 +3,11 @@
 		#Gemeente-Amsterdam {
 			fill: #EC0000;
 		}
-    	<!-- @media (prefers-color-scheme: dark) {
+    	@media (prefers-color-scheme: dark) {
 			#Gemeente-Amsterdam {
 				fill: #ffffff;
 			}
-		} -->
+		}
 	</style>
   <g transform="translate(0 -.063)">
     <g id="Gemeente-Amsterdam">
