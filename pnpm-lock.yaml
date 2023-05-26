@@ -266,12 +266,6 @@ importers:
         specifier: 0.34.1
         version: 0.34.1(rollup@3.23.0)(typescript@5.0.4)
 
-  proprietary/storybook:
-    devDependencies:
-      '@storybook/theming':
-        specifier: 7.0.17
-        version: 7.0.17(react-dom@18.2.0)(react@18.2.0)
-
   proprietary/tokens:
     devDependencies:
       chokidar-cli:
@@ -469,6 +463,12 @@ importers:
       vite:
         specifier: 4.3.8
         version: 4.3.8(@types/node@18.16.14)(sass@1.62.1)
+
+  storybook/storybook-theme:
+    devDependencies:
+      '@storybook/theming':
+        specifier: 7.0.17
+        version: 7.0.17(react-dom@18.2.0)(react@18.2.0)
 
 packages:
 
