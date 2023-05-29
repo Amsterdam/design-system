@@ -42,7 +42,7 @@
     "@storybook/react": "7.0.12",
     "@storybook/react-vite": "7.0.12",
     "@storybook/testing-library": "0.1.0",
-    "@types/react": "18.2.6",
+    "@types/react": "18.2.7",
     "@vitejs/plugin-react": "4.0.0",
     "date-fns": "2.30.0",
     "http-server": "14.1.1",
