@@ -3,7 +3,7 @@ module.exports = {
   core: {
     disableTelemetry: true,
   },
-  stories: ['../src/components/**/*.docs.mdx', '../src/components/**/*.stories.@(js|jsx|ts|tsx)'],
+  stories: ['../src/**/*.docs.mdx', '../src/**/*.stories.@(js|jsx|ts|tsx)'],
   addons: [
     '@storybook/addon-links',
     '@storybook/addon-essentials',
