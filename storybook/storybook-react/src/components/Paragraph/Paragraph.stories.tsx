@@ -10,7 +10,6 @@ import '@amsterdam/design-system-css/src/paragraph/paragraph.scss'
 
 const meta = {
   title: 'Paragraph',
-  id: 'paragraph',
   component: Paragraph,
   argTypes: {
     size: {

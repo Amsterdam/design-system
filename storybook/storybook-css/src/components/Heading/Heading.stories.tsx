@@ -6,7 +6,6 @@ import '@amsterdam/design-system-css/src/heading/heading.scss'
 
 const meta = {
   title: 'CSS Components/Heading',
-  id: 'heading',
   component: Heading,
   argTypes: {
     level: {
@@ -28,7 +27,6 @@ const meta = {
     level: 1,
     styleLevel: 1,
   },
-  tags: ['autodocs'],
 } satisfies Meta<typeof Heading>
 
 export default meta

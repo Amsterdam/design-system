@@ -6,7 +6,6 @@ import '@amsterdam/design-system-css/src/paragraph/paragraph.scss'
 
 const meta = {
   title: 'CSS Components/Paragraph',
-  id: 'paragraph',
   component: Paragraph,
   argTypes: {
     children: {
@@ -23,7 +22,6 @@ const meta = {
     children: 'Jouw typograaf biedt mij zulke exquise schreven!',
     size: undefined,
   },
-  tags: ['autodocs'],
 } satisfies Meta<typeof Paragraph>
 
 export default meta
