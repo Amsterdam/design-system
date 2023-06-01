@@ -1,4 +1,7 @@
-/* @license CC0-1.0 */
+/**
+ * @license EUPL-1.2+
+ * Copyright (c) 2023 Gemeente Amsterdam
+ */
 
 import { Heading } from '@amsterdam/design-system-react/src'
 import type { Meta, StoryObj } from '@storybook/react'
