@@ -46,7 +46,7 @@
     "react-dom": "18.2.0",
     "require-from-string": "2.0.2",
     "sass": "1.62.1",
-    "storybook": "7.0.12",
+    "storybook": "7.0.18",
     "vite": "4.3.8"
   }
 }
