@@ -1,0 +1,22 @@
+import { Canvas, Controls, Markdown, Meta, Primary } from "@storybook/blocks";
+import * as RadionButtonStory from "./RadioButton.stories.tsx";
+import README from "../../../../../packages/css/src/radio-button/README.md?raw";
+
+<Meta of={RadionButtonStory} />
+
+<Markdown>{README}</Markdown>
+
+<Primary />
+
+<Controls />
+
+## Stories
+
+De primary, secondary en tertiary buttons kunnen naast elkaar gebruikt worden. Niveaus mogen worden overgeslagen.
+
+### Radio button
+
+Een radio input is een formulierelement waarmee de gebruiker een keuze kan maken uit een aantal opties.
+Er is altijd maar één optie tegelijkertijd mogelijk.
+
+<Canvas of={RadionButtonStory} />

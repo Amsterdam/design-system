@@ -10,14 +10,15 @@ import '@amsterdam/design-system-css/src/radio-button/radio-button.scss'
 
 const meta = {
   title: 'Radio Button',
-  id: 'radio-button',
   component: RadioButton,
   args: {
     checked: false,
     invalid: false,
     disabled: false,
+    onChange: () => {
+      console.log('onChange')
+    },
   },
-  tags: ['autodocs'],
 } satisfies Meta<typeof RadioButton>
 
 export default meta
