@@ -1,0 +1,17 @@
+{
+  "amsterdam": {
+    "radio-button": {
+      "hover": {
+        "box-shadow": {
+          "value": "0 0 0 1px {amsterdam.color.dark-blue}"
+        },
+        "border-color": {
+          "value": "{amsterdam.color.dark-blue}"
+        },
+        "background-color": {
+          "value": "{amsterdam.color.dark-blue}"
+        }
+      }
+    }
+  }
+}
