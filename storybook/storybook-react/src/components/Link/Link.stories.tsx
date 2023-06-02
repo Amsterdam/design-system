@@ -137,7 +137,7 @@ export const InList: Story = {
   args: {
     children: 'Linktekst',
     href: 'https://amsterdam.github.io/design-system',
-    variant: 'inline',
+    variant: 'inList',
     onBackground: undefined,
   },
   decorators: [

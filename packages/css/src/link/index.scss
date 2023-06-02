@@ -22,6 +22,14 @@
 .amsterdam-link.amsterdam-link--inline {
   text-decoration: $amsterdam-link-inline-text-decoration;
   text-underline-offset: $amsterdam-link-inline-text-underline-offset;
+
+  &:hover {
+    text-decoration: $amsterdam-link-inline-hover-text-decoration;
+  }
+}
+
+.amsterdam-link.amsterdam-link--in-list:hover {
+  text-decoration: $amsterdam-link-in-list-hover-text-decoration;
 }
 
 .amsterdam-link.amsterdam-link--standalone-bold {

@@ -181,7 +181,7 @@ export const InList: Story = {
   args: {
     children: 'Linktekst',
     href: '#',
-    variant: 'inline',
+    variant: 'inList',
   },
   decorators: [
     (Story) => (
