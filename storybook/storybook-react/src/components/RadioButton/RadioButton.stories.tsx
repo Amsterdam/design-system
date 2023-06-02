@@ -26,9 +26,4 @@ type Story = StoryObj<typeof meta>
 
 export const RadioButtonStory: Story = {
   name: 'Radio Button',
-  args: {
-    checked: false,
-    invalid: false,
-  },
-  argTypes: {},
 }

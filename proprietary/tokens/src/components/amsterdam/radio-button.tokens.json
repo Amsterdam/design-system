@@ -17,6 +17,14 @@
         "background-color": {
           "value": "{amsterdam.color.dark-blue}"
         }
+      },
+      "disabled": {
+        "border-color": {
+          "value": "{amsterdam.color.neutral-grey2}"
+        },
+        "background-color": {
+          "value": "{amsterdam.color.neutral-grey2}"
+        }
       }
     }
   }

@@ -1,10 +1,14 @@
 @import "../../node_modules/@utrecht/components/radio-button/css";
 
-// TODO: replace the utrecht variables for the amsterdam ones.
+// Similar concept as Utrecht to set private variables and update them when specific state is set.
+.amsterdam-radio-button {
+  --_amsterdam-radio-button-background-color: var(--amsterdam-radio-button-background-color, currentColor);
+}
+
 .amsterdam-radio-button:checked {
   background-image: radial-gradient(
     circle,
-    var(--amsterdam-radio-button-color, transparent) (55% - 5%),
+    var(--_amsterdam-radio-button-background-color, transparent) (55% - 5%),
     currentColor 60%
   );
 }
@@ -17,4 +21,11 @@
   background-color: var(--amsterdam-radio-button-hover-background-color);
   border-color: var(--amsterdam-radio-button-hover-border-color);
   box-shadow: none;
+}
+
+.amsterdam-radio-button:disabled:checked {
+  --_amsterdam-radio-button-background-color: var(--amsterdam-radio-button-disabled-background-color);
+
+  background-color: var(--amsterdam-radio-button-disabled-background-color);
+  border-color: var(--amsterdam-radio-button-disabled-border-color);
 }
