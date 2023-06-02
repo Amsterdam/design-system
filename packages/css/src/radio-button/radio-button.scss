@@ -4,16 +4,17 @@
 .amsterdam-radio-button:checked {
   background-image: radial-gradient(
     circle,
-    var(--_utrecht-radio-button-color, transparent) (55% - 5%),
-    var(--_utrecht-radio-button-background-color, currentColor) 60%
+    var(--amsterdam-radio-button-color, transparent) (55% - 5%),
+    currentColor 60%
   );
 }
 
 .amsterdam-radio-button:hover {
-  background-color: var(--amsterdam-radio-button-hover-background-color);
-  border-color: var(--amsterdam-radio-button-hover-border-color);
+  box-shadow: var(--amsterdam-radio-button-hover-box-shadow);
 }
 
-.amsterdam-radio-button:not(:checked):hover {
-  box-shadow: var(--amsterdam-radio-button-hover-box-shadow);
+.amsterdam-radio-button:checked:hover {
+  background-color: var(--amsterdam-radio-button-hover-background-color);
+  border-color: var(--amsterdam-radio-button-hover-border-color);
+  box-shadow: none;
 }
