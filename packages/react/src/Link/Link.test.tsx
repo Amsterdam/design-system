@@ -3,8 +3,9 @@ import { Link } from './Link'
 import '@testing-library/jest-dom'
 
 describe('Link', () => {
+  const linktext = 'Linktext'
   it('renders with href attribute', () => {
-    const { container } = render(<Link href="#">{'https://example.com/'}</Link>)
+    const { container } = render(<Link href="#">{linktext}</Link>)
     const link = container.querySelector('a:only-child')
     expect(link).toBeInTheDocument()
     expect(link).toHaveAttribute('href', '#')
@@ -13,7 +14,7 @@ describe('Link', () => {
   it('renders with target attribute', () => {
     const { container } = render(
       <Link href="#" target="_blank">
-        {'https://example.com/'}
+        {linktext}
       </Link>,
     )
     const link = container.querySelector('a:only-child')
@@ -24,7 +25,7 @@ describe('Link', () => {
   it('renders with rel attribute', () => {
     const { container } = render(
       <Link href="#" rel="noopener">
-        {'https://example.com/'}
+        {linktext}
       </Link>,
     )
     const link = container.querySelector('a:only-child')
@@ -32,43 +33,39 @@ describe('Link', () => {
     expect(link).toHaveAttribute('rel', 'noopener')
   })
 
-  // it('renders default', () => {
-  //   const { container } = render(
-  //     <Link variant="default" href="#">
-  //       {'https://example.com/'}
-  //     </Link>,
-  //   )
-  //   const link = container.querySelector('a:only-child')
-  //   expect(link).toHaveClass('amsterdam-link')
-  // })
+  it('renders standalone', () => {
+    const { container } = render(<Link href="#">{linktext}</Link>)
+    const link = container.querySelector('a:only-child')
+    expect(link).toHaveClass('amsterdam-link')
+  })
 
   it('renders inline variant', () => {
     const { container } = render(
       <Link variant="inline" href="#">
-        {'https://example.com/'}
+        {linktext}
       </Link>,
     )
     const link = container.querySelector('a:only-child')
-    expect(link).toHaveClass('amsterdam-link--inline')
+    expect(link).toHaveClass('amsterdam-link amsterdam-link--inline')
   })
 
-  it('renders white color', () => {
+  it('renders light background color', () => {
     const { container } = render(
-      <Link color="white" href="#">
-        {'https://example.com/'}
+      <Link onBackground="light" href="#">
+        {linktext}
       </Link>,
     )
     const link = container.querySelector('a:only-child')
-    expect(link).toHaveClass('amsterdam-link--color-white')
+    expect(link).toHaveClass('amsterdam-link amsterdam-link--background-light')
   })
 
-  it('renders black color', () => {
+  it('renders dark background color', () => {
     const { container } = render(
-      <Link color="black" href="#">
-        {'https://example.com/'}
+      <Link onBackground="dark" href="#">
+        {linktext}
       </Link>,
     )
     const link = container.querySelector('a:only-child')
-    expect(link).toHaveClass('amsterdam-link--color-black')
+    expect(link).toHaveClass('amsterdam-link amsterdam-link--background-dark')
   })
 })
