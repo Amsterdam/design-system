@@ -15,6 +15,7 @@ const meta = {
   args: {
     checked: false,
     invalid: false,
+    disabled: false,
   },
   tags: ['autodocs'],
 } satisfies Meta<typeof RadioButton>
