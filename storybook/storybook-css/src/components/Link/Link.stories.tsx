@@ -6,7 +6,7 @@
 import { Link, Paragraph } from '@amsterdam/design-system-react/src'
 import type { Meta, StoryObj } from '@storybook/react'
 
-import '@amsterdam/design-system-css/src/link/link.scss'
+import '@amsterdam/design-system-css/src/link/index.scss'
 import '@amsterdam/design-system-css/src/paragraph/paragraph.scss'
 
 type Story = StoryObj<typeof Link>
@@ -16,28 +16,23 @@ const meta = {
   id: 'link',
   component: Link,
   argTypes: {
-    color: {
-      control: { type: 'select', labels: { default: 'default', black: 'black', white: 'white' } },
-      options: ['default', 'black', 'white'],
+    onBackground: {
+      control: { type: 'select', labels: { default: 'default', light: 'light', dark: 'dark' } },
+      options: ['default', 'light', 'dark'],
       table: {
         category: 'API',
         defaultValue: { summary: 'default' },
       },
     },
     variant: {
-      control: { type: 'select', labels: { default: 'default', bold: 'bold', inline: 'inline' } },
-      options: ['default', 'bold', 'inline'],
+      control: {
+        type: 'select',
+        labels: { standalone: 'standalone', standaloneBold: 'standaloneBold', inline: 'inline', inList: 'inList' },
+      },
+      options: ['standalone', 'standaloneBold', 'inline', 'inList'],
       table: {
         category: 'API',
         defaultValue: { summary: 'default' },
-      },
-    },
-    external: {
-      name: 'external',
-      type: { name: 'boolean', required: false },
-      table: {
-        category: 'API',
-        defaultValue: { summary: false },
       },
     },
     href: {
@@ -69,42 +64,48 @@ const meta = {
     children: 'Linktekst',
     href: 'https://amsterdam.github.io/design-system',
   },
-  tags: ['autodocs'],
 } satisfies Meta<typeof Link>
 
 export default meta
 
-export const Default: Story = {
-  name: 'Default',
+export const Standalone: Story = {
+  name: 'Standalone',
   parameters: {
     docs: {
       source: {
         language: 'html',
-        code: '<a href="https://amsterdam.github.io/design-system" class="utrecht-link amsterdam-link">Linktekst</a>',
+        code: '<a href="#" class="utrecht-link amsterdam-link">Linktekst</a>',
       },
     },
   },
 }
 
+export const StandaloneBold: Story = {
+  name: 'Standalone Bold',
+  args: {
+    variant: 'standaloneBold',
+  },
+}
+
 /**
- * Black link with an example yellow background
+ * Link to use on a dark background
  */
-export const Black: Story = {
-  name: 'Black',
+export const Dark: Story = {
+  name: 'Dark',
   parameters: {
     docs: {
       source: {
         language: 'html',
-        code: '<a href="https://amsterdam.github.io/design-system" class="utrecht-link amsterdam-link amsterdam-link--color-black">Linktekst</a>',
+        code: '<a href="#" class="utrecht-link amsterdam-link amsterdam-link--backgorund-color-dark">Linktekst</a>',
       },
     },
   },
   args: {
-    color: 'black',
+    onBackground: 'dark',
   },
   decorators: [
     (Story) => (
-      <div style={{ background: '#FFE600', display: 'inline', padding: '16px' }}>
+      <div style={{ background: '#004699', display: 'inline', padding: '16px' }}>
         <Story />
       </div>
     ),
@@ -112,24 +113,24 @@ export const Black: Story = {
 }
 
 /**
- * White link with an example blue background
+ * Link to use on a light background
  */
-export const White: Story = {
-  name: 'White',
+export const Light: Story = {
+  name: 'Light',
   parameters: {
     docs: {
       source: {
         language: 'html',
-        code: '<a href="https://amsterdam.github.io/design-system" class="utrecht-link amsterdam-link amsterdam-link--color-white">Linktekst</a>',
+        code: '<a href="#" class="utrecht-link amsterdam-link amsterdam-link--color-white">Linktekst</a>',
       },
     },
   },
   args: {
-    color: 'white',
+    onBackground: 'light',
   },
   decorators: [
     (Story) => (
-      <div style={{ background: '#004699', display: 'inline', padding: '16px' }}>
+      <div style={{ background: '#FFE600', display: 'inline', padding: '16px' }}>
         <Story />
       </div>
     ),
@@ -142,13 +143,13 @@ export const Inline: Story = {
     docs: {
       source: {
         language: 'html',
-        code: '<p class="amsterdam-paragraph">Jouw <a href="https://amsterdam.github.io/design-system" class="utrecht-link amsterdam-link">typograaf</a> biedt mij zulke exquise schreven!</p>',
+        code: '<p class="amsterdam-paragraph">Jouw <a href="#" class="utrecht-link amsterdam-link">typograaf</a> biedt mij zulke exquise schreven!</p>',
       },
     },
   },
   args: {
     children: 'typograaf',
-    href: 'https://amsterdam.github.io/design-system',
+    href: '#',
     variant: 'inline',
   },
   decorators: [
@@ -156,6 +157,45 @@ export const Inline: Story = {
       <Paragraph>
         Jouw <Story /> biedt mij zulke exquise schreven!
       </Paragraph>
+    ),
+  ],
+}
+
+// @todo update to list component
+export const InList: Story = {
+  name: 'InList',
+  parameters: {
+    docs: {
+      source: {
+        language: 'html',
+        code: `
+<ul>
+  <li><a href="#" class="amsterdam-link amsterdam-link--inline">Linktekst</a></li>
+  <li><a href="#" class="amsterdam-link amsterdam-link--inline">Linktekst</a></li>
+  <li><a href="#" class="amsterdam-link amsterdam-link--inline">Linktekst</a></li>
+</ul>
+        `,
+      },
+    },
+  },
+  args: {
+    children: 'Linktekst',
+    href: '#',
+    variant: 'inline',
+  },
+  decorators: [
+    (Story) => (
+      <ul>
+        <li>
+          <Story />
+        </li>
+        <li>
+          <Story />
+        </li>
+        <li>
+          <Story />
+        </li>
+      </ul>
     ),
   ],
 }

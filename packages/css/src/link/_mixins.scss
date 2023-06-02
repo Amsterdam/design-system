@@ -1,0 +1,60 @@
+/**
+ * @license EUPL-1.2+
+ * Copyright (c) 2023 Gemeente Amsterdam
+ */
+
+@mixin amsterdam-link {
+  color: var(--amsterdam-link-default-color, blue);
+  text-decoration: var(--amsterdam-link-default-text-decoration, underline);
+  text-decoration-color: var(--amsterdam-link-default-text-decoration-color, currentColor);
+  text-decoration-skip-ink: all;
+  text-decoration-thickness: max(var(--amsterdam-link-default-text-decoration-thickness), 1px);
+  text-underline-offset: var(--amsterdam-link-default-text-underline-offset);
+}
+
+@mixin amsterdam-link--inline {
+  text-decoration: var(--amsterdam-link-inline-text-decoration, underline);
+  text-underline-offset: var(--amsterdam-link-inline-text-underline-offset, 0.2em);
+}
+
+@mixin amsterdam-link--bold {
+  font-weight: var(--amsterdam-link-bold-font-weight, bold);
+}
+
+@mixin amsterdam-link--background-dark {
+  color: var(--amsterdam-link-background-dark-color, black);
+  text-decoration: var(--amsterdam-link-background-dark-text-decoration, underline);
+  text-decoration-color: var(--amsterdam-link-background-dark-text-decoration-color, currentColor);
+  text-decoration-skip-ink: all;
+  text-decoration-thickness: max(var(--amsterdam-link-background-dark-text-decoration-thickness), 1px);
+
+  &:hover,
+  &:active {
+    cursor: var(--amsterdam-link-background-dark-hover-cursor, pointer);
+    text-decoration: var(--amsterdam-link-background-dark-hover-text-decoration, underline);
+    text-decoration-color: var(--amsterdam-link-background-dark-hover-text-decoration-color, currentColor);
+  }
+
+  &:visited {
+    color: var(--amsterdam-link-background-dark-visited-color, black);
+  }
+}
+
+@mixin amsterdam-link--background-light {
+  color: var(--amsterdam-link-background-light-color, black);
+  text-decoration: var(--amsterdam-link-background-light-text-decoration, underline);
+  text-decoration-color: var(--amsterdam-link-background-light-text-decoration-color, currentColor);
+  text-decoration-skip-ink: all;
+  text-decoration-thickness: max(var(--amsterdam-link-background-light-text-decoration-thickness), 1px);
+
+  &:hover,
+  &:active {
+    cursor: var(--amsterdam-link-background-light-hover-cursor, pointer);
+    text-decoration: var(--amsterdam-link-background-light-hover-text-decoration, underline);
+    text-decoration-color: var(--amsterdam-link-background-light-hover-text-decoration-color, currentColor);
+  }
+
+  &:visited {
+    color: var(--amsterdam-link-background-light-visited-color, black);
+  }
+}

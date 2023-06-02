@@ -6,7 +6,8 @@
 import { Link, Paragraph } from '@amsterdam/design-system-react/src'
 import type { Meta, StoryObj } from '@storybook/react'
 
-import '@amsterdam/design-system-css/src/link/link.scss'
+import '@amsterdam/design-system-css/src/link/index.scss'
+import '@amsterdam/design-system-css/src/paragraph/paragraph.scss'
 
 type Story = StoryObj<typeof Link>
 
@@ -15,28 +16,23 @@ const meta = {
   id: 'link',
   component: Link,
   argTypes: {
-    color: {
-      control: { type: 'select', labels: { default: 'default', black: 'black', white: 'white' } },
-      options: ['default', 'black', 'white'],
+    onBackground: {
+      control: { type: 'select', labels: { default: 'default', light: 'light', dark: 'dark' } },
+      options: ['default', 'light', 'dark'],
       table: {
         category: 'API',
         defaultValue: { summary: 'default' },
       },
     },
     variant: {
-      control: { type: 'select', labels: { default: 'default', bold: 'bold' } },
-      options: ['default', 'bold'],
+      control: {
+        type: 'select',
+        labels: { standalone: 'standalone', standaloneBold: 'standaloneBold', inline: 'inline', inList: 'inList' },
+      },
+      options: ['standalone', 'standaloneBold', 'inline', 'inList'],
       table: {
         category: 'API',
         defaultValue: { summary: 'default' },
-      },
-    },
-    external: {
-      name: 'external',
-      type: { name: 'boolean', required: false },
-      table: {
-        category: 'API',
-        defaultValue: { summary: false },
       },
     },
     href: {
@@ -67,29 +63,34 @@ const meta = {
   args: {
     children: 'Linktekst',
     href: 'https://amsterdam.github.io/design-system',
-    color: 'default',
-    variant: 'default',
   },
-  tags: ['autodocs'],
 } satisfies Meta<typeof Link>
 
 export default meta
 
-export const Default: Story = {
-  name: 'Default',
+export const Standalone: Story = {
+  name: 'Standalone',
+}
+
+export const StandaloneBold: Story = {
+  name: 'Standalone Bold',
+  args: {
+    variant: 'standaloneBold',
+    onBackground: undefined,
+  },
 }
 
 /**
- * Black link with an example yellow background
+ * Link to use on a dark background
  */
-export const Black: Story = {
-  name: 'Black',
+export const Dark: Story = {
+  name: 'Dark',
   args: {
-    color: 'black',
+    onBackground: 'dark',
   },
   decorators: [
     (Story) => (
-      <div style={{ background: '#FFE600', display: 'inline', padding: '16px' }}>
+      <div style={{ background: '#004699', display: 'inline', padding: '16px' }}>
         <Story />
       </div>
     ),
@@ -97,16 +98,16 @@ export const Black: Story = {
 }
 
 /**
- * White link with an example blue background
+ * Link to use on a light background
  */
-export const White: Story = {
-  name: 'White',
+export const Light: Story = {
+  name: 'Light',
   args: {
-    color: 'white',
+    onBackground: 'light',
   },
   decorators: [
     (Story) => (
-      <div style={{ background: '#004699', display: 'inline', padding: '16px' }}>
+      <div style={{ background: '#FFE600', display: 'inline', padding: '16px' }}>
         <Story />
       </div>
     ),
@@ -119,12 +120,39 @@ export const Inline: Story = {
     children: 'typograaf',
     href: 'https://amsterdam.github.io/design-system',
     variant: 'inline',
+    onBackground: undefined,
   },
   decorators: [
     (Story) => (
       <Paragraph>
         Jouw <Story /> biedt mij zulke exquise schreven!
       </Paragraph>
+    ),
+  ],
+}
+
+// @todo update to list component
+export const InList: Story = {
+  name: 'InList',
+  args: {
+    children: 'Linktekst',
+    href: 'https://amsterdam.github.io/design-system',
+    variant: 'inline',
+    onBackground: undefined,
+  },
+  decorators: [
+    (Story) => (
+      <ul>
+        <li>
+          <Story />
+        </li>
+        <li>
+          <Story />
+        </li>
+        <li>
+          <Story />
+        </li>
+      </ul>
     ),
   ],
 }

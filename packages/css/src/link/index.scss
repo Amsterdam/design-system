@@ -1,0 +1,58 @@
+/**
+ * @license EUPL-1.2+
+ * Copyright (c) 2023 Gemeente Amsterdam
+ */
+
+@import "../../node_modules/@amsterdam/design-system-tokens/dist/variables";
+
+@import "./mixins";
+@import "../../utils/calculate-fluid-style";
+
+.amsterdam-link {
+  @include amsterdam-link;
+
+  color: var(--amsterdam-link-default-color);
+  font-family: var(--amsterdam-paragraph-font-family);
+  font-size: var(
+    --amsterdam-paragraph-font-size,
+    calculate-fluid-style($amsterdam-typography-font-size-18, $amsterdam-typography-font-size-24)
+  );
+}
+
+.amsterdam-link.amsterdam-link--inline {
+  text-decoration: $amsterdam-link-inline-text-decoration;
+  text-underline-offset: $amsterdam-link-inline-text-underline-offset;
+}
+
+.amsterdam-link.amsterdam-link--standalone-bold {
+  font-weight: $amsterdam-typography-font-weight-bold;
+}
+
+.amsterdam-link.amsterdam-link--background-dark {
+  color: $amsterdam-link-background-dark-color;
+  text-decoration: $amsterdam-link-background-dark-text-decoration;
+
+  &:hover,
+  &:active {
+    cursor: resize;
+    text-decoration: $amsterdam-link-background-dark-hover-text-decoration;
+  }
+
+  &:visited {
+    color: $amsterdam-link-background-dark-visited-color;
+  }
+}
+
+.amsterdam-link.amsterdam-link--background-light {
+  color: $amsterdam-link-background-light-color;
+  text-decoration: $amsterdam-link-background-light-text-decoration;
+
+  &:hover,
+  &:active {
+    text-decoration: $amsterdam-link-background-light-hover-text-decoration;
+  }
+
+  &:visited {
+    color: $amsterdam-link-background-light-visited-color;
+  }
+}

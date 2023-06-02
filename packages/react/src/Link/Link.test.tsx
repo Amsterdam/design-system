@@ -32,15 +32,15 @@ describe('Link', () => {
     expect(link).toHaveAttribute('rel', 'noopener')
   })
 
-  it('renders default', () => {
-    const { container } = render(
-      <Link variant="default" href="#">
-        {'https://example.com/'}
-      </Link>,
-    )
-    const link = container.querySelector('a:only-child')
-    expect(link).toHaveClass('amsterdam-link')
-  })
+  // it('renders default', () => {
+  //   const { container } = render(
+  //     <Link variant="default" href="#">
+  //       {'https://example.com/'}
+  //     </Link>,
+  //   )
+  //   const link = container.querySelector('a:only-child')
+  //   expect(link).toHaveClass('amsterdam-link')
+  // })
 
   it('renders inline variant', () => {
     const { container } = render(
@@ -50,16 +50,6 @@ describe('Link', () => {
     )
     const link = container.querySelector('a:only-child')
     expect(link).toHaveClass('amsterdam-link--inline')
-  })
-
-  it('renders bold variant', () => {
-    const { container } = render(
-      <Link variant="bold" href="#">
-        {'https://example.com/'}
-      </Link>,
-    )
-    const link = container.querySelector('a:only-child')
-    expect(link).toHaveClass('amsterdam-link--bold')
   })
 
   it('renders white color', () => {

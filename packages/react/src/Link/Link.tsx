@@ -1,46 +1,42 @@
 /**
  * @license EUPL-1.2+
- * Copyright (c) 2021 Gemeente Utrecht
- * Copyright (c) 2021 Robbert Broersma
  * Copyright (c) 2023 Gemeente Amsterdam
  */
 
-import { Link as CommunityLink } from '@utrecht/component-library-react'
 import clsx from 'clsx'
 import { AnchorHTMLAttributes, ForwardedRef, forwardRef, PropsWithChildren } from 'react'
 
-export type LinkColor = 'default' | 'black' | 'white'
-
-export type LinkVariant = 'default' | 'bold' | 'inline'
+export type LinkOnBackground = 'default' | 'light' | 'dark'
+export type LinkVariant = 'standalone' | 'standaloneBold' | 'inline' | 'inList'
 
 export interface LinkProps extends Omit<AnchorHTMLAttributes<HTMLAnchorElement>, 'placeholder'> {
-  external?: boolean
-  color?: LinkColor
   variant?: LinkVariant
+  onBackground?: LinkOnBackground
 }
 
 export const Link = forwardRef(
   (
-    { children, href, variant, color, className, ...restProps }: PropsWithChildren<LinkProps>,
+    { children, href, variant, onBackground, className, ...restProps }: PropsWithChildren<LinkProps>,
     ref: ForwardedRef<HTMLAnchorElement>,
   ) => (
-    <CommunityLink
-      href={href ?? '#'}
+    <a
+      href={href}
       {...restProps}
       ref={ref}
       className={clsx(
         'amsterdam-link',
         {
           'amsterdam-link--inline': variant === 'inline',
-          'amsterdam-link--bold': variant === 'bold',
-          'amsterdam-link--color-white': color === 'white',
-          'amsterdam-link--color-black': color === 'black',
+          'amsterdam-link--standalone-bold': variant === 'standaloneBold',
+          'amsterdam-link--in-list': variant === 'inList',
+          'amsterdam-link--background-light': onBackground === 'light',
+          'amsterdam-link--background-dark': onBackground === 'dark',
         },
         className,
       )}
     >
       {children}
-    </CommunityLink>
+    </a>
   ),
 )
 
