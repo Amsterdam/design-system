@@ -11,12 +11,14 @@ module.exports = {
     '@storybook/addon-a11y',
   ],
   features: {
-    postcss: false,
     buildStoriesJson: true,
-    StoryStoreV7: true,
+    storyStoreV7: true,
   },
   framework: {
     name: '@storybook/react-vite',
     options: {},
+  },
+  docs: {
+    autodocs: true,
   },
 }

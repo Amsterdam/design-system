@@ -7,18 +7,6 @@ De `Paragraph` component gebruik je voor een alinea met lopende tekst, instructi
 - Groepeer zinnen die bij elkaar horen in een alinea. Begin een nieuwe alinea wanneer de tekst over een andere onderwerp gaat of een eigen doel heeft.
 - Overweeg of een alinea met meer dan 7 zinnen of 140 woorden duidelijker is als je tekst indeelt in twee alinea's. Teksten met niet al te lange alinea's zijn makkelijker te begrijpen als je pauze neemt, en door het groeperen is informatie sneller terug te vinden.
 
-## Formaten (`size` property)
-
-### `large`
-
-Gebruik dit formaat alleen voor de introductietekst van een pagina. Het is niet verplicht om een introductietekst te gebruiken. Gebruik er maximaal 1 per pagina.
-
-Een introductietekst is een bondige beschrijving van de inhoud van een pagina. Gebruik deze tekst om de lezer te verleiden om verder te lezen.
-
-### `small`
-
-Gebruik dit formaat voor hulpteksten, bijschriften, metadata e.d. Hou deze teksten kort.
-
 ## Relevante WCAG eisen
 
 - [WCAG 1.3.1](https://www.w3.org/TR/WCAG21/#info-and-relationships): Blokken die er uit zien als een alinea worden ook door een computer herkend als alinea
