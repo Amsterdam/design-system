@@ -33,7 +33,7 @@
   ],
   "dependencies": {
     "@amsterdam/design-system-react-icons": "workspace:*",
-    "@utrecht/component-library-react": "1.0.0-alpha.329",
+    "@utrecht/component-library-react": "1.0.0-alpha.334",
     "clsx": "1.2.1",
     "date-fns": "2.30.0"
   },
