@@ -18,8 +18,8 @@
     window.LOGLEVEL = 'info';
     window.FRAMEWORK_OPTIONS = {};
     window.CHANNEL_OPTIONS = {};
-    window.FEATURES = {"warnOnLegacyHierarchySeparator":true,"buildStoriesJson":true,"storyStoreV7":true,"argTypeTargetsV7":true,"legacyDecoratorFileOrder":false,"postcss":false,"previewMdx2":true,"StoryStoreV7":true};
-    window.STORIES = [{"titlePrefix":"","directory":"./src","files":"**/*.stories.@(mdx|tsx)","importPathMatcher":"^\\.[\\\\/](?:src(?:\\/(?!\\.)(?:(?:(?!(?:^|\\/)\\.).)*?)\\/|\\/|$)(?!\\.)(?=.)[^/]*?\\.stories\\.(mdx|tsx))$"}];
+    window.FEATURES = {"warnOnLegacyHierarchySeparator":true,"buildStoriesJson":true,"storyStoreV7":true,"argTypeTargetsV7":true,"legacyDecoratorFileOrder":false};
+    window.STORIES = [{"titlePrefix":"","directory":"./src","files":"**/*.docs.mdx","importPathMatcher":"^\\.[\\\\/](?:src(?:\\/(?!\\.)(?:(?:(?!(?:^|\\/)\\.).)*?)\\/|\\/|$)(?!\\.)(?=.)[^/]*?\\.docs\\.mdx)$"},{"titlePrefix":"","directory":"./src","files":"**/*.stories.@(mdx|js|jsx|ts|tsx)","importPathMatcher":"^\\.[\\\\/](?:src(?:\\/(?!\\.)(?:(?:(?!(?:^|\\/)\\.).)*?)\\/|\\/|$)(?!\\.)(?=.)[^/]*?\\.stories\\.(mdx|js|jsx|ts|tsx))$"}];
     window.DOCS_OPTIONS = {"defaultName":"Docs","autodocs":true};
 
     // We do this so that "module && module.hot" etc. in Storybook source code
@@ -360,7 +360,7 @@
   window.global = window;
 </script>
 
-  <script type="module" crossorigin src="./assets/iframe-ef998ca3.js"></script>
+  <script type="module" crossorigin src="./assets/iframe-9cf3499d.js"></script>
 </head>
 
 <body>
