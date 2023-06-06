@@ -29,9 +29,9 @@
     "build": "npm run clean && npm run svgr && rollup -c"
   },
   "devDependencies": {
-    "@rollup/plugin-node-resolve": "15.0.2",
+    "@rollup/plugin-node-resolve": "15.1.0",
     "@svgr/cli": "8.0.1",
-    "@types/react": "18.2.6",
+    "@types/react": "18.2.8",
     "react": "18.2.0",
     "rollup": "3.23.0",
     "rollup-plugin-peer-deps-external": "2.2.4",
