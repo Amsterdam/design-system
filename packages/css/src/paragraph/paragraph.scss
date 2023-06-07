@@ -2,9 +2,7 @@
  * @license EUPL-1.2+
  * Copyright (c) 2023 Gemeente Amsterdam
  */
-
-@import "../../node_modules/@amsterdam/design-system-tokens/dist/variables";
-@import "../../utils/calculate-fluid-style";
+@import "../../utils/breakpoint";
 
 @mixin reset {
   box-sizing: border-box;
@@ -15,33 +13,31 @@
 .amsterdam-paragraph {
   color: var(--amsterdam-paragraph-color);
   font-family: var(--amsterdam-paragraph-font-family);
-
-  /*
-    We don't use the amsterdam-paragraph-font-size variable, because we generate a somewhat
-    complex css rule with a Sass function. The variable is added here so people can
-    overwrite that css rule with their own value.
-  */
-  font-size: var(
-    --amsterdam-paragraph-font-size,
-    calculate-fluid-style($amsterdam-typography-font-size-18, $amsterdam-typography-font-size-24)
-  );
+  font-size: var(--amsterdam-paragraph-font-size-large);
   font-weight: var(--amsterdam-paragraph-font-weight);
   line-height: var(--amsterdam-paragraph-line-height);
+
+  @media screen and (width < $amsterdam-breakpoint) {
+    font-size: var(--amsterdam-paragraph-font-size-small);
+  }
 
   @include reset;
 }
 
 .amsterdam-paragraph-small {
-  font-size: var(
-    --amsterdam-paragraph-small-font-size,
-    calculate-fluid-style($amsterdam-typography-font-size-16, $amsterdam-typography-font-size-18)
-  );
+  font-size: var(--amsterdam-paragraph-small-font-size-large);
+  line-height: var(--amsterdam-paragraph-small-line-height);
+
+  @media screen and (width < $amsterdam-breakpoint) {
+    font-size: var(--amsterdam-paragraph-small-font-size-small);
+  }
 }
 
 .amsterdam-paragraph-large {
-  font-size: var(
-    --amsterdam-paragraph-large-font-size,
-    calculate-fluid-style($amsterdam-typography-font-size-22, $amsterdam-typography-font-size-30)
-  );
+  font-size: var(--amsterdam-paragraph-large-font-size-large);
   line-height: var(--amsterdam-paragraph-large-line-height);
+
+  @media screen and (width < $amsterdam-breakpoint) {
+    font-size: var(--amsterdam-paragraph-large-font-size-small);
+  }
 }
