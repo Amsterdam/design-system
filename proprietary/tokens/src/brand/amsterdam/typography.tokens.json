@@ -25,6 +25,64 @@
         "140": { "value": 1.4 },
         "150": { "value": 1.5 },
         "160": { "value": 1.6 }
+      },
+      "text-level": {
+        "2xs": {
+          "font-size": {
+            "small": { "value": "clamp(1rem, 1rem + (0.0625 * (100vw - 20rem)) / 33.3125, 1.0625rem)" },
+            "large": { "value": "clamp(1.0625rem, 1.0625rem + (0.0625 * (100vw - 53.375rem)) / 36.625, 1.125rem)" }
+          },
+          "line-height": { "value": "160%" }
+        },
+        "xs": {
+          "font-size": {
+            "small": { "value": "clamp(1.125rem, 1.125rem + (0.1875 * (100vw - 20rem)) / 33.3125, 1.3125rem)" },
+            "large": { "value": "clamp(1.3125rem, 1.3125rem + (0.0625 * (100vw - 53.375rem)) / 36.625, 1.375rem)" }
+          },
+          "line-height": { "value": "160%" }
+        },
+        "s": {
+          "font-size": {
+            "small": { "value": "clamp(1.25rem, 1.25rem + (0.1875 * (100vw - 20rem)) / 33.3125, 1.4375rem)" },
+            "large": { "value": "clamp(1.4375rem, 1.4375rem + (0.125 * (100vw - 53.375rem)) / 36.625, 1.5625rem)" }
+          },
+          "line-height": { "value": "140%" }
+        },
+        "m": {
+          "font-size": {
+            "small": { "value": "clamp(1.375rem, 1.375rem + (0.25 * (100vw - 20rem)) / 33.3125, 1.625rem)" },
+            "large": { "value": "clamp(1.625rem, 1.625rem + (0.125 * (100vw - 53.375rem)) / 36.625, 1.75rem)" }
+          },
+          "line-height": { "value": "150%" }
+        },
+        "l": {
+          "font-size": {
+            "small": { "value": "clamp(1.5rem, 1.5rem + (0.3125 * (100vw - 20rem)) / 33.3125, 1.8125rem)" },
+            "large": { "value": "clamp(1.8125rem, 1.8125rem + (0.1875 * (100vw - 53.375rem)) / 36.625, 2rem)" }
+          },
+          "line-height": { "value": "140%" }
+        },
+        "xl": {
+          "font-size": {
+            "small": { "value": "clamp(1.75rem, 1.75rem + (0.5 * (100vw - 20rem)) / 33.3125, 2.25rem)" },
+            "large": { "value": "clamp(2.25rem, 2.25rem + (0.25 * (100vw - 53.375rem)) / 36.625, 2.5rem)" }
+          },
+          "line-height": { "value": "130%" }
+        },
+        "2xl": {
+          "font-size": {
+            "small": { "value": "clamp(2rem, 2rem + (1 * (100vw - 20rem)) / 33.3125, 3rem)" },
+            "large": { "value": "clamp(3rem, 3rem + (0.5 * (100vw - 53.375rem)) / 36.625, 3.5rem)" }
+          },
+          "line-height": { "value": "120%" }
+        },
+        "3xl": {
+          "font-size": {
+            "small": { "value": "clamp(2rem, 2rem + (2 * (100vw - 20rem)) / 33.3125, 4rem)" },
+            "large": { "value": "clamp(4rem, 4rem + (1 * (100vw - 53.375rem)) / 36.625, 5rem)" }
+          },
+          "line-height": { "value": "110%" }
+        }
       }
     }
   }
