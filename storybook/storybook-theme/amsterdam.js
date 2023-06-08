@@ -1,8 +1,8 @@
 import Logo from '../../proprietary/icons/static/Logo.svg'
 
-const config = {
+const amsterdam = {
   brandTitle: 'Gemeente Amsterdam',
   brandImage: Logo,
 }
 
-export default config
+export default amsterdam
