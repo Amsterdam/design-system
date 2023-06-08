@@ -1,7 +1,8 @@
-import { create } from '@storybook/theming/create'
 import Logo from '../../proprietary/icons/static/Logo.svg'
 
-export default create({
+const config = {
   brandTitle: 'Gemeente Amsterdam',
   brandImage: Logo,
-})
+}
+
+export default config
