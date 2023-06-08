@@ -1,0 +1,31 @@
+import { Canvas, Controls, Markdown, Meta, Primary } from "@storybook/blocks";
+import * as ParagraphStories from "./Paragraph.stories.tsx";
+import README from "../../../../../packages/css/src/paragraph/README.md?raw";
+
+<Meta of={ParagraphStories} />
+
+<Markdown>{README}</Markdown>
+
+<Primary />
+
+<Controls />
+
+## Stories
+
+### Default
+
+<Canvas of={ParagraphStories.Default} />
+
+### Large
+
+Gebruik dit formaat alleen voor de introductietekst van een pagina. Het is niet verplicht om een introductietekst te gebruiken. Gebruik er maximaal 1 per pagina.
+
+Een introductietekst is een bondige beschrijving van de inhoud van een pagina. Gebruik deze tekst om de lezer te verleiden om verder te lezen.
+
+<Canvas of={ParagraphStories.Large} />
+
+### Small
+
+Gebruik dit formaat voor hulpteksten, bijschriften, metadata e.d. Hou deze teksten kort.
+
+<Canvas of={ParagraphStories.Small} />

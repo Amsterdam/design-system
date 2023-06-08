@@ -6,7 +6,7 @@ De button gebruik je zodat de gebruiker acties kan uit te voeren en de user inte
 
 - Een label tekst die beschrijft wat de functie van de button is.
 - Een duidelijke constrasterende kleurstelling zodat deze goed te herkennen is en snel te lokaliseren valt.
-- Gebruik het juiste type button voor de daarbijhorende toepassing. Bijvoorbeeld een button binnen een formulier moet altijd het het type `sumbit` zijn.
+- Gebruik het juiste type button voor de daarbijhorende toepassing. Bijvoorbeeld een button binnen een formulier moet altijd het het type `submit` zijn.
 - Zorg dat een button ook met een keyboard te bedienen is.
 
 ## Relevante WCAG eisen

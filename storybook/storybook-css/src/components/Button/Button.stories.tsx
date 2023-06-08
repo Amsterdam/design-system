@@ -1,3 +1,8 @@
+/**
+ * @license EUPL-1.2+
+ * Copyright (c) 2023 Gemeente Amsterdam
+ */
+
 import { Button } from '@amsterdam/design-system-react/src'
 import type { Meta, StoryObj } from '@storybook/react'
 
@@ -5,39 +10,56 @@ import '@amsterdam/design-system-css/src/button/button.scss'
 
 const meta = {
   title: 'CSS Components/Button',
-  id: 'css-button',
   component: Button,
-  argTypes: {},
   args: {
     disabled: false,
   },
-  tags: ['autodocs'],
 } satisfies Meta<typeof Button>
 
 export default meta
 
 type Story = StoryObj<typeof meta>
 
-export const ButtonPrimary: Story = {
-  name: 'Button Primary',
+export const Primary: Story = {
   args: {
     children: 'Primary',
-    variant: 'primary',
+  },
+  parameters: {
+    docs: {
+      source: {
+        language: 'html',
+        code: '<button class="utrecht-button utrecht-button--primary-action" type="button">Primary</button>',
+      },
+    },
   },
 }
 
-export const ButtonSecondary: Story = {
-  name: 'Button Secondary',
+export const Secondary: Story = {
   args: {
     children: 'Secondary',
     variant: 'secondary',
   },
+  parameters: {
+    docs: {
+      source: {
+        language: 'html',
+        code: '<button class="utrecht-button utrecht-button--secondary-action amsterdam-button--secondary" type="button">Secondary</button>',
+      },
+    },
+  },
 }
 
-export const ButtonTertiary: Story = {
-  name: 'Button Tertiary',
+export const Tertiary: Story = {
   args: {
     children: 'Tertiary',
     variant: 'tertiary',
+  },
+  parameters: {
+    docs: {
+      source: {
+        language: 'html',
+        code: '<button class="utrecht-button utrecht-button--subtle" type="button">Tertiary</button>',
+      },
+    },
   },
 }

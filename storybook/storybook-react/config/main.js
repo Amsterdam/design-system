@@ -3,19 +3,16 @@ module.exports = {
   core: {
     disableTelemetry: true,
   },
-  stories: ['../src/**/*.stories.@(mdx|tsx)'],
+  stories: ['../src/**/*.docs.mdx', '../src/**/*.stories.@(js|jsx|ts|tsx)'],
   addons: [
     '@storybook/addon-links',
     '@storybook/addon-essentials',
     '@storybook/addon-interactions',
     '@storybook/addon-a11y',
-    '@storybook/preset-scss',
   ],
   features: {
-    postcss: false,
     buildStoriesJson: true,
-    previewMdx2: true,
-    StoryStoreV7: true,
+    storyStoreV7: true,
   },
   framework: {
     name: '@storybook/react-vite',

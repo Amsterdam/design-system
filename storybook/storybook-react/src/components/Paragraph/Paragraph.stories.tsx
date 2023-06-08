@@ -4,13 +4,12 @@
  */
 
 import { Paragraph } from '@amsterdam/design-system-react'
-import { Meta } from '@storybook/react'
+import { Meta, StoryObj } from '@storybook/react'
 
 import '@amsterdam/design-system-css/src/paragraph/paragraph.scss'
 
-export default {
+const meta = {
   title: 'Paragraph',
-  id: 'paragraph',
   component: Paragraph,
   argTypes: {
     size: {
@@ -23,20 +22,24 @@ export default {
   },
 } satisfies Meta<typeof Paragraph>
 
-export const Default = {
+export default meta
+
+type Story = StoryObj<typeof meta>
+
+export const Default: Story = {
   args: {
     children: 'Jouw typograaf biedt mij zulke exquise schreven!',
   },
 }
 
-export const Large = {
+export const Large: Story = {
   args: {
     ...Default.args,
     size: 'large',
   },
 }
 
-export const Small = {
+export const Small: Story = {
   args: {
     ...Default.args,
     size: 'small',
