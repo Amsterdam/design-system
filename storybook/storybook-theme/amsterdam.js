@@ -1,7 +1,7 @@
 import { create } from '@storybook/theming/create'
-import logo from './logo.svg'
+import Logo from '../../proprietary/icons/static/Logo.svg'
 
 export default create({
   brandTitle: 'Gemeente Amsterdam',
-  brandImage: logo,
+  brandImage: Logo,
 })
