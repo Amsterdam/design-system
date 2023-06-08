@@ -1,7 +1,6 @@
 {
   "name": "@amsterdam/storybook-theme",
   "version": "1.0.0",
-  "main": "index.js",
   "author": "Amsterdam for NL Design System",
   "description": "Amsterdam Storybook theme for NL Design System",
   "license": "EUPL-1.2",
