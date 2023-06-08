@@ -1,7 +1,19 @@
 import { Textbox as CommunityTextBox } from '@utrecht/component-library-react'
 import { ForwardedRef, forwardRef, InputHTMLAttributes } from 'react'
 
-export type TextboxTypes = 'number' | 'text'
+export type TextboxTypes =
+  | 'date'
+  | 'datetime-local'
+  | 'email'
+  | 'month'
+  | 'number'
+  | 'password'
+  | 'search'
+  | 'tel'
+  | 'text'
+  | 'time'
+  | 'url'
+  | 'week'
 
 export interface TextboxProps extends InputHTMLAttributes<HTMLInputElement> {
   invalid?: boolean

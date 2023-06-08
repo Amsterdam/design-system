@@ -3,7 +3,7 @@
     "textbox": {
       "hover": {
         "box-shadow": {
-          "value": "0 0 0 1px {amsterdam.color.primary-black}"
+          "value": "inset 0 0 0 1px {amsterdam.color.primary-black}"
         }
       }
     }

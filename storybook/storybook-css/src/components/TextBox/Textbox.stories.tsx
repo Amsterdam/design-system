@@ -12,7 +12,6 @@ import '@amsterdam/design-system-css/src/textbox/textbox.scss'
 // the CSS module. For now just rendering the React component.
 const meta = {
   title: 'Textbox',
-  id: 'css-textbox',
   component: Textbox,
   args: {
     placeholder: 'This is a text field',

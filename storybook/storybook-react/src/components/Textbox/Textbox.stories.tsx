@@ -10,7 +10,6 @@ import '@amsterdam/design-system-css/src/textbox/textbox.scss'
 
 const meta = {
   title: 'Textbox',
-  id: 'react-textbox',
   component: Textbox,
   args: {
     placeholder: 'This is a text field',

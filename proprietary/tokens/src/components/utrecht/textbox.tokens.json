@@ -7,7 +7,9 @@
         "value": "{amsterdam.color.primary-black}"
       },
       "border-radius": {},
-      "border-width": {},
+      "border-width": {
+        "value": "{amsterdam.border-width.sm}"
+      },
       "color": {
         "value": "{amsterdam.color.primary-black}"
       },
@@ -15,7 +17,7 @@
         "value": "{amsterdam.typography.font-family}"
       },
       "font-size": {
-        "value": "{amsterdam.typography.font-size.24}"
+        "value": "24px"
       },
       "line-height": {},
       "max-inline-size": {},
