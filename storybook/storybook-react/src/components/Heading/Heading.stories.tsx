@@ -10,14 +10,12 @@ import '@amsterdam/design-system-css/src/heading/heading.scss'
 
 const meta = {
   title: 'Heading',
-  id: 'heading',
   component: Heading,
   args: {
     children: 'Jouw typograaf biedt mij zulke exquise schreven!',
     level: 1,
     styleLevel: 1,
   },
-  tags: ['autodocs'],
 } satisfies Meta<typeof Heading>
 
 export default meta
