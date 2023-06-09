@@ -8,7 +8,6 @@ module.exports = {
           inlineStyles: false,
           convertStyleToAttrs: false,
           removeStyleElement: false,
-          removeDoctype: false,
         },
       },
     },
