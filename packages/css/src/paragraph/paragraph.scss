@@ -13,31 +13,31 @@
 .amsterdam-paragraph {
   color: var(--amsterdam-paragraph-color);
   font-family: var(--amsterdam-paragraph-font-family);
-  font-size: var(--amsterdam-paragraph-font-size-large);
+  font-size: var(--amsterdam-paragraph-font-size-wide);
   font-weight: var(--amsterdam-paragraph-font-weight);
   line-height: var(--amsterdam-paragraph-line-height);
 
   @media screen and (width < $amsterdam-breakpoint) {
-    font-size: var(--amsterdam-paragraph-font-size-small);
+    font-size: var(--amsterdam-paragraph-font-size-narrow);
   }
 
   @include reset;
 }
 
 .amsterdam-paragraph-small {
-  font-size: var(--amsterdam-paragraph-small-font-size-large);
+  font-size: var(--amsterdam-paragraph-small-font-size-wide);
   line-height: var(--amsterdam-paragraph-small-line-height);
 
   @media screen and (width < $amsterdam-breakpoint) {
-    font-size: var(--amsterdam-paragraph-small-font-size-small);
+    font-size: var(--amsterdam-paragraph-small-font-size-narrow);
   }
 }
 
 .amsterdam-paragraph-large {
-  font-size: var(--amsterdam-paragraph-large-font-size-large);
+  font-size: var(--amsterdam-paragraph-large-font-size-wide);
   line-height: var(--amsterdam-paragraph-large-line-height);
 
   @media screen and (width < $amsterdam-breakpoint) {
-    font-size: var(--amsterdam-paragraph-large-font-size-small);
+    font-size: var(--amsterdam-paragraph-large-font-size-narrow);
   }
 }
