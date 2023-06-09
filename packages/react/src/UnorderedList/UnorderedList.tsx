@@ -6,17 +6,17 @@
 import clsx from 'clsx'
 import { ForwardedRef, forwardRef, HTMLAttributes, PropsWithChildren } from 'react'
 
-export const List = forwardRef(
+export const UnorderedList = forwardRef(
   (
     { children, className, ...restProps }: PropsWithChildren<HTMLAttributes<HTMLUListElement>>,
     ref: ForwardedRef<HTMLUListElement>,
   ) => {
     return (
-      <ul ref={ref} className={clsx('amsterdam-list', className)} {...restProps}>
+      <ul ref={ref} className={clsx('amsterdam-unordered-list', className)} {...restProps}>
         {children}
       </ul>
     )
   },
 )
 
-List.displayName = 'List'
+UnorderedList.displayName = 'UnorderedList'
