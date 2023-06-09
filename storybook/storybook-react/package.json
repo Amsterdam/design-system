@@ -43,6 +43,7 @@
     "@storybook/react": "7.0.18",
     "@storybook/react-vite": "7.0.18",
     "@storybook/testing-library": "0.1.0",
+    "@storybook/theming": "7.0.20",
     "@types/react": "18.2.8",
     "@vitejs/plugin-react": "4.0.0",
     "date-fns": "2.30.0",
