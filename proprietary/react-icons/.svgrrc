@@ -1,9 +1,0 @@
-{
-  "jsxRuntime": "automatic",
-  "outDir": "src",
-  "svgProps": {
-    "className": "{classNameObj}",
-    "focusable": "{false}"
-  },
-  "typescript": true
-}

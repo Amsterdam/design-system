@@ -30,5 +30,5 @@ export const Default: Story = {
 }
 
 export const Test: Story = {
-  render: () => <Email focusable="true" className="test" />,
+  render: () => <Email />,
 }
