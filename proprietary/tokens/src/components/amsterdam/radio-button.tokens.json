@@ -9,7 +9,7 @@
       },
       "hover": {
         "box-shadow": {
-          "value": "0 0 0 1px {amsterdam.color.dark-blue}"
+          "value": "inset 0 0 0 1px {amsterdam.color.dark-blue}"
         },
         "border-color": {
           "value": "{amsterdam.color.dark-blue}"
