@@ -44,17 +44,3 @@ export const Heading4: Story = {
     styleLevel: 4,
   },
 }
-
-export const Heading5: Story = {
-  args: {
-    level: 5,
-    styleLevel: 5,
-  },
-}
-
-export const Heading6: Story = {
-  args: {
-    level: 6,
-    styleLevel: 6,
-  },
-}
