@@ -29,16 +29,6 @@ describe('Form label', () => {
     expect(label).toHaveClass('amsterdam-form-label')
   })
 
-  // Skipped because in js-dom the element unexpectedly does not have an associated `display` style
-  it.skip('displays as CSS inline element', () => {
-    const { container } = render(<FormLabel htmlFor="form-control" />)
-
-    const label = container.querySelector(':only-child')
-
-    expect(label).toBeVisible()
-    expect(label).toHaveStyle({ display: 'inline' })
-  })
-
   it('renders rich text content', () => {
     const { container } = render(
       <FormLabel htmlFor="form-control">
