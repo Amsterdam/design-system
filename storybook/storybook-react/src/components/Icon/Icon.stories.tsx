@@ -19,16 +19,8 @@ export default meta
 
 type Story = StoryObj<typeof meta>
 
-const Template: StoryFn<typeof Icon> = (args) => (
-  <Icon {...args}>
-    <Email />
-  </Icon>
-)
+const Template: StoryFn<typeof Icon> = () => <Icon svg={Email} />
 
 export const Default: Story = {
   render: Template,
-}
-
-export const Test: Story = {
-  render: () => <Email />,
 }
