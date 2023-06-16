@@ -1,4 +1,4 @@
-import Logo from '../proprietary/icons/static/Logo.svg'
+import Logo from './ThemeLogo.svg'
 
 const themeConfig = {
   brandTitle: 'Gemeente Amsterdam',
