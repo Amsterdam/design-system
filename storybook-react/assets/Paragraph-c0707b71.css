@@ -1,4 +1,0 @@
-/**
- * @license EUPL-1.2+
- * Copyright (c) 2023 Gemeente Amsterdam
- */.amsterdam-paragraph{color:var(--amsterdam-paragraph-color);font-family:var(--amsterdam-paragraph-font-family);font-size:var(--amsterdam-paragraph-font-size, clamp( 1.125rem, calc(1.125rem + .00375*(100vw - 20rem)), 1.5rem ));font-weight:var(--amsterdam-paragraph-font-weight);line-height:var(--amsterdam-paragraph-line-height);box-sizing:border-box;margin-block:0;-webkit-text-size-adjust:100%}.amsterdam-paragraph-small{font-size:var(--amsterdam-paragraph-small-font-size, clamp( 1rem, calc(1rem + .00125*(100vw - 20rem)), 1.125rem ))}.amsterdam-paragraph-large{font-size:var(--amsterdam-paragraph-large-font-size, clamp( 1.375rem, calc(1.375rem + .005*(100vw - 20rem)), 1.875rem ));line-height:var(--amsterdam-paragraph-large-line-height)}
