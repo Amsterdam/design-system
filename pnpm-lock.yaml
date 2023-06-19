@@ -425,8 +425,8 @@ importers:
         specifier: 7.0.20
         version: 7.0.20(react-dom@18.2.0)(react@18.2.0)
       '@storybook/core-events':
-        specifier: 7.0.20
-        version: 7.0.20
+        specifier: 7.0.22
+        version: 7.0.22
       '@storybook/manager-api':
         specifier: 7.0.20
         version: 7.0.20(react-dom@18.2.0)(react@18.2.0)
@@ -5048,6 +5048,10 @@ packages:
 
   /@storybook/core-events@7.0.20:
     resolution: {integrity: sha512-gUBQsbcDmRufmg8LdH7D57c/9BQ+cPi2vBcXdudmxeJFafGwDmLRu1mlv9rxlW4kicn/LZWJjKXtq4XXzF4OGg==}
+    dev: true
+
+  /@storybook/core-events@7.0.22:
+    resolution: {integrity: sha512-T7xiJTlNKrNxRCvJj/5RRukhFFJZqfmfF3DNi+P6YsLBE569GZ6y1eO58IalVzts4lB+LGYLAxkaWssNcZJ6Kg==}
     dev: true
 
   /@storybook/core-events@7.0.6:
