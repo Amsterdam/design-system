@@ -3,16 +3,27 @@
  * Copyright (c) 2023 Gemeente Amsterdam
  */
 
-import { Icon } from '@amsterdam/design-system-react/src'
-import { Email } from '@amsterdam/design-system-react-icons'
+import { Heading, Icon } from '@amsterdam/design-system-react/src'
+import { Alert, Building, Camera, Email } from '@amsterdam/design-system-react-icons'
 import { Meta, StoryObj } from '@storybook/react'
 
 import '@amsterdam/design-system-css/src/icon/icon.scss'
+import '@amsterdam/design-system-css/src/heading/heading.scss'
+
+const icons = { Email, Alert, Building, Camera }
 
 const meta = {
   title: 'Icon',
-  id: 'icon',
   component: Icon,
+  argTypes: {
+    size: {
+      control: { type: 'select' },
+    },
+    svg: {
+      options: Object.keys(icons),
+      mapping: icons,
+    },
+  },
 } satisfies Meta<typeof Icon>
 
 export default meta
@@ -26,6 +37,12 @@ export const Default: Story = {
 }
 
 export const WithText: Story = {
+  render: (args) => (
+    <span style={{ display: 'flex', gap: '1rem' }}>
+      <Icon {...args} size="level-3" />
+      <Heading styleLevel={3}>Inline text</Heading>
+    </span>
+  ),
   args: {
     svg: Email,
   },
