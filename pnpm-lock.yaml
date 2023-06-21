@@ -292,6 +292,9 @@ importers:
       '@amsterdam/design-system-react':
         specifier: workspace:*
         version: link:../../packages/react
+      '@amsterdam/design-system-react-icons':
+        specifier: workspace:*
+        version: link:../../proprietary/react-icons
       '@amsterdam/design-system-tokens':
         specifier: workspace:*
         version: link:../../proprietary/tokens

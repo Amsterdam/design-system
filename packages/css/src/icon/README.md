@@ -18,4 +18,4 @@ Iconen staan standaard links van de tekst en zijn verticaal in het midden van de
 
 <!-- (TODO: linken naar typografie docs) -->
 
-De iconen gebruiken om hun grootte te bepalen dezelfde tekstniveaus als alle typografische componenten. Hierdoor zijn icoon en tekst makkelijk op elkaar af te stemmen.
+De iconen gebruiken dezelfde tekstniveaus als alle typografische componenten om hun grootte te bepalen. Hierdoor zijn icoon en tekst makkelijk op elkaar af te stemmen.
