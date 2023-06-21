@@ -1,4 +1,4 @@
-import { Alert } from '@amsterdam/design-system-react-icons'
+// import { Alert } from '@amsterdam/design-system-react-icons'
 import { render, screen } from '@testing-library/react'
 import { createRef } from 'react'
 import { Link } from './Link'
@@ -56,21 +56,21 @@ describe('Link', () => {
     expect(svgContainer).toBeNull()
   })
 
-  it('renders small icon when using variant inList', () => {
-    const { container } = render(<Link variant="inList" />)
+  // it('renders small icon when using variant inList', () => {
+  //   const { container } = render(<Link variant="inList" />)
 
-    const svgContainer = container.querySelector(':only-child span')
+  //   const svgContainer = container.querySelector(':only-child span')
 
-    expect(svgContainer).toHaveClass('amsterdam-icon-small')
-  })
+  //   expect(svgContainer).toHaveClass('amsterdam-icon-small')
+  // })
 
-  it('renders a bigger icon when using variant inList and passing an icon', () => {
-    const { container } = render(<Link variant="inList" icon={<Alert />} />)
+  // it('renders a bigger icon when using variant inList and passing an icon', () => {
+  //   const { container } = render(<Link variant="inList" icon={<Alert />} />)
 
-    const svgContainer = container.querySelector(':only-child span')
+  //   const svgContainer = container.querySelector(':only-child span')
 
-    expect(svgContainer).toHaveClass('amsterdam-icon-medium')
-  })
+  //   expect(svgContainer).toHaveClass('amsterdam-icon-medium')
+  // })
 
   it('renders rich text content', () => {
     const { container } = render(

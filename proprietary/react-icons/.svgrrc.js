@@ -2,7 +2,8 @@ module.exports = {
   jsxRuntime: 'automatic',
   outDir: 'src',
   svgProps: {
-    focusable: '{false}',
+    'aria-hidden': 'true',
+    focusable: 'false',
   },
   typescript: true,
 }
