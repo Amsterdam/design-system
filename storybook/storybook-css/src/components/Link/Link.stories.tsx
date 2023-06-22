@@ -6,8 +6,9 @@
 import { Link, Paragraph } from '@amsterdam/design-system-react/src'
 import type { Meta, StoryObj } from '@storybook/react'
 
-import '@amsterdam/design-system-css/src/link/index.scss'
+import '@amsterdam/design-system-css/src/link/link.scss'
 import '@amsterdam/design-system-css/src/paragraph/paragraph.scss'
+import '@amsterdam/design-system-css/src/icon/icon.scss'
 
 type Story = StoryObj<typeof Link>
 
@@ -62,7 +63,7 @@ const meta = {
   },
   args: {
     children: 'Linktekst',
-    href: 'https://amsterdam.github.io/design-system',
+    href: '#',
   },
 } satisfies Meta<typeof Link>
 
@@ -74,7 +75,7 @@ export const Standalone: Story = {
     docs: {
       source: {
         language: 'html',
-        code: '<a href="#" class="utrecht-link amsterdam-link">Linktekst</a>',
+        code: '<a href="#" class="amsterdam-link">Linktekst</a>',
       },
     },
   },
@@ -82,6 +83,14 @@ export const Standalone: Story = {
 
 export const StandaloneBold: Story = {
   name: 'Standalone Bold',
+  parameters: {
+    docs: {
+      source: {
+        language: 'html',
+        code: '<a href="#" class="amsterdam-link amsterdam-link--standalone-bold">Linktekst</a>',
+      },
+    },
+  },
   args: {
     variant: 'standaloneBold',
   },
@@ -96,7 +105,7 @@ export const Dark: Story = {
     docs: {
       source: {
         language: 'html',
-        code: '<a href="#" class="utrecht-link amsterdam-link amsterdam-link--backgorund-color-dark">Linktekst</a>',
+        code: '<a href="#" class="amsterdam-link amsterdam-link--backgorund-color-dark">Linktekst</a>',
       },
     },
   },
@@ -121,7 +130,7 @@ export const Light: Story = {
     docs: {
       source: {
         language: 'html',
-        code: '<a href="#" class="utrecht-link amsterdam-link amsterdam-link--color-white">Linktekst</a>',
+        code: '<a href="#" class="amsterdam-link amsterdam-link--color-white">Linktekst</a>',
       },
     },
   },
@@ -143,7 +152,7 @@ export const Inline: Story = {
     docs: {
       source: {
         language: 'html',
-        code: '<p class="amsterdam-paragraph">Jouw <a href="#" class="utrecht-link amsterdam-link">typograaf</a> biedt mij zulke exquise schreven!</p>',
+        code: '<p class="amsterdam-paragraph">Jouw <a href="#" class="amsterdam-link amsterdam-link--inline">typograaf</a> biedt mij zulke exquise schreven!</p>',
       },
     },
   },
@@ -169,11 +178,14 @@ export const InList: Story = {
       source: {
         language: 'html',
         code: `
-<ul>
-  <li><a href="#" class="amsterdam-link amsterdam-link--inline">Linktekst</a></li>
-  <li><a href="#" class="amsterdam-link amsterdam-link--inline">Linktekst</a></li>
-  <li><a href="#" class="amsterdam-link amsterdam-link--inline">Linktekst</a></li>
-</ul>
+<a href="#" class="amsterdam-link amsterdam-link--in-list">
+  <span class="amsterdam-icon amsterdam-icon-size-6">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" aria-hidden="true" focusable="false">
+      <path fill-rule="evenodd" d="m9.757 32-2.9-2.91L19.937 16 6.857 2.91 9.757 0l16 16z"></path>
+    </svg>
+  </span>
+  Linktekst
+</a>
         `,
       },
     },
@@ -183,19 +195,4 @@ export const InList: Story = {
     href: '#',
     variant: 'inList',
   },
-  decorators: [
-    (Story) => (
-      <ul>
-        <li>
-          <Story />
-        </li>
-        <li>
-          <Story />
-        </li>
-        <li>
-          <Story />
-        </li>
-      </ul>
-    ),
-  ],
 }

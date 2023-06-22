@@ -41,6 +41,18 @@ describe('Link', () => {
 
   it('renders inline variant', () => {
     const { container } = render(
+      <Link variant="inList" href="#">
+        {linktext}
+      </Link>,
+    )
+    const link = container.querySelector('a:only-child')
+    expect(link).toHaveClass('amsterdam-link amsterdam-link--in-list')
+    const icon = link ? link.querySelector('svg:only-child') : null
+    expect(icon).toBeInTheDocument()
+  })
+
+  it('renders inlist variant', () => {
+    const { container } = render(
       <Link variant="inline" href="#">
         {linktext}
       </Link>,

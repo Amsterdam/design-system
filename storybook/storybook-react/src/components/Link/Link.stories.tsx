@@ -6,8 +6,9 @@
 import { Link, Paragraph } from '@amsterdam/design-system-react/src'
 import type { Meta, StoryObj } from '@storybook/react'
 
-import '@amsterdam/design-system-css/src/link/index.scss'
+import '@amsterdam/design-system-css/src/link/link.scss'
 import '@amsterdam/design-system-css/src/paragraph/paragraph.scss'
+import '@amsterdam/design-system-css/src/icon/icon.scss'
 
 type Story = StoryObj<typeof Link>
 
@@ -62,7 +63,7 @@ const meta = {
   },
   args: {
     children: 'Linktekst',
-    href: 'https://amsterdam.github.io/design-system',
+    href: '#',
   },
 } satisfies Meta<typeof Link>
 
@@ -118,7 +119,7 @@ export const Inline: Story = {
   name: 'Inline',
   args: {
     children: 'typograaf',
-    href: 'https://amsterdam.github.io/design-system',
+    href: '#',
     variant: 'inline',
     onBackground: undefined,
   },
@@ -136,23 +137,9 @@ export const InList: Story = {
   name: 'InList',
   args: {
     children: 'Linktekst',
-    href: 'https://amsterdam.github.io/design-system',
+    href: '#',
     variant: 'inList',
     onBackground: undefined,
   },
-  decorators: [
-    (Story) => (
-      <ul>
-        <li>
-          <Story />
-        </li>
-        <li>
-          <Story />
-        </li>
-        <li>
-          <Story />
-        </li>
-      </ul>
-    ),
-  ],
+  decorators: [(Story) => <Story />],
 }

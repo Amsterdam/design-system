@@ -1,28 +1,48 @@
 {
   "amsterdam": {
     "link": {
-      "default": {
+      "color": { "value": "{amsterdam.color.primary-blue}" },
+      "icon": {
+        "size": { "value": "1.2em" }
+      },
+      "text-decoration": { "value": "none" },
+      "text-underline-offset": { "value": "9px" },
+      "text-decoration-thickness": { "value": "2px" },
+      "font-family": {
+        "value": "{amsterdam.typography.font-family}"
+      },
+      "font-size": {
+        "narrow": { "value": "{amsterdam.typography.text-level.6.font-size.narrow}" },
+        "wide": { "value": "{amsterdam.typography.text-level.6.font-size.wide}" }
+      },
+      "focus": {
+        "color": { "value": "{amsterdam.color.dark-blue}" },
+        "text-decoration": { "value": "underline" }
+      },
+      "hover": {
+        "color": { "value": "{amsterdam.color.dark-blue}" },
+        "text-decoration": { "value": "underline" },
+        "text-decoration-thickness": { "value": "2px" }
+      },
+      "visited": {
+        "color": { "value": "{amsterdam.color.purple}" }
+      },
+      "standalone-bold": {
         "color": { "value": "{amsterdam.color.primary-blue}" },
-        "icon": {
-          "size": { "value": "1.2em" }
-        },
         "text-decoration": { "value": "none" },
-        "text-underline-offset": { "value": "9px" },
+        "text-decoration-thickness": { "value": "2px" },
         "font-family": {
           "value": "{amsterdam.typography.font-family}"
         },
-        "active": {
-          "color": { "value": "{amsterdam.color.primary-blue}" }
-        },
         "font-size": {
-          "value": "{amsterdam.typography.font-size.18}"
+          "value": "{amsterdam.typography.text-level.6.font-size}"
         },
         "focus": {
-          "color": { "value": "{amsterdam.color.primary-blue}" },
+          "color": { "value": "{amsterdam.color.dark-blue}" },
           "text-decoration": { "value": "underline" }
         },
         "hover": {
-          "color": { "value": "{amsterdam.color.primary-blue}" },
+          "color": { "value": "{amsterdam.color.dark-blue}" },
           "text-decoration": { "value": "underline" },
           "text-decoration-thickness": { "value": "2px" }
         },
@@ -32,20 +52,14 @@
       },
       "background-dark": {
         "color": { "value": "{amsterdam.color.primary-white}" },
-        "icon": {
-          "size": { "value": "1.2em" }
-        },
         "text-decoration": { "value": "underline" },
         "text-decoration-thickness": { "value": "2px" },
         "text-underline-offset": { "value": "9px" },
         "font-family": {
           "value": "{amsterdam.typography.font-family}"
         },
-        "active": {
-          "color": { "value": "{amsterdam.color.primary-white}" }
-        },
         "font-size": {
-          "value": "{amsterdam.typography.font-size.18}"
+          "value": "{amsterdam.typography.text-level.6.font-size}"
         },
         "focus": {
           "color": { "value": "{amsterdam.color.primary-white}" },
@@ -61,9 +75,6 @@
       },
       "background-light": {
         "color": { "value": "{amsterdam.color.primary-black}" },
-        "icon": {
-          "size": { "value": "1.2em" }
-        },
         "text-decoration": { "value": "underline" },
         "text-decoration-thickness": { "value": "2px" },
         "text-underline-offset": { "value": "9px" },
@@ -74,7 +85,7 @@
           "color": { "value": "{amsterdam.color.primary-black}" }
         },
         "font-size": {
-          "value": "{amsterdam.typography.font-size.18}"
+          "value": "{amsterdam.typography.text-level.6.font-size}"
         },
         "focus": {
           "color": { "value": "{amsterdam.color.primary-black}" },
@@ -90,62 +101,48 @@
       },
       "inline": {
         "color": { "value": "{amsterdam.color.primary-blue}" },
-        "icon": {
-          "size": { "value": "inherit" }
-        },
         "text-decoration": { "value": "none" },
-        "text-underline-offset": { "value": "initial" },
+        "text-decoration-thickness": { "value": "2px" },
+        "text-underline-offset": { "value": "3px" },
         "font-family": {
           "value": "inherit"
         },
-        "active": {
-          "color": { "value": "{amsterdam.color.primary-blue}" }
-        },
         "font-size": {
-          "value": "{amsterdam.typography.font-size.18}"
+          "value": "{amsterdam.typography.text-level.6.font-size}"
         },
         "focus": {
-          "color": { "value": "{amsterdam.color.primary-blue}" },
+          "color": { "value": "{amsterdam.color.dark-blue}" },
           "text-decoration": { "value": "underline" }
         },
         "hover": {
-          "color": { "value": "{amsterdam.color.primary-blue}" },
+          "color": { "value": "{amsterdam.color.dark-blue}" },
           "text-decoration": { "value": "underline" },
-          "text-decoration-thickness": { "value": "1px" }
-        },
-        "visited": {
-          "color": { "value": "{amsterdam.color.purple}" }
+          "text-decoration-thickness": { "value": "2px" }
         }
       },
       "in-list": {
         "color": { "value": "{amsterdam.color.primary-blue}" },
-        "icon": {
-          "size": { "value": "1.2em" }
-        },
+        "gap": { "value": "0.5em" },
         "text-decoration": { "value": "none" },
+        "text-underline-offset": { "value": "0.3em" },
+        "text-decoration-thickness": { "value": "2px" },
         "font-family": {
           "value": "{amsterdam.typography.font-family}"
         },
-        "active": {
-          "color": { "value": "{amsterdam.color.primary-blue}" }
-        },
         "font-size": {
-          "value": "{amsterdam.typography.font-size.18}"
+          "value": "{amsterdam.typography.text-level.6.font-size}"
         },
         "focus": {
-          "color": { "value": "{amsterdam.color.primary-blue}" },
+          "color": { "value": "{amsterdam.color.dark-blue}" },
           "text-decoration": { "value": "underline" }
         },
         "hover": {
-          "color": { "value": "{amsterdam.color.primary-blue}" },
+          "color": { "value": "{amsterdam.color.dark-blue}" },
           "text-decoration": { "value": "underline" },
-          "text-decoration-thickness": { "value": "1px" }
+          "text-decoration-thickness": { "value": "2px" }
         },
         "placeholder": {
           "color": { "value": "{amsterdam.color.neutral-grey4}" }
-        },
-        "visited": {
-          "color": { "value": "{amsterdam.color.purple}" }
         }
       }
     }
