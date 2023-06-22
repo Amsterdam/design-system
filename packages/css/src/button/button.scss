@@ -1,4 +1,13 @@
 @import "../../node_modules/@utrecht/components/button/css";
+@import "../../utils/breakpoint";
+
+.amsterdam-button {
+  font-size: var(--amsterdam-button-font-size-narrow);
+
+  @media screen and (width > $amsterdam-breakpoint) {
+    font-size: var(--amsterdam-button-font-size-wide);
+  }
+}
 
 .amsterdam-button--secondary:hover {
   box-shadow: var(--amsterdam-button-secondary-hover-box-shadow);

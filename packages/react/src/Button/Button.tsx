@@ -36,7 +36,7 @@ export const Button = forwardRef(
         appearance={getAppearance(variant)}
         ref={ref}
         disabled={disabled}
-        className={clsx(variant === 'secondary' && 'amsterdam-button--secondary')}
+        className={clsx('amsterdam-button', variant === 'secondary' && 'amsterdam-button--secondary')}
       >
         {children}
       </CommunityButton>

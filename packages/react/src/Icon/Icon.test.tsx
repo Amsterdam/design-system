@@ -1,12 +1,12 @@
 import { Alert } from '@amsterdam/design-system-react-icons'
-import { render, screen } from '@testing-library/react'
+import { render } from '@testing-library/react'
 import { createRef } from 'react'
 import { Icon } from './Icon'
 import '@testing-library/jest-dom'
 
 describe('Icon', () => {
   it('renders a span element', () => {
-    const { container } = render(<Icon />)
+    const { container } = render(<Icon svg={Alert} />)
 
     const icon = container.querySelector('span:only-child')
 
@@ -14,7 +14,7 @@ describe('Icon', () => {
   })
 
   it('renders a design system BEM class name', () => {
-    const { container } = render(<Icon />)
+    const { container } = render(<Icon svg={Alert} />)
 
     const icon = container.querySelector(':only-child')
 
@@ -22,11 +22,7 @@ describe('Icon', () => {
   })
 
   it('renders an svg child', () => {
-    const { container } = render(
-      <Icon>
-        <Alert />
-      </Icon>,
-    )
+    const { container } = render(<Icon svg={Alert} />)
 
     const svg = container.querySelector(':only-child svg')
 
@@ -34,25 +30,21 @@ describe('Icon', () => {
   })
 
   it('renders the right size classes', () => {
-    render(
-      <>
-        <Icon size="small">Small icon</Icon>
-        <Icon size="medium">Medium icon</Icon>
-        <Icon size="large">Large icon</Icon>
-      </>,
-    )
+    const { container: level3 } = render(<Icon svg={Alert} size="level-3" />)
+    const { container: level4 } = render(<Icon svg={Alert} size="level-4" />)
+    const { container: level5 } = render(<Icon svg={Alert} size="level-5" />)
+    const { container: level6 } = render(<Icon svg={Alert} size="level-6" />)
+    const { container: level7 } = render(<Icon svg={Alert} size="level-7" />)
 
-    const smallIcon = screen.getByText('Small icon')
-    const mediumIcon = screen.getByText('Medium icon')
-    const largeIcon = screen.getByText('Large icon')
-
-    expect(smallIcon).toHaveClass('amsterdam-icon-small')
-    expect(mediumIcon).toHaveClass('amsterdam-icon-medium')
-    expect(largeIcon).toHaveClass('amsterdam-icon-large')
+    expect(level3.firstChild).toHaveClass('amsterdam-icon-size-3')
+    expect(level4.firstChild).toHaveClass('amsterdam-icon-size-4')
+    expect(level5.firstChild).toHaveClass('amsterdam-icon-size-5')
+    expect(level6.firstChild).toHaveClass('amsterdam-icon-size-6')
+    expect(level7.firstChild).toHaveClass('amsterdam-icon-size-7')
   })
 
   it('can have a additional class name', () => {
-    const { container } = render(<Icon className="large" />)
+    const { container } = render(<Icon svg={Alert} className="large" />)
 
     const icon = container.querySelector(':only-child')
 
@@ -63,7 +55,7 @@ describe('Icon', () => {
   it('supports ForwardRef in React', () => {
     const ref = createRef<HTMLSpanElement>()
 
-    const { container } = render(<Icon ref={ref} />)
+    const { container } = render(<Icon svg={Alert} ref={ref} />)
 
     const icon = container.querySelector(':only-child')
 
