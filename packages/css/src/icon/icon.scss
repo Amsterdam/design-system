@@ -2,38 +2,102 @@
  * @license EUPL-1.2+
  * Copyright (c) 2023 Gemeente Amsterdam
  */
-
-@import "../../utils/calculate-fluid-style";
+@import "../../utils/breakpoint";
 
 .amsterdam-icon {
   align-items: center;
   display: inline-flex;
-
-  /* TODO: this height should be provided by the text element its part of? */
-  height: calculate-fluid-style(24, 26);
-
-  /* TODO: 12px is not part of the design system, what should this be? */
-  margin-inline-end: 12px;
-
-  /* Offset icon by 3px, because Amsterdam Sans vertical alignment is off */
-  padding-block-end: 3px;
 }
 
 .amsterdam-icon svg {
   fill: currentColor;
 }
 
-.amsterdam-icon-small svg {
-  height: 1rem;
-  width: 1rem;
+.amsterdam-icon-size-3 {
+  height: calc(var(--amsterdam-icon-size-3-icon-size-narrow) * var(--amsterdam-icon-size-3-container-multiplier));
+
+  @media screen and (width > $amsterdam-breakpoint) {
+    height: calc(var(--amsterdam-icon-size-3-icon-size-wide) * var(--amsterdam-icon-size-3-container-multiplier));
+  }
 }
 
-.amsterdam-icon-medium svg {
-  height: 1.5rem;
-  width: 1.5rem;
+.amsterdam-icon-size-3 svg {
+  height: var(--amsterdam-icon-size-3-icon-size-narrow);
+  width: var(--amsterdam-icon-size-3-icon-size-narrow);
+
+  @media screen and (width > $amsterdam-breakpoint) {
+    height: var(--amsterdam-icon-size-3-icon-size-wide);
+    width: var(--amsterdam-icon-size-3-icon-size-wide);
+  }
+}
+.amsterdam-icon-size-4 {
+  height: calc(var(--amsterdam-icon-size-4-icon-size-narrow) * var(--amsterdam-icon-size-4-container-multiplier));
+
+  @media screen and (width > $amsterdam-breakpoint) {
+    height: calc(var(--amsterdam-icon-size-4-icon-size-wide) * var(--amsterdam-icon-size-4-container-multiplier));
+  }
 }
 
-.amsterdam-icon-large svg {
-  height: 2rem;
-  width: 2rem;
+.amsterdam-icon-size-4 svg {
+  height: var(--amsterdam-icon-size-4-icon-size-narrow);
+  width: var(--amsterdam-icon-size-4-icon-size-narrow);
+
+  @media screen and (width > $amsterdam-breakpoint) {
+    height: var(--amsterdam-icon-size-4-icon-size-wide);
+    width: var(--amsterdam-icon-size-4-icon-size-wide);
+  }
+}
+
+.amsterdam-icon-size-5 {
+  height: calc(var(--amsterdam-icon-size-5-icon-size-narrow) * var(--amsterdam-icon-size-5-container-multiplier));
+
+  @media screen and (width > $amsterdam-breakpoint) {
+    height: calc(var(--amsterdam-icon-size-5-icon-size-wide) * var(--amsterdam-icon-size-5-container-multiplier));
+  }
+}
+
+.amsterdam-icon-size-5 svg {
+  height: var(--amsterdam-icon-size-5-icon-size-narrow);
+  width: var(--amsterdam-icon-size-5-icon-size-narrow);
+
+  @media screen and (width > $amsterdam-breakpoint) {
+    height: var(--amsterdam-icon-size-5-icon-size-wide);
+    width: var(--amsterdam-icon-size-5-icon-size-wide);
+  }
+}
+
+.amsterdam-icon-size-6 {
+  height: calc(var(--amsterdam-icon-size-6-icon-size-narrow) * var(--amsterdam-icon-size-6-container-multiplier));
+
+  @media screen and (width > $amsterdam-breakpoint) {
+    height: calc(var(--amsterdam-icon-size-6-icon-size-wide) * var(--amsterdam-icon-size-6-container-multiplier));
+  }
+}
+
+.amsterdam-icon-size-6 svg {
+  height: var(--amsterdam-icon-size-6-icon-size-narrow);
+  width: var(--amsterdam-icon-size-6-icon-size-narrow);
+
+  @media screen and (width > $amsterdam-breakpoint) {
+    height: var(--amsterdam-icon-size-6-icon-size-wide);
+    width: var(--amsterdam-icon-size-6-icon-size-wide);
+  }
+}
+
+.amsterdam-icon-size-7 {
+  height: calc(var(--amsterdam-icon-size-7-icon-size-narrow) * var(--amsterdam-icon-size-7-container-multiplier));
+
+  @media screen and (width > $amsterdam-breakpoint) {
+    height: calc(var(--amsterdam-icon-size-7-icon-size-wide) * var(--amsterdam-icon-size-7-container-multiplier));
+  }
+}
+
+.amsterdam-icon-size-7 svg {
+  height: var(--amsterdam-icon-size-7-icon-size-narrow);
+  width: var(--amsterdam-icon-size-7-icon-size-narrow);
+
+  @media screen and (width > $amsterdam-breakpoint) {
+    height: var(--amsterdam-icon-size-7-icon-size-wide);
+    width: var(--amsterdam-icon-size-7-icon-size-wide);
+  }
 }

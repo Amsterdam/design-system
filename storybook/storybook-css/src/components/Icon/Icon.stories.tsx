@@ -13,7 +13,7 @@ import '@amsterdam/design-system-css/src/heading/heading.scss'
 const icons = { Email, Alert, Building, Camera }
 
 const meta = {
-  title: 'Icon',
+  title: 'CSS Components/Icon',
   component: Icon,
   argTypes: {
     size: {
@@ -34,6 +34,14 @@ export const Default: Story = {
   args: {
     svg: Email,
   },
+  parameters: {
+    docs: {
+      source: {
+        language: 'html',
+        code: '<span class="amsterdam-icon amsterdam-icon-size-3">{svg}</span>',
+      },
+    },
+  },
 }
 
 export const WithText: Story = {
@@ -46,12 +54,33 @@ export const WithText: Story = {
   args: {
     svg: Email,
   },
+  parameters: {
+    docs: {
+      source: {
+        language: 'html',
+        code: `<span style="display: flex; gap: 1rem;">
+  <span class="amsterdam-icon amsterdam-icon-size-3">
+    {svg}
+  </span>
+  <h1 class="amsterdam-heading amsterdam-heading-3">Inline text</h1>
+</span>`,
+      },
+    },
+  },
 }
 
 export const Level3: Story = {
   args: {
     svg: Email,
     size: 'level-3',
+  },
+  parameters: {
+    docs: {
+      source: {
+        language: 'html',
+        code: '<span class="amsterdam-icon amsterdam-icon-size-3">{svg}</span>',
+      },
+    },
   },
 }
 
@@ -60,12 +89,28 @@ export const Level4: Story = {
     svg: Email,
     size: 'level-4',
   },
+  parameters: {
+    docs: {
+      source: {
+        language: 'html',
+        code: '<span class="amsterdam-icon amsterdam-icon-size-4">{svg}</span>',
+      },
+    },
+  },
 }
 
 export const Level5: Story = {
   args: {
     svg: Email,
     size: 'level-5',
+  },
+  parameters: {
+    docs: {
+      source: {
+        language: 'html',
+        code: '<span class="amsterdam-icon amsterdam-icon-size-5">{svg}</span>',
+      },
+    },
   },
 }
 
@@ -74,11 +119,27 @@ export const Level6: Story = {
     svg: Email,
     size: 'level-6',
   },
+  parameters: {
+    docs: {
+      source: {
+        language: 'html',
+        code: '<span class="amsterdam-icon amsterdam-icon-size-6">{svg}</span>',
+      },
+    },
+  },
 }
 
 export const Level7: Story = {
   args: {
     svg: Email,
     size: 'level-7',
+  },
+  parameters: {
+    docs: {
+      source: {
+        language: 'html',
+        code: '<span class="amsterdam-icon amsterdam-icon-size-7">{svg}</span>',
+      },
+    },
   },
 }
