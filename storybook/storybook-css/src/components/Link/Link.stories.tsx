@@ -33,7 +33,7 @@ const meta = {
       options: ['standalone', 'standaloneBold', 'inline', 'inList'],
       table: {
         category: 'API',
-        defaultValue: { summary: 'default' },
+        defaultValue: { summary: 'standalone' },
       },
     },
     href: {
@@ -71,6 +71,9 @@ export default meta
 
 export const Standalone: Story = {
   name: 'Standalone',
+  args: {
+    onBackground: undefined, // Workaround to avoid 'onBackground' being set to an empty function
+  },
   parameters: {
     docs: {
       source: {
@@ -93,6 +96,56 @@ export const StandaloneBold: Story = {
   },
   args: {
     variant: 'standaloneBold',
+  },
+}
+
+export const Inline: Story = {
+  name: 'Inline',
+  parameters: {
+    docs: {
+      source: {
+        language: 'html',
+        code: '<p class="amsterdam-paragraph">Jouw <a href="#" class="amsterdam-link amsterdam-link--inline">typograaf</a> biedt mij zulke exquise schreven!</p>',
+      },
+    },
+  },
+  args: {
+    children: 'typograaf',
+    href: '#',
+    variant: 'inline',
+  },
+  decorators: [
+    (Story) => (
+      <Paragraph>
+        Jouw <Story /> biedt mij zulke exquise schreven!
+      </Paragraph>
+    ),
+  ],
+}
+
+export const InList: Story = {
+  name: 'InList',
+  parameters: {
+    docs: {
+      source: {
+        language: 'html',
+        code: `
+<a href="#" class="amsterdam-link amsterdam-link--in-list">
+  <span class="amsterdam-icon amsterdam-icon-size-6">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" aria-hidden="true" focusable="false">
+      <path fill-rule="evenodd" d="m9.757 32-2.9-2.91L19.937 16 6.857 2.91 9.757 0l16 16z"></path>
+    </svg>
+  </span>
+  Linktekst
+</a>
+        `,
+      },
+    },
+  },
+  args: {
+    children: 'Linktekst',
+    href: '#',
+    variant: 'inList',
   },
 }
 
@@ -144,55 +197,4 @@ export const Light: Story = {
       </div>
     ),
   ],
-}
-
-export const Inline: Story = {
-  name: 'Inline',
-  parameters: {
-    docs: {
-      source: {
-        language: 'html',
-        code: '<p class="amsterdam-paragraph">Jouw <a href="#" class="amsterdam-link amsterdam-link--inline">typograaf</a> biedt mij zulke exquise schreven!</p>',
-      },
-    },
-  },
-  args: {
-    children: 'typograaf',
-    href: '#',
-    variant: 'inline',
-  },
-  decorators: [
-    (Story) => (
-      <Paragraph>
-        Jouw <Story /> biedt mij zulke exquise schreven!
-      </Paragraph>
-    ),
-  ],
-}
-
-// @todo update to list component
-export const InList: Story = {
-  name: 'InList',
-  parameters: {
-    docs: {
-      source: {
-        language: 'html',
-        code: `
-<a href="#" class="amsterdam-link amsterdam-link--in-list">
-  <span class="amsterdam-icon amsterdam-icon-size-6">
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" aria-hidden="true" focusable="false">
-      <path fill-rule="evenodd" d="m9.757 32-2.9-2.91L19.937 16 6.857 2.91 9.757 0l16 16z"></path>
-    </svg>
-  </span>
-  Linktekst
-</a>
-        `,
-      },
-    },
-  },
-  args: {
-    children: 'Linktekst',
-    href: '#',
-    variant: 'inList',
-  },
 }

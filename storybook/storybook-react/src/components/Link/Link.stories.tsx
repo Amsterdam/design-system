@@ -33,7 +33,7 @@ const meta = {
       options: ['standalone', 'standaloneBold', 'inline', 'inList'],
       table: {
         category: 'API',
-        defaultValue: { summary: 'default' },
+        defaultValue: { summary: 'standalone' },
       },
     },
     href: {
@@ -71,6 +71,9 @@ export default meta
 
 export const Standalone: Story = {
   name: 'Standalone',
+  args: {
+    onBackground: undefined, // Workaround to avoid 'onBackground' being set to an empty function
+  },
 }
 
 export const StandaloneBold: Story = {
@@ -79,6 +82,34 @@ export const StandaloneBold: Story = {
     variant: 'standaloneBold',
     onBackground: undefined,
   },
+}
+
+export const Inline: Story = {
+  name: 'Inline',
+  args: {
+    children: 'typograaf',
+    href: '#',
+    variant: 'inline',
+    onBackground: undefined,
+  },
+  decorators: [
+    (Story) => (
+      <Paragraph>
+        Jouw <Story /> biedt mij zulke exquise schreven!
+      </Paragraph>
+    ),
+  ],
+}
+
+export const InList: Story = {
+  name: 'InList',
+  args: {
+    children: 'Linktekst',
+    href: '#',
+    variant: 'inList',
+    onBackground: undefined,
+  },
+  decorators: [(Story) => <Story />],
 }
 
 /**
@@ -113,33 +144,4 @@ export const Light: Story = {
       </div>
     ),
   ],
-}
-
-export const Inline: Story = {
-  name: 'Inline',
-  args: {
-    children: 'typograaf',
-    href: '#',
-    variant: 'inline',
-    onBackground: undefined,
-  },
-  decorators: [
-    (Story) => (
-      <Paragraph>
-        Jouw <Story /> biedt mij zulke exquise schreven!
-      </Paragraph>
-    ),
-  ],
-}
-
-// @todo update to list component
-export const InList: Story = {
-  name: 'InList',
-  args: {
-    children: 'Linktekst',
-    href: '#',
-    variant: 'inList',
-    onBackground: undefined,
-  },
-  decorators: [(Story) => <Story />],
 }
