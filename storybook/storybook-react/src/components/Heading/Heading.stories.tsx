@@ -10,14 +10,12 @@ import '@amsterdam/design-system-css/src/heading/heading.scss'
 
 const meta = {
   title: 'Heading',
-  id: 'heading',
   component: Heading,
   args: {
     children: 'Jouw typograaf biedt mij zulke exquise schreven!',
     level: 1,
     styleLevel: 1,
   },
-  tags: ['autodocs'],
 } satisfies Meta<typeof Heading>
 
 export default meta
@@ -44,19 +42,5 @@ export const Heading4: Story = {
   args: {
     level: 4,
     styleLevel: 4,
-  },
-}
-
-export const Heading5: Story = {
-  args: {
-    level: 5,
-    styleLevel: 5,
-  },
-}
-
-export const Heading6: Story = {
-  args: {
-    level: 6,
-    styleLevel: 6,
   },
 }

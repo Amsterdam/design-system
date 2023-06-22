@@ -1,4 +1,7 @@
-/* @license CC0-1.0 */
+/**
+ * @license EUPL-1.2+
+ * Copyright (c) 2023 Gemeente Amsterdam
+ */
 
 import { Paragraph } from '@amsterdam/design-system-react/src'
 import type { Meta, StoryObj } from '@storybook/react'
@@ -6,7 +9,6 @@ import '@amsterdam/design-system-css/src/paragraph/paragraph.scss'
 
 const meta = {
   title: 'CSS Components/Paragraph',
-  id: 'paragraph',
   component: Paragraph,
   argTypes: {
     children: {
@@ -23,7 +25,6 @@ const meta = {
     children: 'Jouw typograaf biedt mij zulke exquise schreven!',
     size: undefined,
   },
-  tags: ['autodocs'],
 } satisfies Meta<typeof Paragraph>
 
 export default meta

@@ -1,4 +1,7 @@
-/* @license CC0-1.0 */
+/**
+ * @license EUPL-1.2+
+ * Copyright (c) 2023 Gemeente Amsterdam
+ */
 
 import { Heading } from '@amsterdam/design-system-react/src'
 import type { Meta, StoryObj } from '@storybook/react'
@@ -6,7 +9,6 @@ import '@amsterdam/design-system-css/src/heading/heading.scss'
 
 const meta = {
   title: 'CSS Components/Heading',
-  id: 'heading',
   component: Heading,
   argTypes: {
     level: {
@@ -15,7 +17,7 @@ const meta = {
       },
     },
     styleLevel: {
-      options: [1, 2, 3, 4, 5, 6],
+      options: [1, 2, 3, 4],
       control: 'select',
       table: {
         type: { summary: 'number' },
@@ -28,7 +30,6 @@ const meta = {
     level: 1,
     styleLevel: 1,
   },
-  tags: ['autodocs'],
 } satisfies Meta<typeof Heading>
 
 export default meta
@@ -86,36 +87,6 @@ export const Heading4: Story = {
       source: {
         language: 'html',
         code: '<h4 class="amsterdam-heading amsterdam-heading-4">Jouw typograaf biedt mij zulke exquise schreven!</h4>',
-      },
-    },
-  },
-}
-
-export const Heading5: Story = {
-  args: {
-    level: 5,
-    styleLevel: 5,
-  },
-  parameters: {
-    docs: {
-      source: {
-        language: 'html',
-        code: '<h5 class="amsterdam-heading amsterdam-heading-5">Jouw typograaf biedt mij zulke exquise schreven!</h5>',
-      },
-    },
-  },
-}
-
-export const Heading6: Story = {
-  args: {
-    level: 6,
-    styleLevel: 6,
-  },
-  parameters: {
-    docs: {
-      source: {
-        language: 'html',
-        code: '<h6 class="amsterdam-heading amsterdam-heading-6">Jouw typograaf biedt mij zulke exquise schreven!</h6>',
       },
     },
   },
