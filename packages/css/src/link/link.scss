@@ -3,54 +3,99 @@
  * Copyright (c) 2023 Gemeente Amsterdam
  */
 
-@import "../../utils/calculate-fluid-style";
-
-@mixin reset {
-  box-sizing: border-box;
-}
+@import "../../utils/breakpoint";
 
 .amsterdam-link {
-  color: var(--amsterdam-color-primary-blue);
+  color: var(--amsterdam-link-color, blue);
+  font-family: var(--amsterdam-paragraph-font-family);
+  font-size: var(--amsterdam-link-font-size-narrow);
+  line-height: var(--amsterdam-link-line-height);
+  outline-offset: var(--amsterdam-link-outline-offset);
+  text-decoration: var(--amsterdam-link-text-decoration, underline);
+  text-decoration-color: var(--amsterdam-link-text-decoration-color, currentColor);
+  text-decoration-thickness: var(--amsterdam-link-text-decoration-thickness, 1px);
+  text-underline-offset: var(--amsterdam-link-text-underline-offset);
+
+  &:hover,
+  &:active {
+    color: var(--amsterdam-link-hover-color);
+    text-decoration: var(--amsterdam-link-hover-text-decoration);
+    text-decoration-thickness: var(--amsterdam-link-hover-text-decoration-thickness, 1px);
+  }
+
+  &:focus {
+    color: var(--amsterdam-link-focus-color);
+    text-decoration: var(--amsterdam-link-focus-text-decoration);
+  }
+
+  &:visited {
+    color: var(--amsterdam-link-visited-color);
+  }
+
+  @media screen and (width > $amsterdam-breakpoint) {
+    font-size: var(--amsterdam-link-font-size-wide);
+  }
+}
+
+.amsterdam-link--standalone-bold {
+  font-weight: var(--amsterdam-link-standalone-bold-font-weight);
+}
+
+.amsterdam-link--inline {
+  font-family: var(--amsterdam-link-inline-font-family);
+  font-size: var(--amsterdam-link-inline-font-size);
+  text-underline-offset: var(--amsterdam-link-inline-text-underline-offset);
+
+  &:visited {
+    color: var(--amsterdam-link-inline-visited-color);
+  }
+}
+
+.amsterdam-link--in-list {
+  align-items: flex-start;
   display: inline-flex;
-  font-family: var(--amsterdam-typography-font-family);
-  font-size: calculate-fluid-style(18, 24);
-  font-weight: var(--amsterdam-typography-font-weight-bold);
-  line-height: calculate-fluid-style(29, 38);
-  outline-offset: var(--amsterdam-focus-outline-offset);
-  text-decoration: none;
+  font-size: var(--amsterdam-link-in-list-font-size-narrow);
+  gap: var(--amsterdam-link-in-list-gap);
+  line-height: var(--amsterdam-link-in-list-line-height);
+  text-underline-offset: var(--amsterdam-link-in-list-text-underline-offset);
 
-  @include reset;
+  // Override for icon size
+  span.amsterdam-icon svg {
+    height: 16px;
+    width: 16px;
+  }
+
+  @media screen and (width > $amsterdam-breakpoint) {
+    font-size: var(--amsterdam-link-in-list-font-size-wide);
+  }
 }
 
-.amsterdam-link:focus,
-.amsterdam-link:hover {
-  outline-offset: var(--amsterdam-focus-outline-offset);
-  text-decoration: underline;
+.amsterdam-link--on-background-dark {
+  color: var(--amsterdam-link-on-background-dark-color);
+  text-decoration: var(--amsterdam-link-on-background-dark-text-decoration);
+
+  &:hover,
+  &:active {
+    color: var(--amsterdam-link-on-background-dark-hover-color);
+    text-decoration: var(--amsterdam-link-on-background-dark-hover-text-decoration);
+  }
+
+  &:visited {
+    color: var(--amsterdam-link-on-background-dark-visited-color);
+  }
 }
 
-.amsterdam-link-standalone {
-  box-shadow: inset 0 -2px var(--amsterdam-color-primary-blue);
-  font-weight: var(--amsterdam-typography-font-weight-normal);
-  transition: box-shadow 100ms ease-in-out, color 100ms ease-in-out;
-}
+.amsterdam-link--on-background-light {
+  color: var(--amsterdam-link-on-background-light-color);
+  text-decoration: var(--amsterdam-link-on-background-light-text-decoration);
 
-.amsterdam-link-standalone:focus,
-.amsterdam-link-standalone:hover {
-  box-shadow: inset 0 -3px var(--amsterdam-color-primary-blue);
-  text-decoration: none;
-}
+  &:hover,
+  &:active {
+    color: var(--amsterdam-link-on-background-light-hover-color);
+    text-decoration: var(--amsterdam-link-on-background-light-hover-text-decoration);
+  }
 
-.amsterdam-link-inline {
-  display: inline;
-  font-size: inherit;
-  font-weight: var(--amsterdam-typography-font-weight-normal);
-  letter-spacing: inherit;
-  line-height: inherit;
-}
-
-.amsterdam-link-inlist {
-  font-size: calculate-fluid-style(16, 18);
-  font-weight: var(--amsterdam-typography-font-weight-normal);
-  line-height: calculate-fluid-style(24, 26);
-  padding-block: 12px;
+  &:visited {
+    color: var(--amsterdam-link-on-background-light-visited-color);
+  }
 }
