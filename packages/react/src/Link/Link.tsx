@@ -31,8 +31,8 @@ export const Link = forwardRef(
           'amsterdam-link--inline': variant === 'inline',
           'amsterdam-link--standalone-bold': variant === 'standaloneBold',
           'amsterdam-link--in-list': variant === 'inList',
-          'amsterdam-link--background-light': onBackground === 'light',
-          'amsterdam-link--background-dark': onBackground === 'dark',
+          'amsterdam-link--on-background-light': onBackground === 'light',
+          'amsterdam-link--on-background-dark': onBackground === 'dark',
         },
         className,
       )}

@@ -52,7 +52,7 @@
         "icon-spacing": { "value": "0.5em" },
         "text-underline-offset": { "value": "0.3em" }
       },
-      "background-dark": {
+      "on-background-dark": {
         "color": { "value": "{amsterdam.color.primary-white}" },
         "text-decoration": { "value": "underline" },
         "focus": {
@@ -67,7 +67,7 @@
           "color": { "value": "{amsterdam.color.primary-white}" }
         }
       },
-      "background-light": {
+      "on-background-light": {
         "color": { "value": "{amsterdam.color.primary-black}" },
         "text-decoration": { "value": "underline" },
         "text-decoration-thickness": { "value": "2px" },

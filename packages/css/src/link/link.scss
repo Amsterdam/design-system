@@ -57,30 +57,32 @@
   text-underline-offset: var(--amsterdam-link-in-list-text-underline-offset);
 }
 
-.amsterdam-link--background-dark {
-  color: var(--amsterdam-link-background-dark-color);
-  text-decoration: var(--amsterdam-link-background-dark-text-decoration);
+.amsterdam-link--on-background-dark {
+  color: var(--amsterdam-link-on-background-dark-color);
+  text-decoration: var(--amsterdam-link-on-background-dark-text-decoration);
 
   &:hover,
   &:active {
-    text-decoration: var(--amsterdam-link-background-dark-hover-text-decoration);
+    color: var(--amsterdam-link-on-background-dark-hover-color);
+    text-decoration: var(--amsterdam-link-on-background-dark-hover-text-decoration);
   }
 
   &:visited {
-    color: var(--amsterdam-link-background-dark-visited-color);
+    color: var(--amsterdam-link-on-background-dark-visited-color);
   }
 }
 
-.amsterdam-link--background-light {
-  color: var(--amsterdam-link-background-light-color);
-  text-decoration: var(--amsterdam-link-background-light-text-decoration);
+.amsterdam-link--on-background-light {
+  color: var(--amsterdam-link-on-background-light-color);
+  text-decoration: var(--amsterdam-link-on-background-light-text-decoration);
 
   &:hover,
   &:active {
-    text-decoration: var(--amsterdam-link-background-light-hover-text-decoration);
+    color: var(--amsterdam-link-on-background-dark-hover-color);
+    text-decoration: var(--amsterdam-link-on-background-light-hover-text-decoration);
   }
 
   &:visited {
-    color: var(--amsterdam-link-background-light-visited-color);
+    color: var(--amsterdam-link-on-background-light-visited-color);
   }
 }
