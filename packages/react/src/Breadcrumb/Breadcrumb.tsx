@@ -1,5 +1,6 @@
 import React, { forwardRef, useMemo } from 'react'
 import type { ForwardedRef, FunctionComponent, HTMLAttributes, PropsWithChildren } from 'react'
+import { Link } from '../Link'
 
 function isReactFunctionCom<Tprops>(
   element: React.ReactNode,
@@ -50,9 +51,9 @@ interface BreadcrumbItemProps extends PropsWithChildren {
 const BreadcrumbItem = ({ children, href }: BreadcrumbItemProps) => {
   return (
     <li className="amsterdam-breadcrumb">
-      <a className="amsterdam-breadcrumb-link" href={href}>
+      <Link href={href} variant="inline">
         {children}
-      </a>
+      </Link>
     </li>
   )
 }
