@@ -14,7 +14,6 @@ type Story = StoryObj<typeof Link>
 
 const meta = {
   title: 'Link',
-  id: 'link',
   component: Link,
   argTypes: {
     onBackground: {
