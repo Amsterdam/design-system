@@ -52,7 +52,7 @@
 }
 
 .amsterdam-link--in-list {
-  align-items: center;
+  align-items: flex-start;
   display: inline-flex;
   font-size: var(--amsterdam-link-in-list-font-size-narrow);
   gap: var(--amsterdam-link-in-list-gap);
