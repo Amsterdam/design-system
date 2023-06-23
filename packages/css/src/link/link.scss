@@ -11,7 +11,6 @@
   font-size: var(--amsterdam-link-font-size-narrow);
   text-decoration: var(--amsterdam-link-text-decoration, underline);
   text-decoration-color: var(--amsterdam-link-text-decoration-color, currentColor);
-  text-decoration-skip-ink: var(--amsterdam-link-text-decoration-skip-ink);
   text-decoration-thickness: var(--amsterdam-link-text-decoration-thickness, 1px);
   text-underline-offset: var(--amsterdam-link-text-underline-offset);
 
@@ -53,8 +52,13 @@
 .amsterdam-link--in-list {
   align-items: center;
   display: flex;
+  font-size: var(--amsterdam-link-in-list-font-size-narrow);
   gap: var(--amsterdam-link-in-list-icon-spacing);
   text-underline-offset: var(--amsterdam-link-in-list-text-underline-offset);
+
+  @media screen and (width > $amsterdam-breakpoint) {
+    font-size: var(--amsterdam-link-in-list-font-size-wide);
+  }
 }
 
 .amsterdam-link--on-background-dark {

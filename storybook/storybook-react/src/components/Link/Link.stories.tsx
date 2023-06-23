@@ -109,7 +109,6 @@ export const InList: Story = {
     variant: 'inList',
     onBackground: undefined,
   },
-  decorators: [(Story) => <Story />],
 }
 
 /**

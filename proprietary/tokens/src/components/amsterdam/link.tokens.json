@@ -2,13 +2,9 @@
   "amsterdam": {
     "link": {
       "color": { "value": "{amsterdam.color.primary-blue}" },
-      "icon": {
-        "size": { "value": "1.2em" }
-      },
       "text-decoration": { "value": "none" },
       "text-underline-offset": { "value": "9px" },
       "text-decoration-thickness": { "value": "2px" },
-      "text-decoration-skip-ink": { "value": "none" },
       "font-family": {
         "value": "{amsterdam.typography.font-family}"
       },
@@ -50,7 +46,11 @@
       },
       "in-list": {
         "icon-spacing": { "value": "0.5em" },
-        "text-underline-offset": { "value": "0.3em" }
+        "text-underline-offset": { "value": "0.3em" },
+        "font-size": {
+          "narrow": { "value": "{amsterdam.typography.text-level.7.font-size.narrow}" },
+          "wide": { "value": "{amsterdam.typography.text-level.7.font-size.wide}" }
+        }
       },
       "on-background-dark": {
         "color": { "value": "{amsterdam.color.primary-white}" },
