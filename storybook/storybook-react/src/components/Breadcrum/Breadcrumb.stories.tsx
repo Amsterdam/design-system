@@ -21,11 +21,11 @@ type Story = StoryObj<typeof meta>
 export const BreadcrumbStory: Story = {
   render: (args) => (
     <Breadcrumb {...args}>
-      <Breadcrumb.item href="/some-url.com">home</Breadcrumb.item>
-      <Breadcrumb.item href="/some-url.com">path 1</Breadcrumb.item>
-      <Breadcrumb.item href="/some-url.com">path 2</Breadcrumb.item>
-      <Breadcrumb.item href="/some-url.com">path 3</Breadcrumb.item>
-      <Breadcrumb.item href="/some-url.com">path 5</Breadcrumb.item>
+      <Breadcrumb.Item href="/some-url.com">home</Breadcrumb.Item>
+      <Breadcrumb.Item href="/some-url.com">path 1</Breadcrumb.Item>
+      <Breadcrumb.Item href="/some-url.com">path 2</Breadcrumb.Item>
+      <Breadcrumb.Item href="/some-url.com">path 3</Breadcrumb.Item>
+      <Breadcrumb.Item href="/some-url.com">path 5</Breadcrumb.Item>
     </Breadcrumb>
   ),
 }

@@ -9,9 +9,9 @@ function isReactFunctionCom<Tprops>(
 
 interface BreadcrumbComponent
   extends React.ForwardRefExoticComponent<
-    PropsWithChildren<HTMLAttributes<HTMLElement>> & React.RefAttributes<HTMLDivElement>
+    PropsWithChildren<HTMLAttributes<HTMLElement>> & React.RefAttributes<HTMLElement>
   > {
-  item: typeof BreadcrumbItem
+  Item: typeof BreadcrumbItem
 }
 
 // We're validating against an index. Maxiumum children are 8.
@@ -57,4 +57,4 @@ const BreadcrumbItem = ({ children, href }: BreadcrumbItemProps) => {
 }
 
 BreadcrumbItem.displayName = 'BreadcrumbItem'
-Breadcrumb.item = BreadcrumbItem
+Breadcrumb.Item = BreadcrumbItem
