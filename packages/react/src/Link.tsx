@@ -7,17 +7,17 @@
 
 import { ChevronRight } from '@amsterdam/design-system-react-icons'
 import clsx from 'clsx'
-import { AnchorHTMLAttributes, ForwardedRef, forwardRef, PropsWithChildren, ReactElement } from 'react'
-import { Icon } from './Icon'
+import { AnchorHTMLAttributes, ForwardedRef, forwardRef, PropsWithChildren } from 'react'
+import { Icon } from './Icon/Icon'
 
 export interface LinkProps extends AnchorHTMLAttributes<HTMLAnchorElement> {
   variant?: 'standalone' | 'inList' | 'inline' // TODO: standalone can't have an icon, only inList and inline can. Fix this with type unions?
-  icon?: ReactElement
+  icon?: Function
 }
 
 export const Link = forwardRef(
   (
-    { children, className, icon, variant, ...restProps }: PropsWithChildren<LinkProps>,
+    { children, className, variant, icon, ...restProps }: PropsWithChildren<LinkProps>,
     ref: ForwardedRef<HTMLAnchorElement>,
   ) => (
     <a
@@ -31,9 +31,9 @@ export const Link = forwardRef(
       )}
       {...restProps}
     >
-      {variant === 'inList' && <Icon size={icon ? 'medium' : 'small'}>{icon ? icon : <ChevronRight />}</Icon>}
+      {variant === 'inList' && <Icon svg={icon ? icon : ChevronRight} size={icon ? 'level-3' : 'level-4'} />}
       {children}
-      {variant === 'inline' && icon && <Icon>{icon}</Icon>}
+      {variant === 'inline' && icon && <Icon svg={icon} />}
     </a>
   ),
 )
