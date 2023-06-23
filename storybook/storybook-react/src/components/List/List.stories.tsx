@@ -23,15 +23,15 @@ export const Default: Story = {
     children: (
       <>
         <li>
-          <Heading styleLevel={4}>Parkeren</Heading>
+          <Heading size="level-4">Parkeren</Heading>
           <Paragraph>Alles over parkeren en verkeer in de stad.</Paragraph>
         </li>
         <li>
-          <Heading styleLevel={4}>Parkeertijd bezoek doorgeven</Heading>
+          <Heading size="level-4">Parkeertijd bezoek doorgeven</Heading>
           <Paragraph>Bezoekers- of kraskaart-vergunning? Geef hier parkeertijd van uw bezoek door.</Paragraph>
         </li>
         <li>
-          <Heading styleLevel={4}>Verhuizing doorgeven</Heading>
+          <Heading size="level-4">Verhuizing doorgeven</Heading>
           <Paragraph>Naar en binnen Amsterdam.</Paragraph>
         </li>
       </>
