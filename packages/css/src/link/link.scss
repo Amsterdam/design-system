@@ -3,7 +3,6 @@
  * Copyright (c) 2023 Gemeente Amsterdam
  */
 
-@import "../../node_modules/@amsterdam/design-system-tokens/dist/variables";
 @import "../../utils/breakpoint";
 
 .amsterdam-link {
@@ -12,24 +11,24 @@
   font-size: var(--amsterdam-link-font-size-narrow);
   text-decoration: var(--amsterdam-link-text-decoration, underline);
   text-decoration-color: var(--amsterdam-link-text-decoration-color, currentColor);
-  text-decoration-skip-ink: $amsterdam-link-text-decoration-skip-ink;
+  text-decoration-skip-ink: var(--amsterdam-link-text-decoration-skip-ink);
   text-decoration-thickness: var(--amsterdam-link-text-decoration-thickness, 1px);
   text-underline-offset: var(--amsterdam-link-text-underline-offset);
 
   &:hover,
   &:active {
-    color: $amsterdam-link-hover-color;
-    text-decoration: $amsterdam-link-hover-text-decoration;
+    color: var(--amsterdam-link-hover-color);
+    text-decoration: var(--amsterdam-link-hover-text-decoration);
     text-decoration-thickness: var(--amsterdam-link-hover-text-decoration-thickness, 1px);
   }
 
   &:focus {
-    color: $amsterdam-link-focus-color;
-    text-decoration: $amsterdam-link-focus-text-decoration;
+    color: var(--amsterdam-link-focus-color);
+    text-decoration: var(--amsterdam-link-focus-text-decoration);
   }
 
   &:visited {
-    color: $amsterdam-link-visited-color;
+    color: var(--amsterdam-link-visited-color);
   }
 
   @media screen and (width > $amsterdam-breakpoint) {
@@ -38,47 +37,47 @@
 }
 
 .amsterdam-link--standalone-bold {
-  font-weight: $amsterdam-link-standalone-bold-font-weight;
+  font-weight: var(--amsterdam-link-standalone-bold-font-weight);
 }
 
 .amsterdam-link--inline {
-  font-family: $amsterdam-link-inline-font-family;
-  font-size: $amsterdam-link-inline-font-size;
-  text-underline-offset: $amsterdam-link-inline-text-underline-offset;
+  font-family: var(--amsterdam-link-inline-font-family);
+  font-size: var(--amsterdam-link-inline-font-size);
+  text-underline-offset: var(--amsterdam-link-inline-text-underline-offset);
 }
 
 .amsterdam-link--in-list {
   align-items: center;
   display: flex;
-  gap: $amsterdam-link-in-list-icon-spacing;
+  gap: var(--amsterdam-link-in-list-icon-spacing);
   text-underline-offset: var(--amsterdam-link-in-list-text-underline-offset);
 }
 
 .amsterdam-link--background-dark {
-  color: $amsterdam-link-background-dark-color;
-  text-decoration: $amsterdam-link-background-dark-text-decoration;
+  color: var(--amsterdam-link-background-dark-color);
+  text-decoration: var(--amsterdam-link-background-dark-text-decoration);
 
   &:hover,
   &:active {
     cursor: resize;
-    text-decoration: $amsterdam-link-background-dark-hover-text-decoration;
+    text-decoration: var(--amsterdam-link-background-dark-hover-text-decoration);
   }
 
   &:visited {
-    color: $amsterdam-link-background-dark-visited-color;
+    color: var(--amsterdam-link-background-dark-visited-color);
   }
 }
 
 .amsterdam-link--background-light {
-  color: $amsterdam-link-background-light-color;
-  text-decoration: $amsterdam-link-background-light-text-decoration;
+  color: var(--amsterdam-link-background-light-color);
+  text-decoration: var(--amsterdam-link-background-light-text-decoration);
 
   &:hover,
   &:active {
-    text-decoration: $amsterdam-link-background-light-hover-text-decoration;
+    text-decoration: var(--amsterdam-link-background-light-hover-text-decoration);
   }
 
   &:visited {
-    color: $amsterdam-link-background-light-visited-color;
+    color: var(--amsterdam-link-background-light-visited-color);
   }
 }

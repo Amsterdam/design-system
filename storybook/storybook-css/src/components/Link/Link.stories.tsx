@@ -71,9 +71,6 @@ export default meta
 
 export const Standalone: Story = {
   name: 'Standalone',
-  args: {
-    onBackground: undefined, // Workaround to avoid 'onBackground' being set to an empty function
-  },
   parameters: {
     docs: {
       source: {
