@@ -11,10 +11,11 @@
 
 .amsterdam-details__summary {
   color: var(--amsterdam-details-summary-color);
+  cursor: pointer;
   font-family: var(--amsterdam-details-summary-font-family);
   font-size: var(--amsterdam-details-summary-font-size-narrow);
   font-weight: var(--amsterdam-details-summary-font-weight);
-  padding-block: 1rem;
+  padding-block: 0.75rem;
   padding-inline: 1rem;
 
   @media screen and (width > $amsterdam-breakpoint) {
