@@ -1,0 +1,23 @@
+import { Meta } from "@storybook/blocks";
+
+<Meta title="Docs/Designrichtlijnen/Breekpunt" />
+
+# Breekpunt
+
+We hanteren 1 breekpunt waar het ontwerp van een website zich aanpast voor een goede gebruikerservaring op verschillend formaat apparaten: 854px breed.
+
+In _css_ werken we _mobile first_: eerst maken we het ontwerp onder het breekpunt en vervolgens gebruiken we een _media query_ om het ontwerp boven het breekpunt te maken.
+
+Bijvoorbeeld:
+
+```css
+.class {
+  /* Your narrow styling */
+
+  @media screen and (width > $amsterdam-breakpoint) {
+    /* Your wide styling */
+  }
+}
+```
+
+Binnen deze repository kun je het breakpoint als Sass variabele importeren. Je vindt deze variabele in [packages/css/utils/breakpoint.scss](https://github.com/Amsterdam/design-system/blob/main/packages/css/utils/breakpoint.scss).

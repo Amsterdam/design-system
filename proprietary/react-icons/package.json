@@ -11,9 +11,9 @@
   "publishConfig": {
     "access": "public"
   },
-  "main": "./dist/index.cjs.js",
-  "module": "./dist/index.esm.js",
-  "types": "./dist/index.d.ts",
+  "main": "dist/index.cjs.js",
+  "module": "dist/index.esm.js",
+  "types": "dist/index.d.ts",
   "files": [
     "dist/"
   ],
@@ -24,16 +24,16 @@
     "directory": "proprietary/react-icons"
   },
   "scripts": {
-    "clean": "rimraf src/ && rimraf dist/",
-    "svgr": "svgr --jsx-runtime automatic --typescript --svg-props focusable={false} --out-dir src -- ../icons/static",
+    "clean": "rimraf src && rimraf dist",
+    "svgr": "svgr ../icons/static",
     "build": "npm run clean && npm run svgr && rollup -c"
   },
   "devDependencies": {
     "@rollup/plugin-node-resolve": "15.1.0",
     "@svgr/cli": "8.0.1",
-    "@types/react": "18.2.8",
+    "@types/react": "18.2.13",
     "react": "18.2.0",
-    "rollup": "3.23.0",
+    "rollup": "3.25.1",
     "rollup-plugin-peer-deps-external": "2.2.4",
     "rollup-plugin-typescript2": "0.34.1"
   },

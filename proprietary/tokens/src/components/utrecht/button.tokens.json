@@ -13,8 +13,9 @@
       "font-family": {
         "value": "{amsterdam.typography.font-family}"
       },
-      "font-size": {
-        "value": "{amsterdam.typography.font-size.24}"
+      "font-size": {},
+      "line-height": {
+        "value": "{amsterdam.typography.text-level.6.line-height}"
       },
       "padding-inline-start": {
         "value": "{amsterdam.spacing.inset.md}"

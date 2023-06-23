@@ -61,15 +61,15 @@ describe('Link', () => {
 
     const svgContainer = container.querySelector(':only-child span')
 
-    expect(svgContainer).toHaveClass('amsterdam-icon-small')
+    expect(svgContainer).toHaveClass('amsterdam-icon-size-4')
   })
 
   it('renders a bigger icon when using variant inList and passing an icon', () => {
-    const { container } = render(<Link variant="inList" icon={<Alert />} />)
+    const { container } = render(<Link variant="inList" icon={Alert} />)
 
     const svgContainer = container.querySelector(':only-child span')
 
-    expect(svgContainer).toHaveClass('amsterdam-icon-medium')
+    expect(svgContainer).toHaveClass('amsterdam-icon-size-3')
   })
 
   it('renders rich text content', () => {

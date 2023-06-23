@@ -33,8 +33,6 @@ describe('Heading', () => {
         <Heading level={2}>H2</Heading>
         <Heading level={3}>H3</Heading>
         <Heading level={4}>H4</Heading>
-        <Heading level={5}>H5</Heading>
-        <Heading level={6}>H6</Heading>
       </>,
     )
 
@@ -54,21 +52,11 @@ describe('Heading', () => {
       name: 'H4',
       level: 4,
     })
-    const h5 = screen.getByRole('heading', {
-      name: 'H5',
-      level: 5,
-    })
-    const h6 = screen.getByRole('heading', {
-      name: 'H6',
-      level: 6,
-    })
 
     expect(h1).toBeInTheDocument()
     expect(h2).toBeInTheDocument()
     expect(h3).toBeInTheDocument()
     expect(h4).toBeInTheDocument()
-    expect(h5).toBeInTheDocument()
-    expect(h6).toBeInTheDocument()
   })
 
   it('renders the right style level class', () => {
@@ -78,8 +66,6 @@ describe('Heading', () => {
         <Heading styleLevel={2}>Style level 2</Heading>
         <Heading styleLevel={3}>Style level 3</Heading>
         <Heading styleLevel={4}>Style level 4</Heading>
-        <Heading styleLevel={5}>Style level 5</Heading>
-        <Heading styleLevel={6}>Style level 6</Heading>
       </>,
     )
 
@@ -99,21 +85,11 @@ describe('Heading', () => {
       name: 'Style level 4',
       level: 1,
     })
-    const styleLevel5 = screen.getByRole('heading', {
-      name: 'Style level 5',
-      level: 1,
-    })
-    const styleLevel6 = screen.getByRole('heading', {
-      name: 'Style level 6',
-      level: 1,
-    })
 
     expect(styleLevel1).toHaveClass('amsterdam-heading-1')
     expect(styleLevel2).toHaveClass('amsterdam-heading-2')
     expect(styleLevel3).toHaveClass('amsterdam-heading-3')
     expect(styleLevel4).toHaveClass('amsterdam-heading-4')
-    expect(styleLevel5).toHaveClass('amsterdam-heading-5')
-    expect(styleLevel6).toHaveClass('amsterdam-heading-6')
   })
 
   it('renders rich text content', () => {

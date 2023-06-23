@@ -1,0 +1,41 @@
+{
+  "amsterdam": {
+    "icon": {
+      "size-3": {
+        "icon-size": {
+          "narrow": { "value": "{amsterdam.typography.text-level.3.font-size.narrow}" },
+          "wide": { "value": "{amsterdam.typography.text-level.3.font-size.wide}" }
+        },
+        "container-multiplier": { "value": "{amsterdam.typography.text-level.3.line-height}" }
+      },
+      "size-4": {
+        "icon-size": {
+          "narrow": { "value": "{amsterdam.typography.text-level.4.font-size.narrow}" },
+          "wide": { "value": "{amsterdam.typography.text-level.4.font-size.wide}" }
+        },
+        "container-multiplier": { "value": "{amsterdam.typography.text-level.4.line-height}" }
+      },
+      "size-5": {
+        "icon-size": {
+          "narrow": { "value": "{amsterdam.typography.text-level.5.font-size.narrow}" },
+          "wide": { "value": "{amsterdam.typography.text-level.5.font-size.wide}" }
+        },
+        "container-multiplier": { "value": "{amsterdam.typography.text-level.5.line-height}" }
+      },
+      "size-6": {
+        "icon-size": {
+          "narrow": { "value": "{amsterdam.typography.text-level.6.font-size.narrow}" },
+          "wide": { "value": "{amsterdam.typography.text-level.6.font-size.wide}" }
+        },
+        "container-multiplier": { "value": "{amsterdam.typography.text-level.6.line-height}" }
+      },
+      "size-7": {
+        "icon-size": {
+          "narrow": { "value": "{amsterdam.typography.text-level.7.font-size.narrow}" },
+          "wide": { "value": "{amsterdam.typography.text-level.7.font-size.wide}" }
+        },
+        "container-multiplier": { "value": "{amsterdam.typography.text-level.7.line-height}" }
+      }
+    }
+  }
+}

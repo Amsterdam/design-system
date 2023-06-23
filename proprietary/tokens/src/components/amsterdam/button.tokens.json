@@ -1,6 +1,10 @@
 {
   "amsterdam": {
     "button": {
+      "font-size": {
+        "narrow": { "value": "{amsterdam.typography.text-level.6.font-size.narrow}" },
+        "wide": { "value": "{amsterdam.typography.text-level.6.font-size.wide}" }
+      },
       "secondary": {
         "hover": {
           "box-shadow": {
