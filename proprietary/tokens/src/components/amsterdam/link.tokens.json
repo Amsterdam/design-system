@@ -29,7 +29,7 @@
         "text-decoration-thickness": { "value": "2px" }
       },
       "visited": {
-        "color": { "value": "{amsterdam.color.purple}" }
+        "color": { "value": "{amsterdam.color.primary-blue}" }
       },
       "standalone-bold": {
         "font-weight": {
@@ -43,6 +43,9 @@
         },
         "font-size": {
           "value": "inherit"
+        },
+        "visited": {
+          "color": { "value": "{amsterdam.color.purple}" }
         }
       },
       "in-list": {

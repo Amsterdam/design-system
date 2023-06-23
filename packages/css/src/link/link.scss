@@ -44,6 +44,10 @@
   font-family: var(--amsterdam-link-inline-font-family);
   font-size: var(--amsterdam-link-inline-font-size);
   text-underline-offset: var(--amsterdam-link-inline-text-underline-offset);
+
+  &:visited {
+    color: var(--amsterdam-link-inline-visited-color);
+  }
 }
 
 .amsterdam-link--in-list {
