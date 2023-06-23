@@ -3,14 +3,10 @@
  * Copyright (c) 2023 Gemeente Amsterdam
  */
 
-@import "../../node_modules/@amsterdam/design-system-tokens/dist/variables";
-@import "../../utils/calculate-fluid-style";
+@import "../../utils/breakpoint";
 
 .amsterdam-unordered-list {
-  font-size: var(
-    --amsterdam-paragraph-font-size,
-    calculate-fluid-style($amsterdam-typography-font-size-18, $amsterdam-typography-font-size-24)
-  );
+  font-size: var(--amsterdam-paragraph-font-size-narrow);
   font-weight: var(--amsterdam-paragraph-font-weight);
   line-height: var(--amsterdam-paragraph-line-height);
   list-style-type: square;
@@ -28,5 +24,9 @@
     li {
       padding-inline-start: 12px;
     }
+  }
+
+  @media screen and (width > $amsterdam-breakpoint) {
+    font-size: var(--amsterdam-paragraph-font-size-wide);
   }
 }
