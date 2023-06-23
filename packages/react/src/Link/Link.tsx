@@ -18,12 +18,12 @@ export interface LinkProps extends Omit<AnchorHTMLAttributes<HTMLAnchorElement>,
 
 export const Link = forwardRef(
   (
-    { children, href, variant, onBackground, className, ...restProps }: PropsWithChildren<LinkProps>,
+    { children, href, variant, onBackground, className, ...otherProps }: PropsWithChildren<LinkProps>,
     ref: ForwardedRef<HTMLAnchorElement>,
   ) => (
     <a
       href={href}
-      {...restProps}
+      {...otherProps}
       ref={ref}
       className={clsx(
         'amsterdam-link',
@@ -37,7 +37,7 @@ export const Link = forwardRef(
         className,
       )}
     >
-      {variant === 'inList' && <Icon svg={ChevronRight} size="level-6" />}
+      {variant === 'inList' && <Icon svg={ChevronRight} size="level-7" />}
       {children}
     </a>
   ),

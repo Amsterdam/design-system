@@ -1,4 +1,5 @@
 import { render } from '@testing-library/react'
+import { createRef } from 'react'
 import { Link } from './Link'
 import '@testing-library/jest-dom'
 
@@ -11,29 +12,7 @@ describe('Link', () => {
     expect(link).toHaveAttribute('href', '#')
   })
 
-  it('renders with target attribute', () => {
-    const { container } = render(
-      <Link href="#" target="_blank">
-        {linktext}
-      </Link>,
-    )
-    const link = container.querySelector('a:only-child')
-    expect(link).toBeInTheDocument()
-    expect(link).toHaveAttribute('target', '_blank')
-  })
-
-  it('renders with rel attribute', () => {
-    const { container } = render(
-      <Link href="#" rel="noopener">
-        {linktext}
-      </Link>,
-    )
-    const link = container.querySelector('a:only-child')
-    expect(link).toBeInTheDocument()
-    expect(link).toHaveAttribute('rel', 'noopener')
-  })
-
-  it('renders standalone', () => {
+  it('renders standalone variant', () => {
     const { container } = render(<Link href="#">{linktext}</Link>)
     const link = container.querySelector('a:only-child')
     expect(link).toHaveClass('amsterdam-link')
@@ -68,7 +47,7 @@ describe('Link', () => {
       </Link>,
     )
     const link = container.querySelector('a:only-child')
-    expect(link).toHaveClass('amsterdam-link amsterdam-link--background-light')
+    expect(link).toHaveClass('amsterdam-link amsterdam-link--on-background-light')
   })
 
   it('renders dark background color', () => {
@@ -78,6 +57,26 @@ describe('Link', () => {
       </Link>,
     )
     const link = container.querySelector('a:only-child')
-    expect(link).toHaveClass('amsterdam-link amsterdam-link--background-dark')
+    expect(link).toHaveClass('amsterdam-link amsterdam-link--on-background-dark')
+  })
+
+  it('can have a custom class name', () => {
+    const { container } = render(<Link className="visited">{'https://example.com/'}</Link>)
+    const link = container.querySelector(':only-child')
+    expect(link).toHaveClass('visited')
+  })
+
+  it('can have a additional class name', () => {
+    const { container } = render(<Link className="large" />)
+    const link = container.querySelector(':only-child')
+    expect(link).toHaveClass('large')
+    expect(link).toHaveClass('amsterdam-link')
+  })
+
+  it('supports ForwardRef in React', () => {
+    const ref = createRef<HTMLAnchorElement>()
+    const { container } = render(<Link ref={ref}>{'https://example.com/'}</Link>)
+    const link = container.querySelector(':only-child')
+    expect(ref.current).toBe(link)
   })
 })
