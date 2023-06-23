@@ -6,15 +6,17 @@
 
 @mixin reset {
   box-sizing: border-box;
-  display: block;
 }
 
 .amsterdam-details__summary {
   color: var(--amsterdam-details-summary-color);
   cursor: pointer;
+  display: flex;
   font-family: var(--amsterdam-details-summary-font-family);
   font-size: var(--amsterdam-details-summary-font-size-narrow);
   font-weight: var(--amsterdam-details-summary-font-weight);
+  justify-content: space-between;
+  line-height: var(--amsterdam-details-summary-line-height);
   padding-block: 0.75rem;
   padding-inline: 1rem;
 
@@ -22,7 +24,29 @@
     font-size: var(--amsterdam-details-summary-font-size-wide);
   }
 
+  &:focus {
+    outline-offset: var(--amsterdam-details-summary-focus-outline-offset);
+  }
+
+  &:focus,
+  &:hover {
+    box-shadow: var(--amsterdam-details-summary-hover-box-shadow);
+  }
+
+  span svg {
+    transform: rotate(0deg);
+
+    // TODO: prefers-reduced-motion? Remove it entirely? Or just slow it down?
+    transition: transform 0.3s ease;
+  }
+
   @include reset;
+}
+
+.amsterdam-details[open] .amsterdam-details__summary {
+  span svg {
+    transform: rotate(180deg);
+  }
 }
 
 .amsterdam-details__content {

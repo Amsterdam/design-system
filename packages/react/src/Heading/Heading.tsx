@@ -14,7 +14,7 @@ export interface HeadingProps extends HTMLAttributes<HTMLHeadingElement> {
   styleLevel?: Levels
 }
 
-function getElement(level: Levels) {
+export function getElement(level: Levels) {
   switch (level) {
     case 2:
       return 'h2'

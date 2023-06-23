@@ -7,6 +7,7 @@ import { Details } from '@amsterdam/design-system-react/src'
 import { Meta, StoryObj } from '@storybook/react'
 
 import '@amsterdam/design-system-css/src/details/details.scss'
+import '@amsterdam/design-system-css/src/icon/icon.scss'
 
 const meta = {
   title: 'Details',
