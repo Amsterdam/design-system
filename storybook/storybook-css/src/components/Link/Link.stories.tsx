@@ -13,7 +13,7 @@ import '@amsterdam/design-system-css/src/icon/icon.scss'
 type Story = StoryObj<typeof Link>
 
 const meta = {
-  title: 'Link',
+  title: 'CSS Components/Link',
   component: Link,
   argTypes: {
     onBackground: {
@@ -62,31 +62,50 @@ const meta = {
   },
   args: {
     children: 'Linktekst',
-    href: '#',
+    href: '',
   },
 } satisfies Meta<typeof Link>
 
 export default meta
 
 export const Standalone: Story = {
-  args: {
-    onBackground: undefined, // Workaround to avoid 'onBackground' being set to an empty function
+  parameters: {
+    docs: {
+      source: {
+        language: 'html',
+        code: '<a href="#" class="amsterdam-link">Linktekst</a>',
+      },
+    },
   },
 }
 
 export const StandaloneBold: Story = {
+  parameters: {
+    docs: {
+      source: {
+        language: 'html',
+        code: '<a href="#" class="amsterdam-link amsterdam-link--standalone-bold">Linktekst</a>',
+      },
+    },
+  },
   args: {
     variant: 'standaloneBold',
-    onBackground: undefined,
   },
 }
 
 export const Inline: Story = {
+  parameters: {
+    docs: {
+      source: {
+        language: 'html',
+        code: '<p class="amsterdam-paragraph">Jouw <a href="#" class="amsterdam-link amsterdam-link--inline">typograaf</a> biedt mij zulke exquise schreven!</p>',
+      },
+    },
+  },
   args: {
     children: 'typograaf',
     href: '#',
     variant: 'inline',
-    onBackground: undefined,
   },
   decorators: [
     (Story) => (
@@ -98,15 +117,39 @@ export const Inline: Story = {
 }
 
 export const InList: Story = {
+  parameters: {
+    docs: {
+      source: {
+        language: 'html',
+        code: `
+<a href="#" class="amsterdam-link amsterdam-link--in-list">
+  <span class="amsterdam-icon amsterdam-icon-size-6">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" aria-hidden="true" focusable="false">
+      <path fill-rule="evenodd" d="m9.757 32-2.9-2.91L19.937 16 6.857 2.91 9.757 0l16 16z"></path>
+    </svg>
+  </span>
+  Linktekst
+</a>
+        `,
+      },
+    },
+  },
   args: {
     children: 'Linktekst',
     href: '#',
     variant: 'inList',
-    onBackground: undefined,
   },
 }
 
-export const onDarkBackground: Story = {
+export const Dark: Story = {
+  parameters: {
+    docs: {
+      source: {
+        language: 'html',
+        code: '<a href="#" class="amsterdam-link amsterdam-link--on-background-dark">Linktekst</a>',
+      },
+    },
+  },
   args: {
     onBackground: 'dark',
   },
@@ -119,7 +162,15 @@ export const onDarkBackground: Story = {
   ],
 }
 
-export const onLightBackground: Story = {
+export const Light: Story = {
+  parameters: {
+    docs: {
+      source: {
+        language: 'html',
+        code: '<a href="#" class="amsterdam-link amsterdam-link--on-background-light">Linktekst</a>',
+      },
+    },
+  },
   args: {
     onBackground: 'light',
   },

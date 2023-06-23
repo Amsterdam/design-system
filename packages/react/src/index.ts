@@ -5,8 +5,9 @@
 
 export * from './Heading'
 export * from './Breadcrumb'
+export * from './Link'
 export * from './Button/'
 export * from './Paragraph'
+export * from './FormLabel'
 export * from './Icon'
-export { Link } from './Link'
 export { List } from './List'

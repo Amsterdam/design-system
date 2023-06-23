@@ -18,7 +18,7 @@ interface BreadcrumbComponent
 const breadcrumbLimit = 8
 
 export const Breadcrumb = forwardRef(
-  ({ children }: PropsWithChildren<HTMLAttributes<HTMLElement>>, ref: ForwardedRef<HTMLElement>) => {
+  ({ children, ...restProps }: PropsWithChildren<HTMLAttributes<HTMLElement>>, ref: ForwardedRef<HTMLElement>) => {
     const filteredBreadcrumbItems = useMemo(() => {
       return React.Children.toArray(children).filter((child, index) => {
         if (!isReactFunctionCom(child) || index >= breadcrumbLimit) return false
@@ -33,7 +33,7 @@ export const Breadcrumb = forwardRef(
     }, [children])
 
     return (
-      <nav className="amsterdam-breadcrumbs" ref={ref}>
+      <nav {...restProps} className="amsterdam-breadcrumbs" ref={ref}>
         <ol className="amsterdam-breadcrumbs-list">{filteredBreadcrumbItems}</ol>
       </nav>
     )
@@ -46,6 +46,7 @@ interface BreadcrumbItemProps extends PropsWithChildren {
   href: string
 }
 
+// TODO: We might wanna wrap this in a forwardRef as well.
 const BreadcrumbItem = ({ children, href }: BreadcrumbItemProps) => {
   return (
     <li className="amsterdam-breadcrumb">
