@@ -18,11 +18,10 @@ export interface LinkProps extends Omit<AnchorHTMLAttributes<HTMLAnchorElement>,
 
 export const Link = forwardRef(
   (
-    { children, href, variant, onBackground, className, ...otherProps }: PropsWithChildren<LinkProps>,
+    { children, variant, onBackground, className, ...otherProps }: PropsWithChildren<LinkProps>,
     ref: ForwardedRef<HTMLAnchorElement>,
   ) => (
     <a
-      href={href}
       {...otherProps}
       ref={ref}
       className={clsx(

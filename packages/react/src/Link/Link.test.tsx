@@ -75,7 +75,11 @@ describe('Link', () => {
 
   it('supports ForwardRef in React', () => {
     const ref = createRef<HTMLAnchorElement>()
-    const { container } = render(<Link ref={ref}>{'https://example.com/'}</Link>)
+    const { container } = render(
+      <Link ref={ref} href="https://example.com/">
+        {'https://example.com/'}
+      </Link>,
+    )
     const link = container.querySelector(':only-child')
     expect(ref.current).toBe(link)
   })

@@ -70,14 +70,12 @@ const meta = {
 export default meta
 
 export const Standalone: Story = {
-  name: 'Standalone',
   args: {
     onBackground: undefined, // Workaround to avoid 'onBackground' being set to an empty function
   },
 }
 
 export const StandaloneBold: Story = {
-  name: 'Standalone Bold',
   args: {
     variant: 'standaloneBold',
     onBackground: undefined,
@@ -85,7 +83,6 @@ export const StandaloneBold: Story = {
 }
 
 export const Inline: Story = {
-  name: 'Inline',
   args: {
     children: 'typograaf',
     href: '#',
@@ -102,7 +99,6 @@ export const Inline: Story = {
 }
 
 export const InList: Story = {
-  name: 'InList',
   args: {
     children: 'Linktekst',
     href: '#',
@@ -111,11 +107,7 @@ export const InList: Story = {
   },
 }
 
-/**
- * Link to use on a dark background
- */
-export const Dark: Story = {
-  name: 'Dark',
+export const onDarkBackground: Story = {
   args: {
     onBackground: 'dark',
   },
@@ -128,11 +120,7 @@ export const Dark: Story = {
   ],
 }
 
-/**
- * Link to use on a light background
- */
-export const Light: Story = {
-  name: 'Light',
+export const onLightBackground: Story = {
   args: {
     onBackground: 'light',
   },

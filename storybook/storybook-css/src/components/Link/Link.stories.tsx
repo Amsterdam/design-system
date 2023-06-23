@@ -63,14 +63,13 @@ const meta = {
   },
   args: {
     children: 'Linktekst',
-    href: '#',
+    href: '',
   },
 } satisfies Meta<typeof Link>
 
 export default meta
 
 export const Standalone: Story = {
-  name: 'Standalone',
   parameters: {
     docs: {
       source: {
@@ -82,7 +81,6 @@ export const Standalone: Story = {
 }
 
 export const StandaloneBold: Story = {
-  name: 'Standalone Bold',
   parameters: {
     docs: {
       source: {
@@ -97,7 +95,6 @@ export const StandaloneBold: Story = {
 }
 
 export const Inline: Story = {
-  name: 'Inline',
   parameters: {
     docs: {
       source: {
@@ -121,7 +118,6 @@ export const Inline: Story = {
 }
 
 export const InList: Story = {
-  name: 'InList',
   parameters: {
     docs: {
       source: {
@@ -146,16 +142,12 @@ export const InList: Story = {
   },
 }
 
-/**
- * Link to use on a dark background
- */
 export const Dark: Story = {
-  name: 'Dark',
   parameters: {
     docs: {
       source: {
         language: 'html',
-        code: '<a href="#" class="amsterdam-link amsterdam-link--backgorund-color-dark">Linktekst</a>',
+        code: '<a href="#" class="amsterdam-link amsterdam-link--on-background-dark">Linktekst</a>',
       },
     },
   },
@@ -171,16 +163,12 @@ export const Dark: Story = {
   ],
 }
 
-/**
- * Link to use on a light background
- */
 export const Light: Story = {
-  name: 'Light',
   parameters: {
     docs: {
       source: {
         language: 'html',
-        code: '<a href="#" class="amsterdam-link amsterdam-link--color-white">Linktekst</a>',
+        code: '<a href="#" class="amsterdam-link amsterdam-link--on-background-light">Linktekst</a>',
       },
     },
   },
