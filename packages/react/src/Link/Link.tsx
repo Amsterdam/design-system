@@ -8,8 +8,8 @@ import clsx from 'clsx'
 import { AnchorHTMLAttributes, ForwardedRef, forwardRef, PropsWithChildren } from 'react'
 import { Icon } from '../Icon/Icon'
 
-export type LinkOnBackground = 'default' | 'light' | 'dark'
-export type LinkVariant = 'standalone' | 'standaloneBold' | 'inline' | 'inList'
+type LinkOnBackground = 'default' | 'light' | 'dark'
+type LinkVariant = 'standalone' | 'standaloneBold' | 'inline' | 'inList'
 
 export interface LinkProps extends Omit<AnchorHTMLAttributes<HTMLAnchorElement>, 'placeholder'> {
   variant?: LinkVariant

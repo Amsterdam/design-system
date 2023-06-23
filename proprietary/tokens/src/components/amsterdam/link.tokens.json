@@ -2,6 +2,7 @@
   "amsterdam": {
     "link": {
       "color": { "value": "{amsterdam.color.primary-blue}" },
+      "outline-offset": { "value": "{amsterdam.focus.outline-offset}" },
       "text-decoration": { "value": "none" },
       "text-underline-offset": { "value": "9px" },
       "text-decoration-thickness": { "value": "2px" },
@@ -45,7 +46,7 @@
         }
       },
       "in-list": {
-        "icon-spacing": { "value": "0.5em" },
+        "gap": { "value": "0.5em" },
         "text-underline-offset": { "value": "0.3em" },
         "font-size": {
           "narrow": { "value": "{amsterdam.typography.text-level.7.font-size.narrow}" },

@@ -9,6 +9,7 @@
   color: var(--amsterdam-link-color, blue);
   font-family: var(--amsterdam-paragraph-font-family);
   font-size: var(--amsterdam-link-font-size-narrow);
+  outline-offset: var(--amsterdam-link-outline-offset);
   text-decoration: var(--amsterdam-link-text-decoration, underline);
   text-decoration-color: var(--amsterdam-link-text-decoration-color, currentColor);
   text-decoration-thickness: var(--amsterdam-link-text-decoration-thickness, 1px);
@@ -51,9 +52,9 @@
 
 .amsterdam-link--in-list {
   align-items: center;
-  display: flex;
+  display: inline-flex;
   font-size: var(--amsterdam-link-in-list-font-size-narrow);
-  gap: var(--amsterdam-link-in-list-icon-spacing);
+  gap: var(--amsterdam-link-in-list-gap);
   text-underline-offset: var(--amsterdam-link-in-list-text-underline-offset);
 
   @media screen and (width > $amsterdam-breakpoint) {
