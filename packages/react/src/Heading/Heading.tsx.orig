@@ -7,14 +7,22 @@
 import clsx from 'clsx'
 import { ForwardedRef, forwardRef, HTMLAttributes, PropsWithChildren } from 'react'
 
-export type HeadingLevel = 1 | 2 | 3 | 4
+<<<<<<< HEAD
+export type Levels = 1 | 2 | 3 | 4
+=======
+type Level = 1 | 2 | 3 | 4
+>>>>>>> bed8ad4 (Use singular for type names)
 
 export interface HeadingProps extends HTMLAttributes<HTMLHeadingElement> {
-  level?: HeadingLevel
-  styleLevel?: HeadingLevel
+  level?: Level
+  styleLevel?: Level
 }
 
-export function getHeadingElement(level: HeadingLevel) {
+<<<<<<< HEAD
+export function getHeadingElement(level: Levels) {
+=======
+function getElement(level: Level) {
+>>>>>>> bed8ad4 (Use singular for type names)
   switch (level) {
     case 2:
       return 'h2'
