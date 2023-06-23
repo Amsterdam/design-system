@@ -25,6 +25,7 @@
         "text-decoration": { "value": "underline" },
         "text-decoration-thickness": { "value": "2px" }
       },
+      "line-height": { "value": "{amsterdam.typography.text-level.6.line-height}" },
       "visited": {
         "color": { "value": "{amsterdam.color.primary-blue}" }
       },
@@ -51,7 +52,8 @@
         "font-size": {
           "narrow": { "value": "{amsterdam.typography.text-level.7.font-size.narrow}" },
           "wide": { "value": "{amsterdam.typography.text-level.7.font-size.wide}" }
-        }
+        },
+        "line-height": { "value": "{amsterdam.typography.text-level.7.line-height}" }
       },
       "on-background-dark": {
         "color": { "value": "{amsterdam.color.primary-white}" },

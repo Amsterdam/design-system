@@ -9,6 +9,7 @@
   color: var(--amsterdam-link-color, blue);
   font-family: var(--amsterdam-paragraph-font-family);
   font-size: var(--amsterdam-link-font-size-narrow);
+  line-height: var(--amsterdam-link-line-height);
   outline-offset: var(--amsterdam-link-outline-offset);
   text-decoration: var(--amsterdam-link-text-decoration, underline);
   text-decoration-color: var(--amsterdam-link-text-decoration-color, currentColor);
@@ -55,7 +56,14 @@
   display: inline-flex;
   font-size: var(--amsterdam-link-in-list-font-size-narrow);
   gap: var(--amsterdam-link-in-list-gap);
+  line-height: var(--amsterdam-link-in-list-line-height);
   text-underline-offset: var(--amsterdam-link-in-list-text-underline-offset);
+
+  // Override for icon size
+  span.amsterdam-icon svg {
+    height: 16px;
+    width: 16px;
+  }
 
   @media screen and (width > $amsterdam-breakpoint) {
     font-size: var(--amsterdam-link-in-list-font-size-wide);
