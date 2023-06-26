@@ -35,9 +35,11 @@
 
   span svg {
     transform: rotate(0deg);
-
-    // TODO: prefers-reduced-motion? Remove it entirely? Or just slow it down?
     transition: transform 0.3s ease;
+
+    @media (prefers-reduced-motion) {
+      transition: none;
+    }
   }
 
   @include reset;
