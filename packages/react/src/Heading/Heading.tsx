@@ -7,7 +7,7 @@
 import clsx from 'clsx'
 import { ForwardedRef, forwardRef, HTMLAttributes, PropsWithChildren } from 'react'
 
-type Levels = 1 | 2 | 3 | 4
+export type Levels = 1 | 2 | 3 | 4
 
 export interface HeadingProps extends HTMLAttributes<HTMLHeadingElement> {
   level?: Levels

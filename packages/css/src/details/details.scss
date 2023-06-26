@@ -43,6 +43,17 @@
   @include reset;
 }
 
+.amsterdam-details__summary h1,
+.amsterdam-details__summary h2,
+.amsterdam-details__summary h3,
+.amsterdam-details__summary h4 {
+  font-size: inherit;
+  font-weight: inherit;
+  line-height: inherit;
+  margin-block: 0;
+  margin-inline: 0;
+}
+
 .amsterdam-details[open] .amsterdam-details__summary {
   span svg {
     transform: rotate(180deg);
