@@ -1,5 +1,9 @@
 lockfileVersion: '6.0'
 
+settings:
+  autoInstallPeers: true
+  excludeLinksFromLockfile: false
+
 importers:
 
   .:
@@ -345,8 +349,8 @@ importers:
         specifier: 0.2.0
         version: 0.2.0
       '@storybook/theming':
-        specifier: 7.0.22
-        version: 7.0.22(react-dom@18.2.0)(react@18.2.0)
+        specifier: 7.0.23
+        version: 7.0.23(react-dom@18.2.0)(react@18.2.0)
       '@types/react':
         specifier: 18.2.13
         version: 18.2.13
@@ -450,8 +454,8 @@ importers:
         specifier: 0.2.0
         version: 0.2.0
       '@storybook/theming':
-        specifier: 7.0.22
-        version: 7.0.22(react-dom@18.2.0)(react@18.2.0)
+        specifier: 7.0.23
+        version: 7.0.23(react-dom@18.2.0)(react@18.2.0)
       '@types/react':
         specifier: 18.2.13
         version: 18.2.13
@@ -4951,6 +4955,12 @@ packages:
       '@storybook/global': 5.0.0
     dev: true
 
+  /@storybook/client-logger@7.0.23:
+    resolution: {integrity: sha512-L287SRO8EaYOxTpryV7N/1WCL5I1IFs5Naiq3FpybhguUP7F3Si7KWvVdFmSW06K9jNj2IEQ/8zBRM8ra4ttyg==}
+    dependencies:
+      '@storybook/global': 5.0.0
+    dev: true
+
   /@storybook/codemod@7.0.22:
     resolution: {integrity: sha512-6saK3OtxSCtJEK2qwSBbzRne7VonpbPB4/PABNy431Ia8CHyk9wE2UbyK3g7WNpakkt06Y9yUpV3BGLD8FLa5g==}
     dependencies:
@@ -5337,6 +5347,20 @@ packages:
     dependencies:
       '@emotion/use-insertion-effect-with-fallbacks': 1.0.0(react@18.2.0)
       '@storybook/client-logger': 7.0.22
+      '@storybook/global': 5.0.0
+      memoizerific: 1.11.3
+      react: 18.2.0
+      react-dom: 18.2.0(react@18.2.0)
+    dev: true
+
+  /@storybook/theming@7.0.23(react-dom@18.2.0)(react@18.2.0):
+    resolution: {integrity: sha512-hKmpjFS24YK0vl69KhqNauARTgxQu5mvlifHmu7xO80bigXi6NzA5VyyCMHO1SKVFJwPBVHHfauQCenSRm2PDQ==}
+    peerDependencies:
+      react: ^16.8.0 || ^17.0.0 || ^18.0.0
+      react-dom: ^16.8.0 || ^17.0.0 || ^18.0.0
+    dependencies:
+      '@emotion/use-insertion-effect-with-fallbacks': 1.0.0(react@18.2.0)
+      '@storybook/client-logger': 7.0.23
       '@storybook/global': 5.0.0
       memoizerific: 1.11.3
       react: 18.2.0
