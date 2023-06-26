@@ -50,5 +50,8 @@
     "sass": "1.63.5",
     "storybook": "7.0.22",
     "vite": "4.3.9"
+  },
+  "dependencies": {
+    "remark-gfm": "3.0.1"
   }
 }
