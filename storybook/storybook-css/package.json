@@ -30,7 +30,7 @@
     "@storybook/addon-actions": "7.0.22",
     "@storybook/addon-docs": "7.0.22",
     "@storybook/addon-essentials": "7.0.22",
-    "@storybook/addon-interactions": "7.0.22",
+    "@storybook/addon-interactions": "7.0.23",
     "@storybook/addon-links": "7.0.22",
     "@storybook/addon-viewport": "7.0.22",
     "@storybook/blocks": "7.0.22",
