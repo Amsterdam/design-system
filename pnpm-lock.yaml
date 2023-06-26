@@ -1,5 +1,9 @@
 lockfileVersion: '6.0'
 
+settings:
+  autoInstallPeers: true
+  excludeLinksFromLockfile: false
+
 importers:
 
   .:
@@ -112,8 +116,8 @@ importers:
         specifier: workspace:*
         version: link:../../proprietary/react-icons
       '@utrecht/component-library-react':
-        specifier: 1.0.0-alpha.338
-        version: 1.0.0-alpha.338(react-dom@18.2.0)(react@18.2.0)
+        specifier: 1.0.0-alpha.340
+        version: 1.0.0-alpha.340(react-dom@18.2.0)(react@18.2.0)
       clsx:
         specifier: 1.2.1
         version: 1.2.1
@@ -6093,15 +6097,14 @@ packages:
       eslint-visitor-keys: 3.4.1
     dev: true
 
-  /@utrecht/component-library-react@1.0.0-alpha.338(react-dom@18.2.0)(react@18.2.0):
-    resolution: {integrity: sha512-YoatsZFvkJrBpj30tSvlHrxsDUgqwIRH8K8oA467ueaxBMk0grAnvQJSwE62X9i0JlWMmI3x+p3/67IvkZBK+A==}
+  /@utrecht/component-library-react@1.0.0-alpha.340(react-dom@18.2.0)(react@18.2.0):
+    resolution: {integrity: sha512-dvCITWl0+EisznWvixqtFhzGo/hV/3Y+9uvq0NtExBWABQ57jlz4rDNsS1u1D4KOfamCIXmxlRoX0sVPDNJKgw==}
     peerDependencies:
       react: '18'
       react-dom: '18'
     dependencies:
       clsx: 1.2.1
       date-fns: 2.30.0
-      downshift: 7.2.0(react@18.2.0)
       lodash.chunk: 4.2.0
       react: 18.2.0
       react-dom: 18.2.0(react@18.2.0)
@@ -7444,10 +7447,6 @@ packages:
       - supports-color
     dev: true
 
-  /compute-scroll-into-view@2.0.4:
-    resolution: {integrity: sha512-y/ZA3BGnxoM/QHHQ2Uy49CLtnWPbt4tTPpEEZiEmmiWBFKjej7nEyH8Ryz54jH0MLXflUYA3Er2zUxPSJu5R+g==}
-    dev: false
-
   /concat-map@0.0.1:
     resolution: {integrity: sha512-/Srv4dswyQNBfohGpz9o6Yb3Gz3SrUDqBH5rTuhGR7ahtlbYKnVxw2bCFMRljaA7EXHaXZ8wsHdodFvbkhKmqg==}
     dev: true
@@ -8236,19 +8235,6 @@ packages:
     resolution: {integrity: sha512-IPzF4w4/Rd94bA9imS68tZBaYyBWSCE47V1RGuMrB94iyTOIEwRmVL2x/4An+6mETpLrKJ5hQkB8W4kFAadeIQ==}
     engines: {node: '>=12'}
     dev: true
-
-  /downshift@7.2.0(react@18.2.0):
-    resolution: {integrity: sha512-dEn1Sshe7iTelUhmdbmiJhtIiwIBxBV8p15PuvEBh0qZcHXZnEt0geuCIIkCL4+ooaKRuLE0Wc+Fz9SwWuBIyg==}
-    peerDependencies:
-      react: '>=16.12.0'
-    dependencies:
-      '@babel/runtime': 7.22.5
-      compute-scroll-into-view: 2.0.4
-      prop-types: 15.8.1
-      react: 18.2.0
-      react-is: 17.0.2
-      tslib: 2.5.3
-    dev: false
 
   /duplexer@0.1.1:
     resolution: {integrity: sha512-sxNZ+ljy+RA1maXoUReeqBBpBC6RLKmg5ewzV+x+mSETmWNoKdZN6vcQjpFROemza23hGFskJtFNoUWUaQ+R4Q==}
@@ -13068,6 +13054,7 @@ packages:
   /object-assign@4.1.1:
     resolution: {integrity: sha512-rJgTQnkUnH1sFw8yT6VSU3zD3sWmu6sZhIseY8VX+GRu3P6F7Fu+JNDoXfklElbLJSnc3FUQHVe4cU5hj+BcUg==}
     engines: {node: '>=0.10.0'}
+    dev: true
 
   /object-inspect@1.12.3:
     resolution: {integrity: sha512-geUvdk7c+eizMNUDkRpW1wJwgfOiOeHbxBR/hLXK1aT6zmVSO0jsQcs7fj6MGw89jC/cjGfLcNOrtMYtGqm81g==}
@@ -14237,6 +14224,7 @@ packages:
       loose-envify: 1.4.0
       object-assign: 4.1.1
       react-is: 16.13.1
+    dev: true
 
   /proto-list@1.2.4:
     resolution: {integrity: sha512-vtK/94akxsTMhe0/cbfpR+syPuszcuwhqVjJq26CuNDgFGj682oRBXOP5MJpv2r7JtE8MsiepGIqvvOTBwn2vA==}
@@ -14465,9 +14453,11 @@ packages:
 
   /react-is@16.13.1:
     resolution: {integrity: sha512-24e6ynE2H+OKt4kqsOvNd8kBpV65zoxbA4BVsEOB3ARVWQki/DHzaUoC5KuON/BiccDaCCTZBuOcfZs70kR8bQ==}
+    dev: true
 
   /react-is@17.0.2:
     resolution: {integrity: sha512-w2GsyukL62IJnlaff/nRegPQR94C/XXamvMWmSHRJ4y7Ts/4ocGRmTHvOs8PSE6pB3dWOrD/nueuU5sduBsQ4w==}
+    dev: true
 
   /react-is@18.1.0:
     resolution: {integrity: sha512-Fl7FuabXsJnV5Q1qIOQwx/sagGF18kogb4gpfcG4gjLBWO0WDiiz1ko/ExayuxE7InyQkBLkxRFG5oxY6Uu3Kg==}
@@ -16169,6 +16159,7 @@ packages:
 
   /tslib@2.5.3:
     resolution: {integrity: sha512-mSxlJJwl3BMEQCUNnxXBU9jP4JBktcEGhURcPR6VQVlnP0FdDEsIaz0C35dXNGLyRfrATNofF0F5p2KPxQgB+w==}
+    dev: true
 
   /tsutils@3.21.0(typescript@5.1.3):
     resolution: {integrity: sha512-mHKK3iUXL+3UF6xL5k0PEhKRUBKPBCv/+RkEOpjRWxxx27KKRBmmA60A9pgOUvMi8GKhRMPEmjBRPzs2W7O1OA==}
