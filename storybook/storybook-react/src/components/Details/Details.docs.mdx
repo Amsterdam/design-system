@@ -25,3 +25,10 @@ Gebruik hierbij een passend _heading_ niveau. Als je details component bijvoorbe
 Als je wilt dat de inhoud van een _details_ component al getoond wordt als de gebruiker op de pagina komt, geef dan de `open` _property_ mee.
 
 <Canvas of={DetailsStories.ExpandedByDefault} />
+
+## Technische toelichting
+
+Op het moment (28-6-2023) heeft het HTML element `details` wat toegankelijkheidsproblemen.
+[Zo wordt een _heading_ in een `summary` niet goed begrepen door schermlezers](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/summary#summaries_as_headings) en
+leest NVDA de ingeklapte en en uitgeklapte status niet goed voor in Chrome en Edge. Daarom hebben we er voor gekozen om het _native_ element niet te gebruiken.
+Als deze problemen zijn opgelost, zouden we dit wel kunnen doen.
