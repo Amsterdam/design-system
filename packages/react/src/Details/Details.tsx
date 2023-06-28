@@ -5,36 +5,72 @@
 
 import { ChevronDown } from '@amsterdam/design-system-react-icons'
 import clsx from 'clsx'
-import { DetailsHTMLAttributes, ForwardedRef, forwardRef, PropsWithChildren } from 'react'
+import { ForwardedRef, forwardRef, HTMLAttributes, PropsWithChildren, useId, useState } from 'react'
 import { getElement, Levels } from '../Heading/Heading'
 import { Icon } from '../Icon/Icon'
 
-export interface DetailsProps extends DetailsHTMLAttributes<HTMLDetailsElement> {
-  summary: string
-  headingLevel?: Levels
+export interface AccordionSectionProps extends HTMLAttributes<HTMLElement> {
+  label: string
+  headingLevel: Levels
+  expanded: boolean
+  section?: boolean
 }
 
-function getHeading(summary: string, headingLevel: Levels) {
-  const HeadingX = getElement(headingLevel)
-
-  return <HeadingX>{summary}</HeadingX>
-}
-
-export const Details = forwardRef(
+export const AccordionSection = forwardRef(
   (
-    { children, className, headingLevel, summary, ...restProps }: PropsWithChildren<DetailsProps>,
-    ref: ForwardedRef<HTMLDetailsElement>,
+    {
+      label,
+      headingLevel = 1,
+      expanded = false,
+      section,
+      children,
+      className,
+      ...otherProps
+    }: PropsWithChildren<AccordionSectionProps>,
+    ref: ForwardedRef<HTMLDivElement>,
   ) => {
+    const [isExpanded, setIsExpanded] = useState(expanded)
+
+    const HeadingX = getElement(headingLevel)
+    const id = useId()
+    const buttonId = `button-${id}`
+    const panelId = `panel-${id}`
+
     return (
-      <details ref={ref} className={clsx('amsterdam-details', className)} {...restProps}>
-        <summary className="amsterdam-details__summary">
-          {headingLevel ? getHeading(summary, headingLevel) : summary}
-          <Icon svg={ChevronDown} size="level-5" />
-        </summary>
-        <div className="amsterdam-details__content">{children}</div>
-      </details>
+      <div className={clsx('amsterdam-accordion__section', className)} ref={ref} {...otherProps}>
+        <HeadingX className={'amsterdam-accordion__header'}>
+          <button
+            aria-controls={panelId}
+            aria-expanded={isExpanded}
+            className="amsterdam-accordion__button"
+            id={buttonId}
+            onClick={() => setIsExpanded(!isExpanded)}
+            type="button"
+          >
+            {label}
+            <Icon svg={ChevronDown} size="level-5" />
+          </button>
+        </HeadingX>
+        {section ? (
+          <section
+            id={panelId}
+            aria-labelledby={buttonId}
+            className={clsx('amsterdam-accordion__panel', { 'amsterdam-accordion__panel--expanded': isExpanded })}
+          >
+            {children}
+          </section>
+        ) : (
+          <div
+            id={panelId}
+            aria-labelledby={buttonId}
+            className={clsx('amsterdam-accordion__panel', { 'amsterdam-accordion__panel--expanded': isExpanded })}
+          >
+            {children}
+          </div>
+        )}
+      </div>
     )
   },
 )
 
-Details.displayName = 'Details'
+AccordionSection.displayName = 'AccordionSection'

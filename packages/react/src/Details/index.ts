@@ -1,2 +1,2 @@
-export { Details } from './Details'
-export type { DetailsProps } from './Details'
+export { AccordionSection } from './Details'
+export type { AccordionSectionProps } from './Details'

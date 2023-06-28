@@ -4,11 +4,15 @@
  */
 @import "../../utils/breakpoint";
 
-@mixin reset {
-  box-sizing: border-box;
+.amsterdam-accordion__header {
+  display: flex;
+  margin-block: 0;
+  margin-inline: 0;
 }
 
-.amsterdam-details__summary {
+.amsterdam-accordion__button {
+  background-color: transparent;
+  border: 0;
   color: var(--amsterdam-details-summary-color);
   cursor: pointer;
   display: flex;
@@ -19,6 +23,7 @@
   line-height: var(--amsterdam-details-summary-line-height);
   padding-block: 0.75rem;
   padding-inline: 1rem;
+  width: 100%;
 
   @media screen and (width > $amsterdam-breakpoint) {
     font-size: var(--amsterdam-details-summary-font-size-wide);
@@ -28,12 +33,12 @@
     outline-offset: var(--amsterdam-details-summary-focus-outline-offset);
   }
 
-  &:focus,
+  &:focus-visible,
   &:hover {
     box-shadow: var(--amsterdam-details-summary-hover-box-shadow);
   }
 
-  span svg {
+  svg {
     transform: rotate(0deg);
     transition: transform 0.3s ease;
 
@@ -41,28 +46,18 @@
       transition: none;
     }
   }
-
-  @include reset;
 }
 
-.amsterdam-details__summary h1,
-.amsterdam-details__summary h2,
-.amsterdam-details__summary h3,
-.amsterdam-details__summary h4 {
-  font-size: inherit;
-  font-weight: inherit;
-  line-height: inherit;
-  margin-block: 0;
-  margin-inline: 0;
+.amsterdam-accordion__button[aria-expanded="true"] svg {
+  transform: rotate(180deg);
 }
 
-.amsterdam-details[open] .amsterdam-details__summary {
-  span svg {
-    transform: rotate(180deg);
-  }
-}
-
-.amsterdam-details__content {
+.amsterdam-accordion__panel {
+  display: none;
   padding-block: 1rem;
   padding-inline: 1rem;
+}
+
+.amsterdam-accordion__panel--expanded {
+  display: block;
 }

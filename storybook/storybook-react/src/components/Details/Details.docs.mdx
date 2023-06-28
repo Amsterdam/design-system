@@ -1,4 +1,4 @@
-import { Canvas, Controls, Markdown, Meta, Primary } from "@storybook/blocks";
+import { Controls, Markdown, Meta, Primary } from "@storybook/blocks";
 import * as DetailsStories from "./Details.stories.tsx";
 import README from "../../../../../packages/css/src/details/README.md?raw";
 
@@ -18,13 +18,9 @@ _Details_ kan een _heading_ niveau meekrijgen zodat de titel in de inhoudsopgave
 Als je bijvoorbeeld wilt dat mensen die gebruikmaken van een schermlezer direct naar het _details_ component kunnen navigeren, kun je deze _property_ meegeven.
 Gebruik hierbij een passend _heading_ niveau. Als je details component bijvoorbeeld onderdeel is van een sectie die met _heading_ niveau 2 begint, geef dan `headingLevel` 3 mee.
 
-<Canvas of={DetailsStories.WithHeading} />
-
 ### Open by default
 
 Als je wilt dat de inhoud van een _details_ component al getoond wordt als de gebruiker op de pagina komt, geef dan de `open` _property_ mee.
-
-<Canvas of={DetailsStories.ExpandedByDefault} />
 
 ## Technische toelichting
 
