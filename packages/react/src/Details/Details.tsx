@@ -5,11 +5,11 @@
 
 import { ChevronDown } from '@amsterdam/design-system-react-icons'
 import clsx from 'clsx'
-import { ForwardedRef, forwardRef, HTMLAttributes, PropsWithChildren } from 'react'
+import { DetailsHTMLAttributes, ForwardedRef, forwardRef, PropsWithChildren } from 'react'
 import { getElement, Levels } from '../Heading/Heading'
 import { Icon } from '../Icon/Icon'
 
-export interface DetailsProps extends HTMLAttributes<HTMLDetailsElement> {
+export interface DetailsProps extends DetailsHTMLAttributes<HTMLDetailsElement> {
   summary: string
   headingLevel?: Levels
 }
