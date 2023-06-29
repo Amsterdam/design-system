@@ -1,3 +1,5 @@
+import remarkGfm from 'remark-gfm'
+
 /* eslint-env node */
 module.exports = {
   core: {
@@ -11,6 +13,16 @@ module.exports = {
     '@storybook/addon-essentials',
     '@storybook/addon-interactions',
     '@storybook/addon-a11y',
+    {
+      name: '@storybook/addon-docs',
+      options: {
+        mdxPluginOptions: {
+          mdxCompileOptions: {
+            remarkPlugins: [remarkGfm],
+          },
+        },
+      },
+    },
   ],
   features: {
     buildStoriesJson: true,

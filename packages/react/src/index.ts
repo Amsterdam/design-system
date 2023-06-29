@@ -4,8 +4,10 @@
  */
 
 export * from './Heading'
+export * from './Link'
 export * from './Button/'
 export * from './Paragraph'
+export * from './FormLabel'
 export * from './UnorderedList'
 export * from './Icon'
 export { Link } from './Link'
