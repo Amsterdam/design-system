@@ -18,12 +18,30 @@
       "line-height": {
         "value": "{amsterdam.typography.text-level.7.line-height}"
       },
-      "hover": {
-        "color": {
-          "value": "{amsterdam.color.dark-blue}"
+      "item-link": {
+        "outline-offset": {
+          "value": "{amsterdam.focus.outline-offset}"
         },
-        "box-shadow": {
-          "value": "inset 0 -2px 0 0 {amsterdam.color.dark-blue}"
+        "hover": {
+          "color": {
+            "value": "{amsterdam.color.dark-blue}"
+          },
+          "box-shadow": {
+            "value": "inset 0 -2px 0 0 {amsterdam.color.dark-blue}"
+          }
+        },
+        "focus": {
+          "color": {
+            "value": "{amsterdam.color.dark-blue}"
+          },
+          "text-decoration": {
+            "value": "underline"
+          }
+        },
+        "visited": {
+          "color": {
+            "value": "{amsterdam.color.primary-blue}"
+          }
         }
       }
     }

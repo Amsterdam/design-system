@@ -22,7 +22,7 @@ describe('Breadcrumb', () => {
     )
 
     const breadcrumb = screen.getByRole('navigation')
-    const breadcrumbs = container.querySelectorAll('.amsterdam-breadcrumbs-list li')
+    const breadcrumbs = container.querySelectorAll('.amsterdam-breadcrumb-list li')
 
     expect(breadcrumb).toBeInTheDocument()
     expect(breadcrumbs.length).toBe(3)
@@ -64,7 +64,7 @@ describe('Breadcrumb', () => {
       </Breadcrumb>,
     )
 
-    const breadcrumbItems = container.querySelectorAll('.amsterdam-breadcrumbs-list li')
+    const breadcrumbItems = container.querySelectorAll('.amsterdam-breadcrumb-list li')
 
     expect(breadcrumbItems.length).toBe(8)
   })

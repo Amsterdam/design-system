@@ -21,15 +21,13 @@ export const Breadcrumb = forwardRef(
   ({ children, ...restProps }: PropsWithChildren<HTMLAttributes<HTMLElement>>, ref: ForwardedRef<HTMLElement>) => {
     const allowedBreadcrumbItems = useMemo(() => {
       return React.Children.toArray(children).filter((child, index) => {
-        if (!isReactFunctionCom(child) || index >= breadcrumbLimit) return false
-
-        if (child.type.displayName !== 'BreadcrumbItem') {
+        if (isReactFunctionCom(child) && child.type.displayName !== 'BreadcrumbItem') {
           // TODO: Do we want to log this as a warning?
           console.warn(`Breadcrumb: ${child.type.displayName ?? child.type} is not a valid child`)
           return false
         }
 
-        return true
+        return index < breadcrumbLimit
       })
     }, [children])
 
