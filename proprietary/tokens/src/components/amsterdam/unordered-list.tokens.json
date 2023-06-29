@@ -11,10 +11,10 @@
       "line-height": { "value": "{amsterdam.typography.text-level.6.line-height}" },
       "list-style": { "value": "square" },
       "margin-block": { "value": "0.5rem" },
-      "padding-inline-end": { "value": "2rem" },
+      "padding-inline-end": { "value": "11px" },
       "item": {
         "list-style-type": { "value": "'–'" },
-        "padding-inline-start": { "value": "2rem" }
+        "padding-inline-start": { "value": "11px" }
       }
     }
   }
