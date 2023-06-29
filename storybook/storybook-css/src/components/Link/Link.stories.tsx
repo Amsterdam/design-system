@@ -141,7 +141,7 @@ export const InList: Story = {
   },
 }
 
-export const Dark: Story = {
+export const onDarkBackground: Story = {
   parameters: {
     docs: {
       source: {
@@ -162,7 +162,7 @@ export const Dark: Story = {
   ],
 }
 
-export const Light: Story = {
+export const onLightBackground: Story = {
   parameters: {
     docs: {
       source: {
