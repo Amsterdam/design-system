@@ -22,7 +22,7 @@ describe('Breadcrumb', () => {
     )
 
     const breadcrumb = screen.getByRole('navigation')
-    const breadcrumbs = container.querySelectorAll('.amsterdam-breadcrumb-list li')
+    const breadcrumbs = container.querySelectorAll('.amsterdam-breadcrumb-item')
 
     expect(breadcrumb).toBeInTheDocument()
     expect(breadcrumbs.length).toBe(3)
@@ -39,7 +39,7 @@ describe('Breadcrumb', () => {
       </Breadcrumb>,
     )
 
-    const breadcrumbs = container.querySelectorAll('.amsterdam-breadcrumbs-list li')
+    const breadcrumbs = container.querySelectorAll('.amsterdam-breadcrumb-item')
 
     expect(warnSpy).toHaveBeenCalledTimes(1)
     expect(warnSpy).toHaveBeenCalledWith('Breadcrumb: div is not a valid child')
@@ -64,7 +64,7 @@ describe('Breadcrumb', () => {
       </Breadcrumb>,
     )
 
-    const breadcrumbItems = container.querySelectorAll('.amsterdam-breadcrumb-list li')
+    const breadcrumbItems = container.querySelectorAll('.amsterdam-breadcrumb-item')
 
     expect(breadcrumbItems.length).toBe(8)
   })

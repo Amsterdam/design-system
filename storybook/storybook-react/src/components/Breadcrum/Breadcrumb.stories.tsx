@@ -11,7 +11,6 @@ import '@amsterdam/design-system-css/src/breadcrumb/breadcrumb.scss'
 const meta = {
   title: 'Breadcrumb',
   component: Breadcrumb,
-  args: {},
 } satisfies Meta<typeof Breadcrumb>
 
 export default meta
@@ -19,8 +18,8 @@ export default meta
 type Story = StoryObj<typeof meta>
 
 export const BreadcrumbStory: Story = {
-  render: (args) => (
-    <Breadcrumb {...args}>
+  render: () => (
+    <Breadcrumb>
       <Breadcrumb.Item href="/some-url.com">home</Breadcrumb.Item>
       <Breadcrumb.Item href="/some-url.com">path 1</Breadcrumb.Item>
       <Breadcrumb.Item href="/some-url.com">path 2</Breadcrumb.Item>
