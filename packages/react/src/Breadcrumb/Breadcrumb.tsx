@@ -1,6 +1,5 @@
 import React, { forwardRef, useMemo } from 'react'
 import type { ForwardedRef, FunctionComponent, HTMLAttributes, PropsWithChildren } from 'react'
-import { Link } from '../Link'
 
 function isReactFunctionCom<Tprops>(
   element: React.ReactNode,
@@ -20,11 +19,12 @@ const breadcrumbLimit = 8
 
 export const Breadcrumb = forwardRef(
   ({ children, ...restProps }: PropsWithChildren<HTMLAttributes<HTMLElement>>, ref: ForwardedRef<HTMLElement>) => {
-    const filteredBreadcrumbItems = useMemo(() => {
+    const allowedBreadcrumbItems = useMemo(() => {
       return React.Children.toArray(children).filter((child, index) => {
         if (!isReactFunctionCom(child) || index >= breadcrumbLimit) return false
 
         if (child.type.displayName !== 'BreadcrumbItem') {
+          // TODO: Do we want to log this as a warning?
           console.warn(`Breadcrumb: ${child.type.displayName ?? child.type} is not a valid child`)
           return false
         }
@@ -34,8 +34,8 @@ export const Breadcrumb = forwardRef(
     }, [children])
 
     return (
-      <nav {...restProps} className="amsterdam-breadcrumbs" ref={ref}>
-        <ol className="amsterdam-breadcrumbs-list">{filteredBreadcrumbItems}</ol>
+      <nav {...restProps} className="amsterdam-breadcrumb" ref={ref}>
+        <ol className="amsterdam-breadcrumb-list">{allowedBreadcrumbItems}</ol>
       </nav>
     )
   },
@@ -50,10 +50,10 @@ interface BreadcrumbItemProps extends PropsWithChildren {
 // TODO: We might wanna wrap this in a forwardRef as well.
 const BreadcrumbItem = ({ children, href }: BreadcrumbItemProps) => {
   return (
-    <li className="amsterdam-breadcrumb">
-      <Link href={href} variant="inline">
+    <li className="amsterdam-breadcrumb-item">
+      <a className="amsterdam-breadcrumb-link" href={href}>
         {children}
-      </Link>
+      </a>
     </li>
   )
 }

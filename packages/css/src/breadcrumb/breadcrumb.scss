@@ -14,7 +14,7 @@
   padding-inline: 0;
 }
 
-.amsterdam-breadcrumbs {
+.amsterdam-breadcrumb {
   color: var(--amsterdam-breadcrumb-color);
   font-family: var(--amsterdam-breadcrumb-font-family, inherit);
   font-size: var(--amsterdam-breadcrumb-font-size-narrow);
@@ -26,7 +26,7 @@
   }
 }
 
-.amsterdam-breadcrumbs-list {
+.amsterdam-breadcrumb-list {
   column-gap: 0.5rem;
   display: flex;
   flex-wrap: wrap;
@@ -35,12 +35,12 @@
   @include reset;
 }
 
-.amsterdam-breadcrumb {
+.amsterdam-breadcrumb-item {
   align-items: center;
   display: flex;
 }
 
-.amsterdam-breadcrumb:not(:last-child)::after {
+.amsterdam-breadcrumb-item:not(:last-child)::after {
   background-color: var(--amsterdam-breadcrumb-color);
   content: "";
   display: inline-block;
@@ -56,5 +56,12 @@
 
 .amsterdam-breadcrumb-link {
   color: inherit;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.amsterdam-breadcrumb-link:hover {
+  box-shadow: var(--amsterdam-breadcrumb-hover-box-shadow);
+  color: var(--amsterdam-breadcrumb-hover-color);
   text-decoration: none;
 }
