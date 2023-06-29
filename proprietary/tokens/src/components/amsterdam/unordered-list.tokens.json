@@ -13,6 +13,7 @@
       "margin-block": { "value": "0.5rem" },
       "padding-inline-end": { "value": "11px" },
       "item": {
+        "margin-block": { "value": "0" },
         "list-style-type": { "value": "'–'" },
         "padding-inline-start": { "value": "11px" }
       }

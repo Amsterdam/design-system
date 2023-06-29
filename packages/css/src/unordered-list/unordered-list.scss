@@ -25,6 +25,7 @@
 
   ul {
     list-style-type: var(--amsterdam-unordered-list-item-list-style-type);
+    margin-block: var(--amsterdam-unordered-list-item-margin-block);
     padding-inline-start: var(--amsterdam-unordered-list-item-padding-inline-start);
   }
 }
