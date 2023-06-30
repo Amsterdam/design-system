@@ -15,7 +15,7 @@ export interface AccordionProps extends HTMLAttributes<HTMLElement> {
   children?: ReactNode
 }
 
-// TODO: check op min 3 max 10 children
+// TODO: check op min 3 max 10 children?
 // TODO: check op alleen Accordion.Section als children?
 export const Accordion = ({ children }: AccordionProps) => {
   const ref = useRef<HTMLDivElement>(null)
