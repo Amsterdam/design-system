@@ -9,7 +9,7 @@ import type { Meta, StoryObj } from '@storybook/react'
 import '@amsterdam/design-system-css/src/unordered-list/unordered-list.scss'
 
 const meta = {
-  title: 'CSS Components/UnorderedList',
+  title: 'UnorderedList',
   component: UnorderedList,
   args: {
     children: [
@@ -31,23 +31,5 @@ export default meta
 type Story = StoryObj<typeof meta>
 
 export const Default: Story = {
-  parameters: {
-    docs: {
-      source: {
-        language: 'html',
-        code: `
-<ul class="amsterdam-unordered-list">
-  <li class="amsterdam-unordered-list__item">Dit is het eerste niveau opsommingsteken.</li>
-  <li class="amsterdam-unordered-list__item">Dit is het eerste niveau opsommingsteken.
-    <ul class="amsterdam-unordered-list">
-      <li class="amsterdam-unordered-list__item">Dit is het tweede niveau opsommingsteken.</li>
-      <li class="amsterdam-unordered-list__item">Dit is het tweede niveau opsommingsteken.</li>
-    </ul>
-  </li>
-  <li class="amsterdam-unordered-list__item">Dit is het eerste niveau opsommingsteken.</li>
-</ul>
-        `,
-      },
-    },
-  },
+  parameters: {},
 }
