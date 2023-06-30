@@ -12,7 +12,7 @@ import { Icon } from '../Icon/Icon'
 export interface AccordionSectionProps extends HTMLAttributes<HTMLElement> {
   label: string
   headingLevel: Levels
-  expanded: boolean
+  expanded?: boolean
   section?: boolean
 }
 

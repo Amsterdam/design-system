@@ -1,7 +1,7 @@
 {
   "amsterdam": {
-    "details": {
-      "summary": {
+    "accordion": {
+      "button": {
         "color": { "value": "{amsterdam.color.primary-blue}" },
         "focus": {
           "outline-offset": { "value": "{amsterdam.focus.outline-offset}" }

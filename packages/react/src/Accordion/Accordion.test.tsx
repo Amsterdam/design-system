@@ -1,14 +1,18 @@
 import { render, screen } from '@testing-library/react'
 import { createRef } from 'react'
-import { Details } from './Details'
+import { AccordionSection } from './AccordionSection'
 import '@testing-library/jest-dom'
 
-describe('Details', () => {
+describe('Accordion', () => {
   const testTitle = 'Test title'
   const testContent = 'Test content'
 
   it('renders HTML details and summary elements', () => {
-    render(<Details summary={testTitle}>{testContent}</Details>)
+    render(
+      <AccordionSection label={testTitle} headingLevel={1}>
+        {testContent}
+      </AccordionSection>,
+    )
 
     const details = screen.getByRole('group')
     const summary = details.querySelector('summary')
@@ -19,7 +23,11 @@ describe('Details', () => {
   })
 
   it('renders the  design system BEM class names', () => {
-    render(<Details summary={testTitle}>{testContent}</Details>)
+    render(
+      <AccordionSection label={testTitle} headingLevel={1}>
+        {testContent}
+      </AccordionSection>,
+    )
 
     const details = screen.getByRole('group')
     const summary = details.querySelector('summary')
@@ -32,9 +40,9 @@ describe('Details', () => {
 
   it('renders an accessible heading', () => {
     render(
-      <Details summary={testTitle} headingLevel={3}>
+      <AccordionSection label={testTitle} headingLevel={3}>
         {testContent}
-      </Details>,
+      </AccordionSection>,
     )
 
     const heading = screen.getByRole('heading', {
@@ -47,7 +55,11 @@ describe('Details', () => {
   })
 
   it('renders an icon', () => {
-    render(<Details summary={testTitle}>{testContent}</Details>)
+    render(
+      <AccordionSection label={testTitle} headingLevel={1}>
+        {testContent}
+      </AccordionSection>,
+    )
 
     const details = screen.getByRole('group')
     const summary = details.querySelector('summary')
@@ -58,9 +70,9 @@ describe('Details', () => {
 
   it('can have a additional class name', () => {
     render(
-      <Details summary={testTitle} className="test">
+      <AccordionSection label={testTitle} headingLevel={1} className="test">
         {testContent}
-      </Details>,
+      </AccordionSection>,
     )
 
     const details = screen.getByRole('group')
@@ -70,12 +82,12 @@ describe('Details', () => {
   })
 
   it('supports ForwardRef in React', () => {
-    const ref = createRef<HTMLDetailsElement>()
+    const ref = createRef<HTMLDivElement>()
 
     render(
-      <Details summary={testTitle} ref={ref}>
+      <AccordionSection label={testTitle} headingLevel={1} ref={ref}>
         {testContent}
-      </Details>,
+      </AccordionSection>,
     )
 
     const details = screen.getByRole('group')

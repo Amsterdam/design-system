@@ -13,29 +13,29 @@
 .amsterdam-accordion__button {
   background-color: transparent;
   border: 0;
-  color: var(--amsterdam-details-summary-color);
+  color: var(--amsterdam-accordion-button-color);
   cursor: pointer;
   display: flex;
-  font-family: var(--amsterdam-details-summary-font-family);
-  font-size: var(--amsterdam-details-summary-font-size-narrow);
-  font-weight: var(--amsterdam-details-summary-font-weight);
+  font-family: var(--amsterdam-accordion-button-font-family);
+  font-size: var(--amsterdam-accordion-button-font-size-narrow);
+  font-weight: var(--amsterdam-accordion-button-font-weight);
   justify-content: space-between;
-  line-height: var(--amsterdam-details-summary-line-height);
+  line-height: var(--amsterdam-accordion-button-line-height);
   padding-block: 0.75rem;
   padding-inline: 1rem;
   width: 100%;
 
   @media screen and (width > $amsterdam-breakpoint) {
-    font-size: var(--amsterdam-details-summary-font-size-wide);
+    font-size: var(--amsterdam-accordion-button-font-size-wide);
   }
 
   &:focus {
-    outline-offset: var(--amsterdam-details-summary-focus-outline-offset);
+    outline-offset: var(--amsterdam-accordion-button-focus-outline-offset);
   }
 
   &:focus-visible,
   &:hover {
-    box-shadow: var(--amsterdam-details-summary-hover-box-shadow);
+    box-shadow: var(--amsterdam-accordion-button-hover-box-shadow);
   }
 
   svg {

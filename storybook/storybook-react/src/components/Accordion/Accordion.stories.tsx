@@ -3,29 +3,29 @@
  * Copyright (c) 2023 Gemeente Amsterdam
  */
 
-import { AccordionSection, Paragraph } from '@amsterdam/design-system-react/src'
+import { AccordionGroup, AccordionSection } from '@amsterdam/design-system-react/src'
 import { Meta, StoryObj } from '@storybook/react'
 
-import '@amsterdam/design-system-css/src/details/details.scss'
+import '@amsterdam/design-system-css/src/accordion/accordion.scss'
 import '@amsterdam/design-system-css/src/paragraph/paragraph.scss'
 import '@amsterdam/design-system-css/src/icon/icon.scss'
 
 const meta = {
-  title: 'Details',
-  component: AccordionSection,
+  title: 'Accordion',
+  component: AccordionGroup,
   argTypes: {
     children: {
       table: {
         disable: true,
       },
     },
-    headingLevel: {
-      control: { type: 'select' },
-      options: [1, 2, 3, 4],
-      table: {
-        category: 'API',
-      },
-    },
+    // headingLevel: {
+    //   control: { type: 'select' },
+    //   options: [1, 2, 3, 4],
+    //   table: {
+    //     category: 'API',
+    //   },
+    // },
     // summary: {
     //   control: { type: 'text' },
     //   table: {
@@ -39,10 +39,7 @@ const meta = {
     //   },
     // },
   },
-  args: {
-    expanded: false,
-  },
-} satisfies Meta<typeof AccordionSection>
+} satisfies Meta<typeof AccordionGroup>
 
 export default meta
 
@@ -50,9 +47,16 @@ type Story = StoryObj<typeof meta>
 
 export const Default: Story = {
   args: {
-    label: 'Zichtbare titel',
-    headingLevel: 1,
-    children: <Paragraph>Jouw typograaf biedt mij zulke exquise schreven!</Paragraph>,
+    children: (
+      <>
+        <AccordionSection label="hoi" headingLevel={1}>
+          test
+        </AccordionSection>
+        <AccordionSection label="hoi2" headingLevel={1}>
+          test2
+        </AccordionSection>
+      </>
+    ),
   },
 }
 
