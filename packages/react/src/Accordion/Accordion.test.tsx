@@ -1,52 +1,118 @@
-import { render, screen } from '@testing-library/react'
+import { fireEvent, render, screen } from '@testing-library/react'
 import { createRef } from 'react'
-import { AccordionSection } from './AccordionSection'
+import { Accordion } from './Accordion'
 import '@testing-library/jest-dom'
 
 describe('Accordion', () => {
-  const testTitle = 'Test title'
+  const testLabel = 'Test title'
   const testContent = 'Test content'
 
-  it('renders HTML details and summary elements', () => {
-    render(
-      <AccordionSection label={testTitle} headingLevel={1}>
-        {testContent}
-      </AccordionSection>,
-    )
+  it('renders an accordion', () => {
+    const { container } = render(<Accordion />)
 
-    const details = screen.getByRole('group')
-    const summary = details.querySelector('summary')
+    const accordion = container.querySelector('.amsterdam-accordion')
 
-    expect(details).toBeInTheDocument()
-    expect(summary).toBeInTheDocument()
-    expect(summary).toBeVisible()
+    expect(accordion).toBeInTheDocument()
+    expect(accordion).toBeVisible()
   })
 
-  it('renders the  design system BEM class names', () => {
-    render(
-      <AccordionSection label={testTitle} headingLevel={1}>
+  it('renders an accordion section', () => {
+    const { container } = render(
+      <Accordion.Section label={testLabel} headingLevel={1}>
         {testContent}
-      </AccordionSection>,
+      </Accordion.Section>,
     )
 
-    const details = screen.getByRole('group')
-    const summary = details.querySelector('summary')
-    const content = details.querySelector('div')
+    const accordionSection = container.querySelector('.amsterdam-accordion__section')
 
-    expect(details).toHaveClass('amsterdam-details')
-    expect(summary).toHaveClass('amsterdam-details__summary')
-    expect(content).toHaveClass('amsterdam-details__content')
+    expect(accordionSection).toBeInTheDocument()
+    expect(accordionSection).toBeVisible()
+  })
+
+  it('renders the accordion section BEM class names', () => {
+    const { container } = render(
+      <Accordion.Section label={testLabel} headingLevel={1}>
+        {testContent}
+      </Accordion.Section>,
+    )
+
+    const heading = screen.getByRole('heading', {
+      name: testLabel,
+    })
+    const button = screen.getByRole('button', {
+      name: testLabel,
+    })
+    const section = container.querySelector('.amsterdam-accordion__panel')
+
+    expect(heading).toHaveClass('amsterdam-accordion__header')
+    expect(button).toHaveClass('amsterdam-accordion__button')
+    expect(section).toBeInTheDocument()
+  })
+
+  it('adds and removes --expanded class when the button is clicked', () => {
+    const { getByText } = render(
+      <Accordion.Section label={testLabel} headingLevel={1}>
+        {testContent}
+      </Accordion.Section>,
+    )
+
+    const button = screen.getByRole('button', {
+      name: testLabel,
+    })
+    const sectionContent = getByText(testContent)
+
+    expect(sectionContent).not.toHaveClass('amsterdam-accordion__panel--expanded')
+    fireEvent.click(button)
+    expect(sectionContent).toHaveClass('amsterdam-accordion__panel--expanded')
+    fireEvent.click(button)
+    expect(sectionContent).not.toHaveClass('amsterdam-accordion__panel--expanded')
+  })
+
+  it('adds --expanded class when expanded prop is true', () => {
+    const { getByText } = render(
+      <Accordion.Section label={testLabel} headingLevel={1} expanded>
+        {testContent}
+      </Accordion.Section>,
+    )
+
+    const sectionContent = getByText(testContent)
+
+    expect(sectionContent).toHaveClass('amsterdam-accordion__panel--expanded')
+  })
+
+  it('renders a section HTML tag by defaultt', () => {
+    render(
+      <Accordion.Section label={testLabel} headingLevel={1}>
+        {testContent}
+      </Accordion.Section>,
+    )
+
+    const sectionQuery = screen.queryByRole('region')
+
+    expect(sectionQuery).toBeInTheDocument()
+  })
+
+  it('doesnt render a section HTML tag when the section prop is false', () => {
+    render(
+      <Accordion.Section label={testLabel} headingLevel={1} section={false}>
+        {testContent}
+      </Accordion.Section>,
+    )
+
+    const sectionQuery = screen.queryByRole('region')
+
+    expect(sectionQuery).not.toBeInTheDocument()
   })
 
   it('renders an accessible heading', () => {
     render(
-      <AccordionSection label={testTitle} headingLevel={3}>
+      <Accordion.Section label={testLabel} headingLevel={3}>
         {testContent}
-      </AccordionSection>,
+      </Accordion.Section>,
     )
 
     const heading = screen.getByRole('heading', {
-      name: testTitle,
+      name: testLabel,
       level: 3,
     })
 
@@ -56,42 +122,42 @@ describe('Accordion', () => {
 
   it('renders an icon', () => {
     render(
-      <AccordionSection label={testTitle} headingLevel={1}>
+      <Accordion.Section label={testLabel} headingLevel={1}>
         {testContent}
-      </AccordionSection>,
+      </Accordion.Section>,
     )
 
-    const details = screen.getByRole('group')
-    const summary = details.querySelector('summary')
-    const icon = summary ? summary.querySelector('svg:only-child') : null
+    const button = screen.getByRole('button', {
+      name: testLabel,
+    })
+    const icon = button ? button.querySelector('svg:only-child') : null
 
     expect(icon).toBeInTheDocument()
   })
 
   it('can have a additional class name', () => {
-    render(
-      <AccordionSection label={testTitle} headingLevel={1} className="test">
+    const { container } = render(
+      <Accordion.Section label={testLabel} headingLevel={1} className="test">
         {testContent}
-      </AccordionSection>,
+      </Accordion.Section>,
     )
 
-    const details = screen.getByRole('group')
+    const accordionSection = container.querySelector('.amsterdam-accordion__section')
 
-    expect(details).toHaveClass('test')
-    expect(details).toHaveClass('amsterdam-details')
+    expect(accordionSection).toHaveClass('test')
   })
 
   it('supports ForwardRef in React', () => {
     const ref = createRef<HTMLDivElement>()
 
-    render(
-      <AccordionSection label={testTitle} headingLevel={1} ref={ref}>
+    const { container } = render(
+      <Accordion.Section label={testLabel} headingLevel={1} ref={ref}>
         {testContent}
-      </AccordionSection>,
+      </Accordion.Section>,
     )
 
-    const details = screen.getByRole('group')
+    const accordionSection = container.querySelector('.amsterdam-accordion__section')
 
-    expect(ref.current).toBe(details)
+    expect(ref.current).toBe(accordionSection)
   })
 })

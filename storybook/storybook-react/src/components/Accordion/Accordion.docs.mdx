@@ -1,4 +1,4 @@
-import { Controls, Markdown, Meta, Primary } from "@storybook/blocks";
+import { Canvas, Controls, Markdown, Meta, Primary } from "@storybook/blocks";
 import * as AccordionStories from "./Accordion.stories.tsx";
 import README from "../../../../../packages/css/src/accordion/README.md?raw";
 
@@ -12,15 +12,35 @@ import README from "../../../../../packages/css/src/accordion/README.md?raw";
 
 ## Stories
 
-### With heading
+### Composed Accordion
 
-_Details_ kan een _heading_ niveau meekrijgen zodat de titel in de inhoudsopgave van de pagina terecht komt.
-Als je bijvoorbeeld wilt dat mensen die gebruikmaken van een schermlezer direct naar het _details_ component kunnen navigeren, kun je deze _property_ meegeven.
-Gebruik hierbij een passend _heading_ niveau. Als je details component bijvoorbeeld onderdeel is van een sectie die met _heading_ niveau 2 begint, geef dan `headingLevel` 3 mee.
+Een accordion bestaat uit meerdere accordionsecties. Gebruik minimaal 3 en maximaal 10 secties onder elkaar. Je kunt door een accordion navigeren met je toetsenbord:
 
-### Open by default
+| key                  | element                                                                                                                      |
+| -------------------- | ---------------------------------------------------------------------------------------------------------------------------- |
+| Enter of Space       | Open of sluit de accordionsectie die de focus heeft                                                                          |
+| Tab                  | Ga naar het volgende element dat focus kan hebben                                                                            |
+| Shift + Tab          | Ga naar het volgende element dat focus kan hebben                                                                            |
+| Pijltje naar beneden | Als een accordionsectie focus heeft: ga naar de volgende sectie. Als de laatste sectie focus heeft, ga naar de eerste sectie |
+| Pijltje omhoog       | Als een accordionsectie focus heeft: ga naar de vorige sectie. Als de eerste sectie focus heeft, ga naar de laatste sectie   |
+| Home                 | Als een accordionsectie focus heeft: ga naar de eerste sectie                                                                |
+| End                  | Als een accordionsectie focus heeft: ga naar de laatste sectie                                                               |
 
-Als je wilt dat de inhoud van een _details_ component al getoond wordt als de gebruiker op de pagina komt, geef dan de `open` _property_ mee.
+<Canvas of={AccordionStories.ComposedAccordion} />
+
+### Expanded by default
+
+Als je wilt dat de inhoud van een accordionsectie al getoond wordt als de gebruiker op de pagina komt, geef dan de `expanded` _property_ mee.
+
+<Canvas of={AccordionStories.ExpandedByDefault} />
+
+## Too many landmarks
+
+Een accordionsectie gebruikt _default_ de HTML tag _section_ om de inhoud in te renderen.
+Als je veel accordionsecties op je pagina hebt (meer dan 6), dan kan dit leiden tot een teveel aan _landmark_ regio's, wat verwarrend kan zijn voor gebruikers van schermlezers.
+Gebruik in dat geval `section={false}` voor je accordionsectie.
+
+<Canvas of={AccordionStories.TooManyLandmarks} />
 
 ## Technische toelichting
 

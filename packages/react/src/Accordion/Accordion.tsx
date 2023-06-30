@@ -5,9 +5,29 @@
 
 import { ChevronDown } from '@amsterdam/design-system-react-icons'
 import clsx from 'clsx'
-import { ForwardedRef, forwardRef, HTMLAttributes, PropsWithChildren, useId, useState } from 'react'
+import type { ReactNode } from 'react'
+import { ForwardedRef, forwardRef, HTMLAttributes, PropsWithChildren, useId, useRef, useState } from 'react'
+import useFocusWithArrows from './useFocusWithArrows'
 import { getElement, Levels } from '../Heading/Heading'
 import { Icon } from '../Icon/Icon'
+
+export interface AccordionProps extends HTMLAttributes<HTMLElement> {
+  children?: ReactNode
+}
+
+// TODO: check op min 3 max 10 children
+// TODO: check op alleen Accordion.Section als children?
+export const Accordion = ({ children }: AccordionProps) => {
+  const ref = useRef<HTMLDivElement>(null)
+  const { keyDown } = useFocusWithArrows(ref, true)
+  return (
+    <div className="amsterdam-accordion" role="button" tabIndex={-1} onKeyDown={keyDown} ref={ref}>
+      {children}
+    </div>
+  )
+}
+
+Accordion.displayName = 'Accordion'
 
 export interface AccordionSectionProps extends HTMLAttributes<HTMLElement> {
   label: string
@@ -22,7 +42,7 @@ export const AccordionSection = forwardRef(
       label,
       headingLevel = 1,
       expanded = false,
-      section,
+      section = true,
       children,
       className,
       ...otherProps
@@ -74,3 +94,4 @@ export const AccordionSection = forwardRef(
 )
 
 AccordionSection.displayName = 'AccordionSection'
+Accordion.Section = AccordionSection

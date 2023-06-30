@@ -1,3 +1,2 @@
-export { AccordionSection } from './AccordionSection'
-export { AccordionGroup } from './AccordionGroup'
-export type { AccordionSectionProps } from './AccordionSection'
+export { Accordion } from './Accordion'
+export type { AccordionProps, AccordionSectionProps } from './Accordion'
