@@ -12,7 +12,7 @@
   font-weight: var(--amsterdam-unordered-list-font-weight);
   line-height: var(--amsterdam-unordered-list-line-height);
   list-style: var(--amsterdam-unordered-list-list-style);
-  margin-block: var(--amsterdam-unordered-list-margin-block);
+  padding-block: var(--amsterdam-unordered-list-padding-block);
   padding-inline-end: var(--amsterdam-unordered-list-padding-inline-end);
 
   @media screen and (width > $amsterdam-breakpoint) {
@@ -25,7 +25,7 @@
 
   ul {
     list-style-type: var(--amsterdam-unordered-list-item-list-style-type);
-    margin-block: var(--amsterdam-unordered-list-item-margin-block);
+    padding-block: var(--amsterdam-unordered-list-item-margin-block);
     padding-inline-start: var(--amsterdam-unordered-list-item-padding-inline-start);
   }
 }

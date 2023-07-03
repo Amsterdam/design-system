@@ -10,8 +10,8 @@
       "font-weight": { "value": "{amsterdam.typography.font-weight.normal}" },
       "line-height": { "value": "{amsterdam.typography.text-level.6.line-height}" },
       "list-style": { "value": "square" },
-      "margin-block": { "value": "0.5rem" },
-      "padding-inline-end": { "value": "11px" },
+      "padding-block": { "value": "0.5rem" },
+      "padding-inline-end": { "value": "0.6875rem" },
       "item": {
         "margin-block": { "value": "0" },
         "list-style-type": { "value": "'–'" },
