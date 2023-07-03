@@ -1,4 +1,4 @@
-import { Canvas, Controls, Markdown, Meta, Primary } from "@storybook/blocks";
+import { Controls, Markdown, Meta, Primary } from "@storybook/blocks";
 import * as AccordionStories from "./Accordion.stories.tsx";
 import README from "../../../../../packages/css/src/accordion/README.md?raw";
 
@@ -26,13 +26,13 @@ Een accordion bestaat uit meerdere accordionsecties. Gebruik minimaal 3 en maxim
 | Home                 | Als een accordionsectie focus heeft: ga naar de eerste sectie                                                                |
 | End                  | Als een accordionsectie focus heeft: ga naar de laatste sectie                                                               |
 
-<Canvas of={AccordionStories.ComposedAccordion} />
+{/* <Canvas of={AccordionStories.ComposedAccordion} /> */}
 
 ### Expanded by default
 
 Als je wilt dat de inhoud van een accordionsectie al getoond wordt als de gebruiker op de pagina komt, geef dan de `expanded` _property_ mee.
 
-<Canvas of={AccordionStories.ExpandedByDefault} />
+{/* <Canvas of={AccordionStories.ExpandedByDefault} /> */}
 
 ## Too many landmarks
 
@@ -40,7 +40,7 @@ Een accordionsectie gebruikt _default_ de HTML tag _section_ om de inhoud in te 
 Als je veel accordionsecties op je pagina hebt (meer dan 6), dan kan dit leiden tot een teveel aan _landmark_ regio's, wat verwarrend kan zijn voor gebruikers van schermlezers.
 Gebruik in dat geval `section={false}` voor je accordionsectie.
 
-<Canvas of={AccordionStories.TooManyLandmarks} />
+{/* <Canvas of={AccordionStories.TooManyLandmarks} /> */}
 
 ## Technische toelichting
 
