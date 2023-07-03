@@ -1,4 +1,4 @@
-import { Controls, Markdown, Meta, Primary } from "@storybook/blocks";
+import { Canvas, Controls, Markdown, Meta, Primary } from "@storybook/blocks";
 import * as AccordionStories from "./Accordion.stories.tsx";
 import README from "../../../../../packages/css/src/accordion/README.md?raw";
 
@@ -6,47 +6,31 @@ import README from "../../../../../packages/css/src/accordion/README.md?raw";
 
 <Markdown>{README}</Markdown>
 
+Elke accordionsectie heeft een eigen, unieke naam. Geef deze naam mee via de `label` _property_ van het `Accordion.Section` component.
+
 <Primary />
 
 <Controls />
 
 ## Stories
 
-### Composed Accordion
-
-Een accordion bestaat uit meerdere accordionsecties. Gebruik minimaal 3 en maximaal 10 secties onder elkaar. Je kunt door een accordion navigeren met je toetsenbord:
-
-| key                  | element                                                                                                                      |
-| -------------------- | ---------------------------------------------------------------------------------------------------------------------------- |
-| Enter of Space       | Open of sluit de accordionsectie die de focus heeft                                                                          |
-| Tab                  | Ga naar het volgende element dat focus kan hebben                                                                            |
-| Shift + Tab          | Ga naar het volgende element dat focus kan hebben                                                                            |
-| Pijltje naar beneden | Als een accordionsectie focus heeft: ga naar de volgende sectie. Als de laatste sectie focus heeft, ga naar de eerste sectie |
-| Pijltje omhoog       | Als een accordionsectie focus heeft: ga naar de vorige sectie. Als de eerste sectie focus heeft, ga naar de laatste sectie   |
-| Home                 | Als een accordionsectie focus heeft: ga naar de eerste sectie                                                                |
-| End                  | Als een accordionsectie focus heeft: ga naar de laatste sectie                                                               |
-
-{/* <Canvas of={AccordionStories.ComposedAccordion} /> */}
-
 ### Expanded by default
 
-Als je wilt dat de inhoud van een accordionsectie al getoond wordt als de gebruiker op de pagina komt, geef dan de `expanded` _property_ mee.
+Als je wilt dat de inhoud van een accordionsectie al getoond wordt als de gebruiker op de pagina komt, geef dan de `expanded` _property_ mee aan het `Accordion.Section` component.
 
-{/* <Canvas of={AccordionStories.ExpandedByDefault} /> */}
+<Canvas of={AccordionStories.ExpandedByDefault} />
 
 ## Too many landmarks
 
 Een accordionsectie gebruikt _default_ de HTML tag _section_ om de inhoud in te renderen.
 Als je veel accordionsecties op je pagina hebt (meer dan 6), dan kan dit leiden tot een teveel aan _landmark_ regio's, wat verwarrend kan zijn voor gebruikers van schermlezers.
-Gebruik in dat geval `section={false}` voor je accordionsectie.
+Gebruik in dat geval `section={false}`. Let op: Storybook geeft deze _property_ niet goed weer in het codeblock.
 
-{/* <Canvas of={AccordionStories.TooManyLandmarks} /> */}
+<Canvas of={AccordionStories.TooManyLandmarks} />
 
 ## Technische toelichting
 
 Op het moment (28-6-2023) heeft het HTML element `details` wat toegankelijkheidsproblemen.
 [Zo wordt een _heading_ in een `summary` niet goed begrepen door schermlezers](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/summary#summaries_as_headings) en
-leest NVDA de ingeklapte en en uitgeklapte status niet goed voor in Chrome en Edge. Daarom hebben we er voor gekozen om het _native_ element niet te gebruiken.
+leest NVDA de ingeklapte en en uitgeklapte status niet goed voor in Chrome en Edge. Daarom hebben we er voor gekozen om dit _native_ element niet te gebruiken.
 Als deze problemen zijn opgelost, zouden we dit wel kunnen doen.
-
-TODO: deze link nog ergens plaatsen https://www.w3.org/WAI/ARIA/apg/patterns/accordion/

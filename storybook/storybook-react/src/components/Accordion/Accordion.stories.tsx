@@ -52,34 +52,35 @@ export const Default: Story = {
   },
 }
 
-// export const Default: Story = {
-//   render: (args) => (
-//     <Accordion {...args}>
-//       <Accordion.Section label="Eerste sectie">
-//         <Paragraph>Jouw typograaf biedt mij zulke exquise schreven!</Paragraph>
-//       </Accordion.Section>
-//       <Accordion.Section label="Tweede sectie">
-//         <Paragraph>Jouw typograaf biedt mij zulke exquise schreven!</Paragraph>
-//       </Accordion.Section>
-//       <Accordion.Section label="Derde sectie">
-//         <Paragraph>Jouw typograaf biedt mij zulke exquise schreven!</Paragraph>
-//       </Accordion.Section>
-//     </Accordion>
-//   ),
-// }
+export const ExpandedByDefault: Story = {
+  args: {
+    children: [
+      <Accordion.Section key={1} label="Eerste sectie">
+        <Paragraph>Jouw typograaf biedt mij zulke exquise schreven!</Paragraph>
+      </Accordion.Section>,
+      <Accordion.Section key={2} label="Tweede sectie" expanded>
+        <Paragraph>Jouw typograaf biedt mij zulke exquise schreven!</Paragraph>
+      </Accordion.Section>,
+      <Accordion.Section key={3} label="Derde sectie">
+        <Paragraph>Jouw typograaf biedt mij zulke exquise schreven!</Paragraph>
+      </Accordion.Section>,
+    ],
+  },
+}
 
-// export const ExpandedByDefault: Story = {
-//   args: {
-//     label: 'Enkele accordionsectie',
-//     expanded: true,
-//     children: <Paragraph>Jouw typograaf biedt mij zulke exquise schreven!</Paragraph>,
-//   },
-// }
-
-// export const TooManyLandmarks: Story = {
-//   args: {
-//     label: 'Enkele accordionsectie',
-//     section: false,
-//     children: <Paragraph>Jouw typograaf biedt mij zulke exquise schreven!</Paragraph>,
-//   },
-// }
+export const TooManyLandmarks: Story = {
+  args: {
+    section: false,
+    children: [
+      <Accordion.Section key={1} label="Eerste sectie">
+        <Paragraph>Jouw typograaf biedt mij zulke exquise schreven!</Paragraph>
+      </Accordion.Section>,
+      <Accordion.Section key={2} label="Tweede sectie">
+        <Paragraph>Jouw typograaf biedt mij zulke exquise schreven!</Paragraph>
+      </Accordion.Section>,
+      <Accordion.Section key={3} label="Derde sectie">
+        <Paragraph>Jouw typograaf biedt mij zulke exquise schreven!</Paragraph>
+      </Accordion.Section>,
+    ],
+  },
+}
