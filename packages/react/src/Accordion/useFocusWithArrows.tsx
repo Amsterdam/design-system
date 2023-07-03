@@ -1,4 +1,3 @@
-/* eslint-disable no-extra-semi */
 /**
  * @license EUPL-1.2+
  * Copyright (c) 2023 Gemeente Amsterdam
@@ -11,10 +10,6 @@ export const KeyboardKeys = {
   ArrowDown: 'ArrowDown',
   ArrowRight: 'ArrowRight',
   ArrowLeft: 'ArrowLeft',
-  Escape: 'Escape',
-  Enter: 'Enter',
-  Tab: 'Tab',
-  Space: 'Space',
   Home: 'Home',
   End: 'End',
 }
@@ -48,10 +43,10 @@ const useFocusWithArrows = (ref: RefObject<HTMLElement>, rotating = false, horiz
             el = focusableEls[getIndex(activeElement) + 1]
             // If there is nothing focussed yet, set the focus on the first element
             if (activeElement && !focusableEls.includes(activeElement)) {
-              ;[el] = focusableEls
+              el = focusableEls[0]
             }
           } else if (rotating) {
-            ;[el] = focusableEls
+            el = focusableEls[0]
           }
 
           break
@@ -67,7 +62,7 @@ const useFocusWithArrows = (ref: RefObject<HTMLElement>, rotating = false, horiz
         }
 
         case KeyboardKeys.Home: {
-          ;[el] = focusableEls
+          el = focusableEls[0]
           break
         }
 
