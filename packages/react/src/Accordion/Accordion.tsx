@@ -24,8 +24,6 @@ export interface AccordionComponent
   Section: typeof AccordionSection
 }
 
-// TODO: check op min 3 max 10 children?
-// TODO: check op alleen Accordion.Section als children?
 export const Accordion = forwardRef(
   ({ children, className, headingLevel, section = true }: AccordionProps, ref: ForwardedRef<HTMLDivElement>) => {
     const innerRef = useRef<HTMLDivElement>(null)
