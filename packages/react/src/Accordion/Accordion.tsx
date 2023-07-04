@@ -3,91 +3,54 @@
  * Copyright (c) 2023 Gemeente Amsterdam
  */
 
-import { ChevronDown } from '@amsterdam/design-system-react-icons'
 import clsx from 'clsx'
-import type { ReactNode } from 'react'
-import { ForwardedRef, forwardRef, HTMLAttributes, PropsWithChildren, useContext, useId, useRef, useState } from 'react'
+import type { ForwardRefExoticComponent, ReactNode, RefAttributes } from 'react'
+import { ForwardedRef, forwardRef, HTMLAttributes, PropsWithChildren, useImperativeHandle, useRef } from 'react'
 import AccordionContext from './AccordionContext'
+import { AccordionSection } from './AccordionSection'
 import useFocusWithArrows from './useFocusWithArrows'
-import { getElement, Levels } from '../Heading/Heading'
-import { Icon } from '../Icon/Icon'
+import { Levels } from '../Heading/Heading'
 
-export interface AccordionProps extends HTMLAttributes<HTMLElement> {
+export interface AccordionProps extends HTMLAttributes<HTMLDivElement> {
   children?: ReactNode
   headingLevel: Levels
   section?: boolean
 }
 
+export interface AccordionComponent
+  extends ForwardRefExoticComponent<
+    PropsWithChildren<HTMLAttributes<HTMLDivElement>> & RefAttributes<HTMLDivElement> & AccordionProps
+  > {
+  Section: typeof AccordionSection
+}
+
 // TODO: check op min 3 max 10 children?
 // TODO: check op alleen Accordion.Section als children?
-export const Accordion = ({ children, headingLevel, section = true }: AccordionProps) => {
-  const ref = useRef<HTMLDivElement>(null)
-  const { keyDown } = useFocusWithArrows(ref, true)
-  return (
-    <AccordionContext.Provider value={{ headingLevel: headingLevel, section: section }}>
-      <div className="amsterdam-accordion" role="button" tabIndex={-1} onKeyDown={keyDown} ref={ref}>
-        {children}
-      </div>
-    </AccordionContext.Provider>
-  )
-}
+export const Accordion = forwardRef(
+  ({ children, className, headingLevel, section = true }: AccordionProps, ref: ForwardedRef<HTMLDivElement>) => {
+    const innerRef = useRef<HTMLDivElement>(null)
+
+    // use a passed ref if it's there, otherwise use innerRef
+    useImperativeHandle(ref, () => innerRef.current as HTMLDivElement)
+
+    const { keyDown } = useFocusWithArrows(innerRef, true)
+    return (
+      <AccordionContext.Provider value={{ headingLevel: headingLevel, section: section }}>
+        <div
+          className={clsx('amsterdam-accordion', className)}
+          role="button"
+          tabIndex={-1}
+          onKeyDown={keyDown}
+          ref={innerRef}
+        >
+          {children}
+        </div>
+      </AccordionContext.Provider>
+    )
+  },
+) as AccordionComponent
 
 Accordion.displayName = 'Accordion'
 
-export interface AccordionSectionProps extends HTMLAttributes<HTMLElement> {
-  label: string
-  expanded?: boolean
-}
-
-export const AccordionSection = forwardRef(
-  (
-    { label, expanded = false, children, className, ...otherProps }: PropsWithChildren<AccordionSectionProps>,
-    ref: ForwardedRef<HTMLDivElement>,
-  ) => {
-    const { headingLevel, section } = useContext(AccordionContext)
-    const [isExpanded, setIsExpanded] = useState(expanded)
-
-    const HeadingX = getElement(headingLevel)
-    const id = useId()
-    const buttonId = `button-${id}`
-    const panelId = `panel-${id}`
-
-    return (
-      <div className={clsx('amsterdam-accordion__section', className)} ref={ref} {...otherProps}>
-        <HeadingX className={'amsterdam-accordion__header'}>
-          <button
-            aria-controls={panelId}
-            aria-expanded={isExpanded}
-            className="amsterdam-accordion__button"
-            id={buttonId}
-            onClick={() => setIsExpanded(!isExpanded)}
-            type="button"
-          >
-            {label}
-            <Icon svg={ChevronDown} size="level-5" />
-          </button>
-        </HeadingX>
-        {section ? (
-          <section
-            id={panelId}
-            aria-labelledby={buttonId}
-            className={clsx('amsterdam-accordion__panel', { 'amsterdam-accordion__panel--expanded': isExpanded })}
-          >
-            {children}
-          </section>
-        ) : (
-          <div
-            id={panelId}
-            aria-labelledby={buttonId}
-            className={clsx('amsterdam-accordion__panel', { 'amsterdam-accordion__panel--expanded': isExpanded })}
-          >
-            {children}
-          </div>
-        )}
-      </div>
-    )
-  },
-)
-
-AccordionSection.displayName = 'AccordionSection'
 Accordion.Section = AccordionSection
+Accordion.Section.displayName = 'Accordion.Section'

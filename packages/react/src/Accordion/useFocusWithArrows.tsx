@@ -21,7 +21,7 @@ export const KeyboardKeys = {
  * @param rotating Jump to first item from last or vice versa
  * @param horizontally In case you need to navigate horizontally, using left / right arrow buttons
  */
-const useFocusWithArrows = (ref: RefObject<HTMLElement>, rotating = false, horizontally = false) => {
+const useFocusWithArrows = (ref: RefObject<HTMLDivElement>, rotating = false, horizontally = false) => {
   const next = horizontally ? KeyboardKeys.ArrowRight : KeyboardKeys.ArrowDown
   const previous = horizontally ? KeyboardKeys.ArrowLeft : KeyboardKeys.ArrowUp
   const keyDown = (e: KeyboardEvent) => {
