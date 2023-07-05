@@ -236,14 +236,6 @@ importers:
         specifier: 3.0.2
         version: 3.0.2
 
-  proprietary/font: {}
-
-  proprietary/icons:
-    devDependencies:
-      svgo:
-        specifier: 3.0.2
-        version: 3.0.2
-
   proprietary/react-icons:
     dependencies:
       react-dom:
