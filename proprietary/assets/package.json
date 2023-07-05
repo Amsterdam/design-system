@@ -1,10 +1,9 @@
 {
-  "version": "0.1.2",
+  "version": "0.1.0",
   "author": "Community for NL Design System",
-  "description": "Font files for the City of Amsterdam",
+  "description": "Assets for the City of Amsterdam",
   "license": "SEE LICENSE IN LICENSE.md",
-  "name": "@amsterdam/design-system-font",
-  "main": "static/index.css",
+  "name": "@amsterdam/design-system-assets",
   "keywords": [
     "nl-design-system"
   ],
@@ -12,12 +11,9 @@
   "publishConfig": {
     "access": "public"
   },
-  "files": [
-    "static"
-  ],
   "repository": {
     "type": "git",
     "url": "https://github.com/Amsterdam/design-system.git",
-    "directory": "proprietary/font"
+    "directory": "proprietary/assets"
   }
 }
