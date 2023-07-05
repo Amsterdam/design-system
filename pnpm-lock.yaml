@@ -282,6 +282,9 @@ importers:
         specifier: 3.0.1
         version: 3.0.1
     devDependencies:
+      '@amsterdam/design-system-assets':
+        specifier: workspace:*
+        version: link:../../proprietary/assets
       '@amsterdam/design-system-css':
         specifier: workspace:*
         version: link:../../packages/css
@@ -375,6 +378,9 @@ importers:
 
   storybook/storybook-react:
     devDependencies:
+      '@amsterdam/design-system-assets':
+        specifier: workspace:*
+        version: link:../../proprietary/assets
       '@amsterdam/design-system-css':
         specifier: workspace:*
         version: link:../../packages/css
