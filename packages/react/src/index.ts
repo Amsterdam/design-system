@@ -3,10 +3,11 @@
  * Copyright (c) 2023 Gemeente Amsterdam
  */
 
-export * from './Heading'
-export * from './Link'
-export * from './Button/'
-export * from './Paragraph'
-export * from './FormLabel'
-export * from './Icon'
 export { List } from './List'
+export * from './Button/'
+export * from './FormLabel'
+export * from './Heading'
+export * from './Icon'
+export * from './Link'
+export * from './Paragraph'
+export * from './Switch'
