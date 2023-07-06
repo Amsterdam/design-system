@@ -27,4 +27,20 @@ export const BreadcrumbStory: Story = {
       <Breadcrumb.Item href="/some-url.com">path 5</Breadcrumb.Item>
     </Breadcrumb>
   ),
+  parameters: {
+    docs: {
+      source: {
+        language: 'jsx',
+        code: `
+<Breadcrumb>
+  <Breadcrumb.Item href="/some-url.com">home</Breadcrumb.Item>
+  <Breadcrumb.Item href="/some-url.com">path 1</Breadcrumb.Item>
+  <Breadcrumb.Item href="/some-url.com">path 2</Breadcrumb.Item>
+  <Breadcrumb.Item href="/some-url.com">path 3</Breadcrumb.Item>
+  <Breadcrumb.Item href="/some-url.com">path 5</Breadcrumb.Item>
+</Breadcrumb>
+        `,
+      },
+    },
+  },
 }
