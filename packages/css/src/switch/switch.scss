@@ -1,3 +1,36 @@
+// NOTE: Dimensions seem a bit arbitrary
 .amsterdam-switch {
-  color: red;
+  display: inline-block;
+  overflow: hidden;
+  position: relative;
+}
+
+// Makes sure the input is there for accissibility but not visible.
+.amsterdam-switch-input {
+  height: 0;
+  position: absolute;
+  width: 0;
+}
+
+.amsterdam-switch-toggle {
+  align-items: center;
+  background-color: var(--amsterdam-switch-background-color);
+  border-radius: 50px;
+  box-sizing: content-box;
+  display: inline-flex;
+  padding-block: 2px;
+  padding-inline: 2px;
+  width: 58px;
+}
+
+.amsterdam-switch-input:checked + .amsterdam-switch-toggle {
+  background-color: var(--amsterdam-switch-checked-background-color);
+  justify-content: flex-end;
+}
+
+.amsterdam-switch-toggle-inner {
+  background-color: white;
+  border-radius: 50%;
+  height: 28px;
+  width: 28px;
 }
