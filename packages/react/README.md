@@ -16,8 +16,6 @@ TODO: add alpha, beta and production statuses to components. Also show in Storyb
 
 ## Getting started
 
-TODO: These packages haven't been published yet, so the following doesn't work at the moment. You can currently only use these instructions when locally linking the packages to a consumer project.
-
 Install the packages you need, for instance:
 
 `npm install @amsterdam/design-system-react @amsterdam/design-system-css @amsterdam/design-system-tokens @amsterdam/design-system-assets`

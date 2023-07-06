@@ -18,10 +18,10 @@
       },
       "large": {
         "font-size": {
-          "narrow": { "value": "{amsterdam.typography.text-level.4.font-size.narrow}" },
-          "wide": { "value": "{amsterdam.typography.text-level.4.font-size.wide}" }
+          "narrow": { "value": "{amsterdam.typography.text-level.5.font-size.narrow}" },
+          "wide": { "value": "{amsterdam.typography.text-level.5.font-size.wide}" }
         },
-        "line-height": { "value": "{amsterdam.typography.text-level.4.line-height}" }
+        "line-height": { "value": "{amsterdam.typography.text-level.5.line-height}" }
       }
     }
   }
