@@ -230,9 +230,7 @@ importers:
         specifier: 2.6.0
         version: 2.6.0
 
-  proprietary/font: {}
-
-  proprietary/icons:
+  proprietary/assets:
     devDependencies:
       svgo:
         specifier: 3.0.2
@@ -284,12 +282,12 @@ importers:
         specifier: 3.0.1
         version: 3.0.1
     devDependencies:
+      '@amsterdam/design-system-assets':
+        specifier: workspace:*
+        version: link:../../proprietary/assets
       '@amsterdam/design-system-css':
         specifier: workspace:*
         version: link:../../packages/css
-      '@amsterdam/design-system-font':
-        specifier: workspace:*
-        version: link:../../proprietary/font
       '@amsterdam/design-system-react':
         specifier: workspace:*
         version: link:../../packages/react
@@ -380,12 +378,12 @@ importers:
 
   storybook/storybook-react:
     devDependencies:
+      '@amsterdam/design-system-assets':
+        specifier: workspace:*
+        version: link:../../proprietary/assets
       '@amsterdam/design-system-css':
         specifier: workspace:*
         version: link:../../packages/css
-      '@amsterdam/design-system-font':
-        specifier: workspace:*
-        version: link:../../proprietary/font
       '@amsterdam/design-system-react':
         specifier: workspace:*
         version: link:../../packages/react
@@ -15949,6 +15947,7 @@ packages:
   /svgo@3.0.2:
     resolution: {integrity: sha512-Z706C1U2pb1+JGP48fbazf3KxHrWOsLme6Rv7imFBn5EnuanDW1GPaA/P1/dvObE670JDePC3mnj0k0B7P0jjQ==}
     engines: {node: '>=14.0.0'}
+    hasBin: true
     dependencies:
       '@trysound/sax': 0.2.0
       commander: 7.2.0

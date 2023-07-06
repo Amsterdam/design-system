@@ -18,7 +18,7 @@ TODO: add alpha, beta and production statuses to components. Also show in Storyb
 
 Install the packages you need, for instance:
 
-`npm install @amsterdam/design-system-react @amsterdam/design-system-css @amsterdam/design-system-tokens @amsterdam/design-system-font`
+`npm install @amsterdam/design-system-react @amsterdam/design-system-css @amsterdam/design-system-tokens @amsterdam/design-system-assets`
 
 Import the packages you need.
 
@@ -27,7 +27,7 @@ import { Paragraph } from "@amsterdam/design-system-react";
 
 import "@amsterdam/design-system-css/dist/paragraph/paragraph.css";
 import "@amsterdam/design-system-tokens/dist/root.css";
-import "@amsterdam/design-system-font/static/index.css";
+import "@amsterdam/design-system-assets/font/index.css";
 
 function App() {
   return <Paragraph>Hello world</Paragraph>;
