@@ -34,6 +34,8 @@
 
 .amsterdam-unordered-list .amsterdam-unordered-list {
   list-style-type: var(--amsterdam-unordered-list-unordered-list-list-style-type);
+  padding-block: var(--amsterdam-unordered-list-unordered-list-padding-block);
+  padding-inline: var(--amsterdam-unordered-list-unordered-list-padding-inline);
 }
 
 .amsterdam-unordered-list .amsterdam-unordered-list .amsterdam-unordered-list__item {

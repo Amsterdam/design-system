@@ -12,15 +12,16 @@
       "list-style": { "value": "square" },
       "padding-block": { "value": "0" },
       "item": {
-        "padding-inline": { "value": "0" },
-        "padding-block": { "value": "0.5rem 0" }
+        "padding-block": { "value": "0.5rem 0" },
+        "padding-inline": { "value": "3px 0" }
       },
       "unordered-list": {
-        "margin-block": { "value": "0" },
+        "padding-block": { "value": "3px 0" },
+        "padding-inline": { "value": "14px 0" },
         "list-style-type": { "value": "'–'" },
         "item": {
-          "padding-inline": { "value": "16px 0" },
-          "padding-block": { "value": "0.1rem 0" }
+          "padding-inline": { "value": "11px 0" },
+          "padding-block": { "value": "3px 0" }
         }
       }
     }
