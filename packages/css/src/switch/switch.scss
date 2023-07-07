@@ -1,11 +1,12 @@
-// NOTE: Dimensions seem a bit arbitrary
 .amsterdam-switch {
   display: inline-block;
+  line-height: 0;
+  outline-offset: var(--amsterdam-switch-outline-offset);
   overflow: hidden;
+  padding-block: 6px;
   position: relative;
 }
 
-// Makes sure the input is there for accissibility but not visible.
 .amsterdam-switch-input {
   height: 0;
   position: absolute;
@@ -13,24 +14,34 @@
 }
 
 .amsterdam-switch-toggle {
-  align-items: center;
   background-color: var(--amsterdam-switch-background-color);
   border-radius: 50px;
-  box-sizing: content-box;
-  display: inline-flex;
+  box-sizing: border-box;
+  display: inline-block;
   padding-block: 2px;
   padding-inline: 2px;
+  transition: background-color 0.2s ease-in-out;
   width: 58px;
+}
+
+.amsterdam-switch-toggle-inner {
+  background-color: var(--amsterdam-switch-toggle-background-color);
+  border-radius: 50%;
+  display: block;
+  height: 28px;
+  transform: translate(0);
+  transition: transform 0.1s ease-in-out;
+  width: 28px;
 }
 
 .amsterdam-switch-input:checked + .amsterdam-switch-toggle {
   background-color: var(--amsterdam-switch-checked-background-color);
-  justify-content: flex-end;
 }
 
-.amsterdam-switch-toggle-inner {
-  background-color: white;
-  border-radius: 50%;
-  height: 28px;
-  width: 28px;
+.amsterdam-switch-input:disabled + .amsterdam-switch-toggle {
+  background-color: var(--amsterdam-switch-disabled-background-color);
+}
+
+.amsterdam-switch-input:checked + .amsterdam-switch-toggle > .amsterdam-switch-toggle-inner {
+  transform: translate(calc(100% - 2px));
 }
