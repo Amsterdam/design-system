@@ -377,6 +377,10 @@ importers:
         version: 4.3.9(@types/node@20.3.2)(sass@1.63.6)
 
   storybook/storybook-react:
+    dependencies:
+      remark-gfm:
+        specifier: 3.0.1
+        version: 3.0.1
     devDependencies:
       '@amsterdam/design-system-assets':
         specifier: workspace:*
