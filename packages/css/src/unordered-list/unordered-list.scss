@@ -13,9 +13,12 @@
 
 .amsterdam-unordered-list {
   color: var(--amsterdam-unordered-list-color);
+  display: flex;
+  flex-direction: column;
   font-family: var(--amsterdam-unordered-list-font-family);
   font-size: var(--amsterdam-unordered-list-font-size-narrow);
   font-weight: var(--amsterdam-unordered-list-font-weight);
+  gap: var(--amsterdam-unordered-list-gap);
   line-height: var(--amsterdam-unordered-list-line-height);
   list-style: var(--amsterdam-unordered-list-list-style);
 
@@ -27,7 +30,6 @@
 }
 
 .amsterdam-unordered-list__item {
-  padding-block: var(--amsterdam-unordered-list-item-padding-block);
   padding-inline: var(--amsterdam-unordered-list-item-padding-inline);
 }
 
@@ -38,6 +40,5 @@
 }
 
 .amsterdam-unordered-list .amsterdam-unordered-list .amsterdam-unordered-list__item {
-  padding-block: var(--amsterdam-unordered-list-unordered-list-item-padding-block);
   padding-inline: var(--amsterdam-unordered-list-unordered-list-item-padding-inline);
 }
