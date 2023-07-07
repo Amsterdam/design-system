@@ -34,13 +34,7 @@ export const Accordion = forwardRef(
     const { keyDown } = useFocusWithArrows(innerRef, true)
     return (
       <AccordionContext.Provider value={{ headingLevel: headingLevel, section: section }}>
-        <div
-          className={clsx('amsterdam-accordion', className)}
-          role="button"
-          tabIndex={-1}
-          onKeyDown={keyDown}
-          ref={innerRef}
-        >
+        <div className={clsx('amsterdam-accordion', className)} onKeyDown={keyDown} ref={innerRef}>
           {children}
         </div>
       </AccordionContext.Provider>
