@@ -7,7 +7,7 @@ import { ChevronDown } from '@amsterdam/design-system-react-icons'
 import clsx from 'clsx'
 import { ForwardedRef, forwardRef, HTMLAttributes, PropsWithChildren, useContext, useId, useState } from 'react'
 import AccordionContext from './AccordionContext'
-import { getElement } from '../Heading/Heading'
+import { getHeadingElement } from '../Heading/Heading'
 import { Icon } from '../Icon/Icon'
 
 export interface AccordionSectionProps extends HTMLAttributes<HTMLElement> {
@@ -23,7 +23,7 @@ export const AccordionSection = forwardRef(
     const { headingLevel, section } = useContext(AccordionContext)
     const [isExpanded, setIsExpanded] = useState(expanded)
 
-    const HeadingX = getElement(headingLevel)
+    const HeadingX = getHeadingElement(headingLevel)
     const id = useId()
     const buttonId = `button-${id}`
     const panelId = `panel-${id}`
