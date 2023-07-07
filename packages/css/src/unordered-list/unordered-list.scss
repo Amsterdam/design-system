@@ -18,7 +18,6 @@
   font-weight: var(--amsterdam-unordered-list-font-weight);
   line-height: var(--amsterdam-unordered-list-line-height);
   list-style: var(--amsterdam-unordered-list-list-style);
-  padding-block: var(--amsterdam-unordered-list-padding-block);
 
   @media screen and (width > $amsterdam-breakpoint) {
     font-size: var(--amsterdam-unordered-list-font-size-wide);
