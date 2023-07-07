@@ -8,7 +8,7 @@ import type { Meta, StoryObj } from '@storybook/react'
 import '@amsterdam/design-system-css/src/paragraph/paragraph.scss'
 
 const meta = {
-  title: 'CSS Components/Paragraph',
+  title: 'CSS Library/Paragraph',
   component: Paragraph,
   argTypes: {
     children: {

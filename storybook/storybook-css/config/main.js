@@ -39,14 +39,14 @@ module.exports = {
     if (configType === 'DEVELOPMENT') {
       return {
         react: {
-          title: 'React Components',
+          title: 'React Library',
           url: 'http://localhost:6007',
         },
       }
     }
     return {
       react: {
-        title: 'React.js Components',
+        title: 'React.js Library',
         url: '../design-system/storybook-react',
       },
     }

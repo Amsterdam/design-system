@@ -9,7 +9,7 @@ import type { Meta, StoryObj } from '@storybook/react'
 import '@amsterdam/design-system-css/src/button/button.scss'
 
 const meta = {
-  title: 'CSS Components/Button',
+  title: 'CSS Library/Button',
   component: Button,
   args: {
     disabled: false,

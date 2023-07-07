@@ -8,7 +8,7 @@ import type { Meta, StoryObj } from '@storybook/react'
 import '@amsterdam/design-system-css/src/heading/heading.scss'
 
 const meta = {
-  title: 'CSS Components/Heading',
+  title: 'CSS Library/Heading',
   component: Heading,
   argTypes: {
     level: {
