@@ -10,12 +10,18 @@
       "font-weight": { "value": "{amsterdam.typography.font-weight.normal}" },
       "line-height": { "value": "{amsterdam.typography.text-level.6.line-height}" },
       "list-style": { "value": "square" },
-      "padding-block": { "value": "0.5rem" },
-      "padding-inline-end": { "value": "0.6875rem" },
+      "padding-block": { "value": "0" },
       "item": {
+        "padding-inline": { "value": "0" },
+        "padding-block": { "value": "0.5rem 0" }
+      },
+      "unordered-list": {
         "margin-block": { "value": "0" },
         "list-style-type": { "value": "'–'" },
-        "padding-inline-start": { "value": "11px" }
+        "item": {
+          "padding-inline": { "value": "16px 0" },
+          "padding-block": { "value": "0.1rem 0" }
+        }
       }
     }
   }
