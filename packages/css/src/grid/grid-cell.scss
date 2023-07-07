@@ -1,0 +1,104 @@
+/**
+ * @license EUPL-1.2+
+ * Copyright (c) 2023 Gemeente Amsterdam
+ */
+
+@import "../../utils/breakpoint";
+
+@media (min-width: $amsterdam-breakpoint) {
+  .amsterdam-grid-start-1 {
+    grid-column-start: 1;
+  }
+
+  .amsterdam-grid-start-2 {
+    grid-column-start: 2;
+  }
+
+  .amsterdam-grid-start-3 {
+    grid-column-start: 3;
+  }
+
+  .amsterdam-grid-start-4 {
+    grid-column-start: 4;
+  }
+
+  .amsterdam-grid-start-5 {
+    grid-column-start: 5;
+  }
+
+  .amsterdam-grid-start-6 {
+    grid-column-start: 6;
+  }
+
+  .amsterdam-grid-start-7 {
+    grid-column-start: 7;
+  }
+
+  .amsterdam-grid-start-8 {
+    grid-column-start: 8;
+  }
+
+  .amsterdam-grid-start-9 {
+    grid-column-start: 9;
+  }
+
+  .amsterdam-grid-start-10 {
+    grid-column-start: 10;
+  }
+
+  .amsterdam-grid-start-11 {
+    grid-column-start: 11;
+  }
+
+  .amsterdam-grid-start-12 {
+    grid-column-start: 12;
+  }
+
+  .amsterdam-grid-end-1 {
+    grid-column-end: 2;
+  }
+
+  .amsterdam-grid-end-2 {
+    grid-column-end: 3;
+  }
+
+  .amsterdam-grid-end-3 {
+    grid-column-end: 4;
+  }
+
+  .amsterdam-grid-end-4 {
+    grid-column-end: 5;
+  }
+
+  .amsterdam-grid-end-5 {
+    grid-column-end: 6;
+  }
+
+  .amsterdam-grid-end-6 {
+    grid-column-end: 7;
+  }
+
+  .amsterdam-grid-end-7 {
+    grid-column-end: 8;
+  }
+
+  .amsterdam-grid-end-8 {
+    grid-column-end: 9;
+  }
+
+  .amsterdam-grid-end-9 {
+    grid-column-end: 10;
+  }
+
+  .amsterdam-grid-end-10 {
+    grid-column-end: 11;
+  }
+
+  .amsterdam-grid-end-11 {
+    grid-column-end: 12;
+  }
+
+  .amsterdam-grid-end-12 {
+    grid-column-end: 13;
+  }
+}

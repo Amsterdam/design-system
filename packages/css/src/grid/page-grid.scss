@@ -1,0 +1,19 @@
+/**
+ * @license EUPL-1.2+
+ * Copyright (c) 2023 Gemeente Amsterdam
+ */
+
+@import "../../utils/breakpoint";
+
+.amsterdam-page-grid {
+  column-gap: 2%;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  max-width: 1440px;
+}
+
+@media (min-width: $amsterdam-breakpoint) {
+  .amsterdam-page-grid {
+    grid-template-columns: repeat(12, 1fr);
+  }
+}
