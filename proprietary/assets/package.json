@@ -1,10 +1,9 @@
 {
-  "version": "0.1.2",
+  "version": "0.1.0",
   "author": "Community for NL Design System",
-  "description": "Icon svg files for the City of Amsterdam",
+  "description": "Assets for the City of Amsterdam",
   "license": "SEE LICENSE IN LICENSE.md",
-  "name": "@amsterdam/design-system-icons",
-  "main": "static",
+  "name": "@amsterdam/design-system-assets",
   "keywords": [
     "nl-design-system"
   ],
@@ -12,16 +11,13 @@
   "publishConfig": {
     "access": "public"
   },
-  "files": [
-    "static"
-  ],
   "repository": {
     "type": "git",
     "url": "https://github.com/Amsterdam/design-system.git",
-    "directory": "proprietary/icons"
+    "directory": "proprietary/assets"
   },
   "scripts": {
-    "optimize": "svgo -f static"
+    "optimize-icons": "svgo -f icons"
   },
   "devDependencies": {
     "svgo": "3.0.2"

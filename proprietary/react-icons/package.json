@@ -25,7 +25,7 @@
   },
   "scripts": {
     "clean": "rimraf src && rimraf dist",
-    "svgr": "svgr ../icons/static",
+    "svgr": "svgr ../assets/icons",
     "build": "npm run clean && npm run svgr && rollup -c"
   },
   "devDependencies": {

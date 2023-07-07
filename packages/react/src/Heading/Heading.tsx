@@ -7,14 +7,14 @@
 import clsx from 'clsx'
 import { ForwardedRef, forwardRef, HTMLAttributes, PropsWithChildren } from 'react'
 
-type Levels = 1 | 2 | 3 | 4
+export type Levels = 1 | 2 | 3 | 4
 
 export interface HeadingProps extends HTMLAttributes<HTMLHeadingElement> {
   level?: Levels
   styleLevel?: Levels
 }
 
-function getElement(level: Levels) {
+export function getHeadingElement(level: Levels) {
   switch (level) {
     case 2:
       return 'h2'
@@ -32,7 +32,7 @@ export const Heading = forwardRef(
     { level = 1, styleLevel, children, className, ...restProps }: PropsWithChildren<HeadingProps>,
     ref: ForwardedRef<HTMLHeadingElement>,
   ) => {
-    const HeadingX = getElement(level)
+    const HeadingX = getHeadingElement(level)
 
     return (
       <HeadingX

@@ -20,8 +20,8 @@
     "storybook": "storybook dev --config-dir config/ --port 6007 --no-open"
   },
   "devDependencies": {
+    "@amsterdam/design-system-assets": "workspace:*",
     "@amsterdam/design-system-css": "workspace:*",
-    "@amsterdam/design-system-font": "workspace:*",
     "@amsterdam/design-system-react": "workspace:*",
     "@amsterdam/design-system-react-icons": "workspace:*",
     "@amsterdam/design-system-tokens": "workspace:*",
@@ -53,5 +53,8 @@
     "require-from-string": "2.0.2",
     "storybook": "7.0.24",
     "vite": "4.3.9"
+  },
+  "dependencies": {
+    "remark-gfm": "3.0.1"
   }
 }

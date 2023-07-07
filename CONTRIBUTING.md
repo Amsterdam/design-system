@@ -68,7 +68,7 @@ If you need to link your local version of this library (to test your unpublished
 - Go to the root directory of the packages you want to link to (i.e. where its package.json is)
 - Run `npm link`. Do this for all packages you want to link.
 - Go to the root of the project in which you want to consume the packages
-- Run `npm link <package-name>`. If you want to link multiple packages, seperate the package names with a space. For example: `npm link @amsterdam/design-system-tokens @amsterdam/design-system-css @amsterdam/design-system-font @amsterdam/design-system-react @amsterdam/design-system-react-icons`. Be careful: you have to link all packages in the same namespace together. Doing it one at a time will only link the last one. TODO: is there a workaround for this?
+- Run `npm link <package-name>`. If you want to link multiple packages, seperate the package names with a space. For example: `npm link @amsterdam/design-system-tokens @amsterdam/design-system-css @amsterdam/design-system-assets @amsterdam/design-system-react @amsterdam/design-system-react-icons`. Be careful: you have to link all packages in the same namespace together. Doing it one at a time will only link the last one. TODO: is there a workaround for this?
 - Sometimes the local link is severed. Run `npm link @amsterdam/...` again if this happens.
 
 ## Licensing
@@ -104,6 +104,16 @@ If the content of a documentation file is copied from another source (like our [
 We use [GitHub flow](https://docs.github.com/en/get-started/quickstart/github-flow) for this project. All members of the [Amsterdam GitHub organisation](https://github.com/Amsterdam) are allowed to create features branches and open pull requests. Only [the maintainers of this repository](./documentation/maintainers.md) are allowed to merge pull requests into the `main` branch. We currently do not have a workflow for contributors that do not work for the City of Amsterdam. If you do not work for the City of Amsterdam and want to contribute to this repository, please contact the maintainers.
 
 Package versioning and publishing is done through Lerna, by the maintainers of the repository. Contributors do not need to increment versions. Contact the maintainers if you want to release a new version of a package.
+
+## Publishing
+
+You can only publish if you have access to the `@amsterdam` group on NPM. If you want to have rights to publish as well, contact one of the [maintainers](./documentation/maintainers.md). To publish these packages to NPM, follow these steps:
+
+1. Pull in the latest version of the `main` branch locally
+2. Make sure you're logged in to NPM, by running `npm login`
+3. Run `npm run build`
+4. Run `npm run release`
+5. Run `npm run publish`
 
 ## Cooperation with NL Design System
 
