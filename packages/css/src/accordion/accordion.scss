@@ -33,7 +33,6 @@
     outline-offset: var(--amsterdam-accordion-button-focus-outline-offset);
   }
 
-  &:focus-visible,
   &:hover {
     box-shadow: var(--amsterdam-accordion-button-hover-box-shadow);
   }
