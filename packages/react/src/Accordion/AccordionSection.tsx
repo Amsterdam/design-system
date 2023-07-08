@@ -7,7 +7,7 @@ import { ChevronDown } from '@amsterdam/design-system-react-icons'
 import clsx from 'clsx'
 import { ForwardedRef, forwardRef, HTMLAttributes, PropsWithChildren, useContext, useId, useState } from 'react'
 import AccordionContext from './AccordionContext'
-import { getHeadingElement } from '../Heading/Heading'
+import { getHeadingElement } from '../Heading'
 import { Icon } from '../Icon/Icon'
 
 export interface AccordionSectionProps extends HTMLAttributes<HTMLElement> {
