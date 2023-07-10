@@ -9,7 +9,7 @@ import { ForwardedRef, forwardRef, HTMLAttributes, PropsWithChildren, useImperat
 import AccordionContext from './AccordionContext'
 import { AccordionSection } from './AccordionSection'
 import useFocusWithArrows from './useFocusWithArrows'
-import { HeadingLevel } from '../Heading'
+import { HeadingLevel } from '../Heading/Heading'
 
 export interface AccordionProps extends HTMLAttributes<HTMLDivElement> {
   children?: ReactNode

@@ -1,3 +1,2 @@
-export type { HeadingLevel, HeadingProps } from './Heading'
-
-export { Heading, getHeadingElement } from './Heading'
+export type { HeadingProps } from './Heading'
+export { Heading } from './Heading'

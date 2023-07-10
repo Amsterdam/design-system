@@ -1,5 +1,5 @@
 import { createContext } from 'react'
-import { HeadingLevel } from '../Heading'
+import { HeadingLevel } from '../Heading/Heading'
 
 export interface AccordionContextValue {
   headingLevel: HeadingLevel
