@@ -2,7 +2,7 @@
 
 ## Barrel files
 
-In our React package we use barrel files (`index.ts` in the root and in every component folder) to simplify the import of React components.
+We use barrel files (`index.ts` in both the package root and each component directory) to make it easier for consuming applications to import components from our React library.
 Barrel files allow a consumer to do this:
 
 `import { Heading, Link, Paragraph } from '@amsterdam/design-system-react'`
