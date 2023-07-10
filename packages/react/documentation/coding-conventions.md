@@ -17,8 +17,8 @@ import Paragraph from "@amsterdam/design-system-react/dist/Paragraph/Paragraph";
 
 However, barrel files have 2 potential pitfalls:
 
-- Without proper treeshaking, importing from a barrel file can mean that a consumer imports the entire library, instead of just the components they need. To avoid this, the consumer needs to set up treeshaking in their project (TODO: add documentation on this? Or at least describe both methods of importing?)
-- When a component imports from a sibling component, using a barrel file for this import can lead to cyclical dependencies.
+1. Without proper treeshaking, importing from a barrel file can mean that a consumer imports the entire library, instead of just the components they need. To avoid this, the consumer needs to set up treeshaking in their project (TODO: add documentation on this? Or at least describe both methods of importing?)
+2. When a component imports from a sibling component, using a barrel file for this import can lead to cyclical dependencies.
 
 We can avoid this last pitfall by adhering to the following code convention: barrel file imports should only be used to import from a package, not within one.
 
