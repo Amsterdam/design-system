@@ -28,6 +28,4 @@ To illustrate: If the `Accordion` React component needs the `HeadingLevel` type 
 
 Instead of this:
 
-`import { HeadingLevel } from '../Heading'`
-
-<!-- TODO: of zelf zoiets? `import { HeadingLevel } from './'` -->
+`import { HeadingLevel } from '../Heading'` or `import { HeadingLevel } from '../'`
