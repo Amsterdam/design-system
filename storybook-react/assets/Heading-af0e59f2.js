@@ -1,0 +1,2 @@
+import{j as o,c as m}from"./clsx.m-51e04ab1.js";import{r as p}from"./index-8db94870.js";function g(e){switch(e){case 2:return"h2";case 3:return"h3";case 4:return"h4";default:return"h1"}}const a=p.forwardRef(({children:e,className:s,level:r=1,size:t,...n},i)=>{const c=g(r),d=t?t.split("-")[1]:r;return o.jsx(c,{ref:i,className:m("amsterdam-heading",`amsterdam-heading-${d}`,s),...n,children:e})});a.displayName="Heading";try{a.displayName="Heading",a.__docgenInfo={description:"",displayName:"Heading",props:{}}}catch{}export{a as H,g};
+//# sourceMappingURL=Heading-af0e59f2.js.map
