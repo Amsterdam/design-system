@@ -28,7 +28,7 @@
     "@babel/core": "7.22.5",
     "@mdx-js/react": "2.3.0",
     "@storybook/addon-a11y": "7.0.24",
-    "@storybook/addon-actions": "7.0.24",
+    "@storybook/addon-actions": "7.0.26",
     "@storybook/addon-docs": "7.0.24",
     "@storybook/addon-essentials": "7.0.24",
     "@storybook/addon-interactions": "7.0.24",
