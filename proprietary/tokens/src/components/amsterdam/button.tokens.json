@@ -6,9 +6,12 @@
         "wide": { "value": "{amsterdam.typography.text-level.6.font-size.wide}" }
       },
       "secondary": {
+        "box-shadow": {
+          "value": "inset 0 0 0 2px {amsterdam.color.dark-blue}"
+        },
         "hover": {
           "box-shadow": {
-            "value": "0 0 0 1px {amsterdam.color.dark-blue}"
+            "value": "inset 0 0 0 3px {amsterdam.color.dark-blue}"
           }
         }
       }

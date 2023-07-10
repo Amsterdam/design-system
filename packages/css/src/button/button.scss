@@ -13,6 +13,14 @@
   }
 }
 
-.amsterdam-button--secondary:hover {
+.amsterdam-button--secondary {
+  box-shadow: var(--amsterdam-button-secondary-box-shadow);
+
+  &:hover {
+    box-shadow: var(--amsterdam-button-secondary-hover-box-shadow);
+  }
+}
+
+.utrecht-button:focus:not(:disabled, [aria-disabled="true"]) {
   box-shadow: var(--amsterdam-button-secondary-hover-box-shadow);
 }
