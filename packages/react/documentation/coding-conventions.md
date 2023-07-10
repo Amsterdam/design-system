@@ -7,7 +7,7 @@ Barrel files allow a consumer to do this:
 
 `import { Heading, Link, Paragraph } from '@amsterdam/design-system-react'`
 
-Instead of this:
+Instead of a separate import for each component, while even reaching into the `dist` directory:
 
 ```js
 import Heading from "@amsterdam/design-system-react/dist/Heading/Heading";
