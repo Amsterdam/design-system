@@ -48,7 +48,7 @@ export const WithText: Story = {
   render: (args) => (
     <span style={{ display: 'flex', gap: '1rem' }}>
       <Icon {...args} size="level-3" />
-      <Heading styleLevel={3}>Inline text</Heading>
+      <Heading size="level-3">Inline text</Heading>
     </span>
   ),
   args: {
