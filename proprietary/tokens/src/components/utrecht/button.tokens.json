@@ -46,14 +46,9 @@
         "border-color": {}
       },
       "hover": {
-        "background-color": {
-          "value": "{amsterdam.color.dark-blue}"
-        }
+        "background-color": {}
       },
       "focus": {
-        "background-color": {
-          "value": "{amsterdam.color.dark-blue}"
-        },
         "scale": {}
       },
       "primary-action": {
