@@ -80,7 +80,9 @@
           "color": {}
         },
         "focus": {
-          "background-color": {},
+          "background-color": {
+            "value": "{amsterdam.color.dark-blue}"
+          },
           "border-color": {},
           "border-width": {}
         },
@@ -225,12 +227,16 @@
         "font-weight": {},
         "hover": {
           "background-color": {},
-          "color": {},
+          "color": {
+            "value": "{amsterdam.color.dark-blue}"
+          },
           "border-color": {}
         },
         "focus": {
           "background-color": {},
-          "color": {},
+          "color": {
+            "value": "{amsterdam.color.dark-blue}"
+          },
           "border-color": {}
         },
         "disabled": {
