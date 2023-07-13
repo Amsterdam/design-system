@@ -13,8 +13,6 @@ import React, {
   PropsWithChildren,
 } from 'react'
 
-// import '../../../css/dist/ordered-list/ordered-list.css'
-
 interface OrderedListComponent
   extends React.ForwardRefExoticComponent<
     PropsWithChildren<HTMLAttributes<HTMLElement>> & React.RefAttributes<HTMLElement>
