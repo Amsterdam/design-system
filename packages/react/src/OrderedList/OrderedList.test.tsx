@@ -4,9 +4,9 @@ import { OrderedList } from './OrderedList'
 import '@testing-library/jest-dom'
 
 describe('Ordered List', () => {
-  it('renders an HTML ul element', () => {
+  it('renders an HTML ol element', () => {
     const { container } = render(<OrderedList />)
-    const list = container.querySelector('ul:only-child')
+    const list = container.querySelector('ol:only-child')
 
     expect(list).toBeInTheDocument()
   })
@@ -15,7 +15,7 @@ describe('Ordered List', () => {
     const { container } = render(<OrderedList />)
     const list = container.querySelector(':only-child')
 
-    expect(list).toHaveClass('amsterdam-Ordered-list')
+    expect(list).toHaveClass('amsterdam-ordered-list')
   })
 
   it('can have a additional class name', () => {
@@ -23,11 +23,11 @@ describe('Ordered List', () => {
     const list = container.querySelector(':only-child')
 
     expect(list).toHaveClass('large')
-    expect(list).toHaveClass('amsterdam-Ordered-list')
+    expect(list).toHaveClass('amsterdam-ordered-list')
   })
 
   it('supports ForwardRef in React', () => {
-    const ref = createRef<HTMLUListElement>()
+    const ref = createRef<HTMLOListElement>()
     const { container } = render(<OrderedList ref={ref} />)
     const list = container.querySelector(':only-child')
 
