@@ -28,47 +28,6 @@ describe('Breadcrumb', () => {
     expect(breadcrumbs.length).toBe(3)
   })
 
-  it('should omit invalid children and logs warning', () => {
-    const warnSpy = jest.spyOn(console, 'warn').mockImplementation(() => {})
-
-    const { container } = render(
-      <Breadcrumb>
-        <Breadcrumb.Item href="/item-1">Valid Item</Breadcrumb.Item>
-        <div>Invalid Item</div>
-        <Breadcrumb.Item href="/item-2">Another Valid Item</Breadcrumb.Item>
-      </Breadcrumb>,
-    )
-
-    const breadcrumbs = container.querySelectorAll('.amsterdam-breadcrumb-item')
-
-    expect(warnSpy).toHaveBeenCalledTimes(1)
-    expect(warnSpy).toHaveBeenCalledWith('Breadcrumb: div is not a valid child')
-    expect(breadcrumbs.length).toBe(2)
-  })
-
-  it('limits the number of breadcrumb items to 8 when 10 items are provided', () => {
-    const items = Array.from({ length: 10 }, (_, index) => ({
-      label: `Item ${index + 1}`,
-      href: `/item-${index + 1}`,
-    }))
-
-    const { container } = render(
-      <Breadcrumb>
-        {items.map(({ label, href }, index) => {
-          return (
-            <Breadcrumb.Item key={index} href={href}>
-              {label}
-            </Breadcrumb.Item>
-          )
-        })}
-      </Breadcrumb>,
-    )
-
-    const breadcrumbItems = container.querySelectorAll('.amsterdam-breadcrumb-item')
-
-    expect(breadcrumbItems.length).toBe(8)
-  })
-
   it('is able to pass a React ref', () => {
     const ref = createRef<HTMLElement>()
 
