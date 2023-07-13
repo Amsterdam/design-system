@@ -1,6 +1,6 @@
 # Breadcrumb
 
-De Breadcrumbs is een secundair navigatiepatroon dat een gebruiker helpt de structuur tussen niveaus in de website tot de huidige pagina te begrijpen. Gebruikers kunnen het gebruiken om door de structuur te navigeren.
+De breadcrumb (in het Nederlands: kruimelpad) is een secundair navigatiepatroon dat een gebruiker helpt de structuur tussen niveaus in de website tot de huidige pagina te begrijpen. Gebruikers kunnen het gebruiken om door de structuur te navigeren.
 
 ## Richtlijnen
 
