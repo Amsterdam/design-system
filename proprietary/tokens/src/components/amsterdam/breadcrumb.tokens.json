@@ -37,11 +37,6 @@
           "text-decoration": {
             "value": "underline"
           }
-        },
-        "visited": {
-          "color": {
-            "value": "{amsterdam.color.primary-blue}"
-          }
         }
       }
     }

@@ -10,7 +10,6 @@
   break-after: avoid;
   break-inside: avoid;
   margin-block: 0;
-  margin-inline: 0;
   padding-inline: 0;
 }
 
@@ -19,14 +18,14 @@
   font-family: var(--amsterdam-breadcrumb-font-family, inherit);
   font-size: var(--amsterdam-breadcrumb-font-size-narrow);
   line-height: var(--amsterdam-breadcrumb-line-height);
-  text-transform: lowercase;
+  text-transform: capitalize;
 
   @media screen and (width > $amsterdam-breakpoint) {
     font-size: var(--amsterdam-breadcrumb-font-size-wide);
   }
 }
 
-.amsterdam-breadcrumb-list {
+.amsterdam-breadcrumb__list {
   column-gap: 0.5rem;
   display: flex;
   flex-wrap: wrap;
@@ -44,7 +43,6 @@
   background-color: var(--amsterdam-breadcrumb-color);
   content: "";
   display: inline-block;
-  font-size: 16px;
   height: 16px;
   margin-inline-start: 1rem;
   -webkit-mask-image: url("../../../../proprietary/icons/static/ChevronRight.svg");
@@ -54,7 +52,7 @@
   width: 16px;
 }
 
-.amsterdam-breadcrumb-link {
+.amsterdam-breadcrumb-item__link {
   color: inherit;
   cursor: pointer;
   outline-offset: var(--amsterdam-breadcrumb-item-link-outline-offset);
@@ -64,10 +62,6 @@
   &:hover,
   &:active {
     box-shadow: var(--amsterdam-breadcrumb-item-link-hover-box-shadow);
-    color: var(--amsterdam-breadcrumb-hover-color);
-  }
-
-  &:visited {
-    color: var(--amsterdam-breadcrumb-item-link-visited-color);
+    color: var(--amsterdam-breadcrumb-item-link-hover-color);
   }
 }
