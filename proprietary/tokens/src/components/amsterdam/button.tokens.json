@@ -6,9 +6,37 @@
         "wide": { "value": "{amsterdam.typography.text-level.6.font-size.wide}" }
       },
       "secondary": {
+        "box-shadow": {
+          "value": "inset 0 0 0 2px {amsterdam.color.primary-blue}"
+        },
         "hover": {
           "box-shadow": {
-            "value": "0 0 0 1px {amsterdam.color.dark-blue}"
+            "value": "inset 0 0 0 3px {amsterdam.color.dark-blue}"
+          }
+        },
+        "disabled": {
+          "box-shadow": {
+            "value": "inset 0 0 0 2px {amsterdam.color.neutral-grey2}"
+          }
+        },
+        "focus": {
+          "box-shadow": {
+            "value": "inset 0 0 0 3px {amsterdam.color.dark-blue}"
+          },
+          "color": {
+            "value": "{amsterdam.color.dark-blue}"
+          }
+        }
+      },
+      "tertiary": {
+        "hover": {
+          "box-shadow": {
+            "value": "inset 0 0 0 2px {amsterdam.color.neutral-grey3}"
+          }
+        },
+        "focus": {
+          "box-shadow": {
+            "value": "inset 0 0 0 2px {amsterdam.color.neutral-grey3}"
           }
         }
       }

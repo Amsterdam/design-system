@@ -62,34 +62,34 @@ describe('Heading', () => {
   it('renders the right style level class', () => {
     render(
       <>
-        <Heading styleLevel={1}>Style level 1</Heading>
-        <Heading styleLevel={2}>Style level 2</Heading>
-        <Heading styleLevel={3}>Style level 3</Heading>
-        <Heading styleLevel={4}>Style level 4</Heading>
+        <Heading size="level-1">Size level 1</Heading>
+        <Heading size="level-2">Size level 2</Heading>
+        <Heading size="level-3">Size level 3</Heading>
+        <Heading size="level-4">Size level 4</Heading>
       </>,
     )
 
-    const styleLevel1 = screen.getByRole('heading', {
-      name: 'Style level 1',
+    const sizeLevel1 = screen.getByRole('heading', {
+      name: 'Size level 1',
       level: 1,
     })
-    const styleLevel2 = screen.getByRole('heading', {
-      name: 'Style level 2',
+    const sizeLevel2 = screen.getByRole('heading', {
+      name: 'Size level 2',
       level: 1,
     })
-    const styleLevel3 = screen.getByRole('heading', {
-      name: 'Style level 3',
+    const sizeLevel3 = screen.getByRole('heading', {
+      name: 'Size level 3',
       level: 1,
     })
-    const styleLevel4 = screen.getByRole('heading', {
-      name: 'Style level 4',
+    const sizeLevel4 = screen.getByRole('heading', {
+      name: 'Size level 4',
       level: 1,
     })
 
-    expect(styleLevel1).toHaveClass('amsterdam-heading-1')
-    expect(styleLevel2).toHaveClass('amsterdam-heading-2')
-    expect(styleLevel3).toHaveClass('amsterdam-heading-3')
-    expect(styleLevel4).toHaveClass('amsterdam-heading-4')
+    expect(sizeLevel1).toHaveClass('amsterdam-heading-1')
+    expect(sizeLevel2).toHaveClass('amsterdam-heading-2')
+    expect(sizeLevel3).toHaveClass('amsterdam-heading-3')
+    expect(sizeLevel4).toHaveClass('amsterdam-heading-4')
   })
 
   it('renders rich text content', () => {
