@@ -10,25 +10,20 @@ import '@amsterdam/design-system-css/src/heading/heading.scss'
 const meta = {
   title: 'CSS Components/Heading',
   component: Heading,
+  args: {
+    children: 'Jouw typograaf biedt mij zulke exquise schreven!',
+    level: 1,
+    size: 'level-1',
+  },
   argTypes: {
     level: {
       table: {
         disable: true,
       },
     },
-    styleLevel: {
-      options: [1, 2, 3, 4],
-      control: 'select',
-      table: {
-        type: { summary: 'number' },
-        defaultValue: { summary: '1' },
-      },
+    size: {
+      options: ['level-1', 'level-2', 'level-3', 'level-4'],
     },
-  },
-  args: {
-    children: 'Jouw typograaf biedt mij zulke exquise schreven!',
-    level: 1,
-    styleLevel: 1,
   },
 } satisfies Meta<typeof Heading>
 
@@ -50,7 +45,7 @@ export const Heading1: Story = {
 export const Heading2: Story = {
   args: {
     level: 2,
-    styleLevel: 2,
+    size: 'level-2',
   },
   parameters: {
     docs: {
@@ -65,7 +60,7 @@ export const Heading2: Story = {
 export const Heading3: Story = {
   args: {
     level: 3,
-    styleLevel: 3,
+    size: 'level-3',
   },
   parameters: {
     docs: {
@@ -80,7 +75,7 @@ export const Heading3: Story = {
 export const Heading4: Story = {
   args: {
     level: 4,
-    styleLevel: 4,
+    size: 'level-4',
   },
   parameters: {
     docs: {
