@@ -4,7 +4,7 @@ Het accordion component is een klikbare (verticaal gestapelde) lijst van koppen 
 
 ## Richtlijnen
 
-- Gebruik een accordion op een volle pagina met zowel essentiële als niet-essentiële inhoud. Door niet-essentiële inhoud te verbergen, komen gebruikers sneller bij de primaire inhoud.
+- Gebruik een accordion op een volle pagina met zowel essentiële als niet-essentiële inhoud. Door niet-essentiële inhoud te verbergen, komen gebruikers sneller bij de essentiële inhoud.
 - Gebruikt een accordion niet om teveel essentiële inhoud op 1 pagina te voorkomen. Herschrijf de pagina compacter, verdeel de inhoud over meerdere pagina's of gebruik het (nog te maken) inhoudsopgave-component in plaats van een accordion voor dat doel. Verberg essentiële informatie niet in een accordion.
 - Een accordion bestaat uit meerdere accordionsecties. Gebruik minimaal 3 en maximaal 10 secties onder elkaar.
 - Het is belangrijk dat accordionsecties duidelijke koppen hebben, omdat de gebruiker de verborgen inhoud niet kan "scannen" om relevante informatie te vinden.
