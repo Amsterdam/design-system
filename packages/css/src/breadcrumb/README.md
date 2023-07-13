@@ -10,6 +10,6 @@ Gebruik het kruimelpad alleen als het functioneel iets toevoegt voor de gebruike
 
 ### Dit vermijden
 
-De Breadcrumbs wordt niet ingezet op een formulierpagina. Het leidt af van de taak van de gebruiker of kan per ongeluk als Progress Indicator gezien worden.
+Het kruimelpad wordt niet ingezet op een formulierpagina. Het leidt af van de taak van de gebruiker of kan per ongeluk als Progress Indicator gezien worden.
 
 Het is een secundair navigatiepatroon. Het mag nooit de hoofdnavigatie vervangen.
