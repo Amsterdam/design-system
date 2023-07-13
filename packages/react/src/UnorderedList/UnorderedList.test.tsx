@@ -1,49 +1,34 @@
-import { render, screen } from '@testing-library/react'
+import { render } from '@testing-library/react'
 import { createRef } from 'react'
-import { List } from './List'
+import { UnorderedList } from './UnorderedList'
 import '@testing-library/jest-dom'
 
-describe('List', () => {
-  it('renders a list role element', () => {
-    render(<List />)
-
-    const list = screen.getByRole('list')
-
-    expect(list).toBeInTheDocument()
-    expect(list).toBeVisible()
-  })
-
+describe('Unordered List', () => {
   it('renders an HTML ul element', () => {
-    const { container } = render(<List />)
-
+    const { container } = render(<UnorderedList />)
     const list = container.querySelector('ul:only-child')
 
     expect(list).toBeInTheDocument()
   })
 
   it('renders a design system BEM class name', () => {
-    const { container } = render(<List />)
-
+    const { container } = render(<UnorderedList />)
     const list = container.querySelector(':only-child')
 
-    expect(list).toHaveClass('amsterdam-list')
+    expect(list).toHaveClass('amsterdam-unordered-list')
   })
 
   it('can have a additional class name', () => {
-    const { container } = render(<List className="large" />)
-
+    const { container } = render(<UnorderedList className="large" />)
     const list = container.querySelector(':only-child')
 
     expect(list).toHaveClass('large')
-
-    expect(list).toHaveClass('amsterdam-list')
+    expect(list).toHaveClass('amsterdam-unordered-list')
   })
 
   it('supports ForwardRef in React', () => {
     const ref = createRef<HTMLUListElement>()
-
-    const { container } = render(<List ref={ref} />)
-
+    const { container } = render(<UnorderedList ref={ref} />)
     const list = container.querySelector(':only-child')
 
     expect(ref.current).toBe(list)

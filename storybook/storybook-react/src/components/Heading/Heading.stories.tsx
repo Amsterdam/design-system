@@ -14,7 +14,12 @@ const meta = {
   args: {
     children: 'Jouw typograaf biedt mij zulke exquise schreven!',
     level: 1,
-    styleLevel: 1,
+    size: 'level-1',
+  },
+  argTypes: {
+    size: {
+      options: ['level-1', 'level-2', 'level-3', 'level-4'],
+    },
   },
 } satisfies Meta<typeof Heading>
 
@@ -27,20 +32,20 @@ export const Heading1: Story = {}
 export const Heading2: Story = {
   args: {
     level: 2,
-    styleLevel: 2,
+    size: 'level-2',
   },
 }
 
 export const Heading3: Story = {
   args: {
     level: 3,
-    styleLevel: 3,
+    size: 'level-3',
   },
 }
 
 export const Heading4: Story = {
   args: {
     level: 4,
-    styleLevel: 4,
+    size: 'level-4',
   },
 }

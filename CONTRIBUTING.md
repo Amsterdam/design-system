@@ -105,6 +105,16 @@ We use [GitHub flow](https://docs.github.com/en/get-started/quickstart/github-fl
 
 Package versioning and publishing is done through Lerna, by the maintainers of the repository. Contributors do not need to increment versions. Contact the maintainers if you want to release a new version of a package.
 
+## Publishing
+
+You can only publish if you have access to the `@amsterdam` group on NPM. If you want to have rights to publish as well, contact one of the [maintainers](./documentation/maintainers.md). To publish these packages to NPM, follow these steps:
+
+1. Pull in the latest version of the `main` branch locally
+2. Make sure you're logged in to NPM, by running `npm login`
+3. Run `npm run build`
+4. Run `npm run release`
+5. Run `npm run publish`
+
 ## Cooperation with NL Design System
 
 This repository is part of the [NL Design System](https://nldesignsystem.nl/). When you contribute to this project you allow your contributions to be made a part of the NL Design System component library. For more information, please read about [their contribution model](https://nldesignsystem.nl/meedoen/estafettemodel/).

@@ -1,5 +1,5 @@
 {
-  "version": "0.1.3",
+  "version": "0.1.4",
   "author": "Community for NL Design System",
   "description": "React component library bundle for the City of Amsterdam based on the NL Design System architecture",
   "license": "EUPL-1.2",
@@ -23,7 +23,7 @@
     "clean": "rimraf dist/",
     "lint": "tsc --project ./tsconfig.json --noEmit && tsc --noEmit --project ./tsconfig.test.json",
     "test": "jest --verbose",
-    "watch:test": "NODE_OPTIONS=--experimental-vm-modules jest --verbose --watch"
+    "watch:test": "jest --verbose --watch"
   },
   "main": "./dist/index.cjs.js",
   "module": "./dist/index.esm.js",
