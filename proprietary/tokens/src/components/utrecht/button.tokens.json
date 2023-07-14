@@ -43,14 +43,10 @@
         "color": {
           "value": "{amsterdam.color.primary-white}"
         },
-        "border-color": {
-          "value": "transparent"
-        }
+        "border-color": {}
       },
       "hover": {
-        "background-color": {
-          "value": "{amsterdam.color.dark-blue}"
-        }
+        "background-color": {}
       },
       "focus": {
         "scale": {}
@@ -79,7 +75,9 @@
           "color": {}
         },
         "focus": {
-          "background-color": {},
+          "background-color": {
+            "value": "{amsterdam.color.dark-blue}"
+          },
           "border-color": {},
           "border-width": {}
         },
@@ -142,20 +140,14 @@
         "color": {
           "value": "{amsterdam.color.primary-blue}"
         },
-        "border-color": {
-          "value": "{amsterdam.color.primary-blue}"
-        },
-        "border-width": {
-          "value": "{amsterdam.border-width.md}"
-        },
+        "border-color": {},
+        "border-width": {},
         "hover": {
           "background-color": {},
           "color": {
             "value": "{amsterdam.color.dark-blue}"
           },
-          "border-color": {
-            "value": "{amsterdam.color.dark-blue}"
-          }
+          "border-color": {}
         },
         "disabled": {
           "background-color": {
@@ -164,9 +156,7 @@
           "color": {
             "value": "{amsterdam.color.neutral-grey2}"
           },
-          "border-color": {
-            "value": "{amsterdam.color.neutral-grey2}"
-          }
+          "border-color": {}
         },
         "danger": {
           "background-color": {},
@@ -225,23 +215,23 @@
           "value": "transparent"
         },
         "border-color": {},
-        "border-width": {
-          "value": "{amsterdam.border-width.md}"
-        },
+        "border-width": {},
         "color": {
           "value": "{amsterdam.color.primary-blue}"
         },
         "font-weight": {},
         "hover": {
           "background-color": {},
-          "color": {},
-          "border-color": {
-            "value": "{amsterdam.color.neutral-grey3}"
-          }
+          "color": {
+            "value": "{amsterdam.color.dark-blue}"
+          },
+          "border-color": {}
         },
         "focus": {
           "background-color": {},
-          "color": {},
+          "color": {
+            "value": "{amsterdam.color.dark-blue}"
+          },
           "border-color": {}
         },
         "disabled": {
