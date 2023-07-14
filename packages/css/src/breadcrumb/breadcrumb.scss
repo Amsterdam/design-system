@@ -14,11 +14,9 @@
 }
 
 .amsterdam-breadcrumb {
-  color: var(--amsterdam-breadcrumb-color);
   font-family: var(--amsterdam-breadcrumb-font-family, inherit);
   font-size: var(--amsterdam-breadcrumb-font-size-narrow);
   line-height: var(--amsterdam-breadcrumb-line-height);
-  text-transform: capitalize;
 
   @media screen and (width > $amsterdam-breakpoint) {
     font-size: var(--amsterdam-breadcrumb-font-size-wide);
@@ -53,15 +51,22 @@
 }
 
 .amsterdam-breadcrumb-item__link {
-  color: inherit;
+  color: var(--amsterdam-breadcrumb-color);
   cursor: pointer;
   outline-offset: var(--amsterdam-breadcrumb-item-link-outline-offset);
+  padding-block: 0.75rem;
   text-decoration: none;
+
+  &::first-letter {
+    text-transform: capitalize;
+  }
 
   &:focus,
   &:hover,
   &:active {
-    box-shadow: var(--amsterdam-breadcrumb-item-link-hover-box-shadow);
     color: var(--amsterdam-breadcrumb-item-link-hover-color);
+    text-decoration: underline;
+    text-decoration-thickness: 2px;
+    text-underline-offset: 3px;
   }
 }
