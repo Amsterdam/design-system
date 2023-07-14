@@ -27,9 +27,9 @@ const meta = {
     variant: {
       control: {
         type: 'select',
-        labels: { standalone: 'standalone', standaloneBold: 'standaloneBold', inline: 'inline', inList: 'inList' },
+        labels: { standalone: 'standalone', inline: 'inline', inList: 'inList' },
       },
-      options: ['standalone', 'standaloneBold', 'inline', 'inList'],
+      options: ['standalone', 'inline', 'inList'],
       table: {
         category: 'API',
         defaultValue: { summary: 'standalone' },
@@ -76,20 +76,6 @@ export const Standalone: Story = {
         code: '<a href="#" class="amsterdam-link">Linktekst</a>',
       },
     },
-  },
-}
-
-export const StandaloneBold: Story = {
-  parameters: {
-    docs: {
-      source: {
-        language: 'html',
-        code: '<a href="#" class="amsterdam-link amsterdam-link--standalone-bold">Linktekst</a>',
-      },
-    },
-  },
-  args: {
-    variant: 'standaloneBold',
   },
 }
 

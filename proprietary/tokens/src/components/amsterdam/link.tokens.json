@@ -21,11 +21,6 @@
         "text-underline-offset": { "value": "8px" }
       },
       "line-height": { "value": "{amsterdam.typography.text-level.6.line-height}" },
-      "standalone-bold": {
-        "font-weight": {
-          "value": "{amsterdam.typography.font-weight.bold}"
-        }
-      },
       "inline": {
         "focus": {
           "text-underline-offset": { "value": "3px" }
@@ -43,7 +38,7 @@
       "in-list": {
         "gap": { "value": "0.5em" },
         "focus": {
-          "text-underline-offset": { "value": "0.3em" }
+          "text-underline-offset": { "value": "7px" }
         },
         "font-size": {
           "narrow": { "value": "{amsterdam.typography.text-level.7.font-size.narrow}" },

@@ -9,7 +9,7 @@ import { AnchorHTMLAttributes, ForwardedRef, forwardRef, PropsWithChildren } fro
 import { Icon } from '../Icon/Icon'
 
 type LinkOnBackground = 'default' | 'light' | 'dark'
-type LinkVariant = 'standalone' | 'standaloneBold' | 'inline' | 'inList'
+type LinkVariant = 'standalone' | 'inline' | 'inList'
 
 export interface LinkProps extends Omit<AnchorHTMLAttributes<HTMLAnchorElement>, 'placeholder'> {
   variant?: LinkVariant
@@ -28,7 +28,6 @@ export const Link = forwardRef(
         'amsterdam-link',
         {
           'amsterdam-link--inline': variant === 'inline',
-          'amsterdam-link--standalone-bold': variant === 'standaloneBold',
           'amsterdam-link--in-list': variant === 'inList',
           'amsterdam-link--on-background-light': onBackground === 'light',
           'amsterdam-link--on-background-dark': onBackground === 'dark',

@@ -27,9 +27,9 @@ const meta = {
     variant: {
       control: {
         type: 'select',
-        labels: { standalone: 'standalone', standaloneBold: 'standaloneBold', inline: 'inline', inList: 'inList' },
+        labels: { standalone: 'standalone', inline: 'inline', inList: 'inList' },
       },
-      options: ['standalone', 'standaloneBold', 'inline', 'inList'],
+      options: ['standalone', 'inline', 'inList'],
       table: {
         category: 'API',
         defaultValue: { summary: 'standalone' },
@@ -71,13 +71,6 @@ export default meta
 export const Standalone: Story = {
   args: {
     onBackground: undefined, // Workaround to avoid 'onBackground' being set to an empty function
-  },
-}
-
-export const StandaloneBold: Story = {
-  args: {
-    variant: 'standaloneBold',
-    onBackground: undefined,
   },
 }
 
