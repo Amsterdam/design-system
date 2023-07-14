@@ -12,6 +12,7 @@
   font-weight: var(--amsterdam-link-font-weight);
   line-height: var(--amsterdam-link-line-height);
   outline-offset: var(--amsterdam-link-outline-offset);
+  padding-block: 0.5rem;
   text-decoration-thickness: var(--amsterdam-link-text-decoration-thickness);
   text-underline-offset: var(--amsterdam-link-text-underline-offset);
 
@@ -31,12 +32,13 @@
 .amsterdam-link--inline {
   font-family: var(--amsterdam-link-inline-font-family);
   font-size: var(--amsterdam-link-inline-font-size);
-  text-decoration: none; // TODO
+  padding-block: 0;
+  text-decoration: var(--amsterdam-link-inline-text-decoration);
 
   &:hover,
   &:active,
   &:focus {
-    text-decoration: underline; // TODO
+    text-decoration: var(--amsterdam-link-inline-focus-text-decoration);
     text-underline-offset: var(--amsterdam-link-inline-focus-text-underline-offset);
   }
 
@@ -51,13 +53,14 @@
   font-size: var(--amsterdam-link-in-list-font-size-narrow);
   gap: var(--amsterdam-link-in-list-gap);
   line-height: var(--amsterdam-link-in-list-line-height);
-  text-decoration: none; // TODO
+  padding-block: 0.75rem;
+  text-decoration: var(--amsterdam-link-in-list-text-decoration);
 
   &:hover,
   &:active,
   &:focus {
-    text-decoration: underline; // TODO
-    text-decoration-thickness: 2px; // TODO
+    text-decoration: var(--amsterdam-link-in-list-focus-text-decoration);
+    text-decoration-thickness: var(--amsterdam-link-in-list-focus-text-decoration-thickness);
     text-underline-offset: var(--amsterdam-link-in-list-focus-text-underline-offset);
   }
 
@@ -95,5 +98,17 @@
 
   &:visited {
     color: var(--amsterdam-link-on-background-light-visited-color);
+  }
+}
+
+.amsterdam-link--inline.amsterdam-link--on-background-dark,
+.amsterdam-link--inline.amsterdam-link--on-background-light {
+  text-decoration: var(--amsterdam-link-inline-focus-text-decoration);
+  text-underline-offset: var(--amsterdam-link-inline-focus-text-underline-offset);
+
+  &:hover,
+  &:active,
+  &:focus {
+    text-decoration: var(--amsterdam-link-inline-text-decoration);
   }
 }
