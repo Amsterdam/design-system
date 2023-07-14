@@ -1,2 +1,0 @@
-import{j as l,c as m}from"./clsx.m-51e04ab1.js";import{r as o}from"./index-8db94870.js";const a=o.forwardRef(({children:r,size:e,className:p,...s},t)=>l.jsx("p",{ref:t,className:m("amsterdam-paragraph",e&&`amsterdam-paragraph-${e}`,p),...s,children:r}));a.displayName="Paragraph";try{a.displayName="Paragraph",a.__docgenInfo={description:"",displayName:"Paragraph",props:{size:{defaultValue:null,description:"",name:"size",required:!1,type:{name:"enum",value:[{value:'"small"'},{value:'"large"'}]}}}}}catch{}export{a as P};
-//# sourceMappingURL=Paragraph-28699716.js.map
