@@ -11,20 +11,15 @@
   font-size: var(--amsterdam-link-font-size-narrow);
   line-height: var(--amsterdam-link-line-height);
   outline-offset: var(--amsterdam-link-outline-offset);
-  text-decoration: var(--amsterdam-link-text-decoration);
   text-decoration-thickness: var(--amsterdam-link-text-decoration-thickness);
   text-underline-offset: var(--amsterdam-link-text-underline-offset);
 
   &:hover,
-  &:active {
-    color: var(--amsterdam-link-hover-color);
-    text-decoration: var(--amsterdam-link-hover-text-decoration);
-    text-decoration-thickness: var(--amsterdam-link-hover-text-decoration-thickness);
-  }
-
+  &:active,
   &:focus {
     color: var(--amsterdam-link-focus-color);
-    text-decoration: var(--amsterdam-link-focus-text-decoration);
+    text-decoration-thickness: var(--amsterdam-link-focus-text-decoration-thickness);
+    text-underline-offset: var(--amsterdam-link-focus-text-underline-offset);
   }
 
   @media screen and (width > $amsterdam-breakpoint) {
@@ -39,7 +34,14 @@
 .amsterdam-link--inline {
   font-family: var(--amsterdam-link-inline-font-family);
   font-size: var(--amsterdam-link-inline-font-size);
-  text-underline-offset: var(--amsterdam-link-inline-text-underline-offset);
+  text-decoration: none; // TODO
+
+  &:hover,
+  &:active,
+  &:focus {
+    text-decoration: underline; // TODO
+    text-underline-offset: var(--amsterdam-link-inline-focus-text-underline-offset);
+  }
 
   &:visited {
     color: var(--amsterdam-link-inline-visited-color);
@@ -52,7 +54,14 @@
   font-size: var(--amsterdam-link-in-list-font-size-narrow);
   gap: var(--amsterdam-link-in-list-gap);
   line-height: var(--amsterdam-link-in-list-line-height);
-  text-underline-offset: var(--amsterdam-link-in-list-text-underline-offset);
+  text-decoration: none; // TODO
+
+  &:hover,
+  &:active,
+  &:focus {
+    text-decoration: underline; // TODO
+    text-underline-offset: var(--amsterdam-link-inline-focus-text-underline-offset);
+  }
 
   // Override for icon size
   span.amsterdam-icon svg {
