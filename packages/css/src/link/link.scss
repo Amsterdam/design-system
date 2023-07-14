@@ -28,10 +28,6 @@
     text-decoration: var(--amsterdam-link-focus-text-decoration);
   }
 
-  &:visited {
-    color: var(--amsterdam-link-visited-color);
-  }
-
   @media screen and (width > $amsterdam-breakpoint) {
     font-size: var(--amsterdam-link-font-size-wide);
   }

@@ -26,9 +26,6 @@
         "text-decoration-thickness": { "value": "2px" }
       },
       "line-height": { "value": "{amsterdam.typography.text-level.6.line-height}" },
-      "visited": {
-        "color": { "value": "{amsterdam.color.primary-blue}" }
-      },
       "standalone-bold": {
         "font-weight": {
           "value": "{amsterdam.typography.font-weight.bold}"
