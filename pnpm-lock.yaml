@@ -1,5 +1,9 @@
 lockfileVersion: '6.0'
 
+settings:
+  autoInstallPeers: true
+  excludeLinksFromLockfile: false
+
 importers:
 
   .:
@@ -63,8 +67,8 @@ importers:
         specifier: 0.35.0
         version: 0.35.0
       npm-check-updates:
-        specifier: 16.10.15
-        version: 16.10.15
+        specifier: 16.10.16
+        version: 16.10.16
       npm-package-json-lint:
         specifier: 6.4.0
         version: 6.4.0
@@ -4255,22 +4259,6 @@ packages:
       semver: 7.5.4
     dev: true
 
-  /@npmcli/git@4.0.4:
-    resolution: {integrity: sha512-5yZghx+u5M47LghaybLCkdSyFzV/w4OuH12d96HO389Ik9CDsLaDZJVynSGGVJOLn6gy/k7Dz5XYcplM3uxXRg==}
-    engines: {node: ^14.17.0 || ^16.13.0 || >=18.0.0}
-    dependencies:
-      '@npmcli/promise-spawn': 6.0.2
-      lru-cache: 7.18.3
-      npm-pick-manifest: 8.0.1
-      proc-log: 3.0.0
-      promise-inflight: 1.0.1
-      promise-retry: 2.0.1
-      semver: 7.5.4
-      which: 3.0.0
-    transitivePeerDependencies:
-      - bluebird
-    dev: true
-
   /@npmcli/git@4.1.0:
     resolution: {integrity: sha512-9hwoB3gStVfa0N31ymBmrX+GuDGdVA/QWShZVqE0HK2Af+7QGGrCTbZia/SW0ImUTjTne7SP91qxDmtXvDHRPQ==}
     engines: {node: ^14.17.0 || ^16.13.0 || >=18.0.0}
@@ -4293,7 +4281,7 @@ packages:
     hasBin: true
     dependencies:
       npm-bundled: 3.0.0
-      npm-normalize-package-bin: 3.0.0
+      npm-normalize-package-bin: 3.0.1
     dev: true
 
   /@npmcli/map-workspaces@3.0.4:
@@ -4364,20 +4352,6 @@ packages:
     engines: {node: ^14.17.0 || ^16.13.0 || >=18.0.0}
     dependencies:
       postcss-selector-parser: 6.0.13
-    dev: true
-
-  /@npmcli/run-script@6.0.0:
-    resolution: {integrity: sha512-ql+AbRur1TeOdl1FY+RAwGW9fcr4ZwiVKabdvm93mujGREVuVLbdkXRJDrkTXSdCjaxYydr1wlA2v67jxWG5BQ==}
-    engines: {node: ^14.17.0 || ^16.13.0 || >=18.0.0}
-    dependencies:
-      '@npmcli/node-gyp': 3.0.0
-      '@npmcli/promise-spawn': 6.0.2
-      node-gyp: 9.3.1
-      read-package-json-fast: 3.0.2
-      which: 3.0.0
-    transitivePeerDependencies:
-      - bluebird
-      - supports-color
     dev: true
 
   /@npmcli/run-script@6.0.2:
@@ -6442,7 +6416,7 @@ packages:
       '@typescript-eslint/typescript-estree': 5.60.0(typescript@5.1.6)
       eslint: 8.44.0
       eslint-scope: 5.1.1
-      semver: 7.5.2
+      semver: 7.5.4
     transitivePeerDependencies:
       - supports-color
       - typescript
@@ -9498,17 +9472,6 @@ packages:
     resolution: {integrity: sha512-f3qQ9oQy9j2AhBe/H9VC91wLmKBCCU/gDOnKNAYG5hswO7BLKj09Hc5HYNz9cGI++xlpDCIgDaitVs03ATR84Q==}
     dev: true
 
-  /fast-glob@3.2.12:
-    resolution: {integrity: sha512-DVj4CQIYYow0BlaelwK1pHl5n5cRSJfM60UA0zK891sVInoPri2Ekj7+e1CT3/3qxXenpI+nBBmQAcJPJgaj4w==}
-    engines: {node: '>=8.6.0'}
-    dependencies:
-      '@nodelib/fs.stat': 2.0.5
-      '@nodelib/fs.walk': 1.2.8
-      glob-parent: 5.1.2
-      merge2: 1.4.1
-      micromatch: 4.0.5
-    dev: true
-
   /fast-glob@3.3.0:
     resolution: {integrity: sha512-ChDuvbOypPuNjO8yIDf36x7BlZX1smcUMTTcyoIjycexOxd6DFsKsg21qVBzEmr3G7fUKIRy2/psii+CIUt7FA==}
     engines: {node: '>=8.6.0'}
@@ -10069,9 +10032,9 @@ packages:
     dependencies:
       foreground-child: 3.1.1
       jackspeak: 2.1.0
-      minimatch: 9.0.1
+      minimatch: 9.0.3
       minipass: 5.0.0
-      path-scurry: 1.7.0
+      path-scurry: 1.10.1
     dev: true
 
   /glob@10.2.7:
@@ -10081,9 +10044,9 @@ packages:
     dependencies:
       foreground-child: 3.1.1
       jackspeak: 2.1.0
-      minimatch: 9.0.1
+      minimatch: 9.0.3
       minipass: 5.0.0
-      path-scurry: 1.7.0
+      path-scurry: 1.10.1
     dev: true
 
   /glob@10.3.0:
@@ -10093,9 +10056,9 @@ packages:
     dependencies:
       foreground-child: 3.1.1
       jackspeak: 2.1.0
-      minimatch: 9.0.1
+      minimatch: 9.0.3
       minipass: 5.0.0
-      path-scurry: 1.7.0
+      path-scurry: 1.10.1
     dev: true
 
   /glob@10.3.3:
@@ -10195,7 +10158,7 @@ packages:
       '@types/glob': 7.2.0
       array-union: 2.1.0
       dir-glob: 3.0.1
-      fast-glob: 3.2.12
+      fast-glob: 3.3.0
       glob: 7.2.3
       ignore: 5.2.4
       merge2: 1.4.1
@@ -10208,7 +10171,7 @@ packages:
     dependencies:
       array-union: 2.1.0
       dir-glob: 3.0.1
-      fast-glob: 3.2.12
+      fast-glob: 3.3.0
       ignore: 5.2.4
       merge2: 1.4.1
       slash: 3.0.0
@@ -12219,11 +12182,6 @@ packages:
     engines: {node: '>=12'}
     dev: true
 
-  /lru-cache@9.1.0:
-    resolution: {integrity: sha512-qFXQEwchrZcMVen2uIDceR8Tii6kCJak5rzDStfEM0qA3YLMswaxIEZO0DhIbJ3aqaJiDjt+3crlplOb0tDtKQ==}
-    engines: {node: 14 || >=16.14}
-    dev: true
-
   /lz-string@1.5.0:
     resolution: {integrity: sha512-h5bgJWpxJNswbU7qCrV0tIKQCaS3blPDrqKWx+QxzuzL1zGUzij9XCWLrSLsJPu5t+eWA/ycetzYAO5IOMcWAQ==}
     hasBin: true
@@ -13465,8 +13423,8 @@ packages:
       npm-normalize-package-bin: 3.0.1
     dev: true
 
-  /npm-check-updates@16.10.15:
-    resolution: {integrity: sha512-tmbFF7J1mIbjmnN4DzFRVlEeAaIB/FPRz4o95DWsGB7fT3ZECuxyMMDnvySfoijuWxx8E7pODN0IoKYnEJVxcg==}
+  /npm-check-updates@16.10.16:
+    resolution: {integrity: sha512-d8mNYce/l8o5RHPE5ZUp2P1zj9poI7KWQCh5AsTIP3EhicONEhc63mLQQv4/nkCsMb3wCrikx6YOo4BOwN4+1w==}
     engines: {node: '>=14.14'}
     hasBin: true
     dependencies:
@@ -13510,11 +13468,6 @@ packages:
     engines: {node: ^14.17.0 || ^16.13.0 || >=18.0.0}
     dependencies:
       semver: 7.5.4
-    dev: true
-
-  /npm-normalize-package-bin@3.0.0:
-    resolution: {integrity: sha512-g+DPQSkusnk7HYXr75NtzkIP4+N81i3RPsGFidF3DzHd9MT9wWngmqoeg/fnHFz5MNdtG4w03s+QnhewSLTT2Q==}
-    engines: {node: ^14.17.0 || ^16.13.0 || >=18.0.0}
     dev: true
 
   /npm-normalize-package-bin@3.0.1:
@@ -13569,7 +13522,7 @@ packages:
     engines: {node: ^14.17.0 || ^16.13.0 || >=18.0.0}
     dependencies:
       npm-install-checks: 6.1.1
-      npm-normalize-package-bin: 3.0.0
+      npm-normalize-package-bin: 3.0.1
       npm-package-arg: 10.1.0
       semver: 7.5.4
     dev: true
@@ -13959,10 +13912,10 @@ packages:
     resolution: {integrity: sha512-eeqEe77QrA6auZxNHIp+1TzHQ0HBKf5V6c8zcaYZ134EJe1lCi+fjXATkNiEEfbG+e50nu02GLvUtmZcGOYabQ==}
     engines: {node: ^14.17.0 || ^16.13.0 || >=18.0.0}
     dependencies:
-      '@npmcli/git': 4.0.4
+      '@npmcli/git': 4.1.0
       '@npmcli/installed-package-contents': 2.0.2
       '@npmcli/promise-spawn': 6.0.2
-      '@npmcli/run-script': 6.0.0
+      '@npmcli/run-script': 6.0.2
       cacache: 17.0.5
       fs-minipass: 3.0.1
       minipass: 4.2.8
@@ -13974,7 +13927,7 @@ packages:
       promise-retry: 2.0.1
       read-package-json: 6.0.4
       read-package-json-fast: 3.0.2
-      sigstore: 1.3.2
+      sigstore: 1.5.2
       ssri: 10.0.4
       tar: 6.1.15
     transitivePeerDependencies:
@@ -13987,7 +13940,7 @@ packages:
     engines: {node: ^14.17.0 || ^16.13.0 || >=18.0.0}
     hasBin: true
     dependencies:
-      '@npmcli/git': 4.0.4
+      '@npmcli/git': 4.1.0
       '@npmcli/installed-package-contents': 2.0.2
       '@npmcli/promise-spawn': 6.0.2
       '@npmcli/run-script': 6.0.2
@@ -14171,14 +14124,6 @@ packages:
     engines: {node: '>=16 || 14 >=14.17'}
     dependencies:
       lru-cache: 10.0.0
-      minipass: 5.0.0
-    dev: true
-
-  /path-scurry@1.7.0:
-    resolution: {integrity: sha512-UkZUeDjczjYRE495+9thsgcVgsaCPkaw80slmfVFgllxY+IO8ubTsOpFVjDPROBqJdHfVPUFRHPBV/WciOVfWg==}
-    engines: {node: '>=16 || 14 >=14.17'}
-    dependencies:
-      lru-cache: 9.1.0
       minipass: 5.0.0
     dev: true
 
@@ -15118,7 +15063,7 @@ packages:
     engines: {node: ^14.17.0 || ^16.13.0 || >=18.0.0}
     dependencies:
       json-parse-even-better-errors: 3.0.0
-      npm-normalize-package-bin: 3.0.0
+      npm-normalize-package-bin: 3.0.1
     dev: true
 
   /read-package-json@6.0.4:
@@ -15128,7 +15073,7 @@ packages:
       glob: 10.3.3
       json-parse-even-better-errors: 3.0.0
       normalize-package-data: 5.0.0
-      npm-normalize-package-bin: 3.0.0
+      npm-normalize-package-bin: 3.0.1
     dev: true
 
   /read-pkg-up@3.0.0:
@@ -15880,19 +15825,6 @@ packages:
   /signal-exit@4.0.1:
     resolution: {integrity: sha512-uUWsN4aOxJAS8KOuf3QMyFtgm1pkb6I+KRZbRF/ghdf5T7sM+B1lLLzPDxswUjkmHyxQAVzEgG35E3NzDM9GVw==}
     engines: {node: '>=14'}
-    dev: true
-
-  /sigstore@1.3.2:
-    resolution: {integrity: sha512-0KT1DjpVB11FK15ep7BIsZQV6j1jBm4SnXIInbBCRvql6II39IKONOMO+j036sGsArU/+2xqa1NDJwJkic0neA==}
-    engines: {node: ^14.17.0 || ^16.13.0 || >=18.0.0}
-    hasBin: true
-    dependencies:
-      '@sigstore/protobuf-specs': 0.1.0
-      make-fetch-happen: 11.1.0
-      tuf-js: 1.1.4
-    transitivePeerDependencies:
-      - bluebird
-      - supports-color
     dev: true
 
   /sigstore@1.5.2:
