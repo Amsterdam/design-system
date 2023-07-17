@@ -2,7 +2,7 @@
   display: inline-block;
   line-height: 0;
   outline-offset: var(--amsterdam-switch-outline-offset);
-  overflow: hidden;
+  overflow: visible;
   padding-block: 6px;
   position: relative;
 }
@@ -18,8 +18,8 @@
   border-radius: 50px;
   box-sizing: border-box;
   display: inline-block;
-  padding-block: 2px;
-  padding-inline: 2px;
+  padding-block: 1px;
+  padding-inline: 1px;
   transition: background-color 0.2s ease-in-out;
   width: 58px;
 }
@@ -30,8 +30,14 @@
   display: block;
   height: 28px;
   transform: translate(0);
-  transition: transform 0.1s ease-in-out;
+  transition-duration: 0.1s;
+  transition-property: box-shadow, transform;
+  transition-timing-function: ease-in-out;
   width: 28px;
+}
+
+.amsterdam-switch:hover .amsterdam-switch__toggle-inner {
+  box-shadow: 0 0 0 3px var(--amsterdam-switch-hover-color);
 }
 
 .amsterdam-switch__input:checked + .amsterdam-switch__toggle {
@@ -43,5 +49,5 @@
 }
 
 .amsterdam-switch__input:checked + .amsterdam-switch__toggle > .amsterdam-switch__toggle-inner {
-  transform: translate(calc(100% - 2px));
+  transform: translate(100%);
 }
