@@ -13,13 +13,21 @@ interface UnorderedListComponent
   Item: typeof UnorderedListItem
 }
 
+export interface UnorderedListProps extends HTMLAttributes<HTMLUListElement> {
+  unstyled?: boolean
+}
+
 export const UnorderedList = forwardRef(
   (
-    { children, className, ...restProps }: PropsWithChildren<HTMLAttributes<HTMLUListElement>>,
+    { children, unstyled, className, ...restProps }: PropsWithChildren<UnorderedListProps>,
     ref: ForwardedRef<HTMLUListElement>,
   ) => {
     return (
-      <ul ref={ref} className={clsx('amsterdam-unordered-list', className)} {...restProps}>
+      <ul
+        ref={ref}
+        className={clsx('amsterdam-unordered-list', unstyled && 'amsterdam-unordered-list--unstyled', className)}
+        {...restProps}
+      >
         {children}
       </ul>
     )
