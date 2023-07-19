@@ -64,14 +64,16 @@
     text-underline-offset: var(--amsterdam-link-in-list-focus-text-underline-offset);
   }
 
-  // Override for icon size
+  @media screen and (width > $amsterdam-breakpoint) {
+    font-size: var(--amsterdam-link-in-list-font-size-wide);
+  }
+}
+
+// Override for icon size
+.amsterdam-link--in-list__chevron {
   span.amsterdam-icon svg {
     height: 16px;
     width: 16px;
-  }
-
-  @media screen and (width > $amsterdam-breakpoint) {
-    font-size: var(--amsterdam-link-in-list-font-size-wide);
   }
 }
 

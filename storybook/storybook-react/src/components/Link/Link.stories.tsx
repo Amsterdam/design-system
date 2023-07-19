@@ -4,6 +4,7 @@
  */
 
 import { Link, Paragraph } from '@amsterdam/design-system-react/src'
+import { Email } from '@amsterdam/design-system-react-icons'
 import type { Meta, StoryObj } from '@storybook/react'
 
 import '@amsterdam/design-system-css/src/link/link.scss'
@@ -96,6 +97,16 @@ export const InList: Story = {
     href: '#',
     variant: 'inList',
     onBackground: undefined,
+  },
+}
+
+export const InListWithIcon: Story = {
+  args: {
+    children: 'Linktekst',
+    href: '#',
+    variant: 'inList',
+    onBackground: undefined,
+    icon: Email,
   },
 }
 
