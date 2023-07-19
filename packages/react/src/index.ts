@@ -4,6 +4,7 @@
  */
 
 export * from './Heading'
+export * from './Breadcrumb'
 export * from './Link'
 export * from './Button/'
 export * from './Paragraph'
