@@ -3,7 +3,7 @@
     "link": {
       "color": { "value": "{amsterdam.color.primary-blue}" },
       "outline-offset": { "value": "{amsterdam.focus.outline-offset}" },
-      "text-underline-offset": { "value": "9px" },
+      "text-underline-offset": { "value": "8px" },
       "text-decoration-thickness": { "value": "2px" },
       "font-family": {
         "value": "{amsterdam.typography.font-family}"
@@ -18,7 +18,7 @@
       "focus": {
         "color": { "value": "{amsterdam.color.dark-blue}" },
         "text-decoration-thickness": { "value": "3px" },
-        "text-underline-offset": { "value": "8px" }
+        "text-underline-offset": { "value": "7px" }
       },
       "line-height": { "value": "{amsterdam.typography.text-level.6.line-height}" },
       "inline": {
