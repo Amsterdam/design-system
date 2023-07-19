@@ -37,7 +37,7 @@ export default App;
 
 ## Unstyled components
 
-If you need unstyled React components (if you completely want to restyle them yourself, or you can't use style injection in your project because of a strict CSP), you can import these as well.
+If you need unstyled React components (if you completely want to restyle them yourself, or you can't use style injection in your project because of a strict CSP for example), you can import these as well.
 
 For example, to import an unstyled Paragraph component:
 
@@ -45,7 +45,7 @@ For example, to import an unstyled Paragraph component:
 import { Paragraph } from "@amsterdam/design-system-react/unstyled";
 ```
 
-If you do want to style unstyled React components using our css, you can add the component's css from our `@amsterdam/design-system-css` package, like so:
+If you do want to style unstyled React components using our css, you can add the component css from our `@amsterdam/design-system-css` package, like so:
 
 ```javascript
 import "@amsterdam/design-system-css/dist/paragraph/paragraph.css";
