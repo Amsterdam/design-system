@@ -1,10 +1,22 @@
 .amsterdam-switch {
-  display: inline-block;
-  line-height: 0;
+  align-items: center;
+  display: inline-flex;
+  font-family: var(--amsterdam-switch-font-family);
+  font-size: var(--amsterdam-switch-font-size-narrow);
+  line-height: var(--amsterdam-switch-line-height);
   outline-offset: var(--amsterdam-switch-outline-offset);
   overflow: visible;
   padding-block: 6px;
   position: relative;
+}
+
+.amsterdam-switch__label {
+  margin-inline-end: 1rem;
+  text-transform: lowercase;
+}
+
+.amsterdam-switch__label::first-letter {
+  text-transform: capitalize;
 }
 
 .amsterdam-switch__input {

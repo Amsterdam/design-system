@@ -1,17 +1,23 @@
 import { ForwardedRef, forwardRef, InputHTMLAttributes, PropsWithChildren } from 'react'
 
-interface SwitchProps extends InputHTMLAttributes<HTMLInputElement> {}
+export interface SwitchProps extends InputHTMLAttributes<HTMLInputElement> {
+  label?: string
+}
 
-export const Switch = forwardRef((props: PropsWithChildren<SwitchProps>, ref: ForwardedRef<HTMLInputElement>) => {
-  return (
-    <label className="amsterdam-switch">
-      <input {...props} className="amsterdam-switch__input" ref={ref} type="checkbox" />
+export const Switch = forwardRef(
+  ({ label, ...restProps }: PropsWithChildren<SwitchProps>, ref: ForwardedRef<HTMLInputElement>) => {
+    return (
+      <label className="amsterdam-switch">
+        {label && <span className="amsterdam-switch__label">{label}</span>}
 
-      <span className="amsterdam-switch__toggle" aria-hidden="true">
-        <span className="amsterdam-switch__toggle-inner"></span>
-      </span>
-    </label>
-  )
-})
+        <input {...restProps} className="amsterdam-switch__input" ref={ref} type="checkbox" />
+
+        <span className="amsterdam-switch__toggle" aria-hidden="true">
+          <span className="amsterdam-switch__toggle-inner"></span>
+        </span>
+      </label>
+    )
+  },
+)
 
 Switch.displayName = 'Switch'
