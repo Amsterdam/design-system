@@ -53,10 +53,8 @@
       },
       "on-background-dark": {
         "color": { "value": "{amsterdam.color.primary-white}" },
-        "text-decoration": { "value": "underline" },
         "hover": {
-          "color": { "value": "{amsterdam.color.primary-white}" },
-          "text-decoration": { "value": "none" }
+          "color": { "value": "{amsterdam.color.primary-white}" }
         },
         "visited": {
           "color": { "value": "{amsterdam.color.primary-white}" }
@@ -64,10 +62,8 @@
       },
       "on-background-light": {
         "color": { "value": "{amsterdam.color.primary-black}" },
-        "text-decoration": { "value": "underline" },
         "hover": {
-          "color": { "value": "{amsterdam.color.primary-black}" },
-          "text-decoration": { "value": "none" }
+          "color": { "value": "{amsterdam.color.primary-black}" }
         },
         "visited": {
           "color": { "value": "{amsterdam.color.primary-black}" }
