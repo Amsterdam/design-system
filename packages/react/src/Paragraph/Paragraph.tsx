@@ -8,10 +8,9 @@ import clsx from 'clsx'
 import { ForwardedRef, forwardRef, HTMLAttributes, PropsWithChildren } from 'react'
 import { gridCellClassNames, GridCellProps } from '../grid'
 
-export type ParagraphProps = {
+export interface ParagraphProps extends HTMLAttributes<HTMLParagraphElement>, GridCellProps {
   size?: 'small' | 'large'
-} & GridCellProps &
-  HTMLAttributes<HTMLParagraphElement>
+}
 
 export const Paragraph = forwardRef(
   (
