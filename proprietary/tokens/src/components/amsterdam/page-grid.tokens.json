@@ -1,0 +1,20 @@
+{
+  "amsterdam": {
+    "page-grid": {
+      "column-count": {
+        "narrow": {
+          "value": "4"
+        },
+        "wide": {
+          "value": "12"
+        }
+      },
+      "column-gap": {
+        "value": "2%"
+      },
+      "max-width": {
+        "value": "1440px"
+      }
+    }
+  }
+}
