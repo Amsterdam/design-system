@@ -32,7 +32,7 @@
   @include reset;
 }
 
-.amsterdam-unordered-list .amsterdam-unordered-list__item {
+.amsterdam-unordered-list > .amsterdam-unordered-list__item {
   padding-inline: var(--amsterdam-unordered-list-unordered-list-item-padding-inline);
 }
 
