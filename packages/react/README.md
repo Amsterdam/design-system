@@ -4,7 +4,9 @@
 
 The `@amsterdam/design-system-react` package contains React implementations of various components. You can use this package in React apps.
 
-The design tokens used in these components are published in a separate npm package, so don't forget to install and include `@amsterdam/design-system-tokens` too. TODO: make this easier?
+The design tokens used in these components are published in a separate npm package, so don't forget to install and include `@amsterdam/design-system-tokens` too.
+
+<!-- TODO: make this easier? -->
 
 ## Stability of the components
 
@@ -12,7 +14,7 @@ The React components are released as _alpha_ version, which means the components
 
 Make sure you specify the exact version as dependency, so you can schedule to upgrade to the latest version when you have time to test for regression bugs.
 
-TODO: add alpha, beta and production statuses to components. Also show in Storybook
+<!-- TODO: add alpha, beta and production statuses to components. Also show in Storybook -->
 
 ## Getting started
 
