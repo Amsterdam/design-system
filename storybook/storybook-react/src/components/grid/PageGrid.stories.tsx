@@ -47,17 +47,17 @@ export const ThreeColumns: Story = {
   args: {
     children: (
       <>
-        <GridCell gridColumns={[1, 4]}>
+        <GridCell gridColumns={{ span: 4 }}>
           <div className="amsterdam-docs-pink-box">
             <Paragraph>Blok 1: kolom 1 t/m 4</Paragraph>
           </div>
         </GridCell>
-        <GridCell gridColumns={[5, 8]}>
+        <GridCell gridColumns={{ span: 4 }}>
           <div className="amsterdam-docs-pink-box">
             <Paragraph>Blok 2: kolom 5 t/m 8</Paragraph>
           </div>
         </GridCell>
-        <GridCell gridColumns={[9, 12]}>
+        <GridCell gridColumns={{ span: 4 }}>
           <div className="amsterdam-docs-pink-box">
             <Paragraph>Blok 3: kolom 9 t/m 12</Paragraph>
           </div>
@@ -71,17 +71,17 @@ export const ThreeImages: Story = {
   args: {
     children: (
       <>
-        <GridCell gridColumns={[1, 4]}>
+        <GridCell gridColumns={{ span: 4 }}>
           <figure className="amsterdam-docs-figure">
             <img src="https://www.amsterdam.nl/publish/pages/1037047/20230614_poma_visuals_pn_singel-zuid940.jpg" />
           </figure>
         </GridCell>
-        <GridCell gridColumns={[5, 8]}>
+        <GridCell gridColumns={{ span: 4 }}>
           <figure className="amsterdam-docs-figure">
             <img src="https://www.amsterdam.nl/publish/pages/987083/33464-amstel-01-01sep2017-e-v-eis9403.jpg" />
           </figure>
         </GridCell>
-        <GridCell gridColumns={[9, 12]}>
+        <GridCell gridColumns={{ span: 4 }}>
           <figure className="amsterdam-docs-figure">
             <img src="https://www.amsterdam.nl/publish/pages/1036935/46116-sara-burgerhardtstr-26-17072019-17juli2019-e-v-eis940.jpg" />
           </figure>
@@ -94,7 +94,7 @@ export const ThreeImages: Story = {
 export const MiddleBlock: Story = {
   args: {
     children: (
-      <GridCell gridColumns={[2, 11]}>
+      <GridCell gridColumns={{ start: 2, span: 10 }}>
         <div className="amsterdam-docs-pink-box">
           <Paragraph>Blok: kolom 2 t/m 11</Paragraph>
         </div>
@@ -107,8 +107,10 @@ export const Paragraphs: Story = {
   args: {
     children: (
       <>
-        <Paragraph gridColumns={[1, 3]}>A paragraph, directly on the grid, with a width of 3 columns.</Paragraph>
-        <Paragraph gridColumns={[4, 12]}>
+        <Paragraph gridColumns={{ start: 1, span: 3 }}>
+          A paragraph, directly on the grid, with a width of 3 columns.
+        </Paragraph>
+        <Paragraph gridColumns={{ start: 4, span: 9 }}>
           A paragraph, directly on the grid, with a width of 9 columns. Lorem ipsum dolor sit amet, consectetur
           adipisicing elit. Eligendi id quibusdam soluta. Architecto aspernatur at debitis, deserunt ea error ex impedit
           magnam nihil odio perferendis placeat porro quidem repellat temporibus ut voluptate.
