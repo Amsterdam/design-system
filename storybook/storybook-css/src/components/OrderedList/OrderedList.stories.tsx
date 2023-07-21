@@ -16,7 +16,7 @@ const meta = {
       <OrderedList.Item key={0}>
         Dit is het eerste niveau opsommingsteken.
         <OrderedList>
-          <OrderedList.Item key={1.1}>Dit is het tweede niveau opsommingsteken.</OrderedList.Item>
+          <OrderedList.Item key={0.1}>Dit is het tweede niveau opsommingsteken.</OrderedList.Item>
         </OrderedList>
       </OrderedList.Item>,
       <OrderedList.Item key={1}>Dit is het eerste niveau opsommingsteken.</OrderedList.Item>,
@@ -24,8 +24,8 @@ const meta = {
       <OrderedList.Item key={3}>
         Dit is het eerste niveau opsommingsteken.
         <OrderedList>
-          <OrderedList.Item key={1.1}>Dit is het tweede niveau opsommingsteken.</OrderedList.Item>
-          <OrderedList.Item key={1.2}>Dit is het tweede niveau opsommingsteken.</OrderedList.Item>
+          <OrderedList.Item key={3.1}>Dit is het tweede niveau opsommingsteken.</OrderedList.Item>
+          <OrderedList.Item key={3.2}>Dit is het tweede niveau opsommingsteken.</OrderedList.Item>
         </OrderedList>
       </OrderedList.Item>,
     ],
@@ -42,16 +42,21 @@ export const Default: Story = {
       source: {
         language: 'html',
         code: `
-<ul class="amsterdam-unordered-list">
-  <li class="amsterdam-unordered-list__item">Dit is het eerste niveau opsommingsteken.</li>
-  <li class="amsterdam-unordered-list__item">Dit is het eerste niveau opsommingsteken.
-    <ul class="amsterdam-unordered-list">
-      <li class="amsterdam-unordered-list__item">Dit is het tweede niveau opsommingsteken.</li>
-      <li class="amsterdam-unordered-list__item">Dit is het tweede niveau opsommingsteken.</li>
-    </ul>
+<ol class="amsterdam-ordered-list">
+  <li class="amsterdam-ordered-list__item">Dit is het eerste niveau opsommingsteken.
+    <ol class="amsterdam-ordered-list">
+      <li class="amsterdam-ordered-list__item">Dit is het tweede niveau opsommingsteken.</li>
+    </ol>
   </li>
-  <li class="amsterdam-unordered-list__item">Dit is het eerste niveau opsommingsteken.</li>
-</ul>
+  <li class="amsterdam-ordered-list__item">Dit is het eerste niveau opsommingsteken.</li>
+  <li class="amsterdam-ordered-list__item">Dit is het eerste niveau opsommingsteken.</li>
+  <li class="amsterdam-ordered-list__item">Dit is het eerste niveau opsommingsteken.
+    <ol class="amsterdam-ordered-list">
+      <li class="amsterdam-ordered-list__item">Dit is het tweede niveau opsommingsteken.</li>
+      <li class="amsterdam-ordered-list__item">Dit is het tweede niveau opsommingsteken.</li>
+    </ol>
+  </li>
+</ol>
         `,
       },
     },

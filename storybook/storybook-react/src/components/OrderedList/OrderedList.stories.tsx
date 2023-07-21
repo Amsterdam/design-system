@@ -16,7 +16,7 @@ const meta = {
       <OrderedList.Item key={0}>
         Dit is het eerste niveau opsommingsteken.
         <OrderedList>
-          <OrderedList.Item key={1.1}>Dit is het tweede niveau opsommingsteken.</OrderedList.Item>
+          <OrderedList.Item key={0.1}>Dit is het tweede niveau opsommingsteken.</OrderedList.Item>
         </OrderedList>
       </OrderedList.Item>,
       <OrderedList.Item key={1}>Dit is het eerste niveau opsommingsteken.</OrderedList.Item>,
@@ -24,8 +24,8 @@ const meta = {
       <OrderedList.Item key={3}>
         Dit is het eerste niveau opsommingsteken.
         <OrderedList>
-          <OrderedList.Item key={1.1}>Dit is het tweede niveau opsommingsteken.</OrderedList.Item>
-          <OrderedList.Item key={1.2}>Dit is het tweede niveau opsommingsteken.</OrderedList.Item>
+          <OrderedList.Item key={3.1}>Dit is het tweede niveau opsommingsteken.</OrderedList.Item>
+          <OrderedList.Item key={3.2}>Dit is het tweede niveau opsommingsteken.</OrderedList.Item>
         </OrderedList>
       </OrderedList.Item>,
     ],
