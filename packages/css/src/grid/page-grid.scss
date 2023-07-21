@@ -12,7 +12,7 @@
   max-width: var(--amsterdam-page-grid-max-width);
 }
 
-@media (min-width: $amsterdam-breakpoint) {
+@media screen and (width > $amsterdam-breakpoint) {
   .amsterdam-page-grid {
     grid-template-columns: repeat(var(--amsterdam-page-grid-column-count-wide), 1fr);
   }

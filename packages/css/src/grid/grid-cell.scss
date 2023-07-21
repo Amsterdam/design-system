@@ -5,7 +5,7 @@
 
 @import "../../utils/breakpoint";
 
-@media (min-width: $amsterdam-breakpoint) {
+@media screen and (width > $amsterdam-breakpoint) {
   .amsterdam-grid-column-start-1 {
     grid-column: 1;
   }
