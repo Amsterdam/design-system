@@ -6,10 +6,6 @@
 import { Accordion, Paragraph } from '@amsterdam/design-system-react/src'
 import { Meta, StoryObj } from '@storybook/react'
 
-import '@amsterdam/design-system-css/src/accordion/accordion.scss'
-import '@amsterdam/design-system-css/src/paragraph/paragraph.scss'
-import '@amsterdam/design-system-css/src/icon/icon.scss'
-
 const meta = {
   title: 'Accordion',
   component: Accordion,

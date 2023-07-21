@@ -6,8 +6,6 @@
 import { Heading } from '@amsterdam/design-system-react/src'
 import { Meta, StoryObj } from '@storybook/react'
 
-import '@amsterdam/design-system-css/src/heading/heading.scss'
-
 const meta = {
   title: 'Heading',
   component: Heading,

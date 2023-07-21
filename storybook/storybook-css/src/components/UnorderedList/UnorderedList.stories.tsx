@@ -6,8 +6,6 @@
 import { UnorderedList } from '@amsterdam/design-system-react/src'
 import type { Meta, StoryObj } from '@storybook/react'
 
-import '@amsterdam/design-system-css/src/unordered-list/unordered-list.scss'
-
 const meta = {
   title: 'CSS Components/Unordered List',
   component: UnorderedList,

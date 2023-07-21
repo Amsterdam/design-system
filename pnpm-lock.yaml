@@ -217,9 +217,6 @@ importers:
       rollup-plugin-postcss:
         specifier: 4.0.2
         version: 4.0.2(postcss@8.4.26)
-      rollup-plugin-scss:
-        specifier: 4.0.0
-        version: 4.0.0
       rollup-plugin-typescript2:
         specifier: 0.35.0
         version: 0.35.0(rollup@3.26.3)(typescript@5.1.6)
@@ -13964,12 +13961,6 @@ packages:
       style-inject: 0.3.0
     transitivePeerDependencies:
       - ts-node
-    dev: true
-
-  /rollup-plugin-scss@4.0.0:
-    resolution: {integrity: sha512-wxasNXDYC2m+fDxCMgK00WebVWYmeFvShyNABmjvSJZ6D1/SepwqFeaMFMQromveI79gfvb64yJjiZZxSZxEIA==}
-    dependencies:
-      rollup-pluginutils: 2.8.2
     dev: true
 
   /rollup-plugin-typescript2@0.35.0(rollup@3.26.3)(typescript@5.1.6):
