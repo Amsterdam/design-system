@@ -15,12 +15,14 @@ const meta = {
     children: 'Jouw typograaf biedt mij zulke exquise schreven!',
     level: 1,
     size: 'level-1',
-    inverseColor: undefined,
+    inverseColor: false,
   },
   argTypes: {
     size: {
+      control: 'radio',
       options: ['level-1', 'level-2', 'level-3', 'level-4'],
     },
+    inverseColor: { control: 'boolean' },
   },
 } satisfies Meta<typeof Heading>
 
@@ -28,7 +30,20 @@ export default meta
 
 type Story = StoryObj<typeof meta>
 
-export const Heading1: Story = {}
+export const Heading1: Story = {
+  decorators: [
+    (Story, context) => (
+      <div
+        style={{
+          background: context.args.inverseColor ? '#004699' : 'transparent',
+          padding: context.args.inverseColor ? '16px' : 0,
+        }}
+      >
+        <Story />
+      </div>
+    ),
+  ],
+}
 
 export const Heading2: Story = {
   args: {
