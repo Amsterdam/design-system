@@ -15,6 +15,7 @@ const meta = {
     children: 'Jouw typograaf biedt mij zulke exquise schreven!',
     level: 1,
     size: 'level-1',
+    inverseColor: undefined,
   },
   argTypes: {
     size: {

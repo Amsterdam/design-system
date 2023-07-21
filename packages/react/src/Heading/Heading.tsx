@@ -20,6 +20,11 @@ export interface HeadingProps extends HTMLAttributes<HTMLHeadingElement> {
    * Voeg dit toe om de titel groter of kleiner weer te geven zonder de semantische betekenis te veranderen.
    */
   size?: Size
+  /**
+   * De kleur van de titel
+   * Gebruik deze property om de titel in tegenovergestelde kleur te tonen.
+   */
+  inverseColor?: boolean
 }
 
 export function getHeadingElement(level: HeadingLevel) {
@@ -37,7 +42,7 @@ export function getHeadingElement(level: HeadingLevel) {
 
 export const Heading = forwardRef(
   (
-    { children, className, level = 1, size, ...restProps }: PropsWithChildren<HeadingProps>,
+    { children, className, inverseColor, level = 1, size, ...restProps }: PropsWithChildren<HeadingProps>,
     ref: ForwardedRef<HTMLHeadingElement>,
   ) => {
     const HeadingX = getHeadingElement(level)
@@ -46,7 +51,12 @@ export const Heading = forwardRef(
     return (
       <HeadingX
         ref={ref}
-        className={clsx('amsterdam-heading', `amsterdam-heading-${sizeOrLevel}`, className)}
+        className={clsx(
+          'amsterdam-heading',
+          `amsterdam-heading-${sizeOrLevel}`,
+          inverseColor && 'amsterdam-heading--inverse-color',
+          className,
+        )}
         {...restProps}
       >
         {children}
