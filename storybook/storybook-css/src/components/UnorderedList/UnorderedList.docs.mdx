@@ -10,9 +10,12 @@ import README from "../../../../../packages/css/src/unordered-list/README.md?raw
 
 <Controls />
 
-### No Marker
+### Zonder opsommingsteken
 
-Voor een lijst zonder marker gebruik je de `no-marker` modifier.
-Deze wordt gebruikt voor onder andere de navigatie in de header of footer maar ook voor zoekresultaten.
+Gebruik dit component niet alleen voor tekstuele opsommingen, maar ook voor lijsten van grotere secties zoals een overzicht van artikelen of een verzameling zoekresultaten. Semantisch zijn dit immers ook lijsten.
+
+Gebruikers van schermlezers krijgen op deze manier ook informatie over de lengte van de lijst en het volgnummer van het item waarop ze focus zetten.
+
+Je maakt zo’n ‘onzichtbare’ lijst via de `no-marker` modifier.
 
 <Canvas of={UnorderedListStories.NoMarker} />
