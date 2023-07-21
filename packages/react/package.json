@@ -32,6 +32,7 @@
     "dist/"
   ],
   "dependencies": {
+    "@amsterdam/design-system-css": "workspace:*",
     "@amsterdam/design-system-react-icons": "workspace:*",
     "@utrecht/component-library-react": "1.0.0-alpha.341",
     "clsx": "2.0.0",

@@ -108,6 +108,9 @@ importers:
 
   packages/react:
     dependencies:
+      '@amsterdam/design-system-css':
+        specifier: workspace:*
+        version: link:../css
       '@amsterdam/design-system-react-icons':
         specifier: workspace:*
         version: link:../../proprietary/react-icons
