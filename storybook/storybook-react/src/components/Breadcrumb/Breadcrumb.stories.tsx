@@ -6,6 +6,8 @@
 import { Breadcrumb } from '@amsterdam/design-system-react/src'
 import { Meta, StoryObj } from '@storybook/react'
 
+import '@amsterdam/design-system-css/src/breadcrumb/breadcrumb.scss'
+
 const meta = {
   title: 'Breadcrumb',
   component: Breadcrumb,

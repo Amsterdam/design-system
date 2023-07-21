@@ -6,6 +6,10 @@
 import { Link, Paragraph } from '@amsterdam/design-system-react/src'
 import type { Meta, StoryObj } from '@storybook/react'
 
+import '@amsterdam/design-system-css/src/link/link.scss'
+import '@amsterdam/design-system-css/src/paragraph/paragraph.scss'
+import '@amsterdam/design-system-css/src/icon/icon.scss'
+
 type Story = StoryObj<typeof Link>
 
 const meta = {
