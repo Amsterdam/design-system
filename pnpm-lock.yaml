@@ -51,8 +51,8 @@ importers:
         specifier: 7.33.0
         version: 7.33.0(eslint@8.45.0)
       html-validate:
-        specifier: 7.18.1
-        version: 7.18.1
+        specifier: 8.0.5
+        version: 8.0.5
       husky:
         specifier: 8.0.3
         version: 8.0.3
@@ -752,11 +752,6 @@ packages:
 
   /@babel/helper-string-parser@7.22.5:
     resolution: {integrity: sha512-mM4COjgZox8U+JcXQwPijIZLElkgEpO5rsERVDJTc2qfCDfERyob6k5WegS14SX18IIjv+XD+GrqNumY5JRCDw==}
-    engines: {node: '>=6.9.0'}
-    dev: true
-
-  /@babel/helper-validator-identifier@7.19.1:
-    resolution: {integrity: sha512-awrNfaMtnHUr653GgGEs++LlAvW6w+DcPrOliSMXWCKo597CwL5Acf/wWdNkf/tfEQE3mjkeD1YOVZOUV/od1w==}
     engines: {node: '>=6.9.0'}
     dev: true
 
@@ -1955,7 +1950,7 @@ packages:
     engines: {node: '>=6.9.0'}
     dependencies:
       '@babel/helper-string-parser': 7.21.5
-      '@babel/helper-validator-identifier': 7.19.1
+      '@babel/helper-validator-identifier': 7.22.5
       to-fast-properties: 2.0.0
     dev: true
 
@@ -2273,8 +2268,8 @@ packages:
     resolution: {integrity: sha512-k2Ty1JcVojjJFwrg/ThKi2ujJ7XNLYaFGNB/bWT9wGR+oSMJHMa5w+CUq6p/pVrKeNNgA7pCqEcjSnHVoqJQFw==}
     dev: true
 
-  /@html-validate/stylish@4.0.1:
-    resolution: {integrity: sha512-BBZuKxYAbf9yddzn5eboV3LR9tF0KAJACkxH9+g0C9mhxIInPHtLhsXdDMyhRBY49Ls9TLjAuPKbuSUgLjclBA==}
+  /@html-validate/stylish@4.1.0:
+    resolution: {integrity: sha512-f2MOKJ2HVdLxpOOg2jD6hjDTDJic3wpb8/UdDDIic5jTvgfMMPN3PoiNWlqDg/mCzLIj1b/p1hCRx4Kz5lbVjw==}
     engines: {node: '>= 14.0'}
     dependencies:
       kleur: 4.1.5
@@ -7789,15 +7784,6 @@ packages:
       - supports-color
     dev: true
 
-  /espree@9.5.2:
-    resolution: {integrity: sha512-7OASN1Wma5fum5SrNhFMAMJxOUAbhyfQ8dQ//PJaJbNw0URTPWqIghHWt1MmAANKhHZIYOHruW4Kw4ruUWOdGw==}
-    engines: {node: ^12.22.0 || ^14.17.0 || >=16.0.0}
-    dependencies:
-      acorn: 8.10.0
-      acorn-jsx: 5.3.2(acorn@8.10.0)
-      eslint-visitor-keys: 3.4.1
-    dev: true
-
   /espree@9.6.0:
     resolution: {integrity: sha512-1FH/IiruXZ84tpUlm0aCUEwMl2Ho5ilqVh0VvQXw+byAz/4SAciyHLlfmL5WYqsvD38oymdUwBss0LtK8m4s/A==}
     engines: {node: ^12.22.0 || ^14.17.0 || >=16.0.0}
@@ -8567,18 +8553,6 @@ packages:
       path-scurry: 1.7.0
     dev: true
 
-  /glob@10.3.0:
-    resolution: {integrity: sha512-AQ1/SB9HH0yCx1jXAT4vmCbTOPe5RQ+kCurjbel5xSCGhebumUv+GJZfa1rEqor3XIViqwSEmlkZCQD43RWrBg==}
-    engines: {node: '>=16 || 14 >=14.17'}
-    hasBin: true
-    dependencies:
-      foreground-child: 3.1.1
-      jackspeak: 2.1.0
-      minimatch: 9.0.3
-      minipass: 5.0.0
-      path-scurry: 1.7.0
-    dev: true
-
   /glob@10.3.3:
     resolution: {integrity: sha512-92vPiMb/iqpmEgsOoIDvTjc50wf9CCCvMzsi6W0JLPeUKE8TWP1a73PgqSrqy7iAZxaSD1YdzU7QZR5LF51MJw==}
     engines: {node: '>=16 || 14 >=14.17'}
@@ -8886,14 +8860,14 @@ packages:
     engines: {node: '>=8'}
     dev: true
 
-  /html-validate@7.18.1:
-    resolution: {integrity: sha512-K5jb0h/xAoeR8sJqyR0n/QaKL7rdT88sPCtN+Pvtyn5JUU+nidQe2gBB09WRzPTcQtPXBj4QxBUH5IA2tt8JQg==}
-    engines: {node: '>= 14.0'}
+  /html-validate@8.0.5:
+    resolution: {integrity: sha512-8IBayugyDTiH49JjxSEq+A0UFQzuyG9m0382aHMrPoHVNQcr3IypjuKcjn150ahAwAqO0o4NgMbkC1LezQU1mw==}
+    engines: {node: '>= 16.0'}
     hasBin: true
     peerDependencies:
-      jest: ^25.1 || ^26 || ^27.1 || ^28.1.3 || ^29.0.3
-      jest-diff: ^25.1 || ^26 || ^27.1 || ^28.1.3 || ^29.0.3
-      jest-snapshot: ^25.1 || ^26 || ^27.1 || ^28.1.3 || ^29.0.3
+      jest: ^27.1 || ^28.1.3 || ^29.0.3
+      jest-diff: ^27.1 || ^28.1.3 || ^29.0.3
+      jest-snapshot: ^27.1 || ^28.1.3 || ^29.0.3
     peerDependenciesMeta:
       jest:
         optional: true
@@ -8903,18 +8877,16 @@ packages:
         optional: true
     dependencies:
       '@babel/code-frame': 7.22.5
-      '@html-validate/stylish': 4.0.1
+      '@html-validate/stylish': 4.1.0
       '@sidvind/better-ajv-errors': 2.1.0(ajv@8.12.0)
-      acorn-walk: 8.2.0
       ajv: 8.12.0
       deepmerge: 4.3.1
-      espree: 9.5.2
-      glob: 10.3.0
+      glob: 10.3.3
       ignore: 5.2.4
       kleur: 4.1.5
       minimist: 1.2.8
       prompts: 2.4.2
-      semver: 7.5.2
+      semver: 7.5.4
     dev: true
 
   /http-cache-semantics@4.1.1:
