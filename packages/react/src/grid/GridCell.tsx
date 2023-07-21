@@ -8,15 +8,21 @@ import { PropsWithChildren } from 'react'
 import { PageGridColumnNumber } from './PageGrid'
 
 export type GridCellProps = PropsWithChildren<{
-  gridColumns?: {
-    start?: PageGridColumnNumber
-    span: PageGridColumnNumber
-  }
+  gridColumns?:
+    | PageGridColumnNumber
+    | {
+        start?: PageGridColumnNumber
+        span: PageGridColumnNumber
+      }
 }>
 
 export const gridColumnClassNames = (gridColumns?: GridCellProps['gridColumns']) => {
   if (!gridColumns) {
     return undefined
+  }
+
+  if (typeof gridColumns === 'number') {
+    return `amsterdam-grid-column-span-${gridColumns}`
   }
 
   const { start, span } = gridColumns
