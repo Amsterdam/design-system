@@ -11,6 +11,12 @@
   -webkit-text-size-adjust: 100%;
 }
 
+@mixin reset-unordered {
+  list-style-type: none;
+  margin-block: 0;
+  padding-inline: 0;
+}
+
 .amsterdam-unordered-list {
   display: flex;
   flex-direction: column;
@@ -37,13 +43,10 @@
 }
 
 .amsterdam-unordered-list--no-marker {
-  list-style-type: none;
-  margin-block: 0;
-  padding-inline: 0;
+  @include reset-unordered;
 
   .amsterdam-unordered-list__item {
-    margin-block: 0;
-    padding-inline: 0;
+    @include reset-unordered;
   }
 
   .amsterdam-unordered-list {
