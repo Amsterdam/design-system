@@ -53,7 +53,7 @@ export const Heading = forwardRef(
         ref={ref}
         className={clsx(
           'amsterdam-heading',
-          `amsterdam-heading-${sizeOrLevel}`,
+          `amsterdam-heading--${sizeOrLevel}`,
           inverseColor && 'amsterdam-heading--inverse-color',
           className,
         )}
