@@ -6,6 +6,8 @@
 import { FormLabel } from '@amsterdam/design-system-react'
 import { Meta, StoryObj } from '@storybook/react'
 
+import '@amsterdam/design-system-css/src/form-label/form-label.scss'
+
 const meta = {
   title: 'Form label',
   component: FormLabel,
