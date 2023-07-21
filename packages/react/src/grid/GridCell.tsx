@@ -18,7 +18,7 @@ export type GridCellProps = PropsWithChildren<{
 
 export const gridColumnClassNames = (gridColumns?: GridCellProps['gridColumns']) => {
   if (!gridColumns) {
-    return undefined
+    return ''
   }
 
   if (typeof gridColumns === 'number') {
