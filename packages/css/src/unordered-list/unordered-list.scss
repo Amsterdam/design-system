@@ -17,7 +17,7 @@
   gap: var(--amsterdam-unordered-list-gap);
 }
 
-.amsterdam-unordered-list:not(.amsterdam-unordered-list--unstyled) {
+.amsterdam-unordered-list:not(.amsterdam-unordered-list--no-marker) {
   color: var(--amsterdam-unordered-list-color);
   font-family: var(--amsterdam-unordered-list-font-family);
   font-size: var(--amsterdam-unordered-list-font-size-narrow);
@@ -36,7 +36,7 @@
   padding-inline: var(--amsterdam-unordered-list-unordered-list-item-padding-inline);
 }
 
-.amsterdam-unordered-list--unstyled {
+.amsterdam-unordered-list--no-marker {
   list-style-type: none;
   margin-block: 0;
   padding-inline: 0;
@@ -52,7 +52,7 @@
   }
 }
 
-.amsterdam-unordered-list:not(.amsterdam-unordered-list--unstyled) .amsterdam-unordered-list__item {
+.amsterdam-unordered-list:not(.amsterdam-unordered-list--no-marker) .amsterdam-unordered-list__item {
   padding-inline: var(--amsterdam-unordered-list-item-padding-inline);
 }
 

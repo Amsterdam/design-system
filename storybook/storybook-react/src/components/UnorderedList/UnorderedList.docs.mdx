@@ -1,4 +1,4 @@
-import { Controls, Markdown, Meta, Primary } from "@storybook/blocks";
+import { Canvas, Controls, Markdown, Meta, Primary } from "@storybook/blocks";
 import * as UnorderedListStories from "./UnorderedList.stories.tsx";
 import README from "../../../../../packages/css/src/unordered-list/README.md?raw";
 
@@ -9,3 +9,10 @@ import README from "../../../../../packages/css/src/unordered-list/README.md?raw
 <Primary />
 
 <Controls />
+
+### No Marker
+
+Voor een lijst zonder marker gebruik je de `no-marker` modifier.
+Deze wordt gebruikt voor onder andere de navigatie in de header of footer.
+
+<Canvas of={UnorderedListStories.NoMarker} />

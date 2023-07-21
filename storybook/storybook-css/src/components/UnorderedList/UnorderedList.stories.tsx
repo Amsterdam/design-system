@@ -58,19 +58,27 @@ export const Default: Story = {
   },
 }
 
-export const Unstyled: Story = {
+export const NoMarker: Story = {
   args: {
-    unstyled: true,
+    noMarker: true,
     children: [
       <UnorderedList.Item key={0}>Dit is het eerste niveau opsommingsteken.</UnorderedList.Item>,
-      <UnorderedList.Item key={1}>
-        Dit is het eerste niveau opsommingsteken.
-        <UnorderedList unstyled>
-          <UnorderedList.Item key={1.1}>Dit is het tweede niveau opsommingsteken.</UnorderedList.Item>
-          <UnorderedList.Item key={1.2}>Dit is het tweede niveau opsommingsteken.</UnorderedList.Item>
-        </UnorderedList>
-      </UnorderedList.Item>,
+      <UnorderedList.Item key={1}>Dit is het eerste niveau opsommingsteken.</UnorderedList.Item>,
       <UnorderedList.Item key={2}>Dit is het eerste niveau opsommingsteken.</UnorderedList.Item>,
     ],
+  },
+  parameters: {
+    docs: {
+      source: {
+        language: 'html',
+        code: `
+<ul class="amsterdam-unordered-list amsterdam-unordered-list--no-marker">
+  <li class="amsterdam-unordered-list__item">Dit is het eerste niveau opsommingsteken.</li>
+  <li class="amsterdam-unordered-list__item">Dit is het eerste niveau opsommingsteken.</li>
+  <li class="amsterdam-unordered-list__item">Dit is het eerste niveau opsommingsteken.</li>
+</ul>
+        `,
+      },
+    },
   },
 }
