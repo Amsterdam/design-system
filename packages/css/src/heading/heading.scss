@@ -21,7 +21,7 @@
   @include reset;
 }
 
-.amsterdam-heading-1 {
+.amsterdam-heading--1 {
   font-size: var(--amsterdam-heading-1-font-size-narrow);
   line-height: var(--amsterdam-heading-1-line-height);
 
@@ -30,7 +30,7 @@
   }
 }
 
-.amsterdam-heading-2 {
+.amsterdam-heading--2 {
   font-size: var(--amsterdam-heading-2-font-size-narrow);
   line-height: var(--amsterdam-heading-2-line-height);
 
@@ -39,7 +39,7 @@
   }
 }
 
-.amsterdam-heading-3 {
+.amsterdam-heading--3 {
   font-size: var(--amsterdam-heading-3-font-size-narrow);
   line-height: var(--amsterdam-heading-3-line-height);
 
@@ -48,7 +48,7 @@
   }
 }
 
-.amsterdam-heading-4 {
+.amsterdam-heading--4 {
   font-size: var(--amsterdam-heading-4-font-size-narrow);
   line-height: var(--amsterdam-heading-4-line-height);
 
