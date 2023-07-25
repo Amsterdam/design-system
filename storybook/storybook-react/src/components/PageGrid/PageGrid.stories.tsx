@@ -14,7 +14,6 @@ import '../../../../storybook-css/src/docs/stories.scss'
 
 const meta = {
   title: 'PageGrid',
-  id: 'page-grid',
   component: PageGrid,
 } satisfies Meta<typeof PageGrid>
 
