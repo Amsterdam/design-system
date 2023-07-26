@@ -8,6 +8,7 @@
         "wide": { "value": "{amsterdam.typography.text-level.6.font-size.wide}" }
       },
       "font-weight": { "value": "{amsterdam.typography.font-weight.normal}" },
+      "inverse-color": { "value": "{amsterdam.color.primary-white}" },
       "line-height": { "value": "{amsterdam.typography.text-level.6.line-height}" },
       "small": {
         "font-size": {
