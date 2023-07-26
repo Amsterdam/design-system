@@ -81,7 +81,8 @@
   color: var(--amsterdam-link-on-background-dark-color);
 
   &:hover,
-  &:active {
+  &:active,
+  &:focus {
     color: var(--amsterdam-link-on-background-dark-hover-color);
   }
 
@@ -94,7 +95,8 @@
   color: var(--amsterdam-link-on-background-light-color);
 
   &:hover,
-  &:active {
+  &:active,
+  &:focus {
     color: var(--amsterdam-link-on-background-light-hover-color);
   }
 
