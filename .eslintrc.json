@@ -59,14 +59,7 @@
       "files": ["*.ts", "*.tsx"],
       "parser": "@typescript-eslint/parser",
       "parserOptions": {
-        "project": [
-          "packages/react/tsconfig.json",
-          "packages/react/tsconfig.test.json",
-          "storybook/storybook-css/tsconfig.json",
-          "storybook/storybook-css/tsconfig.node.json",
-          "storybook/storybook-react/tsconfig.json",
-          "storybook/storybook-react/tsconfig.node.json"
-        ]
+        "project": ["tsconfig.json", "tsconfig.node.json", "tsconfig.test.json"]
       },
       "plugins": ["@typescript-eslint"]
     }
