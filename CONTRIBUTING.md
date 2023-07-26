@@ -68,7 +68,7 @@ If you need to link your local version of this library (to test your unpublished
 - Go to the root directory of the packages you want to link to (i.e. where its package.json is)
 - Run `npm link`. Do this for all packages you want to link.
 - Go to the root of the project in which you want to consume the packages
-- Run `npm link <package-name>`. If you want to link multiple packages, seperate the package names with a space. For example: `npm link @amsterdam/design-system-tokens @amsterdam/design-system-css @amsterdam/design-system-assets @amsterdam/design-system-react @amsterdam/design-system-react-icons`. Be careful: you have to link all packages in the same namespace together. Doing it one at a time will only link the last one. TODO: is there a workaround for this?
+- Run `npm link <package-name>`. If you want to link multiple packages, seperate the package names with a space. For example: `npm link @amsterdam/design-system-tokens @amsterdam/design-system-assets @amsterdam/design-system-react @amsterdam/design-system-react-icons`. Be careful: you have to link all packages in the same namespace together. Doing it one at a time will only link the last one. <!-- TODO: is there a workaround for this? -->
 - Sometimes the local link is severed. Run `npm link @amsterdam/...` again if this happens.
 
 ## Licensing

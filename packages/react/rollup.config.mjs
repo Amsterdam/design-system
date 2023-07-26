@@ -6,7 +6,7 @@ import filesize from 'rollup-plugin-filesize'
 import nodeExternal from 'rollup-plugin-node-externals'
 import nodePolyfills from 'rollup-plugin-node-polyfills'
 import peerDepsExternal from 'rollup-plugin-peer-deps-external'
-import scss from 'rollup-plugin-scss'
+import postcss from 'rollup-plugin-postcss'
 import typescript from 'rollup-plugin-typescript2'
 
 const packageJson = JSON.parse(readFileSync('./package.json', 'utf8'))
@@ -47,6 +47,10 @@ export default [
         include: /node_modules/,
       }),
       nodePolyfills(),
+      postcss({
+        extensions: ['.css', '.scss'],
+        minimize: true,
+      }),
       typescript({ includeDependencies: false }),
       babel({
         presets: ['@babel/preset-react'],
@@ -57,7 +61,43 @@ export default [
         plugins: ['@babel/plugin-transform-runtime'],
       }),
       filesize(),
-      scss(),
+    ],
+  },
+  {
+    input: 'src/unstyled/index.ts',
+    output: [
+      {
+        file: './unstyled/index.cjs.js',
+        format: 'cjs',
+        sourcemap: true,
+        globals: outputGlobals,
+      },
+      {
+        file: './unstyled/index.js',
+        format: 'esm',
+        sourcemap: true,
+        globals: outputGlobals,
+      },
+    ],
+    external: [/@babel\/runtime/, 'react-dom', 'react'],
+    plugins: [
+      peerDepsExternal({ includeDependencies: true }),
+      nodeExternal(),
+      resolve({ browser: true }),
+      commonjs({
+        include: /node_modules/,
+      }),
+      nodePolyfills(),
+      typescript({ includeDependencies: false }),
+      babel({
+        presets: ['@babel/preset-react'],
+        babelHelpers: 'runtime',
+        exclude: ['node_modules/**', 'dist/**'],
+        extensions: ['.ts', '.tsx'],
+        inputSourceMap: true,
+        plugins: ['@babel/plugin-transform-runtime'],
+      }),
+      filesize(),
     ],
   },
 ]

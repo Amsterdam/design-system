@@ -6,19 +6,25 @@
 
 import clsx from 'clsx'
 import { ForwardedRef, forwardRef, HTMLAttributes, PropsWithChildren } from 'react'
+import { GridCellProps, gridColumnClassNames } from '../Grid'
 
-export interface ParagraphProps extends HTMLAttributes<HTMLParagraphElement> {
+export interface ParagraphProps extends HTMLAttributes<HTMLParagraphElement>, GridCellProps {
   size?: 'small' | 'large'
 }
 
 export const Paragraph = forwardRef(
   (
-    { children, size, className, ...otherProps }: PropsWithChildren<ParagraphProps>,
+    { children, className, gridColumns, size, ...otherProps }: PropsWithChildren<ParagraphProps>,
     ref: ForwardedRef<HTMLParagraphElement>,
   ) => (
     <p
       ref={ref}
-      className={clsx('amsterdam-paragraph', size && `amsterdam-paragraph-${size}`, className)}
+      className={clsx(
+        'amsterdam-paragraph',
+        size && `amsterdam-paragraph-${size}`,
+        gridColumnClassNames(gridColumns),
+        className,
+      )}
       {...otherProps}
     >
       {children}
