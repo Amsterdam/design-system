@@ -83,8 +83,6 @@ export const Heading4: Story = {
 export const InvertedColor: Story = {
   args: {
     inverseColor: true,
-    level: undefined,
-    size: undefined,
   },
   decorators: [
     (Story) => (
