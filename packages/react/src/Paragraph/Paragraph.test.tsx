@@ -66,6 +66,14 @@ describe('Paragraph', () => {
     expect(largeParagraph).toHaveClass('amsterdam-paragraph--large')
   })
 
+  it('renders the right inverse color classe', () => {
+    render(<Paragraph inverseColor>Paragraph</Paragraph>)
+
+    const paragraph = screen.getByText('Paragraph')
+
+    expect(paragraph).toHaveClass('amsterdam-paragraph--inverse-color')
+  })
+
   it('can have a additional class name', () => {
     const { container } = render(<Paragraph className="intro" />)
 
