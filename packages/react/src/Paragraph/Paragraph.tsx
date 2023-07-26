@@ -26,7 +26,7 @@ export const Paragraph = forwardRef(
       ref={ref}
       className={clsx(
         'amsterdam-paragraph',
-        size && `amsterdam-paragraph-${size}`,
+        size && `amsterdam-paragraph--${size}`,
         inverseColor && 'amsterdam-paragraph--inverse-color',
         gridColumnClassNames(gridColumns),
         className,
