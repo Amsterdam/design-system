@@ -1,0 +1,20 @@
+/**
+ * @license EUPL-1.2+
+ * Copyright (c) 2023 Gemeente Amsterdam
+ */
+
+import { {{pascalCase name}} } from '@amsterdam/design-system-react/src'
+import { Meta, StoryObj } from '@storybook/react'
+
+import '@amsterdam/design-system-css/src/{{kebabCase name}}/{{kebabCase name}}.scss'
+
+const meta = {
+  title: '{{sentenceCase name}}',
+  component: {{pascalCase name}},
+} satisfies Meta<typeof {{pascalCase name}}>
+
+export default meta
+
+type Story = StoryObj<typeof meta>
+
+export const Default: Story = {}
