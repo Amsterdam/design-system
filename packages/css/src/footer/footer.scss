@@ -3,6 +3,48 @@
  * Copyright (c) 2023 Gemeente Amsterdam
  */
 
-.amsterdam-footer {
-  /* Add styles here */
+@import "../../utils/breakpoint";
+
+// TODO: all grid related styles are copied from page-grid.scss. Should we export those styles and import them here?
+.amsterdam-footer-top {
+  background-color: var(--amsterdam-footer-top-background-color);
+  column-gap: var(--amsterdam-page-grid-column-gap);
+  display: grid;
+  grid-template-columns: repeat(var(--amsterdam-page-grid-column-count-narrow), 1fr);
+  max-width: var(--amsterdam-page-grid-max-width);
+  padding-block: 2.5rem;
+  padding-inline: 2rem;
+}
+
+@media screen and (width > $amsterdam-breakpoint) {
+  .amsterdam-footer-top {
+    grid-template-columns: repeat(var(--amsterdam-page-grid-column-count-wide), 1fr);
+  }
+}
+
+.amsterdam-footer-column {
+  display: flex;
+  flex-direction: column;
+  gap: 2.5rem;
+}
+
+.amsterdam-footer-bottom {
+  padding-inline: 2rem;
+}
+
+/*
+ TODO: we currently don't have any way to hide elements visually.
+ This utility class will do for now
+*/
+.amsterdam-visually-hidden {
+  clip: rect(1px, 1px, 1px, 1px);
+  clip-path: inset(50%);
+  height: 1px;
+  margin-block: -1px;
+  margin-inline: -1px;
+  overflow: hidden;
+  padding-block: 0;
+  padding-inline: 0;
+  position: absolute;
+  width: 1px;
 }

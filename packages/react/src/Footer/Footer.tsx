@@ -4,17 +4,77 @@
  */
 
 import clsx from 'clsx'
-import { ForwardedRef, forwardRef, HTMLAttributes, PropsWithChildren } from 'react'
+import {
+  ForwardedRef,
+  forwardRef,
+  ForwardRefExoticComponent,
+  HTMLAttributes,
+  PropsWithChildren,
+  RefAttributes,
+} from 'react'
+import { GridCell, GridCellProps } from '../Grid'
+
+export const FooterTop = forwardRef(
+  (
+    { children, className, ...restProps }: PropsWithChildren<HTMLAttributes<HTMLDivElement>>,
+    ref: ForwardedRef<HTMLDivElement>,
+  ) => (
+    <div {...restProps} ref={ref} className={clsx('amsterdam-footer-top', className)}>
+      {children}
+    </div>
+  ),
+)
+
+FooterTop.displayName = 'FooterTop'
+
+export type FooterColumnProps = HTMLAttributes<HTMLDivElement> & GridCellProps
+
+export const FooterColumn = forwardRef(
+  ({ children, className, ...restProps }: PropsWithChildren<FooterColumnProps>, ref: ForwardedRef<HTMLDivElement>) => (
+    <GridCell {...restProps} ref={ref} className={clsx('amsterdam-footer-column', className)}>
+      {children}
+    </GridCell>
+  ),
+)
+
+FooterColumn.displayName = 'FooterColumn'
+
+export const FooterBottom = forwardRef(
+  (
+    { children, className, ...restProps }: PropsWithChildren<HTMLAttributes<HTMLDivElement>>,
+    ref: ForwardedRef<HTMLDivElement>,
+  ) => (
+    <div {...restProps} ref={ref} className={clsx('amsterdam-footer-bottom', className)}>
+      {children}
+    </div>
+  ),
+)
+
+FooterBottom.displayName = 'FooterBottom'
+
+interface FooterComponent
+  extends ForwardRefExoticComponent<PropsWithChildren<HTMLAttributes<HTMLElement>> & RefAttributes<HTMLElement>> {
+  Top: typeof FooterTop
+  Bottom: typeof FooterBottom
+  Column: typeof FooterColumn
+}
 
 export const Footer = forwardRef(
   (
     { children, className, ...restProps }: PropsWithChildren<HTMLAttributes<HTMLElement>>,
     ref: ForwardedRef<HTMLElement>,
   ) => (
-    <span {...restProps} ref={ref} className={clsx('amsterdam-footer', className)}>
+    <footer {...restProps} ref={ref} className={clsx('amsterdam-footer', className)}>
       {children}
-    </span>
+    </footer>
   ),
-)
+) as FooterComponent
+
+Footer.Top = FooterTop
+Footer.Bottom = FooterBottom
+Footer.Column = FooterColumn
 
 Footer.displayName = 'Footer'
+Footer.Top.displayName = 'Footer.Top'
+Footer.Bottom.displayName = 'Footer.Bottom'
+Footer.Column.displayName = 'Footer.Column'

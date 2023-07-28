@@ -1,5 +1,11 @@
 {
   "amsterdam": {
-    "footer": {}
+    "footer": {
+      "top": {
+        "background-color": {
+          "value": "{amsterdam.color.primary-blue}"
+        }
+      }
+    }
   }
 }
