@@ -6,6 +6,9 @@
         "color": { "value": "{amsterdam.color.primary-blue}" },
         "font-family": { "value": "{amsterdam.typography.font-family}" },
         "font-weight": { "value": "{amsterdam.typography.font-weight.bold}" },
+        "focus": {
+          "color": { "value": "{amsterdam.color.dark-blue}" }
+        },
         "font-size": {
           "narrow": { "value": "{amsterdam.typography.text-level.4.font-size.narrow}" },
           "wide": { "value": "{amsterdam.typography.text-level.4.font-size.wide}" }

@@ -14,7 +14,9 @@
 }
 
 .amsterdam-top-task-link {
-  display: block;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
   outline-offset: var(--amsterdam-top-task-link-outline-offset);
   text-decoration: none;
 }
@@ -31,4 +33,12 @@
   }
 
   @include reset;
+}
+
+.amsterdam-top-task-link:hover .amsterdam-top-task-link__title,
+.amsterdam-top-task-link:focus .amsterdam-top-task-link__title {
+  color: var(--amsterdam-top-task-link-title-focus-color);
+  text-decoration: underline;
+  text-decoration-thickness: 3px;
+  text-underline-offset: 0.5rem;
 }
