@@ -19,7 +19,7 @@ export const FooterTop = forwardRef(
     { children, className, ...restProps }: PropsWithChildren<HTMLAttributes<HTMLDivElement>>,
     ref: ForwardedRef<HTMLDivElement>,
   ) => (
-    <div {...restProps} ref={ref} className={clsx('amsterdam-footer-top', className)}>
+    <div {...restProps} ref={ref} className={clsx('amsterdam-footer__top', className)}>
       {children}
     </div>
   ),
@@ -31,7 +31,7 @@ export type FooterColumnProps = HTMLAttributes<HTMLDivElement> & GridCellProps
 
 export const FooterColumn = forwardRef(
   ({ children, className, ...restProps }: PropsWithChildren<FooterColumnProps>, ref: ForwardedRef<HTMLDivElement>) => (
-    <GridCell {...restProps} ref={ref} className={clsx('amsterdam-footer-column', className)}>
+    <GridCell {...restProps} ref={ref} className={clsx('amsterdam-footer__column', className)}>
       {children}
     </GridCell>
   ),
@@ -44,7 +44,7 @@ export const FooterBottom = forwardRef(
     { children, className, ...restProps }: PropsWithChildren<HTMLAttributes<HTMLDivElement>>,
     ref: ForwardedRef<HTMLDivElement>,
   ) => (
-    <div {...restProps} ref={ref} className={clsx('amsterdam-footer-bottom', className)}>
+    <div {...restProps} ref={ref} className={clsx('amsterdam-footer__bottom', className)}>
       {children}
     </div>
   ),
