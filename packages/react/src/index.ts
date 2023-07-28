@@ -4,6 +4,7 @@
  */
 
 /* Append here */
+import '../../css/src/hero/hero.scss'
 import '../../css/src/accordion/accordion.scss'
 import '../../css/src/breadcrumb/breadcrumb.scss'
 import '../../css/src/button/button.scss'
