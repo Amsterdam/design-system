@@ -4,19 +4,21 @@
  */
 
 import clsx from 'clsx'
-import { PropsWithChildren } from 'react'
+import { ForwardedRef, forwardRef, HTMLAttributes, PropsWithChildren } from 'react'
 import { PageGridColumnNumber } from './PageGrid'
 
-export type GridCellProps = PropsWithChildren<{
-  gridColumns?:
-    | PageGridColumnNumber
-    | {
-        start?: PageGridColumnNumber
-        span: PageGridColumnNumber
-      }
-}>
+export type GridColumns =
+  | PageGridColumnNumber
+  | {
+      start?: PageGridColumnNumber
+      span: PageGridColumnNumber
+    }
 
-export const gridColumnClassNames = (gridColumns?: GridCellProps['gridColumns']) => {
+export interface GridCellProps extends HTMLAttributes<HTMLDivElement> {
+  gridColumns?: GridColumns
+}
+
+export const gridColumnClassNames = (gridColumns?: GridColumns) => {
   if (!gridColumns) {
     return ''
   }
@@ -30,8 +32,15 @@ export const gridColumnClassNames = (gridColumns?: GridCellProps['gridColumns'])
   return clsx(start && `amsterdam-grid-column-start-${start}`, span && `amsterdam-grid-column-span-${span}`)
 }
 
-export const GridCell = ({ children, gridColumns }: GridCellProps) => (
-  <div className={clsx('amsterdam-grid-cell', gridColumnClassNames(gridColumns))}>{children}</div>
+export const GridCell = forwardRef(
+  (
+    { children, gridColumns, className, ...restProps }: PropsWithChildren<GridCellProps>,
+    ref: ForwardedRef<HTMLDivElement>,
+  ) => (
+    <div {...restProps} ref={ref} className={clsx('amsterdam-grid-cell', gridColumnClassNames(gridColumns), className)}>
+      {children}
+    </div>
+  ),
 )
 
 GridCell.displayName = 'GridCell'

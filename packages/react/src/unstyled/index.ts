@@ -4,6 +4,7 @@
  */
 
 /* Append here */
+export * from '../Footer'
 export * from '../OrderedList'
 export * from '../Heading'
 export * from '../Breadcrumb'
