@@ -3,18 +3,18 @@
  * Copyright (c) 2023 Gemeente Amsterdam
  */
 
-import { {{pascalCase name}} } from '@amsterdam/design-system-react/src'
+import { Footer } from '@amsterdam/design-system-react/src'
 import { Meta, StoryObj } from '@storybook/react'
 
-import '@amsterdam/design-system-css/src/{{kebabCase name}}/{{kebabCase name}}.scss'
+import '@amsterdam/design-system-css/src/footer/footer.scss'
 
 const meta = {
-  title: '{{sentenceCase name}}',
-  component: {{pascalCase name}},
+  title: 'Footer',
+  component: Footer,
   args: {
     children: 'Nieuw component',
   },
-} satisfies Meta<typeof {{pascalCase name}}>
+} satisfies Meta<typeof Footer>
 
 export default meta
 
