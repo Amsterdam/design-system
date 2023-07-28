@@ -4,6 +4,7 @@
  */
 
 /* Append here */
+import '../../css/src/footer/footer.scss'
 import '../../css/src/hero/hero.scss'
 import '../../css/src/accordion/accordion.scss'
 import '../../css/src/breadcrumb/breadcrumb.scss'
@@ -15,5 +16,7 @@ import '../../css/src/link/link.scss'
 import '../../css/src/list/list.scss'
 import '../../css/src/paragraph/paragraph.scss'
 import '../../css/src/unordered-list/unordered-list.scss'
+import '../../css/src/grid/grid-cell.scss'
+import '../../css/src/grid/page-grid.scss'
 
 export * from './unstyled'
