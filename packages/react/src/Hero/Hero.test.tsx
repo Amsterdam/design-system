@@ -1,16 +1,18 @@
-import { render } from '@testing-library/react'
+import { render, screen } from '@testing-library/react'
 import { createRef } from 'react'
 import { Hero } from './Hero'
 import '@testing-library/jest-dom'
 
 describe('Hero', () => {
-  it('renders', () => {
-    const { container } = render(<Hero />)
+  it('renders a heading role element', () => {
+    render(<Hero>Breaking news</Hero>)
 
-    const component = container.querySelector(':only-child')
+    const hero = screen.getByRole('heading', {
+      name: 'Breaking news',
+    })
 
-    expect(component).toBeInTheDocument()
-    expect(component).toBeVisible()
+    expect(hero).toBeInTheDocument()
+    expect(hero).toBeVisible()
   })
 
   it('renders a design system BEM class name', () => {
@@ -39,8 +41,16 @@ describe('Hero', () => {
     expect(component).toHaveClass('amsterdam-hero')
   })
 
+  it('renders the right inverse color class', () => {
+    render(<Hero inverseColor>Hero</Hero>)
+
+    const hero = screen.getByRole('heading', { name: 'Hero' })
+
+    expect(hero).toHaveClass('amsterdam-hero--inverse-color')
+  })
+
   it('supports ForwardRef in React', () => {
-    const ref = createRef<HTMLElement>()
+    const ref = createRef<HTMLHeadingElement>()
 
     const { container } = render(<Hero ref={ref} />)
 

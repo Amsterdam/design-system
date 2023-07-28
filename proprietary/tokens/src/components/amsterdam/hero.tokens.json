@@ -1,5 +1,15 @@
 {
   "amsterdam": {
-    "hero": {}
+    "hero": {
+      "color": { "value": "{amsterdam.color.primary-black}" },
+      "font-family": { "value": "{amsterdam.typography.font-family}" },
+      "font-size": {
+        "narrow": { "value": "{amsterdam.typography.text-level.0.font-size.narrow}" },
+        "wide": { "value": "{amsterdam.typography.text-level.0.font-size.wide}" }
+      },
+      "line-height": { "value": "{amsterdam.typography.text-level.0.line-height}" },
+      "font-weight": { "value": "{amsterdam.typography.font-weight.bold}" },
+      "inverse-color": { "value": "{amsterdam.color.primary-white}" }
+    }
   }
 }

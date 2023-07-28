@@ -6,15 +6,26 @@
 import clsx from 'clsx'
 import { ForwardedRef, forwardRef, HTMLAttributes, PropsWithChildren } from 'react'
 
+export interface HeroProps extends HTMLAttributes<HTMLHeadingElement> {
+  /**
+   * De kleur van de titel
+   * Gebruik deze property om de titel in tegenovergestelde kleur te tonen.
+   */
+  inverseColor?: boolean
+}
+
 export const Hero = forwardRef(
   (
-    { children, className, ...restProps }: PropsWithChildren<HTMLAttributes<HTMLElement>>,
-    ref: ForwardedRef<HTMLElement>,
+    { children, className, inverseColor, ...restProps }: PropsWithChildren<HeroProps>,
+    ref: ForwardedRef<HTMLHeadingElement>,
   ) => (
-    <span {...restProps} ref={ref} className={clsx('amsterdam-hero', className)}>
-      Nieuw component
+    <h1
+      {...restProps}
+      ref={ref}
+      className={clsx('amsterdam-hero', inverseColor && 'amsterdam-hero--inverse-color', className)}
+    >
       {children}
-    </span>
+    </h1>
   ),
 )
 

@@ -1,4 +1,4 @@
-import { Controls, Markdown, Meta, Primary } from "@storybook/blocks";
+import { Canvas, Controls, Markdown, Meta, Primary } from "@storybook/blocks";
 import * as HeroStories from "./Hero.stories.tsx";
 import README from "../../../../../packages/css/src/hero/README.md?raw";
 
@@ -9,3 +9,10 @@ import README from "../../../../../packages/css/src/hero/README.md?raw";
 <Primary />
 
 <Controls />
+
+### Omgekeerde kleur
+
+Soms gebruik je de hero op een donkere achtergrond. Gebruik in dit geval `inverseColor`,
+zodat de tekst voldoende contrast heeft met de achtergrondkleur.
+
+<Canvas of={HeroStories.InvertedColor} />
