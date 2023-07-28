@@ -12,7 +12,7 @@ const meta = {
   title: 'Top task link',
   component: TopTaskLink,
   args: {
-    children: 'Nieuw component',
+    href: '/',
   },
 } satisfies Meta<typeof TopTaskLink>
 
@@ -20,4 +20,11 @@ export default meta
 
 type Story = StoryObj<typeof meta>
 
-export const Default: Story = {}
+export const Default: Story = {
+  args: {
+    children: [
+      <TopTaskLink.Title key={1}>Titel</TopTaskLink.Title>,
+      <TopTaskLink.Description key={2}>Omschrijving</TopTaskLink.Description>,
+    ],
+  },
+}
