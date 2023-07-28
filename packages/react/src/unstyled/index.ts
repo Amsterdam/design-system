@@ -4,6 +4,7 @@
  */
 
 /* Append here */
+export * from '../TopTaskLink'
 export * from '../Footer'
 export * from '../Hero'
 export * from '../Heading'
