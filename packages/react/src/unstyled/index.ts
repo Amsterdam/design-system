@@ -4,6 +4,7 @@
  */
 
 /* Append here */
+export * from '../Hero'
 export * from '../Heading'
 export * from '../Breadcrumb'
 export * from '../Link'
