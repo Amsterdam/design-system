@@ -59,7 +59,7 @@ export const Default: Story = {
     <h1 class="amsterdam-accordion__header">
       <button aria-controls="panel-:rf:" aria-expanded="false" class="amsterdam-accordion__button" id="button-:rf:" type="button">
         Eerste sectie
-        <span class="amsterdam-icon amsterdam-icon-size-5">
+        <span class="amsterdam-icon amsterdam-icon--size-5">
           <svg>...</svg>
         </span>
       </button>
@@ -72,7 +72,7 @@ export const Default: Story = {
     <h1 class="amsterdam-accordion__header">
       <button aria-controls="panel-:rg:" aria-expanded="false" class="amsterdam-accordion__button" id="button-:rg:" type="button">
         Tweede sectie
-        <span class="amsterdam-icon amsterdam-icon-size-5">
+        <span class="amsterdam-icon amsterdam-icon--size-5">
           <svg>...</svg>
         </span>
       </button>
@@ -85,7 +85,7 @@ export const Default: Story = {
     <h1 class="amsterdam-accordion__header">
       <button aria-controls="panel-:rh:" aria-expanded="false" class="amsterdam-accordion__button" id="button-:rh:" type="button">
         Derde sectie
-        <span class="amsterdam-icon amsterdam-icon-size-5">
+        <span class="amsterdam-icon amsterdam-icon--size-5">
           <svg>...</svg>
         </span>
       </button>
@@ -123,7 +123,7 @@ export const ExpandedByDefault: Story = {
     <h1 class="amsterdam-accordion__header">
       <button aria-controls="panel-:rf:" aria-expanded="false" class="amsterdam-accordion__button" id="button-:rf:" type="button">
         Eerste sectie
-        <span class="amsterdam-icon amsterdam-icon-size-5">
+        <span class="amsterdam-icon amsterdam-icon--size-5">
           <svg>...</svg>
         </span>
       </button>
@@ -136,7 +136,7 @@ export const ExpandedByDefault: Story = {
     <h1 class="amsterdam-accordion__header">
       <button aria-controls="panel-:rg:" aria-expanded="true" class="amsterdam-accordion__button" id="button-:rg:" type="button">
         Tweede sectie
-        <span class="amsterdam-icon amsterdam-icon-size-5">
+        <span class="amsterdam-icon amsterdam-icon--size-5">
           <svg>...</svg>
         </span>
       </button>
@@ -149,7 +149,7 @@ export const ExpandedByDefault: Story = {
     <h1 class="amsterdam-accordion__header">
       <button aria-controls="panel-:rh:" aria-expanded="false" class="amsterdam-accordion__button" id="button-:rh:" type="button">
         Derde sectie
-        <span class="amsterdam-icon amsterdam-icon-size-5">
+        <span class="amsterdam-icon amsterdam-icon--size-5">
           <svg>...</svg>
         </span>
       </button>

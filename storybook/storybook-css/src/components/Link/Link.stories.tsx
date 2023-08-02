@@ -123,7 +123,7 @@ export const InList: Story = {
         language: 'html',
         code: `
 <a href="#" class="amsterdam-link amsterdam-link--in-list">
-  <span class="amsterdam-icon amsterdam-icon-size-6">
+  <span class="amsterdam-icon amsterdam-icon--size-6">
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" aria-hidden="true" focusable="false">
       <path fill-rule="evenodd" d="m9.757 32-2.9-2.91L19.937 16 6.857 2.91 9.757 0l16 16z"></path>
     </svg>
