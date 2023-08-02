@@ -10,7 +10,7 @@ import '@amsterdam/design-system-css/src/grid/page-grid.scss'
 import '@amsterdam/design-system-css/src/grid/grid-cell.scss'
 import '@amsterdam/design-system-css/src/heading/heading.scss'
 import '@amsterdam/design-system-css/src/paragraph/paragraph.scss'
-import '../../../../storybook-css/src/docs/stories.scss'
+import '../../../../storybook-docs/src/docs/stories.scss'
 
 const meta = {
   title: 'PageGrid',

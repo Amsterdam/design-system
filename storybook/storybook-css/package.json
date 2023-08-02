@@ -3,7 +3,7 @@
   "author": "Community for NL Design System",
   "description": "Storybook CSS website for the City of Amsterdam based on the NL Design System architecture",
   "license": "EUPL-1.2",
-  "name": "@amsterdam/storybook-css",
+  "name": "@amsterdam/storybook-docs",
   "keywords": [
     "nl-design-system"
   ],
@@ -11,7 +11,7 @@
   "repository": {
     "type": "git",
     "url": "https://github.com/Amsterdam/design-system.git",
-    "directory": "storybook/storybook-css"
+    "directory": "storybook/storybook-docs"
   },
   "scripts": {
     "build": "storybook build --output-dir dist/ --config-dir config/ && touch dist/.nojekyll",
