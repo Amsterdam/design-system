@@ -38,7 +38,7 @@ export const Default: Story = {
     docs: {
       source: {
         language: 'html',
-        code: '<span class="amsterdam-icon amsterdam-icon-size-3">{svg}</span>',
+        code: '<span class="amsterdam-icon amsterdam-icon--size-3">{svg}</span>',
       },
     },
   },
@@ -59,7 +59,7 @@ export const WithText: Story = {
       source: {
         language: 'html',
         code: `<span style="display: flex; gap: 1rem;">
-  <span class="amsterdam-icon amsterdam-icon-size-3">
+  <span class="amsterdam-icon amsterdam-icon--size-3">
     {svg}
   </span>
   <h1 class="amsterdam-heading amsterdam-heading-3">Inline text</h1>
@@ -78,7 +78,7 @@ export const Level3: Story = {
     docs: {
       source: {
         language: 'html',
-        code: '<span class="amsterdam-icon amsterdam-icon-size-3">{svg}</span>',
+        code: '<span class="amsterdam-icon amsterdam-icon--size-3">{svg}</span>',
       },
     },
   },
@@ -93,7 +93,7 @@ export const Level4: Story = {
     docs: {
       source: {
         language: 'html',
-        code: '<span class="amsterdam-icon amsterdam-icon-size-4">{svg}</span>',
+        code: '<span class="amsterdam-icon amsterdam-icon--size-4">{svg}</span>',
       },
     },
   },
@@ -108,7 +108,7 @@ export const Level5: Story = {
     docs: {
       source: {
         language: 'html',
-        code: '<span class="amsterdam-icon amsterdam-icon-size-5">{svg}</span>',
+        code: '<span class="amsterdam-icon amsterdam-icon--size-5">{svg}</span>',
       },
     },
   },
@@ -123,7 +123,7 @@ export const Level6: Story = {
     docs: {
       source: {
         language: 'html',
-        code: '<span class="amsterdam-icon amsterdam-icon-size-6">{svg}</span>',
+        code: '<span class="amsterdam-icon amsterdam-icon--size-6">{svg}</span>',
       },
     },
   },
@@ -138,7 +138,7 @@ export const Level7: Story = {
     docs: {
       source: {
         language: 'html',
-        code: '<span class="amsterdam-icon amsterdam-icon-size-7">{svg}</span>',
+        code: '<span class="amsterdam-icon amsterdam-icon--size-7">{svg}</span>',
       },
     },
   },
