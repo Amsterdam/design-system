@@ -4,6 +4,7 @@
  */
 
 /* Append here */
+export * from '../TopTaskLink'
 export * from '../OrderedList'
 export * from '../Heading'
 export * from '../Breadcrumb'
