@@ -7,8 +7,8 @@
 
 .amsterdam-link {
   color: var(--amsterdam-link-color);
-  font-family: var(--amsterdam-paragraph-font-family);
-  font-size: var(--amsterdam-link-font-size-narrow);
+  font-family: var(--amsterdam-link-font-family);
+  font-size: var(--amsterdam-link-narrow-font-size);
   font-weight: var(--amsterdam-link-font-weight);
   line-height: var(--amsterdam-link-line-height);
   outline-offset: var(--amsterdam-link-outline-offset);
@@ -25,7 +25,7 @@
   }
 
   @media screen and (width > $amsterdam-breakpoint) {
-    font-size: var(--amsterdam-link-font-size-wide);
+    font-size: var(--amsterdam-link-wide-font-size);
   }
 }
 
@@ -50,7 +50,7 @@
 .amsterdam-link--in-list {
   align-items: flex-start;
   display: inline-flex;
-  font-size: var(--amsterdam-link-in-list-font-size-narrow);
+  font-size: var(--amsterdam-link-in-list-narrow-font-size);
   gap: var(--amsterdam-link-in-list-gap);
   line-height: var(--amsterdam-link-in-list-line-height);
   padding-block: 0.75rem;
@@ -65,7 +65,7 @@
   }
 
   @media screen and (width > $amsterdam-breakpoint) {
-    font-size: var(--amsterdam-link-in-list-font-size-wide);
+    font-size: var(--amsterdam-link-in-list-wide-font-size);
   }
 }
 
