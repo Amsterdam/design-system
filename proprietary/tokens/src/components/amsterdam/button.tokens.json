@@ -1,9 +1,11 @@
 {
   "amsterdam": {
     "button": {
-      "font-size": {
-        "narrow": { "value": "{amsterdam.typography.text-level.6.font-size.narrow}" },
-        "wide": { "value": "{amsterdam.typography.text-level.6.font-size.wide}" }
+      "narrow": {
+        "font-size": { "value": "{amsterdam.typography.text-level.6.narrow.font-size}" }
+      },
+      "wide": {
+        "font-size": { "value": "{amsterdam.typography.text-level.6.wide.font-size}" }
       },
       "secondary": {
         "box-shadow": {

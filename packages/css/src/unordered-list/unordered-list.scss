@@ -26,13 +26,13 @@
 .amsterdam-unordered-list:not(.amsterdam-unordered-list--no-marker) {
   color: var(--amsterdam-unordered-list-color);
   font-family: var(--amsterdam-unordered-list-font-family);
-  font-size: var(--amsterdam-unordered-list-font-size-narrow);
+  font-size: var(--amsterdam-unordered-list-narrow-font-size);
   font-weight: var(--amsterdam-unordered-list-font-weight);
   line-height: var(--amsterdam-unordered-list-line-height);
   list-style: var(--amsterdam-unordered-list-list-style);
 
   @media screen and (width > $amsterdam-breakpoint) {
-    font-size: var(--amsterdam-unordered-list-font-size-wide);
+    font-size: var(--amsterdam-unordered-list-wide-font-size);
   }
 
   @include reset;
