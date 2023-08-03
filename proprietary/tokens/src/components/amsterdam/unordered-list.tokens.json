@@ -3,13 +3,15 @@
     "unordered-list": {
       "color": { "value": "{amsterdam.color.primary-black}" },
       "font-family": { "value": "{amsterdam.typography.font-family}" },
-      "font-size": {
-        "narrow": { "value": "{amsterdam.typography.text-level.6.font-size.narrow}" },
-        "wide": { "value": "{amsterdam.typography.text-level.6.font-size.wide}" }
-      },
       "font-weight": { "value": "{amsterdam.typography.font-weight.normal}" },
       "gap": { "value": "0.5rem" },
       "line-height": { "value": "{amsterdam.typography.text-level.6.line-height}" },
+      "narrow": {
+        "font-size": { "value": "{amsterdam.typography.text-level.6.narrow.font-size}" }
+      },
+      "wide": {
+        "font-size": { "value": "{amsterdam.typography.text-level.6.wide.font-size}" }
+      },
       "list-style": { "value": "square" },
       "item": {
         "padding-inline": { "value": "3px 0" }
