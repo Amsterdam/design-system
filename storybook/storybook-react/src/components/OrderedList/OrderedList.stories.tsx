@@ -6,7 +6,7 @@
 import { OrderedList } from '@amsterdam/design-system-react/src'
 import type { Meta, StoryObj } from '@storybook/react'
 
-import '@amsterdam/design-system-css/dist/ordered-list/ordered-list.css'
+import '@amsterdam/design-system-css/src/ordered-list/ordered-list.scss'
 
 const meta = {
   title: 'Ordered List',

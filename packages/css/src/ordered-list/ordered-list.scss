@@ -16,13 +16,13 @@
   display: flex;
   flex-direction: column;
   font-family: var(--amsterdam-ordered-list-font-family);
-  font-size: var(--amsterdam-ordered-list-font-size-narrow);
+  font-size: var(--amsterdam-ordered-list-narrow-font-size);
   font-weight: var(--amsterdam-ordered-list-font-weight);
   gap: var(--amsterdam-ordered-list-gap);
   line-height: var(--amsterdam-ordered-list-line-height);
 
   @media screen and (width > $amsterdam-breakpoint) {
-    font-size: var(--amsterdam-ordered-list-font-size-wide);
+    font-size: var(--amsterdam-ordered-list-wide-font-size);
   }
 
   @include reset;
