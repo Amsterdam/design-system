@@ -19,3 +19,6 @@ pnpm-lock.yaml
 
 # Ignore handlebar template files
 *.hbs
+
+
+button.scss

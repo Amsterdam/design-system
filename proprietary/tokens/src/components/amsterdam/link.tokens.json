@@ -9,10 +9,6 @@
       "font-family": {
         "value": "{amsterdam.typography.font-family}"
       },
-      "font-size": {
-        "narrow": { "value": "{amsterdam.typography.text-level.6.font-size.narrow}" },
-        "wide": { "value": "{amsterdam.typography.text-level.6.font-size.wide}" }
-      },
       "font-weight": {
         "value": "{amsterdam.typography.font-weight.normal}"
       },
@@ -26,6 +22,12 @@
         "text-decoration-thickness": { "value": "2px" }
       },
       "line-height": { "value": "{amsterdam.typography.text-level.6.line-height}" },
+      "narrow": {
+        "font-size": { "value": "{amsterdam.typography.text-level.6.narrow.font-size}" }
+      },
+      "wide": {
+        "font-size": { "value": "{amsterdam.typography.text-level.6.wide.font-size}" }
+      },
       "visited": {
         "color": { "value": "{amsterdam.color.primary-blue}" }
       },
@@ -49,11 +51,13 @@
       "in-list": {
         "gap": { "value": "0.5em" },
         "text-underline-offset": { "value": "0.3em" },
-        "font-size": {
-          "narrow": { "value": "{amsterdam.typography.text-level.7.font-size.narrow}" },
-          "wide": { "value": "{amsterdam.typography.text-level.7.font-size.wide}" }
+        "line-height": { "value": "{amsterdam.typography.text-level.7.line-height}" },
+        "narrow": {
+          "font-size": { "value": "{amsterdam.typography.text-level.7.narrow.font-size}" }
         },
-        "line-height": { "value": "{amsterdam.typography.text-level.7.line-height}" }
+        "wide": {
+          "font-size": { "value": "{amsterdam.typography.text-level.7.wide.font-size}" }
+        }
       },
       "on-background-dark": {
         "color": { "value": "{amsterdam.color.primary-white}" },
@@ -77,9 +81,6 @@
         "text-underline-offset": { "value": "9px" },
         "active": {
           "color": { "value": "{amsterdam.color.primary-black}" }
-        },
-        "font-size": {
-          "value": "{amsterdam.typography.text-level.6.font-size}"
         },
         "focus": {
           "color": { "value": "{amsterdam.color.primary-black}" },
