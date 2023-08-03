@@ -3,7 +3,7 @@
   "author": "Community for NL Design System",
   "description": "Storybook CSS website for the City of Amsterdam based on the NL Design System architecture",
   "license": "EUPL-1.2",
-  "name": "@amsterdam/storybook-css",
+  "name": "@amsterdam/storybook-docs",
   "keywords": [
     "nl-design-system"
   ],
@@ -11,7 +11,7 @@
   "repository": {
     "type": "git",
     "url": "https://github.com/Amsterdam/design-system.git",
-    "directory": "storybook/storybook-css"
+    "directory": "storybook/storybook-docs"
   },
   "scripts": {
     "build": "storybook build --output-dir dist/ --config-dir config/ && touch dist/.nojekyll",
@@ -26,30 +26,30 @@
     "@amsterdam/design-system-tokens": "workspace:*",
     "@babel/core": "7.22.9",
     "@mdx-js/react": "2.3.0",
-    "@storybook/addon-a11y": "7.0.27",
-    "@storybook/addon-actions": "7.0.27",
-    "@storybook/addon-docs": "7.0.27",
-    "@storybook/addon-essentials": "7.0.27",
-    "@storybook/addon-interactions": "7.0.27",
-    "@storybook/addon-links": "7.0.27",
-    "@storybook/addon-viewport": "7.0.27",
-    "@storybook/blocks": "7.0.27",
-    "@storybook/manager-api": "7.0.27",
+    "@storybook/addon-a11y": "7.1.0",
+    "@storybook/addon-actions": "7.1.0",
+    "@storybook/addon-docs": "7.1.0",
+    "@storybook/addon-essentials": "7.1.0",
+    "@storybook/addon-interactions": "7.1.0",
+    "@storybook/addon-links": "7.1.0",
+    "@storybook/addon-viewport": "7.1.0",
+    "@storybook/blocks": "7.1.0",
+    "@storybook/manager-api": "7.1.0",
     "@storybook/mdx2-csf": "1.1.0",
-    "@storybook/react": "7.0.27",
-    "@storybook/react-vite": "7.0.27",
+    "@storybook/react": "7.1.0",
+    "@storybook/react-vite": "7.1.0",
     "@storybook/testing-library": "0.2.0",
-    "@storybook/theming": "7.0.27",
-    "@types/react": "18.2.14",
+    "@storybook/theming": "7.1.0",
+    "@types/react": "18.2.15",
     "@types/react-dom": "18.2.7",
     "@vitejs/plugin-react": "4.0.3",
-    "clsx": "1.2.1",
+    "clsx": "2.0.0",
     "react": "18.2.0",
     "react-dom": "18.2.0",
     "require-from-string": "2.0.2",
-    "sass": "1.63.6",
-    "storybook": "7.0.27",
-    "vite": "4.4.3"
+    "sass": "1.64.0",
+    "storybook": "7.1.0",
+    "vite": "4.4.6"
   },
   "dependencies": {
     "remark-gfm": "3.0.1"
