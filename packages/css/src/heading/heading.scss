@@ -22,37 +22,37 @@
 }
 
 .amsterdam-heading-1 {
-  font-size: var(--amsterdam-heading-1-font-size-narrow);
+  font-size: var(--amsterdam-heading-1-narrow-font-size);
   line-height: var(--amsterdam-heading-1-line-height);
 
   @media screen and (width > $amsterdam-breakpoint) {
-    font-size: var(--amsterdam-heading-1-font-size-wide);
+    font-size: var(--amsterdam-heading-1-wide-font-size);
   }
 }
 
 .amsterdam-heading-2 {
-  font-size: var(--amsterdam-heading-2-font-size-narrow);
+  font-size: var(--amsterdam-heading-2-narrow-font-size);
   line-height: var(--amsterdam-heading-2-line-height);
 
   @media screen and (width > $amsterdam-breakpoint) {
-    font-size: var(--amsterdam-heading-2-font-size-wide);
+    font-size: var(--amsterdam-heading-2-wide-font-size);
   }
 }
 
 .amsterdam-heading-3 {
-  font-size: var(--amsterdam-heading-3-font-size-narrow);
+  font-size: var(--amsterdam-heading-3-narrow-font-size);
   line-height: var(--amsterdam-heading-3-line-height);
 
   @media screen and (width > $amsterdam-breakpoint) {
-    font-size: var(--amsterdam-heading-3-font-size-wide);
+    font-size: var(--amsterdam-heading-3-wide-font-size);
   }
 }
 
 .amsterdam-heading-4 {
-  font-size: var(--amsterdam-heading-4-font-size-narrow);
+  font-size: var(--amsterdam-heading-4-narrow-font-size);
   line-height: var(--amsterdam-heading-4-line-height);
 
   @media screen and (width > $amsterdam-breakpoint) {
-    font-size: var(--amsterdam-heading-4-font-size-wide);
+    font-size: var(--amsterdam-heading-4-wide-font-size);
   }
 }
