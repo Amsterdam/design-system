@@ -16,3 +16,9 @@ CHANGELOG.md
 package-lock.json
 yarn.lock
 pnpm-lock.yaml
+
+
+# TEMP
+
+grid-cell.scss
+button.scss

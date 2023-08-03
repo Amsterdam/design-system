@@ -9,7 +9,7 @@ CSS components are developed using BEM class names and the stylesheets can be in
 Theoretically you can include the components in your HTML page like so, but this is not the typical use case of this library:
 
 ```html
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
   <head>
     <title>Example page</title>
