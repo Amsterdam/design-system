@@ -7,16 +7,14 @@
       "font-family": {
         "value": "{amsterdam.typography.font-family}"
       },
-      "font-size": {
-        "narrow": {
-          "value": "{amsterdam.typography.text-level.7.font-size.narrow}"
-        },
-        "wide": {
-          "value": "{amsterdam.typography.text-level.7.font-size.wide}"
-        }
-      },
       "line-height": {
         "value": "{amsterdam.typography.text-level.7.line-height}"
+      },
+      "narrow": {
+        "font-size": { "value": "{amsterdam.typography.text-level.7.narrow.font-size}" }
+      },
+      "wide": {
+        "font-size": { "value": "{amsterdam.typography.text-level.7.wide.font-size}" }
       },
       "item-link": {
         "outline-offset": {

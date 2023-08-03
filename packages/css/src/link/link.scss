@@ -8,7 +8,7 @@
 .amsterdam-link {
   color: var(--amsterdam-link-color, blue);
   font-family: var(--amsterdam-paragraph-font-family);
-  font-size: var(--amsterdam-link-font-size-narrow);
+  font-size: var(--amsterdam-link-narrow-font-size);
   line-height: var(--amsterdam-link-line-height);
   outline-offset: var(--amsterdam-link-outline-offset);
   text-decoration: var(--amsterdam-link-text-decoration, underline);
@@ -33,7 +33,7 @@
   }
 
   @media screen and (width > $amsterdam-breakpoint) {
-    font-size: var(--amsterdam-link-font-size-wide);
+    font-size: var(--amsterdam-link-wide-font-size);
   }
 }
 
@@ -54,7 +54,7 @@
 .amsterdam-link--in-list {
   align-items: flex-start;
   display: inline-flex;
-  font-size: var(--amsterdam-link-in-list-font-size-narrow);
+  font-size: var(--amsterdam-link-in-list-narrow-font-size);
   gap: var(--amsterdam-link-in-list-gap);
   line-height: var(--amsterdam-link-in-list-line-height);
   text-underline-offset: var(--amsterdam-link-in-list-text-underline-offset);
@@ -66,7 +66,7 @@
   }
 
   @media screen and (width > $amsterdam-breakpoint) {
-    font-size: var(--amsterdam-link-in-list-font-size-wide);
+    font-size: var(--amsterdam-link-in-list-wide-font-size);
   }
 }
 

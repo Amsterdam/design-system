@@ -18,7 +18,7 @@
   cursor: pointer;
   display: flex;
   font-family: var(--amsterdam-accordion-button-font-family);
-  font-size: var(--amsterdam-accordion-button-font-size-narrow);
+  font-size: var(--amsterdam-accordion-button-narrow-font-size);
   font-weight: var(--amsterdam-accordion-button-font-weight);
   justify-content: space-between;
   line-height: var(--amsterdam-accordion-button-line-height);
@@ -27,7 +27,7 @@
   width: 100%;
 
   @media screen and (width > $amsterdam-breakpoint) {
-    font-size: var(--amsterdam-accordion-button-font-size-wide);
+    font-size: var(--amsterdam-accordion-button-wide-font-size);
   }
 
   &:focus {
