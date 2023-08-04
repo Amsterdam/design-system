@@ -4,6 +4,7 @@
  */
 
 /* Append here */
+export * from '../Blockquote'
 export * from '../TopTaskLink'
 export * from '../Footer'
 export * from '../Hero'
