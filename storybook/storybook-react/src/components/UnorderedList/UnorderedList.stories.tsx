@@ -3,10 +3,8 @@
  * Copyright (c) 2023 Gemeente Amsterdam
  */
 
-import { UnorderedList } from '@amsterdam/design-system-react/src'
+import { UnorderedList } from '@amsterdam/design-system-react'
 import type { Meta, StoryObj } from '@storybook/react'
-
-import '@amsterdam/design-system-css/src/unordered-list/unordered-list.scss'
 
 const meta = {
   title: 'Unordered List',
