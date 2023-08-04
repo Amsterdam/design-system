@@ -3,10 +3,8 @@
  * Copyright (c) 2023 Gemeente Amsterdam
  */
 
-import { OrderedList } from '@amsterdam/design-system-react/src'
+import { OrderedList } from '@amsterdam/design-system-react'
 import type { Meta, StoryObj } from '@storybook/react'
-
-import '@amsterdam/design-system-css/src/ordered-list/ordered-list.scss'
 
 const meta = {
   title: 'Ordered List',
