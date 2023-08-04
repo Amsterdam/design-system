@@ -3,13 +3,11 @@
  * Copyright (c) 2023 Gemeente Amsterdam
  */
 
-import { GridCell, PageGrid, Paragraph } from '@amsterdam/design-system-react/src'
+import { GridCell, PageGrid, Paragraph } from '@amsterdam/design-system-react'
 import { Meta, StoryObj } from '@storybook/react'
 
 import '@amsterdam/design-system-css/src/grid/page-grid.scss'
 import '@amsterdam/design-system-css/src/grid/grid-cell.scss'
-import '@amsterdam/design-system-css/src/heading/heading.scss'
-import '@amsterdam/design-system-css/src/paragraph/paragraph.scss'
 import '../../../../storybook-docs/src/stories.scss'
 
 const meta = {

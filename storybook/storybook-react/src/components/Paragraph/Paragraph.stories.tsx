@@ -6,8 +6,6 @@
 import { Paragraph } from '@amsterdam/design-system-react'
 import { Meta, StoryObj } from '@storybook/react'
 
-import '@amsterdam/design-system-css/src/paragraph/paragraph.scss'
-
 const meta = {
   title: 'Paragraph',
   component: Paragraph,
