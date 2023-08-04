@@ -3,12 +3,9 @@
  * Copyright (c) 2023 Gemeente Amsterdam
  */
 
-import { Heading, Icon } from '@amsterdam/design-system-react/src'
+import { Heading, Icon } from '@amsterdam/design-system-react'
 import { Alert, Building, Camera, Email } from '@amsterdam/design-system-react-icons'
 import { Meta, StoryObj } from '@storybook/react'
-
-import '@amsterdam/design-system-css/src/icon/icon.scss'
-import '@amsterdam/design-system-css/src/heading/heading.scss'
 
 const icons = { Email, Alert, Building, Camera }
 
