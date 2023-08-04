@@ -3,10 +3,8 @@
  * Copyright (c) 2023 Gemeente Amsterdam
  */
 
-import { Hero } from '@amsterdam/design-system-react/src'
+import { Hero } from '@amsterdam/design-system-react'
 import { Meta, StoryObj } from '@storybook/react'
-
-import '@amsterdam/design-system-css/src/hero/hero.scss'
 
 const meta = {
   title: 'Hero',
