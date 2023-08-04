@@ -3,10 +3,8 @@
  * Copyright (c) 2023 Gemeente Amsterdam
  */
 
-import { Heading } from '@amsterdam/design-system-react/src'
+import { Heading } from '@amsterdam/design-system-react'
 import { Meta, StoryObj } from '@storybook/react'
-
-import '@amsterdam/design-system-css/src/heading/heading.scss'
 
 const meta = {
   title: 'Heading',

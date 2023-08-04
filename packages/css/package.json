@@ -15,6 +15,7 @@
   },
   "scripts": {
     "build": "sass src/:dist/ --style=compressed",
+    "build:watch": "sass src/:dist/ --watch",
     "clean": "rimraf dist/"
   },
   "devDependencies": {

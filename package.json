@@ -77,6 +77,8 @@
     "update-patch": "npm-check-updates --configFileName .ncurc.patch.js --deep --dep dev,prod --target patch --upgrade && pnpm install",
     "update-minor": "npm-check-updates --configFileName .ncurc.minor.js --deep --dep dev,prod --target minor --upgrade && pnpm install",
     "update-major": "npm-check-updates --configFileName .ncurc.major.js --deep --dep dev,prod --target latest --upgrade && pnpm install",
+    "watch:css": "npm run --workspace packages/css build:watch",
+    "watch:react": "npm run --workspace packages/react build:watch",
     "watch:storybook-docs": "npm run --workspace storybook/storybook-docs storybook",
     "watch:storybook-react": "npm run --workspace storybook/storybook-react storybook",
     "watch:style-dictionary": "npm run --workspace proprietary/tokens watch:style-dictionary"

@@ -3,10 +3,8 @@
  * Copyright (c) 2023 Gemeente Amsterdam
  */
 
-import { Breadcrumb } from '@amsterdam/design-system-react/src'
+import { Breadcrumb } from '@amsterdam/design-system-react'
 import { Meta, StoryObj } from '@storybook/react'
-
-import '@amsterdam/design-system-css/src/breadcrumb/breadcrumb.scss'
 
 const meta = {
   title: 'Breadcrumb',
