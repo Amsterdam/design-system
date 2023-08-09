@@ -19,16 +19,22 @@ export default meta
 type Story = StoryObj<typeof meta>
 
 export const Default: Story = {
-  render: () => (
-    <PageGrid>
-      <GridCell gridColumns={4}>
-        <TopTaskLink href="/">
-          <TopTaskLink.Title>Titel</TopTaskLink.Title>
-          <TopTaskLink.Description>Omschrijving</TopTaskLink.Description>
-        </TopTaskLink>
-      </GridCell>
-    </PageGrid>
-  ),
+  decorators: [
+    (Story) => (
+      <PageGrid>
+        <GridCell gridColumns={4}>
+          <Story />
+        </GridCell>
+      </PageGrid>
+    ),
+  ],
+  args: {
+    href: '/',
+    children: [
+      <TopTaskLink.Title key={1}>Titel</TopTaskLink.Title>,
+      <TopTaskLink.Description key={2}>Omschrijving</TopTaskLink.Description>,
+    ],
+  },
 }
 
 export const ThreeColumns: Story = {
@@ -62,6 +68,14 @@ export const ThreeColumns: Story = {
       </GridCell>
     </PageGrid>
   ),
+  parameters: {
+    docs: {
+      source: { type: 'dynamic' },
+      canvas: {
+        sourceState: 'hidden',
+      },
+    },
+  },
 }
 
 export const FourColumns: Story = {
@@ -93,4 +107,12 @@ export const FourColumns: Story = {
       </GridCell>
     </PageGrid>
   ),
+  parameters: {
+    docs: {
+      source: { type: 'dynamic' },
+      canvas: {
+        sourceState: 'hidden',
+      },
+    },
+  },
 }
