@@ -1,0 +1,101 @@
+/**
+ * @license EUPL-1.2+
+ * Copyright (c) 2023 Gemeente Amsterdam
+ */
+
+@import "../../utils/breakpoint";
+
+.amsterdam-checkbox__input {
+  appearance: none;
+  margin-block: 0;
+  margin-inline: 0;
+  opacity: 0%; /* to hide native input field in older iOS */
+
+  &:focus-visible + label {
+    outline: auto;
+    outline-offset: var(--amsterdam-checkbox-outline-offset);
+  }
+}
+
+.amsterdam-checkbox__label {
+  color: var(--amsterdam-checkbox-color);
+  cursor: pointer;
+  display: inline-flex;
+  font-family: var(--amsterdam-checkbox-font-family);
+  font-size: var(--amsterdam-checkbox-narrow-font-size);
+  font-weight: 400;
+  gap: 0.5rem;
+  line-height: var(--amsterdam-checkbox-line-height);
+  padding-block: 0.5rem;
+
+  @media screen and (width > $amsterdam-breakpoint) {
+    font-size: var(--amsterdam-checkbox-wide-font-size);
+  }
+}
+
+.amsterdam-checkbox__input:disabled + .amsterdam-checkbox__label {
+  color: var(--amsterdam-checkbox-disabled-color);
+  cursor: not-allowed;
+}
+
+:not(.amsterdam-checkbox__input:disabled) + .amsterdam-checkbox__label:hover {
+  color: var(--amsterdam-checkbox-hover-color);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.amsterdam-checkbox__label__checkmark {
+  align-items: center;
+  display: flex;
+  flex-shrink: 0;
+  height: calc(var(--amsterdam-checkbox-checkmark-narrow-size) * var(--amsterdam-checkbox-checkmark-multiplier));
+  width: 1.5rem;
+
+  @media screen and (width > $amsterdam-breakpoint) {
+    height: calc(var(--amsterdam-checkbox-checkmark-wide-size) * var(--amsterdam-checkbox-checkmark-multiplier));
+  }
+}
+
+.amsterdam-checkbox__label__checkmark::after {
+  box-shadow: var(--amsterdam-checkbox-checkmark-box-shadow);
+  content: "";
+  height: 1.5rem;
+  width: 100%;
+}
+
+// Checkmark checked state
+.amsterdam-checkbox__input:checked + .amsterdam-checkbox__label .amsterdam-checkbox__label__checkmark::after {
+  background-color: var(--amsterdam-checkbox-checkmark-checked-background-color);
+  background-image: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2032%2032%22%20fill%3D%22%23ffffff%22%3E%3Cpath%20fill-rule%3D%22evenodd%22%20d%3D%22M12.216%2027.016%200%2014.168l2.91-2.77%209.346%209.837L29.129%204%2032%206.8z%22%2F%3E%3C%2Fsvg%3E");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 16px;
+  box-shadow: none;
+}
+
+// Disabled state
+.amsterdam-checkbox__input:disabled + .amsterdam-checkbox__label .amsterdam-checkbox__label__checkmark::after {
+  box-shadow: var(--amsterdam-checkbox-checkmark-disabled-box-shadow);
+}
+
+// Checkmark not checked not disabled hover state
+:not(.amsterdam-checkbox__input:checked, .amsterdam-checkbox__input:disabled)
+  + .amsterdam-checkbox__label:hover
+  .amsterdam-checkbox__label__checkmark::after {
+  box-shadow: var(--amsterdam-checkbox-checkmark-hover-box-shadow);
+}
+
+// Checkmark checked hover state
+.amsterdam-checkbox__input:checked + .amsterdam-checkbox__label:hover .amsterdam-checkbox__label__checkmark::after {
+  background-color: var(--amsterdam-checkbox-checkmark-checked-hover-background-color);
+}
+
+// Disabled and checked state
+.amsterdam-checkbox__input:disabled.amsterdam-checkbox__input:checked
+  + .amsterdam-checkbox__label
+  .amsterdam-checkbox__label__checkmark::after {
+  background-color: var(--amsterdam-checkbox-checkmark-disabled-checked-background-color);
+  box-shadow: none;
+}
+
+// TODO: indeterminate and invalid state
