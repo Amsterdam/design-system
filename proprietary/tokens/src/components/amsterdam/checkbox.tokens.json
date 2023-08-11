@@ -1,0 +1,66 @@
+{
+  "amsterdam": {
+    "checkbox": {
+      "color": { "value": "{amsterdam.color.primary-black}" },
+      "checkmark": {
+        "box-shadow": {
+          "value": "inset 0 0 0 2px {amsterdam.color.primary-blue}"
+        },
+        "checked": {
+          "background-color": {
+            "value": "{amsterdam.color.primary-blue}"
+          },
+          "hover": {
+            "background-color": {
+              "value": "{amsterdam.color.dark-blue}"
+            }
+          }
+        },
+        "disabled": {
+          "box-shadow": {
+            "value": "inset 0 0 0 2px {amsterdam.color.neutral-grey3}"
+          },
+          "checked": {
+            "background-color": {
+              "value": "{amsterdam.color.neutral-grey3}"
+            }
+          }
+        },
+        "hover": {
+          "box-shadow": {
+            "value": "inset 0 0 0 3px {amsterdam.color.dark-blue}"
+          }
+        },
+        "indeterminate": {},
+        "invalid": {},
+        "narrow": {
+          "size": { "value": "{amsterdam.typography.text-level.6.narrow.font-size}" }
+        },
+        "wide": {
+          "size": { "value": "{amsterdam.typography.text-level.6.wide.font-size}" }
+        },
+        "multiplier": { "value": "{amsterdam.typography.text-level.6.line-height}" }
+      },
+      "disabled": {
+        "color": {
+          "value": "{amsterdam.color.neutral-grey3}"
+        }
+      },
+      "font-family": { "value": "{amsterdam.typography.font-family}" },
+      "font-weight": { "value": "{amsterdam.typography.font-weight.normal}" },
+      "hover": {
+        "color": {
+          "value": "{amsterdam.color.dark-blue}"
+        }
+      },
+      "outline-offset": { "value": "{amsterdam.focus.outline-offset}" },
+      "line-height": { "value": "{amsterdam.typography.text-level.6.line-height}" },
+      "narrow": {
+        "font-size": { "value": "{amsterdam.typography.text-level.6.narrow.font-size}" }
+      },
+      "wide": {
+        "font-size": { "value": "{amsterdam.typography.text-level.6.wide.font-size}" }
+      }
+    }
+  }
+}
