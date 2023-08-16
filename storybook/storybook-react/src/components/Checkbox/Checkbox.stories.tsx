@@ -12,8 +12,8 @@ const meta = {
   args: {
     children: 'Nieuw component',
     disabled: false,
-    error: false,
     indeterminate: false,
+    invalid: false,
   },
 } satisfies Meta<typeof Checkbox>
 

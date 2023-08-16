@@ -89,15 +89,21 @@
   box-shadow: var(--amsterdam-checkbox-checkmark-disabled-box-shadow);
 }
 
-// Checkmark error state
-.amsterdam-checkbox__label__checkmark--error::after {
-  box-shadow: var(--amsterdam-checkbox-checkmark-error-box-shadow);
+// Checkmark invalid state
+:not(.amsterdam-checkbox__input:checked, .amsterdam-checkbox__input:indeterminate)
+  + .amsterdam-checkbox__label
+  .amsterdam-checkbox__label__checkmark--invalid::after {
+  box-shadow: var(--amsterdam-checkbox-checkmark-invalid-box-shadow);
 }
 
-// Checkmark error hover and focus state
-.amsterdam-checkbox__label:hover .amsterdam-checkbox__label__checkmark--error::after,
-.amsterdam-checkbox__input:focus + .amsterdam-checkbox__label .amsterdam-checkbox__label__checkmark--error::after {
-  box-shadow: var(--amsterdam-checkbox-checkmark-error-hover-box-shadow);
+// Checkmark invalid hover and focus state
+:not(.amsterdam-checkbox__input:checked, .amsterdam-checkbox__input:indeterminate)
+  + .amsterdam-checkbox__label:hover
+  .amsterdam-checkbox__label__checkmark--invalid::after,
+.amsterdam-checkbox__input:focus:not(.amsterdam-checkbox__input:checked, .amsterdam-checkbox__input:indeterminate)
+  + .amsterdam-checkbox__label
+  .amsterdam-checkbox__label__checkmark--invalid::after {
+  box-shadow: var(--amsterdam-checkbox-checkmark-invalid-hover-box-shadow);
 }
 
 // Checkmark checked and indeterminate hover and focus state
@@ -112,13 +118,13 @@
   background-color: var(--amsterdam-checkbox-checkmark-checked-hover-background-color);
 }
 
-// Checkmark not checked not indeterminate not disabled not error hover and focus state
+// Checkmark not checked not indeterminate not disabled not invalid hover and focus state
 .amsterdam-checkbox__input:focus
   + .amsterdam-checkbox__label
-  .amsterdam-checkbox__label__checkmark:not(.amsterdam-checkbox__label__checkmark--error)::after,
+  .amsterdam-checkbox__label__checkmark:not(.amsterdam-checkbox__label__checkmark--invalid)::after,
 :not(.amsterdam-checkbox__input:checked, .amsterdam-checkbox__input:indeterminate, .amsterdam-checkbox__input:disabled)
   + .amsterdam-checkbox__label:hover
-  .amsterdam-checkbox__label__checkmark:not(.amsterdam-checkbox__label__checkmark--error)::after {
+  .amsterdam-checkbox__label__checkmark:not(.amsterdam-checkbox__label__checkmark--invalid)::after {
   box-shadow: var(--amsterdam-checkbox-checkmark-hover-box-shadow);
 }
 
