@@ -26,13 +26,26 @@
             }
           }
         },
+        "error": {
+          "box-shadow": {
+            "value": "inset 0 0 0 2px {amsterdam.color.primary-red}"
+          },
+          "hover": {
+            "box-shadow": {
+              "value": "inset 0 0 0 3px {amsterdam.color.primary-red}"
+            }
+          }
+        },
         "hover": {
           "box-shadow": {
             "value": "inset 0 0 0 3px {amsterdam.color.dark-blue}"
           }
         },
-        "indeterminate": {},
-        "invalid": {},
+        "indeterminate": {
+          "background-color": {
+            "value": "{amsterdam.color.primary-blue}"
+          }
+        },
         "narrow": {
           "size": { "value": "{amsterdam.typography.text-level.6.narrow.font-size}" }
         },

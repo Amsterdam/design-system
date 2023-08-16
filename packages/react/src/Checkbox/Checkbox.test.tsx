@@ -40,7 +40,7 @@ describe('Checkbox', () => {
   })
 
   it('supports ForwardRef in React', () => {
-    const ref = createRef<HTMLElement>()
+    const ref = createRef<HTMLInputElement>()
 
     const { container } = render(<Checkbox ref={ref} />)
 
