@@ -38,7 +38,7 @@
   cursor: not-allowed;
 }
 
-.amsterdam-checkbox__input:focus + .amsterdam-checkbox__label,
+.amsterdam-checkbox__input:focus-visible + .amsterdam-checkbox__label,
 :not(.amsterdam-checkbox__input:disabled) + .amsterdam-checkbox__label:hover {
   color: var(--amsterdam-checkbox-hover-color);
   text-decoration: underline;
@@ -100,7 +100,10 @@
 :not(.amsterdam-checkbox__input:checked, .amsterdam-checkbox__input:indeterminate)
   + .amsterdam-checkbox__label:hover
   .amsterdam-checkbox__label__checkmark--invalid::after,
-.amsterdam-checkbox__input:focus:not(.amsterdam-checkbox__input:checked, .amsterdam-checkbox__input:indeterminate)
+.amsterdam-checkbox__input:focus-visible:not(
+    .amsterdam-checkbox__input:checked,
+    .amsterdam-checkbox__input:indeterminate
+  )
   + .amsterdam-checkbox__label
   .amsterdam-checkbox__label__checkmark--invalid::after {
   box-shadow: var(--amsterdam-checkbox-checkmark-invalid-hover-box-shadow);
@@ -111,15 +114,17 @@
 .amsterdam-checkbox__input:indeterminate
   + .amsterdam-checkbox__label:hover
   .amsterdam-checkbox__label__checkmark::after,
-.amsterdam-checkbox__input:checked:focus + .amsterdam-checkbox__label .amsterdam-checkbox__label__checkmark::after,
-.amsterdam-checkbox__input:indeterminate:focus
+.amsterdam-checkbox__input:checked:focus-visible
+  + .amsterdam-checkbox__label
+  .amsterdam-checkbox__label__checkmark::after,
+.amsterdam-checkbox__input:indeterminate:focus-visible
   + .amsterdam-checkbox__label
   .amsterdam-checkbox__label__checkmark::after {
   background-color: var(--amsterdam-checkbox-checkmark-checked-hover-background-color);
 }
 
 // Checkmark not checked not indeterminate not disabled not invalid hover and focus state
-.amsterdam-checkbox__input:focus
+.amsterdam-checkbox__input:focus-visible
   + .amsterdam-checkbox__label
   .amsterdam-checkbox__label__checkmark:not(.amsterdam-checkbox__label__checkmark--invalid)::after,
 :not(.amsterdam-checkbox__input:checked, .amsterdam-checkbox__input:indeterminate, .amsterdam-checkbox__input:disabled)

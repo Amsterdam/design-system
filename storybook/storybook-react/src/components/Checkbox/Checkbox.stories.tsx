@@ -10,7 +10,7 @@ const meta = {
   title: 'Checkbox',
   component: Checkbox,
   args: {
-    children: 'Nieuw component',
+    children: 'Werk en inkomen',
     disabled: false,
     indeterminate: false,
     invalid: false,
@@ -22,3 +22,10 @@ export default meta
 type Story = StoryObj<typeof meta>
 
 export const Default: Story = {}
+
+export const LongLabel: Story = {
+  args: {
+    children:
+      'Ik heb alle gegevens correct en volledig ingevuld. Ik begrijp dat een verhuizing via internet dezelfde juridische status heeft als een verhuizing met een geschreven geldige handtekening.',
+  },
+}
