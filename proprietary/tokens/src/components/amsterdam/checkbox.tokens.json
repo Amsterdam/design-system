@@ -26,7 +26,7 @@
             }
           }
         },
-        "error": {
+        "invalid": {
           "box-shadow": {
             "value": "inset 0 0 0 2px {amsterdam.color.primary-red}"
           },

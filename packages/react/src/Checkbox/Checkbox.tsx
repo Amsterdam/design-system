@@ -7,7 +7,7 @@ import clsx from 'clsx'
 import {
   ForwardedRef,
   forwardRef,
-  HTMLAttributes,
+  InputHTMLAttributes,
   PropsWithChildren,
   useEffect,
   useId,
@@ -15,14 +15,14 @@ import {
   useRef,
 } from 'react'
 
-export interface CheckboxProps extends HTMLAttributes<HTMLInputElement> {
-  error?: boolean
+export interface CheckboxProps extends InputHTMLAttributes<HTMLInputElement> {
+  invalid?: boolean
   indeterminate?: boolean
 }
 
 export const Checkbox = forwardRef(
   (
-    { children, className, error, indeterminate, ...restProps }: PropsWithChildren<CheckboxProps>,
+    { children, className, invalid, indeterminate, ...restProps }: PropsWithChildren<CheckboxProps>,
     ref: ForwardedRef<HTMLInputElement>,
   ) => {
     const id = useId()
@@ -40,12 +40,19 @@ export const Checkbox = forwardRef(
 
     return (
       <div className={clsx('amsterdam-checkbox', className)}>
-        <input {...restProps} type="checkbox" className="amsterdam-checkbox__input" ref={innerRef} id={id} />
+        <input
+          {...restProps}
+          type="checkbox"
+          className="amsterdam-checkbox__input"
+          ref={innerRef}
+          id={id}
+          aria-invalid={invalid}
+        />
         <label className="amsterdam-checkbox__label" htmlFor={id}>
           <span
             className={clsx(
               'amsterdam-checkbox__label__checkmark',
-              error && 'amsterdam-checkbox__label__checkmark--error',
+              invalid && 'amsterdam-checkbox__label__checkmark--invalid',
             )}
           />
           {children}
