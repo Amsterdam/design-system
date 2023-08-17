@@ -1,4 +1,4 @@
-import { Controls, Markdown, Meta, Primary } from "@storybook/blocks";
+import { Canvas, Controls, Markdown, Meta, Primary } from "@storybook/blocks";
 import * as OrderedListStories from "./OrderedList.stories.tsx";
 import README from "../../../../../packages/css/src/ordered-list/README.md?raw";
 
@@ -7,5 +7,9 @@ import README from "../../../../../packages/css/src/ordered-list/README.md?raw";
 <Markdown>{README}</Markdown>
 
 <Primary />
+
+### Twee niveaus
+
+<Canvas of={OrderedListStories.TwoLevels} />
 
 <Controls />
