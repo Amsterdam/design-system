@@ -9,7 +9,7 @@ import type { Meta, StoryObj } from '@storybook/react'
 const meta = {
   title: 'Unordered List',
   component: UnorderedList,
-  argTypes: { noMarker: { control: 'boolean' } },
+  argTypes: { noMarkers: { control: 'boolean' } },
   args: {
     children: [
       <UnorderedList.Item key={0}>
@@ -37,9 +37,9 @@ type Story = StoryObj<typeof meta>
 
 export const Default: Story = {}
 
-export const NoMarker: Story = {
+export const NoMarkers: Story = {
   args: {
-    noMarker: true,
+    noMarkers: true,
     children: [
       <UnorderedList.Item key={0}>Dit is het eerste niveau opsommingsteken.</UnorderedList.Item>,
       <UnorderedList.Item key={1}>Dit is het eerste niveau opsommingsteken.</UnorderedList.Item>,
