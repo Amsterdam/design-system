@@ -138,7 +138,6 @@
     "selector-max-id": [0],
     "selector-pseudo-class-case": null,
     "selector-pseudo-class-no-unknown": true,
-    "selector-pseudo-class-parentheses-space-inside": "never",
     "selector-pseudo-element-case": null,
     "selector-pseudo-element-no-unknown": true,
     "string-no-newline": true,
