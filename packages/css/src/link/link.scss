@@ -8,32 +8,41 @@
 .amsterdam-link {
   color: var(--amsterdam-link-color);
   font-family: var(--amsterdam-link-font-family);
-  font-size: var(--amsterdam-link-narrow-font-size);
   font-weight: var(--amsterdam-link-font-weight);
-  line-height: var(--amsterdam-link-line-height);
   outline-offset: var(--amsterdam-link-outline-offset);
-  padding-block: 0.5rem;
-  text-decoration-thickness: var(--amsterdam-link-text-decoration-thickness);
-  text-underline-offset: var(--amsterdam-link-text-underline-offset);
 
   &:hover,
   &:active,
   &:focus {
     color: var(--amsterdam-link-focus-color);
-    text-decoration-thickness: var(--amsterdam-link-focus-text-decoration-thickness);
-    text-underline-offset: var(--amsterdam-link-focus-text-underline-offset);
+  }
+}
+
+.amsterdam-link--standalone {
+  font-size: var(--amsterdam-link-standalone-narrow-font-size);
+  line-height: var(--amsterdam-link-standalon-line-height);
+  padding-block: 0.5rem;
+  text-decoration-thickness: var(--amsterdam-link-standalone-text-decoration-thickness);
+  text-underline-offset: var(--amsterdam-link-standalone-text-underline-offset);
+
+  &:hover,
+  &:active,
+  &:focus {
+    text-decoration-thickness: var(--amsterdam-link-standalone-focus-text-decoration-thickness);
+    text-underline-offset: var(--amsterdam-link-standalone-focus-text-underline-offset);
   }
 
   @media screen and (width > $amsterdam-breakpoint) {
-    font-size: var(--amsterdam-link-wide-font-size);
+    font-size: var(--amsterdam-link-standalone-wide-font-size);
   }
 }
 
 .amsterdam-link--inline {
   font-family: var(--amsterdam-link-inline-font-family);
   font-size: var(--amsterdam-link-inline-font-size);
-  padding-block: 0;
+  line-height: var(--amsterdam-link-inline-line-height);
   text-decoration: var(--amsterdam-link-inline-text-decoration);
+  text-decoration-thickness: var(--amsterdam-link-text-decoration-thickness);
 
   &:hover,
   &:active,
@@ -53,7 +62,9 @@
   font-size: var(--amsterdam-link-in-list-narrow-font-size);
   gap: var(--amsterdam-link-in-list-gap);
   line-height: var(--amsterdam-link-in-list-line-height);
-  padding-block: 0.75rem;
+
+  // this padding differs from our spacing scheme, in order to meet WCAG 2.5.5 without having too much space between in list links
+  padding-block: 0.575rem;
   text-decoration: var(--amsterdam-link-in-list-text-decoration);
 
   &:hover,

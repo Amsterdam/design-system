@@ -30,7 +30,7 @@ export type LinkProps = CommonProps & ConditionalProps
 
 export const Link = forwardRef(
   (
-    { children, variant, icon, onBackground, className, ...otherProps }: PropsWithChildren<LinkProps>,
+    { children, variant = 'standalone', icon, onBackground, className, ...otherProps }: PropsWithChildren<LinkProps>,
     ref: ForwardedRef<HTMLAnchorElement>,
   ) => (
     <a
@@ -39,6 +39,7 @@ export const Link = forwardRef(
       className={clsx(
         'amsterdam-link',
         {
+          'amsterdam-link--standalone': variant === 'standalone',
           'amsterdam-link--inline': variant === 'inline',
           'amsterdam-link--in-list': variant === 'inList',
           'amsterdam-link--in-list__chevron': variant === 'inList' && !icon,
