@@ -46,7 +46,7 @@ export const Checkbox = forwardRef(
           className="amsterdam-checkbox__input"
           ref={innerRef}
           id={id}
-          aria-invalid={invalid}
+          aria-invalid={invalid || undefined}
         />
         <label className="amsterdam-checkbox__label" htmlFor={id}>
           <span
