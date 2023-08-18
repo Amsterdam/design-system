@@ -4,7 +4,7 @@
  */
 
 import { Link, Paragraph } from '@amsterdam/design-system-react'
-import { Email } from '@amsterdam/design-system-react-icons'
+import * as Icons from '@amsterdam/design-system-react-icons'
 import type { Meta, StoryObj } from '@storybook/react'
 
 type Story = StoryObj<typeof Link>
@@ -13,6 +13,14 @@ const meta = {
   title: 'Link',
   component: Link,
   argTypes: {
+    icon: {
+      control: { type: 'select' },
+      options: Object.keys(Icons),
+      mapping: Icons,
+      table: {
+        category: 'API',
+      },
+    },
     onBackground: {
       control: { type: 'select', labels: { default: 'default', light: 'light', dark: 'dark' } },
       options: ['default', 'light', 'dark'],
@@ -102,7 +110,7 @@ export const InListWithIcon: Story = {
     href: '#',
     variant: 'inList',
     onBackground: undefined,
-    icon: Email,
+    icon: Icons.Email,
   },
 }
 
