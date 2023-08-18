@@ -48,7 +48,7 @@ export const Link = forwardRef(
         className,
       )}
     >
-      {variant === 'inList' && <Icon svg={icon ? icon : ChevronRight} size="level-7" />}
+      {variant === 'inList' && <Icon svg={icon ?? ChevronRight} size="level-7" />}
       {children}
     </a>
   ),
