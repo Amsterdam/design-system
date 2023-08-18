@@ -3,6 +3,7 @@
  * Copyright (c) 2023 Gemeente Amsterdam
  */
 
+export * from '../OrderedList'
 export * from '../Heading'
 export * from '../Breadcrumb'
 export * from '../Link'
