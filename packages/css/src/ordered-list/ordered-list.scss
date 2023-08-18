@@ -1,0 +1,43 @@
+/**
+ * @license EUPL-1.2+
+ * Copyright (c) 2023 Gemeente Amsterdam
+ */
+
+@import "../../utils/breakpoint";
+
+@mixin reset {
+  box-sizing: border-box;
+  margin-block: 0;
+  -webkit-text-size-adjust: 100%;
+}
+
+.amsterdam-ordered-list {
+  color: var(--amsterdam-ordered-list-color);
+  display: flex;
+  flex-direction: column;
+  font-family: var(--amsterdam-ordered-list-font-family);
+  font-size: var(--amsterdam-ordered-list-narrow-font-size);
+  font-weight: var(--amsterdam-ordered-list-font-weight);
+  gap: var(--amsterdam-ordered-list-gap);
+  line-height: var(--amsterdam-ordered-list-line-height);
+
+  @media screen and (width > $amsterdam-breakpoint) {
+    font-size: var(--amsterdam-ordered-list-wide-font-size);
+  }
+
+  @include reset;
+}
+
+.amsterdam-ordered-list__item {
+  padding-inline: var(--amsterdam-ordered-list-item-padding-inline);
+}
+
+.amsterdam-ordered-list .amsterdam-ordered-list {
+  list-style-type: var(--amsterdam-ordered-list-ordered-list-list-style-type);
+  padding-block: var(--amsterdam-ordered-list-ordered-list-padding-block);
+  padding-inline: var(--amsterdam-ordered-list-ordered-list-padding-inline);
+}
+
+.amsterdam-ordered-list .amsterdam-ordered-list .amsterdam-ordered-list__item {
+  padding-inline: var(--amsterdam-ordered-list-ordered-list-item-padding-inline);
+}

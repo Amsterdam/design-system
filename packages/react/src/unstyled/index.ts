@@ -5,10 +5,7 @@
 
 /* Append here */
 export * from '../Checkbox'
-export * from '../Blockquote'
-export * from '../TopTaskLink'
-export * from '../Footer'
-export * from '../Hero'
+export * from '../OrderedList'
 export * from '../Heading'
 export * from '../Breadcrumb'
 export * from '../Link'

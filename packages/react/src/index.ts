@@ -5,10 +5,7 @@
 
 /* Append here */
 import '../../css/src/checkbox/checkbox.scss'
-import '../../css/src/blockquote/blockquote.scss'
-import '../../css/src/top-task-link/top-task-link.scss'
-import '../../css/src/footer/footer.scss'
-import '../../css/src/hero/hero.scss'
+import '../../css/src/ordered-list/ordered-list.scss'
 import '../../css/src/accordion/accordion.scss'
 import '../../css/src/breadcrumb/breadcrumb.scss'
 import '../../css/src/button/button.scss'
