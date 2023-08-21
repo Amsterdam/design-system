@@ -5,62 +5,54 @@
 
 @import "../../utils/breakpoint";
 
+/**
+ * - Applies border box sizing.
+ * - Resets whitespace and list styles.
+ */
 @mixin reset {
   box-sizing: border-box;
+  list-style: none;
   margin-block: 0;
+  padding-inline-start: 0;
   -webkit-text-size-adjust: 100%;
 }
 
-@mixin reset-unordered {
-  list-style-type: none;
-  margin-block: 0;
-  padding-inline: 0;
-}
-
+/** A list is a grid column with a gap between items. */
 .amsterdam-unordered-list {
-  display: flex;
-  flex-direction: column;
+  @include reset;
+
+  display: grid;
   gap: var(--amsterdam-unordered-list-gap);
 }
 
+/**
+ * A list with markers:
+ * - sets typography for its text content
+ * - applies correct spacing at the start of items.
+ */
 .amsterdam-unordered-list:not(.amsterdam-unordered-list--no-markers) {
   color: var(--amsterdam-unordered-list-color);
   font-family: var(--amsterdam-unordered-list-font-family);
   font-size: var(--amsterdam-unordered-list-narrow-font-size);
   font-weight: var(--amsterdam-unordered-list-font-weight);
   line-height: var(--amsterdam-unordered-list-line-height);
-  list-style: var(--amsterdam-unordered-list-list-style);
+  list-style-type: var(--amsterdam-unordered-list-list-style-type);
 
   @media screen and (width > $amsterdam-breakpoint) {
     font-size: var(--amsterdam-unordered-list-wide-font-size);
   }
 
-  @include reset;
-}
-
-.amsterdam-unordered-list > .amsterdam-unordered-list__item {
-  padding-inline: var(--amsterdam-unordered-list-unordered-list-item-padding-inline);
-}
-
-.amsterdam-unordered-list--no-markers {
-  @include reset-unordered;
-
-  .amsterdam-unordered-list__item {
-    @include reset-unordered;
-  }
-
-  .amsterdam-unordered-list {
-    display: none;
-    visibility: hidden;
+  li {
+    margin-inline-start: var(--amsterdam-unordered-list-item-margin-inline-start);
+    padding-inline-start: var(--amsterdam-unordered-list-item-padding-inline-start);
   }
 }
 
-.amsterdam-unordered-list:not(.amsterdam-unordered-list--no-markers) .amsterdam-unordered-list__item {
-  padding-inline: var(--amsterdam-unordered-list-item-padding-inline);
-}
-
+/** A nested list has a different marker and less spacing for correct alignment. */
 .amsterdam-unordered-list .amsterdam-unordered-list {
   list-style-type: var(--amsterdam-unordered-list-unordered-list-list-style-type);
-  padding-block: var(--amsterdam-unordered-list-unordered-list-padding-block);
-  padding-inline: var(--amsterdam-unordered-list-unordered-list-padding-inline);
+
+  li {
+    margin-inline-start: var(--amsterdam-unordered-list-unordered-list-item-margin-inline-start);
+  }
 }

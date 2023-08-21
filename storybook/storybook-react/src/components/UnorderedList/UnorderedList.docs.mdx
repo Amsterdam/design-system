@@ -1,19 +1,36 @@
-import { Canvas, Controls, Markdown, Meta, Primary } from "@storybook/blocks";
+import { Canvas, Meta } from "@storybook/blocks";
 import * as UnorderedListStories from "./UnorderedList.stories.tsx";
-import README from "../../../../../packages/css/src/unordered-list/README.md?raw";
 
 <Meta of={UnorderedListStories} />
 
-<Markdown>{README}</Markdown>
+# Unordered list
 
-<Primary />
+Een lijst is een verticale groep gerelateerde inhoud.
 
-<Controls />
+## Voorbeelden
+
+### Basis
+
+Een ongeordende lijst heeft vierkante opsommingstekens.
+Tussen de items staat extra witruimte.
+Dat geeft een beter onderscheid tussen de items, zeker als ze uit meerdere regels tekst bestaan.
+
+<Canvas of={UnorderedListStories.Default} />
+
+### Twee niveaus
+
+Een lijst mag één dieper niveau hebben.
+In dit geval wordt een kastlijntjes (‘en dash’) gebruikt als opsommingsteken.
+Dat is links uitgelijnd met de tekst van het bovenliggende niveau.
+
+<Canvas of={UnorderedListStories.TwoLevels} />
 
 ### Lijst zonder opsommingstekens
 
-Een overzicht van artikelen of zoekresultaten is ook een lijst, maar dan zonder opsommingstekens die vooral binnen proza nuttig zijn.
-Gebruik in dit soort gevallen een lijst zonder markers om die semantiek aan te geven.
-Daardoor kunnen schermlezers de gebruiker helpen de lijst te begrijpen en te navigeren.
+Een overzicht van gelijkwaardige elementen is ook een ongeordende lijst.
+Gebruik in dit soort gevallen een lijst zonder opsommingstekens om die semantiek aan te brengen.
+Daardoor kunnen schermlezers helpen de lijst te begrijpen en te navigeren.
+
+Dit voorbeeld is gebaseerd op de toptaken op de homepage van de website:
 
 <Canvas of={UnorderedListStories.NoMarkers} />
