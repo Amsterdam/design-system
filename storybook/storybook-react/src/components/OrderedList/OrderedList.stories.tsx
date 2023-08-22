@@ -3,12 +3,22 @@
  * Copyright (c) 2023 Gemeente Amsterdam
  */
 
-import { OrderedList } from '@amsterdam/design-system-react'
+import { Heading, OrderedList, Paragraph } from '@amsterdam/design-system-react'
 import type { Meta, StoryObj } from '@storybook/react'
 
 const meta = {
   title: 'Ordered List',
   component: OrderedList,
+  argTypes: {
+    noMarkers: { control: 'boolean' },
+  },
+  parameters: {
+    docs: {
+      canvas: {
+        sourceState: 'hidden',
+      },
+    },
+  },
 } satisfies Meta<typeof OrderedList>
 
 export default meta
@@ -59,6 +69,61 @@ export const TwoLevels: Story = {
           <OrderedList.Item key={2.3}>Osdorp</OrderedList.Item>
           <OrderedList.Item key={2.4}>Slotervaart</OrderedList.Item>
         </OrderedList>
+      </OrderedList.Item>,
+    ],
+  },
+}
+
+export const Start: Story = {
+  args: {
+    children: [
+      <OrderedList.Item key={6}>Zes</OrderedList.Item>,
+      <OrderedList.Item key={7}>Zeven</OrderedList.Item>,
+      <OrderedList.Item key={8}>Acht</OrderedList.Item>,
+    ],
+    start: 6,
+  },
+}
+
+export const Reversed: Story = {
+  args: {
+    children: [
+      <OrderedList.Item key={3}>Drie</OrderedList.Item>,
+      <OrderedList.Item key={2}>Twee</OrderedList.Item>,
+      <OrderedList.Item key={1}>Eén</OrderedList.Item>,
+    ],
+    start: 3,
+    reversed: true,
+  },
+}
+
+export const NoMarkers: Story = {
+  args: {
+    noMarkers: true,
+    children: [
+      <OrderedList.Item key={0}>
+        <Heading size="level-4">Weg met steen, hallo extra groen en koelte</Heading>
+        <Paragraph>
+          Sinds 2021 kwamen er maar liefst 60 nieuwe groene plekken bij in de stad. Groen is fijn en het verkoelt de
+          stad in de zomer. Een paar voorbeelden.
+        </Paragraph>
+        <Paragraph size="small">16 augustus 2023</Paragraph>
+      </OrderedList.Item>,
+      <OrderedList.Item key={1}>
+        <Heading size="level-4">Amsterdam bindt de strijd aan met lawaaierige voertuigen</Heading>
+        <Paragraph>
+          Deze zomer testen we of digitale borden langs de weg kunnen helpen om geluidsoverlast van voertuigen zoals
+          motoren en auto’s tegen te gaan.
+        </Paragraph>
+        <Paragraph size="small">10 augustus 2023</Paragraph>
+      </OrderedList.Item>,
+      <OrderedList.Item key={2}>
+        <Heading size="level-4">Een prachtroute door de wonderlijke Baarsjes</Heading>
+        <Paragraph>
+          In de Baarsjes zijn kunst en cultuur met elkaar vervlochten. We zetten een prachtige wandelroute voor u uit en
+          laten zien hoe het was en hoe het nu is.
+        </Paragraph>
+        <Paragraph size="small">8 augustus 2023</Paragraph>
       </OrderedList.Item>,
     ],
   },

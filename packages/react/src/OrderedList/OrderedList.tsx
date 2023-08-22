@@ -4,29 +4,35 @@
  */
 
 import clsx from 'clsx'
-import React, {
+import {
   ForwardedRef,
   forwardRef,
-  HTMLAttributes,
+  ForwardRefExoticComponent,
   LiHTMLAttributes,
   OlHTMLAttributes,
   PropsWithChildren,
+  RefAttributes,
 } from 'react'
 
-interface OrderedListComponent
-  extends React.ForwardRefExoticComponent<
-    PropsWithChildren<HTMLAttributes<HTMLElement>> & React.RefAttributes<HTMLElement>
-  > {
+export interface OrderedListProps extends PropsWithChildren<OlHTMLAttributes<HTMLOListElement>> {
+  noMarkers?: boolean
+}
+
+interface OrderedListComponent extends ForwardRefExoticComponent<OrderedListProps & RefAttributes<HTMLOListElement>> {
   Item: typeof OrderedListItem
 }
 
 export const OrderedList = forwardRef(
   (
-    { children, className, ...restProps }: PropsWithChildren<OlHTMLAttributes<HTMLOListElement>>,
+    { children, noMarkers = false, className, ...restProps }: PropsWithChildren<OrderedListProps>,
     ref: ForwardedRef<HTMLOListElement>,
   ) => {
     return (
-      <ol ref={ref} className={clsx('amsterdam-ordered-list', className)} {...restProps}>
+      <ol
+        ref={ref}
+        className={clsx('amsterdam-ordered-list', noMarkers && 'amsterdam-ordered-list--no-markers', className)}
+        {...restProps}
+      >
         {children}
       </ol>
     )
