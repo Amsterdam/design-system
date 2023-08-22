@@ -6,45 +6,50 @@
 @import "../../utils/breakpoint";
 
 .amsterdam-link {
-  color: var(--amsterdam-link-color, blue);
-  font-family: var(--amsterdam-paragraph-font-family);
-  font-size: var(--amsterdam-link-narrow-font-size);
-  line-height: var(--amsterdam-link-line-height);
+  color: var(--amsterdam-link-color);
+  font-family: var(--amsterdam-link-font-family);
+  font-weight: var(--amsterdam-link-font-weight);
   outline-offset: var(--amsterdam-link-outline-offset);
-  text-decoration: var(--amsterdam-link-text-decoration, underline);
-  text-decoration-color: var(--amsterdam-link-text-decoration-color, currentColor);
-  text-decoration-thickness: var(--amsterdam-link-text-decoration-thickness, 1px);
-  text-underline-offset: var(--amsterdam-link-text-underline-offset);
 
   &:hover,
-  &:active {
-    color: var(--amsterdam-link-hover-color);
-    text-decoration: var(--amsterdam-link-hover-text-decoration);
-    text-decoration-thickness: var(--amsterdam-link-hover-text-decoration-thickness, 1px);
-  }
-
+  &:active,
   &:focus {
     color: var(--amsterdam-link-focus-color);
-    text-decoration: var(--amsterdam-link-focus-text-decoration);
-  }
-
-  &:visited {
-    color: var(--amsterdam-link-visited-color);
-  }
-
-  @media screen and (width > $amsterdam-breakpoint) {
-    font-size: var(--amsterdam-link-wide-font-size);
   }
 }
 
-.amsterdam-link--standalone-bold {
-  font-weight: var(--amsterdam-link-standalone-bold-font-weight);
+.amsterdam-link--standalone {
+  font-size: var(--amsterdam-link-standalone-narrow-font-size);
+  line-height: var(--amsterdam-link-standalon-line-height);
+  padding-block: 0.5rem;
+  text-decoration-thickness: var(--amsterdam-link-standalone-text-decoration-thickness);
+  text-underline-offset: var(--amsterdam-link-standalone-text-underline-offset);
+
+  &:hover,
+  &:active,
+  &:focus {
+    text-decoration-thickness: var(--amsterdam-link-standalone-focus-text-decoration-thickness);
+    text-underline-offset: var(--amsterdam-link-standalone-focus-text-underline-offset);
+  }
+
+  @media screen and (width > $amsterdam-breakpoint) {
+    font-size: var(--amsterdam-link-standalone-wide-font-size);
+  }
 }
 
 .amsterdam-link--inline {
   font-family: var(--amsterdam-link-inline-font-family);
   font-size: var(--amsterdam-link-inline-font-size);
-  text-underline-offset: var(--amsterdam-link-inline-text-underline-offset);
+  line-height: var(--amsterdam-link-inline-line-height);
+  text-decoration: var(--amsterdam-link-inline-text-decoration);
+  text-decoration-thickness: var(--amsterdam-link-text-decoration-thickness);
+
+  &:hover,
+  &:active,
+  &:focus {
+    text-decoration: var(--amsterdam-link-inline-focus-text-decoration);
+    text-underline-offset: var(--amsterdam-link-inline-focus-text-underline-offset);
+  }
 
   &:visited {
     color: var(--amsterdam-link-inline-visited-color);
@@ -57,12 +62,17 @@
   font-size: var(--amsterdam-link-in-list-narrow-font-size);
   gap: var(--amsterdam-link-in-list-gap);
   line-height: var(--amsterdam-link-in-list-line-height);
-  text-underline-offset: var(--amsterdam-link-in-list-text-underline-offset);
 
-  // Override for icon size
-  span.amsterdam-icon svg {
-    height: 16px;
-    width: 16px;
+  // this padding differs from our spacing scheme, in order to meet WCAG 2.5.5 without having too much space between in list links
+  padding-block: 0.575rem;
+  text-decoration: var(--amsterdam-link-in-list-text-decoration);
+
+  &:hover,
+  &:active,
+  &:focus {
+    text-decoration: var(--amsterdam-link-in-list-focus-text-decoration);
+    text-decoration-thickness: var(--amsterdam-link-in-list-focus-text-decoration-thickness);
+    text-underline-offset: var(--amsterdam-link-in-list-focus-text-underline-offset);
   }
 
   @media screen and (width > $amsterdam-breakpoint) {
@@ -70,14 +80,21 @@
   }
 }
 
+// Override for icon size
+.amsterdam-link--in-list__chevron {
+  span.amsterdam-icon svg {
+    height: 16px;
+    width: 16px;
+  }
+}
+
 .amsterdam-link--on-background-dark {
   color: var(--amsterdam-link-on-background-dark-color);
-  text-decoration: var(--amsterdam-link-on-background-dark-text-decoration);
 
   &:hover,
-  &:active {
+  &:active,
+  &:focus {
     color: var(--amsterdam-link-on-background-dark-hover-color);
-    text-decoration: var(--amsterdam-link-on-background-dark-hover-text-decoration);
   }
 
   &:visited {
@@ -87,15 +104,26 @@
 
 .amsterdam-link--on-background-light {
   color: var(--amsterdam-link-on-background-light-color);
-  text-decoration: var(--amsterdam-link-on-background-light-text-decoration);
 
   &:hover,
-  &:active {
+  &:active,
+  &:focus {
     color: var(--amsterdam-link-on-background-light-hover-color);
-    text-decoration: var(--amsterdam-link-on-background-light-hover-text-decoration);
   }
 
   &:visited {
     color: var(--amsterdam-link-on-background-light-visited-color);
+  }
+}
+
+.amsterdam-link--inline.amsterdam-link--on-background-dark,
+.amsterdam-link--inline.amsterdam-link--on-background-light {
+  text-decoration: var(--amsterdam-link-inline-focus-text-decoration);
+  text-underline-offset: var(--amsterdam-link-inline-focus-text-underline-offset);
+
+  &:hover,
+  &:active,
+  &:focus {
+    text-decoration: var(--amsterdam-link-inline-text-decoration);
   }
 }
