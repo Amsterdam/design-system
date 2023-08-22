@@ -7,14 +7,27 @@
 import clsx from 'clsx'
 import { ForwardedRef, forwardRef, HTMLAttributes, PropsWithChildren } from 'react'
 
-type Levels = 1 | 2 | 3 | 4
+export type HeadingLevel = 1 | 2 | 3 | 4
+type Size = 'level-1' | 'level-2' | 'level-3' | 'level-4'
 
 export interface HeadingProps extends HTMLAttributes<HTMLHeadingElement> {
-  level?: Levels
-  styleLevel?: Levels
+  /**
+   * Het hiërarchische niveau van de titel.
+   */
+  level?: HeadingLevel
+  /**
+   * De visuele grootte van de titel.
+   * Voeg dit toe om de titel groter of kleiner weer te geven zonder de semantische betekenis te veranderen.
+   */
+  size?: Size
+  /**
+   * De kleur van de titel
+   * Gebruik deze property om de titel in tegenovergestelde kleur te tonen.
+   */
+  inverseColor?: boolean
 }
 
-function getElement(level: Levels) {
+export function getHeadingElement(level: HeadingLevel) {
   switch (level) {
     case 2:
       return 'h2'
@@ -29,15 +42,21 @@ function getElement(level: Levels) {
 
 export const Heading = forwardRef(
   (
-    { level = 1, styleLevel, children, className, ...restProps }: PropsWithChildren<HeadingProps>,
+    { children, className, inverseColor, level = 1, size, ...restProps }: PropsWithChildren<HeadingProps>,
     ref: ForwardedRef<HTMLHeadingElement>,
   ) => {
-    const HeadingX = getElement(level)
+    const HeadingX = getHeadingElement(level)
+    const sizeOrLevel = size ? size.split('-')[1] : level
 
     return (
       <HeadingX
         ref={ref}
-        className={clsx('amsterdam-heading', `amsterdam-heading-${styleLevel || level}`, className)}
+        className={clsx(
+          'amsterdam-heading',
+          `amsterdam-heading--${sizeOrLevel}`,
+          inverseColor && 'amsterdam-heading--inverse-color',
+          className,
+        )}
         {...restProps}
       >
         {children}

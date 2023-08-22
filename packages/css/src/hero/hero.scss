@@ -1,0 +1,32 @@
+/**
+ * @license EUPL-1.2+
+ * Copyright (c) 2023 Gemeente Amsterdam
+ */
+
+@import "../../utils/breakpoint";
+
+@mixin reset {
+  box-sizing: border-box;
+  break-after: avoid;
+  break-inside: avoid;
+  margin-block: 0;
+  margin-inline: 0;
+}
+
+.amsterdam-hero {
+  color: var(--amsterdam-hero-color);
+  font-family: var(--amsterdam-hero-font-family);
+  font-size: var(--amsterdam-hero-narrow-font-size);
+  font-weight: var(--amsterdam-hero-font-weight);
+  line-height: var(--amsterdam-hero-line-height);
+
+  @media screen and (width > $amsterdam-breakpoint) {
+    font-size: var(--amsterdam-hero-wide-font-size);
+  }
+
+  @include reset;
+}
+
+.amsterdam-hero--inverse-color {
+  color: var(--amsterdam-hero-inverse-color);
+}

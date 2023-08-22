@@ -10,8 +10,10 @@
   font-style: normal;
   font-weight: 300;
   src: url("./eot/AmsterdamSans-Light.eot?#iefix");
-  src: url("./eot/AmsterdamSans-Light.eot?#iefix") format("eot"),
-    url("./woff2/AmsterdamSans-Light.woff2") format("woff2"), url("./woff/AmsterdamSans-Light.woff") format("woff");
+  src:
+    url("./eot/AmsterdamSans-Light.eot?#iefix") format("eot"),
+    url("./woff2/AmsterdamSans-Light.woff2") format("woff2"),
+    url("./woff/AmsterdamSans-Light.woff") format("woff");
 }
 @font-face {
   font-display: swap;
@@ -19,8 +21,10 @@
   font-style: normal;
   font-weight: 400;
   src: url("./eot/AmsterdamSans-Regular.eot?#iefix");
-  src: url("./eot/AmsterdamSans-Regular.eot?#iefix") format("eot"),
-    url("./woff2/AmsterdamSans-Regular.woff2") format("woff2"), url("./woff/AmsterdamSans-Regular.woff") format("woff");
+  src:
+    url("./eot/AmsterdamSans-Regular.eot?#iefix") format("eot"),
+    url("./woff2/AmsterdamSans-Regular.woff2") format("woff2"),
+    url("./woff/AmsterdamSans-Regular.woff") format("woff");
 }
 @font-face {
   font-display: swap;
@@ -28,8 +32,10 @@
   font-style: italic;
   font-weight: 400;
   src: url("./eot/AmsterdamSans-Italic.eot?#iefix");
-  src: url("./eot/AmsterdamSans-Italic.eot?#iefix") format("eot"),
-    url("./woff2/AmsterdamSans-Italic.woff2") format("woff2"), url("./woff/AmsterdamSans-Italic.woff") format("woff");
+  src:
+    url("./eot/AmsterdamSans-Italic.eot?#iefix") format("eot"),
+    url("./woff2/AmsterdamSans-Italic.woff2") format("woff2"),
+    url("./woff/AmsterdamSans-Italic.woff") format("woff");
 }
 @font-face {
   font-display: swap;
@@ -37,7 +43,9 @@
   font-style: normal;
   font-weight: 700;
   src: url("./eot/AmsterdamSans-Bold.eot?#iefix");
-  src: url("./eot/AmsterdamSans-Bold.eot?#iefix") format("eot"), url("./woff2/AmsterdamSans-Bold.woff2") format("woff2"),
+  src:
+    url("./eot/AmsterdamSans-Bold.eot?#iefix") format("eot"),
+    url("./woff2/AmsterdamSans-Bold.woff2") format("woff2"),
     url("./woff/AmsterdamSans-Bold.woff") format("woff");
 }
 @font-face {
@@ -46,7 +54,8 @@
   font-style: italic;
   font-weight: 700;
   src: url("./eot/AmsterdamSans-BoldItalic.eot?#iefix");
-  src: url("./eot/AmsterdamSans-BoldItalic.eot?#iefix") format("eot"),
+  src:
+    url("./eot/AmsterdamSans-BoldItalic.eot?#iefix") format("eot"),
     url("./woff2/AmsterdamSans-BoldItalic.woff2") format("woff2"),
     url("./woff/AmsterdamSans-BoldItalic.woff") format("woff");
 }
@@ -56,7 +65,8 @@
   font-style: normal;
   font-weight: 800;
   src: url("./eot/AmsterdamSans-ExtraBold.eot?#iefix");
-  src: url("./eot/AmsterdamSans-ExtraBold.eot?#iefix") format("eot"),
+  src:
+    url("./eot/AmsterdamSans-ExtraBold.eot?#iefix") format("eot"),
     url("./woff2/AmsterdamSans-ExtraBold.woff2") format("woff2"),
     url("./woff/AmsterdamSans-ExtraBold.woff") format("woff");
 }

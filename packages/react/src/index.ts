@@ -3,11 +3,23 @@
  * Copyright (c) 2023 Gemeente Amsterdam
  */
 
-export { List } from './List'
-export * from './Button/'
-export * from './FormLabel'
-export * from './Heading'
-export * from './Icon'
-export * from './Link'
-export * from './Paragraph'
-export * from './Switch'
+/* Append here */
+import '../../css/src/blockquote/blockquote.scss'
+import '../../css/src/top-task-link/top-task-link.scss'
+import '../../css/src/footer/footer.scss'
+import '../../css/src/hero/hero.scss'
+import '../../css/src/accordion/accordion.scss'
+import '../../css/src/breadcrumb/breadcrumb.scss'
+import '../../css/src/button/button.scss'
+import '../../css/src/form-label/form-label.scss'
+import '../../css/src/heading/heading.scss'
+import '../../css/src/icon/icon.scss'
+import '../../css/src/link/link.scss'
+import '../../css/src/list/list.scss'
+import '../../css/src/paragraph/paragraph.scss'
+import '../../css/src/unordered-list/unordered-list.scss'
+import '../../css/src/grid/grid-cell.scss'
+import '../../css/src/grid/page-grid.scss'
+import '../../css/src/switch/switch.scss'
+
+export * from './unstyled'

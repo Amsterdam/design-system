@@ -1,14 +1,51 @@
+/**
+ * @license EUPL-1.2+
+ * Copyright (c) 2023 Gemeente Amsterdam
+ */
+
 @import "../../node_modules/@utrecht/components/button/css";
 @import "../../utils/breakpoint";
 
 .amsterdam-button {
-  font-size: var(--amsterdam-button-font-size-narrow);
+  font-size: var(--amsterdam-button-narrow-font-size);
 
   @media screen and (width > $amsterdam-breakpoint) {
-    font-size: var(--amsterdam-button-font-size-wide);
+    font-size: var(--amsterdam-button-wide-font-size);
   }
 }
 
-.amsterdam-button--secondary:hover {
-  box-shadow: var(--amsterdam-button-secondary-hover-box-shadow);
+.amsterdam-button--secondary {
+  box-shadow: var(--amsterdam-button-secondary-box-shadow);
+
+  &:disabled,
+  [aria-disabled="true"] {
+    box-shadow: var(--amsterdam-button-secondary-disabled-box-shadow);
+  }
+
+  &:hover:not(:disabled, [aria-disabled="true"]) {
+    box-shadow: var(--amsterdam-button-secondary-hover-box-shadow);
+  }
+}
+
+// Specificity hack to be able to style secondary button focus state
+// This isn't currently possible with the Utrecht component
+// We should really pull this component in our own repo...
+.amsterdam-button--secondary.amsterdam-button--secondary {
+  &:focus {
+    color: var(--amsterdam-button-secondary-focus-color);
+  }
+}
+
+.amsterdam-button--secondary:focus:not(:disabled, [aria-disabled="true"]) {
+  box-shadow: var(--amsterdam-button-secondary-focus-box-shadow);
+}
+
+.amsterdam-button--tertiary {
+  &:hover:not(:disabled, [aria-disabled="true"]) {
+    box-shadow: var(--amsterdam-button-tertiary-hover-box-shadow);
+  }
+}
+
+.amsterdam-button--tertiary:focus:not(:disabled, [aria-disabled="true"]) {
+  box-shadow: var(--amsterdam-button-tertiary-focus-box-shadow);
 }

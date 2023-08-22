@@ -8,5 +8,8 @@ coverage/
 dist/
 tmp/
 
-# Ignore generated icon files
+# Ignore generated React icon files
 proprietary/react-icons
+
+# Ignore generated React unstyled folder
+packages/react/unstyled

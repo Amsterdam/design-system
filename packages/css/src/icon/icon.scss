@@ -2,6 +2,7 @@
  * @license EUPL-1.2+
  * Copyright (c) 2023 Gemeente Amsterdam
  */
+
 @import "../../utils/breakpoint";
 
 .amsterdam-icon {
@@ -13,7 +14,7 @@
   fill: currentColor;
 }
 
-.amsterdam-icon-size-3 {
+.amsterdam-icon--size-3 {
   height: calc(var(--amsterdam-icon-size-3-icon-size-narrow) * var(--amsterdam-icon-size-3-container-multiplier));
 
   @media screen and (width > $amsterdam-breakpoint) {
@@ -21,7 +22,7 @@
   }
 }
 
-.amsterdam-icon-size-3 svg {
+.amsterdam-icon--size-3 svg {
   height: var(--amsterdam-icon-size-3-icon-size-narrow);
   width: var(--amsterdam-icon-size-3-icon-size-narrow);
 
@@ -30,7 +31,7 @@
     width: var(--amsterdam-icon-size-3-icon-size-wide);
   }
 }
-.amsterdam-icon-size-4 {
+.amsterdam-icon--size-4 {
   height: calc(var(--amsterdam-icon-size-4-icon-size-narrow) * var(--amsterdam-icon-size-4-container-multiplier));
 
   @media screen and (width > $amsterdam-breakpoint) {
@@ -38,7 +39,7 @@
   }
 }
 
-.amsterdam-icon-size-4 svg {
+.amsterdam-icon--size-4 svg {
   height: var(--amsterdam-icon-size-4-icon-size-narrow);
   width: var(--amsterdam-icon-size-4-icon-size-narrow);
 
@@ -48,7 +49,7 @@
   }
 }
 
-.amsterdam-icon-size-5 {
+.amsterdam-icon--size-5 {
   height: calc(var(--amsterdam-icon-size-5-icon-size-narrow) * var(--amsterdam-icon-size-5-container-multiplier));
 
   @media screen and (width > $amsterdam-breakpoint) {
@@ -56,7 +57,7 @@
   }
 }
 
-.amsterdam-icon-size-5 svg {
+.amsterdam-icon--size-5 svg {
   height: var(--amsterdam-icon-size-5-icon-size-narrow);
   width: var(--amsterdam-icon-size-5-icon-size-narrow);
 
@@ -66,7 +67,7 @@
   }
 }
 
-.amsterdam-icon-size-6 {
+.amsterdam-icon--size-6 {
   height: calc(var(--amsterdam-icon-size-6-icon-size-narrow) * var(--amsterdam-icon-size-6-container-multiplier));
 
   @media screen and (width > $amsterdam-breakpoint) {
@@ -74,7 +75,7 @@
   }
 }
 
-.amsterdam-icon-size-6 svg {
+.amsterdam-icon--size-6 svg {
   height: var(--amsterdam-icon-size-6-icon-size-narrow);
   width: var(--amsterdam-icon-size-6-icon-size-narrow);
 
@@ -84,7 +85,7 @@
   }
 }
 
-.amsterdam-icon-size-7 {
+.amsterdam-icon--size-7 {
   height: calc(var(--amsterdam-icon-size-7-icon-size-narrow) * var(--amsterdam-icon-size-7-container-multiplier));
 
   @media screen and (width > $amsterdam-breakpoint) {
@@ -92,7 +93,7 @@
   }
 }
 
-.amsterdam-icon-size-7 svg {
+.amsterdam-icon--size-7 svg {
   height: var(--amsterdam-icon-size-7-icon-size-narrow);
   width: var(--amsterdam-icon-size-7-icon-size-narrow);
 

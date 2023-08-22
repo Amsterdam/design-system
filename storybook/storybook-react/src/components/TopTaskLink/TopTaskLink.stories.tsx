@@ -1,0 +1,118 @@
+/**
+ * @license EUPL-1.2+
+ * Copyright (c) 2023 Gemeente Amsterdam
+ */
+
+import { GridCell, PageGrid, TopTaskLink } from '@amsterdam/design-system-react'
+import { Meta, StoryObj } from '@storybook/react'
+
+const meta = {
+  title: 'Top task link',
+  component: TopTaskLink,
+  args: {
+    href: '/',
+  },
+} satisfies Meta<typeof TopTaskLink>
+
+export default meta
+
+type Story = StoryObj<typeof meta>
+
+export const Default: Story = {
+  decorators: [
+    (Story) => (
+      <PageGrid>
+        <GridCell gridColumns={4}>
+          <Story />
+        </GridCell>
+      </PageGrid>
+    ),
+  ],
+  args: {
+    href: '/',
+    children: [
+      <TopTaskLink.Title key={1}>Titel</TopTaskLink.Title>,
+      <TopTaskLink.Description key={2}>Omschrijving</TopTaskLink.Description>,
+    ],
+  },
+}
+
+export const ThreeColumns: Story = {
+  render: () => (
+    <PageGrid>
+      <GridCell gridColumns={4}>
+        <TopTaskLink href="/">
+          <TopTaskLink.Title>Staat van de Stad</TopTaskLink.Title>
+          <TopTaskLink.Description>
+            De Staat van de Stad Amsterdam biedt een overzicht van hoe de stad ervoor staat op tal van terreinen.
+          </TopTaskLink.Description>
+        </TopTaskLink>
+      </GridCell>
+      <GridCell gridColumns={4}>
+        <TopTaskLink href="/">
+          <TopTaskLink.Title>Metropoolregio Amsterdam</TopTaskLink.Title>
+          <TopTaskLink.Description>
+            Onderzoek en Statistiek verzamelt cijfers over de MRA en doet onderzoek naar onder meer de woningmarkt en
+            het toerisme in de regio.
+          </TopTaskLink.Description>
+        </TopTaskLink>
+      </GridCell>
+      <GridCell gridColumns={4}>
+        <TopTaskLink href="/">
+          <TopTaskLink.Title>Armoede</TopTaskLink.Title>
+          <TopTaskLink.Description>
+            In Amsterdam leven meer mensen in armoede dan gemiddeld in Nederland. De afgelopen jaren daalde hun aantal
+            in Amsterdam wel geleidelijk.
+          </TopTaskLink.Description>
+        </TopTaskLink>
+      </GridCell>
+    </PageGrid>
+  ),
+  parameters: {
+    docs: {
+      source: { type: 'dynamic' },
+      canvas: {
+        sourceState: 'hidden',
+      },
+    },
+  },
+}
+
+export const FourColumns: Story = {
+  render: () => (
+    <PageGrid>
+      <GridCell gridColumns={3}>
+        <TopTaskLink href="/">
+          <TopTaskLink.Title>Stadsloket</TopTaskLink.Title>
+          <TopTaskLink.Description>Locaties en openingstijden</TopTaskLink.Description>
+        </TopTaskLink>
+      </GridCell>
+      <GridCell gridColumns={3}>
+        <TopTaskLink href="/">
+          <TopTaskLink.Title>P+R</TopTaskLink.Title>
+          <TopTaskLink.Description>Parkeren en reizen</TopTaskLink.Description>
+        </TopTaskLink>
+      </GridCell>
+      <GridCell gridColumns={3}>
+        <TopTaskLink href="/">
+          <TopTaskLink.Title>Documenten</TopTaskLink.Title>
+          <TopTaskLink.Description>Paspoort, ID-kaart en rijbewijs</TopTaskLink.Description>
+        </TopTaskLink>
+      </GridCell>
+      <GridCell gridColumns={3}>
+        <TopTaskLink href="/">
+          <TopTaskLink.Title>Meldingen</TopTaskLink.Title>
+          <TopTaskLink.Description>Melding openbare ruimte en overlast</TopTaskLink.Description>
+        </TopTaskLink>
+      </GridCell>
+    </PageGrid>
+  ),
+  parameters: {
+    docs: {
+      source: { type: 'dynamic' },
+      canvas: {
+        sourceState: 'hidden',
+      },
+    },
+  },
+}

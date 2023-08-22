@@ -1,0 +1,44 @@
+/**
+ * @license EUPL-1.2+
+ * Copyright (c) 2023 Gemeente Amsterdam
+ */
+
+@import "../../utils/breakpoint";
+
+@mixin reset {
+  box-sizing: border-box;
+  break-after: avoid;
+  break-inside: avoid;
+  margin-block: 0;
+  margin-inline: 0;
+}
+
+.amsterdam-top-task-link {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  outline-offset: var(--amsterdam-top-task-link-outline-offset);
+  text-decoration: none;
+}
+
+.amsterdam-top-task-link__title {
+  color: var(--amsterdam-top-task-link-title-color);
+  font-family: var(--amsterdam-top-task-link-title-font-family);
+  font-size: var(--amsterdam-top-task-link-title-narrow-font-size);
+  font-weight: var(--amsterdam-top-task-link-title-font-weight);
+  line-height: var(--amsterdam-top-task-link-title-line-height);
+
+  @media screen and (width > $amsterdam-breakpoint) {
+    font-size: var(--amsterdam-top-task-link-title-wide-font-size);
+  }
+
+  @include reset;
+}
+
+.amsterdam-top-task-link:hover .amsterdam-top-task-link__title,
+.amsterdam-top-task-link:focus .amsterdam-top-task-link__title {
+  color: var(--amsterdam-top-task-link-title-focus-color);
+  text-decoration: underline;
+  text-decoration-thickness: 3px;
+  text-underline-offset: 0.5rem;
+}

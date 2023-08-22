@@ -3,10 +3,8 @@
  * Copyright (c) 2023 Gemeente Amsterdam
  */
 
-import { Button } from '@amsterdam/design-system-react/src'
+import { Button } from '@amsterdam/design-system-react'
 import { Meta, StoryObj } from '@storybook/react'
-
-import '@amsterdam/design-system-css/src/button/button.scss'
 
 const meta = {
   title: 'Button',
