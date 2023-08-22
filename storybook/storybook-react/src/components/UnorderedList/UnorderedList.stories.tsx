@@ -36,7 +36,7 @@ export default meta
 
 type Story = StoryObj<typeof meta>
 
-export const Default: Story = {
+export const Basis: Story = {
   args: {
     children: [
       <UnorderedList.Item key="contract">
@@ -53,7 +53,7 @@ export const Default: Story = {
   },
 }
 
-export const TwoLevels: Story = {
+export const TweeNiveaus: Story = {
   args: {
     children: [
       <UnorderedList.Item key={1}>
@@ -77,7 +77,7 @@ export const TwoLevels: Story = {
   },
 }
 
-export const NoMarkers: Story = {
+export const ZonderOpsommingstekens: Story = {
   args: {
     noMarkers: true,
     children: [
