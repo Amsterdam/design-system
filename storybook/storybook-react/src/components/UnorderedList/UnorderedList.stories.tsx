@@ -21,7 +21,7 @@ const meta = {
   title: 'Unordered List',
   component: UnorderedList,
   argTypes: {
-    noMarkers: { control: 'boolean' },
+    markers: { control: 'boolean' },
   },
   parameters: {
     docs: {
@@ -79,7 +79,6 @@ export const TweeNiveaus: Story = {
 
 export const ZonderOpsommingstekens: Story = {
   args: {
-    noMarkers: true,
     children: [
       <UnorderedList.Item key={1}>
         <div className="amsterdam-docs-card">
@@ -130,5 +129,6 @@ export const ZonderOpsommingstekens: Story = {
         </div>
       </UnorderedList.Item>,
     ],
+    markers: false,
   },
 }

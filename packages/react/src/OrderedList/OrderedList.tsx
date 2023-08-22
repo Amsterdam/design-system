@@ -15,7 +15,7 @@ import {
 } from 'react'
 
 export interface OrderedListProps extends PropsWithChildren<OlHTMLAttributes<HTMLOListElement>> {
-  noMarkers?: boolean
+  markers?: boolean
 }
 
 interface OrderedListComponent extends ForwardRefExoticComponent<OrderedListProps & RefAttributes<HTMLOListElement>> {
@@ -24,13 +24,13 @@ interface OrderedListComponent extends ForwardRefExoticComponent<OrderedListProp
 
 export const OrderedList = forwardRef(
   (
-    { children, noMarkers = false, className, ...restProps }: PropsWithChildren<OrderedListProps>,
+    { children, markers = true, className, ...restProps }: PropsWithChildren<OrderedListProps>,
     ref: ForwardedRef<HTMLOListElement>,
   ) => {
     return (
       <ol
         ref={ref}
-        className={clsx('amsterdam-ordered-list', noMarkers && 'amsterdam-ordered-list--no-markers', className)}
+        className={clsx('amsterdam-ordered-list', !markers && 'amsterdam-ordered-list--no-markers', className)}
         {...restProps}
       >
         {children}

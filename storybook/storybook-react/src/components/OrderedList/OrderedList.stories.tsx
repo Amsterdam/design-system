@@ -10,7 +10,7 @@ const meta = {
   title: 'Ordered List',
   component: OrderedList,
   argTypes: {
-    noMarkers: { control: 'boolean' },
+    markers: { control: 'boolean' },
   },
   parameters: {
     docs: {
@@ -92,14 +92,13 @@ export const AflopendeNummering: Story = {
       <OrderedList.Item key={2}>Twee</OrderedList.Item>,
       <OrderedList.Item key={1}>Eén</OrderedList.Item>,
     ],
-    start: 3,
     reversed: true,
+    start: 3,
   },
 }
 
 export const ZonderOpsommingstekens: Story = {
   args: {
-    noMarkers: true,
     children: [
       <OrderedList.Item key={0}>
         <Heading size="level-4">Weg met steen, hallo extra groen en koelte</Heading>
@@ -126,5 +125,6 @@ export const ZonderOpsommingstekens: Story = {
         <Paragraph size="small">8 augustus 2023</Paragraph>
       </OrderedList.Item>,
     ],
+    markers: false,
   },
 }
