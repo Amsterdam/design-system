@@ -10,7 +10,7 @@ export const Switch = forwardRef(
       <label className="amsterdam-switch">
         {label && <span className="amsterdam-switch__label">{label}</span>}
 
-        <input {...restProps} className="amsterdam-switch__input" ref={ref} type="checkbox" />
+        <input {...restProps} className="amsterdam-switch__input" ref={ref} type="checkbox" role="switch" />
 
         <span className="amsterdam-switch__toggle" aria-hidden="true">
           <span className="amsterdam-switch__toggle-inner"></span>
