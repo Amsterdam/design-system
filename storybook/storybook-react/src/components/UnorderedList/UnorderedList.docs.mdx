@@ -1,11 +1,10 @@
-import { Canvas, Meta } from "@storybook/blocks";
+import { Canvas, Markdown, Meta } from "@storybook/blocks";
 import * as UnorderedListStories from "./UnorderedList.stories.tsx";
+import README from "../../../../../packages/css/src/unordered-list/README.md?raw";
 
 <Meta of={UnorderedListStories} />
 
-# Unordered list
-
-Een lijst is een verticale groep gerelateerde inhoud.
+<Markdown>{README}</Markdown>
 
 ## Voorbeelden
 

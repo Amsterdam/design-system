@@ -1,11 +1,10 @@
-import { Canvas, Meta } from "@storybook/blocks";
+import { Canvas, Markdown, Meta } from "@storybook/blocks";
 import * as OrderedListStories from "./OrderedList.stories.tsx";
+import README from "../../../../../packages/css/src/ordered-list/README.md?raw";
 
 <Meta of={OrderedListStories} />
 
-# Ordered list
-
-Een geordende lijst is een verticale groep gerelateerde inhoud met een volgorde.
+<Markdown>{README}</Markdown>
 
 ## Voorbeelden
 
