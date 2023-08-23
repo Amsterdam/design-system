@@ -42,7 +42,7 @@
     font-size: var(--amsterdam-ordered-list-wide-font-size);
   }
 
-  li {
+  > .amsterdam-ordered-list__item {
     margin-inline-start: var(--amsterdam-ordered-list-item-margin-inline-start);
     padding-inline-start: var(--amsterdam-ordered-list-item-padding-inline-start);
   }
@@ -52,7 +52,7 @@
 .amsterdam-ordered-list .amsterdam-ordered-list {
   list-style-type: var(--amsterdam-ordered-list-ordered-list-list-style-type);
 
-  li {
+  > .amsterdam-ordered-list__item {
     margin-inline-start: var(--amsterdam-ordered-list-ordered-list-item-margin-inline-start);
   }
 }
