@@ -41,7 +41,8 @@ export const Default: Story = {
       <div
         style={{
           background: context.args.inverseColor ? '#004699' : 'transparent',
-          padding: context.args.inverseColor ? '16px' : 0,
+          margin: context.args.inverseColor ? -16 : 0,
+          padding: context.args.inverseColor ? 16 : 0,
         }}
       >
         <Story />
