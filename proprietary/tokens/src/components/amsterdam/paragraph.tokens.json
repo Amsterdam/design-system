@@ -4,6 +4,7 @@
       "color": { "value": "{amsterdam.color.primary-black}" },
       "font-family": { "value": "{amsterdam.typography.font-family}" },
       "font-weight": { "value": "{amsterdam.typography.font-weight.normal}" },
+      "inverse-color": { "value": "{amsterdam.color.primary-white}" },
       "line-height": { "value": "{amsterdam.typography.text-level.6.line-height}" },
       "narrow": {
         "font-size": { "value": "{amsterdam.typography.text-level.6.narrow.font-size}" }
