@@ -15,11 +15,8 @@ const meta = {
   },
   argTypes: {
     level: {
-      control: {
-        type: 'number',
-        min: 1,
-        max: 4,
-      },
+      control: 'radio',
+      options: [1, 2, 3, 4],
     },
     size: {
       control: 'radio',
