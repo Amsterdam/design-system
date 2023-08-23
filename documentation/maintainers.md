@@ -2,4 +2,4 @@
 
 # Core Maintainers
 
-<https://github.com/orgs/Amsterdam/teams/design-system-maintainers
+<https://github.com/orgs/Amsterdam/teams/design-system-maintainers>
