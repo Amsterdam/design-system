@@ -3,15 +3,8 @@
  * Copyright (c) 2023 Gemeente Amsterdam
  */
 
-import { Footer, Heading, Link, List, Paragraph } from '@amsterdam/design-system-react/src'
+import { Footer, Heading, Link, List, Paragraph } from '@amsterdam/design-system-react'
 import { Meta, StoryObj } from '@storybook/react'
-
-import '@amsterdam/design-system-css/src/footer/footer.scss'
-import '@amsterdam/design-system-css/src/heading/heading.scss'
-import '@amsterdam/design-system-css/src/link/link.scss'
-import '@amsterdam/design-system-css/src/list/list.scss'
-import '@amsterdam/design-system-css/src/paragraph/paragraph.scss'
-import '@amsterdam/design-system-css/src/grid/grid-cell.scss'
 
 const meta = {
   title: 'Footer',
