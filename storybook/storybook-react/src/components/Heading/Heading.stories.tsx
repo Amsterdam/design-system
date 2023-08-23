@@ -83,7 +83,8 @@ export const InvertedColor: Story = {
       <div
         style={{
           background: '#004699',
-          padding: '16px',
+          margin: -16,
+          padding: 16,
         }}
       >
         <Story />
