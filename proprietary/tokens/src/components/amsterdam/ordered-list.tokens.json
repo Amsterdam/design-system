@@ -14,13 +14,26 @@
         "font-size": { "value": "{amsterdam.typography.text-level.6.wide.font-size}" }
       },
       "item": {
-        "margin-inline-start": { "value": "2.5rem" },
-        "padding-inline-start": { "value": "0" }
+        "margin-inline-start": {
+          "value": "2.25rem",
+          "comment": "Divide your total indentation width over margin and padding to position the marker."
+        },
+        "padding-inline-start": {
+          "value": "0.25rem",
+          "comment": "The total level 1 indentation for Amsterdam is 40 pixels, or 2.5rem."
+        }
       },
       "ordered-list": {
         "list-style-type": { "value": "lower-alpha" },
         "item": {
-          "margin-inline-start": { "value": "1.5rem" }
+          "margin-inline-start": {
+            "value": "1.5rem",
+            "comment": "Indent less than the parent to start-align the child’s marker with the parent text."
+          },
+          "padding-inline-start": {
+            "value": "0.25rem",
+            "comment": "The total level >=2 indentation for Amsterdam is 28 pixels, or 1.75rem."
+          }
         }
       }
     }
