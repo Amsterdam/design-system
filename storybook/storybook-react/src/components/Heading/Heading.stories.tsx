@@ -46,31 +46,23 @@ export const Default: Story = {
   ],
 }
 
-export const Heading1: Story = {
-  args: {
-    level: 1,
-    size: 'level-1',
-  },
-}
+export const Heading1: Story = {}
 
 export const Heading2: Story = {
   args: {
     level: 2,
-    size: 'level-2',
   },
 }
 
 export const Heading3: Story = {
   args: {
     level: 3,
-    size: 'level-3',
   },
 }
 
 export const Heading4: Story = {
   args: {
     level: 4,
-    size: 'level-4',
   },
 }
 
