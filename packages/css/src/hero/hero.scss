@@ -16,12 +16,12 @@
 .amsterdam-hero {
   color: var(--amsterdam-hero-color);
   font-family: var(--amsterdam-hero-font-family);
-  font-size: var(--amsterdam-hero-font-size-narrow);
+  font-size: var(--amsterdam-hero-narrow-font-size);
   font-weight: var(--amsterdam-hero-font-weight);
   line-height: var(--amsterdam-hero-line-height);
 
   @media screen and (width > $amsterdam-breakpoint) {
-    font-size: var(--amsterdam-hero-font-size-wide);
+    font-size: var(--amsterdam-hero-wide-font-size);
   }
 
   @include reset;

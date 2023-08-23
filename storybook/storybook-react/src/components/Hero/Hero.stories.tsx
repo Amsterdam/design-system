@@ -13,7 +13,7 @@ const meta = {
   component: Hero,
   args: {
     children: 'Gemeente Amsterdam',
-    inverseColor: undefined,
+    inverseColor: false,
   },
   argTypes: {
     inverseColor: { control: 'boolean' },
@@ -30,7 +30,8 @@ export const Default: Story = {
       <div
         style={{
           background: context.args.inverseColor ? '#004699' : 'transparent',
-          padding: context.args.inverseColor ? '16px' : 0,
+          margin: context.args.inverseColor ? -16 : 0,
+          padding: context.args.inverseColor ? 16 : 0,
         }}
       >
         <Story />
@@ -48,7 +49,8 @@ export const InvertedColor: Story = {
       <div
         style={{
           background: '#004699',
-          padding: '16px',
+          margin: -16,
+          padding: 16,
         }}
       >
         <Story />
