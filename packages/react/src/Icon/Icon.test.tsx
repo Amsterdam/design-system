@@ -36,11 +36,11 @@ describe('Icon', () => {
     const { container: level6 } = render(<Icon svg={Alert} size="level-6" />)
     const { container: level7 } = render(<Icon svg={Alert} size="level-7" />)
 
-    expect(level3.firstChild).toHaveClass('amsterdam-icon-size-3')
-    expect(level4.firstChild).toHaveClass('amsterdam-icon-size-4')
-    expect(level5.firstChild).toHaveClass('amsterdam-icon-size-5')
-    expect(level6.firstChild).toHaveClass('amsterdam-icon-size-6')
-    expect(level7.firstChild).toHaveClass('amsterdam-icon-size-7')
+    expect(level3.firstChild).toHaveClass('amsterdam-icon--size-3')
+    expect(level4.firstChild).toHaveClass('amsterdam-icon--size-4')
+    expect(level5.firstChild).toHaveClass('amsterdam-icon--size-5')
+    expect(level6.firstChild).toHaveClass('amsterdam-icon--size-6')
+    expect(level7.firstChild).toHaveClass('amsterdam-icon--size-7')
   })
 
   it('can have a additional class name', () => {
