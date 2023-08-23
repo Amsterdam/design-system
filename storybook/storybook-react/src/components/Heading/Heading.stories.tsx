@@ -11,8 +11,6 @@ const meta = {
   component: Heading,
   args: {
     children: 'Jouw typograaf biedt mij zulke exquise schreven!',
-    level: undefined,
-    size: undefined,
     inverseColor: false,
   },
   argTypes: {
@@ -81,8 +79,6 @@ export const Heading4: Story = {
 export const InvertedColor: Story = {
   args: {
     inverseColor: true,
-    level: undefined,
-    size: undefined,
   },
   decorators: [
     (Story) => (
