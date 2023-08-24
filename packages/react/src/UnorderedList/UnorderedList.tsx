@@ -4,22 +4,33 @@
  */
 
 import clsx from 'clsx'
-import React, { ForwardedRef, forwardRef, HTMLAttributes, LiHTMLAttributes, PropsWithChildren } from 'react'
+import {
+  ForwardedRef,
+  forwardRef,
+  ForwardRefExoticComponent,
+  HTMLAttributes,
+  LiHTMLAttributes,
+  PropsWithChildren,
+  RefAttributes,
+} from 'react'
+
+export interface UnorderedListProps extends PropsWithChildren<HTMLAttributes<HTMLUListElement>> {
+  markers?: boolean
+}
 
 interface UnorderedListComponent
-  extends React.ForwardRefExoticComponent<
-    PropsWithChildren<HTMLAttributes<HTMLElement>> & React.RefAttributes<HTMLElement>
-  > {
+  extends ForwardRefExoticComponent<UnorderedListProps & RefAttributes<HTMLUListElement>> {
   Item: typeof UnorderedListItem
 }
 
 export const UnorderedList = forwardRef(
-  (
-    { children, className, ...restProps }: PropsWithChildren<HTMLAttributes<HTMLUListElement>>,
-    ref: ForwardedRef<HTMLUListElement>,
-  ) => {
+  ({ children, markers = true, className, ...restProps }: UnorderedListProps, ref: ForwardedRef<HTMLUListElement>) => {
     return (
-      <ul ref={ref} className={clsx('amsterdam-unordered-list', className)} {...restProps}>
+      <ul
+        ref={ref}
+        className={clsx('amsterdam-unordered-list', !markers && 'amsterdam-unordered-list--no-markers', className)}
+        {...restProps}
+      >
         {children}
       </ul>
     )

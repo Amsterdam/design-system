@@ -13,3 +13,12 @@
   padding-block: 2rem;
   text-align: center;
 }
+
+.amsterdam-docs-card {
+  border: 1px dotted black;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  padding: 0.5rem; /* stylelint-disable-line */
+  width: 50%;
+}

@@ -12,7 +12,6 @@ import '../../css/src/form-label/form-label.scss'
 import '../../css/src/heading/heading.scss'
 import '../../css/src/icon/icon.scss'
 import '../../css/src/link/link.scss'
-import '../../css/src/list/list.scss'
 import '../../css/src/paragraph/paragraph.scss'
 import '../../css/src/unordered-list/unordered-list.scss'
 
