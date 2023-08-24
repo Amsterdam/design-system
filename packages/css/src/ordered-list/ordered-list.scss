@@ -49,7 +49,7 @@
 }
 
 /** A nested list has a different marker and less spacing for correct alignment. */
-.amsterdam-ordered-list .amsterdam-ordered-list {
+:is(.amsterdam-ordered-list, .amsterdam-unordered-list) .amsterdam-ordered-list {
   list-style-type: var(--amsterdam-ordered-list-ordered-list-list-style-type);
 
   .amsterdam-ordered-list__item {
