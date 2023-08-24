@@ -20,9 +20,9 @@
 }
 
 .amsterdam-switch__input {
-  height: 0;
-  position: absolute;
-  width: 0;
+  appearance: none;
+  pointer-events: none;
+  touch-action: pan-y;
 }
 
 .amsterdam-switch__toggle {
@@ -48,7 +48,7 @@
   width: 28px;
 }
 
-.amsterdam-switch:hover .amsterdam-switch__toggle-inner {
+.amsterdam-switch:hover .amsterdam-switch__input:enabled ~ .amsterdam-switch__toggle .amsterdam-switch__toggle-inner {
   box-shadow: 0 0 0 2px var(--amsterdam-switch-hover-color);
 }
 
