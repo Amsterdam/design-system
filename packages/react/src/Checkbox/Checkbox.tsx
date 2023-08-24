@@ -50,10 +50,7 @@ export const Checkbox = forwardRef(
         />
         <label className="amsterdam-checkbox__label" htmlFor={id}>
           <span
-            className={clsx(
-              'amsterdam-checkbox__label__checkmark',
-              invalid && 'amsterdam-checkbox__label__checkmark--invalid',
-            )}
+            className={clsx('amsterdam-checkbox__checkmark', invalid && 'amsterdam-checkbox__checkmark--invalid')}
           />
           {children}
         </label>

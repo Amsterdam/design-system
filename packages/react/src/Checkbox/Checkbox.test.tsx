@@ -100,7 +100,7 @@ describe('Checkbox', () => {
   it('renders a design system BEM modifier class name', () => {
     const { container } = render(<Checkbox invalid />)
 
-    const invalidMarker = container.querySelector('.amsterdam-checkbox__label__checkmark--invalid')
+    const invalidMarker = container.querySelector('.amsterdam-checkbox__checkmark--invalid')
 
     expect(invalidMarker).toBeInTheDocument()
   })
