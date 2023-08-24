@@ -10,4 +10,4 @@ Zet de toptask link in zodat de gebruiker snel de juiste informatie vindt én ee
 
 ## Relevante WCAG eisen
 
-Voor de toptask link gelden dezelfde eisen als voor [reguliere links](/docs/link--docs).
+Voor de toptask link gelden dezelfde eisen als voor [reguliere links](https://amsterdam.github.io/design-system/?path=/docs/react_link--docs).
