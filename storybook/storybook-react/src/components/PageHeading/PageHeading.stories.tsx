@@ -3,26 +3,20 @@
  * Copyright (c) 2023 Gemeente Amsterdam
  */
 
-import { Paragraph } from '@amsterdam/design-system-react'
+import { PageHeading } from '@amsterdam/design-system-react'
 import { Meta, StoryObj } from '@storybook/react'
 
 const meta = {
-  title: 'Paragraph',
-  component: Paragraph,
+  title: 'Page heading',
+  component: PageHeading,
   args: {
-    children: 'Jouw typograaf biedt mij zulke exquise schreven!',
+    children: 'Gemeente Amsterdam',
     inverseColor: false,
   },
   argTypes: {
-    size: {
-      control: {
-        type: 'select',
-        labels: { undefined: 'default', large: 'large', small: 'small' },
-      },
-      options: [undefined, 'large', 'small'],
-    },
+    inverseColor: { control: 'boolean' },
   },
-} satisfies Meta<typeof Paragraph>
+} satisfies Meta<typeof PageHeading>
 
 export default meta
 
@@ -42,18 +36,6 @@ export const Default: Story = {
       </div>
     ),
   ],
-}
-
-export const Large: Story = {
-  args: {
-    size: 'large',
-  },
-}
-
-export const Small: Story = {
-  args: {
-    size: 'small',
-  },
 }
 
 export const InvertedColor: Story = {

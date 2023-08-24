@@ -5,6 +5,7 @@
 
 /* Append here */
 export * from '../Footer'
+export * from '../PageHeading'
 export * from '../OrderedList'
 export * from '../Heading'
 export * from '../Breadcrumb'
@@ -16,4 +17,3 @@ export * from '../UnorderedList'
 export * from '../Icon'
 export * from '../Accordion'
 export * from '../Grid'
-export { List } from '../List'

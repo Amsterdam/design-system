@@ -47,8 +47,8 @@ describe('Paragraph', () => {
 
     const paragraph = container.querySelector(':only-child')
 
-    expect(paragraph).not.toHaveClass('amsterdam-paragraph-large')
-    expect(paragraph).not.toHaveClass('amsterdam-paragraph-small')
+    expect(paragraph).not.toHaveClass('amsterdam-paragraph--large')
+    expect(paragraph).not.toHaveClass('amsterdam-paragraph--small')
   })
 
   it('renders the right size classes', () => {
@@ -62,8 +62,16 @@ describe('Paragraph', () => {
     const smallParagraph = screen.getByText('Small paragraph')
     const largeParagraph = screen.getByText('Large paragraph')
 
-    expect(smallParagraph).toHaveClass('amsterdam-paragraph-small')
-    expect(largeParagraph).toHaveClass('amsterdam-paragraph-large')
+    expect(smallParagraph).toHaveClass('amsterdam-paragraph--small')
+    expect(largeParagraph).toHaveClass('amsterdam-paragraph--large')
+  })
+
+  it('renders the right inverse color class', () => {
+    render(<Paragraph inverseColor>Paragraph</Paragraph>)
+
+    const paragraph = screen.getByText('Paragraph')
+
+    expect(paragraph).toHaveClass('amsterdam-paragraph--inverse-color')
   })
 
   it('can have a additional class name', () => {

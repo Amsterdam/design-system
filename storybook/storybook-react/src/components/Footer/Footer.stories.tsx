@@ -3,7 +3,7 @@
  * Copyright (c) 2023 Gemeente Amsterdam
  */
 
-import { Footer, Heading, Link, List, Paragraph } from '@amsterdam/design-system-react'
+import { Footer, Heading, Link, Paragraph, UnorderedList } from '@amsterdam/design-system-react'
 import { Meta, StoryObj } from '@storybook/react'
 
 const meta = {
@@ -30,7 +30,7 @@ export const Default: Story = {
           <Paragraph size="small" inverseColor>
             Heeft u een vraag en kunt u het antwoord niet vinden op deze site? Neem dan contact met ons op.
           </Paragraph>
-          <List>
+          <UnorderedList markers={false}>
             <li>
               <Link href="mailto:redactie.os@amsterdam.nl" variant="inList" onBackground="dark">
                 E-mail
@@ -41,7 +41,7 @@ export const Default: Story = {
                 020 251 0333
               </Link>
             </li>
-          </List>
+          </UnorderedList>
         </Footer.Column>
         <Footer.Column gridColumns={{ start: 5, span: 3 }}>
           <Heading level={2} size="level-4" inverseColor>
@@ -50,7 +50,7 @@ export const Default: Story = {
           <Paragraph size="small" inverseColor>
             Bent u uitgenodigd om mee te doen aan onderzoek of heeft u vragen over het panel of stadspaspanel?
           </Paragraph>
-          <List>
+          <UnorderedList>
             <li>
               <Link href="/" variant="inList" onBackground="dark" rel="external">
                 Meedoen aan onderzoek
@@ -66,13 +66,13 @@ export const Default: Story = {
                 Stadspaspanel Amsterdam
               </Link>
             </li>
-          </List>
+          </UnorderedList>
         </Footer.Column>
         <Footer.Column gridColumns={{ start: 9, span: 3 }}>
           <Heading level={2} size="level-4" inverseColor>
             Onderzoek en Statistiek
           </Heading>
-          <List>
+          <UnorderedList>
             <li>
               <Link href="/" variant="inList" onBackground="dark">
                 Over Onderzoek en Statistiek
@@ -93,7 +93,7 @@ export const Default: Story = {
                 Vacatures
               </Link>
             </li>
-          </List>
+          </UnorderedList>
         </Footer.Column>
       </Footer.Top>,
       <Footer.Bottom key={2}>
@@ -102,7 +102,7 @@ export const Default: Story = {
           Or do we want to make a Footer.Link component?
           I think we need the same link in the Header
         */}
-        <List>
+        <UnorderedList>
           <li>
             <Link href="/" variant="inList">
               Privacy
@@ -113,7 +113,7 @@ export const Default: Story = {
               Toegankelijkheid
             </Link>
           </li>
-        </List>
+        </UnorderedList>
       </Footer.Bottom>,
     ],
   },
