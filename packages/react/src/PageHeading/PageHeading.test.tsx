@@ -1,30 +1,30 @@
 import { render, screen } from '@testing-library/react'
 import { createRef } from 'react'
-import { Hero } from './Hero'
+import { PageHeading } from './PageHeading'
 import '@testing-library/jest-dom'
 
-describe('Hero', () => {
+describe('PageHeading', () => {
   it('renders a heading role element', () => {
-    render(<Hero>Breaking news</Hero>)
+    render(<PageHeading>Breaking news</PageHeading>)
 
-    const hero = screen.getByRole('heading', {
+    const pageHeading = screen.getByRole('heading', {
       name: 'Breaking news',
     })
 
-    expect(hero).toBeInTheDocument()
-    expect(hero).toBeVisible()
+    expect(pageHeading).toBeInTheDocument()
+    expect(pageHeading).toBeVisible()
   })
 
   it('renders a design system BEM class name', () => {
-    const { container } = render(<Hero />)
+    const { container } = render(<PageHeading />)
 
     const component = container.querySelector(':only-child')
 
-    expect(component).toHaveClass('amsterdam-hero')
+    expect(component).toHaveClass('amsterdam-page-heading')
   })
 
   it('can have a custom class name', () => {
-    const { container } = render(<Hero className="extra" />)
+    const { container } = render(<PageHeading className="extra" />)
 
     const component = container.querySelector(':only-child')
 
@@ -32,27 +32,27 @@ describe('Hero', () => {
   })
 
   it('can have a additional class name', () => {
-    const { container } = render(<Hero className="extra" />)
+    const { container } = render(<PageHeading className="extra" />)
 
     const component = container.querySelector(':only-child')
 
     expect(component).toHaveClass('extra')
 
-    expect(component).toHaveClass('amsterdam-hero')
+    expect(component).toHaveClass('amsterdam-page-heading')
   })
 
   it('renders the right inverse color class', () => {
-    render(<Hero inverseColor>Hero</Hero>)
+    render(<PageHeading inverseColor>Titel</PageHeading>)
 
-    const hero = screen.getByRole('heading', { name: 'Hero' })
+    const pageHeading = screen.getByRole('heading', { name: 'Titel' })
 
-    expect(hero).toHaveClass('amsterdam-hero--inverse-color')
+    expect(pageHeading).toHaveClass('amsterdam-page-heading--inverse-color')
   })
 
   it('supports ForwardRef in React', () => {
     const ref = createRef<HTMLHeadingElement>()
 
-    const { container } = render(<Hero ref={ref} />)
+    const { container } = render(<PageHeading ref={ref} />)
 
     const component = container.querySelector(':only-child')
 

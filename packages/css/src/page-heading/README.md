@@ -1,6 +1,6 @@
-# Hero
+# Page heading
 
-Het hero component is een opvallende tekst aan het begin van een pagina, direct na de header.
+Het page heading component is een opvallende tekst aan het begin van een pagina, direct na de header.
 Gebruik dit component om een kernboodschap over te brengen of duidelijk te maken waar de pagina over gaat.
 
 ## Richtlijnen
@@ -11,6 +11,6 @@ Gebruik dit component om een kernboodschap over te brengen of duidelijk te maken
 
 ## Relevante WCAG eisen
 
-Het hero component is een variant van een heading level 1, met een afwijkende stijl. Let bij gebruik van dit component goed op dat de heading hiërarchie van de pagina logisch blijft.
+Het page heading component is een variant van een heading level 1, met een afwijkende stijl. Let bij gebruik van dit component goed op dat de heading hiërarchie van de pagina logisch blijft.
 
 Voor dit component gelden dezelfde WCAG eisen als voor [het heading component](https://amsterdam.github.io/design-system/?path=/docs/react_heading--docs).

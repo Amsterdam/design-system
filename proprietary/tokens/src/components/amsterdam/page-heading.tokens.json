@@ -1,6 +1,6 @@
 {
   "amsterdam": {
-    "hero": {
+    "page-heading": {
       "color": { "value": "{amsterdam.color.primary-black}" },
       "font-family": { "value": "{amsterdam.typography.font-family}" },
       "line-height": { "value": "{amsterdam.typography.text-level.0.line-height}" },

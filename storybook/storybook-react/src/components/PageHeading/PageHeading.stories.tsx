@@ -3,14 +3,12 @@
  * Copyright (c) 2023 Gemeente Amsterdam
  */
 
-import { Hero } from '@amsterdam/design-system-react/src'
+import { PageHeading } from '@amsterdam/design-system-react'
 import { Meta, StoryObj } from '@storybook/react'
 
-import '@amsterdam/design-system-css/src/hero/hero.scss'
-
 const meta = {
-  title: 'Hero',
-  component: Hero,
+  title: 'Page heading',
+  component: PageHeading,
   args: {
     children: 'Gemeente Amsterdam',
     inverseColor: false,
@@ -18,7 +16,7 @@ const meta = {
   argTypes: {
     inverseColor: { control: 'boolean' },
   },
-} satisfies Meta<typeof Hero>
+} satisfies Meta<typeof PageHeading>
 
 export default meta
 
