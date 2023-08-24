@@ -5,6 +5,7 @@
 
 /* Append here */
 import '../../css/src/top-task-link/top-task-link.scss'
+import '../../css/src/page-heading/page-heading.scss'
 import '../../css/src/ordered-list/ordered-list.scss'
 import '../../css/src/accordion/accordion.scss'
 import '../../css/src/breadcrumb/breadcrumb.scss'
