@@ -7,12 +7,12 @@
 
 @mixin reset {
   box-sizing: border-box;
-  break-after: avoid;
-  break-inside: avoid;
   margin-block: 0;
 }
 
 .amsterdam-heading {
+  break-after: avoid;
+  break-inside: avoid;
   color: var(--amsterdam-heading-color);
   font-family: var(--amsterdam-heading-font-family);
   font-weight: var(--amsterdam-heading-font-weight);
