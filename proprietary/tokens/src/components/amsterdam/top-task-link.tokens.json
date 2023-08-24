@@ -9,11 +9,13 @@
         "focus": {
           "color": { "value": "{amsterdam.color.dark-blue}" }
         },
-        "font-size": {
-          "narrow": { "value": "{amsterdam.typography.text-level.4.font-size.narrow}" },
-          "wide": { "value": "{amsterdam.typography.text-level.4.font-size.wide}" }
+        "line-height": { "value": "{amsterdam.typography.text-level.4.line-height}" },
+        "narrow": {
+          "font-size": { "value": "{amsterdam.typography.text-level.4.narrow.font-size}" }
         },
-        "line-height": { "value": "{amsterdam.typography.text-level.4.line-height}" }
+        "wide": {
+          "font-size": { "value": "{amsterdam.typography.text-level.4.wide.font-size}" }
+        }
       }
     }
   }

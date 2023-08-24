@@ -24,12 +24,12 @@
 .amsterdam-top-task-link__title {
   color: var(--amsterdam-top-task-link-title-color);
   font-family: var(--amsterdam-top-task-link-title-font-family);
-  font-size: var(--amsterdam-top-task-link-title-font-size-narrow);
+  font-size: var(--amsterdam-top-task-link-title-narrow-font-size);
   font-weight: var(--amsterdam-top-task-link-title-font-weight);
   line-height: var(--amsterdam-top-task-link-title-line-height);
 
   @media screen and (width > $amsterdam-breakpoint) {
-    font-size: var(--amsterdam-top-task-link-title-font-size-wide);
+    font-size: var(--amsterdam-top-task-link-title-wide-font-size);
   }
 
   @include reset;
