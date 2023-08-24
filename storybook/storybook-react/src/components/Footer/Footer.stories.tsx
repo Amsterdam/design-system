@@ -50,7 +50,7 @@ export const Default: Story = {
           <Paragraph size="small" inverseColor>
             Bent u uitgenodigd om mee te doen aan onderzoek of heeft u vragen over het panel of stadspaspanel?
           </Paragraph>
-          <UnorderedList>
+          <UnorderedList markers={false}>
             <li>
               <Link href="/" variant="inList" onBackground="dark" rel="external">
                 Meedoen aan onderzoek
@@ -72,7 +72,7 @@ export const Default: Story = {
           <Heading level={2} size="level-4" inverseColor>
             Onderzoek en Statistiek
           </Heading>
-          <UnorderedList>
+          <UnorderedList markers={false}>
             <li>
               <Link href="/" variant="inList" onBackground="dark">
                 Over Onderzoek en Statistiek
@@ -102,7 +102,7 @@ export const Default: Story = {
           Or do we want to make a Footer.Link component?
           I think we need the same link in the Header
         */}
-        <UnorderedList>
+        <UnorderedList markers={false}>
           <li>
             <Link href="/" variant="inList">
               Privacy
