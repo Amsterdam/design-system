@@ -86,10 +86,18 @@ describe('Heading', () => {
       level: 1,
     })
 
-    expect(sizeLevel1).toHaveClass('amsterdam-heading-1')
-    expect(sizeLevel2).toHaveClass('amsterdam-heading-2')
-    expect(sizeLevel3).toHaveClass('amsterdam-heading-3')
-    expect(sizeLevel4).toHaveClass('amsterdam-heading-4')
+    expect(sizeLevel1).toHaveClass('amsterdam-heading--1')
+    expect(sizeLevel2).toHaveClass('amsterdam-heading--2')
+    expect(sizeLevel3).toHaveClass('amsterdam-heading--3')
+    expect(sizeLevel4).toHaveClass('amsterdam-heading--4')
+  })
+
+  it('renders the right inverse color class', () => {
+    render(<Heading inverseColor>Heading</Heading>)
+
+    const heading = screen.getByRole('heading', { name: 'Heading' })
+
+    expect(heading).toHaveClass('amsterdam-heading--inverse-color')
   })
 
   it('renders rich text content', () => {

@@ -9,16 +9,28 @@ import { AnchorHTMLAttributes, ForwardedRef, forwardRef, PropsWithChildren } fro
 import { Icon } from '../Icon/Icon'
 
 type LinkOnBackground = 'default' | 'light' | 'dark'
-type LinkVariant = 'standalone' | 'standaloneBold' | 'inline' | 'inList'
+type LinkVariant = 'standalone' | 'inline' | 'inList'
 
-export interface LinkProps extends Omit<AnchorHTMLAttributes<HTMLAnchorElement>, 'placeholder'> {
+interface CommonProps extends Omit<AnchorHTMLAttributes<HTMLAnchorElement>, 'placeholder'> {
   variant?: LinkVariant
   onBackground?: LinkOnBackground
 }
 
+type ConditionalProps =
+  | {
+      variant?: 'standalone' | 'inline'
+      icon?: never
+    }
+  | {
+      variant?: 'inList'
+      icon?: Function
+    }
+
+export type LinkProps = CommonProps & ConditionalProps
+
 export const Link = forwardRef(
   (
-    { children, variant, onBackground, className, ...otherProps }: PropsWithChildren<LinkProps>,
+    { children, variant = 'standalone', icon, onBackground, className, ...otherProps }: PropsWithChildren<LinkProps>,
     ref: ForwardedRef<HTMLAnchorElement>,
   ) => (
     <a
@@ -27,16 +39,17 @@ export const Link = forwardRef(
       className={clsx(
         'amsterdam-link',
         {
+          'amsterdam-link--standalone': variant === 'standalone',
           'amsterdam-link--inline': variant === 'inline',
-          'amsterdam-link--standalone-bold': variant === 'standaloneBold',
           'amsterdam-link--in-list': variant === 'inList',
+          'amsterdam-link--in-list__chevron': variant === 'inList' && !icon,
           'amsterdam-link--on-background-light': onBackground === 'light',
           'amsterdam-link--on-background-dark': onBackground === 'dark',
         },
         className,
       )}
     >
-      {variant === 'inList' && <Icon svg={ChevronRight} size="level-7" />}
+      {variant === 'inList' && <Icon svg={icon ?? ChevronRight} size="level-7" />}
       {children}
     </a>
   ),

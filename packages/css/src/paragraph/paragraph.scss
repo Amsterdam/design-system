@@ -25,7 +25,7 @@
   @include reset;
 }
 
-.amsterdam-paragraph-small {
+.amsterdam-paragraph--small {
   font-size: var(--amsterdam-paragraph-small-narrow-font-size);
   line-height: var(--amsterdam-paragraph-small-line-height);
 
@@ -34,11 +34,15 @@
   }
 }
 
-.amsterdam-paragraph-large {
+.amsterdam-paragraph--large {
   font-size: var(--amsterdam-paragraph-large-narrow-font-size);
   line-height: var(--amsterdam-paragraph-large-line-height);
 
   @media screen and (width > $amsterdam-breakpoint) {
     font-size: var(--amsterdam-paragraph-large-wide-font-size);
   }
+}
+
+.amsterdam-paragraph--inverse-color {
+  color: var(--amsterdam-paragraph-inverse-color);
 }

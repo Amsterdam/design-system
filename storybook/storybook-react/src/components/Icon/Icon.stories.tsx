@@ -4,10 +4,8 @@
  */
 
 import { Heading, Icon } from '@amsterdam/design-system-react'
-import { Alert, Building, Camera, Email } from '@amsterdam/design-system-react-icons'
+import * as Icons from '@amsterdam/design-system-react-icons'
 import { Meta, StoryObj } from '@storybook/react'
-
-const icons = { Email, Alert, Building, Camera }
 
 const meta = {
   title: 'Icon',
@@ -15,10 +13,12 @@ const meta = {
   argTypes: {
     size: {
       control: { type: 'select' },
+      options: ['level-3', 'level-4', 'level-5', 'level-6', 'level-7'],
     },
     svg: {
-      options: Object.keys(icons),
-      mapping: icons,
+      control: { type: 'select' },
+      options: Object.keys(Icons),
+      mapping: Icons,
     },
   },
 } satisfies Meta<typeof Icon>
@@ -29,7 +29,7 @@ type Story = StoryObj<typeof meta>
 
 export const Default: Story = {
   args: {
-    svg: Email,
+    svg: Icons.Email,
   },
 }
 
@@ -41,41 +41,41 @@ export const WithText: Story = {
     </span>
   ),
   args: {
-    svg: Email,
+    svg: Icons.Email,
   },
 }
 
 export const Level3: Story = {
   args: {
-    svg: Email,
+    svg: Icons.Email,
     size: 'level-3',
   },
 }
 
 export const Level4: Story = {
   args: {
-    svg: Email,
+    svg: Icons.Email,
     size: 'level-4',
   },
 }
 
 export const Level5: Story = {
   args: {
-    svg: Email,
+    svg: Icons.Email,
     size: 'level-5',
   },
 }
 
 export const Level6: Story = {
   args: {
-    svg: Email,
+    svg: Icons.Email,
     size: 'level-6',
   },
 }
 
 export const Level7: Story = {
   args: {
-    svg: Email,
+    svg: Icons.Email,
     size: 'level-7',
   },
 }
