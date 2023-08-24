@@ -48,10 +48,6 @@
   width: 28px;
 }
 
-.amsterdam-switch:hover .amsterdam-switch__input:enabled ~ .amsterdam-switch__toggle .amsterdam-switch__toggle-inner {
-  box-shadow: 0 0 0 2px var(--amsterdam-switch-hover-color);
-}
-
 .amsterdam-switch__input:checked + .amsterdam-switch__toggle {
   background-color: var(--amsterdam-switch-checked-background-color);
 }
@@ -62,4 +58,8 @@
 
 .amsterdam-switch__input:checked + .amsterdam-switch__toggle > .amsterdam-switch__toggle-inner {
   transform: translate(100%);
+}
+
+.amsterdam-switch:hover .amsterdam-switch__input:enabled ~ .amsterdam-switch__toggle .amsterdam-switch__toggle-inner {
+  box-shadow: 0 0 0 2px var(--amsterdam-switch-hover-color);
 }

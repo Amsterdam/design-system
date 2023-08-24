@@ -78,7 +78,7 @@
     "media-query-list-comma-newline-before": null,
     "media-query-list-comma-space-after": null,
     "media-query-list-comma-space-before": null,
-    "no-descending-specificity": null,
+    "no-descending-specificity": true,
     "no-duplicate-at-import-rules": true,
     "no-duplicate-selectors": true,
     "no-empty-first-line": null,
@@ -113,8 +113,18 @@
     "scss/at-mixin-pattern": "^[a-z][a-z0-9-_]*$",
     "scss/at-rule-no-unknown": true,
     "scss/dollar-variable-default": null,
-    "scss/dollar-variable-first-in-block": [true, { "ignore": ["comments", "imports"] }],
-    "scss/dollar-variable-pattern": ["^(amsterdam)-[a-z0-9-]+$", { "ignore": "local" }],
+    "scss/dollar-variable-first-in-block": [
+      true,
+      {
+        "ignore": ["comments", "imports"]
+      }
+    ],
+    "scss/dollar-variable-pattern": [
+      "^(amsterdam)-[a-z0-9-]+$",
+      {
+        "ignore": "local"
+      }
+    ],
     "scss/operator-no-newline-after": null,
     "scss/percent-placeholder-pattern": "^(amsterdam|nl|utrecht)-[a-z0-9-]+$",
     "selector-attribute-quotes": "always",
@@ -137,7 +147,12 @@
     "unicode-bom": null,
     "unit-case": null,
     "unit-no-unknown": true,
-    "value-keyword-case": ["lower", { "camelCaseSvgKeywords": true }],
+    "value-keyword-case": [
+      "lower",
+      {
+        "camelCaseSvgKeywords": true
+      }
+    ],
     "value-list-comma-newline-after": null,
     "value-list-comma-newline-before": null,
     "value-list-comma-space-after": null,
