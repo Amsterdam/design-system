@@ -19,11 +19,11 @@ export const Icon = forwardRef(
       ref={ref}
       className={clsx(
         'amsterdam-icon',
-        size === 'level-3' && 'amsterdam-icon-size-3',
-        size === 'level-4' && 'amsterdam-icon-size-4',
-        size === 'level-5' && 'amsterdam-icon-size-5',
-        size === 'level-6' && 'amsterdam-icon-size-6',
-        size === 'level-7' && 'amsterdam-icon-size-7',
+        size === 'level-3' && 'amsterdam-icon--size-3',
+        size === 'level-4' && 'amsterdam-icon--size-4',
+        size === 'level-5' && 'amsterdam-icon--size-5',
+        size === 'level-6' && 'amsterdam-icon--size-6',
+        size === 'level-7' && 'amsterdam-icon--size-7',
         className,
       )}
       {...otherProps}
