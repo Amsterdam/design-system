@@ -5,15 +5,10 @@
 
 @import "../../utils/breakpoint";
 
-// TODO: all grid related styles are copied from page-grid.scss. Should we export those styles and import them here?
 .amsterdam-footer__top {
   background-color: var(--amsterdam-footer-top-background-color);
-  column-gap: var(--amsterdam-page-grid-column-gap);
-  display: grid;
-  grid-template-columns: repeat(var(--amsterdam-page-grid-column-count-narrow), 1fr);
-  max-width: var(--amsterdam-page-grid-max-width);
   padding-block: 2.5rem;
-  padding-inline: 2rem;
+  padding-inline: 2rem; /* TODO: For now I've set a padding here, this should eventually be handled by PageGrid */
 }
 
 @media screen and (width > $amsterdam-breakpoint) {
@@ -29,7 +24,7 @@
 }
 
 .amsterdam-footer__bottom {
-  padding-inline: 2rem;
+  padding-inline: 2rem; /* TODO: For now I've set a padding here, this should eventually be handled by PageGrid */
 }
 
 /*
