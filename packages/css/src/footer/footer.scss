@@ -26,20 +26,3 @@
 .amsterdam-footer__bottom {
   padding-inline: 2rem; /* TODO: For now I've set a padding here, this should eventually be handled by PageGrid */
 }
-
-/*
- TODO: we currently don't have any way to hide elements visually.
- This utility class will do for now
-*/
-.amsterdam-visually-hidden {
-  clip: rect(1px, 1px, 1px, 1px);
-  clip-path: inset(50%);
-  height: 1px;
-  margin-block: -1px;
-  margin-inline: -1px;
-  overflow: hidden;
-  padding-block: 0;
-  padding-inline: 0;
-  position: absolute;
-  width: 1px;
-}

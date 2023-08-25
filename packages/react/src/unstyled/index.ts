@@ -4,6 +4,7 @@
  */
 
 /* Append here */
+export * from '../VisuallyHidden'
 export * from '../Footer'
 export * from '../PageHeading'
 export * from '../OrderedList'

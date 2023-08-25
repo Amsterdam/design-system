@@ -4,6 +4,7 @@
  */
 
 /* Append here */
+import '../../css/src/visually-hidden/visually-hidden.scss'
 import '../../css/src/footer/footer.scss'
 import '../../css/src/page-heading/page-heading.scss'
 import '../../css/src/ordered-list/ordered-list.scss'

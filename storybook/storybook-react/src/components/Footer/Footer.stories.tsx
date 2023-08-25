@@ -3,7 +3,7 @@
  * Copyright (c) 2023 Gemeente Amsterdam
  */
 
-import { Footer, Heading, Link, Paragraph, UnorderedList } from '@amsterdam/design-system-react'
+import { Footer, Heading, Link, Paragraph, UnorderedList, VisuallyHidden } from '@amsterdam/design-system-react'
 import { Meta, StoryObj } from '@storybook/react'
 
 const meta = {
@@ -22,7 +22,9 @@ export const Default: Story = {
   args: {
     children: [
       <Footer.Top key={1}>
-        <Heading className="amsterdam-visually-hidden">Colofon</Heading>
+        <VisuallyHidden>
+          <Heading>Colofon</Heading>
+        </VisuallyHidden>
         <Footer.Column gridColumns={{ start: 1, span: 3 }}>
           <Heading level={2} size="level-4" inverseColor>
             Contact
@@ -103,6 +105,9 @@ export const Default: Story = {
           I think we need the same link in the Header
         */}
         <UnorderedList markers={false}>
+          <VisuallyHidden>
+            <Heading level={2}>Privacy en toegankelijkheid</Heading>
+          </VisuallyHidden>
           <li>
             <Link href="/" variant="inList">
               Privacy
