@@ -99,15 +99,10 @@ export const Default: Story = {
         </Footer.Column>
       </Footer.Top>,
       <Footer.Bottom key={2}>
-        {/*
-          TODO: we need a horizontal list and another link variant for this.
-          Or do we want to make a Footer.Link component?
-          I think we need the same link in the Header
-        */}
+        <VisuallyHidden>
+          <Heading level={2}>Privacy en toegankelijkheid</Heading>
+        </VisuallyHidden>
         <UnorderedList markers={false}>
-          <VisuallyHidden>
-            <Heading level={2}>Privacy en toegankelijkheid</Heading>
-          </VisuallyHidden>
           <li>
             <Link href="/" variant="inList">
               Privacy
