@@ -49,9 +49,7 @@ export const Checkbox = forwardRef(
           aria-invalid={invalid || undefined}
         />
         <label className="amsterdam-checkbox__label" htmlFor={id}>
-          <span
-            className={clsx('amsterdam-checkbox__checkmark', invalid && 'amsterdam-checkbox__checkmark--invalid')}
-          />
+          <span className="amsterdam-checkbox__checkmark" />
           {children}
         </label>
       </div>

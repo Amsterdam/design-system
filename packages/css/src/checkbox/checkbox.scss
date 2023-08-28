@@ -17,6 +17,25 @@
   }
 }
 
+.amsterdam-checkbox__checkmark {
+  align-items: center;
+  display: flex;
+  flex-shrink: 0;
+  height: calc(var(--amsterdam-checkbox-checkmark-narrow-size) * var(--amsterdam-checkbox-checkmark-multiplier));
+  width: 1.5rem;
+
+  &::after {
+    box-shadow: var(--amsterdam-checkbox-checkmark-box-shadow);
+    content: "";
+    height: 1.5rem;
+    width: 100%;
+  }
+
+  @media screen and (width > $amsterdam-breakpoint) {
+    height: calc(var(--amsterdam-checkbox-checkmark-wide-size) * var(--amsterdam-checkbox-checkmark-multiplier));
+  }
+}
+
 .amsterdam-checkbox__label {
   color: var(--amsterdam-checkbox-color);
   cursor: pointer;
@@ -28,100 +47,149 @@
   line-height: var(--amsterdam-checkbox-line-height);
   padding-block: 0.5rem;
 
+  &:hover {
+    color: var(--amsterdam-checkbox-hover-color);
+    text-decoration: underline;
+    text-underline-offset: 3px;
+
+    .amsterdam-checkbox__checkmark::after {
+      box-shadow: var(--amsterdam-checkbox-checkmark-hover-box-shadow);
+    }
+  }
+
   @media screen and (width > $amsterdam-breakpoint) {
     font-size: var(--amsterdam-checkbox-wide-font-size);
   }
 }
 
-.amsterdam-checkbox__input:disabled + .amsterdam-checkbox__label {
-  color: var(--amsterdam-checkbox-disabled-color);
-  cursor: not-allowed;
-}
-
-:not(.amsterdam-checkbox__input:disabled) + .amsterdam-checkbox__label:hover {
-  color: var(--amsterdam-checkbox-hover-color);
-  text-decoration: underline;
-  text-underline-offset: 3px;
-}
-
-.amsterdam-checkbox__checkmark {
-  align-items: center;
-  display: flex;
-  flex-shrink: 0;
-  height: calc(var(--amsterdam-checkbox-checkmark-narrow-size) * var(--amsterdam-checkbox-checkmark-multiplier));
-  width: 1.5rem;
-
-  @media screen and (width > $amsterdam-breakpoint) {
-    height: calc(var(--amsterdam-checkbox-checkmark-wide-size) * var(--amsterdam-checkbox-checkmark-multiplier));
+// Default checked
+.amsterdam-checkbox__input:checked {
+  + .amsterdam-checkbox__label .amsterdam-checkbox__checkmark::after {
+    background-color: var(--amsterdam-checkbox-checkmark-checked-background-color);
+    background-image: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2032%2032%22%20fill%3D%22%23ffffff%22%3E%3Cpath%20fill-rule%3D%22evenodd%22%20d%3D%22M12.216%2027.016%200%2014.168l2.91-2.77%209.346%209.837L29.129%204%2032%206.8z%22%2F%3E%3C%2Fsvg%3E");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 1rem;
+    box-shadow: none;
   }
 }
 
-.amsterdam-checkbox__checkmark::after {
-  box-shadow: var(--amsterdam-checkbox-checkmark-box-shadow);
-  content: "";
-  height: 1.5rem;
-  width: 100%;
+// Default indeterminate
+.amsterdam-checkbox__input:indeterminate {
+  + .amsterdam-checkbox__label .amsterdam-checkbox__checkmark::after {
+    background-color: var(--amsterdam-checkbox-checkmark-indeterminate-background-color);
+    background-image: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAzMiAzMiIgZmlsbD0id2hpdGUiPjxwYXRoIGZpbGwtcnVsZT0iZXZlbm9kZCIgZD0iTTAgMTMuNzE0aDMydjRIMHoiLz48L3N2Zz4=");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 1rem;
+    box-shadow: none;
+  }
 }
 
-// Checkmark checked state
-.amsterdam-checkbox__input:checked + .amsterdam-checkbox__label .amsterdam-checkbox__checkmark::after {
-  background-color: var(--amsterdam-checkbox-checkmark-checked-background-color);
-  background-image: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2032%2032%22%20fill%3D%22%23ffffff%22%3E%3Cpath%20fill-rule%3D%22evenodd%22%20d%3D%22M12.216%2027.016%200%2014.168l2.91-2.77%209.346%209.837L29.129%204%2032%206.8z%22%2F%3E%3C%2Fsvg%3E");
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: 1rem;
-  box-shadow: none;
+// Invalid unchecked
+.amsterdam-checkbox__input:invalid,
+.amsterdam-checkbox__input[aria-invalid="true"] {
+  + .amsterdam-checkbox__label .amsterdam-checkbox__checkmark::after {
+    box-shadow: var(--amsterdam-checkbox-checkmark-invalid-box-shadow);
+  }
 }
 
-// Checkmark indeterminate state
-.amsterdam-checkbox__input:indeterminate + .amsterdam-checkbox__label .amsterdam-checkbox__checkmark::after {
-  background-color: var(--amsterdam-checkbox-checkmark-indeterminate-background-color);
-  background-image: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAzMiAzMiIgZmlsbD0id2hpdGUiPjxwYXRoIGZpbGwtcnVsZT0iZXZlbm9kZCIgZD0iTTAgMTMuNzE0aDMydjRIMHoiLz48L3N2Zz4=");
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: 1rem;
-  box-shadow: none;
+// Disabled unchecked
+.amsterdam-checkbox__input:disabled {
+  + .amsterdam-checkbox__label {
+    color: var(--amsterdam-checkbox-disabled-color);
+    cursor: not-allowed;
+
+    .amsterdam-checkbox__checkmark::after {
+      box-shadow: var(--amsterdam-checkbox-checkmark-disabled-box-shadow);
+    }
+  }
 }
 
-// Checkmark disabled state
-.amsterdam-checkbox__input:disabled + .amsterdam-checkbox__label .amsterdam-checkbox__checkmark::after {
-  box-shadow: var(--amsterdam-checkbox-checkmark-disabled-box-shadow);
+// Invalid checked
+.amsterdam-checkbox__input:invalid:checked,
+.amsterdam-checkbox__input[aria-invalid="true"]:checked {
+  + .amsterdam-checkbox__label .amsterdam-checkbox__checkmark::after {
+    background-color: var(--amsterdam-checkbox-checkmark-invalid-checked-background-color);
+  }
 }
 
-// Checkmark invalid state
-:not(.amsterdam-checkbox__input:checked, .amsterdam-checkbox__input:indeterminate)
-  + .amsterdam-checkbox__label
-  .amsterdam-checkbox__checkmark--invalid::after {
-  box-shadow: var(--amsterdam-checkbox-checkmark-invalid-box-shadow);
+// Invalid indeterminate
+.amsterdam-checkbox__input:invalid:indeterminate,
+.amsterdam-checkbox__input[aria-invalid="true"]:indeterminate {
+  + .amsterdam-checkbox__label .amsterdam-checkbox__checkmark::after {
+    background-color: var(--amsterdam-checkbox-checkmark-invalid-indeterminate-background-color);
+  }
 }
 
-// Checkmark invalid hover and focus state
-:not(.amsterdam-checkbox__input:checked, .amsterdam-checkbox__input:indeterminate)
+// Disabled label
+.amsterdam-checkbox__input:disabled + .amsterdam-checkbox__label:hover {
+  text-decoration: none;
+}
+
+// Disabled checked
+.amsterdam-checkbox__input:disabled:checked {
+  + .amsterdam-checkbox__label .amsterdam-checkbox__checkmark::after {
+    background-color: var(--amsterdam-checkbox-checkmark-disabled-checked-background-color);
+  }
+}
+
+// Disabled indeterminate
+.amsterdam-checkbox__input:disabled:indeterminate {
+  + .amsterdam-checkbox__label .amsterdam-checkbox__checkmark::after {
+    background-color: var(--amsterdam-checkbox-checkmark-disabled-indeterminate-background-color);
+  }
+}
+
+// HOVER STATES
+
+// Invalid unchecked hover
+.amsterdam-checkbox__input:invalid + .amsterdam-checkbox__label:hover .amsterdam-checkbox__checkmark::after,
+.amsterdam-checkbox__input[aria-invalid="true"]
   + .amsterdam-checkbox__label:hover
-  .amsterdam-checkbox__checkmark--invalid::after {
+  .amsterdam-checkbox__checkmark::after {
+  // TODO: this should be the (currently non-existent) dark red hover color
   box-shadow: var(--amsterdam-checkbox-checkmark-invalid-hover-box-shadow);
 }
 
-// Checkmark checked and indeterminate hover and focus state
-.amsterdam-checkbox__input:checked + .amsterdam-checkbox__label:hover .amsterdam-checkbox__checkmark::after,
-.amsterdam-checkbox__input:indeterminate + .amsterdam-checkbox__label:hover .amsterdam-checkbox__checkmark::after {
+// Default checked hover
+.amsterdam-checkbox__input:checked + .amsterdam-checkbox__label:hover .amsterdam-checkbox__checkmark::after {
   background-color: var(--amsterdam-checkbox-checkmark-checked-hover-background-color);
 }
 
-// Checkmark not checked not indeterminate not disabled not invalid hover state
-:not(.amsterdam-checkbox__input:checked, .amsterdam-checkbox__input:indeterminate, .amsterdam-checkbox__input:disabled)
-  + .amsterdam-checkbox__label:hover
-  .amsterdam-checkbox__checkmark:not(.amsterdam-checkbox__checkmark--invalid)::after {
-  box-shadow: var(--amsterdam-checkbox-checkmark-hover-box-shadow);
+// Default indeterminate hover
+.amsterdam-checkbox__input:indeterminate + .amsterdam-checkbox__label:hover .amsterdam-checkbox__checkmark::after {
+  background-color: var(--amsterdam-checkbox-checkmark-indeterminate-hover-background-color);
 }
 
-// Checkmark disabled checked and disabled indeterminate state
-.amsterdam-checkbox__input:disabled.amsterdam-checkbox__input:checked
-  + .amsterdam-checkbox__label
-  .amsterdam-checkbox__checkmark::after,
-.amsterdam-checkbox__input:disabled.amsterdam-checkbox__input:indeterminate
-  + .amsterdam-checkbox__label
+// Invalid checked hover
+.amsterdam-checkbox__input:invalid:checked + .amsterdam-checkbox__label:hover .amsterdam-checkbox__checkmark::after,
+.amsterdam-checkbox__input[aria-invalid="true"]:checked
+  + .amsterdam-checkbox__label:hover
   .amsterdam-checkbox__checkmark::after {
-  background-color: var(--amsterdam-checkbox-checkmark-disabled-checked-background-color);
-  box-shadow: none;
+  // TODO: this should be the (currently non-existent) dark red hover color
+  background-color: var(--amsterdam-checkbox-checkmark-invalid-checked-hover-background-color);
+}
+
+// Invalid indeterminate hover
+.amsterdam-checkbox__input:invalid:indeterminate
+  + .amsterdam-checkbox__label:hover
+  .amsterdam-checkbox__checkmark::after,
+.amsterdam-checkbox__input[aria-invalid="true"]:indeterminate
+  + .amsterdam-checkbox__label:hover
+  .amsterdam-checkbox__checkmark::after {
+  // TODO: this should be the (currently non-existent) dark red hover color
+  background-color: var(--amsterdam-checkbox-checkmark-invalid-indeterminate-hover-background-color);
+}
+
+// Disabled checked hover
+.amsterdam-checkbox__input:disabled:checked + .amsterdam-checkbox__label:hover .amsterdam-checkbox__checkmark::after {
+  background-color: var(--amsterdam-checkbox-checkmark-disabled-checked-hover-background-color);
+}
+
+// Disabled indeterminate hover
+.amsterdam-checkbox__input:disabled:indeterminate
+  + .amsterdam-checkbox__label:hover
+  .amsterdam-checkbox__checkmark::after {
+  background-color: var(--amsterdam-checkbox-checkmark-disabled-indeterminate-hover-background-color);
 }
