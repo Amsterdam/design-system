@@ -144,8 +144,7 @@
 // HOVER STATES
 
 // Invalid unchecked hover
-.amsterdam-checkbox__input:invalid + .amsterdam-checkbox__label:hover .amsterdam-checkbox__checkmark::after,
-.amsterdam-checkbox__input[aria-invalid="true"]
+:is(.amsterdam-checkbox__input:invalid, .amsterdam-checkbox__input[aria-invalid="true"])
   + .amsterdam-checkbox__label:hover
   .amsterdam-checkbox__checkmark::after {
   // TODO: this should be the (currently non-existent) dark red hover color
@@ -163,8 +162,7 @@
 }
 
 // Invalid checked hover
-.amsterdam-checkbox__input:invalid:checked + .amsterdam-checkbox__label:hover .amsterdam-checkbox__checkmark::after,
-.amsterdam-checkbox__input[aria-invalid="true"]:checked
+:is(.amsterdam-checkbox__input:invalid:checked, .amsterdam-checkbox__input[aria-invalid="true"]:checked)
   + .amsterdam-checkbox__label:hover
   .amsterdam-checkbox__checkmark::after {
   // TODO: this should be the (currently non-existent) dark red hover color
@@ -172,10 +170,7 @@
 }
 
 // Invalid indeterminate hover
-.amsterdam-checkbox__input:invalid:indeterminate
-  + .amsterdam-checkbox__label:hover
-  .amsterdam-checkbox__checkmark::after,
-.amsterdam-checkbox__input[aria-invalid="true"]:indeterminate
+:is(.amsterdam-checkbox__input:invalid:indeterminate, .amsterdam-checkbox__input[aria-invalid="true"]:indeterminate)
   + .amsterdam-checkbox__label:hover
   .amsterdam-checkbox__checkmark::after {
   // TODO: this should be the (currently non-existent) dark red hover color
