@@ -10,18 +10,22 @@ const meta = {
   title: 'Checkbox',
   component: Checkbox,
   args: {
-    children: 'Werk en inkomen',
     disabled: false,
     indeterminate: false,
     invalid: false,
   },
+  argTypes: { onChange: { action: 'clicked' } },
 } satisfies Meta<typeof Checkbox>
 
 export default meta
 
 type Story = StoryObj<typeof meta>
 
-export const Default: Story = {}
+export const Default: Story = {
+  args: {
+    children: 'Werk en inkomen',
+  },
+}
 
 export const LongLabel: Story = {
   args: {
