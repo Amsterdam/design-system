@@ -1,10 +1,12 @@
 {
   "amsterdam": {
     "checkbox": {
-      "color": { "value": "{amsterdam.color.primary-black}" },
+      "color": {
+        "value": "{amsterdam.color.primary-black}"
+      },
       "checkmark": {
-        "box-shadow": {
-          "value": "inset 0 0 0 2px {amsterdam.color.primary-blue}"
+        "border-color": {
+          "value": "{amsterdam.color.primary-blue}"
         },
         "checked": {
           "background-color": {
@@ -17,8 +19,8 @@
           }
         },
         "disabled": {
-          "box-shadow": {
-            "value": "inset 0 0 0 2px {amsterdam.color.neutral-grey3}"
+          "border-color": {
+            "value": "{amsterdam.color.neutral-grey3}"
           },
           "checked": {
             "background-color": {
@@ -42,8 +44,8 @@
           }
         },
         "invalid": {
-          "box-shadow": {
-            "value": "inset 0 0 0 2px {amsterdam.color.primary-red}"
+          "border-color": {
+            "value": "{amsterdam.color.primary-red}"
           },
           "checked": {
             "background-color": {
@@ -56,8 +58,8 @@
             }
           },
           "hover": {
-            "box-shadow": {
-              "value": "inset 0 0 0 3px {amsterdam.color.primary-red}"
+            "border-color": {
+              "value": "{amsterdam.color.primary-red}"
             }
           },
           "indeterminate": {
@@ -69,11 +71,6 @@
                 "value": "{amsterdam.color.primary-red}"
               }
             }
-          }
-        },
-        "hover": {
-          "box-shadow": {
-            "value": "inset 0 0 0 3px {amsterdam.color.dark-blue}"
           }
         },
         "indeterminate": {
