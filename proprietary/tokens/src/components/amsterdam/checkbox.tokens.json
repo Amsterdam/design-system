@@ -43,6 +43,11 @@
             }
           }
         },
+        "hover": {
+          "border-color": {
+            "value": "{amsterdam.color.dark-blue}"
+          }
+        },
         "invalid": {
           "border-color": {
             "value": "{amsterdam.color.primary-red}"
