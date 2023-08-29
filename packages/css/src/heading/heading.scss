@@ -7,13 +7,12 @@
 
 @mixin reset {
   box-sizing: border-box;
-  break-after: avoid;
-  break-inside: avoid;
   margin-block: 0;
-  margin-inline: 0;
 }
 
 .amsterdam-heading {
+  break-after: avoid;
+  break-inside: avoid;
   color: var(--amsterdam-heading-color);
   font-family: var(--amsterdam-heading-font-family);
   font-weight: var(--amsterdam-heading-font-weight);
@@ -21,7 +20,7 @@
   @include reset;
 }
 
-.amsterdam-heading-1 {
+.amsterdam-heading--1 {
   font-size: var(--amsterdam-heading-1-narrow-font-size);
   line-height: var(--amsterdam-heading-1-line-height);
 
@@ -30,7 +29,7 @@
   }
 }
 
-.amsterdam-heading-2 {
+.amsterdam-heading--2 {
   font-size: var(--amsterdam-heading-2-narrow-font-size);
   line-height: var(--amsterdam-heading-2-line-height);
 
@@ -39,7 +38,7 @@
   }
 }
 
-.amsterdam-heading-3 {
+.amsterdam-heading--3 {
   font-size: var(--amsterdam-heading-3-narrow-font-size);
   line-height: var(--amsterdam-heading-3-line-height);
 
@@ -48,11 +47,15 @@
   }
 }
 
-.amsterdam-heading-4 {
+.amsterdam-heading--4 {
   font-size: var(--amsterdam-heading-4-narrow-font-size);
   line-height: var(--amsterdam-heading-4-line-height);
 
   @media screen and (width > $amsterdam-breakpoint) {
     font-size: var(--amsterdam-heading-4-wide-font-size);
   }
+}
+
+.amsterdam-heading--inverse-color {
+  color: var(--amsterdam-heading-inverse-color);
 }

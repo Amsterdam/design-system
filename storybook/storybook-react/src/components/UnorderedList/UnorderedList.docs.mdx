@@ -1,4 +1,4 @@
-import { Controls, Markdown, Meta, Primary } from "@storybook/blocks";
+import { Canvas, Markdown, Meta } from "@storybook/blocks";
 import * as UnorderedListStories from "./UnorderedList.stories.tsx";
 import README from "../../../../../packages/css/src/unordered-list/README.md?raw";
 
@@ -6,6 +6,33 @@ import README from "../../../../../packages/css/src/unordered-list/README.md?raw
 
 <Markdown>{README}</Markdown>
 
-<Primary />
+## Voorbeelden
 
-<Controls />
+### Basis
+
+Een ongeordende lijst heeft vierkante opsommingstekens.
+Tussen de items staat extra witruimte.
+Dat geeft een beter onderscheid tussen de items, zeker als ze uit meerdere regels tekst bestaan.
+
+<Canvas of={UnorderedListStories.Basis} />
+
+### Twee niveaus
+
+Een lijst mag één dieper niveau hebben.
+In dit geval wordt een kastlijntjes (‘en dash’) gebruikt als opsommingsteken.
+Dat is links uitgelijnd met de tekst van het bovenliggende niveau.
+
+<Canvas of={UnorderedListStories.TweeNiveaus} />
+
+### Lijst zonder opsommingstekens
+
+Een overzicht van gelijkwaardige elementen is ook een ongeordende lijst.
+Gebruik in dit soort gevallen een lijst zonder opsommingstekens om die semantiek aan te brengen.
+Daardoor kunnen schermlezers helpen de lijst te begrijpen en te navigeren.
+
+Let op: in deze variant bevat elk item normaal gesproken een container met daarin titels en andere tekstcomponenten.
+Daarom definieert deze variant geen typografie voor de items.
+
+Dit voorbeeld is gebaseerd op de toptaken op de homepage van de website:
+
+<Canvas of={UnorderedListStories.ZonderOpsommingstekens} />
