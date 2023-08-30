@@ -6,6 +6,8 @@
 import { Heading } from '@amsterdam/design-system-react'
 import { Meta, StoryObj } from '@storybook/react'
 
+import '../../../../storybook-docs/src/stories.scss'
+
 const meta = {
   title: 'Heading',
   component: Heading,
@@ -33,13 +35,7 @@ type Story = StoryObj<typeof meta>
 export const Default: Story = {
   decorators: [
     (Story, context) => (
-      <div
-        style={{
-          background: context.args.inverseColor ? '#004699' : 'transparent',
-          margin: context.args.inverseColor ? -16 : 0,
-          padding: context.args.inverseColor ? 16 : 0,
-        }}
-      >
+      <div className={context.args.inverseColor ? 'amsterdam-docs-dark-background' : undefined}>
         <Story />
       </div>
     ),
@@ -72,13 +68,7 @@ export const InvertedColor: Story = {
   },
   decorators: [
     (Story, context) => (
-      <div
-        style={{
-          background: context.args.inverseColor ? '#004699' : 'transparent',
-          margin: context.args.inverseColor ? -16 : 0,
-          padding: context.args.inverseColor ? 16 : 0,
-        }}
-      >
+      <div className={context.args.inverseColor ? 'amsterdam-docs-dark-background' : undefined}>
         <Story />
       </div>
     ),
