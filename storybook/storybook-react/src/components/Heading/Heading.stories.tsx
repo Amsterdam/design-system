@@ -71,12 +71,12 @@ export const InvertedColor: Story = {
     inverseColor: true,
   },
   decorators: [
-    (Story) => (
+    (Story, context) => (
       <div
         style={{
-          background: '#004699',
-          margin: -16,
-          padding: 16,
+          background: context.args.inverseColor ? '#004699' : 'transparent',
+          margin: context.args.inverseColor ? -16 : 0,
+          padding: context.args.inverseColor ? 16 : 0,
         }}
       >
         <Story />
