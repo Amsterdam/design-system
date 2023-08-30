@@ -47,7 +47,8 @@
     "stylelint": "15.10.2",
     "stylelint-config-standard-scss": "10.0.0",
     "stylelint-order": "6.0.3",
-    "typescript": "5.1.6"
+    "typescript": "5.1.6",
+    "wait-on": "7.0.1"
   },
   "scripts": {
     "build": "lerna run build",
@@ -79,7 +80,7 @@
     "update-major": "npm-check-updates --configFileName .ncurc.major.js --deep --dep dev,prod --target latest --upgrade && pnpm install",
     "watch:css": "npm run --workspace packages/css build:watch",
     "watch:react": "npm run --workspace packages/react build:watch",
-    "watch:storybook-docs": "npm run --workspace storybook/storybook-docs storybook",
+    "watch:storybook-docs": "npx wait-on http://localhost:6007 && npm run --workspace storybook/storybook-docs storybook",
     "watch:storybook-react": "npm run --workspace storybook/storybook-react storybook",
     "watch:style-dictionary": "npm run --workspace proprietary/tokens watch:style-dictionary"
   },
