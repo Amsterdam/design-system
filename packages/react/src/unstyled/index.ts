@@ -4,6 +4,7 @@
  */
 
 /* Append here */
+export * from '../Blockquote'
 export * from '../Checkbox'
 export * from '../PageHeading'
 export * from '../OrderedList'
