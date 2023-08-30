@@ -4,6 +4,8 @@
  */
 
 /* Append here */
+import '../../css/src/blockquote/blockquote.scss'
+import '../../css/src/checkbox/checkbox.scss'
 import '../../css/src/page-heading/page-heading.scss'
 import '../../css/src/ordered-list/ordered-list.scss'
 import '../../css/src/accordion/accordion.scss'
