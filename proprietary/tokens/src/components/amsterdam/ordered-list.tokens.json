@@ -4,7 +4,7 @@
       "color": { "value": "{amsterdam.color.primary-black}" },
       "font-family": { "value": "{amsterdam.typography.font-family}" },
       "font-weight": { "value": "{amsterdam.typography.font-weight.normal}" },
-      "gap": { "value": "0.5rem" },
+      "gap": { "value": "0.75rem" },
       "line-height": { "value": "{amsterdam.typography.text-level.6.line-height}" },
       "list-style-type": { "value": "decimal" },
       "narrow": {
