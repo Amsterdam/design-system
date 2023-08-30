@@ -39,6 +39,8 @@ export const Checkbox = forwardRef(
     }, [innerRef, indeterminate])
 
     return (
+      // This div is here because NVDA doesn't match the input to the label
+      // without a containing element
       <div className={clsx('amsterdam-checkbox', className)}>
         <input
           {...restProps}

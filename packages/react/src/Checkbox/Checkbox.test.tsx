@@ -33,14 +33,6 @@ describe('Checkbox', () => {
     expect(label).toHaveClass('amsterdam-checkbox__label')
   })
 
-  it('can have a custom class name', () => {
-    const { container } = render(<Checkbox className="extra" />)
-
-    const wrapper = container.querySelector(':only-child')
-
-    expect(wrapper).toHaveClass('extra')
-  })
-
   it('can have a additional class name', () => {
     const { container } = render(<Checkbox className="extra" />)
 
@@ -62,7 +54,8 @@ describe('Checkbox', () => {
   })
 
   it('can have a checked state', () => {
-    render(<Checkbox checked />)
+    const handleChange = () => {}
+    render(<Checkbox checked onChange={handleChange} />)
 
     const input = screen.getByRole('checkbox')
 
@@ -79,7 +72,7 @@ describe('Checkbox', () => {
     expect(input).not.toBePartiallyChecked()
   })
 
-  it('can have a checked state', () => {
+  it('can have an indeterminate state', () => {
     render(<Checkbox indeterminate />)
 
     const input = screen.getByRole('checkbox')
@@ -97,12 +90,13 @@ describe('Checkbox', () => {
     expect(input).not.toBeInvalid()
   })
 
-  it('renders a design system BEM modifier class name', () => {
-    const { container } = render(<Checkbox invalid />)
+  it('can have an invalid state', () => {
+    render(<Checkbox invalid />)
 
-    const invalidMarker = container.querySelector('.amsterdam-checkbox__checkmark--invalid')
+    const input = screen.getByRole('checkbox')
 
-    expect(invalidMarker).toBeInTheDocument()
+    expect(input).toHaveAttribute('aria-invalid')
+    expect(input).toBeInvalid()
   })
 
   it('omits non-essential invalid attributes when not invalid', () => {
@@ -111,14 +105,6 @@ describe('Checkbox', () => {
     const input = screen.getByRole('checkbox')
 
     expect(input).not.toHaveAttribute('aria-invalid')
-  })
-
-  it('can have an invalid state', () => {
-    render(<Checkbox invalid />)
-
-    const input = screen.getByRole('checkbox')
-
-    expect(input).toBeInvalid()
   })
 
   // disabled state
@@ -137,6 +123,17 @@ describe('Checkbox', () => {
     const input = screen.getByRole('checkbox')
 
     expect(input).toBeDisabled()
+  })
+
+  // disabled invalid state
+
+  it('can have a disabled invalid state', () => {
+    render(<Checkbox disabled invalid />)
+
+    const input = screen.getByRole('checkbox')
+
+    expect(input).toBeDisabled()
+    expect(input).toBeInvalid()
   })
 
   it('can trigger a change event', () => {
@@ -161,6 +158,18 @@ describe('Checkbox', () => {
     input?.click()
 
     expect(handleChange).not.toHaveBeenCalled()
+  })
+
+  it('can trigger a change event by clicking on label', () => {
+    const handleChange = jest.fn()
+
+    const { container } = render(<Checkbox onChange={handleChange} />)
+
+    const label = container.querySelector('label')
+
+    label?.click()
+
+    expect(handleChange).toHaveBeenCalled()
   })
 
   it('supports ForwardRef in React', () => {
