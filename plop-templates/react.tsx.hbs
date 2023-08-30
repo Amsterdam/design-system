@@ -6,11 +6,10 @@
 import clsx from 'clsx'
 import { ForwardedRef, forwardRef, HTMLAttributes, PropsWithChildren } from 'react'
 
+export interface {{pascalCase name}}Props extends PropsWithChildren<HTMLAttributes<HTMLElement>> {}
+
 export const {{pascalCase name}} = forwardRef(
-  (
-    { children, className, ...restProps }: PropsWithChildren<HTMLAttributes<HTMLElement>>,
-    ref: ForwardedRef<HTMLElement>,
-  ) => (
+  ({ children, className, ...restProps }: {{pascalCase name}}Props, ref: ForwardedRef<HTMLElement>) => (
     <span {...restProps} ref={ref} className={clsx('amsterdam-{{kebabCase name}}', className)}>
       {children}
     </span>

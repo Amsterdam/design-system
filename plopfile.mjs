@@ -65,6 +65,7 @@ export default function (plop) {
       },
       {
         type: 'add',
+        data: { curlyBefore: '{' },
         path: 'storybook/storybook-react/src/components/{{pascalCase name}}/{{pascalCase name}}.docs.mdx',
         templateFile: 'plop-templates/storybook.docs.mdx.hbs',
       },
