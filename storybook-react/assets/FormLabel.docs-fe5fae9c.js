@@ -1,0 +1,5 @@
+import{j as e}from"./index.esm-121bc8ce.js";import{M as n,d as m,P as i,f as s}from"./index-aa0c91f5.js";import{F as a}from"./FormLabel.stories-8ef6682e.js";import{u as p}from"./index-a1cf9e47.js";import"./index-76fb7be0.js";import"./_commonjsHelpers-de833af9.js";import"./iframe-c0a44b27.js";import"../sb-preview/runtime.js";import"./index-d475d2ea.js";import"./_commonjs-dynamic-modules-302442b1.js";import"./index-d893ea64.js";import"./assert-a1982797.js";import"./index-d37d4223.js";import"./index-356e4a49.js";const l="# Form label\n\nEen label element gebruik je om een formulierelement te beschrijven. Koppel een formulierelement (zoals een `input` of `textarea`) altijd aan een label.\n";function o(t){return e.jsxs(e.Fragment,{children:[e.jsx(n,{of:a}),`
+`,e.jsx(m,{children:l}),`
+`,e.jsx(i,{}),`
+`,e.jsx(s,{})]})}function X(t={}){const{wrapper:r}=Object.assign({},p(),t.components);return r?e.jsx(r,Object.assign({},t,{children:e.jsx(o,t)})):o()}export{X as default};
+//# sourceMappingURL=FormLabel.docs-fe5fae9c.js.map
