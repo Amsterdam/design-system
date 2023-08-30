@@ -4,6 +4,7 @@
  */
 
 /* Append here */
+export * from '../Checkbox'
 export * from '../PageHeading'
 export * from '../OrderedList'
 export * from '../Heading'
