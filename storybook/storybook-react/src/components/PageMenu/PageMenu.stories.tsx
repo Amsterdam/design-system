@@ -26,4 +26,9 @@ export const Default: Story = {
       <PageMenu.Button icon={Menu}>Alle onderwerpen</PageMenu.Button>
     </PageMenu>
   ),
+  parameters: {
+    docs: {
+      source: { type: 'dynamic' },
+    },
+  },
 }
