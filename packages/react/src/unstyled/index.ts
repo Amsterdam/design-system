@@ -4,6 +4,7 @@
  */
 
 /* Append here */
+export * from '../TopTaskLink'
 export * from '../Blockquote'
 export * from '../Checkbox'
 export * from '../PageHeading'
