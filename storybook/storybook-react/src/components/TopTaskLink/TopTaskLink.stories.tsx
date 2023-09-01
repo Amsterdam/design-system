@@ -37,45 +37,34 @@ export const Default: Story = {
   },
 }
 
-export const ThreeColumns: Story = {
+export const WithoutDescription: Story = {
+  args: {
+    label: 'Titel',
+  },
   render: () => (
     <PageGrid>
       <GridCell gridColumns={4}>
-        <TopTaskLink
-          href="/"
-          label="Staat van de Stad"
-          description="De Staat van de Stad Amsterdam biedt een overzicht van hoe de stad ervoor staat op tal van terreinen."
-        />
+        <TopTaskLink href="/" label="Melding openbare ruimte en overlast" />
       </GridCell>
       <GridCell gridColumns={4}>
-        <TopTaskLink
-          href="/"
-          label="Metropoolregio Amsterdam"
-          description="Onderzoek en Statistiek verzamelt cijfers over de MRA en doet onderzoek naar onder meer de woningmarkt en
-          het toerisme in de regio."
-        />
+        <TopTaskLink href="/" label="Verhuizing doorgeven" />
       </GridCell>
       <GridCell gridColumns={4}>
-        <TopTaskLink
-          href="/"
-          label="Armoede"
-          description="In Amsterdam leven meer mensen in armoede dan gemiddeld in Nederland. De afgelopen jaren daalde hun aantal
-          in Amsterdam wel geleidelijk."
-        />
+        <TopTaskLink href="/" label="Kennisgevingen en bekendmakingen" />
       </GridCell>
     </PageGrid>
   ),
   parameters: {
     docs: {
       source: { type: 'dynamic' },
-      canvas: {
-        sourceState: 'hidden',
-      },
     },
   },
 }
 
-export const FourColumns: Story = {
+export const WithDescription: Story = {
+  args: {
+    label: 'Titel',
+  },
   render: () => (
     <PageGrid>
       <GridCell gridColumns={3}>
@@ -95,9 +84,6 @@ export const FourColumns: Story = {
   parameters: {
     docs: {
       source: { type: 'dynamic' },
-      canvas: {
-        sourceState: 'hidden',
-      },
     },
   },
 }
