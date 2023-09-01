@@ -60,6 +60,15 @@
   transform: translate(100%);
 }
 
+// Clean up! TODO: Also sets the focus when toggling with the keyboard
+.amsterdam-switch__input:focus-visible + .amsterdam-switch__toggle {
+  background: red;
+  outline-color: -webkit-focus-ring-color;
+  outline-offset: var(--amsterdam-switch-outline-offset);
+  outline-style: auto;
+  outline-width: 5px;
+}
+
 .amsterdam-switch:hover .amsterdam-switch__input:enabled ~ .amsterdam-switch__toggle .amsterdam-switch__toggle-inner {
   box-shadow: 0 0 0 2px var(--amsterdam-switch-hover-color);
 }
