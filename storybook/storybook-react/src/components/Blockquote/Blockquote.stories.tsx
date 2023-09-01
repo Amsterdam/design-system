@@ -3,28 +3,22 @@
  * Copyright (c) 2023 Gemeente Amsterdam
  */
 
-import { Paragraph } from '@amsterdam/design-system-react'
+import { Blockquote } from '@amsterdam/design-system-react'
 import { Meta, StoryObj } from '@storybook/react'
 
 import '../../../../storybook-docs/src/stories.scss'
 
 const meta = {
-  title: 'Paragraph',
-  component: Paragraph,
+  title: 'Blockquote',
+  component: Blockquote,
   args: {
     children: 'Jouw typograaf biedt mij zulke exquise schreven!',
     inverseColor: false,
   },
   argTypes: {
-    size: {
-      control: {
-        type: 'select',
-        labels: { undefined: 'default', large: 'large', small: 'small' },
-      },
-      options: [undefined, 'large', 'small'],
-    },
+    inverseColor: { control: 'boolean' },
   },
-} satisfies Meta<typeof Paragraph>
+} satisfies Meta<typeof Blockquote>
 
 export default meta
 
@@ -38,18 +32,6 @@ export const Default: Story = {
       </div>
     ),
   ],
-}
-
-export const Large: Story = {
-  args: {
-    size: 'large',
-  },
-}
-
-export const Small: Story = {
-  args: {
-    size: 'small',
-  },
 }
 
 export const InvertedColor: Story = {

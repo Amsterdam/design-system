@@ -26,6 +26,12 @@ export default function (plop) {
         templateFile: 'plop-templates/style.docs.md.hbs',
       },
       {
+        type: 'append',
+        path: 'packages/css/src/index.scss',
+        pattern: `/* Append here */`,
+        template: `@import "./{{kebabCase name}}/{{kebabCase name}}";`,
+      },
+      {
         type: 'add',
         path: 'packages/react/src/{{pascalCase name}}/{{pascalCase name}}.tsx',
         templateFile: 'plop-templates/react.tsx.hbs',
@@ -59,6 +65,7 @@ export default function (plop) {
       },
       {
         type: 'add',
+        data: { curlyBefore: '{' },
         path: 'storybook/storybook-react/src/components/{{pascalCase name}}/{{pascalCase name}}.docs.mdx',
         templateFile: 'plop-templates/storybook.docs.mdx.hbs',
       },
