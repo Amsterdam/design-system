@@ -18,7 +18,7 @@ export const TopTaskLink = forwardRef(
       ref={ref}
       className={clsx('amsterdam-top-task-link', className)}
       // Add an aria-label with a comma between label and description, so screenreaders have a slight pause between the two.
-      aria-label={`${label}, ${description}`}
+      aria-label={`${label}${description ? `, ${description}` : ''}`}
     >
       <span className="amsterdam-top-task-link__label">{label}</span>
       {description && <span className="amsterdam-top-task-link__description">{description}</span>}
