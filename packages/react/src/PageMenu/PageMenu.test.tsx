@@ -47,4 +47,14 @@ describe('page menu', () => {
 
     expect(ref.current).toBe(component)
   })
+
+  it('can have a additional class name', () => {
+    const { container } = render(<PageMenu className="intro" />)
+
+    const component = container.querySelector(':only-child')
+
+    expect(component).toHaveClass('intro')
+
+    expect(component).toHaveClass('amsterdam-page-menu')
+  })
 })

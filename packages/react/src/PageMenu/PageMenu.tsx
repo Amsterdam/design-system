@@ -3,6 +3,7 @@
  * Copyright (c) 2023 Gemeente Amsterdam
  */
 
+import clsx from 'clsx'
 import {
   AnchorHTMLAttributes,
   ButtonHTMLAttributes,
@@ -15,16 +16,17 @@ import {
 } from 'react'
 import { Icon } from '../Icon'
 
-interface PageMenuComponent
-  extends ForwardRefExoticComponent<PropsWithChildren<HTMLAttributes<HTMLElement>> & RefAttributes<HTMLElement>> {
+type PageMenuProps = PropsWithChildren<HTMLAttributes<HTMLElement>>
+
+interface PageMenuComponent extends ForwardRefExoticComponent<PageMenuProps & RefAttributes<HTMLElement>> {
   Link: typeof PageMenuLink
   Button: typeof PageMenuButton
 }
 
 export const PageMenu = forwardRef(
-  ({ children, ...restProps }: PropsWithChildren<HTMLAttributes<HTMLElement>>, ref: ForwardedRef<HTMLElement>) => {
+  ({ children, className, ...restProps }: PageMenuProps, ref: ForwardedRef<HTMLElement>) => {
     return (
-      <nav {...restProps} className="amsterdam-page-menu" ref={ref}>
+      <nav {...restProps} className={clsx('amsterdam-page-menu', className)} ref={ref}>
         <ul className="amsterdam-page-menu__list">{children}</ul>
       </nav>
     )
