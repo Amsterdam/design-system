@@ -100,7 +100,7 @@ export const Default: Story = {
       </Footer.Top>,
       <Footer.Bottom key={2}>
         <VisuallyHidden>
-          <Heading level={2}>Privacy en toegankelijkheid</Heading>
+          <Heading level={2}>Over deze website</Heading>
         </VisuallyHidden>
         <UnorderedList markers={false}>
           <li>
