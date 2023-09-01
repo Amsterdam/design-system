@@ -32,10 +32,8 @@ export const Default: Story = {
   ],
   args: {
     href: '/',
-    children: [
-      <TopTaskLink.Title key={1}>Titel</TopTaskLink.Title>,
-      <TopTaskLink.Description key={2}>Omschrijving</TopTaskLink.Description>,
-    ],
+    label: 'Titel',
+    description: 'Omschrijving',
   },
 }
 
@@ -43,30 +41,27 @@ export const ThreeColumns: Story = {
   render: () => (
     <PageGrid>
       <GridCell gridColumns={4}>
-        <TopTaskLink href="/">
-          <TopTaskLink.Title>Staat van de Stad</TopTaskLink.Title>
-          <TopTaskLink.Description>
-            De Staat van de Stad Amsterdam biedt een overzicht van hoe de stad ervoor staat op tal van terreinen.
-          </TopTaskLink.Description>
-        </TopTaskLink>
+        <TopTaskLink
+          href="/"
+          label="Staat van de Stad"
+          description="De Staat van de Stad Amsterdam biedt een overzicht van hoe de stad ervoor staat op tal van terreinen."
+        />
       </GridCell>
       <GridCell gridColumns={4}>
-        <TopTaskLink href="/">
-          <TopTaskLink.Title>Metropoolregio Amsterdam</TopTaskLink.Title>
-          <TopTaskLink.Description>
-            Onderzoek en Statistiek verzamelt cijfers over de MRA en doet onderzoek naar onder meer de woningmarkt en
-            het toerisme in de regio.
-          </TopTaskLink.Description>
-        </TopTaskLink>
+        <TopTaskLink
+          href="/"
+          label="Metropoolregio Amsterdam"
+          description="Onderzoek en Statistiek verzamelt cijfers over de MRA en doet onderzoek naar onder meer de woningmarkt en
+          het toerisme in de regio."
+        />
       </GridCell>
       <GridCell gridColumns={4}>
-        <TopTaskLink href="/">
-          <TopTaskLink.Title>Armoede</TopTaskLink.Title>
-          <TopTaskLink.Description>
-            In Amsterdam leven meer mensen in armoede dan gemiddeld in Nederland. De afgelopen jaren daalde hun aantal
-            in Amsterdam wel geleidelijk.
-          </TopTaskLink.Description>
-        </TopTaskLink>
+        <TopTaskLink
+          href="/"
+          label="Armoede"
+          description="In Amsterdam leven meer mensen in armoede dan gemiddeld in Nederland. De afgelopen jaren daalde hun aantal
+          in Amsterdam wel geleidelijk."
+        />
       </GridCell>
     </PageGrid>
   ),
@@ -84,28 +79,16 @@ export const FourColumns: Story = {
   render: () => (
     <PageGrid>
       <GridCell gridColumns={3}>
-        <TopTaskLink href="/">
-          <TopTaskLink.Title>Stadsloket</TopTaskLink.Title>
-          <TopTaskLink.Description>Locaties en openingstijden</TopTaskLink.Description>
-        </TopTaskLink>
+        <TopTaskLink href="/" label="Stadsloket" description="Locaties en openingstijden" />
       </GridCell>
       <GridCell gridColumns={3}>
-        <TopTaskLink href="/">
-          <TopTaskLink.Title>P+R</TopTaskLink.Title>
-          <TopTaskLink.Description>Parkeren en reizen</TopTaskLink.Description>
-        </TopTaskLink>
+        <TopTaskLink href="/" label="P+R" description="Parkeren en reizen" />
       </GridCell>
       <GridCell gridColumns={3}>
-        <TopTaskLink href="/">
-          <TopTaskLink.Title>Documenten</TopTaskLink.Title>
-          <TopTaskLink.Description>Paspoort, ID-kaart en rijbewijs</TopTaskLink.Description>
-        </TopTaskLink>
+        <TopTaskLink href="/" label="Documenten" description="Paspoort, ID-kaart en rijbewijs" />
       </GridCell>
       <GridCell gridColumns={3}>
-        <TopTaskLink href="/">
-          <TopTaskLink.Title>Meldingen</TopTaskLink.Title>
-          <TopTaskLink.Description>Melding openbare ruimte en overlast</TopTaskLink.Description>
-        </TopTaskLink>
+        <TopTaskLink href="/" label="Meldingen" description="Melding openbare ruimte en overlast" />
       </GridCell>
     </PageGrid>
   ),
