@@ -3,20 +3,20 @@
  * Copyright (c) 2023 Gemeente Amsterdam
  */
 
-import React, {
+import {
   AnchorHTMLAttributes,
   ButtonHTMLAttributes,
   ForwardedRef,
   forwardRef,
+  ForwardRefExoticComponent,
   HTMLAttributes,
   PropsWithChildren,
+  RefAttributes,
 } from 'react'
 import { Icon } from '../Icon'
 
 interface PageMenuComponent
-  extends React.ForwardRefExoticComponent<
-    PropsWithChildren<HTMLAttributes<HTMLElement>> & React.RefAttributes<HTMLElement>
-  > {
+  extends ForwardRefExoticComponent<PropsWithChildren<HTMLAttributes<HTMLElement>> & RefAttributes<HTMLElement>> {
   Link: typeof PageMenuLink
   Button: typeof PageMenuButton
 }
@@ -42,8 +42,8 @@ export interface PageMenuButtonProps extends PropsWithChildren<ButtonHTMLAttribu
 const PageMenuLink = forwardRef(
   ({ children, icon, ...restProps }: PageMenuLinkProps, ref: ForwardedRef<HTMLAnchorElement>) => {
     return (
-      <li className="amsterdam-page-menu__link">
-        <a {...restProps} ref={ref}>
+      <li className="amsterdam-page-menu__item">
+        <a {...restProps} ref={ref} className="amsterdam-page-menu__link">
           {children}
           {icon && <Icon svg={icon} size="level-7" />}
         </a>
@@ -55,8 +55,8 @@ const PageMenuLink = forwardRef(
 const PageMenuButton = forwardRef(
   ({ children, icon, ...restProps }: PageMenuButtonProps, ref: ForwardedRef<HTMLButtonElement>) => {
     return (
-      <li className="amsterdam-page-menu__button">
-        <button {...restProps} type="button" ref={ref}>
+      <li className="amsterdam-page-menu__item">
+        <button {...restProps} type="button" ref={ref} className="amsterdam-page-menu__button">
           {children}
           {icon && <Icon svg={icon} size="level-7" />}
         </button>

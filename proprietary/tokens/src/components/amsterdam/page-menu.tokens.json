@@ -1,12 +1,14 @@
 {
   "amsterdam": {
     "page-menu": {
-      "font-family": { "value": "{amsterdam.typography.font-family}" },
-      "font-weight": { "value": "{amsterdam.typography.font-weight.normal}" },
-      "gap": { "value": "2.5rem" },
+      "list": {
+        "column-gap": { "value": "2.5rem" }
+      },
       "item": {
         "color": { "value": "{amsterdam.color.primary-black}" },
         "gap": { "value": "0.5rem" },
+        "font-family": { "value": "{amsterdam.typography.font-family}" },
+        "font-weight": { "value": "{amsterdam.typography.font-weight.normal}" },
         "line-height": { "value": "{amsterdam.typography.text-level.7.line-height}" },
         "text-decoration": { "value": "none" },
         "narrow": {

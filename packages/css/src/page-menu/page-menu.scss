@@ -5,35 +5,36 @@
 
 @import "../../utils/breakpoint";
 
-@mixin reset {
-  border: 0;
+@mixin reset-list {
   box-sizing: border-box;
   margin-block: 0;
   padding-inline: 0;
   -webkit-text-size-adjust: 100%;
 }
 
+@mixin reset-item {
+  box-sizing: border-box;
+  -webkit-text-size-adjust: 100%;
+}
+
 .amsterdam-page-menu__list {
   align-items: center;
+  column-gap: var(--amsterdam-page-menu-list-column-gap);
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  gap: var(--amsterdam-page-menu-gap);
   list-style: none;
 
-  @include reset;
+  @include reset-list;
 }
 
-.amsterdam-page-menu__link a,
-.amsterdam-page-menu__button button {
-  align-items: center;
-  background: none;
+@mixin page-menu-item {
   color: var(--amsterdam-page-menu-item-color);
-  cursor: pointer;
   display: inline-flex;
   flex-direction: row;
-  font-family: var(--amsterdam-page-menu-font-family);
+  font-family: var(--amsterdam-page-menu-item-font-family);
   font-size: var(--amsterdam-page-menu-item-narrow-font-size);
+  font-weight: var(--amsterdam-page-menu-item-narrow-font-weight);
   gap: var(--amsterdam-page-menu-item-gap);
   line-height: var(--amsterdam-page-menu-item-line-height);
   text-align: center;
@@ -43,8 +44,22 @@
   @media screen and (width > $amsterdam-breakpoint) {
     font-size: var(--amsterdam-page-menu-item-wide-font-size);
   }
+}
 
-  @include reset;
+.amsterdam-page-menu__link {
+  @include page-menu-item;
+  @include reset-item;
+}
+
+.amsterdam-page-menu__button {
+  background-color: transparent;
+  border: 0;
+  cursor: pointer;
+  margin-block: 0;
+  padding-inline: 0;
+
+  @include page-menu-item;
+  @include reset-item;
 }
 
 .amsterdam-page-menu__link a:hover,

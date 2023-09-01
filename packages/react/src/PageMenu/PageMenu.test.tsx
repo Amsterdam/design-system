@@ -3,19 +3,16 @@ import { render } from '@testing-library/react'
 import { createRef } from 'react'
 import { PageMenu } from './PageMenu'
 import '@testing-library/jest-dom'
-import { Icon } from '../Icon'
 
 describe('page menu', () => {
   it('renders a page menu with children', () => {
     const { container } = render(
       <PageMenu>
         <PageMenu.Link href="#">English</PageMenu.Link>
-        <PageMenu.Link href="#">
-          Inloggen Mijn Amsterdam <Icon svg={Login} size="level-7" />
+        <PageMenu.Link href="#" icon={Login}>
+          Inloggen Mijn Amsterdam
         </PageMenu.Link>
-        <PageMenu.Button>
-          Alle onderwerpen <Icon svg={Menu} size="level-7" />
-        </PageMenu.Button>
+        <PageMenu.Button icon={Menu}>Alle onderwerpen</PageMenu.Button>
       </PageMenu>,
     )
 
@@ -27,6 +24,14 @@ describe('page menu', () => {
     expect(component).toBeVisible()
     expect(children.length).toBe(3)
     expect(icons.length).toBe(2)
+  })
+
+  it('renders a design system BEM class name', () => {
+    const { container } = render(<PageMenu />)
+
+    const component = container.querySelector(':only-child')
+
+    expect(component).toHaveClass('amsterdam-page-menu')
   })
 
   it('is able to pass a React ref', () => {

@@ -10,9 +10,6 @@ import { Meta, StoryObj } from '@storybook/react'
 const meta = {
   title: 'Page menu',
   component: PageMenu,
-  args: {
-    children: 'Nieuw component',
-  },
 } satisfies Meta<typeof PageMenu>
 
 export default meta
