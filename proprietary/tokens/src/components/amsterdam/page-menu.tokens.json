@@ -2,7 +2,8 @@
   "amsterdam": {
     "page-menu": {
       "list": {
-        "column-gap": { "value": "2.5rem" }
+        "column-gap": { "value": "2.5rem" },
+        "row-gap": { "value": "0.5rem" }
       },
       "item": {
         "color": { "value": "{amsterdam.color.primary-black}" },

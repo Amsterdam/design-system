@@ -9,7 +9,6 @@
   box-sizing: border-box;
   margin-block: 0;
   padding-inline: 0;
-  -webkit-text-size-adjust: 100%;
 }
 
 @mixin reset-item {
@@ -24,6 +23,7 @@
   flex-direction: row;
   flex-wrap: wrap;
   list-style: none;
+  row-gap: var(--amsterdam-page-menu-list-row-gap);
 
   @include reset-list;
 }
@@ -62,8 +62,8 @@
   @include reset-item;
 }
 
-.amsterdam-page-menu__link a:hover,
-.amsterdam-page-menu__button button:hover {
+.amsterdam-page-menu__link:hover,
+.amsterdam-page-menu__button:hover {
   color: var(--amsterdam-page-menu-item-hover-color);
 }
 
