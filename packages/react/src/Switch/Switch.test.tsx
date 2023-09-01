@@ -31,19 +31,32 @@ describe('Switch', () => {
 
   it('renders a switch with label text when label is provided', () => {
     render(<Switch label="Switch label" />)
-    // const switchElement = screen.getByRole('switch')
     const labelElement = screen.getByText('Switch label')
 
     expect(labelElement).toBeInTheDocument()
   })
-})
 
-it('is able to pass a React ref', () => {
-  const ref = createRef<HTMLInputElement>()
+  it('renders a design system BEM class name', () => {
+    const { container } = render(<Switch />)
+    const component = container.querySelector(':only-child')
 
-  const { container } = render(<Switch ref={ref} />)
+    expect(component).toHaveClass('amsterdam-switch')
+  })
 
-  const switchToggle = container.querySelector('input[type="checkbox"]')
+  it('can have a additional class name', () => {
+    const { container } = render(<Switch className="extra" />)
+    const component = container.querySelector(':only-child')
 
-  expect(ref.current).toBe(switchToggle)
+    expect(component).toHaveClass('extra')
+    expect(component).toHaveClass('amsterdam-{{kebabCase name}}')
+  })
+
+  it('is able to pass a React ref', () => {
+    const ref = createRef<HTMLInputElement>()
+    const { container } = render(<Switch ref={ref} />)
+
+    const switchToggle = container.querySelector('input[type="checkbox"]')
+
+    expect(ref.current).toBe(switchToggle)
+  })
 })
