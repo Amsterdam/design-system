@@ -5,10 +5,6 @@
 
 @import "../../utils/breakpoint";
 
-@mixin reset {
-  box-sizing: border-box;
-}
-
 .amsterdam-top-task-link {
   break-inside: avoid;
   display: flex;
@@ -16,6 +12,11 @@
   gap: 0.5rem;
   outline-offset: var(--amsterdam-top-task-link-outline-offset);
   text-decoration: none;
+}
+
+@mixin reset {
+  box-sizing: border-box;
+  -webkit-text-size-adjust: 100%;
 }
 
 .amsterdam-top-task-link__label {
@@ -32,10 +33,23 @@
   @include reset;
 }
 
-.amsterdam-top-task-link:hover .amsterdam-top-task-link__label,
-.amsterdam-top-task-link:focus .amsterdam-top-task-link__label {
-  color: var(--amsterdam-top-task-link-label-focus-color);
+.amsterdam-top-task-link:hover .amsterdam-top-task-link__label {
+  color: var(--amsterdam-top-task-link-label-hover-color);
   text-decoration: underline;
   text-decoration-thickness: 3px;
   text-underline-offset: 0.5rem;
+}
+
+.amsterdam-top-task-link__description {
+  color: var(--amsterdam-top-task-link-description-color);
+  font-family: var(--amsterdam-top-task-link-description-font-family);
+  font-size: var(--amsterdam-top-task-link-description-narrow-font-size);
+  font-weight: var(--amsterdam-top-task-link-description-font-weight);
+  line-height: var(--amsterdam-top-task-link-description-line-height);
+
+  @media screen and (width > $amsterdam-breakpoint) {
+    font-size: var(--amsterdam-top-task-link-description-wide-font-size);
+  }
+
+  @include reset;
 }
