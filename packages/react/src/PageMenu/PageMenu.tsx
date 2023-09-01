@@ -3,7 +3,15 @@
  * Copyright (c) 2023 Gemeente Amsterdam
  */
 
-import React, { ForwardedRef, forwardRef, HTMLAttributes, PropsWithChildren } from 'react'
+import React, {
+  AnchorHTMLAttributes,
+  ButtonHTMLAttributes,
+  ForwardedRef,
+  forwardRef,
+  HTMLAttributes,
+  PropsWithChildren,
+} from 'react'
+import { Icon } from '../Icon'
 
 interface PageMenuComponent
   extends React.ForwardRefExoticComponent<
@@ -23,27 +31,39 @@ export const PageMenu = forwardRef(
   },
 ) as PageMenuComponent
 
-export interface PageMenuLinkProps extends PropsWithChildren<HTMLAttributes<HTMLLIElement>> {
-  href?: string
+export interface PageMenuLinkProps extends PropsWithChildren<AnchorHTMLAttributes<HTMLAnchorElement>> {
+  icon?: Function
+}
+
+export interface PageMenuButtonProps extends PropsWithChildren<ButtonHTMLAttributes<HTMLButtonElement>> {
+  icon?: Function
 }
 
 const PageMenuLink = forwardRef(
-  ({ children, href, ...restProps }: PageMenuLinkProps, ref: ForwardedRef<HTMLLIElement>) => {
+  ({ children, icon, ...restProps }: PageMenuLinkProps, ref: ForwardedRef<HTMLAnchorElement>) => {
     return (
-      <li {...restProps} className="amsterdam-page-menu__link" ref={ref}>
-        <a href={href}>{children}</a>
+      <li className="amsterdam-page-menu__link">
+        <a {...restProps} ref={ref}>
+          {children}
+          {icon && <Icon svg={icon} size="level-7" />}
+        </a>
       </li>
     )
   },
 )
 
-const PageMenuButton = forwardRef(({ children, ...restProps }: PageMenuLinkProps, ref: ForwardedRef<HTMLLIElement>) => {
-  return (
-    <li {...restProps} className="amsterdam-page-menu__button" ref={ref}>
-      <button>{children}</button>
-    </li>
-  )
-})
+const PageMenuButton = forwardRef(
+  ({ children, icon, ...restProps }: PageMenuButtonProps, ref: ForwardedRef<HTMLButtonElement>) => {
+    return (
+      <li className="amsterdam-page-menu__button">
+        <button {...restProps} type="button" ref={ref}>
+          {children}
+          {icon && <Icon svg={icon} size="level-7" />}
+        </button>
+      </li>
+    )
+  },
+)
 
 PageMenu.displayName = 'PageMenu'
 PageMenuLink.displayName = 'PageMenuLink'

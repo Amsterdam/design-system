@@ -3,7 +3,7 @@
  * Copyright (c) 2023 Gemeente Amsterdam
  */
 
-import { Icon, PageMenu } from '@amsterdam/design-system-react'
+import { PageMenu } from '@amsterdam/design-system-react'
 import { Login, Menu } from '@amsterdam/design-system-react-icons'
 import { Meta, StoryObj } from '@storybook/react'
 
@@ -23,12 +23,10 @@ export const Default: Story = {
   render: () => (
     <PageMenu>
       <PageMenu.Link href="#">English</PageMenu.Link>
-      <PageMenu.Link href="#">
-        Inloggen Mijn Amsterdam <Icon svg={Login} size="level-7" />
+      <PageMenu.Link href="#" icon={Login}>
+        Inloggen Mijn Amsterdam
       </PageMenu.Link>
-      <PageMenu.Button>
-        Alle onderwerpen <Icon svg={Menu} size="level-7" />
-      </PageMenu.Button>
+      <PageMenu.Button icon={Menu}>Alle onderwerpen</PageMenu.Button>
     </PageMenu>
   ),
 }
