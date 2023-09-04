@@ -24,9 +24,9 @@
 .amsterdam-breadcrumb__list {
   break-after: avoid;
   break-inside: avoid;
-  column-gap: 0.5rem;
   display: flex;
   flex-wrap: wrap;
+  gap: 0.5rem;
   list-style: none;
 
   @include reset;
@@ -51,7 +51,6 @@
   color: var(--amsterdam-breadcrumb-color);
   cursor: pointer;
   outline-offset: var(--amsterdam-breadcrumb-item-link-outline-offset);
-  padding-block: 0.75rem;
   text-decoration: none;
 
   &::first-letter {
