@@ -16,14 +16,14 @@
   -webkit-text-size-adjust: 100%;
 }
 
-.amsterdam-page-menu__list {
+.amsterdam-page-menu {
   align-items: center;
-  column-gap: var(--amsterdam-page-menu-list-column-gap);
+  column-gap: var(--amsterdam-page-menu-column-gap);
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
   list-style: none;
-  row-gap: var(--amsterdam-page-menu-list-row-gap);
+  row-gap: var(--amsterdam-page-menu-row-gap);
 
   @include reset-list;
 }

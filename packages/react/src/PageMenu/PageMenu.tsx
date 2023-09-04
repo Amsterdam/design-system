@@ -16,7 +16,7 @@ import {
 } from 'react'
 import { Icon } from '../Icon'
 
-type PageMenuProps = PropsWithChildren<HTMLAttributes<HTMLElement>>
+type PageMenuProps = PropsWithChildren<HTMLAttributes<HTMLUListElement>>
 
 interface PageMenuComponent extends ForwardRefExoticComponent<PageMenuProps & RefAttributes<HTMLElement>> {
   Link: typeof PageMenuLink
@@ -24,11 +24,11 @@ interface PageMenuComponent extends ForwardRefExoticComponent<PageMenuProps & Re
 }
 
 export const PageMenu = forwardRef(
-  ({ children, className, ...restProps }: PageMenuProps, ref: ForwardedRef<HTMLElement>) => {
+  ({ children, className, ...restProps }: PageMenuProps, ref: ForwardedRef<HTMLUListElement>) => {
     return (
-      <nav {...restProps} className={clsx('amsterdam-page-menu', className)} ref={ref}>
-        <ul className="amsterdam-page-menu__list">{children}</ul>
-      </nav>
+      <ul {...restProps} className={clsx('amsterdam-page-menu', className)} ref={ref}>
+        {children}
+      </ul>
     )
   },
 ) as PageMenuComponent
