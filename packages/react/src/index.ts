@@ -6,6 +6,9 @@
 /* Append here */
 import '../../css/src/visually-hidden/visually-hidden.scss'
 import '../../css/src/footer/footer.scss'
+import '../../css/src/top-task-link/top-task-link.scss'
+import '../../css/src/blockquote/blockquote.scss'
+import '../../css/src/checkbox/checkbox.scss'
 import '../../css/src/page-heading/page-heading.scss'
 import '../../css/src/ordered-list/ordered-list.scss'
 import '../../css/src/accordion/accordion.scss'

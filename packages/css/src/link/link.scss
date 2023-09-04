@@ -19,9 +19,9 @@
 }
 
 .amsterdam-link--standalone {
+  display: inline-block;
   font-size: var(--amsterdam-link-standalone-narrow-font-size);
-  line-height: var(--amsterdam-link-standalon-line-height);
-  padding-block: 0.5rem;
+  line-height: var(--amsterdam-link-standalone-line-height);
   text-decoration-thickness: var(--amsterdam-link-standalone-text-decoration-thickness);
   text-underline-offset: var(--amsterdam-link-standalone-text-underline-offset);
 
@@ -62,9 +62,6 @@
   font-size: var(--amsterdam-link-in-list-narrow-font-size);
   gap: var(--amsterdam-link-in-list-gap);
   line-height: var(--amsterdam-link-in-list-line-height);
-
-  // this padding differs from our spacing scheme, in order to meet WCAG 2.5.5 without having too much space between in list links
-  padding-block: 0.575rem;
   text-decoration: var(--amsterdam-link-in-list-text-decoration);
 
   &:hover,

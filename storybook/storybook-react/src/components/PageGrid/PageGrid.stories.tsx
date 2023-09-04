@@ -6,8 +6,6 @@
 import { GridCell, PageGrid, Paragraph } from '@amsterdam/design-system-react'
 import { Meta, StoryObj } from '@storybook/react'
 
-import '@amsterdam/design-system-css/src/grid/page-grid.scss'
-import '@amsterdam/design-system-css/src/grid/grid-cell.scss'
 import '../../../../storybook-docs/src/stories.scss'
 
 const meta = {
