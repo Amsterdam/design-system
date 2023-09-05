@@ -4,14 +4,11 @@ import { Meta } from "@storybook/blocks";
 
 # Interactieve elementen
 
-Interactieve elementen zijn onder andere links, knoppen en formuliervelden. Interactieve elementen moeten duidelijk herkenbaar zijn
-en makkelijk te onderscheiden van niet-interactieve elementen. Je moet ze kunnen gebruiken op alle gangbare manieren,
-zoals met een muis, toetsenbord en touchscreen.
+Interactieve elementen zijn onder andere links, knoppen en formuliervelden. Interactieve elementen moeten duidelijk herkenbaar zijn en makkelijk te onderscheiden van niet-interactieve elementen. Je moet ze kunnen gebruiken op alle gangbare manieren, zoals met een muis, toetsenbord en touchscreen.
 
 ## Tekst
 
-Interactieve elementen moeten duidelijk zijn, gebruikers moeten kunnen voorspellen wat er gebeurt als je een element activeert.
-Een interactief element moet ook duidelijk zijn zonder dat je de zinnen er omheen gelezen hebt. Gebruik geen onduidelijke tekst, zoals "hier" of "lees meer".
+Interactieve elementen moeten duidelijk zijn, gebruikers moeten kunnen voorspellen wat er gebeurt als je een element activeert. Een interactief element moet ook duidelijk zijn zonder dat je de zinnen er omheen gelezen hebt. Gebruik geen onduidelijke tekst, zoals "hier" of "lees meer".
 
 ### Relevante WCAG eisen:
 
@@ -21,11 +18,9 @@ Een interactief element moet ook duidelijk zijn zonder dat je de zinnen er omhee
 
 ## Kleur
 
-Blauw is de interactieve kleur, deze wordt bijna altijd gebruikt voor interactieve elementen. Bij hover wordt dit donkerblauw.
-Een uitzondering hierop zijn error states, die gebruiken rood en donkerrood voor hover.
+Blauw is de interactieve kleur, deze wordt bijna altijd gebruikt voor interactieve elementen. Bij hover wordt dit donkerblauw. Een uitzondering hierop zijn error states, die gebruiken rood en donkerrood voor hover.
 
-Kleur mag niet de enige indicator van interactiviteit zijn, zodat mensen die moeite hebben met het waarnemen van verschillen in
-kleur toch kunnen zien dat een element interactief is.
+Kleur mag niet de enige indicator van interactiviteit zijn, zodat mensen die moeite hebben met het waarnemen van verschillen in kleur toch kunnen zien dat een element interactief is.
 
 ### Relevante WCAG eisen:
 
@@ -38,11 +33,9 @@ kleur toch kunnen zien dat een element interactief is.
 
 ## Focus indicator
 
-Wij gebruiken grotendeels de standaard focus indicator van de webbrowsers. De enige aanpassing die we doen is de focus `outline` een `offset` geven van 2 pixels,
-zodat er ruimte zit tussen het element en de focus indicator. Hierdoor heeft de focus indicator ook voldoende contrast met donkere elementen.
+Wij gebruiken grotendeels de standaard focus indicator van de webbrowsers. De enige aanpassing die we doen is de focus `outline` een `offset` geven van 2 pixels, zodat er ruimte zit tussen het element en de focus indicator. Hierdoor heeft de focus indicator ook voldoende contrast met donkere elementen.
 
-Let op bij het inrichten van een pagina dat de interactieve elementen in een logische volgorde staan, meestal van boven naar beneden en van links naar rechts.
-Hierdoor krijg je een logische focus / tabbing order.
+Let op bij het inrichten van een pagina dat de interactieve elementen in een logische volgorde staan, meestal van boven naar beneden en van links naar rechts. Hierdoor krijg je een logische focus / tabbing order.
 
 ### Relevante WCAG eisen
 
@@ -54,25 +47,19 @@ Hierdoor krijg je een logische focus / tabbing order.
 
 ## Hover
 
-Gebruik verschillende, niet overlappende stijlen voor hover en focus. Als toetsenbordgebruiker is het belangrijk dat je weet welk element je activeert.
-Als de hover-variant (bijna) hetzelfde is als de focus-variant, dan weet je niet zeker welk element je zult activeren.
+Gebruik verschillende, niet overlappende stijlen voor hover en focus. Als toetsenbordgebruiker is het belangrijk dat je weet welk element je activeert. Als de hover-variant (bijna) hetzelfde is als de focus-variant, dan weet je niet zeker welk element je zult activeren.
 
-We gebruiken de cursor hand `pointer` bij hover op alle interactieve elementen die geen eigen cursor stijl hebben (zoals tekstvakken).
-Oorspronkelijk was `pointer` alleen bedoeld voor links, maar wij vinden dat de associatie van `pointer` met interactiviteit zo sterk
-is dat we deze cursor vaker gebruiken.
+We gebruiken de cursor hand `pointer` bij hover op alle interactieve elementen die geen eigen cursor stijl hebben (zoals tekstvakken). Oorspronkelijk was `pointer` alleen bedoeld voor links, maar wij vinden dat de associatie van `pointer` met interactiviteit zo sterk is dat we deze cursor vaker gebruiken.
 
-Gebruik het `title` attribuut niet. Interactieve elementen met het `title` attribuut kunnen een tooltip tonen die over de tekst heen staat,
-waardoor het minder leesbaar is.
+Gebruik het `title` attribuut niet. Interactieve elementen met het `title` attribuut kunnen een tooltip tonen die over de tekst heen staat, waardoor het minder leesbaar is.
 
 ### Referenties
 
-- [Specificatie van cursor pointer.](https://www.w3.org/TR/css-ui-4/#valdef-cursor-pointer)
-  Hierin staat dat je pointer moet gebruiken voor links, en mag gebruiken voor andere interactieve elementen
+- [Specificatie van cursor pointer.](https://www.w3.org/TR/css-ui-4/#valdef-cursor-pointer) Hierin staat dat je pointer moet gebruiken voor links, en mag gebruiken voor andere interactieve elementen
 - [Artikel over het niet gebruiken van cursor pointer voor andere elementen dan links.](https://medium.com/simple-human/buttons-shouldnt-have-a-hand-cursor-b11e99ca374b)
 
 ## Dubbelklikken
 
-[Sommige gebruikers zijn gewend om te dubbelklikken op interactieve elementen.](https://design-system.service.gov.uk/components/button/#stop-users-from-accidentally-sending-information-more-than-once)
-Zorg ervoor dat dit niet tot problemen leidt, bijvoorbeeld door een loading state te gebruiken en / of op de server te controleren of data niet vaker is verzonden.
+[Sommige gebruikers zijn gewend om te dubbelklikken op interactieve elementen.](https://design-system.service.gov.uk/components/button/#stop-users-from-accidentally-sending-information-more-than-once) Zorg ervoor dat dit niet tot problemen leidt, bijvoorbeeld door een loading state te gebruiken en / of op de server te controleren of data niet vaker is verzonden.
 
 Om ervoor te zorgen dat je niet per ongeluk inzoomt op apparaten die double tap zoom ondersteunen, gebruiken we de CSS regel ` touch-action: manipulation` op alle interactieve elementen.
