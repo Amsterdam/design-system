@@ -4,6 +4,7 @@
  */
 
 /* Append here */
+import '../../css/src/page-menu/page-menu.scss'
 import '../../css/src/top-task-link/top-task-link.scss'
 import '../../css/src/blockquote/blockquote.scss'
 import '../../css/src/checkbox/checkbox.scss'
