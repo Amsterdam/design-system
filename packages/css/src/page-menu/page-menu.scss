@@ -16,6 +16,13 @@
   -webkit-text-size-adjust: 100%;
 }
 
+@mixin reset-button {
+  background-color: transparent;
+  border: 0;
+  margin-block: 0;
+  padding-inline: 0;
+}
+
 .amsterdam-page-menu {
   align-items: center;
   column-gap: var(--amsterdam-page-menu-column-gap);
@@ -52,14 +59,11 @@
 }
 
 .amsterdam-page-menu__button {
-  background-color: transparent;
-  border: 0;
   cursor: pointer;
-  margin-block: 0;
-  padding-inline: 0;
 
-  @include page-menu-item;
   @include reset-item;
+  @include reset-button;
+  @include page-menu-item;
 }
 
 .amsterdam-page-menu__link:hover,
