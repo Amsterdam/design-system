@@ -52,7 +52,7 @@ Een Figma component story heeft in principe de volgende Subtasks:
   - Bepaal de naamgeving.
 - Design (eventueel meerdere Subtaken)
   - Werk alle varianten van het component uit in Figma en zet ze overzichtelijk op een rij.
-  - Let op hover, focus states.
+  - Let op hover en eventueel andere states.
   - Worden transities geanimeerd?
   - Besteed ook aandacht aan de niet-visuele UI: hoe wordt het voorgelezen, hoe werkt toetsenbordbediening?
   - Voeg een aantal voorbeelden toe met realistische content. Deze worden overgenomen in Storybook.
