@@ -108,10 +108,10 @@ Zo veel mogelijk zoals bij Figma component, mutatis mutandis.
   - Gebruiken we het NLDS community component?
   - Vind inspiratie online, bijv. The Component Gallery.
 - Development (eventueel meerdere Subtaken)
-  - Design tokens
-  - Class names
-  - React component
   - Accessibility
+  - React component
+  - Class names
+  - Design tokens
   - Unit tests
   - Documentation
 - Code review
