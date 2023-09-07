@@ -22,12 +22,12 @@ type Story = StoryObj<typeof meta>
 
 export const Default: Story = {
   args: {
-    children: 'Dit is alleen zichtbaar voor schermlezers',
+    children: 'Dit is te lezen door een schermlezer',
   },
   decorators: [
     (Story) => (
       <div>
-        Dit gedeelte is zichtbaar voor alle gebruikers, het gedeelte na deze zin alleen voor schermlezers.
+        Dit gedeelte is beschikbaar voor alle gebruikers, het gedeelte na deze zin alleen voor niet-visuele user agents.
         <Story />
       </div>
     ),
