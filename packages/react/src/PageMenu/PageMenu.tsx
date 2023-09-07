@@ -68,7 +68,7 @@ const PageMenuButton = forwardRef(
 )
 
 PageMenu.displayName = 'PageMenu'
-PageMenuLink.displayName = 'PageMenuLink'
-PageMenuButton.displayName = 'PageMenuButton'
+PageMenuLink.displayName = 'PageMenu.Link'
+PageMenuButton.displayName = 'PageMenu.Button'
 PageMenu.Link = PageMenuLink
 PageMenu.Button = PageMenuButton

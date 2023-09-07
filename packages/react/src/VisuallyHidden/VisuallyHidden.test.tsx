@@ -1,11 +1,11 @@
 import { render } from '@testing-library/react'
 import { createRef } from 'react'
-import { {{pascalCase name}} } from './{{pascalCase name}}'
+import { VisuallyHidden } from './VisuallyHidden'
 import '@testing-library/jest-dom'
 
-describe('{{sentenceCase name}}', () => {
+describe('Visually hidden', () => {
   it('renders', () => {
-    const { container } = render(<{{pascalCase name}} />)
+    const { container } = render(<VisuallyHidden />)
 
     const component = container.querySelector(':only-child')
 
@@ -14,15 +14,15 @@ describe('{{sentenceCase name}}', () => {
   })
 
   it('renders a design system BEM class name', () => {
-    const { container } = render(<{{pascalCase name}} />)
+    const { container } = render(<VisuallyHidden />)
 
     const component = container.querySelector(':only-child')
 
-    expect(component).toHaveClass('amsterdam-{{kebabCase name}}')
+    expect(component).toHaveClass('amsterdam-visually-hidden')
   })
 
   it('can have a custom class name', () => {
-    const { container } = render(<{{pascalCase name}} className="extra" />)
+    const { container } = render(<VisuallyHidden className="extra" />)
 
     const component = container.querySelector(':only-child')
 
@@ -30,19 +30,19 @@ describe('{{sentenceCase name}}', () => {
   })
 
   it('can have a additional class name', () => {
-    const { container } = render(<{{pascalCase name}} className="extra" />)
+    const { container } = render(<VisuallyHidden className="extra" />)
 
     const component = container.querySelector(':only-child')
 
     expect(component).toHaveClass('extra')
 
-    expect(component).toHaveClass('amsterdam-{{kebabCase name}}')
+    expect(component).toHaveClass('amsterdam-visually-hidden')
   })
 
   it('supports ForwardRef in React', () => {
-    const ref = createRef<HTMLElement>()
+    const ref = createRef<HTMLDivElement>()
 
-    const { container } = render(<{{pascalCase name}} ref={ref} />)
+    const { container } = render(<VisuallyHidden ref={ref} />)
 
     const component = container.querySelector(':only-child')
 

@@ -4,6 +4,8 @@
  */
 
 /* Append here */
+export * from '../VisuallyHidden'
+export * from '../Footer'
 export * from '../PageMenu'
 export * from '../TopTaskLink'
 export * from '../Blockquote'

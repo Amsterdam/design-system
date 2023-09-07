@@ -3,12 +3,19 @@
  * Copyright (c) 2023 Gemeente Amsterdam
  */
 
-import { PropsWithChildren } from 'react'
+import clsx from 'clsx'
+import { ForwardedRef, forwardRef, HTMLAttributes, PropsWithChildren } from 'react'
 
 export type PageGridColumnNumber = 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11 | 12
 
-export type PageGridProps = PropsWithChildren<{}>
+export type PageGridProps = PropsWithChildren<HTMLAttributes<HTMLDivElement>>
 
-export const PageGrid = ({ children }: PageGridProps) => <div className="amsterdam-page-grid">{children}</div>
+export const PageGrid = forwardRef(
+  ({ children, className, ...restProps }: PageGridProps, ref: ForwardedRef<HTMLDivElement>) => (
+    <div {...restProps} ref={ref} className={clsx('amsterdam-page-grid', className)}>
+      {children}
+    </div>
+  ),
+)
 
 PageGrid.displayName = 'PageGrid'
