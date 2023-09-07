@@ -20,6 +20,13 @@ const meta = {
   args: {
     children: 'Nieuw component',
   },
+  parameters: {
+    docs: {
+      canvas: {
+        sourceState: 'hidden',
+      },
+    },
+  },
 } satisfies Meta<typeof Footer>
 
 export default meta
