@@ -20,4 +20,16 @@ export default meta
 
 type Story = StoryObj<typeof meta>
 
-export const Default: Story = {}
+export const Default: Story = {
+  args: {
+    children: 'Dit is alleen zichtbaar voor schermlezers',
+  },
+  decorators: [
+    (Story) => (
+      <div>
+        Dit gedeelte is zichtbaar voor alle gebruikers, het gedeelte na deze zin alleen voor schermlezers.
+        <Story />
+      </div>
+    ),
+  ],
+}
