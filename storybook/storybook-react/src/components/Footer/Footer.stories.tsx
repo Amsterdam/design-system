@@ -3,7 +3,15 @@
  * Copyright (c) 2023 Gemeente Amsterdam
  */
 
-import { Footer, Heading, Link, Paragraph, UnorderedList, VisuallyHidden } from '@amsterdam/design-system-react'
+import {
+  Footer,
+  Heading,
+  Link,
+  PageMenu,
+  Paragraph,
+  UnorderedList,
+  VisuallyHidden,
+} from '@amsterdam/design-system-react'
 import { Meta, StoryObj } from '@storybook/react'
 
 const meta = {
@@ -102,18 +110,10 @@ export const Default: Story = {
         <VisuallyHidden>
           <Heading level={2}>Over deze website</Heading>
         </VisuallyHidden>
-        <UnorderedList markers={false}>
-          <li>
-            <Link href="/" variant="inList">
-              Privacy
-            </Link>
-          </li>
-          <li>
-            <Link href="/" variant="inList">
-              Toegankelijkheid
-            </Link>
-          </li>
-        </UnorderedList>
+        <PageMenu>
+          <PageMenu.Link href="/">Privacy</PageMenu.Link>
+          <PageMenu.Link href="/">Toegankelijkheid</PageMenu.Link>
+        </PageMenu>
       </Footer.Bottom>,
     ],
   },
