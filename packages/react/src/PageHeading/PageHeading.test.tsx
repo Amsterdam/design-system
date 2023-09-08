@@ -23,14 +23,6 @@ describe('PageHeading', () => {
     expect(component).toHaveClass('amsterdam-page-heading')
   })
 
-  it('can have a custom class name', () => {
-    const { container } = render(<PageHeading className="extra" />)
-
-    const component = container.querySelector(':only-child')
-
-    expect(component).toHaveClass('extra')
-  })
-
   it('can have a additional class name', () => {
     const { container } = render(<PageHeading className="extra" />)
 
