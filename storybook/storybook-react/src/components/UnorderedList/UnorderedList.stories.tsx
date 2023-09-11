@@ -18,7 +18,7 @@ import type { Meta, StoryObj } from '@storybook/react'
 import '../../../../storybook-docs/src/stories.scss'
 
 const meta = {
-  title: 'Unordered List',
+  title: 'Text/Unordered List',
   component: UnorderedList,
   argTypes: {
     markers: { control: 'boolean' },

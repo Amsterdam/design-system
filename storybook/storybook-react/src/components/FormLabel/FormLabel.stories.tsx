@@ -7,7 +7,7 @@ import { FormLabel } from '@amsterdam/design-system-react'
 import { Meta, StoryObj } from '@storybook/react'
 
 const meta = {
-  title: 'Form label',
+  title: 'Forms/Form Label',
   component: FormLabel,
 } satisfies Meta<typeof FormLabel>
 

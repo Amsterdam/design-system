@@ -10,7 +10,7 @@ import type { Meta, StoryObj } from '@storybook/react'
 type Story = StoryObj<typeof Link>
 
 const meta = {
-  title: 'Link',
+  title: 'Navigation/Link',
   component: Link,
   argTypes: {
     icon: {

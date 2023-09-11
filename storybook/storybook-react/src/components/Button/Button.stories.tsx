@@ -7,7 +7,7 @@ import { Button } from '@amsterdam/design-system-react'
 import { Meta, StoryObj } from '@storybook/react'
 
 const meta = {
-  title: 'Button',
+  title: 'Buttons/Button',
   component: Button,
   args: {
     children: 'Default',

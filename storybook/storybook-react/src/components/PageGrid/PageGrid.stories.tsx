@@ -9,7 +9,7 @@ import { Meta, StoryObj } from '@storybook/react'
 import '../../../../storybook-docs/src/stories.scss'
 
 const meta = {
-  title: 'PageGrid',
+  title: 'Layout/Page Grid',
   component: PageGrid,
 } satisfies Meta<typeof PageGrid>
 

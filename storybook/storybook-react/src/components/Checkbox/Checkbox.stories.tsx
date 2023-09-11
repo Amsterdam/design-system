@@ -7,7 +7,7 @@ import { Checkbox } from '@amsterdam/design-system-react'
 import { Meta, StoryObj } from '@storybook/react'
 
 const meta = {
-  title: 'Checkbox',
+  title: 'Forms/Checkbox',
   component: Checkbox,
   args: {
     disabled: false,

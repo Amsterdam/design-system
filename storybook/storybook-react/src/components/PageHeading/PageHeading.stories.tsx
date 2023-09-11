@@ -7,7 +7,7 @@ import { PageHeading } from '@amsterdam/design-system-react'
 import { Meta, StoryObj } from '@storybook/react'
 
 const meta = {
-  title: 'Page heading',
+  title: 'Text/Page Heading',
   component: PageHeading,
   args: {
     children: 'Gemeente Amsterdam',

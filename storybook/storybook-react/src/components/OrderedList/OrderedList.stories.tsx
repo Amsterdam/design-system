@@ -7,7 +7,7 @@ import { Heading, OrderedList, Paragraph } from '@amsterdam/design-system-react'
 import type { Meta, StoryObj } from '@storybook/react'
 
 const meta = {
-  title: 'Ordered List',
+  title: 'Text/Ordered List',
   component: OrderedList,
   argTypes: {
     markers: { control: 'boolean' },

@@ -7,7 +7,7 @@ import { Accordion, Paragraph } from '@amsterdam/design-system-react'
 import { Meta, StoryObj } from '@storybook/react'
 
 const meta = {
-  title: 'Accordion',
+  title: 'Containers/Accordion',
   component: Accordion,
   args: {
     headingLevel: 1,

@@ -15,7 +15,7 @@ import {
 import { Meta, StoryObj } from '@storybook/react'
 
 const meta = {
-  title: 'Footer',
+  title: 'Patterns/Footer',
   component: Footer,
   args: {
     children: 'Nieuw component',

@@ -8,7 +8,7 @@ import { Login, Menu } from '@amsterdam/design-system-react-icons'
 import { Meta, StoryObj } from '@storybook/react'
 
 const meta = {
-  title: 'Page menu',
+  title: 'Navigation/Page Menu',
   component: PageMenu,
 } satisfies Meta<typeof PageMenu>
 

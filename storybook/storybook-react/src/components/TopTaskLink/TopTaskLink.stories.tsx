@@ -9,7 +9,7 @@ import { Meta, StoryObj } from '@storybook/react'
 import '@amsterdam/design-system-css/src/top-task-link/top-task-link.scss'
 
 const meta = {
-  title: 'Top task link',
+  title: 'Navigation/Top Task Link',
   component: TopTaskLink,
   args: {
     href: '/',

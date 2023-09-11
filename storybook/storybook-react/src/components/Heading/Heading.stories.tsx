@@ -9,7 +9,7 @@ import { Meta, StoryObj } from '@storybook/react'
 import '../../../../storybook-docs/src/stories.scss'
 
 const meta = {
-  title: 'Heading',
+  title: 'Text/Heading',
   component: Heading,
   args: {
     children: 'Jouw typograaf biedt mij zulke exquise schreven!',

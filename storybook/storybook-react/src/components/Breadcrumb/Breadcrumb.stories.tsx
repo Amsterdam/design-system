@@ -7,7 +7,7 @@ import { Breadcrumb } from '@amsterdam/design-system-react'
 import { Meta, StoryObj } from '@storybook/react'
 
 const meta = {
-  title: 'Breadcrumb',
+  title: 'Navigation/Breadcrumb',
   component: Breadcrumb,
 } satisfies Meta<typeof Breadcrumb>
 
