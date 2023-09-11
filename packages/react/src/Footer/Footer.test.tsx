@@ -30,23 +30,6 @@ describe('Footer', () => {
     expect(footerBottom).toHaveClass('amsterdam-footer__bottom')
   })
 
-  it('can have a custom class name', () => {
-    const footerRender = render(<Footer className="extra" />)
-    const { container: footerTopRender } = render(<Footer.Top className="extra" />)
-    const { container: footerColumnRender } = render(<Footer.Column className="extra" />)
-    const { container: footerBottomRender } = render(<Footer.Bottom className="extra" />)
-
-    const footer = footerRender.getByRole('contentinfo')
-    const footerTop = footerTopRender.querySelector(':only-child')
-    const footerColumn = footerColumnRender.querySelector(':only-child')
-    const footerBottom = footerBottomRender.querySelector(':only-child')
-
-    expect(footer).toHaveClass('extra')
-    expect(footerTop).toHaveClass('extra')
-    expect(footerColumn).toHaveClass('extra')
-    expect(footerBottom).toHaveClass('extra')
-  })
-
   it('can have a additional class name', () => {
     const footerRender = render(<Footer className="extra" />)
     const { container: footerTopRender } = render(<Footer.Top className="extra" />)
