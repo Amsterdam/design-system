@@ -17,7 +17,8 @@
           "font-size": { "value": "{amsterdam.typography.text-level.7.wide.font-size}" }
         },
         "hover": {
-          "color": { "value": "{amsterdam.color.dark-blue}" }
+          "color": { "value": "{amsterdam.color.primary-black}" },
+          "text-decoration": { "value": "underline" }
         }
       }
     }
