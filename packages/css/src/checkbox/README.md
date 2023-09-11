@@ -6,7 +6,7 @@ De checkbox (in het Nederlands: selectievakje) wordt gebruikt om gebruikers een 
 
 - Selectievakjes worden gebruikt voor 1 of meerdere keuzes die elkaar niet uitsluiten.
 - Elk selectievakje werkt onafhankelijk van andere selectievakjes in een lijst op hetzelfde hiërarchische niveau. Het aanvinken van een extra vakje heeft geen invloed op andere selecties in die lijst.
-- Je kunt een selectievakje wel gebruiken voor een bulkselectie of –deselectie van een hele lijst, maar dan moet duidelijk zijn dat het bulkselectievakje op een ander hiërarchisch niveau zit dan de lijst die volledig wordt geselecteerd of gedeselecteerd.
+- Je kunt een selectievakje wel gebruiken voor een bulkselectie of –deselectie van een hele lijst met selectievakjes, maar dan moet duidelijk zijn dat het bulkselectievakje op een ander hiërarchisch niveau zit dan de lijst die volledig wordt geselecteerd of gedeselecteerd.
 - Een groep selectievakjes kan worden gebruikt om gegevens op een pagina, in een menu of binnen een component te filteren.
 - Een selectievakje kan een antwoord op een gesloten vraag zijn, als er meerdere antwoorden mogelijk zijn.
 - Een lijst van selectievakjes is verticaal gestapeld om leesbaarheid en bruikbaarheid te bevorderen.
