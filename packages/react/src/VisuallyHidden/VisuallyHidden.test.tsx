@@ -21,14 +21,6 @@ describe('Visually hidden', () => {
     expect(component).toHaveClass('amsterdam-visually-hidden')
   })
 
-  it('can have a custom class name', () => {
-    const { container } = render(<VisuallyHidden className="extra" />)
-
-    const component = container.querySelector(':only-child')
-
-    expect(component).toHaveClass('extra')
-  })
-
   it('can have a additional class name', () => {
     const { container } = render(<VisuallyHidden className="extra" />)
 

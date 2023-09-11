@@ -33,14 +33,6 @@ describe('Blockquote', () => {
     expect(quote).toHaveClass('amsterdam-blockquote')
   })
 
-  it('can have a custom class name', () => {
-    const { container } = render(<Blockquote className="extra" />)
-
-    const quote = container.querySelector(':only-child')
-
-    expect(quote).toHaveClass('extra')
-  })
-
   it('can have a additional class name', () => {
     const { container } = render(<Blockquote className="extra" />)
 
