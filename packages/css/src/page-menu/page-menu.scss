@@ -72,6 +72,11 @@
   text-decoration: var(--amsterdam-page-menu-item-hover-text-decoration);
 }
 
+.amsterdam-page-menu__link:focus-visible,
+.amsterdam-page-menu__button:focus-visible {
+  outline-offset: var(--amsterdam-focus-outline-offset);
+}
+
 .amsterdam-page-menu__link svg,
 .amsterdam-page-menu__button svg {
   color: currentColor;
