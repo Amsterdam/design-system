@@ -4,26 +4,23 @@
       "font-family": {
         "value": "{amsterdam.typography.font-family}"
       },
-      "font-size": {
-        "narrow": {
-          "value": "{amsterdam.typography.text-level.6.narrow.font-size}"
-        },
-        "wide": {
-          "value": "{amsterdam.typography.text-level.6.wide.font-size}"
-        }
-      },
-      "font-weight": {
-        "value": "{amsterdam.typography.font-weight.bold}"
-      },
-      "line-height": {
-        "value": "{amsterdam.typography.text-level.6.line-height}"
-      },
       "background-color": {
         "value": "{amsterdam.color.neutral-grey3}"
       },
       "toggle": {
         "background-color": {
           "value": "{amsterdam.color.primary-white}"
+        },
+        "width": {
+          "value": "58px"
+        },
+        "inner": {
+          "width": {
+            "value": "28px"
+          },
+          "height": {
+            "value": "28px"
+          }
         }
       },
       "checked": {
