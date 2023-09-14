@@ -113,8 +113,8 @@ importers:
         specifier: workspace:*
         version: link:../../proprietary/tokens
       sass:
-        specifier: 1.66.1
-        version: 1.66.1
+        specifier: 1.67.0
+        version: 1.67.0
 
   packages/react:
     dependencies:
@@ -193,7 +193,7 @@ importers:
         version: 4.17.21
       next:
         specifier: 13.4.19
-        version: 13.4.19(@babel/core@7.22.17)(react-dom@18.2.0)(react@18.2.0)(sass@1.66.1)
+        version: 13.4.19(@babel/core@7.22.17)(react-dom@18.2.0)(react@18.2.0)(sass@1.67.0)
       npm-run-all:
         specifier: 4.1.5
         version: 4.1.5
@@ -231,8 +231,8 @@ importers:
         specifier: 0.35.0
         version: 0.35.0(rollup@3.29.1)(typescript@5.2.2)
       sass:
-        specifier: 1.66.1
-        version: 1.66.1
+        specifier: 1.67.0
+        version: 1.67.0
       tslib:
         specifier: 2.6.2
         version: 2.6.2
@@ -374,14 +374,14 @@ importers:
         specifier: 2.0.2
         version: 2.0.2
       sass:
-        specifier: 1.66.1
-        version: 1.66.1
+        specifier: 1.67.0
+        version: 1.67.0
       storybook:
         specifier: 7.4.1
         version: 7.4.1
       vite:
         specifier: 4.4.9
-        version: 4.4.9(@types/node@20.6.0)(sass@1.66.1)
+        version: 4.4.9(@types/node@20.6.0)(sass@1.67.0)
 
   storybook/storybook-react:
     dependencies:
@@ -487,7 +487,7 @@ importers:
         version: 7.4.1
       vite:
         specifier: 4.4.9
-        version: 4.4.9(@types/node@20.6.0)(sass@1.66.1)
+        version: 4.4.9(@types/node@20.6.0)(sass@1.67.0)
 
 packages:
 
@@ -2688,7 +2688,7 @@ packages:
       magic-string: 0.27.0
       react-docgen-typescript: 2.2.2(typescript@5.2.2)
       typescript: 5.2.2
-      vite: 4.4.9(@types/node@20.6.0)(sass@1.66.1)
+      vite: 4.4.9(@types/node@20.6.0)(sass@1.67.0)
     dev: true
 
   /@jridgewell/gen-mapping@0.3.3:
@@ -4734,7 +4734,7 @@ packages:
       remark-slug: 6.1.0
       rollup: 3.29.1
       typescript: 5.2.2
-      vite: 4.4.9(@types/node@20.6.0)(sass@1.66.1)
+      vite: 4.4.9(@types/node@20.6.0)(sass@1.67.0)
     transitivePeerDependencies:
       - encoding
       - supports-color
@@ -5104,7 +5104,7 @@ packages:
       react: 18.2.0
       react-docgen: 6.0.0-alpha.3
       react-dom: 18.2.0(react@18.2.0)
-      vite: 4.4.9(@types/node@20.6.0)(sass@1.66.1)
+      vite: 4.4.9(@types/node@20.6.0)(sass@1.67.0)
     transitivePeerDependencies:
       - '@preact/preset-vite'
       - encoding
@@ -6013,7 +6013,7 @@ packages:
       '@babel/plugin-transform-react-jsx-source': 7.22.5(@babel/core@7.22.17)
       magic-string: 0.27.0
       react-refresh: 0.14.0
-      vite: 4.4.9(@types/node@20.6.0)(sass@1.66.1)
+      vite: 4.4.9(@types/node@20.6.0)(sass@1.67.0)
     transitivePeerDependencies:
       - supports-color
     dev: true
@@ -6028,7 +6028,7 @@ packages:
       '@babel/plugin-transform-react-jsx-self': 7.22.5(@babel/core@7.22.17)
       '@babel/plugin-transform-react-jsx-source': 7.22.5(@babel/core@7.22.17)
       react-refresh: 0.14.0
-      vite: 4.4.9(@types/node@20.6.0)(sass@1.66.1)
+      vite: 4.4.9(@types/node@20.6.0)(sass@1.67.0)
     transitivePeerDependencies:
       - supports-color
     dev: true
@@ -13111,7 +13111,7 @@ packages:
       type-fest: 2.19.0
     dev: true
 
-  /next@13.4.19(@babel/core@7.22.17)(react-dom@18.2.0)(react@18.2.0)(sass@1.66.1):
+  /next@13.4.19(@babel/core@7.22.17)(react-dom@18.2.0)(react@18.2.0)(sass@1.67.0):
     resolution: {integrity: sha512-HuPSzzAbJ1T4BD8e0bs6B9C1kWQ6gv8ykZoRWs5AQoiIuqbGHHdQO7Ljuvg05Q0Z24E2ABozHe6FxDvI6HfyAw==}
     engines: {node: '>=16.8.0'}
     hasBin: true
@@ -13133,7 +13133,7 @@ packages:
       postcss: 8.4.14
       react: 18.2.0
       react-dom: 18.2.0(react@18.2.0)
-      sass: 1.66.1
+      sass: 1.67.0
       styled-jsx: 5.1.1(@babel/core@7.22.17)(react@18.2.0)
       watchpack: 2.4.0
       zod: 3.21.4
@@ -15794,8 +15794,8 @@ packages:
   /safer-buffer@2.1.2:
     resolution: {integrity: sha512-YZo3K82SD7Riyi0E1EQPojLz7kpepnSQI9IyPbHHg1XXXevb5dJI7tpyN2ADxGcQbHG7vcyRHk0cbwqcQriUtg==}
 
-  /sass@1.66.1:
-    resolution: {integrity: sha512-50c+zTsZOJVgFfTgwwEzkjA3/QACgdNsKueWPyAR0mRINIvLAStVQBbPg14iuqEQ74NPDbXzJARJ/O4SI1zftA==}
+  /sass@1.67.0:
+    resolution: {integrity: sha512-SVrO9ZeX/QQyEGtuZYCVxoeAL5vGlYjJ9p4i4HFuekWl8y/LtJ7tJc10Z+ck1c8xOuoBm2MYzcLfTAffD0pl/A==}
     engines: {node: '>=14.0.0'}
     hasBin: true
     dependencies:
@@ -17573,7 +17573,7 @@ packages:
       unist-util-stringify-position: 3.0.3
       vfile-message: 3.1.4
 
-  /vite@4.4.9(@types/node@20.6.0)(sass@1.66.1):
+  /vite@4.4.9(@types/node@20.6.0)(sass@1.67.0):
     resolution: {integrity: sha512-2mbUn2LlUmNASWwSCNSJ/EG2HuSRTnVNaydp6vMCm5VIqJsjMfbIWtbH2kDuwUVW5mMUKKZvGPX/rqeqVvv1XA==}
     engines: {node: ^14.18.0 || >=16.0.0}
     hasBin: true
@@ -17605,7 +17605,7 @@ packages:
       esbuild: 0.18.12
       postcss: 8.4.29
       rollup: 3.29.1
-      sass: 1.66.1
+      sass: 1.67.0
     optionalDependencies:
       fsevents: 2.3.2
     dev: true
