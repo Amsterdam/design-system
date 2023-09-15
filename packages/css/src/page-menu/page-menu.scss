@@ -30,6 +30,7 @@
   flex-direction: row;
   flex-wrap: wrap;
   list-style: none;
+  outline-offset: var(--amsterdam-focus-outline-offset);
   row-gap: var(--amsterdam-page-menu-row-gap);
 
   @include reset-list;
@@ -70,11 +71,6 @@
 .amsterdam-page-menu__button:hover {
   color: var(--amsterdam-page-menu-item-hover-color);
   text-decoration: var(--amsterdam-page-menu-item-hover-text-decoration);
-}
-
-.amsterdam-page-menu__link:focus-visible,
-.amsterdam-page-menu__button:focus-visible {
-  outline-offset: var(--amsterdam-focus-outline-offset);
 }
 
 .amsterdam-page-menu__link svg,
