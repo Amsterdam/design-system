@@ -8,21 +8,11 @@
   position: relative;
 }
 
-.amsterdam-switch__label {
-  align-items: center;
-  display: inline-flex;
-}
-
-// TODO: use the new VisibilityHidden component
 .amsterdam-switch__input {
   appearance: none;
-  height: 1px;
-  left: 0;
-  pointer-events: none;
-  position: absolute;
-  top: 0;
-  touch-action: pan-y;
-  width: 1px;
+  margin-block: 0;
+  margin-inline: 0;
+  opacity: 0%; /* to hide native input field in older iOS */
 }
 
 .amsterdam-switch__toggle {
