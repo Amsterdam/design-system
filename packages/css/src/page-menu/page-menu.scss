@@ -44,6 +44,7 @@
   font-weight: var(--amsterdam-page-menu-item-narrow-font-weight);
   gap: var(--amsterdam-page-menu-item-gap);
   line-height: var(--amsterdam-page-menu-item-line-height);
+  outline-offset: var(--amsterdam-focus-outline-offset);
   text-align: center;
   text-decoration: var(--amsterdam-page-menu-item-text-decoration);
   touch-action: manipulation;
@@ -69,6 +70,7 @@
 .amsterdam-page-menu__link:hover,
 .amsterdam-page-menu__button:hover {
   color: var(--amsterdam-page-menu-item-hover-color);
+  text-decoration: var(--amsterdam-page-menu-item-hover-text-decoration);
 }
 
 .amsterdam-page-menu__link svg,
