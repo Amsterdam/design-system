@@ -30,7 +30,7 @@
     "@storybook/addon-a11y": "7.4.1",
     "@storybook/addon-actions": "7.4.1",
     "@storybook/addon-docs": "7.4.1",
-    "@storybook/addon-essentials": "7.4.1",
+    "@storybook/addon-essentials": "7.4.2",
     "@storybook/addon-interactions": "7.4.1",
     "@storybook/addon-links": "7.4.1",
     "@storybook/addons": "7.4.1",
