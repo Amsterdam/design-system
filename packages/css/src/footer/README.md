@@ -5,7 +5,7 @@ De footer (in het Nederlands: voettekst) sluit iedere webpagina af. De inhoud is
 ## Richtlijnen
 
 - De voettekst is verplicht, er staat er 1 op elke pagina.
-- De linker kolom richt zich op contactinformatie. De informatie is zo specifiek mogelijk gebonden aan de betreffende website of pagina (bijvoorbeeld een chatmogelijkheid indien aanwezig).
-- De middelste kolom bevat links naar relevante (online) sites of bronnen.
-- De rechter kolom verwijst naar nieuwsbrieven, socials enz.
-- Het onderste deel van de voettekst is bedoeld voor koppelingen naar privacy, cookieverklaring, uitleg over de website e.d. Het is niet bedoeld voor koppelingen naar bijvoorbeeld contactinformatie.
+- De eerste kolom richt zich op contactinformatie. De informatie is zo specifiek mogelijk gebonden aan de betreffende website of pagina (bijvoorbeeld een chatmogelijkheid indien aanwezig).
+- De tweede kolom bevat links naar relevante (online) sites of bronnen.
+- De derde kolom verwijst naar nieuwsbrieven, socials enz.
+- Het laatste deel van de voettekst is bedoeld voor koppelingen naar privacy, cookieverklaring, uitleg over de website e.d. Het is niet bedoeld voor koppelingen naar bijvoorbeeld contactinformatie.

@@ -4,6 +4,7 @@
  */
 
 import { Link, Paragraph } from '@amsterdam/design-system-react'
+import * as Icons from '@amsterdam/design-system-react-icons'
 import type { Meta, StoryObj } from '@storybook/react'
 
 type Story = StoryObj<typeof Link>
@@ -12,6 +13,14 @@ const meta = {
   title: 'Link',
   component: Link,
   argTypes: {
+    icon: {
+      control: { type: 'select' },
+      options: Object.keys(Icons),
+      mapping: Icons,
+      table: {
+        category: 'API',
+      },
+    },
     onBackground: {
       control: { type: 'select', labels: { default: 'default', light: 'light', dark: 'dark' } },
       options: ['default', 'light', 'dark'],
@@ -23,9 +32,9 @@ const meta = {
     variant: {
       control: {
         type: 'select',
-        labels: { standalone: 'standalone', standaloneBold: 'standaloneBold', inline: 'inline', inList: 'inList' },
+        labels: { standalone: 'standalone', inline: 'inline', inList: 'inList' },
       },
-      options: ['standalone', 'standaloneBold', 'inline', 'inList'],
+      options: ['standalone', 'inline', 'inList'],
       table: {
         category: 'API',
         defaultValue: { summary: 'standalone' },
@@ -70,13 +79,6 @@ export const Standalone: Story = {
   },
 }
 
-export const StandaloneBold: Story = {
-  args: {
-    variant: 'standaloneBold',
-    onBackground: undefined,
-  },
-}
-
 export const Inline: Story = {
   args: {
     children: 'typograaf',
@@ -99,6 +101,16 @@ export const InList: Story = {
     href: '#',
     variant: 'inList',
     onBackground: undefined,
+  },
+}
+
+export const InListWithIcon: Story = {
+  args: {
+    children: 'Linktekst',
+    href: '#',
+    variant: 'inList',
+    onBackground: undefined,
+    icon: Icons.Email,
   },
 }
 

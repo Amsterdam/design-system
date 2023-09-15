@@ -7,8 +7,6 @@
 
 @mixin reset {
   box-sizing: border-box;
-  break-after: avoid;
-  break-inside: avoid;
   margin-block: 0;
   padding-inline: 0;
 }
@@ -24,9 +22,11 @@
 }
 
 .amsterdam-breadcrumb__list {
-  column-gap: 0.5rem;
+  break-after: avoid;
+  break-inside: avoid;
   display: flex;
   flex-wrap: wrap;
+  gap: 0.5rem;
   list-style: none;
 
   @include reset;
@@ -51,7 +51,6 @@
   color: var(--amsterdam-breadcrumb-color);
   cursor: pointer;
   outline-offset: var(--amsterdam-breadcrumb-item-link-outline-offset);
-  padding-block: 0.75rem;
   text-decoration: none;
 
   &::first-letter {

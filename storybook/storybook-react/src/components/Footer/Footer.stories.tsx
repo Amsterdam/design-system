@@ -3,7 +3,15 @@
  * Copyright (c) 2023 Gemeente Amsterdam
  */
 
-import { Footer, Heading, Link, List, Paragraph } from '@amsterdam/design-system-react'
+import {
+  Footer,
+  Heading,
+  Link,
+  PageMenu,
+  Paragraph,
+  UnorderedList,
+  VisuallyHidden,
+} from '@amsterdam/design-system-react'
 import { Meta, StoryObj } from '@storybook/react'
 
 const meta = {
@@ -11,6 +19,13 @@ const meta = {
   component: Footer,
   args: {
     children: 'Nieuw component',
+  },
+  parameters: {
+    docs: {
+      canvas: {
+        sourceState: 'hidden',
+      },
+    },
   },
 } satisfies Meta<typeof Footer>
 
@@ -22,7 +37,9 @@ export const Default: Story = {
   args: {
     children: [
       <Footer.Top key={1}>
-        <Heading className="amsterdam-visually-hidden">Colofon</Heading>
+        <VisuallyHidden>
+          <Heading>Colofon</Heading>
+        </VisuallyHidden>
         <Footer.Column gridColumns={{ start: 1, span: 3 }}>
           <Heading level={2} size="level-4" inverseColor>
             Contact
@@ -30,7 +47,7 @@ export const Default: Story = {
           <Paragraph size="small" inverseColor>
             Heeft u een vraag en kunt u het antwoord niet vinden op deze site? Neem dan contact met ons op.
           </Paragraph>
-          <List>
+          <UnorderedList markers={false}>
             <li>
               <Link href="mailto:redactie.os@amsterdam.nl" variant="inList" onBackground="dark">
                 E-mail
@@ -41,7 +58,7 @@ export const Default: Story = {
                 020 251 0333
               </Link>
             </li>
-          </List>
+          </UnorderedList>
         </Footer.Column>
         <Footer.Column gridColumns={{ start: 5, span: 3 }}>
           <Heading level={2} size="level-4" inverseColor>
@@ -50,7 +67,7 @@ export const Default: Story = {
           <Paragraph size="small" inverseColor>
             Bent u uitgenodigd om mee te doen aan onderzoek of heeft u vragen over het panel of stadspaspanel?
           </Paragraph>
-          <List>
+          <UnorderedList markers={false}>
             <li>
               <Link href="/" variant="inList" onBackground="dark" rel="external">
                 Meedoen aan onderzoek
@@ -66,13 +83,13 @@ export const Default: Story = {
                 Stadspaspanel Amsterdam
               </Link>
             </li>
-          </List>
+          </UnorderedList>
         </Footer.Column>
         <Footer.Column gridColumns={{ start: 9, span: 3 }}>
           <Heading level={2} size="level-4" inverseColor>
             Onderzoek en Statistiek
           </Heading>
-          <List>
+          <UnorderedList markers={false}>
             <li>
               <Link href="/" variant="inList" onBackground="dark">
                 Over Onderzoek en Statistiek
@@ -93,27 +110,17 @@ export const Default: Story = {
                 Vacatures
               </Link>
             </li>
-          </List>
+          </UnorderedList>
         </Footer.Column>
       </Footer.Top>,
       <Footer.Bottom key={2}>
-        {/*
-          TODO: we need a horizontal list and another link variant for this.
-          Or do we want to make a Footer.Link component?
-          I think we need the same link in the Header
-        */}
-        <List>
-          <li>
-            <Link href="/" variant="inList">
-              Privacy
-            </Link>
-          </li>
-          <li>
-            <Link href="/" variant="inList">
-              Toegankelijkheid
-            </Link>
-          </li>
-        </List>
+        <VisuallyHidden>
+          <Heading level={2}>Over deze website</Heading>
+        </VisuallyHidden>
+        <PageMenu>
+          <PageMenu.Link href="/">Privacy</PageMenu.Link>
+          <PageMenu.Link href="/">Toegankelijkheid</PageMenu.Link>
+        </PageMenu>
       </Footer.Bottom>,
     ],
   },

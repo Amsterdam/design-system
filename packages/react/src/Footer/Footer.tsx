@@ -12,16 +12,16 @@ import {
   PropsWithChildren,
   RefAttributes,
 } from 'react'
-import { GridCell, GridCellProps } from '../Grid'
+import { GridCell, GridCellProps, PageGrid } from '../Grid'
 
 export const FooterTop = forwardRef(
   (
     { children, className, ...restProps }: PropsWithChildren<HTMLAttributes<HTMLDivElement>>,
     ref: ForwardedRef<HTMLDivElement>,
   ) => (
-    <div {...restProps} ref={ref} className={clsx('amsterdam-footer__top', className)}>
+    <PageGrid {...restProps} ref={ref} className={clsx('amsterdam-footer__top', className)}>
       {children}
-    </div>
+    </PageGrid>
   ),
 )
 

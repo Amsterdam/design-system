@@ -8,8 +8,8 @@ import { BlockquoteHTMLAttributes, ForwardedRef, forwardRef, PropsWithChildren }
 
 export interface BlockquoteProps extends BlockquoteHTMLAttributes<HTMLQuoteElement> {
   /**
-   * De kleur van de titel
-   * Gebruik deze property om de titel in tegenovergestelde kleur te tonen.
+   * De kleur van het citaat.
+   * Gebruik deze property om het citaat in tegenovergestelde kleur te tonen.
    */
   inverseColor?: boolean
 }

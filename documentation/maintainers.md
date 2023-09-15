@@ -2,5 +2,4 @@
 
 # Core Maintainers
 
-- [Vincent Smedinga](https://github.com/VincentSmedinga)
-- [Aram Limpens](https://github.com/alimpens)
+<https://github.com/orgs/Amsterdam/teams/design-system-maintainers>
