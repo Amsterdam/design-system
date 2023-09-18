@@ -66,12 +66,12 @@ export default function (plop) {
       {
         type: 'add',
         data: { curlyBefore: '{' },
-        path: 'storybook/storybook-react/src/components/{{pascalCase name}}/{{pascalCase name}}.docs.mdx',
+        path: 'storybook/storybook-react/src/{{pascalCase name}}/{{pascalCase name}}.docs.mdx',
         templateFile: 'plop-templates/storybook.docs.mdx.hbs',
       },
       {
         type: 'add',
-        path: 'storybook/storybook-react/src/components/{{pascalCase name}}/{{pascalCase name}}.stories.tsx',
+        path: 'storybook/storybook-react/src/{{pascalCase name}}/{{pascalCase name}}.stories.tsx',
         templateFile: 'plop-templates/storybook.stories.tsx.hbs',
       },
     ],
