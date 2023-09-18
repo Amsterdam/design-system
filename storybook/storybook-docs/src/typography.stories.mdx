@@ -78,6 +78,28 @@ De Nederlandse taal kent veel lange woorden, zoals 'gemeenteraadsverkiezingen'. 
 
 Voor verdere informatie: [Wrapping and breaking text op MDN](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_text/Wrapping_breaking_text)
 
+## Andere talen
+
+Geef programmatisch aan in welke taal tekst in een afwijkende taal is. Dit is onder andere nodig zodat schermlezers deze tekst in de juiste taal uitspreken.
+
+```html
+<html lang="nl-NL">
+  <head>
+    ...
+  </head>
+  <body>
+    <ul>
+      <li><a href="https://mijn.amsterdam.nl/">Mijn Amsterdam</a></li>
+      <li><a href="https://www.amsterdam.nl/en/" lang="en">English site</a></li>
+    </ul>
+  </body>
+</html>
+```
+
+### Relevante WCAG eisen
+
+- [WCAG 3.1.2](https://www.w3.org/TR/WCAG22/#language-of-parts): geef aan in welke taal tekst in een afwijkende taal is
+
 ## Hoe te gebruiken?
 
 Er zijn twee manieren om Amsterdam Sans te gebruiken in je applicatie:
