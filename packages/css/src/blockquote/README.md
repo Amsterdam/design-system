@@ -1,6 +1,6 @@
 # Blockquote
 
-De blockquote (in het Nederlands: citaat) is wordt gebruikt om uitspraken te accentueren. Een citaat is anders vormgegeven dan de broodtekst, zodat deze opvalt.
+De blockquote (in het Nederlands: citaat) wordt gebruikt om uitspraken te accentueren. Een citaat is anders vormgegeven dan de broodtekst, zodat deze opvalt.
 
 Let op: dit component voegt automatisch aanhalingstekens aan de tekst toe, dat hoef je niet zelf te doen.
 
