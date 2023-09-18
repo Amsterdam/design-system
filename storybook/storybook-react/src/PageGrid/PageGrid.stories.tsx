@@ -60,17 +60,17 @@ export const ThreeImages: Story = {
     children: [
       <GridCell key={1} gridColumns={4}>
         <figure className="amsterdam-docs-figure">
-          <img src="https://www.amsterdam.nl/publish/pages/1037047/20230614_poma_visuals_pn_singel-zuid940.jpg" />
+          <img src="https://picsum.photos/800/450?random=1" />
         </figure>
       </GridCell>,
       <GridCell key={2} gridColumns={4}>
         <figure className="amsterdam-docs-figure">
-          <img src="https://www.amsterdam.nl/publish/pages/987083/33464-amstel-01-01sep2017-e-v-eis9403.jpg" />
+          <img src="https://picsum.photos/800/450?random=2" />
         </figure>
       </GridCell>,
       <GridCell key={3} gridColumns={4}>
         <figure className="amsterdam-docs-figure">
-          <img src="https://www.amsterdam.nl/publish/pages/1036935/46116-sara-burgerhardtstr-26-17072019-17juli2019-e-v-eis940.jpg" />
+          <img src="https://picsum.photos/800/450?random=3" />
         </figure>
       </GridCell>,
     ],
