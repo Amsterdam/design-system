@@ -15,7 +15,7 @@ import {
   TrashBin,
 } from '@amsterdam/design-system-react-icons'
 import type { Meta, StoryObj } from '@storybook/react'
-import '../../../../../storybook-docs/src/stories.scss'
+import '../../../storybook-docs/src/stories.scss'
 
 const meta = {
   title: 'Text/Unordered List',
