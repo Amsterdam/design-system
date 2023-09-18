@@ -80,8 +80,22 @@ Voor verdere informatie: [Wrapping and breaking text op MDN](https://developer.m
 
 ## Andere talen
 
-[Geef programmatisch aan in welke taal tekst in een afwijkende taal is](https://www.w3.org/WAI/WCAG21/Understanding/language-of-parts.html).
-Dit is onder andere nodig zodat schermlezers deze tekst in de juiste taal uitspreken.
+Geef programmatisch aan in welke taal tekst in een afwijkende taal is. Dit is onder andere nodig zodat schermlezers deze tekst in de juiste taal uitspreken.
+
+```html
+<html lang="en-GB">
+  <head>
+    ...
+  </head>
+  <body>
+    <p>As the Latin saying goes — <q lang="la">in vino veritas</q></p>
+  </body>
+</html>
+```
+
+### Relevante WCAG eisen
+
+- [WCAG 3.1.2](https://www.w3.org/TR/WCAG22/#language-of-parts)
 
 ## Hoe te gebruiken?
 
