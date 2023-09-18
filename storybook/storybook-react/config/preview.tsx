@@ -15,5 +15,10 @@ export const parameters = {
       sourceState: 'shown',
     },
   },
+  options: {
+    storySort: {
+      order: ['Buttons', 'Containers', 'Forms', 'Layout', 'Media', 'Navigation', 'Text'],
+    },
+  },
   viewMode: 'docs',
 }
