@@ -58,7 +58,7 @@
     "lint:js": "eslint . --ext .js,.json,.jsx,.mdx,.ts,.tsx --report-unused-disable-directives",
     "lint:md": "markdownlint **/*.md --ignore node_modules",
     "lint:package-json": "npmPkgJsonLint **/package.json",
-    "lint:package-lock": "pnpm xls --recursive",
+    "lint:package-lock": "pnpm ls --recursive",
     "lint-fix": "npm-run-all --continue-on-error lint-fix:** prettier",
     "lint-fix:css": "stylelint --fix '**/*.{css,scss}'",
     "lint-fix:js": "eslint . --ext .js,.json,.jsx,.mdx,.ts,.tsx --fix --report-unused-disable-directives",
