@@ -1,13 +1,21 @@
 # Switch
 
-## Introductie
+Een switch (in het Nederlands: schakelaar) is een besturingselement om snel tussen twee verschillende staten te schakelen. Een schakelaar is van toepassing op een pagina of het hele systeem. Bijvoorbeeld een aan/uit-schakelaar.
 
-Nederlandse term: schakelaar
-
-Een schakelaar is een besturingselement om snel tussen twee verschillende staten te schakelen en van toepassing is op een pagina of het hele systeem. Bijvoorbeeld een aan/uit-schakelaar.
-
-## Specificaties
+## Richtlijnen
 
 - Schakel alleen tussen twee verschillende statussen. Het is een binaire actie.
 - Gebruik labels met een schakelaar zodat de actie duidelijk is.
 - De actie vindt direct plaats zodra de gebruiker de schakelaar gebruikt.
+
+## Relevante WAI-ARIA eisen
+
+- De Switch dient een role `switch` te hebben.
+- [aria-labelledby](https://w3c.github.io/aria/#aria-labelledby): Dit attribute moet worden gedefinieerd wanneer er een bijgesloten label met tekst geplaatst is.
+- [aria-label](https://w3c.github.io/aria/#aria-label): Dit attribute moet worden gedefinieerd wanneer er een geen bijgesloten label met tekst geplaatst is.
+- In het geval de Switch een HTML input[type="checkbox"] is hoeft de `aria-checked` niet te worden gezet.
+
+## Referenties
+
+- [Switch Pattern](https://www.w3.org/WAI/ARIA/apg/patterns/switch/)
+- [Role switch](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Roles/switch_role)

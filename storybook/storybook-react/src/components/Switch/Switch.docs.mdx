@@ -1,0 +1,17 @@
+import { Canvas, Controls, Markdown, Meta, Primary } from "@storybook/blocks";
+import * as SwithStories from "./Switch.stories.tsx";
+import README from "../../../../../packages/css/src/switch/README.md?raw";
+
+<Meta of={SwithStories} />
+
+<Markdown>{README}</Markdown>
+
+<Primary />
+
+<Controls />
+
+## Stories
+
+### Default
+
+<Canvas of={SwithStories.Default} />
