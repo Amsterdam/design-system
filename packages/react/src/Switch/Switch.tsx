@@ -18,7 +18,7 @@ export const Switch = forwardRef(
           role="switch"
         />
 
-        <label className="amsterdam-switch__label" htmlFor={inputId} aria-hidden="true">
+        <label className="amsterdam-switch__label" htmlFor={inputId}>
           <span className="amsterdam-switch__toggle">
             <span className="amsterdam-switch__toggle-inner"></span>
           </span>

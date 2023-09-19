@@ -1,11 +1,5 @@
 .amsterdam-switch {
   display: inline-block;
-  font-family: var(--amsterdam-switch-font-family);
-  font-size: var(--amsterdam-switch-font-size-narrow);
-  line-height: var(--amsterdam-switch-line-height);
-  outline-offset: var(--amsterdam-switch-outline-offset);
-  overflow: visible;
-  position: relative;
 }
 
 .amsterdam-switch__input {
@@ -17,8 +11,9 @@
 
 .amsterdam-switch__toggle {
   background-color: var(--amsterdam-switch-background-color);
-  border-radius: 50px;
+  border-radius: calc(var(--amsterdam-switch-toggle-inner-width) * 2);
   box-sizing: border-box;
+  cursor: pointer;
   display: inline-block;
   padding-block: 1px;
   padding-inline: 1px;
@@ -31,7 +26,6 @@
   border-radius: 50%;
   display: block;
   height: var(--amsterdam-switch-toggle-inner-height);
-  transform: translate(0);
   transition-duration: 0.1s;
   transition-property: box-shadow, transform;
   transition-timing-function: ease-in-out;

@@ -6,8 +6,6 @@
 import { Switch } from '@amsterdam/design-system-react/src'
 import { Meta, StoryObj } from '@storybook/react'
 
-import '@amsterdam/design-system-css/src/switch/switch.scss'
-
 const meta = {
   title: 'Switch',
   component: Switch,

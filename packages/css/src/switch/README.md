@@ -10,7 +10,7 @@ Een switch (in het Nederlands: schakelaar) is een besturingselement om snel tuss
 
 ## Relevante WAI-ARIA eisen
 
-- De Switch dient een role `switch` te hebben.
+- De `input` dient een role `switch` te hebben.
 - [aria-labelledby](https://w3c.github.io/aria/#aria-labelledby): Dit attribute moet worden gedefinieerd wanneer er een bijgesloten label met tekst geplaatst is.
 - [aria-label](https://w3c.github.io/aria/#aria-label): Dit attribute moet worden gedefinieerd wanneer er een geen bijgesloten label met tekst geplaatst is.
 - In het geval de Switch een HTML input[type="checkbox"] is hoeft de `aria-checked` niet te worden gezet.
