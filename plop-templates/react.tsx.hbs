@@ -8,8 +8,7 @@ import { ForwardedRef, forwardRef, HTMLAttributes, PropsWithChildren } from 'rea
 
 export interface {{pascalCase name}}Props extends PropsWithChildren<HTMLAttributes<HTMLElement>> {}
 
-export const {{pascalCase name}} = forwardRef(
-  ({ children, className, ...restProps }: {{pascalCase name}}Props, ref: ForwardedRef<HTMLElement>) => (
+export const {{pascalCase name}} = forwardRef(({ children, className, ...restProps }: {{pascalCase name}}Props, ref: ForwardedRef<HTMLElement>) => (
     <span {...restProps} ref={ref} className={clsx('amsterdam-{{kebabCase name}}', className)}>
       {children}
     </span>
