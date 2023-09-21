@@ -23,7 +23,7 @@ export const Alert = forwardRef(
   ) => {
     const alertIcon = () => {
       if (icon && type === 'error') return <Icon svg={AlertSvg} size="level-5" />
-      else if (icon && type === 'success') return <Icon svg={Checkmark} size="level-5" />
+      else if (icon && type === 'success') return <Icon svg={Checkmark} size="level-6" />
       else return null
     }
 
