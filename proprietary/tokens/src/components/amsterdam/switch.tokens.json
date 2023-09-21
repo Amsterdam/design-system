@@ -7,19 +7,22 @@
       "background-color": {
         "value": "{amsterdam.color.neutral-grey3}"
       },
-      "toggle": {
+      "width": {
+        "value": "3.5rem"
+      },
+      "thumb": {
         "background-color": {
           "value": "{amsterdam.color.primary-white}"
         },
         "width": {
-          "value": "58px"
+          "value": "28px"
         },
-        "inner": {
-          "width": {
-            "value": "28px"
-          },
-          "height": {
-            "value": "28px"
+        "height": {
+          "value": "28px"
+        },
+        "hover": {
+          "color": {
+            "value": "{amsterdam.color.dark-blue}"
           }
         }
       },
@@ -34,11 +37,6 @@
       "disabled": {
         "background-color": {
           "value": "{amsterdam.color.neutral-grey2}"
-        }
-      },
-      "hover": {
-        "color": {
-          "value": "{amsterdam.color.dark-blue}"
         }
       }
     }
