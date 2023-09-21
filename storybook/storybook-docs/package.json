@@ -33,7 +33,7 @@
     "@storybook/addon-interactions": "7.4.2",
     "@storybook/addon-links": "7.4.2",
     "@storybook/addon-viewport": "7.4.2",
-    "@storybook/blocks": "7.4.2",
+    "@storybook/blocks": "7.4.3",
     "@storybook/manager-api": "7.4.2",
     "@storybook/mdx2-csf": "1.1.0",
     "@storybook/react": "7.4.2",
