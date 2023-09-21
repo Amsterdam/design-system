@@ -1,5 +1,47 @@
 {
   "amsterdam": {
-    "alert": {}
+    "alert": {
+      "background-color": { "value": "{amsterdam.color.yellow}" },
+      "border-color": { "value": "{amsterdam.color.yellow}" },
+      "border-width": { "value": "4px" },
+      "border-style": { "value": "solid" },
+      "gap": { "value": "1rem" },
+      "padding-block-start": { "value": "{amsterdam.spacing.inset.md}" },
+      "padding-block-end": { "value": "{amsterdam.spacing.inset.md}" },
+      "padding-inline-start": { "value": "{amsterdam.spacing.inset.lg}" },
+      "padding-inline-end": { "value": "{amsterdam.spacing.inset.lg}" },
+      "title": {
+        "color": { "value": "{amsterdam.color.primary-black}" },
+        "font-family": { "value": "{amsterdam.typography.font-family}" },
+        "font-weight": { "value": "{amsterdam.typography.font-weight.bold}" },
+        "line-height": { "value": "{amsterdam.typography.text-level.5.line-height}" },
+        "narrow": {
+          "font-size": { "value": "{amsterdam.typography.text-level.5.narrow.font-size}" }
+        },
+        "wide": {
+          "font-size": { "value": "{amsterdam.typography.text-level.5.wide.font-size}" }
+        }
+      },
+      "text": {
+        "color": { "value": "{amsterdam.color.primary-black}" },
+        "font-family": { "value": "{amsterdam.typography.font-family}" },
+        "font-weight": { "value": "{amsterdam.typography.font-weight.normal}" },
+        "line-height": { "value": "{amsterdam.typography.text-level.6.line-height}" },
+        "narrow": {
+          "font-size": { "value": "{amsterdam.typography.text-level.6.narrow.font-size}" }
+        },
+        "wide": {
+          "font-size": { "value": "{amsterdam.typography.text-level.6.wide.font-size}" }
+        }
+      },
+      "error": {
+        "background-color": { "value": "{amsterdam.color.primary-white}" },
+        "border-color": { "value": "{amsterdam.color.primary-red}" }
+      },
+      "success": {
+        "background-color": { "value": "{amsterdam.color.primary-white}" },
+        "border-color": { "value": "{amsterdam.color.dark-green}" }
+      }
+    }
   }
 }
