@@ -41,11 +41,8 @@ export const Alert = forwardRef(
         {alertIcon() && <div className="amsterdam-alert__icon">{alertIcon()}</div>}
         <div className="amsterdam-alert__content">
           {title && <span className="amsterdam-alert__title">{title}</span>}
-          <div className="amsterdam-alert__text">
-            {text}
-            {children}
-            {/* Text or children? */}
-          </div>
+          <div className="amsterdam-alert__text">{text}</div>
+          {children}
         </div>
         {closeable && <button className="amsterdam-alert__close">X</button>}
       </div>

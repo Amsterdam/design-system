@@ -3,15 +3,15 @@
  * Copyright (c) 2023 Gemeente Amsterdam
  */
 
-import { Alert } from '@amsterdam/design-system-react'
+import { Alert, UnorderedList } from '@amsterdam/design-system-react'
 import { Meta, StoryObj } from '@storybook/react'
 
 const meta = {
   title: 'Feedback/Alert',
   component: Alert,
   args: {
-    title: 'Lorem ipsum dolor sit amet',
-    text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
+    title: 'Let op',
+    text: 'Tijdens Koningsdag zijn alle Stadsloketten gesloten, storingen op formulieren, enz.',
     closeable: false,
     icon: false,
   },
@@ -53,6 +53,22 @@ export const Error: Story = {
     type: 'error',
     icon: true,
   },
+}
+
+export const ErrorWithChildren: Story = {
+  render: () => (
+    <Alert
+      type="error"
+      icon={true}
+      title="Formulier kon niet opgeslagen worden"
+      text="U bent verplichte velden vergeten in te vullen"
+    >
+      <UnorderedList>
+        <UnorderedList.Item>Naam</UnorderedList.Item>
+        <UnorderedList.Item>Telefoonnummer</UnorderedList.Item>
+      </UnorderedList>
+    </Alert>
+  ),
 }
 
 export const Success: Story = {
