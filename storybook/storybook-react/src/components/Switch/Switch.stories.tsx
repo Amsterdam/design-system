@@ -20,3 +20,18 @@ export const Default: Story = {
     disabled: false,
   },
 }
+
+export const Secondary: Story = {
+  args: {
+    disabled: false,
+  },
+
+  render: (args) => (
+    <div>
+      <label htmlFor="test" style={{ marginRight: '50px' }}>
+        hello
+      </label>
+      <Switch {...args} id="test" onChange={() => console.log('changed')} />
+    </div>
+  ),
+}
