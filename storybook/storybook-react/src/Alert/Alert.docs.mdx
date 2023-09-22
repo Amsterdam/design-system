@@ -1,4 +1,4 @@
-import { Controls, Markdown, Meta, Primary } from "@storybook/blocks";
+import { Canvas, Controls, Markdown, Meta, Primary } from "@storybook/blocks";
 import * as AlertStories from "./Alert.stories.tsx";
 import README from "../../../../packages/css/src/alert/README.md?raw";
 
@@ -9,3 +9,15 @@ import README from "../../../../packages/css/src/alert/README.md?raw";
 <Primary />
 
 <Controls />
+
+### Error
+
+<Canvas of={AlertStories.Error} />
+
+### Error with children
+
+<Canvas of={AlertStories.ErrorWithChildren} />
+
+### Success
+
+<Canvas of={AlertStories.Success} />

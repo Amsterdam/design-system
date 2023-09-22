@@ -69,10 +69,29 @@ export const ErrorWithChildren: Story = {
       </UnorderedList>
     </Alert>
   ),
+  argTypes: {
+    icon: {
+      control: {
+        disable: true,
+      },
+    },
+    closeable: {
+      control: {
+        disable: true,
+      },
+    },
+    type: {
+      control: {
+        disable: true,
+      },
+    },
+  },
 }
 
 export const Success: Story = {
   args: {
+    title: 'Gelukt',
+    text: 'Uw formulier is succesvol opgeslagen',
     type: 'success',
     icon: true,
   },
