@@ -1,14 +1,15 @@
+import clsx from 'clsx'
 import { ForwardedRef, forwardRef, InputHTMLAttributes, PropsWithChildren, useId } from 'react'
 
 export const Switch = forwardRef(
   (
-    { id, ...restProps }: PropsWithChildren<InputHTMLAttributes<HTMLInputElement>>,
+    { className, id, ...restProps }: PropsWithChildren<InputHTMLAttributes<HTMLInputElement>>,
     ref: ForwardedRef<HTMLInputElement>,
   ) => {
     const inputId = id || useId()
 
     return (
-      <div className="amsterdam-switch">
+      <div className={clsx('amsterdam-switch', className)}>
         <input
           {...restProps}
           className="amsterdam-switch__input"
