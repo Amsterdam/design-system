@@ -1,72 +1,72 @@
-# Werkwijze code reviews
+# Method of code reviews
 
-## Schrijf een pull request
+## Write a pull request
 
-Als je denkt dat de code in de branch de toepasselijke acceptatiecriteria vervult en voldoet aan de definition of done maak je een pull request (PR). Als je net gepusht hebt verschijnt er op de pagina ‘Pull requests’ van Azure een handig linkje om direct een PR van die branch naar `main` te maken, anders moet je dat zelf even doen.
+If you believe that the code in the branch meets the applicable acceptance criteria and meets the definition of done, you create a pull request (PR). If you have just pushed, a handy link will appear on the 'Pull requests' page of Azure to immediately create a PR from that branch to 'main', otherwise you will have to do that yourself.
 
-### Titel
+### Title
 
-Schrijf een Nederlandse titel met weinig jargon. Deze gebruiken we voor de release notes – het lijstje titels van alle pull requests sinds de vorige release (oftewel de messages van alle merge commits naar de `main` branch) is daarvoor een handige kapstok.
+Write a Dutch title with little jargon. We use these for the release notes - the list of titles of all pull requests since the previous release (or the messages of all merge commits to the 'main' branch) is a useful framework for this.
 
-### Beschrijving
+### Description
 
-Ook de beschrijving van de PR doen we voorlopig in het Nederlands. Leg kort maar duidelijk uit wat je hebt gedaan – het uitgebreide verhaal is normaal gesproken in de bijbehorende PBI te vinden.
+We will also provide the description of the PR in Dutch for the time being. Explain briefly but clearly what you have done – the detailed story can normally be found in the accompanying PBI.
 
-Als er bijzondere omstandigheden zijn, originele manieren om iets aan te pakken, zaken die je met opzet buiten scope hebt gelaten, noem dat dan ook. Ook test instructies, zoals hoe je een bug kan reproduceren of welke testdata je kan gebruiken om bij de wijzigingen te komen, besparen de reviewer vaak veel tijd.
+If there are special circumstances, original ways of tackling something, things that you have deliberately left out of scope, mention those too. Test instructions, such as how to reproduce a bug or which test data you can use to arrive at the changes, also often save the reviewer a lot of time.
 
 ### Reviewers
 
-Zorg dat de juiste personen staan aangemerkt als reviewer, liever nog: stel in dat Azure dat automatisch voor je doet.
+Make sure that the right people are designated as reviewers, or better yet: set Azure to do this automatically for you.
 
-Normaal gesproken willen we dat elke PR wordt goedgekeurd door twee andere personen. Als je een reviewer als ‘required’ aanmerkt moet die ook goedkeuren, ook als twee anderen dat al hebben gedaan.
+Normally we want each PR to be approved by two other people. If you mark a reviewer as 'required', he or she must also approve, even if two others have already done so.
 
-Triviale PR’s mag je als auteur al zelf goedkeuren, zodat één andere reviewer voldoende is. Als de reviewer denkt dat het goed is als er toch een derde meekijkt kan die een verplichte reviewer toevoegen (alvorens zelf goedkeuring te geven) of de auteur vragen diens goedkeuring in te trekken.
+As an author, you can approve trivial PRs yourself, so that one other reviewer is sufficient. If the reviewer thinks it would be good for a third party to watch, he or she can add a mandatory reviewer (before giving approval) or ask the author to withdraw his approval.
 
-### Eigen commentaar
+### Own commentary
 
-Als auteur kun je een discussie over een stukje code opstarten door er zelf een commentaar over te plaatsen. Je kunt bijvoorbeeld alvast aangeven dat je twijfelt over je eigen implementatie.
+As an author, you can start a discussion about a piece of code by posting a comment about it yourself. For example, you can indicate in advance that you have doubts about your own implementation.
 
-### Check de tests
+### Check the tests
 
-Bij het opslaan van de PR worden automatisch een aantal tests uitgevoerd. Als daarvan één of meer falen kan de PR niet gemerged worden. Na een paar minuten zijn ze klaar en is het goed om te controleren of alles klopt – anders is de eerste reviewer direct geblokkeerd. De tests lokaal draaien is nog iets sneller, bijvoorbeeld zo:
+When saving the PR, a number of tests are automatically performed. If one or more of these fail, the PR cannot be merged. After a few minutes they are ready and it is good to check whether everything is correct - otherwise the first reviewer is immediately blocked. Running the tests locally is a little faster, for example like this:
 
-- front-end van de app: `npm run typescript && npm run lint:fix && npm test`.
-  -een backend module: `python3 manage.py test && pylint $(find . -name '*.py' | grep -v -e venv -e migrations)`
+- front-end of the app: `npm run typescript && npm run lint:fix && npm test`.
+  -a backend module: `python3 manage.py test && pylint $(find . -name '*.py' | grep -v -e venv -e migrations)`
 
-### Een PR is een tussenstap
+### A PR is an intermediate step
 
-Dat je een PR hebt gemaakt betekent niet “mijn werk is af, wil je er nog even naar kijken”. Zie het meer als: “Dit is mijn voorstel voor de implementatie van de taak. Laten we nu onze gezamenlijke kennis gebruiken en het werk samen zo goed mogelijk afronden.”
+The fact that you have created a PR does not mean “my work is finished, would you please take a look at it”. Think of it more like: “This is my proposal for implementing the task. Let us now use our shared knowledge and complete the work together as best as possible.”
 
-Eventueel kun je de PR al eerder klaar zetten, bijvoorbeeld om een duidelijke diff te zien, iemand anders mee te laten kijken of alvast commentaren te plaatsen of vragen. Zet de PR dan in ‘draft’ mode zodat niemand notificaties krijgt of denkt dat het al tijd is voor de review.
+If necessary, you can prepare the PR earlier, for example to see a clear diff, have someone else watch or to post comments or questions in advance. Then put the PR in 'draft' mode so that no one receives notifications or thinks that it is already time for the review.
 
-## Geef feedback op code
+## Provide feedback on code
 
-Probeer een code review op een PR zo snel mogelijk te doen. We willen branches immers zo kort mogelijk laten leven. Ook is het werk dan nog ‘top of mind’ voor de auteur. Zorg dat je notificaties krijgt van nieuwe PR’s op je naam.
+Try to do a code review on a PR as quickly as possible. After all, we want to make industries live for as short a time as possible. The work is also still 'top of mind' for the author. Make sure you receive notifications of new PRs in your name.
 
-Investeer de tijd om de wijziging van de PR goed te begrijpen. Lees de titel en beschrijving goed. Meestal zul je de branch lokaal uitchecken en de functionaliteit expliciet testen. Maak jezelf de nieuwe code eigen als had je het zelf geschreven.
+Invest the time to fully understand the PR change. Read the title and description carefully. Typically you will check out the branch locally and test the functionality explicitly. Make yourself familiar with the new code as if you had written it yourself.
 
-Op welke aspecten je kan letten bij een code review is een onderwerp voor een andere keer.
+What aspects you can pay attention to during a code review is a topic for another time.
 
-### Commentariëren
+### Comment
 
-Het is belangrijk je te realiseren dat je schriftelijke feedback kritischer kan overkomen dan je bedoelde.
+It is important to realize that your written feedback may come across as more critical than you intended.
 
-Je collega heeft naar eer en geweten gewerkt, zorg ervoor dat je open communiceert. Stel vragen, doe voorstellen. “Zou het goed zijn om…?” “Heb je er rekening mee gehouden dat…?” “Ik zou verwachten dat zus en zo.”
+Your colleague has worked in good faith, make sure you communicate openly. Ask questions, make suggestions. “Would it be okay to…?” “Have you taken into account that…?” “I would expect such and such.”
 
-Bel elkaar als dat handiger is. En schrijf een complimentje als je iets tofs tegenkomt.
+Call each other if that is more convenient. And write a compliment if you come across something cool.
 
-### Commits toevoegen
+### Add commits
 
-In plaats van een commentaar te schrijven is het soms handig de wijzigingen die je voorstelt zelf al te committen. Zeker als je eerst zelf even wilt uitproberen of je idee ook echt werkt en slimmer is, en de code er dan toch al staat.
+Instead of writing a comment, it is sometimes useful to commit the changes you propose yourself. Especially if you first want to try it out for yourself to see whether your idea actually works and is smarter, and the code is already there anyway.
 
-Overleg wel met de auteur of het oké is om die commit te pushen. Configureer de ‘branch policy’ voor `main` zó dat de goedkeuring van de laatste committer niet meetelt – die code moet immers ook door twee anderen gereviewd worden.
+Be sure to discuss with the author whether it is okay to push that commit. Configure the branch policy for 'main' so that the approval of the last committer does not count - after all, that code must also be reviewed by two others.
 
-Voor kleine wijzigingen is het efficiënter om in een commentaar een suggestie op te nemen, die kan de auteur met een druk op de knop accepteren en toepassen, of weigeren.
+For minor changes it is more efficient to include a suggestion in a comment, which the author can accept and apply or reject at the touch of a button.
 
-### Goedkeuren
+### Approve
 
-Als je geen feedback hebt, of alleen commentaren waarvan je verwacht dat verdere uitwisseling niet nodig is, keur je de PR goed (‘Approve’).
+If you have no feedback, or only comments for which you expect that further exchange is not necessary, you approve the PR ('Approve').
 
-Een PR wordt pas gemerged als automatische tests geen fouten aan het licht brachten, alle commentaren opgelost zijn en genoeg reviewers de PR goedgekeurd hebben. Zorg ervoor dat er niet onnodig gewacht hoeft te worden.
+A PR will only be merged if automatic tests revealed no errors, all comments have been resolved and enough reviewers have approved the PR. Make sure there is no unnecessary waiting.
 
-Als auteur mag je commentaren van een reviewer sluiten (‘Resolve’) als jullie het duidelijk eens zijn. Heb je een andere mening dan de reviewer, of wil je dat je aanpassingen nog eens bekeken worden, laat het commentaar dan open staan.
+As an author, you may close a reviewer's comments ('Resolve') if you clearly agree. If you have a different opinion than the reviewer, or if you would like your changes to be reviewed, please leave the comment open.

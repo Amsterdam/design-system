@@ -1,134 +1,134 @@
-# Werkwijze Git
+# Git method
 
-Omdat we met meerdere personen in dezelfde repositories werken en omdat onze code open source is hebben we een aantal afspraken gemaakt over hoe we te werk gaan.
+Because we work with several people in the same repositories and because our code is open source, we have made a number of agreements about how we work.
 
-Het doel is dat onze code vrij eenduidig is gestructureerd en geschreven, zodat het voor iedereen herkenbaar blijft en prettig erin te werken. Ook vergt zo het nadenken over en reviewen van niet-inhoudelijke zaken minder tijd.
+The goal is for our code to be structured and written fairly clearly, so that it remains recognizable and pleasant to work with for everyone. It also takes less time to think about and review non-substantive matters.
 
-## Gebruik Git
+## Use Git
 
-We gebruiken Git voor versiebeheer.
+We use Git for version control.
 
 ### Repositories
 
-De repositories staan in Azure – één voor de front-end van de app, één voor elke backend van een module, en nog een klein aantal overige.
+The repositories are in Azure – one for the app front end, one for each module back end, and a small number of others.
 
-De repository voor de modules-backend bevat momenteel ook de front-end voor het modulebeheersysteem MBS.
+The repository for the modules backend currently also contains the frontend for the module management system MBS.
 
-De repositories van de front-end van de app en die van de modules-backend hebben een fork in GitHub. Die worden momenteel niet actief bijgehouden.
+The repositories of the app front-end and those of the modules backend have been forked in GitHub. These are currently not actively maintained.
 
-### Configuratie
+### Configuration
 
-Stel direct na het lokaal halen van een repository in dat je je commits koppelt aan je e-mailadres van de Gemeente Amsterdam: `git config user.email "…@amsterdam.nl"`.
+Immediately after downloading a repository locally, set yourself to link your commits to your email address of the Municipality of Amsterdam: `git config user.email "…@amsterdam.nl"`.
 
-## Houd branches klein
+## Keep industries small
 
-We werken met kleine, kort levende branches (mik op 2 werkdagen) direct op een `main` branch. Dit helpt continuous integration en deployment, verkleint de kans op merge conflicten en beperkt de omvang van code reviews.
+We work with small, short-lived branches (aim for 2 working days) directly on a 'main' branch. This helps continuous integration and deployment, reduces the chance of merge conflicts and limits the scope of code reviews.
 
-Dit heet ‘[trunk based development](https://trunkbaseddevelopment.com/)’ en is een duidelijk andere benadering dan het bekende ‘Git Flow’.
+This is called '[trunk based development](https://trunkbaseddevelopment.com/)' and is a clearly different approach than the well-known 'Git Flow'.
 
-## Maak een branch aan
+## Create a branch
 
-Je maakt een nieuwe branch via het kaartje van een taak (‘task’) in Azure Boards. Zo zijn de branch en de taak direct gekoppeld en wordt de taak vanzelf gesloten bij het mergen van de branch.
+You create a new branch via the card of a task in Azure Boards. This way, the branch and the task are directly linked and the task is automatically closed when the branch is merged.
 
-Ook zet dit het volgnummer van de taak in beeld zodat je die gemakkelijk kunt opnemen in de naam van de branch. Dat doen we om later de specificatie gemakkelijk terug te vinden vanuit de implementatie en vice versa.
+This also displays the task sequence number so you can easily include it in the branch name. We do this to easily find the specification later from the implementation and vice versa.
 
-Let op dat je de branch in de juiste repository aanmaakt.
+Make sure you create the branch in the correct repository.
 
-## Geef de branch een naam
+## Give the branch a name
 
-De namen van onze branches volgen een vast formaat:
+The names of our branches follow a fixed format:
 
-### Groep
+### Group
 
-We groeperen branches om snel te zien welk soort werk het bevat en hoe urgent het kan zijn.
+We group industries to quickly see what type of work it contains and how urgent it may be.
 
-De namen van de groepen zijn:
+The names of the groups are:
 
-- `feature` voor nieuwe functies en uitbreidingen op bestaande
-- `bug` voor de oplossing van een fout
-- `refactor` voor een technische wijziging zonder functionele impact
-- `task` voor eventuele andere (kleine) klusjes
+- `feature` for new functions and extensions to existing ones
+- `bug` for bug fix
+- `refactor` for a technical change without functional impact
+- 'task' for any other (small) chores
 
-Direct na de groep volgt een forward slash ‘/‘. Git applicaties gebruiken die conventie om branches visueel te groeperen.
+Immediately after the group follows a forward slash '/'. Git applications use that convention to visually group branches.
 
-### Volgnummer
+### Serial number
 
-Neem vervolgens het volgnummer van de taak (‘task id’) over in de naam van de branch.
+Then copy the serial number of the task ('task id') into the name of the branch.
 
-Vanaf hier is een liggend streepje ‘-‘ het scheidingsteken.
+From here on, an underscore '-' is the separator.
 
-### Omschrijving
+### Description
 
-Beschrijf in een paar woorden de inhoud van de branch. Leid deze af van de naam van de PBI waartoe de taak behoort, of bij grotere PBI’s van de taak zelf. Dit doen we in het Engels.
+Describe the contents of the branch in a few words. Derive this from the name of the PBI to which the task belongs, or in the case of larger PBIs, from the task itself. We do this in English.
 
-### Voorbeelden
+### Examples
 
-Dat ziet er dan ongeveer zo uit:
+That would look something like this:
 
 - `feature/68178-replace-illustrations`
 - `bug/70447-wasteguide-screen-sometimes-empty`
 - `refactor/70368-rename-test-ids`
 - `task/eslint-jsx-sort-props`
 
-In dit laatste voorbeeld zie je een stiekeme branch zonder task id, dus zonder taak op het bord. Doe dit alleen als de (extra) tijd voor het schrijven én reviewen van deze wijziging opweegt tegen het nut ervan.
+In this last example you see a sneaky branch without a task id, so without a task on the board. Only do this if the (extra) time for writing and reviewing this change outweighs its usefulness.
 
-## Beschrijf elke commit
+## Describe each commit
 
-Neem even tijd om een goede beschrijving voor je commit te bepalen. Beschrijf niet te letterlijk wát je in die commit aanpast, want dat kan iedereen afleiden uit de diff van die commit met de vorige.
+Take some time to determine a good description for your commit. Don't describe too literally what you change in that commit, because anyone can deduce that from the diff of that commit with the previous one.
 
-Geef een korte samenvatting, in het Engels, gebruik de gebiedende wijs. Lees verder in [deze leuke klassieker](https://cbea.ms/git-commit/).
+Provide a brief summary, in English, using the imperative mood. Read more in [this fun classic](https://cbea.ms/git-commit/).
 
-Het doel is dat iedereen het verloop van een branch gemakkelijk kan scannen aan de hand van de commit messages.
+The goal is that anyone can easily scan the progress of a branch based on the commit messages.
 
-## Maak je branch netjes
+## Tidy up your branch
 
-Het is fijn als de commits in je branch in conceptuele stappen is onderverdeeld. Zo hoeven de reviewers niet alle nieuwe code ineens te interpreteren, maar stukje bij beetje.
+It's nice if the commits in your branch are divided into conceptual steps. This way, the reviewers do not have to interpret all the new code at once, but piece by piece.
 
-Als je regelmatig commit gaat dat vaak vanzelf, maar het kan ook zijn dat je juist wat té vaak commit, of dat je na een paar commits toch een andere oplossingsrichting kiest.
+If you commit regularly, this often happens automatically, but it may also be that you commit too often, or that you choose a different solution after a few commits.
 
-Met een ‘interactive rebase’ kun je lokaal je eigen branch netter maken – dat wil zeggen: commits samenvoegen, splitsen of in een andere volgorde zetten.
+With an 'interactive rebase' you can locally tidy up your own branch - that is, merge, split or reorder commits.
 
-Meer uitleg bijvoorbeeld [hier bij SourceTree](https://www.atlassian.com/blog/sourcetree/interactive-rebase-sourcetree).
+More explanation, for example, [here at SourceTree](https://www.atlassian.com/blog/sourcetree/interactive-rebase-sourcetree).
 
-## Integreer andere branches
+## Integrate other industries
 
-Voordat je een pull request maakt zorg je dat je branch zo dicht mogelijk bij `main` zit om onnodige merge conflicten te voorkomen.
+Before you make a pull request, make sure your branch is as close to 'main' as possible to avoid unnecessary merge conflicts.
 
 ### Rebase
 
-Dat kun je doen via een rebase: `git rebase main`.
+You can do this via a rebase: `git rebase main`.
 
-Dat zet alle commits van je branch één voor één bovenop `main`. Vaak lukt dat ineens en zie je je hele branch vervolgens bovenop ‘main’ staan, alsof je er pas daarna aan begonnen was.
+That puts all the commits from your branch one by one on top of `main`. Often this works suddenly and you then see your entire branch on top of 'main', as if you had only started it afterwards.
 
-Er kunnen ook merge conflicten zijn. Die krijg je dan voor elke commit na de eerste commit waarin het conflict ontstond. Na het oplossen van een conflict doe je `git rebase --continue`. Als het toch niet lukt draai je alles terug met `git rebase --abort`.
+There may also be merge conflicts. You will then receive this for every commit after the first commit in which the conflict arose. After resolving a conflict, do `git rebase --continue`. If it doesn't work, roll back everything with `git rebase --abort`.
 
-Als deze branch al bestaat op de remote moet je de rebase ‘force-pushen’, dat wil zeggen dat je de remote branch overschrijft met je lokale. Dat kan via `git push origin --force-with-lease`.
+If this branch already exists on the remote, you need to force-push the rebase, which means you overwrite the remote branch with your local one. This can be done via `git push origin --force-with-lease`.
 
-Als anderen deze branch lokaal hebben moet je eerst met ze overleggen, want zij kunnen eventueel werk verliezen als je dit doet en zij de remote branch willen pullen.
+If others have this branch locally, you should first consult with them, because they may lose work if you do this and they want to pull the remote branch.
 
 ### Merge
 
-Een alternatief is om `main` in je branch te mergen: `git merge main`.
+An alternative is to merge `main` into your branch: `git merge main`.
 
-Dat zet alle wijzigingen op `main` sinds de commit waarop je `branch` aftakt in één commit in je branch. Ook dit kan natuurlijk merge conflicten geven. Deze kunnen complexer zijn dan bij een rebase, maar je hoeft ze wel maar één keer op te lossen.
+That puts all changes to `main` since the commit where you branched `branch` into one commit in your branch. This can of course also cause merge conflicts. These can be more complex than with a rebase, but you only have to solve them once.
 
 ### Check `main`
 
-Zowel bij mergen als rebasen is het aan te raden eerst zeker te stellen dat je lokale `main` branch actueel is: `git checkout main && git pull && git checkout -`. Anders ben je alsnog niet klaar.
+Both when merging and rebasing, it is advisable to first ensure that your local `main` branch is up to date: `git checkout main && git pull && git checkout -`. Otherwise you won't be ready yet.
 
-### Afweging
+### Consideration
 
-Zo komt mergen wat eenvoudiger over dan rebasen. Ook laat je de geschiedenis meer intact.
+This makes merging seem a bit simpler than rebasing. You also leave history more intact.
 
-Na rebasen is de historie in Git gemakkelijker te bevatten vanwege de meer lineaire vorm. Bij veel mergen gaat je historie eruit zien als een rangeerterrein met verbindingen stroomopwaarts én stroomafwaarts.
+After rebasing, the history in Git is easier to understand because of its more linear form. With a lot of merging, your history will look like a shunting yard with connections upstream and downstream.
 
-Mergen geeft je ook meer merge commits, die per definitie geen code bevatten die niet ook al in een andere commit zit en dus weinig waarde toevoegen.
+Merging also gives you more merge commits, which by definition do not contain code that is not already in another commit and therefore add little value.
 
-Geen van beide aanpakken is verplicht of verboden. Wel is het goed om met collega’s die binnen dezelfde repository werken te blijven evalueren.
+Neither approach is mandatory or prohibited. It is good to continue evaluating with colleagues who work within the same repository.
 
 ## Git CLI shortcuts
 
-Voor gebruikers van git via de CLI kan het handig zijn om voor sommige veelgebruikte git commando’s aliassen te maken. Die kun je opslaan in een configuratiebestand van je shell. Bijvoorbeeld:
+For users of git via the CLI, it may be useful to create aliases for some commonly used git commands. You can save this in a configuration file of your shell. For example:
 
 ```bash
 alias gcm="git checkout main"
@@ -145,4 +145,4 @@ alias grm="git rebase main"
 alias gs="git status"
 ```
 
-Zo’n lijst hoef je niet per se zelf op te bouwen: je kunt bijvoorbeeld ook [deze plugin op OhMyZsh](https://github.com/ohmyzsh/ohmyzsh/tree/master/plugins/git) adopteren.
+You don't necessarily have to build such a list yourself: you can, for example, also adopt [this plugin on OhMyZsh](https://github.com/ohmyzsh/ohmyzsh/tree/master/plugins/git).
