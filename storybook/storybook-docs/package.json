@@ -52,6 +52,6 @@
     "vite": "4.4.9"
   },
   "dependencies": {
-    "remark-gfm": "3.0.1"
+    "remark-gfm": "4.0.0"
   }
 }
