@@ -108,7 +108,7 @@ If this branch already exists on the remote, you must force-push the rebase, ove
 
 ### Merge
 
-An alternative is to merge the main branch into yours: `git merge main`.
+An alternative is to merge the main branch into yours: `git pull origin main`. This will also ensure the local main branch is current.
 
 That adds one commit to your branch, containing all changes since the first divergence of your branches with the main one. If merge conflicts arise, they can be more complex than with a rebase, but each can be resolved at once.
 
