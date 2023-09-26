@@ -28,7 +28,7 @@ As an author, you can start a discussion about a piece of code by commenting on 
 
 ### Check the tests
 
-When saving the PR, GitHub will statically analyse the code for linting errors or failing tests. Check back after a few minutes to verify there have been no errors – otherwise, the PR cannot merge, which will block the first reviewer. Alternatively, run the tests locally: `npm run lint && npm run test`.
+When saving the PR, GitHub will statically analyse the code for linting errors or failing tests. Check back after a few minutes to verify there have been no errors – otherwise, the PR cannot merge, which will block the first reviewer. Alternatively, run linting and tests locally: `npm run lint` and `npm run test`.
 
 ### Consider the PR an intermediate step
 
