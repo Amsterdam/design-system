@@ -6,7 +6,7 @@ You open a pull request, explaining your approach and choices. Peers invest time
 
 ## Write a pull request
 
-If you believe that the code in your branch meets the applicable acceptance criteria and the definition of done, you create a pull request (PR). If you have just pushed, a handy link will appear on Azure’s ‘Pull requests’ page to create one immediately. Otherwise, you configure the new PR yourself.
+If you believe that the code in your branch meets the applicable acceptance criteria and the definition of done, you create a pull request (PR). If you have just pushed, a handy link will appear in the repo on github.com to create one immediately. Otherwise, you configure the new PR yourself.
 
 ### Set a title
 
