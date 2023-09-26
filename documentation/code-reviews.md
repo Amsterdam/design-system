@@ -20,7 +20,7 @@ If there are particular circumstances, original ways of tackling something, or t
 
 ### Add reviewers
 
-Make sure that the right people are designated as reviewers. We want each PR to be approved by at least one of the maintainers.
+Make sure that you designate the right people as reviewers. We want each PR to be approved by at least one of the maintainers.
 
 ### Add initial comments
 
@@ -58,7 +58,7 @@ Use GitHub’s suggestion feature to propose specific changes to code. Though yo
 
 ### Resolve comments
 
-The author of the pull request is the one to resolve all comments.
+The author of a comment is the one to resolve it. This ensures the reviewer can perform a final check of the implemented changes, and the reviewer will see all merged code at least once.
 
 ### Approve the PR
 
