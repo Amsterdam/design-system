@@ -10,7 +10,7 @@ If you believe that the code in your branch meets the applicable acceptance crit
 
 ### Set a title
 
-Write an English title, avoiding jargon. This phrase has a broad audience as we use PR titles to compile release notes.
+Write an English title, avoiding jargon. This phrase should be easy to understand, as we use PR titles to compile release notes.
 
 ### Describe your approach
 
