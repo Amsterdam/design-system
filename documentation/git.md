@@ -94,7 +94,7 @@ More explanation, for example, [here at SourceTree](https://www.atlassian.com/bl
 
 Before making a pull request, ensure your branch is as close to the main one as possible to avoid unnecessary merge conflicts.
 
-First, ensure that your local main branch is current: `git checkout main && git pull && git checkout -`.
+First, ensure that your local main branch is current, e.g. through `git fetch origin main:main` ([source](https://stackoverflow.com/a/17722977/2169092)).
 
 ### Rebase
 
