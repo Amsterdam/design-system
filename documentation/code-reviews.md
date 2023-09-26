@@ -62,6 +62,4 @@ The author of a comment is the one to resolve it. This ensures the reviewer can 
 
 ### Approve the PR
 
-If you have no feedback or only comments for which you expect that further exchange is not necessary, you approve the PR (‘Approve’).
-
-A PR will only merge if automatic tests reveal no errors, all comments have been resolved, and enough reviewers have approved the PR. Make sure there is no unnecessary waiting.
+One of the maintainers approves the pull request if it meets the requirements. Static analysis must not reveal errors, all comments have been resolved, and enough reviewers have approved. Make sure there is no unnecessary waiting.
