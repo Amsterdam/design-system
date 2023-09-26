@@ -57,7 +57,7 @@ Conclude the group label with a forward slash ‘/’. Git applications use that
 
 Add the id of the appropriate sub-task to help locate specifications and discussions related to the work done in the branch.
 
-From here on, an underscore ‘-’ is the separator.
+From here on, a hyphen-minus ‘-’ is the separator.
 
 ### Describe the work to be done
 
