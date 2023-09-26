@@ -20,7 +20,7 @@ If there are particular circumstances, original ways of tackling something, or t
 
 ### Add reviewers
 
-Make sure that the right people are designated as reviewers, or better yet, set Azure to do this automatically for you. We want each PR to be approved by at least one of the maintainers.
+Make sure that the right people are designated as reviewers. We want each PR to be approved by at least one of the maintainers.
 
 ### Add initial comments
 
