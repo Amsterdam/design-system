@@ -59,9 +59,9 @@ Add the id of the appropriate sub-task to help locate specifications and discuss
 
 From here on, an underscore ‘-’ is the separator.
 
-### Express the work to be done
+### Describe the work to be done
 
-Represent the contents of the branch in a few English words. Derive these from the name of the product backlog item (PBI) to which the sub-task belongs, or in the case of larger PBIs, from the sub-task itself.
+Describe the contents of the branch in a few English words. Derive these from the name of the product backlog item (PBI) to which the sub-task belongs, or in the case of larger PBIs, from the sub-task itself.
 
 ### Examples
 
