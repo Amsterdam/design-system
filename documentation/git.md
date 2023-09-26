@@ -67,10 +67,10 @@ Describe the contents of the branch in a few English words. Derive these from th
 
 All together, good branch names look like this:
 
-- `feature/68178-introduce-checkbox`
-- `bug/70447-correct-button-outline`
-- `refactor/70368-use-singular-for-enums`
-- `task/82104-add-initial-git-guidelines`
+- `feature/DES-178-introduce-checkbox`
+- `bug/DES-447-correct-button-outline`
+- `refactor/DES-368-use-singular-for-enums`
+- `task/DES-104-add-initial-git-guidelines`
 
 ## Describe each commit
 
