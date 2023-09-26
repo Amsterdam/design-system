@@ -104,9 +104,7 @@ It applies every commit from your branch on top of the main branch. If successfu
 
 There may be merge conflicts. As rebasing handles commits individually, one merge conflict may need to be resolved multiple times. After resolving a conflict, do `git rebase --continue`. If you get stuck, roll back everything with `git rebase --abort`.
 
-If this branch already exists on the remote, you must force-push the rebase, overwriting the remote branch with your local one. This can be done via `git push origin --force-with-lease`.
-
-If others have this branch locally, you should first consult with them, as they may lose work if they pull the remote branch after you’ve changed it.
+If this branch already exists on the remote, you must force-push the rebase, overwriting the remote branch with your local one. This can be done safely via `git push origin --force-with-lease`. The option prevents you from unintentionally overwriting someone else’s work. If others have pushed to the branch, contact them.
 
 ### Merge
 
