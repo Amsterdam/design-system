@@ -8,18 +8,18 @@
   position: relative;
 }
 
-.amsterdam-aspect-ratio-1-1 {
-  aspect-ratio: 1 / 1;
+.amsterdam-aspect-ratio-tall {
+  aspect-ratio: var(--amsterdam-aspect-ratio-tall);
 }
 
-.amsterdam-aspect-ratio-4-5 {
-  aspect-ratio: 4 / 5;
+.amsterdam-aspect-ratio-square {
+  aspect-ratio: var(--amsterdam-aspect-ratio-square);
 }
 
-.amsterdam-aspect-ratio-5-4 {
-  aspect-ratio: 5/4;
+.amsterdam-aspect-ratio-wide {
+  aspect-ratio: var(--amsterdam-aspect-ratio-wide);
 }
 
-.amsterdam-aspect-ratio-16-9 {
-  aspect-ratio: 16/9;
+.amsterdam-aspect-ratio-extra-wide {
+  aspect-ratio: var(--amsterdam-aspect-ratio-extra-wide);
 }

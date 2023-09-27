@@ -10,12 +10,12 @@ const meta = {
   title: 'Layout/Aspect ratio',
   component: AspectRatio,
   args: {
-    ratio: '1:1',
+    ratio: 'square',
   },
   argTypes: {
     ratio: {
       control: 'radio',
-      options: ['1:1', '4:5', '5:4', '16:9'],
+      options: ['tall', 'square', 'wide', 'extra-wide'],
     },
   },
   parameters: {
@@ -43,22 +43,22 @@ const textStyle = {
 
 function getStoryConfig(ratio: string) {
   switch (ratio) {
-    case '4:5':
+    case 'tall':
       return {
         image: 'https://picsum.photos/800/1000',
         maxWidth: '400px',
         text: 'Mijn breedte is viervijfde van mijn lengte, ik heb een 4-op-5 verhouding',
       }
-    case '5:4':
+    case 'wide':
       return {
         image: 'https://picsum.photos/1000/800',
-        maxWidth: '600px',
+        maxWidth: '625px',
         text: 'Mijn breedte is vijfvierde van mijn lengte, ik heb een 5-op-4 verhouding',
       }
-    case '16:9':
+    case 'extra-wide':
       return {
-        image: 'https://picsum.photos/800/450',
-        maxWidth: '1000px',
+        image: 'https://picsum.photos/1600/900',
+        maxWidth: '888px',
         text: 'Mijn breedte is zestiennegende van mijn lengte, ik heb een 16-op-9 verhouding',
       }
     default:
@@ -99,30 +99,30 @@ export const Default: Story = {
   },
 }
 
-export const OneToOne: Story = {
+export const Tall: Story = {
   ...StoryTemplate,
   args: {
-    ratio: '1:1',
+    ratio: 'tall',
   },
 }
 
-export const FourToFive: Story = {
+export const Square: Story = {
   ...StoryTemplate,
   args: {
-    ratio: '4:5',
+    ratio: 'square',
   },
 }
 
-export const FiveToFour: Story = {
+export const Wide: Story = {
   ...StoryTemplate,
   args: {
-    ratio: '5:4',
+    ratio: 'wide',
   },
 }
 
-export const SixteenToNine: Story = {
+export const ExtraWide: Story = {
   ...StoryTemplate,
   args: {
-    ratio: '16:9',
+    ratio: 'extra-wide',
   },
 }
