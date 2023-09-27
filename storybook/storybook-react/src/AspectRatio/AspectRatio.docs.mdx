@@ -1,4 +1,4 @@
-import { Controls, Markdown, Meta, Primary } from "@storybook/blocks";
+import { Canvas, Controls, Markdown, Meta, Primary } from "@storybook/blocks";
 import * as AspectRatioStories from "./AspectRatio.stories.tsx";
 import README from "../../../../packages/css/src/aspect-ratio/README.md?raw";
 
@@ -9,3 +9,19 @@ import README from "../../../../packages/css/src/aspect-ratio/README.md?raw";
 <Primary />
 
 <Controls />
+
+## 1-op-1
+
+<Canvas of={AspectRatioStories.OneToOne} />
+
+## 4-op-5
+
+<Canvas of={AspectRatioStories.FourToFive} />
+
+## 5-op-4
+
+<Canvas of={AspectRatioStories.FiveToFour} />
+
+## 16-op-9
+
+<Canvas of={AspectRatioStories.SixteenToNine} />
