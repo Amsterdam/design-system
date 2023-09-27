@@ -1,36 +1,82 @@
 <!-- @license CC0-1.0 -->
 
-# NL Design System introductie
+# Amsterdam Design System
 
-De Digitale Overheid stelt dat overheidsdienstverlening toegankelijk en begrijpelijk moet zijn voor iedereen. Hiervoor zijn consistent ontworpen diensten en websites nodig.
-Daarom gaan we tussen overheidsorganisaties principes, interactiepatronen en code delen via een gezamenlijk design system. Dit NL Design System draagt niet alleen bij aan gebruiksvriendelijkere diensten van een betere kwaliteit en toegankelijkheid. Het helpt ook dubbel werk te voorkomen.
+## Wat is het
 
-> ⚠️ **LET OP**
->
-> Het NL Design System bevindt zich momenteel nog in de pilotfase.
-> Hierdoor is het nu nog niet volwassen genoeg om volledig gebruikt te worden.
-> Houdt hier dus rekening mee voor je aan de slag gaat.
-> We zouden het op prijs stellen als je wilt bijdragen om het NLDS tot een succes te maken.
-> Dit kan in onze gitlab of met een mailtje aan: <NLDesignSystem@gebruikercentraal.nl>
+Het Amsterdam Design System is dé bibliotheek voor de gebruikersinterface (UI) van onze digitale producten en diensten. Het biedt herbruikbare componenten, patronen en gidsen voor teams die werken aan websites en applicaties. Zo werkt iedereen sneller en beter samen, met meer tijd om waarde te creëren. Voor de Amsterdammer zien al onze kanalen er hetzelfde uit, werken ze vergelijkbaar, zijn ze breed toegankelijk en roepen ze vertrouwen op. Voor onszelf wordt het gemakkelijker om alle software die we maken, inkopen en gebruiken in lijn te houden met onze huisstijl.
 
-## Wat is een Design System
+## Hoe werkt het
 
-Een Design System, oftewel een ontwerpsysteem, is een verzameling afspraken tussen ontwerpers en ontwikkelaars voor het maken van digitale producten, zoals websites en apps. Het doel van deze afspraken is om de producten consistent en de gebruikerservaring zo prettig mogelijk te maken. Een Design System ‘leeft’: dankzij nieuwe inzichten en feedback van gebruikers worden de afspraken continu verbeterd.
+De meest concrete producten van het Amsterdam Design System zijn de herbruikbare user interface componenten zoals knoppen, tekstcomponenten, menu’s, formuliervelden, enzovoort. In die componenten is de huisstijl van de stad al opgenomen: kleur, typografie en maatvoering. Ze passen zich ‘responsive’ aan naar verschillende schermen en apparaten en zijn toegankelijk voor iedereen.
 
-## Hoe werkt een Design System
+Die componenten maken we beschikbaar in diverse bibliotheken zodat ontwerpers en ontwikkelaars ze kunnen gebruiken in hun werk:
 
-De afspraken in het Design System worden gemaakt aan de hand van bewezen oplossingen. Ze vormen een solide basis voor de ontwerpers en ontwikkelaars: doordat zij het wiel niet steeds opnieuw hoeven uit te vinden, kunnen ze snel en effectief nieuwe digitale producten bouwen. Als je als organisatie met een Design System werkt, bouw je voort op elkaars ervaringen en houd je meer tijd over voor unieke, eenmalige uitdagingen. Wel is er een betrokken, actieve community nodig om het Design System actueel en praktisch toepasbaar te houden.
+### Figma
 
-## Waarom een NL Design System
+[Hier vind je onze Figma Library](https://www.figma.com/file/9IGm6IdPUYizBNGsUnueBd/Amsterdam-Design-System?type=design&node-id=2927%3A29177&mode=design&t=6KlrHnKkHU2uZ9s9-1) (maak eventueel een account aan op je @amsterdam.nl adres). Diverse componenten en tekststijlen zijn nu al bruikbaar in je eigen ontwerpen. Een aantal andere zijn in de laatste fase van review. Raadpleeg de legenda op het voorblad.
 
-In een Design System staan principes, handvatten, elementen, patronen en richtlijnen beschreven. Allemaal basisonderdelen waarover je goed afspraken kunt maken. Juist overheidsorganisaties hebben baat bij één duidelijke set herbruikbare basisonderdelen. Vooral voor levensgebeurtenissen, waarbij vaak contact nodig is met meerdere instanties en organisaties.
+### React
+
+Op deze website vind je de React Library en documentatie – gebruik de inhoudsopgave links (op brede schermen) of onder de tab ‘Sidebar’ (op smalle). Deze componenten zijn [via npm](https://www.npmjs.com/search?q=%40amsterdam%2Fdesign-system) live te installeren en toe te passen in je applicatie.
+
+### React Native
+
+Bij het ontwikkelen van de Amsterdam App zijn al veel UI-componenten gebouwd volgens de vernieuwde huisstijl. Ze staan nog [in die repository](https://github.com/Amsterdam/amsterdam-app-frontend), maar worden op termijn overgeheveld naar die van het design system zodat ze ook door andere apps gebruikt kunnen worden.
+
+### CSS
+
+Ook zonder React zijn de componenten gebruiken, namelijk door de juiste class names toe te passen. Als je deze aanpak wil volgen horen we het graag.
+
+### Salesforce
+
+Voor het nieuwe amsterdam.nl voorzien we een bibliotheek van Lightning Web Components in de juiste vormgeving, zodat ze gebruikt kunnen worden in Salesforce CMS.
+
+### Mendix
+
+Ook applicaties die in dit low-code platform worden opgetuigd helpen we op de huisstijl te laten aansluiten.
+
+## We bouwen op NL Design System
+
+Amsterdam Design System gebruikt de architectuur van [NL Design System](https://nldesignsystem.nl/).
 
 Dankzij het NL Design System kan de hele overheid in Nederland samenwerken aan een begrijpelijke, gebruiksvriendelijke én toegankelijke online dienstverlening. Een dienstverlening die logisch en samenhangend is, maar niet per se uniform, want binnen de afspraken blijft er ruimte voor de eigen identiteit van overheidsorganisaties.
 
-## Voor (en door) iedereen
+De keuze om hierop aan te sluiten vergemakkelijkt ook het aanbieden van verschillende libraries.
 
-Het is belangrijk dat iedereen de online dienstverlening van de overheid kan gebruiken, ongeacht wie je bent en wat je situatie is. Dit heet inclusie: iedereen moet kunnen meedoen. Daarom testen we de afspraken in het Design System met een heel diverse gebruikersgroep, waaronder mensen met beperkingen. Zo nemen de kwaliteit, bruikbaarheid en toegankelijkheid toe en kunnen we iedereen in Nederland met onze digitale producten steeds beter van dienst zijn.
+## Neem contact op
 
-De POC is te vinden op:
+### Sluit aan in Teams
 
-<http://github.com/nl-design-system>
+Werk je bij de Gemeente Amsterdam, [meld je nu aan voor het Design System team](https://teams.microsoft.com/l/team/19%3afYKS_RD2n1q4UhguA9jwEJk0A_VjYPO4TiLQjYlG_bo1%40thread.tacv2/conversations?groupId=381b5f11-b342-4a3a-8a78-8b371a90457d&tenantId=72fca1b1-2c2e-4376-a445-294d80196804) van MS Teams. Zo blijf je gemakkelijk op de hoogte en kunnen we contact houden. Zijdelings meelezen in de kanalen kan je al helpen, meer meedoen mag natuurlijk ook.
+
+### Bekijk de demo
+
+Voor een overzicht van wat er nieuw is ben je van harte welkom op onze vier-wekelijkse demo op dinsdag om 11:00. Ook kun je hier natuurlijk vragen stellen en feedback geven. De uitnodiging vind je in het kanaal ‘Sprint review’ in MS Teams. De sessies worden opgenomen om later (nog eens) te bekijken.
+
+### Draag bij via Git
+
+[De code repository staat op GitHub](http://github.com/Amsterdam/design-system/pulls) en is open source. Je pull requests en issues zijn welkom.
+
+### Stuur een bericht
+
+Wil je weten hoe het design system je kan helpen? Vragen over onze werkwijze of suggesties voor de roadmap? Laat het weten, we denken graag met je mee.
+
+Per e-mail neem je contact op via <designsystem@amsterdam.nl>.
+
+Het huidige team:
+Aram Limpens,
+Bettina Slee,
+Hee Chan van der Haar,
+Inge de Bondt (lead),
+Niels Roozemond,
+Rick Zweers
+en
+Vincent Smedinga (lead).
+
+Eerder droegen bij:
+Laurens van den Akker,
+Renate Schwarzler,
+Soesanto Arp
+en
+Tanja van der Heide.
