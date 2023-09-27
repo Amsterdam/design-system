@@ -62,4 +62,4 @@ The author of a comment is the one to resolve it. This ensures the reviewer can 
 
 ### Approve the PR
 
-One of the maintainers approves the pull request if it meets the requirements. Static analysis must not reveal errors, all comments have been resolved, and enough reviewers have approved. Make sure there is no unnecessary waiting.
+One of the maintainers approves the pull request if it meets the requirements, and merges the branch. Static analysis must not reveal errors, all comments have been resolved, and enough reviewers have approved. Make sure there is no unnecessary waiting.
