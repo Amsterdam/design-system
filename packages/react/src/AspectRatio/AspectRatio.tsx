@@ -6,13 +6,19 @@
 import clsx from 'clsx'
 import { ForwardedRef, forwardRef, HTMLAttributes, PropsWithChildren } from 'react'
 
-export interface AspectRatioProps extends PropsWithChildren<HTMLAttributes<HTMLElement>> {}
+export interface AspectRatioProps extends PropsWithChildren<HTMLAttributes<HTMLDivElement>> {
+  ratio: '1:1' | '4:5' | '5:4' | '16:9'
+}
 
 export const AspectRatio = forwardRef(
-  ({ children, className, ...restProps }: AspectRatioProps, ref: ForwardedRef<HTMLElement>) => (
-    <span {...restProps} ref={ref} className={clsx('amsterdam-aspect-ratio', className)}>
+  ({ children, className, ratio = '1:1', ...restProps }: AspectRatioProps, ref: ForwardedRef<HTMLDivElement>) => (
+    <div
+      {...restProps}
+      ref={ref}
+      className={clsx('amsterdam-aspect-ratio', `amsterdam-aspect-ratio-${ratio.replace(':', '-')}`, className)}
+    >
       {children}
-    </span>
+    </div>
   ),
 )
 

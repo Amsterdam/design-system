@@ -4,5 +4,50 @@
  */
 
 .amsterdam-aspect-ratio {
-  /* Add styles here */
+  overflow: hidden;
+  position: relative;
+}
+
+.amsterdam-aspect-ratio-1-1 {
+  aspect-ratio: 1/1;
+
+  /* fallback for older browsers that do not support aspect-ratio */
+  @supports not (aspect-ratio) {
+    height: 0;
+    /* stylelint-disable-next-line property-disallowed-list */
+    padding-top: 100%;
+  }
+}
+
+.amsterdam-aspect-ratio-4-5 {
+  aspect-ratio: 4/5;
+
+  /* fallback for older browsers that do not support aspect-ratio */
+  @supports not (aspect-ratio) {
+    height: 0;
+    /* stylelint-disable-next-line property-disallowed-list */
+    padding-top: calc(100% / (4 / 5));
+  }
+}
+
+.amsterdam-aspect-ratio-5-4 {
+  aspect-ratio: 5/4;
+
+  /* fallback for older browsers that do not support aspect-ratio */
+  @supports not (aspect-ratio) {
+    height: 0;
+    /* stylelint-disable-next-line property-disallowed-list */
+    padding-top: calc(100% / (5 / 4));
+  }
+}
+
+.amsterdam-aspect-ratio-16-9 {
+  aspect-ratio: 16/9;
+
+  /* fallback for older browsers that do not support aspect-ratio */
+  @supports not (aspect-ratio) {
+    height: 0;
+    /* stylelint-disable-next-line property-disallowed-list */
+    padding-top: calc(100% / (16 / 9));
+  }
 }
