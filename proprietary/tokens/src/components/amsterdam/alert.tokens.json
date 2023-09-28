@@ -41,6 +41,13 @@
       "success": {
         "background-color": { "value": "{amsterdam.color.primary-white}" },
         "border-color": { "value": "{amsterdam.color.dark-green}" }
+      },
+      "close": {
+        "background-color": { "value": "transparent" },
+        "fill": { "value": "{amsterdam.color.primary-black}" },
+        "hover": {
+          "fill": { "value": "{amsterdam.color.primary-blue}" }
+        }
       }
     }
   }
