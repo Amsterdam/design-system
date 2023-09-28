@@ -34,11 +34,11 @@ describe('Aspect ratio', () => {
     const { container: wide } = render(<AspectRatio ratio="wide" />)
     const { container: extraWide } = render(<AspectRatio ratio="extra-wide" />)
 
-    expect(extraTall.firstChild).toHaveClass('amsterdam-aspect-ratio-extra-tall')
-    expect(tall.firstChild).toHaveClass('amsterdam-aspect-ratio-tall')
-    expect(square.firstChild).toHaveClass('amsterdam-aspect-ratio-square')
-    expect(wide.firstChild).toHaveClass('amsterdam-aspect-ratio-wide')
-    expect(extraWide.firstChild).toHaveClass('amsterdam-aspect-ratio-extra-wide')
+    expect(extraTall.firstChild).toHaveClass('amsterdam-aspect-ratio--extra-tall')
+    expect(tall.firstChild).toHaveClass('amsterdam-aspect-ratio--tall')
+    expect(square.firstChild).toHaveClass('amsterdam-aspect-ratio--square')
+    expect(wide.firstChild).toHaveClass('amsterdam-aspect-ratio--wide')
+    expect(extraWide.firstChild).toHaveClass('amsterdam-aspect-ratio--extra-wide')
   })
 
   it('can have a additional class name', () => {
