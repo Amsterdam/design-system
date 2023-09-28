@@ -3,8 +3,8 @@
  * Copyright (c) 2023 Gemeente Amsterdam
  */
 
-/*
-  The breakpoint is 854px / 16 = 53.375rems
-  https://developer.mozilla.org/en-US/docs/Web/CSS/@media#accessibility_concerns
+/**
+ * The breakpoint for typography is 854px = 53.375rems.
+ * @deprecated To be replaced ith the grid breakpoints.
 */
-$amsterdam-breakpoint: 53.375rem;
+$amsterdam-breakpoint-typography: 53.375rem;

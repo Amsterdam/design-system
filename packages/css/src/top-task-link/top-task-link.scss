@@ -26,7 +26,7 @@
   font-weight: var(--amsterdam-top-task-link-label-font-weight);
   line-height: var(--amsterdam-top-task-link-label-line-height);
 
-  @media screen and (width > $amsterdam-breakpoint) {
+  @media screen and (width > $amsterdam-breakpoint-typography) {
     font-size: var(--amsterdam-top-task-link-label-wide-font-size);
   }
 
@@ -47,7 +47,7 @@
   font-weight: var(--amsterdam-top-task-link-description-font-weight);
   line-height: var(--amsterdam-top-task-link-description-line-height);
 
-  @media screen and (width > $amsterdam-breakpoint) {
+  @media screen and (width > $amsterdam-breakpoint-typography) {
     font-size: var(--amsterdam-top-task-link-description-wide-font-size);
   }
 

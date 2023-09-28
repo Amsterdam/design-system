@@ -11,7 +11,7 @@
   padding-inline: 2rem; /* TODO: For now I've set a padding here, this should eventually be handled by PageGrid */
 }
 
-@media screen and (width > $amsterdam-breakpoint) {
+@media screen and (width > $amsterdam-breakpoint-typography) {
   .amsterdam-footer__top {
     grid-template-columns: repeat(var(--amsterdam-page-grid-column-count-wide), 1fr);
   }
