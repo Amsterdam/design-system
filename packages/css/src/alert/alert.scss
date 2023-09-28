@@ -56,3 +56,10 @@
   background-color: var(--amsterdam-alert-success-background-color);
   border-color: var(--amsterdam-alert-success-border-color);
 }
+
+.amsterdam-alert__close {
+  background-color: transparent;
+  border: 0;
+  padding-block: 0;
+  padding-inline: 0;
+}

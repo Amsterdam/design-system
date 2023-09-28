@@ -69,23 +69,6 @@ export const ErrorWithChildren: Story = {
       </UnorderedList>
     </Alert>
   ),
-  argTypes: {
-    icon: {
-      control: {
-        disable: true,
-      },
-    },
-    closeable: {
-      control: {
-        disable: true,
-      },
-    },
-    type: {
-      control: {
-        disable: true,
-      },
-    },
-  },
 }
 
 export const Success: Story = {
