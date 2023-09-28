@@ -1,10 +1,10 @@
 {
   "amsterdam": {
     "aspect-ratio": {
-      "tall": { "value": "{amsterdam.aspect-ratio.tall}" },
-      "square": { "value": "{amsterdam.aspect-ratio.square}" },
-      "wide": { "value": "{amsterdam.aspect-ratio.wide}" },
-      "extra-wide": { "value": "{amsterdam.aspect-ratio.extra-wide}" }
+      "tall": { "value": "{amsterdam.proportion.tall}" },
+      "square": { "value": "{amsterdam.proportion.square}" },
+      "wide": { "value": "{amsterdam.proportion.wide}" },
+      "extra-wide": { "value": "{amsterdam.proportion.extra-wide}" }
     }
   }
 }
