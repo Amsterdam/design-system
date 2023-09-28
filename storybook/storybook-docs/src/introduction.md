@@ -8,7 +8,7 @@ Het Amsterdam Design System is dé bibliotheek voor de gebruikersinterface (UI) 
 
 ## Hoe werkt het
 
-De meest concrete producten van het Amsterdam Design System zijn de herbruikbare user interface componenten zoals knoppen, tekstcomponenten, menu’s, formuliervelden, enzovoort. In die componenten is de huisstijl van de stad al opgenomen: kleur, typografie en maatvoering. Ze passen zich ‘responsive’ aan naar verschillende schermen en apparaten en zijn toegankelijk voor iedereen.
+De meest concrete producten van het Amsterdam Design System zijn de herbruikbare componenten voor gebruikersinterface, zoals knoppen, tekstcomponenten, menu’s, formuliervelden, enzovoort. In die componenten is de huisstijl van de stad al opgenomen: kleur, typografie en maatvoering. Ze passen zich _responsive_ aan naar verschillende schermen en apparaten en zijn toegankelijk voor iedereen.
 
 Die componenten maken we beschikbaar in diverse bibliotheken zodat ontwerpers en ontwikkelaars ze kunnen gebruiken in hun werk:
 
