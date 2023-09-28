@@ -15,7 +15,7 @@ const meta = {
   argTypes: {
     ratio: {
       control: 'radio',
-      options: ['tall', 'square', 'wide', 'extra-wide'],
+      options: ['extra-tall', 'tall', 'square', 'wide', 'extra-wide'],
     },
   },
   parameters: {
@@ -41,8 +41,14 @@ const textStyle = {
   transform: 'translate(-50%, -50%)',
 }
 
-function getStoryConfig(ratio: string) {
+function getStoryConfig(ratio: string | undefined) {
   switch (ratio) {
+    case 'extra-tall':
+      return {
+        image: 'https://picsum.photos/900/1600',
+        maxWidth: '300px',
+        text: 'Mijn breedte is negenzestiende van mijn lengte, ik heb een 9-op-16 verhouding',
+      }
     case 'tall':
       return {
         image: 'https://picsum.photos/800/1000',
@@ -96,6 +102,13 @@ export const Default: Story = {
         sourceState: 'shown',
       },
     },
+  },
+}
+
+export const ExtraTall: Story = {
+  ...StoryTemplate,
+  args: {
+    ratio: 'extra-tall',
   },
 }
 

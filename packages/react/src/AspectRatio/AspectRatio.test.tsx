@@ -16,7 +16,7 @@ describe('Aspect ratio', () => {
   it('renders children', () => {
     const { getByText } = render(<AspectRatio>Child</AspectRatio>)
 
-    expect(getByText(/child/i)).toBeInTheDocument()
+    expect(getByText(/Child/i)).toBeInTheDocument()
   })
 
   it('renders a design system BEM class name', () => {
@@ -28,11 +28,13 @@ describe('Aspect ratio', () => {
   })
 
   it('renders the right size classes', () => {
+    const { container: extraTall } = render(<AspectRatio ratio="extra-tall" />)
     const { container: tall } = render(<AspectRatio ratio="tall" />)
     const { container: square } = render(<AspectRatio ratio="square" />)
     const { container: wide } = render(<AspectRatio ratio="wide" />)
     const { container: extraWide } = render(<AspectRatio ratio="extra-wide" />)
 
+    expect(extraTall.firstChild).toHaveClass('amsterdam-aspect-ratio-extra-tall')
     expect(tall.firstChild).toHaveClass('amsterdam-aspect-ratio-tall')
     expect(square.firstChild).toHaveClass('amsterdam-aspect-ratio-square')
     expect(wide.firstChild).toHaveClass('amsterdam-aspect-ratio-wide')
