@@ -52,6 +52,7 @@ export const ThreeColumns: Story = {
         </div>
       </GridCell>,
     ],
+    title: 'Drie kolommen',
   },
 }
 
@@ -74,6 +75,7 @@ export const ThreeImages: Story = {
         </figure>
       </GridCell>,
     ],
+    title: 'Drie afbeeldingen',
   },
 }
 
@@ -86,6 +88,7 @@ export const MiddleBlock: Story = {
         </div>
       </GridCell>
     ),
+    title: 'Een blok in het midden',
   },
 }
 
@@ -93,13 +96,14 @@ export const Paragraphs: Story = {
   args: {
     children: [
       <Paragraph key={1} gridColumns={{ start: 1, span: 3 }}>
-        A paragraph, directly on the grid, with a width of 3 columns.
+        Een paragraaf, direct op het grid, met een breedte van 3 kolommen.
       </Paragraph>,
       <Paragraph key={2} gridColumns={{ start: 4, span: 9 }}>
-        A paragraph, directly on the grid, with a width of 9 columns. Lorem ipsum dolor sit amet, consectetur
+        Een paragraaf, direct op het grid, met een breedte van 9 kolommen. Lorem ipsum dolor sit amet, consectetur
         adipisicing elit. Eligendi id quibusdam soluta. Architecto aspernatur at debitis, deserunt ea error ex impedit
         magnam nihil odio perferendis placeat porro quidem repellat temporibus ut voluptate.
       </Paragraph>,
     ],
+    title: 'Paragrafen rechtstreeks op het grid',
   },
 }

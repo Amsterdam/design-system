@@ -8,24 +8,32 @@ import README from "../../../../packages/css/src/grid/README.md?raw";
 
 <Primary />
 
+De roze vlakken vertegenwoordigen de kolommen van het grid. Zoom in of verander de breedte van het venster om de breedtes en het aantal kolommen te zien veranderen.
+
+Er is een `GridCell` component waarop kan worden ingesteld welke kolommen van het grid het element beslaat.
+
+De cellen worden automatisch op de eerstvolgende beschikbare ruimte in het grid geplaatst.
+
 <Controls />
 
-### Three columns
+### Drie kolommen
+
+Content kan in drie kolommen worden weergegeven door via `gridColumns={4}` elk element vier kolommen van het grid te laten beslaan.
 
 <Canvas of={PageGridStories.ThreeColumns} />
 
-### Three images
+### Drie afbeeldingen
 
 <Canvas of={PageGridStories.ThreeImages} />
 
-### A middle block
+### Een blok in het midden
 
-Spanning ten columns, numbers 2 up to 11.
+Dit blok beslaat de tien middelste kolommen, van nummer 2 tot en met 11. In dit geval moet dus expliciet worden aangegeven bij welk kolomnummer het element begint: `gridColumns={{ start: 2, span: 10 }}`.
 
 <Canvas of={PageGridStories.MiddleBlock} />
 
-### Without the grid cell component
+### Paragrafen rechtstreeks op het grid
 
-Paragraphs can be used directly on the grid, as they expose the grid cell props as well.
+Paragrafen accepteren ook de `gridColumns` property van het `GridCell` component en kunnen dus rechtstreeks op het grid worden geplaatst. Het is de bedoeling dit door te voeren voor alle componenten.
 
 <Canvas of={PageGridStories.Paragraphs} />
