@@ -15,7 +15,7 @@ export const AspectRatio = forwardRef(
     <div
       {...restProps}
       ref={ref}
-      className={clsx('amsterdam-aspect-ratio', `amsterdam-aspect-ratio--${ratio.replace(':', '-')}`, className)}
+      className={clsx('amsterdam-aspect-ratio', `amsterdam-aspect-ratio--${ratio}`, className)}
     >
       {children}
     </div>
