@@ -26,7 +26,7 @@ Bij het ontwikkelen van de Amsterdam App zijn al veel UI-componenten gebouwd vol
 
 ### CSS
 
-Ook zonder React zijn de componenten gebruiken, namelijk door de juiste class names toe te passen. Als je deze aanpak wil volgen horen we het graag.
+Ook zonder React zijn de componenten te gebruiken, namelijk door de juiste _classes_ toe te passen. Als je deze aanpak wil volgen horen we het graag.
 
 ### Salesforce
 
