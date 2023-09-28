@@ -56,7 +56,7 @@ Voor een overzicht van wat er nieuw is ben je van harte welkom op onze vier-weke
 
 ### Draag bij via Git
 
-[De code repository staat op GitHub](http://github.com/Amsterdam/design-system/pulls) en is open source. Je pull requests en issues zijn welkom.
+[De code repository staat op GitHub](http://github.com/Amsterdam/design-system) en is open source. Je pull requests en issues zijn welkom.
 
 ### Stuur een bericht
 
