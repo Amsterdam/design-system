@@ -13,7 +13,7 @@ export interface AlertProps extends PropsWithChildren<HTMLAttributes<HTMLDivElem
   type?: undefined | 'error' | 'success'
   closeable?: boolean
   icon?: boolean
-  onDismiss?: () => void
+  onClose?: () => void
 }
 
 interface AlertCloseProps extends HTMLAttributes<HTMLButtonElement> {
@@ -32,7 +32,7 @@ export const AlertClose = forwardRef(
 
 export const Alert = forwardRef(
   (
-    { children, className, title, type, closeable, icon, onDismiss, ...restProps }: AlertProps,
+    { children, className, title, type, closeable, icon, onClose, ...restProps }: AlertProps,
     ref: ForwardedRef<HTMLDivElement>,
   ) => {
     const alertIcon = (title?: boolean) => {
@@ -57,7 +57,7 @@ export const Alert = forwardRef(
           {title && <span className="amsterdam-alert__title">{title}</span>}
           <div className="amsterdam-alert__text">{children}</div>
         </div>
-        {closeable && <AlertClose size={title ? 'level-5' : 'level-6'} onClick={onDismiss} />}
+        {closeable && <AlertClose size={title ? 'level-5' : 'level-6'} onClick={onClose} />}
       </div>
     )
   },

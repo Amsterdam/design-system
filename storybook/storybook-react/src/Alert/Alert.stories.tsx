@@ -34,8 +34,8 @@ const meta = {
       },
       if: { arg: 'type', neq: undefined },
     },
-    onDismiss: {
-      action: 'onDismiss',
+    onClose: {
+      action: 'onClose',
     },
     children: {
       control: {

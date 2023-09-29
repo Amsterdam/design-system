@@ -100,15 +100,15 @@ describe('Alert', () => {
     expect(closeButton).toBeVisible()
   })
 
-  it('fires the onDismiss event when the close button is clicked', () => {
-    const onDismiss = jest.fn()
-    const { container } = render(<Alert closeable={true} onDismiss={onDismiss} />)
+  it('fires the onClose event when the close button is clicked', () => {
+    const onClose = jest.fn()
+    const { container } = render(<Alert closeable={true} onClose={onClose} />)
 
     const component = container.querySelector(':only-child')
     const closeButton = component?.querySelector('.amsterdam-alert__close')
 
     fireEvent.click(closeButton!)
 
-    expect(onDismiss).toHaveBeenCalled()
+    expect(onClose).toHaveBeenCalled()
   })
 })
