@@ -35,7 +35,7 @@ export const Default: Story = {
   ],
 }
 
-export const ExtendedCard: Story = {
+export const CardWithTagline: Story = {
   args: {
     children: [
       <Card.HeadingGroup key={1}>
