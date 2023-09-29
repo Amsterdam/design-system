@@ -31,7 +31,15 @@ const meta = {
     icon: {
       control: {
         type: 'boolean',
-        if: { arg: 'type', eq: ['error', 'success'] },
+      },
+      if: { arg: 'type', neq: undefined },
+    },
+    onDismiss: {
+      action: 'onDismiss',
+    },
+    children: {
+      control: {
+        disable: true,
       },
     },
   },

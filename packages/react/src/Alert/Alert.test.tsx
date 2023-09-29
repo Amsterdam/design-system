@@ -1,4 +1,4 @@
-import { render } from '@testing-library/react'
+import { fireEvent, render } from '@testing-library/react'
 import { createRef } from 'react'
 import { Alert } from './Alert'
 import '@testing-library/jest-dom'
@@ -98,5 +98,17 @@ describe('Alert', () => {
 
     expect(closeButton).toBeInTheDocument()
     expect(closeButton).toBeVisible()
+  })
+
+  it('fires the onDismiss event when the close button is clicked', () => {
+    const onDismiss = jest.fn()
+    const { container } = render(<Alert closeable={true} onDismiss={onDismiss} />)
+
+    const component = container.querySelector(':only-child')
+    const closeButton = component?.querySelector('.amsterdam-alert__close')
+
+    fireEvent.click(closeButton!)
+
+    expect(onDismiss).toHaveBeenCalled()
   })
 })
