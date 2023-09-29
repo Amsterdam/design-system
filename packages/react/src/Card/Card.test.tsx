@@ -14,30 +14,52 @@ describe('Card', () => {
   })
 
   it('renders a design system BEM class name', () => {
-    const { container } = render(<Card />)
+    const cardRender = render(<Card />)
+    const { container: cardHeadingGroupRender } = render(<Card.HeadingGroup />)
+    const cardLinkRender = render(<Card.Link href="/" />)
 
-    const component = container.querySelector(':only-child')
+    const card = cardRender.getByRole('article')
+    const cardHeadingGroup = cardHeadingGroupRender.querySelector(':only-child')
+    const cardLink = cardLinkRender.getByRole('link')
 
-    expect(component).toHaveClass('amsterdam-card')
+    expect(card).toHaveClass('amsterdam-card')
+    expect(cardHeadingGroup).toHaveClass('amsterdam-card__heading-group')
+    expect(cardLink).toHaveClass('amsterdam-card__link')
   })
 
   it('can have a additional class name', () => {
-    const { container } = render(<Card className="extra" />)
+    const cardRender = render(<Card className="extra" />)
+    const { container: cardHeadingGroupRender } = render(<Card.HeadingGroup className="extra" />)
+    const cardLinkRender = render(<Card.Link href="/" className="extra" />)
 
-    const component = container.querySelector(':only-child')
+    const card = cardRender.getByRole('article')
+    const cardHeadingGroup = cardHeadingGroupRender.querySelector(':only-child')
+    const cardLink = cardLinkRender.getByRole('link')
 
-    expect(component).toHaveClass('extra')
+    expect(card).toHaveClass('extra')
+    expect(cardHeadingGroup).toHaveClass('extra')
+    expect(cardLink).toHaveClass('extra')
 
-    expect(component).toHaveClass('amsterdam-card')
+    expect(card).toHaveClass('amsterdam-card')
+    expect(cardHeadingGroup).toHaveClass('amsterdam-card__heading-group')
+    expect(cardLink).toHaveClass('amsterdam-card__link')
   })
 
   it('supports ForwardRef in React', () => {
-    const ref = createRef<HTMLElement>()
+    const cardRef = createRef<HTMLElement>()
+    const cardHeadingGroupRef = createRef<HTMLElement>()
+    const cardLinkRef = createRef<HTMLAnchorElement>()
 
-    const { container } = render(<Card ref={ref} />)
+    const cardRender = render(<Card ref={cardRef} />)
+    const { container: cardHeadingGroupRender } = render(<Card.HeadingGroup ref={cardHeadingGroupRef} />)
+    const cardLinkRender = render(<Card.Link href="/" ref={cardLinkRef} />)
 
-    const component = container.querySelector(':only-child')
+    const card = cardRender.getByRole('article')
+    const cardHeadingGroup = cardHeadingGroupRender.querySelector(':only-child')
+    const cardLink = cardLinkRender.getByRole('link')
 
-    expect(ref.current).toBe(component)
+    expect(cardRef.current).toBe(card)
+    expect(cardHeadingGroupRef.current).toBe(cardHeadingGroup)
+    expect(cardLinkRef.current).toBe(cardLink)
   })
 })
