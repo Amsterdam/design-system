@@ -1,8 +1,8 @@
 # Aspect Ratio
 
-Gebruik Aspect Ratio (in het Nederlands: beeldverhouding) om de breedte van een element te koppelen aan de hoogte. Hoe smaller het element, hoe minder hoog.
+Aspect Ratio (in het Nederlands: beeldverhouding) koppelt de hoogte van een element aan de breedte.
 
-Dit component staat een vaste set verhoudingen (breedte:hoogte) toe, zodat het element dat het bevat een consistent formaat heeft:
+Om de vormgeving consistent te houden gebruiken we een vaste set verhoudingen (breedte:hoogte):
 
 - `extra-tall`: 9:16
 - `tall`: 4:5
