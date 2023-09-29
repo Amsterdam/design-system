@@ -7,7 +7,7 @@ import { Card, Heading, Paragraph } from '@amsterdam/design-system-react'
 import { Meta, StoryObj } from '@storybook/react'
 
 const meta = {
-  title: 'Card',
+  title: 'Containers/Card',
   component: Card,
 } satisfies Meta<typeof Card>
 
