@@ -4,6 +4,7 @@
  */
 
 import { AspectRatio, Paragraph } from '@amsterdam/design-system-react'
+import type { Ratio } from '@amsterdam/design-system-react'
 import { Meta, StoryObj } from '@storybook/react'
 
 const meta = {
@@ -41,7 +42,7 @@ const textStyle = {
   transform: 'translate(-50%, -50%)',
 }
 
-function getStoryConfig(ratio: string | undefined) {
+function getStoryConfig(ratio: Ratio | undefined) {
   switch (ratio) {
     case 'extra-tall':
       return {
