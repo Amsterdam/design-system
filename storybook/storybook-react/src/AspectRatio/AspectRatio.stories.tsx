@@ -106,24 +106,10 @@ export const Default: Story = {
   },
 }
 
-export const ExtraTall: Story = {
+export const ExtraWide: Story = {
   ...StoryTemplate,
   args: {
-    ratio: 'extra-tall',
-  },
-}
-
-export const Tall: Story = {
-  ...StoryTemplate,
-  args: {
-    ratio: 'tall',
-  },
-}
-
-export const Square: Story = {
-  ...StoryTemplate,
-  args: {
-    ratio: 'square',
+    ratio: 'extra-wide',
   },
 }
 
@@ -134,9 +120,23 @@ export const Wide: Story = {
   },
 }
 
-export const ExtraWide: Story = {
+export const Square: Story = {
   ...StoryTemplate,
   args: {
-    ratio: 'extra-wide',
+    ratio: 'square',
+  },
+}
+
+export const Tall: Story = {
+  ...StoryTemplate,
+  args: {
+    ratio: 'tall',
+  },
+}
+
+export const ExtraTall: Story = {
+  ...StoryTemplate,
+  args: {
+    ratio: 'extra-tall',
   },
 }
