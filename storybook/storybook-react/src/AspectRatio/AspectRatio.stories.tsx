@@ -7,7 +7,7 @@ import { AspectRatio, Paragraph } from '@amsterdam/design-system-react'
 import { Meta, StoryObj } from '@storybook/react'
 
 const meta = {
-  title: 'Layout/Aspect ratio',
+  title: 'Layout/Aspect Ratio',
   component: AspectRatio,
   args: {
     ratio: 'square',

@@ -1,4 +1,4 @@
-# Aspect ratio
+# Aspect Ratio
 
 Gebruik Aspect Ratio (in het Nederlands: beeldverhouding) om de breedte van een element te koppelen aan de hoogte. Hoe smaller het element, hoe minder hoog.
 
