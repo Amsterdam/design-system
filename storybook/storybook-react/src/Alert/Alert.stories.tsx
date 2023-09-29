@@ -3,7 +3,7 @@
  * Copyright (c) 2023 Gemeente Amsterdam
  */
 
-import { Alert, UnorderedList } from '@amsterdam/design-system-react'
+import { Alert, Link, Paragraph, UnorderedList } from '@amsterdam/design-system-react'
 import { Meta, StoryObj } from '@storybook/react'
 
 const meta = {
@@ -11,7 +11,6 @@ const meta = {
   component: Alert,
   args: {
     title: 'Let op',
-    text: 'Tijdens Koningsdag zijn alle Stadsloketten gesloten, storingen op formulieren, enz.',
     closeable: false,
     icon: false,
   },
@@ -45,6 +44,21 @@ type Story = StoryObj<typeof meta>
 export const Default: Story = {
   args: {
     type: undefined,
+    children: (
+      <Paragraph>Tijdens Koningsdag zijn alle Stadsloketten gesloten, storingen op formulieren, enz.</Paragraph>
+    ),
+  },
+}
+
+export const InformationWithInlineLink: Story = {
+  args: {
+    type: undefined,
+    children: (
+      <Paragraph>
+        Tijdens Koningsdag zijn <Link variant="inline">alle Stadsloketten</Link> gesloten, storingen op formulieren,
+        enz.
+      </Paragraph>
+    ),
   },
 }
 
@@ -52,17 +66,21 @@ export const Error: Story = {
   args: {
     type: 'error',
     icon: true,
+    closeable: true,
+    children: <Paragraph>U bent verplichte velden vergeten in te vullen</Paragraph>,
   },
 }
 
-export const ErrorWithChildren: Story = {
-  render: () => (
-    <Alert
-      type="error"
-      icon={true}
-      title="Formulier kon niet opgeslagen worden"
-      text="U bent verplichte velden vergeten in te vullen"
-    >
+export const ErrorWithList: Story = {
+  args: {
+    closeable: true,
+    icon: true,
+    type: 'error',
+    title: 'Formulier kon niet opgeslagen worden',
+  },
+  render: (args) => (
+    <Alert {...args}>
+      <Paragraph>U bent verplichte velden vergeten in te vullen</Paragraph>
       <UnorderedList>
         <UnorderedList.Item>Naam</UnorderedList.Item>
         <UnorderedList.Item>Telefoonnummer</UnorderedList.Item>
@@ -74,8 +92,9 @@ export const ErrorWithChildren: Story = {
 export const Success: Story = {
   args: {
     title: 'Gelukt',
-    text: 'Uw formulier is succesvol opgeslagen',
     type: 'success',
+    closeable: true,
     icon: true,
+    children: <Paragraph>Uw formulier is succesvol opgeslagen</Paragraph>,
   },
 }

@@ -37,10 +37,13 @@
 }
 
 .amsterdam-alert__text {
+  display: flex;
+  flex-direction: column;
   font-family: var(--amsterdam-alert-text-font-family);
   font-size: var(--amsterdam-alert-text-narrow-font-size);
   font-weight: var(--amsterdam-alert-text-font-weight);
   line-height: var(--amsterdam-alert-text-line-height);
+  row-gap: var(--amsterdam-alert-text-row-gap);
 
   @media screen and (width > $amsterdam-breakpoint) {
     font-size: var(--amsterdam-alert-text-wide-font-size);
@@ -62,6 +65,7 @@
   background-color: var(--amsterdam-alert-close-background-color);
   border: 0;
   cursor: pointer;
+  padding-block: 0;
   padding-inline: 0;
 }
 

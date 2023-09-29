@@ -10,7 +10,6 @@ import { Icon } from '../Icon'
 
 export interface AlertProps extends PropsWithChildren<HTMLAttributes<HTMLDivElement>> {
   title?: string
-  text: string
   type?: undefined | 'error' | 'success'
   closeable?: boolean
   icon?: boolean
@@ -32,7 +31,7 @@ export const AlertClose = forwardRef(
 
 export const Alert = forwardRef(
   (
-    { children, className, title, text, type, closeable, icon, ...restProps }: AlertProps,
+    { children, className, title, type, closeable, icon, ...restProps }: AlertProps,
     ref: ForwardedRef<HTMLDivElement>,
   ) => {
     const alertIcon = (title?: boolean) => {
@@ -55,8 +54,7 @@ export const Alert = forwardRef(
         {alertIcon() && <div className="amsterdam-alert__icon">{alertIcon(!!title)}</div>}
         <div className="amsterdam-alert__content">
           {title && <span className="amsterdam-alert__title">{title}</span>}
-          <div className="amsterdam-alert__text">{text}</div>
-          {children}
+          <div className="amsterdam-alert__text">{children}</div>
         </div>
         {closeable && <AlertClose size={title ? 'level-5' : 'level-6'} />}
       </div>

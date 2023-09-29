@@ -10,6 +10,9 @@ Een alarm is een kort stukje tekst dat de aandacht van de gebruiker grijpt. Met 
 - Rood: fout
 - Groen: goed
 
-Standaard heeft het element geen sluiten knop. Optioneel kan deze toegevoegd worden.
-Optioneel kan een icoon worden weggelaten. Een geel alarm heeft nooit een icoon.
-Optioneel kan een titel worden weggelaten.
+## Richtlijnen
+
+- Standaard heeft het element geen sluiten knop. Optioneel kan deze toegevoegd worden.
+- Optioneel kan een icoon worden weggelaten. Een geel alarm heeft nooit een icoon.
+- Optioneel kan een titel worden weggelaten.
+- Aangeraden wordt om het alarm in ieder geval van een paragraaf text te voorzien en deze eventueel te ondersteunen met een link, opsomming of knop.
