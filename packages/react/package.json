@@ -33,7 +33,7 @@
   ],
   "dependencies": {
     "@amsterdam/design-system-react-icons": "workspace:*",
-    "@utrecht/component-library-react": "1.0.0-alpha.380",
+    "@utrecht/component-library-react": "1.0.0-alpha.384",
     "clsx": "2.0.0",
     "date-fns": "2.30.0"
   },
@@ -59,7 +59,7 @@
     "lodash": "4.17.21",
     "next": "13.5.3",
     "npm-run-all": "4.1.5",
-    "postcss": "8.4.30",
+    "postcss": "8.4.31",
     "react": "18.2.0",
     "react-dom": "18.2.0",
     "rollup": "3.29.4",
