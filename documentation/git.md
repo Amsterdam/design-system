@@ -139,4 +139,4 @@ alias grm="git rebase main"
 alias gs="git status"
 ```
 
-Instead of maintaining such a list yourself: you can also adopt a community effort, e.g. [this plugin on OhMyZsh](https://github.com/ohmyzsh/ohmyzsh/tree/master/plugins/git).
+This list is based on personal preferences, so feel free to adjust it to meet your specific needs. Just be cautious of any naming conflicts that may arise with existing commands or applications on your system. If you prefer not to maintain your own list, you can join a community effort, such as [this plugin available from OhMyZsh](https://github.com/ohmyzsh/ohmyzsh/tree/master/plugins/git).
