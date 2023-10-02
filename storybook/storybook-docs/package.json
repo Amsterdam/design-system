@@ -40,7 +40,7 @@
     "@storybook/react-vite": "7.4.5",
     "@storybook/testing-library": "0.2.1",
     "@storybook/theming": "7.4.5",
-    "@types/react": "18.2.23",
+    "@types/react": "18.2.24",
     "@types/react-dom": "18.2.8",
     "@vitejs/plugin-react": "4.1.0",
     "clsx": "2.0.0",
