@@ -122,8 +122,8 @@ importers:
         specifier: workspace:*
         version: link:../../proprietary/react-icons
       '@utrecht/component-library-react':
-        specifier: 1.0.0-alpha.384
-        version: 1.0.0-alpha.384(react-dom@18.2.0)(react@18.2.0)
+        specifier: 1.0.0-alpha.399
+        version: 1.0.0-alpha.399(date-fns@2.30.0)(react-dom@18.2.0)(react@18.2.0)
       clsx:
         specifier: 2.0.0
         version: 2.0.0
@@ -6015,11 +6015,21 @@ packages:
       eslint-visitor-keys: 3.4.3
     dev: true
 
-  /@utrecht/component-library-react@1.0.0-alpha.384(react-dom@18.2.0)(react@18.2.0):
-    resolution: {integrity: sha512-cZ7rVWPRCRSUVwPKqaw0pRNkfZmjAyhLRwGiQ7+h5M+Ta5q1+sTnQYD6SlIM8/wKWe54knx8hINBBHLWpNydPQ==}
+  /@utrecht/component-library-react@1.0.0-alpha.399(date-fns@2.30.0)(react-dom@18.2.0)(react@18.2.0):
+    resolution: {integrity: sha512-w2KwFxFTxd8EplGtQgC66qx5cakFapJSO0YxNIhty0QZUL3/O+kM1jDNsr0Xa2pKiVzjHNWNeNmE1Yg+jgfJnA==}
     peerDependencies:
+      date-fns: ^2.30.0
       react: '18'
       react-dom: '18'
+      react-vega: ^7.6.0
+      vega: ^5.25.0
+    peerDependenciesMeta:
+      date-fns:
+        optional: true
+      react-vega:
+        optional: true
+      vega:
+        optional: true
     dependencies:
       clsx: 1.2.1
       date-fns: 2.30.0
