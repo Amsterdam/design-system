@@ -106,8 +106,8 @@ importers:
   packages/css:
     dependencies:
       '@utrecht/components':
-        specifier: 1.0.0-alpha.536
-        version: 1.0.0-alpha.536
+        specifier: 1.0.0-alpha.551
+        version: 1.0.0-alpha.551
     devDependencies:
       '@amsterdam/design-system-tokens':
         specifier: workspace:*
@@ -6028,8 +6028,8 @@ packages:
       react-dom: 18.2.0(react@18.2.0)
     dev: false
 
-  /@utrecht/components@1.0.0-alpha.536:
-    resolution: {integrity: sha512-mlh+SiwwFkd08NYU9AtY0Xhf7GoQfNXgbIgtkOGfIUnbH5xGyj7Tre5IftNrDzUdkzZr4EI3qRgwfIcUJM1ZaA==}
+  /@utrecht/components@1.0.0-alpha.551:
+    resolution: {integrity: sha512-uM12XjOhX1odEypqFAg0J96cEpRKk55t6awCE2ffe18S/FysEIemisc7vkhz8HUe1Z/YqMlIRWrXkVYqfP+54Q==}
     dependencies:
       clsx: 1.2.1
     dev: false
