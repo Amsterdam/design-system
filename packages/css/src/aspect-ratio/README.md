@@ -13,4 +13,3 @@ Om de vormgeving consistent te houden gebruiken we een vaste set verhoudingen (b
 ## Richtlijnen
 
 - Gebruik dit component om plaatjes, videos en andere elementen een vaste beeldverhouding te geven, zodat ze consistent schalen.
-- Niet gebruiken met elementen met een statische grootte (hoogte en/of breedte), dan klopt de beeldverhouding niet.
