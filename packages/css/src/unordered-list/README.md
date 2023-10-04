@@ -1,4 +1,4 @@
-# Unordered list
+# Unordered List
 
 Een lijst is een verticale groep gerelateerde inhoud.
 Deze lijst kan 2 niveaus hebben.

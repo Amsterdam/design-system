@@ -1,4 +1,4 @@
-# Page heading
+# Page Heading
 
 Het page heading component is een opvallende tekst aan het begin van een pagina, direct na de header.
 Gebruik dit component voor een naam, titel of motto.
