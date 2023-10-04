@@ -9,6 +9,11 @@ import { Meta, StoryObj } from '@storybook/react'
 const meta = {
   title: 'Switch',
   component: Switch,
+  argTypes: {
+    disabled: {
+      control: 'boolean',
+    },
+  },
 } satisfies Meta<typeof Switch>
 
 export default meta
@@ -16,11 +21,8 @@ export default meta
 type Story = StoryObj<typeof meta>
 
 export const Default: Story = {
-  argTypes: {
-    disabled: {
-      control: 'radio',
-      options: [true, false],
-      defaultValue: false,
-    },
+  args: {
+    'aria-label': 'Default',
+    disabled: false,
   },
 }

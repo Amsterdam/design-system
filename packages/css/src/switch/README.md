@@ -8,12 +8,12 @@ Een switch (in het Nederlands: schakelaar) is een besturingselement om snel tuss
 - Gebruik labels met een schakelaar zodat de actie duidelijk is.
 - De actie vindt direct plaats zodra de gebruiker de schakelaar gebruikt.
 
-## Relevante WAI-ARIA eisen
+## Relevante WCAG eisen
 
-- [Role switch](https://www.w3.org/TR/wai-aria-1.2/#dfn-role): De `input` dient een role `switch` te hebben. De [`role` attribute](https://www.w3.org/TR/wai-aria-1.2/#host_general_role) beschrijft de rol van een element in programma's die er gebruik van maken, zoals screenreaders. Screenreaders zullen in dit geval het element lezen als `switch`.
-- [aria-labelledby](https://w3c.github.io/aria/#aria-labelledby): Dit attribute moet worden gedefinieerd wanneer er een bijgesloten label met tekst geplaatst is.
-- [aria-label](https://w3c.github.io/aria/#aria-label): Dit attribute moet worden gedefinieerd wanneer er een geen bijgesloten label met tekst geplaatst is.
-- In het geval de Switch een HTML input[type="checkbox"] is hoeft de `aria-checked` niet te worden gezet.
+- [WCAG eis 1.3.5](https://www.w3.org/WAI/WCAG21/Understanding/identify-input-purpose.html):
+  - Gebruik `aria-controls` als de checkbox een regio zichtbaar of onzichtbaar maakt.
+- [WCAG eis 2.4.7](https://www.w3.org/TR/WCAG21/#focus-visible): focus moet zichtbaar zijn.
+- [WCAG eis 2.5.5](https://www.w3.org/TR/WCAG21/#target-size): de checkbox moet groot genoeg zijn om aan te klikken, ten minste 44×44px.
 
 ## Referenties
 

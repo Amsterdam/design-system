@@ -9,16 +9,10 @@ describe('Switch', () => {
     const switchElement = screen.getByRole('switch')
 
     expect(switchElement).toBeInTheDocument()
-  })
-
-  it('renders the Switch with the default state unchecked', () => {
-    render(<Switch />)
-    const switchElement = screen.getByRole('switch')
-
     expect(switchElement).not.toBeChecked()
   })
 
-  it('renders the Switch with the default state disabled', () => {
+  it('s not disabled by default', () => {
     render(<Switch />)
     const switchElement = screen.getByRole('switch')
 
