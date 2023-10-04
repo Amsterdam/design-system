@@ -4,7 +4,6 @@
  */
 
 import { AspectRatio } from '@amsterdam/design-system-react'
-import type { Ratio } from '@amsterdam/design-system-react'
 import { Meta, StoryObj } from '@storybook/react'
 
 const meta = {
@@ -32,34 +31,27 @@ export default meta
 
 type Story = StoryObj<typeof meta>
 
-function getStoryConfig(ratio: Ratio | undefined) {
-  switch (ratio) {
-    case 'extra-tall':
-      return {
-        image: 'https://picsum.photos/900/1600',
-        maxWidth: '300px',
-      }
-    case 'tall':
-      return {
-        image: 'https://picsum.photos/800/1000',
-        maxWidth: '400px',
-      }
-    case 'wide':
-      return {
-        image: 'https://picsum.photos/1000/800',
-        maxWidth: '625px',
-      }
-    case 'extra-wide':
-      return {
-        image: 'https://picsum.photos/1600/900',
-        maxWidth: '888px',
-      }
-    default:
-      return {
-        image: 'https://picsum.photos/800/800',
-        maxWidth: '500px',
-      }
-  }
+const storyConfig = {
+  'extra-tall': {
+    image: 'https://picsum.photos/900/1600',
+    maxWidth: '300px',
+  },
+  tall: {
+    image: 'https://picsum.photos/800/1000',
+    maxWidth: '400px',
+  },
+  square: {
+    image: 'https://picsum.photos/800/800',
+    maxWidth: '500px',
+  },
+  wide: {
+    image: 'https://picsum.photos/1000/800',
+    maxWidth: '625px',
+  },
+  'extra-wide': {
+    image: 'https://picsum.photos/1600/900',
+    maxWidth: '888px',
+  },
 }
 
 const StoryTemplate: Story = {
@@ -71,8 +63,8 @@ const StoryTemplate: Story = {
     ),
   ],
   render: ({ ratio }) => (
-    <AspectRatio ratio={ratio} style={{ maxWidth: getStoryConfig(ratio).maxWidth }}>
-      <img src={getStoryConfig(ratio).image} style={{ width: '100%' }} />
+    <AspectRatio ratio={ratio} style={{ maxWidth: ratio ? storyConfig[ratio].maxWidth : '500px' }}>
+      <img src={ratio ? storyConfig[ratio].image : 'https://picsum.photos/800/800'} style={{ width: '100%' }} />
     </AspectRatio>
   ),
 }
