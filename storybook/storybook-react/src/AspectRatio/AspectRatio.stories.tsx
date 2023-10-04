@@ -15,7 +15,7 @@ const meta = {
   argTypes: {
     ratio: {
       control: 'radio',
-      options: ['extra-tall', 'tall', 'square', 'wide', 'extra-wide'],
+      options: ['extra-wide', 'wide', 'square', 'tall', 'extra-tall'],
     },
   },
   parameters: {
@@ -32,25 +32,25 @@ export default meta
 type Story = StoryObj<typeof meta>
 
 const storyConfig = {
-  'extra-tall': {
-    image: 'https://picsum.photos/900/1600',
-    maxWidth: '300px',
-  },
-  tall: {
-    image: 'https://picsum.photos/800/1000',
-    maxWidth: '400px',
-  },
-  square: {
-    image: 'https://picsum.photos/800/800',
-    maxWidth: '500px',
+  'extra-wide': {
+    image: 'https://picsum.photos/1600/900',
+    maxWidth: '888px',
   },
   wide: {
     image: 'https://picsum.photos/1000/800',
     maxWidth: '625px',
   },
-  'extra-wide': {
-    image: 'https://picsum.photos/1600/900',
-    maxWidth: '888px',
+  square: {
+    image: 'https://picsum.photos/800/800',
+    maxWidth: '500px',
+  },
+  tall: {
+    image: 'https://picsum.photos/800/1000',
+    maxWidth: '400px',
+  },
+  'extra-tall': {
+    image: 'https://picsum.photos/900/1600',
+    maxWidth: '300px',
   },
 }
 

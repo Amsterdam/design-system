@@ -6,11 +6,11 @@ Om de vormgeving consistent te houden gebruiken we een vaste set verhoudingen (b
 
 | _keyword_    | verhouding |
 | ------------ | ---------- |
-| `extra-tall` | 9:16       |
-| `tall`       | 4:5        |
-| `square`     | 1:1        |
-| `wide`       | 5:4        |
 | `extra-wide` | 16:9       |
+| `wide`       | 5:4        |
+| `square`     | 1:1        |
+| `tall`       | 4:5        |
+| `extra-tall` | 9:16       |
 
 ## Richtlijnen
 
