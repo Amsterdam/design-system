@@ -53,7 +53,10 @@ export const Default: Story = {
   args: {
     type: undefined,
     children: (
-      <Paragraph>Tijdens Koningsdag zijn alle Stadsloketten gesloten, storingen op formulieren, enz.</Paragraph>
+      <Paragraph>
+        Tijdens Koningsdag zijn alle Stadsloketten gesloten. Ook 14 020 en alle andere telefoonnummers van de gemeente
+        zijn niet bereikbaar.
+      </Paragraph>
     ),
   },
 }
@@ -63,8 +66,8 @@ export const InformationWithInlineLink: Story = {
     type: undefined,
     children: (
       <Paragraph>
-        Tijdens Koningsdag zijn <Link variant="inline">alle Stadsloketten</Link> gesloten, storingen op formulieren,
-        enz.
+        Tijdens Koningsdag zijn <Link variant="inline">alle Stadsloketten</Link> gesloten. Ook 14 020 en alle andere
+        telefoonnummers van de gemeente zijn niet bereikbaar. telefoonnummers van de gemeente zijn niet bereikbaar.
       </Paragraph>
     ),
   },
@@ -75,7 +78,7 @@ export const Error: Story = {
     type: 'error',
     icon: true,
     closeable: true,
-    children: <Paragraph>U bent verplichte velden vergeten in te vullen</Paragraph>,
+    children: <Paragraph>U bent verplichte velden vergeten in te vullen.</Paragraph>,
   },
 }
 
@@ -88,7 +91,7 @@ export const ErrorWithList: Story = {
   },
   render: (args) => (
     <Alert {...args}>
-      <Paragraph>U bent verplichte velden vergeten in te vullen</Paragraph>
+      <Paragraph>U bent verplichte velden vergeten in te vullen.</Paragraph>
       <UnorderedList>
         <UnorderedList.Item>Naam</UnorderedList.Item>
         <UnorderedList.Item>Telefoonnummer</UnorderedList.Item>
@@ -103,6 +106,6 @@ export const Success: Story = {
     type: 'success',
     closeable: true,
     icon: true,
-    children: <Paragraph>Uw formulier is succesvol opgeslagen</Paragraph>,
+    children: <Paragraph>Uw formulier is succesvol opgeslagen.</Paragraph>,
   },
 }

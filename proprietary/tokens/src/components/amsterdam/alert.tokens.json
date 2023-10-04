@@ -22,19 +22,6 @@
           "font-size": { "value": "{amsterdam.typography.text-level.5.wide.font-size}" }
         }
       },
-      "text": {
-        "color": { "value": "{amsterdam.color.primary-black}" },
-        "font-family": { "value": "{amsterdam.typography.font-family}" },
-        "font-weight": { "value": "{amsterdam.typography.font-weight.normal}" },
-        "row-gap": { "value": "0.5rem" },
-        "line-height": { "value": "{amsterdam.typography.text-level.6.line-height}" },
-        "narrow": {
-          "font-size": { "value": "{amsterdam.typography.text-level.6.narrow.font-size}" }
-        },
-        "wide": {
-          "font-size": { "value": "{amsterdam.typography.text-level.6.wide.font-size}" }
-        }
-      },
       "error": {
         "background-color": { "value": "{amsterdam.color.primary-white}" },
         "border-color": { "value": "{amsterdam.color.primary-red}" }
