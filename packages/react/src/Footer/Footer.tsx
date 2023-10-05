@@ -44,9 +44,9 @@ export const FooterBottom = forwardRef(
     { children, className, ...restProps }: PropsWithChildren<HTMLAttributes<HTMLDivElement>>,
     ref: ForwardedRef<HTMLDivElement>,
   ) => (
-    <div {...restProps} ref={ref} className={clsx('amsterdam-footer__bottom', className)}>
-      {children}
-    </div>
+    <PageGrid {...restProps} ref={ref} className={clsx('amsterdam-footer__bottom', className)}>
+      <GridCell gridColumns={{ start: 1, span: 12 }}>{children}</GridCell>
+    </PageGrid>
   ),
 )
 
