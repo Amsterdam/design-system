@@ -32,7 +32,7 @@ const meta = {
       control: {
         type: 'boolean',
       },
-      if: { arg: 'type', neq: undefined },
+      if: { arg: 'severity', neq: undefined },
     },
     onClose: {
       action: 'onClose',
