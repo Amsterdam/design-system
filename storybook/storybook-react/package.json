@@ -52,7 +52,7 @@
     "react-dom": "18.2.0",
     "require-from-string": "2.0.2",
     "storybook": "7.4.6",
-    "vite": "4.4.10"
+    "vite": "4.4.11"
   },
   "dependencies": {
     "remark-gfm": "3.0.1"
