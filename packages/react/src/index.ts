@@ -5,6 +5,7 @@
 
 /* Append here */
 import '../../css/src/alert/alert.scss'
+import '../../css/src/aspect-ratio/aspect-ratio.scss'
 import '../../css/src/visually-hidden/visually-hidden.scss'
 import '../../css/src/footer/footer.scss'
 import '../../css/src/page-menu/page-menu.scss'
