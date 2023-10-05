@@ -12,6 +12,7 @@
     [full-start] var(--amsterdam-page-grid-margin-column-width)
     repeat(var(--amsterdam-page-grid-narrow-column-count), [content] 1fr)
     var(--amsterdam-page-grid-margin-column-width) [full-end];
+  margin-inline: auto;
 }
 
 @media screen and (min-width: $amsterdam-breakpoint-medium) {

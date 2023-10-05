@@ -85,5 +85,5 @@ Op dit moment reageert de typografie nog op één breakpoint bij een vensterbree
 - [x] API voor `GridCell` bijwerken
 - [ ] `GridCellProps` op bijv. `BlockQuote` toepassen en type bug fixen
 - [ ] Cellen plaatsen op grid varianten documenteren in nieuwe `GridCell` pagina
-- [ ] Horizontaal centreren implementeren. Zelf of verantwoordelijkheid van container? Niet voor applicaties?
+- [x] Horizontaal centreren implementeren. Zelf of verantwoordelijkheid van container? Niet voor applicaties?
 - [ ] Default text size in Storybook Docs vergroten, maar hoe in vredesnaam
