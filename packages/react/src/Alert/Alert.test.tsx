@@ -41,36 +41,8 @@ describe('Alert', () => {
     expect(ref.current).toBe(component)
   })
 
-  it('renders a design system BEM class name', () => {
-    const { container } = render(<Alert />)
-
-    const component = container.querySelector(':only-child')
-
-    expect(component).toHaveClass('amsterdam-alert')
-  })
-
-  it('can have a additional class name', () => {
-    const { container } = render(<Alert className="extra" />)
-
-    const component = container.querySelector(':only-child')
-
-    expect(component).toHaveClass('extra')
-
-    expect(component).toHaveClass('amsterdam-alert')
-  })
-
-  it('supports ForwardRef in React', () => {
-    const ref = createRef<HTMLDivElement>()
-
-    const { container } = render(<Alert ref={ref} />)
-
-    const component = container.querySelector(':only-child')
-
-    expect(ref.current).toBe(component)
-  })
-
-  it('renders the icon if the type is success', () => {
-    const { container } = render(<Alert icon={true} type="success" />)
+  it('renders the icon if icon is true and the severity is success', () => {
+    const { container } = render(<Alert icon={true} severity="success" />)
 
     const component = container.querySelector(':only-child')
 
@@ -80,7 +52,7 @@ describe('Alert', () => {
     expect(icon).toBeVisible()
   })
 
-  it('does not render the icon if the type is default', () => {
+  it('does not render the icon if icon is true and the severity is default', () => {
     const { container } = render(<Alert icon={true} />)
 
     const component = container.querySelector(':only-child')

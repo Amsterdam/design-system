@@ -11,7 +11,7 @@ import { VisuallyHidden } from '../VisuallyHidden'
 
 export interface AlertProps extends PropsWithChildren<HTMLAttributes<HTMLDivElement>> {
   title?: string
-  type?: 'error' | 'success'
+  severity?: undefined | 'error' | 'success'
   closeable?: boolean
   icon?: boolean
   onClose?: () => void
@@ -23,35 +23,39 @@ interface AlertCloseProps extends HTMLAttributes<HTMLButtonElement> {
 
 const AlertClose = forwardRef(
   ({ className, size, ...restProps }: AlertCloseProps, ref: ForwardedRef<HTMLButtonElement>) => (
-    <button {...restProps} ref={ref} className={clsx('amsterdam-alert__close', className)} title="close">
+    <button {...restProps} ref={ref} className={clsx('amsterdam-alert__close', className)}>
       <VisuallyHidden>Sluiten</VisuallyHidden>
       <Icon svg={Close} size={size} />
     </button>
   ),
 )
 
-const iconSvgByType = {
+const iconSvgBySeverity = {
   error: AlertIcon,
   success: Checkmark,
 }
 
 export const Alert = forwardRef(
   (
-    { children, className, title, type, closeable, icon, onClose, ...restProps }: AlertProps,
+    { children, className, title, severity, closeable, icon, onClose, ...restProps }: AlertProps,
     ref: ForwardedRef<HTMLDivElement>,
   ) => {
     const alertSize = title ? 'level-5' : 'level-6'
 
     const alertIcon = React.useMemo(() => {
-      if (!icon || !type) {
+      if (!icon || !severity) {
         return null
       }
 
-      return <Icon size={alertSize} svg={iconSvgByType[type]} />
-    }, [icon, type, alertSize])
+      return <Icon size={alertSize} svg={iconSvgBySeverity[severity]} />
+    }, [icon, severity, alertSize])
 
     return (
-      <div {...restProps} ref={ref} className={clsx('amsterdam-alert', type && `amsterdam-alert--${type}`, className)}>
+      <div
+        {...restProps}
+        ref={ref}
+        className={clsx('amsterdam-alert', severity && `amsterdam-alert--${severity}`, className)}
+      >
         {alertIcon && <div className="amsterdam-alert__icon">{alertIcon}</div>}
         <div className="amsterdam-alert__content">
           {title && <span className="amsterdam-alert__title">{title}</span>}

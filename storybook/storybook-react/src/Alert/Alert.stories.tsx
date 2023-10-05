@@ -15,9 +15,9 @@ const meta = {
     icon: false,
   },
   argTypes: {
-    type: {
+    severity: {
       control: {
-        type: 'select',
+        type: 'radio',
         labels: { undefined: 'default', error: 'error', success: 'success' },
       },
       options: [undefined, 'error', 'success'],
@@ -51,7 +51,7 @@ type Story = StoryObj<typeof meta>
 
 export const Default: Story = {
   args: {
-    type: undefined,
+    severity: undefined,
     children: (
       <Paragraph>
         Tijdens Koningsdag zijn alle Stadsloketten gesloten. Ook 14 020 en alle andere telefoonnummers van de gemeente
@@ -63,11 +63,15 @@ export const Default: Story = {
 
 export const InformationWithInlineLink: Story = {
   args: {
-    type: undefined,
+    severity: undefined,
     children: (
       <Paragraph>
-        Tijdens Koningsdag zijn <Link variant="inline">alle Stadsloketten</Link> gesloten. Ook 14 020 en alle andere
-        telefoonnummers van de gemeente zijn niet bereikbaar. telefoonnummers van de gemeente zijn niet bereikbaar.
+        Tijdens Koningsdag zijn{' '}
+        <Link variant="inline" onBackground="light" href="#">
+          alle Stadsloketten
+        </Link>{' '}
+        gesloten. Ook 14 020 en alle andere telefoonnummers van de gemeente zijn niet bereikbaar. telefoonnummers van de
+        gemeente zijn niet bereikbaar.
       </Paragraph>
     ),
   },
@@ -75,7 +79,7 @@ export const InformationWithInlineLink: Story = {
 
 export const Error: Story = {
   args: {
-    type: 'error',
+    severity: 'error',
     icon: true,
     closeable: true,
     children: <Paragraph>U bent verplichte velden vergeten in te vullen.</Paragraph>,
@@ -84,9 +88,9 @@ export const Error: Story = {
 
 export const ErrorWithList: Story = {
   args: {
-    closeable: true,
+    severity: 'error',
     icon: true,
-    type: 'error',
+    closeable: true,
     title: 'Formulier kon niet opgeslagen worden',
   },
   render: (args) => (
@@ -102,8 +106,8 @@ export const ErrorWithList: Story = {
 
 export const Success: Story = {
   args: {
+    severity: 'success',
     title: 'Gelukt',
-    type: 'success',
     closeable: true,
     icon: true,
     children: <Paragraph>Uw formulier is succesvol opgeslagen.</Paragraph>,
