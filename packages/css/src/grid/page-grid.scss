@@ -8,18 +8,27 @@
 .amsterdam-page-grid {
   column-gap: var(--amsterdam-page-grid-column-gap);
   display: grid;
-  grid-template-columns: repeat(var(--amsterdam-page-grid-narrow-column-count), 1fr);
+  grid-template-columns:
+    [full-start] var(--amsterdam-page-grid-margin-column-width)
+    repeat(var(--amsterdam-page-grid-narrow-column-count), [content] 1fr)
+    var(--amsterdam-page-grid-margin-column-width) [full-end];
 }
 
 @media screen and (min-width: $amsterdam-breakpoint-medium) {
   .amsterdam-page-grid {
-    grid-template-columns: repeat(var(--amsterdam-page-grid-medium-column-count), 1fr);
+    grid-template-columns:
+      [full-start] var(--amsterdam-page-grid-margin-column-width)
+      repeat(var(--amsterdam-page-grid-medium-column-count), [content] 1fr)
+      var(--amsterdam-page-grid-margin-column-width) [full-end];
   }
 }
 
 @media screen and (min-width: $amsterdam-breakpoint-wide) {
   .amsterdam-page-grid {
-    grid-template-columns: repeat(var(--amsterdam-page-grid-wide-column-count), 1fr);
+    grid-template-columns:
+      [full-start] var(--amsterdam-page-grid-margin-column-width)
+      repeat(var(--amsterdam-page-grid-wide-column-count), [content] 1fr)
+      var(--amsterdam-page-grid-margin-column-width) [full-end];
     max-width: var(--amsterdam-page-grid-wide-max-width);
   }
 }

@@ -10,6 +10,13 @@ import '../../../storybook-docs/src/stories.scss'
 const meta = {
   title: 'Layout/Page Grid',
   component: PageGrid,
+  parameters: {
+    docs: {
+      canvas: {
+        sourceState: 'hidden',
+      },
+    },
+  },
 } satisfies Meta<typeof PageGrid>
 
 export default meta
@@ -26,37 +33,9 @@ export const Default: Story = {
       </GridCell>
     )),
   },
-  parameters: {
-    docs: {
-      layout: 'centered',
-    },
-  },
 }
 
 export const ThreeColumns: Story = {
-  args: {
-    children: [
-      <GridCell key={1} gridColumns={4}>
-        <div className="amsterdam-docs-pink-box">
-          <Paragraph>Blok 1: kolom 1 t/m 4</Paragraph>
-        </div>
-      </GridCell>,
-      <GridCell key={2} gridColumns={4}>
-        <div className="amsterdam-docs-pink-box">
-          <Paragraph>Blok 2: kolom 5 t/m 8</Paragraph>
-        </div>
-      </GridCell>,
-      <GridCell key={3} gridColumns={4}>
-        <div className="amsterdam-docs-pink-box">
-          <Paragraph>Blok 3: kolom 9 t/m 12</Paragraph>
-        </div>
-      </GridCell>,
-    ],
-    title: 'Drie kolommen',
-  },
-}
-
-export const ThreeImages: Story = {
   args: {
     children: [
       <GridCell key={1} gridColumns={4}>
@@ -89,6 +68,18 @@ export const MiddleBlock: Story = {
       </GridCell>
     ),
     title: 'Een blok in het midden',
+  },
+}
+
+export const FullWidth: Story = {
+  args: {
+    children: (
+      <GridCell fullWidth>
+        <div className="amsterdam-docs-pink-box">
+          <Paragraph>Full width</Paragraph>
+        </div>
+      </GridCell>
+    ),
   },
 }
 

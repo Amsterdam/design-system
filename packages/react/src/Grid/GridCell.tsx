@@ -15,6 +15,7 @@ type GridColumns =
     }
 
 export interface GridCellProps extends HTMLAttributes<HTMLDivElement> {
+  fullWidth?: boolean
   gridColumns?: GridColumns
 }
 
@@ -34,10 +35,19 @@ export const gridColumnClassNames = (gridColumns?: GridColumns) => {
 
 export const GridCell = forwardRef(
   (
-    { children, gridColumns, className, ...restProps }: PropsWithChildren<GridCellProps>,
+    { children, fullWidth, gridColumns, className, ...restProps }: PropsWithChildren<GridCellProps>,
     ref: ForwardedRef<HTMLDivElement>,
   ) => (
-    <div {...restProps} ref={ref} className={clsx('amsterdam-grid-cell', gridColumnClassNames(gridColumns), className)}>
+    <div
+      {...restProps}
+      ref={ref}
+      className={clsx(
+        'amsterdam-grid-cell',
+        fullWidth && 'amsterdam-grid-cell-full-width',
+        gridColumnClassNames(gridColumns),
+        className,
+      )}
+    >
       {children}
     </div>
   ),

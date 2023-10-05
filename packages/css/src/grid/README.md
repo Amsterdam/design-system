@@ -81,8 +81,8 @@ Op dit moment reageert de typografie nog op één breakpoint bij een vensterbree
 
 ## TODO
 
-- [ ] Grid tracks voor marges
-- [ ] API voor `GridCell` bijwerken
+- [x] Grid tracks voor marges
+- [x] API voor `GridCell` bijwerken
 - [ ] `GridCellProps` op bijv. `BlockQuote` toepassen en type bug fixen
 - [ ] Cellen plaatsen op grid varianten documenteren in nieuwe `GridCell` pagina
 - [ ] Horizontaal centreren implementeren. Zelf of verantwoordelijkheid van container? Niet voor applicaties?
