@@ -5,6 +5,7 @@
 
 /* Append here */
 export * from '../Card'
+export * from '../AspectRatio'
 export * from '../VisuallyHidden'
 export * from '../Footer'
 export * from '../PageMenu'

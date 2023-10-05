@@ -1,0 +1,29 @@
+/**
+ * @license EUPL-1.2+
+ * Copyright (c) 2023 Gemeente Amsterdam
+ */
+
+.amsterdam-aspect-ratio {
+  overflow: hidden;
+  position: relative;
+}
+
+.amsterdam-aspect-ratio--extra-tall {
+  aspect-ratio: var(--amsterdam-aspect-ratio-extra-tall);
+}
+
+.amsterdam-aspect-ratio--tall {
+  aspect-ratio: var(--amsterdam-aspect-ratio-tall);
+}
+
+.amsterdam-aspect-ratio--square {
+  aspect-ratio: var(--amsterdam-aspect-ratio-square);
+}
+
+.amsterdam-aspect-ratio--wide {
+  aspect-ratio: var(--amsterdam-aspect-ratio-wide);
+}
+
+.amsterdam-aspect-ratio--extra-wide {
+  aspect-ratio: var(--amsterdam-aspect-ratio-extra-wide);
+}
