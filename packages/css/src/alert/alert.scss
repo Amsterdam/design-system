@@ -24,6 +24,7 @@
 }
 
 .amsterdam-alert__title {
+  color: var(--amsterdam-alert-title-color);
   font-family: var(--amsterdam-alert-title-font-family);
   font-size: var(--amsterdam-alert-title-narrow-font-size);
   font-weight: var(--amsterdam-alert-title-font-weight);
