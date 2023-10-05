@@ -3,7 +3,7 @@
  * Copyright (c) 2023 Gemeente Amsterdam
  */
 
-import { Card, Heading, Paragraph } from '@amsterdam/design-system-react'
+import { AspectRatio, Card, Heading, Paragraph } from '@amsterdam/design-system-react'
 import { Meta, StoryObj } from '@storybook/react'
 
 const meta = {
@@ -54,4 +54,28 @@ export const CardWithTagline: Story = {
   },
 }
 
-// ImageCard
+export const ImageCard: Story = {
+  args: {
+    children: [
+      <AspectRatio key={1} ratio="wide">
+        <img src="https://picsum.photos/440/352" alt="" />
+      </AspectRatio>,
+      <Card.HeadingGroup key={2}>
+        <Heading size="level-4">
+          <Card.Link href="/">Monitor Attracties MRA</Card.Link>
+        </Heading>
+        <Paragraph size="small">Dossier</Paragraph>
+      </Card.HeadingGroup>,
+      <Paragraph key={3} size="small">
+        Ontwikkeling van het aantal attracties en bezoekers in de metropoolregio Amsterdam.
+      </Paragraph>,
+    ],
+  },
+  decorators: [
+    (Story) => (
+      <div style={{ maxWidth: '440px' }}>
+        <Story />
+      </div>
+    ),
+  ],
+}
