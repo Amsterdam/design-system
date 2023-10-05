@@ -8,7 +8,7 @@
 .amsterdam-alert {
   align-items: flex-start;
   background-color: var(--amsterdam-alert-background-color);
-  border: var(--amsterdam-alert-border-width) var(--amsterdam-alert-border-style) var(--amsterdam-alert-border-color);
+  border: var(--amsterdam-alert-border);
   display: flex;
   flex-direction: row;
   gap: var(--amsterdam-alert-gap);

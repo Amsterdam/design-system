@@ -2,9 +2,7 @@
   "amsterdam": {
     "alert": {
       "background-color": { "value": "{amsterdam.color.yellow}" },
-      "border-color": { "value": "{amsterdam.color.yellow}" },
-      "border-width": { "value": "4px" },
-      "border-style": { "value": "solid" },
+      "border": { "value": "4px solid {amsterdam.alert.yellow" },
       "gap": { "value": "1rem" },
       "padding-block-start": { "value": "{amsterdam.spacing.inset.md}" },
       "padding-block-end": { "value": "{amsterdam.spacing.inset.md}" },
