@@ -30,13 +30,10 @@
     Taken from https://inclusive-components.design/cards/
   */
   a::after {
-    bottom: 0;
     content: "";
     display: block;
-    left: 0;
+    inset: 0;
     position: absolute;
-    right: 0;
-    top: 0;
   }
 }
 
