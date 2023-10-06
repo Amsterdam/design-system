@@ -55,12 +55,6 @@ export default function (plop) {
         type: 'append',
         path: 'packages/react/src/index.ts',
         pattern: `/* Append here */`,
-        template: `import '../../css/src/{{kebabCase name}}/{{kebabCase name}}.scss'`,
-      },
-      {
-        type: 'append',
-        path: 'packages/react/src/unstyled/index.ts',
-        pattern: `/* Append here */`,
         template: `export * from '../{{pascalCase name}}'`,
       },
       {
