@@ -23,6 +23,10 @@
   flex: auto;
 }
 
+@mixin reset {
+  -webkit-text-size-adjust: 100%;
+}
+
 .amsterdam-alert__title {
   color: var(--amsterdam-alert-title-color);
   font-family: var(--amsterdam-alert-title-font-family);
@@ -33,6 +37,8 @@
   @media screen and (width > $amsterdam-breakpoint) {
     font-size: var(--amsterdam-alert-title-wide-font-size);
   }
+
+  @include reset;
 }
 
 .amsterdam-alert--error {
