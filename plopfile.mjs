@@ -55,7 +55,7 @@ export default function (plop) {
         type: 'append',
         path: 'packages/react/src/index.ts',
         pattern: `/* Append here */`,
-        template: `export * from '../{{pascalCase name}}'`,
+        template: `export * from './{{pascalCase name}}'`,
       },
       {
         type: 'add',
