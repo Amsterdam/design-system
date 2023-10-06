@@ -11,6 +11,10 @@
   margin-inline: 0;
 }
 
+@mixin reset {
+  -webkit-text-size-adjust: 100%;
+}
+
 .amsterdam-accordion__button {
   background-color: transparent;
   border: 0;
@@ -46,6 +50,8 @@
       transition: none;
     }
   }
+
+  @include reset;
 }
 
 .amsterdam-accordion__button[aria-expanded="true"] svg {
