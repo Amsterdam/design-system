@@ -4,6 +4,7 @@
  */
 
 /* Append here */
+export * from '../Alert'
 export * from '../AspectRatio'
 export * from '../VisuallyHidden'
 export * from '../Footer'

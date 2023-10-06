@@ -48,8 +48,9 @@ export default [
       }),
       nodePolyfills(),
       postcss({
-        extensions: ['.css', '.scss'],
+        extensions: ['.css', '.scss', '.map'],
         minimize: true,
+        sourceMap: true,
       }),
       typescript({ includeDependencies: false }),
       babel({
