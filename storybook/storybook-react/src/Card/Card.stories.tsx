@@ -38,11 +38,10 @@ export const Default: Story = {
 export const CardWithTagline: Story = {
   args: {
     children: [
-      <Card.HeadingGroup key={1}>
+      <Card.HeadingGroup key={1} tagline="Dossier">
         <Heading size="level-4">
           <Card.Link href="/">Monitor Attracties MRA</Card.Link>
         </Heading>
-        <Paragraph size="small">Dossier</Paragraph>
       </Card.HeadingGroup>,
       <Paragraph key={2}>
         Ontwikkeling van het aantal attracties en bezoekers in de metropoolregio Amsterdam.
@@ -60,11 +59,10 @@ export const ImageCard: Story = {
       <AspectRatio key={1} ratio="wide">
         <img src="https://picsum.photos/440/352" alt="" />
       </AspectRatio>,
-      <Card.HeadingGroup key={2}>
+      <Card.HeadingGroup key={2} tagline="Dossier">
         <Heading size="level-4">
           <Card.Link href="/">Monitor Attracties MRA</Card.Link>
         </Heading>
-        <Paragraph size="small">Dossier</Paragraph>
       </Card.HeadingGroup>,
       <Paragraph key={3} size="small">
         Ontwikkeling van het aantal attracties en bezoekers in de metropoolregio Amsterdam.

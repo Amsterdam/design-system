@@ -13,14 +13,17 @@ import {
   PropsWithChildren,
   RefAttributes,
 } from 'react'
+import { Paragraph } from '../Paragraph'
+
+export interface CardHeadingProps extends PropsWithChildren<HTMLAttributes<HTMLElement>> {
+  tagline: string
+}
 
 export const CardHeadingGroup = forwardRef(
-  (
-    { children, className, ...restProps }: PropsWithChildren<HTMLAttributes<HTMLElement>>,
-    ref: ForwardedRef<HTMLElement>,
-  ) => (
+  ({ children, className, tagline, ...restProps }: CardHeadingProps, ref: ForwardedRef<HTMLElement>) => (
     <hgroup {...restProps} ref={ref} className={clsx('amsterdam-card__heading-group', className)}>
       {children}
+      <Paragraph size="small">{tagline}</Paragraph>
     </hgroup>
   ),
 )
