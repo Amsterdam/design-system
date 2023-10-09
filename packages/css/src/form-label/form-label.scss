@@ -5,6 +5,10 @@
 
 @import "../../utils/breakpoint";
 
+@mixin reset {
+  -webkit-text-size-adjust: 100%;
+}
+
 .amsterdam-form-label {
   color: var(--amsterdam-form-label-color);
   font-family: var(--amsterdam-form-label-font-family);
@@ -15,4 +19,6 @@
   @media screen and (width > $amsterdam-breakpoint) {
     font-size: var(--amsterdam-form-label-wide-font-size);
   }
+
+  @include reset;
 }
