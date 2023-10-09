@@ -15,7 +15,7 @@ describe('Card', () => {
 
   it('renders a design system BEM class name', () => {
     const cardRender = render(<Card />)
-    const { container: cardHeadingGroupRender } = render(<Card.HeadingGroup />)
+    const { container: cardHeadingGroupRender } = render(<Card.HeadingGroup tagline="test" />)
     const cardLinkRender = render(<Card.Link href="/" />)
 
     const card = cardRender.getByRole('article')
@@ -29,7 +29,7 @@ describe('Card', () => {
 
   it('can have a additional class name', () => {
     const cardRender = render(<Card className="extra" />)
-    const { container: cardHeadingGroupRender } = render(<Card.HeadingGroup className="extra" />)
+    const { container: cardHeadingGroupRender } = render(<Card.HeadingGroup tagline="test" className="extra" />)
     const cardLinkRender = render(<Card.Link href="/" className="extra" />)
 
     const card = cardRender.getByRole('article')
@@ -51,7 +51,7 @@ describe('Card', () => {
     const cardLinkRef = createRef<HTMLAnchorElement>()
 
     const cardRender = render(<Card ref={cardRef} />)
-    const { container: cardHeadingGroupRender } = render(<Card.HeadingGroup ref={cardHeadingGroupRef} />)
+    const { container: cardHeadingGroupRender } = render(<Card.HeadingGroup tagline="test" ref={cardHeadingGroupRef} />)
     const cardLinkRender = render(<Card.Link href="/" ref={cardLinkRef} />)
 
     const card = cardRender.getByRole('article')
