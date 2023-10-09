@@ -27,7 +27,7 @@
   }
 }
 
-.amsterdam-button--secondary:focus:not(:hover, :disabled, [aria-disabled="true"]) {
+.amsterdam-button--secondary:focus:not(:hover, [aria-disabled="true"]) {
   box-shadow: var(--amsterdam-button-secondary-focus-box-shadow);
 }
 
@@ -37,6 +37,6 @@
   }
 }
 
-.amsterdam-button--tertiary:focus:not(:hover, :disabled, [aria-disabled="true"]) {
+.amsterdam-button--tertiary:focus:not(:hover, [aria-disabled="true"]) {
   box-shadow: none;
 }
