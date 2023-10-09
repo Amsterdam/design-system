@@ -1,4 +1,4 @@
-import { render } from '@testing-library/react'
+import { render, screen } from '@testing-library/react'
 import { createRef } from 'react'
 import { Card } from './Card'
 import '@testing-library/jest-dom'
@@ -43,6 +43,14 @@ describe('Card', () => {
     expect(card).toHaveClass('amsterdam-card')
     expect(cardHeadingGroup).toHaveClass('amsterdam-card__heading-group')
     expect(cardLink).toHaveClass('amsterdam-card__link')
+  })
+
+  it('renders a tagline', () => {
+    render(<Card.HeadingGroup tagline="tagline" />)
+
+    const tagline = screen.getByText('tagline')
+
+    expect(tagline).toBeInTheDocument()
   })
 
   it('supports ForwardRef in React', () => {
