@@ -11,10 +11,6 @@ they are broadly accessible and evoke trust.
 
 We aim to create libraries for, or support otherwise, Figma, CSS, React, React Native, Salesforce, and Mendix.
 
-## Current state
-
-We have made progress with foundations such as a grid and typography. Additionally, around 20 (MVP) components are available, first focusing on creating a homepage. We will continue to develop components and write documentation to help more teams benefit and process feedback on our offering.
-
 ## Related resources
 
 [A Storybook portal](https://amsterdam.github.io/design-system/) demonstrates our components and documentation.
