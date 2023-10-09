@@ -5,6 +5,10 @@
 
 @import "../../utils/breakpoint";
 
+@mixin reset {
+  -webkit-text-size-adjust: 100%;
+}
+
 .amsterdam-link {
   color: var(--amsterdam-link-color);
   font-family: var(--amsterdam-link-font-family);
@@ -14,6 +18,8 @@
   &:hover {
     color: var(--amsterdam-link-hover-color);
   }
+
+  @include reset;
 }
 
 .amsterdam-link--standalone {

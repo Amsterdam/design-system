@@ -7,13 +7,13 @@
 
 @mixin reset {
   box-sizing: border-box;
-  break-after: avoid;
-  break-inside: avoid;
   margin-block: 0;
   margin-inline: 0;
+  -webkit-text-size-adjust: 100%;
 }
 
 .amsterdam-blockquote {
+  break-inside: avoid;
   color: var(--amsterdam-blockquote-color);
   font-family: var(--amsterdam-blockquote-font-family);
   font-size: var(--amsterdam-blockquote-narrow-font-size);

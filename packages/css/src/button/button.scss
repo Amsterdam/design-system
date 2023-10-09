@@ -6,12 +6,18 @@
 @import "../../node_modules/@utrecht/components/button/css";
 @import "../../utils/breakpoint";
 
+@mixin reset {
+  -webkit-text-size-adjust: 100%;
+}
+
 .amsterdam-button {
   font-size: var(--amsterdam-button-narrow-font-size);
 
   @media screen and (width > $amsterdam-breakpoint) {
     font-size: var(--amsterdam-button-wide-font-size);
   }
+
+  @include reset;
 }
 
 .amsterdam-button--secondary {

@@ -4,7 +4,7 @@
 
 The `@amsterdam/design-system-react` package contains React implementations of various components. You can use this package in React apps.
 
-The design tokens used in these components are published in a separate npm package, so don't forget to install and include `@amsterdam/design-system-tokens` too.
+The design tokens and css used in these components are published in separate npm packages, so don't forget to install and include `@amsterdam/design-system-tokens` and `@amsterdam/design-system-css` too.
 
 <!-- TODO: make this easier? -->
 
@@ -20,7 +20,7 @@ Make sure you specify the exact version as dependency, so you can schedule to up
 
 Install the packages you need, for instance:
 
-`npm install @amsterdam/design-system-react @amsterdam/design-system-tokens @amsterdam/design-system-assets`
+`npm install @amsterdam/design-system-react @amsterdam/design-system-tokens @amsterdam/design-system-assets @amsterdam/design-system-css`
 
 Import the packages you need.
 
@@ -29,26 +29,11 @@ import { Paragraph } from "@amsterdam/design-system-react";
 
 import "@amsterdam/design-system-tokens/dist/root.css";
 import "@amsterdam/design-system-assets/font/index.css";
+import "@amsterdam/design-system-css/dist/index.css";
 
 function App() {
   return <Paragraph>Hello world</Paragraph>;
 }
 
 export default App;
-```
-
-## Unstyled components
-
-If you need unstyled React components (if you completely want to restyle them yourself, or you can't use style injection in your project because of a strict CSP for example), you can import these as well.
-
-For example, to import an unstyled Paragraph component:
-
-```javascript
-import { Paragraph } from "@amsterdam/design-system-react/unstyled";
-```
-
-If you do want to style unstyled React components using our css, you can add the component css from our `@amsterdam/design-system-css` package, like so:
-
-```javascript
-import "@amsterdam/design-system-css/dist/paragraph/paragraph.css";
 ```
