@@ -8,7 +8,7 @@ import { Switch } from '@amsterdam/design-system-react/src'
 import { Meta, StoryObj } from '@storybook/react'
 
 const meta = {
-  title: 'Switch',
+  title: 'Forms/Switch',
   component: Switch,
   argTypes: {
     disabled: {
