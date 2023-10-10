@@ -1,6 +1,6 @@
 # Card
 
-Je gebruikt een card om inhoud te groeperen die te maken heeft met een enkele link. Met een card kun je extra aandacht vestigen op deze link, en wat context bieden. Een card kan uit meerdere elementen bestaan, de link is verplicht.
+Gebruik een card op een overzichtspagina om te verwijzen naar een detailpagina, zoals een nieuwsbericht, een vacature of een zoekresultaat. De card bevat meestal de titel, introductie en afbeelding van de content. De link is verplicht.
 
 ## Schermlezers
 
