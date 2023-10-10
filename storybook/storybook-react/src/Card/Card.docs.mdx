@@ -1,0 +1,25 @@
+import { Canvas, Controls, Markdown, Meta, Primary } from "@storybook/blocks";
+import * as CardStories from "./Card.stories.tsx";
+import README from "../../../../packages/css/src/card/README.md?raw";
+
+<Meta of={CardStories} />
+
+<Markdown>{README}</Markdown>
+
+<Primary />
+
+<Controls />
+
+## Card with tagline
+
+Een card kan een _tagline_ hebben, tekst voor de titel.
+Om de volgorde voor schermlezers logisch te houden,
+wordt eerst de titel gedefinieerd, en dan de _tagline_. Visueel wordt dit omgedraaid door `Card.HeadingGroup`.
+
+<Canvas of={CardStories.CardWithTagline} />
+
+## Image card
+
+Een card kan ook een plaatje bevatten. Gebruik het Aspect Ratio component voor de juiste beeldverhoudingen.
+
+<Canvas of={CardStories.ImageCard} />

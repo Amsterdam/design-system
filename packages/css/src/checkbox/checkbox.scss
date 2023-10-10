@@ -39,6 +39,10 @@
   }
 }
 
+@mixin reset {
+  -webkit-text-size-adjust: 100%;
+}
+
 .amsterdam-checkbox__label {
   color: var(--amsterdam-checkbox-color);
   cursor: pointer;
@@ -64,6 +68,8 @@
   @media screen and (width > $amsterdam-breakpoint) {
     font-size: var(--amsterdam-checkbox-wide-font-size);
   }
+
+  @include reset;
 }
 
 // Default checked

@@ -8,6 +8,7 @@
 @mixin reset {
   box-sizing: border-box;
   margin-block: 0;
+  -webkit-text-size-adjust: 100%;
 }
 
 .amsterdam-page-heading {

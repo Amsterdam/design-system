@@ -4,19 +4,26 @@
  */
 
 /* Append here */
-@import "./blockquote/blockquote";
-@import "./top-task-link/top-task-link";
-@import "./footer/footer";
-@import "./page-menu/page-menu";
 @import "./accordion/accordion";
+@import "./alert/alert";
+@import "./aspect-ratio/aspect-ratio";
+@import "./blockquote/blockquote";
 @import "./breadcrumb/breadcrumb";
 @import "./button/button";
+@import "./card/card";
+@import "./checkbox/checkbox";
+@import "./footer/footer";
 @import "./form-label/form-label";
+@import "./grid/grid-cell";
+@import "./grid/page-grid";
 @import "./heading/heading";
 @import "./icon/icon";
 @import "./link/link";
-@import "./paragraph/paragraph";
-@import "./unordered-list/unordered-list";
 @import "./ordered-list/ordered-list";
-@import "./grid/grid-cell";
-@import "./grid/page-grid";
+@import "./page-heading/page-heading";
+@import "./page-menu/page-menu";
+@import "./paragraph/paragraph";
+@import "./switch/switch";
+@import "./top-task-link/top-task-link";
+@import "./unordered-list/unordered-list";
+@import "./visually-hidden/visually-hidden";
