@@ -3,6 +3,7 @@
  * Copyright (c) 2023 Gemeente Amsterdam
  */
 
+import { FormLabel } from '@amsterdam/design-system-react'
 import { Switch } from '@amsterdam/design-system-react/src'
 import { Meta, StoryObj } from '@storybook/react'
 
@@ -23,6 +24,18 @@ type Story = StoryObj<typeof meta>
 export const Default: Story = {
   args: {
     'aria-label': 'Default',
+    disabled: false,
+  },
+}
+
+export const WithFormLabel: Story = {
+  render: (args) => (
+    <div style={{ display: 'flex', alignItems: 'center', gap: '5rem' }}>
+      <FormLabel htmlFor="switch-with-label">Label</FormLabel>
+      <Switch {...args} id="switch-with-label" />
+    </div>
+  ),
+  args: {
     disabled: false,
   },
 }
