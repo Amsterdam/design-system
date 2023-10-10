@@ -4,6 +4,7 @@
  */
 
 /* Append here */
+export * from './Card'
 export * from './Alert'
 export * from './AspectRatio'
 export * from './VisuallyHidden'

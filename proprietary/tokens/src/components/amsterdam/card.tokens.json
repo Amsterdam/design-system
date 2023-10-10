@@ -1,0 +1,13 @@
+{
+  "amsterdam": {
+    "card": {
+      "link": {
+        "color": { "value": "{amsterdam.color.primary-blue}" },
+        "hover": {
+          "color": { "value": "{amsterdam.color.dark-blue}" }
+        }
+      },
+      "outline-offset": { "value": "{amsterdam.focus.outline-offset}" }
+    }
+  }
+}
