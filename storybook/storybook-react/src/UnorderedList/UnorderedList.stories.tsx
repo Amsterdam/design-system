@@ -5,14 +5,14 @@
 
 import { Icon, Paragraph, UnorderedList } from '@amsterdam/design-system-react'
 import {
-  Alert,
-  Announcement,
-  Car,
-  DocumentEuroSign,
-  Housing,
-  Location,
-  Passport,
-  TrashBin,
+  AlertIcon,
+  AnnouncementIcon,
+  CarIcon,
+  DocumentEuroSignIcon,
+  HousingIcon,
+  LocationIcon,
+  PassportIcon,
+  TrashBinIcon,
 } from '@amsterdam/design-system-react-icons'
 import type { Meta, StoryObj } from '@storybook/react'
 import '../../../storybook-docs/src/stories.scss'
@@ -82,49 +82,49 @@ export const ZonderOpsommingstekens: Story = {
     children: [
       <UnorderedList.Item key={1}>
         <div className="amsterdam-docs-card">
-          <Icon svg={Location} size="level-6" />
+          <Icon svg={LocationIcon} size="level-6" />
           <Paragraph>Stadsloket: locaties en openingstijden</Paragraph>
         </div>
       </UnorderedList.Item>,
       <UnorderedList.Item key={2}>
         <div className="amsterdam-docs-card">
-          <Icon svg={Car} size="level-6" />
+          <Icon svg={CarIcon} size="level-6" />
           <Paragraph>Parkeren + Reizen (P+R)</Paragraph>
         </div>
       </UnorderedList.Item>,
       <UnorderedList.Item key={3}>
         <div className="amsterdam-docs-card">
-          <Icon svg={Passport} size="level-6" />
+          <Icon svg={PassportIcon} size="level-6" />
           <Paragraph>Paspoort, ID-kaart en Rijbewijs</Paragraph>
         </div>
       </UnorderedList.Item>,
       <UnorderedList.Item key={4}>
         <div className="amsterdam-docs-card">
-          <Icon svg={DocumentEuroSign} size="level-6" />
+          <Icon svg={DocumentEuroSignIcon} size="level-6" />
           <Paragraph>Gemeentebelastingen</Paragraph>
         </div>
       </UnorderedList.Item>,
       <UnorderedList.Item key={5}>
         <div className="amsterdam-docs-card">
-          <Icon svg={Alert} size="level-6" />
+          <Icon svg={AlertIcon} size="level-6" />
           <Paragraph>Melding openbare ruimte en overlast</Paragraph>
         </div>
       </UnorderedList.Item>,
       <UnorderedList.Item key={6}>
         <div className="amsterdam-docs-card">
-          <Icon svg={Housing} size="level-6" />
+          <Icon svg={HousingIcon} size="level-6" />
           <Paragraph>Verhuizing doorgeven</Paragraph>
         </div>
       </UnorderedList.Item>,
       <UnorderedList.Item key={7}>
         <div className="amsterdam-docs-card">
-          <Icon svg={TrashBin} size="level-6" />
+          <Icon svg={TrashBinIcon} size="level-6" />
           <Paragraph>Grof afval</Paragraph>
         </div>
       </UnorderedList.Item>,
       <UnorderedList.Item key={8}>
         <div className="amsterdam-docs-card">
-          <Icon svg={Announcement} size="level-6" />
+          <Icon svg={AnnouncementIcon} size="level-6" />
           <Paragraph>Kennisgevingen en bekendmakingen</Paragraph>
         </div>
       </UnorderedList.Item>,

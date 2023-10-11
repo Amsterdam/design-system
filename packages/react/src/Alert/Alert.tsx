@@ -3,7 +3,7 @@
  * Copyright (c) 2023 Gemeente Amsterdam
  */
 
-import { Alert as AlertIcon, Checkmark, Close } from '@amsterdam/design-system-react-icons'
+import { AlertIcon, CheckmarkIcon, CloseIcon } from '@amsterdam/design-system-react-icons'
 import clsx from 'clsx'
 import React, { ForwardedRef, forwardRef, HTMLAttributes, PropsWithChildren } from 'react'
 import { Icon } from '../Icon'
@@ -25,14 +25,14 @@ const AlertClose = forwardRef(
   ({ className, size, ...restProps }: AlertCloseProps, ref: ForwardedRef<HTMLButtonElement>) => (
     <button {...restProps} ref={ref} className={clsx('amsterdam-alert__close', className)}>
       <VisuallyHidden>Sluiten</VisuallyHidden>
-      <Icon svg={Close} size={size} />
+      <Icon svg={CloseIcon} size={size} />
     </button>
   ),
 )
 
 const iconSvgBySeverity = {
   error: AlertIcon,
-  success: Checkmark,
+  success: CheckmarkIcon,
 }
 
 export const Alert = forwardRef(
