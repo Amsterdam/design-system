@@ -75,9 +75,7 @@
           "color": {}
         },
         "focus": {
-          "background-color": {
-            "value": "{amsterdam.color.dark-blue}"
-          },
+          "background-color": {},
           "border-color": {},
           "border-width": {}
         },
