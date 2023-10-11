@@ -3,8 +3,7 @@
  * Copyright (c) 2023 Gemeente Amsterdam
  */
 
-import { FormLabel } from '@amsterdam/design-system-react'
-import { Switch } from '@amsterdam/design-system-react/src'
+import { FormLabel, Switch } from '@amsterdam/design-system-react'
 import { Meta, StoryObj } from '@storybook/react'
 
 const meta = {
