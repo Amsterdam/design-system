@@ -15,10 +15,10 @@
           "value": "{amsterdam.color.primary-white}"
         },
         "width": {
-          "value": "28px"
+          "value": "1.75rem"
         },
         "height": {
-          "value": "28px"
+          "value": "1.75rem"
         },
         "hover": {
           "color": {
