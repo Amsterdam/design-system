@@ -26,11 +26,9 @@ type Story = StoryObj<typeof meta>
 export const Default: Story = {
   args: {
     children: Array.from(Array(12).keys()).map((i) => (
-      <GridCell key={i}>
-        <div className="amsterdam-docs-pink-box">
-          <Paragraph>{i + 1}</Paragraph>
-        </div>
-      </GridCell>
+      <Paragraph className="amsterdam-docs-pink-box" key={i}>
+        {i + 1}
+      </Paragraph>
     )),
   },
 }
