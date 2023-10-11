@@ -3,7 +3,7 @@
  * Copyright (c) 2023 Gemeente Amsterdam
  */
 
-import { ChevronRight } from '@amsterdam/design-system-react-icons'
+import { ChevronRightIcon } from '@amsterdam/design-system-react-icons'
 import clsx from 'clsx'
 import { AnchorHTMLAttributes, ForwardedRef, forwardRef, PropsWithChildren } from 'react'
 import { Icon } from '../Icon/Icon'
@@ -49,7 +49,7 @@ export const Link = forwardRef(
         className,
       )}
     >
-      {variant === 'inList' && <Icon svg={icon ?? ChevronRight} size="level-7" />}
+      {variant === 'inList' && <Icon svg={icon ?? ChevronRightIcon} size="level-7" />}
       {children}
     </a>
   ),

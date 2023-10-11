@@ -29,7 +29,7 @@ type Story = StoryObj<typeof meta>
 
 export const Default: Story = {
   args: {
-    svg: Icons.Email,
+    svg: Icons.EmailIcon,
   },
 }
 
@@ -41,41 +41,41 @@ export const WithText: Story = {
     </span>
   ),
   args: {
-    svg: Icons.Email,
+    svg: Icons.EmailIcon,
   },
 }
 
 export const Level3: Story = {
   args: {
-    svg: Icons.Email,
+    svg: Icons.EmailIcon,
     size: 'level-3',
   },
 }
 
 export const Level4: Story = {
   args: {
-    svg: Icons.Email,
+    svg: Icons.EmailIcon,
     size: 'level-4',
   },
 }
 
 export const Level5: Story = {
   args: {
-    svg: Icons.Email,
+    svg: Icons.EmailIcon,
     size: 'level-5',
   },
 }
 
 export const Level6: Story = {
   args: {
-    svg: Icons.Email,
+    svg: Icons.EmailIcon,
     size: 'level-6',
   },
 }
 
 export const Level7: Story = {
   args: {
-    svg: Icons.Email,
+    svg: Icons.EmailIcon,
     size: 'level-7',
   },
 }

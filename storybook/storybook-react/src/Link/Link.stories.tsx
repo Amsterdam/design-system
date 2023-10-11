@@ -110,7 +110,7 @@ export const InListWithIcon: Story = {
     href: '#',
     variant: 'inList',
     onBackground: undefined,
-    icon: Icons.Email,
+    icon: Icons.EmailIcon,
   },
 }
 

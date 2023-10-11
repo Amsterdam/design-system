@@ -4,7 +4,7 @@
  */
 
 import { PageMenu } from '@amsterdam/design-system-react'
-import { Login, Menu } from '@amsterdam/design-system-react-icons'
+import { LoginIcon, MenuIcon } from '@amsterdam/design-system-react-icons'
 import { Meta, StoryObj } from '@storybook/react'
 
 const meta = {
@@ -20,10 +20,10 @@ export const Default: Story = {
   render: () => (
     <PageMenu>
       <PageMenu.Link href="#">English</PageMenu.Link>
-      <PageMenu.Link href="#" icon={Login}>
+      <PageMenu.Link href="#" icon={LoginIcon}>
         Inloggen Mijn Amsterdam
       </PageMenu.Link>
-      <PageMenu.Button icon={Menu}>Alle onderwerpen</PageMenu.Button>
+      <PageMenu.Button icon={MenuIcon}>Alle onderwerpen</PageMenu.Button>
     </PageMenu>
   ),
   parameters: {
