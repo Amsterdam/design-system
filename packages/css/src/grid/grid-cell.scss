@@ -5,10 +5,6 @@
 
 @import "../../utils/breakpoint";
 
-.amsterdam-grid-cell:first-child {
-  grid-column-start: content;
-}
-
 .amsterdam-grid-cell.amsterdam-grid-cell-full-width {
   grid-column: full;
 }
