@@ -7,7 +7,7 @@ import clsx from 'clsx'
 import { ForwardedRef, forwardRef, HTMLAttributes, PropsWithChildren } from 'react'
 
 export interface HighlightProps extends PropsWithChildren<HTMLAttributes<HTMLDivElement>> {
-  color: 'orange' | 'purple' | 'green'
+  color?: 'orange' | 'purple' | 'green'
 }
 
 export const Highlight = forwardRef(
