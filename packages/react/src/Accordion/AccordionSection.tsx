@@ -3,7 +3,7 @@
  * Copyright (c) 2023 Gemeente Amsterdam
  */
 
-import { ChevronDown } from '@amsterdam/design-system-react-icons'
+import { ChevronDownIcon } from '@amsterdam/design-system-react-icons'
 import clsx from 'clsx'
 import { ForwardedRef, forwardRef, HTMLAttributes, PropsWithChildren, useContext, useId, useState } from 'react'
 import AccordionContext from './AccordionContext'
@@ -40,7 +40,7 @@ export const AccordionSection = forwardRef(
             type="button"
           >
             {label}
-            <Icon svg={ChevronDown} size="level-5" />
+            <Icon svg={ChevronDownIcon} size="level-5" />
           </button>
         </HeadingX>
         {section ? (

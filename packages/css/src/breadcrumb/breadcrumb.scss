@@ -58,9 +58,7 @@
     text-transform: capitalize;
   }
 
-  &:focus,
-  &:hover,
-  &:active {
+  &:hover {
     color: var(--amsterdam-breadcrumb-item-link-hover-color);
     text-decoration: underline;
     text-decoration-thickness: 2px;

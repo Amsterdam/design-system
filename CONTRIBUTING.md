@@ -111,9 +111,10 @@ You can only publish if you have access to the `@amsterdam` group on NPM. If you
 
 1. Pull in the latest version of the `main` branch locally
 2. Make sure you're logged in to NPM, by running `npm login`
-3. Run `npm run build`
-4. Run `npm run release`
-5. Run `npm run publish`
+3. Run `npm run clean`
+4. Run `npm run build`
+5. Run `npm run release`
+6. Run `npm run publish`
 
 ## Cooperation with NL Design System
 

@@ -23,20 +23,12 @@
         },
         "focus": {
           "box-shadow": {
-            "value": "inset 0 0 0 3px {amsterdam.color.dark-blue}"
-          },
-          "color": {
-            "value": "{amsterdam.color.dark-blue}"
+            "value": "inset 0 0 0 2px {amsterdam.color.primary-blue}"
           }
         }
       },
       "tertiary": {
         "hover": {
-          "box-shadow": {
-            "value": "inset 0 0 0 2px {amsterdam.color.neutral-grey3}"
-          }
-        },
-        "focus": {
           "box-shadow": {
             "value": "inset 0 0 0 2px {amsterdam.color.neutral-grey3}"
           }

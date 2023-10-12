@@ -9,11 +9,11 @@
       "font-weight": {
         "value": "{amsterdam.typography.font-weight.normal}"
       },
-      "focus": {
+      "hover": {
         "color": { "value": "{amsterdam.color.dark-blue}" }
       },
       "inline": {
-        "focus": {
+        "hover": {
           "text-decoration": { "value": "underline" },
           "text-underline-offset": { "value": "3px" }
         },
@@ -33,7 +33,7 @@
       },
       "in-list": {
         "gap": { "value": "0.5em" },
-        "focus": {
+        "hover": {
           "text-decoration": { "value": "underline" },
           "text-decoration-thickness": { "value": "2px" },
           "text-underline-offset": { "value": "7px" }
@@ -50,7 +50,7 @@
       "standalone": {
         "text-underline-offset": { "value": "8px" },
         "text-decoration-thickness": { "value": "2px" },
-        "focus": {
+        "hover": {
           "text-decoration-thickness": { "value": "3px" },
           "text-underline-offset": { "value": "7px" }
         },

@@ -1,4 +1,5 @@
 module.exports = {
+  indexTemplate: require('./indexTemplate.js'),
   jsxRuntime: 'automatic',
   outDir: 'src',
   svgProps: {
