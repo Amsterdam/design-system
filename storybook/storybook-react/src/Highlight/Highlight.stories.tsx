@@ -37,10 +37,10 @@ export const Default: Story = {
     color: 'orange',
     children: [
       <PageGrid key={1}>
-        <Paragraph key={1} gridColumns={{ start: 2, span: 10 }} inverseColor>
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eligendi id quibusdam soluta. Architecto aspernatur
-          at debitis, deserunt ea error ex impedit magnam nihil odio perferendis placeat porro quidem repellat
-          temporibus ut voluptate.
+        <Paragraph key={1} gridColumns={{ start: 3, span: 8 }} inverseColor>
+          Het voormalige Paleis van Justitie aan de Prinsengracht wordt momenteel verbouwd tot luxehotel. De plek waar
+          binnenkort de vermogende toerist logeert was eeuwenlang het domein van arme wezen en zware criminelen. In het
+          gebouw speelden zich geruchtmakende rechtszaken af.
         </Paragraph>
       </PageGrid>,
     ],
@@ -52,10 +52,10 @@ export const Purple: Story = {
     color: 'purple',
     children: [
       <PageGrid key={1}>
-        <Paragraph key={1} gridColumns={{ start: 2, span: 10 }} inverseColor>
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eligendi id quibusdam soluta. Architecto aspernatur
-          at debitis, deserunt ea error ex impedit magnam nihil odio perferendis placeat porro quidem repellat
-          temporibus ut voluptate.
+        <Paragraph key={1} gridColumns={{ start: 3, span: 8 }} inverseColor>
+          Het voormalige Paleis van Justitie aan de Prinsengracht wordt momenteel verbouwd tot luxehotel. De plek waar
+          binnenkort de vermogende toerist logeert was eeuwenlang het domein van arme wezen en zware criminelen. In het
+          gebouw speelden zich geruchtmakende rechtszaken af.
         </Paragraph>
       </PageGrid>,
     ],
@@ -67,10 +67,10 @@ export const Green: Story = {
     color: 'green',
     children: [
       <PageGrid key={1}>
-        <Paragraph key={1} gridColumns={{ start: 2, span: 10 }} inverseColor>
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eligendi id quibusdam soluta. Architecto aspernatur
-          at debitis, deserunt ea error ex impedit magnam nihil odio perferendis placeat porro quidem repellat
-          temporibus ut voluptate.
+        <Paragraph key={1} gridColumns={{ start: 3, span: 8 }} inverseColor>
+          Het voormalige Paleis van Justitie aan de Prinsengracht wordt momenteel verbouwd tot luxehotel. De plek waar
+          binnenkort de vermogende toerist logeert was eeuwenlang het domein van arme wezen en zware criminelen. In het
+          gebouw speelden zich geruchtmakende rechtszaken af.
         </Paragraph>
       </PageGrid>,
     ],
