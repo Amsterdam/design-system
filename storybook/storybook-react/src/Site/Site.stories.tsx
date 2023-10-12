@@ -7,11 +7,8 @@ import { Site } from '@amsterdam/design-system-react'
 import { Meta, StoryObj } from '@storybook/react'
 
 const meta = {
-  title: 'Site',
+  title: 'Containers/Site',
   component: Site,
-  args: {
-    children: 'Nieuw component',
-  },
 } satisfies Meta<typeof Site>
 
 export default meta

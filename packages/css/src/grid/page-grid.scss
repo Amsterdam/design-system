@@ -10,6 +10,7 @@
   gap: var(--amsterdam-page-grid-gap);
   grid-template-columns: repeat(var(--amsterdam-page-grid-narrow-column-count), 1fr);
   margin-inline: auto;
+  padding-inline: var(--amsterdam-page-grid-padding-inline);
 }
 
 @media screen and (min-width: $amsterdam-breakpoint-medium) {

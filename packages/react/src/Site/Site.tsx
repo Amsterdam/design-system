@@ -6,12 +6,22 @@
 import clsx from 'clsx'
 import { ForwardedRef, forwardRef, HTMLAttributes, PropsWithChildren } from 'react'
 
-export interface SiteProps extends PropsWithChildren<HTMLAttributes<HTMLElement>> {}
+type SiteMaxWidth = 'wide' | 'extra-wide'
 
-export const Site = forwardRef(({ children, className, ...restProps }: SiteProps, ref: ForwardedRef<HTMLElement>) => (
-  <span {...restProps} ref={ref} className={clsx('amsterdam-site', className)}>
-    {children}
-  </span>
-))
+export interface SiteProps extends PropsWithChildren<HTMLAttributes<HTMLDivElement>> {
+  maxWidth?: SiteMaxWidth
+}
+
+export const Site = forwardRef(
+  ({ children, className, maxWidth = 'wide', ...restProps }: SiteProps, ref: ForwardedRef<HTMLDivElement>) => (
+    <div
+      {...restProps}
+      ref={ref}
+      className={clsx('amsterdam-site', maxWidth !== 'wide' && `amsterdam-site--${maxWidth}`, className)}
+    >
+      {children}
+    </div>
+  ),
+)
 
 Site.displayName = 'Site'
