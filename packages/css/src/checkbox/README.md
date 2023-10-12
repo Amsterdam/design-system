@@ -23,4 +23,5 @@ Een label:
 ## Relevante WCAG eisen
 
 - [WCAG 1.3.5](https://www.w3.org/WAI/WCAG21/Understanding/identify-input-purpose.html): het is zowel voor een gebruiker als programmatisch duidelijk wat het doel van een formulierveld is.
-- [Interactieve elementen](https://amsterdam.github.io/design-system/?path=/docs/docs-designrichtlijnen-interactieve-elementen--docs)
+
+Checkbox is een interactief element, hier gelden [de algemene eisen en richtlijnen voor interactieve elementen](https://amsterdam.github.io/design-system/?path=/docs/docs-designrichtlijnen-interactieve-elementen--docs) voor.
