@@ -24,4 +24,4 @@ Een label:
 
 - [WCAG 1.3.5](https://www.w3.org/WAI/WCAG21/Understanding/identify-input-purpose.html): het is zowel voor een gebruiker als programmatisch duidelijk wat het doel van een formulierveld is.
 
-<!-- TODO: Checkbox is an interactive element, reference the general interactive elements docs when they're merged -->
+Checkbox is een interactief element, hier gelden [de algemene eisen en richtlijnen voor interactieve elementen](https://amsterdam.github.io/design-system/?path=/docs/docs-designrichtlijnen-interactieve-elementen--docs) voor.
