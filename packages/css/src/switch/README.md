@@ -10,10 +10,8 @@ Een switch (in het Nederlands: schakelaar) is een besturingselement om snel tuss
 
 ## Relevante WCAG eisen
 
-- [WCAG eis 1.3.5](https://www.w3.org/WAI/WCAG21/Understanding/identify-input-purpose.html):
-  - Gebruik `aria-controls` als de checkbox een regio zichtbaar of onzichtbaar maakt.
-- [WCAG eis 2.4.7](https://www.w3.org/TR/WCAG21/#focus-visible): focus moet zichtbaar zijn.
-- [WCAG eis 2.5.5](https://www.w3.org/TR/WCAG21/#target-size): de checkbox moet groot genoeg zijn om aan te klikken, ten minste 44×44px.
+- [WCAG 1.3.5](https://www.w3.org/WAI/WCAG21/Understanding/identify-input-purpose.html): het is zowel voor een gebruiker als programmatisch duidelijk wat het doel van een formulierveld is.
+- [Interactieve elementen](https://amsterdam.github.io/design-system/?path=/docs/docs-designrichtlijnen-interactieve-elementen--docs)
 
 ## Referenties
 
