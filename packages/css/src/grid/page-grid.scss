@@ -8,42 +8,19 @@
 .amsterdam-page-grid {
   column-gap: var(--amsterdam-page-grid-column-gap);
   display: grid;
-  grid-template-columns:
-    [full-start] var(--amsterdam-page-grid-margin-column-width)
-    [content-start] repeat(var(--amsterdam-page-grid-narrow-column-count), [content] 1fr) [content-end]
-    var(--amsterdam-page-grid-margin-column-width) [full-end];
+  grid-template-columns: repeat(var(--amsterdam-page-grid-narrow-column-count), 1fr);
   margin-inline: auto;
-
-  &::before,
-  &::after {
-    content: "";
-    grid-row: 1 / span 1024;
-  }
-
-  &::before {
-    grid-column: full-start / content-start;
-  }
-
-  &::after {
-    grid-column: content-end / full-end;
-  }
 }
 
 @media screen and (min-width: $amsterdam-breakpoint-medium) {
   .amsterdam-page-grid {
-    grid-template-columns:
-      [full-start] var(--amsterdam-page-grid-margin-column-width)
-      [content-start] repeat(var(--amsterdam-page-grid-medium-column-count), [content] 1fr) [content-end]
-      var(--amsterdam-page-grid-margin-column-width) [full-end];
+    grid-template-columns: repeat(var(--amsterdam-page-grid-medium-column-count), 1fr);
   }
 }
 
 @media screen and (min-width: $amsterdam-breakpoint-wide) {
   .amsterdam-page-grid {
-    grid-template-columns:
-      [full-start] var(--amsterdam-page-grid-margin-column-width)
-      [content-start] repeat(var(--amsterdam-page-grid-wide-column-count), [content] 1fr) [content-end]
-      var(--amsterdam-page-grid-margin-column-width) [full-end];
+    grid-template-columns: repeat(var(--amsterdam-page-grid-wide-column-count), 1fr);
     max-width: var(--amsterdam-page-grid-wide-max-width);
   }
 }
