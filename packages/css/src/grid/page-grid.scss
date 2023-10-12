@@ -6,8 +6,8 @@
 @import "../../utils/breakpoint";
 
 .amsterdam-page-grid {
-  column-gap: var(--amsterdam-page-grid-column-gap);
   display: grid;
+  gap: var(--amsterdam-page-grid-gap);
   grid-template-columns: repeat(var(--amsterdam-page-grid-narrow-column-count), 1fr);
   margin-inline: auto;
 }
