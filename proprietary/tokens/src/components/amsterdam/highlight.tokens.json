@@ -1,5 +1,9 @@
 {
   "amsterdam": {
-    "highlight": {}
+    "highlight": {
+      "padding-block": {
+        "value": "2rem"
+      }
+    }
   }
 }
