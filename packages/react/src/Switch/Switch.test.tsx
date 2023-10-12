@@ -12,7 +12,7 @@ describe('Switch', () => {
     expect(switchElement).not.toBeChecked()
   })
 
-  it('s not disabled by default', () => {
+  it('is not disabled by default', () => {
     render(<Switch />)
     const switchElement = screen.getByRole('switch')
 
