@@ -5,7 +5,6 @@
 
 /* Append here */
 export * from './Highlight'
-export * from './Switch'
 export * from './Card'
 export * from './Alert'
 export * from './AspectRatio'
