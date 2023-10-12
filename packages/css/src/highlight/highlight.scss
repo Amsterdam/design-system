@@ -4,5 +4,17 @@
  */
 
 .amsterdam-highlight {
-  /* Add styles here */
+  width: 100%;
+}
+
+.amsterdam-highlight--orange {
+  background-color: var(--amsterdam-color-orange);
+}
+
+.amsterdam-highlight--purple {
+  background-color: var(--amsterdam-color-purple);
+}
+
+.amsterdam-highlight--green {
+  background-color: var(--amsterdam-color-dark-green);
 }
