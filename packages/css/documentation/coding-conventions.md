@@ -1,6 +1,6 @@
 # Coding Conventions
 
-## Pseudo class styles
+## Where to put properties for various states
 
 When defining styles for an element that gets a pseudo class (for example `:hover` on hover), define the styles that do not change in the element selector and only the styles that change in the pseudo class selector.
 
