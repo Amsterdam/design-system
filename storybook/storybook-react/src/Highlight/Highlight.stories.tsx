@@ -38,6 +38,21 @@ export default meta
 
 type Story = StoryObj<typeof meta>
 
+export const Default: Story = {
+  args: {
+    children: [
+      <PageGrid key={1}>
+        <GridCell key={1} gridColumns={{ start: 3, span: 8 }}>
+          <Blockquote inverseColor>
+            We kunnen in heel Nederland schoolpleinen creëren waar kinderen worden uitgedaagd om samen te spelen en te
+            sporten. Buitenspelen zou een vak moeten zijn op school.
+          </Blockquote>
+        </GridCell>
+      </PageGrid>,
+    ],
+  },
+}
+
 export const Yellow: Story = {
   args: {
     color: 'yellow',
