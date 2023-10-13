@@ -40,4 +40,12 @@ describe('Highlight', () => {
 
     expect(ref.current).toBe(component)
   })
+
+  it('gets a color class if you set a color', () => {
+    const { container } = render(<Highlight color="green" />)
+
+    const component = container.querySelector(':only-child')
+
+    expect(component).toHaveClass('amsterdam-highlight--green')
+  })
 })
