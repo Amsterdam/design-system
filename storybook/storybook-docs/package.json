@@ -24,7 +24,7 @@
     "@amsterdam/design-system-react": "workspace:*",
     "@amsterdam/design-system-react-icons": "workspace:*",
     "@amsterdam/design-system-tokens": "workspace:*",
-    "@babel/core": "7.23.0",
+    "@babel/core": "7.23.2",
     "@mdx-js/react": "2.3.0",
     "@storybook/addon-a11y": "7.4.6",
     "@storybook/addon-actions": "7.4.6",
@@ -47,7 +47,7 @@
     "react": "18.2.0",
     "react-dom": "18.2.0",
     "require-from-string": "2.0.2",
-    "sass": "1.69.2",
+    "sass": "1.69.3",
     "storybook": "7.4.6",
     "vite": "4.4.11"
   },
