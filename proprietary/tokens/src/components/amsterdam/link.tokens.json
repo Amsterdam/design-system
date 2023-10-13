@@ -27,6 +27,7 @@
           "value": "inherit"
         },
         "text-decoration": { "value": "none" },
+        "text-decoration-thickness": { "value": "2px" },
         "visited": {
           "color": { "value": "{amsterdam.color.purple}" }
         }
