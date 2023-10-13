@@ -20,7 +20,7 @@ This link receives an underline when a user's pointer hovers over it. Still, we 
 }
 ```
 
-Instead of this:
+### Do not do this
 
 ```css
 .class {
