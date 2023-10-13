@@ -15,6 +15,7 @@
 .amsterdam-breadcrumb {
   font-family: var(--amsterdam-breadcrumb-font-family, inherit);
   font-size: var(--amsterdam-breadcrumb-narrow-font-size);
+  font-weight: var(--amsterdam-breadcrumb-font-weight);
   line-height: var(--amsterdam-breadcrumb-line-height);
 
   @media screen and (width > $amsterdam-breakpoint) {

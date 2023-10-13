@@ -7,6 +7,9 @@
       "font-family": {
         "value": "{amsterdam.typography.font-family}"
       },
+      "font-weight": {
+        "value": "{amsterdam.typography.font-weight.normal}"
+      },
       "line-height": {
         "value": "{amsterdam.typography.text-level.7.line-height}"
       },
