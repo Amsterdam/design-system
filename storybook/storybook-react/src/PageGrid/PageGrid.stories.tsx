@@ -3,6 +3,7 @@
  * Copyright (c) 2023 Gemeente Amsterdam
  */
 
+import { Site } from '@amsterdam/design-system-react'
 import { GridCell, PageGrid, Paragraph } from '@amsterdam/design-system-react'
 import { Meta, StoryObj } from '@storybook/react'
 import '../../../storybook-docs/src/stories.scss'
@@ -23,7 +24,18 @@ export default meta
 
 type Story = StoryObj<typeof meta>
 
+const StoryTemplate: Story = {
+  decorators: [
+    (Story) => (
+      <Site>
+        <Story />
+      </Site>
+    ),
+  ],
+}
+
 export const Default: Story = {
+  ...StoryTemplate,
   args: {
     children: Array.from(Array(12).keys()).map((i) => (
       <Paragraph className="amsterdam-docs-pink-box" key={i}>
@@ -34,6 +46,7 @@ export const Default: Story = {
 }
 
 export const ThreeColumns: Story = {
+  ...StoryTemplate,
   args: {
     children: [
       <GridCell key={1} gridColumns={4}>
@@ -57,6 +70,7 @@ export const ThreeColumns: Story = {
 }
 
 export const MiddleBlock: Story = {
+  ...StoryTemplate,
   args: {
     children: (
       <GridCell gridColumns={{ start: 2, span: 10 }}>
@@ -70,6 +84,7 @@ export const MiddleBlock: Story = {
 }
 
 export const FullWidth: Story = {
+  ...StoryTemplate,
   args: {
     children: (
       <GridCell fullWidth>
@@ -82,6 +97,7 @@ export const FullWidth: Story = {
 }
 
 export const Paragraphs: Story = {
+  ...StoryTemplate,
   args: {
     children: [
       <Paragraph key={1} gridColumns={{ start: 1, span: 3 }}>
