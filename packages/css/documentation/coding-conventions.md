@@ -23,7 +23,7 @@ This link receives an underline when a user's pointer hovers over it. Still, we 
 ### Do not do this
 
 ```css
-..amsterdam-link {
+.amsterdam-link {
   text-decoration: none;
 
   &:hover {
