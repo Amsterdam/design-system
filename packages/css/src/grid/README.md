@@ -81,7 +81,7 @@ Op dit moment reageert de typografie nog op één breakpoint bij een vensterbree
 
 ## TODO
 
-- [ ] `GridCellProps` verwijderen van `Paragraph`, expliciet is beter.
-- [ ] API om grid items uit te lijnen op de 4- en 8-koloms grids + nieuwe `GridCell` pagina.``
+- [x] `GridCellProps` verwijderen van `Paragraph`, expliciet is beter.
+- [ ] API om grid items uit te lijnen op de 4- en 8-koloms grids + nieuwe `GridCell` pagina.
 - [ ] Rename `PageGrid` to `Grid` – final check first, and in separate PR.
 - [ ] Make Footer Columns responsive.

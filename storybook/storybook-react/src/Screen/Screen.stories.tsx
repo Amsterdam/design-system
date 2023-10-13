@@ -3,6 +3,7 @@
  * Copyright (c) 2023 Gemeente Amsterdam
  */
 
+import { Blockquote } from '@amsterdam/design-system-react'
 import { Link } from '@amsterdam/design-system-react'
 import { UnorderedList } from '@amsterdam/design-system-react'
 import { Footer } from '@amsterdam/design-system-react'
@@ -28,6 +29,7 @@ const meta = {
         sourceState: 'hidden',
       },
     },
+    layout: 'fullscreen',
   },
 } satisfies Meta<typeof Screen>
 
@@ -56,29 +58,44 @@ export const Default: Story = {
         </GridCell>
         <GridCell gridColumns={4}>
           <figure className="amsterdam-docs-figure">
-            <img alt="Voorbeeld van een afbeelding" src="https://picsum.photos/800/450?random=1" />
+            <img alt="Voorbeeld van een afbeelding" src="https://picsum.photos/1024/576?random=1" />
           </figure>
         </GridCell>
         <GridCell gridColumns={4}>
           <figure className="amsterdam-docs-figure">
-            <img alt="Voorbeeld van een afbeelding" src="https://picsum.photos/800/450?random=2" />
+            <img alt="Voorbeeld van een afbeelding" src="https://picsum.photos/1024/576?random=2" />
           </figure>
         </GridCell>
         <GridCell gridColumns={4}>
           <figure className="amsterdam-docs-figure">
-            <img alt="Voorbeeld van een afbeelding" src="https://picsum.photos/800/450?random=3" />
+            <img alt="Voorbeeld van een afbeelding" src="https://picsum.photos/1024/576?random=3" />
           </figure>
         </GridCell>
       </PageGrid>,
-      <div key={Math.random()} style={{ backgroundColor: 'hotpink', marginBlockEnd: '2rem', padding: '2rem 84px' }}>
-        <Paragraph inverseColor>Highlight</Paragraph>
+      <div key={Math.random()} style={{ backgroundColor: '#E50082', marginBlockEnd: '2rem', paddingBlock: '2rem' }}>
+        <PageGrid>
+          <GridCell gridColumns={3}>
+            <Blockquote inverseColor>
+              Er is maar één moment dat je op tijd kunt komen. Ben je er niet, dan ben je óf te vroeg, óf te laat.
+            </Blockquote>
+          </GridCell>
+          <GridCell gridColumns={{ start: 5, span: 8 }}>
+            <figure className="amsterdam-docs-figure">
+              <img alt="Voorbeeld van een afbeelding" src="https://picsum.photos/1600/900?random=3" />
+            </figure>
+          </GridCell>
+        </PageGrid>
       </div>,
       <PageGrid key={Math.random()} style={{ marginBlockEnd: '2rem' }}>
         <GridCell gridColumns={6}>
-          <Paragraph>Six columns</Paragraph>
+          <div style={{ backgroundColor: '#FF9100', padding: '2rem', textAlign: 'center' }}>
+            <Paragraph inverseColor>Halve breedte</Paragraph>
+          </div>
         </GridCell>
         <GridCell gridColumns={6}>
-          <Paragraph>Six columns</Paragraph>
+          <div style={{ backgroundColor: '#BED200', padding: '2rem', textAlign: 'center' }}>
+            <Paragraph inverseColor>Halve breedte</Paragraph>
+          </div>
         </GridCell>
       </PageGrid>,
       <Footer key={Math.random()}>
