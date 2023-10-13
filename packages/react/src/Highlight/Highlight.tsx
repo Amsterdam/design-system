@@ -7,22 +7,12 @@ import clsx from 'clsx'
 import { ForwardedRef, forwardRef, HTMLAttributes, PropsWithChildren } from 'react'
 
 export interface HighlightProps extends PropsWithChildren<HTMLAttributes<HTMLDivElement>> {
-  color?: 'orange' | 'purple' | 'green'
+  color?: 'yellow' | 'orange' | 'magenta' | 'purple' | 'blue' | 'light-blue' | 'green' | 'dark-green'
 }
 
 export const Highlight = forwardRef(
   ({ children, className, color, ...restProps }: HighlightProps, ref: ForwardedRef<HTMLDivElement>) => (
-    <div
-      {...restProps}
-      ref={ref}
-      className={clsx(
-        'amsterdam-highlight',
-        color === 'orange' && 'amsterdam-highlight--orange',
-        color === 'purple' && 'amsterdam-highlight--purple',
-        color === 'green' && 'amsterdam-highlight--green',
-        className,
-      )}
-    >
+    <div {...restProps} ref={ref} className={clsx('amsterdam-highlight', `amsterdam-highlight--${color}`, className)}>
       {children}
     </div>
   ),

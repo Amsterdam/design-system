@@ -3,7 +3,7 @@
  * Copyright (c) 2023 Gemeente Amsterdam
  */
 
-import { Highlight, PageGrid, Paragraph } from '@amsterdam/design-system-react'
+import { Blockquote, GridCell, Highlight, PageGrid } from '@amsterdam/design-system-react'
 import { Meta, StoryObj } from '@storybook/react'
 
 const meta = {
@@ -11,14 +11,8 @@ const meta = {
   component: Highlight,
   argTypes: {
     color: {
-      control: {
-        type: 'color',
-        presetColors: [
-          { color: '#ff9100', title: 'Oranje' },
-          { color: '#a00078"', title: 'Paars' },
-          { color: '#00a03c', title: 'Groen' },
-        ],
-      },
+      option: ['yellow', 'orange', 'magenta', 'purple', 'blue', 'light-blue', 'green', 'dark-green'],
+      control: { type: 'radio' },
     },
     children: {
       control: {
@@ -32,16 +26,49 @@ export default meta
 
 type Story = StoryObj<typeof meta>
 
-export const Default: Story = {
+export const Yellow: Story = {
+  args: {
+    color: 'yellow',
+    children: [
+      <PageGrid key={1}>
+        <GridCell key={1} gridColumns={{ start: 3, span: 8 }}>
+          <Blockquote>
+            We kunnen in heel Nederland schoolpleinen creëren waar kinderen worden uitgedaagd om samen te spelen en te
+            sporten. Buitenspelen zou een vak moeten zijn op school.
+          </Blockquote>
+        </GridCell>
+      </PageGrid>,
+    ],
+  },
+}
+
+export const Orange: Story = {
   args: {
     color: 'orange',
     children: [
       <PageGrid key={1}>
-        <Paragraph key={1} gridColumns={{ start: 3, span: 8 }} inverseColor>
-          Het voormalige Paleis van Justitie aan de Prinsengracht wordt momenteel verbouwd tot luxehotel. De plek waar
-          binnenkort de vermogende toerist logeert was eeuwenlang het domein van arme wezen en zware criminelen. In het
-          gebouw speelden zich geruchtmakende rechtszaken af.
-        </Paragraph>
+        <GridCell key={1} gridColumns={{ start: 3, span: 8 }}>
+          <Blockquote>
+            We kunnen in heel Nederland schoolpleinen creëren waar kinderen worden uitgedaagd om samen te spelen en te
+            sporten. Buitenspelen zou een vak moeten zijn op school.
+          </Blockquote>
+        </GridCell>
+      </PageGrid>,
+    ],
+  },
+}
+
+export const Magenta: Story = {
+  args: {
+    color: 'magenta',
+    children: [
+      <PageGrid key={1}>
+        <GridCell key={1} gridColumns={{ start: 3, span: 8 }}>
+          <Blockquote inverseColor>
+            We kunnen in heel Nederland schoolpleinen creëren waar kinderen worden uitgedaagd om samen te spelen en te
+            sporten. Buitenspelen zou een vak moeten zijn op school.
+          </Blockquote>
+        </GridCell>
       </PageGrid>,
     ],
   },
@@ -52,11 +79,44 @@ export const Purple: Story = {
     color: 'purple',
     children: [
       <PageGrid key={1}>
-        <Paragraph key={1} gridColumns={{ start: 3, span: 8 }} inverseColor>
-          Het voormalige Paleis van Justitie aan de Prinsengracht wordt momenteel verbouwd tot luxehotel. De plek waar
-          binnenkort de vermogende toerist logeert was eeuwenlang het domein van arme wezen en zware criminelen. In het
-          gebouw speelden zich geruchtmakende rechtszaken af.
-        </Paragraph>
+        <GridCell key={1} gridColumns={{ start: 3, span: 8 }}>
+          <Blockquote inverseColor>
+            We kunnen in heel Nederland schoolpleinen creëren waar kinderen worden uitgedaagd om samen te spelen en te
+            sporten. Buitenspelen zou een vak moeten zijn op school.
+          </Blockquote>
+        </GridCell>
+      </PageGrid>,
+    ],
+  },
+}
+
+export const Blue: Story = {
+  args: {
+    color: 'blue',
+    children: [
+      <PageGrid key={1}>
+        <GridCell key={1} gridColumns={{ start: 3, span: 8 }}>
+          <Blockquote inverseColor>
+            We kunnen in heel Nederland schoolpleinen creëren waar kinderen worden uitgedaagd om samen te spelen en te
+            sporten. Buitenspelen zou een vak moeten zijn op school.
+          </Blockquote>
+        </GridCell>
+      </PageGrid>,
+    ],
+  },
+}
+
+export const LightBlue: Story = {
+  args: {
+    color: 'light-blue',
+    children: [
+      <PageGrid key={1}>
+        <GridCell key={1} gridColumns={{ start: 3, span: 8 }}>
+          <Blockquote>
+            We kunnen in heel Nederland schoolpleinen creëren waar kinderen worden uitgedaagd om samen te spelen en te
+            sporten. Buitenspelen zou een vak moeten zijn op school.
+          </Blockquote>
+        </GridCell>
       </PageGrid>,
     ],
   },
@@ -67,11 +127,28 @@ export const Green: Story = {
     color: 'green',
     children: [
       <PageGrid key={1}>
-        <Paragraph key={1} gridColumns={{ start: 3, span: 8 }} inverseColor>
-          Het voormalige Paleis van Justitie aan de Prinsengracht wordt momenteel verbouwd tot luxehotel. De plek waar
-          binnenkort de vermogende toerist logeert was eeuwenlang het domein van arme wezen en zware criminelen. In het
-          gebouw speelden zich geruchtmakende rechtszaken af.
-        </Paragraph>
+        <GridCell key={1} gridColumns={{ start: 3, span: 8 }}>
+          <Blockquote>
+            We kunnen in heel Nederland schoolpleinen creëren waar kinderen worden uitgedaagd om samen te spelen en te
+            sporten. Buitenspelen zou een vak moeten zijn op school.
+          </Blockquote>
+        </GridCell>
+      </PageGrid>,
+    ],
+  },
+}
+
+export const DarkGreen: Story = {
+  args: {
+    color: 'dark-green',
+    children: [
+      <PageGrid key={1}>
+        <GridCell key={1} gridColumns={{ start: 3, span: 8 }}>
+          <Blockquote inverseColor>
+            We kunnen in heel Nederland schoolpleinen creëren waar kinderen worden uitgedaagd om samen te spelen en te
+            sporten. Buitenspelen zou een vak moeten zijn op school.
+          </Blockquote>
+        </GridCell>
       </PageGrid>,
     ],
   },

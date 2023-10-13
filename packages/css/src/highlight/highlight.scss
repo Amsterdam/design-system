@@ -8,14 +8,34 @@
   width: 100%;
 }
 
+.amsterdam-highlight--yellow {
+  background-color: var(--amsterdam-highlight-yellow-background-color);
+}
+
 .amsterdam-highlight--orange {
-  background-color: var(--amsterdam-color-orange);
+  background-color: var(--amsterdam-highlight-orange-background-color);
+}
+
+.amsterdam-highlight--magenta {
+  background-color: var(--amsterdam-highlight-magenta-background-color);
 }
 
 .amsterdam-highlight--purple {
-  background-color: var(--amsterdam-color-purple);
+  background-color: var(--amsterdam-highlight-purple-background-color);
+}
+
+.amsterdam-highlight--blue {
+  background-color: var(--amsterdam-highlight-blue-background-color);
+}
+
+.amsterdam-highlight--light-blue {
+  background-color: var(--amsterdam-highlight-light-blue-background-color);
 }
 
 .amsterdam-highlight--green {
-  background-color: var(--amsterdam-color-dark-green);
+  background-color: var(--amsterdam-highlight-green-background-color);
+}
+
+.amsterdam-highlight--dark-green {
+  background-color: var(--amsterdam-highlight-dark-green-background-color);
 }

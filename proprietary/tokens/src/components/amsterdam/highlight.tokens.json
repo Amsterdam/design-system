@@ -3,6 +3,46 @@
     "highlight": {
       "padding-block": {
         "value": "2rem"
+      },
+      "yellow": {
+        "background-color": {
+          "value": "{amsterdam.color.yellow}"
+        }
+      },
+      "orange": {
+        "background-color": {
+          "value": "{amsterdam.color.orange}"
+        }
+      },
+      "magenta": {
+        "background-color": {
+          "value": "{amsterdam.color.magenta}"
+        }
+      },
+      "purple": {
+        "background-color": {
+          "value": "{amsterdam.color.purple}"
+        }
+      },
+      "blue": {
+        "background-color": {
+          "value": "{amsterdam.color.primary-blue}"
+        }
+      },
+      "light-blue": {
+        "background-color": {
+          "value": "{amsterdam.color.blue}"
+        }
+      },
+      "green": {
+        "background-color": {
+          "value": "{amsterdam.color.green}"
+        }
+      },
+      "dark-green": {
+        "background-color": {
+          "value": "{amsterdam.color.dark-green}"
+        }
       }
     }
   }
