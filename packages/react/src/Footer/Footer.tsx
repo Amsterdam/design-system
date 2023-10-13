@@ -13,6 +13,9 @@ import {
   RefAttributes,
 } from 'react'
 import { GridCell, GridCellProps, PageGrid } from '../Grid'
+import { Heading } from '../Heading'
+import { HeadingLevel } from '../Heading/Heading'
+import { VisuallyHidden } from '../VisuallyHidden'
 
 export const FooterTop = forwardRef(
   (
@@ -39,9 +42,30 @@ export const FooterColumn = forwardRef(
 
 FooterColumn.displayName = 'FooterColumn'
 
+interface FooterBottomProps extends HTMLAttributes<HTMLDivElement> {
+  /**
+   * Describes the scope of the footer menu to users of assistive technologies.
+   * @default 'Over deze website'
+   */
+  heading?: string
+  /**
+   * The hierarchical level of the heading.
+   * @default 2
+   */
+  headingLevel?: HeadingLevel
+}
+
 export const FooterBottom = forwardRef(
-  ({ children, className }: PropsWithChildren<HTMLAttributes<HTMLDivElement>>, ref: ForwardedRef<HTMLDivElement>) => (
+  (
+    { children, className, heading = 'Over deze website', headingLevel = 2 }: PropsWithChildren<FooterBottomProps>,
+    ref: ForwardedRef<HTMLDivElement>,
+  ) => (
     <div ref={ref} className={clsx('amsterdam-footer__bottom', className)}>
+      {!!heading && (
+        <VisuallyHidden>
+          <Heading level={headingLevel}>{heading}</Heading>
+        </VisuallyHidden>
+      )}
       {children}
     </div>
   ),

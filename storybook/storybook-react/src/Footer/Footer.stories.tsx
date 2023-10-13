@@ -116,9 +116,6 @@ export const Default: Story = {
         </Footer.Column>
       </Footer.Top>,
       <Footer.Bottom key="footer-bottom">
-        <VisuallyHidden>
-          <Heading level={2}>Over deze website</Heading>
-        </VisuallyHidden>
         <PageGrid>
           <GridCell fullWidth>
             <PageMenu>
