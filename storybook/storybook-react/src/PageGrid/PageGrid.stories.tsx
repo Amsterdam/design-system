@@ -49,37 +49,23 @@ export const ThreeColumns: Story = {
   ...StoryTemplate,
   args: {
     children: [
-      <GridCell key={1} gridColumns={4}>
+      <GridCell key={1} span={4}>
         <figure className="amsterdam-docs-figure">
           <img alt="Voorbeeld van een afbeelding" src="https://picsum.photos/1024/576?random=1" />
         </figure>
       </GridCell>,
-      <GridCell key={2} gridColumns={4}>
+      <GridCell key={2} span={4}>
         <figure className="amsterdam-docs-figure">
           <img alt="Voorbeeld van een afbeelding" src="https://picsum.photos/1024/576?random=2" />
         </figure>
       </GridCell>,
-      <GridCell key={3} gridColumns={4}>
+      <GridCell key={3} span={4}>
         <figure className="amsterdam-docs-figure">
           <img alt="Voorbeeld van een afbeelding" src="https://picsum.photos/1024/576?random=3" />
         </figure>
       </GridCell>,
     ],
     title: 'Drie afbeeldingen',
-  },
-}
-
-export const MiddleBlock: Story = {
-  ...StoryTemplate,
-  args: {
-    children: (
-      <GridCell gridColumns={{ start: 2, span: 10 }}>
-        <div className="amsterdam-docs-pink-box">
-          <Paragraph>Blok: kolom 2 t/m 11</Paragraph>
-        </div>
-      </GridCell>
-    ),
-    title: 'Een blok in het midden',
   },
 }
 
@@ -93,5 +79,19 @@ export const FullWidth: Story = {
         </div>
       </GridCell>
     ),
+  },
+}
+
+export const MiddleBlock: Story = {
+  ...StoryTemplate,
+  args: {
+    children: (
+      <GridCell start={[1, 2, 2]} span={[4, 6, 10]}>
+        <div className="amsterdam-docs-pink-box">
+          <Paragraph>Laat de buitenste kolommen leeg op middelbrede en brede vensters.</Paragraph>
+        </div>
+      </GridCell>
+    ),
+    title: 'Een blok in het midden',
   },
 }

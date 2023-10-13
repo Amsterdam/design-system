@@ -7,35 +7,53 @@ import clsx from 'clsx'
 import { ForwardedRef, forwardRef, HTMLAttributes, PropsWithChildren } from 'react'
 import { PageGridColumnNumber } from './PageGrid'
 
-type GridColumns =
+type OneOrThreeGridCellValues =
   | PageGridColumnNumber
-  | {
-      start?: PageGridColumnNumber
-      span: PageGridColumnNumber
-    }
+  | [PageGridColumnNumber, PageGridColumnNumber, PageGridColumnNumber]
 
 export interface GridCellProps extends HTMLAttributes<HTMLDivElement> {
   fullWidth?: boolean
-  gridColumns?: GridColumns
+  span?: OneOrThreeGridCellValues
+  start?: OneOrThreeGridCellValues
 }
 
-export const gridColumnClassNames = (gridColumns?: GridColumns) => {
-  if (!gridColumns) {
-    return ''
+export const gridColumnClassNames = (start?: OneOrThreeGridCellValues, span?: OneOrThreeGridCellValues) => {
+  let classes = []
+
+  if (start) {
+    if (typeof start === 'number') {
+      classes.push(`amsterdam-grid-start-${start}`)
+    } else {
+      const [narrow, medium, wide] = start
+
+      classes.push(
+        `amsterdam-narrow-grid-start-${narrow}`,
+        `amsterdam-medium-grid-start-${medium}`,
+        `amsterdam-wide-grid-start-${wide}`,
+      )
+    }
   }
 
-  if (typeof gridColumns === 'number') {
-    return `amsterdam-grid-column-span-${gridColumns}`
+  if (span) {
+    if (typeof span === 'number') {
+      classes.push(`amsterdam-grid-span-${span}`)
+    } else {
+      const [narrow, medium, wide] = span
+
+      classes.push(
+        `amsterdam-narrow-grid-span-${narrow}`,
+        `amsterdam-medium-grid-span-${medium}`,
+        `amsterdam-wide-grid-span-${wide}`,
+      )
+    }
   }
 
-  const { start, span } = gridColumns
-
-  return clsx(start && `amsterdam-grid-column-start-${start}`, span && `amsterdam-grid-column-span-${span}`)
+  return classes
 }
 
 export const GridCell = forwardRef(
   (
-    { children, fullWidth, gridColumns, className, ...restProps }: PropsWithChildren<GridCellProps>,
+    { children, className, fullWidth, span, start, ...restProps }: PropsWithChildren<GridCellProps>,
     ref: ForwardedRef<HTMLDivElement>,
   ) => (
     <div
@@ -44,7 +62,7 @@ export const GridCell = forwardRef(
       className={clsx(
         'amsterdam-grid-cell',
         fullWidth && 'amsterdam-grid-cell-full-width',
-        gridColumnClassNames(gridColumns),
+        gridColumnClassNames(start, span),
         className,
       )}
     >

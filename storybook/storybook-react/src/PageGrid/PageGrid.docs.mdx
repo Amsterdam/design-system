@@ -10,7 +10,7 @@ import README from "../../../../packages/css/src/grid/README.md?raw";
 
 De roze vlakken vertegenwoordigen de kolommen van het grid. Zoom in of verander de breedte van het venster om de breedtes en het aantal kolommen te zien veranderen.
 
-Er is een `GridCell` component waarop kan worden ingesteld welke kolommen van het grid het element beslaat.
+Er is een `GridCell` component waarop kan worden ingesteld hoeveel kolommen van het grid het element beslaat.
 
 De cellen worden automatisch op de eerstvolgende beschikbare ruimte in het grid geplaatst.
 
@@ -18,16 +18,22 @@ De cellen worden automatisch op de eerstvolgende beschikbare ruimte in het grid 
 
 ### Drie kolommen
 
-Content kan in drie kolommen worden weergegeven door via `gridColumns={4}` elk element vier kolommen van het grid te laten beslaan.
+Op brede vensters kan content via `span={4}` in 3 kolommen worden uitgelijnd.
+Elk stuk content beslaat zo 4 van de 12 kolommen van het grid.
+
+Op middelbrede vensters heeft het grid 8 kolommen.
+In dit geval staan de eerste twee stukken content naast elkaar en de derde onder de eerste.
+
+Op smalle schermen heeft het grid 4 kolommen en staan de drie stukken content onder elkaar.
 
 <Canvas of={PageGridStories.ThreeColumns} />
-
-### Een blok in het midden
-
-Dit blok beslaat de tien middelste kolommen, van nummer 2 tot en met 11. In dit geval moet dus expliciet worden aangegeven bij welk kolomnummer het element begint: `gridColumns={{ start: 2, span: 10 }}`.
-
-<Canvas of={PageGridStories.MiddleBlock} />
 
 ### Volledige breedte
 
 <Canvas of={PageGridStories.FullWidth} />
+
+### Een blok in het midden
+
+Dit blok beslaat de middelste 10 van 12 kolommen, of de middelste 6 van 8. Op smalle vensters alle 4.
+
+<Canvas of={PageGridStories.MiddleBlock} />

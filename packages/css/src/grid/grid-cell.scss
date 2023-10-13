@@ -10,11 +10,41 @@
 }
 
 @for $i from 1 through 12 {
-  .amsterdam-page-grid > .amsterdam-grid-column-span-#{$i} {
+  .amsterdam-page-grid > .amsterdam-grid-span-#{$i} {
     grid-column-end: span $i;
   }
 
-  .amsterdam-page-grid > .amsterdam-grid-column-start-#{$i} {
+  .amsterdam-page-grid > .amsterdam-grid-start-#{$i} {
     grid-column-start: $i;
+  }
+
+  @media screen and (width < $amsterdam-breakpoint-medium) {
+    .amsterdam-page-grid > .amsterdam-narrow-grid-span-#{$i} {
+      grid-column-end: span $i;
+    }
+
+    .amsterdam-page-grid > .amsterdam-narrow-grid-start-#{$i} {
+      grid-column-start: $i;
+    }
+  }
+
+  @media screen and ($amsterdam-breakpoint-medium <= width < $amsterdam-breakpoint-wide) {
+    .amsterdam-page-grid > .amsterdam-medium-grid-span-#{$i} {
+      grid-column-end: span $i;
+    }
+
+    .amsterdam-page-grid > .amsterdam-medium-grid-start-#{$i} {
+      grid-column-start: $i;
+    }
+  }
+
+  @media screen and (width >= $amsterdam-breakpoint-wide) {
+    .amsterdam-page-grid > .amsterdam-wide-grid-span-#{$i} {
+      grid-column-end: span $i;
+    }
+
+    .amsterdam-page-grid > .amsterdam-wide-grid-start-#{$i} {
+      grid-column-start: $i;
+    }
   }
 }

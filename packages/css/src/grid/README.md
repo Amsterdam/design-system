@@ -78,10 +78,3 @@ Mensen kunnen de weergave van een webpagina vergroten door in te zoomen of door 
 In het grid zijn dus zowel de breedte van de kolommen, de witruimtes als de marges flexibel. Ook de tekstgroottes zijn afhankelijk van de vensterbreedte. Dat zorgt ervoor dat content op zo veel mogelijk vensterbreedtes en met diverse persoonlijke instellingen goed tot zijn recht komt.
 
 Op dit moment reageert de typografie nog op één breakpoint bij een vensterbreedte van 854 pixels. Nu het grid doorontwikkeld is, stemmen we de typografie daar weer op af. Dit aparte breakpoint komt dus snel te vervallen.
-
-## TODO
-
-- [x] `GridCellProps` verwijderen van `Paragraph`, expliciet is beter.
-- [ ] API om grid items uit te lijnen op de 4- en 8-koloms grids + nieuwe `GridCell` pagina.
-- [ ] Rename `PageGrid` to `Grid` – final check first, and in separate PR.
-- [ ] Make Footer Columns responsive.

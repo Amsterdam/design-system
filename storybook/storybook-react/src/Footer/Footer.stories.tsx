@@ -42,7 +42,7 @@ export const Default: Story = {
         <VisuallyHidden>
           <Heading>Colofon</Heading>
         </VisuallyHidden>
-        <Footer.Column gridColumns={{ start: 1, span: 3 }}>
+        <Footer.Column span={[4, 3, 3]}>
           <Heading level={2} size="level-4" inverseColor>
             Contact
           </Heading>
@@ -62,7 +62,7 @@ export const Default: Story = {
             </li>
           </UnorderedList>
         </Footer.Column>
-        <Footer.Column gridColumns={{ start: 5, span: 3 }}>
+        <Footer.Column span={[4, 3, 3]} start={[1, 5, 5]}>
           <Heading level={2} size="level-4" inverseColor>
             Panels en enquêtes
           </Heading>
@@ -87,7 +87,7 @@ export const Default: Story = {
             </li>
           </UnorderedList>
         </Footer.Column>
-        <Footer.Column gridColumns={{ start: 9, span: 3 }}>
+        <Footer.Column span={[4, 3, 4]} start={[1, 1, 9]}>
           <Heading level={2} size="level-4" inverseColor>
             Onderzoek en Statistiek
           </Heading>

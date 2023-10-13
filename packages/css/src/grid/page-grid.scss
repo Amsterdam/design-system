@@ -22,6 +22,5 @@
 @media screen and (min-width: $amsterdam-breakpoint-wide) {
   .amsterdam-page-grid {
     grid-template-columns: repeat(var(--amsterdam-page-grid-wide-column-count), 1fr);
-    max-width: var(--amsterdam-page-grid-wide-max-width);
   }
 }

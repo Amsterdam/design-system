@@ -56,30 +56,30 @@ export const Default: Story = {
             </div>
           </header>
         </GridCell>
-        <GridCell gridColumns={4}>
+        <GridCell span={[4, 8, 4]}>
           <figure className="amsterdam-docs-figure">
             <img alt="Voorbeeld van een afbeelding" src="https://picsum.photos/1024/576?random=1" />
           </figure>
         </GridCell>
-        <GridCell gridColumns={4}>
+        <GridCell span={4}>
           <figure className="amsterdam-docs-figure">
             <img alt="Voorbeeld van een afbeelding" src="https://picsum.photos/1024/576?random=2" />
           </figure>
         </GridCell>
-        <GridCell gridColumns={4}>
+        <GridCell span={4}>
           <figure className="amsterdam-docs-figure">
             <img alt="Voorbeeld van een afbeelding" src="https://picsum.photos/1024/576?random=3" />
           </figure>
         </GridCell>
       </PageGrid>,
-      <div key={Math.random()} style={{ backgroundColor: '#E50082', marginBlockEnd: '2rem', paddingBlock: '2rem' }}>
+      <div key={Math.random()} style={{ backgroundColor: '#A00078', marginBlockEnd: '2rem', paddingBlock: '2rem' }}>
         <PageGrid>
-          <GridCell gridColumns={3}>
+          <GridCell span={[4, 3, 3]}>
             <Blockquote inverseColor>
               Er is maar één moment dat je op tijd kunt komen. Ben je er niet, dan ben je óf te vroeg, óf te laat.
             </Blockquote>
           </GridCell>
-          <GridCell gridColumns={{ start: 5, span: 8 }}>
+          <GridCell start={[1, 4, 5]} span={[4, 5, 8]}>
             <figure className="amsterdam-docs-figure">
               <img alt="Voorbeeld van een afbeelding" src="https://picsum.photos/1600/900?random=3" />
             </figure>
@@ -87,14 +87,14 @@ export const Default: Story = {
         </PageGrid>
       </div>,
       <PageGrid key={Math.random()} style={{ marginBlockEnd: '2rem' }}>
-        <GridCell gridColumns={6}>
-          <div style={{ backgroundColor: '#FF9100', padding: '2rem', textAlign: 'center' }}>
-            <Paragraph inverseColor>Halve breedte</Paragraph>
+        <GridCell span={[4, 4, 6]}>
+          <div style={{ backgroundColor: '#BED200', padding: '2rem', textAlign: 'center' }}>
+            <Paragraph>Elk de helft</Paragraph>
           </div>
         </GridCell>
-        <GridCell gridColumns={6}>
+        <GridCell span={[4, 4, 6]}>
           <div style={{ backgroundColor: '#BED200', padding: '2rem', textAlign: 'center' }}>
-            <Paragraph inverseColor>Halve breedte</Paragraph>
+            <Paragraph>Elk de helft</Paragraph>
           </div>
         </GridCell>
       </PageGrid>,
@@ -103,7 +103,7 @@ export const Default: Story = {
           <VisuallyHidden>
             <Heading>Colofon</Heading>
           </VisuallyHidden>
-          <Footer.Column gridColumns={{ start: 1, span: 3 }}>
+          <Footer.Column span={[4, 3, 3]}>
             <Heading level={2} size="level-4" inverseColor>
               Contact
             </Heading>
@@ -123,7 +123,7 @@ export const Default: Story = {
               </li>
             </UnorderedList>
           </Footer.Column>
-          <Footer.Column gridColumns={{ start: 5, span: 3 }}>
+          <Footer.Column span={[4, 3, 3]} start={[1, 5, 5]}>
             <Heading level={2} size="level-4" inverseColor>
               Panels en enquêtes
             </Heading>
@@ -148,7 +148,7 @@ export const Default: Story = {
               </li>
             </UnorderedList>
           </Footer.Column>
-          <Footer.Column gridColumns={{ start: 9, span: 3 }}>
+          <Footer.Column span={[4, 3, 4]} start={[1, 1, 9]}>
             <Heading level={2} size="level-4" inverseColor>
               Onderzoek en Statistiek
             </Heading>

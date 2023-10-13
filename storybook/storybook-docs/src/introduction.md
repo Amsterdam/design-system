@@ -18,7 +18,7 @@ Die componenten maken we beschikbaar in diverse bibliotheken zodat ontwerpers en
 
 ### React
 
-Op deze website vind je de React Library en documentatie – gebruik de inhoudsopgave links (op brede schermen) of onder de tab ‘Sidebar’ (op smalle). Deze componenten zijn [via npm](https://www.npmjs.com/search?q=%40amsterdam%2Fdesign-system) te installeren en te gebruiken in je applicatie.
+Op deze website vind je de React Library en documentatie – gebruik de inhoudsopgave links (op brede vensters) of onder de tab ‘Sidebar’ (op smalle). Deze componenten zijn [via npm](https://www.npmjs.com/search?q=%40amsterdam%2Fdesign-system) te installeren en te gebruiken in je applicatie.
 
 ### React Native
 
