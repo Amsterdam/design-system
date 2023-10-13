@@ -81,9 +81,7 @@ Op dit moment reageert de typografie nog op één breakpoint bij een vensterbree
 
 ## TODO
 
-- [x] Grid tracks voor marges
-- [x] API voor `GridCell` bijwerken
-- [ ] `GridCellProps` op bijv. `BlockQuote` toepassen en type bug fixen
-- [ ] Cellen plaatsen op grid varianten documenteren in nieuwe `GridCell` pagina
-- [x] Horizontaal centreren implementeren. Zelf of verantwoordelijkheid van container? Niet voor applicaties?
-- [ ] Default text size in Storybook Docs vergroten, maar hoe in vredesnaam
+- [ ] `GridCellProps` verwijderen van `Paragraph`, expliciet is beter.
+- [ ] API om grid items uit te lijnen op de 4- en 8-koloms grids + nieuwe `GridCell` pagina.``
+- [ ] Rename `PageGrid` to `Grid` – final check first, and in separate PR.
+- [ ] Make Footer Columns responsive.
