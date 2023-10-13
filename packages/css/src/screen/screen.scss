@@ -1,0 +1,19 @@
+/**
+ * @license EUPL-1.2+
+ * Copyright (c) 2023 Gemeente Amsterdam
+ */
+
+@mixin reset {
+  box-sizing: border-box;
+}
+
+.amsterdam-screen {
+  @include reset;
+
+  margin-inline: auto;
+  max-width: var(--amsterdam-screen-wide-max-width);
+}
+
+.amsterdam-screen--extra-wide {
+  max-width: var(--amsterdam-screen-extra-wide-max-width);
+}

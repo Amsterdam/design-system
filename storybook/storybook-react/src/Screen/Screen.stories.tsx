@@ -13,14 +13,15 @@ import { PageMenu } from '@amsterdam/design-system-react'
 import { PageHeading } from '@amsterdam/design-system-react'
 import { Paragraph } from '@amsterdam/design-system-react'
 import { GridCell } from '@amsterdam/design-system-react'
-import { Site } from '@amsterdam/design-system-react'
+import { Screen } from '@amsterdam/design-system-react'
 import { MenuIcon } from '@amsterdam/design-system-react-icons'
 import { LoginIcon } from '@amsterdam/design-system-react-icons'
 import { Meta, StoryObj } from '@storybook/react'
+import '../../../storybook-docs/src/stories.scss'
 
 const meta = {
-  title: 'Containers/Site',
-  component: Site,
+  title: 'Containers/Screen',
+  component: Screen,
   parameters: {
     docs: {
       canvas: {
@@ -28,7 +29,7 @@ const meta = {
       },
     },
   },
-} satisfies Meta<typeof Site>
+} satisfies Meta<typeof Screen>
 
 export default meta
 

@@ -1,6 +1,6 @@
 {
   "amsterdam": {
-    "site": {
+    "screen": {
       "wide": {
         "max-width": { "value": "100rem" }
       },

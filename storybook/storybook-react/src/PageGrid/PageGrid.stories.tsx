@@ -3,7 +3,7 @@
  * Copyright (c) 2023 Gemeente Amsterdam
  */
 
-import { Site } from '@amsterdam/design-system-react'
+import { Screen } from '@amsterdam/design-system-react'
 import { GridCell, PageGrid, Paragraph } from '@amsterdam/design-system-react'
 import { Meta, StoryObj } from '@storybook/react'
 import '../../../storybook-docs/src/stories.scss'
@@ -27,9 +27,9 @@ type Story = StoryObj<typeof meta>
 const StoryTemplate: Story = {
   decorators: [
     (Story) => (
-      <Site>
+      <Screen>
         <Story />
-      </Site>
+      </Screen>
     ),
   ],
 }

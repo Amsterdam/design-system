@@ -4,7 +4,7 @@
  */
 
 /* Append here */
-export * from './Site'
+export * from './Screen'
 export * from './Switch'
 export * from './Highlight'
 export * from './Card'

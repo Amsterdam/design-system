@@ -5,7 +5,7 @@
 Op deze manier bouw je een pagina op met de componenten van het Amsterdam Design System.
 
 ```jsx
-<Site>
+<Screen>
   <Grid>
     <Header>…</Header>
     <Things>…</Things>
@@ -30,5 +30,5 @@ Op deze manier bouw je een pagina op met de componenten van het Amsterdam Design
     </Highlight>
     <Grid></Grid>
   </Footer>
-</Site>
+</Screen>
 ```

@@ -1,11 +1,11 @@
 import { render } from '@testing-library/react'
 import { createRef } from 'react'
-import { Site } from './Site'
+import { Screen } from './Screen'
 import '@testing-library/jest-dom'
 
-describe('Site', () => {
+describe('Screen', () => {
   it('renders', () => {
-    const { container } = render(<Site />)
+    const { container } = render(<Screen />)
 
     const component = container.querySelector(':only-child')
 
@@ -14,27 +14,27 @@ describe('Site', () => {
   })
 
   it('renders a design system BEM class name', () => {
-    const { container } = render(<Site />)
+    const { container } = render(<Screen />)
 
     const component = container.querySelector(':only-child')
 
-    expect(component).toHaveClass('amsterdam-site')
+    expect(component).toHaveClass('amsterdam-screen')
   })
 
   it('can have a additional class name', () => {
-    const { container } = render(<Site className="extra" />)
+    const { container } = render(<Screen className="extra" />)
 
     const component = container.querySelector(':only-child')
 
     expect(component).toHaveClass('extra')
 
-    expect(component).toHaveClass('amsterdam-site')
+    expect(component).toHaveClass('amsterdam-screen')
   })
 
   it('supports ForwardRef in React', () => {
     const ref = createRef<HTMLDivElement>()
 
-    const { container } = render(<Site ref={ref} />)
+    const { container } = render(<Screen ref={ref} />)
 
     const component = container.querySelector(':only-child')
 
