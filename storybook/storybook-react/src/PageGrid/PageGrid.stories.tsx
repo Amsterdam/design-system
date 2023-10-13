@@ -38,17 +38,17 @@ export const ThreeColumns: Story = {
     children: [
       <GridCell key={1} gridColumns={4}>
         <figure className="amsterdam-docs-figure">
-          <img src="https://picsum.photos/800/450?random=1" />
+          <img alt="Voorbeeld van een afbeelding" src="https://picsum.photos/800/450?random=1" />
         </figure>
       </GridCell>,
       <GridCell key={2} gridColumns={4}>
         <figure className="amsterdam-docs-figure">
-          <img src="https://picsum.photos/800/450?random=2" />
+          <img alt="Voorbeeld van een afbeelding" src="https://picsum.photos/800/450?random=2" />
         </figure>
       </GridCell>,
       <GridCell key={3} gridColumns={4}>
         <figure className="amsterdam-docs-figure">
-          <img src="https://picsum.photos/800/450?random=3" />
+          <img alt="Voorbeeld van een afbeelding" src="https://picsum.photos/800/450?random=3" />
         </figure>
       </GridCell>,
     ],
