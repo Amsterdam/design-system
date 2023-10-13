@@ -9,7 +9,7 @@ The declaration block for the pseudo-class name only lists the properties for wh
 This link receives an underline when a user's pointer hovers over it. Still, we define its thickness and offset for the initial state.
 
 ```css
-.class {
+.amsterdam-link {
   text-decoration: none;
   text-decoration-thickness: 2px;
   text-underline-offset: 3px;
