@@ -40,13 +40,10 @@ export const FooterColumn = forwardRef(
 FooterColumn.displayName = 'FooterColumn'
 
 export const FooterBottom = forwardRef(
-  (
-    { children, className, ...restProps }: PropsWithChildren<HTMLAttributes<HTMLDivElement>>,
-    ref: ForwardedRef<HTMLDivElement>,
-  ) => (
-    <PageGrid {...restProps} ref={ref} className={clsx('amsterdam-footer__bottom', className)}>
-      <GridCell gridColumns={{ start: 1, span: 12 }}>{children}</GridCell>
-    </PageGrid>
+  ({ children, className }: PropsWithChildren<HTMLAttributes<HTMLDivElement>>, ref: ForwardedRef<HTMLDivElement>) => (
+    <div ref={ref} className={clsx('amsterdam-footer__bottom', className)}>
+      {children}
+    </div>
   ),
 )
 

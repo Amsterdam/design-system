@@ -5,8 +5,10 @@
 
 import {
   Footer,
+  GridCell,
   Heading,
   Link,
+  PageGrid,
   PageMenu,
   Paragraph,
   UnorderedList,
@@ -36,7 +38,7 @@ type Story = StoryObj<typeof meta>
 export const Default: Story = {
   args: {
     children: [
-      <Footer.Top key={1}>
+      <Footer.Top key="footer-top">
         <VisuallyHidden>
           <Heading>Colofon</Heading>
         </VisuallyHidden>
@@ -113,14 +115,18 @@ export const Default: Story = {
           </UnorderedList>
         </Footer.Column>
       </Footer.Top>,
-      <Footer.Bottom key={2}>
+      <Footer.Bottom key="footer-bottom">
         <VisuallyHidden>
           <Heading level={2}>Over deze website</Heading>
         </VisuallyHidden>
-        <PageMenu>
-          <PageMenu.Link href="/">Privacy</PageMenu.Link>
-          <PageMenu.Link href="/">Toegankelijkheid</PageMenu.Link>
-        </PageMenu>
+        <PageGrid>
+          <GridCell fullWidth>
+            <PageMenu>
+              <PageMenu.Link href="/">Privacy</PageMenu.Link>
+              <PageMenu.Link href="/">Toegankelijkheid</PageMenu.Link>
+            </PageMenu>
+          </GridCell>
+        </PageGrid>
       </Footer.Bottom>,
     ],
   },
