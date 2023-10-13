@@ -5,7 +5,7 @@ import '@testing-library/jest-dom'
 
 describe('Highlight', () => {
   it('renders', () => {
-    const { container } = render(<Highlight />)
+    const { container } = render(<Highlight color="yellow" />)
 
     const component = container.querySelector(':only-child')
 
@@ -14,7 +14,7 @@ describe('Highlight', () => {
   })
 
   it('renders a design system BEM class name', () => {
-    const { container } = render(<Highlight />)
+    const { container } = render(<Highlight color="yellow" />)
 
     const component = container.querySelector(':only-child')
 
@@ -22,7 +22,7 @@ describe('Highlight', () => {
   })
 
   it('can have a additional class name', () => {
-    const { container } = render(<Highlight className="extra" />)
+    const { container } = render(<Highlight color="yellow" className="extra" />)
 
     const component = container.querySelector(':only-child')
 
@@ -34,7 +34,7 @@ describe('Highlight', () => {
   it('supports ForwardRef in React', () => {
     const ref = createRef<HTMLDivElement>()
 
-    const { container } = render(<Highlight ref={ref} />)
+    const { container } = render(<Highlight color="yellow" ref={ref} />)
 
     const component = container.querySelector(':only-child')
 
