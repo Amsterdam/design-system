@@ -2,7 +2,7 @@
 
 ## Where to put properties for various states
 
-When defining styles for an element that gets a pseudo class (for example `:hover` on hover), define the styles that do not change in the element selector and only the styles that change in the pseudo class selector.
+The declaration block for the pseudo-class name only lists the properties for which the value changes in the related state. Properties that remain unchanged in all other states are part of the declaration block for the general class name, even if they don’t affect the element’s initial state.
 
 For example, do this:
 
