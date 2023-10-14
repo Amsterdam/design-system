@@ -21,7 +21,7 @@ import { Meta, StoryObj } from '@storybook/react'
 import '../../../storybook-docs/src/stories.scss'
 
 const meta = {
-  title: 'Containers/Screen',
+  title: 'Layout/Screen',
   component: Screen,
   parameters: {
     docs: {
@@ -38,6 +38,10 @@ export default meta
 type Story = StoryObj<typeof meta>
 
 export const Default: Story = {
+  args: { children: <Paragraph className="amsterdam-docs-pink-box">Ik pas in het scherm.</Paragraph> },
+}
+
+export const HomePage: Story = {
   args: {
     children: [
       <PageGrid key={Math.random()} style={{ marginBlockEnd: '2rem' }}>
@@ -179,4 +183,12 @@ export const Default: Story = {
       </Footer>,
     ],
   },
+}
+
+export const OverviewPage: Story = {
+  args: { children: <Paragraph className="amsterdam-docs-pink-box">Overzichtspagina nog te maken.</Paragraph> },
+}
+
+export const ArticlePage: Story = {
+  args: { children: <Paragraph className="amsterdam-docs-pink-box">Detailpagina nog te maken.</Paragraph> },
 }

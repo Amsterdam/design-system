@@ -1,4 +1,4 @@
-import { Markdown, Meta, Primary } from "@storybook/blocks";
+import { Canvas, Markdown, Meta, Primary } from "@storybook/blocks";
 import * as ScreenStories from "./Screen.stories.tsx";
 import README from "../../../../packages/css/src/screen/README.md?raw";
 
@@ -7,3 +7,15 @@ import README from "../../../../packages/css/src/screen/README.md?raw";
 <Markdown>{README}</Markdown>
 
 <Primary />
+
+## Homepage
+
+<Canvas of={ScreenStories.HomePage} />
+
+## Overzichtspagina
+
+<Canvas of={ScreenStories.OverviewPage} />
+
+## Detailpagina
+
+<Canvas of={ScreenStories.ArticlePage} />
