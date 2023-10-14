@@ -4,17 +4,17 @@
  */
 
 import { Blockquote } from '@amsterdam/design-system-react'
-import { Link } from '@amsterdam/design-system-react'
-import { UnorderedList } from '@amsterdam/design-system-react'
 import { Footer } from '@amsterdam/design-system-react'
-import { Heading } from '@amsterdam/design-system-react'
-import { VisuallyHidden } from '@amsterdam/design-system-react'
-import { PageGrid } from '@amsterdam/design-system-react'
-import { PageMenu } from '@amsterdam/design-system-react'
-import { PageHeading } from '@amsterdam/design-system-react'
-import { Paragraph } from '@amsterdam/design-system-react'
 import { GridCell } from '@amsterdam/design-system-react'
+import { Heading } from '@amsterdam/design-system-react'
+import { Link } from '@amsterdam/design-system-react'
+import { PageGrid } from '@amsterdam/design-system-react'
+import { PageHeading } from '@amsterdam/design-system-react'
+import { PageMenu } from '@amsterdam/design-system-react'
+import { Paragraph } from '@amsterdam/design-system-react'
 import { Screen } from '@amsterdam/design-system-react'
+import { UnorderedList } from '@amsterdam/design-system-react'
+import { VisuallyHidden } from '@amsterdam/design-system-react'
 import { MenuIcon } from '@amsterdam/design-system-react-icons'
 import { LoginIcon } from '@amsterdam/design-system-react-icons'
 import { Meta, StoryObj } from '@storybook/react'
@@ -47,15 +47,24 @@ export const HomePage: Story = {
       <PageGrid key={Math.random()} style={{ marginBlockEnd: '2rem' }}>
         <GridCell fullWidth>
           <header>
-            <div style={{ display: 'flex', flexDirection: 'row', alignItems: 'center' }}>
-              <Paragraph style={{ flex: 2 }}>Logo</Paragraph>
-              <PageHeading style={{ flex: 4 }}>Titel</PageHeading>
-              <PageMenu style={{ flex: 6 }}>
+            <div style={{ display: 'flex', flexDirection: 'row', gap: '2rem', alignItems: 'center' }}>
+              <div style={{ flex: 2 }}>
+                <img
+                  alt="Logo van de gemeente Amsterdam"
+                  className="amsterdam-docs-image"
+                  height={40}
+                  src="https://amsterdam.nl/publish/pages/963333/basis_variant_1_rgb_1.png"
+                  width={92}
+                />
+              </div>
+              <PageHeading style={{ flex: 2 }}>Titel</PageHeading>
+              <PageMenu style={{ flex: 8, justifyContent: 'flex-end' }}>
                 <PageMenu.Link href="#">English</PageMenu.Link>
+                <PageMenu.Link href="#">Contact</PageMenu.Link>
                 <PageMenu.Link href="#" icon={LoginIcon}>
-                  Inloggen Mijn Amsterdam
+                  Mijn Amsterdam
                 </PageMenu.Link>
-                <PageMenu.Button icon={MenuIcon}>Alle onderwerpen</PageMenu.Button>
+                <PageMenu.Button icon={MenuIcon}>Menu</PageMenu.Button>
               </PageMenu>
             </div>
           </header>
