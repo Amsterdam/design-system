@@ -11,18 +11,18 @@ const meta = {
   component: Highlight,
   argTypes: {
     color: {
-      options: ['yellow', 'orange', 'magenta', 'purple', 'blue', 'light-blue', 'green', 'dark-green'],
+      options: ['blue', 'dark-green', 'green', 'light-blue', 'magenta', 'orange', 'purple', 'yellow'],
       control: {
         type: 'radio',
         labels: {
-          yellow: 'Geel',
-          orange: 'Oranje',
-          magenta: 'Magenta',
-          purple: 'Paars',
           blue: 'Blauw',
-          'light-blue': 'Lichtblauw',
-          green: 'Groen',
           'dark-green': 'Donkergroen',
+          green: 'Groen',
+          'light-blue': 'Lichtblauw',
+          magenta: 'Magenta',
+          orange: 'Oranje',
+          purple: 'Paars',
+          yellow: 'Geel',
         },
       },
     },

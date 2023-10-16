@@ -4,34 +4,14 @@
       "padding-block": {
         "value": "2rem"
       },
-      "yellow": {
-        "background-color": {
-          "value": "{amsterdam.color.yellow}"
-        }
-      },
-      "orange": {
-        "background-color": {
-          "value": "{amsterdam.color.orange}"
-        }
-      },
-      "magenta": {
-        "background-color": {
-          "value": "{amsterdam.color.magenta}"
-        }
-      },
-      "purple": {
-        "background-color": {
-          "value": "{amsterdam.color.purple}"
-        }
-      },
       "blue": {
         "background-color": {
           "value": "{amsterdam.color.primary-blue}"
         }
       },
-      "light-blue": {
+      "dark-green": {
         "background-color": {
-          "value": "{amsterdam.color.blue}"
+          "value": "{amsterdam.color.dark-green}"
         }
       },
       "green": {
@@ -39,9 +19,29 @@
           "value": "{amsterdam.color.green}"
         }
       },
-      "dark-green": {
+      "light-blue": {
         "background-color": {
-          "value": "{amsterdam.color.dark-green}"
+          "value": "{amsterdam.color.blue}"
+        }
+      },
+      "magenta": {
+        "background-color": {
+          "value": "{amsterdam.color.magenta}"
+        }
+      },
+      "orange": {
+        "background-color": {
+          "value": "{amsterdam.color.orange}"
+        }
+      },
+      "purple": {
+        "background-color": {
+          "value": "{amsterdam.color.purple}"
+        }
+      },
+      "yellow": {
+        "background-color": {
+          "value": "{amsterdam.color.yellow}"
         }
       }
     }
