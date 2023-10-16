@@ -23,6 +23,6 @@
     "sass": "1.69.3"
   },
   "dependencies": {
-    "@utrecht/components": "1.0.0-alpha.556"
+    "@utrecht/components": "1.0.0-alpha.558"
   }
 }
