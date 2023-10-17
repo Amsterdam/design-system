@@ -12,8 +12,9 @@ export interface HighlightProps extends PropsWithChildren<HTMLAttributes<HTMLEle
 }
 
 export const Highlight = forwardRef<HTMLDivElement, HighlightProps>(
-  ({ children, className, as, color = 'blue', ...restProps }: HighlightProps, ref) => {
-    const Component = as || 'div'
+  ({ children, className, as = 'div', color = 'blue', ...restProps }: HighlightProps, ref) => {
+    const Component = as
+
     return (
       <Component
         {...restProps}
