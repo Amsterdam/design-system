@@ -4,12 +4,7 @@ Benadrukt een sectie op een pagina middels een opvallende achtergrondkleur.
 
 ## Richtlijnen
 
-Tekst Componenten als Paragraph, Blockquote en Heading hebben een "InverseColor" variant. Deze varianten hebben een witte tekstkleur voor een donkere achtergrondkleur. Niet alle highlight kleuren zijn donker genoeg voor deze optie. De kleuren die wel donker genoeg zijn, zijn:
-
-- Magenta
-- Paars
-- Blauw
-- Donker groen
+Raadpleeg [dit overzicht op Stijlweb](https://amsterdam.nl/stijlweb/basiselementen/kleuren/#PagCls_15671872) om na te gaan of je zwarte of witte tekst kunt gebruiken op de achtergrondkleur van je keuze.
 
 ## Relevante WCAG eisen
 
