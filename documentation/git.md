@@ -32,6 +32,8 @@ We work with small, short-lived branches (aim for 2 working days) directly on a 
 
 The approach is called ‘[trunk-based development](https://trunkbaseddevelopment.com/)’ and differs from the well-known ‘Git Flow’.
 
+Branches are automatically deployed to their own environment. To get the address of a branch deployment, go to the repository on GitHub.com and click on Deployments. Find the branch in the list and click on the external website icon.
+
 ## Create a branch
 
 Create a new branch through your shell or a GUI. The possibility to create a branch from Jira is underway.
@@ -71,6 +73,19 @@ All together, good branch names look like this:
 - `bug/DES-447-correct-button-outline`
 - `refactor/DES-368-use-singular-for-enums`
 - `task/DES-104-add-initial-git-guidelines`
+
+### Forbidden branch names
+
+There are a couple of forbidden branch names, owing to the way we have currently set up feature branch deployments.
+
+These are:
+
+- `assets`
+- `sb-addons`
+- `sb-common-assets`
+- `sb-manager`
+- `sb-preview`
+- `storybook-react`
 
 ## Describe each commit
 
