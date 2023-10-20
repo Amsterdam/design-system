@@ -1,0 +1,44 @@
+# Based on https://evilmartians.com/chronicles/super-github-pages-budget-frontend-staging-with-storybook-and-more
+
+name: Feature branch cleanup
+on:
+  pull_request:
+    types: [closed]
+
+env:
+  BRANCH_NAME: ${{ github.head_ref || github.ref_name }}
+jobs:
+  remove_stale_pages:
+    runs-on: ubuntu-latest
+    if: ${{ github.actor != 'dependabot[bot]' }}
+    steps:
+      - name: Create branch name without forward slashes
+        run: |
+          RAW_BRANCH_NAME=${{ github.head_ref || github.ref_name }}
+          BRANCH_NAME=$(echo $RAW_BRANCH_NAME | sed 's/\//-/g')
+          echo "BRANCH_NAME=$BRANCH_NAME" >> $GITHUB_ENV
+
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          ref: gh-pages
+
+      - uses: actions/setup-node@v3
+        with:
+          node-version: 18
+
+      - name: Delete folder
+        run: |
+          git rm ${{ env.BRANCH_NAME }} -r
+          git config user.name ${{ github.actor }}
+          git add .
+          git commit -m "Remove feature branch folder"
+          git push
+
+      - name: Deactivate deployment
+        uses: bobheadxi/deployments@v1
+        if: always()
+        with:
+          step: deactivate-env
+          token: ${{ secrets.GITHUB_TOKEN }}
+          env: staging-${{ env.BRANCH_NAME }}
