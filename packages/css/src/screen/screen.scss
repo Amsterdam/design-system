@@ -11,6 +11,9 @@
   @include reset;
 
   margin-inline: auto;
+}
+
+.amsterdam-screen--wide {
   max-width: var(--amsterdam-screen-wide-max-width);
 }
 
