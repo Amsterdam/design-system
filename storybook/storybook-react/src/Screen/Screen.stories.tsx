@@ -3,6 +3,7 @@
  * Copyright (c) 2023 Gemeente Amsterdam
  */
 
+import { Highlight } from '@amsterdam/design-system-react'
 import { Blockquote } from '@amsterdam/design-system-react'
 import { Footer } from '@amsterdam/design-system-react'
 import { GridCell } from '@amsterdam/design-system-react'
@@ -85,7 +86,7 @@ export const HomePage: Story = {
           </figure>
         </GridCell>
       </PageGrid>,
-      <div key={Math.random()} style={{ backgroundColor: '#A00078', marginBlockEnd: '2rem', paddingBlock: '2rem' }}>
+      <Highlight color="purple" key={Math.random()} style={{ marginBlockEnd: '2rem' }}>
         <PageGrid>
           <GridCell span={[4, 3, 3]}>
             <Blockquote inverseColor>
@@ -98,7 +99,7 @@ export const HomePage: Story = {
             </figure>
           </GridCell>
         </PageGrid>
-      </div>,
+      </Highlight>,
       <PageGrid key={Math.random()} style={{ marginBlockEnd: '2rem' }}>
         <GridCell span={[4, 4, 6]}>
           <div style={{ backgroundColor: '#BED200', padding: '2rem', textAlign: 'center' }}>
