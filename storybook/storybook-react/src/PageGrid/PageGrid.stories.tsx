@@ -6,7 +6,6 @@
 import { Screen } from '@amsterdam/design-system-react'
 import { GridCell, PageGrid } from '@amsterdam/design-system-react'
 import { Meta, StoryObj } from '@storybook/react'
-import '../../../storybook-docs/src/stories.scss'
 
 const meta = {
   title: 'Layout/Page Grid',

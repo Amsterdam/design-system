@@ -19,7 +19,6 @@ import { VisuallyHidden } from '@amsterdam/design-system-react'
 import { MenuIcon } from '@amsterdam/design-system-react-icons'
 import { LoginIcon } from '@amsterdam/design-system-react-icons'
 import { Meta, StoryObj } from '@storybook/react'
-import '../../../storybook-docs/src/stories.scss'
 
 const meta = {
   title: 'Layout/Screen',
