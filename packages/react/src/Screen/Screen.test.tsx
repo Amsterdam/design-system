@@ -21,6 +21,14 @@ describe('Screen', () => {
     expect(component).toHaveClass('amsterdam-screen')
   })
 
+  it('renders the max-width class name', () => {
+    const { container } = render(<Screen maxWidth="extra-wide" />)
+
+    const component = container.querySelector(':only-child')
+
+    expect(component).toHaveClass('amsterdam-screen--extra-wide')
+  })
+
   it('can have a additional class name', () => {
     const { container } = render(<Screen className="extra" />)
 
