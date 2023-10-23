@@ -32,7 +32,7 @@ We work with small, short-lived branches (aim for 2 working days) directly on a 
 
 The approach is called ‘[trunk-based development](https://trunkbaseddevelopment.com/)’ and differs from the well-known ‘Git Flow’.
 
-Branches are automatically deployed to their own environment. To get the address of a branch deployment, go to the repository on GitHub.com and click on Deployments. Find the branch in the list and click on the external website icon.
+Branches are automatically deployed to their own environment. To get the address of a branch deployment, go to the repository on GitHub.com and click on [Deployments](https://github.com/Amsterdam/design-system/deployments). Find the branch in the list and click on the external website icon.
 
 ## Create a branch
 
