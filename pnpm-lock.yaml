@@ -122,8 +122,8 @@ importers:
         specifier: workspace:*
         version: link:../../proprietary/react-icons
       '@utrecht/component-library-react':
-        specifier: 1.0.0-alpha.411
-        version: 1.0.0-alpha.411(date-fns@2.30.0)(react-dom@18.2.0)(react@18.2.0)
+        specifier: 1.0.0-alpha.413
+        version: 1.0.0-alpha.413(date-fns@2.30.0)(react-dom@18.2.0)(react@18.2.0)
       clsx:
         specifier: 2.0.0
         version: 2.0.0
@@ -6044,8 +6044,8 @@ packages:
       eslint-visitor-keys: 3.4.3
     dev: true
 
-  /@utrecht/component-library-react@1.0.0-alpha.411(date-fns@2.30.0)(react-dom@18.2.0)(react@18.2.0):
-    resolution: {integrity: sha512-MRMwTlLZnbrAna0lC7m/LttW9ssuo2JaLEqiyL7JVg5yhnEaBNul/l3xZ8WXytfAS5Zzbc5UdRI4twTnykDtXA==}
+  /@utrecht/component-library-react@1.0.0-alpha.413(date-fns@2.30.0)(react-dom@18.2.0)(react@18.2.0):
+    resolution: {integrity: sha512-FVkRn4hj30COAKsko3YipkzMhx6q25nD0huRF96pqDf5PD8S3cIJ2/o71TYmVFxnFe2kEXC8dTzrtzRy2Calbg==}
     peerDependencies:
       date-fns: ^2.30.0
       react: '18'
