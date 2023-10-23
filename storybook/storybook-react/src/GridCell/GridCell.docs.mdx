@@ -1,0 +1,39 @@
+import { Canvas, Markdown, Meta, Primary } from "@storybook/blocks";
+import * as GridCellStories from "./GridCell.stories.tsx";
+import README from "../../../../packages/css/src/grid-cell/README.md?raw";
+
+<Meta of={GridCellStories} />
+
+<Markdown>{README}</Markdown>
+
+Een cel beslaat standaard 1 kolom in het grid.
+Om een cel meer kolommen te laten beslaan, gebruik je de `span` prop.
+
+<Primary />
+
+### Startpositie
+
+Elke cel start automatisch in de eerstvolgende beschikbare positie in het grid.
+Je kunt de startpositie van een cel aanpassen met de `start` prop.
+In dit geval `start={2}`:
+
+<Canvas of={GridCellStories.StartPosition} />
+
+### Verschillende breedtes
+
+Je kunt het aantal kolommen dat een cel beslaat laten afhangen van de vensterbreedte.
+Gebruik hiervoor de `span` prop met 3 waarden in een JavaScript-array.
+De eerste waarde is het aantal kolommen voor smalle vensters, de tweede voor middelbrede vensters, en de derde voor brede vensters.
+
+Via `span={[4, 6, 8]}` is deze cel 4 van de 4 kolommen breed op smalle vensters, 6 van de 8 op middelbrede en 8 van de 12 op brede vensters:
+
+<Canvas of={GridCellStories.MultipleSizes} />
+
+Het kan zelfs voorkomen dat ook de startpositie van een cel afhangt van de vensterbreedte.
+Gebruik hiervoor de `start` prop met 3 waarden.
+
+### Volledige breedte
+
+Om de cel de volledige breedte te geven – of het grid nu 4, 8, of 12 kolommen heeft – gebruik je de `fullWidth` prop.
+
+<Canvas of={GridCellStories.FullWidth} />

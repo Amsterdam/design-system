@@ -1,39 +1,30 @@
-import { Canvas, Controls, Markdown, Meta, Primary } from "@storybook/blocks";
+import { Canvas, Markdown, Meta, Primary } from "@storybook/blocks";
 import * as PageGridStories from "./PageGrid.stories.tsx";
-import README from "../../../../packages/css/src/grid/README.md?raw";
+import README from "../../../../packages/css/src/page-grid/README.md?raw";
 
 <Meta of={PageGridStories} />
 
 <Markdown>{README}</Markdown>
 
+## Voorbeelden
+
+### Standaard
+
+De roze vlakken vertegenwoordigen de kolommen van het grid. Zoom in of verander de breedte van het venster om de breedtes en het aantal kolommen te zien veranderen. Let op: op brede schermen zijn de witruimtes tussen de kolommen soms breder dan de kolommen zelf.
+
 <Primary />
 
-De roze vlakken vertegenwoordigen de kolommen van het grid. Zoom in of verander de breedte van het venster om de breedtes en het aantal kolommen te zien veranderen.
+### Cellen
 
-Er is een `GridCell` component waarop kan worden ingesteld hoeveel kolommen van het grid het element beslaat.
+Binnen het grid maak je cellen waarin andere componenten geplaatst kunnen worden.
+Per cel geef je aan hoe veel van de kolommen het beslaat.
 
-De cellen worden automatisch op de eerstvolgende beschikbare ruimte in het grid geplaatst.
+Dit eenvoudige voorbeeld toont drie afbeeldingen, elk in een cel van 4 kolommen breed: `span={4}`.
 
-<Controls />
+- Op brede vensters heeft het grid 12 kolommen en passen de afbeeldingen naast elkaar.
+- Op middelbrede vensters heeft het grid 8 kolommen en staan de eerste twee afbeeldingen naast elkaar en de derde onder de eerste.
+- Op smalle schermen heeft het grid 4 kolommen en staan de afbeeldingen onder elkaar.
 
-### Drie kolommen
+<Canvas of={PageGridStories.Cells} />
 
-Op brede vensters kan content via `span={4}` in 3 kolommen worden uitgelijnd.
-Elk stuk content beslaat zo 4 van de 12 kolommen van het grid.
-
-Op middelbrede vensters heeft het grid 8 kolommen.
-In dit geval staan de eerste twee stukken content naast elkaar en de derde onder de eerste.
-
-Op smalle schermen heeft het grid 4 kolommen en staan de drie stukken content onder elkaar.
-
-<Canvas of={PageGridStories.ThreeColumns} />
-
-### Volledige breedte
-
-<Canvas of={PageGridStories.FullWidth} />
-
-### Een blok in het midden
-
-Dit blok beslaat de middelste 10 van 12 kolommen, of de middelste 6 van 8. Op smalle vensters alle 4.
-
-<Canvas of={PageGridStories.MiddleBlock} />
+Voor meer voorbeelden raadpleeg je [Grid Cell](?path=/docs/react_layout-grid-cell--docs) zelf.

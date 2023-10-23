@@ -2,29 +2,29 @@
 
 Onder elke pagina ligt hetzelfde grid. Alle elementen op een pagina worden op het grid geplaatst. Ze beslaan dan een bepaald aantal kolommen, en de witruimtes daartussen.
 
+## Ontwerp
+
 Het grid is volledig _responsive_: afhankelijk van de breedte van het venster verandert de breedte van het grid en het aantal kolommen.
 
-We noemen het ‘page grid’ omdat het het grid voor hele pagina’s is ontworpen. We verwachten later een generiek ‘grid’ component nodig te hebben, met meer opties, om binnen de pagina te gebruiken.
-
-## Er zijn 4, 8 of 12 kolommen
+### Er zijn 4, 8 of 12 kolommen
 
 In vensters tot 576 pixels breed levert het grid 4 kolommen. Tot een breedte van 1088 pixels zijn dat er 8. Op dat punt worden en blijven het er 12.
 
 Deze breakpoints zijn gebaseerd op stappen van 256 pixels, beginnend op een basis van 64 pixels. Zo is 576 = 64 + 2 × 256 en 1088 = 64 + 4 × 256.
 
-## Veel witruimte
+### Veel witruimte
 
 De horizontale witruimte tussen kolommen is 16 pixels breed bij een vensterbreedte van 320 pixels. Voor elke 256 pixels extra breedte groeit de witruimte lineair met 8 pixels. Bij een vensterbreedte van 1600 pixels is het dus 56 pixels. Dit past bij de ruimtelijke opzet van de huisstijl.
 
 Op brede vensters worden de witruimtes bijna even breed als de kolommen zelf. Dat lijkt misschien onnatuurlijk, maar is geen probleem – doorgaans worden elementen op 3 of 4 kolommen van het grid geplaatst en die krijgen dan ook de tussenliggende witruimtes mee.
 
-## Marges links en rechts
+### Marges links en rechts
 
 Het grid staat horizontaal gecentreerd op de pagina. Aan beide zijden reserveert het grid marges om afstand te houden tot de randen van het venster. Deze ruimte is 1½ keer zo breed als die tussen de kolommen.
 
 Sommige elementen mogen over deze marges gepositioneerd worden, zoals de Page Footer en een schermvullende afbeelding. Die zijn dan dus breder dan de rest van de content, maar worden wel beperkt door een maximale breedte.
 
-## Niet onbeperkt breed
+### Niet onbeperkt breed
 
 Een maximale breedte voor het grid zorgt ervoor dat de elementen van een pagina niet al te ver van elkaar verwijderd raken. Ook wordt de witruimte en typografie dan niet extreem groot.
 
@@ -34,7 +34,7 @@ Voor applicaties kan de maximale breedte worden ingesteld op 1896 pixels. Inclus
 
 Er is geen minimale breedte. Zelfs in vensters smaller dan 320 pixels, voor zover die in de praktijk voorkomen, blijft het grid zich schalen naar de beschikbare breedte. Voor het gemak speelt de breedte van 320 wel een rol in de documentatie.
 
-## De maatvoeringen per variant
+### De maatvoeringen per variant
 
 Op het startpunt van de drie varianten van het grid hebben de kolommen, witruimtes en marges de volgende breedtes in pixels:
 
@@ -51,7 +51,7 @@ Voor de maximale breedtes van het grid:
 | websites              |               1600 |              12 |            68 |                56 |            84 |         1432 |
 | applicaties           |               2112 |              12 |            92 |                72 |           108 |         1896 |
 
-## Vensters of schermen
+### Vensters of schermen
 
 We hebben het met opzet over vensters terwijl er bij _responsive design_ vaak over schermbreedtes wordt gesproken. Meestal komt het op hetzelfde neer, maar niet altijd. Het is goed hier bewust van te zijn.
 
@@ -59,7 +59,7 @@ Op een beeldscherm is het venster van een browser niet per se gemaximaliseerd; d
 
 Op telefoons en tablets komen beide wel vaak overeen, al is het op tablets wel degelijk mogelijk om twee (vensters van) apps naast elkaar op het scherm te zetten.
 
-## Niet gebonden aan apparaten
+### Niet gebonden aan apparaten
 
 Alle afmetingen van het grid zijn rekenkundig gebaseerd op veelvouden van 16; uitdrukkelijk niet op maten van specifieke schermen of apparaten.
 
@@ -69,11 +69,11 @@ Om dezelfde reden noemen we de drie varianten van het grid (4, 8 en 12 kolommen)
 
 Wil je toch wat meer houvast, ga er dan vanuit dat telefoons in staande modus en vensters op tablets het 4-koloms grid gebruiken, telefoons in liggende modus en tablets in staande het 8-koloms, en tablets in liggende modus en laptops en grotere beeldschermen het 12-koloms. Om hoeveel pixels het dan precies gaat is niet van belang.
 
-## Inzoomen of vergrote tekst
+### Inzoomen of vergrote tekst
 
 Mensen kunnen de weergave van een webpagina vergroten door in te zoomen of door een grotere tekstgrootte in te stellen. De maatvoering van het grid houdt daar rekening mee: door de breakpoints mee te laten schalen verandert het aantal kolommen eerder zodat de inhoud goed blijft passen.
 
-## Schalende typografie
+### Schalende typografie
 
 In het grid zijn dus zowel de breedte van de kolommen, de witruimtes als de marges flexibel. Ook de tekstgroottes zijn afhankelijk van de vensterbreedte. Dat zorgt ervoor dat content op zo veel mogelijk vensterbreedtes en met diverse persoonlijke instellingen goed tot zijn recht komt.
 
