@@ -4,6 +4,7 @@
  */
 
 /* Append here */
+export * from './Dialog'
 export * from './Switch'
 export * from './Highlight'
 export * from './Card'
