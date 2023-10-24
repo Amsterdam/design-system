@@ -6,12 +6,15 @@
 import clsx from 'clsx'
 import { ForwardedRef, forwardRef, HTMLAttributes, PropsWithChildren } from 'react'
 import { PageGridColumnNumber } from './PageGrid'
+import { gridColumnClassNames } from './gridColumnClassNames'
 
 /**
  * One or three values to configure grid columns with.
  * Three values apply to narrow, medium and wide grids, respectively.
  */
-type PageGridColumnValue = PageGridColumnNumber | [PageGridColumnNumber, PageGridColumnNumber, PageGridColumnNumber]
+export type PageGridColumnValue =
+  | PageGridColumnNumber
+  | [PageGridColumnNumber, PageGridColumnNumber, PageGridColumnNumber]
 
 export interface GridCellProps extends HTMLAttributes<HTMLDivElement> {
   /** Whether the cell should span the full width of the grid. */
@@ -20,40 +23,6 @@ export interface GridCellProps extends HTMLAttributes<HTMLDivElement> {
   span?: PageGridColumnValue
   /** The index of the grid column the cell should start at. */
   start?: PageGridColumnValue
-}
-
-export const gridColumnClassNames = (start?: PageGridColumnValue, span?: PageGridColumnValue) => {
-  let classes = []
-
-  if (start) {
-    if (typeof start === 'number') {
-      classes.push(`amsterdam-grid-start-${start}`)
-    } else {
-      const [narrow, medium, wide] = start
-
-      classes.push(
-        `amsterdam-narrow-grid-start-${narrow}`,
-        `amsterdam-medium-grid-start-${medium}`,
-        `amsterdam-wide-grid-start-${wide}`,
-      )
-    }
-  }
-
-  if (span) {
-    if (typeof span === 'number') {
-      classes.push(`amsterdam-grid-span-${span}`)
-    } else {
-      const [narrow, medium, wide] = span
-
-      classes.push(
-        `amsterdam-narrow-grid-span-${narrow}`,
-        `amsterdam-medium-grid-span-${medium}`,
-        `amsterdam-wide-grid-span-${wide}`,
-      )
-    }
-  }
-
-  return classes
 }
 
 export const GridCell = forwardRef(
