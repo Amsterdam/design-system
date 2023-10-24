@@ -12,7 +12,6 @@ import {
   PageMenu,
   Paragraph,
   UnorderedList,
-  VisuallyHidden,
 } from '@amsterdam/design-system-react'
 import { Meta, StoryObj } from '@storybook/react'
 
@@ -39,9 +38,6 @@ export const Default: Story = {
   args: {
     children: [
       <Footer.Top key="footer-top">
-        <VisuallyHidden>
-          <Heading>Colofon</Heading>
-        </VisuallyHidden>
         <Footer.Column span={[4, 3, 3]}>
           <Heading level={2} size="level-4" inverseColor>
             Contact
