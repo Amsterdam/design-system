@@ -7,17 +7,22 @@ import clsx from 'clsx'
 import { ForwardedRef, forwardRef, HTMLAttributes, PropsWithChildren } from 'react'
 import { PageGridColumnNumber } from './PageGrid'
 
-type OneOrThreeGridCellValues =
-  | PageGridColumnNumber
-  | [PageGridColumnNumber, PageGridColumnNumber, PageGridColumnNumber]
+/**
+ * One or three values to configure grid columns with.
+ * Three values apply to narrow, medium and wide grids, respectively.
+ */
+type PageGridColumnValue = PageGridColumnNumber | [PageGridColumnNumber, PageGridColumnNumber, PageGridColumnNumber]
 
 export interface GridCellProps extends HTMLAttributes<HTMLDivElement> {
+  /** Whether the cell should span the full width of the grid. */
   fullWidth?: boolean
-  span?: OneOrThreeGridCellValues
-  start?: OneOrThreeGridCellValues
+  /** The amount of grid columns the cell should span. */
+  span?: PageGridColumnValue
+  /** The index of the grid column the cell should start at. */
+  start?: PageGridColumnValue
 }
 
-export const gridColumnClassNames = (start?: OneOrThreeGridCellValues, span?: OneOrThreeGridCellValues) => {
+export const gridColumnClassNames = (start?: PageGridColumnValue, span?: PageGridColumnValue) => {
   let classes = []
 
   if (start) {

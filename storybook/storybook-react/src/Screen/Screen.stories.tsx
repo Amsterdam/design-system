@@ -38,7 +38,7 @@ export default meta
 type Story = StoryObj<typeof meta>
 
 export const Default: Story = {
-  args: { children: <Paragraph className="amsterdam-docs-pink-box">Ik pas in het scherm.</Paragraph> },
+  args: { children: <p className="amsterdam-docs-paragraph amsterdam-docs-pink-box">Ik pas in het scherm.</p> },
 }
 
 export const HomePage: Story = {
@@ -102,12 +102,12 @@ export const HomePage: Story = {
       <PageGrid key={Math.random()} style={{ marginBlockEnd: '2rem' }}>
         <GridCell span={[4, 4, 6]}>
           <div style={{ backgroundColor: '#BED200', padding: '2rem', textAlign: 'center' }}>
-            <Paragraph>Elk de helft</Paragraph>
+            <p className="amsterdam-docs-paragraph">Elk de helft</p>
           </div>
         </GridCell>
         <GridCell span={[4, 4, 6]}>
           <div style={{ backgroundColor: '#BED200', padding: '2rem', textAlign: 'center' }}>
-            <Paragraph>Elk de helft</Paragraph>
+            <p className="amsterdam-docs-paragraph">Elk de helft</p>
           </div>
         </GridCell>
       </PageGrid>,
@@ -195,9 +195,11 @@ export const HomePage: Story = {
 }
 
 export const OverviewPage: Story = {
-  args: { children: <Paragraph className="amsterdam-docs-pink-box">Overzichtspagina nog te maken.</Paragraph> },
+  args: {
+    children: <p className="amsterdam-docs-paragraph amsterdam-docs-pink-box">Overzichtspagina nog te maken.</p>,
+  },
 }
 
 export const ArticlePage: Story = {
-  args: { children: <Paragraph className="amsterdam-docs-pink-box">Detailpagina nog te maken.</Paragraph> },
+  args: { children: <p className="amsterdam-docs-paragraph amsterdam-docs-pink-box">Detailpagina nog te maken.</p> },
 }

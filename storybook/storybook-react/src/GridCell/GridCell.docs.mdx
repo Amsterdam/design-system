@@ -22,8 +22,7 @@ In dit geval `start={2}`:
 ### Verschillende breedtes
 
 Je kunt het aantal kolommen dat een cel beslaat laten afhangen van de vensterbreedte.
-Gebruik hiervoor de `span` prop met 3 waarden in een JavaScript-array.
-De eerste waarde is het aantal kolommen voor smalle vensters, de tweede voor middelbrede vensters, en de derde voor brede vensters.
+Gebruik hiervoor de `span` prop met 3 waarden voor respectievelijk smalle, middelbrede en brede vensters.
 
 Via `span={[4, 6, 8]}` is deze cel 4 van de 4 kolommen breed op smalle vensters, 6 van de 8 op middelbrede en 8 van de 12 op brede vensters:
 
@@ -37,3 +36,7 @@ Gebruik hiervoor de `start` prop met 3 waarden.
 Om de cel de volledige breedte te geven – of het grid nu 4, 8, of 12 kolommen heeft – gebruik je de `fullWidth` prop.
 
 <Canvas of={GridCellStories.FullWidth} />
+
+## Richtlijnen
+
+1. Zorg ervoor dat het aantal kolommen dat je aan een cel toekent past bij het aantal kolommen van het grid voor de betreffende vensterbreedte. Datzelfde geldt voor het starten van een cell in een latere kolom. Als het totaal van beide waarden is te groot is voegt de browser kolommen toe aan het grid. Dit is niet toegestaan.
