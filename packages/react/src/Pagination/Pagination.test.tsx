@@ -5,27 +5,27 @@ import '@testing-library/jest-dom'
 
 describe('Pagination', () => {
   it('renders', () => {
-    const { container } = render(<Pagination page={1} pageSize={10} collectionSize={60} />)
+    const { container } = render(<Pagination collectionSize={60} />)
     const component = container.querySelector(':only-child')
     expect(component).toBeInTheDocument()
     expect(component).toBeVisible()
   })
 
   it('renders a design system BEM class name', () => {
-    const { container } = render(<Pagination page={1} pageSize={10} collectionSize={60} />)
+    const { container } = render(<Pagination collectionSize={60} />)
     const component = container.querySelector(':only-child')
     expect(component).toHaveClass('amsterdam-pagination')
   })
 
   it('can have a additional class name', () => {
-    const { container } = render(<Pagination page={1} pageSize={10} collectionSize={60} className="extra" />)
+    const { container } = render(<Pagination collectionSize={60} className="extra" />)
     const component = container.querySelector(':only-child')
     expect(component).toHaveClass('extra')
     expect(component).toHaveClass('amsterdam-pagination')
   })
 
   it('should render all the pages when the pages < maxVisiblePages', () => {
-    render(<Pagination page={1} pageSize={10} collectionSize={60} />)
+    render(<Pagination pageSize={10} collectionSize={60} maxVisiblePages={7} />)
     expect(screen.getAllByRole('listitem').length).toBe(8) // 6 + 2 buttons
   })
 
@@ -98,7 +98,7 @@ describe('Pagination', () => {
 
   it('supports ForwardRef in React', () => {
     const ref = createRef<HTMLElement>()
-    const { container } = render(<Pagination page={1} pageSize={10} collectionSize={60} ref={ref} />)
+    const { container } = render(<Pagination collectionSize={60} ref={ref} />)
     const component = container.querySelector(':only-child')
     expect(ref.current).toBe(component)
   })

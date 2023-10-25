@@ -23,11 +23,11 @@ export interface PaginationProps extends HTMLAttributes<HTMLElement> {
   /**
    * The current page number.
    */
-  page: number
+  page?: number
   /**
    * The number of items per page.
    */
-  pageSize: number
+  pageSize?: number
   /**
    * The maximum amount of pages shown. This has a lower limit of 5
    */
