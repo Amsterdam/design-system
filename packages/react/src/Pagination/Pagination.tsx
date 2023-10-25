@@ -5,7 +5,7 @@
 
 import { ChevronLeftIcon, ChevronRightIcon } from '@amsterdam/design-system-react-icons'
 import clsx from 'clsx'
-import { ForwardedRef, forwardRef, HTMLAttributes, useEffect, useMemo, useState } from 'react'
+import { ForwardedRef, forwardRef, HTMLAttributes, useEffect, useState } from 'react'
 import { Icon } from '../Icon/Icon'
 
 export interface PaginationProps extends HTMLAttributes<HTMLElement> {
@@ -34,6 +34,56 @@ export interface PaginationProps extends HTMLAttributes<HTMLElement> {
   maxVisiblePages?: number
 }
 
+/**
+ * This returns an array of the range, including spacers
+ *
+ * @example
+ * currentPage = 4, totalPages = 7, maxVisiblePages = 7
+ * // returns [1, 2, 3, 4, 5, 6, 7]
+ *
+ * @example
+ * currentPage = 5, totalPages = 100, maxVisiblePages = 7
+ * // returns [1, 'firstSpacer', 4, 5, 6, 'lastSpacer', 100]
+ *
+ * @example
+ * currentPage = 97, totalPages = 100, maxVisiblePages = 7
+ * // returns [1, 'firstSpacer', 96, 97, 98, 99, 100]
+ */
+
+function getRange(currentPage: number, totalPages: number, maxVisiblePages: number): Array<string | number> {
+  // the total amount of visible pages is whatever's lower, totalPages or maxVisiblePages
+  // maxVisiblePages has a lower limit of 5
+  const visiblePages = Math.min(totalPages, Math.max(maxVisiblePages, 5))
+
+  const min = 1
+  // the center part of the range starts with the current page minus half of the visible pages
+  let centerStartPage = currentPage - Math.floor(visiblePages / 2)
+  // centerStartPage has a lower limit of 1
+  centerStartPage = Math.max(centerStartPage, min)
+  // centerStartPage has an upper limit of 1 plus total pages minus visible pages
+  centerStartPage = Math.min(centerStartPage, min + totalPages - visiblePages)
+
+  const pages = Array.from({ length: visiblePages }, (_el, i) => centerStartPage + i).reduce<Array<string | number>>(
+    (acc, pageNr, index) => {
+      if (index === 0 && pageNr !== 1) {
+        return [1, 'firstSpacer']
+      }
+
+      if (totalPages > visiblePages && index === visiblePages - 2 && currentPage < totalPages - 2) {
+        return [...acc, 'lastSpacer', totalPages]
+      }
+      // Skip a number when spacer is already added
+      if ((acc.includes('firstSpacer') && index === 1) || (acc.includes('lastSpacer') && index === visiblePages - 1)) {
+        return acc
+      }
+      return [...acc, pageNr]
+    },
+    [],
+  )
+
+  return pages
+}
+
 export const Pagination = forwardRef(
   (
     {
@@ -54,54 +104,10 @@ export const Pagination = forwardRef(
       setCurrentPage(page)
     }, [page])
 
-    const totalPages = useMemo(() => Math.ceil(collectionSize / pageSize), [collectionSize, pageSize])
+    const totalPages = Math.ceil(collectionSize / pageSize)
 
-    /**
-     * This returns an array of the range, including spacers
-     *
-     * @example
-     * currentPage = 4, totalPages = 7
-     * // returns [1, 2, 3, 4, 5, 6, 7]
-     *
-     * @example
-     * currentPage = 5, totalPages = 100
-     * // returns [1, 'firstSpacer', 4, 5, 6, 'lastSpacer', 100]
-     *
-     * @example
-     * currentPage = 97, totalPages = 100
-     * // returns [1, 'firstSpacer', 96, 97, 98, 99, 100]
-     */
-    const range = useMemo(() => {
-      // the total amount of visible pages is whatever's lower, totalPages or maxVisiblePages
-      // maxVisiblePages has a lower limit of 5
-      const visiblePages = Math.min(totalPages, Math.max(maxVisiblePages, 5))
-
-      const min = 1
-      let start = currentPage - Math.floor(visiblePages / 2)
-      start = Math.max(start, min)
-      start = Math.min(start, min + totalPages - visiblePages)
-
-      return Array.from({ length: visiblePages }, (_el, i) => start + i).reduce<Array<string | number>>(
-        (acc, pageNr, index) => {
-          if (index === 0 && pageNr !== 1) {
-            return [1, 'firstSpacer']
-          }
-
-          if (totalPages > visiblePages && index === visiblePages - 2 && currentPage < totalPages - 2) {
-            return [...acc, 'lastSpacer', totalPages]
-          }
-          // Skip a number when spacer is already add
-          if (
-            (acc.includes('firstSpacer') && index === 1) ||
-            (acc.includes('lastSpacer') && index === visiblePages - 1)
-          ) {
-            return acc
-          }
-          return [...acc, pageNr]
-        },
-        [],
-      )
-    }, [currentPage, totalPages, maxVisiblePages])
+    // Get array of page numbers and / or spacers
+    const range = getRange(currentPage, totalPages, maxVisiblePages)
 
     const onChangePage = (newPage: number) => {
       if (onPageChange !== undefined) {
@@ -118,12 +124,10 @@ export const Pagination = forwardRef(
       onChangePage(currentPage + 1)
     }
 
+    // Don't show pagination if you only have one page
     if (collectionSize <= pageSize) {
       return null
     }
-
-    // TODO: do we want to set an aria-label by default? Or should devs do that themselves?
-    // If so, we should be able to pass it to vorige and volgende as well
 
     return (
       <nav {...restProps} className={clsx('amsterdam-pagination', className)} ref={ref} aria-label="Paginering">
