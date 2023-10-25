@@ -5,10 +5,10 @@ Pagination (in het Nederlands: paginering) is een navigatie-element onder een zo
 ## Richtlijnen
 
 - Gebruik paginering alleen op een zoekresultatenpagina.
+- Voeg de paginering toe na de lijst met zoekresultaten.
 - Start een zoekresultatenpagina bovenaan de pagina na het veranderen van pagina.
 - De paginering kan gecombineerd worden met een teller bovenaan de pagina die “Pagina # van ##” aanduidt.
-- Voeg de paginering toe na de lijst met zoekresultaten
-- De paginering wordt niet getoon als er maar 1 pagina is.
+- De paginering wordt niet getoond als er maar 1 pagina is.
 - Verwijs de gebruikers door naar de eerste pagina als ze een URL opgeven van een paginanummer dat niet (meer) bestaat.
 
 ## Relevante WCAG regels
