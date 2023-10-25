@@ -1,5 +1,8 @@
 import remarkGfm from 'remark-gfm'
 
+const { STORYBOOK_BUILD_PATH } = process.env
+const REPO_NAME = 'design-system'
+
 /* eslint-env node */
 module.exports = {
   core: {
@@ -35,7 +38,10 @@ module.exports = {
   docs: {
     autodocs: true,
   },
-  refs: (_, { configType }) => {
+  refs: (config, { configType }) => {
+    if (configType === 'PRODUCTION') {
+      config.base = STORYBOOK_BUILD_PATH ? `/${REPO_NAME}/${STORYBOOK_BUILD_PATH}` : `/${REPO_NAME}`
+    }
     if (configType === 'DEVELOPMENT') {
       return {
         react: {
@@ -47,7 +53,7 @@ module.exports = {
     return {
       react: {
         title: 'React.js Components',
-        url: '../design-system/storybook-react',
+        url: STORYBOOK_BUILD_PATH ? `../${STORYBOOK_BUILD_PATH}/storybook-react` : `../${REPO_NAME}/storybook-react`,
       },
     }
   },

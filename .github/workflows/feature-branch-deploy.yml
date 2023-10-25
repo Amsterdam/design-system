@@ -1,0 +1,89 @@
+# Based on https://evilmartians.com/chronicles/super-github-pages-budget-frontend-staging-with-storybook-and-more
+
+name: Feature branch build and deploy
+on:
+  push:
+    branches-ignore: [main]
+  pull_request:
+    types: [reopened]
+    branches-ignore: [main]
+
+jobs:
+  build-and-deploy:
+    concurrency: ci-${{ github.ref }}
+    runs-on: ubuntu-latest
+    if: ${{ github.actor != 'dependabot[bot]' }}
+    steps:
+      - name: Create branch name without forward slashes
+        run: |
+          RAW_BRANCH_NAME=${{ github.head_ref || github.ref_name }}
+          BRANCH_NAME=$(echo $RAW_BRANCH_NAME | sed 's/\//-/g')
+          echo "BRANCH_NAME=$BRANCH_NAME" >> $GITHUB_ENV
+
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Create deployment
+        uses: bobheadxi/deployments@v1
+        id: deployment
+        with:
+          step: start
+          token: ${{ secrets.GITHUB_TOKEN }}
+          env: staging-${{ env.BRANCH_NAME }}
+
+      - uses: actions/setup-node@v3
+        with:
+          node-version: 18
+
+      - uses: pnpm/action-setup@v2
+        name: Install pnpm
+        id: pnpm-install
+        with:
+          version: 8
+          run_install: false
+
+      - name: Install dependencies
+        run: |
+          pnpm install
+
+      - name: Build
+        env:
+          STORYBOOK_BUILD_PATH: ${{ env.BRANCH_NAME }}
+        run: npm run build
+
+      - name: Create a version mark
+        run: |
+          touch ./storybook/storybook-docs/dist/${{ github.sha }}.txt
+
+      - name: Create deploy folder
+        run: |
+          mkdir temp-deploy-directory
+          cp storybook/storybook-docs/dist/* temp-deploy-directory -r
+          mkdir temp-deploy-directory/storybook-react
+          cp storybook/storybook-react/dist/* temp-deploy-directory/storybook-react -r
+
+      - name: Pushing to pages branch
+        uses: JamesIves/github-pages-deploy-action@v4
+        with:
+          branch: gh-pages
+          folder: temp-deploy-directory
+          target-folder: ${{ env.BRANCH_NAME }}
+
+      - name: Wait for GitHub Pages to be deployed
+        uses: mydea/action-wait-for-api@v1
+        with:
+          url: https://${{ github.repository_owner }}.github.io/${{ github.event.repository.name }}/${{ env.BRANCH_NAME }}/${{ github.sha }}.txt
+          expected-status: 200
+          timeout: 600
+          interval: 15
+
+      - name: Update deployment status
+        uses: bobheadxi/deployments@v1
+        if: always()
+        with:
+          step: finish
+          token: ${{ secrets.GITHUB_TOKEN }}
+          status: ${{ job.status }}
+          env: ${{ steps.deployment.outputs.env }}
+          deployment_id: ${{ steps.deployment.outputs.deployment_id }}
+          env_url: https://${{ github.repository_owner }}.github.io/${{ github.event.repository.name }}/${{ env.BRANCH_NAME }}
