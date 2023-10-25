@@ -13,7 +13,9 @@ const meta = {
     collectionSize: 100,
     page: 1,
     pageSize: 10,
+    maxVisiblePages: 7,
   },
+  argTypes: { onPageChange: { action: 'page changed' } },
 } satisfies Meta<typeof Pagination>
 
 export default meta
