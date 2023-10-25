@@ -7,7 +7,7 @@ import { Pagination } from '@amsterdam/design-system-react'
 import { Meta, StoryObj } from '@storybook/react'
 
 const meta = {
-  title: 'Pagination',
+  title: 'Navigation/Pagination',
   component: Pagination,
   args: {
     collectionSize: 100,
