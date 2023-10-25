@@ -32,14 +32,20 @@
 .amsterdam-dialog__form {
   align-items: start;
   display: grid;
+  gap: 1.5rem;
   grid-template-rows: auto 1fr auto;
-  max-block-size: 80dvb;
-  padding-block: clamp(1.5rem, 2rem, 2.5rem);
-  padding-inline: clamp(1.5rem, 2rem, 2.5rem);
+  max-block-size: 80vh;
+  padding-block: clamp(1.5rem, calc(1.5rem + ((1vw - 0.5337rem) * 2.1448)), 2.5rem);
+  padding-inline: clamp(1.5rem, calc(1.5rem + ((1vw - 0.5337rem) * 2.1448)), 2.5rem);
 }
 
 .amsterdam-dialog__article {
-  // z-index: 1;
+  display: grid;
+  gap: 1.5rem;
+  justify-items: flex-start;
+  max-block-size: 100%; /* safari */
+  overflow-y: auto;
+  overscroll-behavior-y: contain;
 }
 
 .amsterdam-dialog__header {
