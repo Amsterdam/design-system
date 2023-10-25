@@ -69,7 +69,7 @@ export const HomePage: Story = {
             </div>
           </header>
         </GridCell>
-        <GridCell span={[4, 8, 4]}>
+        <GridCell span={{ narrow: 4, medium: 8, wide: 4 }}>
           <figure className="amsterdam-docs-figure">
             <img alt="Voorbeeld van een afbeelding" src="https://picsum.photos/1024/576?random=1" />
           </figure>
@@ -87,12 +87,12 @@ export const HomePage: Story = {
       </PageGrid>,
       <Highlight color="purple" key={Math.random()} style={{ marginBlockEnd: '2rem' }}>
         <PageGrid>
-          <GridCell span={[4, 3, 3]}>
+          <GridCell span={{ narrow: 4, medium: 3, wide: 3 }}>
             <Blockquote inverseColor>
               Er is maar één moment dat je op tijd kunt komen. Ben je er niet, dan ben je óf te vroeg, óf te laat.
             </Blockquote>
           </GridCell>
-          <GridCell start={[1, 4, 5]} span={[4, 5, 8]}>
+          <GridCell start={{ narrow: 1, medium: 4, wide: 5 }} span={{ narrow: 4, medium: 5, wide: 8 }}>
             <figure className="amsterdam-docs-figure">
               <img alt="Voorbeeld van een afbeelding" src="https://picsum.photos/1600/900?random=3" />
             </figure>
@@ -100,12 +100,12 @@ export const HomePage: Story = {
         </PageGrid>
       </Highlight>,
       <PageGrid key={Math.random()} style={{ marginBlockEnd: '2rem' }}>
-        <GridCell span={[4, 4, 6]}>
+        <GridCell span={{ narrow: 4, medium: 4, wide: 6 }}>
           <div style={{ backgroundColor: '#BED200', padding: '2rem', textAlign: 'center' }}>
             <p className="amsterdam-docs-paragraph">Elk de helft</p>
           </div>
         </GridCell>
-        <GridCell span={[4, 4, 6]}>
+        <GridCell span={{ narrow: 4, medium: 4, wide: 6 }}>
           <div style={{ backgroundColor: '#BED200', padding: '2rem', textAlign: 'center' }}>
             <p className="amsterdam-docs-paragraph">Elk de helft</p>
           </div>
@@ -116,7 +116,7 @@ export const HomePage: Story = {
           <VisuallyHidden>
             <Heading>Colofon</Heading>
           </VisuallyHidden>
-          <Footer.Column span={[4, 3, 3]}>
+          <Footer.Column span={{ narrow: 4, medium: 3, wide: 3 }}>
             <Heading level={2} size="level-4" inverseColor>
               Contact
             </Heading>
@@ -136,7 +136,7 @@ export const HomePage: Story = {
               </li>
             </UnorderedList>
           </Footer.Column>
-          <Footer.Column span={[4, 3, 3]} start={[1, 5, 5]}>
+          <Footer.Column span={{ narrow: 4, medium: 3, wide: 3 }} start={{ narrow: 1, medium: 5, wide: 5 }}>
             <Heading level={2} size="level-4" inverseColor>
               Panels en enquêtes
             </Heading>
@@ -161,7 +161,7 @@ export const HomePage: Story = {
               </li>
             </UnorderedList>
           </Footer.Column>
-          <Footer.Column span={[4, 3, 4]} start={[1, 1, 9]}>
+          <Footer.Column span={{ narrow: 4, medium: 3, wide: 4 }} start={{ narrow: 1, medium: 1, wide: 9 }}>
             <Heading level={2} size="level-4" inverseColor>
               Onderzoek en Statistiek
             </Heading>

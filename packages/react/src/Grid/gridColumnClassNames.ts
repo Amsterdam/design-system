@@ -1,34 +1,32 @@
-import { PageGridColumnValue } from './GridCell'
+import { GridCellProps } from './GridCell'
 
-export const gridColumnClassNames = (start?: PageGridColumnValue, span?: PageGridColumnValue) => {
-  let classes = []
-
-  if (start) {
-    if (typeof start === 'number') {
-      classes.push(`amsterdam-grid-start-${start}`)
-    } else {
-      const [narrow, medium, wide] = start
-
-      classes.push(
-        `amsterdam-narrow-grid-start-${narrow}`,
-        `amsterdam-medium-grid-start-${medium}`,
-        `amsterdam-wide-grid-start-${wide}`,
-      )
-    }
+export const gridColumnClassNames = (span?: GridCellProps['span'], start?: GridCellProps['start']): string[] => {
+  if (!span && !start) {
+    return []
   }
 
-  if (span) {
-    if (typeof span === 'number') {
-      classes.push(`amsterdam-grid-span-${span}`)
-    } else {
-      const [narrow, medium, wide] = span
+  const classes = [] as string[]
 
-      classes.push(
-        `amsterdam-narrow-grid-span-${narrow}`,
-        `amsterdam-medium-grid-span-${medium}`,
-        `amsterdam-wide-grid-span-${wide}`,
-      )
-    }
+  if (typeof span === 'number') {
+    classes.push(`amsterdam-grid-span-${span}`)
+  } else if (span) {
+    const { narrow, medium, wide } = span
+    classes.push(
+      `amsterdam-narrow-grid-span-${narrow}`,
+      `amsterdam-medium-grid-span-${medium}`,
+      `amsterdam-wide-grid-span-${wide}`,
+    )
+  }
+
+  if (typeof start === 'number') {
+    classes.push(`amsterdam-grid-start-${start}`)
+  } else if (start) {
+    const { narrow, medium, wide } = start
+    classes.push(
+      `amsterdam-narrow-grid-start-${narrow}`,
+      `amsterdam-medium-grid-start-${medium}`,
+      `amsterdam-wide-grid-start-${wide}`,
+    )
   }
 
   return classes
