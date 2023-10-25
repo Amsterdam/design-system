@@ -166,7 +166,7 @@ export const Pagination = forwardRef(
                 </button>
               </li>
             ) : (
-              <li key={pageNumberOrSpacer} aria-hidden>
+              <li key={pageNumberOrSpacer} aria-hidden data-testid={pageNumberOrSpacer}>
                 {'\u2026'}
               </li>
             ),
