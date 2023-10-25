@@ -45,6 +45,7 @@
   padding-inline: 0.75rem;
   text-decoration-thickness: 2px;
   text-underline-offset: 3px;
+  touch-action: manipulation;
 
   &:hover {
     color: var(--amsterdam-pagination-button-hover-color);
