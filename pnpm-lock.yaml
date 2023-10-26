@@ -302,8 +302,8 @@ importers:
         specifier: 7.23.2
         version: 7.23.2
       '@mdx-js/react':
-        specifier: 2.3.0
-        version: 2.3.0(react@18.2.0)
+        specifier: 3.0.0
+        version: 3.0.0(@types/react@18.2.33)(react@18.2.0)
       '@storybook/addon-a11y':
         specifier: 7.5.1
         version: 7.5.1(@types/react-dom@18.2.14)(@types/react@18.2.33)(react-dom@18.2.0)(react@18.2.0)
@@ -402,8 +402,8 @@ importers:
         specifier: 7.23.2
         version: 7.23.2
       '@mdx-js/react':
-        specifier: 2.3.0
-        version: 2.3.0(react@18.2.0)
+        specifier: 3.0.0
+        version: 3.0.0(@types/react@18.2.33)(react@18.2.0)
       '@storybook/addon-a11y':
         specifier: 7.5.1
         version: 7.5.1(@types/react-dom@18.2.14)(@types/react@18.2.33)(react-dom@18.2.0)(react@18.2.0)
@@ -2876,6 +2876,17 @@ packages:
   /@mdx-js/react@2.3.0(react@18.2.0):
     resolution: {integrity: sha512-zQH//gdOmuu7nt2oJR29vFhDv88oGPmVw6BggmrHeMI+xgEkp1B2dX9/bMBSYtK0dyLX/aOmesKS09g222K1/g==}
     peerDependencies:
+      react: '>=16'
+    dependencies:
+      '@types/mdx': 2.0.4
+      '@types/react': 18.2.33
+      react: 18.2.0
+    dev: true
+
+  /@mdx-js/react@3.0.0(@types/react@18.2.33)(react@18.2.0):
+    resolution: {integrity: sha512-nDctevR9KyYFyV+m+/+S4cpzCWHqj+iHDHq3QrsWezcC+B17uZdIWgCguESUkwFhM3n/56KxWVE3V6EokrmONQ==}
+    peerDependencies:
+      '@types/react': '>=16'
       react: '>=16'
     dependencies:
       '@types/mdx': 2.0.4
