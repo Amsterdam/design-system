@@ -10,9 +10,6 @@
       "wide": {
         "column-count": { "value": "12" }
       },
-      "x-wide": {
-        "column-count": { "value": "12" }
-      },
       "gap": { "value": "clamp(0.5rem, 0.375rem + 3.125vw, 3.5rem)" },
       "padding-inline": { "value": "clamp(0.75rem, 0.5625rem + 4.875vw, 5.25rem)" }
     }
