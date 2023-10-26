@@ -43,7 +43,7 @@ export const Default: Story = {
           <Heading>Colofon</Heading>
         </VisuallyHidden>
         <PageGrid>
-          <GridCell span={{ narrow: 4, medium: 3, wide: 3 }}>
+          <GridCell span={3}>
             <Heading level={2} size="level-4" inverseColor>
               Contact
             </Heading>
@@ -63,7 +63,7 @@ export const Default: Story = {
               </li>
             </UnorderedList>
           </GridCell>
-          <GridCell span={{ narrow: 4, medium: 3, wide: 3 }} start={{ narrow: 1, medium: 5, wide: 5 }}>
+          <GridCell span={3} start={{ narrow: 1, medium: 5, wide: 5 }}>
             <Heading level={2} size="level-4" inverseColor>
               Panels en enquêtes
             </Heading>
@@ -88,7 +88,7 @@ export const Default: Story = {
               </li>
             </UnorderedList>
           </GridCell>
-          <GridCell span={{ narrow: 4, medium: 3, wide: 4 }} start={{ narrow: 1, medium: 1, wide: 9 }}>
+          <GridCell span={3} start={{ narrow: 1, medium: 1, wide: 9 }}>
             <Heading level={2} size="level-4" inverseColor>
               Onderzoek en Statistiek
             </Heading>
