@@ -44,76 +44,82 @@ export const Default: Story = {
         </VisuallyHidden>
         <PageGrid>
           <GridCell span={3}>
-            <Heading level={2} size="level-4" inverseColor>
-              Contact
-            </Heading>
-            <Paragraph size="small" inverseColor>
-              Heeft u een vraag en kunt u het antwoord niet vinden op deze site? Neem dan contact met ons op.
-            </Paragraph>
-            <UnorderedList markers={false}>
-              <li>
-                <Link href="mailto:redactie.os@amsterdam.nl" variant="inList" onBackground="dark">
-                  E-mail
-                </Link>
-              </li>
-              <li>
-                <Link href="tel:+31202510333" variant="inList" onBackground="dark">
-                  020 251 0333
-                </Link>
-              </li>
-            </UnorderedList>
+            <div style={{ display: 'grid', gap: '2.5rem' }}>
+              <Heading level={2} size="level-4" inverseColor>
+                Contact
+              </Heading>
+              <Paragraph size="small" inverseColor>
+                Heeft u een vraag en kunt u het antwoord niet vinden op deze site? Neem dan contact met ons op.
+              </Paragraph>
+              <UnorderedList markers={false}>
+                <li>
+                  <Link href="mailto:redactie.os@amsterdam.nl" variant="inList" onBackground="dark">
+                    E-mail
+                  </Link>
+                </li>
+                <li>
+                  <Link href="tel:+31202510333" variant="inList" onBackground="dark">
+                    020 251 0333
+                  </Link>
+                </li>
+              </UnorderedList>
+            </div>
           </GridCell>
           <GridCell span={3} start={{ narrow: 1, medium: 5, wide: 5 }}>
-            <Heading level={2} size="level-4" inverseColor>
-              Panels en enquêtes
-            </Heading>
-            <Paragraph size="small" inverseColor>
-              Bent u uitgenodigd om mee te doen aan onderzoek of heeft u vragen over het panel of stadspaspanel?
-            </Paragraph>
-            <UnorderedList markers={false}>
-              <li>
-                <Link href="/" variant="inList" onBackground="dark" rel="external">
-                  Meedoen aan onderzoek
-                </Link>
-              </li>
-              <li>
-                <Link href="/" variant="inList" onBackground="dark" rel="external">
-                  Panel Amsterdam
-                </Link>
-              </li>
-              <li>
-                <Link href="/" variant="inList" onBackground="dark" rel="external">
-                  Stadspaspanel Amsterdam
-                </Link>
-              </li>
-            </UnorderedList>
+            <div style={{ display: 'grid', gap: '2.5rem' }}>
+              <Heading level={2} size="level-4" inverseColor>
+                Panels en enquêtes
+              </Heading>
+              <Paragraph size="small" inverseColor>
+                Bent u uitgenodigd om mee te doen aan onderzoek of heeft u vragen over het panel of stadspaspanel?
+              </Paragraph>
+              <UnorderedList markers={false}>
+                <li>
+                  <Link href="/" variant="inList" onBackground="dark" rel="external">
+                    Meedoen aan onderzoek
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/" variant="inList" onBackground="dark" rel="external">
+                    Panel Amsterdam
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/" variant="inList" onBackground="dark" rel="external">
+                    Stadspaspanel Amsterdam
+                  </Link>
+                </li>
+              </UnorderedList>
+            </div>
           </GridCell>
           <GridCell span={3} start={{ narrow: 1, medium: 1, wide: 9 }}>
-            <Heading level={2} size="level-4" inverseColor>
-              Onderzoek en Statistiek
-            </Heading>
-            <UnorderedList markers={false}>
-              <li>
-                <Link href="/" variant="inList" onBackground="dark">
-                  Over Onderzoek en Statistiek
-                </Link>
-              </li>
-              <li>
-                <Link href="/" variant="inList" onBackground="dark">
-                  Veelgestelde vragen
-                </Link>
-              </li>
-              <li>
-                <Link href="/" variant="inList" onBackground="dark" rel="external">
-                  Nieuwsbrief
-                </Link>
-              </li>
-              <li>
-                <Link href="/" variant="inList" onBackground="dark">
-                  Vacatures
-                </Link>
-              </li>
-            </UnorderedList>
+            <div style={{ display: 'grid', gap: '2.5rem' }}>
+              <Heading level={2} size="level-4" inverseColor>
+                Onderzoek en Statistiek
+              </Heading>
+              <UnorderedList markers={false}>
+                <li>
+                  <Link href="/" variant="inList" onBackground="dark">
+                    Over Onderzoek en Statistiek
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/" variant="inList" onBackground="dark">
+                    Veelgestelde vragen
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/" variant="inList" onBackground="dark" rel="external">
+                    Nieuwsbrief
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/" variant="inList" onBackground="dark">
+                    Vacatures
+                  </Link>
+                </li>
+              </UnorderedList>
+            </div>
           </GridCell>
         </PageGrid>
       </Footer.Top>,
