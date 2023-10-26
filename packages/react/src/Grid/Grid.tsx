@@ -4,7 +4,15 @@
  */
 
 import clsx from 'clsx'
-import { ForwardedRef, forwardRef, HTMLAttributes, PropsWithChildren } from 'react'
+import {
+  ForwardedRef,
+  forwardRef,
+  ForwardRefExoticComponent,
+  HTMLAttributes,
+  PropsWithChildren,
+  RefAttributes,
+} from 'react'
+import { GridCell } from './GridCell'
 
 export type GridColumnNumber = 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11 | 12
 
@@ -14,14 +22,22 @@ export type GridColumnNumbers = {
   wide: GridColumnNumber
 }
 
-export type GridProps = PropsWithChildren<HTMLAttributes<HTMLDivElement>>
+interface GridComponent
+  extends ForwardRefExoticComponent<PropsWithChildren<HTMLAttributes<HTMLElement>> & RefAttributes<HTMLElement>> {
+  Cell: typeof GridCell
+}
 
 export const Grid = forwardRef(
-  ({ children, className, ...restProps }: GridProps, ref: ForwardedRef<HTMLDivElement>) => (
+  (
+    { children, className, ...restProps }: PropsWithChildren<HTMLAttributes<HTMLElement>>,
+    ref: ForwardedRef<HTMLDivElement>,
+  ) => (
     <div {...restProps} ref={ref} className={clsx('amsterdam-grid', className)}>
       {children}
     </div>
   ),
-)
+) as GridComponent
 
+Grid.Cell = GridCell
 Grid.displayName = 'Grid'
+GridCell.displayName = 'Grid.Cell'

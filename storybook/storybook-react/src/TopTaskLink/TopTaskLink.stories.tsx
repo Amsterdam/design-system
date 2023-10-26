@@ -3,7 +3,7 @@
  * Copyright (c) 2023 Gemeente Amsterdam
  */
 
-import { Grid, GridCell, TopTaskLink } from '@amsterdam/design-system-react'
+import { Grid, TopTaskLink } from '@amsterdam/design-system-react'
 import { Meta, StoryObj } from '@storybook/react'
 
 import '@amsterdam/design-system-css/src/top-task-link/top-task-link.scss'
@@ -24,9 +24,9 @@ export const Default: Story = {
   decorators: [
     (Story) => (
       <Grid>
-        <GridCell span={4}>
+        <Grid.Cell span={4}>
           <Story />
-        </GridCell>
+        </Grid.Cell>
       </Grid>
     ),
   ],
@@ -43,15 +43,15 @@ export const WithoutDescription: Story = {
   },
   render: () => (
     <Grid>
-      <GridCell span={4}>
+      <Grid.Cell span={4}>
         <TopTaskLink href="/" label="Melding openbare ruimte en overlast" />
-      </GridCell>
-      <GridCell span={4}>
+      </Grid.Cell>
+      <Grid.Cell span={4}>
         <TopTaskLink href="/" label="Verhuizing doorgeven" />
-      </GridCell>
-      <GridCell span={4}>
+      </Grid.Cell>
+      <Grid.Cell span={4}>
         <TopTaskLink href="/" label="Kennisgevingen en bekendmakingen" />
-      </GridCell>
+      </Grid.Cell>
     </Grid>
   ),
   parameters: {
@@ -67,18 +67,18 @@ export const WithDescription: Story = {
   },
   render: () => (
     <Grid>
-      <GridCell span={3}>
+      <Grid.Cell span={3}>
         <TopTaskLink href="/" label="Stadsloket" description="Locaties en openingstijden" />
-      </GridCell>
-      <GridCell span={3}>
+      </Grid.Cell>
+      <Grid.Cell span={3}>
         <TopTaskLink href="/" label="P+R" description="Parkeren en reizen" />
-      </GridCell>
-      <GridCell span={3}>
+      </Grid.Cell>
+      <Grid.Cell span={3}>
         <TopTaskLink href="/" label="Documenten" description="Paspoort, ID-kaart en rijbewijs" />
-      </GridCell>
-      <GridCell span={3}>
+      </Grid.Cell>
+      <Grid.Cell span={3}>
         <TopTaskLink href="/" label="Meldingen" description="Melding openbare ruimte en overlast" />
-      </GridCell>
+      </Grid.Cell>
     </Grid>
   ),
   parameters: {

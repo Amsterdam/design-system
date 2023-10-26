@@ -6,7 +6,6 @@
 import {
   Footer,
   Grid,
-  GridCell,
   Heading,
   Link,
   PageMenu,
@@ -43,7 +42,7 @@ export const Default: Story = {
           <Heading>Colofon</Heading>
         </VisuallyHidden>
         <Grid>
-          <GridCell span={3}>
+          <Grid.Cell span={3}>
             <div style={{ display: 'grid', gap: '2.5rem' }}>
               <Heading level={2} size="level-4" inverseColor>
                 Contact
@@ -64,8 +63,8 @@ export const Default: Story = {
                 </li>
               </UnorderedList>
             </div>
-          </GridCell>
-          <GridCell span={3} start={{ narrow: 1, medium: 5, wide: 5 }}>
+          </Grid.Cell>
+          <Grid.Cell span={3} start={{ narrow: 1, medium: 5, wide: 5 }}>
             <div style={{ display: 'grid', gap: '2.5rem' }}>
               <Heading level={2} size="level-4" inverseColor>
                 Panels en enquêtes
@@ -91,8 +90,8 @@ export const Default: Story = {
                 </li>
               </UnorderedList>
             </div>
-          </GridCell>
-          <GridCell span={3} start={{ narrow: 1, medium: 1, wide: 9 }}>
+          </Grid.Cell>
+          <Grid.Cell span={3} start={{ narrow: 1, medium: 1, wide: 9 }}>
             <div style={{ display: 'grid', gap: '2.5rem' }}>
               <Heading level={2} size="level-4" inverseColor>
                 Onderzoek en Statistiek
@@ -120,7 +119,7 @@ export const Default: Story = {
                 </li>
               </UnorderedList>
             </div>
-          </GridCell>
+          </Grid.Cell>
         </Grid>
       </Footer.Top>,
       <Footer.Bottom key="footer-bottom">
@@ -128,12 +127,12 @@ export const Default: Story = {
           <Heading level={2}>Over deze website</Heading>
         </VisuallyHidden>
         <Grid>
-          <GridCell fullWidth>
+          <Grid.Cell fullWidth>
             <PageMenu>
               <PageMenu.Link href="/">Privacy</PageMenu.Link>
               <PageMenu.Link href="/">Toegankelijkheid</PageMenu.Link>
             </PageMenu>
-          </GridCell>
+          </Grid.Cell>
         </Grid>
       </Footer.Bottom>,
     ],
