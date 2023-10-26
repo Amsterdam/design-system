@@ -34,7 +34,7 @@ export const GridCell = forwardRef(
       ref={ref}
       className={clsx(
         'amsterdam-grid-cell',
-        fullWidth && 'amsterdam-grid-cell-full-width',
+        fullWidth && 'amsterdam-grid-cell--full-width',
         gridCellClasses(span, start),
         className,
       )}
