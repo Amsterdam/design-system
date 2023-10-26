@@ -38,7 +38,7 @@ export const Default: Story = {
   args: {
     children: [
       <Footer.Top key="footer-top">
-        <Footer.Column span={[4, 3, 3]}>
+        <Footer.Column span={{ narrow: 4, medium: 3, wide: 3 }}>
           <Heading level={2} size="level-4" inverseColor>
             Contact
           </Heading>
@@ -58,7 +58,7 @@ export const Default: Story = {
             </li>
           </UnorderedList>
         </Footer.Column>
-        <Footer.Column span={[4, 3, 3]} start={[1, 5, 5]}>
+        <Footer.Column span={{ narrow: 4, medium: 3, wide: 3 }} start={{ narrow: 1, medium: 5, wide: 5 }}>
           <Heading level={2} size="level-4" inverseColor>
             Panels en enquêtes
           </Heading>
@@ -83,7 +83,7 @@ export const Default: Story = {
             </li>
           </UnorderedList>
         </Footer.Column>
-        <Footer.Column span={[4, 3, 4]} start={[1, 1, 9]}>
+        <Footer.Column span={{ narrow: 4, medium: 3, wide: 4 }} start={{ narrow: 1, medium: 1, wide: 9 }}>
           <Heading level={2} size="level-4" inverseColor>
             Onderzoek en Statistiek
           </Heading>
