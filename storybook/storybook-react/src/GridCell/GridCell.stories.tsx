@@ -63,7 +63,7 @@ export const MultipleSizes: Story = {
     children: (
       <p className="amsterdam-docs-paragraph amsterdam-docs-pink-box">Deze cel heeft 3 instellingen voor de breedte.</p>
     ),
-    span: [4, 6, 8],
+    span: { narrow: 4, medium: 6, wide: 8 },
   },
 }
 
