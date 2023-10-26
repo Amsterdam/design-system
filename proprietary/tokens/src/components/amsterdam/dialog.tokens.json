@@ -3,7 +3,7 @@
     "dialog": {
       "background-color": { "value": "{amsterdam.color.primary-white}" },
       "border": { "value": "0" },
-      "max-inline-size": { "value": "min(60rem, 45rem)" },
+      "max-inline-size": { "value": "min(87.69vw, 60rem)" },
       "title": {
         "color": { "value": "{amsterdam.color.primary-black}" },
         "font-family": { "value": "{amsterdam.typography.font-family}" },

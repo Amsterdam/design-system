@@ -14,7 +14,7 @@ export interface DialogProps extends PropsWithChildren<DialogHTMLAttributes<HTML
 }
 
 const DialogClose = forwardRef(({ ...restProps }, ref: ForwardedRef<HTMLButtonElement>) => (
-  <button {...restProps} ref={ref} className="amsterdam-dialog__close">
+  <button aria-label="close" {...restProps} ref={ref} className="amsterdam-dialog__close" formNoValidate>
     <VisuallyHidden>Sluiten</VisuallyHidden>
     <Icon svg={CloseIcon} size="level-5" />
   </button>

@@ -20,7 +20,7 @@ const meta = {
     ],
     actions: [
       <>
-        <Button key={1} type="button" variant="tertiary">
+        <Button key={1} type="button" variant="tertiary" autoFocus>
           Terug
         </Button>
         <Button key={2} type="submit">
@@ -37,6 +37,23 @@ type Story = StoryObj<typeof meta>
 
 export const Default: Story = {
   args: {
+    open: true,
+  },
+  render: (args) => (
+    <div style={{ minHeight: '500px' }}>
+      <Dialog {...args} />
+    </div>
+  ),
+  parameters: {
+    backgrounds: {
+      default: 'dark',
+    },
+  },
+}
+
+export const NoActions: Story = {
+  args: {
+    actions: null,
     open: true,
   },
   render: (args) => (
