@@ -19,7 +19,7 @@ export const FooterTop = forwardRef(
     { children, className, ...restProps }: PropsWithChildren<HTMLAttributes<HTMLDivElement>>,
     ref: ForwardedRef<HTMLDivElement>,
   ) => (
-    <PageGrid {...restProps} ref={ref} className={clsx('amsterdam-footer__top', className)}>
+    <PageGrid className={clsx('amsterdam-footer__top', className)} ref={ref} {...restProps}>
       {children}
     </PageGrid>
   ),
@@ -31,7 +31,7 @@ export type FooterColumnProps = HTMLAttributes<HTMLDivElement> & GridCellProps
 
 export const FooterColumn = forwardRef(
   ({ children, className, ...restProps }: PropsWithChildren<FooterColumnProps>, ref: ForwardedRef<HTMLDivElement>) => (
-    <GridCell {...restProps} ref={ref} className={clsx('amsterdam-footer__column', className)}>
+    <GridCell className={clsx('amsterdam-footer__column', className)} ref={ref} {...restProps}>
       {children}
     </GridCell>
   ),
@@ -40,8 +40,11 @@ export const FooterColumn = forwardRef(
 FooterColumn.displayName = 'FooterColumn'
 
 export const FooterBottom = forwardRef(
-  ({ children, className }: PropsWithChildren<HTMLAttributes<HTMLDivElement>>, ref: ForwardedRef<HTMLDivElement>) => (
-    <div ref={ref} className={clsx('amsterdam-footer__bottom', className)}>
+  (
+    { children, className, ...restProps }: PropsWithChildren<HTMLAttributes<HTMLDivElement>>,
+    ref: ForwardedRef<HTMLDivElement>,
+  ) => (
+    <div className={clsx('amsterdam-footer__bottom', className)} ref={ref} {...restProps}>
       {children}
     </div>
   ),
@@ -61,7 +64,7 @@ export const Footer = forwardRef(
     { children, className, ...restProps }: PropsWithChildren<HTMLAttributes<HTMLElement>>,
     ref: ForwardedRef<HTMLElement>,
   ) => (
-    <footer {...restProps} ref={ref} className={clsx('amsterdam-footer', className)}>
+    <footer className={clsx('amsterdam-footer', className)} ref={ref} {...restProps}>
       {children}
     </footer>
   ),
