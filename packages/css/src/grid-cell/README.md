@@ -1,6 +1,6 @@
 # Grid cell
 
-Beslaat een aantal kolommen in een [Page Grid](?path=/docs/react_layout-page-grid--docs).
+Beslaat een aantal kolommen in een [Grid](?path=/docs/react_layout-grid--docs).
 
 ## Gebruik
 

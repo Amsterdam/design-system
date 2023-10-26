@@ -3,7 +3,7 @@
  * Copyright (c) 2023 Gemeente Amsterdam
  */
 
-import { GridCell, PageGrid, TopTaskLink } from '@amsterdam/design-system-react'
+import { Grid, GridCell, TopTaskLink } from '@amsterdam/design-system-react'
 import { Meta, StoryObj } from '@storybook/react'
 
 import '@amsterdam/design-system-css/src/top-task-link/top-task-link.scss'
@@ -23,11 +23,11 @@ type Story = StoryObj<typeof meta>
 export const Default: Story = {
   decorators: [
     (Story) => (
-      <PageGrid>
+      <Grid>
         <GridCell span={4}>
           <Story />
         </GridCell>
-      </PageGrid>
+      </Grid>
     ),
   ],
   args: {
@@ -42,7 +42,7 @@ export const WithoutDescription: Story = {
     label: 'Titel',
   },
   render: () => (
-    <PageGrid>
+    <Grid>
       <GridCell span={4}>
         <TopTaskLink href="/" label="Melding openbare ruimte en overlast" />
       </GridCell>
@@ -52,7 +52,7 @@ export const WithoutDescription: Story = {
       <GridCell span={4}>
         <TopTaskLink href="/" label="Kennisgevingen en bekendmakingen" />
       </GridCell>
-    </PageGrid>
+    </Grid>
   ),
   parameters: {
     docs: {
@@ -66,7 +66,7 @@ export const WithDescription: Story = {
     label: 'Titel',
   },
   render: () => (
-    <PageGrid>
+    <Grid>
       <GridCell span={3}>
         <TopTaskLink href="/" label="Stadsloket" description="Locaties en openingstijden" />
       </GridCell>
@@ -79,7 +79,7 @@ export const WithDescription: Story = {
       <GridCell span={3}>
         <TopTaskLink href="/" label="Meldingen" description="Melding openbare ruimte en overlast" />
       </GridCell>
-    </PageGrid>
+    </Grid>
   ),
   parameters: {
     docs: {

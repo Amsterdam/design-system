@@ -11,4 +11,4 @@ Dit is de maximale breedte voor een website van de gemeente Amsterdam.
 Voor applicaties kun je kiezen voor een grotere maximale breedte van 2112 pixels.
 Het component centreert zowel zichzelf als zijn inhoud horizontaal.
 
-Gebruik erbinnen de componenten `PageGrid`, `Header`, `Footer`, `Highlight` of `Figure`.
+Gebruik erbinnen de componenten `Grid`, `Header`, `Footer`, `Highlight` of `Figure`.

@@ -1,8 +1,8 @@
 import { Canvas, Markdown, Meta, Primary } from "@storybook/blocks";
-import * as PageGridStories from "./PageGrid.stories.tsx";
-import README from "../../../../packages/css/src/page-grid/README.md?raw";
+import * as GridStories from "./Grid.stories.tsx";
+import README from "../../../../packages/css/src/grid/README.md?raw";
 
-<Meta of={PageGridStories} />
+<Meta of={GridStories} />
 
 <Markdown>{README}</Markdown>
 
@@ -26,6 +26,6 @@ Elke cel biedt ruimte voor een afbeelding.
 - Op middelbrede vensters heeft het grid 8 kolommen en staan de eerste twee afbeeldingen naast elkaar en de derde onder de eerste.
 - Op smalle schermen heeft het grid 4 kolommen en staan de afbeeldingen onder elkaar.
 
-<Canvas of={PageGridStories.Cells} />
+<Canvas of={GridStories.Cells} />
 
 Voor meer voorbeelden raadpleeg je [Grid Cell](?path=/docs/react_layout-grid-cell--docs) zelf.

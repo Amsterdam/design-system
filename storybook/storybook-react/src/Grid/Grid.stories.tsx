@@ -4,12 +4,12 @@
  */
 
 import { Screen } from '@amsterdam/design-system-react'
-import { GridCell, PageGrid } from '@amsterdam/design-system-react'
+import { Grid, GridCell } from '@amsterdam/design-system-react'
 import { Meta, StoryObj } from '@storybook/react'
 
 const meta = {
-  title: 'Layout/Page Grid',
-  component: PageGrid,
+  title: 'Layout/Grid',
+  component: Grid,
   parameters: {
     docs: {
       canvas: {
@@ -17,7 +17,7 @@ const meta = {
       },
     },
   },
-} satisfies Meta<typeof PageGrid>
+} satisfies Meta<typeof Grid>
 
 export default meta
 

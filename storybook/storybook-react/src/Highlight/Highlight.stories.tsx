@@ -3,7 +3,7 @@
  * Copyright (c) 2023 Gemeente Amsterdam
  */
 
-import { Blockquote, GridCell, Highlight, PageGrid } from '@amsterdam/design-system-react'
+import { Blockquote, Grid, GridCell, Highlight } from '@amsterdam/design-system-react'
 import { Meta, StoryObj } from '@storybook/react'
 
 const meta = {
@@ -41,14 +41,14 @@ type Story = StoryObj<typeof meta>
 export const Default: Story = {
   args: {
     children: (
-      <PageGrid>
+      <Grid>
         <GridCell fullWidth>
           <Blockquote inverseColor>
             We kunnen in heel Nederland schoolpleinen creëren waar kinderen worden uitgedaagd om samen te spelen en te
             sporten. Buitenspelen zou een vak moeten zijn op school.
           </Blockquote>
         </GridCell>
-      </PageGrid>
+      </Grid>
     ),
   },
 }
@@ -57,14 +57,14 @@ export const Yellow: Story = {
   args: {
     color: 'yellow',
     children: (
-      <PageGrid>
+      <Grid>
         <GridCell fullWidth>
           <Blockquote>
             We kunnen in heel Nederland schoolpleinen creëren waar kinderen worden uitgedaagd om samen te spelen en te
             sporten. Buitenspelen zou een vak moeten zijn op school.
           </Blockquote>
         </GridCell>
-      </PageGrid>
+      </Grid>
     ),
   },
 }
@@ -73,14 +73,14 @@ export const Orange: Story = {
   args: {
     color: 'orange',
     children: (
-      <PageGrid>
+      <Grid>
         <GridCell fullWidth>
           <Blockquote>
             We kunnen in heel Nederland schoolpleinen creëren waar kinderen worden uitgedaagd om samen te spelen en te
             sporten. Buitenspelen zou een vak moeten zijn op school.
           </Blockquote>
         </GridCell>
-      </PageGrid>
+      </Grid>
     ),
   },
 }
@@ -89,14 +89,14 @@ export const Magenta: Story = {
   args: {
     color: 'magenta',
     children: (
-      <PageGrid>
+      <Grid>
         <GridCell fullWidth>
           <Blockquote inverseColor>
             We kunnen in heel Nederland schoolpleinen creëren waar kinderen worden uitgedaagd om samen te spelen en te
             sporten. Buitenspelen zou een vak moeten zijn op school.
           </Blockquote>
         </GridCell>
-      </PageGrid>
+      </Grid>
     ),
   },
 }
@@ -105,14 +105,14 @@ export const Purple: Story = {
   args: {
     color: 'purple',
     children: (
-      <PageGrid>
+      <Grid>
         <GridCell fullWidth>
           <Blockquote inverseColor>
             We kunnen in heel Nederland schoolpleinen creëren waar kinderen worden uitgedaagd om samen te spelen en te
             sporten. Buitenspelen zou een vak moeten zijn op school.
           </Blockquote>
         </GridCell>
-      </PageGrid>
+      </Grid>
     ),
   },
 }
@@ -121,14 +121,14 @@ export const Blue: Story = {
   args: {
     color: 'blue',
     children: (
-      <PageGrid>
+      <Grid>
         <GridCell fullWidth>
           <Blockquote inverseColor>
             We kunnen in heel Nederland schoolpleinen creëren waar kinderen worden uitgedaagd om samen te spelen en te
             sporten. Buitenspelen zou een vak moeten zijn op school.
           </Blockquote>
         </GridCell>
-      </PageGrid>
+      </Grid>
     ),
   },
 }
@@ -137,14 +137,14 @@ export const LightBlue: Story = {
   args: {
     color: 'light-blue',
     children: (
-      <PageGrid>
+      <Grid>
         <GridCell fullWidth>
           <Blockquote>
             We kunnen in heel Nederland schoolpleinen creëren waar kinderen worden uitgedaagd om samen te spelen en te
             sporten. Buitenspelen zou een vak moeten zijn op school.
           </Blockquote>
         </GridCell>
-      </PageGrid>
+      </Grid>
     ),
   },
 }
@@ -153,14 +153,14 @@ export const Green: Story = {
   args: {
     color: 'green',
     children: (
-      <PageGrid>
+      <Grid>
         <GridCell fullWidth>
           <Blockquote>
             We kunnen in heel Nederland schoolpleinen creëren waar kinderen worden uitgedaagd om samen te spelen en te
             sporten. Buitenspelen zou een vak moeten zijn op school.
           </Blockquote>
         </GridCell>
-      </PageGrid>
+      </Grid>
     ),
   },
 }
@@ -169,14 +169,14 @@ export const DarkGreen: Story = {
   args: {
     color: 'dark-green',
     children: (
-      <PageGrid>
+      <Grid>
         <GridCell fullWidth>
           <Blockquote inverseColor>
             We kunnen in heel Nederland schoolpleinen creëren waar kinderen worden uitgedaagd om samen te spelen en te
             sporten. Buitenspelen zou een vak moeten zijn op school.
           </Blockquote>
         </GridCell>
-      </PageGrid>
+      </Grid>
     ),
   },
 }

@@ -1,6 +1,6 @@
 {
   "amsterdam": {
-    "page-grid": {
+    "grid": {
       "narrow": {
         "column-count": { "value": "4" }
       },

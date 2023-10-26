@@ -1,5 +1,5 @@
 export type { GridCellProps } from './GridCell'
-export type { PageGridProps } from './PageGrid'
+export type { GridProps } from './Grid'
 
 export * from './GridCell'
-export * from './PageGrid'
+export * from './Grid'

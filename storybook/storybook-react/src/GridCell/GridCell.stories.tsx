@@ -4,7 +4,7 @@
  */
 
 import { Screen } from '@amsterdam/design-system-react'
-import { GridCell, PageGrid } from '@amsterdam/design-system-react'
+import { Grid, GridCell } from '@amsterdam/design-system-react'
 import { Meta, StoryObj } from '@storybook/react'
 
 const meta = {
@@ -31,9 +31,9 @@ const StoryTemplate: Story = {
   decorators: [
     (Story) => (
       <Screen>
-        <PageGrid>
+        <Grid>
           <Story />
-        </PageGrid>
+        </Grid>
       </Screen>
     ),
   ],

@@ -5,10 +5,10 @@
 
 import {
   Footer,
+  Grid,
   GridCell,
   Heading,
   Link,
-  PageGrid,
   PageMenu,
   Paragraph,
   UnorderedList,
@@ -42,7 +42,7 @@ export const Default: Story = {
         <VisuallyHidden>
           <Heading>Colofon</Heading>
         </VisuallyHidden>
-        <PageGrid>
+        <Grid>
           <GridCell span={3}>
             <div style={{ display: 'grid', gap: '2.5rem' }}>
               <Heading level={2} size="level-4" inverseColor>
@@ -121,20 +121,20 @@ export const Default: Story = {
               </UnorderedList>
             </div>
           </GridCell>
-        </PageGrid>
+        </Grid>
       </Footer.Top>,
       <Footer.Bottom key="footer-bottom">
         <VisuallyHidden>
           <Heading level={2}>Over deze website</Heading>
         </VisuallyHidden>
-        <PageGrid>
+        <Grid>
           <GridCell fullWidth>
             <PageMenu>
               <PageMenu.Link href="/">Privacy</PageMenu.Link>
               <PageMenu.Link href="/">Toegankelijkheid</PageMenu.Link>
             </PageMenu>
           </GridCell>
-        </PageGrid>
+        </Grid>
       </Footer.Bottom>,
     ],
   },

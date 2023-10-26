@@ -5,7 +5,7 @@
 
 import clsx from 'clsx'
 import { ForwardedRef, forwardRef, HTMLAttributes, PropsWithChildren } from 'react'
-import type { PageGridColumnNumber, PageGridColumnNumbers } from './PageGrid'
+import { GridColumnNumber, GridColumnNumbers } from './Grid'
 import { gridCellClasses } from './gridCellClasses'
 
 type GridCellFullWidthProp = {
@@ -18,9 +18,9 @@ type GridCellFullWidthProp = {
 type GridCellColumnProps = {
   fullWidth?: never
   /** The amount of grid columns the cell spans. */
-  span?: PageGridColumnNumber | PageGridColumnNumbers
+  span?: GridColumnNumber | GridColumnNumbers
   /** The index of the grid column the cell starts at. */
-  start?: PageGridColumnNumber | PageGridColumnNumbers
+  start?: GridColumnNumber | GridColumnNumbers
 }
 
 // The discriminated union and the `never` types prevent using `fullWidth` together with `span` or `start`.

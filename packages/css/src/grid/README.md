@@ -1,4 +1,4 @@
-# Page grid
+# Grid
 
 Onder elke pagina ligt hetzelfde grid.
 Alle elementen op een pagina worden op het grid geplaatst.
