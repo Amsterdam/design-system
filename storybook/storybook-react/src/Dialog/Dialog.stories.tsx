@@ -7,12 +7,12 @@ import { Button, Dialog, Heading, Paragraph } from '@amsterdam/design-system-rea
 import { Meta, StoryObj } from '@storybook/react'
 
 const meta = {
-  title: 'Feedback/Dialog',
+  title: 'Containers/Dialog',
   component: Dialog,
   args: {
     title: 'Later verder gaan',
     children: [
-      <Paragraph key={1}>
+      <Paragraph key={0}>
         U kunt de ingevulde antwoorden opslaan in onze beveiligde database, deze kunt u later openen om verder te gaan
         met invullen. Nadat u op opslaan heeft geklikt ontvangt u een mail. Met de link in deze mail kunt verder gaan
         met het formulier.
@@ -51,7 +51,7 @@ export const Default: Story = {
   },
 }
 
-export const LongContent: Story = {
+export const ScrollContent: Story = {
   args: {
     open: true,
     title: 'Privacyverklaring gemeente Amsterdam',
@@ -87,7 +87,6 @@ export const LongContent: Story = {
           geregeld moeten worden, is de Uitvoeringswet Avg in Nederland aanvullend van toepassing. Deze wetteksten kunt
           u vinden op de website van Autoriteit Persoonsgegevens.
         </Paragraph>
-        ,
       </>,
     ],
   },

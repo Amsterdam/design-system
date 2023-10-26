@@ -8,19 +8,18 @@
 .amsterdam-dialog {
   align-content: start;
   background-color: var(--amsterdam-dialog-background-color);
-  border: 0;
+  border: var(--amsterdam-dialog-border);
   display: grid;
   inset: 0;
-  max-inline-size: min(90vw, 60ch);
+  max-inline-size: var(--amsterdam-dialog-max-inline-size);
   overflow: hidden;
   padding-block: 0;
   padding-inline: 0;
   position: fixed;
 
-  // z-index: 2147483647;
-
+  /* no token because dialog does not inherit from any element */
   &::backdrop {
-    background: rgb(0 0 0 / 40%);
+    background: #0006;
   }
 
   &:not([open]) {
@@ -32,11 +31,11 @@
 .amsterdam-dialog__form {
   align-items: start;
   display: grid;
-  gap: 1.5rem;
+  gap: var(--amsterdam-dialog-form-gap);
   grid-template-rows: auto 1fr auto;
-  max-block-size: 80vh;
-  padding-block: clamp(1.5rem, calc(1.5rem + ((1vw - 0.5337rem) * 2.1448)), 2.5rem);
-  padding-inline: clamp(1.5rem, calc(1.5rem + ((1vw - 0.5337rem) * 2.1448)), 2.5rem);
+  max-block-size: var(--amsterdam-dialog-form-max-block-size);
+  padding-block: var(--amsterdam-dialog-form-padding-block);
+  padding-inline: var(--amsterdam-dialog-form-padding-inline);
 }
 
 .amsterdam-dialog__article {
@@ -46,6 +45,11 @@
   max-block-size: 100%; /* safari */
   overflow-y: auto;
   overscroll-behavior-y: contain;
+  padding-inline-end: var(--amsterdam-dialog-article-padding-inline-end);
+
+  &::-webkit-scrollbar-track {
+    background: var(--amsterdam-dialog-background-color);
+  }
 }
 
 .amsterdam-dialog__header {
@@ -77,9 +81,9 @@
   align-items: end;
   display: grid;
   grid-auto-flow: column;
-  grid-gap: 1rem;
+  grid-gap: var(--amsterdam-dialog-footer-gap);
   justify-content: end;
-  padding-block: 1rem 0;
+  padding-block: var(--amsterdam-dialog-footer-padding-block);
 }
 
 .amsterdam-dialog__close {

@@ -1,9 +1,9 @@
 {
   "amsterdam": {
     "dialog": {
-      "background-color": {
-        "value": "{amsterdam.color.primary-white}"
-      },
+      "background-color": { "value": "{amsterdam.color.primary-white}" },
+      "border": { "value": "0" },
+      "max-inline-size": { "value": "min(60rem, 45rem)" },
       "title": {
         "color": { "value": "{amsterdam.color.primary-black}" },
         "font-family": { "value": "{amsterdam.typography.font-family}" },
@@ -16,12 +16,28 @@
           "font-size": { "value": "{amsterdam.typography.text-level.5.wide.font-size}" }
         }
       },
+      "backdrop": {
+        "background": { "value": "#0006" }
+      },
       "close": {
         "background-color": { "value": "transparent" },
         "fill": { "value": "{amsterdam.color.primary-black}" },
         "hover": {
           "fill": { "value": "{amsterdam.color.primary-blue}" }
         }
+      },
+      "form": {
+        "gap": { "value": "{amsterdam.spacing.inset.lg}" },
+        "padding-block": { "value": "clamp(1.5rem, calc(1.5rem + ((1vw - 0.5337rem) * 2.1448)), 2.5rem)" },
+        "padding-inline": { "value": "clamp(1.5rem, calc(1.5rem + ((1vw - 0.5337rem) * 2.1448)), 2.5rem)" },
+        "max-block-size": { "value": "75vh" }
+      },
+      "article": {
+        "padding-inline-end": { "value": "1.5rem" }
+      },
+      "footer": {
+        "gap": { "value": "1rem" },
+        "padding-block": { "value": "1.5rem 0" }
       }
     }
   }
