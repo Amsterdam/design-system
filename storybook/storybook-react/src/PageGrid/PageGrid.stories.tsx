@@ -38,6 +38,7 @@ export const Default: Story = {
   args: {
     children: Array.from(Array(12).keys()).map((i) => <GridCell className="amsterdam-docs-pink-box" key={i} />),
   },
+  name: 'Basis',
 }
 
 export const Cells: Story = {
@@ -51,6 +52,7 @@ export const Cells: Story = {
       </GridCell>
     )),
   },
+  name: 'Cellen',
   parameters: {
     docs: {
       canvas: {
