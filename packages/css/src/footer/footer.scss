@@ -10,18 +10,6 @@
   padding-block: 2.5rem;
 }
 
-@media screen and (width > $amsterdam-breakpoint-typography) {
-  .amsterdam-footer__top {
-    grid-template-columns: repeat(var(--amsterdam-page-grid-column-count-wide), 1fr);
-  }
-}
-
-.amsterdam-footer__column {
-  display: flex;
-  flex-direction: column;
-  gap: 2.5rem;
-}
-
 .amsterdam-footer__bottom {
   padding-block: 0.5rem;
 }

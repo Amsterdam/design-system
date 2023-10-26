@@ -12,32 +12,19 @@ import {
   PropsWithChildren,
   RefAttributes,
 } from 'react'
-import { GridCell, GridCellProps, PageGrid } from '../Grid'
 
 export const FooterTop = forwardRef(
   (
     { children, className, ...restProps }: PropsWithChildren<HTMLAttributes<HTMLDivElement>>,
     ref: ForwardedRef<HTMLDivElement>,
   ) => (
-    <PageGrid className={clsx('amsterdam-footer__top', className)} ref={ref} {...restProps}>
+    <div className={clsx('amsterdam-footer__top', className)} ref={ref} {...restProps}>
       {children}
-    </PageGrid>
+    </div>
   ),
 )
 
 FooterTop.displayName = 'FooterTop'
-
-export type FooterColumnProps = HTMLAttributes<HTMLDivElement> & GridCellProps
-
-export const FooterColumn = forwardRef(
-  ({ children, className, ...restProps }: PropsWithChildren<FooterColumnProps>, ref: ForwardedRef<HTMLDivElement>) => (
-    <GridCell className={clsx('amsterdam-footer__column', className)} ref={ref} {...restProps}>
-      {children}
-    </GridCell>
-  ),
-)
-
-FooterColumn.displayName = 'FooterColumn'
 
 export const FooterBottom = forwardRef(
   (
@@ -56,7 +43,6 @@ interface FooterComponent
   extends ForwardRefExoticComponent<PropsWithChildren<HTMLAttributes<HTMLElement>> & RefAttributes<HTMLElement>> {
   Top: typeof FooterTop
   Bottom: typeof FooterBottom
-  Column: typeof FooterColumn
 }
 
 export const Footer = forwardRef(
@@ -72,9 +58,7 @@ export const Footer = forwardRef(
 
 Footer.Top = FooterTop
 Footer.Bottom = FooterBottom
-Footer.Column = FooterColumn
 
 Footer.displayName = 'Footer'
 Footer.Top.displayName = 'Footer.Top'
 Footer.Bottom.displayName = 'Footer.Bottom'
-Footer.Column.displayName = 'Footer.Column'
