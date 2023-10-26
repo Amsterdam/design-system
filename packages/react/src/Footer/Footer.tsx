@@ -18,7 +18,7 @@ export const FooterTop = forwardRef(
     { children, className, ...restProps }: PropsWithChildren<HTMLAttributes<HTMLDivElement>>,
     ref: ForwardedRef<HTMLDivElement>,
   ) => (
-    <div className={clsx('amsterdam-footer__top', className)} ref={ref} {...restProps}>
+    <div {...restProps} ref={ref} className={clsx('amsterdam-footer__top', className)}>
       {children}
     </div>
   ),
@@ -31,7 +31,7 @@ export const FooterBottom = forwardRef(
     { children, className, ...restProps }: PropsWithChildren<HTMLAttributes<HTMLDivElement>>,
     ref: ForwardedRef<HTMLDivElement>,
   ) => (
-    <div className={clsx('amsterdam-footer__bottom', className)} ref={ref} {...restProps}>
+    <div {...restProps} ref={ref} className={clsx('amsterdam-footer__bottom', className)}>
       {children}
     </div>
   ),
@@ -50,7 +50,7 @@ export const Footer = forwardRef(
     { children, className, ...restProps }: PropsWithChildren<HTMLAttributes<HTMLElement>>,
     ref: ForwardedRef<HTMLElement>,
   ) => (
-    <footer className={clsx('amsterdam-footer', className)} ref={ref} {...restProps}>
+    <footer {...restProps} ref={ref} className={clsx('amsterdam-footer', className)}>
       {children}
     </footer>
   ),
