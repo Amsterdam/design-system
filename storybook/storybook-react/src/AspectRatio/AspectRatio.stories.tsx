@@ -64,11 +64,7 @@ const StoryTemplate: Story = {
   ],
   render: ({ ratio }) => (
     <AspectRatio ratio={ratio} style={{ maxWidth: ratio ? storyConfig[ratio].maxWidth : '500px' }}>
-      <img
-        alt="Voorbeeld van een afbeelding"
-        src={ratio ? storyConfig[ratio].image : 'https://picsum.photos/800/800'}
-        style={{ width: '100%' }}
-      />
+      <img alt="" src={ratio ? storyConfig[ratio].image : 'https://picsum.photos/800/800'} style={{ width: '100%' }} />
     </AspectRatio>
   ),
 }
