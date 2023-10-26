@@ -5,7 +5,7 @@
 
 import clsx from 'clsx'
 import { ForwardedRef, forwardRef, HTMLAttributes, PropsWithChildren } from 'react'
-import { PageGridColumnNumber, PageGridColumnNumbers } from './PageGrid'
+import type { PageGridColumnNumber, PageGridColumnNumbers } from './PageGrid'
 import { gridCellClasses } from './gridCellClasses'
 
 type GridCellFullWidthProp = {
