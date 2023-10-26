@@ -4,8 +4,17 @@
  */
 
 import clsx from 'clsx'
-import type { ForwardRefExoticComponent, ReactNode, RefAttributes } from 'react'
-import { ForwardedRef, forwardRef, HTMLAttributes, PropsWithChildren, useImperativeHandle, useRef } from 'react'
+import {
+  ForwardedRef,
+  forwardRef,
+  ForwardRefExoticComponent,
+  HTMLAttributes,
+  PropsWithChildren,
+  ReactNode,
+  RefAttributes,
+  useImperativeHandle,
+  useRef,
+} from 'react'
 import AccordionContext from './AccordionContext'
 import { AccordionSection } from './AccordionSection'
 import useFocusWithArrows from './useFocusWithArrows'
