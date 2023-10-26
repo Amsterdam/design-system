@@ -9,31 +9,37 @@
   grid-column: 1 / -1;
 }
 
+// The order of the following declaration blocks ensures the intended specificity.
+
 @for $i from 1 through 12 {
-  .amsterdam-page-grid > .amsterdam-grid-span-#{$i} {
+  .amsterdam-page-grid > .amsterdam-grid-cell-span-#{$i} {
     grid-column-end: span $i;
   }
 
-  .amsterdam-page-grid > .amsterdam-grid-start-#{$i} {
+  .amsterdam-page-grid > .amsterdam-grid-cell-start-#{$i} {
     grid-column-start: $i;
   }
+}
 
-  @media screen and (min-width: $amsterdam-breakpoint-medium) {
-    .amsterdam-page-grid > .amsterdam-medium-grid-span-#{$i} {
+@media screen and (min-width: $amsterdam-breakpoint-medium) {
+  @for $i from 1 through 12 {
+    .amsterdam-page-grid > .amsterdam-grid-cell-span-#{$i}-medium {
       grid-column-end: span $i;
     }
 
-    .amsterdam-page-grid > .amsterdam-medium-grid-start-#{$i} {
+    .amsterdam-page-grid > .amsterdam-grid-cell-start-#{$i}-medium {
       grid-column-start: $i;
     }
   }
+}
 
-  @media screen and (min-width: $amsterdam-breakpoint-wide) {
-    .amsterdam-page-grid > .amsterdam-wide-grid-span-#{$i} {
+@media screen and (min-width: $amsterdam-breakpoint-wide) {
+  @for $i from 1 through 12 {
+    .amsterdam-page-grid > .amsterdam-grid-cell-span-#{$i}-wide {
       grid-column-end: span $i;
     }
 
-    .amsterdam-page-grid > .amsterdam-wide-grid-start-#{$i} {
+    .amsterdam-page-grid > .amsterdam-grid-cell-start-#{$i}-wide {
       grid-column-start: $i;
     }
   }
