@@ -1,6 +1,6 @@
 import { GridCellProps } from './GridCell'
 
-export const gridColumnClassNames = (span?: GridCellProps['span'], start?: GridCellProps['start']): string[] => {
+export const gridCellClasses = (span?: GridCellProps['span'], start?: GridCellProps['start']): string[] => {
   if (!span && !start) {
     return []
   }

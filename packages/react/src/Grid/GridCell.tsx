@@ -6,7 +6,7 @@
 import clsx from 'clsx'
 import { ForwardedRef, forwardRef, HTMLAttributes, PropsWithChildren } from 'react'
 import { PageGridColumnNumber, PageGridColumnNumbers } from './PageGrid'
-import { gridColumnClassNames } from './gridColumnClassNames'
+import { gridCellClasses } from './gridCellClasses'
 
 export interface GridCellProps extends HTMLAttributes<HTMLDivElement> {
   /** Whether the cell spans the full width of the grid. */
@@ -28,7 +28,7 @@ export const GridCell = forwardRef(
       className={clsx(
         'amsterdam-grid-cell',
         fullWidth && 'amsterdam-grid-cell-full-width',
-        gridColumnClassNames(start, span),
+        gridCellClasses(start, span),
         className,
       )}
     >
