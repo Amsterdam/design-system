@@ -12,7 +12,7 @@ export const gridColumnClassNames = (span?: GridCellProps['span'], start?: GridC
   } else if (span) {
     const { narrow, medium, wide } = span
     classes.push(
-      `amsterdam-narrow-grid-span-${narrow}`,
+      `amsterdam-grid-span-${narrow}`,
       `amsterdam-medium-grid-span-${medium}`,
       `amsterdam-wide-grid-span-${wide}`,
     )
@@ -23,7 +23,7 @@ export const gridColumnClassNames = (span?: GridCellProps['span'], start?: GridC
   } else if (start) {
     const { narrow, medium, wide } = start
     classes.push(
-      `amsterdam-narrow-grid-start-${narrow}`,
+      `amsterdam-grid-start-${narrow}`,
       `amsterdam-medium-grid-start-${medium}`,
       `amsterdam-wide-grid-start-${wide}`,
     )

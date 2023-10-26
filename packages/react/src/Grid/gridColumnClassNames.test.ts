@@ -14,10 +14,10 @@ describe('gridColumnClassNames', () => {
   it('should generate class names for an array of three numbers for start and span', () => {
     const result = gridColumnClassNames({ narrow: 2, medium: 4, wide: 6 }, { narrow: 1, medium: 3, wide: 5 })
     expect(result).toEqual([
-      'amsterdam-narrow-grid-span-2',
+      'amsterdam-grid-span-2',
       'amsterdam-medium-grid-span-4',
       'amsterdam-wide-grid-span-6',
-      'amsterdam-narrow-grid-start-1',
+      'amsterdam-grid-start-1',
       'amsterdam-medium-grid-start-3',
       'amsterdam-wide-grid-start-5',
     ])
@@ -27,7 +27,7 @@ describe('gridColumnClassNames', () => {
     const result = gridColumnClassNames(8, { narrow: 2, medium: 4, wide: 6 })
     expect(result).toEqual([
       'amsterdam-grid-span-8',
-      'amsterdam-narrow-grid-start-2',
+      'amsterdam-grid-start-2',
       'amsterdam-medium-grid-start-4',
       'amsterdam-wide-grid-start-6',
     ])
@@ -40,10 +40,6 @@ describe('gridColumnClassNames', () => {
 
   it('should generate class names for an array of three numbers for span', () => {
     const result = gridColumnClassNames(undefined, { narrow: 2, medium: 4, wide: 6 })
-    expect(result).toEqual([
-      'amsterdam-narrow-grid-start-2',
-      'amsterdam-medium-grid-start-4',
-      'amsterdam-wide-grid-start-6',
-    ])
+    expect(result).toEqual(['amsterdam-grid-start-2', 'amsterdam-medium-grid-start-4', 'amsterdam-wide-grid-start-6'])
   })
 })
