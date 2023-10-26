@@ -32,151 +32,70 @@ const meta = {
       },
     },
   },
+  render: ({ color }) => (
+    <Highlight color={color}>
+      <PageGrid>
+        <GridCell gridColumns={{ start: 3, span: 8 }}>
+          <Blockquote inverseColor={!(color === 'green' || color === 'yellow')}>
+            We kunnen in heel Nederland schoolpleinen creëren waar kinderen worden uitgedaagd om samen te spelen en te
+            sporten. Buitenspelen zou een vak moeten zijn op school.
+          </Blockquote>
+        </GridCell>
+      </PageGrid>
+    </Highlight>
+  ),
 } satisfies Meta<typeof Highlight>
 
 export default meta
 
 type Story = StoryObj<typeof meta>
 
-export const Default: Story = {
-  args: {
-    children: [
-      <PageGrid key={1}>
-        <GridCell key={1} gridColumns={{ start: 3, span: 8 }}>
-          <Blockquote inverseColor>
-            We kunnen in heel Nederland schoolpleinen creëren waar kinderen worden uitgedaagd om samen te spelen en te
-            sporten. Buitenspelen zou een vak moeten zijn op school.
-          </Blockquote>
-        </GridCell>
-      </PageGrid>,
-    ],
-  },
-}
+export const Default: Story = {}
 
 export const Yellow: Story = {
   args: {
     color: 'yellow',
-    children: [
-      <PageGrid key={1}>
-        <GridCell key={1} gridColumns={{ start: 3, span: 8 }}>
-          <Blockquote>
-            We kunnen in heel Nederland schoolpleinen creëren waar kinderen worden uitgedaagd om samen te spelen en te
-            sporten. Buitenspelen zou een vak moeten zijn op school.
-          </Blockquote>
-        </GridCell>
-      </PageGrid>,
-    ],
   },
 }
 
 export const Orange: Story = {
   args: {
     color: 'orange',
-    children: [
-      <PageGrid key={1}>
-        <GridCell key={1} gridColumns={{ start: 3, span: 8 }}>
-          <Blockquote>
-            We kunnen in heel Nederland schoolpleinen creëren waar kinderen worden uitgedaagd om samen te spelen en te
-            sporten. Buitenspelen zou een vak moeten zijn op school.
-          </Blockquote>
-        </GridCell>
-      </PageGrid>,
-    ],
   },
 }
 
 export const Magenta: Story = {
   args: {
     color: 'magenta',
-    children: [
-      <PageGrid key={1}>
-        <GridCell key={1} gridColumns={{ start: 3, span: 8 }}>
-          <Blockquote inverseColor>
-            We kunnen in heel Nederland schoolpleinen creëren waar kinderen worden uitgedaagd om samen te spelen en te
-            sporten. Buitenspelen zou een vak moeten zijn op school.
-          </Blockquote>
-        </GridCell>
-      </PageGrid>,
-    ],
   },
 }
 
 export const Purple: Story = {
   args: {
     color: 'purple',
-    children: [
-      <PageGrid key={1}>
-        <GridCell key={1} gridColumns={{ start: 3, span: 8 }}>
-          <Blockquote inverseColor>
-            We kunnen in heel Nederland schoolpleinen creëren waar kinderen worden uitgedaagd om samen te spelen en te
-            sporten. Buitenspelen zou een vak moeten zijn op school.
-          </Blockquote>
-        </GridCell>
-      </PageGrid>,
-    ],
   },
 }
 
 export const Blue: Story = {
   args: {
     color: 'blue',
-    children: [
-      <PageGrid key={1}>
-        <GridCell key={1} gridColumns={{ start: 3, span: 8 }}>
-          <Blockquote inverseColor>
-            We kunnen in heel Nederland schoolpleinen creëren waar kinderen worden uitgedaagd om samen te spelen en te
-            sporten. Buitenspelen zou een vak moeten zijn op school.
-          </Blockquote>
-        </GridCell>
-      </PageGrid>,
-    ],
   },
 }
 
 export const LightBlue: Story = {
   args: {
     color: 'light-blue',
-    children: [
-      <PageGrid key={1}>
-        <GridCell key={1} gridColumns={{ start: 3, span: 8 }}>
-          <Blockquote>
-            We kunnen in heel Nederland schoolpleinen creëren waar kinderen worden uitgedaagd om samen te spelen en te
-            sporten. Buitenspelen zou een vak moeten zijn op school.
-          </Blockquote>
-        </GridCell>
-      </PageGrid>,
-    ],
   },
 }
 
 export const Green: Story = {
   args: {
     color: 'green',
-    children: [
-      <PageGrid key={1}>
-        <GridCell key={1} gridColumns={{ start: 3, span: 8 }}>
-          <Blockquote>
-            We kunnen in heel Nederland schoolpleinen creëren waar kinderen worden uitgedaagd om samen te spelen en te
-            sporten. Buitenspelen zou een vak moeten zijn op school.
-          </Blockquote>
-        </GridCell>
-      </PageGrid>,
-    ],
   },
 }
 
 export const DarkGreen: Story = {
   args: {
     color: 'dark-green',
-    children: [
-      <PageGrid key={1}>
-        <GridCell key={1} gridColumns={{ start: 3, span: 8 }}>
-          <Blockquote inverseColor>
-            We kunnen in heel Nederland schoolpleinen creëren waar kinderen worden uitgedaagd om samen te spelen en te
-            sporten. Buitenspelen zou een vak moeten zijn op school.
-          </Blockquote>
-        </GridCell>
-      </PageGrid>,
-    ],
   },
 }
