@@ -5,7 +5,7 @@
 
 import { ChevronLeftIcon, ChevronRightIcon } from '@amsterdam/design-system-react-icons'
 import clsx from 'clsx'
-import { ForwardedRef, forwardRef, HTMLAttributes, useEffect, useMemo, useState } from 'react'
+import { ForwardedRef, forwardRef, HTMLAttributes, useMemo, useState } from 'react'
 import { Icon } from '../Icon/Icon'
 
 export interface PaginationProps extends HTMLAttributes<HTMLElement> {
@@ -98,11 +98,6 @@ export const Pagination = forwardRef(
     ref: ForwardedRef<HTMLElement>,
   ) => {
     const [currentPage, setCurrentPage] = useState(page)
-
-    // If page prop changes, set currentPage so component can be managed externally
-    useEffect(() => {
-      setCurrentPage(page)
-    }, [page])
 
     const totalPages = Math.ceil(collectionSize / pageSize)
 
