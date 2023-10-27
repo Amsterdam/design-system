@@ -24,7 +24,7 @@ export const Default: Story = {
   decorators: [
     (Story) => (
       <PageGrid>
-        <GridCell gridColumns={4}>
+        <GridCell span={4}>
           <Story />
         </GridCell>
       </PageGrid>
@@ -43,13 +43,13 @@ export const WithoutDescription: Story = {
   },
   render: () => (
     <PageGrid>
-      <GridCell gridColumns={4}>
+      <GridCell span={4}>
         <TopTaskLink href="/" label="Melding openbare ruimte en overlast" />
       </GridCell>
-      <GridCell gridColumns={4}>
+      <GridCell span={4}>
         <TopTaskLink href="/" label="Verhuizing doorgeven" />
       </GridCell>
-      <GridCell gridColumns={4}>
+      <GridCell span={4}>
         <TopTaskLink href="/" label="Kennisgevingen en bekendmakingen" />
       </GridCell>
     </PageGrid>
@@ -67,16 +67,16 @@ export const WithDescription: Story = {
   },
   render: () => (
     <PageGrid>
-      <GridCell gridColumns={3}>
+      <GridCell span={3}>
         <TopTaskLink href="/" label="Stadsloket" description="Locaties en openingstijden" />
       </GridCell>
-      <GridCell gridColumns={3}>
+      <GridCell span={3}>
         <TopTaskLink href="/" label="P+R" description="Parkeren en reizen" />
       </GridCell>
-      <GridCell gridColumns={3}>
+      <GridCell span={3}>
         <TopTaskLink href="/" label="Documenten" description="Paspoort, ID-kaart en rijbewijs" />
       </GridCell>
-      <GridCell gridColumns={3}>
+      <GridCell span={3}>
         <TopTaskLink href="/" label="Meldingen" description="Melding openbare ruimte en overlast" />
       </GridCell>
     </PageGrid>

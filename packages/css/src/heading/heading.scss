@@ -25,7 +25,7 @@
   font-size: var(--amsterdam-heading-1-narrow-font-size);
   line-height: var(--amsterdam-heading-1-line-height);
 
-  @media screen and (width > $amsterdam-breakpoint) {
+  @media screen and (width > $amsterdam-breakpoint-typography) {
     font-size: var(--amsterdam-heading-1-wide-font-size);
   }
 }
@@ -34,7 +34,7 @@
   font-size: var(--amsterdam-heading-2-narrow-font-size);
   line-height: var(--amsterdam-heading-2-line-height);
 
-  @media screen and (width > $amsterdam-breakpoint) {
+  @media screen and (width > $amsterdam-breakpoint-typography) {
     font-size: var(--amsterdam-heading-2-wide-font-size);
   }
 }
@@ -43,7 +43,7 @@
   font-size: var(--amsterdam-heading-3-narrow-font-size);
   line-height: var(--amsterdam-heading-3-line-height);
 
-  @media screen and (width > $amsterdam-breakpoint) {
+  @media screen and (width > $amsterdam-breakpoint-typography) {
     font-size: var(--amsterdam-heading-3-wide-font-size);
   }
 }
@@ -52,7 +52,7 @@
   font-size: var(--amsterdam-heading-4-narrow-font-size);
   line-height: var(--amsterdam-heading-4-line-height);
 
-  @media screen and (width > $amsterdam-breakpoint) {
+  @media screen and (width > $amsterdam-breakpoint-typography) {
     font-size: var(--amsterdam-heading-4-wide-font-size);
   }
 }
