@@ -35,7 +35,7 @@ const meta = {
   render: ({ color }) => (
     <Highlight color={color}>
       <PageGrid>
-        <GridCell gridColumns={{ start: 3, span: 8 }}>
+        <GridCell fullWidth>
           <Blockquote inverseColor={!color || !['green', 'yellow'].includes(color)}>
             We kunnen in heel Nederland schoolpleinen creëren waar kinderen worden uitgedaagd om samen te spelen en te
             sporten. Buitenspelen zou een vak moeten zijn op school.
