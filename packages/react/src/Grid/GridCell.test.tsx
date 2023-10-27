@@ -31,8 +31,7 @@ describe('GridCell', () => {
   })
 
   it('generates no class names for undefined values for start and span', () => {
-    const ref = createRef<HTMLDivElement>()
-    const { container } = render(<GridCell ref={ref} />)
+    const { container } = render(<GridCell />)
     const elementWithSpanClass = container.querySelector('[class*="amsterdam-grid-cell--span"]')
     const elementWithStartClass = container.querySelector('[class*="amsterdam-grid-cell--start"]')
     expect(elementWithSpanClass).not.toBeInTheDocument()
