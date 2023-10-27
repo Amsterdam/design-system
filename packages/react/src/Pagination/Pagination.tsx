@@ -5,7 +5,7 @@
 
 import { ChevronLeftIcon, ChevronRightIcon } from '@amsterdam/design-system-react-icons'
 import clsx from 'clsx'
-import { ForwardedRef, forwardRef, HTMLAttributes, useEffect, useState } from 'react'
+import { ForwardedRef, forwardRef, HTMLAttributes, useEffect, useMemo, useState } from 'react'
 import { Icon } from '../Icon/Icon'
 
 export interface PaginationProps extends HTMLAttributes<HTMLElement> {
@@ -107,7 +107,10 @@ export const Pagination = forwardRef(
     const totalPages = Math.ceil(collectionSize / pageSize)
 
     // Get array of page numbers and / or spacers
-    const range = getRange(currentPage, totalPages, maxVisiblePages)
+    const range = useMemo(
+      () => getRange(currentPage, totalPages, maxVisiblePages),
+      [currentPage, totalPages, maxVisiblePages],
+    )
 
     const onChangePage = (newPage: number) => {
       if (onPageChange !== undefined) {
