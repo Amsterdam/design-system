@@ -1,31 +1,31 @@
-import { Canvas, Controls, Markdown, Meta, Primary } from "@storybook/blocks";
+import { Canvas, Markdown, Meta, Primary } from "@storybook/blocks";
 import * as PageGridStories from "./PageGrid.stories.tsx";
-import README from "../../../../packages/css/src/grid/README.md?raw";
+import README from "../../../../packages/css/src/page-grid/README.md?raw";
 
 <Meta of={PageGridStories} />
 
 <Markdown>{README}</Markdown>
 
+## Voorbeelden
+
+### Basis
+
+De roze vlakken vertegenwoordigen de kolommen van het grid. Zoom in of verander de breedte van het venster om de breedtes en het aantal kolommen te zien veranderen. Let op: op brede schermen zijn de witruimtes tussen de kolommen soms breder dan de kolommen zelf.
+
 <Primary />
 
-<Controls />
+### Cellen
 
-### Three columns
+Binnen het grid maak je cellen waarin andere componenten geplaatst kunnen worden.
+Per cel geef je aan hoe veel van de kolommen het beslaat.
 
-<Canvas of={PageGridStories.ThreeColumns} />
+Dit eenvoudige voorbeeld verdeelt het grid in drie cellen van 4 kolommen: `span={4}`.
+Elke cel biedt ruimte voor een afbeelding.
 
-### Three images
+- Op brede vensters heeft het grid 12 kolommen en passen de afbeeldingen naast elkaar.
+- Op middelbrede vensters heeft het grid 8 kolommen en staan de eerste twee afbeeldingen naast elkaar en de derde onder de eerste.
+- Op smalle schermen heeft het grid 4 kolommen en staan de afbeeldingen onder elkaar.
 
-<Canvas of={PageGridStories.ThreeImages} />
+<Canvas of={PageGridStories.Cells} />
 
-### A middle block
-
-Spanning ten columns, numbers 2 up to 11.
-
-<Canvas of={PageGridStories.MiddleBlock} />
-
-### Without the grid cell component
-
-Paragraphs can be used directly on the grid, as they expose the grid cell props as well.
-
-<Canvas of={PageGridStories.Paragraphs} />
+Voor meer voorbeelden raadpleeg je [Grid Cell](?path=/docs/react_layout-grid-cell--docs) zelf.

@@ -8,6 +8,12 @@ import { ForwardedRef, forwardRef, HTMLAttributes, PropsWithChildren } from 'rea
 
 export type PageGridColumnNumber = 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11 | 12
 
+export type PageGridColumnNumbers = {
+  narrow: PageGridColumnNumber
+  medium: PageGridColumnNumber
+  wide: PageGridColumnNumber
+}
+
 export type PageGridProps = PropsWithChildren<HTMLAttributes<HTMLDivElement>>
 
 export const PageGrid = forwardRef(

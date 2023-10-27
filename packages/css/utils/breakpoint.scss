@@ -4,7 +4,18 @@
  */
 
 /*
-  The breakpoint is 854px / 16 = 53.375rems
-  https://developer.mozilla.org/en-US/docs/Web/CSS/@media#accessibility_concerns
+ * CSS Custom properties cannot be used inside media queries.
+ * We to resort to Sass variables for our breakpoint values.
+ */
+
+/**
+ * The breakpoint for typography is 854px = 53.375rems.
+ * @deprecated To be replaced with the grid breakpoints.
 */
-$amsterdam-breakpoint: 53.375rem;
+$amsterdam-breakpoint-typography: 53.375rem;
+
+/** The breakpoint at which medium screens start. */
+$amsterdam-breakpoint-medium: 36rem;
+
+/** The breakpoint at which wide screens start. */
+$amsterdam-breakpoint-wide: 68rem;

@@ -13,7 +13,7 @@
 .amsterdam-button {
   font-size: var(--amsterdam-button-narrow-font-size);
 
-  @media screen and (width > $amsterdam-breakpoint) {
+  @media screen and (width > $amsterdam-breakpoint-typography) {
     font-size: var(--amsterdam-button-wide-font-size);
   }
 

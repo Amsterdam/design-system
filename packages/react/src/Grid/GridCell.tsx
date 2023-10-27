@@ -5,39 +5,40 @@
 
 import clsx from 'clsx'
 import { ForwardedRef, forwardRef, HTMLAttributes, PropsWithChildren } from 'react'
-import { PageGridColumnNumber } from './PageGrid'
+import type { PageGridColumnNumber, PageGridColumnNumbers } from './PageGrid'
+import { gridCellClasses } from './gridCellClasses'
 
-type GridColumns =
-  | PageGridColumnNumber
-  | {
-      start?: PageGridColumnNumber
-      span: PageGridColumnNumber
-    }
-
-export interface GridCellProps extends HTMLAttributes<HTMLDivElement> {
-  gridColumns?: GridColumns
+type GridCellFullWidthProp = {
+  /** Whether the cell spans the full width of the grid. */
+  fullWidth?: boolean
+  span?: never
+  start?: never
 }
 
-export const gridColumnClassNames = (gridColumns?: GridColumns) => {
-  if (!gridColumns) {
-    return ''
-  }
-
-  if (typeof gridColumns === 'number') {
-    return `amsterdam-grid-column-span-${gridColumns}`
-  }
-
-  const { start, span } = gridColumns
-
-  return clsx(start && `amsterdam-grid-column-start-${start}`, span && `amsterdam-grid-column-span-${span}`)
+type GridCellColumnProps = {
+  fullWidth?: never
+  /** The amount of grid columns the cell spans. */
+  span?: PageGridColumnNumber | PageGridColumnNumbers
+  /** The index of the grid column the cell starts at. */
+  start?: PageGridColumnNumber | PageGridColumnNumbers
 }
+
+// The discriminated union and the `never` types prevent using `fullWidth` together with `span` or `start`.
+export type GridCellProps = (GridCellFullWidthProp | GridCellColumnProps) &
+  PropsWithChildren<HTMLAttributes<HTMLDivElement>>
 
 export const GridCell = forwardRef(
-  (
-    { children, gridColumns, className, ...restProps }: PropsWithChildren<GridCellProps>,
-    ref: ForwardedRef<HTMLDivElement>,
-  ) => (
-    <div {...restProps} ref={ref} className={clsx('amsterdam-grid-cell', gridColumnClassNames(gridColumns), className)}>
+  ({ children, className, fullWidth, span, start, ...restProps }: GridCellProps, ref: ForwardedRef<HTMLDivElement>) => (
+    <div
+      {...restProps}
+      ref={ref}
+      className={clsx(
+        'amsterdam-grid-cell',
+        fullWidth && 'amsterdam-grid-cell--full-width',
+        gridCellClasses(span, start),
+        className,
+      )}
+    >
       {children}
     </div>
   ),

@@ -17,7 +17,7 @@
 .amsterdam-icon--size-3 {
   height: calc(var(--amsterdam-icon-size-3-icon-size-narrow) * var(--amsterdam-icon-size-3-container-multiplier));
 
-  @media screen and (width > $amsterdam-breakpoint) {
+  @media screen and (width > $amsterdam-breakpoint-typography) {
     height: calc(var(--amsterdam-icon-size-3-icon-size-wide) * var(--amsterdam-icon-size-3-container-multiplier));
   }
 }
@@ -26,7 +26,7 @@
   height: var(--amsterdam-icon-size-3-icon-size-narrow);
   width: var(--amsterdam-icon-size-3-icon-size-narrow);
 
-  @media screen and (width > $amsterdam-breakpoint) {
+  @media screen and (width > $amsterdam-breakpoint-typography) {
     height: var(--amsterdam-icon-size-3-icon-size-wide);
     width: var(--amsterdam-icon-size-3-icon-size-wide);
   }
@@ -34,7 +34,7 @@
 .amsterdam-icon--size-4 {
   height: calc(var(--amsterdam-icon-size-4-icon-size-narrow) * var(--amsterdam-icon-size-4-container-multiplier));
 
-  @media screen and (width > $amsterdam-breakpoint) {
+  @media screen and (width > $amsterdam-breakpoint-typography) {
     height: calc(var(--amsterdam-icon-size-4-icon-size-wide) * var(--amsterdam-icon-size-4-container-multiplier));
   }
 }
@@ -43,7 +43,7 @@
   height: var(--amsterdam-icon-size-4-icon-size-narrow);
   width: var(--amsterdam-icon-size-4-icon-size-narrow);
 
-  @media screen and (width > $amsterdam-breakpoint) {
+  @media screen and (width > $amsterdam-breakpoint-typography) {
     height: var(--amsterdam-icon-size-4-icon-size-wide);
     width: var(--amsterdam-icon-size-4-icon-size-wide);
   }
@@ -52,7 +52,7 @@
 .amsterdam-icon--size-5 {
   height: calc(var(--amsterdam-icon-size-5-icon-size-narrow) * var(--amsterdam-icon-size-5-container-multiplier));
 
-  @media screen and (width > $amsterdam-breakpoint) {
+  @media screen and (width > $amsterdam-breakpoint-typography) {
     height: calc(var(--amsterdam-icon-size-5-icon-size-wide) * var(--amsterdam-icon-size-5-container-multiplier));
   }
 }
@@ -61,7 +61,7 @@
   height: var(--amsterdam-icon-size-5-icon-size-narrow);
   width: var(--amsterdam-icon-size-5-icon-size-narrow);
 
-  @media screen and (width > $amsterdam-breakpoint) {
+  @media screen and (width > $amsterdam-breakpoint-typography) {
     height: var(--amsterdam-icon-size-5-icon-size-wide);
     width: var(--amsterdam-icon-size-5-icon-size-wide);
   }
@@ -70,7 +70,7 @@
 .amsterdam-icon--size-6 {
   height: calc(var(--amsterdam-icon-size-6-icon-size-narrow) * var(--amsterdam-icon-size-6-container-multiplier));
 
-  @media screen and (width > $amsterdam-breakpoint) {
+  @media screen and (width > $amsterdam-breakpoint-typography) {
     height: calc(var(--amsterdam-icon-size-6-icon-size-wide) * var(--amsterdam-icon-size-6-container-multiplier));
   }
 }
@@ -79,7 +79,7 @@
   height: var(--amsterdam-icon-size-6-icon-size-narrow);
   width: var(--amsterdam-icon-size-6-icon-size-narrow);
 
-  @media screen and (width > $amsterdam-breakpoint) {
+  @media screen and (width > $amsterdam-breakpoint-typography) {
     height: var(--amsterdam-icon-size-6-icon-size-wide);
     width: var(--amsterdam-icon-size-6-icon-size-wide);
   }
@@ -88,7 +88,7 @@
 .amsterdam-icon--size-7 {
   height: calc(var(--amsterdam-icon-size-7-icon-size-narrow) * var(--amsterdam-icon-size-7-container-multiplier));
 
-  @media screen and (width > $amsterdam-breakpoint) {
+  @media screen and (width > $amsterdam-breakpoint-typography) {
     height: calc(var(--amsterdam-icon-size-7-icon-size-wide) * var(--amsterdam-icon-size-7-container-multiplier));
   }
 }
@@ -97,7 +97,7 @@
   height: var(--amsterdam-icon-size-7-icon-size-narrow);
   width: var(--amsterdam-icon-size-7-icon-size-narrow);
 
-  @media screen and (width > $amsterdam-breakpoint) {
+  @media screen and (width > $amsterdam-breakpoint-typography) {
     height: var(--amsterdam-icon-size-7-icon-size-wide);
     width: var(--amsterdam-icon-size-7-icon-size-wide);
   }
