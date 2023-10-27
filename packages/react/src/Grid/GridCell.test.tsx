@@ -30,6 +30,15 @@ describe('GridCell', () => {
     expect(ref.current).toBe(component)
   })
 
+  it('generates no class names for undefined values for start and span', () => {
+    const ref = createRef<HTMLDivElement>()
+    const { container } = render(<GridCell ref={ref} />)
+    const elementWithSpanClass = container.querySelector('[class*="amsterdam-grid-cell--span"]')
+    const elementWithStartClass = container.querySelector('[class*="amsterdam-grid-cell--start"]')
+    expect(elementWithSpanClass).not.toBeInTheDocument()
+    expect(elementWithStartClass).not.toBeInTheDocument()
+  })
+
   it('generates class names for single number values for start and span', () => {
     const { container } = render(<GridCell span={4} start={2} />)
     const component = container.querySelector(':only-child')
