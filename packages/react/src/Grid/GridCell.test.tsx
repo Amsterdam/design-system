@@ -56,7 +56,7 @@ describe('GridCell', () => {
     )
   })
 
-  it('generates class names for a single number for span and array values for start', () => {
+  it('generates class names for array values for span and a single number for start', () => {
     const { container } = render(<GridCell span={{ narrow: 3, medium: 5, wide: 7 }} start={2} />)
     const component = container.querySelector(':only-child')
     expect(component).toHaveClass(
