@@ -31,7 +31,7 @@
     "@storybook/addon-docs": "7.5.1",
     "@storybook/addon-essentials": "7.5.1",
     "@storybook/addon-interactions": "7.5.1",
-    "@storybook/addon-links": "7.5.1",
+    "@storybook/addon-links": "7.5.2",
     "@storybook/addon-viewport": "7.5.1",
     "@storybook/blocks": "7.5.1",
     "@storybook/manager-api": "7.5.1",
