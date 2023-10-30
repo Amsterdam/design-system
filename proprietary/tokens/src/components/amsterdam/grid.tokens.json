@@ -1,14 +1,8 @@
 {
   "amsterdam": {
     "grid": {
-      "narrow": {
-        "column-count": { "value": "4" }
-      },
-      "medium": {
-        "column-count": { "value": "8" }
-      },
-      "wide": {
-        "column-count": { "value": "12" }
+      "column-count": {
+        "value": "4"
       },
       "gap": {
         "value": "clamp(0.5rem, 0.375rem + 3.125vw, 3.5rem)",
@@ -17,6 +11,16 @@
       "padding-inline": {
         "value": "clamp(0.75rem, 0.5625rem + 4.875vw, 5.25rem)",
         "comment": "Equals 1.5 times the gap."
+      },
+      "medium": {
+        "column-count": {
+          "value": "8"
+        }
+      },
+      "wide": {
+        "column-count": {
+          "value": "12"
+        }
       }
     }
   }
