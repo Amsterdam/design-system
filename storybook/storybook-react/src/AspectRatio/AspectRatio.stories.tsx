@@ -71,13 +71,6 @@ const StoryTemplate: Story = {
 
 export const Default: Story = {
   ...StoryTemplate,
-  parameters: {
-    docs: {
-      canvas: {
-        sourceState: 'shown',
-      },
-    },
-  },
 }
 
 export const ExtraWide: Story = {

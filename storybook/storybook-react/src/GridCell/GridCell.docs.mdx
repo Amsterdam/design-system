@@ -6,18 +6,14 @@ import README from "../../../../packages/css/src/grid/README.grid-cell.md?raw";
 
 <Markdown>{README}</Markdown>
 
+## Voorbeelden
+
+### Basis
+
 Een cel beslaat standaard 1 kolom in het grid.
 Om een cel meer kolommen te laten beslaan, gebruik je de `span` prop.
 
 <Primary />
-
-### Startpositie
-
-Elke cel start automatisch in de eerstvolgende beschikbare positie in het grid.
-Je kunt de startpositie van een cel aanpassen met de `start` prop.
-In dit geval `start={2}`:
-
-<Canvas of={GridCellStories.StartPosition} />
 
 ### Verschillende breedtes
 
@@ -28,7 +24,7 @@ Via `span={{ narrow: 4, medium: 6, wide: 8 }}` is deze cel 4 van de 4 kolommen b
 
 <Canvas of={GridCellStories.MultipleSizes} />
 
-Het kan zelfs voorkomen dat ook de startpositie van een cel afhangt van de vensterbreedte.
+Het kan ook voorkomen dat ook de startpositie van een cel afhangt van de vensterbreedte.
 Gebruik hiervoor de `start` prop met 3 waarden.
 
 ### Volledige breedte
@@ -36,6 +32,18 @@ Gebruik hiervoor de `start` prop met 3 waarden.
 Om de cel de volledige breedte te geven – of het grid nu 4, 8, of 12 kolommen heeft – gebruik je de `fullWidth` prop.
 
 <Canvas of={GridCellStories.FullWidth} />
+
+### Startpositie
+
+Elke cel start automatisch in de eerstvolgende beschikbare positie in het grid.
+Een waarde van 1 hoef je dus meestal niet expliciet op te geven.
+Je kunt de startpositie van een cel aanpassen met de `start` prop.
+Op brede schermen kan het zijn dat een cel een aantal van de middelste kolommen beslaat.
+Ook komt dit voor als je halverwege de rij een kolom leeg wil laten.
+
+Een voorbeeld met `start={2}`:
+
+<Canvas of={GridCellStories.StartPosition} />
 
 ## Richtlijnen
 

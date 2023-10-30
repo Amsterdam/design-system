@@ -53,11 +53,4 @@ export const Cells: Story = {
     )),
   },
   name: 'Cellen',
-  parameters: {
-    docs: {
-      canvas: {
-        sourceState: 'shown',
-      },
-    },
-  },
 }
