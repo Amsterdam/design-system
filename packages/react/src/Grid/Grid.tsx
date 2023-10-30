@@ -23,13 +23,13 @@ export type GridColumnNumbers = {
 }
 
 interface GridComponent
-  extends ForwardRefExoticComponent<PropsWithChildren<HTMLAttributes<HTMLElement>> & RefAttributes<HTMLElement>> {
+  extends ForwardRefExoticComponent<PropsWithChildren<HTMLAttributes<HTMLDivElement>> & RefAttributes<HTMLDivElement>> {
   Cell: typeof GridCell
 }
 
 export const Grid = forwardRef(
   (
-    { children, className, ...restProps }: PropsWithChildren<HTMLAttributes<HTMLElement>>,
+    { children, className, ...restProps }: PropsWithChildren<HTMLAttributes<HTMLDivElement>>,
     ref: ForwardedRef<HTMLDivElement>,
   ) => (
     <div {...restProps} ref={ref} className={clsx('amsterdam-grid', className)}>
