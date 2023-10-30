@@ -44,4 +44,4 @@ export const GridCell = forwardRef(
   ),
 )
 
-GridCell.displayName = 'GridCell'
+GridCell.displayName = 'Grid.Cell'
