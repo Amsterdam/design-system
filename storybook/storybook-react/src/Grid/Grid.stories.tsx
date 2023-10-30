@@ -10,13 +10,6 @@ import { Meta, StoryObj } from '@storybook/react'
 const meta = {
   title: 'Layout/Grid',
   component: Grid,
-  parameters: {
-    docs: {
-      canvas: {
-        sourceState: 'hidden',
-      },
-    },
-  },
 } satisfies Meta<typeof Grid>
 
 export default meta

@@ -18,16 +18,6 @@ import { Meta, StoryObj } from '@storybook/react'
 const meta = {
   title: 'Containers/Footer',
   component: Footer,
-  args: {
-    children: 'Nieuw component',
-  },
-  parameters: {
-    docs: {
-      canvas: {
-        sourceState: 'hidden',
-      },
-    },
-  },
 } satisfies Meta<typeof Footer>
 
 export default meta

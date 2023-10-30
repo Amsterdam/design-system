@@ -12,13 +12,6 @@ const meta = {
   argTypes: {
     markers: { control: 'boolean' },
   },
-  parameters: {
-    docs: {
-      canvas: {
-        sourceState: 'hidden',
-      },
-    },
-  },
 } satisfies Meta<typeof OrderedList>
 
 export default meta
