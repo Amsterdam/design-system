@@ -147,7 +147,7 @@ importers:
         specifier: 7.23.2
         version: 7.23.2
       '@rollup/plugin-babel':
-        specifier: ^6.0.4
+        specifier: 6.0.4
         version: 6.0.4(@babel/core@7.23.2)(rollup@4.2.0)
       '@rollup/plugin-commonjs':
         specifier: 25.0.7
@@ -156,7 +156,7 @@ importers:
         specifier: 15.2.3
         version: 15.2.3(rollup@4.2.0)
       '@rollup/pluginutils':
-        specifier: ^5.0.5
+        specifier: 5.0.5
         version: 5.0.5(rollup@4.2.0)
       '@testing-library/dom':
         specifier: 9.3.3
@@ -250,7 +250,7 @@ importers:
         specifier: 15.2.3
         version: 15.2.3(rollup@4.2.0)
       '@rollup/pluginutils':
-        specifier: ^5.0.5
+        specifier: 5.0.5
         version: 5.0.5(rollup@4.2.0)
       '@svgr/cli':
         specifier: 8.1.0
