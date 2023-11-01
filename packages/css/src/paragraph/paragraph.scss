@@ -18,7 +18,7 @@
   font-weight: var(--amsterdam-paragraph-font-weight);
   line-height: var(--amsterdam-paragraph-line-height);
 
-  @media screen and (width > $amsterdam-breakpoint-typography) {
+  @media screen and (min-width: $amsterdam-breakpoint-typography) {
     font-size: var(--amsterdam-paragraph-wide-font-size);
   }
 
@@ -29,7 +29,7 @@
   font-size: var(--amsterdam-paragraph-small-narrow-font-size);
   line-height: var(--amsterdam-paragraph-small-line-height);
 
-  @media screen and (width > $amsterdam-breakpoint-typography) {
+  @media screen and (min-width: $amsterdam-breakpoint-typography) {
     font-size: var(--amsterdam-paragraph-small-wide-font-size);
   }
 }
@@ -38,7 +38,7 @@
   font-size: var(--amsterdam-paragraph-large-narrow-font-size);
   line-height: var(--amsterdam-paragraph-large-line-height);
 
-  @media screen and (width > $amsterdam-breakpoint-typography) {
+  @media screen and (min-width: $amsterdam-breakpoint-typography) {
     font-size: var(--amsterdam-paragraph-large-wide-font-size);
   }
 }

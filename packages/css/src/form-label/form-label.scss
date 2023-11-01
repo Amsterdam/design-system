@@ -16,7 +16,7 @@
   font-weight: var(--amsterdam-form-label-font-weight);
   line-height: var(--amsterdam-form-label-line-height);
 
-  @media screen and (width > $amsterdam-breakpoint-typography) {
+  @media screen and (min-width: $amsterdam-breakpoint-typography) {
     font-size: var(--amsterdam-form-label-wide-font-size);
   }
 
