@@ -4,36 +4,25 @@
  */
 
 import { Screen } from '@amsterdam/design-system-react'
-import { GridCell, PageGrid } from '@amsterdam/design-system-react'
+import { Grid } from '@amsterdam/design-system-react'
 import { Meta, StoryObj } from '@storybook/react'
 
 const meta = {
   title: 'Layout/Grid Cell',
-  component: GridCell,
-  parameters: {
-    docs: {
-      canvas: {
-        sourceState: 'hidden',
-      },
-    },
-  },
-} satisfies Meta<typeof GridCell>
+  component: Grid.Cell,
+} satisfies Meta<typeof Grid.Cell>
 
 export default meta
 
 type Story = StoryObj<typeof meta>
 
 const StoryTemplate: Story = {
-  args: {
-    span: 1,
-    start: 1,
-  },
   decorators: [
     (Story) => (
       <Screen>
-        <PageGrid>
+        <Grid>
           <Story />
-        </PageGrid>
+        </Grid>
       </Screen>
     ),
   ],
@@ -44,16 +33,6 @@ export const Default: Story = {
   args: {
     children: <p className="amsterdam-docs-paragraph amsterdam-docs-pink-box">Deze cel beslaat 4 kolommen.</p>,
     span: 4,
-    start: 1,
-  },
-}
-
-export const StartPosition: Story = {
-  ...StoryTemplate,
-  args: {
-    children: <p className="amsterdam-docs-paragraph amsterdam-docs-pink-box">Deze cel start in kolom 2.</p>,
-    span: 2,
-    start: 2,
   },
 }
 
@@ -76,5 +55,14 @@ export const FullWidth: Story = {
       </p>
     ),
     fullWidth: true,
+  },
+}
+
+export const StartPosition: Story = {
+  ...StoryTemplate,
+  args: {
+    children: <p className="amsterdam-docs-paragraph amsterdam-docs-pink-box">Deze cel start in kolom 2.</p>,
+    span: 2,
+    start: 2,
   },
 }

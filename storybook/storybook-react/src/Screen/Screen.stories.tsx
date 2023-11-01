@@ -10,11 +10,6 @@ const meta = {
   title: 'Layout/Screen',
   component: Screen,
   parameters: {
-    docs: {
-      canvas: {
-        sourceState: 'hidden',
-      },
-    },
     layout: 'fullscreen',
   },
 } satisfies Meta<typeof Screen>

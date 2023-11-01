@@ -9,12 +9,6 @@ export const parameters = {
       date: /Date$/,
     },
   },
-  docs: {
-    // Show code by default.
-    canvas: {
-      sourceState: 'shown',
-    },
-  },
   options: {
     storySort: {
       order: ['Docs', ['Intro']],

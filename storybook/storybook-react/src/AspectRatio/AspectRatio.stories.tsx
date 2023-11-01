@@ -18,13 +18,6 @@ const meta = {
       options: ['extra-wide', 'wide', 'square', 'tall', 'extra-tall'],
     },
   },
-  parameters: {
-    docs: {
-      canvas: {
-        sourceState: 'hidden',
-      },
-    },
-  },
 } satisfies Meta<typeof AspectRatio>
 
 export default meta
@@ -71,13 +64,6 @@ const StoryTemplate: Story = {
 
 export const Default: Story = {
   ...StoryTemplate,
-  parameters: {
-    docs: {
-      canvas: {
-        sourceState: 'shown',
-      },
-    },
-  },
 }
 
 export const ExtraWide: Story = {
