@@ -5,10 +5,9 @@
 
 import {
   Footer,
-  GridCell,
+  Grid,
   Heading,
   Link,
-  PageGrid,
   PageMenu,
   Paragraph,
   UnorderedList,
@@ -19,16 +18,6 @@ import { Meta, StoryObj } from '@storybook/react'
 const meta = {
   title: 'Containers/Footer',
   component: Footer,
-  args: {
-    children: 'Nieuw component',
-  },
-  parameters: {
-    docs: {
-      canvas: {
-        sourceState: 'hidden',
-      },
-    },
-  },
 } satisfies Meta<typeof Footer>
 
 export default meta
@@ -42,8 +31,8 @@ export const Default: Story = {
         <VisuallyHidden>
           <Heading>Colofon</Heading>
         </VisuallyHidden>
-        <PageGrid>
-          <GridCell span={3}>
+        <Grid>
+          <Grid.Cell span={3}>
             <div style={{ display: 'grid', gap: '2.5rem' }}>
               <Heading level={2} size="level-4" inverseColor>
                 Contact
@@ -64,8 +53,8 @@ export const Default: Story = {
                 </li>
               </UnorderedList>
             </div>
-          </GridCell>
-          <GridCell span={3} start={{ narrow: 1, medium: 5, wide: 5 }}>
+          </Grid.Cell>
+          <Grid.Cell span={3} start={{ narrow: 1, medium: 5, wide: 5 }}>
             <div style={{ display: 'grid', gap: '2.5rem' }}>
               <Heading level={2} size="level-4" inverseColor>
                 Panels en enquêtes
@@ -91,8 +80,8 @@ export const Default: Story = {
                 </li>
               </UnorderedList>
             </div>
-          </GridCell>
-          <GridCell span={3} start={{ narrow: 1, medium: 1, wide: 9 }}>
+          </Grid.Cell>
+          <Grid.Cell span={3} start={{ narrow: 1, medium: 1, wide: 9 }}>
             <div style={{ display: 'grid', gap: '2.5rem' }}>
               <Heading level={2} size="level-4" inverseColor>
                 Onderzoek en Statistiek
@@ -120,21 +109,21 @@ export const Default: Story = {
                 </li>
               </UnorderedList>
             </div>
-          </GridCell>
-        </PageGrid>
+          </Grid.Cell>
+        </Grid>
       </Footer.Top>,
       <Footer.Bottom key="footer-bottom">
         <VisuallyHidden>
           <Heading level={2}>Over deze website</Heading>
         </VisuallyHidden>
-        <PageGrid>
-          <GridCell fullWidth>
+        <Grid>
+          <Grid.Cell fullWidth>
             <PageMenu>
               <PageMenu.Link href="/">Privacy</PageMenu.Link>
               <PageMenu.Link href="/">Toegankelijkheid</PageMenu.Link>
             </PageMenu>
-          </GridCell>
-        </PageGrid>
+          </Grid.Cell>
+        </Grid>
       </Footer.Bottom>,
     ],
   },
