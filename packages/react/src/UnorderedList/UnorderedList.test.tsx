@@ -18,7 +18,7 @@ describe('Unordered List', () => {
     expect(list).toHaveClass('amsterdam-unordered-list')
   })
 
-  it('can have a additional class name', () => {
+  it('renders an additional class name', () => {
     const { container } = render(<UnorderedList className="large" />)
     const list = container.querySelector(':only-child')
 

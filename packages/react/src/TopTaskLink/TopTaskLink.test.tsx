@@ -29,7 +29,7 @@ describe('Top task link', () => {
     expect(description).toHaveClass('amsterdam-top-task-link__description')
   })
 
-  it('can have a additional class name', () => {
+  it('renders an additional class name', () => {
     render(<TopTaskLink href="/" label="Label" className="extra" />)
 
     const link = screen.getByRole('link', {

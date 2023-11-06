@@ -43,7 +43,7 @@ describe('Icon', () => {
     expect(level7.firstChild).toHaveClass('amsterdam-icon--size-7')
   })
 
-  it('can have a additional class name', () => {
+  it('renders an additional class name', () => {
     const { container } = render(<Icon svg={AlertIcon} className="large" />)
 
     const icon = container.querySelector(':only-child')

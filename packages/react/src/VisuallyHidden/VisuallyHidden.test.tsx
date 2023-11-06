@@ -21,7 +21,7 @@ describe('Visually hidden', () => {
     expect(component).toHaveClass('amsterdam-visually-hidden')
   })
 
-  it('can have a additional class name', () => {
+  it('renders an additional class name', () => {
     const { container } = render(<VisuallyHidden className="extra" />)
 
     const component = container.querySelector(':only-child')

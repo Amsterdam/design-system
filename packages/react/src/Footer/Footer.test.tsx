@@ -4,7 +4,7 @@ import { Footer } from './Footer'
 import '@testing-library/jest-dom'
 
 describe('Footer', () => {
-  it('renders a HTML footer element', () => {
+  it('renders an HTML footer element', () => {
     render(<Footer />)
 
     const footer = screen.getByRole('contentinfo')
@@ -27,7 +27,7 @@ describe('Footer', () => {
     expect(footerBottom).toHaveClass('amsterdam-footer__bottom')
   })
 
-  it('can have a additional class name', () => {
+  it('renders an additional class name', () => {
     const footerRender = render(<Footer className="extra" />)
     const { container: footerTopRender } = render(<Footer.Top className="extra" />)
     const { container: footerBottomRender } = render(<Footer.Bottom className="extra" />)

@@ -33,7 +33,7 @@ describe('Checkbox', () => {
     expect(label).toHaveClass('amsterdam-checkbox__label')
   })
 
-  it('can have a additional class name', () => {
+  it('renders an additional class name', () => {
     const { container } = render(<Checkbox className="extra" />)
 
     const wrapper = container.querySelector(':only-child')

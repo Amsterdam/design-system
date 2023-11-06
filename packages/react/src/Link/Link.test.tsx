@@ -60,7 +60,7 @@ describe('Link', () => {
     expect(link).toHaveClass('amsterdam-link amsterdam-link--on-background-dark')
   })
 
-  it('can have a additional class name', () => {
+  it('renders an additional class name', () => {
     const { container } = render(<Link className="large" />)
     const link = container.querySelector(':only-child')
     expect(link).toHaveClass('large')
