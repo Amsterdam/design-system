@@ -70,8 +70,8 @@ importers:
         specifier: 16.14.6
         version: 16.14.6
       npm-package-json-lint:
-        specifier: 7.0.0
-        version: 7.0.0(typescript@5.2.2)
+        specifier: 7.1.0
+        version: 7.1.0(typescript@5.2.2)
       npm-run-all:
         specifier: 4.1.5
         version: 4.1.5
@@ -254,7 +254,7 @@ importers:
         version: 5.0.5(rollup@4.2.0)
       '@svgr/cli':
         specifier: 8.1.0
-        version: 8.1.0
+        version: 8.1.0(typescript@5.2.2)
       '@types/react':
         specifier: 18.2.33
         version: 18.2.33
@@ -5321,14 +5321,14 @@ packages:
       '@svgr/babel-plugin-transform-svg-component': 8.0.0(@babel/core@7.23.2)
     dev: true
 
-  /@svgr/cli@8.1.0:
+  /@svgr/cli@8.1.0(typescript@5.2.2):
     resolution: {integrity: sha512-SnlaLspB610XFXvs3PmhzViHErsXp0yIy4ERyZlHDlO1ro2iYtHMWYk2mztdLD/lBjiA4ZXe4RePON3qU/Tc4A==}
     engines: {node: '>=14'}
     dependencies:
-      '@svgr/core': 8.1.0
+      '@svgr/core': 8.1.0(typescript@5.2.2)
       '@svgr/plugin-jsx': 8.1.0(@svgr/core@8.1.0)
       '@svgr/plugin-prettier': 8.1.0(@svgr/core@8.1.0)
-      '@svgr/plugin-svgo': 8.1.0(@svgr/core@8.1.0)
+      '@svgr/plugin-svgo': 8.1.0(@svgr/core@8.1.0)(typescript@5.2.2)
       camelcase: 6.3.0
       chalk: 4.1.2
       commander: 9.5.0
@@ -5337,19 +5337,21 @@ packages:
       snake-case: 3.0.4
     transitivePeerDependencies:
       - supports-color
+      - typescript
     dev: true
 
-  /@svgr/core@8.1.0:
+  /@svgr/core@8.1.0(typescript@5.2.2):
     resolution: {integrity: sha512-8QqtOQT5ACVlmsvKOJNEaWmRPmcojMOzCz4Hs2BGG/toAp/K38LcsMRyLp349glq5AzJbCEeimEoxaX6v/fLrA==}
     engines: {node: '>=14'}
     dependencies:
       '@babel/core': 7.23.2
       '@svgr/babel-preset': 8.1.0(@babel/core@7.23.2)
       camelcase: 6.3.0
-      cosmiconfig: 8.2.0
+      cosmiconfig: 8.3.6(typescript@5.2.2)
       snake-case: 3.0.4
     transitivePeerDependencies:
       - supports-color
+      - typescript
     dev: true
 
   /@svgr/hast-util-to-babel-ast@8.0.0:
@@ -5368,7 +5370,7 @@ packages:
     dependencies:
       '@babel/core': 7.23.2
       '@svgr/babel-preset': 8.1.0(@babel/core@7.23.2)
-      '@svgr/core': 8.1.0
+      '@svgr/core': 8.1.0(typescript@5.2.2)
       '@svgr/hast-util-to-babel-ast': 8.0.0
       svg-parser: 2.0.4
     transitivePeerDependencies:
@@ -5381,21 +5383,23 @@ packages:
     peerDependencies:
       '@svgr/core': '*'
     dependencies:
-      '@svgr/core': 8.1.0
+      '@svgr/core': 8.1.0(typescript@5.2.2)
       deepmerge: 4.3.1
       prettier: 2.8.8
     dev: true
 
-  /@svgr/plugin-svgo@8.1.0(@svgr/core@8.1.0):
+  /@svgr/plugin-svgo@8.1.0(@svgr/core@8.1.0)(typescript@5.2.2):
     resolution: {integrity: sha512-Ywtl837OGO9pTLIN/onoWLmDQ4zFUycI1g76vuKGEz6evR/ZTJlJuz3G/fIkb6OVBJ2g0o6CGJzaEjfmEo3AHA==}
     engines: {node: '>=14'}
     peerDependencies:
       '@svgr/core': '*'
     dependencies:
-      '@svgr/core': 8.1.0
-      cosmiconfig: 8.2.0
+      '@svgr/core': 8.1.0(typescript@5.2.2)
+      cosmiconfig: 8.3.6(typescript@5.2.2)
       deepmerge: 4.3.1
       svgo: 3.0.2
+    transitivePeerDependencies:
+      - typescript
     dev: true
 
   /@swc/helpers@0.5.2:
@@ -7062,7 +7066,7 @@ packages:
   /call-bind@1.0.2:
     resolution: {integrity: sha512-7O+FbCihrB5WGbFYesctwmTKae6rOiIzmz1icreWJ+0aA7LJfuqhEso2T9ncpcFtzMQtzXf2QGGueWJGTYsqrA==}
     dependencies:
-      function-bind: 1.1.1
+      function-bind: 1.1.2
       get-intrinsic: 1.2.1
 
   /callsites@3.1.0:
@@ -7697,16 +7701,6 @@ packages:
   /corser@2.0.1:
     resolution: {integrity: sha512-utCYNzRSQIZNPIcGZdQc92UVJYAhtGAteCFg0yRaFm8f0P+CPtyGyHXJcGXnffjCybUCEx3FQ2G7U3/o9eIkVQ==}
     engines: {node: '>= 0.4.0'}
-
-  /cosmiconfig@8.2.0:
-    resolution: {integrity: sha512-3rTMnFJA1tCOPwRxtgF4wd7Ab2qvDbL8jX+3smjIbS4HlZBagTlpERbdN7iAbWlrfxE3M8c27kTwTawQ7st+OQ==}
-    engines: {node: '>=14'}
-    dependencies:
-      import-fresh: 3.3.0
-      js-yaml: 4.1.0
-      parse-json: 5.2.0
-      path-type: 4.0.0
-    dev: true
 
   /cosmiconfig@8.3.6(typescript@5.2.2):
     resolution: {integrity: sha512-kcZ6+W5QzcJ3P1Mt+83OUv/oHFqZHIx8DuxG6eZ5RGMERoLqp4BuGjhHLYGK+Kf5XVkQvqBSmAy/nGWN3qDgEA==}
@@ -8444,7 +8438,7 @@ packages:
       define-properties: 1.2.1
       es-abstract: 1.22.2
       es-set-tostringtag: 2.0.1
-      function-bind: 1.1.1
+      function-bind: 1.1.2
       get-intrinsic: 1.2.1
       globalthis: 1.0.3
       has-property-descriptors: 1.0.0
@@ -9429,12 +9423,8 @@ packages:
     dev: true
     optional: true
 
-  /function-bind@1.1.1:
-    resolution: {integrity: sha512-yIovAzMX49sF8Yl58fSCWJ5svSLuaibPxXQJFLmBObTuCr0Mf1KiPopGM9NiFjiYBCbfaa2Fh6breQ6ANVTI0A==}
-
   /function-bind@1.1.2:
     resolution: {integrity: sha512-7XHNxH7qX9xG5mIwxkhumTox/MIRNcOgDrxWsMt2pAr23WHp6MrRlN7FBSFpCpr+oVO0F744iUgR82nJMfG2SA==}
-    dev: true
 
   /function.prototype.name@1.1.6:
     resolution: {integrity: sha512-Z5kx79swU5P27WEayXM1tBi5Ze/lbIyiNgU3qyXUOf9b2rgXYyF9Dy9Cx+IQv/Lc8WCG6L82zwUPpSS9hGehIg==}
@@ -9491,7 +9481,7 @@ packages:
   /get-intrinsic@1.2.1:
     resolution: {integrity: sha512-2DcsyfABl+gVHEfCOaTrWgyt+tb6MSEGmKq+kI5HwLbIYgjgmMcV8KQ41uaKz1xxUcn9tJtgFbQUEVcEbd0FYw==}
     dependencies:
-      function-bind: 1.1.1
+      function-bind: 1.1.2
       has: 1.0.3
       has-proto: 1.0.1
       has-symbols: 1.0.3
@@ -9924,7 +9914,7 @@ packages:
     resolution: {integrity: sha512-f2dvO0VU6Oej7RkWJGrehjbzMAjFp5/VKPp5tTpWIV4JHHZK1/BxbFRtf/siA2SWTe09caDmVtYYzWEIbBS4zw==}
     engines: {node: '>= 0.4.0'}
     dependencies:
-      function-bind: 1.1.1
+      function-bind: 1.1.2
 
   /hasown@2.0.0:
     resolution: {integrity: sha512-vUptKVTpIJhcczKBbgnS+RtcuYMB8+oNzPK2/Hp3hanz8JmpATdmmgLgSaadVREkDm+e2giHwY3ZRkyjSIDDFA==}
@@ -10427,12 +10417,6 @@ packages:
     resolution: {integrity: sha512-ZYvCgrefwqoQ6yTyYUbQu64HsITZ3NfKX1lzaEYdkTDcfKzzCI/wthRRYKkdjHKFVgNiXKAKm65Zo1pk2as/QQ==}
     dependencies:
       ci-info: 3.8.0
-    dev: true
-
-  /is-core-module@2.13.0:
-    resolution: {integrity: sha512-Z7dk6Qo8pOCp3l4tsX2C5ZVas4V+UxwQodwZhLopL91TX8UyyHEXafPcyoeeWuLrwzHcr3igO78wNLwHJHsMCQ==}
-    dependencies:
-      has: 1.0.3
     dev: true
 
   /is-core-module@2.13.1:
@@ -13343,7 +13327,7 @@ packages:
     engines: {node: '>=10'}
     dependencies:
       hosted-git-info: 4.1.0
-      is-core-module: 2.13.0
+      is-core-module: 2.13.1
       semver: 7.5.4
       validate-npm-package-license: 3.0.4
     dev: true
@@ -13353,7 +13337,7 @@ packages:
     engines: {node: ^14.17.0 || ^16.13.0 || >=18.0.0}
     dependencies:
       hosted-git-info: 6.1.1
-      is-core-module: 2.13.0
+      is-core-module: 2.13.1
       semver: 7.5.4
       validate-npm-package-license: 3.0.4
     dev: true
@@ -13363,7 +13347,7 @@ packages:
     engines: {node: ^16.14.0 || >=18.0.0}
     dependencies:
       hosted-git-info: 7.0.1
-      is-core-module: 2.13.0
+      is-core-module: 2.13.1
       semver: 7.5.4
       validate-npm-package-license: 3.0.4
     dev: true
@@ -13458,9 +13442,10 @@ packages:
       validate-npm-package-name: 5.0.0
     dev: true
 
-  /npm-package-json-lint@7.0.0(typescript@5.2.2):
-    resolution: {integrity: sha512-Yn8flnPx/7hTxwejWL5urm8sbEahq8ic3R80d7nlBvS6C58JEmJpUqvO7Ksy8izRzpbrHq0Anwlv/nQg5OYf8Q==}
+  /npm-package-json-lint@7.1.0(typescript@5.2.2):
+    resolution: {integrity: sha512-ypcMpag32TCP89zzLSS+7vjeR2QY613WzmO2upcJgKNWlcswDz8cdb80urbBNHkhSPI40ex3nsKrRDH/WhMYOg==}
     engines: {node: '>=16.0.0', npm: '>=8.0.0'}
+    hasBin: true
     dependencies:
       ajv: 6.12.6
       ajv-errors: 1.0.1(ajv@6.12.6)
@@ -13477,7 +13462,7 @@ packages:
       semver: 7.5.4
       slash: 3.0.0
       strip-json-comments: 3.1.1
-      type-fest: 3.13.1
+      type-fest: 4.6.0
       validate-npm-package-name: 5.0.0
     transitivePeerDependencies:
       - supports-color
@@ -15195,8 +15180,9 @@ packages:
 
   /resolve@1.22.6:
     resolution: {integrity: sha512-njhxM7mV12JfufShqGy3Rz8j11RPdLy4xi15UurGJeoHLfJpVXKdh3ueuOqbYUcDZnffr6X739JBo5LzyahEsw==}
+    hasBin: true
     dependencies:
-      is-core-module: 2.13.0
+      is-core-module: 2.13.1
       path-parse: 1.0.7
       supports-preserve-symlinks-flag: 1.0.0
     dev: true
@@ -15204,7 +15190,7 @@ packages:
   /resolve@2.0.0-next.4:
     resolution: {integrity: sha512-iMDbmAWtfU+MHpxt/I5iWI7cY6YVEZUQ3MBgPQ++XD1PELuJHIl82xBmObyP2KyQmkNB2dsqF7seoQQiAn5yDQ==}
     dependencies:
-      is-core-module: 2.13.0
+      is-core-module: 2.13.1
       path-parse: 1.0.7
       supports-preserve-symlinks-flag: 1.0.0
     dev: true
@@ -16654,6 +16640,11 @@ packages:
 
   /type-fest@4.3.1:
     resolution: {integrity: sha512-pphNW/msgOUSkJbH58x8sqpq8uQj6b0ZKGxEsLKMUnGorRcDjrUaLS+39+/ub41JNTwrrMyJcUB8+YZs3mbwqw==}
+    engines: {node: '>=16'}
+    dev: true
+
+  /type-fest@4.6.0:
+    resolution: {integrity: sha512-rLjWJzQFOq4xw7MgJrCZ6T1jIOvvYElXT12r+y0CC6u67hegDHaxcPqb2fZHOGlqxugGQPNB1EnTezjBetkwkw==}
     engines: {node: '>=16'}
     dev: true
 
