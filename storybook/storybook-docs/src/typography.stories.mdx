@@ -4,7 +4,10 @@ import { Meta } from "@storybook/blocks";
 
 # Typografie
 
-We gebruiken het lettertype Amsterdam Sans. De _fallback_ lettertypes zijn Arial en sans-serif.
+## Lettertype
+
+We gebruiken het lettertype Amsterdam Sans.
+De _fallback_ lettertypes zijn Arial en sans-serif.
 
 We gebruiken 2 varianten:
 
@@ -13,41 +16,49 @@ We gebruiken 2 varianten:
 
 ## Fluïde typografie
 
-Online gebruiken we fluïde typografie, wat inhoudt dat de grootte van de tekst afhankelijk is van de breedte van het scherm van de gebruiker. Hoe kleiner het scherm, hoe kleiner de tekst. Hiermee zorgen we ervoor dat de tekst er op elke schermbreedte goed uitziet.
+Online gebruiken we fluïde typografie, wat inhoudt dat de grootte van de tekst afhankelijk is van de breedte van het scherm of venster van de gebruiker.
+Hoe breder het venster, des te groter wordt de tekst.
+Hiermee zorgen we ervoor dat de tekst er in vensters van alle breedtes goed uitziet.
 
 ### Tekstniveaus
 
-We hebben 8 tekstniveaus gedefinieerd, waar alle typografische elementen gebruik van maken. Een tekstniveau is de tekstgrootte op de minimum schermbreedte (320px) waaronder de tekst niet kleiner wordt, de tekstgrootte op de maximum schermbreedte (1440px) waarboven de tekst niet groter wordt, de tekst op het breekpunt (854px) en de regelhoogte. De tekstgrootte op het breekpunt is de minimumwaarde + 2/3 van het verschil tussen de minimum en maximum waarde.
+We hebben 8 tekstniveaus gedefinieerd.
+Alle typografische componenten maken er gebruik van.
+
+Een tekstniveau definieert de tekstgrootte op de minimale vensterbreedte (320 pixels) waaronder de tekst niet kleiner wordt, de tekstgrootte op de maximale vensterbreedte (1440 pixels) waarboven de tekst niet groter wordt, de tekst op het breekpunt (854 pixels) en de regelhoogte.
+De tekstgrootte op het breekpunt is de minimale waarde + 2/3 van het verschil tussen de minimale en maximale waarde.
 
 In de tabel hieronder vind je deze waardes in pixels:
 
-| niveau      | 0   | 1   | 2   | 3   | 4   | 5   | 6   | 7   |
-| ----------- | --- | --- | --- | --- | --- | --- | --- | --- |
-| min         | 32  | 32  | 28  | 24  | 20  | 22  | 18  | 16  |
-| breakpoint  | 64  | 48  | 36  | 29  | 23  | 26  | 21  | 17  |
-| max         | 80  | 56  | 40  | 32  | 25  | 28  | 22  | 18  |
-| line-height | 1.1 | 1.2 | 1.3 | 1.4 | 1.4 | 1.5 | 1.6 | 1.6 |
+| niveau                     |   0 |   1 |   2 |   3 |   4 |   5 |   6 |   7 |
+| :------------------------- | --: | --: | --: | --: | --: | --: | --: | --: |
+| minimale tekstgrootte      |  32 |  32 |  28 |  24 |  20 |  22 |  18 |  16 |
+| tekstgrootte op breakpoint |  64 |  48 |  36 |  29 |  23 |  26 |  21 |  17 |
+| maximale tekstgrootte      |  80 |  56 |  40 |  32 |  25 |  28 |  22 |  18 |
+| relatieve regelhoogte      | 1.1 | 1.2 | 1.3 | 1.4 | 1.4 | 1.5 | 1.6 | 1.6 |
 
-Deze niveaus horen bij de volgende elementen (niet compleet):
+Voorbeelden van componenten en hun tekstniveaus:
 
-| level | element                              |
-| ----- | ------------------------------------ |
-| 0     | Page heading                         |
-| 1     | Heading level 1                      |
-| 2     | Heading level 2                      |
-| 3     | Heading level 3, Blockquote          |
-| 4     | Heading level 4, Toptask Button      |
-| 5     | Paragraph large                      |
-| 6     | Paragraph, alle Links behalve inList |
-| 7     | Paragraph small, inList Link         |
+| level | componenten                          |
+| ----: | :----------------------------------- |
+|     0 | Page heading                         |
+|     1 | Heading 1                            |
+|     2 | Heading 2                            |
+|     3 | Heading 3, Blockquote                |
+|     4 | Heading 4, Top Task Link             |
+|     5 | Paragraph large                      |
+|     6 | Paragraph, alle Links behalve inList |
+|     7 | Paragraph small, inList Link         |
 
 ## Contrast
 
-Het contrast tussen tekst en achtergrondkleur moet voldoen aan [de laatste wettelijke toegankelijkheidseisen van de WCAG niveau AA](https://www.w3.org/WAI/WCAG21/Understanding/contrast-minimum.html).
+Het contrast tussen tekst en achtergrondkleur moet voldoen aan [de laatste wettelijke toegankelijkheidseisen van de WCAG-niveau AA](https://www.w3.org/WAI/WCAG21/Understanding/contrast-minimum.html).
 
 ## Uitlijning
 
-Het aantal karakters op een regel is maximaal 80. En de tekst wordt altijd links uitgelijnd. Dit is vanwege leesbaarheid.
+Het aantal karakters op een regel is maximaal 80.
+En de tekst wordt altijd links uitgelijnd.
+Dit is vanwege leesbaarheid.
 
 Uitzonderingen:
 
@@ -56,15 +67,20 @@ Uitzonderingen:
 
 ## Vormgeving
 
-Vermijd zo veel mogelijk cursieve teksten, deze zijn niet goed te lezen op sommige beeldschermen. Gebruik ze uitsluitend om tekst te accentueren, niet voor hele tekstblokken.
+Vermijd zo veel mogelijk cursieve teksten, deze zijn niet goed te lezen op sommige beeldschermen.
+Gebruik ze uitsluitend om tekst te accentueren, niet voor hele tekstblokken.
 
-Vermijd het onderlijnen van tekst. Reserveer tekstonderlijning voor interactieve links.
+Vermijd het onderlijnen van tekst.
+Reserveer het onderlijnen van tekst voor interactieve links.
 
-De ruimte tussen letters (kerning) is geoptimaliseerd in het lettertype. Het is niet toegestaan om de kerning aan te passen.
+De ruimte tussen letters (kerning) is geoptimaliseerd in het lettertype.
+Het is niet toegestaan om de kerning aan te passen.
 
 ## Woorden afbreken
 
-De Nederlandse taal kent veel lange woorden, zoals 'gemeenteraadsverkiezingen'. Zorg er in je applicatie voor dat deze woorden netjes afgebroken worden en niet uit hun container breken of verborgen worden. Een manier om dat te doen is met de volgende _css snippet_, waarin `hyphens` en `word-break` gecombineerd worden:
+De Nederlandse taal kent veel lange woorden, zoals 'gemeenteraadsverkiezingen'.
+Zorg er in je applicatie voor dat deze woorden netjes afgebroken worden en niet uit hun container breken of verborgen worden.
+Een manier om dat te doen is met de volgende _css snippet_, waarin `hyphens` en `word-break` gecombineerd worden:
 
 ```css
 .class {
@@ -80,7 +96,8 @@ Voor verdere informatie: [Wrapping and breaking text op MDN](https://developer.m
 
 ## Andere talen
 
-Geef programmatisch aan in welke taal tekst in een afwijkende taal is. Dit is onder andere nodig zodat schermlezers deze tekst in de juiste taal uitspreken.
+Geef programmatisch aan in welke taal tekst in een afwijkende taal is.
+Dit is onder andere nodig zodat schermlezers deze tekst in de juiste taal uitspreken.
 
 ```html
 <html lang="nl-NL">
@@ -96,7 +113,7 @@ Geef programmatisch aan in welke taal tekst in een afwijkende taal is. Dit is on
 </html>
 ```
 
-### Relevante WCAG eisen
+### Relevante WCAG-eisen
 
 - [WCAG 3.1.2](https://www.w3.org/TR/WCAG22/#language-of-parts): geef aan in welke taal tekst in een afwijkende taal is
 
@@ -104,5 +121,7 @@ Geef programmatisch aan in welke taal tekst in een afwijkende taal is. Dit is on
 
 Er zijn twee manieren om Amsterdam Sans te gebruiken in je applicatie:
 
-- Download en gebruik [deze css](https://amsterdam.nl/publish/pages/1007152/amsterdam_sans_v_0_9.css) in je applicatie om het juiste lettertype in te laden. Dit levert de snelste laadtijden voor bezoekers. Het maakt gebruik van ons snelle CDN.
+- Download en gebruik [deze css](https://amsterdam.nl/publish/pages/1007152/amsterdam_sans_v_0_9.css) in je applicatie om het juiste lettertype in te laden.
+  Dit levert de snelste laadtijden voor bezoekers.
+  Het maakt gebruik van ons snelle CDN.
 - Installeer het NPM pakket `@amsterdam/design-system-assets` en importeer `@amsterdam/design-system-assets/font/index.css` in je applicatie.

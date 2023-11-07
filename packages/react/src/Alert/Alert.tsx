@@ -5,7 +5,7 @@
 
 import { AlertIcon, CheckmarkIcon, CloseIcon } from '@amsterdam/design-system-react-icons'
 import clsx from 'clsx'
-import React, { ForwardedRef, forwardRef, HTMLAttributes, PropsWithChildren } from 'react'
+import { ForwardedRef, forwardRef, HTMLAttributes, PropsWithChildren, useMemo } from 'react'
 import { Icon } from '../Icon'
 import { VisuallyHidden } from '../VisuallyHidden'
 
@@ -42,7 +42,7 @@ export const Alert = forwardRef(
   ) => {
     const alertSize = title ? 'level-5' : 'level-6'
 
-    const alertIcon = React.useMemo(() => {
+    const alertIcon = useMemo(() => {
       if (!icon || !severity) {
         return null
       }

@@ -29,7 +29,7 @@
     content: close-quote;
   }
 
-  @media screen and (width > $amsterdam-breakpoint) {
+  @media screen and (min-width: $amsterdam-breakpoint-typography) {
     font-size: var(--amsterdam-blockquote-wide-font-size);
   }
 

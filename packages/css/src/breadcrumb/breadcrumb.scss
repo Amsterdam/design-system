@@ -18,7 +18,7 @@
   font-weight: var(--amsterdam-breadcrumb-font-weight);
   line-height: var(--amsterdam-breadcrumb-line-height);
 
-  @media screen and (width > $amsterdam-breakpoint) {
+  @media screen and (min-width: $amsterdam-breakpoint-typography) {
     font-size: var(--amsterdam-breadcrumb-wide-font-size);
   }
 }

@@ -5,6 +5,7 @@
 
 /* Append here */
 export * from './Dialog'
+export * from './Screen'
 export * from './Switch'
 export * from './Highlight'
 export * from './Card'
