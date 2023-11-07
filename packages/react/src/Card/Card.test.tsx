@@ -27,7 +27,7 @@ describe('Card', () => {
     expect(cardLink).toHaveClass('amsterdam-card__link')
   })
 
-  it('can have a additional class name', () => {
+  it('renders an additional class name', () => {
     const cardRender = render(<Card className="extra" />)
     const { container: cardHeadingGroupRender } = render(<Card.HeadingGroup tagline="test" className="extra" />)
     const cardLinkRender = render(<Card.Link href="/" className="extra" />)

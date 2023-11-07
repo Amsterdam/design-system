@@ -17,7 +17,7 @@ describe('Grid.Cell', () => {
     expect(component).toHaveClass('amsterdam-grid-cell')
   })
 
-  it('can have a additional class name', () => {
+  it('renders an additional class name', () => {
     const { container } = render(<Grid.Cell className="extra" />)
     const component = container.querySelector(':only-child')
     expect(component).toHaveClass('amsterdam-grid-cell extra')
@@ -30,7 +30,7 @@ describe('Grid.Cell', () => {
     expect(ref.current).toBe(component)
   })
 
-  it('generates no class names for undefined values for start and span', () => {
+  it('renders no class names for undefined values for start and span', () => {
     const { container } = render(<Grid.Cell />)
     const elementWithSpanClass = container.querySelector('[class*="amsterdam-grid-cell--span"]')
     const elementWithStartClass = container.querySelector('[class*="amsterdam-grid-cell--start"]')
@@ -38,25 +38,25 @@ describe('Grid.Cell', () => {
     expect(elementWithStartClass).not.toBeInTheDocument()
   })
 
-  it('generates class names for single number values for start and span', () => {
+  it('renders class names for single number values for start and span', () => {
     const { container } = render(<Grid.Cell span={4} start={2} />)
     const component = container.querySelector(':only-child')
     expect(component).toHaveClass('amsterdam-grid-cell--span-4 amsterdam-grid-cell--start-2')
   })
 
-  it('generates class names for a single number value for start', () => {
+  it('renders class names for a single number value for start', () => {
     const { container } = render(<Grid.Cell span={8} />)
     const component = container.querySelector(':only-child')
     expect(component).toHaveClass('amsterdam-grid-cell--span-8')
   })
 
-  it('generates class names for a single number value for span', () => {
+  it('renders class names for a single number value for span', () => {
     const { container } = render(<Grid.Cell start={6} />)
     const component = container.querySelector(':only-child')
     expect(component).toHaveClass('amsterdam-grid-cell--start-6')
   })
 
-  it('generates class names for a single number for span and array values for start', () => {
+  it('renders class names for a single number for span and array values for start', () => {
     const { container } = render(<Grid.Cell span={8} start={{ narrow: 2, medium: 4, wide: 6 }} />)
     const component = container.querySelector(':only-child')
     expect(component).toHaveClass(
@@ -64,7 +64,7 @@ describe('Grid.Cell', () => {
     )
   })
 
-  it('generates class names for array values for span and a single number for start', () => {
+  it('renders class names for array values for span and a single number for start', () => {
     const { container } = render(<Grid.Cell span={{ narrow: 3, medium: 5, wide: 7 }} start={2} />)
     const component = container.querySelector(':only-child')
     expect(component).toHaveClass(
@@ -72,7 +72,7 @@ describe('Grid.Cell', () => {
     )
   })
 
-  it('generates class names for an array of three numbers for start and span', () => {
+  it('renders class names for an array of three numbers for start and span', () => {
     const { container } = render(
       <Grid.Cell span={{ narrow: 2, medium: 4, wide: 6 }} start={{ narrow: 1, medium: 3, wide: 5 }} />,
     )

@@ -33,7 +33,7 @@ describe('Blockquote', () => {
     expect(quote).toHaveClass('amsterdam-blockquote')
   })
 
-  it('can have a additional class name', () => {
+  it('renders an additional class name', () => {
     const { container } = render(<Blockquote className="extra" />)
 
     const quote = container.querySelector(':only-child')

@@ -116,7 +116,7 @@ describe('Heading', () => {
     expect(richText).toBeInTheDocument()
   })
 
-  it('can have an additional class name', () => {
+  it('renders an additional class name', () => {
     const { container } = render(<Heading className="large" />)
 
     const heading = container.querySelector(':only-child')

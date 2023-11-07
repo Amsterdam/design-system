@@ -21,7 +21,7 @@ describe('Highlight', () => {
     expect(component).toHaveClass('amsterdam-highlight')
   })
 
-  it('can have a additional class name', () => {
+  it('renders an additional class name', () => {
     const { container } = render(<Highlight className="extra" />)
 
     const component = container.querySelector(':only-child')
