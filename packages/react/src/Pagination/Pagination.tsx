@@ -10,6 +10,10 @@ import { Icon } from '../Icon/Icon'
 
 export interface PaginationProps extends HTMLAttributes<HTMLElement> {
   /**
+   * The maximum amount of pages shown. This has a lower limit of 5
+   */
+  maxVisiblePages?: number
+  /**
    * Callback triggered when interaction changes the page number.
    */
   // eslint-disable-next-line no-unused-vars
@@ -18,10 +22,6 @@ export interface PaginationProps extends HTMLAttributes<HTMLElement> {
    * The current page number.
    */
   page?: number
-  /**
-   * The maximum amount of pages shown. This has a lower limit of 5
-   */
-  maxVisiblePages?: number
   /**
    * The total number of pages.
    */
@@ -80,7 +80,7 @@ function getRange(currentPage: number, totalPages: number, maxVisiblePages: numb
 
 export const Pagination = forwardRef(
   (
-    { className, onPageChange, page = 1, maxVisiblePages = 7, totalPages, ...restProps }: PaginationProps,
+    { className, maxVisiblePages = 7, onPageChange, page = 1, totalPages, ...restProps }: PaginationProps,
     ref: ForwardedRef<HTMLElement>,
   ) => {
     const [currentPage, setCurrentPage] = useState(page)
