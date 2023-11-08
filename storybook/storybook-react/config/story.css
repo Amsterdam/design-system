@@ -1,3 +1,4 @@
+/* Workaround to mimic dark background for dialog Canvas blocks */
 .amsterdam-dialog-story {
   background-color: #333 !important;
   transition: background-color 0.3s;
