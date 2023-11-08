@@ -10,12 +10,6 @@ import { Icon } from '../Icon/Icon'
 
 export interface PaginationProps extends HTMLAttributes<HTMLElement> {
   /**
-   * The number of items in your paginated collection.
-   *
-   * Note that this is not the same as the number of pages, but will be used to calculate it.
-   */
-  collectionSize: number
-  /**
    * Callback triggered when interaction changes the page number.
    */
   // eslint-disable-next-line no-unused-vars
@@ -25,13 +19,13 @@ export interface PaginationProps extends HTMLAttributes<HTMLElement> {
    */
   page?: number
   /**
-   * The number of items per page.
-   */
-  pageSize?: number
-  /**
    * The maximum amount of pages shown. This has a lower limit of 5
    */
   maxVisiblePages?: number
+  /**
+   * The total number of pages.
+   */
+  totalPages: number
 }
 
 /**
@@ -86,20 +80,10 @@ function getRange(currentPage: number, totalPages: number, maxVisiblePages: numb
 
 export const Pagination = forwardRef(
   (
-    {
-      className,
-      collectionSize,
-      onPageChange,
-      page = 1,
-      pageSize = 10,
-      maxVisiblePages = 7,
-      ...restProps
-    }: PaginationProps,
+    { className, onPageChange, page = 1, maxVisiblePages = 7, totalPages, ...restProps }: PaginationProps,
     ref: ForwardedRef<HTMLElement>,
   ) => {
     const [currentPage, setCurrentPage] = useState(page)
-
-    const totalPages = Math.ceil(collectionSize / pageSize)
 
     // Get array of page numbers and / or spacers
     const range = useMemo(
@@ -123,7 +107,7 @@ export const Pagination = forwardRef(
     }
 
     // Don't show pagination if you only have one page
-    if (collectionSize <= pageSize) {
+    if (totalPages <= 1) {
       return null
     }
 

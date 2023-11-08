@@ -10,10 +10,9 @@ const meta = {
   title: 'Navigation/Pagination',
   component: Pagination,
   args: {
-    collectionSize: 100,
     page: 1,
-    pageSize: 10,
     maxVisiblePages: 7,
+    totalPages: 10,
   },
   argTypes: { onPageChange: { action: 'page changed' } },
 } satisfies Meta<typeof Pagination>
