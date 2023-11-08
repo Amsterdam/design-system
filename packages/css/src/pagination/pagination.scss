@@ -36,6 +36,8 @@
 }
 
 .amsterdam-pagination__button {
+  /* The reset is included at the top of the block here, if you set it
+  at the bottom `all: unset` overrides the `gap` property. */
   @include button-reset;
 
   cursor: pointer;
