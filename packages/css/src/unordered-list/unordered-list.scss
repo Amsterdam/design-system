@@ -31,7 +31,7 @@
   line-height: var(--amsterdam-unordered-list-line-height);
   list-style-type: var(--amsterdam-unordered-list-list-style-type);
 
-  @media screen and (width > $amsterdam-breakpoint) {
+  @media screen and (min-width: $amsterdam-breakpoint-typography) {
     font-size: var(--amsterdam-unordered-list-wide-font-size);
   }
 

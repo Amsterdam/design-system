@@ -1,0 +1,12 @@
+{
+  "amsterdam": {
+    "screen": {
+      "wide": {
+        "max-width": { "value": "100rem" }
+      },
+      "extra-wide": {
+        "max-width": { "value": "132rem" }
+      }
+    }
+  }
+}

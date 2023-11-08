@@ -34,7 +34,7 @@
   font-weight: var(--amsterdam-alert-title-font-weight);
   line-height: var(--amsterdam-alert-title-line-height);
 
-  @media screen and (width > $amsterdam-breakpoint) {
+  @media screen and (min-width: $amsterdam-breakpoint-typography) {
     font-size: var(--amsterdam-alert-title-wide-font-size);
   }
 

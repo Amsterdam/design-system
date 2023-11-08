@@ -71,7 +71,7 @@ describe('Accordion', () => {
     expect(sectionQuery).toBeInTheDocument()
   })
 
-  it('doesnt render a section HTML tag when the section prop is false', () => {
+  it('does not render a section HTML tag when the section prop is false', () => {
     render(
       <Accordion headingLevel={1} section={false}>
         <Accordion.Section label={testLabel}>{testContent}</Accordion.Section>
@@ -110,7 +110,7 @@ describe('Accordion', () => {
     expect(icon).toBeInTheDocument()
   })
 
-  it('can have a additional class name', () => {
+  it('renders an additional class name', () => {
     const { container } = render(
       <Accordion.Section label={testLabel} className="test">
         {testContent}

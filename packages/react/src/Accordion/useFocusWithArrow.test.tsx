@@ -32,13 +32,13 @@ describe('useFocusWithArrows', () => {
     onFocusThreeMock.mockReset()
   })
 
-  it('should set the focus when using the Arrow keys', () => {
+  it('sets focus when using arrow keys', () => {
     const Component = getComponent()
     const { container } = render(<Component />)
     const firstChild = container.firstChild as HTMLElement
     expect(onFocusOneMock).not.toHaveBeenCalled()
 
-    // 4 times, so we can check if there are no other elements focussed after reaching the last one
+    // 4 times, so we can check if there are no other elements focused after reaching the last one
     Array.from(Array(4).keys()).forEach(() => {
       fireEvent.keyDown(firstChild, {
         key: KeyboardKeys.ArrowDown,
@@ -59,7 +59,7 @@ describe('useFocusWithArrows', () => {
     expect(onFocusOneMock).toHaveBeenCalledTimes(2)
   })
 
-  it('should rotate the focussed elements', () => {
+  it('rotates focused elements', () => {
     const Component = getComponent(true)
     const { container } = render(<Component />)
     const firstChild = container.firstChild as HTMLElement

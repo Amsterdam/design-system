@@ -49,7 +49,7 @@
   text-decoration: var(--amsterdam-page-menu-item-text-decoration);
   touch-action: manipulation;
 
-  @media screen and (width > $amsterdam-breakpoint) {
+  @media screen and (min-width: $amsterdam-breakpoint-typography) {
     font-size: var(--amsterdam-page-menu-item-wide-font-size);
   }
 }

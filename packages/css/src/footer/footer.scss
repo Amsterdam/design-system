@@ -8,22 +8,8 @@
 .amsterdam-footer__top {
   background-color: var(--amsterdam-footer-top-background-color);
   padding-block: 2.5rem;
-  padding-inline: 2rem; /* TODO: For now I've set a padding here, this should eventually be handled by PageGrid */
-}
-
-@media screen and (width > $amsterdam-breakpoint) {
-  .amsterdam-footer__top {
-    grid-template-columns: repeat(var(--amsterdam-page-grid-column-count-wide), 1fr);
-  }
-}
-
-.amsterdam-footer__column {
-  display: flex;
-  flex-direction: column;
-  gap: 2.5rem;
 }
 
 .amsterdam-footer__bottom {
   padding-block: 0.5rem;
-  padding-inline: 2rem; /* TODO: For now I've set a padding here, this should eventually be handled by PageGrid */
 }

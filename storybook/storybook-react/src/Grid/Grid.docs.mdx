@@ -1,0 +1,31 @@
+import { Canvas, Markdown, Meta, Primary } from "@storybook/blocks";
+import * as GridStories from "./Grid.stories.tsx";
+import README from "../../../../packages/css/src/grid/README.grid.md?raw";
+
+<Meta of={GridStories} />
+
+<Markdown>{README}</Markdown>
+
+## Voorbeelden
+
+### Basis
+
+De roze vlakken vertegenwoordigen de kolommen van het grid. Zoom in of verander de breedte van het venster om de breedtes en het aantal kolommen te zien veranderen. Let op: op brede schermen zijn de witruimtes tussen de kolommen soms breder dan de kolommen zelf.
+
+<Primary />
+
+### Cellen
+
+Binnen het grid maak je cellen waarin andere componenten geplaatst kunnen worden.
+Per cel geef je aan hoe veel van de kolommen het beslaat.
+
+Dit eenvoudige voorbeeld verdeelt het grid in drie cellen van 4 kolommen: `span={4}`.
+Elke cel biedt ruimte voor een afbeelding.
+
+- Op brede vensters heeft het grid 12 kolommen en passen de afbeeldingen naast elkaar.
+- Op middelbrede vensters heeft het grid 8 kolommen en staan de eerste twee afbeeldingen naast elkaar en de derde onder de eerste.
+- Op smalle schermen heeft het grid 4 kolommen en staan de afbeeldingen onder elkaar.
+
+<Canvas of={GridStories.Cells} />
+
+Voor meer voorbeelden raadpleeg je [Grid Cell](?path=/docs/react_layout-grid-cell--docs) zelf.

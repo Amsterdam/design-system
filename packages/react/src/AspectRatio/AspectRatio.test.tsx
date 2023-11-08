@@ -41,7 +41,7 @@ describe('Aspect ratio', () => {
     expect(extraWide.firstChild).toHaveClass('amsterdam-aspect-ratio--extra-wide')
   })
 
-  it('can have a additional class name', () => {
+  it('renders an additional class name', () => {
     const { container } = render(<AspectRatio className="extra" />)
 
     const component = container.querySelector(':only-child')

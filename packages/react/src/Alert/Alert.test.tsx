@@ -21,7 +21,7 @@ describe('Alert', () => {
     expect(component).toHaveClass('amsterdam-alert')
   })
 
-  it('can have a additional class name', () => {
+  it('renders an additional class name', () => {
     const { container } = render(<Alert className="extra" />)
 
     const component = container.querySelector(':only-child')

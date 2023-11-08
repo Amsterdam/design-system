@@ -18,13 +18,6 @@ const meta = {
       options: ['extra-wide', 'wide', 'square', 'tall', 'extra-tall'],
     },
   },
-  parameters: {
-    docs: {
-      canvas: {
-        sourceState: 'hidden',
-      },
-    },
-  },
 } satisfies Meta<typeof AspectRatio>
 
 export default meta
@@ -64,20 +57,13 @@ const StoryTemplate: Story = {
   ],
   render: ({ ratio }) => (
     <AspectRatio ratio={ratio} style={{ maxWidth: ratio ? storyConfig[ratio].maxWidth : '500px' }}>
-      <img src={ratio ? storyConfig[ratio].image : 'https://picsum.photos/800/800'} style={{ width: '100%' }} />
+      <img alt="" src={ratio ? storyConfig[ratio].image : 'https://picsum.photos/800/800'} style={{ width: '100%' }} />
     </AspectRatio>
   ),
 }
 
 export const Default: Story = {
   ...StoryTemplate,
-  parameters: {
-    docs: {
-      canvas: {
-        sourceState: 'shown',
-      },
-    },
-  },
 }
 
 export const ExtraWide: Story = {
