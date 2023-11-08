@@ -29,7 +29,7 @@ describe('Screen', () => {
     expect(component).toHaveClass('amsterdam-screen--extra-wide')
   })
 
-  it('can have a additional class name', () => {
+  it('renders an additional class name', () => {
     const { container } = render(<Screen className="extra" />)
 
     const component = container.querySelector(':only-child')

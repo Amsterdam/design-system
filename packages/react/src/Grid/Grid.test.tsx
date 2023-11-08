@@ -17,7 +17,7 @@ describe('Grid', () => {
     expect(component).toHaveClass('amsterdam-grid')
   })
 
-  it('can have a additional class name', () => {
+  it('renders an additional class name', () => {
     const { container } = render(<Grid className="extra" />)
     const component = container.querySelector(':only-child')
     expect(component).toHaveClass('extra')

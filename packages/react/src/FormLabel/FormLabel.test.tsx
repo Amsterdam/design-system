@@ -67,7 +67,7 @@ describe('Form label', () => {
     expect(label).not.toBeVisible()
   })
 
-  it('can have a additional class name', () => {
+  it('renders an additional class name', () => {
     const { container } = render(<FormLabel className="large" htmlFor="form-control" />)
 
     const label = container.querySelector(':only-child')

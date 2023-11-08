@@ -74,7 +74,7 @@ describe('Paragraph', () => {
     expect(paragraph).toHaveClass('amsterdam-paragraph--inverse-color')
   })
 
-  it('can have a additional class name', () => {
+  it('renders an additional class name', () => {
     const { container } = render(<Paragraph className="intro" />)
 
     const paragraph = container.querySelector(':only-child')

@@ -18,7 +18,7 @@ describe('Ordered List', () => {
     expect(list).toHaveClass('amsterdam-ordered-list')
   })
 
-  it('can have a additional class name', () => {
+  it('renders an additional class name', () => {
     const { container } = render(<OrderedList className="large" />)
     const list = container.querySelector(':only-child')
 

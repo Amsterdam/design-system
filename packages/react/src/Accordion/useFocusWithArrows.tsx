@@ -41,7 +41,7 @@ const useFocusWithArrows = (ref: RefObject<HTMLDivElement>, rotating = false, ho
         case next: {
           if (getIndex(activeElement) !== focusableEls.length - 1) {
             el = focusableEls[getIndex(activeElement) + 1]
-            // If there is nothing focussed yet, set the focus on the first element
+            // If there is nothing focused yet, set the focus on the first element
             if (activeElement && !focusableEls.includes(activeElement)) {
               el = focusableEls[0]
             }

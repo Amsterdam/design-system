@@ -21,7 +21,7 @@ describe('{{sentenceCase name}}', () => {
     expect(component).toHaveClass('amsterdam-{{kebabCase name}}')
   })
 
-  it('can have a additional class name', () => {
+  it('renders an additional class name', () => {
     const { container } = render(<{{pascalCase name}} className="extra" />)
 
     const component = container.querySelector(':only-child')
