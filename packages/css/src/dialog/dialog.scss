@@ -70,7 +70,7 @@
   font-weight: var(--amsterdam-dialog-title-font-weight);
   line-height: var(--amsterdam-dialog-title-line-height);
 
-  @media screen and (width > $amsterdam-breakpoint) {
+  @media screen and (min-width: $amsterdam-breakpoint-wide) {
     font-size: var(--amsterdam-dialog-title-wide-font-size);
   }
 
@@ -78,12 +78,16 @@
 }
 
 .amsterdam-dialog__footer {
-  align-items: end;
-  display: grid;
-  grid-auto-flow: column;
+  display: flex;
+  flex-direction: column-reverse;
   grid-gap: var(--amsterdam-dialog-footer-gap);
-  justify-content: end;
   padding-block: var(--amsterdam-dialog-footer-padding-block);
+
+  @media screen and (min-width: $amsterdam-breakpoint-medium) {
+    align-items: end;
+    flex-direction: row;
+    justify-content: end;
+  }
 }
 
 .amsterdam-dialog__close {

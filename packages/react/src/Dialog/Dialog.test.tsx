@@ -5,7 +5,7 @@ import '@testing-library/jest-dom'
 
 describe('Dialog', () => {
   it('renders', () => {
-    const { container } = render(<Dialog />)
+    const { container } = render(<Dialog open />)
 
     const component = container.querySelector(':only-child')
 
@@ -18,17 +18,17 @@ describe('Dialog', () => {
 
     const component = container.querySelector(':only-child')
 
-    expect(component).toHaveClass('amsterdam-modal')
+    expect(component).toHaveClass('amsterdam-dialog')
   })
 
-  it('can have a additional class name', () => {
+  it('renders an additional class name', () => {
     const { container } = render(<Dialog className="extra" />)
 
     const component = container.querySelector(':only-child')
 
     expect(component).toHaveClass('extra')
 
-    expect(component).toHaveClass('amsterdam-modal')
+    expect(component).toHaveClass('amsterdam-dialog')
   })
 
   it('supports ForwardRef in React', () => {
@@ -39,5 +39,14 @@ describe('Dialog', () => {
     const component = container.querySelector(':only-child')
 
     expect(ref.current).toBe(component)
+  })
+
+  it('is not visible when open attribute is not used', () => {
+    const { container } = render(<Dialog />)
+
+    const component = container.querySelector(':only-child')
+
+    expect(component).toBeInTheDocument()
+    expect(component).not.toBeVisible()
   })
 })

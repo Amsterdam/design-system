@@ -29,6 +29,11 @@ const meta = {
       </>,
     ],
   },
+  parameters: {
+    backgrounds: {
+      default: 'dark',
+    },
+  },
 } satisfies Meta<typeof Dialog>
 
 export default meta
@@ -44,11 +49,6 @@ export const Default: Story = {
       <Dialog {...args} />
     </div>
   ),
-  parameters: {
-    backgrounds: {
-      default: 'dark',
-    },
-  },
 }
 
 export const NoActions: Story = {
@@ -61,11 +61,6 @@ export const NoActions: Story = {
       <Dialog {...args} />
     </div>
   ),
-  parameters: {
-    backgrounds: {
-      default: 'dark',
-    },
-  },
 }
 
 export const ScrollContent: Story = {
@@ -112,11 +107,6 @@ export const ScrollContent: Story = {
       <Dialog {...args} />
     </div>
   ),
-  parameters: {
-    backgrounds: {
-      default: 'dark',
-    },
-  },
 }
 
 export const ShowDialog: Story = {
@@ -128,4 +118,9 @@ export const ShowDialog: Story = {
       </article>
     ),
   ],
+  parameters: {
+    backgrounds: {
+      default: 'white',
+    },
+  },
 }
