@@ -20,7 +20,13 @@ const meta = {
     ],
     actions: [
       <>
-        <Button key={1} type="button" variant="tertiary" autoFocus>
+        <Button
+          key={1}
+          type="button"
+          variant="tertiary"
+          autoFocus
+          onClick={() => document.querySelector('dialog')?.close()}
+        >
           Terug
         </Button>
         <Button key={2} type="submit">
