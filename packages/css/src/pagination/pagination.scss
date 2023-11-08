@@ -55,7 +55,7 @@
   }
 
   &:disabled {
-    visibility: hidden;
+    display: none;
   }
 
   // Override for icon size
