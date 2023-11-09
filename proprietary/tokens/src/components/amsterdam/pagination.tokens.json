@@ -1,0 +1,31 @@
+{
+  "amsterdam": {
+    "pagination": {
+      "color": { "value": "{amsterdam.color.primary-blue}" },
+      "font-family": {
+        "value": "{amsterdam.typography.font-family}"
+      },
+      "font-weight": {
+        "value": "{amsterdam.typography.font-weight.normal}"
+      },
+      "line-height": { "value": "{amsterdam.typography.text-level.6.line-height}" },
+      "narrow": {
+        "font-size": { "value": "{amsterdam.typography.text-level.6.narrow.font-size}" }
+      },
+      "wide": {
+        "font-size": { "value": "{amsterdam.typography.text-level.6.wide.font-size}" }
+      },
+      "button": {
+        "current": {
+          "font-weight": {
+            "value": "{amsterdam.typography.font-weight.bold}"
+          }
+        },
+        "hover": {
+          "color": { "value": "{amsterdam.color.dark-blue}" }
+        },
+        "outline-offset": { "value": "{amsterdam.focus.outline-offset}" }
+      }
+    }
+  }
+}

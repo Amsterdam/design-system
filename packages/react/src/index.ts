@@ -4,6 +4,7 @@
  */
 
 /* Append here */
+export * from './Pagination'
 export * from './Screen'
 export * from './Switch'
 export * from './Highlight'
