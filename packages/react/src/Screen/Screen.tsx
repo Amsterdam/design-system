@@ -14,12 +14,7 @@ export interface ScreenProps extends PropsWithChildren<HTMLAttributes<HTMLDivEle
 
 export const Screen = forwardRef(
   ({ children, className, maxWidth = 'wide', ...restProps }: ScreenProps, ref: ForwardedRef<HTMLDivElement>) => (
-    <div
-      {...restProps}
-      ref={ref}
-      className={clsx('amsterdam-screen', `amsterdam-screen--${maxWidth}`, className)}
-      lang="nl"
-    >
+    <div {...restProps} ref={ref} className={clsx('amsterdam-screen', `amsterdam-screen--${maxWidth}`, className)}>
       {children}
     </div>
   ),

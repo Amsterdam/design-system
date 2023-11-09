@@ -1,0 +1,52 @@
+import { Meta } from "@storybook/blocks";
+
+<Meta title="Docs/Designrichtlijnen/Taal" />
+
+# Taal
+
+## Geef de taal op voor het hele document
+
+Het is verplicht om expliciet aan te geven in welke taal de inhoud van je pagina is.
+Met de juiste taal ingesteld werkt je applicatie beter.
+Schermlezers kunnen hiermee tekst in de juiste taal uitspreken.
+Ook voor zoekmachineoptimalisatie (SEO) is het nuttig.
+
+Geef de taal aan op het `<html>`-element van je applicatie.
+Immers, ook de inhoud van elementen in de `<head>`, zoals `title` en `meta`, bevatten inhoud in dezelfde taal.
+Dat is buiten de scope van de componenten van het design system.
+Vandaar dat je er zelf aan moet denken dit goed te doen.
+
+```html
+<html lang="nl">
+  …
+</html>
+```
+
+## Markeer elementen in een andere taal
+
+Als een specifiek element in een andere taal is geschreven geef je dat daar aan.
+
+Bijvoorbeeld voor een link naar een Engelse site of pagina in een menu:
+
+```html
+<nav>
+  <ul>
+    <li><a href="https://mijn.amsterdam.nl/">Mijn Amsterdam</a></li>
+    <li><a href="https://www.amsterdam.nl/en/" lang="en">English site</a></li>
+  </ul>
+</nav>
+```
+
+## Specificeer de regio niet
+
+De _language tag_ `nl` is voldoende.
+Die uitbreiden met de _region subtag_ `nl-NL` is niet nodig:
+
+> The golden rule when creating language tags is to keep the tag as short as possible.
+> Avoid region, script or other subtags except where they add useful distinguishing information.
+> For instance, use `ja` for Japanese and not `ja-JP`, unless there is a particular reason that you need to say that this is Japanese as spoken in Japan, rather than elsewhere.
+> – [W3C Internationalization Activity](https://www.w3.org/International/articles/language-tags/)
+
+## Relevante WCAG-eisen
+
+- [WCAG 3.1.2](https://www.w3.org/TR/WCAG22/#language-of-parts): geef aan in welke taal tekst in een afwijkende taal is
