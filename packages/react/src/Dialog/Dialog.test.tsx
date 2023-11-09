@@ -49,4 +49,36 @@ describe('Dialog', () => {
     expect(component).toBeInTheDocument()
     expect(component).not.toBeVisible()
   })
+
+  it('renders a title', () => {
+    const { getByText } = render(<Dialog title="Dialog Title" />)
+
+    expect(getByText('Dialog Title')).toBeInTheDocument()
+  })
+
+  it('renders children', () => {
+    const { getByText } = render(<Dialog>Dialog Content</Dialog>)
+
+    expect(getByText('Dialog Content')).toBeInTheDocument()
+  })
+
+  it('renders actions when provided', () => {
+    const { getByText } = render(<Dialog actions={<button>Click Me</button>} />)
+
+    expect(getByText('Click Me')).toBeInTheDocument()
+  })
+
+  it('does not render actions when not provided', () => {
+    const { queryByText } = render(<Dialog />)
+
+    expect(queryByText('Click Me')).not.toBeInTheDocument()
+  })
+
+  it('renders DialogClose button', () => {
+    const { container } = render(<Dialog />)
+
+    const closeButton = container.querySelector('.amsterdam-dialog__close')
+
+    expect(closeButton).toBeInTheDocument()
+  })
 })
