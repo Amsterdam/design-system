@@ -4,5 +4,10 @@
  */
 
 .amsterdam-logo {
-  /* Add styles here */
+  display: inline-block;
+
+  img {
+    height: 40px;
+    width: 115px;
+  }
 }
