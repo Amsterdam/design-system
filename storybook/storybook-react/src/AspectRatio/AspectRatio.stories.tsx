@@ -3,7 +3,7 @@
  * Copyright (c) 2023 Gemeente Amsterdam
  */
 
-import { AspectRatio } from '@amsterdam/design-system-react'
+import { AspectRatio, Image } from '@amsterdam/design-system-react'
 import { Meta, StoryObj } from '@storybook/react'
 
 const meta = {
@@ -57,7 +57,7 @@ const StoryTemplate: Story = {
   ],
   render: ({ ratio }) => (
     <AspectRatio ratio={ratio} style={{ maxWidth: ratio ? storyConfig[ratio].maxWidth : '500px' }}>
-      <img alt="" src={ratio ? storyConfig[ratio].image : 'https://picsum.photos/800/800'} style={{ width: '100%' }} />
+      <Image alt="" src={ratio ? storyConfig[ratio].image : 'https://picsum.photos/800/800'} />
     </AspectRatio>
   ),
 }

@@ -3,8 +3,7 @@
  * Copyright (c) 2023 Gemeente Amsterdam
  */
 
-import { Screen } from '@amsterdam/design-system-react'
-import { Grid } from '@amsterdam/design-system-react'
+import { Grid, Image, Screen } from '@amsterdam/design-system-react'
 import { Meta, StoryObj } from '@storybook/react'
 
 const meta = {
@@ -40,7 +39,7 @@ export const Cells: Story = {
     children: Array.from(Array(3).keys()).map((i) => (
       <Grid.Cell key={i} span={4}>
         <figure className="amsterdam-docs-figure">
-          <img alt="" src={`https://picsum.photos/1024/576?random=${i}`} />
+          <Image alt="" src={`https://picsum.photos/1024/576?random=${i}`} />
         </figure>
       </Grid.Cell>
     )),
