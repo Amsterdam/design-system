@@ -32,10 +32,27 @@ function getLogoVariant(variant: LogoProps['variant']) {
   }
 }
 
+function getLogoVariantTitle(variant: LogoProps['variant']) {
+  switch (variant) {
+    case 'amsterdam':
+      return 'Gemeente Amsterdam'
+    case 'ggd-amsterdam':
+      return 'GGD Amsterdam'
+    case 'stadsarchief':
+      return 'Stadsarchief Amsterdam'
+    case 'stadsbank-lening':
+      return 'Stadsbank van Lening'
+    case 'vga-verzekeringen':
+      return 'VGA Verzekeringen'
+    default:
+      return 'Gemeente Amsterdam'
+  }
+}
+
 export const Logo = forwardRef(
   ({ variant = 'amsterdam', className, ...restProps }: LogoProps, ref: ForwardedRef<HTMLElement>) => (
     <span {...restProps} ref={ref} className={clsx('amsterdam-logo', className)}>
-      <img src={getLogoVariant(variant)} />
+      <img src={getLogoVariant(variant)} alt={`Logo ${getLogoVariantTitle(variant)}`} />
     </span>
   ),
 )
