@@ -107,7 +107,7 @@ Package versioning and publishing is done through Lerna, by the maintainers of t
 
 ## Adding a new component
 
-Scaffold all necessary files for a new component at once through `npm plop`.
+Scaffold all necessary files for a new component at once through `npx plop`.
 Enter the name of your component when prompted.
 This will create files for the design tokens, CSS and React components, and React Stories.
 
