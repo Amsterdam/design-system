@@ -14,10 +14,10 @@ jobs:
     runs-on: ubuntu-latest
     if: ${{ github.actor != 'dependabot[bot]' }}
     steps:
-      - name: Create branch name without forward slashes
+      - name: Create branch name without text before first forward slash
         run: |
           RAW_BRANCH_NAME=${{ github.head_ref || github.ref_name }}
-          BRANCH_NAME=$(echo $RAW_BRANCH_NAME | sed 's/\//-/g')
+          BRANCH_NAME=$(echo $RAW_BRANCH_NAME | sed 's/[^/]*\///')
           echo "BRANCH_NAME=$BRANCH_NAME" >> $GITHUB_ENV
 
       - name: Checkout
@@ -29,7 +29,7 @@ jobs:
         with:
           step: start
           token: ${{ secrets.GITHUB_TOKEN }}
-          env: staging-${{ env.BRANCH_NAME }}
+          env: demo-${{ env.BRANCH_NAME }}
 
       - uses: actions/setup-node@v3
         with:
@@ -48,7 +48,7 @@ jobs:
 
       - name: Build
         env:
-          STORYBOOK_BUILD_PATH: ${{ env.BRANCH_NAME }}
+          STORYBOOK_BUILD_PATH: demo-${{ env.BRANCH_NAME }}
         run: npm run build
 
       - name: Create a version mark
@@ -67,12 +67,12 @@ jobs:
         with:
           branch: gh-pages
           folder: temp-deploy-directory
-          target-folder: ${{ env.BRANCH_NAME }}
+          target-folder: demo-${{ env.BRANCH_NAME }}
 
       - name: Wait for GitHub Pages to be deployed
         uses: mydea/action-wait-for-api@v1
         with:
-          url: https://${{ github.repository_owner }}.github.io/${{ github.event.repository.name }}/${{ env.BRANCH_NAME }}/${{ github.sha }}.txt
+          url: https://${{ github.repository_owner }}.github.io/${{ github.event.repository.name }}/demo-${{ env.BRANCH_NAME }}/${{ github.sha }}.txt
           expected-status: 200
           timeout: 600
           interval: 15
@@ -86,4 +86,4 @@ jobs:
           status: ${{ job.status }}
           env: ${{ steps.deployment.outputs.env }}
           deployment_id: ${{ steps.deployment.outputs.deployment_id }}
-          env_url: https://${{ github.repository_owner }}.github.io/${{ github.event.repository.name }}/${{ env.BRANCH_NAME }}
+          env_url: https://${{ github.repository_owner }}.github.io/${{ github.event.repository.name }}/demo-${{ env.BRANCH_NAME }}
