@@ -5,10 +5,16 @@
 
 import { Grid, Image, Screen } from '@amsterdam/design-system-react'
 import { Meta, StoryObj } from '@storybook/react'
+import { paddingArgType } from '../shared/argTypes'
 
 const meta = {
   title: 'Layout/Grid',
   component: Grid,
+  argTypes: {
+    paddingVertical: paddingArgType,
+    paddingTop: paddingArgType,
+    paddingBottom: paddingArgType,
+  },
 } satisfies Meta<typeof Grid>
 
 export default meta
