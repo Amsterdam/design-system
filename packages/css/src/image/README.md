@@ -14,3 +14,5 @@ Toont een afbeelding.
 ## Relevante WCAG-eisen
 
 - [WCAG 1.1.1](https://www.w3.org/TR/WCAG22/#non-text-content): niet-tekstuele content heeft een tekstueel alternatief
+- [WCAG 1.4.5](https://www.w3.org/TR/WCAG22/#images-of-text): gebruik tekst in plaats van afbeeldingen van tekst
+- [WCAG 1.4.9](https://www.w3.org/TR/WCAG22/#images-of-text-no-exception): gebruik afbeeldingen van tekst alleen als er geen alternatief is
