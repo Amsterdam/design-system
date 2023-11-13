@@ -5,7 +5,8 @@
       "tall": { "value": "{amsterdam.proportion.tall}" },
       "square": { "value": "{amsterdam.proportion.square}" },
       "wide": { "value": "{amsterdam.proportion.wide}" },
-      "x-wide": { "value": "{amsterdam.proportion.x-wide}" }
+      "x-wide": { "value": "{amsterdam.proportion.x-wide}" },
+      "2x-wide": { "value": "{amsterdam.proportion.2x-wide}" }
     }
   }
 }

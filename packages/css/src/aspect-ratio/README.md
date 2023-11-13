@@ -6,6 +6,7 @@ Om de vormgeving consistent te houden gebruiken we een vaste set verhoudingen (b
 
 | _keyword_ | verhouding |
 | :-------- | ---------: |
+| `2x-wide` |       32:9 |
 | `x-wide`  |       16:9 |
 | `wide`    |        5:4 |
 | `square`  |        1:1 |
