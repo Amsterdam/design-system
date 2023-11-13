@@ -26,24 +26,19 @@ type Story = StoryObj<typeof meta>
 
 const storyConfig = {
   'extra-wide': {
-    image: 'https://picsum.photos/1600/900',
-    maxWidth: '888px',
+    image: 'https://picsum.photos/640/360',
   },
   wide: {
-    image: 'https://picsum.photos/1000/800',
-    maxWidth: '625px',
+    image: 'https://picsum.photos/480/360',
   },
   square: {
-    image: 'https://picsum.photos/800/800',
-    maxWidth: '500px',
+    image: 'https://picsum.photos/360/360',
   },
   tall: {
-    image: 'https://picsum.photos/800/1000',
-    maxWidth: '400px',
+    image: 'https://picsum.photos/360/480',
   },
   'extra-tall': {
-    image: 'https://picsum.photos/900/1600',
-    maxWidth: '300px',
+    image: 'https://picsum.photos/360/640',
   },
 }
 
@@ -56,8 +51,8 @@ const StoryTemplate: Story = {
     ),
   ],
   render: ({ ratio }) => (
-    <AspectRatio ratio={ratio} style={{ maxWidth: ratio ? storyConfig[ratio].maxWidth : '500px' }}>
-      <Image alt="" src={ratio ? storyConfig[ratio].image : 'https://picsum.photos/800/800'} />
+    <AspectRatio ratio={ratio}>
+      <Image alt="" src={storyConfig[ratio ?? 'square'].image} />
     </AspectRatio>
   ),
 }

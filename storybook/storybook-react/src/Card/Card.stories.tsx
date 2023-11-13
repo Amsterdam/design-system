@@ -57,7 +57,7 @@ export const ImageCard: Story = {
   args: {
     children: [
       <AspectRatio key={1} ratio="wide">
-        <Image alt="" src="https://picsum.photos/440/352" />
+        <Image alt="" src="https://picsum.photos/480/360" />
       </AspectRatio>,
       <Card.HeadingGroup key={2} tagline="Dossier">
         <Heading size="level-4">
