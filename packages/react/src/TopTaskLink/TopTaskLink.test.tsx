@@ -5,10 +5,10 @@ import '@testing-library/jest-dom'
 
 describe('Top task link', () => {
   it('renders a link role element', () => {
-    render(<TopTaskLink label="Label" href="/" />)
+    render(<TopTaskLink href="/" label="Label" description="Description" />)
 
     const link = screen.getByRole('link', {
-      name: 'Label',
+      name: 'Label, Description',
     })
 
     expect(link).toBeInTheDocument()
@@ -16,7 +16,7 @@ describe('Top task link', () => {
   })
 
   it('renders a design system BEM class name', () => {
-    render(<TopTaskLink label="Label" description="Description" href="/" />)
+    render(<TopTaskLink href="/" label="Label" description="Description" />)
 
     const link = screen.getByRole('link', {
       name: 'Label, Description',
@@ -30,10 +30,10 @@ describe('Top task link', () => {
   })
 
   it('renders an additional class name', () => {
-    render(<TopTaskLink href="/" label="Label" className="extra" />)
+    render(<TopTaskLink href="/" label="Label" description="Description" className="extra" />)
 
     const link = screen.getByRole('link', {
-      name: 'Label',
+      name: 'Label, Description',
     })
 
     expect(link).toHaveClass('extra')
@@ -43,10 +43,10 @@ describe('Top task link', () => {
   it('supports ForwardRef in React', () => {
     const ref = createRef<HTMLAnchorElement>()
 
-    render(<TopTaskLink href="/" ref={ref} label="Label" />)
+    render(<TopTaskLink href="/" label="Label" description="Description" ref={ref} />)
 
     const link = screen.getByRole('link', {
-      name: 'Label',
+      name: 'Label, Description',
     })
 
     expect(ref.current).toBe(link)
