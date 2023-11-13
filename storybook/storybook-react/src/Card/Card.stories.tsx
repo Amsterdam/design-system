@@ -3,7 +3,7 @@
  * Copyright (c) 2023 Gemeente Amsterdam
  */
 
-import { AspectRatio, Card, Heading, Paragraph } from '@amsterdam/design-system-react'
+import { AspectRatio, Card, Heading, Image, Paragraph } from '@amsterdam/design-system-react'
 import { Meta, StoryObj } from '@storybook/react'
 
 const meta = {
@@ -57,7 +57,7 @@ export const ImageCard: Story = {
   args: {
     children: [
       <AspectRatio key={1} ratio="wide">
-        <img alt="" src="https://picsum.photos/440/352" />
+        <Image alt="" src="https://picsum.photos/440/352" />
       </AspectRatio>,
       <Card.HeadingGroup key={2} tagline="Dossier">
         <Heading size="level-4">
