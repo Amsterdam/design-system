@@ -55,8 +55,8 @@ importers:
         specifier: 7.33.2
         version: 7.33.2(eslint@8.53.0)
       html-validate:
-        specifier: 8.7.0
-        version: 8.7.0
+        specifier: 8.7.1
+        version: 8.7.1
       husky:
         specifier: 8.0.3
         version: 8.0.3
@@ -10059,8 +10059,8 @@ packages:
     engines: {node: '>=8'}
     dev: true
 
-  /html-validate@8.7.0:
-    resolution: {integrity: sha512-fsDHUxzVNzXzV2KpPOx5GbGRCK0cFs7a8+9jE5QTyYUGAlm1PNGst8Vi0U7hSmootkCBxY3bu7LgQBjjZDeBPw==}
+  /html-validate@8.7.1:
+    resolution: {integrity: sha512-8zfWtAfyIWxqoHG1M8+8zCdKLCBFn/48Zdf2mRL6OuDvRTCSkSIDOYChLr22KiN3UJii8cTbMtH5PrQFw0ZWWg==}
     engines: {node: '>= 16.0'}
     hasBin: true
     peerDependencies:
