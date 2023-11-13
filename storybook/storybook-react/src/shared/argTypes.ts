@@ -3,7 +3,7 @@
  * Copyright (c) 2023 Gemeente Amsterdam
  */
 
-export const paddingArgType = {
+export const spaceArgType = {
   control: {
     type: 'inline-radio',
     direction: 'horizontal',

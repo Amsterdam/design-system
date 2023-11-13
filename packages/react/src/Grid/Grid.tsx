@@ -13,8 +13,8 @@ import {
   RefAttributes,
 } from 'react'
 import { GridCell } from './GridCell'
-import type { PaddingProps } from '../shared/padding'
-import { paddingClasses } from '../shared/padding'
+import type { SpaceProps } from '../shared/space'
+import { spaceClasses } from '../shared/space'
 
 export type GridColumnNumber = 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11 | 12
 
@@ -24,7 +24,7 @@ export type GridColumnNumbers = {
   wide: GridColumnNumber
 }
 
-export type GridProps = PropsWithChildren<HTMLAttributes<HTMLDivElement>> & PaddingProps
+export type GridProps = PropsWithChildren<HTMLAttributes<HTMLDivElement>> & SpaceProps
 
 interface GridComponent extends ForwardRefExoticComponent<GridProps & RefAttributes<HTMLDivElement>> {
   Cell: typeof GridCell
@@ -32,13 +32,13 @@ interface GridComponent extends ForwardRefExoticComponent<GridProps & RefAttribu
 
 export const Grid = forwardRef(
   (
-    { children, className, paddingBottom, paddingTop, paddingVertical, ...restProps }: GridProps,
+    { children, className, spaceBottom, spaceTop, spaceVertical, ...restProps }: GridProps,
     ref: ForwardedRef<HTMLDivElement>,
   ) => (
     <div
       {...restProps}
       ref={ref}
-      className={clsx('amsterdam-grid', paddingClasses(paddingBottom, paddingTop, paddingVertical), className)}
+      className={clsx('amsterdam-grid', spaceClasses(spaceBottom, spaceTop, spaceVertical), className)}
     >
       {children}
     </div>
