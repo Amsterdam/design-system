@@ -37,33 +37,10 @@ export const Default: Story = {
   },
 }
 
-export const WithoutDescription: Story = {
-  args: {
-    label: 'Titel',
-  },
-  render: () => (
-    <Grid>
-      <Grid.Cell span={4}>
-        <TopTaskLink href="/" label="Melding openbare ruimte en overlast" />
-      </Grid.Cell>
-      <Grid.Cell span={4}>
-        <TopTaskLink href="/" label="Verhuizing doorgeven" />
-      </Grid.Cell>
-      <Grid.Cell span={4}>
-        <TopTaskLink href="/" label="Kennisgevingen en bekendmakingen" />
-      </Grid.Cell>
-    </Grid>
-  ),
-  parameters: {
-    docs: {
-      source: { type: 'dynamic' },
-    },
-  },
-}
-
 export const WithDescription: Story = {
   args: {
     label: 'Titel',
+    description: 'Omschrijving',
   },
   render: () => (
     <Grid>
