@@ -13,6 +13,7 @@ Via dit opvallende navigatie-element vindt de Amsterdammer snel de weg naar veel
 - Plaats voor brede vensters 3 of 4 Top Task Links naast elkaar op het [Grid](?path=/docs/react_layout-grid--docs).
   Als je meer Top Task Links hebt, zet ze dan op de volgende rij.
   Probeer het aantal links op brede vensters te verdelen over rijen van 3 of 4 links. Als dit niet lukt, laat de laatste cellen van het grid dan leeg.
+- Heb je een groep verwijzingen waarvoor een beschrijving niet nodig of logisch is, gebruik dan een [Link List](?path=/docs/react_navigation-link--docs).
 
 ## Relevante WCAG eisen
 
