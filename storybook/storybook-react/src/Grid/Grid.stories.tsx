@@ -39,7 +39,7 @@ export const Cells: Story = {
     children: Array.from(Array(3).keys()).map((i) => (
       <Grid.Cell key={i} span={4}>
         <figure className="amsterdam-docs-figure">
-          <Image alt="" src={`https://picsum.photos/1024/576?random=${i}`} />
+          <Image alt="" src={`https://picsum.photos/640/360?random=${i}`} />
         </figure>
       </Grid.Cell>
     )),
