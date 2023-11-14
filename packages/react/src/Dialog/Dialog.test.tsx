@@ -16,7 +16,7 @@ describe('Dialog', () => {
   it('renders a design system BEM class name', () => {
     render(<Dialog />)
 
-    const component = screen.getByRole('dialog')
+    const component = screen.getByRole('dialog', { hidden: true })
 
     expect(component).toHaveClass('amsterdam-dialog')
   })
@@ -24,7 +24,7 @@ describe('Dialog', () => {
   it('renders an additional class name', () => {
     render(<Dialog className="extra" />)
 
-    const component = screen.getByRole('dialog')
+    const component = screen.getByRole('dialog', { hidden: true })
 
     expect(component).toHaveClass('extra')
 
@@ -36,7 +36,7 @@ describe('Dialog', () => {
 
     render(<Dialog ref={ref} />)
 
-    const component = screen.getByRole('dialog')
+    const component = screen.getByRole('dialog', { hidden: true })
 
     expect(ref.current).toBe(component)
   })
@@ -44,7 +44,7 @@ describe('Dialog', () => {
   it('is not visible when open attribute is not used', () => {
     render(<Dialog />)
 
-    const component = screen.getByRole('dialog')
+    const component = screen.getByRole('dialog', { hidden: true })
 
     expect(component).toBeInTheDocument()
     expect(component).not.toBeVisible()
