@@ -9,7 +9,6 @@
   display: grid;
   gap: var(--amsterdam-grid-gap);
   grid-template-columns: repeat(var(--amsterdam-grid-column-count), 1fr);
-  margin-inline: auto;
   padding-inline: var(--amsterdam-grid-padding-inline);
 
   @media screen and (min-width: $amsterdam-breakpoint-medium) {
