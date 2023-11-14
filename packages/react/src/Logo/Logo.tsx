@@ -18,43 +18,24 @@ export interface LogoProps extends HTMLAttributes<HTMLElement> {
 function getLogoVariant(variant: LogoProps['variant']) {
   switch (variant) {
     case 'amsterdam':
-      return LogoAmsterdam
+      return { logo: LogoAmsterdam, alt: 'Gemeente Amsterdam' }
     case 'ggd-amsterdam':
-      return LogoGGD
+      return { logo: LogoGGD, alt: 'GGD Amsterdam' }
     case 'stadsarchief':
-      return LogoStadsarchief
+      return { logo: LogoStadsarchief, alt: 'Stadsarchief Amsterdam' }
     case 'stadsbank-lening':
-      return LogoStadsbankLening
+      return { logo: LogoStadsbankLening, alt: 'Stadsbank van Lening' }
     case 'vga-verzekeringen':
-      return LogoVGA
+      return { logo: LogoVGA, alt: 'VGA Verzekeringen' }
     default:
-      return LogoAmsterdam
+      return { logo: LogoAmsterdam, alt: 'Gemeente Amsterdam' }
   }
 }
 
-function getLogoVariantTitle(variant: LogoProps['variant']) {
-  switch (variant) {
-    case 'amsterdam':
-      return 'Gemeente Amsterdam'
-    case 'ggd-amsterdam':
-      return 'GGD Amsterdam'
-    case 'stadsarchief':
-      return 'Stadsarchief Amsterdam'
-    case 'stadsbank-lening':
-      return 'Stadsbank van Lening'
-    case 'vga-verzekeringen':
-      return 'VGA Verzekeringen'
-    default:
-      return 'Gemeente Amsterdam'
-  }
-}
-
-export const Logo = forwardRef(
-  ({ variant = 'amsterdam', className, ...restProps }: LogoProps, ref: ForwardedRef<HTMLElement>) => (
-    <span {...restProps} ref={ref} className={clsx('amsterdam-logo', className)}>
-      <img src={getLogoVariant(variant)} alt={`Logo ${getLogoVariantTitle(variant)}`} />
-    </span>
-  ),
-)
+export const Logo = forwardRef(({ variant, className, ...restProps }: LogoProps, ref: ForwardedRef<HTMLElement>) => (
+  <span {...restProps} ref={ref} className={clsx('amsterdam-logo', className)}>
+    <img src={getLogoVariant(variant).logo} alt={`Logo ${getLogoVariant(variant).alt}`} />
+  </span>
+))
 
 Logo.displayName = 'Logo'
