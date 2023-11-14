@@ -9,7 +9,9 @@
 
 .amsterdam-screen {
   @include reset;
+}
 
+.amsterdam-screen--center {
   margin-inline: auto;
 }
 

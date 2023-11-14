@@ -6,15 +6,24 @@
 import clsx from 'clsx'
 import { ForwardedRef, forwardRef, HTMLAttributes, PropsWithChildren } from 'react'
 
+type ScreenAlign = 'center' | 'start'
 type ScreenMaxWidth = 'wide' | 'x-wide'
 
 export interface ScreenProps extends PropsWithChildren<HTMLAttributes<HTMLDivElement>> {
+  align?: ScreenAlign
   maxWidth?: ScreenMaxWidth
 }
 
 export const Screen = forwardRef(
-  ({ children, className, maxWidth = 'wide', ...restProps }: ScreenProps, ref: ForwardedRef<HTMLDivElement>) => (
-    <div {...restProps} ref={ref} className={clsx('amsterdam-screen', `amsterdam-screen--${maxWidth}`, className)}>
+  (
+    { align = 'center', children, className, maxWidth, ...restProps }: ScreenProps,
+    ref: ForwardedRef<HTMLDivElement>,
+  ) => (
+    <div
+      {...restProps}
+      ref={ref}
+      className={clsx('amsterdam-screen', `amsterdam-screen--${align}`, `amsterdam-screen--${maxWidth}`, className)}
+    >
       {children}
     </div>
   ),
