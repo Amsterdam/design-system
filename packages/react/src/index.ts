@@ -5,6 +5,7 @@
 
 /* Append here */
 export * from './Dialog'
+export * from './Image'
 export * from './Pagination'
 export * from './Screen'
 export * from './Switch'

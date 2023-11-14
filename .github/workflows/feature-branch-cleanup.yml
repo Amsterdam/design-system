@@ -12,10 +12,10 @@ jobs:
     runs-on: ubuntu-latest
     if: ${{ github.actor != 'dependabot[bot]' }}
     steps:
-      - name: Create branch name without forward slashes
+      - name: Create branch name without text before first forward slash
         run: |
           RAW_BRANCH_NAME=${{ github.head_ref || github.ref_name }}
-          BRANCH_NAME=$(echo $RAW_BRANCH_NAME | sed 's/\//-/g')
+          BRANCH_NAME=$(echo $RAW_BRANCH_NAME | sed 's/[^/]*\///')
           echo "BRANCH_NAME=$BRANCH_NAME" >> $GITHUB_ENV
 
       - name: Checkout
@@ -23,13 +23,13 @@ jobs:
         with:
           ref: gh-pages
 
-      - uses: actions/setup-node@v3
+      - uses: actions/setup-node@v4
         with:
           node-version: 18
 
       - name: Delete folder
         run: |
-          git rm ${{ env.BRANCH_NAME }} -r
+          git rm demo-${{ env.BRANCH_NAME }} -r
           git config user.name ${{ github.actor }}
           git add .
           git commit -m "Remove feature branch folder"
@@ -41,4 +41,4 @@ jobs:
         with:
           step: deactivate-env
           token: ${{ secrets.GITHUB_TOKEN }}
-          env: staging-${{ env.BRANCH_NAME }}
+          env: demo-${{ env.BRANCH_NAME }}

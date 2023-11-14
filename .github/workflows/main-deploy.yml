@@ -36,3 +36,6 @@ jobs:
         with:
           branch: gh-pages
           folder: dist/storybook
+          # feature branch directories are prefixed with demo-*
+          # these are excluded from this action's default clean
+          clean-exclude: demo-*
