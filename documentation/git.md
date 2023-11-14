@@ -32,7 +32,10 @@ We work with small, short-lived branches (aim for 2 working days) directly on a 
 
 The approach is called ‘[trunk-based development](https://trunkbaseddevelopment.com/)’ and differs from the well-known ‘Git Flow’.
 
-Branches are automatically deployed to their own environment. To get the address of a branch deployment, go to the repository on GitHub.com and click on [Deployments](https://github.com/Amsterdam/design-system/deployments). Find the branch in the list and click on the external website icon.
+Branches are automatically deployed to their own environment. There are 2 ways to get the address of a branch deployment:
+
+- If the branch has a pull request, you can find the address there using the 'View deployment'-button. You might need to click 'Show environments' to see this button.
+- Otherwise, go to the repository on GitHub.com and click on [Deployments](https://github.com/Amsterdam/design-system/deployments). Find the branch in the list and click on the external website icon.
 
 ## Create a branch
 
@@ -73,19 +76,6 @@ All together, good branch names look like this:
 - `bug/DES-447-correct-button-outline`
 - `refactor/DES-368-use-singular-for-enums`
 - `task/DES-104-add-initial-git-guidelines`
-
-### Forbidden branch names
-
-There are a couple of forbidden branch names, owing to the way we have currently set up feature branch deployments.
-
-These are:
-
-- `assets`
-- `sb-addons`
-- `sb-common-assets`
-- `sb-manager`
-- `sb-preview`
-- `storybook-react`
 
 ## Describe each commit
 

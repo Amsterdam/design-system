@@ -11,9 +11,6 @@ import '@amsterdam/design-system-css/src/top-task-link/top-task-link.scss'
 const meta = {
   title: 'Navigation/Top Task Link',
   component: TopTaskLink,
-  args: {
-    href: '/',
-  },
 } satisfies Meta<typeof TopTaskLink>
 
 export default meta
@@ -21,63 +18,47 @@ export default meta
 type Story = StoryObj<typeof meta>
 
 export const Default: Story = {
-  decorators: [
-    (Story) => (
-      <Grid>
-        <Grid.Cell span={4}>
-          <Story />
-        </Grid.Cell>
-      </Grid>
-    ),
-  ],
   args: {
-    href: '/',
-    label: 'Titel',
+    description: 'Geef uw nieuwe adres door als u binnen Amsterdam of naar Amsterdam verhuist.',
+    href: '#',
+    label: 'Verhuizing doorgeven',
+  },
+}
+
+export const Multiple: Story = {
+  args: {
     description: 'Omschrijving',
-  },
-}
-
-export const WithoutDescription: Story = {
-  args: {
-    label: 'Titel',
-  },
-  render: () => (
-    <Grid>
-      <Grid.Cell span={4}>
-        <TopTaskLink href="/" label="Melding openbare ruimte en overlast" />
-      </Grid.Cell>
-      <Grid.Cell span={4}>
-        <TopTaskLink href="/" label="Verhuizing doorgeven" />
-      </Grid.Cell>
-      <Grid.Cell span={4}>
-        <TopTaskLink href="/" label="Kennisgevingen en bekendmakingen" />
-      </Grid.Cell>
-    </Grid>
-  ),
-  parameters: {
-    docs: {
-      source: { type: 'dynamic' },
-    },
-  },
-}
-
-export const WithDescription: Story = {
-  args: {
     label: 'Titel',
   },
   render: () => (
     <Grid>
       <Grid.Cell span={3}>
-        <TopTaskLink href="/" label="Stadsloket" description="Locaties en openingstijden" />
+        <TopTaskLink
+          description="Bekijk welke belastingen en heffingen er zijn, hoe u bezwaar maakt of een betalingsregeling treft."
+          href="#"
+          label="Gemeentebelastingen"
+        />
       </Grid.Cell>
       <Grid.Cell span={3}>
-        <TopTaskLink href="/" label="P+R" description="Parkeren en reizen" />
+        <TopTaskLink
+          description="U kunt met uw auto goedkoop parkeren bij een P+R-locatie aan de rand van de stad."
+          href="#"
+          label="Parkeren + Reizen (P+R)"
+        />
       </Grid.Cell>
       <Grid.Cell span={3}>
-        <TopTaskLink href="/" label="Documenten" description="Paspoort, ID-kaart en rijbewijs" />
+        <TopTaskLink
+          description="Vraag deze bewijzen aan of verleng ze. Geef een vermissing aan."
+          href="#"
+          label="Paspoort, ID-kaart en rijbewijs"
+        />
       </Grid.Cell>
       <Grid.Cell span={3}>
-        <TopTaskLink href="/" label="Meldingen" description="Melding openbare ruimte en overlast" />
+        <TopTaskLink
+          description="Meld een kind aan voor basisschool, middelbare school of kinderopvang. Bekijk het kindtegoed op uw Stadspas."
+          href="#"
+          label="Onderwijs"
+        />
       </Grid.Cell>
     </Grid>
   ),

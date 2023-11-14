@@ -6,7 +6,7 @@
 import clsx from 'clsx'
 import { ForwardedRef, forwardRef, HTMLAttributes, PropsWithChildren } from 'react'
 
-export type Ratio = 'extra-tall' | 'tall' | 'square' | 'wide' | 'extra-wide'
+export type Ratio = 'x-tall' | 'tall' | 'square' | 'wide' | 'x-wide'
 
 export interface AspectRatioProps extends PropsWithChildren<HTMLAttributes<HTMLDivElement>> {
   ratio?: Ratio

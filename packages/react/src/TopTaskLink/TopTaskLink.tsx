@@ -8,7 +8,7 @@ import { AnchorHTMLAttributes, ForwardedRef, forwardRef } from 'react'
 
 export interface TopTaskLinkProps extends AnchorHTMLAttributes<HTMLAnchorElement> {
   label: string
-  description?: string
+  description: string
 }
 
 export const TopTaskLink = forwardRef(
@@ -17,11 +17,11 @@ export const TopTaskLink = forwardRef(
       {...restProps}
       ref={ref}
       className={clsx('amsterdam-top-task-link', className)}
-      // Add an aria-label with a comma between label and description, so screenreaders have a slight pause between the two.
-      aria-label={`${label}${description ? `, ${description}` : ''}`}
+      // The comma makes screen readers add a slight pause between the label and the description.
+      aria-label={`${label}, ${description}`}
     >
       <span className="amsterdam-top-task-link__label">{label}</span>
-      {description && <span className="amsterdam-top-task-link__description">{description}</span>}
+      <span className="amsterdam-top-task-link__description">{description}</span>
     </a>
   ),
 )

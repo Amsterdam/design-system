@@ -3,7 +3,7 @@
  * Copyright (c) 2023 Gemeente Amsterdam
  */
 
-import { AspectRatio } from '@amsterdam/design-system-react'
+import { AspectRatio, Image } from '@amsterdam/design-system-react'
 import { Meta, StoryObj } from '@storybook/react'
 
 const meta = {
@@ -15,7 +15,7 @@ const meta = {
   argTypes: {
     ratio: {
       control: 'radio',
-      options: ['extra-wide', 'wide', 'square', 'tall', 'extra-tall'],
+      options: ['x-wide', 'wide', 'square', 'tall', 'x-tall'],
     },
   },
 } satisfies Meta<typeof AspectRatio>
@@ -25,25 +25,20 @@ export default meta
 type Story = StoryObj<typeof meta>
 
 const storyConfig = {
-  'extra-wide': {
-    image: 'https://picsum.photos/1600/900',
-    maxWidth: '888px',
+  'x-wide': {
+    image: 'https://picsum.photos/640/360',
   },
   wide: {
-    image: 'https://picsum.photos/1000/800',
-    maxWidth: '625px',
+    image: 'https://picsum.photos/450/360',
   },
   square: {
-    image: 'https://picsum.photos/800/800',
-    maxWidth: '500px',
+    image: 'https://picsum.photos/360/360',
   },
   tall: {
-    image: 'https://picsum.photos/800/1000',
-    maxWidth: '400px',
+    image: 'https://picsum.photos/360/450',
   },
-  'extra-tall': {
-    image: 'https://picsum.photos/900/1600',
-    maxWidth: '300px',
+  'x-tall': {
+    image: 'https://picsum.photos/360/640',
   },
 }
 
@@ -56,8 +51,8 @@ const StoryTemplate: Story = {
     ),
   ],
   render: ({ ratio }) => (
-    <AspectRatio ratio={ratio} style={{ maxWidth: ratio ? storyConfig[ratio].maxWidth : '500px' }}>
-      <img alt="" src={ratio ? storyConfig[ratio].image : 'https://picsum.photos/800/800'} style={{ width: '100%' }} />
+    <AspectRatio ratio={ratio}>
+      <Image alt="" src={storyConfig[ratio ?? 'square'].image} />
     </AspectRatio>
   ),
 }
@@ -69,7 +64,7 @@ export const Default: Story = {
 export const ExtraWide: Story = {
   ...StoryTemplate,
   args: {
-    ratio: 'extra-wide',
+    ratio: 'x-wide',
   },
 }
 
@@ -97,6 +92,6 @@ export const Tall: Story = {
 export const ExtraTall: Story = {
   ...StoryTemplate,
   args: {
-    ratio: 'extra-tall',
+    ratio: 'x-tall',
   },
 }
