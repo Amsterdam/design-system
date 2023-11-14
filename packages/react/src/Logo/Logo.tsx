@@ -3,13 +3,13 @@
  * Copyright (c) 2023 Gemeente Amsterdam
  */
 
+import LogoAmsterdam from '@amsterdam/design-system-assets/logo/amsterdam.svg'
+import LogoGGD from '@amsterdam/design-system-assets/logo/ggd-amsterdam.svg'
+import LogoStadsarchief from '@amsterdam/design-system-assets/logo/stadsarchief.svg'
+import LogoStadsbankLening from '@amsterdam/design-system-assets/logo/stadsbank-lening.svg'
+import LogoVGA from '@amsterdam/design-system-assets/logo/vga-verzekeringen.svg'
 import clsx from 'clsx'
 import { ForwardedRef, forwardRef, HTMLAttributes } from 'react'
-import LogoAmsterdam from '../../../../proprietary/assets/logo/amsterdam.svg'
-import LogoGGD from '../../../../proprietary/assets/logo/ggd-amsterdam.svg'
-import LogoStadsarchief from '../../../../proprietary/assets/logo/stadsarchief.svg'
-import LogoStadsbankLening from '../../../../proprietary/assets/logo/stadsbank-lening.svg'
-import LogoVGA from '../../../../proprietary/assets/logo/vga-verzekeringen.svg'
 
 export interface LogoProps extends HTMLAttributes<HTMLElement> {
   variant?: 'amsterdam' | 'ggd-amsterdam' | 'stadsarchief' | 'stadsbank-lening' | 'vga-verzekeringen'
