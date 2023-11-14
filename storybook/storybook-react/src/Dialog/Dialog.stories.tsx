@@ -20,13 +20,7 @@ const meta = {
     ],
     actions: [
       <>
-        <Button
-          key={1}
-          type="button"
-          variant="tertiary"
-          autoFocus
-          onClick={() => document.querySelector('dialog')?.close()}
-        >
+        <Button key={1} variant="tertiary" autoFocus onClick={() => document.querySelector('dialog')?.close()}>
           Terug
         </Button>
         <Button key={2} type="submit">
@@ -57,49 +51,33 @@ export const Default: Story = {
   ),
 }
 
-export const NoActions: Story = {
-  args: {
-    actions: null,
-    open: true,
-  },
-  render: (args) => (
-    <div style={{ minHeight: '500px' }}>
-      <Dialog {...args} />
-    </div>
-  ),
-}
-
 export const ScrollContent: Story = {
   args: {
     open: true,
     title: 'Privacyverklaring gemeente Amsterdam',
     children: [
       <>
-        <Heading key={0} size="level-4">
-          Algemeen
-        </Heading>
-        <Paragraph key={1}>
+        <Heading size="level-4">Algemeen</Heading>
+        <Paragraph>
           De gemeente Amsterdam verwerkt bij de uitvoering van haar taken en verplichtingen persoonsgegevens. De manier
           waarop de gemeente Amsterdam om gaat met persoonsgegevens is vastgelegd in het stedelijk kader verwerken
           persoonsgegevens.
         </Paragraph>
-        <Paragraph key={2}>
+        <Paragraph>
           Deze verklaring geeft aanvullende informatie over de omgang met persoonsgegevens door de gemeente Amsterdam en
           over uw mogelijkheden tot het uitoefenen van uw rechten met betrekking tot persoonsgegevens.
         </Paragraph>
-        <Paragraph key={3}>
+        <Paragraph>
           Meer specifieke informatie over privacy en de verwerking van persoonsgegevens door de gemeente Amsterdam kunt
           u op de hoofdpagina vinden.
         </Paragraph>
-        <Paragraph key={4}>
+        <Paragraph>
           Vanwege nieuwe wetgeving of andere ontwikkelingen, past de gemeente regelmatig haar processen aan. Dit kunnen
           ook wijzigingen zijn in de wijze van het verwerken van persoonsgegevens. Wij raden u daarom aan om regelmatig
           deze pagina te bekijken. Deze pagina wordt doorlopend geactualiseerd.
         </Paragraph>
-        <Heading key={5} size="level-4">
-          Geldende wet- en regelgeving en reikwijdte
-        </Heading>
-        <Paragraph key={6}>
+        <Heading size="level-4">Geldende wet- en regelgeving en reikwijdte</Heading>
+        <Paragraph>
           Vanaf 25 mei 2018 is de Algemene verordening gegevensbescherming (Avg) van toepassing op alle verwerkingen van
           persoonsgegevens. Deze Europese wetgeving heeft directe werking in Nederland. Voor die zaken die nationaal
           geregeld moeten worden, is de Uitvoeringswet Avg in Nederland aanvullend van toepassing. Deze wetteksten kunt
@@ -116,10 +94,13 @@ export const ScrollContent: Story = {
 }
 
 export const ShowDialog: Story = {
+  args: {
+    id: 'showdialog',
+  },
   decorators: [
     (Story) => (
       <article>
-        <Button onClick={() => document.querySelector('dialog')?.showModal()}>Open Dialog</Button>
+        <Button onClick={() => document.querySelector('#showdialog' as any)?.showModal()}>Open Dialog</Button>
         <Story />
       </article>
     ),

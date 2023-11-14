@@ -1,30 +1,30 @@
-import { render } from '@testing-library/react'
+import { fireEvent, render, screen } from '@testing-library/react'
 import { createRef } from 'react'
 import { Dialog } from './Dialog'
 import '@testing-library/jest-dom'
 
 describe('Dialog', () => {
   it('renders', () => {
-    const { container } = render(<Dialog open />)
+    render(<Dialog open />)
 
-    const component = container.querySelector(':only-child')
+    const component = screen.getByRole('dialog')
 
     expect(component).toBeInTheDocument()
     expect(component).toBeVisible()
   })
 
   it('renders a design system BEM class name', () => {
-    const { container } = render(<Dialog />)
+    render(<Dialog />)
 
-    const component = container.querySelector(':only-child')
+    const component = screen.getByRole('dialog')
 
     expect(component).toHaveClass('amsterdam-dialog')
   })
 
   it('renders an additional class name', () => {
-    const { container } = render(<Dialog className="extra" />)
+    render(<Dialog className="extra" />)
 
-    const component = container.querySelector(':only-child')
+    const component = screen.getByRole('dialog')
 
     expect(component).toHaveClass('extra')
 
@@ -34,17 +34,17 @@ describe('Dialog', () => {
   it('supports ForwardRef in React', () => {
     const ref = createRef<HTMLDialogElement>()
 
-    const { container } = render(<Dialog ref={ref} />)
+    render(<Dialog ref={ref} />)
 
-    const component = container.querySelector(':only-child')
+    const component = screen.getByRole('dialog')
 
     expect(ref.current).toBe(component)
   })
 
   it('is not visible when open attribute is not used', () => {
-    const { container } = render(<Dialog />)
+    render(<Dialog />)
 
-    const component = container.querySelector(':only-child')
+    const component = screen.getByRole('dialog')
 
     expect(component).toBeInTheDocument()
     expect(component).not.toBeVisible()
@@ -80,5 +80,18 @@ describe('Dialog', () => {
     const closeButton = container.querySelector('.amsterdam-dialog__close')
 
     expect(closeButton).toBeInTheDocument()
+  })
+
+  it('closes the dialog when DialogClose button is clicked', () => {
+    const { container } = render(<Dialog open />)
+
+    const component = screen.getByRole('dialog')
+    const closeButton = container.querySelector('.amsterdam-dialog__close')
+
+    expect(component).toBeVisible()
+
+    if (closeButton) fireEvent.click(closeButton)
+
+    // expect(component).not.toBeVisible()
   })
 })

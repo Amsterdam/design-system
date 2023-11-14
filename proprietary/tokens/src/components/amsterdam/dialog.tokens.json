@@ -35,6 +35,9 @@
       "article": {
         "padding-inline-end": { "value": "1.5rem" }
       },
+      "header": {
+        "gap": { "value": "1rem" }
+      },
       "footer": {
         "gap": { "value": "1rem" },
         "padding-block": { "value": "1.5rem 0" }

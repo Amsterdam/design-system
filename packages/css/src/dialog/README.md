@@ -1,6 +1,6 @@
 # Dialog
 
-Modals provide feedback or reveal additional information or functionality while maintaining the context of an underlying page.
+The dialog provides feedback or reveals additional information or functionality while maintaining the context of an underlying page.
 
 ## Guidelines
 
