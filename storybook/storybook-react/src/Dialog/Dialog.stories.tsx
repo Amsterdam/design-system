@@ -96,6 +96,21 @@ export const ScrollContent: Story = {
 export const ShowDialog: Story = {
   args: {
     id: 'showdialog',
+    actions: [
+      <>
+        <Button
+          key={1}
+          variant="tertiary"
+          autoFocus
+          onClick={() => document.querySelector('#showdialog' as any)?.close()}
+        >
+          Terug
+        </Button>
+        <Button key={2} type="submit">
+          Verder
+        </Button>
+      </>,
+    ],
   },
   decorators: [
     (Story) => (
