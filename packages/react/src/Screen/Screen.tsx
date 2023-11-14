@@ -6,7 +6,7 @@
 import clsx from 'clsx'
 import { ForwardedRef, forwardRef, HTMLAttributes, PropsWithChildren } from 'react'
 
-type ScreenMaxWidth = 'wide' | 'extra-wide'
+type ScreenMaxWidth = 'wide' | 'x-wide'
 
 export interface ScreenProps extends PropsWithChildren<HTMLAttributes<HTMLDivElement>> {
   maxWidth?: ScreenMaxWidth
