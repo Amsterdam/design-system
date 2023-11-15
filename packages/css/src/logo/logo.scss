@@ -12,3 +12,28 @@
   vertical-align: middle;
   width: auto;
 }
+
+/** @deprecated */
+.amsterdam-logo--color-black {
+  fill: var(--amsterdam-color-primary-black);
+}
+
+/** @deprecated */
+.amsterdam-logo--color-red {
+  fill: var(--amsterdam-color-primary-red);
+}
+
+// Three classes below for future use
+// Maybe even better: .amsterdam-svg__*
+
+.amsterdam-logo__emblem {
+  fill: var(--amsterdam-color-primary-red);
+}
+
+.amsterdam-logo__text--primary {
+  fill: var(--amsterdam-color-primary-red);
+}
+
+.amsterdam-logo__text--secondary {
+  fill: var(--amsterdam-color-primary-black);
+}
