@@ -25,7 +25,7 @@ type Story = StoryObj<typeof meta>
 
 export const Default: Story = {}
 
-export const GGDAmsterdam: Story = {
+export const GgdAmsterdam: Story = {
   args: {
     variant: 'ggd-amsterdam',
   },
@@ -43,7 +43,7 @@ export const StadsbankVanLening: Story = {
   },
 }
 
-export const VGAVerzekeringen: Story = {
+export const VgaVerzekeringen: Story = {
   args: {
     variant: 'vga-verzekeringen',
   },
