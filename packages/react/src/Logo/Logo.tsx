@@ -10,7 +10,7 @@ import { LogoAmsterdam, LogoGgdAmsterdam, LogoStadsarchief, LogoStadsbankVanLeni
 type LogoBrand = 'amsterdam' | 'ggd-amsterdam' | 'stadsarchief' | 'stadsbank-van-lening' | 'vga-verzekeringen'
 
 export interface LogoProps extends HTMLAttributes<HTMLElement> {
-  variant?: LogoBrand
+  brand?: LogoBrand
 }
 
 const logoConfig: Record<LogoBrand, Function> = {
@@ -22,8 +22,8 @@ const logoConfig: Record<LogoBrand, Function> = {
 }
 
 export const Logo = forwardRef(
-  ({ variant = 'amsterdam', className, ...restProps }: LogoProps, ref: ForwardedRef<HTMLElement>) => {
-    const LogoComponent = logoConfig[variant]
+  ({ brand = 'amsterdam', className, ...restProps }: LogoProps, ref: ForwardedRef<HTMLElement>) => {
+    const LogoComponent = logoConfig[brand]
 
     return (
       <span {...restProps} ref={ref} className={clsx('amsterdam-logo', className)}>

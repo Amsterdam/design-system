@@ -10,7 +10,7 @@ const meta = {
   title: 'Media/Logo',
   component: Logo,
   argTypes: {
-    variant: {
+    brand: {
       control: {
         type: 'select',
       },
@@ -27,24 +27,24 @@ export const Default: Story = {}
 
 export const GgdAmsterdam: Story = {
   args: {
-    variant: 'ggd-amsterdam',
+    brand: 'ggd-amsterdam',
   },
 }
 
 export const Stadsarchief: Story = {
   args: {
-    variant: 'stadsarchief',
+    brand: 'stadsarchief',
   },
 }
 
 export const StadsbankVanLening: Story = {
   args: {
-    variant: 'stadsbank-van-lening',
+    brand: 'stadsbank-van-lening',
   },
 }
 
 export const VgaVerzekeringen: Story = {
   args: {
-    variant: 'vga-verzekeringen',
+    brand: 'vga-verzekeringen',
   },
 }
