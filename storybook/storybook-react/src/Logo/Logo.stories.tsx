@@ -14,7 +14,7 @@ const meta = {
       control: {
         type: 'select',
       },
-      options: ['amsterdam', 'ggd-amsterdam', 'stadsarchief', 'stadsbank-lening', 'vga-verzekeringen'],
+      options: ['amsterdam', 'ggd-amsterdam', 'stadsarchief', 'stadsbank-van-lening', 'vga-verzekeringen'],
     },
   },
 } satisfies Meta<typeof Logo>
@@ -37,9 +37,9 @@ export const Stadsarchief: Story = {
   },
 }
 
-export const StadsbankLening: Story = {
+export const StadsbankVanLening: Story = {
   args: {
-    variant: 'stadsbank-lening',
+    variant: 'stadsbank-van-lening',
   },
 }
 
