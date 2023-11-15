@@ -1,11 +1,12 @@
 import type { SVGProps } from 'react'
+
 const LogoStadsarchief = (props: SVGProps<SVGSVGElement>) => (
   <svg
     className="amsterdam-logo__image"
-    role="img"
-    xmlns="http://www.w3.org/2000/svg"
     fill="none"
+    role="img"
     viewBox="0 0 98 40"
+    xmlns="http://www.w3.org/2000/svg"
     {...props}
   >
     <title>Stadsarchief</title>
@@ -19,4 +20,5 @@ const LogoStadsarchief = (props: SVGProps<SVGSVGElement>) => (
     />
   </svg>
 )
+
 export default LogoStadsarchief

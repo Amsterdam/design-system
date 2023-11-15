@@ -1,11 +1,12 @@
 import type { SVGProps } from 'react'
+
 const LogoStadsbankVanLening = (props: SVGProps<SVGSVGElement>) => (
   <svg
     className="amsterdam-logo__image"
-    role="img"
-    xmlns="http://www.w3.org/2000/svg"
     fill="none"
+    role="img"
     viewBox="0 0 159 42"
+    xmlns="http://www.w3.org/2000/svg"
     {...props}
   >
     <title>Stadsbank van Lening</title>
@@ -19,4 +20,5 @@ const LogoStadsbankVanLening = (props: SVGProps<SVGSVGElement>) => (
     />
   </svg>
 )
+
 export default LogoStadsbankVanLening
