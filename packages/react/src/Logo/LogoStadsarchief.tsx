@@ -1,6 +1,13 @@
 import type { SVGProps } from 'react'
 const LogoStadsarchief = (props: SVGProps<SVGSVGElement>) => (
-  <svg role="img" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 98 40" {...props}>
+  <svg
+    className="amsterdam-logo__image"
+    role="img"
+    xmlns="http://www.w3.org/2000/svg"
+    fill="none"
+    viewBox="0 0 98 40"
+    {...props}
+  >
     <title>Stadsarchief</title>
     <path
       fill="#000"
