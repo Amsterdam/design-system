@@ -5,15 +5,15 @@
 
 import { Grid, Image, Screen } from '@amsterdam/design-system-react'
 import { Meta, StoryObj } from '@storybook/react'
-import { spaceArgType } from '../shared/argTypes'
+import { marginArgType } from '../shared/argTypes'
 
 const meta = {
   title: 'Layout/Grid',
   component: Grid,
   argTypes: {
-    spaceVertical: spaceArgType,
-    spaceTop: spaceArgType,
-    spaceBottom: spaceArgType,
+    marginVertical: marginArgType,
+    marginTop: marginArgType,
+    marginBottom: marginArgType,
   },
 } satisfies Meta<typeof Grid>
 
@@ -43,7 +43,7 @@ export const VerticalMargin: Story = {
   ...StoryTemplate,
   args: {
     children: Array.from(Array(12).keys()).map((i) => <Grid.Cell className="amsterdam-docs-pink-box" key={i} />),
-    spaceVertical: 'medium',
+    marginVertical: 'medium',
   },
   name: 'Verticale witruimte',
 }
