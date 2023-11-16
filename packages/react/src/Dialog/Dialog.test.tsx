@@ -81,4 +81,14 @@ describe('Dialog', () => {
 
     expect(closeButton).toBeInTheDocument()
   })
+
+  it.skip('can be closed with the Close button', () => {
+    // We currently can't test this because dialog isn't properly supported in jsdom
+    // https://github.com/jsdom/jsdom/issues/3294
+  })
+
+  it.skip('has no accessible content when it is closed', () => {
+    // We currently can't test this because dialog isn't properly supported in jsdom
+    // https://github.com/jsdom/jsdom/issues/3294
+  })
 })
