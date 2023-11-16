@@ -39,6 +39,15 @@ export const Default: Story = {
   name: 'Basis',
 }
 
+export const Space: Story = {
+  ...StoryTemplate,
+  args: {
+    children: Array.from(Array(12).keys()).map((i) => <Grid.Cell className="amsterdam-docs-pink-box" key={i} />),
+    spaceVertical: 'medium',
+  },
+  name: 'Verticale witruimte',
+}
+
 export const Cells: Story = {
   ...StoryTemplate,
   args: {

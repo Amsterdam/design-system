@@ -14,6 +14,18 @@ De roze vlakken vertegenwoordigen de kolommen van het grid. Zoom in of verander 
 
 <Primary />
 
+### Verticale witruimte
+
+De opties `spaceVertical`, `spaceTop` en `spaceBottom` voegen witruimte boven en/of onder het grid toe.
+Dit is bijvoorbeeld handig in Footer of Highlight, of tussen twee opvolgende grids.
+
+Elk kan een waarde `medium`, `small` of `large` krijgen.
+De witruimtes zijn even breed als de horizontale witruimte tussen de kolommen,
+respectievelijk de helft en het dubbele daarvan.
+Deze krimpen en groeien dus ook met de vensterbreedte.
+
+<Canvas of={GridStories.Space} />
+
 ### Cellen
 
 Binnen het grid maak je cellen waarin andere componenten geplaatst kunnen worden.
@@ -30,12 +42,6 @@ Elke cel biedt ruimte voor een afbeelding.
 
 Voor meer voorbeelden raadpleeg je [Grid Cell](?path=/docs/react_layout-grid-cell--docs) zelf.
 
-## Research
+## Richtlijnen
 
-TODO Intro
-
-- https://www.smashingmagazine.com/2022/01/modern-fluid-typography-css-clamp/
-- https://geary.co/clamp-calculator/
-- https://modern-fluid-typography.vercel.app/?rootFontSize=16&minSize=16&fluidSize=3.125&relativeSize=0.375&maxSize=56
-- https://modern-fluid-typography.vercel.app/?rootFontSize=16&minSize=16&fluidSize=1.5625&relativeSize=-0.0625&maxSize=40
-- https://gs.statcounter.com/screen-resolution-stats/desktop/netherlands
+- Gebruik de `spaceVertical` prop niet tegelijk met de `spaceTop` of `spaceBottom` props.
