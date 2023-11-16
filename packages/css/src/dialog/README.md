@@ -1,6 +1,6 @@
 # Dialog
 
-The dialog provides feedback or reveals additional information or functionality while maintaining the context of an underlying page.
+A Dialog allows the user to focus on one task or a piece of information, by popping-up and blocking the page content until the modal task is completed, or until the user dismisses the action.
 
 ## Guidelines
 
