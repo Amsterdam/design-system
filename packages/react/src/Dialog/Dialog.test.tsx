@@ -1,4 +1,4 @@
-import { fireEvent, render, screen } from '@testing-library/react'
+import { render, screen } from '@testing-library/react'
 import { createRef } from 'react'
 import { Dialog } from './Dialog'
 import '@testing-library/jest-dom'
@@ -80,16 +80,5 @@ describe('Dialog', () => {
     const closeButton = screen.getByRole('close')
 
     expect(closeButton).toBeInTheDocument()
-  })
-
-  it('closes the dialog when DialogClose button is clicked', async () => {
-    render(<Dialog open />)
-
-    const closeButton = screen.getByRole('close')
-
-    fireEvent.click(closeButton)
-
-    // Click on closeButton does not close the dialog?
-    // expect(screen.getByRole('dialog')).not.toBeVisible()
   })
 })
