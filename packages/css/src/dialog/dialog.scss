@@ -32,7 +32,6 @@
 .amsterdam-dialog__article {
   display: grid;
   gap: 1.5rem; /* Until we have a consistent way of spacing text elements */
-  justify-items: flex-start;
   max-block-size: 100%; /* safari */
   overflow-y: auto;
   overscroll-behavior-y: contain;
