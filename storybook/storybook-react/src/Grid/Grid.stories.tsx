@@ -39,11 +39,39 @@ export const Default: Story = {
   name: 'Basis',
 }
 
+export const Compact: Story = {
+  ...StoryTemplate,
+  args: {
+    children: Array.from(Array(12).keys()).map((i) => <Grid.Cell className="amsterdam-docs-pink-box" key={i} />),
+    density: 'high',
+  },
+  argTypes: {
+    density: {
+      control: {
+        type: 'inline-radio',
+        direction: 'horizontal',
+      },
+      options: ['low', 'high'],
+    },
+  },
+  name: 'Compact',
+}
+
 export const VerticalMargin: Story = {
   ...StoryTemplate,
   args: {
     children: Array.from(Array(12).keys()).map((i) => <Grid.Cell className="amsterdam-docs-pink-box" key={i} />),
+    density: 'low',
     marginVertical: 'medium',
+  },
+  argTypes: {
+    density: {
+      control: {
+        type: 'inline-radio',
+        direction: 'horizontal',
+      },
+      options: ['low', 'high'],
+    },
   },
   name: 'Verticale marge',
 }
