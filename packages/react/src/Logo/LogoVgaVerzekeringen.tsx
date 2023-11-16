@@ -1,8 +1,14 @@
 import type { SVGProps } from 'react'
 
 const LogoVgaVerzekeringen = (props: SVGProps<SVGSVGElement>) => (
-  <svg className="amsterdam-logo__image" role="img" viewBox="0 0 145 43" xmlns="http://www.w3.org/2000/svg" {...props}>
-    <title>VGA Verzekeringen</title>
+  <svg
+    className="amsterdam-logo__image"
+    aria-hidden="true"
+    focusable="false"
+    viewBox="0 0 145 43"
+    xmlns="http://www.w3.org/2000/svg"
+    {...props}
+  >
     <g className="amsterdam-logo__emblem">
       <path
         fill="#EC0000"
