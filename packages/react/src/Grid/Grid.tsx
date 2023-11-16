@@ -52,7 +52,6 @@ export type GridProps = {
   PropsWithChildren<HTMLAttributes<HTMLDivElement>>
 
 const marginClasses = (
-  density: GridDensity,
   marginBottom?: GridMarginSize,
   marginTop?: GridMarginSize,
   marginVertical?: GridMarginSize,
@@ -60,15 +59,15 @@ const marginClasses = (
   const classes = [] as string[]
 
   if (marginVertical) {
-    return [`amsterdam-grid--density-${density}--margin-vertical--${marginVertical}`]
+    return [`amsterdam-grid--margin-vertical--${marginVertical}`]
   }
 
   if (marginBottom) {
-    classes.push(`amsterdam-grid--density-${density}--margin-bottom--${marginBottom}`)
+    classes.push(`amsterdam-grid--margin-bottom--${marginBottom}`)
   }
 
   if (marginTop) {
-    classes.push(`amsterdam-grid--density-${density}--margin-top--${marginTop}`)
+    classes.push(`amsterdam-grid--margin-top--${marginTop}`)
   }
 
   return classes
@@ -89,7 +88,7 @@ export const Grid = forwardRef(
       className={clsx(
         'amsterdam-grid',
         density && `amsterdam-grid--density-${density}`,
-        marginClasses(density, marginBottom, marginTop, marginVertical),
+        marginClasses(marginBottom, marginTop, marginVertical),
         className,
       )}
     >
