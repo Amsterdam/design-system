@@ -21,12 +21,10 @@ const meta = {
     ),
     actions: (
       <>
-        <Button key={1} variant="tertiary" autoFocus onClick={() => document.querySelector('dialog')?.close()}>
+        <Button variant="tertiary" autoFocus onClick={(event) => event.currentTarget.closest('dialog')?.close()}>
           Terug
         </Button>
-        <Button key={2} type="submit">
-          Verder
-        </Button>
+        <Button type="submit">Verder</Button>
       </>
     ),
   },
@@ -99,7 +97,7 @@ export const ShowDialog: Story = {
     id: 'showdialog',
     actions: (
       <>
-        <Button variant="tertiary" autoFocus onClick={() => document.querySelector('#showdialog' as any)?.close()}>
+        <Button variant="tertiary" autoFocus onClick={(event) => event.currentTarget.closest('dialog')?.close()}>
           Terug
         </Button>
         <Button type="submit">Verder</Button>
