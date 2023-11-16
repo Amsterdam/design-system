@@ -3,7 +3,7 @@
  * Copyright (c) 2023 Gemeente Amsterdam
  */
 
-import { Logo } from '@amsterdam/design-system-react'
+import { Logo, VisuallyHidden } from '@amsterdam/design-system-react'
 import { Meta, StoryObj } from '@storybook/react'
 
 const meta = {
@@ -24,6 +24,17 @@ export default meta
 type Story = StoryObj<typeof meta>
 
 export const Default: Story = {}
+
+export const DefaultWithLink: Story = {
+  decorators: [
+    (Story) => (
+      <a href="https://amsterdam.nl">
+        <VisuallyHidden>Naar de homepage van de Gemeente Amsterdam</VisuallyHidden>
+        <Story />
+      </a>
+    ),
+  ],
+}
 
 export const GgdAmsterdam: Story = {
   args: {
