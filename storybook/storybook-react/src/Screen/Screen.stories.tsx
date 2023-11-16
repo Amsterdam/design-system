@@ -25,6 +25,6 @@ export const Default: Story = {
 export const ExtraWide: Story = {
   args: {
     children: <p className="amsterdam-docs-paragraph amsterdam-docs-pink-box">Ik pas in een extra breed scherm.</p>,
-    maxWidth: 'extra-wide',
+    maxWidth: 'x-wide',
   },
 }

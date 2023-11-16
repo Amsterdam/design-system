@@ -15,7 +15,7 @@ const meta = {
   argTypes: {
     ratio: {
       control: 'radio',
-      options: ['extra-wide', 'wide', 'square', 'tall', 'extra-tall'],
+      options: ['2x-wide', 'x-wide', 'wide', 'square', 'tall', 'x-tall'],
     },
   },
 } satisfies Meta<typeof AspectRatio>
@@ -25,7 +25,10 @@ export default meta
 type Story = StoryObj<typeof meta>
 
 const storyConfig = {
-  'extra-wide': {
+  '2x-wide': {
+    image: 'https://picsum.photos/1280/360',
+  },
+  'x-wide': {
     image: 'https://picsum.photos/640/360',
   },
   wide: {
@@ -37,7 +40,7 @@ const storyConfig = {
   tall: {
     image: 'https://picsum.photos/360/450',
   },
-  'extra-tall': {
+  'x-tall': {
     image: 'https://picsum.photos/360/640',
   },
 }
@@ -61,10 +64,17 @@ export const Default: Story = {
   ...StoryTemplate,
 }
 
+export const DoubleExtraWide: Story = {
+  ...StoryTemplate,
+  args: {
+    ratio: '2x-wide',
+  },
+}
+
 export const ExtraWide: Story = {
   ...StoryTemplate,
   args: {
-    ratio: 'extra-wide',
+    ratio: 'x-wide',
   },
 }
 
@@ -92,6 +102,6 @@ export const Tall: Story = {
 export const ExtraTall: Story = {
   ...StoryTemplate,
   args: {
-    ratio: 'extra-tall',
+    ratio: 'x-tall',
   },
 }
