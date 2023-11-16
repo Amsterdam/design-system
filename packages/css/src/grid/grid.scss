@@ -24,3 +24,75 @@
   gap: var(--amsterdam-grid-density-high-gap);
   padding-inline: var(--amsterdam-grid-density-high-padding-inline);
 }
+
+.amsterdam-grid--density-low--space-bottom--small {
+  padding-block-end: calc(var(--amsterdam-grid-density-low-gap) / 2);
+}
+
+.amsterdam-grid--density-low--space-top--small {
+  padding-block-start: calc(var(--amsterdam-grid-density-low-gap) / 2);
+}
+
+.amsterdam-grid--density-low--space-vertical--small {
+  padding-block: calc(var(--amsterdam-grid-density-low-gap) / 2);
+}
+
+.amsterdam-grid--density-low--space-bottom--medium {
+  padding-block-end: var(--amsterdam-grid-density-low-gap);
+}
+
+.amsterdam-grid--density-low--space-top--medium {
+  padding-block-start: var(--amsterdam-grid-density-low-gap);
+}
+
+.amsterdam-grid--density-low--space-vertical--medium {
+  padding-block: var(--amsterdam-grid-density-low-gap);
+}
+
+.amsterdam-grid--density-low--space-bottom--large {
+  padding-block-end: calc(var(--amsterdam-grid-density-low-gap) * 2);
+}
+
+.amsterdam-grid--density-low--space-top--large {
+  padding-block-start: calc(var(--amsterdam-grid-density-low-gap) * 2);
+}
+
+.amsterdam-grid--density-low--space-vertical--large {
+  padding-block: calc(var(--amsterdam-grid-density-low-gap) * 2);
+}
+
+.amsterdam-grid--density-high--space-bottom--small {
+  padding-block-end: calc(var(--amsterdam-grid-density-high-gap) / 2);
+}
+
+.amsterdam-grid--density-high--space-top--small {
+  padding-block-start: calc(var(--amsterdam-grid-density-high-gap) / 2);
+}
+
+.amsterdam-grid--density-high--space-vertical--small {
+  padding-block: calc(var(--amsterdam-grid-density-high-gap) / 2);
+}
+
+.amsterdam-grid--density-high--space-bottom--medium {
+  padding-block-end: var(--amsterdam-grid-density-high-gap);
+}
+
+.amsterdam-grid--density-high--space-top--medium {
+  padding-block-start: var(--amsterdam-grid-density-high-gap);
+}
+
+.amsterdam-grid--density-high--space-vertical--medium {
+  padding-block: var(--amsterdam-grid-density-high-gap);
+}
+
+.amsterdam-grid--density-high--space-bottom--large {
+  padding-block-end: calc(var(--amsterdam-grid-density-high-gap) * 2);
+}
+
+.amsterdam-grid--density-high--space-top--large {
+  padding-block-start: calc(var(--amsterdam-grid-density-high-gap) * 2);
+}
+
+.amsterdam-grid--density-high--space-vertical--large {
+  padding-block: calc(var(--amsterdam-grid-density-high-gap) * 2);
+}
