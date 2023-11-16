@@ -21,17 +21,31 @@ Op dat punt worden en blijven het er 12.
 Deze breakpoints zijn gebaseerd op stappen van 256 pixels, beginnend op een basis van 64 pixels.
 Zo is 576 = 64 + 2 × 256 en 1088 = 64 + 4 × 256.
 
-### Veel witruimte
+### Twee varianten voor witruimte
+
+#### Ruimtelijk
+
+Voor websites is het grid behoorlijk ruimtelijk.
+Zo is de huisstijl ontworpen.
 
 De horizontale witruimte tussen kolommen is 16 pixels breed bij een vensterbreedte van 320 pixels.
 Voor elke 256 pixels extra breedte groeit de witruimte lineair met 8 pixels.
 Bij een vensterbreedte van 1600 pixels is het dus 56 pixels.
-Dit past bij de ruimtelijke opzet van de huisstijl.
-
-[Demo](https://modern-fluid-typography.vercel.app?rootFontSize=16&minSize=8&fluidSize=3.125&relativeSize=0.375&maxSize=56)
+In vensters die breder zijn dan dat groeit de witruimte niet verder.
 
 Op brede vensters worden de witruimtes bijna even breed als de kolommen zelf.
 Dat lijkt misschien onnatuurlijk, maar is geen probleem – doorgaans worden elementen op 3 of 4 kolommen van het grid geplaatst en die krijgen dan ook de tussenliggende witruimtes mee.
+
+#### Compact
+
+Voor applicaties is zo veel witruimte niet nodig, zelfs contraproductief.
+Daarom bestaat er een compacte variant van het grid.
+
+Hier begint de horizontale witruimte op 4 pixels bij een vensterbreedte van 320 pixels,
+en groeit deze met 4 pixels per 256 pixels extra breedte.
+Het maximum is hier 40 pixels en dat wordt pas bereikt bij een vensterbreedte van 2.624 pixels.
+
+Alle andere eigenschappen van de compacte variatie zijn gelijk aan de ruimtelijke.
 
 ### Marges links en rechts
 
@@ -42,6 +56,10 @@ Deze ruimte is 1½ keer zo breed als die tussen de kolommen.
 Sommige elementen mogen over deze marges gepositioneerd worden, zoals de Page Footer en een schermvullende afbeelding.
 Die zijn dan dus breder dan de rest van de content, maar worden wel beperkt door een maximale breedte.
 
+Voor applicaties is de marge naast het grid gelijk aan de witruimtes erbinnen.
+Ook is het grid in dit geval links uitgelijnd op het scherm.
+Hier worden geen elementen over de marges heen geplaatst.
+
 ### Niet onbeperkt breed
 
 Een maximale breedte voor het grid zorgt ervoor dat de elementen van een pagina niet al te ver van elkaar verwijderd raken.
@@ -50,16 +68,21 @@ Ook wordt de witruimte en typografie dan niet extreem groot.
 Voor websites is de maximale breedte van het grid 1432 pixels.
 In vensters van minimaal 1600 pixels breed heeft het grid deze breedte – de marges bedragen hier 84 pixels.
 
-Voor applicaties kan de maximale breedte worden ingesteld op 1896 pixels.
+De maximale breedte kan ook worden ingesteld op 1896 pixels.
 Inclusief de marges van 108 pixels komt de totale breedte hier op 2112 pixels.
 
+Voor applicaties is er geen maximale breedte.
+
 Er is geen minimale breedte.
-Zelfs in vensters smaller dan 320 pixels, voor zover die in de praktijk voorkomen, blijft het grid zich schalen naar de beschikbare breedte.
+Zelfs in vensters smaller dan 320 pixels, voor zover die in de praktijk voorkomen,
+blijft het grid zich schalen naar de beschikbare breedte.
 Voor het gemak speelt de breedte van 320 wel een rol in de documentatie.
 
 ### De maatvoeringen per variant
 
-Op het startpunt van de drie varianten van het grid hebben de kolommen, witruimtes en marges de volgende breedtes in pixels:
+Op het startpunt van de drie varianten van het grid hebben de kolommen, witruimtes en marges de volgende breedtes in pixels.
+
+#### Ruimtelijk
 
 | Naam variant | Vanaf vensterbreedte | Aantal kolommen | Breedte kolom | Breedte witruimte | Breedte marge | Breedte grid |
 | :----------- | -------------------: | --------------: | ------------: | ----------------: | ------------: | -----------: |
@@ -67,12 +90,38 @@ Op het startpunt van de drie varianten van het grid hebben de kolommen, witruimt
 | middelbreed  |                  576 |               8 |            42 |                24 |            36 |          504 |
 | breed        |                 1088 |              12 |            44 |                40 |            60 |          968 |
 
-Voor de maximale breedtes van het grid:
+#### Compact
 
-| Maximale breedte voor | Bij vensterbreedte | Aantal kolommen | Breedte kolom | Breedte witruimte | Breedte marge | Breedte grid |
-| :-------------------- | -----------------: | --------------: | ------------: | ----------------: | ------------: | -----------: |
-| websites              |               1600 |              12 |            68 |                56 |            84 |         1432 |
-| applicaties           |               2112 |              12 |            92 |                72 |           108 |         1896 |
+| Naam variant | Vanaf vensterbreedte | Aantal kolommen | Breedte kolom | Breedte witruimte | Breedte marge | Breedte grid |
+| :----------- | -------------------: | --------------: | ------------: | ----------------: | ------------: | -----------: |
+| smal         |                  320 |               4 |            56 |                16 |            24 |          272 |
+| middelbreed  |                  576 |               8 |            42 |                24 |            36 |          504 |
+| breed        |                 1088 |              12 |            44 |                40 |            60 |          968 |
+
+### Breedtes voor design
+
+In Figma werken we met drie referentie-breedtes om het ontwerp uit te werken voor de drie klassen van apparaten.
+Op precies die breedtes is de maatvoering als volgt.
+
+#### Ruimtelijk
+
+| Klasse apparaat | referentie-breedte | Aantal kolommen | Breedte kolom | Breedte witruimte | Breedte marge | Breedte grid |
+| :-------------- | -----------------: | --------------: | ------------: | ----------------: | ------------: | -----------: |
+| telefoon        |                320 |               4 |            56 |                16 |            24 |          272 |
+| tablet          |                832 |               8 |            64 |                32 |            48 |          736 |
+| desktop         |               1600 |              12 |            68 |                56 |            84 |         1432 |
+
+#### Compact
+
+| Klasse apparaat | referentie-breedte | Aantal kolommen | Breedte kolom | Breedte witruimte | Breedte marge | Breedte grid |
+| :-------------- | -----------------: | --------------: | ------------: | ----------------: | ------------: | -----------: |
+| telefoon        |                320 |               4 |            60 |                16 |            24 |          288 |
+| tablet          |                832 |               8 |            86 |                16 |            16 |          800 |
+| desktop         |               1600 |              12 |            98 |                24 |            24 |         1440 |
+
+Let op: vanaf een vensterbreedte van 1088 pixels staat er een navigatiebalk links van het grid.
+Deze is 112 pixels breed.
+Vandaar de afwijkende breedte van het grid.
 
 ### Vensters of schermen
 
