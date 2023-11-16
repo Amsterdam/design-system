@@ -4,7 +4,7 @@
       "wide": {
         "max-width": { "value": "100rem" }
       },
-      "extra-wide": {
+      "x-wide": {
         "max-width": { "value": "132rem" }
       }
     }

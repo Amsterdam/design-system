@@ -107,7 +107,9 @@ export const ShowDialog: Story = {
   decorators: [
     (Story) => (
       <article>
-        <Button onClick={() => document.querySelector('#showdialog' as any)?.showModal()}>Open Dialog</Button>
+        <Button onClick={() => (document.querySelector('#showdialog') as HTMLDialogElement)?.showModal()}>
+          Open Dialog
+        </Button>
         <Story />
       </article>
     ),
