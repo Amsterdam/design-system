@@ -25,7 +25,7 @@ De submerken zijn:
 
 - Het logo wordt altijd getoond.
 - Het logo is linksboven uitgelijnd in de header.
-- Het logo verwijst naar de homepage.
+- Het logo verwijst naar de homepage van je website of applicatie.
 - Als de applicatie een formulier, applicatie of tool is zonder homepage, dan linkt het logo naar de pagina van waar naar het formulier, applicatie of tool wordt verwezen.
 
 De hoogte van het logo is altijd 40 pixels. Dit geldt ook voor de submerklogo´s.

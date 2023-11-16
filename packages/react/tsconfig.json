@@ -19,8 +19,7 @@
     "resolveJsonModule": true,
     "skipLibCheck": true,
     "strict": true,
-    "target": "es2020",
-    "typeRoots": ["node_modules/@types", "src/**/*.d.ts"]
+    "target": "es2020"
   },
   "include": ["next-env.d.ts", "src/**/*.ts", "src/**/*.tsx"],
   "exclude": ["node_modules"]
