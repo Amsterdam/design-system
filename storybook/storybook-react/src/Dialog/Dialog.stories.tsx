@@ -5,20 +5,21 @@
 
 import { Button, Dialog, Heading, Paragraph } from '@amsterdam/design-system-react'
 import { Meta, StoryObj } from '@storybook/react'
+import { userEvent, within } from '@storybook/testing-library'
 
 const meta = {
   title: 'Containers/Dialog',
   component: Dialog,
   args: {
     title: 'Later verder gaan',
-    children: [
-      <Paragraph key={0}>
+    children: (
+      <Paragraph>
         U kunt de ingevulde antwoorden opslaan in onze beveiligde database, deze kunt u later openen om verder te gaan
         met invullen. Nadat u op opslaan heeft geklikt ontvangt u een mail. Met de link in deze mail kunt verder gaan
         met het formulier.
-      </Paragraph>,
-    ],
-    actions: [
+      </Paragraph>
+    ),
+    actions: (
       <>
         <Button key={1} variant="tertiary" autoFocus onClick={() => document.querySelector('dialog')?.close()}>
           Terug
@@ -26,8 +27,8 @@ const meta = {
         <Button key={2} type="submit">
           Verder
         </Button>
-      </>,
-    ],
+      </>
+    ),
   },
   parameters: {
     backgrounds: {
@@ -55,7 +56,7 @@ export const ScrollContent: Story = {
   args: {
     open: true,
     title: 'Privacyverklaring gemeente Amsterdam',
-    children: [
+    children: (
       <>
         <Heading size="level-4">Algemeen</Heading>
         <Paragraph>
@@ -83,8 +84,8 @@ export const ScrollContent: Story = {
           geregeld moeten worden, is de Uitvoeringswet Avg in Nederland aanvullend van toepassing. Deze wetteksten kunt
           u vinden op de website van Autoriteit Persoonsgegevens.
         </Paragraph>
-      </>,
-    ],
+      </>
+    ),
   },
   render: (args) => (
     <div style={{ minHeight: '100vh' }}>
@@ -96,21 +97,14 @@ export const ScrollContent: Story = {
 export const ShowDialog: Story = {
   args: {
     id: 'showdialog',
-    actions: [
+    actions: (
       <>
-        <Button
-          key={1}
-          variant="tertiary"
-          autoFocus
-          onClick={() => document.querySelector('#showdialog' as any)?.close()}
-        >
+        <Button variant="tertiary" autoFocus onClick={() => document.querySelector('#showdialog' as any)?.close()}>
           Terug
         </Button>
-        <Button key={2} type="submit">
-          Verder
-        </Button>
-      </>,
-    ],
+        <Button type="submit">Verder</Button>
+      </>
+    ),
   },
   decorators: [
     (Story) => (
@@ -124,5 +118,10 @@ export const ShowDialog: Story = {
     backgrounds: {
       default: 'white',
     },
+  },
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement)
+    await userEvent.click(canvas.getByRole('button'), { delay: 500 })
+    await userEvent.click(canvas.getByRole('close'), { delay: 1000 })
   },
 }

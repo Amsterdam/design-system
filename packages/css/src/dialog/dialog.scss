@@ -10,7 +10,6 @@
   border: var(--amsterdam-dialog-border);
   inset: 0;
   max-inline-size: var(--amsterdam-dialog-max-inline-size);
-  overflow: hidden;
   padding-block: 0;
   padding-inline: 0;
   position: fixed;
@@ -67,12 +66,11 @@
 
 .amsterdam-dialog__footer {
   display: flex;
-  flex-direction: column-reverse;
+  flex-direction: column;
   grid-gap: var(--amsterdam-dialog-footer-gap);
   padding-block: var(--amsterdam-dialog-footer-padding-block);
 
   @media screen and (min-width: $amsterdam-breakpoint-medium) {
-    align-items: end;
     flex-direction: row;
     justify-content: end;
   }
