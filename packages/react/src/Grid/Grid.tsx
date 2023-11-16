@@ -24,7 +24,7 @@ export type GridColumnNumbers = {
 
 type GridDensity = 'low' | 'high'
 
-type GridSpaceSize = 'small' | 'medium' | 'large'
+type GridMarginSize = 'small' | 'medium' | 'large'
 
 export type GridProps = {
   /**
@@ -33,29 +33,29 @@ export type GridProps = {
    * This is to be implemented more generally – it will be moved into a theme soon.
    */
   density?: GridDensity
-  spaceBottom?: GridSpaceSize
-  spaceTop?: GridSpaceSize
-  spaceVertical?: GridSpaceSize
+  marginBottom?: GridMarginSize
+  marginTop?: GridMarginSize
+  marginVertical?: GridMarginSize
 } & PropsWithChildren<HTMLAttributes<HTMLDivElement>>
 
-const spaceClasses = (
+const marginClasses = (
   density: GridDensity,
-  spaceBottom?: GridSpaceSize,
-  spaceTop?: GridSpaceSize,
-  spaceVertical?: GridSpaceSize,
+  marginBottom?: GridMarginSize,
+  marginTop?: GridMarginSize,
+  marginVertical?: GridMarginSize,
 ): string[] => {
   const classes = [] as string[]
 
-  if (spaceVertical) {
-    return [`amsterdam-grid--density-${density}--space-vertical--${spaceVertical}`]
+  if (marginVertical) {
+    return [`amsterdam-grid--density-${density}--margin-vertical--${marginVertical}`]
   }
 
-  if (spaceBottom) {
-    classes.push(`amsterdam-grid--density-${density}--space-bottom--${spaceBottom}`)
+  if (marginBottom) {
+    classes.push(`amsterdam-grid--density-${density}--margin-bottom--${marginBottom}`)
   }
 
-  if (spaceTop) {
-    classes.push(`amsterdam-grid--density-${density}--space-top--${spaceTop}`)
+  if (marginTop) {
+    classes.push(`amsterdam-grid--density-${density}--margin-top--${marginTop}`)
   }
 
   return classes
@@ -67,7 +67,7 @@ interface GridComponent extends ForwardRefExoticComponent<GridProps & RefAttribu
 
 export const Grid = forwardRef(
   (
-    { children, className, density = 'low', spaceBottom, spaceTop, spaceVertical, ...restProps }: GridProps,
+    { children, className, density = 'low', marginBottom, marginTop, marginVertical, ...restProps }: GridProps,
     ref: ForwardedRef<HTMLDivElement>,
   ) => (
     <div
@@ -76,7 +76,7 @@ export const Grid = forwardRef(
       className={clsx(
         'amsterdam-grid',
         density && `amsterdam-grid--density-${density}`,
-        spaceClasses(density, spaceBottom, spaceTop, spaceVertical),
+        marginClasses(density, marginBottom, marginTop, marginVertical),
         className,
       )}
     >
