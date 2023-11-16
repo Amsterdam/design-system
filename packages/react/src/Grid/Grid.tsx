@@ -26,6 +26,21 @@ type GridDensity = 'low' | 'high'
 
 type GridMarginSize = 'small' | 'medium' | 'large'
 
+type GridMarginVerticalProp = {
+  marginBottom?: never
+  marginTop?: never
+  /** The amount of vertical whitespace above and below the grid. */
+  marginVertical?: GridMarginSize
+}
+
+type GridMarginTopAndBottomProps = {
+  /** The amount of vertical whitespace below the grid. */
+  marginBottom?: GridMarginSize
+  /** The amount of vertical whitespace above the grid. */
+  marginTop?: GridMarginSize
+  marginVertical?: never
+}
+
 export type GridProps = {
   /**
    * The density of the grid: low (for websites) or high (for applications).
@@ -33,10 +48,8 @@ export type GridProps = {
    * This is to be implemented more generally – it will be moved into a theme soon.
    */
   density?: GridDensity
-  marginBottom?: GridMarginSize
-  marginTop?: GridMarginSize
-  marginVertical?: GridMarginSize
-} & PropsWithChildren<HTMLAttributes<HTMLDivElement>>
+} & (GridMarginVerticalProp | GridMarginTopAndBottomProps) &
+  PropsWithChildren<HTMLAttributes<HTMLDivElement>>
 
 const marginClasses = (
   density: GridDensity,

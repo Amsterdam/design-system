@@ -45,7 +45,7 @@ export const VerticalMargin: Story = {
     children: Array.from(Array(12).keys()).map((i) => <Grid.Cell className="amsterdam-docs-pink-box" key={i} />),
     marginVertical: 'medium',
   },
-  name: 'Verticale witruimte',
+  name: 'Verticale marge',
 }
 
 export const Cells: Story = {
