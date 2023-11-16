@@ -24,7 +24,17 @@ export type GridColumnNumbers = {
   wide: GridColumnNumber
 }
 
-export type GridProps = PropsWithChildren<HTMLAttributes<HTMLDivElement>> & SpaceProps
+type GridDensity = 'low' | 'high'
+
+export type GridProps = {
+  /**
+   * The density of the grid: low (for websites) or high (for applications).
+   * Adjusts the pace with which columns get wider, and the start width as well.
+   * This is to be implemented more generally – it will be moved into a theme soon.
+   */
+  density?: GridDensity
+} & PropsWithChildren<HTMLAttributes<HTMLDivElement>> &
+  SpaceProps
 
 interface GridComponent extends ForwardRefExoticComponent<GridProps & RefAttributes<HTMLDivElement>> {
   Cell: typeof GridCell
@@ -32,13 +42,18 @@ interface GridComponent extends ForwardRefExoticComponent<GridProps & RefAttribu
 
 export const Grid = forwardRef(
   (
-    { children, className, spaceBottom, spaceTop, spaceVertical, ...restProps }: GridProps,
+    { children, className, density = 'low', spaceBottom, spaceTop, spaceVertical, ...restProps }: GridProps,
     ref: ForwardedRef<HTMLDivElement>,
   ) => (
     <div
       {...restProps}
       ref={ref}
-      className={clsx('amsterdam-grid', spaceClasses(spaceBottom, spaceTop, spaceVertical), className)}
+      className={clsx(
+        'amsterdam-grid',
+        density && `amsterdam-grid--density-${density}`,
+        spaceClasses(spaceBottom, spaceTop, spaceVertical),
+        className,
+      )}
     >
       {children}
     </div>

@@ -7,9 +7,9 @@
 
 .amsterdam-grid {
   display: grid;
-  gap: var(--amsterdam-grid-gap);
+  gap: var(--amsterdam-grid-density-low-gap);
   grid-template-columns: repeat(var(--amsterdam-grid-column-count), 1fr);
-  padding-inline: var(--amsterdam-grid-padding-inline);
+  padding-inline: var(--amsterdam-grid-density-low-padding-inline);
 
   @media screen and (min-width: $amsterdam-breakpoint-medium) {
     grid-template-columns: repeat(var(--amsterdam-grid-medium-column-count), 1fr);
@@ -18,4 +18,9 @@
   @media screen and (min-width: $amsterdam-breakpoint-wide) {
     grid-template-columns: repeat(var(--amsterdam-grid-wide-column-count), 1fr);
   }
+}
+
+.amsterdam-grid--density-high {
+  gap: var(--amsterdam-grid-density-high-gap);
+  padding-inline: var(--amsterdam-grid-density-high-padding-inline);
 }
