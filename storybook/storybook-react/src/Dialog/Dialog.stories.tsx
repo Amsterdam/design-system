@@ -122,6 +122,6 @@ export const ShowDialog: Story = {
   play: async ({ canvasElement }) => {
     const canvas = within(canvasElement)
     await userEvent.click(canvas.getByRole('button'), { delay: 500 })
-    await userEvent.click(canvas.getByRole('close'), { delay: 1000 })
+    await userEvent.click(canvas.getByText('Sluiten'), { delay: 1000 })
   },
 }

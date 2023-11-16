@@ -13,8 +13,9 @@ export interface DialogProps extends PropsWithChildren<DialogHTMLAttributes<HTML
   actions?: ReactNode
 }
 
+// TODO: Replace with ActionButton
 const DialogClose = forwardRef(({ ...restProps }, ref: ForwardedRef<HTMLButtonElement>) => (
-  <button role="close" aria-label="close" ref={ref} className="amsterdam-dialog__close" formNoValidate {...restProps}>
+  <button ref={ref} className="amsterdam-dialog__close" formNoValidate {...restProps}>
     <VisuallyHidden>Sluiten</VisuallyHidden>
     <Icon svg={CloseIcon} size="level-5" />
   </button>
