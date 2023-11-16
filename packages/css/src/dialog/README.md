@@ -4,7 +4,8 @@ A Dialog allows the user to focus on one task or a piece of information, by popp
 
 ## Guidelines
 
-Use modals sparingly because they interrupt the user's workflow.
+- Use Dialog sparingly, because it interrupts the user's workflow.
+- Use Dialog for short and non-frequent tasks. For common tasks consider using the main flow.
 
 ## Keyboard Support
 
