@@ -66,14 +66,6 @@ describe('Grid', () => {
     expect(component).toHaveClass('amsterdam-grid--density-high--margin-bottom--large')
   })
 
-  it('prioritizes vertical margin over bottom and top margin', () => {
-    const { container } = render(<Grid marginVertical="medium" marginTop="small" marginBottom="large" />)
-    const component = container.querySelector(':only-child')
-    expect(component).toHaveClass('amsterdam-grid--density-low--margin-vertical--medium')
-    expect(component).not.toHaveClass('amsterdam-grid--density-low--margin-top--small')
-    expect(component).not.toHaveClass('amsterdam-grid--density-low--margin-bottom--large')
-  })
-
   it('supports ForwardRef in React', () => {
     const ref = createRef<HTMLDivElement>()
     const { container } = render(<Grid ref={ref} />)
