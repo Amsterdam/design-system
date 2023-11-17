@@ -14,7 +14,7 @@
 
 ## React
 
-- The component is exported in `src/unstyled/index.ts`, the component's style is imported in `src/index.ts`
+- The component is exported in `src/index.ts`
 - The component, or all elements of a component for more complex cases, support(s) ForwardRef in React
 
 ## NL Design System
