@@ -5,9 +5,8 @@
 
 export const marginArgType = {
   control: {
-    type: 'inline-radio',
-    direction: 'horizontal',
-    labels: { undefined: 'n/a', small: 'small', medium: 'medium', large: 'large' },
+    type: 'radio',
+    labels: { undefined: 'none', small: 'small', medium: 'medium', large: 'large' },
   },
   options: [undefined, 'small', 'medium', 'large'],
 }

@@ -17,11 +17,16 @@ Het grid is volledig _responsive_: afhankelijk van de breedte van het venster ve
 In vensters tot 576 pixels breed levert het grid 4 kolommen.
 Tot een breedte van 1088 pixels zijn dat er 8.
 Op dat punt worden en blijven het er 12.
+Alle kolommen zijn even breed.
 
-Deze breakpoints zijn gebaseerd op stappen van 256 pixels, beginnend op een basis van 64 pixels.
+De breakpoints zijn gebaseerd op stappen van 256 pixels, beginnend op een basis van 64 pixels.
 Zo is 576 = 64 + 2 × 256 en 1088 = 64 + 4 × 256.
 
-### Twee varianten voor witruimte
+De maatvoering van de witruimtes en de typografie veranderen op deze breakpoints niet.
+Wel wijzigt het aantal kolommen, die daardoor smaller of breder worden.
+Ook kunnen elementen op dat moment van plaats veranderen op de pagina.
+
+### Twee thema’s voor witruimte
 
 #### Ruimtelijk
 
@@ -33,13 +38,13 @@ Voor elke 256 pixels extra breedte groeit de witruimte lineair met 8 pixels.
 Bij een vensterbreedte van 1600 pixels is het dus 56 pixels.
 In vensters die breder zijn dan dat groeit de witruimte niet verder.
 
-Op brede vensters worden de witruimtes bijna even breed als de kolommen zelf.
+In brede vensters worden de witruimtes bijna even breed als de kolommen zelf.
 Dat lijkt misschien onnatuurlijk, maar is geen probleem – doorgaans worden elementen op 3 of 4 kolommen van het grid geplaatst en die krijgen dan ook de tussenliggende witruimtes mee.
 
 #### Compact
 
 Voor applicaties is zo veel witruimte niet nodig, zelfs contraproductief.
-Daarom bestaat er een compacte variant van het grid.
+Daarom is er een compact thema voor het grid.
 
 Hier begint de horizontale witruimte op 4 pixels bij een vensterbreedte van 320 pixels,
 en groeit deze met 4 pixels per 256 pixels extra breedte.
@@ -49,7 +54,9 @@ Alle andere eigenschappen van de compacte variatie zijn gelijk aan de ruimtelijk
 
 ### Marges links en rechts
 
-In websites staat het grid horizontaal gecentreerd op de pagina.
+#### Voor websites
+
+Het grid centreert zichzelf horizontaal.
 Aan beide zijden reserveert het grid marges om afstand te houden tot de randen van het venster.
 Deze ruimte is 1½ keer zo breed als die tussen de kolommen.
 
@@ -57,7 +64,6 @@ Sommige elementen mogen over deze marges gepositioneerd worden, zoals de Page Fo
 Die zijn dan dus breder dan de rest van de content, maar worden wel beperkt door een maximale breedte.
 
 Voor applicaties is de marge naast het grid gelijk aan de witruimtes erbinnen.
-Ook is het grid in dit geval links uitgelijnd op het scherm.
 Hier worden geen elementen over de marges heen geplaatst.
 
 ### Niet onbeperkt breed
@@ -132,7 +138,8 @@ Het is goed hier bewust van te zijn.
 Op een beeldscherm is het venster van een browser niet per se gemaximaliseerd; dan is het dus smaller dan het scherm.
 En _responsive design_ gaat logischerwijs uit van de breedte van het venster van de browser.
 
-Op telefoons en tablets komen beide wel vaak overeen, al is het op tablets wel degelijk mogelijk om twee (vensters van) apps naast elkaar op het scherm te zetten.
+Op telefoons en tablets komen beide wel vaak overeen,
+al is het op tablets wel degelijk mogelijk om twee (vensters van) apps naast elkaar op het scherm te zetten.
 
 ### Niet gebonden aan apparaten
 

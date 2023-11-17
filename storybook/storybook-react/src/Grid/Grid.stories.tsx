@@ -48,13 +48,15 @@ export const Compact: Story = {
   argTypes: {
     density: {
       control: {
-        type: 'inline-radio',
-        direction: 'horizontal',
+        type: 'radio',
       },
       options: ['low', 'high'],
     },
   },
   name: 'Compact',
+  parameters: {
+    outline: 'visible',
+  },
 }
 
 export const VerticalMargin: Story = {
@@ -67,8 +69,7 @@ export const VerticalMargin: Story = {
   argTypes: {
     density: {
       control: {
-        type: 'inline-radio',
-        direction: 'horizontal',
+        type: 'radio',
       },
       options: ['low', 'high'],
     },
