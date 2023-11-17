@@ -77,7 +77,7 @@ describe('Dialog', () => {
   it('renders DialogClose button', () => {
     render(<Dialog open />)
 
-    const closeButton = screen.getByRole('close')
+    const closeButton = screen.getByText('Sluiten')
 
     expect(closeButton).toBeInTheDocument()
   })
