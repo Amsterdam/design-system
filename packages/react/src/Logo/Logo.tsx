@@ -5,7 +5,13 @@
 
 import clsx from 'clsx'
 import { ForwardedRef, forwardRef, HTMLAttributes } from 'react'
-import { LogoAmsterdam, LogoGgdAmsterdam, LogoStadsarchief, LogoStadsbankVanLening, LogoVgaVerzekeringen } from '.'
+import {
+  LogoAmsterdam,
+  LogoGgdAmsterdam,
+  LogoStadsarchief,
+  LogoStadsbankVanLening,
+  LogoVgaVerzekeringen,
+} from './brand'
 
 type LogoBrand = 'amsterdam' | 'ggd-amsterdam' | 'stadsarchief' | 'stadsbank-van-lening' | 'vga-verzekeringen'
 

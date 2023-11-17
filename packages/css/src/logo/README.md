@@ -9,6 +9,8 @@ Het design system biedt het correcte logo voor online gebruik aan.
 Er bestaan andere varianten van het logo, maar die mogen op websites en in applicaties niet gebruikt worden.
 Het Nederlandse logo voor Nederlandstalige websites en anderstalige websites behalve Engels.
 Het Engelstalige logo gebruiken we voor Engelstalige websites.
+Dit logo wordt later toegevoegd aan het design system.
+In de tussentijd kun je een afbeelding van dit logo downloaden vanaf [Stijlweb](https://amsterdam.nl/stijlweb/basiselementen/logo-gemeente-amsterdam/#hba498e5c-2388-464f-b769-7622a5d32bd1).
 
 ## Uitzondering
 
