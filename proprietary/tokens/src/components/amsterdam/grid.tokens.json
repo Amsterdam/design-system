@@ -4,13 +4,25 @@
       "column-count": {
         "value": "4"
       },
-      "gap": {
-        "value": "clamp(0.5rem, 0.375rem + 3.125vw, 3.5rem)",
-        "comment": "Grows from 8px at 320px wide to 56px at 1440px wide."
+      "density-low": {
+        "gap": {
+          "value": "clamp(1rem, 3.125vw + 0.375rem, 3.5rem)",
+          "comment": "Grows from 16px at 320px wide to 56px at 1600px wide."
+        },
+        "padding-inline": {
+          "value": "clamp(1.5rem, 4.6875vw + 0.5625rem, 5.25rem)",
+          "comment": "Equals 1.5 times the gap."
+        }
       },
-      "padding-inline": {
-        "value": "clamp(0.75rem, 0.5625rem + 4.875vw, 5.25rem)",
-        "comment": "Equals 1.5 times the gap."
+      "density-high": {
+        "gap": {
+          "value": "clamp(1rem, 1.5625vw - 0.0625rem, 2.5rem)",
+          "comment": "Grows from 16px at 1088px wide to 40px at 2624px wide."
+        },
+        "padding-inline": {
+          "value": "clamp(1rem, 1.5625vw - 0.0625rem, 2.5rem)",
+          "comment": "Equals the gap."
+        }
       },
       "medium": {
         "column-count": {
