@@ -13,6 +13,4 @@ Pagination (in het Nederlands: paginering) is een navigatie-element om tussen me
 
 ## Relevante WCAG regels
 
-- [WCAG 2.4.8](https://www.w3.org/TR/WCAG22/#location): geef aan waar de gebruiker is in een verzameling van pagina's (AAA).
-
 Pagination is een interactief element, hier gelden [de algemene eisen en richtlijnen voor interactieve elementen](https://amsterdam.github.io/design-system/?path=/docs/docs-designrichtlijnen-interactieve-elementen--docs) voor.
