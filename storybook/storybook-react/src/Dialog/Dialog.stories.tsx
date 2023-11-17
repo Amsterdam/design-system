@@ -116,7 +116,7 @@ export const ShowDialog: Story = {
   ],
   parameters: {
     backgrounds: {
-      default: 'white',
+      disable: true,
     },
   },
   play: async ({ canvasElement }) => {
