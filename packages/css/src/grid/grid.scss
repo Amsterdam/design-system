@@ -28,38 +28,38 @@
   --amsterdam-grid-padding-inline: var(--amsterdam-grid-density-high-padding-inline);
 }
 
-.amsterdam-grid--margin-bottom--small {
+.amsterdam-grid--padding-bottom--small {
   padding-block-end: calc(var(--amsterdam-grid-gap) / 2);
 }
 
-.amsterdam-grid--margin-bottom--medium {
+.amsterdam-grid--padding-bottom--medium {
   padding-block-end: var(--amsterdam-grid-gap);
 }
 
-.amsterdam-grid--margin-bottom--large {
+.amsterdam-grid--padding-bottom--large {
   padding-block-end: calc(var(--amsterdam-grid-gap) * 2);
 }
 
-.amsterdam-grid--margin-top--small {
+.amsterdam-grid--padding-top--small {
   padding-block-start: calc(var(--amsterdam-grid-gap) / 2);
 }
 
-.amsterdam-grid--margin-top--medium {
+.amsterdam-grid--padding-top--medium {
   padding-block-start: var(--amsterdam-grid-gap);
 }
 
-.amsterdam-grid--margin-top--large {
+.amsterdam-grid--padding-top--large {
   padding-block-start: calc(var(--amsterdam-grid-gap) * 2);
 }
 
-.amsterdam-grid--margin-vertical--small {
+.amsterdam-grid--padding-vertical--small {
   padding-block: calc(var(--amsterdam-grid-gap) / 2);
 }
 
-.amsterdam-grid--margin-vertical--medium {
+.amsterdam-grid--padding-vertical--medium {
   padding-block: var(--amsterdam-grid-gap);
 }
 
-.amsterdam-grid--margin-vertical--large {
+.amsterdam-grid--padding-vertical--large {
   padding-block: calc(var(--amsterdam-grid-gap) * 2);
 }

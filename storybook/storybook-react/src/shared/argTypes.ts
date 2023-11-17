@@ -3,7 +3,7 @@
  * Copyright (c) 2023 Gemeente Amsterdam
  */
 
-export const marginArgType = {
+export const paddingArgType = {
   control: {
     type: 'radio',
     labels: { undefined: 'none', small: 'small', medium: 'medium', large: 'large' },

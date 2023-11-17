@@ -24,21 +24,21 @@ export type GridColumnNumbers = {
 
 type GridDensity = 'low' | 'high'
 
-type GridMarginSize = 'small' | 'medium' | 'large'
+type GridPaddingSize = 'small' | 'medium' | 'large'
 
-type GridMarginVerticalProp = {
-  marginBottom?: never
-  marginTop?: never
+type GridPaddingVerticalProp = {
+  paddingBottom?: never
+  paddingTop?: never
   /** The amount of vertical whitespace above and below the grid. */
-  marginVertical?: GridMarginSize
+  paddingVertical?: GridPaddingSize
 }
 
-type GridMarginTopAndBottomProps = {
+type GridPaddingTopAndBottomProps = {
   /** The amount of vertical whitespace below the grid. */
-  marginBottom?: GridMarginSize
+  paddingBottom?: GridPaddingSize
   /** The amount of vertical whitespace above the grid. */
-  marginTop?: GridMarginSize
-  marginVertical?: never
+  paddingTop?: GridPaddingSize
+  paddingVertical?: never
 }
 
 export type GridProps = {
@@ -48,26 +48,26 @@ export type GridProps = {
    * This is to be implemented more generally – it will be moved into a theme soon.
    */
   density?: GridDensity
-} & (GridMarginVerticalProp | GridMarginTopAndBottomProps) &
+} & (GridPaddingVerticalProp | GridPaddingTopAndBottomProps) &
   PropsWithChildren<HTMLAttributes<HTMLDivElement>>
 
-const marginClasses = (
-  marginBottom?: GridMarginSize,
-  marginTop?: GridMarginSize,
-  marginVertical?: GridMarginSize,
+const paddingClasses = (
+  paddingBottom?: GridPaddingSize,
+  paddingTop?: GridPaddingSize,
+  paddingVertical?: GridPaddingSize,
 ): string[] => {
   const classes = [] as string[]
 
-  if (marginVertical) {
-    return [`amsterdam-grid--margin-vertical--${marginVertical}`]
+  if (paddingVertical) {
+    return [`amsterdam-grid--padding-vertical--${paddingVertical}`]
   }
 
-  if (marginBottom) {
-    classes.push(`amsterdam-grid--margin-bottom--${marginBottom}`)
+  if (paddingBottom) {
+    classes.push(`amsterdam-grid--padding-bottom--${paddingBottom}`)
   }
 
-  if (marginTop) {
-    classes.push(`amsterdam-grid--margin-top--${marginTop}`)
+  if (paddingTop) {
+    classes.push(`amsterdam-grid--padding-top--${paddingTop}`)
   }
 
   return classes
@@ -79,7 +79,7 @@ interface GridComponent extends ForwardRefExoticComponent<GridProps & RefAttribu
 
 export const Grid = forwardRef(
   (
-    { children, className, density = 'low', marginBottom, marginTop, marginVertical, ...restProps }: GridProps,
+    { children, className, density = 'low', paddingBottom, paddingTop, paddingVertical, ...restProps }: GridProps,
     ref: ForwardedRef<HTMLDivElement>,
   ) => (
     <div
@@ -88,7 +88,7 @@ export const Grid = forwardRef(
       className={clsx(
         'amsterdam-grid',
         density && `amsterdam-grid--density-${density}`,
-        marginClasses(marginBottom, marginTop, marginVertical),
+        paddingClasses(paddingBottom, paddingTop, paddingVertical),
         className,
       )}
     >

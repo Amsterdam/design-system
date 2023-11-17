@@ -31,39 +31,39 @@ describe('Grid', () => {
   })
 
   it('renders a medium vertical spacing class name for a low-density grid', () => {
-    const { container } = render(<Grid marginVertical="medium" />)
+    const { container } = render(<Grid paddingVertical="medium" />)
     const component = container.querySelector(':only-child')
-    expect(component).toHaveClass('amsterdam-grid--margin-vertical--medium')
+    expect(component).toHaveClass('amsterdam-grid--padding-vertical--medium')
   })
 
   it('renders a medium vertical spacing class name for a high-density grid', () => {
-    const { container } = render(<Grid density="high" marginVertical="medium" />)
+    const { container } = render(<Grid density="high" paddingVertical="medium" />)
     const component = container.querySelector(':only-child')
-    expect(component).toHaveClass('amsterdam-grid--margin-vertical--medium')
+    expect(component).toHaveClass('amsterdam-grid--padding-vertical--medium')
   })
 
   it('renders a small top class name for a low-density grid', () => {
-    const { container } = render(<Grid marginTop="small" />)
+    const { container } = render(<Grid paddingTop="small" />)
     const component = container.querySelector(':only-child')
-    expect(component).toHaveClass('amsterdam-grid--margin-top--small')
+    expect(component).toHaveClass('amsterdam-grid--padding-top--small')
   })
 
   it('renders a small top class name for a high-density grid', () => {
-    const { container } = render(<Grid density="high" marginTop="small" />)
+    const { container } = render(<Grid density="high" paddingTop="small" />)
     const component = container.querySelector(':only-child')
-    expect(component).toHaveClass('amsterdam-grid--margin-top--small')
+    expect(component).toHaveClass('amsterdam-grid--padding-top--small')
   })
 
   it('renders a large bottom class name for a low-density grid', () => {
-    const { container } = render(<Grid marginBottom="large" />)
+    const { container } = render(<Grid paddingBottom="large" />)
     const component = container.querySelector(':only-child')
-    expect(component).toHaveClass('amsterdam-grid--margin-bottom--large')
+    expect(component).toHaveClass('amsterdam-grid--padding-bottom--large')
   })
 
   it('renders a large bottom class name for a high-density grid', () => {
-    const { container } = render(<Grid density="high" marginBottom="large" />)
+    const { container } = render(<Grid density="high" paddingBottom="large" />)
     const component = container.querySelector(':only-child')
-    expect(component).toHaveClass('amsterdam-grid--margin-bottom--large')
+    expect(component).toHaveClass('amsterdam-grid--padding-bottom--large')
   })
 
   it('supports ForwardRef in React', () => {
