@@ -3,8 +3,6 @@ import '@amsterdam/design-system-assets/font/index.css'
 import '@amsterdam/design-system-css/dist/index.css'
 import { viewports } from './viewports'
 
-import './story.css'
-
 export const parameters = {
   actions: {
     argTypesRegex: '^on[A-Z].*',
