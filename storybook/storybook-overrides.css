@@ -1,0 +1,44 @@
+/* stylelint-disable */
+
+.sbdocs-content :is(h1, h2, h3, h4, h5, h6, p, li) {
+  color: #000000;
+  font-family: "Amsterdam Sans", Arial, sans-serif;
+}
+
+.sbdocs-content :is(p, li, a) {
+  font-size: 16px;
+  line-height: 1.75;
+}
+
+.sbdocs-content a {
+  color: #004699;
+  text-decoration: underline;
+}
+
+.sbdocs-content a:hover {
+  color: #102e62;
+  text-decoration-thickness: 2px;
+}
+
+.sbdocs-content :is(h1, h2, h3, h4, h5, h6, p, ul, ol) {
+  margin-block: 0;
+  padding-block: 0;
+}
+
+.sbdocs-content h1 {
+  margin-block: 1.5em;
+}
+
+.sbdocs-content h2 {
+  margin-block: 1.5em 0.5em;
+}
+
+.sbdocs-content :is(h3, h4, h5, h6) {
+  margin-block: 0.25em;
+}
+
+.sbdocs-content :is(p, ul, ol) {
+  margin-block-end: 1em;
+}
+
+/* stylelint-enable */
