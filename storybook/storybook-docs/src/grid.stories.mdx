@@ -100,13 +100,13 @@ Op het startpunt van de drie varianten van het grid hebben de kolommen, witruimt
 
 | Naam variant | Vanaf vensterbreedte | Aantal kolommen | Breedte kolom | Breedte witruimte | Breedte marge | Breedte grid |
 | :----------- | -------------------: | --------------: | ------------: | ----------------: | ------------: | -----------: |
-| smal         |                  320 |               4 |            56 |                16 |            24 |          272 |
-| middelbreed  |                  576 |               8 |            42 |                24 |            36 |          504 |
-| breed        |                 1088 |              12 |            44 |                40 |            60 |          968 |
+| smal         |                  320 |               4 |            60 |                16 |            16 |          288 |
+| middelbreed  |                  576 |               8 |            54 |                16 |            16 |          544 |
+| breed        |                 1088 |              12 |            44 |                16 |            16 |          944 |
 
-### Breedtes voor design
+### Referentie-breedtes voor design
 
-In Figma werken we met drie referentie-breedtes om het ontwerp uit te werken voor de drie klassen van apparaten.
+In Figma werken we met drie referentie-breedtes om het ontwerp van een scherm uit te werken voor de drie klassen van apparaten.
 Op precies die breedtes is de maatvoering als volgt.
 
 #### Ruimtelijk
@@ -119,15 +119,13 @@ Op precies die breedtes is de maatvoering als volgt.
 
 #### Compact
 
-| Klasse apparaat | Referentie-breedte | Aantal kolommen | Breedte kolom | Breedte witruimte | Breedte marge | Breedte grid |
-| :-------------- | -----------------: | --------------: | ------------: | ----------------: | ------------: | -----------: |
-| telefoon        |                320 |               4 |            60 |                16 |            24 |          288 |
-| tablet          |                832 |               8 |            86 |                16 |            16 |          800 |
-| desktop         |               1600 |              12 |            98 |                24 |            24 |         1440 |
+Vanaf een vensterbreedte van 1088 pixels staat bij applicaties een navigatiebalk naast het grid.
 
-Let op: vanaf een vensterbreedte van 1088 pixels staat er een navigatiebalk links van het grid.
-Deze is 112 pixels breed.
-Vandaar de afwijkende breedte van het grid.
+| Klasse apparaat | Referentie-breedte | Aantal kolommen | Breedte navigatiebalk | Breedte kolom | Breedte witruimte | Breedte marge | Breedte grid |
+| :-------------- | -----------------: | --------------: | --------------------: | ------------: | ----------------: | ------------: | -----------: |
+| telefoon        |                320 |               4 |                     0 |            60 |                16 |            16 |          288 |
+| tablet          |                832 |               8 |                     0 |            86 |                16 |            16 |          800 |
+| desktop         |               1600 |              12 |                   112 |            98 |                24 |            24 |         1440 |
 
 ### Vensters of schermen
 
