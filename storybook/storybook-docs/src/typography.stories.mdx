@@ -1,4 +1,4 @@
-import { Meta } from "@storybook/blocks";
+import { Meta, Typeset } from "@storybook/blocks";
 
 <Meta title="Docs/Designrichtlijnen/Typografie" />
 
@@ -6,79 +6,155 @@ import { Meta } from "@storybook/blocks";
 
 ## Lettertype
 
-We gebruiken het lettertype Amsterdam Sans.
-De _fallback_ lettertypes zijn Arial en sans-serif.
+De gemeente gebruikt de Amsterdam Sans als beeldbepalend lettertype.
 
-We gebruiken 2 varianten:
+Dat is een letterfamilie met een helder, open tekstbeeld dat goed bij de Andreaskruisen past.
+Het lettertype is zowel offline als online goed leesbaar.
+Daarom wordt het in alle communicatiemiddelen ingezet.
 
-- Amsterdam Sans Regular
-- Amsterdam Sans ExtraBold
+Deze zin demonstreert alle letters van het Latijnse alfabet en cijfers in de Amsterdam Sans:
 
-## Fluïde typografie
+<Typeset
+  fontFamily="Amsterdam Sans, Arial, sans-serif"
+  fontSizes={[24]}
+  fontWeight={400}
+  sampleText="Jouw typograaf biedt mij zulke exquise schreven 012345689"
+/>
 
-Online gebruiken we fluïde typografie, wat inhoudt dat de grootte van de tekst afhankelijk is van de breedte van het scherm of venster van de gebruiker.
-Hoe breder het venster, des te groter wordt de tekst.
-Hiermee zorgen we ervoor dat de tekst er in vensters van alle breedtes goed uitziet.
+## Tekstgrootte
 
-### Tekstniveaus
+De grootte van de tekst is afhankelijk van de breedte van het venster.
+Hiermee zorgen we ervoor dat tekst op schermen van alle afmetingen prettig leesbaar is.
 
-We hebben 8 tekstniveaus gedefinieerd.
+Er zijn 8 niveaus van tekstgrootte en bijbehorende regelhoogte.
 Alle typografische componenten maken er gebruik van.
+Dit overzicht toont de maximale tekstgrootte voor elk niveau.
 
-Een tekstniveau definieert de tekstgrootte op de minimale vensterbreedte (320 pixels) waaronder de tekst niet kleiner wordt, de tekstgrootte op de maximale vensterbreedte (1440 pixels) waarboven de tekst niet groter wordt, de tekst op het breekpunt (854 pixels) en de regelhoogte.
-De tekstgrootte op het breekpunt is de minimale waarde + 2/3 van het verschil tussen de minimale en maximale waarde.
+<Typeset
+  fontFamily="Amsterdam Sans, Arial, sans-serif"
+  fontSizes={[80, 56, 40, 32, 28, 25, 22, 18]}
+  fontWeight={400}
+  sampleText="Jouw typograaf biedt mij zulke exquise schreven"
+/>
+
+Elk tekstniveau heeft een minimale tekstgrootte (bij een vensterbreedte van 320 pixels) en een maximale (bij 1440 pixels).
+Tussen beide stijgt de tekst linear, met een knik op een extra breakpoint van 854 pixels.
+Eerst stijgt de grootte sneller, daarna langzamer.
+
+Op dit moment reageert de typografie nog op 1 breakpoint bij een vensterbreedte van 854 pixels.
+Nu het grid doorontwikkeld is, stemmen we de typografie daar weer op af.
+Dit aparte breakpoint komt dus snel te vervallen.
 
 In de tabel hieronder vind je deze waardes in pixels:
 
-| niveau                     |   0 |   1 |   2 |   3 |   4 |   5 |   6 |   7 |
+| Niveau                     |   0 |   1 |   2 |   3 |   4 |   5 |   6 |   7 |
 | :------------------------- | --: | --: | --: | --: | --: | --: | --: | --: |
 | minimale tekstgrootte      |  32 |  32 |  28 |  24 |  20 |  22 |  18 |  16 |
 | tekstgrootte op breakpoint |  64 |  48 |  36 |  29 |  23 |  26 |  21 |  17 |
 | maximale tekstgrootte      |  80 |  56 |  40 |  32 |  25 |  28 |  22 |  18 |
 | relatieve regelhoogte      | 1.1 | 1.2 | 1.3 | 1.4 | 1.4 | 1.5 | 1.6 | 1.6 |
 
+Tekst op niveau 5 is groter dan op niveau 4.
+Dat is omdat titel niveau 4 kleinere letters heeft dan paragrafen met grote letters.
+Het alternatief om Heading 4 tekstniveau 5 te geven leek ons nog verwarrender.
+
 Voorbeelden van componenten en hun tekstniveaus:
 
-| level | componenten                          |
-| ----: | :----------------------------------- |
-|     0 | Page heading                         |
-|     1 | Heading 1                            |
-|     2 | Heading 2                            |
-|     3 | Heading 3, Blockquote                |
-|     4 | Heading 4, Top Task Link             |
-|     5 | Paragraph large                      |
-|     6 | Paragraph, alle Links behalve inList |
-|     7 | Paragraph small, inList Link         |
+| Componenten                                          | Niveau |
+| :--------------------------------------------------- | -----: |
+| Page heading                                         |      0 |
+| Heading 1                                            |      1 |
+| Heading 2                                            |      2 |
+| Heading 3, Blockquote                                |      3 |
+| Heading 4, Top Task Link                             |      4 |
+| Large Paragraph, Alert Title                         |      5 |
+| Paragraph, Button, Link behalve InList               |      6 |
+| Small Paragraph, InList Link, Form Label, Breadcrumb |      7 |
 
-## Contrast
+## Accentuering
 
-Het contrast tussen tekst en achtergrondkleur moet voldoen aan [de laatste wettelijke toegankelijkheidseisen van de WCAG-niveau AA](https://www.w3.org/WAI/WCAG21/Understanding/contrast-minimum.html).
+Er zijn verschillende manieren om tekst te accentueren.
+Hierin hebben we de volgende keuzes gemaakt.
 
-## Uitlijning
+### Gewicht
 
-Het aantal karakters op een regel is maximaal 80.
-En de tekst wordt altijd links uitgelijnd.
-Dit is vanwege leesbaarheid.
+Online gebruiken we 2 gewichten: ‘regular’ en ‘extra bold’.
 
-Uitzonderingen:
+<Typeset
+  fontFamily="Amsterdam Sans, Arial, sans-serif"
+  fontSizes={[24]}
+  fontWeight={400}
+  sampleText="Jouw typograaf biedt mij zulke exquise schreven"
+/>
 
-- Op knoppen worden labels gecentreerd.
-- In tabellen kan de inhoud van kolommen, afhankelijk van de inhoud, ook gecentreerd of rechts uitgelijnd worden.
+Tekst wordt vetgedrukt in titels en decoratieve citaten.
 
-## Vormgeving
+<Typeset
+  fontFamily="Amsterdam Sans, Arial, sans-serif"
+  fontSizes={[24]}
+  fontWeight={800}
+  sampleText="Jouw typograaf biedt mij zulke exquise schreven"
+/>
 
-Vermijd zo veel mogelijk cursieve teksten, deze zijn niet goed te lezen op sommige beeldschermen.
-Gebruik ze uitsluitend om tekst te accentueren, niet voor hele tekstblokken.
+### Stijl
 
-Vermijd het onderlijnen van tekst.
-Reserveer het onderlijnen van tekst voor interactieve links.
+Gebruik de cursieve weergave uitsluitend om fragmenten in tekst te accentueren.
+Cursieve tekst is minder goed leesbaar dan reguliere of vetgedrukte tekst.
+
+Pas het niet toe op hele tekstblokken.
+Er zijn betere manieren om lange teksten nadruk te geven.
+
+<Typeset
+  fontFamily="Amsterdam Sans, Arial, sans-serif"
+  fontSizes={[24]}
+  sampleText="Jouw typograaf biedt mij zulke exquise schreven"
+  style={{ fontStyle: "italic" }}
+/>
+
+### Onderstreping
+
+Uitsluitend de tekst van een hyperlink wordt onderstreept.
+Rond staartletters wordt de lijn onderbroken voor betere leesbaarheid.
+
+Onderstreepte tekst zonder hyperlink geeft toch de suggestie van een link.
+Dat is verwarrend en daarom niet toegestaan.
+Gebruik een andere manier om te accentueren.
+
+<Typeset
+  fontFamily="Amsterdam Sans, Arial, sans-serif"
+  fontSizes={[24]}
+  sampleText="Jouw typograaf biedt mij zulke exquise schreven"
+  style={{ color: "#004699", textDecoration: "underline" }}
+/>
+
+### Overhang
 
 De ruimte tussen letters (kerning) is geoptimaliseerd in het lettertype.
 Het is niet toegestaan om de kerning aan te passen.
 
-## Woorden afbreken
+## Andere eigenschappen
 
-De Nederlandse taal kent veel lange woorden, zoals 'gemeenteraadsverkiezingen'.
+### Contrast
+
+Het contrast tussen tekst en achtergrondkleur moet voldoen aan de laatste wettelijke toegankelijkheidseisen van [de WCAG, niveau AA](https://www.w3.org/WAI/WCAG21/Understanding/contrast-minimum.html).
+
+De meeste tekst in het design system is puur zwart op puur wit en dat voldoet daar ruim aan.
+Op de meeste donkere achtergronden maken we tekst wit; ook dat biedt voldoende contrast.
+Voor sommige achtergrondkleuren is ook zwarte tekst goed leesbaar.
+Raadpleeg de betreffende componenten voor specifieke richtlijnen.
+
+### Uitlijning
+
+Tekst wordt nagenoeg altijd links uitgelijnd.
+
+Uitzonderingen:
+
+1. Het label van een knop wordt gecentreerd.
+2. In een tabel kan het beter zijn tekst te centreren of rechts uit te lijnen.
+
+### Woordafbreking
+
+De Nederlandse taal kent veel lange woorden, zoals ‘gemeenteraadsverkiezingen’.
 Zorg er in je applicatie voor dat deze woorden netjes afgebroken worden en niet uit hun container breken of verborgen worden.
 Een manier om dat te doen is met de volgende _css snippet_, waarin `hyphens` en `word-break` gecombineerd worden:
 
@@ -94,11 +170,27 @@ Een manier om dat te doen is met de volgende _css snippet_, waarin `hyphens` en 
 
 Voor verdere informatie: [Wrapping and breaking text op MDN](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_text/Wrapping_breaking_text)
 
-## Hoe te gebruiken?
+## Het lettertype installeren
 
-Er zijn twee manieren om Amsterdam Sans te gebruiken in je applicatie:
+Als je de React-componenten gebruikt hoef je niets te doen.
+Deze gebruiken allemaal het juiste lettertype.
 
-- Download en gebruik [deze css](https://amsterdam.nl/publish/pages/1007152/amsterdam_sans_v_0_9.css) in je applicatie om het juiste lettertype in te laden.
-  Dit levert de snelste laadtijden voor bezoekers.
-  Het maakt gebruik van ons snelle CDN.
-- Installeer het NPM pakket `@amsterdam/design-system-assets` en importeer `@amsterdam/design-system-assets/font/index.css` in je applicatie.
+In andere gevallen installeer je Amsterdam Sans op 1 van deze 2 manieren:
+
+1. Kopieer [deze regels CSS](https://amsterdam.nl/publish/pages/1007152/amsterdam_sans_v_0_9.css) naar je applicatie.
+   Het maakt gebruik van ons snelle CDN.
+   Dit levert korte laadtijden voor bezoekers.
+2. Installeer het npm-pakket `@amsterdam/design-system-assets` en importeer `@amsterdam/design-system-assets/font/index.css` in je applicatie.
+
+Als het niet mogelijk is Amsterdam Sans te gebruiken pas je het lettertype Arial toe, of het generieke sans-serif lettertype van het apparaat.
+
+### Licentie en aanvraag
+
+Het lettertype is uitdrukkelijk niet vrij beschikbaar.
+Amsterdam Sans is uitsluitend te gebruiken door medewerkers van de gemeente Amsterdam en amsterdam&partners, en door leveranciers werkend voor deze organisaties.
+
+Vraag de lettertypebestanden aan via het formulier [Amsterdam Sans aanvragen](https://formulier.amsterdam.nl/thema/huisstijl/amsterdam-sans-aanvragen).
+
+## Meer informatie
+
+- Alle informatie over het lettertype vind je op de pagina [Typografie op Stijlweb](https://amsterdam.nl/stijlweb/basiselementen/typografie/).
