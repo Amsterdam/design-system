@@ -6,8 +6,12 @@
 }
 
 .sbdocs-content :is(p, li, a) {
-  font-size: 16px;
+  font-size: 1rem;
   line-height: 1.75;
+}
+
+.sbdocs-content h1 + p {
+  font-size: 1.25rem;
 }
 
 .sbdocs-content a {
@@ -21,24 +25,28 @@
 }
 
 .sbdocs-content :is(h1, h2, h3, h4, h5, h6, p, ul, ol) {
-  margin-block: 0;
+  margin-block: 1rem 0.25rem !important;
   padding-block: 0;
 }
 
 .sbdocs-content h1 {
-  margin-block: 1.5em;
+  margin-block: 2rem !important;
 }
 
 .sbdocs-content h2 {
-  margin-block: 1.5em 0.5em;
+  margin-block-start: 2rem !important;
 }
 
-.sbdocs-content :is(h3, h4, h5, h6) {
-  margin-block: 0.25em;
+.sbdocs-content h3 {
+  margin-block-start: 1.5rem !important;
+}
+
+.sbdocs-content h4 {
+  margin-block-start: 1rem !important;
 }
 
 .sbdocs-content :is(p, ul, ol) {
-  margin-block-end: 1em;
+  margin-block: 0 1rem !important;
 }
 
 /* stylelint-enable */
