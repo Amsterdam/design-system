@@ -5,7 +5,6 @@
 
 import { Button, Dialog, Heading, Paragraph } from '@amsterdam/design-system-react'
 import { Meta, StoryObj } from '@storybook/react'
-// import { userEvent, within } from '@storybook/testing-library'
 
 const meta = {
   title: 'Containers/Dialog',
@@ -119,9 +118,4 @@ export const ShowDialog: Story = {
       disable: true,
     },
   },
-  // play: async ({ canvasElement }) => {
-  //   const canvas = within(canvasElement)
-  //   await userEvent.click(canvas.getByRole('button'), { delay: 500 })
-  //   await userEvent.click(canvas.getByText('Sluiten'), { delay: 1000 })
-  // },
 }
