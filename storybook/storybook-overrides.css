@@ -1,0 +1,53 @@
+/* stylelint-disable */
+
+.sbdocs-content > :is(h1, h2, h3, h4, h5, h6, p, li) {
+  color: #000000;
+  font-family: "Amsterdam Sans", Arial, sans-serif;
+}
+
+.sbdocs-content > :is(p, li, a),
+.sbdocs-content > :is(ol, ul) li {
+  font-size: 1rem;
+  line-height: 1.75;
+}
+
+.sbdocs-content > h1 + p {
+  font-size: 1.25rem;
+}
+
+.sbdocs-content > a {
+  color: #004699;
+  text-decoration: underline;
+}
+
+.sbdocs-content > a:hover {
+  color: #102e62;
+  text-decoration-thickness: 2px;
+}
+
+.sbdocs-content > :is(h1, h2, h3, h4, h5, h6, p, ul, ol) {
+  margin-block: 1rem 0.25rem !important;
+  padding-block: 0;
+}
+
+.sbdocs-content > h1 {
+  margin-block: 2rem !important;
+}
+
+.sbdocs-content > h2 {
+  margin-block: 2rem 1rem !important;
+}
+
+.sbdocs-content > h3 {
+  margin-block-start: 1.5rem !important;
+}
+
+.sbdocs-content > h4 {
+  margin-block-start: 1rem !important;
+}
+
+.sbdocs-content > :is(p, ul, ol) {
+  margin-block: 0 1rem !important;
+}
+
+/* stylelint-enable */

@@ -15,6 +15,7 @@
     url("./woff2/AmsterdamSans-Light.woff2") format("woff2"),
     url("./woff/AmsterdamSans-Light.woff") format("woff");
 }
+
 @font-face {
   font-display: swap;
   font-family: "Amsterdam Sans";
@@ -26,6 +27,7 @@
     url("./woff2/AmsterdamSans-Regular.woff2") format("woff2"),
     url("./woff/AmsterdamSans-Regular.woff") format("woff");
 }
+
 @font-face {
   font-display: swap;
   font-family: "Amsterdam Sans";
@@ -37,6 +39,7 @@
     url("./woff2/AmsterdamSans-Italic.woff2") format("woff2"),
     url("./woff/AmsterdamSans-Italic.woff") format("woff");
 }
+
 @font-face {
   font-display: swap;
   font-family: "Amsterdam Sans";
@@ -48,6 +51,7 @@
     url("./woff2/AmsterdamSans-Bold.woff2") format("woff2"),
     url("./woff/AmsterdamSans-Bold.woff") format("woff");
 }
+
 @font-face {
   font-display: swap;
   font-family: "Amsterdam Sans";
@@ -59,6 +63,7 @@
     url("./woff2/AmsterdamSans-BoldItalic.woff2") format("woff2"),
     url("./woff/AmsterdamSans-BoldItalic.woff") format("woff");
 }
+
 @font-face {
   font-display: swap;
   font-family: "Amsterdam Sans";
