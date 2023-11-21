@@ -5,10 +5,16 @@
 
 import { Grid, Image, Screen } from '@amsterdam/design-system-react'
 import { Meta, StoryObj } from '@storybook/react'
+import { paddingArgType } from '../shared/argTypes'
 
 const meta = {
   title: 'Layout/Grid',
   component: Grid,
+  argTypes: {
+    paddingVertical: paddingArgType,
+    paddingTop: paddingArgType,
+    paddingBottom: paddingArgType,
+  },
 } satisfies Meta<typeof Grid>
 
 export default meta
@@ -31,6 +37,44 @@ export const Default: Story = {
     children: Array.from(Array(12).keys()).map((i) => <Grid.Cell className="amsterdam-docs-pink-box" key={i} />),
   },
   name: 'Basis',
+}
+
+export const Compact: Story = {
+  ...StoryTemplate,
+  args: {
+    children: Array.from(Array(12).keys()).map((i) => <Grid.Cell className="amsterdam-docs-pink-box" key={i} />),
+    density: 'high',
+  },
+  argTypes: {
+    density: {
+      control: {
+        type: 'radio',
+      },
+      options: ['low', 'high'],
+    },
+  },
+  name: 'Compact',
+  parameters: {
+    outline: 'visible',
+  },
+}
+
+export const VerticalSpace: Story = {
+  ...StoryTemplate,
+  args: {
+    children: Array.from(Array(12).keys()).map((i) => <Grid.Cell className="amsterdam-docs-pink-box" key={i} />),
+    density: 'low',
+    paddingVertical: 'medium',
+  },
+  argTypes: {
+    density: {
+      control: {
+        type: 'radio',
+      },
+      options: ['low', 'high'],
+    },
+  },
+  name: 'Verticale witruimte',
 }
 
 export const Cells: Story = {

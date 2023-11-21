@@ -23,7 +23,6 @@ type GridCellColumnProps = {
   start?: GridColumnNumber | GridColumnNumbers
 }
 
-// The discriminated union and the `never` types prevent using `fullWidth` together with `span` or `start`.
 export type GridCellProps = (GridCellFullWidthProp | GridCellColumnProps) &
   PropsWithChildren<HTMLAttributes<HTMLDivElement>>
 
