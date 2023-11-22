@@ -1,9 +1,6 @@
 {
   "amsterdam": {
     "highlight": {
-      "padding-block": {
-        "value": "2rem"
-      },
       "blue": {
         "background-color": {
           "value": "{amsterdam.color.primary-blue}"
