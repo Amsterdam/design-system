@@ -4,17 +4,16 @@
 
 We use Storybook 7 to display all components and allow interacting with them.
 
-Each component library has its own Storybook instance – currently those are CSS and React. We use Storybook’s composition feature to combine the two. For each merge to the `main` branch we publish to [amsterdam.github.io/design-system](https://amsterdam.github.io/design-system/).
+Each component library has its own Storybook instance – currently we only have React. We use Storybook’s composition feature to combine the main Storybook with the React one. For each merge to the `main` branch we publish to [amsterdam.github.io/design-system](https://amsterdam.github.io/design-system/).
 
 ## Structure
 
 We write both docs and stories for each component. The docs display:
 
 1. The contents of the component’s `README.md` file.
-2. The contents of the component’s `component-css.md` file (only in the CSS library).
-3. The primary story for the component.
-4. The controls for the component, which displays all args for the component.
-5. A canvas for every other story, each with an introduction if possible.
+2. The primary story for the component.
+3. The controls for the component, which displays all args for the component.
+4. A canvas for every other story, each with an introduction if possible.
 
 We write our documentation in Dutch.
 
