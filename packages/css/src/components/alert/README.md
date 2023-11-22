@@ -1,23 +1,22 @@
 # Alert
 
-Met een Alert breng je de gebruiker op de hoogte van een belangrijke of tijdgevoelige boodschap.
-De taak van de gebruiker wordt niet onderbroken.
+An Alert informs the user of a significant or time-sensitive message without interrupting their task.
 
-## Specificaties
+## Specifications
 
-Er zijn vier soorten meldingen:
+There are four types of notifications:
 
-- **Waarschuwing** (oranje) als er actie nodig is om schade te voorkomen.
-- **Foutmelding** (rood) om te laten weten dat er een fout is opgetreden.
-- **Bevestiging** (groen) ter geruststelling dat een proces is voltooid.
-- **Kennisgeving** (blauw) om een bericht onder de aandacht te brengen.
+- **Warning** (orange) when action is needed to prevent damage.
+- **Error** (red) indicates an error has occurred.
+- **Confirmation** (green) to reassure that a process is complete.
+- **Notification** (blue) to bring attention to a message.
 
-## Richtlijnen
+## Guidelines
 
-- Plaats bij belangrijke en urgente informatie een oranje Alert direct onder de Header.
-  Voorbeelden: een storing van een systeem of afwijkende openingstijden van een stadsloket.
-- Zorg voor voldoende witruimte rondom de Alert.
-  De witruimte van het grid is een goede maatstaf – zet de Alert in zijn eigen cel.
-- Standaard kan de Alert niet gesloten worden.
-  Deze mogelijkheid kan toegevoegd worden.
-- Optioneel kan de titel worden weggelaten.
+- Place an orange Alert directly below the Header for important and urgent information.
+  Examples: system outage or changes in the opening hours of a City Office.
+- Ensure sufficient whitespace around the Alert.
+  The grid’s whitespace is a good reference – place the Alert in its own cell.
+- By default, the Alert cannot be closed.
+  This functionality can be added optionally.
+- Optionally, the title can be omitted.

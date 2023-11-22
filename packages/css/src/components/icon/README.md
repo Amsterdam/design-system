@@ -1,19 +1,29 @@
 # Icon
 
-Iconen zijn visuele symbolen die worden gebruikt om ideeën, thema’s of acties weer te geven. Ze communiceren in één oogopslag de boodschap en vestigen de aandacht op belangrijke (interactieve) informatie. Gebruik altijd een `Icon` component om een SVG icoon heen voor de juiste vormgeving en maatvoering.
+Icons are visual symbols used to represent ideas, themes, or actions.
+They communicate the message at a glance and draw attention to important (interactive) information.
+Always use an `Icon` component to encapsulate an SVG icon for proper styling and sizing.
 
-## Interactieve elementen
+## Interactive Elements
 
-Ter ondersteuning van tekstuele interactie-elementen, zoals knoppen en links, kunnen iconen gebruikt worden. Probeer altijd een icoon te voorzien van begeleidende tekst. Iconen zonder begeleidende tekst mogen alleen gebruikt worden als ze aan internationale standaarden voldoen, zoals menu (hamburger icoon), zoek (vergrootglas), volgende, vorige, play, pauze, enz.
+Use an icon to support textual interactive elements like buttons and links.
+Always try to provide accompanying text for an icon.
+Only use icons without accompanying text if they adhere to international standards, such as menu (hamburger icon), search (magnifying glass), next, previous, play, pause, etc.
 
-## Kleur
+## Color
 
-Iconen zijn zwart of wit. Bij interactie zijn ze donkerblauw. Uitgeschakeld zijn ze grijs. En ze moeten voldoen aan dezelfde contrastverhouding voor toegankelijkheid als typografie bij een achtergrondkleur. Het icoon neemt standaard de kleur van de _container_ waar deze in zit over.
+Icons are black or white.
+During the interaction, they are dark blue.
+When disabled, they are grey.
+They must adhere to the same contrast ratio for accessibility as typography against a background colour.
+The icon defaults to the colour of the container it is in.
 
-## Uitlijning
+## Alignment
 
-Iconen staan standaard links van de tekst en zijn verticaal in het midden van de eerste regel tekst uitgelijnd.
+Icons are aligned to the left of the text by default and vertically centred to the middle of the first line of text.
 
-## Grootte
+## Size
 
-De iconen gebruiken dezelfde tekstniveaus als alle typografische componenten om hun grootte te bepalen. Hierdoor zijn icoon en tekst makkelijk op elkaar af te stemmen. [Bekijk de documentatie over typografie voor meer informatie](/docs/docs-designrichtlijnen-typografie--docs#tekstniveaus).
+Icons use the same text levels as all typographic components to determine their size.
+This ensures easy alignment between icons and text.
+[Refer to the typography documentation for more information](/docs/docs-designrichtlijnen-typografie--docs#tekstniveaus).

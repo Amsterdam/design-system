@@ -1,33 +1,33 @@
 # Search Field
 
-Met een Search Field (in het Nederlands: zoekveld) kunnen gebruikers snel relevante inhoud vinden. Een gebruiker voert een (deel van een) woord of zin in om daarmee inhoud te doorzoeken.
+Allows users to quickly find relevant content by entering a (part of a) word or phrase to search through the content.
 
-## Richtlijnen
+## Guidelines
 
-- Je kunt een zoekactie starten door de zoekknop of de Enter-toets te gebruiken.
-- Als er geen zoekterm is ingevuld kan geen zoekactie gestart worden.
+- Users can initiate a search by using the search button or the Enter key.
 
 ## Autofocus
 
-Je kunt `autofocus` gebruiken om de focus gelijk in een zoekveld te plaatsen als de gebruiker op een pagina komt.
-Wees hier wel voorzichtig mee, dit kan negatieve gevolgen hebben:
+You can use `autofocus` to place focus directly on a search field when the user arrives on a page.
+However, use this feature with caution, as it can have negative consequences:
 
-- Voor gebruikers van een schermlezer kan dit betekenen dat ze belangrijk inhoud boven het zoekveld overslaan.
-- Op kleinere apparaten kan het gebruik van `autofocus` er voor zorgen dat de pagina automatisch naar het zoekveld scrollt, waardoor je eerdere inhoud kan missen.
-- Op apparaten met touchscreen kan dit ervoor zorgen dat het toetsenbord gelijk wordt getoond, waardoor belangrijke inhoud verborgen wordt.
+- For screen reader users, this may result in skipping important content above the search field.
+- On smaller devices, the use of `autofocus` may automatically scroll the page to the search field, potentially causing users to miss previous content.
+- On touchscreen devices, this can trigger the keyboard to appear immediately, hiding important content.
 
-Gebruik `autofocus` alleen als het zoekveld aan het begin van een pagina staat, en er geen andere elementen op een pagina staan waar een gebruiker misschien eerst gebruik van wil maken.
+Use `autofocus` only if the search field is at the beginning of a page and there are no other elements on a page that a user might want to interact with first.
 
-Voor meer informatie: [Accessibility Tips: Be Cautious When Using Autofocus](https://www.boia.org/blog/accessibility-tips-be-cautious-when-using-autofocus)
+For more information: [Accessibility Tips: Be Cautious When Using Autofocus](https://www.boia.org/blog/accessibility-tips-be-cautious-when-using-autofocus)
 
-## Autocomplete en spellcheck
+## Autocomplete and Spellcheck
 
-`autocomplete` en `spellcheck` staan standaard uit. Deze functies kunnen vervelend zijn voor een gebruiker die zoekt op een deel van een woord, en `autocomplete` kan in de weg zitten van een Autosuggest component.
+Both `autocomplete` and `spellcheck` are turned off by default.
+These features can be disruptive for a user searching for part of a word, and `autocomplete` may interfere with an Autosuggest component.
 
-## Relevante WCAG eisen
+## Relevant WCAG Requirements
 
-- [WCAG 1.3.1](https://www.w3.org/TR/WCAG22/#info-and-relationships): `role="search"` wordt gebruikt voor de search landmark role.
-- [WCAG 1.3.5](https://www.w3.org/TR/WCAG22/#identify-input-purpose): het is zowel voor een gebruiker als programmatisch duidelijk wat het doel van een formulierveld is.
-- [WCAG 2.4.6](https://www.w3.org/TR/WCAG22/#headings-and-labels): er is een label dat het doel van de input beschrijft.
+- [WCAG 1.3.1](https://www.w3.org/TR/WCAG22/#info-and-relationships): `role="search"` is used for the search landmark role.
+- [WCAG 1.3.5](https://www.w3.org/TR/WCAG22/#identify-input-purpose): It is clear both to the user and programmatically what the purpose of a form field is.
+- [WCAG 2.4.6](https://www.w3.org/TR/WCAG22/#headings-and-labels): There is a label describing the purpose of the input.
 
-Search Field is een interactief element, hier gelden [de algemene eisen en richtlijnen voor interactieve elementen](https://amsterdam.github.io/design-system/?path=/docs/docs-designrichtlijnen-interactieve-elementen--docs) voor.
+Search Field is an interactive element; therefore, [the general requirements and guidelines for interactive elements](https://amsterdam.github.io/design-system/?path=/docs/docs-designrichtlijnen-interactieve-elementen--docs) apply.

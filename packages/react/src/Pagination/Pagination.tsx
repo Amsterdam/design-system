@@ -24,7 +24,7 @@ export interface PaginationProps extends HTMLAttributes<HTMLElement> {
    */
   page?: number
   /**
-   * The total number of pages.
+   * The total amount of pages.
    */
   totalPages: number
 }

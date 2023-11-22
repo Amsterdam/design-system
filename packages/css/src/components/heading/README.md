@@ -1,22 +1,25 @@
 # Heading
 
-Een heading zegt iets over de onderstaande content. Met behulp van headings kan de gebruiker snel een overzicht krijgen van de structuur van de webpagina.
+A heading conveys information about the content below it.
+Using headings allows the user to grasp the structure of the webpage quickly.
 
-## Richtlijnen
+## Guidelines
 
-- Een heading omschrijft de content eronder.
-- Gebruik een heading niet voor opmaak en styling, maar om de structuur van de pagina weer te geven.
-- Gebruik headings hierarchisch en sla geen heading niveaus over. Dus na een `h1` volgt een `h2` en dus niet een `h3`.
+- A heading describes the content beneath it.
+- Use a heading not for formatting and styling but to represent the page’s structure.
+- Use headings hierarchically, and do not skip heading levels.
+  So, after an `h1`, follow an `h2`, not an `h3`.
 
-## Relevante WCAG eisen
+## Relevant WCAG Requirements
 
 - [WCAG 1.3.1](https://www.w3.org/WAI/WCAG21/quickref/#qr-content-structure-separation-programmatic):
-  Tekst die er uit ziet als een heading wordt ook door een computer herkend als een heading. Door gebruik te maken van het juiste heading niveau is voor alle gebruikers duidelijk hoe de pagina is gestructeerd.
-- [WCAG 2.4.1](https://www.w3.org/WAI/WCAG21/quickref/#qr-navigation-mechanisms-skip): Headings kunnen gebruikt worden om naar een volgende sectie te navigeren met het toetsenbord
-- [WCAG 2.4.6](https://www.w3.org/WAI/WCAG21/quickref/#headings-and-labels): Beschrijf met headings het doel of het onderwerp van de onderliggende content
-- [WCAG 2.4.10](https://www.w3.org/WAI/WCAG21/quickref/#qr-navigation-mechanisms-headings): Gebruik headings om de content te structureren
+  Text that looks like a heading is also recognized as a heading by a computer.
+  Using the correct heading level makes the page structure clear for all users.
+- [WCAG 2.4.1](https://www.w3.org/WAI/WCAG21/quickref/#qr-navigation-mechanisms-skip): Headings can be used to navigate to the next section with the keyboard.
+- [WCAG 2.4.6](https://www.w3.org/WAI/WCAG21/quickref/#headings-and-labels): Use headings to describe the purpose or subject of the underlying content.
+- [WCAG 2.4.10](https://www.w3.org/WAI/WCAG21/quickref/#qr-navigation-mechanisms-headings): Use headings to structure the content.
 
-## Referenties
+## References
 
 - [W3C - Headings](https://www.w3.org/WAI/tutorials/page-structure/headings/)
 - [W3C - Headings & labels](https://www.w3.org/TR/WCAG21/#headings-and-labels)

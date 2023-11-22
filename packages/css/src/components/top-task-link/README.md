@@ -1,20 +1,21 @@
 # Top Task Link
 
-Via dit opvallende navigatie-element vindt de gebruiker snel de weg naar veel voorkomende taken.
+A prominent navigation element to quickly start a task.
 
-## Richtlijnen
+## Guidelines
 
-- Een Top Task Link heeft zowel een titel als een beschrijving.
-- De titel beschrijft de essentie van de pagina waarnaar wordt verwezen.
-  Deze trekt de aandacht bij het scannen van de pagina.
-- De beschrijving geeft meer context.
-  Dit helpt de gebruiker bevestigen dat die zijn doel op de vervolgpagina inderdaad kan bereiken.
-- Houd beide teksten bondig. Een titel bestaat uit een paar woorden, de beschrijving uit 1 of 2 korte zinnen. De beschrijving eindigt dan ook op een punt of ander geschikt leesteken.
-- Plaats voor brede vensters 3 of 4 Top Task Links naast elkaar op het [Grid](?path=/docs/react_layout-grid--docs).
-  Als je meer Top Task Links hebt, zet ze dan op de volgende rij.
-  Probeer het aantal links op brede vensters te verdelen over rijen van 3 of 4 links. Als dit niet lukt, laat de laatste cellen van het grid dan leeg.
-- Heb je een groep verwijzingen waarvoor een beschrijving niet nodig of logisch is, gebruik dan een [Link List](?path=/docs/react_navigation-link--docs).
+- A Top Task Link has both a title and a description.
+- The title describes the essence of the page being referred to, attracting attention when scanning the page.
+- The description provides more context, helping the user confirm that they can indeed achieve their goal on the linked page.
+- Keep both texts concise.
+  A title consists of a few words, and the description consists of 1 or 2 short sentences.
+  The description should end with a period or another appropriate punctuation mark.
+- For wide windows, place 3 or 4 Top Task Links side by side on the [Grid](?path=/docs/react_layout-grid--docs).
+  If you have more Top Task Links, place them in the next row.
+  Try to distribute the amount of links on wide windows over rows of 3 or 4 links.
+  If this is not possible, leave the last cells of the grid empty.
+- If you have a group of references for which a description is unnecessary or logical, use a [Link List](?path=/docs/react_navigation-link--docs).
 
-## Relevante WCAG eisen
+## Relevant WCAG requirements
 
-Voor de Top Task Link gelden dezelfde eisen als voor [reguliere links](https://amsterdam.github.io/design-system/?path=/docs/react_navigation-link--docs).
+The Top Task Link is subject to the same requirements as [regular links](https://amsterdam.github.io/design-system/?path=/docs/react_navigation-link--docs).

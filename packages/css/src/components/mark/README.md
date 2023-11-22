@@ -1,18 +1,17 @@
 # Mark
 
-Markeert een fragment tekst met een gele achtergrond.
-Het zorgt voor sterke nadruk op de tekst en leidt de aandacht ernaartoe.
+Highlights a text fragment through a yellow background.
+Provides strong emphasis on the text and draws attention to it.
 
-## Richtlijnen
+## Guidelines
 
-### Zo gebruiken
+### How to Use
 
-- Maximaal 1 markering per pagina.
-  De voorkeur is geen markering.
-- Maximaal 1 zin.
+- Use a maximum of 1 highlighting per page.
+- Limit the highlighted text to a maximum of 1 sentence.
 
-### Dit vermijden
+### Avoid This
 
-- Niet in de titel en subtitels gebruiken.
-  Zorg voor een belangrijke, pakkende titel als de hele paragraaf belangrijk is.
-- Mag niet voor een hele paragraaf gebruikt worden.
+- Do not use it in titles and subtitles.
+- Ensure a significant, engaging title if the entire paragraph is important.
+- Do not highlight an entire paragraph.

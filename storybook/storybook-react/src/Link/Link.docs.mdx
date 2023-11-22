@@ -10,26 +10,29 @@ import README from "../../../../packages/css/src/components/link/README.md?raw";
 
 <Controls />
 
-## Stories
+## Examples
 
-### Standalone
+### Standalone Links
 
-Op zichzelf staande koppelingen staan direct na inhoud. Ze mogen niet in zinnen of alinea's worden gebruikt. Ze hebben nooit een icoon.
+Place standalone links directly after a piece of content.
+Don’t use them in sentences or paragraphs.
+They should never have an associated icon.
 
 <Canvas of={LinkStories.Standalone} />
 
-### Inline
+### Inline Links
 
-Inline koppelingen worden gebruikt in zinnen of alinea's met tekst.
-Aan inline koppelingen mag een 16 px icoon toegevoegd worden. Die staat achter de koppeling.
-Gebruik geen overdaad aan inline-links op dezelfde pagina. Het verwart de gebruiker.
+Use inline links within sentences or paragraphs of text.
+An icon can be added to inline links, positioned after the link.
+Don’t use too many inline links on the same page, as it may confuse the user.
 
 <Canvas of={LinkStories.Inline} />
 
-### In List
+### Links in Lists
 
-Voor lijsten van koppelingen staan chevrons. De chevrons kunnen vervangen worden door andere iconen binnen een categorie.
-Een combinatie van chevrons en iconen binnen een categorie is niet toegestaan.
+Use chevrons for lists of links.
+Chevrons can be replaced by other icons within a category.
+However, a combination of chevrons and icons within a category is not allowed.
 
 <Canvas of={LinkStories.InList} />
 

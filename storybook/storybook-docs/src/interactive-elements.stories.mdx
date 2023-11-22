@@ -1,73 +1,84 @@
 import { Meta } from "@storybook/blocks";
 
-<Meta title="Docs/Designrichtlijnen/Interactieve elementen" />
+<Meta title="Docs/Design Guidelines/Interactive Elements" />
 
-# Interactieve elementen
+# Interactive elements
 
-Hiermee bedoelen we elementen waarmee de gebruiker kan interacteren, zoals links, knoppen en formuliervelden. Ze moeten duidelijk herkenbaar zijn en gemakkelijk te onderscheiden van niet-interactieve elementen. Je moet ze op alle gangbare manieren kunnen bedienen, zoals met een muis, toetsenbord en touchscreen.
+By this, we mean elements with which the user can interact, such as links, buttons and form fields.
+They must be clearly recognisable and easily distinguishable from non-interactive elements.
+Users must be able to operate them in various ways, such as with a mouse, keyboard and touchscreen.
 
-## Tekst
+## Text
 
-Gebruikers moeten kunnen voorspellen wat er gebeurt als je een interactief element activeert. Ook zonder de zinnen er omheen te lezen.
+The result of activating an interactive element must be predictable, even without reading the surrounding text.
 
-Gebruik geen algemene fragmenten voor links, zoals “klik hier” of “lees meer”. Dit is vervelend voor gebruikers van schermlezers die tussen links navigeren. Ook is het niet optimaal voor zoekmachines.
+Don’t use generic text fragments like “Click here” or “Read more” for the link’s label.
+A more meaningful text helps sighted users scan the page, and screen reader users navigate between links.
+It’s also beneficial to search engines.
 
-### Relevante WCAG eisen:
+### Relevant WCAG requirements:
 
-- [WCAG 2.4.4](https://www.w3.org/TR/WCAG22/#link-purpose-in-context): het is voor gebruikers duidelijk wat het betekent om op een link te klikken
-- [WCAG 2.4.6](https://www.w3.org/TR/WCAG22/#headings-and-labels): gebruik een label om interactieve elementen te beschrijven
-- [WCAG 2.5.3](https://www.w3.org/TR/WCAG22/#label-in-name): de toegankelijke naam van een element moet in ieder geval de zichtbare tekst van het element bevatten
+- [WCAG 2.4.4](https://www.w3.org/TR/WCAG22/#link-purpose-in-context): it is clear to users what it means to click on a link
+- [WCAG 2.4.6](https://www.w3.org/TR/WCAG22/#headings-and-labels): use a label to describe interactive elements
+- [WCAG 2.5.3](https://www.w3.org/TR/WCAG22/#label-in-name): the accessible name of an element must contain at least the visible text of the element
 
-## Kleur
+## Colour
 
-Om aan te geven dat een element interactief is gebruiken we de kleur blauw. Zo zijn inline links blauw en de primaire knop ook. Bij hover wordt dit donkerblauw.
+To indicate that an element is interactive, we use the colour blue.
+For example, inline links and the primary button are blue.
+On hover, this becomes dark blue.
 
-Voor interactieve elementen die onderdeel zijn van een foutmelding gebruiken we rood, en donkerrood voor hover.
+We use red for interactive elements that are part of an error message.
 
-Kleur mag niet de enige indicator van interactiviteit zijn, zodat mensen die moeite hebben met het waarnemen van verschillen in kleur toch kunnen zien dat een element interactief is.
+Colour should not be the only indicator of interactivity so that people with difficulty perceiving colour differences can still see that an element is interactive.
 
-### Relevante WCAG eisen:
+### Relevant WCAG requirements:
 
-- [WCAG 1.4.1](https://www.w3.org/TR/WCAG22/#use-of-color): kleur mag niet de enige manier zijn waarop je aangeeft dat iets interactief is
-- [WCAG 1.4.3](https://www.w3.org/TR/WCAG21/#contrast-minimum): tekst heeft voldoende contrast met de achtergrond
+- [WCAG 1.4.1](https://www.w3.org/TR/WCAG22/#use-of-color): color should not be the only way to indicate that something is interactive
+- [WCAG 1.4.3](https://www.w3.org/TR/WCAG21/#contrast-minimum): text has sufficient contrast with the background
 
-## Formaat
+## Format
 
-Interactieve elementen zijn minstens 24 bij 24 pixels groot, zodat ze makkelijk te gebruiken zijn voor een grote groep gebruikers.
+Interactive elements are at least 24 by 24 pixels in size, so they are easy to use for a large group of users.
 
-### Relevante WCAG eisen:
+### Relevant WCAG requirements:
 
-- [WCAG 2.5.8](https://w3c.github.io/wcag/guidelines/22/#target-size-minimum): interactieve elementen zijn minstens 24 bij 24 pixels groot
+- [WCAG 2.5.8](https://w3c.github.io/wcag/guidelines/22/#target-size-minimum): interactive elements are at least 24 by 24 pixels in size
 
 ## Focus indicator
 
-Wij gebruiken grotendeels de standaard focus indicator van de webbrowsers. De enige aanpassing die we doen is de focus `outline` een `offset` geven van 2 pixels, zodat er ruimte zit tussen het element en de focus indicator. Hierdoor heeft de focus indicator ook voldoende contrast met donkere elementen.
+We use the standard focus indicator of the web browsers.
+We only adjust the ‘focus outline’ with an ‘offset’ of 2 pixels to increase contrast with dark elements.
 
-Let op bij het inrichten van een pagina dat de interactieve elementen in een logische volgorde staan, meestal van boven naar beneden en van links naar rechts. Hierdoor krijg je een logische focus / tabbing order.
+When setting up a page, ensure that the interactive elements are in a logical order, usually from top to bottom and from left to right.
 
-### Relevante WCAG eisen
+### Relevant WCAG requirements
 
-- [WCAG 2.4.3](https://www.w3.org/TR/WCAG22/#focus-order): interactieve elementen hebben een logische focus / tabbing order
-- [WCAG 2.4.7](https://www.w3.org/TR/WCAG22/#focus-visible): de focus indicator is zichtbaar
-- [WCAG 2.4.11](https://www.w3.org/TR/WCAG22/#focus-not-obscured-minimum): de focus indicator wordt niet volledig verborgen door content
-- [WCAG 2.4.12](https://www.w3.org/TR/WCAG22/#focus-not-obscured-enhanced): de focus indicator wordt niet deels verborgen door content
-- [WCAG 2.4.13](https://www.w3.org/TR/WCAG22/#focus-appearance): de focus indicator is minimaal 2 pixels breed en heeft voldoende contrast met het element dat focus heeft
+- [WCAG 2.4.3](https://www.w3.org/TR/WCAG22/#focus-order): interactive elements have a logical focus / tabbing order
+- [WCAG 2.4.7](https://www.w3.org/TR/WCAG22/#focus-visible): the focus indicator is visible
+- [WCAG 2.4.11](https://www.w3.org/TR/WCAG22/#focus-not-obscured-minimum): the focus indicator is not completely hidden by content
+- [WCAG 2.4.12](https://www.w3.org/TR/WCAG22/#focus-not-obscured-enhanced): the focus indicator is not partially hidden by content
+- [WCAG 2.4.13](https://www.w3.org/TR/WCAG22/#focus-appearance): the focus indicator is at least 2 pixels wide and has sufficient contrast with the element that has focus
 
 ## Hover
 
-Hover en focus hebben verschillende, niet overlappende stijlen. Als toetsenbordgebruiker is het belangrijk dat je weet welk element je activeert. Als de hover-variant (bijna) hetzelfde is als de focus-variant, dan weet je niet zeker welk element je zult activeren.
+Hover and focus have different, non-overlapping styles.
+As a keyboard user, you must know which element you are activating.
+A focus style sufficiently different from the hover visualisation helps achieve that goal.
 
-We gebruiken de cursor hand `pointer` bij hover op alle interactieve elementen die geen eigen cursor stijl hebben (zoals tekstvakken). Oorspronkelijk was `pointer` alleen bedoeld voor links, maar wij vinden dat de associatie van `pointer` met interactiviteit zo sterk is dat we deze cursor vaker gebruiken.
+We use the cursor hand `pointer` on hover on all interactive elements without cursor style (such as text boxes).
+Originally, `pointer` was only intended for links, but we consider the association of `pointer` with interactivity to be so strong that we use this cursor more often.
 
-Gebruik het `title` attribuut niet. Interactieve elementen met het `title` attribuut kunnen een tooltip tonen die over de tekst heen staat, waardoor het minder leesbaar is.
+Do not use the `title` attribute.
+Interactive elements with the `title` attribute may show a tooltip overlaying the text, making it less readable.
 
-### Referenties
+### References
 
-- [Documentatie van Utrecht over focus en hover](https://nl-design-system.github.io/utrecht/storybook/?path=/docs/css-link--docs)
-- [Specificatie van cursor pointer.](https://www.w3.org/TR/css-ui-4/#valdef-cursor-pointer) Hierin staat dat je pointer moet gebruiken voor links, en mag gebruiken voor andere interactieve elementen
+- [Utrecht documentation on focus and hover](https://nl-design-system.github.io/utrecht/storybook/?path=/docs/css-link--docs)
+- [Specification of cursor pointer.](https://www.w3.org/TR/css-ui-4/#valdef-cursor-pointer) States that you should use a pointer for links and may use it for other interactive elements
 
-## Dubbelklikken
+## Double click
 
-[Sommige gebruikers zijn gewend om te dubbelklikken op interactieve elementen.](https://design-system.service.gov.uk/components/button/#stop-users-from-accidentally-sending-information-more-than-once) Zorg ervoor dat dit niet tot problemen leidt, bijvoorbeeld door een loading state te gebruiken en / of op de server te controleren of data niet vaker is verzonden.
+[Some users tend to double-click interactive elements.](https://design-system.service.gov.uk/components/button/#stop-users-from-accidentally-sending-information-more-than-once) Make sure that this does not lead to problems, for example, by using a loading state and letting the server verify it only uses one instance of the data.
 
-Om ervoor te zorgen dat je niet per ongeluk inzoomt op apparaten die double tap zoom ondersteunen, gebruiken we de CSS regel ` touch-action: manipulation` op alle interactieve elementen.
+We use the CSS rule `touch-action: manipulation` on all interactive elements to prevent devices from unintentionally zooming in and out when clicking or tapping twice.
