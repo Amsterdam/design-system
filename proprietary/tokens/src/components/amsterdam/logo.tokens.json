@@ -1,0 +1,10 @@
+{
+  "amsterdam": {
+    "logo": {
+      "height": { "value": "2.5rem" },
+      "emblem": { "color": { "value": "{amsterdam.color.primary-red}" } },
+      "title": { "color": { "value": "{amsterdam.color.primary-red}" } },
+      "subsite": { "color": { "value": "{amsterdam.color.primary-black}" } }
+    }
+  }
+}
