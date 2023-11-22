@@ -1,52 +1,72 @@
 /* stylelint-disable */
 
-.sbdocs-content > :is(h1, h2, h3, h4, h5, h6, p, li) {
-  color: #000000;
-  font-family: "Amsterdam Sans", Arial, sans-serif;
+.sbdocs-content > :is(h1, h2, h3, h4, h5, h6, p),
+.sbdocs-content > div > :is(h1, h2, h3, h4, h5, h6, p),
+.sbdocs-content :where(li:not(.sb-anchor, .sb-unstyled, .sb-unstyled li)) {
+  color: #000000 !important;
+  font-family: "Amsterdam Sans", Arial, sans-serif !important;
 }
 
-.sbdocs-content > :is(p, li, a),
-.sbdocs-content > :is(ol, ul) li {
-  font-size: 1rem;
-  line-height: 1.75;
+.sbdocs-content > :is(p, a),
+.sbdocs-content > div > :is(p, a),
+.sbdocs-content :where(li:not(.sb-anchor, .sb-unstyled, .sb-unstyled li)) {
+  font-size: 1.125rem !important;
+  line-height: 1.75 !important;
 }
 
-.sbdocs-content > h1 + p {
-  font-size: 1.25rem;
+.sbdocs-content > :is(p, ol, ul),
+.sbdocs-content > div > :is(p, ol, ul) {
+  margin-block: 1.25rem !important;
+  padding-block: 0 !important;
 }
 
-.sbdocs-content > a {
-  color: #004699;
-  text-decoration: underline;
+.sbdocs-content > h1 + p,
+.sbdocs-content > div > h1 + p {
+  font-size: 1.375rem !important;
+  margin-block-end: 2em !important;
 }
 
-.sbdocs-content > a:hover {
-  color: #102e62;
-  text-decoration-thickness: 2px;
+.sbdocs-content > a,
+.sbdocs-content > div > a {
+  color: #004699 !important;
+  text-decoration: underline !important;
 }
 
-.sbdocs-content > :is(h1, h2, h3, h4, h5, h6, p, ul, ol) {
-  margin-block: 1rem 0.25rem !important;
-  padding-block: 0;
+.sbdocs-content > a:hover,
+.sbdocs-content > div > a:hover {
+  color: #102e62 !important;
+  text-decoration-thickness: 2px !important;
 }
 
-.sbdocs-content > h1 {
-  margin-block: 2rem !important;
+.sbdocs-content > :is(h1, h2, h3, h4, h5, h6),
+.sbdocs-content > div > :is(h1, h2, h3, h4, h5, h6) {
+  margin-block: 1em 0.5em !important;
+  padding-block: 0 !important;
 }
 
-.sbdocs-content > h2 {
-  margin-block: 2rem 1rem !important;
+.sbdocs-content > h1,
+.sbdocs-content > div > h1 {
+  font-size: 2rem !important;
+  margin-block: 0 1.5em !important;
 }
 
-.sbdocs-content > h3 {
-  margin-block-start: 1.5rem !important;
+.sbdocs-content > h2,
+.sbdocs-content > div > h2 {
+  font-size: 1.75rem !important;
 }
 
-.sbdocs-content > h4 {
-  margin-block-start: 1rem !important;
+.sbdocs-content > h3,
+.sbdocs-content > div > h3 {
+  font-size: 1.375rem !important;
 }
 
-.sbdocs-content > :is(p, ul, ol) {
+.sbdocs-content > h4,
+.sbdocs-content > div > h4 {
+  font-size: 1.125rem !important;
+}
+
+.sbdocs-content > :is(p, ul, ol),
+.sbdocs-content > div > :is(p, ul, ol) {
   margin-block: 0 1rem !important;
 }
 
