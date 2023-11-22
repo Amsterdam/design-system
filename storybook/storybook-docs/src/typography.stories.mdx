@@ -23,53 +23,106 @@ Deze zin demonstreert alle letters van het Latijnse alfabet en cijfers in de Ams
 
 ## Tekstgrootte
 
-De grootte van de tekst is afhankelijk van de breedte van het venster.
-Hiermee zorgen we ervoor dat tekst op schermen van alle afmetingen prettig leesbaar is.
+### Acht tekstniveau’s
 
 Er zijn 8 niveaus van tekstgrootte en bijbehorende regelhoogte.
-Alle typografische componenten maken er gebruik van.
-Dit overzicht toont de maximale tekstgrootte voor elk niveau.
+Elk typografisch element zit op 1 zo’n niveau: titel, paragraaf, link, citaat, formuliertekst, enzovoort.
+Ze zijn genummerd van 0 tot en met 7 – zo komen ze voor de diverse titels mooi overeen.
+Voorbeelden:
+
+<ol start={0}>
+  <li>Page heading</li>
+  <li>Heading 1</li>
+  <li>Heading 2</li>
+  <li>Heading 3, Blockquote</li>
+  <li>Heading 4, Top Task Link Title</li>
+  <li>Large Paragraph, Alert Title</li>
+  <li>Paragraph, Button</li>
+  <li>Small Paragraph, Link List, Form Label, Top Task Link Description, Breadcrumb</li>
+</ol>
+
+### Responsive
+
+De grootte van de tekst is afhankelijk van de breedte van het venster.
+Hiermee zorgen we ervoor dat het op schermen van alle afmetingen prettig lezen is.
+Ook werkt dat goed samen met het fluïde [grid](?path=/docs/react_layout-grid--docs).
+
+Tekst begint met groeien bij een vensterbreedte van 320 pixels.
+Daaronder wordt het niet kleiner.
+
+Het groeien stopt bij een vensterbreedte van 1440 pixels –
+dat is de vensterbreedte van 1600 pixels min de horizontale marge van 2 × 84 pixels.
+
+Zo heeft elk niveau een minimale en een maximale tekstgrootte.
+Daartussen groeit die in een rechte lijn.
+
+### Typografische schaal
+
+De typografische schaal is gebaseerd op een factor van 5 ÷ 4 = 1,25.
+Voor elk naastliggende niveau is de tekst dus zo veel keer groter of kleiner.
+
+Bij de minimale vensterbreedte groeit de tekstgrootte voor de niveau’s 0 tot en met 4 langzamer, met een factor van 9 ÷ 8 = 1,125.
+Zo worden titels niet te groot op telefoons en andere smalle vensters.
+
+De getallen die uit deze systematiek rollen zijn niet afgerond op ronde getallen.
+
+### Twee thema’s voor websites en applicaties
+
+#### Ruimtelijk
+
+Voor websites is de typografie behoorlijk ruimtelijk.
+Zo is de huisstijl ontworpen.
+
+Een standaard paragraaf is 16 pixels groot bij een vensterbreedte van 320 pixels.
+In een venster van 1600 pixels breed is dat de helft meer: 24 pixels.
+
+De maximale tekstgroottes voor alle niveau’s in het ruimtelijke thema:
 
 <Typeset
   fontFamily="Amsterdam Sans, Arial, sans-serif"
-  fontSizes={[80, 56, 40, 32, 28, 25, 22, 18]}
+  fontSizes={[73.2, 58.6, 46.9, 37.5, 30.0, 30.0, 24.0, 19.2]}
   fontWeight={400}
   sampleText="Jouw typograaf biedt mij zulke exquise schreven"
 />
 
-Elk tekstniveau heeft een minimale tekstgrootte (bij een vensterbreedte van 320 pixels) en een maximale (bij 1440 pixels).
-Tussen beide stijgt de tekst linear, met een knik op een extra breakpoint van 854 pixels.
-Eerst stijgt de grootte sneller, daarna langzamer.
+#### Compact
 
-Op dit moment reageert de typografie nog op 1 breakpoint bij een vensterbreedte van 854 pixels.
-Nu het grid doorontwikkeld is, stemmen we de typografie daar weer op af.
-Dit aparte breakpoint komt dus snel te vervallen.
+Voor applicaties is zulke grote tekst niet nodig, zelfs contraproductief.
+Daarom is er een compact thema voor de typografie.
 
-In de tabel hieronder vind je deze waardes in pixels:
+Hier is een paragraaf 14 pixels groot bij de minimale vensterbreedte en 18 pixels bij de maximale.
+Een paragraaf groeit hier dus niet met de helft, maar met iets meer dan een kwart.
 
-| Niveau                     |   0 |   1 |   2 |   3 |   4 |   5 |   6 |   7 |
-| :------------------------- | --: | --: | --: | --: | --: | --: | --: | --: |
-| minimale tekstgrootte      |  32 |  32 |  28 |  24 |  20 |  22 |  18 |  16 |
-| tekstgrootte op breakpoint |  64 |  48 |  36 |  29 |  23 |  26 |  21 |  17 |
-| maximale tekstgrootte      |  80 |  56 |  40 |  32 |  25 |  28 |  22 |  18 |
-| relatieve regelhoogte      | 1.1 | 1.2 | 1.3 | 1.4 | 1.4 | 1.5 | 1.6 | 1.6 |
+De maximale tekstgroottes voor alle niveau’s in het compacte thema:
 
-Tekst op niveau 5 is groter dan op niveau 4.
-Dat is omdat titel niveau 4 kleinere letters heeft dan paragrafen met grote letters.
-Het alternatief om Heading 4 tekstniveau 5 te geven leek ons nog verwarrender.
+<Typeset
+  fontFamily="Amsterdam Sans, Arial, sans-serif"
+  fontSizes={[54.9, 43.9, 35.2, 28.1, 22.5, 22.5, 18.0, 14.4]}
+  fontWeight={400}
+  sampleText="Jouw typograaf biedt mij zulke exquise schreven"
+/>
 
-Voorbeelden van componenten en hun tekstniveaus:
+### Referentie-breedtes voor ontwerpers
 
-| Componenten                                          | Niveau |
-| :--------------------------------------------------- | -----: |
-| Page heading                                         |      0 |
-| Heading 1                                            |      1 |
-| Heading 2                                            |      2 |
-| Heading 3, Blockquote                                |      3 |
-| Heading 4, Top Task Link                             |      4 |
-| Large Paragraph, Alert Title                         |      5 |
-| Paragraph, Button, Link behalve InList               |      6 |
-| Small Paragraph, InList Link, Form Label, Breadcrumb |      7 |
+In Figma werken we met drie referentie-breedtes.
+Op die breedtes werken we het ontwerp van een scherm uit voor die drie klassen van apparaten.
+Op deze breedtes is de maatvoering als volgt, afgerond op 1 cijfer achter de komma.
+
+#### Ruimtelijk
+
+| Klasse apparaat | Referentie-breedte |    0 |    1 |    2 |    3 |    4 |    5 |    6 |    7 |
+| :-------------- | :----------------- | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
+| telefoon        | 320                | 28,8 | 25,6 | 22,8 | 20,3 |   18 |   20 |   16 | 12,8 |
+| tablet          | 832                | 49,3 | 40,8 | 33,9 | 28,2 | 23,5 | 24,6 | 19,7 | 15,7 |
+| desktop         | 1600               | 73,2 | 58,6 | 46,9 | 37,5 |   30 |   30 |   24 | 19,2 |
+
+#### Compact
+
+| Klasse apparaat | Referentie-breedte |    0 |    1 |    2 |    3 |    4 |    5 |    6 |    7 |
+| :-------------- | :----------------- | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
+| telefoon        | 320                | 25,2 | 22,4 | 19,9 | 17,7 | 15,8 | 17,5 | 14,0 | 11,2 |
+| tablet          | 832                | 38,8 | 32,3 | 26,9 | 22,5 | 18,9 | 19,8 | 15,8 | 12,7 |
+| desktop         | 1600               | 54,9 | 43,9 | 35,2 | 28,1 | 22,5 | 22,5 | 18,0 | 14,4 |
 
 ## Accentuering
 
@@ -179,7 +232,13 @@ Werk je met andere technologie, maar wel met npm, dan installeer je `@amsterdam/
 
 Ook kun je het lettertype zelf hosten en opnemen in je applicatie, vraag het dan aan via het formulier hieronder.
 Als het helemaal niet mogelijk is Amsterdam Sans te gebruiken pas je het lettertype Arial toe, of het generieke sans-serif lettertype van het apparaat.
-In alle gevallen voer je die alternatieven op voor als het downloaden van het font voor de gebruiker niet lukt, of terwijl dat bezig is: `font-family: "'Amsterdam Sans', Arial, sans-serif"`.
+In alle gevallen voer je die alternatieven op voor als het downloaden van het font voor de gebruiker niet lukt, of terwijl dat bezig is:
+
+```css
+.class {
+  font-family: "Amsterdam Sans", Arial, sans-serif;
+}
+```
 
 ### Licentie en aanvraag
 
