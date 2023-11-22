@@ -1,0 +1,92 @@
+/**
+ * @license EUPL-1.2+
+ * Copyright (c) 2023 Gemeente Amsterdam
+ */
+
+@import "../../utils/breakpoint";
+
+.amsterdam-dialog {
+  background-color: var(--amsterdam-dialog-background-color);
+  border: var(--amsterdam-dialog-border);
+  inset: 0;
+  max-inline-size: var(--amsterdam-dialog-max-inline-size);
+  padding-block: 0;
+  padding-inline: 0;
+  position: fixed;
+
+  /* no token because dialog does not inherit from any element */
+  &::backdrop {
+    background: #0006;
+  }
+}
+
+.amsterdam-dialog__form {
+  display: grid;
+  gap: var(--amsterdam-dialog-form-gap);
+  grid-template-rows: auto 1fr auto;
+  max-block-size: var(--amsterdam-dialog-form-max-block-size);
+  padding-block: var(--amsterdam-dialog-form-padding-block);
+  padding-inline: var(--amsterdam-dialog-form-padding-inline);
+}
+
+.amsterdam-dialog__article {
+  display: grid;
+  gap: 1.5rem; /* Until we have a consistent way of spacing text elements */
+  max-block-size: 100%; /* safari */
+  overflow-y: auto;
+  overscroll-behavior-y: contain;
+  padding-inline-end: var(--amsterdam-dialog-article-padding-inline-end);
+}
+
+.amsterdam-dialog__header {
+  align-items: flex-start;
+  display: flex;
+  gap: var(--amsterdam-dialog-header-gap);
+}
+
+@mixin reset {
+  -webkit-text-size-adjust: 100%;
+}
+
+.amsterdam-dialog__title {
+  color: var(--amsterdam-dialog-title-color);
+  flex: auto;
+  font-family: var(--amsterdam-dialog-title-font-family);
+  font-size: var(--amsterdam-dialog-title-narrow-font-size);
+  font-weight: var(--amsterdam-dialog-title-font-weight);
+  line-height: var(--amsterdam-dialog-title-line-height);
+
+  @media screen and (min-width: $amsterdam-breakpoint-typography) {
+    font-size: var(--amsterdam-dialog-title-wide-font-size);
+  }
+
+  @include reset;
+}
+
+.amsterdam-dialog__footer {
+  display: flex;
+  flex-direction: column;
+  grid-gap: var(--amsterdam-dialog-footer-gap);
+  padding-block: var(--amsterdam-dialog-footer-padding-block);
+
+  @media screen and (min-width: $amsterdam-breakpoint-medium) {
+    flex-direction: row;
+    justify-content: end;
+  }
+}
+
+.amsterdam-dialog__close {
+  background-color: var(--amsterdam-dialog-close-background-color);
+  border: 0;
+  cursor: pointer;
+  padding-block: 0;
+  padding-inline: 0;
+}
+
+.amsterdam-dialog__close svg {
+  fill: var(--amsterdam-dialog-close-fill);
+}
+
+.amsterdam-dialog__close:hover svg {
+  fill: var(--amsterdam-dialog-close-hover-fill);
+}

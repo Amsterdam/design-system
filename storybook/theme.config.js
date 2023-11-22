@@ -1,4 +1,4 @@
-import Logo from '../proprietary/assets/Logo.svg'
+import Logo from '../proprietary/assets/logo/amsterdam.svg'
 import '../proprietary/assets/font/index.css'
 
 const themeConfig = {
