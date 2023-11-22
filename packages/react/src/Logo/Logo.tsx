@@ -4,7 +4,7 @@
  */
 
 import clsx from 'clsx'
-import { ForwardedRef, forwardRef, HTMLAttributes } from 'react'
+import { ForwardedRef, forwardRef, FunctionComponent, SVGProps } from 'react'
 import {
   LogoAmsterdam,
   LogoGgdAmsterdam,
@@ -15,11 +15,11 @@ import {
 
 type LogoBrand = 'amsterdam' | 'ggd-amsterdam' | 'stadsarchief' | 'stadsbank-van-lening' | 'vga-verzekeringen'
 
-export interface LogoProps extends HTMLAttributes<HTMLElement> {
+export interface LogoProps extends SVGProps<SVGSVGElement> {
   brand?: LogoBrand
 }
 
-const logoConfig: Record<LogoBrand, Function> = {
+const logoConfig: Record<LogoBrand, FunctionComponent<SVGProps<SVGSVGElement>>> = {
   amsterdam: LogoAmsterdam,
   'ggd-amsterdam': LogoGgdAmsterdam,
   stadsarchief: LogoStadsarchief,
@@ -28,14 +28,10 @@ const logoConfig: Record<LogoBrand, Function> = {
 }
 
 export const Logo = forwardRef(
-  ({ brand = 'amsterdam', className, ...restProps }: LogoProps, ref: ForwardedRef<HTMLElement>) => {
+  ({ brand = 'amsterdam', className, ...restProps }: LogoProps, ref: ForwardedRef<SVGSVGElement>) => {
     const LogoComponent = logoConfig[brand]
 
-    return (
-      <span {...restProps} ref={ref} className={clsx('amsterdam-logo', className)}>
-        {LogoComponent()}
-      </span>
-    )
+    return <LogoComponent {...restProps} ref={ref} className={clsx('amsterdam-logo', className)} />
   },
 )
 

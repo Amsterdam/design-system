@@ -4,13 +4,13 @@
  */
 
 .amsterdam-logo {
-  display: inline-block;
+  // display: inline-block;
+  height: var(--amsterdam-logo-height);
 }
 
-.amsterdam-logo__image {
-  height: var(--amsterdam-logo-height);
-  vertical-align: middle;
-}
+// .amsterdam-logo__image {
+//   vertical-align: middle;
+// }
 
 .amsterdam-logo__emblem path {
   fill: var(--amsterdam-logo-emblem-color);
