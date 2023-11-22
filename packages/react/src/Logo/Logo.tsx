@@ -4,7 +4,7 @@
  */
 
 import clsx from 'clsx'
-import { ForwardedRef, forwardRef, FunctionComponent, SVGProps } from 'react'
+import { ForwardedRef, forwardRef, ForwardRefExoticComponent, RefAttributes, SVGProps } from 'react'
 import {
   LogoAmsterdam,
   LogoGgdAmsterdam,
@@ -19,7 +19,10 @@ export interface LogoProps extends SVGProps<SVGSVGElement> {
   brand?: LogoBrand
 }
 
-const logoConfig: Record<LogoBrand, FunctionComponent<SVGProps<SVGSVGElement>>> = {
+const logoConfig: Record<
+  LogoBrand,
+  ForwardRefExoticComponent<SVGProps<SVGSVGElement> & RefAttributes<SVGSVGElement>>
+> = {
   amsterdam: LogoAmsterdam,
   'ggd-amsterdam': LogoGgdAmsterdam,
   stadsarchief: LogoStadsarchief,

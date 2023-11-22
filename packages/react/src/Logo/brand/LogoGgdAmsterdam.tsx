@@ -1,10 +1,11 @@
-import type { SVGProps } from 'react'
+import { ForwardedRef, forwardRef, type SVGProps } from 'react'
 
-const LogoGgdAmsterdam = (props: SVGProps<SVGSVGElement>) => (
+const LogoGgdAmsterdam = forwardRef((props: SVGProps<SVGSVGElement>, ref: ForwardedRef<SVGSVGElement>) => (
   <svg
     className="amsterdam-logo"
     aria-hidden="true"
     focusable="false"
+    ref={ref}
     viewBox="0 0 115 40"
     xmlns="http://www.w3.org/2000/svg"
     {...props}
@@ -25,6 +26,8 @@ const LogoGgdAmsterdam = (props: SVGProps<SVGSVGElement>) => (
       d="M16.436 8.581c0-3.752 2.629-6.4 6.343-6.4 1.886 0 3.466.61 4.59 1.829L25.732 5.57c-.705-.78-1.715-1.238-2.915-1.238-2.248 0-3.81 1.752-3.81 4.248 0 2.496 1.524 4.324 3.714 4.324 2 0 3.392-1.143 3.392-2.8v-.323h-2.99V7.705h5.505V9.63c0 3.162-2.458 5.39-5.982 5.39s-6.21-2.666-6.21-6.438ZM30.34 8.581c0-3.752 2.63-6.4 6.344-6.4 1.886 0 3.467.61 4.59 1.829L39.638 5.57c-.705-.78-1.715-1.238-2.915-1.238-2.248 0-3.81 1.752-3.81 4.248 0 2.496 1.524 4.324 3.715 4.324 2 0 3.39-1.143 3.39-2.8v-.323h-2.99V7.705h5.506V9.63c0 3.162-2.458 5.39-5.982 5.39s-6.21-2.666-6.21-6.438ZM44.836 2.41h4.61c3.809 0 6.343 2.476 6.343 6.19 0 3.714-2.59 6.19-6.363 6.19h-4.59V2.41Zm4.419 10.229c2.38 0 3.942-1.543 3.942-4.02 0-2.475-1.524-4.057-3.923-4.057H47.35v8.077h1.905Z"
     />
   </svg>
-)
+))
+
+LogoGgdAmsterdam.displayName = 'LogoGgdAmsterdam'
 
 export default LogoGgdAmsterdam
