@@ -1,0 +1,5 @@
+export { default as LogoAmsterdam } from './LogoAmsterdam'
+export { default as LogoGgdAmsterdam } from './LogoGgdAmsterdam'
+export { default as LogoStadsarchief } from './LogoStadsarchief'
+export { default as LogoStadsbankVanLening } from './LogoStadsbankVanLening'
+export { default as LogoVgaVerzekeringen } from './LogoVgaVerzekeringen'

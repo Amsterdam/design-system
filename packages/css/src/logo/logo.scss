@@ -1,0 +1,20 @@
+/**
+ * @license EUPL-1.2+
+ * Copyright (c) 2023 Gemeente Amsterdam
+ */
+
+.amsterdam-logo {
+  height: var(--amsterdam-logo-height);
+}
+
+.amsterdam-logo__emblem {
+  fill: var(--amsterdam-logo-emblem-color);
+}
+
+.amsterdam-logo__text-primary {
+  fill: var(--amsterdam-logo-title-color);
+}
+
+.amsterdam-logo__text-secondary {
+  fill: var(--amsterdam-logo-subsite-color);
+}
