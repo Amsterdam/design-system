@@ -3,6 +3,57 @@
  * Copyright (c) 2023 Gemeente Amsterdam
  */
 
+@import "../../utils/breakpoint";
+
 .amsterdam-header {
-  /* Add styles here */
+  align-items: center;
+  background-color: white;
+
+  // column-gap: 2rem;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  padding-block: 0.88rem;
+  row-gap: 3rem;
+
+  &__column:first-child {
+    order: 1;
+  }
+
+  &__column:nth-child(2) {
+    flex: 1 1 100%;
+    order: 3;
+  }
+
+  &__column:nth-child(3) {
+    flex: 1 0 auto;
+    order: 2;
+  }
+
+  @media screen and (max-width: $amsterdam-breakpoint-medium) {
+    *[class*="page-menu__item"]:not([class$="--mobile"]) {
+      display: none;
+      visibility: hidden;
+    }
+  }
+
+  @media screen and (min-width: $amsterdam-breakpoint-wide) {
+    // column-gap: 8rem;
+    flex-wrap: nowrap;
+    row-gap: 4rem;
+
+    &__column:first-child {
+      flex: 1 1 auto;
+    }
+
+    &__column:nth-child(2) {
+      flex: 1 0 auto;
+      order: 2;
+      padding-inline: 64px;
+    }
+
+    &__column:nth-child(3) {
+      order: 3;
+    }
+  }
 }

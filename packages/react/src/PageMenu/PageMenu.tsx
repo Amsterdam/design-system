@@ -35,16 +35,18 @@ export const PageMenu = forwardRef(
 
 export interface PageMenuLinkProps extends PropsWithChildren<AnchorHTMLAttributes<HTMLAnchorElement>> {
   icon?: Function
+  showOnMobile?: boolean
 }
 
 export interface PageMenuButtonProps extends PropsWithChildren<ButtonHTMLAttributes<HTMLButtonElement>> {
   icon?: Function
+  showOnMobile?: boolean
 }
 
 const PageMenuLink = forwardRef(
-  ({ children, icon, ...restProps }: PageMenuLinkProps, ref: ForwardedRef<HTMLAnchorElement>) => {
+  ({ children, icon, showOnMobile, ...restProps }: PageMenuLinkProps, ref: ForwardedRef<HTMLAnchorElement>) => {
     return (
-      <li className="amsterdam-page-menu__item">
+      <li className={clsx('amsterdam-page-menu__item', showOnMobile && 'amsterdam-page-menu__link--mobile')}>
         <a {...restProps} ref={ref} className="amsterdam-page-menu__link">
           {children}
           {icon && <Icon svg={icon} size="level-7" />}
@@ -55,9 +57,9 @@ const PageMenuLink = forwardRef(
 )
 
 const PageMenuButton = forwardRef(
-  ({ children, icon, ...restProps }: PageMenuButtonProps, ref: ForwardedRef<HTMLButtonElement>) => {
+  ({ children, icon, showOnMobile, ...restProps }: PageMenuButtonProps, ref: ForwardedRef<HTMLButtonElement>) => {
     return (
-      <li className="amsterdam-page-menu__item">
+      <li className={clsx('amsterdam-page-menu__item', showOnMobile && 'amsterdam-page-menu__link--mobile')}>
         <button {...restProps} type="button" ref={ref} className="amsterdam-page-menu__button">
           {children}
           {icon && <Icon svg={icon} size="level-7" />}
