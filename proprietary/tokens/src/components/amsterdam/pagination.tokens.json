@@ -8,12 +8,13 @@
       "font-weight": {
         "value": "{amsterdam.typography.font-weight.normal}"
       },
-      "line-height": { "value": "{amsterdam.typography.text-level.6.line-height}" },
-      "narrow": {
-        "font-size": { "value": "{amsterdam.typography.text-level.6.narrow.font-size}" }
+      "density-high": {
+        "font-size": { "value": "{amsterdam.typography.density-high.text-level.6.font-size}" },
+        "line-height": { "value": "{amsterdam.typography.density-high.text-level.6.line-height}" }
       },
-      "wide": {
-        "font-size": { "value": "{amsterdam.typography.text-level.6.wide.font-size}" }
+      "density-low": {
+        "font-size": { "value": "{amsterdam.typography.density-low.text-level.6.font-size}" },
+        "line-height": { "value": "{amsterdam.typography.density-low.text-level.6.line-height}" }
       },
       "button": {
         "current": {

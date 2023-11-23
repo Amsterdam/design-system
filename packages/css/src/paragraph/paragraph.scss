@@ -17,16 +17,31 @@
   line-height: var(--amsterdam-paragraph-density-low-medium-line-height);
 
   @include reset;
+
+  .amsterdam-theme--density-high & {
+    font-size: var(--amsterdam-paragraph-density-high-medium-font-size);
+    line-height: var(--amsterdam-paragraph-density-high-medium-line-height);
+  }
 }
 
 .amsterdam-paragraph--small {
   font-size: var(--amsterdam-paragraph-density-low-small-font-size);
   line-height: var(--amsterdam-paragraph-density-low-small-line-height);
+
+  .amsterdam-theme--density-high & {
+    font-size: var(--amsterdam-paragraph-density-high-small-font-size);
+    line-height: var(--amsterdam-paragraph-density-high-small-line-height);
+  }
 }
 
 .amsterdam-paragraph--large {
   font-size: var(--amsterdam-paragraph-density-low-large-font-size);
   line-height: var(--amsterdam-paragraph-density-low-large-line-height);
+
+  .amsterdam-theme--density-high & {
+    font-size: var(--amsterdam-paragraph-density-high-large-font-size);
+    line-height: var(--amsterdam-paragraph-density-high-large-line-height);
+  }
 }
 
 .amsterdam-paragraph--inverse-color {

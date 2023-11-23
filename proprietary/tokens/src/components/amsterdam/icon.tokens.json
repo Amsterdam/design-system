@@ -1,40 +1,49 @@
 {
   "amsterdam": {
     "icon": {
-      "size-3": {
-        "icon-size": {
-          "narrow": { "value": "{amsterdam.typography.text-level.3.narrow.font-size}" },
-          "wide": { "value": "{amsterdam.typography.text-level.3.wide.font-size}" }
+      "density-high": {
+        "size-3": {
+          "font-size": { "value": "{amsterdam.typography.density-high.text-level.3.font-size}" },
+          "line-height": { "value": "{amsterdam.typography.density-high.text-level.3.line-height}" }
         },
-        "container-multiplier": { "value": "{amsterdam.typography.text-level.3.line-height}" }
+        "size-4": {
+          "font-size": { "value": "{amsterdam.typography.density-high.text-level.4.font-size}" },
+          "line-height": { "value": "{amsterdam.typography.density-high.text-level.4.line-height}" }
+        },
+        "size-5": {
+          "font-size": { "value": "{amsterdam.typography.density-high.text-level.5.font-size}" },
+          "line-height": { "value": "{amsterdam.typography.density-high.text-level.5.line-height}" }
+        },
+        "size-6": {
+          "font-size": { "value": "{amsterdam.typography.density-high.text-level.6.font-size}" },
+          "line-height": { "value": "{amsterdam.typography.density-high.text-level.6.line-height}" }
+        },
+        "size-7": {
+          "font-size": { "value": "{amsterdam.typography.density-high.text-level.7.font-size}" },
+          "line-height": { "value": "{amsterdam.typography.density-high.text-level.7.line-height}" }
+        }
       },
-      "size-4": {
-        "icon-size": {
-          "narrow": { "value": "{amsterdam.typography.text-level.4.narrow.font-size}" },
-          "wide": { "value": "{amsterdam.typography.text-level.4.wide.font-size}" }
+      "density-low": {
+        "size-3": {
+          "font-size": { "value": "{amsterdam.typography.density-low.text-level.3.font-size}" },
+          "line-height": { "value": "{amsterdam.typography.density-low.text-level.3.line-height}" }
         },
-        "container-multiplier": { "value": "{amsterdam.typography.text-level.4.line-height}" }
-      },
-      "size-5": {
-        "icon-size": {
-          "narrow": { "value": "{amsterdam.typography.text-level.5.narrow.font-size}" },
-          "wide": { "value": "{amsterdam.typography.text-level.5.wide.font-size}" }
+        "size-4": {
+          "font-size": { "value": "{amsterdam.typography.density-low.text-level.4.font-size}" },
+          "line-height": { "value": "{amsterdam.typography.density-low.text-level.4.line-height}" }
         },
-        "container-multiplier": { "value": "{amsterdam.typography.text-level.5.line-height}" }
-      },
-      "size-6": {
-        "icon-size": {
-          "narrow": { "value": "{amsterdam.typography.text-level.6.narrow.font-size}" },
-          "wide": { "value": "{amsterdam.typography.text-level.6.wide.font-size}" }
+        "size-5": {
+          "font-size": { "value": "{amsterdam.typography.density-low.text-level.5.font-size}" },
+          "line-height": { "value": "{amsterdam.typography.density-low.text-level.5.line-height}" }
         },
-        "container-multiplier": { "value": "{amsterdam.typography.text-level.6.line-height}" }
-      },
-      "size-7": {
-        "icon-size": {
-          "narrow": { "value": "{amsterdam.typography.text-level.7.narrow.font-size}" },
-          "wide": { "value": "{amsterdam.typography.text-level.7.wide.font-size}" }
+        "size-6": {
+          "font-size": { "value": "{amsterdam.typography.density-low.text-level.6.font-size}" },
+          "line-height": { "value": "{amsterdam.typography.density-low.text-level.6.line-height}" }
         },
-        "container-multiplier": { "value": "{amsterdam.typography.text-level.7.line-height}" }
+        "size-7": {
+          "font-size": { "value": "{amsterdam.typography.density-low.text-level.7.font-size}" },
+          "line-height": { "value": "{amsterdam.typography.density-low.text-level.7.line-height}" }
+        }
       }
     }
   }

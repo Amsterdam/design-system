@@ -7,70 +7,38 @@
       "inverse-color": { "value": "{amsterdam.color.primary-white}" },
       "density-high": {
         "level-1": {
-          "line-height": {
-            "value": "{amsterdam.typography.density-high.text-level.1.line-height}"
-          },
-          "font-size": {
-            "value": "{amsterdam.typography.density-high.text-level.1.font-size}"
-          }
+          "line-height": { "value": "{amsterdam.typography.density-high.text-level.1.line-height}" },
+          "font-size": { "value": "{amsterdam.typography.density-high.text-level.1.font-size}" }
         },
         "level-2": {
-          "line-height": {
-            "value": "{amsterdam.typography.density-high.text-level.2.line-height}"
-          },
-          "font-size": {
-            "value": "{amsterdam.typography.density-high.text-level.2.font-size}"
-          }
+          "line-height": { "value": "{amsterdam.typography.density-high.text-level.2.line-height}" },
+          "font-size": { "value": "{amsterdam.typography.density-high.text-level.2.font-size}" }
         },
         "level-3": {
-          "line-height": {
-            "value": "{amsterdam.typography.density-high.text-level.3.line-height}"
-          },
-          "font-size": {
-            "value": "{amsterdam.typography.density-high.text-level.3.font-size}"
-          }
+          "line-height": { "value": "{amsterdam.typography.density-high.text-level.3.line-height}" },
+          "font-size": { "value": "{amsterdam.typography.density-high.text-level.3.font-size}" }
         },
         "level-4": {
-          "line-height": {
-            "value": "{amsterdam.typography.density-high.text-level.4.line-height}"
-          },
-          "font-size": {
-            "value": "{amsterdam.typography.density-high.text-level.4.font-size}"
-          }
+          "line-height": { "value": "{amsterdam.typography.density-high.text-level.4.line-height}" },
+          "font-size": { "value": "{amsterdam.typography.density-high.text-level.4.font-size}" }
         }
       },
       "density-low": {
         "level-1": {
-          "line-height": {
-            "value": "{amsterdam.typography.density-low.text-level.1.line-height}"
-          },
-          "font-size": {
-            "value": "{amsterdam.typography.density-low.text-level.1.font-size}"
-          }
+          "line-height": { "value": "{amsterdam.typography.density-low.text-level.1.line-height}" },
+          "font-size": { "value": "{amsterdam.typography.density-low.text-level.1.font-size}" }
         },
         "level-2": {
-          "line-height": {
-            "value": "{amsterdam.typography.density-low.text-level.2.line-height}"
-          },
-          "font-size": {
-            "value": "{amsterdam.typography.density-low.text-level.2.font-size}"
-          }
+          "line-height": { "value": "{amsterdam.typography.density-low.text-level.2.line-height}" },
+          "font-size": { "value": "{amsterdam.typography.density-low.text-level.2.font-size}" }
         },
         "level-3": {
-          "line-height": {
-            "value": "{amsterdam.typography.density-low.text-level.3.line-height}"
-          },
-          "font-size": {
-            "value": "{amsterdam.typography.density-low.text-level.3.font-size}"
-          }
+          "line-height": { "value": "{amsterdam.typography.density-low.text-level.3.line-height}" },
+          "font-size": { "value": "{amsterdam.typography.density-low.text-level.3.font-size}" }
         },
         "level-4": {
-          "line-height": {
-            "value": "{amsterdam.typography.density-low.text-level.4.line-height}"
-          },
-          "font-size": {
-            "value": "{amsterdam.typography.density-low.text-level.4.font-size}"
-          }
+          "line-height": { "value": "{amsterdam.typography.density-low.text-level.4.line-height}" },
+          "font-size": { "value": "{amsterdam.typography.density-low.text-level.4.font-size}" }
         }
       }
     }

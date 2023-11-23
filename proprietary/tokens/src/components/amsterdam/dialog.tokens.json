@@ -8,12 +8,13 @@
         "color": { "value": "{amsterdam.color.primary-black}" },
         "font-family": { "value": "{amsterdam.typography.font-family}" },
         "font-weight": { "value": "{amsterdam.typography.font-weight.bold}" },
-        "line-height": { "value": "{amsterdam.typography.text-level.5.line-height}" },
-        "narrow": {
-          "font-size": { "value": "{amsterdam.typography.text-level.5.narrow.font-size}" }
+        "density-high": {
+          "font-size": { "value": "{amsterdam.typography.density-high.text-level.5.font-size}" },
+          "line-height": { "value": "{amsterdam.typography.density-high.text-level.5.line-height}" }
         },
-        "wide": {
-          "font-size": { "value": "{amsterdam.typography.text-level.5.wide.font-size}" }
+        "density-low": {
+          "font-size": { "value": "{amsterdam.typography.density-low.text-level.5.font-size}" },
+          "line-height": { "value": "{amsterdam.typography.density-low.text-level.5.line-height}" }
         }
       },
       "backdrop": {

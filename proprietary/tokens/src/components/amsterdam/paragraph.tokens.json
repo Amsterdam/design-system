@@ -22,22 +22,16 @@
       },
       "density-low": {
         "small": {
-          "font-size": {
-            "value": "{amsterdam.typography.density-low.text-level.7.font-size}",
-            "line-height": { "value": "{amsterdam.typography.density-low.text-level.7.line-height}" }
-          }
+          "font-size": { "value": "{amsterdam.typography.density-low.text-level.7.font-size}" },
+          "line-height": { "value": "{amsterdam.typography.density-low.text-level.7.line-height}" }
         },
         "medium": {
-          "font-size": {
-            "value": "{amsterdam.typography.density-low.text-level.6.font-size}",
-            "line-height": { "value": "{amsterdam.typography.density-low.text-level.6.line-height}" }
-          }
+          "font-size": { "value": "{amsterdam.typography.density-low.text-level.6.font-size}" },
+          "line-height": { "value": "{amsterdam.typography.density-low.text-level.6.line-height}" }
         },
         "large": {
-          "font-size": {
-            "value": "{amsterdam.typography.density-low.text-level.5.font-size}",
-            "line-height": { "value": "{amsterdam.typography.density-low.text-level.5.line-height}" }
-          }
+          "font-size": { "value": "{amsterdam.typography.density-low.text-level.5.font-size}" },
+          "line-height": { "value": "{amsterdam.typography.density-low.text-level.5.line-height}" }
         }
       }
     }

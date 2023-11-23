@@ -8,13 +8,14 @@
         "font-family": { "value": "{amsterdam.typography.font-family}" },
         "font-weight": { "value": "{amsterdam.typography.font-weight.normal}" },
         "gap": { "value": "0.5rem" },
-        "line-height": { "value": "{amsterdam.typography.text-level.7.line-height}" },
         "text-decoration": { "value": "none" },
-        "narrow": {
-          "font-size": { "value": "{amsterdam.typography.text-level.7.narrow.font-size}" }
+        "density-high": {
+          "font-size": { "value": "{amsterdam.typography.density-high.text-level.7.font-size}" },
+          "line-height": { "value": "{amsterdam.typography.density-high.text-level.7.line-height}" }
         },
-        "wide": {
-          "font-size": { "value": "{amsterdam.typography.text-level.7.wide.font-size}" }
+        "density-low": {
+          "font-size": { "value": "{amsterdam.typography.density-low.text-level.7.font-size}" },
+          "line-height": { "value": "{amsterdam.typography.density-low.text-level.7.line-height}" }
         },
         "hover": {
           "color": { "value": "{amsterdam.color.primary-black}" },
