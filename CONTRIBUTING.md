@@ -101,7 +101,7 @@ If the content of a documentation file is copied from another source (like our [
 
 ## Git branching strategy and publishing
 
-We use [GitHub flow](https://docs.github.com/en/get-started/quickstart/github-flow) for this project. All members of the [Amsterdam GitHub organisation](https://github.com/Amsterdam) are allowed to create features branches and open pull requests. Only [the maintainers of this repository](./documentation/maintainers.md) are allowed to merge pull requests into the `main` branch. We currently do not have a workflow for contributors that do not work for the City of Amsterdam. If you do not work for the City of Amsterdam and want to contribute to this repository, please contact the maintainers.
+We use [GitFlow](https://datasift.github.io/gitflow/IntroducingGitFlow.html) for this project. All members of the [Amsterdam GitHub organisation](https://github.com/Amsterdam) are allowed to create features branches and open pull requests. Only [the maintainers of this repository](./documentation/maintainers.md) are allowed to merge pull requests into the `main` and `develop` branches. We currently do not have a workflow for contributors that do not work for the City of Amsterdam. If you do not work for the City of Amsterdam and want to contribute to this repository, please contact the maintainers.
 
 Package versioning and publishing is done through Lerna, by the maintainers of the repository. Contributors do not need to increment versions. Contact the maintainers if you want to release a new version of a package.
 
