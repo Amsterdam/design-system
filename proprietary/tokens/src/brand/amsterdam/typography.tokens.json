@@ -9,35 +9,35 @@
       "density-low": {
         "text-level": {
           "0": {
-            "font-size": { "value": "clamp(1.802rem, 2.479vw + 1.009rem, 4.578rem)" },
+            "font-size": { "value": "clamp(2.432rem, calc(2.683vw + 1.895rem), 4.578rem)" },
             "line-height": { "value": "1.1" }
           },
           "1": {
-            "font-size": { "value": "clamp(1.602rem, 1.839vw + 1.013rem, 3.662rem)" },
+            "font-size": { "value": "clamp(2.084rem, calc(1.973vw + 1.69rem), 3.662rem)" },
             "line-height": { "value": "1.2" }
           },
           "2": {
-            "font-size": { "value": "clamp(1.424rem, 1.345vw + 0.994rem, 2.93rem)" },
+            "font-size": { "value": "clamp(1.786rem, calc(1.43vw + 1.5rem), 2.93rem)" },
             "line-height": { "value": "1.3" }
           },
           "3": {
-            "font-size": { "value": "clamp(1.266rem, 0.962vw + 0.958rem, 2.344rem)" },
+            "font-size": { "value": "clamp(1.531rem, calc(1.016vw + 1.328rem), 2.344rem)" },
             "line-height": { "value": "1.4" }
           },
           "4": {
-            "font-size": { "value": "clamp(1.125rem, 0.67vw + 0.911rem, 1.875rem)" },
+            "font-size": { "value": "clamp(1.313rem, calc(0.703vw + 1.173rem), 1.875rem)" },
             "line-height": { "value": "1.4" }
           },
           "5": {
-            "font-size": { "value": "clamp(1.25rem, 0.558vw + 1.071rem, 1.875rem)" },
+            "font-size": { "value": "clamp(1.313rem, calc(0.703vw + 1.173rem), 1.875rem)" },
             "line-height": { "value": "1.5" }
           },
           "6": {
-            "font-size": { "value": "clamp(1rem, 0.446vw + 0.857rem, 1.5rem)" },
+            "font-size": { "value": "clamp(1.125rem, calc(0.469vw + 1.031rem), 1.5rem)" },
             "line-height": { "value": "1.6" }
           },
           "7": {
-            "font-size": { "value": "clamp(0.8rem, 0.357vw + 0.686rem, 1.2rem)" },
+            "font-size": { "value": "clamp(0.964rem, calc(0.295vw + 0.905rem), 1.2rem)" },
             "line-height": { "value": "1.6" }
           }
         }
@@ -45,35 +45,35 @@
       "density-high": {
         "text-level": {
           "0": {
-            "font-size": { "value": "clamp(1.577rem, 1.657vw + 1.047rem, 3.433rem)" },
+            "font-size": { "value": "clamp(1.891rem, calc(1.927vw + 1.506rem), 3.433rem)" },
             "line-height": { "value": "1.1" }
           },
           "1": {
-            "font-size": { "value": "clamp(1.402rem, 1.201vw + 1.018rem, 2.747rem)" },
+            "font-size": { "value": "clamp(1.621rem, calc(1.408vw + 1.34rem), 2.747rem)" },
             "line-height": { "value": "1.2" }
           },
           "2": {
-            "font-size": { "value": "clamp(1.246rem, 0.849vw + 0.974rem, 2.197rem)" },
+            "font-size": { "value": "clamp(1.389rem, calc(1.01vw + 1.187rem), 2.197rem)" },
             "line-height": { "value": "1.3" }
           },
           "3": {
-            "font-size": { "value": "clamp(1.107rem, 0.581vw + 0.921rem, 1.758rem)" },
+            "font-size": { "value": "clamp(1.191rem, calc(0.709vw + 1.049rem), 1.758rem)" },
             "line-height": { "value": "1.4" }
           },
           "4": {
-            "font-size": { "value": "clamp(0.984rem, 0.377vw + 0.863rem, 1.406rem)" },
+            "font-size": { "value": "clamp(1.021rem, calc(0.481vw + 0.925rem), 1.406rem)" },
             "line-height": { "value": "1.4" }
           },
           "5": {
-            "font-size": { "value": "clamp(1.094rem, 0.279vw + 1.005rem, 1.406rem)" },
+            "font-size": { "value": "clamp(1.021rem, calc(0.481vw + 0.925rem), 1.406rem)" },
             "line-height": { "value": "1.5" }
           },
           "6": {
-            "font-size": { "value": "clamp(0.875rem, 0.223vw + 0.804rem, 1.125rem)" },
+            "font-size": { "value": "clamp(0.875rem, calc(0.313vw + 0.813rem), 1.125rem)" },
             "line-height": { "value": "1.6" }
           },
           "7": {
-            "font-size": { "value": "clamp(0.7rem, 0.179vw + 0.643rem, 0.9rem)" },
+            "font-size": { "value": "clamp(0.75rem, calc(0.188vw + 0.713rem), 0.9rem)" },
             "line-height": { "value": "1.6" }
           }
         }
