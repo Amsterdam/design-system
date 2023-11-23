@@ -28,11 +28,13 @@ git config user.email your.email@amsterdam.nl
 
 ## Keep branches small
 
-We work with small, short-lived branches (aim for 2 working days) directly on a `main` branch. This helps continuous integration and deployment, reduces the chance of merge conflicts and limits the scope of code reviews.
+We work with feature branches on a `develop` branch. When we want to release to npm and publish to Storybook, we merge `develop` into the `main` branch.
 
-The approach is called ‘[trunk-based development](https://trunkbaseddevelopment.com/)’ and differs from the well-known ‘Git Flow’.
+Feature branches are small, short-lived branches (aim for 2 working days). This helps continuous integration and deployment, reduces the chance of merge conflicts and limits the scope of code reviews.
 
-Branches are automatically deployed to their own environment. There are 2 ways to get the address of a branch deployment:
+This approach is called ‘[GitFlow](https://datasift.github.io/gitflow/IntroducingGitFlow.html)’.
+
+Feature branches are automatically deployed to their own environment. There are 2 ways to get the address of a branch deployment:
 
 - If the branch has a pull request, you can find the address there using the 'View deployment'-button. You might need to click 'Show environments' to see this button.
 - Otherwise, go to the repository on GitHub.com and click on [Deployments](https://github.com/Amsterdam/design-system/deployments). Find the branch in the list and click on the external website icon.
@@ -95,42 +97,24 @@ With an ‘interactive rebase’, you can locally improve the clarity of your br
 
 More explanation, for example, [here at SourceTree](https://www.atlassian.com/blog/sourcetree/interactive-rebase-sourcetree).
 
-## Keep up with the main branch
+## Keep up with the latest changes
 
-Before making a pull request, ensure your branch is as close to the main one as possible to avoid unnecessary merge conflicts.
+Before making a pull request, ensure your branch is as close to `develop` as possible to avoid unnecessary merge conflicts.
 
-First, ensure that your local main branch is current, e.g. through `git fetch origin main:main` ([source](https://stackoverflow.com/a/17722977/2169092)).
-
-### Rebase
-
-This can be done with a rebase: `git rebase main`.
-
-It applies every commit from your branch on top of the main branch. If successful, the entire branch will appear to have started on the most recent state of the main branch.
-
-There may be merge conflicts. As rebasing handles commits individually, one merge conflict may need to be resolved multiple times. After resolving a conflict, do `git rebase --continue`. If you get stuck, roll back everything with `git rebase --abort`.
-
-If this branch already exists on the remote, you must force-push the rebase, overwriting the remote branch with your local one. This can be done safely via `git push origin --force-with-lease`. The option prevents you from unintentionally overwriting someone else’s work. If others have pushed to the branch, contact them.
+First, ensure that your local `develop` branch is current, e.g. through `git fetch origin develop:develop` ([source](https://stackoverflow.com/a/17722977/2169092)).
 
 ### Merge
 
-An alternative is to merge the main branch into yours: `git pull origin main`. This will also ensure the local main branch is current.
+An alternative is to merge the `develop` branch into yours: `git pull origin develop`. This will also ensure the local `develop` branch is current.
 
-That adds one commit to your branch, containing all changes since the first divergence of your branches with the main one. If merge conflicts arise, they can be more complex than with a rebase, but each can be resolved at once.
-
-### How to choose
-
-Rebasing can be more laborious and has a risk of being destructive. It does keep the history in Git easier to comprehend because of its more linear form.
-
-Merging often makes the tree resemble a shunting yard with connections upstream and downstream. It takes more time to locate branches and commits within them. Merge commits repeat changes already present in others.
-
-Neither approach is mandatory or prohibited. It is good to continue evaluating with colleagues who work within the same repository.
+That adds one commit to your branch, containing all changes since the first divergence of your branches with `develop`. If merge conflicts arise, they can be more complex than with a rebase, but each can be resolved at once.
 
 ## Git CLI shortcuts
 
 For users of Git via the CLI, it may be useful to create aliases for some commonly used git commands. You can save this in a configuration file of your shell. For example:
 
 ```bash
-alias gcm="git checkout main"
+alias gcd="git checkout develop"
 alias gcp="git checkout -"
 alias gh="git push"
 alias ghf="git push origin --force-with-lease"
@@ -140,7 +124,7 @@ alias gpb="git branch --merged | grep -v "\*" | grep -Ev "(\*|main|develop)" | x
 alias gpr="git pull --rebase"
 alias gra="git rebase --abort"
 alias grc="git rebase --continue"
-alias grm="git rebase main"
+alias grd="git rebase develop"
 alias gs="git status"
 ```
 
