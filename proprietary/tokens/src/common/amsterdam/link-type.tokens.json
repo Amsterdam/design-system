@@ -1,15 +1,9 @@
 {
   "amsterdam": {
-    "regular": {
+    "link-type": {
       "color": { "value": "{amsterdam.color.primary-blue}" },
-      "text-decoration": { "value": "underline" },
-      "text-decoration-thickness": { "value": "underline" },
-      "text-underline-offset": { "value": "3px" },
       "hover": {
-        "color": { "value": "{amsterdam.color.primary-blue}" },
-        "text-decoration": { "value": "underline" },
-        "text-decoration-thickness": { "value": "underline" },
-        "text-underline-offset": { "value": "3px" }
+        "color": { "value": "{amsterdam.color.dark-blue}" }
       },
       "on-background-dark": {
         "color": { "value": "{amsterdam.color.primary-white}" },
@@ -22,29 +16,30 @@
         "hover": {
           "color": { "value": "{amsterdam.color.primary-black}" }
         }
-      }
-    },
-    "apparent": {
-      "color": { "value": "{amsterdam.color.primary-blue}" },
-      "text-decoration": { "value": "underline" },
-      "text-decoration-thickness": { "value": "underline" },
-      "text-underline-offset": { "value": "3px" },
-      "hover": {
-        "color": { "value": "{amsterdam.color.primary-blue}" },
-        "text-decoration": { "value": "underline" },
-        "text-decoration-thickness": { "value": "underline" },
-        "text-underline-offset": { "value": "3px" }
       },
-      "on-background-dark": {
-        "color": { "value": "{amsterdam.color.primary-white}" },
+      "regular": {
+        "text-decoration-line": { "value": "underline" },
+        "text-decoration-thickness": { "value": "2px" },
+        "text-underline-offset": { "value": "6px" },
         "hover": {
-          "color": { "value": "{amsterdam.color.primary-white}" }
+          "text-decoration-thickness": { "value": "3px" },
+          "text-underline-offset": { "value": "5px" }
         }
       },
-      "on-background-light": {
-        "color": { "value": "{amsterdam.color.primary-black}" },
+      "apparent": {
+        "text-decoration-line": { "value": "none" },
+        "text-decoration-thickness": { "value": "3px" },
+        "text-underline-offset": { "value": "3px" },
         "hover": {
-          "color": { "value": "{amsterdam.color.primary-black}" }
+          "text-decoration-line": { "value": "underline" }
+        }
+      },
+      "in-list": {
+        "text-decoration-line": { "value": "none" },
+        "text-decoration-thickness": { "value": "2px" },
+        "text-underline-offset": { "value": "6px" },
+        "hover": {
+          "text-decoration-line": { "value": "underline" }
         }
       }
     }
