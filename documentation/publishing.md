@@ -18,7 +18,7 @@ This will cause a major version bump in both packages on release and add its des
 
 ## How to create a release
 
-1. Pull in the latest version of the `develop` branch locally
+1. Pull in the latest version of the `develop` branch locally.
 2. Run `npm run clean`
 3. Run `npm run build`
 4. Run `npm run release`. This causes Lerna to do several things:
@@ -27,13 +27,13 @@ This will cause a major version bump in both packages on release and add its des
      To do that, it relies on the conventional commit syntax used for all commit descriptions on the `develop` branch.
      Breaking changes get a major bump, new features get a minor bump, everything else is a patch bump.
    - It adds new entries to the changelogs of the packages that have been changed, again using the conventional commit descriptions.
-   - It adds a release commit to `develop`
-   - It creates a release tag
-   - It pushes all this to GitHub
+   - It adds a release commit to `develop`.
+   - It creates a release tag.
+   - It pushes all this to the remote.
 
 After we've created a new release, we want to publish it to npm:
 
-1. Make sure you're logged in to npm, by running `npm login`
+1. Make sure you're logged in to npm, by running `npm login`.
 2. Run `npm run publish`
 
 We also want to update our Storybook, so it's in sync with the new content of the packages on npm.
