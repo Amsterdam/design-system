@@ -1,0 +1,52 @@
+{
+  "amsterdam": {
+    "regular": {
+      "color": { "value": "{amsterdam.color.primary-blue}" },
+      "text-decoration": { "value": "underline" },
+      "text-decoration-thickness": { "value": "underline" },
+      "text-underline-offset": { "value": "3px" },
+      "hover": {
+        "color": { "value": "{amsterdam.color.primary-blue}" },
+        "text-decoration": { "value": "underline" },
+        "text-decoration-thickness": { "value": "underline" },
+        "text-underline-offset": { "value": "3px" }
+      },
+      "on-background-dark": {
+        "color": { "value": "{amsterdam.color.primary-white}" },
+        "hover": {
+          "color": { "value": "{amsterdam.color.primary-white}" }
+        }
+      },
+      "on-background-light": {
+        "color": { "value": "{amsterdam.color.primary-black}" },
+        "hover": {
+          "color": { "value": "{amsterdam.color.primary-black}" }
+        }
+      }
+    },
+    "apparent": {
+      "color": { "value": "{amsterdam.color.primary-blue}" },
+      "text-decoration": { "value": "underline" },
+      "text-decoration-thickness": { "value": "underline" },
+      "text-underline-offset": { "value": "3px" },
+      "hover": {
+        "color": { "value": "{amsterdam.color.primary-blue}" },
+        "text-decoration": { "value": "underline" },
+        "text-decoration-thickness": { "value": "underline" },
+        "text-underline-offset": { "value": "3px" }
+      },
+      "on-background-dark": {
+        "color": { "value": "{amsterdam.color.primary-white}" },
+        "hover": {
+          "color": { "value": "{amsterdam.color.primary-white}" }
+        }
+      },
+      "on-background-light": {
+        "color": { "value": "{amsterdam.color.primary-black}" },
+        "hover": {
+          "color": { "value": "{amsterdam.color.primary-black}" }
+        }
+      }
+    }
+  }
+}
