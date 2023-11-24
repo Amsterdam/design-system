@@ -10,11 +10,6 @@ import { Meta, StoryObj } from '@storybook/react'
 const meta = {
   title: 'Containers/Header',
   component: Header,
-  parameters: {
-    backgrounds: {
-      default: 'dark',
-    },
-  },
 } satisfies Meta<typeof Header>
 
 export default meta
@@ -45,7 +40,9 @@ export const WithHeaderMenu: Story = {
         <PageMenu.Link href="#" icon={LoginIcon}>
           Inloggen Mijn Amsterdam
         </PageMenu.Link>
-        <PageMenu.Button icon={MenuIcon}>Alle onderwerpen</PageMenu.Button>
+        <PageMenu.Button icon={MenuIcon} showOnMobile>
+          Menu
+        </PageMenu.Button>
       </PageMenu>
     ),
   },
@@ -61,7 +58,7 @@ export const WithBoth: Story = {
           Inloggen Mijn Amsterdam
         </PageMenu.Link>
         <PageMenu.Button icon={MenuIcon} showOnMobile>
-          Alle onderwerpen
+          Menu
         </PageMenu.Button>
       </PageMenu>
     ),

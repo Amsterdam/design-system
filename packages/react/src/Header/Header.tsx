@@ -7,6 +7,7 @@ import clsx from 'clsx'
 import { ForwardedRef, forwardRef, HTMLAttributes, ReactNode } from 'react'
 import { Heading } from '../Heading'
 import { Logo, LogoBrand } from '../Logo'
+import { VisuallyHidden } from '../VisuallyHidden'
 
 export interface HeaderProps extends HTMLAttributes<HTMLElement> {
   logoBrand?: LogoBrand
@@ -26,14 +27,15 @@ export const Header = forwardRef(
       ref={ref}
       className={clsx(
         'amsterdam-header',
-        // title !== null && 'amsterdam-header--has-title',
-        // menu && 'amsterdam-header--has-menu',
+        title && 'amsterdam-header--has-title',
+        menu && 'amsterdam-header--has-menu',
         className,
       )}
     >
-      <div className="amsterdam-header__column">
+      <div className="amsterdam-header__column amsterdam-header__column--logo">
         {logoLink ? (
-          <a href={logoLink} title={logoLinkTitle} className="amsterdam-header__logo-link">
+          <a href={logoLink} className="amsterdam-header__logo-link">
+            {logoLinkTitle && <VisuallyHidden>{logoLinkTitle}</VisuallyHidden>}
             <Logo brand={logoBrand} />
           </a>
         ) : (
@@ -41,13 +43,13 @@ export const Header = forwardRef(
         )}
       </div>
       {title && (
-        <div className="amsterdam-header__column">
+        <div className="amsterdam-header__column amsterdam-header__column--title">
           <Heading level={3} size="level-3">
             {title}
           </Heading>
         </div>
       )}
-      {menu && <div className="amsterdam-header__column">{menu}</div>}
+      {menu && <div className="amsterdam-header__column amsterdam-header__column--menu">{menu}</div>}
     </header>
   ),
 )
