@@ -6,10 +6,14 @@
   "command": {
     "publish": {},
     "version": {
-      "allowBranch": ["main"],
+      "allowBranch": ["develop"],
+      "changelogPreset": {
+        "name": "conventionalcommits",
+        "issueUrlFormat": "{{host}}/{{owner}}/{{repository}}/issues/{{id}}"
+      },
       "conventionalCommits": true,
       "exact": true,
-      "message": "docs(release): design system packages\n\nskip-checks: true",
+      "private": false,
       "syncWorkspaceLock": true
     }
   }
