@@ -1,0 +1,24 @@
+/**
+ * @license EUPL-1.2+
+ * Copyright (c) 2023 Gemeente Amsterdam
+ */
+
+@import "../../common/breakpoint";
+
+@mixin reset {
+  -webkit-text-size-adjust: 100%;
+}
+
+.amsterdam-form-label {
+  color: var(--amsterdam-form-label-color);
+  font-family: var(--amsterdam-form-label-font-family);
+  font-size: var(--amsterdam-form-label-narrow-font-size);
+  font-weight: var(--amsterdam-form-label-font-weight);
+  line-height: var(--amsterdam-form-label-line-height);
+
+  @media screen and (min-width: $amsterdam-breakpoint-typography) {
+    font-size: var(--amsterdam-form-label-wide-font-size);
+  }
+
+  @include reset;
+}

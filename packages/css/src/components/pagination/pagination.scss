@@ -1,0 +1,75 @@
+/**
+ * @license EUPL-1.2+
+ * Copyright (c) 2023 Gemeente Amsterdam
+ */
+
+@import "../../common/breakpoint";
+
+@mixin list-reset {
+  list-style-type: none;
+  margin-block: 0;
+  padding-inline-start: 0;
+}
+
+.amsterdam-pagination__list {
+  color: var(--amsterdam-pagination-color);
+  display: flex;
+  flex-wrap: wrap;
+  font-family: var(--amsterdam-pagination-font-family);
+  font-size: var(--amsterdam-pagination-narrow-font-size);
+  font-weight: var(--amsterdam-pagination-font-weight);
+  justify-content: center;
+  line-height: var(--amsterdam-pagination-line-height);
+
+  @include list-reset;
+
+  @media screen and (width > $amsterdam-breakpoint-typography) {
+    font-size: var(--amsterdam-pagination-wide-font-size);
+  }
+}
+
+@mixin button-reset {
+  all: unset;
+  box-sizing: border-box;
+  outline: revert;
+  -webkit-text-size-adjust: 100%;
+}
+
+.amsterdam-pagination__button {
+  /* The reset is included at the top of the block here, if you set it
+  at the bottom `all: unset` overrides the `gap` property. */
+  @include button-reset;
+
+  cursor: pointer;
+  display: flex;
+  gap: 0.5rem;
+  outline-offset: var(--amsterdam-pagination-button-outline-offset);
+  padding-inline: 0.75rem;
+  text-decoration-thickness: 2px;
+  text-underline-offset: 3px;
+  touch-action: manipulation;
+
+  &:hover {
+    color: var(--amsterdam-pagination-button-hover-color);
+    text-decoration: underline;
+  }
+
+  &:disabled {
+    display: none;
+  }
+
+  // Override for icon size
+  span.amsterdam-icon svg {
+    height: 1rem;
+    width: 1rem;
+  }
+}
+
+.amsterdam-pagination__button--current {
+  cursor: default;
+  font-weight: var(--amsterdam-pagination-button-current-font-weight);
+
+  &:hover {
+    text-decoration: none;
+  }
+}

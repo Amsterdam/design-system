@@ -1,0 +1,231 @@
+/**
+ * @license EUPL-1.2+
+ * Copyright (c) 2023 Gemeente Amsterdam
+ */
+
+@import "../../common/breakpoint";
+
+.amsterdam-checkbox__input {
+  appearance: none;
+  margin-block: 0;
+  margin-inline: 0;
+  opacity: 0%; /* to hide native input field in older iOS */
+
+  &:focus-visible + label {
+    outline: auto;
+    outline-offset: var(--amsterdam-checkbox-outline-offset);
+  }
+}
+
+.amsterdam-checkbox__checkmark {
+  align-items: center;
+  display: flex;
+  flex-shrink: 0;
+  height: calc(var(--amsterdam-checkbox-checkmark-narrow-size) * var(--amsterdam-checkbox-checkmark-multiplier));
+  width: 1.5rem;
+
+  &::after {
+    border-color: var(--amsterdam-checkbox-checkmark-border-color);
+    border-style: solid;
+    border-width: 2px;
+    box-sizing: border-box;
+    content: "";
+    height: 1.5rem;
+    width: 100%;
+  }
+
+  @media screen and (min-width: $amsterdam-breakpoint-typography) {
+    height: calc(var(--amsterdam-checkbox-checkmark-wide-size) * var(--amsterdam-checkbox-checkmark-multiplier));
+  }
+}
+
+@mixin reset {
+  -webkit-text-size-adjust: 100%;
+}
+
+.amsterdam-checkbox__label {
+  color: var(--amsterdam-checkbox-color);
+  cursor: pointer;
+  display: inline-flex;
+  font-family: var(--amsterdam-checkbox-font-family);
+  font-size: var(--amsterdam-checkbox-narrow-font-size);
+  font-weight: 400;
+  gap: 0.5rem;
+  line-height: var(--amsterdam-checkbox-line-height);
+
+  &:hover {
+    color: var(--amsterdam-checkbox-hover-color);
+    text-decoration: underline;
+    text-decoration-thickness: 2px;
+    text-underline-offset: 3px;
+
+    .amsterdam-checkbox__checkmark::after {
+      border-color: var(--amsterdam-checkbox-checkmark-hover-border-color);
+      border-width: 3px;
+    }
+  }
+
+  @media screen and (min-width: $amsterdam-breakpoint-typography) {
+    font-size: var(--amsterdam-checkbox-wide-font-size);
+  }
+
+  @include reset;
+}
+
+// Default checked
+.amsterdam-checkbox__input:checked {
+  + .amsterdam-checkbox__label .amsterdam-checkbox__checkmark::after {
+    background-color: var(--amsterdam-checkbox-checkmark-checked-background-color);
+    background-image: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2032%2032%22%20fill%3D%22%23ffffff%22%3E%3Cpath%20fill-rule%3D%22evenodd%22%20d%3D%22M12.216%2027.016%200%2014.168l2.91-2.77%209.346%209.837L29.129%204%2032%206.8z%22%2F%3E%3C%2Fsvg%3E");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 1rem;
+    border: none;
+  }
+}
+
+// Default indeterminate
+.amsterdam-checkbox__input:indeterminate {
+  + .amsterdam-checkbox__label .amsterdam-checkbox__checkmark::after {
+    background-color: var(--amsterdam-checkbox-checkmark-indeterminate-background-color);
+    background-image: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAzMiAzMiIgZmlsbD0id2hpdGUiPjxwYXRoIGZpbGwtcnVsZT0iZXZlbm9kZCIgZD0iTTAgMTMuNzE0aDMydjRIMHoiLz48L3N2Zz4=");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 1rem;
+    border: none;
+  }
+}
+
+// Invalid unchecked
+.amsterdam-checkbox__input:invalid,
+.amsterdam-checkbox__input[aria-invalid="true"] {
+  + .amsterdam-checkbox__label .amsterdam-checkbox__checkmark::after {
+    border-color: var(--amsterdam-checkbox-checkmark-invalid-border-color);
+  }
+}
+
+// Disabled unchecked
+.amsterdam-checkbox__input:disabled {
+  + .amsterdam-checkbox__label {
+    color: var(--amsterdam-checkbox-disabled-color);
+    cursor: not-allowed;
+
+    .amsterdam-checkbox__checkmark::after {
+      border-color: var(--amsterdam-checkbox-checkmark-disabled-border-color);
+      border-width: 2px;
+    }
+  }
+}
+
+// Invalid checked
+.amsterdam-checkbox__input:invalid:checked,
+.amsterdam-checkbox__input[aria-invalid="true"]:checked {
+  + .amsterdam-checkbox__label .amsterdam-checkbox__checkmark::after {
+    background-color: var(--amsterdam-checkbox-checkmark-invalid-checked-background-color);
+  }
+}
+
+// Invalid indeterminate
+.amsterdam-checkbox__input:invalid:indeterminate,
+.amsterdam-checkbox__input[aria-invalid="true"]:indeterminate {
+  + .amsterdam-checkbox__label .amsterdam-checkbox__checkmark::after {
+    background-color: var(--amsterdam-checkbox-checkmark-invalid-indeterminate-background-color);
+  }
+}
+
+// Disabled label
+.amsterdam-checkbox__input:disabled + .amsterdam-checkbox__label:hover {
+  text-decoration: none;
+}
+
+// Disabled checked
+.amsterdam-checkbox__input:disabled:checked {
+  + .amsterdam-checkbox__label .amsterdam-checkbox__checkmark::after {
+    background-color: var(--amsterdam-checkbox-checkmark-disabled-checked-background-color);
+  }
+}
+
+// Disabled indeterminate
+.amsterdam-checkbox__input:disabled:indeterminate {
+  + .amsterdam-checkbox__label .amsterdam-checkbox__checkmark::after {
+    background-color: var(--amsterdam-checkbox-checkmark-disabled-indeterminate-background-color);
+  }
+}
+
+// Disabled invalid unchecked
+.amsterdam-checkbox__input:invalid:disabled,
+.amsterdam-checkbox__input[aria-invalid="true"]:disabled {
+  + .amsterdam-checkbox__label .amsterdam-checkbox__checkmark::after {
+    // TODO: currently disabled invalid gets the same styling as disabled. This should get its own styling.
+    border-color: var(--amsterdam-checkbox-checkmark-disabled-border-color);
+  }
+}
+
+// HOVER STATES
+
+// Invalid unchecked hover
+:is(.amsterdam-checkbox__input:invalid, .amsterdam-checkbox__input[aria-invalid="true"])
+  + .amsterdam-checkbox__label:hover
+  .amsterdam-checkbox__checkmark::after {
+  // TODO: this should be the (currently non-existent) dark red hover color
+  border-color: var(--amsterdam-checkbox-checkmark-invalid-hover-border-color);
+}
+
+// Default checked hover
+.amsterdam-checkbox__input:checked + .amsterdam-checkbox__label:hover .amsterdam-checkbox__checkmark::after {
+  background-color: var(--amsterdam-checkbox-checkmark-checked-hover-background-color);
+}
+
+// Default indeterminate hover
+.amsterdam-checkbox__input:indeterminate + .amsterdam-checkbox__label:hover .amsterdam-checkbox__checkmark::after {
+  background-color: var(--amsterdam-checkbox-checkmark-indeterminate-hover-background-color);
+}
+
+// Invalid checked hover
+:is(.amsterdam-checkbox__input:invalid:checked, .amsterdam-checkbox__input[aria-invalid="true"]:checked)
+  + .amsterdam-checkbox__label:hover
+  .amsterdam-checkbox__checkmark::after {
+  // TODO: this should be the (currently non-existent) dark red hover color
+  background-color: var(--amsterdam-checkbox-checkmark-invalid-checked-hover-background-color);
+}
+
+// Invalid indeterminate hover
+:is(.amsterdam-checkbox__input:invalid:indeterminate, .amsterdam-checkbox__input[aria-invalid="true"]:indeterminate)
+  + .amsterdam-checkbox__label:hover
+  .amsterdam-checkbox__checkmark::after {
+  // TODO: this should be the (currently non-existent) dark red hover color
+  background-color: var(--amsterdam-checkbox-checkmark-invalid-indeterminate-hover-background-color);
+}
+
+// Disabled checked hover
+.amsterdam-checkbox__input:disabled:checked + .amsterdam-checkbox__label:hover .amsterdam-checkbox__checkmark::after {
+  background-color: var(--amsterdam-checkbox-checkmark-disabled-checked-hover-background-color);
+}
+
+// Disabled indeterminate hover
+.amsterdam-checkbox__input:disabled:indeterminate
+  + .amsterdam-checkbox__label:hover
+  .amsterdam-checkbox__checkmark::after {
+  background-color: var(--amsterdam-checkbox-checkmark-disabled-indeterminate-hover-background-color);
+}
+
+// Disabled invalid unchecked hover
+:is(.amsterdam-checkbox__input:invalid:disabled, .amsterdam-checkbox__input[aria-invalid="true"]:disabled)
+  + .amsterdam-checkbox__label:hover
+  .amsterdam-checkbox__checkmark::after {
+  // TODO: currently disabled invalid gets the same styling as disabled. This should get its own styling.
+  border-color: var(--amsterdam-checkbox-checkmark-disabled-border-color);
+}
+
+// DISABLED INVALID STATES
+
+// Disabled invalid checked & indeterminate
+.amsterdam-checkbox__input:invalid:disabled:checked,
+.amsterdam-checkbox__input:invalid:disabled:indeterminate,
+.amsterdam-checkbox__input[aria-invalid="true"]:disabled:checked,
+.amsterdam-checkbox__input[aria-invalid="true"]:disabled:indeterminate {
+  + .amsterdam-checkbox__label .amsterdam-checkbox__checkmark::after {
+    // TODO: currently disabled invalid gets the same styling as disabled. This should get its own styling.
+    background-color: var(--amsterdam-checkbox-checkmark-disabled-checked-background-color);
+  }
+}
