@@ -1,4 +1,4 @@
-name: Deploy main Storybook
+name: Main Storybook deploy
 on:
   workflow_run:
     workflows: [Lint and test]
