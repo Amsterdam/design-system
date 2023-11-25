@@ -3,7 +3,6 @@
  * Copyright (c) 2023 Gemeente Amsterdam
  */
 
-import clsx from 'clsx'
 import {
   ForwardedRef,
   forwardRef,
@@ -19,7 +18,7 @@ export const FooterTop = forwardRef(
     { children, className, ...restProps }: PropsWithChildren<HTMLAttributes<HTMLDivElement>>,
     ref: ForwardedRef<HTMLDivElement>,
   ) => (
-    <Highlight {...restProps} color="blue" ref={ref} className={clsx('amsterdam-footer__top', className)}>
+    <Highlight {...restProps} color="blue" ref={ref} className={className}>
       {children}
     </Highlight>
   ),
@@ -32,7 +31,7 @@ export const FooterBottom = forwardRef(
     { children, className, ...restProps }: PropsWithChildren<HTMLAttributes<HTMLDivElement>>,
     ref: ForwardedRef<HTMLDivElement>,
   ) => (
-    <div {...restProps} ref={ref} className={clsx('amsterdam-footer__bottom', className)}>
+    <div {...restProps} ref={ref} className={className}>
       {children}
     </div>
   ),
@@ -51,7 +50,7 @@ export const Footer = forwardRef(
     { children, className, ...restProps }: PropsWithChildren<HTMLAttributes<HTMLElement>>,
     ref: ForwardedRef<HTMLElement>,
   ) => (
-    <footer {...restProps} ref={ref} className={clsx('amsterdam-footer', className)}>
+    <footer {...restProps} ref={ref} className={className}>
       {children}
     </footer>
   ),
