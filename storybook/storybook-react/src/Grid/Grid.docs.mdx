@@ -9,12 +9,18 @@ import README from "../../../../packages/css/src/components/grid/README.md?raw";
 
 ## Voorbeelden
 
-### Basis
+De roze vlakken hieronder vertegenwoordigen de kolommen van het grid.
+De tussenruimtes zijn wit.
+Op brede schermen kunnen de tussenruimtes breder zijn dan de kolommen.
+Zoom in, verander de breedte van het venster of kantel je toestel om de breedtes en het aantal kolommen te zien veranderen.
 
-De roze vlakken vertegenwoordigen de kolommen van het grid. Zoom in of verander de breedte van het venster om de breedtes en het aantal kolommen te zien veranderen. Let op: op brede schermen zijn de witruimtes tussen de kolommen soms breder dan de kolommen zelf.
+### Ruimtelijk
 
 Voor websites is het grid behoorlijk ruimtelijk.
 Zo is de huisstijl ontworpen.
+
+Op brede schermen heeft het grid 12 kolommen en staan alle 12 cellen in dit voorbeeld dus op een rij.
+Op smalle of middelbrede schermen zie je drie rijen van vier kolommen, of een rij van acht en een rij van vier.
 
 <Primary />
 
@@ -27,15 +33,14 @@ Daarom bestaat er een compacte variant van het grid.
 
 ### Verticale marge
 
-In tegenstelling tot de horizontale marges zijn de verticale instelbaar.
-De opties `paddingVertical`, `paddingTop` en `paddingBottom` voegen witruimte boven en/of onder het grid toe.
-Dit is handig in een vlak met een achtergrondkleur zoals [Footer](?path=/docs/react_containers-footer--docs) of
-[Highlight](?path=/docs/react_containers-highlight--docs) of tussen twee opvolgende grids.
+In tegenstelling tot de horizontale marges tussen de kolommen zijn de verticale erboven en eronder instelbaar.
+De opties `paddingVertical`, `paddingTop` en `paddingBottom` voegen daar witruimte toe.
+Dit is handig in een gekleurd vlak zoals [Footer](?path=/docs/react_containers-footer--docs) of [Highlight](?path=/docs/react_containers-highlight--docs) of tussen twee opvolgende grids.
 
-Elk kan een waarde `medium`, `small` of `large` krijgen.
-De witruimtes zijn even breed als de horizontale witruimte tussen de kolommen,
-respectievelijk de helft en het dubbele daarvan.
-Deze krimpen en groeien dus ook met de vensterbreedte.
+Geef een waarde `medium` voor verticale witruimte die even breed is als de horizontale.
+Gebruik `small` voor de helft van die breedte en `large` voor het dubbele.
+
+Deze witruimtes krimpen en groeien dus ook met de vensterbreedte.
 
 <Canvas of={GridStories.VerticalSpace} />
 
