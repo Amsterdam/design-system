@@ -23,11 +23,11 @@ Deze zin demonstreert alle letters van het Latijnse alfabet en cijfers in de Ams
 
 ## Tekstgrootte
 
-### Acht tekstniveau’s
+### Zeven tekstniveau’s
 
-Er zijn 8 niveaus van tekstgrootte en bijbehorende regelhoogte.
+Er zijn 7 niveaus van tekstgrootte en bijbehorende regelhoogte.
 Elk typografisch element zit op 1 zo’n niveau: titel, paragraaf, link, citaat, formuliertekst, enzovoort.
-Ze zijn genummerd van 0 tot en met 7 – zo komen ze voor de diverse titels mooi overeen.
+Ze zijn genummerd van 0 tot en met 6 – zo komen ze voor de diverse titels mooi overeen.
 Voorbeelden:
 
 | Niveau | Componenten                                          |
@@ -36,10 +36,9 @@ Voorbeelden:
 |      1 | Heading 1                                            |
 |      2 | Heading 2                                            |
 |      3 | Heading 3, Blockquote                                |
-|      4 | Heading 4, Top Task Link Label                       |
-|      5 | Large Paragraph, Alert Title                         |
-|      6 | Paragraph, Button, Link behalve InList               |
-|      7 | Small Paragraph, InList Link, Form Label, Breadcrumb |
+|      4 | Heading 4, Large Paragraph                           |
+|      5 | Paragraph, Button, Link behalve InList               |
+|      6 | Small Paragraph, InList Link, Form Label, Breadcrumb |
 
 ### Responsive
 
@@ -48,20 +47,20 @@ Hiermee zorgen we ervoor dat het op schermen van alle afmetingen prettig lezen i
 Ook werkt dat goed samen met het responsive [grid](?path=/docs/react_layout-grid--docs).
 
 Elk niveau heeft een minimale tekstgrootte.
-Dat is actief tot een vensterbreedte van 320 pixels.
+Dat is actief tot en met een vensterbreedte van 320 pixels.
 
 Ook is er een maximale tekstgrootte.
 Dat is van toepassing vanaf een vensterbreedte van 1600 pixels.
 
-Daartussen groeit de tekstgrootte in een rechte lijn.
+Daartussen groeit de tekst in een rechte lijn.
 
 ### Typografische schaal
 
 De typografische schaal is gebaseerd op een factor van 5 ÷ 4 = 1,25.
 Voor elk naastliggende niveau is de tekst dus zo veel keer groter of kleiner.
 
-Bij de minimale vensterbreedte groeit de tekstgrootte voor de niveau’s 0 tot en met 4 langzamer, met een factor van 9 ÷ 8 = 1,125.
-Zo worden titels niet te groot op telefoons en andere smalle vensters.
+Bij de minimale vensterbreedte groeit de tekstgrootte langzamer, met een factor van 7 ÷ 6 ≈ 1,17.
+Zo worden titels niet te groot op telefoons en andere smalle vensters, en kleine teksten niet te klein.
 
 ### Twee thema’s voor websites en applicaties
 
@@ -77,7 +76,16 @@ De maximale tekstgroottes voor alle niveau’s in het ruimtelijke thema:
 
 <Typeset
   fontFamily="Amsterdam Sans, Arial, sans-serif"
-  fontSizes={[73.2, 58.6, 46.9, 37.5, 30.0, 30.0, 24.0, 19.2]}
+  fontSizes={[73.2, 58.6, 46.9, 37.5, 30, 24, 19.2]}
+  fontWeight={400}
+  sampleText="Jouw typograaf biedt mij zulke exquise schreven"
+/>
+
+En de minimale:
+
+<Typeset
+  fontFamily="Amsterdam Sans, Arial, sans-serif"
+  fontSizes={[38.9, 33.3, 28.6, 24.5, 21, 18, 15.4]}
   fontWeight={400}
   sampleText="Jouw typograaf biedt mij zulke exquise schreven"
 />
@@ -94,32 +102,43 @@ De maximale tekstgroottes voor alle niveau’s in het compacte thema:
 
 <Typeset
   fontFamily="Amsterdam Sans, Arial, sans-serif"
-  fontSizes={[54.9, 43.9, 35.2, 28.1, 22.5, 22.5, 18.0, 14.4]}
+  fontSizes={[54.9, 43.9, 35.2, 28.1, 22.5, 18, 14.4]}
   fontWeight={400}
   sampleText="Jouw typograaf biedt mij zulke exquise schreven"
 />
 
-### Referentie-breedtes voor ontwerpers
+En de minimale:
 
-In Figma werken we met drie referentie-breedtes.
-Op die breedtes werken we het ontwerp van een scherm uit voor die drie klassen van apparaten.
-Op deze breedtes is de maatvoering als volgt, afgerond op 1 cijfer achter de komma.
+<Typeset
+  fontFamily="Amsterdam Sans, Arial, sans-serif"
+  fontSizes={[30.3, 25.9, 22.2, 19.1, 16.3, 14, 12]}
+  fontWeight={400}
+  sampleText="Jouw typograaf biedt mij zulke exquise schreven"
+/>
+
+### Vensterbreedtes waarvoor we ontwerpen
+
+In de praktijk kan een venster elke willekeurige breedte hebben.
+Voor al die breedtes ontwerpen is wat te gek.
+Daarom werken we in Figma met drie referentie-breedtes.
+Op die maten werken we een scherm uit voor die drie klassen van apparaten.
+De tekstgroottes zijn op dat punt als volgt, afgerond op 1 cijfer achter de komma.
 
 #### Ruimtelijk
 
-| Klasse apparaat | Referentie-breedte |    0 |    1 |    2 |    3 |    4 |    5 |    6 |    7 |
-| :-------------- | :----------------- | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
-| telefoon        | 320                | 28,8 | 25,6 | 22,8 | 20,3 |   18 |   20 |   16 | 12,8 |
-| tablet          | 832                | 49,3 | 40,8 | 33,9 | 28,2 | 23,5 | 24,6 | 19,7 | 15,7 |
-| desktop         | 1600               | 73,2 | 58,6 | 46,9 | 37,5 |   30 |   30 |   24 | 19,2 |
+| Klasse apparaat | Ontwerpbreedte |    0 |    1 |    2 |    3 |    4 |    5 |    6 |
+| :-------------- | :------------- | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
+| telefoon        | 320            | 38,9 | 33,3 | 28,6 | 24,5 |   21 |   18 | 15,4 |
+| tablet          | 832            | 52,6 | 43,4 | 35,9 | 29,7 | 24,6 | 20,4 | 16,9 |
+| desktop         | 1600           | 73,2 | 58,6 | 46,9 | 37,5 |   30 |   24 | 19,2 |
 
 #### Compact
 
-| Klasse apparaat | Referentie-breedte |    0 |    1 |    2 |    3 |    4 |    5 |    6 |    7 |
-| :-------------- | :----------------- | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
-| telefoon        | 320                | 25,2 | 22,4 | 19,9 | 17,7 | 15,8 | 17,5 | 14,0 | 11,2 |
-| tablet          | 832                | 38,8 | 32,3 | 26,9 | 22,5 | 18,9 | 19,8 | 15,8 | 12,7 |
-| desktop         | 1600               | 54,9 | 43,9 | 35,2 | 28,1 | 22,5 | 22,5 | 18,0 | 14,4 |
+| Klasse apparaat | Ontwerpbreedte |    0 |    1 |    2 |    3 |    4 |    5 |    6 |
+| :-------------- | :------------- | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
+| telefoon        | 320            | 30,3 | 25,9 | 22,2 | 19,1 | 16,3 |   14 |   12 |
+| tablet          | 832            | 40,1 | 33,1 | 27,4 | 22,7 | 18,8 | 15,6 |   13 |
+| desktop         | 1600           | 54,9 | 43,9 | 35,2 | 28,1 | 22,5 |   18 | 14,4 |
 
 ## Accentuering
 
