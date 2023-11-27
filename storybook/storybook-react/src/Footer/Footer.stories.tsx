@@ -31,7 +31,7 @@ export const Default: Story = {
         <VisuallyHidden>
           <Heading>Colofon</Heading>
         </VisuallyHidden>
-        <Grid>
+        <Grid paddingVertical="medium">
           <Grid.Cell span={3}>
             <div style={{ display: 'grid', gap: '2.5rem' }}>
               <Heading level={2} size="level-4" inverseColor>
@@ -116,7 +116,7 @@ export const Default: Story = {
         <VisuallyHidden>
           <Heading level={2}>Over deze website</Heading>
         </VisuallyHidden>
-        <Grid>
+        <Grid paddingVertical="small">
           <Grid.Cell fullWidth>
             <PageMenu>
               <PageMenu.Link href="/">Privacy</PageMenu.Link>
