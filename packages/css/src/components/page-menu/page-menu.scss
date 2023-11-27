@@ -44,9 +44,11 @@
   font-weight: var(--amsterdam-page-menu-item-font-weight);
   gap: var(--amsterdam-page-menu-item-gap);
   line-height: var(--amsterdam-page-menu-item-line-height);
-  outline-offset: var(--amsterdam-focus-outline-offset);
+  outline-offset: var(--amsterdam-page-menu-item-outline-offset);
   text-align: center;
-  text-decoration: var(--amsterdam-page-menu-item-text-decoration);
+  text-decoration-line: var(--amsterdam-page-menu-item-text-decoration-line);
+  text-decoration-thickness: var(--amsterdam-page-menu-item-text-decoration-thickness);
+  text-underline-offset: var(--amsterdam-page-menu-item-text-underline-offset);
   touch-action: manipulation;
 
   @media screen and (min-width: $amsterdam-breakpoint-typography) {
@@ -70,7 +72,7 @@
 .amsterdam-page-menu__link:hover,
 .amsterdam-page-menu__button:hover {
   color: var(--amsterdam-page-menu-item-hover-color);
-  text-decoration: var(--amsterdam-page-menu-item-hover-text-decoration);
+  text-decoration-line: var(--amsterdam-page-menu-item-hover-text-decoration-line);
 }
 
 .amsterdam-page-menu__link svg,
