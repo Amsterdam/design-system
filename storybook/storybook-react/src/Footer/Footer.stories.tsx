@@ -81,7 +81,7 @@ export const Default: Story = {
               </UnorderedList>
             </div>
           </Grid.Cell>
-          <Grid.Cell span={{ narrow: 4, medium: 8, wide: 4 }} start={{ narrow: 1, medium: 1, wide: 9 }}>
+          <Grid.Cell span={3} start={{ narrow: 1, medium: 1, wide: 9 }}>
             <div style={{ display: 'grid', gap: '2.5rem' }}>
               <Heading level={2} size="level-4" inverseColor>
                 Onderzoek en Statistiek
