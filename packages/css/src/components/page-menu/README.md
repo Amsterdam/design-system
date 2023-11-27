@@ -13,3 +13,5 @@ Het Page Menu wordt alleen gebruikt in het Header en Footer component en is uits
 ## Relevante WCAG eisen
 
 - [Consistent Navigation (Level AA)](https://www.w3.org/WAI/WCAG21/Understanding/consistent-navigation.html)
+
+PageMenu is een interactief element, hier gelden [de algemene eisen en richtlijnen voor interactieve elementen](https://amsterdam.github.io/design-system/?path=/docs/docs-designrichtlijnen-interactieve-elementen--docs) voor.
