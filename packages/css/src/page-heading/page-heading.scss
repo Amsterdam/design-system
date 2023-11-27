@@ -19,6 +19,11 @@
   line-height: var(--amsterdam-page-heading-density-low-line-height);
 
   @include reset;
+
+  .amsterdam-theme--density-high & {
+    font-size: var(--amsterdam-page-heading-density-high-font-size);
+    line-height: var(--amsterdam-page-heading-density-high-line-height);
+  }
 }
 
 .amsterdam-page-heading--inverse-color {
