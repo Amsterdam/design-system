@@ -40,7 +40,7 @@
 }
 
 .amsterdam-breadcrumb-item:not(:last-child)::after {
-  background-color: var(--amsterdam-breadcrumb-seperator-background-color);
+  background-color: var(--amsterdam-breadcrumb-separator-background-color);
   clip-path: path("M 4.725,16 3.275,14.545 9.815,8 3.275,1.455 4.725,0 l 8,8 z");
   content: "";
   display: inline-block;

@@ -10,7 +10,7 @@
       "wide": {
         "font-size": { "value": "{amsterdam.typography.text-level.7.wide.font-size}" }
       },
-      "seperator": {
+      "separator": {
         "background-color": { "value": "{amsterdam.color.primary-blue}" }
       },
       "item-link": {
