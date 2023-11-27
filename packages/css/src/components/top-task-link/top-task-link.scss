@@ -25,6 +25,9 @@
   font-size: var(--amsterdam-top-task-link-label-narrow-font-size);
   font-weight: var(--amsterdam-top-task-link-label-font-weight);
   line-height: var(--amsterdam-top-task-link-label-line-height);
+  text-decoration-line: var(--amsterdam-top-task-link-label-text-decoration-line);
+  text-decoration-thickness: var(--amsterdam-top-task-link-label-text-decoration-thickness);
+  text-underline-offset: var(--amsterdam-top-task-link-label-text-underline-offset);
 
   @media screen and (min-width: $amsterdam-breakpoint-typography) {
     font-size: var(--amsterdam-top-task-link-label-wide-font-size);
@@ -35,9 +38,7 @@
 
 .amsterdam-top-task-link:hover .amsterdam-top-task-link__label {
   color: var(--amsterdam-top-task-link-label-hover-color);
-  text-decoration: underline;
-  text-decoration-thickness: 3px;
-  text-underline-offset: 0.5rem;
+  text-decoration-line: var(--amsterdam-top-task-link-label-hover-text-decoration-line);
 }
 
 .amsterdam-top-task-link__description {
