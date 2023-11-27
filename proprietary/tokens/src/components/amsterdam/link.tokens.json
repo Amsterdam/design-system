@@ -1,7 +1,7 @@
 {
   "amsterdam": {
     "link": {
-      "color": { "value": "{amsterdam.link-type.color}" },
+      "color": { "value": "{amsterdam.link-appearance.color}" },
       "font-family": {
         "value": "{amsterdam.typography.font-family}"
       },
@@ -10,12 +10,12 @@
       },
       "outline-offset": { "value": "{amsterdam.focus.outline-offset}" },
       "hover": {
-        "color": { "value": "{amsterdam.link-type.hover.color}" }
+        "color": { "value": "{amsterdam.link-appearance.hover.color}" }
       },
       "inline": {
-        "text-decoration-line": { "value": "{amsterdam.link-type.regular.text-decoration-line}" },
-        "text-decoration-thickness": { "value": "{amsterdam.link-type.regular.text-decoration-thickness}" },
-        "text-underline-offset": { "value": "{amsterdam.link-type.regular.text-underline-offset}" },
+        "text-decoration-line": { "value": "{amsterdam.link-appearance.regular.text-decoration-line}" },
+        "text-decoration-thickness": { "value": "{amsterdam.link-appearance.regular.text-decoration-thickness}" },
+        "text-underline-offset": { "value": "{amsterdam.link-appearance.regular.text-underline-offset}" },
         "font-family": {
           "value": "inherit"
         },
@@ -26,8 +26,10 @@
           "value": "inherit"
         },
         "hover": {
-          "text-decoration-thickness": { "value": "{amsterdam.link-type.regular.hover.text-decoration-thickness}" },
-          "text-underline-offset": { "value": "{amsterdam.link-type.regular.hover.text-underline-offset}" }
+          "text-decoration-thickness": {
+            "value": "{amsterdam.link-appearance.regular.hover.text-decoration-thickness}"
+          },
+          "text-underline-offset": { "value": "{amsterdam.link-appearance.regular.hover.text-underline-offset}" }
         },
         "visited": {
           "color": { "value": "{amsterdam.color.purple}" }
@@ -36,11 +38,11 @@
       "in-list": {
         "gap": { "value": "0.5em" },
         "line-height": { "value": "{amsterdam.typography.text-level.7.line-height}" },
-        "text-decoration-line": { "value": "{amsterdam.link-type.in-list.text-decoration-line}" },
-        "text-decoration-thickness": { "value": "{amsterdam.link-type.in-list.text-decoration-thickness}" },
-        "text-underline-offset": { "value": "{amsterdam.link-type.in-list.text-underline-offset}" },
+        "text-decoration-line": { "value": "{amsterdam.link-appearance.in-list.text-decoration-line}" },
+        "text-decoration-thickness": { "value": "{amsterdam.link-appearance.in-list.text-decoration-thickness}" },
+        "text-underline-offset": { "value": "{amsterdam.link-appearance.in-list.text-underline-offset}" },
         "hover": {
-          "text-decoration-line": { "value": "{amsterdam.link-type.in-list.hover.text-decoration-line}" }
+          "text-decoration-line": { "value": "{amsterdam.link-appearance.in-list.hover.text-decoration-line}" }
         },
         "narrow": {
           "font-size": { "value": "{amsterdam.typography.text-level.7.narrow.font-size}" }
@@ -51,12 +53,14 @@
       },
       "standalone": {
         "line-height": { "value": "{amsterdam.typography.text-level.6.line-height}" },
-        "text-decoration-line": { "value": "{amsterdam.link-type.regular.text-decoration-line}" },
-        "text-decoration-thickness": { "value": "{amsterdam.link-type.regular.text-decoration-thickness}" },
-        "text-underline-offset": { "value": "{amsterdam.link-type.regular.text-underline-offset}" },
+        "text-decoration-line": { "value": "{amsterdam.link-appearance.regular.text-decoration-line}" },
+        "text-decoration-thickness": { "value": "{amsterdam.link-appearance.regular.text-decoration-thickness}" },
+        "text-underline-offset": { "value": "{amsterdam.link-appearance.regular.text-underline-offset}" },
         "hover": {
-          "text-decoration-thickness": { "value": "{amsterdam.link-type.regular.hover.text-decoration-thickness}" },
-          "text-underline-offset": { "value": "{amsterdam.link-type.regular.hover.text-underline-offset}" }
+          "text-decoration-thickness": {
+            "value": "{amsterdam.link-appearance.regular.hover.text-decoration-thickness}"
+          },
+          "text-underline-offset": { "value": "{amsterdam.link-appearance.regular.hover.text-underline-offset}" }
         },
         "narrow": {
           "font-size": { "value": "{amsterdam.typography.text-level.6.narrow.font-size}" }
@@ -66,15 +70,15 @@
         }
       },
       "on-background-dark": {
-        "color": { "value": "{amsterdam.link-type.on-background-dark.color}" },
+        "color": { "value": "{amsterdam.link-appearance.on-background-dark.color}" },
         "hover": {
-          "color": { "value": "{amsterdam.link-type.on-background-dark.hover.color}" }
+          "color": { "value": "{amsterdam.link-appearance.on-background-dark.hover.color}" }
         }
       },
       "on-background-light": {
-        "color": { "value": "{amsterdam.link-type.on-background-light.color}" },
+        "color": { "value": "{amsterdam.link-appearance.on-background-light.color}" },
         "hover": {
-          "color": { "value": "{amsterdam.link-type.on-background-light.hover.color}" }
+          "color": { "value": "{amsterdam.link-appearance.on-background-light.hover.color}" }
         }
       }
     }

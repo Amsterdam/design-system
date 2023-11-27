@@ -14,14 +14,14 @@
         "background-color": { "value": "{amsterdam.color.primary-blue}" }
       },
       "item-link": {
-        "color": { "value": "{amsterdam.link-type.color}" },
+        "color": { "value": "{amsterdam.link-appearance.color}" },
         "outline-offset": { "value": "{amsterdam.focus.outline-offset}" },
-        "text-decoration-line": { "value": "{amsterdam.link-type.apparent.text-decoration-line}" },
-        "text-decoration-thickness": { "value": "{amsterdam.link-type.apparent.text-decoration-thickness}" },
-        "text-underline-offset": { "value": "{amsterdam.link-type.apparent.text-underline-offset}" },
+        "text-decoration-line": { "value": "{amsterdam.link-appearance.apparent.text-decoration-line}" },
+        "text-decoration-thickness": { "value": "{amsterdam.link-appearance.apparent.text-decoration-thickness}" },
+        "text-underline-offset": { "value": "{amsterdam.link-appearance.apparent.text-underline-offset}" },
         "hover": {
           "color": { "value": "{amsterdam.color.dark-blue}" },
-          "text-decoration-line": { "value": "{amsterdam.link-type.apparent.hover.text-decoration-line}" }
+          "text-decoration-line": { "value": "{amsterdam.link-appearance.apparent.hover.text-decoration-line}" }
         }
       }
     }

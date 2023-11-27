@@ -1,7 +1,7 @@
 {
   "amsterdam": {
     "pagination": {
-      "color": { "value": "{amsterdam.link-type.color}" },
+      "color": { "value": "{amsterdam.link-appearance.color}" },
       "font-family": { "value": "{amsterdam.typography.font-family}" },
       "font-weight": { "value": "{amsterdam.typography.font-weight.normal}" },
       "line-height": { "value": "{amsterdam.typography.text-level.6.line-height}" },
@@ -13,15 +13,15 @@
       },
       "button": {
         "outline-offset": { "value": "{amsterdam.focus.outline-offset}" },
-        "text-decoration-line": { "value": "{amsterdam.link-type.apparent.text-decoration-line}" },
-        "text-decoration-thickness": { "value": "{amsterdam.link-type.apparent.text-decoration-thickness}" },
-        "text-underline-offset": { "value": "{amsterdam.link-type.apparent.text-underline-offset}" },
+        "text-decoration-line": { "value": "{amsterdam.link-appearance.apparent.text-decoration-line}" },
+        "text-decoration-thickness": { "value": "{amsterdam.link-appearance.apparent.text-decoration-thickness}" },
+        "text-underline-offset": { "value": "{amsterdam.link-appearance.apparent.text-underline-offset}" },
         "current": {
           "font-weight": { "value": "{amsterdam.typography.font-weight.bold}" }
         },
         "hover": {
-          "color": { "value": "{amsterdam.link-type.hover.color}" },
-          "text-decoration-line": { "value": "{amsterdam.link-type.apparent.hover.text-decoration-line}" }
+          "color": { "value": "{amsterdam.link-appearance.hover.color}" },
+          "text-decoration-line": { "value": "{amsterdam.link-appearance.apparent.hover.text-decoration-line}" }
         }
       }
     }

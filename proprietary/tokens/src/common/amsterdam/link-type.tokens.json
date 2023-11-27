@@ -1,6 +1,6 @@
 {
   "amsterdam": {
-    "link-type": {
+    "link-appearance": {
       "color": { "value": "{amsterdam.color.primary-blue}" },
       "hover": {
         "color": { "value": "{amsterdam.color.dark-blue}" }
