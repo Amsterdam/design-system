@@ -28,13 +28,13 @@
 .amsterdam-alert__title {
   color: var(--amsterdam-alert-title-color);
   font-family: var(--amsterdam-alert-title-font-family);
-  font-size: var(--amsterdam-alert-title-density-low-font-size);
+  font-size: var(--amsterdam-alert-title-spacious-font-size);
   font-weight: var(--amsterdam-alert-title-font-weight);
-  line-height: var(--amsterdam-alert-title-density-low-line-height);
+  line-height: var(--amsterdam-alert-title-spacious-line-height);
 
-  .amsterdam-theme--density-high & {
-    font-size: var(--amsterdam-alert-title-density-high-font-size);
-    line-height: var(--amsterdam-alert-title-density-high-line-height);
+  .amsterdam-theme--compact & {
+    font-size: var(--amsterdam-alert-title-compact-font-size);
+    line-height: var(--amsterdam-alert-title-compact-line-height);
   }
 
   @include reset;

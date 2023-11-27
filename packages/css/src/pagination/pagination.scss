@@ -14,16 +14,16 @@
   display: flex;
   flex-wrap: wrap;
   font-family: var(--amsterdam-pagination-font-family);
-  font-size: var(--amsterdam-pagination-density-low-font-size);
+  font-size: var(--amsterdam-pagination-spacious-font-size);
   font-weight: var(--amsterdam-pagination-font-weight);
   justify-content: center;
-  line-height: var(--amsterdam-pagination-density-low-line-height);
+  line-height: var(--amsterdam-pagination-spacious-line-height);
 
   @include list-reset;
 
-  .amsterdam-theme--density-high & {
-    font-size: var(--amsterdam-pagination-density-high-font-size);
-    line-height: var(--amsterdam-pagination-density-high-line-height);
+  .amsterdam-theme--compact & {
+    font-size: var(--amsterdam-pagination-compact-font-size);
+    line-height: var(--amsterdam-pagination-compact-line-height);
   }
 }
 

@@ -14,9 +14,9 @@
   break-inside: avoid;
   color: var(--amsterdam-blockquote-color);
   font-family: var(--amsterdam-blockquote-font-family);
-  font-size: var(--amsterdam-blockquote-density-low-font-size);
+  font-size: var(--amsterdam-blockquote-spacious-font-size);
   font-weight: var(--amsterdam-blockquote-font-weight);
-  line-height: var(--amsterdam-blockquote-density-low-line-height);
+  line-height: var(--amsterdam-blockquote-spacious-line-height);
   quotes: "“" "”";
 
   &::before {
@@ -27,9 +27,9 @@
     content: close-quote;
   }
 
-  .amsterdam-theme--density-high & {
-    font-size: var(--amsterdam-blockquote-density-low-font-size);
-    line-height: var(--amsterdam-blockquote-density-low-line-height);
+  .amsterdam-theme--compact & {
+    font-size: var(--amsterdam-blockquote-spacious-font-size);
+    line-height: var(--amsterdam-blockquote-spacious-line-height);
   }
 
   @include reset;

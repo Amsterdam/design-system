@@ -12,13 +12,13 @@
 
 .amsterdam-breadcrumb {
   font-family: var(--amsterdam-breadcrumb-font-family, inherit);
-  font-size: var(--amsterdam-breadcrumb-density-low-font-size);
+  font-size: var(--amsterdam-breadcrumb-spacious-font-size);
   font-weight: var(--amsterdam-breadcrumb-font-weight);
-  line-height: var(--amsterdam-breadcrumb-density-low-line-height);
+  line-height: var(--amsterdam-breadcrumb-spacious-line-height);
 
-  .amsterdam-theme--density-high & {
-    font-size: var(--amsterdam-breadcrumb-density-low-font-size);
-    line-height: var(--amsterdam-breadcrumb-density-low-line-height);
+  .amsterdam-theme--compact & {
+    font-size: var(--amsterdam-breadcrumb-compact-font-size);
+    line-height: var(--amsterdam-breadcrumb-compact-line-height);
   }
 }
 

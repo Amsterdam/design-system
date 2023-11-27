@@ -10,14 +10,14 @@
 .amsterdam-form-label {
   color: var(--amsterdam-form-label-color);
   font-family: var(--amsterdam-form-label-font-family);
-  font-size: var(--amsterdam-form-label-density-low-font-size);
+  font-size: var(--amsterdam-form-label-spacious-font-size);
   font-weight: var(--amsterdam-form-label-font-weight);
-  line-height: var(--amsterdam-form-label-density-low-line-height);
+  line-height: var(--amsterdam-form-label-spacious-line-height);
 
   @include reset;
 
-  .amsterdam-theme--density-high & {
-    font-size: var(--amsterdam-form-label-density-high-font-size);
-    line-height: var(--amsterdam-form-label-density-high-line-height);
+  .amsterdam-theme--compact & {
+    font-size: var(--amsterdam-form-label-compact-font-size);
+    line-height: var(--amsterdam-form-label-compact-line-height);
   }
 }

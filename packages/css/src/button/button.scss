@@ -10,14 +10,14 @@
 }
 
 .amsterdam-button {
-  font-size: var(--amsterdam-button-density-low-font-size);
-  line-height: var(--amsterdam-button-density-low-line-height);
+  font-size: var(--amsterdam-button-spacious-font-size);
+  line-height: var(--amsterdam-button-spacious-line-height);
 
   @include reset;
 
-  .amsterdam-theme--density-high & {
-    font-size: var(--amsterdam-breadcrumb-density-high-font-size);
-    line-height: var(--amsterdam-breadcrumb-density-high-line-height);
+  .amsterdam-theme--compact & {
+    font-size: var(--amsterdam-breadcrumb-compact-font-size);
+    line-height: var(--amsterdam-breadcrumb-compact-line-height);
   }
 }
 

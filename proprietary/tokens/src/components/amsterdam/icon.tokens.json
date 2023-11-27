@@ -1,48 +1,48 @@
 {
   "amsterdam": {
     "icon": {
-      "density-high": {
+      "spacious": {
         "size-3": {
-          "font-size": { "value": "{amsterdam.typography.density-high.text-level.3.font-size}" },
-          "line-height": { "value": "{amsterdam.typography.density-high.text-level.3.line-height}" }
+          "font-size": { "value": "{amsterdam.typography.spacious.text-level.3.font-size}" },
+          "line-height": { "value": "{amsterdam.typography.spacious.text-level.3.line-height}" }
         },
         "size-4": {
-          "font-size": { "value": "{amsterdam.typography.density-high.text-level.4.font-size}" },
-          "line-height": { "value": "{amsterdam.typography.density-high.text-level.4.line-height}" }
+          "font-size": { "value": "{amsterdam.typography.spacious.text-level.4.font-size}" },
+          "line-height": { "value": "{amsterdam.typography.spacious.text-level.4.line-height}" }
         },
         "size-5": {
-          "font-size": { "value": "{amsterdam.typography.density-high.text-level.5.font-size}" },
-          "line-height": { "value": "{amsterdam.typography.density-high.text-level.5.line-height}" }
+          "font-size": { "value": "{amsterdam.typography.spacious.text-level.5.font-size}" },
+          "line-height": { "value": "{amsterdam.typography.spacious.text-level.5.line-height}" }
         },
         "size-6": {
-          "font-size": { "value": "{amsterdam.typography.density-high.text-level.6.font-size}" },
-          "line-height": { "value": "{amsterdam.typography.density-high.text-level.6.line-height}" }
+          "font-size": { "value": "{amsterdam.typography.spacious.text-level.6.font-size}" },
+          "line-height": { "value": "{amsterdam.typography.spacious.text-level.6.line-height}" }
         },
         "size-7": {
-          "font-size": { "value": "{amsterdam.typography.density-high.text-level.7.font-size}" },
-          "line-height": { "value": "{amsterdam.typography.density-high.text-level.7.line-height}" }
+          "font-size": { "value": "{amsterdam.typography.spacious.text-level.7.font-size}" },
+          "line-height": { "value": "{amsterdam.typography.spacious.text-level.7.line-height}" }
         }
       },
-      "density-low": {
+      "compact": {
         "size-3": {
-          "font-size": { "value": "{amsterdam.typography.density-low.text-level.3.font-size}" },
-          "line-height": { "value": "{amsterdam.typography.density-low.text-level.3.line-height}" }
+          "font-size": { "value": "{amsterdam.typography.compact.text-level.3.font-size}" },
+          "line-height": { "value": "{amsterdam.typography.compact.text-level.3.line-height}" }
         },
         "size-4": {
-          "font-size": { "value": "{amsterdam.typography.density-low.text-level.4.font-size}" },
-          "line-height": { "value": "{amsterdam.typography.density-low.text-level.4.line-height}" }
+          "font-size": { "value": "{amsterdam.typography.compact.text-level.4.font-size}" },
+          "line-height": { "value": "{amsterdam.typography.compact.text-level.4.line-height}" }
         },
         "size-5": {
-          "font-size": { "value": "{amsterdam.typography.density-low.text-level.5.font-size}" },
-          "line-height": { "value": "{amsterdam.typography.density-low.text-level.5.line-height}" }
+          "font-size": { "value": "{amsterdam.typography.compact.text-level.5.font-size}" },
+          "line-height": { "value": "{amsterdam.typography.compact.text-level.5.line-height}" }
         },
         "size-6": {
-          "font-size": { "value": "{amsterdam.typography.density-low.text-level.6.font-size}" },
-          "line-height": { "value": "{amsterdam.typography.density-low.text-level.6.line-height}" }
+          "font-size": { "value": "{amsterdam.typography.compact.text-level.6.font-size}" },
+          "line-height": { "value": "{amsterdam.typography.compact.text-level.6.line-height}" }
         },
         "size-7": {
-          "font-size": { "value": "{amsterdam.typography.density-low.text-level.7.font-size}" },
-          "line-height": { "value": "{amsterdam.typography.density-low.text-level.7.line-height}" }
+          "font-size": { "value": "{amsterdam.typography.compact.text-level.7.font-size}" },
+          "line-height": { "value": "{amsterdam.typography.compact.text-level.7.line-height}" }
         }
       }
     }

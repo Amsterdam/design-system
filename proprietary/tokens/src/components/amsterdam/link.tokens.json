@@ -40,13 +40,13 @@
           "text-underline-offset": { "value": "7px" }
         },
         "text-decoration": { "value": "none" },
-        "density-high": {
-          "font-size": { "value": "{amsterdam.typography.density-high.text-level.7.font-size}" },
-          "line-height": { "value": "{amsterdam.typography.density-high.text-level.7.line-height}" }
+        "spacious": {
+          "font-size": { "value": "{amsterdam.typography.spacious.text-level.7.font-size}" },
+          "line-height": { "value": "{amsterdam.typography.spacious.text-level.7.line-height}" }
         },
-        "density-low": {
-          "font-size": { "value": "{amsterdam.typography.density-low.text-level.7.font-size}" },
-          "line-height": { "value": "{amsterdam.typography.density-low.text-level.7.line-height}" }
+        "compact": {
+          "font-size": { "value": "{amsterdam.typography.compact.text-level.7.font-size}" },
+          "line-height": { "value": "{amsterdam.typography.compact.text-level.7.line-height}" }
         }
       },
       "standalone": {
@@ -56,13 +56,13 @@
           "text-decoration-thickness": { "value": "3px" },
           "text-underline-offset": { "value": "7px" }
         },
-        "density-high": {
-          "font-size": { "value": "{amsterdam.typography.density-high.text-level.6.font-size}" },
-          "line-height": { "value": "{amsterdam.typography.density-high.text-level.6.line-height}" }
+        "spacious": {
+          "font-size": { "value": "{amsterdam.typography.spacious.text-level.6.font-size}" },
+          "line-height": { "value": "{amsterdam.typography.spacious.text-level.6.line-height}" }
         },
-        "density-low": {
-          "font-size": { "value": "{amsterdam.typography.density-low.text-level.6.font-size}" },
-          "line-height": { "value": "{amsterdam.typography.density-low.text-level.6.line-height}" }
+        "compact": {
+          "font-size": { "value": "{amsterdam.typography.compact.text-level.6.font-size}" },
+          "line-height": { "value": "{amsterdam.typography.compact.text-level.6.line-height}" }
         }
       },
       "on-background-dark": {

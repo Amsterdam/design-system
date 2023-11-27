@@ -20,17 +20,17 @@
   cursor: pointer;
   display: flex;
   font-family: var(--amsterdam-accordion-button-font-family);
-  font-size: var(--amsterdam-accordion-button-density-low-font-size);
+  font-size: var(--amsterdam-accordion-button-spacious-font-size);
   font-weight: var(--amsterdam-accordion-button-font-weight);
   justify-content: space-between;
-  line-height: var(--amsterdam-accordion-button-density-low-line-height);
+  line-height: var(--amsterdam-accordion-button-spacious-line-height);
   padding-block: 0.75rem;
   padding-inline: 1rem;
   width: 100%;
 
-  .amsterdam-theme--density-high & {
-    font-size: var(--amsterdam-accordion-button-density-high-font-size);
-    line-height: var(--amsterdam-accordion-button-density-high-line-height);
+  .amsterdam-theme--compact & {
+    font-size: var(--amsterdam-accordion-button-compact-font-size);
+    line-height: var(--amsterdam-accordion-button-compact-line-height);
   }
 
   &:focus {

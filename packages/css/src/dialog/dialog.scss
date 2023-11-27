@@ -52,13 +52,13 @@
   color: var(--amsterdam-dialog-title-color);
   flex: auto;
   font-family: var(--amsterdam-dialog-title-font-family);
-  font-size: var(--amsterdam-dialog-title-density-low-font-size);
+  font-size: var(--amsterdam-dialog-title-spacious-font-size);
   font-weight: var(--amsterdam-dialog-title-font-weight);
-  line-height: var(--amsterdam-dialog-title-density-low-line-height);
+  line-height: var(--amsterdam-dialog-title-spacious-line-height);
 
-  .amsterdam-theme--density-high & {
-    font-size: var(--amsterdam-dialog-title-density-high-font-size);
-    line-height: var(--amsterdam-dialog-title-density-high-line-height);
+  .amsterdam-theme--compact & {
+    font-size: var(--amsterdam-dialog-title-compact-font-size);
+    line-height: var(--amsterdam-dialog-title-compact-line-height);
   }
 
   @include reset;

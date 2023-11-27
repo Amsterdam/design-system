@@ -14,15 +14,15 @@
   break-inside: avoid;
   color: var(--amsterdam-page-heading-color);
   font-family: var(--amsterdam-page-heading-font-family);
-  font-size: var(--amsterdam-page-heading-density-low-font-size);
+  font-size: var(--amsterdam-page-heading-spacious-font-size);
   font-weight: var(--amsterdam-page-heading-font-weight);
-  line-height: var(--amsterdam-page-heading-density-low-line-height);
+  line-height: var(--amsterdam-page-heading-spacious-line-height);
 
   @include reset;
 
-  .amsterdam-theme--density-high & {
-    font-size: var(--amsterdam-page-heading-density-high-font-size);
-    line-height: var(--amsterdam-page-heading-density-high-line-height);
+  .amsterdam-theme--compact & {
+    font-size: var(--amsterdam-page-heading-compact-font-size);
+    line-height: var(--amsterdam-page-heading-compact-line-height);
   }
 }
 

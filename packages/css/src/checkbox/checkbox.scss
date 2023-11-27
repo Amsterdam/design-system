@@ -19,7 +19,7 @@
   align-items: center;
   display: flex;
   flex-shrink: 0;
-  height: calc(var(--amsterdam-checkbox-density-low-font-size) * var(--amsterdam-checkbox-density-low-line-height));
+  height: calc(var(--amsterdam-checkbox-spacious-font-size) * var(--amsterdam-checkbox-spacious-line-height));
   width: 1.5rem;
 
   &::after {
@@ -32,8 +32,8 @@
     width: 100%;
   }
 
-  .amsterdam-theme--density-high & {
-    height: calc(var(--amsterdam-checkbox-density-high-font-size) * var(--amsterdam-checkbox-density-high-line-height));
+  .amsterdam-theme--compact & {
+    height: calc(var(--amsterdam-checkbox-compact-font-size) * var(--amsterdam-checkbox-compact-line-height));
   }
 }
 
@@ -46,10 +46,10 @@
   cursor: pointer;
   display: inline-flex;
   font-family: var(--amsterdam-checkbox-font-family);
-  font-size: var(--amsterdam-checkbox-density-low-font-size);
+  font-size: var(--amsterdam-checkbox-spacious-font-size);
   font-weight: 400;
   gap: 0.5rem;
-  line-height: var(--amsterdam-checkbox-density-low-line-height);
+  line-height: var(--amsterdam-checkbox-spacious-line-height);
 
   &:hover {
     color: var(--amsterdam-checkbox-hover-color);
@@ -63,9 +63,9 @@
     }
   }
 
-  .amsterdam-theme--density-high & {
-    font-size: var(--amsterdam-checkbox-density-high-font-size);
-    line-height: var(--amsterdam-checkbox-density-high-line-height);
+  .amsterdam-theme--compact & {
+    font-size: var(--amsterdam-checkbox-compact-font-size);
+    line-height: var(--amsterdam-checkbox-compact-line-height);
   }
 
   @include reset;

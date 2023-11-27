@@ -6,7 +6,7 @@
         "normal": { "value": 400 },
         "bold": { "value": 800 }
       },
-      "density-low": {
+      "spacious": {
         "text-level": {
           "0": {
             "font-size": { "value": "clamp(2.432rem, calc(2.683vw + 1.895rem), 4.578rem)" },
@@ -42,7 +42,7 @@
           }
         }
       },
-      "density-high": {
+      "compact": {
         "text-level": {
           "0": {
             "font-size": { "value": "clamp(1.891rem, calc(1.927vw + 1.506rem), 3.433rem)" },

@@ -20,42 +20,42 @@
 }
 
 .amsterdam-heading--1 {
-  font-size: var(--amsterdam-heading-density-low-level-1-font-size);
-  line-height: var(--amsterdam-heading-density-low-level-1-line-height);
+  font-size: var(--amsterdam-heading-spacious-level-1-font-size);
+  line-height: var(--amsterdam-heading-spacious-level-1-line-height);
 
-  .amsterdam-theme--density-high & {
-    font-size: var(--amsterdam-heading-density-high-level-1-font-size);
-    line-height: var(--amsterdam-heading-density-high-level-1-line-height);
+  .amsterdam-theme--compact & {
+    font-size: var(--amsterdam-heading-compact-level-1-font-size);
+    line-height: var(--amsterdam-heading-compact-level-1-line-height);
   }
 }
 
 .amsterdam-heading--2 {
-  font-size: var(--amsterdam-heading-density-low-level-2-font-size);
-  line-height: var(--amsterdam-heading-density-low-level-2-line-height);
+  font-size: var(--amsterdam-heading-spacious-level-2-font-size);
+  line-height: var(--amsterdam-heading-spacious-level-2-line-height);
 
-  .amsterdam-theme--density-high & {
-    font-size: var(--amsterdam-heading-density-high-level-2-font-size);
-    line-height: var(--amsterdam-heading-density-high-level-2-line-height);
+  .amsterdam-theme--compact & {
+    font-size: var(--amsterdam-heading-compact-level-2-font-size);
+    line-height: var(--amsterdam-heading-compact-level-2-line-height);
   }
 }
 
 .amsterdam-heading--3 {
-  font-size: var(--amsterdam-heading-density-low-level-3-font-size);
-  line-height: var(--amsterdam-heading-density-low-level-3-line-height);
+  font-size: var(--amsterdam-heading-spacious-level-3-font-size);
+  line-height: var(--amsterdam-heading-spacious-level-3-line-height);
 
-  .amsterdam-theme--density-high & {
-    font-size: var(--amsterdam-heading-density-high-level-3-font-size);
-    line-height: var(--amsterdam-heading-density-high-level-3-line-height);
+  .amsterdam-theme--compact & {
+    font-size: var(--amsterdam-heading-compact-level-3-font-size);
+    line-height: var(--amsterdam-heading-compact-level-3-line-height);
   }
 }
 
 .amsterdam-heading--4 {
-  font-size: var(--amsterdam-heading-density-low-level-4-font-size);
-  line-height: var(--amsterdam-heading-density-low-level-4-line-height);
+  font-size: var(--amsterdam-heading-spacious-level-4-font-size);
+  line-height: var(--amsterdam-heading-spacious-level-4-line-height);
 
-  .amsterdam-theme--density-high & {
-    font-size: var(--amsterdam-heading-density-high-level-4-font-size);
-    line-height: var(--amsterdam-heading-density-high-level-4-line-height);
+  .amsterdam-theme--compact & {
+    font-size: var(--amsterdam-heading-compact-level-4-font-size);
+    line-height: var(--amsterdam-heading-compact-level-4-line-height);
   }
 }
 

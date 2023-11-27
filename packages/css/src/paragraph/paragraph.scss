@@ -12,35 +12,35 @@
 .amsterdam-paragraph {
   color: var(--amsterdam-paragraph-color);
   font-family: var(--amsterdam-paragraph-font-family);
-  font-size: var(--amsterdam-paragraph-density-low-medium-font-size);
+  font-size: var(--amsterdam-paragraph-spacious-medium-font-size);
   font-weight: var(--amsterdam-paragraph-font-weight);
-  line-height: var(--amsterdam-paragraph-density-low-medium-line-height);
+  line-height: var(--amsterdam-paragraph-spacious-medium-line-height);
 
   @include reset;
 
-  .amsterdam-theme--density-high & {
-    font-size: var(--amsterdam-paragraph-density-high-medium-font-size);
-    line-height: var(--amsterdam-paragraph-density-high-medium-line-height);
+  .amsterdam-theme--compact & {
+    font-size: var(--amsterdam-paragraph-compact-medium-font-size);
+    line-height: var(--amsterdam-paragraph-compact-medium-line-height);
   }
 }
 
 .amsterdam-paragraph--small {
-  font-size: var(--amsterdam-paragraph-density-low-small-font-size);
-  line-height: var(--amsterdam-paragraph-density-low-small-line-height);
+  font-size: var(--amsterdam-paragraph-spacious-small-font-size);
+  line-height: var(--amsterdam-paragraph-spacious-small-line-height);
 
-  .amsterdam-theme--density-high & {
-    font-size: var(--amsterdam-paragraph-density-high-small-font-size);
-    line-height: var(--amsterdam-paragraph-density-high-small-line-height);
+  .amsterdam-theme--compact & {
+    font-size: var(--amsterdam-paragraph-compact-small-font-size);
+    line-height: var(--amsterdam-paragraph-compact-small-line-height);
   }
 }
 
 .amsterdam-paragraph--large {
-  font-size: var(--amsterdam-paragraph-density-low-large-font-size);
-  line-height: var(--amsterdam-paragraph-density-low-large-line-height);
+  font-size: var(--amsterdam-paragraph-spacious-large-font-size);
+  line-height: var(--amsterdam-paragraph-spacious-large-line-height);
 
-  .amsterdam-theme--density-high & {
-    font-size: var(--amsterdam-paragraph-density-high-large-font-size);
-    line-height: var(--amsterdam-paragraph-density-high-large-line-height);
+  .amsterdam-theme--compact & {
+    font-size: var(--amsterdam-paragraph-compact-large-font-size);
+    line-height: var(--amsterdam-paragraph-compact-large-line-height);
   }
 }
 
