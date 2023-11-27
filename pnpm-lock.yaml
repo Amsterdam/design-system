@@ -58,8 +58,8 @@ importers:
         specifier: 7.33.2
         version: 7.33.2(eslint@8.54.0)
       html-validate:
-        specifier: 8.7.2
-        version: 8.7.2
+        specifier: 8.7.3
+        version: 8.7.3
       husky:
         specifier: 8.0.3
         version: 8.0.3
@@ -10165,7 +10165,7 @@ packages:
       dir-glob: 3.0.1
       fast-glob: 3.3.1
       glob: 7.2.3
-      ignore: 5.2.4
+      ignore: 5.3.0
       merge2: 1.4.1
       slash: 3.0.0
     dev: true
@@ -10188,7 +10188,7 @@ packages:
     dependencies:
       dir-glob: 3.0.1
       fast-glob: 3.3.1
-      ignore: 5.2.4
+      ignore: 5.3.0
       merge2: 1.4.1
       slash: 4.0.0
     dev: true
@@ -10388,8 +10388,8 @@ packages:
     engines: {node: '>=8'}
     dev: true
 
-  /html-validate@8.7.2:
-    resolution: {integrity: sha512-0UD3VO0LBoavvmRcevf8uQ8UZGqh4moc1Stwvh0+rPsvax/PNs1mFA+3gb63zRShxrV24D8Mioj1EvLJj7Kq4g==}
+  /html-validate@8.7.3:
+    resolution: {integrity: sha512-nDJmMTdH3hXv/nCOfedhgVsPivHjYHCiT9TSC3U/DCC10F8OJtBJEPHY/cU7MViwIdu3RfOmU4EoPE02ku/aug==}
     engines: {node: '>= 16.0'}
     hasBin: true
     peerDependencies:
@@ -17031,7 +17031,7 @@ packages:
       debug: 4.3.4
       fault: 2.0.1
       glob: 8.1.0
-      ignore: 5.2.4
+      ignore: 5.3.0
       is-buffer: 2.0.5
       is-empty: 1.2.0
       is-plain-obj: 4.1.0
