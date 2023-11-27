@@ -1,43 +1,27 @@
 {
   "amsterdam": {
     "breadcrumb": {
-      "color": {
-        "value": "{amsterdam.color.primary-blue}"
-      },
-      "font-family": {
-        "value": "{amsterdam.typography.font-family}"
-      },
-      "font-weight": {
-        "value": "{amsterdam.typography.font-weight.normal}"
-      },
-      "line-height": {
-        "value": "{amsterdam.typography.text-level.7.line-height}"
-      },
+      "font-family": { "value": "{amsterdam.typography.font-family}" },
+      "font-weight": { "value": "{amsterdam.typography.font-weight.normal}" },
+      "line-height": { "value": "{amsterdam.typography.text-level.7.line-height}" },
       "narrow": {
         "font-size": { "value": "{amsterdam.typography.text-level.7.narrow.font-size}" }
       },
       "wide": {
         "font-size": { "value": "{amsterdam.typography.text-level.7.wide.font-size}" }
       },
+      "seperator": {
+        "background-color": { "value": "{amsterdam.color.primary-blue}" }
+      },
       "item-link": {
-        "outline-offset": {
-          "value": "{amsterdam.focus.outline-offset}"
-        },
+        "color": { "value": "{amsterdam.link-type.color}" },
+        "outline-offset": { "value": "{amsterdam.focus.outline-offset}" },
+        "text-decoration-line": { "value": "{amsterdam.link-type.apparent.text-decoration-line}" },
+        "text-decoration-thickness": { "value": "{amsterdam.link-type.apparent.text-decoration-thickness}" },
+        "text-underline-offset": { "value": "{amsterdam.link-type.apparent.text-underline-offset}" },
         "hover": {
-          "color": {
-            "value": "{amsterdam.color.dark-blue}"
-          },
-          "box-shadow": {
-            "value": "inset 0 -2px 0 0 {amsterdam.color.dark-blue}"
-          }
-        },
-        "focus": {
-          "color": {
-            "value": "{amsterdam.color.dark-blue}"
-          },
-          "text-decoration": {
-            "value": "underline"
-          }
+          "color": { "value": "{amsterdam.color.dark-blue}" },
+          "text-decoration-line": { "value": "{amsterdam.link-type.apparent.hover.text-decoration-line}" }
         }
       }
     }
