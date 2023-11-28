@@ -48,6 +48,8 @@ export type GridProps = {
    * This is to be implemented more generally – it will be moved into a theme soon.
    */
   density?: GridDensity
+  /** The amount of vertical whitespace between rows of the grid. */
+  gapVertical?: 'small' | 'large'
 } & (GridPaddingVerticalProp | GridPaddingTopAndBottomProps) &
   PropsWithChildren<HTMLAttributes<HTMLDivElement>>
 
@@ -79,7 +81,16 @@ interface GridComponent extends ForwardRefExoticComponent<GridProps & RefAttribu
 
 export const Grid = forwardRef(
   (
-    { children, className, density = 'low', paddingBottom, paddingTop, paddingVertical, ...restProps }: GridProps,
+    {
+      children,
+      className,
+      density = 'low',
+      gapVertical,
+      paddingBottom,
+      paddingTop,
+      paddingVertical,
+      ...restProps
+    }: GridProps,
     ref: ForwardedRef<HTMLDivElement>,
   ) => (
     <div
@@ -88,6 +99,7 @@ export const Grid = forwardRef(
       className={clsx(
         'amsterdam-grid',
         density && `amsterdam-grid--density-${density}`,
+        gapVertical && `amsterdam-grid--gap-vertical--${gapVertical}`,
         paddingClasses(paddingBottom, paddingTop, paddingVertical),
         className,
       )}

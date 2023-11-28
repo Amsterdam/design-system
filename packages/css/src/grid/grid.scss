@@ -28,6 +28,14 @@
   --amsterdam-grid-padding-inline: var(--amsterdam-grid-density-high-padding-inline);
 }
 
+.amsterdam-grid--gap-vertical--small {
+  row-gap: calc(var(--amsterdam-grid-gap) / 2);
+}
+
+.amsterdam-grid--gap-vertical--large {
+  row-gap: calc(var(--amsterdam-grid-gap) * 2);
+}
+
 .amsterdam-grid--padding-bottom--small {
   padding-block-end: calc(var(--amsterdam-grid-gap) / 2);
 }

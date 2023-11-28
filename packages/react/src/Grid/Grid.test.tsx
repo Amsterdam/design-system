@@ -66,6 +66,18 @@ describe('Grid', () => {
     expect(component).toHaveClass('amsterdam-grid--padding-bottom--large')
   })
 
+  it('renders a class name for a vertical gap', () => {
+    const { container } = render(<Grid gapVertical="large" />)
+    const component = container.querySelector(':only-child')
+    expect(component).toHaveClass('amsterdam-grid--gap-vertical--large')
+  })
+
+  it('renders a class name for a vertical gap and a vertical padding', () => {
+    const { container } = render(<Grid gapVertical="small" paddingVertical="large" />)
+    const component = container.querySelector(':only-child')
+    expect(component).toHaveClass('amsterdam-grid--gap-vertical--small amsterdam-grid--padding-vertical--large')
+  })
+
   it('supports ForwardRef in React', () => {
     const ref = createRef<HTMLDivElement>()
     const { container } = render(<Grid ref={ref} />)
