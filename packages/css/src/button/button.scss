@@ -4,20 +4,21 @@
  */
 
 @import "../../node_modules/@utrecht/components/button/css";
-@import "../../utils/breakpoint";
 
 @mixin reset {
   -webkit-text-size-adjust: 100%;
 }
 
 .amsterdam-button {
-  font-size: var(--amsterdam-button-narrow-font-size);
-
-  @media screen and (min-width: $amsterdam-breakpoint-typography) {
-    font-size: var(--amsterdam-button-wide-font-size);
-  }
+  font-size: var(--amsterdam-button-spacious-font-size);
+  line-height: var(--amsterdam-button-spacious-line-height);
 
   @include reset;
+
+  .amsterdam-theme--compact & {
+    font-size: var(--amsterdam-breadcrumb-compact-font-size);
+    line-height: var(--amsterdam-breadcrumb-compact-line-height);
+  }
 }
 
 .amsterdam-button--secondary {

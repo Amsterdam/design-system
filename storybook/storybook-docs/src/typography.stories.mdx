@@ -6,13 +6,13 @@ import { Meta, Typeset } from "@storybook/blocks";
 
 ## Lettertype
 
-De gemeente gebruikt de Amsterdam Sans als beeldbepalend lettertype.
+We gebruiken het lettertype Amsterdam Sans.
 
 Dat is een letterfamilie met een helder, open tekstbeeld dat goed bij de Andreaskruisen past.
 Het lettertype is zowel offline als online goed leesbaar.
-Daarom wordt het in alle communicatiemiddelen ingezet.
+Daarom zetten we het voor alle communicatiemiddelen in.
 
-Deze zin demonstreert alle letters van het Latijnse alfabet en cijfers in de Amsterdam Sans:
+In deze zin zie je hoe alle letters en cijfers eruit zien:
 
 <Typeset
   fontFamily="Amsterdam Sans, Arial, sans-serif"
@@ -23,53 +23,120 @@ Deze zin demonstreert alle letters van het Latijnse alfabet en cijfers in de Ams
 
 ## Tekstgrootte
 
-De grootte van de tekst is afhankelijk van de breedte van het venster.
-Hiermee zorgen we ervoor dat tekst op schermen van alle afmetingen prettig leesbaar is.
+### Zeven tekstniveau’s
 
-Er zijn 8 niveaus van tekstgrootte en bijbehorende regelhoogte.
-Alle typografische componenten maken er gebruik van.
-Dit overzicht toont de maximale tekstgrootte voor elk niveau.
+Er zijn 7 niveaus van tekstgrootte en bijbehorende regelhoogte.
+Elk typografisch element zit op 1 zo’n niveau: titel, paragraaf, link, citaat, formuliertekst, enzovoort.
+Ze zijn genummerd van 0 tot en met 6 – zo komen ze voor de diverse titels mooi overeen.
+Voorbeelden:
+
+| Niveau | Componenten                                          |
+| -----: | :--------------------------------------------------- |
+|      0 | Page heading                                         |
+|      1 | Heading 1                                            |
+|      2 | Heading 2                                            |
+|      3 | Heading 3, Blockquote                                |
+|      4 | Heading 4, Large Paragraph                           |
+|      5 | Paragraph, Button, Link behalve InList               |
+|      6 | Small Paragraph, InList Link, Form Label, Breadcrumb |
+
+### Responsive
+
+De grootte van tekst is afhankelijk van de breedte van het venster.
+Hiermee zorgen we ervoor dat het op schermen van alle afmetingen prettig lezen is.
+Ook werkt dat goed samen met het responsive [grid](?path=/docs/react_layout-grid--docs).
+
+Elk niveau heeft een minimale tekstgrootte.
+Dat is actief tot en met een vensterbreedte van 320 pixels.
+Ook is er een maximale tekstgrootte.
+Dat is van toepassing vanaf een vensterbreedte van 1600 pixels.
+Daartussen groeit de tekst in een rechte lijn.
+
+### Typografische schaal
+
+De typografische schaal is gebaseerd op een factor van 5 ÷ 4 = 1,25.
+Voor elk naastliggende niveau is de tekst dus zo veel keer groter of kleiner.
+
+Bij de minimale vensterbreedte groeit de tekstgrootte langzamer, met een factor van 7 ÷ 6 ≈ 1,17.
+Zo worden titels niet te groot op telefoons en andere smalle vensters, en kleine teksten niet te klein.
+
+### Twee thema’s voor websites en applicaties
+
+#### Ruimtelijk
+
+Voor websites is de typografie behoorlijk ruimtelijk.
+Zo is de huisstijl ontworpen.
+
+Een standaard paragraaf is 16 pixels groot bij een vensterbreedte van 320 pixels.
+In een venster van 1600 pixels breed is dat de helft meer: 24 pixels.
+
+De maximale tekstgroottes voor alle niveau’s in het ruimtelijke thema:
 
 <Typeset
   fontFamily="Amsterdam Sans, Arial, sans-serif"
-  fontSizes={[80, 56, 40, 32, 28, 25, 22, 18]}
+  fontSizes={[73.2, 58.6, 46.9, 37.5, 30, 24, 19.2]}
   fontWeight={400}
   sampleText="Jouw typograaf biedt mij zulke exquise schreven"
 />
 
-Elk tekstniveau heeft een minimale tekstgrootte (bij een vensterbreedte van 320 pixels) en een maximale (bij 1440 pixels).
-Tussen beide stijgt de tekst linear, met een knik op een extra breakpoint van 854 pixels.
-Eerst stijgt de grootte sneller, daarna langzamer.
+En de minimale:
 
-Op dit moment reageert de typografie nog op 1 breakpoint bij een vensterbreedte van 854 pixels.
-Nu het grid doorontwikkeld is, stemmen we de typografie daar weer op af.
-Dit aparte breakpoint komt dus snel te vervallen.
+<Typeset
+  fontFamily="Amsterdam Sans, Arial, sans-serif"
+  fontSizes={[38.9, 33.3, 28.6, 24.5, 21, 18, 15.4]}
+  fontWeight={400}
+  sampleText="Jouw typograaf biedt mij zulke exquise schreven"
+/>
 
-In de tabel hieronder vind je deze waardes in pixels:
+#### Compact
 
-| Niveau                     |   0 |   1 |   2 |   3 |   4 |   5 |   6 |   7 |
-| :------------------------- | --: | --: | --: | --: | --: | --: | --: | --: |
-| minimale tekstgrootte      |  32 |  32 |  28 |  24 |  20 |  22 |  18 |  16 |
-| tekstgrootte op breakpoint |  64 |  48 |  36 |  29 |  23 |  26 |  21 |  17 |
-| maximale tekstgrootte      |  80 |  56 |  40 |  32 |  25 |  28 |  22 |  18 |
-| relatieve regelhoogte      | 1.1 | 1.2 | 1.3 | 1.4 | 1.4 | 1.5 | 1.6 | 1.6 |
+Voor applicaties is zulke grote tekst niet nodig, zelfs contraproductief.
+Daarom is er een compact thema voor de typografie.
 
-Tekst op niveau 5 is groter dan op niveau 4.
-Dat is omdat titel niveau 4 kleinere letters heeft dan paragrafen met grote letters.
-Het alternatief om Heading 4 tekstniveau 5 te geven leek ons nog verwarrender.
+Hier is een paragraaf 14 pixels groot bij de minimale vensterbreedte en 18 pixels bij de maximale.
+Een paragraaf groeit hier dus niet met de helft, maar met iets meer dan een kwart.
 
-Voorbeelden van componenten en hun tekstniveaus:
+De maximale tekstgroottes voor alle niveau’s in het compacte thema:
 
-| Componenten                                          | Niveau |
-| :--------------------------------------------------- | -----: |
-| Page heading                                         |      0 |
-| Heading 1                                            |      1 |
-| Heading 2                                            |      2 |
-| Heading 3, Blockquote                                |      3 |
-| Heading 4, Top Task Link                             |      4 |
-| Large Paragraph, Alert Title                         |      5 |
-| Paragraph, Button, Link behalve InList               |      6 |
-| Small Paragraph, InList Link, Form Label, Breadcrumb |      7 |
+<Typeset
+  fontFamily="Amsterdam Sans, Arial, sans-serif"
+  fontSizes={[54.9, 43.9, 35.2, 28.1, 22.5, 18, 14.4]}
+  fontWeight={400}
+  sampleText="Jouw typograaf biedt mij zulke exquise schreven"
+/>
+
+En de minimale:
+
+<Typeset
+  fontFamily="Amsterdam Sans, Arial, sans-serif"
+  fontSizes={[30.3, 25.9, 22.2, 19.1, 16.3, 14, 12]}
+  fontWeight={400}
+  sampleText="Jouw typograaf biedt mij zulke exquise schreven"
+/>
+
+### Vensterbreedtes waarvoor we ontwerpen
+
+In de praktijk kan een venster elke willekeurige breedte hebben.
+Voor al die breedtes ontwerpen is wat te gek.
+Daarom werken we in Figma met drie referentie-breedtes.
+Op die maten werken we een scherm uit voor die drie klassen van apparaten.
+De tekstgroottes zijn op dat punt als volgt, afgerond op 1 cijfer achter de komma.
+
+#### Ruimtelijk
+
+| Klasse apparaat | Ontwerpbreedte |    0 |    1 |    2 |    3 |    4 |    5 |    6 |
+| :-------------- | :------------- | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
+| telefoon        | 320            | 38,9 | 33,3 | 28,6 | 24,5 |   21 |   18 | 15,4 |
+| tablet          | 832            | 52,6 | 43,4 | 35,9 | 29,7 | 24,6 | 20,4 | 16,9 |
+| desktop         | 1600           | 73,2 | 58,6 | 46,9 | 37,5 |   30 |   24 | 19,2 |
+
+#### Compact
+
+| Klasse apparaat | Ontwerpbreedte |    0 |    1 |    2 |    3 |    4 |    5 |    6 |
+| :-------------- | :------------- | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
+| telefoon        | 320            | 30,3 | 25,9 | 22,2 | 19,1 | 16,3 |   14 |   12 |
+| tablet          | 832            | 40,1 | 33,1 | 27,4 | 22,7 | 18,8 | 15,6 |   13 |
+| desktop         | 1600           | 54,9 | 43,9 | 35,2 | 28,1 | 22,5 |   18 | 14,4 |
 
 ## Accentuering
 
@@ -79,6 +146,7 @@ Hierin hebben we de volgende keuzes gemaakt.
 ### Gewicht
 
 Online gebruiken we 2 gewichten: ‘regular’ en ‘extra bold’.
+In termen van CSS: 400 en 800.
 
 <Typeset
   fontFamily="Amsterdam Sans, Arial, sans-serif"
@@ -98,10 +166,8 @@ Tekst wordt vetgedrukt in titels en decoratieve citaten.
 
 ### Stijl
 
-Gebruik de cursieve weergave uitsluitend om fragmenten in tekst te accentueren.
-Cursieve tekst is minder goed leesbaar dan reguliere of vetgedrukte tekst.
-
-Pas het niet toe op hele tekstblokken.
+Vermijd cursieve teksten zo veel mogelijk, deze zijn niet goed te lezen.
+Gebruik ze uitsluitend om een fragment te accentueren, niet voor hele tekstblokken.
 Er zijn betere manieren om lange teksten nadruk te geven.
 
 <Typeset
@@ -113,18 +179,18 @@ Er zijn betere manieren om lange teksten nadruk te geven.
 
 ### Onderstreping
 
-Uitsluitend de tekst van een hyperlink wordt onderstreept.
-Rond staartletters wordt de lijn onderbroken voor betere leesbaarheid.
+Vermijd het onderstrepen van tekst.
+Onderstreep alleen interactieve links.
 
-Onderstreepte tekst zonder hyperlink geeft toch de suggestie van een link.
-Dat is verwarrend en daarom niet toegestaan.
-Gebruik een andere manier om te accentueren.
+De lijndikte is 1/12 van de tekstgrootte, dus 2 pixels bij een standaard paragraaf van 24.
+De afstand tussen de onderstreping en de letterlijn is iets vergroot.
+Rond staartletters wordt de streep onderbroken voor betere leesbaarheid.
 
 <Typeset
   fontFamily="Amsterdam Sans, Arial, sans-serif"
   fontSizes={[24]}
   sampleText="Jouw typograaf biedt mij zulke exquise schreven"
-  style={{ color: "#004699", textDecoration: "underline" }}
+  style={{ color: "#004469", textDecorationLine: "underline", textDecorationThickness: 2, textUnderlineOffset: 2 }}
 />
 
 ### Overhang
@@ -138,7 +204,7 @@ Het is niet toegestaan om de kerning aan te passen.
 
 Het contrast tussen tekst en achtergrondkleur moet voldoen aan de laatste wettelijke toegankelijkheidseisen van [de WCAG, niveau AA](https://www.w3.org/WAI/WCAG21/Understanding/contrast-minimum.html).
 
-De meeste tekst in het design system is puur zwart op puur wit en dat voldoet daar ruim aan.
+De meeste tekst in de huisstijl is puur zwart op puur wit en dat voldoet daar ruim aan.
 Op de meeste donkere achtergronden maken we tekst wit; ook dat biedt voldoende contrast.
 Voor sommige achtergrondkleuren is ook zwarte tekst goed leesbaar.
 Raadpleeg de betreffende componenten voor specifieke richtlijnen.
@@ -172,14 +238,20 @@ Voor verdere informatie: [Wrapping and breaking text op MDN](https://developer.m
 
 ## Het lettertype installeren
 
-Als je de React-componenten gebruikt hoef je niets te doen.
-Deze gebruiken allemaal het juiste lettertype.
+Werk je met npm, neem dan ons package `@amsterdam/design-system-assets` op in je dependencies.
+Vervolgens importeer je `@amsterdam/design-system-assets/font/index.css` aan het begin van je stylesheet.
 
-Werk je met andere technologie, maar wel met npm, dan installeer je `@amsterdam/design-system-assets` en importeer je `@amsterdam/design-system-assets/font/index.css`.
+Je kunt het lettertype ook zelf hosten en opnemen in je applicatie.
+Vraag het dan aan via het formulier hieronder.
 
-Ook kun je het lettertype zelf hosten en opnemen in je applicatie, vraag het dan aan via het formulier hieronder.
 Als het helemaal niet mogelijk is Amsterdam Sans te gebruiken pas je het lettertype Arial toe, of het generieke sans-serif lettertype van het apparaat.
-In alle gevallen voer je die alternatieven op voor als het downloaden van het font voor de gebruiker niet lukt, of terwijl dat bezig is: `font-family: "'Amsterdam Sans', Arial, sans-serif"`.
+In alle gevallen voer je die alternatieven op voor als het downloaden van het font voor de gebruiker niet lukt, of terwijl dat bezig is:
+
+```css
+.class {
+  font-family: "Amsterdam Sans", Arial, sans-serif;
+}
+```
 
 ### Licentie en aanvraag
 

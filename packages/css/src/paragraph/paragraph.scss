@@ -3,8 +3,6 @@
  * Copyright (c) 2023 Gemeente Amsterdam
  */
 
-@import "../../utils/breakpoint";
-
 @mixin reset {
   box-sizing: border-box;
   margin-block: 0;
@@ -14,32 +12,35 @@
 .amsterdam-paragraph {
   color: var(--amsterdam-paragraph-color);
   font-family: var(--amsterdam-paragraph-font-family);
-  font-size: var(--amsterdam-paragraph-narrow-font-size);
+  font-size: var(--amsterdam-paragraph-spacious-medium-font-size);
   font-weight: var(--amsterdam-paragraph-font-weight);
-  line-height: var(--amsterdam-paragraph-line-height);
-
-  @media screen and (min-width: $amsterdam-breakpoint-typography) {
-    font-size: var(--amsterdam-paragraph-wide-font-size);
-  }
+  line-height: var(--amsterdam-paragraph-spacious-medium-line-height);
 
   @include reset;
+
+  .amsterdam-theme--compact & {
+    font-size: var(--amsterdam-paragraph-compact-medium-font-size);
+    line-height: var(--amsterdam-paragraph-compact-medium-line-height);
+  }
 }
 
 .amsterdam-paragraph--small {
-  font-size: var(--amsterdam-paragraph-small-narrow-font-size);
-  line-height: var(--amsterdam-paragraph-small-line-height);
+  font-size: var(--amsterdam-paragraph-spacious-small-font-size);
+  line-height: var(--amsterdam-paragraph-spacious-small-line-height);
 
-  @media screen and (min-width: $amsterdam-breakpoint-typography) {
-    font-size: var(--amsterdam-paragraph-small-wide-font-size);
+  .amsterdam-theme--compact & {
+    font-size: var(--amsterdam-paragraph-compact-small-font-size);
+    line-height: var(--amsterdam-paragraph-compact-small-line-height);
   }
 }
 
 .amsterdam-paragraph--large {
-  font-size: var(--amsterdam-paragraph-large-narrow-font-size);
-  line-height: var(--amsterdam-paragraph-large-line-height);
+  font-size: var(--amsterdam-paragraph-spacious-large-font-size);
+  line-height: var(--amsterdam-paragraph-spacious-large-line-height);
 
-  @media screen and (min-width: $amsterdam-breakpoint-typography) {
-    font-size: var(--amsterdam-paragraph-large-wide-font-size);
+  .amsterdam-theme--compact & {
+    font-size: var(--amsterdam-paragraph-compact-large-font-size);
+    line-height: var(--amsterdam-paragraph-compact-large-line-height);
   }
 }
 
