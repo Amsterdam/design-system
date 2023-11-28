@@ -35,6 +35,10 @@
   @include reset-list;
 }
 
+.amsterdam-page-menu--align-end {
+  justify-content: end;
+}
+
 @mixin page-menu-item {
   color: var(--amsterdam-page-menu-item-color);
   display: inline-flex;

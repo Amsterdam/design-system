@@ -1,4 +1,4 @@
-import { Controls, Markdown, Meta, Primary } from "@storybook/blocks";
+import { Canvas, Markdown, Meta, Primary } from "@storybook/blocks";
 import * as PageMenuStories from "./PageMenu.stories.tsx";
 import README from "../../../../packages/css/src/page-menu/README.md?raw";
 
@@ -6,6 +6,16 @@ import README from "../../../../packages/css/src/page-menu/README.md?raw";
 
 <Markdown>{README}</Markdown>
 
+## Voorbeelden
+
+### Basis
+
 <Primary />
 
-<Controls />
+## Rechts uitlijnen
+
+Het kan gebeuren dat alle menu-items niet op 1 regel passen.
+Bijvoorbeeld op een middelbreed venster of met ingezoomde tekst.
+Als het menu zelf rechts uitgelijnd staat, zoals bijvoorbeeld in de header, dan moet je de items daarbinnen ook rechts uitlijnen.
+
+<Canvas of={PageMenuStories.AlignEnd} />

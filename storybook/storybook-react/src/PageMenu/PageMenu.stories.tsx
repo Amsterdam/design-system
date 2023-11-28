@@ -32,3 +32,40 @@ export const Default: Story = {
     },
   },
 }
+
+export const AlignEnd: Story = {
+  args: {
+    alignEnd: true,
+  },
+  render: (args) => (
+    <PageMenu {...args}>
+      <PageMenu.Link href="#" key="onderzoeken">
+        Onderzoeken
+      </PageMenu.Link>
+      <PageMenu.Link href="#" key="bezoeken">
+        Bezoeken
+      </PageMenu.Link>
+      <PageMenu.Link href="#" key="archiveren">
+        Archiveren
+      </PageMenu.Link>
+      <PageMenu.Link href="#" key="nieuws">
+        Nieuws
+      </PageMenu.Link>
+      <PageMenu.Link href="#" key="themasites">
+        Themasites
+      </PageMenu.Link>
+      <PageMenu.Link href="#" key="onderwijs">
+        Onderwijs
+      </PageMenu.Link>
+      <PageMenu.Link href="#" key="steun-ons">
+        Steun ons
+      </PageMenu.Link>
+      <PageMenu.Link href="#" key="organisatie">
+        Organisatie
+      </PageMenu.Link>
+      <PageMenu.Link href="#" key="contact">
+        Contact
+      </PageMenu.Link>
+    </PageMenu>
+  ),
+}
