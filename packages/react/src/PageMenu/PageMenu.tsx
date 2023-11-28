@@ -16,7 +16,13 @@ import {
 } from 'react'
 import { Icon } from '../Icon'
 
-type PageMenuProps = PropsWithChildren<HTMLAttributes<HTMLUListElement>>
+type PageMenuProps = {
+  /**
+   * Whether the page menu’s items align to its end.
+   * If the menu itself aligns to the end of its container, you should set this to `true`.
+   */
+  alignEnd?: boolean
+} & PropsWithChildren<HTMLAttributes<HTMLUListElement>>
 
 interface PageMenuComponent extends ForwardRefExoticComponent<PageMenuProps & RefAttributes<HTMLElement>> {
   Link: typeof PageMenuLink
@@ -24,9 +30,13 @@ interface PageMenuComponent extends ForwardRefExoticComponent<PageMenuProps & Re
 }
 
 export const PageMenu = forwardRef(
-  ({ children, className, ...restProps }: PageMenuProps, ref: ForwardedRef<HTMLUListElement>) => {
+  ({ alignEnd, children, className, ...restProps }: PageMenuProps, ref: ForwardedRef<HTMLUListElement>) => {
     return (
-      <ul {...restProps} className={clsx('amsterdam-page-menu', className)} ref={ref}>
+      <ul
+        {...restProps}
+        className={clsx('amsterdam-page-menu', alignEnd && `amsterdam-page-menu--align-end`, className)}
+        ref={ref}
+      >
         {children}
       </ul>
     )
