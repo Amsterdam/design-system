@@ -1,96 +1,110 @@
 /* stylelint-disable */
 
-.sbdocs-wrapper {
-  padding-inline: 8vw !important;
+.sbdocs-wrapper.sbdocs-wrapper {
+  padding-inline: 8vw;
 }
 
-.sbdocs-content > :is(h1, h2, h3, h4, h5, h6, p),
-.sbdocs-content > div :is(h1, h2, h3, h4, h5, h6, p),
-.sbdocs-content :where(li:not(.sb-anchor, .sb-unstyled, .sb-unstyled li)) {
-  color: #000000 !important;
-  font-family: "Amsterdam Sans", Arial, sans-serif !important;
+.sbdocs-content.sbdocs-content > :is(h1, h2, h3, h4, h5, h6, p),
+.sbdocs-content.sbdocs-content > div:not(.sb-unstyled) > :is(h1, h2, h3, h4, h5, h6, p),
+.sbdocs-content.sbdocs-content > :is(ol, ul) li,
+.sbdocs-content.sbdocs-content > div:not(.sb-unstyled) > :is(ol, ul) li,
+.sbdocs-content.sbdocs-content > table:not(.sb-unstyled) :is(td, th),
+.sbdocs-content.sbdocs-content > div:not(.sb-unstyled) > table:not(.sb-unstyled) :is(td, th) {
+  color: #000000;
+  font-family: "Amsterdam Sans", Arial, sans-serif;
 }
 
-.sbdocs-content > :is(p, a),
-.sbdocs-content > div :is(p, a),
-.sbdocs-content :where(li:not(.sb-anchor, .sb-unstyled, .sb-unstyled li)) {
-  font-size: 1.25rem !important;
-  line-height: 1.75 !important;
+.sbdocs-content.sbdocs-content > :is(p, a),
+.sbdocs-content.sbdocs-content > div:not(.sb-unstyled) > :is(p, a),
+.sbdocs-content.sbdocs-content > :is(ol, ul) li,
+.sbdocs-content.sbdocs-content > div:not(.sb-unstyled) > :is(ol, ul) li,
+.sbdocs-content.sbdocs-content > blockquote > p,
+.sbdocs-content.sbdocs-content > div:not(.sb-unstyled) > blockquote > p,
+.sbdocs-content.sbdocs-content > :is(ol, ul) li > p,
+.sbdocs-content.sbdocs-content > div:not(.sb-unstyled) > :is(ol, ul) li > p {
+  font-size: 1.125rem;
+  line-height: 1.75;
 }
 
-.sbdocs-content > :is(p, ol, ul),
-.sbdocs-content > div :is(p, ol, ul) {
-  margin-block: 1.25rem !important;
-  padding-block: 0 !important;
+.sbdocs-content.sbdocs-content > :is(p, ol, ul),
+.sbdocs-content.sbdocs-content > div:not(.sb-unstyled) > :is(p, ol, ul) {
+  margin-block: 1.125rem;
+  padding-block: 0;
 }
 
-.sbdocs-content > h1 + p,
-.sbdocs-content > div h1 + p {
-  font-size: 1.375rem !important;
-  margin-block-end: 2em !important;
+.sbdocs-content.sbdocs-content > h1 + p,
+.sbdocs-content.sbdocs-content > div:not(.sb-unstyled) > h1 + p {
+  font-size: 1.375rem;
+  margin-block-end: 2em;
 }
 
-.sbdocs-content > a,
-.sbdocs-content > div a {
-  color: #004699 !important;
-  text-decoration: underline !important;
+.sbdocs-content.sbdocs-content > a,
+.sbdocs-content.sbdocs-content > div:not(.sb-unstyled) > a {
+  color: #004699;
+  text-decoration: underline;
 }
 
-.sbdocs-content > a:hover,
-.sbdocs-content > div a:hover {
-  color: #102e62 !important;
-  text-decoration-thickness: 2px !important;
+.sbdocs-content.sbdocs-content > a:hover,
+.sbdocs-content.sbdocs-content > div:not(.sb-unstyled) > a:hover {
+  color: #102e62;
+  text-decoration-thickness: 2px;
 }
 
-.sbdocs-content > :is(h1, h2, h3, h4, h5, h6),
-.sbdocs-content > div :is(h1, h2, h3, h4, h5, h6) {
-  margin-block: 2em 0.25em !important;
-  padding-block: 0 !important;
+.sbdocs-content.sbdocs-content > :is(h1, h2, h3, h4, h5, h6),
+.sbdocs-content.sbdocs-content > div:not(.sb-unstyled) > :is(h1, h2, h3, h4, h5, h6) {
+  margin-block: 2em 0.25em;
+  padding-block: 0;
 }
 
-.sbdocs-content > h1,
-.sbdocs-content > div h1 {
-  font-size: 3rem !important;
+.sbdocs-content.sbdocs-content > h1,
+.sbdocs-content.sbdocs-content > div:not(.sb-unstyled) > h1 {
+  font-size: 2.5rem;
 }
 
-.sbdocs-content > h2,
-.sbdocs-content > div h2 {
-  font-size: 2rem !important;
+.sbdocs-content.sbdocs-content > h2,
+.sbdocs-content.sbdocs-content > div:not(.sb-unstyled) > h2 {
+  font-size: 1.5rem;
   border-bottom: none;
 }
 
-.sbdocs-content > h3,
-.sbdocs-content > div h3 {
-  font-size: 1.5rem !important;
+.sbdocs-content.sbdocs-content > h3,
+.sbdocs-content.sbdocs-content > div:not(.sb-unstyled) > h3 {
+  font-size: 1.25rem;
 }
 
-.sbdocs-content > h4,
-.sbdocs-content > div h4 {
-  font-size: 1.25rem !important;
+.sbdocs-content.sbdocs-content > h4,
+.sbdocs-content.sbdocs-content > div:not(.sb-unstyled) > h4 {
+  font-size: 1.125rem;
 }
 
-.sbdocs-content > h2 + h3,
-.sbdocs-content > div h2 + h3,
-.sbdocs-content > h3 + h4,
-.sbdocs-content > div h3 + h4,
-.sbdocs-content > h4 + h5,
-.sbdocs-content > div h4 + h5 {
-  margin-block-start: 1em !important;
+.sbdocs-content.sbdocs-content > h2 + h3,
+.sbdocs-content.sbdocs-content > div:not(.sb-unstyled) > h2 + h3,
+.sbdocs-content.sbdocs-content > h3 + h4,
+.sbdocs-content.sbdocs-content > div:not(.sb-unstyled) > h3 + h4,
+.sbdocs-content.sbdocs-content > h4 + h5,
+.sbdocs-content.sbdocs-content > div:not(.sb-unstyled) > h4 + h5 {
+  margin-block-start: 1em;
 }
 
-.sbdocs-content > :is(p, ul, ol),
-.sbdocs-content > div :is(p, ul, ol) {
-  margin-block: 0 1rem !important;
+.sbdocs-content.sbdocs-content > :is(p, ul, ol),
+.sbdocs-content.sbdocs-content > div:not(.sb-unstyled) > :is(p, ul, ol) {
+  margin-block: 0 1rem;
 }
 
-.sbdocs-content > :first-child,
-.sbdocs-content > div :first-child {
-  margin-block-start: 0 !important;
+.sbdocs-content.sbdocs-content > :first-child,
+.sbdocs-content.sbdocs-content > div:not(.sb-unstyled) > :first-child {
+  margin-block-start: 0;
 }
 
-.sbdocs-content > p code {
-  color: currentColor !important;
-  font-size: 1rem !important;
+.sbdocs-content.sbdocs-content > table:not(.sb-unstyled) :is(td, th),
+.sbdocs-content.sbdocs-content > div:not(.sb-unstyled) > table:not(.sb-unstyled) :is(td, th) {
+  font-size: 1rem;
+  line-height: 1.5;
+}
+
+.sbdocs-content.sbdocs-content > p code {
+  color: currentColor;
+  font-size: 1rem;
 }
 
 /* stylelint-enable */
