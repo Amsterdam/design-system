@@ -3,8 +3,6 @@
  * Copyright (c) 2023 Gemeente Amsterdam
  */
 
-@import "../../utils/breakpoint";
-
 @mixin reset {
   box-sizing: border-box;
   margin-block: 0;
@@ -22,38 +20,42 @@
 }
 
 .amsterdam-heading--1 {
-  font-size: var(--amsterdam-heading-1-narrow-font-size);
-  line-height: var(--amsterdam-heading-1-line-height);
+  font-size: var(--amsterdam-heading-spacious-level-1-font-size);
+  line-height: var(--amsterdam-heading-spacious-level-1-line-height);
 
-  @media screen and (min-width: $amsterdam-breakpoint-typography) {
-    font-size: var(--amsterdam-heading-1-wide-font-size);
+  .amsterdam-theme--compact & {
+    font-size: var(--amsterdam-heading-compact-level-1-font-size);
+    line-height: var(--amsterdam-heading-compact-level-1-line-height);
   }
 }
 
 .amsterdam-heading--2 {
-  font-size: var(--amsterdam-heading-2-narrow-font-size);
-  line-height: var(--amsterdam-heading-2-line-height);
+  font-size: var(--amsterdam-heading-spacious-level-2-font-size);
+  line-height: var(--amsterdam-heading-spacious-level-2-line-height);
 
-  @media screen and (min-width: $amsterdam-breakpoint-typography) {
-    font-size: var(--amsterdam-heading-2-wide-font-size);
+  .amsterdam-theme--compact & {
+    font-size: var(--amsterdam-heading-compact-level-2-font-size);
+    line-height: var(--amsterdam-heading-compact-level-2-line-height);
   }
 }
 
 .amsterdam-heading--3 {
-  font-size: var(--amsterdam-heading-3-narrow-font-size);
-  line-height: var(--amsterdam-heading-3-line-height);
+  font-size: var(--amsterdam-heading-spacious-level-3-font-size);
+  line-height: var(--amsterdam-heading-spacious-level-3-line-height);
 
-  @media screen and (min-width: $amsterdam-breakpoint-typography) {
-    font-size: var(--amsterdam-heading-3-wide-font-size);
+  .amsterdam-theme--compact & {
+    font-size: var(--amsterdam-heading-compact-level-3-font-size);
+    line-height: var(--amsterdam-heading-compact-level-3-line-height);
   }
 }
 
 .amsterdam-heading--4 {
-  font-size: var(--amsterdam-heading-4-narrow-font-size);
-  line-height: var(--amsterdam-heading-4-line-height);
+  font-size: var(--amsterdam-heading-spacious-level-4-font-size);
+  line-height: var(--amsterdam-heading-spacious-level-4-line-height);
 
-  @media screen and (min-width: $amsterdam-breakpoint-typography) {
-    font-size: var(--amsterdam-heading-4-wide-font-size);
+  .amsterdam-theme--compact & {
+    font-size: var(--amsterdam-heading-compact-level-4-font-size);
+    line-height: var(--amsterdam-heading-compact-level-4-line-height);
   }
 }
 
