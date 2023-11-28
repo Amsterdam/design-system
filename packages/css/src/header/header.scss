@@ -54,13 +54,13 @@
   }
 
   .amsterdam-header__column--title {
-    grid-column: 3 / span 6;
+    grid-column: 1 / span 8;
     grid-row: 2;
   }
 
   @media screen and (min-width: $amsterdam-breakpoint-medium) {
     .amsterdam-header__column--title {
-      grid-column: 1 / span 8;
+      grid-column: 3 / span 8;
       grid-row: 1;
     }
   }

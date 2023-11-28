@@ -12,7 +12,7 @@ import { VisuallyHidden } from '../VisuallyHidden'
 
 export interface HeaderProps extends HTMLAttributes<HTMLElement> {
   logoBrand?: LogoBrand
-  logoLink?: string
+  logoLink: string
   logoLinkTitle?: string
   title?: string
   menu?: ReactNode
@@ -20,7 +20,15 @@ export interface HeaderProps extends HTMLAttributes<HTMLElement> {
 
 export const Header = forwardRef(
   (
-    { className, logoBrand, logoLink, logoLinkTitle, title, menu, ...restProps }: HeaderProps,
+    {
+      className,
+      logoBrand = 'amsterdam',
+      logoLink = '/',
+      logoLinkTitle = 'Ga naar de homepage',
+      title,
+      menu,
+      ...restProps
+    }: HeaderProps,
     ref: ForwardedRef<HTMLElement>,
   ) => (
     <header
@@ -35,14 +43,10 @@ export const Header = forwardRef(
     >
       <Grid>
         <div className="amsterdam-header__column amsterdam-header__column--logo">
-          {logoLink ? (
-            <a href={logoLink} className="amsterdam-header__logo-link">
-              {logoLinkTitle && <VisuallyHidden>{logoLinkTitle}</VisuallyHidden>}
-              <Logo brand={logoBrand} />
-            </a>
-          ) : (
+          <a href={logoLink} className="amsterdam-header__logo-link">
+            <VisuallyHidden>{logoLinkTitle}</VisuallyHidden>
             <Logo brand={logoBrand} />
-          )}
+          </a>
         </div>
         {title && (
           <div className="amsterdam-header__column amsterdam-header__column--title">
