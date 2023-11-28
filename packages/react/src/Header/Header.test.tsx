@@ -5,7 +5,7 @@ import '@testing-library/jest-dom'
 
 describe('Header', () => {
   it('renders', () => {
-    const { container } = render(<Header />)
+    const { container } = render(<Header logoLink="/" />)
 
     const component = container.querySelector(':only-child')
 
@@ -14,7 +14,7 @@ describe('Header', () => {
   })
 
   it('renders a design system BEM class name', () => {
-    const { container } = render(<Header />)
+    const { container } = render(<Header logoLink="/" />)
 
     const component = container.querySelector(':only-child')
 
@@ -22,7 +22,7 @@ describe('Header', () => {
   })
 
   it('renders an additional class name', () => {
-    const { container } = render(<Header className="extra" />)
+    const { container } = render(<Header logoLink="/" className="extra" />)
 
     const component = container.querySelector(':only-child')
 
@@ -34,7 +34,7 @@ describe('Header', () => {
   it('supports ForwardRef in React', () => {
     const ref = createRef<HTMLElement>()
 
-    const { container } = render(<Header ref={ref} />)
+    const { container } = render(<Header logoLink="/" ref={ref} />)
 
     const component = container.querySelector(':only-child')
 
