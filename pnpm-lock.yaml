@@ -353,8 +353,8 @@ importers:
         specifier: 0.2.2
         version: 0.2.2
       '@storybook/theming':
-        specifier: 7.5.3
-        version: 7.5.3(react-dom@18.2.0)(react@18.2.0)
+        specifier: 7.6.0
+        version: 7.6.0(react-dom@18.2.0)(react@18.2.0)
       '@types/react':
         specifier: 18.2.38
         version: 18.2.38
@@ -462,8 +462,8 @@ importers:
         specifier: 0.2.2
         version: 0.2.2
       '@storybook/theming':
-        specifier: 7.5.3
-        version: 7.5.3(react-dom@18.2.0)(react@18.2.0)
+        specifier: 7.6.0
+        version: 7.6.0(react-dom@18.2.0)(react@18.2.0)
       '@types/react':
         specifier: 18.2.38
         version: 18.2.38
@@ -5134,6 +5134,12 @@ packages:
       '@storybook/global': 5.0.0
     dev: true
 
+  /@storybook/client-logger@7.6.0:
+    resolution: {integrity: sha512-18XPPEWYHmmUav7i+PjZGwtImshNtay0xO2vh2DmQtzoCh2Lx/NVldqv9Li1eHCI88+4y7fyutmC5OIi0YASbg==}
+    dependencies:
+      '@storybook/global': 5.0.0
+    dev: true
+
   /@storybook/codemod@7.5.3:
     resolution: {integrity: sha512-gzycFdqnF4drUjfzMTrLNHqi2jkw1lDeACUzQdug5uWxynZKAvMTHAgU0q9wvoYRR9Xhq8PhfKtXtYCCj2Er4Q==}
     dependencies:
@@ -5522,6 +5528,20 @@ packages:
     dependencies:
       '@emotion/use-insertion-effect-with-fallbacks': 1.0.0(react@18.2.0)
       '@storybook/client-logger': 7.5.3
+      '@storybook/global': 5.0.0
+      memoizerific: 1.11.3
+      react: 18.2.0
+      react-dom: 18.2.0(react@18.2.0)
+    dev: true
+
+  /@storybook/theming@7.6.0(react-dom@18.2.0)(react@18.2.0):
+    resolution: {integrity: sha512-F5PTGkaRQ0TWIWRrZgQ2dmVxVcjX77vDc6QfUYxvOfez9/zrduKRHP5lGqHoqJlugJc8i2zpRNEFbL99frdUKg==}
+    peerDependencies:
+      react: ^16.8.0 || ^17.0.0 || ^18.0.0
+      react-dom: ^16.8.0 || ^17.0.0 || ^18.0.0
+    dependencies:
+      '@emotion/use-insertion-effect-with-fallbacks': 1.0.0(react@18.2.0)
+      '@storybook/client-logger': 7.6.0
       '@storybook/global': 5.0.0
       memoizerific: 1.11.3
       react: 18.2.0
