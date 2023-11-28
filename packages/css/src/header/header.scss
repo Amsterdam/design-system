@@ -6,17 +6,11 @@
 @import "../../utils/breakpoint";
 
 .amsterdam-header {
-  --amsterdam-grid-gap: var(--amsterdam-grid-density-low-gap);
-  --amsterdam-grid-padding-inline: var(--amsterdam-grid-density-low-padding-inline);
-
-  column-gap: var(--amsterdam-grid-gap);
-  display: grid;
-  grid-template-areas: "logo logo logo logo";
-  grid-template-columns: repeat(var(--amsterdam-grid-column-count), 1fr);
-  grid-template-rows: auto;
-  padding-block: 0.88rem;
-  padding-inline: var(--amsterdam-grid-padding-inline);
-  row-gap: 1.5rem;
+  .amsterdam-grid {
+    grid-template-rows: auto;
+    padding-block: 0.88rem;
+    row-gap: 1.5rem;
+  }
 
   @media screen and (max-width: $amsterdam-breakpoint-medium) {
     *[class*="menu__item"]:not([class$="--mobile"]) {
@@ -26,74 +20,89 @@
   }
 }
 
+.amsterdam-header__column--logo {
+  grid-column: 1 / span 4;
+  grid-row: 1;
+}
+
 .amsterdam-header--has-menu {
-  grid-template-areas: "logo logo menu menu";
+  .amsterdam-header__column--logo {
+    grid-column: 1 / span 2;
+  }
+
+  .amsterdam-header__column--menu {
+    grid-column: 3 / span 2;
+    grid-row: 1;
+  }
+
+  @media screen and (min-width: $amsterdam-breakpoint-medium) {
+    .amsterdam-header__column--menu {
+      grid-column: 3 / span 6;
+    }
+  }
+
+  @media screen and (min-width: $amsterdam-breakpoint-wide) {
+    .amsterdam-header__column--menu {
+      grid-column: 3 / span 10;
+    }
+  }
 }
 
 .amsterdam-header--has-title {
-  grid-template-areas:
-    "logo logo logo logo"
-    "title title title title";
-  grid-template-rows: repeat(2, auto);
+  .amsterdam-grid {
+    grid-template-rows: repeat(2, auto);
+  }
+
+  .amsterdam-header__column--title {
+    grid-column: 3 / span 6;
+    grid-row: 2;
+  }
+
+  @media screen and (min-width: $amsterdam-breakpoint-medium) {
+    .amsterdam-header__column--title {
+      grid-column: 1 / span 8;
+      grid-row: 1;
+    }
+  }
+
+  @media screen and (min-width: $amsterdam-breakpoint-wide) {
+    .amsterdam-header__column--title {
+      grid-column: 3 / span 10;
+      grid-row: 1;
+    }
+  }
 }
 
 .amsterdam-header--has-title.amsterdam-header--has-menu {
-  grid-template-areas:
-    "logo logo menu menu"
-    "title title title title";
-  grid-template-rows: repeat(2, auto);
-}
-
-@media screen and (min-width: $amsterdam-breakpoint-medium) {
-  .amsterdam-header {
-    grid-template-areas: "logo logo menu menu menu menu menu menu";
-    grid-template-columns: repeat(var(--amsterdam-grid-medium-column-count), 1fr);
-  }
-
-  .amsterdam-header--has-menu {
-    grid-template-areas: "logo logo menu menu menu menu menu menu";
-  }
-
-  .amsterdam-header--has-title {
-    grid-template-areas: "logo logo title title title title title title";
-  }
-
-  .amsterdam-header--has-title.amsterdam-header--has-menu {
-    grid-template-areas:
-      "logo logo menu menu menu menu menu menu"
-      "title title title title title title title title";
+  .amsterdam-grid {
     grid-template-rows: repeat(2, auto);
   }
-}
 
-@media screen and (min-width: $amsterdam-breakpoint-wide) {
-  .amsterdam-header {
-    grid-template-areas: "logo logo logo logo logo logo logo logo logo logo logo logo";
-    grid-template-columns: repeat(var(--amsterdam-grid-wide-column-count), 1fr);
-    grid-template-rows: auto;
+  .amsterdam-header__column--title {
+    grid-column: 1 / span 4;
+    grid-row: 2;
   }
 
-  .amsterdam-header--has-menu {
-    grid-template-areas: "logo logo menu menu menu menu menu menu menu menu menu menu";
+  @media screen and (min-width: $amsterdam-breakpoint-medium) {
+    .amsterdam-header__column--title {
+      grid-column: 1 / span 8;
+      grid-row: 2;
+    }
+
+    .amsterdam-header__column--menu {
+      grid-column: 3 / span 6;
+      grid-row: 1;
+    }
   }
 
-  .amsterdam-header--has-title {
-    grid-template-areas: "logo logo title title title title title title title title title title";
+  @media screen and (min-width: $amsterdam-breakpoint-wide) {
+    .amsterdam-header__column--title {
+      grid-column: 3 / span 5;
+      grid-row: 1;
+    }
+
+    .amsterdam-header__column--menu {
+      grid-column: 3 / span 10;
+    }
   }
-
-  .amsterdam-header--has-title.amsterdam-header--has-menu {
-    grid-template-areas: "logo logo title title title title title menu menu menu menu menu";
-  }
-}
-
-.amsterdam-header__column--logo {
-  grid-area: logo;
-}
-
-.amsterdam-header__column--title {
-  grid-area: title;
-}
-
-.amsterdam-header__column--menu {
-  grid-area: menu;
 }
