@@ -1,5 +1,9 @@
 /* stylelint-disable */
 
+.sbdocs-wrapper {
+  padding-inline: 8vw !important;
+}
+
 .sbdocs-content > :is(h1, h2, h3, h4, h5, h6, p),
 .sbdocs-content > div :is(h1, h2, h3, h4, h5, h6, p),
 .sbdocs-content :where(li:not(.sb-anchor, .sb-unstyled, .sb-unstyled li)) {
