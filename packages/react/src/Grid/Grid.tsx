@@ -22,8 +22,6 @@ export type GridColumnNumbers = {
   wide: GridColumnNumber
 }
 
-type GridDensity = 'low' | 'high'
-
 type GridPaddingSize = 'small' | 'medium' | 'large'
 
 type GridPaddingVerticalProp = {
@@ -43,11 +41,12 @@ type GridPaddingTopAndBottomProps = {
 
 export type GridProps = {
   /**
-   * The density of the grid: low (for websites) or high (for applications).
-   * Adjusts the pace with which columns get wider, and the start width as well.
-   * This is to be implemented more generally – it will be moved into a theme soon.
+   * Opts in to a less spacious layout.
+   * Decreases whitespace between columns and to the sides of the grid.
+   * This usually works well for applications.
+   * @todo Implement more generally – it will be moved into a theme soon.
    */
-  density?: GridDensity
+  compact?: boolean
   /** The amount of vertical whitespace between rows of the grid. */
   gapVertical?: 'small' | 'large'
 } & (GridPaddingVerticalProp | GridPaddingTopAndBottomProps) &
@@ -81,16 +80,7 @@ interface GridComponent extends ForwardRefExoticComponent<GridProps & RefAttribu
 
 export const Grid = forwardRef(
   (
-    {
-      children,
-      className,
-      density = 'low',
-      gapVertical,
-      paddingBottom,
-      paddingTop,
-      paddingVertical,
-      ...restProps
-    }: GridProps,
+    { children, className, compact, gapVertical, paddingBottom, paddingTop, paddingVertical, ...restProps }: GridProps,
     ref: ForwardedRef<HTMLDivElement>,
   ) => (
     <div
@@ -98,7 +88,7 @@ export const Grid = forwardRef(
       ref={ref}
       className={clsx(
         'amsterdam-grid',
-        density && `amsterdam-grid--density-${density}`,
+        compact && `amsterdam-grid--compact`,
         gapVertical && `amsterdam-grid--gap-vertical--${gapVertical}`,
         paddingClasses(paddingBottom, paddingTop, paddingVertical),
         className,

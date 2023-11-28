@@ -3,8 +3,6 @@
  * Copyright (c) 2023 Gemeente Amsterdam
  */
 
-@import "../../utils/breakpoint";
-
 @mixin reset {
   -webkit-text-size-adjust: 100%;
 }
@@ -24,8 +22,8 @@
 
 .amsterdam-link--standalone {
   display: inline-block;
-  font-size: var(--amsterdam-link-standalone-narrow-font-size);
-  line-height: var(--amsterdam-link-standalone-line-height);
+  font-size: var(--amsterdam-link-standalone-spacious-font-size);
+  line-height: var(--amsterdam-link-standalone-spacious-line-height);
   text-decoration-thickness: var(--amsterdam-link-standalone-text-decoration-thickness);
   text-underline-offset: var(--amsterdam-link-standalone-text-underline-offset);
 
@@ -34,8 +32,9 @@
     text-underline-offset: var(--amsterdam-link-standalone-hover-text-underline-offset);
   }
 
-  @media screen and (min-width: $amsterdam-breakpoint-typography) {
-    font-size: var(--amsterdam-link-standalone-wide-font-size);
+  .amsterdam-theme--compact & {
+    font-size: var(--amsterdam-link-standalone-compact-font-size);
+    line-height: var(--amsterdam-link-standalone-compact-line-height);
   }
 }
 
@@ -59,9 +58,9 @@
 .amsterdam-link--in-list {
   align-items: flex-start;
   display: inline-flex;
-  font-size: var(--amsterdam-link-in-list-narrow-font-size);
+  font-size: var(--amsterdam-link-in-list-spacious-font-size);
   gap: var(--amsterdam-link-in-list-gap);
-  line-height: var(--amsterdam-link-in-list-line-height);
+  line-height: var(--amsterdam-link-in-list-spacious-line-height);
   text-decoration: var(--amsterdam-link-in-list-text-decoration);
 
   &:hover {
@@ -70,8 +69,9 @@
     text-underline-offset: var(--amsterdam-link-in-list-hover-text-underline-offset);
   }
 
-  @media screen and (min-width: $amsterdam-breakpoint-typography) {
-    font-size: var(--amsterdam-link-in-list-wide-font-size);
+  .amsterdam-theme--compact & {
+    font-size: var(--amsterdam-link-in-list-compact-font-size);
+    line-height: var(--amsterdam-link-in-list-compact-line-height);
   }
 }
 
