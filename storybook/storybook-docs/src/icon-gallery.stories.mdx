@@ -1,7 +1,5 @@
-import { Icon } from "@amsterdam/design-system-react";
-import * as Icons from "@amsterdam/design-system-react-icons";
-import { IconGallery, IconItem, Meta } from "@storybook/blocks";
-import "@amsterdam/design-system-css/src/icon/icon.scss";
+import { Meta } from "@storybook/blocks";
+import { AmsterdamIconGallery } from "./components/AmsterdamIconGallery";
 
 <Meta title="Docs/Designrichtlijnen/Iconen" />
 
@@ -9,20 +7,7 @@ import "@amsterdam/design-system-css/src/icon/icon.scss";
 
 Een overzicht van alle beschikbare iconen.
 
-<IconGallery>
-  {Object.keys(Icons).map((key) => {
-    const CurrentComponent = Icons[key]
-    const name = key.substring(0, key.length - 4)
-
-    return (
-      <IconItem key={key} name={name}>
-        <Icon svg={CurrentComponent} />
-      </IconItem>
-    )
-
-})}
-
-</IconGallery>
+<AmsterdamIconGallery />
 
 ## Gerelateerde componenten
 
