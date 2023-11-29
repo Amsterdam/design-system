@@ -5,8 +5,7 @@ import '@amsterdam/design-system-css/src/icon/icon.scss'
 
 export const AmsterdamIconGallery = () => (
   <IconGallery>
-    {Object.keys(Icons).map((key) => {
-      // @ts-ignore-line
+    {(Object.keys(Icons) as Array<keyof typeof Icons>).map((key) => {
       const CurrentComponent = Icons[key]
       const name = key.substring(0, key.length - 4)
 
