@@ -1,5 +1,5 @@
 {
-  "version": "0.1.8",
+  "version": "0.1.9",
   "author": "Community for NL Design System",
   "description": "React icon components for the City of Amsterdam",
   "license": "SEE LICENSE IN LICENSE.md",
@@ -30,11 +30,11 @@
   },
   "devDependencies": {
     "@rollup/plugin-node-resolve": "15.2.3",
-    "@rollup/pluginutils": "5.0.5",
+    "@rollup/pluginutils": "5.1.0",
     "@svgr/cli": "8.1.0",
-    "@types/react": "18.2.38",
+    "@types/react": "18.2.39",
     "react": "18.2.0",
-    "rollup": "4.5.1",
+    "rollup": "4.6.0",
     "rollup-plugin-peer-deps-external": "2.2.4",
     "rollup-plugin-typescript2": "0.36.0"
   },

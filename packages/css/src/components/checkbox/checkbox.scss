@@ -3,8 +3,6 @@
  * Copyright (c) 2023 Gemeente Amsterdam
  */
 
-@import "../../common/breakpoint";
-
 .amsterdam-checkbox__input {
   appearance: none;
   margin-block: 0;
@@ -21,7 +19,7 @@
   align-items: center;
   display: flex;
   flex-shrink: 0;
-  height: calc(var(--amsterdam-checkbox-checkmark-narrow-size) * var(--amsterdam-checkbox-checkmark-multiplier));
+  height: calc(var(--amsterdam-checkbox-spacious-font-size) * var(--amsterdam-checkbox-spacious-line-height));
   width: 1.5rem;
 
   &::after {
@@ -34,8 +32,8 @@
     width: 100%;
   }
 
-  @media screen and (min-width: $amsterdam-breakpoint-typography) {
-    height: calc(var(--amsterdam-checkbox-checkmark-wide-size) * var(--amsterdam-checkbox-checkmark-multiplier));
+  .amsterdam-theme--compact & {
+    height: calc(var(--amsterdam-checkbox-compact-font-size) * var(--amsterdam-checkbox-compact-line-height));
   }
 }
 
@@ -48,10 +46,10 @@
   cursor: pointer;
   display: inline-flex;
   font-family: var(--amsterdam-checkbox-font-family);
-  font-size: var(--amsterdam-checkbox-narrow-font-size);
+  font-size: var(--amsterdam-checkbox-spacious-font-size);
   font-weight: 400;
   gap: 0.5rem;
-  line-height: var(--amsterdam-checkbox-line-height);
+  line-height: var(--amsterdam-checkbox-spacious-line-height);
 
   &:hover {
     color: var(--amsterdam-checkbox-hover-color);
@@ -65,8 +63,9 @@
     }
   }
 
-  @media screen and (min-width: $amsterdam-breakpoint-typography) {
-    font-size: var(--amsterdam-checkbox-wide-font-size);
+  .amsterdam-theme--compact & {
+    font-size: var(--amsterdam-checkbox-compact-font-size);
+    line-height: var(--amsterdam-checkbox-compact-line-height);
   }
 
   @include reset;

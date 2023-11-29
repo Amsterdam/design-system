@@ -48,7 +48,7 @@ De keuze om hierop aan te sluiten vergemakkelijkt ook het aanbieden van verschil
 
 ### Sluit aan in Teams
 
-Werk je bij de Gemeente Amsterdam, [meld je nu aan voor het Design System team](https://teams.microsoft.com/l/team/19%3afYKS_RD2n1q4UhguA9jwEJk0A_VjYPO4TiLQjYlG_bo1%40thread.tacv2/conversations?groupId=381b5f11-b342-4a3a-8a78-8b371a90457d&tenantId=72fca1b1-2c2e-4376-a445-294d80196804) van MS Teams. Zo blijf je gemakkelijk op de hoogte en kunnen we contact houden. Zijdelings meelezen in de kanalen kan je al helpen, meer meedoen mag natuurlijk ook.
+Werk je voor of bij de Gemeente Amsterdam, [meld je nu aan voor het Design System team](https://teams.microsoft.com/l/team/19%3afYKS_RD2n1q4UhguA9jwEJk0A_VjYPO4TiLQjYlG_bo1%40thread.tacv2/conversations?groupId=381b5f11-b342-4a3a-8a78-8b371a90457d&tenantId=72fca1b1-2c2e-4376-a445-294d80196804) van MS Teams. Zo blijf je gemakkelijk op de hoogte en kunnen we contact houden. Zijdelings meelezen in de kanalen kan je al helpen, meer meedoen mag natuurlijk ook.
 
 ### Bekijk de demo
 

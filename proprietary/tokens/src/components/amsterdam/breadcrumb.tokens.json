@@ -3,13 +3,6 @@
     "breadcrumb": {
       "font-family": { "value": "{amsterdam.typography.font-family}" },
       "font-weight": { "value": "{amsterdam.typography.font-weight.normal}" },
-      "line-height": { "value": "{amsterdam.typography.text-level.7.line-height}" },
-      "narrow": {
-        "font-size": { "value": "{amsterdam.typography.text-level.7.narrow.font-size}" }
-      },
-      "wide": {
-        "font-size": { "value": "{amsterdam.typography.text-level.7.wide.font-size}" }
-      },
       "separator": {
         "background-color": { "value": "{amsterdam.color.primary-blue}" }
       },
@@ -23,6 +16,14 @@
           "color": { "value": "{amsterdam.color.dark-blue}" },
           "text-decoration-line": { "value": "{amsterdam.link-appearance.subtle.hover.text-decoration-line}" }
         }
+      },
+      "spacious": {
+        "font-size": { "value": "{amsterdam.typography.spacious.text-level.7.font-size}" },
+        "line-height": { "value": "{amsterdam.typography.spacious.text-level.7.line-height}" }
+      },
+      "compact": {
+        "font-size": { "value": "{amsterdam.typography.compact.text-level.7.font-size}" },
+        "line-height": { "value": "{amsterdam.typography.compact.text-level.7.line-height}" }
       }
     }
   }

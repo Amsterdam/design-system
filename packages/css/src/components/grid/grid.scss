@@ -6,8 +6,8 @@
 @import "../../common/breakpoint";
 
 .amsterdam-grid {
-  --amsterdam-grid-gap: var(--amsterdam-grid-density-low-gap);
-  --amsterdam-grid-padding-inline: var(--amsterdam-grid-density-low-padding-inline);
+  --amsterdam-grid-gap: var(--amsterdam-grid-spacious-gap);
+  --amsterdam-grid-padding-inline: var(--amsterdam-grid-spacious-padding-inline);
 
   display: grid;
   gap: var(--amsterdam-grid-gap);
@@ -23,9 +23,9 @@
   }
 }
 
-.amsterdam-grid--density-high {
-  --amsterdam-grid-gap: var(--amsterdam-grid-density-high-gap);
-  --amsterdam-grid-padding-inline: var(--amsterdam-grid-density-high-padding-inline);
+.amsterdam-grid--compact {
+  --amsterdam-grid-gap: var(--amsterdam-grid-compact-gap);
+  --amsterdam-grid-padding-inline: var(--amsterdam-grid-compact-padding-inline);
 }
 
 .amsterdam-grid--padding-bottom--small {

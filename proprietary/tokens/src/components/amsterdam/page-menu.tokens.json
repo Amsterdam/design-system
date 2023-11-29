@@ -8,16 +8,17 @@
         "font-family": { "value": "{amsterdam.typography.font-family}" },
         "font-weight": { "value": "{amsterdam.typography.font-weight.normal}" },
         "gap": { "value": "0.5rem" },
-        "line-height": { "value": "{amsterdam.typography.text-level.7.line-height}" },
         "outline-offset": { "value": "{amsterdam.focus.outline-offset}" },
         "text-decoration-line": { "value": "{amsterdam.link-appearance.in-list.text-decoration-line}" },
         "text-decoration-thickness": { "value": "{amsterdam.link-appearance.in-list.text-decoration-thickness}" },
         "text-underline-offset": { "value": "{amsterdam.link-appearance.in-list.text-underline-offset}" },
-        "narrow": {
-          "font-size": { "value": "{amsterdam.typography.text-level.7.narrow.font-size}" }
+        "spacious": {
+          "font-size": { "value": "{amsterdam.typography.spacious.text-level.7.font-size}" },
+          "line-height": { "value": "{amsterdam.typography.spacious.text-level.7.line-height}" }
         },
-        "wide": {
-          "font-size": { "value": "{amsterdam.typography.text-level.7.wide.font-size}" }
+        "compact": {
+          "font-size": { "value": "{amsterdam.typography.compact.text-level.7.font-size}" },
+          "line-height": { "value": "{amsterdam.typography.compact.text-level.7.line-height}" }
         },
         "hover": {
           "color": { "value": "{amsterdam.link-appearance.hover.color}" },

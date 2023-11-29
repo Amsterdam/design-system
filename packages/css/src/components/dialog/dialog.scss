@@ -52,12 +52,13 @@
   color: var(--amsterdam-dialog-title-color);
   flex: auto;
   font-family: var(--amsterdam-dialog-title-font-family);
-  font-size: var(--amsterdam-dialog-title-narrow-font-size);
+  font-size: var(--amsterdam-dialog-title-spacious-font-size);
   font-weight: var(--amsterdam-dialog-title-font-weight);
-  line-height: var(--amsterdam-dialog-title-line-height);
+  line-height: var(--amsterdam-dialog-title-spacious-line-height);
 
-  @media screen and (min-width: $amsterdam-breakpoint-typography) {
-    font-size: var(--amsterdam-dialog-title-wide-font-size);
+  .amsterdam-theme--compact & {
+    font-size: var(--amsterdam-dialog-title-compact-font-size);
+    line-height: var(--amsterdam-dialog-title-compact-line-height);
   }
 
   @include reset;

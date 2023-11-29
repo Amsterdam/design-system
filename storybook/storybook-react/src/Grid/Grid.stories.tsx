@@ -43,15 +43,7 @@ export const Compact: Story = {
   ...StoryTemplate,
   args: {
     children: Array.from(Array(12).keys()).map((i) => <Grid.Cell className="amsterdam-docs-pink-box" key={i} />),
-    density: 'high',
-  },
-  argTypes: {
-    density: {
-      control: {
-        type: 'radio',
-      },
-      options: ['low', 'high'],
-    },
+    compact: true,
   },
   name: 'Compact',
   parameters: {
@@ -63,16 +55,8 @@ export const VerticalSpace: Story = {
   ...StoryTemplate,
   args: {
     children: Array.from(Array(12).keys()).map((i) => <Grid.Cell className="amsterdam-docs-pink-box" key={i} />),
-    density: 'low',
+    compact: false,
     paddingVertical: 'medium',
-  },
-  argTypes: {
-    density: {
-      control: {
-        type: 'radio',
-      },
-      options: ['low', 'high'],
-    },
   },
   name: 'Verticale witruimte',
 }

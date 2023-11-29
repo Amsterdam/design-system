@@ -3,8 +3,6 @@
  * Copyright (c) 2023 Gemeente Amsterdam
  */
 
-@import "../../common/breakpoint";
-
 .amsterdam-alert {
   align-items: flex-start;
   background-color: var(--amsterdam-alert-background-color);
@@ -30,12 +28,13 @@
 .amsterdam-alert__title {
   color: var(--amsterdam-alert-title-color);
   font-family: var(--amsterdam-alert-title-font-family);
-  font-size: var(--amsterdam-alert-title-narrow-font-size);
+  font-size: var(--amsterdam-alert-title-spacious-font-size);
   font-weight: var(--amsterdam-alert-title-font-weight);
-  line-height: var(--amsterdam-alert-title-line-height);
+  line-height: var(--amsterdam-alert-title-spacious-line-height);
 
-  @media screen and (min-width: $amsterdam-breakpoint-typography) {
-    font-size: var(--amsterdam-alert-title-wide-font-size);
+  .amsterdam-theme--compact & {
+    font-size: var(--amsterdam-alert-title-compact-font-size);
+    line-height: var(--amsterdam-alert-title-compact-line-height);
   }
 
   @include reset;

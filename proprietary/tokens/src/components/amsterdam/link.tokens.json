@@ -37,22 +37,22 @@
       },
       "in-list": {
         "gap": { "value": "0.5em" },
-        "line-height": { "value": "{amsterdam.typography.text-level.7.line-height}" },
         "text-decoration-line": { "value": "{amsterdam.link-appearance.in-list.text-decoration-line}" },
         "text-decoration-thickness": { "value": "{amsterdam.link-appearance.in-list.text-decoration-thickness}" },
         "text-underline-offset": { "value": "{amsterdam.link-appearance.in-list.text-underline-offset}" },
         "hover": {
           "text-decoration-line": { "value": "{amsterdam.link-appearance.in-list.hover.text-decoration-line}" }
         },
-        "narrow": {
-          "font-size": { "value": "{amsterdam.typography.text-level.7.narrow.font-size}" }
+        "spacious": {
+          "font-size": { "value": "{amsterdam.typography.spacious.text-level.7.font-size}" },
+          "line-height": { "value": "{amsterdam.typography.spacious.text-level.7.line-height}" }
         },
-        "wide": {
-          "font-size": { "value": "{amsterdam.typography.text-level.7.wide.font-size}" }
+        "compact": {
+          "font-size": { "value": "{amsterdam.typography.compact.text-level.7.font-size}" },
+          "line-height": { "value": "{amsterdam.typography.compact.text-level.7.line-height}" }
         }
       },
       "standalone": {
-        "line-height": { "value": "{amsterdam.typography.text-level.6.line-height}" },
         "text-decoration-line": { "value": "{amsterdam.link-appearance.regular.text-decoration-line}" },
         "text-decoration-thickness": { "value": "{amsterdam.link-appearance.regular.text-decoration-thickness}" },
         "text-underline-offset": { "value": "{amsterdam.link-appearance.regular.text-underline-offset}" },
@@ -62,11 +62,13 @@
           },
           "text-underline-offset": { "value": "{amsterdam.link-appearance.regular.hover.text-underline-offset}" }
         },
-        "narrow": {
-          "font-size": { "value": "{amsterdam.typography.text-level.6.narrow.font-size}" }
+        "spacious": {
+          "font-size": { "value": "{amsterdam.typography.spacious.text-level.6.font-size}" },
+          "line-height": { "value": "{amsterdam.typography.spacious.text-level.6.line-height}" }
         },
-        "wide": {
-          "font-size": { "value": "{amsterdam.typography.text-level.6.wide.font-size}" }
+        "compact": {
+          "font-size": { "value": "{amsterdam.typography.compact.text-level.6.font-size}" },
+          "line-height": { "value": "{amsterdam.typography.compact.text-level.6.line-height}" }
         }
       },
       "on-background-dark": {
