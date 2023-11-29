@@ -19,10 +19,10 @@
     "./storybook/*"
   ],
   "devDependencies": {
-    "@lerna-lite/cli": "2.7.2",
-    "@lerna-lite/publish": "2.7.2",
-    "@lerna-lite/run": "2.7.2",
-    "@lerna-lite/version": "2.7.2",
+    "@lerna-lite/cli": "3.0.0",
+    "@lerna-lite/publish": "3.0.0",
+    "@lerna-lite/run": "3.0.0",
+    "@lerna-lite/version": "3.0.0",
     "@types/node": "20.10.0",
     "@typescript-eslint/eslint-plugin": "6.13.1",
     "@typescript-eslint/parser": "6.13.1",
