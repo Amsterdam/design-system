@@ -58,6 +58,26 @@ export const VerticalSpace: Story = {
     compact: false,
     paddingVertical: 'medium',
   },
+  name: 'Verticale marge',
+}
+
+export const VerticalGap: Story = {
+  ...StoryTemplate,
+  args: {
+    children: Array.from(Array(6).keys()).map((i) => (
+      <Grid.Cell className="amsterdam-docs-pink-box" span={4} key={i} />
+    )),
+    gapVertical: 'small',
+  },
+  argTypes: {
+    gapVertical: {
+      control: {
+        type: 'radio',
+        labels: { small: 'small', undefined: 'medium', large: 'large' },
+      },
+      options: ['small', undefined, 'large'],
+    },
+  },
   name: 'Verticale witruimte',
 }
 
