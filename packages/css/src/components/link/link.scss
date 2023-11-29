@@ -88,17 +88,23 @@
 .amsterdam-link--on-background-dark {
   color: var(--amsterdam-link-on-background-dark-color);
 
-  &:hover,
-  &:visited {
+  &:hover {
     color: var(--amsterdam-link-on-background-dark-hover-color);
+  }
+
+  &:visited {
+    color: var(--amsterdam-link-on-background-dark-visited-color);
   }
 }
 
 .amsterdam-link--on-background-light {
   color: var(--amsterdam-link-on-background-light-color);
 
-  &:hover,
-  &:visited {
+  &:hover {
     color: var(--amsterdam-link-on-background-light-hover-color);
+  }
+
+  &:visited {
+    color: var(--amsterdam-link-on-background-light-visited-color);
   }
 }

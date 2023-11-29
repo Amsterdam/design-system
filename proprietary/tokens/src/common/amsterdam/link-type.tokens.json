@@ -6,16 +6,10 @@
         "color": { "value": "{amsterdam.color.dark-blue}" }
       },
       "on-background-dark": {
-        "color": { "value": "{amsterdam.color.primary-white}" },
-        "hover": {
-          "color": { "value": "{amsterdam.color.primary-white}" }
-        }
+        "color": { "value": "{amsterdam.color.primary-white}" }
       },
       "on-background-light": {
-        "color": { "value": "{amsterdam.color.primary-black}" },
-        "hover": {
-          "color": { "value": "{amsterdam.color.primary-black}" }
-        }
+        "color": { "value": "{amsterdam.color.primary-black}" }
       },
       "regular": {
         "text-decoration-line": { "value": "underline" },
