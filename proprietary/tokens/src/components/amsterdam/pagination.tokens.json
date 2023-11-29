@@ -13,15 +13,15 @@
       },
       "button": {
         "outline-offset": { "value": "{amsterdam.focus.outline-offset}" },
-        "text-decoration-line": { "value": "{amsterdam.link-appearance.apparent.text-decoration-line}" },
-        "text-decoration-thickness": { "value": "{amsterdam.link-appearance.apparent.text-decoration-thickness}" },
-        "text-underline-offset": { "value": "{amsterdam.link-appearance.apparent.text-underline-offset}" },
+        "text-decoration-line": { "value": "{amsterdam.link-appearance.subtle.text-decoration-line}" },
+        "text-decoration-thickness": { "value": "{amsterdam.link-appearance.subtle.text-decoration-thickness}" },
+        "text-underline-offset": { "value": "{amsterdam.link-appearance.subtle.text-underline-offset}" },
         "current": {
           "font-weight": { "value": "{amsterdam.typography.font-weight.bold}" }
         },
         "hover": {
           "color": { "value": "{amsterdam.link-appearance.hover.color}" },
-          "text-decoration-line": { "value": "{amsterdam.link-appearance.apparent.hover.text-decoration-line}" }
+          "text-decoration-line": { "value": "{amsterdam.link-appearance.subtle.hover.text-decoration-line}" }
         }
       }
     }

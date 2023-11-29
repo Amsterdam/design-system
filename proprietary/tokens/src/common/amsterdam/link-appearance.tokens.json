@@ -20,7 +20,7 @@
           "text-underline-offset": { "value": "0.3125rem" }
         }
       },
-      "apparent": {
+      "subtle": {
         "text-decoration-line": { "value": "none" },
         "text-decoration-thickness": { "value": "0.1875rem" },
         "text-underline-offset": { "value": "0.1875rem" },
