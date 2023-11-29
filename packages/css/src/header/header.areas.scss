@@ -1,0 +1,99 @@
+/**
+ * @license EUPL-1.2+
+ * Copyright (c) 2023 Gemeente Amsterdam
+ */
+
+@import "../../utils/breakpoint";
+
+.amsterdam-header {
+  --amsterdam-grid-gap: var(--amsterdam-grid-density-low-gap);
+  --amsterdam-grid-padding-inline: var(--amsterdam-grid-density-low-padding-inline);
+
+  column-gap: var(--amsterdam-grid-gap);
+  display: grid;
+  grid-template-areas: "logo logo logo logo";
+  grid-template-columns: repeat(var(--amsterdam-grid-column-count), 1fr);
+  grid-template-rows: auto;
+  padding-block: 0.88rem;
+  padding-inline: var(--amsterdam-grid-padding-inline);
+  row-gap: 1.5rem;
+
+  @media screen and (max-width: $amsterdam-breakpoint-medium) {
+    *[class*="menu__item"]:not([class$="--mobile"]) {
+      display: none;
+      visibility: hidden;
+    }
+  }
+}
+
+.amsterdam-header--has-menu {
+  grid-template-areas: "logo logo menu menu";
+}
+
+.amsterdam-header--has-title {
+  grid-template-areas:
+    "logo logo logo logo"
+    "title title title title";
+  grid-template-rows: repeat(2, auto);
+}
+
+.amsterdam-header--has-title.amsterdam-header--has-menu {
+  grid-template-areas:
+    "logo logo menu menu"
+    "title title title title";
+  grid-template-rows: repeat(2, auto);
+}
+
+@media screen and (min-width: $amsterdam-breakpoint-medium) {
+  .amsterdam-header {
+    grid-template-areas: "logo logo menu menu menu menu menu menu";
+    grid-template-columns: repeat(var(--amsterdam-grid-medium-column-count), 1fr);
+  }
+
+  .amsterdam-header--has-menu {
+    grid-template-areas: "logo logo menu menu menu menu menu menu";
+  }
+
+  .amsterdam-header--has-title {
+    grid-template-areas: "logo logo title title title title title title";
+  }
+
+  .amsterdam-header--has-title.amsterdam-header--has-menu {
+    grid-template-areas:
+      "logo logo menu menu menu menu menu menu"
+      "title title title title title title title title";
+    grid-template-rows: repeat(2, auto);
+  }
+}
+
+@media screen and (min-width: $amsterdam-breakpoint-wide) {
+  .amsterdam-header {
+    grid-template-areas: "logo logo logo logo logo logo logo logo logo logo logo logo";
+    grid-template-columns: repeat(var(--amsterdam-grid-wide-column-count), 1fr);
+    grid-template-rows: auto;
+  }
+
+  .amsterdam-header--has-menu {
+    grid-template-areas: "logo logo menu menu menu menu menu menu menu menu menu menu";
+  }
+
+  .amsterdam-header--has-title {
+    grid-template-areas: "logo logo title title title title title title title title title title";
+  }
+
+  .amsterdam-header--has-title.amsterdam-header--has-menu {
+    grid-template-areas: "logo logo title title title title title menu menu menu menu menu";
+  }
+}
+
+.amsterdam-header__column--logo {
+  grid-area: logo;
+}
+
+.amsterdam-header__column--title {
+  grid-area: title;
+}
+
+.amsterdam-header__column--menu {
+  grid-area: menu;
+}
