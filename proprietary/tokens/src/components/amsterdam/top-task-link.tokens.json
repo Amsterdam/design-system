@@ -5,7 +5,6 @@
         "color": { "value": "{amsterdam.color.primary-black}" },
         "font-family": { "value": "{amsterdam.typography.font-family}" },
         "font-weight": { "value": "{amsterdam.typography.font-weight.normal}" },
-        "line-height": { "value": "{amsterdam.typography.text-level.7.line-height}" },
         "spacious": {
           "font-size": { "value": "{amsterdam.typography.spacious.text-level.7.font-size}" },
           "line-height": { "value": "{amsterdam.typography.spacious.text-level.7.line-height}" }
