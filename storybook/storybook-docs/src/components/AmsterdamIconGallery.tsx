@@ -3,17 +3,16 @@ import * as Icons from '@amsterdam/design-system-react-icons'
 import { IconGallery, IconItem } from '@storybook/blocks'
 import '@amsterdam/design-system-css/src/icon/icon.scss'
 
-export const AmsterdamIconGallery = () => (
-  <IconGallery>
-    {(Object.keys(Icons) as Array<keyof typeof Icons>).map((key) => {
-      const CurrentComponent = Icons[key]
-      const name = key.substring(0, key.length - 4)
+export const AmsterdamIconGallery = () => {
+  const icons = Object.keys(Icons) as Array<keyof typeof Icons>
 
-      return (
-        <IconItem key={key} name={name}>
-          <Icon svg={CurrentComponent} />
+  return (
+    <IconGallery>
+      {icons.map((key) => (
+        <IconItem key={key} name={key.substring(0, key.length - 4)}>
+          <Icon svg={Icons[key]} />
         </IconItem>
-      )
-    })}
-  </IconGallery>
-)
+      ))}
+    </IconGallery>
+  )
+}
