@@ -34,12 +34,12 @@
   @include reset;
 }
 
-.amsterdam-breadcrumb-item {
+.amsterdam-breadcrumb__item {
   align-items: center;
   display: flex;
 }
 
-.amsterdam-breadcrumb-item:not(:last-child)::after {
+.amsterdam-breadcrumb__item:not(:last-child)::after {
   background-color: var(--amsterdam-breadcrumb-separator-background-color);
   clip-path: path("M 4.725,16 3.275,14.545 9.815,8 3.275,1.455 4.725,0 l 8,8 z");
   content: "";
@@ -49,7 +49,7 @@
   width: 1rem;
 }
 
-.amsterdam-breadcrumb-item__link {
+.amsterdam-breadcrumb__link {
   color: var(--amsterdam-breadcrumb-item-link-color);
   outline-offset: var(--amsterdam-breadcrumb-item-link-outline-offset);
   text-decoration-line: var(--amsterdam-breadcrumb-item-link-text-decoration-line);
