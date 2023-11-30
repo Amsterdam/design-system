@@ -37,11 +37,11 @@
       },
       "in-list": {
         "gap": { "value": "0.5em" },
-        "text-decoration-line": { "value": "{amsterdam.link-appearance.in-list.text-decoration-line}" },
-        "text-decoration-thickness": { "value": "{amsterdam.link-appearance.in-list.text-decoration-thickness}" },
-        "text-underline-offset": { "value": "{amsterdam.link-appearance.in-list.text-underline-offset}" },
+        "text-decoration-line": { "value": "{amsterdam.link-appearance.subtle.text-decoration-line}" },
+        "text-decoration-thickness": { "value": "{amsterdam.link-appearance.subtle.text-decoration-thickness}" },
+        "text-underline-offset": { "value": "{amsterdam.link-appearance.subtle.text-underline-offset}" },
         "hover": {
-          "text-decoration-line": { "value": "{amsterdam.link-appearance.in-list.hover.text-decoration-line}" }
+          "text-decoration-line": { "value": "{amsterdam.link-appearance.subtle.hover.text-decoration-line}" }
         },
         "spacious": {
           "font-size": { "value": "{amsterdam.typography.spacious.text-level.7.font-size}" },
