@@ -4,8 +4,8 @@
       "link": {
         "color": { "value": "{amsterdam.link-appearance.color}" },
         "text-decoration-line": { "value": "{amsterdam.link-appearance.subtle.text-decoration-line}" },
-        "text-decoration-thickness": { "value": "{amsterdam.link-appearance.subtle.text-decoration-thickness}" },
-        "text-underline-offset": { "value": "{amsterdam.link-appearance.subtle.text-underline-offset}" },
+        "text-decoration-thickness": { "value": "{amsterdam.link-appearance.text-decoration-thickness}" },
+        "text-underline-offset": { "value": "{amsterdam.link-appearance.text-underline-offset}" },
         "hover": {
           "color": { "value": "{amsterdam.link-appearance.hover.color}" },
           "text-decoration-line": { "value": "{amsterdam.link-appearance.subtle.hover.text-decoration-line}" }

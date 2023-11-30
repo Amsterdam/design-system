@@ -10,8 +10,8 @@
         "gap": { "value": "0.5rem" },
         "outline-offset": { "value": "{amsterdam.focus.outline-offset}" },
         "text-decoration-line": { "value": "{amsterdam.link-appearance.subtle.text-decoration-line}" },
-        "text-decoration-thickness": { "value": "{amsterdam.link-appearance.subtle.text-decoration-thickness}" },
-        "text-underline-offset": { "value": "{amsterdam.link-appearance.subtle.text-underline-offset}" },
+        "text-decoration-thickness": { "value": "{amsterdam.link-appearance.text-decoration-thickness}" },
+        "text-underline-offset": { "value": "{amsterdam.link-appearance.text-underline-offset}" },
         "spacious": {
           "font-size": { "value": "{amsterdam.typography.spacious.text-level.7.font-size}" },
           "line-height": { "value": "{amsterdam.typography.spacious.text-level.7.line-height}" }

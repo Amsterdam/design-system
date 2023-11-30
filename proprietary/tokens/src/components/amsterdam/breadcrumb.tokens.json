@@ -10,8 +10,8 @@
         "color": { "value": "{amsterdam.link-appearance.color}" },
         "outline-offset": { "value": "{amsterdam.focus.outline-offset}" },
         "text-decoration-line": { "value": "{amsterdam.link-appearance.subtle.text-decoration-line}" },
-        "text-decoration-thickness": { "value": "{amsterdam.link-appearance.subtle.text-decoration-thickness}" },
-        "text-underline-offset": { "value": "{amsterdam.link-appearance.subtle.text-underline-offset}" },
+        "text-decoration-thickness": { "value": "{amsterdam.link-appearance.text-decoration-thickness}" },
+        "text-underline-offset": { "value": "{amsterdam.link-appearance.text-underline-offset}" },
         "hover": {
           "color": { "value": "{amsterdam.color.dark-blue}" },
           "text-decoration-line": { "value": "{amsterdam.link-appearance.subtle.hover.text-decoration-line}" }

@@ -15,8 +15,8 @@
       "button": {
         "outline-offset": { "value": "{amsterdam.focus.outline-offset}" },
         "text-decoration-line": { "value": "{amsterdam.link-appearance.subtle.text-decoration-line}" },
-        "text-decoration-thickness": { "value": "{amsterdam.link-appearance.subtle.text-decoration-thickness}" },
-        "text-underline-offset": { "value": "{amsterdam.link-appearance.subtle.text-underline-offset}" },
+        "text-decoration-thickness": { "value": "{amsterdam.link-appearance.text-decoration-thickness}" },
+        "text-underline-offset": { "value": "{amsterdam.link-appearance.text-underline-offset}" },
         "current": {
           "font-weight": { "value": "{amsterdam.typography.font-weight.bold}" }
         },

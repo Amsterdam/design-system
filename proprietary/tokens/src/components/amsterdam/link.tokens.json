@@ -14,8 +14,8 @@
       },
       "inline": {
         "text-decoration-line": { "value": "{amsterdam.link-appearance.regular.text-decoration-line}" },
-        "text-decoration-thickness": { "value": "{amsterdam.link-appearance.regular.text-decoration-thickness}" },
-        "text-underline-offset": { "value": "{amsterdam.link-appearance.regular.text-underline-offset}" },
+        "text-decoration-thickness": { "value": "{amsterdam.link-appearance.text-decoration-thickness}" },
+        "text-underline-offset": { "value": "{amsterdam.link-appearance.text-underline-offset}" },
         "font-family": {
           "value": "inherit"
         },
@@ -38,8 +38,8 @@
       "in-list": {
         "gap": { "value": "0.5em" },
         "text-decoration-line": { "value": "{amsterdam.link-appearance.subtle.text-decoration-line}" },
-        "text-decoration-thickness": { "value": "{amsterdam.link-appearance.subtle.text-decoration-thickness}" },
-        "text-underline-offset": { "value": "{amsterdam.link-appearance.subtle.text-underline-offset}" },
+        "text-decoration-thickness": { "value": "{amsterdam.link-appearance.text-decoration-thickness}" },
+        "text-underline-offset": { "value": "{amsterdam.link-appearance.text-underline-offset}" },
         "hover": {
           "text-decoration-line": { "value": "{amsterdam.link-appearance.subtle.hover.text-decoration-line}" }
         },
@@ -54,8 +54,8 @@
       },
       "standalone": {
         "text-decoration-line": { "value": "{amsterdam.link-appearance.regular.text-decoration-line}" },
-        "text-decoration-thickness": { "value": "{amsterdam.link-appearance.regular.text-decoration-thickness}" },
-        "text-underline-offset": { "value": "{amsterdam.link-appearance.regular.text-underline-offset}" },
+        "text-decoration-thickness": { "value": "{amsterdam.link-appearance.text-decoration-thickness}" },
+        "text-underline-offset": { "value": "{amsterdam.link-appearance.text-underline-offset}" },
         "hover": {
           "text-decoration-thickness": {
             "value": "{amsterdam.link-appearance.regular.hover.text-decoration-thickness}"
