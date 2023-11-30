@@ -8,15 +8,16 @@ If you want to have rights to publish as well, contact one of the [maintainers](
 ## Conventional commits
 
 In order to know whether a release is major, minor or patch and to automatically generate changelogs, we use the [conventional commits spec](https://www.conventionalcommits.org/en/v1.0.0/).
-The titles of our PR’s specify whether a change is:
+The titles of our PRs specify whether a change is:
 
- * a `chore`, which doesn’t trigger a release
- * a `fix`, resulting in a patch release,
- * a new feature (`feat`), a minor release, or
- * a breaking change (`feat!`), a major release.
+- a `chore`, which doesn’t trigger a release
+- a `fix`, resulting in a patch release,
+- a new feature (`feat`), a minor release, or
+- a breaking change (`feat!`), a major release.
 
 Use the `chore` prefix when updating development dependencies, changing configuration or updating documentation which isn't about a component.
 For refactors, regular dependency updates or updates to documentation about components, use the `fix` prefix.
+
 The PR title also describes the change in a clear, human-friendly way.
 This PR title becomes the description of a commit when we squash merge a feature branch PR into `develop`.
 These commit descriptions are eventually used to figure out the release type and to generate entries into our changelogs.
