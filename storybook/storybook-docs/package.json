@@ -37,7 +37,7 @@
     "@storybook/manager-api": "7.6.0",
     "@storybook/mdx2-csf": "1.1.0",
     "@storybook/react": "7.6.0",
-    "@storybook/react-vite": "7.6.0",
+    "@storybook/react-vite": "7.6.1",
     "@storybook/testing-library": "0.2.2",
     "@storybook/theming": "7.6.0",
     "@types/react": "18.2.39",
