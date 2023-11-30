@@ -48,7 +48,7 @@
     "react-dom": "18.2.0",
     "require-from-string": "2.0.2",
     "sass": "1.69.5",
-    "storybook": "7.6.0",
+    "storybook": "7.6.1",
     "vite": "5.0.3"
   },
   "dependencies": {
