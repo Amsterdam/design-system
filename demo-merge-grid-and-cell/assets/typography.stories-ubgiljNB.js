@@ -1,12 +1,5 @@
-import{M as l,T as t}from"./index-o9X8HTkA.js";import{j as e}from"./jsx-runtime-vNq4Oc-g.js";import{u as a}from"./index-Dbo06S9W.js";import"./iframe-cP8aVVjj.js";import"../sb-preview/runtime.js";import"./index-4g5l5LRQ.js";import"./_commonjsHelpers-4gQjN7DL.js";import"./index-jmm5gWkb.js";import"./index-ogXoivrg.js";import"./index-MVbLLYTZ.js";import"./index-PPLHz8o0.js";function s(i){const n=Object.assign({h1:"h1",h2:"h2",p:"p",h3:"h3",table:"table",thead:"thead",tr:"tr",th:"th",tbody:"tbody",td:"td",a:"a",h4:"h4",ol:"ol",li:"li",em:"em",code:"code",pre:"pre",ul:"ul"},a(),i.components);return e.jsxs(e.Fragment,{children:[e.jsx(l,{title:"Docs/Designrichtlijnen/Typografie"}),`
+import{M as l,T as t}from"./index---bo2JtK.js";import{j as e}from"./jsx-runtime-vNq4Oc-g.js";import{u as a}from"./index-Dbo06S9W.js";import"./iframe-kgcYRhMT.js";import"../sb-preview/runtime.js";import"./index-4g5l5LRQ.js";import"./_commonjsHelpers-4gQjN7DL.js";import"./index-jmm5gWkb.js";import"./index-ogXoivrg.js";import"./index-MVbLLYTZ.js";import"./index-PPLHz8o0.js";function s(i){const n=Object.assign({h1:"h1",h2:"h2",h3:"h3",p:"p",table:"table",thead:"thead",tr:"tr",th:"th",tbody:"tbody",td:"td",a:"a",h4:"h4",ol:"ol",li:"li",em:"em",code:"code",pre:"pre"},a(),i.components);return e.jsxs(e.Fragment,{children:[e.jsx(l,{title:"Docs/Designrichtlijnen/Typografie"}),`
 `,e.jsx(n.h1,{id:"typografie",children:"Typografie"}),`
-`,e.jsx(n.h2,{id:"lettertype",children:"Lettertype"}),`
-`,e.jsx(n.p,{children:"We gebruiken het lettertype Amsterdam Sans."}),`
-`,e.jsx(n.p,{children:`Dat is een letterfamilie met een helder, open tekstbeeld dat goed bij de Andreaskruisen past.
-Het lettertype is zowel offline als online goed leesbaar.
-Daarom zetten we het voor alle communicatiemiddelen in.`}),`
-`,e.jsx(n.p,{children:"In deze zin zie je hoe alle letters en cijfers eruit zien:"}),`
-`,e.jsx(t,{fontFamily:"Amsterdam Sans, Arial, sans-serif",fontSizes:[24],fontWeight:400,sampleText:"Jouw typograaf biedt mij zulke exquise schreven 012345689"}),`
 `,e.jsx(n.h2,{id:"tekstgrootte",children:"Tekstgrootte"}),`
 `,e.jsx(n.h3,{id:"zeven-tekstniveaus",children:"Zeven tekstniveau’s"}),`
 `,e.jsx(n.p,{children:`Er zijn 7 niveaus van tekstgrootte en bijbehorende regelhoogte.
@@ -107,23 +100,4 @@ Een manier om dat te doen is met de volgende `,e.jsx(n.em,{children:"css snippet
   overflow-wrap: break-word;
 }
 `})}),`
-`,e.jsxs(n.p,{children:["Voor verdere informatie: ",e.jsx(n.a,{href:"https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_text/Wrapping_breaking_text",target:"_blank",rel:"nofollow noopener noreferrer",children:"Wrapping and breaking text op MDN"})]}),`
-`,e.jsx(n.h2,{id:"het-lettertype-installeren",children:"Het lettertype installeren"}),`
-`,e.jsxs(n.p,{children:["Werk je met npm, neem dan ons package ",e.jsx(n.code,{children:"@amsterdam/design-system-assets"}),` op in je dependencies.
-Vervolgens importeer je `,e.jsx(n.code,{children:"@amsterdam/design-system-assets/font/index.css"})," aan het begin van je stylesheet."]}),`
-`,e.jsx(n.p,{children:`Je kunt het lettertype ook zelf hosten en opnemen in je applicatie.
-Vraag het dan aan via het formulier hieronder.`}),`
-`,e.jsx(n.p,{children:`Als het helemaal niet mogelijk is Amsterdam Sans te gebruiken pas je het lettertype Arial toe, of het generieke sans-serif lettertype van het apparaat.
-In alle gevallen voer je die alternatieven op voor als het downloaden van het font voor de gebruiker niet lukt, of terwijl dat bezig is:`}),`
-`,e.jsx(n.pre,{children:e.jsx(n.code,{className:"language-css",children:`.class {
-  font-family: "Amsterdam Sans", Arial, sans-serif;
-}
-`})}),`
-`,e.jsx(n.h3,{id:"licentie-en-aanvraag",children:"Licentie en aanvraag"}),`
-`,e.jsx(n.p,{children:`Het lettertype is uitdrukkelijk niet vrij beschikbaar.
-Amsterdam Sans is uitsluitend te gebruiken door medewerkers van de gemeente Amsterdam en amsterdam&partners, en door leveranciers werkend voor deze organisaties.`}),`
-`,e.jsxs(n.p,{children:["Vraag de lettertypebestanden aan via het formulier ",e.jsx(n.a,{href:"https://formulier.amsterdam.nl/thema/huisstijl/amsterdam-sans-aanvragen",target:"_blank",rel:"nofollow noopener noreferrer",children:"Amsterdam Sans aanvragen"}),"."]}),`
-`,e.jsx(n.h2,{id:"meer-informatie",children:"Meer informatie"}),`
-`,e.jsxs(n.ul,{children:[`
-`,e.jsxs(n.li,{children:["Alle informatie over het lettertype vind je op de pagina ",e.jsx(n.a,{href:"https://amsterdam.nl/stijlweb/basiselementen/typografie/",target:"_blank",rel:"nofollow noopener noreferrer",children:"Typografie op Stijlweb"}),"."]}),`
-`]})]})}function d(i={}){const{wrapper:n}=Object.assign({},a(),i.components);return n?e.jsx(n,{...i,children:e.jsx(s,{...i})}):s(i)}const o=()=>{throw new Error("Docs-only story")};o.parameters={docsOnly:!0};const r={title:"Docs/Designrichtlijnen/Typografie",tags:["stories-mdx"],includeStories:["__page"]};r.parameters=r.parameters||{};r.parameters.docs={...r.parameters.docs||{},page:d};const b=["__page"];export{b as __namedExportsOrder,o as __page,r as default};
+`,e.jsxs(n.p,{children:["Voor verdere informatie: ",e.jsx(n.a,{href:"https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_text/Wrapping_breaking_text",target:"_blank",rel:"nofollow noopener noreferrer",children:"Wrapping and breaking text op MDN"})]})]})}function d(i={}){const{wrapper:n}=Object.assign({},a(),i.components);return n?e.jsx(n,{...i,children:e.jsx(s,{...i})}):s(i)}const h=()=>{throw new Error("Docs-only story")};h.parameters={docsOnly:!0};const r={title:"Docs/Designrichtlijnen/Typografie",tags:["stories-mdx"],includeStories:["__page"]};r.parameters=r.parameters||{};r.parameters.docs={...r.parameters.docs||{},page:d};const b=["__page"];export{b as __namedExportsOrder,h as __page,r as default};
