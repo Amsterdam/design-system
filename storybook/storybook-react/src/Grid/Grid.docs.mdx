@@ -1,6 +1,7 @@
 import { Canvas, Markdown, Meta, Primary } from "@storybook/blocks";
+import * as GridCellStories from "./Grid.Cell.stories";
 import * as GridStories from "./Grid.stories.tsx";
-import README from "../../../../packages/css/src/components/grid/README.grid.md?raw";
+import README from "../../../../packages/css/src/components/grid/README.md?raw";
 
 <Meta of={GridStories} />
 
@@ -38,20 +39,6 @@ Deze krimpen en groeien dus ook met de vensterbreedte.
 
 <Canvas of={GridStories.VerticalSpace} />
 
-### Cellen
-
-Binnen het grid maak je cellen waarin andere componenten geplaatst kunnen worden.
-Per cel geef je aan hoe veel van de kolommen het beslaat.
-
-Dit eenvoudige voorbeeld verdeelt het grid in drie cellen van 4 kolommen: `span={4}`.
-Elke cel biedt ruimte voor een afbeelding.
-
-- Op brede vensters heeft het grid 12 kolommen en passen de afbeeldingen naast elkaar.
-- Op middelbrede vensters heeft het grid 8 kolommen en staan de eerste twee afbeeldingen naast elkaar en de derde onder de eerste.
-- Op smalle schermen heeft het grid 4 kolommen en staan de afbeeldingen onder elkaar.
-
-<Canvas of={GridStories.Cells} />
-
 ### Verticale witruimte
 
 Een grid maakt automatisch meerdere rijen als de eerstvolgende cel niet meer op de huidige rij past.
@@ -61,4 +48,47 @@ In sommige gevallen kan daar beter meer of minder witruimte staan.
 
 <Canvas of={GridStories.VerticalGap} />
 
-Voor meer voorbeelden raadpleeg je [Grid Cell](?path=/docs/react_layout-grid-cell--docs) zelf.
+### Cel
+
+Een cel beslaat standaard 1 kolom in het grid.
+Om een cel meer kolommen te laten beslaan, gebruik je de `span` prop.
+
+<Canvas of={GridCellStories.Default} />
+
+### Verschillende breedtes
+
+Je kunt het aantal kolommen dat een cel beslaat laten afhangen van de vensterbreedte.
+Gebruik hiervoor de `span` prop met 3 waarden voor respectievelijk smalle, middelbrede en brede vensters.
+
+Via `span={{ narrow: 4, medium: 6, wide: 8 }}` is deze cel 4 van de 4 kolommen breed op smalle vensters, 6 van de 8 op middelbrede en 8 van de 12 op brede vensters:
+
+<Canvas of={GridCellStories.MultipleSizes} />
+
+### Volledige breedte
+
+Om de cel de volledige breedte te geven – of het grid nu 4, 8, of 12 kolommen heeft – gebruik je de `fullWidth` prop.
+
+<Canvas of={GridCellStories.FullWidth} />
+
+### Startpositie
+
+Elke cel start automatisch in de eerstvolgende beschikbare positie in het grid.
+Een waarde van 1 hoef je dus meestal niet expliciet op te geven.
+Je kunt de startpositie van een cel aanpassen met de `start` prop.
+Zo kun je bijvoorbeeld cellen in meerdere rijen met elkaar uitlijnen.
+Of een cel in het midden van een breed grid plaatsen.
+Ook komt dit voor als een kolom als extra witruimte wilt gebruiken.
+
+Het kan ook voorkomen dat ook de startpositie van een cel afhangt van de vensterbreedte.
+Gebruik hiervoor de `start` prop met 3 waarden, precies zoals bij `span`.
+
+Een voorbeeld met `start={2}`:
+
+<Canvas of={GridCellStories.StartPosition} />
+
+## Richtlijnen
+
+Zorg ervoor dat het aantal kolommen dat je aan een cel toekent past bij het aantal kolommen van het grid voor de betreffende vensterbreedte.
+Datzelfde geldt voor het starten van een cel in een latere kolom.
+Als het totaal van beide waarden is te groot is voegt de browser kolommen toe aan het grid.
+Dit is niet toegestaan.

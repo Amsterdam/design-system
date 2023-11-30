@@ -3,7 +3,7 @@
  * Copyright (c) 2023 Gemeente Amsterdam
  */
 
-import { Grid, Image, Screen } from '@amsterdam/design-system-react'
+import { Grid, Screen } from '@amsterdam/design-system-react'
 import { Meta, StoryObj } from '@storybook/react'
 import { paddingArgType } from '../shared/argTypes'
 
@@ -79,18 +79,4 @@ export const VerticalGap: Story = {
     },
   },
   name: 'Verticale witruimte',
-}
-
-export const Cells: Story = {
-  ...StoryTemplate,
-  args: {
-    children: Array.from(Array(3).keys()).map((i) => (
-      <Grid.Cell key={i} span={4}>
-        <figure className="amsterdam-docs-figure">
-          <Image alt="" src={`https://picsum.photos/640/360?random=${i}`} />
-        </figure>
-      </Grid.Cell>
-    )),
-  },
-  name: 'Cellen',
 }

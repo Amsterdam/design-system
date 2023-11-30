@@ -71,3 +71,43 @@
 .amsterdam-grid--padding-vertical--large {
   padding-block: calc(var(--amsterdam-grid-gap) * 2);
 }
+
+.amsterdam-grid-cell--full-width {
+  grid-column: 1 / -1;
+}
+
+// The order of the following declaration blocks ensures the intended specificity.
+
+@for $i from 1 through 12 {
+  .amsterdam-grid-cell--span-#{$i} {
+    grid-column-end: span $i;
+  }
+
+  .amsterdam-grid-cell--start-#{$i} {
+    grid-column-start: $i;
+  }
+}
+
+@media screen and (min-width: $amsterdam-breakpoint-medium) {
+  @for $i from 1 through 12 {
+    .amsterdam-grid-cell--span-#{$i}-medium {
+      grid-column-end: span $i;
+    }
+
+    .amsterdam-grid-cell--start-#{$i}-medium {
+      grid-column-start: $i;
+    }
+  }
+}
+
+@media screen and (min-width: $amsterdam-breakpoint-wide) {
+  @for $i from 1 through 12 {
+    .amsterdam-grid-cell--span-#{$i}-wide {
+      grid-column-end: span $i;
+    }
+
+    .amsterdam-grid-cell--start-#{$i}-wide {
+      grid-column-start: $i;
+    }
+  }
+}
