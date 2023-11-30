@@ -5,7 +5,7 @@
 
 import clsx from 'clsx'
 import { ForwardedRef, forwardRef, HTMLAttributes, ReactNode } from 'react'
-import { Grid } from '../Grid'
+// import { Grid } from '../Grid'
 import { Heading } from '../Heading'
 import { Logo, LogoBrand } from '../Logo'
 import { VisuallyHidden } from '../VisuallyHidden'
@@ -41,22 +41,22 @@ export const Header = forwardRef(
         className,
       )}
     >
-      <Grid>
-        <div className="amsterdam-header__column amsterdam-header__column--logo">
-          <a href={logoLink} className="amsterdam-header__logo-link">
-            <VisuallyHidden>{logoLinkTitle}</VisuallyHidden>
-            <Logo brand={logoBrand} />
-          </a>
+      {/* <Grid> */}
+      <div className="amsterdam-header__column amsterdam-header__column--logo">
+        <a href={logoLink} className="amsterdam-header__logo-link">
+          <VisuallyHidden>{logoLinkTitle}</VisuallyHidden>
+          <Logo brand={logoBrand} />
+        </a>
+      </div>
+      {title && (
+        <div className="amsterdam-header__column amsterdam-header__column--title">
+          <Heading level={3} size="level-3">
+            {title}
+          </Heading>
         </div>
-        {title && (
-          <div className="amsterdam-header__column amsterdam-header__column--title">
-            <Heading level={3} size="level-3">
-              {title}
-            </Heading>
-          </div>
-        )}
-        {menu && <div className="amsterdam-header__column amsterdam-header__column--menu">{menu}</div>}
-      </Grid>
+      )}
+      {menu && <div className="amsterdam-header__column amsterdam-header__column--menu">{menu}</div>}
+      {/* </Grid> */}
     </header>
   ),
 )
