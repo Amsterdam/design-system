@@ -1,5 +1,6 @@
 import '@amsterdam/design-system-tokens/dist/root.css'
 import '@amsterdam/design-system-assets/font/index.css'
+import '@amsterdam/design-system-css/dist/index.css'
 import '../../storybook-overrides.css'
 
 export const parameters = {
@@ -12,7 +13,7 @@ export const parameters = {
   },
   options: {
     storySort: {
-      order: ['Docs', ['Intro']],
+      order: ['Docs', ['Intro', 'Assets', 'Designrichtlijnen']],
     },
   },
   viewMode: 'docs',
