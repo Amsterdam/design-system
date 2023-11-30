@@ -15,13 +15,13 @@ const meta = {
       control: {
         type: 'inline-radio',
       },
-      options: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10],
+      options: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
     },
     start: {
       control: {
         type: 'inline-radio',
       },
-      options: [1, 2, 3, 4, 5, 6, 7, 8, 9],
+      options: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
     },
   },
 } satisfies Meta<typeof Grid.Cell>
