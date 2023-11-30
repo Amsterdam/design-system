@@ -44,13 +44,14 @@
   gap: 0.5rem;
   outline-offset: var(--amsterdam-pagination-button-outline-offset);
   padding-inline: 0.75rem;
-  text-decoration-thickness: 2px;
-  text-underline-offset: 3px;
+  text-decoration-line: var(--amsterdam-pagination-button-text-decoration-line);
+  text-decoration-thickness: var(--amsterdam-pagination-button-text-decoration-thickness);
+  text-underline-offset: var(--amsterdam-pagination-button-text-underline-offset);
   touch-action: manipulation;
 
   &:hover {
     color: var(--amsterdam-pagination-button-hover-color);
-    text-decoration: underline;
+    text-decoration-line: var(--amsterdam-pagination-button-hover-text-decoration-line);
   }
 
   &:disabled {

@@ -14,8 +14,8 @@
     "directory": "packages/css"
   },
   "scripts": {
-    "build": "sass src/:dist/ --style=compressed",
-    "build:watch": "sass src/:dist/ --watch",
+    "build": "sass src/components:dist/ --style=compressed",
+    "build:watch": "sass src/components:dist/ --watch",
     "clean": "rimraf dist/"
   },
   "devDependencies": {

@@ -45,12 +45,12 @@
 
 .amsterdam-card__link {
   color: var(--amsterdam-card-link-color);
-  text-decoration: none;
-  text-decoration-thickness: 2px;
-  text-underline-offset: 3px;
+  text-decoration-line: var(--amsterdam-card-link-text-decoration-line);
+  text-decoration-thickness: var(--amsterdam-card-link-text-decoration-thickness);
+  text-underline-offset: var(--amsterdam-card-link-text-underline-offset);
 
   &:hover {
     color: var(--amsterdam-card-link-hover-color);
-    text-decoration: underline;
+    text-decoration-line: var(--amsterdam-card-link-hover-text-decoration-line);
   }
 }
