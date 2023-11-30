@@ -22,11 +22,10 @@ const meta = {
       },
     },
     onBackground: {
-      control: { type: 'select', labels: { default: 'default', light: 'light', dark: 'dark' } },
-      options: ['default', 'light', 'dark'],
+      control: { type: 'select', labels: { undefined: 'default', light: 'light', dark: 'dark' } },
+      options: [undefined, 'light', 'dark'],
       table: {
         category: 'API',
-        defaultValue: { summary: 'default' },
       },
     },
     variant: {
@@ -68,23 +67,20 @@ const meta = {
   args: {
     children: 'Linktekst',
     href: '#',
+    onBackground: undefined, // Workaround to avoid 'onBackground' being set to an empty function
   },
 } satisfies Meta<typeof Link>
 
 export default meta
 
-export const Standalone: Story = {
-  args: {
-    onBackground: undefined, // Workaround to avoid 'onBackground' being set to an empty function
-  },
-}
+export const Default: Story = {}
+
+export const Standalone: Story = {}
 
 export const Inline: Story = {
   args: {
     children: 'typograaf',
-    href: '#',
     variant: 'inline',
-    onBackground: undefined,
   },
   decorators: [
     (Story) => (
@@ -97,19 +93,13 @@ export const Inline: Story = {
 
 export const InList: Story = {
   args: {
-    children: 'Linktekst',
-    href: '#',
     variant: 'inList',
-    onBackground: undefined,
   },
 }
 
 export const InListWithIcon: Story = {
   args: {
-    children: 'Linktekst',
-    href: '#',
     variant: 'inList',
-    onBackground: undefined,
     icon: Icons.EmailIcon,
   },
 }

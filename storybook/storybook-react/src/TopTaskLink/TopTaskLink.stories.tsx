@@ -6,8 +6,6 @@
 import { Grid, TopTaskLink } from '@amsterdam/design-system-react'
 import { Meta, StoryObj } from '@storybook/react'
 
-import '@amsterdam/design-system-css/src/top-task-link/top-task-link.scss'
-
 const meta = {
   title: 'Navigation/Top Task Link',
   component: TopTaskLink,

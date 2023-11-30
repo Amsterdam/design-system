@@ -24,6 +24,7 @@
   display: inline-block;
   font-size: var(--amsterdam-link-standalone-spacious-font-size);
   line-height: var(--amsterdam-link-standalone-spacious-line-height);
+  text-decoration-line: var(--amsterdam-link-standalone-text-decoration-line);
   text-decoration-thickness: var(--amsterdam-link-standalone-text-decoration-thickness);
   text-underline-offset: var(--amsterdam-link-standalone-text-underline-offset);
 
@@ -42,11 +43,12 @@
   font-family: var(--amsterdam-link-inline-font-family);
   font-size: var(--amsterdam-link-inline-font-size);
   line-height: var(--amsterdam-link-inline-line-height);
-  text-decoration: var(--amsterdam-link-inline-text-decoration);
+  text-decoration-line: var(--amsterdam-link-inline-text-decoration-line);
   text-decoration-thickness: var(--amsterdam-link-inline-text-decoration-thickness);
+  text-underline-offset: var(--amsterdam-link-inline-text-underline-offset);
 
   &:hover {
-    text-decoration: var(--amsterdam-link-inline-hover-text-decoration);
+    text-decoration-thickness: var(--amsterdam-link-inline-hover-text-decoration-thickness);
     text-underline-offset: var(--amsterdam-link-inline-hover-text-underline-offset);
   }
 
@@ -61,12 +63,12 @@
   font-size: var(--amsterdam-link-in-list-spacious-font-size);
   gap: var(--amsterdam-link-in-list-gap);
   line-height: var(--amsterdam-link-in-list-spacious-line-height);
-  text-decoration: var(--amsterdam-link-in-list-text-decoration);
+  text-decoration-line: var(--amsterdam-link-in-list-text-decoration-line);
+  text-decoration-thickness: var(--amsterdam-link-in-list-text-decoration-thickness);
+  text-underline-offset: var(--amsterdam-link-in-list-text-underline-offset);
 
   &:hover {
-    text-decoration: var(--amsterdam-link-in-list-hover-text-decoration);
-    text-decoration-thickness: var(--amsterdam-link-in-list-hover-text-decoration-thickness);
-    text-underline-offset: var(--amsterdam-link-in-list-hover-text-underline-offset);
+    text-decoration-line: var(--amsterdam-link-in-list-hover-text-decoration-line);
   }
 
   .amsterdam-theme--compact & {
@@ -104,15 +106,5 @@
 
   &:visited {
     color: var(--amsterdam-link-on-background-light-visited-color);
-  }
-}
-
-.amsterdam-link--inline.amsterdam-link--on-background-dark,
-.amsterdam-link--inline.amsterdam-link--on-background-light {
-  text-decoration: var(--amsterdam-link-inline-hover-text-decoration);
-  text-underline-offset: var(--amsterdam-link-inline-hover-text-underline-offset);
-
-  &:hover {
-    text-decoration: var(--amsterdam-link-inline-text-decoration);
   }
 }

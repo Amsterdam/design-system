@@ -33,26 +33,27 @@
   @include reset;
 }
 
-.amsterdam-breadcrumb-item {
+.amsterdam-breadcrumb__item {
   align-items: center;
   display: flex;
 }
 
-.amsterdam-breadcrumb-item:not(:last-child)::after {
-  background-color: var(--amsterdam-breadcrumb-color);
+.amsterdam-breadcrumb__item:not(:last-child)::after {
+  background-color: var(--amsterdam-breadcrumb-separator-background-color);
   clip-path: path("M 4.725,16 3.275,14.545 9.815,8 3.275,1.455 4.725,0 l 8,8 z");
   content: "";
   display: inline-block;
-  height: 16px;
+  height: 1rem;
   margin-inline-start: 1rem;
-  width: 16px;
+  width: 1rem;
 }
 
-.amsterdam-breadcrumb-item__link {
-  color: var(--amsterdam-breadcrumb-color);
-  cursor: pointer;
+.amsterdam-breadcrumb__link {
+  color: var(--amsterdam-breadcrumb-item-link-color);
   outline-offset: var(--amsterdam-breadcrumb-item-link-outline-offset);
-  text-decoration: none;
+  text-decoration-line: var(--amsterdam-breadcrumb-item-link-text-decoration-line);
+  text-decoration-thickness: var(--amsterdam-breadcrumb-item-link-text-decoration-thickness);
+  text-underline-offset: var(--amsterdam-breadcrumb-item-link-text-underline-offset);
 
   &::first-letter {
     text-transform: capitalize;
@@ -60,8 +61,6 @@
 
   &:hover {
     color: var(--amsterdam-breadcrumb-item-link-hover-color);
-    text-decoration: underline;
-    text-decoration-thickness: 2px;
-    text-underline-offset: 3px;
+    text-decoration-line: var(--amsterdam-breadcrumb-item-link-hover-text-decoration-line);
   }
 }
