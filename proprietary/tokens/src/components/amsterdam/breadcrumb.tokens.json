@@ -1,34 +1,20 @@
 {
   "amsterdam": {
     "breadcrumb": {
-      "color": {
-        "value": "{amsterdam.color.primary-blue}"
-      },
-      "font-family": {
-        "value": "{amsterdam.typography.font-family}"
-      },
-      "font-weight": {
-        "value": "{amsterdam.typography.font-weight.normal}"
+      "font-family": { "value": "{amsterdam.typography.font-family}" },
+      "font-weight": { "value": "{amsterdam.typography.font-weight.normal}" },
+      "separator": {
+        "background-color": { "value": "{amsterdam.color.primary-blue}" }
       },
       "item-link": {
-        "outline-offset": {
-          "value": "{amsterdam.focus.outline-offset}"
-        },
+        "color": { "value": "{amsterdam.link-appearance.color}" },
+        "outline-offset": { "value": "{amsterdam.focus.outline-offset}" },
+        "text-decoration-line": { "value": "{amsterdam.link-appearance.subtle.text-decoration-line}" },
+        "text-decoration-thickness": { "value": "{amsterdam.link-appearance.text-decoration-thickness}" },
+        "text-underline-offset": { "value": "{amsterdam.link-appearance.text-underline-offset}" },
         "hover": {
-          "color": {
-            "value": "{amsterdam.color.dark-blue}"
-          },
-          "box-shadow": {
-            "value": "inset 0 -2px 0 0 {amsterdam.color.dark-blue}"
-          }
-        },
-        "focus": {
-          "color": {
-            "value": "{amsterdam.color.dark-blue}"
-          },
-          "text-decoration": {
-            "value": "underline"
-          }
+          "color": { "value": "{amsterdam.color.dark-blue}" },
+          "text-decoration-line": { "value": "{amsterdam.link-appearance.subtle.hover.text-decoration-line}" }
         }
       },
       "spacious": {

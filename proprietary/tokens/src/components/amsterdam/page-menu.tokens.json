@@ -4,11 +4,14 @@
       "column-gap": { "value": "2.5rem" },
       "row-gap": { "value": "0.5rem" },
       "item": {
-        "color": { "value": "{amsterdam.color.primary-black}" },
+        "color": { "value": "{amsterdam.link-appearance.color}" },
         "font-family": { "value": "{amsterdam.typography.font-family}" },
         "font-weight": { "value": "{amsterdam.typography.font-weight.normal}" },
         "gap": { "value": "0.5rem" },
-        "text-decoration": { "value": "none" },
+        "outline-offset": { "value": "{amsterdam.focus.outline-offset}" },
+        "text-decoration-line": { "value": "{amsterdam.link-appearance.subtle.text-decoration-line}" },
+        "text-decoration-thickness": { "value": "{amsterdam.link-appearance.text-decoration-thickness}" },
+        "text-underline-offset": { "value": "{amsterdam.link-appearance.text-underline-offset}" },
         "spacious": {
           "font-size": { "value": "{amsterdam.typography.spacious.text-level.7.font-size}" },
           "line-height": { "value": "{amsterdam.typography.spacious.text-level.7.line-height}" }
@@ -18,8 +21,8 @@
           "line-height": { "value": "{amsterdam.typography.compact.text-level.7.line-height}" }
         },
         "hover": {
-          "color": { "value": "{amsterdam.color.primary-black}" },
-          "text-decoration": { "value": "underline" }
+          "color": { "value": "{amsterdam.link-appearance.hover.color}" },
+          "text-decoration-line": { "value": "{amsterdam.link-appearance.subtle.hover.text-decoration-line}" }
         }
       }
     }

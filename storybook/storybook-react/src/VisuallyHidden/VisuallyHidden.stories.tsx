@@ -6,8 +6,6 @@
 import { VisuallyHidden } from '@amsterdam/design-system-react'
 import { Meta, StoryObj } from '@storybook/react'
 
-import '@amsterdam/design-system-css/src/visually-hidden/visually-hidden.scss'
-
 const meta = {
   title: 'Containers/Visually Hidden',
   component: VisuallyHidden,

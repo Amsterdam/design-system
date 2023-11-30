@@ -1,13 +1,9 @@
 {
   "amsterdam": {
     "pagination": {
-      "color": { "value": "{amsterdam.color.primary-blue}" },
-      "font-family": {
-        "value": "{amsterdam.typography.font-family}"
-      },
-      "font-weight": {
-        "value": "{amsterdam.typography.font-weight.normal}"
-      },
+      "color": { "value": "{amsterdam.link-appearance.color}" },
+      "font-family": { "value": "{amsterdam.typography.font-family}" },
+      "font-weight": { "value": "{amsterdam.typography.font-weight.normal}" },
       "spacious": {
         "font-size": { "value": "{amsterdam.typography.spacious.text-level.6.font-size}" },
         "line-height": { "value": "{amsterdam.typography.spacious.text-level.6.line-height}" }
@@ -17,15 +13,17 @@
         "line-height": { "value": "{amsterdam.typography.compact.text-level.6.line-height}" }
       },
       "button": {
+        "outline-offset": { "value": "{amsterdam.focus.outline-offset}" },
+        "text-decoration-line": { "value": "{amsterdam.link-appearance.subtle.text-decoration-line}" },
+        "text-decoration-thickness": { "value": "{amsterdam.link-appearance.text-decoration-thickness}" },
+        "text-underline-offset": { "value": "{amsterdam.link-appearance.text-underline-offset}" },
         "current": {
-          "font-weight": {
-            "value": "{amsterdam.typography.font-weight.bold}"
-          }
+          "font-weight": { "value": "{amsterdam.typography.font-weight.bold}" }
         },
         "hover": {
-          "color": { "value": "{amsterdam.color.dark-blue}" }
-        },
-        "outline-offset": { "value": "{amsterdam.focus.outline-offset}" }
+          "color": { "value": "{amsterdam.link-appearance.hover.color}" },
+          "text-decoration-line": { "value": "{amsterdam.link-appearance.subtle.hover.text-decoration-line}" }
+        }
       }
     }
   }
