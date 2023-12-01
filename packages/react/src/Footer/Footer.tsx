@@ -12,15 +12,16 @@ import {
   PropsWithChildren,
   RefAttributes,
 } from 'react'
+import { Highlight } from '../Highlight/Highlight'
 
 export const FooterTop = forwardRef(
   (
     { children, className, ...restProps }: PropsWithChildren<HTMLAttributes<HTMLDivElement>>,
     ref: ForwardedRef<HTMLDivElement>,
   ) => (
-    <div {...restProps} ref={ref} className={clsx('amsterdam-footer__top', className)}>
+    <Highlight {...restProps} color="blue" ref={ref} className={clsx('amsterdam-footer__top', className)}>
       {children}
-    </div>
+    </Highlight>
   ),
 )
 

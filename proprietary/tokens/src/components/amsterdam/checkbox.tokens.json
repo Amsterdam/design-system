@@ -87,14 +87,7 @@
               "value": "{amsterdam.color.dark-blue}"
             }
           }
-        },
-        "narrow": {
-          "size": { "value": "{amsterdam.typography.text-level.6.narrow.font-size}" }
-        },
-        "wide": {
-          "size": { "value": "{amsterdam.typography.text-level.6.wide.font-size}" }
-        },
-        "multiplier": { "value": "{amsterdam.typography.text-level.6.line-height}" }
+        }
       },
       "disabled": {
         "color": {
@@ -109,12 +102,13 @@
         }
       },
       "outline-offset": { "value": "{amsterdam.focus.outline-offset}" },
-      "line-height": { "value": "{amsterdam.typography.text-level.6.line-height}" },
-      "narrow": {
-        "font-size": { "value": "{amsterdam.typography.text-level.6.narrow.font-size}" }
+      "spacious": {
+        "font-size": { "value": "{amsterdam.typography.spacious.text-level.6.font-size}" },
+        "line-height": { "value": "{amsterdam.typography.spacious.text-level.6.line-height}" }
       },
-      "wide": {
-        "font-size": { "value": "{amsterdam.typography.text-level.6.wide.font-size}" }
+      "compact": {
+        "font-size": { "value": "{amsterdam.typography.compact.text-level.6.font-size}" },
+        "line-height": { "value": "{amsterdam.typography.compact.text-level.6.line-height}" }
       }
     }
   }

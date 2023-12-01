@@ -34,7 +34,7 @@ const meta = {
   },
   render: ({ color }) => (
     <Highlight color={color}>
-      <Grid>
+      <Grid paddingVertical="medium">
         <Grid.Cell fullWidth>
           <Blockquote inverseColor={!color || !['green', 'yellow'].includes(color)}>
             We kunnen in heel Nederland schoolpleinen creëren waar kinderen worden uitgedaagd om samen te spelen en te
