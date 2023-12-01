@@ -332,8 +332,8 @@ importers:
         specifier: 7.6.0
         version: 7.6.0(react@18.2.0)
       '@storybook/addon-viewport':
-        specifier: 7.6.0
-        version: 7.6.0
+        specifier: 7.6.3
+        version: 7.6.3
       '@storybook/blocks':
         specifier: 7.6.0
         version: 7.6.0(@types/react-dom@18.2.17)(@types/react@18.2.39)(react-dom@18.2.0)(react@18.2.0)
@@ -4634,6 +4634,12 @@ packages:
 
   /@storybook/addon-viewport@7.6.0:
     resolution: {integrity: sha512-1NGgoEnDYLWw0HuRTTrIHCj8I0Xtc76PgPtArj92HQu+ENu4Hy0Y8MypZ+ZmAFddykaInwmZeQo2CD0GXU9qUQ==}
+    dependencies:
+      memoizerific: 1.11.3
+    dev: true
+
+  /@storybook/addon-viewport@7.6.3:
+    resolution: {integrity: sha512-I9FQxHi4W7RUyZut4NziYa+nkBCpD1k2YpEDE5IwSC3lqQpDzFZN89eNWQtZ38tIU4c90jL3L1k69IHvANGHsA==}
     dependencies:
       memoizerific: 1.11.3
     dev: true
