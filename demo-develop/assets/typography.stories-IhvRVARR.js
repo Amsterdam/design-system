@@ -1,4 +1,4 @@
-import{M as l,T as t}from"./index-ZafO6jE9.js";import{j as e}from"./jsx-runtime-vNq4Oc-g.js";import{u as a}from"./index-Dbo06S9W.js";import"./iframe-AnyfF_pZ.js";import"../sb-preview/runtime.js";import"./index-4g5l5LRQ.js";import"./_commonjsHelpers-4gQjN7DL.js";import"./index-jmm5gWkb.js";import"./index-ogXoivrg.js";import"./index-MVbLLYTZ.js";import"./index-PPLHz8o0.js";function s(i){const n=Object.assign({h1:"h1",h2:"h2",h3:"h3",p:"p",table:"table",thead:"thead",tr:"tr",th:"th",tbody:"tbody",td:"td",a:"a",h4:"h4",ol:"ol",li:"li",em:"em",code:"code",pre:"pre"},a(),i.components);return e.jsxs(e.Fragment,{children:[e.jsx(l,{title:"Docs/Designrichtlijnen/Typografie"}),`
+import{M as l,T as t}from"./index-efY6Mtq-.js";import{j as e}from"./jsx-runtime-vNq4Oc-g.js";import{u as a}from"./index-Dbo06S9W.js";import"./iframe-F_D9rSo2.js";import"../sb-preview/runtime.js";import"./index-4g5l5LRQ.js";import"./_commonjsHelpers-4gQjN7DL.js";import"./index-jmm5gWkb.js";import"./index-ogXoivrg.js";import"./index-MVbLLYTZ.js";import"./index-PPLHz8o0.js";function s(i){const n=Object.assign({h1:"h1",h2:"h2",h3:"h3",p:"p",table:"table",thead:"thead",tr:"tr",th:"th",tbody:"tbody",td:"td",a:"a",h4:"h4",ol:"ol",li:"li",em:"em",code:"code",pre:"pre"},a(),i.components);return e.jsxs(e.Fragment,{children:[e.jsx(l,{title:"Docs/Designrichtlijnen/Typografie"}),`
 `,e.jsx(n.h1,{id:"typografie",children:"Typografie"}),`
 `,e.jsx(n.h2,{id:"tekstgrootte",children:"Tekstgrootte"}),`
 `,e.jsx(n.h3,{id:"zeven-tekstniveaus",children:"Zeven tekstniveau’s"}),`
@@ -88,6 +88,10 @@ Raadpleeg de betreffende componenten voor specifieke richtlijnen.`}),`
 `,e.jsx(n.li,{children:"Het label van een knop wordt gecentreerd."}),`
 `,e.jsx(n.li,{children:"In een tabel kan het beter zijn tekst te centreren of rechts uit te lijnen."}),`
 `]}),`
+`,e.jsx(n.h3,{id:"regellengte",children:"Regellengte"}),`
+`,e.jsxs(n.p,{children:[`Lange regels tekst zijn lastig om te lezen.
+Rond de 80 letters op een regel is het maximum.
+In het 12-koloms `,e.jsx(n.a,{href:"?path=/docs/react_layout-grid--docs",children:"grid"})," voldoen paragrafen daaraan als ze 8 kolommen of minder beslaan."]}),`
 `,e.jsx(n.h3,{id:"woordafbreking",children:"Woordafbreking"}),`
 `,e.jsxs(n.p,{children:[`De Nederlandse taal kent veel lange woorden, zoals ‘gemeenteraadsverkiezingen’.
 Zorg er in je applicatie voor dat deze woorden netjes afgebroken worden en niet uit hun container breken of verborgen worden.
