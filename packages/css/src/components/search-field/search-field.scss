@@ -36,6 +36,11 @@
   &:hover {
     box-shadow: var(--amsterdam-search-field-input-hover-box-shadow);
   }
+
+  &:focus {
+    // Make sure the focus outline isn't cut off by the adjacent button
+    z-index: 1;
+  }
 }
 
 .amsterdam-search-field__input::placeholder {
