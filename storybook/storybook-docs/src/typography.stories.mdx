@@ -49,9 +49,8 @@ Zo worden titels niet te groot op telefoons en andere smalle vensters, en kleine
 
 Voor websites is de typografie behoorlijk ruimtelijk.
 Zo is de huisstijl ontworpen.
-
-Een standaard paragraaf is 16 pixels groot bij een vensterbreedte van 320 pixels.
-In een venster van 1600 pixels breed is dat de helft meer: 24 pixels.
+Een standaard paragraaf is 18 pixels groot bij een vensterbreedte van 320 pixels.
+Tot een breedte van 1600 pixels groeit die naar 24 pixels.
 
 De maximale tekstgroottes voor alle niveau’s in het ruimtelijke thema:
 
@@ -75,9 +74,8 @@ En de minimale:
 
 Voor applicaties is zulke grote tekst niet nodig, zelfs contraproductief.
 Daarom is er een compact thema voor de typografie.
-
 Hier is een paragraaf 14 pixels groot bij de minimale vensterbreedte en 18 pixels bij de maximale.
-Een paragraaf groeit hier dus niet met de helft, maar met iets meer dan een kwart.
+Tekst is dus een kwart kleiner en groeit ook iets langzamer.
 
 De maximale tekstgroottes voor alle niveau’s in het compacte thema:
 
@@ -101,7 +99,7 @@ En de minimale:
 
 In de praktijk kan een venster elke willekeurige breedte hebben.
 Voor al die breedtes ontwerpen is wat te gek.
-Daarom werken we in Figma met drie referentie-breedtes.
+Daarom werken we in Figma met drie referentie-breedtes: 320, 832 en 1600 pixels.
 Op die maten werken we een scherm uit voor die drie klassen van apparaten.
 De tekstgroottes zijn op dat punt als volgt, afgerond op 1 cijfer achter de komma.
 
@@ -166,14 +164,15 @@ Vermijd het onderstrepen van tekst.
 Onderstreep alleen interactieve links.
 
 De lijndikte is 1/12 van de tekstgrootte, dus 2 pixels bij een standaard paragraaf van 24.
-De afstand tussen de onderstreping en de letterlijn is iets vergroot.
-Rond staartletters wordt de streep onderbroken voor betere leesbaarheid.
+De afstand tussen de onderstreping en de letterlijn is 3/8 van de tekstgrootte –
+meer dan we in onderstaande voorbeeld kunnen laten zien.
 
 <Typeset
   fontFamily="Amsterdam Sans, Arial, sans-serif"
   fontSizes={[24]}
+  lineHeight={1.6}
   sampleText="Jouw typograaf biedt mij zulke exquise schreven"
-  style={{ color: "#004469", textDecorationLine: "underline", textDecorationThickness: 2, textUnderlineOffset: 2 }}
+  style={{ color: "#004469", textDecorationLine: "underline", textDecorationThickness: 2, textUnderlineOffset: 4 }}
 />
 
 ### Overhang
