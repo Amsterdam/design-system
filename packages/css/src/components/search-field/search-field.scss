@@ -14,7 +14,8 @@
 }
 
 .amsterdam-search-field__input {
-  border: var(--amsterdam-search-field-input-border);
+  border: none;
+  box-shadow: var(--amsterdam-search-field-input-box-shadow);
   color: var(--amsterdam-search-field-input-color);
   font-family: var(--amsterdam-search-field-input-font-family);
   font-size: var(--amsterdam-search-field-input-spacious-font-size);
@@ -30,6 +31,10 @@
   .amsterdam-theme--compact & {
     font-size: var(--amsterdam-search-field-input-compact-font-size);
     line-height: var(--amsterdam-search-field-input-compact-line-height);
+  }
+
+  &:hover {
+    box-shadow: var(--amsterdam-search-field-input-hover-box-shadow);
   }
 }
 
