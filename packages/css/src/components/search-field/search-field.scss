@@ -1,0 +1,68 @@
+/**
+ * @license EUPL-1.2+
+ * Copyright (c) 2023 Gemeente Amsterdam
+ */
+
+.amsterdam-search-field {
+  display: flex;
+}
+
+@mixin reset {
+  box-sizing: border-box;
+  margin-block: 0;
+  -webkit-text-size-adjust: 100%;
+}
+
+.amsterdam-search-field__input {
+  border: var(--amsterdam-search-field-input-border);
+  color: var(--amsterdam-search-field-input-color);
+  font-family: var(--amsterdam-search-field-input-font-family);
+  font-size: var(--amsterdam-search-field-input-spacious-font-size);
+  font-weight: var(--amsterdam-search-field-input-font-weight);
+  line-height: var(--amsterdam-search-field-input-spacious-line-height);
+  outline-offset: var(--amsterdam-search-field-input-outline-offset);
+  padding-block: 0.5rem;
+  padding-inline: 1rem;
+  width: 100%;
+
+  @include reset;
+
+  .amsterdam-theme--compact & {
+    font-size: var(--amsterdam-search-field-input-compact-font-size);
+    line-height: var(--amsterdam-search-field-input-compact-line-height);
+  }
+}
+
+.amsterdam-search-field__input::placeholder {
+  color: var(--amsterdam-search-field-input-placeholder-color);
+}
+
+.amsterdam-search-field__input::-webkit-search-cancel-button {
+  appearance: none;
+  background-image: var(--amsterdam-search-field-input-cancel-button-background-image);
+  cursor: pointer;
+  height: var(--amsterdam-search-field-input-cancel-button-height);
+  width: var(--amsterdam-search-field-input-cancel-button-width);
+}
+
+.amsterdam-search-field__button {
+  background-color: var(--amsterdam-search-field-button-background-color);
+  border: 0;
+  color: var(--amsterdam-search-field-button-color);
+  cursor: pointer;
+  outline-offset: var(--amsterdam-search-field-button-outline-offset);
+  padding-block: 0.5rem;
+  padding-inline: 0.5rem;
+
+  span {
+    display: flex;
+    justify-content: center;
+
+    // use icon tokens to set width equal to height
+    width: calc(var(--amsterdam-icon-spacious-size-6-font-size) * var(--amsterdam-icon-spacious-size-6-line-height));
+  }
+
+  &:hover {
+    background-color: var(--amsterdam-search-field-button-hover-background-color);
+  }
+}
