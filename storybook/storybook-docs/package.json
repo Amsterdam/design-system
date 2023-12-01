@@ -34,7 +34,7 @@
     "@storybook/addon-links": "7.6.0",
     "@storybook/addon-viewport": "7.6.0",
     "@storybook/blocks": "7.6.0",
-    "@storybook/manager-api": "7.6.0",
+    "@storybook/manager-api": "7.6.3",
     "@storybook/mdx2-csf": "1.1.0",
     "@storybook/react": "7.6.0",
     "@storybook/react-vite": "7.6.0",
