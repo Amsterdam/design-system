@@ -32,7 +32,7 @@ describe('Search field', () => {
   })
 
   it('supports ForwardRef in React', () => {
-    const ref = createRef<HTMLElement>()
+    const ref = createRef<HTMLFormElement>()
 
     const { container } = render(<SearchField ref={ref} />)
 
