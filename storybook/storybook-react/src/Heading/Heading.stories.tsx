@@ -5,12 +5,13 @@
 
 import { Heading } from '@amsterdam/design-system-react'
 import { Meta, StoryObj } from '@storybook/react'
+import { exampleTitle } from '../shared/exampleContent'
 
 const meta = {
   title: 'Text/Heading',
   component: Heading,
   args: {
-    children: 'Jouw typograaf biedt mij zulke exquise schreven!',
+    children: exampleTitle(),
     inverseColor: false,
   },
   argTypes: {

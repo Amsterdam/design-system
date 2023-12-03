@@ -5,12 +5,13 @@
 
 import { Paragraph } from '@amsterdam/design-system-react'
 import { Meta, StoryObj } from '@storybook/react'
+import { exampleParagraph } from '../shared/exampleContent'
 
 const meta = {
   title: 'Text/Paragraph',
   component: Paragraph,
   args: {
-    children: 'Jouw typograaf biedt mij zulke exquise schreven!',
+    children: exampleParagraph(),
     inverseColor: false,
   },
   argTypes: {

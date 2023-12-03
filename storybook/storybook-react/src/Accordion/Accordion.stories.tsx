@@ -5,6 +5,7 @@
 
 import { Accordion, Paragraph } from '@amsterdam/design-system-react'
 import { Meta, StoryObj } from '@storybook/react'
+import { exampleParagraph } from '../shared/exampleContent'
 
 const meta = {
   title: 'Containers/Accordion',
@@ -36,13 +37,13 @@ export const Default: Story = {
   args: {
     children: [
       <Accordion.Section key={1} label="Eerste sectie">
-        <Paragraph>Jouw typograaf biedt mij zulke exquise schreven!</Paragraph>
+        <Paragraph>{exampleParagraph()}</Paragraph>
       </Accordion.Section>,
       <Accordion.Section key={2} label="Tweede sectie">
-        <Paragraph>Jouw typograaf biedt mij zulke exquise schreven!</Paragraph>
+        <Paragraph>{exampleParagraph()}</Paragraph>
       </Accordion.Section>,
       <Accordion.Section key={3} label="Derde sectie">
-        <Paragraph>Jouw typograaf biedt mij zulke exquise schreven!</Paragraph>
+        <Paragraph>{exampleParagraph()}</Paragraph>
       </Accordion.Section>,
     ],
   },
@@ -52,13 +53,13 @@ export const ExpandedByDefault: Story = {
   args: {
     children: [
       <Accordion.Section key={1} label="Eerste sectie">
-        <Paragraph>Jouw typograaf biedt mij zulke exquise schreven!</Paragraph>
+        <Paragraph>{exampleParagraph()}</Paragraph>
       </Accordion.Section>,
       <Accordion.Section key={2} label="Tweede sectie" expanded>
-        <Paragraph>Jouw typograaf biedt mij zulke exquise schreven!</Paragraph>
+        <Paragraph>{exampleParagraph()}</Paragraph>
       </Accordion.Section>,
       <Accordion.Section key={3} label="Derde sectie">
-        <Paragraph>Jouw typograaf biedt mij zulke exquise schreven!</Paragraph>
+        <Paragraph>{exampleParagraph()}</Paragraph>
       </Accordion.Section>,
     ],
   },
@@ -69,13 +70,13 @@ export const TooManyLandmarks: Story = {
     section: false,
     children: [
       <Accordion.Section key={1} label="Eerste sectie">
-        <Paragraph>Jouw typograaf biedt mij zulke exquise schreven!</Paragraph>
+        <Paragraph>{exampleParagraph()}</Paragraph>
       </Accordion.Section>,
       <Accordion.Section key={2} label="Tweede sectie">
-        <Paragraph>Jouw typograaf biedt mij zulke exquise schreven!</Paragraph>
+        <Paragraph>{exampleParagraph()}</Paragraph>
       </Accordion.Section>,
       <Accordion.Section key={3} label="Derde sectie">
-        <Paragraph>Jouw typograaf biedt mij zulke exquise schreven!</Paragraph>
+        <Paragraph>{exampleParagraph()}</Paragraph>
       </Accordion.Section>,
     ],
   },

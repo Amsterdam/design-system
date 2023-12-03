@@ -5,12 +5,13 @@
 
 import { Blockquote } from '@amsterdam/design-system-react'
 import { Meta, StoryObj } from '@storybook/react'
+import { exampleQuote } from '../shared/exampleContent'
 
 const meta = {
   title: 'Text/Blockquote',
   component: Blockquote,
   args: {
-    children: 'Jouw typograaf biedt mij zulke exquise schreven!',
+    children: exampleQuote(),
     inverseColor: false,
   },
   argTypes: {
