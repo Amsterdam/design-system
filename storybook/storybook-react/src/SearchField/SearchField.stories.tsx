@@ -10,7 +10,7 @@ const meta = {
   title: 'Search Field',
   component: SearchField,
   args: {
-    children: 'Nieuw component',
+    children: [<SearchField.Input key={1} />, <SearchField.Button key={2} />],
   },
 } satisfies Meta<typeof SearchField>
 

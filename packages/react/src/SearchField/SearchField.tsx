@@ -5,11 +5,39 @@
 
 import { SearchIcon } from '@amsterdam/design-system-react-icons'
 import clsx from 'clsx'
-import { ForwardedRef, forwardRef, HTMLAttributes, useId } from 'react'
+import { ForwardedRef, forwardRef, ForwardRefExoticComponent, HTMLAttributes, PropsWithChildren, useId } from 'react'
 import { Icon } from '../Icon'
 import { VisuallyHidden } from '../VisuallyHidden'
 
-export interface SearchFieldProps extends HTMLAttributes<HTMLFormElement> {}
+interface SearchFieldInputProps extends HTMLAttributes<HTMLInputElement> {
+  label?: string
+}
+
+const SearchFieldInput = forwardRef(
+  ({ className, label = 'Zoeken', ...restProps }: SearchFieldInputProps, ref: ForwardedRef<HTMLInputElement>) => {
+    const id = useId()
+
+    return (
+      <>
+        <label htmlFor={id}>
+          <VisuallyHidden>{label}</VisuallyHidden>
+        </label>
+        <input
+          {...restProps}
+          autoComplete="off"
+          className={clsx('amsterdam-search-field__input', className)}
+          enterKeyHint="search"
+          id={id}
+          ref={ref}
+          spellCheck="false"
+          type="search"
+        />
+      </>
+    )
+  },
+)
+
+SearchFieldInput.displayName = 'SearchFieldInput'
 
 interface SearchFieldButtonProps extends HTMLAttributes<HTMLButtonElement> {}
 
@@ -25,28 +53,25 @@ const SearchFieldButton = forwardRef(
 
 SearchFieldButton.displayName = 'SearchFieldButton'
 
-export const SearchField = forwardRef(
-  ({ className, ...restProps }: SearchFieldProps, ref: ForwardedRef<HTMLFormElement>) => {
-    const id = useId()
+export interface SearchFieldProps extends PropsWithChildren<HTMLAttributes<HTMLFormElement>> {}
 
+export interface SearchFieldComponent extends ForwardRefExoticComponent<SearchFieldProps> {
+  Input: typeof SearchFieldInput
+  Button: typeof SearchFieldButton
+}
+
+export const SearchField = forwardRef(
+  ({ children, className, ...restProps }: SearchFieldProps, ref: ForwardedRef<HTMLFormElement>) => {
     return (
       <form role="search" {...restProps} ref={ref} className={clsx('amsterdam-search-field', className)}>
-        <label htmlFor={id}>
-          <VisuallyHidden>Zoeken</VisuallyHidden>
-        </label>
-        <input
-          autoComplete="off"
-          className="amsterdam-search-field__input"
-          enterKeyHint="search"
-          id={id}
-          placeholder="Wat kunnen we voor u vinden?"
-          spellCheck="false"
-          type="search"
-        />
-        <SearchFieldButton />
+        {children}
       </form>
     )
   },
-)
+) as SearchFieldComponent
 
+SearchField.Input = SearchFieldInput
+SearchField.Button = SearchFieldButton
 SearchField.displayName = 'SearchField'
+SearchField.Input.displayName = 'SearchField.Input'
+SearchField.Button.displayName = 'SearchField.Button'
