@@ -2,12 +2,8 @@
   "amsterdam": {
     "link": {
       "color": { "value": "{amsterdam.link-appearance.color}" },
-      "font-family": {
-        "value": "{amsterdam.typography.font-family}"
-      },
-      "font-weight": {
-        "value": "{amsterdam.typography.font-weight.normal}"
-      },
+      "font-family": { "value": "{amsterdam.typography.font-family}" },
+      "font-weight": { "value": "{amsterdam.typography.font-weight.normal}" },
       "outline-offset": { "value": "{amsterdam.focus.outline-offset}" },
       "hover": {
         "color": { "value": "{amsterdam.link-appearance.hover.color}" }
@@ -16,15 +12,9 @@
         "text-decoration-line": { "value": "{amsterdam.link-appearance.regular.text-decoration-line}" },
         "text-decoration-thickness": { "value": "{amsterdam.link-appearance.text-decoration-thickness}" },
         "text-underline-offset": { "value": "{amsterdam.link-appearance.text-underline-offset}" },
-        "font-family": {
-          "value": "inherit"
-        },
-        "font-size": {
-          "value": "inherit"
-        },
-        "line-height": {
-          "value": "inherit"
-        },
+        "font-family": { "value": "inherit" },
+        "font-size": { "value": "inherit" },
+        "line-height": { "value": "inherit" },
         "hover": {
           "text-decoration-thickness": {
             "value": "{amsterdam.link-appearance.regular.hover.text-decoration-thickness}"
