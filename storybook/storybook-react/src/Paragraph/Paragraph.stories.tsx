@@ -11,6 +11,7 @@ const meta = {
   title: 'Text/Paragraph',
   component: Paragraph,
   args: {
+    children: exampleParagraph(),
     inverseColor: false,
   },
   argTypes: {

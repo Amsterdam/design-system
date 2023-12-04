@@ -11,6 +11,7 @@ const meta = {
   title: 'Text/Heading',
   component: Heading,
   args: {
+    children: exampleHeading(),
     inverseColor: false,
   },
   argTypes: {
@@ -31,6 +32,9 @@ export default meta
 type Story = StoryObj<typeof meta>
 
 export const Default: Story = {
+  args: {
+    children: exampleHeading(),
+  },
   decorators: [
     (Story, context) => (
       <div className={context.args.inverseColor ? 'amsterdam-docs-dark-background' : undefined}>
