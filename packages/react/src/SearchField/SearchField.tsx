@@ -5,7 +5,15 @@
 
 import { SearchIcon } from '@amsterdam/design-system-react-icons'
 import clsx from 'clsx'
-import { ForwardedRef, forwardRef, ForwardRefExoticComponent, HTMLAttributes, PropsWithChildren, useId } from 'react'
+import {
+  ForwardedRef,
+  forwardRef,
+  ForwardRefExoticComponent,
+  HTMLAttributes,
+  PropsWithChildren,
+  RefAttributes,
+  useId,
+} from 'react'
 import { Icon } from '../Icon'
 import { VisuallyHidden } from '../VisuallyHidden'
 
@@ -55,7 +63,8 @@ SearchFieldButton.displayName = 'SearchFieldButton'
 
 export interface SearchFieldProps extends PropsWithChildren<HTMLAttributes<HTMLFormElement>> {}
 
-export interface SearchFieldComponent extends ForwardRefExoticComponent<SearchFieldProps> {
+export interface SearchFieldComponent
+  extends ForwardRefExoticComponent<SearchFieldProps & RefAttributes<HTMLFormElement>> {
   Input: typeof SearchFieldInput
   Button: typeof SearchFieldButton
 }
