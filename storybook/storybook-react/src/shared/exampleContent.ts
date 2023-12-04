@@ -18,9 +18,7 @@ const headings = [
   'Richtlijnen vergunningverlening Koningsdag 2024',
 ]
 
-export const exampleHeading = () => {
-  return pickRandomItem(headings)
-}
+export const exampleHeading = () => pickRandomItem(headings)
 
 const orderedLists = [
   [
@@ -59,9 +57,7 @@ const orderedLists = [
   ],
 ]
 
-export const exampleOrderedList = () => {
-  return pickRandomList(orderedLists)
-}
+export const exampleOrderedList = () => pickRandomList(orderedLists)
 
 const paragraphs = [
   'Het waterrijke achterland van de provincie Holland was een paradijs voor vissers. Maar terwijl de visserij floreerde in Holland, was Amsterdam eigenlijk helemaal geen visserijstad. Toch maakten Amsterdammers naam in de vishandel. Zij speelden namelijk een cruciale rol bij het klaarmaken en vervoeren van haring.',
@@ -77,9 +73,7 @@ const paragraphs = [
   'Vertel ons in het evenementenformulier wat u wilt gaan doen. U checkt daarmee of u een vergunning nodig hebt. Daarna vraagt u de vergunning aan in hetzelfde formulier. Of doet u een gratis melding of vooraankondiging.',
 ]
 
-export const exampleParagraph = () => {
-  return pickRandomItem(paragraphs)
-}
+export const exampleParagraph = () => pickRandomItem(paragraphs)
 
 const quotes = [
   'We kunnen in heel Nederland schoolpleinen creëren waar kinderen worden uitgedaagd om samen te spelen en te sporten.',
@@ -91,9 +85,7 @@ const quotes = [
   'Zorg goed voor de stad en voor elkaar.',
 ]
 
-export const exampleQuote = () => {
-  return pickRandomItem(quotes)
-}
+export const exampleQuote = () => pickRandomItem(quotes)
 
 const unorderedLists = [
   [
@@ -144,6 +136,4 @@ const unorderedLists = [
   ],
 ]
 
-export const exampleUnorderedList = () => {
-  return pickRandomList(unorderedLists)
-}
+export const exampleUnorderedList = () => pickRandomList(unorderedLists)
