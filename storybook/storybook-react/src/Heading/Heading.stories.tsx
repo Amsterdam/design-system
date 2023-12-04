@@ -5,13 +5,13 @@
 
 import { Heading } from '@amsterdam/design-system-react'
 import { Meta, StoryObj } from '@storybook/react'
-import { exampleTitle } from '../shared/exampleContent'
+import { exampleHeading } from '../shared/exampleContent'
 
 const meta = {
   title: 'Text/Heading',
   component: Heading,
   args: {
-    children: exampleTitle(),
+    children: exampleHeading(),
     inverseColor: false,
   },
   argTypes: {

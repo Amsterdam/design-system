@@ -2,6 +2,26 @@ const pickRandomItem = (list: Array<string>): string => list[Math.floor(Math.ran
 
 const pickRandomList = (list: Array<Array<string>>): Array<string> => list[Math.floor(Math.random() * list.length)]
 
+const headings = [
+  'Meer plekken voor kunst en cultuur, verspreid over de stad',
+  'Amsterdam Light Festival maakt de stad ook deze winter een beetje mooier',
+  'Opvang voor dak- en thuisloze mensen vanwege lage temperaturen',
+  'Kapers aan de poort, kanonskogels op de Dam: de aanval op Amsterdam',
+  'Erfgoed van de Week | Het wonderkind van de Amsterdamse School',
+  '100 jaar NEMO: van nijverheid en techniek tot wetenschapsmuseum',
+  '14 kades en bruggen hersteld in 2023',
+  'Wat vindt u van de inzameling van grof afval in Amsterdam?',
+  'Zuidoost viert 750 jaar Amsterdam: vraag subsidie aan voor uw initiatief',
+  'Van bokking tot ‘quawah’: dit waren typisch Amsterdamse koopmansgoederen',
+  'Mededeling verwijderen gezonken vaartuigen aan Wittenburgervaart tegenover Nieuwe Oostenburgerdwarsstraat te Amsterdam',
+  'Vermakelijkhedenretributie vanaf 2023',
+  'Richtlijnen vergunningverlening Koningsdag 2024',
+]
+
+export const exampleHeading = () => {
+  return pickRandomItem(headings)
+}
+
 const orderedLists = [
   [
     'Voor deze actie hebben uw kinderen een persoonlijke OV-chipkaart nodig. Hebben zij die nog niet, dan kunt u die nu al aanvragen. Ieder kind heeft een eigen OV-chipkaart nodig.',
@@ -73,26 +93,6 @@ const quotes = [
 
 export const exampleQuote = () => {
   return pickRandomItem(quotes)
-}
-
-const titles = [
-  'Meer plekken voor kunst en cultuur, verspreid over de stad',
-  'Amsterdam Light Festival maakt de stad ook deze winter een beetje mooier',
-  'Opvang voor dak- en thuisloze mensen vanwege lage temperaturen',
-  'Kapers aan de poort, kanonskogels op de Dam: de aanval op Amsterdam',
-  'Erfgoed van de Week | Het wonderkind van de Amsterdamse School',
-  '100 jaar NEMO: van nijverheid en techniek tot wetenschapsmuseum',
-  '14 kades en bruggen hersteld in 2023',
-  'Wat vindt u van de inzameling van grof afval in Amsterdam?',
-  'Zuidoost viert 750 jaar Amsterdam: vraag subsidie aan voor uw initiatief',
-  'Van bokking tot ‘quawah’: dit waren typisch Amsterdamse koopmansgoederen',
-  'Mededeling verwijderen gezonken vaartuigen aan Wittenburgervaart tegenover Nieuwe Oostenburgerdwarsstraat te Amsterdam',
-  'Vermakelijkhedenretributie vanaf 2023',
-  'Richtlijnen vergunningverlening Koningsdag 2024',
-]
-
-export const exampleTitle = () => {
-  return pickRandomItem(titles)
 }
 
 const unorderedLists = [
