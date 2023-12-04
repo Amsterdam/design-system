@@ -5,6 +5,7 @@
 
 import { Blockquote, Grid, Highlight } from '@amsterdam/design-system-react'
 import { Meta, StoryObj } from '@storybook/react'
+import { exampleQuote } from '../shared/exampleContent'
 
 const meta = {
   title: 'Containers/Highlight',
@@ -36,10 +37,7 @@ const meta = {
     <Highlight color={color}>
       <Grid paddingVertical="medium">
         <Grid.Cell fullWidth>
-          <Blockquote inverseColor={!color || !['green', 'yellow'].includes(color)}>
-            We kunnen in heel Nederland schoolpleinen creëren waar kinderen worden uitgedaagd om samen te spelen en te
-            sporten. Buitenspelen zou een vak moeten zijn op school.
-          </Blockquote>
+          <Blockquote inverseColor={!color || !['green', 'yellow'].includes(color)}>{exampleQuote()}</Blockquote>
         </Grid.Cell>
       </Grid>
     </Highlight>
