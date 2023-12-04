@@ -11,7 +11,6 @@ const meta = {
   title: 'Text/Heading',
   component: Heading,
   args: {
-    children: exampleHeading(),
     inverseColor: false,
   },
   argTypes: {
@@ -41,28 +40,36 @@ export const Default: Story = {
   ],
 }
 
-export const Heading1: Story = {}
+export const Heading1: Story = {
+  args: {
+    children: exampleHeading(),
+  },
+}
 
 export const Heading2: Story = {
   args: {
+    children: exampleHeading(),
     level: 2,
   },
 }
 
 export const Heading3: Story = {
   args: {
+    children: exampleHeading(),
     level: 3,
   },
 }
 
 export const Heading4: Story = {
   args: {
+    children: exampleHeading(),
     level: 4,
   },
 }
 
 export const InvertedColor: Story = {
   args: {
+    children: exampleHeading(),
     inverseColor: true,
   },
   decorators: [

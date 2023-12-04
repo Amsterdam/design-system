@@ -11,7 +11,6 @@ const meta = {
   title: 'Text/Paragraph',
   component: Paragraph,
   args: {
-    children: exampleParagraph(),
     inverseColor: false,
   },
   argTypes: {
@@ -30,6 +29,9 @@ export default meta
 type Story = StoryObj<typeof meta>
 
 export const Default: Story = {
+  args: {
+    children: exampleParagraph(),
+  },
   decorators: [
     (Story, context) => (
       <div className={context.args.inverseColor ? 'amsterdam-docs-dark-background' : undefined}>
@@ -41,18 +43,21 @@ export const Default: Story = {
 
 export const Large: Story = {
   args: {
+    children: exampleParagraph(),
     size: 'large',
   },
 }
 
 export const Small: Story = {
   args: {
+    children: exampleParagraph(),
     size: 'small',
   },
 }
 
 export const InvertedColor: Story = {
   args: {
+    children: exampleParagraph(),
     inverseColor: true,
   },
   decorators: [
