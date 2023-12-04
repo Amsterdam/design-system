@@ -5,6 +5,9 @@
 
 .amsterdam-search-field {
   display: flex;
+
+  // create new stacking context, so the input's z-index doesn't escape the component
+  isolation: isolate;
 }
 
 @mixin reset {
