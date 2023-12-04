@@ -24,6 +24,9 @@ export default meta
 type Story = StoryObj<typeof meta>
 
 export const Default: Story = {
+  args: {
+    children: exampleQuote(),
+  },
   decorators: [
     (Story, context) => (
       <div className={context.args.inverseColor ? 'amsterdam-docs-dark-background' : undefined}>
@@ -35,6 +38,7 @@ export const Default: Story = {
 
 export const InvertedColor: Story = {
   args: {
+    children: exampleQuote(),
     inverseColor: true,
   },
   decorators: [
