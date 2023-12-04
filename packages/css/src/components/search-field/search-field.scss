@@ -5,9 +5,7 @@
 
 .amsterdam-search-field {
   display: flex;
-
-  // create new stacking context, so the input's z-index doesn't escape the component
-  isolation: isolate;
+  isolation: isolate; // create new stacking context, so the input's z-index doesn't escape the component
 }
 
 @mixin reset {
@@ -27,6 +25,7 @@
   outline-offset: var(--amsterdam-search-field-input-outline-offset);
   padding-block: 0.5rem;
   padding-inline: 1rem;
+  touch-action: manipulation;
   width: 100%;
 
   @include reset;
@@ -41,8 +40,7 @@
   }
 
   &:focus {
-    // Make sure the focus outline isn't cut off by the adjacent button
-    z-index: 1;
+    z-index: 1; // Make sure the focus outline isn't cut off by the adjacent button
   }
 }
 
@@ -66,6 +64,7 @@
   outline-offset: var(--amsterdam-search-field-button-outline-offset);
   padding-block: 0.5rem;
   padding-inline: 0.5rem;
+  touch-action: manipulation;
 
   span {
     display: flex;
