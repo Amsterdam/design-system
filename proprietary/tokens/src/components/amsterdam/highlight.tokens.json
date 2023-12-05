@@ -2,44 +2,28 @@
   "amsterdam": {
     "highlight": {
       "blue": {
-        "background-color": {
-          "value": "{amsterdam.color.primary-blue}"
-        }
+        "background-color": { "value": "{amsterdam.color.primary-blue}" }
       },
       "dark-green": {
-        "background-color": {
-          "value": "{amsterdam.color.dark-green}"
-        }
+        "background-color": { "value": "{amsterdam.color.dark-green}" }
       },
       "green": {
-        "background-color": {
-          "value": "{amsterdam.color.green}"
-        }
+        "background-color": { "value": "{amsterdam.color.green}" }
       },
       "light-blue": {
-        "background-color": {
-          "value": "{amsterdam.color.blue}"
-        }
+        "background-color": { "value": "{amsterdam.color.blue}" }
       },
       "magenta": {
-        "background-color": {
-          "value": "{amsterdam.color.magenta}"
-        }
+        "background-color": { "value": "{amsterdam.color.magenta}" }
       },
       "orange": {
-        "background-color": {
-          "value": "{amsterdam.color.orange}"
-        }
+        "background-color": { "value": "{amsterdam.color.orange}" }
       },
       "purple": {
-        "background-color": {
-          "value": "{amsterdam.color.purple}"
-        }
+        "background-color": { "value": "{amsterdam.color.purple}" }
       },
       "yellow": {
-        "background-color": {
-          "value": "{amsterdam.color.yellow}"
-        }
+        "background-color": { "value": "{amsterdam.color.yellow}" }
       }
     }
   }

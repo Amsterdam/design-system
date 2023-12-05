@@ -1,105 +1,65 @@
 {
   "amsterdam": {
     "checkbox": {
-      "color": {
-        "value": "{amsterdam.color.primary-black}"
-      },
+      "color": { "value": "{amsterdam.color.primary-black}" },
       "checkmark": {
-        "border-color": {
-          "value": "{amsterdam.color.primary-blue}"
-        },
+        "border-color": { "value": "{amsterdam.color.primary-blue}" },
         "checked": {
-          "background-color": {
-            "value": "{amsterdam.color.primary-blue}"
-          },
+          "background-color": { "value": "{amsterdam.color.primary-blue}" },
           "hover": {
-            "background-color": {
-              "value": "{amsterdam.color.dark-blue}"
-            }
+            "background-color": { "value": "{amsterdam.color.dark-blue}" }
           }
         },
         "disabled": {
-          "border-color": {
-            "value": "{amsterdam.color.neutral-grey3}"
-          },
+          "border-color": { "value": "{amsterdam.color.neutral-grey3}" },
           "checked": {
-            "background-color": {
-              "value": "{amsterdam.color.neutral-grey3}"
-            },
+            "background-color": { "value": "{amsterdam.color.neutral-grey3}" },
             "hover": {
-              "background-color": {
-                "value": "{amsterdam.color.neutral-grey3}"
-              }
+              "background-color": { "value": "{amsterdam.color.neutral-grey3}" }
             }
           },
           "indeterminate": {
-            "background-color": {
-              "value": "{amsterdam.color.neutral-grey3}"
-            },
+            "background-color": { "value": "{amsterdam.color.neutral-grey3}" },
             "hover": {
-              "background-color": {
-                "value": "{amsterdam.color.neutral-grey3}"
-              }
+              "background-color": { "value": "{amsterdam.color.neutral-grey3}" }
             }
           }
         },
         "hover": {
-          "border-color": {
-            "value": "{amsterdam.color.dark-blue}"
-          }
+          "border-color": { "value": "{amsterdam.color.dark-blue}" }
         },
         "invalid": {
-          "border-color": {
-            "value": "{amsterdam.color.primary-red}"
-          },
+          "border-color": { "value": "{amsterdam.color.primary-red}" },
           "checked": {
-            "background-color": {
-              "value": "{amsterdam.color.primary-red}"
-            },
+            "background-color": { "value": "{amsterdam.color.primary-red}" },
             "hover": {
-              "background-color": {
-                "value": "{amsterdam.color.primary-red}"
-              }
+              "background-color": { "value": "{amsterdam.color.primary-red}" }
             }
           },
           "hover": {
-            "border-color": {
-              "value": "{amsterdam.color.primary-red}"
-            }
+            "border-color": { "value": "{amsterdam.color.primary-red}" }
           },
           "indeterminate": {
-            "background-color": {
-              "value": "{amsterdam.color.primary-red}"
-            },
+            "background-color": { "value": "{amsterdam.color.primary-red}" },
             "hover": {
-              "background-color": {
-                "value": "{amsterdam.color.primary-red}"
-              }
+              "background-color": { "value": "{amsterdam.color.primary-red}" }
             }
           }
         },
         "indeterminate": {
-          "background-color": {
-            "value": "{amsterdam.color.primary-blue}"
-          },
+          "background-color": { "value": "{amsterdam.color.primary-blue}" },
           "hover": {
-            "background-color": {
-              "value": "{amsterdam.color.dark-blue}"
-            }
+            "background-color": { "value": "{amsterdam.color.dark-blue}" }
           }
         }
       },
       "disabled": {
-        "color": {
-          "value": "{amsterdam.color.neutral-grey3}"
-        }
+        "color": { "value": "{amsterdam.color.neutral-grey3}" }
       },
       "font-family": { "value": "{amsterdam.typography.font-family}" },
       "font-weight": { "value": "{amsterdam.typography.font-weight.normal}" },
       "hover": {
-        "color": {
-          "value": "{amsterdam.color.dark-blue}"
-        }
+        "color": { "value": "{amsterdam.color.dark-blue}" }
       },
       "outline-offset": { "value": "{amsterdam.focus.outline-offset}" },
       "spacious": {
