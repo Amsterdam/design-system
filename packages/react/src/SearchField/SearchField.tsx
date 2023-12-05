@@ -10,6 +10,7 @@ import {
   forwardRef,
   ForwardRefExoticComponent,
   HTMLAttributes,
+  InputHTMLAttributes,
   PropsWithChildren,
   RefAttributes,
   useId,
@@ -17,7 +18,7 @@ import {
 import { Icon } from '../Icon'
 import { VisuallyHidden } from '../VisuallyHidden'
 
-interface SearchFieldInputProps extends HTMLAttributes<HTMLInputElement> {
+interface SearchFieldInputProps extends InputHTMLAttributes<HTMLInputElement> {
   label?: string
 }
 
