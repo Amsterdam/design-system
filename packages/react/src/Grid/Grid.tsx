@@ -12,7 +12,7 @@ import {
   PropsWithChildren,
   RefAttributes,
 } from 'react'
-import { GridCell } from './GridCell'
+import { gridCellClasses } from './gridCellClasses'
 
 export type GridColumnNumber = 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11 | 12
 
@@ -98,6 +98,41 @@ export const Grid = forwardRef(
     </div>
   ),
 ) as GridComponent
+
+type GridCellFullWidthProp = {
+  /** Whether the cell spans the full width of the grid. */
+  fullWidth?: boolean
+  span?: never
+  start?: never
+}
+
+type GridCellColumnProps = {
+  fullWidth?: never
+  /** The amount of grid columns the cell spans. */
+  span?: GridColumnNumber | GridColumnNumbers
+  /** The index of the grid column the cell starts at. */
+  start?: GridColumnNumber | GridColumnNumbers
+}
+
+export type GridCellProps = (GridCellFullWidthProp | GridCellColumnProps) &
+  PropsWithChildren<HTMLAttributes<HTMLDivElement>>
+
+const GridCell = forwardRef(
+  ({ children, className, fullWidth, span, start, ...restProps }: GridCellProps, ref: ForwardedRef<HTMLDivElement>) => (
+    <div
+      {...restProps}
+      ref={ref}
+      className={clsx(
+        'amsterdam-grid-cell',
+        fullWidth && 'amsterdam-grid-cell--full-width',
+        gridCellClasses(span, start),
+        className,
+      )}
+    >
+      {children}
+    </div>
+  ),
+)
 
 Grid.Cell = GridCell
 Grid.displayName = 'Grid'

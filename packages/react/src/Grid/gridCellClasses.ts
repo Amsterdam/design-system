@@ -1,4 +1,4 @@
-import { GridCellProps } from './GridCell'
+import { GridCellProps } from './Grid'
 
 export const gridCellClasses = (span?: GridCellProps['span'], start?: GridCellProps['start']): string[] => {
   if (!span && !start) {
