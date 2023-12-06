@@ -3,33 +3,46 @@
  * Copyright (c) 2023 Gemeente Amsterdam
  */
 
-import { SearchField } from '@amsterdam/design-system-react'
+import { SearchField, SearchFieldProps } from '@amsterdam/design-system-react'
 import { useArgs } from '@storybook/preview-api'
 import { Meta, StoryObj } from '@storybook/react'
+
+type InputProps = { label?: string; placeholder?: string }
+type StoryProps = SearchFieldProps & InputProps
 
 const meta = {
   title: 'Forms/Search Field',
   component: SearchField,
   args: {
-    children: [<SearchField.Input key={1} />, <SearchField.Button key={2} />],
     onSubmit: (e) => {
       e.preventDefault()
     },
   },
   argTypes: {
-    // TODO: add label and placeholder controls once we figure out an approach for subcomponent controls
     children: {
       table: {
         disable: true,
       },
+    },
+    label: {
+      control: 'text',
     },
     onSubmit: {
       table: {
         disable: true,
       },
     },
+    placeholder: {
+      control: 'text',
+    },
   },
-} satisfies Meta<typeof SearchField>
+  render: ({ label, placeholder, ...args }) => (
+    <SearchField {...args}>
+      <SearchField.Input label={label} placeholder={placeholder} />
+      <SearchField.Button />
+    </SearchField>
+  ),
+} satisfies Meta<StoryProps>
 
 export default meta
 
@@ -39,10 +52,7 @@ export const Default: Story = {}
 
 export const WithPlaceholder: Story = {
   args: {
-    children: [
-      <SearchField.Input key={1} placeholder="Wat kunnen we voor u vinden?" />,
-      <SearchField.Button key={2} />,
-    ],
+    placeholder: 'Wat kunnen we voor u vinden?',
   },
 }
 
@@ -50,7 +60,7 @@ export const Controlled: any = {
   args: {
     value: '',
   },
-  render: function Component() {
+  render: function Component({ label, placeholder }: InputProps) {
     const [args, setArgs] = useArgs()
 
     const onValueChange = (event: any) => {
@@ -70,7 +80,13 @@ export const Controlled: any = {
           }
         }}
       >
-        <SearchField.Input name="search-box" value={args['value']} onChange={onValueChange} />
+        <SearchField.Input
+          name="search-box"
+          value={args['value']}
+          label={label}
+          onChange={onValueChange}
+          placeholder={placeholder}
+        />
         <SearchField.Button />
       </SearchField>
     )
