@@ -16,6 +16,19 @@ const meta = {
       e.preventDefault()
     },
   },
+  argTypes: {
+    // TODO: add label and placeholder controls once we figure out an approach for subcomponent controls
+    children: {
+      table: {
+        disable: true,
+      },
+    },
+    onSubmit: {
+      table: {
+        disable: true,
+      },
+    },
+  },
 } satisfies Meta<typeof SearchField>
 
 export default meta
