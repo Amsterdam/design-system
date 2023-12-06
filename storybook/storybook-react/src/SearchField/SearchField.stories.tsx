@@ -8,7 +8,7 @@ import { useArgs } from '@storybook/preview-api'
 import { Meta, StoryObj } from '@storybook/react'
 
 const meta = {
-  title: 'Search Field',
+  title: 'Forms/Search Field',
   component: SearchField,
   args: {
     children: [<SearchField.Input key={1} />, <SearchField.Button key={2} />],
