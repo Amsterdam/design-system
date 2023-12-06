@@ -9,9 +9,7 @@
         "font-family": { "value": "{amsterdam.typography.font-family}" },
         "font-weight": { "value": "{amsterdam.typography.font-weight.bold}" },
         "hover": {
-          "box-shadow": {
-            "value": "inset 0 0 0 2px {amsterdam.color.neutral-grey3}"
-          }
+          "box-shadow": { "value": "inset 0 0 0 2px {amsterdam.color.neutral-grey3}" }
         },
         "spacious": {
           "font-size": { "value": "{amsterdam.typography.spacious.text-level.5.font-size}" },

@@ -1,9 +1,7 @@
 {
   "amsterdam": {
     "grid": {
-      "column-count": {
-        "value": "4"
-      },
+      "column-count": { "value": "4" },
       "spacious": {
         "gap": {
           "value": "clamp(1rem, calc(3.125vw + 0.375rem), 3.5rem)",
@@ -25,14 +23,10 @@
         }
       },
       "medium": {
-        "column-count": {
-          "value": "8"
-        }
+        "column-count": { "value": "8" }
       },
       "wide": {
-        "column-count": {
-          "value": "12"
-        }
+        "column-count": { "value": "12" }
       }
     }
   }
