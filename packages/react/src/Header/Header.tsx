@@ -12,7 +12,7 @@ import { VisuallyHidden } from '../VisuallyHidden'
 
 export interface HeaderProps extends HTMLAttributes<HTMLElement> {
   logoBrand?: LogoBrand
-  logoLink: string
+  logoLink?: string
   logoLinkTitle?: string
   title?: string
   menu?: ReactNode
