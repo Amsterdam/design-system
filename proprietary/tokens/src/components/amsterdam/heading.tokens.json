@@ -21,6 +21,14 @@
         "level-4": {
           "line-height": { "value": "{amsterdam.typography.spacious.text-level.4.line-height}" },
           "font-size": { "value": "{amsterdam.typography.spacious.text-level.4.font-size}" }
+        },
+        "level-5": {
+          "line-height": { "value": "{amsterdam.typography.spacious.text-level.5.line-height}" },
+          "font-size": { "value": "{amsterdam.typography.spacious.text-level.5.font-size}" }
+        },
+        "level-6": {
+          "line-height": { "value": "{amsterdam.typography.spacious.text-level.6.line-height}" },
+          "font-size": { "value": "{amsterdam.typography.spacious.text-level.6.font-size}" }
         }
       },
       "compact": {
@@ -39,6 +47,14 @@
         "level-4": {
           "line-height": { "value": "{amsterdam.typography.compact.text-level.4.line-height}" },
           "font-size": { "value": "{amsterdam.typography.compact.text-level.4.font-size}" }
+        },
+        "level-5": {
+          "line-height": { "value": "{amsterdam.typography.compact.text-level.5.line-height}" },
+          "font-size": { "value": "{amsterdam.typography.compact.text-level.5.font-size}" }
+        },
+        "level-6": {
+          "line-height": { "value": "{amsterdam.typography.compact.text-level.6.line-height}" },
+          "font-size": { "value": "{amsterdam.typography.compact.text-level.6.font-size}" }
         }
       }
     }
