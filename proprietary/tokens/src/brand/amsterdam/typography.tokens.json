@@ -29,14 +29,10 @@
             "line-height": { "value": "1.5" }
           },
           "5": {
-            "font-size": { "value": "clamp(1.313rem, calc(0.703vw + 1.173rem), 1.875rem)" },
-            "line-height": { "value": "1.5" }
-          },
-          "6": {
             "font-size": { "value": "clamp(1.125rem, calc(0.469vw + 1.031rem), 1.5rem)" },
             "line-height": { "value": "1.6" }
           },
-          "7": {
+          "6": {
             "font-size": { "value": "clamp(0.964rem, calc(0.295vw + 0.905rem), 1.2rem)" },
             "line-height": { "value": "1.6" }
           }
@@ -65,14 +61,10 @@
             "line-height": { "value": "1.5" }
           },
           "5": {
-            "font-size": { "value": "clamp(1.021rem, calc(0.481vw + 0.925rem), 1.406rem)" },
-            "line-height": { "value": "1.5" }
-          },
-          "6": {
             "font-size": { "value": "clamp(0.875rem, calc(0.313vw + 0.813rem), 1.125rem)" },
             "line-height": { "value": "1.6" }
           },
-          "7": {
+          "6": {
             "font-size": { "value": "clamp(0.75rem, calc(0.188vw + 0.713rem), 0.9rem)" },
             "line-height": { "value": "1.6" }
           }
