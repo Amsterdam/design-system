@@ -28,7 +28,10 @@
 
   @media screen and (min-width: $amsterdam-breakpoint-wide) {
     flex-wrap: nowrap;
-    row-gap: 2rem;
+
+    &--has-menu#{&}--has-title {
+      flex-wrap: nowrap;
+    }
   }
 }
 
@@ -40,6 +43,7 @@
 .amsterdam-header__column--title {
   flex-grow: 1;
   order: 3;
+  text-wrap: none;
 
   @media screen and (min-width: $amsterdam-breakpoint-wide) {
     order: 2;

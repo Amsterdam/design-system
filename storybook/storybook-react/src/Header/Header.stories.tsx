@@ -53,6 +53,7 @@ export const WithBoth: Story = {
     title: 'Aan de Amsterdamse Grachten',
     menu: (
       <PageMenu>
+        <PageMenu.Link href="#">Souvenirs</PageMenu.Link>
         <PageMenu.Link href="#">English</PageMenu.Link>
         <PageMenu.Link href="#">Souvenirs</PageMenu.Link>
         <PageMenu.Link href="#" icon={LoginIcon}>

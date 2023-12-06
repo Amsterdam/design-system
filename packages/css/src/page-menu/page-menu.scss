@@ -24,6 +24,8 @@
 }
 
 .amsterdam-page-menu {
+  --amsterdam-page-menu-visible-items: 5;
+
   align-items: center;
   column-gap: var(--amsterdam-page-menu-column-gap);
   display: flex;
@@ -39,6 +41,7 @@
 @mixin page-menu-item {
   color: var(--amsterdam-page-menu-item-color);
   display: inline-flex;
+  flex: 1;
   flex-direction: row;
   font-family: var(--amsterdam-page-menu-item-font-family);
   font-size: var(--amsterdam-page-menu-item-narrow-font-size);

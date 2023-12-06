@@ -1,5 +1,9 @@
 {
   "amsterdam": {
-    "header": {}
+    "header": {
+      "column-gap": {
+        "value": "{amsterdam.grid.density-low.gap}"
+      }
+    }
   }
 }
