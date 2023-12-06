@@ -1,6 +1,6 @@
 import { Canvas, Markdown, Meta, Primary } from "@storybook/blocks";
 import * as GridStories from "./Grid.stories.tsx";
-import README from "../../../../packages/css/src/grid/README.grid.md?raw";
+import README from "../../../../packages/css/src/components/grid/README.grid.md?raw";
 
 <Meta of={GridStories} />
 
@@ -21,7 +21,6 @@ Zo is de huisstijl ontworpen.
 
 Voor applicaties is zo veel witruimte niet nodig, zelfs contraproductief.
 Daarom bestaat er een compacte variant van het grid.
-Deze zet je aan via `density="high"`.
 
 <Canvas of={GridStories.Compact} />
 
@@ -52,5 +51,14 @@ Elke cel biedt ruimte voor een afbeelding.
 - Op smalle schermen heeft het grid 4 kolommen en staan de afbeeldingen onder elkaar.
 
 <Canvas of={GridStories.Cells} />
+
+### Verticale witruimte
+
+Een grid maakt automatisch meerdere rijen als de eerstvolgende cel niet meer op de huidige rij past.
+
+Standaard zit tussen twee rijen evenveel witruimte als tussen twee kolommen.
+In sommige gevallen kan daar beter meer of minder witruimte staan.
+
+<Canvas of={GridStories.VerticalGap} />
 
 Voor meer voorbeelden raadpleeg je [Grid Cell](?path=/docs/react_layout-grid-cell--docs) zelf.

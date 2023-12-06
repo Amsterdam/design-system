@@ -1,37 +1,29 @@
 {
   "amsterdam": {
     "button": {
-      "narrow": {
-        "font-size": { "value": "{amsterdam.typography.text-level.6.narrow.font-size}" }
+      "spacious": {
+        "font-size": { "value": "{amsterdam.typography.spacious.text-level.6.font-size}" },
+        "line-height": { "value": "{amsterdam.typography.spacious.text-level.6.line-height}" }
       },
-      "wide": {
-        "font-size": { "value": "{amsterdam.typography.text-level.6.wide.font-size}" }
+      "compact": {
+        "font-size": { "value": "{amsterdam.typography.compact.text-level.6.font-size}" },
+        "line-height": { "value": "{amsterdam.typography.compact.text-level.6.line-height}" }
       },
       "secondary": {
-        "box-shadow": {
-          "value": "inset 0 0 0 2px {amsterdam.color.primary-blue}"
-        },
+        "box-shadow": { "value": "inset 0 0 0 2px {amsterdam.color.primary-blue}" },
         "hover": {
-          "box-shadow": {
-            "value": "inset 0 0 0 3px {amsterdam.color.dark-blue}"
-          }
+          "box-shadow": { "value": "inset 0 0 0 3px {amsterdam.color.dark-blue}" }
         },
         "disabled": {
-          "box-shadow": {
-            "value": "inset 0 0 0 2px {amsterdam.color.neutral-grey2}"
-          }
+          "box-shadow": { "value": "inset 0 0 0 2px {amsterdam.color.neutral-grey2}" }
         },
         "focus": {
-          "box-shadow": {
-            "value": "inset 0 0 0 2px {amsterdam.color.primary-blue}"
-          }
+          "box-shadow": { "value": "inset 0 0 0 2px {amsterdam.color.primary-blue}" }
         }
       },
       "tertiary": {
         "hover": {
-          "box-shadow": {
-            "value": "inset 0 0 0 2px {amsterdam.color.neutral-grey3}"
-          }
+          "box-shadow": { "value": "inset 0 0 0 2px {amsterdam.color.neutral-grey3}" }
         }
       }
     }

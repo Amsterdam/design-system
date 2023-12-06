@@ -31,7 +31,7 @@ export const Default: Story = {
         <VisuallyHidden>
           <Heading>Colofon</Heading>
         </VisuallyHidden>
-        <Grid paddingVertical="medium">
+        <Grid gapVertical="large" paddingVertical="medium">
           <Grid.Cell span={3}>
             <div style={{ display: 'grid', gap: '2.5rem' }}>
               <Heading level={2} size="level-4" inverseColor>

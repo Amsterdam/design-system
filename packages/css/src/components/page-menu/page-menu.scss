@@ -1,0 +1,88 @@
+/**
+ * @license EUPL-1.2+
+ * Copyright (c) 2023 Gemeente Amsterdam
+ */
+
+@mixin reset-list {
+  box-sizing: border-box;
+  margin-block: 0;
+  padding-inline: 0;
+}
+
+@mixin reset-item {
+  box-sizing: border-box;
+  -webkit-text-size-adjust: 100%;
+}
+
+@mixin reset-button {
+  background-color: transparent;
+  border: 0;
+  margin-block: 0;
+  padding-inline: 0;
+}
+
+.amsterdam-page-menu {
+  --amsterdam-page-menu-visible-items: 5;
+
+  align-items: center;
+  column-gap: var(--amsterdam-page-menu-column-gap);
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  list-style: none;
+  row-gap: var(--amsterdam-page-menu-row-gap);
+
+  @include reset-list;
+}
+
+.amsterdam-page-menu--align-end {
+  justify-content: end;
+}
+
+@mixin page-menu-item {
+  color: var(--amsterdam-page-menu-item-color);
+  display: inline-flex;
+  flex: 1;
+  flex-direction: row;
+  font-family: var(--amsterdam-page-menu-item-font-family);
+  font-size: var(--amsterdam-page-menu-item-spacious-font-size);
+  font-weight: var(--amsterdam-page-menu-item-font-weight);
+  gap: var(--amsterdam-page-menu-item-gap);
+  line-height: var(--amsterdam-page-menu-item-spacious-line-height);
+  outline-offset: var(--amsterdam-page-menu-item-outline-offset);
+  text-align: center;
+  text-decoration-line: var(--amsterdam-page-menu-item-text-decoration-line);
+  text-decoration-thickness: var(--amsterdam-page-menu-item-text-decoration-thickness);
+  text-underline-offset: var(--amsterdam-page-menu-item-text-underline-offset);
+  touch-action: manipulation;
+
+  .amsterdam-theme--compact & {
+    font-size: var(--amsterdam-page-menu-item-compact-font-size);
+    line-height: var(--amsterdam-page-menu-item-compact-line-height);
+  }
+}
+
+.amsterdam-page-menu__link {
+  @include page-menu-item;
+  @include reset-item;
+}
+
+.amsterdam-page-menu__button {
+  cursor: pointer;
+
+  @include reset-item;
+  @include reset-button;
+  @include page-menu-item;
+}
+
+.amsterdam-page-menu__link:hover,
+.amsterdam-page-menu__button:hover {
+  color: var(--amsterdam-page-menu-item-hover-color);
+  text-decoration-line: var(--amsterdam-page-menu-item-hover-text-decoration-line);
+}
+
+.amsterdam-page-menu__link svg,
+.amsterdam-page-menu__button svg {
+  color: currentColor;
+}

@@ -1,0 +1,49 @@
+/**
+ * @license EUPL-1.2+
+ * Copyright (c) 2023 Gemeente Amsterdam
+ */
+
+@import "../../../node_modules/@utrecht/components/button/css";
+
+@mixin reset {
+  -webkit-text-size-adjust: 100%;
+}
+
+.amsterdam-button {
+  font-size: var(--amsterdam-button-spacious-font-size);
+  line-height: var(--amsterdam-button-spacious-line-height);
+
+  @include reset;
+
+  .amsterdam-theme--compact & {
+    font-size: var(--amsterdam-breadcrumb-compact-font-size);
+    line-height: var(--amsterdam-breadcrumb-compact-line-height);
+  }
+}
+
+.amsterdam-button--secondary {
+  box-shadow: var(--amsterdam-button-secondary-box-shadow);
+
+  &:disabled,
+  [aria-disabled="true"] {
+    box-shadow: var(--amsterdam-button-secondary-disabled-box-shadow);
+  }
+
+  &:hover:not(:disabled, [aria-disabled="true"]) {
+    box-shadow: var(--amsterdam-button-secondary-hover-box-shadow);
+  }
+}
+
+.amsterdam-button--secondary:focus:not(:hover, [aria-disabled="true"]) {
+  box-shadow: var(--amsterdam-button-secondary-focus-box-shadow);
+}
+
+.amsterdam-button--tertiary {
+  &:hover:not(:disabled, [aria-disabled="true"]) {
+    box-shadow: var(--amsterdam-button-tertiary-hover-box-shadow);
+  }
+}
+
+.amsterdam-button--tertiary:focus:not(:hover, [aria-disabled="true"]) {
+  box-shadow: none;
+}

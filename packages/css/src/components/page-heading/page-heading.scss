@@ -1,0 +1,31 @@
+/**
+ * @license EUPL-1.2+
+ * Copyright (c) 2023 Gemeente Amsterdam
+ */
+
+@mixin reset {
+  box-sizing: border-box;
+  margin-block: 0;
+  -webkit-text-size-adjust: 100%;
+}
+
+.amsterdam-page-heading {
+  break-after: avoid;
+  break-inside: avoid;
+  color: var(--amsterdam-page-heading-color);
+  font-family: var(--amsterdam-page-heading-font-family);
+  font-size: var(--amsterdam-page-heading-spacious-font-size);
+  font-weight: var(--amsterdam-page-heading-font-weight);
+  line-height: var(--amsterdam-page-heading-spacious-line-height);
+
+  @include reset;
+
+  .amsterdam-theme--compact & {
+    font-size: var(--amsterdam-page-heading-compact-font-size);
+    line-height: var(--amsterdam-page-heading-compact-line-height);
+  }
+}
+
+.amsterdam-page-heading--inverse-color {
+  color: var(--amsterdam-page-heading-inverse-color);
+}

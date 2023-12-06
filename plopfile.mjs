@@ -17,17 +17,17 @@ export default function (plop) {
       },
       {
         type: 'add',
-        path: 'packages/css/src/{{kebabCase name}}/{{kebabCase name}}.scss',
+        path: 'packages/css/src/components/{{kebabCase name}}/{{kebabCase name}}.scss',
         templateFile: 'plop-templates/style.scss.hbs',
       },
       {
         type: 'add',
-        path: 'packages/css/src/{{kebabCase name}}/README.md',
+        path: 'packages/css/src/components/{{kebabCase name}}/README.md',
         templateFile: 'plop-templates/style.docs.md.hbs',
       },
       {
         type: 'append',
-        path: 'packages/css/src/index.scss',
+        path: 'packages/css/src/components/index.scss',
         pattern: `/* Append here */`,
         template: `@import "./{{kebabCase name}}/{{kebabCase name}}";`,
       },

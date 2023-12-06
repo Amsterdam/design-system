@@ -1,0 +1,48 @@
+import { Meta, Typeset } from "@storybook/blocks";
+
+<Meta title="Docs/Assets/Lettertype" />
+
+# Lettertype
+
+We gebruiken het lettertype Amsterdam Sans.
+
+Dat is een letterfamilie met een helder, open tekstbeeld dat goed bij de Andreaskruisen past.
+Het lettertype is zowel offline als online goed leesbaar.
+Daarom zetten we het voor alle communicatiemiddelen in.
+
+In deze zin zie je hoe alle letters en cijfers eruit zien:
+
+<Typeset
+  fontFamily="Amsterdam Sans, Arial, sans-serif"
+  fontSizes={[24]}
+  fontWeight={400}
+  sampleText="Jouw typograaf biedt mij zulke exquise schreven 012345689"
+/>
+
+## Installeren
+
+Werk je met npm, neem dan ons package `@amsterdam/design-system-assets` op in je dependencies.
+Vervolgens importeer je `@amsterdam/design-system-assets/font/index.css` aan het begin van je stylesheet.
+
+Je kunt het lettertype ook zelf hosten en opnemen in je applicatie.
+Vraag het dan aan via het formulier hieronder.
+
+Als het helemaal niet mogelijk is Amsterdam Sans te gebruiken pas je het lettertype Arial toe, of het generieke sans-serif lettertype van het apparaat.
+In alle gevallen voer je die alternatieven op voor als het downloaden van het font voor de gebruiker niet lukt, of terwijl dat bezig is:
+
+```css
+.class {
+  font-family: "Amsterdam Sans", Arial, sans-serif;
+}
+```
+
+## Aanvragen
+
+Het lettertype is uitdrukkelijk niet vrij beschikbaar.
+Amsterdam Sans is uitsluitend te gebruiken door medewerkers van de gemeente Amsterdam en amsterdam&partners, en door leveranciers werkend voor deze organisaties.
+
+Vraag de lettertypebestanden aan via het formulier [Amsterdam Sans aanvragen](https://formulier.amsterdam.nl/thema/huisstijl/amsterdam-sans-aanvragen).
+
+## Meer informatie
+
+Verdere informatie over het lettertype vind je op de pagina [Typografie op Stijlweb](https://amsterdam.nl/stijlweb/basiselementen/typografie/).

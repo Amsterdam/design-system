@@ -1,5 +1,5 @@
 {
-  "version": "0.1.9",
+  "version": "0.2.0",
   "author": "Community for NL Design System",
   "description": "CSS files for components for the City of Amsterdam based on the NL Design System architecture",
   "license": "EUPL-1.2",
@@ -14,8 +14,8 @@
     "directory": "packages/css"
   },
   "scripts": {
-    "build": "sass src/:dist/ --style=compressed",
-    "build:watch": "sass src/:dist/ --watch",
+    "build": "sass src/components:dist/ --style=compressed",
+    "build:watch": "sass src/components:dist/ --watch",
     "clean": "rimraf dist/"
   },
   "devDependencies": {

@@ -31,8 +31,8 @@ export interface BreadcrumbItemProps extends PropsWithChildren<HTMLAttributes<HT
 const BreadcrumbItem = forwardRef(
   ({ children, href, ...restProps }: BreadcrumbItemProps, ref: ForwardedRef<HTMLLIElement>) => {
     return (
-      <li {...restProps} className="amsterdam-breadcrumb-item" ref={ref}>
-        <a className="amsterdam-breadcrumb-item__link" href={href}>
+      <li {...restProps} className="amsterdam-breadcrumb__item" ref={ref}>
+        <a className="amsterdam-breadcrumb__link" href={href}>
           {children}
         </a>
       </li>

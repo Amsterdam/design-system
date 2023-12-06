@@ -1,0 +1,105 @@
+/**
+ * @license EUPL-1.2+
+ * Copyright (c) 2023 Gemeente Amsterdam
+ */
+
+.amsterdam-icon {
+  align-items: center;
+  display: inline-flex;
+}
+
+.amsterdam-icon svg {
+  fill: currentColor;
+}
+
+.amsterdam-icon--size-3 {
+  height: calc(var(--amsterdam-icon-spacious-size-3-font-size) * var(--amsterdam-icon-spacious-size-3-line-height));
+}
+
+.amsterdam-icon--size-3 svg {
+  height: var(--amsterdam-icon-spacious-size-3-font-size);
+  width: var(--amsterdam-icon-spacious-size-3-font-size);
+}
+
+.amsterdam-icon--size-4 {
+  height: calc(var(--amsterdam-icon-spacious-size-4-font-size) * var(--amsterdam-icon-spacious-size-4-line-height));
+}
+
+.amsterdam-icon--size-4 svg {
+  height: var(--amsterdam-icon-spacious-size-4-font-size);
+  width: var(--amsterdam-icon-spacious-size-4-font-size);
+}
+
+.amsterdam-icon--size-5 {
+  height: calc(var(--amsterdam-icon-spacious-size-5-font-size) * var(--amsterdam-icon-spacious-size-5-line-height));
+}
+
+.amsterdam-icon--size-5 svg {
+  height: var(--amsterdam-icon-spacious-size-5-font-size);
+  width: var(--amsterdam-icon-spacious-size-5-font-size);
+}
+
+.amsterdam-icon--size-6 {
+  height: calc(var(--amsterdam-icon-spacious-size-6-font-size) * var(--amsterdam-icon-spacious-size-6-line-height));
+}
+
+.amsterdam-icon--size-6 svg {
+  height: var(--amsterdam-icon-spacious-size-6-font-size);
+  width: var(--amsterdam-icon-spacious-size-6-font-size);
+}
+
+.amsterdam-icon--size-7 {
+  height: calc(var(--amsterdam-icon-spacious-size-7-font-size) * var(--amsterdam-icon-spacious-size-7-line-height));
+}
+
+.amsterdam-icon--size-7 svg {
+  height: var(--amsterdam-icon-spacious-size-7-font-size);
+  width: var(--amsterdam-icon-spacious-size-7-font-size);
+}
+
+.amsterdam-theme--compact {
+  .amsterdam-icon--size-3 {
+    height: calc(var(--amsterdam-icon-compact-size-3-font-size) * var(--amsterdam-icon-compact-size-3-line-height));
+  }
+
+  .amsterdam-icon--size-3 svg {
+    height: var(--amsterdam-icon-compact-size-3-font-size);
+    width: var(--amsterdam-icon-compact-size-3-font-size);
+  }
+
+  .amsterdam-icon--size-4 {
+    height: calc(var(--amsterdam-icon-compact-size-4-font-size) * var(--amsterdam-icon-compact-size-4-line-height));
+  }
+
+  .amsterdam-icon--size-4 svg {
+    height: var(--amsterdam-icon-compact-size-4-font-size);
+    width: var(--amsterdam-icon-compact-size-4-font-size);
+  }
+
+  .amsterdam-icon--size-5 {
+    height: calc(var(--amsterdam-icon-compact-size-5-font-size) * var(--amsterdam-icon-compact-size-5-line-height));
+  }
+
+  .amsterdam-icon--size-5 svg {
+    height: var(--amsterdam-icon-compact-size-5-font-size);
+    width: var(--amsterdam-icon-compact-size-5-font-size);
+  }
+
+  .amsterdam-icon--size-6 {
+    height: calc(var(--amsterdam-icon-compact-size-6-font-size) * var(--amsterdam-icon-compact-size-6-line-height));
+  }
+
+  .amsterdam-icon--size-6 svg {
+    height: var(--amsterdam-icon-compact-size-6-font-size);
+    width: var(--amsterdam-icon-compact-size-6-font-size);
+  }
+
+  .amsterdam-icon--size-7 {
+    height: calc(var(--amsterdam-icon-compact-size-7-font-size) * var(--amsterdam-icon-compact-size-7-line-height));
+  }
+
+  .amsterdam-icon--size-7 svg {
+    height: var(--amsterdam-icon-compact-size-7-font-size);
+    width: var(--amsterdam-icon-compact-size-7-font-size);
+  }
+}
