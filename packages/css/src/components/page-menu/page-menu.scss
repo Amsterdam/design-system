@@ -23,6 +23,7 @@
 
 .amsterdam-page-menu {
   --amsterdam-page-menu-visible-items: 5;
+  --amsterdam-page-menu-show-item-1: inline-flex;
 
   align-items: center;
   column-gap: var(--amsterdam-page-menu-column-gap);
@@ -34,6 +35,17 @@
   row-gap: var(--amsterdam-page-menu-row-gap);
 
   @include reset-list;
+
+  &__item {
+    &--hide {
+      display: none;
+      visibility: hidden;
+    }
+  }
+
+  &__item:nth-child(-n + 5):not(.amsterdam-page-menu__item--hide) {
+    display: inline-flex;
+  }
 }
 
 .amsterdam-page-menu--align-end {

@@ -35,35 +35,29 @@ export const Header = forwardRef(
         const headerMenuCol = document.querySelector('.amsterdam-header__column--menu')
         const headerMenu = headerMenuCol?.querySelector('.amsterdam-page-menu')
 
-        // let headerMenuColWidth = headerMenuCol ? headerMenuCol.getBoundingClientRect().width : 0
-        // // let headerMenuWidth = headerMenu ? headerMenu.getBoundingClientRect().width : 0
-        // let headerMenuItems = headerMenu ? headerMenu.querySelectorAll('.amsterdam-page-menu__item') : []
+        const headerMenuElement = headerMenu as HTMLElement
 
-        // let headerMenuWidth = Array.from(headerMenuItems).reduce((totalWidth, item) => {
-        //   return totalWidth + item.getBoundingClientRect().width
-        // }, 0)
+        let headerMenuColLeft = headerMenuCol ? headerMenuCol.getBoundingClientRect().left : 0
+        let headerMenuFirstItem = Array.from(headerMenuElement.children).find((child) => child.clientWidth > 0)
+        let headerMenuFirstItemLeft = headerMenuFirstItem?.getBoundingClientRect().left
+        // let headerMenuFirstHiddenItem = Array.from(headerMenuElement.children).find((child) => child.clientWidth === 0)
 
-        // if (headerMenu) {
-        //   const children = Array.from(headerMenu.children) as HTMLElement[]
+        if (headerMenuFirstItemLeft && headerMenu) {
+          if (headerMenuColLeft > headerMenuFirstItemLeft - 20) {
+            headerMenuFirstItem?.classList.add('amsterdam-page-menu__item--hide')
+            headerMenuElement.style.setProperty(
+              '--amsterdam-page-menu-visible-items',
+              (headerMenu.childElementCount - 1).toString(),
+            )
+          }
+        }
 
-        //   children.forEach((child) => {
-        //     const childWidth = child.getBoundingClientRect().width
-        //     headerMenuWidth += childWidth
-        //   })
-        // }
-
-        // console.log(headerMenuColWidth, headerMenuWidth)
-
-        // if (headerMenuColWidth < headerMenuWidth) {
-        //   const headerMenuVisibleItems = getComputedStyle(headerMenu as HTMLElement).getPropertyValue(
-        //     '--amsterdam-page-menu-visible-items',
-        //   )
-        if (headerMenu) (headerMenu as HTMLElement).style.setProperty('--amsterdam-page-menu-visible-items', `4`)
-        // }
-
-        console.log(getComputedStyle(headerMenu as HTMLElement).getPropertyValue('--amsterdam-page-menu-visible-items'))
+        // console.log(getComputedStyle(headerMenu as HTMLElement).getPropertyValue('--amsterdam-page-menu-visible-items'))
       }
       window.addEventListener('resize', handleResize)
+      return () => {
+        window.removeEventListener('resize', handleResize)
+      }
     }, [])
 
     return (
@@ -90,7 +84,11 @@ export const Header = forwardRef(
             </Heading>
           </div>
         )}
-        {menu && <div className="amsterdam-header__column amsterdam-header__column--menu">{menu}</div>}
+        {menu && (
+          <div className="amsterdam-header__column amsterdam-header__column--menu">
+            <div className="amsterdam-header__menu-wrapper">{menu}</div>
+          </div>
+        )}
       </header>
     )
   },

@@ -3,7 +3,7 @@
  * Copyright (c) 2023 Gemeente Amsterdam
  */
 
-import { Header, PageMenu } from '@amsterdam/design-system-react'
+import { Grid, Header, PageMenu, Screen } from '@amsterdam/design-system-react'
 import { LoginIcon, MenuIcon } from '@amsterdam/design-system-react-icons'
 import { Meta, StoryObj } from '@storybook/react'
 
@@ -49,13 +49,23 @@ export const WithHeaderMenu: Story = {
 }
 
 export const WithBoth: Story = {
+  decorators: [
+    (Story) => (
+      <Screen>
+        <Grid>
+          <Grid.Cell fullWidth>
+            <Story />
+          </Grid.Cell>
+        </Grid>
+      </Screen>
+    ),
+  ],
   args: {
     title: 'Aan de Amsterdamse Grachten',
     menu: (
       <PageMenu>
         <PageMenu.Link href="#">Souvenirs</PageMenu.Link>
         <PageMenu.Link href="#">English</PageMenu.Link>
-        <PageMenu.Link href="#">Souvenirs</PageMenu.Link>
         <PageMenu.Link href="#" icon={LoginIcon}>
           Inloggen Mijn Amsterdam
         </PageMenu.Link>

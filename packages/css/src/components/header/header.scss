@@ -3,12 +3,12 @@
  * Copyright (c) 2023 Gemeente Amsterdam
  */
 
-@import "../../utils/breakpoint";
+@import "../../common/breakpoint";
 
 .amsterdam-header {
   align-items: center;
   background-color: white;
-  column-gap: var(--amsterdam-grid-density-low-gap);
+  column-gap: var(--amsterdam-header-column-gap);
   display: flex;
   flex-wrap: nowrap;
   justify-content: space-between;
@@ -43,10 +43,10 @@
 .amsterdam-header__column--title {
   flex-grow: 1;
   order: 3;
-  text-wrap: none;
 
   @media screen and (min-width: $amsterdam-breakpoint-wide) {
     order: 2;
+    white-space: nowrap;
   }
 }
 
