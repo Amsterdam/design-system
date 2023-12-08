@@ -6,6 +6,7 @@
 /* Append here */
 export * from './SubsiteTitle'
 export * from './Header'
+export * from './SearchField'
 export * from './Logo'
 export * from './Dialog'
 export * from './Image'

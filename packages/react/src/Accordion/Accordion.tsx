@@ -10,7 +10,6 @@ import {
   ForwardRefExoticComponent,
   HTMLAttributes,
   PropsWithChildren,
-  ReactNode,
   RefAttributes,
   useImperativeHandle,
   useRef,
@@ -20,16 +19,12 @@ import { AccordionSection } from './AccordionSection'
 import useFocusWithArrows from './useFocusWithArrows'
 import { HeadingLevel } from '../Heading/Heading'
 
-export interface AccordionProps extends HTMLAttributes<HTMLDivElement> {
-  children?: ReactNode
+export interface AccordionProps extends PropsWithChildren<HTMLAttributes<HTMLDivElement>> {
   headingLevel: HeadingLevel
   section?: boolean
 }
 
-export interface AccordionComponent
-  extends ForwardRefExoticComponent<
-    PropsWithChildren<HTMLAttributes<HTMLDivElement>> & RefAttributes<HTMLDivElement> & AccordionProps
-  > {
+export interface AccordionComponent extends ForwardRefExoticComponent<AccordionProps & RefAttributes<HTMLDivElement>> {
   Section: typeof AccordionSection
 }
 

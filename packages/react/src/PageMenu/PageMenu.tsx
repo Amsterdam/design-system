@@ -59,7 +59,7 @@ const PageMenuLink = forwardRef(
       <li className={clsx('amsterdam-page-menu__item', showOnMobile && 'amsterdam-page-menu__link--mobile')}>
         <a {...restProps} ref={ref} className="amsterdam-page-menu__link">
           {children}
-          {icon && <Icon svg={icon} size="level-7" />}
+          {icon && <Icon svg={icon} size="level-6" />}
         </a>
       </li>
     )
@@ -72,7 +72,7 @@ const PageMenuButton = forwardRef(
       <li className={clsx('amsterdam-page-menu__item', showOnMobile && 'amsterdam-page-menu__link--mobile')}>
         <button {...restProps} type="button" ref={ref} className="amsterdam-page-menu__button">
           {children}
-          {icon && <Icon svg={icon} size="level-7" />}
+          {icon && <Icon svg={icon} size="level-6" />}
         </button>
       </li>
     )
