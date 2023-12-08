@@ -45,10 +45,7 @@ CardLink.displayName = 'CardLink'
 
 export interface CardProps extends PropsWithChildren<HTMLAttributes<HTMLElement>> {}
 
-export interface CardComponent
-  extends ForwardRefExoticComponent<
-    PropsWithChildren<HTMLAttributes<HTMLElement>> & RefAttributes<HTMLElement> & CardProps
-  > {
+export interface CardComponent extends ForwardRefExoticComponent<CardProps & RefAttributes<HTMLElement>> {
   HeadingGroup: typeof CardHeadingGroup
   Link: typeof CardLink
 }
