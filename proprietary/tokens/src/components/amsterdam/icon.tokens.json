@@ -17,10 +17,6 @@
         "size-6": {
           "font-size": { "value": "{amsterdam.typography.spacious.text-level.6.font-size}" },
           "line-height": { "value": "{amsterdam.typography.spacious.text-level.6.line-height}" }
-        },
-        "size-7": {
-          "font-size": { "value": "{amsterdam.typography.spacious.text-level.7.font-size}" },
-          "line-height": { "value": "{amsterdam.typography.spacious.text-level.7.line-height}" }
         }
       },
       "compact": {
@@ -39,10 +35,6 @@
         "size-6": {
           "font-size": { "value": "{amsterdam.typography.compact.text-level.6.font-size}" },
           "line-height": { "value": "{amsterdam.typography.compact.text-level.6.line-height}" }
-        },
-        "size-7": {
-          "font-size": { "value": "{amsterdam.typography.compact.text-level.7.font-size}" },
-          "line-height": { "value": "{amsterdam.typography.compact.text-level.7.line-height}" }
         }
       }
     }
