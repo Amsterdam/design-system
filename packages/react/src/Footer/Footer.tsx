@@ -40,17 +40,15 @@ export const FooterBottom = forwardRef(
 
 FooterBottom.displayName = 'FooterBottom'
 
-interface FooterComponent
-  extends ForwardRefExoticComponent<PropsWithChildren<HTMLAttributes<HTMLElement>> & RefAttributes<HTMLElement>> {
+type FooterProps = PropsWithChildren<HTMLAttributes<HTMLElement>>
+
+interface FooterComponent extends ForwardRefExoticComponent<FooterProps & RefAttributes<HTMLElement>> {
   Top: typeof FooterTop
   Bottom: typeof FooterBottom
 }
 
 export const Footer = forwardRef(
-  (
-    { children, className, ...restProps }: PropsWithChildren<HTMLAttributes<HTMLElement>>,
-    ref: ForwardedRef<HTMLElement>,
-  ) => (
+  ({ children, className, ...restProps }: FooterProps, ref: ForwardedRef<HTMLElement>) => (
     <footer {...restProps} ref={ref} className={clsx('amsterdam-footer', className)}>
       {children}
     </footer>

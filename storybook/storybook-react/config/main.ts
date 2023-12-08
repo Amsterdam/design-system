@@ -1,7 +1,7 @@
+import type { StorybookConfig } from '@storybook/react-vite'
 import remarkGfm from 'remark-gfm'
 
-/* eslint-env node */
-module.exports = {
+const config: StorybookConfig = {
   core: {
     disableTelemetry: true,
   },
@@ -34,3 +34,5 @@ module.exports = {
     autodocs: true,
   },
 }
+
+export default config
