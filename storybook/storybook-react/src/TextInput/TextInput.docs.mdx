@@ -1,4 +1,4 @@
-import { Controls, Markdown, Meta, Primary } from "@storybook/blocks";
+import { Canvas, Controls, Markdown, Meta, Primary } from "@storybook/blocks";
 import * as TextInputStories from "./TextInput.stories.tsx";
 import README from "../../../../packages/css/src/components/text-input/README.md?raw";
 
@@ -9,3 +9,17 @@ import README from "../../../../packages/css/src/components/text-input/README.md
 <Primary />
 
 <Controls />
+
+## Stories
+
+### Placeholder
+
+<Canvas of={TextInputStories.Placeholder} />
+
+### Invalid
+
+<Canvas of={TextInputStories.Invalid} />
+
+### Disabled
+
+<Canvas of={TextInputStories.Disabled} />

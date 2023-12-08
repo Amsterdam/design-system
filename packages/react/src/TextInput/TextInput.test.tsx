@@ -32,7 +32,7 @@ describe('Text input', () => {
   })
 
   it('supports ForwardRef in React', () => {
-    const ref = createRef<HTMLElement>()
+    const ref = createRef<HTMLInputElement>()
 
     const { container } = render(<TextInput ref={ref} />)
 

@@ -4,15 +4,15 @@
  */
 
 import clsx from 'clsx'
-import { ForwardedRef, forwardRef, HTMLAttributes, PropsWithChildren } from 'react'
+import { ForwardedRef, forwardRef, InputHTMLAttributes } from 'react'
 
-export interface TextInputProps extends PropsWithChildren<HTMLAttributes<HTMLElement>> {}
+export interface TextInputProps extends InputHTMLAttributes<HTMLInputElement> {
+  label?: string
+}
 
 export const TextInput = forwardRef(
-  ({ children, className, ...restProps }: TextInputProps, ref: ForwardedRef<HTMLElement>) => (
-    <span {...restProps} ref={ref} className={clsx('amsterdam-text-input', className)}>
-      {children}
-    </span>
+  ({ className, ...restProps }: TextInputProps, ref: ForwardedRef<HTMLInputElement>) => (
+    <input {...restProps} className={clsx('amsterdam-text-input', className)} ref={ref} type="text" />
   ),
 )
 
