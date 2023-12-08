@@ -314,8 +314,8 @@ importers:
         specifier: 2.3.0
         version: 2.3.0(react@18.2.0)
       '@storybook/addon-a11y':
-        specifier: 7.6.3
-        version: 7.6.3
+        specifier: 7.6.4
+        version: 7.6.4
       '@storybook/addon-actions':
         specifier: 7.6.3
         version: 7.6.3
@@ -414,8 +414,8 @@ importers:
         specifier: 2.3.0
         version: 2.3.0(react@18.2.0)
       '@storybook/addon-a11y':
-        specifier: 7.6.3
-        version: 7.6.3
+        specifier: 7.6.4
+        version: 7.6.4
       '@storybook/addon-actions':
         specifier: 7.6.3
         version: 7.6.3
@@ -4541,10 +4541,10 @@ packages:
       '@sinonjs/commons': 2.0.0
     dev: true
 
-  /@storybook/addon-a11y@7.6.3:
-    resolution: {integrity: sha512-z/vaDkZgbLLqrLz2C1qr3lav5xuZDbBggtNdvnM1TFKqiaQu8MPC0oEe6QSFf2phREf7cB2Qa5LsW7ak16RddQ==}
+  /@storybook/addon-a11y@7.6.4:
+    resolution: {integrity: sha512-NwROJMes3D1WVPSmASVnHtDCIFQCF3DoPJEpzpnUYFxCR2IQzqPSlf9jptRkot6XjL5XwVX5mV2KxC2lKA1cfg==}
     dependencies:
-      '@storybook/addon-highlight': 7.6.3
+      '@storybook/addon-highlight': 7.6.4
       axe-core: 4.7.0
     dev: true
 
@@ -4647,6 +4647,12 @@ packages:
 
   /@storybook/addon-highlight@7.6.3:
     resolution: {integrity: sha512-Z9AJ05XCTzFZPAxQSkQf9/Hazf5/QQI0jYSsvKqt7Vk+03q5727oD9KcIY5IHPYqQqN9fHExQh1eyqY8AnS8mg==}
+    dependencies:
+      '@storybook/global': 5.0.0
+    dev: true
+
+  /@storybook/addon-highlight@7.6.4:
+    resolution: {integrity: sha512-0kvjDzquoPwWWU61QYmEtcSGWXufnV7Z/bfBTYh132uxvV/X9YzDFcXXrxGL7sBJkK32gNUUBDuiTOxs5NxyOQ==}
     dependencies:
       '@storybook/global': 5.0.0
     dev: true
