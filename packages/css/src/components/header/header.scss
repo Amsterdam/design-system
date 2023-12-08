@@ -15,47 +15,19 @@
   padding-block: 0.88rem;
   row-gap: 1.5rem;
 
-  &--has-menu#{&}--has-title {
-    flex-wrap: wrap;
-  }
-
   @media screen and (max-width: $amsterdam-breakpoint-medium) {
     *[class*="page-menu__item"]:not([class$="--mobile"]) {
       display: none;
       visibility: hidden;
     }
   }
-
-  @media screen and (min-width: $amsterdam-breakpoint-wide) {
-    flex-wrap: nowrap;
-
-    &--has-menu#{&}--has-title {
-      flex-wrap: nowrap;
-    }
-  }
 }
 
 .amsterdam-header__column--logo {
   flex: 0 0 auto;
-  order: 1;
-}
-
-.amsterdam-header__column--title {
-  flex-grow: 1;
-  order: 3;
-
-  @media screen and (min-width: $amsterdam-breakpoint-wide) {
-    order: 2;
-    white-space: nowrap;
-  }
 }
 
 .amsterdam-header__column--menu {
   flex-grow: 1;
   flex-shrink: 0;
-  order: 2;
-
-  @media screen and (min-width: $amsterdam-breakpoint-wide) {
-    order: 3;
-  }
 }

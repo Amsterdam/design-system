@@ -18,24 +18,18 @@ type Story = StoryObj<typeof meta>
 
 export const Default: Story = {}
 
-export const WithSiteTitle: Story = {
-  args: {
-    title: 'Aan de Amsterdamse Grachten',
-  },
-}
-
 export const WithLogoVariant: Story = {
   args: {
     logoBrand: 'ggd-amsterdam',
     logoLink: 'https://www.ggd.amsterdam.nl/',
-    logoLinkTitle: 'Naar de website van de GGD Amsterdam',
+    logoLinkTitle: 'Naar de homepage van de GGD Amsterdam',
   },
 }
 
 export const WithHeaderMenu: Story = {
   args: {
     menu: (
-      <PageMenu>
+      <PageMenu alignEnd>
         <PageMenu.Link href="#">English</PageMenu.Link>
         <PageMenu.Link href="#" icon={LoginIcon}>
           Inloggen Mijn Amsterdam
@@ -61,9 +55,8 @@ export const WithBoth: Story = {
     ),
   ],
   args: {
-    title: 'Aan de Amsterdamse Grachten',
     menu: (
-      <PageMenu>
+      <PageMenu alignEnd>
         <PageMenu.Link href="#">Souvenirs</PageMenu.Link>
         <PageMenu.Link href="#">English</PageMenu.Link>
         <PageMenu.Link href="#" icon={LoginIcon}>

@@ -1,4 +1,4 @@
-import { Canvas, Controls, Markdown, Meta, Primary } from "@storybook/blocks";
+import { Canvas, Markdown, Meta, Primary } from "@storybook/blocks";
 import * as HeaderStories from "./Header.stories.tsx";
 import README from "../../../../packages/css/src/components/header/README.md?raw";
 
@@ -8,20 +8,14 @@ import README from "../../../../packages/css/src/components/header/README.md?raw
 
 <Primary />
 
-<Controls />
-
-## With Site Title
-
-<Canvas of={HeaderStories.WithSiteTitle} />
-
 ## With logo variant
 
 <Canvas of={HeaderStories.WithLogoVariant} />
 
-## With header menu
+## With menu
 
 <Canvas of={HeaderStories.WithHeaderMenu} />
 
-## With big menu and long site title in a Grid
+## In a Grid with title and menu
 
 <Canvas of={HeaderStories.WithBoth} />
