@@ -57,7 +57,7 @@ const PageMenuLink = forwardRef(
       <li className="amsterdam-page-menu__item">
         <a {...restProps} ref={ref} className="amsterdam-page-menu__link">
           {children}
-          {icon && <Icon svg={icon} size="level-7" />}
+          {icon && <Icon svg={icon} size="level-6" />}
         </a>
       </li>
     )
@@ -70,7 +70,7 @@ const PageMenuButton = forwardRef(
       <li className="amsterdam-page-menu__item">
         <button {...restProps} type="button" ref={ref} className="amsterdam-page-menu__button">
           {children}
-          {icon && <Icon svg={icon} size="level-7" />}
+          {icon && <Icon svg={icon} size="level-6" />}
         </button>
       </li>
     )

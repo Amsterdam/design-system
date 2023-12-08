@@ -122,7 +122,7 @@ export const Pagination = forwardRef(
               onClick={onPrevious}
               type="button"
             >
-              <Icon svg={ChevronLeftIcon} size="level-6" />
+              <Icon svg={ChevronLeftIcon} size="level-5" />
               vorige
             </button>
           </li>
@@ -162,7 +162,7 @@ export const Pagination = forwardRef(
               type="button"
             >
               volgende
-              <Icon svg={ChevronRightIcon} size="level-6" />
+              <Icon svg={ChevronRightIcon} size="level-5" />
             </button>
           </li>
         </ol>

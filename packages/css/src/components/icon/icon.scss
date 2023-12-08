@@ -48,15 +48,6 @@
   width: var(--amsterdam-icon-spacious-size-6-font-size);
 }
 
-.amsterdam-icon--size-7 {
-  height: calc(var(--amsterdam-icon-spacious-size-7-font-size) * var(--amsterdam-icon-spacious-size-7-line-height));
-}
-
-.amsterdam-icon--size-7 svg {
-  height: var(--amsterdam-icon-spacious-size-7-font-size);
-  width: var(--amsterdam-icon-spacious-size-7-font-size);
-}
-
 .amsterdam-theme--compact {
   .amsterdam-icon--size-3 {
     height: calc(var(--amsterdam-icon-compact-size-3-font-size) * var(--amsterdam-icon-compact-size-3-line-height));
@@ -92,14 +83,5 @@
   .amsterdam-icon--size-6 svg {
     height: var(--amsterdam-icon-compact-size-6-font-size);
     width: var(--amsterdam-icon-compact-size-6-font-size);
-  }
-
-  .amsterdam-icon--size-7 {
-    height: calc(var(--amsterdam-icon-compact-size-7-font-size) * var(--amsterdam-icon-compact-size-7-line-height));
-  }
-
-  .amsterdam-icon--size-7 svg {
-    height: var(--amsterdam-icon-compact-size-7-font-size);
-    width: var(--amsterdam-icon-compact-size-7-font-size);
   }
 }

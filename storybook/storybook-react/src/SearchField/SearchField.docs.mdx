@@ -1,0 +1,25 @@
+import { Canvas, Controls, Markdown, Meta, Primary } from "@storybook/blocks";
+import * as SearchFieldStories from "./SearchField.stories.tsx";
+import README from "../../../../packages/css/src/components/search-field/README.md?raw";
+
+<Meta of={SearchFieldStories} />
+
+<Markdown>{README}</Markdown>
+
+<Primary />
+
+<Controls />
+
+### Met placeholder
+
+Een zoekveld kan een placeholder hebben.
+
+<Canvas of={SearchFieldStories.WithPlaceholder} />
+
+### Beheerd component
+
+Standaard wordt het zoekveld niet beheerd door React, maar door de browser.
+Het zoekveld kan wel beheerd worden door React.
+Als je in dit zoekveld een waarde invult en de zoekknop of de Enter-toets gebruikt, krijg je een melding te zien.
+
+<Canvas of={SearchFieldStories.Controlled} />

@@ -13,7 +13,7 @@ const meta = {
   argTypes: {
     size: {
       control: { type: 'select' },
-      options: ['level-3', 'level-4', 'level-5', 'level-6', 'level-7'],
+      options: ['level-3', 'level-4', 'level-5', 'level-6'],
     },
     svg: {
       control: { type: 'select' },
@@ -70,12 +70,5 @@ export const Level6: Story = {
   args: {
     svg: Icons.EmailIcon,
     size: 'level-6',
-  },
-}
-
-export const Level7: Story = {
-  args: {
-    svg: Icons.EmailIcon,
-    size: 'level-7',
   },
 }
