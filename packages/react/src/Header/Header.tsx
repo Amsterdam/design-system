@@ -40,11 +40,7 @@ export const Header = forwardRef(
             <Logo brand={logoBrand} />
           </a>
         </div>
-        {menu && (
-          <div className="amsterdam-header__column amsterdam-header__column--menu">
-            <div className="amsterdam-header__menu-wrapper">{menu}</div>
-          </div>
-        )}
+        {menu && <div className="amsterdam-header__column amsterdam-header__column--menu">{menu}</div>}
       </header>
     )
   },

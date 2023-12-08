@@ -4,6 +4,7 @@
  */
 
 /* Append here */
+export * from './SubsiteTitle'
 export * from './Header'
 export * from './Logo'
 export * from './Dialog'

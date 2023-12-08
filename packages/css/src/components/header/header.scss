@@ -15,7 +15,14 @@
   padding-block: 0.88rem;
   row-gap: 1.5rem;
 
-  @media screen and (max-width: $amsterdam-breakpoint-medium) {
+  @media (orientation: landscape) and (max-width: $amsterdam-breakpoint-medium) {
+    *[class*="page-menu__item"]:not([class$="--mobile"]) {
+      display: none;
+      visibility: hidden;
+    }
+  }
+
+  @media (orientation: portrait) and (max-width: $amsterdam-breakpoint-wide) {
     *[class*="page-menu__item"]:not([class$="--mobile"]) {
       display: none;
       visibility: hidden;

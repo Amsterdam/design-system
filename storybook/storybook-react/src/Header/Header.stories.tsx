@@ -3,7 +3,7 @@
  * Copyright (c) 2023 Gemeente Amsterdam
  */
 
-import { Grid, Header, PageMenu, Screen } from '@amsterdam/design-system-react'
+import { Grid, Header, PageMenu, Screen, SubsiteTitle } from '@amsterdam/design-system-react'
 import { LoginIcon, MenuIcon } from '@amsterdam/design-system-react-icons'
 import { Meta, StoryObj } from '@storybook/react'
 
@@ -49,6 +49,7 @@ export const WithBoth: Story = {
         <Grid>
           <Grid.Cell fullWidth>
             <Story />
+            <SubsiteTitle>Aan de Amsterdamse Grachten</SubsiteTitle>
           </Grid.Cell>
         </Grid>
       </Screen>
