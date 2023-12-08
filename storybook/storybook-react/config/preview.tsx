@@ -20,7 +20,6 @@ export const parameters = {
     },
   },
   viewport: {
-    defaultViewport: 'responsive',
     viewports,
   },
   viewMode: 'docs',
