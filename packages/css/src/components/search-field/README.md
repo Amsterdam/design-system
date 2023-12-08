@@ -20,6 +20,10 @@ Gebruik `autofocus` alleen als het zoekveld aan het begin van een pagina staat, 
 
 Voor meer informatie: [Accessibility Tips: Be Cautious When Using Autofocus](https://www.boia.org/blog/accessibility-tips-be-cautious-when-using-autofocus)
 
+## Autocomplete en spellcheck
+
+`autocomplete` en `spellcheck` staan standaard uit. Deze functies kunnen vervelend zijn voor een gebruiker die zoekt op een deel van een woord, en `autocomplete` kan in de weg zitten van een Autosuggest component.
+
 ## Relevante WCAG eisen
 
 - [WCAG 1.3.1](https://www.w3.org/TR/WCAG22/#info-and-relationships): `role="search"` wordt gebruikt voor de search landmark role.
