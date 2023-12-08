@@ -9,7 +9,7 @@ import clsx from 'clsx'
 import { ForwardedRef, forwardRef, HTMLAttributes } from 'react'
 
 export interface IconProps extends HTMLAttributes<HTMLSpanElement> {
-  size?: 'level-3' | 'level-4' | 'level-5' | 'level-6' | 'level-7'
+  size?: 'level-3' | 'level-4' | 'level-5' | 'level-6'
   svg: Function
 }
 
@@ -23,7 +23,6 @@ export const Icon = forwardRef(
         size === 'level-4' && 'amsterdam-icon--size-4',
         size === 'level-5' && 'amsterdam-icon--size-5',
         size === 'level-6' && 'amsterdam-icon--size-6',
-        size === 'level-7' && 'amsterdam-icon--size-7',
         className,
       )}
       {...otherProps}

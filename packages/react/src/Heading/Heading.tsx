@@ -8,7 +8,7 @@ import clsx from 'clsx'
 import { ForwardedRef, forwardRef, HTMLAttributes, PropsWithChildren } from 'react'
 
 export type HeadingLevel = 1 | 2 | 3 | 4
-type Size = 'level-1' | 'level-2' | 'level-3' | 'level-4'
+type HeadingSize = 'level-1' | 'level-2' | 'level-3' | 'level-4' | 'level-5' | 'level-6'
 
 export interface HeadingProps extends HTMLAttributes<HTMLHeadingElement> {
   /**
@@ -19,7 +19,7 @@ export interface HeadingProps extends HTMLAttributes<HTMLHeadingElement> {
    * De visuele grootte van de titel.
    * Voeg dit toe om de titel groter of kleiner weer te geven zonder de semantische betekenis te veranderen.
    */
-  size?: Size
+  size?: HeadingSize
   /**
    * De kleur van de titel
    * Gebruik deze property om de titel in tegenovergestelde kleur te tonen.

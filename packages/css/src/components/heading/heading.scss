@@ -59,6 +59,26 @@
   }
 }
 
+.amsterdam-heading--5 {
+  font-size: var(--amsterdam-heading-spacious-level-5-font-size);
+  line-height: var(--amsterdam-heading-spacious-level-5-line-height);
+
+  .amsterdam-theme--compact & {
+    font-size: var(--amsterdam-heading-compact-level-5-font-size);
+    line-height: var(--amsterdam-heading-compact-level-5-line-height);
+  }
+}
+
+.amsterdam-heading--6 {
+  font-size: var(--amsterdam-heading-spacious-level-6-font-size);
+  line-height: var(--amsterdam-heading-spacious-level-6-line-height);
+
+  .amsterdam-theme--compact & {
+    font-size: var(--amsterdam-heading-compact-level-6-font-size);
+    line-height: var(--amsterdam-heading-compact-level-6-line-height);
+  }
+}
+
 .amsterdam-heading--inverse-color {
   color: var(--amsterdam-heading-inverse-color);
 }

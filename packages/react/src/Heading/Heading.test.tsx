@@ -66,6 +66,8 @@ describe('Heading', () => {
         <Heading size="level-2">Size level 2</Heading>
         <Heading size="level-3">Size level 3</Heading>
         <Heading size="level-4">Size level 4</Heading>
+        <Heading size="level-5">Size level 5</Heading>
+        <Heading size="level-6">Size level 6</Heading>
       </>,
     )
 
@@ -85,11 +87,21 @@ describe('Heading', () => {
       name: 'Size level 4',
       level: 1,
     })
+    const sizeLevel5 = screen.getByRole('heading', {
+      name: 'Size level 5',
+      level: 1,
+    })
+    const sizeLevel6 = screen.getByRole('heading', {
+      name: 'Size level 6',
+      level: 1,
+    })
 
     expect(sizeLevel1).toHaveClass('amsterdam-heading--1')
     expect(sizeLevel2).toHaveClass('amsterdam-heading--2')
     expect(sizeLevel3).toHaveClass('amsterdam-heading--3')
     expect(sizeLevel4).toHaveClass('amsterdam-heading--4')
+    expect(sizeLevel5).toHaveClass('amsterdam-heading--5')
+    expect(sizeLevel6).toHaveClass('amsterdam-heading--6')
   })
 
   it('renders the right inverse color class', () => {
