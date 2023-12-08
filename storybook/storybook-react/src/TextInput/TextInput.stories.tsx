@@ -10,7 +10,7 @@ import { Meta, StoryObj } from '@storybook/react'
 type StoryProps = TextInputProps & { invalid?: boolean }
 
 const meta = {
-  title: 'Text Input',
+  title: 'Forms/Text Input',
   component: TextInput,
   args: {
     disabled: false,
