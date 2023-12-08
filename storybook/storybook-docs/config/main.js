@@ -1,10 +1,10 @@
 import remarkGfm from 'remark-gfm'
 
+// eslint-disable-next-line no-undef
 const { STORYBOOK_BUILD_PATH } = process.env
 const REPO_NAME = 'design-system'
 
-/* eslint-env node */
-module.exports = {
+const config = {
   core: {
     disableTelemetry: true,
   },
@@ -58,3 +58,5 @@ module.exports = {
     }
   },
 }
+
+export default config
