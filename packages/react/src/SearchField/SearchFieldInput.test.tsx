@@ -1,5 +1,6 @@
 import { render, screen } from '@testing-library/react'
-import { createRef } from 'react'
+import userEvent from '@testing-library/user-event'
+import { createRef, useState } from 'react'
 import { SearchFieldInput } from './SearchFieldInput'
 import '@testing-library/jest-dom'
 
@@ -38,6 +39,27 @@ describe('Search field input', () => {
 
     expect(component).toBeInTheDocument()
     expect(component).toBeVisible()
+  })
+
+  it('should be working in a controlled state', async () => {
+    function ControlledComponent() {
+      const [value, setValue] = useState('Hello')
+
+      return <SearchFieldInput value={value} onChange={(e) => setValue(e.target.value)} />
+    }
+
+    render(<ControlledComponent />)
+
+    const componentText = screen.getByDisplayValue('Hello')
+    expect(componentText).toBeInTheDocument()
+
+    const component = screen.getByRole('searchbox', { name: 'Zoeken' })
+    if (component) {
+      await userEvent.type(component, ', World!')
+    }
+
+    const newComponentText = screen.getByDisplayValue('Hello, World!')
+    expect(newComponentText).toBeInTheDocument()
   })
 
   it('supports ForwardRef in React', () => {
