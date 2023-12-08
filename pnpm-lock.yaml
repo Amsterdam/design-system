@@ -317,8 +317,8 @@ importers:
         specifier: 7.6.3
         version: 7.6.3
       '@storybook/addon-actions':
-        specifier: 7.6.3
-        version: 7.6.3
+        specifier: 7.6.4
+        version: 7.6.4
       '@storybook/addon-docs':
         specifier: 7.6.3
         version: 7.6.3(@types/react-dom@18.2.17)(@types/react@18.2.39)(react-dom@18.2.0)(react@18.2.0)
@@ -417,8 +417,8 @@ importers:
         specifier: 7.6.3
         version: 7.6.3
       '@storybook/addon-actions':
-        specifier: 7.6.3
-        version: 7.6.3
+        specifier: 7.6.4
+        version: 7.6.4
       '@storybook/addon-docs':
         specifier: 7.6.3
         version: 7.6.3(@types/react-dom@18.2.17)(@types/react@18.2.39)(react-dom@18.2.0)(react@18.2.0)
@@ -4559,6 +4559,17 @@ packages:
       uuid: 9.0.1
     dev: true
 
+  /@storybook/addon-actions@7.6.4:
+    resolution: {integrity: sha512-91UD5KPDik74VKVioPMcbwwvDXN/non8p1wArYAHCHCmd/Pts5MJRiFueSdfomSpNjUtjtn6eSXtwpIL3XVOfQ==}
+    dependencies:
+      '@storybook/core-events': 7.6.4
+      '@storybook/global': 5.0.0
+      '@types/uuid': 9.0.7
+      dequal: 2.0.3
+      polished: 4.2.2
+      uuid: 9.0.1
+    dev: true
+
   /@storybook/addon-backgrounds@7.6.3:
     resolution: {integrity: sha512-ZZFNf8FBYBsuXvXdVk3sBgxJTn6s0HznuEE9OmAA7tMsLEDlUiWS9LEvjX2jX5K0kWivHTkJDTXV0NcLL1vWAg==}
     dependencies:
@@ -4973,6 +4984,12 @@ packages:
 
   /@storybook/core-events@7.6.3:
     resolution: {integrity: sha512-Vu3JX1mjtR8AX84lyqWsi2s2lhD997jKRWVznI3wx+UpTk8t7TTMLFk2rGYJRjaornhrqwvLYpnmtxRSxW9BOQ==}
+    dependencies:
+      ts-dedent: 2.2.0
+    dev: true
+
+  /@storybook/core-events@7.6.4:
+    resolution: {integrity: sha512-i3xzcJ19ILSy4oJL5Dz9y0IlyApynn5RsGhAMIsW+mcfri+hGfeakq1stNCo0o7jW4Y3A7oluFTtIoK8DOxQdQ==}
     dependencies:
       ts-dedent: 2.2.0
     dev: true
