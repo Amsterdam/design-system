@@ -4,7 +4,7 @@
       "font-family": { "value": "{amsterdam.typography.font-family}" },
       "font-weight": { "value": "{amsterdam.typography.font-weight.normal}" },
       "separator": {
-        "background-color": { "value": "{amsterdam.color.primary-blue}" }
+        "background-color": { "value": "{amsterdam.color.primary-black}" }
       },
       "item-link": {
         "color": { "value": "{amsterdam.link-appearance.color}" },
