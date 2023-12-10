@@ -25,17 +25,12 @@
 .amsterdam-breadcrumb__list {
   break-after: avoid;
   break-inside: avoid;
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.5rem;
-  list-style: none;
 
   @include reset;
 }
 
 .amsterdam-breadcrumb__item {
-  align-items: center;
-  display: flex;
+  display: inline;
 }
 
 .amsterdam-breadcrumb__item:not(:last-child)::after {
@@ -44,7 +39,7 @@
   content: "";
   display: inline-block;
   height: 0.5rem;
-  margin-inline-start: 0.5rem;
+  margin-inline: 0.5rem;
   width: 0.5rem;
 }
 
