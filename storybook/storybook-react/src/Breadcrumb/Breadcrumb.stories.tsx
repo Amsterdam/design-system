@@ -19,10 +19,8 @@ export const Default: Story = {
   render: () => (
     <Breadcrumb>
       <Breadcrumb.Item href="#">Home</Breadcrumb.Item>
-      <Breadcrumb.Item href="#">Path 1</Breadcrumb.Item>
-      <Breadcrumb.Item href="#">Path 2</Breadcrumb.Item>
-      <Breadcrumb.Item href="#">Path 3</Breadcrumb.Item>
-      <Breadcrumb.Item href="#">Path 5</Breadcrumb.Item>
+      <Breadcrumb.Item href="#">Nieuws</Breadcrumb.Item>
+      <Breadcrumb.Item href="#">Kennisgevingen en bekendmakingen</Breadcrumb.Item>
     </Breadcrumb>
   ),
   parameters: {
@@ -32,10 +30,8 @@ export const Default: Story = {
         code: `
 <Breadcrumb>
   <Breadcrumb.Item href="#">Home</Breadcrumb.Item>
-  <Breadcrumb.Item href="#">Path 1</Breadcrumb.Item>
-  <Breadcrumb.Item href="#">Path 2</Breadcrumb.Item>
-  <Breadcrumb.Item href="#">Path 3</Breadcrumb.Item>
-  <Breadcrumb.Item href="#">Path 5</Breadcrumb.Item>
+  <Breadcrumb.Item href="#">Nieuws</Breadcrumb.Item>
+  <Breadcrumb.Item href="#">Kennisgevingen en bekendmakingen</Breadcrumb.Item>
 </Breadcrumb>
         `,
       },
