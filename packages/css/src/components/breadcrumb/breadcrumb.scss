@@ -55,10 +55,6 @@
   text-decoration-thickness: var(--amsterdam-breadcrumb-item-link-text-decoration-thickness);
   text-underline-offset: var(--amsterdam-breadcrumb-item-link-text-underline-offset);
 
-  &::first-letter {
-    text-transform: capitalize;
-  }
-
   &:hover {
     color: var(--amsterdam-breadcrumb-item-link-hover-color);
     text-decoration-line: var(--amsterdam-breadcrumb-item-link-hover-text-decoration-line);

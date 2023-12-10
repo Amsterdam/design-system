@@ -18,11 +18,11 @@ type Story = StoryObj<typeof meta>
 export const BreadcrumbStory: Story = {
   render: () => (
     <Breadcrumb>
-      <Breadcrumb.Item href="#">home</Breadcrumb.Item>
-      <Breadcrumb.Item href="#">path 1</Breadcrumb.Item>
-      <Breadcrumb.Item href="#">path 2</Breadcrumb.Item>
-      <Breadcrumb.Item href="#">path 3</Breadcrumb.Item>
-      <Breadcrumb.Item href="#">path 5</Breadcrumb.Item>
+      <Breadcrumb.Item href="#">Home</Breadcrumb.Item>
+      <Breadcrumb.Item href="#">Path 1</Breadcrumb.Item>
+      <Breadcrumb.Item href="#">Path 2</Breadcrumb.Item>
+      <Breadcrumb.Item href="#">Path 3</Breadcrumb.Item>
+      <Breadcrumb.Item href="#">Path 5</Breadcrumb.Item>
     </Breadcrumb>
   ),
   parameters: {
@@ -31,11 +31,11 @@ export const BreadcrumbStory: Story = {
         language: 'jsx',
         code: `
 <Breadcrumb>
-  <Breadcrumb.Item href="#">home</Breadcrumb.Item>
-  <Breadcrumb.Item href="#">path 1</Breadcrumb.Item>
-  <Breadcrumb.Item href="#">path 2</Breadcrumb.Item>
-  <Breadcrumb.Item href="#">path 3</Breadcrumb.Item>
-  <Breadcrumb.Item href="#">path 5</Breadcrumb.Item>
+  <Breadcrumb.Item href="#">Home</Breadcrumb.Item>
+  <Breadcrumb.Item href="#">Path 1</Breadcrumb.Item>
+  <Breadcrumb.Item href="#">Path 2</Breadcrumb.Item>
+  <Breadcrumb.Item href="#">Path 3</Breadcrumb.Item>
+  <Breadcrumb.Item href="#">Path 5</Breadcrumb.Item>
 </Breadcrumb>
         `,
       },
