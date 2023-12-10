@@ -40,12 +40,12 @@
 
 .amsterdam-breadcrumb__item:not(:last-child)::after {
   background-color: var(--amsterdam-breadcrumb-separator-background-color);
-  clip-path: path("M 4.725,16 3.275,14.545 9.815,8 3.275,1.455 4.725,0 l 8,8 z");
+  clip-path: path("M2.725 8 2 7.272 5.27 4 2 .728 2.725 0l4 4-4 4Z");
   content: "";
   display: inline-block;
-  height: 1rem;
-  margin-inline-start: 1rem;
-  width: 1rem;
+  height: 0.5rem;
+  margin-inline-start: 0.5rem;
+  width: 0.5rem;
 }
 
 .amsterdam-breadcrumb__link {
