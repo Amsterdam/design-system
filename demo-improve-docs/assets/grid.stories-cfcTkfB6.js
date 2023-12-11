@@ -1,4 +1,4 @@
-import{M as l}from"./index-5X3Dr32o.js";import{j as e}from"./jsx-runtime-vNq4Oc-g.js";import{u as d}from"./index-Dbo06S9W.js";import"./iframe-gA87_eVh.js";import"../sb-preview/runtime.js";import"./index-4g5l5LRQ.js";import"./_commonjsHelpers-4gQjN7DL.js";import"./index-jmm5gWkb.js";import"./index-ogXoivrg.js";import"./index-MVbLLYTZ.js";import"./index-PPLHz8o0.js";function r(i){const n=Object.assign({h1:"h1",p:"p",em:"em",h2:"h2",h3:"h3",h4:"h4",table:"table",thead:"thead",tr:"tr",th:"th",tbody:"tbody",td:"td",a:"a",ul:"ul",li:"li"},d(),i.components);return e.jsxs(e.Fragment,{children:[e.jsx(l,{title:"Docs/Designrichtlijnen/Grid"}),`
+import{M as l}from"./index-oK-w_Up1.js";import{j as e}from"./jsx-runtime-vNq4Oc-g.js";import{u as d}from"./index-Dbo06S9W.js";import"./iframe-3f3dbC36.js";import"../sb-preview/runtime.js";import"./index-4g5l5LRQ.js";import"./_commonjsHelpers-4gQjN7DL.js";import"./index-jmm5gWkb.js";import"./index-ogXoivrg.js";import"./index-MVbLLYTZ.js";import"./index-PPLHz8o0.js";function r(i){const n=Object.assign({h1:"h1",p:"p",em:"em",h2:"h2",h3:"h3",h4:"h4",table:"table",thead:"thead",tr:"tr",th:"th",tbody:"tbody",td:"td",a:"a",ul:"ul",li:"li"},d(),i.components);return e.jsxs(e.Fragment,{children:[e.jsx(l,{title:"Docs/Designrichtlijnen/Grid"}),`
 `,e.jsx(n.h1,{id:"grid",children:"Grid"}),`
 `,e.jsxs(n.p,{children:["Onder elke pagina ligt een ",e.jsx(n.em,{children:"responsive"}),` grid.
 Alle elementen op een pagina worden op dat grid geplaatst.`]}),`
@@ -90,7 +90,7 @@ Om hoeveel pixels het dan precies gaat is niet zo van belang.`}),`
 `,e.jsx(n.h3,{id:"referentie-breedtes-voor-ontwerpers",children:"Referentie-breedtes voor ontwerpers"}),`
 `,e.jsx(n.p,{children:`Leuk, al die flexibiliteit.
 Maar bij het ontwerpen van een scherm is het toch nodig een bepaald canvas te kiezen.
-En voor elk ontwerp wil je bepalen hoe het zich op ‘een dekstop’, ‘een tablet’ of ‘mobiel’ houdt.`}),`
+En voor elk ontwerp wil je bepalen hoe het zich op ‘een desktop’, ‘een tablet’ of ‘mobiel’ houdt.`}),`
 `,e.jsx(n.p,{children:`Daarom werken we in Figma we met drie referentie-breedtes.
 Op die breedtes werken we het ontwerp van een scherm uit voor die drie klassen van apparaten.
 We weten dat er in de werkelijkheid veel meer variatie bestaat, maar we moeten toch ergens op mikken.
