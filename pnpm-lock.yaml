@@ -240,8 +240,8 @@ importers:
   proprietary/assets:
     devDependencies:
       svgo:
-        specifier: 3.0.5
-        version: 3.0.5
+        specifier: 3.1.0
+        version: 3.1.0
 
   proprietary/react-icons:
     dependencies:
@@ -5398,7 +5398,7 @@ packages:
       '@svgr/core': 8.1.0
       cosmiconfig: 8.2.0
       deepmerge: 4.3.1
-      svgo: 3.0.5
+      svgo: 3.1.0
     dev: true
 
   /@swc/helpers@0.5.2:
@@ -16160,8 +16160,8 @@ packages:
     resolution: {integrity: sha512-ovssysQTa+luh7A5Weu3Rta6FJlFBBbInjOh722LIt6klpU2/HtdUbszju/G4devcvk8PGt7FCLv5wftu3THUA==}
     dev: true
 
-  /svgo@3.0.5:
-    resolution: {integrity: sha512-HQKHEo73pMNOlDlBcLgZRcHW2+1wo7bFYayAXkGN0l/2+h68KjlfZyMRhdhaGvoHV2eApOovl12zoFz42sT6rQ==}
+  /svgo@3.1.0:
+    resolution: {integrity: sha512-R5SnNA89w1dYgNv570591F66v34b3eQShpIBcQtZtM5trJwm1VvxbIoMpRYY3ybTAutcKTLEmTsdnaknOHbiQA==}
     engines: {node: '>=14.0.0'}
     hasBin: true
     dependencies:
