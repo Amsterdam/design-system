@@ -52,7 +52,7 @@ const config = {
     }
     return {
       react: {
-        title: 'React.js Components',
+        title: 'React Components',
         url: STORYBOOK_BUILD_PATH ? `../${STORYBOOK_BUILD_PATH}/storybook-react` : `../${REPO_NAME}/storybook-react`,
       },
     }
