@@ -1,5 +1,4 @@
 import { Canvas, Markdown, Meta, Primary } from "@storybook/blocks";
-import * as GridCellStories from "./Grid.Cell.stories";
 import * as GridStories from "./Grid.stories";
 import README from "../../../../packages/css/src/components/grid/README.md?raw";
 
@@ -53,12 +52,12 @@ In sommige gevallen kan daar beter meer of minder witruimte staan.
 
 <Canvas of={GridStories.VerticalGap} />
 
-### Cel
+### Cellen beslaan kolommen
 
 Een cel beslaat standaard 1 kolom in het grid.
 Om een cel meer kolommen te laten beslaan, gebruik je de `span` prop.
 
-<Canvas of={GridCellStories.Default} />
+<Canvas of={GridStories.CellSpan} />
 
 ### Verschillende breedtes
 
@@ -67,13 +66,13 @@ Gebruik hiervoor de `span` prop met 3 waarden voor respectievelijk smalle, midde
 
 Via `span={{ narrow: 4, medium: 6, wide: 8 }}` is deze cel 4 van de 4 kolommen breed op smalle vensters, 6 van de 8 op middelbrede en 8 van de 12 op brede vensters:
 
-<Canvas of={GridCellStories.MultipleSizes} />
+<Canvas of={GridStories.CellSpans} />
 
 ### Volledige breedte
 
 Om de cel de volledige breedte te geven – of het grid nu 4, 8, of 12 kolommen heeft – gebruik je de `fullWidth` prop.
 
-<Canvas of={GridCellStories.FullWidth} />
+<Canvas of={GridStories.FullWidth} />
 
 ### Startpositie
 
@@ -89,7 +88,7 @@ Gebruik hiervoor de `start` prop met 3 waarden, precies zoals bij `span`.
 
 Een voorbeeld met `start={2}`:
 
-<Canvas of={GridCellStories.StartPosition} />
+<Canvas of={GridStories.StartPosition} />
 
 ## Richtlijnen
 
