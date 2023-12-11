@@ -15,6 +15,7 @@ import {
   TrashBinIcon,
 } from '@amsterdam/design-system-react-icons'
 import type { Meta, StoryObj } from '@storybook/react'
+import { exampleUnorderedList } from '../shared/exampleContent'
 
 const meta = {
   title: 'Text/Unordered List',
@@ -30,18 +31,7 @@ type Story = StoryObj<typeof meta>
 
 export const Basis: Story = {
   args: {
-    children: [
-      <UnorderedList.Item key="contract">
-        Kopie van de pagina’s van het huur- of koopcontract waarop uw naam, adres en handtekeningen staan.
-      </UnorderedList.Item>,
-      <UnorderedList.Item key="toestemmingsverklaring">
-        Als u bij iemand woont: een toestemmingsverklaring van de bewoner en een kopie van het paspoort, rijbewijs of
-        ID-kaart van de bewoner.
-      </UnorderedList.Item>,
-      <UnorderedList.Item key="gebruikersovereenkomst">
-        Bij antikraak: kopie gebruikersovereenkomst.
-      </UnorderedList.Item>,
-    ],
+    children: exampleUnorderedList().map((item, index) => <UnorderedList.Item key={index}>{item}</UnorderedList.Item>),
   },
 }
 
