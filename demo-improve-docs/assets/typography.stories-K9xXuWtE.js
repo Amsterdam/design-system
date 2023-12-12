@@ -1,4 +1,4 @@
-import{M as a,T as t}from"./index-AaaqIeVs.js";import{j as e}from"./jsx-runtime-vNq4Oc-g.js";import{u as l}from"./index-Dbo06S9W.js";import"./iframe-vdbx7dWw.js";import"../sb-preview/runtime.js";import"./index-4g5l5LRQ.js";import"./_commonjsHelpers-4gQjN7DL.js";import"./index-jmm5gWkb.js";import"./index-ogXoivrg.js";import"./index-MVbLLYTZ.js";import"./index-PPLHz8o0.js";function s(i){const n=Object.assign({h1:"h1",h2:"h2",h3:"h3",p:"p",table:"table",thead:"thead",tr:"tr",th:"th",tbody:"tbody",td:"td",a:"a",h4:"h4",ol:"ol",li:"li",em:"em",code:"code",pre:"pre"},l(),i.components);return e.jsxs(e.Fragment,{children:[e.jsx(a,{title:"Docs/Designrichtlijnen/Typografie"}),`
+import{M as a,T as t}from"./index-1db7oC57.js";import{j as e}from"./jsx-runtime-vNq4Oc-g.js";import{u as l}from"./index-Dbo06S9W.js";import"./iframe-fCqYvKLh.js";import"../sb-preview/runtime.js";import"./index-4g5l5LRQ.js";import"./_commonjsHelpers-4gQjN7DL.js";import"./index-jmm5gWkb.js";import"./index-ogXoivrg.js";import"./index-MVbLLYTZ.js";import"./index-PPLHz8o0.js";function s(i){const n=Object.assign({h1:"h1",h2:"h2",h3:"h3",p:"p",table:"table",thead:"thead",tr:"tr",th:"th",tbody:"tbody",td:"td",a:"a",h4:"h4",ol:"ol",li:"li",em:"em",code:"code",pre:"pre"},l(),i.components);return e.jsxs(e.Fragment,{children:[e.jsx(a,{title:"Docs/Designrichtlijnen/Typografie"}),`
 `,e.jsx(n.h1,{id:"typografie",children:"Typografie"}),`
 `,e.jsx(n.h2,{id:"tekstgrootte",children:"Tekstgrootte"}),`
 `,e.jsx(n.h3,{id:"zeven-tekstniveaus",children:"Zeven tekstniveau’s"}),`
@@ -70,7 +70,7 @@ Onderstreep alleen interactieve links.`}),`
 `,e.jsx(n.p,{children:`De lijndikte is 2 pixels.
 De afstand tussen de onderstreping en de letterlijn is 6 pixels –
 meer dan we in onderstaande voorbeeld kunnen laten zien.
-Als de muiswijzer over de link beweegt wordrt de lijn aan de bovenkant een pixel dikker.`}),`
+Als de muiswijzer over de link beweegt wordt de lijn aan de bovenkant een pixel dikker.`}),`
 `,e.jsx(t,{fontFamily:"Amsterdam Sans, Arial, sans-serif",fontSizes:[24],lineHeight:1.6,sampleText:"Jouw typograaf biedt mij zulke exquise schreven",style:{color:"#004469",textDecorationLine:"underline",textDecorationThickness:2,textUnderlineOffset:4}}),`
 `,e.jsx(n.h3,{id:"overhang",children:"Overhang"}),`
 `,e.jsx(n.p,{children:`De ruimte tussen letters (kerning) is geoptimaliseerd in het lettertype.

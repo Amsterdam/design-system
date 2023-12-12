@@ -1,4 +1,4 @@
-import{M as s,d as i}from"./index-AaaqIeVs.js";import{j as e}from"./jsx-runtime-vNq4Oc-g.js";import{u as a}from"./index-Dbo06S9W.js";import"./iframe-vdbx7dWw.js";import"../sb-preview/runtime.js";import"./index-4g5l5LRQ.js";import"./_commonjsHelpers-4gQjN7DL.js";import"./index-jmm5gWkb.js";import"./index-ogXoivrg.js";import"./index-MVbLLYTZ.js";import"./index-PPLHz8o0.js";const m=`<!-- @license CC0-1.0 -->
+import{M as s,d as i}from"./index-1db7oC57.js";import{j as e}from"./jsx-runtime-vNq4Oc-g.js";import{u as a}from"./index-Dbo06S9W.js";import"./iframe-fCqYvKLh.js";import"../sb-preview/runtime.js";import"./index-4g5l5LRQ.js";import"./_commonjsHelpers-4gQjN7DL.js";import"./index-jmm5gWkb.js";import"./index-ogXoivrg.js";import"./index-MVbLLYTZ.js";import"./index-PPLHz8o0.js";const m=`<!-- @license CC0-1.0 -->
 
 # Auteursrecht Gemeente Amsterdam
 
