@@ -34,13 +34,13 @@
 }
 
 .amsterdam-breadcrumb__item:not(:last-child)::after {
-  background-color: var(--amsterdam-breadcrumb-separator-background-color);
-  clip-path: path("M2.725 8 2 7.272 5.27 4 2 .728 2.725 0l4 4-4 4Z");
+  background-image: var(--amsterdam-breadcrumb-separator-background-image);
+  background-repeat: no-repeat;
   content: "";
   display: inline-block;
-  height: 0.5rem;
+  height: 1ex;
   margin-inline: 0.5rem;
-  width: 0.5rem;
+  width: 1ex;
 }
 
 .amsterdam-breadcrumb__link {
