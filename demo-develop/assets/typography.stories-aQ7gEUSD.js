@@ -1,4 +1,4 @@
-import{M as l,T as t}from"./index-wha41deZ.js";import{j as e}from"./jsx-runtime-vNq4Oc-g.js";import{u as a}from"./index-Dbo06S9W.js";import"./iframe-rxeUfJ04.js";import"../sb-preview/runtime.js";import"./index-4g5l5LRQ.js";import"./_commonjsHelpers-4gQjN7DL.js";import"./index-jmm5gWkb.js";import"./index-ogXoivrg.js";import"./index-MVbLLYTZ.js";import"./index-PPLHz8o0.js";function s(i){const n=Object.assign({h1:"h1",h2:"h2",h3:"h3",p:"p",table:"table",thead:"thead",tr:"tr",th:"th",tbody:"tbody",td:"td",a:"a",h4:"h4",ol:"ol",li:"li",em:"em",code:"code",pre:"pre"},a(),i.components);return e.jsxs(e.Fragment,{children:[e.jsx(l,{title:"Docs/Designrichtlijnen/Typografie"}),`
+import{M as a,T as t}from"./index-3sSvghCL.js";import{j as e}from"./jsx-runtime-vNq4Oc-g.js";import{u as l}from"./index-Dbo06S9W.js";import"./iframe-l-mRBjW-.js";import"../sb-preview/runtime.js";import"./index-4g5l5LRQ.js";import"./_commonjsHelpers-4gQjN7DL.js";import"./index-jmm5gWkb.js";import"./index-ogXoivrg.js";import"./index-MVbLLYTZ.js";import"./index-PPLHz8o0.js";function s(i){const n=Object.assign({h1:"h1",h2:"h2",h3:"h3",p:"p",table:"table",thead:"thead",tr:"tr",th:"th",tbody:"tbody",td:"td",a:"a",h4:"h4",ol:"ol",li:"li",em:"em",code:"code",pre:"pre"},l(),i.components);return e.jsxs(e.Fragment,{children:[e.jsx(a,{title:"Docs/Designrichtlijnen/Typografie"}),`
 `,e.jsx(n.h1,{id:"typografie",children:"Typografie"}),`
 `,e.jsx(n.h2,{id:"tekstgrootte",children:"Tekstgrootte"}),`
 `,e.jsx(n.h3,{id:"zeven-tekstniveaus",children:"Zeven tekstniveau’s"}),`
@@ -24,18 +24,18 @@ Zo worden titels niet te groot op telefoons en andere smalle vensters, en kleine
 `,e.jsx(n.h3,{id:"twee-themas-voor-websites-en-applicaties",children:"Twee thema’s voor websites en applicaties"}),`
 `,e.jsx(n.h4,{id:"ruimtelijk",children:"Ruimtelijk"}),`
 `,e.jsx(n.p,{children:`Voor websites is de typografie behoorlijk ruimtelijk.
-Zo is de huisstijl ontworpen.`}),`
-`,e.jsx(n.p,{children:`Een standaard paragraaf is 16 pixels groot bij een vensterbreedte van 320 pixels.
-In een venster van 1600 pixels breed is dat de helft meer: 24 pixels.`}),`
+Zo is de huisstijl ontworpen.
+Een standaard paragraaf is 18 pixels groot bij een vensterbreedte van 320 pixels.
+Tot een breedte van 1600 pixels groeit die naar 24 pixels.`}),`
 `,e.jsx(n.p,{children:"De maximale tekstgroottes voor alle niveau’s in het ruimtelijke thema:"}),`
 `,e.jsx(t,{fontFamily:"Amsterdam Sans, Arial, sans-serif",fontSizes:[73.2,58.6,46.9,37.5,30,24,19.2],fontWeight:400,sampleText:"Jouw typograaf biedt mij zulke exquise schreven"}),`
 `,e.jsx(n.p,{children:"En de minimale:"}),`
 `,e.jsx(t,{fontFamily:"Amsterdam Sans, Arial, sans-serif",fontSizes:[38.9,33.3,28.6,24.5,21,18,15.4],fontWeight:400,sampleText:"Jouw typograaf biedt mij zulke exquise schreven"}),`
 `,e.jsx(n.h4,{id:"compact",children:"Compact"}),`
 `,e.jsx(n.p,{children:`Voor applicaties is zulke grote tekst niet nodig, zelfs contraproductief.
-Daarom is er een compact thema voor de typografie.`}),`
-`,e.jsx(n.p,{children:`Hier is een paragraaf 14 pixels groot bij de minimale vensterbreedte en 18 pixels bij de maximale.
-Een paragraaf groeit hier dus niet met de helft, maar met iets meer dan een kwart.`}),`
+Daarom is er een compact thema voor de typografie.
+Hier is een paragraaf 14 pixels groot bij de minimale vensterbreedte en 18 pixels bij de maximale.
+Tekst is dus een kwart kleiner en groeit ook iets langzamer.`}),`
 `,e.jsx(n.p,{children:"De maximale tekstgroottes voor alle niveau’s in het compacte thema:"}),`
 `,e.jsx(t,{fontFamily:"Amsterdam Sans, Arial, sans-serif",fontSizes:[54.9,43.9,35.2,28.1,22.5,18,14.4],fontWeight:400,sampleText:"Jouw typograaf biedt mij zulke exquise schreven"}),`
 `,e.jsx(n.p,{children:"En de minimale:"}),`
@@ -43,7 +43,7 @@ Een paragraaf groeit hier dus niet met de helft, maar met iets meer dan een kwar
 `,e.jsx(n.h3,{id:"vensterbreedtes-waarvoor-we-ontwerpen",children:"Vensterbreedtes waarvoor we ontwerpen"}),`
 `,e.jsx(n.p,{children:`In de praktijk kan een venster elke willekeurige breedte hebben.
 Voor al die breedtes ontwerpen is wat te gek.
-Daarom werken we in Figma met drie referentie-breedtes.
+Daarom werken we in Figma met drie referentie-breedtes: 320, 832 en 1600 pixels.
 Op die maten werken we een scherm uit voor die drie klassen van apparaten.
 De tekstgroottes zijn op dat punt als volgt, afgerond op 1 cijfer achter de komma.`}),`
 `,e.jsx(n.h4,{id:"ruimtelijk-1",children:"Ruimtelijk"}),`
@@ -67,10 +67,11 @@ Er zijn betere manieren om lange teksten nadruk te geven.`}),`
 `,e.jsx(n.h3,{id:"onderstreping",children:"Onderstreping"}),`
 `,e.jsx(n.p,{children:`Vermijd het onderstrepen van tekst.
 Onderstreep alleen interactieve links.`}),`
-`,e.jsx(n.p,{children:`De lijndikte is 1/12 van de tekstgrootte, dus 2 pixels bij een standaard paragraaf van 24.
-De afstand tussen de onderstreping en de letterlijn is iets vergroot.
-Rond staartletters wordt de streep onderbroken voor betere leesbaarheid.`}),`
-`,e.jsx(t,{fontFamily:"Amsterdam Sans, Arial, sans-serif",fontSizes:[24],sampleText:"Jouw typograaf biedt mij zulke exquise schreven",style:{color:"#004469",textDecorationLine:"underline",textDecorationThickness:2,textUnderlineOffset:2}}),`
+`,e.jsx(n.p,{children:`De lijndikte is 2 pixels.
+De afstand tussen de onderstreping en de letterlijn is 6 pixels –
+meer dan we in onderstaande voorbeeld kunnen laten zien.
+Als de muiswijzer over de link beweegt wordt de lijn aan de bovenkant een pixel dikker.`}),`
+`,e.jsx(t,{fontFamily:"Amsterdam Sans, Arial, sans-serif",fontSizes:[24],lineHeight:1.6,sampleText:"Jouw typograaf biedt mij zulke exquise schreven",style:{color:"#004469",textDecorationLine:"underline",textDecorationThickness:2,textUnderlineOffset:4}}),`
 `,e.jsx(n.h3,{id:"overhang",children:"Overhang"}),`
 `,e.jsx(n.p,{children:`De ruimte tussen letters (kerning) is geoptimaliseerd in het lettertype.
 Het is niet toegestaan om de kerning aan te passen.`}),`
@@ -104,4 +105,4 @@ Een manier om dat te doen is met de volgende `,e.jsx(n.em,{children:"css snippet
   overflow-wrap: break-word;
 }
 `})}),`
-`,e.jsxs(n.p,{children:["Voor verdere informatie: ",e.jsx(n.a,{href:"https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_text/Wrapping_breaking_text",target:"_blank",rel:"nofollow noopener noreferrer",children:"Wrapping and breaking text op MDN"})]})]})}function d(i={}){const{wrapper:n}=Object.assign({},a(),i.components);return n?e.jsx(n,{...i,children:e.jsx(s,{...i})}):s(i)}const h=()=>{throw new Error("Docs-only story")};h.parameters={docsOnly:!0};const r={title:"Docs/Designrichtlijnen/Typografie",tags:["stories-mdx"],includeStories:["__page"]};r.parameters=r.parameters||{};r.parameters.docs={...r.parameters.docs||{},page:d};const b=["__page"];export{b as __namedExportsOrder,h as __page,r as default};
+`,e.jsxs(n.p,{children:["Voor verdere informatie: ",e.jsx(n.a,{href:"https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_text/Wrapping_breaking_text",target:"_blank",rel:"nofollow noopener noreferrer",children:"Wrapping and breaking text op MDN"})]})]})}function d(i={}){const{wrapper:n}=Object.assign({},l(),i.components);return n?e.jsx(n,{...i,children:e.jsx(s,{...i})}):s(i)}const h=()=>{throw new Error("Docs-only story")};h.parameters={docsOnly:!0};const r={title:"Docs/Designrichtlijnen/Typografie",tags:["stories-mdx"],includeStories:["__page"]};r.parameters=r.parameters||{};r.parameters.docs={...r.parameters.docs||{},page:d};const b=["__page"];export{b as __namedExportsOrder,h as __page,r as default};
