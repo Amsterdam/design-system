@@ -5,6 +5,7 @@
 
 import { Heading, OrderedList, Paragraph } from '@amsterdam/design-system-react'
 import type { Meta, StoryObj } from '@storybook/react'
+import { exampleOrderedList } from '../shared/exampleContent'
 
 const meta = {
   title: 'Text/Ordered List',
@@ -20,26 +21,7 @@ type Story = StoryObj<typeof meta>
 
 export const Basis: Story = {
   args: {
-    children: [
-      <OrderedList.Item key={1}>
-        Voor deze actie hebben uw kinderen een persoonlijke OV-chipkaart nodig. Hebben zij die nog niet, dan kunt u die
-        nu al aanvragen. Ieder kind heeft een eigen OV-chipkaart nodig.
-      </OrderedList.Item>,
-      <OrderedList.Item key={2}>
-        U kunt hem aanvragen via ov-chipkaart.nl. De kaart kost € 7,50. U krijgt hem na een dag of 5 thuisgestuurd.
-      </OrderedList.Item>,
-      <OrderedList.Item key={3}>
-        Op de OV-chipkaart kunt u gratis reizen voor kinderen aanvragen vanaf maandag 3 juli 9.00 uur tot uiterlijk 23
-        november.
-      </OrderedList.Item>,
-      <OrderedList.Item key={4}>
-        We helpen mensen die er zelf niet uitkomen. Daarvoor zit een speciaal belteam klaar, bereikbaar via 14 020.
-      </OrderedList.Item>,
-      <OrderedList.Item key={5}>
-        Het product is geldig in alle bussen, trams en metro’s van GVB. Kinderen reizen met ten minste 1 volwassen
-        begeleider.
-      </OrderedList.Item>,
-    ],
+    children: exampleOrderedList().map((item, index) => <OrderedList.Item key={index}>{item}</OrderedList.Item>),
   },
 }
 
