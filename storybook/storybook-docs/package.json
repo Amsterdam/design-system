@@ -24,7 +24,7 @@
     "@amsterdam/design-system-react": "workspace:*",
     "@amsterdam/design-system-react-icons": "workspace:*",
     "@amsterdam/design-system-tokens": "workspace:*",
-    "@babel/core": "7.23.5",
+    "@babel/core": "7.23.6",
     "@mdx-js/react": "2.3.0",
     "@storybook/addon-a11y": "7.6.4",
     "@storybook/addon-actions": "7.6.4",
