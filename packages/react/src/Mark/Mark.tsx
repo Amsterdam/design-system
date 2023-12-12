@@ -9,9 +9,9 @@ import { ForwardedRef, forwardRef, HTMLAttributes, PropsWithChildren } from 'rea
 export interface MarkProps extends PropsWithChildren<HTMLAttributes<HTMLElement>> {}
 
 export const Mark = forwardRef(({ children, className, ...restProps }: MarkProps, ref: ForwardedRef<HTMLElement>) => (
-  <span {...restProps} ref={ref} className={clsx('amsterdam-mark', className)}>
+  <mark {...restProps} ref={ref} className={clsx('amsterdam-mark', className)}>
     {children}
-  </span>
+  </mark>
 ))
 
 Mark.displayName = 'Mark'

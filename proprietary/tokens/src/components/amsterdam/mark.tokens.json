@@ -1,5 +1,7 @@
 {
   "amsterdam": {
-    "mark": {}
+    "mark": {
+      "background-color": { "value": "var(--amsterdam-color-yellow)" }
+    }
   }
 }
