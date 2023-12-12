@@ -1,4 +1,4 @@
-# Highlight
+# Spotlight
 
 Benadrukt een sectie op een pagina middels een opvallende achtergrondkleur.
 
