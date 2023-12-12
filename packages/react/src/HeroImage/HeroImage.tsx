@@ -17,12 +17,8 @@ export const HeroImage = forwardRef<HTMLDivElement, HeroImageProps>(
     const Component = as
 
     return (
-      <Component
-        {...restProps}
-        ref={ref}
-        className={clsx('amsterdam-hero-image', className)}
-        style={{ backgroundImage: `url(${src ?? 'https://picsum.photos/1280/360'})` }}
-      >
+      <Component {...restProps} ref={ref} className={clsx('amsterdam-hero-image', className)}>
+        <img alt="" className="amsterdam-hero-image__image" src={src} />
         {children}
       </Component>
     )

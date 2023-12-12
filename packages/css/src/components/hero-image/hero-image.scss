@@ -4,10 +4,16 @@
  */
 
 .amsterdam-hero-image {
-  align-content: center;
   aspect-ratio: var(--amsterdam-hero-image-aspect-ratio);
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
   display: grid;
+}
+
+.amsterdam-hero-image > * {
+  align-self: center;
+  grid-area: 1 / -1;
+}
+
+.amsterdam-hero-image__image {
+  object-fit: cover;
+  width: 100%;
 }
