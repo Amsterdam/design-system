@@ -1,6 +1,7 @@
 {
   "amsterdam": {
     "header": {
+      "background-color": { "value": "{amsterdam.color.primary-white}" },
       "column-gap": { "value": "{amsterdam.grid.spacious.gap}" }
     }
   }

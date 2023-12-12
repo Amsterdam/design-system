@@ -4,7 +4,7 @@
  */
 
 import { Grid, Header, PageMenu, Screen } from '@amsterdam/design-system-react'
-import { LoginIcon, MenuIcon } from '@amsterdam/design-system-react-icons'
+import { MenuIcon, SearchIcon } from '@amsterdam/design-system-react-icons'
 import { Meta, StoryObj } from '@storybook/react'
 
 const meta = {
@@ -30,9 +30,10 @@ export const WithHeaderMenu: Story = {
   args: {
     menu: (
       <PageMenu alignEnd>
-        <PageMenu.Link href="#">English</PageMenu.Link>
-        <PageMenu.Link href="#" icon={LoginIcon}>
-          Inloggen Mijn Amsterdam
+        <PageMenu.Link href="#">Contact</PageMenu.Link>
+        <PageMenu.Link href="#">Mijn Amsterdam</PageMenu.Link>
+        <PageMenu.Link href="#" icon={SearchIcon}>
+          Zoeken
         </PageMenu.Link>
         <PageMenu.Button icon={MenuIcon} showOnMobile>
           Menu
@@ -58,10 +59,10 @@ export const WithBoth: Story = {
     title: 'Aan de Amsterdamse grachten',
     menu: (
       <PageMenu alignEnd>
-        <PageMenu.Link href="#">Souvenirs</PageMenu.Link>
-        <PageMenu.Link href="#">English</PageMenu.Link>
-        <PageMenu.Link href="#" icon={LoginIcon}>
-          Inloggen Mijn Amsterdam
+        <PageMenu.Link href="#">Contact</PageMenu.Link>
+        <PageMenu.Link href="#">Mijn Amsterdam</PageMenu.Link>
+        <PageMenu.Link href="#" icon={SearchIcon}>
+          Zoeken
         </PageMenu.Link>
         <PageMenu.Button icon={MenuIcon} showOnMobile>
           Menu

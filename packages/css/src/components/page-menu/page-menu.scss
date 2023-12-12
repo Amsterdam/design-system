@@ -30,6 +30,7 @@
   display: flex;
   flex-direction: row;
   list-style: none;
+  overflow: hidden;
   row-gap: var(--amsterdam-page-menu-row-gap);
 
   @include reset-list;
@@ -62,6 +63,7 @@
   text-decoration-thickness: var(--amsterdam-page-menu-item-text-decoration-thickness);
   text-underline-offset: var(--amsterdam-page-menu-item-text-underline-offset);
   touch-action: manipulation;
+  white-space: nowrap;
 
   .amsterdam-theme--compact & {
     font-size: var(--amsterdam-page-menu-item-compact-font-size);

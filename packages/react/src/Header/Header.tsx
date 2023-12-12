@@ -18,7 +18,7 @@ export interface HeaderProps extends HTMLAttributes<HTMLElement> {
   menu?: ReactNode
 }
 
-export const SubsiteTitle = ({ children }: { children: ReactNode }) => (
+const SubsiteTitle = ({ children }: { children: ReactNode }) => (
   <Heading level={1} size="level-3" className="amsterdam-header__subsite-title">
     {children}
   </Heading>
@@ -42,7 +42,12 @@ export const Header = forwardRef(
         <header
           {...restProps}
           ref={ref}
-          className={clsx('amsterdam-header', menu && 'amsterdam-header--has-menu', className)}
+          className={clsx(
+            'amsterdam-header',
+            menu && 'amsterdam-header--has-menu',
+            title && 'amsterdam-header--has-title',
+            className,
+          )}
         >
           <div className="amsterdam-header__column amsterdam-header__column--logo">
             <a href={logoLink} className="amsterdam-header__logo-link">
@@ -51,8 +56,12 @@ export const Header = forwardRef(
             </a>
           </div>
           {menu && <div className="amsterdam-header__column amsterdam-header__column--menu">{menu}</div>}
+          {title && (
+            <div className="amsterdam-header__column--title">
+              <SubsiteTitle>{title}</SubsiteTitle>
+            </div>
+          )}
         </header>
-        {title && <SubsiteTitle>{title}</SubsiteTitle>}
       </>
     )
   },
