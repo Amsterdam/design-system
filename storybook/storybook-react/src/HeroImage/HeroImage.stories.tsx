@@ -30,9 +30,9 @@ export const WithSearchField: Story = {
   args: {
     src: 'https://picsum.photos/1280/360?random=2',
     children: (
-      <Grid paddingVertical="medium">
-        <Grid.Cell fullWidth>
-          <SearchField style={{ marginInline: 'auto', maxWidth: '32rem' }}>
+      <Grid>
+        <Grid.Cell span={{ narrow: 4, medium: 6, wide: 6 }} start={{ narrow: 1, medium: 2, wide: 4 }}>
+          <SearchField>
             <SearchField.Input label="Zoeken" placeholder="Wat kunnen we voor u vinden?" />
             <SearchField.Button />
           </SearchField>
