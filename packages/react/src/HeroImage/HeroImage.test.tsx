@@ -1,4 +1,4 @@
-import { render, screen } from '@testing-library/react'
+import { render } from '@testing-library/react'
 import { createRef } from 'react'
 import { HeroImage } from './HeroImage'
 import '@testing-library/jest-dom'
@@ -21,12 +21,6 @@ describe('Hero image', () => {
     const { container } = render(<HeroImage src="https://picsum.photos/1280/360" className="extra" />)
     const component = container.querySelector(':only-child')
     expect(component).toHaveClass('amsterdam-hero-image extra')
-  })
-
-  it('renders a custom HTML element', () => {
-    render(<HeroImage src="https://picsum.photos/1280/360" as="section" />)
-    const sectionElement = screen.getByRole('section')
-    expect(sectionElement).toBeInTheDocument()
   })
 
   it('supports ForwardRef in React', () => {

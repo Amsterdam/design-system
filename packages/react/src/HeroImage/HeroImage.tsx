@@ -8,21 +8,17 @@ import { ImgHTMLAttributes } from 'react'
 import { forwardRef, HTMLAttributes, PropsWithChildren } from 'react'
 
 export interface HeroImageProps extends PropsWithChildren<HTMLAttributes<HTMLElement>> {
-  as?: 'article' | 'aside' | 'div' | 'footer' | 'section'
+  /** The source of the image. */
   src: ImgHTMLAttributes<HTMLImageElement>['src']
 }
 
 export const HeroImage = forwardRef<HTMLDivElement, HeroImageProps>(
-  ({ as = 'div', children, className, src, ...restProps }: HeroImageProps, ref) => {
-    const Component = as
-
-    return (
-      <Component {...restProps} ref={ref} className={clsx('amsterdam-hero-image', className)}>
-        <img alt="" className="amsterdam-hero-image__image" src={src} />
-        {children}
-      </Component>
-    )
-  },
+  ({ children, className, src, ...restProps }: HeroImageProps, ref) => (
+    <div {...restProps} ref={ref} className={clsx('amsterdam-hero-image', className)}>
+      <img alt="" className="amsterdam-hero-image__image" src={src} />
+      {children}
+    </div>
+  ),
 )
 
 HeroImage.displayName = 'HeroImage'
