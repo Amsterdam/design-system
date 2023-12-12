@@ -1,0 +1,43 @@
+import { Canvas, Controls, Markdown, Meta, Primary } from "@storybook/blocks";
+import * as SpotlightStories from "./Spotlight.stories.tsx";
+import README from "../../../../packages/css/src/components/spotlight/README.md?raw";
+
+<Meta of={SpotlightStories} />
+
+<Markdown>{README}</Markdown>
+
+<Primary />
+
+<Controls />
+
+### Blauw
+
+<Canvas of={SpotlightStories.Blue} />
+
+### Donkergroen
+
+<Canvas of={SpotlightStories.DarkGreen} />
+
+### Geel
+
+<Canvas of={SpotlightStories.Yellow} />
+
+### Groen
+
+<Canvas of={SpotlightStories.Green} />
+
+### Lichtblauw
+
+<Canvas of={SpotlightStories.LightBlue} />
+
+### Magenta
+
+<Canvas of={SpotlightStories.Magenta} />
+
+### Oranje
+
+<Canvas of={SpotlightStories.Orange} />
+
+### Paars
+
+<Canvas of={SpotlightStories.Purple} />
