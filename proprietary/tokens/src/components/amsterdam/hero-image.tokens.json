@@ -1,0 +1,7 @@
+{
+  "amsterdam": {
+    "hero-image": {
+      "aspect-ratio": { "value": "{amsterdam.proportion.2x-wide}" }
+    }
+  }
+}

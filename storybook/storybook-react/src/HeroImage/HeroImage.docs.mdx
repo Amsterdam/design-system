@@ -1,0 +1,25 @@
+import { Canvas, Markdown, Meta, Primary } from "@storybook/blocks";
+import * as HeroImageStories from "./HeroImage.stories.tsx";
+import README from "../../../../packages/css/src/components/hero-image/README.md?raw";
+
+<Meta of={HeroImageStories} />
+
+<Markdown>{README}</Markdown>
+
+## Voorbeelden
+
+### Basis
+
+De beeldverhouding van de afbeelding is 32:9.
+Dat komt overeen met de `2x-wide` [aspect ratio](?path=/docs/react_layout-aspect-ratio--docs).
+
+<Primary />
+
+### Met zoekveld
+
+De inhoud van een hero-afbeelding zal doorgaans in een grid staan.
+De horizontale witruimte en maatvoering is dan verzorgd.
+
+In dit geval specificeert het zoekveld een maximale breedte en centreert het zichzelf binnen de cel van het grid.
+
+<Canvas of={HeroImageStories.WithSearchField} />

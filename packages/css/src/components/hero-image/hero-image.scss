@@ -1,0 +1,13 @@
+/**
+ * @license EUPL-1.2+
+ * Copyright (c) 2023 Gemeente Amsterdam
+ */
+
+.amsterdam-hero-image {
+  align-content: center;
+  aspect-ratio: var(--amsterdam-hero-image-aspect-ratio);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  display: grid;
+}
