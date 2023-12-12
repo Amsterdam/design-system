@@ -1,6 +1,6 @@
 {
   "amsterdam": {
-    "highlight": {
+    "spotlight": {
       "blue": {
         "background-color": { "value": "{amsterdam.color.primary-blue}" }
       },

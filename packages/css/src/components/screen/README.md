@@ -9,7 +9,7 @@ Daarbinnen combineer je componenten als
 [Grid](?path=/docs/react_layout-grid--docs),
 Header,
 [Footer](?path=/docs/react_containers-footer--docs),
-[Highlight](?path=/docs/react_containers-highlight--docs)
+[Spotlight](?path=/docs/react_containers-spotlight--docs)
 en Figure.
 
 ## Ontwerp
