@@ -22,11 +22,11 @@ export const Default: Story = {
   args: {
     children: 'Wat vinden Amsterdammers belangrijk?',
   },
-  render: (args) => (
+  render: ({ children }) => (
     <Paragraph>
       Daarom organiseren we in 2024 het burgerberaad schone stad, waarin 150 Amsterdammers in gesprek gaan over hoe we
-      de stad beter schoonhouden. <Mark>{args.children}</Mark> Welke oplossingen zien zij? Hier zijn we benieuwd naar.
-      Want elke Amsterdammer heeft afval en moet het kwijt. Wij kunnen als gemeente veel van deze afvalexperts leren.
+      de stad beter schoonhouden. <Mark>{children}</Mark> Welke oplossingen zien zij? Hier zijn we benieuwd naar. Want
+      elke Amsterdammer heeft afval en moet het kwijt. Wij kunnen als gemeente veel van deze afvalexperts leren.
     </Paragraph>
   ),
 }
