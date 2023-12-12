@@ -4,8 +4,7 @@
  */
 
 import clsx from 'clsx'
-import { ImgHTMLAttributes } from 'react'
-import { forwardRef, HTMLAttributes, PropsWithChildren } from 'react'
+import { forwardRef, HTMLAttributes, ImgHTMLAttributes, PropsWithChildren } from 'react'
 
 export interface HeroImageProps extends PropsWithChildren<HTMLAttributes<HTMLElement>> {
   /** The source of the image. */
