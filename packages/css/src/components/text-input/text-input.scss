@@ -1,0 +1,57 @@
+/**
+ * @license EUPL-1.2+
+ * Copyright (c) 2023 Gemeente Amsterdam
+ */
+
+@mixin reset {
+  box-sizing: border-box;
+  margin-block: 0;
+  -webkit-text-size-adjust: 100%;
+}
+
+.amsterdam-text-input {
+  border: none;
+  box-shadow: var(--amsterdam-text-input-box-shadow);
+  color: var(--amsterdam-text-input-color);
+  font-family: var(--amsterdam-text-input-font-family);
+  font-size: var(--amsterdam-text-input-spacious-font-size);
+  font-weight: var(--amsterdam-text-input-font-weight);
+  line-height: var(--amsterdam-text-input-spacious-line-height);
+  outline-offset: var(--amsterdam-text-input-outline-offset);
+  padding-block: 0.5rem;
+  padding-inline: 1rem;
+  touch-action: manipulation;
+  width: 100%;
+
+  @include reset;
+
+  .amsterdam-theme--compact & {
+    font-size: var(--amsterdam-text-input-compact-font-size);
+    line-height: var(--amsterdam-text-input-compact-line-height);
+  }
+
+  &:hover {
+    box-shadow: var(--amsterdam-text-input-hover-box-shadow);
+  }
+}
+
+.amsterdam-text-input::placeholder {
+  color: var(--amsterdam-text-input-placeholder-color);
+}
+
+.amsterdam-text-input:disabled {
+  background-color: var(--amsterdam-text-input-disabled-background-color);
+  box-shadow: var(--amsterdam-text-input-disabled-box-shadow);
+  color: var(--amsterdam-text-input-disabled-color);
+  cursor: not-allowed;
+}
+
+.amsterdam-text-input:invalid,
+.amsterdam-text-input[aria-invalid="true"] {
+  box-shadow: var(--amsterdam-text-input-invalid-box-shadow);
+
+  &:hover {
+    // TODO: this should be the (currently non-existent) dark red hover color
+    box-shadow: var(--amsterdam-text-input-invalid-hover-box-shadow);
+  }
+}
