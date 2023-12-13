@@ -1,14 +1,14 @@
 # Header
 
-Een Header biedt een container aan waarmee je een logo van de Gemeente Amsterdam, subsite titel en page menu kan tonen.
+A Header offers a container to display a City of Amsterdam logo, subsite title and page menu.
 
-## Richtlijnen
+## Guidelines
 
-- Gebruik de Header altijd wanneer je site gehost wordt op amsterdam.nl of één van de subdomeinen.
-- Het page menu kan maximaal 5 items bevatten, inclusief menu en zoeken.
-- Wanneer je een lange subsite titel hebt, gebruik dan geen of zo min mogelijk page menu items.
+- Use the Header when the site is hosted on amsterdam.nl or one of its subdomains.
+- The page menu can contain a maximum of 5 items, including menu and search.
+- When you have a long subsite title, use no or as little page menu items as possible.
 
-## Referenties
+## References
 
-- Een Header is een [landmark](https://www.w3.org/TR/wai-aria-practices-1.1/#aria_landmark_roles) en kan gebruikt worden om de navigatie van een pagina te groeperen.
-- [WCAG 3.2.3](https://wcag.com/designers/3-2-3-consistent-navigation/) Consistent Navigation: Navigatie menu's die op meerdere pagina's voorkomen, zijn consistent.
+- A Header is a [landmark](https://www.w3.org/TR/wai-aria-practices-1.1/#aria_landmark_roles) and can be use to group navigation elements.
+- [WCAG 3.2.3](https://wcag.com/designers/3-2-3-consistent-navigation/) Consistent Navigation: Navigation menus that appear on multiple pages are consistent.
