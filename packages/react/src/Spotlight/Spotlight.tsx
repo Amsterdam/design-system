@@ -6,20 +6,20 @@
 import clsx from 'clsx'
 import { forwardRef, HTMLAttributes, PropsWithChildren } from 'react'
 
-export interface HighlightProps extends PropsWithChildren<HTMLAttributes<HTMLElement>> {
+export interface SpotlightProps extends PropsWithChildren<HTMLAttributes<HTMLElement>> {
   as?: 'article' | 'aside' | 'div' | 'footer' | 'section'
   color?: 'blue' | 'dark-green' | 'green' | 'light-blue' | 'magenta' | 'orange' | 'purple' | 'yellow'
 }
 
-export const Highlight = forwardRef<HTMLDivElement, HighlightProps>(
-  ({ children, className, as = 'div', color = 'blue', ...restProps }: HighlightProps, ref) => {
+export const Spotlight = forwardRef<HTMLDivElement, SpotlightProps>(
+  ({ children, className, as = 'div', color = 'blue', ...restProps }: SpotlightProps, ref) => {
     const Component = as
 
     return (
       <Component
         {...restProps}
         ref={ref}
-        className={clsx('amsterdam-highlight', `amsterdam-highlight--${color}`, className)}
+        className={clsx('amsterdam-spotlight', `amsterdam-spotlight--${color}`, className)}
       >
         {children}
       </Component>
@@ -27,4 +27,4 @@ export const Highlight = forwardRef<HTMLDivElement, HighlightProps>(
   },
 )
 
-Highlight.displayName = 'Highlight'
+Spotlight.displayName = 'Spotlight'

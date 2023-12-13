@@ -24,7 +24,7 @@
     "@amsterdam/design-system-react": "workspace:*",
     "@amsterdam/design-system-react-icons": "workspace:*",
     "@amsterdam/design-system-tokens": "workspace:*",
-    "@babel/core": "7.23.5",
+    "@babel/core": "7.23.6",
     "@mdx-js/react": "2.3.0",
     "@storybook/addon-a11y": "7.6.4",
     "@storybook/addon-actions": "7.6.4",
@@ -40,7 +40,7 @@
     "@storybook/react-vite": "7.6.4",
     "@storybook/testing-library": "0.2.2",
     "@storybook/theming": "7.6.4",
-    "@types/react": "18.2.42",
+    "@types/react": "18.2.45",
     "@types/react-dom": "18.2.17",
     "@vitejs/plugin-react": "4.2.1",
     "clsx": "2.0.0",
@@ -49,7 +49,7 @@
     "require-from-string": "2.0.2",
     "sass": "1.69.5",
     "storybook": "7.6.4",
-    "vite": "5.0.7"
+    "vite": "5.0.8"
   },
   "dependencies": {
     "remark-gfm": "3.0.1"

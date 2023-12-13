@@ -3,13 +3,13 @@
  * Copyright (c) 2023 Gemeente Amsterdam
  */
 
-import { Blockquote, Grid, Highlight } from '@amsterdam/design-system-react'
+import { Blockquote, Grid, Spotlight } from '@amsterdam/design-system-react'
 import { Meta, StoryObj } from '@storybook/react'
 import { exampleQuote } from '../shared/exampleContent'
 
 const meta = {
-  title: 'Containers/Highlight',
-  component: Highlight,
+  title: 'Containers/Spotlight',
+  component: Spotlight,
   argTypes: {
     color: {
       options: ['blue', 'dark-green', 'green', 'light-blue', 'magenta', 'orange', 'purple', 'yellow'],
@@ -34,15 +34,15 @@ const meta = {
     },
   },
   render: ({ color }) => (
-    <Highlight color={color}>
+    <Spotlight color={color}>
       <Grid paddingVertical="medium">
         <Grid.Cell fullWidth>
           <Blockquote inverseColor={!color || !['green', 'yellow'].includes(color)}>{exampleQuote()}</Blockquote>
         </Grid.Cell>
       </Grid>
-    </Highlight>
+    </Spotlight>
   ),
-} satisfies Meta<typeof Highlight>
+} satisfies Meta<typeof Spotlight>
 
 export default meta
 
