@@ -123,8 +123,8 @@ const GridCell = forwardRef(
       {...restProps}
       ref={ref}
       className={clsx(
-        'amsterdam-grid-cell',
-        fullWidth && 'amsterdam-grid-cell--full-width',
+        'amsterdam-grid__cell',
+        fullWidth && 'amsterdam-grid__cell--full-width',
         gridCellClasses(span, start),
         className,
       )}
