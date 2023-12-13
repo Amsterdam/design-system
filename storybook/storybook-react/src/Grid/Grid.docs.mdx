@@ -57,7 +57,7 @@ In sommige gevallen kan daar beter meer of minder witruimte staan.
 Een cel beslaat standaard 1 kolom in het grid.
 Om een cel meer kolommen te laten beslaan, gebruik je de `span` prop.
 
-<Canvas of={GridStories.CellSpan} />
+<Canvas of={GridStories.SpanMultipleColumns} />
 
 ### Verschillende breedtes
 
@@ -66,13 +66,13 @@ Gebruik hiervoor de `span` prop met 3 waarden voor respectievelijk smalle, midde
 
 Via `span={{ narrow: 4, medium: 6, wide: 8 }}` is deze cel 4 van de 4 kolommen breed op smalle vensters, 6 van de 8 op middelbrede en 8 van de 12 op brede vensters:
 
-<Canvas of={GridStories.CellSpans} />
+<Canvas of={GridStories.ConfigureGridVariants} />
 
 ### Volledige breedte
 
 Om de cel de volledige breedte te geven – of het grid nu 4, 8, of 12 kolommen heeft – gebruik je de `fullWidth` prop.
 
-<Canvas of={GridStories.FullWidth} />
+<Canvas of={GridStories.FullWidthCell} />
 
 ### Startpositie
 

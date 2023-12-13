@@ -87,7 +87,6 @@ export const Default: GridStory = {
   args: {
     children: Array.from(Array(12).keys()).map((i) => <Grid.Cell className="amsterdam-docs-pink-box" key={i} />),
   },
-  name: 'Ruimtelijk',
 }
 
 export const Compact: GridStory = {
@@ -96,7 +95,6 @@ export const Compact: GridStory = {
     children: Array.from(Array(12).keys()).map((i) => <Grid.Cell className="amsterdam-docs-pink-box" key={i} />),
     compact: true,
   },
-  name: 'Compact',
 }
 
 export const VerticalSpace: GridStory = {
@@ -105,7 +103,6 @@ export const VerticalSpace: GridStory = {
     children: Array.from(Array(12).keys()).map((i) => <Grid.Cell className="amsterdam-docs-pink-box" key={i} />),
     paddingVertical: 'medium',
   },
-  name: 'Verticale marge',
 }
 
 export const VerticalGap: GridStory = {
@@ -116,19 +113,17 @@ export const VerticalGap: GridStory = {
     )),
     gapVertical: 'small',
   },
-  name: 'Verticale witruimte',
 }
 
-export const CellSpan: GridCellStory = {
+export const SpanMultipleColumns: GridCellStory = {
   ...GridCellStoryTemplate,
   args: {
     children: <p className="amsterdam-docs-paragraph amsterdam-docs-pink-box">Deze cel beslaat 4 kolommen.</p>,
     span: 4,
   },
-  name: 'Meerdere kolommen',
 }
 
-export const CellSpans: GridCellStory = {
+export const ConfigureGridVariants: GridCellStory = {
   ...GridCellStoryTemplate,
   args: {
     children: (
@@ -136,10 +131,9 @@ export const CellSpans: GridCellStory = {
     ),
     span: { narrow: 4, medium: 6, wide: 8 },
   },
-  name: 'Meerdere kolombreedtes',
 }
 
-export const FullWidth: GridCellStory = {
+export const FullWidthCell: GridCellStory = {
   ...GridCellStoryTemplate,
   args: {
     children: (
@@ -149,7 +143,6 @@ export const FullWidth: GridCellStory = {
     ),
     fullWidth: true,
   },
-  name: 'Volledige breedte',
 }
 
 export const StartPosition: GridCellStory = {
@@ -159,5 +152,4 @@ export const StartPosition: GridCellStory = {
     span: 2,
     start: 2,
   },
-  name: 'Startpositie',
 }
