@@ -14,7 +14,9 @@ export interface HeroImageProps extends PropsWithChildren<HTMLAttributes<HTMLEle
 export const HeroImage = forwardRef<HTMLDivElement, HeroImageProps>(
   ({ children, className, src, ...restProps }: HeroImageProps, ref) => (
     <div {...restProps} ref={ref} className={clsx('amsterdam-hero-image', className)}>
-      <img alt="" className="amsterdam-hero-image__image" src={src} />
+      <div className="amsterdam-hero-image__image">
+        <img alt="" src={src} />
+      </div>
       {children}
     </div>
   ),
