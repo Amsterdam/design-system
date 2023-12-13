@@ -26,6 +26,12 @@ export const WithLogoVariant: Story = {
   },
 }
 
+export const WithTitle: Story = {
+  args: {
+    title: 'Aan de Amsterdamse grachten',
+  },
+}
+
 export const WithHeaderMenu: Story = {
   args: {
     menu: (
@@ -43,7 +49,7 @@ export const WithHeaderMenu: Story = {
   },
 }
 
-export const WithBoth: Story = {
+export const WithTitleAndMenu: Story = {
   decorators: [
     (Story) => (
       <Screen>
