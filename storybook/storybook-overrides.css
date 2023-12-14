@@ -1,10 +1,5 @@
 /* stylelint-disable */
 
-/* When viewing grid elements the storybook body padding will cause issues */
-/* .sb-show-main.sb-main-padded {
-  padding: 1rem 0;
-} */
-
 .sbdocs-wrapper.sbdocs-wrapper {
   padding-inline: 8vw;
 }
