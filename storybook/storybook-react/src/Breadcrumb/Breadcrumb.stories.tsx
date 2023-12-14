@@ -15,14 +15,12 @@ export default meta
 
 type Story = StoryObj<typeof meta>
 
-export const BreadcrumbStory: Story = {
+export const Default: Story = {
   render: () => (
     <Breadcrumb>
-      <Breadcrumb.Item href="#">home</Breadcrumb.Item>
-      <Breadcrumb.Item href="#">path 1</Breadcrumb.Item>
-      <Breadcrumb.Item href="#">path 2</Breadcrumb.Item>
-      <Breadcrumb.Item href="#">path 3</Breadcrumb.Item>
-      <Breadcrumb.Item href="#">path 5</Breadcrumb.Item>
+      <Breadcrumb.Item href="#">Home</Breadcrumb.Item>
+      <Breadcrumb.Item href="#">Nieuws</Breadcrumb.Item>
+      <Breadcrumb.Item href="#">Kennisgevingen en bekendmakingen</Breadcrumb.Item>
     </Breadcrumb>
   ),
   parameters: {
@@ -31,11 +29,9 @@ export const BreadcrumbStory: Story = {
         language: 'jsx',
         code: `
 <Breadcrumb>
-  <Breadcrumb.Item href="#">home</Breadcrumb.Item>
-  <Breadcrumb.Item href="#">path 1</Breadcrumb.Item>
-  <Breadcrumb.Item href="#">path 2</Breadcrumb.Item>
-  <Breadcrumb.Item href="#">path 3</Breadcrumb.Item>
-  <Breadcrumb.Item href="#">path 5</Breadcrumb.Item>
+  <Breadcrumb.Item href="#">Home</Breadcrumb.Item>
+  <Breadcrumb.Item href="#">Nieuws</Breadcrumb.Item>
+  <Breadcrumb.Item href="#">Kennisgevingen en bekendmakingen</Breadcrumb.Item>
 </Breadcrumb>
         `,
       },
