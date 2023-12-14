@@ -25,27 +25,22 @@
 .amsterdam-breadcrumb__list {
   break-after: avoid;
   break-inside: avoid;
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.5rem;
-  list-style: none;
 
   @include reset;
 }
 
 .amsterdam-breadcrumb__item {
-  align-items: center;
-  display: flex;
+  display: inline;
 }
 
 .amsterdam-breadcrumb__item:not(:last-child)::after {
-  background-color: var(--amsterdam-breadcrumb-separator-background-color);
-  clip-path: path("M 4.725,16 3.275,14.545 9.815,8 3.275,1.455 4.725,0 l 8,8 z");
+  background-image: var(--amsterdam-breadcrumb-separator-background-image);
+  background-repeat: no-repeat;
   content: "";
   display: inline-block;
-  height: 1rem;
-  margin-inline-start: 1rem;
-  width: 1rem;
+  height: 1ex;
+  margin-inline: 0.5rem;
+  width: 1ex;
 }
 
 .amsterdam-breadcrumb__link {
@@ -54,10 +49,6 @@
   text-decoration-line: var(--amsterdam-breadcrumb-item-link-text-decoration-line);
   text-decoration-thickness: var(--amsterdam-breadcrumb-item-link-text-decoration-thickness);
   text-underline-offset: var(--amsterdam-breadcrumb-item-link-text-underline-offset);
-
-  &::first-letter {
-    text-transform: capitalize;
-  }
 
   &:hover {
     color: var(--amsterdam-breadcrumb-item-link-hover-color);
