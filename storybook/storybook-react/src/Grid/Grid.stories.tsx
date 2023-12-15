@@ -34,12 +34,10 @@ const gridArgTypes = {
 
 const gridCellArgTypes = {
   span: {
-    control: { type: 'inline-radio' },
-    options: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
+    control: { type: 'number', min: 1, max: 12 },
   },
   start: {
-    control: { type: 'inline-radio' },
-    options: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
+    control: { type: 'number', min: 1, max: 12 },
   },
 }
 
@@ -149,7 +147,7 @@ export const StartPosition: GridCellStory = {
   ...GridCellStoryTemplate,
   args: {
     children: <p className="amsterdam-docs-paragraph amsterdam-docs-pink-box">Deze cel start in kolom 2.</p>,
-    span: 2,
+    span: 3,
     start: 2,
   },
 }
