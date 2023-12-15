@@ -29,3 +29,7 @@ To illustrate: If the `Accordion` React component needs the `HeadingLevel` type 
 Instead of this:
 
 `import { HeadingLevel } from '../Heading'` or `import { HeadingLevel } from '../'`
+
+## Child components
+
+Child components (i.e. `Grid.Cell`) are kept in seperate files (i.e. `GridCell.tsx`) and they have their own test files (i.e. `GridCell.test.tsx`). Child components are imported in the main component file. We do not directly expose child components to consumers, so a consumer can only import `Grid`, not `GridCell`.
