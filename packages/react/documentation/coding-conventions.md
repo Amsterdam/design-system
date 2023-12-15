@@ -30,6 +30,6 @@ Instead of this:
 
 `import { HeadingLevel } from '../Heading'` or `import { HeadingLevel } from '../'`
 
-## Child components
+## Subcomponents
 
 Subcomponents (e.g. `Grid.Cell`) are kept in separate files (e.g. `GridCell.tsx`) and they have their own test files (e.g. `GridCell.test.tsx`). Subcomponents are imported in the main component file. We do not directly expose subcomponents to consumers, so a consumer can only import `Grid`, not `GridCell`.
