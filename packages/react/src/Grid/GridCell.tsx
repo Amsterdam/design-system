@@ -2,10 +2,9 @@
  * @license EUPL-1.2+
  * Copyright (c) 2023 Gemeente Amsterdam
  */
-
 import clsx from 'clsx'
-import { ForwardedRef, forwardRef, HTMLAttributes, PropsWithChildren } from 'react'
-import type { GridColumnNumber, GridColumnNumbers } from './Grid'
+import { type ForwardedRef, forwardRef, type HTMLAttributes, type PropsWithChildren } from 'react'
+import { GridColumnNumber, GridColumnNumbers } from './Grid'
 import { gridCellClasses } from './gridCellClasses'
 
 type GridCellFullWidthProp = {
@@ -32,8 +31,8 @@ export const GridCell = forwardRef(
       {...restProps}
       ref={ref}
       className={clsx(
-        'amsterdam-grid-cell',
-        fullWidth && 'amsterdam-grid-cell--full-width',
+        'amsterdam-grid__cell',
+        fullWidth && 'amsterdam-grid__cell--full-width',
         gridCellClasses(span, start),
         className,
       )}
