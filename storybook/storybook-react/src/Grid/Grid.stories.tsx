@@ -55,6 +55,10 @@ const gridCellMeta = { ...meta, component: Grid.Cell }
 type GridStory = StoryObj<typeof gridMeta>
 type GridCellStory = StoryObj<typeof gridCellMeta>
 
+const TwelveGridCells = Array.from(Array(12).keys()).map((i) => (
+  <Grid.Cell className="amsterdam-docs-pink-box" key={i} />
+))
+
 const GridStoryTemplate: GridStory = {
   argTypes: gridArgTypes,
   decorators: [
@@ -83,14 +87,14 @@ const GridCellStoryTemplate: GridCellStory = {
 export const Default: GridStory = {
   ...GridStoryTemplate,
   args: {
-    children: Array.from(Array(12).keys()).map((i) => <Grid.Cell className="amsterdam-docs-pink-box" key={i} />),
+    children: TwelveGridCells,
   },
 }
 
 export const Compact: GridStory = {
   ...GridStoryTemplate,
   args: {
-    children: Array.from(Array(12).keys()).map((i) => <Grid.Cell className="amsterdam-docs-pink-box" key={i} />),
+    children: TwelveGridCells,
     compact: true,
   },
 }
@@ -98,7 +102,7 @@ export const Compact: GridStory = {
 export const VerticalSpace: GridStory = {
   ...GridStoryTemplate,
   args: {
-    children: Array.from(Array(12).keys()).map((i) => <Grid.Cell className="amsterdam-docs-pink-box" key={i} />),
+    children: TwelveGridCells,
     paddingVertical: 'medium',
   },
 }
