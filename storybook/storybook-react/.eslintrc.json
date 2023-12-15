@@ -1,5 +1,8 @@
 {
   "rules": {
+    "@typescript-eslint/consistent-type-exports": "error",
+    "@typescript-eslint/consistent-type-imports": "error",
+    "import/consistent-type-specifier-style": ["error", "prefer-inline"],
     "react/prop-types": "off",
     "react/react-in-jsx-scope": "off"
   }
