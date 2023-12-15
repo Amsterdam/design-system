@@ -101,4 +101,3 @@ export const Grid = forwardRef(
 
 Grid.Cell = GridCell
 Grid.displayName = 'Grid'
-GridCell.displayName = 'Grid.Cell'
