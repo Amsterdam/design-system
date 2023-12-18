@@ -40,7 +40,7 @@
     "@storybook/core-events": "7.6.4",
     "@storybook/manager-api": "7.6.4",
     "@storybook/mdx2-csf": "1.1.0",
-    "@storybook/preview-api": "7.6.4",
+    "@storybook/preview-api": "7.6.5",
     "@storybook/react": "7.6.4",
     "@storybook/react-vite": "7.6.4",
     "@storybook/testing-library": "0.2.2",
