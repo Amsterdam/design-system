@@ -14,9 +14,5 @@
 
 .amsterdam-hero-image__image {
   aspect-ratio: var(--amsterdam-hero-image-aspect-ratio);
-
-  > img {
-    object-fit: cover;
-    width: 100%;
-  }
+  display: flex; // Stretches the `img`.
 }

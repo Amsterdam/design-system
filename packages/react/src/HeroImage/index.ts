@@ -1,2 +1,1 @@
-export { HeroImage } from './HeroImage'
-export type { HeroImageProps } from './HeroImage'
+export { HeroImage, type HeroImageProps } from './HeroImage'
