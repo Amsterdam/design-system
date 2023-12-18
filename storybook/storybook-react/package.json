@@ -52,7 +52,7 @@
     "react": "18.2.0",
     "react-dom": "18.2.0",
     "require-from-string": "2.0.2",
-    "storybook": "7.6.4",
+    "storybook": "7.6.5",
     "vite": "5.0.8"
   },
   "dependencies": {
