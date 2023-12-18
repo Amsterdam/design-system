@@ -72,7 +72,7 @@ describe('Grid.Cell', () => {
     )
   })
 
-  it('renders class names for an array of three numbers for start and span', () => {
+  it('renders class names for array values for both start and span', () => {
     const { container } = render(
       <Grid.Cell span={{ narrow: 2, medium: 4, wide: 6 }} start={{ narrow: 1, medium: 3, wide: 5 }} />,
     )
@@ -80,5 +80,11 @@ describe('Grid.Cell', () => {
     expect(component).toHaveClass(
       'amsterdam-grid__cell--span-2 amsterdam-grid__cell--span-4-medium amsterdam-grid__cell--span-6-wide amsterdam-grid__cell--start-1 amsterdam-grid__cell--start-3-medium amsterdam-grid__cell--start-5-wide',
     )
+  })
+
+  it('renders the correct class name for the "all" value of span', () => {
+    const { container } = render(<Grid.Cell span="all" />)
+    const component = container.querySelector(':only-child')
+    expect(component).toHaveClass('amsterdam-grid__cell--span-all')
   })
 })
