@@ -3,15 +3,13 @@
  * Copyright (c) 2023 Gemeente Amsterdam
  */
 
-.amsterdam-visually-hidden {
-  clip: rect(1px, 1px, 1px, 1px);
+// Source: https://css-tricks.com/inclusively-hidden/
+.amsterdam-visually-hidden:not(:active, :focus) {
+  clip: rect(0 0 0 0);
   clip-path: inset(50%);
   height: 1px;
-  margin-block: -1px;
-  margin-inline: -1px;
   overflow: hidden;
-  padding-block: 0;
-  padding-inline: 0;
   position: absolute;
+  white-space: nowrap;
   width: 1px;
 }
