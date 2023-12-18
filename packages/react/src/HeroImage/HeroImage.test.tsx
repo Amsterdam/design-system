@@ -24,7 +24,7 @@ describe('Hero image', () => {
   })
 
   it('supports ForwardRef in React', () => {
-    const ref = createRef<HTMLDivElement>()
+    const ref = createRef<HTMLImageElement>()
     const { container } = render(<HeroImage src="https://picsum.photos/1280/360" ref={ref} />)
     const component = container.querySelector(':only-child')
     expect(ref.current).toBe(component)
