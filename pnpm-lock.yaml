@@ -444,8 +444,8 @@ importers:
         specifier: 7.6.4
         version: 7.6.4(@types/react-dom@18.2.17)(@types/react@18.2.45)(react-dom@18.2.0)(react@18.2.0)
       '@storybook/core-events':
-        specifier: 7.6.4
-        version: 7.6.4
+        specifier: 7.6.5
+        version: 7.6.5
       '@storybook/manager-api':
         specifier: 7.6.4
         version: 7.6.4(react-dom@18.2.0)(react@18.2.0)
@@ -4969,6 +4969,12 @@ packages:
 
   /@storybook/core-events@7.6.4:
     resolution: {integrity: sha512-i3xzcJ19ILSy4oJL5Dz9y0IlyApynn5RsGhAMIsW+mcfri+hGfeakq1stNCo0o7jW4Y3A7oluFTtIoK8DOxQdQ==}
+    dependencies:
+      ts-dedent: 2.2.0
+    dev: true
+
+  /@storybook/core-events@7.6.5:
+    resolution: {integrity: sha512-zk2q/qicYXAzHA4oV3GDbIql+Kd4TOHUgDE8e4jPCOPp856z2ScqEKUAbiJizs6eEJOH4nW9Db1kuzgrBVEykQ==}
     dependencies:
       ts-dedent: 2.2.0
     dev: true
