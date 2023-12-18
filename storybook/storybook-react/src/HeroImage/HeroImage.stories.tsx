@@ -36,7 +36,7 @@ export const WithSearchField: Story = {
     children: (
       <Grid>
         <Grid.Cell span={{ narrow: 4, medium: 6, wide: 6 }} start={{ narrow: 1, medium: 2, wide: 4 }}>
-          <SearchField>
+          <SearchField onSubmit={(e) => { e.preventDefault() }}>
             <SearchField.Input label="Zoeken" placeholder="Wat kunnen we voor u vinden?" />
             <SearchField.Button />
           </SearchField>
