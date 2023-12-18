@@ -135,7 +135,7 @@ export const ConfigureGridVariants: GridCellStory = {
   },
 }
 
-export const FullWidthCell: GridCellStory = {
+export const SpanAllColumns: GridCellStory = {
   ...GridCellStoryTemplate,
   args: {
     children: (
@@ -143,7 +143,7 @@ export const FullWidthCell: GridCellStory = {
         Deze cel beslaat de volledige breedte van het grid.
       </p>
     ),
-    fullWidth: true,
+    span: 'all',
   },
 }
 
