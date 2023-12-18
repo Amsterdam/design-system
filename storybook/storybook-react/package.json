@@ -35,7 +35,7 @@
     "@storybook/addon-links": "7.6.4",
     "@storybook/addons": "7.6.4",
     "@storybook/api": "7.6.4",
-    "@storybook/blocks": "7.6.4",
+    "@storybook/blocks": "7.6.5",
     "@storybook/components": "7.6.4",
     "@storybook/core-events": "7.6.4",
     "@storybook/manager-api": "7.6.4",
