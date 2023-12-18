@@ -6,9 +6,23 @@
 import { AspectRatio, Card, Heading, Image, Paragraph } from '@amsterdam/design-system-react'
 import { Meta, StoryObj } from '@storybook/react'
 
+const dateFormat = new Intl.DateTimeFormat('nl', {
+  day: 'numeric',
+  month: 'long',
+  year: 'numeric',
+})
+const today = dateFormat.format(Date.now())
+
 const meta = {
-  title: 'Containers/Card',
+  title: 'Navigation/Card',
   component: Card,
+  decorators: [
+    (Story) => (
+      <div style={{ maxWidth: '24rem' }}>
+        <Story />
+      </div>
+    ),
+  ],
 } satisfies Meta<typeof Card>
 
 export default meta
@@ -21,21 +35,14 @@ export const Default: Story = {
       <Heading size="level-4" key={1}>
         <Card.Link href="/">Monitor Attracties MRA</Card.Link>
       </Heading>,
-      <Paragraph key={2} size="small">
+      <Paragraph key={2}>
         Ontwikkeling van het aantal attracties en bezoekers in de metropoolregio Amsterdam.
       </Paragraph>,
     ],
   },
-  decorators: [
-    (Story) => (
-      <div style={{ maxWidth: '400px' }}>
-        <Story />
-      </div>
-    ),
-  ],
 }
 
-export const CardWithTagline: Story = {
+export const WithTagline: Story = {
   args: {
     children: [
       <Card.HeadingGroup key={1} tagline="Dossier">
@@ -46,14 +53,11 @@ export const CardWithTagline: Story = {
       <Paragraph key={2}>
         Ontwikkeling van het aantal attracties en bezoekers in de metropoolregio Amsterdam.
       </Paragraph>,
-      <Paragraph key={3} size="small">
-        Laatst gewijzigd: 28 september 2023
-      </Paragraph>,
     ],
   },
 }
 
-export const ImageCard: Story = {
+export const WithImage: Story = {
   args: {
     children: [
       <AspectRatio key={1} ratio="wide">
@@ -64,16 +68,12 @@ export const ImageCard: Story = {
           <Card.Link href="/">Monitor Attracties MRA</Card.Link>
         </Heading>
       </Card.HeadingGroup>,
-      <Paragraph key={3} size="small">
+      <Paragraph key={3}>
         Ontwikkeling van het aantal attracties en bezoekers in de metropoolregio Amsterdam.
+      </Paragraph>,
+      <Paragraph key={4} size="small">
+        {today}
       </Paragraph>,
     ],
   },
-  decorators: [
-    (Story) => (
-      <div style={{ maxWidth: '440px' }}>
-        <Story />
-      </div>
-    ),
-  ],
 }
