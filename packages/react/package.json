@@ -35,7 +35,7 @@
     "@amsterdam/design-system-react-icons": "workspace:*",
     "@utrecht/component-library-react": "2.0.0",
     "clsx": "2.0.0",
-    "date-fns": "2.30.0"
+    "date-fns": "3.0.0"
   },
   "devDependencies": {
     "@babel/core": "7.23.6",

@@ -126,13 +126,13 @@ importers:
         version: link:../../proprietary/react-icons
       '@utrecht/component-library-react':
         specifier: 2.0.0
-        version: 2.0.0(date-fns@2.30.0)(react-dom@18.2.0)(react@18.2.0)
+        version: 2.0.0(date-fns@3.0.0)(react-dom@18.2.0)(react@18.2.0)
       clsx:
         specifier: 2.0.0
         version: 2.0.0
       date-fns:
-        specifier: 2.30.0
-        version: 2.30.0
+        specifier: 3.0.0
+        version: 3.0.0
     devDependencies:
       '@babel/core':
         specifier: 7.23.6
@@ -474,8 +474,8 @@ importers:
         specifier: 4.2.1
         version: 4.2.1(vite@5.0.10)
       date-fns:
-        specifier: 2.30.0
-        version: 2.30.0
+        specifier: 3.0.0
+        version: 3.0.0
       http-server:
         specifier: 14.1.1
         version: 14.1.1
@@ -1925,6 +1925,7 @@ packages:
     engines: {node: '>=6.9.0'}
     dependencies:
       regenerator-runtime: 0.14.0
+    dev: true
 
   /@babel/template@7.22.15:
     resolution: {integrity: sha512-QPErUVm4uyJa60rkI73qneDacvdvzxshT3kksGqlGWYdOTIUOwJ7RDUL8sGqslY1uXWSL6xMFKEXDS3ox2uF0w==}
@@ -5621,7 +5622,7 @@ packages:
   /@types/date-fns@2.6.0:
     resolution: {integrity: sha512-9DSw2ZRzV0Tmpa6PHHJbMcZn79HHus+BBBohcOaDzkK/G3zMjDUDYjJIWBFLbkh+1+/IOS0A59BpQfdr37hASg==}
     dependencies:
-      date-fns: 2.30.0
+      date-fns: 3.0.0
     dev: true
 
   /@types/debug@4.1.9:
@@ -6136,7 +6137,7 @@ packages:
     resolution: {integrity: sha512-zuVdFrMJiuCDQUMCzQaD6KL28MjnqqN8XnAqiEq9PNm/hCPTSGfrXCOfwj1ow4LFb/tNymJPwsNbVePc1xFqrQ==}
     dev: true
 
-  /@utrecht/component-library-react@2.0.0(date-fns@2.30.0)(react-dom@18.2.0)(react@18.2.0):
+  /@utrecht/component-library-react@2.0.0(date-fns@3.0.0)(react-dom@18.2.0)(react@18.2.0):
     resolution: {integrity: sha512-WiZXgMhoDVRUZdPf9aVWBO1FIBVrY+qCNBHhX31lbUHZL83fMmcke4BFneu8Uk5ZB/ckDG+lFdbA23YuC9h0OA==}
     peerDependencies:
       date-fns: ^2.30.0
@@ -6153,7 +6154,7 @@ packages:
         optional: true
     dependencies:
       clsx: 1.2.1
-      date-fns: 2.30.0
+      date-fns: 3.0.0
       lodash.chunk: 4.2.0
       react: 18.2.0
       react-dom: 18.2.0(react@18.2.0)
@@ -7968,11 +7969,8 @@ packages:
       whatwg-url: 11.0.0
     dev: true
 
-  /date-fns@2.30.0:
-    resolution: {integrity: sha512-fnULvOpxnC5/Vg3NCiWelDsLiUc9bRwAPs/+LfTLNvetFCtCTN+yQz15C/fs4AwX1R9K5GLtLfn8QW+dWisaAw==}
-    engines: {node: '>=0.11'}
-    dependencies:
-      '@babel/runtime': 7.23.6
+  /date-fns@3.0.0:
+    resolution: {integrity: sha512-xjDz3rNN9jp+Lh3P/4MeY4E5HkaRnEnrJCcrdRZnKdn42gJlIe6hwrrwVXePRwVR2kh1UcMnz00erYBnHF8PFA==}
 
   /debug@2.6.9:
     resolution: {integrity: sha512-bC7ElrdJaJnPbAP+1EotYvqZsb3ecl5wi6Bfi6BJTUcNowp6cvspg0jXznRTKDjm/E7AdgFBVeAPVMNcKGsHMA==}
@@ -15201,6 +15199,7 @@ packages:
 
   /regenerator-runtime@0.14.0:
     resolution: {integrity: sha512-srw17NI0TUWHuGa5CFGGmhfNIeja30WMBfbslPNhf6JrqQlLN5gcrvig1oqPxiVaXb0oW0XRKtH6Nngs5lKCIA==}
+    dev: true
 
   /regenerator-transform@0.15.2:
     resolution: {integrity: sha512-hfMp2BoF0qOk3uc5V20ALGDS2ddjQaLrdl7xrGXvAIow7qeWRM2VA2HuCHkUKk9slq3VwEwLNK3DFBqDfPGYtg==}
