@@ -5,6 +5,7 @@
 
 /* Append here */
 export * from './Header'
+export * from './Mark'
 export * from './TextInput'
 export * from './SearchField'
 export * from './Logo'

@@ -68,7 +68,6 @@
   display: flex;
   flex-direction: column;
   grid-gap: var(--amsterdam-dialog-footer-gap);
-  padding-block: var(--amsterdam-dialog-footer-padding-block);
 
   @media screen and (min-width: $amsterdam-breakpoint-medium) {
     flex-direction: row;
