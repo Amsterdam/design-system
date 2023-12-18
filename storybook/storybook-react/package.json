@@ -33,7 +33,7 @@
     "@storybook/addon-essentials": "7.6.4",
     "@storybook/addon-interactions": "7.6.4",
     "@storybook/addon-links": "7.6.4",
-    "@storybook/addons": "7.6.4",
+    "@storybook/addons": "7.6.5",
     "@storybook/api": "7.6.4",
     "@storybook/blocks": "7.6.4",
     "@storybook/components": "7.6.4",
