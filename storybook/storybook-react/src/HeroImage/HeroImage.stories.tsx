@@ -9,9 +9,6 @@ import { Meta, StoryObj } from '@storybook/react'
 const meta = {
   title: 'Media/Hero Image',
   component: HeroImage,
-  args: {
-    children: <SearchField />,
-  },
 } satisfies Meta<typeof HeroImage>
 
 export default meta
