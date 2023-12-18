@@ -4,6 +4,7 @@
  */
 
 /* Append here */
+export * from './MegaMenu'
 export * from './TextInput'
 export * from './SearchField'
 export * from './Logo'
