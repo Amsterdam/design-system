@@ -81,11 +81,6 @@
   cursor: pointer;
   padding-block: 0;
   padding-inline: 0;
-
-  .amsterdam-visually-hidden {
-    margin-block: 0.25rem; // Prevents a malformed focus outline in Safari.
-    margin-inline: 0.25rem;
-  }
 }
 
 .amsterdam-dialog__close svg {
