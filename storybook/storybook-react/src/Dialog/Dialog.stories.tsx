@@ -10,12 +10,11 @@ const meta = {
   title: 'Containers/Dialog',
   component: Dialog,
   args: {
-    title: 'Later verder gaan',
+    title: 'Weet u het zeker?',
     children: (
       <Paragraph>
-        U kunt de ingevulde antwoorden opslaan in onze beveiligde database, deze kunt u later openen om verder te gaan
-        met invullen. Nadat u op opslaan heeft geklikt ontvangt u een mail. Met de link in deze mail kunt verder gaan
-        met het formulier.
+        Weet u zeker dat u door wilt gaan met het uitvoeren van deze actie? Alle niet-opgeslagen data zal worden
+        verwijderd.
       </Paragraph>
     ),
     actions: (
@@ -26,6 +25,18 @@ const meta = {
         <Button type="submit">Verder</Button>
       </>
     ),
+  },
+  argTypes: {
+    actions: {
+      table: {
+        disable: true,
+      },
+    },
+    children: {
+      table: {
+        disable: true,
+      },
+    },
   },
   parameters: {
     backgrounds: {
@@ -43,13 +54,13 @@ export const Default: Story = {
     open: true,
   },
   render: (args) => (
-    <div style={{ minHeight: '500px' }}>
+    <div style={{ minHeight: '32rem' }}>
       <Dialog {...args} />
     </div>
   ),
 }
 
-export const ScrollContent: Story = {
+export const WithScrollbar: Story = {
   args: {
     open: true,
     title: 'Privacyverklaring gemeente Amsterdam',
@@ -91,9 +102,9 @@ export const ScrollContent: Story = {
   ),
 }
 
-export const ShowDialog: Story = {
+export const TriggerButton: Story = {
   args: {
-    id: 'showdialog',
+    id: 'openDialog',
     actions: (
       <>
         <Button variant="tertiary" autoFocus onClick={(event) => event.currentTarget.closest('dialog')?.close()}>
@@ -106,7 +117,7 @@ export const ShowDialog: Story = {
   decorators: [
     (Story) => (
       <article>
-        <Button onClick={() => (document.querySelector('#showdialog') as HTMLDialogElement)?.showModal()}>
+        <Button onClick={() => (document.querySelector('#openDialog') as HTMLDialogElement)?.showModal()}>
           Open Dialog
         </Button>
         <Story />

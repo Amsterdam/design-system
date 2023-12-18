@@ -10,16 +10,17 @@ import README from "../../../../packages/css/src/components/card/README.md?raw";
 
 <Controls />
 
-## Card with tagline
+## Met tagline
 
-Een card kan een _tagline_ hebben, tekst voor de titel.
-Om de volgorde voor schermlezers logisch te houden,
-wordt eerst de titel gedefinieerd, en dan de _tagline_. Visueel wordt dit omgedraaid door `Card.HeadingGroup`.
+Een card kan boven de titel een _tagline_ tonen, een korte term zoals een categorie of informatiesoort.
+Gebruik een `Card.HeadingGroup`.
+Dit zorgt er ook voor dat schermlezers eerst de titel voorlezen, dan de tagline.
 
-<Canvas of={CardStories.CardWithTagline} />
+<Canvas of={CardStories.WithTagline} />
 
-## Image card
+## Met afbeelding
 
-Een card kan ook een plaatje bevatten. Gebruik het Aspect Ratio component voor de juiste beeldverhoudingen.
+Een card toont vaak de afbeelding van de detailpagina.
+Gebruik [Aspect Ratio](?path=/docs/layout-aspect-ratio--docs) voor de juiste beeldverhouding.
 
-<Canvas of={CardStories.ImageCard} />
+<Canvas of={CardStories.WithImage} />
