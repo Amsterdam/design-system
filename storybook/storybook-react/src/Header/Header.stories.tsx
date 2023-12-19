@@ -46,6 +46,12 @@ export const WithLinks: Story = {
   },
 }
 
+export const WithMenu: Story = {
+  args: {
+    menu: <button className="amsterdam-header__menu-button">Menu</button>,
+  },
+}
+
 export const WithTitleAndMenu: Story = {
   args: {
     title: 'Aan de Amsterdamse grachten',
