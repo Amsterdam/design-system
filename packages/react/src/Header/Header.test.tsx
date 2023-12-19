@@ -47,7 +47,7 @@ describe('Header', () => {
   it('renders with a logo link', () => {
     const { container } = render(<Header {...defaultProps} logoLink="/home" />)
 
-    const logoLink = container.querySelector('.amsterdam-header__logo-link')
+    const logoLink = container.querySelector('.amsterdam-header__logo')
 
     expect(logoLink).toHaveAttribute('href', '/home')
   })

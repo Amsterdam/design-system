@@ -19,8 +19,8 @@ describe('Page menu', () => {
     const icons = container.querySelectorAll('svg')
     expect(component).toBeInTheDocument()
     expect(component).toBeVisible()
-    expect(children.length).toBe(3)
-    expect(icons.length).toBe(2)
+    expect(children.length).toBe(2)
+    expect(icons.length).toBe(1)
   })
 
   it('renders a design system BEM class name', () => {
