@@ -12,19 +12,11 @@ export interface SpotlightProps extends PropsWithChildren<HTMLAttributes<HTMLEle
 }
 
 export const Spotlight = forwardRef<HTMLDivElement, SpotlightProps>(
-  ({ children, className, as = 'div', color = 'blue', ...restProps }: SpotlightProps, ref) => {
-    const Component = as
-
-    return (
-      <Component
-        {...restProps}
-        ref={ref}
-        className={clsx('amsterdam-spotlight', `amsterdam-spotlight--${color}`, className)}
-      >
-        {children}
-      </Component>
-    )
-  },
+  ({ children, className, as: Tag = 'div', color = 'blue', ...restProps }: SpotlightProps, ref) => (
+    <Tag {...restProps} ref={ref} className={clsx('amsterdam-spotlight', `amsterdam-spotlight--${color}`, className)}>
+      {children}
+    </Tag>
+  ),
 )
 
 Spotlight.displayName = 'Spotlight'

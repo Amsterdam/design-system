@@ -1,4 +1,4 @@
-import { render } from '@testing-library/react'
+import { render, screen } from '@testing-library/react'
 import { createRef } from 'react'
 import { Spotlight } from './Spotlight'
 import '@testing-library/jest-dom'
@@ -47,5 +47,11 @@ describe('Spotlight', () => {
     const component = container.querySelector(':only-child')
 
     expect(component).toHaveClass('amsterdam-spotlight--green')
+  })
+
+  it('renders a custom tag', () => {
+    render(<Spotlight as="article" />)
+    const cell = screen.getByRole('article')
+    expect(cell).toBeInTheDocument()
   })
 })

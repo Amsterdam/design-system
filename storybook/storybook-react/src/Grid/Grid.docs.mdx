@@ -90,6 +90,14 @@ Een voorbeeld met `start={2}`:
 
 <Canvas of={GridStories.StartPosition} />
 
+### Een ander HTML-element gebruiken
+
+Een cel wordt standaard als `<div>` in je HTML opgenomen.
+Heb je hier een ander element nodig, dan kan dat via de `as` prop.
+Zo kun je je opmaak semantischer maken.
+
+<Canvas of={GridStories.CustomTagName} />
+
 ## Richtlijnen
 
 Zorg ervoor dat het aantal kolommen dat je aan een cel toekent past bij het aantal kolommen van het grid voor de betreffende vensterbreedte.
