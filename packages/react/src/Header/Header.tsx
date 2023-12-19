@@ -15,6 +15,7 @@ export interface HeaderProps extends HTMLAttributes<HTMLElement> {
   logoLink?: string
   logoLinkTitle?: string
   title?: string
+  links?: ReactNode
   menu?: ReactNode
 }
 
@@ -26,6 +27,7 @@ export const Header = forwardRef(
       logoLink = '/',
       logoLinkTitle = 'Ga naar de homepage',
       title,
+      links,
       menu,
       ...restProps
     }: HeaderProps,
@@ -38,6 +40,7 @@ export const Header = forwardRef(
             <VisuallyHidden>{logoLinkTitle}</VisuallyHidden>
             <Logo brand={logoBrand} />
           </a>
+          {links && <div className="amsterdam-header__links">{links}</div>}
           {menu && <div className="amsterdam-header__menu">{menu}</div>}
           {title && (
             <div className="amsterdam-header__title">

@@ -32,9 +32,9 @@ export const WithTitle: Story = {
   },
 }
 
-export const WithHeaderMenu: Story = {
+export const WithLinks: Story = {
   args: {
-    menu: (
+    links: (
       <PageMenu alignEnd>
         <PageMenu.Link href="#">Contact</PageMenu.Link>
         <PageMenu.Link href="#">Mijn Amsterdam</PageMenu.Link>
@@ -49,7 +49,14 @@ export const WithHeaderMenu: Story = {
 export const WithTitleAndMenu: Story = {
   args: {
     title: 'Aan de Amsterdamse grachten',
-    menu: (
+    menu: <button className="amsterdam-header__menu-button">Menu</button>,
+  },
+}
+
+export const WithTitleLinksAndMenu: Story = {
+  args: {
+    title: 'Aan de Amsterdamse grachten',
+    links: (
       <PageMenu alignEnd>
         <PageMenu.Link href="#">Contact</PageMenu.Link>
         <PageMenu.Link href="#">Mijn Amsterdam</PageMenu.Link>
@@ -58,5 +65,6 @@ export const WithTitleAndMenu: Story = {
         </PageMenu.Link>
       </PageMenu>
     ),
+    menu: <button className="amsterdam-header__menu-button">Menu</button>,
   },
 }

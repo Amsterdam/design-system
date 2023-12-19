@@ -60,10 +60,10 @@ describe('Header', () => {
     expect(logoLinkTitle).toHaveTextContent('Go to homepage')
   })
 
-  it('renders with a menu', () => {
-    const { container } = render(<Header {...defaultProps} menu={<div>Menu Content</div>} />)
+  it('renders with links', () => {
+    const { container } = render(<Header {...defaultProps} links={<div>Menu Content</div>} />)
 
-    const menu = container.querySelector('.amsterdam-header__column--menu')
+    const menu = container.querySelector('.amsterdam-header__links')
 
     expect(menu).toBeInTheDocument()
     expect(menu).toHaveTextContent('Menu Content')
