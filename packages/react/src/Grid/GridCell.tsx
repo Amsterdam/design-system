@@ -20,14 +20,19 @@ type GridCellSpanAndStartProps = {
   start?: GridColumnNumber | GridColumnNumbers
 }
 
-export type GridCellProps = (GridCellSpanAllProp | GridCellSpanAndStartProps) &
+export type GridCellProps = {
+  as?: 'article' | 'div' | 'section'
+} & (GridCellSpanAllProp | GridCellSpanAndStartProps) &
   PropsWithChildren<HTMLAttributes<HTMLDivElement>>
 
 export const GridCell = forwardRef(
-  ({ children, className, span, start, ...restProps }: GridCellProps, ref: ForwardedRef<HTMLDivElement>) => (
-    <div {...restProps} ref={ref} className={clsx('amsterdam-grid__cell', gridCellClasses(span, start), className)}>
+  (
+    { as: Tag = 'div', children, className, span, start, ...restProps }: GridCellProps,
+    ref: ForwardedRef<HTMLDivElement>,
+  ) => (
+    <Tag {...restProps} ref={ref} className={clsx('amsterdam-grid__cell', gridCellClasses(span, start), className)}>
       {children}
-    </div>
+    </Tag>
   ),
 )
 
