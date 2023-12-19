@@ -5,6 +5,7 @@
 
 /* Append here */
 export * from './MegaMenu'
+export * from './Mark'
 export * from './TextInput'
 export * from './SearchField'
 export * from './Logo'

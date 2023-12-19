@@ -11,6 +11,10 @@ const meta = {
   title: 'Containers/Spotlight',
   component: Spotlight,
   argTypes: {
+    as: {
+      control: { type: 'inline-radio' },
+      options: ['article', 'aside', 'div', 'footer', 'section'],
+    },
     color: {
       options: ['blue', 'dark-green', 'green', 'light-blue', 'magenta', 'orange', 'purple', 'yellow'],
       control: {
@@ -33,10 +37,10 @@ const meta = {
       },
     },
   },
-  render: ({ color }) => (
-    <Spotlight color={color}>
+  render: ({ as, color }) => (
+    <Spotlight as={as} color={color}>
       <Grid paddingVertical="medium">
-        <Grid.Cell fullWidth>
+        <Grid.Cell span="all">
           <Blockquote inverseColor={!color || !['green', 'yellow'].includes(color)}>{exampleQuote()}</Blockquote>
         </Grid.Cell>
       </Grid>
@@ -95,5 +99,11 @@ export const Green: Story = {
 export const DarkGreen: Story = {
   args: {
     color: 'dark-green',
+  },
+}
+
+export const CustomTagName: Story = {
+  args: {
+    as: 'section',
   },
 }
