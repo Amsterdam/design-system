@@ -1,4 +1,4 @@
-import { Controls, Markdown, Meta, Primary } from "@storybook/blocks";
+import { Canvas, Controls, Markdown, Meta, Primary } from "@storybook/blocks";
 import * as MegaMenuStories from "./MegaMenu.stories.tsx";
 import README from "../../../../packages/css/src/components/mega-menu/README.md?raw";
 
@@ -9,3 +9,7 @@ import README from "../../../../packages/css/src/components/mega-menu/README.md?
 <Primary />
 
 <Controls />
+
+## With Categories
+
+<Canvas of={MegaMenuStories.MultipleCategories} />

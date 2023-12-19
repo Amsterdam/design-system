@@ -7,7 +7,7 @@ import { Grid, Heading, Link, MegaMenu, UnorderedList } from '@amsterdam/design-
 import { Meta, StoryObj } from '@storybook/react'
 
 const meta = {
-  title: 'Mega Menu',
+  title: 'Navigation/Mega Menu',
   component: MegaMenu,
   args: {
     children: 'Nieuw component',
@@ -22,12 +22,12 @@ export const Default: Story = {
   args: {
     children: [
       <Grid key="nav">
-        <Grid.Cell fullWidth>
+        <Grid.Cell span="all">
           <Heading level={1} size="level-2">
             Alle onderwerpen
           </Heading>
         </Grid.Cell>
-        <Grid.Cell span={4}>
+        <Grid.Cell span="all">
           <UnorderedList markers={false}>
             <UnorderedList.Item>
               <Link variant="inList" href="#">
@@ -64,10 +64,6 @@ export const Default: Story = {
                 Gezondheidsdienst (GGD)
               </Link>
             </UnorderedList.Item>
-          </UnorderedList>
-        </Grid.Cell>
-        <Grid.Cell span={4}>
-          <UnorderedList markers={false}>
             <UnorderedList.Item>
               <Link variant="inList" href="#">
                 Kunst en cultuur
@@ -103,10 +99,6 @@ export const Default: Story = {
                 Subsidies
               </Link>
             </UnorderedList.Item>
-          </UnorderedList>
-        </Grid.Cell>
-        <Grid.Cell span={4}>
-          <UnorderedList markers={false}>
             <UnorderedList.Item>
               <Link variant="inList" href="#">
                 Vacatures
