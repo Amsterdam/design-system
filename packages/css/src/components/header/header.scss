@@ -19,7 +19,7 @@
 }
 
 .amsterdam-header__logo {
-  flex: 0 0 auto;
+  flex: 1 0 auto;
 }
 
 .amsterdam-header__links {
@@ -36,11 +36,13 @@
 }
 
 .amsterdam-header__menu {
-  flex: 1 0 auto;
+  flex: 0 0 auto;
+  padding-inline-start: var(--amsterdam-page-menu-column-gap);
   text-align: end;
 
   @media screen and (min-width: $amsterdam-breakpoint-wide) {
     order: 4;
+    padding-inline-start: 0;
   }
 }
 
@@ -75,13 +77,7 @@
   font-weight: var(--amsterdam-page-menu-item-font-weight);
   line-height: var(--amsterdam-page-menu-item-spacious-line-height);
   margin-block: 0;
-
-  // margin-inline-start: var(--amsterdam-page-menu-column-gap);
   padding-inline: 0 30px;
   text-align: center;
   touch-action: manipulation;
-
-  @media screen and (min-width: $amsterdam-breakpoint-wide) {
-    margin-inline-start: 0;
-  }
 }
