@@ -1,4 +1,4 @@
-import { LoginIcon, MenuIcon } from '@amsterdam/design-system-react-icons'
+import { LoginIcon } from '@amsterdam/design-system-react-icons'
 import { render } from '@testing-library/react'
 import { createRef } from 'react'
 import { PageMenu } from './PageMenu'
@@ -12,7 +12,6 @@ describe('Page menu', () => {
         <PageMenu.Link href="#" icon={LoginIcon}>
           Inloggen Mijn Amsterdam
         </PageMenu.Link>
-        <PageMenu.Button icon={MenuIcon}>Alle onderwerpen</PageMenu.Button>
       </PageMenu>,
     )
     const component = container.querySelector(':only-child')

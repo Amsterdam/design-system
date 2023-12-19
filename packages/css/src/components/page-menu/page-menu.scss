@@ -14,33 +14,15 @@
   -webkit-text-size-adjust: 100%;
 }
 
-@mixin reset-button {
-  background-color: transparent;
-  border: 0;
-  margin-block: 0;
-  padding-inline: 0;
-}
-
 .amsterdam-page-menu {
-  --amsterdam-page-menu-visible-items: 5;
-  --amsterdam-page-menu-show-item-1: inline-flex;
-
   align-items: center;
   column-gap: var(--amsterdam-page-menu-column-gap);
   display: flex;
   flex-direction: row;
   list-style: none;
-  overflow: hidden;
   row-gap: var(--amsterdam-page-menu-row-gap);
 
   @include reset-list;
-
-  &__item {
-    &--hide {
-      display: none;
-      visibility: hidden;
-    }
-  }
 }
 
 .amsterdam-page-menu--align-end {
@@ -76,21 +58,12 @@
   @include reset-item;
 }
 
-.amsterdam-page-menu__button {
-  cursor: pointer;
-
-  @include reset-item;
-  @include reset-button;
-  @include page-menu-item;
-}
-
 .amsterdam-page-menu__link:hover,
 .amsterdam-page-menu__button:hover {
   color: var(--amsterdam-page-menu-item-hover-color);
   text-decoration-line: var(--amsterdam-page-menu-item-hover-text-decoration-line);
 }
 
-.amsterdam-page-menu__link svg,
-.amsterdam-page-menu__button svg {
+.amsterdam-page-menu__link svg {
   color: currentColor;
 }

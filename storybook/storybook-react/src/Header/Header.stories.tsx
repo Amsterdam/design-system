@@ -3,8 +3,8 @@
  * Copyright (c) 2023 Gemeente Amsterdam
  */
 
-import { Grid, Header, PageMenu, Screen } from '@amsterdam/design-system-react'
-import { MenuIcon, SearchIcon } from '@amsterdam/design-system-react-icons'
+import { Header, PageMenu } from '@amsterdam/design-system-react'
+import { SearchIcon } from '@amsterdam/design-system-react-icons'
 import { Meta, StoryObj } from '@storybook/react'
 
 const meta = {
@@ -41,26 +41,12 @@ export const WithHeaderMenu: Story = {
         <PageMenu.Link href="#" icon={SearchIcon}>
           Zoeken
         </PageMenu.Link>
-        <PageMenu.Button icon={MenuIcon} showOnMobile>
-          Menu
-        </PageMenu.Button>
       </PageMenu>
     ),
   },
 }
 
 export const WithTitleAndMenu: Story = {
-  decorators: [
-    (Story) => (
-      <Screen>
-        <Grid paddingBottom="large">
-          <Grid.Cell fullWidth>
-            <Story />
-          </Grid.Cell>
-        </Grid>
-      </Screen>
-    ),
-  ],
   args: {
     title: 'Aan de Amsterdamse grachten',
     menu: (
@@ -70,9 +56,6 @@ export const WithTitleAndMenu: Story = {
         <PageMenu.Link href="#" icon={SearchIcon}>
           Zoeken
         </PageMenu.Link>
-        <PageMenu.Button icon={MenuIcon} showOnMobile>
-          Menu
-        </PageMenu.Button>
       </PageMenu>
     ),
   },
