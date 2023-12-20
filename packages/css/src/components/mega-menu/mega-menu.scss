@@ -16,31 +16,17 @@
 }
 
 .amsterdam-mega-menu .amsterdam-grid__cell {
-  container: list / inline-size;
-
   .amsterdam-heading:nth-child(n + 1) {
     padding-block-start: 3.5rem;
   }
 }
 
 .amsterdam-mega-menu .amsterdam-unordered-list {
-  column-count: 1;
   column-gap: var(--amsterdam-unordered-list-gap);
+  columns: 20rem auto;
   display: block;
 
   &__item {
     padding-block-start: 1rem;
-  }
-}
-
-@container list (min-width: 600px) {
-  .amsterdam-mega-menu .amsterdam-unordered-list {
-    column-count: 2;
-  }
-}
-
-@container list (min-width: 1100px) {
-  .amsterdam-mega-menu .amsterdam-unordered-list {
-    column-count: 3;
   }
 }
