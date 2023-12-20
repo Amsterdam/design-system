@@ -12,14 +12,14 @@ export interface HeroImageProps extends PropsWithChildren<ImgHTMLAttributes<HTML
    * A custom image component to use instead of the one from this library.
    * Note that the image must fill the entire content box, e.g. through `object-fit: cover`.
    */
-  ImageComponent?: ReactNode
+  image?: ReactNode
 }
 
 export const HeroImage = forwardRef<HTMLImageElement, HeroImageProps>(
-  ({ children, className, ImageComponent, ...restProps }: HeroImageProps, ref) => (
+  ({ children, className, image, ...restProps }: HeroImageProps, ref) => (
     <div className={clsx('amsterdam-hero-image', className)}>
       <div className="amsterdam-hero-image__image">
-        {ImageComponent ?? <Image {...restProps} alt="" objectFit="cover" ref={ref} />}
+        {image ?? <Image {...restProps} alt="" objectFit="cover" ref={ref} />}
       </div>
       {children}
       <HeroImage src="abc.jpg" />
