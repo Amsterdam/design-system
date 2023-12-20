@@ -22,7 +22,6 @@ export const HeroImage = forwardRef<HTMLImageElement, HeroImageProps>(
         {image ?? <Image {...restProps} alt="" objectFit="cover" ref={ref} />}
       </div>
       {children}
-      <HeroImage src="abc.jpg" />
     </div>
   ),
 )
