@@ -7,12 +7,12 @@ import clsx from 'clsx'
 import { type ForwardedRef, forwardRef, type ImgHTMLAttributes } from 'react'
 
 export interface ImageProps extends ImgHTMLAttributes<HTMLImageElement> {
-  objectFit?: 'cover' | 'contain'
+  cover?: Boolean
 }
 
 export const Image = forwardRef(
-  ({ className, objectFit, ...restProps }: ImageProps, ref: ForwardedRef<HTMLImageElement>) => (
-    <img {...restProps} ref={ref} className={clsx('amsterdam-image', className)} style={{ objectFit }} />
+  ({ className, cover = false, ...restProps }: ImageProps, ref: ForwardedRef<HTMLImageElement>) => (
+    <img {...restProps} ref={ref} className={clsx('amsterdam-image', cover && 'amsterdam-image--cover', className)} />
   ),
 )
 

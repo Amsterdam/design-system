@@ -20,6 +20,7 @@ export const Default: Story = {
     children: (
       <>
         <Image
+          cover
           sizes="(max-width: 36rem) 640px, (max-width: 68rem) 1280px, 1600px"
           src="https://picsum.photos/640/180"
           srcSet="https://picsum.photos/640/180 640w, https://picsum.photos/1280/360 1280w, https://picsum.photos/1600/450 1600w"

@@ -8,6 +8,10 @@
   height: auto; /* [1] */
   max-width: 100%; /* [1] */
   vertical-align: middle; /* [2] */
+
+  &--cover {
+    object-fit: cover;
+  }
 }
 
 // [1] Allow for fluid image sizing while maintaining aspect ratio governed by width/height attributes
