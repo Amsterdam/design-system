@@ -4,7 +4,7 @@
  */
 
 /* Append here */
-export * from './HeroImage'
+export * from './Stack'
 export * from './Mark'
 export * from './TextInput'
 export * from './SearchField'
