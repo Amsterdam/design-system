@@ -3,7 +3,7 @@
  * Copyright (c) 2023 Gemeente Amsterdam
  */
 
-import { Grid, Screen, SkipLink } from '@amsterdam/design-system-react'
+import { Grid, Paragraph, Screen, SkipLink } from '@amsterdam/design-system-react'
 import { Meta, StoryObj } from '@storybook/react'
 
 const meta = {
@@ -51,13 +51,27 @@ export const Default: Story = {
   },
 }
 
-export const OnFocus: Story = {}
+export const OnFocus: Story = {
+  decorators: [
+    (Story) => (
+      <>
+        <Paragraph size="small" style={{ marginBottom: '2rem' }}>
+          Klik op deze tekst en druk vervolgens op tab om de Skip link te tonen.
+        </Paragraph>
+        <Story />
+      </>
+    ),
+  ],
+}
 
 export const MultipleLinks: Story = {
   render: () => (
     <>
+      <Paragraph size="small" style={{ marginBottom: '2rem' }}>
+        Klik op deze tekst en druk vervolgens twee keer op tab om de Skip links te tonen.
+      </Paragraph>
       <SkipLink href="#">Direct naar inhoud</SkipLink>
-      <SkipLink href="#">Direct naar footer</SkipLink>
+      <SkipLink href="#">Direct naar contactgegevens</SkipLink>
     </>
   ),
 }
