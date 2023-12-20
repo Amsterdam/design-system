@@ -1,4 +1,4 @@
-import { Controls, Markdown, Meta, Primary } from "@storybook/blocks";
+import { Canvas, Controls, Markdown, Meta, Primary } from "@storybook/blocks";
 import * as SkipLinkStories from "./SkipLink.stories.tsx";
 import README from "../../../../packages/css/src/components/skip-link/README.md?raw";
 
@@ -9,3 +9,11 @@ import README from "../../../../packages/css/src/components/skip-link/README.md?
 <Primary />
 
 <Controls />
+
+## On Focus
+
+<Canvas of={SkipLinkStories.OnFocus} />
+
+## Multiple links
+
+<Canvas of={SkipLinkStories.MultipleLinks} />
