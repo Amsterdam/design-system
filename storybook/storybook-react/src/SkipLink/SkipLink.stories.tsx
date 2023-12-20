@@ -7,7 +7,7 @@ import { Grid, Paragraph, Screen, SkipLink } from '@amsterdam/design-system-reac
 import { Meta, StoryObj } from '@storybook/react'
 
 const meta = {
-  title: 'Skip Link',
+  title: 'Navigation/Skip Link',
   component: SkipLink,
   args: {
     children: 'Direct naar inhoud',
