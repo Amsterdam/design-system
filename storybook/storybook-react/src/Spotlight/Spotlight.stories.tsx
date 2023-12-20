@@ -7,6 +7,8 @@ import { Blockquote, Grid, Spotlight } from '@amsterdam/design-system-react'
 import { Meta, StoryObj } from '@storybook/react'
 import { exampleQuote } from '../shared/exampleContent'
 
+const quote = exampleQuote()
+
 const meta = {
   title: 'Containers/Spotlight',
   component: Spotlight,
@@ -41,7 +43,7 @@ const meta = {
     <Spotlight as={as} color={color}>
       <Grid paddingVertical="medium">
         <Grid.Cell span="all">
-          <Blockquote inverseColor={!color || !['green', 'yellow'].includes(color)}>{exampleQuote()}</Blockquote>
+          <Blockquote inverseColor={!color || !['green', 'yellow'].includes(color)}>{quote}</Blockquote>
         </Grid.Cell>
       </Grid>
     </Spotlight>
