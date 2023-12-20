@@ -23,7 +23,7 @@
       },
       "tertiary": {
         "hover": {
-          "box-shadow": { "value": "inset 0 0 0 2px {amsterdam.color.neutral-grey3}" }
+          "box-shadow": { "value": "inset 0 0 0 2px {amsterdam.color.dark-blue}" }
         }
       }
     }
