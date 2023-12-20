@@ -17,9 +17,16 @@ import {
 import type { Meta, StoryObj } from '@storybook/react'
 import { exampleUnorderedList } from '../shared/exampleContent'
 
+const unorderedList = exampleUnorderedList().map((text, index) => (
+  <UnorderedList.Item key={index}>{text}</UnorderedList.Item>
+))
+
 const meta = {
   title: 'Text/Unordered List',
   component: UnorderedList,
+  args: {
+    children: unorderedList,
+  },
   argTypes: {
     markers: { control: 'boolean' },
   },
@@ -29,11 +36,7 @@ export default meta
 
 type Story = StoryObj<typeof meta>
 
-export const Basis: Story = {
-  args: {
-    children: exampleUnorderedList().map((item, index) => <UnorderedList.Item key={index}>{item}</UnorderedList.Item>),
-  },
-}
+export const Basis: Story = {}
 
 export const TweeNiveaus: Story = {
   args: {
