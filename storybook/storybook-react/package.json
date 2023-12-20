@@ -44,7 +44,7 @@
     "@storybook/react": "7.6.5",
     "@storybook/react-vite": "7.6.5",
     "@storybook/testing-library": "0.2.2",
-    "@storybook/theming": "7.6.5",
+    "@storybook/theming": "7.6.6",
     "@types/react": "18.2.45",
     "@vitejs/plugin-react": "4.2.1",
     "http-server": "14.1.1",
