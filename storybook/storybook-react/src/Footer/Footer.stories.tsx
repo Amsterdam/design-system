@@ -117,7 +117,7 @@ export const Default: Story = {
           <Heading level={2}>Over deze website</Heading>
         </VisuallyHidden>
         <Grid paddingVertical="small">
-          <Grid.Cell fullWidth>
+          <Grid.Cell span="all">
             <PageMenu>
               <PageMenu.Link href="/">Privacy</PageMenu.Link>
               <PageMenu.Link href="/">Toegankelijkheid</PageMenu.Link>

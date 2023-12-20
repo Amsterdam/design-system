@@ -70,9 +70,9 @@ Via `span={{ narrow: 4, medium: 6, wide: 8 }}` is deze cel 4 van de 4 kolommen b
 
 ### Volledige breedte
 
-Om de cel de volledige breedte te geven – of het grid nu 4, 8, of 12 kolommen heeft – gebruik je de `fullWidth` prop.
+Om de cel de volledige breedte te geven – of het grid nu 4, 8, of 12 kolommen heeft – gebruik je `span="all`.
 
-<Canvas of={GridStories.FullWidthCell} />
+<Canvas of={GridStories.SpanAllColumns} />
 
 ### Startpositie
 
@@ -89,6 +89,14 @@ Gebruik hiervoor de `start` prop met 3 waarden, precies zoals bij `span`.
 Een voorbeeld met `start={2}`:
 
 <Canvas of={GridStories.StartPosition} />
+
+### Een ander HTML-element gebruiken
+
+Een cel wordt standaard als `<div>` in je HTML opgenomen.
+Heb je hier een ander element nodig, dan kan dat via de `as` prop.
+Zo kun je je opmaak semantischer maken.
+
+<Canvas of={GridStories.CustomTagName} />
 
 ## Richtlijnen
 

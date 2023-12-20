@@ -7,7 +7,7 @@ export const gridCellClasses = (span?: GridCellProps['span'], start?: GridCellPr
 
   const classes = [] as string[]
 
-  if (typeof span === 'number') {
+  if (span === 'all' || typeof span === 'number') {
     classes.push(`amsterdam-grid__cell--span-${span}`)
   } else if (span) {
     const { narrow, medium, wide } = span
