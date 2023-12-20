@@ -34,7 +34,7 @@
     "@storybook/addon-interactions": "7.6.5",
     "@storybook/addon-links": "7.6.5",
     "@storybook/addons": "7.6.5",
-    "@storybook/api": "7.6.5",
+    "@storybook/api": "7.6.6",
     "@storybook/blocks": "7.6.5",
     "@storybook/components": "7.6.5",
     "@storybook/core-events": "7.6.5",
