@@ -12,6 +12,9 @@ const meta = {
   args: {
     children: 'Nieuw component',
   },
+  parameters: {
+    layout: 'fullscreen',
+  },
 } satisfies Meta<typeof MegaMenu>
 
 export default meta
@@ -140,7 +143,7 @@ export const MultipleCategories: Story = {
   args: {
     children: [
       <Grid key="nav">
-        <Grid.Cell span={8}>
+        <Grid.Cell span={{ narrow: 4, medium: 8, wide: 8 }}>
           <Heading level={3} size="level-3">
             Thema&rsquo;s
           </Heading>
@@ -217,7 +220,7 @@ export const MultipleCategories: Story = {
             </UnorderedList.Item>
           </UnorderedList>
         </Grid.Cell>
-        <Grid.Cell span={4}>
+        <Grid.Cell span={{ narrow: 4, medium: 8, wide: 4 }}>
           <Heading level={3} size="level-3">
             Categorieën
           </Heading>
