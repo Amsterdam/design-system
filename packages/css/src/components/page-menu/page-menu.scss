@@ -32,7 +32,6 @@
 @mixin page-menu-item {
   color: var(--amsterdam-page-menu-item-color);
   display: inline-flex;
-  flex: 1;
   flex-direction: row;
   font-family: var(--amsterdam-page-menu-item-font-family);
   font-size: var(--amsterdam-page-menu-item-spacious-font-size);

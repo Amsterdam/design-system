@@ -45,17 +45,17 @@ describe('Header', () => {
   })
 
   it('renders with a logo link', () => {
-    const { container } = render(<Header {...defaultProps} logoLink="/home" />)
+    render(<Header {...defaultProps} logoLink="/home" />)
 
-    const logoLink = container.querySelector('.amsterdam-header__logo')
+    const logoLink = screen.getByRole('link')
 
     expect(logoLink).toHaveAttribute('href', '/home')
   })
 
   it('renders with a logo link title', () => {
-    const { container } = render(<Header {...defaultProps} logoLinkTitle="Go to homepage" />)
+    render(<Header {...defaultProps} logoLinkTitle="Go to homepage" />)
 
-    const logoLinkTitle = container.querySelector('.amsterdam-visually-hidden')
+    const logoLinkTitle = screen.getByRole('link', { name: 'Go to homepage' })
 
     expect(logoLinkTitle).toHaveTextContent('Go to homepage')
   })
@@ -67,5 +67,13 @@ describe('Header', () => {
 
     expect(menu).toBeInTheDocument()
     expect(menu).toHaveTextContent('Menu Content')
+  })
+
+  it('renders with menu button', () => {
+    render(<Header {...defaultProps} menu={<button>Menu Button</button>} />)
+
+    const menu = screen.getByRole('button')
+
+    expect(menu).toBeInTheDocument()
   })
 })

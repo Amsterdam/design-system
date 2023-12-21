@@ -52,6 +52,21 @@ export const WithMenu: Story = {
   },
 }
 
+export const WithLinksAndMenu: Story = {
+  args: {
+    menu: <button className="amsterdam-header__menu-button">Menu</button>,
+    links: (
+      <PageMenu alignEnd>
+        <PageMenu.Link href="#">Contact</PageMenu.Link>
+        <PageMenu.Link href="#">Mijn Amsterdam</PageMenu.Link>
+        <PageMenu.Link href="#" icon={SearchIcon}>
+          Zoeken
+        </PageMenu.Link>
+      </PageMenu>
+    ),
+  },
+}
+
 export const WithTitleAndMenu: Story = {
   args: {
     title: 'Aan de Amsterdamse grachten',

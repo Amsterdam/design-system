@@ -44,7 +44,7 @@ export const Header = forwardRef(
           {menu && <div className="amsterdam-header__menu">{menu}</div>}
           {title && (
             <div className="amsterdam-header__title">
-              <Heading level={1} size="level-3">
+              <Heading level={1} size="level-3" className="amsterdam-header__title-heading">
                 {title}
               </Heading>
             </div>
