@@ -22,7 +22,9 @@
 }
 
 .amsterdam-mega-menu .amsterdam-unordered-list {
-  column-gap: var(--amsterdam-unordered-list-gap);
+  --amsterdam-grid-gap: var(--amsterdam-grid-spacious-gap);
+
+  column-gap: var(--amsterdam-grid-gap);
   columns: 20rem auto;
   display: block;
 
