@@ -5,6 +5,11 @@
 
 .amsterdam-logo {
   height: var(--amsterdam-logo-height);
+
+  // fix for phantom space below logo
+  svg {
+    display: block;
+  }
 }
 
 .amsterdam-logo__emblem {
