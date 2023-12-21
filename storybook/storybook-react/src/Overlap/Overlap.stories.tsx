@@ -9,6 +9,13 @@ import { Meta, StoryObj } from '@storybook/react'
 const meta = {
   title: 'Layout/Overlap',
   component: Overlap,
+  argTypes: {
+    children: {
+      table: {
+        disable: true,
+      },
+    },
+  },
 } satisfies Meta<typeof Overlap>
 
 export default meta
