@@ -20,6 +20,7 @@
 
 .amsterdam-header__logo {
   flex: none;
+  outline-offset: var(--amsterdam-link-outline-offset);
 }
 
 .amsterdam-header__links {
