@@ -10,6 +10,14 @@ import { Meta, StoryObj } from '@storybook/react'
 const meta = {
   title: 'Containers/Header',
   component: Header,
+  argTypes: {
+    logoBrand: {
+      control: {
+        type: 'select',
+      },
+      options: ['amsterdam', 'ggd-amsterdam', 'stadsarchief', 'stadsbank-van-lening', 'vga-verzekeringen'],
+    },
+  },
 } satisfies Meta<typeof Header>
 
 export default meta
