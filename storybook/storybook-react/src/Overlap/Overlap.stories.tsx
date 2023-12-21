@@ -28,6 +28,7 @@ export const Default: Story = {
       <>
         <AspectRatio ratio="2x-wide">
           <Image
+            alt=""
             cover
             sizes="(max-width: 36rem) 640px, (max-width: 68rem) 1280px, 1600px"
             src="https://picsum.photos/640/180"
