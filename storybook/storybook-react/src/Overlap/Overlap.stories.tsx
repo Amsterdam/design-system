@@ -3,13 +3,13 @@
  * Copyright (c) 2023 Gemeente Amsterdam
  */
 
-import { AspectRatio, Grid, Image, SearchField, Stack } from '@amsterdam/design-system-react'
+import { AspectRatio, Grid, Image, Overlap, SearchField } from '@amsterdam/design-system-react'
 import { Meta, StoryObj } from '@storybook/react'
 
 const meta = {
-  title: 'Layout/Stack',
-  component: Stack,
-} satisfies Meta<typeof Stack>
+  title: 'Layout/Overlap',
+  component: Overlap,
+} satisfies Meta<typeof Overlap>
 
 export default meta
 

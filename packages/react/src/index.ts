@@ -4,7 +4,7 @@
  */
 
 /* Append here */
-export * from './Stack'
+export * from './Overlap'
 export * from './Mark'
 export * from './TextInput'
 export * from './SearchField'

@@ -6,15 +6,15 @@
 import clsx from 'clsx'
 import { type ForwardedRef, forwardRef, type HTMLAttributes, type PropsWithChildren } from 'react'
 
-export const Stack = forwardRef(
+export const Overlap = forwardRef(
   (
     { children, className, ...restProps }: PropsWithChildren<HTMLAttributes<HTMLDivElement>>,
     ref: ForwardedRef<HTMLDivElement>,
   ) => (
-    <div {...restProps} ref={ref} className={clsx('amsterdam-stack', className)}>
+    <div {...restProps} ref={ref} className={clsx('amsterdam-overlap', className)}>
       {children}
     </div>
   ),
 )
 
-Stack.displayName = 'Stack'
+Overlap.displayName = 'Overlap'
