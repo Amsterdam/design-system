@@ -3,7 +3,7 @@
  * Copyright (c) 2023 Gemeente Amsterdam
  */
 
-import { AlertIcon, CheckmarkIcon, CloseIcon } from '@amsterdam/design-system-react-icons'
+import { AlertIcon, CheckmarkIcon, CloseIcon, InfoIcon } from '@amsterdam/design-system-react-icons'
 import clsx from 'clsx'
 import { ForwardedRef, forwardRef, HTMLAttributes, PropsWithChildren, useMemo } from 'react'
 import { Icon } from '../Icon'
@@ -11,14 +11,14 @@ import { VisuallyHidden } from '../VisuallyHidden'
 
 export interface AlertProps extends PropsWithChildren<HTMLAttributes<HTMLDivElement>> {
   title?: string
-  severity?: undefined | 'error' | 'success'
+  severity?: 'error' | 'info' | 'success' | 'warning'
   closeable?: boolean
   icon?: boolean
   onClose?: () => void
 }
 
 interface AlertCloseProps extends HTMLAttributes<HTMLButtonElement> {
-  size?: 'level-5' | 'level-6'
+  size?: 'level-4' | 'level-5'
 }
 
 const AlertClose = forwardRef(
@@ -32,15 +32,17 @@ const AlertClose = forwardRef(
 
 const iconSvgBySeverity = {
   error: AlertIcon,
+  info: InfoIcon,
   success: CheckmarkIcon,
+  warning: AlertIcon,
 }
 
 export const Alert = forwardRef(
   (
-    { children, className, title, severity, closeable, icon, onClose, ...restProps }: AlertProps,
+    { children, className, title, severity = 'info', closeable, icon, onClose, ...restProps }: AlertProps,
     ref: ForwardedRef<HTMLDivElement>,
   ) => {
-    const alertSize = title ? 'level-5' : 'level-6'
+    const alertSize = title ? 'level-4' : 'level-5'
 
     const alertIcon = useMemo(() => {
       if (!icon || !severity) {

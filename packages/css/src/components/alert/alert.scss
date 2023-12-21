@@ -5,8 +5,8 @@
 
 .amsterdam-alert {
   align-items: flex-start;
-  background-color: var(--amsterdam-alert-background-color);
-  border: var(--amsterdam-alert-border);
+  border-style: var(--amsterdam-alert-border-style);
+  border-width: var(--amsterdam-alert-border-width);
   display: flex;
   flex-direction: row;
   gap: var(--amsterdam-alert-gap);
@@ -41,18 +41,24 @@
 }
 
 .amsterdam-alert--error {
-  background-color: var(--amsterdam-alert-error-background-color);
   border-color: var(--amsterdam-alert-error-border-color);
 }
 
+.amsterdam-alert--info {
+  border-color: var(--amsterdam-alert-info-border-color);
+}
+
 .amsterdam-alert--success {
-  background-color: var(--amsterdam-alert-success-background-color);
   border-color: var(--amsterdam-alert-success-border-color);
+}
+
+.amsterdam-alert--warning {
+  border-color: var(--amsterdam-alert-warning-border-color);
 }
 
 /* todo: move to action button component */
 .amsterdam-alert__close {
-  background-color: var(--amsterdam-alert-close-background-color);
+  background-color: var(--amsterdam-alert-close-button-background-color);
   border: 0;
   cursor: pointer;
   padding-block: 0;

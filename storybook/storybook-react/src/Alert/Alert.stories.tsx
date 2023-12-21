@@ -18,9 +18,9 @@ const meta = {
     severity: {
       control: {
         type: 'radio',
-        labels: { undefined: 'default', error: 'error', success: 'success' },
+        labels: { info: 'info', success: 'success', warning: 'warning', error: 'error' },
       },
-      options: [undefined, 'error', 'success'],
+      options: ['error', 'info', 'success', 'warning'],
     },
     closeable: {
       control: {
@@ -32,7 +32,6 @@ const meta = {
       control: {
         type: 'boolean',
       },
-      if: { arg: 'severity', neq: undefined },
     },
     onClose: {
       action: 'onClose',
@@ -51,7 +50,7 @@ type Story = StoryObj<typeof meta>
 
 export const Default: Story = {
   args: {
-    severity: undefined,
+    severity: 'info',
     children: (
       <Paragraph>
         Tijdens Koningsdag zijn alle Stadsloketten gesloten. Ook 14 020 en alle andere telefoonnummers van de gemeente
@@ -61,19 +60,39 @@ export const Default: Story = {
   },
 }
 
-export const InformationWithInlineLink: Story = {
+export const WithInlineLink: Story = {
   args: {
     severity: undefined,
     children: (
       <Paragraph>
         Tijdens Koningsdag zijn{' '}
-        <Link variant="inline" onBackground="light" href="#">
+        <Link variant="inline" href="#">
           alle Stadsloketten
         </Link>{' '}
         gesloten. Ook 14 020 en alle andere telefoonnummers van de gemeente zijn niet bereikbaar. telefoonnummers van de
         gemeente zijn niet bereikbaar.
       </Paragraph>
     ),
+  },
+}
+
+export const Success: Story = {
+  args: {
+    severity: 'success',
+    title: 'Gelukt',
+    closeable: true,
+    icon: true,
+    children: <Paragraph>Uw formulier is succesvol opgeslagen.</Paragraph>,
+  },
+}
+
+export const Warning: Story = {
+  args: {
+    severity: 'warning',
+    title: 'Mislukt',
+    closeable: true,
+    icon: true,
+    children: <Paragraph>Uw formulier is niet succesvol opgeslagen.</Paragraph>,
   },
 }
 
@@ -86,7 +105,7 @@ export const Error: Story = {
   },
 }
 
-export const ErrorWithList: Story = {
+export const WithList: Story = {
   args: {
     severity: 'error',
     icon: true,
@@ -104,12 +123,14 @@ export const ErrorWithList: Story = {
   ),
 }
 
-export const Success: Story = {
+export const WithoutTitle: Story = {
   args: {
-    severity: 'success',
-    title: 'Gelukt',
-    closeable: true,
-    icon: true,
-    children: <Paragraph>Uw formulier is succesvol opgeslagen.</Paragraph>,
+    title: undefined,
+    children: (
+      <Paragraph>
+        Tijdens Koningsdag zijn alle Stadsloketten gesloten. Ook 14 020 en alle andere telefoonnummers van de gemeente
+        zijn niet bereikbaar.
+      </Paragraph>
+    ),
   },
 }
