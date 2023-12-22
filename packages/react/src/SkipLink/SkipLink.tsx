@@ -4,7 +4,8 @@
  */
 
 import clsx from 'clsx'
-import { type AnchorHTMLAttributes, type ForwardedRef, forwardRef, type PropsWithChildren } from 'react'
+import { forwardRef } from 'react'
+import type { AnchorHTMLAttributes, ForwardedRef, PropsWithChildren } from 'react'
 
 export interface SkipLinkProps extends PropsWithChildren<AnchorHTMLAttributes<HTMLAnchorElement>> {}
 
