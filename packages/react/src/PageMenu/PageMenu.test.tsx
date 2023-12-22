@@ -1,4 +1,4 @@
-import { LoginIcon, MenuIcon } from '@amsterdam/design-system-react-icons'
+import { LoginIcon } from '@amsterdam/design-system-react-icons'
 import { render } from '@testing-library/react'
 import { createRef } from 'react'
 import { PageMenu } from './PageMenu'
@@ -12,7 +12,6 @@ describe('Page menu', () => {
         <PageMenu.Link href="#" icon={LoginIcon}>
           Inloggen Mijn Amsterdam
         </PageMenu.Link>
-        <PageMenu.Button icon={MenuIcon}>Alle onderwerpen</PageMenu.Button>
       </PageMenu>,
     )
     const component = container.querySelector(':only-child')
@@ -20,8 +19,8 @@ describe('Page menu', () => {
     const icons = container.querySelectorAll('svg')
     expect(component).toBeInTheDocument()
     expect(component).toBeVisible()
-    expect(children.length).toBe(3)
-    expect(icons.length).toBe(2)
+    expect(children.length).toBe(2)
+    expect(icons.length).toBe(1)
   })
 
   it('renders a design system BEM class name', () => {
