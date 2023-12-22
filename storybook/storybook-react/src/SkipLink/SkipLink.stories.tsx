@@ -39,6 +39,8 @@ type Story = StoryObj<typeof meta>
 
 export const Default: Story = {
   args: {
+    // This resets the default behaviour of only showing the link
+    // on focus, in order to always show the link in Storybook
     style: {
       clip: 'auto',
       clipPath: 'none',
