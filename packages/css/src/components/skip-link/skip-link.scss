@@ -6,18 +6,16 @@
 .amsterdam-skip-link {
   background-color: var(--amsterdam-skip-link-background-color);
   color: var(--amsterdam-skip-link-color);
-  display: flex;
+  display: block;
   font-family: var(--amsterdam-skip-link-font-family);
   font-size: var(--amsterdam-skip-link-font-size);
   font-weight: var(--amsterdam-skip-link-font-weight);
-  justify-content: center;
   line-height: var(--amsterdam-skip-link-line-height);
   outline-offset: var(--amsterdam-skip-link-outline-offset);
   padding-block: 0.5rem;
   padding-inline: 1rem;
   text-align: center;
   text-decoration: none;
-  width: 100%;
 
   &:hover {
     background-color: var(--amsterdam-skip-link-hover-background-color);
