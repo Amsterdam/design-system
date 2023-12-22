@@ -6,9 +6,7 @@
 import clsx from 'clsx'
 import { ForwardedRef, forwardRef, InputHTMLAttributes } from 'react'
 
-export interface TextInputProps extends InputHTMLAttributes<HTMLInputElement> {
-  label?: string
-}
+export interface TextInputProps extends InputHTMLAttributes<HTMLInputElement> {}
 
 export const TextInput = forwardRef(
   ({ className, ...restProps }: TextInputProps, ref: ForwardedRef<HTMLInputElement>) => (

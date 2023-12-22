@@ -13,7 +13,7 @@ import {
   LogoVgaVerzekeringen,
 } from './brand'
 
-type LogoBrand = 'amsterdam' | 'ggd-amsterdam' | 'stadsarchief' | 'stadsbank-van-lening' | 'vga-verzekeringen'
+export type LogoBrand = 'amsterdam' | 'ggd-amsterdam' | 'stadsarchief' | 'stadsbank-van-lening' | 'vga-verzekeringen'
 
 export interface LogoProps extends SVGProps<SVGSVGElement> {
   brand?: LogoBrand

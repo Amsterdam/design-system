@@ -1,4 +1,4 @@
-import { render } from '@testing-library/react'
+import { render, screen } from '@testing-library/react'
 import { createRef } from 'react'
 import { Grid } from './Grid'
 import '@testing-library/jest-dom'
@@ -82,9 +82,15 @@ describe('Grid.Cell', () => {
     )
   })
 
-  it('renders the correct class name for the "all" value of span', () => {
+  it('renders the correct class name for the “all” value of span', () => {
     const { container } = render(<Grid.Cell span="all" />)
     const component = container.querySelector(':only-child')
     expect(component).toHaveClass('amsterdam-grid__cell--span-all')
+  })
+
+  it('renders a custom tag', () => {
+    render(<Grid.Cell as="article" />)
+    const cell = screen.getByRole('article')
+    expect(cell).toBeInTheDocument()
   })
 })
