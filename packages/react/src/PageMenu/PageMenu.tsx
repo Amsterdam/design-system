@@ -26,7 +26,6 @@ type PageMenuProps = {
 
 interface PageMenuComponent extends ForwardRefExoticComponent<PageMenuProps & RefAttributes<HTMLElement>> {
   Link: typeof PageMenuLink
-  Button: typeof PageMenuButton
 }
 
 export const PageMenu = forwardRef(
@@ -49,6 +48,7 @@ export interface PageMenuLinkProps extends PropsWithChildren<AnchorHTMLAttribute
 
 export interface PageMenuButtonProps extends PropsWithChildren<ButtonHTMLAttributes<HTMLButtonElement>> {
   icon?: Function
+  showOnMobile?: boolean
 }
 
 const PageMenuLink = forwardRef(
@@ -64,21 +64,6 @@ const PageMenuLink = forwardRef(
   },
 )
 
-const PageMenuButton = forwardRef(
-  ({ children, icon, ...restProps }: PageMenuButtonProps, ref: ForwardedRef<HTMLButtonElement>) => {
-    return (
-      <li className="amsterdam-page-menu__item">
-        <button {...restProps} type="button" ref={ref} className="amsterdam-page-menu__button">
-          {children}
-          {icon && <Icon svg={icon} size="level-6" />}
-        </button>
-      </li>
-    )
-  },
-)
-
 PageMenu.displayName = 'PageMenu'
 PageMenuLink.displayName = 'PageMenu.Link'
-PageMenuButton.displayName = 'PageMenu.Button'
 PageMenu.Link = PageMenuLink
-PageMenu.Button = PageMenuButton

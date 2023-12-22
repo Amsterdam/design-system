@@ -14,19 +14,11 @@
   -webkit-text-size-adjust: 100%;
 }
 
-@mixin reset-button {
-  background-color: transparent;
-  border: 0;
-  margin-block: 0;
-  padding-inline: 0;
-}
-
 .amsterdam-page-menu {
   align-items: center;
   column-gap: var(--amsterdam-page-menu-column-gap);
   display: flex;
   flex-direction: row;
-  flex-wrap: wrap;
   list-style: none;
   row-gap: var(--amsterdam-page-menu-row-gap);
 
@@ -52,6 +44,7 @@
   text-decoration-thickness: var(--amsterdam-page-menu-item-text-decoration-thickness);
   text-underline-offset: var(--amsterdam-page-menu-item-text-underline-offset);
   touch-action: manipulation;
+  white-space: nowrap;
 
   .amsterdam-theme--compact & {
     font-size: var(--amsterdam-page-menu-item-compact-font-size);
@@ -64,21 +57,12 @@
   @include reset-item;
 }
 
-.amsterdam-page-menu__button {
-  cursor: pointer;
-
-  @include reset-item;
-  @include reset-button;
-  @include page-menu-item;
-}
-
 .amsterdam-page-menu__link:hover,
 .amsterdam-page-menu__button:hover {
   color: var(--amsterdam-page-menu-item-hover-color);
   text-decoration-line: var(--amsterdam-page-menu-item-hover-text-decoration-line);
 }
 
-.amsterdam-page-menu__link svg,
-.amsterdam-page-menu__button svg {
+.amsterdam-page-menu__link svg {
   color: currentColor;
 }

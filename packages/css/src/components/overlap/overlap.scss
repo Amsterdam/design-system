@@ -1,0 +1,12 @@
+/**
+ * @license EUPL-1.2+
+ * Copyright (c) 2023 Gemeente Amsterdam
+ */
+
+.amsterdam-overlap {
+  display: grid;
+
+  > * {
+    grid-area: 1 / -1;
+  }
+}
