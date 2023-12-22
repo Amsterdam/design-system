@@ -2,13 +2,16 @@
 
 Gebruik een Skip Link om makkelijk met het toetsenbord naar de belangrijkste inhoud te navigeren.
 Met een Skip Link kun je terugkerende navigatieblokken (zoals het hoofdmenu of het kruimelpad) overslaan.
-Een Skip Link is verborgen totdat deze met het toetsenbord geactiveerd wordt.
+
+De Skip Link staat boven de header.
+De link is verborgen totdat deze met de tab-toets geactiveerd wordt.
+Als de link getoond wordt, duwt deze de hele pagina omlaag.
 
 ## Richtlijnen
 
 ### Zo gebruiken
 
-- Plaats de Skip Link als eerste element in `<body`, tenzij je een cookie-banner hebt.
+- Plaats de Skip Link als eerste element in `<body>`, tenzij je een cookie-banner hebt.
   Plaats de Skip Link dan direct na de cookie-banner.
 - Gebruik de Skip Link om naar de belangrijkste inhoud te navigeren.
   Op een artikelpagina is dat bijvoorbeeld de titel van het artikel, op een zoekpagina is dat het zoekveld.
