@@ -4,7 +4,7 @@
  */
 
 import { PageMenu } from '@amsterdam/design-system-react'
-import { LoginIcon, MenuIcon } from '@amsterdam/design-system-react-icons'
+import { LoginIcon } from '@amsterdam/design-system-react-icons'
 import { Meta, StoryObj } from '@storybook/react'
 
 const meta = {
@@ -23,7 +23,6 @@ export const Default: Story = {
       <PageMenu.Link href="#" icon={LoginIcon}>
         Inloggen Mijn Amsterdam
       </PageMenu.Link>
-      <PageMenu.Button icon={MenuIcon}>Alle onderwerpen</PageMenu.Button>
     </PageMenu>
   ),
   parameters: {

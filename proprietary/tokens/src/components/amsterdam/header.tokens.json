@@ -1,0 +1,7 @@
+{
+  "amsterdam": {
+    "header": {
+      "column-gap": { "value": "{amsterdam.grid.spacious.gap}" }
+    }
+  }
+}
