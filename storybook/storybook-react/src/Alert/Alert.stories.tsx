@@ -12,7 +12,6 @@ const meta = {
   args: {
     title: 'Let op',
     closeable: false,
-    icon: true,
   },
   argTypes: {
     severity: {
@@ -20,17 +19,12 @@ const meta = {
         type: 'radio',
         labels: { info: 'info', success: 'success', warning: 'warning', error: 'error' },
       },
-      options: ['error', 'info', 'success', 'warning'],
+      options: ['info', 'success', 'warning', 'error'],
     },
     closeable: {
       control: {
         type: 'boolean',
         default: false,
-      },
-    },
-    icon: {
-      control: {
-        type: 'boolean',
       },
     },
     onClose: {

@@ -8,9 +8,11 @@ describe('Alert', () => {
     const { container } = render(<Alert />)
 
     const component = container.querySelector(':only-child')
+    const icon = component?.querySelector('.amsterdam-alert__icon')
 
     expect(component).toBeInTheDocument()
     expect(component).toBeVisible()
+    expect(icon).toBeInTheDocument()
   })
 
   it('renders a design system BEM class name', () => {
@@ -42,7 +44,7 @@ describe('Alert', () => {
   })
 
   it('renders the icon if icon is true and the severity is success', () => {
-    const { container } = render(<Alert icon={true} severity="success" />)
+    const { container } = render(<Alert severity="success" />)
 
     const component = container.querySelector(':only-child')
 
@@ -50,16 +52,6 @@ describe('Alert', () => {
 
     expect(icon).toBeInTheDocument()
     expect(icon).toBeVisible()
-  })
-
-  it('does not render the icon if icon is true and the severity is default', () => {
-    const { container } = render(<Alert icon={true} />)
-
-    const component = container.querySelector(':only-child')
-
-    const icon = component?.querySelector('.amsterdam-alert__icon')
-
-    expect(icon).not.toBeInTheDocument()
   })
 
   it('renders the close button', () => {

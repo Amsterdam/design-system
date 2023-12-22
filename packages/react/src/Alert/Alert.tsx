@@ -5,7 +5,7 @@
 
 import { AlertIcon, CheckmarkIcon, CloseIcon, InfoIcon } from '@amsterdam/design-system-react-icons'
 import clsx from 'clsx'
-import { ForwardedRef, forwardRef, HTMLAttributes, PropsWithChildren, useMemo } from 'react'
+import { ForwardedRef, forwardRef, HTMLAttributes, PropsWithChildren } from 'react'
 import { Heading } from '../Heading'
 import type { HeadingProps } from '../Heading'
 import { Icon } from '../Icon'
@@ -19,8 +19,6 @@ export interface AlertProps extends PropsWithChildren<HTMLAttributes<HTMLDivElem
    * @default 4
    */
   headingLevel?: HeadingProps['level']
-  /** Whether the severity icon is to be displayed. */
-  icon?: boolean
   /** Allows a callback when dismissing the alert. */
   onClose?: () => void
   /** Highlights the meaning or tone of the message. */
@@ -51,28 +49,10 @@ const iconSvgBySeverity = {
 
 export const Alert = forwardRef(
   (
-    {
-      children,
-      className,
-      headingLevel = 4,
-      title,
-      severity = 'info',
-      closeable,
-      icon,
-      onClose,
-      ...restProps
-    }: AlertProps,
+    { children, className, headingLevel = 4, title, severity = 'info', closeable, onClose, ...restProps }: AlertProps,
     ref: ForwardedRef<HTMLDivElement>,
   ) => {
     const alertSize = title ? 'level-4' : 'level-5'
-
-    const alertIcon = useMemo(() => {
-      if (!icon || !severity) {
-        return null
-      }
-
-      return <Icon size={alertSize} svg={iconSvgBySeverity[severity]} />
-    }, [icon, severity, alertSize])
 
     return (
       <section
@@ -80,7 +60,9 @@ export const Alert = forwardRef(
         ref={ref}
         className={clsx('amsterdam-alert', severity && `amsterdam-alert--${severity}`, className)}
       >
-        {alertIcon && <div className="amsterdam-alert__icon">{alertIcon}</div>}
+        <div className="amsterdam-alert__icon">
+          <Icon size={alertSize} svg={iconSvgBySeverity[severity]} />
+        </div>
         <div className="amsterdam-alert__content">
           {title && (
             <Heading level={headingLevel} size="level-4">
