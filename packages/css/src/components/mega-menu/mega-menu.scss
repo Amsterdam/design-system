@@ -6,40 +6,25 @@
 @import "../../common/breakpoint";
 
 .amsterdam-mega-menu {
-  padding-block: 3.5rem 4.5rem;
+  padding-block: 2.5rem 3.5rem;
 
   @media screen and (min-width: $amsterdam-breakpoint-wide) {
-    padding-block: 5rem 7.5rem;
-    padding-inline: 5.24rem;
+    padding-block: 3rem 4rem;
   }
 }
 
-.amsterdam-mega-menu__heading {
-  padding-block-end: 2rem;
-
-  @media screen and (min-width: $amsterdam-breakpoint-wide) {
-    padding-block-end: 2.5rem;
-  }
-}
-
-.amsterdam-mega-menu__subheading {
-  padding-block-start: 2rem;
-
-  @media screen and (min-width: $amsterdam-breakpoint-wide) {
-    &:first-child {
-      padding-block-start: 0;
-    }
+.amsterdam-mega-menu .amsterdam-grid__cell {
+  .amsterdam-heading:not(:first-child) {
+    padding-block-start: 2rem;
   }
 }
 
 .amsterdam-mega-menu .amsterdam-unordered-list {
-  --amsterdam-grid-gap: var(--amsterdam-grid-spacious-gap);
-
-  column-gap: var(--amsterdam-grid-gap);
+  column-gap: var(--amsterdam-grid-spacious-gap);
   columns: 20rem auto;
   display: block;
 
   &__item {
-    padding-block-start: 1rem;
+    padding-block-start: var(--amsterdam-mega-menu-list-padding-block-start);
   }
 }

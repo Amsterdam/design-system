@@ -1,5 +1,9 @@
 {
   "amsterdam": {
-    "mega-menu": {}
+    "mega-menu": {
+      "list": {
+        "padding-block-start": { "value": "1rem" }
+      }
+    }
   }
 }

@@ -6,13 +6,13 @@
 import clsx from 'clsx'
 import { ForwardedRef, forwardRef, HTMLAttributes, PropsWithChildren } from 'react'
 
-export interface MegaMenuProps extends PropsWithChildren<HTMLAttributes<HTMLElement>> {}
+export interface MegaMenuProps extends PropsWithChildren<HTMLAttributes<HTMLDivElement>> {}
 
 export const MegaMenu = forwardRef(
-  ({ children, className, ...restProps }: MegaMenuProps, ref: ForwardedRef<HTMLElement>) => (
-    <nav {...restProps} ref={ref} className={clsx('amsterdam-mega-menu', className)}>
+  ({ children, className, ...restProps }: MegaMenuProps, ref: ForwardedRef<HTMLDivElement>) => (
+    <div {...restProps} ref={ref} className={clsx('amsterdam-mega-menu', className)}>
       {children}
-    </nav>
+    </div>
   ),
 )
 

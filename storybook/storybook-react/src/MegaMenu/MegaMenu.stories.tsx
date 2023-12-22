@@ -9,9 +9,6 @@ import { Meta, StoryObj } from '@storybook/react'
 const meta = {
   title: 'Navigation/Mega Menu',
   component: MegaMenu,
-  args: {
-    children: 'Nieuw component',
-  },
   parameters: {
     layout: 'fullscreen',
   },
@@ -23,8 +20,8 @@ type Story = StoryObj<typeof meta>
 
 export const Default: Story = {
   args: {
-    children: [
-      <Grid key="nav">
+    children: (
+      <Grid key="nav" paddingVertical="medium">
         <Grid.Cell span="all">
           <Heading level={1} size="level-2" className="amsterdam-mega-menu__heading">
             Alle onderwerpen
@@ -132,17 +129,17 @@ export const Default: Story = {
             </UnorderedList.Item>
           </UnorderedList>
         </Grid.Cell>
-      </Grid>,
-    ],
+      </Grid>
+    ),
   },
 }
 
 export const MultipleCategories: Story = {
   args: {
-    children: [
-      <Grid key="nav">
+    children: (
+      <Grid key="nav" paddingVertical="medium">
         <Grid.Cell span={{ narrow: 4, medium: 8, wide: 8 }}>
-          <Heading level={3} size="level-3" className="amsterdam-mega-menu__subheading">
+          <Heading level={3} size="level-3">
             Thema&rsquo;s
           </Heading>
           <UnorderedList markers={false}>
@@ -219,7 +216,7 @@ export const MultipleCategories: Story = {
           </UnorderedList>
         </Grid.Cell>
         <Grid.Cell span={{ narrow: 4, medium: 8, wide: 4 }}>
-          <Heading level={3} size="level-3" className="amsterdam-mega-menu__subheading">
+          <Heading level={3} size="level-3">
             Categorieën
           </Heading>
           <UnorderedList markers={false}>
@@ -254,7 +251,7 @@ export const MultipleCategories: Story = {
               </Link>
             </UnorderedList.Item>
           </UnorderedList>
-          <Heading level={3} size="level-3" className="amsterdam-mega-menu__subheading">
+          <Heading level={3} size="level-3">
             Snel naar
           </Heading>
           <UnorderedList markers={false}>
@@ -280,7 +277,7 @@ export const MultipleCategories: Story = {
             </UnorderedList.Item>
           </UnorderedList>
         </Grid.Cell>
-      </Grid>,
-    ],
+      </Grid>
+    ),
   },
 }
