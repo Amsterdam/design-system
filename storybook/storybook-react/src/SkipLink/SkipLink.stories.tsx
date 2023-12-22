@@ -42,13 +42,13 @@ export const Default: Story = {
     // This resets the default behaviour of only showing the link
     // on focus, in order to always show the link in Storybook
     style: {
-      clip: 'auto',
-      clipPath: 'none',
-      height: 'auto',
-      overflow: 'auto',
-      position: 'static',
-      whiteSpace: 'normal',
-      width: 'auto',
+      clip: 'initial',
+      clipPath: 'initial',
+      height: 'initial',
+      overflow: 'initial',
+      position: 'initial',
+      whiteSpace: 'initial',
+      width: 'initial',
     },
   },
 }
