@@ -12,12 +12,21 @@ import { Icon } from '../Icon'
 import { VisuallyHidden } from '../VisuallyHidden'
 
 export interface AlertProps extends PropsWithChildren<HTMLAttributes<HTMLDivElement>> {
-  headingLevel?: HeadingProps['level']
-  title?: string
-  severity?: 'error' | 'info' | 'success' | 'warning'
+  /** Whether the alert can be dismissed by the user. Adds a button to the top right. */
   closeable?: boolean
+  /**
+   * The hierarchical level of the alert title within the document.
+   * @default 4
+   */
+  headingLevel?: HeadingProps['level']
+  /** Whether the severity icon is to be displayed. */
   icon?: boolean
+  /** Allows a callback when dismissing the alert. */
   onClose?: () => void
+  /** Highlights the meaning or tone of the message. */
+  severity?: 'error' | 'info' | 'success' | 'warning'
+  /** The title for the alert. */
+  title?: string
 }
 
 interface AlertCloseProps extends HTMLAttributes<HTMLButtonElement> {
