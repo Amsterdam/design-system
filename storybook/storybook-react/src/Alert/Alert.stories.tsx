@@ -17,9 +17,9 @@ const meta = {
     severity: {
       control: {
         type: 'radio',
-        labels: { info: 'info', success: 'success', warning: 'warning', error: 'error' },
+        labels: { warning: 'warning', success: 'success', error: 'error', info: 'info' },
       },
-      options: ['info', 'success', 'warning', 'error'],
+      options: ['warning', 'error', 'success', 'info'],
     },
     closeable: {
       control: {
@@ -50,23 +50,12 @@ export const Default: Story = {
         zijn niet bereikbaar.
       </Paragraph>
     ),
-    severity: 'warning',
-  },
-}
-
-export const Success: Story = {
-  args: {
-    children: <Paragraph>Het formulier is verzonden. We hebben uw gegevens goed ontvangen.</Paragraph>,
-    closeable: true,
-    severity: 'success',
-    title: 'Gelukt',
   },
 }
 
 export const Warning: Story = {
   args: {
     children: <Paragraph>U bent vergeten verplichte velden in te vullen.</Paragraph>,
-    severity: 'warning',
     title: 'Vul de gegevens aan',
   },
 }
@@ -81,6 +70,15 @@ export const Error: Story = {
     ),
     severity: 'error',
     title: 'Niet gelukt',
+  },
+}
+
+export const Success: Story = {
+  args: {
+    children: <Paragraph>Het formulier is verzonden. We hebben uw gegevens goed ontvangen.</Paragraph>,
+    closeable: true,
+    severity: 'success',
+    title: 'Gelukt',
   },
 }
 
@@ -99,7 +97,6 @@ export const Info: Story = {
 
 export const WithList: Story = {
   args: {
-    severity: 'warning',
     title: 'Vul de gegevens aan',
   },
   render: (args) => (
@@ -124,7 +121,7 @@ export const WithInlineLink: Story = {
         gesloten. Ook 14 020 en alle andere telefoonnummers van de gemeente zijn niet bereikbaar.
       </Paragraph>
     ),
-    severity: undefined,
+    severity: 'info',
   },
 }
 

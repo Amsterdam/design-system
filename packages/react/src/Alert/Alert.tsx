@@ -50,7 +50,16 @@ const iconSvgBySeverity = {
 
 export const Alert = forwardRef(
   (
-    { children, className, headingLevel = 4, title, severity = 'info', closeable, onClose, ...restProps }: AlertProps,
+    {
+      children,
+      className,
+      headingLevel = 4,
+      title,
+      severity = 'warning',
+      closeable,
+      onClose,
+      ...restProps
+    }: AlertProps,
     ref: ForwardedRef<HTMLDivElement>,
   ) => {
     const alertSize = title ? 'level-4' : 'level-5'
