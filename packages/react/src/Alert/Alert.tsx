@@ -5,7 +5,8 @@
 
 import { AlertIcon, CheckmarkIcon, CloseIcon, InfoIcon } from '@amsterdam/design-system-react-icons'
 import clsx from 'clsx'
-import { ForwardedRef, forwardRef, HTMLAttributes, PropsWithChildren } from 'react'
+import { forwardRef } from 'react'
+import type { ForwardedRef, HTMLAttributes, PropsWithChildren } from 'react'
 import { Heading } from '../Heading'
 import type { HeadingProps } from '../Heading'
 import { Icon } from '../Icon'
