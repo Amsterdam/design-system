@@ -12,7 +12,7 @@ const meta = {
   args: {
     title: 'Let op',
     closeable: false,
-    icon: false,
+    icon: true,
   },
   argTypes: {
     severity: {
@@ -50,71 +50,67 @@ type Story = StoryObj<typeof meta>
 
 export const Default: Story = {
   args: {
-    severity: 'info',
     children: (
       <Paragraph>
         Tijdens Koningsdag zijn alle Stadsloketten gesloten. Ook 14 020 en alle andere telefoonnummers van de gemeente
         zijn niet bereikbaar.
       </Paragraph>
     ),
-  },
-}
-
-export const WithInlineLink: Story = {
-  args: {
-    severity: undefined,
-    children: (
-      <Paragraph>
-        Tijdens Koningsdag zijn{' '}
-        <Link variant="inline" href="#">
-          alle Stadsloketten
-        </Link>{' '}
-        gesloten. Ook 14 020 en alle andere telefoonnummers van de gemeente zijn niet bereikbaar. telefoonnummers van de
-        gemeente zijn niet bereikbaar.
-      </Paragraph>
-    ),
+    severity: 'warning',
   },
 }
 
 export const Success: Story = {
   args: {
+    children: <Paragraph>Het formulier is verzonden. We hebben uw gegevens goed ontvangen.</Paragraph>,
+    closeable: true,
     severity: 'success',
     title: 'Gelukt',
-    closeable: true,
-    icon: true,
-    children: <Paragraph>Uw formulier is succesvol opgeslagen.</Paragraph>,
   },
 }
 
 export const Warning: Story = {
   args: {
+    children: <Paragraph>U bent vergeten verplichte velden in te vullen.</Paragraph>,
     severity: 'warning',
-    title: 'Mislukt',
-    closeable: true,
-    icon: true,
-    children: <Paragraph>Uw formulier is niet succesvol opgeslagen.</Paragraph>,
+    title: 'Vul de gegevens aan',
   },
 }
 
 export const Error: Story = {
   args: {
+    children: (
+      <Paragraph>
+        Wegens een technische fout kon het formulier niet worden verzonden. We hebben uw gegevens niet ontvangen.
+        Probeer het over een paar minuten opnieuw.
+      </Paragraph>
+    ),
     severity: 'error',
-    icon: true,
+    title: 'Niet gelukt',
+  },
+}
+
+export const Info: Story = {
+  args: {
+    children: (
+      <Paragraph>
+        Tijdens de hijswerkzaamheden geldt er een korte verkeersstop. We zetten verkeersregelaars in, volg hun
+        aanwijzingen op. De verkeersstop duurt ongeveer 10 minuten.
+      </Paragraph>
+    ),
     closeable: true,
-    children: <Paragraph>U bent verplichte velden vergeten in te vullen.</Paragraph>,
+    severity: 'info',
   },
 }
 
 export const WithList: Story = {
   args: {
-    severity: 'error',
-    icon: true,
-    closeable: true,
-    title: 'Formulier kon niet opgeslagen worden',
+    severity: 'warning',
+    title: 'Vul de gegevens aan',
   },
   render: (args) => (
     <Alert {...args}>
-      <Paragraph>U bent verplichte velden vergeten in te vullen.</Paragraph>
+      <Paragraph>U bent vergeten de volgende verplichte velden in te vullen:</Paragraph>
       <UnorderedList>
         <UnorderedList.Item>Naam</UnorderedList.Item>
         <UnorderedList.Item>Telefoonnummer</UnorderedList.Item>
@@ -123,14 +119,28 @@ export const WithList: Story = {
   ),
 }
 
-export const WithoutTitle: Story = {
+export const WithInlineLink: Story = {
   args: {
-    title: undefined,
     children: (
       <Paragraph>
-        Tijdens Koningsdag zijn alle Stadsloketten gesloten. Ook 14 020 en alle andere telefoonnummers van de gemeente
-        zijn niet bereikbaar.
+        Tijdens Koningsdag zijn{' '}
+        <Link variant="inline" href="#">
+          alle Stadsloketten
+        </Link>{' '}
+        gesloten. Ook 14 020 en alle andere telefoonnummers van de gemeente zijn niet bereikbaar.
       </Paragraph>
     ),
+    severity: undefined,
+  },
+}
+
+export const WithoutTitle: Story = {
+  args: {
+    children: (
+      <Paragraph>
+        De geschatte wachttijd in de adreszoeker klopt momenteel niet altijd. We werken aan een oplossing.
+      </Paragraph>
+    ),
+    title: undefined,
   },
 }
