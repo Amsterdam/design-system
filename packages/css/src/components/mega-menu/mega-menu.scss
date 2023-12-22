@@ -7,7 +7,6 @@
 
 .amsterdam-mega-menu {
   padding-block: 3.5rem 4.5rem;
-  padding-inline: 1.5rem;
 
   @media screen and (min-width: $amsterdam-breakpoint-wide) {
     padding-block: 5rem 7.5rem;
@@ -15,9 +14,21 @@
   }
 }
 
-.amsterdam-mega-menu .amsterdam-grid__cell {
-  .amsterdam-heading:nth-child(n + 1) {
-    padding-block-start: 3.5rem;
+.amsterdam-mega-menu__heading {
+  padding-block-end: 2rem;
+
+  @media screen and (min-width: $amsterdam-breakpoint-wide) {
+    padding-block-end: 2.5rem;
+  }
+}
+
+.amsterdam-mega-menu__subheading {
+  padding-block-start: 2rem;
+
+  @media screen and (min-width: $amsterdam-breakpoint-wide) {
+    &:first-child {
+      padding-block-start: 0;
+    }
   }
 }
 

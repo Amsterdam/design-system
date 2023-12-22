@@ -26,11 +26,9 @@ export const Default: Story = {
     children: [
       <Grid key="nav">
         <Grid.Cell span="all">
-          <Heading level={1} size="level-2">
+          <Heading level={1} size="level-2" className="amsterdam-mega-menu__heading">
             Alle onderwerpen
           </Heading>
-        </Grid.Cell>
-        <Grid.Cell span="all">
           <UnorderedList markers={false}>
             <UnorderedList.Item>
               <Link variant="inList" href="#">
@@ -144,7 +142,7 @@ export const MultipleCategories: Story = {
     children: [
       <Grid key="nav">
         <Grid.Cell span={{ narrow: 4, medium: 8, wide: 8 }}>
-          <Heading level={3} size="level-3">
+          <Heading level={3} size="level-3" className="amsterdam-mega-menu__subheading">
             Thema&rsquo;s
           </Heading>
           <UnorderedList markers={false}>
@@ -221,7 +219,7 @@ export const MultipleCategories: Story = {
           </UnorderedList>
         </Grid.Cell>
         <Grid.Cell span={{ narrow: 4, medium: 8, wide: 4 }}>
-          <Heading level={3} size="level-3">
+          <Heading level={3} size="level-3" className="amsterdam-mega-menu__subheading">
             Categorieën
           </Heading>
           <UnorderedList markers={false}>
@@ -256,7 +254,7 @@ export const MultipleCategories: Story = {
               </Link>
             </UnorderedList.Item>
           </UnorderedList>
-          <Heading level={3} size="level-3">
+          <Heading level={3} size="level-3" className="amsterdam-mega-menu__subheading">
             Snel naar
           </Heading>
           <UnorderedList markers={false}>
