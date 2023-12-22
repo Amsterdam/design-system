@@ -6,10 +6,13 @@
 import { AlertIcon, CheckmarkIcon, CloseIcon, InfoIcon } from '@amsterdam/design-system-react-icons'
 import clsx from 'clsx'
 import { ForwardedRef, forwardRef, HTMLAttributes, PropsWithChildren, useMemo } from 'react'
+import { Heading } from '../Heading'
+import type { HeadingProps } from '../Heading'
 import { Icon } from '../Icon'
 import { VisuallyHidden } from '../VisuallyHidden'
 
 export interface AlertProps extends PropsWithChildren<HTMLAttributes<HTMLDivElement>> {
+  headingLevel?: HeadingProps['level']
   title?: string
   severity?: 'error' | 'info' | 'success' | 'warning'
   closeable?: boolean
@@ -39,7 +42,17 @@ const iconSvgBySeverity = {
 
 export const Alert = forwardRef(
   (
-    { children, className, title, severity = 'info', closeable, icon, onClose, ...restProps }: AlertProps,
+    {
+      children,
+      className,
+      headingLevel = 4,
+      title,
+      severity = 'info',
+      closeable,
+      icon,
+      onClose,
+      ...restProps
+    }: AlertProps,
     ref: ForwardedRef<HTMLDivElement>,
   ) => {
     const alertSize = title ? 'level-4' : 'level-5'
@@ -53,18 +66,22 @@ export const Alert = forwardRef(
     }, [icon, severity, alertSize])
 
     return (
-      <div
+      <section
         {...restProps}
         ref={ref}
         className={clsx('amsterdam-alert', severity && `amsterdam-alert--${severity}`, className)}
       >
         {alertIcon && <div className="amsterdam-alert__icon">{alertIcon}</div>}
         <div className="amsterdam-alert__content">
-          {title && <span className="amsterdam-alert__title">{title}</span>}
+          {title && (
+            <Heading level={headingLevel} size="level-4">
+              {title}
+            </Heading>
+          )}
           {children}
         </div>
         {closeable && <AlertClose size={alertSize} onClick={onClose} />}
-      </div>
+      </section>
     )
   },
 )
