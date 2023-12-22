@@ -7,9 +7,14 @@ import { Heading, OrderedList, Paragraph } from '@amsterdam/design-system-react'
 import type { Meta, StoryObj } from '@storybook/react'
 import { exampleOrderedList } from '../shared/exampleContent'
 
+const orderedList = exampleOrderedList().map((text, index) => <OrderedList.Item key={index}>{text}</OrderedList.Item>)
+
 const meta = {
   title: 'Text/Ordered List',
   component: OrderedList,
+  args: {
+    children: orderedList,
+  },
   argTypes: {
     markers: { control: 'boolean' },
   },
@@ -19,11 +24,7 @@ export default meta
 
 type Story = StoryObj<typeof meta>
 
-export const Basis: Story = {
-  args: {
-    children: exampleOrderedList().map((item, index) => <OrderedList.Item key={index}>{item}</OrderedList.Item>),
-  },
-}
+export const Basis: Story = {}
 
 export const TweeNiveaus: Story = {
   args: {

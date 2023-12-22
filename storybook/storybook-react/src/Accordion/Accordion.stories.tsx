@@ -7,6 +7,10 @@ import { Accordion, Paragraph } from '@amsterdam/design-system-react'
 import { Meta, StoryObj } from '@storybook/react'
 import { exampleParagraph } from '../shared/exampleContent'
 
+const paragraph1 = exampleParagraph()
+const paragraph2 = exampleParagraph()
+const paragraph3 = exampleParagraph()
+
 const meta = {
   title: 'Containers/Accordion',
   component: Accordion,
@@ -37,13 +41,13 @@ export const Default: Story = {
   args: {
     children: [
       <Accordion.Section key={1} label="Eerste sectie">
-        <Paragraph>{exampleParagraph()}</Paragraph>
+        <Paragraph>{paragraph1}</Paragraph>
       </Accordion.Section>,
       <Accordion.Section key={2} label="Tweede sectie">
-        <Paragraph>{exampleParagraph()}</Paragraph>
+        <Paragraph>{paragraph2}</Paragraph>
       </Accordion.Section>,
       <Accordion.Section key={3} label="Derde sectie">
-        <Paragraph>{exampleParagraph()}</Paragraph>
+        <Paragraph>{paragraph3}</Paragraph>
       </Accordion.Section>,
     ],
   },
@@ -53,13 +57,13 @@ export const ExpandedByDefault: Story = {
   args: {
     children: [
       <Accordion.Section key={1} label="Eerste sectie">
-        <Paragraph>{exampleParagraph()}</Paragraph>
+        <Paragraph>{paragraph1}</Paragraph>
       </Accordion.Section>,
       <Accordion.Section key={2} label="Tweede sectie" expanded>
-        <Paragraph>{exampleParagraph()}</Paragraph>
+        <Paragraph>{paragraph2}</Paragraph>
       </Accordion.Section>,
       <Accordion.Section key={3} label="Derde sectie">
-        <Paragraph>{exampleParagraph()}</Paragraph>
+        <Paragraph>{paragraph3}</Paragraph>
       </Accordion.Section>,
     ],
   },
@@ -70,13 +74,13 @@ export const TooManyLandmarks: Story = {
     section: false,
     children: [
       <Accordion.Section key={1} label="Eerste sectie">
-        <Paragraph>{exampleParagraph()}</Paragraph>
+        <Paragraph>{paragraph1}</Paragraph>
       </Accordion.Section>,
       <Accordion.Section key={2} label="Tweede sectie">
-        <Paragraph>{exampleParagraph()}</Paragraph>
+        <Paragraph>{paragraph2}</Paragraph>
       </Accordion.Section>,
       <Accordion.Section key={3} label="Derde sectie">
-        <Paragraph>{exampleParagraph()}</Paragraph>
+        <Paragraph>{paragraph3}</Paragraph>
       </Accordion.Section>,
     ],
   },

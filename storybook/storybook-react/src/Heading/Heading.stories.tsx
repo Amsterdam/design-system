@@ -7,11 +7,13 @@ import { Heading } from '@amsterdam/design-system-react'
 import { Meta, StoryObj } from '@storybook/react'
 import { exampleHeading } from '../shared/exampleContent'
 
+const heading = exampleHeading()
+
 const meta = {
   title: 'Text/Heading',
   component: Heading,
   args: {
-    children: exampleHeading(),
+    children: heading,
     inverseColor: false,
   },
   argTypes: {
@@ -32,9 +34,6 @@ export default meta
 type Story = StoryObj<typeof meta>
 
 export const Default: Story = {
-  args: {
-    children: exampleHeading(),
-  },
   decorators: [
     (Story, context) => (
       <div className={context.args.inverseColor ? 'amsterdam-docs-dark-background' : undefined}>
@@ -44,36 +43,28 @@ export const Default: Story = {
   ],
 }
 
-export const Heading1: Story = {
-  args: {
-    children: exampleHeading(),
-  },
-}
+export const Heading1: Story = {}
 
 export const Heading2: Story = {
   args: {
-    children: exampleHeading(),
     level: 2,
   },
 }
 
 export const Heading3: Story = {
   args: {
-    children: exampleHeading(),
     level: 3,
   },
 }
 
 export const Heading4: Story = {
   args: {
-    children: exampleHeading(),
     level: 4,
   },
 }
 
 export const InvertedColor: Story = {
   args: {
-    children: exampleHeading(),
     inverseColor: true,
   },
   decorators: [

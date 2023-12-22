@@ -33,6 +33,10 @@ const gridArgTypes = {
 }
 
 const gridCellArgTypes = {
+  as: {
+    control: { type: 'inline-radio' },
+    options: ['article', 'div', 'section'],
+  },
   span: {
     control: { type: 'number', min: 1, max: 12 },
   },
@@ -154,4 +158,18 @@ export const StartPosition: GridCellStory = {
     span: 3,
     start: 2,
   },
+}
+
+export const CustomTagName: GridCellStory = {
+  ...GridCellStoryTemplate,
+  args: {
+    as: 'section',
+  },
+  render: ({ as }: StoryProps) => (
+    <Grid>
+      <Grid.Cell as={as} span="all">
+        <p className="amsterdam-docs-pink-box amsterdam-docs-paragraph">Deze cel gebruikt het HTML-element `{as}`.</p>
+      </Grid.Cell>
+    </Grid>
+  ),
 }
