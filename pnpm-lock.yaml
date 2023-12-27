@@ -58,8 +58,8 @@ importers:
         specifier: 7.33.2
         version: 7.33.2(eslint@8.56.0)
       html-validate:
-        specifier: 8.7.4
-        version: 8.7.4
+        specifier: 8.8.0
+        version: 8.8.0
       husky:
         specifier: 8.0.3
         version: 8.0.3
@@ -516,7 +516,7 @@ packages:
     resolution: {integrity: sha512-XktuhWlJ5g+3TJXc5upd9Ks1HutSArik6jf2eAjYFyIOf4ej3RN+184cZbzDvbPnuTJIUhPKKJE3cIsYTiAT3w==}
     engines: {node: '>=6.9.0'}
     dependencies:
-      '@babel/highlight': 7.22.13
+      '@babel/highlight': 7.23.4
       chalk: 2.4.2
     dev: true
 
@@ -805,15 +805,6 @@ packages:
       '@babel/types': 7.23.6
     transitivePeerDependencies:
       - supports-color
-    dev: true
-
-  /@babel/highlight@7.22.13:
-    resolution: {integrity: sha512-C/BaXcnnvBCmHTpz/VGZ8jgtE2aYlW4hxDhseJAWZb7gqGM/qtCK6iZUb0TyKFf7BOUsBH7Q7fkRsDRhg1XklQ==}
-    engines: {node: '>=6.9.0'}
-    dependencies:
-      '@babel/helper-validator-identifier': 7.22.20
-      chalk: 2.4.2
-      js-tokens: 4.0.0
     dev: true
 
   /@babel/highlight@7.23.4:
@@ -10105,8 +10096,8 @@ packages:
     engines: {node: '>=8'}
     dev: true
 
-  /html-validate@8.7.4:
-    resolution: {integrity: sha512-f/s2z4hAmXY2nI001vje7s1lhV4PnyzOc0CkH5akwyydZgdq3umx3/kumdnGZQbsXYIED8nzK24vxJu9t/UO1w==}
+  /html-validate@8.8.0:
+    resolution: {integrity: sha512-apL6TzpP9LHylv86V/WCVEmRXMMhNeZVdd2P5p10cD4ZPGC7Gb1fzUOTeGWaKC82RIslHLPW3cenQ8dsrFmeLQ==}
     engines: {node: '>= 16.14'}
     hasBin: true
     peerDependencies:
