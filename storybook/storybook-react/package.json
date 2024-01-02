@@ -27,7 +27,7 @@
     "@amsterdam/design-system-tokens": "workspace:*",
     "@babel/core": "7.23.6",
     "@mdx-js/react": "2.3.0",
-    "@storybook/addon-a11y": "7.6.6",
+    "@storybook/addon-a11y": "7.6.7",
     "@storybook/addon-actions": "7.6.6",
     "@storybook/addon-docs": "7.6.6",
     "@storybook/addon-essentials": "7.6.6",
