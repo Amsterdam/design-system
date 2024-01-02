@@ -18,6 +18,9 @@ const meta = {
       options: ['amsterdam', 'ggd-amsterdam', 'stadsarchief', 'stadsbank-van-lening', 'vga-verzekeringen'],
     },
   },
+  parameters: {
+    layout: 'fullscreen',
+  },
 } satisfies Meta<typeof Header>
 
 export default meta
