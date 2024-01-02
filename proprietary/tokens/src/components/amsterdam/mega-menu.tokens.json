@@ -2,7 +2,7 @@
   "amsterdam": {
     "mega-menu": {
       "padding-block": {
-        "value": "clamp(2.5rem, calc(2.375rem + 0.625vw), 3rem) clamp(3.5rem, calc(3.375rem + 0.625vw), 4rem)"
+        "value": "clamp(2.5rem, calc(2.2917rem + 1.0417vw), 3rem) clamp(3.5rem, calc(3.2917rem + 1.0417vw), 4rem)"
       },
       "heading": {
         "padding-block-start": { "value": "2rem" }
