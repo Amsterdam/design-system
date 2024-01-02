@@ -1,30 +1,30 @@
-import { render } from '@testing-library/react'
+import { render, screen } from '@testing-library/react'
 import { createRef } from 'react'
 import { MegaMenu } from './MegaMenu'
 import '@testing-library/jest-dom'
 
 describe('Mega menu', () => {
   it('renders', () => {
-    const { container } = render(<MegaMenu />)
+    render(<MegaMenu />)
 
-    const component = container.querySelector(':only-child')
+    const component = screen.getByRole('navigation')
 
     expect(component).toBeInTheDocument()
     expect(component).toBeVisible()
   })
 
   it('renders a design system BEM class name', () => {
-    const { container } = render(<MegaMenu />)
+    render(<MegaMenu />)
 
-    const component = container.querySelector(':only-child')
+    const component = screen.getByRole('navigation')
 
     expect(component).toHaveClass('amsterdam-mega-menu')
   })
 
   it('renders an additional class name', () => {
-    const { container } = render(<MegaMenu className="extra" />)
+    render(<MegaMenu className="extra" />)
 
-    const component = container.querySelector(':only-child')
+    const component = screen.getByRole('navigation')
 
     expect(component).toHaveClass('extra')
 
@@ -32,7 +32,7 @@ describe('Mega menu', () => {
   })
 
   it('supports ForwardRef in React', () => {
-    const ref = createRef<HTMLElement>()
+    const ref = createRef<HTMLDivElement>()
 
     const { container } = render(<MegaMenu ref={ref} />)
 

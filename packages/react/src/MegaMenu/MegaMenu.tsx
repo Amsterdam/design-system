@@ -10,9 +10,9 @@ export interface MegaMenuProps extends PropsWithChildren<HTMLAttributes<HTMLDivE
 
 export const MegaMenu = forwardRef(
   ({ children, className, ...restProps }: MegaMenuProps, ref: ForwardedRef<HTMLDivElement>) => (
-    <div {...restProps} ref={ref} className={clsx('amsterdam-mega-menu', className)}>
+    <nav {...restProps} ref={ref} className={clsx('amsterdam-mega-menu', className)}>
       {children}
-    </div>
+    </nav>
   ),
 )
 

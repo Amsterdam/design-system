@@ -1,8 +1,15 @@
 {
   "amsterdam": {
     "mega-menu": {
+      "padding-block": {
+        "value": "clamp(2.5rem, calc(2.375rem + 0.625vw), 3rem) clamp(3.5rem, calc(3.375rem + 0.625vw), 4rem)"
+      },
+      "heading": {
+        "padding-block-start": { "value": "2rem" }
+      },
       "list": {
-        "padding-block-start": { "value": "1rem" }
+        "padding-block-start": { "value": "1rem" },
+        "column-width": { "value": "20rem" }
       }
     }
   }
