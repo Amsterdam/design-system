@@ -9,6 +9,9 @@ import { Meta, StoryObj } from '@storybook/react'
 const meta = {
   title: 'Navigation/Mega Menu',
   component: MegaMenu,
+  args: {
+    isOpen: true,
+  },
   parameters: {
     layout: 'fullscreen',
   },

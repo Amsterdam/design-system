@@ -4,11 +4,12 @@
  */
 
 import clsx from 'clsx'
-import { ForwardedRef, forwardRef, HTMLAttributes, ReactNode } from 'react'
+import { ForwardedRef, forwardRef, HTMLAttributes, ReactNode, useState } from 'react'
 import { Grid } from '../Grid'
 import { Heading } from '../Heading'
 import { Logo } from '../Logo'
 import type { LogoBrand } from '../Logo'
+import { MegaMenu } from '../MegaMenu'
 import { VisuallyHidden } from '../VisuallyHidden'
 
 export interface HeaderProps extends HTMLAttributes<HTMLElement> {
@@ -34,6 +35,12 @@ export const Header = forwardRef(
     }: HeaderProps,
     ref: ForwardedRef<HTMLElement>,
   ) => {
+    const [isMegaMenuOpen, setIsMegaMenuOpen] = useState(false)
+
+    const toggleMegaMenu = () => {
+      setIsMegaMenuOpen(!isMegaMenuOpen)
+    }
+
     return (
       <header {...restProps} ref={ref} className={clsx('amsterdam-header', className)}>
         <Grid>
@@ -46,7 +53,9 @@ export const Header = forwardRef(
               {links && <div className="amsterdam-header__links">{links}</div>}
               {menu && (
                 <div className="amsterdam-header__menu">
-                  <button className="amsterdam-header__menu-button">Menu</button>
+                  <button className="amsterdam-header__menu-button" onClick={toggleMegaMenu}>
+                    Menu
+                  </button>
                 </div>
               )}
               {title && (
@@ -59,7 +68,7 @@ export const Header = forwardRef(
             </div>
           </Grid.Cell>
         </Grid>
-        {menu}
+        {menu && <MegaMenu isOpen={isMegaMenuOpen}>{menu}</MegaMenu>}
       </header>
     )
   },
