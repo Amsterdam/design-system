@@ -27,8 +27,9 @@
   display: none;
 
   @media screen and (min-width: $amsterdam-breakpoint-medium) {
-    display: block;
+    display: flex;
     flex: 10 0 auto;
+    justify-content: flex-end;
   }
 
   @media screen and (min-width: $amsterdam-breakpoint-wide) {
@@ -37,9 +38,10 @@
 }
 
 .amsterdam-header__menu {
+  display: flex;
   flex: 1;
+  justify-content: flex-end;
   padding-inline-start: var(--amsterdam-page-menu-column-gap);
-  text-align: end;
 
   @media screen and (min-width: $amsterdam-breakpoint-wide) {
     order: 4;
@@ -97,7 +99,6 @@
     width: 19px;
 
     & > line {
-      stroke: var(--amsterdam-page-menu-item-color);
       stroke-width: 2.5px;
       transform-origin: center;
       transition:
@@ -114,10 +115,6 @@
   &:hover {
     color: var(--amsterdam-page-menu-item-hover-color);
     text-decoration-line: var(--amsterdam-page-menu-item-hover-text-decoration-line);
-
-    & > svg > line {
-      stroke: var(--amsterdam-page-menu-item-hover-color);
-    }
   }
 
   & > svg > line:nth-child(1) {

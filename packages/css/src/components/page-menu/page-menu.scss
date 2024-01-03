@@ -17,7 +17,7 @@
 .amsterdam-page-menu {
   align-items: center;
   column-gap: var(--amsterdam-page-menu-column-gap);
-  display: flex;
+  display: inline flex;
   flex-direction: row;
   list-style: none;
   row-gap: var(--amsterdam-page-menu-row-gap);

@@ -26,20 +26,19 @@ interface HeaderMenuButtonProps extends HTMLAttributes<HTMLButtonElement> {
 }
 
 const HeaderMenuButton = forwardRef(
-  ({ className, onClick, isOpen, ...restProps }: HeaderMenuButtonProps, ref: ForwardedRef<HTMLButtonElement>) => (
+  ({ className, isOpen, ...restProps }: HeaderMenuButtonProps, ref: ForwardedRef<HTMLButtonElement>) => (
     <button
       {...restProps}
       ref={ref}
       className={clsx('amsterdam-header__menu-button', isOpen && 'amsterdam-header__menu-button--open', className)}
       aria-label="Open Menu"
       aria-expanded="false"
-      onClick={onClick}
     >
       Menu
       <svg viewBox="0 0 19 19" role="presentation" focusable="false">
-        <line x1="0" x2="100%" y1="50%" y2="50%" />
-        <line x1="0" x2="100%" y1="50%" y2="50%" />
-        <line x1="0" x2="100%" y1="50%" y2="50%" />
+        <line stroke="currentColor" x1="0" x2="100%" y1="50%" y2="50%" />
+        <line stroke="currentColor" x1="0" x2="100%" y1="50%" y2="50%" />
+        <line stroke="currentColor" x1="0" x2="100%" y1="50%" y2="50%" />
       </svg>
     </button>
   ),
