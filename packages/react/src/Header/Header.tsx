@@ -37,9 +37,9 @@ const HeaderMenuButton = forwardRef(
     >
       Menu
       <svg viewBox="0 0 19 19" role="presentation" focusable="false">
-        <line x1="0" x2="100%" y1="14%" y2="14%" />
         <line x1="0" x2="100%" y1="50%" y2="50%" />
-        <line x1="0" x2="100%" y1="86%" y2="86%" />
+        <line x1="0" x2="100%" y1="50%" y2="50%" />
+        <line x1="0" x2="100%" y1="50%" y2="50%" />
       </svg>
     </button>
   ),

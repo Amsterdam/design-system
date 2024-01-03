@@ -71,6 +71,7 @@
   background-color: transparent;
   border: 0;
   color: var(--amsterdam-page-menu-item-color);
+  cursor: pointer;
   display: flex;
   font-family: var(--amsterdam-page-menu-item-font-family);
   font-size: var(--amsterdam-page-menu-item-spacious-font-size);
@@ -78,8 +79,12 @@
   gap: var(--amsterdam-page-menu-item-gap);
   line-height: var(--amsterdam-page-menu-item-spacious-line-height);
   margin-block: 0;
+  outline-offset: var(--amsterdam-page-menu-item-outline-offset);
   padding-inline: 0;
   text-align: center;
+  text-decoration-line: var(--amsterdam-page-menu-item-text-decoration-line);
+  text-decoration-thickness: var(--amsterdam-page-menu-item-text-decoration-thickness);
+  text-underline-offset: var(--amsterdam-page-menu-item-text-underline-offset);
   touch-action: manipulation;
 
   .amsterdam-theme--compact & {
@@ -93,9 +98,11 @@
 
     & > line {
       stroke: var(--amsterdam-page-menu-item-color);
-      stroke-width: 3px;
+      stroke-width: 2.5px;
+      transform-origin: center;
       transition:
-        transform 0.2s ease-in-out,
+        translate 0.1s ease-in-out,
+        rotate 0.2s ease-in-out,
         opacity 0.1s ease-in-out;
 
       @media (prefers-reduced-motion) {
@@ -113,19 +120,27 @@
     }
   }
 
+  & > svg > line:nth-child(1) {
+    translate: 0 -6px;
+  }
+
+  & > svg > line:nth-child(3) {
+    translate: 0 6px;
+  }
+
   &--open {
-    & > svg > line:first-child {
-      transform: rotate(45deg);
-      transform-origin: 2px 6px;
+    & > svg > line:nth-child(1) {
+      rotate: 45deg;
+      translate: 0;
     }
 
     & > svg > line:nth-child(2) {
       opacity: 0%;
     }
 
-    & > svg > line:last-child {
-      transform: rotate(-45deg);
-      transform-origin: 1px 12px;
+    & > svg > line:nth-child(3) {
+      rotate: -45deg;
+      translate: 0;
     }
   }
 }
