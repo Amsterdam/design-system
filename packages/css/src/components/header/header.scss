@@ -67,19 +67,51 @@
 
 // Temporary, will move to megamenu (and/or iconButton)
 .amsterdam-header__menu-button {
+  align-items: center;
   background-color: transparent;
-  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><path fill='%23004699' fill-rule='evenodd' d='M0 3.238h32V7.81H0V3.238zm0 10.476h32v4.572H0v-4.572zM0 24.19h32v4.572H0V24.19z'/></svg>");
-  background-position: center right;
-  background-repeat: no-repeat;
-  background-size: 19px 19px;
   border: 0;
   color: var(--amsterdam-page-menu-item-color);
+  display: flex;
   font-family: var(--amsterdam-page-menu-item-font-family);
   font-size: var(--amsterdam-page-menu-item-spacious-font-size);
   font-weight: var(--amsterdam-page-menu-item-font-weight);
+  gap: var(--amsterdam-page-menu-item-gap);
   line-height: var(--amsterdam-page-menu-item-spacious-line-height);
   margin-block: 0;
-  padding-inline: 0 30px;
+  padding-inline: 0;
   text-align: center;
   touch-action: manipulation;
+
+  & > svg {
+    height: 19px;
+    width: 19px;
+
+    & > line {
+      stroke: var(--amsterdam-page-menu-item-color);
+      stroke-width: 3px;
+      transition:
+        transform 0.2s ease-in-out,
+        opacity 0.1s ease-in-out;
+
+      @media (prefers-reduced-motion) {
+        transition: none;
+      }
+    }
+  }
+
+  &--open {
+    & > svg > line:first-child {
+      transform: rotate(45deg);
+      transform-origin: 2px 6px;
+    }
+
+    & > svg > line:nth-child(2) {
+      opacity: 0%;
+    }
+
+    & > svg > line:last-child {
+      transform: rotate(-45deg);
+      transform-origin: 1px 12px;
+    }
+  }
 }

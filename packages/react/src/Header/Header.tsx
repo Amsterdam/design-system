@@ -21,6 +21,30 @@ export interface HeaderProps extends HTMLAttributes<HTMLElement> {
   menu?: ReactNode
 }
 
+interface HeaderMenuButtonProps extends HTMLAttributes<HTMLButtonElement> {
+  isOpen?: boolean
+}
+
+const HeaderMenuButton = forwardRef(
+  ({ className, onClick, isOpen, ...restProps }: HeaderMenuButtonProps, ref: ForwardedRef<HTMLButtonElement>) => (
+    <button
+      {...restProps}
+      ref={ref}
+      className={clsx('amsterdam-header__menu-button', isOpen && 'amsterdam-header__menu-button--open', className)}
+      aria-label="Open Menu"
+      aria-expanded="false"
+      onClick={onClick}
+    >
+      Menu
+      <svg viewBox="0 0 19 19" role="presentation" focusable="false">
+        <line x1="0" x2="100%" y1="14%" y2="14%" />
+        <line x1="0" x2="100%" y1="50%" y2="50%" />
+        <line x1="0" x2="100%" y1="86%" y2="86%" />
+      </svg>
+    </button>
+  ),
+)
+
 export const Header = forwardRef(
   (
     {
@@ -53,9 +77,7 @@ export const Header = forwardRef(
               {links && <div className="amsterdam-header__links">{links}</div>}
               {menu && (
                 <div className="amsterdam-header__menu">
-                  <button className="amsterdam-header__menu-button" onClick={toggleMegaMenu}>
-                    Menu
-                  </button>
+                  <HeaderMenuButton onClick={toggleMegaMenu} isOpen={isMegaMenuOpen} />
                 </div>
               )}
               {title && (
@@ -75,3 +97,4 @@ export const Header = forwardRef(
 )
 
 Header.displayName = 'Header'
+HeaderMenuButton.displayName = 'HeaderMenuButton'

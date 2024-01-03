@@ -10,6 +10,20 @@
       "list": {
         "padding-block-start": { "value": "1rem" },
         "column-width": { "value": "20rem" }
+      },
+      "menu-button": {
+        "spacious": {
+          "font-size": { "value": "{amsterdam.typography.spacious.text-level.6.font-size}" },
+          "line-height": { "value": "{amsterdam.typography.spacious.text-level.6.line-height}" }
+        },
+        "compact": {
+          "font-size": { "value": "{amsterdam.typography.compact.text-level.6.font-size}" },
+          "line-height": { "value": "{amsterdam.typography.compact.text-level.6.line-height}" }
+        },
+        "hover": {
+          "color": { "value": "{amsterdam.link-appearance.hover.color}" },
+          "text-decoration-line": { "value": "{amsterdam.link-appearance.subtle.hover.text-decoration-line}" }
+        }
       }
     }
   }

@@ -12,12 +12,6 @@
   }
 }
 
-.amsterdam-mega-menu .amsterdam-grid__cell {
-  .amsterdam-heading:not(:first-child) {
-    padding-block-start: var(--amsterdam-mega-menu-heading-padding-block-start);
-  }
-}
-
 .amsterdam-mega-menu .amsterdam-unordered-list {
   column-gap: var(--amsterdam-grid-spacious-gap);
   columns: var(--amsterdam-mega-menu-list-column-width, 20rem) auto;
@@ -25,5 +19,9 @@
 
   &__item {
     padding-block-start: var(--amsterdam-mega-menu-list-padding-block-start);
+  }
+
+  &:has(+ .amsterdam-heading) {
+    margin-block-end: var(--amsterdam-mega-menu-heading-padding-block-start);
   }
 }
