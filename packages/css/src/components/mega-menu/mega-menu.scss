@@ -21,6 +21,7 @@
     padding-block-start: var(--amsterdam-mega-menu-list-padding-block-start);
   }
 
+  /* Give the list bottom margin when followed by a heading */
   &:has(+ .amsterdam-heading) {
     margin-block-end: var(--amsterdam-mega-menu-heading-padding-block-start);
   }
