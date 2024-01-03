@@ -82,6 +82,11 @@
   text-align: center;
   touch-action: manipulation;
 
+  .amsterdam-theme--compact & {
+    font-size: var(--amsterdam-page-menu-item-compact-font-size);
+    line-height: var(--amsterdam-page-menu-item-compact-line-height);
+  }
+
   & > svg {
     height: 19px;
     width: 19px;
@@ -96,6 +101,15 @@
       @media (prefers-reduced-motion) {
         transition: none;
       }
+    }
+  }
+
+  &:hover {
+    color: var(--amsterdam-page-menu-item-hover-color);
+    text-decoration-line: var(--amsterdam-page-menu-item-hover-text-decoration-line);
+
+    & > svg > line {
+      stroke: var(--amsterdam-page-menu-item-hover-color);
     }
   }
 
