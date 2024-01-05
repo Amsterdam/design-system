@@ -40,3 +40,39 @@ export default meta
 type Story = StoryObj<typeof meta>
 
 export const Default: Story = {}
+
+export const OnLightBackground: Story = {
+  args: {
+    onBackground: 'light',
+  },
+}
+
+export const OnDarkBackground: Story = {
+  args: {
+    onBackground: 'dark',
+  },
+}
+
+export const Level3: Story = {
+  args: {
+    size: 'level-3',
+  },
+}
+
+export const Level4: Story = {
+  args: {
+    size: 'level-4',
+  },
+}
+
+export const Level5: Story = {
+  args: {
+    size: 'level-5',
+  },
+}
+
+export const Level6: Story = {
+  args: {
+    size: 'level-6',
+  },
+}
