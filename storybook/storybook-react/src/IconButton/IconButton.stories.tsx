@@ -8,7 +8,7 @@ import * as Icons from '@amsterdam/design-system-react-icons'
 import { Meta, StoryObj } from '@storybook/react'
 
 const meta = {
-  title: 'Icon Button',
+  title: 'Buttons/Icon Button',
   component: IconButton,
   args: {
     label: 'Sluiten',

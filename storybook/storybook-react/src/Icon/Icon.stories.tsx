@@ -15,6 +15,9 @@ const meta = {
       control: { type: 'select' },
       options: ['level-3', 'level-4', 'level-5', 'level-6'],
     },
+    square: {
+      control: { type: 'boolean' },
+    },
     svg: {
       control: { type: 'select' },
       options: Object.keys(Icons),
@@ -42,6 +45,13 @@ export const WithText: Story = {
   ),
   args: {
     svg: Icons.EmailIcon,
+  },
+}
+
+export const Square: Story = {
+  args: {
+    svg: Icons.EmailIcon,
+    square: true,
   },
 }
 
