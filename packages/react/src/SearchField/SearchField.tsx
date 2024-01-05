@@ -12,7 +12,6 @@ import {
   PropsWithChildren,
   RefAttributes,
 } from 'react'
-import { SearchFieldButton } from './SearchFieldButton'
 import { SearchFieldInput } from './SearchFieldInput'
 
 export interface SearchFieldProps extends PropsWithChildren<HTMLAttributes<HTMLFormElement>> {}
@@ -20,7 +19,6 @@ export interface SearchFieldProps extends PropsWithChildren<HTMLAttributes<HTMLF
 export interface SearchFieldComponent
   extends ForwardRefExoticComponent<SearchFieldProps & RefAttributes<HTMLFormElement>> {
   Input: typeof SearchFieldInput
-  Button: typeof SearchFieldButton
 }
 
 export const SearchField = forwardRef(
@@ -34,7 +32,5 @@ export const SearchField = forwardRef(
 ) as SearchFieldComponent
 
 SearchField.Input = SearchFieldInput
-SearchField.Button = SearchFieldButton
 SearchField.displayName = 'SearchField'
 SearchField.Input.displayName = 'SearchField.Input'
-SearchField.Button.displayName = 'SearchField.Button'

@@ -3,23 +3,13 @@
  * Copyright (c) 2023 Gemeente Amsterdam
  */
 
-import { CloseIcon } from '@amsterdam/design-system-react-icons'
 import clsx from 'clsx'
 import { DialogHTMLAttributes, ForwardedRef, forwardRef, PropsWithChildren, ReactNode } from 'react'
-import { Icon } from '../Icon'
-import { VisuallyHidden } from '../VisuallyHidden'
+import { IconButton } from '../IconButton'
 
 export interface DialogProps extends PropsWithChildren<DialogHTMLAttributes<HTMLDialogElement>> {
   actions?: ReactNode
 }
-
-// TODO: Replace with ActionButton
-const DialogClose = forwardRef(({ ...restProps }, ref: ForwardedRef<HTMLButtonElement>) => (
-  <button ref={ref} className="amsterdam-dialog__close" formNoValidate {...restProps}>
-    <VisuallyHidden>Sluiten</VisuallyHidden>
-    <Icon svg={CloseIcon} size="level-5" />
-  </button>
-))
 
 export const Dialog = forwardRef(
   ({ children, className, title, actions, ...restProps }: DialogProps, ref: ForwardedRef<HTMLDialogElement>) => (
@@ -27,7 +17,7 @@ export const Dialog = forwardRef(
       <form method="dialog" className="amsterdam-dialog__form">
         <header className="amsterdam-dialog__header">
           <span className="amsterdam-dialog__title">{title}</span>
-          <DialogClose />
+          <IconButton label="Sluiten" formNoValidate />
         </header>
         <article className="amsterdam-dialog__article">{children}</article>
         {actions && <footer className="amsterdam-dialog__footer">{actions}</footer>}
@@ -37,4 +27,3 @@ export const Dialog = forwardRef(
 )
 
 Dialog.displayName = 'Dialog'
-DialogClose.displayName = 'DialogClose'
