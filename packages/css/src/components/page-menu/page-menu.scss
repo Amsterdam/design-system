@@ -22,6 +22,12 @@
   list-style: none;
   row-gap: var(--amsterdam-page-menu-row-gap);
 
+  &--links {
+    align-items: flex-start;
+    flex-direction: column;
+    padding-inline: var(--amsterdam-grid-spacious-padding-inline);
+  }
+
   @include reset-list;
 }
 

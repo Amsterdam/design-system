@@ -2,14 +2,15 @@
   "amsterdam": {
     "mega-menu": {
       "padding-block": {
-        "value": "clamp(2.5rem, calc(2.2917rem + 1.0417vw), 3rem) clamp(3.5rem, calc(3.2917rem + 1.0417vw), 4rem)"
-      },
-      "heading": {
-        "padding-block-start": { "value": "2rem" }
+        "value": "clamp(2.5rem, calc(2.2917rem + 1.0417vw), 3rem) clamp(3.5rem, calc(3.2917rem + 1.0417vw), 4rem)",
+        "comment": "Space between header and menu to compensate for grid paddingVertical medium."
       },
       "list": {
-        "padding-block-start": { "value": "1rem" },
-        "column-width": { "value": "20rem" }
+        "column-width": { "value": "20rem" },
+        "margin-block-end": { "value": "{amsterdam.grid.spacious.gap}" },
+        "item": {
+          "padding-block-start": { "value": "1rem" }
+        }
       },
       "menu-button": {
         "spacious": {

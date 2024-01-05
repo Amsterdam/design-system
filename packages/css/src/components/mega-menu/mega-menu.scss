@@ -18,11 +18,11 @@
   display: block;
 
   &__item {
-    padding-block-start: var(--amsterdam-mega-menu-list-padding-block-start);
+    padding-block-start: var(--amsterdam-mega-menu-list-item-padding-block-start);
   }
 
   /* Give the list bottom margin when followed by a heading */
   &:has(+ .amsterdam-heading) {
-    margin-block-end: var(--amsterdam-mega-menu-heading-padding-block-start);
+    margin-block-end: var(--amsterdam-mega-menu-list-margin-block-end);
   }
 }

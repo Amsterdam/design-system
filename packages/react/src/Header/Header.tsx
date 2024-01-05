@@ -4,7 +4,7 @@
  */
 
 import clsx from 'clsx'
-import { ForwardedRef, forwardRef, HTMLAttributes, ReactNode, useState } from 'react'
+import { cloneElement, ForwardedRef, forwardRef, HTMLAttributes, ReactElement, ReactNode, useState } from 'react'
 import { Grid } from '../Grid'
 import { Heading } from '../Heading'
 import { Logo } from '../Logo'
@@ -17,7 +17,7 @@ export interface HeaderProps extends HTMLAttributes<HTMLElement> {
   logoLink?: string
   logoLinkTitle?: string
   title?: string
-  links?: ReactNode
+  links?: ReactNode /* TODO Create links object */
   menu?: ReactNode
 }
 
@@ -89,7 +89,15 @@ export const Header = forwardRef(
             </div>
           </Grid.Cell>
         </Grid>
-        {menu && <MegaMenu isOpen={isMegaMenuOpen}>{menu}</MegaMenu>}
+        {menu && (
+          <MegaMenu isOpen={isMegaMenuOpen} className="amsterdam-header__mega-menu">
+            {cloneElement(links as ReactElement, {
+              alignEnd: false,
+              className: 'amsterdam-page-menu--links',
+            })}
+            {menu}
+          </MegaMenu>
+        )}
       </header>
     )
   },

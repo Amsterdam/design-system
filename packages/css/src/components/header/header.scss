@@ -58,11 +58,21 @@
 
     .amsterdam-header__title-heading {
       display: block;
-      line-height: 1;
+      line-height: 1.1;
       overflow: hidden;
       text-overflow: ellipsis;
       white-space: nowrap;
       width: 100%;
+    }
+  }
+}
+
+.amsterdam-header__mega-menu {
+  .amsterdam-page-menu--links {
+    display: block;
+
+    @media screen and (min-width: $amsterdam-breakpoint-medium) {
+      display: none;
     }
   }
 }
