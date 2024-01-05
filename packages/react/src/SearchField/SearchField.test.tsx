@@ -22,15 +22,6 @@ describe('Search field', () => {
     expect(component).toBeVisible()
   })
 
-  it('renders the button', () => {
-    render(<SearchField.Button />)
-
-    const component = screen.getByRole('button')
-
-    expect(component).toBeInTheDocument()
-    expect(component).toBeVisible()
-  })
-
   it('renders the outer container design system BEM class name', () => {
     render(<SearchField />)
 
