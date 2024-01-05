@@ -4,6 +4,7 @@
  */
 
 /* Append here */
+export * from './IconButton'
 export * from './SkipLink'
 export * from './Overlap'
 export * from './Header'

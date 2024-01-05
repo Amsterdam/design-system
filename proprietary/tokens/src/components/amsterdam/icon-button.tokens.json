@@ -1,0 +1,28 @@
+{
+  "amsterdam": {
+    "icon-button": {
+      "background-color": { "value": "transparent" },
+      "color": { "value": "{amsterdam.color.primary-blue}" },
+      "outline-offset": { "value": "{amsterdam.focus.outline-offset}" },
+      "hover": {
+        "background-color": { "value": "rgba(0, 70, 153, 0.13)" },
+        "color": { "value": "{amsterdam.color.dark-blue}" }
+      },
+      "on-background-light": {
+        "color": { "value": "{amsterdam.color.primary-black}" },
+        "hover": {
+          "background-color": { "value": "rgba(0, 0, 0, 0.13)" },
+          "color": { "value": "{amsterdam.color.primary-black}" }
+        }
+      },
+      "on-background-dark": {
+        "background-color": { "value": "{amsterdam.color.primary-blue}" },
+        "color": { "value": "{amsterdam.color.primary-white}" },
+        "hover": {
+          "background-color": { "value": "{amsterdam.color.dark-blue}" },
+          "color": { "value": "{amsterdam.color.primary-white}" }
+        }
+      }
+    }
+  }
+}
