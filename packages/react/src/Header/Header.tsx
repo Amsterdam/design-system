@@ -91,10 +91,11 @@ export const Header = forwardRef(
         </Grid>
         {menu && (
           <MegaMenu isOpen={isMegaMenuOpen} className="amsterdam-header__mega-menu">
-            {cloneElement(links as ReactElement, {
-              alignEnd: false,
-              className: 'amsterdam-page-menu--links',
-            })}
+            {links &&
+              cloneElement(links as ReactElement, {
+                alignEnd: false,
+                className: 'amsterdam-page-menu--links',
+              })}
             {menu}
           </MegaMenu>
         )}

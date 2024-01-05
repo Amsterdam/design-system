@@ -70,9 +70,9 @@ describe('Header', () => {
   })
 
   it('renders with menu button', () => {
-    render(<Header {...defaultProps} menu={<button>Menu Button</button>} />)
+    render(<Header {...defaultProps} menu={<nav>Navigation</nav>} />)
 
-    const menu = screen.getByRole('button')
+    const menu = screen.getByRole('button', { name: 'Open Menu' })
 
     expect(menu).toBeInTheDocument()
   })
