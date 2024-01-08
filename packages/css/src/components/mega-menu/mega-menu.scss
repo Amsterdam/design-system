@@ -7,16 +7,12 @@
   padding-block: var(--amsterdam-mega-menu-padding-block);
 }
 
-.amsterdam-mega-menu .amsterdam-unordered-list {
-  column-gap: var(--amsterdam-grid-spacious-gap);
-  columns: var(--amsterdam-mega-menu-list-column-width, 20rem) auto;
-  display: block;
-
-  &__item {
-    padding-block-start: var(--amsterdam-mega-menu-list-padding-block-start);
-  }
+.amsterdam-mega-menu__list-wrapper {
+  column-gap: var(--amsterdam-mega-menu-list-wrapper-column-gap);
+  columns: var(--amsterdam-mega-menu-list-wrapper-column-width, 20rem) auto;
+  padding-block-start: var(--amsterdam-mega-menu-list-wrapper-padding-block-start);
 
   &:has(+ .amsterdam-heading) {
-    margin-block-end: var(--amsterdam-mega-menu-heading-padding-block-start);
+    padding-block-end: var(--amsterdam-mega-menu-list-wrapper-padding-block-end);
   }
 }
