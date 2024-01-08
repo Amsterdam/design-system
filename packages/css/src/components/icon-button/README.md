@@ -1,7 +1,6 @@
 # Icon Button
 
 Een Icon Button is een vierkante knop met alleen een icoon erin.
-Gebruik deze knop als er te weinig ruimte is voor een reguliere knop en het icoon in 1 keer duidelijk maakt wat de knop doet.
 
 ## Richtlijnen
 
