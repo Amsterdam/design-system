@@ -11,7 +11,7 @@
       "on-background-light": {
         "color": { "value": "{amsterdam.color.primary-black}" },
         "hover": {
-          "background-color": { "value": "rgba(0, 0, 0, 0.13)" },
+          "background-color": { "value": "rgba(0, 0, 0, 0.125)" },
           "color": { "value": "{amsterdam.color.primary-black}" }
         }
       },
