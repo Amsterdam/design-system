@@ -64,8 +64,10 @@ export const Alert = forwardRef(
   ) => {
     const alertSize = title ? 'level-4' : 'level-5'
 
+    const Element = title ? 'section' : 'div'
+
     return (
-      <section
+      <Element
         {...restProps}
         ref={ref}
         className={clsx('amsterdam-alert', severity && `amsterdam-alert--${severity}`, className)}
@@ -82,7 +84,7 @@ export const Alert = forwardRef(
           {children}
         </div>
         {closeable && <AlertClose size={alertSize} onClick={onClose} />}
-      </section>
+      </Element>
     )
   },
 )
