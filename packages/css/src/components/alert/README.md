@@ -5,8 +5,10 @@ De taak van de gebruiker wordt niet onderbroken.
 
 ## Richtlijnen
 
+- Plaats bij belangrijke en urgente informatie een oranje Alert direct onder de Header.
+  Voorbeelden: een storing van een systeem of afwijkende openingstijden van een stadsloket.
+- Zorg voor voldoende witruimte rondom de Alert.
+  De witruimte van het grid is een goede maatstaf – zet de Alert in zijn eigen cel.
 - Standaard kan de Alert niet gesloten worden.
   Deze mogelijkheid kan toegevoegd worden.
 - Optioneel kan de titel worden weggelaten.
-- Aangeraden wordt om een Alert in ieder geval van een paragraaf tekst te voorzien en deze eventueel te ondersteunen met een link, opsomming of knop.
-- Zorg voor voldoende witruimte om de Alert heen.
