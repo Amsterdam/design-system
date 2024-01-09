@@ -3,6 +3,15 @@
 Met een Alert breng je de gebruiker op de hoogte van een belangrijke of tijdgevoelige boodschap.
 De taak van de gebruiker wordt niet onderbroken.
 
+## Specificaties
+
+Er zijn vier soorten meldingen:
+
+- **Waarschuwing** (oranje) als er actie nodig is om schade te voorkomen.
+- **Foutmelding** (rood) om te laten weten dat er een fout is opgetreden.
+- **Bevestiging** (groen) ter geruststelling dat een proces is voltooid.
+- **Kennisgeving** (blauw) om een bericht onder de aandacht te brengen.
+
 ## Richtlijnen
 
 - Plaats bij belangrijke en urgente informatie een oranje Alert direct onder de Header.
