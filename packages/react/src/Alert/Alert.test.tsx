@@ -13,6 +13,7 @@ describe('Alert', () => {
     expect(component).toBeInTheDocument()
     expect(component).toBeVisible()
     expect(icon).toBeInTheDocument()
+    expect(icon).toBeVisible()
   })
 
   it('renders a design system BEM class name', () => {
@@ -28,9 +29,7 @@ describe('Alert', () => {
 
     const component = container.querySelector(':only-child')
 
-    expect(component).toHaveClass('extra')
-
-    expect(component).toHaveClass('amsterdam-alert')
+    expect(component).toHaveClass('amsterdam-alert extra')
   })
 
   it('supports ForwardRef in React', () => {
@@ -41,17 +40,6 @@ describe('Alert', () => {
     const component = container.querySelector(':only-child')
 
     expect(ref.current).toBe(component)
-  })
-
-  it('renders the icon if icon is true and the severity is success', () => {
-    const { container } = render(<Alert severity="success" />)
-
-    const component = container.querySelector(':only-child')
-
-    const icon = component?.querySelector('.amsterdam-alert__icon')
-
-    expect(icon).toBeInTheDocument()
-    expect(icon).toBeVisible()
   })
 
   it('renders the close button', () => {
