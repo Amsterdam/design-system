@@ -17,7 +17,6 @@ const meta = {
     severity: {
       control: {
         type: 'radio',
-        labels: { warning: 'warning', success: 'success', error: 'error', info: 'info' },
       },
       options: ['warning', 'error', 'success', 'info'],
     },
