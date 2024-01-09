@@ -53,7 +53,7 @@ export const Alert = forwardRef(
     {
       children,
       className,
-      headingLevel = 4,
+      headingLevel = 2,
       title,
       severity = 'warning',
       closeable,
