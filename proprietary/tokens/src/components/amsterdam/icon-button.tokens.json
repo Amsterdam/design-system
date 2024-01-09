@@ -5,7 +5,7 @@
       "color": { "value": "{amsterdam.color.primary-blue}" },
       "outline-offset": { "value": "{amsterdam.focus.outline-offset}" },
       "hover": {
-        "background-color": { "value": "rgba(0, 70, 153, 0.13)" },
+        "background-color": { "value": "rgba(0, 70, 153, 0.125)" },
         "color": { "value": "{amsterdam.color.dark-blue}" }
       },
       "on-background-light": {
