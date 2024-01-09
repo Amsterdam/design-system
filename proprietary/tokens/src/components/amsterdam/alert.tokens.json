@@ -1,7 +1,7 @@
 {
   "amsterdam": {
     "alert": {
-      "border-width": { "value": "{amsterdam.border-width.xl}" },
+      "border-width": { "value": "4px" },
       "border-style": { "value": "solid" },
       "gap": { "value": "1rem" },
       "padding-block-start": { "value": "{amsterdam.spacing.inset.md}" },
