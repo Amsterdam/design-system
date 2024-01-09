@@ -9,7 +9,6 @@ import { Grid } from '../Grid'
 import { Heading } from '../Heading'
 import { Logo } from '../Logo'
 import type { LogoBrand } from '../Logo'
-import { MegaMenu } from '../MegaMenu'
 import { VisuallyHidden } from '../VisuallyHidden'
 
 export interface HeaderProps extends HTMLAttributes<HTMLElement> {
@@ -89,16 +88,11 @@ export const Header = forwardRef(
             </div>
           </Grid.Cell>
         </Grid>
-        {menu && (
-          <MegaMenu isOpen={isMegaMenuOpen} className="amsterdam-header__mega-menu">
-            {links &&
-              cloneElement(links as ReactElement, {
-                alignEnd: false,
-                className: 'amsterdam-page-menu--links',
-              })}
-            {menu}
-          </MegaMenu>
-        )}
+        {menu &&
+          cloneElement(menu as ReactElement, {
+            isOpen: isMegaMenuOpen,
+            className: 'amsterdam-header__mega-menu',
+          })}
       </header>
     )
   },

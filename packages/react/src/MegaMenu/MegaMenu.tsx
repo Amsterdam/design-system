@@ -13,15 +13,21 @@ import {
   RefAttributes,
 } from 'react'
 
-type MegaMenuProps = {} & PropsWithChildren<HTMLAttributes<HTMLDivElement>>
+type MegaMenuProps = {
+  isOpen?: boolean
+} & PropsWithChildren<HTMLAttributes<HTMLDivElement>>
 
 interface MegaMenuComponent extends ForwardRefExoticComponent<MegaMenuProps & RefAttributes<HTMLDivElement>> {
   ListWrapper: typeof MegaMenuListWrapper
 }
 
 export const MegaMenu = forwardRef(
-  ({ children, className, ...restProps }: MegaMenuProps, ref: ForwardedRef<HTMLDivElement>) => (
-    <nav {...restProps} ref={ref} className={clsx('amsterdam-mega-menu', className)}>
+  ({ children, className, isOpen, ...restProps }: MegaMenuProps, ref: ForwardedRef<HTMLDivElement>) => (
+    <nav
+      {...restProps}
+      ref={ref}
+      className={clsx('amsterdam-mega-menu', isOpen && 'amsterdam-mega-menu--open', className)}
+    >
       {children}
     </nav>
   ),
