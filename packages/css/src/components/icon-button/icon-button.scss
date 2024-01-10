@@ -9,8 +9,8 @@
   color: var(--amsterdam-icon-button-color);
   cursor: pointer;
   outline-offset: var(--amsterdam-icon-button-outline-offset);
-  padding-block: 0.5rem;
-  padding-inline: 0.5rem;
+  padding-block: 0;
+  padding-inline: 0;
   touch-action: manipulation;
 
   &:hover {
