@@ -17,7 +17,7 @@ export interface AlertProps extends PropsWithChildren<HTMLAttributes<HTMLDivElem
   closeable?: boolean
   /**
    * The hierarchical level of the alert title within the document.
-   * @default 4
+   * @default 2
    */
   headingLevel?: HeadingProps['level']
   /** Allows a callback when dismissing the alert. */
