@@ -6,22 +6,54 @@ import README from "../../../../packages/css/src/components/alert/README.md?raw"
 
 <Markdown>{README}</Markdown>
 
+## Voorbeelden
+
+De standaard Alert is een waarschuwing.
+
 <Primary />
 
 <Controls />
 
-### Information with inline link
+### Warning
 
-<Canvas of={AlertStories.InformationWithInlineLink} />
+Toon een waarschuwing als er actie van de gebruiker nodig is.
+
+<Canvas of={AlertStories.Warning} />
 
 ### Error
 
+Als er een fout is opgetreden gebruiken we de rode alert.
+Geef de gebruiker suggesties om het doel op een andere manier te bereiken.
+
 <Canvas of={AlertStories.Error} />
-
-### Error with list
-
-<Canvas of={AlertStories.ErrorWithList} />
 
 ### Success
 
+Laat het weten als een belangrijke actie geslaagd is.
+
 <Canvas of={AlertStories.Success} />
+
+### Info
+
+Een informatieve melding kan meer nadruk te geven aan zaken die handig zijn om te volgen.
+
+<Canvas of={AlertStories.Info} />
+
+### With inline link
+
+In de tekst kan een inline link staan om de gebruiker op weg te helpen.
+
+<Canvas of={AlertStories.WithInlineLink} />
+
+### With list
+
+Ter verduidelijking kan opgemaakte tekst in de alert worden opgenomen.
+
+<Canvas of={AlertStories.WithList} />
+
+### Without title
+
+Soms is een titel niet nodig.
+Het icoon wordt automatisch iets kleiner.
+
+<Canvas of={AlertStories.WithoutTitle} />
