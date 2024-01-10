@@ -48,7 +48,7 @@ export type GridProps = {
    */
   compact?: boolean
   /** The amount of vertical whitespace between rows of the grid. */
-  gapVertical?: 'small' | 'large'
+  gapVertical?: 'small' | 'medium' | 'large'
 } & (GridPaddingVerticalProp | GridPaddingTopAndBottomProps) &
   PropsWithChildren<HTMLAttributes<HTMLDivElement>>
 

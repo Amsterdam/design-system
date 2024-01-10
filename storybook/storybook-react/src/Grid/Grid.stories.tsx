@@ -23,9 +23,9 @@ const gridArgTypes = {
   gapVertical: {
     control: {
       type: 'radio',
-      labels: { small: 'small', undefined: 'medium', large: 'large' },
+      labels: { undefined: 'none', small: 'small', medium: 'medium', large: 'large' },
     },
-    options: ['small', undefined, 'large'],
+    options: [undefined, 'small', 'medium', 'large'],
   },
   paddingVertical: paddingArgType,
   paddingTop: paddingArgType,
