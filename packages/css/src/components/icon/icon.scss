@@ -12,6 +12,11 @@
   fill: currentColor;
 }
 
+.amsterdam-icon--square {
+  aspect-ratio: 1 / 1;
+  justify-content: center;
+}
+
 .amsterdam-icon--size-3 {
   height: calc(var(--amsterdam-icon-spacious-size-3-font-size) * var(--amsterdam-icon-spacious-size-3-line-height));
 }

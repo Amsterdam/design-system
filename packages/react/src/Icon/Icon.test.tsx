@@ -41,6 +41,14 @@ describe('Icon', () => {
     expect(level6.firstChild).toHaveClass('amsterdam-icon--size-6')
   })
 
+  it('renders the right square class', () => {
+    const { container } = render(<Icon svg={AlertIcon} square />)
+
+    const icon = container.querySelector('span:only-child')
+
+    expect(icon).toHaveClass('amsterdam-icon--square')
+  })
+
   it('renders an additional class name', () => {
     const { container } = render(<Icon svg={AlertIcon} className="large" />)
 

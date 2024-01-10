@@ -67,14 +67,6 @@
   padding-inline: 0.5rem;
   touch-action: manipulation;
 
-  span {
-    display: flex;
-    justify-content: center;
-
-    // use icon tokens to set width equal to height
-    width: calc(var(--amsterdam-icon-spacious-size-6-font-size) * var(--amsterdam-icon-spacious-size-6-line-height));
-  }
-
   &:hover {
     background-color: var(--amsterdam-search-field-button-hover-background-color);
   }
