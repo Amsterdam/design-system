@@ -15,6 +15,7 @@ Als de link getoond wordt, duwt deze de hele pagina omlaag.
   Plaats de Skip Link dan direct na de cookie-banner.
 - Gebruik de Skip Link om naar de belangrijkste inhoud te navigeren.
   Op een artikelpagina is dat bijvoorbeeld de titel van het artikel, op een zoekpagina is dat het zoekveld.
+- Zet bijvoorbeeld `id="main"` op de container van dat element en zet dan `href="#main"` op de Skip Link.
 - Voor complexe pagina's met meerdere secties kun je meer dan 1 Skip Link gebruiken.
   In de meeste gevallen is dit niet nodig.
 
