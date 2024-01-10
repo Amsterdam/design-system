@@ -14,6 +14,9 @@ const meta = {
     label: 'Sluiten',
   },
   argTypes: {
+    disabled: {
+      control: 'boolean',
+    },
     onBackground: {
       control: {
         type: 'radio',

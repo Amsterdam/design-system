@@ -4,7 +4,7 @@
  */
 
 .amsterdam-icon-button {
-  background-color: var(--amsterdam-icon-button-background-color);
+  background-color: transparent;
   border: 0;
   color: var(--amsterdam-icon-button-color);
   cursor: pointer;
@@ -17,6 +17,12 @@
     background-color: var(--amsterdam-icon-button-hover-background-color);
     color: var(--amsterdam-icon-button-hover-color);
   }
+
+  &:disabled {
+    background-color: transparent;
+    color: var(--amsterdam-icon-button-disabled-color);
+    cursor: not-allowed;
+  }
 }
 
 .amsterdam-icon-button--on-background-light {
@@ -25,6 +31,11 @@
   &:hover {
     background-color: var(--amsterdam-icon-button-on-background-light-hover-background-color);
     color: var(--amsterdam-icon-button-on-background-light-hover-color);
+  }
+
+  &:disabled {
+    background-color: transparent;
+    color: var(--amsterdam-icon-button-on-background-light-disabled-color);
   }
 }
 
@@ -35,5 +46,10 @@
   &:hover {
     background-color: var(--amsterdam-icon-button-on-background-dark-hover-background-color);
     color: var(--amsterdam-icon-button-on-background-dark-hover-color);
+  }
+
+  &:disabled {
+    background-color: var(--amsterdam-icon-button-on-background-dark-disabled-background-color);
+    color: var(--amsterdam-icon-button-on-background-dark-disabled-color);
   }
 }
