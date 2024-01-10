@@ -3,9 +3,8 @@
  * Copyright (c) 2023 Gemeente Amsterdam
  */
 
-import { IconButton, SearchField } from '@amsterdam/design-system-react'
+import { SearchField } from '@amsterdam/design-system-react'
 import type { SearchFieldProps } from '@amsterdam/design-system-react'
-import { SearchIcon } from '@amsterdam/design-system-react-icons'
 import { useArgs } from '@storybook/preview-api'
 import { Meta, StoryObj } from '@storybook/react'
 
@@ -41,7 +40,7 @@ const meta = {
   render: ({ label, placeholder, ...args }) => (
     <SearchField {...args}>
       <SearchField.Input label={label} placeholder={placeholder} />
-      <IconButton label="Zoeken" svg={SearchIcon} onBackground="dark" />
+      <SearchField.Button />
     </SearchField>
   ),
 } satisfies Meta<StoryProps>
@@ -89,7 +88,7 @@ export const Controlled: any = {
           onChange={onValueChange}
           placeholder={placeholder}
         />
-        <IconButton label="Zoeken" svg={SearchIcon} onBackground="dark" />
+        <SearchField.Button />
       </SearchField>
     )
   },

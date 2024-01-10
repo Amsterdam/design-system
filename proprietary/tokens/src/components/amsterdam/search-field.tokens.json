@@ -1,6 +1,14 @@
 {
   "amsterdam": {
     "search-field": {
+      "button": {
+        "background-color": { "value": "{amsterdam.color.primary-blue}" },
+        "color": { "value": "{amsterdam.color.primary-white}" },
+        "outline-offset": { "value": "{amsterdam.focus.outline-offset}" },
+        "hover": {
+          "background-color": { "value": "{amsterdam.color.dark-blue}" }
+        }
+      },
       "input": {
         "box-shadow": {
           "value": "inset 0 0 0 1px {amsterdam.color.primary-black}"

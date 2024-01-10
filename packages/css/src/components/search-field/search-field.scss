@@ -56,3 +56,18 @@
   margin-inline-start: 0.5rem;
   width: var(--amsterdam-search-field-input-cancel-button-width);
 }
+
+.amsterdam-search-field__button {
+  background-color: var(--amsterdam-search-field-button-background-color);
+  border: 0;
+  color: var(--amsterdam-search-field-button-color);
+  cursor: pointer;
+  outline-offset: var(--amsterdam-search-field-button-outline-offset);
+  padding-block: 0.5rem;
+  padding-inline: 0.5rem;
+  touch-action: manipulation;
+
+  &:hover {
+    background-color: var(--amsterdam-search-field-button-hover-background-color);
+  }
+}
