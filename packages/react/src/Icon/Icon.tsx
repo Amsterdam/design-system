@@ -10,11 +10,12 @@ import { ForwardedRef, forwardRef, HTMLAttributes } from 'react'
 
 export interface IconProps extends HTMLAttributes<HTMLSpanElement> {
   size?: 'level-3' | 'level-4' | 'level-5' | 'level-6'
+  square?: boolean
   svg: Function
 }
 
 export const Icon = forwardRef(
-  ({ className, size = 'level-3', svg, ...otherProps }: IconProps, ref: ForwardedRef<HTMLElement>) => (
+  ({ className, size = 'level-3', square, svg, ...otherProps }: IconProps, ref: ForwardedRef<HTMLElement>) => (
     <span
       ref={ref}
       className={clsx(
@@ -23,6 +24,7 @@ export const Icon = forwardRef(
         size === 'level-4' && 'amsterdam-icon--size-4',
         size === 'level-5' && 'amsterdam-icon--size-5',
         size === 'level-6' && 'amsterdam-icon--size-6',
+        square && 'amsterdam-icon--square',
         className,
       )}
       {...otherProps}

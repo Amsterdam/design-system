@@ -36,20 +36,3 @@
 .amsterdam-alert--warning {
   border-color: var(--amsterdam-alert-warning-border-color);
 }
-
-/* todo: move to action button component */
-.amsterdam-alert__close {
-  background-color: var(--amsterdam-alert-close-button-background-color);
-  border: 0;
-  cursor: pointer;
-  padding-block: 0;
-  padding-inline: 0;
-}
-
-.amsterdam-alert__close svg {
-  fill: var(--amsterdam-alert-close-fill);
-}
-
-.amsterdam-alert__close:hover svg {
-  fill: var(--amsterdam-alert-close-hover-fill);
-}

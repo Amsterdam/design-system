@@ -1,0 +1,60 @@
+/**
+ * @license EUPL-1.2+
+ * Copyright (c) 2023 Gemeente Amsterdam
+ */
+
+@mixin reset {
+  border: 0;
+  padding-block: 0;
+  padding-inline: 0;
+}
+
+.amsterdam-icon-button {
+  background-color: transparent;
+  color: var(--amsterdam-icon-button-color);
+  cursor: pointer;
+  outline-offset: var(--amsterdam-icon-button-outline-offset);
+  touch-action: manipulation;
+
+  &:hover {
+    background-color: var(--amsterdam-icon-button-hover-background-color);
+    color: var(--amsterdam-icon-button-hover-color);
+  }
+
+  &:disabled {
+    background-color: transparent;
+    color: var(--amsterdam-icon-button-disabled-color);
+    cursor: not-allowed;
+  }
+
+  @include reset;
+}
+
+.amsterdam-icon-button--on-background-light {
+  color: var(--amsterdam-icon-button-on-background-light-color);
+
+  &:hover {
+    background-color: var(--amsterdam-icon-button-on-background-light-hover-background-color);
+    color: var(--amsterdam-icon-button-on-background-light-hover-color);
+  }
+
+  &:disabled {
+    background-color: transparent;
+    color: var(--amsterdam-icon-button-on-background-light-disabled-color);
+  }
+}
+
+.amsterdam-icon-button--on-background-dark {
+  background-color: var(--amsterdam-icon-button-on-background-dark-background-color);
+  color: var(--amsterdam-icon-button-on-background-dark-color);
+
+  &:hover {
+    background-color: var(--amsterdam-icon-button-on-background-dark-hover-background-color);
+    color: var(--amsterdam-icon-button-on-background-dark-hover-color);
+  }
+
+  &:disabled {
+    background-color: var(--amsterdam-icon-button-on-background-dark-disabled-background-color);
+    color: var(--amsterdam-icon-button-on-background-dark-disabled-color);
+  }
+}

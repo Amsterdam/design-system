@@ -8,9 +8,6 @@
       "padding-block-end": { "value": "{amsterdam.spacing.inset.md}" },
       "padding-inline-start": { "value": "{amsterdam.spacing.inset.lg}" },
       "padding-inline-end": { "value": "{amsterdam.spacing.inset.lg}" },
-      "close-button": {
-        "background-color": { "value": "amsterdam.color.primary-white" }
-      },
       "title": {
         "color": { "value": "{amsterdam.color.primary-black}" },
         "font-family": { "value": "{amsterdam.typography.font-family}" },
