@@ -3,69 +3,77 @@
  * Copyright (c) 2023 Gemeente Amsterdam
  */
 
-import { AlertIcon, CheckmarkIcon, CloseIcon } from '@amsterdam/design-system-react-icons'
+import { AlertIcon, CheckmarkIcon, InfoIcon } from '@amsterdam/design-system-react-icons'
 import clsx from 'clsx'
-import { ForwardedRef, forwardRef, HTMLAttributes, PropsWithChildren, useMemo } from 'react'
+import { forwardRef } from 'react'
+import type { ForwardedRef, HTMLAttributes, PropsWithChildren } from 'react'
+import { Heading } from '../Heading'
+import type { HeadingProps } from '../Heading'
 import { Icon } from '../Icon'
-import { VisuallyHidden } from '../VisuallyHidden'
+import { IconButton } from '../IconButton'
 
 export interface AlertProps extends PropsWithChildren<HTMLAttributes<HTMLDivElement>> {
-  title?: string
-  severity?: undefined | 'error' | 'success'
+  /** Whether the alert can be dismissed by the user. Adds a button to the top right. */
   closeable?: boolean
-  icon?: boolean
+  /**
+   * The hierarchical level of the alert title within the document.
+   * @default 2
+   */
+  headingLevel?: HeadingProps['level']
+  /** Allows a callback when dismissing the alert. */
   onClose?: () => void
+  /** Highlights the meaning or tone of the message. */
+  severity?: 'error' | 'info' | 'success' | 'warning'
+  /** The title for the alert. */
+  title?: string
 }
-
-interface AlertCloseProps extends HTMLAttributes<HTMLButtonElement> {
-  size?: 'level-5' | 'level-6'
-}
-
-const AlertClose = forwardRef(
-  ({ className, size, ...restProps }: AlertCloseProps, ref: ForwardedRef<HTMLButtonElement>) => (
-    <button {...restProps} ref={ref} className={clsx('amsterdam-alert__close', className)}>
-      <VisuallyHidden>Sluiten</VisuallyHidden>
-      <Icon svg={CloseIcon} size={size} />
-    </button>
-  ),
-)
 
 const iconSvgBySeverity = {
   error: AlertIcon,
+  info: InfoIcon,
   success: CheckmarkIcon,
+  warning: AlertIcon,
 }
 
 export const Alert = forwardRef(
   (
-    { children, className, title, severity, closeable, icon, onClose, ...restProps }: AlertProps,
+    {
+      children,
+      className,
+      headingLevel = 2,
+      title,
+      severity = 'warning',
+      closeable,
+      onClose,
+      ...restProps
+    }: AlertProps,
     ref: ForwardedRef<HTMLDivElement>,
   ) => {
-    const alertSize = title ? 'level-5' : 'level-6'
+    const alertSize = title ? 'level-4' : 'level-5'
 
-    const alertIcon = useMemo(() => {
-      if (!icon || !severity) {
-        return null
-      }
-
-      return <Icon size={alertSize} svg={iconSvgBySeverity[severity]} />
-    }, [icon, severity, alertSize])
+    const Element = title ? 'section' : 'div'
 
     return (
-      <div
+      <Element
         {...restProps}
         ref={ref}
         className={clsx('amsterdam-alert', severity && `amsterdam-alert--${severity}`, className)}
       >
-        {alertIcon && <div className="amsterdam-alert__icon">{alertIcon}</div>}
+        <div className="amsterdam-alert__icon">
+          <Icon size={alertSize} svg={iconSvgBySeverity[severity]} />
+        </div>
         <div className="amsterdam-alert__content">
-          {title && <span className="amsterdam-alert__title">{title}</span>}
+          {title && (
+            <Heading level={headingLevel} size="level-4">
+              {title}
+            </Heading>
+          )}
           {children}
         </div>
-        {closeable && <AlertClose size={alertSize} onClick={onClose} />}
-      </div>
+        {closeable && <IconButton label="Sluiten" size={alertSize} onClick={onClose} />}
+      </Element>
     )
   },
 )
 
 Alert.displayName = 'Alert'
-AlertClose.displayName = 'AlertClose'

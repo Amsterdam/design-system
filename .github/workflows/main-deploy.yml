@@ -15,14 +15,14 @@ jobs:
         uses: actions/checkout@v4
 
       - name: "Restore build artifact: Storybook docs"
-        uses: dawidd6/action-download-artifact@v2
+        uses: dawidd6/action-download-artifact@v3
         with:
           workflow: "lint-test.yml"
           name: storybook-docs
           path: dist/storybook
 
       - name: "Restore build artifact: Storybook react"
-        uses: dawidd6/action-download-artifact@v2
+        uses: dawidd6/action-download-artifact@v3
         with:
           workflow: "lint-test.yml"
           name: storybook-react
