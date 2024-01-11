@@ -21,7 +21,7 @@ type Story = StoryObj<typeof meta>
 export const Default: Story = {
   args: {
     children: (
-      <Grid key="nav" paddingVertical="medium">
+      <Grid key="nav" paddingVertical="large">
         <Grid.Cell span="all">
           <Heading level={1} size="level-2" className="amsterdam-mega-menu__heading">
             Alle onderwerpen
@@ -137,7 +137,7 @@ export const Default: Story = {
 export const MultipleCategories: Story = {
   args: {
     children: (
-      <Grid key="nav" paddingVertical="medium">
+      <Grid key="nav" paddingVertical="large">
         <Grid.Cell span={{ narrow: 4, medium: 8, wide: 8 }}>
           <Heading level={3} size="level-3">
             Thema&rsquo;s

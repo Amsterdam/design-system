@@ -3,10 +3,6 @@
  * Copyright (c) 2023 Gemeente Amsterdam
  */
 
-.amsterdam-mega-menu {
-  padding-block: var(--amsterdam-mega-menu-padding-block);
-}
-
 .amsterdam-mega-menu__list-wrapper {
   column-gap: var(--amsterdam-mega-menu-list-wrapper-column-gap);
   columns: var(--amsterdam-mega-menu-list-wrapper-column-width, 20rem) auto;
