@@ -1,4 +1,4 @@
-import { Controls, Markdown, Meta, Primary } from "@storybook/blocks";
+import { Canvas, Markdown, Meta, Primary } from "@storybook/blocks";
 import * as TableStories from "./Table.stories.tsx";
 import README from "../../../../packages/css/src/components/table/README.md?raw";
 
@@ -8,4 +8,8 @@ import README from "../../../../packages/css/src/components/table/README.md?raw"
 
 <Primary />
 
-<Controls />
+## Stories
+
+### With footer and row headers
+
+<Canvas of={TableStories.WithFooterAndRowHeaders} />

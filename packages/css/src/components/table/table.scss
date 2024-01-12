@@ -4,6 +4,10 @@
  */
 
 .amsterdam-table {
+  overflow-x: auto;
+}
+
+.amsterdam-table__table {
   border-spacing: 0;
   color: var(--amsterdam-table-color);
   font-family: var(--amsterdam-table-font-family);
@@ -23,6 +27,7 @@
   padding-block: 1rem;
   padding-inline: 1rem;
   text-align: start;
+  vertical-align: top;
 }
 
 .amsterdam-table__header-cell {

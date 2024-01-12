@@ -34,9 +34,11 @@ export interface TableComponent extends ForwardRefExoticComponent<TableProps & R
 
 export const Table = forwardRef(
   ({ children, className, ...restProps }: TableProps, ref: ForwardedRef<HTMLTableElement>) => (
-    <table {...restProps} ref={ref} className={clsx('amsterdam-table', className)}>
-      {children}
-    </table>
+    <div className="amsterdam-table">
+      <table {...restProps} ref={ref} className={clsx('amsterdam-table__table', className)}>
+        {children}
+      </table>
+    </div>
   ),
 ) as TableComponent
 

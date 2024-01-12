@@ -9,6 +9,13 @@ import { Meta, StoryObj } from '@storybook/react'
 const meta = {
   title: 'Table',
   component: Table,
+  argTypes: {
+    children: {
+      table: {
+        disable: true,
+      },
+    },
+  },
 } satisfies Meta<typeof Table>
 
 export default meta
@@ -18,27 +25,72 @@ type Story = StoryObj<typeof meta>
 export const Default: Story = {
   args: {
     children: [
-      <Table.Caption key="caption">Dates and amounts</Table.Caption>,
+      <Table.Caption key="caption">Kosten en levertijd</Table.Caption>,
       <Table.Header key="header">
         <Table.Row>
-          <Table.HeaderCell scope="col">Date</Table.HeaderCell>
-          <Table.HeaderCell scope="col">Amount</Table.HeaderCell>
+          <Table.HeaderCell>Type</Table.HeaderCell>
+          <Table.HeaderCell>
+            Normale levertijd
+            <br />1 week
+          </Table.HeaderCell>
+          <Table.HeaderCell>
+            Spoed
+            <br />2 werkdagen
+          </Table.HeaderCell>
+          <Table.HeaderCell>
+            Spoed
+            <br />2 werkdagen
+          </Table.HeaderCell>
+          <Table.HeaderCell>
+            Spoed
+            <br />2 werkdagen
+          </Table.HeaderCell>
         </Table.Row>
       </Table.Header>,
       <Table.Body key="body">
         <Table.Row>
-          <Table.HeaderCell scope="row">First 6 weeks</Table.HeaderCell>
-          <Table.Cell>£109.80 per week</Table.Cell>
+          <Table.Cell>Paspoort</Table.Cell>
+          <Table.Cell>€ 77,85</Table.Cell>
+          <Table.Cell>€ 130,80</Table.Cell>
+          <Table.Cell>ID-kaart</Table.Cell>
+          <Table.Cell>€ 70,35</Table.Cell>
         </Table.Row>
         <Table.Row>
-          <Table.HeaderCell scope="row">Next 33 weeks</Table.HeaderCell>
-          <Table.Cell>£109.80 per week</Table.Cell>
+          <Table.Cell>ID-kaart</Table.Cell>
+          <Table.Cell>€ 70,35</Table.Cell>
+          <Table.Cell>€ 123,30</Table.Cell>
+          <Table.Cell>ID-kaart</Table.Cell>
+          <Table.Cell>€ 70,35</Table.Cell>
+        </Table.Row>
+      </Table.Body>,
+    ],
+  },
+}
+
+export const WithFooterAndRowHeaders: Story = {
+  args: {
+    children: [
+      <Table.Caption key="caption">Kosten en tijd</Table.Caption>,
+      <Table.Header key="header">
+        <Table.Row>
+          <Table.HeaderCell>Tijd</Table.HeaderCell>
+          <Table.HeaderCell>Kosten</Table.HeaderCell>
+        </Table.Row>
+      </Table.Header>,
+      <Table.Body key="body">
+        <Table.Row>
+          <Table.HeaderCell scope="row">Eerste 6 weken</Table.HeaderCell>
+          <Table.Cell>€ 109,80 per week</Table.Cell>
+        </Table.Row>
+        <Table.Row>
+          <Table.HeaderCell scope="row">Volgende 33 weken</Table.HeaderCell>
+          <Table.Cell>€ 109,80 per week</Table.Cell>
         </Table.Row>
       </Table.Body>,
       <Table.Footer key="footer">
         <Table.Row>
-          <Table.HeaderCell scope="row">Total estimated pay</Table.HeaderCell>
-          <Table.Cell>£4,282.20</Table.Cell>
+          <Table.HeaderCell scope="row">Totale verwachte kosten</Table.HeaderCell>
+          <Table.Cell>€ 4.282,20</Table.Cell>
         </Table.Row>
       </Table.Footer>,
     ],
