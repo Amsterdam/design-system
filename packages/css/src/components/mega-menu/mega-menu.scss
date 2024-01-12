@@ -15,11 +15,10 @@
 
 .amsterdam-mega-menu__list-wrapper {
   column-gap: var(--amsterdam-mega-menu-list-wrapper-column-gap);
-  columns: var(--amsterdam-mega-menu-list-wrapper-column-width, 20rem) auto;
+  columns: var(--amsterdam-mega-menu-list-wrapper-column-width) auto;
   padding-block-start: var(--amsterdam-mega-menu-list-wrapper-padding-block-start);
 
-  /* Give the list bottom margin when followed by a heading */
-  &:has(+ .amsterdam-heading) {
+  &:not(:last-child) {
     padding-block-end: var(--amsterdam-mega-menu-list-wrapper-padding-block-end);
   }
 }

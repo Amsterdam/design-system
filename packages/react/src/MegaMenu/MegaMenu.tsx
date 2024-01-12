@@ -23,13 +23,13 @@ interface MegaMenuComponent extends ForwardRefExoticComponent<MegaMenuProps & Re
 
 export const MegaMenu = forwardRef(
   ({ children, className, isOpen, ...restProps }: MegaMenuProps, ref: ForwardedRef<HTMLDivElement>) => (
-    <nav
+    <div
       {...restProps}
       ref={ref}
       className={clsx('amsterdam-mega-menu', isOpen && 'amsterdam-mega-menu--open', className)}
     >
       {children}
-    </nav>
+    </div>
   ),
 ) as MegaMenuComponent
 
