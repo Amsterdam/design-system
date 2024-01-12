@@ -9,6 +9,7 @@
 
 .amsterdam-table__table {
   border-spacing: 0;
+  break-inside: avoid;
   color: var(--amsterdam-table-color);
   font-family: var(--amsterdam-table-font-family);
   font-size: var(--amsterdam-table-font-size);

@@ -37,14 +37,6 @@ export const Default: Story = {
             Spoed
             <br />2 werkdagen
           </Table.HeaderCell>
-          <Table.HeaderCell>
-            Spoed
-            <br />2 werkdagen
-          </Table.HeaderCell>
-          <Table.HeaderCell>
-            Spoed
-            <br />2 werkdagen
-          </Table.HeaderCell>
         </Table.Row>
       </Table.Header>,
       <Table.Body key="body">
@@ -52,15 +44,11 @@ export const Default: Story = {
           <Table.Cell>Paspoort</Table.Cell>
           <Table.Cell>€ 77,85</Table.Cell>
           <Table.Cell>€ 130,80</Table.Cell>
-          <Table.Cell>ID-kaart</Table.Cell>
-          <Table.Cell>€ 70,35</Table.Cell>
         </Table.Row>
         <Table.Row>
           <Table.Cell>ID-kaart</Table.Cell>
           <Table.Cell>€ 70,35</Table.Cell>
           <Table.Cell>€ 123,30</Table.Cell>
-          <Table.Cell>ID-kaart</Table.Cell>
-          <Table.Cell>€ 70,35</Table.Cell>
         </Table.Row>
       </Table.Body>,
     ],
