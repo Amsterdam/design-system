@@ -1,12 +1,9 @@
 {
   "amsterdam": {
     "mega-menu": {
-      "padding-block": {
-        "value": "clamp(2.5rem, calc(2.2917rem + 1.0417vw), 3rem) clamp(3.5rem, calc(3.2917rem + 1.0417vw), 4rem)"
-      },
       "list-wrapper": {
         "column-gap": { "value": "{amsterdam.grid.spacious.gap}" },
-        "column-width": { "value": "20rem" },
+        "column-width": { "value": "18rem" },
         "padding-block-start": { "value": "1rem" },
         "padding-block-end": { "value": "2rem" }
       }
