@@ -46,7 +46,7 @@ describe('Alert', () => {
     const { container } = render(<Alert closeable={true} />)
 
     const component = container.querySelector(':only-child')
-    const closeButton = component?.querySelector('.amsterdam-alert__close')
+    const closeButton = component?.querySelector('.amsterdam-icon-button')
 
     expect(closeButton).toBeInTheDocument()
     expect(closeButton).toBeVisible()
@@ -57,7 +57,7 @@ describe('Alert', () => {
     const { container } = render(<Alert closeable={true} onClose={onClose} />)
 
     const component = container.querySelector(':only-child')
-    const closeButton = component?.querySelector('.amsterdam-alert__close')
+    const closeButton = component?.querySelector('.amsterdam-icon-button')
 
     fireEvent.click(closeButton!)
 
