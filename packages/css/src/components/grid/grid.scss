@@ -9,8 +9,8 @@
   --amsterdam-grid-gap: var(--amsterdam-grid-spacious-gap);
   --amsterdam-grid-padding-inline: var(--amsterdam-grid-spacious-padding-inline);
 
-  column-gap: var(--amsterdam-grid-gap);
   display: grid;
+  gap: var(--amsterdam-grid-gap);
   grid-template-columns: repeat(var(--amsterdam-grid-column-count), 1fr);
   padding-inline: var(--amsterdam-grid-padding-inline);
 
@@ -28,12 +28,12 @@
   --amsterdam-grid-padding-inline: var(--amsterdam-grid-compact-padding-inline);
 }
 
-.amsterdam-grid--gap-vertical--small {
-  row-gap: calc(var(--amsterdam-grid-gap) / 2);
+.amsterdam-grid--gap-vertical--none {
+  row-gap: initial;
 }
 
-.amsterdam-grid--gap-vertical--medium {
-  row-gap: var(--amsterdam-grid-gap);
+.amsterdam-grid--gap-vertical--small {
+  row-gap: calc(var(--amsterdam-grid-gap) / 2);
 }
 
 .amsterdam-grid--gap-vertical--large {
