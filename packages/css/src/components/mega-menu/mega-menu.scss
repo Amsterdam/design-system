@@ -8,7 +8,7 @@
   columns: var(--amsterdam-mega-menu-list-wrapper-column-width) auto;
   padding-block-start: var(--amsterdam-mega-menu-list-wrapper-padding-block-start);
 
-  &:has(+ .amsterdam-heading) {
+  &:not(:last-child) {
     padding-block-end: var(--amsterdam-mega-menu-list-wrapper-padding-block-end);
   }
 }
