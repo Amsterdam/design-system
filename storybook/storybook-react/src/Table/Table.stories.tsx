@@ -7,7 +7,7 @@ import { Table } from '@amsterdam/design-system-react'
 import { Meta, StoryObj } from '@storybook/react'
 
 const meta = {
-  title: 'Table',
+  title: 'Containers/Table',
   component: Table,
   argTypes: {
     children: {
