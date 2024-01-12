@@ -9,13 +9,6 @@ import { Meta, StoryObj } from '@storybook/react'
 const meta = {
   title: 'Containers/Table',
   component: Table,
-  argTypes: {
-    children: {
-      table: {
-        disable: true,
-      },
-    },
-  },
 } satisfies Meta<typeof Table>
 
 export default meta
