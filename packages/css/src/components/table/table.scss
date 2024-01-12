@@ -4,5 +4,27 @@
  */
 
 .amsterdam-table {
-  /* Add styles here */
+  border-spacing: 0;
+  color: var(--amsterdam-table-color);
+  font-family: var(--amsterdam-table-font-family);
+  font-size: var(--amsterdam-table-font-size);
+  font-weight: var(--amsterdam-table-font-weight);
+  line-height: var(--amsterdam-table-line-height);
+}
+
+.amsterdam-table__caption {
+  font-weight: var(--amsterdam-table-caption-font-weight);
+  text-align: start;
+}
+
+.amsterdam-table__cell,
+.amsterdam-table__header-cell {
+  border-bottom: var(--amsterdam-table-cell-border-bottom);
+  padding-block: 1rem;
+  padding-inline: 1rem;
+  text-align: start;
+}
+
+.amsterdam-table__header-cell {
+  font-weight: var(--amsterdam-table-header-cell-font-weight);
 }
