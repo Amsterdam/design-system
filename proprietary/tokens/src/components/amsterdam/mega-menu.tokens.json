@@ -3,7 +3,7 @@
     "mega-menu": {
       "list-wrapper": {
         "column-gap": { "value": "{amsterdam.grid.spacious.gap}" },
-        "column-width": { "value": "22rem" },
+        "column-width": { "value": "20rem" },
         "padding-block-start": { "value": "1rem" },
         "padding-block-end": { "value": "{amsterdam.grid.spacious.gap}" }
       }
