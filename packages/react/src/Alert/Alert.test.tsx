@@ -8,9 +8,12 @@ describe('Alert', () => {
     const { container } = render(<Alert />)
 
     const component = container.querySelector(':only-child')
+    const icon = component?.querySelector('.amsterdam-alert__icon')
 
     expect(component).toBeInTheDocument()
     expect(component).toBeVisible()
+    expect(icon).toBeInTheDocument()
+    expect(icon).toBeVisible()
   })
 
   it('renders a design system BEM class name', () => {
@@ -26,9 +29,7 @@ describe('Alert', () => {
 
     const component = container.querySelector(':only-child')
 
-    expect(component).toHaveClass('extra')
-
-    expect(component).toHaveClass('amsterdam-alert')
+    expect(component).toHaveClass('amsterdam-alert extra')
   })
 
   it('supports ForwardRef in React', () => {
@@ -41,32 +42,11 @@ describe('Alert', () => {
     expect(ref.current).toBe(component)
   })
 
-  it('renders the icon if icon is true and the severity is success', () => {
-    const { container } = render(<Alert icon={true} severity="success" />)
-
-    const component = container.querySelector(':only-child')
-
-    const icon = component?.querySelector('.amsterdam-alert__icon')
-
-    expect(icon).toBeInTheDocument()
-    expect(icon).toBeVisible()
-  })
-
-  it('does not render the icon if icon is true and the severity is default', () => {
-    const { container } = render(<Alert icon={true} />)
-
-    const component = container.querySelector(':only-child')
-
-    const icon = component?.querySelector('.amsterdam-alert__icon')
-
-    expect(icon).not.toBeInTheDocument()
-  })
-
   it('renders the close button', () => {
     const { container } = render(<Alert closeable={true} />)
 
     const component = container.querySelector(':only-child')
-    const closeButton = component?.querySelector('.amsterdam-alert__close')
+    const closeButton = component?.querySelector('.amsterdam-icon-button')
 
     expect(closeButton).toBeInTheDocument()
     expect(closeButton).toBeVisible()
@@ -77,7 +57,7 @@ describe('Alert', () => {
     const { container } = render(<Alert closeable={true} onClose={onClose} />)
 
     const component = container.querySelector(':only-child')
-    const closeButton = component?.querySelector('.amsterdam-alert__close')
+    const closeButton = component?.querySelector('.amsterdam-icon-button')
 
     fireEvent.click(closeButton!)
 

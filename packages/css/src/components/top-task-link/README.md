@@ -1,6 +1,6 @@
 # Top Task Link
 
-Via dit opvallende navigatie-element vindt de Amsterdammer snel de weg naar veel voorkomende taken.
+Via dit opvallende navigatie-element vindt de gebruiker snel de weg naar veel voorkomende taken.
 
 ## Richtlijnen
 
@@ -8,7 +8,7 @@ Via dit opvallende navigatie-element vindt de Amsterdammer snel de weg naar veel
 - De titel beschrijft de essentie van de pagina waarnaar wordt verwezen.
   Deze trekt de aandacht bij het scannen van de pagina.
 - De beschrijving geeft meer context.
-  Dit helpt de Amsterdammer bevestigen dat die zijn doel op de vervolgpagina inderdaad kan bereiken.
+  Dit helpt de gebruiker bevestigen dat die zijn doel op de vervolgpagina inderdaad kan bereiken.
 - Houd beide teksten bondig. Een titel bestaat uit een paar woorden, de beschrijving uit 1 of 2 korte zinnen. De beschrijving eindigt dan ook op een punt of ander geschikt leesteken.
 - Plaats voor brede vensters 3 of 4 Top Task Links naast elkaar op het [Grid](?path=/docs/react_layout-grid--docs).
   Als je meer Top Task Links hebt, zet ze dan op de volgende rij.

@@ -12,6 +12,13 @@ const meta = {
   parameters: {
     layout: 'fullscreen',
   },
+  argTypes: {
+    children: {
+      table: {
+        disable: true,
+      },
+    },
+  },
 } satisfies Meta<typeof MegaMenu>
 
 export default meta

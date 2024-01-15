@@ -3,20 +3,32 @@
  * Copyright (c) 2023 Gemeente Amsterdam
  */
 
-import { Heading, Icon } from '@amsterdam/design-system-react'
+import { IconButton } from '@amsterdam/design-system-react'
 import * as Icons from '@amsterdam/design-system-react-icons'
 import { Meta, StoryObj } from '@storybook/react'
 
 const meta = {
-  title: 'Media/Icon',
-  component: Icon,
+  title: 'Buttons/Icon Button',
+  component: IconButton,
+  args: {
+    label: 'Sluiten',
+  },
   argTypes: {
-    size: {
-      control: { type: 'select' },
-      options: ['level-3', 'level-4', 'level-5', 'level-6'],
+    disabled: {
+      control: 'boolean',
     },
-    square: {
-      control: { type: 'boolean' },
+    onBackground: {
+      control: {
+        type: 'radio',
+        labels: { undefined: 'default', light: 'light', dark: 'dark' },
+      },
+      options: [undefined, 'light', 'dark'],
+    },
+    size: {
+      control: {
+        type: 'radio',
+      },
+      options: ['level-3', 'level-4', 'level-5', 'level-6'],
     },
     svg: {
       control: { type: 'select' },
@@ -24,61 +36,46 @@ const meta = {
       mapping: Icons,
     },
   },
-} satisfies Meta<typeof Icon>
+} satisfies Meta<typeof IconButton>
 
 export default meta
 
 type Story = StoryObj<typeof meta>
 
-export const Default: Story = {
+export const Default: Story = {}
+
+export const OnLightBackground: Story = {
   args: {
-    svg: Icons.EmailIcon,
+    onBackground: 'light',
   },
 }
 
-export const WithText: Story = {
-  render: (args) => (
-    <span style={{ display: 'flex', gap: '1rem' }}>
-      <Icon {...args} size="level-3" />
-      <Heading size="level-3">Inline text</Heading>
-    </span>
-  ),
+export const OnDarkBackground: Story = {
   args: {
-    svg: Icons.EmailIcon,
-  },
-}
-
-export const Square: Story = {
-  args: {
-    svg: Icons.EmailIcon,
-    square: true,
+    onBackground: 'dark',
   },
 }
 
 export const Level3: Story = {
   args: {
-    svg: Icons.EmailIcon,
     size: 'level-3',
   },
 }
 
 export const Level4: Story = {
   args: {
-    svg: Icons.EmailIcon,
     size: 'level-4',
   },
 }
 
 export const Level5: Story = {
   args: {
-    svg: Icons.EmailIcon,
     size: 'level-5',
   },
 }
 
 export const Level6: Story = {
   args: {
-    svg: Icons.EmailIcon,
     size: 'level-6',
   },
 }
