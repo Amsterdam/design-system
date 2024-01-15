@@ -40,7 +40,7 @@ export const Default: Story = {
     children: (
       <Grid key="nav" paddingVertical="medium">
         <Grid.Cell span="all">
-          <Heading level={1} size="level-2" className="amsterdam-mega-menu__heading">
+          <Heading level={1} size="level-2">
             Alle onderwerpen
           </Heading>
           <MegaMenu.ListCategory>
