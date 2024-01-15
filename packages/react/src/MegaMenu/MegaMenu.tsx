@@ -18,7 +18,7 @@ type MegaMenuProps = {
 } & PropsWithChildren<HTMLAttributes<HTMLDivElement>>
 
 interface MegaMenuComponent extends ForwardRefExoticComponent<MegaMenuProps & RefAttributes<HTMLDivElement>> {
-  ListWrapper: typeof MegaMenuListWrapper
+  ListCategory: typeof MegaMenuListCategory
 }
 
 export const MegaMenu = forwardRef(
@@ -33,7 +33,7 @@ export const MegaMenu = forwardRef(
   ),
 ) as MegaMenuComponent
 
-const MegaMenuListWrapper = forwardRef(
+const MegaMenuListCategory = forwardRef(
   (
     { children, className, ...restProps }: PropsWithChildren<HTMLAttributes<HTMLDivElement>>,
     ref: ForwardedRef<HTMLDivElement>,
@@ -45,5 +45,5 @@ const MegaMenuListWrapper = forwardRef(
 )
 
 MegaMenu.displayName = 'MegaMenu'
-MegaMenuListWrapper.displayName = 'MegaMenu.ListWrapper'
-MegaMenu.ListWrapper = MegaMenuListWrapper
+MegaMenuListCategory.displayName = 'MegaMenu.ListCategory'
+MegaMenu.ListCategory = MegaMenuListCategory

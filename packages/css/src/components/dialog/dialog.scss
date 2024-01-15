@@ -74,19 +74,3 @@
     justify-content: end;
   }
 }
-
-.amsterdam-dialog__close {
-  background-color: var(--amsterdam-dialog-close-background-color);
-  border: 0;
-  cursor: pointer;
-  padding-block: 0;
-  padding-inline: 0;
-}
-
-.amsterdam-dialog__close svg {
-  fill: var(--amsterdam-dialog-close-fill);
-}
-
-.amsterdam-dialog__close:hover svg {
-  fill: var(--amsterdam-dialog-close-hover-fill);
-}
