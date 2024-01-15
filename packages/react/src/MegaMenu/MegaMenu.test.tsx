@@ -1,30 +1,30 @@
-import { render, screen } from '@testing-library/react'
+import { render } from '@testing-library/react'
 import { createRef } from 'react'
 import { MegaMenu } from './MegaMenu'
 import '@testing-library/jest-dom'
 
 describe('Mega menu', () => {
   it('renders', () => {
-    render(<MegaMenu />)
+    const { container } = render(<MegaMenu />)
 
-    const component = screen.getByRole('navigation')
+    const component = container.querySelector(':only-child')
 
     expect(component).toBeInTheDocument()
     expect(component).toBeVisible()
   })
 
   it('renders a design system BEM class name', () => {
-    render(<MegaMenu />)
+    const { container } = render(<MegaMenu />)
 
-    const component = screen.getByRole('navigation')
+    const component = container.querySelector(':only-child')
 
     expect(component).toHaveClass('amsterdam-mega-menu')
   })
 
   it('renders an additional class name', () => {
-    render(<MegaMenu className="extra" />)
+    const { container } = render(<MegaMenu className="extra" />)
 
-    const component = screen.getByRole('navigation')
+    const component = container.querySelector(':only-child')
 
     expect(component).toHaveClass('extra')
 
