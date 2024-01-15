@@ -3,12 +3,12 @@
  * Copyright (c) 2023 Gemeente Amsterdam
  */
 
-.amsterdam-mega-menu__list-wrapper {
-  column-gap: var(--amsterdam-mega-menu-list-wrapper-column-gap);
-  column-width: var(--amsterdam-mega-menu-list-wrapper-column-width);
-  padding-block-start: var(--amsterdam-mega-menu-list-wrapper-padding-block-start);
+.amsterdam-mega-menu__list-category {
+  column-gap: var(--amsterdam-mega-menu-list-category-column-gap);
+  column-width: var(--amsterdam-mega-menu-list-category-column-width);
+  padding-block-start: var(--amsterdam-mega-menu-list-category-padding-block-start);
 
   &:not(:last-child) {
-    padding-block-end: var(--amsterdam-mega-menu-list-wrapper-padding-block-end);
+    padding-block-end: var(--amsterdam-mega-menu-list-category-padding-block-end);
   }
 }
