@@ -72,7 +72,7 @@ export const WithMenu: Story = {
           <Heading level={3} size="level-3">
             Thema&rsquo;s
           </Heading>
-          <MegaMenu.ListWrapper>
+          <MegaMenu.ListCategory>
             <UnorderedList markers={false}>
               <UnorderedList.Item>
                 <Link variant="inList" href="#">
@@ -145,13 +145,13 @@ export const WithMenu: Story = {
                 </Link>
               </UnorderedList.Item>
             </UnorderedList>
-          </MegaMenu.ListWrapper>
+          </MegaMenu.ListCategory>
         </Grid.Cell>
         <Grid.Cell span={{ narrow: 4, medium: 8, wide: 4 }}>
           <Heading level={3} size="level-3">
             Categorieën
           </Heading>
-          <MegaMenu.ListWrapper>
+          <MegaMenu.ListCategory>
             <UnorderedList markers={false}>
               <UnorderedList.Item>
                 <Link variant="inList" href="#">
@@ -184,11 +184,11 @@ export const WithMenu: Story = {
                 </Link>
               </UnorderedList.Item>
             </UnorderedList>
-          </MegaMenu.ListWrapper>
+          </MegaMenu.ListCategory>
           <Heading level={3} size="level-3">
             Snel naar
           </Heading>
-          <MegaMenu.ListWrapper>
+          <MegaMenu.ListCategory>
             <UnorderedList markers={false}>
               <UnorderedList.Item>
                 <Link variant="inList" href="#">
@@ -211,7 +211,7 @@ export const WithMenu: Story = {
                 </Link>
               </UnorderedList.Item>
             </UnorderedList>
-          </MegaMenu.ListWrapper>
+          </MegaMenu.ListCategory>
         </Grid.Cell>
       </Grid>
     ),
@@ -236,7 +236,7 @@ export const WithLinksAndMenu: Story = {
             <Heading level={3} size="level-3">
               Thema&rsquo;s
             </Heading>
-            <MegaMenu.ListWrapper>
+            <MegaMenu.ListCategory>
               <UnorderedList markers={false}>
                 <UnorderedList.Item>
                   <Link variant="inList" href="#">
@@ -309,13 +309,13 @@ export const WithLinksAndMenu: Story = {
                   </Link>
                 </UnorderedList.Item>
               </UnorderedList>
-            </MegaMenu.ListWrapper>
+            </MegaMenu.ListCategory>
           </Grid.Cell>
           <Grid.Cell span={{ narrow: 4, medium: 8, wide: 4 }}>
             <Heading level={3} size="level-3">
               Categorieën
             </Heading>
-            <MegaMenu.ListWrapper>
+            <MegaMenu.ListCategory>
               <UnorderedList markers={false}>
                 <UnorderedList.Item>
                   <Link variant="inList" href="#">
@@ -348,11 +348,11 @@ export const WithLinksAndMenu: Story = {
                   </Link>
                 </UnorderedList.Item>
               </UnorderedList>
-            </MegaMenu.ListWrapper>
+            </MegaMenu.ListCategory>
             <Heading level={3} size="level-3">
               Snel naar
             </Heading>
-            <MegaMenu.ListWrapper>
+            <MegaMenu.ListCategory>
               <UnorderedList markers={false}>
                 <UnorderedList.Item>
                   <Link variant="inList" href="#">
@@ -375,7 +375,7 @@ export const WithLinksAndMenu: Story = {
                   </Link>
                 </UnorderedList.Item>
               </UnorderedList>
-            </MegaMenu.ListWrapper>
+            </MegaMenu.ListCategory>
           </Grid.Cell>
         </Grid>
       </MegaMenu>
@@ -401,7 +401,7 @@ export const WithLinksAndMainMenu: Story = {
             <Heading level={1} size="level-2" className="amsterdam-mega-menu__heading">
               Alle onderwerpen
             </Heading>
-            <MegaMenu.ListWrapper>
+            <MegaMenu.ListCategory>
               <UnorderedList markers={false}>
                 <UnorderedList.Item>
                   <Link variant="inList" href="#">
@@ -504,7 +504,7 @@ export const WithLinksAndMainMenu: Story = {
                   </Link>
                 </UnorderedList.Item>
               </UnorderedList>
-            </MegaMenu.ListWrapper>
+            </MegaMenu.ListCategory>
           </Grid.Cell>
         </Grid>
       </MegaMenu>
@@ -522,7 +522,7 @@ export const WithTitleAndMenu: Story = {
             <Heading level={3} size="level-3">
               Thema&rsquo;s
             </Heading>
-            <MegaMenu.ListWrapper>
+            <MegaMenu.ListCategory>
               <UnorderedList markers={false}>
                 <UnorderedList.Item>
                   <Link variant="inList" href="#">
@@ -595,13 +595,13 @@ export const WithTitleAndMenu: Story = {
                   </Link>
                 </UnorderedList.Item>
               </UnorderedList>
-            </MegaMenu.ListWrapper>
+            </MegaMenu.ListCategory>
           </Grid.Cell>
           <Grid.Cell span={{ narrow: 4, medium: 8, wide: 4 }}>
             <Heading level={3} size="level-3">
               Categorieën
             </Heading>
-            <MegaMenu.ListWrapper>
+            <MegaMenu.ListCategory>
               <UnorderedList markers={false}>
                 <UnorderedList.Item>
                   <Link variant="inList" href="#">
@@ -634,11 +634,11 @@ export const WithTitleAndMenu: Story = {
                   </Link>
                 </UnorderedList.Item>
               </UnorderedList>
-            </MegaMenu.ListWrapper>
+            </MegaMenu.ListCategory>
             <Heading level={3} size="level-3">
               Snel naar
             </Heading>
-            <MegaMenu.ListWrapper>
+            <MegaMenu.ListCategory>
               <UnorderedList markers={false}>
                 <UnorderedList.Item>
                   <Link variant="inList" href="#">
@@ -661,7 +661,7 @@ export const WithTitleAndMenu: Story = {
                   </Link>
                 </UnorderedList.Item>
               </UnorderedList>
-            </MegaMenu.ListWrapper>
+            </MegaMenu.ListCategory>
           </Grid.Cell>
         </Grid>
       </MegaMenu>
@@ -688,7 +688,7 @@ export const WithTitleLinksAndMenu: Story = {
             <Heading level={3} size="level-3">
               Thema&rsquo;s
             </Heading>
-            <MegaMenu.ListWrapper>
+            <MegaMenu.ListCategory>
               <UnorderedList markers={false}>
                 <UnorderedList.Item>
                   <Link variant="inList" href="#">
@@ -761,13 +761,13 @@ export const WithTitleLinksAndMenu: Story = {
                   </Link>
                 </UnorderedList.Item>
               </UnorderedList>
-            </MegaMenu.ListWrapper>
+            </MegaMenu.ListCategory>
           </Grid.Cell>
           <Grid.Cell span={{ narrow: 4, medium: 8, wide: 4 }}>
             <Heading level={3} size="level-3">
               Categorieën
             </Heading>
-            <MegaMenu.ListWrapper>
+            <MegaMenu.ListCategory>
               <UnorderedList markers={false}>
                 <UnorderedList.Item>
                   <Link variant="inList" href="#">
@@ -800,11 +800,11 @@ export const WithTitleLinksAndMenu: Story = {
                   </Link>
                 </UnorderedList.Item>
               </UnorderedList>
-            </MegaMenu.ListWrapper>
+            </MegaMenu.ListCategory>
             <Heading level={3} size="level-3">
               Snel naar
             </Heading>
-            <MegaMenu.ListWrapper>
+            <MegaMenu.ListCategory>
               <UnorderedList markers={false}>
                 <UnorderedList.Item>
                   <Link variant="inList" href="#">
@@ -827,7 +827,7 @@ export const WithTitleLinksAndMenu: Story = {
                   </Link>
                 </UnorderedList.Item>
               </UnorderedList>
-            </MegaMenu.ListWrapper>
+            </MegaMenu.ListCategory>
           </Grid.Cell>
         </Grid>
       </MegaMenu>
