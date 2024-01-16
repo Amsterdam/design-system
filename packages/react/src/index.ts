@@ -5,6 +5,7 @@
 
 /* Append here */
 export * from './Table'
+export * from './MegaMenu'
 export * from './IconButton'
 export * from './SkipLink'
 export * from './Overlap'
