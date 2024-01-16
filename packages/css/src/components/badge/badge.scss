@@ -1,0 +1,58 @@
+/**
+ * @license EUPL-1.2+
+ * Copyright (c) 2023 Gemeente Amsterdam
+ */
+
+.amsterdam-badge {
+  display: inline-block;
+  font-family: var(--amsterdam-badge-font-family);
+  font-size: var(--amsterdam-badge-spacious-font-size);
+  font-weight: var(--amsterdam-badge-font-weight);
+  line-height: var(--amsterdam-badge-spacious-line-height);
+  padding-inline: var(--amsterdam-badge-padding-inline);
+
+  .amsterdam-theme--compact & {
+    font-size: var(--amsterdam-badge-compact-font-size);
+    line-height: var(--amsterdam-badge-compact-line-height);
+  }
+
+  &--blue {
+    background-color: var(--amsterdam-badge-blue-background-color);
+    color: var(--amsterdam-badge-blue-color);
+  }
+
+  &--dark-blue {
+    background-color: var(--amsterdam-badge-dark-blue-background-color);
+    color: var(--amsterdam-badge-dark-blue-color);
+  }
+
+  &--green {
+    background-color: var(--amsterdam-badge-green-background-color);
+    color: var(--amsterdam-badge-green-color);
+  }
+
+  &--dark-green {
+    background-color: var(--amsterdam-badge-dark-green-background-color);
+    color: var(--amsterdam-badge-dark-green-color);
+  }
+
+  &--orange {
+    background-color: var(--amsterdam-badge-orange-background-color);
+    color: var(--amsterdam-badge-orange-color);
+  }
+
+  &--magenta {
+    background-color: var(--amsterdam-badge-magenta-background-color);
+    color: var(--amsterdam-badge-magenta-color);
+  }
+
+  &--purple {
+    background-color: var(--amsterdam-badge-purple-background-color);
+    color: var(--amsterdam-badge-purple-color);
+  }
+
+  &--yellow {
+    background-color: var(--amsterdam-badge-yellow-background-color);
+    color: var(--amsterdam-badge-yellow-color);
+  }
+}
