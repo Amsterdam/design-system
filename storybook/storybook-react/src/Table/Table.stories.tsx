@@ -65,13 +65,13 @@ export const WithFooterAndRowHeaders: Story = {
         </Table.Row>
         <Table.Row>
           <Table.HeaderCell scope="row">Volgende 33 weken</Table.HeaderCell>
-          <Table.Cell>€ 109,80 per week</Table.Cell>
+          <Table.Cell>€ 79,80 per week</Table.Cell>
         </Table.Row>
       </Table.Body>,
       <Table.Footer key="footer">
         <Table.Row>
           <Table.HeaderCell scope="row">Totale verwachte kosten</Table.HeaderCell>
-          <Table.Cell>€ 4.282,20</Table.Cell>
+          <Table.Cell>€ 3.292,20</Table.Cell>
         </Table.Row>
       </Table.Footer>,
     ],
