@@ -15,14 +15,14 @@ import {
   useRef,
 } from 'react'
 
-export interface CheckboxProps extends InputHTMLAttributes<HTMLInputElement> {
+export interface CheckboxProps extends PropsWithChildren<InputHTMLAttributes<HTMLInputElement>> {
   invalid?: boolean
   indeterminate?: boolean
 }
 
 export const Checkbox = forwardRef(
   (
-    { children, className, invalid, indeterminate, ...restProps }: PropsWithChildren<CheckboxProps>,
+    { children, className, invalid, indeterminate, ...restProps }: CheckboxProps,
     ref: ForwardedRef<HTMLInputElement>,
   ) => {
     const id = useId()

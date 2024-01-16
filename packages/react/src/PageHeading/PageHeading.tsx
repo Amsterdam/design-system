@@ -6,7 +6,7 @@
 import clsx from 'clsx'
 import { ForwardedRef, forwardRef, HTMLAttributes, PropsWithChildren } from 'react'
 
-export interface PageHeadingProps extends HTMLAttributes<HTMLHeadingElement> {
+export interface PageHeadingProps extends PropsWithChildren<HTMLAttributes<HTMLHeadingElement>> {
   /**
    * De kleur van de titel
    * Gebruik deze property om de titel in tegenovergestelde kleur te tonen.
@@ -15,10 +15,7 @@ export interface PageHeadingProps extends HTMLAttributes<HTMLHeadingElement> {
 }
 
 export const PageHeading = forwardRef(
-  (
-    { children, className, inverseColor, ...restProps }: PropsWithChildren<PageHeadingProps>,
-    ref: ForwardedRef<HTMLHeadingElement>,
-  ) => (
+  ({ children, className, inverseColor, ...restProps }: PageHeadingProps, ref: ForwardedRef<HTMLHeadingElement>) => (
     <h1
       {...restProps}
       ref={ref}

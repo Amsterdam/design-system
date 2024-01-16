@@ -6,7 +6,7 @@
 import clsx from 'clsx'
 import { BlockquoteHTMLAttributes, ForwardedRef, forwardRef, PropsWithChildren } from 'react'
 
-export interface BlockquoteProps extends BlockquoteHTMLAttributes<HTMLQuoteElement> {
+export interface BlockquoteProps extends PropsWithChildren<BlockquoteHTMLAttributes<HTMLQuoteElement>> {
   /**
    * De kleur van het citaat.
    * Gebruik deze property om het citaat in tegenovergestelde kleur te tonen.
@@ -15,10 +15,7 @@ export interface BlockquoteProps extends BlockquoteHTMLAttributes<HTMLQuoteEleme
 }
 
 export const Blockquote = forwardRef(
-  (
-    { children, className, inverseColor, ...restProps }: PropsWithChildren<BlockquoteProps>,
-    ref: ForwardedRef<HTMLQuoteElement>,
-  ) => (
+  ({ children, className, inverseColor, ...restProps }: BlockquoteProps, ref: ForwardedRef<HTMLQuoteElement>) => (
     <blockquote
       {...restProps}
       ref={ref}

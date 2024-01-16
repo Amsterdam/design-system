@@ -39,13 +39,10 @@ export const UnorderedList = forwardRef(
 
 UnorderedList.displayName = 'UnorderedList'
 
-export type UnorderedListItemProps = LiHTMLAttributes<HTMLLIElement>
+export type UnorderedListItemProps = PropsWithChildren<LiHTMLAttributes<HTMLLIElement>>
 
 export const UnorderedListItem = forwardRef(
-  (
-    { children, className, ...restProps }: PropsWithChildren<UnorderedListItemProps>,
-    ref: ForwardedRef<HTMLLIElement>,
-  ) => {
+  ({ children, className, ...restProps }: UnorderedListItemProps, ref: ForwardedRef<HTMLLIElement>) => {
     return (
       <li ref={ref} className={clsx('amsterdam-unordered-list__item', className)} {...restProps}>
         {children}

@@ -26,11 +26,11 @@ type ConditionalProps =
       icon?: Function
     }
 
-export type LinkProps = CommonProps & ConditionalProps
+export type LinkProps = PropsWithChildren<CommonProps & ConditionalProps>
 
 export const Link = forwardRef(
   (
-    { children, variant = 'standalone', icon, onBackground, className, ...otherProps }: PropsWithChildren<LinkProps>,
+    { children, variant = 'standalone', icon, onBackground, className, ...otherProps }: LinkProps,
     ref: ForwardedRef<HTMLAnchorElement>,
   ) => (
     <a
