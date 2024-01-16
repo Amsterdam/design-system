@@ -4,7 +4,8 @@
  */
 
 import clsx from 'clsx'
-import { ForwardedRef, forwardRef, HTMLAttributes, ReactNode } from 'react'
+import { forwardRef } from 'react'
+import type { ForwardedRef, HTMLAttributes, ReactNode } from 'react'
 import { Heading } from '../Heading'
 import { Logo } from '../Logo'
 import type { LogoBrand } from '../Logo'

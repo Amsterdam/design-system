@@ -1,5 +1,11 @@
+/**
+ * @license EUPL-1.2+
+ * Copyright (c) 2023 Gemeente Amsterdam
+ */
+
 import clsx from 'clsx'
-import { ForwardedRef, forwardRef, InputHTMLAttributes, PropsWithChildren, useId } from 'react'
+import { forwardRef, useId } from 'react'
+import type { ForwardedRef, InputHTMLAttributes, PropsWithChildren } from 'react'
 
 export const Switch = forwardRef(
   (

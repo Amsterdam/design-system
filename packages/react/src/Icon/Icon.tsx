@@ -6,7 +6,8 @@
  */
 
 import clsx from 'clsx'
-import { ForwardedRef, forwardRef, HTMLAttributes } from 'react'
+import { forwardRef } from 'react'
+import type { ForwardedRef, HTMLAttributes } from 'react'
 
 export interface IconProps extends HTMLAttributes<HTMLSpanElement> {
   size?: 'level-3' | 'level-4' | 'level-5' | 'level-6'

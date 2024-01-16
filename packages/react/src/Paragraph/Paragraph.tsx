@@ -5,9 +5,10 @@
  */
 
 import clsx from 'clsx'
-import { ForwardedRef, forwardRef, HTMLAttributes, PropsWithChildren } from 'react'
+import { forwardRef } from 'react'
+import type { ForwardedRef, HTMLAttributes, PropsWithChildren } from 'react'
 
-export interface ParagraphProps extends HTMLAttributes<HTMLParagraphElement> {
+export interface ParagraphProps extends PropsWithChildren<HTMLAttributes<HTMLParagraphElement>> {
   size?: 'small' | 'large'
   /**
    * De kleur van de paragraaf
@@ -18,7 +19,7 @@ export interface ParagraphProps extends HTMLAttributes<HTMLParagraphElement> {
 
 export const Paragraph = forwardRef(
   (
-    { children, className, inverseColor, size, ...otherProps }: PropsWithChildren<ParagraphProps>,
+    { children, className, inverseColor, size, ...otherProps }: ParagraphProps,
     ref: ForwardedRef<HTMLParagraphElement>,
   ) => (
     <p

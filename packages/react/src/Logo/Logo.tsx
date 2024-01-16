@@ -4,7 +4,8 @@
  */
 
 import clsx from 'clsx'
-import { ForwardedRef, forwardRef, ForwardRefExoticComponent, RefAttributes, SVGProps } from 'react'
+import { forwardRef } from 'react'
+import type { ForwardedRef, ForwardRefExoticComponent, RefAttributes, SVGProps } from 'react'
 import {
   LogoAmsterdam,
   LogoGgdAmsterdam,

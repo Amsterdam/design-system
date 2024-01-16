@@ -4,7 +4,8 @@
  */
 
 import clsx from 'clsx'
-import { type ForwardedRef, forwardRef, type ImgHTMLAttributes } from 'react'
+import { forwardRef } from 'react'
+import type { ForwardedRef, ImgHTMLAttributes } from 'react'
 
 export interface ImageProps extends ImgHTMLAttributes<HTMLImageElement> {
   cover?: Boolean
