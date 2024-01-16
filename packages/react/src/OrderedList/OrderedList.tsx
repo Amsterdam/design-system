@@ -4,16 +4,15 @@
  */
 
 import clsx from 'clsx'
-import {
+import { forwardRef } from 'react'
+import type {
   ForwardedRef,
-  forwardRef,
   ForwardRefExoticComponent,
   LiHTMLAttributes,
   OlHTMLAttributes,
   PropsWithChildren,
   RefAttributes,
 } from 'react'
-
 export interface OrderedListProps extends PropsWithChildren<OlHTMLAttributes<HTMLOListElement>> {
   markers?: boolean
 }

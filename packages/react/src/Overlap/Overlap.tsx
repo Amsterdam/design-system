@@ -4,7 +4,8 @@
  */
 
 import clsx from 'clsx'
-import { type ForwardedRef, forwardRef, type HTMLAttributes, type PropsWithChildren } from 'react'
+import { forwardRef } from 'react'
+import type { ForwardedRef, HTMLAttributes, PropsWithChildren } from 'react'
 
 export const Overlap = forwardRef(
   (

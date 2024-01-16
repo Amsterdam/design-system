@@ -4,16 +4,8 @@
  */
 
 import clsx from 'clsx'
-import {
-  ForwardedRef,
-  forwardRef,
-  InputHTMLAttributes,
-  PropsWithChildren,
-  useEffect,
-  useId,
-  useImperativeHandle,
-  useRef,
-} from 'react'
+import { forwardRef, useEffect, useId, useImperativeHandle, useRef } from 'react'
+import type { ForwardedRef, InputHTMLAttributes, PropsWithChildren } from 'react'
 
 export interface CheckboxProps extends PropsWithChildren<InputHTMLAttributes<HTMLInputElement>> {
   invalid?: boolean

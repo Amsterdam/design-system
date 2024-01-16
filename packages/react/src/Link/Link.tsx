@@ -5,7 +5,8 @@
 
 import { ChevronRightIcon } from '@amsterdam/design-system-react-icons'
 import clsx from 'clsx'
-import { AnchorHTMLAttributes, ForwardedRef, forwardRef, PropsWithChildren } from 'react'
+import { forwardRef } from 'react'
+import type { AnchorHTMLAttributes, ForwardedRef, PropsWithChildren } from 'react'
 import { Icon } from '../Icon/Icon'
 
 type LinkOnBackground = 'default' | 'light' | 'dark'

@@ -4,7 +4,8 @@
  */
 
 import clsx from 'clsx'
-import { BlockquoteHTMLAttributes, ForwardedRef, forwardRef, PropsWithChildren } from 'react'
+import { forwardRef } from 'react'
+import type { BlockquoteHTMLAttributes, ForwardedRef, PropsWithChildren } from 'react'
 
 export interface BlockquoteProps extends PropsWithChildren<BlockquoteHTMLAttributes<HTMLQuoteElement>> {
   /**

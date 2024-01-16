@@ -4,7 +4,8 @@
  */
 
 import clsx from 'clsx'
-import { ForwardedRef, forwardRef, HTMLAttributes, PropsWithChildren } from 'react'
+import { forwardRef } from 'react'
+import type { ForwardedRef, HTMLAttributes, PropsWithChildren } from 'react'
 
 export type Ratio = 'x-tall' | 'tall' | 'square' | 'wide' | 'x-wide' | '2x-wide'
 

@@ -6,7 +6,8 @@
 
 import { Button as CommunityButton } from '@utrecht/component-library-react'
 import clsx from 'clsx'
-import { ButtonHTMLAttributes, ForwardedRef, forwardRef, PropsWithChildren } from 'react'
+import { forwardRef } from 'react'
+import type { ButtonHTMLAttributes, ForwardedRef, PropsWithChildren } from 'react'
 
 export interface ButtonProps extends PropsWithChildren<ButtonHTMLAttributes<HTMLButtonElement>> {
   variant?: 'primary' | 'secondary' | 'tertiary'

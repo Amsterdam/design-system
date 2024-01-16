@@ -4,7 +4,8 @@
  */
 
 import clsx from 'clsx'
-import { ForwardedRef, forwardRef, InputHTMLAttributes, useId } from 'react'
+import { forwardRef, useId } from 'react'
+import type { ForwardedRef, InputHTMLAttributes } from 'react'
 import { VisuallyHidden } from '../VisuallyHidden'
 
 interface SearchFieldInputProps extends InputHTMLAttributes<HTMLInputElement> {

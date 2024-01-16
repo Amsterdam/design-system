@@ -1,11 +1,5 @@
-import {
-  ForwardedRef,
-  forwardRef,
-  ForwardRefExoticComponent,
-  HTMLAttributes,
-  PropsWithChildren,
-  RefAttributes,
-} from 'react'
+import { forwardRef } from 'react'
+import type { ForwardedRef, ForwardRefExoticComponent, HTMLAttributes, PropsWithChildren, RefAttributes } from 'react'
 
 type BreadcrumbProps = PropsWithChildren<HTMLAttributes<HTMLElement>>
 

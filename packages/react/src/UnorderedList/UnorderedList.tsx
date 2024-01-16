@@ -4,9 +4,9 @@
  */
 
 import clsx from 'clsx'
-import {
+import { forwardRef } from 'react'
+import type {
   ForwardedRef,
-  forwardRef,
   ForwardRefExoticComponent,
   HTMLAttributes,
   LiHTMLAttributes,

@@ -1,5 +1,6 @@
 import clsx from 'clsx'
-import { ForwardedRef, forwardRef, InputHTMLAttributes, PropsWithChildren, useId } from 'react'
+import { forwardRef, useId } from 'react'
+import type { ForwardedRef, InputHTMLAttributes, PropsWithChildren } from 'react'
 
 export const Switch = forwardRef(
   (

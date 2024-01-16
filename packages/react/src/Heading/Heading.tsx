@@ -5,7 +5,8 @@
  */
 
 import clsx from 'clsx'
-import { ForwardedRef, forwardRef, HTMLAttributes, PropsWithChildren } from 'react'
+import { forwardRef } from 'react'
+import type { ForwardedRef, HTMLAttributes, PropsWithChildren } from 'react'
 
 export type HeadingLevel = 1 | 2 | 3 | 4
 type HeadingSize = 'level-1' | 'level-2' | 'level-3' | 'level-4' | 'level-5' | 'level-6'
