@@ -7,7 +7,7 @@ import { Badge } from '@amsterdam/design-system-react'
 import { Meta, StoryObj } from '@storybook/react'
 
 const meta = {
-  title: 'Badge',
+  title: 'Feedback/Badge',
   component: Badge,
   args: {
     children: 'Tip',
