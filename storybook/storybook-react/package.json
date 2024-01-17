@@ -16,8 +16,7 @@
   "scripts": {
     "build": "storybook build --output-dir dist/ --config-dir config/ --quiet && touch dist/.nojekyll",
     "clean": "rimraf dist/",
-    "start": "http-server dist/",
-    "storybook": "storybook dev --config-dir config/ --port 6007 --no-open"
+    "start": "storybook dev --config-dir config/ --port 6007 --no-open"
   },
   "devDependencies": {
     "@amsterdam/design-system-assets": "workspace:*",
@@ -47,7 +46,6 @@
     "@storybook/theming": "7.6.7",
     "@types/react": "18.2.47",
     "@vitejs/plugin-react": "4.2.1",
-    "http-server": "14.1.1",
     "react": "18.2.0",
     "react-dom": "18.2.0",
     "require-from-string": "2.0.2",
