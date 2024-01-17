@@ -3,8 +3,10 @@
  * Copyright (c) 2023 Gemeente Amsterdam
  */
 
+import { clsx } from 'clsx'
 import { forwardRef } from 'react'
 import type { ForwardedRef, ForwardRefExoticComponent, HTMLAttributes, PropsWithChildren, RefAttributes } from 'react'
+import { BreadcrumbItem } from './BreadcrumbItem'
 
 export type BreadcrumbProps = PropsWithChildren<HTMLAttributes<HTMLElement>>
 
@@ -12,31 +14,17 @@ interface BreadcrumbComponent extends ForwardRefExoticComponent<BreadcrumbProps 
   Item: typeof BreadcrumbItem
 }
 
-export const Breadcrumb = forwardRef(({ children, ...restProps }: BreadcrumbProps, ref: ForwardedRef<HTMLElement>) => {
-  return (
-    <nav {...restProps} className="amsterdam-breadcrumb" ref={ref}>
-      <ol className="amsterdam-breadcrumb__list">{children}</ol>
-    </nav>
-  )
-}) as BreadcrumbComponent
+export const Breadcrumb = forwardRef(
+  ({ children, className, ...restProps }: BreadcrumbProps, ref: ForwardedRef<HTMLElement>) => {
+    return (
+      <nav {...restProps} className={clsx('amsterdam-breadcrumb', className)} ref={ref}>
+        <ol className="amsterdam-breadcrumb__list">{children}</ol>
+      </nav>
+    )
+  },
+) as BreadcrumbComponent
 
 Breadcrumb.displayName = 'Breadcrumb'
 
-export interface BreadcrumbItemProps extends PropsWithChildren<HTMLAttributes<HTMLLIElement>> {
-  href: string
-}
-
-const BreadcrumbItem = forwardRef(
-  ({ children, href, ...restProps }: BreadcrumbItemProps, ref: ForwardedRef<HTMLLIElement>) => {
-    return (
-      <li {...restProps} className="amsterdam-breadcrumb__item" ref={ref}>
-        <a className="amsterdam-breadcrumb__link" href={href}>
-          {children}
-        </a>
-      </li>
-    )
-  },
-)
-
-BreadcrumbItem.displayName = 'BreadcrumbItem'
 Breadcrumb.Item = BreadcrumbItem
+Breadcrumb.Item.displayName = 'Breadcrumb.Item'
