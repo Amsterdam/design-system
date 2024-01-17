@@ -59,7 +59,7 @@ To enable correct validation and to fix lint/style errors on save, add this to y
 
 - Install dependencies: `pnpm install`
 - Build the packages: `npm run build`
-- Run storybook: `npm run storybook`
+- Run storybook: `npm start`
 
 ## Locally link this library to a local project
 
