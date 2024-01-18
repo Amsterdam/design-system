@@ -19,6 +19,9 @@ export const exampleHeading = () =>
     'Richtlijnen vergunningverlening Koningsdag 2024',
   ])
 
+export const exampleLinkList = () =>
+  pickRandomList([['Monumenten en archeologie', 'Ateliers en broedplaatsen', 'Kunstenplan', 'Subsidies']])
+
 export const exampleOrderedList = () =>
   pickRandomList([
     [

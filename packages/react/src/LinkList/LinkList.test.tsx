@@ -29,8 +29,16 @@ describe('Link list', () => {
     expect(component).toHaveClass('amsterdam-link-list extra')
   })
 
+  it('renders a class name for the small size', () => {
+    const { container } = render(<LinkList size="small" />)
+
+    const component = container.querySelector(':only-child')
+
+    expect(component).toHaveClass('amsterdam-link-list--small')
+  })
+
   it('supports ForwardRef in React', () => {
-    const ref = createRef<HTMLElement>()
+    const ref = createRef<HTMLUListElement>()
 
     const { container } = render(<LinkList ref={ref} />)
 
