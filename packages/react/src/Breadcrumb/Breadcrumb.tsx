@@ -1,13 +1,12 @@
-import {
-  ForwardedRef,
-  forwardRef,
-  ForwardRefExoticComponent,
-  HTMLAttributes,
-  PropsWithChildren,
-  RefAttributes,
-} from 'react'
+/**
+ * @license EUPL-1.2+
+ * Copyright (c) 2023 Gemeente Amsterdam
+ */
 
-type BreadcrumbProps = PropsWithChildren<HTMLAttributes<HTMLElement>>
+import { forwardRef } from 'react'
+import type { ForwardedRef, ForwardRefExoticComponent, HTMLAttributes, PropsWithChildren, RefAttributes } from 'react'
+
+export type BreadcrumbProps = PropsWithChildren<HTMLAttributes<HTMLElement>>
 
 interface BreadcrumbComponent extends ForwardRefExoticComponent<BreadcrumbProps & RefAttributes<HTMLElement>> {
   Item: typeof BreadcrumbItem

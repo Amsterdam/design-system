@@ -4,7 +4,8 @@
  */
 
 import clsx from 'clsx'
-import { DialogHTMLAttributes, ForwardedRef, forwardRef, PropsWithChildren, ReactNode } from 'react'
+import { forwardRef } from 'react'
+import type { DialogHTMLAttributes, ForwardedRef, PropsWithChildren, ReactNode } from 'react'
 import { IconButton } from '../IconButton'
 
 export interface DialogProps extends PropsWithChildren<DialogHTMLAttributes<HTMLDialogElement>> {

@@ -5,7 +5,8 @@
 
 import { ChevronLeftIcon, ChevronRightIcon } from '@amsterdam/design-system-react-icons'
 import clsx from 'clsx'
-import { ForwardedRef, forwardRef, HTMLAttributes, useMemo, useState } from 'react'
+import { forwardRef, useMemo, useState } from 'react'
+import type { ForwardedRef, HTMLAttributes } from 'react'
 import { Icon } from '../Icon/Icon'
 
 export interface PaginationProps extends HTMLAttributes<HTMLElement> {

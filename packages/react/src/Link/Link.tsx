@@ -5,7 +5,8 @@
 
 import { ChevronRightIcon } from '@amsterdam/design-system-react-icons'
 import clsx from 'clsx'
-import { AnchorHTMLAttributes, ForwardedRef, forwardRef, PropsWithChildren } from 'react'
+import { forwardRef } from 'react'
+import type { AnchorHTMLAttributes, ForwardedRef, PropsWithChildren } from 'react'
 import { Icon } from '../Icon/Icon'
 
 type LinkOnBackground = 'default' | 'light' | 'dark'
@@ -26,11 +27,11 @@ type ConditionalProps =
       icon?: Function
     }
 
-export type LinkProps = CommonProps & ConditionalProps
+export type LinkProps = PropsWithChildren<CommonProps & ConditionalProps>
 
 export const Link = forwardRef(
   (
-    { children, variant = 'standalone', icon, onBackground, className, ...otherProps }: PropsWithChildren<LinkProps>,
+    { children, variant = 'standalone', icon, onBackground, className, ...otherProps }: LinkProps,
     ref: ForwardedRef<HTMLAnchorElement>,
   ) => (
     <a

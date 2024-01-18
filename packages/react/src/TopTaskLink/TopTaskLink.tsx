@@ -4,7 +4,8 @@
  */
 
 import clsx from 'clsx'
-import { AnchorHTMLAttributes, ForwardedRef, forwardRef } from 'react'
+import { forwardRef } from 'react'
+import type { AnchorHTMLAttributes, ForwardedRef } from 'react'
 
 export interface TopTaskLinkProps extends AnchorHTMLAttributes<HTMLAnchorElement> {
   label: string

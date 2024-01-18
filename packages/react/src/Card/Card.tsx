@@ -4,10 +4,10 @@
  */
 
 import clsx from 'clsx'
-import {
+import { forwardRef } from 'react'
+import type {
   AnchorHTMLAttributes,
   ForwardedRef,
-  forwardRef,
   ForwardRefExoticComponent,
   HTMLAttributes,
   PropsWithChildren,

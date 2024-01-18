@@ -5,7 +5,8 @@
 
 import { CloseIcon } from '@amsterdam/design-system-react-icons'
 import clsx from 'clsx'
-import { ButtonHTMLAttributes, ForwardedRef, forwardRef } from 'react'
+import { forwardRef } from 'react'
+import type { ButtonHTMLAttributes, ForwardedRef } from 'react'
 import { Icon } from '../Icon'
 import { VisuallyHidden } from '../VisuallyHidden'
 
