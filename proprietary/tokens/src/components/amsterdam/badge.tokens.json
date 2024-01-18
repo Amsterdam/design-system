@@ -1,6 +1,7 @@
 {
   "amsterdam": {
     "badge": {
+      "font-family": { "value": "{amsterdam.typography.font-family}" },
       "font-weight": { "value": "{amsterdam.typography.font-weight.bold}" },
       "padding-inline": { "value": "0.5rem" },
       "spacious": {
