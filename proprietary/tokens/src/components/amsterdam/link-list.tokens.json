@@ -2,6 +2,7 @@
   "amsterdam": {
     "link-list": {
       "font-family": { "value": "{amsterdam.typography.font-family}" },
+      "gap": { "value": "0.5em" },
       "spacious": {
         "small": {
           "font-size": { "value": "{amsterdam.typography.spacious.text-level.6.font-size}" },
@@ -21,9 +22,20 @@
           "font-size": { "value": "{amsterdam.typography.compact.text-level.5.font-size}" },
           "line-height": { "value": "{amsterdam.typography.compact.text-level.5.line-height}" }
         }
+      },
+      "link": {
+        "color": { "value": "{amsterdam.link-appearance.color}" },
+        "gap": { "value": "0.5em" },
+        "text-decoration-line": { "value": "{amsterdam.link-appearance.subtle.text-decoration-line}" },
+        "text-decoration-thickness": { "value": "{amsterdam.link-appearance.text-decoration-thickness}" },
+        "text-underline-offset": { "value": "{amsterdam.link-appearance.text-underline-offset}" },
+        "hover": {
+          "text-decoration-line": { "value": "{amsterdam.link-appearance.subtle.hover.text-decoration-line}" }
+        },
+        "visited": {
+          "color": { "value": "{amsterdam.color.purple}" }
+        }
       }
-    },
-    "item": {},
-    "link": {}
+    }
   }
 }

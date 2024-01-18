@@ -3,25 +3,19 @@
  * Copyright (c) 2024 Gemeente Amsterdam
  */
 
-import { Icon, LinkList } from '@amsterdam/design-system-react'
-import { ChevronRightIcon } from '@amsterdam/design-system-react-icons'
+import { LinkList } from '@amsterdam/design-system-react'
+import { LinkListLink } from '@amsterdam/design-system-react'
+import { useArgs } from '@storybook/preview-api'
 import { Meta, StoryObj } from '@storybook/react'
 import { exampleLinkList } from '../shared/exampleContent'
 
-const linkList = exampleLinkList().map((text, index) => (
-  <li key={index}>
-    <a href="#">
-      <Icon svg={ChevronRightIcon} color="link" size="level-5" />
-      {text}
-    </a>
-  </li>
-))
+const links = exampleLinkList()
 
 const meta = {
   title: 'Navigation/Link List',
   component: LinkList,
   args: {
-    children: linkList,
+    children: 'Default children',
     size: undefined,
   },
   argTypes: {
@@ -42,4 +36,18 @@ export default meta
 
 type Story = StoryObj<typeof meta>
 
-export const Default: Story = {}
+export const Default: Story = {
+  render: function Render() {
+    const [args] = useArgs()
+
+    return (
+      <LinkList {...args}>
+        {links.map((text, index) => (
+          <LinkListLink key={index} href="#" size={args['size']}>
+            {text}
+          </LinkListLink>
+        ))}
+      </LinkList>
+    )
+  },
+}

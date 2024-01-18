@@ -35,3 +35,22 @@
     line-height: var(--amsterdam-link-list-compact-small-line-height);
   }
 }
+
+.amsterdam-link-list__link {
+  align-items: flex-start;
+  color: var(--amsterdam-link-list-link-color);
+  display: inline-flex;
+  gap: var(--amsterdam-link-list-link-gap);
+  text-decoration-line: var(--amsterdam-link-list-link-text-decoration-line);
+  text-decoration-thickness: var(--amsterdam-link-list-link-text-decoration-thickness);
+  text-underline-offset: var(--amsterdam-link-list-link-text-underline-offset);
+  vertical-align: middle;
+
+  &:hover {
+    text-decoration-line: var(--amsterdam-link-list-link-hover-text-decoration-line);
+  }
+
+  &:visited {
+    color: var(--amsterdam-link-list-link-visited-color);
+  }
+}
