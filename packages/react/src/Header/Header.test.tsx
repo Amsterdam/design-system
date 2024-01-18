@@ -1,6 +1,7 @@
 import { render, screen } from '@testing-library/react'
 import { createRef } from 'react'
-import { Header, HeaderProps } from './Header'
+import { Header } from './Header'
+import type { HeaderProps } from './Header'
 import '@testing-library/jest-dom'
 
 describe('Header', () => {

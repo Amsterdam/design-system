@@ -7,7 +7,7 @@ import clsx from 'clsx'
 import { forwardRef } from 'react'
 import type { ForwardedRef, ForwardRefExoticComponent, HTMLAttributes, PropsWithChildren, RefAttributes } from 'react'
 
-type MegaMenuProps = {} & PropsWithChildren<HTMLAttributes<HTMLDivElement>>
+export type MegaMenuProps = {} & PropsWithChildren<HTMLAttributes<HTMLDivElement>>
 
 interface MegaMenuComponent extends ForwardRefExoticComponent<MegaMenuProps & RefAttributes<HTMLDivElement>> {
   ListCategory: typeof MegaMenuListCategory
