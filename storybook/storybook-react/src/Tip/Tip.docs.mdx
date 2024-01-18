@@ -1,0 +1,15 @@
+import { Canvas, Controls, Markdown, Meta, Primary } from "@storybook/blocks";
+import * as TipStories from "./Tip.stories.tsx";
+import README from "../../../../packages/css/src/components/tip/README.md?raw";
+
+<Meta of={TipStories} />
+
+<Markdown>{README}</Markdown>
+
+<Primary />
+
+<Controls />
+
+## In a list
+
+<Canvas of={TipStories.InAList} />

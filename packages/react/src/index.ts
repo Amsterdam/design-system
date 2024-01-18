@@ -4,6 +4,7 @@
  */
 
 /* Append here */
+export * from './Tip'
 export * from './Badge'
 export * from './Table'
 export * from './MegaMenu'
