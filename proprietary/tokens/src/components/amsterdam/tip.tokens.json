@@ -1,5 +1,8 @@
 {
   "amsterdam": {
-    "tip": {}
+    "tip": {
+      "gap": { "value": "1rem" },
+      "padding-block": { "value": "1.5rem" }
+    }
   }
 }

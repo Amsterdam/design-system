@@ -7,6 +7,6 @@
   align-items: flex-start;
   display: flex;
   flex-direction: row;
-  gap: 1rem;
-  padding-block: 1.5rem;
+  gap: var(--amsterdam-tip-gap);
+  padding-block: var(--amsterdam-tip-padding-block);
 }
