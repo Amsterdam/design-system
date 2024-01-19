@@ -24,7 +24,7 @@ Geef een externe link altijd `rel="external"` mee. Vermijd `target="_blank"`, ma
 
 ### Bezochte stijl
 
-Bezochte koppelingen geven aan dat een gebruiker de koppeling al heeft geopend. Gebruikte stijlen raden we af bij koppelingen, omdat ze de pagina vaak onoverzichtelijk maken. Het maakt navigeren door een pagina moeilijker. De inline koppeling heeft wel een bezochte stijl. Het vormt geen onderdeel van navigatie elementen die veel gescand worden.
+Bezochte koppelingen geven aan dat een gebruiker de koppeling al heeft geopend. Gebruikte stijlen raden we af bij koppelingen, omdat ze de pagina vaak onoverzichtelijk maken. Het maakt navigeren door een pagina moeilijker. De inline koppeling heeft wel een bezochte stijl. Het vormt geen onderdeel van navigatie-elementen die veel gescand worden.
 
 ## Relevante WCAG eisen
 

@@ -10,7 +10,9 @@ import type { AnchorHTMLAttributes, ForwardedRef, PropsWithChildren } from 'reac
 import { Icon } from '../Icon/Icon'
 
 type LinkOnBackground = 'default' | 'light' | 'dark'
-type LinkVariant = 'standalone' | 'inline' | 'inList'
+/** @deprecated Use `LinkList` instead. */
+type DeprecatedLinkVariantInList = 'inList'
+type LinkVariant = 'standalone' | 'inline' | DeprecatedLinkVariantInList
 
 interface CommonProps extends Omit<AnchorHTMLAttributes<HTMLAnchorElement>, 'placeholder'> {
   variant?: LinkVariant
