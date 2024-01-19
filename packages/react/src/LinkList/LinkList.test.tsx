@@ -1,38 +1,38 @@
-import { render } from '@testing-library/react'
+import '@testing-library/jest-dom'
+import { render, screen } from '@testing-library/react'
 import { createRef } from 'react'
 import { LinkList } from './LinkList'
-import '@testing-library/jest-dom'
 
 describe('Link list', () => {
   it('renders', () => {
-    const { container } = render(<LinkList />)
+    render(<LinkList />)
 
-    const component = container.querySelector(':only-child')
+    const component = screen.getByRole('list')
 
     expect(component).toBeInTheDocument()
     expect(component).toBeVisible()
   })
 
   it('renders a design system BEM class name', () => {
-    const { container } = render(<LinkList />)
+    render(<LinkList />)
 
-    const component = container.querySelector(':only-child')
+    const component = screen.getByRole('list')
 
     expect(component).toHaveClass('amsterdam-link-list')
   })
 
   it('renders an additional class name', () => {
-    const { container } = render(<LinkList className="extra" />)
+    render(<LinkList className="extra" />)
 
-    const component = container.querySelector(':only-child')
+    const component = screen.getByRole('list')
 
     expect(component).toHaveClass('amsterdam-link-list extra')
   })
 
   it('renders a class name for the small size', () => {
-    const { container } = render(<LinkList size="small" />)
+    render(<LinkList size="small" />)
 
-    const component = container.querySelector(':only-child')
+    const component = screen.getByRole('list')
 
     expect(component).toHaveClass('amsterdam-link-list--small')
   })
@@ -40,9 +40,9 @@ describe('Link list', () => {
   it('supports ForwardRef in React', () => {
     const ref = createRef<HTMLUListElement>()
 
-    const { container } = render(<LinkList ref={ref} />)
+    render(<LinkList ref={ref} />)
 
-    const component = container.querySelector(':only-child')
+    const component = screen.getByRole('list')
 
     expect(ref.current).toBe(component)
   })
