@@ -7,7 +7,7 @@ import { Badge, Paragraph, Tip, UnorderedList } from '@amsterdam/design-system-r
 import { Meta, StoryObj } from '@storybook/react'
 
 const meta = {
-  title: 'Tip',
+  title: 'Feedback/Tip',
   component: Tip,
   args: {
     children: [
