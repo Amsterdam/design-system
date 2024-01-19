@@ -1,0 +1,22 @@
+/**
+ * @license EUPL-1.2+
+ * Copyright (c) 2023 Gemeente Amsterdam
+ */
+
+import clsx from 'clsx'
+import { forwardRef } from 'react'
+import type { ForwardedRef, LiHTMLAttributes, PropsWithChildren } from 'react'
+
+export type UnorderedListItemProps = PropsWithChildren<LiHTMLAttributes<HTMLLIElement>>
+
+export const UnorderedListItem = forwardRef(
+  ({ children, className, ...restProps }: UnorderedListItemProps, ref: ForwardedRef<HTMLLIElement>) => {
+    return (
+      <li ref={ref} className={clsx('amsterdam-unordered-list__item', className)} {...restProps}>
+        {children}
+      </li>
+    )
+  },
+)
+
+UnorderedListItem.displayName = 'UnorderedListItem'
