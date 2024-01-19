@@ -38,4 +38,22 @@ describe('Badge', () => {
 
     expect(ref.current).toBe(component)
   })
+
+  it('renders with default color', () => {
+    const { container } = render(<Badge />)
+
+    const component = container.querySelector(':only-child')
+
+    expect(component).toHaveClass('amsterdam-badge')
+    expect(component).toHaveClass('amsterdam-badge--dark-green')
+  })
+
+  it('renders with specified color', () => {
+    const { container } = render(<Badge color="blue" />)
+
+    const component = container.querySelector(':only-child')
+
+    expect(component).toHaveClass('amsterdam-badge')
+    expect(component).toHaveClass('amsterdam-badge--blue')
+  })
 })
