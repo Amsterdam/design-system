@@ -1,9 +1,9 @@
+import '@testing-library/jest-dom'
 import { render, screen } from '@testing-library/react'
 import { createRef } from 'react'
-import { LinkListLink } from './LinkList'
-import '@testing-library/jest-dom'
+import { LinkListLink } from './LinkListLink'
 
-describe('Link list', () => {
+describe('Link list link', () => {
   it('renders', () => {
     render(<LinkListLink href="#" />)
 
