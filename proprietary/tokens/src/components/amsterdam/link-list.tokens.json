@@ -34,6 +34,24 @@
         },
         "visited": {
           "color": { "value": "{amsterdam.color.purple}" }
+        },
+        "on-background-dark": {
+          "color": { "value": "{amsterdam.link-appearance.on-background-dark.color}" },
+          "hover": {
+            "color": { "value": "{amsterdam.link-appearance.on-background-dark.color}" }
+          },
+          "visited": {
+            "color": { "value": "{amsterdam.link-appearance.on-background-dark.color}" }
+          }
+        },
+        "on-background-light": {
+          "color": { "value": "{amsterdam.link-appearance.on-background-light.color}" },
+          "hover": {
+            "color": { "value": "{amsterdam.link-appearance.on-background-light.color}" }
+          },
+          "visited": {
+            "color": { "value": "{amsterdam.link-appearance.on-background-light.color}" }
+          }
         }
       }
     }

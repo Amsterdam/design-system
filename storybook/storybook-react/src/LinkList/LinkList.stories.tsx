@@ -51,3 +51,21 @@ export const Default: Story = {
     )
   },
 }
+
+export const OnDarkBackground: Story = {
+  render: function Render() {
+    const [args] = useArgs()
+
+    return (
+      <div style={{ background: '#004699', padding: '1rem' }}>
+        <LinkList {...args}>
+          {links.map((text, index) => (
+            <LinkListLink key={index} href="#" onBackground="dark" size={args['size']}>
+              {text}
+            </LinkListLink>
+          ))}
+        </LinkList>
+      </div>
+    )
+  },
+}

@@ -54,3 +54,27 @@
     color: var(--amsterdam-link-list-link-visited-color);
   }
 }
+
+.amsterdam-link-list__link--on-background-dark {
+  color: var(--amsterdam-link-list-link-on-background-dark-color);
+
+  &:hover {
+    color: var(--amsterdam-link-list-link-on-background-dark-hover-color);
+  }
+
+  &:visited {
+    color: var(--amsterdam-link-list-link-on-background-dark-visited-color);
+  }
+}
+
+.amsterdam-link-list__link--on-background-light {
+  color: var(--amsterdam-link-list-link-on-background-light-color);
+
+  &:hover {
+    color: var(--amsterdam-link-list-link-on-background-light-hover-color);
+  }
+
+  &:visited {
+    color: var(--amsterdam-link-list-link-on-background-light-visited-color);
+  }
+}

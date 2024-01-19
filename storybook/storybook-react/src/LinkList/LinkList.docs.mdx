@@ -1,4 +1,4 @@
-import { Controls, Markdown, Meta, Primary } from "@storybook/blocks";
+import { Canvas, Markdown, Meta, Primary } from "@storybook/blocks";
 import * as LinkListStories from "./LinkList.stories.tsx";
 import README from "../../../../packages/css/src/components/link-list/README.md?raw";
 
@@ -6,6 +6,12 @@ import README from "../../../../packages/css/src/components/link-list/README.md?
 
 <Markdown>{README}</Markdown>
 
+## Voorbeelden
+
+### Basis
+
 <Primary />
 
-<Controls />
+## On dark background
+
+<Canvas of={LinkListStories.OnDarkBackground} />

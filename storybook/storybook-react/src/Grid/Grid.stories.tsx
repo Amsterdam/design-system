@@ -8,8 +8,6 @@ import { Grid, Screen } from '@amsterdam/design-system-react'
 import { Meta, StoryObj } from '@storybook/react'
 import { paddingArgType } from '../shared/argTypes'
 
-type StoryProps = GridProps & GridCellProps
-
 const argTypes = {
   children: {
     table: { disable: true },
@@ -49,12 +47,12 @@ const meta = {
   title: 'Layout/Grid',
   component: Grid,
   argTypes,
-} satisfies Meta<StoryProps>
+}
 
 export default meta
 
-const gridMeta = { ...meta }
-const gridCellMeta = { ...meta, component: Grid.Cell }
+const gridMeta = { ...meta } satisfies Meta<GridProps>
+const gridCellMeta = { ...meta, component: Grid.Cell } satisfies Meta<GridCellProps>
 
 type GridStory = StoryObj<typeof gridMeta>
 type GridCellStory = StoryObj<typeof gridCellMeta>
@@ -165,7 +163,7 @@ export const CustomTagName: GridCellStory = {
   args: {
     as: 'section',
   },
-  render: ({ as }: StoryProps) => (
+  render: ({ as }: GridCellProps) => (
     <Grid>
       <Grid.Cell as={as} span="all">
         <p className="amsterdam-docs-pink-box amsterdam-docs-paragraph">Deze cel gebruikt het HTML-element `{as}`.</p>
