@@ -4,6 +4,7 @@
  */
 
 import { LinkList } from '@amsterdam/design-system-react'
+import { ChattingIcon, HousingIcon, PhoneIcon } from '@amsterdam/design-system-react-icons'
 import { useArgs } from '@storybook/preview-api'
 import { Meta, StoryObj } from '@storybook/react'
 import { exampleLinkList } from '../shared/exampleContent'
@@ -66,5 +67,21 @@ export const OnDarkBackground: Story = {
         </LinkList>
       </div>
     )
+  },
+}
+
+export const WithCustomIcons: Story = {
+  args: {
+    children: [
+      <LinkList.Link key="form" href="#" icon={ChattingIcon}>
+        Contactformulier
+      </LinkList.Link>,
+      <LinkList.Link key="address" href="#" icon={HousingIcon}>
+        Adressen en openingstijden
+      </LinkList.Link>,
+      <LinkList.Link key="phone" href="#" icon={PhoneIcon}>
+        Bel 14 020
+      </LinkList.Link>,
+    ],
   },
 }
