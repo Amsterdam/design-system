@@ -5,7 +5,7 @@
 import clsx from 'clsx'
 import { forwardRef } from 'react'
 import type { ForwardedRef, HTMLAttributes, PropsWithChildren } from 'react'
-import { GridColumnNumber, GridColumnNumbers } from './Grid'
+import type { GridColumnNumber, GridColumnNumbers } from './Grid'
 import { gridCellClasses } from './gridCellClasses'
 
 type GridCellSpanAllProp = {
