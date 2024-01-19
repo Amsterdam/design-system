@@ -1,15 +1,11 @@
 import { render, screen } from '@testing-library/react'
 import { createRef } from 'react'
-import { Header, HeaderProps } from './Header'
+import { Header } from './Header'
 import '@testing-library/jest-dom'
 
 describe('Header', () => {
-  const defaultProps: HeaderProps = {
-    logoLink: '/',
-  }
-
   it('renders', () => {
-    render(<Header {...defaultProps} />)
+    render(<Header />)
 
     const component = screen.getByRole('banner')
 
@@ -18,7 +14,7 @@ describe('Header', () => {
   })
 
   it('renders a design system BEM class name', () => {
-    render(<Header {...defaultProps} />)
+    render(<Header />)
 
     const component = screen.getByRole('banner')
 
@@ -26,7 +22,7 @@ describe('Header', () => {
   })
 
   it('renders an additional class name', () => {
-    render(<Header {...defaultProps} className="extra" />)
+    render(<Header className="extra" />)
 
     const component = screen.getByRole('banner')
 
@@ -37,7 +33,7 @@ describe('Header', () => {
   it('supports ForwardRef in React', () => {
     const ref = createRef<HTMLElement>()
 
-    render(<Header {...defaultProps} ref={ref} />)
+    render(<Header ref={ref} />)
 
     const component = screen.getByRole('banner')
 
@@ -45,7 +41,7 @@ describe('Header', () => {
   })
 
   it('renders with a logo link', () => {
-    render(<Header {...defaultProps} logoLink="/home" />)
+    render(<Header logoLink="/home" />)
 
     const logoLink = screen.getByRole('link')
 
@@ -53,7 +49,7 @@ describe('Header', () => {
   })
 
   it('renders with a logo link title', () => {
-    render(<Header {...defaultProps} logoLinkTitle="Go to homepage" />)
+    render(<Header logoLinkTitle="Go to homepage" />)
 
     const logoLinkTitle = screen.getByRole('link', { name: 'Go to homepage' })
 
@@ -61,7 +57,7 @@ describe('Header', () => {
   })
 
   it('renders with links', () => {
-    const { container } = render(<Header {...defaultProps} links={<div>Menu Content</div>} />)
+    const { container } = render(<Header links={<div>Menu Content</div>} />)
 
     const menu = container.querySelector('.amsterdam-header__links')
 
@@ -70,7 +66,7 @@ describe('Header', () => {
   })
 
   it('renders with menu button', () => {
-    render(<Header {...defaultProps} menu={<button>Menu Button</button>} />)
+    render(<Header menu={<button>Menu Button</button>} />)
 
     const menu = screen.getByRole('button')
 

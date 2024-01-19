@@ -7,11 +7,10 @@ import clsx from 'clsx'
 import { forwardRef, useId } from 'react'
 import type { ForwardedRef, InputHTMLAttributes, PropsWithChildren } from 'react'
 
+export type SwitchProps = PropsWithChildren<InputHTMLAttributes<HTMLInputElement>>
+
 export const Switch = forwardRef(
-  (
-    { className, id, ...restProps }: PropsWithChildren<InputHTMLAttributes<HTMLInputElement>>,
-    ref: ForwardedRef<HTMLInputElement>,
-  ) => {
+  ({ className, id, ...restProps }: SwitchProps, ref: ForwardedRef<HTMLInputElement>) => {
     const inputId = id || useId()
 
     return (
