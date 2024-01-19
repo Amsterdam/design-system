@@ -15,13 +15,11 @@ interface BreadcrumbComponent extends ForwardRefExoticComponent<BreadcrumbProps 
 }
 
 export const Breadcrumb = forwardRef(
-  ({ children, className, ...restProps }: BreadcrumbProps, ref: ForwardedRef<HTMLElement>) => {
-    return (
-      <nav {...restProps} className={clsx('amsterdam-breadcrumb', className)} ref={ref}>
-        <ol className="amsterdam-breadcrumb__list">{children}</ol>
-      </nav>
-    )
-  },
+  ({ children, className, ...restProps }: BreadcrumbProps, ref: ForwardedRef<HTMLElement>) => (
+    <nav {...restProps} className={clsx('amsterdam-breadcrumb', className)} ref={ref}>
+      <ol className="amsterdam-breadcrumb__list">{children}</ol>
+    </nav>
+  ),
 ) as BreadcrumbComponent
 
 Breadcrumb.displayName = 'Breadcrumb'

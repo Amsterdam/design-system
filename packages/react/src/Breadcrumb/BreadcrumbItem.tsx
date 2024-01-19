@@ -12,15 +12,13 @@ export interface BreadcrumbItemProps extends PropsWithChildren<HTMLAttributes<HT
 }
 
 export const BreadcrumbItem = forwardRef(
-  ({ children, className, href, ...restProps }: BreadcrumbItemProps, ref: ForwardedRef<HTMLLIElement>) => {
-    return (
-      <li {...restProps} className={clsx('amsterdam-breadcrumb__item', className)} ref={ref}>
-        <a className="amsterdam-breadcrumb__link" href={href}>
-          {children}
-        </a>
-      </li>
-    )
-  },
+  ({ children, className, href, ...restProps }: BreadcrumbItemProps, ref: ForwardedRef<HTMLLIElement>) => (
+    <li {...restProps} className={clsx('amsterdam-breadcrumb__item', className)} ref={ref}>
+      <a className="amsterdam-breadcrumb__link" href={href}>
+        {children}
+      </a>
+    </li>
+  ),
 )
 
 BreadcrumbItem.displayName = 'BreadcrumbItem'
