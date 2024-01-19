@@ -29,14 +29,6 @@ describe('Link list', () => {
     expect(component).toHaveClass('amsterdam-link-list extra')
   })
 
-  it('renders a class name for the small size', () => {
-    render(<LinkList size="small" />)
-
-    const component = screen.getByRole('list')
-
-    expect(component).toHaveClass('amsterdam-link-list--small')
-  })
-
   it('supports ForwardRef in React', () => {
     const ref = createRef<HTMLUListElement>()
 

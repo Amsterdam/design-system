@@ -1,14 +1,13 @@
 import { ChevronRightIcon } from '@amsterdam/design-system-react-icons'
 import clsx from 'clsx'
-import {
-  type AnchorHTMLAttributes,
-  type ForwardedRef,
-  forwardRef,
-  type ForwardRefExoticComponent,
-  type PropsWithChildren,
-  type RefAttributes,
+import { forwardRef } from 'react'
+import type {
+  AnchorHTMLAttributes,
+  ForwardedRef,
+  ForwardRefExoticComponent,
+  PropsWithChildren,
+  RefAttributes,
 } from 'react'
-import type { LinkListProps } from './LinkList'
 import { Icon } from '../Icon'
 
 type BackgroundName = 'default' | 'light' | 'dark'
@@ -17,7 +16,7 @@ export interface LinkListLinkProps extends PropsWithChildren<AnchorHTMLAttribute
   href: string
   icon?: Function
   onBackground?: BackgroundName
-  size?: LinkListProps['size']
+  size?: 'small' | 'large'
 }
 
 interface LinkListLinkComponent
@@ -34,6 +33,7 @@ export const LinkListLink = forwardRef(
           className={clsx(
             'amsterdam-link-list__link',
             onBackground && `amsterdam-link-list__link--on-background-${onBackground}`,
+            size && `amsterdam-link-list__link--${size}`,
             className,
           )}
           href={href}

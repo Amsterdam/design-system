@@ -4,26 +4,20 @@
  */
 
 import clsx from 'clsx'
-import type { ForwardedRef, ForwardRefExoticComponent, PropsWithChildren, RefAttributes } from 'react'
-import { forwardRef, type HTMLAttributes } from 'react'
+import { forwardRef } from 'react'
+import type { ForwardedRef, ForwardRefExoticComponent, HTMLAttributes, PropsWithChildren, RefAttributes } from 'react'
 import { LinkListLink } from './LinkListLink'
 
-export interface LinkListProps extends PropsWithChildren<HTMLAttributes<HTMLUListElement>> {
-  size?: 'small' | 'large'
-}
+export interface LinkListProps extends PropsWithChildren<HTMLAttributes<HTMLUListElement>> {}
 
 interface LinkListComponent extends ForwardRefExoticComponent<LinkListProps & RefAttributes<HTMLUListElement>> {
   Link: typeof LinkListLink
 }
 
 export const LinkList = forwardRef(
-  ({ children, className, size, ...restProps }: LinkListProps, ref: ForwardedRef<HTMLUListElement>) => {
+  ({ children, className, ...restProps }: LinkListProps, ref: ForwardedRef<HTMLUListElement>) => {
     return (
-      <ul
-        ref={ref}
-        className={clsx('amsterdam-link-list', size && `amsterdam-link-list--${size}`, className)}
-        {...restProps}
-      >
+      <ul ref={ref} className={clsx('amsterdam-link-list', className)} {...restProps}>
         {children}
       </ul>
     )

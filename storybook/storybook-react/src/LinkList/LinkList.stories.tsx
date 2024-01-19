@@ -16,18 +16,10 @@ const meta = {
   component: LinkList,
   args: {
     children: 'Default children',
-    size: undefined,
   },
   argTypes: {
     children: {
       table: { disable: true },
-    },
-    size: {
-      control: {
-        type: 'select',
-        labels: { undefined: 'default', small: 'small' },
-      },
-      options: [undefined, 'small'],
     },
   },
 } satisfies Meta<typeof LinkList>
@@ -52,6 +44,38 @@ export const Default: Story = {
   },
 }
 
+export const SmallText: Story = {
+  args: {
+    children: [
+      <LinkList.Link key="about" href="#" size="small">
+        Over deze website
+      </LinkList.Link>,
+      <LinkList.Link key="newsletter" href="#" size="small">
+        Abonneer u op de nieuwsbrief
+      </LinkList.Link>,
+      <LinkList.Link key="jobs" href="#" size="small">
+        Werken bij de gemeente Amsterdam
+      </LinkList.Link>,
+    ],
+  },
+}
+
+export const CustomIcons: Story = {
+  args: {
+    children: [
+      <LinkList.Link key="form" href="#" icon={ChattingIcon}>
+        Contactformulier
+      </LinkList.Link>,
+      <LinkList.Link key="address" href="#" icon={HousingIcon}>
+        Adressen en openingstijden
+      </LinkList.Link>,
+      <LinkList.Link key="phone" href="#" icon={PhoneIcon}>
+        Bel 14 020
+      </LinkList.Link>,
+    ],
+  },
+}
+
 export const OnDarkBackground: Story = {
   render: function Render() {
     const [args] = useArgs()
@@ -67,21 +91,5 @@ export const OnDarkBackground: Story = {
         </LinkList>
       </div>
     )
-  },
-}
-
-export const WithCustomIcons: Story = {
-  args: {
-    children: [
-      <LinkList.Link key="form" href="#" icon={ChattingIcon}>
-        Contactformulier
-      </LinkList.Link>,
-      <LinkList.Link key="address" href="#" icon={HousingIcon}>
-        Adressen en openingstijden
-      </LinkList.Link>,
-      <LinkList.Link key="phone" href="#" icon={PhoneIcon}>
-        Bel 14 020
-      </LinkList.Link>,
-    ],
   },
 }
