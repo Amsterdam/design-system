@@ -1,11 +1,10 @@
 import { render, screen } from '@testing-library/react'
 import { createRef } from 'react'
 import { Header } from './Header'
-import type { HeaderProps } from './Header'
 import '@testing-library/jest-dom'
 
 describe('Header', () => {
-  const defaultProps: HeaderProps = {
+  const defaultProps = {
     logoLink: '/',
   }
 
