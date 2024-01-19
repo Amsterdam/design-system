@@ -8,12 +8,6 @@ import { Grid, Screen } from '@amsterdam/design-system-react'
 import { Meta, StoryObj } from '@storybook/react'
 import { paddingArgType } from '../shared/argTypes'
 
-const argTypes = {
-  children: {
-    table: { disable: true },
-  },
-}
-
 const gridArgTypes = {
   compact: {
     control: { type: 'boolean' },
@@ -46,13 +40,17 @@ const gridCellArgTypes = {
 const meta = {
   title: 'Layout/Grid',
   component: Grid,
-  argTypes,
+  argTypes: {
+    children: {
+      table: { disable: true },
+    },
+  },
 }
 
 export default meta
 
-const gridMeta = { ...meta } satisfies Meta<GridProps>
-const gridCellMeta = { ...meta, component: Grid.Cell } satisfies Meta<GridCellProps>
+const gridMeta = { ...meta, argTypes: gridArgTypes } satisfies Meta<GridProps>
+const gridCellMeta = { ...meta, component: Grid.Cell, argTypes: gridCellArgTypes } satisfies Meta<GridCellProps>
 
 type GridStory = StoryObj<typeof gridMeta>
 type GridCellStory = StoryObj<typeof gridCellMeta>
