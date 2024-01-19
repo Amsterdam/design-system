@@ -4,7 +4,6 @@
  */
 
 import { LinkList } from '@amsterdam/design-system-react'
-import { LinkListLink } from '@amsterdam/design-system-react'
 import { useArgs } from '@storybook/preview-api'
 import { Meta, StoryObj } from '@storybook/react'
 import { exampleLinkList } from '../shared/exampleContent'
@@ -43,9 +42,9 @@ export const Default: Story = {
     return (
       <LinkList {...args}>
         {links.map((text, index) => (
-          <LinkListLink key={index} href="#" size={args['size']}>
+          <LinkList.Link key={index} href="#" size={args['size']}>
             {text}
-          </LinkListLink>
+          </LinkList.Link>
         ))}
       </LinkList>
     )
@@ -60,9 +59,9 @@ export const OnDarkBackground: Story = {
       <div style={{ background: '#004699', padding: '1rem' }}>
         <LinkList {...args}>
           {links.map((text, index) => (
-            <LinkListLink key={index} href="#" onBackground="dark" size={args['size']}>
+            <LinkList.Link key={index} href="#" onBackground="dark" size={args['size']}>
               {text}
-            </LinkListLink>
+            </LinkList.Link>
           ))}
         </LinkList>
       </div>

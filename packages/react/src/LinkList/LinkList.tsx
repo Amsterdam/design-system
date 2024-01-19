@@ -6,12 +6,15 @@
 import clsx from 'clsx'
 import type { ForwardedRef, ForwardRefExoticComponent, PropsWithChildren, RefAttributes } from 'react'
 import { forwardRef, type HTMLAttributes } from 'react'
+import { LinkListLink } from './LinkListLink'
 
 export interface LinkListProps extends PropsWithChildren<HTMLAttributes<HTMLUListElement>> {
   size?: 'small' | 'large'
 }
 
-interface LinkListComponent extends ForwardRefExoticComponent<LinkListProps & RefAttributes<HTMLUListElement>> {}
+interface LinkListComponent extends ForwardRefExoticComponent<LinkListProps & RefAttributes<HTMLUListElement>> {
+  Link: typeof LinkListLink
+}
 
 export const LinkList = forwardRef(
   ({ children, className, size, ...restProps }: LinkListProps, ref: ForwardedRef<HTMLUListElement>) => {
@@ -27,4 +30,5 @@ export const LinkList = forwardRef(
   },
 ) as LinkListComponent
 
+LinkList.Link = LinkListLink
 LinkList.displayName = 'LinkList'

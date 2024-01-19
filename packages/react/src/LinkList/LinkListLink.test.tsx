@@ -1,11 +1,11 @@
 import '@testing-library/jest-dom'
 import { render, screen } from '@testing-library/react'
 import { createRef } from 'react'
-import { LinkListLink } from './LinkListLink'
+import { LinkList } from './LinkList'
 
 describe('Link list link', () => {
   it('renders', () => {
-    render(<LinkListLink href="#" />)
+    render(<LinkList.Link href="#" />)
 
     const component = screen.getByRole('link')
 
@@ -14,7 +14,7 @@ describe('Link list link', () => {
   })
 
   it('renders a design system BEM class name', () => {
-    render(<LinkListLink href="#" />)
+    render(<LinkList.Link href="#" />)
 
     const component = screen.getByRole('link')
 
@@ -22,7 +22,7 @@ describe('Link list link', () => {
   })
 
   it('renders an additional class name', () => {
-    render(<LinkListLink href="#" className="extra" />)
+    render(<LinkList.Link href="#" className="extra" />)
 
     const component = screen.getByRole('link')
 
@@ -32,7 +32,7 @@ describe('Link list link', () => {
   it('supports ForwardRef in React', () => {
     const ref = createRef<HTMLAnchorElement>()
 
-    render(<LinkListLink href="#" ref={ref} />)
+    render(<LinkList.Link href="#" ref={ref} />)
 
     const component = screen.getByRole('link')
 
