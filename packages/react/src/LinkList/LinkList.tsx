@@ -14,6 +14,7 @@ interface LinkListComponent extends ForwardRefExoticComponent<LinkListProps & Re
   Link: typeof LinkListLink
 }
 
+/** A collection of related links. */
 export const LinkList = forwardRef(
   ({ children, className, ...restProps }: LinkListProps, ref: ForwardedRef<HTMLUListElement>) => {
     return (

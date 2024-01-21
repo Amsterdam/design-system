@@ -6,25 +6,30 @@ import README from "../../../../packages/css/src/components/link-list/README.md?
 
 <Markdown>{README}</Markdown>
 
-## Voorbeelden
+## Examples
 
-### Basis
+### Default
 
 <Primary />
 
 ### Small Text
 
-In de [Footer](?path=/docs/react_containers-footer--docs) gebruiken we kleine tekst, ook voor lijsten.
+In the [Footer](?path=/docs/react_containers-footer--docs), we use small text, also for lists.
+Specify this for each item in the list.
 
 <Canvas of={LinkListStories.SmallText} />
 
 ### With Custom Icons
 
-In bepaalde gevallen kan het lijsticoon worden vervangen door een betekenisvol icoon.
-Gebruik beide niet door elkaar in 1 lijst.
+A meaningful icon can help understand a link more quickly or easily.
+In that case, replace the list icon.
+Avoid using both meaningful and list icons in the same list.
 
 <Canvas of={LinkListStories.CustomIcons} />
 
 ### On Dark Background
+
+For a list on a dark background color, specify this for each link in the list.
+The link remains responsible for using appropriate text colors.
 
 <Canvas of={LinkListStories.OnDarkBackground} />

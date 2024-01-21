@@ -1,16 +1,16 @@
 # Link List
 
-Een verzameling gerelateerde verwijzingen.
+A collection of related links.
 
-## Vormgeving
+## Design
 
-Voor elke verwijzing in de lijst staat een chevron.
-Dit benadrukt het lijst-zijn en de thematische samenhang.
-De chevron is onderdeel van de link.
-Die is dus blauw en er kan op geklikt worden.
+Every list item starts with a chevron.
+It emphasizes the list structure and thematic coherence.
+The chevron is part of the link.
+Therefore, it is blue and clickable.
 
-## Richtlijnen
+## Guidelines
 
-Gebruik een Link List om meerdere verwijzingen binnen een thema aan te bieden.
+Use a Link List to present multiple links within a theme.
 
-Raadpleeg voor meer richtlijnen het [Link](/?path=/docs/navigation-link--docs)-component.
+For additional guidelines, refer to the [Link](?path=/docs/navigation-link--docs) component.
