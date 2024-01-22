@@ -55,6 +55,16 @@
   }
 }
 
+.amsterdam-link-list__link--large {
+  font-size: var(--amsterdam-link-list-link-spacious-large-font-size);
+  line-height: var(--amsterdam-link-list-link-spacious-large-line-height);
+
+  .amsterdam-theme--compact & {
+    font-size: var(--amsterdam-link-list-link-compact-large-font-size);
+    line-height: var(--amsterdam-link-list-link-compact-large-line-height);
+  }
+}
+
 .amsterdam-link-list__link--on-background-dark {
   color: var(--amsterdam-link-list-link-on-background-dark-color);
 
