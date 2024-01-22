@@ -5,12 +5,18 @@ import { LinkList } from './LinkList'
 
 describe('Link list link', () => {
   it('renders', () => {
-    render(<LinkList.Link href="#" />)
+    const { container } = render(<LinkList.Link href="#" />)
 
-    const component = screen.getByRole('link')
+    const listItem = screen.getByRole('listitem')
+    const link = screen.getByRole('link')
+    const icon = container.querySelector('svg')
 
-    expect(component).toBeInTheDocument()
-    expect(component).toBeVisible()
+    expect(listItem).toBeInTheDocument()
+    expect(listItem).toBeVisible()
+    expect(link).toBeInTheDocument()
+    expect(link).toBeVisible()
+    expect(icon).toBeInTheDocument()
+    expect(icon).toBeVisible()
   })
 
   it('renders a design system BEM class name', () => {
