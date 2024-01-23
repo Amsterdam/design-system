@@ -11,7 +11,7 @@ const meta = {
   component: Tip,
   args: {
     children: [
-      <Badge key="badge" color="dark-green">
+      <Badge label="Tip" key="badge" color="dark-green">
         Tip
       </Badge>,
       <Paragraph key="paragraph">
