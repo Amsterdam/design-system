@@ -16,26 +16,26 @@ describe('Footer', () => {
   it('renders a design system BEM class name', () => {
     render(<Footer />)
 
-    const footer = screen.getByRole('contentinfo')
+    const component = screen.getByRole('contentinfo')
 
-    expect(footer).toHaveClass('amsterdam-footer')
+    expect(component).toHaveClass('amsterdam-footer')
   })
 
   it('renders an additional class name', () => {
     render(<Footer className="extra" />)
 
-    const footer = screen.getByRole('contentinfo')
+    const component = screen.getByRole('contentinfo')
 
-    expect(footer).toHaveClass('amsterdam-footer extra')
+    expect(component).toHaveClass('amsterdam-footer extra')
   })
 
   it('supports ForwardRef in React', () => {
-    const footerRef = createRef<HTMLElement>()
+    const ref = createRef<HTMLElement>()
 
-    const footerRender = render(<Footer ref={footerRef} />)
+    render(<Footer ref={ref} />)
 
-    const footer = footerRender.getByRole('contentinfo')
+    const component = screen.getByRole('contentinfo')
 
-    expect(footerRef.current).toBe(footer)
+    expect(ref.current).toBe(component)
   })
 })
