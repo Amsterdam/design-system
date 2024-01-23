@@ -4,9 +4,7 @@ A prominently colored box containing 1 or 2 words to guide the user in taking a 
 
 ## Design
 
-The text in the Badge is of the same size as the surrounding text.
-Its color is either white or black, depending on the background colour.
-The box aligns to the left with the running text.
+The badge can contain a string of text or a number.
 
 ## Guidelines
 

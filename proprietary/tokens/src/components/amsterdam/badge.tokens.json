@@ -43,6 +43,14 @@
       "yellow": {
         "background-color": { "value": "{amsterdam.color.yellow}" },
         "color": { "value": "{amsterdam.color.primary-black}" }
+      },
+      "black": {
+        "background-color": { "value": "{amsterdam.color.primary-black}" },
+        "color": { "value": "{amsterdam.color.primary-white}" }
+      },
+      "white": {
+        "background-color": { "value": "{amsterdam.color.primary-white}" },
+        "color": { "value": "{amsterdam.color.primary-black}" }
       }
     }
   }

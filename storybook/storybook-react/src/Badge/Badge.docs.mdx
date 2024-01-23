@@ -1,4 +1,4 @@
-import { Canvas, Markdown, Meta, Primary } from "@storybook/blocks";
+import { Controls, Markdown, Meta, Primary } from "@storybook/blocks";
 import * as BadgeStories from "./Badge.stories.tsx";
 import README from "../../../../packages/css/src/components/badge/README.md?raw";
 
@@ -6,14 +6,10 @@ import README from "../../../../packages/css/src/components/badge/README.md?raw"
 
 <Markdown>{README}</Markdown>
 
-## Voorbeelden
+## Stories
 
 ### Default
 
 <Primary />
 
-### In a list
-
-A tip can be used in a list.
-
-<Canvas of={BadgeStories.InList} />
+<Controls />
