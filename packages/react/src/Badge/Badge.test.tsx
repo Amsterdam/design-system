@@ -63,8 +63,6 @@ describe('Badge', () => {
     expect(component).toHaveClass('amsterdam-badge--blue')
   })
 
-  // 'blue' | 'dark-blue' | 'green' | 'dark-green' | 'orange' | 'magenta' | 'purple' | 'yellow' | 'black' | 'white'
-
   it('renders dark-blue color', () => {
     const { container } = render(<Badge label="test" color="dark-blue" />)
 
