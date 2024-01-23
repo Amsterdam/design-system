@@ -1,6 +1,6 @@
 /**
  * @license EUPL-1.2+
- * Copyright (c) 2023 Gemeente Amsterdam
+ * Copyright (c) 2024 Gemeente Amsterdam
  */
 
 import { Badge } from '@amsterdam/design-system-react'
@@ -10,14 +10,14 @@ const meta = {
   title: 'Feedback/Badge',
   component: Badge,
   args: {
-    children: 'Tip',
+    label: 'Tip',
   },
   argTypes: {
     color: {
       control: {
         type: 'inline-radio',
       },
-      options: ['blue', 'dark-blue', 'green', 'dark-green', 'orange', 'magenta', 'purple', 'yellow'],
+      options: ['blue', 'dark-blue', 'green', 'dark-green', 'orange', 'magenta', 'purple', 'yellow', 'black', 'white'],
       selected: 'dark-green',
     },
   },

@@ -1,6 +1,6 @@
 /**
  * @license EUPL-1.2+
- * Copyright (c) 2023 Gemeente Amsterdam
+ * Copyright (c) 2024 Gemeente Amsterdam
  */
 
 .amsterdam-badge {
@@ -55,4 +55,14 @@
 .amsterdam-badge--yellow {
   background-color: var(--amsterdam-badge-yellow-background-color);
   color: var(--amsterdam-badge-yellow-color);
+}
+
+.amsterdam-badge--black {
+  background-color: var(--amsterdam-badge-black-background-color);
+  color: var(--amsterdam-badge-black-color);
+}
+
+.amsterdam-badge--white {
+  background-color: var(--amsterdam-badge-white-background-color);
+  color: var(--amsterdam-badge-white-color);
 }
