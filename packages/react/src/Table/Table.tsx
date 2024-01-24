@@ -20,9 +20,9 @@ import { TableHeader } from './TableHeader'
 import { TableHeaderCell } from './TableHeaderCell'
 import { TableRow } from './TableRow'
 
-export interface TableProps extends PropsWithChildren<TableHTMLAttributes<HTMLTableElement>> {}
+export type TableProps = PropsWithChildren<TableHTMLAttributes<HTMLTableElement>>
 
-export interface TableComponent extends ForwardRefExoticComponent<TableProps & RefAttributes<HTMLTableElement>> {
+export type TableComponent = {
   Body: typeof TableBody
   Caption: typeof TableCaption
   Cell: typeof TableCell
@@ -30,7 +30,7 @@ export interface TableComponent extends ForwardRefExoticComponent<TableProps & R
   Header: typeof TableHeader
   HeaderCell: typeof TableHeaderCell
   Row: typeof TableRow
-}
+} & ForwardRefExoticComponent<TableProps & RefAttributes<HTMLTableElement>>
 
 export const Table = forwardRef(
   ({ children, className, ...restProps }: TableProps, ref: ForwardedRef<HTMLTableElement>) => (

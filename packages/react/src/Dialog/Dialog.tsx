@@ -8,9 +8,9 @@ import { forwardRef } from 'react'
 import type { DialogHTMLAttributes, ForwardedRef, PropsWithChildren, ReactNode } from 'react'
 import { IconButton } from '../IconButton'
 
-export interface DialogProps extends PropsWithChildren<DialogHTMLAttributes<HTMLDialogElement>> {
+export type DialogProps = {
   actions?: ReactNode
-}
+} & PropsWithChildren<DialogHTMLAttributes<HTMLDialogElement>>
 
 export const Dialog = forwardRef(
   ({ children, className, title, actions, ...restProps }: DialogProps, ref: ForwardedRef<HTMLDialogElement>) => (

@@ -7,7 +7,7 @@ import clsx from 'clsx'
 import { forwardRef } from 'react'
 import type { AnchorHTMLAttributes, ForwardedRef, PropsWithChildren } from 'react'
 
-export interface CardLinkProps extends PropsWithChildren<AnchorHTMLAttributes<HTMLAnchorElement>> {}
+export type CardLinkProps = PropsWithChildren<AnchorHTMLAttributes<HTMLAnchorElement>>
 
 export const CardLink = forwardRef(
   ({ children, className, ...otherProps }: CardLinkProps, ref: ForwardedRef<HTMLAnchorElement>) => (

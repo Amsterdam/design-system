@@ -11,10 +11,10 @@ import AccordionContext from './AccordionContext'
 import { getHeadingElement } from '../Heading/Heading'
 import { Icon } from '../Icon/Icon'
 
-export interface AccordionSectionProps extends PropsWithChildren<HTMLAttributes<HTMLElement>> {
+export type AccordionSectionProps = {
   label: string
   expanded?: boolean
-}
+} & PropsWithChildren<HTMLAttributes<HTMLElement>>
 
 export const AccordionSection = forwardRef(
   (

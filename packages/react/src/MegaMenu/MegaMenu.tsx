@@ -9,9 +9,9 @@ import type { ForwardedRef, ForwardRefExoticComponent, HTMLAttributes, PropsWith
 
 export type MegaMenuProps = PropsWithChildren<HTMLAttributes<HTMLDivElement>>
 
-interface MegaMenuComponent extends ForwardRefExoticComponent<MegaMenuProps & RefAttributes<HTMLDivElement>> {
+type MegaMenuComponent = {
   ListCategory: typeof MegaMenuListCategory
-}
+} & ForwardRefExoticComponent<MegaMenuProps & RefAttributes<HTMLDivElement>>
 
 export const MegaMenu = forwardRef(
   ({ children, className, ...restProps }: MegaMenuProps, ref: ForwardedRef<HTMLDivElement>) => (

@@ -9,9 +9,9 @@ import clsx from 'clsx'
 import { forwardRef } from 'react'
 import type { ButtonHTMLAttributes, ForwardedRef, PropsWithChildren } from 'react'
 
-export interface ButtonProps extends PropsWithChildren<ButtonHTMLAttributes<HTMLButtonElement>> {
+export type ButtonProps = {
   variant?: 'primary' | 'secondary' | 'tertiary'
-}
+} & PropsWithChildren<ButtonHTMLAttributes<HTMLButtonElement>>
 
 type CommunityButtonAppearance = 'primary-action-button' | 'secondary-action-button' | 'subtle-button'
 

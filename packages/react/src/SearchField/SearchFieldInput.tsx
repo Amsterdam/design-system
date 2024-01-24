@@ -8,9 +8,9 @@ import { forwardRef, useId } from 'react'
 import type { ForwardedRef, InputHTMLAttributes } from 'react'
 import { VisuallyHidden } from '../VisuallyHidden'
 
-interface SearchFieldInputProps extends InputHTMLAttributes<HTMLInputElement> {
+type SearchFieldInputProps = {
   label?: string
-}
+} & InputHTMLAttributes<HTMLInputElement>
 
 export const SearchFieldInput = forwardRef(
   ({ className, label = 'Zoeken', ...restProps }: SearchFieldInputProps, ref: ForwardedRef<HTMLInputElement>) => {

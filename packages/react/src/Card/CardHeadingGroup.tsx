@@ -8,9 +8,9 @@ import { forwardRef } from 'react'
 import type { ForwardedRef, HTMLAttributes, PropsWithChildren } from 'react'
 import { Paragraph } from '../Paragraph'
 
-export interface CardHeadingGroupProps extends PropsWithChildren<HTMLAttributes<HTMLElement>> {
+export type CardHeadingGroupProps = {
   tagline: string
-}
+} & PropsWithChildren<HTMLAttributes<HTMLElement>>
 
 export const CardHeadingGroup = forwardRef(
   ({ children, className, tagline, ...restProps }: CardHeadingGroupProps, ref: ForwardedRef<HTMLElement>) => (

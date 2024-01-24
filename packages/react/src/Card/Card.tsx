@@ -9,12 +9,12 @@ import type { ForwardedRef, ForwardRefExoticComponent, HTMLAttributes, PropsWith
 import { CardHeadingGroup } from './CardHeadingGroup'
 import { CardLink } from './CardLink'
 
-export interface CardProps extends PropsWithChildren<HTMLAttributes<HTMLElement>> {}
+export type CardProps = PropsWithChildren<HTMLAttributes<HTMLElement>>
 
-export interface CardComponent extends ForwardRefExoticComponent<CardProps & RefAttributes<HTMLElement>> {
+export type CardComponent = {
   HeadingGroup: typeof CardHeadingGroup
   Link: typeof CardLink
-}
+} & ForwardRefExoticComponent<CardProps & RefAttributes<HTMLElement>>
 
 export const Card = forwardRef(({ children, className, ...restProps }: CardProps, ref: ForwardedRef<HTMLElement>) => (
   <article {...restProps} ref={ref} className={clsx('amsterdam-card', className)}>

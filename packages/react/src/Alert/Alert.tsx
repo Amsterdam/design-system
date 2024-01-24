@@ -12,7 +12,7 @@ import type { HeadingProps } from '../Heading'
 import { Icon } from '../Icon'
 import { IconButton } from '../IconButton'
 
-export interface AlertProps extends PropsWithChildren<HTMLAttributes<HTMLDivElement>> {
+export type AlertProps = {
   /** Whether the alert can be dismissed by the user. Adds a button to the top right. */
   closeable?: boolean
   /**
@@ -26,7 +26,7 @@ export interface AlertProps extends PropsWithChildren<HTMLAttributes<HTMLDivElem
   severity?: 'error' | 'info' | 'success' | 'warning'
   /** The title for the alert. */
   title?: string
-}
+} & PropsWithChildren<HTMLAttributes<HTMLDivElement>>
 
 const iconSvgBySeverity = {
   error: AlertIcon,
