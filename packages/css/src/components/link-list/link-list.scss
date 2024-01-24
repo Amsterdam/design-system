@@ -37,6 +37,7 @@
   }
 
   &:hover {
+    color: var(--amsterdam-link-list-link-hover-color);
     text-decoration-line: var(--amsterdam-link-list-link-hover-text-decoration-line);
   }
 

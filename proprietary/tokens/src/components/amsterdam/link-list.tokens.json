@@ -39,6 +39,7 @@
           }
         },
         "hover": {
+          "color": { "value": "{amsterdam.link-appearance.hover.color}" },
           "text-decoration-line": { "value": "{amsterdam.link-appearance.subtle.hover.text-decoration-line}" }
         },
         "visited": {
