@@ -22,10 +22,10 @@ export const badgeColors = [
 
 type BadgeColor = (typeof badgeColors)[number]
 
-export interface BadgeProps extends HTMLAttributes<HTMLElement> {
+export type BadgeProps = {
   color?: BadgeColor
   label: string | number
-}
+} & HTMLAttributes<HTMLElement>
 
 export const Badge = forwardRef(
   ({ label, className, color = 'dark-green', ...restProps }: BadgeProps, ref: ForwardedRef<HTMLElement>) => (
