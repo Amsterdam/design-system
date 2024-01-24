@@ -40,10 +40,6 @@
     color: var(--amsterdam-link-list-link-hover-color);
     text-decoration-line: var(--amsterdam-link-list-link-hover-text-decoration-line);
   }
-
-  &:visited {
-    color: var(--amsterdam-link-list-link-visited-color);
-  }
 }
 
 .amsterdam-link-list__link--small {
@@ -72,10 +68,6 @@
   &:hover {
     color: var(--amsterdam-link-list-link-on-background-dark-hover-color);
   }
-
-  &:visited {
-    color: var(--amsterdam-link-list-link-on-background-dark-visited-color);
-  }
 }
 
 .amsterdam-link-list__link--on-background-light {
@@ -83,9 +75,5 @@
 
   &:hover {
     color: var(--amsterdam-link-list-link-on-background-light-hover-color);
-  }
-
-  &:visited {
-    color: var(--amsterdam-link-list-link-on-background-light-visited-color);
   }
 }
