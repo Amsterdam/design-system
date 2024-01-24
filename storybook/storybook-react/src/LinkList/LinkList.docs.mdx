@@ -1,4 +1,4 @@
-import { Canvas, Markdown, Meta, Primary } from "@storybook/blocks";
+import { Canvas, Controls, Markdown, Meta, Primary } from "@storybook/blocks";
 import * as LinkListStories from "./LinkList.stories.tsx";
 import README from "../../../../packages/css/src/components/link-list/README.md?raw";
 
@@ -11,6 +11,8 @@ import README from "../../../../packages/css/src/components/link-list/README.md?
 ### Default
 
 <Primary />
+
+<Controls />
 
 ### Small Text
 
@@ -33,3 +35,9 @@ For a list on a dark background color, specify this for each link in the list.
 The link remains responsible for using appropriate text colors.
 
 <Canvas of={LinkListStories.OnDarkBackground} />
+
+### On Light Background
+
+The same goed for a light (not white) background color.
+
+<Canvas of={LinkListStories.OnLightBackground} />

@@ -14,9 +14,6 @@ const links = exampleLinkList()
 const meta = {
   title: 'Navigation/Link List',
   component: LinkList,
-  args: {
-    children: 'Default children',
-  },
   argTypes: {
     children: {
       table: { disable: true },
@@ -85,6 +82,24 @@ export const OnDarkBackground: Story = {
         <LinkList {...args}>
           {links.map((text, index) => (
             <LinkList.Link key={index} href="#" onBackground="dark" size={args['size']}>
+              {text}
+            </LinkList.Link>
+          ))}
+        </LinkList>
+      </div>
+    )
+  },
+}
+
+export const OnLightBackground: Story = {
+  render: function Render() {
+    const [args] = useArgs()
+
+    return (
+      <div style={{ background: '#FFE600', padding: '1rem' }}>
+        <LinkList {...args}>
+          {links.map((text, index) => (
+            <LinkList.Link key={index} href="#" onBackground="light" size={args['size']}>
               {text}
             </LinkList.Link>
           ))}
