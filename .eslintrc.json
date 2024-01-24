@@ -27,6 +27,7 @@
         "plugin:react/recommended",
         "eslint-config-prettier",
         "./.eslintrc.js.json",
+        "./.eslintrc.ts.json",
         "./.eslintrc.react.json",
         "plugin:mdx/overrides"
       ],
@@ -48,6 +49,7 @@
         "plugin:react/recommended",
         "eslint-config-prettier",
         "./.eslintrc.js.json",
+        "./.eslintrc.ts.json",
         "./.eslintrc.react.json"
       ],
       "files": ["*.ts", "*.tsx"],
