@@ -1,6 +1,7 @@
 # Badge
 
-A prominently colored box containing 1 or 2 words to guide the user in taking a specific action.
+A prominently coloured box containing 1 or 2 words.
+Guides the user in taking a specific action or describes its surrounding content.
 
 ## Design
 
