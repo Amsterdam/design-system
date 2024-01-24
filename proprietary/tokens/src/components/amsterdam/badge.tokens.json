@@ -12,10 +12,6 @@
         "font-size": { "value": "{amsterdam.typography.compact.text-level.5.font-size}" },
         "line-height": { "value": "{amsterdam.typography.compact.text-level.5.line-height}" }
       },
-      "black": {
-        "background-color": { "value": "{amsterdam.color.primary-black}" },
-        "color": { "value": "{amsterdam.color.primary-white}" }
-      },
       "blue": {
         "background-color": { "value": "{amsterdam.color.blue}" },
         "color": { "value": "{amsterdam.color.primary-black}" }
@@ -43,10 +39,6 @@
       "purple": {
         "background-color": { "value": "{amsterdam.color.purple}" },
         "color": { "value": "{amsterdam.color.primary-white}" }
-      },
-      "white": {
-        "background-color": { "value": "{amsterdam.color.primary-white}" },
-        "color": { "value": "{amsterdam.color.primary-black}" }
       },
       "yellow": {
         "background-color": { "value": "{amsterdam.color.yellow}" },

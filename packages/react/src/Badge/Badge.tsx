@@ -8,7 +8,6 @@ import { forwardRef } from 'react'
 import type { ForwardedRef, HTMLAttributes } from 'react'
 
 export const badgeColors = [
-  'black',
   'blue',
   'dark-blue',
   'dark-green',
@@ -16,7 +15,6 @@ export const badgeColors = [
   'magenta',
   'orange',
   'purple',
-  'white',
   'yellow',
 ] as const
 
