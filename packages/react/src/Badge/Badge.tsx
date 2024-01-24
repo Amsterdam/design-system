@@ -8,8 +8,8 @@ import { forwardRef } from 'react'
 import type { ForwardedRef, HTMLAttributes } from 'react'
 
 export interface BadgeProps extends HTMLAttributes<HTMLElement> {
+  color?: 'black' | 'blue' | 'dark-blue' | 'dark-green' | 'green' | 'magenta' | 'orange' | 'purple' | 'white' | 'yellow'
   label: string | number
-  color?: 'blue' | 'dark-blue' | 'green' | 'dark-green' | 'orange' | 'magenta' | 'purple' | 'yellow' | 'black' | 'white'
 }
 
 export const Badge = forwardRef(

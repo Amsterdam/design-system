@@ -12,44 +12,44 @@
         "font-size": { "value": "{amsterdam.typography.compact.text-level.5.font-size}" },
         "line-height": { "value": "{amsterdam.typography.compact.text-level.5.line-height}" }
       },
-      "dark-blue": {
-        "background-color": { "value": "{amsterdam.color.dark-blue}" },
+      "black": {
+        "background-color": { "value": "{amsterdam.color.primary-black}" },
         "color": { "value": "{amsterdam.color.primary-white}" }
       },
       "blue": {
         "background-color": { "value": "{amsterdam.color.blue}" },
+        "color": { "value": "{amsterdam.color.primary-black}" }
+      },
+      "dark-blue": {
+        "background-color": { "value": "{amsterdam.color.primary-blue}" },
+        "color": { "value": "{amsterdam.color.primary-white}" }
+      },
+      "dark-green": {
+        "background-color": { "value": "{amsterdam.color.dark-green}" },
         "color": { "value": "{amsterdam.color.primary-white}" }
       },
       "green": {
         "background-color": { "value": "{amsterdam.color.green}" },
         "color": { "value": "{amsterdam.color.primary-black}" }
       },
-      "dark-green": {
-        "background-color": { "value": "{amsterdam.color.dark-green}" },
+      "magenta": {
+        "background-color": { "value": "{amsterdam.color.magenta}" },
         "color": { "value": "{amsterdam.color.primary-white}" }
       },
       "orange": {
         "background-color": { "value": "{amsterdam.color.orange}" },
         "color": { "value": "{amsterdam.color.primary-black}" }
       },
-      "magenta": {
-        "background-color": { "value": "{amsterdam.color.magenta}" },
-        "color": { "value": "{amsterdam.color.primary-white}" }
-      },
       "purple": {
         "background-color": { "value": "{amsterdam.color.purple}" },
         "color": { "value": "{amsterdam.color.primary-white}" }
       },
-      "yellow": {
-        "background-color": { "value": "{amsterdam.color.yellow}" },
-        "color": { "value": "{amsterdam.color.primary-black}" }
-      },
-      "black": {
-        "background-color": { "value": "{amsterdam.color.primary-black}" },
-        "color": { "value": "{amsterdam.color.primary-white}" }
-      },
       "white": {
         "background-color": { "value": "{amsterdam.color.primary-white}" },
+        "color": { "value": "{amsterdam.color.primary-black}" }
+      },
+      "yellow": {
+        "background-color": { "value": "{amsterdam.color.yellow}" },
         "color": { "value": "{amsterdam.color.primary-black}" }
       }
     }

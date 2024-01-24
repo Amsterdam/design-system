@@ -17,7 +17,7 @@ const meta = {
       control: {
         type: 'inline-radio',
       },
-      options: ['blue', 'dark-blue', 'green', 'dark-green', 'orange', 'magenta', 'purple', 'yellow', 'black', 'white'],
+      options: ['black', 'blue', 'dark-blue', 'dark-green', 'green', 'magenta', 'orange', 'purple', 'white', 'yellow'],
       selected: 'dark-green',
     },
   },
