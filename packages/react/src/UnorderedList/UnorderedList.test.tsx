@@ -1,4 +1,4 @@
-import { render } from '@testing-library/react'
+import { render, screen } from '@testing-library/react'
 import { createRef } from 'react'
 import { UnorderedList } from './UnorderedList'
 import '@testing-library/jest-dom'
@@ -12,25 +12,28 @@ describe('Unordered List', () => {
   })
 
   it('renders a design system BEM class name', () => {
-    const { container } = render(<UnorderedList />)
-    const list = container.querySelector(':only-child')
+    render(<UnorderedList />)
 
-    expect(list).toHaveClass('amsterdam-unordered-list')
+    const component = screen.getByRole('list')
+
+    expect(component).toHaveClass('amsterdam-unordered-list')
   })
 
   it('renders an additional class name', () => {
-    const { container } = render(<UnorderedList className="large" />)
-    const list = container.querySelector(':only-child')
+    render(<UnorderedList className="extra" />)
 
-    expect(list).toHaveClass('large')
-    expect(list).toHaveClass('amsterdam-unordered-list')
+    const component = screen.getByRole('list')
+
+    expect(component).toHaveClass('amsterdam-unordered-list extra')
   })
 
   it('supports ForwardRef in React', () => {
     const ref = createRef<HTMLUListElement>()
-    const { container } = render(<UnorderedList ref={ref} />)
-    const list = container.querySelector(':only-child')
 
-    expect(ref.current).toBe(list)
+    render(<UnorderedList ref={ref} />)
+
+    const component = screen.getByRole('list')
+
+    expect(ref.current).toBe(component)
   })
 })
