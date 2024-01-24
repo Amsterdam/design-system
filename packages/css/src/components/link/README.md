@@ -7,10 +7,10 @@ It is the lightweight variant for navigation.
 
 Use a link in the following cases:
 
-- Navigation to another page within the website or application
-- Navigation to another website (see [External links](#external-links))
-- Navigation to an element on the same page
-- Linking to emails or phone numbers (start the link with `mailto:` or `tel:`)
+- To navigate to another page within the website or application
+- To navigate to another website (see [External links](#external-links))
+- To navigate to an element on the same page
+- To link to emails or phone numbers (start the link with `mailto:` or `tel:`)
 
 A link is a navigation component.
 Use a button instead of a link when an action is desired.
@@ -18,7 +18,7 @@ Use a button instead of a link when an action is desired.
 ### External links
 
 Always include `rel="external"` for an external link.
-Avoid `target="_blank"`, but use at least `rel="external noopener"` if necessary.
+Avoid `target="_blank"`, but use `rel="external noopener"` if necessary.
 For more information: [Links to cross-origin destinations are unsafe](https://developer.chrome.com/docs/lighthouse/best-practices/external-anchors-use-rel-noopener/)
 
 ### Visited style

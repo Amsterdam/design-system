@@ -6,7 +6,7 @@ Use this component for a name, title, or motto.
 ## Guidelines
 
 - Use this component to capture the user’s attention.
-- Limit this component to once per page, typically only on the homepage.
+- Only use this component once per page, typically only on the homepage.
 - Avoid using it if you need to display long pieces of text; the text should be short and precise.
 
 ## Relevant WCAG Requirements

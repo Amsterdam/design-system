@@ -23,4 +23,4 @@ Represents a paragraph of running text, form instructions, and other standalone 
 ## References
 
 - [MDN: `<p>`: The Paragraph element](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/p)
-- [How long can a paragraph be? And what does it depend on? - Taaladvies.net](https://taaladvies.net/lengte-van-alineas/)
+- [Hoe lang mag een alinea zijn? En waar hangt dat van af? - Taaladvies.net](https://taaladvies.net/lengte-van-alineas/)

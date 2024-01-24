@@ -13,7 +13,7 @@ Only use icons without accompanying text if they adhere to international standar
 ## Color
 
 Icons are black or white.
-During the interaction, they are dark blue.
+When used as part of an interactive element, they are dark blue.
 When disabled, they are grey.
 They must adhere to the same contrast ratio for accessibility as typography against a background colour.
 The icon defaults to the colour of the container it is in.

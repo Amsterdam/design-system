@@ -19,7 +19,7 @@ Use `autofocus` only if the search field is at the beginning of a page and there
 
 For more information: [Accessibility Tips: Be Cautious When Using Autofocus](https://www.boia.org/blog/accessibility-tips-be-cautious-when-using-autofocus)
 
-## Autocomplete and Spellcheck
+## `autocomplete` and `spellcheck`
 
 Both `autocomplete` and `spellcheck` are turned off by default.
 These features can be disruptive for a user searching for part of a word, and `autocomplete` may interfere with an Autosuggest component.
