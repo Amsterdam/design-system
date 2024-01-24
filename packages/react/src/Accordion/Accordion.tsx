@@ -16,7 +16,7 @@ export type AccordionProps = {
   section?: boolean
 } & PropsWithChildren<HTMLAttributes<HTMLDivElement>>
 
-export type AccordionComponent = {
+type AccordionComponent = {
   Section: typeof AccordionSection
 } & ForwardRefExoticComponent<AccordionProps & RefAttributes<HTMLDivElement>>
 

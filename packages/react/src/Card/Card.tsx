@@ -11,7 +11,7 @@ import { CardLink } from './CardLink'
 
 export type CardProps = PropsWithChildren<HTMLAttributes<HTMLElement>>
 
-export type CardComponent = {
+type CardComponent = {
   HeadingGroup: typeof CardHeadingGroup
   Link: typeof CardLink
 } & ForwardRefExoticComponent<CardProps & RefAttributes<HTMLElement>>

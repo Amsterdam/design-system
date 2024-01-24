@@ -11,7 +11,7 @@ import { SearchFieldInput } from './SearchFieldInput'
 
 export type SearchFieldProps = PropsWithChildren<HTMLAttributes<HTMLFormElement>>
 
-export type SearchFieldComponent = {
+type SearchFieldComponent = {
   Input: typeof SearchFieldInput
   Button: typeof SearchFieldButton
 } & ForwardRefExoticComponent<SearchFieldProps & RefAttributes<HTMLFormElement>>

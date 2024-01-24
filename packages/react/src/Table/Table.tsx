@@ -22,7 +22,7 @@ import { TableRow } from './TableRow'
 
 export type TableProps = PropsWithChildren<TableHTMLAttributes<HTMLTableElement>>
 
-export type TableComponent = {
+type TableComponent = {
   Body: typeof TableBody
   Caption: typeof TableCaption
   Cell: typeof TableCell
