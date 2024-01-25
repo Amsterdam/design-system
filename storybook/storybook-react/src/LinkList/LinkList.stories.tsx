@@ -4,8 +4,7 @@
  */
 
 import { LinkList } from '@amsterdam/design-system-react'
-import { ChattingIcon, HousingIcon, PhoneIcon } from '@amsterdam/design-system-react-icons'
-import { useArgs } from '@storybook/preview-api'
+import * as Icons from '@amsterdam/design-system-react-icons'
 import { Meta, StoryObj } from '@storybook/react'
 import { exampleLinkList } from '../shared/exampleContent'
 
@@ -14,6 +13,13 @@ const links = exampleLinkList()
 const meta = {
   title: 'Navigation/Link List',
   component: LinkList,
+  args: {
+    children: links.map((text, index) => (
+      <LinkList.Link href="#" key={index}>
+        {text}
+      </LinkList.Link>
+    )),
+  },
   argTypes: {
     children: {
       table: { disable: true },
@@ -23,21 +29,73 @@ const meta = {
 
 export default meta
 
+const linkMeta = {
+  title: 'Navigation/Link List Link',
+  component: LinkList.Link,
+  argTypes: {
+    children: {
+      table: { disable: true },
+    },
+    icon: {
+      control: { type: 'select' },
+      options: Object.keys(Icons),
+      mapping: Icons,
+      defaultValue: Icons.ChevronRightIcon,
+    },
+    onBackground: {
+      control: {
+        type: 'radio',
+        labels: { undefined: '(not set)', light: 'light', dark: 'dark' },
+      },
+      options: [undefined, 'light', 'dark'],
+    },
+    size: {
+      control: {
+        type: 'radio',
+        labels: { small: 'small', undefined: 'medium', large: 'large' },
+      },
+      options: ['small', undefined, 'large'],
+    },
+  },
+} satisfies Meta<typeof LinkList.Link>
+
 type Story = StoryObj<typeof meta>
+type LinkStory = StoryObj<typeof linkMeta>
+
+const LinkTemplate: Story = {}
+
+const LinkStoryTemplate: LinkStory = {
+  args: {
+    href: '#',
+  },
+  argTypes: linkMeta.argTypes,
+  decorators: [
+    (Story) => (
+      <LinkList>
+        <Story />
+      </LinkList>
+    ),
+  ],
+  render: ({ children, ...args }) => <LinkList.Link {...args}>{children}</LinkList.Link>,
+}
 
 export const Default: Story = {
-  render: function Render() {
-    const [args] = useArgs()
+  ...LinkTemplate,
+}
 
-    return (
-      <LinkList {...args}>
-        {links.map((text, index) => (
-          <LinkList.Link key={index} href="#" size={args['size']}>
-            {text}
-          </LinkList.Link>
-        ))}
-      </LinkList>
-    )
+export const CustomIcons: Story = {
+  args: {
+    children: [
+      <LinkList.Link key="form" href="#" icon={Icons.ChattingIcon}>
+        Contactformulier
+      </LinkList.Link>,
+      <LinkList.Link key="address" href="#" icon={Icons.HousingIcon}>
+        Adressen en openingstijden
+      </LinkList.Link>,
+      <LinkList.Link key="phone" href="#" icon={Icons.PhoneIcon}>
+        Bel 14 020
+      </LinkList.Link>,
+    ],
   },
 }
 
@@ -57,54 +115,46 @@ export const SmallText: Story = {
   },
 }
 
-export const CustomIcons: Story = {
+export const Link: LinkStory = {
+  ...LinkStoryTemplate,
   args: {
-    children: [
-      <LinkList.Link key="form" href="#" icon={ChattingIcon}>
-        Contactformulier
-      </LinkList.Link>,
-      <LinkList.Link key="address" href="#" icon={HousingIcon}>
-        Adressen en openingstijden
-      </LinkList.Link>,
-      <LinkList.Link key="phone" href="#" icon={PhoneIcon}>
-        Bel 14 020
-      </LinkList.Link>,
-    ],
+    children: 'Alles over openbare orde en veiligheid',
+    href: '#',
+    onBackground: undefined,
+    size: undefined,
   },
 }
 
-export const OnDarkBackground: Story = {
-  render: function Render() {
-    const [args] = useArgs()
-
-    return (
+export const OnDarkBackground: LinkStory = {
+  ...LinkStoryTemplate,
+  args: {
+    children: links[0],
+    href: '#',
+    onBackground: 'dark',
+  },
+  decorators: [
+    ...LinkStoryTemplate.decorators,
+    (Story) => (
       <div style={{ background: '#004699', padding: '1rem' }}>
-        <LinkList {...args}>
-          {links.map((text, index) => (
-            <LinkList.Link key={index} href="#" onBackground="dark" size={args['size']}>
-              {text}
-            </LinkList.Link>
-          ))}
-        </LinkList>
+        <Story />
       </div>
-    )
-  },
+    ),
+  ],
 }
 
-export const OnLightBackground: Story = {
-  render: function Render() {
-    const [args] = useArgs()
-
-    return (
-      <div style={{ background: '#FFE600', padding: '1rem' }}>
-        <LinkList {...args}>
-          {links.map((text, index) => (
-            <LinkList.Link key={index} href="#" onBackground="light" size={args['size']}>
-              {text}
-            </LinkList.Link>
-          ))}
-        </LinkList>
-      </div>
-    )
+export const OnLightBackground: LinkStory = {
+  ...LinkStoryTemplate,
+  args: {
+    children: links[0],
+    href: '#',
+    onBackground: 'light',
   },
+  decorators: [
+    ...LinkStoryTemplate.decorators,
+    (Story) => (
+      <div style={{ background: '#FFE600', padding: '1rem' }}>
+        <Story />
+      </div>
+    ),
+  ],
 }
