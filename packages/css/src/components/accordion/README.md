@@ -19,15 +19,15 @@ With an accordion, you offer content to users progressively.
 
 You can navigate an accordion with your keyboard:
 
-| key            | element                                                                                                                   |
-| :------------- | :------------------------------------------------------------------------------------------------------------------------ |
-| Enter or Space | Open or close the accordion section that has the focus                                                                    |
-| Tab            | Go to the next element that can have focus                                                                                |
-| Shift + Tab    | Go to the next element that can have focus                                                                                |
-| Down arrow     | If an accordion section has focus, go to the next section.<br/>If the last section has focus, go to the first section     |
-| Up arrow       | If an accordion section has focus, go to the previous section.<br/>If the first section has focus, go to the last section |
-| Home           | If an accordion section has focus: go to the first section                                                                |
-| End            | If an accordion section has focus, go to the last section                                                                 |
+| key            | element                                                                                                               |
+| :------------- | :-------------------------------------------------------------------------------------------------------------------- |
+| Enter or Space | Open or close the accordion section that has the focus                                                                |
+| Tab            | Go to the next element that can have focus                                                                            |
+| Shift + Tab    | Go to the next element that can have focus                                                                            |
+| Down arrow     | If an accordion section has focus, go to the next section; if the last section has focus, go to the first section     |
+| Up arrow       | If an accordion section has focus, go to the previous section; if the first section has focus, go to the last section |
+| Home           | If an accordion section has focus: go to the first section                                                            |
+| End            | If an accordion section has focus, go to the last section                                                             |
 
 ## Relevant WCAG requirements
 
