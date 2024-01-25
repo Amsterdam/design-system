@@ -5,14 +5,8 @@
 
 import clsx from 'clsx'
 import { forwardRef } from 'react'
-import type {
-  ForwardedRef,
-  ForwardRefExoticComponent,
-  HTMLAttributes,
-  LiHTMLAttributes,
-  PropsWithChildren,
-  RefAttributes,
-} from 'react'
+import type { ForwardedRef, ForwardRefExoticComponent, HTMLAttributes, PropsWithChildren, RefAttributes } from 'react'
+import { UnorderedListItem } from './UnorderedListItem'
 
 export interface UnorderedListProps extends PropsWithChildren<HTMLAttributes<HTMLUListElement>> {
   markers?: boolean
@@ -38,18 +32,4 @@ export const UnorderedList = forwardRef(
 ) as UnorderedListComponent
 
 UnorderedList.displayName = 'UnorderedList'
-
-export type UnorderedListItemProps = PropsWithChildren<LiHTMLAttributes<HTMLLIElement>>
-
-export const UnorderedListItem = forwardRef(
-  ({ children, className, ...restProps }: UnorderedListItemProps, ref: ForwardedRef<HTMLLIElement>) => {
-    return (
-      <li ref={ref} className={clsx('amsterdam-unordered-list__item', className)} {...restProps}>
-        {children}
-      </li>
-    )
-  },
-)
-
-UnorderedListItem.displayName = 'UnorderedListItem'
 UnorderedList.Item = UnorderedListItem
