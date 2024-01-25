@@ -3,39 +3,10 @@
  * Copyright (c) 2023 Gemeente Amsterdam
  */
 
-import type { GridCellProps, GridProps } from '@amsterdam/design-system-react'
 import { Grid, Screen } from '@amsterdam/design-system-react'
+import type { GridCellProps } from '@amsterdam/design-system-react'
 import { Meta, StoryObj } from '@storybook/react'
 import { paddingArgType } from '../shared/argTypes'
-
-const gridArgTypes = {
-  compact: {
-    control: { type: 'boolean' },
-  },
-  gapVertical: {
-    control: {
-      type: 'radio',
-      labels: { none: 'none', small: 'small', undefined: 'medium', large: 'large' },
-    },
-    options: ['none', 'small', undefined, 'large'],
-  },
-  paddingVertical: paddingArgType,
-  paddingTop: paddingArgType,
-  paddingBottom: paddingArgType,
-}
-
-const gridCellArgTypes = {
-  as: {
-    control: { type: 'inline-radio' },
-    options: ['article', 'div', 'section'],
-  },
-  span: {
-    control: { type: 'number', min: 1, max: 12 },
-  },
-  start: {
-    control: { type: 'number', min: 1, max: 12 },
-  },
-}
 
 const meta = {
   title: 'Layout/Grid',
@@ -44,23 +15,47 @@ const meta = {
     children: {
       table: { disable: true },
     },
+    compact: {
+      control: { type: 'boolean' },
+    },
+    gapVertical: {
+      control: {
+        type: 'radio',
+        labels: { none: 'none', small: 'small', undefined: 'medium', large: 'large' },
+      },
+      options: ['none', 'small', undefined, 'large'],
+    },
+    paddingVertical: paddingArgType,
+    paddingTop: paddingArgType,
+    paddingBottom: paddingArgType,
   },
-}
+} satisfies Meta<typeof Grid>
 
 export default meta
 
-const gridMeta = { ...meta, argTypes: gridArgTypes } satisfies Meta<GridProps>
-const gridCellMeta = { ...meta, component: Grid.Cell, argTypes: gridCellArgTypes } satisfies Meta<GridCellProps>
+const cellMeta = {
+  component: Grid.Cell,
+  argTypes: {
+    children: {
+      table: { disable: true },
+    },
+    as: {
+      control: { type: 'inline-radio' },
+      options: ['article', 'div', 'section'],
+    },
+    span: {
+      control: { type: 'number', min: 1, max: 12 },
+    },
+    start: {
+      control: { type: 'number', min: 1, max: 12 },
+    },
+  },
+} satisfies Meta<typeof Grid.Cell>
 
-type GridStory = StoryObj<typeof gridMeta>
-type GridCellStory = StoryObj<typeof gridCellMeta>
+type Story = StoryObj<typeof meta>
+type CellStory = StoryObj<typeof cellMeta>
 
-const TwelveGridCells = Array.from(Array(12).keys()).map((i) => (
-  <Grid.Cell className="amsterdam-docs-pink-box" key={i} />
-))
-
-const GridStoryTemplate: GridStory = {
-  argTypes: gridArgTypes,
+const StoryTemplate: Story = {
   decorators: [
     (Story) => (
       <Screen>
@@ -70,8 +65,7 @@ const GridStoryTemplate: GridStory = {
   ],
 }
 
-const GridCellStoryTemplate: GridCellStory = {
-  argTypes: gridCellArgTypes,
+const CellStoryTemplate: CellStory = {
   decorators: [
     (Story) => (
       <Screen>
@@ -84,31 +78,35 @@ const GridCellStoryTemplate: GridCellStory = {
   render: ({ children, ...args }) => <Grid.Cell {...args}>{children}</Grid.Cell>,
 }
 
-export const Default: GridStory = {
-  ...GridStoryTemplate,
+const TwelveGridCells = Array.from(Array(12).keys()).map((i) => (
+  <Grid.Cell className="amsterdam-docs-pink-box" key={i} />
+))
+
+export const Default: Story = {
+  ...StoryTemplate,
   args: {
     children: TwelveGridCells,
   },
 }
 
-export const Compact: GridStory = {
-  ...GridStoryTemplate,
+export const Compact: Story = {
+  ...StoryTemplate,
   args: {
     children: TwelveGridCells,
     compact: true,
   },
 }
 
-export const VerticalSpace: GridStory = {
-  ...GridStoryTemplate,
+export const VerticalSpace: Story = {
+  ...StoryTemplate,
   args: {
     children: TwelveGridCells,
     paddingVertical: 'medium',
   },
 }
 
-export const VerticalGap: GridStory = {
-  ...GridStoryTemplate,
+export const VerticalGap: Story = {
+  ...StoryTemplate,
   args: {
     children: Array.from(Array(6).keys()).map((i) => (
       <Grid.Cell className="amsterdam-docs-pink-box" span={4} key={i} />
@@ -117,16 +115,16 @@ export const VerticalGap: GridStory = {
   },
 }
 
-export const SpanMultipleColumns: GridCellStory = {
-  ...GridCellStoryTemplate,
+export const SpanMultipleColumns: CellStory = {
+  ...CellStoryTemplate,
   args: {
     children: <p className="amsterdam-docs-paragraph amsterdam-docs-pink-box">Deze cel beslaat 4 kolommen.</p>,
     span: 4,
   },
 }
 
-export const ConfigureGridVariants: GridCellStory = {
-  ...GridCellStoryTemplate,
+export const ConfigureGridVariants: CellStory = {
+  ...CellStoryTemplate,
   args: {
     children: (
       <p className="amsterdam-docs-paragraph amsterdam-docs-pink-box">Deze cel heeft 3 instellingen voor de breedte.</p>
@@ -135,8 +133,8 @@ export const ConfigureGridVariants: GridCellStory = {
   },
 }
 
-export const SpanAllColumns: GridCellStory = {
-  ...GridCellStoryTemplate,
+export const SpanAllColumns: CellStory = {
+  ...CellStoryTemplate,
   args: {
     children: (
       <p className="amsterdam-docs-paragraph amsterdam-docs-pink-box">
@@ -147,8 +145,8 @@ export const SpanAllColumns: GridCellStory = {
   },
 }
 
-export const StartPosition: GridCellStory = {
-  ...GridCellStoryTemplate,
+export const StartPosition: CellStory = {
+  ...CellStoryTemplate,
   args: {
     children: <p className="amsterdam-docs-paragraph amsterdam-docs-pink-box">Deze cel start in kolom 2.</p>,
     span: 3,
@@ -156,8 +154,8 @@ export const StartPosition: GridCellStory = {
   },
 }
 
-export const CustomTagName: GridCellStory = {
-  ...GridCellStoryTemplate,
+export const CustomTagName: CellStory = {
+  ...CellStoryTemplate,
   args: {
     as: 'section',
   },
