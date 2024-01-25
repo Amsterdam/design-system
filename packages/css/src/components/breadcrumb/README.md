@@ -12,7 +12,7 @@ Only use the breadcrumb trail if it adds something functional for the user and t
 ### Avoid this
 
 Do not display the breadcrumb trail on a form page.
-It distracts from the user’s task, or one can accidentally interpret it as a Progress Indicator.
+It distracts the user from their task, or one can accidentally interpret it as a Progress Indicator.
 
 It is a secondary navigation pattern.
 It can’t replace the main navigation.

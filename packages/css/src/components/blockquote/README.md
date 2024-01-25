@@ -11,4 +11,4 @@ A quote appears differently from the main text to make it stand out.
 
 ## Relevant WCAG requirements
 
-- [WCAG 3.1.2](https://www.w3.org/WAI/WCAG21/Understanding/language-of-parts.html): when the quote is written in a different language than the page, it should be `lang` attribute can be used to clarify the language.
+- [WCAG 3.1.2](https://www.w3.org/WAI/WCAG21/Understanding/language-of-parts.html): if the citation is in a language other than that of the surrounding content, indicate so through the `lang` attribute.

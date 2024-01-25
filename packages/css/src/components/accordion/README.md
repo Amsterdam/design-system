@@ -8,7 +8,7 @@ With an accordion, you offer content to users progressively.
 - Use an accordion on a full page with essential and non-essential content.
 - Hiding non-essential content helps users get to important content more quickly.
 - Avoid using an accordion to avoid too much essential content on 1 page.
-- Rewrite the page more compactly, divide the content over multiple pages or use the (yet to be created) table of contents component instead of an accordion for that purpose.
+- Rewrite the page more compactly or divide the content over multiple pages instead of using the accordion in the first place.
 - Don’t hide essential information in an accordion.
 - An accordion consists of several accordion sections.
 - Use a minimum of 3 and a maximum of 10 sections underneath each other.
