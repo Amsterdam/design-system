@@ -17,7 +17,7 @@ import { Icon } from '../Icon'
 
 type BackgroundName = 'default' | 'light' | 'dark'
 
-export interface LinkListLinkProps extends PropsWithChildren<AnchorHTMLAttributes<HTMLAnchorElement>> {
+export type LinkListLinkProps = {
   /** The target url for the link. */
   href: string
   /**
@@ -32,10 +32,9 @@ export interface LinkListLinkProps extends PropsWithChildren<AnchorHTMLAttribute
    * Use the same size for all items in the list.
    */
   size?: 'small' | 'large'
-}
+} & PropsWithChildren<AnchorHTMLAttributes<HTMLAnchorElement>>
 
-interface LinkListLinkComponent
-  extends ForwardRefExoticComponent<LinkListLinkProps & RefAttributes<HTMLAnchorElement>> {}
+type LinkListLinkComponent = ForwardRefExoticComponent<LinkListLinkProps & RefAttributes<HTMLAnchorElement>>
 
 const iconSizeMap = {
   small: 'level-6',

@@ -8,11 +8,11 @@ import { forwardRef } from 'react'
 import type { ForwardedRef, ForwardRefExoticComponent, HTMLAttributes, PropsWithChildren, RefAttributes } from 'react'
 import { LinkListLink } from './LinkListLink'
 
-export interface LinkListProps extends PropsWithChildren<HTMLAttributes<HTMLUListElement>> {}
+export type LinkListProps = PropsWithChildren<HTMLAttributes<HTMLUListElement>>
 
-interface LinkListComponent extends ForwardRefExoticComponent<LinkListProps & RefAttributes<HTMLUListElement>> {
+type LinkListComponent = {
   Link: typeof LinkListLink
-}
+} & ForwardRefExoticComponent<LinkListProps & RefAttributes<HTMLUListElement>>
 
 /** A collection of related links. */
 export const LinkList = forwardRef(
