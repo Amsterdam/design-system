@@ -18,7 +18,7 @@ In windows up to 576 pixels wide, the grid has 4 columns.
 Up to a width of 1088 pixels, it has 8 columns.
 At that point and beyond, it has 12 columns.
 
-We refer to these three variants as the narrow, medium-wide, and wide grid.
+We refer to these three variants as the narrow, medium, and wide grid.
 
 The breakpoints are based on steps of 256 pixels, starting with a base of 64 pixels.
 So, 576 = 64 + 2 × 256 and 1088 = 64 + 4 × 256.
@@ -34,9 +34,9 @@ The desired layout differs significantly between the two.
 
 #### Spacious
 
-The online house style had been designed for simplicity.
-There are a few options for background colour or borders.
-Typography and white space remain as tools to make screens clear.
+The online corporate identity had been designed for simplicity.
+There are few options for background colour or borders.
+Typography and white space remain as tools to keep screens readable.
 For websites, the grid is quite spacious.
 
 The horizontal white space between columns is 16 pixels wide at a window width of 320 pixels or less.
@@ -82,7 +82,7 @@ No elements are placed over these margins.
 In the wide grid, applications have a vertical menu bar on the left side.
 This is next to the grid, not inside, and has a fixed width of 112 pixels.
 
-The menu is placed horizontally below the header in the medium-wide and narrow grids.
+The menu is placed horizontally below the header in the medium and narrow grids.
 In this context, the grid takes up the entire width of the window.
 
 ### Maximum width
@@ -114,7 +114,7 @@ Again, between these widths, the widths grow continuously.
 | Breakpoint  | From window width | Number of columns | Column width | White space width | Margin width | Grid width |
 | :---------- | ----------------: | ----------------: | -----------: | ----------------: | -----------: | ---------: |
 | narrow      |               320 |                 4 |           56 |                16 |           24 |        272 |
-| medium-wide |               576 |                 8 |           42 |                24 |           36 |        504 |
+| medium|               576 |                 8 |           42 |                24 |           36 |        504 |
 | wide        |              1088 |                12 |           44 |                40 |           60 |        968 |
 
 #### Compact
@@ -122,7 +122,7 @@ Again, between these widths, the widths grow continuously.
 | Breakpoint  | From window width | Number of columns | Menu bar width | Column width | White space width | Margin width | Grid width |
 | :---------- | ----------------: | ----------------: | -------------: | -----------: | ----------------: | -----------: | ---------: |
 | narrow      |               320 |                 4 |              0 |           60 |                16 |           16 |        288 |
-| medium-wide |               576 |                 8 |              0 |           54 |                16 |           16 |        544 |
+| medium|               576 |                 8 |              0 |           54 |                16 |           16 |        544 |
 | wide        |              1088 |                12 |            112 |           64 |                16 |           16 |        944 |
 
 ### Not tied to devices
@@ -133,16 +133,16 @@ explicitly not on the sizes of specific screens or devices.
 We do not want to design our layouts based on the precise dimensions of the latest iPhone or Galaxy,
 but instead, make them responsive to the variety of screens they will appear on.
 Of course, we have experimented and tested this.
-We’ve ultimately chosen values that work visually in practice.
+We’ve ultimately chosen values that work well visually.
 
-For the same reason, we do not refer to the three grid breakpoints as "mobile, tablet, and desktop" but as "for narrow, medium-wide, and wide" screens or windows.
+For the same reason, we do not refer to the three grid breakpoints as "mobile, tablet, and desktop" but as "for narrow, medium, and wide" screens or windows.
 
 If you want a bit more guidance,
 assume that phones in portrait mode and split-screen windows on tablets use the 4-column grid,
-phones in landscape mode and tablets in portrait use the 8-column,
+phones in landscape mode and tablets in portrait use the 8-column grid,
 and tablets in landscape mode,
-laptops, and larger screens use the 12-column.
-The exact number of pixels is not crucial.
+laptops, and larger screens use the 12-column grid.
+The exact number of pixels is not important.
 
 ### Reference widths for designers
 
@@ -152,7 +152,7 @@ You want to determine how each design behaves on a desktop, a tablet, or a mobil
 
 Therefore, in Figma, we work with three reference widths.
 On those widths, we develop the screen’s design for those three classes of devices.
-We know that, in reality, there is much more variation, but we have to aim somewhere.
+We know that, in reality, there is much more variation, but we have to draw the line somewhere.
 You can find these grids in the Figma Library under ‘Grid styles’.
 
 In these three situations, the dimensions are as follows.
@@ -175,7 +175,7 @@ In these three situations, the dimensions are as follows.
 
 ### Windows or screens
 
-We intentionally talk about windows, while responsive design often discusses screen widths.
+We intentionally talk about windows, while responsive design often uses screen widths.
 Most of the time, it comes down to the same thing, but not always.
 It is good to be aware of this.
 
