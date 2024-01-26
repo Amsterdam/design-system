@@ -1,207 +1,207 @@
 import { Meta } from "@storybook/blocks";
 
-<Meta title="Docs/Designrichtlijnen/Grid" />
+<Meta title="Docs/Design Guidelines/Grid" />
 
 # Grid
 
-Onder elke pagina ligt een _responsive_ grid.
-Alle elementen op een pagina worden op dat grid geplaatst.
+Underlying each page is a responsive grid.
+All elements on a page are placed on this grid.
 
-## Ontwerp
+## Design
 
-### Vier, acht of twaalf kolommen
+### Four, eight, or twelve columns
 
-Het grid verdeelt het scherm in kolommen van gelijke breedte.
-Hoe breder het venster, des te meer kolommen.
+The grid divides the screen into columns of equal width.
+The wider the window, the more columns.
 
-In vensters tot 576 pixels breed levert het grid 4 kolommen.
-Tot een breedte van 1088 pixels zijn dat er 8.
-Op dat punt worden en blijven het er 12.
+In windows up to 576 pixels wide, the grid has 4 columns.
+Up to a width of 1088 pixels, it has 8 columns.
+At that point and beyond, it has 12 columns.
 
-We noemen deze drie varianten het smalle, het middelbrede en het brede grid.
+We refer to these three variants as the narrow, medium, and wide grid.
 
-De breakpoints zijn gebaseerd op stappen van 256 pixels, beginnend op een basis van 64 pixels.
-Zo is 576 = 64 + 2 × 256 en 1088 = 64 + 4 × 256.
+The breakpoints are based on steps of 256 pixels, starting with a base of 64 pixels.
+So, 576 = 64 + 2 × 256 and 1088 = 64 + 4 × 256.
 
-Op deze breakpoints verandert alleen het aantal kolommen.
-Die worden daardoor smaller of breder en de elementen erop dus ook.
-De witruimtes tussen en naast de kolommen groeien over het hele spectrum steeds in hetzelfde tempo.
+At these breakpoints, only the amount of columns changes.
+They become narrower or wider, affecting the elements placed on them.
+The white spaces between and beside the columns grow at the same rate across the entire spectrum.
 
-### Twee thema’s voor witruimte
+### Two themes for white space
 
-Het design system ondersteunt zowel websites als webapplicaties.
-De gewenste layout verschilt nogal tussen beide.
+The design system supports both websites and web applications.
+The desired layout differs significantly between the two.
 
-#### Ruimtelijk
+#### Spacious
 
-De online huisstijl is ontworpen op eenvoud.
-Er zijn weinig opties voor achtergrondkleur of belijning.
-Typografie en witruimte blijven over als middelen om schermen overzichtelijk te maken.
-Voor websites is het grid daarom behoorlijk ruimtelijk.
+The online corporate identity had been designed for simplicity.
+There are few options for background colour or borders.
+Typography and white space remain as tools to keep screens readable.
+For websites, the grid is quite spacious.
 
-De horizontale witruimte tussen kolommen is 16 pixels breed bij een vensterbreedte van 320 pixels of minder.
-Voor elke 256 pixels extra breedte groeit de witruimte lineair met 8 pixels.
-(Dit komt neer op 3 en 3/8 procent van de schermbreedte plus 6 pixels.)
-Bij een vensterbreedte van 1600 pixels is het dus 56 pixels.
-Daarna groeit de witruimte niet verder.
+The horizontal white space between columns is 16 pixels wide at a window width of 320 pixels or less.
+For every additional 256 pixels of width, the white space grows linearly by 8 pixels.
+(This amounts to 3 and 3/8 per cent of the screen width plus 6 pixels.)
+At a window width of 1600 pixels, it is 56 pixels.
+After that, the white space does not grow further.
 
-In brede vensters worden de witruimtes bijna even breed als de kolommen zelf.
-Dat lijkt misschien onnatuurlijk, maar is geen probleem.
-Elementen bezetten vaak meerdere kolommen van het grid en krijgen dan ook de tussenliggende witruimtes mee.
-
-#### Compact
-
-Voor applicaties is zo veel witruimte niet nodig, zelfs contraproductief.
-Daarom is er ook een compact thema voor het grid.
-
-De minimale witruimte tussen kolommen is ook hier 16 pixels.
-Maar deze begint pas vanaf een vensterbreedte van 1088 pixels te groeien.
-De toename gaat ook langzamer: 4 pixels per 256 pixels extra breedte.
-(Dit komt neer op 1 en 9/16 procent van de schermbreedte min 1 pixel.)
-Het maximum is hier 40 pixels en dat wordt pas bereikt bij een vensterbreedte van 2624 pixels.
-
-### Marges links en rechts
-
-Aan beide zijden reserveert het grid marges van witruimte.
-
-#### Ruimtelijk
-
-In het ruimtelijke thema is deze ruimte 1½ keer zo breed als die tussen de kolommen.
-Zo is er genoeg ruimte tussen het grid en de randen van het scherm of venster.
-
-Sommige elementen mogen over deze marges gepositioneerd worden, zoals schermvullende afbeeldingen en de voettekst van de pagina.
-Die zijn dan dus iets breder dan de rest van de content.
+In wide windows, the white spaces become almost as wide as the columns.
+This may seem unnatural, but it is not a problem.
+Elements often occupy multiple columns of the grid, including the intervening white spaces.
 
 #### Compact
 
-In het compacte thema zijn de marges buiten het grid even breed als de witruimtes erbinnen.
-Hier worden geen elementen over de marges heen geplaatst.
+For applications, so much white space is not necessary, even counterproductive.
+Therefore, there is also a compact theme for the grid.
 
-### Menubalk
+The minimum white space between columns is also 16 pixels here.
+But it only starts growing from a window width of 1088 pixels.
+The increase is also slower: 4 pixels per 256 pixels of additional width.
+(This amounts to 1 and 9/16 per cent of the screen width minus 1 pixel.)
+The maximum here is 40 pixels, only reached at a window width of 2624 pixels.
 
-Applicaties hebben in het brede grid een verticale menubalk aan de linkerzijde.
-Deze staat naast het grid, niet erin, en heeft een vaste breedte van 112 pixels.
+### Margins left and right
 
-In het middelbrede en smalle grid wordt het menu horizontaal onder de header.
-In deze context neemt het grid wel de hele breedte van het venster in.
+On both sides, the grid reserves margins of white space.
 
-### Maximale breedte
+#### Spacious
 
-Een maximale breedte voor het grid zorgt ervoor dat witruimte en typografie niet onbeperkt doorgroeien.
-Zo raken de elementen van een pagina niet te ver van elkaar verwijderd en blijft tekst prettig leesbaar.
+The margin is 1½ times as wide as the space between columns.
+This provides enough space between the grid and the edges of the screen or window.
 
-Voor websites is de maximale breedte van het grid 1432 pixels.
-In vensters van minimaal 1600 pixels breed heeft het grid deze breedte – de marges bedragen hier 84 pixels.
-
-Applicaties, die het compacte thema gebruiken, nemen de volledige breedte van het venster in.
-
-Er is geen expliciete minimale breedte.
-Zelfs in vensters smaller dan 320 pixels, voor zover die in de praktijk voorkomen,
-blijft het grid zich schalen naar de beschikbare breedte.
-Voor het gemak speelt de breedte van 320 wel een rol in de documentatie.
-
-## Maatvoering
-
-Deze ontwerpkeuzes leveren in de praktijk het volgende resultaat in pixels.
-
-### Breedtes per breakpoint
-
-Op de drie breakpoints hebben de kolommen, witruimtes en marges de volgende breedtes.
-Nogmaals: daartussen groeien de breedtes continu.
-
-#### Ruimtelijk
-
-| Breakpoint  | Vanaf vensterbreedte | Aantal kolommen | Breedte kolom | Breedte witruimte | Breedte marge | Breedte grid |
-| :---------- | -------------------: | --------------: | ------------: | ----------------: | ------------: | -----------: |
-| smal        |                  320 |               4 |            56 |                16 |            24 |          272 |
-| middelbreed |                  576 |               8 |            42 |                24 |            36 |          504 |
-| breed       |                 1088 |              12 |            44 |                40 |            60 |          968 |
+Some elements, such as full-screen images and the page’s footer, can be positioned over these margins.
+These are, therefore, slightly wider than the rest of the content.
 
 #### Compact
 
-| Breakpoint  | Vanaf vensterbreedte | Aantal kolommen | Breedte menubalk | Breedte kolom | Breedte witruimte | Breedte marge | Breedte grid |
-| :---------- | -------------------: | --------------: | ---------------: | ------------: | ----------------: | ------------: | -----------: |
-| smal        |                  320 |               4 |                0 |            60 |                16 |            16 |          288 |
-| middelbreed |                  576 |               8 |                0 |            54 |                16 |            16 |          544 |
-| breed       |                 1088 |              12 |              112 |            64 |                16 |            16 |          944 |
+In the compact theme, the margins outside the grid are as wide as the white spaces inside.
+No elements are placed over these margins.
 
-### Niet gebonden aan apparaten
+### Menu bar
 
-Alle afmetingen van het grid zijn rekenkundig gebaseerd op veelvouden van 16;
-uitdrukkelijk niet op maten van specifieke schermen of apparaten.
+In the wide grid, applications have a vertical menu bar on the left side.
+This is next to the grid, not inside, and has a fixed width of 112 pixels.
 
-We willen onze ontwerpen niet richten op de precieze afmetingen van de nieuwste iPhone of Galaxy,
-maar juist ontvankelijk laten zijn voor de variatie aan schermen waarop ze zullen voorkomen.
-Vanzelfsprekend hebben we geëxperimenteerd en getest en uiteindelijk waarden gekozen die in de praktijk visueel goed werken.
+The menu is placed horizontally below the header in the medium and narrow grids.
+In this context, the grid takes up the entire width of the window.
 
-Om dezelfde reden noemen we de drie breakpoints van het grid niet “mobiel, tablet en desktop”,
-maar “voor smalle, middelbrede en brede” schermen of vensters.
+### Maximum width
 
-Wil je toch wat meer houvast,
-ga er dan vanuit dat telefoons in staande modus en ‘split screen’ vensters op tablets het 4-koloms grid gebruiken,
-telefoons in liggende modus en tablets in staande het 8-koloms,
-en tablets in liggende modus,
-laptops en grotere beeldschermen het 12-koloms.
-Om hoeveel pixels het dan precies gaat is niet zo van belang.
+A maximum width for the grid ensures that white space and typography do not grow indefinitely.
+This prevents page elements from getting too far apart, keeping text comfortably readable.
 
-### Referentie-breedtes voor ontwerpers
+For websites, the maximum width of the grid is 1432 pixels.
+The grid has this width in windows of at least 1600 pixels wide – the margins are 84 pixels here.
 
-Leuk, al die flexibiliteit.
-Maar bij het ontwerpen van een scherm is het toch nodig een bepaald canvas te kiezen.
-En voor elk ontwerp wil je bepalen hoe het zich op ‘een desktop’, ‘een tablet’ of ‘mobiel’ houdt.
+Applications often use the entire width of the window.
 
-Daarom werken we in Figma we met drie referentie-breedtes.
-Op die breedtes werken we het ontwerp van een scherm uit voor die drie klassen van apparaten.
-We weten dat er in de werkelijkheid veel meer variatie bestaat, maar we moeten toch ergens op mikken.
-Deze grids vind je in Figma Library onder de ‘Grid styles’.
+There is no explicit minimum width.
+Even in windows narrower than 320 pixels, to the extent that they occur in practice,
+the grid continues to scale to the available width.
+For convenience, the width of 320 plays a role in the documentation.
 
-In deze drie situaties is de maatvoering als volgt.
+## Dimensions
 
-#### Ruimtelijk
+In practice, these design choices result in the following dimensions in pixels.
 
-| Klasse apparaat | Referentie-breedte | Aantal kolommen | Breedte kolom | Breedte witruimte | Breedte marge | Breedte grid |
-| :-------------- | -----------------: | --------------: | ------------: | ----------------: | ------------: | -----------: |
-| telefoon        |                320 |               4 |            56 |                16 |            24 |          272 |
-| tablet          |                832 |               8 |            64 |                32 |            48 |          736 |
-| desktop         |               1600 |              12 |            68 |                56 |            84 |         1432 |
+### Widths per breakpoint
+
+The columns, white spaces, and margins have the following widths at the three breakpoints.
+Again, between these widths, the widths grow continuously.
+
+#### Spacious
+
+| Breakpoint  | From window width | Number of columns | Column width | White space width | Margin width | Grid width |
+| :---------- | ----------------: | ----------------: | -----------: | ----------------: | -----------: | ---------: |
+| narrow      |               320 |                 4 |           56 |                16 |           24 |        272 |
+| medium|               576 |                 8 |           42 |                24 |           36 |        504 |
+| wide        |              1088 |                12 |           44 |                40 |           60 |        968 |
 
 #### Compact
 
-| Klasse apparaat | Referentie-breedte | Aantal kolommen | Breedte menubalk | Breedte kolom | Breedte witruimte | Breedte marge | Breedte grid |
-| :-------------- | -----------------: | --------------: | ---------------: | ------------: | ----------------: | ------------: | -----------: |
-| telefoon        |                320 |               4 |                0 |            60 |                16 |            16 |          288 |
-| tablet          |                832 |               8 |                0 |            86 |                16 |            16 |          800 |
-| desktop         |               1600 |              12 |              112 |            98 |                24 |            24 |         1440 |
+| Breakpoint  | From window width | Number of columns | Menu bar width | Column width | White space width | Margin width | Grid width |
+| :---------- | ----------------: | ----------------: | -------------: | -----------: | ----------------: | -----------: | ---------: |
+| narrow      |               320 |                 4 |              0 |           60 |                16 |           16 |        288 |
+| medium|               576 |                 8 |              0 |           54 |                16 |           16 |        544 |
+| wide        |              1088 |                12 |            112 |           64 |                16 |           16 |        944 |
 
-### Vensters of schermen
+### Not tied to devices
 
-We hebben het met opzet over vensters terwijl er bij _responsive design_ vaak over schermbreedtes wordt gesproken.
-Meestal komt het op hetzelfde neer, maar niet altijd.
-Het is goed hier bewust van te zijn.
+All grid dimensions are based on multiples of 16;
+explicitly not on the sizes of specific screens or devices.
 
-Op een beeldscherm is het venster van een browser niet per se gemaximaliseerd; dan is het dus smaller dan het scherm.
-En _responsive design_ gaat logischerwijs uit van de breedte van het venster van de browser.
+We do not want to design our layouts based on the precise dimensions of the latest iPhone or Galaxy,
+but instead, make them responsive to the variety of screens they will appear on.
+Of course, we have experimented and tested this.
+We’ve ultimately chosen values that work well visually.
 
-Op telefoons en tablets komen beide wel vaak overeen,
-al is het op tablets wel degelijk mogelijk om twee (vensters van) apps naast elkaar op het scherm te zetten.
+For the same reason, we do not refer to the three grid breakpoints as "mobile, tablet, and desktop" but as "for narrow, medium, and wide" screens or windows.
 
-## Relatie met tekst
+If you want a bit more guidance,
+assume that phones in portrait mode and split-screen windows on tablets use the 4-column grid,
+phones in landscape mode and tablets in portrait use the 8-column grid,
+and tablets in landscape mode,
+laptops, and larger screens use the 12-column grid.
+The exact number of pixels is not important.
 
-Layout en tekst hebben op verschillende manieren met elkaar te maken.
+### Reference widths for designers
 
-### Schalende typografie
+Nice, all that flexibility.
+However, when designing a screen, it is still necessary to choose a specific canvas.
+You want to determine how each design behaves on a desktop, a tablet, or a mobile phone.
 
-Net als het grid reageren ook de [tekstgroottes](?path=/docs/docs-designrichtlijnen-typografie--docs) reageren op de vensterbreedte.
-Dat zorgt ervoor dat content op zo veel mogelijk vensterbreedtes en met diverse persoonlijke instellingen goed tot zijn recht komt.
+Therefore, in Figma, we work with three reference widths.
+On those widths, we develop the screen’s design for those three classes of devices.
+We know that, in reality, there is much more variation, but we have to draw the line somewhere.
+You can find these grids in the Figma Library under ‘Grid styles’.
 
-### Inzoomen of vergrote tekst
+In these three situations, the dimensions are as follows.
 
-Mensen kunnen de weergave van een webpagina vergroten door in te zoomen of door een grotere tekstgrootte in te stellen.
-De maatvoering van het grid houdt daar rekening mee.
-De breakpoints schalen mee met de effectieve tekstgrootte.
-Zo verandert het aantal kolommen eerder en blijft grotere inhoud goed passen.
+#### Spacious
 
-## Gerelateerde componenten
+| Device Class | Reference Width | Number of columns | Column width | White space width | Margin width | Grid width |
+| :----------- | --------------: | ----------------: | -----------: | ----------------: | -----------: | ---------: |
+| phone        |             320 |                 4 |           56 |                16 |           24 |        272 |
+| tablet       |             832 |                 8 |           64 |                32 |           48 |        736 |
+| desktop      |            1600 |                12 |           68 |                56 |           84 |       1432 |
+
+#### Compact
+
+| Device Class | Reference Width | Number of columns | Menu bar width | Column width | White space width | Margin width | Grid width |
+| :----------- | --------------: | ----------------: | -------------: | -----------: | ----------------: | -----------: | ---------: |
+| phone        |             320 |                 4 |              0 |           60 |                16 |           16 |        288 |
+| tablet       |             832 |                 8 |              0 |           86 |                16 |           16 |        800 |
+| desktop      |            1600 |                12 |            112 |           98 |                24 |           24 |       1440 |
+
+### Windows or screens
+
+We intentionally talk about windows, while responsive design often uses screen widths.
+Most of the time, it comes down to the same thing, but not always.
+It is good to be aware of this.
+
+On a computer screen, the browser window is not necessarily maximized; it can be narrower than the screen.
+Responsive design logically assumes the width of the browser window.
+
+On phones and tablets, the two often coincide.
+Tablets can allow placing two (windows of) apps side by side on the screen.
+
+## Relationship with text
+
+Layout and text relate in various ways.
+
+### Scaling typography
+
+Like the grid, the [text sizes](?path=/docs/docs-designrichtlijnen-typografie--docs) respond to the window width.
+This ensures that content looks good on as many window widths and with various personal settings.
+
+### Zooming or enlarged text
+
+People can zoom in on a web page or set a larger text size.
+The dimensions of the grid take this into account.
+The breakpoints scale with the effective text size.
+This way, the amount of columns changes earlier, and large content still fits well.
+
+## Related Components
 
 - [Grid](?path=/docs/react_layout-grid--docs)
 - [Grid Cell](?path=/docs/react_layout-grid-cell--docs)
