@@ -2,13 +2,12 @@
 
 # Amsterdam Design System
 
-## What is it
-
-Amsterdam Design System is the library for the user interfaces (UI) of all our digital products and services.
+This is the library for the user interfaces (UI) of all digital products offered by the City of Amsterdam.
 It provides reusable components, patterns, and guidelines for teams working on websites and applications.
-This way, everyone works together faster and better, with more time to create actual value.
-All software we create, purchase and use is easier to align with our corporate identity.
-For Amsterdam residents, all our channels appear the same, work similarly, are widely accessible, and inspire trust.
+
+It helps everyone work together faster and better, with more time to create actual value.
+It makes it easier to align all software we create, purchase and use with our corporate identity.
+By using it in all our channels, they appear the same, work similarly, are widely accessible, and inspire trust.
 
 ## How does it work
 
