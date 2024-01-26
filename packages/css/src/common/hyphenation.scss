@@ -1,0 +1,6 @@
+@mixin hyphenation {
+  hyphenate-limit-chars: 12 8 4;
+  hyphens: auto;
+  overflow-wrap: break-word;
+  word-break: break-word;
+}
