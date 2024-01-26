@@ -27,24 +27,24 @@
   color: var(--amsterdam-badge-dark-blue-color);
 }
 
-.amsterdam-badge--green {
-  background-color: var(--amsterdam-badge-green-background-color);
-  color: var(--amsterdam-badge-green-color);
-}
-
 .amsterdam-badge--dark-green {
   background-color: var(--amsterdam-badge-dark-green-background-color);
   color: var(--amsterdam-badge-dark-green-color);
 }
 
-.amsterdam-badge--orange {
-  background-color: var(--amsterdam-badge-orange-background-color);
-  color: var(--amsterdam-badge-orange-color);
+.amsterdam-badge--green {
+  background-color: var(--amsterdam-badge-green-background-color);
+  color: var(--amsterdam-badge-green-color);
 }
 
 .amsterdam-badge--magenta {
   background-color: var(--amsterdam-badge-magenta-background-color);
   color: var(--amsterdam-badge-magenta-color);
+}
+
+.amsterdam-badge--orange {
+  background-color: var(--amsterdam-badge-orange-background-color);
+  color: var(--amsterdam-badge-orange-color);
 }
 
 .amsterdam-badge--purple {
@@ -55,14 +55,4 @@
 .amsterdam-badge--yellow {
   background-color: var(--amsterdam-badge-yellow-background-color);
   color: var(--amsterdam-badge-yellow-color);
-}
-
-.amsterdam-badge--black {
-  background-color: var(--amsterdam-badge-black-background-color);
-  color: var(--amsterdam-badge-black-color);
-}
-
-.amsterdam-badge--white {
-  background-color: var(--amsterdam-badge-white-background-color);
-  color: var(--amsterdam-badge-white-color);
 }

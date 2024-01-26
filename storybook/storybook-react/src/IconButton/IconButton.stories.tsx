@@ -31,7 +31,9 @@ const meta = {
       options: ['level-3', 'level-4', 'level-5', 'level-6'],
     },
     svg: {
-      control: { type: 'select' },
+      control: {
+        type: 'select',
+      },
       options: Object.keys(Icons),
       mapping: Icons,
     },

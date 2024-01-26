@@ -14,13 +14,14 @@ const meta = {
   component: Spotlight,
   argTypes: {
     as: {
-      control: { type: 'inline-radio' },
+      control: {
+        type: 'radio',
+      },
       options: ['article', 'aside', 'div', 'footer', 'section'],
     },
     color: {
-      options: ['blue', 'dark-green', 'green', 'light-blue', 'magenta', 'orange', 'purple', 'yellow'],
       control: {
-        type: 'radio',
+        type: 'select',
         labels: {
           blue: 'Blauw',
           'dark-green': 'Donkergroen',
@@ -32,6 +33,7 @@ const meta = {
           yellow: 'Geel',
         },
       },
+      options: ['blue', 'dark-green', 'green', 'light-blue', 'magenta', 'orange', 'purple', 'yellow'],
     },
     children: {
       control: {

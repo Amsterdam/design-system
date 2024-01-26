@@ -7,10 +7,23 @@ import clsx from 'clsx'
 import { forwardRef } from 'react'
 import type { ForwardedRef, HTMLAttributes } from 'react'
 
-export interface BadgeProps extends HTMLAttributes<HTMLElement> {
+export const badgeColors = [
+  'blue',
+  'dark-blue',
+  'dark-green',
+  'green',
+  'magenta',
+  'orange',
+  'purple',
+  'yellow',
+] as const
+
+type BadgeColor = (typeof badgeColors)[number]
+
+export type BadgeProps = {
+  color?: BadgeColor
   label: string | number
-  color?: 'blue' | 'dark-blue' | 'green' | 'dark-green' | 'orange' | 'magenta' | 'purple' | 'yellow' | 'black' | 'white'
-}
+} & HTMLAttributes<HTMLElement>
 
 export const Badge = forwardRef(
   ({ label, className, color = 'dark-green', ...restProps }: BadgeProps, ref: ForwardedRef<HTMLElement>) => (

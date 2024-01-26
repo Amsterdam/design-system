@@ -36,7 +36,7 @@ describe('Page menu', () => {
   })
 
   it('is able to pass a React ref', () => {
-    const ref = createRef<HTMLElement>()
+    const ref = createRef<HTMLUListElement>()
     const { container } = render(
       <PageMenu ref={ref}>
         <PageMenu.Link href="#">English</PageMenu.Link>

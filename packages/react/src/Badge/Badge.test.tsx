@@ -1,6 +1,6 @@
 import { render } from '@testing-library/react'
 import { createRef } from 'react'
-import { Badge } from './Badge'
+import { Badge, badgeColors } from './Badge'
 import '@testing-library/jest-dom'
 
 describe('Badge', () => {
@@ -55,83 +55,13 @@ describe('Badge', () => {
     expect(component).toHaveClass('amsterdam-badge--dark-green')
   })
 
-  it('renders blue color', () => {
-    const { container } = render(<Badge label="test" color="blue" />)
+  badgeColors.map((color) =>
+    it(`renders with ${color} color`, () => {
+      const { container } = render(<Badge label="test" color={color} />)
 
-    const component = container.querySelector(':only-child')
+      const component = container.querySelector(':only-child')
 
-    expect(component).toHaveClass('amsterdam-badge--blue')
-  })
-
-  it('renders dark-blue color', () => {
-    const { container } = render(<Badge label="test" color="dark-blue" />)
-
-    const component = container.querySelector(':only-child')
-
-    expect(component).toHaveClass('amsterdam-badge--dark-blue')
-  })
-
-  it('renders green color', () => {
-    const { container } = render(<Badge label="test" color="green" />)
-
-    const component = container.querySelector(':only-child')
-
-    expect(component).toHaveClass('amsterdam-badge--green')
-  })
-
-  it('renders dark-green color', () => {
-    const { container } = render(<Badge label="test" color="dark-green" />)
-
-    const component = container.querySelector(':only-child')
-
-    expect(component).toHaveClass('amsterdam-badge--dark-green')
-  })
-
-  it('renders orange color', () => {
-    const { container } = render(<Badge label="test" color="orange" />)
-
-    const component = container.querySelector(':only-child')
-
-    expect(component).toHaveClass('amsterdam-badge--orange')
-  })
-
-  it('renders magenta color', () => {
-    const { container } = render(<Badge label="test" color="magenta" />)
-
-    const component = container.querySelector(':only-child')
-
-    expect(component).toHaveClass('amsterdam-badge--magenta')
-  })
-
-  it('renders purple color', () => {
-    const { container } = render(<Badge label="test" color="purple" />)
-
-    const component = container.querySelector(':only-child')
-
-    expect(component).toHaveClass('amsterdam-badge--purple')
-  })
-
-  it('renders yellow color', () => {
-    const { container } = render(<Badge label="test" color="yellow" />)
-
-    const component = container.querySelector(':only-child')
-
-    expect(component).toHaveClass('amsterdam-badge--yellow')
-  })
-
-  it('renders black color', () => {
-    const { container } = render(<Badge label="test" color="black" />)
-
-    const component = container.querySelector(':only-child')
-
-    expect(component).toHaveClass('amsterdam-badge--black')
-  })
-
-  it('renders white color', () => {
-    const { container } = render(<Badge label="test" color="white" />)
-
-    const component = container.querySelector(':only-child')
-
-    expect(component).toHaveClass('amsterdam-badge--white')
-  })
+      expect(component).toHaveClass(`amsterdam-badge--${color}`)
+    }),
+  )
 })

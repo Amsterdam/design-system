@@ -7,7 +7,7 @@ Verdeelt de breedte van het scherm in kolommen waarop de elementen van een pagin
 Elke pagina moet het grid gebruiken als basis voor de layout.
 Het staat dus direct binnen [Screen](?path=/docs/layout-screen--docs).
 
-Een [Footer](?path=/docs/react_containers-footer--docs) en een [Highlight](?path=/docs/react_containers-highlight--docs) zijn iets breder dan het grid.
+Een [Footer](?path=/docs/react_containers-footer--docs) en een [Spotlight](?path=/docs/react_containers-spotlight--docs) zijn iets breder dan het grid.
 Vóór deze componenten sluit je een instantie van het grid af.
 Erbinnen en eventueel erna start je een nieuwe.
 Meerdere instanties van het grid component zijn dus mogelijk op een pagina.
