@@ -1,4 +1,4 @@
-import{M as s,d as a}from"./index-kl-G6gcu.js";import{j as e}from"./jsx-runtime-vNq4Oc-g.js";import{useMDXComponents as i}from"./index-_VGcpBFS.js";import"./iframe-yeiudX6Y.js";import"../sb-preview/runtime.js";import"./index-4g5l5LRQ.js";import"./_commonjsHelpers-4gQjN7DL.js";import"./index-jmm5gWkb.js";import"./index-ogXoivrg.js";import"./index-MVbLLYTZ.js";import"./index-PPLHz8o0.js";const d=`<!-- @license CC0-1.0 -->
+import{M as s,d as a}from"./index-vSoPKwbj.js";import{j as e}from"./jsx-runtime-vNq4Oc-g.js";import{useMDXComponents as i}from"./index-_VGcpBFS.js";import"./iframe-PaXCCSYY.js";import"../sb-preview/runtime.js";import"./index-4g5l5LRQ.js";import"./_commonjsHelpers-4gQjN7DL.js";import"./index-jmm5gWkb.js";import"./index-ogXoivrg.js";import"./index-MVbLLYTZ.js";import"./index-PPLHz8o0.js";const d=`<!-- @license CC0-1.0 -->
 
 # Copyright City of Amsterdam
 

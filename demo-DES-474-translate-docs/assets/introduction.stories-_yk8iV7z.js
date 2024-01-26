@@ -1,14 +1,13 @@
-import{M as a,d as r}from"./index-kl-G6gcu.js";import{j as e}from"./jsx-runtime-vNq4Oc-g.js";import{useMDXComponents as i}from"./index-_VGcpBFS.js";import"./iframe-yeiudX6Y.js";import"../sb-preview/runtime.js";import"./index-4g5l5LRQ.js";import"./_commonjsHelpers-4gQjN7DL.js";import"./index-jmm5gWkb.js";import"./index-ogXoivrg.js";import"./index-MVbLLYTZ.js";import"./index-PPLHz8o0.js";const d=`<!-- @license CC0-1.0 -->
+import{M as s,d as r}from"./index-vSoPKwbj.js";import{j as e}from"./jsx-runtime-vNq4Oc-g.js";import{useMDXComponents as i}from"./index-_VGcpBFS.js";import"./iframe-PaXCCSYY.js";import"../sb-preview/runtime.js";import"./index-4g5l5LRQ.js";import"./_commonjsHelpers-4gQjN7DL.js";import"./index-jmm5gWkb.js";import"./index-ogXoivrg.js";import"./index-MVbLLYTZ.js";import"./index-PPLHz8o0.js";const d=`<!-- @license CC0-1.0 -->
 
 # Amsterdam Design System
 
-## What is it
-
-Amsterdam Design System is the library for the user interfaces (UI) of all our digital products and services.
+This is the library for the user interfaces (UI) of all digital products offered by the City of Amsterdam.
 It provides reusable components, patterns, and guidelines for teams working on websites and applications.
-This way, everyone works together faster and better, with more time to create actual value.
-All software we create, purchase and use is easier to align with our corporate identity.
-For Amsterdam residents, all our channels appear the same, work similarly, are widely accessible, and inspire trust.
+
+It helps everyone work together faster and better, with more time to create actual value.
+It makes it easier to align all software we create, purchase and use with our corporate identity.
+By using it in all our channels, they appear the same, work similarly, are widely accessible, and inspire trust.
 
 ## How does it work
 
@@ -102,5 +101,5 @@ Rick Zweers,
 Soesanto Arp
 and
 Tanja van der Heide.
-`;function s(n){return e.jsxs(e.Fragment,{children:[e.jsx(a,{title:"Docs/Introduction"}),`
-`,e.jsx(r,{children:d})]})}function m(n={}){const{wrapper:o}=Object.assign({},i(),n.components);return o?e.jsx(o,{...n,children:e.jsx(s,{...n})}):s()}const c=()=>{throw new Error("Docs-only story")};c.parameters={docsOnly:!0};const t={title:"Docs/Introduction",tags:["stories-mdx"],includeStories:["__page"]};t.parameters=t.parameters||{};t.parameters.docs={...t.parameters.docs||{},page:m};const k=["__page"];export{k as __namedExportsOrder,c as __page,t as default};
+`;function a(n){return e.jsxs(e.Fragment,{children:[e.jsx(s,{title:"Docs/Introduction"}),`
+`,e.jsx(r,{children:d})]})}function c(n={}){const{wrapper:o}=Object.assign({},i(),n.components);return o?e.jsx(o,{...n,children:e.jsx(a,{...n})}):a()}const m=()=>{throw new Error("Docs-only story")};m.parameters={docsOnly:!0};const t={title:"Docs/Introduction",tags:["stories-mdx"],includeStories:["__page"]};t.parameters=t.parameters||{};t.parameters.docs={...t.parameters.docs||{},page:c};const S=["__page"];export{S as __namedExportsOrder,m as __page,t as default};
