@@ -4,7 +4,7 @@
 
 ## What is it
 
-The Amsterdam Design System is the library for the user interfaces (UI) of all our digital products and services.
+Amsterdam Design System is the library for the user interfaces (UI) of all our digital products and services.
 It provides reusable components, patterns, and guidelines for teams working on websites and applications.
 This way, everyone works together faster and better, with more time to create actual value.
 All software we create, purchase and use is easier to align with our corporate identity.
@@ -25,7 +25,7 @@ Various components and text styles are ready to use in your designs.
 Several others are in the final stages of review.
 Refer to the introduction and legend on the cover page.
 
-### Reply
+### React
 
 On this website, you will find the React Library and documentation – use the table of contents on the left (on wide windows) or under the ‘Sidebar’ tab (on narrow ones).
 These components can be installed and used in your application [via npm](https://www.npmjs.com/search?q=%40amsterdam%2Fdesign-system).
@@ -53,17 +53,17 @@ We help applications implemented in this low-code platform match the corporate i
 Amsterdam Design System uses the architecture of [NL Design System](https://nldesignsystem.nl/).
 
 Thanks to the NL Design System, the entire government in the Netherlands can work together to provide understandable, user-friendly and accessible online services.
-A service that is logical and coherent but not necessarily uniform because, within the agreements, there is room for the identity of government organizations.
+A service that is logical and coherent but not necessarily uniform, because it allows room for the identity of government organizations.
 
-The choice to connect to this also makes it easier to offer different libraries.
+The choice to connect to NL Design System also makes it easier for us to create different libraries.
 
 ## Contact us
 
 ### Join Teams
 
-Do you work at or for the City of Amsterdam, [register now for the Design System team](https://teams.microsoft.com/l/team/19%3afYKS_RD2n1q4UhguA9jwEJk0A_VjYPO4TiLQjYlG_bo1%40thread.tacv2/conversations?groupId=381b5f11-b342-4a3a-8a78-8b371a90457d&tenantId=72fca1b1-2c2e-4376-a445-294d80196804) from MS Teams.
+If you work for the City of Amsterdam, [register now for the Design System team](https://teams.microsoft.com/l/team/19%3afYKS_RD2n1q4UhguA9jwEJk0A_VjYPO4TiLQjYlG_bo1%40thread.tacv2/conversations?groupId=381b5f11-b342-4a3a-8a78-8b371a90457d&tenantId=72fca1b1-2c2e-4376-a445-294d80196804) on MS Teams.
 This way, you can easily stay informed, and we can keep in touch.
-Reading the channels sideways can help you, but you can also participate more.
+The channels have a lot of information you can read, and of course you are more than welcome to participate in threads.
 
 ### Watch the demo
 

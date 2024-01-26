@@ -14,7 +14,7 @@ A prominent navigation element to quickly start a task.
   If you have more Top Task Links, place them in the next row.
   Try to distribute the amount of links on wide windows over rows of 3 or 4 links.
   If this is not possible, leave the last cells of the grid empty.
-- If you have a group of references for which a description is unnecessary or logical, use a [Link List](?path=/docs/react_navigation-link--docs).
+- If you have a group of links for which a description is unnecessary or illogical, use a [Link List](?path=/docs/react_navigation-link--docs).
 
 ## Relevant WCAG requirements
 
