@@ -4,6 +4,7 @@
  */
 
 /* Append here */
+export * from './LinkList'
 export * from './Badge'
 export * from './Table'
 export * from './MegaMenu'
@@ -35,7 +36,7 @@ export * from './OrderedList'
 export * from './Heading'
 export * from './Breadcrumb'
 export * from './Link'
-export * from './Button/'
+export * from './Button'
 export * from './Paragraph'
 export * from './FormLabel'
 export * from './UnorderedList'
