@@ -1,4 +1,4 @@
-import{M as a,d as r}from"./index-QzwB2eh4.js";import{j as e}from"./jsx-runtime-vNq4Oc-g.js";import{useMDXComponents as i}from"./index-_VGcpBFS.js";import"./iframe-MhqThAi-.js";import"../sb-preview/runtime.js";import"./index-4g5l5LRQ.js";import"./_commonjsHelpers-4gQjN7DL.js";import"./index-jmm5gWkb.js";import"./index-ogXoivrg.js";import"./index-MVbLLYTZ.js";import"./index-PPLHz8o0.js";const d=`<!-- @license CC0-1.0 -->
+import{M as a,d as r}from"./index-dSRdAtsa.js";import{j as e}from"./jsx-runtime-vNq4Oc-g.js";import{useMDXComponents as i}from"./index-_VGcpBFS.js";import"./iframe-Q5YYTwDl.js";import"../sb-preview/runtime.js";import"./index-4g5l5LRQ.js";import"./_commonjsHelpers-4gQjN7DL.js";import"./index-jmm5gWkb.js";import"./index-ogXoivrg.js";import"./index-MVbLLYTZ.js";import"./index-PPLHz8o0.js";const d=`<!-- @license CC0-1.0 -->
 
 # Amsterdam Design System
 
