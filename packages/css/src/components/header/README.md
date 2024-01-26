@@ -1,12 +1,12 @@
 # Header
 
-A Header offers a container to display a City of Amsterdam logo, subsite title and page menu.
+Arranges the City’s logo, the title of the website, and a page menu.
 
 ## Guidelines
 
 - Use the Header when the site is hosted on amsterdam.nl or one of its subdomains.
 - The page menu can contain a maximum of 5 items, including menu and search.
-- When you have a long subsite title, use no or as little page menu items as possible.
+- When you have a long subsite title, use no or as few page menu items as possible.
 
 ## References
 

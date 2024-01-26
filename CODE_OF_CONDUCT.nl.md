@@ -4,12 +4,12 @@
 
 ## Onze belofte
 
-In het belang van het bevorderen van een open en welkome omgeving, beloven wij, de bijdragers en onderhouders, om het deelnemen in ons project en onze gemeenschap een intimidatie-vrije ervaring te maken voor iedereen. Dit onafhankelijk van leeftijd, lichaam, handicap, etniciteit, gender identiteit en uiting, ervaringsniveau, nationaliteit, persoonlijk voorkomen, ras, religie of seksuele indentiteit en oriëntatie.
+In het belang van het bevorderen van een open en welkome omgeving, beloven wij, de bijdragers en onderhouders, om het deelnemen in ons project en onze gemeenschap een intimidatie-vrije ervaring te maken voor iedereen.
+Dit onafhankelijk van leeftijd, lichaam, handicap, etniciteit, gender identiteit en uiting, ervaringsniveau, nationaliteit, persoonlijk voorkomen, ras, religie of seksuele indentiteit en oriëntatie.
 
 ## Onze standaarden
 
-Voorbeelden van gedrag dat bijdraagt tot het creëren van een positieve omgeving
-omvat onder andere:
+Voorbeelden van gedrag dat bijdraagt tot het creëren van een positieve omgeving omvat onder andere:
 
 - Gebruik van gastvrije en omvattende taal
 - Respectvol zijn ten aanzien van andere standpunten en ervaringen
@@ -33,12 +33,16 @@ Projectonderhouders hebben het recht en de verantwoordelijkheid om commentaar, c
 
 ## Bereik
 
-Deze Gedragscode geldt voor zowel binnen project ruimtes alsook in publieke ruimtes wanneer een individu het project of de gemeenschap vertegenwoordigd. Voorbeelden van vertegenwoordiging van een project of gemeenschap omvatten het gebruik van een officieel e-mailadres van het project, het posten via een officiële sociale media account, of het handelen als een aangestelde vertegenwoordiger op een online of offline event. Vertegenwoordiging
-van een project mag verder worden gedefinieerd door de projectonderhouders.
+Deze Gedragscode geldt voor zowel binnen project ruimtes alsook in publieke ruimtes wanneer een individu het project of de gemeenschap vertegenwoordigd.
+Voorbeelden van vertegenwoordiging van een project of gemeenschap omvatten het gebruik van een officieel e-mailadres van het project, het posten via een officiële sociale media account, of het handelen als een aangestelde vertegenwoordiger op een online of offline event.
+Vertegenwoordiging van een project mag verder worden gedefinieerd door de projectonderhouders.
 
 ## Handhaving
 
-Instanties van beledigend, storend of anders niet aanvaardbaar gedrag mag worden gerapporteerd aan de projectonderhouders die verantwoordelijk zijn voor handhaving via e-mail of Slack. Alle klachten zullen besproken en onderzocht worden en zullen resulteren in een antwoord dat nodig en passend wordt geacht al naargelang de situatie. Het project team is verplicht om vertrouwelijkheid te garanderen met betrekking tot de klager. Verdere details van specifiek handhavingsbeleid kan apart worden gepubliceerd.
+Instanties van beledigend, storend of anders niet aanvaardbaar gedrag mag worden gerapporteerd aan de projectonderhouders die verantwoordelijk zijn voor handhaving via e-mail of Slack.
+Alle klachten zullen besproken en onderzocht worden en zullen resulteren in een antwoord dat nodig en passend wordt geacht al naargelang de situatie.
+Het project team is verplicht om vertrouwelijkheid te garanderen met betrekking tot de klager.
+Verdere details van specifiek handhavingsbeleid kan apart worden gepubliceerd.
 
 Projectonderhouders die de Gedragscode niet volgen of ter goeder trouw handhaven, kunnen tijdelijke of permanente repercussies opgelegd krijgen door overige leden van de projectleiding.
 

@@ -2,9 +2,10 @@
 
 # Component library for React apps
 
-The `@amsterdam/design-system-react` package contains React implementations of various components. You can use this package in React apps.
+The `@amsterdam/design-system-react` package contains React implementations of various components.
+You can use this package in React apps.
 
-The design tokens and css used in these components are published in separate npm packages, so don't forget to install and include `@amsterdam/design-system-tokens` and `@amsterdam/design-system-css` too.
+The design tokens and css used in these components are published in separate npm packages, so don’t forget to install and include `@amsterdam/design-system-tokens` and `@amsterdam/design-system-css` too.
 
 <!-- TODO: make this easier? -->
 

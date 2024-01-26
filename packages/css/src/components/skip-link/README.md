@@ -1,34 +1,26 @@
 # Skip Link
 
-Gebruik een Skip Link om makkelijk met het toetsenbord naar de belangrijkste inhoud te navigeren.
-Met een Skip Link kun je terugkerende navigatieblokken (zoals het hoofdmenu of het kruimelpad) overslaan.
+Use a Skip Link to navigate to the main content quickly with the keyboard.
+A Skip Link allows skipping recurring navigation blocks, such as the main menu or breadcrumb trail.
 
-De Skip Link staat boven de header.
-De link is verborgen totdat deze met de tab-toets geactiveerd wordt.
-Als de link getoond wordt, duwt deze de hele pagina omlaag.
+The Skip Link is placed above the header.
+The link is hidden until activated with the tab key.
+When the link is shown, it pushes the entire page down.
 
-## Richtlijnen
+## Guidelines
 
-### Zo gebruiken
+### How to Use
 
-- Plaats de Skip Link als eerste element in `<body>`, tenzij je een cookie-banner hebt.
-  Plaats de Skip Link dan direct na de cookie-banner.
-- Gebruik de Skip Link om naar de belangrijkste inhoud te navigeren.
-  Op een artikelpagina is dat bijvoorbeeld de titel van het artikel, op een zoekpagina is dat het zoekveld.
-- Zet bijvoorbeeld `id="main"` op de container van dat element en zet dan `href="#main"` op de Skip Link.
-- Voor complexe pagina's met meerdere secties kun je meer dan 1 Skip Link gebruiken.
-  In de meeste gevallen is dit niet nodig.
+- Place the Skip Link as the first element in `<body>` unless you have a cookie banner.
+  In that case, place the Skip Link immediately after the cookie banner.
+- Use the Skip Link to navigate to the main content.
+  On an article page, for example, it could be the title of the article; on a search page, it could be the search field.
+- Set `id="example-id"` on the container of that element and then use `href="#example-id"` on the Skip Link.
+- You can use more than one Skip Link for complex pages with multiple sections.
+  In most cases, this is not necessary.
 
-### Dit vermijden
+### Avoid
 
-- Skip Links zijn niet nodig op een simpele pagina waar alleen tekst staat en weinig navigatie.
-  Het doel van een Skip Link is om terugkerende navigatieblokken over te slaan.
-  Als die blokken er niet zijn, is een Skip Link niet nodig.
-- Plaats de Skip Link niet in een `nav` regio, of in de Header.
-
-## Relevante WCAG eisen
-
-- Voor dit component gelden dezelfde WCAG eisen als voor [het link component](https://amsterdam.github.io/design-system/?path=/docs/react_navigation-link--docs).
-- [WCAG 2.4.1](https://www.w3.org/TR/WCAG22/#bypass-blocks): gebruik een Skip Link op elke pagina die begint met een terugkerend navigatieblok.
-- [WCAG 3.2.3](https://www.w3.org/TR/WCAG22/#consistent-navigation): een Skip Link staat op elke pagina op dezelfde plek.
-- [WCAG 3.2.4](https://www.w3.org/TR/WCAG22/#consistent-identification): een Skip Link heeft dezelfde labels op alle pagina's. Bijvoorbeeld niet: "Navigatie overslaan" op een gedeelte van de site, en "Naar de inhoud" op andere pagina's.
+- Skip Links are unnecessary on a simple page with only text and minimal navigation.
+  The purpose of a Skip Link is to bypass recurring navigation blocks.
+  If those blocks are not present, a Skip Link is not needed.

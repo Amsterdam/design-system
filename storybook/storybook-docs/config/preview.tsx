@@ -13,7 +13,7 @@ export const parameters = {
   },
   options: {
     storySort: {
-      order: ['Docs', ['Intro', 'Assets', 'Designrichtlijnen']],
+      order: ['Docs', ['Introduction', 'Assets', 'Design Guidelines']],
     },
   },
   viewMode: 'docs',

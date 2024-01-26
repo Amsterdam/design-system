@@ -1,16 +1,17 @@
 # Page Heading
 
-Het page heading component is een opvallende tekst aan het begin van een pagina, direct na de header.
-Gebruik dit component voor een naam, titel of motto.
+The page heading component is a prominent text at the beginning of a page, immediately after the header.
+Use this component for a name, title, or motto.
 
-## Richtlijnen
+## Guidelines
 
-- Gebruik dit component om de aandacht van de gebruiker te trekken.
-- Gebruik dit component maar 1 keer per pagina, vaak alleen op de voorpagina.
-- Niet gebruiken als je lange stukken tekst wilt weergeven, de tekst moet kort en duidelijk zijn.
+- Use this component to capture the user’s attention.
+- Only use this component once per page, typically only on the homepage.
+- Avoid using it if you need to display long pieces of text; the text should be short and precise.
 
-## Relevante WCAG eisen
+## Relevant WCAG Requirements
 
-Het page heading component is een variant van een heading level 1, met een afwijkende stijl. Let bij gebruik van dit component goed op dat de heading hiërarchie van de pagina logisch blijft.
+The page heading component is a variant of a heading level 1 with a distinct style.
+When using this component, ensure that the heading hierarchy of the page remains logical.
 
-Voor dit component gelden dezelfde WCAG eisen als voor [het heading component](https://amsterdam.github.io/design-system/?path=/docs/react_text-heading--docs).
+For this component, the same WCAG requirements apply as for [the heading component](https://amsterdam.github.io/design-system/?path=/docs/react_text-heading--docs).
