@@ -15,7 +15,7 @@ const meta = {
   argTypes: {
     color: {
       control: {
-        type: 'inline-radio',
+        type: 'select',
       },
       options: ['blue', 'dark-blue', 'dark-green', 'green', 'magenta', 'orange', 'purple', 'yellow'],
       selected: 'dark-green',
