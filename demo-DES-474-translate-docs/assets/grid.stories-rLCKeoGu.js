@@ -1,4 +1,4 @@
-import{M as h}from"./index-vSoPKwbj.js";import{j as e}from"./jsx-runtime-vNq4Oc-g.js";import{useMDXComponents as r}from"./index-_VGcpBFS.js";import"./iframe-PaXCCSYY.js";import"../sb-preview/runtime.js";import"./index-4g5l5LRQ.js";import"./_commonjsHelpers-4gQjN7DL.js";import"./index-jmm5gWkb.js";import"./index-ogXoivrg.js";import"./index-MVbLLYTZ.js";import"./index-PPLHz8o0.js";function s(n){const i=Object.assign({h1:"h1",p:"p",h2:"h2",h3:"h3",h4:"h4",table:"table",thead:"thead",tr:"tr",th:"th",tbody:"tbody",td:"td",a:"a",ul:"ul",li:"li"},r(),n.components);return e.jsxs(e.Fragment,{children:[e.jsx(h,{title:"Docs/Design Guidelines/Grid"}),`
+import{M as h}from"./index-Ukb55O2x.js";import{j as e}from"./jsx-runtime-vNq4Oc-g.js";import{useMDXComponents as r}from"./index-_VGcpBFS.js";import"./iframe-wCd92Z8n.js";import"../sb-preview/runtime.js";import"./index-4g5l5LRQ.js";import"./_commonjsHelpers-4gQjN7DL.js";import"./index-jmm5gWkb.js";import"./index-ogXoivrg.js";import"./index-MVbLLYTZ.js";import"./index-PPLHz8o0.js";function s(n){const i=Object.assign({h1:"h1",p:"p",h2:"h2",h3:"h3",h4:"h4",table:"table",thead:"thead",tr:"tr",th:"th",tbody:"tbody",td:"td",a:"a",ul:"ul",li:"li"},r(),n.components);return e.jsxs(e.Fragment,{children:[e.jsx(h,{title:"Docs/Design Guidelines/Grid"}),`
 `,e.jsx(i.h1,{id:"grid",children:"Grid"}),`
 `,e.jsx(i.p,{children:`Underlying each page is a responsive grid.
 All elements on a page are placed on this grid.`}),`
@@ -9,7 +9,7 @@ The wider the window, the more columns.`}),`
 `,e.jsx(i.p,{children:`In windows up to 576 pixels wide, the grid has 4 columns.
 Up to a width of 1088 pixels, it has 8 columns.
 At that point and beyond, it has 12 columns.`}),`
-`,e.jsx(i.p,{children:"We refer to these three variants as the narrow, medium-wide, and wide grid."}),`
+`,e.jsx(i.p,{children:"We refer to these three variants as the narrow, medium, and wide grid."}),`
 `,e.jsx(i.p,{children:`The breakpoints are based on steps of 256 pixels, starting with a base of 64 pixels.
 So, 576 = 64 + 2 × 256 and 1088 = 64 + 4 × 256.`}),`
 `,e.jsx(i.p,{children:`At these breakpoints, only the amount of columns changes.
@@ -19,9 +19,9 @@ The white spaces between and beside the columns grow at the same rate across the
 `,e.jsx(i.p,{children:`The design system supports both websites and web applications.
 The desired layout differs significantly between the two.`}),`
 `,e.jsx(i.h4,{id:"spacious",children:"Spacious"}),`
-`,e.jsx(i.p,{children:`The online house style had been designed for simplicity.
-There are a few options for background colour or borders.
-Typography and white space remain as tools to make screens clear.
+`,e.jsx(i.p,{children:`The online corporate identity had been designed for simplicity.
+There are few options for background colour or borders.
+Typography and white space remain as tools to keep screens readable.
 For websites, the grid is quite spacious.`}),`
 `,e.jsx(i.p,{children:`The horizontal white space between columns is 16 pixels wide at a window width of 320 pixels or less.
 For every additional 256 pixels of width, the white space grows linearly by 8 pixels.
@@ -52,7 +52,7 @@ No elements are placed over these margins.`}),`
 `,e.jsx(i.h3,{id:"menu-bar",children:"Menu bar"}),`
 `,e.jsx(i.p,{children:`In the wide grid, applications have a vertical menu bar on the left side.
 This is next to the grid, not inside, and has a fixed width of 112 pixels.`}),`
-`,e.jsx(i.p,{children:`The menu is placed horizontally below the header in the medium-wide and narrow grids.
+`,e.jsx(i.p,{children:`The menu is placed horizontally below the header in the medium and narrow grids.
 In this context, the grid takes up the entire width of the window.`}),`
 `,e.jsx(i.h3,{id:"maximum-width",children:"Maximum width"}),`
 `,e.jsx(i.p,{children:`A maximum width for the grid ensures that white space and typography do not grow indefinitely.
@@ -70,30 +70,30 @@ For convenience, the width of 320 plays a role in the documentation.`}),`
 `,e.jsx(i.p,{children:`The columns, white spaces, and margins have the following widths at the three breakpoints.
 Again, between these widths, the widths grow continuously.`}),`
 `,e.jsx(i.h4,{id:"spacious-2",children:"Spacious"}),`
-`,e.jsxs(i.table,{children:[e.jsx(i.thead,{children:e.jsxs(i.tr,{children:[e.jsx(i.th,{align:"left",children:"Breakpoint"}),e.jsx(i.th,{align:"right",children:"From window width"}),e.jsx(i.th,{align:"right",children:"Number of columns"}),e.jsx(i.th,{align:"right",children:"Column width"}),e.jsx(i.th,{align:"right",children:"White space width"}),e.jsx(i.th,{align:"right",children:"Margin width"}),e.jsx(i.th,{align:"right",children:"Grid width"})]})}),e.jsxs(i.tbody,{children:[e.jsxs(i.tr,{children:[e.jsx(i.td,{align:"left",children:"narrow"}),e.jsx(i.td,{align:"right",children:"320"}),e.jsx(i.td,{align:"right",children:"4"}),e.jsx(i.td,{align:"right",children:"56"}),e.jsx(i.td,{align:"right",children:"16"}),e.jsx(i.td,{align:"right",children:"24"}),e.jsx(i.td,{align:"right",children:"272"})]}),e.jsxs(i.tr,{children:[e.jsx(i.td,{align:"left",children:"medium-wide"}),e.jsx(i.td,{align:"right",children:"576"}),e.jsx(i.td,{align:"right",children:"8"}),e.jsx(i.td,{align:"right",children:"42"}),e.jsx(i.td,{align:"right",children:"24"}),e.jsx(i.td,{align:"right",children:"36"}),e.jsx(i.td,{align:"right",children:"504"})]}),e.jsxs(i.tr,{children:[e.jsx(i.td,{align:"left",children:"wide"}),e.jsx(i.td,{align:"right",children:"1088"}),e.jsx(i.td,{align:"right",children:"12"}),e.jsx(i.td,{align:"right",children:"44"}),e.jsx(i.td,{align:"right",children:"40"}),e.jsx(i.td,{align:"right",children:"60"}),e.jsx(i.td,{align:"right",children:"968"})]})]})]}),`
+`,e.jsxs(i.table,{children:[e.jsx(i.thead,{children:e.jsxs(i.tr,{children:[e.jsx(i.th,{align:"left",children:"Breakpoint"}),e.jsx(i.th,{align:"right",children:"From window width"}),e.jsx(i.th,{align:"right",children:"Number of columns"}),e.jsx(i.th,{align:"right",children:"Column width"}),e.jsx(i.th,{align:"right",children:"White space width"}),e.jsx(i.th,{align:"right",children:"Margin width"}),e.jsx(i.th,{align:"right",children:"Grid width"})]})}),e.jsxs(i.tbody,{children:[e.jsxs(i.tr,{children:[e.jsx(i.td,{align:"left",children:"narrow"}),e.jsx(i.td,{align:"right",children:"320"}),e.jsx(i.td,{align:"right",children:"4"}),e.jsx(i.td,{align:"right",children:"56"}),e.jsx(i.td,{align:"right",children:"16"}),e.jsx(i.td,{align:"right",children:"24"}),e.jsx(i.td,{align:"right",children:"272"})]}),e.jsxs(i.tr,{children:[e.jsx(i.td,{align:"left",children:"medium"}),e.jsx(i.td,{align:"right",children:"576"}),e.jsx(i.td,{align:"right",children:"8"}),e.jsx(i.td,{align:"right",children:"42"}),e.jsx(i.td,{align:"right",children:"24"}),e.jsx(i.td,{align:"right",children:"36"}),e.jsx(i.td,{align:"right",children:"504"})]}),e.jsxs(i.tr,{children:[e.jsx(i.td,{align:"left",children:"wide"}),e.jsx(i.td,{align:"right",children:"1088"}),e.jsx(i.td,{align:"right",children:"12"}),e.jsx(i.td,{align:"right",children:"44"}),e.jsx(i.td,{align:"right",children:"40"}),e.jsx(i.td,{align:"right",children:"60"}),e.jsx(i.td,{align:"right",children:"968"})]})]})]}),`
 `,e.jsx(i.h4,{id:"compact-2",children:"Compact"}),`
-`,e.jsxs(i.table,{children:[e.jsx(i.thead,{children:e.jsxs(i.tr,{children:[e.jsx(i.th,{align:"left",children:"Breakpoint"}),e.jsx(i.th,{align:"right",children:"From window width"}),e.jsx(i.th,{align:"right",children:"Number of columns"}),e.jsx(i.th,{align:"right",children:"Menu bar width"}),e.jsx(i.th,{align:"right",children:"Column width"}),e.jsx(i.th,{align:"right",children:"White space width"}),e.jsx(i.th,{align:"right",children:"Margin width"}),e.jsx(i.th,{align:"right",children:"Grid width"})]})}),e.jsxs(i.tbody,{children:[e.jsxs(i.tr,{children:[e.jsx(i.td,{align:"left",children:"narrow"}),e.jsx(i.td,{align:"right",children:"320"}),e.jsx(i.td,{align:"right",children:"4"}),e.jsx(i.td,{align:"right",children:"0"}),e.jsx(i.td,{align:"right",children:"60"}),e.jsx(i.td,{align:"right",children:"16"}),e.jsx(i.td,{align:"right",children:"16"}),e.jsx(i.td,{align:"right",children:"288"})]}),e.jsxs(i.tr,{children:[e.jsx(i.td,{align:"left",children:"medium-wide"}),e.jsx(i.td,{align:"right",children:"576"}),e.jsx(i.td,{align:"right",children:"8"}),e.jsx(i.td,{align:"right",children:"0"}),e.jsx(i.td,{align:"right",children:"54"}),e.jsx(i.td,{align:"right",children:"16"}),e.jsx(i.td,{align:"right",children:"16"}),e.jsx(i.td,{align:"right",children:"544"})]}),e.jsxs(i.tr,{children:[e.jsx(i.td,{align:"left",children:"wide"}),e.jsx(i.td,{align:"right",children:"1088"}),e.jsx(i.td,{align:"right",children:"12"}),e.jsx(i.td,{align:"right",children:"112"}),e.jsx(i.td,{align:"right",children:"64"}),e.jsx(i.td,{align:"right",children:"16"}),e.jsx(i.td,{align:"right",children:"16"}),e.jsx(i.td,{align:"right",children:"944"})]})]})]}),`
+`,e.jsxs(i.table,{children:[e.jsx(i.thead,{children:e.jsxs(i.tr,{children:[e.jsx(i.th,{align:"left",children:"Breakpoint"}),e.jsx(i.th,{align:"right",children:"From window width"}),e.jsx(i.th,{align:"right",children:"Number of columns"}),e.jsx(i.th,{align:"right",children:"Menu bar width"}),e.jsx(i.th,{align:"right",children:"Column width"}),e.jsx(i.th,{align:"right",children:"White space width"}),e.jsx(i.th,{align:"right",children:"Margin width"}),e.jsx(i.th,{align:"right",children:"Grid width"})]})}),e.jsxs(i.tbody,{children:[e.jsxs(i.tr,{children:[e.jsx(i.td,{align:"left",children:"narrow"}),e.jsx(i.td,{align:"right",children:"320"}),e.jsx(i.td,{align:"right",children:"4"}),e.jsx(i.td,{align:"right",children:"0"}),e.jsx(i.td,{align:"right",children:"60"}),e.jsx(i.td,{align:"right",children:"16"}),e.jsx(i.td,{align:"right",children:"16"}),e.jsx(i.td,{align:"right",children:"288"})]}),e.jsxs(i.tr,{children:[e.jsx(i.td,{align:"left",children:"medium"}),e.jsx(i.td,{align:"right",children:"576"}),e.jsx(i.td,{align:"right",children:"8"}),e.jsx(i.td,{align:"right",children:"0"}),e.jsx(i.td,{align:"right",children:"54"}),e.jsx(i.td,{align:"right",children:"16"}),e.jsx(i.td,{align:"right",children:"16"}),e.jsx(i.td,{align:"right",children:"544"})]}),e.jsxs(i.tr,{children:[e.jsx(i.td,{align:"left",children:"wide"}),e.jsx(i.td,{align:"right",children:"1088"}),e.jsx(i.td,{align:"right",children:"12"}),e.jsx(i.td,{align:"right",children:"112"}),e.jsx(i.td,{align:"right",children:"64"}),e.jsx(i.td,{align:"right",children:"16"}),e.jsx(i.td,{align:"right",children:"16"}),e.jsx(i.td,{align:"right",children:"944"})]})]})]}),`
 `,e.jsx(i.h3,{id:"not-tied-to-devices",children:"Not tied to devices"}),`
 `,e.jsx(i.p,{children:`All grid dimensions are based on multiples of 16;
 explicitly not on the sizes of specific screens or devices.`}),`
 `,e.jsx(i.p,{children:`We do not want to design our layouts based on the precise dimensions of the latest iPhone or Galaxy,
 but instead, make them responsive to the variety of screens they will appear on.
 Of course, we have experimented and tested this.
-We’ve ultimately chosen values that work visually in practice.`}),`
-`,e.jsx(i.p,{children:'For the same reason, we do not refer to the three grid breakpoints as "mobile, tablet, and desktop" but as "for narrow, medium-wide, and wide" screens or windows.'}),`
+We’ve ultimately chosen values that work well visually.`}),`
+`,e.jsx(i.p,{children:'For the same reason, we do not refer to the three grid breakpoints as "mobile, tablet, and desktop" but as "for narrow, medium, and wide" screens or windows.'}),`
 `,e.jsx(i.p,{children:`If you want a bit more guidance,
 assume that phones in portrait mode and split-screen windows on tablets use the 4-column grid,
-phones in landscape mode and tablets in portrait use the 8-column,
+phones in landscape mode and tablets in portrait use the 8-column grid,
 and tablets in landscape mode,
-laptops, and larger screens use the 12-column.
-The exact number of pixels is not crucial.`}),`
+laptops, and larger screens use the 12-column grid.
+The exact number of pixels is not important.`}),`
 `,e.jsx(i.h3,{id:"reference-widths-for-designers",children:"Reference widths for designers"}),`
 `,e.jsx(i.p,{children:`Nice, all that flexibility.
 However, when designing a screen, it is still necessary to choose a specific canvas.
 You want to determine how each design behaves on a desktop, a tablet, or a mobile phone.`}),`
 `,e.jsx(i.p,{children:`Therefore, in Figma, we work with three reference widths.
 On those widths, we develop the screen’s design for those three classes of devices.
-We know that, in reality, there is much more variation, but we have to aim somewhere.
+We know that, in reality, there is much more variation, but we have to draw the line somewhere.
 You can find these grids in the Figma Library under ‘Grid styles’.`}),`
 `,e.jsx(i.p,{children:"In these three situations, the dimensions are as follows."}),`
 `,e.jsx(i.h4,{id:"spacious-3",children:"Spacious"}),`
@@ -101,7 +101,7 @@ You can find these grids in the Figma Library under ‘Grid styles’.`}),`
 `,e.jsx(i.h4,{id:"compact-3",children:"Compact"}),`
 `,e.jsxs(i.table,{children:[e.jsx(i.thead,{children:e.jsxs(i.tr,{children:[e.jsx(i.th,{align:"left",children:"Device Class"}),e.jsx(i.th,{align:"right",children:"Reference Width"}),e.jsx(i.th,{align:"right",children:"Number of columns"}),e.jsx(i.th,{align:"right",children:"Menu bar width"}),e.jsx(i.th,{align:"right",children:"Column width"}),e.jsx(i.th,{align:"right",children:"White space width"}),e.jsx(i.th,{align:"right",children:"Margin width"}),e.jsx(i.th,{align:"right",children:"Grid width"})]})}),e.jsxs(i.tbody,{children:[e.jsxs(i.tr,{children:[e.jsx(i.td,{align:"left",children:"phone"}),e.jsx(i.td,{align:"right",children:"320"}),e.jsx(i.td,{align:"right",children:"4"}),e.jsx(i.td,{align:"right",children:"0"}),e.jsx(i.td,{align:"right",children:"60"}),e.jsx(i.td,{align:"right",children:"16"}),e.jsx(i.td,{align:"right",children:"16"}),e.jsx(i.td,{align:"right",children:"288"})]}),e.jsxs(i.tr,{children:[e.jsx(i.td,{align:"left",children:"tablet"}),e.jsx(i.td,{align:"right",children:"832"}),e.jsx(i.td,{align:"right",children:"8"}),e.jsx(i.td,{align:"right",children:"0"}),e.jsx(i.td,{align:"right",children:"86"}),e.jsx(i.td,{align:"right",children:"16"}),e.jsx(i.td,{align:"right",children:"16"}),e.jsx(i.td,{align:"right",children:"800"})]}),e.jsxs(i.tr,{children:[e.jsx(i.td,{align:"left",children:"desktop"}),e.jsx(i.td,{align:"right",children:"1600"}),e.jsx(i.td,{align:"right",children:"12"}),e.jsx(i.td,{align:"right",children:"112"}),e.jsx(i.td,{align:"right",children:"98"}),e.jsx(i.td,{align:"right",children:"24"}),e.jsx(i.td,{align:"right",children:"24"}),e.jsx(i.td,{align:"right",children:"1440"})]})]})]}),`
 `,e.jsx(i.h3,{id:"windows-or-screens",children:"Windows or screens"}),`
-`,e.jsx(i.p,{children:`We intentionally talk about windows, while responsive design often discusses screen widths.
+`,e.jsx(i.p,{children:`We intentionally talk about windows, while responsive design often uses screen widths.
 Most of the time, it comes down to the same thing, but not always.
 It is good to be aware of this.`}),`
 `,e.jsx(i.p,{children:`On a computer screen, the browser window is not necessarily maximized; it can be narrower than the screen.
