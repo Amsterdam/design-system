@@ -7,10 +7,10 @@ import clsx from 'clsx'
 import { forwardRef } from 'react'
 import type { AnchorHTMLAttributes, ForwardedRef } from 'react'
 
-export interface TopTaskLinkProps extends AnchorHTMLAttributes<HTMLAnchorElement> {
+export type TopTaskLinkProps = {
   label: string
   description: string
-}
+} & AnchorHTMLAttributes<HTMLAnchorElement>
 
 export const TopTaskLink = forwardRef(
   ({ className, label, description, ...restProps }: TopTaskLinkProps, ref: ForwardedRef<HTMLAnchorElement>) => (

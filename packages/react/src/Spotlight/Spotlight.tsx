@@ -6,10 +6,10 @@
 import clsx from 'clsx'
 import { forwardRef, HTMLAttributes, PropsWithChildren } from 'react'
 
-export interface SpotlightProps extends PropsWithChildren<HTMLAttributes<HTMLElement>> {
+export type SpotlightProps = {
   as?: 'article' | 'aside' | 'div' | 'footer' | 'section'
   color?: 'blue' | 'dark-green' | 'green' | 'light-blue' | 'magenta' | 'orange' | 'purple' | 'yellow'
-}
+} & PropsWithChildren<HTMLAttributes<HTMLElement>>
 
 export const Spotlight = forwardRef<HTMLDivElement, SpotlightProps>(
   ({ children, className, as: Tag = 'div', color = 'blue', ...restProps }: SpotlightProps, ref) => (

@@ -68,9 +68,9 @@ const paddingClasses = (
   return classes
 }
 
-interface GridComponent extends ForwardRefExoticComponent<GridProps & RefAttributes<HTMLDivElement>> {
+type GridComponent = {
   Cell: typeof GridCell
-}
+} & ForwardRefExoticComponent<GridProps & RefAttributes<HTMLDivElement>>
 
 export const Grid = forwardRef(
   (

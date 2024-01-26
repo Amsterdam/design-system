@@ -14,10 +14,10 @@ type LinkOnBackground = 'default' | 'light' | 'dark'
 type DeprecatedLinkVariantInList = 'inList'
 type LinkVariant = 'standalone' | 'inline' | DeprecatedLinkVariantInList
 
-interface CommonProps extends Omit<AnchorHTMLAttributes<HTMLAnchorElement>, 'placeholder'> {
+type CommonProps = {
   variant?: LinkVariant
   onBackground?: LinkOnBackground
-}
+} & Omit<AnchorHTMLAttributes<HTMLAnchorElement>, 'placeholder'>
 
 type ConditionalProps =
   | {
