@@ -5,6 +5,7 @@
       "link": {
         "color": { "value": "{amsterdam.link-appearance.color}" },
         "font-family": { "value": "{amsterdam.typography.font-family}" },
+        "font-weight": { "value": "{amsterdam.typography.font-weight.normal}" },
         "gap": { "value": "0.5em" },
         "outline-offset": { "value": "{amsterdam.focus.outline-offset}" },
         "text-decoration-line": { "value": "{amsterdam.link-appearance.subtle.text-decoration-line}" },
