@@ -10,9 +10,9 @@ import { BreadcrumbItem } from './BreadcrumbItem'
 
 export type BreadcrumbProps = PropsWithChildren<HTMLAttributes<HTMLElement>>
 
-interface BreadcrumbComponent extends ForwardRefExoticComponent<BreadcrumbProps & RefAttributes<HTMLElement>> {
+type BreadcrumbComponent = {
   Item: typeof BreadcrumbItem
-}
+} & ForwardRefExoticComponent<BreadcrumbProps & RefAttributes<HTMLElement>>
 
 export const Breadcrumb = forwardRef(
   ({ children, className, ...restProps }: BreadcrumbProps, ref: ForwardedRef<HTMLElement>) => (

@@ -7,7 +7,7 @@ import clsx from 'clsx'
 import { forwardRef } from 'react'
 import type { ForwardedRef, HTMLAttributes, PropsWithChildren } from 'react'
 
-export interface MarkProps extends PropsWithChildren<HTMLAttributes<HTMLElement>> {}
+export type MarkProps = PropsWithChildren<HTMLAttributes<HTMLElement>>
 
 export const Mark = forwardRef(({ children, className, ...restProps }: MarkProps, ref: ForwardedRef<HTMLElement>) => (
   <mark {...restProps} ref={ref} className={clsx('amsterdam-mark', className)}>

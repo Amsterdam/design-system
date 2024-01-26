@@ -8,13 +8,13 @@ import { forwardRef } from 'react'
 import type { ForwardedRef, ForwardRefExoticComponent, OlHTMLAttributes, PropsWithChildren, RefAttributes } from 'react'
 import { OrderedListItem } from './OrderedListItem'
 
-export interface OrderedListProps extends PropsWithChildren<OlHTMLAttributes<HTMLOListElement>> {
+export type OrderedListProps = {
   markers?: boolean
-}
+} & PropsWithChildren<OlHTMLAttributes<HTMLOListElement>>
 
-interface OrderedListComponent extends ForwardRefExoticComponent<OrderedListProps & RefAttributes<HTMLOListElement>> {
+type OrderedListComponent = {
   Item: typeof OrderedListItem
-}
+} & ForwardRefExoticComponent<OrderedListProps & RefAttributes<HTMLOListElement>>
 
 export const OrderedList = forwardRef(
   ({ children, markers = true, className, ...restProps }: OrderedListProps, ref: ForwardedRef<HTMLOListElement>) => (

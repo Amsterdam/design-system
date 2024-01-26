@@ -16,9 +16,9 @@ export type PageMenuProps = {
   alignEnd?: boolean
 } & PropsWithChildren<HTMLAttributes<HTMLUListElement>>
 
-interface PageMenuComponent extends ForwardRefExoticComponent<PageMenuProps & RefAttributes<HTMLUListElement>> {
+type PageMenuComponent = {
   Link: typeof PageMenuLink
-}
+} & ForwardRefExoticComponent<PageMenuProps & RefAttributes<HTMLUListElement>>
 
 export const PageMenu = forwardRef(
   ({ alignEnd, children, className, ...restProps }: PageMenuProps, ref: ForwardedRef<HTMLUListElement>) => (

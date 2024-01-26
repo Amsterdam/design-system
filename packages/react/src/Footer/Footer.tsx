@@ -11,10 +11,10 @@ import { FooterTop } from './FooterTop'
 
 export type FooterProps = PropsWithChildren<HTMLAttributes<HTMLElement>>
 
-interface FooterComponent extends ForwardRefExoticComponent<FooterProps & RefAttributes<HTMLElement>> {
+type FooterComponent = {
   Top: typeof FooterTop
   Bottom: typeof FooterBottom
-}
+} & ForwardRefExoticComponent<FooterProps & RefAttributes<HTMLElement>>
 
 export const Footer = forwardRef(
   ({ children, className, ...restProps }: FooterProps, ref: ForwardedRef<HTMLElement>) => (

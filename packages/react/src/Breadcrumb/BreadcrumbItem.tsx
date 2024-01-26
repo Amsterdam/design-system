@@ -7,9 +7,9 @@ import { clsx } from 'clsx'
 import { forwardRef } from 'react'
 import type { ForwardedRef, HTMLAttributes, PropsWithChildren } from 'react'
 
-export interface BreadcrumbItemProps extends PropsWithChildren<HTMLAttributes<HTMLLIElement>> {
+export type BreadcrumbItemProps = {
   href: string
-}
+} & PropsWithChildren<HTMLAttributes<HTMLLIElement>>
 
 export const BreadcrumbItem = forwardRef(
   ({ children, className, href, ...restProps }: BreadcrumbItemProps, ref: ForwardedRef<HTMLLIElement>) => (

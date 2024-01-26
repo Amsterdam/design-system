@@ -8,7 +8,7 @@ import clsx from 'clsx'
 import { forwardRef } from 'react'
 import type { ForwardedRef, HTMLAttributes, PropsWithChildren } from 'react'
 
-export interface TableCaptionProps extends PropsWithChildren<HTMLAttributes<HTMLTableCaptionElement>> {}
+export type TableCaptionProps = PropsWithChildren<HTMLAttributes<HTMLTableCaptionElement>>
 
 export const TableCaption = forwardRef(
   ({ children, className, ...restProps }: TableCaptionProps, ref: ForwardedRef<HTMLTableCaptionElement>) => (

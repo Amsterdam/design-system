@@ -9,11 +9,11 @@ import clsx from 'clsx'
 import { forwardRef } from 'react'
 import type { ForwardedRef, HTMLAttributes } from 'react'
 
-export interface IconProps extends HTMLAttributes<HTMLSpanElement> {
+export type IconProps = {
   size?: 'level-3' | 'level-4' | 'level-5' | 'level-6'
   square?: boolean
   svg: Function
-}
+} & HTMLAttributes<HTMLSpanElement>
 
 export const Icon = forwardRef(
   ({ className, size = 'level-3', square, svg, ...otherProps }: IconProps, ref: ForwardedRef<HTMLElement>) => (

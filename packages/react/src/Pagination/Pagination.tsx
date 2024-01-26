@@ -9,7 +9,7 @@ import { forwardRef, useMemo, useState } from 'react'
 import type { ForwardedRef, HTMLAttributes } from 'react'
 import { Icon } from '../Icon/Icon'
 
-export interface PaginationProps extends HTMLAttributes<HTMLElement> {
+export type PaginationProps = {
   /**
    * The maximum amount of pages shown. This has a lower limit of 5
    */
@@ -27,7 +27,7 @@ export interface PaginationProps extends HTMLAttributes<HTMLElement> {
    * The total amount of pages.
    */
   totalPages: number
-}
+} & HTMLAttributes<HTMLElement>
 
 /**
  * This returns an array of the range, including spacers

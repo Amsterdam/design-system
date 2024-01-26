@@ -8,9 +8,9 @@ import { forwardRef } from 'react'
 import type { AnchorHTMLAttributes, ForwardedRef, PropsWithChildren } from 'react'
 import { Icon } from '../Icon'
 
-export interface PageMenuLinkProps extends PropsWithChildren<AnchorHTMLAttributes<HTMLAnchorElement>> {
+export type PageMenuLinkProps = {
   icon?: Function
-}
+} & PropsWithChildren<AnchorHTMLAttributes<HTMLAnchorElement>>
 
 export const PageMenuLink = forwardRef(
   ({ children, className, icon, ...restProps }: PageMenuLinkProps, ref: ForwardedRef<HTMLAnchorElement>) => (
