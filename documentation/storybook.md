@@ -22,9 +22,11 @@ We write our documentation in Dutch.
 
 ## Best practices for controls
 
-1. Use radio buttons rather than a dropdown for props with 5 options or less.
+1. For props offering five options or less, use radio buttons rather than a select.
    This makes it easier to compare the options.
    It saves the user a click to select each option and shows everything up front.
+2. Don’t use inline radios.
+   Their options appear rather small, making them difficult to target with a pointing device.
 
 More to follow.
 

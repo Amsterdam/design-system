@@ -1,0 +1,49 @@
+{
+  "amsterdam": {
+    "badge": {
+      "font-family": { "value": "{amsterdam.typography.font-family}" },
+      "font-weight": { "value": "{amsterdam.typography.font-weight.bold}" },
+      "padding-inline": { "value": "0.5rem" },
+      "spacious": {
+        "font-size": { "value": "{amsterdam.typography.spacious.text-level.5.font-size}" },
+        "line-height": { "value": "{amsterdam.typography.spacious.text-level.5.line-height}" }
+      },
+      "compact": {
+        "font-size": { "value": "{amsterdam.typography.compact.text-level.5.font-size}" },
+        "line-height": { "value": "{amsterdam.typography.compact.text-level.5.line-height}" }
+      },
+      "blue": {
+        "background-color": { "value": "{amsterdam.color.blue}" },
+        "color": { "value": "{amsterdam.color.primary-black}" }
+      },
+      "dark-blue": {
+        "background-color": { "value": "{amsterdam.color.primary-blue}" },
+        "color": { "value": "{amsterdam.color.primary-white}" }
+      },
+      "dark-green": {
+        "background-color": { "value": "{amsterdam.color.dark-green}" },
+        "color": { "value": "{amsterdam.color.primary-white}" }
+      },
+      "green": {
+        "background-color": { "value": "{amsterdam.color.green}" },
+        "color": { "value": "{amsterdam.color.primary-black}" }
+      },
+      "magenta": {
+        "background-color": { "value": "{amsterdam.color.magenta}" },
+        "color": { "value": "{amsterdam.color.primary-white}" }
+      },
+      "orange": {
+        "background-color": { "value": "{amsterdam.color.orange}" },
+        "color": { "value": "{amsterdam.color.primary-black}" }
+      },
+      "purple": {
+        "background-color": { "value": "{amsterdam.color.purple}" },
+        "color": { "value": "{amsterdam.color.primary-white}" }
+      },
+      "yellow": {
+        "background-color": { "value": "{amsterdam.color.yellow}" },
+        "color": { "value": "{amsterdam.color.primary-black}" }
+      }
+    }
+  }
+}

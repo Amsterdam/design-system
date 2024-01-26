@@ -19,7 +19,7 @@ const meta = {
   argTypes: {
     size: {
       control: {
-        type: 'select',
+        type: 'radio',
         labels: { undefined: 'default', large: 'large', small: 'small' },
       },
       options: [undefined, 'large', 'small'],
