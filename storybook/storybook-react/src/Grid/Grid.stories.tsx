@@ -16,7 +16,9 @@ const meta = {
       table: { disable: true },
     },
     compact: {
-      control: { type: 'boolean' },
+      control: {
+        type: 'boolean',
+      },
     },
     gapVertical: {
       control: {
