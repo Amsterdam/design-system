@@ -24,7 +24,7 @@ export type PaginationProps = {
    */
   page?: number
   /**
-   * The total number of pages.
+   * The total amount of pages.
    */
   totalPages: number
 } & HTMLAttributes<HTMLElement>

@@ -1,16 +1,19 @@
 # Pagination
 
-Pagination (in het Nederlands: paginering) is een navigatie-element om tussen meerdere pagina’s met overzichtslijsten te navigeren. Denk hierbij aan zoekresultaten of een lijst met nieuwsartikelen. Bij lange overzichtslijsten kan het duidelijker of functioneler zijn om de inhoud over meerdere pagina’s te verdelen. Paginering laat zien op welke pagina de gebruiker zich bevindt en de gebruiker kan hiermee naar een andere pagina navigeren.
+Pagination is a navigation element used to navigate between multiple pages of overview lists.
+This is commonly used for search results or a list of news articles.
+In cases where overview lists are too long to display on a single page, pagination can provide a clearer and more functional way to divide the content across multiple pages.
+Pagination indicates the current page and allows users to navigate to other pages.
 
-## Richtlijnen
+## Guidelines
 
-- Gebruik paginering alleen als een overzichtslijst te lang is om op 1 pagina te tonen.
-- Voeg de paginering toe onder de overzichtslijst.
-- De paginering wordt niet getoond als er maar 1 pagina is.
-- Verwijs de gebruikers door naar de eerste pagina als ze een URL opgeven van een paginanummer dat niet (meer) bestaat.
-- De paginering kan gecombineerd worden met een teller bovenaan de pagina die “Pagina # van ##” aanduidt.
-- Start een pagina met een overzichtslijst bovenaan na het veranderen van pagina.
+- Use pagination only when an overview list is too long to display on a single page.
+- Place pagination below the overview list.
+- Pagination should not be displayed if there is only one page.
+- Redirect users to the first page if they enter a URL with a page number that doesn’t exist.
+- Pagination can be combined with a counter at the top of the page indicating “Page # of ##.”
+- Start a page with an overview list at the top after changing the page.
 
-## Relevante WCAG regels
+## Relevant WCAG Rules
 
-Pagination is een interactief element, hier gelden [de algemene eisen en richtlijnen voor interactieve elementen](https://amsterdam.github.io/design-system/?path=/docs/docs-designrichtlijnen-interactieve-elementen--docs) voor.
+Pagination is an interactive element, and the [general requirements and guidelines for interactive elements](https://amsterdam.github.io/design-system/?path=/docs/docs-designrichtlijnen-interactieve-elementen--docs) apply.
