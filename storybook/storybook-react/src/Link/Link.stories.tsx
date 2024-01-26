@@ -14,7 +14,9 @@ const meta = {
   component: Link,
   argTypes: {
     icon: {
-      control: { type: 'select' },
+      control: {
+        type: 'select',
+      },
       options: Object.keys(Icons),
       mapping: Icons,
       table: {
@@ -22,7 +24,10 @@ const meta = {
       },
     },
     onBackground: {
-      control: { type: 'select', labels: { undefined: 'default', light: 'light', dark: 'dark' } },
+      control: {
+        type: 'radio',
+        labels: { undefined: 'default', light: 'light', dark: 'dark' },
+      },
       options: [undefined, 'light', 'dark'],
       table: {
         category: 'API',
@@ -30,7 +35,7 @@ const meta = {
     },
     variant: {
       control: {
-        type: 'select',
+        type: 'radio',
         labels: { standalone: 'standalone', inline: 'inline', inList: 'inList' },
       },
       options: ['standalone', 'inline', 'inList'],

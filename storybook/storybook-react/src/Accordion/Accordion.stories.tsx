@@ -24,11 +24,15 @@ const meta = {
       },
     },
     headingLevel: {
-      control: { type: 'select' },
+      control: {
+        type: 'radio',
+      },
       options: [1, 2, 3, 4],
     },
     section: {
-      control: { type: 'boolean' },
+      control: {
+        type: 'boolean',
+      },
     },
   },
 } satisfies Meta<typeof Accordion>
