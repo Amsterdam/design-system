@@ -18,7 +18,9 @@ const argTypes = {
 
 const gridArgTypes = {
   compact: {
-    control: { type: 'boolean' },
+    control: {
+      type: 'boolean',
+    },
   },
   gapVertical: {
     control: {
@@ -34,14 +36,24 @@ const gridArgTypes = {
 
 const gridCellArgTypes = {
   as: {
-    control: { type: 'inline-radio' },
+    control: {
+      type: 'radio',
+    },
     options: ['article', 'div', 'section'],
   },
   span: {
-    control: { type: 'number', min: 1, max: 12 },
+    control: {
+      type: 'number',
+      min: 1,
+      max: 12,
+    },
   },
   start: {
-    control: { type: 'number', min: 1, max: 12 },
+    control: {
+      type: 'number',
+      min: 1,
+      max: 12,
+    },
   },
 }
 
