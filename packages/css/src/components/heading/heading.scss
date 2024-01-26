@@ -15,6 +15,11 @@
   color: var(--amsterdam-heading-color);
   font-family: var(--amsterdam-heading-font-family);
   font-weight: var(--amsterdam-heading-font-weight);
+  hyphenate-limit-chars: 12 8 4;
+  hyphenate-limit-lines: 2;
+  hyphens: auto;
+  overflow-wrap: break-word;
+  word-break: break-word;
 
   @include reset;
 }
