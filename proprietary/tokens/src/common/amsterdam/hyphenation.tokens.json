@@ -2,10 +2,9 @@
   "amsterdam": {
     "hyphenation": {
       "hyphenate-limit-chars": { "value": "12 8 4" },
-      "hyphenate-limit-lines": { "value": "2" },
       "hyphens": { "value": "auto" },
       "overflow-wrap": { "value": "break-word" },
-      "word-break": { "value": "break-word" }
+      "word-break": { "value": "auto-phrase" }
     }
   }
 }
