@@ -96,19 +96,6 @@ export const Inline: Story = {
   ],
 }
 
-export const InList: Story = {
-  args: {
-    variant: 'inList',
-  },
-}
-
-export const InListWithIcon: Story = {
-  args: {
-    variant: 'inList',
-    icon: Icons.EmailIcon,
-  },
-}
-
 export const onDarkBackground: Story = {
   args: {
     onBackground: 'dark',

@@ -1,21 +1,20 @@
 # Grid
 
-Verdeelt de breedte van het scherm in kolommen waarop de elementen van een pagina worden uitgelijnd.
+Divides the screen into columns to align the elements of a page.
 
-## Gebruik
+## Usage
 
-Elke pagina moet het grid gebruiken als basis voor de layout.
-Het staat dus direct binnen [Screen](?path=/docs/layout-screen--docs).
+Every page should use the grid as the foundation for its layout.
+It is placed directly within the [Screen](?path=/docs/layout-screen--docs).
 
-Een [Footer](?path=/docs/react_containers-footer--docs) en een [Spotlight](?path=/docs/react_containers-spotlight--docs) zijn iets breder dan het grid.
-Vóór deze componenten sluit je een instantie van het grid af.
-Erbinnen en eventueel erna start je een nieuwe.
-Meerdere instanties van het grid component zijn dus mogelijk op een pagina.
-De kolommen van alle grids moeten wel precies op elkaar aansluiten.
+A [Footer](?path=/docs/react_containers-footer--docs) and a [Spotlight](?path=/docs/react_containers-spotlight--docs) are slightly wider than the grid.
+You close one instance of the grid before these components.
+Inside and optionally after them, you start a new one.
+Multiple instances of the grid component are possible on a page, but the columns of all grids must align precisely.
 
-Binnen het grid maak je cellen die de gewenste inhoud bevatten.
-Een cel beslaat vaak meerdere kolommen van het grid.
+Within the grid, you create cells containing the desired content.
+A cell often spans multiple columns of the grid.
 
-## Ontwerp
+## Design
 
-De [ontwerpkeuzes](?path=/docs/docs-designrichtlijnen-grid--docs) staan beschreven onder de designrichtlijnen.
+The [design choices](?path=/docs/docs-designrichtlijnen-grid--docs) are described in the design guidelines.

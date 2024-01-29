@@ -8,14 +8,13 @@ import { forwardRef } from 'react'
 import type { ForwardedRef, ForwardRefExoticComponent, HTMLAttributes, PropsWithChildren, RefAttributes } from 'react'
 import { UnorderedListItem } from './UnorderedListItem'
 
-export interface UnorderedListProps extends PropsWithChildren<HTMLAttributes<HTMLUListElement>> {
+export type UnorderedListProps = {
   markers?: boolean
-}
+} & PropsWithChildren<HTMLAttributes<HTMLUListElement>>
 
-interface UnorderedListComponent
-  extends ForwardRefExoticComponent<UnorderedListProps & RefAttributes<HTMLUListElement>> {
+type UnorderedListComponent = {
   Item: typeof UnorderedListItem
-}
+} & ForwardRefExoticComponent<UnorderedListProps & RefAttributes<HTMLUListElement>>
 
 export const UnorderedList = forwardRef(
   ({ children, markers = true, className, ...restProps }: UnorderedListProps, ref: ForwardedRef<HTMLUListElement>) => {

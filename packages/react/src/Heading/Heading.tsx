@@ -11,7 +11,7 @@ import type { ForwardedRef, HTMLAttributes, PropsWithChildren } from 'react'
 export type HeadingLevel = 1 | 2 | 3 | 4
 type HeadingSize = 'level-1' | 'level-2' | 'level-3' | 'level-4' | 'level-5' | 'level-6'
 
-export interface HeadingProps extends PropsWithChildren<HTMLAttributes<HTMLHeadingElement>> {
+export type HeadingProps = {
   /**
    * Het hiërarchische niveau van de titel.
    */
@@ -26,7 +26,7 @@ export interface HeadingProps extends PropsWithChildren<HTMLAttributes<HTMLHeadi
    * Gebruik deze property om de titel in tegenovergestelde kleur te tonen.
    */
   inverseColor?: boolean
-}
+} & PropsWithChildren<HTMLAttributes<HTMLHeadingElement>>
 
 export function getHeadingElement(level: HeadingLevel) {
   switch (level) {

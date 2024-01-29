@@ -11,14 +11,14 @@ import { Logo } from '../Logo'
 import type { LogoBrand } from '../Logo'
 import { VisuallyHidden } from '../VisuallyHidden'
 
-export interface HeaderProps extends HTMLAttributes<HTMLElement> {
+export type HeaderProps = {
   logoBrand?: LogoBrand
   logoLink?: string
   logoLinkTitle?: string
   title?: string
   links?: ReactNode
   menu?: ReactNode
-}
+} & HTMLAttributes<HTMLElement>
 
 export const Header = forwardRef(
   (

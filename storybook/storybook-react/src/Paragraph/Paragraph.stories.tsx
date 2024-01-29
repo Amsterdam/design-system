@@ -20,9 +20,9 @@ const meta = {
     size: {
       control: {
         type: 'radio',
-        labels: { undefined: 'default', large: 'large', small: 'small' },
+        labels: { small: 'small', undefined: 'medium', large: 'large' },
       },
-      options: [undefined, 'large', 'small'],
+      options: ['small', undefined, 'large'],
     },
   },
 } satisfies Meta<typeof Paragraph>

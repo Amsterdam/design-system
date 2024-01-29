@@ -9,13 +9,12 @@ import type { ForwardedRef, ForwardRefExoticComponent, HTMLAttributes, PropsWith
 import { SearchFieldButton } from './SearchFieldButton'
 import { SearchFieldInput } from './SearchFieldInput'
 
-export interface SearchFieldProps extends PropsWithChildren<HTMLAttributes<HTMLFormElement>> {}
+export type SearchFieldProps = PropsWithChildren<HTMLAttributes<HTMLFormElement>>
 
-export interface SearchFieldComponent
-  extends ForwardRefExoticComponent<SearchFieldProps & RefAttributes<HTMLFormElement>> {
+type SearchFieldComponent = {
   Input: typeof SearchFieldInput
   Button: typeof SearchFieldButton
-}
+} & ForwardRefExoticComponent<SearchFieldProps & RefAttributes<HTMLFormElement>>
 
 export const SearchField = forwardRef(
   ({ children, className, ...restProps }: SearchFieldProps, ref: ForwardedRef<HTMLFormElement>) => {

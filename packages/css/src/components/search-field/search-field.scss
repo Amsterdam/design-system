@@ -5,7 +5,7 @@
 
 .amsterdam-search-field {
   display: flex;
-  isolation: isolate; // create new stacking context, so the input's z-index doesn't escape the component
+  isolation: isolate; // create new stacking context, so the input’s z-index doesn’t escape the component
 }
 
 @mixin reset {
@@ -40,7 +40,7 @@
   }
 
   &:focus {
-    z-index: 1; // Make sure the focus outline isn't cut off by the adjacent button
+    z-index: 1; // Make sure the focus outline isn’t cut off by the adjacent button
   }
 }
 

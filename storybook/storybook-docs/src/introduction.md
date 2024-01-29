@@ -2,81 +2,102 @@
 
 # Amsterdam Design System
 
-## Wat is het
+This is the library for the user interfaces (UI) of all digital products offered by the City of Amsterdam.
+It provides reusable components, patterns, and guidelines for teams working on websites and applications.
 
-Het Amsterdam Design System is dé bibliotheek voor de gebruikersinterface (UI) van onze digitale producten en diensten. Het biedt herbruikbare componenten, patronen en gidsen voor teams die werken aan websites en applicaties. Zo werkt iedereen sneller en beter samen, met meer tijd om waarde te creëren. Voor de Amsterdammer zien al onze kanalen er hetzelfde uit, werken ze vergelijkbaar, zijn ze breed toegankelijk en roepen ze vertrouwen op. Voor onszelf wordt het gemakkelijker om alle software die we maken, inkopen en gebruiken in lijn te houden met onze huisstijl.
+It helps everyone work together faster and better, with more time to create actual value.
+It makes it easier to align all software we create, purchase and use with our corporate identity.
+By using it in all our channels, they appear the same, work similarly, are widely accessible, and inspire trust.
 
-## Hoe werkt het
+## How does it work
 
-De meest concrete producten van het Amsterdam Design System zijn de herbruikbare componenten voor gebruikersinterface, zoals knoppen, tekstcomponenten, menu’s, formuliervelden, enzovoort. In die componenten is de huisstijl van de stad al opgenomen: kleur, typografie en maatvoering. Ze passen zich _responsive_ aan naar verschillende schermen en apparaten en zijn toegankelijk voor iedereen.
+The most concrete products of the Amsterdam Design System are the reusable user interface components, such as buttons, text components, menus, and form fields.
+They adhere to the City’s branding: colour, typography and dimensions.
+They adapt responsively to different screens and devices and are accessible to everyone.
 
-Die componenten maken we beschikbaar in diverse bibliotheken zodat ontwerpers en ontwikkelaars ze kunnen gebruiken in hun werk:
+We make these components available in various libraries so that designers and developers can use them in their work:
 
 ### Figma
 
-[Hier vind je onze Figma Library](https://www.figma.com/file/9IGm6IdPUYizBNGsUnueBd/Amsterdam-Design-System?type=design&node-id=2927%3A29177&mode=design&t=6KlrHnKkHU2uZ9s9-1) (maak eventueel een account aan op je @amsterdam.nl adres). Diverse componenten en tekststijlen zijn nu al bruikbaar in je eigen ontwerpen. Een aantal andere zijn in de laatste fase van review. Raadpleeg de legenda op het voorblad.
+[Find our Figma Library here](https://www.figma.com/file/9IGm6IdPUYizBNGsUnueBd/Amsterdam-Design-System?type=design&node-id=2927%3A29177&mode=design&t=6KlrHnKkHU2uZ9s9-1) (if necessary, create an account on your @amsterdam.nl address).
+Various components and text styles are ready to use in your designs.
+Several others are in the final stages of review.
+Refer to the introduction and legend on the cover page.
 
 ### React
 
-Op deze website vind je de React Library en documentatie – gebruik de inhoudsopgave links (op brede vensters) of onder de tab ‘Sidebar’ (op smalle). Deze componenten zijn [via npm](https://www.npmjs.com/search?q=%40amsterdam%2Fdesign-system) te installeren en te gebruiken in je applicatie.
+On this website, you will find the React Library and documentation – use the table of contents on the left (on wide windows) or under the ‘Sidebar’ tab (on narrow ones).
+These components can be installed and used in your application [via npm](https://www.npmjs.com/search?q=%40amsterdam%2Fdesign-system).
 
 ### React Native
 
-Bij het ontwikkelen van de Amsterdam App zijn al veel UI-componenten gebouwd volgens de vernieuwde huisstijl. Ze staan nog [in die repository](https://github.com/Amsterdam/amsterdam-app-frontend), maar worden op termijn overgeheveld naar die van het design system zodat ze ook door andere apps gebruikt kunnen worden.
+While developing the Amsterdam App, many UI components have been built according to the updated corporate identity.
+They are still [in that repository](https://github.com/Amsterdam/amsterdam-app-frontend) but will eventually be transferred to the design system for other apps to use.
 
 ### CSS
 
-Ook zonder React zijn de componenten te gebruiken, namelijk door de juiste _classes_ toe te passen. Als je deze aanpak wil volgen horen we het graag.
+The components are usable without React by applying the correct classes.
+If you would like to follow this approach, please let us know.
 
 ### Salesforce
 
-Voor het nieuwe amsterdam.nl voorzien we een bibliotheek van Lightning Web Components in de juiste vormgeving, zodat ze gebruikt kunnen worden in Salesforce CMS.
+For the new amsterdam.nl, we provide a library of correctly designed Lightning Web Components usable in Salesforce CMS.
 
 ### Mendix
 
-Ook applicaties die in dit low-code platform worden opgetuigd helpen we op de huisstijl te laten aansluiten.
+We help applications implemented in this low-code platform match the corporate identity.
 
-## We bouwen op NL Design System
+## We build on the NL Design System
 
-Amsterdam Design System gebruikt de architectuur van [NL Design System](https://nldesignsystem.nl/).
+Amsterdam Design System uses the architecture of [NL Design System](https://nldesignsystem.nl/).
 
-Dankzij het NL Design System kan de hele overheid in Nederland samenwerken aan een begrijpelijke, gebruiksvriendelijke én toegankelijke online dienstverlening. Een dienstverlening die logisch en samenhangend is, maar niet per se uniform, want binnen de afspraken blijft er ruimte voor de eigen identiteit van overheidsorganisaties.
+Thanks to the NL Design System, the entire government in the Netherlands can work together to provide understandable, user-friendly and accessible online services.
+A service that is logical and coherent but not necessarily uniform, because it allows room for the identity of government organizations.
 
-De keuze om hierop aan te sluiten vergemakkelijkt ook het aanbieden van verschillende libraries.
+The choice to connect to NL Design System also makes it easier for us to create different libraries.
 
-## Neem contact op
+## Contact us
 
-### Sluit aan in Teams
+### Join Teams
 
-Werk je voor of bij de Gemeente Amsterdam, [meld je nu aan voor het Design System team](https://teams.microsoft.com/l/team/19%3afYKS_RD2n1q4UhguA9jwEJk0A_VjYPO4TiLQjYlG_bo1%40thread.tacv2/conversations?groupId=381b5f11-b342-4a3a-8a78-8b371a90457d&tenantId=72fca1b1-2c2e-4376-a445-294d80196804) van MS Teams. Zo blijf je gemakkelijk op de hoogte en kunnen we contact houden. Zijdelings meelezen in de kanalen kan je al helpen, meer meedoen mag natuurlijk ook.
+If you work for the City of Amsterdam, [register now for the Design System team](https://teams.microsoft.com/l/team/19%3afYKS_RD2n1q4UhguA9jwEJk0A_VjYPO4TiLQjYlG_bo1%40thread.tacv2/conversations?groupId=381b5f11-b342-4a3a-8a78-8b371a90457d&tenantId=72fca1b1-2c2e-4376-a445-294d80196804) on MS Teams.
+This way, you can easily stay informed, and we can keep in touch.
+The channels have a lot of information you can read, and of course you are more than welcome to participate in threads.
 
-### Bekijk de demo
+### Watch the demo
 
-Voor een overzicht van wat er nieuw is ben je van harte welkom op onze vier-wekelijkse demo op dinsdag om 11:00. Ook kun je hier natuurlijk vragen stellen en feedback geven. De uitnodiging vind je in het kanaal ‘Sprint review’ in MS Teams. De sessies worden opgenomen om later (nog eens) te bekijken.
+For an overview of what’s new, you are welcome to our four-weekly Tuesday demo at 11:00 AM.
+You can also ask questions and provide feedback here.
+You can find the invitation in the ‘Sprint review’ channel in MS Teams.
+We record the sessions for later viewing.
 
-### Draag bij via Git
+### Contribute via Git
 
-[De code repository staat op GitHub](http://github.com/Amsterdam/design-system) en is open source. Je pull requests en issues zijn welkom.
+[The code repository is on GitHub](http://github.com/Amsterdam/design-system) and is open source.
+Your pull requests and issues are welcome.
 
-### Stuur een bericht
+### Send a message
 
-Wil je weten hoe het design system je kan helpen? Vragen over onze werkwijze of suggesties voor de roadmap? Laat het weten, we denken graag met je mee.
+Do you want to know how the design system can help you? Questions about our working method or suggestions for the roadmap?
+Let us know; we are happy to work with you.
 
-Per e-mail neem je contact op via <designsystem@amsterdam.nl>.
+Don’t hesitate to get in touch with us by email at <designsystem@amsterdam.nl>.
 
-Het huidige team:
+The current team:
 Aram Limpens,
 Bettina Slee,
-Hee Chan van der Haar,
 Inge de Bondt (lead),
+Jesper Duinker,
 Niels Roozemond,
-Rick Zweers
-en
+and
 Vincent Smedinga (lead).
 
-Eerder droegen bij:
+Previously contributed:
+Hee Chan van der Haar,
+Justin Straver,
 Laurens van den Akker,
 Renate Schwarzler,
+Rick Zweers,
 Soesanto Arp
-en
+and
 Tanja van der Heide.

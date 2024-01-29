@@ -6,101 +6,98 @@ import README from "../../../../packages/css/src/components/grid/README.md?raw";
 
 <Markdown>{README}</Markdown>
 
-## Voorbeelden
+## Examples
 
-De roze vlakken hieronder vertegenwoordigen de kolommen van het grid.
-De tussenruimtes zijn wit.
-Op brede schermen kunnen de tussenruimtes breder zijn dan de kolommen.
-Zoom in, verander de breedte van het venster of kantel je toestel om de breedtes en het aantal kolommen te zien veranderen.
+The pink areas below represent the columns of the grid.
+The spaces in between are white.
 
-### Ruimtelijk
+### Spacious
 
-Voor websites is het grid behoorlijk ruimtelijk.
-Zo is de huisstijl ontworpen.
+For websites, the grid is quite spacious.
+This is one of the core tenets of our visual identity.
 
-Op brede schermen heeft het grid 12 kolommen en staan alle 12 cellen in dit voorbeeld dus op een rij.
-Op smalle of middelbrede schermen zie je drie rijen van vier kolommen, of een rij van acht en een rij van vier.
+The grid has 12 columns on wide screens, so all 12 cells in this example are in a row.
+On narrow screens, you will see three rows of four columns; on medium-wide screens, one row of eight and one of four.
 
 <Primary />
 
 ### Compact
 
-Voor applicaties is zo veel witruimte niet nodig, zelfs contraproductief.
-Daarom bestaat er een compacte variant van het grid.
+For applications, so much white space is not necessary, even counterproductive.
+That’s why there is a compact version of the grid.
 
 <Canvas of={GridStories.Compact} />
 
-### Verticale marge
+### Vertical Margin
 
-In tegenstelling tot de horizontale marges tussen de kolommen zijn de verticale erboven en eronder instelbaar.
-De opties `paddingVertical`, `paddingTop` en `paddingBottom` voegen daar witruimte toe.
-Dit is handig in een gekleurd vlak zoals [Footer](?path=/docs/react_containers-footer--docs) of [Spotlight](?path=/docs/react_containers-spotlight--docs) of tussen twee opvolgende grids.
+Unlike the horizontal margins between columns, the vertical ones above and below are adjustable.
+The options `paddingVertical`, `paddingTop`, and `paddingBottom` add white space.
+This is useful in a coloured area like [Footer](?path=/docs/react_containers-footer--docs) or [Spotlight](?path=/docs/react_containers-spotlight--docs) or between two consecutive grids.
 
-Geef een waarde `medium` voor verticale witruimte die even breed is als de horizontale.
-Gebruik `small` voor de helft van die breedte en `large` voor het dubbele.
+Specify a value of `medium` for vertical white space as wide as the horizontal.
+Use `small` for half of that width and `large` for double.
 
-Deze witruimtes krimpen en groeien dus ook met de vensterbreedte.
+These white spaces also shrink and grow with the window width.
 
 <Canvas of={GridStories.VerticalSpace} />
 
-### Verticale witruimte
+### Vertical White Space
 
-Een grid maakt automatisch meerdere rijen als de eerstvolgende cel niet meer op de huidige rij past.
+A grid automatically creates multiple rows if the next cell no longer fits on the current row.
 
-Standaard zit tussen twee rijen evenveel witruimte als tussen twee kolommen.
-In sommige gevallen kan daar beter meer of minder witruimte staan.
+By default, there is as much white space between two rows as between two columns.
+In some cases, more or less white space might be better.
 
 <Canvas of={GridStories.VerticalGap} />
 
-### Cellen beslaan kolommen
+### Cells Spanning Columns
 
-Een cel beslaat standaard 1 kolom in het grid.
-Om een cel meer kolommen te laten beslaan, gebruik je de `span` prop.
+A cell defaults to spanning 1 column in the grid.
+Use the `span` prop to make a cell span more columns.
 
 <Canvas of={GridStories.SpanMultipleColumns} />
 
-### Verschillende breedtes
+### Different Widths
 
-Je kunt het aantal kolommen dat een cel beslaat laten afhangen van de vensterbreedte.
-Gebruik hiervoor de `span` prop met 3 waarden voor respectievelijk smalle, middelbrede en brede vensters.
+You can make the number of columns a cell spans depend on the window width.
+Use the `span` prop with 3 values for narrow, medium, and wide windows.
 
-Via `span={{ narrow: 4, medium: 6, wide: 8 }}` is deze cel 4 van de 4 kolommen breed op smalle vensters, 6 van de 8 op middelbrede en 8 van de 12 op brede vensters:
+With `span={{ narrow: 4, medium: 6, wide: 8 }}`, this cell is 4 out of 4 columns wide on narrow windows, 6 out of 8 on medium windows, and 8 out of 12 on wide windows.
 
 <Canvas of={GridStories.ConfigureGridVariants} />
 
-### Volledige breedte
+### Full Width
 
-Om de cel de volledige breedte te geven – of het grid nu 4, 8, of 12 kolommen heeft – gebruik je `span="all`.
+To make the cell full width – whether the grid has 4, 8, or 12 columns – use `span="all"`.
 
 <Canvas of={GridStories.SpanAllColumns} />
 
-### Startpositie
+### Start Position
 
-Elke cel start automatisch in de eerstvolgende beschikbare positie in het grid.
-Een waarde van 1 hoef je dus meestal niet expliciet op te geven.
-Je kunt de startpositie van een cel aanpassen met de `start` prop.
-Zo kun je bijvoorbeeld cellen in meerdere rijen met elkaar uitlijnen.
-Of een cel in het midden van een breed grid plaatsen.
-Ook kan zo een kolom worden overgeslagen voor meer witruimte tussen cellen.
+Each cell automatically starts in the next available position in the grid.
+You usually don’t need to specify a value of 1 explicitly.
+You can adjust the starting position of a cell with the `start` prop.
+This way, you can align cells in multiple rows or place a cell in the centre of a wide grid.
+It can also skip a column for more white space between cells.
 
-Het kan ook voorkomen dat ook de startpositie van een cel afhangt van de vensterbreedte.
-Gebruik hiervoor de `start` prop met 3 waarden, precies zoals bij `span`.
+The starting position of a cell may also depend on the window width.
+Use the `start` prop with 3 values, just like with `span`.
 
-Een voorbeeld met `start={2}`:
+An example with `start={2}`:
 
 <Canvas of={GridStories.StartPosition} />
 
-### Een ander HTML-element gebruiken
+### Use Another HTML Element
 
-Een cel wordt standaard als `<div>` in je HTML opgenomen.
-Heb je hier een ander element nodig, dan kan dat via de `as` prop.
-Zo kun je je opmaak semantischer maken.
+A cell is a `<div>` in your HTML by default.
+You can use the `as` prop if you need a different element.
+This way, you can make your markup more semantic.
 
 <Canvas of={GridStories.CustomTagName} />
 
-## Richtlijnen
+## Guidelines
 
-Zorg ervoor dat het aantal kolommen dat je aan een cel toekent past bij het aantal kolommen van het grid voor de betreffende vensterbreedte.
-Datzelfde geldt voor het starten van een cel in een latere kolom.
-Als het totaal van beide waarden te groot is voegt de browser kolommen toe aan het grid.
-Dit is niet toegestaan.
+Ensure that the number of columns you assign to a cell matches the amount of columns in the grid for the respective window width.
+The same applies to starting a cell in a later column.
+If the total of both values is too large, the browser adds columns to the grid.
+This is not allowed.
