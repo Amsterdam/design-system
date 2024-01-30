@@ -1,14 +1,10 @@
-import { Canvas, Controls, Markdown, Meta, Primary } from "@storybook/blocks";
+import { Canvas, Markdown, Meta } from "@storybook/blocks";
 import * as ButtonStories from "./Button.stories.tsx";
 import README from "../../../../packages/css/src/components/button/README.md?raw";
 
 <Meta of={ButtonStories} />
 
 <Markdown>{README}</Markdown>
-
-<Primary />
-
-<Controls />
 
 ## Examples
 
@@ -22,6 +18,14 @@ One primary button may be used per screen.
 
 <Canvas of={ButtonStories.Primary} />
 
+### Primary with icon right
+
+<Canvas of={ButtonStories.PrimaryWithIcon} />
+
+### Primary with icon left
+
+<Canvas of={ButtonStories.PrimaryWithIconLeft} />
+
 ### Secondary
 
 Use the secondary button for less prominent calls to action.
@@ -29,8 +33,16 @@ It is possible to use more than 1 secondary button.
 
 <Canvas of={ButtonStories.Secondary} />
 
+### Secondary with icon right
+
+<Canvas of={ButtonStories.SecondaryWithIcon} />
+
 ### Tertiary
 
 Use tertiary buttons for unimportant calls to action – as many as necessary.
 
 <Canvas of={ButtonStories.Tertiary} />
+
+### Tertiary with icon right
+
+<Canvas of={ButtonStories.TertiaryWithIcon} />

@@ -1,47 +1,40 @@
 /**
  * @license EUPL-1.2+
- * Copyright (c) 2021 Robbert Broersma
- * Copyright (c) 2023 Gemeente Amsterdam
+ * Copyright (c) 2024 Gemeente Amsterdam
  */
 
-import { Button as CommunityButton } from '@utrecht/component-library-react'
 import clsx from 'clsx'
 import { forwardRef } from 'react'
 import type { ButtonHTMLAttributes, ForwardedRef, PropsWithChildren } from 'react'
 
 export type ButtonProps = {
   variant?: 'primary' | 'secondary' | 'tertiary'
+  busy?: boolean
+  pressed?: boolean
 } & PropsWithChildren<ButtonHTMLAttributes<HTMLButtonElement>>
 
-type CommunityButtonAppearance = 'primary-action-button' | 'secondary-action-button' | 'subtle-button'
-
-function getAppearance(variant: ButtonProps['variant']): CommunityButtonAppearance {
-  switch (variant) {
-    case 'secondary':
-      return 'secondary-action-button'
-    case 'tertiary':
-      return 'subtle-button'
-    default:
-      return 'primary-action-button'
-  }
-}
-
 export const Button = forwardRef(
-  ({ children, disabled, variant = 'primary', ...restProps }: ButtonProps, ref: ForwardedRef<HTMLButtonElement>) => {
+  (
+    { children, type, disabled, busy, pressed, variant = 'primary', ...restProps }: ButtonProps,
+    ref: ForwardedRef<HTMLButtonElement>,
+  ) => {
     return (
-      <CommunityButton
+      <button
         {...restProps}
-        appearance={getAppearance(variant)}
         ref={ref}
         disabled={disabled}
         className={clsx(
           'amsterdam-button',
-          variant === 'secondary' && 'amsterdam-button--secondary',
-          variant === 'tertiary' && 'amsterdam-button--tertiary',
+          busy === true && 'amsterdam-button--busy',
+          `amsterdam-button--${variant}`,
+          pressed === true && 'amsterdam-button--pressed',
         )}
+        type={type || 'button'}
+        aria-busy={busy || undefined}
+        aria-pressed={typeof pressed === 'boolean' ? pressed : undefined}
       >
         {children}
-      </CommunityButton>
+      </button>
     )
   },
 )

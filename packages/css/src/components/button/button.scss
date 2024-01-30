@@ -5,28 +5,73 @@
 
 @import "../../../node_modules/@utrecht/components/button/css";
 
-@mixin reset {
-  -webkit-text-size-adjust: 100%;
-}
-
-.amsterdam-button {
+@mixin amsterdam-button {
+  border: none;
+  cursor: var(--amsterdam-action-activate-cursor, revert);
+  display: inline-flex;
+  font-family: var(--amsterdam-button-font-family);
   font-size: var(--amsterdam-button-spacious-font-size);
+  gap: var(--amsterdam-button-gap);
   line-height: var(--amsterdam-button-spacious-line-height);
-
-  @include reset;
+  outline-offset: var(--amsterdam-button-outline-offset);
+  padding-block: var(--amsterdam-button-padding-block-start) var(--amsterdam-button-padding-block-end);
+  padding-inline: var(--amsterdam-button-padding-inline-start) var(--amsterdam-button-padding-inline-end);
+  -webkit-text-size-adjust: 100%;
 
   .amsterdam-theme--compact & {
     font-size: var(--amsterdam-breadcrumb-compact-font-size);
     line-height: var(--amsterdam-breadcrumb-compact-line-height);
   }
+
+  &--busy {
+    cursor: var(--amsterdam-action-busy-cursor, revert);
+  }
+
+  &:disabled,
+  &[aria-disabled="true"] {
+    cursor: var(--amsterdam-action-disabled-cursor, revert);
+  }
+
+  &:hover:not(:disabled, [aria-disabled="true"]) {
+    cursor: var(--amsterdam-action-hover-cursor, pointer);
+  }
+
+  @media screen and (forced-colors: active) {
+    background-color: ButtonFace;
+    border: 2px solid buttonborder;
+    color: ButtonText;
+  }
 }
 
-.amsterdam-button--secondary {
-  box-shadow: var(--amsterdam-button-secondary-box-shadow);
+.amsterdam-button--primary {
+  @include amsterdam-button;
+
+  background-color: var(--amsterdam-button-primary-background-color);
+  color: var(--amsterdam-button-primary-color);
 
   &:disabled,
   [aria-disabled="true"] {
+    background-color: var(--amsterdam-button-primary-disabled-background-color);
+    cursor: var(--amsterdam-action-disabled-cursor, revert);
+  }
+
+  &:hover:not(:disabled, [aria-disabled="true"]) {
+    background-color: var(--amsterdam-button-primary-hover-background-color);
+  }
+}
+
+.amsterdam-button--secondary {
+  @include amsterdam-button;
+
+  background-color: var(--amsterdam-button-secondary-background-color);
+  box-shadow: var(--amsterdam-button-secondary-box-shadow);
+  color: var(--amsterdam-button-secondary-color);
+
+  &:disabled,
+  [aria-disabled="true"] {
+    background-color: var(--amsterdam-button-secondary-disabled-background-color);
     box-shadow: var(--amsterdam-button-secondary-disabled-box-shadow);
+    color: var(--amsterdam-button-secondary-disabled-color);
   }
 
   &:hover:not(:disabled, [aria-disabled="true"]) {
@@ -39,8 +84,20 @@
 }
 
 .amsterdam-button--tertiary {
+  @include amsterdam-button;
+
+  background-color: var(--amsterdam-button-tertiary-background-color);
+  color: var(--amsterdam-button-tertiary-color);
+
+  &:disabled,
+  [aria-disabled="true"] {
+    background-color: var(--amsterdam-button-tertiary-disabled-background-color);
+    color: var(--amsterdam-button-tertiary-disabled-color);
+  }
+
   &:hover:not(:disabled, [aria-disabled="true"]) {
     box-shadow: var(--amsterdam-button-tertiary-hover-box-shadow);
+    color: var(--amsterdam-button-tertiary-hover-color);
   }
 }
 
