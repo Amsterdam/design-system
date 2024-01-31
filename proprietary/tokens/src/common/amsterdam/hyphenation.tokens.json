@@ -3,8 +3,7 @@
     "hyphenation": {
       "hyphenate-limit-chars": { "value": "12 8 4" },
       "hyphens": { "value": "auto" },
-      "overflow-wrap": { "value": "break-word" },
-      "word-break": { "value": "auto-phrase" }
+      "overflow-wrap": { "value": "break-word" }
     }
   }
 }
