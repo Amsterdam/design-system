@@ -25,7 +25,7 @@
 
 .amsterdam-storybook-color-palette__description,
 .amsterdam-storybook-color-palette__name,
-.amsterdam-storybook-color-palette__code {
+.amsterdam-storybook-color-palette__color {
   margin-block: 0;
   margin-inline: 0;
   padding-block: 0;
@@ -45,6 +45,6 @@
   font-weight: 800;
 }
 
-.amsterdam-storybook-color-palette__code {
+.amsterdam-storybook-color-palette__color {
   text-align: end;
 }

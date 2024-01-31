@@ -20,16 +20,16 @@ export const ColorPaletteSection = ({ children }: DivProps) => (
 )
 
 type ColourPaletteTileProps = {
+  color: string
   name: string
-  rgb: string
 }
 
-export const ColorPaletteTile = ({ name, rgb }: ColourPaletteTileProps) => (
+export const ColorPaletteTile = ({ name, color }: ColourPaletteTileProps) => (
   <div className="amsterdam-storybook-color-palette__tile">
-    <div className="amsterdam-storybook-color-palette__example" style={{ backgroundColor: rgb }} />
+    <div className="amsterdam-storybook-color-palette__example" style={{ backgroundColor: color }} />
     <dl className="sb-unstyled amsterdam-storybook-color-palette__description">
       <dt className="amsterdam-storybook-color-palette__name">{name}</dt>
-      <dd className="amsterdam-storybook-color-palette__code">{rgb}</dd>
+      <dd className="amsterdam-storybook-color-palette__color">{color}</dd>
     </dl>
   </div>
 )
