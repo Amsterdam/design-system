@@ -1,21 +1,5 @@
 {
   "$schema": "node_modules/@lerna-lite/cli/schemas/lerna-schema.json",
-  "npmClient": "pnpm",
   "version": "independent",
-  "useWorkspaces": true,
-  "command": {
-    "publish": {},
-    "version": {
-      "allowBranch": ["develop"],
-      "changelogPreset": {
-        "name": "conventionalcommits",
-        "issueUrlFormat": "{{host}}/{{owner}}/{{repository}}/issues/{{id}}"
-      },
-      "conventionalCommits": true,
-      "exact": true,
-      "private": false,
-      "skipBumpOnlyReleases": true,
-      "syncWorkspaceLock": true
-    }
-  }
+  "useWorkspaces": true
 }
