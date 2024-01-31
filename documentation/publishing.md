@@ -28,7 +28,7 @@ This will cause a major version bump in both packages on release and add its des
 
 ## How to create a release
 
-1. Locally merge the latest version of `develop` into `main` using a fast-forward merge and push to remote:
+1. Locally merge the latest version of `develop` into `main` using a fast-forward merge, and push to the remote:
 
    ```shell
      git checkout main
