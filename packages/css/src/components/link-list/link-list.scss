@@ -3,6 +3,8 @@
  * Copyright (c) 2024 Gemeente Amsterdam
  */
 
+@import "../../common/hyphenation";
+
 @mixin reset-list {
   box-sizing: border-box;
   list-style: none;
@@ -56,6 +58,8 @@
 .amsterdam-link-list__link--large {
   font-size: var(--amsterdam-link-list-link-spacious-large-font-size);
   line-height: var(--amsterdam-link-list-link-spacious-large-line-height);
+
+  @include hyphenation;
 
   .amsterdam-theme--compact & {
     font-size: var(--amsterdam-link-list-link-compact-large-font-size);
