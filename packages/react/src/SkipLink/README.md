@@ -1,3 +1,3 @@
 # React Skip Link component
 
-[Skip Link documentation](../../../css/src/skip-link/README.md)
+[Skip Link documentation](../../../css/src/components/skip-link/README.md)

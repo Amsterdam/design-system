@@ -1,3 +1,3 @@
 # React Footer component
 
-[Footer documentation](../../../css/src/footer/README.md)
+[Footer documentation](../../../css/src/components/footer/README.md)
