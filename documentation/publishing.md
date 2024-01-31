@@ -37,10 +37,10 @@ This will cause a major version bump in both packages on release and add its des
      git push
    ```
 
-2. This triggers an action which creates a release PR.
-   Check this PR and merge it into `main`.
-   This triggers the same action, to publish the release to npm and GitHub releases.
-   It also deploys the released version to our main Storybook instance.
+2. This triggers a GitHub Action, which creates a release PR.
+   Review, approve and merge this PR.
+   The same Action will then publish the release to npm and GitHub.
+   It also deploys the released version to our Storybook environment.
 3. When the release actions have completed, there’s a new release commit on `main`.
    Locally merge this commit back into `develop` and push to remote:
 
