@@ -1,3 +1,4 @@
+import tokens from "@amsterdam/design-system-tokens/dist/index.tokens.json";
 import { Meta } from "@storybook/blocks";
 import { ColorPalette } from "./components/ColorPalette";
 
@@ -10,26 +11,26 @@ We have 8 additional colours and 3 shades of grey.
 
 <ColorPalette>
   <ColorPalette.Section>
-    <ColorPalette.Tile name="white" rgb="#ffffff" />
-    <ColorPalette.Tile name="red" rgb="#ec0000" />
-    <ColorPalette.Tile name="black" rgb="#000000" />
+    <ColorPalette.Tile name="white" rgb={tokens.amsterdam.color["primary-white"]} />
+    <ColorPalette.Tile name="red" rgb={tokens.amsterdam.color["primary-red"]} />
+    <ColorPalette.Tile name="black" rgb={tokens.amsterdam.color["primary-black"]} />
   </ColorPalette.Section>
   <ColorPalette.Section>
-    <ColorPalette.Tile name="green" rgb="#bed200" />
-    <ColorPalette.Tile name="dark green" rgb="#00a03c" />
-    <ColorPalette.Tile name="blue" rgb="#009de6" />
-    <ColorPalette.Tile name="dark blue" rgb="#004699" />
-    <ColorPalette.Tile name="darker blue" rgb="#102e62" />
+    <ColorPalette.Tile name="green" rgb={tokens.amsterdam.color["green"]} />
+    <ColorPalette.Tile name="dark green" rgb={tokens.amsterdam.color["dark-green"]} />
+    <ColorPalette.Tile name="blue" rgb={tokens.amsterdam.color["blue"]} />
+    <ColorPalette.Tile name="dark blue" rgb={tokens.amsterdam.color["primary-blue"]} />
+    <ColorPalette.Tile name="darker blue" rgb={tokens.amsterdam.color["dark-blue"]} />
   </ColorPalette.Section>
   <ColorPalette.Section>
-    <ColorPalette.Tile name="yellow" rgb="#ffe600" />
-    <ColorPalette.Tile name="orange" rgb="#ff9100" />
-    <ColorPalette.Tile name="magenta" rgb="#e50082" />
-    <ColorPalette.Tile name="purple" rgb="#a00078" />
+    <ColorPalette.Tile name="yellow" rgb={tokens.amsterdam.color["yellow"]} />
+    <ColorPalette.Tile name="orange" rgb={tokens.amsterdam.color["orange"]} />
+    <ColorPalette.Tile name="magenta" rgb={tokens.amsterdam.color["magenta"]} />
+    <ColorPalette.Tile name="purple" rgb={tokens.amsterdam.color["purple"]} />
   </ColorPalette.Section>
   <ColorPalette.Section>
-    <ColorPalette.Tile name="light grey" rgb="#e8e8e8" />
-    <ColorPalette.Tile name="grey" rgb="#bebebe" />
-    <ColorPalette.Tile name="dark grey" rgb="#767676" />
+    <ColorPalette.Tile name="light grey" rgb={tokens.amsterdam.color["neutral-grey1"]} />
+    <ColorPalette.Tile name="grey" rgb={tokens.amsterdam.color["neutral-grey2"]} />
+    <ColorPalette.Tile name="dark grey" rgb={tokens.amsterdam.color["neutral-grey3"]} />
   </ColorPalette.Section>
 </ColorPalette>
