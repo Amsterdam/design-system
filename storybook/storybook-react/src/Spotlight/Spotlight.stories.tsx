@@ -22,16 +22,6 @@ const meta = {
     color: {
       control: {
         type: 'select',
-        labels: {
-          blue: 'Blue',
-          'dark-blue': 'Dark blue',
-          'dark-green': 'Dark green',
-          green: 'Green',
-          magenta: 'Magenta',
-          orange: 'Orange',
-          purple: 'Purple',
-          yellow: 'Yellow',
-        },
       },
       options: ['blue', 'dark-blue', 'dark-green', 'green', 'magenta', 'orange', 'purple', 'yellow'],
     },
