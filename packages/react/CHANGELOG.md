@@ -3,6 +3,32 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.4.0](https://github.com/Amsterdam/design-system/compare/@amsterdam/design-system-react@0.3.0...@amsterdam/design-system-react@0.4.0) (2024-01-31)
+
+### ⚠ BREAKING CHANGES
+
+* Change blue color names of Spotlight to match Badge API (#1061)
+* Allow zero row gap for Grid (#1040)
+* Add icon button (#1021)
+* Update alert appearance, make ‘warning’ the default and icon non-optional (#993)
+
+### Features
+
+* Add Badge component ([#1045](https://github.com/Amsterdam/design-system/issues/1045)) ([d346cdf](https://github.com/Amsterdam/design-system/commit/d346cdfd2b3c7fab08e6bae10314420f1fde8a5f))
+* Add icon button ([#1021](https://github.com/Amsterdam/design-system/issues/1021)) ([b6e1c26](https://github.com/Amsterdam/design-system/commit/b6e1c260878c09340c9fc89f8740ae033e206855))
+* Add MegaMenu component ([#992](https://github.com/Amsterdam/design-system/issues/992)) ([de9fcc6](https://github.com/Amsterdam/design-system/commit/de9fcc65cced79a07cf201613b8616193f86b810))
+* Add Table ([#1043](https://github.com/Amsterdam/design-system/issues/1043)) ([2175b22](https://github.com/Amsterdam/design-system/commit/2175b22dbab369fb5d7f817a09c7f0560d8d8195))
+* Allow zero row gap for Grid ([#1040](https://github.com/Amsterdam/design-system/issues/1040)) ([6ef7b08](https://github.com/Amsterdam/design-system/commit/6ef7b08c4962bad9c564ade67276b78e1a4712b8))
+* Change blue color names of Spotlight to match Badge API ([#1061](https://github.com/Amsterdam/design-system/issues/1061)) ([0e663bd](https://github.com/Amsterdam/design-system/commit/0e663bd1bcbc8c848d16962749d6113cd3aaaf20))
+* Introduce separate Link List component ([#1051](https://github.com/Amsterdam/design-system/issues/1051)) ([7ccf23d](https://github.com/Amsterdam/design-system/commit/7ccf23d1128a6cade34ec6846d0fee23335af525))
+
+### Bug Fixes
+
+* Include children in public prop types ([#1044](https://github.com/Amsterdam/design-system/issues/1044)) ([2b4c2f6](https://github.com/Amsterdam/design-system/commit/2b4c2f6372c3cf3098a1c848594a29a2ad7fb785))
+* Refactor interfaces to types ([#1055](https://github.com/Amsterdam/design-system/issues/1055)) ([91f1126](https://github.com/Amsterdam/design-system/commit/91f1126f27301688b0d1b2d63efa4af03ea2ddfc))
+* Refactor subcomponents ([#1050](https://github.com/Amsterdam/design-system/issues/1050)) ([9e48aec](https://github.com/Amsterdam/design-system/commit/9e48aec0444fe5c378614b9ffb2efc3b847f6b7a))
+* Update alert appearance, make ‘warning’ the default and icon non-optional ([#993](https://github.com/Amsterdam/design-system/issues/993)) ([df15253](https://github.com/Amsterdam/design-system/commit/df152538278a73c4aceb094fece70025ff35dc5f))
+
 ## [0.3.0](https://github.com/Amsterdam/design-system/compare/@amsterdam/design-system-react@0.2.0...@amsterdam/design-system-react@0.3.0) (2023-12-22)
 
 ### ⚠ BREAKING CHANGES
