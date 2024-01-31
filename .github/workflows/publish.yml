@@ -20,7 +20,7 @@ jobs:
           target-branch: main
 
       # The logic below handles the npm publication:
-      - name: Checkout branch
+      - name: Check out branch
         uses: actions/checkout@v4
         with:
           # This is necessary because on.workflow_run always runs on the
@@ -51,7 +51,7 @@ jobs:
           echo "pnpm_cache_dir=$(pnpm store path)" >> $GITHUB_OUTPUT
         if: ${{ steps.release.outputs.releases_created }}
 
-      - name: Setup pnpm cache
+      - name: Set up pnpm cache
         uses: actions/cache@v4
         with:
           path: ${{ steps.pnpm-cache.outputs.pnpm_cache_dir }}
