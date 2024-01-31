@@ -3,7 +3,7 @@
 We use a Release Please GitHub action to create changelog and release PRs for all our packages.
 When the release PR is merged, that same action publishes the new release to npm, GitHub releases and deploys it to our main Storybook instance.
 
-Only the [maintainers](./documentation/maintainers.md) can release new versions of our packages.
+The [maintainers](./documentation/maintainers.md) can release new versions of our packages.
 If you want to have rights to publish as well, contact one of the [maintainers](./maintainers.md).
 
 ## Conventional commits
