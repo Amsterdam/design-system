@@ -4,7 +4,6 @@
  */
 
 import { Link, Paragraph } from '@amsterdam/design-system-react'
-import * as Icons from '@amsterdam/design-system-react-icons'
 import type { Meta, StoryObj } from '@storybook/react'
 
 type Story = StoryObj<typeof Link>
@@ -13,16 +12,6 @@ const meta = {
   title: 'Navigation/Link',
   component: Link,
   argTypes: {
-    icon: {
-      control: {
-        type: 'select',
-      },
-      options: Object.keys(Icons),
-      mapping: Icons,
-      table: {
-        category: 'API',
-      },
-    },
     onBackground: {
       control: {
         type: 'radio',
@@ -36,9 +25,8 @@ const meta = {
     variant: {
       control: {
         type: 'radio',
-        labels: { standalone: 'standalone', inline: 'inline', inList: 'inList' },
       },
-      options: ['standalone', 'inline', 'inList'],
+      options: ['standalone', 'inline'],
       table: {
         category: 'API',
         defaultValue: { summary: 'standalone' },
