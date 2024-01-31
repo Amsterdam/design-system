@@ -6,13 +6,26 @@
 import clsx from 'clsx'
 import { forwardRef, HTMLAttributes, PropsWithChildren } from 'react'
 
+export const spotlightColors = [
+  'blue',
+  'dark-blue',
+  'dark-green',
+  'green',
+  'magenta',
+  'orange',
+  'purple',
+  'yellow',
+] as const
+
+type SpotlightColor = (typeof spotlightColors)[number]
+
 export type SpotlightProps = {
   as?: 'article' | 'aside' | 'div' | 'footer' | 'section'
-  color?: 'blue' | 'dark-green' | 'green' | 'light-blue' | 'magenta' | 'orange' | 'purple' | 'yellow'
+  color?: SpotlightColor
 } & PropsWithChildren<HTMLAttributes<HTMLElement>>
 
 export const Spotlight = forwardRef<HTMLDivElement, SpotlightProps>(
-  ({ children, className, as: Tag = 'div', color = 'blue', ...restProps }: SpotlightProps, ref) => (
+  ({ children, className, as: Tag = 'div', color = 'dark-blue', ...restProps }: SpotlightProps, ref) => (
     <Tag {...restProps} ref={ref} className={clsx('amsterdam-spotlight', `amsterdam-spotlight--${color}`, className)}>
       {children}
     </Tag>
