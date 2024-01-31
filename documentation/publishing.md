@@ -1,6 +1,6 @@
 # Publishing
 
-We use a [Release Please GitHub action](https://github.com/google-github-actions/release-please-action) to create changelog and release PRs for all our packages.
+We use a [Release Please GitHub Action](https://github.com/google-github-actions/release-please-action) to create changelog and release PRs for all our packages.
 When the release PR is merged, that same action publishes the new release to npm, creates a release on GitHub, and deploys it to our main Storybook environment.
 
 The [maintainers](./documentation/maintainers.md) can release new versions of our packages.
@@ -40,7 +40,7 @@ This will cause a major version bump in both packages on release and add its des
 2. This triggers a GitHub Action, which creates a release PR.
    Review, approve and merge this PR.
    The same Action will then publish the release to npm and GitHub.
-   It also deploys the released version to our Storybook environment.
+   It also deploys the released version to our main Storybook environment.
 3. When complete, the Action adds a new release commit to `main`.
    Locally merge this commit back into `develop` and push it to the remote:
 
