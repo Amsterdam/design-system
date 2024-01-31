@@ -41,8 +41,8 @@ This will cause a major version bump in both packages on release and add its des
    Review, approve and merge this PR.
    The same Action will then publish the release to npm and GitHub.
    It also deploys the released version to our Storybook environment.
-3. When the release actions have completed, there’s a new release commit on `main`.
-   Locally merge this commit back into `develop` and push to remote:
+3. When complete, the Action adds a new release commit to `main`.
+   Locally merge this commit back into `develop` and push it to the remote:
 
    ```shell
     git checkout develop
