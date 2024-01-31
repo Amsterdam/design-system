@@ -2,6 +2,9 @@
   "amsterdam": {
     "spotlight": {
       "blue": {
+        "background-color": { "value": "{amsterdam.color.blue}" }
+      },
+      "dark-blue": {
         "background-color": { "value": "{amsterdam.color.primary-blue}" }
       },
       "dark-green": {
@@ -9,9 +12,6 @@
       },
       "green": {
         "background-color": { "value": "{amsterdam.color.green}" }
-      },
-      "light-blue": {
-        "background-color": { "value": "{amsterdam.color.blue}" }
       },
       "magenta": {
         "background-color": { "value": "{amsterdam.color.magenta}" }
