@@ -4,6 +4,15 @@ import '@amsterdam/design-system-css/dist/index.css'
 import '../../storybook-overrides.css'
 import { viewports } from './viewports'
 
+export const decorators = [
+  (Story: any) => {
+    // Set language to Dutch for Canvas and Stories
+    document.querySelectorAll('.docs-story').forEach((e) => e.setAttribute('lang', 'nl'))
+
+    return Story()
+  },
+]
+
 export const parameters = {
   actions: {
     argTypesRegex: '^on[A-Z].*',
