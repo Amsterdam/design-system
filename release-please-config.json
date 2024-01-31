@@ -1,0 +1,14 @@
+{
+  "plugins": ["node-workspace"],
+  "bootstrap-sha": "0201bd289e2eec2297f23d93959718f7235d76c4",
+  "bump-minor-pre-major": true,
+  "bump-patch-for-minor-pre-major": true,
+  "group-pull-request-title-pattern": "chore(release): Publish new release(s)",
+  "packages": {
+    "packages/css": {},
+    "packages/react": {},
+    "proprietary/assets": {},
+    "proprietary/react-icons": {},
+    "proprietary/tokens": {}
+  }
+}
