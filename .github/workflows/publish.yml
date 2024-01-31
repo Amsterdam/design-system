@@ -52,7 +52,7 @@ jobs:
         if: ${{ steps.release.outputs.releases_created }}
 
       - name: Setup pnpm cache
-        uses: actions/cache@v3
+        uses: actions/cache@v4
         with:
           path: ${{ steps.pnpm-cache.outputs.pnpm_cache_dir }}
           key: ${{ runner.os }}-pnpm-store-${{ hashFiles('**/pnpm-lock.yaml') }}
@@ -76,7 +76,7 @@ jobs:
 
       # The logic below handles the Storybook deploy:
       - name: "Restore build artifact: Storybook docs"
-        uses: dawidd6/action-download-artifact@v2
+        uses: dawidd6/action-download-artifact@v3
         with:
           workflow: "lint-test.yml"
           name: storybook-docs
@@ -84,7 +84,7 @@ jobs:
         if: ${{ steps.release.outputs.releases_created }}
 
       - name: "Restore build artifact: Storybook react"
-        uses: dawidd6/action-download-artifact@v2
+        uses: dawidd6/action-download-artifact@v3
         with:
           workflow: "lint-test.yml"
           name: storybook-react
