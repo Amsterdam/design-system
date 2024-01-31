@@ -1,3 +1,3 @@
 # React Badge component
 
-[Badge documentation](../../../css/src/badge/README.md)
+[Badge documentation](../../../css/src/components/badge/README.md)

@@ -1,3 +1,3 @@
 # React Paragraph Component
 
-[Paragraph documentation](../../../css/src/paragraph/README.md)
+[Paragraph documentation](../../../css/src/components/paragraph/README.md)

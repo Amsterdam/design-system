@@ -1,3 +1,3 @@
 # React Card component
 
-[Card documentation](../../../css/src/card/README.md)
+[Card documentation](../../../css/src/components/card/README.md)

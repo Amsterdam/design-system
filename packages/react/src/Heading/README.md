@@ -1,3 +1,3 @@
 # React Heading Component
 
-[Heading documentation](../../../css/src/heading/README.md)
+[Heading documentation](../../../css/src/components/heading/README.md)

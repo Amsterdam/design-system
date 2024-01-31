@@ -1,3 +1,3 @@
 # React Pagination component
 
-[Pagination documentation](../../../css/src/pagination/README.md)
+[Pagination documentation](../../../css/src/components/pagination/README.md)
