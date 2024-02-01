@@ -1,0 +1,36 @@
+import tokens from "@amsterdam/design-system-tokens/dist/index.tokens.json";
+import { Meta } from "@storybook/blocks";
+import { ColorPalette } from "./components/ColorPalette";
+
+<Meta title="Docs/Assets/Colour" />
+
+# Colour
+
+The basic colours of Amsterdam are white, red, and black.
+We have 8 additional colours and 3 shades of grey.
+
+<ColorPalette>
+  <ColorPalette.Section>
+    <ColorPalette.Tile color={tokens.amsterdam.color["primary-white"]} name="white" />
+    <ColorPalette.Tile color={tokens.amsterdam.color["primary-red"]} name="red" />
+    <ColorPalette.Tile color={tokens.amsterdam.color["primary-black"]} name="black" />
+  </ColorPalette.Section>
+  <ColorPalette.Section>
+    <ColorPalette.Tile color={tokens.amsterdam.color["green"]} name="green" />
+    <ColorPalette.Tile color={tokens.amsterdam.color["dark-green"]} name="dark green" />
+    <ColorPalette.Tile color={tokens.amsterdam.color["blue"]} name="blue" />
+    <ColorPalette.Tile color={tokens.amsterdam.color["primary-blue"]} name="dark blue" />
+    <ColorPalette.Tile color={tokens.amsterdam.color["dark-blue"]} name="darker blue" />
+  </ColorPalette.Section>
+  <ColorPalette.Section>
+    <ColorPalette.Tile color={tokens.amsterdam.color["yellow"]} name="yellow" />
+    <ColorPalette.Tile color={tokens.amsterdam.color["orange"]} name="orange" />
+    <ColorPalette.Tile color={tokens.amsterdam.color["magenta"]} name="magenta" />
+    <ColorPalette.Tile color={tokens.amsterdam.color["purple"]} name="purple" />
+  </ColorPalette.Section>
+  <ColorPalette.Section>
+    <ColorPalette.Tile color={tokens.amsterdam.color["neutral-grey1"]} name="light grey" />
+    <ColorPalette.Tile color={tokens.amsterdam.color["neutral-grey2"]} name="grey" />
+    <ColorPalette.Tile color={tokens.amsterdam.color["neutral-grey3"]} name="dark grey" />
+  </ColorPalette.Section>
+</ColorPalette>

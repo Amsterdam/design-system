@@ -1,3 +1,3 @@
 # React Link Component
 
-[Link documentation](../../../css/src/link/README.md)
+[Link documentation](../../../css/src/components/link/README.md)

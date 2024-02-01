@@ -3,6 +3,29 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.4.0](https://github.com/Amsterdam/design-system/compare/@amsterdam/design-system-tokens@0.3.0...@amsterdam/design-system-tokens@0.4.0) (2024-01-31)
+
+### ⚠ BREAKING CHANGES
+
+* Change blue color names of Spotlight to match Badge API (#1061)
+* Remove unused grey-4 color token (#1059)
+* Add icon button (#1021)
+* Update alert appearance, make ‘warning’ the default and icon non-optional (#993)
+
+### Features
+
+* Add Badge component ([#1045](https://github.com/Amsterdam/design-system/issues/1045)) ([d346cdf](https://github.com/Amsterdam/design-system/commit/d346cdfd2b3c7fab08e6bae10314420f1fde8a5f))
+* Add icon button ([#1021](https://github.com/Amsterdam/design-system/issues/1021)) ([b6e1c26](https://github.com/Amsterdam/design-system/commit/b6e1c260878c09340c9fc89f8740ae033e206855))
+* Add MegaMenu component ([#992](https://github.com/Amsterdam/design-system/issues/992)) ([de9fcc6](https://github.com/Amsterdam/design-system/commit/de9fcc65cced79a07cf201613b8616193f86b810))
+* Add Table ([#1043](https://github.com/Amsterdam/design-system/issues/1043)) ([2175b22](https://github.com/Amsterdam/design-system/commit/2175b22dbab369fb5d7f817a09c7f0560d8d8195))
+* Change blue color names of Spotlight to match Badge API ([#1061](https://github.com/Amsterdam/design-system/issues/1061)) ([0e663bd](https://github.com/Amsterdam/design-system/commit/0e663bd1bcbc8c848d16962749d6113cd3aaaf20))
+* Introduce separate Link List component ([#1051](https://github.com/Amsterdam/design-system/issues/1051)) ([7ccf23d](https://github.com/Amsterdam/design-system/commit/7ccf23d1128a6cade34ec6846d0fee23335af525))
+
+### Bug Fixes
+
+* Remove unused grey-4 color token ([#1059](https://github.com/Amsterdam/design-system/issues/1059)) ([379560e](https://github.com/Amsterdam/design-system/commit/379560eafc48d3301439c4e40268b65beae59a56))
+* Update alert appearance, make ‘warning’ the default and icon non-optional ([#993](https://github.com/Amsterdam/design-system/issues/993)) ([df15253](https://github.com/Amsterdam/design-system/commit/df152538278a73c4aceb094fece70025ff35dc5f))
+
 ## [0.3.0](https://github.com/Amsterdam/design-system/compare/@amsterdam/design-system-tokens@0.2.0...@amsterdam/design-system-tokens@0.3.0) (2023-12-22)
 
 ### ⚠ BREAKING CHANGES

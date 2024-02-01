@@ -1,3 +1,3 @@
 # React Visually Hidden component
 
-[Visually hidden documentation](../../../css/src/visually-hidden/README.md)
+[Visually hidden documentation](../../../css/src/components/visually-hidden/README.md)
