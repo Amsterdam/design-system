@@ -7,10 +7,6 @@
       "padding-inline-end": { "value": "{amsterdam.spacing.inset.md}" },
       "padding-block-start": { "value": "{amsterdam.spacing.inset.sm}" },
       "padding-block-end": { "value": "{amsterdam.spacing.inset.sm}" },
-      "outline-offset": { "value": "{amsterdam.focus.outline-offset}" },
-      "outline-style": { "value": "{amsterdam.focus.outline-style}" },
-      "outline-color": { "value": "{amsterdam.focus.outline-color}" },
-      "outline-width": { "value": "{amsterdam.focus.outline-width}" },
       "spacious": {
         "font-size": { "value": "{amsterdam.typography.spacious.text-level.5.font-size}" },
         "line-height": { "value": "{amsterdam.typography.spacious.text-level.5.line-height}" }
