@@ -22,17 +22,13 @@
     line-height: var(--amsterdam-breadcrumb-compact-line-height);
   }
 
-  &--busy {
-    cursor: var(--amsterdam-action-busy-cursor);
-  }
-
   &:disabled,
   &[aria-disabled="true"] {
     cursor: var(--amsterdam-action-disabled-cursor);
   }
 
   &:hover:not(:disabled, [aria-disabled="true"]) {
-    cursor: var(--amsterdam-action-hover-cursor);
+    cursor: var(--amsterdam-action-activate-cursor);
   }
 
   @include amsterdam-focus-style;
@@ -49,27 +45,23 @@
 }
 
 .amsterdam-button--primary {
-  @include amsterdam-button;
-
   background-color: var(--amsterdam-button-primary-background-color);
   color: var(--amsterdam-button-primary-color);
 
   &:disabled,
   [aria-disabled="true"] {
     background-color: var(--amsterdam-button-primary-disabled-background-color);
-    cursor: var(--amsterdam-action-disabled-cursor, revert);
   }
 
   &:hover:not(:disabled, [aria-disabled="true"]) {
     background-color: var(--amsterdam-button-primary-hover-background-color);
   }
 
+  @include amsterdam-button;
   @include amsterdam-button-forced-color-mode;
 }
 
 .amsterdam-button--secondary {
-  @include amsterdam-button;
-
   background-color: var(--amsterdam-button-secondary-background-color);
   box-shadow: var(--amsterdam-button-secondary-box-shadow);
   color: var(--amsterdam-button-secondary-color);
@@ -86,12 +78,11 @@
     color: var(--amsterdam-button-secondary-hover-color);
   }
 
+  @include amsterdam-button;
   @include amsterdam-button-forced-color-mode;
 }
 
 .amsterdam-button--tertiary {
-  @include amsterdam-button;
-
   background-color: var(--amsterdam-button-tertiary-background-color);
   color: var(--amsterdam-button-tertiary-color);
 
@@ -105,4 +96,6 @@
     box-shadow: var(--amsterdam-button-tertiary-hover-box-shadow);
     color: var(--amsterdam-button-tertiary-hover-color);
   }
+
+  @include amsterdam-button;
 }
