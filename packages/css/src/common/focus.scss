@@ -1,8 +1,0 @@
-@mixin amsterdam-focus-style {
-  &:focus:not(:disabled, [aria-disabled="true"]) {
-    outline-color: var(--amsterdam-focus-outline-color);
-    outline-offset: var(--amsterdam-focus-outline-offset);
-    outline-style: var(--amsterdam-focus-outline-style);
-    outline-width: var(--amsterdam-focus-outline-width);
-  }
-}
