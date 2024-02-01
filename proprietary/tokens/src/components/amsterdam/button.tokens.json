@@ -7,7 +7,7 @@
       "padding-inline-end": { "value": "{amsterdam.spacing.inset.md}" },
       "padding-block-start": { "value": "{amsterdam.spacing.inset.sm}" },
       "padding-block-end": { "value": "{amsterdam.spacing.inset.sm}" },
-      "outline-offset": { "value": "{amsterdam.focus.outline-offset" },
+      "outline-offset": { "value": "{amsterdam.focus.outline-offset}" },
       "spacious": {
         "font-size": { "value": "{amsterdam.typography.spacious.text-level.5.font-size}" },
         "line-height": { "value": "{amsterdam.typography.spacious.text-level.5.line-height}" }
