@@ -1,7 +1,10 @@
 {
   "amsterdam": {
     "focus": {
-      "outline-offset": { "value": "2px" }
+      "outline-offset": { "value": "2px" },
+      "outline-color": { "value": "{amsterdam.color.primary-black}" },
+      "outline-style": { "value": "solid" },
+      "outline-width": { "value": "2px" }
     }
   }
 }

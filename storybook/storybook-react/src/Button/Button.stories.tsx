@@ -3,7 +3,7 @@
  * Copyright (c) 2023 Gemeente Amsterdam
  */
 
-import { Button, Icon } from '@amsterdam/design-system-react'
+import { Badge, Button, Icon } from '@amsterdam/design-system-react'
 import { CloseIcon, ShareIcon } from '@amsterdam/design-system-react-icons'
 import { Meta, StoryObj } from '@storybook/react'
 
@@ -47,12 +47,6 @@ export const PrimaryWithIcon: Story = {
   },
 }
 
-export const PrimaryWithIconLeft: Story = {
-  args: {
-    children: [<Icon key="icon" svg={CloseIcon} size="level-5" />, 'Primary'],
-  },
-}
-
 export const Secondary: Story = {
   args: {
     children: 'Secondary',
@@ -67,6 +61,17 @@ export const SecondaryWithIcon: Story = {
   },
 }
 
+export const SecondaryWithIconAndBadge: Story = {
+  args: {
+    variant: 'secondary',
+    children: [
+      'Secondary',
+      <Badge key="badge" label={99} color="dark-blue" />,
+      <Icon key="icon" svg={CloseIcon} size="level-5" />,
+    ],
+  },
+}
+
 export const Tertiary: Story = {
   args: {
     children: 'Tertiary',
@@ -77,6 +82,29 @@ export const Tertiary: Story = {
 export const TertiaryWithIcon: Story = {
   args: {
     children: ['Tertiary', <Icon key="icon" svg={ShareIcon} size="level-5" />],
+    variant: 'tertiary',
+  },
+}
+
+export const PrimaryDisabled: Story = {
+  args: {
+    children: 'Primary',
+    disabled: true,
+  },
+}
+
+export const SecondaryDisabled: Story = {
+  args: {
+    children: 'Secondary',
+    disabled: true,
+    variant: 'secondary',
+  },
+}
+
+export const TertiaryDisabled: Story = {
+  args: {
+    children: 'Tertiary',
+    disabled: true,
     variant: 'tertiary',
   },
 }

@@ -10,12 +10,19 @@ import type { ButtonHTMLAttributes, ForwardedRef, PropsWithChildren } from 'reac
 export type ButtonProps = {
   variant?: 'primary' | 'secondary' | 'tertiary'
   busy?: boolean
-  pressed?: boolean
 } & PropsWithChildren<ButtonHTMLAttributes<HTMLButtonElement>>
 
+/**
+ * Button component
+ *
+ * @param {string} [props.variant='primary'] - Button variant
+ * @param {boolean} [props.busy] - Button busy state
+ * @param {React.ReactNode} [props.children] - Button content
+ * @returns {React.ReactElement}
+ */
 export const Button = forwardRef(
   (
-    { children, type, disabled, busy, pressed, variant = 'primary', ...restProps }: ButtonProps,
+    { children, type, disabled, busy, variant = 'primary', ...restProps }: ButtonProps,
     ref: ForwardedRef<HTMLButtonElement>,
   ) => {
     return (
@@ -23,15 +30,9 @@ export const Button = forwardRef(
         {...restProps}
         ref={ref}
         disabled={disabled}
-        className={clsx(
-          'amsterdam-button',
-          busy === true && 'amsterdam-button--busy',
-          `amsterdam-button--${variant}`,
-          pressed === true && 'amsterdam-button--pressed',
-        )}
+        className={clsx('amsterdam-button', busy === true && 'amsterdam-button--busy', `amsterdam-button--${variant}`)}
         type={type || 'button'}
         aria-busy={busy || undefined}
-        aria-pressed={typeof pressed === 'boolean' ? pressed : undefined}
       >
         {children}
       </button>
