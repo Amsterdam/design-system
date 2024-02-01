@@ -12,14 +12,6 @@ export type ButtonProps = {
   busy?: boolean
 } & PropsWithChildren<ButtonHTMLAttributes<HTMLButtonElement>>
 
-/**
- * Button component
- *
- * @param {string} [props.variant='primary'] - Button variant
- * @param {boolean} [props.busy] - Button busy state
- * @param {React.ReactNode} [props.children] - Button content
- * @returns {React.ReactElement}
- */
 export const Button = forwardRef(
   (
     { children, type, disabled, busy, variant = 'primary', ...restProps }: ButtonProps,
