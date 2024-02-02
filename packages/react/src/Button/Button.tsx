@@ -8,7 +8,9 @@ import { forwardRef } from 'react'
 import type { ButtonHTMLAttributes, ForwardedRef, PropsWithChildren } from 'react'
 
 export type ButtonProps = {
+  /** Variant, choose between 'primary' (default), 'secondary' or 'tertiary' */
   variant?: 'primary' | 'secondary' | 'tertiary'
+  /** Render the button in a busy state to indicate something has to finish loading */
   busy?: boolean
 } & PropsWithChildren<ButtonHTMLAttributes<HTMLButtonElement>>
 
