@@ -1,4 +1,4 @@
-import { Controls, Markdown, Meta, Primary } from "@storybook/blocks";
+import { Canvas, Controls, Markdown, Meta, Primary } from "@storybook/blocks";
 import * as ImageStories from "./Image.stories.tsx";
 import README from "../../../../packages/css/src/components/image/README.md?raw";
 
@@ -9,3 +9,20 @@ import README from "../../../../packages/css/src/components/image/README.md?raw"
 <Primary />
 
 <Controls />
+
+## Image with srcset
+
+This is an example of an image with a srcset attribute.
+Read this documentation to learn more about the srcset attribute:
+
+- [MDN Web Docs HTML](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/img#srcset)
+- [MDN Web Docs API](https://developer.mozilla.org/en-US/docs/Web/API/HTMLImageElement/srcset)
+
+When the `(max-width: 832px)` media query condition matches, the 640px image will load, otherwise the 1280px image will be used.
+If the srcset attribute uses width descriptors, the sizes attribute must also be present, or the srcset itself will be ignored.
+
+<Canvas of={ImageStories.SourceSetWidth} />
+
+When an image element's srcset contains "x" descriptors, browsers also consider the URL in the `src` attribute (if present) as a candidate, and assign it a default descriptor of 1x.
+
+<Canvas of={ImageStories.SourceSetDensity} />

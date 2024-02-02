@@ -21,3 +21,19 @@ export const Default: Story = {
     src: 'https://picsum.photos/640/360',
   },
 }
+
+export const SourceSetWidth: Story = {
+  args: {
+    alt: '',
+    src: 'https://picsum.photos/640/360',
+    srcSet: 'https://picsum.photos/640/360 640w, https://picsum.photos/1280/720 1280w',
+    sizes: '(max-width: 832px) 640px, 50vw',
+  },
+}
+
+export const SourceSetDensity: Story = {
+  args: {
+    alt: '',
+    srcSet: 'https://picsum.photos/640/360 1x, https://picsum.photos/1280/720 2x',
+  },
+}
