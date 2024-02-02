@@ -14,6 +14,15 @@ export type ButtonProps = {
   busy?: boolean
 } & PropsWithChildren<ButtonHTMLAttributes<HTMLButtonElement>>
 
+/**
+ * A button component.
+ * @example
+ * <Button onClick={handleClick}>Click me</Button>
+ * @example
+ * <Button variant="secondary" onClick={handleClick}>Click me</Button>
+ * @example
+ * <Button variant="tertiary" onClick={handleClick}>Close <Icon key="icon" svg={CloseIcon} size="level-5" /></Button>
+ */
 export const Button = forwardRef(
   (
     { children, type, disabled, busy, variant = 'primary', ...restProps }: ButtonProps,
