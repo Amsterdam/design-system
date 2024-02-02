@@ -27,7 +27,7 @@ export const SourceSetWidth: Story = {
     alt: '',
     src: 'https://picsum.photos/640/360',
     srcSet: 'https://picsum.photos/640/360 640w, https://picsum.photos/1280/720 1280w',
-    sizes: '(max-width: 832px) 640px, 50vw',
+    sizes: '(max-width: 36rem) 640px, 50vw',
   },
 }
 
@@ -35,5 +35,13 @@ export const SourceSetDensity: Story = {
   args: {
     alt: '',
     srcSet: 'https://picsum.photos/640/360 1x, https://picsum.photos/1280/720 2x',
+  },
+}
+
+export const LazyLoading: Story = {
+  args: {
+    alt: '',
+    src: 'https://picsum.photos/2560/1440',
+    loading: 'lazy',
   },
 }

@@ -26,3 +26,12 @@ If the srcset attribute uses width descriptors, the sizes attribute must also be
 When an image element's srcset contains "x" descriptors, browsers also consider the URL in the `src` attribute (if present) as a candidate, and assign it a default descriptor of 1x.
 
 <Canvas of={ImageStories.SourceSetDensity} />
+
+## Lazy loading
+
+This is an example of native lazy loading using the `loading` attribute. The default behaviour is `eager`, which means the image will load immediately.
+The `lazy` value will defer the loading of the image until it is within the viewport.
+
+- [MDN Web Docs (HTML)](https://developer.mozilla.org/en-US/docs/Web/API/HTMLImageElement/loading)
+
+<Canvas of={ImageStories.LazyLoading} />
