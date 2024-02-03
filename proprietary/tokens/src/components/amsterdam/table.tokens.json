@@ -4,8 +4,8 @@
       "color": { "value": "{amsterdam.color.primary-black}" },
       "font-family": { "value": "{amsterdam.typography.font-family}" },
       "font-weight": { "value": "{amsterdam.typography.font-weight.normal}" },
-      "font-size": { "value": "{amsterdam.typography.spacious.text-level.5.font-size}" },
-      "line-height": { "value": "{amsterdam.typography.spacious.text-level.5.line-height}" },
+      "font-size": { "value": "{amsterdam.typography.text-level.5.font-size}" },
+      "line-height": { "value": "{amsterdam.typography.text-level.5.line-height}" },
       "caption": {
         "font-weight": { "value": "{amsterdam.typography.font-weight.bold}" }
       },

@@ -24,12 +24,12 @@
         "color": { "value": "{amsterdam.color.neutral-grey3}" }
       },
       "compact": {
-        "font-size": { "value": "{amsterdam.typography.compact.text-level.6.font-size}" },
-        "line-height": { "value": "{amsterdam.typography.compact.text-level.6.line-height}" }
+        "font-size": { "value": "{amsterdam.typography.text-level.6.font-size}" },
+        "line-height": { "value": "{amsterdam.typography.text-level.6.line-height}" }
       },
       "spacious": {
-        "font-size": { "value": "{amsterdam.typography.spacious.text-level.6.font-size}" },
-        "line-height": { "value": "{amsterdam.typography.spacious.text-level.6.line-height}" }
+        "font-size": { "value": "{amsterdam.typography.text-level.6.font-size}" },
+        "line-height": { "value": "{amsterdam.typography.text-level.6.line-height}" }
       }
     }
   }

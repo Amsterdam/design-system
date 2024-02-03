@@ -19,7 +19,7 @@
   "scripts": {
     "clean": "rimraf dist/",
     "build": "npm-run-all build:**",
-    "build:style-dictionary": "style-dictionary build --config ./style-dictionary.config.json",
+    "build:style-dictionary": "node build.js",
     "watch": "npm-run-all watch:**",
     "watch:style-dictionary": "chokidar --follow-symlinks --initial --command \"npm run build\" \"src/**/*.tokens.json\""
   },
