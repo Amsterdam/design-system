@@ -1,6 +1,6 @@
 {
   "plugins": ["node-workspace"],
-  "bootstrap-sha": "0201bd289e2eec2297f23d93959718f7235d76c4",
+  "bootstrap-sha": "3bc9765e9de9553db5b643d2ed79735837d4d7b6",
   "bump-minor-pre-major": true,
   "bump-patch-for-minor-pre-major": true,
   "group-pull-request-title-pattern": "chore(release): Publish new release(s)",
