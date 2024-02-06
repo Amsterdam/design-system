@@ -1,0 +1,5 @@
+import{Q as e,j as r}from"./index.esm-FyDjFim0.js";const b={title:"Navigation/Tabs",component:e,argTypes:{children:{table:{disable:!0}}}};e.Link;const d={args:{children:[r.jsxs(e.List,{children:[r.jsx(e.Link,{label:"Gegevens",href:"#",selected:!0}),r.jsx(e.Link,{label:"Aanslagen",href:"#"}),r.jsx(e.Link,{label:"Documenten",href:"#"}),r.jsx(e.Link,{label:"Acties",href:"#",isDisabled:!0})]},"list")]}},m={args:{label:"Gegevens",href:"#"},render:({...a})=>r.jsx(e.Link,{...a})},t={...d},s={...m};var o,l,n;t.parameters={...t.parameters,docs:{...(o=t.parameters)==null?void 0:o.docs,source:{originalSource:`{
+  ...StoryTemplate
+}`,...(n=(l=t.parameters)==null?void 0:l.docs)==null?void 0:n.source}}};var c,i,p;s.parameters={...s.parameters,docs:{...(c=s.parameters)==null?void 0:c.docs,source:{originalSource:`{
+  ...TabStoryTemplate
+}`,...(p=(i=s.parameters)==null?void 0:i.docs)==null?void 0:p.source}}};const u=["Default","Tab"],g=Object.freeze(Object.defineProperty({__proto__:null,Default:t,Tab:s,__namedExportsOrder:u,default:b},Symbol.toStringTag,{value:"Module"}));export{g as T,s as a};
