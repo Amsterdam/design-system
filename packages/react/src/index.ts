@@ -4,6 +4,7 @@
  */
 
 /* Append here */
+export * from './Tabs'
 export * from './LinkList'
 export * from './Badge'
 export * from './Table'
