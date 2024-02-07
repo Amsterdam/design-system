@@ -3,16 +3,10 @@
     "blockquote": {
       "color": { "value": "{amsterdam.color.primary-black}" },
       "font-family": { "value": "{amsterdam.typography.font-family}" },
+      "font-size": { "value": "{amsterdam.typography.text-level.3.font-size}" },
       "font-weight": { "value": "{amsterdam.typography.font-weight.bold}" },
-      "inverse-color": { "value": "{amsterdam.color.primary-white}" },
-      "spacious": {
-        "font-size": { "value": "{amsterdam.typography.text-level.3.font-size}" },
-        "line-height": { "value": "{amsterdam.typography.text-level.3.line-height}" }
-      },
-      "compact": {
-        "font-size": { "value": "{amsterdam.typography.text-level.3.font-size}" },
-        "line-height": { "value": "{amsterdam.typography.text-level.3.line-height}" }
-      }
+      "line-height": { "value": "{amsterdam.typography.text-level.3.line-height}" },
+      "inverse-color": { "value": "{amsterdam.color.primary-white}" }
     }
   }
 }

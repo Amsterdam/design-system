@@ -5,33 +5,17 @@
       "font-family": { "value": "{amsterdam.typography.font-family}" },
       "font-weight": { "value": "{amsterdam.typography.font-weight.normal}" },
       "inverse-color": { "value": "{amsterdam.color.primary-white}" },
-      "spacious": {
-        "small": {
-          "font-size": { "value": "{amsterdam.typography.text-level.6.font-size}" },
-          "line-height": { "value": "{amsterdam.typography.text-level.6.line-height}" }
-        },
-        "medium": {
-          "font-size": { "value": "{amsterdam.typography.text-level.5.font-size}" },
-          "line-height": { "value": "{amsterdam.typography.text-level.5.line-height}" }
-        },
-        "large": {
-          "font-size": { "value": "{amsterdam.typography.text-level.4.font-size}" },
-          "line-height": { "value": "{amsterdam.typography.text-level.4.line-height}" }
-        }
+      "small": {
+        "font-size": { "value": "{amsterdam.typography.text-level.6.font-size}" },
+        "line-height": { "value": "{amsterdam.typography.text-level.6.line-height}" }
       },
-      "compact": {
-        "small": {
-          "font-size": { "value": "{amsterdam.typography.text-level.6.font-size}" },
-          "line-height": { "value": "{amsterdam.typography.text-level.6.line-height}" }
-        },
-        "medium": {
-          "font-size": { "value": "{amsterdam.typography.text-level.5.font-size}" },
-          "line-height": { "value": "{amsterdam.typography.text-level.5.line-height}" }
-        },
-        "large": {
-          "font-size": { "value": "{amsterdam.typography.text-level.4.font-size}" },
-          "line-height": { "value": "{amsterdam.typography.text-level.4.line-height}" }
-        }
+      "medium": {
+        "font-size": { "value": "{amsterdam.typography.text-level.5.font-size}" },
+        "line-height": { "value": "{amsterdam.typography.text-level.5.line-height}" }
+      },
+      "large": {
+        "font-size": { "value": "{amsterdam.typography.text-level.4.font-size}" },
+        "line-height": { "value": "{amsterdam.typography.text-level.4.line-height}" }
       }
     }
   }

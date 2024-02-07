@@ -2,16 +2,10 @@
   "amsterdam": {
     "badge": {
       "font-family": { "value": "{amsterdam.typography.font-family}" },
+      "font-size": { "value": "{amsterdam.typography.text-level.5.font-size}" },
       "font-weight": { "value": "{amsterdam.typography.font-weight.bold}" },
+      "line-height": { "value": "{amsterdam.typography.text-level.5.line-height}" },
       "padding-inline": { "value": "0.5rem" },
-      "spacious": {
-        "font-size": { "value": "{amsterdam.typography.text-level.5.font-size}" },
-        "line-height": { "value": "{amsterdam.typography.text-level.5.line-height}" }
-      },
-      "compact": {
-        "font-size": { "value": "{amsterdam.typography.text-level.5.font-size}" },
-        "line-height": { "value": "{amsterdam.typography.text-level.5.line-height}" }
-      },
       "blue": {
         "background-color": { "value": "{amsterdam.color.blue}" },
         "color": { "value": "{amsterdam.color.primary-black}" }

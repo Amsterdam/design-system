@@ -3,21 +3,15 @@
     "accordion": {
       "button": {
         "color": { "value": "{amsterdam.color.primary-blue}" },
+        "font-family": { "value": "{amsterdam.typography.font-family}" },
+        "font-size": { "value": "{amsterdam.typography.text-level.5.font-size}" },
+        "font-weight": { "value": "{amsterdam.typography.font-weight.bold}" },
+        "line-height": { "value": "{amsterdam.typography.text-level.5.line-height}" },
         "focus": {
           "outline-offset": { "value": "{amsterdam.focus.outline-offset}" }
         },
-        "font-family": { "value": "{amsterdam.typography.font-family}" },
-        "font-weight": { "value": "{amsterdam.typography.font-weight.bold}" },
         "hover": {
           "box-shadow": { "value": "inset 0 0 0 2px {amsterdam.color.neutral-grey3}" }
-        },
-        "spacious": {
-          "font-size": { "value": "{amsterdam.typography.text-level.5.font-size}" },
-          "line-height": { "value": "{amsterdam.typography.text-level.5.line-height}" }
-        },
-        "compact": {
-          "font-size": { "value": "{amsterdam.typography.text-level.5.font-size}" },
-          "line-height": { "value": "{amsterdam.typography.text-level.5.line-height}" }
         }
       }
     }
