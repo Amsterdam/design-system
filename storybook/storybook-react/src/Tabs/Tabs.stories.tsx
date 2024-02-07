@@ -5,6 +5,7 @@
 
 import { Tabs } from '@amsterdam/design-system-react'
 import { Meta, StoryObj } from '@storybook/react'
+// import { exampleParagraph } from '../shared/exampleContent'
 
 const meta = {
   title: 'Navigation/Tabs',
@@ -52,14 +53,32 @@ type TabStory = StoryObj<typeof tabMeta>
 
 const StoryTemplate: Story = {
   args: {
-    children: [
-      <Tabs.List key="list">
-        <Tabs.Link label="Gegevens" href="#" selected />
-        <Tabs.Link label="Aanslagen" href="#" />
-        <Tabs.Link label="Documenten" href="#" />
-        <Tabs.Link label="Acties" href="#" isDisabled />
-      </Tabs.List>,
-    ],
+    // children: [
+    //   <>
+    //     <Tabs.List>
+    //       <Tabs.Link label="Gegevens" href="#" />
+    //       <Tabs.Link label="Aanslagen" href="#" />
+    //       <Tabs.Link label="Documenten" href="#" />
+    //       <Tabs.Link label="Acties" href="#" isDisabled />
+    //     </Tabs.List>
+    //     <Tabs.Panel>
+    //       <Heading level={3}>Gegevens</Heading>
+    //       <Paragraph>{exampleParagraph()}</Paragraph>
+    //     </Tabs.Panel>
+    //     <Tabs.Panel>
+    //       <Heading level={3}>Aanslagen</Heading>
+    //       <Paragraph>{exampleParagraph()}</Paragraph>
+    //     </Tabs.Panel>
+    //     <Tabs.Panel>
+    //       <Heading level={3}>Documenten</Heading>
+    //       <Paragraph>{exampleParagraph()}</Paragraph>
+    //     </Tabs.Panel>
+    //     <Tabs.Panel>
+    //       <Heading level={3}>Acties</Heading>
+    //       <Paragraph>{exampleParagraph()}</Paragraph>
+    //     </Tabs.Panel>
+    //   </>,
+    // ],
   },
 }
 

@@ -9,30 +9,27 @@ import type { AnchorHTMLAttributes, ForwardedRef, PropsWithChildren } from 'reac
 
 export type TabsLinkProps = {
   label: string
-  href: string
   selected?: boolean
   isDisabled?: boolean
 } & PropsWithChildren<AnchorHTMLAttributes<HTMLAnchorElement>>
 
 export const TabsLink = forwardRef(
-  (
-    { label, className, href, selected, isDisabled, ...restProps }: TabsLinkProps,
-    ref: ForwardedRef<HTMLAnchorElement>,
-  ) => (
-    <a
-      {...restProps}
-      href={href}
-      ref={ref}
-      className={clsx(
-        'amsterdam-tabs__link',
-        selected && 'amsterdam-tabs__link--selected',
-        isDisabled && 'amsterdam-tabs__link--disabled',
-        className,
-      )}
-    >
-      {label}
-    </a>
-  ),
+  ({ label, className, selected, isDisabled, ...restProps }: TabsLinkProps, ref: ForwardedRef<HTMLAnchorElement>) => {
+    return (
+      <a
+        {...restProps}
+        ref={ref}
+        className={clsx(
+          'amsterdam-tabs__link',
+          selected && 'amsterdam-tabs__link--selected',
+          isDisabled && 'amsterdam-tabs__link--disabled',
+          className,
+        )}
+      >
+        {label}
+      </a>
+    )
+  },
 )
 
 TabsLink.displayName = 'Tabs.Link'
