@@ -1,3 +1,3 @@
 # Page Menu
 
-[Page menu documentation](../../../css/src/page-menu/README.md)
+[Page menu documentation](../../../css/src/components/page-menu/README.md)
