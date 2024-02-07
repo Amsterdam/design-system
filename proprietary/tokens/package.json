@@ -18,10 +18,8 @@
   },
   "scripts": {
     "clean": "rimraf dist/",
-    "build": "npm-run-all build:**",
-    "build:style-dictionary": "node build.js",
-    "watch": "npm-run-all watch:**",
-    "watch:style-dictionary": "chokidar --follow-symlinks --initial --command \"npm run build\" \"src/**/*.tokens.json\""
+    "build": "node build.js",
+    "watch": "chokidar --follow-symlinks --initial --command \"npm run build\" \"src/**/*.tokens.json\""
   },
   "devDependencies": {
     "chokidar-cli": "3.0.0",
