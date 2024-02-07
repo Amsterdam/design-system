@@ -3,7 +3,7 @@
  * Copyright (c) 2023 Gemeente Amsterdam
  */
 
-@mixin amsterdam-button {
+.amsterdam-button {
   border: none;
   cursor: var(--amsterdam-action-activate-cursor);
   display: inline-flex;
@@ -21,13 +21,13 @@
     line-height: var(--amsterdam-breadcrumb-compact-line-height);
   }
 
+  &:hover {
+    cursor: var(--amsterdam-action-activate-cursor);
+  }
+
   &:disabled,
   &[aria-disabled="true"] {
     cursor: var(--amsterdam-action-disabled-cursor);
-  }
-
-  &:hover:not(:disabled, [aria-disabled="true"]) {
-    cursor: var(--amsterdam-action-activate-cursor);
   }
 }
 
@@ -37,24 +37,26 @@
   }
 }
 
-.amsterdam-button--busy {
+.amsterdam-button--busy:hover {
   cursor: var(--amsterdam-action-busy-cursor);
 }
 
 .amsterdam-button--primary {
   background-color: var(--amsterdam-button-primary-background-color);
+  box-shadow: var(--amsterdam-button-primary-box-shadow);
   color: var(--amsterdam-button-primary-color);
 
   &:disabled,
   [aria-disabled="true"] {
     background-color: var(--amsterdam-button-primary-disabled-background-color);
+    box-shadow: var(--amsterdam-button-primary-disabled-box-shadow);
   }
 
   &:hover:not(:disabled, [aria-disabled="true"]) {
     background-color: var(--amsterdam-button-primary-hover-background-color);
+    box-shadow: var(--amsterdam-button-primary-hover-box-shadow);
   }
 
-  @include amsterdam-button;
   @include amsterdam-button-forced-color-mode;
 }
 
@@ -75,7 +77,6 @@
     color: var(--amsterdam-button-secondary-hover-color);
   }
 
-  @include amsterdam-button;
   @include amsterdam-button-forced-color-mode;
 }
 
@@ -93,6 +94,4 @@
     box-shadow: var(--amsterdam-button-tertiary-hover-box-shadow);
     color: var(--amsterdam-button-tertiary-hover-color);
   }
-
-  @include amsterdam-button;
 }

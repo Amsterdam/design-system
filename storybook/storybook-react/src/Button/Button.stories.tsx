@@ -108,3 +108,26 @@ export const TertiaryDisabled: Story = {
     variant: 'tertiary',
   },
 }
+
+export const PrimaryBusy: Story = {
+  args: {
+    children: 'Primary',
+    busy: true,
+  },
+}
+
+export const SecondaryBusy: Story = {
+  args: {
+    children: 'Secondary',
+    busy: true,
+    variant: 'secondary',
+  },
+}
+
+export const TertiaryBusy: Story = {
+  args: {
+    children: 'Tertiary',
+    busy: true,
+    variant: 'tertiary',
+  },
+}
