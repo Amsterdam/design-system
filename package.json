@@ -82,6 +82,6 @@
     "watch:react": "npm run --workspace packages/react build:watch",
     "watch:storybook-docs": "npx wait-on http://localhost:6007 && npm run --workspace storybook/storybook-docs start",
     "watch:storybook-react": "npm run --workspace storybook/storybook-react start",
-    "watch:style-dictionary": "npm run --workspace proprietary/tokens watch"
+    "watch:tokens": "npm run --workspace proprietary/tokens watch"
   }
 }
