@@ -6,9 +6,6 @@
 @import "../../common/breakpoint";
 
 .amsterdam-grid {
-  --amsterdam-grid-gap: var(--amsterdam-grid-spacious-gap);
-  --amsterdam-grid-padding-inline: var(--amsterdam-grid-spacious-padding-inline);
-
   display: grid;
   gap: var(--amsterdam-grid-gap);
   grid-template-columns: repeat(var(--amsterdam-grid-column-count), 1fr);
@@ -21,11 +18,6 @@
   @media screen and (min-width: $amsterdam-breakpoint-wide) {
     grid-template-columns: repeat(var(--amsterdam-grid-wide-column-count), 1fr);
   }
-}
-
-.amsterdam-grid--compact {
-  --amsterdam-grid-gap: var(--amsterdam-grid-compact-gap);
-  --amsterdam-grid-padding-inline: var(--amsterdam-grid-compact-padding-inline);
 }
 
 .amsterdam-grid--gap-vertical--none {
