@@ -18,7 +18,7 @@ jobs:
           BRANCH_NAME=$(echo $RAW_BRANCH_NAME | sed 's/[^/]*\///')
           echo "BRANCH_NAME=$BRANCH_NAME" >> $GITHUB_ENV
 
-      - name: Checkout
+      - name: Check out
         uses: actions/checkout@v4
         with:
           ref: gh-pages

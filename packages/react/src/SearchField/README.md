@@ -1,3 +1,3 @@
 # React Search Field component
 
-[Search Field documentation](../../../css/src/search-field/README.md)
+[Search Field documentation](../../../css/src/components/search-field/README.md)

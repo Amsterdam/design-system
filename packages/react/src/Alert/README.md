@@ -1,3 +1,3 @@
 # React Alert component
 
-[Alert documentation](../../../css/src/alert/README.md)
+[Alert documentation](../../../css/src/components/alert/README.md)

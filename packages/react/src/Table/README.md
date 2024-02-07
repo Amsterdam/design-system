@@ -1,3 +1,3 @@
 # React Table component
 
-[Table documentation](../../../css/src/table/README.md)
+[Table documentation](../../../css/src/components/table/README.md)
