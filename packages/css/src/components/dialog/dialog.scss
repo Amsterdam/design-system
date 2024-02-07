@@ -4,6 +4,7 @@
  */
 
 @import "../../common/breakpoint";
+@import "../../common/hyphenation";
 
 .amsterdam-dialog {
   background-color: var(--amsterdam-dialog-background-color);
@@ -56,12 +57,13 @@
   font-weight: var(--amsterdam-dialog-title-font-weight);
   line-height: var(--amsterdam-dialog-title-spacious-line-height);
 
+  @include hyphenation;
+  @include reset;
+
   .amsterdam-theme--compact & {
     font-size: var(--amsterdam-dialog-title-compact-font-size);
     line-height: var(--amsterdam-dialog-title-compact-line-height);
   }
-
-  @include reset;
 }
 
 .amsterdam-dialog__footer {
