@@ -12,15 +12,10 @@
 .amsterdam-form-label {
   color: var(--amsterdam-form-label-color);
   font-family: var(--amsterdam-form-label-font-family);
-  font-size: var(--amsterdam-form-label-spacious-font-size);
+  font-size: var(--amsterdam-form-label-font-size);
   font-weight: var(--amsterdam-form-label-font-weight);
-  line-height: var(--amsterdam-form-label-spacious-line-height);
+  line-height: var(--amsterdam-form-label-line-height);
 
   @include hyphenation;
   @include reset;
-
-  .amsterdam-theme--compact & {
-    font-size: var(--amsterdam-form-label-compact-font-size);
-    line-height: var(--amsterdam-form-label-compact-line-height);
-  }
 }

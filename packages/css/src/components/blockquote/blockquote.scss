@@ -16,9 +16,9 @@
   break-inside: avoid;
   color: var(--amsterdam-blockquote-color);
   font-family: var(--amsterdam-blockquote-font-family);
-  font-size: var(--amsterdam-blockquote-spacious-font-size);
+  font-size: var(--amsterdam-blockquote-font-size);
   font-weight: var(--amsterdam-blockquote-font-weight);
-  line-height: var(--amsterdam-blockquote-spacious-line-height);
+  line-height: var(--amsterdam-blockquote-line-height);
   quotes: "“" "”";
 
   &::before {
@@ -27,11 +27,6 @@
 
   &::after {
     content: close-quote;
-  }
-
-  .amsterdam-theme--compact & {
-    font-size: var(--amsterdam-blockquote-spacious-font-size);
-    line-height: var(--amsterdam-blockquote-spacious-line-height);
   }
 
   @include hyphenation;

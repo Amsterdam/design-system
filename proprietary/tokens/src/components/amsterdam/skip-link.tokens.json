@@ -8,10 +8,6 @@
       "font-size": { "value": "{amsterdam.typography.text-level.6.font-size}" },
       "line-height": { "value": "{amsterdam.typography.text-level.6.line-height}" },
       "outline-offset": { "value": "{amsterdam.focus.outline-offset}" },
-      "compact": {
-        "font-size": { "value": "{amsterdam.typography.text-level.6.font-size}" },
-        "line-height": { "value": "{amsterdam.typography.text-level.6.line-height}" }
-      },
       "hover": {
         "background-color": { "value": "{amsterdam.color.dark-blue}" }
       }

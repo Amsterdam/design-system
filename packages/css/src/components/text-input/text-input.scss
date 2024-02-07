@@ -14,9 +14,9 @@
   box-shadow: var(--amsterdam-text-input-box-shadow);
   color: var(--amsterdam-text-input-color);
   font-family: var(--amsterdam-text-input-font-family);
-  font-size: var(--amsterdam-text-input-spacious-font-size);
+  font-size: var(--amsterdam-text-input-font-size);
   font-weight: var(--amsterdam-text-input-font-weight);
-  line-height: var(--amsterdam-text-input-spacious-line-height);
+  line-height: var(--amsterdam-text-input-line-height);
   outline-offset: var(--amsterdam-text-input-outline-offset);
   padding-block: 0.5rem;
   padding-inline: 1rem;
@@ -24,11 +24,6 @@
   width: 100%;
 
   @include reset;
-
-  .amsterdam-theme--compact & {
-    font-size: var(--amsterdam-text-input-compact-font-size);
-    line-height: var(--amsterdam-text-input-compact-line-height);
-  }
 
   &:hover {
     box-shadow: var(--amsterdam-text-input-hover-box-shadow);
