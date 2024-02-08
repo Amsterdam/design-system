@@ -21,7 +21,14 @@ export const TabsPanel = forwardRef(
     }
 
     return (
-      <div {...restProps} ref={ref} className={clsx('amsterdam-tabs__panel', className)}>
+      <div
+        {...restProps}
+        role="tabpanel"
+        id={`panel-${tab}`}
+        tabIndex={0}
+        ref={ref}
+        className={clsx('amsterdam-tabs__panel', className)}
+      >
         {children}
       </div>
     )

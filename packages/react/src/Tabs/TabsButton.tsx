@@ -6,8 +6,7 @@
 import clsx from 'clsx'
 import { forwardRef, startTransition, useContext } from 'react'
 import type { ButtonHTMLAttributes, ForwardedRef, PropsWithChildren } from 'react'
-import { TabsContext } from './Tabs'
-// import TabsContext from './TabsContext'
+import TabsContext from './TabsContext'
 
 export type TabsButtonProps = {
   label: string
@@ -22,6 +21,9 @@ export const TabsButton = forwardRef(
     return (
       <button
         {...restProps}
+        role="tab"
+        aria-controls={`panel-${tab}`}
+        tabIndex={activeTab === tab ? 0 : -1}
         ref={ref}
         onClick={() => {
           startTransition(() => {

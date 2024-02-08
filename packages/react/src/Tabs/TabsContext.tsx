@@ -11,7 +11,6 @@ const defaultValues: TabsContextValue = {
   updateTab: () => {},
 }
 
-// eslint-disable-next-line no-unused-vars
 const TabsContext = createContext(defaultValues)
 
 export default TabsContext
