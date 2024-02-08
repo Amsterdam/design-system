@@ -7,6 +7,27 @@ import { Heading, Paragraph, Tabs } from '@amsterdam/design-system-react'
 import { Meta, StoryObj } from '@storybook/react'
 import { exampleParagraph } from '../shared/exampleContent'
 
+const SlowItem = ({ id }: { id: number }) => {
+  const startTime = performance.now()
+  while (performance.now() - startTime < 10) {
+    // Do nothing for 5 ms per item to emulate extremely slow code
+  }
+
+  return <li className="item">Slow Item #{id + 1}</li>
+}
+
+const ItemsList = () => {
+  const items = [...(Array(100).keys() as any)]
+
+  return (
+    <ul className="items">
+      {items.map((id) => (
+        <SlowItem key={id} id={id} />
+      ))}
+    </ul>
+  )
+}
+
 const meta = {
   title: 'Navigation/Tabs',
   component: Tabs,
@@ -67,7 +88,9 @@ const StoryTemplate: Story = {
         </Tabs.Panel>
         <Tabs.Panel tab={2}>
           <Heading level={3}>Documenten</Heading>
-          <Paragraph>{exampleParagraph()}</Paragraph>
+          <Paragraph>
+            <ItemsList />
+          </Paragraph>
         </Tabs.Panel>
         <Tabs.Panel tab={3}>
           <Heading level={3}>Acties</Heading>
