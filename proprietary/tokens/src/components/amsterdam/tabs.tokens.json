@@ -6,7 +6,9 @@
       "list": {
         "border-color": { "value": "{amsterdam.color.primary-blue}" }
       },
-      "link": {
+      "button": {
+        "background-color": { "value": "transparent" },
+        "border": { "value": "none" },
         "color": { "value": "{amsterdam.link-appearance.color}" },
         "font-family": { "value": "{amsterdam.typography.font-family}" },
         "font-weight": { "value": "{amsterdam.typography.font-weight.normal}" },

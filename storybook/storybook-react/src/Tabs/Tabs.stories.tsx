@@ -3,9 +3,9 @@
  * Copyright (c) 2023 Gemeente Amsterdam
  */
 
-import { Tabs } from '@amsterdam/design-system-react'
+import { Heading, Paragraph, Tabs } from '@amsterdam/design-system-react'
 import { Meta, StoryObj } from '@storybook/react'
-// import { exampleParagraph } from '../shared/exampleContent'
+import { exampleParagraph } from '../shared/exampleContent'
 
 const meta = {
   title: 'Navigation/Tabs',
@@ -20,20 +20,16 @@ const meta = {
 export default meta
 
 const tabMeta = {
-  component: Tabs.Link,
+  component: Tabs.Button,
   args: {
     label: 'Gegevens',
-    href: '#',
   },
   argTypes: {
     label: {
       control: { type: 'text' },
     },
-    href: {
-      control: { type: 'text' },
-    },
-    selected: {
-      control: { type: 'boolean' },
+    key: {
+      control: { type: 'number', min: 0, max: 9 },
     },
     isDisabled: {
       control: { type: 'boolean' },
@@ -46,48 +42,49 @@ const tabMeta = {
       </Tabs>
     ),
   ],
-} satisfies Meta<typeof Tabs.Link>
+} satisfies Meta<typeof Tabs.Button>
 
 type Story = StoryObj<typeof meta>
 type TabStory = StoryObj<typeof tabMeta>
 
 const StoryTemplate: Story = {
   args: {
-    // children: [
-    //   <>
-    //     <Tabs.List>
-    //       <Tabs.Link label="Gegevens" href="#" />
-    //       <Tabs.Link label="Aanslagen" href="#" />
-    //       <Tabs.Link label="Documenten" href="#" />
-    //       <Tabs.Link label="Acties" href="#" isDisabled />
-    //     </Tabs.List>
-    //     <Tabs.Panel>
-    //       <Heading level={3}>Gegevens</Heading>
-    //       <Paragraph>{exampleParagraph()}</Paragraph>
-    //     </Tabs.Panel>
-    //     <Tabs.Panel>
-    //       <Heading level={3}>Aanslagen</Heading>
-    //       <Paragraph>{exampleParagraph()}</Paragraph>
-    //     </Tabs.Panel>
-    //     <Tabs.Panel>
-    //       <Heading level={3}>Documenten</Heading>
-    //       <Paragraph>{exampleParagraph()}</Paragraph>
-    //     </Tabs.Panel>
-    //     <Tabs.Panel>
-    //       <Heading level={3}>Acties</Heading>
-    //       <Paragraph>{exampleParagraph()}</Paragraph>
-    //     </Tabs.Panel>
-    //   </>,
-    // ],
+    children: [
+      <>
+        <Tabs.List>
+          <Tabs.Button tab={0} label="Gegevens" />
+          <Tabs.Button tab={1} label="Aanslagen" />
+          <Tabs.Button tab={2} label="Documenten" />
+          <Tabs.Button tab={3} label="Acties" isDisabled />
+        </Tabs.List>
+        <Tabs.Panel tab={0}>
+          <Heading level={3}>Gegevens</Heading>
+          <Paragraph>{exampleParagraph()}</Paragraph>
+        </Tabs.Panel>
+        <Tabs.Panel tab={1}>
+          <Heading level={3}>Aanslagen</Heading>
+          <Paragraph>{exampleParagraph()}</Paragraph>
+        </Tabs.Panel>
+        <Tabs.Panel tab={2}>
+          <Heading level={3}>Documenten</Heading>
+          <Paragraph>{exampleParagraph()}</Paragraph>
+        </Tabs.Panel>
+        <Tabs.Panel tab={3}>
+          <Heading level={3}>Acties</Heading>
+          <Paragraph>{exampleParagraph()}</Paragraph>
+        </Tabs.Panel>
+      </>,
+    ],
   },
 }
 
 const TabStoryTemplate: TabStory = {
   args: {
     label: 'Gegevens',
-    href: '#',
+    tab: 1,
+    isDisabled: false,
   },
-  render: ({ ...args }) => <Tabs.Link {...args} />,
+  render: ({ ...args }) => <Tabs.Button {...args} />,
 }
 
 export const Default: Story = {

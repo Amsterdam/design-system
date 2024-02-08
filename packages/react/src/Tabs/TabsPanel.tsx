@@ -4,17 +4,28 @@
  */
 
 import clsx from 'clsx'
-import { forwardRef } from 'react'
+import { forwardRef, useContext } from 'react'
 import type { ForwardedRef, HTMLAttributes, PropsWithChildren } from 'react'
+import { TabsContext } from './Tabs'
 
-export type TabsPanelProps = {} & PropsWithChildren<HTMLAttributes<HTMLDivElement>>
+export type TabsPanelProps = {
+  tab: number
+} & PropsWithChildren<HTMLAttributes<HTMLDivElement>>
 
 export const TabsPanel = forwardRef(
-  ({ children, className, ...restProps }: TabsPanelProps, ref: ForwardedRef<HTMLDivElement>) => (
-    <div {...restProps} ref={ref} className={clsx('amsterdam-tabs__panel', className)}>
-      {children}
-    </div>
-  ),
+  ({ tab, children, className, ...restProps }: TabsPanelProps, ref: ForwardedRef<HTMLDivElement>) => {
+    const { activeTab } = useContext(TabsContext)
+
+    if (tab !== activeTab) {
+      return null
+    }
+
+    return (
+      <div {...restProps} ref={ref} className={clsx('amsterdam-tabs__panel', className)}>
+        {children}
+      </div>
+    )
+  },
 )
 
 TabsPanel.displayName = 'Tabs.Panel'
