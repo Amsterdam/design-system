@@ -8,6 +8,8 @@ import type { KeyboardEvent, RefObject } from 'react'
 export const KeyboardKeys = {
   ArrowRight: 'ArrowRight',
   ArrowLeft: 'ArrowLeft',
+  Home: 'Home',
+  End: 'End',
 }
 
 const useFocusWithArrows = (ref: RefObject<HTMLDivElement>, rotating = false) => {
@@ -51,10 +53,26 @@ const useFocusWithArrows = (ref: RefObject<HTMLDivElement>, rotating = false) =>
           break
         }
 
+        case KeyboardKeys.Home: {
+          el = focusableEls[0]
+          break
+        }
+
+        case KeyboardKeys.End: {
+          el = focusableEls[focusableEls.length - 1]
+          break
+        }
+
         default:
       }
 
-      if ((e.key === KeyboardKeys.ArrowLeft || e.key === KeyboardKeys.ArrowRight) && el instanceof HTMLElement) {
+      if (
+        (e.key === KeyboardKeys.ArrowLeft ||
+          e.key === KeyboardKeys.ArrowRight ||
+          e.key === KeyboardKeys.Home ||
+          e.key === KeyboardKeys.End) &&
+        el instanceof HTMLElement
+      ) {
         el.focus()
         e.preventDefault()
       }
