@@ -52,29 +52,6 @@
   }
 }
 
-.amsterdam-link--in-list {
-  align-items: flex-start;
-  display: inline-flex;
-  font-size: var(--amsterdam-link-in-list-font-size);
-  gap: var(--amsterdam-link-in-list-gap);
-  line-height: var(--amsterdam-link-in-list-line-height);
-  text-decoration-line: var(--amsterdam-link-in-list-text-decoration-line);
-  text-decoration-thickness: var(--amsterdam-link-in-list-text-decoration-thickness);
-  text-underline-offset: var(--amsterdam-link-in-list-text-underline-offset);
-
-  &:hover {
-    text-decoration-line: var(--amsterdam-link-in-list-hover-text-decoration-line);
-  }
-}
-
-// Override for icon size
-.amsterdam-link--in-list__chevron {
-  span.amsterdam-icon svg {
-    height: 1rem;
-    width: 1rem;
-  }
-}
-
 .amsterdam-link--on-background-dark {
   color: var(--amsterdam-link-on-background-dark-color);
 
