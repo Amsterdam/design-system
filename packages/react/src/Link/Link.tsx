@@ -3,37 +3,21 @@
  * Copyright (c) 2023 Gemeente Amsterdam
  */
 
-import { ChevronRightIcon } from '@amsterdam/design-system-react-icons'
 import clsx from 'clsx'
 import { forwardRef } from 'react'
-import type { AnchorHTMLAttributes, ForwardedRef, PropsWithChildren } from 'react'
-import { Icon } from '../Icon/Icon'
+import type { AnchorHTMLAttributes, ForwardedRef } from 'react'
 
 type LinkOnBackground = 'default' | 'light' | 'dark'
-/** @deprecated Use `LinkList` instead. */
-type DeprecatedLinkVariantInList = 'inList'
-type LinkVariant = 'standalone' | 'inline' | DeprecatedLinkVariantInList
+type LinkVariant = 'standalone' | 'inline'
 
-type CommonProps = {
+export type LinkProps = {
   variant?: LinkVariant
   onBackground?: LinkOnBackground
 } & Omit<AnchorHTMLAttributes<HTMLAnchorElement>, 'placeholder'>
 
-type ConditionalProps =
-  | {
-      variant?: 'standalone' | 'inline'
-      icon?: never
-    }
-  | {
-      variant?: 'inList'
-      icon?: Function
-    }
-
-export type LinkProps = PropsWithChildren<CommonProps & ConditionalProps>
-
 export const Link = forwardRef(
   (
-    { children, variant = 'standalone', icon, onBackground, className, ...otherProps }: LinkProps,
+    { children, variant = 'standalone', onBackground, className, ...otherProps }: LinkProps,
     ref: ForwardedRef<HTMLAnchorElement>,
   ) => (
     <a
@@ -44,15 +28,12 @@ export const Link = forwardRef(
         {
           'amsterdam-link--standalone': variant === 'standalone',
           'amsterdam-link--inline': variant === 'inline',
-          'amsterdam-link--in-list': variant === 'inList',
-          'amsterdam-link--in-list__chevron': variant === 'inList' && !icon,
           'amsterdam-link--on-background-light': onBackground === 'light',
           'amsterdam-link--on-background-dark': onBackground === 'dark',
         },
         className,
       )}
     >
-      {variant === 'inList' && <Icon svg={icon ?? ChevronRightIcon} size="level-5" />}
       {children}
     </a>
   ),
