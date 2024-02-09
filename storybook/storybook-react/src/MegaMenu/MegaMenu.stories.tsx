@@ -3,7 +3,7 @@
  * Copyright (c) 2023 Gemeente Amsterdam
  */
 
-import { Grid, Heading, Link, MegaMenu, Screen, UnorderedList } from '@amsterdam/design-system-react'
+import { Grid, Heading, LinkList, MegaMenu, Screen } from '@amsterdam/design-system-react'
 import { Meta, StoryObj } from '@storybook/react'
 
 const meta = {
@@ -41,108 +41,28 @@ export const Default: Story = {
             Alle onderwerpen
           </Heading>
           <MegaMenu.ListCategory>
-            <UnorderedList markers={false}>
-              <UnorderedList.Item>
-                <Link variant="inList" href="#">
-                  Afval
-                </Link>
-              </UnorderedList.Item>
-              <UnorderedList.Item>
-                <Link variant="inList" href="#">
-                  Bestuur en organisatie
-                </Link>
-              </UnorderedList.Item>
-              <UnorderedList.Item>
-                <Link variant="inList" href="#">
-                  Bouw- en verkeersprojecten
-                </Link>
-              </UnorderedList.Item>
-              <UnorderedList.Item>
-                <Link variant="inList" href="#">
-                  Burgerzaken
-                </Link>
-              </UnorderedList.Item>
-              <UnorderedList.Item>
-                <Link variant="inList" href="#">
-                  Diversiteit
-                </Link>
-              </UnorderedList.Item>
-              <UnorderedList.Item>
-                <Link variant="inList" href="#">
-                  Gemeentebelastingen
-                </Link>
-              </UnorderedList.Item>
-              <UnorderedList.Item>
-                <Link variant="inList" href="#">
-                  Gezondheidsdienst (GGD)
-                </Link>
-              </UnorderedList.Item>
-              <UnorderedList.Item>
-                <Link variant="inList" href="#">
-                  Kunst en cultuur
-                </Link>
-              </UnorderedList.Item>
-              <UnorderedList.Item>
-                <Link variant="inList" href="#">
-                  Ondernemen
-                </Link>
-              </UnorderedList.Item>
-              <UnorderedList.Item>
-                <Link variant="inList" href="#">
-                  Onderwijs en jeugd
-                </Link>
-              </UnorderedList.Item>
-              <UnorderedList.Item>
-                <Link variant="inList" href="#">
-                  Parkeren
-                </Link>
-              </UnorderedList.Item>
-              <UnorderedList.Item>
-                <Link variant="inList" href="#">
-                  Sport
-                </Link>
-              </UnorderedList.Item>
-              <UnorderedList.Item>
-                <Link variant="inList" href="#">
-                  Stadsdelen
-                </Link>
-              </UnorderedList.Item>
-              <UnorderedList.Item>
-                <Link variant="inList" href="#">
-                  Subsidies
-                </Link>
-              </UnorderedList.Item>
-              <UnorderedList.Item>
-                <Link variant="inList" href="#">
-                  Vacatures
-                </Link>
-              </UnorderedList.Item>
-              <UnorderedList.Item>
-                <Link variant="inList" href="#">
-                  Verkeer en vervoer
-                </Link>
-              </UnorderedList.Item>
-              <UnorderedList.Item>
-                <Link variant="inList" href="#">
-                  Vrije tijd
-                </Link>
-              </UnorderedList.Item>
-              <UnorderedList.Item>
-                <Link variant="inList" href="#">
-                  Werk aan de weg
-                </Link>
-              </UnorderedList.Item>
-              <UnorderedList.Item>
-                <Link variant="inList" href="#">
-                  Werk en inkomen
-                </Link>
-              </UnorderedList.Item>
-              <UnorderedList.Item>
-                <Link variant="inList" href="#">
-                  Wonen en leefomgeving
-                </Link>
-              </UnorderedList.Item>
-            </UnorderedList>
+            <LinkList>
+              <LinkList.Link href="#">Afval</LinkList.Link>
+              <LinkList.Link href="#">Bestuur en organisatie</LinkList.Link>
+              <LinkList.Link href="#">Bouw- en verkeersprojecten</LinkList.Link>
+              <LinkList.Link href="#">Burgerzaken</LinkList.Link>
+              <LinkList.Link href="#">Diversiteit</LinkList.Link>
+              <LinkList.Link href="#">Gemeentebelastingen</LinkList.Link>
+              <LinkList.Link href="#">Gezondheidsdienst (GGD)</LinkList.Link>
+              <LinkList.Link href="#">Kunst en cultuur</LinkList.Link>
+              <LinkList.Link href="#">Ondernemen</LinkList.Link>
+              <LinkList.Link href="#">Onderwijs en jeugd</LinkList.Link>
+              <LinkList.Link href="#">Parkeren</LinkList.Link>
+              <LinkList.Link href="#">Sport</LinkList.Link>
+              <LinkList.Link href="#">Stadsdelen</LinkList.Link>
+              <LinkList.Link href="#">Subsidies</LinkList.Link>
+              <LinkList.Link href="#">Vacatures</LinkList.Link>
+              <LinkList.Link href="#">Verkeer en vervoer</LinkList.Link>
+              <LinkList.Link href="#">Vrije tijd</LinkList.Link>
+              <LinkList.Link href="#">Werk aan de weg</LinkList.Link>
+              <LinkList.Link href="#">Werk en inkomen</LinkList.Link>
+              <LinkList.Link href="#">Wonen en leefomgeving</LinkList.Link>
+            </LinkList>
           </MegaMenu.ListCategory>
         </Grid.Cell>
       </Grid>
@@ -156,81 +76,53 @@ export const MultipleCategories: Story = {
       <Grid key="nav" paddingVertical="medium">
         <Grid.Cell span={{ narrow: 4, medium: 8, wide: 8 }}>
           <Heading level={3} size="level-3">
-            Thema&rsquo;s
+            Thema’s
           </Heading>
           <MegaMenu.ListCategory>
-            <UnorderedList markers={false}>
-              <UnorderedList.Item>
-                <Link variant="inList" href="#">
-                  Afval
-                </Link>
-              </UnorderedList.Item>
-              <UnorderedList.Item>
-                <Link variant="inList" href="#">
-                  Bestuur en organisatie
-                </Link>
-              </UnorderedList.Item>
-              <UnorderedList.Item>
-                <Link variant="inList" href="#">
-                  Bouw- en verkeersprojecten
-                </Link>
-              </UnorderedList.Item>
-              <UnorderedList.Item>
-                <Link variant="inList" href="#">
-                  Burgerzaken
-                </Link>
-              </UnorderedList.Item>
-              <UnorderedList.Item>
-                <Link variant="inList" href="#">
-                  Diversiteit
-                </Link>
-              </UnorderedList.Item>
-              <UnorderedList.Item>
-                <Link variant="inList" href="#">
-                  Gemeentebelastingen
-                </Link>
-              </UnorderedList.Item>
-              <UnorderedList.Item>
-                <Link variant="inList" href="#">
-                  Gezondheidsdienst (GGD)
-                </Link>
-              </UnorderedList.Item>
-              <UnorderedList.Item>
-                <Link variant="inList" href="#">
-                  Kunst en cultuur
-                </Link>
-              </UnorderedList.Item>
-              <UnorderedList.Item>
-                <Link variant="inList" href="#">
-                  Ondernemen
-                </Link>
-              </UnorderedList.Item>
-              <UnorderedList.Item>
-                <Link variant="inList" href="#">
-                  Onderwijs en jeugd
-                </Link>
-              </UnorderedList.Item>
-              <UnorderedList.Item>
-                <Link variant="inList" href="#">
-                  Parkeren
-                </Link>
-              </UnorderedList.Item>
-              <UnorderedList.Item>
-                <Link variant="inList" href="#">
-                  Sport
-                </Link>
-              </UnorderedList.Item>
-              <UnorderedList.Item>
-                <Link variant="inList" href="#">
-                  Stadsdelen
-                </Link>
-              </UnorderedList.Item>
-              <UnorderedList.Item>
-                <Link variant="inList" href="#">
-                  Subsidies
-                </Link>
-              </UnorderedList.Item>
-            </UnorderedList>
+            <LinkList>
+              <LinkList.Link href="#" size="large">
+                Afval
+              </LinkList.Link>
+              <LinkList.Link href="#" size="large">
+                Bestuur en organisatie
+              </LinkList.Link>
+              <LinkList.Link href="#" size="large">
+                Bouw- en verkeersprojecten
+              </LinkList.Link>
+              <LinkList.Link href="#" size="large">
+                Burgerzaken
+              </LinkList.Link>
+              <LinkList.Link href="#" size="large">
+                Diversiteit
+              </LinkList.Link>
+              <LinkList.Link href="#" size="large">
+                Gemeentebelastingen
+              </LinkList.Link>
+              <LinkList.Link href="#" size="large">
+                Gezondheidsdienst (GGD)
+              </LinkList.Link>
+              <LinkList.Link href="#" size="large">
+                Kunst en cultuur
+              </LinkList.Link>
+              <LinkList.Link href="#" size="large">
+                Ondernemen
+              </LinkList.Link>
+              <LinkList.Link href="#" size="large">
+                Onderwijs en jeugd
+              </LinkList.Link>
+              <LinkList.Link href="#" size="large">
+                Parkeren
+              </LinkList.Link>
+              <LinkList.Link href="#" size="large">
+                Sport
+              </LinkList.Link>
+              <LinkList.Link href="#" size="large">
+                Stadsdelen
+              </LinkList.Link>
+              <LinkList.Link href="#" size="large">
+                Subsidies
+              </LinkList.Link>
+            </LinkList>
           </MegaMenu.ListCategory>
         </Grid.Cell>
         <Grid.Cell span={{ narrow: 4, medium: 8, wide: 4 }}>
@@ -238,65 +130,25 @@ export const MultipleCategories: Story = {
             Categorieën
           </Heading>
           <MegaMenu.ListCategory>
-            <UnorderedList markers={false}>
-              <UnorderedList.Item>
-                <Link variant="inList" href="#">
-                  Vacatures
-                </Link>
-              </UnorderedList.Item>
-              <UnorderedList.Item>
-                <Link variant="inList" href="#">
-                  Verkeer en vervoer
-                </Link>
-              </UnorderedList.Item>
-              <UnorderedList.Item>
-                <Link variant="inList" href="#">
-                  Vrije tijd
-                </Link>
-              </UnorderedList.Item>
-              <UnorderedList.Item>
-                <Link variant="inList" href="#">
-                  Werk aan de weg
-                </Link>
-              </UnorderedList.Item>
-              <UnorderedList.Item>
-                <Link variant="inList" href="#">
-                  Werk en inkomen
-                </Link>
-              </UnorderedList.Item>
-              <UnorderedList.Item>
-                <Link variant="inList" href="#">
-                  Wonen en leefomgeving
-                </Link>
-              </UnorderedList.Item>
-            </UnorderedList>
+            <LinkList>
+              <LinkList.Link href="#">Vacatures</LinkList.Link>
+              <LinkList.Link href="#">Verkeer en vervoer</LinkList.Link>
+              <LinkList.Link href="#">Vrije tijd</LinkList.Link>
+              <LinkList.Link href="#">Werk aan de weg</LinkList.Link>
+              <LinkList.Link href="#">Werk en inkomen</LinkList.Link>
+              <LinkList.Link href="#">Wonen en leefomgeving</LinkList.Link>
+            </LinkList>
           </MegaMenu.ListCategory>
           <Heading level={3} size="level-3">
             Snel naar
           </Heading>
           <MegaMenu.ListCategory>
-            <UnorderedList markers={false}>
-              <UnorderedList.Item>
-                <Link variant="inList" href="#">
-                  Vacatures
-                </Link>
-              </UnorderedList.Item>
-              <UnorderedList.Item>
-                <Link variant="inList" href="#">
-                  Verkeer en vervoer
-                </Link>
-              </UnorderedList.Item>
-              <UnorderedList.Item>
-                <Link variant="inList" href="#">
-                  Vrije tijd
-                </Link>
-              </UnorderedList.Item>
-              <UnorderedList.Item>
-                <Link variant="inList" href="#">
-                  Werk aan de weg
-                </Link>
-              </UnorderedList.Item>
-            </UnorderedList>
+            <LinkList>
+              <LinkList.Link href="#">Vacatures</LinkList.Link>
+              <LinkList.Link href="#">Verkeer en vervoer</LinkList.Link>
+              <LinkList.Link href="#">Vrije tijd</LinkList.Link>
+              <LinkList.Link href="#">Werk aan de weg</LinkList.Link>
+            </LinkList>
           </MegaMenu.ListCategory>
         </Grid.Cell>
       </Grid>
