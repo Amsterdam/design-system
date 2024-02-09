@@ -34,13 +34,6 @@ type GridPaddingTopAndBottomProps = {
 }
 
 export type GridProps = {
-  /**
-   * Opts in to a less spacious layout.
-   * Decreases whitespace between columns and to the sides of the grid.
-   * This usually works well for applications.
-   * @todo Implement more generally – it will be moved into a theme soon.
-   */
-  compact?: boolean
   /** The amount of vertical whitespace between rows of the grid. */
   gapVertical?: 'none' | 'small' | 'large'
 } & (GridPaddingVerticalProp | GridPaddingTopAndBottomProps) &
@@ -74,7 +67,7 @@ type GridComponent = {
 
 export const Grid = forwardRef(
   (
-    { children, className, compact, gapVertical, paddingBottom, paddingTop, paddingVertical, ...restProps }: GridProps,
+    { children, className, gapVertical, paddingBottom, paddingTop, paddingVertical, ...restProps }: GridProps,
     ref: ForwardedRef<HTMLDivElement>,
   ) => (
     <div
@@ -82,7 +75,6 @@ export const Grid = forwardRef(
       ref={ref}
       className={clsx(
         'amsterdam-grid',
-        compact && `amsterdam-grid--compact`,
         gapVertical && `amsterdam-grid--gap-vertical--${gapVertical}`,
         paddingClasses(paddingBottom, paddingTop, paddingVertical),
         className,

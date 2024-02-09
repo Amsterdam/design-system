@@ -25,19 +25,14 @@
   color: var(--amsterdam-link-list-link-color);
   display: inline-flex;
   font-family: var(--amsterdam-link-list-link-font-family);
-  font-size: var(--amsterdam-link-list-link-spacious-medium-font-size);
+  font-size: var(--amsterdam-link-list-link-medium-font-size);
   font-weight: var(--amsterdam-link-list-link-font-weight);
   gap: var(--amsterdam-link-list-link-gap);
-  line-height: var(--amsterdam-link-list-link-spacious-medium-line-height);
+  line-height: var(--amsterdam-link-list-link-medium-line-height);
   outline-offset: var(--amsterdam-link-list-link-outline-offset);
   text-decoration-line: var(--amsterdam-link-list-link-text-decoration-line);
   text-decoration-thickness: var(--amsterdam-link-list-link-text-decoration-thickness);
   text-underline-offset: var(--amsterdam-link-list-link-text-underline-offset);
-
-  .amsterdam-theme--compact & {
-    font-size: var(--amsterdam-link-list-link-compact-medium-font-size);
-    line-height: var(--amsterdam-link-list-link-compact-medium-line-height);
-  }
 
   &:hover {
     color: var(--amsterdam-link-list-link-hover-color);
@@ -46,25 +41,15 @@
 }
 
 .amsterdam-link-list__link--small {
-  font-size: var(--amsterdam-link-list-link-spacious-small-font-size);
-  line-height: var(--amsterdam-link-list-link-spacious-small-line-height);
-
-  .amsterdam-theme--compact & {
-    font-size: var(--amsterdam-link-list-link-compact-small-font-size);
-    line-height: var(--amsterdam-link-list-link-compact-small-line-height);
-  }
+  font-size: var(--amsterdam-link-list-link-small-font-size);
+  line-height: var(--amsterdam-link-list-link-small-line-height);
 }
 
 .amsterdam-link-list__link--large {
-  font-size: var(--amsterdam-link-list-link-spacious-large-font-size);
-  line-height: var(--amsterdam-link-list-link-spacious-large-line-height);
+  font-size: var(--amsterdam-link-list-link-large-font-size);
+  line-height: var(--amsterdam-link-list-link-large-line-height);
 
   @include hyphenation;
-
-  .amsterdam-theme--compact & {
-    font-size: var(--amsterdam-link-list-link-compact-large-font-size);
-    line-height: var(--amsterdam-link-list-link-compact-large-line-height);
-  }
 }
 
 .amsterdam-link-list__link--on-background-dark {

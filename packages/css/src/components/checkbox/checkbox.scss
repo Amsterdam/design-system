@@ -19,7 +19,7 @@
   align-items: center;
   display: flex;
   flex-shrink: 0;
-  height: calc(var(--amsterdam-checkbox-spacious-font-size) * var(--amsterdam-checkbox-spacious-line-height));
+  height: calc(var(--amsterdam-checkbox-font-size) * var(--amsterdam-checkbox-line-height));
   width: 1.5rem;
 
   &::after {
@@ -30,10 +30,6 @@
     content: "";
     height: 1.5rem;
     width: 100%;
-  }
-
-  .amsterdam-theme--compact & {
-    height: calc(var(--amsterdam-checkbox-compact-font-size) * var(--amsterdam-checkbox-compact-line-height));
   }
 }
 
@@ -46,10 +42,10 @@
   cursor: pointer;
   display: inline-flex;
   font-family: var(--amsterdam-checkbox-font-family);
-  font-size: var(--amsterdam-checkbox-spacious-font-size);
+  font-size: var(--amsterdam-checkbox-font-size);
   font-weight: 400;
   gap: 0.5rem;
-  line-height: var(--amsterdam-checkbox-spacious-line-height);
+  line-height: var(--amsterdam-checkbox-line-height);
 
   &:hover {
     color: var(--amsterdam-checkbox-hover-color);
@@ -61,11 +57,6 @@
       border-color: var(--amsterdam-checkbox-checkmark-hover-border-color);
       border-width: 3px;
     }
-  }
-
-  .amsterdam-theme--compact & {
-    font-size: var(--amsterdam-checkbox-compact-font-size);
-    line-height: var(--amsterdam-checkbox-compact-line-height);
   }
 
   @include reset;

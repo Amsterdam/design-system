@@ -28,7 +28,7 @@ Import the packages you need.
 ```javascript
 import { Paragraph } from "@amsterdam/design-system-react";
 
-import "@amsterdam/design-system-tokens/dist/root.css";
+import "@amsterdam/design-system-tokens/dist/index.css";
 import "@amsterdam/design-system-assets/font/index.css";
 import "@amsterdam/design-system-css/dist/index.css";
 
@@ -37,4 +37,15 @@ function App() {
 }
 
 export default App;
+```
+
+## Compact mode
+
+For applications, the large text and ample white space of the theme can be counterproductive.
+That’s why there is a compact mode.
+To use the compact mode, import the compact css **after** theme css, like so:
+
+```javascript
+import "@amsterdam/design-system-tokens/dist/index.css";
+import "@amsterdam/design-system-tokens/dist/compact.css";
 ```
