@@ -8,7 +8,7 @@ Tabs are used to bundle related content in a compact overview within a page. Eac
 - The content within each tab should have a similar structure.
 - Use when there is limited visual space and content needs to be divided into sections.
 
-You can navigate an accordion with your keyboard:
+You can navigate tabs with your keyboard:
 
 | key            | element                                        |
 | :------------- | :--------------------------------------------- |
