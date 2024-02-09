@@ -3,6 +3,8 @@
  * Copyright (c) 2023 Gemeente Amsterdam
  */
 
+@import "../../common/hyphenation";
+
 @mixin reset {
   box-sizing: border-box;
   margin-block: 0;
@@ -18,6 +20,7 @@
   font-weight: var(--amsterdam-page-heading-font-weight);
   line-height: var(--amsterdam-page-heading-spacious-line-height);
 
+  @include hyphenation;
   @include reset;
 
   .amsterdam-theme--compact & {
