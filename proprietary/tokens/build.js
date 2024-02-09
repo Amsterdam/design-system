@@ -3,7 +3,7 @@ const StyleDictionary = require('style-dictionary')
 const modes = ['compact']
 
 function generateSharedConfig(mode) {
-  const prefix = mode ? `${mode}.` : ''
+  const name = mode ? `${mode}` : 'index'
 
   return {
     css: {
@@ -12,7 +12,7 @@ function generateSharedConfig(mode) {
       buildPath: 'dist/',
       files: [
         {
-          destination: `${prefix}root.css`,
+          destination: `${name}.css`,
           format: 'css/variables',
           options: {
             outputReferences: true,
@@ -25,7 +25,7 @@ function generateSharedConfig(mode) {
       buildPath: 'dist/',
       files: [
         {
-          destination: `${prefix}index.css`,
+          destination: `${name}.theme.css`,
           format: 'css/variables',
           options: {
             selector: '.amsterdam-theme',
@@ -35,21 +35,21 @@ function generateSharedConfig(mode) {
       ],
     },
     js: {
-      transforms: ['attribute/cti', 'name/cti/kebab', 'color/hsl-4'],
+      transforms: ['attribute/cti', 'name/cti/camel', 'color/hsl-4'],
       buildPath: 'dist/',
       files: [
         {
-          format: 'javascript/module',
-          destination: `${prefix}tokens.js`,
+          format: 'javascript/es6',
+          destination: `${name}.mjs`,
         },
       ],
     },
     json: {
-      transforms: ['attribute/cti', 'name/cti/kebab', 'color/hsl-4'],
+      transforms: ['attribute/cti', 'name/cti/camel', 'color/hsl-4'],
       buildPath: 'dist/',
       files: [
         {
-          destination: `${prefix}index.tokens.json`,
+          destination: `${name}.json`,
           format: 'json/nested',
         },
       ],
@@ -59,7 +59,7 @@ function generateSharedConfig(mode) {
       buildPath: 'dist/',
       files: [
         {
-          destination: `${prefix}variables.scss`,
+          destination: `${name}.scss`,
           format: 'scss/variables',
           options: {
             outputReferences: true,
@@ -68,13 +68,13 @@ function generateSharedConfig(mode) {
       ],
     },
     typescript: {
-      transforms: ['attribute/cti', 'name/cti/kebab', 'color/hsl-4'],
+      transforms: ['attribute/cti', 'name/cti/camel', 'color/hsl-4'],
       transformGroup: 'js',
       buildPath: 'dist/',
       files: [
         {
           format: 'typescript/module-declarations',
-          destination: `${prefix}tokens.d.ts`,
+          destination: `${name}.d.ts`,
         },
       ],
     },
