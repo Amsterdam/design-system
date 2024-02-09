@@ -3,7 +3,7 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
-## [0.4.0](https://github.com/Amsterdam/design-system/compare/design-system-css-v0.3.0...design-system-css-v0.4.0) (2024-02-09)
+## [0.5.0](https://github.com/Amsterdam/design-system/compare/@amsterdam/design-system-css@0.4.0...design-system-css-v0.5.0) (2024-02-09)
 
 
 ### ⚠ BREAKING CHANGES
@@ -17,12 +17,6 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 * Hyphenate headings and other large text components ([#1056](https://github.com/Amsterdam/design-system/issues/1056)) ([f875171](https://github.com/Amsterdam/design-system/commit/f8751716018d4ed269a086e1764741ad29714fa0))
 * Remove deprecated ‘in list’ variant of Link ([#1064](https://github.com/Amsterdam/design-system/issues/1064)) ([b30784b](https://github.com/Amsterdam/design-system/commit/b30784b352b4a057069ceb397951b79a6e2547f2))
 
-
-### Dependencies
-
-* The following workspace dependencies were updated
-  * devDependencies
-    * @amsterdam/design-system-tokens bumped to 0.4.0
 
 ## [0.4.0](https://github.com/Amsterdam/design-system/compare/@amsterdam/design-system-css@0.3.0...@amsterdam/design-system-css@0.4.0) (2024-01-31)
 

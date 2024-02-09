@@ -3,7 +3,7 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
-## [0.4.0](https://github.com/Amsterdam/design-system/compare/design-system-react-v0.3.0...design-system-react-v0.4.0) (2024-02-09)
+## [0.5.0](https://github.com/Amsterdam/design-system/compare/@amsterdam/design-system-react@0.4.0...design-system-react-v0.5.0) (2024-02-09)
 
 
 ### ⚠ BREAKING CHANGES
