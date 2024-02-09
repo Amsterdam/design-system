@@ -10,28 +10,22 @@
   height: var(--amsterdam-tabs-border-width);
   left: 0;
   position: absolute;
-  width: 100%;
-}
-
-.amsterdam-tabs {
-  display: grid;
-}
-
-.amsterdam-tabs--pending {
-  pointer-events: none;
+  right: 0;
+  width: auto;
 }
 
 .amsterdam-tabs__list {
+  border-bottom: var(--amsterdam-tabs-border-width) solid var(--amsterdam-tabs-border-color);
   display: flex;
   flex-direction: row;
   flex-wrap: nowrap;
-  overflow-x: auto;
-  overflow-y: hidden;
-  position: relative;
+  overflow-x: auto; // This also hides the focus ring which is not ideal
 
-  &::before {
-    background-color: var(--amsterdam-tabs-border-color);
-    @extend .amsterdam-tabs-underline;
+  // Hide scrollbar as temporary solution
+  &::-webkit-scrollbar {
+    background: transparent;
+    height: 0;
+    scrollbar-width: none;
   }
 }
 
@@ -39,7 +33,7 @@
   background-color: var(--amsterdam-tabs-button-background-color);
   border: var(--amsterdam-tabs-button-border);
   color: var(--amsterdam-tabs-button-color);
-  cursor: pointer;
+  cursor: var(--amsterdam-action-activate-cursor);
   display: inline-block;
   font-family: var(--amsterdam-tabs-button-font-family);
   font-size: var(--amsterdam-tabs-button-spacious-font-size);
@@ -48,12 +42,10 @@
   outline-offset: var(--amsterdam-tabs-button-outline-offset);
   padding-block: var(--amsterdam-tabs-button-padding-block);
   padding-inline: var(--amsterdam-tabs-button-padding-inline);
-  position: relative;
   text-decoration: none;
 
   &:hover:not(.amsterdam-tabs__button--selected, .amsterdam-tabs__button--disabled)::after {
     background-color: currentColor;
-    height: 4px;
     @extend .amsterdam-tabs-underline;
   }
 
@@ -74,12 +66,9 @@
 
 .amsterdam-tabs__button--disabled {
   color: var(--amsterdam-tabs-button-disabled-color);
-
-  // TODO: Disabled cursor after button refactor
-  // cursor: var(--amsterdam-action-disabled-cursor);
+  cursor: var(--amsterdam-action-disabled-cursor);
 }
 
 .amsterdam-tabs__panel {
-  grid-area: 2 / 1;
   padding-block: 1rem; // temp
 }

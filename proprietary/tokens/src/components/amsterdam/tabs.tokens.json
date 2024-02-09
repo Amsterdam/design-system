@@ -2,7 +2,7 @@
   "amsterdam": {
     "tabs": {
       "border-color": { "value": "{amsterdam.color.primary-blue}" },
-      "border-width": { "value": "2px" },
+      "border-width": { "value": ".13rem" },
       "list": {
         "border-color": { "value": "{amsterdam.color.primary-blue}" }
       },
@@ -16,7 +16,8 @@
         "padding-block": { "value": ".5rem" },
         "padding-inline": { "value": "1rem" },
         "hover": {
-          "color": { "value": "{amsterdam.link-appearance.hover.color}" }
+          "color": { "value": "{amsterdam.link-appearance.hover.color}" },
+          "border-width": { "value": ".25rem" }
         },
         "selected": {
           "background-color": { "value": "{amsterdam.link-appearance.color}" },
