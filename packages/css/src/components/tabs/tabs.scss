@@ -22,6 +22,11 @@
 }
 
 .amsterdam-tabs__list {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  overflow-x: auto;
+  overflow-y: hidden;
   position: relative;
 
   &::before {
@@ -48,6 +53,7 @@
 
   &:hover:not(.amsterdam-tabs__button--selected, .amsterdam-tabs__button--disabled)::after {
     background-color: currentColor;
+    height: 4px;
     @extend .amsterdam-tabs-underline;
   }
 
@@ -75,4 +81,5 @@
 
 .amsterdam-tabs__panel {
   grid-area: 2 / 1;
+  padding-block: 1rem; // temp
 }
