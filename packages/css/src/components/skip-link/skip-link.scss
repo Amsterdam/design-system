@@ -20,9 +20,4 @@
   &:hover {
     background-color: var(--amsterdam-skip-link-hover-background-color);
   }
-
-  .amsterdam-theme--compact & {
-    font-size: var(--amsterdam-skip-link-compact-font-size);
-    line-height: var(--amsterdam-skip-link-compact-line-height);
-  }
 }

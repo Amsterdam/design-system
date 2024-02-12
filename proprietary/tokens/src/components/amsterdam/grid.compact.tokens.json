@@ -1,0 +1,14 @@
+{
+  "amsterdam": {
+    "grid": {
+      "gap": {
+        "value": "clamp(1rem, calc(1.5625vw - 0.0625rem), 2.5rem)",
+        "comment": "Grows from 16px at 1088px wide to 40px at 2624px wide."
+      },
+      "padding-inline": {
+        "value": "clamp(1rem, calc(1.5625vw - 0.0625rem), 2.5rem)",
+        "comment": "Equals the gap."
+      }
+    }
+  }
+}

@@ -3,6 +3,8 @@
  * Copyright (c) 2023 Gemeente Amsterdam
  */
 
+@import "../../common/hyphenation";
+
 @mixin reset {
   box-sizing: border-box;
   margin-block: 0;
@@ -14,16 +16,12 @@
   break-inside: avoid;
   color: var(--amsterdam-page-heading-color);
   font-family: var(--amsterdam-page-heading-font-family);
-  font-size: var(--amsterdam-page-heading-spacious-font-size);
+  font-size: var(--amsterdam-page-heading-font-size);
   font-weight: var(--amsterdam-page-heading-font-weight);
-  line-height: var(--amsterdam-page-heading-spacious-line-height);
+  line-height: var(--amsterdam-page-heading-line-height);
 
+  @include hyphenation;
   @include reset;
-
-  .amsterdam-theme--compact & {
-    font-size: var(--amsterdam-page-heading-compact-font-size);
-    line-height: var(--amsterdam-page-heading-compact-line-height);
-  }
 }
 
 .amsterdam-page-heading--inverse-color {
