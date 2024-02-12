@@ -15,11 +15,6 @@ const meta = {
     children: {
       table: { disable: true },
     },
-    compact: {
-      control: {
-        type: 'boolean',
-      },
-    },
     gapVertical: {
       control: {
         type: 'radio',
@@ -88,14 +83,6 @@ export const Default: Story = {
   ...StoryTemplate,
   args: {
     children: TwelveGridCells,
-  },
-}
-
-export const Compact: Story = {
-  ...StoryTemplate,
-  args: {
-    children: TwelveGridCells,
-    compact: true,
   },
 }
 

@@ -1,5 +1,5 @@
 {
-  "version": "0.4.0",
+  "version": "0.5.0",
   "author": "Community for NL Design System",
   "description": "Design tokens for components for the City of Amsterdam based on the NL Design System architecture",
   "license": "SEE LICENSE IN LICENSE.md",
@@ -18,10 +18,8 @@
   },
   "scripts": {
     "clean": "rimraf dist/",
-    "build": "npm-run-all build:**",
-    "build:style-dictionary": "style-dictionary build --config ./style-dictionary.config.json",
-    "watch": "npm-run-all watch:**",
-    "watch:style-dictionary": "chokidar --follow-symlinks --initial --command \"npm run build\" \"src/**/*.tokens.json\""
+    "build": "node build.js",
+    "watch": "chokidar --follow-symlinks --initial --command \"npm run build\" \"src/**/*.tokens.json\""
   },
   "devDependencies": {
     "chokidar-cli": "3.0.0",

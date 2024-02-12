@@ -34,10 +34,10 @@
   display: inline-flex;
   flex-direction: row;
   font-family: var(--amsterdam-page-menu-item-font-family);
-  font-size: var(--amsterdam-page-menu-item-spacious-font-size);
+  font-size: var(--amsterdam-page-menu-item-font-size);
   font-weight: var(--amsterdam-page-menu-item-font-weight);
   gap: var(--amsterdam-page-menu-item-gap);
-  line-height: var(--amsterdam-page-menu-item-spacious-line-height);
+  line-height: var(--amsterdam-page-menu-item-line-height);
   outline-offset: var(--amsterdam-page-menu-item-outline-offset);
   text-align: center;
   text-decoration-line: var(--amsterdam-page-menu-item-text-decoration-line);
@@ -45,11 +45,6 @@
   text-underline-offset: var(--amsterdam-page-menu-item-text-underline-offset);
   touch-action: manipulation;
   white-space: nowrap;
-
-  .amsterdam-theme--compact & {
-    font-size: var(--amsterdam-page-menu-item-compact-font-size);
-    line-height: var(--amsterdam-page-menu-item-compact-line-height);
-  }
 }
 
 .amsterdam-page-menu__link {
