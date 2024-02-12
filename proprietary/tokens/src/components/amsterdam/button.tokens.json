@@ -2,11 +2,11 @@
   "amsterdam": {
     "button": {
       "font-family": { "value": "{amsterdam.typography.font-family}" },
-      "gap": { "value": "{amsterdam.spacing.inset.md}" },
-      "padding-inline-start": { "value": "{amsterdam.spacing.inset.md}" },
-      "padding-inline-end": { "value": "{amsterdam.spacing.inset.md}" },
-      "padding-block-start": { "value": "{amsterdam.spacing.inset.sm}" },
-      "padding-block-end": { "value": "{amsterdam.spacing.inset.sm}" },
+      "gap": { "value": "1rem" },
+      "padding-inline-start": { "value": "1rem" },
+      "padding-inline-end": { "value": "1rem" },
+      "padding-block-start": { "value": "0.5rem" },
+      "padding-block-end": { "value": "0.5rem" },
       "outline-offset": { "value": "{amsterdam.focus.outline-offset}" },
       "spacious": {
         "font-size": { "value": "{amsterdam.typography.spacious.text-level.5.font-size}" },
