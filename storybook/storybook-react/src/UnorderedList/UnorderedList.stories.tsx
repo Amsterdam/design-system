@@ -26,17 +26,23 @@ const meta = {
   component: UnorderedList,
   args: {
     children: unorderedList,
+    inverseColor: false,
   },
   argTypes: {
     markers: { control: 'boolean' },
   },
+  decorators: [
+    (Story, context) => (
+      <div className={context.args.inverseColor ? 'amsterdam-docs-dark-background' : undefined}>
+        <Story />
+      </div>
+    ),
+  ],
 } satisfies Meta<typeof UnorderedList>
 
 export default meta
 
 type Story = StoryObj<typeof meta>
-
-export const Default: Story = {}
 
 export const TwoLevels: Story = {
   args: {

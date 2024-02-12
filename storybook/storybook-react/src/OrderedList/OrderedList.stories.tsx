@@ -14,10 +14,18 @@ const meta = {
   component: OrderedList,
   args: {
     children: orderedList,
+    inverseColor: false,
   },
   argTypes: {
     markers: { control: 'boolean' },
   },
+  decorators: [
+    (Story, context) => (
+      <div className={context.args.inverseColor ? 'amsterdam-docs-dark-background' : undefined}>
+        <Story />
+      </div>
+    ),
+  ],
 } satisfies Meta<typeof OrderedList>
 
 export default meta

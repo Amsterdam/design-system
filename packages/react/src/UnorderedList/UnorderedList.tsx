@@ -10,6 +10,7 @@ import { UnorderedListItem } from './UnorderedListItem'
 
 export type UnorderedListProps = {
   markers?: boolean
+  inverseColor?: boolean
 } & PropsWithChildren<HTMLAttributes<HTMLUListElement>>
 
 type UnorderedListComponent = {
@@ -17,11 +18,19 @@ type UnorderedListComponent = {
 } & ForwardRefExoticComponent<UnorderedListProps & RefAttributes<HTMLUListElement>>
 
 export const UnorderedList = forwardRef(
-  ({ children, markers = true, className, ...restProps }: UnorderedListProps, ref: ForwardedRef<HTMLUListElement>) => {
+  (
+    { children, markers = true, inverseColor, className, ...restProps }: UnorderedListProps,
+    ref: ForwardedRef<HTMLUListElement>,
+  ) => {
     return (
       <ul
         ref={ref}
-        className={clsx('amsterdam-unordered-list', !markers && 'amsterdam-unordered-list--no-markers', className)}
+        className={clsx(
+          'amsterdam-unordered-list',
+          !markers && 'amsterdam-unordered-list--no-markers',
+          inverseColor && 'amsterdam-unordered-list--inverse-color',
+          className,
+        )}
         {...restProps}
       >
         {children}
