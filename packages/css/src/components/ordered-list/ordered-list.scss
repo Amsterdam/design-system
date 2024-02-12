@@ -37,7 +37,8 @@
 }
 
 .amsterdam-ordered-list--inverse-color,
-.amsterdam-ordered-list--inverse-color:not(.amsterdam-ordered-list--no-markers) {
+.amsterdam-ordered-list--inverse-color:not(.amsterdam-ordered-list--no-markers),
+.amsterdam-ordered-list--inverse-color .amsterdam-ordered-list {
   color: var(--amsterdam-ordered-list-inverse-color);
 }
 
