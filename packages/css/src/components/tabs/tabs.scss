@@ -66,6 +66,10 @@
   color: var(--amsterdam-tabs-button-selected-color);
 }
 
+.amsterdam-tabs__button--pending {
+  font-weight: bolder;
+}
+
 .amsterdam-tabs__button--disabled {
   color: var(--amsterdam-tabs-button-disabled-color);
   cursor: var(--amsterdam-action-disabled-cursor);

@@ -4,7 +4,7 @@
  */
 
 import clsx from 'clsx'
-import { forwardRef, startTransition, useContext } from 'react'
+import { forwardRef, useContext, useTransition } from 'react'
 import type { ButtonHTMLAttributes, ForwardedRef, PropsWithChildren } from 'react'
 import TabsContext from './TabsContext'
 
@@ -17,6 +17,7 @@ export type TabsButtonProps = {
 export const TabsButton = forwardRef(
   ({ label, tab = 0, className, isDisabled, ...restProps }: TabsButtonProps, ref: ForwardedRef<HTMLButtonElement>) => {
     const { activeTab, updateTab } = useContext(TabsContext)
+    const [isPending, startTransition] = useTransition()
 
     return (
       <button
@@ -33,6 +34,7 @@ export const TabsButton = forwardRef(
         className={clsx(
           'amsterdam-tabs__button',
           activeTab === tab && 'amsterdam-tabs__button--selected',
+          isPending && 'amsterdam-tabs__button--pending',
           isDisabled && 'amsterdam-tabs__button--disabled',
           className,
         )}

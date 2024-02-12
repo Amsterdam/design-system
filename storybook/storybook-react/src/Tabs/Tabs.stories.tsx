@@ -5,27 +5,31 @@
 
 import { Heading, Paragraph, Tabs } from '@amsterdam/design-system-react'
 import { Meta, StoryObj } from '@storybook/react'
+import { memo } from 'react'
 import { exampleParagraph } from '../shared/exampleContent'
 
-const SlowItem = ({ id }: { id: number }) => {
-  const startTime = performance.now()
-  while (performance.now() - startTime < 10) {
-    // Do nothing for 5 ms per item to emulate extremely slow code
-  }
+export const SlowTab = memo(function SlowTab() {
+  // Log once. The actual slowdown is inside SlowPost.
+  console.log('[ARTIFICIALLY SLOW] Rendering 500 <SlowPost />')
 
-  return <li className="item">Slow Item #{id + 1}</li>
+  let items = []
+  for (let i = 0; i < 500; i++) {
+    items.push(<SlowPost key={i} index={i} />)
+  }
+  return <ul className="items">{items}</ul>
+})
+
+type SlowPostProps = {
+  index: number
 }
 
-const ItemsList = () => {
-  const items = [...(Array(100).keys() as any)]
+function SlowPost({ index }: SlowPostProps) {
+  let startTime = performance.now()
+  while (performance.now() - startTime < 1) {
+    // Do nothing for 1 ms per item to emulate extremely slow code
+  }
 
-  return (
-    <ul className="items">
-      {items.map((id) => (
-        <SlowItem key={id} id={id} />
-      ))}
-    </ul>
-  )
+  return <li className="item">Post #{index + 1}</li>
 }
 
 const meta = {
@@ -76,7 +80,7 @@ const StoryTemplate: Story = {
           <Tabs.Button tab={0} label="Gegevens" />
           <Tabs.Button tab={1} label="Aanslagen" />
           <Tabs.Button tab={2} label="Documenten" />
-          <Tabs.Button tab={3} label="Acties" isDisabled />
+          <Tabs.Button tab={3} label="Acties" />
         </Tabs.List>
         <Tabs.Panel tab={0}>
           <Heading level={3}>Gegevens</Heading>
@@ -88,9 +92,8 @@ const StoryTemplate: Story = {
         </Tabs.Panel>
         <Tabs.Panel tab={2}>
           <Heading level={3}>Documenten</Heading>
-          <Paragraph>
-            <ItemsList />
-          </Paragraph>
+          <Paragraph>Simulate a tab that takes 500ms to load.</Paragraph>
+          <SlowTab />
         </Tabs.Panel>
         <Tabs.Panel tab={3}>
           <Heading level={3}>Acties</Heading>
