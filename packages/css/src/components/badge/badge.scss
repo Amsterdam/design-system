@@ -6,15 +6,10 @@
 .amsterdam-badge {
   display: inline-block;
   font-family: var(--amsterdam-badge-font-family);
-  font-size: var(--amsterdam-badge-spacious-font-size);
+  font-size: var(--amsterdam-badge-font-size);
   font-weight: var(--amsterdam-badge-font-weight);
-  line-height: var(--amsterdam-badge-spacious-line-height);
+  line-height: var(--amsterdam-badge-line-height);
   padding-inline: var(--amsterdam-badge-padding-inline);
-
-  .amsterdam-theme--compact & {
-    font-size: var(--amsterdam-badge-compact-font-size);
-    line-height: var(--amsterdam-badge-compact-line-height);
-  }
 }
 
 .amsterdam-badge--blue {

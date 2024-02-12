@@ -1,34 +1,8 @@
 {
   "amsterdam": {
     "button": {
-      "font-family": { "value": "{amsterdam.typography.font-family}" },
-      "gap": { "value": "1rem" },
-      "padding-inline-start": { "value": "1rem" },
-      "padding-inline-end": { "value": "1rem" },
-      "padding-block-start": { "value": "0.5rem" },
-      "padding-block-end": { "value": "0.5rem" },
-      "outline-offset": { "value": "{amsterdam.focus.outline-offset}" },
-      "spacious": {
-        "font-size": { "value": "{amsterdam.typography.spacious.text-level.5.font-size}" },
-        "line-height": { "value": "{amsterdam.typography.spacious.text-level.5.line-height}" }
-      },
-      "compact": {
-        "font-size": { "value": "{amsterdam.typography.compact.text-level.5.font-size}" },
-        "line-height": { "value": "{amsterdam.typography.compact.text-level.5.line-height}" }
-      },
-      "primary": {
-        "background-color": { "value": "{amsterdam.color.primary-blue}" },
-        "box-shadow": { "value": "inset 0 0 0 2px {amsterdam.color.primary-blue}" },
-        "color": { "value": "{amsterdam.color.primary-white}" },
-        "disabled": {
-          "background-color": { "value": "{amsterdam.color.neutral-grey2}" },
-          "box-shadow": { "value": "inset 0 0 0 2px {amsterdam.color.neutral-grey2}" }
-        },
-        "hover": {
-          "background-color": { "value": "{amsterdam.color.dark-blue}" },
-          "box-shadow": { "value": "inset 0 0 0 2px {amsterdam.color.dark-blue}" }
-        }
-      },
+      "font-size": { "value": "{amsterdam.typography.text-level.5.font-size}" },
+      "line-height": { "value": "{amsterdam.typography.text-level.5.line-height}" },
       "secondary": {
         "background-color": { "value": "{amsterdam.color.primary-white}" },
         "color": { "value": "{amsterdam.color.primary-blue}" },

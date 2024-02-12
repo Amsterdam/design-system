@@ -2,25 +2,13 @@
   "amsterdam": {
     "grid": {
       "column-count": { "value": "4" },
-      "spacious": {
-        "gap": {
-          "value": "clamp(1rem, calc(3.125vw + 0.375rem), 3.5rem)",
-          "comment": "Grows from 16px at 320px wide to 56px at 1600px wide."
-        },
-        "padding-inline": {
-          "value": "clamp(1.5rem, calc(4.6875vw + 0.5625rem), 5.25rem)",
-          "comment": "Equals 1.5 times the gap."
-        }
+      "gap": {
+        "value": "clamp(1rem, calc(3.125vw + 0.375rem), 3.5rem)",
+        "comment": "Grows from 16px at 320px wide to 56px at 1600px wide."
       },
-      "compact": {
-        "gap": {
-          "value": "clamp(1rem, calc(1.5625vw - 0.0625rem), 2.5rem)",
-          "comment": "Grows from 16px at 1088px wide to 40px at 2624px wide."
-        },
-        "padding-inline": {
-          "value": "clamp(1rem, calc(1.5625vw - 0.0625rem), 2.5rem)",
-          "comment": "Equals the gap."
-        }
+      "padding-inline": {
+        "value": "clamp(1.5rem, calc(4.6875vw + 0.5625rem), 5.25rem)",
+        "comment": "Equals 1.5 times the gap."
       },
       "medium": {
         "column-count": { "value": "8" }
