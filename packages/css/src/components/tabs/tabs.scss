@@ -3,6 +3,8 @@
  * Copyright (c) 2023 Gemeente Amsterdam
  */
 
+@import "../../common/breakpoint";
+
 .amsterdam-tabs-underline {
   bottom: 0;
   content: "";
@@ -19,9 +21,13 @@
   display: flex;
   flex-direction: row;
   flex-wrap: nowrap;
-  overflow-x: auto; // This also hides the focus ring which is not ideal
+  overflow-x: auto;
+  position: relative;
 
-  // Hide scrollbar as temporary solution
+  @media screen and (min-width: $amsterdam-breakpoint-wide) {
+    overflow: visible;
+  }
+
   &::-webkit-scrollbar {
     background: transparent;
     height: 0;
