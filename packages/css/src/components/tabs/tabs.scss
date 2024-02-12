@@ -36,22 +36,18 @@
   cursor: var(--amsterdam-action-activate-cursor);
   display: inline-block;
   font-family: var(--amsterdam-tabs-button-font-family);
-  font-size: var(--amsterdam-tabs-button-spacious-font-size);
+  font-size: var(--amsterdam-tabs-button-font-size);
   font-weight: var(--amsterdam-tabs-button-font-weight);
-  line-height: var(--amsterdam-tabs-button-spacious-line-height);
+  line-height: var(--amsterdam-tabs-button-line-height);
   outline-offset: var(--amsterdam-tabs-button-outline-offset);
   padding-block: var(--amsterdam-tabs-button-padding-block);
   padding-inline: var(--amsterdam-tabs-button-padding-inline);
+  position: relative;
   text-decoration: none;
 
   &:hover:not(.amsterdam-tabs__button--selected, .amsterdam-tabs__button--disabled)::after {
     background-color: currentColor;
     @extend .amsterdam-tabs-underline;
-  }
-
-  .amsterdam-theme--compact & {
-    font-size: var(--amsterdam-tabs-button-compact-font-size);
-    line-height: var(--amsterdam-tabs-button-compact-line-height);
   }
 
   &:hover:not(.amsterdam-tabs__button--selected, .amsterdam-tabs__button--disabled) {
