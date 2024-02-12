@@ -3,7 +3,7 @@
  * Copyright (c) 2023 Gemeente Amsterdam
  */
 
-import { Badge, Button, Icon } from '@amsterdam/design-system-react'
+import { Button, Icon } from '@amsterdam/design-system-react'
 import { ShareIcon } from '@amsterdam/design-system-react-icons'
 import { Meta, StoryObj } from '@storybook/react'
 
@@ -42,12 +42,6 @@ export const Primary: Story = {
   },
 }
 
-export const PrimaryWithIcon: Story = {
-  args: {
-    children: ['Primary', <Icon key="icon" svg={ShareIcon} size="level-5" />],
-  },
-}
-
 export const Secondary: Story = {
   args: {
     children: 'Secondary',
@@ -55,16 +49,15 @@ export const Secondary: Story = {
   },
 }
 
-export const SecondaryWithBadge: Story = {
-  args: {
-    variant: 'secondary',
-    children: ['Secondary', <Badge key="badge" label={99} color="dark-blue" />],
-  },
-}
-
 export const Tertiary: Story = {
   args: {
     children: 'Tertiary',
     variant: 'tertiary',
+  },
+}
+
+export const ButtonWithAnIcon: Story = {
+  args: {
+    children: ['Primary', <Icon key="icon" svg={ShareIcon} size="level-5" />],
   },
 }
