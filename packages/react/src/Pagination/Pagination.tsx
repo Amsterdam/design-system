@@ -5,10 +5,11 @@
 
 import { ChevronLeftIcon, ChevronRightIcon } from '@amsterdam/design-system-react-icons'
 import clsx from 'clsx'
-import { ForwardedRef, forwardRef, HTMLAttributes, useMemo, useState } from 'react'
+import { forwardRef, useMemo, useState } from 'react'
+import type { ForwardedRef, HTMLAttributes } from 'react'
 import { Icon } from '../Icon/Icon'
 
-export interface PaginationProps extends HTMLAttributes<HTMLElement> {
+export type PaginationProps = {
   /**
    * The maximum amount of pages shown. This has a lower limit of 5
    */
@@ -23,10 +24,10 @@ export interface PaginationProps extends HTMLAttributes<HTMLElement> {
    */
   page?: number
   /**
-   * The total number of pages.
+   * The total amount of pages.
    */
   totalPages: number
-}
+} & HTMLAttributes<HTMLElement>
 
 /**
  * This returns an array of the range, including spacers

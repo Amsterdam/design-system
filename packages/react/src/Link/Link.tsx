@@ -3,34 +3,21 @@
  * Copyright (c) 2023 Gemeente Amsterdam
  */
 
-import { ChevronRightIcon } from '@amsterdam/design-system-react-icons'
 import clsx from 'clsx'
-import { AnchorHTMLAttributes, ForwardedRef, forwardRef, PropsWithChildren } from 'react'
-import { Icon } from '../Icon/Icon'
+import { forwardRef } from 'react'
+import type { AnchorHTMLAttributes, ForwardedRef } from 'react'
 
 type LinkOnBackground = 'default' | 'light' | 'dark'
-type LinkVariant = 'standalone' | 'inline' | 'inList'
+type LinkVariant = 'standalone' | 'inline'
 
-interface CommonProps extends Omit<AnchorHTMLAttributes<HTMLAnchorElement>, 'placeholder'> {
+export type LinkProps = {
   variant?: LinkVariant
   onBackground?: LinkOnBackground
-}
-
-type ConditionalProps =
-  | {
-      variant?: 'standalone' | 'inline'
-      icon?: never
-    }
-  | {
-      variant?: 'inList'
-      icon?: Function
-    }
-
-export type LinkProps = CommonProps & ConditionalProps
+} & Omit<AnchorHTMLAttributes<HTMLAnchorElement>, 'placeholder'>
 
 export const Link = forwardRef(
   (
-    { children, variant = 'standalone', icon, onBackground, className, ...otherProps }: PropsWithChildren<LinkProps>,
+    { children, variant = 'standalone', onBackground, className, ...otherProps }: LinkProps,
     ref: ForwardedRef<HTMLAnchorElement>,
   ) => (
     <a
@@ -41,15 +28,12 @@ export const Link = forwardRef(
         {
           'amsterdam-link--standalone': variant === 'standalone',
           'amsterdam-link--inline': variant === 'inline',
-          'amsterdam-link--in-list': variant === 'inList',
-          'amsterdam-link--in-list__chevron': variant === 'inList' && !icon,
           'amsterdam-link--on-background-light': onBackground === 'light',
           'amsterdam-link--on-background-dark': onBackground === 'dark',
         },
         className,
       )}
     >
-      {variant === 'inList' && <Icon svg={icon ?? ChevronRightIcon} size="level-5" />}
       {children}
     </a>
   ),

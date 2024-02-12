@@ -24,9 +24,9 @@
 .amsterdam-ordered-list:not(.amsterdam-ordered-list--no-markers) {
   color: var(--amsterdam-ordered-list-color);
   font-family: var(--amsterdam-ordered-list-font-family);
-  font-size: var(--amsterdam-ordered-list-spacious-font-size);
+  font-size: var(--amsterdam-ordered-list-font-size);
   font-weight: var(--amsterdam-ordered-list-font-weight);
-  line-height: var(--amsterdam-ordered-list-spacious-line-height);
+  line-height: var(--amsterdam-ordered-list-line-height);
   list-style-type: var(--amsterdam-ordered-list-list-style-type);
 
   /** List items are responsible for indentation and marker positioning. */
@@ -44,9 +44,4 @@
     margin-inline-start: var(--amsterdam-ordered-list-ordered-list-item-margin-inline-start);
     padding-inline-start: var(--amsterdam-ordered-list-ordered-list-item-padding-inline-start);
   }
-}
-
-.amsterdam-theme--compact .amsterdam-ordered-list:not(.amsterdam-ordered-list--no-markers) {
-  font-size: var(--amsterdam-ordered-list-compact-font-size);
-  line-height: var(--amsterdam-ordered-list-compact-line-height);
 }

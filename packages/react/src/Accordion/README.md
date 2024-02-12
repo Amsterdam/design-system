@@ -1,3 +1,3 @@
 # React Accordion component
 
-[Accordion documentation](../../../css/src/accordion/README.md)
+[Accordion documentation](../../../css/src/components/accordion/README.md)

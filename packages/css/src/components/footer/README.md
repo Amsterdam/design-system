@@ -1,11 +1,15 @@
 # Footer
 
-De footer (in het Nederlands: voettekst) sluit iedere webpagina af. De inhoud is service-informatie. Een gedeelte is voorgeschreven en een deel wordt ingevuld vanuit de doelstelling van de website.
+The footer is the closing section on every web page.
+Its content provides service information.
+A part is prescribed, and a part is filled based on the website’s objectives.
 
-## Richtlijnen
+## Guidelines
 
-- De voettekst is verplicht, er staat er 1 op elke pagina.
-- De eerste kolom richt zich op contactinformatie. De informatie is zo specifiek mogelijk gebonden aan de betreffende website of pagina (bijvoorbeeld een chatmogelijkheid indien aanwezig).
-- De tweede kolom bevat links naar relevante (online) sites of bronnen.
-- De derde kolom verwijst naar nieuwsbrieven, socials enz.
-- Het laatste deel van de voettekst is bedoeld voor koppelingen naar privacy, cookieverklaring, uitleg over de website e.d. Het is niet bedoeld voor koppelingen naar bijvoorbeeld contactinformatie.
+- The footer is mandatory, and there is one on every page.
+- The first column focuses on contact information.
+  The information is as specific as possible and tailored to the respective website or page (e.g., including a chat option if available).
+- The second column contains links to relevant (online) sites or sources.
+- The third column refers to newsletters, social media, etc.
+- The last part of the footer is intended for links to privacy policies, cookie statements, explanations about the website, etc.
+  It is not intended for links to contact information, for example.

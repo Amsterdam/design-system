@@ -1,3 +1,3 @@
 # React Image component
 
-[Image documentation](../../../css/src/image/README.md)
+[Image documentation](../../../css/src/components/image/README.md)

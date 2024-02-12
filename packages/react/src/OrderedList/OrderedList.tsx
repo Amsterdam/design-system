@@ -4,57 +4,29 @@
  */
 
 import clsx from 'clsx'
-import {
-  ForwardedRef,
-  forwardRef,
-  ForwardRefExoticComponent,
-  LiHTMLAttributes,
-  OlHTMLAttributes,
-  PropsWithChildren,
-  RefAttributes,
-} from 'react'
+import { forwardRef } from 'react'
+import type { ForwardedRef, ForwardRefExoticComponent, OlHTMLAttributes, PropsWithChildren, RefAttributes } from 'react'
+import { OrderedListItem } from './OrderedListItem'
 
-export interface OrderedListProps extends PropsWithChildren<OlHTMLAttributes<HTMLOListElement>> {
+export type OrderedListProps = {
   markers?: boolean
-}
+} & PropsWithChildren<OlHTMLAttributes<HTMLOListElement>>
 
-interface OrderedListComponent extends ForwardRefExoticComponent<OrderedListProps & RefAttributes<HTMLOListElement>> {
+type OrderedListComponent = {
   Item: typeof OrderedListItem
-}
+} & ForwardRefExoticComponent<OrderedListProps & RefAttributes<HTMLOListElement>>
 
 export const OrderedList = forwardRef(
-  (
-    { children, markers = true, className, ...restProps }: PropsWithChildren<OrderedListProps>,
-    ref: ForwardedRef<HTMLOListElement>,
-  ) => {
-    return (
-      <ol
-        ref={ref}
-        className={clsx('amsterdam-ordered-list', !markers && 'amsterdam-ordered-list--no-markers', className)}
-        {...restProps}
-      >
-        {children}
-      </ol>
-    )
-  },
+  ({ children, markers = true, className, ...restProps }: OrderedListProps, ref: ForwardedRef<HTMLOListElement>) => (
+    <ol
+      ref={ref}
+      className={clsx('amsterdam-ordered-list', !markers && 'amsterdam-ordered-list--no-markers', className)}
+      {...restProps}
+    >
+      {children}
+    </ol>
+  ),
 ) as OrderedListComponent
 
 OrderedList.displayName = 'OrderedList'
-
-export type OrderedListItemProps = LiHTMLAttributes<HTMLLIElement>
-
-export const OrderedListItem = forwardRef(
-  (
-    { children, className, ...restProps }: PropsWithChildren<OrderedListItemProps>,
-    ref: ForwardedRef<HTMLLIElement>,
-  ) => {
-    return (
-      <li ref={ref} className={clsx('amsterdam-ordered-list__item', className)} {...restProps}>
-        {children}
-      </li>
-    )
-  },
-)
-
-OrderedListItem.displayName = 'OrderedListItem'
 OrderedList.Item = OrderedListItem

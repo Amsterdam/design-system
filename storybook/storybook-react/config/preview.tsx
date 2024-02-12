@@ -1,8 +1,17 @@
-import '@amsterdam/design-system-tokens/dist/root.css'
+import '@amsterdam/design-system-tokens/dist/index.css'
 import '@amsterdam/design-system-assets/font/index.css'
 import '@amsterdam/design-system-css/dist/index.css'
 import '../../storybook-overrides.css'
 import { viewports } from './viewports'
+
+// Set language to Dutch for Canvas and Stories
+export const decorators = [
+  (Story: any) => (
+    <div lang="nl">
+      <Story />
+    </div>
+  ),
+]
 
 export const parameters = {
   actions: {

@@ -5,16 +5,17 @@
 
 import { CloseIcon } from '@amsterdam/design-system-react-icons'
 import clsx from 'clsx'
-import { ButtonHTMLAttributes, ForwardedRef, forwardRef } from 'react'
+import { forwardRef } from 'react'
+import type { ButtonHTMLAttributes, ForwardedRef } from 'react'
 import { Icon } from '../Icon'
 import { VisuallyHidden } from '../VisuallyHidden'
 
-export interface IconButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
+export type IconButtonProps = {
   label: string
   onBackground?: 'light' | 'dark'
   size?: 'level-3' | 'level-4' | 'level-5' | 'level-6'
   svg?: Function
-}
+} & ButtonHTMLAttributes<HTMLButtonElement>
 
 export const IconButton = forwardRef(
   (

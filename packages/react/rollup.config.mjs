@@ -7,6 +7,8 @@ import nodeExternal from 'rollup-plugin-node-externals'
 import nodePolyfills from 'rollup-plugin-node-polyfills'
 import peerDepsExternal from 'rollup-plugin-peer-deps-external'
 import typescript from 'rollup-plugin-typescript2'
+import dts from 'rollup-plugin-dts'
+import del from 'rollup-plugin-delete'
 
 const packageJson = JSON.parse(readFileSync('./package.json', 'utf8'))
 
@@ -46,7 +48,7 @@ export default [
         include: /node_modules/,
       }),
       nodePolyfills(),
-      typescript({ includeDependencies: false }),
+      typescript({ includeDependencies: false, useTsconfigDeclarationDir: true }),
       babel({
         presets: ['@babel/preset-react'],
         babelHelpers: 'runtime',
@@ -56,6 +58,17 @@ export default [
         plugins: ['@babel/plugin-transform-runtime'],
       }),
       filesize(),
+    ],
+  },
+  {
+    input: './dist/dts/index.d.ts',
+    output: [{ file: 'dist/index.d.ts', format: 'es' }],
+    plugins: [
+      dts(),
+      del({
+        targets: 'dist/dts',
+        hook: 'buildEnd',
+      }),
     ],
   },
 ]

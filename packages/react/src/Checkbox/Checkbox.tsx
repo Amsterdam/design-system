@@ -4,25 +4,17 @@
  */
 
 import clsx from 'clsx'
-import {
-  ForwardedRef,
-  forwardRef,
-  InputHTMLAttributes,
-  PropsWithChildren,
-  useEffect,
-  useId,
-  useImperativeHandle,
-  useRef,
-} from 'react'
+import { forwardRef, useEffect, useId, useImperativeHandle, useRef } from 'react'
+import type { ForwardedRef, InputHTMLAttributes, PropsWithChildren } from 'react'
 
-export interface CheckboxProps extends InputHTMLAttributes<HTMLInputElement> {
+export type CheckboxProps = {
   invalid?: boolean
   indeterminate?: boolean
-}
+} & PropsWithChildren<InputHTMLAttributes<HTMLInputElement>>
 
 export const Checkbox = forwardRef(
   (
-    { children, className, invalid, indeterminate, ...restProps }: PropsWithChildren<CheckboxProps>,
+    { children, className, invalid, indeterminate, ...restProps }: CheckboxProps,
     ref: ForwardedRef<HTMLInputElement>,
   ) => {
     const id = useId()

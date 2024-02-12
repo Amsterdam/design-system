@@ -1,3 +1,3 @@
 # Overlap
 
-Toont twee of meer componenten over elkaar heen.
+Displays two or more components on top of each other.

@@ -5,19 +5,20 @@
 
 import { ChevronDownIcon } from '@amsterdam/design-system-react-icons'
 import clsx from 'clsx'
-import { ForwardedRef, forwardRef, HTMLAttributes, PropsWithChildren, useContext, useId, useState } from 'react'
+import { forwardRef, useContext, useId, useState } from 'react'
+import type { ForwardedRef, HTMLAttributes, PropsWithChildren } from 'react'
 import AccordionContext from './AccordionContext'
 import { getHeadingElement } from '../Heading/Heading'
 import { Icon } from '../Icon/Icon'
 
-export interface AccordionSectionProps extends HTMLAttributes<HTMLElement> {
+export type AccordionSectionProps = {
   label: string
   expanded?: boolean
-}
+} & PropsWithChildren<HTMLAttributes<HTMLElement>>
 
 export const AccordionSection = forwardRef(
   (
-    { label, expanded = false, children, className, ...otherProps }: PropsWithChildren<AccordionSectionProps>,
+    { label, expanded = false, children, className, ...otherProps }: AccordionSectionProps,
     ref: ForwardedRef<HTMLDivElement>,
   ) => {
     const { headingLevel, section } = useContext(AccordionContext)

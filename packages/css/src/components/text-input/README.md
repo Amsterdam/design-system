@@ -1,12 +1,14 @@
 # Text Input
 
-Text input is een veld van een formulier waar een gebruiker tekst kan invoeren.
+A form field in which a user can enter text.
 
-## Richtlijnen
+## Guidelines
 
-- Gebruik een Text input als gebruikers tekst in moeten voeren die niet langer is dan 1 regel, zoals hun naam of telefoonnummer.
-- Gebruik een Text input niet als gebruikers meer dan 1 zin moeten invullen.
-- De breedte van de Text input moet passend zijn bij de informatie die ingevuld moet worden.
-- Een Text input moet een label hebben, en in de meeste gevallen moet dit label zichtbaar zijn.
-- Gebruik `spellcheck="false"` voor velden die gevoelige informatie kunnen bevatten, zoals wachtwoorden en persoonsgegevens. Sommige browser extensies voor spellingcontrole sturen deze informatie naar externe servers.
-- Pas waar mogelijk automatische hulp toe. Bij ingelogde systemen is bijvoorbeeld invoer vooraf in te vullen om fouten te voorkomen en tijd te besparen.
+- Use a Text Input when users need to enter a single line of text, such as their name or phone number.
+- Do not use a Text Input when users could provide more than 1 sentence of text.
+- The width of the Text Input should be appropriate for the information to be entered.
+- A Text Input must have a label, and in most cases, this label should be visible.
+- Use `spellcheck="false"` for fields that may contain sensitive information, such as passwords and personal data.
+  Some browser extensions for spell-checking send this information to external servers.
+- Apply automatic assistance where possible.
+  For example, in logged-in systems, pre-filling input can prevent errors and save time.

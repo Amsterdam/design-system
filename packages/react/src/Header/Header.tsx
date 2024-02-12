@@ -4,25 +4,26 @@
  */
 
 import clsx from 'clsx'
-import { cloneElement, ForwardedRef, forwardRef, HTMLAttributes, ReactElement, ReactNode, useState } from 'react'
+import { cloneElement, forwardRef, ReactElement, useState } from 'react'
+import type { ForwardedRef, HTMLAttributes, ReactNode } from 'react'
 import { Grid } from '../Grid'
 import { Heading } from '../Heading'
 import { Logo } from '../Logo'
 import type { LogoBrand } from '../Logo'
 import { VisuallyHidden } from '../VisuallyHidden'
 
-export interface HeaderProps extends HTMLAttributes<HTMLElement> {
+export type HeaderProps = {
   logoBrand?: LogoBrand
   logoLink?: string
   logoLinkTitle?: string
   title?: string
   links?: ReactNode /* TODO Create links object */
   menu?: ReactNode
-}
+} & HTMLAttributes<HTMLElement>
 
-interface HeaderMenuButtonProps extends HTMLAttributes<HTMLButtonElement> {
+type HeaderMenuButtonProps = {
   isOpen?: boolean
-}
+} & HTMLAttributes<HTMLButtonElement>
 
 const HeaderMenuButton = forwardRef(
   ({ className, isOpen, ...restProps }: HeaderMenuButtonProps, ref: ForwardedRef<HTMLButtonElement>) => (

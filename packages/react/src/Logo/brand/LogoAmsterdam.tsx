@@ -1,4 +1,5 @@
-import { ForwardedRef, forwardRef, type SVGProps } from 'react'
+import { forwardRef } from 'react'
+import type { ForwardedRef, SVGProps } from 'react'
 
 const LogoAmsterdam = forwardRef((props: SVGProps<SVGSVGElement>, ref: ForwardedRef<SVGSVGElement>) => (
   <svg

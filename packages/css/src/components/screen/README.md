@@ -1,20 +1,20 @@
 # Screen
 
-Verzorgt de maximale breedte en de uitlijning van de hele website of applicatie.
+Manages the maximum width and alignment of the entire website or application.
 
-## Gebruik
+## Usage
 
-Dit moet het buitenste component van je website of applicatie zijn.
-Daarbinnen combineer je componenten als
+This should be the outermost component of your website or application.
+Within it, combine components such as
 [Grid](?path=/docs/react_layout-grid--docs),
-Header,
+[Header](?path=/docs/react_containers-header--docs),
 [Footer](?path=/docs/react_containers-footer--docs),
-[Spotlight](?path=/docs/react_containers-spotlight--docs)
-en Figure.
+[Spotlight](?path=/docs/react_containers-spotlight--docs),
+and Figure.
 
-## Ontwerp
+## Design
 
-Standaard groeit dit component tot een breedte van 1600 pixels.
-Dit is de maximale breedte voor een website van de gemeente Amsterdam.
-Voor applicaties kun je kiezen voor een grotere maximale breedte van 2112 pixels.
-Het component centreert zowel zichzelf als zijn inhoud horizontaal.
+By default, this component expands to a width of 1600 pixels.
+This is the maximum width for a website of the City of Amsterdam.
+For applications, you can choose a larger maximum width of 2112 pixels.
+The component horizontally centres both itself and its content.

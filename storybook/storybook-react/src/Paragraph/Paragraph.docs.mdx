@@ -10,7 +10,7 @@ import README from "../../../../packages/css/src/components/paragraph/README.md?
 
 <Controls />
 
-## Stories
+## Examples
 
 ### Default
 
@@ -18,21 +18,24 @@ import README from "../../../../packages/css/src/components/paragraph/README.md?
 
 ### Large
 
-Gebruik dit formaat alleen voor de introductietekst van een pagina. Het is niet verplicht om een introductietekst te gebruiken. Gebruik er maximaal 1 per pagina.
+Use this size only for the introductory text of a page.
+It is not mandatory to use an introductory text, and there should be a maximum of 1 per page.
 
-Een introductietekst is een bondige beschrijving van de inhoud van een pagina. Gebruik deze tekst om de lezer te verleiden om verder te lezen.
+An introductory text is a concise description of the page’s content.
+Use this text to entice the reader to continue reading.
 
 <Canvas of={ParagraphStories.Large} />
 
 ### Small
 
-Gebruik dit formaat voor hulpteksten, bijschriften, metadata e.d. Hou deze teksten kort.
+Use this size for auxiliary texts, captions, metadata, etc.
+Keep these texts short.
 
 <Canvas of={ParagraphStories.Small} />
 
-### Omgekeerde kleur
+### Inverse colour
 
-Soms gebruik je een paragraph op een donkere achtergrond. Gebruik in dit geval `inverseColor`,
-zodat de tekst voldoende contrast heeft met de achtergrondkleur.
+Set the `inverseColor` prop if the Paragraph sits on a dark background.
+This ensures the colour of the text provides enough contrast.
 
 <Canvas of={ParagraphStories.InvertedColor} />

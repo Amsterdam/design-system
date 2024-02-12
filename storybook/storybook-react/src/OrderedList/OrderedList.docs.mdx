@@ -6,47 +6,45 @@ import README from "../../../../packages/css/src/components/ordered-list/README.
 
 <Markdown>{README}</Markdown>
 
-## Voorbeelden
+## Examples
 
-### Basis
+### Default
 
-De lijst heeft oplopende getallen als opsommingstekens.
-Er is genoeg ruimte voor getallen tot en met 99.
-Tussen de items staat extra witruimte.
-Dat geeft een beter onderscheid tussen de items, zeker als ze uit meerdere regels tekst bestaan.
+The list uses ascending numbers as bullet points, providing enough space for numbers up to 99.
+Extra whitespace between items enhances the distinction, mainly when they consist of multiple lines of text.
 
-<Canvas of={OrderedListStories.Basis} />
+<Canvas of={OrderedListStories.Default} />
 
-### Twee niveaus
+### Two Levels
 
-Een lijst mag één dieper niveau hebben.
-In dit geval worden kleine letters gebruikt als opsommingsteken.
+A list may have one nested level.
+In this case, lowercase letters are used as bullet points.
 
-<Canvas of={OrderedListStories.TweeNiveaus} />
+<Canvas of={OrderedListStories.TwoLevels} />
 
-### Hoger startgetal
+### Higher Starting Number
 
-Wanneer nodig kan de opsomming beginnen met een hoger getal.
-Gebruik het HTML-attribuut `start`.
+When necessary, the list can start with a higher number.
+Use the HTML attribute `start`.
 
-<Canvas of={OrderedListStories.Startgetal} />
+<Canvas of={OrderedListStories.StartingNumber} />
 
-### Omgekeerde volgorde
+### Reverse Order
 
-Ook kunnen de cijfers achterstevoren lopen.
-Gebruik het HTML-attribuut `reversed`.
+The numbers can also be in reverse order.
+Use the HTML attribute `reversed`.
 
-<Canvas of={OrderedListStories.AflopendeNummering} />
+<Canvas of={OrderedListStories.DescendingNumbers} />
 
-### Lijst zonder opsommingstekens
+### List Without Bullet Points
 
-Een overzicht van artikelen of zoekresultaten is ook een geordende lijst.
-Gebruik in dit soort gevallen een lijst zonder opsommingstekens om die semantiek aan te brengen.
-Daardoor kunnen schermlezers helpen de lijst te begrijpen en te navigeren.
+An overview of articles or search results can be presented as an ordered list without bullet points.
+In such cases, use a list without bullet points to convey the semantic structure.
+This allows screen readers to assist in understanding and navigating the list.
 
-Let op: in deze variant bevat elk item normaal gesproken een container met daarin titels en andere tekstcomponenten.
-Daarom definieert deze variant geen typografie voor de items.
+Note: each item typically contains a container with titles and other text components in this variant.
+Therefore, it does not define typography for the items.
 
-Hier bijvoorbeeld drie nieuwsartikelen:
+For example, here are three news articles:
 
-<Canvas of={OrderedListStories.ZonderOpsommingstekens} />
+<Canvas of={OrderedListStories.WithoutMarkers} />

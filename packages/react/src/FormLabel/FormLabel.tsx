@@ -5,7 +5,8 @@
  */
 
 import clsx from 'clsx'
-import { ForwardedRef, forwardRef, LabelHTMLAttributes, PropsWithChildren } from 'react'
+import { forwardRef } from 'react'
+import type { ForwardedRef, LabelHTMLAttributes, PropsWithChildren } from 'react'
 
 export const FormLabel = forwardRef(
   (

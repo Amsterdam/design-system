@@ -1,3 +1,3 @@
-# React Modal component
+# React Dialog component
 
-[Modal documentation](../../../css/src/modal/README.md)
+[Dialog documentation](../../../css/src/components/dialog/README.md)

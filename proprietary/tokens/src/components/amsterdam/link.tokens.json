@@ -25,24 +25,9 @@
           "color": { "value": "{amsterdam.color.purple}" }
         }
       },
-      "in-list": {
-        "gap": { "value": "0.5em" },
-        "text-decoration-line": { "value": "{amsterdam.link-appearance.subtle.text-decoration-line}" },
-        "text-decoration-thickness": { "value": "{amsterdam.link-appearance.text-decoration-thickness}" },
-        "text-underline-offset": { "value": "{amsterdam.link-appearance.text-underline-offset}" },
-        "hover": {
-          "text-decoration-line": { "value": "{amsterdam.link-appearance.subtle.hover.text-decoration-line}" }
-        },
-        "spacious": {
-          "font-size": { "value": "{amsterdam.typography.spacious.text-level.5.font-size}" },
-          "line-height": { "value": "{amsterdam.typography.spacious.text-level.5.line-height}" }
-        },
-        "compact": {
-          "font-size": { "value": "{amsterdam.typography.compact.text-level.5.font-size}" },
-          "line-height": { "value": "{amsterdam.typography.compact.text-level.5.line-height}" }
-        }
-      },
       "standalone": {
+        "font-size": { "value": "{amsterdam.typography.text-level.5.font-size}" },
+        "line-height": { "value": "{amsterdam.typography.text-level.5.line-height}" },
         "text-decoration-line": { "value": "{amsterdam.link-appearance.regular.text-decoration-line}" },
         "text-decoration-thickness": { "value": "{amsterdam.link-appearance.text-decoration-thickness}" },
         "text-underline-offset": { "value": "{amsterdam.link-appearance.text-underline-offset}" },
@@ -51,14 +36,6 @@
             "value": "{amsterdam.link-appearance.regular.hover.text-decoration-thickness}"
           },
           "text-underline-offset": { "value": "{amsterdam.link-appearance.regular.hover.text-underline-offset}" }
-        },
-        "spacious": {
-          "font-size": { "value": "{amsterdam.typography.spacious.text-level.5.font-size}" },
-          "line-height": { "value": "{amsterdam.typography.spacious.text-level.5.line-height}" }
-        },
-        "compact": {
-          "font-size": { "value": "{amsterdam.typography.compact.text-level.5.font-size}" },
-          "line-height": { "value": "{amsterdam.typography.compact.text-level.5.line-height}" }
         }
       },
       "on-background-dark": {

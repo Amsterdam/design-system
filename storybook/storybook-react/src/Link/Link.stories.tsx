@@ -4,7 +4,6 @@
  */
 
 import { Link, Paragraph } from '@amsterdam/design-system-react'
-import * as Icons from '@amsterdam/design-system-react-icons'
 import type { Meta, StoryObj } from '@storybook/react'
 
 type Story = StoryObj<typeof Link>
@@ -13,16 +12,11 @@ const meta = {
   title: 'Navigation/Link',
   component: Link,
   argTypes: {
-    icon: {
-      control: { type: 'select' },
-      options: Object.keys(Icons),
-      mapping: Icons,
-      table: {
-        category: 'API',
-      },
-    },
     onBackground: {
-      control: { type: 'select', labels: { undefined: 'default', light: 'light', dark: 'dark' } },
+      control: {
+        type: 'radio',
+        labels: { undefined: 'default', light: 'light', dark: 'dark' },
+      },
       options: [undefined, 'light', 'dark'],
       table: {
         category: 'API',
@@ -30,10 +24,9 @@ const meta = {
     },
     variant: {
       control: {
-        type: 'select',
-        labels: { standalone: 'standalone', inline: 'inline', inList: 'inList' },
+        type: 'radio',
       },
-      options: ['standalone', 'inline', 'inList'],
+      options: ['standalone', 'inline'],
       table: {
         category: 'API',
         defaultValue: { summary: 'standalone' },
@@ -89,19 +82,6 @@ export const Inline: Story = {
       </Paragraph>
     ),
   ],
-}
-
-export const InList: Story = {
-  args: {
-    variant: 'inList',
-  },
-}
-
-export const InListWithIcon: Story = {
-  args: {
-    variant: 'inList',
-    icon: Icons.EmailIcon,
-  },
 }
 
 export const onDarkBackground: Story = {

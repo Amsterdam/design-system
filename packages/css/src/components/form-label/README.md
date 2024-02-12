@@ -1,3 +1,7 @@
 # Form Label
 
-Een label element gebruik je om een formulierelement te beschrijven. Koppel een formulierelement (zoals een `input` of `textarea`) altijd aan een label.
+Describes a form control.
+
+## Guidelines
+
+Always associate a form element (such as an `input` or `textarea`) with a label.

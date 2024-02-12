@@ -1,3 +1,3 @@
 # React Text Input component
 
-[Text Input documentation](../../../css/src/text-input/README.md)
+[Text Input documentation](../../../css/src/components/text-input/README.md)

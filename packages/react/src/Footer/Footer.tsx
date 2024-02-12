@@ -4,48 +4,17 @@
  */
 
 import clsx from 'clsx'
-import {
-  ForwardedRef,
-  forwardRef,
-  ForwardRefExoticComponent,
-  HTMLAttributes,
-  PropsWithChildren,
-  RefAttributes,
-} from 'react'
-import { Spotlight } from '../Spotlight/Spotlight'
+import { forwardRef } from 'react'
+import type { ForwardedRef, ForwardRefExoticComponent, HTMLAttributes, PropsWithChildren, RefAttributes } from 'react'
+import { FooterBottom } from './FooterBottom'
+import { FooterTop } from './FooterTop'
 
-export const FooterTop = forwardRef(
-  (
-    { children, className, ...restProps }: PropsWithChildren<HTMLAttributes<HTMLDivElement>>,
-    ref: ForwardedRef<HTMLDivElement>,
-  ) => (
-    <Spotlight {...restProps} color="blue" ref={ref} className={clsx('amsterdam-footer__top', className)}>
-      {children}
-    </Spotlight>
-  ),
-)
+export type FooterProps = PropsWithChildren<HTMLAttributes<HTMLElement>>
 
-FooterTop.displayName = 'FooterTop'
-
-export const FooterBottom = forwardRef(
-  (
-    { children, className, ...restProps }: PropsWithChildren<HTMLAttributes<HTMLDivElement>>,
-    ref: ForwardedRef<HTMLDivElement>,
-  ) => (
-    <div {...restProps} ref={ref} className={clsx('amsterdam-footer__bottom', className)}>
-      {children}
-    </div>
-  ),
-)
-
-FooterBottom.displayName = 'FooterBottom'
-
-type FooterProps = PropsWithChildren<HTMLAttributes<HTMLElement>>
-
-interface FooterComponent extends ForwardRefExoticComponent<FooterProps & RefAttributes<HTMLElement>> {
+type FooterComponent = {
   Top: typeof FooterTop
   Bottom: typeof FooterBottom
-}
+} & ForwardRefExoticComponent<FooterProps & RefAttributes<HTMLElement>>
 
 export const Footer = forwardRef(
   ({ children, className, ...restProps }: FooterProps, ref: ForwardedRef<HTMLElement>) => (

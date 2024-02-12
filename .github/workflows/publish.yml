@@ -1,0 +1,105 @@
+name: Publish
+
+on:
+  workflow_run:
+    workflows: [Lint and test]
+    types: [completed]
+    branches: [main]
+
+jobs:
+  create-release-and-publish:
+    runs-on: ubuntu-latest
+    if: ${{ github.event.workflow_run.conclusion == 'success' }}
+
+    steps:
+      - name: Create release
+        uses: google-github-actions/release-please-action@v4
+        id: release
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          target-branch: main
+
+      # The logic below handles the npm publication:
+      - name: Check out branch
+        uses: actions/checkout@v4
+        with:
+          # This is necessary because on.workflow_run always runs on the
+          # default branch, which is 'develop' in our case
+          ref: "main"
+        # these if statements ensure that a publication only occurs when
+        # a new release is created:
+        if: ${{ steps.release.outputs.releases_created }}
+
+      - name: Set up Node.js version
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          registry-url: "https://registry.npmjs.org"
+        if: ${{ steps.release.outputs.releases_created }}
+
+      - name: Install pnpm
+        uses: pnpm/action-setup@v2
+        id: pnpm-install
+        with:
+          version: 8
+          run_install: false
+        if: ${{ steps.release.outputs.releases_created }}
+
+      - name: Get pnpm store directory
+        id: pnpm-cache
+        run: |
+          echo "pnpm_cache_dir=$(pnpm store path)" >> $GITHUB_OUTPUT
+        if: ${{ steps.release.outputs.releases_created }}
+
+      - name: Set up pnpm cache
+        uses: actions/cache@v4
+        with:
+          path: ${{ steps.pnpm-cache.outputs.pnpm_cache_dir }}
+          key: ${{ runner.os }}-pnpm-store-${{ hashFiles('**/pnpm-lock.yaml') }}
+          restore-keys: |
+            ${{ runner.os }}-pnpm-store-
+        if: ${{ steps.release.outputs.releases_created }}
+
+      - name: Install dependencies
+        run: pnpm install
+        if: ${{ steps.release.outputs.releases_created }}
+
+      - name: Build
+        run: pnpm run build
+        if: ${{ steps.release.outputs.releases_created }}
+
+      - name: Publish
+        run: pnpm -r publish
+        env:
+          NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN}}
+        if: ${{ steps.release.outputs.releases_created }}
+
+      # The logic below handles the Storybook deploy:
+      - name: "Restore build artifact: Storybook docs"
+        uses: dawidd6/action-download-artifact@v3
+        with:
+          workflow: "lint-test.yml"
+          name: storybook-docs
+          path: dist/storybook
+        if: ${{ steps.release.outputs.releases_created }}
+
+      - name: "Restore build artifact: Storybook react"
+        uses: dawidd6/action-download-artifact@v3
+        with:
+          workflow: "lint-test.yml"
+          name: storybook-react
+          # React storybook is deployed to the /storybook-react subdirectory.
+          # In the main docs storybook, the contents of /storybook-react
+          # are also shown using Storybook composition.
+          path: dist/storybook/storybook-react
+        if: ${{ steps.release.outputs.releases_created }}
+
+      - name: Deploy to GitHub Pages
+        uses: JamesIves/github-pages-deploy-action@v4
+        with:
+          branch: gh-pages
+          folder: dist/storybook
+          # feature branch directories are prefixed with demo-*
+          # these are excluded from this action's default clean
+          clean-exclude: demo-*
+        if: ${{ steps.release.outputs.releases_created }}

@@ -5,11 +5,12 @@
 
 import { SearchIcon } from '@amsterdam/design-system-react-icons'
 import clsx from 'clsx'
-import { ForwardedRef, forwardRef, HTMLAttributes } from 'react'
+import { forwardRef } from 'react'
+import type { ForwardedRef, HTMLAttributes } from 'react'
 import { Icon } from '../Icon'
 import { VisuallyHidden } from '../VisuallyHidden'
 
-interface SearchFieldButtonProps extends HTMLAttributes<HTMLButtonElement> {}
+type SearchFieldButtonProps = HTMLAttributes<HTMLButtonElement>
 
 // TODO: replace this with IconButton when that's done
 // TODO: discuss if IconButton is the right component to replace this

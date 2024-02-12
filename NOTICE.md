@@ -1,19 +1,23 @@
 <!-- @license CC0-1.0 -->
 
-# Auteursrecht Gemeente Amsterdam
+# Copyright City of Amsterdam
 
-Copyright (c) 2023 Gemeente Amsterdam
+Copyright (c) 2023 City of Amsterdam
 
-## Logo en huisstijl
+## Logo and Branding
 
-Op het huisstijl en logo zijn auteursrechten van toepassing. Het gebruik van logo en huisstijl is alleen toegestaan voor gebruik door Gemeente Amsterdam.
+Copyright applies to the branding and logo.
+Using the logo and branding is permitted solely for the City of Amsterdam.
 
-Wanneer je een bewerking van de software wilt gebruiken voor andere doeleinden, mag je niet het logo van Gemeente Amsterdam gebruiken en je ontwerpt een eigen huisstijl.
+If you intend to use a modified version of the software for other purposes, you are not allowed to use the City of Amsterdam’s logo.
+Instead, you should design your own branding.
 
-## Lettertype
+## Font
 
-Lettertypes die worden gebruikt voor de huisstijl zijn niet allemaal gratis en open source. Let op dat bij gebruik van die bijgeleverde lettertypes je een (betaalde) licentie regelt. Pas anders de configuratie aan om minder of andere lettertypes te gebruiken.
+Not all fonts used in the branding are free and open source.
+Please note that you must arrange a (paid) license if you use the provided fonts.
+Alternatively, adjust the configuration to use fewer or different fonts.
 
-## Toestemming
+## Permission
 
-Wanneer je het logo of de huisstijl wilt gebruiken kun je voor toestemming contact opnemen met <designsystem@amsterdam.nl>.
+For permission to use the logo or branding, please contact <designsystem@amsterdam.nl>.

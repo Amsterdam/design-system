@@ -10,15 +10,10 @@
 }
 
 .amsterdam-button {
-  font-size: var(--amsterdam-button-spacious-font-size);
-  line-height: var(--amsterdam-button-spacious-line-height);
+  font-size: var(--amsterdam-button-font-size);
+  line-height: var(--amsterdam-button-line-height);
 
   @include reset;
-
-  .amsterdam-theme--compact & {
-    font-size: var(--amsterdam-breadcrumb-compact-font-size);
-    line-height: var(--amsterdam-breadcrumb-compact-line-height);
-  }
 }
 
 .amsterdam-button--secondary {

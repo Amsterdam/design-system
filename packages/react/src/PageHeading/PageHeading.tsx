@@ -4,21 +4,19 @@
  */
 
 import clsx from 'clsx'
-import { ForwardedRef, forwardRef, HTMLAttributes, PropsWithChildren } from 'react'
+import { forwardRef } from 'react'
+import type { ForwardedRef, HTMLAttributes, PropsWithChildren } from 'react'
 
-export interface PageHeadingProps extends HTMLAttributes<HTMLHeadingElement> {
+export type PageHeadingProps = {
   /**
    * De kleur van de titel
    * Gebruik deze property om de titel in tegenovergestelde kleur te tonen.
    */
   inverseColor?: boolean
-}
+} & PropsWithChildren<HTMLAttributes<HTMLHeadingElement>>
 
 export const PageHeading = forwardRef(
-  (
-    { children, className, inverseColor, ...restProps }: PropsWithChildren<PageHeadingProps>,
-    ref: ForwardedRef<HTMLHeadingElement>,
-  ) => (
+  ({ children, className, inverseColor, ...restProps }: PageHeadingProps, ref: ForwardedRef<HTMLHeadingElement>) => (
     <h1
       {...restProps}
       ref={ref}

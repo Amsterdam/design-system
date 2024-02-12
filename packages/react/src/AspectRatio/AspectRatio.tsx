@@ -4,13 +4,14 @@
  */
 
 import clsx from 'clsx'
-import { ForwardedRef, forwardRef, HTMLAttributes, PropsWithChildren } from 'react'
+import { forwardRef } from 'react'
+import type { ForwardedRef, HTMLAttributes, PropsWithChildren } from 'react'
 
 export type Ratio = 'x-tall' | 'tall' | 'square' | 'wide' | 'x-wide' | '2x-wide'
 
-export interface AspectRatioProps extends PropsWithChildren<HTMLAttributes<HTMLDivElement>> {
+export type AspectRatioProps = {
   ratio?: Ratio
-}
+} & PropsWithChildren<HTMLAttributes<HTMLDivElement>>
 
 export const AspectRatio = forwardRef(
   ({ children, className, ratio = 'square', ...restProps }: AspectRatioProps, ref: ForwardedRef<HTMLDivElement>) => (

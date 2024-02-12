@@ -3,15 +3,9 @@
     "form-label": {
       "color": { "value": "{amsterdam.color.primary-black}" },
       "font-family": { "value": "{amsterdam.typography.font-family}" },
+      "font-size": { "value": "{amsterdam.typography.text-level.4.font-size}" },
       "font-weight": { "value": "{amsterdam.typography.font-weight.bold}" },
-      "spacious": {
-        "font-size": { "value": "{amsterdam.typography.spacious.text-level.4.font-size}" },
-        "line-height": { "value": "{amsterdam.typography.spacious.text-level.4.line-height}" }
-      },
-      "compact": {
-        "font-size": { "value": "{amsterdam.typography.compact.text-level.4.font-size}" },
-        "line-height": { "value": "{amsterdam.typography.compact.text-level.4.line-height}" }
-      }
+      "line-height": { "value": "{amsterdam.typography.text-level.4.line-height}" }
     }
   }
 }

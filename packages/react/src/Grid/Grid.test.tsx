@@ -24,44 +24,20 @@ describe('Grid', () => {
     expect(component).toHaveClass('amsterdam-grid')
   })
 
-  it('renders the compact class name', () => {
-    const { container } = render(<Grid compact />)
-    const component = container.querySelector(':only-child')
-    expect(component).toHaveClass('amsterdam-grid--compact')
-  })
-
-  it('renders a medium vertical spacing class name for a spacious grid', () => {
+  it('renders a medium vertical spacing class name', () => {
     const { container } = render(<Grid paddingVertical="medium" />)
     const component = container.querySelector(':only-child')
     expect(component).toHaveClass('amsterdam-grid--padding-vertical--medium')
   })
 
-  it('renders a medium vertical spacing class name for a compact grid', () => {
-    const { container } = render(<Grid compact paddingVertical="medium" />)
-    const component = container.querySelector(':only-child')
-    expect(component).toHaveClass('amsterdam-grid--padding-vertical--medium')
-  })
-
-  it('renders a small top class name for a spacious grid', () => {
+  it('renders a small top class name', () => {
     const { container } = render(<Grid paddingTop="small" />)
     const component = container.querySelector(':only-child')
     expect(component).toHaveClass('amsterdam-grid--padding-top--small')
   })
 
-  it('renders a small top class name for a compact grid', () => {
-    const { container } = render(<Grid compact paddingTop="small" />)
-    const component = container.querySelector(':only-child')
-    expect(component).toHaveClass('amsterdam-grid--padding-top--small')
-  })
-
-  it('renders a large bottom class name for a spacious grid', () => {
+  it('renders a large bottom class name', () => {
     const { container } = render(<Grid paddingBottom="large" />)
-    const component = container.querySelector(':only-child')
-    expect(component).toHaveClass('amsterdam-grid--padding-bottom--large')
-  })
-
-  it('renders a large bottom class name for a compact grid', () => {
-    const { container } = render(<Grid compact paddingBottom="large" />)
     const component = container.querySelector(':only-child')
     expect(component).toHaveClass('amsterdam-grid--padding-bottom--large')
   })

@@ -2,9 +2,10 @@
 
 # Component library for React apps
 
-The `@amsterdam/design-system-react` package contains React implementations of various components. You can use this package in React apps.
+The `@amsterdam/design-system-react` package contains React implementations of various components.
+You can use this package in React apps.
 
-The design tokens and css used in these components are published in separate npm packages, so don't forget to install and include `@amsterdam/design-system-tokens` and `@amsterdam/design-system-css` too.
+The design tokens and css used in these components are published in separate npm packages, so don’t forget to install and include `@amsterdam/design-system-tokens` and `@amsterdam/design-system-css` too.
 
 <!-- TODO: make this easier? -->
 
@@ -27,7 +28,7 @@ Import the packages you need.
 ```javascript
 import { Paragraph } from "@amsterdam/design-system-react";
 
-import "@amsterdam/design-system-tokens/dist/root.css";
+import "@amsterdam/design-system-tokens/dist/index.css";
 import "@amsterdam/design-system-assets/font/index.css";
 import "@amsterdam/design-system-css/dist/index.css";
 
@@ -36,4 +37,15 @@ function App() {
 }
 
 export default App;
+```
+
+## Compact mode
+
+For applications, the large text and ample white space of the theme can be counterproductive.
+That’s why there is a compact mode.
+To use the compact mode, import the compact css **after** theme css, like so:
+
+```javascript
+import "@amsterdam/design-system-tokens/dist/index.css";
+import "@amsterdam/design-system-tokens/dist/compact.css";
 ```

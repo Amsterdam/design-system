@@ -7,59 +7,35 @@ describe('Footer', () => {
   it('renders an HTML footer element', () => {
     render(<Footer />)
 
-    const footer = screen.getByRole('contentinfo')
+    const component = screen.getByRole('contentinfo')
 
-    expect(footer).toBeInTheDocument()
-    expect(footer).toBeVisible()
+    expect(component).toBeInTheDocument()
+    expect(component).toBeVisible()
   })
 
   it('renders a design system BEM class name', () => {
-    const footerRender = render(<Footer />)
-    const { container: footerTopRender } = render(<Footer.Top />)
-    const { container: footerBottomRender } = render(<Footer.Bottom />)
+    render(<Footer />)
 
-    const footer = footerRender.getByRole('contentinfo')
-    const footerTop = footerTopRender.querySelector(':only-child')
-    const footerBottom = footerBottomRender.querySelector(':only-child')
+    const component = screen.getByRole('contentinfo')
 
-    expect(footer).toHaveClass('amsterdam-footer')
-    expect(footerTop).toHaveClass('amsterdam-footer__top')
-    expect(footerBottom).toHaveClass('amsterdam-footer__bottom')
+    expect(component).toHaveClass('amsterdam-footer')
   })
 
   it('renders an additional class name', () => {
-    const footerRender = render(<Footer className="extra" />)
-    const { container: footerTopRender } = render(<Footer.Top className="extra" />)
-    const { container: footerBottomRender } = render(<Footer.Bottom className="extra" />)
+    render(<Footer className="extra" />)
 
-    const footer = footerRender.getByRole('contentinfo')
-    const footerTop = footerTopRender.querySelector(':only-child')
-    const footerBottom = footerBottomRender.querySelector(':only-child')
+    const component = screen.getByRole('contentinfo')
 
-    expect(footer).toHaveClass('extra')
-    expect(footerTop).toHaveClass('extra')
-    expect(footerBottom).toHaveClass('extra')
-
-    expect(footer).toHaveClass('amsterdam-footer')
-    expect(footerTop).toHaveClass('amsterdam-footer__top')
-    expect(footerBottom).toHaveClass('amsterdam-footer__bottom')
+    expect(component).toHaveClass('amsterdam-footer extra')
   })
 
   it('supports ForwardRef in React', () => {
-    const footerRef = createRef<HTMLElement>()
-    const footerTopRef = createRef<HTMLDivElement>()
-    const footerBottomRef = createRef<HTMLDivElement>()
+    const ref = createRef<HTMLElement>()
 
-    const footerRender = render(<Footer ref={footerRef} />)
-    const { container: footerTopRender } = render(<Footer.Top ref={footerTopRef} />)
-    const { container: footerBottomRender } = render(<Footer.Bottom ref={footerBottomRef} />)
+    render(<Footer ref={ref} />)
 
-    const footer = footerRender.getByRole('contentinfo')
-    const footerTop = footerTopRender.querySelector(':only-child')
-    const footerBottom = footerBottomRender.querySelector(':only-child')
+    const component = screen.getByRole('contentinfo')
 
-    expect(footerRef.current).toBe(footer)
-    expect(footerTopRef.current).toBe(footerTop)
-    expect(footerBottomRef.current).toBe(footerBottom)
+    expect(ref.current).toBe(component)
   })
 })

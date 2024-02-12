@@ -1,3 +1,3 @@
 # React Checkbox component
 
-[Checkbox documentation](../../../css/src/checkbox/README.md)
+[Checkbox documentation](../../../css/src/components/checkbox/README.md)

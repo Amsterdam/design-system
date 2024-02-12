@@ -1,20 +1,22 @@
 # Switch
 
-Een switch (in het Nederlands: schakelaar) is een besturingselement om snel tussen twee verschillende staten te schakelen. Een schakelaar is van toepassing op een pagina of het hele systeem. Bijvoorbeeld een aan/uit-schakelaar.
+A switch is a control element to toggle between two different states quickly.
+A switch applies to a page or the entire system, such as an on/off switch.
 
-## Richtlijnen
+## Guidelines
 
-- Schakel alleen tussen twee verschillende statussen. Het is een binaire actie.
-- Gebruik labels met een schakelaar zodat de actie duidelijk is.
-- De actie vindt direct plaats zodra de gebruiker de schakelaar gebruikt.
+- Switch only between two different states.
+  It is a binary action.
+- Use labels with a switch to make the action clear.
+- The action takes place immediately when the user operates the switch.
 
-## Relevante WCAG eisen
+## Relevant WCAG Requirements
 
-- [WCAG 1.3.5](https://www.w3.org/WAI/WCAG21/Understanding/identify-input-purpose.html): het is zowel voor een gebruiker als programmatisch duidelijk wat het doel van een formulierveld is.
+- [WCAG 1.3.5](https://www.w3.org/WAI/WCAG21/Understanding/identify-input-purpose.html): it is both clear for a user and programmatically what the purpose of a form field is.
 
-Switch is een interactief element, hier gelden [de algemene eisen en richtlijnen voor interactieve elementen](https://amsterdam.github.io/design-system/?path=/docs/docs-designrichtlijnen-interactieve-elementen--docs) voor.
+The Switch is an interactive element; general requirements and guidelines for interactive elements apply [here](https://amsterdam.github.io/design-system/?path=/docs/docs-designrichtlijnen-interactieve-elementen--docs).
 
-## Referenties
+## References
 
 - [Switch Pattern](https://www.w3.org/WAI/ARIA/apg/patterns/switch/)
 - [Role switch](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Roles/switch_role)

@@ -14,17 +14,12 @@
   display: flex;
   flex-wrap: wrap;
   font-family: var(--amsterdam-pagination-font-family);
-  font-size: var(--amsterdam-pagination-spacious-font-size);
+  font-size: var(--amsterdam-pagination-font-size);
   font-weight: var(--amsterdam-pagination-font-weight);
   justify-content: center;
-  line-height: var(--amsterdam-pagination-spacious-line-height);
+  line-height: var(--amsterdam-pagination-line-height);
 
   @include list-reset;
-
-  .amsterdam-theme--compact & {
-    font-size: var(--amsterdam-pagination-compact-font-size);
-    line-height: var(--amsterdam-pagination-compact-line-height);
-  }
 }
 
 @mixin button-reset {

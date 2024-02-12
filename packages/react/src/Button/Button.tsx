@@ -6,11 +6,12 @@
 
 import { Button as CommunityButton } from '@utrecht/component-library-react'
 import clsx from 'clsx'
-import { ButtonHTMLAttributes, ForwardedRef, forwardRef, PropsWithChildren } from 'react'
+import { forwardRef } from 'react'
+import type { ButtonHTMLAttributes, ForwardedRef, PropsWithChildren } from 'react'
 
-export interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
+export type ButtonProps = {
   variant?: 'primary' | 'secondary' | 'tertiary'
-}
+} & PropsWithChildren<ButtonHTMLAttributes<HTMLButtonElement>>
 
 type CommunityButtonAppearance = 'primary-action-button' | 'secondary-action-button' | 'subtle-button'
 
@@ -26,10 +27,7 @@ function getAppearance(variant: ButtonProps['variant']): CommunityButtonAppearan
 }
 
 export const Button = forwardRef(
-  (
-    { children, disabled, variant = 'primary', ...restProps }: PropsWithChildren<ButtonProps>,
-    ref: ForwardedRef<HTMLButtonElement>,
-  ) => {
+  ({ children, disabled, variant = 'primary', ...restProps }: ButtonProps, ref: ForwardedRef<HTMLButtonElement>) => {
     return (
       <CommunityButton
         {...restProps}

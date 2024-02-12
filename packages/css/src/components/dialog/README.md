@@ -1,19 +1,20 @@
 # Dialog
 
-A Dialog allows the user to focus on one task or a piece of information, by popping-up and blocking the page content until the modal task is completed, or until the user dismisses the action.
+A Dialog allows the user to focus on one task or a piece of information by popping up and blocking the page content until the modal task is completed or until the user dismisses the action.
 
 ## Guidelines
 
-- Use Dialog sparingly, because it interrupts the user's workflow.
-- Use Dialog for short and non-frequent tasks. For common tasks consider using the main flow.
+- Use dialogs sparingly because they interrupt the user’s workflow.
+- Use a dialog for short and non-frequent tasks.
+  Consider using the main flow for regular tasks.
 
 ## Keyboard Support
 
-| key         | function                                                     |
-| :---------- | :----------------------------------------------------------- |
-| Tab         | Moves focus to next focusable element inside the dialog.     |
-| Shift + Tab | Moves focus to previous focusable element inside the dialog. |
-| Escape      | Closes the dialog.                                           |
+| key         | function                                                         |
+| :---------- | :--------------------------------------------------------------- |
+| Tab         | Moves focus to the next focusable element inside the dialog.     |
+| Shift + Tab | Moves focus to the previous focusable element inside the dialog. |
+| Escape      | Closes the dialog.                                               |
 
 ## References
 

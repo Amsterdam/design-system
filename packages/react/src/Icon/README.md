@@ -1,3 +1,3 @@
 # React Icon Component
 
-[Icon documentation](../../../css/src/icon/README.md)
+[Icon documentation](../../../css/src/components/icon/README.md)

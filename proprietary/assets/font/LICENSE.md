@@ -2,7 +2,8 @@
 
 # License
 
-Copyright (c) 2022 Bold Monday. All rights reserved.
+Copyright (c) 2022 Bold Monday.
+All rights reserved.
 
 The [open source license](../../../LICENSE.md) does NOT apply to files in this directory.
 

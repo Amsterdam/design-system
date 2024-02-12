@@ -4,22 +4,16 @@
  */
 
 import clsx from 'clsx'
-import {
-  ForwardedRef,
-  forwardRef,
-  ForwardRefExoticComponent,
-  HTMLAttributes,
-  PropsWithChildren,
-  RefAttributes,
-} from 'react'
+import { forwardRef } from 'react'
+import type { ForwardedRef, ForwardRefExoticComponent, HTMLAttributes, PropsWithChildren, RefAttributes } from 'react'
 
 type MegaMenuProps = {
   isOpen?: boolean
 } & PropsWithChildren<HTMLAttributes<HTMLDivElement>>
 
-interface MegaMenuComponent extends ForwardRefExoticComponent<MegaMenuProps & RefAttributes<HTMLDivElement>> {
+type MegaMenuComponent = {
   ListCategory: typeof MegaMenuListCategory
-}
+} & ForwardRefExoticComponent<MegaMenuProps & RefAttributes<HTMLDivElement>>
 
 export const MegaMenu = forwardRef(
   ({ children, className, isOpen, ...restProps }: MegaMenuProps, ref: ForwardedRef<HTMLDivElement>) => (

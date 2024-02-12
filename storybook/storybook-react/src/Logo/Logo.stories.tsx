@@ -12,7 +12,7 @@ const meta = {
   argTypes: {
     brand: {
       control: {
-        type: 'select',
+        type: 'radio',
       },
       options: ['amsterdam', 'ggd-amsterdam', 'stadsarchief', 'stadsbank-van-lening', 'vga-verzekeringen'],
     },

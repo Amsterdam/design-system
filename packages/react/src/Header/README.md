@@ -1,3 +1,3 @@
 # React Header component
 
-[Header documentation](../../../css/src/header/README.md)
+[Header documentation](../../../css/src/components/header/README.md)

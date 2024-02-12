@@ -1,18 +1,18 @@
 # Aspect Ratio
 
-Aspect Ratio (in het Nederlands: beeldverhouding) koppelt de hoogte van een element aan de breedte.
+Aspect Ratio updates the height of an element with its width.
 
-Om de vormgeving consistent te houden gebruiken we een vaste set verhoudingen (breedte:hoogte):
+These are the proportions we use:
 
-| _keyword_ | verhouding |
-| :-------- | ---------: |
-| `2x-wide` |       32:9 |
-| `x-wide`  |       16:9 |
-| `wide`    |        5:4 |
-| `square`  |        1:1 |
-| `tall`    |        4:5 |
-| `x-tall`  |       9:16 |
+| keyword   | ratio |
+| :-------- | ----: |
+| `2x-wide` |  32:9 |
+| `x-wide`  |  16:9 |
+| `wide`    |   5:4 |
+| `square`  |   1:1 |
+| `tall`    |   4:5 |
+| `x-tall`  |  9:16 |
 
-## Richtlijnen
+## Guidelines
 
-- Gebruik dit component om plaatjes, videos en andere elementen een vaste beeldverhouding te geven, zodat ze consistent schalen.
+- Use this component to constrain images, videos and other elements to one of the available aspect ratios.

@@ -1,3 +1,3 @@
 # React Blockquote component
 
-[Blockquote documentation](../../../css/src/blockquote/README.md)
+[Blockquote documentation](../../../css/src/components/blockquote/README.md)

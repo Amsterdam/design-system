@@ -1,58 +1,54 @@
 import { Meta, Typeset } from "@storybook/blocks";
 
-<Meta title="Docs/Designrichtlijnen/Typografie" />
+<Meta title="Docs/Design Guidelines/Typography" />
 
-# Typografie
+# Typography
 
-## Tekstgrootte
+## Text Size
 
-### Zeven tekstniveau’s
+### Seven Text Levels
 
-Er zijn 7 niveaus van tekstgrootte en bijbehorende regelhoogte.
-Elk typografisch element zit op 1 zo’n niveau: titel, paragraaf, link, citaat, formuliertekst, enzovoort.
-Ze zijn genummerd van 0 tot en met 6 – zo komen ze voor de diverse titels mooi overeen.
-Voorbeelden:
+There are 7 levels of text size and corresponding line height.
+Each typographic element belongs to one of these levels: title, paragraph, link, quote, form text, etc.
+They are numbered from 0 to 6 to align them with the levels of headings.
+Examples:
 
-| Niveau | Componenten                            |
-| -----: | :------------------------------------- |
-|      0 | Page heading                           |
-|      1 | Heading 1                              |
-|      2 | Heading 2                              |
-|      3 | Heading 3, Blockquote                  |
-|      4 | Heading 4, Large Paragraph             |
-|      5 | Paragraph, List, Link, Button          |
-|      6 | Small Paragraph, Page Menu, Breadcrumb |
+| Level | Components                             |
+| ----: | :------------------------------------- |
+|     0 | Page heading                           |
+|     1 | Heading 1                              |
+|     2 | Heading 2                              |
+|     3 | Heading 3, Blockquote                  |
+|     4 | Heading 4, Large Paragraph             |
+|     5 | Paragraph, List, Link, Button          |
+|     6 | Small Paragraph, Page Menu, Breadcrumb |
 
 ### Responsive
 
-De grootte van tekst is afhankelijk van de breedte van het venster.
-Hiermee zorgen we ervoor dat het op schermen van alle afmetingen prettig lezen is.
-Ook werkt dat goed samen met het responsive [grid](?path=/docs/react_layout-grid--docs).
+The text size depends on the window width, ensuring pleasant reading on screens of all sizes.
+This also complements the responsive [grid](?path=/docs/react_layout-grid--docs).
 
-Elk niveau heeft een minimale tekstgrootte.
-Dat is actief tot en met een vensterbreedte van 320 pixels.
-Ook is er een maximale tekstgrootte.
-Dat is van toepassing vanaf een vensterbreedte van 1600 pixels.
-Daartussen groeit de tekst in een rechte lijn.
+Each level has a minimum text size, up to a window width of 320 pixels.
+There’s also a maximum text size starting at a window width of 1600 pixels.
+Between these points, the text grows linearly.
 
-### Typografische schaal
+### Typographic Scale
 
-De typografische schaal is gebaseerd op een factor van 5 ÷ 4 = 1,25.
-Voor elk naastliggende niveau is de tekst dus zo veel keer groter of kleiner.
+The typographic scale is based on a factor of 5 ÷ 4 = 1.25.
+For each adjacent level, the text is that much larger or smaller.
 
-Bij de minimale vensterbreedte groeit de tekstgrootte langzamer, met een factor van 7 ÷ 6 ≈ 1,17.
-Zo worden titels niet te groot op telefoons en andere smalle vensters, en kleine teksten niet te klein.
+The text size grows more slowly at the minimum window width, with a factor of 7 ÷ 6 ≈ 1.17.
+This prevents titles from becoming too large on phones and other narrow windows and small texts from becoming too small.
 
-### Twee thema’s voor websites en applicaties
+### Two Themes for Websites and Applications
 
-#### Ruimtelijk
+#### Spacious
 
-Voor websites is de typografie behoorlijk ruimtelijk.
-Zo is de huisstijl ontworpen.
-Een standaard paragraaf is 18 pixels groot bij een vensterbreedte van 320 pixels.
-Tot een breedte van 1600 pixels groeit die naar 24 pixels.
+The typography is quite spacious for websites, in line with the overall design.
+A standard paragraph is 18 pixels at a window width of 320 pixels.
+It grows to 24 pixels up to a width of 1600 pixels.
 
-De maximale tekstgroottes voor alle niveau’s in het ruimtelijke thema:
+The maximum text sizes for all levels in the spacious theme:
 
 <Typeset
   fontFamily="Amsterdam Sans, Arial, sans-serif"
@@ -61,7 +57,7 @@ De maximale tekstgroottes voor alle niveau’s in het ruimtelijke thema:
   sampleText="Jouw typograaf biedt mij zulke exquise schreven"
 />
 
-En de minimale:
+And the minimum:
 
 <Typeset
   fontFamily="Amsterdam Sans, Arial, sans-serif"
@@ -72,12 +68,12 @@ En de minimale:
 
 #### Compact
 
-Voor applicaties is zulke grote tekst niet nodig, zelfs contraproductief.
-Daarom is er een compact thema voor de typografie.
-Hier is een paragraaf 14 pixels groot bij de minimale vensterbreedte en 18 pixels bij de maximale.
-Tekst is dus een kwart kleiner en groeit ook iets langzamer.
+For applications, such large text is not necessary, even counterproductive.
+Hence, there’s a compact theme for typography.
+In this theme, a paragraph is 14 pixels at the minimum window width and 18 pixels at the maximum.
+Text is a quarter smaller and grows slightly more slowly.
 
-De maximale tekstgroottes voor alle niveau’s in het compacte thema:
+The maximum text sizes for all levels in the compact theme:
 
 <Typeset
   fontFamily="Amsterdam Sans, Arial, sans-serif"
@@ -86,7 +82,7 @@ De maximale tekstgroottes voor alle niveau’s in het compacte thema:
   sampleText="Jouw typograaf biedt mij zulke exquise schreven"
 />
 
-En de minimale:
+And the minimum:
 
 <Typeset
   fontFamily="Amsterdam Sans, Arial, sans-serif"
@@ -95,39 +91,39 @@ En de minimale:
   sampleText="Jouw typograaf biedt mij zulke exquise schreven"
 />
 
-### Vensterbreedtes waarvoor we ontwerpen
+### Window Widths for Design
 
-In de praktijk kan een venster elke willekeurige breedte hebben.
-Voor al die breedtes ontwerpen is wat te gek.
-Daarom werken we in Figma met drie referentie-breedtes: 320, 832 en 1600 pixels.
-Op die maten werken we een scherm uit voor die drie klassen van apparaten.
-De tekstgroottes zijn op dat punt als volgt, afgerond op 1 cijfer achter de komma.
+In practice, a window can have any width.
+Designing for all those widths is impractical.
+Therefore, we work with three reference widths in Figma: 320, 832, and 1600 pixels.
+At those sizes, we develop a screen for those three classes of devices.
+The text sizes at those points are as follows, rounded to 1 decimal place:
 
-#### Ruimtelijk
+#### Spacious
 
-| Klasse apparaat | Ontwerpbreedte |    0 |    1 |    2 |    3 |    4 |    5 |    6 |
-| :-------------- | :------------- | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
-| telefoon        | 320            | 38,9 | 33,3 | 28,6 | 24,5 |   21 |   18 | 15,4 |
-| tablet          | 832            | 52,6 | 43,4 | 35,9 | 29,7 | 24,6 | 20,4 | 16,9 |
-| desktop         | 1600           | 73,2 | 58,6 | 46,9 | 37,5 |   30 |   24 | 19,2 |
+| Device Class | Design Width |    0 |    1 |    2 |    3 |    4 |    5 |    6 |
+| :----------- | ------------ | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
+| Phone        | 320          | 38.9 | 33.3 | 28.6 | 24.5 |   21 |   18 | 15.4 |
+| Tablet       | 832          | 52.6 | 43.4 | 35.9 | 29.7 | 24.6 | 20.4 | 16.9 |
+| Desktop      | 1600         | 73.2 | 58.6 | 46.9 | 37.5 |   30 |   24 | 19.2 |
 
 #### Compact
 
-| Klasse apparaat | Ontwerpbreedte |    0 |    1 |    2 |    3 |    4 |    5 |    6 |
-| :-------------- | :------------- | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
-| telefoon        | 320            | 30,3 | 25,9 | 22,2 | 19,1 | 16,3 |   14 |   12 |
-| tablet          | 832            | 40,1 | 33,1 | 27,4 | 22,7 | 18,8 | 15,6 |   13 |
-| desktop         | 1600           | 54,9 | 43,9 | 35,2 | 28,1 | 22,5 |   18 | 14,4 |
+| Device Class | Design Width |    0 |    1 |    2 |    3 |    4 |    5 |    6 |
+| :----------- | ------------ | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
+| Phone        | 320          | 30.3 | 25.9 | 22.2 | 19.1 | 16.3 |   14 |   12 |
+| Tablet       | 832          | 40.1 | 33.1 | 27.4 | 22.7 | 18.8 | 15.6 |   13 |
+| Desktop      | 1600         | 54.9 | 43.9 | 35.2 | 28.1 | 22.5 |   18 | 14.4 |
 
-## Accentuering
+## Emphasis
 
-Er zijn verschillende manieren om tekst te accentueren.
-Hierin hebben we de volgende keuzes gemaakt.
+There are various ways to emphasize text.
+Here are our choices.
 
-### Gewicht
+### Weight
 
-Online gebruiken we 2 gewichten: ‘regular’ en ‘extra bold’.
-In termen van CSS: 400 en 800.
+We use 2 weights online: regular and extra bold.
+In CSS terms: 400 and 800.
 
 <Typeset
   fontFamily="Amsterdam Sans, Arial, sans-serif"
@@ -136,7 +132,7 @@ In termen van CSS: 400 en 800.
   sampleText="Jouw typograaf biedt mij zulke exquise schreven"
 />
 
-Tekst wordt vetgedrukt in titels en decoratieve citaten.
+The text of all kinds of titles, decorative quotes, and form labels use the bold weight.
 
 <Typeset
   fontFamily="Amsterdam Sans, Arial, sans-serif"
@@ -145,11 +141,11 @@ Tekst wordt vetgedrukt in titels en decoratieve citaten.
   sampleText="Jouw typograaf biedt mij zulke exquise schreven"
 />
 
-### Stijl
+### Style
 
-Vermijd cursieve teksten zo veel mogelijk, deze zijn niet goed te lezen.
-Gebruik ze uitsluitend om een fragment te accentueren, niet voor hele tekstblokken.
-Er zijn betere manieren om lange teksten nadruk te geven.
+Avoid italicized text as much as possible, as it’s not easily readable.
+Use it only to format a fragment, not for entire blocks of text.
+There are better ways to emphasize long texts.
 
 <Typeset
   fontFamily="Amsterdam Sans, Arial, sans-serif"
@@ -158,15 +154,15 @@ Er zijn betere manieren om lange teksten nadruk te geven.
   style={{ fontStyle: "italic" }}
 />
 
-### Onderstreping
+### Underlining
 
-Vermijd het onderstrepen van tekst.
-Onderstreep alleen interactieve links.
+Avoid underlining text.
+Underline only interactive links.
 
-De lijndikte is 2 pixels.
-De afstand tussen de onderstreping en de letterlijn is 6 pixels –
-meer dan we in onderstaande voorbeeld kunnen laten zien.
-Als de muiswijzer over de link beweegt wordt de lijn aan de bovenkant een pixel dikker.
+The line thickness is 2 pixels.
+The distance between the underline and the baseline is 6 pixels –
+more than we can show in the example below.
+When the mouse hovers over the link, the line at the top becomes one pixel thicker.
 
 <Typeset
   fontFamily="Amsterdam Sans, Arial, sans-serif"
@@ -176,51 +172,51 @@ Als de muiswijzer over de link beweegt wordt de lijn aan de bovenkant een pixel 
   style={{ color: "#004469", textDecorationLine: "underline", textDecorationThickness: 2, textUnderlineOffset: 4 }}
 />
 
-### Overhang
+### Letter spacing
 
-De ruimte tussen letters (kerning) is geoptimaliseerd in het lettertype.
-Het is niet toegestaan om de kerning aan te passen.
+The space between letters (kerning) has been optimized in the typeface.
+Adjusting kerning is not allowed.
 
-## Andere eigenschappen
+## Other Properties
 
 ### Contrast
 
-Het contrast tussen tekst en achtergrondkleur moet voldoen aan de laatste wettelijke toegankelijkheidseisen van [de WCAG, niveau AA](https://www.w3.org/WAI/WCAG21/Understanding/contrast-minimum.html).
+The contrast between text and background colour must meet the latest legal accessibility requirements of [WCAG, level AA](https://www.w3.org/WAI/WCAG21/Understanding/contrast-minimum.html).
 
-De meeste tekst in de huisstijl is puur zwart op puur wit en dat voldoet daar ruim aan.
-Op de meeste donkere achtergronden maken we tekst wit; ook dat biedt voldoende contrast.
-Voor sommige achtergrondkleuren is ook zwarte tekst goed leesbaar.
-Raadpleeg de betreffende componenten voor specifieke richtlijnen.
+Most text in the corporate identity is pure black on pure white, meeting the requirement.
+We make text white on most dark backgrounds, providing sufficient contrast.
+For some background colours, black text is also readable.
+Consult the respective components for specific guidelines.
 
-### Uitlijning
+### Alignment
 
-Tekst wordt nagenoeg altijd links uitgelijnd.
+Text is almost always left-aligned.
 
-Uitzonderingen:
+Exceptions:
 
-1. Het label van een knop wordt gecentreerd.
-2. In een tabel kan het beter zijn tekst te centreren of rechts uit te lijnen.
+1. The label of a button is centred.
+2. In a table, it might be better to centre or right-align text.
 
-### Regellengte
+### Line Length
 
-Lange regels tekst zijn lastig om te lezen.
-Rond de 80 letters op een regel is het maximum.
-In het 12-koloms [grid](?path=/docs/react_layout-grid--docs) voldoen paragrafen daaraan als ze 8 kolommen of minder beslaan.
+Long lines of text are challenging to read.
+Around 80 characters per line is the maximum.
+In the 12-column [grid](?path=/docs/react_layout-grid--docs), paragraphs meet this when they occupy 8 columns or fewer.
 
-### Woordafbreking
+### Word Breaking
 
-De Nederlandse taal kent veel lange woorden, zoals ‘gemeenteraadsverkiezingen’.
-Zorg er in je applicatie voor dat deze woorden netjes afgebroken worden en niet uit hun container breken of verborgen worden.
-Een manier om dat te doen is met de volgende _css snippet_, waarin `hyphens` en `word-break` gecombineerd worden:
+The Dutch language has many long words, such as ‘gemeenteraadsverkiezingen’ (municipal elections).
+Ensure in your application that these words are hyphenated neatly and do not break out of their container or get hidden.
+One way to do this is with the following CSS snippet, combining `hyphens` and `word-break`:
 
 ```css
 .class {
   hyphens: auto;
-  /* only hypenate words longer than 12 chars, for browsers that support it */
+  /* only hyphenate words longer than 12 chars, for browsers that support it */
   hyphenate-limit-chars: 12;
-  /* break overflowing words for browsers that don't support css hyphens */
+  /* break overflowing words for browsers that don’t support CSS hyphens */
   overflow-wrap: break-word;
 }
 ```
 
-Voor verdere informatie: [Wrapping and breaking text op MDN](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_text/Wrapping_breaking_text)
+Further reading: [Wrapping and breaking text op MDN](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_text/Wrapping_breaking_text)

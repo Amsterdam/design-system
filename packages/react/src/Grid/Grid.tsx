@@ -4,14 +4,8 @@
  */
 
 import clsx from 'clsx'
-import {
-  ForwardedRef,
-  forwardRef,
-  ForwardRefExoticComponent,
-  HTMLAttributes,
-  PropsWithChildren,
-  RefAttributes,
-} from 'react'
+import { forwardRef } from 'react'
+import type { ForwardedRef, ForwardRefExoticComponent, HTMLAttributes, PropsWithChildren, RefAttributes } from 'react'
 import { GridCell } from './GridCell'
 
 export type GridColumnNumber = 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11 | 12
@@ -40,13 +34,6 @@ type GridPaddingTopAndBottomProps = {
 }
 
 export type GridProps = {
-  /**
-   * Opts in to a less spacious layout.
-   * Decreases whitespace between columns and to the sides of the grid.
-   * This usually works well for applications.
-   * @todo Implement more generally – it will be moved into a theme soon.
-   */
-  compact?: boolean
   /** The amount of vertical whitespace between rows of the grid. */
   gapVertical?: 'none' | 'small' | 'large'
 } & (GridPaddingVerticalProp | GridPaddingTopAndBottomProps) &
@@ -74,13 +61,13 @@ const paddingClasses = (
   return classes
 }
 
-interface GridComponent extends ForwardRefExoticComponent<GridProps & RefAttributes<HTMLDivElement>> {
+type GridComponent = {
   Cell: typeof GridCell
-}
+} & ForwardRefExoticComponent<GridProps & RefAttributes<HTMLDivElement>>
 
 export const Grid = forwardRef(
   (
-    { children, className, compact, gapVertical, paddingBottom, paddingTop, paddingVertical, ...restProps }: GridProps,
+    { children, className, gapVertical, paddingBottom, paddingTop, paddingVertical, ...restProps }: GridProps,
     ref: ForwardedRef<HTMLDivElement>,
   ) => (
     <div
@@ -88,7 +75,6 @@ export const Grid = forwardRef(
       ref={ref}
       className={clsx(
         'amsterdam-grid',
-        compact && `amsterdam-grid--compact`,
         gapVertical && `amsterdam-grid--gap-vertical--${gapVertical}`,
         paddingClasses(paddingBottom, paddingTop, paddingVertical),
         className,

@@ -4,29 +4,21 @@
  */
 
 import clsx from 'clsx'
-import {
-  ForwardedRef,
-  forwardRef,
-  ForwardRefExoticComponent,
-  HTMLAttributes,
-  PropsWithChildren,
-  RefAttributes,
-  useImperativeHandle,
-  useRef,
-} from 'react'
+import { forwardRef, useImperativeHandle, useRef } from 'react'
+import type { ForwardedRef, ForwardRefExoticComponent, HTMLAttributes, PropsWithChildren, RefAttributes } from 'react'
 import AccordionContext from './AccordionContext'
 import { AccordionSection } from './AccordionSection'
 import useFocusWithArrows from './useFocusWithArrows'
 import { HeadingLevel } from '../Heading/Heading'
 
-export interface AccordionProps extends PropsWithChildren<HTMLAttributes<HTMLDivElement>> {
+export type AccordionProps = {
   headingLevel: HeadingLevel
   section?: boolean
-}
+} & PropsWithChildren<HTMLAttributes<HTMLDivElement>>
 
-export interface AccordionComponent extends ForwardRefExoticComponent<AccordionProps & RefAttributes<HTMLDivElement>> {
+type AccordionComponent = {
   Section: typeof AccordionSection
-}
+} & ForwardRefExoticComponent<AccordionProps & RefAttributes<HTMLDivElement>>
 
 export const Accordion = forwardRef(
   ({ children, className, headingLevel, section = true }: AccordionProps, ref: ForwardedRef<HTMLDivElement>) => {

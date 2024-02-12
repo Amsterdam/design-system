@@ -14,24 +14,16 @@ const meta = {
   component: Spotlight,
   argTypes: {
     as: {
-      control: { type: 'inline-radio' },
+      control: {
+        type: 'radio',
+      },
       options: ['article', 'aside', 'div', 'footer', 'section'],
     },
     color: {
-      options: ['blue', 'dark-green', 'green', 'light-blue', 'magenta', 'orange', 'purple', 'yellow'],
       control: {
-        type: 'radio',
-        labels: {
-          blue: 'Blauw',
-          'dark-green': 'Donkergroen',
-          green: 'Groen',
-          'light-blue': 'Lichtblauw',
-          magenta: 'Magenta',
-          orange: 'Oranje',
-          purple: 'Paars',
-          yellow: 'Geel',
-        },
+        type: 'select',
       },
+      options: ['blue', 'dark-blue', 'dark-green', 'green', 'magenta', 'orange', 'purple', 'yellow'],
     },
     children: {
       control: {
@@ -56,39 +48,21 @@ type Story = StoryObj<typeof meta>
 
 export const Default: Story = {}
 
-export const Yellow: Story = {
-  args: {
-    color: 'yellow',
-  },
-}
-
-export const Orange: Story = {
-  args: {
-    color: 'orange',
-  },
-}
-
-export const Magenta: Story = {
-  args: {
-    color: 'magenta',
-  },
-}
-
-export const Purple: Story = {
-  args: {
-    color: 'purple',
-  },
-}
-
 export const Blue: Story = {
   args: {
     color: 'blue',
   },
 }
 
-export const LightBlue: Story = {
+export const DarkBlue: Story = {
   args: {
-    color: 'light-blue',
+    color: 'dark-blue',
+  },
+}
+
+export const DarkGreen: Story = {
+  args: {
+    color: 'dark-green',
   },
 }
 
@@ -98,9 +72,27 @@ export const Green: Story = {
   },
 }
 
-export const DarkGreen: Story = {
+export const Magenta: Story = {
   args: {
-    color: 'dark-green',
+    color: 'magenta',
+  },
+}
+
+export const Orange: Story = {
+  args: {
+    color: 'orange',
+  },
+}
+
+export const Purple: Story = {
+  args: {
+    color: 'purple',
+  },
+}
+
+export const Yellow: Story = {
+  args: {
+    color: 'yellow',
   },
 }
 

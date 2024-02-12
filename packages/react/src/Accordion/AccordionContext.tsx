@@ -1,7 +1,7 @@
 import { createContext } from 'react'
 import { HeadingLevel } from '../Heading/Heading'
 
-export interface AccordionContextValue {
+export type AccordionContextValue = {
   headingLevel: HeadingLevel
   section?: boolean
 }

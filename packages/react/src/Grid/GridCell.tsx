@@ -3,8 +3,9 @@
  * Copyright (c) 2023 Gemeente Amsterdam
  */
 import clsx from 'clsx'
-import { type ForwardedRef, forwardRef, type HTMLAttributes, type PropsWithChildren } from 'react'
-import { GridColumnNumber, GridColumnNumbers } from './Grid'
+import { forwardRef } from 'react'
+import type { ForwardedRef, HTMLAttributes, PropsWithChildren } from 'react'
+import type { GridColumnNumber, GridColumnNumbers } from './Grid'
 import { gridCellClasses } from './gridCellClasses'
 
 type GridCellSpanAllProp = {

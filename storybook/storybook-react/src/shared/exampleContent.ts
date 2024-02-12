@@ -19,6 +19,29 @@ export const exampleHeading = () =>
     'Richtlijnen vergunningverlening Koningsdag 2024',
   ])
 
+export const exampleLinkList = () =>
+  pickRandomList([
+    ['Contactformulier', 'Adressen en openingstijden', 'Bel 14 020'],
+    ['Monumenten en archeologie', 'Ateliers en broedplaatsen', 'Kunstenplan', 'Subsidies'],
+    [
+      'Huisvesting voor kunst en cultuur',
+      'Vrije ruimte in Amsterdam',
+      'De nacht heeft de toekomst',
+      'Kunstwerken in de stad',
+      'Werelderfgoed',
+      'Stadscuratorium',
+      'EIT Culture & Creativity',
+    ],
+    [
+      'Dam tot Damloop 17 september. afsluitingen',
+      'De Nieuwe Noorder, omleiding',
+      'Brug bij Zwarte Gouw/Weerslootpad, omleiding fietsers en voetgangers',
+      'Metaalbewerkerweg en Kamperfoelieweg, omleiding voor fietsers',
+      'H.M. Terwogtweg, afsluitweg',
+      'Meer werkzaamheden in stadsdeel Noord',
+    ],
+  ])
+
 export const exampleOrderedList = () =>
   pickRandomList([
     [

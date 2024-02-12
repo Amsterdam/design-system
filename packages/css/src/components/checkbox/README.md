@@ -1,27 +1,28 @@
 # Checkbox
 
-De checkbox (in het Nederlands: selectievakje) wordt gebruikt om gebruikers een selectie te laten maken. Hij wordt ook gebruikt om gebruikers te laten weten dat ze akkoord gaan met specifieke voorwaarden.
+Allows users to make a selection or agree to terms.
 
-## Richtlijnen
+## Guidelines
 
-- Selectievakjes worden gebruikt voor 1 of meerdere keuzes die elkaar niet uitsluiten.
-- Elk selectievakje werkt onafhankelijk van andere selectievakjes in een lijst op hetzelfde hiërarchische niveau. Het aanvinken van een extra vakje heeft geen invloed op andere selecties in die lijst.
-- Je kunt een selectievakje wel gebruiken voor een bulkselectie of –deselectie van een hele lijst met selectievakjes, maar dan moet duidelijk zijn dat het bulkselectievakje op een ander hiërarchisch niveau zit dan de lijst die volledig wordt geselecteerd of gedeselecteerd.
-- Een groep selectievakjes kan worden gebruikt om gegevens op een pagina, in een menu of binnen een component te filteren.
-- Een selectievakje kan een antwoord op een gesloten vraag zijn, als er meerdere antwoorden mogelijk zijn.
-- Een lijst van selectievakjes is verticaal gestapeld om leesbaarheid en bruikbaarheid te bevorderen.
-- Een lijst van selectievakjes moet in een `fieldset` zitten, met een `legend` die beschrijft waar de lijst over gaat. Als de selectievakjes bijvoorbeeld worden gebruikt om antwoord op een vraag te krijgen, dan is de `legend` de vraag.
+- Checkboxes are used for one or multiple choices that do not exclude each other.
+- Each checkbox operates independently of other checkboxes in a list at the same hierarchical level.
+  Checking an additional checkbox does not affect other selections in that list.
+- You can use a checkbox for bulk selection or deselection of an entire list of checkboxes.
+  Still, it should be clear that the bulk selection checkbox is at a different hierarchical level than the list being fully selected or deselected.
+- Use a group of checkboxes to filter data on a page, in a menu, or within a component.
+- A checkbox can answer a closed question if multiple answers are possible.
+- A list of checkboxes is vertically stacked to enhance readability and usability.
+- A list of checkboxes should be in a `fieldset` with a `legend` describing what the list is about.
+  For example, if the checkboxes are used to get answers to a question, the `legend` is the question.
 
-## Checkbox labels
+## Checkbox Labels
 
-Een label:
+A label starts with a capital letter.
+It does not have punctuation at the end if it is a single sentence, word, or fragment.
+It is written in the first person when asking the user to agree to the terms and conditions.
 
-- ... begint met een hoofdletter
-- ... heeft geen interpunctie aan het einde als het een enkele zin, woord of fragment is.
-- ... is in de eerste persoon geschreven als het gaat om de vraag of de gebruiker akkoord gaat met de algemene voorwaarden
+## Relevant WCAG Requirements
 
-## Relevante WCAG eisen
+- [WCAG 1.3.5](https://www.w3.org/WAI/WCAG21/Understanding/identify-input-purpose.html): It is clear for both users and programmatically what the purpose of a form field is.
 
-- [WCAG 1.3.5](https://www.w3.org/WAI/WCAG21/Understanding/identify-input-purpose.html): het is zowel voor een gebruiker als programmatisch duidelijk wat het doel van een formulierveld is.
-
-Checkbox is een interactief element, hier gelden [de algemene eisen en richtlijnen voor interactieve elementen](https://amsterdam.github.io/design-system/?path=/docs/docs-designrichtlijnen-interactieve-elementen--docs) voor.
+Checkbox is an interactive element; therefore, [the general requirements and guidelines for interactive elements](https://amsterdam.github.io/design-system/?path=/docs/docs-designrichtlijnen-interactieve-elementen--docs) apply.

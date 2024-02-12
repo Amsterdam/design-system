@@ -5,7 +5,7 @@
 
 .amsterdam-search-field {
   display: flex;
-  isolation: isolate; // create new stacking context, so the input's z-index doesn't escape the component
+  isolation: isolate; // create new stacking context, so the input’s z-index doesn’t escape the component
 }
 
 @mixin reset {
@@ -19,9 +19,9 @@
   box-shadow: var(--amsterdam-search-field-input-box-shadow);
   color: var(--amsterdam-search-field-input-color);
   font-family: var(--amsterdam-search-field-input-font-family);
-  font-size: var(--amsterdam-search-field-input-spacious-font-size);
+  font-size: var(--amsterdam-search-field-input-font-size);
   font-weight: var(--amsterdam-search-field-input-font-weight);
-  line-height: var(--amsterdam-search-field-input-spacious-line-height);
+  line-height: var(--amsterdam-search-field-input-line-height);
   outline-offset: var(--amsterdam-search-field-input-outline-offset);
   padding-block: 0.5rem;
   padding-inline: 1rem;
@@ -30,17 +30,12 @@
 
   @include reset;
 
-  .amsterdam-theme--compact & {
-    font-size: var(--amsterdam-search-field-input-compact-font-size);
-    line-height: var(--amsterdam-search-field-input-compact-line-height);
-  }
-
   &:hover {
     box-shadow: var(--amsterdam-search-field-input-hover-box-shadow);
   }
 
   &:focus {
-    z-index: 1; // Make sure the focus outline isn't cut off by the adjacent button
+    z-index: 1; // Make sure the focus outline isn’t cut off by the adjacent button
   }
 }
 

@@ -1,43 +1,28 @@
-import {
-  ForwardedRef,
-  forwardRef,
-  ForwardRefExoticComponent,
-  HTMLAttributes,
-  PropsWithChildren,
-  RefAttributes,
-} from 'react'
+/**
+ * @license EUPL-1.2+
+ * Copyright (c) 2023 Gemeente Amsterdam
+ */
 
-type BreadcrumbProps = PropsWithChildren<HTMLAttributes<HTMLElement>>
+import { clsx } from 'clsx'
+import { forwardRef } from 'react'
+import type { ForwardedRef, ForwardRefExoticComponent, HTMLAttributes, PropsWithChildren, RefAttributes } from 'react'
+import { BreadcrumbItem } from './BreadcrumbItem'
 
-interface BreadcrumbComponent extends ForwardRefExoticComponent<BreadcrumbProps & RefAttributes<HTMLElement>> {
+export type BreadcrumbProps = PropsWithChildren<HTMLAttributes<HTMLElement>>
+
+type BreadcrumbComponent = {
   Item: typeof BreadcrumbItem
-}
+} & ForwardRefExoticComponent<BreadcrumbProps & RefAttributes<HTMLElement>>
 
-export const Breadcrumb = forwardRef(({ children, ...restProps }: BreadcrumbProps, ref: ForwardedRef<HTMLElement>) => {
-  return (
-    <nav {...restProps} className="amsterdam-breadcrumb" ref={ref}>
+export const Breadcrumb = forwardRef(
+  ({ children, className, ...restProps }: BreadcrumbProps, ref: ForwardedRef<HTMLElement>) => (
+    <nav {...restProps} className={clsx('amsterdam-breadcrumb', className)} ref={ref}>
       <ol className="amsterdam-breadcrumb__list">{children}</ol>
     </nav>
-  )
-}) as BreadcrumbComponent
+  ),
+) as BreadcrumbComponent
 
 Breadcrumb.displayName = 'Breadcrumb'
 
-export interface BreadcrumbItemProps extends PropsWithChildren<HTMLAttributes<HTMLLIElement>> {
-  href: string
-}
-
-const BreadcrumbItem = forwardRef(
-  ({ children, href, ...restProps }: BreadcrumbItemProps, ref: ForwardedRef<HTMLLIElement>) => {
-    return (
-      <li {...restProps} className="amsterdam-breadcrumb__item" ref={ref}>
-        <a className="amsterdam-breadcrumb__link" href={href}>
-          {children}
-        </a>
-      </li>
-    )
-  },
-)
-
-BreadcrumbItem.displayName = 'BreadcrumbItem'
 Breadcrumb.Item = BreadcrumbItem
+Breadcrumb.Item.displayName = 'Breadcrumb.Item'

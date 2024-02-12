@@ -12,14 +12,20 @@ const meta = {
   component: Icon,
   argTypes: {
     size: {
-      control: { type: 'select' },
+      control: {
+        type: 'radio',
+      },
       options: ['level-3', 'level-4', 'level-5', 'level-6'],
     },
     square: {
-      control: { type: 'boolean' },
+      control: {
+        type: 'boolean',
+      },
     },
     svg: {
-      control: { type: 'select' },
+      control: {
+        type: 'select',
+      },
       options: Object.keys(Icons),
       mapping: Icons,
     },

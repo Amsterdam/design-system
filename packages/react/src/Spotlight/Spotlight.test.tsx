@@ -1,6 +1,6 @@
 import { render, screen } from '@testing-library/react'
 import { createRef } from 'react'
-import { Spotlight } from './Spotlight'
+import { Spotlight, spotlightColors } from './Spotlight'
 import '@testing-library/jest-dom'
 
 describe('Spotlight', () => {
@@ -41,13 +41,15 @@ describe('Spotlight', () => {
     expect(ref.current).toBe(component)
   })
 
-  it('gets a color class if you set a color', () => {
-    const { container } = render(<Spotlight color="green" />)
+  spotlightColors.map((color) =>
+    it(`renders with ${color} color`, () => {
+      const { container } = render(<Spotlight color={color} />)
 
-    const component = container.querySelector(':only-child')
+      const component = container.querySelector(':only-child')
 
-    expect(component).toHaveClass('amsterdam-spotlight--green')
-  })
+      expect(component).toHaveClass(`amsterdam-spotlight--${color}`)
+    }),
+  )
 
   it('renders a custom tag', () => {
     render(<Spotlight as="article" />)

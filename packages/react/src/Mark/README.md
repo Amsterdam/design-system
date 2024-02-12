@@ -1,3 +1,3 @@
 # React Mark component
 
-[Mark documentation](../../../css/src/mark/README.md)
+[Mark documentation](../../../css/src/components/mark/README.md)

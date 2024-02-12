@@ -1,3 +1,3 @@
 # React Spotlight component
 
-[Spotlight documentation](../../../css/src/spotlight/README.md)
+[Spotlight documentation](../../../css/src/components/spotlight/README.md)

@@ -8,7 +8,10 @@ import type { SearchFieldProps } from '@amsterdam/design-system-react'
 import { useArgs } from '@storybook/preview-api'
 import { Meta, StoryObj } from '@storybook/react'
 
-type InputProps = { label?: string; placeholder?: string }
+type InputProps = {
+  label?: string
+  placeholder?: string
+}
 type StoryProps = SearchFieldProps & InputProps
 
 const meta = {

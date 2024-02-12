@@ -2,7 +2,8 @@
 
 # CSS Components
 
-CSS components are developed using BEM class names and the stylesheets can be included in your page side-effect free. Apply the class names to your elements to make them stylable using design tokens.
+CSS components are developed using BEM class names and the stylesheets can be included in your page without side-effects.
+Apply the class names to your elements to make them stylable using design tokens.
 
 `npm install @amsterdam/design-system-css`
 
@@ -36,4 +37,15 @@ export default class ExamplePage extends React.Component {
     );
   }
 }
+```
+
+## Compact mode
+
+For applications, the large text and ample white space of the theme can be counterproductive.
+That’s why there is a compact mode.
+To use the compact mode, import the compact css **after** theme css, like so:
+
+```javascript
+import "@amsterdam/design-system-tokens/dist/index.css";
+import "@amsterdam/design-system-tokens/dist/compact.css";
 ```

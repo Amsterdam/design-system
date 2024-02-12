@@ -1,3 +1,3 @@
 # React Button Component
 
-[Button documentation](../../../css/src/button/README.md)
+[Button documentation](../../../css/src/components/button/README.md)

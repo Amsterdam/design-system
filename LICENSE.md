@@ -123,7 +123,7 @@ Works or copies thereof based upon both the Work and another work licensed under
 a Compatible Licence, this Distribution or Communication can be done under the
 terms of this Compatible Licence. For the sake of this clause, ‘Compatible
 Licence’ refers to the licences listed in the appendix attached to this Licence.
-Should the Licensee's obligations under the Compatible Licence conflict with
+Should the Licensee’s obligations under the Compatible Licence conflict with
 his/her obligations under this Licence, the obligations of the Compatible
 Licence shall prevail.
 

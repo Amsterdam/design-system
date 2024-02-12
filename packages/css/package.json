@@ -1,5 +1,5 @@
 {
-  "version": "0.3.0",
+  "version": "0.5.0",
   "author": "Community for NL Design System",
   "description": "CSS files for components for the City of Amsterdam based on the NL Design System architecture",
   "license": "EUPL-1.2",
@@ -20,7 +20,7 @@
   },
   "devDependencies": {
     "@amsterdam/design-system-tokens": "workspace:*",
-    "sass": "1.69.7"
+    "sass": "1.70.0"
   },
   "dependencies": {
     "@utrecht/components": "3.0.0"

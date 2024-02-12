@@ -1,38 +1,39 @@
 # Logo
 
-Het logo van de gemeente bestaat uit een beeldmerk (3 Andreaskruisen) en een woordmerk (Gemeente Amsterdam).
-Het logo heeft een vaste kleur, grootte en positie en staat op al onze websites.
+The City’s logo includes an icon (3 Saint Andrew’s crosses) and a wordmark (Gemeente Amsterdam).
+The logo has a fixed colour, size, and position and is present on all our websites.
 
-## Specificaties
+## Specifications
 
-Het design system biedt het correcte logo voor online gebruik aan.
-Er bestaan andere varianten van het logo, maar die mogen op websites en in applicaties niet gebruikt worden.
-Het Nederlandse logo voor Nederlandstalige websites en anderstalige websites behalve Engels.
-Het Engelstalige logo gebruiken we voor Engelstalige websites.
-Dit logo wordt later toegevoegd aan het design system.
-In de tussentijd kun je een afbeelding van dit logo downloaden vanaf [Stijlweb](https://amsterdam.nl/stijlweb/basiselementen/logo-gemeente-amsterdam/#hba498e5c-2388-464f-b769-7622a5d32bd1).
+The design system provides the correct logo for online use.
+Other logo variations exist, but they cannot be used on websites and in applications.
+The Dutch logo is for websites in the Dutch language and any language other than English.
+The English logo is used for websites in the English language.
+(We will add this logo to the design system later.)
+In the meantime, you can download an image of this logo from [Stijlweb](https://amsterdam.nl/stijlweb/basiselementen/logo-gemeente-amsterdam/#hba498e5c-2388-464f-b769-7622a5d32bd1).
 
-## Uitzondering
+## Exception
 
-Gebruik het submerklogo als de website eigendom is van 1 van de 4 submerken.
-Zij hebben een aparte status omdat er sprake is van een bijzondere vorm van dienstverlening die niet direct met de gemeente in verband wordt gebracht.
+Use a sub-brand logo if the website is owned by one of the 4 sub-brands.
+They have a separate status because of their unique service provision not directly associated with the City.
 
-De submerken zijn:
+The sub-brands are:
 
 - GGD Amsterdam
 - Stadsarchief
 - Stadsbank van Lening
 - VGA Verzekeringen
 
-## Eisen voor alle logo´s
+## Requirements for all logos
 
-- Het logo wordt altijd getoond.
-- Het logo is linksboven uitgelijnd in de header.
-- Het logo verwijst naar de homepage van je website of applicatie.
-- Als de applicatie een formulier, applicatie of tool is zonder homepage, dan linkt het logo naar de pagina van waar naar het formulier, applicatie of tool wordt verwezen.
+- The logo is always displayed.
+- The logo is left-aligned in the header.
+- The logo links to the homepage of the website or application.
+- If the application is a form, application, or tool without a homepage, the logo links to the page where the form, application, or tool is referred to.
 
-De hoogte van het logo is altijd 40 pixels. Dit geldt ook voor de submerklogo´s.
+The height of the logo is always 40 pixels.
+This also applies to sub-brand logos.
 
 ## Download
 
-- [Logoset voor website en apps (ZIP, 10 kB)](https://assets.amsterdam.nl/publish/pages/1007650/logoset_voor_websites_en_apps.zip)
+- [Logo set for websites and apps (ZIP, 10 kB)](https://assets.amsterdam.nl/publish/pages/1007650/logoset_voor_websites_en_apps.zip)

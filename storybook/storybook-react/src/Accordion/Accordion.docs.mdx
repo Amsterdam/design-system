@@ -6,31 +6,34 @@ import README from "../../../../packages/css/src/components/accordion/README.md?
 
 <Markdown>{README}</Markdown>
 
-Elke accordionsectie heeft een eigen, unieke naam. Geef deze naam mee via de `label` _property_ van het `Accordion.Section` component.
+Each accordion section has its unique name.
+Provide this name via the `label` property of the `Accordion.Section` component.
 
 <Primary />
 
 <Controls />
 
-## Stories
+## Examples
 
 ### Expanded by default
 
-Als je wilt dat de inhoud van een accordionsectie al getoond wordt als de gebruiker op de pagina komt, geef dan de `expanded` _property_ mee aan het `Accordion.Section` component.
+If you want the contents of an accordion section to appear initially, pass the `expanded` property to the `Accordion.Section` component.
 
 <Canvas of={AccordionStories.ExpandedByDefault} />
 
 ## Too many landmarks
 
-Een accordionsectie gebruikt standaard de HTML tag `section` om de inhoud in te renderen.
-Als je veel accordionsecties op je pagina hebt (meer dan 6), dan kan dit leiden tot een teveel aan _landmark_ regio's, wat verwarrend kan zijn voor gebruikers van schermlezers.
-Gebruik in dat geval `section={false}`. Let op: Storybook geeft deze _property_ niet goed weer in het codeblock.
+By default, an accordion section uses the HTML tag `section` to render the content.
+Having many accordion sections on your page (more than 6) can lead to too many landmark regions, confusing screen reader users.
+In that case, use `section={false}`.
+Please note: Storybook does not correctly display this property in the code block.
 
 <Canvas of={AccordionStories.TooManyLandmarks} />
 
-## Technische toelichting
+## Technical explanation
 
-Op het moment (28-6-2023) heeft het HTML element `details` wat toegankelijkheidsproblemen.
-[Zo wordt een _heading_ in een `summary` niet goed begrepen door schermlezers](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/summary#summaries_as_headings) en
-leest NVDA de ingeklapte en en uitgeklapte status niet goed voor in Chrome en Edge. Daarom hebben we er voor gekozen om dit _native_ element niet te gebruiken.
-Als deze problemen zijn opgelost, zouden we dit wel kunnen doen.
+Currently (28-6-2023), the HTML element `details` element has some accessibility problems.
+[For example, a heading in a summary is not adequately understood by screen readers](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/summary#summaries_as_headings) and
+NVDA does not read Chrome and Edge’s collapsed and expanded status correctly.
+That’s why we chose not to use this native element.
+If these problems are solved, we could do this.

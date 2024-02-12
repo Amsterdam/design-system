@@ -22,8 +22,8 @@
 
 .amsterdam-link--standalone {
   display: inline-block;
-  font-size: var(--amsterdam-link-standalone-spacious-font-size);
-  line-height: var(--amsterdam-link-standalone-spacious-line-height);
+  font-size: var(--amsterdam-link-standalone-font-size);
+  line-height: var(--amsterdam-link-standalone-line-height);
   text-decoration-line: var(--amsterdam-link-standalone-text-decoration-line);
   text-decoration-thickness: var(--amsterdam-link-standalone-text-decoration-thickness);
   text-underline-offset: var(--amsterdam-link-standalone-text-underline-offset);
@@ -31,11 +31,6 @@
   &:hover {
     text-decoration-thickness: var(--amsterdam-link-standalone-hover-text-decoration-thickness);
     text-underline-offset: var(--amsterdam-link-standalone-hover-text-underline-offset);
-  }
-
-  .amsterdam-theme--compact & {
-    font-size: var(--amsterdam-link-standalone-compact-font-size);
-    line-height: var(--amsterdam-link-standalone-compact-line-height);
   }
 }
 
@@ -54,34 +49,6 @@
 
   &:visited {
     color: var(--amsterdam-link-inline-visited-color);
-  }
-}
-
-.amsterdam-link--in-list {
-  align-items: flex-start;
-  display: inline-flex;
-  font-size: var(--amsterdam-link-in-list-spacious-font-size);
-  gap: var(--amsterdam-link-in-list-gap);
-  line-height: var(--amsterdam-link-in-list-spacious-line-height);
-  text-decoration-line: var(--amsterdam-link-in-list-text-decoration-line);
-  text-decoration-thickness: var(--amsterdam-link-in-list-text-decoration-thickness);
-  text-underline-offset: var(--amsterdam-link-in-list-text-underline-offset);
-
-  &:hover {
-    text-decoration-line: var(--amsterdam-link-in-list-hover-text-decoration-line);
-  }
-
-  .amsterdam-theme--compact & {
-    font-size: var(--amsterdam-link-in-list-compact-font-size);
-    line-height: var(--amsterdam-link-in-list-compact-line-height);
-  }
-}
-
-// Override for icon size
-.amsterdam-link--in-list__chevron {
-  span.amsterdam-icon svg {
-    height: 1rem;
-    width: 1rem;
   }
 }
 
