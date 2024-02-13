@@ -123,3 +123,9 @@ export const WithoutMarkers: Story = {
     markers: false,
   },
 }
+
+export const InverseColor: Story = {
+  args: {
+    inverseColor: true,
+  },
+}
