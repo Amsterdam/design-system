@@ -9,8 +9,8 @@ import type { ForwardedRef, ForwardRefExoticComponent, HTMLAttributes, PropsWith
 import { UnorderedListItem } from './UnorderedListItem'
 
 export type UnorderedListProps = {
-  markers?: boolean
   inverseColor?: boolean
+  markers?: boolean
 } & PropsWithChildren<HTMLAttributes<HTMLUListElement>>
 
 type UnorderedListComponent = {
