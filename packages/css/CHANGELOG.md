@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+### Dependencies
+
+* The following workspace dependencies were updated
+  * devDependencies
+    * @amsterdam/design-system-tokens bumped to 0.5.1
+
 ## [0.5.0](https://github.com/Amsterdam/design-system/compare/@amsterdam/design-system-css@0.4.0...design-system-css-v0.5.0) (2024-02-09)
 
 
