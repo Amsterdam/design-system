@@ -26,8 +26,8 @@ export const OrderedList = forwardRef(
       ref={ref}
       className={clsx(
         'amsterdam-ordered-list',
-        !markers && 'amsterdam-ordered-list--no-markers',
         inverseColor && 'amsterdam-ordered-list--inverse-color',
+        !markers && 'amsterdam-ordered-list--no-markers',
         className,
       )}
       {...restProps}
