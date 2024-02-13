@@ -1,6 +1,7 @@
 {
   "amsterdam": {
     "button": {
+      "cursor": { "value": "{amsterdam.action.activate.cursor}" },
       "font-family": { "value": "{amsterdam.typography.font-family}" },
       "font-size": { "value": "{amsterdam.typography.text-level.5.font-size}" },
       "line-height": { "value": "{amsterdam.typography.text-level.5.line-height}" },
@@ -10,6 +11,12 @@
       "padding-block-start": { "value": "0.5rem" },
       "padding-block-end": { "value": "0.5rem" },
       "outline-offset": { "value": "{amsterdam.focus.outline-offset}" },
+      "busy": {
+        "cursor": { "value": "{amsterdam.action.busy.cursor}" }
+      },
+      "disabled": {
+        "cursor": { "value": "{amsterdam.action.disabled.cursor}" }
+      },
       "primary": {
         "background-color": { "value": "{amsterdam.color.primary-blue}" },
         "box-shadow": { "value": "inset 0 0 0 2px {amsterdam.color.primary-blue}" },
