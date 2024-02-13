@@ -19,7 +19,7 @@ type OrderedListComponent = {
 
 export const OrderedList = forwardRef(
   (
-    { children, markers = true, inverseColor, className, ...restProps }: OrderedListProps,
+    { children, className, inverseColor, markers = true, ...restProps }: OrderedListProps,
     ref: ForwardedRef<HTMLOListElement>,
   ) => (
     <ol
