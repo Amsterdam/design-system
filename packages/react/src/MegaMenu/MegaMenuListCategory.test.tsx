@@ -3,7 +3,7 @@ import { createRef } from 'react'
 import { MegaMenuListCategory } from './MegaMenuListCategory'
 import '@testing-library/jest-dom'
 
-describe('Mega menu', () => {
+describe('Mega menu category', () => {
   it('renders', () => {
     const { container } = render(<MegaMenuListCategory />)
 

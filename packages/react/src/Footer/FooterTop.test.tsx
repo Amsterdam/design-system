@@ -3,7 +3,7 @@ import { createRef } from 'react'
 import { FooterTop } from './FooterTop'
 import '@testing-library/jest-dom'
 
-describe('Footer', () => {
+describe('Footer top', () => {
   it('renders', () => {
     const { container } = render(<FooterTop />)
 

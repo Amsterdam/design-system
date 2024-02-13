@@ -2,7 +2,7 @@ import { fireEvent, render } from '@testing-library/react'
 import { useRef } from 'react'
 import useFocusWithArrows, { KeyboardKeys } from './useFocusWithArrows'
 
-describe('useFocusWithArrows', () => {
+describe('use focus with arrows', () => {
   const onFocusOneMock = jest.fn()
   const onFocusTwoMock = jest.fn()
   const onFocusThreeMock = jest.fn()
