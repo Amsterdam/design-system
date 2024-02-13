@@ -37,8 +37,10 @@ This example is based on the top tasks on the homepage of the website:
 
 <Canvas of={UnorderedListStories.WithoutMarkers} />
 
-### List with inverted colors for dark backgrounds
+### Inverse colour
 
-When using a dark background, the list can have inverted colors to ensure readability.
+Set the `inverseColor` prop if the List sits on a dark background.
+This ensures the colour of the text provides enough contrast.
+When nesting lists, set the prop on all lists.
 
 <Canvas of={UnorderedListStories.InverseColor} />
