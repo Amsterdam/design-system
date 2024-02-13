@@ -27,8 +27,8 @@ export const UnorderedList = forwardRef(
         ref={ref}
         className={clsx(
           'amsterdam-unordered-list',
-          !markers && 'amsterdam-unordered-list--no-markers',
           inverseColor && 'amsterdam-unordered-list--inverse-color',
+          !markers && 'amsterdam-unordered-list--no-markers',
           className,
         )}
         {...restProps}
