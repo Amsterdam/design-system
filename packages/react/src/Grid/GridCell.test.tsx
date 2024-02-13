@@ -3,7 +3,7 @@ import { createRef } from 'react'
 import { Grid } from './Grid'
 import '@testing-library/jest-dom'
 
-describe('Grid.Cell', () => {
+describe('Grid cell', () => {
   it('renders', () => {
     const { container } = render(<Grid.Cell />)
     const component = container.querySelector(':only-child')

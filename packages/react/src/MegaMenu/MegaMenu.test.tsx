@@ -26,9 +26,7 @@ describe('Mega menu', () => {
 
     const component = container.querySelector(':only-child')
 
-    expect(component).toHaveClass('extra')
-
-    expect(component).toHaveClass('amsterdam-mega-menu')
+    expect(component).toHaveClass('amsterdam-mega-menu extra')
   })
 
   it('supports ForwardRef in React', () => {

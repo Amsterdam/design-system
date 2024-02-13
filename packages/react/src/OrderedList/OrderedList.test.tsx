@@ -3,7 +3,7 @@ import { createRef } from 'react'
 import { OrderedList } from './OrderedList'
 import '@testing-library/jest-dom'
 
-describe('Ordered List', () => {
+describe('Ordered list', () => {
   it('renders an HTML ol element', () => {
     const { container } = render(<OrderedList />)
     const list = container.querySelector('ol:only-child')
