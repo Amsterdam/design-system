@@ -14,7 +14,6 @@ const meta = {
   component: OrderedList,
   args: {
     children: orderedList,
-    inverseColor: false,
   },
   argTypes: {
     markers: { control: 'boolean' },
