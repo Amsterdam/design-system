@@ -18,13 +18,6 @@ const meta = {
   argTypes: {
     markers: { control: 'boolean' },
   },
-  decorators: [
-    (Story, context) => (
-      <div className={context.args.inverseColor ? 'amsterdam-docs-dark-background' : undefined}>
-        <Story />
-      </div>
-    ),
-  ],
 } satisfies Meta<typeof OrderedList>
 
 export default meta
@@ -116,4 +109,11 @@ export const InverseColor: Story = {
   args: {
     inverseColor: true,
   },
+  decorators: [
+    (Story, context) => (
+      <div className={context.args.inverseColor ? 'amsterdam-docs-dark-background' : undefined}>
+        <Story />
+      </div>
+    ),
+  ],
 }
