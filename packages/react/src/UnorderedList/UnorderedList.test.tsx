@@ -3,7 +3,7 @@ import { createRef } from 'react'
 import { UnorderedList } from './UnorderedList'
 import '@testing-library/jest-dom'
 
-describe('Unordered List', () => {
+describe('Unordered list', () => {
   it('renders an HTML ul element', () => {
     const { container } = render(<UnorderedList />)
     const list = container.querySelector('ul:only-child')
