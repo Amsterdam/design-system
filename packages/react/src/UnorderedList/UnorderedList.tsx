@@ -19,7 +19,7 @@ type UnorderedListComponent = {
 
 export const UnorderedList = forwardRef(
   (
-    { children, markers = true, inverseColor, className, ...restProps }: UnorderedListProps,
+    { children, className, inverseColor, markers = true, ...restProps }: UnorderedListProps,
     ref: ForwardedRef<HTMLUListElement>,
   ) => {
     return (
