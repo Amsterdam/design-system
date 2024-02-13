@@ -26,7 +26,7 @@ const MegaMenuListCategory = forwardRef(
     { children, className, ...restProps }: PropsWithChildren<HTMLAttributes<HTMLDivElement>>,
     ref: ForwardedRef<HTMLDivElement>,
   ) => (
-    <div {...restProps} ref={ref} className={clsx('amsterdam-mega-menu__list-wrapper', className)}>
+    <div {...restProps} ref={ref} className={clsx('amsterdam-mega-menu__list-category', className)}>
       {children}
     </div>
   ),
