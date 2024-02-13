@@ -1,5 +1,4 @@
 {
-  "plugins": [],
   "bootstrap-sha": "740ff24dd3b733fae86f97b0e2740eebb5ca2b25",
   "bump-minor-pre-major": true,
   "bump-patch-for-minor-pre-major": true,
