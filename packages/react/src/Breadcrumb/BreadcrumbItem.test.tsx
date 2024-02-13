@@ -3,7 +3,7 @@ import { createRef } from 'react'
 import { BreadcrumbItem } from './BreadcrumbItem'
 import '@testing-library/jest-dom'
 
-describe('BreadcrumbItem', () => {
+describe('Breadcrumb item', () => {
   it('renders', () => {
     render(<BreadcrumbItem href="/" />)
     const component = screen.getByRole('listitem')

@@ -3,7 +3,7 @@ import { createRef } from 'react'
 import { Accordion } from './Accordion'
 import '@testing-library/jest-dom'
 
-describe('Accordion', () => {
+describe('Accordion section', () => {
   const testLabel = 'Test title'
   const testContent = 'Test content'
 

@@ -1,11 +1,11 @@
 import { render } from '@testing-library/react'
 import { createRef } from 'react'
-import { FooterBottom } from './FooterBottom'
+import { MegaMenuListCategory } from './MegaMenuListCategory'
 import '@testing-library/jest-dom'
 
-describe('Footer bottom', () => {
+describe('Mega menu category', () => {
   it('renders', () => {
-    const { container } = render(<FooterBottom />)
+    const { container } = render(<MegaMenuListCategory />)
 
     const component = container.querySelector(':only-child')
 
@@ -14,25 +14,25 @@ describe('Footer bottom', () => {
   })
 
   it('renders a design system BEM class name', () => {
-    const { container } = render(<FooterBottom />)
+    const { container } = render(<MegaMenuListCategory />)
 
     const component = container.querySelector(':only-child')
 
-    expect(component).toHaveClass('amsterdam-footer__bottom')
+    expect(component).toHaveClass('amsterdam-mega-menu__list-category')
   })
 
   it('renders an additional class name', () => {
-    const { container } = render(<FooterBottom className="extra" />)
+    const { container } = render(<MegaMenuListCategory className="extra" />)
 
     const component = container.querySelector(':only-child')
 
-    expect(component).toHaveClass('amsterdam-footer__bottom extra')
+    expect(component).toHaveClass('amsterdam-mega-menu__list-category extra')
   })
 
   it('supports ForwardRef in React', () => {
     const ref = createRef<HTMLDivElement>()
 
-    const { container } = render(<FooterBottom ref={ref} />)
+    const { container } = render(<MegaMenuListCategory ref={ref} />)
 
     const component = container.querySelector(':only-child')
 

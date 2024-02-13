@@ -4,7 +4,7 @@ import { createRef } from 'react'
 import { PageMenuLink } from './PageMenuLink'
 import '@testing-library/jest-dom'
 
-describe('PageMenuLink', () => {
+describe('Page menu link', () => {
   it('renders with href attribute', () => {
     render(<PageMenuLink href="#">Link</PageMenuLink>)
 
