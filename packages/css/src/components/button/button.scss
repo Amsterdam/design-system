@@ -3,42 +3,94 @@
  * Copyright (c) 2023 Gemeente Amsterdam
  */
 
-@import "../../../node_modules/@utrecht/components/button/css";
-
 @mixin reset {
   -webkit-text-size-adjust: 100%;
 }
 
 .amsterdam-button {
+  border: none;
+  cursor: var(--amsterdam-button-cursor);
+  display: inline-flex;
+  font-family: var(--amsterdam-button-font-family);
   font-size: var(--amsterdam-button-font-size);
+  gap: var(--amsterdam-button-gap);
   line-height: var(--amsterdam-button-line-height);
+  outline-offset: var(--amsterdam-button-outline-offset);
+  padding-block-end: var(--amsterdam-button-padding-block-end);
+  padding-block-start: var(--amsterdam-button-padding-block-start);
+  padding-inline-end: var(--amsterdam-button-padding-inline-end);
+  padding-inline-start: var(--amsterdam-button-padding-inline-start);
+  touch-action: manipulation;
+
+  &:disabled,
+  &[aria-disabled="true"] {
+    cursor: var(--amsterdam-button-disabled-cursor);
+  }
 
   @include reset;
 }
 
-.amsterdam-button--secondary {
-  box-shadow: var(--amsterdam-button-secondary-box-shadow);
+@mixin amsterdam-button-forced-color-mode {
+  @media screen and (-ms-high-contrast: active), screen and (forced-colors: active) {
+    border: 2px solid ButtonBorder; // add border because forced colors changes box-shadow to none
+  }
+}
+
+.amsterdam-button--busy {
+  cursor: var(--amsterdam-button-busy-cursor);
+}
+
+.amsterdam-button--primary {
+  background-color: var(--amsterdam-button-primary-background-color);
+  box-shadow: var(--amsterdam-button-primary-box-shadow);
+  color: var(--amsterdam-button-primary-color);
 
   &:disabled,
   [aria-disabled="true"] {
+    background-color: var(--amsterdam-button-primary-disabled-background-color);
+    box-shadow: var(--amsterdam-button-primary-disabled-box-shadow);
+  }
+
+  &:hover:not(:disabled, [aria-disabled="true"]) {
+    background-color: var(--amsterdam-button-primary-hover-background-color);
+    box-shadow: var(--amsterdam-button-primary-hover-box-shadow);
+  }
+
+  @include amsterdam-button-forced-color-mode;
+}
+
+.amsterdam-button--secondary {
+  background-color: var(--amsterdam-button-secondary-background-color);
+  box-shadow: var(--amsterdam-button-secondary-box-shadow);
+  color: var(--amsterdam-button-secondary-color);
+
+  &:disabled,
+  [aria-disabled="true"] {
+    background-color: var(--amsterdam-button-secondary-disabled-background-color);
     box-shadow: var(--amsterdam-button-secondary-disabled-box-shadow);
+    color: var(--amsterdam-button-secondary-disabled-color);
   }
 
   &:hover:not(:disabled, [aria-disabled="true"]) {
     box-shadow: var(--amsterdam-button-secondary-hover-box-shadow);
+    color: var(--amsterdam-button-secondary-hover-color);
   }
-}
 
-.amsterdam-button--secondary:focus:not(:hover, [aria-disabled="true"]) {
-  box-shadow: var(--amsterdam-button-secondary-focus-box-shadow);
+  @include amsterdam-button-forced-color-mode;
 }
 
 .amsterdam-button--tertiary {
+  background-color: var(--amsterdam-button-tertiary-background-color);
+  color: var(--amsterdam-button-tertiary-color);
+
+  &:disabled,
+  [aria-disabled="true"] {
+    background-color: var(--amsterdam-button-tertiary-disabled-background-color);
+    color: var(--amsterdam-button-tertiary-disabled-color);
+  }
+
   &:hover:not(:disabled, [aria-disabled="true"]) {
     box-shadow: var(--amsterdam-button-tertiary-hover-box-shadow);
+    color: var(--amsterdam-button-tertiary-hover-color);
   }
-}
-
-.amsterdam-button--tertiary:focus:not(:hover, [aria-disabled="true"]) {
-  box-shadow: none;
 }

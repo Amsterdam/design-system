@@ -114,9 +114,6 @@ importers:
       '@amsterdam/design-system-react-icons':
         specifier: workspace:*
         version: link:../../proprietary/react-icons
-      '@utrecht/component-library-react':
-        specifier: 3.0.0
-        version: 3.0.0(react-dom@18.2.0)(react@18.2.0)
       clsx:
         specifier: 2.1.0
         version: 2.1.0
@@ -5730,28 +5727,6 @@ packages:
     resolution: {integrity: sha512-zuVdFrMJiuCDQUMCzQaD6KL28MjnqqN8XnAqiEq9PNm/hCPTSGfrXCOfwj1ow4LFb/tNymJPwsNbVePc1xFqrQ==}
     dev: true
 
-  /@utrecht/component-library-react@3.0.0(react-dom@18.2.0)(react@18.2.0):
-    resolution: {integrity: sha512-7ftpjtQ6ygIMqlB+pWQZAT7psFo1oXkbBSlbVw/uMV5OABRDX5t3V2lN/UDTPjdMRtcj8ZBYl19zPcfkV+Gc5w==}
-    peerDependencies:
-      date-fns: ^2.30.0
-      react: '18'
-      react-dom: '18'
-      react-vega: ^7.6.0
-      vega: ^5.25.0
-    peerDependenciesMeta:
-      date-fns:
-        optional: true
-      react-vega:
-        optional: true
-      vega:
-        optional: true
-    dependencies:
-      clsx: 1.2.1
-      lodash.chunk: 4.2.0
-      react: 18.2.0
-      react-dom: 18.2.0(react@18.2.0)
-    dev: false
-
   /@utrecht/components@3.0.0:
     resolution: {integrity: sha512-TO39Ti6Af50l+I2gt4S3iacGVuVoxBK/+G/bsK9wvii53fO35NYJul7xB98/IYSBmewaN4GtmyWGphVDdFMt1A==}
     dependencies:
@@ -11114,10 +11089,6 @@ packages:
     dependencies:
       p-locate: 5.0.0
     dev: true
-
-  /lodash.chunk@4.2.0:
-    resolution: {integrity: sha512-ZzydJKfUHJwHa+hF5X66zLFCBrWn5GeF28OHEr4WVWtNDXlQ/IjWKPBiikqKo2ne0+v6JgCgJ0GzJp8k8bHC7w==}
-    dev: false
 
   /lodash.debounce@4.0.8:
     resolution: {integrity: sha512-FT1yDzDYEoYWhnSGnpE/4Kj1fLZkDFyqRb7fNt6FdYOSxlUWAtp42Eh6Wb0rGIv/m9Bgo7x4GhQbm5Ys4SG5ow==}
