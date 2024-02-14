@@ -3,7 +3,7 @@ const StyleDictionary = require('style-dictionary')
 const modes = ['compact']
 
 function generateSharedConfig(mode) {
-  const name = mode ? `${mode}` : 'index'
+  const name = mode || 'index'
 
   return {
     css: {
@@ -28,7 +28,7 @@ function generateSharedConfig(mode) {
           destination: `${name}.theme.css`,
           format: 'css/variables',
           options: {
-            selector: '.amsterdam-theme',
+            selector: `.amsterdam-theme${name === 'index' ? '' : `--${name}`}`,
             outputReferences: true,
           },
         },

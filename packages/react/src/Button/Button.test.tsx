@@ -24,7 +24,7 @@ describe('Button', () => {
 
     expect(button).toBeInTheDocument()
     expect(button).toHaveAttribute('type', 'button')
-    expect(button).toHaveClass('utrecht-button--primary-action')
+    expect(button).toHaveClass('amsterdam-button--primary')
   })
 
   it('renders a button with a specified variant', () => {
@@ -49,11 +49,11 @@ describe('Button', () => {
     })
 
     expect(buttonPrimary).toBeInTheDocument()
-    expect(buttonPrimary).toHaveClass('utrecht-button--primary-action')
+    expect(buttonPrimary).toHaveClass('amsterdam-button--primary')
     expect(buttonSecondary).toBeInTheDocument()
-    expect(buttonSecondary).toHaveClass('utrecht-button--secondary-action')
+    expect(buttonSecondary).toHaveClass('amsterdam-button--secondary')
     expect(buttonTertiary).toBeInTheDocument()
-    expect(buttonTertiary).toHaveClass('utrecht-button--subtle')
+    expect(buttonTertiary).toHaveClass('amsterdam-button--tertiary')
   })
 
   it('renders a disabled button with a specified variant', () => {
