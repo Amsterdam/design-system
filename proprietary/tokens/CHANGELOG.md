@@ -3,6 +3,13 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.5.1](https://github.com/Amsterdam/design-system/compare/design-system-tokens-v0.5.0...design-system-tokens-v0.5.1) (2024-02-13)
+
+
+### Features
+
+* Create unique token classes ([#1071](https://github.com/Amsterdam/design-system/issues/1071)) ([d53d0a9](https://github.com/Amsterdam/design-system/commit/d53d0a93f18238759d85bd897a7b6ee537cc78b0))
+
 ## [0.5.0](https://github.com/Amsterdam/design-system/compare/@amsterdam/design-system-tokens@0.4.0...design-system-tokens-v0.5.0) (2024-02-09)
 
 
