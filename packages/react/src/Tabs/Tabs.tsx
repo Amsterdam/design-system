@@ -10,7 +10,7 @@ import { TabsButton } from './TabsButton'
 import TabsContext from './TabsContext'
 import { TabsList } from './TabsList'
 import { TabsPanel } from './TabsPanel'
-import useFocusWithArrows from './useFocusWithArrows'
+import useFocusWithArrows from '../common/useFocusWithArrows'
 
 export type TabsProps = {} & PropsWithChildren<HTMLAttributes<HTMLDivElement>>
 
