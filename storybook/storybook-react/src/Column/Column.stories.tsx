@@ -3,14 +3,27 @@
  * Copyright (c) 2024 Gemeente Amsterdam
  */
 
-import { Column } from '@amsterdam/design-system-react'
+import { Column, Paragraph } from '@amsterdam/design-system-react'
 import { Meta, StoryObj } from '@storybook/react'
 
+const ThreeBoxes = Array.from(Array(3).keys()).map((i) => (
+  <Paragraph className="amsterdam-docs-pink-box" key={i}>
+    {i + 1}
+  </Paragraph>
+))
+
 const meta = {
-  title: 'Column',
+  title: 'Layout/Column',
   component: Column,
   args: {
-    children: 'Nieuw component',
+    children: ThreeBoxes,
+    gap: undefined,
+  },
+  argTypes: {
+    gap: {
+      control: 'radio',
+      options: ['xs', 'sm', 'md', 'lg', 'xl'],
+    },
   },
 } satisfies Meta<typeof Column>
 

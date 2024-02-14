@@ -18,7 +18,15 @@ describe('Column', () => {
 
     const component = container.querySelector(':only-child')
 
-    expect(component).toHaveClass('amsterdam-column')
+    expect(component).toHaveClass('amsterdam-gap--md')
+  })
+
+  it('renders a custom gap class name', () => {
+    const { container } = render(<Column gap="xl" />)
+
+    const component = container.querySelector(':only-child')
+
+    expect(component).toHaveClass('amsterdam-gap--xl')
   })
 
   it('renders an additional class name', () => {
@@ -26,11 +34,11 @@ describe('Column', () => {
 
     const component = container.querySelector(':only-child')
 
-    expect(component).toHaveClass('amsterdam-column extra')
+    expect(component).toHaveClass('amsterdam-gap--md extra')
   })
 
   it('supports ForwardRef in React', () => {
-    const ref = createRef<HTMLElement>()
+    const ref = createRef<HTMLDivElement>()
 
     const { container } = render(<Column ref={ref} />)
 
