@@ -32,7 +32,7 @@ export const Tabs = forwardRef(
     // use a passed ref if it's there, otherwise use innerRef
     useImperativeHandle(ref, () => innerRef.current as HTMLDivElement)
 
-    const { keyDown } = useFocusWithArrows(innerRef, true)
+    const { keyDown } = useFocusWithArrows(innerRef, true, false, true)
 
     return (
       <TabsContext.Provider value={{ activeTab, updateTab }}>

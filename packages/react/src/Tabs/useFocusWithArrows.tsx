@@ -6,21 +6,41 @@
 import type { KeyboardEvent, RefObject } from 'react'
 
 export const KeyboardKeys = {
+  ArrowUp: 'ArrowUp',
+  ArrowDown: 'ArrowDown',
   ArrowRight: 'ArrowRight',
   ArrowLeft: 'ArrowLeft',
   Home: 'Home',
   End: 'End',
 }
 
-const useFocusWithArrows = (ref: RefObject<HTMLDivElement>, rotating = false) => {
-  const next = KeyboardKeys.ArrowRight
-  const previous = KeyboardKeys.ArrowLeft
+const FOCUSABLE_ELEMENTS = [
+  'a[href]:not([disabled])',
+  'button:not([disabled])',
+  'textarea:not([disabled])',
+  'input[type="text"]:not([disabled])',
+  'input[type="radio"]:not([disabled])',
+  'input[type="checkbox"]:not([disabled])',
+  'select:not([disabled])',
+]
+
+const useFocusWithArrows = (
+  ref: RefObject<HTMLDivElement>,
+  rotating = false,
+  directChildrenOnly = false,
+  horizontally = false,
+) => {
+  const next = horizontally ? KeyboardKeys.ArrowRight : KeyboardKeys.ArrowDown
+  const previous = horizontally ? KeyboardKeys.ArrowLeft : KeyboardKeys.ArrowUp
   const keyDown = (e: KeyboardEvent) => {
     if (ref.current) {
       const element = ref.current
 
       const { activeElement } = window.document
-      const focusableEls: Array<Element> = Array.from(element.querySelectorAll('.amsterdam-tabs__button'))
+      const directChildSelector = directChildrenOnly ? ':scope > ' : ''
+      const focusableEls: Array<Element> = Array.from(
+        element.querySelectorAll(`${directChildSelector}${FOCUSABLE_ELEMENTS.join(`, ${directChildSelector}`)}`),
+      )
 
       const getIndex = (el: Element | null) => {
         return el && focusableEls.includes(el) ? focusableEls.indexOf(el) : 0
@@ -67,7 +87,9 @@ const useFocusWithArrows = (ref: RefObject<HTMLDivElement>, rotating = false) =>
       }
 
       if (
-        (e.key === KeyboardKeys.ArrowLeft ||
+        (e.key === KeyboardKeys.ArrowDown ||
+          e.key === KeyboardKeys.ArrowUp ||
+          e.key === KeyboardKeys.ArrowLeft ||
           e.key === KeyboardKeys.ArrowRight ||
           e.key === KeyboardKeys.Home ||
           e.key === KeyboardKeys.End) &&

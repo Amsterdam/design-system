@@ -8,7 +8,7 @@ import { Meta, StoryObj } from '@storybook/react'
 import { memo } from 'react'
 import { exampleParagraph } from '../shared/exampleContent'
 
-export const SlowTab = memo(function SlowTab() {
+const SlowTab = memo(function SlowTab() {
   // Log once. The actual slowdown is inside SlowPost.
   console.log('[ARTIFICIALLY SLOW] Rendering 500 <SlowPost />')
 
@@ -16,7 +16,11 @@ export const SlowTab = memo(function SlowTab() {
   for (let i = 0; i < 500; i++) {
     items.push(<SlowPost key={i} index={i} />)
   }
-  return <ul className="items">{items}</ul>
+  return (
+    <ul className="items" style={{ display: 'none' }}>
+      {items}
+    </ul>
+  )
 })
 
 type SlowPostProps = {
