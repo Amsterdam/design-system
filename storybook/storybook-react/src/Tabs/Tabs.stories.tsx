@@ -87,21 +87,29 @@ const StoryTemplate: Story = {
           <Tabs.Button tab={3} label="Acties" />
         </Tabs.List>
         <Tabs.Panel tab={0}>
-          <Heading level={3}>Gegevens</Heading>
-          <Paragraph>{exampleParagraph()}</Paragraph>
+          <div>
+            <Heading level={3}>Gegevens</Heading>
+            <Paragraph>{exampleParagraph()}</Paragraph>
+          </div>
         </Tabs.Panel>
         <Tabs.Panel tab={1}>
-          <Heading level={3}>Aanslagen</Heading>
-          <Paragraph>{exampleParagraph()}</Paragraph>
+          <div style={{ paddingTop: '2rem' }}>
+            <Heading level={3}>Aanslagen</Heading>
+            <Paragraph>{exampleParagraph()}</Paragraph>
+          </div>
         </Tabs.Panel>
         <Tabs.Panel tab={2}>
-          <Heading level={3}>Documenten</Heading>
-          <Paragraph>Simulate a tab that takes 500ms to load.</Paragraph>
-          <SlowTab />
+          <div style={{ paddingTop: '2rem' }}>
+            <Heading level={3}>Documenten</Heading>
+            <Paragraph>Simulate a tab that takes 500ms to load.</Paragraph>
+            <SlowTab />
+          </div>
         </Tabs.Panel>
         <Tabs.Panel tab={3}>
-          <Heading level={3}>Acties</Heading>
-          <Paragraph>{exampleParagraph()}</Paragraph>
+          <div style={{ paddingTop: '2rem' }}>
+            <Heading level={3}>Acties</Heading>
+            <Paragraph>{exampleParagraph()}</Paragraph>
+          </div>
         </Tabs.Panel>
       </>,
     ],
