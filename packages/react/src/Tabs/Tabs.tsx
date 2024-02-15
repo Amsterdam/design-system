@@ -15,8 +15,11 @@ import useFocusWithArrows from '../common/useFocusWithArrows'
 export type TabsProps = {} & PropsWithChildren<HTMLAttributes<HTMLDivElement>>
 
 type TabsComponent = {
+  /** Always use a TabList to hold the Tab Buttons */
   List: typeof TabsList
+  /** Use a TabButton for each tab */
   Button: typeof TabsButton
+  /** A TabsPanel will only return its contents when the corresponding TabsButton is activated */
   Panel: typeof TabsPanel
 } & ForwardRefExoticComponent<TabsProps & RefAttributes<HTMLDivElement>>
 
