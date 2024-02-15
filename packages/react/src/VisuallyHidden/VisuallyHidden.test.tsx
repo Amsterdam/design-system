@@ -32,7 +32,7 @@ describe('Visually hidden', () => {
   })
 
   it('supports ForwardRef in React', () => {
-    const ref = createRef<HTMLDivElement>()
+    const ref = createRef<HTMLElement>()
 
     const { container } = render(<VisuallyHidden ref={ref} />)
 
