@@ -5,26 +5,26 @@ import '@testing-library/jest-dom'
 
 describe('Tabs', () => {
   it('renders', () => {
-    const { container } = render(<Tabs />)
+    render(<Tabs />)
 
-    const component = container.querySelector(':only-child')
+    const component = screen.getByRole('tabs')
 
     expect(component).toBeInTheDocument()
     expect(component).toBeVisible()
   })
 
   it('renders a design system BEM class name', () => {
-    const { container } = render(<Tabs />)
+    render(<Tabs />)
 
-    const component = container.querySelector(':only-child')
+    const component = screen.getByRole('tabs')
 
     expect(component).toHaveClass('amsterdam-tabs')
   })
 
   it('renders an additional class name', () => {
-    const { container } = render(<Tabs className="extra" />)
+    render(<Tabs className="extra" />)
 
-    const component = container.querySelector(':only-child')
+    const component = screen.getByRole('tabs')
 
     expect(component).toHaveClass('amsterdam-tabs extra')
   })
