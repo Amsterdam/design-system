@@ -13,10 +13,7 @@
 }
 
 .amsterdam-fieldset {
-  border: none;
-  margin-inline: 0;
-  padding-block: 0;
-  padding-inline: 0;
+  @include reset;
 }
 
 @mixin legend-reset {
