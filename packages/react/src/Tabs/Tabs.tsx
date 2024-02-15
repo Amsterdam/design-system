@@ -12,7 +12,7 @@ import { TabsList } from './TabsList'
 import { TabsPanel } from './TabsPanel'
 import useFocusWithArrows from '../common/useFocusWithArrows'
 
-export type TabsProps = {} & PropsWithChildren<HTMLAttributes<HTMLDivElement>>
+export type TabsProps = PropsWithChildren<HTMLAttributes<HTMLDivElement>>
 
 type TabsComponent = {
   /** Always use a TabList to hold the Tab Buttons */
