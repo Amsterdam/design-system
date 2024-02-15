@@ -1,23 +1,14 @@
 /**
  * @license EUPL-1.2+
- * Copyright (c) 2023 Gemeente Amsterdam
+ * Copyright (c) 2024 Gemeente Amsterdam
  */
 
 @import "../../common/breakpoint";
 
-.amsterdam-tabs-underline {
-  bottom: 0;
-  content: "";
-  display: block;
-  height: var(--amsterdam-tabs-border-width);
-  left: 0;
-  position: absolute;
-  right: 0;
-  width: auto;
-}
-
 .amsterdam-tabs__list {
-  border-bottom: var(--amsterdam-tabs-border-width) solid var(--amsterdam-tabs-border-color);
+  border-bottom-color: var(--amsterdam-tabs-border-color);
+  border-bottom-style: solid;
+  border-bottom-width: var(--amsterdam-tabs-border-width);
   display: flex;
   flex-direction: row;
   flex-wrap: nowrap;
@@ -49,11 +40,17 @@
   padding-block: var(--amsterdam-tabs-button-padding-block);
   padding-inline: var(--amsterdam-tabs-button-padding-inline);
   position: relative;
-  text-decoration: none;
 
   &:hover:not(.amsterdam-tabs__button--selected, .amsterdam-tabs__button--disabled)::after {
     background-color: currentColor;
-    @extend .amsterdam-tabs-underline;
+    bottom: 0;
+    content: "";
+    display: block;
+    height: var(--amsterdam-tabs-button-hover-border-width);
+    left: 0;
+    position: absolute;
+    right: 0;
+    width: auto;
   }
 
   &:hover:not(.amsterdam-tabs__button--selected, .amsterdam-tabs__button--disabled) {

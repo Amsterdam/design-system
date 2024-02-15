@@ -1,4 +1,4 @@
-import { render } from '@testing-library/react'
+import { render, screen } from '@testing-library/react'
 import { createRef } from 'react'
 import { Tabs } from './Tabs'
 import '@testing-library/jest-dom'
@@ -37,5 +37,25 @@ describe('Tabs', () => {
     const component = container.querySelector(':only-child')
 
     expect(ref.current).toBe(component)
+  })
+
+  it('supports children', () => {
+    render(
+      <Tabs>
+        <Tabs.List>
+          <Tabs.Button tab={0} label="Tab 1" />
+          <Tabs.Button tab={1} label="Tab 2" />
+        </Tabs.List>
+        <Tabs.Panel tab={0}>Content 1</Tabs.Panel>
+        <Tabs.Panel tab={2}>Content 2</Tabs.Panel>
+      </Tabs>,
+    )
+
+    // const component = container.querySelector(':only-child')
+
+    expect(screen.getByRole('tabs')).toBeInTheDocument()
+    expect(screen.getByRole('tablist')).toBeInTheDocument()
+    expect(screen.getByRole('tab', { selected: true })).toBeInTheDocument()
+    expect(screen.getByRole('tabpanel')).toBeInTheDocument()
   })
 })

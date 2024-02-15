@@ -24,6 +24,7 @@ export const TabsButton = forwardRef(
         {...restProps}
         role="tab"
         aria-controls={`panel-${tab}`}
+        aria-selected={activeTab === tab}
         tabIndex={activeTab === tab ? 0 : -1}
         ref={ref}
         onClick={() => {

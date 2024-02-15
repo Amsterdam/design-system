@@ -26,5 +26,5 @@ Do not use tabs if the content in each tab functions just as well on separate pa
 
 ## References
 
-- [W3C - Accordion Pattern](https://www.w3.org/WAI/ARIA/apg/patterns/tabs/)
+- [W3C - Tabs Pattern](https://www.w3.org/WAI/ARIA/apg/patterns/tabs/)
 - [MDN - Tab Aria Roles](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Roles/tab_role)
