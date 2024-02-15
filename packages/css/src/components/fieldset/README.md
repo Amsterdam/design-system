@@ -10,3 +10,7 @@ A component to group related form inputs.
 ## Relevant WCAG Requirements
 
 - [WCAG 1.3.5](https://www.w3.org/WAI/WCAG22/Understanding/identify-input-purpose.html): Fieldset labels the purpose of a group of inputs.
+
+## References
+
+- [Providing a description for groups of form controls using fieldset and legend elements](https://www.w3.org/WAI/WCAG22/Techniques/html/H71)
