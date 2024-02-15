@@ -17,7 +17,7 @@ const meta = {
   component: Column,
   args: {
     children: ThreeBoxes,
-    gap: undefined,
+    gap: 'md',
   },
   argTypes: {
     gap: {
