@@ -1,4 +1,4 @@
-import { Controls, Markdown, Meta, Primary } from "@storybook/blocks";
+import { Canvas, Controls, Markdown, Meta, Primary } from "@storybook/blocks";
 import * as ColumnStories from "./Column.stories.tsx";
 import README from "../../../../packages/css/src/components/column/README.md?raw";
 
@@ -6,6 +6,27 @@ import README from "../../../../packages/css/src/components/column/README.md?raw
 
 <Markdown>{README}</Markdown>
 
+## Design
+
+The five [spacing](?path=/docs/docs-design-guidelines-spacing--docs) lengths are available for the length of the gap.
+
+## How to Use
+
+Wrap a Column around a set of components that need the same amount of whitespace between them.
+
+To add whitespace below a single element, using the utility classes for bottom margins is an alternative, e.g. `class="amsterdam-mb-md`.
+
+## Examples
+
+### Default
+
 <Primary />
 
 <Controls />
+
+### Use Another HTML Element
+
+By default, a Column renders a `<div>`.
+Use the `as` prop to make your markup more semantic.
+
+<Canvas of={ColumnStories.CustomTagName} />

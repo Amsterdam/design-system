@@ -37,7 +37,7 @@ const cellMeta = {
       table: { disable: true },
     },
     as: {
-      control: { type: 'inline-radio' },
+      control: { type: 'radio' },
       options: ['article', 'div', 'section'],
     },
     span: {
