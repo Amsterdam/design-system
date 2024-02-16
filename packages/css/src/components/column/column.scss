@@ -9,8 +9,8 @@
   display: grid;
 }
 
-@each $label, $abbr in $amsterdam-sizes {
+@each $size, $label in $amsterdam-sizes {
   .amsterdam-column--#{$label} {
-    gap: var(--amsterdam-column-gap-#{$abbr});
+    gap: var(--amsterdam-column-gap-#{size});
   }
 }

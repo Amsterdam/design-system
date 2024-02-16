@@ -9,7 +9,7 @@
   display: grid !important;
 }
 
-@each $size in $amsterdam-sizes-abbr {
+@each $size in map-keys($amsterdam-sizes) {
   .amsterdam-gap--#{$size} {
     gap: var(--amsterdam-gap-#{$size}) !important;
   }

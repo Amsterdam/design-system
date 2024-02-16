@@ -5,7 +5,7 @@
 
 @import "../../common/size";
 
-@each $size in $amsterdam-sizes-abbr {
+@each $size in map-keys($amsterdam-sizes) {
   .amsterdam-mb--#{$size} {
     margin-block-end: var(--amsterdam-margin-#{$size}) !important;
   }
