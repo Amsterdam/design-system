@@ -1,11 +1,11 @@
 {
   "amsterdam": {
     "gap": {
-      "xs": { "value": "{amsterdam-spacing-outside-fluid-xs})" },
-      "sm": { "value": "{amsterdam-spacing-outside-fluid-sm})" },
-      "md": { "value": "{amsterdam-spacing-outside-fluid-md})" },
-      "lg": { "value": "{amsterdam-spacing-outside-fluid-lg})" },
-      "xl": { "value": "{amsterdam-spacing-outside-fluid-xl})" }
+      "xs": { "value": "{amsterdam.spacing.outside.fluid.xs})" },
+      "sm": { "value": "{amsterdam.spacing.outside.fluid.sm})" },
+      "md": { "value": "{amsterdam.spacing.outside.fluid.md})" },
+      "lg": { "value": "{amsterdam.spacing.outside.fluid.lg})" },
+      "xl": { "value": "{amsterdam.spacing.outside.fluid.xl})" }
     }
   }
 }
