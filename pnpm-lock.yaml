@@ -315,6 +315,9 @@ importers:
       '@storybook/addon-links':
         specifier: 7.6.15
         version: 7.6.15(react@18.2.0)
+      '@storybook/addon-themes':
+        specifier: 7.6.16
+        version: 7.6.16
       '@storybook/addon-viewport':
         specifier: 7.6.15
         version: 7.6.15

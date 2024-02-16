@@ -32,6 +32,7 @@
     "@storybook/addon-essentials": "7.6.15",
     "@storybook/addon-interactions": "7.6.15",
     "@storybook/addon-links": "7.6.15",
+    "@storybook/addon-themes": "7.6.16",
     "@storybook/addon-viewport": "7.6.15",
     "@storybook/blocks": "7.6.15",
     "@storybook/manager-api": "7.6.15",
