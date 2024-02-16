@@ -1,3 +1,3 @@
 # Margin
 
-Use these utility classes to add whitespace below a single element.
+Use these utility classes to add white space below a single element.
