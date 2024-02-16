@@ -1,9 +1,9 @@
-import{M as d}from"./index-CFl8jOdt.js";import{j as e}from"./jsx-runtime-CKrituN3.js";import{useMDXComponents as c}from"./index-DI5IigMn.js";import"./iframe-CV1A_xMb.js";import"../sb-preview/runtime.js";import"./index-CBqU2yxZ.js";import"./_commonjsHelpers-BosuxZz1.js";import"./index-BtM5VmRH.js";import"./index-Bw8VTzHM.js";import"./index-Cmc67Rxs.js";import"./index-DrFu-skq.js";function i(t){const n=Object.assign({h1:"h1",h2:"h2",p:"p",h4:"h4",table:"table",thead:"thead",tr:"tr",th:"th",tbody:"tbody",td:"td",strong:"strong"},c(),t.components);return e.jsxs(e.Fragment,{children:[e.jsx(d,{title:"Docs/Design Guidelines/Spacing"}),`
+import{M as d}from"./index-B5rs6wpw.js";import{j as e}from"./jsx-runtime-CKrituN3.js";import{useMDXComponents as c}from"./index-DI5IigMn.js";import"./iframe-M1ayacvz.js";import"../sb-preview/runtime.js";import"./index-CBqU2yxZ.js";import"./_commonjsHelpers-BosuxZz1.js";import"./index-BtM5VmRH.js";import"./index-Bw8VTzHM.js";import"./index-Cmc67Rxs.js";import"./index-DrFu-skq.js";function i(t){const n=Object.assign({h1:"h1",h2:"h2",p:"p",h4:"h4",table:"table",thead:"thead",tr:"tr",th:"th",tbody:"tbody",td:"td",strong:"strong"},c(),t.components);return e.jsxs(e.Fragment,{children:[e.jsx(d,{title:"Docs/Design Guidelines/Spacing"}),`
 `,e.jsx(n.h1,{id:"spacing",children:"Spacing"}),`
 `,e.jsx(n.h2,{id:"between-components",children:"Between components"}),`
 `,e.jsx(n.p,{children:`Five sizes are available for whitespace between components.
 They are fluid and depend on the width of the window.`}),`
-`,e.jsx(n.p,{children:`The medium length is the default.
+`,e.jsx(n.p,{children:`The medium size is the default.
 Multiplication factors for the smaller and larger lengths are ¼, ½, 1½, and 2.`}),`
 `,e.jsx(n.p,{children:"The tables below show the resulting pixels widths at some reference widths."}),`
 `,e.jsx(n.h4,{id:"spacious",children:"Spacious"}),`
