@@ -1,11 +1,11 @@
 {
   "amsterdam": {
     "margin": {
-      "xs": { "value": "{amsterdam-spacing-fluid-xs}" },
-      "sm": { "value": "{amsterdam-spacing-fluid-sm}" },
-      "md": { "value": "{amsterdam-spacing-fluid-md}" },
-      "lg": { "value": "{amsterdam-spacing-fluid-lg}" },
-      "xl": { "value": "{amsterdam-spacing-fluid-xl}" }
+      "xs": { "value": "{amsterdam-spacing-outside-fluid-xs})" },
+      "sm": { "value": "{amsterdam-spacing-outside-fluid-sm})" },
+      "md": { "value": "{amsterdam-spacing-outside-fluid-md})" },
+      "lg": { "value": "{amsterdam-spacing-outside-fluid-lg})" },
+      "xl": { "value": "{amsterdam-spacing-outside-fluid-xl})" }
     }
   }
 }
