@@ -1,6 +1,6 @@
 import { render, screen } from '@testing-library/react'
 import { createRef } from 'react'
-import { Column } from './Column'
+import { Column, columnGapSizes } from './Column'
 import '@testing-library/jest-dom'
 
 describe('Column', () => {
@@ -18,23 +18,25 @@ describe('Column', () => {
 
     const component = container.querySelector(':only-child')
 
-    expect(component).toHaveClass('amsterdam-gap--md')
+    expect(component).toHaveClass('amsterdam-column--medium')
   })
 
-  it('renders a custom gap class name', () => {
-    const { container } = render(<Column gap="xl" />)
+  columnGapSizes.map((size) =>
+    it('renders with ${size} gap', () => {
+      const { container } = render(<Column gap={size} />)
 
-    const component = container.querySelector(':only-child')
+      const component = container.querySelector(':only-child')
 
-    expect(component).toHaveClass('amsterdam-gap--xl')
-  })
+      expect(component).toHaveClass(`amsterdam-column--${size}`)
+    }),
+  )
 
   it('renders an additional class name', () => {
     const { container } = render(<Column className="extra" />)
 
     const component = container.querySelector(':only-child')
 
-    expect(component).toHaveClass('amsterdam-gap--md extra')
+    expect(component).toHaveClass('amsterdam-column--medium extra')
   })
 
   it('renders a custom tag', () => {

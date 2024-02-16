@@ -3,9 +3,9 @@
  * Copyright (c) 2024 Gemeente Amsterdam
  */
 
-$amsterdam-margin-sizes: xs, sm, md, lg, xl;
+@import "../../common/size";
 
-@each $size in $amsterdam-margin-sizes {
+@each $size in $amsterdam-sizes-abbr {
   .amsterdam-mb--#{$size} {
     margin-block-end: var(--amsterdam-margin-#{$size}) !important;
   }

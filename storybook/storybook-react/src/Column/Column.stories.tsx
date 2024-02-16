@@ -28,7 +28,7 @@ const meta = {
     },
     gap: {
       control: 'radio',
-      options: ['xs', 'sm', 'md', 'lg', 'xl'],
+      options: ['extra-small', 'small', 'medium', 'large', 'extra-large'],
     },
   },
 } satisfies Meta<typeof Column>

@@ -1,0 +1,19 @@
+/**
+ * @license EUPL-1.2+
+ * Copyright (c) 2024 Gemeente Amsterdam
+ */
+
+/** The labels for our set of available sizes. */
+$amsterdam-sizes: extra-small, small, medium, large, extra-large;
+
+/** The abbreviated labels for our set of available sizes. */
+$amsterdam-sizes-abbr: xs, sm, md, lg, xl;
+
+/** Maps each size label to its abbreviation. */
+$amsterdam-sizes: (
+  "extra-small": "xs",
+  "small": "sm",
+  "medium": "md",
+  "large": "lg",
+  "extra-large": "xl",
+);
