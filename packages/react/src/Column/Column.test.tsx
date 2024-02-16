@@ -1,4 +1,4 @@
-import { render } from '@testing-library/react'
+import { render, screen } from '@testing-library/react'
 import { createRef } from 'react'
 import { Column } from './Column'
 import '@testing-library/jest-dom'
@@ -35,6 +35,14 @@ describe('Column', () => {
     const component = container.querySelector(':only-child')
 
     expect(component).toHaveClass('amsterdam-gap--md extra')
+  })
+
+  it('renders a custom tag', () => {
+    render(<Column as="section" />)
+
+    const component = screen.getByRole('section')
+
+    expect(component).toBeInTheDocument()
   })
 
   it('supports ForwardRef in React', () => {
