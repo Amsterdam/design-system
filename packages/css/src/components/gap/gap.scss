@@ -6,11 +6,11 @@
 @import "../../common/size";
 
 [class|="amsterdam-gap-"] {
-  display: grid;
+  display: grid !important;
 }
 
 @each $size in $amsterdam-sizes-abbr {
   .amsterdam-gap--#{$size} {
-    gap: var(--amsterdam-gap-#{$size});
+    gap: var(--amsterdam-gap-#{$size}) !important;
   }
 }
