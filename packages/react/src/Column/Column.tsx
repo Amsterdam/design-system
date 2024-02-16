@@ -7,11 +7,12 @@ import clsx from 'clsx'
 import { forwardRef } from 'react'
 import type { ForwardedRef, HTMLAttributes, PropsWithChildren } from 'react'
 
+type ColumnTag = 'article' | 'div' | 'section'
 type ColumnGap = 'xs' | 'sm' | 'md' | 'lg' | 'xl'
 
 export type ColumnProps = {
   /** The element to render the column with. */
-  as?: 'article' | 'div' | 'section'
+  as?: ColumnTag
   /** The amount of vertical space between the column’s children. */
   gap?: ColumnGap
 } & PropsWithChildren<HTMLAttributes<HTMLDivElement>>
