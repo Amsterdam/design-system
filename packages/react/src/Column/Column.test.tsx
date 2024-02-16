@@ -38,9 +38,9 @@ describe('Column', () => {
   })
 
   it('renders a custom tag', () => {
-    render(<Column as="section" />)
+    render(<Column as="article" />)
 
-    const component = screen.getByRole('section')
+    const component = screen.getByRole('article')
 
     expect(component).toBeInTheDocument()
   })
