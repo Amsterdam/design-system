@@ -20,6 +20,9 @@ const meta = {
     gap: 'md',
   },
   argTypes: {
+    children: {
+      table: { disable: true },
+    },
     gap: {
       control: 'radio',
       options: ['xs', 'sm', 'md', 'lg', 'xl'],
