@@ -6,15 +6,6 @@
         "md": { "value": "1rem" },
         "lg": { "value": "1.5rem" },
         "xl": { "value": "2.5rem" }
-      },
-      "outside": {
-        "fluid": {
-          "xs": { "value": "{amsterdam.spacing.fluid.xs})" },
-          "sm": { "value": "{amsterdam.spacing.fluid.sm})" },
-          "md": { "value": "{amsterdam.spacing.fluid.md})" },
-          "lg": { "value": "{amsterdam.spacing.fluid.lg})" },
-          "xl": { "value": "{amsterdam.spacing.fluid.xl})" }
-        }
       }
     }
   }
