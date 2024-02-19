@@ -9,12 +9,12 @@ import type { ForwardedRef, HTMLAttributes, PropsWithChildren } from 'react'
 
 export const VisuallyHidden = forwardRef(
   (
-    { children, className, ...restProps }: PropsWithChildren<HTMLAttributes<HTMLDivElement>>,
-    ref: ForwardedRef<HTMLDivElement>,
+    { children, className, ...restProps }: PropsWithChildren<HTMLAttributes<HTMLElement>>,
+    ref: ForwardedRef<HTMLElement>,
   ) => (
-    <div {...restProps} ref={ref} className={clsx('amsterdam-visually-hidden', className)}>
+    <span {...restProps} ref={ref} className={clsx('amsterdam-visually-hidden', className)}>
       {children}
-    </div>
+    </span>
   ),
 )
 
