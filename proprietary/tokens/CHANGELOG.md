@@ -3,19 +3,28 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.5.1](https://github.com/Amsterdam/design-system/compare/design-system-tokens-v0.5.0...design-system-tokens-v0.5.1) (2024-02-13)
+
+
+### Features
+
+* Create unique token classes ([#1071](https://github.com/Amsterdam/design-system/issues/1071)) ([d53d0a9](https://github.com/Amsterdam/design-system/commit/d53d0a93f18238759d85bd897a7b6ee537cc78b0))
+
 ## [0.5.0](https://github.com/Amsterdam/design-system/compare/@amsterdam/design-system-tokens@0.4.0...design-system-tokens-v0.5.0) (2024-02-09)
 
 
 ### ⚠ BREAKING CHANGES
 
 * Add theme setup and compact theme ([#1067](https://github.com/Amsterdam/design-system/issues/1067))
-* Remove deprecated ‘in list’ variant of Link ([#1064](https://github.com/Amsterdam/design-system/issues/1064))
+* Remove spacious and compact tokens from component level tokens ([#1067](https://github.com/Amsterdam/design-system/issues/1067))
+* Remove deprecated `inList` variant of Link ([#1064](https://github.com/Amsterdam/design-system/issues/1064))
 
 ### Features
 
 * Add theme setup and compact theme ([#1067](https://github.com/Amsterdam/design-system/issues/1067)) ([e773434](https://github.com/Amsterdam/design-system/commit/e7734347a9e7205d510a16a543294bde69b9c6f0))
+* Remove spacious and compact tokens from component level tokens ([#1067](https://github.com/Amsterdam/design-system/issues/1067)) ([e773434](https://github.com/Amsterdam/design-system/commit/e7734347a9e7205d510a16a543294bde69b9c6f0))
 * Hyphenate headings and other large text components ([#1056](https://github.com/Amsterdam/design-system/issues/1056)) ([f875171](https://github.com/Amsterdam/design-system/commit/f8751716018d4ed269a086e1764741ad29714fa0))
-* Remove deprecated ‘in list’ variant of Link ([#1064](https://github.com/Amsterdam/design-system/issues/1064)) ([b30784b](https://github.com/Amsterdam/design-system/commit/b30784b352b4a057069ceb397951b79a6e2547f2))
+* Remove deprecated `inList` variant of Link ([#1064](https://github.com/Amsterdam/design-system/issues/1064)) ([b30784b](https://github.com/Amsterdam/design-system/commit/b30784b352b4a057069ceb397951b79a6e2547f2))
 
 ## [0.4.0](https://github.com/Amsterdam/design-system/compare/@amsterdam/design-system-tokens@0.3.0...@amsterdam/design-system-tokens@0.4.0) (2024-01-31)
 

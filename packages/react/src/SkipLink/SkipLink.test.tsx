@@ -3,7 +3,7 @@ import { createRef } from 'react'
 import { SkipLink } from './SkipLink'
 import '@testing-library/jest-dom'
 
-describe('Skip Link', () => {
+describe('Skip link', () => {
   it('renders', () => {
     render(<SkipLink href="/" />)
 
