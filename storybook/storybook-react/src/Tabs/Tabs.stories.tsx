@@ -87,7 +87,7 @@ const StoryTemplate: Story = {
           <Tabs.Button tab={3} label="Acties" />
         </Tabs.List>
         <Tabs.Panel tab={0}>
-          <div>
+          <div style={{ paddingTop: '2rem' }}>
             <Heading level={3}>Gegevens</Heading>
             <Paragraph>{exampleParagraph()}</Paragraph>
           </div>
