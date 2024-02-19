@@ -6,32 +6,22 @@ import README from "../../../../packages/css/src/components/image/README.md?raw"
 
 <Markdown>{README}</Markdown>
 
+## Examples
+
 <Primary />
 
 <Controls />
 
-## Image with srcset
+## Provide multiple sources
 
-This is an example of an image with a srcset attribute.
-Read this documentation to learn more about the srcset attribute:
+Use the srcSet prop, which controls the corresponding HTML attribute (see [MDN](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/img#srcset)), to let the browser select the optimal source file for the image.
+A mobile device can often download a smaller file, saving the user’s bandwidth and time.
 
-- [MDN Web Docs HTML](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/img#srcset)
-- [MDN Web Docs API](https://developer.mozilla.org/en-US/docs/Web/API/HTMLImageElement/srcset)
+<Canvas of={ImageStories.MultipleSources} />
 
-When the `(max-width: 832px)` media query condition matches, the 640px image will load, otherwise the 1280px image will be used.
-If the srcset attribute uses width descriptors, the sizes attribute must also be present, or the srcset itself will be ignored.
+## Prevent unnecessary loading
 
-<Canvas of={ImageStories.SourceSetWidth} />
-
-When an image element's srcset contains "x" descriptors, browsers also consider the URL in the `src` attribute (if present) as a candidate, and assign it a default descriptor of 1x.
-
-<Canvas of={ImageStories.SourceSetDensity} />
-
-## Lazy loading
-
-This is an example of native lazy loading using the `loading` attribute. The default behaviour is `eager`, which means the image will load immediately.
-The `lazy` value will defer the loading of the image until it is within the viewport.
-
-- [MDN Web Docs (HTML)](https://developer.mozilla.org/en-US/docs/Web/API/HTMLImageElement/loading)
+Set the `loading` attribute (see [MDN](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/img#loading)) to `lazy` and the browser will wait to load the image until it is close to the viewport.
+Consider setting this for images below the top area of the page.
 
 <Canvas of={ImageStories.LazyLoading} />
