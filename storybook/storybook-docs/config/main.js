@@ -16,7 +16,6 @@ const config = {
     '@storybook/addon-essentials',
     '@storybook/addon-interactions',
     '@storybook/addon-a11y',
-    '@storybook/addon-themes',
     {
       name: '@storybook/addon-docs',
       options: {

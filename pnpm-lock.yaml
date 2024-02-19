@@ -315,9 +315,6 @@ importers:
       '@storybook/addon-links':
         specifier: 7.6.15
         version: 7.6.15(react@18.2.0)
-      '@storybook/addon-themes':
-        specifier: 7.6.16
-        version: 7.6.16
       '@storybook/addon-viewport':
         specifier: 7.6.15
         version: 7.6.15
@@ -371,7 +368,7 @@ importers:
         version: 7.6.15
       vite:
         specifier: 5.1.2
-        version: 5.1.2(@types/node@20.11.17)(sass@1.70.0)
+        version: 5.1.2(sass@1.70.0)
 
   storybook/storybook-react:
     dependencies:
@@ -2779,7 +2776,7 @@ packages:
       magic-string: 0.27.0
       react-docgen-typescript: 2.2.2(typescript@5.3.3)
       typescript: 5.3.3
-      vite: 5.1.2(@types/node@20.11.17)(sass@1.70.0)
+      vite: 5.1.2(sass@1.70.0)
     dev: true
 
   /@jridgewell/gen-mapping@0.3.3:
@@ -3962,6 +3959,20 @@ packages:
       picomatch: 2.3.1
     dev: true
 
+  /@rollup/pluginutils@5.1.0:
+    resolution: {integrity: sha512-XTIWOPPcpvyKI6L1NHo0lFlCyznUEyPmPY1mc3KpPVDYulHSTvyeLNVW00QTLIAFNhR3kYnJTQHeGqU4M3n09g==}
+    engines: {node: '>=14.0.0'}
+    peerDependencies:
+      rollup: ^1.20.0||^2.0.0||^3.0.0||^4.0.0
+    peerDependenciesMeta:
+      rollup:
+        optional: true
+    dependencies:
+      '@types/estree': 1.0.2
+      estree-walker: 2.0.2
+      picomatch: 2.3.1
+    dev: true
+
   /@rollup/pluginutils@5.1.0(rollup@4.10.0):
     resolution: {integrity: sha512-XTIWOPPcpvyKI6L1NHo0lFlCyznUEyPmPY1mc3KpPVDYulHSTvyeLNVW00QTLIAFNhR3kYnJTQHeGqU4M3n09g==}
     engines: {node: '>=14.0.0'}
@@ -4449,7 +4460,7 @@ packages:
       magic-string: 0.30.5
       rollup: 3.29.4
       typescript: 5.3.3
-      vite: 5.1.2(@types/node@20.11.17)(sass@1.70.0)
+      vite: 5.1.2(sass@1.70.0)
     transitivePeerDependencies:
       - encoding
       - supports-color
@@ -4796,7 +4807,7 @@ packages:
       vite: ^3.0.0 || ^4.0.0 || ^5.0.0
     dependencies:
       '@joshwooding/vite-plugin-react-docgen-typescript': 0.3.0(typescript@5.3.3)(vite@5.1.2)
-      '@rollup/pluginutils': 5.1.0(rollup@4.10.0)
+      '@rollup/pluginutils': 5.1.0
       '@storybook/builder-vite': 7.6.15(typescript@5.3.3)(vite@5.1.2)
       '@storybook/react': 7.6.15(react-dom@18.2.0)(react@18.2.0)(typescript@5.3.3)
       '@vitejs/plugin-react': 3.1.0(vite@5.1.2)
@@ -4804,7 +4815,7 @@ packages:
       react: 18.2.0
       react-docgen: 7.0.1
       react-dom: 18.2.0(react@18.2.0)
-      vite: 5.1.2(@types/node@20.11.17)(sass@1.70.0)
+      vite: 5.1.2(sass@1.70.0)
     transitivePeerDependencies:
       - '@preact/preset-vite'
       - encoding
@@ -5777,7 +5788,7 @@ packages:
       '@babel/plugin-transform-react-jsx-source': 7.23.3(@babel/core@7.23.9)
       magic-string: 0.27.0
       react-refresh: 0.14.0
-      vite: 5.1.2(@types/node@20.11.17)(sass@1.70.0)
+      vite: 5.1.2(sass@1.70.0)
     transitivePeerDependencies:
       - supports-color
     dev: true
@@ -5793,7 +5804,7 @@ packages:
       '@babel/plugin-transform-react-jsx-source': 7.23.3(@babel/core@7.23.9)
       '@types/babel__core': 7.20.5
       react-refresh: 0.14.0
-      vite: 5.1.2(@types/node@20.11.17)(sass@1.70.0)
+      vite: 5.1.2(sass@1.70.0)
     transitivePeerDependencies:
       - supports-color
     dev: true
@@ -16496,6 +16507,42 @@ packages:
         optional: true
     dependencies:
       '@types/node': 20.11.17
+      esbuild: 0.19.7
+      postcss: 8.4.35
+      rollup: 4.10.0
+      sass: 1.70.0
+    optionalDependencies:
+      fsevents: 2.3.3
+    dev: true
+
+  /vite@5.1.2(sass@1.70.0):
+    resolution: {integrity: sha512-uwiFebQbTWRIGbCaTEBVAfKqgqKNKMJ2uPXsXeLIZxM8MVMjoS3j0cG8NrPxdDIadaWnPSjrkLWffLSC+uiP3Q==}
+    engines: {node: ^18.0.0 || >=20.0.0}
+    hasBin: true
+    peerDependencies:
+      '@types/node': ^18.0.0 || >=20.0.0
+      less: '*'
+      lightningcss: ^1.21.0
+      sass: '*'
+      stylus: '*'
+      sugarss: '*'
+      terser: ^5.4.0
+    peerDependenciesMeta:
+      '@types/node':
+        optional: true
+      less:
+        optional: true
+      lightningcss:
+        optional: true
+      sass:
+        optional: true
+      stylus:
+        optional: true
+      sugarss:
+        optional: true
+      terser:
+        optional: true
+    dependencies:
       esbuild: 0.19.7
       postcss: 8.4.35
       rollup: 4.10.0

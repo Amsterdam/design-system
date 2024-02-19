@@ -3,7 +3,6 @@ import '@amsterdam/design-system-tokens/dist/compact.theme.css'
 import '@amsterdam/design-system-assets/font/index.css'
 import '@amsterdam/design-system-css/dist/index.css'
 import '../../storybook-overrides.css'
-import { withThemeByClassName } from '@storybook/addon-themes'
 
 export const decorators = [
   (Story: any) => (
@@ -11,13 +10,6 @@ export const decorators = [
       <Story />
     </div>
   ),
-  withThemeByClassName({
-    themes: {
-      spacious: 'amsterdam-theme--spacious',
-      compact: 'amsterdam-theme--compact',
-    },
-    defaultTheme: 'spacious',
-  }),
 ]
 
 export const parameters = {
