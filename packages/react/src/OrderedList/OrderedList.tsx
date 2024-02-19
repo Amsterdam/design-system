@@ -10,6 +10,7 @@ import { OrderedListItem } from './OrderedListItem'
 
 export type OrderedListProps = {
   markers?: boolean
+  inverseColor?: boolean
 } & PropsWithChildren<OlHTMLAttributes<HTMLOListElement>>
 
 type OrderedListComponent = {
@@ -17,10 +18,18 @@ type OrderedListComponent = {
 } & ForwardRefExoticComponent<OrderedListProps & RefAttributes<HTMLOListElement>>
 
 export const OrderedList = forwardRef(
-  ({ children, markers = true, className, ...restProps }: OrderedListProps, ref: ForwardedRef<HTMLOListElement>) => (
+  (
+    { children, className, inverseColor, markers = true, ...restProps }: OrderedListProps,
+    ref: ForwardedRef<HTMLOListElement>,
+  ) => (
     <ol
       ref={ref}
-      className={clsx('amsterdam-ordered-list', !markers && 'amsterdam-ordered-list--no-markers', className)}
+      className={clsx(
+        'amsterdam-ordered-list',
+        inverseColor && 'amsterdam-ordered-list--inverse-color',
+        !markers && 'amsterdam-ordered-list--no-markers',
+        className,
+      )}
       {...restProps}
     >
       {children}

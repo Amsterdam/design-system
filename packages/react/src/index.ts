@@ -4,6 +4,7 @@
  */
 
 /* Append here */
+export * from './Fieldset'
 export * from './LinkList'
 export * from './Badge'
 export * from './Table'
