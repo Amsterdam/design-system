@@ -1,11 +1,11 @@
 {
   "amsterdam": {
     "margin": {
-      "xs": { "value": "{amsterdam.margin.fluid.xs})" },
-      "sm": { "value": "{amsterdam.margin.fluid.sm})" },
-      "md": { "value": "{amsterdam.margin.fluid.md})" },
-      "lg": { "value": "{amsterdam.margin.fluid.lg})" },
-      "xl": { "value": "{amsterdam.margin.fluid.xl})" }
+      "xs": { "value": "{amsterdam.space.fluid.xs})" },
+      "sm": { "value": "{amsterdam.space.fluid.sm})" },
+      "md": { "value": "{amsterdam.space.fluid.md})" },
+      "lg": { "value": "{amsterdam.space.fluid.lg})" },
+      "xl": { "value": "{amsterdam.space.fluid.xl})" }
     }
   }
 }
