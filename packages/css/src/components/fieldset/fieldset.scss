@@ -1,0 +1,34 @@
+/**
+ * @license EUPL-1.2+
+ * Copyright (c) 2023 Gemeente Amsterdam
+ */
+
+@import "../../common/hyphenation";
+
+@mixin reset {
+  border: none;
+  margin-inline: 0;
+  padding-block: 0;
+  padding-inline: 0;
+}
+
+.amsterdam-fieldset {
+  @include reset;
+}
+
+@mixin legend-reset {
+  padding-inline: 0;
+  -webkit-text-size-adjust: 100%;
+}
+
+.amsterdam-fieldset__legend {
+  color: var(--amsterdam-fieldset-legend-color);
+  font-family: var(--amsterdam-fieldset-legend-font-family);
+  font-size: var(--amsterdam-fieldset-legend-font-size);
+  font-weight: var(--amsterdam-fieldset-legend-font-weight);
+  line-height: var(--amsterdam-fieldset-legend-line-height);
+  margin-block-end: 1rem; /* Because of a bug in Chrome we can’t use display grid or flex for this gap */
+
+  @include hyphenation;
+  @include legend-reset;
+}
