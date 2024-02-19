@@ -1,6 +1,6 @@
 /**
  * @license EUPL-1.2+
- * Copyright (c) 2023 Gemeente Amsterdam
+ * Copyright (c) 2024Gemeente Amsterdam
  */
 
 import clsx from 'clsx'

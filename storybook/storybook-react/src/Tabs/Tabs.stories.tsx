@@ -1,6 +1,6 @@
 /**
  * @license EUPL-1.2+
- * Copyright (c) 2023 Gemeente Amsterdam
+ * Copyright (c) 2024 Gemeente Amsterdam
  */
 
 import { Heading, Paragraph, Tabs } from '@amsterdam/design-system-react'
