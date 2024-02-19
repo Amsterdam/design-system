@@ -6,6 +6,7 @@
       "font-size": { "value": "{amsterdam.typography.text-level.5.font-size}" },
       "font-weight": { "value": "{amsterdam.typography.font-weight.normal}" },
       "gap": { "value": "0.75rem" },
+      "inverse-color": { "value": "{amsterdam.color.primary-white}" },
       "line-height": { "value": "{amsterdam.typography.text-level.5.line-height}" },
       "list-style-type": { "value": "'\\2022'" },
       "item": {

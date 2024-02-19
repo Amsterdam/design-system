@@ -117,3 +117,16 @@ export const WithoutMarkers: Story = {
     markers: false,
   },
 }
+
+export const InverseColor: Story = {
+  args: {
+    inverseColor: true,
+  },
+  decorators: [
+    (Story, context) => (
+      <div className={context.args.inverseColor ? 'amsterdam-docs-dark-background' : undefined}>
+        <Story />
+      </div>
+    ),
+  ],
+}
