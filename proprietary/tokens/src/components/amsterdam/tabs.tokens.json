@@ -19,7 +19,7 @@
         "padding-inline": { "value": "1rem" },
         "hover": {
           "color": { "value": "{amsterdam.link-appearance.hover.color}" },
-          "border-width": { "value": ".13rem" }
+          "box-shadow": { "value": "inset 0 -0.13rem 0 0 {amsterdam.link-appearance.hover.color}" }
         },
         "selected": {
           "background-color": { "value": "{amsterdam.link-appearance.color}" },

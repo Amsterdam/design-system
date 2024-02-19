@@ -41,19 +41,8 @@
   padding-inline: var(--amsterdam-tabs-button-padding-inline);
   position: relative;
 
-  &:hover:not(.amsterdam-tabs__button--selected, .amsterdam-tabs__button--disabled)::after {
-    background-color: currentColor;
-    bottom: 0;
-    content: "";
-    display: block;
-    height: var(--amsterdam-tabs-button-hover-border-width);
-    left: 0;
-    position: absolute;
-    right: 0;
-    width: auto;
-  }
-
   &:hover:not(.amsterdam-tabs__button--selected, .amsterdam-tabs__button--disabled) {
+    box-shadow: var(--amsterdam-tabs-button-hover-box-shadow);
     color: var(--amsterdam-tabs-button-hover-color);
   }
 }
@@ -62,10 +51,6 @@
   background-color: var(--amsterdam-tabs-button-selected-background-color);
   color: var(--amsterdam-tabs-button-selected-color);
 }
-
-// .amsterdam-tabs__button--pending {
-//   font-weight: bolder;
-// }
 
 .amsterdam-tabs__button--disabled {
   color: var(--amsterdam-tabs-button-disabled-color);
