@@ -14,6 +14,8 @@ const meta = {
   component: OrderedList,
   args: {
     children: orderedList,
+    inverseColor: undefined,
+    markers: undefined,
   },
   argTypes: {
     markers: { control: 'boolean' },
@@ -103,4 +105,29 @@ export const WithoutMarkers: Story = {
     ],
     markers: false,
   },
+}
+
+export const InverseColor: Story = {
+  args: {
+    inverseColor: true,
+  },
+  decorators: [
+    (Story, context) => (
+      <div className={context.args.inverseColor ? 'amsterdam-docs-dark-background' : undefined}>
+        <Story />
+      </div>
+    ),
+  ],
+  render: (args) => (
+    <OrderedList {...args}>
+      <OrderedList.Item>
+        Stadsdeel West
+        <OrderedList {...args}>
+          <OrderedList.Item key={1.1}>Bos en Lommer</OrderedList.Item>
+          <OrderedList.Item key={1.2}>Oud West / De Baarsjes</OrderedList.Item>
+          <OrderedList.Item key={1.3}>Westerpark</OrderedList.Item>
+        </OrderedList>
+      </OrderedList.Item>
+    </OrderedList>
+  ),
 }

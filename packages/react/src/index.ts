@@ -5,6 +5,7 @@
 
 /* Append here */
 export * from './Tabs'
+export * from './Fieldset'
 export * from './LinkList'
 export * from './Badge'
 export * from './Table'
