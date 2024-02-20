@@ -2,11 +2,11 @@
   "amsterdam": {
     "column": {
       "gap": {
-        "xs": { "value": "{amsterdam.space.xs})" },
-        "sm": { "value": "{amsterdam.space.sm})" },
-        "md": { "value": "{amsterdam.space.md})" },
-        "lg": { "value": "{amsterdam.space.lg})" },
-        "xl": { "value": "{amsterdam.space.xl})" }
+        "xs": { "value": "{amsterdam.space.xs}" },
+        "sm": { "value": "{amsterdam.space.sm}" },
+        "md": { "value": "{amsterdam.space.md}" },
+        "lg": { "value": "{amsterdam.space.lg}" },
+        "xl": { "value": "{amsterdam.space.xl}" }
       }
     }
   }
