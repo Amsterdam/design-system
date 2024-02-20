@@ -1,4 +1,4 @@
-import { Canvas, Markdown, Meta } from "@storybook/blocks";
+import { Canvas, Controls, Markdown, Meta, Primary } from "@storybook/blocks";
 import * as OrderedListStories from "./OrderedList.stories.tsx";
 import README from "../../../../packages/css/src/components/ordered-list/README.md?raw";
 
@@ -13,7 +13,9 @@ import README from "../../../../packages/css/src/components/ordered-list/README.
 The list uses ascending numbers as markers, providing enough space for numbers up to 99.
 Extra whitespace between items enhances the distinction, mainly when they consist of multiple lines of text.
 
-<Canvas of={OrderedListStories.Default} />
+<Primary />
+
+<Controls />
 
 ### Two Levels
 
@@ -43,7 +45,7 @@ In such cases, apply the list semantics while hiding markers.
 This helps screen readers understand and navigate the list.
 
 Note: each item typically contains a container with titles and other text components in this variant.
-Therefore, it does not define typography for the items.
+Therefore, it does not define typography for the items and the `inverseColor` prop has no effect.
 
 For example, here are three news articles:
 
