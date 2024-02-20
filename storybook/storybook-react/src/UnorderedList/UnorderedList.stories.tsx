@@ -126,11 +126,6 @@ export const WithoutMarkers: Story = {
     ],
     markers: false,
   },
-  argTypes: {
-    inverseColor: {
-      table: { disable: true },
-    },
-  },
 }
 
 export const InverseColor: Story = {
