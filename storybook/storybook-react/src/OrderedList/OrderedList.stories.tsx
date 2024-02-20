@@ -18,10 +18,14 @@ const meta = {
     children: orderedListItems,
     inverseColor: false,
     markers: undefined,
+    reversed: undefined,
+    start: undefined,
   },
   argTypes: {
     inverseColor: { control: 'boolean' },
     markers: { control: 'boolean' },
+    reversed: { control: 'boolean' },
+    start: { control: 'number' },
   },
   decorators: [
     (Story, context) => (
