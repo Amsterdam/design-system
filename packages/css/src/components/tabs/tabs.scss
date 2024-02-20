@@ -10,14 +10,8 @@
   border-bottom-style: solid;
   border-bottom-width: var(--amsterdam-tabs-border-width);
   display: flex;
-  flex-direction: row;
-  flex-wrap: nowrap;
   overflow-x: auto;
   position: relative;
-
-  @media screen and (min-width: $amsterdam-breakpoint-wide) {
-    overflow: visible;
-  }
 
   &::-webkit-scrollbar {
     background: transparent;
@@ -31,11 +25,11 @@
   border: var(--amsterdam-tabs-button-border);
   color: var(--amsterdam-tabs-button-color);
   cursor: var(--amsterdam-action-activate-cursor);
-  display: inline-block;
   font-family: var(--amsterdam-tabs-button-font-family);
   font-size: var(--amsterdam-tabs-button-font-size);
   font-weight: var(--amsterdam-tabs-button-font-weight);
   line-height: var(--amsterdam-tabs-button-line-height);
+  outline: none;
   outline-offset: var(--amsterdam-tabs-button-outline-offset);
   padding-block: var(--amsterdam-tabs-button-padding-block);
   padding-inline: var(--amsterdam-tabs-button-padding-inline);
@@ -44,6 +38,14 @@
   &:hover:not(.amsterdam-tabs__button--selected, .amsterdam-tabs__button--disabled) {
     box-shadow: var(--amsterdam-tabs-button-hover-box-shadow);
     color: var(--amsterdam-tabs-button-hover-color);
+  }
+
+  &:focus-visible:not(.amsterdam-tabs__button--selected, .amsterdam-tabs__button--disabled)::after {
+    border: 2px solid var(--amsterdam-tabs-button-hover-color);
+    border-radius: 4px;
+    content: "";
+    inset: 4px;
+    position: absolute;
   }
 }
 

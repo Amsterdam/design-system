@@ -37,7 +37,7 @@ function SlowPost({ index }: SlowPostProps) {
 }
 
 const meta = {
-  title: 'Navigation/Tabs',
+  title: 'Containers/Tabs',
   component: Tabs,
   argTypes: {
     children: {

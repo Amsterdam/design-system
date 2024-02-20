@@ -51,8 +51,6 @@ describe('Tabs', () => {
       </Tabs>,
     )
 
-    // const component = container.querySelector(':only-child')
-
     expect(screen.getByRole('tabs')).toBeInTheDocument()
     expect(screen.getByRole('tablist')).toBeInTheDocument()
     expect(screen.getByRole('tab', { selected: true })).toBeInTheDocument()
