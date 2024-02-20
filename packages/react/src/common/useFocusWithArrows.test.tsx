@@ -10,7 +10,12 @@ describe('use focus with arrows', () => {
     // eslint-disable-next-line react/display-name
     function () {
       const ref = useRef<HTMLDivElement>(null)
-      const { keyDown } = useFocusWithArrows(ref, rotate)
+      const { keyDown } = useFocusWithArrows({
+        ref: ref,
+        rotating: rotate,
+        directChildrenOnly: false,
+        horizontally: false,
+      })
       return (
         <div onKeyDown={keyDown} tabIndex={0} role="menu" ref={ref}>
           <button onFocus={onFocusOneMock} type="button">

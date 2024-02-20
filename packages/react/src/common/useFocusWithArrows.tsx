@@ -24,12 +24,19 @@ const FOCUSABLE_ELEMENTS = [
   'select:not([disabled])',
 ]
 
-const useFocusWithArrows = (
-  ref: RefObject<HTMLDivElement>,
+type FocusWithArrowsOptions = {
+  ref: RefObject<HTMLDivElement>
+  rotating?: boolean
+  directChildrenOnly?: boolean
+  horizontally?: boolean
+}
+
+const useFocusWithArrows = ({
+  ref,
   rotating = false,
   directChildrenOnly = false,
   horizontally = false,
-) => {
+}: FocusWithArrowsOptions) => {
   const next = horizontally ? KeyboardKeys.ArrowRight : KeyboardKeys.ArrowDown
   const previous = horizontally ? KeyboardKeys.ArrowLeft : KeyboardKeys.ArrowUp
   const keyDown = (e: KeyboardEvent) => {
