@@ -40,7 +40,7 @@ export const Tabs = forwardRef(
       ref: innerRef,
       rotating: true,
       directChildrenOnly: false,
-      horizontally: false,
+      horizontally: true,
     })
 
     return (
