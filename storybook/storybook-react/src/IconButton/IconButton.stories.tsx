@@ -12,11 +12,12 @@ const meta = {
   component: IconButton,
   args: {
     label: 'Sluiten',
+    onBackground: undefined,
+    disabled: false,
+    size: undefined,
   },
   argTypes: {
-    disabled: {
-      control: 'boolean',
-    },
+    disabled: { control: 'boolean' },
     onBackground: {
       control: {
         type: 'radio',

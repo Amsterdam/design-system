@@ -26,8 +26,11 @@ const meta = {
   component: UnorderedList,
   args: {
     children: unorderedList,
+    inverseColor: false,
+    markers: true,
   },
   argTypes: {
+    inverseColor: { control: 'boolean' },
     markers: { control: 'boolean' },
   },
 } satisfies Meta<typeof UnorderedList>

@@ -22,9 +22,7 @@ const meta = {
         disable: true,
       },
     },
-    disabled: {
-      control: 'boolean',
-    },
+    disabled: { control: 'boolean' },
     variant: {
       control: 'select',
       options: ['primary', 'secondary', 'tertiary'],

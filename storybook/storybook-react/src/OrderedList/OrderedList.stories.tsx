@@ -14,10 +14,11 @@ const meta = {
   component: OrderedList,
   args: {
     children: orderedList,
-    inverseColor: undefined,
-    markers: undefined,
+    inverseColor: false,
+    markers: true,
   },
   argTypes: {
+    inverseColor: { control: 'boolean' },
     markers: { control: 'boolean' },
   },
 } satisfies Meta<typeof OrderedList>
