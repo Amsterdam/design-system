@@ -56,4 +56,9 @@ export const ButtonWithAnIcon: Story = {
   args: {
     children: ['Primary', <Icon key="icon" svg={ShareIcon} size="level-5" />],
   },
+  argTypes: {
+    children: {
+      table: { disable: true },
+    },
+  },
 }
