@@ -5,7 +5,7 @@
 
 import type { KeyboardEvent, RefObject } from 'react'
 
-const KeyboardKeys = {
+export const KeyboardKeys = {
   ArrowUp: 'ArrowUp',
   ArrowDown: 'ArrowDown',
   ArrowRight: 'ArrowRight',
