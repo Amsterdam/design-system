@@ -9,6 +9,14 @@ import { Meta, StoryObj } from '@storybook/react'
 const meta = {
   title: 'Forms/Form Label',
   component: FormLabel,
+  args: {
+    children: 'Tekst',
+  },
+  argTypes: {
+    children: {
+      table: { disable: false },
+    },
+  },
 } satisfies Meta<typeof FormLabel>
 
 export default meta

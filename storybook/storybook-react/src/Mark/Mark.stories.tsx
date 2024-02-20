@@ -12,6 +12,11 @@ const meta = {
   args: {
     children: 'Nieuw component',
   },
+  argTypes: {
+    children: {
+      table: { disable: false },
+    },
+  },
 } satisfies Meta<typeof Mark>
 
 export default meta

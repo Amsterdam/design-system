@@ -11,12 +11,15 @@ const meta = {
   title: 'Buttons/Button',
   component: Button,
   args: {
-    children: 'Default',
+    children: 'Tekst',
     variant: 'primary',
     disabled: false,
     busy: false,
   },
   argTypes: {
+    children: {
+      table: { disable: false },
+    },
     disabled: { control: 'boolean' },
     variant: {
       control: 'select',
