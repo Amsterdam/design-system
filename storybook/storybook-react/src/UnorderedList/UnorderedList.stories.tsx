@@ -25,6 +25,7 @@ const meta = {
   title: 'Text/Unordered List',
   component: UnorderedList,
   args: {
+    children: unorderedListItems,
     inverseColor: false,
     markers: undefined,
   },
@@ -45,9 +46,7 @@ export default meta
 
 type Story = StoryObj<typeof meta>
 
-export const Default: Story = {
-  render: (args) => <UnorderedList {...args}>{unorderedListItems}</UnorderedList>,
-}
+export const Default: Story = {}
 
 export const TwoLevels: Story = {
   render: (args) => (
@@ -75,6 +74,56 @@ export const TwoLevels: Story = {
 
 export const WithoutMarkers: Story = {
   args: {
+    children: [
+      <UnorderedList.Item key={1}>
+        <div className="amsterdam-docs-card">
+          <Icon svg={LocationIcon} size="level-6" />
+          <Paragraph>Stadsloket: locaties en openingstijden</Paragraph>
+        </div>
+      </UnorderedList.Item>,
+      <UnorderedList.Item key={2}>
+        <div className="amsterdam-docs-card">
+          <Icon svg={CarIcon} size="level-6" />
+          <Paragraph>Parkeren + Reizen (P+R)</Paragraph>
+        </div>
+      </UnorderedList.Item>,
+      <UnorderedList.Item key={3}>
+        <div className="amsterdam-docs-card">
+          <Icon svg={PassportIcon} size="level-6" />
+          <Paragraph>Paspoort, ID-kaart en Rijbewijs</Paragraph>
+        </div>
+      </UnorderedList.Item>,
+      <UnorderedList.Item key={4}>
+        <div className="amsterdam-docs-card">
+          <Icon svg={DocumentEuroSignIcon} size="level-6" />
+          <Paragraph>Gemeentebelastingen</Paragraph>
+        </div>
+      </UnorderedList.Item>,
+      <UnorderedList.Item key={5}>
+        <div className="amsterdam-docs-card">
+          <Icon svg={AlertIcon} size="level-6" />
+          <Paragraph>Melding openbare ruimte en overlast</Paragraph>
+        </div>
+      </UnorderedList.Item>,
+      <UnorderedList.Item key={6}>
+        <div className="amsterdam-docs-card">
+          <Icon svg={HousingIcon} size="level-6" />
+          <Paragraph>Verhuizing doorgeven</Paragraph>
+        </div>
+      </UnorderedList.Item>,
+      <UnorderedList.Item key={7}>
+        <div className="amsterdam-docs-card">
+          <Icon svg={TrashBinIcon} size="level-6" />
+          <Paragraph>Grof afval</Paragraph>
+        </div>
+      </UnorderedList.Item>,
+      <UnorderedList.Item key={8}>
+        <div className="amsterdam-docs-card">
+          <Icon svg={AnnouncementIcon} size="level-6" />
+          <Paragraph>Kennisgevingen en bekendmakingen</Paragraph>
+        </div>
+      </UnorderedList.Item>,
+    ],
     markers: false,
   },
   argTypes: {
@@ -82,58 +131,6 @@ export const WithoutMarkers: Story = {
       table: { disable: true },
     },
   },
-  render: (args) => (
-    <UnorderedList {...args}>
-      <UnorderedList.Item key={1}>
-        <div className="amsterdam-docs-card">
-          <Icon svg={LocationIcon} size="level-6" />
-          <Paragraph>Stadsloket: locaties en openingstijden</Paragraph>
-        </div>
-      </UnorderedList.Item>
-      <UnorderedList.Item key={2}>
-        <div className="amsterdam-docs-card">
-          <Icon svg={CarIcon} size="level-6" />
-          <Paragraph>Parkeren + Reizen (P+R)</Paragraph>
-        </div>
-      </UnorderedList.Item>
-      <UnorderedList.Item key={3}>
-        <div className="amsterdam-docs-card">
-          <Icon svg={PassportIcon} size="level-6" />
-          <Paragraph>Paspoort, ID-kaart en Rijbewijs</Paragraph>
-        </div>
-      </UnorderedList.Item>
-      <UnorderedList.Item key={4}>
-        <div className="amsterdam-docs-card">
-          <Icon svg={DocumentEuroSignIcon} size="level-6" />
-          <Paragraph>Gemeentebelastingen</Paragraph>
-        </div>
-      </UnorderedList.Item>
-      <UnorderedList.Item key={5}>
-        <div className="amsterdam-docs-card">
-          <Icon svg={AlertIcon} size="level-6" />
-          <Paragraph>Melding openbare ruimte en overlast</Paragraph>
-        </div>
-      </UnorderedList.Item>
-      <UnorderedList.Item key={6}>
-        <div className="amsterdam-docs-card">
-          <Icon svg={HousingIcon} size="level-6" />
-          <Paragraph>Verhuizing doorgeven</Paragraph>
-        </div>
-      </UnorderedList.Item>
-      <UnorderedList.Item key={7}>
-        <div className="amsterdam-docs-card">
-          <Icon svg={TrashBinIcon} size="level-6" />
-          <Paragraph>Grof afval</Paragraph>
-        </div>
-      </UnorderedList.Item>
-      <UnorderedList.Item key={8}>
-        <div className="amsterdam-docs-card">
-          <Icon svg={AnnouncementIcon} size="level-6" />
-          <Paragraph>Kennisgevingen en bekendmakingen</Paragraph>
-        </div>
-      </UnorderedList.Item>
-    </UnorderedList>
-  ),
 }
 
 export const InverseColor: Story = {

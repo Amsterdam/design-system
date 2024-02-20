@@ -15,6 +15,7 @@ const meta = {
   title: 'Text/Ordered List',
   component: OrderedList,
   args: {
+    children: orderedListItems,
     inverseColor: false,
     markers: undefined,
   },
@@ -35,9 +36,7 @@ export default meta
 
 type Story = StoryObj<typeof meta>
 
-export const Default: Story = {
-  render: (args) => <OrderedList {...args}>{orderedListItems}</OrderedList>,
-}
+export const Default: Story = {}
 
 export const TwoLevels: Story = {
   render: (args) => (
@@ -65,42 +64,30 @@ export const TwoLevels: Story = {
 
 export const StartingNumber: Story = {
   args: {
+    children: [
+      <OrderedList.Item key={6}>Zes</OrderedList.Item>,
+      <OrderedList.Item key={7}>Zeven</OrderedList.Item>,
+      <OrderedList.Item key={8}>Acht</OrderedList.Item>,
+    ],
     start: 6,
   },
-  render: (args) => (
-    <OrderedList {...args}>
-      <OrderedList.Item key={6}>Zes</OrderedList.Item>
-      <OrderedList.Item key={7}>Zeven</OrderedList.Item>
-      <OrderedList.Item key={8}>Acht</OrderedList.Item>
-    </OrderedList>
-  ),
 }
 
 export const DescendingNumbers: Story = {
   args: {
+    children: [
+      <OrderedList.Item key={3}>Drie</OrderedList.Item>,
+      <OrderedList.Item key={2}>Twee</OrderedList.Item>,
+      <OrderedList.Item key={1}>Eén</OrderedList.Item>,
+    ],
     reversed: true,
     start: 3,
   },
-  render: (args) => (
-    <OrderedList {...args}>
-      <OrderedList.Item key={3}>Drie</OrderedList.Item>
-      <OrderedList.Item key={2}>Twee</OrderedList.Item>
-      <OrderedList.Item key={1}>Eén</OrderedList.Item>
-    </OrderedList>
-  ),
 }
 
 export const WithoutMarkers: Story = {
   args: {
-    markers: false,
-  },
-  argTypes: {
-    inverseColor: {
-      table: { disable: true },
-    },
-  },
-  render: (args) => (
-    <OrderedList {...args}>
+    children: [
       <OrderedList.Item key={0}>
         <Heading size="level-4">Weg met steen, hallo extra groen en koelte</Heading>
         <Paragraph>
@@ -108,7 +95,7 @@ export const WithoutMarkers: Story = {
           stad in de zomer. Een paar voorbeelden.
         </Paragraph>
         <Paragraph size="small">16 augustus 2023</Paragraph>
-      </OrderedList.Item>
+      </OrderedList.Item>,
       <OrderedList.Item key={1}>
         <Heading size="level-4">Amsterdam bindt de strijd aan met lawaaierige voertuigen</Heading>
         <Paragraph>
@@ -116,7 +103,7 @@ export const WithoutMarkers: Story = {
           motoren en auto’s tegen te gaan.
         </Paragraph>
         <Paragraph size="small">10 augustus 2023</Paragraph>
-      </OrderedList.Item>
+      </OrderedList.Item>,
       <OrderedList.Item key={2}>
         <Heading size="level-4">Een prachtroute door de wonderlijke Baarsjes</Heading>
         <Paragraph>
@@ -124,9 +111,15 @@ export const WithoutMarkers: Story = {
           laten zien hoe het was en hoe het nu is.
         </Paragraph>
         <Paragraph size="small">8 augustus 2023</Paragraph>
-      </OrderedList.Item>
-    </OrderedList>
-  ),
+      </OrderedList.Item>,
+    ],
+    markers: false,
+  },
+  argTypes: {
+    inverseColor: {
+      table: { disable: true },
+    },
+  },
 }
 
 export const InverseColor: Story = {
