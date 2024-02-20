@@ -4,13 +4,13 @@ export type TabsContextValue = {
   activeTab: number
   // eslint-disable-next-line no-unused-vars
   updateTab: (tab: number) => void
+  tabsId?: string
 }
 
 const defaultValues: TabsContextValue = {
   activeTab: 0,
   updateTab: () => {},
+  tabsId: undefined,
 }
 
-const TabsContext = createContext(defaultValues)
-
-export default TabsContext
+export const TabsContext = createContext(defaultValues)

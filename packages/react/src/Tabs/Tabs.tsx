@@ -4,10 +4,10 @@
  */
 
 import clsx from 'clsx'
-import { forwardRef, useImperativeHandle, useRef, useState } from 'react'
+import { forwardRef, useId, useImperativeHandle, useRef, useState } from 'react'
 import type { ForwardedRef, ForwardRefExoticComponent, HTMLAttributes, PropsWithChildren, RefAttributes } from 'react'
 import { TabsButton } from './TabsButton'
-import TabsContext from './TabsContext'
+import { TabsContext } from './TabsContext'
 import { TabsList } from './TabsList'
 import { TabsPanel } from './TabsPanel'
 import useFocusWithArrows from '../common/useFocusWithArrows'
@@ -25,6 +25,7 @@ type TabsComponent = {
 
 export const Tabs = forwardRef(
   ({ children, className, ...restProps }: TabsProps, ref: ForwardedRef<HTMLDivElement>) => {
+    const tabsId = useId()
     const [activeTab, setActiveTab] = useState(0)
     const innerRef = useRef<HTMLDivElement>(null)
 
@@ -38,11 +39,12 @@ export const Tabs = forwardRef(
     const { keyDown } = useFocusWithArrows(innerRef, true, false, true)
 
     return (
-      <TabsContext.Provider value={{ activeTab, updateTab }}>
+      <TabsContext.Provider value={{ activeTab, updateTab, tabsId }}>
         <div
           {...restProps}
           role="tabs"
           ref={innerRef}
+          id={tabsId}
           onKeyDown={keyDown}
           className={clsx('amsterdam-tabs', className)}
         >

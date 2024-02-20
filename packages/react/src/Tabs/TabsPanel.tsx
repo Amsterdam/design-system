@@ -6,7 +6,7 @@
 import clsx from 'clsx'
 import { forwardRef, useContext } from 'react'
 import type { ForwardedRef, HTMLAttributes, PropsWithChildren } from 'react'
-import TabsContext from './TabsContext'
+import { TabsContext } from './TabsContext'
 
 export type TabsPanelProps = {
   tab: number
@@ -14,7 +14,7 @@ export type TabsPanelProps = {
 
 export const TabsPanel = forwardRef(
   ({ tab, children, className, ...restProps }: TabsPanelProps, ref: ForwardedRef<HTMLDivElement>) => {
-    const { activeTab } = useContext(TabsContext)
+    const { activeTab, tabsId } = useContext(TabsContext)
 
     if (tab !== activeTab) {
       return null
@@ -24,7 +24,8 @@ export const TabsPanel = forwardRef(
       <div
         {...restProps}
         role="tabpanel"
-        id={`panel-${tab}`}
+        aria-labelledby={`${tabsId}-tab-${tab}`}
+        id={`${tabsId}-panel-${tab}`}
         tabIndex={0}
         ref={ref}
         className={clsx('amsterdam-tabs__panel', className)}
