@@ -17,11 +17,6 @@ const meta = {
     busy: false,
   },
   argTypes: {
-    children: {
-      table: {
-        disable: true,
-      },
-    },
     disabled: { control: 'boolean' },
     variant: {
       control: 'select',

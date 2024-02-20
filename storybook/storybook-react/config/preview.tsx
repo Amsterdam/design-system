@@ -4,6 +4,12 @@ import '@amsterdam/design-system-css/dist/index.css'
 import '../../storybook-overrides.css'
 import { viewports } from './viewports'
 
+export const argTypes = {
+  children: {
+    table: { disable: true },
+  },
+}
+
 // Set language to Dutch for Canvas and Stories
 export const decorators = [
   (Story: any) => (
