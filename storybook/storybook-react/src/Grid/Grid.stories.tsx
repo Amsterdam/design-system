@@ -31,7 +31,7 @@ const cellMeta = {
   component: Grid.Cell,
   argTypes: {
     as: {
-      control: { type: 'inline-radio' },
+      control: { type: 'radio' },
       options: ['article', 'div', 'section'],
     },
     span: {

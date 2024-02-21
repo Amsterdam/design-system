@@ -415,6 +415,9 @@ importers:
       '@storybook/addon-links':
         specifier: 7.6.17
         version: 7.6.17(react@18.2.0)
+      '@storybook/addon-themes':
+        specifier: 7.6.17
+        version: 7.6.17
       '@storybook/addons':
         specifier: 7.6.17
         version: 7.6.17(react-dom@18.2.0)(react@18.2.0)
@@ -4309,6 +4312,12 @@ packages:
     resolution: {integrity: sha512-9o9JXDsYjNaDgz/cY5+jv694+aik/1aiRGGvsCv68e1p/ob0glkGKav4lnJe2VJqD+gCmaARoD8GOJlhoQl8JQ==}
     dependencies:
       '@storybook/global': 5.0.0
+      ts-dedent: 2.2.0
+    dev: true
+
+  /@storybook/addon-themes@7.6.17:
+    resolution: {integrity: sha512-i/dI3GKlJmQv0Di9HM3fKJvFIab55kvva0vXCGBkqSw3wYoZuq++npkWeDnjjZUvggV12H2RTdGqYwMCXB/GHg==}
+    dependencies:
       ts-dedent: 2.2.0
     dev: true
 
