@@ -10,7 +10,7 @@ const meta = {
   title: 'Forms/Checkbox',
   component: Checkbox,
   args: {
-    children: 'Tekst',
+    children: 'Checkbox label',
     disabled: false,
     indeterminate: false,
     invalid: false,
@@ -27,11 +27,7 @@ export default meta
 
 type Story = StoryObj<typeof meta>
 
-export const Default: Story = {
-  args: {
-    children: 'Werk en inkomen',
-  },
-}
+export const Default: Story = {}
 
 export const LongLabel: Story = {
   args: {

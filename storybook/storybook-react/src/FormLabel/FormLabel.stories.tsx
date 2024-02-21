@@ -10,7 +10,7 @@ const meta = {
   title: 'Forms/Form Label',
   component: FormLabel,
   args: {
-    children: 'Tekst',
+    children: 'Form label',
   },
   argTypes: {
     children: {
@@ -23,8 +23,4 @@ export default meta
 
 type Story = StoryObj<typeof meta>
 
-export const Default: Story = {
-  args: {
-    children: 'Label',
-  },
-}
+export const Default: Story = {}

@@ -12,7 +12,7 @@ const meta = {
   title: 'Navigation/Link',
   component: Link,
   args: {
-    children: 'Tekst',
+    children: 'Link label',
     href: '#',
     onBackground: undefined, // Workaround to avoid 'onBackground' being set to an empty function
   },
