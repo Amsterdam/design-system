@@ -9,12 +9,19 @@ import type { ForwardedRef, ForwardRefExoticComponent, RefAttributes, SVGProps }
 import {
   LogoAmsterdam,
   LogoGgdAmsterdam,
+  LogoMuseumWeesp,
   LogoStadsarchief,
   LogoStadsbankVanLening,
   LogoVgaVerzekeringen,
 } from './brand'
 
-export type LogoBrand = 'amsterdam' | 'ggd-amsterdam' | 'stadsarchief' | 'stadsbank-van-lening' | 'vga-verzekeringen'
+export type LogoBrand =
+  | 'amsterdam'
+  | 'ggd-amsterdam'
+  | 'stadsarchief'
+  | 'stadsbank-van-lening'
+  | 'vga-verzekeringen'
+  | 'museum-weesp'
 
 export type LogoProps = {
   brand?: LogoBrand
@@ -29,6 +36,7 @@ const logoConfig: Record<
   stadsarchief: LogoStadsarchief,
   'stadsbank-van-lening': LogoStadsbankVanLening,
   'vga-verzekeringen': LogoVgaVerzekeringen,
+  'museum-weesp': LogoMuseumWeesp,
 }
 
 export const Logo = forwardRef(
