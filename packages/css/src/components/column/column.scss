@@ -11,6 +11,6 @@
 
 @each $size, $label in $amsterdam-sizes {
   .amsterdam-column--#{$label} {
-    gap: var(--amsterdam-column-gap-#{size});
+    gap: var(--amsterdam-column-gap-#{$size});
   }
 }
