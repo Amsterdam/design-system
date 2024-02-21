@@ -21,20 +21,20 @@ type GridPaddingSize = 'small' | 'medium' | 'large'
 type GridPaddingVerticalProp = {
   paddingBottom?: never
   paddingTop?: never
-  /** The amount of vertical whitespace above and below the grid. */
+  /** The amount of vertical white space above and below the grid. */
   paddingVertical?: GridPaddingSize
 }
 
 type GridPaddingTopAndBottomProps = {
-  /** The amount of vertical whitespace below the grid. */
+  /** The amount of vertical white space below the grid. */
   paddingBottom?: GridPaddingSize
-  /** The amount of vertical whitespace above the grid. */
+  /** The amount of vertical white space above the grid. */
   paddingTop?: GridPaddingSize
   paddingVertical?: never
 }
 
 export type GridProps = {
-  /** The amount of vertical whitespace between rows of the grid. */
+  /** The amount of vertical white space between rows of the grid. */
   gapVertical?: 'none' | 'small' | 'large'
 } & (GridPaddingVerticalProp | GridPaddingTopAndBottomProps) &
   PropsWithChildren<HTMLAttributes<HTMLDivElement>>

@@ -15,8 +15,8 @@ There are four types of notifications:
 
 - Place an orange Alert directly below the Header for important and urgent information.
   Examples: system outage or changes in the opening hours of a City Office.
-- Ensure sufficient whitespace around the Alert.
-  The grid’s whitespace is a good reference – place the Alert in its own cell.
+- Ensure sufficient white space around the Alert.
+  The grid’s white space is a good reference – place the Alert in its own cell.
 - By default, the Alert cannot be closed.
   This functionality can be added optionally.
 - Optionally, the title can be omitted.

@@ -24,7 +24,7 @@ describe('Grid', () => {
     expect(component).toHaveClass('amsterdam-grid')
   })
 
-  it('renders a medium vertical spacing class name', () => {
+  it('renders a medium vertical padding class name', () => {
     const { container } = render(<Grid paddingVertical="medium" />)
     const component = container.querySelector(':only-child')
     expect(component).toHaveClass('amsterdam-grid--padding-vertical--medium')

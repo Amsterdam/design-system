@@ -81,7 +81,7 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 * Add common link tokens and use them in all link-like components ([#814](https://github.com/Amsterdam/design-system/issues/814)) ([9b5bd55](https://github.com/Amsterdam/design-system/commit/9b5bd55d0b118f246b828e023b75be1e84f98af4))
 * Allow end-alignment on page menu ([#835](https://github.com/Amsterdam/design-system/issues/835)) ([035ca08](https://github.com/Amsterdam/design-system/commit/035ca08842ee8ad955b260fb26693fe739801df4))
-* Allow small and large vertical whitespace on grids ([#821](https://github.com/Amsterdam/design-system/issues/821)) ([aa54eb9](https://github.com/Amsterdam/design-system/commit/aa54eb911bfed633856a74e0be4e11d4ad8f3ebc))
+* Allow small and large vertical white space on grids ([#821](https://github.com/Amsterdam/design-system/issues/821)) ([aa54eb9](https://github.com/Amsterdam/design-system/commit/aa54eb911bfed633856a74e0be4e11d4ad8f3ebc))
 * Update typography system and values, implement compact theme ([#803](https://github.com/Amsterdam/design-system/issues/803)) ([9b087ec](https://github.com/Amsterdam/design-system/commit/9b087ec5c6e75dfafadcdcde710747ef63951917))
 
 ### Bug Fixes
