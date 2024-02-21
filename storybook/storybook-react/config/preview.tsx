@@ -15,10 +15,10 @@ export const decorators = [
   ),
   withThemeByClassName({
     themes: {
-      spacious: 'amsterdam-theme--spacious',
-      compact: 'amsterdam-theme--compact',
+      Spacious: 'amsterdam-theme--spacious',
+      Compact: 'amsterdam-theme--compact',
     },
-    defaultTheme: 'spacious',
+    defaultTheme: 'Spacious',
   }),
 ]
 
