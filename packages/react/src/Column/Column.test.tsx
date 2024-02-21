@@ -39,10 +39,18 @@ describe('Column', () => {
     expect(component).toHaveClass('amsterdam-column--medium extra')
   })
 
-  it('renders a custom tag', () => {
+  it('renders with an article tag', () => {
     render(<Column as="article" />)
 
     const component = screen.getByRole('article')
+
+    expect(component).toBeInTheDocument()
+  })
+
+  it('renders with a section tag', () => {
+    const { container } = render(<Column as="section" />)
+
+    const component = container.querySelector('section')
 
     expect(component).toBeInTheDocument()
   })
