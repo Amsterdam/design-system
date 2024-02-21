@@ -11,20 +11,16 @@ const meta = {
   title: 'Buttons/Button',
   component: Button,
   args: {
-    children: 'Default',
+    children: 'Button label',
     variant: 'primary',
     disabled: false,
     busy: false,
   },
   argTypes: {
     children: {
-      table: {
-        disable: true,
-      },
+      table: { disable: false },
     },
-    disabled: {
-      control: 'boolean',
-    },
+    disabled: { control: 'boolean' },
     variant: {
       control: 'select',
       options: ['primary', 'secondary', 'tertiary'],
@@ -36,28 +32,27 @@ export default meta
 
 type Story = StoryObj<typeof meta>
 
-export const Primary: Story = {
-  args: {
-    children: 'Primary',
-  },
-}
+export const Primary: Story = {}
 
 export const Secondary: Story = {
   args: {
-    children: 'Secondary',
     variant: 'secondary',
   },
 }
 
 export const Tertiary: Story = {
   args: {
-    children: 'Tertiary',
     variant: 'tertiary',
   },
 }
 
 export const ButtonWithAnIcon: Story = {
   args: {
-    children: ['Primary', <Icon key="icon" svg={ShareIcon} size="level-5" />],
+    children: ['Button label', <Icon key="icon" svg={ShareIcon} size="level-5" />],
+  },
+  argTypes: {
+    children: {
+      table: { disable: true },
+    },
   },
 }

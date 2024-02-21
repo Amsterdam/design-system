@@ -29,11 +29,6 @@ const meta = {
     onClose: {
       action: 'onClose',
     },
-    children: {
-      control: {
-        disable: true,
-      },
-    },
   },
 } satisfies Meta<typeof Alert>
 
