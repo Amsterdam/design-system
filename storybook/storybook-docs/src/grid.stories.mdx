@@ -18,6 +18,8 @@ In windows up to 576 pixels wide, the grid has 4 columns.
 Up to a width of 1088 pixels, it has 8 columns.
 At that point and beyond, it has 12 columns.
 
+We refer to these three variants as the narrow, medium, and wide grid.
+
 The breakpoints are based on steps of 256 pixels, starting with a base of 64 pixels.
 So, 576 = 64 + 2 × 256 and 1088 = 64 + 4 × 256.
 
@@ -80,7 +82,7 @@ No elements are placed over these margins.
 In the wide grid, applications have a vertical menu bar on the left side.
 This is next to the grid, not inside, and has a fixed width of 112 pixels.
 
-The menu is placed horizontally below the header in the 4- and 8-column grids.
+The menu is placed horizontally below the header in the medium and narrow grids.
 In this context, the grid takes up the entire width of the window.
 
 ### Maximum width
@@ -94,7 +96,7 @@ The grid has this width in windows of at least 1600 pixels wide – the margins 
 Applications often use the entire width of the window.
 
 There is no explicit minimum width.
-Even in windows narrower than 320 pixels, as far as they occur in practice,
+Even in windows narrower than 320 pixels, to the extent that they occur in practice,
 the grid continues to scale to the available width.
 For convenience, the width of 320 plays a role in the documentation.
 
@@ -109,19 +111,19 @@ Again, between these widths, the widths grow continuously.
 
 #### Spacious
 
-| Grid       | Window width | Number of columns | Column width | White space width | Margin width | Grid width |
-| :--------- | -----------: | ----------------: | -----------: | ----------------: | -----------: | ---------: |
-| 4 columns  |          320 |                 4 |           56 |                16 |           24 |        272 |
-| 8 columns  |          576 |                 8 |           42 |                24 |           36 |        504 |
-| 12 columns |         1088 |                12 |           44 |                40 |           60 |        968 |
+| Breakpoint | From window width | Number of columns | Column width | Gap width | Margin width | Grid width |
+| :--------- | ----------------: | ----------------: | -----------: | --------: | -----------: | ---------: |
+| narrow     |               320 |                 4 |           56 |        16 |           24 |        272 |
+| medium     |               576 |                 8 |           42 |        24 |           36 |        504 |
+| wide       |              1088 |                12 |           44 |        40 |           60 |        968 |
 
 #### Compact
 
-| Grid       | Window width | Number of columns | Menu bar width | Column width | White space width | Margin width | Grid width |
-| :--------- | -----------: | ----------------: | -------------: | -----------: | ----------------: | -----------: | ---------: |
-| 4 columns  |          320 |                 4 |              0 |           60 |                16 |           16 |        288 |
-| 8 columns  |          576 |                 8 |              0 |           54 |                16 |           16 |        544 |
-| 12 columns |         1088 |                12 |            112 |           64 |                16 |           16 |        944 |
+| Breakpoint | From window width | Number of columns | Menu bar width | Column width | Gap width | Margin width | Grid width |
+| :--------- | ----------------: | ----------------: | -------------: | -----------: | --------: | -----------: | ---------: |
+| narrow     |               320 |                 4 |              0 |           60 |        16 |           16 |        288 |
+| medium     |               576 |                 8 |              0 |           54 |        16 |           16 |        544 |
+| wide       |              1088 |                12 |            112 |           64 |        16 |           16 |        944 |
 
 ### Not tied to devices
 
