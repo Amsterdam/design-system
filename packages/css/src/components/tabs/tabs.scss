@@ -12,12 +12,6 @@
   display: flex;
   overflow-x: auto;
   position: relative;
-
-  &::-webkit-scrollbar {
-    background: transparent;
-    height: 0;
-    scrollbar-width: none;
-  }
 }
 
 .amsterdam-tabs__button {
