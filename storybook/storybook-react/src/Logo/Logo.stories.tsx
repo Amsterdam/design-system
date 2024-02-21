@@ -17,10 +17,10 @@ const meta = {
       options: [
         'amsterdam',
         'ggd-amsterdam',
+        'museum-weesp',
         'stadsarchief',
         'stadsbank-van-lening',
         'vga-verzekeringen',
-        'museum-weesp',
       ],
     },
   },

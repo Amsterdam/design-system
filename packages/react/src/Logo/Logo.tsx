@@ -18,10 +18,10 @@ import {
 export type LogoBrand =
   | 'amsterdam'
   | 'ggd-amsterdam'
+  | 'museum-weesp'
   | 'stadsarchief'
   | 'stadsbank-van-lening'
   | 'vga-verzekeringen'
-  | 'museum-weesp'
 
 export type LogoProps = {
   brand?: LogoBrand
@@ -33,10 +33,10 @@ const logoConfig: Record<
 > = {
   amsterdam: LogoAmsterdam,
   'ggd-amsterdam': LogoGgdAmsterdam,
+  'museum-weesp': LogoMuseumWeesp,
   stadsarchief: LogoStadsarchief,
   'stadsbank-van-lening': LogoStadsbankVanLening,
   'vga-verzekeringen': LogoVgaVerzekeringen,
-  'museum-weesp': LogoMuseumWeesp,
 }
 
 export const Logo = forwardRef(
