@@ -43,7 +43,7 @@ export const CustomTagName: Story = {
   args: {
     as: 'section',
     children: [
-      <Card key="2023-07-01">
+      <Card key={1}>
         <Card.HeadingGroup tagline="Nieuws">
           <Heading level={2} size="level-3">
             <Card.Link href="#">Nieuwe manieren om afval op te halen</Card.Link>
@@ -55,7 +55,7 @@ export const CustomTagName: Story = {
         </Paragraph>
         <Paragraph size="small">Gepubliceerd: 1 juli 2023</Paragraph>
       </Card>,
-      <Card key="2023-06-15">
+      <Card key={2}>
         <Card.HeadingGroup tagline="Nieuws">
           <Heading level={2} size="level-3">
             <Card.Link href="#">Verlenging proef ophalen afval per boot</Card.Link>
