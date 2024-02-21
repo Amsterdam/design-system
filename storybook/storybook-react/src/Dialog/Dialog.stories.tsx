@@ -32,11 +32,6 @@ const meta = {
         disable: true,
       },
     },
-    children: {
-      table: {
-        disable: true,
-      },
-    },
   },
   parameters: {
     backgrounds: {
