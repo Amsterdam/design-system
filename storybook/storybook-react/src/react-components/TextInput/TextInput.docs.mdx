@@ -1,0 +1,34 @@
+import { Canvas, Controls, Markdown, Meta, Primary } from "@storybook/blocks";
+import * as TextInputStories from "./TextInput.stories.tsx";
+import README from "../../../../../packages/css/src/components/text-input/README.md?raw";
+
+<Meta of={TextInputStories} />
+
+<Markdown>{README}</Markdown>
+
+<Primary />
+
+<Controls />
+
+## Examples
+
+### Placeholder
+
+It is possible to place placeholder text in the text input.
+A placeholder should not contain crucial information.
+Using a suggestion or example can help clarify something for the user.
+Suggestions are not a substitute for an explanation or instruction provided in an error message or description.
+Placeholder text disappears as soon as the user starts entering data.
+
+<Canvas of={TextInputStories.Placeholder} />
+
+### Invalid
+
+Whenever possible, use real-time validation of data when filling out forms.
+Incorrectly filled input fields become visible immediately.
+
+<Canvas of={TextInputStories.Invalid} />
+
+### Disabled
+
+<Canvas of={TextInputStories.Disabled} />

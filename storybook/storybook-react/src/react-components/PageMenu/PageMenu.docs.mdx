@@ -1,0 +1,20 @@
+import { Canvas, Markdown, Meta, Primary } from "@storybook/blocks";
+import * as PageMenuStories from "./PageMenu.stories.tsx";
+import README from "../../../../../packages/css/src/components/page-menu/README.md?raw";
+
+<Meta of={PageMenuStories} />
+
+<Markdown>{README}</Markdown>
+
+## Examples
+
+### Default
+
+<Primary />
+
+## Right Alignment
+
+It may happen that all menu items do not fit on a single line, for example, in a medium-width window or with zoomed-in text.
+If the menu itself is right-aligned, as is often the case in headers, then you should also right-align the items within it.
+
+<Canvas of={PageMenuStories.AlignEnd} />

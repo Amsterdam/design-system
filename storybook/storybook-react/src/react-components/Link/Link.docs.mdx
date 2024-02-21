@@ -1,0 +1,37 @@
+import { Canvas, Controls, Markdown, Meta, Primary } from "@storybook/blocks";
+import * as LinkStories from "./Link.stories.tsx";
+import README from "../../../../../packages/css/src/components/link/README.md?raw";
+
+<Meta of={LinkStories} />
+
+<Markdown>{README}</Markdown>
+
+<Primary />
+
+<Controls />
+
+## Examples
+
+### Standalone Links
+
+Place standalone links directly after a piece of content.
+Don’t use them in sentences or paragraphs.
+They should never have an associated icon.
+
+<Canvas of={LinkStories.Standalone} />
+
+### Inline Links
+
+Use inline links within sentences or paragraphs of text.
+An icon can be added to inline links, positioned after the link.
+Don’t use too many inline links on the same page, as it may confuse the user.
+
+<Canvas of={LinkStories.Inline} />
+
+### On Dark Background
+
+<Canvas of={LinkStories.onDarkBackground} />
+
+### On Light Background
+
+<Canvas of={LinkStories.onLightBackground} />

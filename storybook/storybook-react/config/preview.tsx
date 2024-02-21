@@ -37,7 +37,12 @@ export const parameters = {
   },
   options: {
     storySort: {
-      order: ['Buttons', 'Containers', 'Feedback', 'Forms', 'Layout', 'Media', 'Navigation', 'Text'],
+      order: [
+        'Docs',
+        ['Introduction', 'Assets', 'Design Guidelines'],
+        'React Components',
+        ['Buttons', 'Containers', 'Feedback', 'Forms', 'Layout', 'Media', 'Navigation', 'Text'],
+      ],
     },
   },
   viewport: {

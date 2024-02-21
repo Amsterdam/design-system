@@ -1,0 +1,41 @@
+import { Canvas, Controls, Markdown, Meta, Primary } from "@storybook/blocks";
+import * as ParagraphStories from "./Paragraph.stories.tsx";
+import README from "../../../../../packages/css/src/components/paragraph/README.md?raw";
+
+<Meta of={ParagraphStories} />
+
+<Markdown>{README}</Markdown>
+
+<Primary />
+
+<Controls />
+
+## Examples
+
+### Default
+
+<Canvas of={ParagraphStories.Default} />
+
+### Large
+
+Use this size only for the introductory text of a page.
+It is not mandatory to use an introductory text, and there should be a maximum of 1 per page.
+
+An introductory text is a concise description of the page’s content.
+Use this text to entice the reader to continue reading.
+
+<Canvas of={ParagraphStories.Large} />
+
+### Small
+
+Use this size for auxiliary texts, captions, metadata, etc.
+Keep these texts short.
+
+<Canvas of={ParagraphStories.Small} />
+
+### Inverse colour
+
+Set the `inverseColor` prop if the Paragraph sits on a dark background.
+This ensures the colour of the text provides enough contrast.
+
+<Canvas of={ParagraphStories.InvertedColor} />

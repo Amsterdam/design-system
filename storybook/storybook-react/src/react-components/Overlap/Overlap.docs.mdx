@@ -1,0 +1,24 @@
+import { Markdown, Meta, Primary } from "@storybook/blocks";
+import * as OverlapStories from "./Overlap.stories.tsx";
+import README from "../../../../../packages/css/src/components/overlap/README.md?raw";
+
+<Meta of={OverlapStories} />
+
+<Markdown>{README}</Markdown>
+
+## Example
+
+### Hero Image with Search Field
+
+This allows for the use of a mood-setting image as a background.
+A [Grid](?path=/docs/react_layout-grid--docs) provides horizontal spacing on both sides and columns for layout.
+Note: the library does not yet offer an option to vertically center the form.
+
+<Primary />
+
+#### Guidelines
+
+- First, implement the underlying component.
+- Follow [the general guidelines for images](?path=/docs/react_media-image--docs#guidelines).
+- Use a sufficiently large image.
+  The aspect ratio of 32:9 is most suitable.

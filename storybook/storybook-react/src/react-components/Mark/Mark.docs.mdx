@@ -1,0 +1,11 @@
+import { Markdown, Meta, Primary } from "@storybook/blocks";
+import * as MarkStories from "./Mark.stories.tsx";
+import README from "../../../../../packages/css/src/components/mark/README.md?raw";
+
+<Meta of={MarkStories} />
+
+<Markdown>{README}</Markdown>
+
+## Example
+
+<Primary />
