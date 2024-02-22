@@ -24,8 +24,7 @@
         "gap": { "value": "1rem" }
       },
       "footer": {
-        "gap": { "value": "1rem" },
-        "padding-block": { "value": "1.5rem 0" }
+        "gap": { "value": "1rem" }
       }
     }
   }
