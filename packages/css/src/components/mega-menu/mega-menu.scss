@@ -6,6 +6,8 @@
 .amsterdam-mega-menu__list-category {
   column-gap: var(--amsterdam-mega-menu-list-category-column-gap);
   column-width: var(--amsterdam-mega-menu-list-category-column-width);
+
+  // TODO Move to bottom margin of heading
   padding-block-start: var(--amsterdam-mega-menu-list-category-padding-block-start);
 
   &:not(:last-child) {

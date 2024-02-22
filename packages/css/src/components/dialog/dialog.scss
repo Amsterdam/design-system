@@ -26,6 +26,8 @@
   gap: var(--amsterdam-dialog-form-gap);
   grid-template-rows: auto 1fr auto;
   max-block-size: var(--amsterdam-dialog-form-max-block-size);
+
+  // TODO Decide on these widths
   padding-block: var(--amsterdam-dialog-form-padding-block);
   padding-inline: var(--amsterdam-dialog-form-padding-inline);
 }
