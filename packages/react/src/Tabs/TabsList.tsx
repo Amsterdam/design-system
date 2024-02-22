@@ -7,7 +7,7 @@ import clsx from 'clsx'
 import { forwardRef } from 'react'
 import type { ForwardedRef, HTMLAttributes, PropsWithChildren } from 'react'
 
-export type TabsListProps = {} & PropsWithChildren<HTMLAttributes<HTMLDivElement>>
+export type TabsListProps = PropsWithChildren<HTMLAttributes<HTMLDivElement>>
 
 export const TabsList = forwardRef(
   ({ children, className, ...restProps }: TabsListProps, ref: ForwardedRef<HTMLDivElement>) => (

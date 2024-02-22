@@ -4,7 +4,7 @@
  */
 
 import clsx from 'clsx'
-import { forwardRef, useContext, useTransition } from 'react'
+import { forwardRef, startTransition, useContext } from 'react'
 import type { ButtonHTMLAttributes, ForwardedRef, PropsWithChildren } from 'react'
 import { TabsContext } from './TabsContext'
 
@@ -15,14 +15,14 @@ export type TabsButtonProps = {
 } & PropsWithChildren<ButtonHTMLAttributes<HTMLButtonElement>>
 
 export const TabsButton = forwardRef(
-  ({ label, tab = 0, className, isDisabled, ...restProps }: TabsButtonProps, ref: ForwardedRef<HTMLButtonElement>) => {
+  ({ label, tab = 0, className, ...restProps }: TabsButtonProps, ref: ForwardedRef<HTMLButtonElement>) => {
     const { activeTab, updateTab, tabsId } = useContext(TabsContext)
-    const [isPending, startTransition] = useTransition()
 
     return (
       <button
         {...restProps}
         role="tab"
+        id={`{tabsId}-tab-${tab}`}
         aria-controls={`${tabsId}-panel-${tab}`}
         aria-selected={activeTab === tab}
         tabIndex={activeTab === tab ? 0 : -1}
@@ -32,13 +32,7 @@ export const TabsButton = forwardRef(
             updateTab(tab)
           })
         }}
-        className={clsx(
-          'amsterdam-tabs__button',
-          activeTab === tab && 'amsterdam-tabs__button--selected',
-          isPending && 'amsterdam-tabs__button--pending',
-          isDisabled && 'amsterdam-tabs__button--disabled',
-          className,
-        )}
+        className={clsx('amsterdam-tabs__button', className)}
       >
         {label}
       </button>

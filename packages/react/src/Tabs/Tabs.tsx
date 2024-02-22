@@ -49,7 +49,6 @@ export const Tabs = forwardRef(
           {...restProps}
           role="tabs"
           ref={innerRef}
-          id={tabsId}
           onKeyDown={keyDown}
           className={clsx('amsterdam-tabs', className)}
         >

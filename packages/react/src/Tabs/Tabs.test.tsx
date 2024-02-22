@@ -56,4 +56,21 @@ describe('Tabs', () => {
     expect(screen.getByRole('tab', { selected: true })).toBeInTheDocument()
     expect(screen.getByRole('tabpanel')).toBeInTheDocument()
   })
+
+  it('should render its subcomponents', () => {
+    render(
+      <Tabs>
+        <Tabs.List>
+          <Tabs.Button tab={0} label="Tab 1" />
+          <Tabs.Button tab={1} label="Tab 2" />
+        </Tabs.List>
+        <Tabs.Panel tab={0}>Content 1</Tabs.Panel>
+        <Tabs.Panel tab={1}>Content 2</Tabs.Panel>
+      </Tabs>,
+    )
+
+    expect(screen.getByRole('tab', { name: 'Tab 1', selected: true })).toBeInTheDocument()
+    expect(screen.getByRole('tab', { name: 'Tab 2', selected: false })).toBeInTheDocument()
+    expect(screen.getByRole('tabpanel')).toBeInTheDocument()
+  })
 })

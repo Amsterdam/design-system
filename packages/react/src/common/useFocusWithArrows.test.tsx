@@ -13,8 +13,6 @@ describe('use focus with arrows', () => {
       const { keyDown } = useFocusWithArrows({
         ref: ref,
         rotating: rotate,
-        directChildrenOnly: false,
-        horizontally: false,
       })
       return (
         <div onKeyDown={keyDown} tabIndex={0} role="menu" ref={ref}>
