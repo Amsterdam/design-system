@@ -1,4 +1,4 @@
-import { Canvas, Markdown, Meta } from "@storybook/blocks";
+import { Canvas, Controls, Markdown, Meta, Primary } from "@storybook/blocks";
 import * as UnorderedListStories from "./UnorderedList.stories.tsx";
 import README from "../../../../../packages/css/src/components/unordered-list/README.md?raw";
 
@@ -10,34 +10,36 @@ import README from "../../../../../packages/css/src/components/unordered-list/RE
 
 ### Default
 
-An unordered list has square bullet points.
+Items of an unordered list have square markers.
 There is extra white space between the items.
 This provides better distinction between the items, especially when they consist of multiple lines of text.
 
-<Canvas of={UnorderedListStories.Default} />
+<Primary />
 
-### Two levels
+<Controls />
+
+### Two Levels
 
 A list can have one deeper level.
-In this case, an en dash is used as the bullet point.
+In this case, an en dash is used as the list item marker.
 It is left-aligned with the text of the higher-level item.
 
 <Canvas of={UnorderedListStories.TwoLevels} />
 
-### List without bullet points
+### Without Markers
 
 An overview of equivalent elements is also an unordered list.
-In such cases, use a list without bullet points to convey that semantics.
+In such cases, apply the list semantics while hiding markers.
 This helps screen readers understand and navigate the list.
 
 Note: In this variant, each item typically contains a container with titles and other text components.
-Therefore, this variant does not define typography for the items.
+Therefore, this variant does not define typography for the items and the `inverseColor` prop has no effect.
 
 This example is based on the top tasks on the homepage of the website:
 
 <Canvas of={UnorderedListStories.WithoutMarkers} />
 
-### Inverse colour
+### Inverse Colour
 
 Set the `inverseColor` prop if the List sits on a dark background.
 This ensures the colour of the text provides enough contrast.

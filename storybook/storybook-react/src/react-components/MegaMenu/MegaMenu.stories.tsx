@@ -12,13 +12,6 @@ const meta = {
   parameters: {
     layout: 'fullscreen',
   },
-  argTypes: {
-    children: {
-      table: {
-        disable: true,
-      },
-    },
-  },
   decorators: [
     (Story) => (
       <Screen>

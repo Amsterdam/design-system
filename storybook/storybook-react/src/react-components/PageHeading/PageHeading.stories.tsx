@@ -14,6 +14,9 @@ const meta = {
     inverseColor: false,
   },
   argTypes: {
+    children: {
+      table: { disable: false },
+    },
     inverseColor: { control: 'boolean' },
   },
 } satisfies Meta<typeof PageHeading>

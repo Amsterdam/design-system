@@ -20,11 +20,6 @@ const meta = {
       </LinkList.Link>
     )),
   },
-  argTypes: {
-    children: {
-      table: { disable: true },
-    },
-  },
 } satisfies Meta<typeof LinkList>
 
 export default meta
@@ -33,9 +28,6 @@ const linkMeta = {
   title: 'React Components/Navigation/Link List Link',
   component: LinkList.Link,
   argTypes: {
-    children: {
-      table: { disable: true },
-    },
     icon: {
       control: { type: 'select' },
       options: Object.keys(Icons),

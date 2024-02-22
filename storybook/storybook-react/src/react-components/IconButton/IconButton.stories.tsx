@@ -12,11 +12,12 @@ const meta = {
   component: IconButton,
   args: {
     label: 'Sluiten',
+    onBackground: undefined,
+    disabled: false,
+    size: undefined,
   },
   argTypes: {
-    disabled: {
-      control: 'boolean',
-    },
+    disabled: { control: 'boolean' },
     onBackground: {
       control: {
         type: 'radio',
@@ -27,8 +28,9 @@ const meta = {
     size: {
       control: {
         type: 'radio',
+        labels: { undefined: 'level-5' },
       },
-      options: ['level-3', 'level-4', 'level-5', 'level-6'],
+      options: ['level-3', 'level-4', undefined, 'level-6'],
     },
     svg: {
       control: {

@@ -25,11 +25,6 @@ const meta = {
       },
       options: ['blue', 'dark-blue', 'dark-green', 'green', 'magenta', 'orange', 'purple', 'yellow'],
     },
-    children: {
-      control: {
-        disable: true,
-      },
-    },
   },
   render: ({ as, color }) => (
     <Spotlight as={as} color={color}>

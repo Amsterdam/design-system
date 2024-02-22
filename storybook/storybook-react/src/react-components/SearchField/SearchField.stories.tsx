@@ -23,11 +23,6 @@ const meta = {
     },
   },
   argTypes: {
-    children: {
-      table: {
-        disable: true,
-      },
-    },
     label: {
       control: 'text',
     },

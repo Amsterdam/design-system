@@ -14,6 +14,9 @@ const meta = {
     href: '#',
   },
   argTypes: {
+    children: {
+      table: { disable: false },
+    },
     style: {
       table: {
         disable: true,

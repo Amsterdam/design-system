@@ -18,11 +18,6 @@ const meta = {
     headingLevel: 1,
   },
   argTypes: {
-    children: {
-      table: {
-        disable: true,
-      },
-    },
     headingLevel: {
       control: {
         type: 'radio',

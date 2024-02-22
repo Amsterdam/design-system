@@ -17,7 +17,7 @@ import {
 import type { Meta, StoryObj } from '@storybook/react'
 import { exampleUnorderedList } from '../shared/exampleContent'
 
-const unorderedList = exampleUnorderedList().map((text, index) => (
+const unorderedListItems = exampleUnorderedList().map((text, index) => (
   <UnorderedList.Item key={index}>{text}</UnorderedList.Item>
 ))
 
@@ -25,11 +25,21 @@ const meta = {
   title: 'React Components/Text/Unordered List',
   component: UnorderedList,
   args: {
-    children: unorderedList,
+    children: unorderedListItems,
+    inverseColor: false,
+    markers: undefined,
   },
   argTypes: {
+    inverseColor: { control: 'boolean' },
     markers: { control: 'boolean' },
   },
+  decorators: [
+    (Story, context) => (
+      <div className={context.args.inverseColor ? 'amsterdam-docs-dark-background' : undefined}>
+        <Story />
+      </div>
+    ),
+  ],
 } satisfies Meta<typeof UnorderedList>
 
 export default meta
@@ -39,27 +49,27 @@ type Story = StoryObj<typeof meta>
 export const Default: Story = {}
 
 export const TwoLevels: Story = {
-  args: {
-    children: [
+  render: (args) => (
+    <UnorderedList {...args}>
       <UnorderedList.Item key={1}>
         Stadsdeel West
-        <UnorderedList>
+        <UnorderedList {...args}>
           <UnorderedList.Item key={1.1}>Bos en Lommer</UnorderedList.Item>
           <UnorderedList.Item key={1.2}>Oud West / De Baarsjes</UnorderedList.Item>
           <UnorderedList.Item key={1.3}>Westerpark</UnorderedList.Item>
         </UnorderedList>
-      </UnorderedList.Item>,
+      </UnorderedList.Item>
       <UnorderedList.Item key={2}>
         Stadsdeel Nieuw-West
-        <UnorderedList>
+        <UnorderedList {...args}>
           <UnorderedList.Item key={2.1}>De Aker, Sloten en Nieuw Sloten</UnorderedList.Item>
           <UnorderedList.Item key={2.2}>Geuzenveld, Slotermeer en Sloterdijken</UnorderedList.Item>
           <UnorderedList.Item key={2.3}>Osdorp</UnorderedList.Item>
           <UnorderedList.Item key={2.4}>Slotervaart</UnorderedList.Item>
         </UnorderedList>
-      </UnorderedList.Item>,
-    ],
-  },
+      </UnorderedList.Item>
+    </UnorderedList>
+  ),
 }
 
 export const WithoutMarkers: Story = {
@@ -122,11 +132,16 @@ export const InverseColor: Story = {
   args: {
     inverseColor: true,
   },
-  decorators: [
-    (Story, context) => (
-      <div className={context.args.inverseColor ? 'amsterdam-docs-dark-background' : undefined}>
-        <Story />
-      </div>
-    ),
-  ],
+  render: (args) => (
+    <UnorderedList {...args}>
+      <UnorderedList.Item key={1}>
+        Stadsdeel West
+        <UnorderedList {...args}>
+          <UnorderedList.Item key={1.1}>Bos en Lommer</UnorderedList.Item>
+          <UnorderedList.Item key={1.2}>Oud West / De Baarsjes</UnorderedList.Item>
+          <UnorderedList.Item key={1.3}>Westerpark</UnorderedList.Item>
+        </UnorderedList>
+      </UnorderedList.Item>
+    </UnorderedList>
+  ),
 }

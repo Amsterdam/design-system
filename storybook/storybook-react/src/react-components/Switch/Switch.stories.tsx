@@ -9,6 +9,9 @@ import { Meta, StoryObj } from '@storybook/react'
 const meta = {
   title: 'React Components/Forms/Switch',
   component: Switch,
+  args: {
+    disabled: false,
+  },
   argTypes: {
     disabled: {
       control: 'boolean',
@@ -23,7 +26,6 @@ type Story = StoryObj<typeof meta>
 export const Default: Story = {
   args: {
     'aria-label': 'Default',
-    disabled: false,
   },
 }
 
@@ -34,7 +36,4 @@ export const WithFormLabel: Story = {
       <Switch {...args} id="switch-with-label" />
     </div>
   ),
-  args: {
-    disabled: false,
-  },
 }

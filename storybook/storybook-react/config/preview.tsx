@@ -6,6 +6,12 @@ import '../../storybook-overrides.css'
 import { withThemeByClassName } from '@storybook/addon-themes'
 import { viewports } from './viewports'
 
+export const argTypes = {
+  children: {
+    table: { disable: true },
+  },
+}
+
 // Set language to Dutch for Canvas and Stories
 export const decorators = [
   (Story: any) => (
@@ -34,6 +40,7 @@ export const parameters = {
       color: /(background|color)$/i,
       date: /Date$/,
     },
+    sort: 'alpha',
   },
   options: {
     storySort: {
