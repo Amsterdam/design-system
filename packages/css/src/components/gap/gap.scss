@@ -1,0 +1,16 @@
+/**
+ * @license EUPL-1.2+
+ * Copyright (c) 2024 Gemeente Amsterdam
+ */
+
+@import "../../common/size";
+
+[class|="amsterdam-gap-"] {
+  display: grid !important;
+}
+
+@each $size in map-keys($amsterdam-sizes) {
+  .amsterdam-gap--#{$size} {
+    gap: var(--amsterdam-gap-#{$size}) !important;
+  }
+}

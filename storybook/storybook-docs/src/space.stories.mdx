@@ -1,0 +1,42 @@
+import { Meta } from "@storybook/blocks";
+
+<Meta title="Docs/Design Guidelines/Space" />
+
+# Space
+
+## Between components
+
+Five sizes are available for white space between components.
+They are fluid and depend on the width of the window.
+
+The medium size is the default.
+Multiplication factors for the smaller and larger lengths are ¼, ½, 1½, and 2.
+
+The tables below show the resulting pixels widths at some reference widths.
+
+#### Spacious
+
+In spacious mode, the medium white space grows from 16 to 56 pixels between window widths of 320 and 1600.
+
+| Window width | Extra small | Small | Medium | Large | Extra large |
+| :----------: | :---------: | :---: | :----: | :---: | :---------: |
+|     320      |      4      |   8   | **16** |  24   |     32      |
+|     576      |      6      |  12   | **24** |  36   |     48      |
+|     1088     |     10      |  20   | **40** |  60   |     80      |
+|     1600     |     14      |  28   | **56** |  84   |     102     |
+
+#### Compact
+
+In compact mode, the medium white space grows from 16 to 40 pixels between window widths of 1088 and 2624.
+
+| Window width | Extra small | Small | Medium | Large | Extra large |
+| :----------: | :---------: | :---: | :----: | :---: | :---------: |
+|     1088     |      4      |   8   | **16** |  24   |     32      |
+|     1600     |      6      |  12   | **24** |  36   |     48      |
+|     2112     |      8      |  16   | **32** |  48   |     64      |
+|     2624     |     10      |  20   | **40** |  60   |     80      |
+
+## About the units we use
+
+We use pixels in our documentation on sizes to convey a more accurate mental image.
+In code, sizes are defined in relative units (like `rem`, `em`, `ex`, `vw`, `vh`, and `ch`) to make components more flexible and accessible.

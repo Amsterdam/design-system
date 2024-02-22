@@ -17,6 +17,9 @@ const meta = {
     inverseColor: false,
   },
   argTypes: {
+    children: {
+      table: { disable: false },
+    },
     size: {
       control: {
         type: 'radio',

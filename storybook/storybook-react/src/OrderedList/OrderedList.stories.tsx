@@ -7,19 +7,33 @@ import { Heading, OrderedList, Paragraph } from '@amsterdam/design-system-react'
 import type { Meta, StoryObj } from '@storybook/react'
 import { exampleOrderedList } from '../shared/exampleContent'
 
-const orderedList = exampleOrderedList().map((text, index) => <OrderedList.Item key={index}>{text}</OrderedList.Item>)
+const orderedListItems = exampleOrderedList().map((text, index) => (
+  <OrderedList.Item key={index}>{text}</OrderedList.Item>
+))
 
 const meta = {
   title: 'Text/Ordered List',
   component: OrderedList,
   args: {
-    children: orderedList,
-    inverseColor: undefined,
+    children: orderedListItems,
+    inverseColor: false,
     markers: undefined,
+    reversed: undefined,
+    start: undefined,
   },
   argTypes: {
+    inverseColor: { control: 'boolean' },
     markers: { control: 'boolean' },
+    reversed: { control: 'boolean' },
+    start: { control: 'number' },
   },
+  decorators: [
+    (Story, context) => (
+      <div className={context.args.inverseColor ? 'amsterdam-docs-dark-background' : undefined}>
+        <Story />
+      </div>
+    ),
+  ],
 } satisfies Meta<typeof OrderedList>
 
 export default meta
@@ -29,27 +43,27 @@ type Story = StoryObj<typeof meta>
 export const Default: Story = {}
 
 export const TwoLevels: Story = {
-  args: {
-    children: [
+  render: (args) => (
+    <OrderedList {...args}>
       <OrderedList.Item key={1}>
         Stadsdeel West
-        <OrderedList>
+        <OrderedList {...args}>
           <OrderedList.Item key={1.1}>Bos en Lommer</OrderedList.Item>
           <OrderedList.Item key={1.2}>Oud West / De Baarsjes</OrderedList.Item>
           <OrderedList.Item key={1.3}>Westerpark</OrderedList.Item>
         </OrderedList>
-      </OrderedList.Item>,
+      </OrderedList.Item>
       <OrderedList.Item key={2}>
         Stadsdeel Nieuw-West
-        <OrderedList>
+        <OrderedList {...args}>
           <OrderedList.Item key={2.1}>De Aker, Sloten en Nieuw Sloten</OrderedList.Item>
           <OrderedList.Item key={2.2}>Geuzenveld, Slotermeer en Sloterdijken</OrderedList.Item>
           <OrderedList.Item key={2.3}>Osdorp</OrderedList.Item>
           <OrderedList.Item key={2.4}>Slotervaart</OrderedList.Item>
         </OrderedList>
-      </OrderedList.Item>,
-    ],
-  },
+      </OrderedList.Item>
+    </OrderedList>
+  ),
 }
 
 export const StartingNumber: Story = {
@@ -111,13 +125,6 @@ export const InverseColor: Story = {
   args: {
     inverseColor: true,
   },
-  decorators: [
-    (Story, context) => (
-      <div className={context.args.inverseColor ? 'amsterdam-docs-dark-background' : undefined}>
-        <Story />
-      </div>
-    ),
-  ],
   render: (args) => (
     <OrderedList {...args}>
       <OrderedList.Item>

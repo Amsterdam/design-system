@@ -3,7 +3,7 @@
  * Copyright (c) 2023 Gemeente Amsterdam
  */
 
-/** Apply border box sizing, reset whitespace and list styles. */
+/** Apply border box sizing, reset white space and list styles. */
 @mixin reset {
   box-sizing: border-box;
   list-style-type: none;

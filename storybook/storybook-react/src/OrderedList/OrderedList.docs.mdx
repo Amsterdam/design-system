@@ -1,4 +1,4 @@
-import { Canvas, Markdown, Meta } from "@storybook/blocks";
+import { Canvas, Controls, Markdown, Meta, Primary } from "@storybook/blocks";
 import * as OrderedListStories from "./OrderedList.stories.tsx";
 import README from "../../../../packages/css/src/components/ordered-list/README.md?raw";
 
@@ -10,19 +10,21 @@ import README from "../../../../packages/css/src/components/ordered-list/README.
 
 ### Default
 
-The list uses ascending numbers as bullet points, providing enough space for numbers up to 99.
-Extra whitespace between items enhances the distinction, mainly when they consist of multiple lines of text.
+The list uses ascending numbers as markers, providing enough space for numbers up to 99.
+Extra white space between items enhances the distinction, mainly when they consist of multiple lines of text.
 
-<Canvas of={OrderedListStories.Default} />
+<Primary />
+
+<Controls />
 
 ### Two Levels
 
 A list may have one nested level.
-In this case, lowercase letters are used as bullet points.
+In this case, lowercase letters are used as markers.
 
 <Canvas of={OrderedListStories.TwoLevels} />
 
-### Higher Starting Number
+### Starting Number
 
 When necessary, the list can start with a higher number.
 Use the HTML attribute `start`.
@@ -36,20 +38,20 @@ Use the HTML attribute `reversed`.
 
 <Canvas of={OrderedListStories.DescendingNumbers} />
 
-### List Without Bullet Points
+### Without Markers
 
-An overview of articles or search results can be presented as an ordered list without bullet points.
-In such cases, use a list without bullet points to convey the semantic structure.
-This allows screen readers to assist in understanding and navigating the list.
+An overview of articles or search results can be presented as an ordered can be seen as an unordered list.
+In such cases, apply the list semantics while hiding markers.
+This helps screen readers understand and navigate the list.
 
 Note: each item typically contains a container with titles and other text components in this variant.
-Therefore, it does not define typography for the items.
+Therefore, it does not define typography for the items and the `inverseColor` prop has no effect.
 
 For example, here are three news articles:
 
 <Canvas of={OrderedListStories.WithoutMarkers} />
 
-### Inverse colour
+### Inverse Colour
 
 Set the `inverseColor` prop if the List sits on a dark background.
 This ensures the colour of the text provides enough contrast.
