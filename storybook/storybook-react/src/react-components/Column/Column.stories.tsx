@@ -13,7 +13,7 @@ const ThreeBoxes = Array.from(Array(3).keys()).map((i) => (
 ))
 
 const meta = {
-  title: 'Layout/Column',
+  title: 'React Components/Layout/Column',
   component: Column,
   args: {
     children: ThreeBoxes,
