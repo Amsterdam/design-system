@@ -25,8 +25,8 @@
 .amsterdam-table__cell,
 .amsterdam-table__header-cell {
   border-bottom: var(--amsterdam-table-cell-border-bottom);
-  padding-block: 1rem;
-  padding-inline: 1rem;
+  padding-block: var(--amsterdam-table-cell-padding-block);
+  padding-inline: var(--amsterdam-table-cell-padding-inline);
   text-align: start;
   vertical-align: top;
 }

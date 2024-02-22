@@ -8,6 +8,8 @@
       "line-height": { "value": "{amsterdam.typography.text-level.5.line-height}" },
       "button": {
         "outline-offset": { "value": "{amsterdam.focus.outline-offset}" },
+        "padding-block": { "value": "{amsterdam.space.inside.xs}" },
+        "padding-inline": { "value": "{amsterdam.space.inside.xs}" },
         "text-decoration-line": { "value": "{amsterdam.link-appearance.subtle.text-decoration-line}" },
         "text-decoration-thickness": { "value": "{amsterdam.link-appearance.text-decoration-thickness}" },
         "text-underline-offset": { "value": "{amsterdam.link-appearance.text-underline-offset}" },

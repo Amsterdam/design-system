@@ -9,7 +9,7 @@
   align-items: center;
   display: flex;
   flex-wrap: wrap;
-  padding-block: 1rem;
+  padding-block: var(--amsterdam-header-padding-block);
   row-gap: 1.5rem;
 
   @media screen and (min-width: $amsterdam-breakpoint-wide) {

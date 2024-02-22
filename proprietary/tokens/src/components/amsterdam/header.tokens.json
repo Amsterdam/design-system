@@ -1,7 +1,8 @@
 {
   "amsterdam": {
     "header": {
-      "column-gap": { "value": "{amsterdam.grid.gap}" }
+      "column-gap": { "value": "{amsterdam.grid.gap}" },
+      "padding-block": { "value": "{amsterdam.space.inside.md}" }
     }
   }
 }

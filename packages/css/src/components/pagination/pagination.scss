@@ -38,7 +38,7 @@
   display: flex;
   gap: 0.5rem;
   outline-offset: var(--amsterdam-pagination-button-outline-offset);
-  padding-inline: 0.75rem;
+  padding-inline: var(--amsterdam-pagination-button-padding-inline);
   text-decoration-line: var(--amsterdam-pagination-button-text-decoration-line);
   text-decoration-thickness: var(--amsterdam-pagination-button-text-decoration-thickness);
   text-underline-offset: var(--amsterdam-pagination-button-text-underline-offset);

@@ -18,8 +18,8 @@
   font-weight: var(--amsterdam-text-input-font-weight);
   line-height: var(--amsterdam-text-input-line-height);
   outline-offset: var(--amsterdam-text-input-outline-offset);
-  padding-block: 0.5rem;
-  padding-inline: 1rem;
+  padding-block: var(--amsterdam-text-input-padding-block);
+  padding-inline: var(--amsterdam-text-input-padding-inline);
   touch-action: manipulation;
   width: 100%;
 

@@ -12,8 +12,8 @@
   font-weight: var(--amsterdam-skip-link-font-weight);
   line-height: var(--amsterdam-skip-link-line-height);
   outline-offset: var(--amsterdam-skip-link-outline-offset);
-  padding-block: 0.5rem;
-  padding-inline: 1rem;
+  padding-block: var(--amsterdam-skip-link-padding-block);
+  padding-inline: var(--amsterdam-skip-link-padding-inline);
   text-align: center;
   text-decoration: none;
 
