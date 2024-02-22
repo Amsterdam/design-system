@@ -4,8 +4,6 @@
 
 We use Storybook 7 to display all components and allow interaction with them.
 
-Each component library has its Storybook instance – currently, we only have React.
-We use Storybook’s composition feature to combine the main Storybook with the React one.
 We publish each merge to the `main` branch to [amsterdam.github.io/design-system](https://amsterdam.github.io/design-system/).
 
 ## Structure
