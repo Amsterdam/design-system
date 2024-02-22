@@ -11,4 +11,4 @@ A button containing only an icon.
 
 ## Relevant WCAG Requirements
 
-The Icon Button follows [the same requirements and guidelines as a regular button](https://amsterdam.github.io/design-system/?path=/docs/react_buttons-button--docs).
+The Icon Button follows [the same requirements and guidelines as a regular button](/docs/react-components-buttons-button--docs).

@@ -10,12 +10,12 @@ A prominent navigation element to quickly start a task.
 - Keep both texts concise.
   A title consists of a few words, and the description consists of 1 or 2 short sentences.
   The description should end with a period or another appropriate punctuation mark.
-- For wide windows, place 3 or 4 Top Task Links side by side on the [Grid](?path=/docs/react_layout-grid--docs).
+- For wide windows, place 3 or 4 Top Task Links side by side on the [Grid](/docs/react-components-layout-grid--docs).
   If you have more Top Task Links, place them in the next row.
   Try to distribute the amount of links on wide windows over rows of 3 or 4 links.
   If this is not possible, leave the last cells of the grid empty.
-- If you have a group of links for which a description is unnecessary or illogical, use a [Link List](?path=/docs/react_navigation-link--docs).
+- If you have a group of links for which a description is unnecessary or illogical, use a [Link List](/docs/react-components-navigation-link--docs).
 
 ## Relevant WCAG requirements
 
-The Top Task Link is subject to the same requirements as [regular links](https://amsterdam.github.io/design-system/?path=/docs/react_navigation-link--docs).
+The Top Task Link is subject to the same requirements as [regular links](/docs/react-components-navigation-link--docs).
