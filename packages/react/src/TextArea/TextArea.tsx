@@ -5,9 +5,9 @@
 
 import clsx from 'clsx'
 import { forwardRef } from 'react'
-import type { ForwardedRef, HTMLAttributes, PropsWithChildren } from 'react'
+import type { ForwardedRef, PropsWithChildren, TextareaHTMLAttributes } from 'react'
 
-export type TextAreaProps = PropsWithChildren<HTMLAttributes<HTMLTextAreaElement>> & {
+export type TextAreaProps = PropsWithChildren<TextareaHTMLAttributes<HTMLTextAreaElement>> & {
   resize?: 'horizontal' | 'vertical'
   grow?: boolean
 }

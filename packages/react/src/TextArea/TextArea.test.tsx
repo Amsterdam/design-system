@@ -30,7 +30,7 @@ describe('Text area', () => {
   })
 
   it('supports ForwardRef in React', () => {
-    const ref = createRef<HTMLElement>()
+    const ref = createRef<HTMLTextAreaElement>()
 
     const { container } = render(<TextArea ref={ref} />)
 
