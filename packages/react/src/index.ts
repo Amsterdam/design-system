@@ -4,6 +4,7 @@
  */
 
 /* Append here */
+export * from './TextArea'
 export * from './Column'
 export * from './Fieldset'
 export * from './LinkList'

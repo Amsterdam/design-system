@@ -1,0 +1,11 @@
+import { Controls, Markdown, Meta, Primary } from "@storybook/blocks";
+import * as TextAreaStories from "./TextArea.stories.tsx";
+import README from "../../../../packages/css/src/components/text-area/README.md?raw";
+
+<Meta of={TextAreaStories} />
+
+<Markdown>{README}</Markdown>
+
+<Primary />
+
+<Controls />
