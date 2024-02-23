@@ -14,4 +14,4 @@ Use this component for a name, title, or motto.
 The page heading component is a variant of a heading level 1 with a distinct style.
 When using this component, ensure that the heading hierarchy of the page remains logical.
 
-For this component, the same WCAG requirements apply as for [the heading component](https://amsterdam.github.io/design-system/?path=/docs/react_text-heading--docs).
+For this component, the same WCAG requirements apply as for [the heading component](/docs/components-text-heading--docs).

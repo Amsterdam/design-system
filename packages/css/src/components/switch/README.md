@@ -14,7 +14,7 @@ A switch applies to a page or the entire system, such as an on/off switch.
 
 - [WCAG 1.3.5](https://www.w3.org/WAI/WCAG21/Understanding/identify-input-purpose.html): it is both clear for a user and programmatically what the purpose of a form field is.
 
-The Switch is an interactive element; general requirements and guidelines for interactive elements apply [here](https://amsterdam.github.io/design-system/?path=/docs/docs-designrichtlijnen-interactieve-elementen--docs).
+The Switch is an interactive element; general requirements and guidelines for interactive elements apply [here](/docs/docs-design-guidelines-interactive-elements--docs).
 
 ## References
 
