@@ -7,13 +7,25 @@ import clsx from 'clsx'
 import { forwardRef } from 'react'
 import type { ForwardedRef, HTMLAttributes, PropsWithChildren } from 'react'
 
-export type TextAreaProps = PropsWithChildren<HTMLAttributes<HTMLElement>>
+export type TextAreaProps = PropsWithChildren<HTMLAttributes<HTMLTextAreaElement>> & {
+  resize?: 'horizontal' | 'vertical'
+  grow?: boolean
+}
 
 export const TextArea = forwardRef(
-  ({ children, className, ...restProps }: TextAreaProps, ref: ForwardedRef<HTMLElement>) => (
-    <span {...restProps} ref={ref} className={clsx('amsterdam-text-area', className)}>
+  ({ children, className, resize, grow, ...restProps }: TextAreaProps, ref: ForwardedRef<HTMLTextAreaElement>) => (
+    <textarea
+      {...restProps}
+      ref={ref}
+      className={clsx(
+        'amsterdam-text-area',
+        resize && `amsterdam-text-area--resize-${resize}`,
+        grow && 'amsterdam-text-area--grow',
+        className,
+      )}
+    >
       {children}
-    </span>
+    </textarea>
   ),
 )
 

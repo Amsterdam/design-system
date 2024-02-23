@@ -3,6 +3,64 @@
  * Copyright (c) 2024 Gemeente Amsterdam
  */
 
+@mixin reset {
+  box-sizing: border-box;
+  margin-block: 0;
+  -webkit-text-size-adjust: 100%;
+}
+
 .amsterdam-text-area {
-  /* Add styles here */
+  border: none;
+  box-shadow: var(--amsterdam-text-area-box-shadow);
+  color: var(--amsterdam-text-area-color);
+  font-family: var(--amsterdam-text-area-font-family);
+  font-size: var(--amsterdam-text-area-font-size);
+  font-weight: var(--amsterdam-text-area-font-weight);
+  line-height: var(--amsterdam-text-area-line-height);
+  outline-offset: var(--amsterdam-text-area-outline-offset);
+  padding-block: 0.5rem;
+  padding-inline: 1rem;
+  touch-action: manipulation;
+  width: 100%;
+
+  @include reset;
+
+  &:hover {
+    box-shadow: var(--amsterdam-text-area-hover-box-shadow);
+  }
+}
+
+.amsterdam-text-area::placeholder {
+  color: var(--amsterdam-text-area-placeholder-color);
+}
+
+.amsterdam-text-area:disabled {
+  background-color: var(--amsterdam-text-area-disabled-background-color);
+  box-shadow: var(--amsterdam-text-area-disabled-box-shadow);
+  color: var(--amsterdam-text-area-disabled-color);
+  cursor: not-allowed;
+}
+
+.amsterdam-text-area:invalid,
+.amsterdam-text-area[aria-invalid="true"] {
+  box-shadow: var(--amsterdam-text-area-invalid-box-shadow);
+
+  &:hover {
+    // TODO: this should be the (currently non-existent) dark red hover color
+    box-shadow: var(--amsterdam-text-area-invalid-hover-box-shadow);
+  }
+}
+
+.amsterdam-text-area--resize-horizontal {
+  resize: horizontal;
+}
+
+.amsterdam-text-area--resize-vertical {
+  resize: vertical;
+}
+
+.amsterdam-text-area--grow {
+  /* stylelint-disable-next-line property-no-unknown */
+  field-sizing: content;
+  width: auto;
 }
