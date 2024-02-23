@@ -1,3 +1,5 @@
+<!-- @license CC0-1.0 -->
+
 # Table
 
 Use the table component to let users compare information in rows and columns.

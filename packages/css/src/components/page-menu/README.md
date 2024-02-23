@@ -1,3 +1,5 @@
+<!-- @license CC0-1.0 -->
+
 # Page Menu
 
 A small set of links for use in the Header and Footer.

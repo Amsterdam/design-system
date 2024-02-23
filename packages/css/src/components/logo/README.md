@@ -1,3 +1,5 @@
+<!-- @license CC0-1.0 -->
+
 # Logo
 
 The City’s logo includes an icon (3 Saint Andrew’s crosses) and a wordmark (Gemeente Amsterdam).

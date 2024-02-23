@@ -1,3 +1,5 @@
+<!-- @license CC0-1.0 -->
+
 # Aspect Ratio
 
 Aspect Ratio updates the height of an element with its width.

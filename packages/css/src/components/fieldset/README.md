@@ -1,3 +1,5 @@
+<!-- @license CC0-1.0 -->
+
 # Fieldset
 
 A component to group related form inputs.

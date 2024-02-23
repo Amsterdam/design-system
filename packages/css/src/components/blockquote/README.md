@@ -1,3 +1,5 @@
+<!-- @license CC0-1.0 -->
+
 # Blockquote
 
 We use blockquotes to emphasize citations.

@@ -1,3 +1,5 @@
+<!-- @license CC0-1.0 -->
+
 # Top Task Link
 
 A prominent navigation element to quickly start a task.

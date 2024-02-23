@@ -1,3 +1,5 @@
+<!-- @license CC0-1.0 -->
+
 # Card
 
 Use a card on an overview page to link to an article page, such as a news article, a job vacancy, or a search result.

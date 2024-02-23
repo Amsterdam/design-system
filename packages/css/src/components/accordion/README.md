@@ -1,3 +1,5 @@
+<!-- @license CC0-1.0 -->
+
 # Accordion
 
 The accordion component is a clickable (vertically stacked) list of headings to hide or show associated content.

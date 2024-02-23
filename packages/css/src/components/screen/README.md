@@ -1,3 +1,5 @@
+<!-- @license CC0-1.0 -->
+
 # Screen
 
 Manages the maximum width and alignment of the entire website or application.

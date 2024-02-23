@@ -1,3 +1,5 @@
+<!-- @license CC0-1.0 -->
+
 # Icon Button
 
 A button containing only an icon.
