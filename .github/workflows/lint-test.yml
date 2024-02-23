@@ -96,5 +96,5 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: storybook
-          path: storybook/storybook-react/dist/
+          path: storybook/dist/
           retention-days: 1
