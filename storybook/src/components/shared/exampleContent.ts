@@ -1,3 +1,8 @@
+/**
+ * @license EUPL-1.2+
+ * Copyright Gemeente Amsterdam
+ */
+
 const pickRandomItem = (list: Array<string>): string => list[Math.floor(Math.random() * list.length)]
 
 const pickRandomList = (list: Array<Array<string>>): Array<string> => list[Math.floor(Math.random() * list.length)]

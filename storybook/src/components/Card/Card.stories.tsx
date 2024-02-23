@@ -1,6 +1,6 @@
 /**
  * @license EUPL-1.2+
- * Copyright (c) 2023 Gemeente Amsterdam
+ * Copyright Gemeente Amsterdam
  */
 
 import { AspectRatio, Card, Heading, Image, Paragraph } from '@amsterdam/design-system-react'
