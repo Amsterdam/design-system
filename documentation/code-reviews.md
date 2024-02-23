@@ -21,8 +21,7 @@ This phrase should be easy to understand, as we use PR titles to compile release
 ### Describe your approach
 
 Clearly explain how you implemented the task.
-Be brief, e.g.
-by using bullet points.
+Be brief, e.g. by using a list.
 A reviewer will be able to find more context and details in the accompanying product backlog item.
 
 If there are particular circumstances, original ways of tackling something, or things you have deliberately left out of scope, mention those as well.

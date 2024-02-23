@@ -11,7 +11,15 @@ type Story = StoryObj<typeof Link>
 const meta = {
   title: 'Navigation/Link',
   component: Link,
+  args: {
+    children: 'Link label',
+    href: '#',
+    onBackground: undefined, // Workaround to avoid 'onBackground' being set to an empty function
+  },
   argTypes: {
+    children: {
+      table: { disable: false },
+    },
     onBackground: {
       control: {
         type: 'radio',
@@ -56,11 +64,6 @@ const meta = {
         defaultValue: { summary: '' },
       },
     },
-  },
-  args: {
-    children: 'Linktekst',
-    href: '#',
-    onBackground: undefined, // Workaround to avoid 'onBackground' being set to an empty function
   },
 } satisfies Meta<typeof Link>
 

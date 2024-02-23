@@ -1,0 +1,12 @@
+/**
+ * @license EUPL-1.2+
+ * Copyright (c) 2024 Gemeente Amsterdam
+ */
+
+@import "../../common/size";
+
+@each $size in map-keys($amsterdam-sizes) {
+  .amsterdam-mb--#{$size} {
+    margin-block-end: var(--amsterdam-margin-#{$size}) !important;
+  }
+}

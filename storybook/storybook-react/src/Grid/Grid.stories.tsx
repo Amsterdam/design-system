@@ -12,9 +12,6 @@ const meta = {
   title: 'Layout/Grid',
   component: Grid,
   argTypes: {
-    children: {
-      table: { disable: true },
-    },
     gapVertical: {
       control: {
         type: 'radio',
@@ -33,11 +30,8 @@ export default meta
 const cellMeta = {
   component: Grid.Cell,
   argTypes: {
-    children: {
-      table: { disable: true },
-    },
     as: {
-      control: { type: 'inline-radio' },
+      control: { type: 'radio' },
       options: ['article', 'div', 'section'],
     },
     span: {
