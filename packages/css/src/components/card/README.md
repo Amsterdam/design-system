@@ -7,15 +7,15 @@ The link is mandatory.
 ## Guidelines
 
 - The title of a card is a link within a heading.
-  The same guidelines as for regular [links](/docs/react-components-navigation-link--docs) and [headings](/docs/react-components-text-heading--docs) apply here.
+  The same guidelines as for regular [links](/docs/components-navigation-link--docs) and [headings](/docs/components-text-heading--docs) apply here.
   The link is active across the entire area of the card.
 - A card needs more content than just a title.
   Supplement this with textual and/or visual content.
 - Place the text in a regular paragraph.
   Only use the smallest text size for a tagline or date.
 - This component may not be the best option if the content does not represent a detailed page.
-  For referencing a thematic page, use a [top task link](/docs/react-components-navigation-top-task-link--docs).
-  You can also use a [regular link](/docs/react-components-navigation-link--docs).
+  For referencing a thematic page, use a [top task link](/docs/components-navigation-top-task-link--docs).
+  You can also use a [regular link](/docs/components-navigation-link--docs).
 
 ## Screen Readers
 

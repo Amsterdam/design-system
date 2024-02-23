@@ -6,10 +6,10 @@ Manages the maximum width and alignment of the entire website or application.
 
 This should be the outermost component of your website or application.
 Within it, combine components such as
-[Grid](/docs/react-components-layout-grid--docs),
-[Header](/docs/react-components-containers-header--docs),
-[Footer](/docs/react-components-containers-footer--docs),
-[Spotlight](/docs/react-components-containers-spotlight--docs),
+[Grid](/docs/components-layout-grid--docs),
+[Header](/docs/components-containers-header--docs),
+[Footer](/docs/components-containers-footer--docs),
+[Spotlight](/docs/components-containers-spotlight--docs),
 and Figure.
 
 ## Design

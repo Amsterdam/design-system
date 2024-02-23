@@ -13,4 +13,4 @@ Therefore, it is blue and clickable.
 
 Use a Link List to present multiple links within a theme.
 
-For additional guidelines, refer to the [Link](/docs/react-components-navigation-link--docs) component.
+For additional guidelines, refer to the [Link](/docs/components-navigation-link--docs) component.

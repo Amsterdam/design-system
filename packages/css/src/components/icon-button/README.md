@@ -11,4 +11,4 @@ A button containing only an icon.
 
 ## Relevant WCAG Requirements
 
-The Icon Button follows [the same requirements and guidelines as a regular button](/docs/react-components-buttons-button--docs).
+The Icon Button follows [the same requirements and guidelines as a regular button](/docs/components-buttons-button--docs).
