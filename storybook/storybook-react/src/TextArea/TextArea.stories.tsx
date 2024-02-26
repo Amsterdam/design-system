@@ -17,14 +17,13 @@ const meta = {
   component: TextArea,
   args: {
     children: paragraph,
-    invalid: false,
   },
   argTypes: {
     resize: {
       control: {
         type: 'select',
       },
-      options: ['horizontal', 'vertical'],
+      options: ['none', 'horizontal', 'vertical'],
     },
     grow: {
       control: {
@@ -56,10 +55,7 @@ const meta = {
 
     return (
       <form>
-        {/*
-          Toggling the invalid control sets the required attribute on the input
-          and requires it to match "ž". Wrapped in a form, this triggers the invalid state.
-        */}
+        {/* Set children to empty string to trigger invalid state */}
         <TextArea required={invalid} onChange={handleChange} {...args} />
       </form>
     )
@@ -74,7 +70,14 @@ export const Default: Story = {}
 
 export const Invalid: Story = {
   args: {
+    children: '',
     invalid: true,
+  },
+}
+
+export const Disabled: Story = {
+  args: {
+    disabled: true,
   },
 }
 
@@ -93,6 +96,5 @@ export const HorizontalResize: Story = {
 export const Grow: Story = {
   args: {
     grow: true,
-    children: 'This textarea grows with its content',
   },
 }

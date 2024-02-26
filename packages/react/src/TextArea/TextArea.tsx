@@ -8,7 +8,7 @@ import { forwardRef } from 'react'
 import type { ForwardedRef, PropsWithChildren, TextareaHTMLAttributes } from 'react'
 
 export type TextAreaProps = PropsWithChildren<TextareaHTMLAttributes<HTMLTextAreaElement>> & {
-  resize?: 'horizontal' | 'vertical'
+  resize?: 'none' | 'horizontal' | 'vertical'
   grow?: boolean
 }
 
