@@ -1,3 +1,5 @@
+<!-- @license CC0-1.0 -->
+
 # Tabs
 
 Tabs are used to bundle related content in a compact overview within a page. Each tab has a short name, and these names indicate the relationship between the information displayed in each tab.
