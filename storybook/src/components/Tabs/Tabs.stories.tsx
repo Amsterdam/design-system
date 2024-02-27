@@ -99,7 +99,7 @@ const StoryTemplate: Story = {
 const TabStoryTemplate: TabStory = {
   args: {
     label: 'Gegevens',
-    tab: 1,
+    tab: 0,
     disabled: false,
   },
   render: ({ ...args }) => <Tabs.Button {...args} />,
