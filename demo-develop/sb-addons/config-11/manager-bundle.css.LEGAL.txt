@@ -1,5 +1,5 @@
 /**
  * @license SEE LICENSE.md
- * Copyright (c) 2023 Gemeente Amsterdam
+ * Copyright Gemeente Amsterdam
  * All rights reserved
  */
