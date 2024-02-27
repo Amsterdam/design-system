@@ -48,8 +48,33 @@
     
     <link href="./sb-addons/a11y-9/manager-bundle.js" rel="modulepreload" />
     
-    <link href="./sb-addons/config-10/manager-bundle.js" rel="modulepreload" />
-       
+    <link href="./sb-addons/themes-10/manager-bundle.js" rel="modulepreload" />
+    
+    <link href="./sb-addons/config-11/manager-bundle.js" rel="modulepreload" />
+      <script id="storybook-mod-expand-all-folders" type="text/javascript">
+  // Somewhat hacky way to expand all folders. Storybook does not support that natively.
+  var clickCollapsedItemsUntilNoneLeft = () => {
+    try {
+      var itemsLeftToClick = Array.from(
+        document.querySelectorAll(
+          '#storybook-explorer-tree button.sidebar-item[data-nodetype="group"][aria-expanded="false"]:not(#docs-assets, #docs-design-guidelines)',
+        ),
+      );
+
+      if (itemsLeftToClick.length > 0) {
+        itemsLeftToClick.forEach((item) => item.click());
+
+        clickCollapsedItemsUntilNoneLeft();
+      }
+    } catch (e) {
+      console.error(e);
+    }
+  };
+
+  window.removeEventListener("load", clickCollapsedItemsUntilNoneLeft);
+  window.addEventListener("load", clickCollapsedItemsUntilNoneLeft);
+</script>
+ 
 
     <style>
       #storybook-root[hidden] {
@@ -58,7 +83,7 @@
     </style>
 
     
-    <link href="./sb-addons/config-10/manager-bundle.css" rel="stylesheet" />
+    <link href="./sb-addons/config-11/manager-bundle.css" rel="stylesheet" />
     
   </head>
   <body>
@@ -79,14 +104,7 @@
         
       
         
-          window['REFS'] = {
-  "react": {
-    "title": "React Components",
-    "url": "../demo-DES-607-Tabs/storybook-react",
-    "id": "react",
-    "type": "unknown"
-  }
-};
+          window['REFS'] = {};
         
       
         
@@ -135,7 +153,9 @@
       
       import './sb-addons/a11y-9/manager-bundle.js';
       
-      import './sb-addons/config-10/manager-bundle.js';
+      import './sb-addons/themes-10/manager-bundle.js';
+      
+      import './sb-addons/config-11/manager-bundle.js';
       
     </script>
 
