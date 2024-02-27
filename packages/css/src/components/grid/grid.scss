@@ -3,33 +3,7 @@
  * Copyright Gemeente Amsterdam
  */
 
-@use "sass:list";
-@use "sass:map";
 @import "../../common/breakpoint";
-@import "../../common/size";
-
-$amsterdam-grid-sizes: ();
-$amsterdam-grid-allowed-sizes: ("sm", "md", "lg");
-$amsterdam-grid-gap-classes: (
-  "gap-vertical": "row-gap",
-);
-$amsterdam-grid-padding-classes: (
-  "padding-bottom": "padding-block-end",
-  "padding-top": "padding-block-start",
-  "padding-vertical": "padding-block",
-);
-
-// Filter sizes to sm, md, lg
-@each $size, $label in $amsterdam-sizes {
-  @if list.index($amsterdam-grid-allowed-sizes, $size) {
-    $amsterdam-grid-sizes: map.merge(
-      $amsterdam-grid-sizes,
-      (
-        $size: $label,
-      )
-    );
-  }
-}
 
 .amsterdam-grid {
   display: grid;
@@ -46,25 +20,63 @@ $amsterdam-grid-padding-classes: (
   }
 }
 
+// Gap
+
 .amsterdam-grid--gap-vertical--none {
   row-gap: initial;
 }
 
-@each $class, $property in $amsterdam-grid-gap-classes {
-  @each $size, $label in $amsterdam-grid-sizes {
-    .amsterdam-grid--#{$class}--#{$label} {
-      #{$property}: var(--amsterdam-grid-gap-#{$size});
-    }
-  }
+.amsterdam-grid--gap-vertical--small {
+  row-gap: var(--amsterdam-grid-gap-sm);
 }
 
-@each $class, $property in $amsterdam-grid-padding-classes {
-  @each $size, $label in $amsterdam-grid-sizes {
-    .amsterdam-grid--#{$class}--#{$label} {
-      #{$property}: var(--amsterdam-grid-padding-block-#{$size});
-    }
-  }
+.amsterdam-grid--gap-vertical--medium {
+  row-gap: var(--amsterdam-grid-gap-md);
 }
+
+.amsterdam-grid--gap-vertical--large {
+  row-gap: var(--amsterdam-grid-gap-lg);
+}
+
+// Vertical padding
+
+.amsterdam-grid--padding-bottom--small {
+  padding-block-end: var(--amsterdam-grid-padding-block-sm);
+}
+
+.amsterdam-grid--padding-bottom--medium {
+  padding-block-end: var(--amsterdam-grid-padding-block-md);
+}
+
+.amsterdam-grid--padding-bottom--large {
+  padding-block-end: var(--amsterdam-grid-padding-block-lg);
+}
+
+.amsterdam-grid--padding-top--small {
+  padding-block-start: var(--amsterdam-grid-padding-block-sm);
+}
+
+.amsterdam-grid--padding-top--medium {
+  padding-block-start: var(--amsterdam-grid-padding-block-md);
+}
+
+.amsterdam-grid--padding-top--large {
+  padding-block-start: var(--amsterdam-grid-padding-block-lg);
+}
+
+.amsterdam-grid--padding-vertical--small {
+  padding-block: var(--amsterdam-grid-padding-block-sm);
+}
+
+.amsterdam-grid--padding-vertical--medium {
+  padding-block: var(--amsterdam-grid-padding-block-md);
+}
+
+.amsterdam-grid--padding-vertical--large {
+  padding-block: var(--amsterdam-grid-padding-block-lg);
+}
+
+// Cell span
 
 .amsterdam-grid__cell--span-all {
   grid-column: 1 / -1;
