@@ -13,7 +13,7 @@
         "font-weight": { "value": "{amsterdam.typography.font-weight.normal}" },
         "font-size": { "value": "{amsterdam.typography.text-level.5.font-size}" },
         "line-height": { "value": "{amsterdam.typography.text-level.5.line-height}" },
-        "outline-offset": { "value": "-4px" },
+        "outline-offset": { "value": "-0.25rem" },
         "padding-block": { "value": ".5rem" },
         "padding-inline": { "value": "1rem" },
         "hover": {
