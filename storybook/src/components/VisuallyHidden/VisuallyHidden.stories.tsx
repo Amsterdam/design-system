@@ -9,19 +9,6 @@ import { Meta, StoryObj } from '@storybook/react'
 const meta = {
   title: 'Components/Containers/Visually Hidden',
   component: VisuallyHidden,
-  args: {
-    children: 'Nieuw component',
-  },
-} satisfies Meta<typeof VisuallyHidden>
-
-export default meta
-
-type Story = StoryObj<typeof meta>
-
-export const Default: Story = {
-  args: {
-    children: 'This text can be read out by a screen reader.',
-  },
   decorators: [
     (Story) => (
       <div>
@@ -35,4 +22,18 @@ export const Default: Story = {
       </div>
     ),
   ],
-}
+  args: {
+    children: 'This text can be read out by a screen reader.',
+  },
+  argTypes: {
+    children: {
+      table: { disable: false },
+    },
+  },
+} satisfies Meta<typeof VisuallyHidden>
+
+export default meta
+
+type Story = StoryObj<typeof meta>
+
+export const Default: Story = {}
