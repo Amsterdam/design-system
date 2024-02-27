@@ -1,3 +1,5 @@
+<!-- @license CC0-1.0 -->
+
 # Footer
 
 The footer is the closing section on every web page.

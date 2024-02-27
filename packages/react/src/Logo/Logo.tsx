@@ -1,6 +1,6 @@
 /**
  * @license EUPL-1.2+
- * Copyright (c) 2023 Gemeente Amsterdam
+ * Copyright Gemeente Amsterdam
  */
 
 import clsx from 'clsx'
@@ -9,12 +9,19 @@ import type { ForwardedRef, ForwardRefExoticComponent, RefAttributes, SVGProps }
 import {
   LogoAmsterdam,
   LogoGgdAmsterdam,
+  LogoMuseumWeesp,
   LogoStadsarchief,
   LogoStadsbankVanLening,
   LogoVgaVerzekeringen,
 } from './brand'
 
-export type LogoBrand = 'amsterdam' | 'ggd-amsterdam' | 'stadsarchief' | 'stadsbank-van-lening' | 'vga-verzekeringen'
+export type LogoBrand =
+  | 'amsterdam'
+  | 'ggd-amsterdam'
+  | 'museum-weesp'
+  | 'stadsarchief'
+  | 'stadsbank-van-lening'
+  | 'vga-verzekeringen'
 
 export type LogoProps = {
   brand?: LogoBrand
@@ -26,6 +33,7 @@ const logoConfig: Record<
 > = {
   amsterdam: LogoAmsterdam,
   'ggd-amsterdam': LogoGgdAmsterdam,
+  'museum-weesp': LogoMuseumWeesp,
   stadsarchief: LogoStadsarchief,
   'stadsbank-van-lening': LogoStadsbankVanLening,
   'vga-verzekeringen': LogoVgaVerzekeringen,

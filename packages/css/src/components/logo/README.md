@@ -1,3 +1,5 @@
+<!-- @license CC0-1.0 -->
+
 # Logo
 
 The City’s logo includes an icon (3 Saint Andrew’s crosses) and a wordmark (Gemeente Amsterdam).
@@ -14,12 +16,13 @@ In the meantime, you can download an image of this logo from [Stijlweb](https://
 
 ## Exception
 
-Use a sub-brand logo if the website is owned by one of the 4 sub-brands.
+Use a sub-brand logo if the website is owned by one of the 5 sub-brands.
 They have a separate status because of their unique service provision not directly associated with the City.
 
 The sub-brands are:
 
 - GGD Amsterdam
+- Museum Weesp
 - Stadsarchief
 - Stadsbank van Lening
 - VGA Verzekeringen

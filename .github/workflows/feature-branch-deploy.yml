@@ -53,20 +53,13 @@ jobs:
 
       - name: Create a version mark
         run: |
-          touch ./storybook/storybook-docs/dist/${{ github.sha }}.txt
-
-      - name: Create deploy folder
-        run: |
-          mkdir temp-deploy-directory
-          cp storybook/storybook-docs/dist/* temp-deploy-directory -r
-          mkdir temp-deploy-directory/storybook-react
-          cp storybook/storybook-react/dist/* temp-deploy-directory/storybook-react -r
+          touch ./storybook/dist/${{ github.sha }}.txt
 
       - name: Pushing to pages branch
         uses: JamesIves/github-pages-deploy-action@v4
         with:
           branch: gh-pages
-          folder: temp-deploy-directory
+          folder: storybook/dist
           target-folder: demo-${{ env.BRANCH_NAME }}
 
       - name: Wait for GitHub Pages to be deployed
