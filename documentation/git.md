@@ -1,3 +1,5 @@
+<!-- @license CC0-1.0 -->
+
 # How we use Git
 
 Several people work on our repository, which we aim to become comprehensive and long-lived.

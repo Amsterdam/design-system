@@ -1,3 +1,5 @@
+<!-- @license CC0-1.0 -->
+
 # Ordered List
 
 An ordered list is a vertical group of related content with an order.

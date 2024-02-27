@@ -1,3 +1,5 @@
+<!-- @license CC0-1.0 -->
+
 # Skip Link
 
 Use a Skip Link to navigate to the main content quickly with the keyboard.

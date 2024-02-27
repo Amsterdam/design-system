@@ -1,3 +1,5 @@
+<!-- @license CC0-1.0 -->
+
 # Icon
 
 Icons are visual symbols used to represent ideas, themes, or actions.
@@ -26,4 +28,4 @@ Icons are aligned to the left of the text by default and vertically centred to t
 
 Icons use the same text levels as all typographic components to determine their size.
 This ensures easy alignment between icons and text.
-[Refer to the typography documentation for more information](/docs/docs-designrichtlijnen-typografie--docs#tekstniveaus).
+[Refer to the typography documentation for more information](/docs/docs-design-guidelines-typography--docs).

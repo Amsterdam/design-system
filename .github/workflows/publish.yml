@@ -75,23 +75,12 @@ jobs:
         if: ${{ steps.release.outputs.releases_created }}
 
       # The logic below handles the Storybook deploy:
-      - name: "Restore build artifact: Storybook docs"
+      - name: "Restore build artifact: Storybook"
         uses: dawidd6/action-download-artifact@v3
         with:
           workflow: "lint-test.yml"
-          name: storybook-docs
+          name: storybook
           path: dist/storybook
-        if: ${{ steps.release.outputs.releases_created }}
-
-      - name: "Restore build artifact: Storybook react"
-        uses: dawidd6/action-download-artifact@v3
-        with:
-          workflow: "lint-test.yml"
-          name: storybook-react
-          # React storybook is deployed to the /storybook-react subdirectory.
-          # In the main docs storybook, the contents of /storybook-react
-          # are also shown using Storybook composition.
-          path: dist/storybook/storybook-react
         if: ${{ steps.release.outputs.releases_created }}
 
       - name: Deploy to GitHub Pages

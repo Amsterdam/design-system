@@ -16,7 +16,7 @@
   "workspaces": [
     "./packages/*",
     "./proprietary/*",
-    "./storybook/*"
+    "./storybook"
   ],
   "devDependencies": {
     "@lerna-lite/cli": "3.3.0",
@@ -75,8 +75,7 @@
     "update-patch": "npm-check-updates --configFileName .ncurc.patch.js --deep --dep dev,prod --target patch --upgrade && pnpm install",
     "watch:css": "npm run --workspace packages/css build:watch",
     "watch:react": "npm run --workspace packages/react build:watch",
-    "watch:storybook-docs": "npx wait-on http://localhost:6007 && npm run --workspace storybook/storybook-docs start",
-    "watch:storybook-react": "npm run --workspace storybook/storybook-react start",
+    "watch:storybook": "npm run --workspace storybook start",
     "watch:tokens": "npm run --workspace proprietary/tokens watch"
   }
 }
