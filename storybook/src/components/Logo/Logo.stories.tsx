@@ -14,7 +14,14 @@ const meta = {
       control: {
         type: 'radio',
       },
-      options: ['amsterdam', 'ggd-amsterdam', 'stadsarchief', 'stadsbank-van-lening', 'vga-verzekeringen'],
+      options: [
+        'amsterdam',
+        'ggd-amsterdam',
+        'museum-weesp',
+        'stadsarchief',
+        'stadsbank-van-lening',
+        'vga-verzekeringen',
+      ],
     },
   },
 } satisfies Meta<typeof Logo>
@@ -46,5 +53,11 @@ export const StadsbankVanLening: Story = {
 export const VgaVerzekeringen: Story = {
   args: {
     brand: 'vga-verzekeringen',
+  },
+}
+
+export const MuseumWeesp: Story = {
+  args: {
+    brand: 'museum-weesp',
   },
 }
