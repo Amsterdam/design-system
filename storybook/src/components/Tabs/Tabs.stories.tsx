@@ -25,7 +25,7 @@ function SlowPost() {
 }
 
 const meta = {
-  title: 'Containers/Tabs',
+  title: 'Components/Containers/Tabs',
   component: Tabs,
 } satisfies Meta<typeof Tabs>
 
@@ -81,7 +81,7 @@ const StoryTemplate: Story = {
         <Tabs.Panel tab={2}>
           <div style={{ paddingTop: '2rem' }}>
             <Heading level={3}>Documenten</Heading>
-            <Paragraph>Simulate a tab that takes 500ms second to load.</Paragraph>
+            <Paragraph>(This tab panel simulates a load time of 500 milliseconds.)</Paragraph>
             <SlowTab />
           </div>
         </Tabs.Panel>
