@@ -100,6 +100,7 @@ const TabStoryTemplate: TabStory = {
   args: {
     label: 'Gegevens',
     tab: 1,
+    disabled: false,
   },
   render: ({ ...args }) => <Tabs.Button {...args} />,
 }
