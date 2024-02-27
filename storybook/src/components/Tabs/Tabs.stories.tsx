@@ -5,23 +5,18 @@
 
 import { Heading, Paragraph, Tabs } from '@amsterdam/design-system-react'
 import { Meta, StoryObj } from '@storybook/react'
-import { memo } from 'react'
+import { PropsWithChildren } from 'react'
 import { exampleParagraph } from '../shared/exampleContent'
 
-const SlowTab = memo(function SlowTab() {
-  // Log once. The actual slowdown is inside SlowPost.
-  console.log('[ARTIFICIALLY SLOW] Rendering 500 <SlowPost />')
+const SlowPanel = ({ children }: PropsWithChildren) => {
+  console.log('[ARTIFICIALLY SLOW] Adding a 1000ms delay')
 
-  return <SlowPost />
-})
-
-function SlowPost() {
   let startTime = performance.now()
-  while (performance.now() - startTime < 500) {
-    // Do nothing for 500 ms to emulate extremely slow code
+  while (performance.now() - startTime < 1000) {
+    // Do nothing for 1000 ms to emulate extremely slow code
   }
 
-  return true
+  return children
 }
 
 const meta = {
@@ -79,11 +74,12 @@ const StoryTemplate: Story = {
           </div>
         </Tabs.Panel>
         <Tabs.Panel tab={2}>
-          <div style={{ paddingTop: '2rem' }}>
-            <Heading level={3}>Documenten</Heading>
-            <Paragraph>(This tab panel simulates a load time of 500 milliseconds.)</Paragraph>
-            <SlowTab />
-          </div>
+          <SlowPanel>
+            <div style={{ paddingTop: '2rem' }}>
+              <Heading level={3}>Documenten</Heading>
+              <Paragraph>(This tab panel simulates a load time of 1000 milliseconds.)</Paragraph>
+            </div>
+          </SlowPanel>
         </Tabs.Panel>
         <Tabs.Panel tab={3}>
           <div style={{ paddingTop: '2rem' }}>
