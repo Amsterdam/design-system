@@ -1,3 +1,5 @@
+<!-- @license CC0-1.0 -->
+
 # Grid
 
 Divides the screen into columns to align the elements of a page.
@@ -5,9 +7,9 @@ Divides the screen into columns to align the elements of a page.
 ## Usage
 
 Every page should use the grid as the foundation for its layout.
-It is placed directly within the [Screen](?path=/docs/layout-screen--docs).
+It is placed directly within the [Screen](/docs/components-layout-screen--docs).
 
-A [Footer](?path=/docs/react_containers-footer--docs) and a [Spotlight](?path=/docs/react_containers-spotlight--docs) are slightly wider than the grid.
+A [Footer](/docs/components-containers-footer--docs) and a [Spotlight](/docs/components-containers-spotlight--docs) are slightly wider than the grid.
 You close one instance of the grid before these components.
 Inside and optionally after them, you start a new one.
 Multiple instances of the grid component are possible on a page, but the columns of all grids must align precisely.
@@ -17,4 +19,4 @@ A cell often spans multiple columns of the grid.
 
 ## Design
 
-The [design choices](?path=/docs/docs-designrichtlijnen-grid--docs) are described in the design guidelines.
+The [design choices](/docs/docs-design-guidelines-grid--docs) are described in the design guidelines.

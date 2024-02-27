@@ -1,7 +1,7 @@
 /**
  * @license EUPL-1.2+
  * Copyright (c) 2021 Robbert Broersma
- * Copyright (c) 2023 Gemeente Amsterdam
+ * Copyright Gemeente Amsterdam
  */
 
 import clsx from 'clsx'

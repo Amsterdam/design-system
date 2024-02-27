@@ -1,3 +1,5 @@
+<!-- @license CC0-1.0 -->
+
 # Publishing
 
 We use a [Release Please GitHub Action](https://github.com/google-github-actions/release-please-action) to create changelog and release PRs for all our packages.

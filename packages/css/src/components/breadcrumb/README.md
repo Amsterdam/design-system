@@ -1,3 +1,5 @@
+<!-- @license CC0-1.0 -->
+
 # Breadcrumb
 
 The breadcrumb is a secondary navigation pattern that helps a user understand the structure between levels in the website up to the current page.
