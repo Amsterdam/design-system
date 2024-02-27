@@ -1,14 +1,12 @@
 /**
  * @license EUPL-1.2+
- * Copyright (c) 2024 Gemeente Amsterdam
+ * Copyright Gemeente Amsterdam
  */
 
 @import "../../common/breakpoint";
 
 .amsterdam-tabs__list {
-  border-bottom-color: var(--amsterdam-tabs-list-border-color);
-  border-bottom-style: solid;
-  border-bottom-width: var(--amsterdam-tabs-border-width);
+  border-bottom: var(--amsterdam-tabs-list-border-bottom);
   display: flex;
   overflow-x: auto;
 }
@@ -25,7 +23,6 @@
   outline-offset: var(--amsterdam-tabs-button-outline-offset);
   padding-block: var(--amsterdam-tabs-button-padding-block);
   padding-inline: var(--amsterdam-tabs-button-padding-inline);
-  position: relative;
 
   &:disabled {
     color: var(--amsterdam-tabs-button-disabled-color);

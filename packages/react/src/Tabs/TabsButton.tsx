@@ -1,6 +1,6 @@
 /**
  * @license EUPL-1.2+
- * Copyright (c) 2024 Gemeente Amsterdam
+ * Copyright Gemeente Amsterdam
  */
 
 import clsx from 'clsx'
@@ -11,7 +11,6 @@ import { TabsContext } from './TabsContext'
 export type TabsButtonProps = {
   label: string
   tab: number
-  isDisabled?: boolean
 } & PropsWithChildren<ButtonHTMLAttributes<HTMLButtonElement>>
 
 export const TabsButton = forwardRef(

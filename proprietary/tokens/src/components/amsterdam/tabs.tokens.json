@@ -2,8 +2,7 @@
   "amsterdam": {
     "tabs": {
       "list": {
-        "border-color": { "value": "{amsterdam.color.primary-blue}" },
-        "border-width": { "value": ".125rem" }
+        "border-bottom": { "value": ".125rem solid {amsterdam.color.primary-blue}" }
       },
       "button": {
         "background-color": { "value": "transparent" },
