@@ -1,3 +1,5 @@
+<!-- @license CC0-1.0 -->
+
 # Page Heading
 
 The page heading component is a prominent text at the beginning of a page, immediately after the header.

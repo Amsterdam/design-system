@@ -1,3 +1,5 @@
+<!-- @license CC0-1.0 -->
+
 # Button
 
 Allows the user to perform actions and operate the user interface.

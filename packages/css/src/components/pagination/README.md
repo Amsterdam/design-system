@@ -1,3 +1,5 @@
+<!-- @license CC0-1.0 -->
+
 # Pagination
 
 Pagination is a navigation element used to navigate between multiple pages of overview lists.

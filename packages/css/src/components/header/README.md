@@ -1,3 +1,5 @@
+<!-- @license CC0-1.0 -->
+
 # Header
 
 Arranges the City’s logo, the title of the website, and a page menu.

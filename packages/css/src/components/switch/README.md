@@ -1,3 +1,5 @@
+<!-- @license CC0-1.0 -->
+
 # Switch
 
 A switch is a control element to toggle between two different states quickly.

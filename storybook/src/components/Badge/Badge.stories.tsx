@@ -1,6 +1,6 @@
 /**
  * @license EUPL-1.2+
- * Copyright (c) 2024 Gemeente Amsterdam
+ * Copyright Gemeente Amsterdam
  */
 
 import { Badge } from '@amsterdam/design-system-react'

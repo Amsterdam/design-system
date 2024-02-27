@@ -1,3 +1,5 @@
+<!-- @license CC0-1.0 -->
+
 # Icon
 
 Icons are visual symbols used to represent ideas, themes, or actions.

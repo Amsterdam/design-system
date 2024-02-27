@@ -1,3 +1,5 @@
+<!-- @license CC0-1.0 -->
+
 # Documentation guidelines
 
 Follow these guidelines for a consistent way of documenting components.
