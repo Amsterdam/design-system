@@ -1,4 +1,4 @@
-import { render, screen } from '@testing-library/react'
+import { fireEvent, render, screen } from '@testing-library/react'
 import { createRef } from 'react'
 import { Tabs } from './Tabs'
 import '@testing-library/jest-dom'
@@ -57,7 +57,7 @@ describe('Tabs', () => {
     expect(screen.getByRole('tabpanel')).toBeInTheDocument()
   })
 
-  it('should render its subcomponents', () => {
+  it('should select a tab when clicked', async () => {
     render(
       <Tabs>
         <Tabs.List>
@@ -69,10 +69,35 @@ describe('Tabs', () => {
       </Tabs>,
     )
 
-    expect(screen.getByRole('tab', { name: 'Tab 1', selected: true })).toBeInTheDocument()
-    expect(screen.getByRole('tab', { name: 'Tab 2', selected: false })).toBeInTheDocument()
-    expect(screen.getByRole('tabpanel')).toBeInTheDocument()
+    const tabOne = screen.getByRole('tab', { name: 'Tab 1' })
+    const tabTwo = screen.getByRole('tab', { name: 'Tab 2' })
+
+    expect(tabOne).toHaveAttribute('aria-selected', 'true')
+    expect(tabOne).toHaveAttribute('tabindex', '0')
+
+    expect(tabTwo).toHaveAttribute('aria-selected', 'false')
+    expect(tabTwo).toHaveAttribute('tabindex', '-1')
+
+    expect(screen.getByRole('tabpanel')).toHaveTextContent('Content 1')
+
+    if (tabTwo) {
+      fireEvent.click(tabTwo)
+    }
+
+    expect(tabOne).toHaveAttribute('aria-selected', 'false')
+    expect(tabOne).toHaveAttribute('tabindex', '-1')
+
+    expect(tabTwo).toHaveAttribute('aria-selected', 'true')
+    expect(tabTwo).toHaveAttribute('tabindex', '0')
+
+    expect(screen.getByRole('tabpanel')).toHaveTextContent('Content 2')
   })
 
-  // TODO add switching of tabs
+  it.skip('should forward the onClick event on the Tab', () => {
+    // This feature has not been implemented yet
+  })
+
+  it.skip('should be able to set the active initial tab', () => {
+    // This feature has not been implemented yet
+  })
 })

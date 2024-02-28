@@ -45,6 +45,14 @@ describe('Tabs button', () => {
     expect(component).toBeInTheDocument()
   })
 
+  it('should associate the button with the correct tab', () => {
+    render(<TabsButton tab={0} label={testLabel} />)
+
+    const component = screen.getByRole('tab')
+
+    expect(component).toHaveAttribute('aria-controls', '-panel-0')
+  })
+
   it('supports ForwardRef in React', () => {
     const ref = createRef<HTMLButtonElement>()
     render(<TabsButton tab={0} label={testLabel} ref={ref} />)

@@ -36,6 +36,14 @@ describe('Tabs panel', () => {
     expect(component).toBeInTheDocument()
   })
 
+  it('should associate the tab with the correct button', () => {
+    render(<TabsPanel tab={0} />)
+
+    const component = screen.getByRole('tabpanel')
+
+    expect(component).toHaveAttribute('aria-labelledby', '-tab-0')
+  })
+
   it('supports ForwardRef in React', () => {
     const ref = createRef<HTMLDivElement>()
 
