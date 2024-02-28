@@ -39,7 +39,6 @@ export const Tabs = forwardRef(
     const { keyDown } = useFocusWithArrows({
       ref: innerRef,
       rotating: true,
-      directChildrenOnly: false,
       horizontally: true,
     })
 
