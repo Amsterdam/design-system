@@ -59,22 +59,6 @@ describe('Grid', () => {
     expect(component).toHaveClass('amsterdam-grid--gap-vertical--large')
   })
 
-  it(`renders the correct class name for a small bottom padding`, () => {
-    const { container } = render(<Grid paddingBottom="small" />)
-
-    const component = container.querySelector(':only-child')
-
-    expect(component).toHaveClass('amsterdam-grid--padding-bottom--small')
-  })
-
-  it(`renders the correct class name for a small bottom padding`, () => {
-    const { container } = render(<Grid paddingBottom="small" />)
-
-    const component = container.querySelector(':only-child')
-
-    expect(component).toHaveClass('amsterdam-grid--padding-bottom--small')
-  })
-
   paddingSizes.forEach((size) => {
     it(`renders the correct class name for a ${size} bottom padding`, () => {
       const { container } = render(<Grid paddingBottom={size as GridPaddingSize} />)
