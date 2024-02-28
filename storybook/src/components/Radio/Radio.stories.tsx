@@ -20,7 +20,7 @@ const meta = {
     children: {
       table: { disable: false },
     },
-    onChange: { action: 'clicked' },
+    onChange: { action: 'clicked', table: { disable: true } },
   },
   render: ({ ...args }) => {
     const [, setArgs] = useArgs()
