@@ -43,11 +43,11 @@ describe('Tabs', () => {
     render(
       <Tabs>
         <Tabs.List>
-          <Tabs.Button tab={0} label="Tab 1" />
-          <Tabs.Button tab={1} label="Tab 2" />
+          <Tabs.Button tab={0}>Tab 1</Tabs.Button>
+          <Tabs.Button tab={1}>Tab 2</Tabs.Button>
         </Tabs.List>
         <Tabs.Panel tab={0}>Content 1</Tabs.Panel>
-        <Tabs.Panel tab={2}>Content 2</Tabs.Panel>
+        <Tabs.Panel tab={1}>Content 2</Tabs.Panel>
       </Tabs>,
     )
 
@@ -61,8 +61,8 @@ describe('Tabs', () => {
     render(
       <Tabs>
         <Tabs.List>
-          <Tabs.Button tab={0} label="Tab 1" />
-          <Tabs.Button tab={1} label="Tab 2" />
+          <Tabs.Button tab={0}>Tab 1</Tabs.Button>
+          <Tabs.Button tab={1}>Tab 2</Tabs.Button>
         </Tabs.List>
         <Tabs.Panel tab={0}>Content 1</Tabs.Panel>
         <Tabs.Panel tab={1}>Content 2</Tabs.Panel>

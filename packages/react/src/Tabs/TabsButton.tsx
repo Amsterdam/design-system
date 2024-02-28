@@ -9,12 +9,11 @@ import type { ButtonHTMLAttributes, ForwardedRef, PropsWithChildren } from 'reac
 import { TabsContext } from './TabsContext'
 
 export type TabsButtonProps = {
-  label: string
   tab: number
 } & PropsWithChildren<ButtonHTMLAttributes<HTMLButtonElement>>
 
 export const TabsButton = forwardRef(
-  ({ label, tab = 0, className, ...restProps }: TabsButtonProps, ref: ForwardedRef<HTMLButtonElement>) => {
+  ({ children, className, tab = 0, ...restProps }: TabsButtonProps, ref: ForwardedRef<HTMLButtonElement>) => {
     const { activeTab, updateTab, tabsId } = useContext(TabsContext)
 
     return (
@@ -33,7 +32,7 @@ export const TabsButton = forwardRef(
         }}
         className={clsx('amsterdam-tabs__button', className)}
       >
-        {label}
+        {children}
       </button>
     )
   },

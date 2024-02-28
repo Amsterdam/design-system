@@ -28,17 +28,6 @@ export default meta
 
 const tabMeta = {
   component: Tabs.Button,
-  args: {
-    label: 'Gegevens',
-  },
-  argTypes: {
-    label: {
-      control: { type: 'text' },
-    },
-    key: {
-      control: { type: 'number', min: 0, max: 9 },
-    },
-  },
   decorators: [
     (Story) => (
       <Tabs>
@@ -51,14 +40,14 @@ const tabMeta = {
 type Story = StoryObj<typeof meta>
 type TabStory = StoryObj<typeof tabMeta>
 
-const StoryTemplate: Story = {
+export const Default: Story = {
   args: {
     children: [
       <Tabs.List key={0}>
-        <Tabs.Button tab={0} label="Gegevens" />
-        <Tabs.Button tab={1} label="Aanslagen" />
-        <Tabs.Button tab={2} label="Documenten" />
-        <Tabs.Button tab={3} label="Acties" />
+        <Tabs.Button tab={0}>Gegevens</Tabs.Button>
+        <Tabs.Button tab={1}>Aanslagen</Tabs.Button>
+        <Tabs.Button tab={2}>Documenten</Tabs.Button>
+        <Tabs.Button tab={3}>Acties</Tabs.Button>
       </Tabs.List>,
       <Tabs.Panel tab={0} key={1}>
         <div style={{ paddingTop: '2rem' }}>
@@ -89,19 +78,23 @@ const StoryTemplate: Story = {
   },
 }
 
-const TabStoryTemplate: TabStory = {
+export const Tab: TabStory = {
   args: {
-    label: 'Gegevens',
+    children: 'Gegevens',
     tab: 0,
     disabled: false,
   },
-  render: ({ ...args }) => <Tabs.Button {...args} />,
-}
-
-export const Default: Story = {
-  ...StoryTemplate,
-}
-
-export const Tab: TabStory = {
-  ...TabStoryTemplate,
+  argTypes: {
+    children: {
+      table: { disable: false },
+    },
+    tab: {
+      control: {
+        type: 'number',
+        min: 0,
+        max: 9,
+      },
+    },
+  },
+  render: ({ children, ...args }) => <Tabs.Button {...args}>{children}</Tabs.Button>,
 }
