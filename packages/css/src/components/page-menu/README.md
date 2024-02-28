@@ -1,3 +1,5 @@
+<!-- @license CC0-1.0 -->
+
 # Page Menu
 
 A small set of links for use in the Header and Footer.
@@ -15,4 +17,4 @@ A small set of links for use in the Header and Footer.
 
 - [Consistent Navigation (Level AA)](https://www.w3.org/WAI/WCAG21/Understanding/consistent-navigation.html)
 
-PageMenu is an interactive element, and the [general requirements and guidelines for interactive elements](https://amsterdam.github.io/design-system/?path=/docs/docs-designrichtlijnen-interactieve-elementen--docs) apply.
+PageMenu is an interactive element, and the [general requirements and guidelines for interactive elements](/docs/docs-design-guidelines-interactive-elements--docs) apply.

@@ -1,3 +1,5 @@
+<!-- @license CC0-1.0 -->
+
 # Visually Hidden
 
 Hides content from sighted users but keeps it accessible to non-visual user agents, such as screen readers.

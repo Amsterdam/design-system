@@ -1,3 +1,8 @@
+/**
+ * @license EUPL-1.2+
+ * Copyright Gemeente Amsterdam
+ */
+
 import type { GridCellProps } from './GridCell'
 
 export const gridCellClasses = (span?: GridCellProps['span'], start?: GridCellProps['start']): string[] => {

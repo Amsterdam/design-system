@@ -85,7 +85,6 @@ If you need to link your local version of this library (to test your unpublished
 All Javascript, Typescript and style files should start with a license header.
 We use the EUPL-1.2+ license for these files.
 The copyright holder for all files created by people working for the City of Amsterdam is the City of Amsterdam, so add this in a copyright notice below the license declaration.
-The year of the copyright notice is the year in which the copyright starts.
 If you use code from other EUPL-1.2 or higher licensed files that have a copyright notice, don’t forget to add this copyright notice as well.
 So, for a file with code written by someone working for the City of Amsterdam in 2023, but also containing code from another EUPL-1.2 or higher licensed file written by John Doe in 2021, the header would look like this:
 
@@ -93,16 +92,7 @@ So, for a file with code written by someone working for the City of Amsterdam in
 /**
  * @license EUPL-1.2+
  * Copyright (c) 2021 John Doe
- * Copyright (c) 2023 Gemeente Amsterdam
- */
-```
-
-If you’re changing a file that already has a City of Amsterdam copyright notice, but of a different year, you should add the new year to the notice.
-For example, if the original work is done in 2020, then someone else did some work in 2022, and you add new changes in 2023, the copyright notice should look like this:
-
-```javascript
-/**
- * Copyright (c) 2020-2023 Gemeente Amsterdam
+ * Copyright Gemeente Amsterdam
  */
 ```
 
@@ -114,7 +104,7 @@ The license header looks like this:
 <!-- @license CC0-1.0 -->
 ```
 
-If the content of a documentation file is copied from another source (like our [Code of Conduct](./CODE_OF_CONDUCT.md), for example), use the license of the original file.
+If the content of a documentation file is copied from another source, use the license of the original file.
 
 ## Git branching strategy and publishing
 

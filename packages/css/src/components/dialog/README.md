@@ -1,3 +1,5 @@
+<!-- @license CC0-1.0 -->
+
 # Dialog
 
 A Dialog allows the user to focus on one task or a piece of information by popping up and blocking the page content until the modal task is completed or until the user dismisses the action.
