@@ -4,12 +4,14 @@
  */
 
 import { Checkbox } from '@amsterdam/design-system-react'
+import { useArgs } from '@storybook/preview-api'
 import { Meta, StoryObj } from '@storybook/react'
 
 const meta = {
   title: 'Components/Forms/Checkbox',
   component: Checkbox,
   args: {
+    checked: false,
     children: 'Checkbox label',
     disabled: false,
     indeterminate: false,
@@ -20,6 +22,15 @@ const meta = {
       table: { disable: false },
     },
     onChange: { action: 'clicked' },
+  },
+  render: ({ ...args }) => {
+    const [, setArgs] = useArgs()
+
+    const handleClick = (event: any) => {
+      setArgs({ checked: event.target.checked })
+    }
+
+    return <Checkbox onClick={handleClick} {...args} />
   },
 } satisfies Meta<typeof Checkbox>
 

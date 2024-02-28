@@ -4,6 +4,7 @@
  */
 
 import { Radio } from '@amsterdam/design-system-react'
+import { useArgs } from '@storybook/preview-api'
 import { Meta, StoryObj } from '@storybook/react'
 
 const meta = {
@@ -20,6 +21,15 @@ const meta = {
       table: { disable: false },
     },
     onChange: { action: 'clicked' },
+  },
+  render: ({ ...args }) => {
+    const [, setArgs] = useArgs()
+
+    const handleClick = (event: any) => {
+      setArgs({ checked: event.target.checked })
+    }
+
+    return <Radio onClick={handleClick} {...args} />
   },
 } satisfies Meta<typeof Radio>
 
