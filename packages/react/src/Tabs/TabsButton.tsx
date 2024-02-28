@@ -21,7 +21,7 @@ export const TabsButton = forwardRef(
       <button
         {...restProps}
         role="tab"
-        id={`{tabsId}-tab-${tab}`}
+        id={`${tabsId}-tab-${tab}`}
         aria-controls={`${tabsId}-panel-${tab}`}
         aria-selected={activeTab === tab}
         tabIndex={activeTab === tab ? 0 : -1}
