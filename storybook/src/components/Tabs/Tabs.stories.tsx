@@ -53,42 +53,39 @@ type TabStory = StoryObj<typeof tabMeta>
 
 const StoryTemplate: Story = {
   args: {
-    children: (
-      <>
-        <Tabs.List>
-          <Tabs.Button tab={0} label="Gegevens" />
-          <Tabs.Button tab={1} label="Aanslagen" />
-          <Tabs.Button tab={2} label="Documenten" />
-          <Tabs.Button tab={3} label="Acties" />
-        </Tabs.List>
-        <Tabs.Panel tab={0}>
-          <div style={{ paddingTop: '2rem' }}>
-            <Heading level={3}>Gegevens</Heading>
-            <Paragraph>{exampleParagraph()}</Paragraph>
-          </div>
-        </Tabs.Panel>
-        <Tabs.Panel tab={1}>
-          <div style={{ paddingTop: '2rem' }}>
-            <Heading level={3}>Aanslagen</Heading>
-            <Paragraph>{exampleParagraph()}</Paragraph>
-          </div>
-        </Tabs.Panel>
-        <Tabs.Panel tab={2}>
-          <SlowPanel>
-            <div style={{ paddingTop: '2rem' }}>
-              <Heading level={3}>Documenten</Heading>
-              <Paragraph>(This tab panel simulates a load time of 1000 milliseconds.)</Paragraph>
-            </div>
-          </SlowPanel>
-        </Tabs.Panel>
-        <Tabs.Panel tab={3}>
-          <div style={{ paddingTop: '2rem' }}>
-            <Heading level={3}>Acties</Heading>
-            <Paragraph>{exampleParagraph()}</Paragraph>
-          </div>
-        </Tabs.Panel>
-      </>
-    ),
+    children: [
+      <Tabs.List key={0}>
+        <Tabs.Button tab={0} label="Gegevens" />
+        <Tabs.Button tab={1} label="Aanslagen" />
+        <Tabs.Button tab={2} label="Documenten" />
+        <Tabs.Button tab={3} label="Acties" />
+      </Tabs.List>,
+      <Tabs.Panel tab={0} key={1}>
+        <div style={{ paddingTop: '2rem' }}>
+          <Heading level={3}>Gegevens</Heading>
+          <Paragraph>{exampleParagraph()}</Paragraph>
+        </div>
+      </Tabs.Panel>,
+      <Tabs.Panel tab={1} key={2}>
+        <div style={{ paddingTop: '2rem' }}>
+          <Heading level={3}>Aanslagen</Heading>
+          <Paragraph>{exampleParagraph()}</Paragraph>
+        </div>
+      </Tabs.Panel>,
+      <Tabs.Panel tab={2} key={3}>
+        <div style={{ paddingTop: '2rem' }}>
+          <Heading level={3}>Documenten</Heading>
+          <Paragraph>(This tab panel simulates a load time of 500 milliseconds.)</Paragraph>
+          <SlowPanel />
+        </div>
+      </Tabs.Panel>,
+      <Tabs.Panel tab={3} key={4}>
+        <div style={{ paddingTop: '2rem' }}>
+          <Heading level={3}>Acties</Heading>
+          <Paragraph>{exampleParagraph()}</Paragraph>
+        </div>
+      </Tabs.Panel>,
+    ],
   },
 }
 
