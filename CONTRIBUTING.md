@@ -104,7 +104,7 @@ The license header looks like this:
 <!-- @license CC0-1.0 -->
 ```
 
-If the content of a documentation file is copied from another source (like our [Code of Conduct](./CODE_OF_CONDUCT.md), for example), use the license of the original file.
+If the content of a documentation file is copied from another source, use the license of the original file.
 
 ## Git branching strategy and publishing
 
