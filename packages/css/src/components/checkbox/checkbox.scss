@@ -25,7 +25,7 @@
   &::after {
     border-color: var(--amsterdam-checkbox-checkmark-border-color);
     border-style: solid;
-    border-width: 2px;
+    border-width: 0.125rem;
     box-sizing: border-box;
     content: "";
     height: 1.5rem;
@@ -55,7 +55,7 @@
 
     .amsterdam-checkbox__checkmark::after {
       border-color: var(--amsterdam-checkbox-checkmark-hover-border-color);
-      border-width: 3px;
+      border-width: 0.1875rem;
     }
   }
 
@@ -102,7 +102,7 @@
 
     .amsterdam-checkbox__checkmark::after {
       border-color: var(--amsterdam-checkbox-checkmark-disabled-border-color);
-      border-width: 2px;
+      border-width: 0.125rem;
     }
   }
 }

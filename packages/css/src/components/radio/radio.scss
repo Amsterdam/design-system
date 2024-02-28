@@ -26,7 +26,7 @@
     border-color: var(--amsterdam-radio-circle-border-color);
     border-radius: 100%;
     border-style: solid;
-    border-width: 2px;
+    border-width: 0.125rem;
     box-sizing: border-box;
     content: "";
     height: 1.5rem;
@@ -88,7 +88,7 @@
 
     .amsterdam-radio__circle::after {
       border-color: var(--amsterdam-radio-circle-disabled-border-color);
-      border-width: 2px;
+      border-width: 0.125rem;
     }
   }
 }
