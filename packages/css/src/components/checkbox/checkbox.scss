@@ -43,7 +43,7 @@
   display: inline-flex;
   font-family: var(--amsterdam-checkbox-font-family);
   font-size: var(--amsterdam-checkbox-font-size);
-  font-weight: 400;
+  font-weight: var(--amsterdam-checkbox-font-weight);
   gap: 0.5rem;
   line-height: var(--amsterdam-checkbox-line-height);
 
