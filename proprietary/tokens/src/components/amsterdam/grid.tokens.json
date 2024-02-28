@@ -2,13 +2,7 @@
   "amsterdam": {
     "grid": {
       "column-count": { "value": "4" },
-      "gap": {
-        "xs": { "value": "{amsterdam.space.xs}" },
-        "sm": { "value": "{amsterdam.space.sm}" },
-        "md": { "value": "{amsterdam.space.md}" },
-        "lg": { "value": "{amsterdam.space.lg}" },
-        "xl": { "value": "{amsterdam.space.xl}" }
-      },
+      "column-gap": { "value": "{amsterdam.space.md}" },
       "padding-block": {
         "xs": { "value": "{amsterdam.space.xs}" },
         "sm": { "value": "{amsterdam.space.sm}" },
@@ -17,6 +11,13 @@
         "xl": { "value": "{amsterdam.space.xl}" }
       },
       "padding-inline": { "value": "{amsterdam.space.lg}" },
+      "row-gap": {
+        "xs": { "value": "{amsterdam.space.xs}" },
+        "sm": { "value": "{amsterdam.space.sm}" },
+        "md": { "value": "{amsterdam.space.md}" },
+        "lg": { "value": "{amsterdam.space.lg}" },
+        "xl": { "value": "{amsterdam.space.xl}" }
+      },
       "medium": {
         "column-count": { "value": "8" }
       },

@@ -6,10 +6,11 @@
 @import "../../common/breakpoint";
 
 .amsterdam-grid {
+  column-gap: var(--amsterdam-grid-column-gap);
   display: grid;
-  gap: var(--amsterdam-grid-gap-md);
   grid-template-columns: repeat(var(--amsterdam-grid-column-count), 1fr);
   padding-inline: var(--amsterdam-grid-padding-inline);
+  row-gap: var(--amsterdam-grid-row-gap-md);
 
   @media screen and (min-width: $amsterdam-breakpoint-medium) {
     grid-template-columns: repeat(var(--amsterdam-grid-medium-column-count), 1fr);
@@ -20,21 +21,17 @@
   }
 }
 
-// Gap
-
 .amsterdam-grid--gap-vertical--none {
   row-gap: initial;
 }
 
 .amsterdam-grid--gap-vertical--small {
-  row-gap: var(--amsterdam-grid-gap-sm);
+  row-gap: var(--amsterdam-grid-row-gap-sm);
 }
 
 .amsterdam-grid--gap-vertical--large {
-  row-gap: var(--amsterdam-grid-gap-lg);
+  row-gap: var(--amsterdam-grid-row-gap-lg);
 }
-
-// Vertical padding
 
 .amsterdam-grid--padding-bottom--small {
   padding-block-end: var(--amsterdam-grid-padding-block-sm);
@@ -71,8 +68,6 @@
 .amsterdam-grid--padding-vertical--large {
   padding-block: var(--amsterdam-grid-padding-block-lg);
 }
-
-// Cell span
 
 .amsterdam-grid__cell--span-all {
   grid-column: 1 / -1;
