@@ -11,6 +11,9 @@
         "border-color": { "value": "{amsterdam.color.primary-blue}" },
         "checked": {
           "background-color": { "value": "{amsterdam.color.primary-blue}" },
+          "background-image": {
+            "value": "url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32' fill='%23ffffff'%3E%3Cpath fill-rule='evenodd' d='M12.216 27.016 0 14.168l2.91-2.77 9.346 9.837L29.129 4 32 6.8z'/%3E%3C/svg%3E\")"
+          },
           "hover": {
             "background-color": { "value": "{amsterdam.color.dark-blue}" }
           }
@@ -53,6 +56,9 @@
         },
         "indeterminate": {
           "background-color": { "value": "{amsterdam.color.primary-blue}" },
+          "background-image": {
+            "value": "url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32' fill='white'%3E%3Cpath fill-rule='evenodd' d='M0 13.714h32v4H0z'/%3E%3C/svg%3E\")"
+          },
           "hover": {
             "background-color": { "value": "{amsterdam.color.dark-blue}" }
           }
