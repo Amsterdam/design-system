@@ -73,4 +73,6 @@ describe('Tabs', () => {
     expect(screen.getByRole('tab', { name: 'Tab 2', selected: false })).toBeInTheDocument()
     expect(screen.getByRole('tabpanel')).toBeInTheDocument()
   })
+
+  // TODO add switching of tabs
 })

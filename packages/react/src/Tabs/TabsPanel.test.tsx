@@ -1,12 +1,11 @@
 import { render, screen } from '@testing-library/react'
 import { createRef } from 'react'
-import { Tabs } from './Tabs'
+import { TabsPanel } from './TabsPanel'
 import '@testing-library/jest-dom'
 
 describe('Tabs panel', () => {
-  const testContent = 'Test content'
   it('renders', () => {
-    render(<Tabs.Panel tab={0}>{testContent}</Tabs.Panel>)
+    render(<TabsPanel tab={0} />)
 
     const component = screen.getByRole('tabpanel')
 
@@ -14,7 +13,7 @@ describe('Tabs panel', () => {
   })
 
   it('renders a design system BEM class name', () => {
-    render(<Tabs.Panel tab={0}>{testContent}</Tabs.Panel>)
+    render(<TabsPanel tab={0} />)
 
     const component = screen.getByRole('tabpanel')
 
@@ -22,11 +21,7 @@ describe('Tabs panel', () => {
   })
 
   it('renders an additional class name', () => {
-    render(
-      <Tabs.Panel tab={0} className="extra">
-        {testContent}
-      </Tabs.Panel>,
-    )
+    render(<TabsPanel tab={0} className="extra" />)
 
     const component = screen.getByRole('tabpanel')
 
@@ -36,14 +31,12 @@ describe('Tabs panel', () => {
   it('supports ForwardRef in React', () => {
     const ref = createRef<HTMLDivElement>()
 
-    const { container } = render(
-      <Tabs.Panel tab={0} ref={ref}>
-        {testContent}
-      </Tabs.Panel>,
-    )
+    const { container } = render(<TabsPanel tab={0} ref={ref} />)
 
     const tabsPanel = container.querySelector('.amsterdam-tabs__panel')
 
     expect(ref.current).toBe(tabsPanel)
   })
+
+  // Tabs prop testen
 })

@@ -1,11 +1,11 @@
 import { render, screen } from '@testing-library/react'
 import { createRef } from 'react'
-import { Tabs } from './Tabs'
+import { TabsList } from './TabsList'
 import '@testing-library/jest-dom'
 
 describe('Tabs list', () => {
   it('renders', () => {
-    render(<Tabs.List></Tabs.List>)
+    render(<TabsList />)
 
     const component = screen.getByRole('tablist')
 
@@ -13,7 +13,7 @@ describe('Tabs list', () => {
   })
 
   it('renders a design system BEM class name', () => {
-    render(<Tabs.List></Tabs.List>)
+    render(<TabsList />)
 
     const component = screen.getByRole('tablist')
 
@@ -21,7 +21,7 @@ describe('Tabs list', () => {
   })
 
   it('renders an additional class name', () => {
-    render(<Tabs.List className="extra"></Tabs.List>)
+    render(<TabsList className="extra" />)
 
     const component = screen.getByRole('tablist')
 
@@ -31,7 +31,7 @@ describe('Tabs list', () => {
   it('supports ForwardRef in React', () => {
     const ref = createRef<HTMLDivElement>()
 
-    const { container } = render(<Tabs.List ref={ref}></Tabs.List>)
+    const { container } = render(<TabsList ref={ref} />)
 
     const tabsList = container.querySelector('.amsterdam-tabs__list')
 
