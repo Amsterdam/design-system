@@ -28,6 +28,14 @@ describe('Tabs panel', () => {
     expect(component).toHaveClass('amsterdam-tabs__panel extra')
   })
 
+  it('renders the correct id based on the tabs prop', () => {
+    const { container } = render(<TabsPanel tab={0} />)
+
+    const component = container.querySelector('#-panel-0')
+
+    expect(component).toBeInTheDocument()
+  })
+
   it('supports ForwardRef in React', () => {
     const ref = createRef<HTMLDivElement>()
 
@@ -37,6 +45,4 @@ describe('Tabs panel', () => {
 
     expect(ref.current).toBe(tabsPanel)
   })
-
-  // Tabs prop testen
 })
