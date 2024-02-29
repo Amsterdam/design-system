@@ -1,6 +1,6 @@
 /**
  * @license EUPL-1.2+
- * Copyright (c) 2024 Gemeente Amsterdam
+ * Copyright Gemeente Amsterdam
  */
 
 @mixin reset {
@@ -17,7 +17,6 @@
   font-size: var(--amsterdam-text-area-font-size);
   font-weight: var(--amsterdam-text-area-font-weight);
   line-height: var(--amsterdam-text-area-line-height);
-  min-height: var(--amsterdam-text-area-min-height);
   outline-offset: var(--amsterdam-text-area-outline-offset);
   padding-block: 0.5rem;
   padding-inline: 1rem;
@@ -39,7 +38,7 @@
   background-color: var(--amsterdam-text-area-disabled-background-color);
   box-shadow: var(--amsterdam-text-area-disabled-box-shadow);
   color: var(--amsterdam-text-area-disabled-color);
-  cursor: not-allowed;
+  cursor: var(--amsterdam-text-area-disabled-cursor);
 }
 
 .amsterdam-text-area:invalid,
@@ -57,15 +56,19 @@
 }
 
 .amsterdam-text-area--resize-horizontal {
-  resize: horizontal;
+  resize: inline;
 }
 
 .amsterdam-text-area--resize-vertical {
-  resize: vertical;
+  resize: block;
 }
 
 .amsterdam-text-area--grow {
   /* stylelint-disable-next-line property-no-unknown */
   field-sizing: content;
+  width: auto;
+}
+
+.amsterdam-text-area--cols {
   width: auto;
 }

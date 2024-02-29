@@ -6,26 +6,26 @@ import '@testing-library/jest-dom'
 
 describe('Text area', () => {
   it('renders', () => {
-    const { container } = render(<TextArea />)
+    render(<TextArea />)
 
-    const component = container.querySelector(':only-child')
+    const component = screen.getByRole('textbox')
 
     expect(component).toBeInTheDocument()
     expect(component).toBeVisible()
   })
 
   it('renders a design system BEM class name', () => {
-    const { container } = render(<TextArea />)
+    render(<TextArea />)
 
-    const component = container.querySelector(':only-child')
+    const component = screen.getByRole('textbox')
 
     expect(component).toHaveClass('amsterdam-text-area')
   })
 
   it('renders an additional class name', () => {
-    const { container } = render(<TextArea className="extra" />)
+    render(<TextArea className="extra" />)
 
-    const component = container.querySelector(':only-child')
+    const component = screen.getByRole('textbox')
 
     expect(component).toHaveClass('amsterdam-text-area extra')
   })

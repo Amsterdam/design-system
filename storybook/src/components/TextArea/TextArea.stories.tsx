@@ -1,6 +1,6 @@
 /**
  * @license EUPL-1.2+
- * Copyright (c) 2024 Gemeente Amsterdam
+ * Copyright Gemeente Amsterdam
  */
 
 import { TextArea, TextAreaProps } from '@amsterdam/design-system-react'
@@ -13,7 +13,7 @@ const paragraph = exampleParagraph()
 type StoryProps = TextAreaProps & { invalid?: boolean }
 
 const meta = {
-  title: 'Forms/Text Area',
+  title: 'Components/Forms/Text Area',
   component: TextArea,
   args: {
     children: paragraph,
