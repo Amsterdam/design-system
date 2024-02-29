@@ -1,6 +1,6 @@
 /**
  * @license EUPL-1.2+
- * Copyright (c) 2023 Gemeente Amsterdam
+ * Copyright Gemeente Amsterdam
  */
 
 import clsx from 'clsx'
@@ -16,7 +16,7 @@ export type GridColumnNumbers = {
   wide: GridColumnNumber
 }
 
-type GridPaddingSize = 'small' | 'medium' | 'large'
+export type GridPaddingSize = 'small' | 'medium' | 'large'
 
 type GridPaddingVerticalProp = {
   paddingBottom?: never

@@ -28,7 +28,7 @@ See the [documentation for contributors](./CONTRIBUTING.md).
 ## Code of Conduct
 
 We pledge to act and interact in ways that contribute to an open, welcoming, diverse, inclusive, and healthy community.
-Read [our Code of Conduct](CODE_OF_CONDUCT.md) if you haven’t already.
+Read [our Code of Conduct](https://github.com/Amsterdam/.github/blob/main/CODE_OF_CONDUCT.md) if you haven’t already.
 
 ## NL Design System
 

@@ -1,3 +1,5 @@
+<!-- @license CC0-1.0 -->
+
 # How we review code
 
 We consider code reviews an essential practice of software engineering.

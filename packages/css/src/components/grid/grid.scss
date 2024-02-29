@@ -1,15 +1,16 @@
 /**
  * @license EUPL-1.2+
- * Copyright (c) 2023 Gemeente Amsterdam
+ * Copyright Gemeente Amsterdam
  */
 
 @import "../../common/breakpoint";
 
 .amsterdam-grid {
+  column-gap: var(--amsterdam-grid-column-gap);
   display: grid;
-  gap: var(--amsterdam-grid-gap);
   grid-template-columns: repeat(var(--amsterdam-grid-column-count), 1fr);
   padding-inline: var(--amsterdam-grid-padding-inline);
+  row-gap: var(--amsterdam-grid-row-gap-md);
 
   @media screen and (min-width: $amsterdam-breakpoint-medium) {
     grid-template-columns: repeat(var(--amsterdam-grid-medium-column-count), 1fr);
@@ -25,47 +26,47 @@
 }
 
 .amsterdam-grid--gap-vertical--small {
-  row-gap: calc(var(--amsterdam-grid-gap) / 2);
+  row-gap: var(--amsterdam-grid-row-gap-sm);
 }
 
 .amsterdam-grid--gap-vertical--large {
-  row-gap: calc(var(--amsterdam-grid-gap) * 2);
+  row-gap: var(--amsterdam-grid-row-gap-lg);
 }
 
 .amsterdam-grid--padding-bottom--small {
-  padding-block-end: calc(var(--amsterdam-grid-gap) / 2);
+  padding-block-end: var(--amsterdam-grid-padding-block-sm);
 }
 
 .amsterdam-grid--padding-bottom--medium {
-  padding-block-end: var(--amsterdam-grid-gap);
+  padding-block-end: var(--amsterdam-grid-padding-block-md);
 }
 
 .amsterdam-grid--padding-bottom--large {
-  padding-block-end: calc(var(--amsterdam-grid-gap) * 2);
+  padding-block-end: var(--amsterdam-grid-padding-block-lg);
 }
 
 .amsterdam-grid--padding-top--small {
-  padding-block-start: calc(var(--amsterdam-grid-gap) / 2);
+  padding-block-start: var(--amsterdam-grid-padding-block-sm);
 }
 
 .amsterdam-grid--padding-top--medium {
-  padding-block-start: var(--amsterdam-grid-gap);
+  padding-block-start: var(--amsterdam-grid-padding-block-md);
 }
 
 .amsterdam-grid--padding-top--large {
-  padding-block-start: calc(var(--amsterdam-grid-gap) * 2);
+  padding-block-start: var(--amsterdam-grid-padding-block-lg);
 }
 
 .amsterdam-grid--padding-vertical--small {
-  padding-block: calc(var(--amsterdam-grid-gap) / 2);
+  padding-block: var(--amsterdam-grid-padding-block-sm);
 }
 
 .amsterdam-grid--padding-vertical--medium {
-  padding-block: var(--amsterdam-grid-gap);
+  padding-block: var(--amsterdam-grid-padding-block-md);
 }
 
 .amsterdam-grid--padding-vertical--large {
-  padding-block: calc(var(--amsterdam-grid-gap) * 2);
+  padding-block: var(--amsterdam-grid-padding-block-lg);
 }
 
 .amsterdam-grid__cell--span-all {

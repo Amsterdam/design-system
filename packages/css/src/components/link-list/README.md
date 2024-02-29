@@ -1,3 +1,5 @@
+<!-- @license CC0-1.0 -->
+
 # Link List
 
 A collection of related links.
@@ -13,4 +15,4 @@ Therefore, it is blue and clickable.
 
 Use a Link List to present multiple links within a theme.
 
-For additional guidelines, refer to the [Link](?path=/docs/navigation-link--docs) component.
+For additional guidelines, refer to the [Link](/docs/components-navigation-link--docs) component.

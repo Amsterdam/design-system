@@ -1,3 +1,8 @@
+/**
+ * @license EUPL-1.2+
+ * Copyright Gemeente Amsterdam
+ */
+
 @mixin hyphenation {
   hyphenate-limit-chars: var(--amsterdam-hyphenation-hyphenate-limit-chars);
   hyphens: var(--amsterdam-hyphenation-hyphens);
