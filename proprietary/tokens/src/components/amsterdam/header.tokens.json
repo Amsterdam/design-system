@@ -4,6 +4,9 @@
       "column-gap": {
         "value": "{amsterdam.space.md}",
         "comment": "Must have the same value as `amsterdam.grid.column-gap`."
+      },
+      "logo": {
+        "outline-offset": { "value": "{amsterdam.focus.outline-offset}" }
       }
     }
   }
