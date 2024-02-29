@@ -2,10 +2,16 @@
   "amsterdam": {
     "mega-menu": {
       "list-category": {
-        "column-gap": { "value": "{amsterdam.grid.gap}" },
+        "column-gap": {
+          "value": "{amsterdam.space.md}",
+          "comment": "Must have the same value as `amsterdam.grid.column-gap`."
+        },
         "column-width": { "value": "20rem" },
         "padding-block-start": { "value": "1rem" },
-        "padding-block-end": { "value": "{amsterdam.grid.gap}" }
+        "padding-block-end": {
+          "value": "{amsterdam.space.md}",
+          "comment": "Must have the same value as `amsterdam.grid.row-gap.md`."
+        }
       }
     }
   }

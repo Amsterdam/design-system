@@ -39,22 +39,22 @@ There are few options for background colour or borders.
 Typography and white space remain as tools to keep screens readable.
 For websites, the grid is quite spacious.
 
-The horizontal white space between columns is 16 pixels wide at a window width of 320 pixels or less.
-For every additional 256 pixels of width, the white space grows linearly by 8 pixels.
+The gap between columns is 16 pixels wide at a window width of 320 pixels or less.
+For every additional 256 pixels of width, it grows linearly by 8 pixels.
 (This amounts to 3 and 3/8 per cent of the screen width plus 6 pixels.)
 At a window width of 1600 pixels, it is 56 pixels.
-After that, the white space does not grow further.
+After that, the gap does not grow further.
 
-In wide windows, the white spaces become almost as wide as the columns.
+In wide windows, the gaps become almost as wide as the columns.
 This may seem unnatural, but it is not a problem.
-Elements often occupy multiple columns of the grid, including the intervening white spaces.
+Elements often occupy multiple columns of the grid, including the gaps in between.
 
 #### Compact
 
-For applications, so much white space is not necessary, even counterproductive.
+For applications, so much white space is unnecessary, even counterproductive.
 Therefore, there is also a compact theme for the grid.
 
-The minimum white space between columns is also 16 pixels here.
+The minimum gap between columns is also 16 pixels here.
 But it only starts growing from a window width of 1088 pixels.
 The increase is also slower: 4 pixels per 256 pixels of additional width.
 (This amounts to 1 and 9/16 per cent of the screen width minus 1 pixel.)
@@ -66,7 +66,7 @@ On both sides, the grid reserves margins of white space.
 
 #### Spacious
 
-The margin is 1½ times as wide as the space between columns.
+The margin is 1½ times as wide as the gap between columns.
 This provides enough space between the grid and the edges of the screen or window.
 
 Some elements, such as full-screen images and the page’s footer, can be positioned over these margins.
@@ -74,7 +74,7 @@ These are, therefore, slightly wider than the rest of the content.
 
 #### Compact
 
-In the compact theme, the margins outside the grid are as wide as the white spaces inside.
+In the compact theme, the margins outside the grid are as wide as the gaps inside of it.
 No elements are placed over these margins.
 
 ### Menu bar
@@ -106,24 +106,24 @@ In practice, these design choices result in the following dimensions in pixels.
 
 ### Widths per breakpoint
 
-The columns, white spaces, and margins have the following widths at the three breakpoints.
+The columns, gaps, and margins have the following widths at the three breakpoints.
 Again, between these widths, the widths grow continuously.
 
 #### Spacious
 
-| Breakpoint | From window width | Number of columns | Column width | White space width | Margin width | Grid width |
-| :--------- | ----------------: | ----------------: | -----------: | ----------------: | -----------: | ---------: |
-| narrow     |               320 |                 4 |           56 |                16 |           24 |        272 |
-| medium     |               576 |                 8 |           42 |                24 |           36 |        504 |
-| wide       |              1088 |                12 |           44 |                40 |           60 |        968 |
+| Breakpoint | From window width | Number of columns | Column width | Gap width | Margin width | Grid width |
+| :--------- | ----------------: | ----------------: | -----------: | --------: | -----------: | ---------: |
+| narrow     |               320 |                 4 |           56 |        16 |           24 |        272 |
+| medium     |               576 |                 8 |           42 |        24 |           36 |        504 |
+| wide       |              1088 |                12 |           44 |        40 |           60 |        968 |
 
 #### Compact
 
-| Breakpoint | From window width | Number of columns | Menu bar width | Column width | White space width | Margin width | Grid width |
-| :--------- | ----------------: | ----------------: | -------------: | -----------: | ----------------: | -----------: | ---------: |
-| narrow     |               320 |                 4 |              0 |           60 |                16 |           16 |        288 |
-| medium     |               576 |                 8 |              0 |           54 |                16 |           16 |        544 |
-| wide       |              1088 |                12 |            112 |           64 |                16 |           16 |        944 |
+| Breakpoint | From window width | Number of columns | Menu bar width | Column width | Gap width | Margin width | Grid width |
+| :--------- | ----------------: | ----------------: | -------------: | -----------: | --------: | -----------: | ---------: |
+| narrow     |               320 |                 4 |              0 |           60 |        16 |           16 |        288 |
+| medium     |               576 |                 8 |              0 |           54 |        16 |           16 |        544 |
+| wide       |              1088 |                12 |            112 |           64 |        16 |           16 |        944 |
 
 ### Not tied to devices
 
@@ -159,19 +159,19 @@ In these three situations, the dimensions are as follows.
 
 #### Spacious
 
-| Device Class | Reference Width | Number of columns | Column width | White space width | Margin width | Grid width |
-| :----------- | --------------: | ----------------: | -----------: | ----------------: | -----------: | ---------: |
-| phone        |             320 |                 4 |           56 |                16 |           24 |        272 |
-| tablet       |             832 |                 8 |           64 |                32 |           48 |        736 |
-| desktop      |            1600 |                12 |           68 |                56 |           84 |       1432 |
+| Device Class | Reference Width | Number of columns | Column width | Gap width | Margin width | Grid width |
+| :----------- | --------------: | ----------------: | -----------: | --------: | -----------: | ---------: |
+| phone        |             320 |                 4 |           56 |        16 |           24 |        272 |
+| tablet       |             832 |                 8 |           64 |        32 |           48 |        736 |
+| desktop      |            1600 |                12 |           68 |        56 |           84 |       1432 |
 
 #### Compact
 
-| Device Class | Reference Width | Number of columns | Menu bar width | Column width | White space width | Margin width | Grid width |
-| :----------- | --------------: | ----------------: | -------------: | -----------: | ----------------: | -----------: | ---------: |
-| phone        |             320 |                 4 |              0 |           60 |                16 |           16 |        288 |
-| tablet       |             832 |                 8 |              0 |           86 |                16 |           16 |        800 |
-| desktop      |            1600 |                12 |            112 |           98 |                24 |           24 |       1440 |
+| Device Class | Reference Width | Number of columns | Menu bar width | Column width | Gap width | Margin width | Grid width |
+| :----------- | --------------: | ----------------: | -------------: | -----------: | --------: | -----------: | ---------: |
+| phone        |             320 |                 4 |              0 |           60 |        16 |           16 |        288 |
+| tablet       |             832 |                 8 |              0 |           86 |        16 |           16 |        800 |
+| desktop      |            1600 |                12 |            112 |           98 |        24 |           24 |       1440 |
 
 ### Windows or screens
 
