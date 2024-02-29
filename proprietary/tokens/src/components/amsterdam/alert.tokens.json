@@ -4,10 +4,10 @@
       "border-width": { "value": "4px" },
       "border-style": { "value": "solid" },
       "gap": { "value": "1rem" },
-      "padding-block-start": { "value": "1rem" },
-      "padding-block-end": { "value": "1rem" },
-      "padding-inline-start": { "value": "1.5rem" },
-      "padding-inline-end": { "value": "1.5rem" },
+      "padding-block-start": { "value": "{amsterdam.space.inside.sm}" },
+      "padding-block-end": { "value": "{amsterdam.space.inside.sm}" },
+      "padding-inline-start": { "value": "{amsterdam.space.inside.md}" },
+      "padding-inline-end": { "value": "{amsterdam.space.inside.md}" },
       "error": {
         "border-color": { "value": "{amsterdam.color.primary-red}" }
       },
