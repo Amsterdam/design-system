@@ -6,10 +6,10 @@
       "font-size": { "value": "{amsterdam.typography.text-level.5.font-size}" },
       "line-height": { "value": "{amsterdam.typography.text-level.5.line-height}" },
       "gap": { "value": "1rem" },
-      "padding-inline-start": { "value": "{amsterdam.space.inside.lg}" },
-      "padding-inline-end": { "value": "{amsterdam.space.inside.lg}" },
       "padding-block-start": { "value": "{amsterdam.space.inside.xs}" },
       "padding-block-end": { "value": "{amsterdam.space.inside.xs}" },
+      "padding-inline-start": { "value": "{amsterdam.space.inside.lg}" },
+      "padding-inline-end": { "value": "{amsterdam.space.inside.lg}" },
       "outline-offset": { "value": "{amsterdam.focus.outline-offset}" },
       "busy": {
         "cursor": { "value": "{amsterdam.action.busy.cursor}" }
