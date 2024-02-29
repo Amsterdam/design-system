@@ -38,7 +38,7 @@
 
 .amsterdam-header__menu {
   flex: 1;
-  padding-inline-start: var(--amsterdam-page-menu-column-gap);
+  padding-inline-start: var(--amsterdam-page-menu-column-gap); // TODO Don’t use tokens of another component
   text-align: end;
 
   @media screen and (min-width: $amsterdam-breakpoint-wide) {
