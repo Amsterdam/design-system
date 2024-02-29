@@ -1,3 +1,5 @@
+<!-- @license CC0-1.0 -->
+
 # Badge
 
 A prominently coloured box containing 1 or 2 words.

@@ -1,3 +1,5 @@
+<!-- @license CC0-1.0 -->
+
 # Pagination
 
 Pagination is a navigation element used to navigate between multiple pages of overview lists.
@@ -16,4 +18,4 @@ Pagination indicates the current page and allows users to navigate to other page
 
 ## Relevant WCAG Rules
 
-Pagination is an interactive element, and the [general requirements and guidelines for interactive elements](https://amsterdam.github.io/design-system/?path=/docs/docs-designrichtlijnen-interactieve-elementen--docs) apply.
+Pagination is an interactive element, and the [general requirements and guidelines for interactive elements](/docs/docs-design-guidelines-interactive-elements--docs) apply.

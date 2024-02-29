@@ -1,3 +1,8 @@
+/**
+ * @license EUPL-1.2+
+ * Copyright Gemeente Amsterdam
+ */
+
 import { createContext } from 'react'
 import { HeadingLevel } from '../Heading/Heading'
 

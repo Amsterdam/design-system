@@ -1,3 +1,5 @@
+<!-- @license CC0-1.0 -->
+
 # Icon Button
 
 A button containing only an icon.
@@ -11,4 +13,4 @@ A button containing only an icon.
 
 ## Relevant WCAG Requirements
 
-The Icon Button follows [the same requirements and guidelines as a regular button](https://amsterdam.github.io/design-system/?path=/docs/react_buttons-button--docs).
+The Icon Button follows [the same requirements and guidelines as a regular button](/docs/components-buttons-button--docs).

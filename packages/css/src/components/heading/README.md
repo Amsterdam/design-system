@@ -1,3 +1,5 @@
+<!-- @license CC0-1.0 -->
+
 # Heading
 
 A heading conveys information about the content below it.

@@ -1,3 +1,5 @@
+<!-- @license CC0-1.0 -->
+
 # React Switch Component
 
 The React `<Switch />` component is a wrapper around the `<input type="checkbox" />`.
