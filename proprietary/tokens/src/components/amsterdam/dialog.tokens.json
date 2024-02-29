@@ -20,15 +20,11 @@
         "padding-inline": { "value": "clamp(1.5rem, calc(1.5rem + ((1vw - 0.5337rem) * 2.1448)), 2.5rem)" },
         "max-block-size": { "value": "75vh" }
       },
-      "article": {
-        "padding-inline-end": { "value": "1.5rem" }
-      },
       "header": {
         "gap": { "value": "1rem" }
       },
       "footer": {
-        "gap": { "value": "1rem" },
-        "padding-block": { "value": "1.5rem 0" }
+        "gap": { "value": "1rem" }
       }
     }
   }
