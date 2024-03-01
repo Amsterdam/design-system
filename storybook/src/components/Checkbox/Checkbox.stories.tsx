@@ -23,7 +23,7 @@ const meta = {
     },
     onChange: { action: 'clicked', table: { disable: true } },
   },
-  render: ({ ...args }) => {
+  render: (args) => {
     const [, setArgs] = useArgs()
 
     const handleClick = (event: any) => {
