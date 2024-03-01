@@ -47,7 +47,7 @@ export const parameters = {
       order: [
         'Docs',
         ['Introduction', 'Assets', 'Design Guidelines'],
-        'React Components',
+        'Components',
         ['Buttons', 'Containers', 'Feedback', 'Forms', 'Layout', 'Media', 'Navigation', 'Text'],
       ],
     },
