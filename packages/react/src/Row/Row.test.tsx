@@ -1,6 +1,6 @@
-import { render } from '@testing-library/react'
+import { render, screen } from '@testing-library/react'
 import { createRef } from 'react'
-import { Row } from './Row'
+import { Row, rowGapSizes } from './Row'
 import '@testing-library/jest-dom'
 
 describe('Row', () => {
@@ -18,19 +18,45 @@ describe('Row', () => {
 
     const component = container.querySelector(':only-child')
 
-    expect(component).toHaveClass('amsterdam-row')
+    expect(component).toHaveClass('amsterdam-row--medium')
   })
+
+  rowGapSizes.map((size) =>
+    it('renders with ${size} gap', () => {
+      const { container } = render(<Row gap={size} />)
+
+      const component = container.querySelector(':only-child')
+
+      expect(component).toHaveClass(`amsterdam-row--${size}`)
+    }),
+  )
 
   it('renders an additional class name', () => {
     const { container } = render(<Row className="extra" />)
 
     const component = container.querySelector(':only-child')
 
-    expect(component).toHaveClass('amsterdam-row extra')
+    expect(component).toHaveClass('amsterdam-row--medium extra')
+  })
+
+  it('renders with an article tag', () => {
+    render(<Row as="article" />)
+
+    const component = screen.getByRole('article')
+
+    expect(component).toBeInTheDocument()
+  })
+
+  it('renders with a section tag', () => {
+    const { container } = render(<Row as="section" />)
+
+    const component = container.querySelector('section')
+
+    expect(component).toBeInTheDocument()
   })
 
   it('supports ForwardRef in React', () => {
-    const ref = createRef<HTMLElement>()
+    const ref = createRef<HTMLDivElement>()
 
     const { container } = render(<Row ref={ref} />)
 

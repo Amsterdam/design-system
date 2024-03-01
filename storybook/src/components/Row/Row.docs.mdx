@@ -1,4 +1,4 @@
-import { Controls, Markdown, Meta, Primary } from "@storybook/blocks";
+import { Canvas, Controls, Markdown, Meta, Primary } from "@storybook/blocks";
 import * as RowStories from "./Row.stories.tsx";
 import README from "../../../../packages/css/src/components/row/README.md?raw";
 
@@ -6,6 +6,25 @@ import README from "../../../../packages/css/src/components/row/README.md?raw";
 
 <Markdown>{README}</Markdown>
 
+## Design
+
+The five [spacing](/docs/docs-design-guidelines-space--docs) sizes are available for the size of the gap.
+
+## How to Use
+
+Wrap a Row around a set of components that need the same amount of white space between them.
+
+## Examples
+
+### Default
+
 <Primary />
 
 <Controls />
+
+### Use Another HTML Element
+
+By default, a Row renders a `<div>`.
+Use the `as` prop to make your markup more semantic.
+
+<Canvas of={RowStories.CustomTagName} />
