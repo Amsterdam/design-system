@@ -50,11 +50,10 @@ export const Alert = forwardRef(
     ref: ForwardedRef<HTMLDivElement>,
   ) => {
     const alertSize = title ? 'level-4' : 'level-5'
-
-    const Element = title ? 'section' : 'div'
+    const Tag = title ? 'section' : 'div'
 
     return (
-      <Element
+      <Tag
         {...restProps}
         ref={ref}
         className={clsx('amsterdam-alert', severity && `amsterdam-alert--${severity}`, className)}
@@ -71,7 +70,7 @@ export const Alert = forwardRef(
           {children}
         </div>
         {closeable && <IconButton label="Sluiten" size={alertSize} onClick={onClose} />}
-      </Element>
+      </Tag>
     )
   },
 )
