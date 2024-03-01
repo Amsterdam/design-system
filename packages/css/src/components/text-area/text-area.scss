@@ -17,9 +17,11 @@
   font-size: var(--amsterdam-text-area-font-size);
   font-weight: var(--amsterdam-text-area-font-weight);
   line-height: var(--amsterdam-text-area-line-height);
+  max-width: 100%;
+  min-height: var(--amsterdam-text-area-min-height);
   outline-offset: var(--amsterdam-text-area-outline-offset);
-  padding-block: 0.5rem;
-  padding-inline: 1rem;
+  padding-block: var(--amsterdam-text-area-padding-block);
+  padding-inline: var(--amsterdam-text-area-padding-inline);
   touch-action: manipulation;
   width: 100%;
 
