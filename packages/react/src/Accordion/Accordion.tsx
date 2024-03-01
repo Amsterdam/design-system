@@ -28,6 +28,7 @@ export const Accordion = forwardRef(
     useImperativeHandle(ref, () => innerRef.current as HTMLDivElement)
 
     const { keyDown } = useFocusWithArrows({ ref: innerRef, rotating: true })
+
     return (
       <AccordionContext.Provider value={{ headingLevel: headingLevel, section: section }}>
         <div className={clsx('amsterdam-accordion', className)} onKeyDown={keyDown} ref={innerRef}>
