@@ -40,7 +40,6 @@
         "ignore": ["custom-properties"]
       }
     ],
-    "max-line-length": null,
     "media-feature-name-no-unknown": true,
     "no-descending-specificity": true,
     "no-duplicate-at-import-rules": true,
