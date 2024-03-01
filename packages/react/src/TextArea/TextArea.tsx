@@ -24,7 +24,7 @@ export const TextArea = forwardRef(
         restProps.cols && 'amsterdam-text-area--cols',
         className,
       )}
-    ></textarea>
+    />
   ),
 )
 

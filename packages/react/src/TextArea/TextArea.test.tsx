@@ -30,7 +30,7 @@ describe('Text area', () => {
     expect(component).toHaveClass('amsterdam-text-area extra')
   })
 
-  it('should be working in a controlled state', async () => {
+  it('can be controlled', async () => {
     function ControlledComponent() {
       const [value, setValue] = useState('Hello')
 
