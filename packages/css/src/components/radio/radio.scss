@@ -9,9 +9,16 @@
   margin-inline: 0;
   opacity: 0%; /* to hide native input field in older iOS */
 
-  &:focus-visible + label {
+  /* Focus is first set on the label next to a focussed radio button, and then
+    hidden when the focussed radio button doesn't have focus-visible.
+    This progressive enhancement means you get the benefits of focus-visible
+    while still showing a focus ring on browsers that don't support focus-visible (like older Safari) */
+  &:focus + label {
     outline: auto;
-    outline-offset: var(--amsterdam-radio-outline-offset);
+  }
+
+  &:focus:not(:focus-visible) + label {
+    outline: 0;
   }
 }
 
@@ -47,6 +54,7 @@
   font-weight: var(--amsterdam-radio-font-weight);
   gap: 0.5rem;
   line-height: var(--amsterdam-radio-line-height);
+  outline-offset: var(--amsterdam-radio-outline-offset);
 
   &:hover {
     color: var(--amsterdam-radio-hover-color);
