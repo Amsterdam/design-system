@@ -1,4 +1,4 @@
-import { Controls, Markdown, Meta, Primary } from "@storybook/blocks";
+import { Canvas, Controls, Markdown, Meta, Primary } from "@storybook/blocks";
 import * as RadioStories from "./Radio.stories.tsx";
 import README from "../../../../packages/css/src/components/radio/README.md?raw";
 
@@ -9,3 +9,8 @@ import README from "../../../../packages/css/src/components/radio/README.md?raw"
 <Primary />
 
 <Controls />
+
+Group radios together with a [Fieldset](/docs/components-forms-fieldset--docs) that describes them.
+This is usually a question, like ‘Where do you live?’.
+
+<Canvas of={RadioStories.RadioGroup} />
