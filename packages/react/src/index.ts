@@ -4,6 +4,7 @@
  */
 
 /* Append here */
+export * from './Row'
 export * from './Radio'
 export * from './Tabs'
 export * from './TextArea'
