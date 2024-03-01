@@ -7,7 +7,7 @@
       "font-size": { "value": "{amsterdam.typography.text-level.6.font-size}" },
       "font-weight": { "value": "{amsterdam.typography.font-weight.normal}" },
       "line-height": { "value": "{amsterdam.typography.text-level.6.line-height}" },
-      "min-height": { "value": "2.6rem" },
+      "min-height": { "value": "calc(1.6em + 1rem)" },
       "outline-offset": { "value": "{amsterdam.focus.outline-offset}" },
       "padding-block": { "value": "0.5rem" },
       "padding-inline": { "value": "1rem" },
