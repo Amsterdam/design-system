@@ -43,8 +43,8 @@
     "postcss": "8.4.35",
     "prettier": "3.2.5",
     "rimraf": "5.0.5",
-    "stylelint": "15.11.0",
-    "stylelint-config-standard-scss": "11.1.0",
+    "stylelint": "16.2.1",
+    "stylelint-config-standard-scss": "13.0.0",
     "stylelint-order": "6.0.4",
     "typescript": "5.3.3",
     "wait-on": "7.2.0"
