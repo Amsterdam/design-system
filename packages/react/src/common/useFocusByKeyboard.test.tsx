@@ -1,6 +1,6 @@
 import { fireEvent, render } from '@testing-library/react'
 import { useRef } from 'react'
-import useFocusByKeyboard, { KeyboardKeys } from './useFocusByKeyboard'
+import { KeyboardKeys, useFocusByKeyboard } from './useFocusByKeyboard'
 
 describe('use focus with arrows', () => {
   const onFocusOneMock = jest.fn()

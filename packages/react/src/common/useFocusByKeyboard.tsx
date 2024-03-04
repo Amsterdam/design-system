@@ -31,7 +31,7 @@ type FocusByKeyboardOptions = {
   horizontally?: boolean
 }
 
-const useFocusByKeyboard = ({
+export const useFocusByKeyboard = ({
   ref,
   rotating = false,
   directChildrenOnly = false,
@@ -110,5 +110,3 @@ const useFocusByKeyboard = ({
 
   return { keyDown }
 }
-
-export default useFocusByKeyboard

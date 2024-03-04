@@ -10,7 +10,7 @@ import { TabsButton } from './TabsButton'
 import { TabsContext } from './TabsContext'
 import { TabsList } from './TabsList'
 import { TabsPanel } from './TabsPanel'
-import useFocusByKeyboard from '../common/useFocusByKeyboard'
+import { useFocusByKeyboard } from '../common/useFocusByKeyboard'
 
 export type TabsProps = PropsWithChildren<HTMLAttributes<HTMLDivElement>>
 

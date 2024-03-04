@@ -9,7 +9,7 @@ import type { ForwardedRef, ForwardRefExoticComponent, HTMLAttributes, PropsWith
 import AccordionContext from './AccordionContext'
 import { AccordionSection } from './AccordionSection'
 import { HeadingLevel } from '../Heading/Heading'
-import useFocusByKeyboard from '../common/useFocusByKeyboard'
+import { useFocusByKeyboard } from '../common/useFocusByKeyboard'
 
 export type AccordionProps = {
   headingLevel: HeadingLevel
