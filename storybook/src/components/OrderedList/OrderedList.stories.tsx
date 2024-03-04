@@ -45,21 +45,21 @@ export const Default: Story = {}
 export const TwoLevels: Story = {
   render: (args) => (
     <OrderedList {...args}>
-      <OrderedList.Item key={1}>
+      <OrderedList.Item>
         Stadsdeel West
         <OrderedList {...args}>
-          <OrderedList.Item key={1.1}>Bos en Lommer</OrderedList.Item>
-          <OrderedList.Item key={1.2}>Oud West / De Baarsjes</OrderedList.Item>
-          <OrderedList.Item key={1.3}>Westerpark</OrderedList.Item>
+          <OrderedList.Item>Bos en Lommer</OrderedList.Item>
+          <OrderedList.Item>Oud West / De Baarsjes</OrderedList.Item>
+          <OrderedList.Item>Westerpark</OrderedList.Item>
         </OrderedList>
       </OrderedList.Item>
-      <OrderedList.Item key={2}>
+      <OrderedList.Item>
         Stadsdeel Nieuw-West
         <OrderedList {...args}>
-          <OrderedList.Item key={2.1}>De Aker, Sloten en Nieuw Sloten</OrderedList.Item>
-          <OrderedList.Item key={2.2}>Geuzenveld, Slotermeer en Sloterdijken</OrderedList.Item>
-          <OrderedList.Item key={2.3}>Osdorp</OrderedList.Item>
-          <OrderedList.Item key={2.4}>Slotervaart</OrderedList.Item>
+          <OrderedList.Item>De Aker, Sloten en Nieuw Sloten</OrderedList.Item>
+          <OrderedList.Item>Geuzenveld, Slotermeer en Sloterdijken</OrderedList.Item>
+          <OrderedList.Item>Osdorp</OrderedList.Item>
+          <OrderedList.Item>Slotervaart</OrderedList.Item>
         </OrderedList>
       </OrderedList.Item>
     </OrderedList>
@@ -92,7 +92,7 @@ export const DescendingNumbers: Story = {
 export const WithoutMarkers: Story = {
   args: {
     children: [
-      <OrderedList.Item key={0}>
+      <OrderedList.Item key={1}>
         <Heading size="level-4">Weg met steen, hallo extra groen en koelte</Heading>
         <Paragraph>
           Sinds 2021 kwamen er maar liefst 60 nieuwe groene plekken bij in de stad. Groen is fijn en het verkoelt de
@@ -100,7 +100,7 @@ export const WithoutMarkers: Story = {
         </Paragraph>
         <Paragraph size="small">16 augustus 2023</Paragraph>
       </OrderedList.Item>,
-      <OrderedList.Item key={1}>
+      <OrderedList.Item key={2}>
         <Heading size="level-4">Amsterdam bindt de strijd aan met lawaaierige voertuigen</Heading>
         <Paragraph>
           Deze zomer testen we of digitale borden langs de weg kunnen helpen om geluidsoverlast van voertuigen zoals
@@ -108,7 +108,7 @@ export const WithoutMarkers: Story = {
         </Paragraph>
         <Paragraph size="small">10 augustus 2023</Paragraph>
       </OrderedList.Item>,
-      <OrderedList.Item key={2}>
+      <OrderedList.Item key={3}>
         <Heading size="level-4">Een prachtroute door de wonderlijke Baarsjes</Heading>
         <Paragraph>
           In de Baarsjes zijn kunst en cultuur met elkaar vervlochten. We zetten een prachtige wandelroute voor u uit en
@@ -130,9 +130,9 @@ export const InverseColor: Story = {
       <OrderedList.Item>
         Stadsdeel West
         <OrderedList {...args}>
-          <OrderedList.Item key={1.1}>Bos en Lommer</OrderedList.Item>
-          <OrderedList.Item key={1.2}>Oud West / De Baarsjes</OrderedList.Item>
-          <OrderedList.Item key={1.3}>Westerpark</OrderedList.Item>
+          <OrderedList.Item>Bos en Lommer</OrderedList.Item>
+          <OrderedList.Item>Oud West / De Baarsjes</OrderedList.Item>
+          <OrderedList.Item>Westerpark</OrderedList.Item>
         </OrderedList>
       </OrderedList.Item>
     </OrderedList>

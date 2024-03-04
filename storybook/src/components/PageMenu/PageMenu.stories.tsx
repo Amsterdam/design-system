@@ -17,54 +17,49 @@ export default meta
 type Story = StoryObj<typeof meta>
 
 export const Default: Story = {
-  render: () => (
-    <PageMenu>
-      <PageMenu.Link href="#">English</PageMenu.Link>
-      <PageMenu.Link href="#" icon={LoginIcon}>
+  args: {
+    children: [
+      <PageMenu.Link href="#" key={1}>
+        English
+      </PageMenu.Link>,
+      <PageMenu.Link href="#" icon={LoginIcon} key={2}>
         Inloggen Mijn Amsterdam
-      </PageMenu.Link>
-    </PageMenu>
-  ),
-  parameters: {
-    docs: {
-      source: { type: 'dynamic' },
-    },
+      </PageMenu.Link>,
+    ],
   },
 }
 
 export const AlignEnd: Story = {
   args: {
     alignEnd: true,
-  },
-  render: (args) => (
-    <PageMenu {...args}>
-      <PageMenu.Link href="#" key="onderzoeken">
+    children: [
+      <PageMenu.Link href="#" key={1}>
         Onderzoeken
-      </PageMenu.Link>
-      <PageMenu.Link href="#" key="bezoeken">
+      </PageMenu.Link>,
+      <PageMenu.Link href="#" key={2}>
         Bezoeken
-      </PageMenu.Link>
-      <PageMenu.Link href="#" key="archiveren">
+      </PageMenu.Link>,
+      <PageMenu.Link href="#" key={3}>
         Archiveren
-      </PageMenu.Link>
-      <PageMenu.Link href="#" key="nieuws">
+      </PageMenu.Link>,
+      <PageMenu.Link href="#" key={4}>
         Nieuws
-      </PageMenu.Link>
-      <PageMenu.Link href="#" key="themasites">
+      </PageMenu.Link>,
+      <PageMenu.Link href="#" key={5}>
         Themasites
-      </PageMenu.Link>
-      <PageMenu.Link href="#" key="onderwijs">
+      </PageMenu.Link>,
+      <PageMenu.Link href="#" key={6}>
         Onderwijs
-      </PageMenu.Link>
-      <PageMenu.Link href="#" key="steun-ons">
+      </PageMenu.Link>,
+      <PageMenu.Link href="#" key={7}>
         Steun ons
-      </PageMenu.Link>
-      <PageMenu.Link href="#" key="organisatie">
+      </PageMenu.Link>,
+      <PageMenu.Link href="#" key={8}>
         Organisatie
-      </PageMenu.Link>
-      <PageMenu.Link href="#" key="contact">
+      </PageMenu.Link>,
+      <PageMenu.Link href="#" key={9}>
         Contact
-      </PageMenu.Link>
-    </PageMenu>
-  ),
+      </PageMenu.Link>,
+    ],
+  },
 }
