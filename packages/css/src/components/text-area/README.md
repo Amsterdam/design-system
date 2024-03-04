@@ -16,7 +16,3 @@ A form field that allows the user to input text over multiple lines.
 ## Accessibility
 
 - [WCAG 2.1](https://www.w3.org/WAI/WCAG21/Techniques/html/H91.html) requires that the TextArea has a label or title attribute.
-
-## References
-
-- [Intrinsic & Extrinsic Sizing](https://caniuse.com/?search=form-sizing%3A%20content) browser support.

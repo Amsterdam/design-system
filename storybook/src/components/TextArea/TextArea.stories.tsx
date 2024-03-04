@@ -17,18 +17,14 @@ const meta = {
   component: TextArea,
   args: {
     children: paragraph,
+    disabled: false,
   },
   argTypes: {
     resize: {
       control: {
         type: 'select',
       },
-      options: ['none', 'horizontal', 'vertical'],
-    },
-    grow: {
-      control: {
-        type: 'boolean',
-      },
+      options: ['default', 'none', 'horizontal', 'vertical'],
     },
     cols: {
       control: {
@@ -90,11 +86,5 @@ export const VerticalResize: Story = {
 export const HorizontalResize: Story = {
   args: {
     resize: 'horizontal',
-  },
-}
-
-export const Grow: Story = {
-  args: {
-    grow: true,
   },
 }
