@@ -36,8 +36,7 @@ export const Tabs = forwardRef(
     // use a passed ref if it's there, otherwise use innerRef
     useImperativeHandle(ref, () => innerRef.current as HTMLDivElement)
 
-    const { keyDown } = useFocusByKeyboard({
-      ref: innerRef,
+    const { keyDown } = useFocusByKeyboard(innerRef, {
       rotating: true,
       horizontally: true,
     })

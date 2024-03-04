@@ -10,8 +10,7 @@ describe('use focus with arrows', () => {
     // eslint-disable-next-line react/display-name
     function () {
       const ref = useRef<HTMLDivElement>(null)
-      const { keyDown } = useFocusByKeyboard({
-        ref: ref,
+      const { keyDown } = useFocusByKeyboard(ref, {
         rotating: rotate,
       })
       return (

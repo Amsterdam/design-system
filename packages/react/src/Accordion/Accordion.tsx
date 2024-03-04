@@ -27,7 +27,7 @@ export const Accordion = forwardRef(
     // use a passed ref if it's there, otherwise use innerRef
     useImperativeHandle(ref, () => innerRef.current as HTMLDivElement)
 
-    const { keyDown } = useFocusByKeyboard({ ref: innerRef, rotating: true })
+    const { keyDown } = useFocusByKeyboard(innerRef, { rotating: true })
 
     return (
       <AccordionContext.Provider value={{ headingLevel: headingLevel, section: section }}>

@@ -25,20 +25,17 @@ const FOCUSABLE_ELEMENTS = [
 ]
 
 type FocusByKeyboardOptions = {
-  ref: RefObject<HTMLDivElement>
   rotating?: boolean
   directChildrenOnly?: boolean
   horizontally?: boolean
 }
 
-export const useFocusByKeyboard = ({
-  ref,
-  rotating = false,
-  directChildrenOnly = false,
-  horizontally = false,
-}: FocusByKeyboardOptions) => {
+export const useFocusByKeyboard = (ref: RefObject<HTMLDivElement>, options: FocusByKeyboardOptions) => {
+  const { rotating = false, directChildrenOnly = false, horizontally = false } = options
+
   const next = horizontally ? KeyboardKeys.ArrowRight : KeyboardKeys.ArrowDown
   const previous = horizontally ? KeyboardKeys.ArrowLeft : KeyboardKeys.ArrowUp
+
   const keyDown = (e: KeyboardEvent) => {
     if (ref.current) {
       const element = ref.current
