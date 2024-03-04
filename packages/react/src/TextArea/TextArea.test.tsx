@@ -30,6 +30,22 @@ describe('Text area', () => {
     expect(component).toHaveClass('amsterdam-text-area extra')
   })
 
+  it('renders a textarea with resize class when resize prop is provided', () => {
+    render(<TextArea resize="horizontal" />)
+
+    const component = screen.getByRole('textbox')
+
+    expect(component).toHaveClass('amsterdam-text-area amsterdam-text-area--resize-horizontal')
+  })
+
+  it('renders a textarea with cols class when cols prop is provided', () => {
+    render(<TextArea cols={10} />)
+
+    const component = screen.getByRole('textbox')
+
+    expect(component).toHaveClass('amsterdam-text-area amsterdam-text-area--cols')
+  })
+
   it('can be controlled', async () => {
     function ControlledComponent() {
       const [value, setValue] = useState('Hello')

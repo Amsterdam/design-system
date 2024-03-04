@@ -16,8 +16,10 @@ const meta = {
   title: 'Components/Forms/Text Area',
   component: TextArea,
   args: {
-    children: paragraph,
+    defaultValue: paragraph,
     disabled: false,
+    name: 'text-area',
+    resize: 'default',
   },
   argTypes: {
     resize: {
@@ -66,7 +68,7 @@ export const Default: Story = {}
 
 export const Invalid: Story = {
   args: {
-    children: '',
+    defaultValue: '',
     invalid: true,
   },
 }
@@ -86,5 +88,11 @@ export const VerticalResize: Story = {
 export const HorizontalResize: Story = {
   args: {
     resize: 'horizontal',
+  },
+}
+
+export const NoResize: Story = {
+  args: {
+    resize: 'none',
   },
 }
