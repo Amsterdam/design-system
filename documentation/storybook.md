@@ -28,6 +28,13 @@ We write our documentation in Dutch.
 
 More to follow.
 
+## Best practices for stories
+
+1. Use decorators and / or `args.children` before reaching for `render`. `render` can easily mess up the stories’ code view.
+   Decorators are not shown in the code view, `args.children` are.
+2. Always check your stories’ code view.
+3. `args.children` can be an array, separated by commas and given a key. Use a (TODO: decide) as a key.
+
 ## Future plans
 
 We are considering what to document for each component in the various libraries.
