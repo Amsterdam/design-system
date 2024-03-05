@@ -38,9 +38,7 @@ describe('Radio', () => {
 
     const wrapper = container.querySelector(':only-child')
 
-    expect(wrapper).toHaveClass('extra')
-
-    expect(wrapper).toHaveClass('amsterdam-radio')
+    expect(wrapper).toHaveClass('amsterdam-radio extra')
   })
 
   // checked state
