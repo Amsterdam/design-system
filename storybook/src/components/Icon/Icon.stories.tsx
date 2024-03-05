@@ -43,11 +43,18 @@ export const Default: Story = {
 }
 
 export const WithText: Story = {
+  decorators: [
+    (Story) => (
+      <span style={{ display: 'flex', gap: '1rem' }}>
+        <Story />
+      </span>
+    ),
+  ],
   render: (args) => (
-    <span style={{ display: 'flex', gap: '1rem' }}>
+    <>
       <Icon {...args} size="level-3" />
       <Heading size="level-3">Inline text</Heading>
-    </span>
+    </>
   ),
   args: {
     svg: Icons.EmailIcon,
