@@ -16,17 +16,17 @@ const meta = {
   title: 'Components/Forms/Text Area',
   component: TextArea,
   args: {
-    defaultValue: paragraph,
+    value: paragraph,
     disabled: false,
     name: 'text-area',
-    resize: 'default',
   },
   argTypes: {
     resize: {
       control: {
-        type: 'select',
+        type: 'radio',
+        labels: { undefined: 'default', none: 'none', horizontal: 'horizontal', vertical: 'vertical' },
       },
-      options: ['default', 'none', 'horizontal', 'vertical'],
+      options: [undefined, 'none', 'horizontal', 'vertical'],
     },
     cols: {
       control: {
@@ -68,7 +68,7 @@ export const Default: Story = {}
 
 export const Invalid: Story = {
   args: {
-    defaultValue: '',
+    value: '',
     invalid: true,
   },
 }

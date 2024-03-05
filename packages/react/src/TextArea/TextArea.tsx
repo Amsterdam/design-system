@@ -8,17 +8,17 @@ import { forwardRef } from 'react'
 import type { ForwardedRef, TextareaHTMLAttributes } from 'react'
 
 export type TextAreaProps = TextareaHTMLAttributes<HTMLTextAreaElement> & {
-  resize?: 'default' | 'none' | 'horizontal' | 'vertical'
+  resize?: 'none' | 'horizontal' | 'vertical'
 }
 
 export const TextArea = forwardRef(
-  ({ className, resize = 'default', ...restProps }: TextAreaProps, ref: ForwardedRef<HTMLTextAreaElement>) => (
+  ({ className, resize, ...restProps }: TextAreaProps, ref: ForwardedRef<HTMLTextAreaElement>) => (
     <textarea
       {...restProps}
       ref={ref}
       className={clsx(
         'amsterdam-text-area',
-        resize !== 'default' && `amsterdam-text-area--resize-${resize}`,
+        resize && `amsterdam-text-area--resize-${resize}`,
         restProps.cols && 'amsterdam-text-area--cols',
         className,
       )}
