@@ -1,6 +1,6 @@
 import { fireEvent, render } from '@testing-library/react'
 import { useRef } from 'react'
-import { KeyboardKeys, useFocusByKeyboard } from './useFocusByKeyboard'
+import { KeyboardKeys, useKeyboardFocus } from './useKeyboardFocus'
 
 describe('use focus with arrows', () => {
   const onFocusOneMock = jest.fn()
@@ -10,7 +10,7 @@ describe('use focus with arrows', () => {
     // eslint-disable-next-line react/display-name
     function () {
       const ref = useRef<HTMLDivElement>(null)
-      const { keyDown } = useFocusByKeyboard(ref, {
+      const { keyDown } = useKeyboardFocus(ref, {
         rotating: rotate,
       })
       return (
