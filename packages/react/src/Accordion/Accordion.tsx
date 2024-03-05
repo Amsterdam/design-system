@@ -8,8 +8,8 @@ import { forwardRef, useImperativeHandle, useRef } from 'react'
 import type { ForwardedRef, ForwardRefExoticComponent, HTMLAttributes, PropsWithChildren, RefAttributes } from 'react'
 import AccordionContext from './AccordionContext'
 import { AccordionSection } from './AccordionSection'
-import useFocusWithArrows from './useFocusWithArrows'
 import { HeadingLevel } from '../Heading/Heading'
+import useFocusWithArrows from '../common/useFocusWithArrows'
 
 export type AccordionProps = {
   headingLevel: HeadingLevel
@@ -27,7 +27,8 @@ export const Accordion = forwardRef(
     // use a passed ref if it's there, otherwise use innerRef
     useImperativeHandle(ref, () => innerRef.current as HTMLDivElement)
 
-    const { keyDown } = useFocusWithArrows(innerRef, true)
+    const { keyDown } = useFocusWithArrows({ ref: innerRef, rotating: true })
+
     return (
       <AccordionContext.Provider value={{ headingLevel: headingLevel, section: section }}>
         <div className={clsx('amsterdam-accordion', className)} onKeyDown={keyDown} ref={innerRef}>
