@@ -18,7 +18,6 @@ const meta = {
   args: {
     value: paragraph,
     disabled: false,
-    name: 'text-area',
   },
   argTypes: {
     resize: {
