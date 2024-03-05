@@ -22,6 +22,9 @@
   width: 1.5rem;
 
   &::after {
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 1rem;
     border-color: var(--amsterdam-radio-circle-border-color);
     border-radius: 100%;
     border-style: solid;
@@ -66,9 +69,6 @@
 .amsterdam-radio__input:checked {
   + .amsterdam-radio__label .amsterdam-radio__circle::after {
     background-image: var(--amsterdam-radio-circle-checked-background-image);
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: 1rem;
   }
 }
 
