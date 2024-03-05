@@ -3,23 +3,15 @@
  * Copyright Gemeente Amsterdam
  */
 
+@import "../../common/input-label-focus";
+
 .amsterdam-radio__input {
   appearance: none;
   margin-block: 0;
   margin-inline: 0;
   opacity: 0%; /* to hide native input field in older iOS */
 
-  /* Focus is first set on the label next to a focussed radio button, and then
-    hidden when the focussed radio button doesn't have focus-visible.
-    This progressive enhancement means you get the benefits of focus-visible
-    while still showing a focus ring on browsers that don't support focus-visible (like older Safari) */
-  &:focus + label {
-    outline: auto;
-  }
-
-  &:focus:not(:focus-visible) + label {
-    outline: 0;
-  }
+  @include input-label-focus;
 }
 
 .amsterdam-radio__circle {
