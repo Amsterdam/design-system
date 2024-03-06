@@ -65,19 +65,6 @@ type Story = StoryObj<typeof meta>
 
 export const Default: Story = {}
 
-export const Invalid: Story = {
-  args: {
-    value: '',
-    invalid: true,
-  },
-}
-
-export const Disabled: Story = {
-  args: {
-    disabled: true,
-  },
-}
-
 export const VerticalResize: Story = {
   args: {
     resize: 'vertical',
@@ -93,5 +80,18 @@ export const HorizontalResize: Story = {
 export const NoResize: Story = {
   args: {
     resize: 'none',
+  },
+}
+
+export const Disabled: Story = {
+  args: {
+    disabled: true,
+  },
+}
+
+export const Invalid: Story = {
+  args: {
+    value: '',
+    invalid: true,
   },
 }
