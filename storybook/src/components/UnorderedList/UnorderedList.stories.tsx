@@ -51,21 +51,21 @@ export const Default: Story = {}
 export const TwoLevels: Story = {
   render: (args) => (
     <UnorderedList {...args}>
-      <UnorderedList.Item key={1}>
+      <UnorderedList.Item>
         Stadsdeel West
         <UnorderedList {...args}>
-          <UnorderedList.Item key={1.1}>Bos en Lommer</UnorderedList.Item>
-          <UnorderedList.Item key={1.2}>Oud West / De Baarsjes</UnorderedList.Item>
-          <UnorderedList.Item key={1.3}>Westerpark</UnorderedList.Item>
+          <UnorderedList.Item>Bos en Lommer</UnorderedList.Item>
+          <UnorderedList.Item>Oud West / De Baarsjes</UnorderedList.Item>
+          <UnorderedList.Item>Westerpark</UnorderedList.Item>
         </UnorderedList>
       </UnorderedList.Item>
-      <UnorderedList.Item key={2}>
+      <UnorderedList.Item>
         Stadsdeel Nieuw-West
         <UnorderedList {...args}>
-          <UnorderedList.Item key={2.1}>De Aker, Sloten en Nieuw Sloten</UnorderedList.Item>
-          <UnorderedList.Item key={2.2}>Geuzenveld, Slotermeer en Sloterdijken</UnorderedList.Item>
-          <UnorderedList.Item key={2.3}>Osdorp</UnorderedList.Item>
-          <UnorderedList.Item key={2.4}>Slotervaart</UnorderedList.Item>
+          <UnorderedList.Item>De Aker, Sloten en Nieuw Sloten</UnorderedList.Item>
+          <UnorderedList.Item>Geuzenveld, Slotermeer en Sloterdijken</UnorderedList.Item>
+          <UnorderedList.Item>Osdorp</UnorderedList.Item>
+          <UnorderedList.Item>Slotervaart</UnorderedList.Item>
         </UnorderedList>
       </UnorderedList.Item>
     </UnorderedList>
@@ -134,12 +134,12 @@ export const InverseColor: Story = {
   },
   render: (args) => (
     <UnorderedList {...args}>
-      <UnorderedList.Item key={1}>
+      <UnorderedList.Item>
         Stadsdeel West
         <UnorderedList {...args}>
-          <UnorderedList.Item key={1.1}>Bos en Lommer</UnorderedList.Item>
-          <UnorderedList.Item key={1.2}>Oud West / De Baarsjes</UnorderedList.Item>
-          <UnorderedList.Item key={1.3}>Westerpark</UnorderedList.Item>
+          <UnorderedList.Item>Bos en Lommer</UnorderedList.Item>
+          <UnorderedList.Item>Oud West / De Baarsjes</UnorderedList.Item>
+          <UnorderedList.Item>Westerpark</UnorderedList.Item>
         </UnorderedList>
       </UnorderedList.Item>
     </UnorderedList>
