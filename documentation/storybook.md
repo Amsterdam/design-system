@@ -16,7 +16,7 @@ The docs display:
 3. The controls for the component, which displays all args for the component.
 4. A canvas for every other story, each with an introduction.
 
-We write our documentation in Dutch.
+We write our documentation in English, the stories are Dutch.
 
 ## Best practices for controls
 
