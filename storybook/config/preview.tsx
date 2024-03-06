@@ -36,10 +36,6 @@ export const parameters = {
     disable: true,
   },
   controls: {
-    matchers: {
-      color: /(background|color)$/i,
-      date: /Date$/,
-    },
     sort: 'alpha',
   },
   options: {

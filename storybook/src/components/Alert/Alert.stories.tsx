@@ -92,16 +92,14 @@ export const Info: Story = {
 export const WithList: Story = {
   args: {
     title: 'Vul de gegevens aan',
-  },
-  render: (args) => (
-    <Alert {...args}>
-      <Paragraph>U bent vergeten de volgende verplichte velden in te vullen:</Paragraph>
-      <UnorderedList>
+    children: [
+      <Paragraph key={1}>U bent vergeten de volgende verplichte velden in te vullen:</Paragraph>,
+      <UnorderedList key={2}>
         <UnorderedList.Item>Naam</UnorderedList.Item>
         <UnorderedList.Item>Telefoonnummer</UnorderedList.Item>
-      </UnorderedList>
-    </Alert>
-  ),
+      </UnorderedList>,
+    ],
+  },
 }
 
 export const WithInlineLink: Story = {

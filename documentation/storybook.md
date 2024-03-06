@@ -16,7 +16,7 @@ The docs display:
 3. The controls for the component, which displays all args for the component.
 4. A canvas for every other story, each with an introduction.
 
-We write our documentation in Dutch.
+We write our documentation in English, the stories are Dutch.
 
 ## Best practices for controls
 
@@ -27,6 +27,13 @@ We write our documentation in Dutch.
    Their options appear rather small, making them difficult to target with a pointing device.
 
 More to follow.
+
+## Best practices for stories
+
+1. Use decorators and / or `args.children` before reaching for `render`. `render` can easily mess up the stories’ code view.
+   Decorators are not shown in the code view, `args.children` are.
+2. Always check your stories’ code view.
+3. `args.children` can be an array, separated by commas and given ascending numbers as keys.
 
 ## Future plans
 
