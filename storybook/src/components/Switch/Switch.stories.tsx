@@ -29,11 +29,18 @@ export const Default: Story = {
   },
 }
 
-export const WithFormLabel: Story = {
+export const WithLabel: Story = {
+  decorators: [
+    (Story) => (
+      <div style={{ display: 'flex', alignItems: 'center', gap: '5rem' }}>
+        <Story />
+      </div>
+    ),
+  ],
   render: (args) => (
-    <div style={{ display: 'flex', alignItems: 'center', gap: '5rem' }}>
+    <>
       <FormLabel htmlFor="switch-with-label">Label</FormLabel>
       <Switch {...args} id="switch-with-label" />
-    </div>
+    </>
   ),
 }
