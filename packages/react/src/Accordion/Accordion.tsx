@@ -9,7 +9,7 @@ import type { ForwardedRef, ForwardRefExoticComponent, HTMLAttributes, PropsWith
 import AccordionContext from './AccordionContext'
 import { AccordionSection } from './AccordionSection'
 import { HeadingLevel } from '../Heading/Heading'
-import useFocusWithArrows from '../common/useFocusWithArrows'
+import { useKeyboardFocus } from '../common/useKeyboardFocus'
 
 export type AccordionProps = {
   headingLevel: HeadingLevel
@@ -27,7 +27,7 @@ export const Accordion = forwardRef(
     // use a passed ref if it's there, otherwise use innerRef
     useImperativeHandle(ref, () => innerRef.current as HTMLDivElement)
 
-    const { keyDown } = useFocusWithArrows({ ref: innerRef, rotating: true })
+    const { keyDown } = useKeyboardFocus(innerRef, { rotating: true })
 
     return (
       <AccordionContext.Provider value={{ headingLevel: headingLevel, section: section }}>

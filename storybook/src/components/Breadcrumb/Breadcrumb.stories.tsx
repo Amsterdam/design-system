@@ -16,25 +16,17 @@ export default meta
 type Story = StoryObj<typeof meta>
 
 export const Default: Story = {
-  render: () => (
-    <Breadcrumb>
-      <Breadcrumb.Item href="#">Home</Breadcrumb.Item>
-      <Breadcrumb.Item href="#">Nieuws</Breadcrumb.Item>
-      <Breadcrumb.Item href="#">Kennisgevingen en bekendmakingen</Breadcrumb.Item>
-    </Breadcrumb>
-  ),
-  parameters: {
-    docs: {
-      source: {
-        language: 'jsx',
-        code: `
-<Breadcrumb>
-  <Breadcrumb.Item href="#">Home</Breadcrumb.Item>
-  <Breadcrumb.Item href="#">Nieuws</Breadcrumb.Item>
-  <Breadcrumb.Item href="#">Kennisgevingen en bekendmakingen</Breadcrumb.Item>
-</Breadcrumb>
-        `,
-      },
-    },
+  args: {
+    children: [
+      <Breadcrumb.Item href="#" key={1}>
+        Home
+      </Breadcrumb.Item>,
+      <Breadcrumb.Item href="#" key={2}>
+        Nieuws
+      </Breadcrumb.Item>,
+      <Breadcrumb.Item href="#" key={3}>
+        Kennisgevingen en bekendmakingen
+      </Breadcrumb.Item>,
+    ],
   },
 }
