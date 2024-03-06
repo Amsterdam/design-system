@@ -33,11 +33,6 @@ const meta = {
       },
     },
   },
-  parameters: {
-    backgrounds: {
-      default: 'dark',
-    },
-  },
 } satisfies Meta<typeof Dialog>
 
 export default meta
@@ -48,11 +43,17 @@ export const Default: Story = {
   args: {
     open: true,
   },
-  render: (args) => (
-    <div style={{ minHeight: '32rem' }}>
-      <Dialog {...args} />
-    </div>
-  ),
+  decorators: [
+    (Story) => (
+      <div style={{ backgroundColor: '#0006', position: 'absolute', width: '100%', height: '100%' }}>
+        <Story />
+      </div>
+    ),
+  ],
+  parameters: {
+    layout: 'fullscreen',
+    docs: { story: { height: '32em' } },
+  },
 }
 
 export const WithScrollbar: Story = {
@@ -90,11 +91,17 @@ export const WithScrollbar: Story = {
       </>
     ),
   },
-  render: (args) => (
-    <div style={{ minHeight: '100vh' }}>
-      <Dialog {...args} />
-    </div>
-  ),
+  decorators: [
+    (Story) => (
+      <div style={{ backgroundColor: '#0006', position: 'absolute', width: '100%', height: '100%' }}>
+        <Story />
+      </div>
+    ),
+  ],
+  parameters: {
+    layout: 'fullscreen',
+    docs: { story: { height: '100vh' } },
+  },
 }
 
 export const TriggerButton: Story = {
@@ -119,9 +126,4 @@ export const TriggerButton: Story = {
       </article>
     ),
   ],
-  parameters: {
-    backgrounds: {
-      disable: true,
-    },
-  },
 }
