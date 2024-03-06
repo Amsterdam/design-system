@@ -1,0 +1,18 @@
+/**
+ * @license EUPL-1.2+
+ * Copyright Gemeente Amsterdam
+ */
+
+@mixin reset {
+  -webkit-text-size-adjust: 100%;
+}
+
+.amsterdam-form-field-character-counter {
+  color: var(--amsterdam-form-field-character-counter-color);
+  font-family: var(--amsterdam-form-field-character-counter-font-family);
+  font-size: var(--amsterdam-form-field-character-counter-font-size);
+  font-weight: var(--amsterdam-form-field-character-counter-font-weight);
+  line-height: var(--amsterdam-form-field-character-counter-line-height);
+
+  @include reset;
+}

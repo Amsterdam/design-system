@@ -4,6 +4,7 @@
  */
 
 /* Append here */
+export * from './FormFieldCharacterCounter'
 export * from './Tabs'
 export * from './TextArea'
 export * from './Column'
