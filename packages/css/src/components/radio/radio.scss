@@ -73,7 +73,6 @@
 }
 
 // Invalid unchecked
-.amsterdam-radio__input:invalid,
 .amsterdam-radio__input[aria-invalid="true"] {
   + .amsterdam-radio__label .amsterdam-radio__circle::after {
     border-color: var(--amsterdam-radio-circle-invalid-border-color);
@@ -94,7 +93,6 @@
 }
 
 // Invalid checked
-.amsterdam-radio__input:invalid:checked,
 .amsterdam-radio__input[aria-invalid="true"]:checked {
   + .amsterdam-radio__label .amsterdam-radio__circle::after {
     background-image: var(--amsterdam-radio-circle-invalid-checked-background-image);
@@ -114,7 +112,6 @@
 }
 
 // Disabled invalid unchecked
-.amsterdam-radio__input:invalid:disabled,
 .amsterdam-radio__input[aria-invalid="true"]:disabled {
   + .amsterdam-radio__label .amsterdam-radio__circle::after {
     // TODO: currently disabled invalid gets the same styling as disabled. This should get its own styling.
@@ -125,9 +122,7 @@
 // HOVER STATES
 
 // Invalid unchecked hover
-:is(.amsterdam-radio__input:invalid, .amsterdam-radio__input[aria-invalid="true"])
-  + .amsterdam-radio__label:hover
-  .amsterdam-radio__circle::after {
+.amsterdam-radio__input[aria-invalid="true"] + .amsterdam-radio__label:hover .amsterdam-radio__circle::after {
   // TODO: this should be the (currently non-existent) dark red hover color
   border-color: var(--amsterdam-radio-circle-invalid-hover-border-color);
 }
@@ -138,9 +133,7 @@
 }
 
 // Invalid checked hover
-:is(.amsterdam-radio__input:invalid:checked, .amsterdam-radio__input[aria-invalid="true"]:checked)
-  + .amsterdam-radio__label:hover
-  .amsterdam-radio__circle::after {
+.amsterdam-radio__input[aria-invalid="true"]:checked + .amsterdam-radio__label:hover .amsterdam-radio__circle::after {
   // TODO: this should be the (currently non-existent) dark red hover color
   background-image: var(--amsterdam-radio-circle-invalid-checked-hover-background-image);
 }
@@ -151,9 +144,7 @@
 }
 
 // Disabled invalid unchecked hover
-:is(.amsterdam-radio__input:invalid:disabled, .amsterdam-radio__input[aria-invalid="true"]:disabled)
-  + .amsterdam-radio__label:hover
-  .amsterdam-radio__circle::after {
+.amsterdam-radio__input[aria-invalid="true"]:disabled + .amsterdam-radio__label:hover .amsterdam-radio__circle::after {
   // TODO: currently disabled invalid gets the same styling as disabled. This should get its own styling.
   border-color: var(--amsterdam-radio-circle-disabled-border-color);
 }
@@ -161,7 +152,6 @@
 // DISABLED INVALID STATES
 
 // Disabled invalid checked
-.amsterdam-radio__input:invalid:disabled:checked,
 .amsterdam-radio__input[aria-invalid="true"]:disabled:checked {
   + .amsterdam-radio__label .amsterdam-radio__circle::after {
     // TODO: currently disabled invalid gets the same styling as disabled. This should get its own styling.
