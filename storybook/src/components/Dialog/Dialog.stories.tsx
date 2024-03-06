@@ -19,7 +19,7 @@ const meta = {
     ),
     actions: (
       <>
-        <Button variant="tertiary" autoFocus onClick={(event) => event.currentTarget.closest('dialog')?.close()}>
+        <Button variant="tertiary" onClick={(event) => event.currentTarget.closest('dialog')?.close()}>
           Terug
         </Button>
         <Button type="submit">Verder</Button>
