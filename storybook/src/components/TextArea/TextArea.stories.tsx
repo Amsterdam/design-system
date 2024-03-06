@@ -83,15 +83,15 @@ export const NoResize: Story = {
   },
 }
 
-export const Disabled: Story = {
-  args: {
-    disabled: true,
-  },
-}
-
 export const Invalid: Story = {
   args: {
     value: '',
     invalid: true,
+  },
+}
+
+export const Disabled: Story = {
+  args: {
+    disabled: true,
   },
 }
