@@ -19,7 +19,7 @@ const meta = {
     ),
     actions: (
       <>
-        <Button variant="tertiary" autoFocus onClick={(event) => event.currentTarget.closest('dialog')?.close()}>
+        <Button variant="tertiary" onClick={(event) => event.currentTarget.closest('dialog')?.close()}>
           Terug
         </Button>
         <Button type="submit">Verder</Button>
@@ -31,11 +31,6 @@ const meta = {
       table: {
         disable: true,
       },
-    },
-  },
-  parameters: {
-    backgrounds: {
-      default: 'dark',
     },
   },
 } satisfies Meta<typeof Dialog>
@@ -50,11 +45,15 @@ export const Default: Story = {
   },
   decorators: [
     (Story) => (
-      <div style={{ minHeight: '32rem' }}>
+      <div style={{ backgroundColor: '#0006', position: 'absolute', width: '100%', height: '100%' }}>
         <Story />
       </div>
     ),
   ],
+  parameters: {
+    layout: 'fullscreen',
+    docs: { story: { height: '32em' } },
+  },
 }
 
 export const WithScrollbar: Story = {
@@ -96,11 +95,15 @@ export const WithScrollbar: Story = {
   },
   decorators: [
     (Story) => (
-      <div style={{ minHeight: '100vh' }}>
+      <div style={{ backgroundColor: '#0006', position: 'absolute', width: '100%', height: '100%' }}>
         <Story />
       </div>
     ),
   ],
+  parameters: {
+    layout: 'fullscreen',
+    docs: { story: { height: '100vh' } },
+  },
 }
 
 export const TriggerButton: Story = {
@@ -125,9 +128,4 @@ export const TriggerButton: Story = {
       </article>
     ),
   ],
-  parameters: {
-    backgrounds: {
-      disable: true,
-    },
-  },
 }
