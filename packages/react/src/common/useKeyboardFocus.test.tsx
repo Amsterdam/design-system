@@ -10,7 +10,7 @@ describe('use focus with arrows', () => {
     // eslint-disable-next-line react/display-name
     function () {
       const ref = useRef<HTMLDivElement>(null)
-      const { keyDown } = useKeyboardFocus<HTMLDivElement>(ref, {
+      const { keyDown } = useKeyboardFocus(ref, {
         rotating: rotate,
       })
       return (
@@ -37,7 +37,7 @@ describe('use focus with arrows', () => {
   it('sets focus when using arrow keys', () => {
     const Component = getComponent()
     const { container } = render(<Component />)
-    const firstChild = container.firstChild as HTMLDivElement
+    const firstChild = container.firstChild as HTMLElement
     expect(onFocusOneMock).not.toHaveBeenCalled()
 
     // 4 times, so we can check if there are no other elements focused after reaching the last one
@@ -64,7 +64,7 @@ describe('use focus with arrows', () => {
   it('rotates focused elements', () => {
     const Component = getComponent(true)
     const { container } = render(<Component />)
-    const firstChild = container.firstChild as HTMLDivElement
+    const firstChild = container.firstChild as HTMLElement
 
     Array.from(Array(9).keys()).forEach(() => {
       fireEvent.keyDown(firstChild, {

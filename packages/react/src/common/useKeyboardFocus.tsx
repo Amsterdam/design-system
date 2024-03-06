@@ -30,7 +30,7 @@ type Options = {
   horizontally?: boolean
 }
 
-export const useKeyboardFocus = <T extends HTMLElement>(ref: RefObject<T>, options: Options) => {
+export const useKeyboardFocus = (ref: RefObject<HTMLDivElement>, options: Options) => {
   const { rotating = false, directChildrenOnly = false, horizontally = false } = options
 
   const next = horizontally ? KeyboardKeys.ArrowRight : KeyboardKeys.ArrowDown
