@@ -4,13 +4,10 @@
  */
 
 @import "../../common/input-label-focus";
+@import "../../common/hide-input";
 
 .amsterdam-radio__input {
-  appearance: none;
-  margin-block: 0;
-  margin-inline: 0;
-  opacity: 0%; /* to hide native input field in older iOS */
-
+  @include hide-input;
   @include input-label-focus;
 }
 
