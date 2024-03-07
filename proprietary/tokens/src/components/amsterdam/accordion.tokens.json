@@ -17,7 +17,7 @@
         }
       },
       "panel": {
-        "padding-block": { "value": "{amsterdam.space.inside.sm}" },
+        "padding-block": { "value": "{amsterdam.space.inside.md}" },
         "padding-inline": { "value": "{amsterdam.space.inside.md}" }
       }
     }

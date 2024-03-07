@@ -5,7 +5,7 @@
       "font-size": { "value": "{amsterdam.typography.text-level.5.font-size}" },
       "font-weight": { "value": "{amsterdam.typography.font-weight.bold}" },
       "line-height": { "value": "{amsterdam.typography.text-level.5.line-height}" },
-      "padding-inline": { "value": "{amsterdam.space.inside.sm}" },
+      "padding-inline": { "value": "{amsterdam.space.inside.xs}" },
       "blue": {
         "background-color": { "value": "{amsterdam.color.blue}" },
         "color": { "value": "{amsterdam.color.primary-black}" }

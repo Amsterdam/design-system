@@ -8,8 +8,8 @@
       "gap": { "value": "1rem" },
       "padding-block-start": { "value": "{amsterdam.space.inside.xs}" },
       "padding-block-end": { "value": "{amsterdam.space.inside.xs}" },
-      "padding-inline-start": { "value": "{amsterdam.space.inside.lg}" },
-      "padding-inline-end": { "value": "{amsterdam.space.inside.lg}" },
+      "padding-inline-start": { "value": "{amsterdam.space.inside.md}" },
+      "padding-inline-end": { "value": "{amsterdam.space.inside.md}" },
       "outline-offset": { "value": "{amsterdam.focus.outline-offset}" },
       "busy": {
         "cursor": { "value": "{amsterdam.action.busy.cursor}" }
