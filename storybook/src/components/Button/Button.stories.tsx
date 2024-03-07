@@ -46,7 +46,7 @@ export const Tertiary: Story = {
   },
 }
 
-export const ButtonWithAnIcon: Story = {
+export const WithIcon: Story = {
   args: {
     children: ['Button label', <Icon key="icon" svg={ShareIcon} size="level-5" />],
   },
@@ -55,4 +55,17 @@ export const ButtonWithAnIcon: Story = {
       table: { disable: true },
     },
   },
+}
+
+export const TextWrapping: Story = {
+  args: {
+    children: 'Vergunningsaanvraag verzenden',
+  },
+  decorators: [
+    (Story) => (
+      <div style={{ maxWidth: '16rem' }}>
+        <Story />
+      </div>
+    ),
+  ],
 }
