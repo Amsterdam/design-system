@@ -30,7 +30,7 @@ describe('Form field description', () => {
   })
 
   it('supports ForwardRef in React', () => {
-    const ref = createRef<HTMLElement>()
+    const ref = createRef<HTMLDivElement>()
 
     const { container } = render(<FormFieldDescription ref={ref} />)
 
