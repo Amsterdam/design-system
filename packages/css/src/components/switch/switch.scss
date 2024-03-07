@@ -3,15 +3,16 @@
  * Copyright Gemeente Amsterdam
  */
 
+@import "../../common/input-label-focus";
+@import "../../common/hide-input";
+
 @mixin reset {
   box-sizing: border-box;
 }
 
 .amsterdam-switch__input {
-  appearance: none;
-  margin-block: 0;
-  margin-inline: 0;
-  opacity: 0%; /* to hide native input field in older iOS */
+  @include hide-input;
+  @include input-label-focus;
 }
 
 .amsterdam-switch__label {
@@ -19,6 +20,7 @@
   border-radius: calc(var(--amsterdam-switch-thumb-width) * 2);
   cursor: pointer;
   display: inline-block;
+  outline-offset: var(--amsterdam-switch-outline-offset);
   padding-block: 1px;
   padding-inline: 1px;
   transition: background-color 0.2s ease-in-out;
@@ -46,12 +48,6 @@
 .amsterdam-switch__input:disabled + .amsterdam-switch__label {
   background-color: var(--amsterdam-switch-disabled-background-color);
   cursor: not-allowed;
-}
-
-.amsterdam-switch__input:focus-visible + .amsterdam-switch__label {
-  outline-color: -webkit-focus-ring-color;
-  outline-offset: var(--amsterdam-switch-outline-offset);
-  outline-style: auto;
 }
 
 .amsterdam-switch__input:checked + .amsterdam-switch__label::before {

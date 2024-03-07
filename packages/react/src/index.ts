@@ -4,7 +4,9 @@
  */
 
 /* Append here */
+export * from './Radio'
 export * from './Tabs'
+export * from './TextArea'
 export * from './Column'
 export * from './Fieldset'
 export * from './LinkList'

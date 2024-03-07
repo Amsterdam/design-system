@@ -21,7 +21,7 @@ export const decorators = [
   ),
   withThemeByClassName({
     themes: {
-      Spacious: 'amsterdam-theme--spacious',
+      Spacious: '',
       Compact: 'amsterdam-theme--compact',
     },
     defaultTheme: 'Spacious',
@@ -36,10 +36,6 @@ export const parameters = {
     disable: true,
   },
   controls: {
-    matchers: {
-      color: /(background|color)$/i,
-      date: /Date$/,
-    },
     sort: 'alpha',
   },
   options: {
@@ -47,7 +43,7 @@ export const parameters = {
       order: [
         'Docs',
         ['Introduction', 'Assets', 'Design Guidelines'],
-        'React Components',
+        'Components',
         ['Buttons', 'Containers', 'Feedback', 'Forms', 'Layout', 'Media', 'Navigation', 'Text'],
       ],
     },
