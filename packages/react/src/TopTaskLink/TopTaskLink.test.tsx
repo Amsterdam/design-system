@@ -8,7 +8,7 @@ describe('Top task link', () => {
     render(<TopTaskLink href="/" label="Label" description="Description" />)
 
     const link = screen.getByRole('link', {
-      name: 'Label, Description',
+      name: 'Label , Description',
     })
 
     expect(link).toBeInTheDocument()
@@ -19,7 +19,7 @@ describe('Top task link', () => {
     render(<TopTaskLink href="/" label="Label" description="Description" />)
 
     const link = screen.getByRole('link', {
-      name: 'Label, Description',
+      name: 'Label , Description',
     })
     const label = screen.getByText('Label')
     const description = screen.getByText('Description')
@@ -33,7 +33,7 @@ describe('Top task link', () => {
     render(<TopTaskLink href="/" label="Label" description="Description" className="extra" />)
 
     const link = screen.getByRole('link', {
-      name: 'Label, Description',
+      name: 'Label , Description',
     })
 
     expect(link).toHaveClass('extra')
@@ -46,7 +46,7 @@ describe('Top task link', () => {
     render(<TopTaskLink href="/" label="Label" description="Description" ref={ref} />)
 
     const link = screen.getByRole('link', {
-      name: 'Label, Description',
+      name: 'Label , Description',
     })
 
     expect(ref.current).toBe(link)
