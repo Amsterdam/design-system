@@ -1,0 +1,21 @@
+/**
+ * @license EUPL-1.2+
+ * Copyright Gemeente Amsterdam
+ */
+
+/**
+  * Focus is first set on the label next to a focussed input, and then
+  * hidden when the focussed input doesn't have focus-visible.
+  * This progressive enhancement means you get the benefits of focus-visible
+  * while still showing a focus ring on browsers that don't support focus-visible (like older Safari).
+  */
+
+@mixin input-label-focus {
+  &:focus + label {
+    outline: auto;
+  }
+
+  &:focus:not(:focus-visible) + label {
+    outline: 0;
+  }
+}

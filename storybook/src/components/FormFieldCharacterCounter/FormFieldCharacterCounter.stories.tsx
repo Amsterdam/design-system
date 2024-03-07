@@ -7,7 +7,7 @@ import { FormFieldCharacterCounter } from '@amsterdam/design-system-react'
 import { Meta, StoryObj } from '@storybook/react'
 
 const meta = {
-  title: 'Form Field Character Counter',
+  title: 'Components/Forms/Form Field Character Counter',
   component: FormFieldCharacterCounter,
   args: {
     label: '0 van 1000 tekens',

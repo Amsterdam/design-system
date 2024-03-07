@@ -16,10 +16,8 @@
   gap: var(--amsterdam-button-gap);
   line-height: var(--amsterdam-button-line-height);
   outline-offset: var(--amsterdam-button-outline-offset);
-  padding-block-end: var(--amsterdam-button-padding-block-end);
-  padding-block-start: var(--amsterdam-button-padding-block-start);
-  padding-inline-end: var(--amsterdam-button-padding-inline-end);
-  padding-inline-start: var(--amsterdam-button-padding-inline-start);
+  padding-block: var(--amsterdam-button-padding-block);
+  padding-inline: var(--amsterdam-button-padding-inline);
   touch-action: manipulation;
 
   &:disabled,

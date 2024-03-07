@@ -10,7 +10,7 @@ import { TabsButton } from './TabsButton'
 import { TabsContext } from './TabsContext'
 import { TabsList } from './TabsList'
 import { TabsPanel } from './TabsPanel'
-import useFocusWithArrows from '../common/useFocusWithArrows'
+import { useKeyboardFocus } from '../common/useKeyboardFocus'
 
 export type TabsProps = PropsWithChildren<HTMLAttributes<HTMLDivElement>>
 
@@ -36,8 +36,7 @@ export const Tabs = forwardRef(
     // use a passed ref if it's there, otherwise use innerRef
     useImperativeHandle(ref, () => innerRef.current as HTMLDivElement)
 
-    const { keyDown } = useFocusWithArrows({
-      ref: innerRef,
+    const { keyDown } = useKeyboardFocus(innerRef, {
       rotating: true,
       horizontally: true,
     })

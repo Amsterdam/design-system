@@ -6,7 +6,7 @@ Allows the user to perform actions and operate the user interface.
 
 ## Guidelines
 
-- A label text that describes the function of the button.
+- A short label text that describes the function of the button.
 - A clear contrasting colour scheme so that it is easy to recognize and quickly locate.
 - Use the correct type of button for the corresponding application.
   For example, a button within a form must always be of the type `submit`.
