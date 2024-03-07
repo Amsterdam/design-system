@@ -6,7 +6,8 @@
         "comment": "Must have the same value as `amsterdam.grid.column-gap`."
       },
       "logo-link": {
-        "outline-offset": { "value": "{amsterdam.focus.outline-offset}" }
+        "outline-offset": { "value": "{amsterdam.focus.outline-offset}" },
+        "padding-block": { "value": "{amsterdam.space.inside.md}" }
       }
     }
   }
