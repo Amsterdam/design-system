@@ -23,8 +23,10 @@ export const Default: Story = {}
 export const AboveFormField: Story = {
   render: () => (
     <div style={{ display: 'flex', flexDirection: 'column', gap: '.5rem' }}>
-      <FormLabel htmlFor="about">Waar gaat het om?</FormLabel>
-      <FormFieldDescription>
+      <FormLabel htmlFor="about" aria-describedby="aboutDescription">
+        Waar gaat het om?
+      </FormLabel>
+      <FormFieldDescription id="aboutDescription">
         Typ geen persoonsgegevens in deze omschrijving, dit wordt apart gevraagd
       </FormFieldDescription>
       <TextArea id="about" />
@@ -35,9 +37,11 @@ export const AboveFormField: Story = {
 export const BelowFormField: Story = {
   render: () => (
     <div style={{ display: 'flex', flexDirection: 'column', gap: '.5rem' }}>
-      <FormLabel htmlFor="username">Kies een gebruikersnaam</FormLabel>
+      <FormLabel htmlFor="username" aria-describedby="usernameDescription">
+        Kies een gebruikersnaam
+      </FormLabel>
       <TextInput id="username" />
-      <FormFieldDescription>
+      <FormFieldDescription id="usernameDescription">
         <p>Toegestane tekens</p>
         <ul>
           <li>A - Z</li>
