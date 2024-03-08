@@ -1,4 +1,4 @@
-import { Canvas, Controls, Markdown, Meta, Primary } from "@storybook/blocks";
+import { Controls, Markdown, Meta, Primary } from "@storybook/blocks";
 import * as RowStories from "./Row.stories.tsx";
 import README from "../../../../packages/css/src/components/row/README.md?raw";
 
@@ -21,10 +21,3 @@ Wrap a Row around a set of components that need the same amount of white space b
 <Primary />
 
 <Controls />
-
-### Use Another HTML Element
-
-By default, a Row renders a `<div>`.
-Use the `as` prop to make your markup more semantic.
-
-<Canvas of={RowStories.CustomTagName} />
