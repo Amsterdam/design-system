@@ -41,7 +41,7 @@ export const AccordionSection = forwardRef(
             type="button"
           >
             {label}
-            <Icon svg={ChevronDownIcon} size="level-5" />
+            <Icon svg={ChevronDownIcon} size="level-5" className="amsterdam-accordion__icon" />
           </button>
         </HeadingX>
         {section ? (

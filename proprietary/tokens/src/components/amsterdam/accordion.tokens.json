@@ -1,8 +1,17 @@
 {
   "amsterdam": {
     "accordion": {
-      "button": {
+      "gap": { "value": "{amsterdam.space.inside.xs}" },
+      "section": {
         "color": { "value": "{amsterdam.color.primary-blue}" },
+        "box-shadow": { "value": "inset 0 0 0 1px {amsterdam.color.primary-blue}" },
+        "hover": {
+          "color": { "value": "{amsterdam.color.dark-blue}" },
+          "box-shadow": { "value": "inset 0 0 0 3px {amsterdam.color.dark-blue}" }
+        }
+      },
+      "button": {
+        "color": { "value": "currentColor" },
         "font-family": { "value": "{amsterdam.typography.font-family}" },
         "font-size": { "value": "{amsterdam.typography.text-level.5.font-size}" },
         "font-weight": { "value": "{amsterdam.typography.font-weight.bold}" },
@@ -11,10 +20,10 @@
         "padding-inline": { "value": "{amsterdam.space.inside.md}" },
         "focus": {
           "outline-offset": { "value": "{amsterdam.focus.outline-offset}" }
-        },
-        "hover": {
-          "box-shadow": { "value": "inset 0 0 0 2px {amsterdam.color.neutral-grey3}" }
         }
+      },
+      "icon": {
+        "color": { "value": "currentColor" }
       },
       "panel": {
         "padding-block": { "value": "{amsterdam.space.inside.md}" },
