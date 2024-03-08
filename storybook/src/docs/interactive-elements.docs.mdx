@@ -70,7 +70,8 @@ We use the cursor hand `pointer` on hover on all interactive elements without cu
 Originally, `pointer` was only intended for links, but we consider the association of `pointer` with interactivity to be so strong that we use this cursor more often.
 
 Do not use the `title` attribute.
-Interactive elements with the `title` attribute may show a tooltip overlaying the text, making it less readable.
+This attribute has inconsistent browser support, which can cause [accessibility issues](https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes/title#accessibility_concerns).
+Furthermore, interactive elements with the `title` attribute may show a tooltip overlaying the text, making it less readable.
 
 ### References
 
