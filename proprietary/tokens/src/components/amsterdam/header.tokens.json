@@ -2,7 +2,7 @@
   "amsterdam": {
     "header": {
       "column-gap": {
-        "value": "{amsterdam.space.md}",
+        "value": "{amsterdam.space.grid.md}",
         "comment": "Must have the same value as `amsterdam.grid.column-gap`."
       },
       "padding-block": { "value": "{amsterdam.space.inside.md}" },
