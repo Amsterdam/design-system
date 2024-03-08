@@ -1,23 +1,34 @@
 <script id="storybook-mod-expand-all-folders" type="text/javascript">
-  // Somewhat hacky way to expand all folders. Storybook does not support that natively.
-  var clickCollapsedItemsUntilNoneLeft = () => {
-    try {
-      var itemsLeftToClick = Array.from(
-        document.querySelectorAll(
-          '#storybook-explorer-tree button.sidebar-item[data-nodetype="group"][aria-expanded="false"]:not(#docs-assets, #docs-design-guidelines)',
-        ),
-      );
+  /** We use ‘mode’ instead of ‘theme’ but Storybook doesn’t let us configure the button label. */
+  const changeThemeButtonLabel = () => {
+    const themeButton = document.querySelector('button[title="Theme"]');
 
-      if (itemsLeftToClick.length > 0) {
-        itemsLeftToClick.forEach((item) => item.click());
-
-        clickCollapsedItemsUntilNoneLeft();
-      }
-    } catch (e) {
-      console.error(e);
+    if (themeButton !== null) {
+      const themeButtonLabel = themeButton.innerHTML;
+      themeButton.innerHTML = themeButtonLabel.replace(" theme", " mode");
     }
   };
 
-  window.removeEventListener("load", clickCollapsedItemsUntilNoneLeft);
-  window.addEventListener("load", clickCollapsedItemsUntilNoneLeft);
+  /** Somewhat hacky way to expand all folders. Storybook does not support that natively. */
+  const clickCollapsedItemsUntilNoneLeft = () => {
+    var itemsLeftToClick = Array.from(
+      document.querySelectorAll(
+        '#storybook-explorer-tree button.sidebar-item[data-nodetype="group"][aria-expanded="false"]:not(#docs-assets, #docs-design-guidelines)',
+      ),
+    );
+
+    if (itemsLeftToClick.length > 0) {
+      itemsLeftToClick.forEach((item) => item.click());
+
+      clickCollapsedItemsUntilNoneLeft();
+    }
+  };
+
+  const onLoad = () => {
+    window.setTimeout(() => changeThemeButtonLabel(), 256);
+    clickCollapsedItemsUntilNoneLeft();
+  };
+
+  window.removeEventListener("load", onLoad);
+  window.addEventListener("load", onLoad);
 </script>
