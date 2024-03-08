@@ -19,9 +19,6 @@ const meta = {
       control: { type: 'radio' },
       options: ['article', 'div', 'section'],
     },
-    children: {
-      table: { disable: true },
-    },
     gap: {
       control: 'radio',
       options: ['extra-small', 'small', 'medium', 'large', 'extra-large'],
