@@ -19,12 +19,46 @@ describe('Unordered list', () => {
     expect(component).toHaveClass('amsterdam-unordered-list')
   })
 
+  it('renders a no markers class', () => {
+    render(<UnorderedList markers={false} />)
+
+    const component = screen.getByRole('list')
+
+    expect(component).toHaveClass('amsterdam-unordered-list--no-markers')
+  })
+
+  it('renders an inverse color class', () => {
+    render(<UnorderedList inverseColor />)
+
+    const component = screen.getByRole('list')
+
+    expect(component).toHaveClass('amsterdam-unordered-list--inverse-color')
+  })
+
   it('renders an additional class name', () => {
     render(<UnorderedList className="extra" />)
 
     const component = screen.getByRole('list')
 
     expect(component).toHaveClass('amsterdam-unordered-list extra')
+  })
+
+  it('renders its subcomponent', () => {
+    const listItems = ['Item 1', 'Item 2', 'Item 3']
+
+    const { container } = render(
+      <UnorderedList>
+        {listItems.map((item, index) => (
+          <UnorderedList.Item key={index}>{item}</UnorderedList.Item>
+        ))}
+      </UnorderedList>,
+    )
+
+    const list = screen.getByRole('list')
+    const items = container.querySelectorAll('.amsterdam-unordered-list__item')
+
+    expect(list).toBeInTheDocument()
+    expect(items.length).toBe(3)
   })
 
   it('supports ForwardRef in React', () => {
