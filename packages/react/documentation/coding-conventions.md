@@ -36,6 +36,6 @@ Subcomponents (e.g. `Grid.Cell`) are kept in separate files (e.g. `GridCell.tsx`
 
 ## Text for screen readers only
 
-Use the [VisuallyHidden component](https://amsterdam.github.io/design-system/?path=/docs/react_containers-visually-hidden--docs) or the `amsterdam-visually-hidden` utility class to hide text visually.
+Use [Visually Hidden](https://amsterdam.github.io/design-system/?path=/docs/react_containers-visually-hidden--docs) or the `amsterdam-visually-hidden` utility class to hides content from sighted users but keep it accessible to non-visual user agents, such as screen readers.
 
-Do not use `aria-label`. [This is often not translated by tools for automatic translation, and it is often forgotten when doing manual translation](https://adrianroselli.com/2019/11/aria-label-does-not-translate.html).
+Do not use `aria-label`. Tools for automatic translation often [do not translate its value](https://adrianroselli.com/2019/11/aria-label-does-not-translate.html), and it may get overlooked when doing manual translation.
