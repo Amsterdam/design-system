@@ -33,3 +33,9 @@ Instead of this:
 ## Subcomponents
 
 Subcomponents (e.g. `Grid.Cell`) are kept in separate files (e.g. `GridCell.tsx`) and they have their own test files (e.g. `GridCell.test.tsx`). Subcomponents are imported in the main component file. We do not directly expose subcomponents to consumers, so a consumer can only import `Grid`, not `GridCell`.
+
+## Text for screen readers only
+
+Use the [VisuallyHidden component](https://amsterdam.github.io/design-system/?path=/docs/react_containers-visually-hidden--docs) or the `amsterdam-visually-hidden` utility class to hide text visually.
+
+Do not use `aria-label`. [This is often not translated by tools for automatic translation, and it is often forgotten when doing manual translation](https://adrianroselli.com/2019/11/aria-label-does-not-translate.html).
