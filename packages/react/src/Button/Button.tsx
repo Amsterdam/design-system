@@ -15,7 +15,7 @@ export type ButtonProps = {
 
 export const Button = forwardRef(
   (
-    { children, type, disabled, busy, variant = 'primary', ...restProps }: ButtonProps,
+    { children, className, type, disabled, busy, variant = 'primary', ...restProps }: ButtonProps,
     ref: ForwardedRef<HTMLButtonElement>,
   ) => {
     return (
@@ -23,7 +23,12 @@ export const Button = forwardRef(
         {...restProps}
         ref={ref}
         disabled={disabled}
-        className={clsx('amsterdam-button', busy === true && 'amsterdam-button--busy', `amsterdam-button--${variant}`)}
+        className={clsx(
+          'amsterdam-button',
+          busy === true && 'amsterdam-button--busy',
+          `amsterdam-button--${variant}`,
+          className,
+        )}
         type={type || 'button'}
         aria-busy={busy || undefined}
       >
