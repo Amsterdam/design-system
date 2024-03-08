@@ -10,7 +10,9 @@
         "font-weight": { "value": "{amsterdam.typography.font-weight.bold}" }
       },
       "cell": {
-        "border-bottom": { "value": "1px solid {amsterdam.color.neutral-grey1}" }
+        "border-bottom": { "value": "1px solid {amsterdam.color.neutral-grey1}" },
+        "padding-block": { "value": "{amsterdam.space.inside.md}" },
+        "padding-inline": { "value": "{amsterdam.space.inside.md}" }
       },
       "header-cell": {
         "font-weight": { "value": "{amsterdam.typography.font-weight.bold}" }

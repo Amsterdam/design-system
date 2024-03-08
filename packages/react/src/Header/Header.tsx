@@ -37,7 +37,7 @@ export const Header = forwardRef(
     return (
       <>
         <header {...restProps} ref={ref} className={clsx('amsterdam-header', className)}>
-          <a href={logoLink} className="amsterdam-header__logo">
+          <a href={logoLink} className="amsterdam-header__logo-link">
             <VisuallyHidden>{logoLinkTitle}</VisuallyHidden>
             <Logo brand={logoBrand} />
           </a>
