@@ -12,8 +12,15 @@
         "xl": { "value": "clamp(2rem, calc(6.25vw + 0.75rem), 7rem)" }
       },
       "inside": {
-        "xs": { "value": ".5rem" },
-        "sm": { "value": ".75rem" },
+        "xs": { "value": ".25rem" },
+        "sm": { "value": ".5rem" },
+        "md": { "value": "1rem" },
+        "lg": { "value": "1.5rem" },
+        "xl": { "value": "2rem" }
+      },
+      "stack": {
+        "xs": { "value": ".25rem" },
+        "sm": { "value": ".5rem" },
         "md": { "value": "1rem" },
         "lg": { "value": "1.5rem" },
         "xl": { "value": "2rem" }
