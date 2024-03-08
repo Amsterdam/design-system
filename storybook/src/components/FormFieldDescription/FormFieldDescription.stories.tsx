@@ -3,7 +3,14 @@
  * Copyright Gemeente Amsterdam
  */
 
-import { FormFieldDescription, FormLabel, TextArea, TextInput } from '@amsterdam/design-system-react'
+import {
+  FormFieldDescription,
+  FormLabel,
+  Paragraph,
+  TextArea,
+  TextInput,
+  UnorderedList,
+} from '@amsterdam/design-system-react'
 import { Meta, StoryObj } from '@storybook/react'
 
 const meta = {
@@ -42,13 +49,13 @@ export const BelowFormField: Story = {
       </FormLabel>
       <TextInput id="username" />
       <FormFieldDescription id="usernameDescription">
-        <p>Toegestane tekens</p>
-        <ul>
-          <li>A - Z</li>
-          <li>a - z</li>
-          <li>0 - 9</li>
-          <li>&apos; . - _ ! # ^ ~</li>
-        </ul>
+        <Paragraph size="small">Toegestane tekens</Paragraph>
+        <UnorderedList>
+          <UnorderedList.Item>A - Z</UnorderedList.Item>
+          <UnorderedList.Item>a - z</UnorderedList.Item>
+          <UnorderedList.Item>0 - 9</UnorderedList.Item>
+          <UnorderedList.Item>&apos; . - _ ! # ^ ~</UnorderedList.Item>
+        </UnorderedList>
       </FormFieldDescription>
     </div>
   ),

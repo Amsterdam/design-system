@@ -2,7 +2,7 @@
 
 # Form Field Description
 
-The `FormFieldDescription` component is used to provide additional information about a form field. This information is typically used to provide context or instructions for the form field.
+This component is used to provide additional information about a form field. This information is typically used to provide context or instructions for the form field.
 
 ## Described by
 

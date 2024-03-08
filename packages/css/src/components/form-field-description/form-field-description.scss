@@ -10,6 +10,16 @@
 }
 
 .amsterdam-form-field-description {
+  --amsterdam-paragraph-color: var(--amsterdam-form-field-description-color);
+  --amsterdam-unordered-list-font-size: var(--amsterdam-form-field-description-font-size);
+  --amsterdam-unordered-list-line-height: var(--amsterdam-form-field-description-line-height);
+  --amsterdam-unordered-list-color: var(--amsterdam-form-field-description-color);
+  --amsterdam-unordered-list-gap: 0;
+  --amsterdam-ordered-list-font-size: var(--amsterdam-form-field-description-font-size);
+  --amsterdam-ordered-list-line-height: var(--amsterdam-form-field-description-line-height);
+  --amsterdam-ordered-list-color: var(--amsterdam-form-field-description-color);
+  --amsterdam-ordered-list-gap: 0;
+
   color: var(--amsterdam-form-field-description-color);
   font-family: var(--amsterdam-form-field-description-font-family);
   font-size: var(--amsterdam-form-field-description-font-size);
