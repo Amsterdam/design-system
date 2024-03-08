@@ -44,22 +44,11 @@
   align-items: flex-start;
   display: flex;
   gap: var(--amsterdam-dialog-header-gap);
+  justify-content: space-between;
 }
 
 @mixin reset {
   -webkit-text-size-adjust: 100%;
-}
-
-.amsterdam-dialog__title {
-  color: var(--amsterdam-dialog-title-color);
-  flex: auto;
-  font-family: var(--amsterdam-dialog-title-font-family);
-  font-size: var(--amsterdam-dialog-title-font-size);
-  font-weight: var(--amsterdam-dialog-title-font-weight);
-  line-height: var(--amsterdam-dialog-title-line-height);
-
-  @include hyphenation;
-  @include reset;
 }
 
 .amsterdam-dialog__footer {

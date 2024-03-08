@@ -6,6 +6,7 @@
 import clsx from 'clsx'
 import { forwardRef } from 'react'
 import type { DialogHTMLAttributes, ForwardedRef, PropsWithChildren, ReactNode } from 'react'
+import { Heading } from '../Heading'
 import { IconButton } from '../IconButton'
 
 export type DialogProps = {
@@ -17,7 +18,9 @@ export const Dialog = forwardRef(
     <dialog {...restProps} ref={ref} className={clsx('amsterdam-dialog', className)}>
       <form method="dialog" className="amsterdam-dialog__form">
         <header className="amsterdam-dialog__header">
-          <span className="amsterdam-dialog__title">{title}</span>
+          <Heading level={2} size="level-4">
+            {title}
+          </Heading>
           <IconButton label="Sluiten" formNoValidate />
         </header>
         <article className="amsterdam-dialog__article">{children}</article>
