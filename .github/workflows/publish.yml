@@ -68,11 +68,11 @@ jobs:
         run: pnpm run build
         if: ${{ steps.release.outputs.releases_created }}
 
-      - name: Publish
-        run: pnpm -r publish
-        env:
-          NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN}}
-        if: ${{ steps.release.outputs.releases_created }}
+      # - name: Publish
+      #   run: pnpm -r publish
+      #   env:
+      #     NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN}}
+      #   if: ${{ steps.release.outputs.releases_created }}
 
       # The logic below handles the Storybook deploy:
       - name: "Restore build artifact: Storybook"
