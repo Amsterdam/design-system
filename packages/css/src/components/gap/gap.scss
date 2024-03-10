@@ -5,12 +5,12 @@
 
 @import "../../common/size";
 
-[class|="amsterdam-gap-"] {
+[class|="ams-gap-"] {
   display: grid !important;
 }
 
-@each $size in map-keys($amsterdam-sizes) {
-  .amsterdam-gap--#{$size} {
-    gap: var(--amsterdam-gap-#{$size}) !important;
+@each $size in map-keys($ams-sizes) {
+  .ams-gap--#{$size} {
+    gap: var(--ams-gap-#{$size}) !important;
   }
 }

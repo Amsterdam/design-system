@@ -30,7 +30,7 @@ export const TabsButton = forwardRef(
             updateTab(tab)
           })
         }}
-        className={clsx('amsterdam-tabs__button', className)}
+        className={clsx('ams-tabs__button', className)}
       >
         {children}
       </button>

@@ -15,7 +15,7 @@ describe('Link', () => {
   it('renders standalone variant', () => {
     const { container } = render(<Link href="#">{linktext}</Link>)
     const link = container.querySelector('a:only-child')
-    expect(link).toHaveClass('amsterdam-link')
+    expect(link).toHaveClass('ams-link')
   })
 
   it('renders inline variant', () => {
@@ -25,7 +25,7 @@ describe('Link', () => {
       </Link>,
     )
     const link = container.querySelector('a:only-child')
-    expect(link).toHaveClass('amsterdam-link amsterdam-link--inline')
+    expect(link).toHaveClass('ams-link ams-link--inline')
   })
 
   it('renders light background color', () => {
@@ -35,7 +35,7 @@ describe('Link', () => {
       </Link>,
     )
     const link = container.querySelector('a:only-child')
-    expect(link).toHaveClass('amsterdam-link amsterdam-link--on-background-light')
+    expect(link).toHaveClass('ams-link ams-link--on-background-light')
   })
 
   it('renders dark background color', () => {
@@ -45,14 +45,14 @@ describe('Link', () => {
       </Link>,
     )
     const link = container.querySelector('a:only-child')
-    expect(link).toHaveClass('amsterdam-link amsterdam-link--on-background-dark')
+    expect(link).toHaveClass('ams-link ams-link--on-background-dark')
   })
 
   it('renders an additional class name', () => {
     const { container } = render(<Link className="large" />)
     const link = container.querySelector(':only-child')
     expect(link).toHaveClass('large')
-    expect(link).toHaveClass('amsterdam-link')
+    expect(link).toHaveClass('ams-link')
   })
 
   it('supports ForwardRef in React', () => {

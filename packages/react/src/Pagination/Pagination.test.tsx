@@ -14,14 +14,14 @@ describe('Pagination', () => {
   it('renders a design system BEM class name', () => {
     const { container } = render(<Pagination totalPages={10} />)
     const component = container.querySelector(':only-child')
-    expect(component).toHaveClass('amsterdam-pagination')
+    expect(component).toHaveClass('ams-pagination')
   })
 
   it('can have a additional class name', () => {
     const { container } = render(<Pagination totalPages={10} className="extra" />)
     const component = container.querySelector(':only-child')
     expect(component).toHaveClass('extra')
-    expect(component).toHaveClass('amsterdam-pagination')
+    expect(component).toHaveClass('ams-pagination')
   })
 
   it('should render all the pages when totalPages < maxVisiblePages', () => {

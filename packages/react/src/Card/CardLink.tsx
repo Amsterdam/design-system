@@ -11,7 +11,7 @@ export type CardLinkProps = PropsWithChildren<AnchorHTMLAttributes<HTMLAnchorEle
 
 export const CardLink = forwardRef(
   ({ children, className, ...otherProps }: CardLinkProps, ref: ForwardedRef<HTMLAnchorElement>) => (
-    <a {...otherProps} ref={ref} className={clsx('amsterdam-card__link', className)}>
+    <a {...otherProps} ref={ref} className={clsx('ams-card__link', className)}>
       {children}
     </a>
   ),

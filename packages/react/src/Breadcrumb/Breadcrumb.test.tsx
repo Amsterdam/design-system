@@ -14,13 +14,13 @@ describe('Breadcrumb', () => {
   it('renders a design system BEM class name', () => {
     render(<Breadcrumb />)
     const component = screen.getByRole('navigation')
-    expect(component).toHaveClass('amsterdam-breadcrumb')
+    expect(component).toHaveClass('ams-breadcrumb')
   })
 
   it('renders an additional class name', () => {
     render(<Breadcrumb className="extra" />)
     const component = screen.getByRole('navigation')
-    expect(component).toHaveClass('amsterdam-breadcrumb extra')
+    expect(component).toHaveClass('ams-breadcrumb extra')
   })
 
   it('renders Breadcrumb component with children', () => {
@@ -41,7 +41,7 @@ describe('Breadcrumb', () => {
     )
 
     const breadcrumb = screen.getByRole('navigation')
-    const breadcrumbs = container.querySelectorAll('.amsterdam-breadcrumb__item')
+    const breadcrumbs = container.querySelectorAll('.ams-breadcrumb__item')
 
     expect(breadcrumb).toBeInTheDocument()
     expect(breadcrumbs.length).toBe(3)

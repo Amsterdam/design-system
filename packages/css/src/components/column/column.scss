@@ -5,12 +5,12 @@
 
 @import "../../common/size";
 
-.amsterdam-column {
+.ams-column {
   display: grid;
 }
 
-@each $size, $label in $amsterdam-sizes {
-  .amsterdam-column--#{$label} {
-    gap: var(--amsterdam-column-gap-#{$size});
+@each $size, $label in $ams-sizes {
+  .ams-column--#{$label} {
+    gap: var(--ams-column-gap-#{$size});
   }
 }

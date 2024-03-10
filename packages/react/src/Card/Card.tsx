@@ -17,7 +17,7 @@ type CardComponent = {
 } & ForwardRefExoticComponent<CardProps & RefAttributes<HTMLElement>>
 
 export const Card = forwardRef(({ children, className, ...restProps }: CardProps, ref: ForwardedRef<HTMLElement>) => (
-  <article {...restProps} ref={ref} className={clsx('amsterdam-card', className)}>
+  <article {...restProps} ref={ref} className={clsx('ams-card', className)}>
     {children}
   </article>
 )) as CardComponent

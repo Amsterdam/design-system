@@ -23,7 +23,7 @@ export const Button = forwardRef(
         {...restProps}
         ref={ref}
         disabled={disabled}
-        className={clsx('amsterdam-button', busy === true && 'amsterdam-button--busy', `amsterdam-button--${variant}`)}
+        className={clsx('ams-button', busy === true && 'ams-button--busy', `ams-button--${variant}`)}
         type={type || 'button'}
         aria-busy={busy || undefined}
       >

@@ -18,7 +18,7 @@ describe('Column', () => {
 
     const component = container.querySelector(':only-child')
 
-    expect(component).toHaveClass('amsterdam-column--medium')
+    expect(component).toHaveClass('ams-column--medium')
   })
 
   columnGapSizes.map((size) =>
@@ -27,7 +27,7 @@ describe('Column', () => {
 
       const component = container.querySelector(':only-child')
 
-      expect(component).toHaveClass(`amsterdam-column--${size}`)
+      expect(component).toHaveClass(`ams-column--${size}`)
     }),
   )
 
@@ -36,7 +36,7 @@ describe('Column', () => {
 
     const component = container.querySelector(':only-child')
 
-    expect(component).toHaveClass('amsterdam-column--medium extra')
+    expect(component).toHaveClass('ams-column--medium extra')
   })
 
   it('renders with an article tag', () => {

@@ -1,17 +1,17 @@
 {
-  "amsterdam": {
+  "ams": {
     "link-appearance": {
-      "color": { "value": "{amsterdam.color.primary-blue}" },
+      "color": { "value": "{ams.color.primary-blue}" },
       "text-decoration-thickness": { "value": "0.125rem" },
       "text-underline-offset": { "value": "0.375rem" },
       "hover": {
-        "color": { "value": "{amsterdam.color.dark-blue}" }
+        "color": { "value": "{ams.color.dark-blue}" }
       },
       "on-background-dark": {
-        "color": { "value": "{amsterdam.color.primary-white}" }
+        "color": { "value": "{ams.color.primary-white}" }
       },
       "on-background-light": {
-        "color": { "value": "{amsterdam.color.primary-black}" }
+        "color": { "value": "{ams.color.primary-black}" }
       },
       "regular": {
         "text-decoration-line": { "value": "underline" },

@@ -28,9 +28,9 @@ describe('Checkbox', () => {
     const input = screen.getByRole('checkbox')
     const label = container.querySelector('label')
 
-    expect(wrapper).toHaveClass('amsterdam-checkbox')
-    expect(input).toHaveClass('amsterdam-checkbox__input')
-    expect(label).toHaveClass('amsterdam-checkbox__label')
+    expect(wrapper).toHaveClass('ams-checkbox')
+    expect(input).toHaveClass('ams-checkbox__input')
+    expect(label).toHaveClass('ams-checkbox__label')
   })
 
   it('renders an additional class name', () => {
@@ -40,7 +40,7 @@ describe('Checkbox', () => {
 
     expect(wrapper).toHaveClass('extra')
 
-    expect(wrapper).toHaveClass('amsterdam-checkbox')
+    expect(wrapper).toHaveClass('ams-checkbox')
   })
 
   // checked state

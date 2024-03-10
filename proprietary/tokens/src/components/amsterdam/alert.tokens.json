@@ -1,27 +1,27 @@
 {
-  "amsterdam": {
+  "ams": {
     "alert": {
       "border-width": { "value": "4px" },
       "border-style": { "value": "solid" },
       "gap": { "value": "1rem" },
-      "padding-block": { "value": "{amsterdam.space.inside.md}" },
-      "padding-inline": { "value": "{amsterdam.space.inside.lg}" },
+      "padding-block": { "value": "{ams.space.inside.md}" },
+      "padding-inline": { "value": "{ams.space.inside.lg}" },
       "error": {
-        "border-color": { "value": "{amsterdam.color.primary-red}" }
+        "border-color": { "value": "{ams.color.primary-red}" }
       },
       "info": {
-        "border-color": { "value": "{amsterdam.color.primary-blue}" }
+        "border-color": { "value": "{ams.color.primary-blue}" }
       },
       "success": {
-        "border-color": { "value": "{amsterdam.color.dark-green}" }
+        "border-color": { "value": "{ams.color.dark-green}" }
       },
       "warning": {
-        "border-color": { "value": "{amsterdam.color.orange}" }
+        "border-color": { "value": "{ams.color.orange}" }
       },
       "close": {
-        "fill": { "value": "{amsterdam.color.primary-black}" },
+        "fill": { "value": "{ams.color.primary-black}" },
         "hover": {
-          "fill": { "value": "{amsterdam.color.primary-blue}" }
+          "fill": { "value": "{ams.color.primary-blue}" }
         }
       }
     }

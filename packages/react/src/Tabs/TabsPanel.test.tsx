@@ -17,7 +17,7 @@ describe('Tabs panel', () => {
 
     const component = screen.getByRole('tabpanel')
 
-    expect(component).toHaveClass('amsterdam-tabs__panel')
+    expect(component).toHaveClass('ams-tabs__panel')
   })
 
   it('renders an additional class name', () => {
@@ -25,7 +25,7 @@ describe('Tabs panel', () => {
 
     const component = screen.getByRole('tabpanel')
 
-    expect(component).toHaveClass('amsterdam-tabs__panel extra')
+    expect(component).toHaveClass('ams-tabs__panel extra')
   })
 
   it('renders the correct id based on the tabs prop', () => {
@@ -49,7 +49,7 @@ describe('Tabs panel', () => {
 
     const { container } = render(<TabsPanel tab={0} ref={ref} />)
 
-    const tabsPanel = container.querySelector('.amsterdam-tabs__panel')
+    const tabsPanel = container.querySelector('.ams-tabs__panel')
 
     expect(ref.current).toBe(tabsPanel)
   })

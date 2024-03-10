@@ -1,11 +1,11 @@
 {
-  "amsterdam": {
+  "ams": {
     "form-label": {
-      "color": { "value": "{amsterdam.color.primary-black}" },
-      "font-family": { "value": "{amsterdam.typography.font-family}" },
-      "font-size": { "value": "{amsterdam.typography.text-level.4.font-size}" },
-      "font-weight": { "value": "{amsterdam.typography.font-weight.bold}" },
-      "line-height": { "value": "{amsterdam.typography.text-level.4.line-height}" }
+      "color": { "value": "{ams.color.primary-black}" },
+      "font-family": { "value": "{ams.typography.font-family}" },
+      "font-size": { "value": "{ams.typography.text-level.4.font-size}" },
+      "font-weight": { "value": "{ams.typography.font-weight.bold}" },
+      "line-height": { "value": "{ams.typography.text-level.4.line-height}" }
     }
   }
 }

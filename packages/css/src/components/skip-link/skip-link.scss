@@ -3,21 +3,21 @@
  * Copyright Gemeente Amsterdam
  */
 
-.amsterdam-skip-link {
-  background-color: var(--amsterdam-skip-link-background-color);
-  color: var(--amsterdam-skip-link-color);
+.ams-skip-link {
+  background-color: var(--ams-skip-link-background-color);
+  color: var(--ams-skip-link-color);
   display: block;
-  font-family: var(--amsterdam-skip-link-font-family);
-  font-size: var(--amsterdam-skip-link-font-size);
-  font-weight: var(--amsterdam-skip-link-font-weight);
-  line-height: var(--amsterdam-skip-link-line-height);
-  outline-offset: var(--amsterdam-skip-link-outline-offset);
-  padding-block: var(--amsterdam-skip-link-padding-block);
-  padding-inline: var(--amsterdam-skip-link-padding-inline);
+  font-family: var(--ams-skip-link-font-family);
+  font-size: var(--ams-skip-link-font-size);
+  font-weight: var(--ams-skip-link-font-weight);
+  line-height: var(--ams-skip-link-line-height);
+  outline-offset: var(--ams-skip-link-outline-offset);
+  padding-block: var(--ams-skip-link-padding-block);
+  padding-inline: var(--ams-skip-link-padding-inline);
   text-align: center;
   text-decoration: none;
 
   &:hover {
-    background-color: var(--amsterdam-skip-link-hover-background-color);
+    background-color: var(--ams-skip-link-hover-background-color);
   }
 }

@@ -31,7 +31,7 @@ export const Accordion = forwardRef(
 
     return (
       <AccordionContext.Provider value={{ headingLevel: headingLevel, section: section }}>
-        <div className={clsx('amsterdam-accordion', className)} onKeyDown={keyDown} ref={innerRef}>
+        <div className={clsx('ams-accordion', className)} onKeyDown={keyDown} ref={innerRef}>
           {children}
         </div>
       </AccordionContext.Provider>

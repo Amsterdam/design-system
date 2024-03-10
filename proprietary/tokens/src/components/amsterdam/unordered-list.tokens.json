@@ -1,13 +1,13 @@
 {
-  "amsterdam": {
+  "ams": {
     "unordered-list": {
-      "color": { "value": "{amsterdam.color.primary-black}" },
-      "font-family": { "value": "{amsterdam.typography.font-family}" },
-      "font-size": { "value": "{amsterdam.typography.text-level.5.font-size}" },
-      "font-weight": { "value": "{amsterdam.typography.font-weight.normal}" },
+      "color": { "value": "{ams.color.primary-black}" },
+      "font-family": { "value": "{ams.typography.font-family}" },
+      "font-size": { "value": "{ams.typography.text-level.5.font-size}" },
+      "font-weight": { "value": "{ams.typography.font-weight.normal}" },
       "gap": { "value": "0.75rem" },
-      "inverse-color": { "value": "{amsterdam.color.primary-white}" },
-      "line-height": { "value": "{amsterdam.typography.text-level.5.line-height}" },
+      "inverse-color": { "value": "{ams.color.primary-white}" },
+      "line-height": { "value": "{ams.typography.text-level.5.line-height}" },
       "list-style-type": { "value": "'\\2022'" },
       "item": {
         "margin-inline-start": {

@@ -1,32 +1,32 @@
 {
-  "amsterdam": {
+  "ams": {
     "tabs": {
       "list": {
-        "border-bottom": { "value": ".125rem solid {amsterdam.color.primary-blue}" }
+        "border-bottom": { "value": ".125rem solid {ams.color.primary-blue}" }
       },
       "button": {
         "background-color": { "value": "transparent" },
         "border": { "value": "none" },
-        "color": { "value": "{amsterdam.color.primary-blue}" },
-        "cursor": { "value": "{amsterdam.action.activate.cursor}" },
-        "font-family": { "value": "{amsterdam.typography.font-family}" },
-        "font-weight": { "value": "{amsterdam.typography.font-weight.normal}" },
-        "font-size": { "value": "{amsterdam.typography.text-level.5.font-size}" },
-        "line-height": { "value": "{amsterdam.typography.text-level.5.line-height}" },
+        "color": { "value": "{ams.color.primary-blue}" },
+        "cursor": { "value": "{ams.action.activate.cursor}" },
+        "font-family": { "value": "{ams.typography.font-family}" },
+        "font-weight": { "value": "{ams.typography.font-weight.normal}" },
+        "font-size": { "value": "{ams.typography.text-level.5.font-size}" },
+        "line-height": { "value": "{ams.typography.text-level.5.line-height}" },
         "outline-offset": { "value": "-0.25rem" },
         "padding-block": { "value": ".5rem" },
         "padding-inline": { "value": "1rem" },
         "hover": {
-          "color": { "value": "{amsterdam.color.dark-blue}" },
-          "box-shadow": { "value": "inset 0 -0.125rem 0 0 {amsterdam.color.dark-blue}" }
+          "color": { "value": "{ams.color.dark-blue}" },
+          "box-shadow": { "value": "inset 0 -0.125rem 0 0 {ams.color.dark-blue}" }
         },
         "selected": {
-          "background-color": { "value": "{amsterdam.color.primary-blue}" },
-          "color": { "value": "{amsterdam.color.primary-white}" }
+          "background-color": { "value": "{ams.color.primary-blue}" },
+          "color": { "value": "{ams.color.primary-white}" }
         },
         "disabled": {
-          "color": { "value": "{amsterdam.color.neutral-grey2}" },
-          "cursor": { "value": "{amsterdam.action.disabled.cursor}" }
+          "color": { "value": "{ams.color.neutral-grey2}" },
+          "cursor": { "value": "{ams.action.disabled.cursor}" }
         }
       }
     }

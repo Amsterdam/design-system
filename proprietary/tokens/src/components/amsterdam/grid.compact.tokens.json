@@ -1,7 +1,7 @@
 {
-  "amsterdam": {
+  "ams": {
     "grid": {
-      "padding-inline": { "value": "{amsterdam.space.grid.md}" }
+      "padding-inline": { "value": "{ams.space.grid.md}" }
     }
   }
 }

@@ -1,5 +1,5 @@
 {
-  "amsterdam": {
+  "ams": {
     "action": {
       "activate": { "cursor": { "value": "pointer" } },
       "busy": { "cursor": { "value": "wait" } },

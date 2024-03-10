@@ -1,12 +1,12 @@
 {
-  "amsterdam": {
+  "ams": {
     "aspect-ratio": {
-      "x-tall": { "value": "{amsterdam.proportion.x-tall}" },
-      "tall": { "value": "{amsterdam.proportion.tall}" },
-      "square": { "value": "{amsterdam.proportion.square}" },
-      "wide": { "value": "{amsterdam.proportion.wide}" },
-      "x-wide": { "value": "{amsterdam.proportion.x-wide}" },
-      "2x-wide": { "value": "{amsterdam.proportion.2x-wide}" }
+      "x-tall": { "value": "{ams.proportion.x-tall}" },
+      "tall": { "value": "{ams.proportion.tall}" },
+      "square": { "value": "{ams.proportion.square}" },
+      "wide": { "value": "{ams.proportion.wide}" },
+      "x-wide": { "value": "{ams.proportion.x-wide}" },
+      "2x-wide": { "value": "{ams.proportion.2x-wide}" }
     }
   }
 }

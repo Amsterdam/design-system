@@ -18,7 +18,7 @@ type FooterComponent = {
 
 export const Footer = forwardRef(
   ({ children, className, ...restProps }: FooterProps, ref: ForwardedRef<HTMLElement>) => (
-    <footer {...restProps} ref={ref} className={clsx('amsterdam-footer', className)}>
+    <footer {...restProps} ref={ref} className={clsx('ams-footer', className)}>
       {children}
     </footer>
   ),
