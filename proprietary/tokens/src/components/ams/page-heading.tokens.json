@@ -2,11 +2,11 @@
   "ams": {
     "page-heading": {
       "color": { "value": "{ams.color.primary-black}" },
-      "font-family": { "value": "{ams.typography.font-family}" },
-      "font-size": { "value": "{ams.typography.text-level.0.font-size}" },
-      "font-weight": { "value": "{ams.typography.font-weight.bold}" },
+      "font-family": { "value": "{ams.text.font-family}" },
+      "font-size": { "value": "{ams.text.text-level.0.font-size}" },
+      "font-weight": { "value": "{ams.text.font-weight.bold}" },
       "inverse-color": { "value": "{ams.color.primary-white}" },
-      "line-height": { "value": "{ams.typography.text-level.0.font-size}" }
+      "line-height": { "value": "{ams.text.text-level.0.font-size}" }
     }
   }
 }

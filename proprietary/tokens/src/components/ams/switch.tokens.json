@@ -1,7 +1,7 @@
 {
   "ams": {
     "switch": {
-      "font-family": { "value": "{ams.typography.font-family}" },
+      "font-family": { "value": "{ams.text.font-family}" },
       "background-color": { "value": "{ams.color.neutral-grey3}" },
       "width": { "value": "3.5rem" },
       "thumb": {

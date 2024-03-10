@@ -3,10 +3,10 @@
     "accordion": {
       "button": {
         "color": { "value": "{ams.color.primary-blue}" },
-        "font-family": { "value": "{ams.typography.font-family}" },
-        "font-size": { "value": "{ams.typography.text-level.5.font-size}" },
-        "font-weight": { "value": "{ams.typography.font-weight.bold}" },
-        "line-height": { "value": "{ams.typography.text-level.5.line-height}" },
+        "font-family": { "value": "{ams.text.font-family}" },
+        "font-size": { "value": "{ams.text.text-level.5.font-size}" },
+        "font-weight": { "value": "{ams.text.font-weight.bold}" },
+        "line-height": { "value": "{ams.text.text-level.5.line-height}" },
         "padding-block": { "value": "{ams.space.inside.sm}" },
         "padding-inline": { "value": "{ams.space.inside.md}" },
         "focus": {

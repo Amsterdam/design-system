@@ -1,6 +1,6 @@
 {
   "ams": {
-    "typography": {
+    "text": {
       "font-family": { "value": "'Amsterdam Sans', Arial, sans-serif" },
       "font-weight": {
         "normal": { "value": 400 },
