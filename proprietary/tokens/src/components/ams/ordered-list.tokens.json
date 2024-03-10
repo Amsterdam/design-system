@@ -3,11 +3,11 @@
     "ordered-list": {
       "color": { "value": "{ams.color.primary-black}" },
       "font-family": { "value": "{ams.text.font-family}" },
-      "font-size": { "value": "{ams.text.text-level.5.font-size}" },
+      "font-size": { "value": "{ams.text.level.5.font-size}" },
       "font-weight": { "value": "{ams.text.font-weight.normal}" },
       "gap": { "value": "0.75rem" },
       "inverse-color": { "value": "{ams.color.primary-white}" },
-      "line-height": { "value": "{ams.text.text-level.5.line-height}" },
+      "line-height": { "value": "{ams.text.level.5.line-height}" },
       "list-style-type": { "value": "decimal" },
       "item": {
         "margin-inline-start": {

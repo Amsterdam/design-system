@@ -6,7 +6,7 @@
         "normal": { "value": 400 },
         "bold": { "value": 800 }
       },
-      "text-level": {
+      "level": {
         "0": {
           "font-size": { "value": "clamp(2.432rem, calc(2.683vw + 1.895rem), 4.578rem)" },
           "line-height": { "value": "1.15" }

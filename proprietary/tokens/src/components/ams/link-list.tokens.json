@@ -12,16 +12,16 @@
         "text-decoration-thickness": { "value": "{ams.link-appearance.text-decoration-thickness}" },
         "text-underline-offset": { "value": "{ams.link-appearance.text-underline-offset}" },
         "small": {
-          "font-size": { "value": "{ams.text.text-level.6.font-size}" },
-          "line-height": { "value": "{ams.text.text-level.6.line-height}" }
+          "font-size": { "value": "{ams.text.level.6.font-size}" },
+          "line-height": { "value": "{ams.text.level.6.line-height}" }
         },
         "medium": {
-          "font-size": { "value": "{ams.text.text-level.5.font-size}" },
-          "line-height": { "value": "{ams.text.text-level.5.line-height}" }
+          "font-size": { "value": "{ams.text.level.5.font-size}" },
+          "line-height": { "value": "{ams.text.level.5.line-height}" }
         },
         "large": {
-          "font-size": { "value": "{ams.text.text-level.4.font-size}" },
-          "line-height": { "value": "{ams.text.text-level.4.line-height}" }
+          "font-size": { "value": "{ams.text.level.4.font-size}" },
+          "line-height": { "value": "{ams.text.level.4.line-height}" }
         },
         "hover": {
           "color": { "value": "{ams.link-appearance.hover.color}" },

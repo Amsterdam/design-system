@@ -1,7 +1,7 @@
 {
   "ams": {
     "text": {
-      "text-level": {
+      "level": {
         "0": {
           "font-size": { "value": "clamp(1.891rem, calc(1.927vw + 1.506rem), 3.433rem)" }
         },

@@ -26,8 +26,8 @@
         }
       },
       "standalone": {
-        "font-size": { "value": "{ams.text.text-level.5.font-size}" },
-        "line-height": { "value": "{ams.text.text-level.5.line-height}" },
+        "font-size": { "value": "{ams.text.level.5.font-size}" },
+        "line-height": { "value": "{ams.text.level.5.line-height}" },
         "text-decoration-line": { "value": "{ams.link-appearance.regular.text-decoration-line}" },
         "text-decoration-thickness": { "value": "{ams.link-appearance.text-decoration-thickness}" },
         "text-underline-offset": { "value": "{ams.link-appearance.text-underline-offset}" },
