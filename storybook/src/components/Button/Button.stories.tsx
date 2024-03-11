@@ -14,7 +14,6 @@ const meta = {
     children: 'Button label',
     variant: 'primary',
     disabled: false,
-    busy: false,
   },
   argTypes: {
     children: {

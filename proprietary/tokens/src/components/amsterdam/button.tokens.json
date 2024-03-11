@@ -9,9 +9,6 @@
       "padding-block": { "value": "{amsterdam.space.inside.xs}" },
       "padding-inline": { "value": "{amsterdam.space.inside.md}" },
       "outline-offset": { "value": "{amsterdam.focus.outline-offset}" },
-      "busy": {
-        "cursor": { "value": "{amsterdam.action.busy.cursor}" }
-      },
       "disabled": {
         "cursor": { "value": "{amsterdam.action.disabled.cursor}" }
       },
