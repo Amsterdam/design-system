@@ -3,6 +3,13 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.6.1](https://github.com/Amsterdam/design-system/compare/design-system-react-v0.6.0...design-system-react-v0.6.1) (2024-03-11)
+
+
+### Bug Fixes
+
+* Button fixes ([#1122](https://github.com/Amsterdam/design-system/issues/1122)) ([b5a9504](https://github.com/Amsterdam/design-system/commit/b5a950491f46710d92526ce6012f7d76992a569f))
+
 ## [0.6.0](https://github.com/Amsterdam/design-system/compare/design-system-react-v0.5.0...design-system-react-v0.6.0) (2024-03-08)
 
 
