@@ -15,6 +15,16 @@ describe('Button', () => {
     expect(button).toBeVisible()
   })
 
+  it('renders an additional class name', () => {
+    render(<Button className="extra">Click me!</Button>)
+
+    const button = screen.getByRole('button', {
+      name: 'Click me!',
+    })
+
+    expect(button).toHaveClass('amsterdam-button extra')
+  })
+
   it('renders a default button with variant primary', () => {
     render(<Button>primary</Button>)
 
