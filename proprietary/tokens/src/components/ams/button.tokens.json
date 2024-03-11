@@ -9,9 +9,6 @@
       "padding-block": { "value": "{ams.space.inside.xs}" },
       "padding-inline": { "value": "{ams.space.inside.md}" },
       "outline-offset": { "value": "{ams.focus.outline-offset}" },
-      "busy": {
-        "cursor": { "value": "{ams.action.busy.cursor}" }
-      },
       "disabled": {
         "cursor": { "value": "{ams.action.disabled.cursor}" }
       },
