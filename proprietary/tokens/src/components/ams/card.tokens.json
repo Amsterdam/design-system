@@ -1,0 +1,17 @@
+{
+  "ams": {
+    "card": {
+      "link": {
+        "color": { "value": "{ams.link-appearance.color}" },
+        "text-decoration-line": { "value": "{ams.link-appearance.subtle.text-decoration-line}" },
+        "text-decoration-thickness": { "value": "{ams.link-appearance.text-decoration-thickness}" },
+        "text-underline-offset": { "value": "{ams.link-appearance.text-underline-offset}" },
+        "hover": {
+          "color": { "value": "{ams.link-appearance.hover.color}" },
+          "text-decoration-line": { "value": "{ams.link-appearance.subtle.hover.text-decoration-line}" }
+        }
+      },
+      "outline-offset": { "value": "{ams.focus.outline-offset}" }
+    }
+  }
+}

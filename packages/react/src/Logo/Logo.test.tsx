@@ -18,7 +18,7 @@ describe('Logo', () => {
 
     const component = container.querySelector(':only-child')
 
-    expect(component).toHaveClass('amsterdam-logo')
+    expect(component).toHaveClass('ams-logo')
   })
 
   it('renders an additional class name', () => {
@@ -28,7 +28,7 @@ describe('Logo', () => {
 
     expect(component).toHaveClass('extra')
 
-    expect(component).toHaveClass('amsterdam-logo')
+    expect(component).toHaveClass('ams-logo')
   })
 
   it('supports ForwardRef in React', () => {

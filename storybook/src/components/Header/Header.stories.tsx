@@ -15,7 +15,7 @@ const meta = {
       control: {
         type: 'radio',
       },
-      options: ['amsterdam', 'ggd-amsterdam', 'stadsarchief', 'stadsbank-van-lening', 'vga-verzekeringen'],
+      options: ['ams', 'ggd-ams', 'stadsarchief', 'stadsbank-van-lening', 'vga-verzekeringen'],
     },
   },
 } satisfies Meta<typeof Header>
@@ -28,7 +28,7 @@ export const Default: Story = {}
 
 export const WithLogoVariant: Story = {
   args: {
-    logoBrand: 'ggd-amsterdam',
+    logoBrand: 'ggd-ams',
     logoLink: 'https://www.ggd.amsterdam.nl/',
     logoLinkTitle: 'Naar de homepage van de GGD Amsterdam',
   },
@@ -56,13 +56,13 @@ export const WithLinks: Story = {
 
 export const WithMenu: Story = {
   args: {
-    menu: <button className="amsterdam-header__menu-button">Menu</button>,
+    menu: <button className="ams-header__menu-button">Menu</button>,
   },
 }
 
 export const WithLinksAndMenu: Story = {
   args: {
-    menu: <button className="amsterdam-header__menu-button">Menu</button>,
+    menu: <button className="ams-header__menu-button">Menu</button>,
     links: (
       <PageMenu alignEnd>
         <PageMenu.Link href="#">Contact</PageMenu.Link>
@@ -78,7 +78,7 @@ export const WithLinksAndMenu: Story = {
 export const WithTitleAndMenu: Story = {
   args: {
     title: 'Aan de Amsterdamse grachten',
-    menu: <button className="amsterdam-header__menu-button">Menu</button>,
+    menu: <button className="ams-header__menu-button">Menu</button>,
   },
 }
 
@@ -94,6 +94,6 @@ export const WithTitleLinksAndMenu: Story = {
         </PageMenu.Link>
       </PageMenu>
     ),
-    menu: <button className="amsterdam-header__menu-button">Menu</button>,
+    menu: <button className="ams-header__menu-button">Menu</button>,
   },
 }

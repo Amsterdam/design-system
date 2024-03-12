@@ -11,7 +11,7 @@ export type TableHeaderCellProps = PropsWithChildren<ThHTMLAttributes<HTMLTableC
 
 export const TableHeaderCell = forwardRef(
   ({ children, className, ...restProps }: TableHeaderCellProps, ref: ForwardedRef<HTMLTableCellElement>) => (
-    <th {...restProps} ref={ref} className={clsx('amsterdam-table__header-cell', className)}>
+    <th {...restProps} ref={ref} className={clsx('ams-table__header-cell', className)}>
       {children}
     </th>
   ),

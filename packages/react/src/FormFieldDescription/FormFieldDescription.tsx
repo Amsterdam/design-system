@@ -11,7 +11,7 @@ export type FormFieldDescriptionProps = PropsWithChildren<HTMLAttributes<HTMLDiv
 
 export const FormFieldDescription = forwardRef(
   ({ children, className, ...restProps }: FormFieldDescriptionProps, ref: ForwardedRef<HTMLDivElement>) => (
-    <div {...restProps} ref={ref} className={clsx('amsterdam-form-field-description', className)}>
+    <div {...restProps} ref={ref} className={clsx('ams-form-field-description', className)}>
       {children}
     </div>
   ),

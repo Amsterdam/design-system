@@ -3,31 +3,31 @@
  * Copyright Gemeente Amsterdam
  */
 
-.amsterdam-aspect-ratio {
+.ams-aspect-ratio {
   overflow: hidden;
   position: relative;
 }
 
-.amsterdam-aspect-ratio--x-tall {
-  aspect-ratio: var(--amsterdam-aspect-ratio-x-tall);
+.ams-aspect-ratio--x-tall {
+  aspect-ratio: var(--ams-aspect-ratio-x-tall);
 }
 
-.amsterdam-aspect-ratio--tall {
-  aspect-ratio: var(--amsterdam-aspect-ratio-tall);
+.ams-aspect-ratio--tall {
+  aspect-ratio: var(--ams-aspect-ratio-tall);
 }
 
-.amsterdam-aspect-ratio--square {
-  aspect-ratio: var(--amsterdam-aspect-ratio-square);
+.ams-aspect-ratio--square {
+  aspect-ratio: var(--ams-aspect-ratio-square);
 }
 
-.amsterdam-aspect-ratio--wide {
-  aspect-ratio: var(--amsterdam-aspect-ratio-wide);
+.ams-aspect-ratio--wide {
+  aspect-ratio: var(--ams-aspect-ratio-wide);
 }
 
-.amsterdam-aspect-ratio--x-wide {
-  aspect-ratio: var(--amsterdam-aspect-ratio-x-wide);
+.ams-aspect-ratio--x-wide {
+  aspect-ratio: var(--ams-aspect-ratio-x-wide);
 }
 
-.amsterdam-aspect-ratio--2x-wide {
-  aspect-ratio: var(--amsterdam-aspect-ratio-2x-wide);
+.ams-aspect-ratio--2x-wide {
+  aspect-ratio: var(--ams-aspect-ratio-2x-wide);
 }

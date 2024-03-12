@@ -7,71 +7,71 @@
   -webkit-text-size-adjust: 100%;
 }
 
-.amsterdam-link {
-  color: var(--amsterdam-link-color);
-  font-family: var(--amsterdam-link-font-family);
-  font-weight: var(--amsterdam-link-font-weight);
-  outline-offset: var(--amsterdam-link-outline-offset);
+.ams-link {
+  color: var(--ams-link-color);
+  font-family: var(--ams-link-font-family);
+  font-weight: var(--ams-link-font-weight);
+  outline-offset: var(--ams-link-outline-offset);
 
   &:hover {
-    color: var(--amsterdam-link-hover-color);
+    color: var(--ams-link-hover-color);
   }
 
   @include reset;
 }
 
-.amsterdam-link--standalone {
+.ams-link--standalone {
   display: inline-block;
-  font-size: var(--amsterdam-link-standalone-font-size);
-  line-height: var(--amsterdam-link-standalone-line-height);
-  text-decoration-line: var(--amsterdam-link-standalone-text-decoration-line);
-  text-decoration-thickness: var(--amsterdam-link-standalone-text-decoration-thickness);
-  text-underline-offset: var(--amsterdam-link-standalone-text-underline-offset);
+  font-size: var(--ams-link-standalone-font-size);
+  line-height: var(--ams-link-standalone-line-height);
+  text-decoration-line: var(--ams-link-standalone-text-decoration-line);
+  text-decoration-thickness: var(--ams-link-standalone-text-decoration-thickness);
+  text-underline-offset: var(--ams-link-standalone-text-underline-offset);
 
   &:hover {
-    text-decoration-thickness: var(--amsterdam-link-standalone-hover-text-decoration-thickness);
-    text-underline-offset: var(--amsterdam-link-standalone-hover-text-underline-offset);
+    text-decoration-thickness: var(--ams-link-standalone-hover-text-decoration-thickness);
+    text-underline-offset: var(--ams-link-standalone-hover-text-underline-offset);
   }
 }
 
-.amsterdam-link--inline {
-  font-family: var(--amsterdam-link-inline-font-family);
-  font-size: var(--amsterdam-link-inline-font-size);
-  line-height: var(--amsterdam-link-inline-line-height);
-  text-decoration-line: var(--amsterdam-link-inline-text-decoration-line);
-  text-decoration-thickness: var(--amsterdam-link-inline-text-decoration-thickness);
-  text-underline-offset: var(--amsterdam-link-inline-text-underline-offset);
+.ams-link--inline {
+  font-family: var(--ams-link-inline-font-family);
+  font-size: var(--ams-link-inline-font-size);
+  line-height: var(--ams-link-inline-line-height);
+  text-decoration-line: var(--ams-link-inline-text-decoration-line);
+  text-decoration-thickness: var(--ams-link-inline-text-decoration-thickness);
+  text-underline-offset: var(--ams-link-inline-text-underline-offset);
 
   &:hover {
-    text-decoration-thickness: var(--amsterdam-link-inline-hover-text-decoration-thickness);
-    text-underline-offset: var(--amsterdam-link-inline-hover-text-underline-offset);
+    text-decoration-thickness: var(--ams-link-inline-hover-text-decoration-thickness);
+    text-underline-offset: var(--ams-link-inline-hover-text-underline-offset);
   }
 
   &:visited {
-    color: var(--amsterdam-link-inline-visited-color);
+    color: var(--ams-link-inline-visited-color);
   }
 }
 
-.amsterdam-link--on-background-dark {
-  color: var(--amsterdam-link-on-background-dark-color);
+.ams-link--on-background-dark {
+  color: var(--ams-link-on-background-dark-color);
 
   &:hover {
-    color: var(--amsterdam-link-on-background-dark-hover-color);
+    color: var(--ams-link-on-background-dark-hover-color);
   }
 
   &:visited {
-    color: var(--amsterdam-link-on-background-dark-visited-color);
+    color: var(--ams-link-on-background-dark-visited-color);
   }
 }
 
-.amsterdam-link--on-background-light {
-  color: var(--amsterdam-link-on-background-light-color);
+.ams-link--on-background-light {
+  color: var(--ams-link-on-background-light-color);
 
   &:hover {
-    color: var(--amsterdam-link-on-background-light-hover-color);
+    color: var(--ams-link-on-background-light-hover-color);
   }
 
   &:visited {
-    color: var(--amsterdam-link-on-background-light-visited-color);
+    color: var(--ams-link-on-background-light-visited-color);
   }
 }

@@ -43,13 +43,7 @@ export const Tabs = forwardRef(
 
     return (
       <TabsContext.Provider value={{ activeTab, updateTab, tabsId }}>
-        <div
-          {...restProps}
-          role="tabs"
-          ref={innerRef}
-          onKeyDown={keyDown}
-          className={clsx('amsterdam-tabs', className)}
-        >
+        <div {...restProps} role="tabs" ref={innerRef} onKeyDown={keyDown} className={clsx('ams-tabs', className)}>
           {children}
         </div>
       </TabsContext.Provider>

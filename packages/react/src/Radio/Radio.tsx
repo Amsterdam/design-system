@@ -18,17 +18,17 @@ export const Radio = forwardRef(
     return (
       // This div is here because NVDA doesn't match the input to the label
       // without a containing element
-      <div className={clsx('amsterdam-radio', className)}>
+      <div className={clsx('ams-radio', className)}>
         <input
           {...restProps}
           type="radio"
-          className="amsterdam-radio__input"
+          className="ams-radio__input"
           ref={ref}
           id={id}
           aria-invalid={invalid || undefined}
         />
-        <label className="amsterdam-radio__label" htmlFor={id}>
-          <span className="amsterdam-radio__circle" />
+        <label className="ams-radio__label" htmlFor={id}>
+          <span className="ams-radio__circle" />
           {children}
         </label>
       </div>

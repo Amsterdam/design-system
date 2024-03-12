@@ -9,13 +9,11 @@ import type { ButtonHTMLAttributes, ForwardedRef, PropsWithChildren } from 'reac
 
 export type ButtonProps = {
   variant?: 'primary' | 'secondary' | 'tertiary'
-  /** Render the button in a busy state to indicate something has to finish loading */
-  busy?: boolean
 } & PropsWithChildren<ButtonHTMLAttributes<HTMLButtonElement>>
 
 export const Button = forwardRef(
   (
-    { children, type, disabled, busy, variant = 'primary', ...restProps }: ButtonProps,
+    { children, className, type, disabled, variant = 'primary', ...restProps }: ButtonProps,
     ref: ForwardedRef<HTMLButtonElement>,
   ) => {
     return (
@@ -23,9 +21,8 @@ export const Button = forwardRef(
         {...restProps}
         ref={ref}
         disabled={disabled}
-        className={clsx('amsterdam-button', busy === true && 'amsterdam-button--busy', `amsterdam-button--${variant}`)}
+        className={clsx('ams-button', `ams-button--${variant}`, className)}
         type={type || 'button'}
-        aria-busy={busy || undefined}
       >
         {children}
       </button>

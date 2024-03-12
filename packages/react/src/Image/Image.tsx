@@ -13,7 +13,7 @@ export type ImageProps = {
 
 export const Image = forwardRef(
   ({ className, cover = false, ...restProps }: ImageProps, ref: ForwardedRef<HTMLImageElement>) => (
-    <img {...restProps} ref={ref} className={clsx('amsterdam-image', cover && 'amsterdam-image--cover', className)} />
+    <img {...restProps} ref={ref} className={clsx('ams-image', cover && 'ams-image--cover', className)} />
   ),
 )
 

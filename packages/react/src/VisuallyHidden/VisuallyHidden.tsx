@@ -12,7 +12,7 @@ export const VisuallyHidden = forwardRef(
     { children, className, ...restProps }: PropsWithChildren<HTMLAttributes<HTMLElement>>,
     ref: ForwardedRef<HTMLElement>,
   ) => (
-    <span {...restProps} ref={ref} className={clsx('amsterdam-visually-hidden', className)}>
+    <span {...restProps} ref={ref} className={clsx('ams-visually-hidden', className)}>
       {children}
     </span>
   ),

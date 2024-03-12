@@ -1,0 +1,11 @@
+{
+  "ams": {
+    "form-label": {
+      "color": { "value": "{ams.color.primary-black}" },
+      "font-family": { "value": "{ams.text.font-family}" },
+      "font-size": { "value": "{ams.text.level.4.font-size}" },
+      "font-weight": { "value": "{ams.text.font-weight.bold}" },
+      "line-height": { "value": "{ams.text.level.4.line-height}" }
+    }
+  }
+}

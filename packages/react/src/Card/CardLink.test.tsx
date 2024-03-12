@@ -18,7 +18,7 @@ describe('Card link', () => {
 
     const component = screen.getByRole('link')
 
-    expect(component).toHaveClass('amsterdam-card__link')
+    expect(component).toHaveClass('ams-card__link')
   })
 
   it('renders an additional class name', () => {
@@ -26,7 +26,7 @@ describe('Card link', () => {
 
     const component = screen.getByRole('link')
 
-    expect(component).toHaveClass('amsterdam-card__link extra')
+    expect(component).toHaveClass('ams-card__link extra')
   })
 
   it('supports ForwardRef in React', () => {

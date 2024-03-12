@@ -30,7 +30,7 @@ describe('Blockquote', () => {
 
     const quote = container.querySelector(':only-child')
 
-    expect(quote).toHaveClass('amsterdam-blockquote')
+    expect(quote).toHaveClass('ams-blockquote')
   })
 
   it('renders an additional class name', () => {
@@ -40,7 +40,7 @@ describe('Blockquote', () => {
 
     expect(quote).toHaveClass('extra')
 
-    expect(quote).toHaveClass('amsterdam-blockquote')
+    expect(quote).toHaveClass('ams-blockquote')
   })
 
   it('renders the right inverse color class', () => {
@@ -48,7 +48,7 @@ describe('Blockquote', () => {
 
     const quote = container.querySelector('blockquote:only-child')
 
-    expect(quote).toHaveClass('amsterdam-blockquote--inverse-color')
+    expect(quote).toHaveClass('ams-blockquote--inverse-color')
   })
 
   it('supports ForwardRef in React', () => {

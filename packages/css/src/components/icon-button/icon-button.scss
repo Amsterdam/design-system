@@ -9,52 +9,52 @@
   padding-inline: 0;
 }
 
-.amsterdam-icon-button {
+.ams-icon-button {
   background-color: transparent;
-  color: var(--amsterdam-icon-button-color);
+  color: var(--ams-icon-button-color);
   cursor: pointer;
-  outline-offset: var(--amsterdam-icon-button-outline-offset);
+  outline-offset: var(--ams-icon-button-outline-offset);
   touch-action: manipulation;
 
   &:hover {
-    background-color: var(--amsterdam-icon-button-hover-background-color);
-    color: var(--amsterdam-icon-button-hover-color);
+    background-color: var(--ams-icon-button-hover-background-color);
+    color: var(--ams-icon-button-hover-color);
   }
 
   &:disabled {
     background-color: transparent;
-    color: var(--amsterdam-icon-button-disabled-color);
+    color: var(--ams-icon-button-disabled-color);
     cursor: not-allowed;
   }
 
   @include reset;
 }
 
-.amsterdam-icon-button--on-background-light {
-  color: var(--amsterdam-icon-button-on-background-light-color);
+.ams-icon-button--on-background-light {
+  color: var(--ams-icon-button-on-background-light-color);
 
   &:hover {
-    background-color: var(--amsterdam-icon-button-on-background-light-hover-background-color);
-    color: var(--amsterdam-icon-button-on-background-light-hover-color);
+    background-color: var(--ams-icon-button-on-background-light-hover-background-color);
+    color: var(--ams-icon-button-on-background-light-hover-color);
   }
 
   &:disabled {
     background-color: transparent;
-    color: var(--amsterdam-icon-button-on-background-light-disabled-color);
+    color: var(--ams-icon-button-on-background-light-disabled-color);
   }
 }
 
-.amsterdam-icon-button--on-background-dark {
-  background-color: var(--amsterdam-icon-button-on-background-dark-background-color);
-  color: var(--amsterdam-icon-button-on-background-dark-color);
+.ams-icon-button--on-background-dark {
+  background-color: var(--ams-icon-button-on-background-dark-background-color);
+  color: var(--ams-icon-button-on-background-dark-color);
 
   &:hover {
-    background-color: var(--amsterdam-icon-button-on-background-dark-hover-background-color);
-    color: var(--amsterdam-icon-button-on-background-dark-hover-color);
+    background-color: var(--ams-icon-button-on-background-dark-hover-background-color);
+    color: var(--ams-icon-button-on-background-dark-hover-color);
   }
 
   &:disabled {
-    background-color: var(--amsterdam-icon-button-on-background-dark-disabled-background-color);
-    color: var(--amsterdam-icon-button-on-background-dark-disabled-color);
+    background-color: var(--ams-icon-button-on-background-dark-disabled-background-color);
+    color: var(--ams-icon-button-on-background-dark-disabled-color);
   }
 }

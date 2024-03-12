@@ -24,7 +24,7 @@ export const SearchFieldInput = forwardRef(
         <input
           {...restProps}
           autoComplete="off"
-          className={clsx('amsterdam-search-field__input', className)}
+          className={clsx('ams-search-field__input', className)}
           enterKeyHint="search"
           id={id}
           ref={ref}

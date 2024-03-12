@@ -35,7 +35,7 @@ const meta = {
   },
   decorators: [
     (Story, context) => (
-      <div className={context.args.inverseColor ? 'amsterdam-docs-dark-background' : undefined}>
+      <div className={context.args.inverseColor ? 'ams-docs-dark-background' : undefined}>
         <Story />
       </div>
     ),
@@ -76,49 +76,49 @@ export const WithoutMarkers: Story = {
   args: {
     children: [
       <UnorderedList.Item key={1}>
-        <div className="amsterdam-docs-card">
+        <div className="ams-docs-card">
           <Icon svg={LocationIcon} size="level-6" />
           <Paragraph>Stadsloket: locaties en openingstijden</Paragraph>
         </div>
       </UnorderedList.Item>,
       <UnorderedList.Item key={2}>
-        <div className="amsterdam-docs-card">
+        <div className="ams-docs-card">
           <Icon svg={CarIcon} size="level-6" />
           <Paragraph>Parkeren + Reizen (P+R)</Paragraph>
         </div>
       </UnorderedList.Item>,
       <UnorderedList.Item key={3}>
-        <div className="amsterdam-docs-card">
+        <div className="ams-docs-card">
           <Icon svg={PassportIcon} size="level-6" />
           <Paragraph>Paspoort, ID-kaart en Rijbewijs</Paragraph>
         </div>
       </UnorderedList.Item>,
       <UnorderedList.Item key={4}>
-        <div className="amsterdam-docs-card">
+        <div className="ams-docs-card">
           <Icon svg={DocumentEuroSignIcon} size="level-6" />
           <Paragraph>Gemeentebelastingen</Paragraph>
         </div>
       </UnorderedList.Item>,
       <UnorderedList.Item key={5}>
-        <div className="amsterdam-docs-card">
+        <div className="ams-docs-card">
           <Icon svg={AlertIcon} size="level-6" />
           <Paragraph>Melding openbare ruimte en overlast</Paragraph>
         </div>
       </UnorderedList.Item>,
       <UnorderedList.Item key={6}>
-        <div className="amsterdam-docs-card">
+        <div className="ams-docs-card">
           <Icon svg={HousingIcon} size="level-6" />
           <Paragraph>Verhuizing doorgeven</Paragraph>
         </div>
       </UnorderedList.Item>,
       <UnorderedList.Item key={7}>
-        <div className="amsterdam-docs-card">
+        <div className="ams-docs-card">
           <Icon svg={TrashBinIcon} size="level-6" />
           <Paragraph>Grof afval</Paragraph>
         </div>
       </UnorderedList.Item>,
       <UnorderedList.Item key={8}>
-        <div className="amsterdam-docs-card">
+        <div className="ams-docs-card">
           <Icon svg={AnnouncementIcon} size="level-6" />
           <Paragraph>Kennisgevingen en bekendmakingen</Paragraph>
         </div>

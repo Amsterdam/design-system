@@ -15,11 +15,7 @@ export type AspectRatioProps = {
 
 export const AspectRatio = forwardRef(
   ({ children, className, ratio = 'square', ...restProps }: AspectRatioProps, ref: ForwardedRef<HTMLDivElement>) => (
-    <div
-      {...restProps}
-      ref={ref}
-      className={clsx('amsterdam-aspect-ratio', `amsterdam-aspect-ratio--${ratio}`, className)}
-    >
+    <div {...restProps} ref={ref} className={clsx('ams-aspect-ratio', `ams-aspect-ratio--${ratio}`, className)}>
       {children}
     </div>
   ),

@@ -24,7 +24,7 @@ export const Row = forwardRef(
     { as: Tag = 'div', children, className, gap = 'medium', ...restProps }: RowProps,
     ref: ForwardedRef<HTMLDivElement>,
   ) => (
-    <Tag {...restProps} ref={ref} className={clsx('amsterdam-row', `amsterdam-row--${gap}`, className)}>
+    <Tag {...restProps} ref={ref} className={clsx('ams-row', `ams-row--${gap}`, className)}>
       {children}
     </Tag>
   ),

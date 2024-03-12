@@ -11,7 +11,7 @@ export type SkipLinkProps = PropsWithChildren<AnchorHTMLAttributes<HTMLAnchorEle
 
 export const SkipLink = forwardRef(
   ({ children, className, ...restProps }: SkipLinkProps, ref: ForwardedRef<HTMLAnchorElement>) => (
-    <a {...restProps} ref={ref} className={clsx('amsterdam-skip-link', 'amsterdam-visually-hidden', className)}>
+    <a {...restProps} ref={ref} className={clsx('ams-skip-link', 'ams-visually-hidden', className)}>
       {children}
     </a>
   ),

@@ -79,14 +79,14 @@ describe('Switch', () => {
     const { container } = render(<Switch />)
     const component = container.querySelector(':only-child')
 
-    expect(component).toHaveClass('amsterdam-switch')
+    expect(component).toHaveClass('ams-switch')
   })
 
   it('renders an additional class name', () => {
     const { container } = render(<Switch className="extra" />)
     const component = container.querySelector(':only-child')
 
-    expect(component).toHaveClass('amsterdam-switch', 'extra')
+    expect(component).toHaveClass('ams-switch', 'extra')
   })
 
   it('is able to pass a React ref', () => {

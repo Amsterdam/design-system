@@ -25,9 +25,9 @@ export const Paragraph = forwardRef(
     <p
       ref={ref}
       className={clsx(
-        'amsterdam-paragraph',
-        size && `amsterdam-paragraph--${size}`,
-        inverseColor && 'amsterdam-paragraph--inverse-color',
+        'ams-paragraph',
+        size && `ams-paragraph--${size}`,
+        inverseColor && 'ams-paragraph--inverse-color',
         className,
       )}
       {...otherProps}

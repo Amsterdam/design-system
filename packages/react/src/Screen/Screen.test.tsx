@@ -18,7 +18,7 @@ describe('Screen', () => {
 
     const component = container.querySelector(':only-child')
 
-    expect(component).toHaveClass('amsterdam-screen')
+    expect(component).toHaveClass('ams-screen')
   })
 
   it('renders the max-width class name', () => {
@@ -26,7 +26,7 @@ describe('Screen', () => {
 
     const component = container.querySelector(':only-child')
 
-    expect(component).toHaveClass('amsterdam-screen--x-wide')
+    expect(component).toHaveClass('ams-screen--x-wide')
   })
 
   it('renders an additional class name', () => {
@@ -36,7 +36,7 @@ describe('Screen', () => {
 
     expect(component).toHaveClass('extra')
 
-    expect(component).toHaveClass('amsterdam-screen')
+    expect(component).toHaveClass('ams-screen')
   })
 
   it('supports ForwardRef in React', () => {

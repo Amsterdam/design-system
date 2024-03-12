@@ -24,9 +24,9 @@ describe('Top task link', () => {
     const label = screen.getByText('Label')
     const description = screen.getByText('Description')
 
-    expect(link).toHaveClass('amsterdam-top-task-link')
-    expect(label).toHaveClass('amsterdam-top-task-link__label')
-    expect(description).toHaveClass('amsterdam-top-task-link__description')
+    expect(link).toHaveClass('ams-top-task-link')
+    expect(label).toHaveClass('ams-top-task-link__label')
+    expect(description).toHaveClass('ams-top-task-link__description')
   })
 
   it('renders an additional class name', () => {
@@ -37,7 +37,7 @@ describe('Top task link', () => {
     })
 
     expect(link).toHaveClass('extra')
-    expect(link).toHaveClass('amsterdam-top-task-link')
+    expect(link).toHaveClass('ams-top-task-link')
   })
 
   it('supports ForwardRef in React', () => {

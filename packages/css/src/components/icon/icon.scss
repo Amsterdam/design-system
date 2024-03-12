@@ -3,52 +3,52 @@
  * Copyright Gemeente Amsterdam
  */
 
-.amsterdam-icon {
+.ams-icon {
   align-items: center;
   display: inline-flex;
 }
 
-.amsterdam-icon svg {
+.ams-icon svg {
   fill: currentColor;
 }
 
-.amsterdam-icon--square {
+.ams-icon--square {
   aspect-ratio: 1 / 1;
   justify-content: center;
 }
 
-.amsterdam-icon--size-3 {
-  height: calc(var(--amsterdam-icon-size-3-font-size) * var(--amsterdam-icon-size-3-line-height));
+.ams-icon--size-3 {
+  height: calc(var(--ams-icon-size-3-font-size) * var(--ams-icon-size-3-line-height));
 }
 
-.amsterdam-icon--size-3 svg {
-  height: var(--amsterdam-icon-size-3-font-size);
-  width: var(--amsterdam-icon-size-3-font-size);
+.ams-icon--size-3 svg {
+  height: var(--ams-icon-size-3-font-size);
+  width: var(--ams-icon-size-3-font-size);
 }
 
-.amsterdam-icon--size-4 {
-  height: calc(var(--amsterdam-icon-size-4-font-size) * var(--amsterdam-icon-size-4-line-height));
+.ams-icon--size-4 {
+  height: calc(var(--ams-icon-size-4-font-size) * var(--ams-icon-size-4-line-height));
 }
 
-.amsterdam-icon--size-4 svg {
-  height: var(--amsterdam-icon-size-4-font-size);
-  width: var(--amsterdam-icon-size-4-font-size);
+.ams-icon--size-4 svg {
+  height: var(--ams-icon-size-4-font-size);
+  width: var(--ams-icon-size-4-font-size);
 }
 
-.amsterdam-icon--size-5 {
-  height: calc(var(--amsterdam-icon-size-5-font-size) * var(--amsterdam-icon-size-5-line-height));
+.ams-icon--size-5 {
+  height: calc(var(--ams-icon-size-5-font-size) * var(--ams-icon-size-5-line-height));
 }
 
-.amsterdam-icon--size-5 svg {
-  height: var(--amsterdam-icon-size-5-font-size);
-  width: var(--amsterdam-icon-size-5-font-size);
+.ams-icon--size-5 svg {
+  height: var(--ams-icon-size-5-font-size);
+  width: var(--ams-icon-size-5-font-size);
 }
 
-.amsterdam-icon--size-6 {
-  height: calc(var(--amsterdam-icon-size-6-font-size) * var(--amsterdam-icon-size-6-line-height));
+.ams-icon--size-6 {
+  height: calc(var(--ams-icon-size-6-font-size) * var(--ams-icon-size-6-line-height));
 }
 
-.amsterdam-icon--size-6 svg {
-  height: var(--amsterdam-icon-size-6-font-size);
-  width: var(--amsterdam-icon-size-6-font-size);
+.ams-icon--size-6 svg {
+  height: var(--ams-icon-size-6-font-size);
+  width: var(--ams-icon-size-6-font-size);
 }

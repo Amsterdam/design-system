@@ -18,7 +18,7 @@ describe('Badge', () => {
 
     const component = container.querySelector(':only-child')
 
-    expect(component).toHaveClass('amsterdam-badge')
+    expect(component).toHaveClass('ams-badge')
   })
 
   it('renders an additional class name', () => {
@@ -26,7 +26,7 @@ describe('Badge', () => {
 
     const component = container.querySelector(':only-child')
 
-    expect(component).toHaveClass('amsterdam-badge extra')
+    expect(component).toHaveClass('ams-badge extra')
   })
 
   it('supports ForwardRef in React', () => {
@@ -52,7 +52,7 @@ describe('Badge', () => {
 
     const component = container.querySelector(':only-child')
 
-    expect(component).toHaveClass('amsterdam-badge--dark-green')
+    expect(component).toHaveClass('ams-badge--dark-green')
   })
 
   badgeColors.map((color) =>
@@ -61,7 +61,7 @@ describe('Badge', () => {
 
       const component = container.querySelector(':only-child')
 
-      expect(component).toHaveClass(`amsterdam-badge--${color}`)
+      expect(component).toHaveClass(`ams-badge--${color}`)
     }),
   )
 })

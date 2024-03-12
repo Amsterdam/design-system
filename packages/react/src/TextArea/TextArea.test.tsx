@@ -19,7 +19,7 @@ describe('Text area', () => {
 
     const component = screen.getByRole('textbox')
 
-    expect(component).toHaveClass('amsterdam-text-area')
+    expect(component).toHaveClass('ams-text-area')
   })
 
   it('renders an additional class name', () => {
@@ -27,7 +27,7 @@ describe('Text area', () => {
 
     const component = screen.getByRole('textbox')
 
-    expect(component).toHaveClass('amsterdam-text-area extra')
+    expect(component).toHaveClass('ams-text-area extra')
   })
 
   it('renders a textarea with horizontal resize', () => {
@@ -35,7 +35,7 @@ describe('Text area', () => {
 
     const component = screen.getByRole('textbox')
 
-    expect(component).toHaveClass('amsterdam-text-area amsterdam-text-area--resize-horizontal')
+    expect(component).toHaveClass('ams-text-area ams-text-area--resize-horizontal')
   })
 
   it('renders a textarea with vertical resize', () => {
@@ -43,7 +43,7 @@ describe('Text area', () => {
 
     const component = screen.getByRole('textbox')
 
-    expect(component).toHaveClass('amsterdam-text-area amsterdam-text-area--resize-vertical')
+    expect(component).toHaveClass('ams-text-area ams-text-area--resize-vertical')
   })
 
   it('renders a textarea with no resize', () => {
@@ -51,7 +51,7 @@ describe('Text area', () => {
 
     const component = screen.getByRole('textbox')
 
-    expect(component).toHaveClass('amsterdam-text-area amsterdam-text-area--resize-none')
+    expect(component).toHaveClass('ams-text-area ams-text-area--resize-none')
   })
 
   it('renders a textarea with cols class when cols prop is provided', () => {
@@ -59,7 +59,7 @@ describe('Text area', () => {
 
     const component = screen.getByRole('textbox')
 
-    expect(component).toHaveClass('amsterdam-text-area amsterdam-text-area--cols')
+    expect(component).toHaveClass('ams-text-area ams-text-area--cols')
   })
 
   it('can be controlled', async () => {

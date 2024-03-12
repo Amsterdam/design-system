@@ -1,0 +1,13 @@
+{
+  "ams": {
+    "row": {
+      "gap": {
+        "xs": { "value": "{ams.space.stack.xs}" },
+        "sm": { "value": "{ams.space.stack.sm}" },
+        "md": { "value": "{ams.space.stack.md}" },
+        "lg": { "value": "{ams.space.stack.lg}" },
+        "xl": { "value": "{ams.space.stack.xl}" }
+      }
+    }
+  }
+}

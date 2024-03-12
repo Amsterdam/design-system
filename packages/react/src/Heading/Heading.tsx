@@ -53,9 +53,9 @@ export const Heading = forwardRef(
       <HeadingX
         ref={ref}
         className={clsx(
-          'amsterdam-heading',
-          `amsterdam-heading--${sizeOrLevel}`,
-          inverseColor && 'amsterdam-heading--inverse-color',
+          'ams-heading',
+          `ams-heading--${sizeOrLevel}`,
+          inverseColor && 'ams-heading--inverse-color',
           className,
         )}
         {...restProps}

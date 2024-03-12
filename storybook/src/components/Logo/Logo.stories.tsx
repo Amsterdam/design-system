@@ -34,7 +34,7 @@ export const Default: Story = {}
 
 export const GgdAmsterdam: Story = {
   args: {
-    brand: 'ggd-amsterdam',
+    brand: 'ggd-ams',
   },
 }
 

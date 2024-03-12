@@ -16,7 +16,7 @@ describe('Unordered list', () => {
 
     const component = screen.getByRole('list')
 
-    expect(component).toHaveClass('amsterdam-unordered-list')
+    expect(component).toHaveClass('ams-unordered-list')
   })
 
   it('renders a no markers class', () => {
@@ -24,7 +24,7 @@ describe('Unordered list', () => {
 
     const component = screen.getByRole('list')
 
-    expect(component).toHaveClass('amsterdam-unordered-list--no-markers')
+    expect(component).toHaveClass('ams-unordered-list--no-markers')
   })
 
   it('renders an inverse color class', () => {
@@ -32,7 +32,7 @@ describe('Unordered list', () => {
 
     const component = screen.getByRole('list')
 
-    expect(component).toHaveClass('amsterdam-unordered-list--inverse-color')
+    expect(component).toHaveClass('ams-unordered-list--inverse-color')
   })
 
   it('renders an additional class name', () => {
@@ -40,7 +40,7 @@ describe('Unordered list', () => {
 
     const component = screen.getByRole('list')
 
-    expect(component).toHaveClass('amsterdam-unordered-list extra')
+    expect(component).toHaveClass('ams-unordered-list extra')
   })
 
   it('renders its subcomponent', () => {
@@ -55,7 +55,7 @@ describe('Unordered list', () => {
     )
 
     const list = screen.getByRole('list')
-    const items = container.querySelectorAll('.amsterdam-unordered-list__item')
+    const items = container.querySelectorAll('.ams-unordered-list__item')
 
     expect(list).toBeInTheDocument()
     expect(items.length).toBe(3)

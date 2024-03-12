@@ -16,7 +16,7 @@ type SearchFieldButtonProps = HTMLAttributes<HTMLButtonElement>
 // TODO: discuss if IconButton is the right component to replace this
 export const SearchFieldButton = forwardRef(
   ({ className, ...restProps }: SearchFieldButtonProps, ref: ForwardedRef<HTMLButtonElement>) => (
-    <button {...restProps} ref={ref} className={clsx('amsterdam-search-field__button', className)}>
+    <button {...restProps} ref={ref} className={clsx('ams-search-field__button', className)}>
       <VisuallyHidden>Zoeken</VisuallyHidden>
       <Icon svg={SearchIcon} size="level-6" square />
     </button>

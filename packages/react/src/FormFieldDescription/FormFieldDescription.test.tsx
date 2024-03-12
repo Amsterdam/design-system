@@ -18,7 +18,7 @@ describe('Form field description', () => {
 
     const component = container.querySelector(':only-child')
 
-    expect(component).toHaveClass('amsterdam-form-field-description')
+    expect(component).toHaveClass('ams-form-field-description')
   })
 
   it('renders an additional class name', () => {
@@ -26,7 +26,7 @@ describe('Form field description', () => {
 
     const component = container.querySelector(':only-child')
 
-    expect(component).toHaveClass('amsterdam-form-field-description extra')
+    expect(component).toHaveClass('ams-form-field-description extra')
   })
 
   it('supports ForwardRef in React', () => {
