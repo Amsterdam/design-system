@@ -18,7 +18,7 @@ export const Dialog = forwardRef(
     <dialog {...restProps} ref={ref} className={clsx('amsterdam-dialog', className)}>
       <form method="dialog" className="amsterdam-dialog__form">
         <header className="amsterdam-dialog__header">
-          <Heading level={2} size="level-4">
+          <Heading level={1} size="level-4">
             {title}
           </Heading>
           <IconButton label="Sluiten" formNoValidate />
