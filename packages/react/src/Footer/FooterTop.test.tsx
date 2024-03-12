@@ -18,7 +18,7 @@ describe('Footer top', () => {
 
     const component = container.querySelector(':only-child')
 
-    expect(component).toHaveClass('amsterdam-footer__top')
+    expect(component).toHaveClass('ams-footer__top')
   })
 
   it('renders an additional class name', () => {
@@ -26,7 +26,7 @@ describe('Footer top', () => {
 
     const component = container.querySelector(':only-child')
 
-    expect(component).toHaveClass('amsterdam-footer__top extra')
+    expect(component).toHaveClass('ams-footer__top extra')
   })
 
   it('supports ForwardRef in React', () => {

@@ -16,7 +16,7 @@ describe('Ordered list', () => {
 
     const component = screen.getByRole('list')
 
-    expect(component).toHaveClass('amsterdam-ordered-list')
+    expect(component).toHaveClass('ams-ordered-list')
   })
 
   it('renders a no markers class', () => {
@@ -24,7 +24,7 @@ describe('Ordered list', () => {
 
     const component = screen.getByRole('list')
 
-    expect(component).toHaveClass('amsterdam-ordered-list--no-markers')
+    expect(component).toHaveClass('ams-ordered-list--no-markers')
   })
 
   it('renders an inverse color class', () => {
@@ -32,7 +32,7 @@ describe('Ordered list', () => {
 
     const component = screen.getByRole('list')
 
-    expect(component).toHaveClass('amsterdam-ordered-list--inverse-color')
+    expect(component).toHaveClass('ams-ordered-list--inverse-color')
   })
 
   it('renders an additional class name', () => {
@@ -40,7 +40,7 @@ describe('Ordered list', () => {
 
     const component = screen.getByRole('list')
 
-    expect(component).toHaveClass('amsterdam-ordered-list extra')
+    expect(component).toHaveClass('ams-ordered-list extra')
   })
 
   it('renders its subcomponent', () => {
@@ -55,7 +55,7 @@ describe('Ordered list', () => {
     )
 
     const list = screen.getByRole('list')
-    const items = container.querySelectorAll('.amsterdam-ordered-list__item')
+    const items = container.querySelectorAll('.ams-ordered-list__item')
 
     expect(list).toBeInTheDocument()
     expect(items.length).toBe(3)

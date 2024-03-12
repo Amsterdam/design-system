@@ -18,7 +18,7 @@ describe('Spotlight', () => {
 
     const component = container.querySelector(':only-child')
 
-    expect(component).toHaveClass('amsterdam-spotlight')
+    expect(component).toHaveClass('ams-spotlight')
   })
 
   it('renders an additional class name', () => {
@@ -28,7 +28,7 @@ describe('Spotlight', () => {
 
     expect(component).toHaveClass('extra')
 
-    expect(component).toHaveClass('amsterdam-spotlight')
+    expect(component).toHaveClass('ams-spotlight')
   })
 
   it('supports ForwardRef in React', () => {
@@ -47,7 +47,7 @@ describe('Spotlight', () => {
 
       const component = container.querySelector(':only-child')
 
-      expect(component).toHaveClass(`amsterdam-spotlight--${color}`)
+      expect(component).toHaveClass(`ams-spotlight--${color}`)
     }),
   )
 

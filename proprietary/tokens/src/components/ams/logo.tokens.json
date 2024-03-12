@@ -1,0 +1,10 @@
+{
+  "ams": {
+    "logo": {
+      "height": { "value": "2.5rem" },
+      "emblem": { "color": { "value": "{ams.color.primary-red}" } },
+      "title": { "color": { "value": "{ams.color.primary-red}" } },
+      "subsite": { "color": { "value": "{ams.color.primary-black}" } }
+    }
+  }
+}

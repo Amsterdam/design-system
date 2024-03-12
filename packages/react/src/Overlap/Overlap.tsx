@@ -11,7 +11,7 @@ export type OverlapProps = PropsWithChildren<HTMLAttributes<HTMLDivElement>>
 
 export const Overlap = forwardRef(
   ({ children, className, ...restProps }: OverlapProps, ref: ForwardedRef<HTMLDivElement>) => (
-    <div {...restProps} ref={ref} className={clsx('amsterdam-overlap', className)}>
+    <div {...restProps} ref={ref} className={clsx('ams-overlap', className)}>
       {children}
     </div>
   ),

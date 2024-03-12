@@ -24,12 +24,12 @@ export const Link = forwardRef(
       {...otherProps}
       ref={ref}
       className={clsx(
-        'amsterdam-link',
+        'ams-link',
         {
-          'amsterdam-link--standalone': variant === 'standalone',
-          'amsterdam-link--inline': variant === 'inline',
-          'amsterdam-link--on-background-light': onBackground === 'light',
-          'amsterdam-link--on-background-dark': onBackground === 'dark',
+          'ams-link--standalone': variant === 'standalone',
+          'ams-link--inline': variant === 'inline',
+          'ams-link--on-background-light': onBackground === 'light',
+          'ams-link--on-background-dark': onBackground === 'dark',
         },
         className,
       )}

@@ -22,7 +22,7 @@ export const decorators = [
   withThemeByClassName({
     themes: {
       Spacious: '',
-      Compact: 'amsterdam-theme--compact',
+      Compact: 'ams-theme--compact',
     },
     defaultTheme: 'Spacious',
   }),

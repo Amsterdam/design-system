@@ -20,7 +20,7 @@ export const Blockquote = forwardRef(
     <blockquote
       {...restProps}
       ref={ref}
-      className={clsx('amsterdam-blockquote', inverseColor && 'amsterdam-blockquote--inverse-color', className)}
+      className={clsx('ams-blockquote', inverseColor && 'ams-blockquote--inverse-color', className)}
     >
       {children}
     </blockquote>

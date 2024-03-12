@@ -10,26 +10,26 @@
   -webkit-text-size-adjust: 100%;
 }
 
-.amsterdam-breadcrumb {
-  font-family: var(--amsterdam-breadcrumb-font-family, inherit);
-  font-size: var(--amsterdam-breadcrumb-font-size);
-  font-weight: var(--amsterdam-breadcrumb-font-weight);
-  line-height: var(--amsterdam-breadcrumb-line-height);
+.ams-breadcrumb {
+  font-family: var(--ams-breadcrumb-font-family, inherit);
+  font-size: var(--ams-breadcrumb-font-size);
+  font-weight: var(--ams-breadcrumb-font-weight);
+  line-height: var(--ams-breadcrumb-line-height);
 }
 
-.amsterdam-breadcrumb__list {
+.ams-breadcrumb__list {
   break-after: avoid;
   break-inside: avoid;
 
   @include reset;
 }
 
-.amsterdam-breadcrumb__item {
+.ams-breadcrumb__item {
   display: inline;
 }
 
-.amsterdam-breadcrumb__item:not(:last-child)::after {
-  background-image: var(--amsterdam-breadcrumb-separator-background-image);
+.ams-breadcrumb__item:not(:last-child)::after {
+  background-image: var(--ams-breadcrumb-separator-background-image);
   background-repeat: no-repeat;
   content: "";
   display: inline-block;
@@ -38,15 +38,15 @@
   width: 1ex;
 }
 
-.amsterdam-breadcrumb__link {
-  color: var(--amsterdam-breadcrumb-item-link-color);
-  outline-offset: var(--amsterdam-breadcrumb-item-link-outline-offset);
-  text-decoration-line: var(--amsterdam-breadcrumb-item-link-text-decoration-line);
-  text-decoration-thickness: var(--amsterdam-breadcrumb-item-link-text-decoration-thickness);
-  text-underline-offset: var(--amsterdam-breadcrumb-item-link-text-underline-offset);
+.ams-breadcrumb__link {
+  color: var(--ams-breadcrumb-item-link-color);
+  outline-offset: var(--ams-breadcrumb-item-link-outline-offset);
+  text-decoration-line: var(--ams-breadcrumb-item-link-text-decoration-line);
+  text-decoration-thickness: var(--ams-breadcrumb-item-link-text-decoration-thickness);
+  text-underline-offset: var(--ams-breadcrumb-item-link-text-underline-offset);
 
   &:hover {
-    color: var(--amsterdam-breadcrumb-item-link-hover-color);
-    text-decoration-line: var(--amsterdam-breadcrumb-item-link-hover-text-decoration-line);
+    color: var(--ams-breadcrumb-item-link-hover-color);
+    text-decoration-line: var(--ams-breadcrumb-item-link-hover-text-decoration-line);
   }
 }

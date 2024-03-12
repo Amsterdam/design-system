@@ -9,12 +9,12 @@
   -webkit-text-size-adjust: 100%;
 }
 
-.amsterdam-form-label {
-  color: var(--amsterdam-form-label-color);
-  font-family: var(--amsterdam-form-label-font-family);
-  font-size: var(--amsterdam-form-label-font-size);
-  font-weight: var(--amsterdam-form-label-font-weight);
-  line-height: var(--amsterdam-form-label-line-height);
+.ams-form-label {
+  color: var(--ams-form-label-color);
+  font-family: var(--ams-form-label-font-family);
+  font-size: var(--ams-form-label-font-size);
+  font-weight: var(--ams-form-label-font-weight);
+  line-height: var(--ams-form-label-line-height);
 
   @include hyphenation;
   @include reset;

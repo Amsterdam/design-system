@@ -12,7 +12,7 @@
   padding-inline: 0;
 }
 
-.amsterdam-fieldset {
+.ams-fieldset {
   @include reset;
 }
 
@@ -21,12 +21,12 @@
   -webkit-text-size-adjust: 100%;
 }
 
-.amsterdam-fieldset__legend {
-  color: var(--amsterdam-fieldset-legend-color);
-  font-family: var(--amsterdam-fieldset-legend-font-family);
-  font-size: var(--amsterdam-fieldset-legend-font-size);
-  font-weight: var(--amsterdam-fieldset-legend-font-weight);
-  line-height: var(--amsterdam-fieldset-legend-line-height);
+.ams-fieldset__legend {
+  color: var(--ams-fieldset-legend-color);
+  font-family: var(--ams-fieldset-legend-font-family);
+  font-size: var(--ams-fieldset-legend-font-size);
+  font-weight: var(--ams-fieldset-legend-font-weight);
+  line-height: var(--ams-fieldset-legend-line-height);
   margin-block-end: 1rem; /* Because of a bug in Chrome we can’t use display grid or flex for this gap */
 
   @include hyphenation;

@@ -1,0 +1,25 @@
+{
+  "ams": {
+    "grid": {
+      "column-count": { "value": "4" },
+      "column-gap": { "value": "{ams.space.grid.md}" },
+      "padding-block": {
+        "sm": { "value": "{ams.space.grid.sm}" },
+        "md": { "value": "{ams.space.grid.md}" },
+        "lg": { "value": "{ams.space.grid.lg}" }
+      },
+      "padding-inline": { "value": "{ams.space.grid.lg}" },
+      "row-gap": {
+        "sm": { "value": "{ams.space.grid.sm}" },
+        "md": { "value": "{ams.space.grid.md}" },
+        "lg": { "value": "{ams.space.grid.lg}" }
+      },
+      "medium": {
+        "column-count": { "value": "8" }
+      },
+      "wide": {
+        "column-count": { "value": "12" }
+      }
+    }
+  }
+}

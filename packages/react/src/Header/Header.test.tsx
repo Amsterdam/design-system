@@ -18,7 +18,7 @@ describe('Header', () => {
 
     const component = screen.getByRole('banner')
 
-    expect(component).toHaveClass('amsterdam-header')
+    expect(component).toHaveClass('ams-header')
   })
 
   it('renders an additional class name', () => {
@@ -27,7 +27,7 @@ describe('Header', () => {
     const component = screen.getByRole('banner')
 
     expect(component).toHaveClass('extra')
-    expect(component).toHaveClass('amsterdam-header')
+    expect(component).toHaveClass('ams-header')
   })
 
   it('supports ForwardRef in React', () => {
@@ -59,7 +59,7 @@ describe('Header', () => {
   it('renders with links', () => {
     const { container } = render(<Header links={<div>Menu Content</div>} />)
 
-    const menu = container.querySelector('.amsterdam-header__links')
+    const menu = container.querySelector('.ams-header__links')
 
     expect(menu).toBeInTheDocument()
     expect(menu).toHaveTextContent('Menu Content')

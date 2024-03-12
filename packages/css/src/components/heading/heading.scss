@@ -11,47 +11,47 @@
   -webkit-text-size-adjust: 100%;
 }
 
-.amsterdam-heading {
+.ams-heading {
   break-after: avoid;
   break-inside: avoid;
-  color: var(--amsterdam-heading-color);
-  font-family: var(--amsterdam-heading-font-family);
-  font-weight: var(--amsterdam-heading-font-weight);
+  color: var(--ams-heading-color);
+  font-family: var(--ams-heading-font-family);
+  font-weight: var(--ams-heading-font-weight);
 
   @include hyphenation;
   @include reset;
 }
 
-.amsterdam-heading--1 {
-  font-size: var(--amsterdam-heading-level-1-font-size);
-  line-height: var(--amsterdam-heading-level-1-line-height);
+.ams-heading--1 {
+  font-size: var(--ams-heading-level-1-font-size);
+  line-height: var(--ams-heading-level-1-line-height);
 }
 
-.amsterdam-heading--2 {
-  font-size: var(--amsterdam-heading-level-2-font-size);
-  line-height: var(--amsterdam-heading-level-2-line-height);
+.ams-heading--2 {
+  font-size: var(--ams-heading-level-2-font-size);
+  line-height: var(--ams-heading-level-2-line-height);
 }
 
-.amsterdam-heading--3 {
-  font-size: var(--amsterdam-heading-level-3-font-size);
-  line-height: var(--amsterdam-heading-level-3-line-height);
+.ams-heading--3 {
+  font-size: var(--ams-heading-level-3-font-size);
+  line-height: var(--ams-heading-level-3-line-height);
 }
 
-.amsterdam-heading--4 {
-  font-size: var(--amsterdam-heading-level-4-font-size);
-  line-height: var(--amsterdam-heading-level-4-line-height);
+.ams-heading--4 {
+  font-size: var(--ams-heading-level-4-font-size);
+  line-height: var(--ams-heading-level-4-line-height);
 }
 
-.amsterdam-heading--5 {
-  font-size: var(--amsterdam-heading-level-5-font-size);
-  line-height: var(--amsterdam-heading-level-5-line-height);
+.ams-heading--5 {
+  font-size: var(--ams-heading-level-5-font-size);
+  line-height: var(--ams-heading-level-5-line-height);
 }
 
-.amsterdam-heading--6 {
-  font-size: var(--amsterdam-heading-level-6-font-size);
-  line-height: var(--amsterdam-heading-level-6-line-height);
+.ams-heading--6 {
+  font-size: var(--ams-heading-level-6-font-size);
+  line-height: var(--ams-heading-level-6-line-height);
 }
 
-.amsterdam-heading--inverse-color {
-  color: var(--amsterdam-heading-inverse-color);
+.ams-heading--inverse-color {
+  color: var(--ams-heading-inverse-color);
 }

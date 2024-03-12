@@ -11,7 +11,7 @@ export type {{pascalCase name}}Props = PropsWithChildren<HTMLAttributes<HTMLElem
 
 export const {{pascalCase name}} = forwardRef(
   ({ children, className, ...restProps }: {{pascalCase name}}Props, ref: ForwardedRef<HTMLElement>) => (
-    <span {...restProps} ref={ref} className={clsx('amsterdam-{{kebabCase name}}', className)}>
+    <span {...restProps} ref={ref} className={clsx('ams-{{kebabCase name}}', className)}>
       {children}
     </span>
   ),

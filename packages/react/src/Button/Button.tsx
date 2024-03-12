@@ -21,7 +21,7 @@ export const Button = forwardRef(
         {...restProps}
         ref={ref}
         disabled={disabled}
-        className={clsx('amsterdam-button', `amsterdam-button--${variant}`, className)}
+        className={clsx('ams-button', `ams-button--${variant}`, className)}
         type={type || 'button'}
       >
         {children}

@@ -1,0 +1,11 @@
+{
+  "ams": {
+    "margin": {
+      "xs": { "value": "{ams.space.grid.xs}" },
+      "sm": { "value": "{ams.space.grid.sm}" },
+      "md": { "value": "{ams.space.grid.md}" },
+      "lg": { "value": "{ams.space.grid.lg}" },
+      "xl": { "value": "{ams.space.grid.xl}" }
+    }
+  }
+}

@@ -13,8 +13,8 @@ export type FieldsetProps = PropsWithChildren<HTMLAttributes<HTMLFieldSetElement
 
 export const Fieldset = forwardRef(
   ({ children, className, legend, ...restProps }: FieldsetProps, ref: ForwardedRef<HTMLFieldSetElement>) => (
-    <fieldset {...restProps} ref={ref} className={clsx('amsterdam-fieldset', className)}>
-      <legend className="amsterdam-fieldset__legend">{legend}</legend>
+    <fieldset {...restProps} ref={ref} className={clsx('ams-fieldset', className)}>
+      <legend className="ams-fieldset__legend">{legend}</legend>
       {children}
     </fieldset>
   ),

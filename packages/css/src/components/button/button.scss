@@ -7,84 +7,84 @@
   -webkit-text-size-adjust: 100%;
 }
 
-.amsterdam-button {
+.ams-button {
   border: none;
-  cursor: var(--amsterdam-button-cursor);
+  cursor: var(--ams-button-cursor);
   display: inline-flex;
-  font-family: var(--amsterdam-button-font-family);
-  font-size: var(--amsterdam-button-font-size);
-  gap: var(--amsterdam-button-gap);
-  line-height: var(--amsterdam-button-line-height);
-  outline-offset: var(--amsterdam-button-outline-offset);
-  padding-block: var(--amsterdam-button-padding-block);
-  padding-inline: var(--amsterdam-button-padding-inline);
+  font-family: var(--ams-button-font-family);
+  font-size: var(--ams-button-font-size);
+  gap: var(--ams-button-gap);
+  line-height: var(--ams-button-line-height);
+  outline-offset: var(--ams-button-outline-offset);
+  padding-block: var(--ams-button-padding-block);
+  padding-inline: var(--ams-button-padding-inline);
   touch-action: manipulation;
 
   &:disabled,
   &[aria-disabled="true"] {
-    cursor: var(--amsterdam-button-disabled-cursor);
+    cursor: var(--ams-button-disabled-cursor);
   }
 
   @include reset;
 }
 
-@mixin amsterdam-button-forced-color-mode {
+@mixin ams-button-forced-color-mode {
   @media screen and (-ms-high-contrast: active), screen and (forced-colors: active) {
     border: 2px solid ButtonBorder; // add border because forced colors changes box-shadow to none
   }
 }
 
-.amsterdam-button--primary {
-  background-color: var(--amsterdam-button-primary-background-color);
-  box-shadow: var(--amsterdam-button-primary-box-shadow);
-  color: var(--amsterdam-button-primary-color);
+.ams-button--primary {
+  background-color: var(--ams-button-primary-background-color);
+  box-shadow: var(--ams-button-primary-box-shadow);
+  color: var(--ams-button-primary-color);
 
   &:disabled,
   [aria-disabled="true"] {
-    background-color: var(--amsterdam-button-primary-disabled-background-color);
-    box-shadow: var(--amsterdam-button-primary-disabled-box-shadow);
+    background-color: var(--ams-button-primary-disabled-background-color);
+    box-shadow: var(--ams-button-primary-disabled-box-shadow);
   }
 
   &:hover:not(:disabled, [aria-disabled="true"]) {
-    background-color: var(--amsterdam-button-primary-hover-background-color);
-    box-shadow: var(--amsterdam-button-primary-hover-box-shadow);
+    background-color: var(--ams-button-primary-hover-background-color);
+    box-shadow: var(--ams-button-primary-hover-box-shadow);
   }
 
-  @include amsterdam-button-forced-color-mode;
+  @include ams-button-forced-color-mode;
 }
 
-.amsterdam-button--secondary {
-  background-color: var(--amsterdam-button-secondary-background-color);
-  box-shadow: var(--amsterdam-button-secondary-box-shadow);
-  color: var(--amsterdam-button-secondary-color);
+.ams-button--secondary {
+  background-color: var(--ams-button-secondary-background-color);
+  box-shadow: var(--ams-button-secondary-box-shadow);
+  color: var(--ams-button-secondary-color);
 
   &:disabled,
   [aria-disabled="true"] {
-    background-color: var(--amsterdam-button-secondary-disabled-background-color);
-    box-shadow: var(--amsterdam-button-secondary-disabled-box-shadow);
-    color: var(--amsterdam-button-secondary-disabled-color);
+    background-color: var(--ams-button-secondary-disabled-background-color);
+    box-shadow: var(--ams-button-secondary-disabled-box-shadow);
+    color: var(--ams-button-secondary-disabled-color);
   }
 
   &:hover:not(:disabled, [aria-disabled="true"]) {
-    box-shadow: var(--amsterdam-button-secondary-hover-box-shadow);
-    color: var(--amsterdam-button-secondary-hover-color);
+    box-shadow: var(--ams-button-secondary-hover-box-shadow);
+    color: var(--ams-button-secondary-hover-color);
   }
 
-  @include amsterdam-button-forced-color-mode;
+  @include ams-button-forced-color-mode;
 }
 
-.amsterdam-button--tertiary {
-  background-color: var(--amsterdam-button-tertiary-background-color);
-  color: var(--amsterdam-button-tertiary-color);
+.ams-button--tertiary {
+  background-color: var(--ams-button-tertiary-background-color);
+  color: var(--ams-button-tertiary-color);
 
   &:disabled,
   [aria-disabled="true"] {
-    background-color: var(--amsterdam-button-tertiary-disabled-background-color);
-    color: var(--amsterdam-button-tertiary-disabled-color);
+    background-color: var(--ams-button-tertiary-disabled-background-color);
+    color: var(--ams-button-tertiary-disabled-color);
   }
 
   &:hover:not(:disabled, [aria-disabled="true"]) {
-    box-shadow: var(--amsterdam-button-tertiary-hover-box-shadow);
-    color: var(--amsterdam-button-tertiary-hover-color);
+    box-shadow: var(--ams-button-tertiary-hover-box-shadow);
+    color: var(--ams-button-tertiary-hover-color);
   }
 }

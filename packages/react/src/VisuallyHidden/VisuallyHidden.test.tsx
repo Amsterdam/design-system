@@ -18,7 +18,7 @@ describe('Visually hidden', () => {
 
     const component = container.querySelector(':only-child')
 
-    expect(component).toHaveClass('amsterdam-visually-hidden')
+    expect(component).toHaveClass('ams-visually-hidden')
   })
 
   it('renders an additional class name', () => {
@@ -28,7 +28,7 @@ describe('Visually hidden', () => {
 
     expect(component).toHaveClass('extra')
 
-    expect(component).toHaveClass('amsterdam-visually-hidden')
+    expect(component).toHaveClass('ams-visually-hidden')
   })
 
   it('supports ForwardRef in React', () => {

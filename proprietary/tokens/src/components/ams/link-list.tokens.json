@@ -1,0 +1,45 @@
+{
+  "ams": {
+    "link-list": {
+      "gap": { "value": "0.5em" },
+      "link": {
+        "color": { "value": "{ams.link-appearance.color}" },
+        "font-family": { "value": "{ams.text.font-family}" },
+        "font-weight": { "value": "{ams.text.font-weight.normal}" },
+        "gap": { "value": "0.5em" },
+        "outline-offset": { "value": "{ams.focus.outline-offset}" },
+        "text-decoration-line": { "value": "{ams.link-appearance.subtle.text-decoration-line}" },
+        "text-decoration-thickness": { "value": "{ams.link-appearance.text-decoration-thickness}" },
+        "text-underline-offset": { "value": "{ams.link-appearance.text-underline-offset}" },
+        "small": {
+          "font-size": { "value": "{ams.text.level.6.font-size}" },
+          "line-height": { "value": "{ams.text.level.6.line-height}" }
+        },
+        "medium": {
+          "font-size": { "value": "{ams.text.level.5.font-size}" },
+          "line-height": { "value": "{ams.text.level.5.line-height}" }
+        },
+        "large": {
+          "font-size": { "value": "{ams.text.level.4.font-size}" },
+          "line-height": { "value": "{ams.text.level.4.line-height}" }
+        },
+        "hover": {
+          "color": { "value": "{ams.link-appearance.hover.color}" },
+          "text-decoration-line": { "value": "{ams.link-appearance.subtle.hover.text-decoration-line}" }
+        },
+        "on-background-dark": {
+          "color": { "value": "{ams.link-appearance.on-background-dark.color}" },
+          "hover": {
+            "color": { "value": "{ams.link-appearance.on-background-dark.color}" }
+          }
+        },
+        "on-background-light": {
+          "color": { "value": "{ams.link-appearance.on-background-light.color}" },
+          "hover": {
+            "color": { "value": "{ams.link-appearance.on-background-light.color}" }
+          }
+        }
+      }
+    }
+  }
+}

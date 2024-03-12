@@ -18,7 +18,7 @@ describe('Skip link', () => {
 
     const component = screen.getByRole('link')
 
-    expect(component).toHaveClass('amsterdam-skip-link')
+    expect(component).toHaveClass('ams-skip-link')
   })
 
   it('renders an additional class name', () => {
@@ -26,7 +26,7 @@ describe('Skip link', () => {
 
     const component = screen.getByRole('link')
 
-    expect(component).toHaveClass('amsterdam-skip-link extra')
+    expect(component).toHaveClass('ams-skip-link extra')
   })
 
   it('supports ForwardRef in React', () => {
