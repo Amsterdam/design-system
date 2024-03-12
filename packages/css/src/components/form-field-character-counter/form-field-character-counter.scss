@@ -7,12 +7,12 @@
   -webkit-text-size-adjust: 100%;
 }
 
-.amsterdam-form-field-character-counter {
-  color: var(--amsterdam-form-field-character-counter-color);
-  font-family: var(--amsterdam-form-field-character-counter-font-family);
-  font-size: var(--amsterdam-form-field-character-counter-font-size);
-  font-weight: var(--amsterdam-form-field-character-counter-font-weight);
-  line-height: var(--amsterdam-form-field-character-counter-line-height);
+.ams-form-field-character-counter {
+  color: var(--ams-form-field-character-counter-color);
+  font-family: var(--ams-form-field-character-counter-font-family);
+  font-size: var(--ams-form-field-character-counter-font-size);
+  font-weight: var(--ams-form-field-character-counter-font-weight);
+  line-height: var(--ams-form-field-character-counter-line-height);
 
   @include reset;
 }
