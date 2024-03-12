@@ -3,34 +3,34 @@
  * Copyright Gemeente Amsterdam
  */
 
-.amsterdam-alert {
+.ams-alert {
   align-items: flex-start;
-  border-style: var(--amsterdam-alert-border-style);
-  border-width: var(--amsterdam-alert-border-width);
+  border-style: var(--ams-alert-border-style);
+  border-width: var(--ams-alert-border-width);
   display: flex;
   flex-direction: row;
-  gap: var(--amsterdam-alert-gap);
+  gap: var(--ams-alert-gap);
   justify-content: space-between;
-  padding-block: var(--amsterdam-alert-padding-block);
-  padding-inline: var(--amsterdam-alert-padding-inline);
+  padding-block: var(--ams-alert-padding-block);
+  padding-inline: var(--ams-alert-padding-inline);
 }
 
-.amsterdam-alert__content {
+.ams-alert__content {
   flex: auto;
 }
 
-.amsterdam-alert--error {
-  border-color: var(--amsterdam-alert-error-border-color);
+.ams-alert--error {
+  border-color: var(--ams-alert-error-border-color);
 }
 
-.amsterdam-alert--info {
-  border-color: var(--amsterdam-alert-info-border-color);
+.ams-alert--info {
+  border-color: var(--ams-alert-info-border-color);
 }
 
-.amsterdam-alert--success {
-  border-color: var(--amsterdam-alert-success-border-color);
+.ams-alert--success {
+  border-color: var(--ams-alert-success-border-color);
 }
 
-.amsterdam-alert--warning {
-  border-color: var(--amsterdam-alert-warning-border-color);
+.ams-alert--warning {
+  border-color: var(--ams-alert-warning-border-color);
 }

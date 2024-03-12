@@ -19,7 +19,7 @@ type SearchFieldComponent = {
 export const SearchField = forwardRef(
   ({ children, className, ...restProps }: SearchFieldProps, ref: ForwardedRef<HTMLFormElement>) => {
     return (
-      <form role="search" {...restProps} ref={ref} className={clsx('amsterdam-search-field', className)}>
+      <form role="search" {...restProps} ref={ref} className={clsx('ams-search-field', className)}>
         {children}
       </form>
     )

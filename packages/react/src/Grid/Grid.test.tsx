@@ -22,7 +22,7 @@ describe('Grid', () => {
 
     const component = container.querySelector(':only-child')
 
-    expect(component).toHaveClass('amsterdam-grid')
+    expect(component).toHaveClass('ams-grid')
   })
 
   it('renders an additional class name', () => {
@@ -32,7 +32,7 @@ describe('Grid', () => {
 
     expect(component).toHaveClass('extra')
 
-    expect(component).toHaveClass('amsterdam-grid')
+    expect(component).toHaveClass('ams-grid')
   })
 
   it('renders the correct class name for a zero gap', () => {
@@ -40,7 +40,7 @@ describe('Grid', () => {
 
     const component = container.querySelector(':only-child')
 
-    expect(component).toHaveClass('amsterdam-grid--gap-vertical--none')
+    expect(component).toHaveClass('ams-grid--gap-vertical--none')
   })
 
   it(`renders the correct class name for a small gap`, () => {
@@ -48,7 +48,7 @@ describe('Grid', () => {
 
     const component = container.querySelector(':only-child')
 
-    expect(component).toHaveClass('amsterdam-grid--gap-vertical--small')
+    expect(component).toHaveClass('ams-grid--gap-vertical--small')
   })
 
   it(`renders the correct class name for a large gap`, () => {
@@ -56,7 +56,7 @@ describe('Grid', () => {
 
     const component = container.querySelector(':only-child')
 
-    expect(component).toHaveClass('amsterdam-grid--gap-vertical--large')
+    expect(component).toHaveClass('ams-grid--gap-vertical--large')
   })
 
   paddingSizes.forEach((size) => {
@@ -65,7 +65,7 @@ describe('Grid', () => {
 
       const component = container.querySelector(':only-child')
 
-      expect(component).toHaveClass(`amsterdam-grid--padding-bottom--${size}`)
+      expect(component).toHaveClass(`ams-grid--padding-bottom--${size}`)
     })
   })
 
@@ -75,7 +75,7 @@ describe('Grid', () => {
 
       const component = container.querySelector(':only-child')
 
-      expect(component).toHaveClass(`amsterdam-grid--padding-top--${size}`)
+      expect(component).toHaveClass(`ams-grid--padding-top--${size}`)
     })
   })
 
@@ -85,7 +85,7 @@ describe('Grid', () => {
 
       const component = container.querySelector(':only-child')
 
-      expect(component).toHaveClass(`amsterdam-grid--padding-vertical--${size}`)
+      expect(component).toHaveClass(`ams-grid--padding-vertical--${size}`)
     })
   })
 

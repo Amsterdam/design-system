@@ -52,9 +52,9 @@ export const LinkListLink = forwardRef(
       <li>
         <a
           className={clsx(
-            'amsterdam-link-list__link',
-            onBackground && `amsterdam-link-list__link--on-background-${onBackground}`,
-            size && `amsterdam-link-list__link--${size}`,
+            'ams-link-list__link',
+            onBackground && `ams-link-list__link--on-background-${onBackground}`,
+            size && `ams-link-list__link--${size}`,
             className,
           )}
           href={href}

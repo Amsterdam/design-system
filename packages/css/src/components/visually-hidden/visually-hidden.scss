@@ -4,7 +4,7 @@
  */
 
 // Source: https://css-tricks.com/inclusively-hidden/
-.amsterdam-visually-hidden:not(:active, :focus) {
+.ams-visually-hidden:not(:active, :focus) {
   clip: rect(0 0 0 0);
   clip-path: inset(50%);
   height: 1px;

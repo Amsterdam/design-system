@@ -15,16 +15,16 @@ export type DialogProps = {
 
 export const Dialog = forwardRef(
   ({ children, className, title, actions, ...restProps }: DialogProps, ref: ForwardedRef<HTMLDialogElement>) => (
-    <dialog {...restProps} ref={ref} className={clsx('amsterdam-dialog', className)}>
-      <form method="dialog" className="amsterdam-dialog__form">
-        <header className="amsterdam-dialog__header">
+    <dialog {...restProps} ref={ref} className={clsx('ams-dialog', className)}>
+      <form method="dialog" className="ams-dialog__form">
+        <header className="ams-dialog__header">
           <Heading level={1} size="level-4">
             {title}
           </Heading>
           <IconButton label="Sluiten" formNoValidate />
         </header>
-        <article className="amsterdam-dialog__article">{children}</article>
-        {actions && <footer className="amsterdam-dialog__footer">{actions}</footer>}
+        <article className="ams-dialog__article">{children}</article>
+        {actions && <footer className="ams-dialog__footer">{actions}</footer>}
       </form>
     </dialog>
   ),

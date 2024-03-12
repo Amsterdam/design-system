@@ -14,13 +14,13 @@ describe('Mark', () => {
   it('renders a design system BEM class name', () => {
     const { container } = render(<Mark />)
     const component = container.querySelector(':only-child')
-    expect(component).toHaveClass('amsterdam-mark')
+    expect(component).toHaveClass('ams-mark')
   })
 
   it('renders an additional class name', () => {
     const { container } = render(<Mark className="extra" />)
     const component = container.querySelector(':only-child')
-    expect(component).toHaveClass('amsterdam-mark extra')
+    expect(component).toHaveClass('ams-mark extra')
   })
 
   it('supports ForwardRef in React', () => {

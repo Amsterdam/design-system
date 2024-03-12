@@ -3,10 +3,10 @@
  * Copyright Gemeente Amsterdam
  */
 
-.amsterdam-card {
+.ams-card {
   display: grid;
   gap: 0.5rem;
-  outline-offset: var(--amsterdam-card-outline-offset);
+  outline-offset: var(--ams-card-outline-offset);
   position: relative;
   touch-action: manipulation;
 
@@ -37,20 +37,20 @@
   }
 }
 
-.amsterdam-card__heading-group {
+.ams-card__heading-group {
   display: flex;
   flex-direction: column-reverse;
   gap: 0.5rem;
 }
 
-.amsterdam-card__link {
-  color: var(--amsterdam-card-link-color);
-  text-decoration-line: var(--amsterdam-card-link-text-decoration-line);
-  text-decoration-thickness: var(--amsterdam-card-link-text-decoration-thickness);
-  text-underline-offset: var(--amsterdam-card-link-text-underline-offset);
+.ams-card__link {
+  color: var(--ams-card-link-color);
+  text-decoration-line: var(--ams-card-link-text-decoration-line);
+  text-decoration-thickness: var(--ams-card-link-text-decoration-thickness);
+  text-underline-offset: var(--ams-card-link-text-underline-offset);
 
   &:hover {
-    color: var(--amsterdam-card-link-hover-color);
-    text-decoration-line: var(--amsterdam-card-link-hover-text-decoration-line);
+    color: var(--ams-card-link-hover-color);
+    text-decoration-line: var(--ams-card-link-hover-text-decoration-line);
   }
 }

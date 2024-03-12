@@ -13,8 +13,8 @@ export type BreadcrumbItemProps = {
 
 export const BreadcrumbItem = forwardRef(
   ({ children, className, href, ...restProps }: BreadcrumbItemProps, ref: ForwardedRef<HTMLLIElement>) => (
-    <li {...restProps} className={clsx('amsterdam-breadcrumb__item', className)} ref={ref}>
-      <a className="amsterdam-breadcrumb__link" href={href}>
+    <li {...restProps} className={clsx('ams-breadcrumb__item', className)} ref={ref}>
+      <a className="ams-breadcrumb__link" href={href}>
         {children}
       </a>
     </li>

@@ -1,0 +1,25 @@
+{
+  "ams": {
+    "pagination": {
+      "color": { "value": "{ams.link-appearance.color}" },
+      "font-family": { "value": "{ams.text.font-family}" },
+      "font-size": { "value": "{ams.text.level.5.font-size}" },
+      "font-weight": { "value": "{ams.text.font-weight.normal}" },
+      "line-height": { "value": "{ams.text.level.5.line-height}" },
+      "button": {
+        "outline-offset": { "value": "{ams.focus.outline-offset}" },
+        "padding-inline": { "value": "{ams.space.inside.sm}" },
+        "text-decoration-line": { "value": "{ams.link-appearance.subtle.text-decoration-line}" },
+        "text-decoration-thickness": { "value": "{ams.link-appearance.text-decoration-thickness}" },
+        "text-underline-offset": { "value": "{ams.link-appearance.text-underline-offset}" },
+        "current": {
+          "font-weight": { "value": "{ams.text.font-weight.bold}" }
+        },
+        "hover": {
+          "color": { "value": "{ams.link-appearance.hover.color}" },
+          "text-decoration-line": { "value": "{ams.link-appearance.subtle.hover.text-decoration-line}" }
+        }
+      }
+    }
+  }
+}

@@ -19,7 +19,7 @@ describe('Search field input', () => {
 
     const component = screen.getByRole('searchbox', { name: 'Zoeken' })
 
-    expect(component).toHaveClass('amsterdam-search-field__input')
+    expect(component).toHaveClass('ams-search-field__input')
   })
 
   it('renders an additional class name', () => {
@@ -29,7 +29,7 @@ describe('Search field input', () => {
 
     expect(component).toHaveClass('extra')
 
-    expect(component).toHaveClass('amsterdam-search-field__input')
+    expect(component).toHaveClass('ams-search-field__input')
   })
 
   it('supports a custom label', () => {

@@ -1,0 +1,12 @@
+{
+  "ams": {
+    "action": {
+      "activate": { "cursor": { "value": "pointer" } },
+      "busy": { "cursor": { "value": "wait" } },
+      "disabled": { "cursor": { "value": "not-allowed" } },
+      "inert": { "cursor": { "value": "default" } },
+      "navigate": { "cursor": { "value": "pointer" } },
+      "submit": { "cursor": { "value": "pointer" } }
+    }
+  }
+}

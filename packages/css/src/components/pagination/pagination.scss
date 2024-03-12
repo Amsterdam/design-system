@@ -9,15 +9,15 @@
   padding-inline-start: 0;
 }
 
-.amsterdam-pagination__list {
-  color: var(--amsterdam-pagination-color);
+.ams-pagination__list {
+  color: var(--ams-pagination-color);
   display: flex;
   flex-wrap: wrap;
-  font-family: var(--amsterdam-pagination-font-family);
-  font-size: var(--amsterdam-pagination-font-size);
-  font-weight: var(--amsterdam-pagination-font-weight);
+  font-family: var(--ams-pagination-font-family);
+  font-size: var(--ams-pagination-font-size);
+  font-weight: var(--ams-pagination-font-weight);
   justify-content: center;
-  line-height: var(--amsterdam-pagination-line-height);
+  line-height: var(--ams-pagination-line-height);
 
   @include list-reset;
 }
@@ -29,7 +29,7 @@
   -webkit-text-size-adjust: 100%;
 }
 
-.amsterdam-pagination__button {
+.ams-pagination__button {
   /* The reset is included at the top of the block here, if you set it
   at the bottom `all: unset` overrides the `gap` property. */
   @include button-reset;
@@ -37,16 +37,16 @@
   cursor: pointer;
   display: flex;
   gap: 0.5rem;
-  outline-offset: var(--amsterdam-pagination-button-outline-offset);
-  padding-inline: var(--amsterdam-pagination-button-padding-inline);
-  text-decoration-line: var(--amsterdam-pagination-button-text-decoration-line);
-  text-decoration-thickness: var(--amsterdam-pagination-button-text-decoration-thickness);
-  text-underline-offset: var(--amsterdam-pagination-button-text-underline-offset);
+  outline-offset: var(--ams-pagination-button-outline-offset);
+  padding-inline: var(--ams-pagination-button-padding-inline);
+  text-decoration-line: var(--ams-pagination-button-text-decoration-line);
+  text-decoration-thickness: var(--ams-pagination-button-text-decoration-thickness);
+  text-underline-offset: var(--ams-pagination-button-text-underline-offset);
   touch-action: manipulation;
 
   &:hover {
-    color: var(--amsterdam-pagination-button-hover-color);
-    text-decoration-line: var(--amsterdam-pagination-button-hover-text-decoration-line);
+    color: var(--ams-pagination-button-hover-color);
+    text-decoration-line: var(--ams-pagination-button-hover-text-decoration-line);
   }
 
   &:disabled {
@@ -54,15 +54,15 @@
   }
 
   // Override for icon size
-  span.amsterdam-icon svg {
+  span.ams-icon svg {
     height: 1rem;
     width: 1rem;
   }
 }
 
-.amsterdam-pagination__button--current {
+.ams-pagination__button--current {
   cursor: default;
-  font-weight: var(--amsterdam-pagination-button-current-font-weight);
+  font-weight: var(--ams-pagination-button-current-font-weight);
 
   &:hover {
     text-decoration: none;

@@ -20,7 +20,7 @@ describe('Page heading', () => {
 
     const component = container.querySelector(':only-child')
 
-    expect(component).toHaveClass('amsterdam-page-heading')
+    expect(component).toHaveClass('ams-page-heading')
   })
 
   it('renders an additional class name', () => {
@@ -30,7 +30,7 @@ describe('Page heading', () => {
 
     expect(component).toHaveClass('extra')
 
-    expect(component).toHaveClass('amsterdam-page-heading')
+    expect(component).toHaveClass('ams-page-heading')
   })
 
   it('renders the right inverse color class', () => {
@@ -38,7 +38,7 @@ describe('Page heading', () => {
 
     const pageHeading = screen.getByRole('heading', { name: 'Titel' })
 
-    expect(pageHeading).toHaveClass('amsterdam-page-heading--inverse-color')
+    expect(pageHeading).toHaveClass('ams-page-heading--inverse-color')
   })
 
   it('supports ForwardRef in React', () => {

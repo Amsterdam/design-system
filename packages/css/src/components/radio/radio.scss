@@ -6,23 +6,23 @@
 @import "../../common/input-label-focus";
 @import "../../common/hide-input";
 
-.amsterdam-radio__input {
+.ams-radio__input {
   @include hide-input;
   @include input-label-focus;
 }
 
-.amsterdam-radio__circle {
+.ams-radio__circle {
   align-items: center;
   display: flex;
   flex-shrink: 0;
-  height: calc(var(--amsterdam-radio-font-size) * var(--amsterdam-radio-line-height));
+  height: calc(var(--ams-radio-font-size) * var(--ams-radio-line-height));
   width: 1.5rem;
 
   &::after {
     background-position: center;
     background-repeat: no-repeat;
     background-size: 1rem;
-    border-color: var(--amsterdam-radio-circle-border-color);
+    border-color: var(--ams-radio-circle-border-color);
     border-radius: 100%;
     border-style: solid;
     border-width: 0.125rem;
@@ -37,25 +37,25 @@
   -webkit-text-size-adjust: 100%;
 }
 
-.amsterdam-radio__label {
-  color: var(--amsterdam-radio-color);
+.ams-radio__label {
+  color: var(--ams-radio-color);
   cursor: pointer;
   display: inline-flex;
-  font-family: var(--amsterdam-radio-font-family);
-  font-size: var(--amsterdam-radio-font-size);
-  font-weight: var(--amsterdam-radio-font-weight);
+  font-family: var(--ams-radio-font-family);
+  font-size: var(--ams-radio-font-size);
+  font-weight: var(--ams-radio-font-weight);
   gap: 0.5rem;
-  line-height: var(--amsterdam-radio-line-height);
-  outline-offset: var(--amsterdam-radio-outline-offset);
+  line-height: var(--ams-radio-line-height);
+  outline-offset: var(--ams-radio-outline-offset);
 
   &:hover {
-    color: var(--amsterdam-radio-hover-color);
+    color: var(--ams-radio-hover-color);
     text-decoration-line: underline;
     text-decoration-thickness: 0.125rem;
     text-underline-offset: 0.375rem;
 
-    .amsterdam-radio__circle::after {
-      border-color: var(--amsterdam-radio-circle-hover-border-color);
+    .ams-radio__circle::after {
+      border-color: var(--ams-radio-circle-hover-border-color);
     }
   }
 
@@ -63,95 +63,95 @@
 }
 
 // Default checked
-.amsterdam-radio__input:checked {
-  + .amsterdam-radio__label .amsterdam-radio__circle::after {
-    background-image: var(--amsterdam-radio-circle-checked-background-image);
+.ams-radio__input:checked {
+  + .ams-radio__label .ams-radio__circle::after {
+    background-image: var(--ams-radio-circle-checked-background-image);
   }
 }
 
 // Invalid unchecked
-.amsterdam-radio__input[aria-invalid="true"] {
-  + .amsterdam-radio__label .amsterdam-radio__circle::after {
-    border-color: var(--amsterdam-radio-circle-invalid-border-color);
+.ams-radio__input[aria-invalid="true"] {
+  + .ams-radio__label .ams-radio__circle::after {
+    border-color: var(--ams-radio-circle-invalid-border-color);
   }
 }
 
 // Disabled unchecked
-.amsterdam-radio__input:disabled {
-  + .amsterdam-radio__label {
-    color: var(--amsterdam-radio-disabled-color);
+.ams-radio__input:disabled {
+  + .ams-radio__label {
+    color: var(--ams-radio-disabled-color);
     cursor: not-allowed;
 
-    .amsterdam-radio__circle::after {
-      border-color: var(--amsterdam-radio-circle-disabled-border-color);
+    .ams-radio__circle::after {
+      border-color: var(--ams-radio-circle-disabled-border-color);
       border-width: 0.125rem;
     }
   }
 }
 
 // Invalid checked
-.amsterdam-radio__input[aria-invalid="true"]:checked {
-  + .amsterdam-radio__label .amsterdam-radio__circle::after {
-    background-image: var(--amsterdam-radio-circle-invalid-checked-background-image);
+.ams-radio__input[aria-invalid="true"]:checked {
+  + .ams-radio__label .ams-radio__circle::after {
+    background-image: var(--ams-radio-circle-invalid-checked-background-image);
   }
 }
 
 // Disabled label
-.amsterdam-radio__input:disabled + .amsterdam-radio__label:hover {
+.ams-radio__input:disabled + .ams-radio__label:hover {
   text-decoration: none;
 }
 
 // Disabled checked
-.amsterdam-radio__input:disabled:checked {
-  + .amsterdam-radio__label .amsterdam-radio__circle::after {
-    background-image: var(--amsterdam-radio-circle-disabled-checked-background-image);
+.ams-radio__input:disabled:checked {
+  + .ams-radio__label .ams-radio__circle::after {
+    background-image: var(--ams-radio-circle-disabled-checked-background-image);
   }
 }
 
 // Disabled invalid unchecked
-.amsterdam-radio__input[aria-invalid="true"]:disabled {
-  + .amsterdam-radio__label .amsterdam-radio__circle::after {
+.ams-radio__input[aria-invalid="true"]:disabled {
+  + .ams-radio__label .ams-radio__circle::after {
     // TODO: currently disabled invalid gets the same styling as disabled. This should get its own styling.
-    border-color: var(--amsterdam-radio-circle-disabled-border-color);
+    border-color: var(--ams-radio-circle-disabled-border-color);
   }
 }
 
 // HOVER STATES
 
 // Invalid unchecked hover
-.amsterdam-radio__input[aria-invalid="true"] + .amsterdam-radio__label:hover .amsterdam-radio__circle::after {
+.ams-radio__input[aria-invalid="true"] + .ams-radio__label:hover .ams-radio__circle::after {
   // TODO: this should be the (currently non-existent) dark red hover color
-  border-color: var(--amsterdam-radio-circle-invalid-hover-border-color);
+  border-color: var(--ams-radio-circle-invalid-hover-border-color);
 }
 
 // Default checked hover
-.amsterdam-radio__input:checked + .amsterdam-radio__label:hover .amsterdam-radio__circle::after {
-  background-image: var(--amsterdam-radio-circle-checked-hover-background-image);
+.ams-radio__input:checked + .ams-radio__label:hover .ams-radio__circle::after {
+  background-image: var(--ams-radio-circle-checked-hover-background-image);
 }
 
 // Invalid checked hover
-.amsterdam-radio__input[aria-invalid="true"]:checked + .amsterdam-radio__label:hover .amsterdam-radio__circle::after {
+.ams-radio__input[aria-invalid="true"]:checked + .ams-radio__label:hover .ams-radio__circle::after {
   // TODO: this should be the (currently non-existent) dark red hover color
-  background-image: var(--amsterdam-radio-circle-invalid-checked-hover-background-image);
+  background-image: var(--ams-radio-circle-invalid-checked-hover-background-image);
 }
 
 // Disabled checked hover
-.amsterdam-radio__input:disabled:checked + .amsterdam-radio__label:hover .amsterdam-radio__circle::after {
-  background-image: var(--amsterdam-radio-circle-disabled-checked-hover-background-image);
+.ams-radio__input:disabled:checked + .ams-radio__label:hover .ams-radio__circle::after {
+  background-image: var(--ams-radio-circle-disabled-checked-hover-background-image);
 }
 
 // Disabled invalid unchecked hover
-.amsterdam-radio__input[aria-invalid="true"]:disabled + .amsterdam-radio__label:hover .amsterdam-radio__circle::after {
+.ams-radio__input[aria-invalid="true"]:disabled + .ams-radio__label:hover .ams-radio__circle::after {
   // TODO: currently disabled invalid gets the same styling as disabled. This should get its own styling.
-  border-color: var(--amsterdam-radio-circle-disabled-border-color);
+  border-color: var(--ams-radio-circle-disabled-border-color);
 }
 
 // DISABLED INVALID STATES
 
 // Disabled invalid checked
-.amsterdam-radio__input[aria-invalid="true"]:disabled:checked {
-  + .amsterdam-radio__label .amsterdam-radio__circle::after {
+.ams-radio__input[aria-invalid="true"]:disabled:checked {
+  + .ams-radio__label .ams-radio__circle::after {
     // TODO: currently disabled invalid gets the same styling as disabled. This should get its own styling.
-    background-image: var(--amsterdam-radio-circle-disabled-checked-background-image);
+    background-image: var(--ams-radio-circle-disabled-checked-background-image);
   }
 }

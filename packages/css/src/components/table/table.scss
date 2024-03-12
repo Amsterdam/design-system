@@ -3,34 +3,34 @@
  * Copyright Gemeente Amsterdam
  */
 
-.amsterdam-table {
+.ams-table {
   overflow-x: auto;
 }
 
-.amsterdam-table__table {
+.ams-table__table {
   border-spacing: 0;
   break-inside: avoid;
-  color: var(--amsterdam-table-color);
-  font-family: var(--amsterdam-table-font-family);
-  font-size: var(--amsterdam-table-font-size);
-  font-weight: var(--amsterdam-table-font-weight);
-  line-height: var(--amsterdam-table-line-height);
+  color: var(--ams-table-color);
+  font-family: var(--ams-table-font-family);
+  font-size: var(--ams-table-font-size);
+  font-weight: var(--ams-table-font-weight);
+  line-height: var(--ams-table-line-height);
 }
 
-.amsterdam-table__caption {
-  font-weight: var(--amsterdam-table-caption-font-weight);
+.ams-table__caption {
+  font-weight: var(--ams-table-caption-font-weight);
   text-align: start;
 }
 
-.amsterdam-table__cell,
-.amsterdam-table__header-cell {
-  border-bottom: var(--amsterdam-table-cell-border-bottom);
-  padding-block: var(--amsterdam-table-cell-padding-block);
-  padding-inline: var(--amsterdam-table-cell-padding-inline);
+.ams-table__cell,
+.ams-table__header-cell {
+  border-bottom: var(--ams-table-cell-border-bottom);
+  padding-block: var(--ams-table-cell-padding-block);
+  padding-inline: var(--ams-table-cell-padding-inline);
   text-align: start;
   vertical-align: top;
 }
 
-.amsterdam-table__header-cell {
-  font-weight: var(--amsterdam-table-header-cell-font-weight);
+.ams-table__header-cell {
+  font-weight: var(--ams-table-header-cell-font-weight);
 }

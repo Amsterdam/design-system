@@ -18,7 +18,7 @@ describe('Icon button', () => {
 
     const component = screen.getByRole('button')
 
-    expect(component).toHaveClass('amsterdam-icon-button')
+    expect(component).toHaveClass('ams-icon-button')
   })
 
   it('renders an additional class name', () => {
@@ -26,7 +26,7 @@ describe('Icon button', () => {
 
     const component = screen.getByRole('button')
 
-    expect(component).toHaveClass('amsterdam-icon-button extra')
+    expect(component).toHaveClass('ams-icon-button extra')
   })
 
   it('renders an accessible label', () => {
@@ -42,7 +42,7 @@ describe('Icon button', () => {
 
     const component = screen.getByRole('button')
 
-    expect(component).toHaveClass('amsterdam-icon-button--on-background-light')
+    expect(component).toHaveClass('ams-icon-button--on-background-light')
   })
 
   it('renders the right on background dark class', () => {
@@ -50,7 +50,7 @@ describe('Icon button', () => {
 
     const component = screen.getByRole('button')
 
-    expect(component).toHaveClass('amsterdam-icon-button--on-background-dark')
+    expect(component).toHaveClass('ams-icon-button--on-background-dark')
   })
 
   it('supports ForwardRef in React', () => {

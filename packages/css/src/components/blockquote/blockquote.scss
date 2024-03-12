@@ -12,13 +12,13 @@
   -webkit-text-size-adjust: 100%;
 }
 
-.amsterdam-blockquote {
+.ams-blockquote {
   break-inside: avoid;
-  color: var(--amsterdam-blockquote-color);
-  font-family: var(--amsterdam-blockquote-font-family);
-  font-size: var(--amsterdam-blockquote-font-size);
-  font-weight: var(--amsterdam-blockquote-font-weight);
-  line-height: var(--amsterdam-blockquote-line-height);
+  color: var(--ams-blockquote-color);
+  font-family: var(--ams-blockquote-font-family);
+  font-size: var(--ams-blockquote-font-size);
+  font-weight: var(--ams-blockquote-font-weight);
+  line-height: var(--ams-blockquote-line-height);
   quotes: "“" "”";
 
   &::before {
@@ -33,6 +33,6 @@
   @include reset;
 }
 
-.amsterdam-blockquote--inverse-color {
-  color: var(--amsterdam-blockquote-inverse-color);
+.ams-blockquote--inverse-color {
+  color: var(--ams-blockquote-inverse-color);
 }

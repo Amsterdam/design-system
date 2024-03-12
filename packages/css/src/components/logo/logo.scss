@@ -3,19 +3,19 @@
  * Copyright Gemeente Amsterdam
  */
 
-.amsterdam-logo {
+.ams-logo {
   display: block;
-  height: var(--amsterdam-logo-height);
+  height: var(--ams-logo-height);
 }
 
-.amsterdam-logo__emblem {
-  fill: var(--amsterdam-logo-emblem-color);
+.ams-logo__emblem {
+  fill: var(--ams-logo-emblem-color);
 }
 
-.amsterdam-logo__text-primary {
-  fill: var(--amsterdam-logo-title-color);
+.ams-logo__text-primary {
+  fill: var(--ams-logo-title-color);
 }
 
-.amsterdam-logo__text-secondary {
-  fill: var(--amsterdam-logo-subsite-color);
+.ams-logo__text-secondary {
+  fill: var(--ams-logo-subsite-color);
 }

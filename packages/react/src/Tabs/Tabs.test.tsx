@@ -18,7 +18,7 @@ describe('Tabs', () => {
 
     const component = screen.getByRole('tabs')
 
-    expect(component).toHaveClass('amsterdam-tabs')
+    expect(component).toHaveClass('ams-tabs')
   })
 
   it('renders an additional class name', () => {
@@ -26,7 +26,7 @@ describe('Tabs', () => {
 
     const component = screen.getByRole('tabs')
 
-    expect(component).toHaveClass('amsterdam-tabs extra')
+    expect(component).toHaveClass('ams-tabs extra')
   })
 
   it('supports ForwardRef in React', () => {

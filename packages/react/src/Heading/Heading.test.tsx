@@ -96,12 +96,12 @@ describe('Heading', () => {
       level: 1,
     })
 
-    expect(sizeLevel1).toHaveClass('amsterdam-heading--1')
-    expect(sizeLevel2).toHaveClass('amsterdam-heading--2')
-    expect(sizeLevel3).toHaveClass('amsterdam-heading--3')
-    expect(sizeLevel4).toHaveClass('amsterdam-heading--4')
-    expect(sizeLevel5).toHaveClass('amsterdam-heading--5')
-    expect(sizeLevel6).toHaveClass('amsterdam-heading--6')
+    expect(sizeLevel1).toHaveClass('ams-heading--1')
+    expect(sizeLevel2).toHaveClass('ams-heading--2')
+    expect(sizeLevel3).toHaveClass('ams-heading--3')
+    expect(sizeLevel4).toHaveClass('ams-heading--4')
+    expect(sizeLevel5).toHaveClass('ams-heading--5')
+    expect(sizeLevel6).toHaveClass('ams-heading--6')
   })
 
   it('renders the right inverse color class', () => {
@@ -109,7 +109,7 @@ describe('Heading', () => {
 
     const heading = screen.getByRole('heading', { name: 'Heading' })
 
-    expect(heading).toHaveClass('amsterdam-heading--inverse-color')
+    expect(heading).toHaveClass('ams-heading--inverse-color')
   })
 
   it('renders rich text content', () => {
@@ -134,7 +134,7 @@ describe('Heading', () => {
     const heading = container.querySelector(':only-child')
 
     expect(heading).toHaveClass('large')
-    expect(heading).toHaveClass('amsterdam-heading')
+    expect(heading).toHaveClass('ams-heading')
   })
 
   it('is able to pass a React ref', () => {

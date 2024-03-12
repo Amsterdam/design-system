@@ -1,0 +1,25 @@
+{
+  "ams": {
+    "accordion": {
+      "button": {
+        "color": { "value": "{ams.color.primary-blue}" },
+        "font-family": { "value": "{ams.text.font-family}" },
+        "font-size": { "value": "{ams.text.level.5.font-size}" },
+        "font-weight": { "value": "{ams.text.font-weight.bold}" },
+        "line-height": { "value": "{ams.text.level.5.line-height}" },
+        "padding-block": { "value": "{ams.space.inside.sm}" },
+        "padding-inline": { "value": "{ams.space.inside.md}" },
+        "focus": {
+          "outline-offset": { "value": "{ams.focus.outline-offset}" }
+        },
+        "hover": {
+          "box-shadow": { "value": "inset 0 0 0 2px {ams.color.neutral-grey3}" }
+        }
+      },
+      "panel": {
+        "padding-block": { "value": "{ams.space.inside.md}" },
+        "padding-inline": { "value": "{ams.space.inside.md}" }
+      }
+    }
+  }
+}

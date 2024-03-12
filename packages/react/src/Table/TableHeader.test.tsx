@@ -27,7 +27,7 @@ describe('Table header', () => {
 
     const component = screen.getByRole('rowgroup')
 
-    expect(component).toHaveClass('amsterdam-table__header')
+    expect(component).toHaveClass('ams-table__header')
   })
 
   it('renders an additional class name', () => {
@@ -39,7 +39,7 @@ describe('Table header', () => {
 
     const component = screen.getByRole('rowgroup')
 
-    expect(component).toHaveClass('amsterdam-table__header extra')
+    expect(component).toHaveClass('ams-table__header extra')
   })
 
   it('supports ForwardRef in React', () => {
