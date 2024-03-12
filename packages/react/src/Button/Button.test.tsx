@@ -22,7 +22,7 @@ describe('Button', () => {
       name: 'Click me!',
     })
 
-    expect(button).toHaveClass('amsterdam-button extra')
+    expect(button).toHaveClass('ams-button extra')
   })
 
   it('renders a default button with variant primary', () => {
