@@ -8,7 +8,7 @@ describe('Alert', () => {
     const { container } = render(<Alert />)
 
     const component = container.querySelector(':only-child')
-    const icon = component?.querySelector('.amsterdam-alert__icon')
+    const icon = component?.querySelector('.ams-alert__icon')
 
     expect(component).toBeInTheDocument()
     expect(component).toBeVisible()
@@ -21,7 +21,7 @@ describe('Alert', () => {
 
     const component = container.querySelector(':only-child')
 
-    expect(component).toHaveClass('amsterdam-alert')
+    expect(component).toHaveClass('ams-alert')
   })
 
   it('renders an additional class name', () => {
@@ -29,7 +29,7 @@ describe('Alert', () => {
 
     const component = container.querySelector(':only-child')
 
-    expect(component).toHaveClass('amsterdam-alert extra')
+    expect(component).toHaveClass('ams-alert extra')
   })
 
   it('supports ForwardRef in React', () => {
@@ -46,7 +46,7 @@ describe('Alert', () => {
     const { container } = render(<Alert closeable={true} />)
 
     const component = container.querySelector(':only-child')
-    const closeButton = component?.querySelector('.amsterdam-icon-button')
+    const closeButton = component?.querySelector('.ams-icon-button')
 
     expect(closeButton).toBeInTheDocument()
     expect(closeButton).toBeVisible()
@@ -57,7 +57,7 @@ describe('Alert', () => {
     const { container } = render(<Alert closeable={true} onClose={onClose} />)
 
     const component = container.querySelector(':only-child')
-    const closeButton = component?.querySelector('.amsterdam-icon-button')
+    const closeButton = component?.querySelector('.ams-icon-button')
 
     fireEvent.click(closeButton!)
 

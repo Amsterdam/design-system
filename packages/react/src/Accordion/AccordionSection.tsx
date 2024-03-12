@@ -30,25 +30,25 @@ export const AccordionSection = forwardRef(
     const panelId = `panel-${id}`
 
     return (
-      <div className={clsx('amsterdam-accordion__section', className)} ref={ref} {...otherProps}>
-        <HeadingX className={'amsterdam-accordion__header'}>
+      <div className={clsx('ams-accordion__section', className)} ref={ref} {...otherProps}>
+        <HeadingX className={'ams-accordion__header'}>
           <button
             aria-controls={panelId}
             aria-expanded={isExpanded}
-            className="amsterdam-accordion__button"
+            className="ams-accordion__button"
             id={buttonId}
             onClick={() => setIsExpanded(!isExpanded)}
             type="button"
           >
             {label}
-            <Icon svg={ChevronDownIcon} size="level-5" className="amsterdam-accordion__icon" />
+            <Icon svg={ChevronDownIcon} size="level-5" className="ams-accordion__icon" />
           </button>
         </HeadingX>
         {section ? (
           <section
             id={panelId}
             aria-labelledby={buttonId}
-            className={clsx('amsterdam-accordion__panel', { 'amsterdam-accordion__panel--expanded': isExpanded })}
+            className={clsx('ams-accordion__panel', { 'ams-accordion__panel--expanded': isExpanded })}
           >
             {children}
           </section>
@@ -56,7 +56,7 @@ export const AccordionSection = forwardRef(
           <div
             id={panelId}
             aria-labelledby={buttonId}
-            className={clsx('amsterdam-accordion__panel', { 'amsterdam-accordion__panel--expanded': isExpanded })}
+            className={clsx('ams-accordion__panel', { 'ams-accordion__panel--expanded': isExpanded })}
           >
             {children}
           </div>

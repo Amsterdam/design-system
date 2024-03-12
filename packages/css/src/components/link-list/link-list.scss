@@ -13,57 +13,57 @@
   -webkit-text-size-adjust: 100%;
 }
 
-.amsterdam-link-list {
+.ams-link-list {
   @include reset-list;
 
   display: grid;
-  gap: var(--amsterdam-link-list-gap);
+  gap: var(--ams-link-list-gap);
 }
 
-.amsterdam-link-list__link {
+.ams-link-list__link {
   align-items: flex-start;
-  color: var(--amsterdam-link-list-link-color);
+  color: var(--ams-link-list-link-color);
   display: inline-flex;
-  font-family: var(--amsterdam-link-list-link-font-family);
-  font-size: var(--amsterdam-link-list-link-medium-font-size);
-  font-weight: var(--amsterdam-link-list-link-font-weight);
-  gap: var(--amsterdam-link-list-link-gap);
-  line-height: var(--amsterdam-link-list-link-medium-line-height);
-  outline-offset: var(--amsterdam-link-list-link-outline-offset);
-  text-decoration-line: var(--amsterdam-link-list-link-text-decoration-line);
-  text-decoration-thickness: var(--amsterdam-link-list-link-text-decoration-thickness);
-  text-underline-offset: var(--amsterdam-link-list-link-text-underline-offset);
+  font-family: var(--ams-link-list-link-font-family);
+  font-size: var(--ams-link-list-link-medium-font-size);
+  font-weight: var(--ams-link-list-link-font-weight);
+  gap: var(--ams-link-list-link-gap);
+  line-height: var(--ams-link-list-link-medium-line-height);
+  outline-offset: var(--ams-link-list-link-outline-offset);
+  text-decoration-line: var(--ams-link-list-link-text-decoration-line);
+  text-decoration-thickness: var(--ams-link-list-link-text-decoration-thickness);
+  text-underline-offset: var(--ams-link-list-link-text-underline-offset);
 
   &:hover {
-    color: var(--amsterdam-link-list-link-hover-color);
-    text-decoration-line: var(--amsterdam-link-list-link-hover-text-decoration-line);
+    color: var(--ams-link-list-link-hover-color);
+    text-decoration-line: var(--ams-link-list-link-hover-text-decoration-line);
   }
 }
 
-.amsterdam-link-list__link--small {
-  font-size: var(--amsterdam-link-list-link-small-font-size);
-  line-height: var(--amsterdam-link-list-link-small-line-height);
+.ams-link-list__link--small {
+  font-size: var(--ams-link-list-link-small-font-size);
+  line-height: var(--ams-link-list-link-small-line-height);
 }
 
-.amsterdam-link-list__link--large {
-  font-size: var(--amsterdam-link-list-link-large-font-size);
-  line-height: var(--amsterdam-link-list-link-large-line-height);
+.ams-link-list__link--large {
+  font-size: var(--ams-link-list-link-large-font-size);
+  line-height: var(--ams-link-list-link-large-line-height);
 
   @include hyphenation;
 }
 
-.amsterdam-link-list__link--on-background-dark {
-  color: var(--amsterdam-link-list-link-on-background-dark-color);
+.ams-link-list__link--on-background-dark {
+  color: var(--ams-link-list-link-on-background-dark-color);
 
   &:hover {
-    color: var(--amsterdam-link-list-link-on-background-dark-hover-color);
+    color: var(--ams-link-list-link-on-background-dark-hover-color);
   }
 }
 
-.amsterdam-link-list__link--on-background-light {
-  color: var(--amsterdam-link-list-link-on-background-light-color);
+.ams-link-list__link--on-background-light {
+  color: var(--ams-link-list-link-on-background-light-color);
 
   &:hover {
-    color: var(--amsterdam-link-list-link-on-background-light-hover-color);
+    color: var(--ams-link-list-link-on-background-light-hover-color);
   }
 }

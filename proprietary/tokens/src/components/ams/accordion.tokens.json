@@ -1,0 +1,31 @@
+{
+  "ams": {
+    "accordion": {
+      "gap": { "value": "{ams.space.inside.xs}" },
+      "section": {
+        "color": { "value": "{ams.color.primary-blue}" },
+        "box-shadow": { "value": "inset 0 0 0 1px {ams.color.primary-blue}" },
+        "hover": {
+          "color": { "value": "{ams.color.dark-blue}" },
+          "box-shadow": { "value": "inset 0 0 0 3px {ams.color.dark-blue}" }
+        }
+      },
+      "button": {
+        "color": { "value": "currentColor" },
+        "font-family": { "value": "{ams.text.font-family}" },
+        "font-size": { "value": "{ams.text.level.5.font-size}" },
+        "font-weight": { "value": "{ams.text.font-weight.bold}" },
+        "line-height": { "value": "{ams.text.level.5.line-height}" },
+        "padding-block": { "value": "{ams.space.inside.sm}" },
+        "padding-inline": { "value": "{ams.space.inside.md}" },
+        "focus": {
+          "outline-offset": { "value": "{ams.focus.outline-offset}" }
+        }
+      },
+      "panel": {
+        "padding-block": { "value": "{ams.space.inside.md}" },
+        "padding-inline": { "value": "{ams.space.inside.md}" }
+      }
+    }
+  }
+}

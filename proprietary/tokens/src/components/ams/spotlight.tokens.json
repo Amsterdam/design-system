@@ -1,0 +1,30 @@
+{
+  "ams": {
+    "spotlight": {
+      "blue": {
+        "background-color": { "value": "{ams.color.blue}" }
+      },
+      "dark-blue": {
+        "background-color": { "value": "{ams.color.primary-blue}" }
+      },
+      "dark-green": {
+        "background-color": { "value": "{ams.color.dark-green}" }
+      },
+      "green": {
+        "background-color": { "value": "{ams.color.green}" }
+      },
+      "magenta": {
+        "background-color": { "value": "{ams.color.magenta}" }
+      },
+      "orange": {
+        "background-color": { "value": "{ams.color.orange}" }
+      },
+      "purple": {
+        "background-color": { "value": "{ams.color.purple}" }
+      },
+      "yellow": {
+        "background-color": { "value": "{ams.color.yellow}" }
+      }
+    }
+  }
+}

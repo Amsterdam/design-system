@@ -1,0 +1,18 @@
+{
+  "ams": {
+    "mega-menu": {
+      "list-category": {
+        "column-gap": {
+          "value": "{ams.space.grid.md}",
+          "comment": "Must have the same value as `ams.grid.column-gap`."
+        },
+        "column-width": { "value": "20rem" },
+        "padding-block-start": { "value": "1rem" },
+        "padding-block-end": {
+          "value": "{ams.space.grid.md}",
+          "comment": "Must have the same value as `ams.grid.row-gap.md`."
+        }
+      }
+    }
+  }
+}

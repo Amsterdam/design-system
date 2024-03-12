@@ -11,7 +11,7 @@ This link receives an underline when the user’s pointer hovers over it.
 Still, we define its thickness and offset for the initial state.
 
 ```css
-.amsterdam-link {
+.ams-link {
   text-decoration: none;
   text-decoration-thickness: 2px;
   text-underline-offset: 3px;
@@ -25,7 +25,7 @@ Still, we define its thickness and offset for the initial state.
 ### Do not do this
 
 ```css
-.amsterdam-link {
+.ams-link {
   text-decoration: none;
 
   &:hover {

@@ -1,0 +1,16 @@
+{
+  "ams": {
+    "space": {
+      "grid": {
+        "xs": { "value": "clamp(0.25rem, calc(0.390625vw - 0.015625rem), 0.625rem)" },
+        "sm": { "value": "clamp(0.5rem, calc(0.78125vw - 0.03125rem), 1.25rem)" },
+        "md": {
+          "value": "clamp(1rem, calc(1.5625vw - 0.0625rem), 2.5rem)",
+          "comment": "Grows from 16px at 1088px wide to 40px at 2624px wide."
+        },
+        "lg": { "value": "clamp(1.5rem, calc(2.34375vw - 0.09375rem), 3.75rem)" },
+        "xl": { "value": "clamp(2rem, calc(3.125vw - 0.125rem), 5rem)" }
+      }
+    }
+  }
+}

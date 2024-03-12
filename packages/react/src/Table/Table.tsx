@@ -34,8 +34,8 @@ type TableComponent = {
 
 export const Table = forwardRef(
   ({ children, className, ...restProps }: TableProps, ref: ForwardedRef<HTMLTableElement>) => (
-    <div className="amsterdam-table">
-      <table {...restProps} ref={ref} className={clsx('amsterdam-table__table', className)}>
+    <div className="ams-table">
+      <table {...restProps} ref={ref} className={clsx('ams-table__table', className)}>
         {children}
       </table>
     </div>

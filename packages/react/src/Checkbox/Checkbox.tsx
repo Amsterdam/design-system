@@ -33,17 +33,17 @@ export const Checkbox = forwardRef(
     return (
       // This div is here because NVDA doesn't match the input to the label
       // without a containing element
-      <div className={clsx('amsterdam-checkbox', className)}>
+      <div className={clsx('ams-checkbox', className)}>
         <input
           {...restProps}
           type="checkbox"
-          className="amsterdam-checkbox__input"
+          className="ams-checkbox__input"
           ref={innerRef}
           id={id}
           aria-invalid={invalid || undefined}
         />
-        <label className="amsterdam-checkbox__label" htmlFor={id}>
-          <span className="amsterdam-checkbox__checkmark" />
+        <label className="ams-checkbox__label" htmlFor={id}>
+          <span className="ams-checkbox__checkmark" />
           {children}
         </label>
       </div>

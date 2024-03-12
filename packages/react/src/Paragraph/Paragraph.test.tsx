@@ -25,7 +25,7 @@ describe('Paragraph', () => {
 
     const paragraph = container.querySelector(':only-child')
 
-    expect(paragraph).toHaveClass('amsterdam-paragraph')
+    expect(paragraph).toHaveClass('ams-paragraph')
   })
 
   it('renders rich text content', () => {
@@ -47,8 +47,8 @@ describe('Paragraph', () => {
 
     const paragraph = container.querySelector(':only-child')
 
-    expect(paragraph).not.toHaveClass('amsterdam-paragraph--large')
-    expect(paragraph).not.toHaveClass('amsterdam-paragraph--small')
+    expect(paragraph).not.toHaveClass('ams-paragraph--large')
+    expect(paragraph).not.toHaveClass('ams-paragraph--small')
   })
 
   it('renders the right size classes', () => {
@@ -62,8 +62,8 @@ describe('Paragraph', () => {
     const smallParagraph = screen.getByText('Small paragraph')
     const largeParagraph = screen.getByText('Large paragraph')
 
-    expect(smallParagraph).toHaveClass('amsterdam-paragraph--small')
-    expect(largeParagraph).toHaveClass('amsterdam-paragraph--large')
+    expect(smallParagraph).toHaveClass('ams-paragraph--small')
+    expect(largeParagraph).toHaveClass('ams-paragraph--large')
   })
 
   it('renders the right inverse color class', () => {
@@ -71,7 +71,7 @@ describe('Paragraph', () => {
 
     const paragraph = screen.getByText('Paragraph')
 
-    expect(paragraph).toHaveClass('amsterdam-paragraph--inverse-color')
+    expect(paragraph).toHaveClass('ams-paragraph--inverse-color')
   })
 
   it('renders an additional class name', () => {
@@ -81,7 +81,7 @@ describe('Paragraph', () => {
 
     expect(paragraph).toHaveClass('intro')
 
-    expect(paragraph).toHaveClass('amsterdam-paragraph')
+    expect(paragraph).toHaveClass('ams-paragraph')
   })
 
   it('supports ForwardRef in React', () => {

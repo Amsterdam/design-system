@@ -18,7 +18,7 @@ describe('Row', () => {
 
     const component = container.querySelector(':only-child')
 
-    expect(component).toHaveClass('amsterdam-row--medium')
+    expect(component).toHaveClass('ams-row--medium')
   })
 
   rowGapSizes.map((size) =>
@@ -27,7 +27,7 @@ describe('Row', () => {
 
       const component = container.querySelector(':only-child')
 
-      expect(component).toHaveClass(`amsterdam-row--${size}`)
+      expect(component).toHaveClass(`ams-row--${size}`)
     }),
   )
 
@@ -36,7 +36,7 @@ describe('Row', () => {
 
     const component = container.querySelector(':only-child')
 
-    expect(component).toHaveClass('amsterdam-row--medium extra')
+    expect(component).toHaveClass('ams-row--medium extra')
   })
 
   it('renders with an article tag', () => {

@@ -19,7 +19,7 @@ describe('Text input', () => {
 
     const component = screen.getByRole('textbox')
 
-    expect(component).toHaveClass('amsterdam-text-input')
+    expect(component).toHaveClass('ams-text-input')
   })
 
   it('renders an additional class name', () => {
@@ -29,7 +29,7 @@ describe('Text input', () => {
 
     expect(component).toHaveClass('extra')
 
-    expect(component).toHaveClass('amsterdam-text-input')
+    expect(component).toHaveClass('ams-text-input')
   })
 
   it('should be working in a controlled state', async () => {

@@ -18,7 +18,7 @@ describe('Card', () => {
 
     const component = screen.getByRole('article')
 
-    expect(component).toHaveClass('amsterdam-card')
+    expect(component).toHaveClass('ams-card')
   })
 
   it('renders an additional class name', () => {
@@ -26,7 +26,7 @@ describe('Card', () => {
 
     const component = screen.getByRole('article')
 
-    expect(component).toHaveClass('amsterdam-card extra')
+    expect(component).toHaveClass('ams-card extra')
   })
 
   it('supports ForwardRef in React', () => {

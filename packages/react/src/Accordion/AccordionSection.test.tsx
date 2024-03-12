@@ -10,7 +10,7 @@ describe('Accordion section', () => {
   it('renders an accordion section', () => {
     const { container } = render(<Accordion.Section label={testLabel}>{testContent}</Accordion.Section>)
 
-    const accordionSection = container.querySelector('.amsterdam-accordion__section')
+    const accordionSection = container.querySelector('.ams-accordion__section')
 
     expect(accordionSection).toBeInTheDocument()
     expect(accordionSection).toBeVisible()
@@ -25,10 +25,10 @@ describe('Accordion section', () => {
     const button = screen.getByRole('button', {
       name: testLabel,
     })
-    const section = container.querySelector('.amsterdam-accordion__panel')
+    const section = container.querySelector('.ams-accordion__panel')
 
-    expect(heading).toHaveClass('amsterdam-accordion__header')
-    expect(button).toHaveClass('amsterdam-accordion__button')
+    expect(heading).toHaveClass('ams-accordion__header')
+    expect(button).toHaveClass('ams-accordion__button')
     expect(section).toBeInTheDocument()
   })
 
@@ -40,11 +40,11 @@ describe('Accordion section', () => {
     })
     const sectionContent = getByText(testContent)
 
-    expect(sectionContent).not.toHaveClass('amsterdam-accordion__panel--expanded')
+    expect(sectionContent).not.toHaveClass('ams-accordion__panel--expanded')
     fireEvent.click(button)
-    expect(sectionContent).toHaveClass('amsterdam-accordion__panel--expanded')
+    expect(sectionContent).toHaveClass('ams-accordion__panel--expanded')
     fireEvent.click(button)
-    expect(sectionContent).not.toHaveClass('amsterdam-accordion__panel--expanded')
+    expect(sectionContent).not.toHaveClass('ams-accordion__panel--expanded')
   })
 
   it('adds --expanded class when expanded prop is true', () => {
@@ -56,7 +56,7 @@ describe('Accordion section', () => {
 
     const sectionContent = getByText(testContent)
 
-    expect(sectionContent).toHaveClass('amsterdam-accordion__panel--expanded')
+    expect(sectionContent).toHaveClass('ams-accordion__panel--expanded')
   })
 
   it('renders a section HTML tag by defaultt', () => {
@@ -117,7 +117,7 @@ describe('Accordion section', () => {
       </Accordion.Section>,
     )
 
-    const accordionSection = container.querySelector('.amsterdam-accordion__section')
+    const accordionSection = container.querySelector('.ams-accordion__section')
 
     expect(accordionSection).toHaveClass('test')
   })
@@ -131,7 +131,7 @@ describe('Accordion section', () => {
       </Accordion.Section>,
     )
 
-    const accordionSection = container.querySelector('.amsterdam-accordion__section')
+    const accordionSection = container.querySelector('.ams-accordion__section')
 
     expect(ref.current).toBe(accordionSection)
   })

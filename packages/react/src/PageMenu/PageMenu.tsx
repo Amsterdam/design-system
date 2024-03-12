@@ -22,11 +22,7 @@ type PageMenuComponent = {
 
 export const PageMenu = forwardRef(
   ({ alignEnd, children, className, ...restProps }: PageMenuProps, ref: ForwardedRef<HTMLUListElement>) => (
-    <ul
-      {...restProps}
-      className={clsx('amsterdam-page-menu', alignEnd && `amsterdam-page-menu--align-end`, className)}
-      ref={ref}
-    >
+    <ul {...restProps} className={clsx('ams-page-menu', alignEnd && `ams-page-menu--align-end`, className)} ref={ref}>
       {children}
     </ul>
   ),

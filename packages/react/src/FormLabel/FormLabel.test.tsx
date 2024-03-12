@@ -26,7 +26,7 @@ describe('Form label', () => {
 
     const label = container.querySelector(':only-child')
 
-    expect(label).toHaveClass('amsterdam-form-label')
+    expect(label).toHaveClass('ams-form-label')
   })
 
   it('renders rich text content', () => {
@@ -74,7 +74,7 @@ describe('Form label', () => {
 
     expect(label).toHaveClass('large')
 
-    expect(label).toHaveClass('amsterdam-form-label')
+    expect(label).toHaveClass('ams-form-label')
   })
 
   it('supports ForwardRef in React', () => {

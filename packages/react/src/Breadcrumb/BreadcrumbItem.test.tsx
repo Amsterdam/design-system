@@ -14,16 +14,16 @@ describe('Breadcrumb item', () => {
   it('renders a design system BEM class name', () => {
     render(<BreadcrumbItem href="/" />)
     const item = screen.getByRole('listitem')
-    expect(item).toHaveClass('amsterdam-breadcrumb__item')
+    expect(item).toHaveClass('ams-breadcrumb__item')
 
     const link = screen.getByRole('link')
-    expect(link).toHaveClass('amsterdam-breadcrumb__link')
+    expect(link).toHaveClass('ams-breadcrumb__link')
   })
 
   it('renders an additional class name', () => {
     render(<BreadcrumbItem href="/" className="extra" />)
     const component = screen.getByRole('listitem')
-    expect(component).toHaveClass('amsterdam-breadcrumb__item extra')
+    expect(component).toHaveClass('ams-breadcrumb__item extra')
   })
 
   it('renders the href attribute', () => {

@@ -3,13 +3,13 @@
  * Copyright Gemeente Amsterdam
  */
 
-.amsterdam-accordion {
+.ams-accordion {
   display: flex;
   flex-direction: column;
-  gap: var(--amsterdam-accordion-gap);
+  gap: var(--ams-accordion-gap);
 }
 
-.amsterdam-accordion__header {
+.ams-accordion__header {
   display: flex;
   margin-block: 0;
   margin-inline: 0;
@@ -19,39 +19,43 @@
   -webkit-text-size-adjust: 100%;
 }
 
-.amsterdam-accordion__section {
-  box-shadow: var(--amsterdam-accordion-section-box-shadow);
-  color: var(--amsterdam-accordion-section-color);
+.ams-accordion__section {
+  box-shadow: var(--ams-accordion-section-box-shadow);
+  color: var(--ams-accordion-section-color);
 
   &:hover {
-    box-shadow: var(--amsterdam-accordion-section-hover-box-shadow);
-    color: var(--amsterdam-accordion-section-hover-color);
+    box-shadow: var(--ams-accordion-section-hover-box-shadow);
+    color: var(--ams-accordion-section-hover-color);
   }
 }
 
-.amsterdam-accordion__button {
+.ams-accordion__button {
   background-color: transparent;
   border: 0;
-  color: var(--amsterdam-accordion-button-color);
+  color: var(--ams-accordion-button-color);
   cursor: pointer;
   display: flex;
-  font-family: var(--amsterdam-accordion-button-font-family);
-  font-size: var(--amsterdam-accordion-button-font-size);
-  font-weight: var(--amsterdam-accordion-button-font-weight);
+  font-family: var(--ams-accordion-button-font-family);
+  font-size: var(--ams-accordion-button-font-size);
+  font-weight: var(--ams-accordion-button-font-weight);
   justify-content: space-between;
-  line-height: var(--amsterdam-accordion-button-line-height);
-  padding-block: var(--amsterdam-accordion-button-padding-block);
-  padding-inline: var(--amsterdam-accordion-button-padding-inline);
+  line-height: var(--ams-accordion-button-line-height);
+  padding-block: var(--ams-accordion-button-padding-block);
+  padding-inline: var(--ams-accordion-button-padding-inline);
   width: 100%;
 
   &:focus {
-    outline-offset: var(--amsterdam-accordion-button-focus-outline-offset);
+    outline-offset: var(--ams-accordion-button-focus-outline-offset);
+  }
+
+  &:hover {
+    box-shadow: var(--ams-accordion-button-hover-box-shadow);
   }
 
   @include reset;
 }
 
-.amsterdam-accordion__icon svg {
+.ams-accordion__icon svg {
   transform: rotate(0deg);
   transition: transform 0.3s ease;
 
@@ -64,12 +68,12 @@
   }
 }
 
-.amsterdam-accordion__panel {
+.ams-accordion__panel {
   display: none;
-  padding-block: var(--amsterdam-accordion-panel-padding-block);
-  padding-inline: var(--amsterdam-accordion-panel-padding-inline);
+  padding-block: var(--ams-accordion-panel-padding-block);
+  padding-inline: var(--ams-accordion-panel-padding-inline);
 }
 
-.amsterdam-accordion__panel--expanded {
+.ams-accordion__panel--expanded {
   display: block;
 }

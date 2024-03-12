@@ -13,39 +13,39 @@
 }
 
 /** A list is a grid column with a gap between items. */
-.amsterdam-ordered-list {
+.ams-ordered-list {
   @include reset;
 
   display: grid;
-  gap: var(--amsterdam-ordered-list-gap);
+  gap: var(--ams-ordered-list-gap);
 }
 
 /** A list with markers sets typography for its text content. */
-.amsterdam-ordered-list:not(.amsterdam-ordered-list--no-markers) {
-  color: var(--amsterdam-ordered-list-color);
-  font-family: var(--amsterdam-ordered-list-font-family);
-  font-size: var(--amsterdam-ordered-list-font-size);
-  font-weight: var(--amsterdam-ordered-list-font-weight);
-  line-height: var(--amsterdam-ordered-list-line-height);
-  list-style-type: var(--amsterdam-ordered-list-list-style-type);
+.ams-ordered-list:not(.ams-ordered-list--no-markers) {
+  color: var(--ams-ordered-list-color);
+  font-family: var(--ams-ordered-list-font-family);
+  font-size: var(--ams-ordered-list-font-size);
+  font-weight: var(--ams-ordered-list-font-weight);
+  line-height: var(--ams-ordered-list-line-height);
+  list-style-type: var(--ams-ordered-list-list-style-type);
 
   /** List items are responsible for indentation and marker positioning. */
-  .amsterdam-ordered-list__item {
-    margin-inline-start: var(--amsterdam-ordered-list-item-margin-inline-start);
-    padding-inline-start: var(--amsterdam-ordered-list-item-padding-inline-start);
+  .ams-ordered-list__item {
+    margin-inline-start: var(--ams-ordered-list-item-margin-inline-start);
+    padding-inline-start: var(--ams-ordered-list-item-padding-inline-start);
   }
 }
 
-.amsterdam-ordered-list--inverse-color:not(.amsterdam-ordered-list--no-markers) {
-  color: var(--amsterdam-ordered-list-inverse-color);
+.ams-ordered-list--inverse-color:not(.ams-ordered-list--no-markers) {
+  color: var(--ams-ordered-list-inverse-color);
 }
 
 /** A nested list has a different marker and less indentation for correct alignment. */
-:is(.amsterdam-ordered-list, .amsterdam-unordered-list) .amsterdam-ordered-list {
-  list-style-type: var(--amsterdam-ordered-list-ordered-list-list-style-type);
+:is(.ams-ordered-list, .ams-unordered-list) .ams-ordered-list {
+  list-style-type: var(--ams-ordered-list-ordered-list-list-style-type);
 
-  .amsterdam-ordered-list__item {
-    margin-inline-start: var(--amsterdam-ordered-list-ordered-list-item-margin-inline-start);
-    padding-inline-start: var(--amsterdam-ordered-list-ordered-list-item-padding-inline-start);
+  .ams-ordered-list__item {
+    margin-inline-start: var(--ams-ordered-list-ordered-list-item-margin-inline-start);
+    padding-inline-start: var(--ams-ordered-list-ordered-list-item-padding-inline-start);
   }
 }

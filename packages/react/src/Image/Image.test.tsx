@@ -14,14 +14,14 @@ describe('Image', () => {
   it('renders a design system BEM class name', () => {
     const { container } = render(<Image />)
     const component = container.querySelector(':only-child')
-    expect(component).toHaveClass('amsterdam-image')
+    expect(component).toHaveClass('ams-image')
   })
 
   it('renders an additional class name', () => {
     const { container } = render(<Image className="extra" />)
     const component = container.querySelector(':only-child')
     expect(component).toHaveClass('extra')
-    expect(component).toHaveClass('amsterdam-image')
+    expect(component).toHaveClass('ams-image')
   })
 
   it('supports ForwardRef in React', () => {

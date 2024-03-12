@@ -24,7 +24,7 @@ describe('Aspect ratio', () => {
 
     const component = container.querySelector(':only-child')
 
-    expect(component).toHaveClass('amsterdam-aspect-ratio')
+    expect(component).toHaveClass('ams-aspect-ratio')
   })
 
   it('renders the right size classes', () => {
@@ -34,11 +34,11 @@ describe('Aspect ratio', () => {
     const { container: wide } = render(<AspectRatio ratio="wide" />)
     const { container: xWide } = render(<AspectRatio ratio="x-wide" />)
 
-    expect(xTall.firstChild).toHaveClass('amsterdam-aspect-ratio--x-tall')
-    expect(tall.firstChild).toHaveClass('amsterdam-aspect-ratio--tall')
-    expect(square.firstChild).toHaveClass('amsterdam-aspect-ratio--square')
-    expect(wide.firstChild).toHaveClass('amsterdam-aspect-ratio--wide')
-    expect(xWide.firstChild).toHaveClass('amsterdam-aspect-ratio--x-wide')
+    expect(xTall.firstChild).toHaveClass('ams-aspect-ratio--x-tall')
+    expect(tall.firstChild).toHaveClass('ams-aspect-ratio--tall')
+    expect(square.firstChild).toHaveClass('ams-aspect-ratio--square')
+    expect(wide.firstChild).toHaveClass('ams-aspect-ratio--wide')
+    expect(xWide.firstChild).toHaveClass('ams-aspect-ratio--x-wide')
   })
 
   it('renders an additional class name', () => {
@@ -48,7 +48,7 @@ describe('Aspect ratio', () => {
 
     expect(component).toHaveClass('extra')
 
-    expect(component).toHaveClass('amsterdam-aspect-ratio')
+    expect(component).toHaveClass('ams-aspect-ratio')
   })
 
   it('supports ForwardRef in React', () => {

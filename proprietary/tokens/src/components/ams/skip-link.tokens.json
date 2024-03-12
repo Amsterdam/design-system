@@ -1,0 +1,18 @@
+{
+  "ams": {
+    "skip-link": {
+      "background-color": { "value": "{ams.color.primary-blue}" },
+      "color": { "value": "{ams.color.primary-white}" },
+      "font-family": { "value": "{ams.text.font-family}" },
+      "font-weight": { "value": "{ams.text.font-weight.normal}" },
+      "font-size": { "value": "{ams.text.level.6.font-size}" },
+      "line-height": { "value": "{ams.text.level.6.line-height}" },
+      "outline-offset": { "value": "{ams.focus.outline-offset}" },
+      "padding-block": { "value": "{ams.space.inside.xs}" },
+      "padding-inline": { "value": "{ams.space.inside.md}" },
+      "hover": {
+        "background-color": { "value": "{ams.color.dark-blue}" }
+      }
+    }
+  }
+}

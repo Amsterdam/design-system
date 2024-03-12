@@ -17,9 +17,9 @@ export const TextArea = forwardRef(
       {...restProps}
       ref={ref}
       className={clsx(
-        'amsterdam-text-area',
-        resize && `amsterdam-text-area--resize-${resize}`,
-        restProps.cols && 'amsterdam-text-area--cols',
+        'ams-text-area',
+        resize && `ams-text-area--resize-${resize}`,
+        restProps.cols && 'ams-text-area--cols',
         className,
       )}
     />

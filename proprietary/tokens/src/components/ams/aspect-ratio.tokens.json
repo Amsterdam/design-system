@@ -1,0 +1,12 @@
+{
+  "ams": {
+    "aspect-ratio": {
+      "x-tall": { "value": "{ams.proportion.x-tall}" },
+      "tall": { "value": "{ams.proportion.tall}" },
+      "square": { "value": "{ams.proportion.square}" },
+      "wide": { "value": "{ams.proportion.wide}" },
+      "x-wide": { "value": "{ams.proportion.x-wide}" },
+      "2x-wide": { "value": "{ams.proportion.2x-wide}" }
+    }
+  }
+}

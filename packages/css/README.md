@@ -17,7 +17,7 @@ Theoretically you can include the components in your HTML page like so, but this
     <link rel="stylesheet" href="node_modules/@amsterdam/design-system-css" />
   </head>
   <body>
-    <p class="amsterdam-paragraph">Hello, world!</p>
+    <p class="ams-paragraph">Hello, world!</p>
   </body>
 </html>
 ```
@@ -32,7 +32,7 @@ export default class ExamplePage extends React.Component {
   render() {
     return (
       <>
-        <p className={btn["amsterdam-paragraph"]}>Hello, world!</p>
+        <p className={btn["ams-paragraph"]}>Hello, world!</p>
       </>
     );
   }

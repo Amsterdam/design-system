@@ -9,26 +9,26 @@
   -webkit-text-size-adjust: 100%;
 }
 
-.amsterdam-paragraph {
-  color: var(--amsterdam-paragraph-color);
-  font-family: var(--amsterdam-paragraph-font-family);
-  font-size: var(--amsterdam-paragraph-medium-font-size);
-  font-weight: var(--amsterdam-paragraph-font-weight);
-  line-height: var(--amsterdam-paragraph-medium-line-height);
+.ams-paragraph {
+  color: var(--ams-paragraph-color);
+  font-family: var(--ams-paragraph-font-family);
+  font-size: var(--ams-paragraph-medium-font-size);
+  font-weight: var(--ams-paragraph-font-weight);
+  line-height: var(--ams-paragraph-medium-line-height);
 
   @include reset;
 }
 
-.amsterdam-paragraph--small {
-  font-size: var(--amsterdam-paragraph-small-font-size);
-  line-height: var(--amsterdam-paragraph-small-line-height);
+.ams-paragraph--small {
+  font-size: var(--ams-paragraph-small-font-size);
+  line-height: var(--ams-paragraph-small-line-height);
 }
 
-.amsterdam-paragraph--large {
-  font-size: var(--amsterdam-paragraph-large-font-size);
-  line-height: var(--amsterdam-paragraph-large-line-height);
+.ams-paragraph--large {
+  font-size: var(--ams-paragraph-large-font-size);
+  line-height: var(--ams-paragraph-large-line-height);
 }
 
-.amsterdam-paragraph--inverse-color {
-  color: var(--amsterdam-paragraph-inverse-color);
+.ams-paragraph--inverse-color {
+  color: var(--ams-paragraph-inverse-color);
 }
