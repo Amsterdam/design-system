@@ -13,7 +13,7 @@ export const FormLabel = forwardRef(
     { children, className, ...restProps }: PropsWithChildren<LabelHTMLAttributes<HTMLLabelElement>>,
     ref: ForwardedRef<HTMLLabelElement>,
   ) => (
-    <label {...restProps} ref={ref} className={clsx('amsterdam-form-label', className)}>
+    <label {...restProps} ref={ref} className={clsx('ams-form-label', className)}>
       {children}
     </label>
   ),

@@ -5,12 +5,12 @@
 
 @import "../../common/hyphenation";
 
-.amsterdam-top-task-link {
+.ams-top-task-link {
   break-inside: avoid;
   display: flex;
   flex-direction: column;
   gap: 0.5rem;
-  outline-offset: var(--amsterdam-top-task-link-outline-offset);
+  outline-offset: var(--ams-top-task-link-outline-offset);
   text-decoration: none;
 }
 
@@ -19,31 +19,31 @@
   -webkit-text-size-adjust: 100%;
 }
 
-.amsterdam-top-task-link__label {
-  color: var(--amsterdam-top-task-link-label-color);
-  font-family: var(--amsterdam-top-task-link-label-font-family);
-  font-size: var(--amsterdam-top-task-link-label-font-size);
-  font-weight: var(--amsterdam-top-task-link-label-font-weight);
-  line-height: var(--amsterdam-top-task-link-label-line-height);
-  text-decoration-line: var(--amsterdam-top-task-link-label-text-decoration-line);
-  text-decoration-thickness: var(--amsterdam-top-task-link-label-text-decoration-thickness);
-  text-underline-offset: var(--amsterdam-top-task-link-label-text-underline-offset);
+.ams-top-task-link__label {
+  color: var(--ams-top-task-link-label-color);
+  font-family: var(--ams-top-task-link-label-font-family);
+  font-size: var(--ams-top-task-link-label-font-size);
+  font-weight: var(--ams-top-task-link-label-font-weight);
+  line-height: var(--ams-top-task-link-label-line-height);
+  text-decoration-line: var(--ams-top-task-link-label-text-decoration-line);
+  text-decoration-thickness: var(--ams-top-task-link-label-text-decoration-thickness);
+  text-underline-offset: var(--ams-top-task-link-label-text-underline-offset);
 
   @include hyphenation;
   @include reset;
 }
 
-.amsterdam-top-task-link:hover .amsterdam-top-task-link__label {
-  color: var(--amsterdam-top-task-link-label-hover-color);
-  text-decoration-line: var(--amsterdam-top-task-link-label-hover-text-decoration-line);
+.ams-top-task-link:hover .ams-top-task-link__label {
+  color: var(--ams-top-task-link-label-hover-color);
+  text-decoration-line: var(--ams-top-task-link-label-hover-text-decoration-line);
 }
 
-.amsterdam-top-task-link__description {
-  color: var(--amsterdam-top-task-link-description-color);
-  font-family: var(--amsterdam-top-task-link-description-font-family);
-  font-size: var(--amsterdam-top-task-link-description-font-size);
-  font-weight: var(--amsterdam-top-task-link-description-font-weight);
-  line-height: var(--amsterdam-top-task-link-description-line-height);
+.ams-top-task-link__description {
+  color: var(--ams-top-task-link-description-color);
+  font-family: var(--ams-top-task-link-description-font-family);
+  font-size: var(--ams-top-task-link-description-font-size);
+  font-weight: var(--ams-top-task-link-description-font-weight);
+  line-height: var(--ams-top-task-link-description-line-height);
 
   @include reset;
 }

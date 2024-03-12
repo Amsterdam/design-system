@@ -11,7 +11,7 @@ export type TableHeaderProps = PropsWithChildren<HTMLAttributes<HTMLTableSection
 
 export const TableHeader = forwardRef(
   ({ children, className, ...restProps }: TableHeaderProps, ref: ForwardedRef<HTMLTableSectionElement>) => (
-    <thead {...restProps} ref={ref} className={clsx('amsterdam-table__header', className)}>
+    <thead {...restProps} ref={ref} className={clsx('ams-table__header', className)}>
       {children}
     </thead>
   ),

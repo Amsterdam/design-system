@@ -9,62 +9,62 @@
   -webkit-text-size-adjust: 100%;
 }
 
-.amsterdam-text-area {
+.ams-text-area {
   border: none;
-  box-shadow: var(--amsterdam-text-area-box-shadow);
-  color: var(--amsterdam-text-area-color);
-  font-family: var(--amsterdam-text-area-font-family);
-  font-size: var(--amsterdam-text-area-font-size);
-  font-weight: var(--amsterdam-text-area-font-weight);
-  line-height: var(--amsterdam-text-area-line-height);
+  box-shadow: var(--ams-text-area-box-shadow);
+  color: var(--ams-text-area-color);
+  font-family: var(--ams-text-area-font-family);
+  font-size: var(--ams-text-area-font-size);
+  font-weight: var(--ams-text-area-font-weight);
+  line-height: var(--ams-text-area-line-height);
   max-width: 100%;
-  min-height: var(--amsterdam-text-area-min-height);
-  outline-offset: var(--amsterdam-text-area-outline-offset);
-  padding-block: var(--amsterdam-text-area-padding-block);
-  padding-inline: var(--amsterdam-text-area-padding-inline);
+  min-height: var(--ams-text-area-min-height);
+  outline-offset: var(--ams-text-area-outline-offset);
+  padding-block: var(--ams-text-area-padding-block);
+  padding-inline: var(--ams-text-area-padding-inline);
   touch-action: manipulation;
   width: 100%;
 
   @include reset;
 
   &:hover {
-    box-shadow: var(--amsterdam-text-area-hover-box-shadow);
+    box-shadow: var(--ams-text-area-hover-box-shadow);
   }
 }
 
-.amsterdam-text-area::placeholder {
-  color: var(--amsterdam-text-area-placeholder-color);
+.ams-text-area::placeholder {
+  color: var(--ams-text-area-placeholder-color);
 }
 
-.amsterdam-text-area:disabled {
-  background-color: var(--amsterdam-text-area-disabled-background-color);
-  box-shadow: var(--amsterdam-text-area-disabled-box-shadow);
-  color: var(--amsterdam-text-area-disabled-color);
-  cursor: var(--amsterdam-text-area-disabled-cursor);
+.ams-text-area:disabled {
+  background-color: var(--ams-text-area-disabled-background-color);
+  box-shadow: var(--ams-text-area-disabled-box-shadow);
+  color: var(--ams-text-area-disabled-color);
+  cursor: var(--ams-text-area-disabled-cursor);
 }
 
-.amsterdam-text-area:invalid,
-.amsterdam-text-area[aria-invalid="true"] {
-  box-shadow: var(--amsterdam-text-area-invalid-box-shadow);
+.ams-text-area:invalid,
+.ams-text-area[aria-invalid="true"] {
+  box-shadow: var(--ams-text-area-invalid-box-shadow);
 
   &:hover {
     // TODO: this should be the (currently non-existent) dark red hover color
-    box-shadow: var(--amsterdam-text-area-invalid-hover-box-shadow);
+    box-shadow: var(--ams-text-area-invalid-hover-box-shadow);
   }
 }
 
-.amsterdam-text-area--resize-none {
+.ams-text-area--resize-none {
   resize: none;
 }
 
-.amsterdam-text-area--resize-horizontal {
+.ams-text-area--resize-horizontal {
   resize: inline;
 }
 
-.amsterdam-text-area--resize-vertical {
+.ams-text-area--resize-vertical {
   resize: block;
 }
 
-.amsterdam-text-area--cols {
+.ams-text-area--cols {
   width: auto;
 }

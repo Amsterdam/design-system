@@ -7,16 +7,16 @@
   box-sizing: border-box;
 }
 
-.amsterdam-screen {
+.ams-screen {
   @include reset;
 
   margin-inline: auto;
 }
 
-.amsterdam-screen--wide {
-  max-width: var(--amsterdam-screen-wide-max-width);
+.ams-screen--wide {
+  max-width: var(--ams-screen-wide-max-width);
 }
 
-.amsterdam-screen--x-wide {
-  max-width: var(--amsterdam-screen-x-wide-max-width);
+.ams-screen--x-wide {
+  max-width: var(--ams-screen-x-wide-max-width);
 }

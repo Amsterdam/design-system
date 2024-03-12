@@ -14,13 +14,13 @@ describe('Overlap', () => {
   it('renders a design system BEM class name', () => {
     const { container } = render(<Overlap />)
     const component = container.querySelector(':only-child')
-    expect(component).toHaveClass('amsterdam-overlap')
+    expect(component).toHaveClass('ams-overlap')
   })
 
   it('renders an additional class name', () => {
     const { container } = render(<Overlap className="extra" />)
     const component = container.querySelector(':only-child')
-    expect(component).toHaveClass('amsterdam-overlap extra')
+    expect(component).toHaveClass('ams-overlap extra')
   })
 
   it('supports ForwardRef in React', () => {

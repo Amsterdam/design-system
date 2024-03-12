@@ -26,13 +26,13 @@ describe('Page menu', () => {
   it('renders a design system BEM class name', () => {
     const { container } = render(<PageMenu />)
     const component = container.querySelector(':only-child')
-    expect(component).toHaveClass('amsterdam-page-menu')
+    expect(component).toHaveClass('ams-page-menu')
   })
 
   it('renders a class name for end alignment', () => {
     const { container } = render(<PageMenu alignEnd />)
     const component = container.querySelector(':only-child')
-    expect(component).toHaveClass('amsterdam-page-menu--align-end')
+    expect(component).toHaveClass('ams-page-menu--align-end')
   })
 
   it('is able to pass a React ref', () => {
@@ -50,6 +50,6 @@ describe('Page menu', () => {
     const { container } = render(<PageMenu className="intro" />)
     const component = container.querySelector(':only-child')
     expect(component).toHaveClass('intro')
-    expect(component).toHaveClass('amsterdam-page-menu')
+    expect(component).toHaveClass('ams-page-menu')
   })
 })

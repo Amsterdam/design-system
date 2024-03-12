@@ -7,7 +7,7 @@ import { Card, Column, Heading, Paragraph } from '@amsterdam/design-system-react
 import { Meta, StoryObj } from '@storybook/react'
 
 const ThreeBoxes = Array.from(Array(3).keys()).map((i) => (
-  <Paragraph className="amsterdam-docs-pink-box" key={i}>
+  <Paragraph className="ams-docs-pink-box" key={i}>
     {i + 1}
   </Paragraph>
 ))

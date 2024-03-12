@@ -69,9 +69,7 @@ const CellStoryTemplate: CellStory = {
   render: ({ children, ...args }) => <Grid.Cell {...args}>{children}</Grid.Cell>,
 }
 
-const TwelveGridCells = Array.from(Array(12).keys()).map((i) => (
-  <Grid.Cell className="amsterdam-docs-pink-box" key={i} />
-))
+const TwelveGridCells = Array.from(Array(12).keys()).map((i) => <Grid.Cell className="ams-docs-pink-box" key={i} />)
 
 export const Default: Story = {
   ...StoryTemplate,
@@ -91,9 +89,7 @@ export const VerticalSpace: Story = {
 export const VerticalGap: Story = {
   ...StoryTemplate,
   args: {
-    children: Array.from(Array(6).keys()).map((i) => (
-      <Grid.Cell className="amsterdam-docs-pink-box" span={4} key={i} />
-    )),
+    children: Array.from(Array(6).keys()).map((i) => <Grid.Cell className="ams-docs-pink-box" span={4} key={i} />),
     gapVertical: 'small',
   },
 }
@@ -101,7 +97,7 @@ export const VerticalGap: Story = {
 export const SpanMultipleColumns: CellStory = {
   ...CellStoryTemplate,
   args: {
-    children: <p className="amsterdam-docs-paragraph amsterdam-docs-pink-box">Deze cel beslaat 4 kolommen.</p>,
+    children: <p className="ams-docs-paragraph ams-docs-pink-box">Deze cel beslaat 4 kolommen.</p>,
     span: 4,
   },
 }
@@ -109,9 +105,7 @@ export const SpanMultipleColumns: CellStory = {
 export const ConfigureGridVariants: CellStory = {
   ...CellStoryTemplate,
   args: {
-    children: (
-      <p className="amsterdam-docs-paragraph amsterdam-docs-pink-box">Deze cel heeft 3 instellingen voor de breedte.</p>
-    ),
+    children: <p className="ams-docs-paragraph ams-docs-pink-box">Deze cel heeft 3 instellingen voor de breedte.</p>,
     span: { narrow: 4, medium: 6, wide: 8 },
   },
 }
@@ -120,9 +114,7 @@ export const SpanAllColumns: CellStory = {
   ...CellStoryTemplate,
   args: {
     children: (
-      <p className="amsterdam-docs-paragraph amsterdam-docs-pink-box">
-        Deze cel beslaat de volledige breedte van het grid.
-      </p>
+      <p className="ams-docs-paragraph ams-docs-pink-box">Deze cel beslaat de volledige breedte van het grid.</p>
     ),
     span: 'all',
   },
@@ -131,7 +123,7 @@ export const SpanAllColumns: CellStory = {
 export const StartPosition: CellStory = {
   ...CellStoryTemplate,
   args: {
-    children: <p className="amsterdam-docs-paragraph amsterdam-docs-pink-box">Deze cel start in kolom 2.</p>,
+    children: <p className="ams-docs-paragraph ams-docs-pink-box">Deze cel start in kolom 2.</p>,
     span: 3,
     start: 2,
   },
@@ -145,7 +137,7 @@ export const CustomTagName: CellStory = {
   render: ({ as }: GridCellProps) => (
     <Grid>
       <Grid.Cell as={as} span="all">
-        <p className="amsterdam-docs-pink-box amsterdam-docs-paragraph">Deze cel gebruikt het HTML-element `{as}`.</p>
+        <p className="ams-docs-pink-box ams-docs-paragraph">Deze cel gebruikt het HTML-element `{as}`.</p>
       </Grid.Cell>
     </Grid>
   ),

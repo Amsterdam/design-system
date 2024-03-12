@@ -47,15 +47,15 @@ const paddingClasses = (
   const classes = [] as string[]
 
   if (paddingVertical) {
-    return [`amsterdam-grid--padding-vertical--${paddingVertical}`]
+    return [`ams-grid--padding-vertical--${paddingVertical}`]
   }
 
   if (paddingBottom) {
-    classes.push(`amsterdam-grid--padding-bottom--${paddingBottom}`)
+    classes.push(`ams-grid--padding-bottom--${paddingBottom}`)
   }
 
   if (paddingTop) {
-    classes.push(`amsterdam-grid--padding-top--${paddingTop}`)
+    classes.push(`ams-grid--padding-top--${paddingTop}`)
   }
 
   return classes
@@ -74,8 +74,8 @@ export const Grid = forwardRef(
       {...restProps}
       ref={ref}
       className={clsx(
-        'amsterdam-grid',
-        gapVertical && `amsterdam-grid--gap-vertical--${gapVertical}`,
+        'ams-grid',
+        gapVertical && `ams-grid--gap-vertical--${gapVertical}`,
         paddingClasses(paddingBottom, paddingTop, paddingVertical),
         className,
       )}

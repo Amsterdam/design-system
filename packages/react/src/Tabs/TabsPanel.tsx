@@ -28,7 +28,7 @@ export const TabsPanel = forwardRef(
         id={`${tabsId}-panel-${tab}`}
         tabIndex={0}
         ref={ref}
-        className={clsx('amsterdam-tabs__panel', className)}
+        className={clsx('ams-tabs__panel', className)}
       >
         {children}
       </div>

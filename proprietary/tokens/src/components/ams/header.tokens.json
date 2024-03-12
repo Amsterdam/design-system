@@ -1,0 +1,14 @@
+{
+  "ams": {
+    "header": {
+      "column-gap": {
+        "value": "{ams.space.grid.md}",
+        "comment": "Must have the same value as `ams.grid.column-gap`."
+      },
+      "padding-block": { "value": "{ams.space.inside.md}" },
+      "logo-link": {
+        "outline-offset": { "value": "{ams.focus.outline-offset}" }
+      }
+    }
+  }
+}

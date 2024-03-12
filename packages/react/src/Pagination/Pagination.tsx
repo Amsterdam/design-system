@@ -113,12 +113,12 @@ export const Pagination = forwardRef(
     }
 
     return (
-      <nav {...restProps} className={clsx('amsterdam-pagination', className)} ref={ref} aria-label="Paginering">
-        <ol className="amsterdam-pagination__list">
+      <nav {...restProps} className={clsx('ams-pagination', className)} ref={ref} aria-label="Paginering">
+        <ol className="ams-pagination__list">
           <li>
             <button
               aria-label="Vorige pagina"
-              className="amsterdam-pagination__button"
+              className="ams-pagination__button"
               disabled={currentPage === 1}
               onClick={onPrevious}
               type="button"
@@ -138,8 +138,8 @@ export const Pagination = forwardRef(
                       : `Ga naar pagina ${pageNumberOrSpacer}`
                   }
                   className={clsx(
-                    'amsterdam-pagination__button',
-                    pageNumberOrSpacer === currentPage && 'amsterdam-pagination__button--current',
+                    'ams-pagination__button',
+                    pageNumberOrSpacer === currentPage && 'ams-pagination__button--current',
                   )}
                   onClick={() => pageNumberOrSpacer !== currentPage && onChangePage(pageNumberOrSpacer)}
                   tabIndex={pageNumberOrSpacer === currentPage ? -1 : 0}
@@ -157,7 +157,7 @@ export const Pagination = forwardRef(
           <li>
             <button
               aria-label="Volgende pagina"
-              className="amsterdam-pagination__button"
+              className="ams-pagination__button"
               disabled={currentPage === totalPages}
               onClick={onNext}
               type="button"

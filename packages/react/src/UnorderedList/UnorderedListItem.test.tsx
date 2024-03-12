@@ -17,7 +17,7 @@ describe('Ordered list item', () => {
 
     const component = screen.getByRole('listitem')
 
-    expect(component).toHaveClass('amsterdam-unordered-list__item')
+    expect(component).toHaveClass('ams-unordered-list__item')
   })
 
   it('renders an additional class name', () => {
@@ -25,7 +25,7 @@ describe('Ordered list item', () => {
 
     const component = screen.getByRole('listitem')
 
-    expect(component).toHaveClass('amsterdam-unordered-list__item extra')
+    expect(component).toHaveClass('ams-unordered-list__item extra')
   })
 
   it('supports ForwardRef in React', () => {

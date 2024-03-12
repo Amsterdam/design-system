@@ -10,7 +10,7 @@ import type { ForwardedRef, HTMLAttributes, PropsWithChildren } from 'react'
 export type MarkProps = PropsWithChildren<HTMLAttributes<HTMLElement>>
 
 export const Mark = forwardRef(({ children, className, ...restProps }: MarkProps, ref: ForwardedRef<HTMLElement>) => (
-  <mark {...restProps} ref={ref} className={clsx('amsterdam-mark', className)}>
+  <mark {...restProps} ref={ref} className={clsx('ams-mark', className)}>
     {children}
   </mark>
 ))

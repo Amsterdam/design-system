@@ -11,19 +11,19 @@
   -webkit-text-size-adjust: 100%;
 }
 
-.amsterdam-page-heading {
+.ams-page-heading {
   break-after: avoid;
   break-inside: avoid;
-  color: var(--amsterdam-page-heading-color);
-  font-family: var(--amsterdam-page-heading-font-family);
-  font-size: var(--amsterdam-page-heading-font-size);
-  font-weight: var(--amsterdam-page-heading-font-weight);
-  line-height: var(--amsterdam-page-heading-line-height);
+  color: var(--ams-page-heading-color);
+  font-family: var(--ams-page-heading-font-family);
+  font-size: var(--ams-page-heading-font-size);
+  font-weight: var(--ams-page-heading-font-weight);
+  line-height: var(--ams-page-heading-line-height);
 
   @include hyphenation;
   @include reset;
 }
 
-.amsterdam-page-heading--inverse-color {
-  color: var(--amsterdam-page-heading-inverse-color);
+.ams-page-heading--inverse-color {
+  color: var(--ams-page-heading-inverse-color);
 }

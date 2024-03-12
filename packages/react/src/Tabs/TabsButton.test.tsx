@@ -17,7 +17,7 @@ describe('Tabs button', () => {
 
     const component = screen.getByRole('tab')
 
-    expect(component).toHaveClass('amsterdam-tabs__button')
+    expect(component).toHaveClass('ams-tabs__button')
   })
 
   it('renders an additional class name', () => {
@@ -25,7 +25,7 @@ describe('Tabs button', () => {
 
     const component = screen.getByRole('tab')
 
-    expect(component).toHaveClass('amsterdam-tabs__button extra')
+    expect(component).toHaveClass('ams-tabs__button extra')
   })
 
   it('renders a label', () => {

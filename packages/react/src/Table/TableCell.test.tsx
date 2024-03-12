@@ -37,7 +37,7 @@ describe('Table cell', () => {
 
     const component = screen.getByRole('cell')
 
-    expect(component).toHaveClass('amsterdam-table__cell')
+    expect(component).toHaveClass('ams-table__cell')
   })
 
   it('renders an additional class name', () => {
@@ -53,7 +53,7 @@ describe('Table cell', () => {
 
     const component = screen.getByRole('cell')
 
-    expect(component).toHaveClass('amsterdam-table__cell extra')
+    expect(component).toHaveClass('ams-table__cell extra')
   })
 
   it('supports ForwardRef in React', () => {

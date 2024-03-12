@@ -5,37 +5,37 @@
 
 @import "../../common/breakpoint";
 
-.amsterdam-tabs__list {
-  border-bottom: var(--amsterdam-tabs-list-border-bottom);
+.ams-tabs__list {
+  border-bottom: var(--ams-tabs-list-border-bottom);
   display: flex;
   overflow-x: auto;
 }
 
-.amsterdam-tabs__button {
-  background-color: var(--amsterdam-tabs-button-background-color);
-  border: var(--amsterdam-tabs-button-border);
-  color: var(--amsterdam-tabs-button-color);
-  cursor: var(--amsterdam-tabs-button-cursor);
-  font-family: var(--amsterdam-tabs-button-font-family);
-  font-size: var(--amsterdam-tabs-button-font-size);
-  font-weight: var(--amsterdam-tabs-button-font-weight);
-  line-height: var(--amsterdam-tabs-button-line-height);
-  outline-offset: var(--amsterdam-tabs-button-outline-offset);
-  padding-block: var(--amsterdam-tabs-button-padding-block);
-  padding-inline: var(--amsterdam-tabs-button-padding-inline);
+.ams-tabs__button {
+  background-color: var(--ams-tabs-button-background-color);
+  border: var(--ams-tabs-button-border);
+  color: var(--ams-tabs-button-color);
+  cursor: var(--ams-tabs-button-cursor);
+  font-family: var(--ams-tabs-button-font-family);
+  font-size: var(--ams-tabs-button-font-size);
+  font-weight: var(--ams-tabs-button-font-weight);
+  line-height: var(--ams-tabs-button-line-height);
+  outline-offset: var(--ams-tabs-button-outline-offset);
+  padding-block: var(--ams-tabs-button-padding-block);
+  padding-inline: var(--ams-tabs-button-padding-inline);
 
   &:disabled {
-    color: var(--amsterdam-tabs-button-disabled-color);
-    cursor: var(--amsterdam-tab-button-disabled-cursor);
+    color: var(--ams-tabs-button-disabled-color);
+    cursor: var(--ams-tab-button-disabled-cursor);
   }
 
   &:hover:not([aria-selected="true"], [disabled]) {
-    box-shadow: var(--amsterdam-tabs-button-hover-box-shadow);
-    color: var(--amsterdam-tabs-button-hover-color);
+    box-shadow: var(--ams-tabs-button-hover-box-shadow);
+    color: var(--ams-tabs-button-hover-color);
   }
 
   &[aria-selected="true"] {
-    background-color: var(--amsterdam-tabs-button-selected-background-color);
-    color: var(--amsterdam-tabs-button-selected-color);
+    background-color: var(--ams-tabs-button-selected-background-color);
+    color: var(--ams-tabs-button-selected-color);
   }
 }

@@ -5,13 +5,13 @@
 
 @import "../../common/size";
 
-.amsterdam-row {
+.ams-row {
   display: flex;
   flex-direction: row;
 }
 
-@each $size, $label in $amsterdam-sizes {
-  .amsterdam-row--#{$label} {
-    gap: var(--amsterdam-row-gap-#{$size});
+@each $size, $label in $ams-sizes {
+  .ams-row--#{$label} {
+    gap: var(--ams-row-gap-#{$size});
   }
 }

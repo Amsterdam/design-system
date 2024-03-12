@@ -28,9 +28,9 @@ describe('Radio', () => {
     const input = screen.getByRole('radio')
     const label = container.querySelector('label')
 
-    expect(wrapper).toHaveClass('amsterdam-radio')
-    expect(input).toHaveClass('amsterdam-radio__input')
-    expect(label).toHaveClass('amsterdam-radio__label')
+    expect(wrapper).toHaveClass('ams-radio')
+    expect(input).toHaveClass('ams-radio__input')
+    expect(label).toHaveClass('ams-radio__label')
   })
 
   it('renders an additional class name', () => {
@@ -38,7 +38,7 @@ describe('Radio', () => {
 
     const wrapper = container.querySelector(':only-child')
 
-    expect(wrapper).toHaveClass('amsterdam-radio extra')
+    expect(wrapper).toHaveClass('ams-radio extra')
   })
 
   // checked state

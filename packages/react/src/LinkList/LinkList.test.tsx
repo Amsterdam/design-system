@@ -18,7 +18,7 @@ describe('Link list', () => {
 
     const component = screen.getByRole('list')
 
-    expect(component).toHaveClass('amsterdam-link-list')
+    expect(component).toHaveClass('ams-link-list')
   })
 
   it('renders an additional class name', () => {
@@ -26,7 +26,7 @@ describe('Link list', () => {
 
     const component = screen.getByRole('list')
 
-    expect(component).toHaveClass('amsterdam-link-list extra')
+    expect(component).toHaveClass('ams-link-list extra')
   })
 
   it('supports ForwardRef in React', () => {

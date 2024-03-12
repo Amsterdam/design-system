@@ -14,50 +14,50 @@
   -webkit-text-size-adjust: 100%;
 }
 
-.amsterdam-page-menu {
+.ams-page-menu {
   align-items: center;
-  column-gap: var(--amsterdam-page-menu-column-gap);
+  column-gap: var(--ams-page-menu-column-gap);
   display: flex;
   flex-direction: row;
   list-style: none;
-  row-gap: var(--amsterdam-page-menu-row-gap);
+  row-gap: var(--ams-page-menu-row-gap);
 
   @include reset-list;
 }
 
-.amsterdam-page-menu--align-end {
+.ams-page-menu--align-end {
   justify-content: end;
 }
 
 @mixin page-menu-item {
-  color: var(--amsterdam-page-menu-item-color);
+  color: var(--ams-page-menu-item-color);
   display: inline-flex;
   flex-direction: row;
-  font-family: var(--amsterdam-page-menu-item-font-family);
-  font-size: var(--amsterdam-page-menu-item-font-size);
-  font-weight: var(--amsterdam-page-menu-item-font-weight);
-  gap: var(--amsterdam-page-menu-item-gap);
-  line-height: var(--amsterdam-page-menu-item-line-height);
-  outline-offset: var(--amsterdam-page-menu-item-outline-offset);
+  font-family: var(--ams-page-menu-item-font-family);
+  font-size: var(--ams-page-menu-item-font-size);
+  font-weight: var(--ams-page-menu-item-font-weight);
+  gap: var(--ams-page-menu-item-gap);
+  line-height: var(--ams-page-menu-item-line-height);
+  outline-offset: var(--ams-page-menu-item-outline-offset);
   text-align: center;
-  text-decoration-line: var(--amsterdam-page-menu-item-text-decoration-line);
-  text-decoration-thickness: var(--amsterdam-page-menu-item-text-decoration-thickness);
-  text-underline-offset: var(--amsterdam-page-menu-item-text-underline-offset);
+  text-decoration-line: var(--ams-page-menu-item-text-decoration-line);
+  text-decoration-thickness: var(--ams-page-menu-item-text-decoration-thickness);
+  text-underline-offset: var(--ams-page-menu-item-text-underline-offset);
   touch-action: manipulation;
   white-space: nowrap;
 }
 
-.amsterdam-page-menu__link {
+.ams-page-menu__link {
   @include page-menu-item;
   @include reset-item;
 }
 
-.amsterdam-page-menu__link:hover,
-.amsterdam-page-menu__button:hover {
-  color: var(--amsterdam-page-menu-item-hover-color);
-  text-decoration-line: var(--amsterdam-page-menu-item-hover-text-decoration-line);
+.ams-page-menu__link:hover,
+.ams-page-menu__button:hover {
+  color: var(--ams-page-menu-item-hover-color);
+  text-decoration-line: var(--ams-page-menu-item-hover-text-decoration-line);
 }
 
-.amsterdam-page-menu__link svg {
+.ams-page-menu__link svg {
   color: currentColor;
 }

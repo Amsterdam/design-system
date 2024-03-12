@@ -11,7 +11,7 @@ export type TableFooterProps = PropsWithChildren<HTMLAttributes<HTMLTableSection
 
 export const TableFooter = forwardRef(
   ({ children, className, ...restProps }: TableFooterProps, ref: ForwardedRef<HTMLTableSectionElement>) => (
-    <tfoot {...restProps} ref={ref} className={clsx('amsterdam-table__footer', className)}>
+    <tfoot {...restProps} ref={ref} className={clsx('ams-table__footer', className)}>
       {children}
     </tfoot>
   ),

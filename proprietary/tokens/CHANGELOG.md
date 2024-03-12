@@ -3,6 +3,25 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.7.0](https://github.com/Amsterdam/design-system/compare/design-system-tokens-v0.6.1...design-system-tokens-v0.7.0) (2024-03-12)
+
+
+### ⚠ BREAKING CHANGES
+
+* Shorten namespaces in theme and tokens ([#1125](https://github.com/Amsterdam/design-system/issues/1125))
+
+### Features
+
+* Shorten namespaces in theme and tokens ([#1125](https://github.com/Amsterdam/design-system/issues/1125)) ([1c81f3b](https://github.com/Amsterdam/design-system/commit/1c81f3bd14c1f202eec2341aec1888fb74d956d5))
+
+## [0.6.1](https://github.com/Amsterdam/design-system/compare/design-system-tokens-v0.6.0...design-system-tokens-v0.6.1) (2024-03-11)
+
+
+### Bug Fixes
+
+* Button fixes ([#1122](https://github.com/Amsterdam/design-system/issues/1122)) ([b5a9504](https://github.com/Amsterdam/design-system/commit/b5a950491f46710d92526ce6012f7d76992a569f))
+* Fix small space token lengths ([#1126](https://github.com/Amsterdam/design-system/issues/1126)) ([d9111dc](https://github.com/Amsterdam/design-system/commit/d9111dc99a41f399e892a9da994b74efdad53d97))
+
 ## [0.6.0](https://github.com/Amsterdam/design-system/compare/design-system-tokens-v0.5.1...design-system-tokens-v0.6.0) (2024-03-08)
 
 

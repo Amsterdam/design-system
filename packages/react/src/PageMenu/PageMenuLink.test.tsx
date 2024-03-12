@@ -19,7 +19,7 @@ describe('Page menu link', () => {
 
     const component = screen.getByRole('link')
 
-    expect(component).toHaveClass('amsterdam-page-menu__link')
+    expect(component).toHaveClass('ams-page-menu__link')
   })
 
   it('renders an additional class name', () => {
@@ -31,13 +31,13 @@ describe('Page menu link', () => {
 
     const component = screen.getByRole('link')
 
-    expect(component).toHaveClass('amsterdam-page-menu__link extra')
+    expect(component).toHaveClass('ams-page-menu__link extra')
   })
 
   it('does not render an icon by default', () => {
     const { container } = render(<PageMenuLink href="#">Link</PageMenuLink>)
 
-    const svg = container.querySelector('.amsterdam-icon')
+    const svg = container.querySelector('.ams-icon')
 
     expect(svg).not.toBeInTheDocument()
   })
@@ -49,7 +49,7 @@ describe('Page menu link', () => {
       </PageMenuLink>,
     )
 
-    const svg = container.querySelector('.amsterdam-icon')
+    const svg = container.querySelector('.ams-icon')
 
     expect(svg).toBeInTheDocument()
   })

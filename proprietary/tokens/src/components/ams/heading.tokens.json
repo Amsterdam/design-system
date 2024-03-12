@@ -1,0 +1,36 @@
+{
+  "ams": {
+    "heading": {
+      "color": { "value": "{ams.color.primary-black}" },
+      "font-family": { "value": "{ams.text.font-family}" },
+      "font-weight": { "value": "{ams.text.font-weight.bold}" },
+      "inverse-color": { "value": "{ams.color.primary-white}" },
+      "level": {
+        "1": {
+          "font-size": { "value": "{ams.text.level.1.font-size}" },
+          "line-height": { "value": "{ams.text.level.1.line-height}" }
+        },
+        "2": {
+          "font-size": { "value": "{ams.text.level.2.font-size}" },
+          "line-height": { "value": "{ams.text.level.2.line-height}" }
+        },
+        "3": {
+          "font-size": { "value": "{ams.text.level.3.font-size}" },
+          "line-height": { "value": "{ams.text.level.3.line-height}" }
+        },
+        "4": {
+          "font-size": { "value": "{ams.text.level.4.font-size}" },
+          "line-height": { "value": "{ams.text.level.4.line-height}" }
+        },
+        "5": {
+          "font-size": { "value": "{ams.text.level.5.font-size}" },
+          "line-height": { "value": "{ams.text.level.5.line-height}" }
+        },
+        "6": {
+          "font-size": { "value": "{ams.text.level.6.font-size}" },
+          "line-height": { "value": "{ams.text.level.6.line-height}" }
+        }
+      }
+    }
+  }
+}

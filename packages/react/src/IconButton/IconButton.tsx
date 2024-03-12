@@ -26,9 +26,9 @@ export const IconButton = forwardRef(
       {...restProps}
       ref={ref}
       className={clsx(
-        'amsterdam-icon-button',
-        onBackground === 'light' && 'amsterdam-icon-button--on-background-light',
-        onBackground === 'dark' && 'amsterdam-icon-button--on-background-dark',
+        'ams-icon-button',
+        onBackground === 'light' && 'ams-icon-button--on-background-light',
+        onBackground === 'dark' && 'ams-icon-button--on-background-dark',
         className,
       )}
     >
