@@ -32,7 +32,7 @@ describe('Table caption', () => {
     })
     const caption = component?.querySelector(':only-child')
 
-    expect(caption).toHaveClass('amsterdam-table__caption')
+    expect(caption).toHaveClass('ams-table__caption')
   })
 
   it('renders an additional class name', () => {
@@ -47,7 +47,7 @@ describe('Table caption', () => {
     })
     const caption = component?.querySelector(':only-child')
 
-    expect(caption).toHaveClass('amsterdam-table__caption extra')
+    expect(caption).toHaveClass('ams-table__caption extra')
   })
 
   it('supports ForwardRef in React', () => {

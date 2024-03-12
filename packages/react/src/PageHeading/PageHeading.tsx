@@ -20,7 +20,7 @@ export const PageHeading = forwardRef(
     <h1
       {...restProps}
       ref={ref}
-      className={clsx('amsterdam-page-heading', inverseColor && 'amsterdam-page-heading--inverse-color', className)}
+      className={clsx('ams-page-heading', inverseColor && 'ams-page-heading--inverse-color', className)}
     >
       {children}
     </h1>

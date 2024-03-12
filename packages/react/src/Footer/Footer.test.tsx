@@ -18,7 +18,7 @@ describe('Footer', () => {
 
     const component = screen.getByRole('contentinfo')
 
-    expect(component).toHaveClass('amsterdam-footer')
+    expect(component).toHaveClass('ams-footer')
   })
 
   it('renders an additional class name', () => {
@@ -26,7 +26,7 @@ describe('Footer', () => {
 
     const component = screen.getByRole('contentinfo')
 
-    expect(component).toHaveClass('amsterdam-footer extra')
+    expect(component).toHaveClass('ams-footer extra')
   })
 
   it('supports ForwardRef in React', () => {

@@ -28,7 +28,7 @@ function generateSharedConfig(mode) {
           destination: `${name}.theme.css`,
           format: 'css/variables',
           options: {
-            selector: `.amsterdam-theme${name === 'index' ? '' : `--${name}`}`,
+            selector: `.ams-theme${name === 'index' ? '' : `--${name}`}`,
             outputReferences: true,
           },
         },

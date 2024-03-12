@@ -52,3 +52,14 @@ This will cause a major version bump in both packages on release and add its des
     git merge --ff-only origin/main
     git push
    ```
+
+### Gotchas
+
+Release Please uses labels to determine the status of a release.
+A release PR gets the label `autorelease: pending` or `autorelease: triggered`.
+When running the action again, the PR with those labels gets released, and the labels should be removed.
+However, due to GitHub API failures, it's possible that the label was not removed correctly upon a previous release and Release Please thinks that the previous release is still pending.
+Release Please will not create a new release PR if it thinks there is a pending release.
+To fix this, check whether any closed PRs still have the `autorelease: pending` or `autorelease: triggered` labels, and remove them.
+
+[See the Release Please docs for more information](https://github.com/googleapis/release-please?tab=readme-ov-file#release-please-bot-does-not-create-a-release-pr-why).

@@ -24,7 +24,7 @@ describe('Link list link', () => {
 
     const component = screen.getByRole('link')
 
-    expect(component).toHaveClass('amsterdam-link-list__link')
+    expect(component).toHaveClass('ams-link-list__link')
   })
 
   it('renders an additional class name', () => {
@@ -32,7 +32,7 @@ describe('Link list link', () => {
 
     const component = screen.getByRole('link')
 
-    expect(component).toHaveClass('amsterdam-link-list__link extra')
+    expect(component).toHaveClass('ams-link-list__link extra')
   })
 
   it('renders a class name for the small size', () => {
@@ -40,7 +40,7 @@ describe('Link list link', () => {
 
     const component = screen.getByRole('link')
 
-    expect(component).toHaveClass('amsterdam-link-list__link--small')
+    expect(component).toHaveClass('ams-link-list__link--small')
   })
 
   it('renders a class name for the background color', () => {
@@ -48,7 +48,7 @@ describe('Link list link', () => {
 
     const component = screen.getByRole('link')
 
-    expect(component).toHaveClass('amsterdam-link-list__link--on-background-dark')
+    expect(component).toHaveClass('ams-link-list__link--on-background-dark')
   })
 
   it('supports ForwardRef in React', () => {

@@ -1,0 +1,17 @@
+/**
+ * @license EUPL-1.2+
+ * Copyright Gemeente Amsterdam
+ */
+
+@import "../../common/size";
+
+.ams-row {
+  display: flex;
+  flex-direction: row;
+}
+
+@each $size, $label in $ams-sizes {
+  .ams-row--#{$label} {
+    gap: var(--ams-row-gap-#{$size});
+  }
+}

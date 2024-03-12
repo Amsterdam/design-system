@@ -1,0 +1,11 @@
+{
+  "ams": {
+    "form-field-character-counter": {
+      "color": { "value": "{ams.color.primary-black}" },
+      "font-family": { "value": "{ams.typography.font-family}" },
+      "font-size": { "value": "{ams.typography.text-level.6.font-size}" },
+      "font-weight": { "value": "{ams.typography.font-weight.normal}" },
+      "line-height": { "value": "{ams.typography.text-level.6.line-height}" }
+    }
+  }
+}

@@ -12,7 +12,7 @@ export default function (plop) {
     actions: [
       {
         type: 'add',
-        path: 'proprietary/tokens/src/components/amsterdam/{{kebabCase name}}.tokens.json',
+        path: 'proprietary/tokens/src/components/ams/{{kebabCase name}}.tokens.json',
         templateFile: 'plop-templates/tokens.json.hbs',
       },
       {

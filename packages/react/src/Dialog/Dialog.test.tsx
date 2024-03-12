@@ -18,7 +18,7 @@ describe('Dialog', () => {
 
     const component = screen.getByRole('dialog', { hidden: true })
 
-    expect(component).toHaveClass('amsterdam-dialog')
+    expect(component).toHaveClass('ams-dialog')
   })
 
   it('renders an additional class name', () => {
@@ -28,7 +28,7 @@ describe('Dialog', () => {
 
     expect(component).toHaveClass('extra')
 
-    expect(component).toHaveClass('amsterdam-dialog')
+    expect(component).toHaveClass('ams-dialog')
   })
 
   it('supports ForwardRef in React', () => {

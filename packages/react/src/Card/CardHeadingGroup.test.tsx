@@ -18,7 +18,7 @@ describe('Card heading group', () => {
 
     const component = container.querySelector(':only-child')
 
-    expect(component).toHaveClass('amsterdam-card__heading-group')
+    expect(component).toHaveClass('ams-card__heading-group')
   })
 
   it('renders an additional class name', () => {
@@ -26,7 +26,7 @@ describe('Card heading group', () => {
 
     const component = container.querySelector(':only-child')
 
-    expect(component).toHaveClass('amsterdam-card__heading-group extra')
+    expect(component).toHaveClass('ams-card__heading-group extra')
   })
 
   it('renders a tagline', () => {

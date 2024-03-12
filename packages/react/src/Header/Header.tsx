@@ -36,16 +36,16 @@ export const Header = forwardRef(
   ) => {
     return (
       <>
-        <header {...restProps} ref={ref} className={clsx('amsterdam-header', className)}>
-          <a href={logoLink} className="amsterdam-header__logo">
+        <header {...restProps} ref={ref} className={clsx('ams-header', className)}>
+          <a href={logoLink} className="ams-header__logo-link">
             <VisuallyHidden>{logoLinkTitle}</VisuallyHidden>
             <Logo brand={logoBrand} />
           </a>
-          {links && <div className="amsterdam-header__links">{links}</div>}
-          {menu && <div className="amsterdam-header__menu">{menu}</div>}
+          {links && <div className="ams-header__links">{links}</div>}
+          {menu && <div className="ams-header__menu">{menu}</div>}
           {title && (
-            <div className="amsterdam-header__title">
-              <Heading level={1} size="level-3" className="amsterdam-header__title-heading">
+            <div className="ams-header__title">
+              <Heading level={1} size="level-3" className="ams-header__title-heading">
                 {title}
               </Heading>
             </div>

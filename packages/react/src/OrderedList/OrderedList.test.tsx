@@ -16,7 +16,23 @@ describe('Ordered list', () => {
 
     const component = screen.getByRole('list')
 
-    expect(component).toHaveClass('amsterdam-ordered-list')
+    expect(component).toHaveClass('ams-ordered-list')
+  })
+
+  it('renders a no markers class', () => {
+    render(<OrderedList markers={false} />)
+
+    const component = screen.getByRole('list')
+
+    expect(component).toHaveClass('ams-ordered-list--no-markers')
+  })
+
+  it('renders an inverse color class', () => {
+    render(<OrderedList inverseColor />)
+
+    const component = screen.getByRole('list')
+
+    expect(component).toHaveClass('ams-ordered-list--inverse-color')
   })
 
   it('renders an additional class name', () => {
@@ -24,7 +40,25 @@ describe('Ordered list', () => {
 
     const component = screen.getByRole('list')
 
-    expect(component).toHaveClass('amsterdam-ordered-list extra')
+    expect(component).toHaveClass('ams-ordered-list extra')
+  })
+
+  it('renders its subcomponent', () => {
+    const listItems = ['Item 1', 'Item 2', 'Item 3']
+
+    const { container } = render(
+      <OrderedList>
+        {listItems.map((item, index) => (
+          <OrderedList.Item key={index}>{item}</OrderedList.Item>
+        ))}
+      </OrderedList>,
+    )
+
+    const list = screen.getByRole('list')
+    const items = container.querySelectorAll('.ams-ordered-list__item')
+
+    expect(list).toBeInTheDocument()
+    expect(items.length).toBe(3)
   })
 
   it('supports ForwardRef in React', () => {

@@ -4,6 +4,7 @@ name: Feature branch cleanup
 on:
   pull_request:
     types: [closed]
+    branches-ignore: [main]
 
 env:
   BRANCH_NAME: ${{ github.head_ref || github.ref_name }}

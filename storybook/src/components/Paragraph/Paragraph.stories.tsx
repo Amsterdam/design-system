@@ -37,7 +37,7 @@ type Story = StoryObj<typeof meta>
 export const Default: Story = {
   decorators: [
     (Story, context) => (
-      <div className={context.args.inverseColor ? 'amsterdam-docs-dark-background' : undefined}>
+      <div className={context.args.inverseColor ? 'ams-docs-dark-background' : undefined}>
         <Story />
       </div>
     ),
@@ -62,7 +62,7 @@ export const InvertedColor: Story = {
   },
   decorators: [
     (Story, context) => (
-      <div className={context.args.inverseColor ? 'amsterdam-docs-dark-background' : undefined}>
+      <div className={context.args.inverseColor ? 'ams-docs-dark-background' : undefined}>
         <Story />
       </div>
     ),

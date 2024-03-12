@@ -31,7 +31,7 @@ export const GridCell = forwardRef(
     { as: Tag = 'div', children, className, span, start, ...restProps }: GridCellProps,
     ref: ForwardedRef<HTMLDivElement>,
   ) => (
-    <Tag {...restProps} ref={ref} className={clsx('amsterdam-grid__cell', gridCellClasses(span, start), className)}>
+    <Tag {...restProps} ref={ref} className={clsx('ams-grid__cell', gridCellClasses(span, start), className)}>
       {children}
     </Tag>
   ),

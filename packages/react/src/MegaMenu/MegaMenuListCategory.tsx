@@ -10,7 +10,7 @@ export type MegaMenuListCategoryProps = PropsWithChildren<HTMLAttributes<HTMLDiv
 
 export const MegaMenuListCategory = forwardRef(
   ({ children, className, ...restProps }: MegaMenuListCategoryProps, ref: ForwardedRef<HTMLDivElement>) => (
-    <div {...restProps} ref={ref} className={clsx('amsterdam-mega-menu__list-category', className)}>
+    <div {...restProps} ref={ref} className={clsx('ams-mega-menu__list-category', className)}>
       {children}
     </div>
   ),

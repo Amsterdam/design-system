@@ -24,7 +24,7 @@ export const Column = forwardRef(
     { as: Tag = 'div', children, className, gap = 'medium', ...restProps }: ColumnProps,
     ref: ForwardedRef<HTMLDivElement>,
   ) => (
-    <Tag {...restProps} ref={ref} className={clsx('amsterdam-column', `amsterdam-column--${gap}`, className)}>
+    <Tag {...restProps} ref={ref} className={clsx('ams-column', `ams-column--${gap}`, className)}>
       {children}
     </Tag>
   ),

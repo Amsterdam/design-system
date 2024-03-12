@@ -1,7 +1,0 @@
-{
-  "amsterdam": {
-    "grid": {
-      "padding-inline": { "value": "{amsterdam.space.md}" }
-    }
-  }
-}

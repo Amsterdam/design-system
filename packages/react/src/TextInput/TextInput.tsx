@@ -11,7 +11,7 @@ export type TextInputProps = InputHTMLAttributes<HTMLInputElement>
 
 export const TextInput = forwardRef(
   ({ className, ...restProps }: TextInputProps, ref: ForwardedRef<HTMLInputElement>) => (
-    <input {...restProps} className={clsx('amsterdam-text-input', className)} ref={ref} type="text" />
+    <input {...restProps} className={clsx('ams-text-input', className)} ref={ref} type="text" />
   ),
 )
 

@@ -18,7 +18,7 @@ describe('Icon', () => {
 
     const icon = container.querySelector(':only-child')
 
-    expect(icon).toHaveClass('amsterdam-icon')
+    expect(icon).toHaveClass('ams-icon')
   })
 
   it('renders an svg child', () => {
@@ -35,10 +35,10 @@ describe('Icon', () => {
     const { container: level5 } = render(<Icon svg={AlertIcon} size="level-5" />)
     const { container: level6 } = render(<Icon svg={AlertIcon} size="level-6" />)
 
-    expect(level3.firstChild).toHaveClass('amsterdam-icon--size-3')
-    expect(level4.firstChild).toHaveClass('amsterdam-icon--size-4')
-    expect(level5.firstChild).toHaveClass('amsterdam-icon--size-5')
-    expect(level6.firstChild).toHaveClass('amsterdam-icon--size-6')
+    expect(level3.firstChild).toHaveClass('ams-icon--size-3')
+    expect(level4.firstChild).toHaveClass('ams-icon--size-4')
+    expect(level5.firstChild).toHaveClass('ams-icon--size-5')
+    expect(level6.firstChild).toHaveClass('ams-icon--size-6')
   })
 
   it('renders the right square class', () => {
@@ -46,7 +46,7 @@ describe('Icon', () => {
 
     const icon = container.querySelector('span:only-child')
 
-    expect(icon).toHaveClass('amsterdam-icon--square')
+    expect(icon).toHaveClass('ams-icon--square')
   })
 
   it('renders an additional class name', () => {
@@ -55,7 +55,7 @@ describe('Icon', () => {
     const icon = container.querySelector(':only-child')
 
     expect(icon).toHaveClass('large')
-    expect(icon).toHaveClass('amsterdam-icon')
+    expect(icon).toHaveClass('ams-icon')
   })
 
   it('supports ForwardRef in React', () => {

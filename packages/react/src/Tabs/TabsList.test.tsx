@@ -17,7 +17,7 @@ describe('Tabs list', () => {
 
     const component = screen.getByRole('tablist')
 
-    expect(component).toHaveClass('amsterdam-tabs__list')
+    expect(component).toHaveClass('ams-tabs__list')
   })
 
   it('renders an additional class name', () => {
@@ -25,7 +25,7 @@ describe('Tabs list', () => {
 
     const component = screen.getByRole('tablist')
 
-    expect(component).toHaveClass('amsterdam-tabs__list extra')
+    expect(component).toHaveClass('ams-tabs__list extra')
   })
 
   it('supports ForwardRef in React', () => {
@@ -33,7 +33,7 @@ describe('Tabs list', () => {
 
     const { container } = render(<TabsList ref={ref} />)
 
-    const tabsList = container.querySelector('.amsterdam-tabs__list')
+    const tabsList = container.querySelector('.ams-tabs__list')
 
     expect(ref.current).toBe(tabsList)
   })

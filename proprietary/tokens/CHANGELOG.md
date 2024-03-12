@@ -3,6 +3,58 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.7.0](https://github.com/Amsterdam/design-system/compare/design-system-tokens-v0.6.1...design-system-tokens-v0.7.0) (2024-03-12)
+
+
+### ⚠ BREAKING CHANGES
+
+* Shorten namespaces in theme and tokens ([#1125](https://github.com/Amsterdam/design-system/issues/1125))
+
+### Features
+
+* Shorten namespaces in theme and tokens ([#1125](https://github.com/Amsterdam/design-system/issues/1125)) ([1c81f3b](https://github.com/Amsterdam/design-system/commit/1c81f3bd14c1f202eec2341aec1888fb74d956d5))
+
+## [0.6.1](https://github.com/Amsterdam/design-system/compare/design-system-tokens-v0.6.0...design-system-tokens-v0.6.1) (2024-03-11)
+
+
+### Bug Fixes
+
+* Button fixes ([#1122](https://github.com/Amsterdam/design-system/issues/1122)) ([b5a9504](https://github.com/Amsterdam/design-system/commit/b5a950491f46710d92526ce6012f7d76992a569f))
+* Fix small space token lengths ([#1126](https://github.com/Amsterdam/design-system/issues/1126)) ([d9111dc](https://github.com/Amsterdam/design-system/commit/d9111dc99a41f399e892a9da994b74efdad53d97))
+
+## [0.6.0](https://github.com/Amsterdam/design-system/compare/design-system-tokens-v0.5.1...design-system-tokens-v0.6.0) (2024-03-08)
+
+
+### ⚠ BREAKING CHANGES
+
+* Rename ‘header logo’ to ‘header logo link’ and add missing token for outline offset ([#1108](https://github.com/Amsterdam/design-system/issues/1108))
+* Group design tokens for Grid Space ([#1098](https://github.com/Amsterdam/design-system/issues/1098))
+* Merge tokens for start and end padding ([#1112](https://github.com/Amsterdam/design-system/issues/1112))
+* Use spacing tokens in Grid component ([#1089](https://github.com/Amsterdam/design-system/issues/1089))
+* Remove whitespace at the right end of dialog content ([#1091](https://github.com/Amsterdam/design-system/issues/1091))
+* Delete inset spacing tokens ([#1090](https://github.com/Amsterdam/design-system/issues/1090))
+
+### Features
+
+* Add and use tokens for inside space ([#1093](https://github.com/Amsterdam/design-system/issues/1093)) ([81c9f7a](https://github.com/Amsterdam/design-system/commit/81c9f7acece4f6747150416a3db9f1258c2f6b3d))
+* Add Column component and Gap and Margin utilities for vertical spacing ([#1083](https://github.com/Amsterdam/design-system/issues/1083)) ([d092cb3](https://github.com/Amsterdam/design-system/commit/d092cb30e865f712b91b9b197803db7443e2c8cc))
+* Add Fieldset component ([#1081](https://github.com/Amsterdam/design-system/issues/1081)) ([e9683c7](https://github.com/Amsterdam/design-system/commit/e9683c7a603fcfd031d6f24769789cc0d63b3c3d))
+* Add Radio, update Checkbox and Switch ([#1100](https://github.com/Amsterdam/design-system/issues/1100)) ([79224e3](https://github.com/Amsterdam/design-system/commit/79224e3d97389ec1a5ae1a36fb4012de10109d66))
+* Add Tabs component ([#1068](https://github.com/Amsterdam/design-system/issues/1068)) ([4eec887](https://github.com/Amsterdam/design-system/commit/4eec887c579f478b552126e684aba28d037bf9cb))
+* Add TextArea Component ([#1095](https://github.com/Amsterdam/design-system/issues/1095)) ([2a50130](https://github.com/Amsterdam/design-system/commit/2a5013025823e32435ed6a7fe9bcbd138deaf511))
+* Allow lists to appear in white on a dark background ([#1074](https://github.com/Amsterdam/design-system/issues/1074)) ([14132ed](https://github.com/Amsterdam/design-system/commit/14132edeb96f96c65f0f73cc17a8462afd32d108))
+* Delete inset spacing tokens ([#1090](https://github.com/Amsterdam/design-system/issues/1090)) ([b1bdf7e](https://github.com/Amsterdam/design-system/commit/b1bdf7efd303d0e1244c14d584c79d7f5a775616))
+* Group design tokens for Grid Space ([#1098](https://github.com/Amsterdam/design-system/issues/1098)) ([7d6f333](https://github.com/Amsterdam/design-system/commit/7d6f333258d49ad3914e5dc88e01e49b58b04902))
+* Introduce tokens for stack spacing and Row component ([#1113](https://github.com/Amsterdam/design-system/issues/1113)) ([f5dba78](https://github.com/Amsterdam/design-system/commit/f5dba78a27610e717b3c10e5babd4ee7059f07f5))
+* Merge tokens for start and end padding ([#1112](https://github.com/Amsterdam/design-system/issues/1112)) ([20f46ba](https://github.com/Amsterdam/design-system/commit/20f46babe51c087198bf58c7d3e506a3fd3c70a8))
+* Rename ‘header logo’ to ‘header logo link’ and add missing token for outline offset ([#1108](https://github.com/Amsterdam/design-system/issues/1108)) ([f87e834](https://github.com/Amsterdam/design-system/commit/f87e8345ec900ab08941d5d7ab40f8abd16a569a))
+* Use spacing tokens in Grid component ([#1089](https://github.com/Amsterdam/design-system/issues/1089)) ([b55f0a3](https://github.com/Amsterdam/design-system/commit/b55f0a3b64dcfb660a878ade75033a1dd835ac2d))
+
+
+### Bug Fixes
+
+* Remove whitespace at the right end of dialog content ([#1091](https://github.com/Amsterdam/design-system/issues/1091)) ([23e1253](https://github.com/Amsterdam/design-system/commit/23e1253e38bba8ac85ebbd696af37742d1c1a02d))
+
 ## [0.5.1](https://github.com/Amsterdam/design-system/compare/design-system-tokens-v0.5.0...design-system-tokens-v0.5.1) (2024-02-13)
 
 

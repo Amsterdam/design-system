@@ -18,7 +18,7 @@ describe('{{sentenceCase name}}', () => {
 
     const component = container.querySelector(':only-child')
 
-    expect(component).toHaveClass('amsterdam-{{kebabCase name}}')
+    expect(component).toHaveClass('ams-{{kebabCase name}}')
   })
 
   it('renders an additional class name', () => {
@@ -26,7 +26,7 @@ describe('{{sentenceCase name}}', () => {
 
     const component = container.querySelector(':only-child')
 
-    expect(component).toHaveClass('amsterdam-{{kebabCase name}} extra')
+    expect(component).toHaveClass('ams-{{kebabCase name}} extra')
   })
 
   it('supports ForwardRef in React', () => {

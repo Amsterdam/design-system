@@ -1,0 +1,12 @@
+{
+  "ams": {
+    "screen": {
+      "wide": {
+        "max-width": { "value": "100rem" }
+      },
+      "x-wide": {
+        "max-width": { "value": "132rem" }
+      }
+    }
+  }
+}

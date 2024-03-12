@@ -10,51 +10,51 @@
   box-sizing: border-box;
 }
 
-.amsterdam-switch__input {
+.ams-switch__input {
   @include hide-input;
   @include input-label-focus;
 }
 
-.amsterdam-switch__label {
-  background-color: var(--amsterdam-switch-background-color);
-  border-radius: calc(var(--amsterdam-switch-thumb-width) * 2);
+.ams-switch__label {
+  background-color: var(--ams-switch-background-color);
+  border-radius: calc(var(--ams-switch-thumb-width) * 2);
   cursor: pointer;
   display: inline-block;
-  outline-offset: var(--amsterdam-switch-outline-offset);
+  outline-offset: var(--ams-switch-outline-offset);
   padding-block: 1px;
   padding-inline: 1px;
   transition: background-color 0.2s ease-in-out;
-  width: var(--amsterdam-switch-width);
+  width: var(--ams-switch-width);
 
   @include reset;
 }
 
-.amsterdam-switch__label::before {
-  background-color: var(--amsterdam-switch-thumb-background-color);
+.ams-switch__label::before {
+  background-color: var(--ams-switch-thumb-background-color);
   border-radius: 50%;
   content: "";
   display: block;
-  height: var(--amsterdam-switch-thumb-height);
+  height: var(--ams-switch-thumb-height);
   transition-duration: 0.1s;
   transition-property: box-shadow, transform;
   transition-timing-function: ease-in-out;
-  width: var(--amsterdam-switch-thumb-width);
+  width: var(--ams-switch-thumb-width);
 }
 
-.amsterdam-switch__input:checked + .amsterdam-switch__label {
-  background-color: var(--amsterdam-switch-checked-background-color);
+.ams-switch__input:checked + .ams-switch__label {
+  background-color: var(--ams-switch-checked-background-color);
 }
 
-.amsterdam-switch__input:disabled + .amsterdam-switch__label {
-  background-color: var(--amsterdam-switch-disabled-background-color);
+.ams-switch__input:disabled + .ams-switch__label {
+  background-color: var(--ams-switch-disabled-background-color);
   cursor: not-allowed;
 }
 
-.amsterdam-switch__input:checked + .amsterdam-switch__label::before {
+.ams-switch__input:checked + .ams-switch__label::before {
   // The 2px is to account for the 1px padding-inline on the label
-  transform: translate(calc(var(--amsterdam-switch-width) - var(--amsterdam-switch-thumb-width) - 2px));
+  transform: translate(calc(var(--ams-switch-width) - var(--ams-switch-thumb-width) - 2px));
 }
 
-.amsterdam-switch:hover .amsterdam-switch__input:enabled + .amsterdam-switch__label::before {
-  box-shadow: 0 0 0 2px var(--amsterdam-switch-thumb-hover-color);
+.ams-switch:hover .ams-switch__input:enabled + .ams-switch__label::before {
+  box-shadow: 0 0 0 2px var(--ams-switch-thumb-hover-color);
 }

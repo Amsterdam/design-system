@@ -3,7 +3,7 @@
  * Copyright Gemeente Amsterdam
  */
 
-.amsterdam-search-field {
+.ams-search-field {
   display: flex;
   isolation: isolate; // create new stacking context, so the input’s z-index doesn’t escape the component
 }
@@ -14,24 +14,24 @@
   -webkit-text-size-adjust: 100%;
 }
 
-.amsterdam-search-field__input {
+.ams-search-field__input {
   border: none;
-  box-shadow: var(--amsterdam-search-field-input-box-shadow);
-  color: var(--amsterdam-search-field-input-color);
-  font-family: var(--amsterdam-search-field-input-font-family);
-  font-size: var(--amsterdam-search-field-input-font-size);
-  font-weight: var(--amsterdam-search-field-input-font-weight);
-  line-height: var(--amsterdam-search-field-input-line-height);
-  outline-offset: var(--amsterdam-search-field-input-outline-offset);
-  padding-block: var(--amsterdam-search-field-input-padding-block);
-  padding-inline: var(--amsterdam-search-field-input-padding-inline);
+  box-shadow: var(--ams-search-field-input-box-shadow);
+  color: var(--ams-search-field-input-color);
+  font-family: var(--ams-search-field-input-font-family);
+  font-size: var(--ams-search-field-input-font-size);
+  font-weight: var(--ams-search-field-input-font-weight);
+  line-height: var(--ams-search-field-input-line-height);
+  outline-offset: var(--ams-search-field-input-outline-offset);
+  padding-block: var(--ams-search-field-input-padding-block);
+  padding-inline: var(--ams-search-field-input-padding-inline);
   touch-action: manipulation;
   width: 100%;
 
   @include reset;
 
   &:hover {
-    box-shadow: var(--amsterdam-search-field-input-hover-box-shadow);
+    box-shadow: var(--ams-search-field-input-hover-box-shadow);
   }
 
   &:focus {
@@ -39,32 +39,32 @@
   }
 }
 
-.amsterdam-search-field__input::placeholder {
-  color: var(--amsterdam-search-field-input-placeholder-color);
+.ams-search-field__input::placeholder {
+  color: var(--ams-search-field-input-placeholder-color);
 }
 
-.amsterdam-search-field__input::-webkit-search-cancel-button {
+.ams-search-field__input::-webkit-search-cancel-button {
   appearance: none;
-  background-image: var(--amsterdam-search-field-input-cancel-button-background-image);
+  background-image: var(--ams-search-field-input-cancel-button-background-image);
   cursor: pointer;
-  height: var(--amsterdam-search-field-input-cancel-button-height);
+  height: var(--ams-search-field-input-cancel-button-height);
   margin-inline-start: 0.5rem;
-  width: var(--amsterdam-search-field-input-cancel-button-width);
+  width: var(--ams-search-field-input-cancel-button-width);
 }
 
-.amsterdam-search-field__button {
-  background-color: var(--amsterdam-search-field-button-background-color);
+.ams-search-field__button {
+  background-color: var(--ams-search-field-button-background-color);
   border: 0;
-  color: var(--amsterdam-search-field-button-color);
+  color: var(--ams-search-field-button-color);
   cursor: pointer;
-  outline-offset: var(--amsterdam-search-field-button-outline-offset);
+  outline-offset: var(--ams-search-field-button-outline-offset);
 
   // TODO Check if these paddings are necessary
-  padding-block: var(--amsterdam-search-field-button-padding-block);
-  padding-inline: var(--amsterdam-search-field-button-padding-inline);
+  padding-block: var(--ams-search-field-button-padding-block);
+  padding-inline: var(--ams-search-field-button-padding-inline);
   touch-action: manipulation;
 
   &:hover {
-    background-color: var(--amsterdam-search-field-button-hover-background-color);
+    background-color: var(--ams-search-field-button-hover-background-color);
   }
 }

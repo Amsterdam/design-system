@@ -3,6 +3,55 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.7.0](https://github.com/Amsterdam/design-system/compare/design-system-react-v0.6.1...design-system-react-v0.7.0) (2024-03-12)
+
+
+### ⚠ BREAKING CHANGES
+
+* Shorten namespaces in theme and tokens ([#1125](https://github.com/Amsterdam/design-system/issues/1125))
+
+### Features
+
+* Shorten namespaces in theme and tokens ([#1125](https://github.com/Amsterdam/design-system/issues/1125)) ([1c81f3b](https://github.com/Amsterdam/design-system/commit/1c81f3bd14c1f202eec2341aec1888fb74d956d5))
+
+## [0.6.1](https://github.com/Amsterdam/design-system/compare/design-system-react-v0.6.0...design-system-react-v0.6.1) (2024-03-11)
+
+
+### Bug Fixes
+
+* Button fixes ([#1122](https://github.com/Amsterdam/design-system/issues/1122)) ([b5a9504](https://github.com/Amsterdam/design-system/commit/b5a950491f46710d92526ce6012f7d76992a569f))
+
+## [0.6.0](https://github.com/Amsterdam/design-system/compare/design-system-react-v0.5.0...design-system-react-v0.6.0) (2024-03-08)
+
+
+### ⚠ BREAKING CHANGES
+
+* Rename ‘header logo’ to ‘header logo link’ and add missing token for outline offset ([#1108](https://github.com/Amsterdam/design-system/issues/1108))
+* Use spacing tokens in Grid component ([#1089](https://github.com/Amsterdam/design-system/issues/1089))
+* Use span instead of div for VisuallyHidden ([#1080](https://github.com/Amsterdam/design-system/issues/1080))
+
+### Features
+
+* Add Column component and Gap and Margin utilities for vertical spacing ([#1083](https://github.com/Amsterdam/design-system/issues/1083)) ([d092cb3](https://github.com/Amsterdam/design-system/commit/d092cb30e865f712b91b9b197803db7443e2c8cc))
+* Add Fieldset component ([#1081](https://github.com/Amsterdam/design-system/issues/1081)) ([e9683c7](https://github.com/Amsterdam/design-system/commit/e9683c7a603fcfd031d6f24769789cc0d63b3c3d))
+* Add Radio, update Checkbox and Switch ([#1100](https://github.com/Amsterdam/design-system/issues/1100)) ([79224e3](https://github.com/Amsterdam/design-system/commit/79224e3d97389ec1a5ae1a36fb4012de10109d66))
+* Add Tabs component ([#1068](https://github.com/Amsterdam/design-system/issues/1068)) ([4eec887](https://github.com/Amsterdam/design-system/commit/4eec887c579f478b552126e684aba28d037bf9cb))
+* Add TextArea Component ([#1095](https://github.com/Amsterdam/design-system/issues/1095)) ([2a50130](https://github.com/Amsterdam/design-system/commit/2a5013025823e32435ed6a7fe9bcbd138deaf511))
+* Allow lists to appear in white on a dark background ([#1074](https://github.com/Amsterdam/design-system/issues/1074)) ([14132ed](https://github.com/Amsterdam/design-system/commit/14132edeb96f96c65f0f73cc17a8462afd32d108))
+* Introduce tokens for stack spacing and Row component ([#1113](https://github.com/Amsterdam/design-system/issues/1113)) ([f5dba78](https://github.com/Amsterdam/design-system/commit/f5dba78a27610e717b3c10e5babd4ee7059f07f5))
+* Logo Museum Weesp  ([#1088](https://github.com/Amsterdam/design-system/issues/1088)) ([da1b780](https://github.com/Amsterdam/design-system/commit/da1b7808b5bcf17acb93fe46531a9722814e9256))
+* Refactor button component ([#1065](https://github.com/Amsterdam/design-system/issues/1065)) ([c9984e3](https://github.com/Amsterdam/design-system/commit/c9984e3a5a9492b25e7b40bd9cf67945f4cd0fa1))
+* Rename ‘header logo’ to ‘header logo link’ and add missing token for outline offset ([#1108](https://github.com/Amsterdam/design-system/issues/1108)) ([f87e834](https://github.com/Amsterdam/design-system/commit/f87e8345ec900ab08941d5d7ab40f8abd16a569a))
+* Use spacing tokens in Grid component ([#1089](https://github.com/Amsterdam/design-system/issues/1089)) ([b55f0a3](https://github.com/Amsterdam/design-system/commit/b55f0a3b64dcfb660a878ade75033a1dd835ac2d))
+
+
+### Bug Fixes
+
+* Refactor Mega menu, use correct list category class ([#1079](https://github.com/Amsterdam/design-system/issues/1079)) ([00c198d](https://github.com/Amsterdam/design-system/commit/00c198de13ea3d69e4b24db6a8868ae5f7560503))
+* Use generic useFocusWithArrows hook ([#1103](https://github.com/Amsterdam/design-system/issues/1103)) ([78ebe27](https://github.com/Amsterdam/design-system/commit/78ebe27599a1e0a2fc475ac87c003cf8ff76cc06))
+* Use span instead of div for VisuallyHidden ([#1080](https://github.com/Amsterdam/design-system/issues/1080)) ([b839763](https://github.com/Amsterdam/design-system/commit/b839763066c7debe082fbe9ec2530c363a17b166))
+* Use VisuallyHidden instead of aria-label for screen reader only text in Top task link ([#1115](https://github.com/Amsterdam/design-system/issues/1115)) ([4281fa1](https://github.com/Amsterdam/design-system/commit/4281fa188a0b61bd59611fa0d65fa7657c54c361))
+
 ## [0.5.0](https://github.com/Amsterdam/design-system/compare/@amsterdam/design-system-react@0.4.0...design-system-react-v0.5.0) (2024-02-09)
 
 

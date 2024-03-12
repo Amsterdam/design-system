@@ -20,12 +20,12 @@ export const Icon = forwardRef(
     <span
       ref={ref}
       className={clsx(
-        'amsterdam-icon',
-        size === 'level-3' && 'amsterdam-icon--size-3',
-        size === 'level-4' && 'amsterdam-icon--size-4',
-        size === 'level-5' && 'amsterdam-icon--size-5',
-        size === 'level-6' && 'amsterdam-icon--size-6',
-        square && 'amsterdam-icon--square',
+        'ams-icon',
+        size === 'level-3' && 'ams-icon--size-3',
+        size === 'level-4' && 'ams-icon--size-4',
+        size === 'level-5' && 'ams-icon--size-5',
+        size === 'level-6' && 'ams-icon--size-6',
+        square && 'ams-icon--square',
         className,
       )}
       {...otherProps}
