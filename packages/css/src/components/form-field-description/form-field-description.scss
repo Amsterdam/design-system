@@ -10,16 +10,6 @@
 }
 
 .ams-form-field-description {
-  --ams-paragraph-color: var(--ams-form-field-description-color);
-  --ams-unordered-list-font-size: var(--ams-form-field-description-font-size);
-  --ams-unordered-list-line-height: var(--ams-form-field-description-line-height);
-  --ams-unordered-list-color: var(--ams-form-field-description-color);
-  --ams-unordered-list-gap: 0;
-  --ams-ordered-list-font-size: var(--ams-form-field-description-font-size);
-  --ams-ordered-list-line-height: var(--ams-form-field-description-line-height);
-  --ams-ordered-list-color: var(--ams-form-field-description-color);
-  --ams-ordered-list-gap: 0;
-
   color: var(--ams-form-field-description-color);
   font-family: var(--ams-form-field-description-font-family);
   font-size: var(--ams-form-field-description-font-size);

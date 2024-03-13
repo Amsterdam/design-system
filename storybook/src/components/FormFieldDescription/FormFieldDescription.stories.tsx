@@ -3,14 +3,7 @@
  * Copyright Gemeente Amsterdam
  */
 
-import {
-  FormFieldDescription,
-  FormLabel,
-  Paragraph,
-  TextArea,
-  TextInput,
-  UnorderedList,
-} from '@amsterdam/design-system-react'
+import { FormFieldDescription, FormLabel, Paragraph, TextInput } from '@amsterdam/design-system-react'
 import { Meta, StoryObj } from '@storybook/react'
 
 const meta = {
@@ -27,36 +20,14 @@ type Story = StoryObj<typeof meta>
 
 export const Default: Story = {}
 
-export const AboveFormField: Story = {
+export const WithFormField: Story = {
   render: () => (
     <div style={{ display: 'flex', flexDirection: 'column', gap: '.5rem' }}>
-      <FormLabel htmlFor="about" aria-describedby="aboutDescription">
-        Waar gaat het om?
-      </FormLabel>
+      <FormLabel htmlFor="about">Waar gaat het om?</FormLabel>
       <FormFieldDescription id="aboutDescription">
-        Typ geen persoonsgegevens in deze omschrijving, dit wordt apart gevraagd
+        <Paragraph size="small">Typ geen persoonsgegevens in deze omschrijving, dit wordt apart gevraagd</Paragraph>
       </FormFieldDescription>
-      <TextArea id="about" />
-    </div>
-  ),
-}
-
-export const BelowFormField: Story = {
-  render: () => (
-    <div style={{ display: 'flex', flexDirection: 'column', gap: '.5rem' }}>
-      <FormLabel htmlFor="username" aria-describedby="usernameDescription">
-        Kies een gebruikersnaam
-      </FormLabel>
-      <TextInput id="username" />
-      <FormFieldDescription id="usernameDescription">
-        <Paragraph size="small">Toegestane tekens</Paragraph>
-        <UnorderedList>
-          <UnorderedList.Item>A - Z</UnorderedList.Item>
-          <UnorderedList.Item>a - z</UnorderedList.Item>
-          <UnorderedList.Item>0 - 9</UnorderedList.Item>
-          <UnorderedList.Item>&apos; . - _ ! # ^ ~</UnorderedList.Item>
-        </UnorderedList>
-      </FormFieldDescription>
+      <TextInput id="about" aria-describedby="aboutDescription" />
     </div>
   ),
 }

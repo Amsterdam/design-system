@@ -1,4 +1,4 @@
-import { Canvas, Controls, Markdown, Meta, Primary } from "@storybook/blocks";
+import { Canvas, Markdown, Meta, Primary } from "@storybook/blocks";
 import * as FormFieldDescriptionStories from "./FormFieldDescription.stories.tsx";
 import README from "../../../../packages/css/src/components/form-field-description/README.md?raw";
 
@@ -8,23 +8,8 @@ import README from "../../../../packages/css/src/components/form-field-descripti
 
 <Primary />
 
-<Controls />
-
 ## Examples
 
-### Above a form field
+### With a form field
 
-Keep your hint as brief as possible to avoid a large gap between the label and input.
-
-<Canvas of={FormFieldDescriptionStories.AboveFormField} />
-
-### Below a form field
-
-Use this position when you need to provide more detailed information.
-Use only these child components to ensure correct styling:
-
-- `Paragraph` with the `size` prop set to `small`
-- `UnorderedList`
-- `OrderedList`
-
-<Canvas of={FormFieldDescriptionStories.BelowFormField} />
+<Canvas of={FormFieldDescriptionStories.WithFormField} />
