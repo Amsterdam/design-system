@@ -13,7 +13,7 @@ export type FormFieldCharacterCounterProps = HTMLAttributes<HTMLDivElement> & {
 
 export const FormFieldCharacterCounter = forwardRef(
   ({ className, label, ...restProps }: FormFieldCharacterCounterProps, ref: ForwardedRef<HTMLDivElement>) => (
-    <div {...restProps} ref={ref} className={clsx('amsterdam-form-field-character-counter', className)} role="status">
+    <div {...restProps} ref={ref} className={clsx('ams-form-field-character-counter', className)} role="status">
       {label}
     </div>
   ),
