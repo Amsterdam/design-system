@@ -5,9 +5,9 @@
 
 import clsx from 'clsx'
 import { forwardRef, useImperativeHandle, useRef } from 'react'
-import type { ForwardedRef, ForwardRefExoticComponent, HTMLAttributes, PropsWithChildren, RefAttributes } from 'react'
+import type { ForwardedRef, HTMLAttributes, PropsWithChildren } from 'react'
 import AccordionContext from './AccordionContext'
-import { AccordionSection } from './AccordionSection'
+import { AccordionSection as Section } from './AccordionSection'
 import { HeadingLevel } from '../Heading/Heading'
 import { useKeyboardFocus } from '../common/useKeyboardFocus'
 
@@ -16,11 +16,7 @@ export type AccordionProps = {
   section?: boolean
 } & PropsWithChildren<HTMLAttributes<HTMLDivElement>>
 
-type AccordionComponent = {
-  Section: typeof AccordionSection
-} & ForwardRefExoticComponent<AccordionProps & RefAttributes<HTMLDivElement>>
-
-export const Accordion = forwardRef(
+const AccordionParent = forwardRef(
   ({ children, className, headingLevel, section = true }: AccordionProps, ref: ForwardedRef<HTMLDivElement>) => {
     const innerRef = useRef<HTMLDivElement>(null)
 
@@ -37,9 +33,8 @@ export const Accordion = forwardRef(
       </AccordionContext.Provider>
     )
   },
-) as AccordionComponent
+)
 
-Accordion.displayName = 'Accordion'
+AccordionParent.displayName = 'Accordion'
 
-Accordion.Section = AccordionSection
-Accordion.Section.displayName = 'Accordion.Section'
+export const Accordion = Object.assign(AccordionParent, { Section })
