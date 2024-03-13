@@ -18,7 +18,7 @@ describe('Form field character counter', () => {
 
     const component = screen.getByRole('status')
 
-    expect(component).toHaveClass('amsterdam-form-field-character-counter')
+    expect(component).toHaveClass('ams-form-field-character-counter')
   })
 
   it('renders an additional class name', () => {
@@ -26,7 +26,7 @@ describe('Form field character counter', () => {
 
     const component = screen.getByRole('status')
 
-    expect(component).toHaveClass('amsterdam-form-field-character-counter extra')
+    expect(component).toHaveClass('ams-form-field-character-counter extra')
   })
 
   it('supports ForwardRef in React', () => {
