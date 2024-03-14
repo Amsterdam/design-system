@@ -71,4 +71,9 @@ export const RadioGroup: Story = {
       </Radio>
     </Fieldset>
   ),
+  parameters: {
+    docs: {
+      source: { type: 'dynamic' },
+    },
+  },
 }
