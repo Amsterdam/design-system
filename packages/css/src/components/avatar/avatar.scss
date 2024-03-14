@@ -4,5 +4,67 @@
  */
 
 .ams-avatar {
-  /* Add styles here */
+  border-radius: 50%;
+  border-style: var(--ams-avatar-border-style);
+  border-width: var(--ams-avatar-border-width);
+  display: inline-block;
+  font-family: var(--ams-avatar-font-family);
+  font-size: var(--ams-avatar-font-size);
+  line-height: var(--ams-avatar-line-height);
+  min-width: 1lh;
+  text-align: center;
+}
+
+.ams-avatar--blue {
+  background-color: var(--ams-avatar-blue-background-color);
+  border-color: var(--ams-avatar-blue-background-color);
+  color: var(--ams-avatar-blue-color);
+}
+
+.ams-avatar--dark-blue {
+  background-color: var(--ams-avatar-dark-blue-background-color);
+  border-color: var(--ams-avatar-dark-blue-background-color);
+  color: var(--ams-avatar-dark-blue-color);
+}
+
+.ams-avatar--dark-green {
+  background-color: var(--ams-avatar-dark-green-background-color);
+  border-color: var(--ams-avatar-dark-green-background-color);
+  color: var(--ams-avatar-dark-green-color);
+}
+
+.ams-avatar--green {
+  background-color: var(--ams-avatar-green-background-color);
+  border-color: var(--ams-avatar-green-background-color);
+  color: var(--ams-avatar-green-color);
+}
+
+.ams-avatar--magenta {
+  background-color: var(--ams-avatar-magenta-background-color);
+  border-color: var(--ams-avatar-magenta-background-color);
+  color: var(--ams-avatar-magenta-color);
+}
+
+.ams-avatar--orange {
+  background-color: var(--ams-avatar-orange-background-color);
+  border-color: var(--ams-avatar-orange-background-color);
+  color: var(--ams-avatar-orange-color);
+}
+
+.ams-avatar--purple {
+  background-color: var(--ams-avatar-purple-background-color);
+  border-color: var(--ams-avatar-purple-background-color);
+  color: var(--ams-avatar-purple-color);
+}
+
+.ams-avatar--red {
+  background-color: var(--ams-avatar-red-background-color);
+  border-color: var(--ams-avatar-red-background-color);
+  color: var(--ams-avatar-red-color);
+}
+
+.ams-avatar--yellow {
+  background-color: var(--ams-avatar-yellow-background-color);
+  border-color: var(--ams-avatar-yellow-background-color);
+  color: var(--ams-avatar-yellow-color);
 }

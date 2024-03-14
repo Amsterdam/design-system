@@ -1,5 +1,48 @@
 {
   "ams": {
-    "avatar": {}
+    "avatar": {
+      "border-width": { "value": "{ams.border-width.md}" },
+      "border-style": { "value": "solid" },
+      "font-family": { "value": "{ams.text.font-family}" },
+      "font-size": { "value": "{ams.text.level.6.font-size}" },
+      "font-weight": { "value": "{ams.text.font-weight.normal}" },
+      "line-height": { "value": "{ams.text.level.6.line-height}" },
+      "blue": {
+        "background-color": { "value": "{ams.color.blue}" },
+        "color": { "value": "{ams.color.primary-black}" }
+      },
+      "dark-blue": {
+        "background-color": { "value": "{ams.color.primary-blue}" },
+        "color": { "value": "{ams.color.primary-white}" }
+      },
+      "dark-green": {
+        "background-color": { "value": "{ams.color.dark-green}" },
+        "color": { "value": "{ams.color.primary-white}" }
+      },
+      "green": {
+        "background-color": { "value": "{ams.color.green}" },
+        "color": { "value": "{ams.color.primary-black}" }
+      },
+      "magenta": {
+        "background-color": { "value": "{ams.color.magenta}" },
+        "color": { "value": "{ams.color.primary-white}" }
+      },
+      "orange": {
+        "background-color": { "value": "{ams.color.orange}" },
+        "color": { "value": "{ams.color.primary-black}" }
+      },
+      "purple": {
+        "background-color": { "value": "{ams.color.purple}" },
+        "color": { "value": "{ams.color.primary-white}" }
+      },
+      "red": {
+        "background-color": { "value": "{ams.color.primary-red}" },
+        "color": { "value": "{ams.color.primary-white}" }
+      },
+      "yellow": {
+        "background-color": { "value": "{ams.color.yellow}" },
+        "color": { "value": "{ams.color.primary-black}" }
+      }
+    }
   }
 }

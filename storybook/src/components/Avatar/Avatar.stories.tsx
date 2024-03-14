@@ -7,10 +7,19 @@ import { Avatar } from '@amsterdam/design-system-react'
 import { Meta, StoryObj } from '@storybook/react'
 
 const meta = {
-  title: 'Avatar',
+  title: 'Components/Feedback/Avatar',
   component: Avatar,
   args: {
-    children: 'Nieuw component',
+    label: 'DS',
+  },
+  argTypes: {
+    color: {
+      control: {
+        type: 'select',
+      },
+      options: ['blue', 'dark-blue', 'dark-green', 'green', 'magenta', 'orange', 'purple', 'red', 'yellow'],
+      selected: 'dark-blue',
+    },
   },
 } satisfies Meta<typeof Avatar>
 
