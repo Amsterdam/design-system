@@ -1,0 +1,21 @@
+/**
+ * @license EUPL-1.2+
+ * Copyright Gemeente Amsterdam
+ */
+
+@mixin reset-body {
+  margin-block: 0;
+  margin-inline: 0;
+}
+
+/**
+ * Add this class to your HTML `<body>` element.
+ * It overrides margins from the user agent styles,
+ * ans sets a white background and full height.
+ */
+.ams-body {
+  @include reset-body;
+
+  background-color: var(--ams-color-primary-white);
+  min-height: 100vh;
+}

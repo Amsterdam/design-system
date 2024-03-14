@@ -49,3 +49,13 @@ To use the compact mode, import the compact css **after** theme css, like so:
 import "@amsterdam/design-system-tokens/dist/index.css";
 import "@amsterdam/design-system-tokens/dist/compact.css";
 ```
+
+## Document styles
+
+Some elements of your document are out of reach for the design system components.
+However, their default styles or common boilerplate approaches can influence on the appearance on the CSS components.
+Apply the following to the document elements:
+
+The font-size must not be changed – e.g. through `html { font-size: 62.5% }` – because the typography system expects a rem to be 16 pixels.
+
+The `ams-body` class must be added to the `<body>` element – it prepares the base layout and sets a background colour.
