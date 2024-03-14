@@ -18,9 +18,7 @@ export const Dialog = forwardRef(
     <dialog {...restProps} ref={ref} className={clsx('ams-dialog', className)}>
       <form method="dialog" className="ams-dialog__form">
         <header className="ams-dialog__header">
-          <Heading level={1} size="level-4">
-            {title}
-          </Heading>
+          <Heading size="level-4">{title}</Heading>
           <IconButton label="Sluiten" formNoValidate />
         </header>
         <article className="ams-dialog__article">{children}</article>

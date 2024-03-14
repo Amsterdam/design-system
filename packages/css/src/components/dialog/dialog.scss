@@ -47,22 +47,6 @@
   justify-content: space-between;
 }
 
-@mixin reset {
-  -webkit-text-size-adjust: 100%;
-}
-
-.ams-dialog__title {
-  color: var(--ams-dialog-title-color);
-  flex: auto;
-  font-family: var(--ams-dialog-title-font-family);
-  font-size: var(--ams-dialog-title-font-size);
-  font-weight: var(--ams-dialog-title-font-weight);
-  line-height: var(--ams-dialog-title-line-height);
-
-  @include hyphenation;
-  @include reset;
-}
-
 .ams-dialog__footer {
   display: flex;
   flex-direction: column;
