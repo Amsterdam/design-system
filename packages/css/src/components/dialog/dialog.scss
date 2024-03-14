@@ -4,7 +4,6 @@
  */
 
 @import "../../common/breakpoint";
-@import "../../common/hyphenation";
 
 .ams-dialog {
   background-color: var(--ams-dialog-background-color);
@@ -44,22 +43,7 @@
   align-items: flex-start;
   display: flex;
   gap: var(--ams-dialog-header-gap);
-}
-
-@mixin reset {
-  -webkit-text-size-adjust: 100%;
-}
-
-.ams-dialog__title {
-  color: var(--ams-dialog-title-color);
-  flex: auto;
-  font-family: var(--ams-dialog-title-font-family);
-  font-size: var(--ams-dialog-title-font-size);
-  font-weight: var(--ams-dialog-title-font-weight);
-  line-height: var(--ams-dialog-title-line-height);
-
-  @include hyphenation;
-  @include reset;
+  justify-content: space-between;
 }
 
 .ams-dialog__footer {
