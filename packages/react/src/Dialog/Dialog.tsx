@@ -19,7 +19,7 @@ export const Dialog = forwardRef(
       <form method="dialog" className="ams-dialog__form">
         <header className="ams-dialog__header">
           <Heading size="level-4">{title}</Heading>
-          <IconButton label="Sluiten" formNoValidate />
+          <IconButton formNoValidate label="Sluiten" size="level-4" />
         </header>
         <article className="ams-dialog__article">{children}</article>
         {actions && <footer className="ams-dialog__footer">{actions}</footer>}
