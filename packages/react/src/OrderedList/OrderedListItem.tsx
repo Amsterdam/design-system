@@ -17,4 +17,4 @@ export const OrderedListItem = forwardRef(
   ),
 )
 
-OrderedListItem.displayName = 'OrderedListItem'
+OrderedListItem.displayName = 'OrderedList.Item'

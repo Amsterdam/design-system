@@ -5,7 +5,7 @@
 
 import clsx from 'clsx'
 import { forwardRef } from 'react'
-import type { ForwardedRef, ForwardRefExoticComponent, HTMLAttributes, PropsWithChildren, RefAttributes } from 'react'
+import type { ForwardedRef, HTMLAttributes, PropsWithChildren } from 'react'
 import { UnorderedListItem } from './UnorderedListItem'
 
 export type UnorderedListProps = {
@@ -13,11 +13,7 @@ export type UnorderedListProps = {
   markers?: boolean
 } & PropsWithChildren<HTMLAttributes<HTMLUListElement>>
 
-type UnorderedListComponent = {
-  Item: typeof UnorderedListItem
-} & ForwardRefExoticComponent<UnorderedListProps & RefAttributes<HTMLUListElement>>
-
-export const UnorderedList = forwardRef(
+const UnorderedListRoot = forwardRef(
   (
     { children, className, inverseColor, markers = true, ...restProps }: UnorderedListProps,
     ref: ForwardedRef<HTMLUListElement>,
@@ -37,7 +33,8 @@ export const UnorderedList = forwardRef(
       </ul>
     )
   },
-) as UnorderedListComponent
+)
 
-UnorderedList.displayName = 'UnorderedList'
-UnorderedList.Item = UnorderedListItem
+UnorderedListRoot.displayName = 'UnorderedList'
+
+export const UnorderedList = Object.assign(UnorderedListRoot, { Item: UnorderedListItem })

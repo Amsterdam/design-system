@@ -17,4 +17,4 @@ export const TableCell = forwardRef(
   ),
 )
 
-TableCell.displayName = 'TableCell'
+TableCell.displayName = 'Table.Cell'

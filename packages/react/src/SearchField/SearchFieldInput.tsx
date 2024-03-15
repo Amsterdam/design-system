@@ -36,4 +36,4 @@ export const SearchFieldInput = forwardRef(
   },
 )
 
-SearchFieldInput.displayName = 'SearchFieldInput'
+SearchFieldInput.displayName = 'SearchField.Input'
