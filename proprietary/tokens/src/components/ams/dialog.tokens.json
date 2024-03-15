@@ -4,13 +4,6 @@
       "background-color": { "value": "{ams.color.primary-white}" },
       "border": { "value": "0" },
       "max-inline-size": { "value": "min(87.69vw, 45rem)" },
-      "title": {
-        "color": { "value": "{ams.color.primary-black}" },
-        "font-family": { "value": "{ams.text.font-family}" },
-        "font-size": { "value": "{ams.text.level.5.font-size}" },
-        "font-weight": { "value": "{ams.text.font-weight.bold}" },
-        "line-height": { "value": "{ams.text.level.5.line-height}" }
-      },
       "form": {
         "gap": { "value": "1.5rem" },
         "padding-block": { "value": "clamp(1.5rem, calc(1.5rem + ((1vw - 0.5337rem) * 2.1448)), 2.5rem)" },
