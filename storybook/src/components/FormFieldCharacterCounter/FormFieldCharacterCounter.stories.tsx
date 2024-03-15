@@ -20,3 +20,10 @@ export default meta
 type Story = StoryObj<typeof meta>
 
 export const Default: Story = {}
+
+export const Error: Story = {
+  args: {
+    length: 1001,
+    maxLength: 1000,
+  },
+}
