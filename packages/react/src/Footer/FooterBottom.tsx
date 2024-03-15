@@ -17,4 +17,4 @@ export const FooterBottom = forwardRef(
   ),
 )
 
-FooterBottom.displayName = 'FooterBottom'
+FooterBottom.displayName = 'Footer.Bottom'
