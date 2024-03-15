@@ -10,20 +10,20 @@ const ColorPaletteRoot = forwardRef(({ children, ...restProps }: DivProps, ref: 
   </div>
 ))
 
-ColorPaletteRoot.displayName = 'ColourPalette'
+ColorPaletteRoot.displayName = 'ColorPalette'
 
 const ColorPaletteSection = ({ children }: DivProps) => (
   <div className="ams-storybook-color-palette__section">{children}</div>
 )
 
-ColorPaletteSection.displayName = 'ColourPalette.Section'
+ColorPaletteSection.displayName = 'ColorPalette.Section'
 
-type ColourPaletteTileProps = {
+type ColorPaletteTileProps = {
   color: string
   name: string
 }
 
-const ColorPaletteTile = ({ name, color }: ColourPaletteTileProps) => (
+const ColorPaletteTile = ({ name, color }: ColorPaletteTileProps) => (
   <div className="ams-storybook-color-palette__tile">
     <div className="ams-storybook-color-palette__example" style={{ backgroundColor: color }} />
     <dl className="sb-unstyled ams-storybook-color-palette__description">
@@ -33,6 +33,6 @@ const ColorPaletteTile = ({ name, color }: ColourPaletteTileProps) => (
   </div>
 )
 
-ColorPaletteTile.displayName = 'ColourPalette.Tile'
+ColorPaletteTile.displayName = 'ColorPalette.Tile'
 
 export const ColorPalette = Object.assign(ColorPaletteRoot, { Section: ColorPaletteSection, Tile: ColorPaletteTile })
