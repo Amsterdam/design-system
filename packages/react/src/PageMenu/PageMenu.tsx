@@ -26,4 +26,4 @@ const PageMenuRoot = forwardRef(
 
 PageMenuRoot.displayName = 'PageMenu'
 
-export const OrderedList = Object.assign(PageMenuRoot, { Link: PageMenuLink })
+export const PageMenu = Object.assign(PageMenuRoot, { Link: PageMenuLink })
