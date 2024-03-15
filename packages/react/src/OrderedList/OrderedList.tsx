@@ -5,7 +5,7 @@
 
 import clsx from 'clsx'
 import { forwardRef } from 'react'
-import type { ForwardedRef, ForwardRefExoticComponent, OlHTMLAttributes, PropsWithChildren, RefAttributes } from 'react'
+import type { ForwardedRef, OlHTMLAttributes, PropsWithChildren } from 'react'
 import { OrderedListItem } from './OrderedListItem'
 
 export type OrderedListProps = {
@@ -13,11 +13,7 @@ export type OrderedListProps = {
   inverseColor?: boolean
 } & PropsWithChildren<OlHTMLAttributes<HTMLOListElement>>
 
-type OrderedListComponent = {
-  Item: typeof OrderedListItem
-} & ForwardRefExoticComponent<OrderedListProps & RefAttributes<HTMLOListElement>>
-
-export const OrderedList = forwardRef(
+export const OrderedListRoot = forwardRef(
   (
     { children, className, inverseColor, markers = true, ...restProps }: OrderedListProps,
     ref: ForwardedRef<HTMLOListElement>,
@@ -35,7 +31,8 @@ export const OrderedList = forwardRef(
       {children}
     </ol>
   ),
-) as OrderedListComponent
+)
 
-OrderedList.displayName = 'OrderedList'
-OrderedList.Item = OrderedListItem
+OrderedListRoot.displayName = 'OrderedList'
+
+export const OrderedList = Object.assign(OrderedListRoot, { Item: OrderedListItem })
