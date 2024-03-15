@@ -34,10 +34,7 @@ export const Avatar = forwardRef(
   ({ label, imageSrc, className, color = 'dark-blue', ...restProps }: AvatarProps, ref: ForwardedRef<HTMLElement>) => {
     const initials = (label.length > 2 ? label.slice(0, 2) : label).toUpperCase()
 
-    const a11yLabel = useMemo(
-      () => (initials.length === 0 ? 'Gebruiker' : `Initialen gebruiker: ${initials}.`),
-      [initials],
-    )
+    const a11yLabel = initials.length === 0 ? 'Gebruiker' : `Initialen gebruiker: ${initials}.`
 
     const content = useMemo(() => {
       if (imageSrc) {
@@ -50,7 +47,11 @@ export const Avatar = forwardRef(
     }, [imageSrc, label, initials])
 
     return (
-      <span {...restProps} ref={ref} className={clsx('ams-avatar', `ams-avatar--${color}`, className)}>
+      <span
+        {...restProps}
+        ref={ref}
+        className={clsx('ams-avatar', `ams-avatar--${color}`, imageSrc && 'ams-avatar--image', className)}
+      >
         {content}
         <VisuallyHidden>{a11yLabel}</VisuallyHidden>
       </span>

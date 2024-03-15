@@ -20,6 +20,20 @@
   }
 }
 
+.ams-avatar--image {
+  overflow: hidden;
+  position: relative;
+
+  img {
+    height: calc(100% + var(--ams-avatar-padding) * 2);
+    left: calc(0px - var(--ams-avatar-padding));
+    max-width: none;
+    position: absolute;
+    top: calc(0px - var(--ams-avatar-padding));
+    width: calc(100% + var(--ams-avatar-padding) * 2);
+  }
+}
+
 .ams-avatar--blue {
   background-color: var(--ams-avatar-blue-background-color);
   color: var(--ams-avatar-blue-color);
