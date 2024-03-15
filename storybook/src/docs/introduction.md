@@ -83,21 +83,25 @@ Let us know; we are happy to work with you.
 
 Don’t hesitate to get in touch with us by email at <designsystem@amsterdam.nl>.
 
-The current team:
+The current core team:
 Aram Limpens,
-Bettina Slee,
+Bas Kroese,
 Inge de Bondt (lead),
 Jesper Duinker,
 Niels Roozemond,
+Ruben Sibon,
 and
 Vincent Smedinga (lead).
 
-Previously contributed:
+Contributions by:
+Bettina Slee,
 Hee Chan van der Haar,
 Justin Straver,
 Laurens van den Akker,
+Mike Alders,
+Nico Druif,
 Renate Schwarzler,
 Rick Zweers,
-Soesanto Arp
+Soesanto Arp,
 and
 Tanja van der Heide.

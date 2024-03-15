@@ -1,0 +1,17 @@
+import { Canvas, Controls, Markdown, Meta, Primary } from "@storybook/blocks";
+import * as FormFieldCharacterCounterStories from "./FormFieldCharacterCounter.stories.tsx";
+import README from "../../../../packages/css/src/components/form-field-character-counter/README.md?raw";
+
+<Meta of={FormFieldCharacterCounterStories} />
+
+<Markdown>{README}</Markdown>
+
+<Primary />
+
+<Controls />
+
+## Error
+
+When the length exceeds the maximum length, the color of the text changes to red.
+
+<Canvas of={FormFieldCharacterCounterStories.Error} />
