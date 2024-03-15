@@ -16,7 +16,7 @@ export type PageMenuProps = {
   alignEnd?: boolean
 } & PropsWithChildren<HTMLAttributes<HTMLUListElement>>
 
-export const PageMenuRoot = forwardRef(
+const PageMenuRoot = forwardRef(
   ({ alignEnd, children, className, ...restProps }: PageMenuProps, ref: ForwardedRef<HTMLUListElement>) => (
     <ul {...restProps} className={clsx('ams-page-menu', alignEnd && `ams-page-menu--align-end`, className)} ref={ref}>
       {children}

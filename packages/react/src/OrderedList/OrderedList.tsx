@@ -13,7 +13,7 @@ export type OrderedListProps = {
   inverseColor?: boolean
 } & PropsWithChildren<OlHTMLAttributes<HTMLOListElement>>
 
-export const OrderedListRoot = forwardRef(
+const OrderedListRoot = forwardRef(
   (
     { children, className, inverseColor, markers = true, ...restProps }: OrderedListProps,
     ref: ForwardedRef<HTMLOListElement>,
