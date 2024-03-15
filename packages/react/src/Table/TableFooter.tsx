@@ -17,4 +17,4 @@ export const TableFooter = forwardRef(
   ),
 )
 
-TableFooter.displayName = 'TableFooter'
+TableFooter.displayName = 'Table.Footer'

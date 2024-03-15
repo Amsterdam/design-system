@@ -17,4 +17,4 @@ export const TableHeader = forwardRef(
   ),
 )
 
-TableHeader.displayName = 'TableHeader'
+TableHeader.displayName = 'Table.Header'

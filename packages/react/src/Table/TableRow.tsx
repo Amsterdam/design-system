@@ -17,4 +17,4 @@ export const TableRow = forwardRef(
   ),
 )
 
-TableRow.displayName = 'TableRow'
+TableRow.displayName = 'Table.Row'
