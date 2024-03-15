@@ -28,7 +28,7 @@ export const Default: Story = {}
 
 export const WithLogoVariant: Story = {
   args: {
-    logoBrand: 'ggd-amsterdam',
+    logoBrand: 'ggd-ams',
     logoLink: 'https://www.ggd.amsterdam.nl/',
     logoLinkTitle: 'Naar de homepage van de GGD Amsterdam',
   },
