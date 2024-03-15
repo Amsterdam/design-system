@@ -40,7 +40,7 @@ This will cause a major version bump in both packages on release and add its des
    ```
 
 2. This triggers a GitHub Action, which creates a release PR.
-   Review, approve and merge this PR.
+   Review and approve this PR, then merge it – no need to wait for the checks.
    The same Action will then publish the release to npm and GitHub.
    It also deploys the released version to our main Storybook environment.
 3. When complete, the Action adds a new release commit to `main`.
