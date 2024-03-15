@@ -61,7 +61,7 @@ const paddingClasses = (
   return classes
 }
 
-export const GridRoot = forwardRef(
+const GridRoot = forwardRef(
   (
     { children, className, gapVertical, paddingBottom, paddingTop, paddingVertical, ...restProps }: GridProps,
     ref: ForwardedRef<HTMLDivElement>,

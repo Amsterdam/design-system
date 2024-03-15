@@ -11,13 +11,11 @@ import { CardLink } from './CardLink'
 
 export type CardProps = PropsWithChildren<HTMLAttributes<HTMLElement>>
 
-export const CardRoot = forwardRef(
-  ({ children, className, ...restProps }: CardProps, ref: ForwardedRef<HTMLElement>) => (
-    <article {...restProps} ref={ref} className={clsx('ams-card', className)}>
-      {children}
-    </article>
-  ),
-)
+const CardRoot = forwardRef(({ children, className, ...restProps }: CardProps, ref: ForwardedRef<HTMLElement>) => (
+  <article {...restProps} ref={ref} className={clsx('ams-card', className)}>
+    {children}
+  </article>
+))
 
 CardRoot.displayName = 'Card'
 

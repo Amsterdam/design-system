@@ -11,13 +11,11 @@ import { FooterTop } from './FooterTop'
 
 export type FooterProps = PropsWithChildren<HTMLAttributes<HTMLElement>>
 
-export const FooterRoot = forwardRef(
-  ({ children, className, ...restProps }: FooterProps, ref: ForwardedRef<HTMLElement>) => (
-    <footer {...restProps} ref={ref} className={clsx('ams-footer', className)}>
-      {children}
-    </footer>
-  ),
-)
+const FooterRoot = forwardRef(({ children, className, ...restProps }: FooterProps, ref: ForwardedRef<HTMLElement>) => (
+  <footer {...restProps} ref={ref} className={clsx('ams-footer', className)}>
+    {children}
+  </footer>
+))
 
 FooterRoot.displayName = 'Footer'
 
