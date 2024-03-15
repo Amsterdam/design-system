@@ -5,7 +5,7 @@ import '@testing-library/jest-dom'
 
 describe('Form field character counter', () => {
   it('renders', () => {
-    render(<FormFieldCharacterCounter label="Test" />)
+    render(<FormFieldCharacterCounter length={10} maxLength={100} />)
 
     const component = screen.getByRole('status')
 
@@ -14,7 +14,7 @@ describe('Form field character counter', () => {
   })
 
   it('renders a design system BEM class name', () => {
-    render(<FormFieldCharacterCounter label="Test" />)
+    render(<FormFieldCharacterCounter length={10} maxLength={100} />)
 
     const component = screen.getByRole('status')
 
@@ -22,17 +22,25 @@ describe('Form field character counter', () => {
   })
 
   it('renders an additional class name', () => {
-    render(<FormFieldCharacterCounter label="Test" className="extra" />)
+    render(<FormFieldCharacterCounter length={10} maxLength={100} className="extra" />)
 
     const component = screen.getByRole('status')
 
     expect(component).toHaveClass('ams-form-field-character-counter extra')
   })
 
+  it('renders an error class when length is larger than maxLength', () => {
+    render(<FormFieldCharacterCounter length={101} maxLength={100} />)
+
+    const component = screen.getByRole('status')
+
+    expect(component).toHaveClass('ams-form-field-character-counter--error')
+  })
+
   it('supports ForwardRef in React', () => {
     const ref = createRef<HTMLDivElement>()
 
-    render(<FormFieldCharacterCounter label="Test" ref={ref} />)
+    render(<FormFieldCharacterCounter length={10} maxLength={100} ref={ref} />)
 
     const component = screen.getByRole('status')
 
