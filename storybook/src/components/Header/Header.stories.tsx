@@ -15,7 +15,7 @@ const meta = {
       control: {
         type: 'radio',
       },
-      options: ['ams', 'ggd-ams', 'stadsarchief', 'stadsbank-van-lening', 'vga-verzekeringen'],
+      options: ['amsterdam', 'ggd-amsterdam', 'stadsarchief', 'stadsbank-van-lening', 'vga-verzekeringen'],
     },
   },
 } satisfies Meta<typeof Header>
@@ -28,7 +28,7 @@ export const Default: Story = {}
 
 export const WithLogoVariant: Story = {
   args: {
-    logoBrand: 'ggd-ams',
+    logoBrand: 'ggd-amsterdam',
     logoLink: 'https://www.ggd.amsterdam.nl/',
     logoLinkTitle: 'Naar de homepage van de GGD Amsterdam',
   },
