@@ -4,67 +4,71 @@
  */
 
 .ams-avatar {
+  aspect-ratio: 1/1;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
   border-radius: 50%;
-  border-style: var(--ams-avatar-border-style);
-  border-width: var(--ams-avatar-border-width);
-  display: inline-block;
+  display: inline-flex;
   font-family: var(--ams-avatar-font-family);
   font-size: var(--ams-avatar-font-size);
+  justify-content: center;
   line-height: var(--ams-avatar-line-height);
-  min-width: 1lh;
-  text-align: center;
+  padding-block: var(--ams-avatar-padding);
+  padding-inline: var(--ams-avatar-padding);
+  width: calc(var(--ams-avatar-line-height) * var(--ams-avatar-font-size));
 }
 
 .ams-avatar--blue {
   background-color: var(--ams-avatar-blue-background-color);
-  border-color: var(--ams-avatar-blue-background-color);
+  background-image: var(--ams-avatar-blue-background-image);
   color: var(--ams-avatar-blue-color);
 }
 
 .ams-avatar--dark-blue {
   background-color: var(--ams-avatar-dark-blue-background-color);
-  border-color: var(--ams-avatar-dark-blue-background-color);
+  background-image: var(--ams-avatar-dark-blue-background-image);
   color: var(--ams-avatar-dark-blue-color);
 }
 
 .ams-avatar--dark-green {
   background-color: var(--ams-avatar-dark-green-background-color);
-  border-color: var(--ams-avatar-dark-green-background-color);
+  background-image: var(--ams-avatar-dark-green-background-image);
   color: var(--ams-avatar-dark-green-color);
 }
 
 .ams-avatar--green {
   background-color: var(--ams-avatar-green-background-color);
-  border-color: var(--ams-avatar-green-background-color);
+  background-image: var(--ams-avatar-green-background-image);
   color: var(--ams-avatar-green-color);
 }
 
 .ams-avatar--magenta {
   background-color: var(--ams-avatar-magenta-background-color);
-  border-color: var(--ams-avatar-magenta-background-color);
+  background-image: var(--ams-avatar-magenta-background-image);
   color: var(--ams-avatar-magenta-color);
 }
 
 .ams-avatar--orange {
   background-color: var(--ams-avatar-orange-background-color);
-  border-color: var(--ams-avatar-orange-background-color);
+  background-image: var(--ams-avatar-orange-background-image);
   color: var(--ams-avatar-orange-color);
 }
 
 .ams-avatar--purple {
   background-color: var(--ams-avatar-purple-background-color);
-  border-color: var(--ams-avatar-purple-background-color);
+  background-image: var(--ams-avatar-purple-background-image);
   color: var(--ams-avatar-purple-color);
 }
 
 .ams-avatar--red {
   background-color: var(--ams-avatar-red-background-color);
-  border-color: var(--ams-avatar-red-background-color);
+  background-image: var(--ams-avatar-red-background-image);
   color: var(--ams-avatar-red-color);
 }
 
 .ams-avatar--yellow {
   background-color: var(--ams-avatar-yellow-background-color);
-  border-color: var(--ams-avatar-yellow-background-color);
+  background-image: var(--ams-avatar-yellow-background-image);
   color: var(--ams-avatar-yellow-color);
 }

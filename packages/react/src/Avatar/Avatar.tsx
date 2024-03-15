@@ -5,7 +5,7 @@
 
 import clsx from 'clsx'
 import { forwardRef, useMemo } from 'react'
-import type { ForwardedRef, HTMLAttributes } from 'react'
+import type { ForwardedRef, HTMLAttributes, ReactElement } from 'react'
 
 export const avatarColors = [
   'blue',
@@ -23,36 +23,39 @@ type AvatarColor = (typeof avatarColors)[number]
 
 export type AvatarProps = {
   color?: AvatarColor
+  imageUrl?: string
   label: string
 } & HTMLAttributes<HTMLElement>
 
 export const Avatar = forwardRef(
-  ({ label, className, color = 'dark-blue', ...restProps }: AvatarProps, ref: ForwardedRef<HTMLElement>) => {
-    if (label.length !== 2) {
-      // TODO: should we log this somewhere or throw an error to the consumer?
-      console.warn(`Avatar label should be no more and no less than two characters. Got: "${label}".`)
-    }
-
-    const initials = useMemo(() => {
-      if (label.length === 0) {
-        return 'n.b.'
-      } else if (label.length > 2) {
-        return label.slice(0, 2).toUpperCase()
-      } else {
-        return label.toUpperCase()
-      }
+  ({ label, imageUrl, className, color = 'dark-blue', ...restProps }: AvatarProps, ref: ForwardedRef<HTMLElement>) => {
+    const initials: string | ReactElement = useMemo(() => {
+      return (label.length > 2 ? label.slice(0, 2) : label).toUpperCase()
     }, [label])
 
-    const initialsDotted = useMemo(() => `${initials.split('').join('.')}.`, [initials])
+    const title = useMemo(() => {
+      return !initials.length ? 'Niet-ingelogde gebruiker' : `Initialen gebruiker: ${initials.split('').join('.')}.`
+    }, [initials])
+
+    const backgroundImageValue: string | undefined = useMemo(() => {
+      if (imageUrl) {
+        return `url(${imageUrl})`
+      } else if (label.length) {
+        return 'none'
+      } else {
+        return undefined
+      }
+    }, [imageUrl, label])
 
     return (
       <span
         {...restProps}
         ref={ref}
         className={clsx('ams-avatar', `ams-avatar--${color}`, className)}
-        aria-label={`Initialen gebruiker: ${initialsDotted}`}
+        style={{ backgroundImage: backgroundImageValue }}
+        title={title}
       >
-        {initials}
+        {backgroundImageValue !== 'none' ? '‏‏‎ ‎' : initials}
       </span>
     )
   },

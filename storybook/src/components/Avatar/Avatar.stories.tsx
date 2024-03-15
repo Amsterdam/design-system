@@ -11,6 +11,7 @@ const meta = {
   component: Avatar,
   args: {
     label: 'DS',
+    imageUrl: '',
   },
   argTypes: {
     color: {
@@ -28,3 +29,16 @@ export default meta
 type Story = StoryObj<typeof meta>
 
 export const Default: Story = {}
+
+export const WithoutLabel: Story = {
+  args: {
+    label: '',
+  },
+}
+
+export const WithImageURL: Story = {
+  args: {
+    label: 'RS',
+    imageUrl: 'https://web.archive.org/web/20230610011324im_/https://avatars.githubusercontent.com/u/7290629?v=4',
+  },
+}

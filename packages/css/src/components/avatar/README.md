@@ -2,12 +2,14 @@
 
 # Avatar
 
-A prominently coloured circular button containing two initials of a currently logged-in user.
+A circular badge containing either up to two initials or a profile picture of the currently logged-in user.
 
-Clicking or tapping the button would typically open a context menu or view with information and actions related to the user.
+The badge contains the personal login icon by default when no user is logged-in or no label is provided.
+
+Interaction can be added by wrapping the avatar in a link.
 
 ## Design
 
-The avatar contains two initial letters from the user's full name.
+The avatar contains either one or two initial letters from the user's full name, a picture or a generic user icon.
+
 The default background colour is dark blue.
-Suggestions on when to use the other colours will follow soon.

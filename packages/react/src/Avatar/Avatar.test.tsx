@@ -39,12 +39,22 @@ describe('Avatar', () => {
     expect(ref.current).toBe(component)
   })
 
-  it('renders a label consisting of two letters', () => {
-    const { container } = render(<Avatar label="RS" />)
+  it('renders with a label consisting of no more than two, uppercase letters', () => {
+    const { container } = render(<Avatar label="Design System" />)
 
     const component = container.querySelector(':only-child')
 
-    expect(component?.textContent).toHaveLength(2)
+    expect(component).toHaveTextContent('DE')
+    expect(component).toHaveAttribute('style', 'background-image: none;')
+  })
+
+  it('renders with default content and title', () => {
+    const { container } = render(<Avatar label="" />)
+
+    const component = container.querySelector(':only-child')
+
+    expect(component).toHaveTextContent('‏‏‎ ‎')
+    expect(component).toHaveAttribute('title', 'Niet-ingelogde gebruiker')
   })
 
   it('renders with default color', () => {
@@ -64,4 +74,21 @@ describe('Avatar', () => {
       expect(component).toHaveClass(`ams-avatar--${color}`)
     }),
   )
+
+  it('renders with a profile picture', () => {
+    const { container } = render(
+      <Avatar
+        label=""
+        imageUrl="https://web.archive.org/web/20230610011324im_/https://avatars.githubusercontent.com/u/7290629?v=4"
+      />,
+    )
+
+    const component = container.querySelector(':only-child')
+
+    expect(component).toHaveTextContent('‏‏‎ ‎')
+    expect(component).toHaveAttribute(
+      'style',
+      'background-image: url(https://web.archive.org/web/20230610011324im_/https://avatars.githubusercontent.com/u/7290629?v=4);',
+    )
+  })
 })
