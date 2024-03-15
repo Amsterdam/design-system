@@ -16,3 +16,7 @@
 
   @include reset;
 }
+
+.ams-form-field-character-counter--error {
+  color: var(--ams-form-field-character-counter-error-color);
+}

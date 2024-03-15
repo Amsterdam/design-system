@@ -8,13 +8,26 @@ import { forwardRef } from 'react'
 import type { ForwardedRef, HTMLAttributes } from 'react'
 
 export type FormFieldCharacterCounterProps = HTMLAttributes<HTMLDivElement> & {
-  label: string
+  length: number
+  maxLength: number
 }
 
 export const FormFieldCharacterCounter = forwardRef(
-  ({ className, label, ...restProps }: FormFieldCharacterCounterProps, ref: ForwardedRef<HTMLDivElement>) => (
-    <div {...restProps} ref={ref} className={clsx('ams-form-field-character-counter', className)} role="status">
-      {label}
+  (
+    { className, length, maxLength, ...restProps }: FormFieldCharacterCounterProps,
+    ref: ForwardedRef<HTMLDivElement>,
+  ) => (
+    <div
+      {...restProps}
+      ref={ref}
+      className={clsx(
+        'ams-form-field-character-counter',
+        length > maxLength && 'ams-form-field-character-counter--error',
+        className,
+      )}
+      role="status"
+    >
+      {`${length} van ${maxLength} tekens`}
     </div>
   ),
 )

@@ -10,7 +10,8 @@ const meta = {
   title: 'Components/Forms/Form Field Character Counter',
   component: FormFieldCharacterCounter,
   args: {
-    label: '0 van 1000 tekens',
+    length: 0,
+    maxLength: 1000,
   },
 } satisfies Meta<typeof FormFieldCharacterCounter>
 

@@ -5,7 +5,10 @@
       "font-family": { "value": "{ams.text.font-family}" },
       "font-size": { "value": "{ams.text.level.6.font-size}" },
       "font-weight": { "value": "{ams.text.font-weight.normal}" },
-      "line-height": { "value": "{ams.text.level.6.line-height}" }
+      "line-height": { "value": "{ams.text.level.6.line-height}" },
+      "error": {
+        "color": { "value": "{ams.color.primary-red}" }
+      }
     }
   }
 }
