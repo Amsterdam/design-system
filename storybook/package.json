@@ -4,7 +4,6 @@
   "description": "Storybook React website for the City of Amsterdam based on the NL Design System architecture",
   "license": "EUPL-1.2",
   "name": "@amsterdam/storybook",
-  "type": "module",
   "keywords": [
     "nl-design-system"
   ],
@@ -52,7 +51,6 @@
     "vite": "5.1.4"
   },
   "dependencies": {
-    "@storybook/test": "8.0.0",
-    "remark-gfm": "3.0.1"
+    "@storybook/test": "8.0.0"
   }
 }
