@@ -6,7 +6,7 @@
 import { PersonalLoginIcon } from '@amsterdam/design-system-react-icons'
 import clsx from 'clsx'
 import { forwardRef, useMemo } from 'react'
-import type { ForwardedRef, HTMLAttributes, ReactElement } from 'react'
+import type { ForwardedRef, HTMLAttributes } from 'react'
 import { Image } from '../Image'
 import { VisuallyHidden } from '../VisuallyHidden'
 
@@ -32,14 +32,14 @@ export type AvatarProps = {
 
 export const Avatar = forwardRef(
   ({ label, imageSrc, className, color = 'dark-blue', ...restProps }: AvatarProps, ref: ForwardedRef<HTMLElement>) => {
-    const initials: string = (label.length > 2 ? label.slice(0, 2) : label).toUpperCase()
+    const initials = (label.length > 2 ? label.slice(0, 2) : label).toUpperCase()
 
     const a11yLabel = useMemo(
       () => (initials.length === 0 ? 'Gebruiker' : `Initialen gebruiker: ${initials}.`),
       [initials],
     )
 
-    const content: ReactElement | string = useMemo(() => {
+    const content = useMemo(() => {
       if (imageSrc) {
         return <Image src={imageSrc} />
       } else if (label.length) {
