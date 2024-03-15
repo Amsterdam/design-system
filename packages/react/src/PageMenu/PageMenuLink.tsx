@@ -23,4 +23,4 @@ export const PageMenuLink = forwardRef(
   ),
 )
 
-PageMenuLink.displayName = 'PageMenuLink'
+PageMenuLink.displayName = 'PageMenu.Link'

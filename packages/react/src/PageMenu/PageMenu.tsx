@@ -5,7 +5,7 @@
 
 import clsx from 'clsx'
 import { forwardRef } from 'react'
-import type { ForwardedRef, ForwardRefExoticComponent, HTMLAttributes, PropsWithChildren, RefAttributes } from 'react'
+import type { ForwardedRef, HTMLAttributes, PropsWithChildren } from 'react'
 import { PageMenuLink } from './PageMenuLink'
 
 export type PageMenuProps = {
@@ -16,18 +16,14 @@ export type PageMenuProps = {
   alignEnd?: boolean
 } & PropsWithChildren<HTMLAttributes<HTMLUListElement>>
 
-type PageMenuComponent = {
-  Link: typeof PageMenuLink
-} & ForwardRefExoticComponent<PageMenuProps & RefAttributes<HTMLUListElement>>
-
-export const PageMenu = forwardRef(
+export const PageMenuRoot = forwardRef(
   ({ alignEnd, children, className, ...restProps }: PageMenuProps, ref: ForwardedRef<HTMLUListElement>) => (
     <ul {...restProps} className={clsx('ams-page-menu', alignEnd && `ams-page-menu--align-end`, className)} ref={ref}>
       {children}
     </ul>
   ),
-) as PageMenuComponent
+)
 
-PageMenu.displayName = 'PageMenu'
-PageMenu.Link = PageMenuLink
-PageMenu.Link.displayName = 'PageMenu.Link'
+PageMenuRoot.displayName = 'PageMenu'
+
+export const OrderedList = Object.assign(PageMenuRoot, { Link: PageMenuLink })
