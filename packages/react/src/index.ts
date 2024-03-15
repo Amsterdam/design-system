@@ -4,6 +4,7 @@
  */
 
 /* Append here */
+export * from './FormFieldCharacterCounter'
 export * from './DescriptionList'
 export * from './Row'
 export * from './Radio'
