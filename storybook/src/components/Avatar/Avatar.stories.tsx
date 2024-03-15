@@ -3,7 +3,8 @@
  * Copyright Gemeente Amsterdam
  */
 
-import { Avatar } from '@amsterdam/design-system-react'
+import { Avatar, Header, PageMenu } from '@amsterdam/design-system-react'
+import { SearchIcon } from '@amsterdam/design-system-react-icons'
 import { Meta, StoryObj } from '@storybook/react'
 
 const meta = {
@@ -40,5 +41,32 @@ export const WithImageSrc: Story = {
   args: {
     label: 'PS',
     imageSrc: 'https://i.pravatar.cc/200',
+  },
+}
+
+export const InAHeader: Story = {
+  decorators: [
+    (Story) => (
+      <div style={{ display: 'flex', alignItems: 'center', gap: '5rem' }}>
+        <Story />
+      </div>
+    ),
+  ],
+  render: () => {
+    return (
+      <Header
+        style={{ width: '100%' }}
+        title="Dashboard"
+        links={
+          <PageMenu>
+            <PageMenu.Link href="#">Contact</PageMenu.Link>
+            <PageMenu.Link href="#" icon={SearchIcon}>
+              Zoeken
+            </PageMenu.Link>
+            <Avatar label={'DS'} />
+          </PageMenu>
+        }
+      ></Header>
+    )
   },
 }
