@@ -1,6 +1,6 @@
 <script id="storybook-mod-expand-all-folders" type="text/javascript">
   var clickCollapsedItemsUntilNoneLeft = () => {
-    const itemsLeftToClick = document.querySelectorAll('button[data-parent-id="components"]');
+    const itemsLeftToClick = document.querySelectorAll('button[data-parent-id="components"][aria-expanded="false"]');
 
     for (item of itemsLeftToClick) {
       item.click();
