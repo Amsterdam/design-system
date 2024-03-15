@@ -5,9 +5,6 @@
 
 .ams-avatar {
   aspect-ratio: 1/1;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
   border-radius: 50%;
   display: inline-flex;
   font-family: var(--ams-avatar-font-family);
@@ -17,58 +14,53 @@
   padding-block: var(--ams-avatar-padding);
   padding-inline: var(--ams-avatar-padding);
   width: calc(var(--ams-avatar-line-height) * var(--ams-avatar-font-size));
+
+  svg {
+    fill: currentColor;
+  }
 }
 
 .ams-avatar--blue {
   background-color: var(--ams-avatar-blue-background-color);
-  background-image: var(--ams-avatar-blue-background-image);
   color: var(--ams-avatar-blue-color);
 }
 
 .ams-avatar--dark-blue {
   background-color: var(--ams-avatar-dark-blue-background-color);
-  background-image: var(--ams-avatar-dark-blue-background-image);
   color: var(--ams-avatar-dark-blue-color);
 }
 
 .ams-avatar--dark-green {
   background-color: var(--ams-avatar-dark-green-background-color);
-  background-image: var(--ams-avatar-dark-green-background-image);
   color: var(--ams-avatar-dark-green-color);
 }
 
 .ams-avatar--green {
   background-color: var(--ams-avatar-green-background-color);
-  background-image: var(--ams-avatar-green-background-image);
   color: var(--ams-avatar-green-color);
 }
 
 .ams-avatar--magenta {
   background-color: var(--ams-avatar-magenta-background-color);
-  background-image: var(--ams-avatar-magenta-background-image);
   color: var(--ams-avatar-magenta-color);
 }
 
 .ams-avatar--orange {
   background-color: var(--ams-avatar-orange-background-color);
-  background-image: var(--ams-avatar-orange-background-image);
   color: var(--ams-avatar-orange-color);
 }
 
 .ams-avatar--purple {
   background-color: var(--ams-avatar-purple-background-color);
-  background-image: var(--ams-avatar-purple-background-image);
   color: var(--ams-avatar-purple-color);
 }
 
 .ams-avatar--red {
   background-color: var(--ams-avatar-red-background-color);
-  background-image: var(--ams-avatar-red-background-image);
   color: var(--ams-avatar-red-color);
 }
 
 .ams-avatar--yellow {
   background-color: var(--ams-avatar-yellow-background-color);
-  background-image: var(--ams-avatar-yellow-background-image);
   color: var(--ams-avatar-yellow-color);
 }

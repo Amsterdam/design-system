@@ -45,16 +45,26 @@ describe('Avatar', () => {
     const component = container.querySelector(':only-child')
 
     expect(component).toHaveTextContent('DE')
-    expect(component).toHaveAttribute('style', 'background-image: none;')
   })
 
   it('renders with default content and title', () => {
     const { container } = render(<Avatar label="" />)
 
-    const component = container.querySelector(':only-child')
+    const a11yLabel = container.querySelector('.ams-visually-hidden')
+    const svg = container.querySelector('svg')
 
-    expect(component).toHaveTextContent('‏‏‎ ‎')
-    expect(component).toHaveAttribute('title', 'Niet-ingelogde gebruiker')
+    expect(a11yLabel).toHaveTextContent('Gebruiker')
+    expect(svg).toBeVisible()
+  })
+
+  it('renders with a profile picture', () => {
+    const { container } = render(<Avatar label="RS" imageSrc="https://i.pravatar.cc/200" />)
+
+    const a11yLabel = container.querySelector('.ams-visually-hidden')
+    const image = container.querySelector('[src="https://i.pravatar.cc/200"]')
+
+    expect(a11yLabel).toHaveTextContent('Initialen gebruiker: RS.')
+    expect(image).toBeVisible()
   })
 
   it('renders with default color', () => {
@@ -74,21 +84,4 @@ describe('Avatar', () => {
       expect(component).toHaveClass(`ams-avatar--${color}`)
     }),
   )
-
-  it('renders with a profile picture', () => {
-    const { container } = render(
-      <Avatar
-        label=""
-        imageUrl="https://web.archive.org/web/20230610011324im_/https://avatars.githubusercontent.com/u/7290629?v=4"
-      />,
-    )
-
-    const component = container.querySelector(':only-child')
-
-    expect(component).toHaveTextContent('‏‏‎ ‎')
-    expect(component).toHaveAttribute(
-      'style',
-      'background-image: url(https://web.archive.org/web/20230610011324im_/https://avatars.githubusercontent.com/u/7290629?v=4);',
-    )
-  })
 })

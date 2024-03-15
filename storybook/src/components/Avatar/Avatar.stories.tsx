@@ -11,7 +11,7 @@ const meta = {
   component: Avatar,
   args: {
     label: 'DS',
-    imageUrl: '',
+    imageSrc: '',
   },
   argTypes: {
     color: {
@@ -36,9 +36,9 @@ export const WithoutLabel: Story = {
   },
 }
 
-export const WithImageURL: Story = {
+export const WithImageSrc: Story = {
   args: {
-    label: 'RS',
-    imageUrl: 'https://web.archive.org/web/20230610011324im_/https://avatars.githubusercontent.com/u/7290629?v=4',
+    label: 'PS',
+    imageSrc: 'https://i.pravatar.cc/200',
   },
 }

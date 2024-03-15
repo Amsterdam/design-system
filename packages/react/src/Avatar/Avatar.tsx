@@ -3,9 +3,12 @@
  * Copyright Gemeente Amsterdam
  */
 
+import { PersonalLoginIcon } from '@amsterdam/design-system-react-icons'
 import clsx from 'clsx'
 import { forwardRef, useMemo } from 'react'
 import type { ForwardedRef, HTMLAttributes, ReactElement } from 'react'
+import { Image } from '../Image'
+import { VisuallyHidden } from '../VisuallyHidden'
 
 export const avatarColors = [
   'blue',
@@ -23,39 +26,33 @@ type AvatarColor = (typeof avatarColors)[number]
 
 export type AvatarProps = {
   color?: AvatarColor
-  imageUrl?: string
+  imageSrc?: string
   label: string
 } & HTMLAttributes<HTMLElement>
 
 export const Avatar = forwardRef(
-  ({ label, imageUrl, className, color = 'dark-blue', ...restProps }: AvatarProps, ref: ForwardedRef<HTMLElement>) => {
-    const initials: string | ReactElement = useMemo(() => {
-      return (label.length > 2 ? label.slice(0, 2) : label).toUpperCase()
-    }, [label])
+  ({ label, imageSrc, className, color = 'dark-blue', ...restProps }: AvatarProps, ref: ForwardedRef<HTMLElement>) => {
+    const initials: string = (label.length > 2 ? label.slice(0, 2) : label).toUpperCase()
 
-    const title = useMemo(() => {
-      return !initials.length ? 'Niet-ingelogde gebruiker' : `Initialen gebruiker: ${initials.split('').join('.')}.`
-    }, [initials])
+    const a11yLabel = useMemo(
+      () => (initials.length === 0 ? 'Gebruiker' : `Initialen gebruiker: ${initials}.`),
+      [initials],
+    )
 
-    const backgroundImageValue: string | undefined = useMemo(() => {
-      if (imageUrl) {
-        return `url(${imageUrl})`
+    const content: ReactElement | string = useMemo(() => {
+      if (imageSrc) {
+        return <Image src={imageSrc} />
       } else if (label.length) {
-        return 'none'
+        return initials
       } else {
-        return undefined
+        return <PersonalLoginIcon />
       }
-    }, [imageUrl, label])
+    }, [imageSrc, label, initials])
 
     return (
-      <span
-        {...restProps}
-        ref={ref}
-        className={clsx('ams-avatar', `ams-avatar--${color}`, className)}
-        style={{ backgroundImage: backgroundImageValue }}
-        title={title}
-      >
-        {backgroundImageValue !== 'none' ? '‏‏‎ ‎' : initials}
+      <span {...restProps} ref={ref} className={clsx('ams-avatar', `ams-avatar--${color}`, className)}>
+        {content}
+        <VisuallyHidden>{a11yLabel}</VisuallyHidden>
       </span>
     )
   },

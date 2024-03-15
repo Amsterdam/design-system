@@ -8,65 +8,38 @@
       "padding": { "value": "5px" },
       "blue": {
         "background-color": { "value": "{ams.color.blue}" },
-        "background-image": {
-          "value": "url(\"data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><path fill='black' fill-rule='evenodd' d='M31 32H1v-2.5c0-7.5 4.2-10 10-10h10c5.8 0 10 2.5 10 10V32zM16 17a7.6 7.6 0 0 0 7.5-7.5 7.5 7.5 0 0 0-15 0A7.6 7.6 0 0 0 16 17z'/></svg>\")"
-        },
         "color": { "value": "{ams.color.primary-black}" }
       },
       "dark-blue": {
         "background-color": { "value": "{ams.color.primary-blue}" },
-        "background-image": {
-          "value": "url(\"data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><path fill='white' fill-rule='evenodd' d='M31 32H1v-2.5c0-7.5 4.2-10 10-10h10c5.8 0 10 2.5 10 10V32zM16 17a7.6 7.6 0 0 0 7.5-7.5 7.5 7.5 0 0 0-15 0A7.6 7.6 0 0 0 16 17z'/></svg>\")"
-        },
         "color": { "value": "{ams.color.primary-white}" }
       },
       "dark-green": {
         "background-color": { "value": "{ams.color.dark-green}" },
-        "background-image": {
-          "value": "url(\"data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><path fill='white' fill-rule='evenodd' d='M31 32H1v-2.5c0-7.5 4.2-10 10-10h10c5.8 0 10 2.5 10 10V32zM16 17a7.6 7.6 0 0 0 7.5-7.5 7.5 7.5 0 0 0-15 0A7.6 7.6 0 0 0 16 17z'/></svg>\")"
-        },
         "color": { "value": "{ams.color.primary-white}" }
       },
       "green": {
         "background-color": { "value": "{ams.color.green}" },
-        "background-image": {
-          "value": "url(\"data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><path fill='black' fill-rule='evenodd' d='M31 32H1v-2.5c0-7.5 4.2-10 10-10h10c5.8 0 10 2.5 10 10V32zM16 17a7.6 7.6 0 0 0 7.5-7.5 7.5 7.5 0 0 0-15 0A7.6 7.6 0 0 0 16 17z'/></svg>\")"
-        },
         "color": { "value": "{ams.color.primary-black}" }
       },
       "magenta": {
         "background-color": { "value": "{ams.color.magenta}" },
-        "background-image": {
-          "value": "url(\"data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><path fill='white' fill-rule='evenodd' d='M31 32H1v-2.5c0-7.5 4.2-10 10-10h10c5.8 0 10 2.5 10 10V32zM16 17a7.6 7.6 0 0 0 7.5-7.5 7.5 7.5 0 0 0-15 0A7.6 7.6 0 0 0 16 17z'/></svg>\")"
-        },
         "color": { "value": "{ams.color.primary-white}" }
       },
       "orange": {
         "background-color": { "value": "{ams.color.orange}" },
-        "background-image": {
-          "value": "url(\"data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><path fill='black' fill-rule='evenodd' d='M31 32H1v-2.5c0-7.5 4.2-10 10-10h10c5.8 0 10 2.5 10 10V32zM16 17a7.6 7.6 0 0 0 7.5-7.5 7.5 7.5 0 0 0-15 0A7.6 7.6 0 0 0 16 17z'/></svg>\")"
-        },
         "color": { "value": "{ams.color.primary-black}" }
       },
       "purple": {
         "background-color": { "value": "{ams.color.purple}" },
-        "background-image": {
-          "value": "url(\"data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><path fill='white' fill-rule='evenodd' d='M31 32H1v-2.5c0-7.5 4.2-10 10-10h10c5.8 0 10 2.5 10 10V32zM16 17a7.6 7.6 0 0 0 7.5-7.5 7.5 7.5 0 0 0-15 0A7.6 7.6 0 0 0 16 17z'/></svg>\")"
-        },
         "color": { "value": "{ams.color.primary-white}" }
       },
       "red": {
         "background-color": { "value": "{ams.color.primary-red}" },
-        "background-image": {
-          "value": "url(\"data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><path fill='white' fill-rule='evenodd' d='M31 32H1v-2.5c0-7.5 4.2-10 10-10h10c5.8 0 10 2.5 10 10V32zM16 17a7.6 7.6 0 0 0 7.5-7.5 7.5 7.5 0 0 0-15 0A7.6 7.6 0 0 0 16 17z'/></svg>\")"
-        },
         "color": { "value": "{ams.color.primary-white}" }
       },
       "yellow": {
         "background-color": { "value": "{ams.color.yellow}" },
-        "background-image": {
-          "value": "url(\"data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><path fill='black' fill-rule='evenodd' d='M31 32H1v-2.5c0-7.5 4.2-10 10-10h10c5.8 0 10 2.5 10 10V32zM16 17a7.6 7.6 0 0 0 7.5-7.5 7.5 7.5 0 0 0-15 0A7.6 7.6 0 0 0 16 17z'/></svg>\")"
-        },
         "color": { "value": "{ams.color.primary-black}" }
       }
     }
