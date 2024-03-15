@@ -5,7 +5,7 @@
 
 import clsx from 'clsx'
 import { forwardRef } from 'react'
-import type { ForwardedRef, ForwardRefExoticComponent, HTMLAttributes, PropsWithChildren, RefAttributes } from 'react'
+import type { ForwardedRef, HTMLAttributes, PropsWithChildren } from 'react'
 import { GridCell } from './GridCell'
 
 export type GridColumnNumber = 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11 | 12
@@ -61,11 +61,7 @@ const paddingClasses = (
   return classes
 }
 
-type GridComponent = {
-  Cell: typeof GridCell
-} & ForwardRefExoticComponent<GridProps & RefAttributes<HTMLDivElement>>
-
-export const Grid = forwardRef(
+export const GridRoot = forwardRef(
   (
     { children, className, gapVertical, paddingBottom, paddingTop, paddingVertical, ...restProps }: GridProps,
     ref: ForwardedRef<HTMLDivElement>,
@@ -83,7 +79,8 @@ export const Grid = forwardRef(
       {children}
     </div>
   ),
-) as GridComponent
+)
 
-Grid.Cell = GridCell
-Grid.displayName = 'Grid'
+GridRoot.displayName = 'Grid'
+
+export const Grid = Object.assign(GridRoot, { Cell: GridCell })
