@@ -1,0 +1,11 @@
+import { Controls, Markdown, Meta, Primary } from "@storybook/blocks";
+import * as DescriptionListStories from "./DescriptionList.stories.tsx";
+import README from "../../../../packages/css/src/components/description-list/README.md?raw";
+
+<Meta of={DescriptionListStories} />
+
+<Markdown>{README}</Markdown>
+
+<Primary />
+
+<Controls />

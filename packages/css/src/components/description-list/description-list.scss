@@ -1,0 +1,31 @@
+/**
+ * @license EUPL-1.2+
+ * Copyright Gemeente Amsterdam
+ */
+
+@mixin reset {
+  box-sizing: border-box;
+  list-style: none;
+  margin-block: 0;
+  margin-inline: 0;
+  padding-inline-start: 0;
+  -webkit-text-size-adjust: 100%;
+}
+
+.ams-description-list {
+  color: var(--ams-unordered-list-color);
+  font-family: var(--ams-unordered-list-font-family);
+  font-size: var(--ams-unordered-list-font-size);
+  font-weight: var(--ams-unordered-list-font-weight);
+  line-height: var(--ams-unordered-list-line-height);
+  list-style-type: var(--ams-unordered-list-list-style-type);
+}
+
+.ams-description-list__term {
+  @include reset;
+}
+
+.ams-description-list__details {
+  font-weight: 700;
+  @include reset;
+}
