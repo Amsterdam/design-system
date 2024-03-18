@@ -4,7 +4,7 @@
  */
 
 .ams-avatar {
-  aspect-ratio: 1/1;
+  aspect-ratio: var(--ams-aspect-ratio-square);
   border-radius: 50%;
   display: inline-flex;
   font-family: var(--ams-avatar-font-family);
