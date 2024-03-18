@@ -5,7 +5,7 @@
       "font-size": { "value": "{ams.text.level.6.font-size}" },
       "font-weight": { "value": "{ams.text.font-weight.normal}" },
       "line-height": { "value": "{ams.text.level.6.line-height}" },
-      "padding": { "value": "5px" },
+      "padding": { "value": "4px" },
       "blue": {
         "background-color": { "value": "{ams.color.blue}" },
         "color": { "value": "{ams.color.primary-black}" }
