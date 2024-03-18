@@ -7,6 +7,7 @@ import { PersonalLoginIcon } from '@amsterdam/design-system-react-icons'
 import clsx from 'clsx'
 import { forwardRef, useMemo } from 'react'
 import type { ForwardedRef, HTMLAttributes } from 'react'
+import { Icon } from '../Icon'
 import { Image } from '../Image'
 import { VisuallyHidden } from '../VisuallyHidden'
 
@@ -42,11 +43,13 @@ export const Avatar = forwardRef(
     const content = useMemo(() => {
       if (imageSrc) {
         return <Image src={imageSrc} />
-      } else if (label.length) {
-        return initials
-      } else {
-        return <PersonalLoginIcon />
       }
+
+      if (label.length) {
+        return initials
+      }
+
+      return <Icon svg={PersonalLoginIcon} size="level-6" />
     }, [imageSrc, label, initials])
 
     return (

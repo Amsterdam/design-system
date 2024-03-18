@@ -31,16 +31,17 @@ type Story = StoryObj<typeof meta>
 
 export const Default: Story = {}
 
-export const WithoutLabel: Story = {
-  args: {
-    label: '',
-  },
-}
-
-export const WithImageSrc: Story = {
+export const WithPicture: Story = {
   args: {
     label: 'PS',
     imageSrc: 'https://i.pravatar.cc/200',
+  },
+}
+
+export const FallbackIcon: Story = {
+  args: {
+    imageSrc: undefined,
+    label: '',
   },
 }
 
