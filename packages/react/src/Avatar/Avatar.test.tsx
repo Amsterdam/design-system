@@ -29,16 +29,6 @@ describe('Avatar', () => {
     expect(component).toHaveClass('ams-avatar extra')
   })
 
-  it('supports ForwardRef in React', () => {
-    const ref = createRef<HTMLSpanElement>()
-
-    const { container } = render(<Avatar label="AL" ref={ref} />)
-
-    const component = container.querySelector(':only-child')
-
-    expect(ref.current).toBe(component)
-  })
-
   it('renders with a label consisting of no more than two, uppercase letters', () => {
     const { container } = render(<Avatar label="Design System" />)
 
@@ -67,6 +57,14 @@ describe('Avatar', () => {
     expect(image).toBeVisible()
   })
 
+  it('shortens a label that is too long', () => {
+    const { container } = render(<Avatar label="ABC" />)
+
+    const component = container.querySelector(':only-child')
+
+    expect(component).toHaveTextContent('AB')
+  })
+
   it('renders with default color', () => {
     const { container } = render(<Avatar label="VS" />)
 
@@ -84,4 +82,14 @@ describe('Avatar', () => {
       expect(component).toHaveClass(`ams-avatar--${color}`)
     }),
   )
+
+  it('supports ForwardRef in React', () => {
+    const ref = createRef<HTMLSpanElement>()
+
+    const { container } = render(<Avatar label="AL" ref={ref} />)
+
+    const component = container.querySelector(':only-child')
+
+    expect(ref.current).toBe(component)
+  })
 })
