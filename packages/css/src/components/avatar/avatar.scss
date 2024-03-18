@@ -6,13 +6,14 @@
 .ams-avatar {
   aspect-ratio: var(--ams-aspect-ratio-square);
   border-radius: 50%;
+  box-sizing: content-box;
   display: inline-flex;
   font-family: var(--ams-avatar-font-family);
   font-size: var(--ams-avatar-font-size);
-  justify-content: center;
   line-height: var(--ams-avatar-line-height);
   padding-block: var(--ams-avatar-padding-block);
   padding-inline: var(--ams-avatar-padding-inline);
+  place-content: center;
   width: calc(var(--ams-avatar-line-height) * var(--ams-avatar-font-size));
 
   svg {
@@ -20,18 +21,11 @@
   }
 }
 
-.ams-avatar--image {
+.ams-avatar--has-image {
   overflow: hidden;
-  position: relative;
-
-  img {
-    height: calc(100% + var(--ams-avatar-padding) * 2);
-    left: calc(0px - var(--ams-avatar-padding));
-    max-width: none;
-    position: absolute;
-    top: calc(0px - var(--ams-avatar-padding));
-    width: calc(100% + var(--ams-avatar-padding) * 2);
-  }
+  padding-block: 0;
+  padding-inline: 0;
+  width: calc(var(--ams-avatar-line-height) * var(--ams-avatar-font-size) + 2 * var(--ams-avatar-padding-inline));
 }
 
 .ams-avatar--blue {

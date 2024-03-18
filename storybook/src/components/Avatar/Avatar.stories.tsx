@@ -34,7 +34,7 @@ export const Default: Story = {}
 export const WithPicture: Story = {
   args: {
     label: 'PS',
-    imageSrc: 'https://i.pravatar.cc/200',
+    imageSrc: 'https://i.pravatar.cc/128',
   },
 }
 
