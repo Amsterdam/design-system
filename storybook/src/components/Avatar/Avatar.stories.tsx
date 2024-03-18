@@ -45,28 +45,21 @@ export const WithImageSrc: Story = {
 }
 
 export const InAHeader: Story = {
-  decorators: [
-    (Story) => (
-      <div style={{ display: 'flex', alignItems: 'center', gap: '5rem' }}>
-        <Story />
-      </div>
-    ),
-  ],
-  render: () => {
-    return (
-      <Header
-        style={{ width: '100%' }}
-        title="Dashboard"
-        links={
-          <PageMenu>
-            <PageMenu.Link href="#">Contact</PageMenu.Link>
-            <PageMenu.Link href="#" icon={SearchIcon}>
-              Zoeken
-            </PageMenu.Link>
-            <Avatar label={'DS'} />
-          </PageMenu>
-        }
-      ></Header>
-    )
+  args: {
+    label: 'DS',
   },
+  render: (args) => (
+    <Header
+      links={
+        <PageMenu>
+          <PageMenu.Link href="#">Contact</PageMenu.Link>
+          <PageMenu.Link href="#" icon={SearchIcon}>
+            Zoeken
+          </PageMenu.Link>
+          <Avatar {...args} />
+        </PageMenu>
+      }
+      title="Dashboard"
+    />
+  ),
 }
