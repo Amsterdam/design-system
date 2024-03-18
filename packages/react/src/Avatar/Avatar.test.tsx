@@ -30,7 +30,7 @@ describe('Avatar', () => {
   })
 
   it('supports ForwardRef in React', () => {
-    const ref = createRef<HTMLElement>()
+    const ref = createRef<HTMLSpanElement>()
 
     const { container } = render(<Avatar label="AL" ref={ref} />)
 

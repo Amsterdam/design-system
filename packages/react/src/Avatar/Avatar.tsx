@@ -28,10 +28,13 @@ export type AvatarProps = {
   color?: AvatarColor
   imageSrc?: string
   label: string
-} & HTMLAttributes<HTMLElement>
+} & HTMLAttributes<HTMLSpanElement>
 
 export const Avatar = forwardRef(
-  ({ label, imageSrc, className, color = 'dark-blue', ...restProps }: AvatarProps, ref: ForwardedRef<HTMLElement>) => {
+  (
+    { label, imageSrc, className, color = 'dark-blue', ...restProps }: AvatarProps,
+    ref: ForwardedRef<HTMLSpanElement>,
+  ) => {
     const initials = (label.length > 2 ? label.slice(0, 2) : label).toUpperCase()
 
     const a11yLabel = initials.length === 0 ? 'Gebruiker' : `Initialen gebruiker: ${initials}.`
