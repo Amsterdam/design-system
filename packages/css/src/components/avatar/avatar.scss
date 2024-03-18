@@ -11,8 +11,8 @@
   font-size: var(--ams-avatar-font-size);
   justify-content: center;
   line-height: var(--ams-avatar-line-height);
-  padding-block: var(--ams-avatar-padding);
-  padding-inline: var(--ams-avatar-padding);
+  padding-block: var(--ams-avatar-padding-block);
+  padding-inline: var(--ams-avatar-padding-inline);
   width: calc(var(--ams-avatar-line-height) * var(--ams-avatar-font-size));
 
   svg {
