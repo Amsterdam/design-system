@@ -53,7 +53,7 @@ describe('Avatar', () => {
     const a11yLabel = container.querySelector('.ams-visually-hidden')
     const image = container.querySelector('[src="https://i.pravatar.cc/200"]')
 
-    expect(a11yLabel).toHaveTextContent('Initialen gebruiker: RS.')
+    expect(a11yLabel).toHaveTextContent('Initialen gebruiker: RS')
     expect(image).toBeVisible()
   })
 
