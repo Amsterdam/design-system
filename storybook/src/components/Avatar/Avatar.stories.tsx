@@ -57,7 +57,9 @@ export const InAHeader: Story = {
           <PageMenu.Link href="#" icon={SearchIcon}>
             Zoeken
           </PageMenu.Link>
-          <Avatar {...args} />
+          <li>
+            <Avatar {...args} />
+          </li>
         </PageMenu>
       }
       title="Dashboard"
