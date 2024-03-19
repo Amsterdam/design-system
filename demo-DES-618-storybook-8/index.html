@@ -54,6 +54,7 @@
     
     <link href="./sb-addons/config-12/manager-bundle.js" rel="modulepreload" />
       <script id="storybook-mod-expand-all-folders" type="text/javascript">
+  // Somewhat hacky way to expand all folders. Storybook does not support that natively.
   var clickCollapsedItemsUntilNoneLeft = () => {
     const itemsLeftToClick = document.querySelectorAll('button[data-parent-id="components"][aria-expanded="false"]');
 
