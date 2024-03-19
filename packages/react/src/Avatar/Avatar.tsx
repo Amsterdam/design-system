@@ -35,7 +35,7 @@ type ContentProps = { imageSrc?: string; initials: string }
 
 const Content = ({ imageSrc, initials }: ContentProps) => {
   if (imageSrc) {
-    return <Image src={imageSrc} />
+    return <Image src={imageSrc} alt="" />
   }
 
   if (initials.length) {
@@ -52,7 +52,7 @@ export const Avatar = forwardRef(
   ) => {
     const initials = label.slice(0, 2).toUpperCase()
 
-    const a11yLabel = initials.length === 0 ? 'Gebruiker' : `Initialen gebruiker: ${initials}.`
+    const a11yLabel = initials.length === 0 ? 'Gebruiker' : 'Initialen gebruiker:'
 
     return (
       <span
@@ -60,8 +60,8 @@ export const Avatar = forwardRef(
         ref={ref}
         className={clsx('ams-avatar', `ams-avatar--${color}`, imageSrc && 'ams-avatar--has-image', className)}
       >
-        <Content imageSrc={imageSrc} initials={initials} />
         <VisuallyHidden>{a11yLabel}</VisuallyHidden>
+        <Content imageSrc={imageSrc} initials={initials} />
       </span>
     )
   },
