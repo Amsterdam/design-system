@@ -1,0 +1,152 @@
+import { Controls, Markdown, Meta, Primary } from "@storybook/blocks";
+import * as ComponentStories from "./Component.stories.tsx";
+import README from "../../../../packages/css/src/components/component/README.md?raw";
+
+<Meta of={ComponentStories} />
+
+<Markdown>{README}</Markdown>
+
+<Primary />
+
+<Controls />
+
+## 1. How to use
+
+### 1.1. When to use
+
+Specify scenarios when the component should be used.
+
+### 1.2. When not to use
+
+Highlight context in which the component may not be suitable and suggest alternatives.
+
+### 1.3. Content
+
+Instruct what to consider when writing content for this component.
+
+### 1.4. Accessibility
+
+TODO
+
+- [WCAG 1.3.1](https://www.w3.org/TR/WCAG21/#info-and-relationships): Blocks that look like a paragraph are also recognized by a computer as a paragraph.
+- [WCAG 1.3.5](https://www.w3.org/WAI/WCAG21/Understanding/identify-input-purpose.html): It is clear for both users and programmatically what the purpose of a form field is.
+- [WCAG 1.4.3](https://www.w3.org/TR/WCAG21/#contrast-minimum): The contrast of black text on a white background is high enough.
+
+Checkbox is an interactive element; therefore, [the general requirements and guidelines for interactive elements](/docs/docs-design-guidelines-interactive-elements--docs) apply.
+
+### 1.5. Layout
+
+E.g. information on responsive design, how to place things on the grid etc.
+
+### 1.6. Performance
+
+Discuss strategies for reducing rendering time, improving load times, and minimizing resource usage.
+
+### 1.7. Compatibility
+
+Specify the browsers and platforms where the component has been tested and confirmed to work correctly.
+Highlight any known issues or limitations on specific devices or environments.
+
+### 1.8. Privacy
+
+Outline security considerations relevant to the component, such as data validation, input sanitization, and protection against common vulnerabilities (e.g., XSS, CSRF).
+Offer guidance on implementing secure coding practices when using the component.
+
+## 2. Additional Examples
+
+Provide multiple examples illustrating different use cases and variations of the component.
+If the component has subcomponents, add a default example for each and include the controls as well.
+
+### Subcomponent name
+
+<Primary />
+
+<Controls />
+
+### Title of the example
+
+<Primary />
+
+### Title of the example
+
+<Primary />
+
+## 3. Design Choices
+
+### 3.1. Visual
+
+Explains the choices that have been made in the visual design of the component.
+
+### 3.2. Interaction
+
+Explains the choices that have been made in the interaction design of the component.
+
+### 3.3. Motion
+
+Explains the choices that have been made in the motion design of the component.
+
+### 3.4. Figma
+
+(Figma frame here?)
+
+### 3.5 Design tokens
+
+The design has been encoded into the following tokens:
+
+| Name                             | Value                    | Preview                                         |
+| :------------------------------- | :----------------------- | :---------------------------------------------- |
+| `ams-alert-border-style`         | `solid`                  |                                                 |
+| `ams-alert-border-width`         | `4px`                    | <div className="ams-docs-border-width-4" />     |
+| `ams-alert-gap`                  | `1rem`                   | <div className="ams-docs-space-width-1rem" />   |
+| `ams-alert-padding-block`        | `1rem`                   | <div className="ams-docs-space-width-1rem" />   |
+| `ams-alert-padding-inline`       | `1.5rem`                 | <div className="ams-docs-space-width-1.5rem" /> |
+| `ams-alert-error-border-color`   | `ams.color.primary-red`  | <div className="ams-docs-color-primary-red" />  |
+| `ams-alert-info-border-color`    | `ams.color.primary-blue` | <div className="ams-docs-color-primary-blue" /> |
+| `ams-alert-success-border-color` | `ams.color.dark-green`   | <div className="ams-docs-color-dark-green" />   |
+
+#### 3.5.1 Compact mode
+
+The following tokens have different values in compact mode:
+
+| Name                       | Value     | Preview                                          |
+| :------------------------- | :-------- | :----------------------------------------------- |
+| `ams-alert-gap`            | `0.75rem` | <div className="ams-docs-space-width-0.75rem" /> |
+| `ams-alert-padding-block`  | `0.75rem` | <div className="ams-docs-space-width-0.75rem" /> |
+| `ams-alert-padding-inline` | `1rem`    | <div className="ams-docs-space-width-1rem" />    |
+
+#### 3.5.2 Dark mode
+
+The following tokens have different values in dark mode:
+
+…
+
+## 4. Further Reading
+
+References to relevant articles, documentation, or best practices related to the component.
+
+- [Links to cross-origin destinations are unsafe](https://developer.chrome.com/docs/lighthouse/best-practices/external-anchors-use-rel-noopener/): Avoid `target="_blank"` or use `rel="external noopener"` if necessary.
+- [_A comprehensive guide to designing perfect links in UX_, on Prototypr](https://blog.prototypr.io/a-guide-to-designing-perfect-links-in-ux-414558f35730): Best practices for links.
+- [_Writing Hyperlinks: Salient, Descriptive, Start with Keyword_ by Norman Nielsen Group](https://www.nngroup.com/articles/writing-links/): How to write good links? An extensive article on links.
+- [_Hover, focus, active_, by Wunder](https://wunder.io/wunderpedia/accessibility/accessible-uis/hover-focus-active/): A good explanation of the states that elements like links and buttons have in browsers.
+- [MDN: `<a>`: The Anchor element](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/a): Comprehensive overview of all possibilities of links in HTML.
+
+## 5. Version History and Changelog
+
+Document the version history of the component, including release dates and notable changes.
+Include a changelog detailing bug fixes, improvements, and new features introduced in each version.
+
+- **0.7.0** _Lorem ipsum dolor sit amet, consectetur adipisicing elit. Doloremque fuga iusto sequi?_
+- **0.6.1** _Lorem ipsum dolor sit amet, consectetur adipisicing elit. Atque beatae delectus dolor eligendi excepturi laborum libero minima neque tempore tenetur._
+- **0.4.0** _Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aspernatur eos ex labore, maiores quas sequi totam._
+
+## 6. Feedback
+
+An easy way to provide feedback on this page.
+Maybe thumbs up and down and a small textarea.
+And a link to GitHub to suggest a change through a PR.
+
+## (How to write)
+
+We write our documentation in British English and conform to the Schrijfwijzer where possible.
+
+Short sentences, short paragraphs, lists only when they are actually lists.

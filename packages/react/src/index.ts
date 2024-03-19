@@ -4,6 +4,7 @@
  */
 
 /* Append here */
+export * from './Component'
 export * from './Avatar'
 export * from './FormFieldCharacterCounter'
 export * from './DescriptionList'
