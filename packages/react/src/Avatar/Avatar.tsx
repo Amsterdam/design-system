@@ -39,7 +39,7 @@ const Content = ({ imageSrc, initials }: ContentProps) => {
   }
 
   if (initials.length) {
-    return initials
+    return <span aria-hidden={true}>{initials}</span>
   }
 
   return <Icon svg={PersonalLoginIcon} size="level-6" />
@@ -52,7 +52,7 @@ export const Avatar = forwardRef(
   ) => {
     const initials = label.slice(0, 2).toUpperCase()
 
-    const a11yLabel = initials.length === 0 ? 'Gebruiker' : 'Initialen gebruiker:'
+    const a11yLabel = initials.length === 0 ? 'Gebruiker' : `Initialen gebruiker: ${initials}`
 
     return (
       <span
