@@ -23,10 +23,6 @@ const config: StorybookConfig = {
       },
     },
   ],
-  features: {
-    buildStoriesJson: true,
-    storyStoreV7: true,
-  },
   framework: {
     name: '@storybook/react-vite',
     options: {},
