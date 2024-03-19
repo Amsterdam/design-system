@@ -25,13 +25,10 @@ export const avatarColors = [
 
 type AvatarColor = (typeof avatarColors)[number]
 
-export type AvatarProps = {
-  color?: AvatarColor
+type ContentProps = {
   imageSrc?: string
-  label: string
-} & HTMLAttributes<HTMLSpanElement>
-
-type ContentProps = { imageSrc?: string; initials: string }
+  initials: string
+}
 
 const Content = ({ imageSrc, initials }: ContentProps) => {
   if (imageSrc) {
@@ -44,6 +41,12 @@ const Content = ({ imageSrc, initials }: ContentProps) => {
 
   return <Icon svg={PersonalLoginIcon} size="level-6" />
 }
+
+export type AvatarProps = {
+  color?: AvatarColor
+  imageSrc?: string
+  label: string
+} & HTMLAttributes<HTMLSpanElement>
 
 export const Avatar = forwardRef(
   (
