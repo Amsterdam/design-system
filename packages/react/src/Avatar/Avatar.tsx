@@ -5,7 +5,7 @@
 
 import { PersonalLoginIcon } from '@amsterdam/design-system-react-icons'
 import clsx from 'clsx'
-import { forwardRef, useMemo } from 'react'
+import { forwardRef } from 'react'
 import type { ForwardedRef, HTMLAttributes } from 'react'
 import { Icon } from '../Icon'
 import { Image } from '../Image'
@@ -31,6 +31,20 @@ export type AvatarProps = {
   label: string
 } & HTMLAttributes<HTMLSpanElement>
 
+type ContentProps = { imageSrc?: string; initials: string }
+
+const Content = ({ imageSrc, initials }: ContentProps) => {
+  if (imageSrc) {
+    return <Image src={imageSrc} />
+  }
+
+  if (initials.length) {
+    return initials
+  }
+
+  return <Icon svg={PersonalLoginIcon} size="level-6" />
+}
+
 export const Avatar = forwardRef(
   (
     { label, imageSrc, className, color = 'dark-blue', ...restProps }: AvatarProps,
@@ -40,25 +54,13 @@ export const Avatar = forwardRef(
 
     const a11yLabel = initials.length === 0 ? 'Gebruiker' : `Initialen gebruiker: ${initials}.`
 
-    const content = useMemo(() => {
-      if (imageSrc) {
-        return <Image src={imageSrc} />
-      }
-
-      if (label.length) {
-        return initials
-      }
-
-      return <Icon svg={PersonalLoginIcon} size="level-6" />
-    }, [imageSrc, label, initials])
-
     return (
       <span
         {...restProps}
         ref={ref}
         className={clsx('ams-avatar', `ams-avatar--${color}`, imageSrc && 'ams-avatar--has-image', className)}
       >
-        {content}
+        <Content imageSrc={imageSrc} initials={initials} />
         <VisuallyHidden>{a11yLabel}</VisuallyHidden>
       </span>
     )
