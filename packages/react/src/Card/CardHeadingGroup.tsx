@@ -21,4 +21,4 @@ export const CardHeadingGroup = forwardRef(
   ),
 )
 
-CardHeadingGroup.displayName = 'CardHeadingGroup'
+CardHeadingGroup.displayName = 'Card.HeadingGroup'

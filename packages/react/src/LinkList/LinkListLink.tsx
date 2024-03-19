@@ -6,13 +6,7 @@
 import { ChevronRightIcon } from '@amsterdam/design-system-react-icons'
 import clsx from 'clsx'
 import { forwardRef } from 'react'
-import type {
-  AnchorHTMLAttributes,
-  ForwardedRef,
-  ForwardRefExoticComponent,
-  PropsWithChildren,
-  RefAttributes,
-} from 'react'
+import type { AnchorHTMLAttributes, ForwardedRef, PropsWithChildren } from 'react'
 import { Icon } from '../Icon'
 
 type BackgroundName = 'default' | 'light' | 'dark'
@@ -33,8 +27,6 @@ export type LinkListLinkProps = {
    */
   size?: 'small' | 'large'
 } & PropsWithChildren<AnchorHTMLAttributes<HTMLAnchorElement>>
-
-type LinkListLinkComponent = ForwardRefExoticComponent<LinkListLinkProps & RefAttributes<HTMLAnchorElement>>
 
 const iconSizeMap = {
   small: 'level-6',
@@ -67,6 +59,6 @@ export const LinkListLink = forwardRef(
       </li>
     )
   },
-) as LinkListLinkComponent
+)
 
 LinkListLink.displayName = 'LinkList.Link'

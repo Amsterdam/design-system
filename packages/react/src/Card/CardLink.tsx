@@ -17,4 +17,4 @@ export const CardLink = forwardRef(
   ),
 )
 
-CardLink.displayName = 'CardLink'
+CardLink.displayName = 'Card.Link'
