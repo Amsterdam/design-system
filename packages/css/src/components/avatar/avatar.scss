@@ -24,7 +24,7 @@
   overflow: hidden;
   padding-block: 0;
   padding-inline: 0;
-  vertical-align: middle;
+  vertical-align: middle; /* Remove ‘phantom’ white space when image doesn’t load */
   width: calc(var(--ams-avatar-line-height) * var(--ams-avatar-font-size) + 2 * var(--ams-avatar-padding-inline));
 }
 
