@@ -1,13 +1,13 @@
-import { render } from '@testing-library/react'
+import { render, screen } from '@testing-library/react'
 import { createRef } from 'react'
 import { Avatar, avatarColors } from './Avatar'
 import '@testing-library/jest-dom'
 
 describe('Avatar', () => {
   it('renders', () => {
-    const { container } = render(<Avatar label="NR" />)
+    render(<Avatar label="NR" />)
 
-    const component = container.querySelector(':only-child')
+    const component = screen.getByText('Initialen gebruiker: NR')
 
     expect(component).toBeInTheDocument()
     expect(component).toBeVisible()
@@ -40,20 +40,20 @@ describe('Avatar', () => {
   it('renders with default content and title', () => {
     const { container } = render(<Avatar label="" />)
 
-    const a11yLabel = container.querySelector('.ams-visually-hidden')
+    const component = screen.getByText('Gebruiker')
     const svg = container.querySelector('svg')
 
-    expect(a11yLabel).toHaveTextContent('Gebruiker')
+    expect(component).toBeVisible()
     expect(svg).toBeVisible()
   })
 
   it('renders with a profile picture', () => {
-    const { container } = render(<Avatar label="RS" imageSrc="https://i.pravatar.cc/200" />)
+    const { container } = render(<Avatar label="RS" imageSrc="image-source" />)
 
-    const a11yLabel = container.querySelector('.ams-visually-hidden')
-    const image = container.querySelector('[src="https://i.pravatar.cc/200"]')
+    const component = screen.getByText('Initialen gebruiker: RS')
+    const image = container.querySelector('[src="image-source"]')
 
-    expect(a11yLabel).toHaveTextContent('Initialen gebruiker: RS')
+    expect(component).toBeVisible()
     expect(image).toBeVisible()
   })
 
