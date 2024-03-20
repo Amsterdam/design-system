@@ -23,4 +23,4 @@ export const SearchFieldButton = forwardRef(
   ),
 )
 
-SearchFieldButton.displayName = 'SearchFieldButton'
+SearchFieldButton.displayName = 'SearchField.Button'

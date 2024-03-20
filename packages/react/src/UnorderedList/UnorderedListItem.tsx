@@ -17,4 +17,4 @@ export const UnorderedListItem = forwardRef(
   ),
 )
 
-UnorderedListItem.displayName = 'UnorderedListItem'
+UnorderedListItem.displayName = 'UnorderedList.Item'

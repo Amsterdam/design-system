@@ -5,13 +5,7 @@
 
 import clsx from 'clsx'
 import { forwardRef } from 'react'
-import type {
-  ForwardedRef,
-  ForwardRefExoticComponent,
-  PropsWithChildren,
-  RefAttributes,
-  TableHTMLAttributes,
-} from 'react'
+import type { ForwardedRef, PropsWithChildren, TableHTMLAttributes } from 'react'
 import { TableBody } from './TableBody'
 import { TableCaption } from './TableCaption'
 import { TableCell } from './TableCell'
@@ -22,17 +16,7 @@ import { TableRow } from './TableRow'
 
 export type TableProps = PropsWithChildren<TableHTMLAttributes<HTMLTableElement>>
 
-type TableComponent = {
-  Body: typeof TableBody
-  Caption: typeof TableCaption
-  Cell: typeof TableCell
-  Footer: typeof TableFooter
-  Header: typeof TableHeader
-  HeaderCell: typeof TableHeaderCell
-  Row: typeof TableRow
-} & ForwardRefExoticComponent<TableProps & RefAttributes<HTMLTableElement>>
-
-export const Table = forwardRef(
+const TableRoot = forwardRef(
   ({ children, className, ...restProps }: TableProps, ref: ForwardedRef<HTMLTableElement>) => (
     <div className="ams-table">
       <table {...restProps} ref={ref} className={clsx('ams-table__table', className)}>
@@ -40,21 +24,16 @@ export const Table = forwardRef(
       </table>
     </div>
   ),
-) as TableComponent
+)
 
-Table.Body = TableBody
-Table.Caption = TableCaption
-Table.Cell = TableCell
-Table.Footer = TableFooter
-Table.Header = TableHeader
-Table.HeaderCell = TableHeaderCell
-Table.Row = TableRow
+TableRoot.displayName = 'Table'
 
-Table.displayName = 'Table'
-Table.Body.displayName = 'Table.Body'
-Table.Caption.displayName = 'Table.Caption'
-Table.Cell.displayName = 'Table.Cell'
-Table.Footer.displayName = 'Table.Footer'
-Table.Header.displayName = 'Table.Header'
-Table.HeaderCell.displayName = 'Table.HeaderCell'
-Table.Row.displayName = 'Table.Row'
+export const Table = Object.assign(TableRoot, {
+  Body: TableBody,
+  Caption: TableCaption,
+  Cell: TableCell,
+  Footer: TableFooter,
+  Header: TableHeader,
+  HeaderCell: TableHeaderCell,
+  Row: TableRow,
+})

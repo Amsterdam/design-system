@@ -21,4 +21,4 @@ export const BreadcrumbItem = forwardRef(
   ),
 )
 
-BreadcrumbItem.displayName = 'BreadcrumbItem'
+BreadcrumbItem.displayName = 'Breadcrumb.Item'
