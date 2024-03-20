@@ -1,6 +1,7 @@
 {
   "ams": {
     "avatar": {
+      "aspect-ratio": { "value": "{ams.proportion.square}" },
       "font-family": { "value": "{ams.text.font-family}" },
       "font-size": { "value": "{ams.text.level.6.font-size}" },
       "font-weight": { "value": "{ams.text.font-weight.normal}" },
