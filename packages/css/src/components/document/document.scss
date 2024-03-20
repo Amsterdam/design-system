@@ -19,3 +19,14 @@
   background-color: var(--ams-color-primary-white);
   min-height: 100vh;
 }
+
+/**
+ * For strong emphasis, we use the extra bold font weight of Amsterdam Sans.
+ */
+.ams-theme {
+  b,
+  dd,
+  strong {
+    font-weight: var(--ams-text-font-weight-bold);
+  }
+}
