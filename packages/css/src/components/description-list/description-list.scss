@@ -4,6 +4,7 @@
  */
 
 @import "../../common/breakpoint";
+@import "../../common/hyphenation";
 
 @mixin reset {
   box-sizing: border-box;
@@ -48,6 +49,7 @@
 }
 
 .ams-description-list__term {
+  @include hyphenation;
   @include reset;
 }
 
@@ -65,5 +67,6 @@
     }
   }
 
+  @include hyphenation;
   @include reset;
 }
