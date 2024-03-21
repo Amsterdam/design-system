@@ -5,9 +5,16 @@
       "font-family": { "value": "{ams.text.font-family}" },
       "font-size": { "value": "{ams.text.level.5.font-size}" },
       "font-weight": { "value": "{ams.text.font-weight.normal}" },
-      "gap": { "value": "0.75rem" },
+      "gap": { "value": "{ams.space.stack.md}" },
       "inverse-color": { "value": "{ams.color.primary-white}" },
-      "line-height": { "value": "{ams.text.level.5.line-height}" }
+      "line-height": { "value": "{ams.text.level.5.line-height}" },
+      "row": {
+        "gap": { "value": "{ams.space.inside.md}" }
+      },
+      "details": {
+        "font-weight": { "value": "{ams.text.font-weight.bold}" },
+        "padding-inline-start": { "value": "{ams.space.inside.xl}" }
+      }
     }
   }
 }

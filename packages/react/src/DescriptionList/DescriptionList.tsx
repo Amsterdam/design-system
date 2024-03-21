@@ -4,9 +4,10 @@
  */
 
 import clsx from 'clsx'
-import { forwardRef } from 'react'
+import { Children, forwardRef, isValidElement } from 'react'
 import type { ForwardedRef, ForwardRefExoticComponent, HTMLAttributes, PropsWithChildren, RefAttributes } from 'react'
 import { DescriptionListDetails } from './DescriptionListDetails'
+import { DescriptionListRow } from './DescriptionListRow'
 import { DescriptionListTerm } from './DescriptionListTerm'
 
 export type DescriptionListProps = PropsWithChildren<HTMLAttributes<HTMLDListElement>>
@@ -14,14 +15,27 @@ export type DescriptionListProps = PropsWithChildren<HTMLAttributes<HTMLDListEle
 type DescriptionListComponent = {
   Term: typeof DescriptionListTerm
   Details: typeof DescriptionListDetails
+  Row: typeof DescriptionListRow
 } & ForwardRefExoticComponent<DescriptionListProps & RefAttributes<HTMLDListElement>>
 
 export const DescriptionList = forwardRef(
-  ({ children, className, ...restProps }: DescriptionListProps, ref: ForwardedRef<HTMLDListElement>) => (
-    <dl {...restProps} ref={ref} className={clsx('ams-description-list', className)}>
-      {children}
-    </dl>
-  ),
+  ({ children, className, ...restProps }: DescriptionListProps, ref: ForwardedRef<HTMLDListElement>) => {
+    const hasDescriptionListRow = Children.toArray(children).some(
+      (child) => isValidElement(child) && child.type === DescriptionListRow,
+    )
+
+    console.log('DescriptionList', hasDescriptionListRow)
+
+    return (
+      <dl
+        {...restProps}
+        ref={ref}
+        className={clsx('ams-description-list', hasDescriptionListRow && 'ams-description-list--rows', className)}
+      >
+        {children}
+      </dl>
+    )
+  },
 ) as DescriptionListComponent
 
 DescriptionList.displayName = 'DescriptionList'
@@ -31,3 +45,6 @@ DescriptionList.Term.displayName = 'DescriptionList.Term'
 
 DescriptionList.Details = DescriptionListDetails
 DescriptionList.Details.displayName = 'DescriptionList.Details'
+
+DescriptionList.Row = DescriptionListRow
+DescriptionList.Row.displayName = 'DescriptionList.Row'

@@ -3,22 +3,44 @@
  * Copyright Gemeente Amsterdam
  */
 
+@import "../../common/breakpoint";
+
 @mixin reset {
   box-sizing: border-box;
   list-style: none;
   margin-block: 0;
   margin-inline: 0;
-  padding-inline-start: 0;
   -webkit-text-size-adjust: 100%;
 }
 
 .ams-description-list {
-  color: var(--ams-unordered-list-color);
-  font-family: var(--ams-unordered-list-font-family);
-  font-size: var(--ams-unordered-list-font-size);
-  font-weight: var(--ams-unordered-list-font-weight);
-  line-height: var(--ams-unordered-list-line-height);
-  list-style-type: var(--ams-unordered-list-list-style-type);
+  color: var(--ams-description-list-color);
+  display: grid;
+  font-family: var(--ams-description-list-font-family);
+  font-size: var(--ams-description-list-font-size);
+  font-weight: var(--ams-description-list-font-weight);
+  gap: var(--ams-description-list-gap);
+  grid-template-columns: 1fr;
+  line-height: var(--ams-description-list-line-height);
+  list-style-type: var(--ams-description-list-list-style-type);
+
+  &:not(.ams-description-list--rows) {
+    @media screen and (min-width: $ams-breakpoint-medium) {
+      grid-template-columns: 1fr 2fr;
+    }
+  }
+
+  @include reset;
+}
+
+.ams-description-list__row {
+  display: grid;
+  gap: var(--ams-description-list-row-gap);
+  grid-template-columns: 1fr;
+
+  @media screen and (min-width: $ams-breakpoint-medium) {
+    grid-template-columns: 1fr 2fr;
+  }
 }
 
 .ams-description-list__term {
@@ -26,6 +48,18 @@
 }
 
 .ams-description-list__details {
-  font-weight: 700;
+  font-weight: var(--ams-description-list-details-font-weight);
+  padding-inline-start: var(--ams-description-list-details-padding-inline-start);
+
+  @media screen and (min-width: $ams-breakpoint-medium) {
+    padding-inline-start: 0;
+  }
+
+  .ams-description-list--rows & {
+    @media screen and (min-width: $ams-breakpoint-medium) {
+      grid-column-start: 2;
+    }
+  }
+
   @include reset;
 }

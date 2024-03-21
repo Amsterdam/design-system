@@ -1,4 +1,4 @@
-import { Controls, Markdown, Meta, Primary } from "@storybook/blocks";
+import { Canvas, Markdown, Meta, Primary } from "@storybook/blocks";
 import * as DescriptionListStories from "./DescriptionList.stories.tsx";
 import README from "../../../../packages/css/src/components/description-list/README.md?raw";
 
@@ -8,4 +8,8 @@ import README from "../../../../packages/css/src/components/description-list/REA
 
 <Primary />
 
-<Controls />
+## Wrap with rows
+
+If you need to use multiple details in a row, you can use a `DescriptionListRow` component.
+
+<Canvas of={DescriptionListStories.WrapRows} />
