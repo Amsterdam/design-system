@@ -30,7 +30,7 @@ describe('Description list', () => {
   })
 
   it('supports ForwardRef in React', () => {
-    const ref = createRef<HTMLElement>()
+    const ref = createRef<HTMLDListElement>()
 
     const { container } = render(<DescriptionList ref={ref} />)
 
