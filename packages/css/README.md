@@ -52,8 +52,8 @@ import "@amsterdam/design-system-tokens/dist/compact.css";
 
 ## Document styles
 
-Some elements of your document are out of reach for the design system components.
-However, their default styles or common boilerplate approaches can influence on the appearance on the CSS components.
+Some elements of your document are out of reach for the Design System components.
+However, their styles can influence the appearance of the components.
 Apply the following to the document elements:
 
 The font-size must not be changed – e.g. through `html { font-size: 62.5% }` – because the typography system expects a rem to be 16 pixels.
