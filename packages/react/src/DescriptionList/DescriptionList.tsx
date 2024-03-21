@@ -10,7 +10,9 @@ import { DescriptionListDetails } from './DescriptionListDetails'
 import { DescriptionListRow } from './DescriptionListRow'
 import { DescriptionListTerm } from './DescriptionListTerm'
 
-export type DescriptionListProps = PropsWithChildren<HTMLAttributes<HTMLDListElement>>
+export type DescriptionListProps = PropsWithChildren<HTMLAttributes<HTMLDListElement>> & {
+  inverseColor?: boolean
+}
 
 type DescriptionListComponent = {
   Term: typeof DescriptionListTerm
@@ -19,7 +21,7 @@ type DescriptionListComponent = {
 } & ForwardRefExoticComponent<DescriptionListProps & RefAttributes<HTMLDListElement>>
 
 export const DescriptionList = forwardRef(
-  ({ children, className, ...restProps }: DescriptionListProps, ref: ForwardedRef<HTMLDListElement>) => {
+  ({ children, className, inverseColor, ...restProps }: DescriptionListProps, ref: ForwardedRef<HTMLDListElement>) => {
     const hasDescriptionListRow = Children.toArray(children).some(
       (child) => isValidElement(child) && child.type === DescriptionListRow,
     )
@@ -30,7 +32,12 @@ export const DescriptionList = forwardRef(
       <dl
         {...restProps}
         ref={ref}
-        className={clsx('ams-description-list', hasDescriptionListRow && 'ams-description-list--rows', className)}
+        className={clsx(
+          'ams-description-list',
+          hasDescriptionListRow && 'ams-description-list--rows',
+          inverseColor && 'ams-description-list--inverse-color',
+          className,
+        )}
       >
         {children}
       </dl>

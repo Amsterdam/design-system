@@ -33,6 +33,10 @@
   @include reset;
 }
 
+.ams-description-list--inverse-color {
+  color: var(--ams-description-list-inverse-color);
+}
+
 .ams-description-list__row {
   display: grid;
   gap: var(--ams-description-list-row-gap);
