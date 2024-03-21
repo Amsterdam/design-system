@@ -1,0 +1,32 @@
+import { Canvas, Controls, Markdown, Meta, Primary } from "@storybook/blocks";
+import * as AvatarStories from "./Avatar.stories.tsx";
+import README from "../../../../packages/css/src/components/avatar/README.md?raw";
+
+<Meta of={AvatarStories} />
+
+<Markdown>{README}</Markdown>
+
+## Stories
+
+### Default
+
+<Primary />
+
+<Controls />
+
+### With Picture
+
+The Avatar can also display a photo or other image for the person.
+Make sure to scale the image down to around 100 pixels to prevent unnecessary data transfers.
+
+<Canvas of={AvatarStories.WithPicture} />
+
+### Fallback Icon
+
+A user icon displays if no label and image are provided.
+
+<Canvas of={AvatarStories.FallbackIcon} />
+
+### In a Header
+
+<Canvas of={AvatarStories.InAHeader} />
