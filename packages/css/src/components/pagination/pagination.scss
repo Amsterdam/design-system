@@ -3,6 +3,8 @@
  * Copyright Gemeente Amsterdam
  */
 
+@import "../../common/text-rendering";
+
 @mixin list-reset {
   list-style-type: none;
   margin-block: 0;
@@ -26,7 +28,6 @@
   all: unset;
   box-sizing: border-box;
   outline: revert;
-  -webkit-text-size-adjust: 100%;
 }
 
 .ams-pagination__button {
@@ -58,6 +59,8 @@
     height: 1rem;
     width: 1rem;
   }
+
+  @include text-rendering;
 }
 
 .ams-pagination__button--current {

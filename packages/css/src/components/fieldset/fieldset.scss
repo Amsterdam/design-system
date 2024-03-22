@@ -4,6 +4,7 @@
  */
 
 @import "../../common/hyphenation";
+@import "../../common/text-rendering";
 
 @mixin reset {
   border: none;
@@ -18,7 +19,6 @@
 
 @mixin legend-reset {
   padding-inline: 0;
-  -webkit-text-size-adjust: 100%;
 }
 
 .ams-fieldset__legend {
@@ -31,4 +31,5 @@
 
   @include hyphenation;
   @include legend-reset;
+  @include text-rendering;
 }

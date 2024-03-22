@@ -3,6 +3,8 @@
  * Copyright Gemeente Amsterdam
  */
 
+@import "../../common/text-rendering";
+
 .ams-search-field {
   display: flex;
   isolation: isolate; // create new stacking context, so the input’s z-index doesn’t escape the component
@@ -11,7 +13,6 @@
 @mixin reset {
   box-sizing: border-box;
   margin-block: 0;
-  -webkit-text-size-adjust: 100%;
 }
 
 .ams-search-field__input {
@@ -28,6 +29,7 @@
   touch-action: manipulation;
   width: 100%;
 
+  @include text-rendering;
   @include reset;
 
   &:hover {

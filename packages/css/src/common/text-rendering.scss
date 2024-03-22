@@ -1,0 +1,15 @@
+/**
+ * @license EUPL-1.2+
+ * Copyright Gemeente Amsterdam
+ */
+
+/**
+ * Prioritizes legibility over speed when rendering text
+ * and disables text inflation on some mobile devices.
+ */
+@mixin text-rendering {
+  text-rendering: optimizeLegibility;
+  -moz-text-size-adjust: none;
+  -webkit-text-size-adjust: none;
+  text-size-adjust: none;
+}

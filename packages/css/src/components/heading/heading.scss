@@ -4,11 +4,11 @@
  */
 
 @import "../../common/hyphenation";
+@import "../../common/text-rendering";
 
 @mixin reset {
   box-sizing: border-box;
   margin-block: 0;
-  -webkit-text-size-adjust: 100%;
 }
 
 .ams-heading {
@@ -19,6 +19,7 @@
   font-weight: var(--ams-heading-font-weight);
 
   @include hyphenation;
+  @include text-rendering;
   @include reset;
 }
 
