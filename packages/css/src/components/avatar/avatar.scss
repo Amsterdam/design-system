@@ -1,0 +1,74 @@
+/**
+ * @license EUPL-1.2+
+ * Copyright Gemeente Amsterdam
+ */
+
+.ams-avatar {
+  aspect-ratio: var(--ams-avatar-aspect-ratio);
+  border-radius: 50%;
+  display: inline-flex;
+  font-family: var(--ams-avatar-font-family);
+  font-size: var(--ams-avatar-font-size);
+  line-height: var(--ams-avatar-line-height);
+  padding-block: var(--ams-avatar-padding-block);
+  padding-inline: var(--ams-avatar-padding-inline);
+  place-content: center;
+  width: calc(var(--ams-avatar-line-height) * var(--ams-avatar-font-size));
+
+  svg {
+    fill: currentColor;
+  }
+}
+
+.ams-avatar--has-image {
+  overflow: hidden;
+  padding-block: 0;
+  padding-inline: 0;
+  vertical-align: middle; /* Remove ‘phantom’ white space when image doesn’t load */
+  width: calc(var(--ams-avatar-line-height) * var(--ams-avatar-font-size) + 2 * var(--ams-avatar-padding-inline));
+}
+
+.ams-avatar--blue {
+  background-color: var(--ams-avatar-blue-background-color);
+  color: var(--ams-avatar-blue-color);
+}
+
+.ams-avatar--dark-blue {
+  background-color: var(--ams-avatar-dark-blue-background-color);
+  color: var(--ams-avatar-dark-blue-color);
+}
+
+.ams-avatar--dark-green {
+  background-color: var(--ams-avatar-dark-green-background-color);
+  color: var(--ams-avatar-dark-green-color);
+}
+
+.ams-avatar--green {
+  background-color: var(--ams-avatar-green-background-color);
+  color: var(--ams-avatar-green-color);
+}
+
+.ams-avatar--magenta {
+  background-color: var(--ams-avatar-magenta-background-color);
+  color: var(--ams-avatar-magenta-color);
+}
+
+.ams-avatar--orange {
+  background-color: var(--ams-avatar-orange-background-color);
+  color: var(--ams-avatar-orange-color);
+}
+
+.ams-avatar--purple {
+  background-color: var(--ams-avatar-purple-background-color);
+  color: var(--ams-avatar-purple-color);
+}
+
+.ams-avatar--red {
+  background-color: var(--ams-avatar-red-background-color);
+  color: var(--ams-avatar-red-color);
+}
+
+.ams-avatar--yellow {
+  background-color: var(--ams-avatar-yellow-background-color);
+  color: var(--ams-avatar-yellow-color);
+}

@@ -18,4 +18,4 @@ export const TableCaption = forwardRef(
   ),
 )
 
-TableCaption.displayName = 'TableCaption'
+TableCaption.displayName = 'Table.Caption'

@@ -17,4 +17,4 @@ export const TableHeaderCell = forwardRef(
   ),
 )
 
-TableHeaderCell.displayName = 'TableHeaderCell'
+TableHeaderCell.displayName = 'Table.HeaderCell'

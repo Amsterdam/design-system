@@ -66,4 +66,4 @@ export const AccordionSection = forwardRef(
   },
 )
 
-AccordionSection.displayName = 'AccordionSection'
+AccordionSection.displayName = 'Accordion.Section'

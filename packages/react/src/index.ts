@@ -4,6 +4,8 @@
  */
 
 /* Append here */
+export * from './Avatar'
+export * from './FormFieldCharacterCounter'
 export * from './Row'
 export * from './Radio'
 export * from './Tabs'
