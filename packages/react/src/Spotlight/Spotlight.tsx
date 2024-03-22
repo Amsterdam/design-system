@@ -24,8 +24,8 @@ export type SpotlightProps = {
   color?: SpotlightColor
 } & PropsWithChildren<HTMLAttributes<HTMLElement>>
 
-export const Spotlight = forwardRef<HTMLDivElement, SpotlightProps>(
-  ({ children, className, as: Tag = 'div', color = 'dark-blue', ...restProps }: SpotlightProps, ref) => (
+export const Spotlight = forwardRef(
+  ({ children, className, as: Tag = 'div', color = 'dark-blue', ...restProps }: SpotlightProps, ref: any) => (
     <Tag {...restProps} ref={ref} className={clsx('ams-spotlight', `ams-spotlight--${color}`, className)}>
       {children}
     </Tag>
