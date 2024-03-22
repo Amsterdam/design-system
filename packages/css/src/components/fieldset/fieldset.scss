@@ -17,7 +17,7 @@
   @include reset;
 }
 
-@mixin legend-reset {
+@mixin reset-legend {
   padding-inline: 0;
 }
 
@@ -30,6 +30,6 @@
   margin-block-end: 1rem; /* Because of a bug in Chrome we can’t use display grid or flex for this gap */
 
   @include hyphenation;
-  @include legend-reset;
   @include text-rendering;
+  @include reset-legend;
 }

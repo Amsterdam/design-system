@@ -8,9 +8,9 @@
 }
 
 .ams-screen {
-  @include reset;
-
   margin-inline: auto;
+
+  @include reset;
 }
 
 .ams-screen--wide {
