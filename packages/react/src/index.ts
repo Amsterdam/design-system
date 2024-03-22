@@ -4,6 +4,7 @@
  */
 
 /* Append here */
+export * from './Select'
 export * from './Avatar'
 export * from './FormFieldCharacterCounter'
 export * from './Row'
