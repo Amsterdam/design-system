@@ -26,8 +26,6 @@ export const DescriptionList = forwardRef(
       (child) => isValidElement(child) && child.type === DescriptionListRow,
     )
 
-    console.log('DescriptionList', hasDescriptionListRow)
-
     return (
       <dl
         {...restProps}
