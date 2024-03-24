@@ -20,9 +20,6 @@
  */
 .ams-body {
   @include reset-body;
-
-  background-color: var(--ams-color-primary-white);
-  min-height: 100vh;
 }
 
 /**
