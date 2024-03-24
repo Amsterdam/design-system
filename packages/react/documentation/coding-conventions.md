@@ -39,3 +39,11 @@ Subcomponents (e.g. `Grid.Cell`) are kept in separate files (e.g. `GridCell.tsx`
 Use [Visually Hidden](https://amsterdam.github.io/design-system/?path=/docs/react_containers-visually-hidden--docs) or the `ams-visually-hidden` utility class to hide content from sighted users but keep it accessible to non-visual user agents, such as screen readers.
 
 Do not use `aria-label`. Tools for automatic translation often [do not translate its value](https://adrianroselli.com/2019/11/aria-label-does-not-translate.html), and it may get overlooked when doing manual translation.
+
+## Polymorphic components
+
+Some of our components can render different HTML tags; they are polymorphic.
+Spotlight and Grid Cell are examples.
+We’ve decided to use polymorphism only for HTML tags that support global attributes (e.g., `div`, `section`, `footer`, etc.).
+This is because other HTML tags require more complicated typing, and it is often simpler to separate the components.
+We type the refs as `any` to make React refs work with polymorphic components.
