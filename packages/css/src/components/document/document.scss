@@ -13,18 +13,12 @@
   margin-inline: 0;
 }
 
-/**
- * Add this class to your HTML `<body>` element.
- * It overrides margins from the user agent styles,
- * ans sets a white background and full height.
- */
+// You should add this class to your HTML `<body>` element.
 .ams-body {
   @include reset-body;
 }
 
-/**
- * For strong emphasis, we use the extra bold font weight of Amsterdam Sans.
- */
+// For strong emphasis, we use the extra bold font weight of Amsterdam Sans.
 .ams-theme {
   b,
   dd,
