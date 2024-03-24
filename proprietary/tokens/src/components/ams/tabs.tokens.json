@@ -2,6 +2,7 @@
   "ams": {
     "tabs": {
       "list": {
+        "background-color": { "value": "{ams.color.primary-white}" },
         "border-bottom": { "value": ".125rem solid {ams.color.primary-blue}" }
       },
       "button": {
