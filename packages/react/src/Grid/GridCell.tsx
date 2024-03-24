@@ -4,7 +4,7 @@
  */
 import clsx from 'clsx'
 import { forwardRef } from 'react'
-import type { ForwardedRef, HTMLAttributes, PropsWithChildren } from 'react'
+import type { HTMLAttributes, PropsWithChildren } from 'react'
 import type { GridColumnNumber, GridColumnNumbers } from './Grid'
 import { gridCellClasses } from './gridCellClasses'
 
@@ -24,13 +24,10 @@ type GridCellSpanAndStartProps = {
 export type GridCellProps = {
   as?: 'article' | 'div' | 'section'
 } & (GridCellSpanAllProp | GridCellSpanAndStartProps) &
-  PropsWithChildren<HTMLAttributes<HTMLDivElement>>
+  PropsWithChildren<HTMLAttributes<HTMLElement>>
 
 export const GridCell = forwardRef(
-  (
-    { as: Tag = 'div', children, className, span, start, ...restProps }: GridCellProps,
-    ref: ForwardedRef<HTMLDivElement>,
-  ) => (
+  ({ as: Tag = 'div', children, className, span, start, ...restProps }: GridCellProps, ref: any) => (
     <Tag {...restProps} ref={ref} className={clsx('ams-grid__cell', gridCellClasses(span, start), className)}>
       {children}
     </Tag>
