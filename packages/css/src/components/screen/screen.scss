@@ -14,6 +14,10 @@
   @include reset;
 }
 
+.ams-screen--full-height {
+  min-height: 100vh;
+}
+
 .ams-screen--wide {
   max-width: var(--ams-screen-wide-max-width);
 }
