@@ -48,11 +48,6 @@
 
 .ams-dialog__footer {
   display: flex;
-  flex-direction: column;
-  grid-gap: var(--ams-dialog-footer-gap);
-
-  @media screen and (min-width: $ams-breakpoint-medium) {
-    flex-direction: row;
-    justify-content: end;
-  }
+  flex-wrap: wrap;
+  gap: var(--ams-dialog-footer-gap);
 }
