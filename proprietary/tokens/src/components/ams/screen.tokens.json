@@ -1,6 +1,7 @@
 {
   "ams": {
     "screen": {
+      "background-color": { "value": "{ams.color.primary.white}" },
       "wide": {
         "max-width": { "value": "100rem" }
       },

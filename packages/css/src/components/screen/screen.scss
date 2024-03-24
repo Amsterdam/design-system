@@ -8,9 +8,10 @@
 }
 
 .ams-screen {
-  @include reset;
-
+  background-color: var(--ams-screen-background-color);
   margin-inline: auto;
+
+  @include reset;
 }
 
 .ams-screen--wide {
