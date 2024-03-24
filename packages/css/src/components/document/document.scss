@@ -3,6 +3,11 @@
  * Copyright Gemeente Amsterdam
  */
 
+:root {
+  // Don’t mess with the user stylesheet – 1rem is whatever the browser says it is.
+  font-size: initial !important;
+}
+
 @mixin reset-body {
   margin-block: 0;
   margin-inline: 0;
