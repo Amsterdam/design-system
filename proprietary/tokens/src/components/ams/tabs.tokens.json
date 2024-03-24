@@ -6,7 +6,7 @@
         "border-bottom": { "value": ".125rem solid {ams.color.primary-blue}" }
       },
       "button": {
-        "background-color": { "value": "transparent" },
+        "background-color": { "value": "{ams.color.primary-white}" },
         "border": { "value": "none" },
         "color": { "value": "{ams.color.primary-blue}" },
         "cursor": { "value": "{ams.action.activate.cursor}" },
