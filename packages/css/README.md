@@ -61,11 +61,3 @@ The font-size must not be changed – e.g. through `html { font-size: 62.5% }` �
 The `ams-body` class must be added to the `<body>` element – it prepares the base layout and sets a background colour.
 
 After the `theme-ams` class has been set, e.g. on the `<body>` as well, bold text will use our extra bold font weight.
-
-## Common patterns
-
-We use Sass mixins to extract common patterns, especially if they need more than 1 declaration.
-We collect reset styles in mixins as well.
-Both the name of the mixins and their documentation help explain the approach.
-Mixins sit at the end of the declation block to ensure their effect.
-The general ‘reset’ mixin is the very last.
