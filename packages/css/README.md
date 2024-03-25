@@ -69,5 +69,5 @@ If you haven’t removed the margin on the `<body>` element that browsers set by
 
 ### Use our extra bold font weight
 
-We use only the Regular and the Extra Bold font weights of Amsterdam Sans.
-Within the `theme-ams` class, HTML elements that use bold text (`b`, `strong`, and `dt`) will use the correct weight.
+We only use the regular and extra bold weights of our font, Amsterdam Sans.
+Apply `font-weight: var(--ams-text-font-weight-bold)` to elements that display bold text, e.g. `b`, `strong`, and `dt`.

@@ -8,16 +8,7 @@
   margin-inline: 0;
 }
 
-// You should add this class to your HTML `<body>` element.
+// Add this class if you haven’t removed the default margin on the `<body>` element.
 .ams-body {
   @include reset-body;
-}
-
-// For strong emphasis, we use the extra bold font weight of Amsterdam Sans.
-.ams-theme {
-  b,
-  dd,
-  strong {
-    font-weight: var(--ams-text-font-weight-bold);
-  }
 }
