@@ -50,14 +50,24 @@ import "@amsterdam/design-system-tokens/dist/index.css";
 import "@amsterdam/design-system-tokens/dist/compact.css";
 ```
 
-## Document styles
+## Global styles
 
 Some elements of your document are out of reach for the Design System components.
 However, their styles can influence the appearance of the components.
-Apply the following to the document elements:
 
-The font-size must not be changed – e.g. through `html { font-size: 62.5% }` – because the typography system expects a rem to be 16 pixels.
+### Base font size
 
-The `ams-body` class must be added to the `<body>` element – it prepares the base layout and sets a background colour.
+Do not change the base font-size – e.g. through `html { font-size: 62.5% }`.
+This interferes with users choosing a different default font size in their browser.
+Out typography system also expects `1rem` to be the browser default of 16 pixels.
 
-After the `theme-ams` class has been set, e.g. on the `<body>` as well, bold text will use our extra bold font weight.
+If your application does use a rule like this and you can’t easily remove it, you may adopt the Design System components gradually by setting `font-size: 100%` on the parts that use them.
+
+### Remove body margin
+
+If you haven’t removed the margin on the `<body>` element that browsers set by default, you can add our `ams-body` to it to do so.
+
+### Use our extra bold font weight
+
+We use only the Regular and the Extra Bold font weights of Amsterdam Sans.
+Within the `theme-ams` class, HTML elements that use bold text (`b`, `strong`, and `dt`) will use the correct weight.
