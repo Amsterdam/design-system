@@ -23,6 +23,10 @@
   row-gap: var(--ams-page-menu-row-gap);
 
   @include reset-list;
+
+  &:not(.ams-page-menu--no-wrap) {
+    flex-wrap: wrap;
+  }
 }
 
 .ams-page-menu--align-end {
