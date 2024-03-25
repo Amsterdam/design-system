@@ -30,6 +30,8 @@
   padding-block: var(--ams-tabs-button-padding-block);
   padding-inline: var(--ams-tabs-button-padding-inline);
 
+  @include reset-button;
+
   &:disabled {
     color: var(--ams-tabs-button-disabled-color);
     cursor: var(--ams-tab-button-disabled-cursor);
