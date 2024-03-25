@@ -8,9 +8,14 @@
 }
 
 .ams-screen {
-  @include reset;
-
+  background-color: var(--ams-screen-background-color);
   margin-inline: auto;
+
+  @include reset;
+}
+
+.ams-screen--full-height {
+  min-height: 100vh;
 }
 
 .ams-screen--wide {
