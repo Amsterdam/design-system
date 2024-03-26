@@ -41,5 +41,3 @@ Still, we define its thickness and offset for the initial state.
 We use Sass mixins to extract common patterns, especially if they need more than 1 declaration.
 We collect reset styles in mixins as well.
 Both the name of the mixins and their documentation help explain the approach.
-Mixins sit at the end of the declaration block to ensure their effect.
-The general ‘reset’ mixin is the very last.
