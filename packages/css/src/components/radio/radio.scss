@@ -5,6 +5,7 @@
 
 @import "../../common/input-label-focus";
 @import "../../common/hide-input";
+@import "../../common/text-rendering";
 
 .ams-radio__input {
   @include hide-input;
@@ -33,10 +34,6 @@
   }
 }
 
-@mixin reset {
-  -webkit-text-size-adjust: 100%;
-}
-
 .ams-radio__label {
   color: var(--ams-radio-color);
   cursor: pointer;
@@ -59,7 +56,7 @@
     }
   }
 
-  @include reset;
+  @include text-rendering;
 }
 
 // Default checked

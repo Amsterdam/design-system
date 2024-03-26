@@ -3,9 +3,7 @@
  * Copyright Gemeente Amsterdam
  */
 
-@mixin reset {
-  -webkit-text-size-adjust: 100%;
-}
+@import "../../common/text-rendering";
 
 .ams-form-field-character-counter {
   color: var(--ams-form-field-character-counter-color);
@@ -14,7 +12,7 @@
   font-weight: var(--ams-form-field-character-counter-font-weight);
   line-height: var(--ams-form-field-character-counter-line-height);
 
-  @include reset;
+  @include text-rendering;
 }
 
 .ams-form-field-character-counter--error {
