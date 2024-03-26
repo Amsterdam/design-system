@@ -4,10 +4,7 @@
  */
 
 @import "../../common/hyphenation";
-
-@mixin reset {
-  -webkit-text-size-adjust: 100%;
-}
+@import "../../common/text-rendering";
 
 .ams-form-label {
   color: var(--ams-form-label-color);
@@ -17,5 +14,5 @@
   line-height: var(--ams-form-label-line-height);
 
   @include hyphenation;
-  @include reset;
+  @include text-rendering;
 }

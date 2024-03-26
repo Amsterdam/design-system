@@ -1,0 +1,14 @@
+/**
+ * @license EUPL-1.2+
+ * Copyright Gemeente Amsterdam
+ */
+
+@mixin reset-body {
+  margin-block: 0;
+  margin-inline: 0;
+}
+
+// Add this class if you haven’t removed the default margin on the `<body>` element.
+.ams-body {
+  @include reset-body;
+}

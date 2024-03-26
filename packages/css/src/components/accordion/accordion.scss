@@ -3,14 +3,12 @@
  * Copyright Gemeente Amsterdam
  */
 
+@import "../../common/text-rendering";
+
 .ams-accordion__header {
   display: flex;
   margin-block: 0;
   margin-inline: 0;
-}
-
-@mixin reset {
-  -webkit-text-size-adjust: 100%;
 }
 
 .ams-accordion__button {
@@ -45,7 +43,7 @@
     }
   }
 
-  @include reset;
+  @include text-rendering;
 }
 
 .ams-accordion__button[aria-expanded="true"] svg {
