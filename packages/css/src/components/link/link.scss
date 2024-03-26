@@ -3,9 +3,7 @@
  * Copyright Gemeente Amsterdam
  */
 
-@mixin reset {
-  -webkit-text-size-adjust: 100%;
-}
+@import "../../common/text-rendering";
 
 .ams-link {
   color: var(--ams-link-color);
@@ -17,7 +15,7 @@
     color: var(--ams-link-hover-color);
   }
 
-  @include reset;
+  @include text-rendering;
 }
 
 .ams-link--standalone {
