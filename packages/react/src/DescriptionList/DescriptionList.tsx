@@ -5,22 +5,16 @@
 
 import clsx from 'clsx'
 import { Children, forwardRef, isValidElement } from 'react'
-import type { ForwardedRef, ForwardRefExoticComponent, HTMLAttributes, PropsWithChildren, RefAttributes } from 'react'
+import type { ForwardedRef, HTMLAttributes, PropsWithChildren } from 'react'
 import { DescriptionListDetails } from './DescriptionListDetails'
 import { DescriptionListRow } from './DescriptionListRow'
 import { DescriptionListTerm } from './DescriptionListTerm'
 
-export type DescriptionListProps = PropsWithChildren<HTMLAttributes<HTMLDListElement>> & {
+export type DescriptionListProps = {
   inverseColor?: boolean
-}
+} & PropsWithChildren<HTMLAttributes<HTMLDListElement>>
 
-type DescriptionListComponent = {
-  Term: typeof DescriptionListTerm
-  Details: typeof DescriptionListDetails
-  Row: typeof DescriptionListRow
-} & ForwardRefExoticComponent<DescriptionListProps & RefAttributes<HTMLDListElement>>
-
-export const DescriptionList = forwardRef(
+const DescriptionListRoot = forwardRef(
   ({ children, className, inverseColor, ...restProps }: DescriptionListProps, ref: ForwardedRef<HTMLDListElement>) => {
     const hasDescriptionListRow = Children.toArray(children).some(
       (child) => isValidElement(child) && child.type === DescriptionListRow,
@@ -41,15 +35,12 @@ export const DescriptionList = forwardRef(
       </dl>
     )
   },
-) as DescriptionListComponent
+)
 
-DescriptionList.displayName = 'DescriptionList'
+DescriptionListRoot.displayName = 'DescriptionList'
 
-DescriptionList.Term = DescriptionListTerm
-DescriptionList.Term.displayName = 'DescriptionList.Term'
-
-DescriptionList.Details = DescriptionListDetails
-DescriptionList.Details.displayName = 'DescriptionList.Details'
-
-DescriptionList.Row = DescriptionListRow
-DescriptionList.Row.displayName = 'DescriptionList.Row'
+export const DescriptionList = Object.assign(DescriptionListRoot, {
+  Term: DescriptionListTerm,
+  Details: DescriptionListDetails,
+  Row: DescriptionListRow,
+})

@@ -4,7 +4,6 @@
  */
 
 @import "../../common/breakpoint";
-@import "../../common/hyphenation";
 
 @mixin reset {
   box-sizing: border-box;
@@ -23,7 +22,6 @@
   gap: var(--ams-description-list-gap);
   grid-template-columns: 1fr;
   line-height: var(--ams-description-list-line-height);
-  list-style-type: var(--ams-description-list-list-style-type);
 
   &:not(.ams-description-list--rows) {
     @media screen and (min-width: $ams-breakpoint-medium) {
@@ -49,7 +47,6 @@
 }
 
 .ams-description-list__term {
-  @include hyphenation;
   @include reset;
 }
 
@@ -67,6 +64,5 @@
     }
   }
 
-  @include hyphenation;
   @include reset;
 }

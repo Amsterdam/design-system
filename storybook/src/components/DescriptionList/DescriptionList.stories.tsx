@@ -13,6 +13,14 @@ const meta = {
   title: 'Components/Text/Description List',
   component: DescriptionList,
   args: {
+    children: [
+      <DescriptionList.Term key={1}>Gebied</DescriptionList.Term>,
+      <DescriptionList.Details key={2}>Gemeente Amsterdam</DescriptionList.Details>,
+      <DescriptionList.Term key={3}>Stadsdeel</DescriptionList.Term>,
+      <DescriptionList.Details key={4}>West</DescriptionList.Details>,
+      <DescriptionList.Term key={5}>Opmerkingen</DescriptionList.Term>,
+      <DescriptionList.Details key={6}>{paragraph}</DescriptionList.Details>,
+    ],
     inverseColor: false,
   },
 } satisfies Meta<typeof DescriptionList>
@@ -24,56 +32,38 @@ type Story = StoryObj<typeof meta>
 export const Default: Story = {
   decorators: [
     (Story, context) => (
-      <div className={context.args.inverseColor ? 'ams-docs-dark-background' : undefined}>
+      <div className={context.args['inverseColor'] ? 'ams-docs-dark-background' : undefined}>
         <Story />
       </div>
     ),
   ],
-  args: {
-    children: [
-      <DescriptionList.Term key={3}>Gebied</DescriptionList.Term>,
-      <DescriptionList.Details key={4}>Gemeente Amsterdam</DescriptionList.Details>,
-      <DescriptionList.Term key={5}>Stadsdeel</DescriptionList.Term>,
-      <DescriptionList.Details key={6}>West</DescriptionList.Details>,
-      <DescriptionList.Term key={1}>Opmerkingen</DescriptionList.Term>,
-      <DescriptionList.Details key={2}>{paragraph}</DescriptionList.Details>,
-    ],
-  },
 }
 
 export const WrapRows: Story = {
-  render: () => (
-    <DescriptionList>
-      <DescriptionList.Row>
+  args: {
+    children: [
+      <DescriptionList.Row key={1}>
         <DescriptionList.Term>Gebied</DescriptionList.Term>
         <DescriptionList.Details>Gemeente Amsterdam</DescriptionList.Details>
-      </DescriptionList.Row>
-      <DescriptionList.Row>
+      </DescriptionList.Row>,
+      <DescriptionList.Row key={2}>
         <DescriptionList.Term>Stadsdelen</DescriptionList.Term>
         <DescriptionList.Details>Noord</DescriptionList.Details>
         <DescriptionList.Details>Oost</DescriptionList.Details>
         <DescriptionList.Details>Zuid</DescriptionList.Details>
         <DescriptionList.Details>West</DescriptionList.Details>
-      </DescriptionList.Row>
-    </DescriptionList>
-  ),
+      </DescriptionList.Row>,
+    ],
+  },
 }
 
 export const InvertedColor: Story = {
   args: {
     inverseColor: true,
-    children: [
-      <DescriptionList.Term key={3}>Gebied</DescriptionList.Term>,
-      <DescriptionList.Details key={4}>Gemeente Amsterdam</DescriptionList.Details>,
-      <DescriptionList.Term key={5}>Stadsdeel</DescriptionList.Term>,
-      <DescriptionList.Details key={6}>West</DescriptionList.Details>,
-      <DescriptionList.Term key={1}>Opmerkingen</DescriptionList.Term>,
-      <DescriptionList.Details key={2}>{paragraph}</DescriptionList.Details>,
-    ],
   },
   decorators: [
     (Story, context) => (
-      <div className={context.args.inverseColor ? 'ams-docs-dark-background' : undefined}>
+      <div className={context.args['inverseColor'] ? 'ams-docs-dark-background' : undefined}>
         <Story />
       </div>
     ),
