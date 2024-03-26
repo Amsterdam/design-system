@@ -64,7 +64,7 @@ If your application does use a rule like this and you can’t easily remove it, 
 
 ### Remove body margin
 
-If you haven’t removed the margin on the `<body>` element that browsers set by default, you can add our `ams-body` to it to do so.
+If you haven’t removed the margin on the `<body>` element that browsers set by default, you can add our `ams-body` class to it to do so.
 
 ### Use our extra bold font weight
 
