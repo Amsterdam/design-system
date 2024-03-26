@@ -12,7 +12,7 @@ export type SelectProps = PropsWithChildren<HTMLAttributes<HTMLDivElement>>
 export const Select = forwardRef(
   ({ children, className, ...restProps }: SelectProps, ref: ForwardedRef<HTMLDivElement>) => (
     <div {...restProps} ref={ref} className={clsx('ams-select', className)}>
-      <select>{children}</select>
+      <select multiple>{children}</select>
     </div>
   ),
 )

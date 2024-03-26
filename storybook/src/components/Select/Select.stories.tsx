@@ -10,6 +10,7 @@ const meta = {
   title: 'Components/Forms/Select',
   component: Select,
   args: {
+    id: 'select',
     children: [
       <option key="1" value="1">
         Option 1

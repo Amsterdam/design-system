@@ -12,7 +12,22 @@
   font-size: var(--ams-text-input-font-size);
   font-weight: var(--ams-text-input-font-weight);
   line-height: var(--ams-text-input-line-height);
+  position: relative;
   touch-action: manipulation;
+
+  &::after {
+    background-image: var(--ams-select-background-image);
+    background-repeat: no-repeat;
+    content: "";
+    display: inline-block;
+    height: 1em;
+    margin-inline: 0.5rem;
+    position: absolute;
+    right: 0.5rem;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 1em;
+  }
 
   select {
     appearance: none;
@@ -25,7 +40,7 @@
     margin-block: 0;
     outline-offset: var(--ams-text-input-outline-offset);
     padding-block: var(--ams-text-input-padding-block);
-    padding-inline: var(--ams-text-input-padding-inline);
+    padding-inline: 0.5rem 5ex;
     width: 100%;
   }
 }
