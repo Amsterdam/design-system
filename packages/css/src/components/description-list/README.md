@@ -4,12 +4,7 @@
 
 A description list is a list of terms and their details.
 
-## Relevant WCAG requirements
-
-- [WCAG 2.0](https://www.w3.org/TR/WCAG20-TECHS/H40.html): Using description lists
-
 ## References
 
-- [MDN docs](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/dl): Description List
-- [MDN docs](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/dt): Description Title
-- [MDN docs](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/dd): Description Details
+- [MDN: `<dl>`: The Description List element](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/dl)
+- [WCAG: Using description lists](https://www.w3.org/WAI/WCAG22/Techniques/html/H40)
