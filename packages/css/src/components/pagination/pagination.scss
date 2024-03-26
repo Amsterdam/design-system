@@ -3,7 +3,9 @@
  * Copyright Gemeente Amsterdam
  */
 
-@mixin list-reset {
+@import "../../common/text-rendering";
+
+@mixin reset-list {
   list-style-type: none;
   margin-block: 0;
   padding-inline-start: 0;
@@ -19,20 +21,19 @@
   justify-content: center;
   line-height: var(--ams-pagination-line-height);
 
-  @include list-reset;
+  @include reset-list;
 }
 
-@mixin button-reset {
+@mixin reset-button {
   all: unset;
   box-sizing: border-box;
   outline: revert;
-  -webkit-text-size-adjust: 100%;
 }
 
 .ams-pagination__button {
   /* The reset is included at the top of the block here, if you set it
   at the bottom `all: unset` overrides the `gap` property. */
-  @include button-reset;
+  @include reset-button;
 
   cursor: pointer;
   display: flex;
@@ -58,6 +59,8 @@
     height: 1rem;
     width: 1rem;
   }
+
+  @include text-rendering;
 }
 
 .ams-pagination__button--current {
