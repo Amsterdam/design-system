@@ -59,7 +59,7 @@ However, their styles can influence the appearance of the components.
 
 Do not change the base font-size – e.g. through `html { font-size: 62.5% }`.
 This interferes with users choosing a different default font size in their browser.
-Out typography system also expects `1rem` to be the browser default of 16 pixels.
+Our typography system also expects `1rem` to be the browser default of 16 pixels.
 
 If your application does use a rule like this and you can’t easily remove it, you may adopt the Design System components gradually by setting `font-size: 100%` on the parts that use them.
 
