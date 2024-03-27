@@ -5,6 +5,7 @@
 
 @import "../../common/input-label-focus";
 @import "../../common/hide-input";
+@import "../../common/text-rendering";
 
 .ams-checkbox__input {
   @include hide-input;
@@ -32,10 +33,6 @@
   }
 }
 
-@mixin reset {
-  -webkit-text-size-adjust: 100%;
-}
-
 .ams-checkbox__label {
   color: var(--ams-checkbox-color);
   cursor: pointer;
@@ -59,7 +56,7 @@
     }
   }
 
-  @include reset;
+  @include text-rendering;
 }
 
 // Default checked

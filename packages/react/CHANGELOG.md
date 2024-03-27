@@ -3,6 +3,20 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.7.1](https://github.com/Amsterdam/design-system/compare/design-system-react-v0.7.0...design-system-react-v0.7.1) (2024-03-22)
+
+
+### Features
+
+* Add Avatar component ([#1134](https://github.com/Amsterdam/design-system/issues/1134)) ([8dec2cf](https://github.com/Amsterdam/design-system/commit/8dec2cff8f7885ccb163774c0dc979fb2c781256))
+* Add Form Field Character Counter ([#1114](https://github.com/Amsterdam/design-system/issues/1114)) ([779ae8c](https://github.com/Amsterdam/design-system/commit/779ae8c9764b23508ffbfb38c6dc2f7a7c1cbd28))
+
+
+### Bug Fixes
+
+* Improve subcomponent types ([#1130](https://github.com/Amsterdam/design-system/issues/1130)) ([827ac4e](https://github.com/Amsterdam/design-system/commit/827ac4e1197730fb0c69de197347cd4be3a77ebf))
+* Use semantic Heading for the title of a Dialog ([#1123](https://github.com/Amsterdam/design-system/issues/1123)) ([0493fd8](https://github.com/Amsterdam/design-system/commit/0493fd87587d36a83bb7aa9cbb69b8debf5d66f0))
+
 ## [0.7.0](https://github.com/Amsterdam/design-system/compare/design-system-react-v0.6.1...design-system-react-v0.7.0) (2024-03-12)
 
 
