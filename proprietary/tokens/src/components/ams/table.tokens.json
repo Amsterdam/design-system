@@ -10,7 +10,7 @@
         "font-weight": { "value": "{ams.text.font-weight.bold}" }
       },
       "cell": {
-        "border-bottom": { "value": "1px solid {ams.color.neutral-grey1}" },
+        "border-bottom": { "value": "{ams.border-width.sm} solid {ams.color.neutral-grey1}" },
         "padding-block": { "value": "{ams.space.inside.md}" },
         "padding-inline": { "value": "{ams.space.inside.md}" }
       },

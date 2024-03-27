@@ -28,7 +28,7 @@
 
 @mixin ams-button-forced-color-mode {
   @media screen and (-ms-high-contrast: active), screen and (forced-colors: active) {
-    border: 2px solid ButtonBorder; // add border because forced colors changes box-shadow to none
+    border: var(--ams-button-forced-color-mode-border); // add border because forced colors changes box-shadow to none
   }
 }
 
