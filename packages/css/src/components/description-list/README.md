@@ -2,7 +2,7 @@
 
 # Description List
 
-A description list is a list of terms and their details.
+A collection of terms and their details.
 
 ## References
 
