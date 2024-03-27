@@ -30,7 +30,7 @@ describe('Select', () => {
   })
 
   it('supports ForwardRef in React', () => {
-    const ref = createRef<HTMLElement>()
+    const ref = createRef<HTMLDivElement>()
 
     const { container } = render(<Select ref={ref} />)
 
