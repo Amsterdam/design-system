@@ -2,11 +2,11 @@
   "ams": {
     "tabs": {
       "list": {
-        "border-bottom": { "value": ".125rem solid {ams.color.primary-blue}" }
+        "border-bottom": { "value": "{ams.border.width.md} solid {ams.color.primary-blue}" }
       },
       "button": {
         "background-color": { "value": "transparent" },
-        "border": { "value": "none" },
+        "border": { "value": "0" },
         "color": { "value": "{ams.color.primary-blue}" },
         "cursor": { "value": "{ams.action.activate.cursor}" },
         "font-family": { "value": "{ams.text.font-family}" },

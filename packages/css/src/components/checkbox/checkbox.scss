@@ -25,7 +25,7 @@
     background-size: 1rem;
     border-color: var(--ams-checkbox-checkmark-border-color);
     border-style: solid;
-    border-width: 0.125rem;
+    border-width: var(--ams-checkbox-checkmark-border-width);
     box-sizing: border-box;
     content: "";
     height: 1.5rem;
@@ -47,12 +47,12 @@
   &:hover {
     color: var(--ams-checkbox-hover-color);
     text-decoration-line: underline;
-    text-decoration-thickness: 0.125rem;
+    text-decoration-thickness: var(--ams-checkbox-hover-text-decoration-thickness);
     text-underline-offset: 0.375rem;
 
     .ams-checkbox__checkmark::after {
       border-color: var(--ams-checkbox-checkmark-hover-border-color);
-      border-width: 0.1875rem;
+      border-width: var(--ams-checkbox-checkmark-hover-border-width);
     }
   }
 
@@ -64,7 +64,7 @@
   + .ams-checkbox__label .ams-checkbox__checkmark::after {
     background-color: var(--ams-checkbox-checkmark-checked-background-color);
     background-image: var(--ams-checkbox-checkmark-checked-background-image);
-    border: none;
+    border: 0;
   }
 }
 
@@ -76,7 +76,7 @@
     background-position: center;
     background-repeat: no-repeat;
     background-size: 1rem;
-    border: none;
+    border: 0;
   }
 }
 
@@ -96,7 +96,7 @@
 
     .ams-checkbox__checkmark::after {
       border-color: var(--ams-checkbox-checkmark-disabled-border-color);
-      border-width: 0.125rem;
+      border-width: var(--ams-checkbox-checkmark-disabled-border-width);
     }
   }
 }

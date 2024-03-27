@@ -9,6 +9,7 @@
       "outline-offset": { "value": "{ams.focus.outline-offset}" },
       "checkmark": {
         "border-color": { "value": "{ams.color.primary-blue}" },
+        "border-width": { "value": "{ams.border.width.md}" },
         "checked": {
           "background-color": { "value": "{ams.color.primary-blue}" },
           "background-image": {
@@ -20,6 +21,7 @@
         },
         "disabled": {
           "border-color": { "value": "{ams.color.neutral-grey3}" },
+          "border-width": { "value": "{ams.border.width.md}" },
           "checked": {
             "background-color": { "value": "{ams.color.neutral-grey3}" },
             "hover": {
@@ -34,7 +36,8 @@
           }
         },
         "hover": {
-          "border-color": { "value": "{ams.color.dark-blue}" }
+          "border-color": { "value": "{ams.color.dark-blue}" },
+          "border-width": { "value": "{ams.border.width.lg}" }
         },
         "invalid": {
           "border-color": { "value": "{ams.color.primary-red}" },
@@ -68,7 +71,8 @@
         "color": { "value": "{ams.color.neutral-grey3}" }
       },
       "hover": {
-        "color": { "value": "{ams.color.dark-blue}" }
+        "color": { "value": "{ams.color.dark-blue}" },
+        "text-decoration-thickness": { "value": "{ams.border.width.md}" }
       }
     }
   }
