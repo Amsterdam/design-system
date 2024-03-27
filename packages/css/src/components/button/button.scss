@@ -6,7 +6,7 @@
 @import "../../common/text-rendering";
 
 .ams-button {
-  border: none;
+  border: 0;
   cursor: var(--ams-button-cursor);
   display: inline-flex;
   font-family: var(--ams-button-font-family);

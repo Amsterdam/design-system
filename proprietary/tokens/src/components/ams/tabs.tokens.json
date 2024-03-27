@@ -6,7 +6,7 @@
       },
       "button": {
         "background-color": { "value": "transparent" },
-        "border": { "value": "none" },
+        "border": { "value": "0" },
         "color": { "value": "{ams.color.primary-blue}" },
         "cursor": { "value": "{ams.action.activate.cursor}" },
         "font-family": { "value": "{ams.text.font-family}" },

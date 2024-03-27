@@ -64,7 +64,7 @@
   + .ams-checkbox__label .ams-checkbox__checkmark::after {
     background-color: var(--ams-checkbox-checkmark-checked-background-color);
     background-image: var(--ams-checkbox-checkmark-checked-background-image);
-    border: none;
+    border: 0;
   }
 }
 
@@ -76,7 +76,7 @@
     background-position: center;
     background-repeat: no-repeat;
     background-size: 1rem;
-    border: none;
+    border: 0;
   }
 }
 
