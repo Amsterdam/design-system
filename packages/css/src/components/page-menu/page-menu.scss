@@ -20,18 +20,19 @@
   column-gap: var(--ams-page-menu-column-gap);
   display: flex;
   flex-direction: row;
+  flex-wrap: wrap;
   list-style: none;
   row-gap: var(--ams-page-menu-row-gap);
 
   @include reset-list;
-
-  &:not(.ams-page-menu--no-wrap) {
-    flex-wrap: wrap;
-  }
 }
 
 .ams-page-menu--align-end {
   justify-content: end;
+}
+
+.ams-page-menu--no-wrap {
+  flex-wrap: nowrap;
 }
 
 @mixin page-menu-item {
