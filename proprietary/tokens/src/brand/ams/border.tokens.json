@@ -1,0 +1,10 @@
+{
+  "ams": {
+    "border-width": {
+      "sm": { "value": "0.0625rem" },
+      "md": { "value": "0.125rem" },
+      "lg": { "value": "0.1875rem" },
+      "xl": { "value": "0.25rem" }
+    }
+  }
+}
