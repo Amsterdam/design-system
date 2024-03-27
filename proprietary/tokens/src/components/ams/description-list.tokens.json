@@ -9,7 +9,7 @@
       "inverse-color": { "value": "{ams.color.primary-white}" },
       "line-height": { "value": "{ams.text.level.5.line-height}" },
       "row": {
-        "gap": { "value": "{ams.space.inside.md}" }
+        "gap": { "value": "{ams.space.stack.md}" }
       },
       "details": {
         "font-weight": { "value": "{ams.text.font-weight.bold}" },
