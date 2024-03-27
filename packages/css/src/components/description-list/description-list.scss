@@ -23,10 +23,8 @@
   grid-template-columns: 1fr;
   line-height: var(--ams-description-list-line-height);
 
-  &:not(.ams-description-list--rows) {
-    @media screen and (min-width: $ams-breakpoint-medium) {
-      grid-template-columns: 1fr 2fr;
-    }
+  @media screen and (min-width: $ams-breakpoint-medium) {
+    grid-template-columns: 1fr 2fr;
   }
 
   @include reset;
@@ -34,16 +32,6 @@
 
 .ams-description-list--inverse-color {
   color: var(--ams-description-list-inverse-color);
-}
-
-.ams-description-list__row {
-  display: grid;
-  gap: var(--ams-description-list-row-gap);
-  grid-template-columns: 1fr;
-
-  @media screen and (min-width: $ams-breakpoint-medium) {
-    grid-template-columns: 1fr 2fr;
-  }
 }
 
 .ams-description-list__term {
@@ -58,10 +46,8 @@
     padding-inline-start: 0;
   }
 
-  .ams-description-list--rows & {
-    @media screen and (min-width: $ams-breakpoint-medium) {
-      grid-column-start: 2;
-    }
+  @media screen and (min-width: $ams-breakpoint-medium) {
+    grid-column-start: 2;
   }
 
   @include reset;

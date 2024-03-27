@@ -39,20 +39,16 @@ export const Default: Story = {
   ],
 }
 
-export const WrapRows: Story = {
+export const MultipleDetails: Story = {
   args: {
     children: [
-      <DescriptionList.Row key={1}>
-        <DescriptionList.Term>Gebied</DescriptionList.Term>
-        <DescriptionList.Details>Gemeente Amsterdam</DescriptionList.Details>
-      </DescriptionList.Row>,
-      <DescriptionList.Row key={2}>
-        <DescriptionList.Term>Stadsdelen</DescriptionList.Term>
-        <DescriptionList.Details>Noord</DescriptionList.Details>
-        <DescriptionList.Details>Oost</DescriptionList.Details>
-        <DescriptionList.Details>Zuid</DescriptionList.Details>
-        <DescriptionList.Details>West</DescriptionList.Details>
-      </DescriptionList.Row>,
+      <DescriptionList.Term key={1}>Gebied</DescriptionList.Term>,
+      <DescriptionList.Details key={2}>Gemeente Amsterdam</DescriptionList.Details>,
+      <DescriptionList.Term key={3}>Stadsdeel</DescriptionList.Term>,
+      <DescriptionList.Details key={4}>Noord</DescriptionList.Details>,
+      <DescriptionList.Details key={5}>Oost</DescriptionList.Details>,
+      <DescriptionList.Details key={6}>Zuid</DescriptionList.Details>,
+      <DescriptionList.Details key={7}>West</DescriptionList.Details>,
     ],
   },
 }
