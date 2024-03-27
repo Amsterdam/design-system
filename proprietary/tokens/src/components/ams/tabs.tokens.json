@@ -2,7 +2,7 @@
   "ams": {
     "tabs": {
       "list": {
-        "border-bottom": { "value": "{ams.border-width.md} solid {ams.color.primary-blue}" }
+        "border-bottom": { "value": "{ams.border.width.md} solid {ams.color.primary-blue}" }
       },
       "button": {
         "background-color": { "value": "transparent" },

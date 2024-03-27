@@ -2,7 +2,7 @@
   "ams": {
     "link-appearance": {
       "color": { "value": "{ams.color.primary-blue}" },
-      "text-decoration-thickness": { "value": "{ams.border-width.md}" },
+      "text-decoration-thickness": { "value": "{ams.border.width.md}" },
       "text-underline-offset": { "value": "0.375rem" },
       "hover": {
         "color": { "value": "{ams.color.dark-blue}" }
@@ -16,7 +16,7 @@
       "regular": {
         "text-decoration-line": { "value": "underline" },
         "hover": {
-          "text-decoration-thickness": { "value": "{ams.border-width.lg}" },
+          "text-decoration-thickness": { "value": "{ams.border.width.lg}" },
           "text-underline-offset": { "value": "0.3125rem" }
         }
       },
