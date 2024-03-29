@@ -3,7 +3,7 @@
  * Copyright Gemeente Amsterdam
  */
 
-import { Blockquote } from '@amsterdam/design-system-react'
+import { Blockquote } from '@amsterdam/design-system-react/src/Blockquote'
 import { Meta, StoryObj } from '@storybook/react'
 import { exampleQuote } from '../shared/exampleContent'
 

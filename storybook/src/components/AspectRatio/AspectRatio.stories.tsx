@@ -3,7 +3,8 @@
  * Copyright Gemeente Amsterdam
  */
 
-import { AspectRatio, Image } from '@amsterdam/design-system-react'
+import { Image } from '@amsterdam/design-system-react'
+import { AspectRatio } from '@amsterdam/design-system-react/src/AspectRatio/AspectRatio'
 import { Meta, StoryObj } from '@storybook/react'
 
 const meta = {
