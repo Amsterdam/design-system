@@ -11,9 +11,12 @@
   margin-inline: 0;
 }
 
-.ams-accordion__button {
+@mixin reset-button {
   background-color: transparent;
   border: 0;
+}
+
+.ams-accordion__button {
   color: var(--ams-accordion-button-color);
   cursor: pointer;
   display: flex;
@@ -44,6 +47,7 @@
   }
 
   @include text-rendering;
+  @include reset-button;
 }
 
 .ams-accordion__button[aria-expanded="true"] svg {
