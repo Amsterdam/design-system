@@ -6,8 +6,6 @@
         "border-bottom": { "value": "{ams.border.width.md} solid {ams.color.primary-blue}" }
       },
       "button": {
-        "background-color": { "value": "transparent" },
-        "border": { "value": "0" },
         "color": { "value": "{ams.color.primary-blue}" },
         "cursor": { "value": "{ams.action.activate.cursor}" },
         "font-family": { "value": "{ams.text.font-family}" },
