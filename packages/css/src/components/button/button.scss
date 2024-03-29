@@ -5,8 +5,11 @@
 
 @import "../../common/text-rendering";
 
+@mixin reset-button {
+  border: 0;
+}
+
 .ams-button {
-  border: none;
   cursor: var(--ams-button-cursor);
   display: inline-flex;
   font-family: var(--ams-button-font-family);
@@ -24,11 +27,12 @@
   }
 
   @include text-rendering;
+  @include reset-button;
 }
 
 @mixin ams-button-forced-color-mode {
   @media screen and (-ms-high-contrast: active), screen and (forced-colors: active) {
-    border: 2px solid ButtonBorder; // add border because forced colors changes box-shadow to none
+    border: var(--ams-button-forced-color-mode-border); // add border because forced colors changes box-shadow to none
   }
 }
 

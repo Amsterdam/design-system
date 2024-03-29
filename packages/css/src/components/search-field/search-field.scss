@@ -10,13 +10,13 @@
   isolation: isolate; // create new stacking context, so the input’s z-index doesn’t escape the component
 }
 
-@mixin reset {
+@mixin reset-input {
+  border: 0;
   box-sizing: border-box;
   margin-block: 0;
 }
 
 .ams-search-field__input {
-  border: none;
   box-shadow: var(--ams-search-field-input-box-shadow);
   color: var(--ams-search-field-input-color);
   font-family: var(--ams-search-field-input-font-family);
@@ -30,7 +30,7 @@
   width: 100%;
 
   @include text-rendering;
-  @include reset;
+  @include reset-input;
 
   &:hover {
     box-shadow: var(--ams-search-field-input-hover-box-shadow);
@@ -54,9 +54,12 @@
   width: var(--ams-search-field-input-cancel-button-width);
 }
 
+@mixin reset-button {
+  border: 0;
+}
+
 .ams-search-field__button {
   background-color: var(--ams-search-field-button-background-color);
-  border: 0;
   color: var(--ams-search-field-button-color);
   cursor: pointer;
   outline-offset: var(--ams-search-field-button-outline-offset);
@@ -65,6 +68,8 @@
   padding-block: var(--ams-search-field-button-padding-block);
   padding-inline: var(--ams-search-field-button-padding-inline);
   touch-action: manipulation;
+
+  @include reset-button;
 
   &:hover {
     background-color: var(--ams-search-field-button-hover-background-color);
