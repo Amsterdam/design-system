@@ -3,7 +3,8 @@
  * Copyright Gemeente Amsterdam
  */
 
-import { Alert, Link, Paragraph, UnorderedList } from '@amsterdam/design-system-react'
+import { Link, Paragraph, UnorderedList } from '@amsterdam/design-system-react'
+import { Alert } from '@amsterdam/design-system-react/src/Alert/Alert'
 import { Meta, StoryObj } from '@storybook/react'
 
 const meta = {
@@ -14,17 +15,15 @@ const meta = {
     closeable: false,
   },
   argTypes: {
+    headingLevel: {
+      control: 'radio',
+      options: [1, 2, 3, 4],
+    },
     severity: {
       control: {
         type: 'radio',
       },
       options: ['warning', 'error', 'success', 'info'],
-    },
-    closeable: {
-      control: {
-        type: 'boolean',
-        default: false,
-      },
     },
     onClose: {
       action: 'onClose',
