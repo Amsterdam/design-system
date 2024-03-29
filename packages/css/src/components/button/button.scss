@@ -5,8 +5,11 @@
 
 @import "../../common/text-rendering";
 
-.ams-button {
+@mixin reset-button {
   border: 0;
+}
+
+.ams-button {
   cursor: var(--ams-button-cursor);
   display: inline-flex;
   font-family: var(--ams-button-font-family);
@@ -24,6 +27,7 @@
   }
 
   @include text-rendering;
+  @include reset-button;
 }
 
 @mixin ams-button-forced-color-mode {
