@@ -13,7 +13,7 @@
         "cursor": { "value": "{ams.action.disabled.cursor}" }
       },
       "forced-color-mode": {
-        "border": { "value": "{ams.border.width.md} solid ButtonBorder" }
+        "border": { "value": "{ams.border.width.md} solid" }
       },
       "primary": {
         "background-color": { "value": "{ams.color.primary-blue}" },
