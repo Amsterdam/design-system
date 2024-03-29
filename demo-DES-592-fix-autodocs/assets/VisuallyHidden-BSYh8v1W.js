@@ -1,0 +1,1 @@
+import{j as e}from"./jsx-runtime-CKrituN3.js";import{c as r}from"./clsx-B-dksMZM.js";import{r as l}from"./index-CBqU2yxZ.js";const s=l.forwardRef(({children:a,className:i,...o},d)=>e.jsx("span",{...o,ref:d,className:r("ams-visually-hidden",i),children:a}));s.displayName="VisuallyHidden";s.__docgenInfo={description:"",methods:[],displayName:"VisuallyHidden"};export{s as V};
