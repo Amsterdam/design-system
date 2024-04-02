@@ -44,10 +44,7 @@
   padding-inline-start: var(--ams-description-list-details-padding-inline-start);
 
   @media screen and (min-width: $ams-breakpoint-medium) {
-    padding-inline-start: 0;
-  }
-
-  @media screen and (min-width: $ams-breakpoint-medium) {
     grid-column-start: 2;
+    padding-inline-start: 0;
   }
 }

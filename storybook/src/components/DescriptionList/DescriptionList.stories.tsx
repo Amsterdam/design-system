@@ -56,11 +56,4 @@ export const InvertedColor: Story = {
   args: {
     inverseColor: true,
   },
-  decorators: [
-    (Story, context) => (
-      <div className={context.args['inverseColor'] ? 'ams-docs-dark-background' : undefined}>
-        <Story />
-      </div>
-    ),
-  ],
 }
