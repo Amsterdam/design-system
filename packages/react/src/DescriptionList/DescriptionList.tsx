@@ -14,17 +14,15 @@ export type DescriptionListProps = {
 } & PropsWithChildren<HTMLAttributes<HTMLDListElement>>
 
 const DescriptionListRoot = forwardRef(
-  ({ children, className, inverseColor, ...restProps }: DescriptionListProps, ref: ForwardedRef<HTMLDListElement>) => {
-    return (
-      <dl
-        {...restProps}
-        ref={ref}
-        className={clsx('ams-description-list', inverseColor && 'ams-description-list--inverse-color', className)}
-      >
-        {children}
-      </dl>
-    )
-  },
+  ({ children, className, inverseColor, ...restProps }: DescriptionListProps, ref: ForwardedRef<HTMLDListElement>) => (
+    <dl
+      {...restProps}
+      ref={ref}
+      className={clsx('ams-description-list', inverseColor && 'ams-description-list--inverse-color', className)}
+    >
+      {children}
+    </dl>
+  ),
 )
 
 DescriptionListRoot.displayName = 'DescriptionList'
