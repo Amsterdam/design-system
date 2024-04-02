@@ -14,7 +14,7 @@ import { useKeyboardFocus } from '../common/useKeyboardFocus'
 export type AccordionProps = {
   /**
    * The hierarchical level of the accordion title within the document.
-   * @default 2
+   * @default 1
    */
   headingLevel: HeadingLevel
   section?: boolean
