@@ -12,6 +12,13 @@ const paragraph = exampleParagraph()
 const meta = {
   title: 'Components/Text/Description List',
   component: DescriptionList,
+  decorators: [
+    (Story, context) => (
+      <div className={context.args['inverseColor'] ? 'ams-docs-dark-background' : undefined}>
+        <Story />
+      </div>
+    ),
+  ],
   args: {
     children: [
       <DescriptionList.Term key={1}>Gebied</DescriptionList.Term>,
@@ -29,15 +36,7 @@ export default meta
 
 type Story = StoryObj<typeof meta>
 
-export const Default: Story = {
-  decorators: [
-    (Story, context) => (
-      <div className={context.args['inverseColor'] ? 'ams-docs-dark-background' : undefined}>
-        <Story />
-      </div>
-    ),
-  ],
-}
+export const Default: Story = {}
 
 export const MultipleDetails: Story = {
   args: {

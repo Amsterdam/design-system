@@ -1,30 +1,30 @@
-import { render } from '@testing-library/react'
+import { render, screen } from '@testing-library/react'
 import { createRef } from 'react'
 import { DescriptionList } from './DescriptionList'
 import '@testing-library/jest-dom'
 
 describe('Description list term', () => {
   it('renders', () => {
-    const { container } = render(<DescriptionList.Term>Test</DescriptionList.Term>)
+    render(<DescriptionList.Term>Test</DescriptionList.Term>)
 
-    const component = container.querySelector(':only-child')
+    const component = screen.getByRole('term')
 
     expect(component).toBeInTheDocument()
     expect(component).toBeVisible()
   })
 
   it('renders a design system BEM class name', () => {
-    const { container } = render(<DescriptionList.Term>Test</DescriptionList.Term>)
+    render(<DescriptionList.Term>Test</DescriptionList.Term>)
 
-    const component = container.querySelector(':only-child')
+    const component = screen.getByRole('term')
 
     expect(component).toHaveClass('ams-description-list__term')
   })
 
   it('renders an additional class name', () => {
-    const { container } = render(<DescriptionList.Term className="extra">Test</DescriptionList.Term>)
+    render(<DescriptionList.Term className="extra">Test</DescriptionList.Term>)
 
-    const component = container.querySelector(':only-child')
+    const component = screen.getByRole('term')
 
     expect(component).toHaveClass('ams-description-list__term extra')
   })
