@@ -14,21 +14,6 @@ const meta = {
     title: 'Let op',
     closeable: false,
   },
-  argTypes: {
-    headingLevel: {
-      control: 'radio',
-      options: [1, 2, 3, 4],
-    },
-    severity: {
-      control: {
-        type: 'radio',
-      },
-      options: ['warning', 'error', 'success', 'info'],
-    },
-    onClose: {
-      action: 'onClose',
-    },
-  },
 } satisfies Meta<typeof Alert>
 
 export default meta

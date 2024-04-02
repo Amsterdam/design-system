@@ -12,15 +12,6 @@ const meta = {
   args: {
     label: 'Tip',
   },
-  argTypes: {
-    color: {
-      control: {
-        type: 'select',
-      },
-      options: ['blue', 'dark-blue', 'dark-green', 'green', 'magenta', 'orange', 'purple', 'yellow'],
-      selected: 'dark-green',
-    },
-  },
 } satisfies Meta<typeof Badge>
 
 export default meta

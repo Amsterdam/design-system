@@ -15,15 +15,6 @@ const meta = {
     label: 'DS',
     imageSrc: '',
   },
-  argTypes: {
-    color: {
-      control: {
-        type: 'select',
-      },
-      options: ['blue', 'dark-blue', 'dark-green', 'green', 'magenta', 'orange', 'purple', 'red', 'yellow'],
-      selected: 'dark-blue',
-    },
-  },
 } satisfies Meta<typeof Avatar>
 
 export default meta
