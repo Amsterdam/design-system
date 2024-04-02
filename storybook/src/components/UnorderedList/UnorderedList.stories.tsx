@@ -3,7 +3,7 @@
  * Copyright Gemeente Amsterdam
  */
 
-import { Icon, Paragraph, UnorderedList } from '@amsterdam/design-system-react'
+import { Icon, Paragraph, UnorderedList } from '@amsterdam/design-system-react/src'
 import {
   AlertIcon,
   AnnouncementIcon,

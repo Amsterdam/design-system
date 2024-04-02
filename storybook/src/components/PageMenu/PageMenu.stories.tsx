@@ -3,7 +3,7 @@
  * Copyright Gemeente Amsterdam
  */
 
-import { PageMenu } from '@amsterdam/design-system-react'
+import { PageMenu } from '@amsterdam/design-system-react/src'
 import { LoginIcon, SearchIcon } from '@amsterdam/design-system-react-icons'
 import { Meta, StoryObj } from '@storybook/react'
 

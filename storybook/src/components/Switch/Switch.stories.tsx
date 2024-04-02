@@ -3,7 +3,7 @@
  * Copyright Gemeente Amsterdam
  */
 
-import { FormLabel, Switch } from '@amsterdam/design-system-react'
+import { FormLabel, Switch } from '@amsterdam/design-system-react/src'
 import { useArgs } from '@storybook/preview-api'
 import { Meta, StoryObj } from '@storybook/react'
 

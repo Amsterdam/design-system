@@ -1,4 +1,4 @@
-import { Icon } from '@amsterdam/design-system-react'
+import { Icon } from '@amsterdam/design-system-react/src'
 import * as Icons from '@amsterdam/design-system-react-icons'
 import { IconGallery, IconItem } from '@storybook/blocks'
 

@@ -3,8 +3,7 @@
  * Copyright Gemeente Amsterdam
  */
 
-import { Link, Paragraph, UnorderedList } from '@amsterdam/design-system-react'
-import { Alert } from '@amsterdam/design-system-react/src/Alert/Alert'
+import { Alert, Link, Paragraph, UnorderedList } from '@amsterdam/design-system-react/src'
 import { Meta, StoryObj } from '@storybook/react'
 
 const meta = {
