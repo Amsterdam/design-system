@@ -14,11 +14,27 @@ export type PageMenuProps = {
    * If the menu itself aligns to the end of its container, you should set this to `true`.
    */
   alignEnd?: boolean
+  /**
+   * Whether menu items should wrap if they don’t fit on a single row.
+   */
+  wrap?: boolean
 } & PropsWithChildren<HTMLAttributes<HTMLUListElement>>
 
 const PageMenuRoot = forwardRef(
-  ({ alignEnd, children, className, ...restProps }: PageMenuProps, ref: ForwardedRef<HTMLUListElement>) => (
-    <ul {...restProps} className={clsx('ams-page-menu', alignEnd && `ams-page-menu--align-end`, className)} ref={ref}>
+  (
+    { alignEnd, children, className, wrap = true, ...restProps }: PageMenuProps,
+    ref: ForwardedRef<HTMLUListElement>,
+  ) => (
+    <ul
+      {...restProps}
+      className={clsx(
+        'ams-page-menu',
+        alignEnd && `ams-page-menu--align-end`,
+        !wrap && `ams-page-menu--no-wrap`,
+        className,
+      )}
+      ref={ref}
+    >
       {children}
     </ul>
   ),
