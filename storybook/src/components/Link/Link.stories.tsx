@@ -26,19 +26,6 @@ const meta = {
         labels: { undefined: 'default', light: 'light', dark: 'dark' },
       },
       options: [undefined, 'light', 'dark'],
-      table: {
-        category: 'API',
-      },
-    },
-    variant: {
-      control: {
-        type: 'radio',
-      },
-      options: ['standalone', 'inline'],
-      table: {
-        category: 'API',
-        defaultValue: { summary: 'standalone' },
-      },
     },
     href: {
       name: 'href',

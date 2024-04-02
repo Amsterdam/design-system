@@ -17,7 +17,6 @@ const meta = {
     size: undefined,
   },
   argTypes: {
-    disabled: { control: 'boolean' },
     onBackground: {
       control: {
         type: 'radio',
