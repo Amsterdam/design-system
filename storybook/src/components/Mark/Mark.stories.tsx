@@ -9,9 +9,6 @@ import { Meta, StoryObj } from '@storybook/react'
 const meta = {
   title: 'Components/Text/Mark',
   component: Mark,
-  args: {
-    children: 'Wat vinden Amsterdammers belangrijk?',
-  },
   argTypes: {
     children: {
       table: { disable: false },
@@ -24,6 +21,9 @@ export default meta
 type Story = StoryObj<typeof meta>
 
 export const Default: Story = {
+  args: {
+    children: 'Wat vinden Amsterdammers belangrijk?',
+  },
   render: ({ children }) => (
     <Paragraph>
       Daarom organiseren we in 2024 het burgerberaad schone stad, waarin 150 Amsterdammers in gesprek gaan over hoe we
