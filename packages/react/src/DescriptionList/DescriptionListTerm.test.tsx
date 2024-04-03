@@ -32,9 +32,9 @@ describe('Description list term', () => {
   it('supports ForwardRef in React', () => {
     const ref = createRef<HTMLElement>()
 
-    const { container } = render(<DescriptionList.Term ref={ref}>Test</DescriptionList.Term>)
+    render(<DescriptionList.Term ref={ref}>Test</DescriptionList.Term>)
 
-    const component = container.querySelector(':only-child')
+    const component = screen.getByRole('term')
 
     expect(ref.current).toBe(component)
   })
