@@ -2,7 +2,7 @@
 
 # Storybook guidelines
 
-We use Storybook 7 to display all components and allow interaction with them.
+We use Storybook to display all components and allow interaction with them.
 
 We publish each merge to the `main` branch to [amsterdam.github.io/design-system](https://amsterdam.github.io/design-system/).
 
@@ -19,6 +19,11 @@ The docs display:
 We write our documentation in English, the stories are Dutch.
 
 ## Best practices for controls
+
+Controls are automatically generated based on the component’s typing.
+If you want to document native HTML attributes, you can use [`argTypes`](https://storybook.js.org/docs/api/arg-types).
+You can also use `argTypes` to override the automatically generated controls.
+Be sure to follow these guidelines when you do:
 
 1. For props offering five options or less, use radio buttons rather than a select.
    This makes it easier to compare the options.
