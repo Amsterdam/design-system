@@ -9,6 +9,9 @@
 @mixin reset {
   box-sizing: border-box;
   margin-block: 0;
+}
+
+@mixin reset-details {
   margin-inline: 0;
 }
 
@@ -47,4 +50,6 @@
     grid-column-start: 2;
     padding-inline-start: 0;
   }
+
+  @include reset-details;
 }
