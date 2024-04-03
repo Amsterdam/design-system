@@ -11,10 +11,6 @@
   margin-block: 0;
 }
 
-@mixin reset-details {
-  margin-inline: 0;
-}
-
 .ams-description-list {
   color: var(--ams-description-list-color);
   display: grid;
@@ -40,6 +36,10 @@
   @media screen and (min-width: $ams-breakpoint-medium) {
     grid-column-start: 1;
   }
+}
+
+@mixin reset-details {
+  margin-inline: 0;
 }
 
 .ams-description-list__details {
