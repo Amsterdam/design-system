@@ -22,8 +22,6 @@ const meta = {
     start: undefined,
   },
   argTypes: {
-    inverseColor: { control: 'boolean' },
-    markers: { control: 'boolean' },
     reversed: { control: 'boolean' },
     start: { control: 'number' },
   },

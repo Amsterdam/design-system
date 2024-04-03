@@ -29,10 +29,6 @@ const meta = {
     inverseColor: false,
     markers: undefined,
   },
-  argTypes: {
-    inverseColor: { control: 'boolean' },
-    markers: { control: 'boolean' },
-  },
   decorators: [
     (Story, context) => (
       <div className={context.args.inverseColor ? 'ams-docs-dark-background' : undefined}>

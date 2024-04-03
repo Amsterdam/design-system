@@ -12,20 +12,6 @@ const quote = exampleQuote()
 const meta = {
   title: 'Components/Containers/Spotlight',
   component: Spotlight,
-  argTypes: {
-    as: {
-      control: {
-        type: 'radio',
-      },
-      options: ['article', 'aside', 'div', 'footer', 'section'],
-    },
-    color: {
-      control: {
-        type: 'select',
-      },
-      options: ['blue', 'dark-blue', 'dark-green', 'green', 'magenta', 'orange', 'purple', 'yellow'],
-    },
-  },
   render: ({ as, color }) => (
     <Spotlight as={as} color={color}>
       <Grid paddingVertical="medium">

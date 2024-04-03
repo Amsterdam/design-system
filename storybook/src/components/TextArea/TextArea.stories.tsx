@@ -37,11 +37,6 @@ const meta = {
         type: 'number',
       },
     },
-    disabled: {
-      control: {
-        type: 'boolean',
-      },
-    },
   },
   render: ({ invalid, ...args }) => {
     const [, setArgs] = useArgs()

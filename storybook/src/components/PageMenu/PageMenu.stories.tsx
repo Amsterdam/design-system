@@ -12,15 +12,7 @@ const meta = {
   component: PageMenu,
   args: {
     alignEnd: false,
-    wrap: true,
-  },
-  argTypes: {
-    alignEnd: {
-      control: 'boolean',
-    },
-    wrap: {
-      control: 'boolean',
-    },
+    wrap: undefined,
   },
 } satisfies Meta<typeof PageMenu>
 
@@ -55,7 +47,6 @@ export const Alignment: Story = {
         Zoeken
       </PageMenu.Link>,
     ],
-    wrap: false,
   },
 }
 

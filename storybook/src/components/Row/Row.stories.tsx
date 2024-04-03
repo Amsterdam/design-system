@@ -15,10 +15,6 @@ const meta = {
     children: ThreeButtons,
   },
   argTypes: {
-    as: {
-      control: { type: 'radio' },
-      options: ['article', 'div', 'section'],
-    },
     gap: {
       control: 'radio',
       options: ['extra-small', 'small', 'medium', 'large', 'extra-large'],

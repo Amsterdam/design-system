@@ -15,9 +15,6 @@ const meta = {
     disabled: false,
   },
   argTypes: {
-    disabled: {
-      control: 'boolean',
-    },
     onChange: { action: 'clicked', table: { disable: true } },
   },
   render: (args) => {
