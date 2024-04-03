@@ -2,16 +2,15 @@
   "ams": {
     "tabs": {
       "list": {
+        "background-color": { "value": "{ams.color.primary-white}" },
         "border-bottom": { "value": "{ams.border.width.md} solid {ams.color.primary-blue}" }
       },
       "button": {
-        "background-color": { "value": "transparent" },
-        "border": { "value": "0" },
         "color": { "value": "{ams.color.primary-blue}" },
         "cursor": { "value": "{ams.action.activate.cursor}" },
         "font-family": { "value": "{ams.text.font-family}" },
-        "font-weight": { "value": "{ams.text.font-weight.normal}" },
         "font-size": { "value": "{ams.text.level.5.font-size}" },
+        "font-weight": { "value": "{ams.text.font-weight.normal}" },
         "line-height": { "value": "{ams.text.level.5.line-height}" },
         "outline-offset": { "value": "-0.25rem" },
         "padding-block": { "value": ".5rem" },

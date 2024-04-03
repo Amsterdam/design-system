@@ -5,15 +5,19 @@
 
 @import "../../common/breakpoint";
 
+@mixin reset-button {
+  background-color: transparent;
+  border: 0;
+}
+
 .ams-tabs__list {
+  background-color: var(--ams-tabs-list-background-color);
   border-bottom: var(--ams-tabs-list-border-bottom);
   display: flex;
   overflow-x: auto;
 }
 
 .ams-tabs__button {
-  background-color: var(--ams-tabs-button-background-color);
-  border: var(--ams-tabs-button-border);
   color: var(--ams-tabs-button-color);
   cursor: var(--ams-tabs-button-cursor);
   font-family: var(--ams-tabs-button-font-family);
@@ -23,6 +27,8 @@
   outline-offset: var(--ams-tabs-button-outline-offset);
   padding-block: var(--ams-tabs-button-padding-block);
   padding-inline: var(--ams-tabs-button-padding-inline);
+
+  @include reset-button;
 
   &:disabled {
     color: var(--ams-tabs-button-disabled-color);

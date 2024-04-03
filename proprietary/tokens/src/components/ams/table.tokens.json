@@ -3,8 +3,8 @@
     "table": {
       "color": { "value": "{ams.color.primary-black}" },
       "font-family": { "value": "{ams.text.font-family}" },
-      "font-weight": { "value": "{ams.text.font-weight.normal}" },
       "font-size": { "value": "{ams.text.level.5.font-size}" },
+      "font-weight": { "value": "{ams.text.font-weight.normal}" },
       "line-height": { "value": "{ams.text.level.5.line-height}" },
       "caption": {
         "font-weight": { "value": "{ams.text.font-weight.bold}" }
