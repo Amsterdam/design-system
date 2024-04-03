@@ -15,10 +15,7 @@ import { IconButton } from '../IconButton'
 export type AlertProps = {
   /** Whether the alert can be dismissed by the user. Adds a button to the top right. */
   closeable?: boolean
-  /**
-   * The hierarchical level of the alert title within the document.
-   * @default 2
-   */
+  /** The hierarchical level of the alert title within the document. */
   headingLevel?: HeadingProps['level']
   /** Allows a callback when dismissing the alert. */
   onClose?: () => void
