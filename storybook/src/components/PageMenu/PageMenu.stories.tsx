@@ -4,12 +4,24 @@
  */
 
 import { PageMenu } from '@amsterdam/design-system-react'
-import { LoginIcon } from '@amsterdam/design-system-react-icons'
+import { LoginIcon, SearchIcon } from '@amsterdam/design-system-react-icons'
 import { Meta, StoryObj } from '@storybook/react'
 
 const meta = {
   title: 'Components/Navigation/Page Menu',
   component: PageMenu,
+  args: {
+    alignEnd: false,
+    wrap: true,
+  },
+  argTypes: {
+    alignEnd: {
+      control: 'boolean',
+    },
+    wrap: {
+      control: 'boolean',
+    },
+  },
 } satisfies Meta<typeof PageMenu>
 
 export default meta
@@ -29,9 +41,26 @@ export const Default: Story = {
   },
 }
 
-export const AlignEnd: Story = {
+export const Alignment: Story = {
   args: {
     alignEnd: true,
+    children: [
+      <PageMenu.Link href="#" key={1}>
+        Contact
+      </PageMenu.Link>,
+      <PageMenu.Link href="#" key={2}>
+        Mijn Amsterdam
+      </PageMenu.Link>,
+      <PageMenu.Link href="#" icon={SearchIcon} key={3}>
+        Zoeken
+      </PageMenu.Link>,
+    ],
+    wrap: false,
+  },
+}
+
+export const Wrapping: Story = {
+  args: {
     children: [
       <PageMenu.Link href="#" key={1}>
         Onderzoeken
