@@ -10,16 +10,24 @@ const meta = {
   title: 'Components/Forms/Select',
   component: Select,
   args: {
-    id: 'select',
     children: [
       <option key="1" value="1">
-        Option 1
+        Centrum
       </option>,
       <option key="2" value="2">
-        Option 2
+        Noord
       </option>,
       <option key="3" value="3">
-        Option 3
+        West
+      </option>,
+      <option key="4" value="4">
+        Nieuw-West
+      </option>,
+      <option key="5" value="5">
+        Zuid
+      </option>,
+      <option key="6" value="6">
+        Zuidoost
       </option>,
     ],
   },
