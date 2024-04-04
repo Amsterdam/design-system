@@ -1,8 +1,36 @@
 {
   "ams": {
     "select": {
+      "background-color": { "value": "{ams.color.primary-white}" },
       "background-image": {
-        "value": "url(\"data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><path fill='%23000000' fill-rule='evenodd' d='m16 25.757-16-16 2.91-2.9L16 19.937l13.09-13.08 2.91 2.9z'/></svg>\")"
+        "value": "url(\"data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><path fill='%23004699' fill-rule='evenodd' d='m16 25.757-16-16 2.91-2.9L16 19.937l13.09-13.08 2.91 2.9z'/></svg>\")"
+      },
+      "box-shadow": { "value": "inset 0 0 0 {ams.border.width.sm} {ams.color.primary-black}" },
+      "color": { "value": "{ams.color.primary-black}" },
+      "font-family": { "value": "{ams.text.font-family}" },
+      "font-size": { "value": "{ams.text.level.6.font-size}" },
+      "font-weight": { "value": "{ams.text.font-weight.normal}" },
+      "line-height": { "value": "{ams.text.level.6.line-height}" },
+      "outline-offset": { "value": "{ams.focus.outline-offset}" },
+      "padding-block": { "value": "{ams.space.inside.xs}" },
+      "padding-inline": { "value": "{ams.space.inside.md}" },
+      "max-inline-size": { "value": "28rem" },
+      "disabled": {
+        "background-color": { "value": "{ams.color.primary-white}" },
+        "box-shadow": { "value": "inset 0 0 0 {ams.border.width.sm} {ams.color.neutral-grey2}" },
+        "color": { "value": "{ams.color.neutral-grey2}" }
+      },
+      "hover": {
+        "box-shadow": { "value": "inset 0 0 0 {ams.border.width.md} {ams.color.primary-black}" }
+      },
+      "invalid": {
+        "box-shadow": { "value": "inset 0 0 0 {ams.border.width.sm} {ams.color.primary-red}" },
+        "hover": {
+          "box-shadow": { "value": "inset 0 0 0 {ams.border.width.md} {ams.color.primary-red}" }
+        }
+      },
+      "placeholder": {
+        "color": { "value": "{ams.color.neutral-grey3}" }
       }
     }
   }

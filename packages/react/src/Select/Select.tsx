@@ -5,16 +5,21 @@
 
 import clsx from 'clsx'
 import { forwardRef } from 'react'
-import type { ForwardedRef, HTMLAttributes, PropsWithChildren } from 'react'
+import type { ForwardedRef, PropsWithChildren, SelectHTMLAttributes } from 'react'
+import { SelectOption } from './SelectOption'
 
-export type SelectProps = PropsWithChildren<HTMLAttributes<HTMLDivElement>>
+export type SelectProps = {
+  invalid?: boolean
+} & PropsWithChildren<SelectHTMLAttributes<HTMLSelectElement>>
 
-export const Select = forwardRef(
-  ({ children, className, ...restProps }: SelectProps, ref: ForwardedRef<HTMLDivElement>) => (
-    <div {...restProps} ref={ref} className={clsx('ams-select', className)}>
-      <select>{children}</select>
-    </div>
+const SelectRoot = forwardRef(
+  ({ children, className, invalid, ...restProps }: SelectProps, ref: ForwardedRef<HTMLSelectElement>) => (
+    <select {...restProps} ref={ref} className={clsx('ams-select', invalid && 'ams-select--invalid', className)}>
+      {children}
+    </select>
   ),
 )
 
-Select.displayName = 'Select'
+SelectRoot.displayName = 'Select'
+
+export const Select = Object.assign(SelectRoot, { Option: SelectOption })

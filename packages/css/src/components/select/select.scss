@@ -3,45 +3,46 @@
  * Copyright Gemeente Amsterdam
  */
 
-.ams-select {
+@mixin reset {
+  appearance: none;
   border: none;
-  box-shadow: var(--ams-text-input-box-shadow);
-  color: var(--ams-text-input-color);
-  display: inline-block;
-  font-family: var(--ams-text-input-font-family);
-  font-size: var(--ams-text-input-font-size);
-  font-weight: var(--ams-text-input-font-weight);
-  line-height: var(--ams-text-input-line-height);
+}
+
+.ams-select {
+  background-color: white;
+  box-shadow: var(--ams-select-box-shadow);
+  color: var(--ams-select-color);
+  font-family: var(--ams-select-font-family);
+  font-size: var(--ams-select-font-size);
+  font-weight: var(--ams-select-font-weight);
+  line-height: var(--ams-select-line-height);
+  max-inline-size: var(--ams-select-max-inline-size);
+  outline-offset: var(--ams-select-outline-offset);
+  padding-block: var(--ams-select-padding-block);
+  padding-inline: var(--ams-select-padding-inline);
   position: relative;
   touch-action: manipulation;
+  width: 100%;
 
-  &::after {
+  &:not([multiple]) {
     background-image: var(--ams-select-background-image);
+    background-position: right 1.5rem center;
     background-repeat: no-repeat;
-    content: "";
-    display: inline-block;
-    height: 1em;
-    margin-inline: 0.5rem;
-    pointer-events: none;
-    position: absolute;
-    right: 0.5rem;
-    top: 50%;
-    transform: translateY(-50%);
-    width: 1em;
+    background-size: 1em 1em;
   }
 
-  select {
-    appearance: none;
-    background-color: transparent;
-    border: none;
-    cursor: inherit;
-    font-family: inherit;
-    font-size: inherit;
-    line-height: inherit;
-    margin-block: 0;
-    outline-offset: var(--ams-text-input-outline-offset);
-    padding-block: var(--ams-text-input-padding-block);
-    padding-inline: 0.5rem 5ex;
-    width: 100%;
+  &:hover {
+    box-shadow: var(--ams-select-hover-box-shadow);
+  }
+
+  @include reset;
+}
+
+.ams-select--invalid,
+.ams-select:required:invalid {
+  box-shadow: var(--ams-select-invalid-box-shadow);
+
+  &:hover {
+    box-shadow: var(--ams-select-invalid-hover-box-shadow);
   }
 }

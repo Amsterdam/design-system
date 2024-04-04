@@ -10,25 +10,34 @@ const meta = {
   title: 'Components/Forms/Select',
   component: Select,
   args: {
+    invalid: false,
+    required: false,
+    multiple: false,
     children: [
-      <option key="1" value="1">
+      <Select.Option key="0" disabled selected hidden>
+        Selecteer een stadsdeel
+      </Select.Option>,
+      <Select.Option key="1" value="1">
         Centrum
-      </option>,
-      <option key="2" value="2">
+      </Select.Option>,
+      <Select.Option key="2" value="2">
         Noord
-      </option>,
-      <option key="3" value="3">
+      </Select.Option>,
+      <Select.Option key="3" value="3">
         West
-      </option>,
-      <option key="4" value="4">
+      </Select.Option>,
+      <Select.Option key="4" value="4" disabled>
+        Westpoort
+      </Select.Option>,
+      <Select.Option key="6" value="5">
         Nieuw-West
-      </option>,
-      <option key="5" value="5">
+      </Select.Option>,
+      <Select.Option key="7" value="6">
         Zuid
-      </option>,
-      <option key="6" value="6">
+      </Select.Option>,
+      <Select.Option key="8" value="7">
         Zuidoost
-      </option>,
+      </Select.Option>,
     ],
   },
 } satisfies Meta<typeof Select>
