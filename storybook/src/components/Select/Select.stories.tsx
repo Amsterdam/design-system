@@ -48,3 +48,21 @@ export default meta
 type Story = StoryObj<typeof meta>
 
 export const Default: Story = {}
+
+export const Multiple: Story = {
+  args: {
+    multiple: true,
+  },
+}
+
+export const Invalid: Story = {
+  args: {
+    invalid: true,
+  },
+}
+
+export const Disabled: Story = {
+  args: {
+    disabled: true,
+  },
+}

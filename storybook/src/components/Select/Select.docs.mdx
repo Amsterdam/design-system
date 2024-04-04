@@ -1,4 +1,4 @@
-import { Controls, Markdown, Meta, Primary } from "@storybook/blocks";
+import { Canvas, Controls, Markdown, Meta, Primary } from "@storybook/blocks";
 import * as SelectStories from "./Select.stories.tsx";
 import README from "../../../../packages/css/src/components/select/README.md?raw";
 
@@ -9,3 +9,15 @@ import README from "../../../../packages/css/src/components/select/README.md?raw
 <Primary />
 
 <Controls />
+
+## Multiple
+
+<Canvas of={SelectStories.Multiple} />
+
+## Invalid
+
+<Canvas of={SelectStories.Invalid} />
+
+## Disabled
+
+<Canvas of={SelectStories.Disabled} />
