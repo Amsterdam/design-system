@@ -38,6 +38,13 @@
   @include reset;
 }
 
+.ams-select:disabled,
+.ams-select--disabled {
+  box-shadow: var(--ams-select-disabled-box-shadow);
+  color: var(--ams-select-disabled-color);
+  cursor: not-allowed;
+}
+
 .ams-select--invalid,
 .ams-select:required:invalid {
   box-shadow: var(--ams-select-invalid-box-shadow);

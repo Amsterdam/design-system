@@ -12,6 +12,7 @@ const meta = {
   args: {
     invalid: false,
     required: false,
+    disabled: false,
     multiple: false,
     children: [
       <Select.Option key="0" disabled selected hidden>
