@@ -31,6 +31,13 @@
   }
 }
 
+// This changes the default calendar icon on Chromium browsers only
+.ams-date-input::-webkit-calendar-picker-indicator {
+  appearance: none;
+  background-image: var(--ams-date-input-calender-picker-indicator-background-image);
+  cursor: pointer;
+}
+
 .ams-date-input:disabled {
   background-color: var(--ams-date-input-disabled-background-color);
   box-shadow: var(--ams-date-input-disabled-box-shadow);
