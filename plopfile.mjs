@@ -16,6 +16,12 @@ export default function (plop) {
       },
       {
         type: 'input',
+        name: 'attributes',
+        message: 'DOM API Attributes: ',
+        default: 'HTMLAttributes',
+      },
+      {
+        type: 'input',
         name: 'type',
         message: 'DOM API Type: ',
         default: 'HTMLElement',

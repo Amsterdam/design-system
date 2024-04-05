@@ -5,9 +5,9 @@
 
 import clsx from 'clsx'
 import { forwardRef } from 'react'
-import type { ForwardedRef, HTMLAttributes, PropsWithChildren } from 'react'
+import type { ForwardedRef, {{ attributes }}, PropsWithChildren } from 'react'
 
-export type {{pascalCase name}}Props = PropsWithChildren<HTMLAttributes<{{ type }}>>
+export type {{pascalCase name}}Props = PropsWithChildren<{{ attributes }}<{{ type }}>>
 
 export const {{pascalCase name}} = forwardRef(
   ({ children, className, ...restProps }: {{pascalCase name}}Props, ref: ForwardedRef<{{ type }}>) => (
