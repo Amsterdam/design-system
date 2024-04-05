@@ -3,7 +3,7 @@
  * Copyright Gemeente Amsterdam
  */
 
-import { Card, Column, Heading, Paragraph } from '@amsterdam/design-system-react'
+import { Card, Column, Heading, Paragraph } from '@amsterdam/design-system-react/src'
 import { Meta, StoryObj } from '@storybook/react'
 
 const ThreeBoxes = Array.from(Array(3).keys()).map((i) => (
@@ -19,13 +19,6 @@ const meta = {
     children: ThreeBoxes,
   },
   argTypes: {
-    as: {
-      control: { type: 'radio' },
-      options: ['article', 'div', 'section'],
-    },
-    children: {
-      table: { disable: true },
-    },
     gap: {
       control: 'radio',
       options: ['extra-small', 'small', 'medium', 'large', 'extra-large'],

@@ -2,7 +2,7 @@
 
 # Storybook guidelines
 
-We use Storybook 7 to display all components and allow interaction with them.
+We use Storybook to display all components and allow interaction with them.
 
 We publish each merge to the `main` branch to [amsterdam.github.io/design-system](https://amsterdam.github.io/design-system/).
 
@@ -20,6 +20,11 @@ We write our documentation in English, the stories are Dutch.
 
 ## Best practices for controls
 
+Controls are automatically generated based on the component’s typing.
+If you want to document native HTML attributes, you can use [`argTypes`](https://storybook.js.org/docs/api/arg-types).
+You can also use `argTypes` to override the automatically generated controls.
+Be sure to follow these guidelines when you do:
+
 1. For props offering five options or less, use radio buttons rather than a select.
    This makes it easier to compare the options.
    It saves the user a click to select each option and shows everything up front.
@@ -27,6 +32,21 @@ We write our documentation in English, the stories are Dutch.
    Their options appear rather small, making them difficult to target with a pointing device.
 
 More to follow.
+
+By default, we hide the `children` prop from the controls.
+Children of React components are often React components themselves, which isn't very useful to show in Storybook.
+However, sometimes it is useful to add `children` to the controls.
+For example, when the child is a simple string (like in the default Button component story).
+
+To do this, you can override the default like so:
+
+```js
+argTypes: {
+  children: {
+    table: { disable: false },
+  },
+},
+```
 
 ## Best practices for stories
 

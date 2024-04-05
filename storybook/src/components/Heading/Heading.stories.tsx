@@ -3,7 +3,7 @@
  * Copyright Gemeente Amsterdam
  */
 
-import { Heading } from '@amsterdam/design-system-react'
+import { Heading } from '@amsterdam/design-system-react/src'
 import { Meta, StoryObj } from '@storybook/react'
 import { exampleHeading } from '../shared/exampleContent'
 
@@ -20,15 +20,6 @@ const meta = {
     children: {
       table: { disable: false },
     },
-    level: {
-      control: 'radio',
-      options: [1, 2, 3, 4],
-    },
-    size: {
-      control: 'radio',
-      options: ['level-1', 'level-2', 'level-3', 'level-4', 'level-5', 'level-6'],
-    },
-    inverseColor: { control: 'boolean' },
   },
 } satisfies Meta<typeof Heading>
 

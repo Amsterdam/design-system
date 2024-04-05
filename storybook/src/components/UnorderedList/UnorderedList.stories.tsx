@@ -3,7 +3,7 @@
  * Copyright Gemeente Amsterdam
  */
 
-import { Icon, Paragraph, UnorderedList } from '@amsterdam/design-system-react'
+import { Icon, Paragraph, UnorderedList } from '@amsterdam/design-system-react/src'
 import {
   AlertIcon,
   AnnouncementIcon,
@@ -28,10 +28,6 @@ const meta = {
     children: unorderedListItems,
     inverseColor: false,
     markers: undefined,
-  },
-  argTypes: {
-    inverseColor: { control: 'boolean' },
-    markers: { control: 'boolean' },
   },
   decorators: [
     (Story, context) => (
