@@ -3,7 +3,7 @@
  * Copyright Gemeente Amsterdam
  */
 
-import { Blockquote } from '@amsterdam/design-system-react'
+import { Blockquote } from '@amsterdam/design-system-react/src'
 import { Meta, StoryObj } from '@storybook/react'
 import { exampleQuote } from '../shared/exampleContent'
 
@@ -20,7 +20,6 @@ const meta = {
     children: {
       table: { disable: false },
     },
-    inverseColor: { control: 'boolean' },
   },
 } satisfies Meta<typeof Blockquote>
 
