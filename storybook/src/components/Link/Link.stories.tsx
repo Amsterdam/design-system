@@ -3,7 +3,7 @@
  * Copyright Gemeente Amsterdam
  */
 
-import { Link, Paragraph } from '@amsterdam/design-system-react'
+import { Link, Paragraph } from '@amsterdam/design-system-react/src'
 import type { Meta, StoryObj } from '@storybook/react'
 
 type Story = StoryObj<typeof Link>
@@ -26,19 +26,6 @@ const meta = {
         labels: { undefined: 'default', light: 'light', dark: 'dark' },
       },
       options: [undefined, 'light', 'dark'],
-      table: {
-        category: 'API',
-      },
-    },
-    variant: {
-      control: {
-        type: 'radio',
-      },
-      options: ['standalone', 'inline'],
-      table: {
-        category: 'API',
-        defaultValue: { summary: 'standalone' },
-      },
     },
     href: {
       name: 'href',

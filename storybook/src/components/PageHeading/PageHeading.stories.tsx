@@ -3,7 +3,7 @@
  * Copyright Gemeente Amsterdam
  */
 
-import { PageHeading } from '@amsterdam/design-system-react'
+import { PageHeading } from '@amsterdam/design-system-react/src'
 import { Meta, StoryObj } from '@storybook/react'
 
 const meta = {
@@ -17,7 +17,6 @@ const meta = {
     children: {
       table: { disable: false },
     },
-    inverseColor: { control: 'boolean' },
   },
 } satisfies Meta<typeof PageHeading>
 

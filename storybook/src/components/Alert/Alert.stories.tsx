@@ -3,7 +3,7 @@
  * Copyright Gemeente Amsterdam
  */
 
-import { Alert, Link, Paragraph, UnorderedList } from '@amsterdam/design-system-react'
+import { Alert, Link, Paragraph, UnorderedList } from '@amsterdam/design-system-react/src'
 import { Meta, StoryObj } from '@storybook/react'
 
 const meta = {
@@ -12,23 +12,6 @@ const meta = {
   args: {
     title: 'Let op',
     closeable: false,
-  },
-  argTypes: {
-    severity: {
-      control: {
-        type: 'radio',
-      },
-      options: ['warning', 'error', 'success', 'info'],
-    },
-    closeable: {
-      control: {
-        type: 'boolean',
-        default: false,
-      },
-    },
-    onClose: {
-      action: 'onClose',
-    },
   },
 } satisfies Meta<typeof Alert>
 

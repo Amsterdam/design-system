@@ -7,6 +7,7 @@
 import clsx from 'clsx'
 import { forwardRef } from 'react'
 import type { ForwardedRef, HTMLAttributes, PropsWithChildren } from 'react'
+import { getHeadingElement } from './getHeadingElement'
 
 export type HeadingLevel = 1 | 2 | 3 | 4
 type HeadingSize = 'level-1' | 'level-2' | 'level-3' | 'level-4' | 'level-5' | 'level-6'
@@ -27,19 +28,6 @@ export type HeadingProps = {
    */
   inverseColor?: boolean
 } & PropsWithChildren<HTMLAttributes<HTMLHeadingElement>>
-
-export function getHeadingElement(level: HeadingLevel) {
-  switch (level) {
-    case 2:
-      return 'h2'
-    case 3:
-      return 'h3'
-    case 4:
-      return 'h4'
-    default:
-      return 'h1'
-  }
-}
 
 export const Heading = forwardRef(
   (

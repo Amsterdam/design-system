@@ -3,7 +3,7 @@
  * Copyright Gemeente Amsterdam
  */
 
-import { Button, Icon } from '@amsterdam/design-system-react'
+import { Button, Icon } from '@amsterdam/design-system-react/src'
 import { ShareIcon } from '@amsterdam/design-system-react-icons'
 import { Meta, StoryObj } from '@storybook/react'
 
@@ -18,11 +18,6 @@ const meta = {
   argTypes: {
     children: {
       table: { disable: false },
-    },
-    disabled: { control: 'boolean' },
-    variant: {
-      control: 'select',
-      options: ['primary', 'secondary', 'tertiary'],
     },
   },
 } satisfies Meta<typeof Button>

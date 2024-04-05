@@ -3,7 +3,7 @@
  * Copyright Gemeente Amsterdam
  */
 
-import { AspectRatio, Card, Heading, Image, Paragraph } from '@amsterdam/design-system-react'
+import { AspectRatio, Card, Heading, Image, Paragraph } from '@amsterdam/design-system-react/src'
 import { Meta, StoryObj } from '@storybook/react'
 
 const dateFormat = new Intl.DateTimeFormat('nl', {

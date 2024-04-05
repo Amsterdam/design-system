@@ -3,7 +3,7 @@
  * Copyright Gemeente Amsterdam
  */
 
-import { Heading, OrderedList, Paragraph } from '@amsterdam/design-system-react'
+import { Heading, OrderedList, Paragraph } from '@amsterdam/design-system-react/src'
 import type { Meta, StoryObj } from '@storybook/react'
 import { exampleOrderedList } from '../shared/exampleContent'
 
@@ -22,8 +22,6 @@ const meta = {
     start: undefined,
   },
   argTypes: {
-    inverseColor: { control: 'boolean' },
-    markers: { control: 'boolean' },
     reversed: { control: 'boolean' },
     start: { control: 'number' },
   },
