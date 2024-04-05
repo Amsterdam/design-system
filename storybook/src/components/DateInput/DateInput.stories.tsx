@@ -3,16 +3,33 @@
  * Copyright Gemeente Amsterdam
  */
 
-import { DateInput } from '@amsterdam/design-system-react'
+import { DateInput, DateInputProps } from '@amsterdam/design-system-react'
 import { Meta, StoryObj } from '@storybook/react'
+
+type StoryProps = DateInputProps & { invalid?: boolean }
 
 const meta = {
   title: 'Date Input',
   component: DateInput,
-} satisfies Meta<typeof DateInput>
+  args: {
+    disabled: false,
+  },
+} satisfies Meta<StoryProps>
 
 export default meta
 
 type Story = StoryObj<typeof meta>
 
 export const Default: Story = {}
+
+export const Invalid: Story = {
+  args: {
+    required: true,
+  },
+}
+
+export const Disabled: Story = {
+  args: {
+    disabled: true,
+  },
+}

@@ -45,6 +45,11 @@
   cursor: not-allowed;
 }
 
+.ams-date-input:disabled::-webkit-calendar-picker-indicator {
+  background-image: var(--ams-date-input-disabled-calender-picker-indicator-background-image);
+  visibility: initial;
+}
+
 .ams-date-input:invalid,
 .ams-date-input[aria-invalid="true"] {
   box-shadow: var(--ams-date-input-invalid-box-shadow);
