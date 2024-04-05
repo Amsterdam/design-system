@@ -7,13 +7,13 @@ import clsx from 'clsx'
 import { forwardRef } from 'react'
 import type { ForwardedRef, HTMLAttributes, PropsWithChildren } from 'react'
 
-export type {{pascalCase name}}Props = PropsWithChildren<HTMLAttributes<HTMLElement>>
+export type {{pascalCase name}}Props = PropsWithChildren<HTMLAttributes<{{ type }}>>
 
 export const {{pascalCase name}} = forwardRef(
-  ({ children, className, ...restProps }: {{pascalCase name}}Props, ref: ForwardedRef<HTMLElement>) => (
-    <span {...restProps} ref={ref} className={clsx('ams-{{kebabCase name}}', className)}>
+  ({ children, className, ...restProps }: {{pascalCase name}}Props, ref: ForwardedRef<{{ type }}>) => (
+    <{{ tag }} {...restProps} ref={ref} className={clsx('ams-{{kebabCase name}}', className)}>
       {children}
-    </span>
+    </{{ tag }}>
   ),
 )
 
