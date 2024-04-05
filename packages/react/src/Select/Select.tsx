@@ -7,6 +7,7 @@ import clsx from 'clsx'
 import { forwardRef } from 'react'
 import type { ForwardedRef, PropsWithChildren, SelectHTMLAttributes } from 'react'
 import { SelectOption } from './SelectOption'
+import { SelectOptionGroup } from './SelectOptionGroup'
 
 export type SelectProps = {
   invalid?: boolean
@@ -22,4 +23,4 @@ const SelectRoot = forwardRef(
 
 SelectRoot.displayName = 'Select'
 
-export const Select = Object.assign(SelectRoot, { Option: SelectOption })
+export const Select = Object.assign(SelectRoot, { Option: SelectOption, Group: SelectOptionGroup })
