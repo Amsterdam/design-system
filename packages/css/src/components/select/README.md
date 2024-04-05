@@ -19,5 +19,5 @@ This component supports the following keyboard navigation:
 
 ## References
 
-- [Combobox pattern](https://www.w3.org/WAI/ARIA/apg/patterns/combobox/) Including keyboard navigation
+- [Combobox pattern](https://www.w3.org/WAI/ARIA/apg/patterns/combobox/)
 - [MDN Web Docs](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/select)
