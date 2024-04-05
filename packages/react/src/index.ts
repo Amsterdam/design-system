@@ -7,6 +7,7 @@
 export * from './DateInput'
 export * from './Avatar'
 export * from './FormFieldCharacterCounter'
+export * from './DescriptionList'
 export * from './Row'
 export * from './Radio'
 export * from './Tabs'
