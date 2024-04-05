@@ -11,7 +11,7 @@ This component supports the following keyboard navigation:
 - `Enter` or `Space` key to toggle the dropdown
 - `ArrowDown` or `ArrowUp` key to navigate through the options
 - `Home` or `End` key to navigate to the first or last option
-- `PageUp` or `PageDown` key to navigate to the previous or next group of options
+- `PageUp` or `PageDown` key to navigate to the previous or next option that is currently not visible
 - `Escape` key to close the dropdown
 - `Tab` key to close the dropdown and move focus to the next focusable element
 - `Shift + Tab` key to close the dropdown and move focus to the previous focusable element
