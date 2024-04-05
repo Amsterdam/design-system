@@ -8,7 +8,7 @@ import { forwardRef } from 'react'
 import type { ForwardedRef, ImgHTMLAttributes } from 'react'
 
 export type ImageProps = {
-  cover?: Boolean
+  cover?: boolean
 } & ImgHTMLAttributes<HTMLImageElement>
 
 export const Image = forwardRef(

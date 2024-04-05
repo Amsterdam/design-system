@@ -3,15 +3,12 @@
  * Copyright Gemeente Amsterdam
  */
 
-import { Mark, Paragraph } from '@amsterdam/design-system-react'
+import { Mark, Paragraph } from '@amsterdam/design-system-react/src'
 import { Meta, StoryObj } from '@storybook/react'
 
 const meta = {
   title: 'Components/Text/Mark',
   component: Mark,
-  args: {
-    children: 'Nieuw component',
-  },
   argTypes: {
     children: {
       table: { disable: false },

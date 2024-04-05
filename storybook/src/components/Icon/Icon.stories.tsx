@@ -3,7 +3,7 @@
  * Copyright Gemeente Amsterdam
  */
 
-import { Heading, Icon } from '@amsterdam/design-system-react'
+import { Heading, Icon } from '@amsterdam/design-system-react/src'
 import * as Icons from '@amsterdam/design-system-react-icons'
 import { Meta, StoryObj } from '@storybook/react'
 
@@ -11,17 +11,6 @@ const meta = {
   title: 'Components/Media/Icon',
   component: Icon,
   argTypes: {
-    size: {
-      control: {
-        type: 'radio',
-      },
-      options: ['level-3', 'level-4', 'level-5', 'level-6'],
-    },
-    square: {
-      control: {
-        type: 'boolean',
-      },
-    },
     svg: {
       control: {
         type: 'select',

@@ -3,7 +3,7 @@
  * Copyright Gemeente Amsterdam
  */
 
-import { Heading, Paragraph, Tabs } from '@amsterdam/design-system-react'
+import { Heading, Paragraph, Tabs } from '@amsterdam/design-system-react/src'
 import { Meta, StoryObj } from '@storybook/react'
 import { PropsWithChildren } from 'react'
 import { exampleParagraph } from '../shared/exampleContent'

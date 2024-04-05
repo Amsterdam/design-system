@@ -3,7 +3,7 @@
  * Copyright Gemeente Amsterdam
  */
 
-import { Button, Dialog, Heading, Paragraph } from '@amsterdam/design-system-react'
+import { Button, Dialog, Heading, Paragraph } from '@amsterdam/design-system-react/src'
 import { Meta, StoryObj } from '@storybook/react'
 
 const meta = {
