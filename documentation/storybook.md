@@ -33,6 +33,21 @@ Be sure to follow these guidelines when you do:
 
 More to follow.
 
+By default, we hide the `children` prop from the controls.
+Children of React components are often React components themselves, which isn't very useful to show in Storybook.
+However, sometimes it is useful to add `children` to the controls.
+For example, when the child is a simple string (like in the Button component).
+
+To do this, you can override the default like so:
+
+```js
+argTypes: {
+  children: {
+    table: { disable: false },
+  },
+},
+```
+
 ## Best practices for stories
 
 1. Use decorators and / or `args.children` before reaching for `render`. `render` can easily mess up the stories’ code view.
