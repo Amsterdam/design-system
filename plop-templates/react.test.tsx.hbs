@@ -46,6 +46,8 @@ describe('{{sentenceCase name}}', () => {
   })
 
   it('supports ForwardRef in React', () => {
+    const ref = createRef<{{ type }}>()
+
     {{#if role}}
     render(<{{pascalCase name}} ref={ref} />)
     const component = screen.getByRole('{{role}}')
@@ -54,7 +56,6 @@ describe('{{sentenceCase name}}', () => {
     const component = container.querySelector(':only-child')
     {{/if}}
 
-    const component = container.querySelector(':only-child')
     expect(ref.current).toBe(component)
   })
 })

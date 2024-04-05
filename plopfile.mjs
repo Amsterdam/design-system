@@ -12,11 +12,13 @@ export default function (plop) {
         type: 'input',
         name: 'tag',
         message: 'Tag name: ',
+        default: 'span',
       },
       {
         type: 'input',
         name: 'type',
         message: 'DOM API Type: ',
+        default: 'HTMLElement',
       },
       {
         type: 'input',
