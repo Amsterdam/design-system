@@ -18,7 +18,7 @@ export const SearchFieldButton = forwardRef(
   ({ className, ...restProps }: SearchFieldButtonProps, ref: ForwardedRef<HTMLButtonElement>) => (
     <button {...restProps} ref={ref} className={clsx('ams-search-field__button', className)}>
       <VisuallyHidden>Zoeken</VisuallyHidden>
-      <Icon svg={SearchIcon} size="level-6" square />
+      <Icon svg={SearchIcon} size="level-5" square />
     </button>
   ),
 )
