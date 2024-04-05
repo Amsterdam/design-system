@@ -52,6 +52,7 @@ export const Default: Story = {}
 export const Multiple: Story = {
   args: {
     multiple: true,
+    size: 5,
   },
 }
 

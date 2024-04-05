@@ -6,15 +6,24 @@ import README from "../../../../packages/css/src/components/select/README.md?raw
 
 <Markdown>{README}</Markdown>
 
+# Default
+
 <Primary />
 
 <Controls />
 
 ## Multiple
 
+With `multiple` enabled the attribute `size` is allowed to set the number of rows. Multi select is harder to use
+on desktop as they require the user to hold down the `Ctrl` or `Cmd` key while clicking on the options.
+You might need to describe this behavior to the user. It is recommended to use checkboxes instead.
+On the other hand, it is a good choice for mobile devices.
+
 <Canvas of={SelectStories.Multiple} />
 
 ## Grouped
+
+Use the `Select.Group` component to group options, the component requires a `label` attribute.
 
 <Canvas of={SelectStories.Grouped} />
 
