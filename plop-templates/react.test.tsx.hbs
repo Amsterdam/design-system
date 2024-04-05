@@ -1,8 +1,8 @@
 {{#if role !== ''}}
 import { render, screen } from '@testing-library/react'
-{{#else}}
+{{else}}
 import { render } from '@testing-library/react'
-{{#endif}}
+{{/if}}
 import { createRef } from 'react'
 import { {{pascalCase name}} } from './{{pascalCase name}}'
 import '@testing-library/jest-dom'
@@ -12,10 +12,10 @@ describe('{{sentenceCase name}}', () => {
     {{#if role !== ''}}
     render(<{{pascalCase name}} />)
     const component = screen.getByRole('{{role}}')
-    {{#else}}
+    {{else}}
     const { container } = render(<{{pascalCase name}} />)
     const component = container.querySelector(':only-child')
-    {{#endif}}
+    {{/if}}
 
     expect(component).toBeInTheDocument()
     expect(component).toBeVisible()
@@ -25,10 +25,10 @@ describe('{{sentenceCase name}}', () => {
     {{#if role !== ''}}
     render(<{{pascalCase name}} />)
     const component = screen.getByRole('{{role}}')
-    {{#else}}
+    {{else}}
     const { container } = render(<{{pascalCase name}} />)
     const component = container.querySelector(':only-child')
-    {{#endif}}
+    {{/if}}
 
     expect(component).toHaveClass('ams-{{kebabCase name}}')
   })
@@ -37,10 +37,10 @@ describe('{{sentenceCase name}}', () => {
     {{#if role !== ''}}
     render(<{{pascalCase name}} className="extra" />)
     const component = screen.getByRole('{{role}}')
-    {{#else}}
+    {{else}}
     const { container } = render(<{{pascalCase name}} className="extra" />)
     const component = container.querySelector(':only-child')
-    {{#endif}}
+    {{/if}}
 
     expect(component).toHaveClass('ams-{{kebabCase name}} extra')
   })
@@ -49,10 +49,10 @@ describe('{{sentenceCase name}}', () => {
     {{#if role !== ''}}
     render(<{{pascalCase name}} ref={ref} />)
     const component = screen.getByRole('{{role}}')
-    {{#else}}
+    {{else}}
     const { container } = render(<{{pascalCase name}} ref={ref} />)
     const component = container.querySelector(':only-child')
-    {{#endif}}
+    {{/if}}
 
     const component = container.querySelector(':only-child')
     expect(ref.current).toBe(component)
