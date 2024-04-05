@@ -9,7 +9,7 @@ import { Meta, StoryObj } from '@storybook/react'
 type StoryProps = DateInputProps & { invalid?: boolean }
 
 const meta = {
-  title: 'Date Input',
+  title: 'Components/Forms/Date Input',
   component: DateInput,
   args: {
     disabled: false,
