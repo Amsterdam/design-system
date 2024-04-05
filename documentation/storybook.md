@@ -36,7 +36,7 @@ More to follow.
 By default, we hide the `children` prop from the controls.
 Children of React components are often React components themselves, which isn't very useful to show in Storybook.
 However, sometimes it is useful to add `children` to the controls.
-For example, when the child is a simple string (like in the Button component).
+For example, when the child is a simple string (like in the default Button component story).
 
 To do this, you can override the default like so:
 
