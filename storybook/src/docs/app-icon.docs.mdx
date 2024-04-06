@@ -1,0 +1,110 @@
+import { Meta } from "@storybook/blocks";
+import { IcoFavicon, PngIconAppleTouch, PngIconsWebApp, SvgIconDefault } from "./components/AppIcons";
+
+<Meta title="Docs/Assets/Favicon & App Icons" />
+
+# Favicon & App Icons
+
+Examples of all the assets you need to publish a web app with the proper browser favicon and app names and icons. This set should cover all the common operating system (Android, iOS, macOS, Windows) and browser (Chrome, Safari, Edge, Firefox) combinations.
+
+## Overview & examples
+
+### Default SVG Icon
+
+<SvgIconDefault />
+
+```html
+<link rel="icon" href="icon.svg" type="image/svg+xml" />
+```
+
+### Favicon
+
+<IcoFavicon />
+
+```html
+<link rel="icon" href="favicon.ico" sizes="16x16 32x32 64x64" />
+```
+
+### Apple Touch Icon
+
+<PngIconAppleTouch />
+
+```html
+<link rel="apple-touch-icon" href="apple-touch-icon.png" />
+```
+
+### Web App Icons
+
+<PngIconsWebApp />
+
+Include `icons` object in `*.webmanifest` (see [Usage](#usage)):
+
+```json
+{
+...
+  "icons": [
+    { "src": "/icon-192.png", "type": "image/png", "sizes": "192x192" },
+    { "src": "/icon-512.png", "type": "image/png", "sizes": "512x512" }
+  ]
+...
+}
+```
+
+Link the Web Manifest in the `<head>`:
+
+```html
+<link rel="manifest" href="favicon/app.webmanifest" />
+```
+
+## Usage
+
+First install these assets as they come with the [Amsterdam Design System Assets](https://www.npmjs.com/package/@amsterdam/design-system-assets):
+
+```sh
+npm i @amsterdam/design-system-assets
+```
+
+Then either [symlink (symbolic link)](https://en.wikipedia.org/wiki/Symbolic_link#POSIX_and_Unix-like_operating_systems) or copy the files to the root or a `public` folder next to where the `index.html` is located in your project. An advantage of symlinking is that it tracks changes to the assets when there are packages updates.
+
+Symlinking [the entire favicon directory](https://github.com/Amsterdam/design-system/tree/develop/proprietary/assets/favicon) can be done as follows:
+
+```sh
+ln -s node_modules/@amsterdam/design-system-assets/favicon favicon
+```
+
+> Note that undoing a symlink can be done by simply removing the created file or directory link:
+>
+> ```sh
+> rm -r favicon
+> ```
+
+Make sure that the Web Manifest (`*.webmanifest`), stating the app's name and referencing the PNG icons, is also available in the same location:
+
+```json
+{
+  "name": "Your Web App's Full Name", // May not be longer than 30 characters.
+  "short_name": "Short name", // May not be longer than 12 characters.
+  "icons": [
+    { "src": "/icon-192.png", "type": "image/png", "sizes": "192x192" },
+    { "src": "/icon-512.png", "type": "image/png", "sizes": "512x512" }
+  ]
+}
+```
+
+Then link all these assets by placing the following tags in the `<head>`:
+
+```html
+<head>
+  ...
+  <link rel="icon" href="favicon/favicon.ico" size="16x16 32x32 64x64" />
+  <link rel="icon" href="favicon/icon.svg" type="image/svg+xml" />
+  <link rel="manifest" href="favicon/app.webmanifest" />
+  <link rel="apple-touch-icon" href="favicon/apple-touch-icon.png" />
+  ...
+</head>
+```
+
+## Further Reading
+
+- [_How to Favicon in 2024: Six files that fit most needs_ by Andrey Sitnik](https://evilmartians.com/chronicles/how-to-favicon-in-2021-six-files-that-fit-most-needs)
+- [_Web App Manifest_ on web.dev](https://web.dev/learn/pwa/web-app-manifest)
