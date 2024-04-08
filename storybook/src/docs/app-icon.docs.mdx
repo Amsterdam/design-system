@@ -58,23 +58,40 @@ Link the Web Manifest in the `<head>`:
 
 ## Usage
 
-First install these assets as they come with the [Amsterdam Design System Assets](https://www.npmjs.com/package/@amsterdam/design-system-assets):
+First, install these assets as they come with the [Amsterdam Design System Assets](https://www.npmjs.com/package/@amsterdam/design-system-assets):
 
 ```sh
 npm i @amsterdam/design-system-assets
 ```
 
-Then either [symlink (symbolic link)](https://en.wikipedia.org/wiki/Symbolic_link#POSIX_and_Unix-like_operating_systems) or copy the files to the root or a `public` folder next to where the `index.html` is located in your project. An advantage of symlinking is that it tracks changes to the assets when there are packages updates.
+Then you can either use the post install script or manually copy and link the assets.
 
-Symlinking [the entire favicon directory](https://github.com/Amsterdam/design-system/tree/develop/proprietary/assets/favicon) and the [Web Manifest](https://github.com/Amsterdam/design-system/tree/develop/proprietary/assets/app.manifest) can be done as follows:
+### (A) Automatic script
+
+Use the [`.postinstall.sh`](https://github.com/Amsterdam/design-system/tree/develop/proprietary/assets/.postinstall.sh) script from the root of your new **Vite React**, **Next.js**, legacy React or generic HTML project to automatically link the assets:
+
+```sh
+# Make sure you are in the root directory of your project!
+sh node_modules/@amsterdam/design-system-assets/.postinstall.sh
+```
+
+> If an `index.html` is found in the root or in `public` the script will also insert the links in the HTML's `<head>` tag. This will not be the case for default Next.js applications.
+
+> This script can work for any project that has an `index.html` file in the root or `public` directory.
+
+### (B) Manual configuration
+
+You can manually [symlink (symbolic link)](https://en.wikipedia.org/wiki/Symbolic_link#POSIX_and_Unix-like_operating_systems) and copy the files to the root or a `public` folder next to where the `index.html` is located in your project. An advantage of symlinking is that it tracks changes to the assets when there are packages updates.
+
+Symlinking [the entire favicon directory](https://github.com/Amsterdam/design-system/tree/develop/proprietary/assets/favicon) and copying the [Web Manifest](https://github.com/Amsterdam/design-system/tree/develop/proprietary/assets/app.manifest) can be done as follows:
 
 ```sh
 # `cd` to the directory where you want to make the symlinks.
 ln -s node_modules/@amsterdam/design-system-assets/favicon appicons
-ln -s node_modules/@amsterdam/design-system-assets/manifest/app.webmanifest app.webmanifest
+cp node_modules/@amsterdam/design-system-assets/manifest/app.webmanifest app.webmanifest
 ```
 
-> Note: the symlink, the last argument in above command, cannot be a path, but needs to be just the file or directory name. I.e. you need to be in the directory where you want to make the symbolic link.
+> Note: for the symlink the last argument in above command cannot be a path, but can only be the file or directory name. I.e. you need to be in the directory where you want to make the symbolic link.
 
 > Note that undoing a symlink can be done by simply removing the created file or directory link:
 >
@@ -107,6 +124,10 @@ Then link all these assets by placing the following tags in the `<head>`:
   ...
 </head>
 ```
+
+### Submit the changes
+
+The symlinks and copied and edited files can be commited to the repository.
 
 ## Further Reading
 
