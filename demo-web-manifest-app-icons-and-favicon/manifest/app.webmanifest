@@ -1,6 +1,6 @@
 {
-  "name": "Amsterdam Design System",
-  "short_name": "Amsterdam DS",
+  "name": "APP_NAME_FULL",
+  "short_name": "APP_NAME",
   "icons": [
     {
       "src": "appicons/icon-192.png",
