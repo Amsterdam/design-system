@@ -14,7 +14,7 @@ Examples of all the assets you need to publish a web app with the proper browser
 <SvgIconDefault />
 
 ```html
-<link rel="icon" href="icon.svg" type="image/svg+xml" />
+<link rel="icon" type="image/svg+xml" href="icon.svg" />
 ```
 
 ### Favicon
@@ -53,7 +53,7 @@ Include `icons` object in `*.webmanifest` (see [Usage](#usage)):
 Link the Web Manifest in the `<head>`:
 
 ```html
-<link rel="manifest" href="favicon/app.webmanifest" />
+<link rel="manifest" href="app.webmanifest" />
 ```
 
 ## Usage
@@ -69,13 +69,14 @@ Then either [symlink (symbolic link)](https://en.wikipedia.org/wiki/Symbolic_lin
 Symlinking [the entire favicon directory](https://github.com/Amsterdam/design-system/tree/develop/proprietary/assets/favicon) can be done as follows:
 
 ```sh
-ln -s node_modules/@amsterdam/design-system-assets/favicon favicon
+ln -s node_modules/@amsterdam/design-system-assets/favicon appicons
+ln -s node_modules/@amsterdam/design-system-assets/manifest/app.webmanifest app.webmanifest
 ```
 
 > Note that undoing a symlink can be done by simply removing the created file or directory link:
 >
 > ```sh
-> rm -r favicon
+> rm -r appicons app.webmanifest
 > ```
 
 Make sure that the Web Manifest (`*.webmanifest`), stating the app's name and referencing the PNG icons, is also available in the same location:
@@ -85,8 +86,8 @@ Make sure that the Web Manifest (`*.webmanifest`), stating the app's name and re
   "name": "Your Web App's Full Name", // May not be longer than 30 characters.
   "short_name": "Short name", // May not be longer than 12 characters.
   "icons": [
-    { "src": "/icon-192.png", "type": "image/png", "sizes": "192x192" },
-    { "src": "/icon-512.png", "type": "image/png", "sizes": "512x512" }
+    { "src": "/appicons/icon-192.png", "type": "image/png", "sizes": "192x192" },
+    { "src": "/appicons/icon-512.png", "type": "image/png", "sizes": "512x512" }
   ]
 }
 ```
@@ -96,10 +97,10 @@ Then link all these assets by placing the following tags in the `<head>`:
 ```html
 <head>
   ...
-  <link rel="icon" href="favicon/favicon.ico" size="16x16 32x32 64x64" />
-  <link rel="icon" href="favicon/icon.svg" type="image/svg+xml" />
-  <link rel="manifest" href="favicon/app.webmanifest" />
-  <link rel="apple-touch-icon" href="favicon/apple-touch-icon.png" />
+  <link rel="icon" href="appicons/favicon.ico" size="16x16 32x32 64x64" />
+  <link rel="icon" href="appicons/icon.svg" type="image/svg+xml" />
+  <link rel="apple-touch-icon" href="appicons/apple-touch-icon.png" />
+  <link rel="manifest" href="app.webmanifest" />
   ...
 </head>
 ```

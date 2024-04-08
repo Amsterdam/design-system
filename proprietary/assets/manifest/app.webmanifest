@@ -1,0 +1,12 @@
+{
+  "name": "Amsterdam Design System",
+  "short_name": "Amsterdam DS",
+  "icons": [
+    {
+      "src": "appicons/icon-192.png",
+      "type": "image/png",
+      "sizes": "192x192"
+    },
+    { "src": "appicons/icon-512.png", "type": "image/png", "sizes": "512x512" }
+  ]
+}
