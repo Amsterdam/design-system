@@ -294,8 +294,8 @@ importers:
         specifier: 2.3.0
         version: 2.3.0(react@18.2.0)
       '@storybook/addon-a11y':
-        specifier: 8.0.2
-        version: 8.0.2
+        specifier: 8.0.6
+        version: 8.0.6
       '@storybook/addon-actions':
         specifier: 8.0.2
         version: 8.0.2
@@ -1883,7 +1883,7 @@ packages:
     resolution: {integrity: sha512-HfuJlI8qq3dEDmNU5ChzzpZRWq+oxCZQyMzIMEqLho+AQnhMnKQUzH6ydo3RBl/YjPCuk68Y6s0Gx0AeyULiWw==}
     engines: {node: '>=6.9.0'}
     dependencies:
-      '@babel/code-frame': 7.23.5
+      '@babel/code-frame': 7.24.2
       '@babel/generator': 7.23.6
       '@babel/helper-environment-visitor': 7.22.20
       '@babel/helper-function-name': 7.23.0
@@ -3635,10 +3635,10 @@ packages:
       '@sinonjs/commons': 2.0.0
     dev: true
 
-  /@storybook/addon-a11y@8.0.2:
-    resolution: {integrity: sha512-BmJpEf6olu6Eb6fzG+agui6QhylHe/T7UIax3aowLAKmmatA9LkFI1wam6tvddaAoSiWQK5oPFQVNVZ7VWBtww==}
+  /@storybook/addon-a11y@8.0.6:
+    resolution: {integrity: sha512-p84GRmEU4f9uro71et4X4elnCFReq16UC44h8neLhcZHlMLkPop5oSRslcvF7MlKrM+mJepO1tsKmBmoTaq2PQ==}
     dependencies:
-      '@storybook/addon-highlight': 8.0.2
+      '@storybook/addon-highlight': 8.0.6
       axe-core: 4.8.4
     dev: true
 
@@ -3730,6 +3730,12 @@ packages:
 
   /@storybook/addon-highlight@8.0.2:
     resolution: {integrity: sha512-V9BJiE8a3ZbWoW5vsWCdpbCW1kNbc2fz9fj1okVqNtVUT2Hlfk0IYkMpL+7UInhNAY+NXFSFxtgxWYYsCtFs0Q==}
+    dependencies:
+      '@storybook/global': 5.0.0
+    dev: true
+
+  /@storybook/addon-highlight@8.0.6:
+    resolution: {integrity: sha512-CxXzzgIK5sXy2RNIkwU5JXZNq+PNGhUptRm/5M5ylcB7rk0pdwnE0TLXsMU+lzD0ji+cj61LWVLdeXQa+/whSw==}
     dependencies:
       '@storybook/global': 5.0.0
     dev: true
@@ -10369,7 +10375,7 @@ packages:
     resolution: {integrity: sha512-GBEV4GRADeP+qtB2+6u61stea8mGcOT4mCtrYISZwfu9/ISHFJ/5zOMXYbpBE9RsS5+Gb63DW4FgmnKJ79Kf6w==}
     engines: {node: ^14.15.0 || ^16.10.0 || >=18.0.0}
     dependencies:
-      '@babel/code-frame': 7.23.5
+      '@babel/code-frame': 7.24.2
       '@jest/types': 29.6.3
       '@types/stack-utils': 2.0.1
       chalk: 4.1.2
@@ -12980,7 +12986,7 @@ packages:
     resolution: {integrity: sha512-ayCKvm/phCGxOkYRSCM82iDwct8/EonSEgCSxWxD7ve6jHggsFl4fZVQBPRNgQoKiuV/odhFrGzQXZwbifC8Rg==}
     engines: {node: '>=8'}
     dependencies:
-      '@babel/code-frame': 7.23.5
+      '@babel/code-frame': 7.24.2
       error-ex: 1.3.2
       json-parse-even-better-errors: 2.3.1
       lines-and-columns: 1.2.4
@@ -12990,7 +12996,7 @@ packages:
     resolution: {integrity: sha512-ihtdrgbqdONYD156Ap6qTcaGcGdkdAxodO1wLqQ/j7HP1u2sFYppINiq4jyC8F+Nm+4fVufylCV00QmkTHkSUg==}
     engines: {node: '>=16'}
     dependencies:
-      '@babel/code-frame': 7.23.5
+      '@babel/code-frame': 7.24.2
       error-ex: 1.3.2
       json-parse-even-better-errors: 3.0.0
       lines-and-columns: 2.0.3
@@ -14019,7 +14025,7 @@ packages:
       rollup: 4.13.0
       typescript: 5.4.2
     optionalDependencies:
-      '@babel/code-frame': 7.23.5
+      '@babel/code-frame': 7.24.2
     dev: true
 
   /rollup-plugin-filesize@10.0.0:
