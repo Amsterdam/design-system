@@ -23,6 +23,11 @@
   font-size: var(--ams-date-input-font-size);
   font-weight: var(--ams-date-input-font-weight);
   line-height: var(--ams-date-input-line-height);
+
+  // Set min height for iOS, otherwise an empty box is a lot smaller than a filled one.
+  min-height: calc(
+    (var(--ams-date-input-font-size) * var(--ams-date-input-line-height)) + 2 * var(--ams-date-input-padding-block)
+  );
   outline-offset: var(--ams-date-input-outline-offset);
   padding-block: var(--ams-date-input-padding-block);
   padding-inline: var(--ams-date-input-padding-inline);
@@ -41,6 +46,10 @@
   appearance: none;
   background-image: var(--ams-date-input-calender-picker-indicator-background-image);
   cursor: pointer;
+}
+
+.ams-date-input:hover::-webkit-calendar-picker-indicator {
+  background-image: var(--ams-date-input-hover-calender-picker-indicator-background-image);
 }
 
 .ams-date-input:disabled {
