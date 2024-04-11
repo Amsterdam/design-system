@@ -37,9 +37,12 @@
   @include reset;
 }
 
-.ams-select--invalid,
-.ams-select:invalid {
+.ams-select[aria-invalid="true"] {
   box-shadow: var(--ams-select-invalid-box-shadow);
+
+  &:hover {
+    box-shadow: var(--ams-select-invalid-hover-box-shadow);
+  }
 }
 
 .ams-select:disabled {
@@ -50,9 +53,4 @@
   &:not([multiple]) {
     background-image: var(--ams-select-disabled-background-image);
   }
-}
-
-.ams-select--invalid:hover,
-.ams-select:invalid:hover {
-  box-shadow: var(--ams-select-invalid-hover-box-shadow);
 }
