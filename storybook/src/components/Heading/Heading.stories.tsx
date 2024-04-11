@@ -21,13 +21,6 @@ const meta = {
       table: { disable: false },
     },
   },
-} satisfies Meta<typeof Heading>
-
-export default meta
-
-type Story = StoryObj<typeof meta>
-
-export const Default: Story = {
   decorators: [
     (Story, context) => (
       <div className={context.args.inverseColor ? 'ams-docs-dark-background' : undefined}>
@@ -35,7 +28,13 @@ export const Default: Story = {
       </div>
     ),
   ],
-}
+} satisfies Meta<typeof Heading>
+
+export default meta
+
+type Story = StoryObj<typeof meta>
+
+export const Default: Story = {}
 
 export const Heading1: Story = {}
 
@@ -61,11 +60,4 @@ export const InvertedColor: Story = {
   args: {
     inverseColor: true,
   },
-  decorators: [
-    (Story, context) => (
-      <div className={context.args.inverseColor ? 'ams-docs-dark-background' : undefined}>
-        <Story />
-      </div>
-    ),
-  ],
 }
