@@ -5,7 +5,7 @@
 
 @mixin reset {
   appearance: none;
-  border: none;
+  border: 0;
 }
 
 .ams-select {
@@ -16,12 +16,12 @@
   font-size: var(--ams-select-font-size);
   font-weight: var(--ams-select-font-weight);
   line-height: var(--ams-select-line-height);
-  max-inline-size: var(--ams-select-max-inline-size);
   outline-offset: var(--ams-select-outline-offset);
   padding-block: var(--ams-select-padding-block);
   padding-inline: var(--ams-select-padding-inline);
   touch-action: manipulation;
-  width: 100%;
+
+  // width: 100%;
 
   &:not([multiple]) {
     background-image: var(--ams-select-background-image);
@@ -37,8 +37,12 @@
   @include reset;
 }
 
-.ams-select:disabled,
-.ams-select--disabled {
+.ams-select--invalid,
+.ams-select:invalid {
+  box-shadow: var(--ams-select-invalid-box-shadow);
+}
+
+.ams-select:disabled {
   box-shadow: var(--ams-select-disabled-box-shadow);
   color: var(--ams-select-disabled-color);
   cursor: not-allowed;
@@ -48,11 +52,7 @@
   }
 }
 
-.ams-select--invalid,
-.ams-select:required:invalid {
-  box-shadow: var(--ams-select-invalid-box-shadow);
-
-  &:hover {
-    box-shadow: var(--ams-select-invalid-hover-box-shadow);
-  }
+.ams-select--invalid:hover,
+.ams-select:invalid:hover {
+  box-shadow: var(--ams-select-invalid-hover-box-shadow);
 }
