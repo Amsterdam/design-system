@@ -31,10 +31,10 @@ describe('Tabs list', () => {
   it('supports ForwardRef in React', () => {
     const ref = createRef<HTMLDivElement>()
 
-    const { container } = render(<TabsList ref={ref} />)
+    render(<TabsList ref={ref} />)
 
-    const tabsList = container.querySelector('.ams-tabs__list')
+    const component = screen.getByRole('tablist')
 
-    expect(ref.current).toBe(tabsList)
+    expect(ref.current).toBe(component)
   })
 })
