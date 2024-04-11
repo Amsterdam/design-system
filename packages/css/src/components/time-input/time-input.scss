@@ -1,0 +1,30 @@
+/**
+ * @license EUPL-1.2+
+ * Copyright Gemeente Amsterdam
+ */
+
+@mixin reset {
+  appearance: none;
+  border: none;
+
+  // &::-webkit-calendar-picker-indicator {
+  //   background: none;
+  // }
+}
+
+.ams-time-input {
+  background-color: var(--ams-time-input-background-color);
+  box-shadow: var(--ams-time-input-box-shadow);
+  color: var(--ams-time-input-color);
+  font-family: var(--ams-time-input-font-family);
+  font-size: var(--ams-time-input-font-size);
+  font-weight: var(--ams-time-input-font-weight);
+  line-height: var(--ams-time-input-line-height);
+  outline-offset: var(--ams-time-input-outline-offset);
+  padding-block: var(--ams-time-input-padding-block);
+  padding-inline: var(--ams-time-input-padding-inline);
+
+  // touch-action: manipulation;
+
+  @include reset;
+}
