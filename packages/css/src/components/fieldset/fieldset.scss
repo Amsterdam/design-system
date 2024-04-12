@@ -4,9 +4,10 @@
  */
 
 @import "../../common/hyphenation";
+@import "../../common/text-rendering";
 
 @mixin reset {
-  border: none;
+  border: 0;
   margin-inline: 0;
   padding-block: 0;
   padding-inline: 0;
@@ -16,9 +17,8 @@
   @include reset;
 }
 
-@mixin legend-reset {
+@mixin reset-legend {
   padding-inline: 0;
-  -webkit-text-size-adjust: 100%;
 }
 
 .ams-fieldset__legend {
@@ -30,5 +30,6 @@
   margin-block-end: 1rem; /* Because of a bug in Chrome we can’t use display grid or flex for this gap */
 
   @include hyphenation;
-  @include legend-reset;
+  @include text-rendering;
+  @include reset-legend;
 }

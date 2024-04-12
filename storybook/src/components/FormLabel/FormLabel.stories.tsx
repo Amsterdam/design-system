@@ -3,7 +3,7 @@
  * Copyright Gemeente Amsterdam
  */
 
-import { FormLabel } from '@amsterdam/design-system-react'
+import { FormLabel } from '@amsterdam/design-system-react/src'
 import { Meta, StoryObj } from '@storybook/react'
 
 const meta = {

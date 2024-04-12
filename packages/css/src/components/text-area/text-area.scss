@@ -3,14 +3,15 @@
  * Copyright Gemeente Amsterdam
  */
 
+@import "../../common/text-rendering";
+
 @mixin reset {
   box-sizing: border-box;
   margin-block: 0;
-  -webkit-text-size-adjust: 100%;
 }
 
 .ams-text-area {
-  border: none;
+  border: 0;
   box-shadow: var(--ams-text-area-box-shadow);
   color: var(--ams-text-area-color);
   font-family: var(--ams-text-area-font-family);
@@ -25,6 +26,7 @@
   touch-action: manipulation;
   width: 100%;
 
+  @include text-rendering;
   @include reset;
 
   &:hover {

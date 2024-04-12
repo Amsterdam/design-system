@@ -3,27 +3,12 @@
  * Copyright Gemeente Amsterdam
  */
 
-import { Logo } from '@amsterdam/design-system-react'
+import { Logo } from '@amsterdam/design-system-react/src'
 import { Meta, StoryObj } from '@storybook/react'
 
 const meta = {
   title: 'Components/Media/Logo',
   component: Logo,
-  argTypes: {
-    brand: {
-      control: {
-        type: 'radio',
-      },
-      options: [
-        'amsterdam',
-        'ggd-amsterdam',
-        'museum-weesp',
-        'stadsarchief',
-        'stadsbank-van-lening',
-        'vga-verzekeringen',
-      ],
-    },
-  },
 } satisfies Meta<typeof Logo>
 
 export default meta

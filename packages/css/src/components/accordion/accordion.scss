@@ -3,28 +3,20 @@
  * Copyright Gemeente Amsterdam
  */
 
+@import "../../common/text-rendering";
+
 .ams-accordion {
   display: flex;
   flex-direction: column;
   gap: var(--ams-accordion-gap);
+
+  @include text-rendering;
 }
 
 .ams-accordion__header {
   display: flex;
   margin-block: 0;
   margin-inline: 0;
-}
-
-@mixin reset {
-  -webkit-text-size-adjust: 100%;
-}
-
-.ams-accordion__section {
-  color: var(--ams-accordion-section-color);
-
-  &:hover {
-    color: var(--ams-accordion-section-hover-color);
-  }
 }
 
 .ams-accordion__button {
@@ -48,10 +40,8 @@
   }
 
   &:hover {
-    box-shadow: var(--ams-accordion-button-hover-box-shadow);
+    color: var(--ams-accordion-button-hover-color);
   }
-
-  @include reset;
 }
 
 .ams-accordion__icon svg {
@@ -65,6 +55,10 @@
   @media (prefers-reduced-motion) {
     transition: none;
   }
+}
+
+.ams-accordion__button[aria-expanded="true"] svg {
+  transform: rotate(180deg);
 }
 
 .ams-accordion__panel {

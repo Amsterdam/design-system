@@ -1,7 +1,7 @@
 {
   "ams": {
     "alert": {
-      "border-width": { "value": "4px" },
+      "border-width": { "value": "{ams.border.width.xl}" },
       "border-style": { "value": "solid" },
       "gap": { "value": "1rem" },
       "padding-block": { "value": "{ams.space.inside.md}" },

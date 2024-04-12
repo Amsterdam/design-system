@@ -3,7 +3,7 @@
  * Copyright Gemeente Amsterdam
  */
 
-import { Avatar, Header, PageMenu } from '@amsterdam/design-system-react'
+import { Avatar, Header, PageMenu } from '@amsterdam/design-system-react/src'
 import { SearchIcon } from '@amsterdam/design-system-react-icons'
 import { Meta, StoryObj } from '@storybook/react'
 
@@ -13,15 +13,6 @@ const meta = {
   args: {
     label: 'DS',
     imageSrc: '',
-  },
-  argTypes: {
-    color: {
-      control: {
-        type: 'select',
-      },
-      options: ['blue', 'dark-blue', 'dark-green', 'green', 'magenta', 'orange', 'purple', 'red', 'yellow'],
-      selected: 'dark-blue',
-    },
   },
 } satisfies Meta<typeof Avatar>
 

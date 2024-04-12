@@ -32,9 +32,9 @@ describe('Tabs', () => {
   it('supports ForwardRef in React', () => {
     const ref = createRef<HTMLDivElement>()
 
-    const { container } = render(<Tabs ref={ref} />)
+    render(<Tabs ref={ref} />)
 
-    const component = container.querySelector(':only-child')
+    const component = screen.getByRole('tabs')
 
     expect(ref.current).toBe(component)
   })

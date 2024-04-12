@@ -1,4 +1,4 @@
-import { Canvas, Markdown, Meta, Primary } from "@storybook/blocks";
+import { Canvas, Controls, Markdown, Meta, Primary } from "@storybook/blocks";
 import * as PageMenuStories from "./PageMenu.stories.tsx";
 import README from "../../../../packages/css/src/components/page-menu/README.md?raw";
 
@@ -6,15 +6,22 @@ import README from "../../../../packages/css/src/components/page-menu/README.md?
 
 <Markdown>{README}</Markdown>
 
-## Examples
-
-### Default
-
 <Primary />
 
-## Right Alignment
+<Controls />
 
-It may happen that all menu items do not fit on a single line, for example, in a medium-width window or with zoomed-in text.
-If the menu itself is right-aligned, as is often the case in headers, then you should also right-align the items within it.
+## Examples
 
-<Canvas of={PageMenuStories.AlignEnd} />
+### Alignment
+
+In the [Header](?path=/docs/components-containers-header--docs), the menu aligns to the end of the line.
+
+<Canvas of={PageMenuStories.Alignment} />
+
+### Wrapping
+
+If all menu items do not fit on a single line, e.g. on a narrow screen or with zoomed-in text, they wrap to new lines.
+This is often useful in the [Footer](?path=/docs/components-containers-footer--docs).
+The Header has its own responsive behaviour; its Page Menu should be configured not to wrap.
+
+<Canvas of={PageMenuStories.Wrapping} />

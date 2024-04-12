@@ -8,6 +8,29 @@ export default function (plop) {
         name: 'name',
         message: "component's name",
       },
+      {
+        type: 'input',
+        name: 'tag',
+        message: 'Tag name: ',
+        default: 'span',
+      },
+      {
+        type: 'input',
+        name: 'attributes',
+        message: 'DOM API Attributes: ',
+        default: 'HTMLAttributes',
+      },
+      {
+        type: 'input',
+        name: 'type',
+        message: 'DOM API Type: ',
+        default: 'HTMLElement',
+      },
+      {
+        type: 'input',
+        name: 'role',
+        message: 'Aria Role: ',
+      },
     ],
     actions: [
       {

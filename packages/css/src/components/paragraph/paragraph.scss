@@ -3,10 +3,11 @@
  * Copyright Gemeente Amsterdam
  */
 
+@import "../../common/text-rendering";
+
 @mixin reset {
   box-sizing: border-box;
   margin-block: 0;
-  -webkit-text-size-adjust: 100%;
 }
 
 .ams-paragraph {
@@ -16,6 +17,7 @@
   font-weight: var(--ams-paragraph-font-weight);
   line-height: var(--ams-paragraph-medium-line-height);
 
+  @include text-rendering;
   @include reset;
 }
 

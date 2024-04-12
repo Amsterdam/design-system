@@ -1,4 +1,4 @@
-import { Canvas, Markdown, Meta, Primary } from "@storybook/blocks";
+import { Canvas, Controls, Markdown, Meta, Primary } from "@storybook/blocks";
 import * as HeaderStories from "./Header.stories.tsx";
 import README from "../../../../packages/css/src/components/header/README.md?raw";
 
@@ -7,6 +7,8 @@ import README from "../../../../packages/css/src/components/header/README.md?raw
 <Markdown>{README}</Markdown>
 
 <Primary />
+
+<Controls />
 
 ## With logo variant
 
@@ -21,6 +23,9 @@ import README from "../../../../packages/css/src/components/header/README.md?raw
 <Canvas of={HeaderStories.WithMenu} />
 
 ## With links
+
+Use a [Page Menu](?path=/docs/components-navigation-page-menu--docs) to add links.
+A Page Menu in the Header should not wrap.
 
 <Canvas of={HeaderStories.WithLinks} />
 

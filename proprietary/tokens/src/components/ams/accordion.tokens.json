@@ -2,14 +2,8 @@
   "ams": {
     "accordion": {
       "gap": { "value": "{ams.space.inside.xs}" },
-      "section": {
-        "color": { "value": "{ams.color.primary-blue}" },
-        "hover": {
-          "color": { "value": "{ams.color.dark-blue}" }
-        }
-      },
       "button": {
-        "color": { "value": "currentColor" },
+        "color": { "value": "{ams.color.primary-blue}" },
         "font-family": { "value": "{ams.text.font-family}" },
         "font-size": { "value": "{ams.text.level.5.font-size}" },
         "font-weight": { "value": "{ams.text.font-weight.bold}" },
@@ -19,6 +13,9 @@
         "padding-inline": { "value": "{ams.space.inside.md}" },
         "focus": {
           "outline-offset": { "value": "{ams.focus.outline-offset}" }
+        },
+        "hover": {
+          "color": { "value": "{ams.color.dark-blue}" }
         }
       },
       "panel": {

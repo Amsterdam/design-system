@@ -1,0 +1,24 @@
+import { Canvas, Controls, Markdown, Meta, Primary } from "@storybook/blocks";
+import * as DescriptionListStories from "./DescriptionList.stories.tsx";
+import README from "../../../../packages/css/src/components/description-list/README.md?raw";
+
+<Meta of={DescriptionListStories} />
+
+<Markdown>{README}</Markdown>
+
+<Primary />
+
+<Controls />
+
+## Multiple details
+
+A term may have multiple details.
+
+<Canvas of={DescriptionListStories.MultipleDetails} />
+
+### Inverse colour
+
+Set the `inverseColor` prop if the Description List sits on a dark background.
+This ensures the colour of the text provides enough contrast.
+
+<Canvas of={DescriptionListStories.InvertedColor} />

@@ -4,20 +4,21 @@
  */
 
 @import "../../common/hyphenation";
+@import "../../common/text-rendering";
 
 @mixin reset-list {
   box-sizing: border-box;
   list-style: none;
   margin-block: 0;
   padding-inline-start: 0;
-  -webkit-text-size-adjust: 100%;
 }
 
 .ams-link-list {
-  @include reset-list;
-
   display: grid;
   gap: var(--ams-link-list-gap);
+
+  @include text-rendering;
+  @include reset-list;
 }
 
 .ams-link-list__link {

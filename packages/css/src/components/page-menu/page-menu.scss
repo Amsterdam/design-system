@@ -3,6 +3,8 @@
  * Copyright Gemeente Amsterdam
  */
 
+@import "../../common/text-rendering";
+
 @mixin reset-list {
   box-sizing: border-box;
   margin-block: 0;
@@ -11,7 +13,6 @@
 
 @mixin reset-item {
   box-sizing: border-box;
-  -webkit-text-size-adjust: 100%;
 }
 
 .ams-page-menu {
@@ -19,6 +20,7 @@
   column-gap: var(--ams-page-menu-column-gap);
   display: flex;
   flex-direction: row;
+  flex-wrap: wrap;
   list-style: none;
   row-gap: var(--ams-page-menu-row-gap);
 
@@ -27,6 +29,10 @@
 
 .ams-page-menu--align-end {
   justify-content: end;
+}
+
+.ams-page-menu--no-wrap {
+  flex-wrap: nowrap;
 }
 
 @mixin page-menu-item {
@@ -49,6 +55,7 @@
 
 .ams-page-menu__link {
   @include page-menu-item;
+  @include text-rendering;
   @include reset-item;
 }
 
