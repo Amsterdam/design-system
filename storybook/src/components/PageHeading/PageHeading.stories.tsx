@@ -5,6 +5,7 @@
 
 import { PageHeading } from '@amsterdam/design-system-react/src'
 import { Meta, StoryObj } from '@storybook/react'
+import { inverseColorDecorator } from '../shared/decorators'
 
 const meta = {
   title: 'Components/Text/Page Heading',
@@ -18,43 +19,17 @@ const meta = {
       table: { disable: false },
     },
   },
+  decorators: [inverseColorDecorator],
 } satisfies Meta<typeof PageHeading>
 
 export default meta
 
 type Story = StoryObj<typeof meta>
 
-export const Default: Story = {
-  decorators: [
-    (Story, context) => (
-      <div
-        style={{
-          background: context.args.inverseColor ? '#004699' : 'transparent',
-          margin: context.args.inverseColor ? -16 : 0,
-          padding: context.args.inverseColor ? 16 : 0,
-        }}
-      >
-        <Story />
-      </div>
-    ),
-  ],
-}
+export const Default: Story = {}
 
 export const InvertedColor: Story = {
   args: {
     inverseColor: true,
   },
-  decorators: [
-    (Story) => (
-      <div
-        style={{
-          background: '#004699',
-          margin: -16,
-          padding: 16,
-        }}
-      >
-        <Story />
-      </div>
-    ),
-  ],
 }

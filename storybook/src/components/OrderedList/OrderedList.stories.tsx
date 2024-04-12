@@ -5,6 +5,7 @@
 
 import { Heading, OrderedList, Paragraph } from '@amsterdam/design-system-react/src'
 import type { Meta, StoryObj } from '@storybook/react'
+import { inverseColorDecorator } from '../shared/decorators'
 import { exampleOrderedList } from '../shared/exampleContent'
 
 const orderedListItems = exampleOrderedList().map((text, index) => (
@@ -25,13 +26,7 @@ const meta = {
     reversed: { control: 'boolean' },
     start: { control: 'number' },
   },
-  decorators: [
-    (Story, context) => (
-      <div className={context.args.inverseColor ? 'ams-docs-dark-background' : undefined}>
-        <Story />
-      </div>
-    ),
-  ],
+  decorators: [inverseColorDecorator],
 } satisfies Meta<typeof OrderedList>
 
 export default meta
