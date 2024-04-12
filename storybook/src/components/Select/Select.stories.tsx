@@ -46,13 +46,6 @@ type Story = StoryObj<typeof meta>
 
 export const Default: Story = {}
 
-export const Multiple: Story = {
-  args: {
-    multiple: true,
-    size: 5,
-  },
-}
-
 export const Grouped: Story = {
   args: {
     children: [
