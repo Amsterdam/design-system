@@ -15,9 +15,6 @@ const meta = {
     disabled: false,
     multiple: false,
     children: [
-      <Select.Option key="0" disabled selected hidden>
-        Selecteer een stadsdeel
-      </Select.Option>,
       <Select.Option key="1" value="1">
         Centrum
       </Select.Option>,
@@ -59,9 +56,6 @@ export const Multiple: Story = {
 export const Grouped: Story = {
   args: {
     children: [
-      <Select.Option key="0" disabled selected hidden>
-        Selecteer een wijk
-      </Select.Option>,
       <Select.Group label="Burgwallen-Oude Zijde" key="1">
         <Select.Option>BG-terrein e.o.</Select.Option>
         <Select.Option>Burgwallen oost</Select.Option>
