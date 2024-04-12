@@ -4,10 +4,8 @@
       "gap": { "value": "{ams.space.inside.xs}" },
       "section": {
         "color": { "value": "{ams.color.primary-blue}" },
-        "box-shadow": { "value": "inset 0 0 0 1px {ams.color.primary-blue}" },
         "hover": {
-          "color": { "value": "{ams.color.dark-blue}" },
-          "box-shadow": { "value": "inset 0 0 0 3px {ams.color.dark-blue}" }
+          "color": { "value": "{ams.color.dark-blue}" }
         }
       },
       "button": {
@@ -15,6 +13,7 @@
         "font-family": { "value": "{ams.text.font-family}" },
         "font-size": { "value": "{ams.text.level.5.font-size}" },
         "font-weight": { "value": "{ams.text.font-weight.bold}" },
+        "gap": { "value": "{ams.space.inside.md}" },
         "line-height": { "value": "{ams.text.level.5.line-height}" },
         "padding-block": { "value": "{ams.space.inside.sm}" },
         "padding-inline": { "value": "{ams.space.inside.md}" },
