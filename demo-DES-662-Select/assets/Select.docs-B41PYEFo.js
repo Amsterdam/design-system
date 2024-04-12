@@ -1,0 +1,27 @@
+import{j as e}from"./jsx-runtime-CKrituN3.js";import{useMDXComponents as i}from"./index-DSz_1G2r.js";import{M as r,d,P as l,e as c,f as n}from"./index-CB3NmK61.js";import{S as h,G as a,I as m,D as p}from"./Select.stories-BgAttjnI.js";import"./index-CBqU2yxZ.js";import"./_commonjsHelpers-BosuxZz1.js";import"./iframe-kF9fjhJr.js";import"../sb-preview/runtime.js";import"./index-BtM5VmRH.js";import"./index-Bw8VTzHM.js";import"./index-k_s-dmML.js";import"./index-DrFu-skq.js";import"./index.esm-qaTfZl6E.js";import"./clsx-B-dksMZM.js";import"./index.esm-DjZ2yxjc.js";const u=`<!-- @license CC0-1.0 -->
+
+# Select
+
+A form control that allows users to select one or more options from a list.
+
+## References
+
+- [MDN Web Docs](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/select)
+`;function s(t){const o={code:"code",h1:"h1",h2:"h2",p:"p",...i(),...t.components};return e.jsxs(e.Fragment,{children:[e.jsx(r,{of:h}),`
+`,e.jsx(d,{children:u}),`
+`,e.jsx(o.h1,{id:"default",children:"Default"}),`
+`,e.jsx(l,{}),`
+`,e.jsx(c,{}),`
+`,e.jsx(o.h2,{id:"multiple",children:"Multiple"}),`
+`,e.jsxs(o.p,{children:["With ",e.jsx(o.code,{children:"multiple"})," enabled the attribute ",e.jsx(o.code,{children:"size"}),` is allowed to set the number of rows. Multi select is harder to use
+on desktop as they require the user to hold down the `,e.jsx(o.code,{children:"Ctrl"})," or ",e.jsx(o.code,{children:"Cmd"}),` key while clicking on the options.
+You might need to describe this behavior to the user. It is recommended to use checkboxes instead.
+On the other hand, it is a good choice for mobile devices.`]}),`
+`,e.jsx(o.h2,{id:"grouped",children:"Grouped"}),`
+`,e.jsxs(o.p,{children:["Use the ",e.jsx(o.code,{children:"Select.Group"}),` component to group options.
+The component requires a `,e.jsx(o.code,{children:"label"})," attribute."]}),`
+`,e.jsx(n,{of:a}),`
+`,e.jsx(o.h2,{id:"invalid",children:"Invalid"}),`
+`,e.jsx(n,{of:m}),`
+`,e.jsx(o.h2,{id:"disabled",children:"Disabled"}),`
+`,e.jsx(n,{of:p})]})}function I(t={}){const{wrapper:o}={...i(),...t.components};return o?e.jsx(o,{...t,children:e.jsx(s,{...t})}):s(t)}export{I as default};
