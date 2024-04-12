@@ -21,11 +21,9 @@
   padding-inline: var(--ams-select-padding-inline);
   touch-action: manipulation;
 
-  // width: 100%;
-
   &:not([multiple]) {
     background-image: var(--ams-select-background-image);
-    background-position: right 1.5rem center;
+    background-position: var(--ams-select-background-position);
     background-repeat: no-repeat;
     background-size: 1em 1em;
   }
