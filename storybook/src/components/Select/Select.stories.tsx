@@ -11,9 +11,7 @@ const meta = {
   component: Select,
   args: {
     invalid: false,
-    required: false,
     disabled: false,
-    multiple: false,
     children: [
       <Select.Option key="1" value="1">
         Centrum
