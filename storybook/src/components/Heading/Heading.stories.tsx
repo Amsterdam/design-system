@@ -5,6 +5,7 @@
 
 import { Heading } from '@amsterdam/design-system-react/src'
 import { Meta, StoryObj } from '@storybook/react'
+import { inverseColorDecorator } from '../shared/decorators'
 import { exampleHeading } from '../shared/exampleContent'
 
 const heading = exampleHeading()
@@ -21,13 +22,7 @@ const meta = {
       table: { disable: false },
     },
   },
-  decorators: [
-    (Story, context) => (
-      <div className={context.args.inverseColor ? 'ams-docs-dark-background' : undefined}>
-        <Story />
-      </div>
-    ),
-  ],
+  decorators: [inverseColorDecorator],
 } satisfies Meta<typeof Heading>
 
 export default meta
