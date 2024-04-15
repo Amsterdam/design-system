@@ -6,17 +6,17 @@
 @import "../../common/text-rendering";
 
 @mixin reset {
+  // Reset native appearance, this causes issues on iOS and Android devices
+  -webkit-appearance: none;
+  appearance: none;
+  border: 0;
+  border-radius: 0; // Fix rounded borders on iOS devices
   box-sizing: border-box;
   margin-block: 0;
 }
 
 .ams-date-input {
-  // Reset native appearance, this causes issues on iOS and Android devices
-  -webkit-appearance: none;
-  appearance: none;
   background-color: var(--ams-date-input-background-color);
-  border: 0;
-  border-radius: 0; // Fix rounded borders on iOS devices
   box-shadow: var(--ams-date-input-box-shadow);
   color: var(--ams-date-input-color);
   font-family: var(--ams-date-input-font-family);
