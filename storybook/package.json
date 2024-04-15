@@ -48,7 +48,7 @@
     "react-dom": "18.2.0",
     "remark-gfm": "4.0.0",
     "require-from-string": "2.0.2",
-    "storybook": "8.0.6",
+    "storybook": "8.0.8",
     "vite": "5.2.8"
   }
 }
