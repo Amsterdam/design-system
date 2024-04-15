@@ -305,8 +305,8 @@ importers:
         specifier: 8.0.6
         version: 8.0.6
       '@storybook/addon-links':
-        specifier: 8.0.6
-        version: 8.0.6(react@18.2.0)
+        specifier: 8.0.8
+        version: 8.0.8(react@18.2.0)
       '@storybook/addon-themes':
         specifier: 8.0.6
         version: 8.0.6
@@ -3497,8 +3497,8 @@ packages:
       - vitest
     dev: true
 
-  /@storybook/addon-links@8.0.6(react@18.2.0):
-    resolution: {integrity: sha512-1UBNhQdwm17fXmuUKIsgvT6YenMbaGIYdr/9ApKmIMTKKO+emQ7APlsTbvasutcOkCd57rC1KZRfAHQpgU9wDQ==}
+  /@storybook/addon-links@8.0.8(react@18.2.0):
+    resolution: {integrity: sha512-iRI/W9I6fOom5zfZvsu53gfJtuhBSMmhgI/u5uZbAbfEoNL5D1PqpDXD4ygM8Vvlx90AZNZ2W5slEe7gCZOMyA==}
     peerDependencies:
       react: ^16.8.0 || ^17.0.0 || ^18.0.0
     peerDependenciesMeta:
@@ -13362,7 +13362,7 @@ packages:
       '@types/normalize-package-data': 2.4.4
       normalize-package-data: 6.0.0
       parse-json: 8.1.0
-      type-fest: 4.7.0
+      type-fest: 4.15.0
       unicorn-magic: 0.1.0
     dev: true
 
@@ -15980,7 +15980,7 @@ packages:
       deepmerge-ts: 5.1.0
       read-pkg: 9.0.1
       sort-keys: 5.0.0
-      type-fest: 4.7.0
+      type-fest: 4.15.0
       write-json-file: 5.0.0
     dev: true
 
