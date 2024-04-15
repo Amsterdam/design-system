@@ -10,7 +10,7 @@
   -webkit-appearance: none;
   appearance: none;
   border: 0;
-  border-radius: 0; // Fix rounded borders on iOS devices
+  border-radius: 0; // Reset rounded borders on iOS devices
   box-sizing: border-box;
   margin-block: 0;
 }
