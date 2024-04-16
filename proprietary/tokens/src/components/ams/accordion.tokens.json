@@ -10,7 +10,7 @@
         "gap": { "value": "{ams.space.inside.md}" },
         "line-height": { "value": "{ams.text.level.5.line-height}" },
         "padding-block": { "value": "{ams.space.inside.sm}" },
-        "padding-inline": { "value": "{ams.space.inside.lg}" },
+        "padding-inline": { "value": "0" },
         "focus": {
           "outline-offset": { "value": "{ams.focus.outline-offset}" }
         },
@@ -19,8 +19,8 @@
         }
       },
       "panel": {
-        "padding-block": { "value": "{ams.space.inside.xs}" },
-        "padding-inline": { "value": "{ams.space.inside.lg}" }
+        "padding-block": { "value": "0 {ams.space.inside.md}" },
+        "padding-inline": { "value": "0" }
       }
     }
   }
