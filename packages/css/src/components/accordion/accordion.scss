@@ -51,8 +51,8 @@
     transform: rotate(180deg);
   }
 
-  @media (prefers-reduced-motion) {
-    transition: none;
+  @media not (prefers-reduced-motion) {
+    transition: transform 0.3s ease;
   }
 }
 
