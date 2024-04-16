@@ -3,7 +3,7 @@ import { createRef } from 'react'
 import { Select } from './Select'
 import '@testing-library/jest-dom'
 
-describe('Select', () => {
+describe('Select option group', () => {
   it('renders', () => {
     render(<Select.Group />)
 

@@ -6,6 +6,7 @@
 @mixin reset {
   appearance: none;
   border: 0;
+  border-radius: 0; // Override Safari
 }
 
 .ams-select {
@@ -52,4 +53,8 @@
   &:not([multiple]) {
     background-image: var(--ams-select-disabled-background-image);
   }
+}
+
+.ams-select__option:disabled {
+  color: var(--ams-select-option-disabled-color);
 }

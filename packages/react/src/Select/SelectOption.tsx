@@ -7,7 +7,7 @@ import clsx from 'clsx'
 import { forwardRef } from 'react'
 import type { ForwardedRef, OptionHTMLAttributes, PropsWithChildren } from 'react'
 
-export type SelectOptionProps = {} & OptionHTMLAttributes<HTMLOptionElement>
+export type SelectOptionProps = OptionHTMLAttributes<HTMLOptionElement>
 
 export const SelectOption = forwardRef(
   (
