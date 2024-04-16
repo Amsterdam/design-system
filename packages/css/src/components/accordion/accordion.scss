@@ -44,20 +44,20 @@
 }
 
 .ams-accordion__icon svg {
-  transform: rotate(0deg);
-  transition: transform 0.3s ease;
+  rotate: 0deg;
+  transition: none;
 
   [aria-expanded="true"] & {
-    transform: rotate(180deg);
+    rotate: -180deg;
   }
 
   @media not (prefers-reduced-motion) {
-    transition: transform 0.3s ease;
+    transition: rotate 0.3s ease;
   }
 }
 
 .ams-accordion__button[aria-expanded="true"] svg {
-  transform: rotate(180deg);
+  rotate: -180deg;
 }
 
 .ams-accordion__panel {
