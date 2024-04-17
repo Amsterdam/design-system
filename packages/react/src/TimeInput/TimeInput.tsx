@@ -11,7 +11,7 @@ export type TimeInputProps = InputHTMLAttributes<HTMLInputElement>
 
 export const TimeInput = forwardRef(
   ({ className, ...restProps }: TimeInputProps, ref: ForwardedRef<HTMLInputElement>) => (
-    <input {...restProps} ref={ref} className={clsx('ams-time-input', className)} type="time" min="09:00" max="17:00" />
+    <input {...restProps} ref={ref} className={clsx('ams-time-input', className)} type="time" />
   ),
 )
 

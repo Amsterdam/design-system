@@ -3,13 +3,15 @@
  * Copyright Gemeente Amsterdam
  */
 
-@mixin reset {
-  appearance: none;
-  border: none;
+@import "../../common/text-rendering";
 
-  // &::-webkit-calendar-picker-indicator {
-  //   background: none;
-  // }
+@mixin reset {
+  -webkit-appearance: none;
+  appearance: none;
+  border: 0;
+  border-radius: 0; // Reset rounded borders on iOS devices
+  box-sizing: border-box;
+  margin-block: 0;
 }
 
 .ams-time-input {
@@ -23,8 +25,44 @@
   outline-offset: var(--ams-time-input-outline-offset);
   padding-block: var(--ams-time-input-padding-block);
   padding-inline: var(--ams-time-input-padding-inline);
+  touch-action: manipulation;
 
-  // touch-action: manipulation;
-
+  @include text-rendering;
   @include reset;
+
+  &:hover {
+    box-shadow: var(--ams-time-input-hover-box-shadow);
+  }
+}
+
+.ams-time-input::-webkit-calendar-picker-indicator {
+  appearance: none;
+  background-image: var(--ams-time-input-calender-picker-indicator-background-image);
+  cursor: pointer;
+}
+
+.ams-time-input:hover::-webkit-calendar-picker-indicator {
+  background-image: var(--ams-time-input-hover-calender-picker-indicator-background-image);
+}
+
+.ams-time-input:disabled {
+  background-color: var(--ams-time-input-disabled-background-color);
+  box-shadow: var(--ams-time-input-disabled-box-shadow);
+  color: var(--ams-time-input-disabled-color);
+  cursor: not-allowed;
+}
+
+.ams-time-input:disabled::-webkit-calendar-picker-indicator {
+  background-image: var(--ams-time-input-disabled-calender-picker-indicator-background-image);
+  visibility: visible;
+}
+
+.ams-time-input:invalid,
+.ams-time-input[aria-invalid="true"] {
+  box-shadow: var(--ams-time-input-invalid-box-shadow);
+
+  &:hover {
+    // TODO: this should be the (currently non-existent) dark red hover color
+    box-shadow: var(--ams-time-input-invalid-hover-box-shadow);
+  }
 }

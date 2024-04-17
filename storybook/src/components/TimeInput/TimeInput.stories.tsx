@@ -11,7 +11,6 @@ const meta = {
   component: TimeInput,
   args: {
     disabled: false,
-    value: '',
   },
 } satisfies Meta<typeof TimeInput>
 
@@ -20,3 +19,15 @@ export default meta
 type Story = StoryObj<typeof meta>
 
 export const Default: Story = {}
+
+export const Invalid: Story = {
+  args: {
+    required: true,
+  },
+}
+
+export const Disabled: Story = {
+  args: {
+    disabled: true,
+  },
+}

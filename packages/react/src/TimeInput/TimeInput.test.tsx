@@ -6,6 +6,7 @@ import '@testing-library/jest-dom'
 describe('Time input', () => {
   it('renders', () => {
     const { container } = render(<TimeInput />)
+
     const component = container.querySelector(':only-child')
 
     expect(component).toBeInTheDocument()
@@ -14,6 +15,7 @@ describe('Time input', () => {
 
   it('renders a design system BEM class name', () => {
     const { container } = render(<TimeInput />)
+
     const component = container.querySelector(':only-child')
 
     expect(component).toHaveClass('ams-time-input')
@@ -21,6 +23,7 @@ describe('Time input', () => {
 
   it('renders an additional class name', () => {
     const { container } = render(<TimeInput className="extra" />)
+
     const component = container.querySelector(':only-child')
 
     expect(component).toHaveClass('ams-time-input extra')
@@ -30,6 +33,7 @@ describe('Time input', () => {
     const ref = createRef<HTMLInputElement>()
 
     const { container } = render(<TimeInput ref={ref} />)
+
     const component = container.querySelector(':only-child')
 
     expect(ref.current).toBe(component)
