@@ -8,15 +8,15 @@ import clsx from 'clsx'
 import { forwardRef } from 'react'
 import type { ForwardedRef, LabelHTMLAttributes, PropsWithChildren } from 'react'
 
-export const FormLabel = forwardRef(
+export const Label = forwardRef(
   (
     { children, className, ...restProps }: PropsWithChildren<LabelHTMLAttributes<HTMLLabelElement>>,
     ref: ForwardedRef<HTMLLabelElement>,
   ) => (
-    <label {...restProps} ref={ref} className={clsx('ams-form-label', className)}>
+    <label {...restProps} ref={ref} className={clsx('ams-label', className)}>
       {children}
     </label>
   ),
 )
 
-FormLabel.displayName = 'FormLabel'
+Label.displayName = 'Label'
