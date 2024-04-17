@@ -6,7 +6,7 @@
 @mixin reset {
   appearance: none;
   border: 0;
-  border-radius: 0; // Override Safari
+  border-radius: 0; // Reset rounded borders for Safari on MacOS
 }
 
 .ams-select {
@@ -16,6 +16,7 @@
   font-family: var(--ams-select-font-family);
   font-size: var(--ams-select-font-size);
   font-weight: var(--ams-select-font-weight);
+  inline-size: 100%;
   line-height: var(--ams-select-line-height);
   max-inline-size: var(--ams-select-max-inline-size);
   outline-offset: var(--ams-select-outline-offset);
