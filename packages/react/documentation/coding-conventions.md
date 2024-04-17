@@ -44,6 +44,6 @@ Do not use `aria-label`. Tools for automatic translation often [do not translate
 
 Some of our components can render different HTML tags; they are polymorphic.
 Spotlight and Grid Cell are examples.
-We’ve decided to use polymorphism only for HTML tags that support global attributes (e.g., `div`, `section`, `footer`, etc.).
+We’ve decided to use polymorphism solely for HTML tags that only support global attributes (e.g., `div`, `section`, `footer`, etc.).
 This is because other HTML tags require more complicated typing, and it is often simpler to separate the components.
 We type the refs as `any` to make React refs work with polymorphic components.

@@ -97,9 +97,9 @@ describe('Text area', () => {
   it('supports ForwardRef in React', () => {
     const ref = createRef<HTMLTextAreaElement>()
 
-    const { container } = render(<TextArea ref={ref} />)
+    render(<TextArea ref={ref} />)
 
-    const component = container.querySelector(':only-child')
+    const component = screen.getByRole('textbox')
 
     expect(ref.current).toBe(component)
   })
