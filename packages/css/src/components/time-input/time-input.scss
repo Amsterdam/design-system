@@ -22,6 +22,14 @@
   font-size: var(--ams-time-input-font-size);
   font-weight: var(--ams-time-input-font-weight);
   line-height: var(--ams-time-input-line-height);
+
+  // Set min height for iOS, otherwise an empty box is a lot smaller than a filled one.
+  min-height: calc(
+    (var(--ams-time-input-font-size) * var(--ams-time-input-line-height)) + 2 * var(--ams-time-input-padding-block)
+  );
+
+  // Set min width for iOS, so the width is closer to the filled in width.
+  min-width: calc(8ch + (2 * var(--ams-time-input-padding-inline)));
   outline-offset: var(--ams-time-input-outline-offset);
   padding-block: var(--ams-time-input-padding-block);
   padding-inline: var(--ams-time-input-padding-inline);
