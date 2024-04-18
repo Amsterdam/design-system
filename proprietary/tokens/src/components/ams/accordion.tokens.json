@@ -1,24 +1,26 @@
 {
   "ams": {
     "accordion": {
+      "gap": { "value": "{ams.space.inside.xs}" },
       "button": {
         "color": { "value": "{ams.color.primary-blue}" },
         "font-family": { "value": "{ams.text.font-family}" },
         "font-size": { "value": "{ams.text.level.5.font-size}" },
         "font-weight": { "value": "{ams.text.font-weight.bold}" },
+        "gap": { "value": "{ams.space.inside.md}" },
         "line-height": { "value": "{ams.text.level.5.line-height}" },
         "padding-block": { "value": "{ams.space.inside.sm}" },
-        "padding-inline": { "value": "{ams.space.inside.md}" },
+        "padding-inline": { "value": "0" },
         "focus": {
           "outline-offset": { "value": "{ams.focus.outline-offset}" }
         },
         "hover": {
-          "box-shadow": { "value": "inset 0 0 0 {ams.border.width.md} {ams.color.neutral-grey3}" }
+          "color": { "value": "{ams.color.dark-blue}" }
         }
       },
       "panel": {
-        "padding-block": { "value": "{ams.space.inside.md}" },
-        "padding-inline": { "value": "{ams.space.inside.md}" }
+        "padding-block": { "value": "0 {ams.space.inside.md}" },
+        "padding-inline": { "value": "0" }
       }
     }
   }
