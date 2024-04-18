@@ -1,1 +1,0 @@
-export { FormLabel } from './FormLabel'
