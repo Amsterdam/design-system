@@ -79,7 +79,7 @@ If you only want the icons, but not the Web Manifest:
 sh node_modules/@amsterdam/design-system-assets/.postinstall.sh
 ```
 
-Provide a full app name and optionaklly a short app name if you want to generate a Web Manifest as well. Users will may then be prompted to install the app as a PWA:
+Provide a full app name, and optionally a short app name, if you want to generate a Web Manifest as well. Users will may then be prompted to install the app as a PWA:
 
 ```sh
 # Make sure you are in the root directory of your project!
@@ -87,13 +87,13 @@ Provide a full app name and optionaklly a short app name if you want to generate
 sh node_modules/@amsterdam/design-system-assets/.postinstall.sh "Full App Name" "Short Name"
 ```
 
-> If an `index.html` is found in the root or in `public` the script will also insert the links in the HTML's `<head>` tag. This will not be the case for default Next.js applications.
+> If an `index.html` is found in the root or in a `public` directory the script will also insert the links in the HTML's `<head>` tag. This will not be the case for Next.js applications.
 
 > This script can work for any project that has an `index.html` file in the root or `public` directory.
 
 ### (B) Manual configuration
 
-You can manually [symlink (symbolic link)](https://en.wikipedia.org/wiki/Symbolic_link#POSIX_and_Unix-like_operating_systems) and copy the files to the root or a `public` folder next to where the `index.html` is located in your project. An advantage of symlinking is that it tracks changes to the assets when there are packages updates.
+You can manually [symlink (symbolic link)](https://en.wikipedia.org/wiki/Symbolic_link#POSIX_and_Unix-like_operating_systems) and copy the files to the root or a `public` folder next to where the `index.html` is located in your project. An advantage of symlinking is that it tracks changes to the assets when there are package updates.
 
 Symlinking [the entire favicon directory](https://github.com/Amsterdam/design-system/tree/develop/proprietary/assets/favicon) and copying the [Web Manifest](https://github.com/Amsterdam/design-system/tree/develop/proprietary/assets/app.manifest) can be done as follows:
 
@@ -142,7 +142,7 @@ Then link all these assets by placing the following tags in the `<head>`:
 
 ### Submit the changes
 
-The symlinks and copied and edited files can be commited to the repository.
+The symlinks and copied and edited files can be committed to the repository.
 
 ## Further Reading
 
