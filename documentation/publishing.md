@@ -66,7 +66,7 @@ To fix this, check whether any closed PRs still have the `autorelease: pending` 
 
 ## Dependencies between packages
 
-We’ve defined (peer) dependencies between our packages, in order to simplify the install process.
+We’ve defined (peer) dependencies between our packages, to simplify the installation process.
 For example, our React package has a peer dependency on our CSS package.
 When installing our React package, the correct version of our CSS package is automatically installed with it.
 
