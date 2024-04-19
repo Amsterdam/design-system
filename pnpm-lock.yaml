@@ -110,6 +110,9 @@ importers:
       '@amsterdam/design-system-react-icons':
         specifier: workspace:*
         version: link:../../proprietary/react-icons
+      '@babel/runtime':
+        specifier: 7.24.4
+        version: 7.24.4
       clsx:
         specifier: 2.1.0
         version: 2.1.0
@@ -126,9 +129,6 @@ importers:
       '@babel/preset-react':
         specifier: 7.24.1
         version: 7.24.1(@babel/core@7.24.4)
-      '@babel/runtime':
-        specifier: 7.24.4
-        version: 7.24.4
       '@rollup/plugin-babel':
         specifier: 6.0.4
         version: 6.0.4(@babel/core@7.24.4)(@types/babel__core@7.20.5)(rollup@4.14.3)
