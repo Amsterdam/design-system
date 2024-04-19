@@ -70,13 +70,13 @@ Then you can either use the post-install script (**Option A**) or manually copy 
 
 ### (A) Link assets with a script
 
-Use the [`.postinstall.sh`](https://github.com/Amsterdam/design-system/tree/develop/proprietary/assets/.postinstall.sh) script from the root of your new **Vite React**, **Next.js**, legacy React or generic HTML project to automatically link the assets.
+Use the [`postinstall.sh`](https://github.com/Amsterdam/design-system/tree/develop/proprietary/assets/postinstall.sh) script from the root of your new **Vite React**, **Next.js**, legacy React or generic HTML project to automatically link the assets.
 
 If you only want the icons, but not the Web Manifest and PWA support:
 
 ```sh
 # Make sure you are in the root directory of your project!
-sh node_modules/@amsterdam/design-system-assets/.postinstall.sh
+sh node_modules/@amsterdam/design-system-assets/postinstall.sh
 ```
 
 If you want to generate a Web Manifest for a PWA as well, provide a full app name and a short app name:
@@ -84,7 +84,7 @@ If you want to generate a Web Manifest for a PWA as well, provide a full app nam
 ```sh
 # Make sure you are in the root directory of your project!
 # The full app name may not be longer than 30 characters and the short name no longer than 12 characters.
-sh node_modules/@amsterdam/design-system-assets/.postinstall.sh "Full App Name" "Short Name"
+sh node_modules/@amsterdam/design-system-assets/postinstall.sh "Full App Name" "Short Name"
 ```
 
 Users may then be prompted to install the app as a PWA.
