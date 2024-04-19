@@ -110,6 +110,9 @@ importers:
       '@amsterdam/design-system-react-icons':
         specifier: workspace:*
         version: link:../../proprietary/react-icons
+      '@babel/runtime':
+        specifier: 7.24.4
+        version: 7.24.4
       clsx:
         specifier: 2.1.0
         version: 2.1.0
@@ -126,9 +129,6 @@ importers:
       '@babel/preset-react':
         specifier: 7.24.1
         version: 7.24.1(@babel/core@7.24.4)
-      '@babel/runtime':
-        specifier: 7.24.4
-        version: 7.24.4
       '@rollup/plugin-babel':
         specifier: 6.0.4
         version: 6.0.4(@babel/core@7.24.4)(rollup@4.14.3)
@@ -1797,7 +1797,6 @@ packages:
     engines: {node: '>=6.9.0'}
     dependencies:
       regenerator-runtime: 0.14.0
-    dev: true
 
   /@babel/template@7.24.0:
     resolution: {integrity: sha512-Bkf2q8lMB0AFpX0NFEqSbx1OkTHf0f+0j82mkw+ZpzBnkk7e9Ql0891vlfgi+kHwOk8tQjiQHpqh4LaSa0fKEA==}
@@ -13483,7 +13482,6 @@ packages:
 
   /regenerator-runtime@0.14.0:
     resolution: {integrity: sha512-srw17NI0TUWHuGa5CFGGmhfNIeja30WMBfbslPNhf6JrqQlLN5gcrvig1oqPxiVaXb0oW0XRKtH6Nngs5lKCIA==}
-    dev: true
 
   /regenerator-transform@0.15.2:
     resolution: {integrity: sha512-hfMp2BoF0qOk3uc5V20ALGDS2ddjQaLrdl7xrGXvAIow7qeWRM2VA2HuCHkUKk9slq3VwEwLNK3DFBqDfPGYtg==}
