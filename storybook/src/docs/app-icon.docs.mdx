@@ -5,7 +5,7 @@ import { IcoFavicon, PngIconAppleTouch, PngIconsWebApp, SvgIconDefault } from ".
 
 # Favicon & App Icons
 
-Examples of all the assets needed to publish a web app with the proper browser favicon and app names and icons. This set should cover all the combinations of common operating systems (Android, iOS, macOS, Windows) and browsers (Chrome, Safari, Edge, Firefox).
+Examples of all the assets needed to display a website icon (a favicon) in the web browser or publish a web app with the proper app names and icons. This set should cover all the combinations of common operating systems (Android, iOS, macOS, Windows) and browsers (Chrome, Safari, Edge, Firefox).
 
 ## Overview & examples
 
@@ -66,20 +66,20 @@ First, install these assets as they come with the [Amsterdam Design System Asset
 npm i @amsterdam/design-system-assets
 ```
 
-Then you can either use the post install script or manually copy and link the assets.
+Then you can either use the post-install script (**Option A**) or manually copy and link the assets (**Option B**).
 
-### (A) Automatic script
+### (A) Link assets with a script
 
-Use the [`.postinstall.sh`](https://github.com/Amsterdam/design-system/tree/develop/proprietary/assets/.postinstall.sh) script from the root of your new **Vite React**, **Next.js**, legacy React or generic HTML project to automatically link the assets:
+Use the [`.postinstall.sh`](https://github.com/Amsterdam/design-system/tree/develop/proprietary/assets/.postinstall.sh) script from the root of your new **Vite React**, **Next.js**, legacy React or generic HTML project to automatically link the assets.
 
-If you only want the icons, but not the Web Manifest:
+If you only want the icons, but not the Web Manifest and PWA support:
 
 ```sh
 # Make sure you are in the root directory of your project!
 sh node_modules/@amsterdam/design-system-assets/.postinstall.sh
 ```
 
-Provide a full app name, and optionally a short app name, if you want to generate a Web Manifest as well. Users will may then be prompted to install the app as a PWA:
+If you want to generate a Web Manifest for a PWA as well, provide a full app name and a short app name:
 
 ```sh
 # Make sure you are in the root directory of your project!
@@ -87,11 +87,13 @@ Provide a full app name, and optionally a short app name, if you want to generat
 sh node_modules/@amsterdam/design-system-assets/.postinstall.sh "Full App Name" "Short Name"
 ```
 
+Users may then be prompted to install the app as a PWA.
+
 > If an `index.html` is found in the root or in a `public` directory the script will also insert the links in the HTML's `<head>` tag. This will not be the case for Next.js applications.
 
 > This script can work for any project that has an `index.html` file in the root or `public` directory.
 
-### (B) Manual configuration
+### (B) Link manually
 
 You can manually [symlink (symbolic link)](https://en.wikipedia.org/wiki/Symbolic_link#POSIX_and_Unix-like_operating_systems) and copy the files to the root or a `public` folder next to where the `index.html` is located in your project. An advantage of symlinking is that it tracks changes to the assets when there are package updates.
 
@@ -104,7 +106,7 @@ ln -s node_modules/@amsterdam/design-system-assets/favicon appicons
 cp node_modules/@amsterdam/design-system-assets/manifest/app.webmanifest app.webmanifest
 ```
 
-> Note: for the symlink the last argument in above command cannot be a path, but can only be the file or directory name. I.e. you need to be in the directory where you want to make the symbolic link.
+> Note: for the symlink, the last argument in the above command cannot be a path, but can only be the file or directory name. I.e. you need to be in the directory where you want to make the symbolic link.
 
 > Note that undoing a symlink can be done by simply removing the created file or directory link:
 >
@@ -112,9 +114,9 @@ cp node_modules/@amsterdam/design-system-assets/manifest/app.webmanifest app.web
 > rm -r appicons app.webmanifest
 > ```
 
-> Note: not all servers recognize `.webmanifest` extension. See [Using a link element to link to a manifest on W3.org](https://www.w3.org/TR/appmanifest/#using-a-link-element-to-link-to-a-manifest) for more information.
+> Note: not all servers recognize the `.webmanifest` extension. See [Using a link element to link to a manifest on W3.org](https://www.w3.org/TR/appmanifest/#using-a-link-element-to-link-to-a-manifest) for more information.
 
-Make sure that the Web Manifest (`*.webmanifest`), stating the app's name and referencing the PNG icons, is also available in the same location if you want to make the app installable as a PWA. Edit the `app.webmanifest` file to include the app's name and the icons you want to use. For example:
+Make sure that the Web Manifest, stating the app's name and referencing the PNG icons, is available in the same location. Edit the `app.webmanifest` file to include the app's name and the icons you want to use. For example:
 
 ```json
 {
