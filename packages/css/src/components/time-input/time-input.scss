@@ -13,6 +13,7 @@
   border-radius: 0; // Reset rounded borders on iOS devices
   box-sizing: border-box;
   margin-block: 0;
+  width: auto; // Reset width of 10em set by Android devices
 }
 
 .ams-time-input {
