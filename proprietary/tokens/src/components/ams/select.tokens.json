@@ -12,7 +12,6 @@
       "font-size": { "value": "{ams.text.level.5.font-size}" },
       "font-weight": { "value": "{ams.text.font-weight.normal}" },
       "line-height": { "value": "{ams.text.level.5.line-height}" },
-      "max-inline-size": { "value": "100%" },
       "outline-offset": { "value": "{ams.focus.outline-offset}" },
       "padding-block": { "value": "{ams.space.inside.xs}" },
       "padding-inline": { "value": "{ams.space.inside.md} calc({ams.space.inside.md} + 32px)" },
