@@ -4,6 +4,8 @@
  */
 
 /* Append here */
+export * from './Select'
+export * from './TimeInput'
 export * from './DateInput'
 export * from './Avatar'
 export * from './FormFieldCharacterCounter'
