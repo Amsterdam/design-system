@@ -1,6 +1,6 @@
 {
   "ams": {
-    "form-label": {
+    "label": {
       "color": { "value": "{ams.color.primary-black}" },
       "font-family": { "value": "{ams.text.font-family}" },
       "font-size": { "value": "{ams.text.level.4.font-size}" },

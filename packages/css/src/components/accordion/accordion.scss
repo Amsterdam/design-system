@@ -5,25 +5,30 @@
 
 @import "../../common/text-rendering";
 
+.ams-accordion {
+  display: flex;
+  flex-direction: column;
+  gap: var(--ams-accordion-gap);
+
+  @include text-rendering;
+}
+
 .ams-accordion__header {
   display: flex;
   margin-block: 0;
   margin-inline: 0;
 }
 
-@mixin reset-button {
+.ams-accordion__button {
   background-color: transparent;
   border: 0;
-}
-
-.ams-accordion__button {
   color: var(--ams-accordion-button-color);
   cursor: pointer;
   display: flex;
   font-family: var(--ams-accordion-button-font-family);
   font-size: var(--ams-accordion-button-font-size);
   font-weight: var(--ams-accordion-button-font-weight);
-  justify-content: space-between;
+  gap: var(--ams-accordion-button-gap);
   line-height: var(--ams-accordion-button-line-height);
   padding-block: var(--ams-accordion-button-padding-block);
   padding-inline: var(--ams-accordion-button-padding-inline);
@@ -34,24 +39,25 @@
   }
 
   &:hover {
-    box-shadow: var(--ams-accordion-button-hover-box-shadow);
+    color: var(--ams-accordion-button-hover-color);
+  }
+}
+
+.ams-accordion__icon svg {
+  rotate: 0deg;
+  transition: none;
+
+  [aria-expanded="true"] & {
+    rotate: -180deg;
   }
 
-  svg {
-    transform: rotate(0deg);
-    transition: transform 0.3s ease;
-
-    @media (prefers-reduced-motion) {
-      transition: none;
-    }
+  @media not (prefers-reduced-motion) {
+    transition: rotate 0.3s ease;
   }
-
-  @include text-rendering;
-  @include reset-button;
 }
 
 .ams-accordion__button[aria-expanded="true"] svg {
-  transform: rotate(180deg);
+  rotate: -180deg;
 }
 
 .ams-accordion__panel {
