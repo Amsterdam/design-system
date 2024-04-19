@@ -44,6 +44,7 @@
   }
 }
 
+// This changes the default calendar icon on Chromium browsers only
 .ams-time-input::-webkit-calendar-picker-indicator {
   appearance: none;
   background-image: var(--ams-time-input-calender-picker-indicator-background-image);
