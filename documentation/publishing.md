@@ -97,9 +97,9 @@ The changes to the `package.json` and the lockfile mean we can release a new ver
 
 Seeing as our CSS package is itself also a peer dependency of our React package, in the most extreme case we would have to do something like:
 
-1. Release a new version of our tokens and / or assets packages only
-2. Manually change the peer dependency of our CSS package and release that
-3. Manually change the peer dependency of our React package and release that
+1. Release a new version of our tokens and / or assets packages only.
+2. Manually change the peer dependency of our CSS package and release that.
+3. Manually change the peer dependency of our React package and release that.
 
 This probably won’t happen very often, seeing as we usually make changes to both our CSS and React packages in between publishes,
 but in the future it might.
