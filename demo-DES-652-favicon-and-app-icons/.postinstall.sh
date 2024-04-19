@@ -16,8 +16,8 @@ if [ ! -L $APP_ICONS_DIR ] && [ ! -d $APP_ICONS_DIR ]; then
   ln -s ../node_modules/@amsterdam/design-system-assets/favicon $APP_ICONS_DIR
 fi
 
-# Generate the web manifest if doesn't exist already and an app name was provided.
-if [ ! -f $WEB_MANIFEST_FILE ] && [ "${1}" ]; then
+# Generate the web manifest if an app name was provided and the file doesn't exist.
+if [ "${1}" ] && [ ! -f $WEB_MANIFEST_FILE ]; then
   cp ../node_modules/@amsterdam/design-system-assets/manifest/app.webmanifest $WEB_MANIFEST_FILE
 
   sed -i .bak -e "s/APP_NAME_FULL/${1}/g" $WEB_MANIFEST_FILE
