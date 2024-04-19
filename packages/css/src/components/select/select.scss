@@ -1,0 +1,60 @@
+/**
+ * @license EUPL-1.2+
+ * Copyright Gemeente Amsterdam
+ */
+
+@mixin reset {
+  appearance: none;
+  border: 0;
+  border-radius: 0; // Reset rounded borders for Safari on MacOS
+}
+
+.ams-select {
+  background-color: var(--ams-select-background-color);
+  box-shadow: var(--ams-select-box-shadow);
+  color: var(--ams-select-color);
+  font-family: var(--ams-select-font-family);
+  font-size: var(--ams-select-font-size);
+  font-weight: var(--ams-select-font-weight);
+  line-height: var(--ams-select-line-height);
+  max-inline-size: 100%;
+  outline-offset: var(--ams-select-outline-offset);
+  padding-block: var(--ams-select-padding-block);
+  padding-inline: var(--ams-select-padding-inline);
+  touch-action: manipulation;
+
+  &:not([multiple]) {
+    background-image: var(--ams-select-background-image);
+    background-position: var(--ams-select-background-position);
+    background-repeat: no-repeat;
+    background-size: 1em 1em;
+  }
+
+  &:hover {
+    box-shadow: var(--ams-select-hover-box-shadow);
+  }
+
+  @include reset;
+}
+
+.ams-select[aria-invalid="true"] {
+  box-shadow: var(--ams-select-invalid-box-shadow);
+
+  &:hover {
+    box-shadow: var(--ams-select-invalid-hover-box-shadow);
+  }
+}
+
+.ams-select:disabled {
+  box-shadow: var(--ams-select-disabled-box-shadow);
+  color: var(--ams-select-disabled-color);
+  cursor: not-allowed;
+
+  &:not([multiple]) {
+    background-image: var(--ams-select-disabled-background-image);
+  }
+}
+
+.ams-select__option:disabled {
+  color: var(--ams-select-option-disabled-color);
+}
