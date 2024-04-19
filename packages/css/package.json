@@ -19,7 +19,10 @@
     "clean": "rimraf dist/"
   },
   "devDependencies": {
-    "@amsterdam/design-system-tokens": "workspace:*",
     "sass": "1.75.0"
+  },
+  "peerDependencies": {
+    "@amsterdam/design-system-tokens": "workspace:*",
+    "@amsterdam/design-system-assets": "workspace:*"
   }
 }

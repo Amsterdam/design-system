@@ -97,16 +97,23 @@ importers:
         version: 7.2.0
 
   packages/css:
-    devDependencies:
+    dependencies:
+      '@amsterdam/design-system-assets':
+        specifier: workspace:*
+        version: link:../../proprietary/assets
       '@amsterdam/design-system-tokens':
         specifier: workspace:*
         version: link:../../proprietary/tokens
+    devDependencies:
       sass:
         specifier: 1.75.0
         version: 1.75.0
 
   packages/react:
     dependencies:
+      '@amsterdam/design-system-css':
+        specifier: workspace:*
+        version: link:../css
       '@amsterdam/design-system-react-icons':
         specifier: workspace:*
         version: link:../../proprietary/react-icons
