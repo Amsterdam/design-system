@@ -5,6 +5,7 @@
 
 import { Paragraph } from '@amsterdam/design-system-react/src'
 import { Meta, StoryObj } from '@storybook/react'
+import { inverseColorDecorator } from '../shared/decorators'
 import { exampleParagraph } from '../shared/exampleContent'
 
 const paragraph = exampleParagraph()
@@ -28,21 +29,14 @@ const meta = {
       options: ['small', undefined, 'large'],
     },
   },
+  decorators: [inverseColorDecorator],
 } satisfies Meta<typeof Paragraph>
 
 export default meta
 
 type Story = StoryObj<typeof meta>
 
-export const Default: Story = {
-  decorators: [
-    (Story, context) => (
-      <div className={context.args.inverseColor ? 'ams-docs-dark-background' : undefined}>
-        <Story />
-      </div>
-    ),
-  ],
-}
+export const Default: Story = {}
 
 export const Large: Story = {
   args: {
@@ -60,11 +54,4 @@ export const InvertedColor: Story = {
   args: {
     inverseColor: true,
   },
-  decorators: [
-    (Story, context) => (
-      <div className={context.args.inverseColor ? 'ams-docs-dark-background' : undefined}>
-        <Story />
-      </div>
-    ),
-  ],
 }
