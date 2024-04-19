@@ -4,7 +4,10 @@
  */
 
 /* Append here */
+
 @import "./select/select";
+@import "./time-input/time-input";
+@import "./date-input/date-input";
 @import "./document/document";
 @import "./avatar/avatar";
 @import "./form-field-character-counter/form-field-character-counter";
@@ -40,7 +43,7 @@
 @import "./button/button";
 @import "./card/card";
 @import "./checkbox/checkbox";
-@import "./form-label/form-label";
+@import "./label/label";
 @import "./grid/grid";
 @import "./heading/heading";
 @import "./spotlight/spotlight";

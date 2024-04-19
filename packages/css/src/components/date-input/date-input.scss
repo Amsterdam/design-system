@@ -1,0 +1,78 @@
+/**
+ * @license EUPL-1.2+
+ * Copyright Gemeente Amsterdam
+ */
+
+@import "../../common/text-rendering";
+
+@mixin reset {
+  // Reset native appearance, this causes issues on iOS and Android devices
+  -webkit-appearance: none;
+  appearance: none;
+  border: 0;
+  border-radius: 0; // Reset rounded borders on iOS devices
+  box-sizing: border-box;
+  margin-block: 0;
+}
+
+.ams-date-input {
+  background-color: var(--ams-date-input-background-color);
+  box-shadow: var(--ams-date-input-box-shadow);
+  color: var(--ams-date-input-color);
+  font-family: var(--ams-date-input-font-family);
+  font-size: var(--ams-date-input-font-size);
+  font-weight: var(--ams-date-input-font-weight);
+  line-height: var(--ams-date-input-line-height);
+
+  // Set min height for iOS, otherwise an empty box is a lot smaller than a filled one.
+  min-height: calc(
+    (var(--ams-date-input-font-size) * var(--ams-date-input-line-height)) + 2 * var(--ams-date-input-padding-block)
+  );
+
+  // Set min width for iOS, so the width is closer to the filled in width.
+  min-width: calc(8ch + (2 * var(--ams-date-input-padding-inline)));
+  outline-offset: var(--ams-date-input-outline-offset);
+  padding-block: var(--ams-date-input-padding-block);
+  padding-inline: var(--ams-date-input-padding-inline);
+  touch-action: manipulation;
+
+  @include text-rendering;
+  @include reset;
+
+  &:hover {
+    box-shadow: var(--ams-date-input-hover-box-shadow);
+  }
+}
+
+// This changes the default calendar icon on Chromium browsers only
+.ams-date-input::-webkit-calendar-picker-indicator {
+  appearance: none;
+  background-image: var(--ams-date-input-calender-picker-indicator-background-image);
+  cursor: pointer;
+}
+
+.ams-date-input:hover::-webkit-calendar-picker-indicator {
+  background-image: var(--ams-date-input-hover-calender-picker-indicator-background-image);
+}
+
+.ams-date-input:disabled {
+  background-color: var(--ams-date-input-disabled-background-color);
+  box-shadow: var(--ams-date-input-disabled-box-shadow);
+  color: var(--ams-date-input-disabled-color);
+  cursor: not-allowed;
+}
+
+.ams-date-input:disabled::-webkit-calendar-picker-indicator {
+  background-image: var(--ams-date-input-disabled-calender-picker-indicator-background-image);
+  visibility: visible;
+}
+
+.ams-date-input:invalid,
+.ams-date-input[aria-invalid="true"] {
+  box-shadow: var(--ams-date-input-invalid-box-shadow);
+
+  &:hover {
+    // TODO: this should be the (currently non-existent) dark red hover color
+    box-shadow: var(--ams-date-input-invalid-hover-box-shadow);
+  }
+}

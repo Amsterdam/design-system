@@ -1,6 +1,6 @@
 <!-- @license CC0-1.0 -->
 
-# Form Label
+# Label
 
 Describes a form control.
 

@@ -3,21 +3,21 @@
  * Copyright Gemeente Amsterdam
  */
 
-import { FormLabel } from '@amsterdam/design-system-react/src'
+import { Label } from '@amsterdam/design-system-react/src'
 import { Meta, StoryObj } from '@storybook/react'
 
 const meta = {
-  title: 'Components/Forms/Form Label',
-  component: FormLabel,
+  title: 'Components/Forms/Label',
+  component: Label,
   args: {
-    children: 'Form label',
+    children: 'Label',
   },
   argTypes: {
     children: {
       table: { disable: false },
     },
   },
-} satisfies Meta<typeof FormLabel>
+} satisfies Meta<typeof Label>
 
 export default meta
 

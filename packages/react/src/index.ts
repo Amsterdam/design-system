@@ -5,6 +5,8 @@
 
 /* Append here */
 export * from './Select'
+export * from './TimeInput'
+export * from './DateInput'
 export * from './Avatar'
 export * from './FormFieldCharacterCounter'
 export * from './DescriptionList'
@@ -48,7 +50,7 @@ export * from './Breadcrumb'
 export * from './Link'
 export * from './Button'
 export * from './Paragraph'
-export * from './FormLabel'
+export * from './Label'
 export * from './UnorderedList'
 export * from './Icon'
 export * from './Accordion'

@@ -91,10 +91,10 @@ describe('Switch', () => {
 
   it('is able to pass a React ref', () => {
     const ref = createRef<HTMLInputElement>()
-    const { container } = render(<Switch ref={ref} />)
+    render(<Switch ref={ref} />)
 
-    const switchToggle = container.querySelector('input[type="checkbox"]')
+    const switchElement = screen.getByRole('switch')
 
-    expect(ref.current).toBe(switchToggle)
+    expect(ref.current).toBe(switchElement)
   })
 })

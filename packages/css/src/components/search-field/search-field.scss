@@ -11,12 +11,17 @@
 }
 
 @mixin reset-input {
+  // Reset native appearance, this causes issues on iOS and Android devices
+  -webkit-appearance: none;
+  appearance: none;
   border: 0;
+  border-radius: 0; // Reset rounded borders on iOS devices
   box-sizing: border-box;
   margin-block: 0;
 }
 
 .ams-search-field__input {
+  background-color: var(--ams-search-field-input-background-color);
   box-shadow: var(--ams-search-field-input-box-shadow);
   color: var(--ams-search-field-input-color);
   font-family: var(--ams-search-field-input-font-family);
@@ -56,6 +61,10 @@
 
 @mixin reset-button {
   border: 0;
+
+  // Reset margins added by Safari on iOS
+  margin-block: 0;
+  margin-inline: 0;
 }
 
 .ams-search-field__button {

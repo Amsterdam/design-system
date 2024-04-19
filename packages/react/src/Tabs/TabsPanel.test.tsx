@@ -47,10 +47,10 @@ describe('Tabs panel', () => {
   it('supports ForwardRef in React', () => {
     const ref = createRef<HTMLDivElement>()
 
-    const { container } = render(<TabsPanel tab={0} ref={ref} />)
+    render(<TabsPanel tab={0} ref={ref} />)
 
-    const tabsPanel = container.querySelector('.ams-tabs__panel')
+    const component = screen.getByRole('tabpanel')
 
-    expect(ref.current).toBe(tabsPanel)
+    expect(ref.current).toBe(component)
   })
 })

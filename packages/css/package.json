@@ -20,9 +20,6 @@
   },
   "devDependencies": {
     "@amsterdam/design-system-tokens": "workspace:*",
-    "sass": "1.72.0"
-  },
-  "dependencies": {
-    "@utrecht/components": "3.0.0"
+    "sass": "1.75.0"
   }
 }
