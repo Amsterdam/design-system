@@ -15,6 +15,7 @@ import {
   TrashBinIcon,
 } from '@amsterdam/design-system-react-icons'
 import type { Meta, StoryObj } from '@storybook/react'
+import { inverseColorDecorator } from '../shared/decorators'
 import { exampleUnorderedList } from '../shared/exampleContent'
 
 const unorderedListItems = exampleUnorderedList().map((text, index) => (
@@ -29,13 +30,7 @@ const meta = {
     inverseColor: false,
     markers: undefined,
   },
-  decorators: [
-    (Story, context) => (
-      <div className={context.args.inverseColor ? 'ams-docs-dark-background' : undefined}>
-        <Story />
-      </div>
-    ),
-  ],
+  decorators: [inverseColorDecorator],
 } satisfies Meta<typeof UnorderedList>
 
 export default meta

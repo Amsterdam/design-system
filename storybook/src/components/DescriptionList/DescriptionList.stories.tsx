@@ -5,6 +5,7 @@
 
 import { DescriptionList } from '@amsterdam/design-system-react'
 import { Meta, StoryObj } from '@storybook/react'
+import { inverseColorDecorator } from '../shared/decorators'
 import { exampleParagraph } from '../shared/exampleContent'
 
 const paragraph = exampleParagraph()
@@ -12,13 +13,7 @@ const paragraph = exampleParagraph()
 const meta = {
   title: 'Components/Text/Description List',
   component: DescriptionList,
-  decorators: [
-    (Story, context) => (
-      <div className={context.args['inverseColor'] ? 'ams-docs-dark-background' : undefined}>
-        <Story />
-      </div>
-    ),
-  ],
+  decorators: [inverseColorDecorator],
   args: {
     children: [
       <DescriptionList.Term key={1}>Gebied</DescriptionList.Term>,

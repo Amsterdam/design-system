@@ -5,6 +5,7 @@
 
 import { Blockquote } from '@amsterdam/design-system-react/src'
 import { Meta, StoryObj } from '@storybook/react'
+import { inverseColorDecorator } from '../shared/decorators'
 import { exampleQuote } from '../shared/exampleContent'
 
 const quote = exampleQuote()
@@ -21,31 +22,17 @@ const meta = {
       table: { disable: false },
     },
   },
+  decorators: [inverseColorDecorator],
 } satisfies Meta<typeof Blockquote>
 
 export default meta
 
 type Story = StoryObj<typeof meta>
 
-export const Default: Story = {
-  decorators: [
-    (Story, context) => (
-      <div className={context.args.inverseColor ? 'ams-docs-dark-background' : undefined}>
-        <Story />
-      </div>
-    ),
-  ],
-}
+export const Default: Story = {}
 
 export const InvertedColor: Story = {
   args: {
     inverseColor: true,
   },
-  decorators: [
-    (Story, context) => (
-      <div className={context.args.inverseColor ? 'ams-docs-dark-background' : undefined}>
-        <Story />
-      </div>
-    ),
-  ],
 }
