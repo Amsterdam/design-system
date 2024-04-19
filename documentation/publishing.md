@@ -82,28 +82,26 @@ graph LR
 
 These dependencies mean we have to pay some extra attention when publishing.
 Generally, the dependencies between our packages our defined using [PNPM’s `workspace:*` feature](https://pnpm.io/workspaces#publishing-workspace-packages).
-This means that when publishing our upstream packages (CSS and React), the latest version of our downstream packages (tokens, assets and React icons)
-are defined as dependencies.
+This means that when publishing our upstream packages (CSS and React), the latest version of our downstream packages (tokens, assets, and React icons) are defined as dependencies.
 
-This works, as long as the publish at least includes new versions of both our CSS and React packages.
-But say we do a publish which only includes a new version of our tokens and assets packages.
+This works, as long as the publishing at least includes new versions of both our CSS and React packages.
+But say, we do a publishing which only includes a new version of our tokens and assets packages.
 They get a new version, but our CSS and React packages don’t have any changes, which means they don’t get new versions.
 This means the latest version of our CSS package has a peer dependency on an older version of our tokens package.
 
 To fix this, we can manually add the latest version of our tokens package as a peer dependency of our CSS package.
 In other words, we’d replace `"@amsterdam/design-system-tokens": "workspace:*"` with `"@amsterdam/design-system-tokens": "1.2.3"`.
-After this, don’t forget to run `pnpm i` to update the lockfile.
+After this, please don't forget to run `pnpm i` to update the lockfile.
 The changes to the `package.json` and the lockfile mean we can release a new version of our CSS package, which will contain the correct peer dependency.
 
 Seeing as our CSS package is itself also a peer dependency of our React package, in the most extreme case we would have to do something like:
 
-1. Release a new version of our tokens and / or assets packages only.
+1. Release a new version of our tokens or assets packages only.
 2. Manually change the peer dependency of our CSS package and release that.
 3. Manually change the peer dependency of our React package and release that.
 
-This probably won’t happen very often, seeing as we usually make changes to both our CSS and React packages in between publishes,
-but in the future it might.
+This probably won’t happen frequently, seeing as we usually modify both our CSS and React packages in between publishes, but in the future it might.
 
 Manually changing a peer dependency of an upstream package means it’s defined statically, not dynamically.
-For the next release of our upstream package, we probably want to change it back to a dynamic definition (i.e. `workspace:*`).
-Don’t forget to run `pnpm i` after doing this, to update the lockfile.
+For the next release of our upstream package, we likely want to change it back to a dynamic definition (i.e. `workspace:*`).
+Please remember to run `pnpm i` after doing this, to update the lockfile.
