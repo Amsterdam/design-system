@@ -6,6 +6,7 @@
 @import "../../common/text-rendering";
 
 @mixin reset {
+  // Reset native appearance, this causes issues on iOS and Android devices
   -webkit-appearance: none;
   appearance: none;
   border: 0;
