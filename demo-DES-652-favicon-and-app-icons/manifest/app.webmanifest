@@ -1,0 +1,12 @@
+{
+  "name": "APP_NAME_FULL",
+  "short_name": "APP_NAME",
+  "icons": [
+    {
+      "src": "appicons/icon-192.png",
+      "type": "image/png",
+      "sizes": "192x192"
+    },
+    { "src": "appicons/icon-512.png", "type": "image/png", "sizes": "512x512" }
+  ]
+}
