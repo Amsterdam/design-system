@@ -3,6 +3,32 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.8.0](https://github.com/Amsterdam/design-system/compare/design-system-react-v0.7.1...design-system-react-v0.8.0) (2024-04-22)
+
+
+### ⚠ BREAKING CHANGES
+
+* Rename Form Label to Label ([#1201](https://github.com/Amsterdam/design-system/issues/1201))
+
+### Features
+
+* Add background colour and full-height prop to Screen ([#1144](https://github.com/Amsterdam/design-system/issues/1144)) ([c4621e8](https://github.com/Amsterdam/design-system/commit/c4621e817cb0306fe109046d41847725d47b33a2))
+* Add date input ([#1152](https://github.com/Amsterdam/design-system/issues/1152)) ([afbbef8](https://github.com/Amsterdam/design-system/commit/afbbef8bb1a3d13fa47638ce2856def0c028b13f))
+* Add Description List component ([#1139](https://github.com/Amsterdam/design-system/issues/1139)) ([ee3428a](https://github.com/Amsterdam/design-system/commit/ee3428ab701ea3980f26a8562acbecc6e4eb031e))
+* Remove border from accordion section and move chevron to the left ([#1116](https://github.com/Amsterdam/design-system/issues/1116)) ([3e23677](https://github.com/Amsterdam/design-system/commit/3e2367738664dcd0e4d3d4267c021c0992572da7))
+* Rename Form Label to Label ([#1201](https://github.com/Amsterdam/design-system/issues/1201)) ([c5f82ab](https://github.com/Amsterdam/design-system/commit/c5f82abcc41ac4652af6c270325441d448d65525))
+* Restore wrapping of items in Page Menu ([#1145](https://github.com/Amsterdam/design-system/issues/1145)) ([4068e52](https://github.com/Amsterdam/design-system/commit/4068e52bee9bba087ef9fd94bcf2a292c4affad9))
+* Select component ([#1151](https://github.com/Amsterdam/design-system/issues/1151)) ([7679acc](https://github.com/Amsterdam/design-system/commit/7679acc7542c2e3d1279b9eaa364031092d16016))
+* Time input component ([#1202](https://github.com/Amsterdam/design-system/issues/1202)) ([ccec68e](https://github.com/Amsterdam/design-system/commit/ccec68efafa02d5f9ac9bd4abea6c5e7cb72d556))
+
+
+### Bug Fixes
+
+* Fix autodocs for stories ([#1149](https://github.com/Amsterdam/design-system/issues/1149)) ([48c9610](https://github.com/Amsterdam/design-system/commit/48c961023932d673ff815d6e123e61670ed9d1d0))
+* Move @babel/runtime dev dependency to regular dependencies ([#1204](https://github.com/Amsterdam/design-system/issues/1204)) ([5603c08](https://github.com/Amsterdam/design-system/commit/5603c0863d1612aa7c3793209ddd37fa0222666d))
+* Polymorphic component typing ([#1140](https://github.com/Amsterdam/design-system/issues/1140)) ([291c8f1](https://github.com/Amsterdam/design-system/commit/291c8f1711287542a98d7780372b55349eaa6683))
+* Use correct text size in Text Input, Search Field, and Text Area ([#1150](https://github.com/Amsterdam/design-system/issues/1150)) ([d5462e4](https://github.com/Amsterdam/design-system/commit/d5462e4537cfb39d62d0cd31564cfff086238330))
+
 ## [0.7.1](https://github.com/Amsterdam/design-system/compare/design-system-react-v0.7.0...design-system-react-v0.7.1) (2024-03-22)
 
 
