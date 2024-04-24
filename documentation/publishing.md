@@ -66,42 +66,33 @@ To fix this, check whether any closed PRs still have the `autorelease: pending` 
 
 ## Dependencies between packages
 
-We’ve defined (peer) dependencies between our packages, to simplify the installation process.
-For example, our React package has a peer dependency on our CSS package.
-When installing our React package, the correct version of our CSS package is automatically installed with it.
+We’ve established dependencies between our packages for smoother installation.
+For instance, our React package relies on our CSS package.
+When you install React, the corresponding version of our CSS package is automatically included.
 
-The dependency tree looks like this:
+Here’s the dependency structure:
 
 ```mermaid
 graph LR
-  RI["React icons"] --> React
+  RI["React Icons"] --> React
   Tokens --> CSS
   Assets --> CSS
   CSS --> React
 ```
 
-These dependencies mean we have to pay some extra attention when publishing.
-Generally, the dependencies between our packages are defined using [PNPM’s `workspace:*` feature](https://pnpm.io/workspaces#publishing-workspace-packages).
-This means that when publishing our upstream packages (CSS and React), the latest version of our downstream packages (tokens, assets, and React icons) are defined as dependencies.
+Managing these dependencies requires extra attention when publishing.
+We use [PNPM’s workspace feature](https://pnpm.io/workspaces#publishing-workspace-packages) to define dependencies among our packages.
+When we publish upstream packages like CSS and React, the latest specific versions of downstream packages (Tokens, Assets, and React Icons) get listed as dependencies.
 
-This works, as long as the release at least includes new versions of both our CSS and React packages.
-But say, we do a release which only includes a new version of our tokens and assets packages.
-They get a new version, but our CSS and React packages don’t have any changes, which means they don’t get new versions.
-This means the latest version of our CSS package has a peer dependency on an older version of our tokens package.
+This setup works well when we update both CSS and React in a release.
+However, issues arise if a release only updates Tokens and Assets without changes to CSS or React.
+The latest version of CSS then depends on an older version of Tokens.
 
-To fix this, we can manually add the latest version of our tokens package as a peer dependency of our CSS package.
-In other words, we’d replace `"@amsterdam/design-system-tokens": "workspace:*"` with `"@amsterdam/design-system-tokens": "1.2.3"`.
-After this, please don’t forget to run `pnpm i` to update the lockfile.
-The changes to the `package.json` and the lockfile mean we can release a new version of our CSS package, which will contain the correct peer dependency.
+To resolve this, we can manually let CSS depend on the latest version of Tokens.
+We replace `"@amsterdam/design-system-tokens": "workspace:*"` with `"@amsterdam/design-system-tokens": "x.y.z"` and run `pnpm i` to update the lockfile.
+These changes enable a correct peer dependency in the new CSS package.
 
-Seeing as our CSS package is itself also a peer dependency of our React package, in the most extreme case we would have to do something like:
+After that, restore the dynamic dependency (`workspace:*`) and run `pnpm i` again.
 
-1. Release a new version of our tokens or assets packages only.
-2. Manually change the peer dependency of our CSS package and release that.
-3. Manually change the peer dependency of our React package and release that.
-
-This probably won’t happen frequently, seeing as we usually modify both our CSS and React packages in between releases, but in the future it might.
-
-Manually changing a peer dependency of an upstream package means it’s defined statically, not dynamically.
-For the next release of our upstream package, we likely want to change it back to a dynamic definition (i.e. `workspace:*`).
-Please remember to run `pnpm i` after doing this, to update the lockfile.
+The most extreme case requires us to release a new version of Tokens or Assets only, then update and release CSS , then update and release React.
+Although infrequent, this scenario might occur in the future.
