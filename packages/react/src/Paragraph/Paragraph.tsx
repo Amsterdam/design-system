@@ -11,7 +11,7 @@ import type { ForwardedRef, HTMLAttributes, PropsWithChildren } from 'react'
 export type ParagraphProps = {
   /** The size of the paragraph. */
   size?: 'small' | 'large'
-  /** Property to show the heading in the opposite color. */
+  /** Changes the text color for readability on a dark background. */
   inverseColor?: boolean
 } & PropsWithChildren<HTMLAttributes<HTMLParagraphElement>>
 

@@ -15,9 +15,9 @@ type HeadingSize = 'level-1' | 'level-2' | 'level-3' | 'level-4' | 'level-5' | '
 export type HeadingProps = {
   /** The hierarchical level of the title. */
   level?: HeadingLevel
-  /** The visual size of the title. Use this to make the title larger or smaller without changing its position in the heading hierarchy. */
+  /** Makes the title larger or smaller without changing its position in the heading hierarchy. */
   size?: HeadingSize
-  /** Property to show the heading in the opposite color. */
+  /** Changes the text color for readability on a dark background. */
   inverseColor?: boolean
 } & PropsWithChildren<HTMLAttributes<HTMLHeadingElement>>
 
