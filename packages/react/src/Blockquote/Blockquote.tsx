@@ -8,10 +8,7 @@ import { forwardRef } from 'react'
 import type { BlockquoteHTMLAttributes, ForwardedRef, PropsWithChildren } from 'react'
 
 export type BlockquoteProps = {
-  /**
-   * De kleur van het citaat.
-   * Gebruik deze property om het citaat in tegenovergestelde kleur te tonen.
-   */
+  /** Property to show the quote in the opposite color. */
   inverseColor?: boolean
 } & PropsWithChildren<BlockquoteHTMLAttributes<HTMLQuoteElement>>
 

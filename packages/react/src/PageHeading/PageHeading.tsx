@@ -8,10 +8,7 @@ import { forwardRef } from 'react'
 import type { ForwardedRef, HTMLAttributes, PropsWithChildren } from 'react'
 
 export type PageHeadingProps = {
-  /**
-   * De kleur van de titel
-   * Gebruik deze property om de titel in tegenovergestelde kleur te tonen.
-   */
+  /** Property to show the heading in the opposite color. */
   inverseColor?: boolean
 } & PropsWithChildren<HTMLAttributes<HTMLHeadingElement>>
 
