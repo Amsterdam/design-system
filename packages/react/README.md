@@ -42,7 +42,7 @@ export default App;
 
 For applications, the large text and ample white space of the theme can be counterproductive.
 That’s why there is a compact mode.
-To use the compact mode, import the compact css **after** theme css, like so:
+To use the compact mode, import the compact CSS **after** the theme CSS, like so:
 
 ```javascript
 import "@amsterdam/design-system-tokens/dist/index.css";
