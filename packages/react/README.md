@@ -18,11 +18,13 @@ Make sure you specify the exact version as dependency, so you can schedule to up
 
 ## Getting started
 
-Install the React packages, like so:
+Install the React package:
 
 `npm install @amsterdam/design-system-react`
 
-Import the components and CSS you need, for example:
+This will automatically add separate packages containing our design tokens, assets, icons, and stylesheets.
+
+Import the components and stylesheets you need, for example:
 
 ```javascript
 import { Paragraph } from "@amsterdam/design-system-react";
