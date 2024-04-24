@@ -1,33 +1,42 @@
 import { Meta } from "@storybook/blocks";
-import { IcoFavicon, PngIconAppleTouch, PngIconsWebApp, SvgIconDefault } from "./components/AppIcons";
+import { AppleTouchIcon, Favicon, SvgIcon, WebAppIcons } from "./components/AppIcons";
 
 <Meta title="Docs/Assets/Favicon & App Icons" />
 
 # Favicon & App Icons
 
-Examples of all the assets needed to display a website icon (a favicon) in the web browser or publish a web app with the proper app names and icons. This set should cover all the combinations of common operating systems (Android, iOS, macOS, Windows) and browsers (Chrome, Safari, Edge, Firefox).
+Represent the website in bookmarks, on home screens, in syndication and other tools.
+
+Here’s how to display a website icon (a favicon) in the web browser or publish a web app with the proper app names and icons.
+This set covers all combinations of common operating systems (Android, iOS, macOS, and Windows) and browsers (Chrome, Safari, Edge, and Firefox).
 
 ## Overview & examples
 
-### Default SVG Icon
-
-<SvgIconDefault />
-
-```html
-<link rel="icon" type="image/svg+xml" href="icon.svg" />
-```
-
 ### Favicon
 
-<IcoFavicon />
+<Favicon />
+
+We include a classic icon file with this exact name as a baseline for some browsers and RSS readers.
 
 ```html
 <link rel="icon" href="favicon.ico" sizes="16x16 32x32 64x64" />
 ```
 
+### SVG Icon
+
+Roughly 75% of browsers support SVG favicons, which are more efficient and versatile.
+
+<SvgIcon />
+
+```html
+<link rel="icon" type="image/svg+xml" href="icon.svg" />
+```
+
 ### Apple Touch Icon
 
-<PngIconAppleTouch />
+<AppleTouchIcon />
+
+An iPhone or iPad uses this image when adding the webpage as a shortcut to your home screen.
 
 ```html
 <link rel="apple-touch-icon" href="apple-touch-icon.png" />
@@ -35,7 +44,7 @@ Examples of all the assets needed to display a website icon (a favicon) in the w
 
 ### Web App Icons
 
-<PngIconsWebApp />
+<WebAppIcons />
 
 Include `icons` object in `*.webmanifest` (see [Usage](#usage)):
 
@@ -56,7 +65,8 @@ Link the Web Manifest in the `<head>`:
 <link rel="manifest" href="app.webmanifest" />
 ```
 
-> Note: only include a Web Manifest if you want the website to be installable as a Progressive Web App (PWA). Browsers [may prompt the user to install the app](https://web.dev/learn/pwa/installation-prompt) on their device if a manifest is found.
+> Note: only include a Web Manifest if you want the website to be installable as a Progressive Web App (PWA).
+> Browsers [may prompt the user to install the app](https://web.dev/learn/pwa/installation-prompt) on their device if a manifest is found.
 
 ## Usage
 
@@ -89,13 +99,15 @@ sh node_modules/@amsterdam/design-system-assets/postinstall.sh "Full App Name" "
 
 Users may then be prompted to install the app as a PWA.
 
-> If an `index.html` is found in the root or in a `public` directory the script will also insert the links in the HTML's `<head>` tag. This will not be the case for Next.js applications.
+> If an `index.html` is found in the root or in a `public` directory the script will also insert the links in the HTML's `<head>` tag.
+> This will not be the case for Next.js applications.
 
 > This script can work for any project that has an `index.html` file in the root or `public` directory.
 
 ### (B) Link manually
 
-You can manually [symlink (symbolic link)](https://en.wikipedia.org/wiki/Symbolic_link#POSIX_and_Unix-like_operating_systems) and copy the files to the root or a `public` folder next to where the `index.html` is located in your project. An advantage of symlinking is that it tracks changes to the assets when there are package updates.
+You can manually [symlink (symbolic link)](https://en.wikipedia.org/wiki/Symbolic_link#POSIX_and_Unix-like_operating_systems) and copy the files to the root or a `public` folder next to where the `index.html` is located in your project.
+An advantage of symlinking is that it tracks changes to the assets when there are package updates.
 
 Symlinking [the entire favicon directory](https://github.com/Amsterdam/design-system/tree/develop/proprietary/assets/favicon) and copying the [Web Manifest](https://github.com/Amsterdam/design-system/tree/develop/proprietary/assets/app.manifest) can be done as follows:
 
@@ -106,7 +118,8 @@ ln -s node_modules/@amsterdam/design-system-assets/favicon appicons
 cp node_modules/@amsterdam/design-system-assets/manifest/app.webmanifest app.webmanifest
 ```
 
-> Note: for the symlink, the last argument in the above command cannot be a path, but can only be the file or directory name. I.e. you need to be in the directory where you want to make the symbolic link.
+> Note: for the symlink, the last argument in the above command cannot be a path, but can only be the file or directory name.
+> I.e. you need to be in the directory where you want to make the symbolic link.
 
 > Note that undoing a symlink can be done by simply removing the created file or directory link:
 >
@@ -114,9 +127,12 @@ cp node_modules/@amsterdam/design-system-assets/manifest/app.webmanifest app.web
 > rm -r appicons app.webmanifest
 > ```
 
-> Note: not all servers recognize the `.webmanifest` extension. See [Using a link element to link to a manifest on W3.org](https://www.w3.org/TR/appmanifest/#using-a-link-element-to-link-to-a-manifest) for more information.
+> Note: not all servers recognize the `.webmanifest` extension.
+> See [Using a link element to link to a manifest on W3.org](https://www.w3.org/TR/appmanifest/#using-a-link-element-to-link-to-a-manifest) for more information.
 
-Make sure that the Web Manifest, stating the app's name and referencing the PNG icons, is available in the same location. Edit the `app.webmanifest` file to include the app's name and the icons you want to use. For example:
+Make sure that the Web Manifest, stating the app's name and referencing the PNG icons, is available in the same location.
+Edit the `app.webmanifest` file to include the app's name and the icons you want to use.
+For example:
 
 ```json
 {

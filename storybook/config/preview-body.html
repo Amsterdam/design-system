@@ -1,5 +1,7 @@
 <style>
   .ams-docs-figure {
+    display: flex;
+    gap: 0.25rem;
     margin: 0; /* stylelint-disable-line */
     padding: 0; /* stylelint-disable-line */
   }
@@ -8,12 +10,18 @@
   .ams-docs-figure > img {
     display: block;
     max-width: 100%;
+    outline: 1px dashed #e8e8e8;
+  }
+
+  .ams-docs-figure > figcaption {
+    text-align: center;
   }
 
   .ams-docs-gallery {
+    align-items: flex-end;
     display: flex;
-    align-items: center;
-    gap: 1em;
+    gap: 2rem;
+    margin-block: 1.5rem;
   }
 
   .ams-docs-gallery .ams-docs-figure {
