@@ -65,6 +65,7 @@ export const Disabled: Story = {
 export const File: Story = {
   args: {
     type: 'file',
+    accept: 'image/*,.pdf',
   },
 }
 

@@ -72,6 +72,11 @@
   padding-inline: var(--ams-input-file-selector-button-padding-inline);
 }
 
-.ams-input:hover::file-selector-button {
+.ams-input:disabled::file-selector-button {
+  color: var(--ams-input-disabled-color);
+  cursor: not-allowed;
+}
+
+.ams-input:not(:disabled):hover::file-selector-button {
   text-decoration: underline;
 }
