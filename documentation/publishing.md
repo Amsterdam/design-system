@@ -92,7 +92,7 @@ To resolve this, we can manually let CSS depend on the latest version of Tokens.
 We replace `"@amsterdam/design-system-tokens": "workspace:*"` with `"@amsterdam/design-system-tokens": "x.y.z"` and run `pnpm i` to update the lockfile.
 We then release a new version of our CSS package, with the correct peer dependency.
 
-After that, restore the dynamic dependency (`workspace:*`) and run `pnpm i` again.
+After that, consider restoring the dynamic dependency (`workspace:*`) and updating the lockfile (`pnpm i`) accordingly.
 
 The most extreme case requires us to release a new version of Tokens or Assets only, then update and release CSS, then update and release React.
 Although infrequent, this scenario might occur in the future.
