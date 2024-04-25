@@ -54,3 +54,14 @@
     box-shadow: var(--ams-input-invalid-hover-box-shadow);
   }
 }
+
+.ams-input::file-selector-button {
+  background-color: var(--ams-input-file-selector-button-background-color);
+  border: 0;
+  color: var(--ams-input-file-selector-button-color);
+  padding-inline-end: var(--ams-input-file-selector-button-padding-inline-end);
+}
+
+.ams-input:hover::file-selector-button {
+  text-decoration: underline;
+}

@@ -27,6 +27,14 @@
       },
       "placeholder": {
         "color": { "value": "{ams.color.neutral-grey3}" }
+      },
+      "file-selector-button": {
+        "background-color": { "value": "transparent" },
+        "color": { "value": "{ams.color.primary-blue}" },
+        "padding-inline-end": { "value": "{ams.space.inside.md}" },
+        "hover": {
+          "text-decoration": { "value": "underline" }
+        }
       }
     }
   }
