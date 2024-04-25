@@ -23,8 +23,7 @@
   padding-block: var(--ams-input-padding-block);
   padding-inline: var(--ams-input-padding-inline);
   touch-action: manipulation;
-
-  // width: 100%;
+  width: 100%;
 
   @include text-rendering;
   @include reset;
