@@ -13,19 +13,11 @@ export type HeadingLevel = 1 | 2 | 3 | 4
 type HeadingSize = 'level-1' | 'level-2' | 'level-3' | 'level-4' | 'level-5' | 'level-6'
 
 export type HeadingProps = {
-  /**
-   * Het hiërarchische niveau van de titel.
-   */
+  /** The hierarchical level of the title. */
   level?: HeadingLevel
-  /**
-   * De visuele grootte van de titel.
-   * Voeg dit toe om de titel groter of kleiner weer te geven zonder de semantische betekenis te veranderen.
-   */
+  /** Makes the title larger or smaller without changing its position in the heading hierarchy. */
   size?: HeadingSize
-  /**
-   * De kleur van de titel
-   * Gebruik deze property om de titel in tegenovergestelde kleur te tonen.
-   */
+  /** Changes the text color for readability on a dark background. */
   inverseColor?: boolean
 } & PropsWithChildren<HTMLAttributes<HTMLHeadingElement>>
 

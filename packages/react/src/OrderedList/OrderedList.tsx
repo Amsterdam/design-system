@@ -10,6 +10,7 @@ import { OrderedListItem } from './OrderedListItem'
 
 export type OrderedListProps = {
   markers?: boolean
+  /** Changes the text color for readability on a dark background. */
   inverseColor?: boolean
 } & PropsWithChildren<OlHTMLAttributes<HTMLOListElement>>
 
