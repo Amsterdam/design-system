@@ -28,7 +28,7 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 ### Bug Fixes
 
-* Use correct text size in Text Input, Search Field, and Text Area ([#1150](https://github.com/Amsterdam/design-system/issues/1150)) ([d5462e4](https://github.com/Amsterdam/design-system/commit/d5462e4537cfb39d62d0cd31564cfff086238330))
+* Use correct text size in Input, Search Field, and Text Area ([#1150](https://github.com/Amsterdam/design-system/issues/1150)) ([d5462e4](https://github.com/Amsterdam/design-system/commit/d5462e4537cfb39d62d0cd31564cfff086238330))
 
 ## [0.7.1](https://github.com/Amsterdam/design-system/compare/design-system-tokens-v0.7.0...design-system-tokens-v0.7.1) (2024-03-22)
 

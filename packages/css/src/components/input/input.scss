@@ -1,0 +1,56 @@
+/**
+ * @license EUPL-1.2+
+ * Copyright Gemeente Amsterdam
+ */
+
+@import "../../common/text-rendering";
+
+@mixin reset {
+  box-sizing: border-box;
+  margin-block: 0;
+}
+
+.ams-input {
+  background-color: var(--ams-input-background-color);
+  border: 0;
+  box-shadow: var(--ams-input-box-shadow);
+  color: var(--ams-input-color);
+  font-family: var(--ams-input-font-family);
+  font-size: var(--ams-input-font-size);
+  font-weight: var(--ams-input-font-weight);
+  line-height: var(--ams-input-line-height);
+  outline-offset: var(--ams-input-outline-offset);
+  padding-block: var(--ams-input-padding-block);
+  padding-inline: var(--ams-input-padding-inline);
+  touch-action: manipulation;
+
+  // width: 100%;
+
+  @include text-rendering;
+  @include reset;
+
+  &:hover {
+    box-shadow: var(--ams-input-hover-box-shadow);
+  }
+}
+
+.ams-input::placeholder {
+  color: var(--ams-input-placeholder-color);
+}
+
+.ams-input:disabled {
+  background-color: var(--ams-input-disabled-background-color);
+  box-shadow: var(--ams-input-disabled-box-shadow);
+  color: var(--ams-input-disabled-color);
+  cursor: not-allowed;
+}
+
+.ams-input:invalid,
+.ams-input[aria-invalid="true"] {
+  box-shadow: var(--ams-input-invalid-box-shadow);
+
+  &:hover {
+    // TODO: this should be the (currently non-existent) dark red hover color
+    box-shadow: var(--ams-input-invalid-hover-box-shadow);
+  }
+}

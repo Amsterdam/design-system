@@ -27,7 +27,7 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 * Fix autodocs for stories ([#1149](https://github.com/Amsterdam/design-system/issues/1149)) ([48c9610](https://github.com/Amsterdam/design-system/commit/48c961023932d673ff815d6e123e61670ed9d1d0))
 * Move @babel/runtime dev dependency to regular dependencies ([#1204](https://github.com/Amsterdam/design-system/issues/1204)) ([5603c08](https://github.com/Amsterdam/design-system/commit/5603c0863d1612aa7c3793209ddd37fa0222666d))
 * Polymorphic component typing ([#1140](https://github.com/Amsterdam/design-system/issues/1140)) ([291c8f1](https://github.com/Amsterdam/design-system/commit/291c8f1711287542a98d7780372b55349eaa6683))
-* Use correct text size in Text Input, Search Field, and Text Area ([#1150](https://github.com/Amsterdam/design-system/issues/1150)) ([d5462e4](https://github.com/Amsterdam/design-system/commit/d5462e4537cfb39d62d0cd31564cfff086238330))
+* Use correct text size in Input, Search Field, and Text Area ([#1150](https://github.com/Amsterdam/design-system/issues/1150)) ([d5462e4](https://github.com/Amsterdam/design-system/commit/d5462e4537cfb39d62d0cd31564cfff086238330))
 
 ## [0.7.1](https://github.com/Amsterdam/design-system/compare/design-system-react-v0.7.0...design-system-react-v0.7.1) (2024-03-22)
 

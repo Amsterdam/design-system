@@ -1,12 +1,12 @@
 import { render, screen } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
 import { createRef, useState } from 'react'
-import { TextInput } from './TextInput'
+import { Input } from './Input'
 import '@testing-library/jest-dom'
 
 describe('Text input', () => {
   it('renders', () => {
-    render(<TextInput />)
+    render(<Input />)
 
     const component = screen.getByRole('textbox')
 
@@ -15,28 +15,28 @@ describe('Text input', () => {
   })
 
   it('renders a design system BEM class name', () => {
-    render(<TextInput />)
+    render(<Input />)
 
     const component = screen.getByRole('textbox')
 
-    expect(component).toHaveClass('ams-text-input')
+    expect(component).toHaveClass('ams-input')
   })
 
   it('renders an additional class name', () => {
-    render(<TextInput className="extra" />)
+    render(<Input className="extra" />)
 
     const component = screen.getByRole('textbox')
 
     expect(component).toHaveClass('extra')
 
-    expect(component).toHaveClass('ams-text-input')
+    expect(component).toHaveClass('ams-input')
   })
 
   it('should be working in a controlled state', async () => {
     function ControlledComponent() {
       const [value, setValue] = useState('Hello')
 
-      return <TextInput value={value} onChange={(e) => setValue(e.target.value)} />
+      return <Input value={value} onChange={(e) => setValue(e.target.value)} />
     }
 
     render(<ControlledComponent />)
@@ -54,7 +54,7 @@ describe('Text input', () => {
   })
 
   it('should not update the value when disabled', async () => {
-    render(<TextInput disabled defaultValue="Hello" />)
+    render(<Input disabled defaultValue="Hello" />)
 
     const component = screen.getByRole('textbox')
     if (component) {
@@ -67,7 +67,7 @@ describe('Text input', () => {
   it('supports ForwardRef in React', () => {
     const ref = createRef<HTMLInputElement>()
 
-    render(<TextInput ref={ref} />)
+    render(<Input ref={ref} />)
 
     const component = screen.getByRole('textbox')
 
