@@ -31,7 +31,8 @@
       "file-selector-button": {
         "background-color": { "value": "transparent" },
         "color": { "value": "{ams.color.primary-blue}" },
-        "padding-inline-end": { "value": "{ams.space.inside.md}" },
+        "padding-block": { "value": ".2rem" },
+        "padding-inline": { "value": "0 {ams.space.inside.md}" },
         "hover": {
           "text-decoration": { "value": "underline" }
         }

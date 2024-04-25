@@ -6,13 +6,13 @@
 @import "../../common/text-rendering";
 
 @mixin reset {
+  border: 0;
   box-sizing: border-box;
   margin-block: 0;
 }
 
 .ams-input {
   background-color: var(--ams-input-background-color);
-  border: 0;
   box-shadow: var(--ams-input-box-shadow);
   color: var(--ams-input-color);
   font-family: var(--ams-input-font-family);
@@ -54,11 +54,21 @@
   }
 }
 
+.ams-input[type="file"] {
+  // Workaround for iOS where the text is not properly aligned with the button
+  align-items: center;
+  display: flex;
+  justify-content: flex-start;
+}
+
 .ams-input::file-selector-button {
   background-color: var(--ams-input-file-selector-button-background-color);
   border: 0;
   color: var(--ams-input-file-selector-button-color);
-  padding-inline-end: var(--ams-input-file-selector-button-padding-inline-end);
+  font-family: var(--ams-button-font-family);
+  font-size: var(--ams-button-font-size);
+  padding-block: var(--ams-input-file-selector-button-padding-block);
+  padding-inline: var(--ams-input-file-selector-button-padding-inline);
 }
 
 .ams-input:hover::file-selector-button {
