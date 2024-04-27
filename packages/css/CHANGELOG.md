@@ -3,6 +3,34 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.8.0](https://github.com/Amsterdam/design-system/compare/design-system-css-v0.7.1...design-system-css-v0.8.0) (2024-04-22)
+
+
+### ⚠ BREAKING CHANGES
+
+* Rename Form Label to Label ([#1201](https://github.com/Amsterdam/design-system/issues/1201))
+* Allow setting a background colour on Tabs List ([#1142](https://github.com/Amsterdam/design-system/issues/1142))
+
+### Features
+
+* Add background colour and full-height prop to Screen ([#1144](https://github.com/Amsterdam/design-system/issues/1144)) ([c4621e8](https://github.com/Amsterdam/design-system/commit/c4621e817cb0306fe109046d41847725d47b33a2))
+* Add border tokens and use rems for widths ([#1147](https://github.com/Amsterdam/design-system/issues/1147)) ([d91d889](https://github.com/Amsterdam/design-system/commit/d91d889c3a529a90167bd9b9d0d9c3174b2b0e05))
+* Add date input ([#1152](https://github.com/Amsterdam/design-system/issues/1152)) ([afbbef8](https://github.com/Amsterdam/design-system/commit/afbbef8bb1a3d13fa47638ce2856def0c028b13f))
+* Add Description List component ([#1139](https://github.com/Amsterdam/design-system/issues/1139)) ([ee3428a](https://github.com/Amsterdam/design-system/commit/ee3428ab701ea3980f26a8562acbecc6e4eb031e))
+* Add document-level classes and guidelines ([#1136](https://github.com/Amsterdam/design-system/issues/1136)) ([c13d91d](https://github.com/Amsterdam/design-system/commit/c13d91d418dd0a596de9e65e3c4f729e04e75bfd))
+* Allow setting a background colour on Tabs List ([#1142](https://github.com/Amsterdam/design-system/issues/1142)) ([fedb1a1](https://github.com/Amsterdam/design-system/commit/fedb1a1d8f54decc81e5bd5081f8eb9a35dfb9b6))
+* Remove border from accordion section and move chevron to the left ([#1116](https://github.com/Amsterdam/design-system/issues/1116)) ([3e23677](https://github.com/Amsterdam/design-system/commit/3e2367738664dcd0e4d3d4267c021c0992572da7))
+* Rename Form Label to Label ([#1201](https://github.com/Amsterdam/design-system/issues/1201)) ([c5f82ab](https://github.com/Amsterdam/design-system/commit/c5f82abcc41ac4652af6c270325441d448d65525))
+* Restore wrapping of items in Page Menu ([#1145](https://github.com/Amsterdam/design-system/issues/1145)) ([4068e52](https://github.com/Amsterdam/design-system/commit/4068e52bee9bba087ef9fd94bcf2a292c4affad9))
+* Select component ([#1151](https://github.com/Amsterdam/design-system/issues/1151)) ([7679acc](https://github.com/Amsterdam/design-system/commit/7679acc7542c2e3d1279b9eaa364031092d16016))
+* Set explicit white background on text fields ([#1200](https://github.com/Amsterdam/design-system/issues/1200)) ([e22d48e](https://github.com/Amsterdam/design-system/commit/e22d48eae8994eb370e3edef38a0ca1e015925bf))
+* Time input component ([#1202](https://github.com/Amsterdam/design-system/issues/1202)) ([ccec68e](https://github.com/Amsterdam/design-system/commit/ccec68efafa02d5f9ac9bd4abea6c5e7cb72d556))
+
+
+### Bug Fixes
+
+* Fix SearchField styling on Safari on iOS ([#1203](https://github.com/Amsterdam/design-system/issues/1203)) ([eb05fff](https://github.com/Amsterdam/design-system/commit/eb05fff8295af3c59ef584700e3c1bc06da0c924))
+
 ## [0.7.1](https://github.com/Amsterdam/design-system/compare/design-system-css-v0.7.0...design-system-css-v0.7.1) (2024-03-22)
 
 

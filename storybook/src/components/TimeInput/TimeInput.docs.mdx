@@ -1,0 +1,19 @@
+import { Canvas, Controls, Markdown, Meta, Primary } from "@storybook/blocks";
+import * as TimeInputStories from "./TimeInput.stories.tsx";
+import README from "../../../../packages/css/src/components/time-input/README.md?raw";
+
+<Meta of={TimeInputStories} />
+
+<Markdown>{README}</Markdown>
+
+<Primary />
+
+<Controls />
+
+## Invalid
+
+<Canvas of={TimeInputStories.Invalid} />
+
+## Disabled
+
+<Canvas of={TimeInputStories.Disabled} />

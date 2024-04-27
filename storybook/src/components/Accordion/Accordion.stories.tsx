@@ -3,7 +3,7 @@
  * Copyright Gemeente Amsterdam
  */
 
-import { Accordion, Paragraph } from '@amsterdam/design-system-react'
+import { Accordion, Paragraph } from '@amsterdam/design-system-react/src'
 import { Meta, StoryObj } from '@storybook/react'
 import { exampleParagraph } from '../shared/exampleContent'
 
@@ -16,19 +16,6 @@ const meta = {
   component: Accordion,
   args: {
     headingLevel: 1,
-  },
-  argTypes: {
-    headingLevel: {
-      control: {
-        type: 'radio',
-      },
-      options: [1, 2, 3, 4],
-    },
-    section: {
-      control: {
-        type: 'boolean',
-      },
-    },
   },
 } satisfies Meta<typeof Accordion>
 

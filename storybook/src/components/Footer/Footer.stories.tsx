@@ -3,7 +3,15 @@
  * Copyright Gemeente Amsterdam
  */
 
-import { Footer, Grid, Heading, LinkList, PageMenu, Paragraph, VisuallyHidden } from '@amsterdam/design-system-react'
+import {
+  Footer,
+  Grid,
+  Heading,
+  LinkList,
+  PageMenu,
+  Paragraph,
+  VisuallyHidden,
+} from '@amsterdam/design-system-react/src'
 import { EmailIcon, PhoneIcon } from '@amsterdam/design-system-react-icons'
 import { Meta, StoryObj } from '@storybook/react'
 

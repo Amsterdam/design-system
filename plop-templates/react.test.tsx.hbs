@@ -1,40 +1,60 @@
+{{#if role}}
+import { render, screen } from '@testing-library/react'
+{{else}}
 import { render } from '@testing-library/react'
+{{/if}}
 import { createRef } from 'react'
 import { {{pascalCase name}} } from './{{pascalCase name}}'
 import '@testing-library/jest-dom'
 
 describe('{{sentenceCase name}}', () => {
   it('renders', () => {
+    {{#if role}}
+    render(<{{pascalCase name}} />)
+    const component = screen.getByRole('{{role}}')
+    {{else}}
     const { container } = render(<{{pascalCase name}} />)
-
     const component = container.querySelector(':only-child')
+    {{/if}}
 
     expect(component).toBeInTheDocument()
     expect(component).toBeVisible()
   })
 
   it('renders a design system BEM class name', () => {
+    {{#if role}}
+    render(<{{pascalCase name}} />)
+    const component = screen.getByRole('{{role}}')
+    {{else}}
     const { container } = render(<{{pascalCase name}} />)
-
     const component = container.querySelector(':only-child')
+    {{/if}}
 
     expect(component).toHaveClass('ams-{{kebabCase name}}')
   })
 
   it('renders an additional class name', () => {
+    {{#if role}}
+    render(<{{pascalCase name}} className="extra" />)
+    const component = screen.getByRole('{{role}}')
+    {{else}}
     const { container } = render(<{{pascalCase name}} className="extra" />)
-
     const component = container.querySelector(':only-child')
+    {{/if}}
 
     expect(component).toHaveClass('ams-{{kebabCase name}} extra')
   })
 
   it('supports ForwardRef in React', () => {
-    const ref = createRef<HTMLElement>()
+    const ref = createRef<{{ type }}>()
 
+    {{#if role}}
+    render(<{{pascalCase name}} ref={ref} />)
+    const component = screen.getByRole('{{role}}')
+    {{else}}
     const { container } = render(<{{pascalCase name}} ref={ref} />)
-
     const component = container.querySelector(':only-child')
+    {{/if}}
 
     expect(ref.current).toBe(component)
   })

@@ -8,7 +8,7 @@ import clsx from 'clsx'
 import { forwardRef, useContext, useId, useState } from 'react'
 import type { ForwardedRef, HTMLAttributes, PropsWithChildren } from 'react'
 import AccordionContext from './AccordionContext'
-import { getHeadingElement } from '../Heading/Heading'
+import { getHeadingElement } from '../Heading/getHeadingElement'
 import { Icon } from '../Icon/Icon'
 
 export type AccordionSectionProps = {
@@ -40,8 +40,8 @@ export const AccordionSection = forwardRef(
             onClick={() => setIsExpanded(!isExpanded)}
             type="button"
           >
+            <Icon svg={ChevronDownIcon} size="level-5" className="ams-accordion__icon" />
             {label}
-            <Icon svg={ChevronDownIcon} size="level-5" />
           </button>
         </HeadingX>
         {section ? (

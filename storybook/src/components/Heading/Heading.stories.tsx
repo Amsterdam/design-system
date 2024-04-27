@@ -3,8 +3,9 @@
  * Copyright Gemeente Amsterdam
  */
 
-import { Heading } from '@amsterdam/design-system-react'
+import { Heading } from '@amsterdam/design-system-react/src'
 import { Meta, StoryObj } from '@storybook/react'
+import { inverseColorDecorator } from '../shared/decorators'
 import { exampleHeading } from '../shared/exampleContent'
 
 const heading = exampleHeading()
@@ -20,31 +21,15 @@ const meta = {
     children: {
       table: { disable: false },
     },
-    level: {
-      control: 'radio',
-      options: [1, 2, 3, 4],
-    },
-    size: {
-      control: 'radio',
-      options: ['level-1', 'level-2', 'level-3', 'level-4', 'level-5', 'level-6'],
-    },
-    inverseColor: { control: 'boolean' },
   },
+  decorators: [inverseColorDecorator],
 } satisfies Meta<typeof Heading>
 
 export default meta
 
 type Story = StoryObj<typeof meta>
 
-export const Default: Story = {
-  decorators: [
-    (Story, context) => (
-      <div className={context.args.inverseColor ? 'ams-docs-dark-background' : undefined}>
-        <Story />
-      </div>
-    ),
-  ],
-}
+export const Default: Story = {}
 
 export const Heading1: Story = {}
 
@@ -70,11 +55,4 @@ export const InvertedColor: Story = {
   args: {
     inverseColor: true,
   },
-  decorators: [
-    (Story, context) => (
-      <div className={context.args.inverseColor ? 'ams-docs-dark-background' : undefined}>
-        <Story />
-      </div>
-    ),
-  ],
 }

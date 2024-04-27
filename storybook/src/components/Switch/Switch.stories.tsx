@@ -3,7 +3,7 @@
  * Copyright Gemeente Amsterdam
  */
 
-import { FormLabel, Switch } from '@amsterdam/design-system-react'
+import { Label, Switch } from '@amsterdam/design-system-react/src'
 import { useArgs } from '@storybook/preview-api'
 import { Meta, StoryObj } from '@storybook/react'
 
@@ -15,9 +15,6 @@ const meta = {
     disabled: false,
   },
   argTypes: {
-    disabled: {
-      control: 'boolean',
-    },
     onChange: { action: 'clicked', table: { disable: true } },
   },
   render: (args) => {
@@ -58,7 +55,7 @@ export const WithLabel: Story = {
 
     return (
       <>
-        <FormLabel htmlFor="switch-with-label">Label</FormLabel>
+        <Label htmlFor="switch-with-label">Label</Label>
         <Switch onClick={handleClick} {...args} id="switch-with-label" />
       </>
     )

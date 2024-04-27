@@ -58,8 +58,41 @@ This will cause a major version bump in both packages on release and add its des
 Release Please uses labels to determine the status of a release.
 A release PR gets the label `autorelease: pending` or `autorelease: triggered`.
 When running the action again, the PR with those labels gets released, and the labels should be removed.
-However, due to GitHub API failures, it's possible that the label was not removed correctly upon a previous release and Release Please thinks that the previous release is still pending.
+However, due to GitHub API failures, it’s possible that the label was not removed correctly upon a previous release and Release Please thinks that the previous release is still pending.
 Release Please will not create a new release PR if it thinks there is a pending release.
 To fix this, check whether any closed PRs still have the `autorelease: pending` or `autorelease: triggered` labels, and remove them.
 
 [See the Release Please docs for more information](https://github.com/googleapis/release-please?tab=readme-ov-file#release-please-bot-does-not-create-a-release-pr-why).
+
+## Dependencies between packages
+
+We’ve established dependencies between our packages for smoother installation.
+For instance, our React package relies on our CSS package.
+When you install our React package, the corresponding version of our CSS package is automatically included.
+
+Here’s the dependency structure:
+
+```mermaid
+graph LR
+  RI["React Icons"] --> React
+  Tokens --> CSS
+  Assets --> CSS
+  CSS --> React
+```
+
+Managing these dependencies requires extra attention when publishing.
+We use [PNPM’s workspace feature](https://pnpm.io/workspaces#publishing-workspace-packages) to define dependencies between our packages.
+When we publish upstream packages like CSS and React, the latest specific versions of downstream packages (Tokens, Assets, and React Icons) get listed as dependencies.
+
+This setup works well when we update both CSS and React in a release.
+However, issues arise if a release only updates Tokens and Assets without changes to CSS or React.
+The latest version of CSS then depends on an older version of Tokens.
+
+To resolve this, we can manually let CSS depend on the latest version of Tokens.
+We replace `"@amsterdam/design-system-tokens": "workspace:*"` with `"@amsterdam/design-system-tokens": "x.y.z"` and run `pnpm i` to update the lockfile.
+We then release a new version of our CSS package, with the correct peer dependency.
+
+After that, consider restoring the dynamic dependency (`workspace:*`) and updating the lockfile (`pnpm i`) accordingly.
+
+The most extreme case requires us to release a new version of Tokens or Assets only, then update and release CSS, then update and release React.
+Although infrequent, this scenario might occur in the future.
