@@ -129,3 +129,31 @@ export const TriggerButton: Story = {
     ),
   ],
 }
+
+export const VerticalButtons: Story = {
+  args: {
+    actions: (
+      <>
+        <Button type="submit">Ja, ik wil doorgaan</Button>
+        <Button onClick={closeDialog} variant="tertiary">
+          Nee, toch maar terug
+        </Button>
+      </>
+    ),
+    open: true,
+  },
+  decorators: [
+    (Story) => (
+      <div style={{ backgroundColor: '#0006', position: 'absolute', width: '100%', height: '100%' }}>
+        <Story />
+      </div>
+    ),
+  ],
+  parameters: {
+    layout: 'fullscreen',
+    docs: {
+      story: { height: '32em' },
+    },
+    viewport: { defaultViewport: 'phone' },
+  },
+}
