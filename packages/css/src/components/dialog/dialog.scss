@@ -46,6 +46,13 @@
 
 .ams-dialog__footer {
   display: flex;
-  flex-wrap: wrap;
+  flex-wrap: wrap; // [1]
   gap: var(--ams-dialog-footer-gap);
+  margin-inline-start: auto; // [1]
+
+  > * {
+    flex: auto; // [1]
+  }
 }
+
+// [1] This combination stacks the buttons vertically and stretches them, until they fit next to each other.
