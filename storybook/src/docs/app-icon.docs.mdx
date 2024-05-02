@@ -19,7 +19,7 @@ This set covers all combinations of common operating systems (Android, iOS, macO
 We include a classic icon file with this exact name as a baseline for some browsers and RSS readers.
 
 ```html
-<link rel="icon" href="favicon.ico" sizes="16x16 32x32 64x64" />
+<link rel="icon" href="favicon.ico" sizes="16x16 32x32 48x48 64x64" />
 ```
 
 ### SVG Icon
@@ -148,9 +148,12 @@ Then link all these assets by placing the following tags in the `<head>`:
 ```html
 <head>
   ...
-  <link rel="icon" href="appicons/favicon.ico" size="16x16 32x32 64x64" />
+  <!-- (Fav)icon(s) -->
+  <link rel="icon" href="appicons/favicon.ico" size="16x16 32x32 48x48 64x64" />
   <link rel="icon" href="appicons/icon.svg" type="image/svg+xml" />
   <link rel="apple-touch-icon" href="appicons/apple-touch-icon.png" />
+
+  <!-- Manifest for Progressive Web App -->
   <link rel="manifest" href="app.webmanifest" />
   ...
 </head>

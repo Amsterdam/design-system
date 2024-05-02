@@ -20,6 +20,10 @@ export const Favicon = () => (
       <figcaption>favicon.ico (32px)</figcaption>
     </figure>
     <figure className="ams-docs-figure">
+      <Image src="favicon/favicon.ico" width={48} height={48} />
+      <figcaption>favicon.ico (48px)</figcaption>
+    </figure>
+    <figure className="ams-docs-figure">
       <Image src="favicon/favicon.ico" width={64} height={64} />
       <figcaption>favicon.ico (64px)</figcaption>
     </figure>
