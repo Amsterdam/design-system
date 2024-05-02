@@ -42,11 +42,11 @@ export const SvgIcon = () => (
 export const WebAppIcons = () => (
   <div className="ams-docs-gallery">
     <figure className="ams-docs-figure">
-      <Image src="favicon/icon-192.png" width={192} height={192} />
+      <Image src="app-icons/icon-192.png" width={192} height={192} />
       <figcaption>icon-192.png (192px)</figcaption>
     </figure>
     <figure className="ams-docs-figure">
-      <Image src="favicon/icon-512.png" width={512} height={512} />
+      <Image src="app-icons/icon-512.png" width={512} height={512} />
       <figcaption>icon-512.png (512px)</figcaption>
     </figure>
   </div>
