@@ -1,0 +1,68 @@
+/**
+ * @license EUPL-1.2+
+ * Copyright Gemeente Amsterdam
+ */
+
+@import "../../common/text-rendering";
+
+@mixin reset {
+  border: 0;
+  border-radius: 0;
+  box-sizing: border-box;
+  margin-block: 0;
+}
+
+@mixin reset-button {
+  border: 0;
+}
+
+.ams-file-input {
+  align-items: center;
+  color: var(--ams-file-input-color);
+  display: flex;
+  font-family: var(--ams-file-input-font-family);
+  font-size: var(--ams-file-input-font-size);
+  font-weight: var(--ams-file-input-font-weight);
+  justify-content: flex-start;
+  line-height: var(--ams-file-input-line-height);
+  outline-offset: var(--ams-file-input-outline-offset);
+  touch-action: manipulation;
+  width: 100%;
+
+  @include text-rendering;
+  @include reset;
+}
+
+.ams-file-input:disabled {
+  color: var(--ams-file-input-disabled-color);
+  cursor: not-allowed;
+}
+
+.ams-file-input::file-selector-button {
+  background-color: var(--ams-file-input-file-selector-button-background-color);
+  box-shadow: var(--ams-file-input-file-selector-button-box-shadow);
+  color: var(--ams-file-input-file-selector-button-color);
+  cursor: var(--ams-file-input-file-selector-button-cursor);
+  display: inline-block;
+  font-family: inherit;
+  font-size: inherit;
+  font-weight: inherit;
+  /* stylelint-disable-next-line property-disallowed-list */
+  margin-right: 2ex;
+  padding-block: var(--ams-file-input-file-selector-button-padding-block);
+  padding-inline: var(--ams-file-input-file-selector-button-padding-inline);
+
+  @include reset-button;
+}
+
+.ams-file-input:disabled::file-selector-button {
+  background-color: var(--ams-file-input-file-selector-button-disabled-background-color);
+  box-shadow: var(--ams-file-input-file-selector-button-disabled-box-shadow);
+  color: var(--ams-file-input-disabled-color);
+  cursor: var(--ams-file-input-file-selector-button-disabled-cursor);
+}
+
+.ams-file-input:not(:disabled):hover::file-selector-button {
+  background-color: var(--ams-file-input-file-selector-button-hover-background-color);
+  box-shadow: var(--ams-file-input-file-selector-button-hover-box-shadow);
+}

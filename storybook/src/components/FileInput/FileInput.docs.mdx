@@ -1,0 +1,23 @@
+import { Canvas, Controls, Markdown, Meta, Primary } from "@storybook/blocks";
+import * as FileInputStories from "./FileInput.stories.tsx";
+import README from "../../../../packages/css/src/components/file-input/README.md?raw";
+
+<Meta of={FileInputStories} />
+
+<Markdown>{README}</Markdown>
+
+<Primary />
+
+<Controls />
+
+## Multiple Files
+
+<Canvas of={FileInputStories.Multiple} />
+
+## Accept
+
+<Canvas of={FileInputStories.Accept} />
+
+## Disabled
+
+<Canvas of={FileInputStories.Disabled} />
