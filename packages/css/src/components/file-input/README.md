@@ -6,4 +6,4 @@ The file input component is a styled input element that allows users to select a
 
 ## Visual considerations
 
-The filename label and button are displayed in the language of the browser.
+The filename label and button are displayed in the language of the browser and can vary between browsers and operating systems.
