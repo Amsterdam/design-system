@@ -19,11 +19,6 @@ const meta = {
         type: 'text',
       },
     },
-    capture: {
-      control: {
-        type: 'text',
-      },
-    },
     multiple: {
       control: {
         type: 'boolean',
