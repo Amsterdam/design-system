@@ -12,9 +12,15 @@ import README from "../../../../packages/css/src/components/file-input/README.md
 
 ## Multiple Files
 
+Allow multiple files to be selected. The label will update to show the number of files selected.
+
 <Canvas of={FileInputStories.Multiple} />
 
 ## Accept
+
+Limit the types of files that can be selected. Some examples are `image/*`, `video/*`, or `audio/*`. To limit to a specific file type, use the MIME type, such as `application/pdf`.
+
+- [MDN File Input](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/file#limiting_accepted_file_types): More examples
 
 <Canvas of={FileInputStories.Accept} />
 

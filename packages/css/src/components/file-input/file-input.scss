@@ -48,7 +48,7 @@
   font-size: inherit;
   font-weight: inherit;
   /* stylelint-disable-next-line property-disallowed-list */
-  margin-right: 2ex;
+  margin-right: 2ex; // Add space between the file selector button and the file name
   padding-block: var(--ams-file-input-file-selector-button-padding-block);
   padding-inline: var(--ams-file-input-file-selector-button-padding-inline);
 

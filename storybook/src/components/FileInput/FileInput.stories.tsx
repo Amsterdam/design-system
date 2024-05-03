@@ -38,7 +38,7 @@ export const Multiple: Story = {
 }
 
 export const Accept: Story = {
-  args: { accept: '.pdf' },
+  args: { accept: 'application/pdf' },
 }
 
 export const Disabled: Story = {
