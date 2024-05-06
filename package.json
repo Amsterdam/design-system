@@ -10,7 +10,7 @@
   "private": true,
   "engines": {
     "node": "^20",
-    "npm": "^10",
+    "npm": "^8",
     "pnpm": "^9"
   },
   "volta": {
