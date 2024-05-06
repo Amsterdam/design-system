@@ -7,7 +7,9 @@ import { Button, Dialog, Heading, Paragraph } from '@amsterdam/design-system-rea
 import { Meta, StoryObj } from '@storybook/react'
 import { MouseEvent } from 'react'
 
-const closeDialog = (event: MouseEvent<HTMLButtonElement>) => event.currentTarget.closest('dialog')?.close()
+const closeDialog = (event: MouseEvent<HTMLButtonElement>) => {
+  return event.currentTarget.closest('dialog')?.close()
+}
 
 const meta = {
   title: 'Components/Containers/Dialog',
