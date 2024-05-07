@@ -13,7 +13,7 @@ export type OrderedListProps = {
   /** Changes the text color for readability on a dark background. */
   inverseColor?: boolean
   /** The size of the ordered list */
-  size?: 'small' | 'large'
+  size?: 'small'
 } & PropsWithChildren<OlHTMLAttributes<HTMLOListElement>>
 
 const OrderedListRoot = forwardRef(

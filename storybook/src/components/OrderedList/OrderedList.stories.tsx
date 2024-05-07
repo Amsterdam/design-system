@@ -28,7 +28,7 @@ const meta = {
     size: {
       control: {
         type: 'radio',
-        labels: { small: 'small', undefined: 'medium', large: 'large' },
+        labels: { small: 'small', undefined: 'medium' },
       },
       options: ['small', undefined, 'large'],
     },
@@ -45,12 +45,6 @@ export const Default: Story = {}
 export const Small: Story = {
   args: {
     size: 'small',
-  },
-}
-
-export const Large: Story = {
-  args: {
-    size: 'large',
   },
 }
 
