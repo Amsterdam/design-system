@@ -82,6 +82,14 @@ describe('Dialog', () => {
     expect(closeButton).toBeInTheDocument()
   })
 
+  it('renders a custom close label', () => {
+    render(<Dialog open closeLabel="Close" />)
+
+    const closeButton = screen.getByText('Close')
+
+    expect(closeButton).toBeInTheDocument()
+  })
+
   it.skip('can be closed with the Close button', () => {
     // We currently can't test this because dialog isn't properly supported in jsdom
     // https://github.com/jsdom/jsdom/issues/3294

@@ -26,6 +26,8 @@ export type AlertProps = {
   severity?: 'error' | 'info' | 'success' | 'warning'
   /** The title for the alert. */
   title?: string
+  /** Label for the close button */
+  closeLabel?: string
 } & PropsWithChildren<HTMLAttributes<HTMLDivElement>>
 
 const iconSvgBySeverity = {
@@ -45,6 +47,7 @@ export const Alert = forwardRef(
       severity = 'warning',
       closeable,
       onClose,
+      closeLabel = 'Sluiten',
       ...restProps
     }: AlertProps,
     ref: ForwardedRef<HTMLDivElement>,
@@ -65,7 +68,7 @@ export const Alert = forwardRef(
           )}
           {children}
         </div>
-        {closeable && <IconButton label="Sluiten" size={alertSize} onClick={onClose} />}
+        {closeable && <IconButton label={closeLabel} size={alertSize} onClick={onClose} />}
       </Tag>
     )
   },

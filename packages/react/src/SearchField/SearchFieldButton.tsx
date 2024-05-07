@@ -10,14 +10,19 @@ import type { ForwardedRef, HTMLAttributes } from 'react'
 import { Icon } from '../Icon'
 import { VisuallyHidden } from '../VisuallyHidden'
 
-type SearchFieldButtonProps = HTMLAttributes<HTMLButtonElement>
+type SearchFieldButtonProps = {
+  buttonLabel?: string
+} & HTMLAttributes<HTMLButtonElement>
 
 // TODO: replace this with IconButton when that's done
 // TODO: discuss if IconButton is the right component to replace this
 export const SearchFieldButton = forwardRef(
-  ({ className, ...restProps }: SearchFieldButtonProps, ref: ForwardedRef<HTMLButtonElement>) => (
+  (
+    { className, buttonLabel = 'Zoeken', ...restProps }: SearchFieldButtonProps,
+    ref: ForwardedRef<HTMLButtonElement>,
+  ) => (
     <button {...restProps} ref={ref} className={clsx('ams-search-field__button', className)}>
-      <VisuallyHidden>Zoeken</VisuallyHidden>
+      <VisuallyHidden>{buttonLabel}</VisuallyHidden>
       <Icon svg={SearchIcon} size="level-5" square />
     </button>
   ),

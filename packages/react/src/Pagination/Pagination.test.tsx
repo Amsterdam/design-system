@@ -98,6 +98,18 @@ describe('Pagination', () => {
     expect(screen.getByText('5')).not.toHaveAttribute('aria-current', 'true')
   })
 
+  it('render custom labels for the "previous" and "next" buttons', () => {
+    render(<Pagination totalPages={10} previousLabel="previous" nextLabel="next" />)
+    expect(screen.getByText('previous')).toBeInTheDocument()
+    expect(screen.getByText('next')).toBeInTheDocument()
+  })
+
+  it('render custom aria-labels for the "previous" and "next" buttons', () => {
+    render(<Pagination totalPages={10} previousAriaLabel="Vorige pagina" nextAriaLabel="Volgende pagina" />)
+    expect(screen.getByText('vorige')).toBeInTheDocument()
+    expect(screen.getByText('volgende')).toBeInTheDocument()
+  })
+
   it('supports ForwardRef in React', () => {
     const ref = createRef<HTMLElement>()
     const { container } = render(<Pagination totalPages={10} ref={ref} />)

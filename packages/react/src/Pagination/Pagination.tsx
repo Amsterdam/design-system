@@ -27,6 +27,10 @@ export type PaginationProps = {
    * The total amount of pages.
    */
   totalPages: number
+  previousLabel?: string
+  previousAriaLabel?: string
+  nextLabel?: string
+  nextAriaLabel?: string
 } & HTMLAttributes<HTMLElement>
 
 /**
@@ -81,7 +85,18 @@ function getRange(currentPage: number, totalPages: number, maxVisiblePages: numb
 
 export const Pagination = forwardRef(
   (
-    { className, maxVisiblePages = 7, onPageChange, page = 1, totalPages, ...restProps }: PaginationProps,
+    {
+      className,
+      maxVisiblePages = 7,
+      onPageChange,
+      page = 1,
+      totalPages,
+      previousLabel = 'vorige',
+      previousAriaLabel = 'Vorige pagina',
+      nextLabel = 'volgende',
+      nextAriaLabel = 'Volgende pagina',
+      ...restProps
+    }: PaginationProps,
     ref: ForwardedRef<HTMLElement>,
   ) => {
     const [currentPage, setCurrentPage] = useState(page)
@@ -117,14 +132,14 @@ export const Pagination = forwardRef(
         <ol className="ams-pagination__list">
           <li>
             <button
-              aria-label="Vorige pagina"
+              aria-label={previousAriaLabel}
               className="ams-pagination__button"
               disabled={currentPage === 1}
               onClick={onPrevious}
               type="button"
             >
               <Icon svg={ChevronLeftIcon} size="level-5" />
-              vorige
+              {previousLabel}
             </button>
           </li>
           {range.map((pageNumberOrSpacer) =>
@@ -156,13 +171,13 @@ export const Pagination = forwardRef(
           )}
           <li>
             <button
-              aria-label="Volgende pagina"
+              aria-label={nextAriaLabel}
               className="ams-pagination__button"
               disabled={currentPage === totalPages}
               onClick={onNext}
               type="button"
             >
-              volgende
+              {nextLabel}
               <Icon svg={ChevronRightIcon} size="level-5" />
             </button>
           </li>

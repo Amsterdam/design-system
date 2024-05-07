@@ -52,6 +52,15 @@ describe('Alert', () => {
     expect(closeButton).toBeVisible()
   })
 
+  it('renders the close button with a label', () => {
+    const { container } = render(<Alert closeable={true} closeLabel="Close" />)
+
+    const component = container.querySelector(':only-child')
+    const closeButton = component?.querySelector('.ams-icon-button')
+
+    expect(closeButton).toHaveTextContent('Close')
+  })
+
   it('fires the onClose event when the close button is clicked', () => {
     const onClose = jest.fn()
     const { container } = render(<Alert closeable={true} onClose={onClose} />)
