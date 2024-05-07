@@ -42,6 +42,11 @@
   color: var(--ams-ordered-list-inverse-color);
 }
 
+.ams-ordered-list--small:not(.ams-ordered-list--no-markers) {
+  font-size: var(--ams-ordered-list-small-font-size);
+  line-height: var(--ams-ordered-list-small-line-height);
+}
+
 /** A nested list has a different marker and less indentation for correct alignment. */
 :is(.ams-ordered-list, .ams-unordered-list) .ams-ordered-list {
   list-style-type: var(--ams-ordered-list-ordered-list-list-style-type);

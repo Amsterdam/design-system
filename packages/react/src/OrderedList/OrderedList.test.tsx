@@ -61,6 +61,14 @@ describe('Ordered list', () => {
     expect(items.length).toBe(3)
   })
 
+  it('renders the small size class', () => {
+    render(<OrderedList size="small" />)
+
+    const component = screen.getByRole('list')
+
+    expect(component).toHaveClass('ams-ordered-list--small')
+  })
+
   it('supports ForwardRef in React', () => {
     const ref = createRef<HTMLOListElement>()
 
