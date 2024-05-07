@@ -38,13 +38,13 @@
   }
 }
 
+.ams-ordered-list--inverse-color:not(.ams-ordered-list--no-markers) {
+  color: var(--ams-ordered-list-inverse-color);
+}
+
 .ams-ordered-list--small:not(.ams-ordered-list--no-markers) {
   font-size: var(--ams-ordered-list-small-font-size);
   line-height: var(--ams-ordered-list-small-line-height);
-}
-
-.ams-ordered-list--inverse-color:not(.ams-ordered-list--no-markers) {
-  color: var(--ams-ordered-list-inverse-color);
 }
 
 /** A nested list has a different marker and less indentation for correct alignment. */
