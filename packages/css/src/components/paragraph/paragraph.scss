@@ -13,9 +13,9 @@
 .ams-paragraph {
   color: var(--ams-paragraph-color);
   font-family: var(--ams-paragraph-font-family);
-  font-size: var(--ams-paragraph-medium-font-size);
+  font-size: var(--ams-paragraph-font-size);
   font-weight: var(--ams-paragraph-font-weight);
-  line-height: var(--ams-paragraph-medium-line-height);
+  line-height: var(--ams-paragraph-line-height);
 
   @include text-rendering;
   @include reset;
