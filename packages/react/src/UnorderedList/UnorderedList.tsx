@@ -11,6 +11,7 @@ import { UnorderedListItem } from './UnorderedListItem'
 export type UnorderedListProps = {
   /** Changes the text color for readability on a dark background. */
   inverseColor?: boolean
+  /** Whether the list items show a marker. */
   markers?: boolean
   /** The size of the unordered list. */
   size?: 'small'
