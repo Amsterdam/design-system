@@ -11,6 +11,7 @@ import { Icon } from '../Icon'
 import { VisuallyHidden } from '../VisuallyHidden'
 
 type SearchFieldButtonProps = {
+  /** The label for the button that triggers the search action. */
   buttonLabel?: string
 } & HTMLAttributes<HTMLButtonElement>
 
@@ -18,7 +19,7 @@ type SearchFieldButtonProps = {
 // TODO: discuss if IconButton is the right component to replace this
 export const SearchFieldButton = forwardRef(
   (
-    { className, buttonLabel = 'Zoeken', ...restProps }: SearchFieldButtonProps,
+    { buttonLabel = 'Zoeken', className, ...restProps }: SearchFieldButtonProps,
     ref: ForwardedRef<HTMLButtonElement>,
   ) => (
     <button {...restProps} ref={ref} className={clsx('ams-search-field__button', className)}>

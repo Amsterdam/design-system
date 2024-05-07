@@ -10,15 +10,15 @@ import { Heading } from '../Heading'
 import { IconButton } from '../IconButton'
 
 export type DialogProps = {
-  /** Children for the footer of the dialog, like a save or close button */
+  /** Children for the footer of the dialog, like a save or close button. */
   actions?: ReactNode
-  /** Label for the close button */
+  /** The label for the button that dismisses the Dialog. */
   closeLabel?: string
 } & PropsWithChildren<DialogHTMLAttributes<HTMLDialogElement>>
 
 export const Dialog = forwardRef(
   (
-    { children, className, title, actions, closeLabel = 'Sluiten', ...restProps }: DialogProps,
+    { actions, children, className, closeLabel = 'Sluiten', title, ...restProps }: DialogProps,
     ref: ForwardedRef<HTMLDialogElement>,
   ) => (
     <dialog {...restProps} ref={ref} className={clsx('ams-dialog', className)}>

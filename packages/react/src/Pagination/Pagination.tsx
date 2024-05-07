@@ -10,27 +10,23 @@ import type { ForwardedRef, HTMLAttributes } from 'react'
 import { Icon } from '../Icon/Icon'
 
 export type PaginationProps = {
-  /**
-   * The maximum amount of pages shown. This has a lower limit of 5
-   */
+  /** The maximum amount of pages shown. This has a lower limit of 5. */
   maxVisiblePages?: number
-  /**
-   * Callback triggered when interaction changes the page number.
-   */
+  /** The accessible name for the link to the next page. */
+  nextAriaLabel?: string
+  /** The label for the link to the next page. */
+  nextLabel?: string
+  /** Callback triggered when interaction changes the page number. */
   // eslint-disable-next-line no-unused-vars
   onPageChange?: (page: number) => void
-  /**
-   * The current page number.
-   */
+  /** The current page number. */
   page?: number
-  /**
-   * The total amount of pages.
-   */
-  totalPages: number
-  previousLabel?: string
+  /** The accessible name for the link to the previous page. */
   previousAriaLabel?: string
-  nextLabel?: string
-  nextAriaLabel?: string
+  /** The label for the link to the previous page. */
+  previousLabel?: string
+  /** The total amount of pages. */
+  totalPages: number
 } & HTMLAttributes<HTMLElement>
 
 /**
@@ -88,13 +84,13 @@ export const Pagination = forwardRef(
     {
       className,
       maxVisiblePages = 7,
+      nextAriaLabel = 'Volgende pagina',
+      nextLabel = 'volgende',
       onPageChange,
       page = 1,
-      totalPages,
-      previousLabel = 'vorige',
       previousAriaLabel = 'Vorige pagina',
-      nextLabel = 'volgende',
-      nextAriaLabel = 'Volgende pagina',
+      previousLabel = 'vorige',
+      totalPages,
       ...restProps
     }: PaginationProps,
     ref: ForwardedRef<HTMLElement>,
