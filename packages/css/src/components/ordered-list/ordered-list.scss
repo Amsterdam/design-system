@@ -38,12 +38,12 @@
   }
 }
 
-.ams-ordered-list--small {
+.ams-ordered-list--small:not(.ams-ordered-list--no-markers) {
   font-size: var(--ams-ordered-list-small-font-size);
   line-height: var(--ams-ordered-list-small-line-height);
 }
 
-.ams-ordered-list--large {
+.ams-ordered-list--large:not(.ams-ordered-list--no-markers) {
   font-size: var(--ams-ordered-list-large-font-size);
   line-height: var(--ams-ordered-list-large-line-height);
 }

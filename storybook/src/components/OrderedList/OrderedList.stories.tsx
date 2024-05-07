@@ -25,6 +25,13 @@ const meta = {
   argTypes: {
     reversed: { control: 'boolean' },
     start: { control: 'number' },
+    size: {
+      control: {
+        type: 'radio',
+        labels: { small: 'small', undefined: 'medium', large: 'large' },
+      },
+      options: ['small', undefined, 'large'],
+    },
   },
   decorators: [inverseColorDecorator],
 } satisfies Meta<typeof OrderedList>
