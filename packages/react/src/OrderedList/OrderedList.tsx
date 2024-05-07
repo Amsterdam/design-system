@@ -12,11 +12,13 @@ export type OrderedListProps = {
   markers?: boolean
   /** Changes the text color for readability on a dark background. */
   inverseColor?: boolean
+  /** The size of the ordered list */
+  size?: 'small' | 'large'
 } & PropsWithChildren<OlHTMLAttributes<HTMLOListElement>>
 
 const OrderedListRoot = forwardRef(
   (
-    { children, className, inverseColor, markers = true, ...restProps }: OrderedListProps,
+    { children, className, inverseColor, size, markers = true, ...restProps }: OrderedListProps,
     ref: ForwardedRef<HTMLOListElement>,
   ) => (
     <ol
@@ -25,6 +27,7 @@ const OrderedListRoot = forwardRef(
         'ams-ordered-list',
         inverseColor && 'ams-ordered-list--inverse-color',
         !markers && 'ams-ordered-list--no-markers',
+        size && `ams-ordered-list--${size}`,
         className,
       )}
       {...restProps}

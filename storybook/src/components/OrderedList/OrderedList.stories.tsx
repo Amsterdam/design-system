@@ -35,6 +35,18 @@ type Story = StoryObj<typeof meta>
 
 export const Default: Story = {}
 
+export const Small: Story = {
+  args: {
+    size: 'small',
+  },
+}
+
+export const Large: Story = {
+  args: {
+    size: 'large',
+  },
+}
+
 export const TwoLevels: Story = {
   render: (args) => (
     <OrderedList {...args}>
