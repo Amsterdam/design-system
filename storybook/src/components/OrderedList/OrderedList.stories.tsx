@@ -25,6 +25,13 @@ const meta = {
   argTypes: {
     reversed: { control: 'boolean' },
     start: { control: 'number' },
+    size: {
+      control: {
+        type: 'radio',
+        labels: { small: 'small', undefined: 'medium' },
+      },
+      options: ['small', undefined, 'large'],
+    },
   },
   decorators: [inverseColorDecorator],
 } satisfies Meta<typeof OrderedList>
@@ -34,6 +41,12 @@ export default meta
 type Story = StoryObj<typeof meta>
 
 export const Default: Story = {}
+
+export const Small: Story = {
+  args: {
+    size: 'small',
+  },
+}
 
 export const TwoLevels: Story = {
   render: (args) => (

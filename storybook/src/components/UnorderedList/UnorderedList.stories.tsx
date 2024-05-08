@@ -136,3 +136,9 @@ export const InverseColor: Story = {
     </UnorderedList>
   ),
 }
+
+export const Small: Story = {
+  args: {
+    size: 'small',
+  },
+}
