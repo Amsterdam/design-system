@@ -7,16 +7,15 @@
 
 @mixin reset-button {
   border: 0;
+  border-radius: 0; // Reset rounded borders on iOS devices
 }
 
 .ams-file-input {
-  align-items: center; // Aligns button label with file name on iOS
   color: var(--ams-file-input-color);
-  display: flex;
+  cursor: var(--ams-file-input-cursor);
   font-family: var(--ams-file-input-font-family);
   font-size: var(--ams-file-input-font-size);
   font-weight: var(--ams-file-input-font-weight);
-  justify-content: flex-start;
   line-height: var(--ams-file-input-line-height);
   outline-offset: var(--ams-file-input-outline-offset);
   touch-action: manipulation;
@@ -35,12 +34,9 @@
   box-shadow: var(--ams-file-input-file-selector-button-box-shadow);
   color: var(--ams-file-input-file-selector-button-color);
   cursor: var(--ams-file-input-file-selector-button-cursor);
-  display: inline-block;
   font-family: inherit;
   font-size: inherit;
   font-weight: inherit;
-  /* stylelint-disable-next-line property-disallowed-list */
-  margin-right: 2ex; // Add space between the file selector button and the file name
   padding-block: var(--ams-file-input-file-selector-button-padding-block);
   padding-inline: var(--ams-file-input-file-selector-button-padding-inline);
 
@@ -57,4 +53,5 @@
 .ams-file-input:not(:disabled):hover::file-selector-button {
   background-color: var(--ams-file-input-file-selector-button-hover-background-color);
   box-shadow: var(--ams-file-input-file-selector-button-hover-box-shadow);
+  color: var(--ams-file-input-file-selector-button-hover-color);
 }

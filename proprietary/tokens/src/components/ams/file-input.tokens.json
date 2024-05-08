@@ -2,19 +2,19 @@
   "ams": {
     "file-input": {
       "color": { "value": "{ams.color.primary-black}" },
+      "cursor": { "value": "{ams.action.activate.cursor}" },
       "font-family": { "value": "{ams.text.font-family}" },
+      "font-weight": { "value": "{ams.text.font-weight.normal}" },
       "font-size": { "value": "{ams.text.level.5.font-size}" },
       "line-height": { "value": "{ams.text.level.5.line-height}" },
       "outline-offset": { "value": "{ams.focus.outline-offset}" },
-      "placeholder": {
-        "color": { "value": "{ams.color.neutral-grey3}" }
-      },
       "disabled": {
         "color": { "value": "{ams.color.neutral-grey2}" }
       },
       "file-selector-button": {
         "background-color": { "value": "{ams.color.primary-white}" },
         "color": { "value": "{ams.color.primary-blue}" },
+        "cursor": { "value": "{ams.action.activate.cursor}" },
         "box-shadow": { "value": "inset 0 0 0 {ams.border.width.md} {ams.color.primary-blue}" },
         "padding-block": { "value": "{ams.space.inside.xs}" },
         "padding-inline": { "value": "{ams.space.inside.md}" },

@@ -2,7 +2,7 @@
 
 # File Input
 
-The file input component is a styled input element that allows users to select a file from their device.
+Allows the user to upload one or more files from their device.
 
 ## Visual considerations
 

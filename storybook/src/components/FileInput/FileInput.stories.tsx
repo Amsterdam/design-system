@@ -12,6 +12,7 @@ const meta = {
   args: {
     accept: '',
     multiple: false,
+    disabled: false,
   },
   argTypes: {
     accept: {
@@ -20,6 +21,11 @@ const meta = {
       },
     },
     multiple: {
+      control: {
+        type: 'boolean',
+      },
+    },
+    disabled: {
       control: {
         type: 'boolean',
       },
