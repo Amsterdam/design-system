@@ -10,7 +10,7 @@
 }
 
 .ams-file-input {
-  align-items: center;
+  align-items: center; // Aligns button label with file name on iOS
   color: var(--ams-file-input-color);
   display: flex;
   font-family: var(--ams-file-input-font-family);
