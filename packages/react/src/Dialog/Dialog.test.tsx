@@ -83,7 +83,7 @@ describe('Dialog', () => {
   })
 
   it('renders a custom close label', () => {
-    render(<Dialog open closeLabel="Close" />)
+    render(<Dialog open closeButtonLabel="Close" />)
 
     const closeButton = screen.getByText('Close')
 

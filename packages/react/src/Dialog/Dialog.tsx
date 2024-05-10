@@ -13,19 +13,19 @@ export type DialogProps = {
   /** Children for the footer of the dialog, like a save or close button. */
   actions?: ReactNode
   /** The label for the button that dismisses the Dialog. */
-  closeLabel?: string
+  closeButtonLabel?: string
 } & PropsWithChildren<DialogHTMLAttributes<HTMLDialogElement>>
 
 export const Dialog = forwardRef(
   (
-    { actions, children, className, closeLabel = 'Sluiten', title, ...restProps }: DialogProps,
+    { actions, children, className, closeButtonLabel = 'Sluiten', title, ...restProps }: DialogProps,
     ref: ForwardedRef<HTMLDialogElement>,
   ) => (
     <dialog {...restProps} ref={ref} className={clsx('ams-dialog', className)}>
       <form method="dialog" className="ams-dialog__form">
         <header className="ams-dialog__header">
           <Heading size="level-4">{title}</Heading>
-          <IconButton formNoValidate label={closeLabel} size="level-4" />
+          <IconButton formNoValidate label={closeButtonLabel} size="level-4" />
         </header>
         <article className="ams-dialog__article">{children}</article>
         {actions && <footer className="ams-dialog__footer">{actions}</footer>}

@@ -100,8 +100,11 @@ describe('Pagination', () => {
 
   it('render custom labels for the "previous" and "next" buttons', () => {
     render(<Pagination totalPages={10} previousLabel="previous" nextLabel="next" />)
-    expect(screen.getByText('previous')).toBeInTheDocument()
-    expect(screen.getByText('next')).toBeInTheDocument()
+    const previousButton = screen.getByRole('button', { name: 'previous' })
+    const nextButton = screen.getByRole('button', { name: 'next' })
+
+    expect(previousButton).toBeInTheDocument()
+    expect(nextButton).toBeInTheDocument()
   })
 
   it('render custom aria-labels for the "previous" and "next" buttons', () => {

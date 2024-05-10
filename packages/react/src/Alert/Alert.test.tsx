@@ -53,7 +53,7 @@ describe('Alert', () => {
   })
 
   it('renders the close button with a label', () => {
-    const { container } = render(<Alert closeable={true} closeLabel="Close" />)
+    const { container } = render(<Alert closeable={true} closeButtonLabel="Close" />)
 
     const component = container.querySelector(':only-child')
     const closeButton = component?.querySelector('.ams-icon-button')
