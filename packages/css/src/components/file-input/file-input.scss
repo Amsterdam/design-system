@@ -26,7 +26,7 @@
 
 .ams-file-input:disabled {
   color: var(--ams-file-input-disabled-color);
-  cursor: not-allowed;
+  cursor: var(--ams-file-input-disabled-cursor);
 }
 
 .ams-file-input::file-selector-button {
@@ -35,7 +35,6 @@
   color: var(--ams-file-input-file-selector-button-color);
   cursor: var(--ams-file-input-file-selector-button-cursor);
   font-family: inherit;
-  font-size: inherit;
   font-weight: inherit;
   padding-block: var(--ams-file-input-file-selector-button-padding-block);
   padding-inline: var(--ams-file-input-file-selector-button-padding-inline);
