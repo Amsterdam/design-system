@@ -106,8 +106,8 @@ describe('Pagination', () => {
 
   it('render custom aria-labels for the "previous" and "next" buttons', () => {
     render(<Pagination totalPages={10} previousAriaLabel="Vorige pagina" nextAriaLabel="Volgende pagina" />)
-    expect(screen.getByText('vorige')).toBeInTheDocument()
-    expect(screen.getByText('volgende')).toBeInTheDocument()
+    expect(screen.getByText('vorige')).toHaveAttribute('aria-label', 'Vorige pagina')
+    expect(screen.getByText('volgende')).toHaveAttribute('aria-label', 'Volgende pagina')
   })
 
   it('supports ForwardRef in React', () => {
