@@ -11,6 +11,7 @@
 }
 
 .ams-file-input {
+  border: var(--ams-file-input-border);
   color: var(--ams-file-input-color);
   cursor: var(--ams-file-input-cursor);
   font-family: var(--ams-file-input-font-family);
@@ -18,8 +19,9 @@
   font-weight: var(--ams-file-input-font-weight);
   line-height: var(--ams-file-input-line-height);
   outline-offset: var(--ams-file-input-outline-offset);
+  padding-block: var(--ams-file-input-padding-block);
+  padding-inline: var(--ams-file-input-padding-inline);
   touch-action: manipulation;
-  width: 100%;
 
   @include text-rendering;
 }
@@ -36,6 +38,7 @@
   cursor: var(--ams-file-input-file-selector-button-cursor);
   font-family: inherit;
   font-weight: inherit;
+  margin-inline-end: var(--ams-file-input-file-selector-button-margin-inline-end);
   padding-block: var(--ams-file-input-file-selector-button-padding-block);
   padding-inline: var(--ams-file-input-file-selector-button-padding-inline);
 
