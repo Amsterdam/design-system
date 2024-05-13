@@ -9,6 +9,10 @@
       "inverse-color": { "value": "{ams.color.primary-white}" },
       "line-height": { "value": "{ams.text.level.5.line-height}" },
       "list-style-type": { "value": "decimal" },
+      "small": {
+        "font-size": { "value": "{ams.text.level.6.font-size}" },
+        "line-height": { "value": "{ams.text.level.6.line-height}" }
+      },
       "item": {
         "margin-inline-start": {
           "value": "2.25rem",
