@@ -30,6 +30,7 @@ const config: StorybookConfig = {
   docs: {
     autodocs: true,
   },
+  staticDirs: ['../../proprietary/assets'],
   typescript: {
     reactDocgen: 'react-docgen-typescript',
   },
