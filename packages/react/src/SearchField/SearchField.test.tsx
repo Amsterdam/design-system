@@ -32,7 +32,7 @@ describe('Search field', () => {
   })
 
   it('renders the button with a label', () => {
-    render(<SearchField.Button buttonLabel="Search" />)
+    render(<SearchField.Button label="Search" />)
 
     const component = screen.getByRole('button')
 

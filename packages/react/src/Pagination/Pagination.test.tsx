@@ -109,6 +109,7 @@ describe('Pagination', () => {
 
   it('renders custom aria-labels for the ‘previous’ and ‘next’ buttons', () => {
     render(<Pagination totalPages={10} previousAriaLabel="Vorige pagina" nextAriaLabel="Volgende pagina" />)
+
     expect(screen.getByText('vorige')).toHaveAttribute('aria-label', 'Vorige pagina')
     expect(screen.getByText('volgende')).toHaveAttribute('aria-label', 'Volgende pagina')
   })
@@ -117,6 +118,7 @@ describe('Pagination', () => {
     const ref = createRef<HTMLElement>()
     const { container } = render(<Pagination totalPages={10} ref={ref} />)
     const component = container.querySelector(':only-child')
+
     expect(ref.current).toBe(component)
   })
 })
