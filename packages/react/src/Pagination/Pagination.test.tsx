@@ -98,16 +98,16 @@ describe('Pagination', () => {
     expect(screen.getByText('5')).not.toHaveAttribute('aria-current', 'true')
   })
 
-  it('render custom labels for the "previous" and "next" buttons', () => {
+  it('renders custom labels for the ‘previous’ and ‘next’ buttons', () => {
     render(<Pagination totalPages={10} previousLabel="previous" nextLabel="next" />)
-    const previousButton = screen.getByRole('button', { name: 'previous' })
-    const nextButton = screen.getByRole('button', { name: 'next' })
+    const previousButton = screen.getByRole('button', { name: 'Vorige pagina' })
+    const nextButton = screen.getByRole('button', { name: 'Volgende pagina' })
 
-    expect(previousButton).toBeInTheDocument()
-    expect(nextButton).toBeInTheDocument()
+    expect(previousButton).toHaveTextContent('previous')
+    expect(nextButton).toHaveTextContent('next')
   })
 
-  it('render custom aria-labels for the "previous" and "next" buttons', () => {
+  it('renders custom aria-labels for the ‘previous’ and ‘next’ buttons', () => {
     render(<Pagination totalPages={10} previousAriaLabel="Vorige pagina" nextAriaLabel="Volgende pagina" />)
     expect(screen.getByText('vorige')).toHaveAttribute('aria-label', 'Vorige pagina')
     expect(screen.getByText('volgende')).toHaveAttribute('aria-label', 'Volgende pagina')
