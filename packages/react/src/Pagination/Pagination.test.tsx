@@ -45,7 +45,7 @@ describe('Pagination', () => {
     expect(screen.getByTestId('firstSpacer')).toBeInTheDocument()
   })
 
-  it('should navigate to the next page when clicking on the "next" button', () => {
+  it('should navigate to the next page when clicking on the ‘next’ button', () => {
     const onPageChangeMock = jest.fn()
     render(<Pagination page={6} totalPages={10} onPageChange={onPageChangeMock} />)
 
@@ -60,7 +60,7 @@ describe('Pagination', () => {
     expect(screen.getByText('7')).toHaveAttribute('aria-current', 'true')
   })
 
-  it('should navigate to the previous page when clicking on the "previous" button', () => {
+  it('should navigate to the previous page when clicking on the ‘previous’ button', () => {
     const onPageChangeMock = jest.fn()
     render(<Pagination page={6} totalPages={10} onPageChange={onPageChangeMock} />)
 
@@ -110,8 +110,8 @@ describe('Pagination', () => {
   it('renders custom aria-labels for the ‘previous’ and ‘next’ buttons', () => {
     render(<Pagination totalPages={10} previousAriaLabel="Vorige pagina" nextAriaLabel="Volgende pagina" />)
 
-    expect(screen.getByText('vorige')).toHaveAttribute('aria-label', 'Vorige pagina')
-    expect(screen.getByText('volgende')).toHaveAttribute('aria-label', 'Volgende pagina')
+    expect(screen.getByRole('button', { name: 'Vorige pagina' })).toHaveAttribute('aria-label', 'Vorige pagina')
+    expect(screen.getByRole('button', { name: 'Volgende pagina' })).toHaveAttribute('aria-label', 'Volgende pagina')
   })
 
   it('supports ForwardRef in React', () => {
