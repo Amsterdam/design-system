@@ -61,6 +61,14 @@ describe('Unordered list', () => {
     expect(items.length).toBe(3)
   })
 
+  it('renders the small size class', () => {
+    render(<UnorderedList size="small" />)
+
+    const component = screen.getByRole('list')
+
+    expect(component).toHaveClass('ams-unordered-list--small')
+  })
+
   it('supports ForwardRef in React', () => {
     const ref = createRef<HTMLUListElement>()
 

@@ -9,7 +9,8 @@
 .sbdocs-content.sbdocs-content > :is(ol, ul) li,
 .sbdocs-content.sbdocs-content > div:not(.sb-unstyled) > :is(ol, ul) li,
 .sbdocs-content.sbdocs-content > table:not(.sb-unstyled) :is(td, th),
-.sbdocs-content.sbdocs-content > div:not(.sb-unstyled) > table:not(.sb-unstyled) :is(td, th) {
+.sbdocs-content.sbdocs-content > div:not(.sb-unstyled) > table:not(.sb-unstyled) :is(td, th),
+.sbdocs-content.sbdocs-content > div:not(.sb-unstyled) figcaption {
   color: #000000;
   font-family: "Amsterdam Sans", Arial, sans-serif;
 }
@@ -101,6 +102,10 @@
 .sbdocs-content.sbdocs-content > p code {
   color: currentColor;
   font-size: 1rem;
+}
+
+.sbdocs-content.sbdocs-content > div:not(.sb-unstyled) figcaption {
+  font-size: 0.875rem;
 }
 
 /* stylelint-enable */
