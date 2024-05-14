@@ -10,6 +10,20 @@
         },
         "lg": { "value": "clamp(1.5rem, calc(2.34375vw - 0.09375rem), 3.75rem)" },
         "xl": { "value": "clamp(2rem, calc(3.125vw - 0.125rem), 5rem)" }
+      },
+      "inside": {
+        "xs": { "value": ".38rem" },
+        "sm": { "value": ".56rem" },
+        "md": { "value": ".75rem" },
+        "lg": { "value": "1.13rem" },
+        "xl": { "value": "1.5rem" }
+      },
+      "stack": {
+        "xs": { "value": ".38rem" },
+        "sm": { "value": ".56rem" },
+        "md": { "value": ".75rem" },
+        "lg": { "value": "1.13rem" },
+        "xl": { "value": "1.5rem" }
       }
     }
   }
