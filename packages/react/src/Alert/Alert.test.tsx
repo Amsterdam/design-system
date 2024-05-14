@@ -55,10 +55,9 @@ describe('Alert', () => {
   it('renders the close button with a label', () => {
     const { container } = render(<Alert closeable={true} closeButtonLabel="Close" />)
 
-    const component = container.querySelector(':only-child')
-    const closeButton = component?.querySelector('.ams-icon-button')
+    const closeButton = screen.getByRole('button', { name: 'Close' })
 
-    expect(closeButton).toHaveTextContent('Close')
+    expect(closeButton).toBeInTheDocument()
   })
 
   it('fires the onClose event when the close button is clicked', () => {
