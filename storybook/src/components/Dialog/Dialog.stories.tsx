@@ -63,11 +63,7 @@ export const Default: Story = {
 
 export const WithScrollbar: Story = {
   args: {
-    actions: (
-      <>
-        <Button onClick={closeDialog}>Sluiten</Button>
-      </>
-    ),
+    actions: <Button onClick={closeDialog}>Sluiten</Button>,
     children: [
       <Heading size="level-5" key={1}>
         Algemeen
