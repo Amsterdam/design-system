@@ -34,9 +34,9 @@ describe('Search field', () => {
   it('renders the button with a label', () => {
     render(<SearchField.Button label="Search" />)
 
-    const component = screen.getByRole('button')
+    const component = screen.getByRole('button', { name: 'Search' })
 
-    expect(component).toHaveTextContent('Search')
+    expect(component).toBeInTheDocument()
   })
 
   it('renders the outer container design system BEM class name', () => {
