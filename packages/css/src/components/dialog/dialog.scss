@@ -48,7 +48,7 @@
   display: flex;
   flex-wrap: wrap; // [1]
   gap: var(--ams-dialog-footer-gap);
-  margin-inline-start: auto; // [1]
+  margin-inline-end: auto; // [1]
 
   > * {
     flex: auto; // [1]
