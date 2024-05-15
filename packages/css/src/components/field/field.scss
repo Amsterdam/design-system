@@ -1,0 +1,13 @@
+/**
+ * @license EUPL-1.2+
+ * Copyright Gemeente Amsterdam
+ */
+
+.ams-field {
+  break-inside: avoid;
+}
+
+.ams-field__has-error {
+  border-inline-start: var(--ams-field-has-error-border-inline-start);
+  padding-inline-start: var(--ams-field-has-error-padding-inline-start);
+}
