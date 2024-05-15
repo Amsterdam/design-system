@@ -5,11 +5,11 @@
         "background-color": { "value": "{ams.color.primary-blue}" },
         "color": { "value": "{ams.color.primary-white}" },
         "outline-offset": { "value": "{ams.focus.outline-offset}" },
+        "padding-block": { "value": "{ams.space.inside.xs}" },
+        "padding-inline": { "value": "{ams.space.inside.xs}" },
         "hover": {
           "background-color": { "value": "{ams.color.dark-blue}" }
-        },
-        "padding-block": { "value": "{ams.space.inside.xs}" },
-        "padding-inline": { "value": "{ams.space.inside.xs}" }
+        }
       },
       "input": {
         "background-color": { "value": "{ams.color.primary-white}" },
@@ -28,8 +28,8 @@
           "background-image": {
             "value": "url(\"data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><path fill='%23004699' fill-rule='evenodd' d='M29.333 5.47 26.53 2.668 16 13.187 5.47 2.666 2.668 5.47 13.187 16 2.666 26.53l2.804 2.803L16 18.813l10.53 10.52 2.803-2.804L18.813 16z'/></svg>\")"
           },
-          "color": { "value": "{ams.color.primary-blue}" },
           "block-size": { "value": "{ams.text.level.5.font-size}" },
+          "color": { "value": "{ams.color.primary-blue}" },
           "inline-size": { "value": "{ams.text.level.5.font-size}" }
         },
         "hover": {
