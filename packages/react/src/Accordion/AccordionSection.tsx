@@ -12,9 +12,9 @@ import { getHeadingElement } from '../Heading/getHeadingElement'
 import { Icon } from '../Icon/Icon'
 
 export type AccordionSectionProps = {
-  /** The heading for this section of the accordion. */
+  /** The heading text. */
   label: string
-  /** Whether the section initially shows its content. */
+  /** Whether the content is displayed initially. */
   expanded?: boolean
 } & PropsWithChildren<HTMLAttributes<HTMLElement>>
 

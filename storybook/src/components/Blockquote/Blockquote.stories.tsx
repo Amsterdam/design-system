@@ -19,7 +19,7 @@ const meta = {
   },
   argTypes: {
     children: {
-      description: 'The text of the quote.',
+      description: 'The text for the quote.',
       table: { disable: false },
     },
   },

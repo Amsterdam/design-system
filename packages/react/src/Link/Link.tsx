@@ -11,7 +11,7 @@ type LinkOnBackground = 'default' | 'light' | 'dark'
 type LinkVariant = 'standalone' | 'inline'
 
 export type LinkProps = {
-  /** The background colour on which the link sits. Allows the text to provide visual contrast. */
+  /** Describes the underlying background colour. Allows the text to provide visual contrast. */
   onBackground?: LinkOnBackground
   /** Whether the link is inline or stands alone. */
   variant?: LinkVariant

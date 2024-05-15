@@ -13,12 +13,12 @@ export type HeadingLevel = 1 | 2 | 3 | 4
 type HeadingSize = 'level-1' | 'level-2' | 'level-3' | 'level-4' | 'level-5' | 'level-6'
 
 export type HeadingProps = {
-  /** The hierarchical level of the heading. */
-  level?: HeadingLevel
-  /** Makes the title larger or smaller without changing its position in the heading hierarchy. */
-  size?: HeadingSize
-  /** Changes the text color for readability on a dark background. */
+  /** Changes the text colour for readability on a dark background. */
   inverseColor?: boolean
+  /** The hierarchical level within the document. */
+  level?: HeadingLevel
+  /** Uses larger or smaller text without changing its position in the heading hierarchy. */
+  size?: HeadingSize
 } & PropsWithChildren<HTMLAttributes<HTMLHeadingElement>>
 
 export const Heading = forwardRef(

@@ -8,7 +8,7 @@ import { forwardRef } from 'react'
 import type { BlockquoteHTMLAttributes, ForwardedRef, PropsWithChildren } from 'react'
 
 export type BlockquoteProps = {
-  /** Changes the text color for readability on a dark background. */
+  /** Changes the text colour for readability on a dark background. */
   inverseColor?: boolean
 } & PropsWithChildren<BlockquoteHTMLAttributes<HTMLQuoteElement>>
 

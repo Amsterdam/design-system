@@ -12,13 +12,13 @@ import { Icon } from '../Icon'
 type BackgroundName = 'default' | 'light' | 'dark'
 
 export type LinkListLinkProps = {
-  /** The target url for the link. */
+  /** The url for the link. */
   href: string
   /** An icon to display instead of the default chevron. Don’t mix custom icons with chevrons in one list. */
   icon?: Function
-  /** Whether the link sits on a dark background. */
+  /** Describes the underlying background colour. Allows the text to provide visual contrast. */
   onBackground?: BackgroundName
-  /** The text size for the link. Use the same size for all items in the list. */
+  /** The size of the text. Use the same size for all items in the list. */
   size?: 'small' | 'large'
 } & PropsWithChildren<AnchorHTMLAttributes<HTMLAnchorElement>>
 
