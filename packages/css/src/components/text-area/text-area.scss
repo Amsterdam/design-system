@@ -21,7 +21,7 @@
   inline-size: 100%;
   line-height: var(--ams-text-area-line-height);
   max-inline-size: 100%; // This prevents overflow when using the `cols` prop
-  min-height: var(--ams-text-area-min-height);
+  min-block-size: var(--ams-text-area-min-block-size);
   outline-offset: var(--ams-text-area-outline-offset);
   padding-block: var(--ams-text-area-padding-block);
   padding-inline: var(--ams-text-area-padding-inline);
