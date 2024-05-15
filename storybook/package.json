@@ -25,6 +25,7 @@
     "@amsterdam/design-system-react-icons": "workspace:*",
     "@amsterdam/design-system-tokens": "workspace:*",
     "@babel/core": "7.24.5",
+    "@geometricpanda/storybook-addon-badges": "2.0.2",
     "@mdx-js/react": "3.0.1",
     "@storybook/addon-a11y": "8.0.10",
     "@storybook/addon-actions": "8.0.10",

@@ -22,6 +22,7 @@ const config: StorybookConfig = {
         },
       },
     },
+    '@geometricpanda/storybook-addon-badges',
   ],
   framework: {
     name: '@storybook/react-vite',
