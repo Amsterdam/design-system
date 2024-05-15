@@ -5,6 +5,7 @@
 
 import { Heading, Icon } from '@amsterdam/design-system-react/src'
 import * as Icons from '@amsterdam/design-system-react-icons'
+import { BADGE } from '@geometricpanda/storybook-addon-badges'
 import { Meta, StoryObj } from '@storybook/react'
 
 const meta = {
@@ -18,6 +19,9 @@ const meta = {
       options: Object.keys(Icons),
       mapping: Icons,
     },
+  },
+  parameters: {
+    badges: [BADGE.BETA],
   },
 } satisfies Meta<typeof Icon>
 

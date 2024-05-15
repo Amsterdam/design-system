@@ -1,7 +1,10 @@
+import { BADGE } from "@geometricpanda/storybook-addon-badges";
 import { Meta } from "@storybook/blocks";
 import { AmsterdamIconGallery } from "./components/AmsterdamIconGallery";
 
-<Meta title="Docs/Assets/Icons" />
+{/* Below "parameters" prop does not seem to work. Not sure how to implement badges on our doc stories. Any ideas? */}
+
+<Meta title="Docs/Assets/Icons" parameters={{ badges: [BADGE.BETA] }} />
 
 # Icons
 
