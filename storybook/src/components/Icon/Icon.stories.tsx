@@ -19,6 +19,11 @@ const meta = {
       mapping: Icons,
     },
   },
+  parameters: {
+    status: {
+      type: 'beta',
+    },
+  },
 } satisfies Meta<typeof Icon>
 
 export default meta

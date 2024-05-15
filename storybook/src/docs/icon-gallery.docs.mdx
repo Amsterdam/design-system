@@ -1,7 +1,9 @@
-import { Meta } from "@storybook/blocks";
+import { Meta } from "@storybook/addon-docs/blocks";
 import { AmsterdamIconGallery } from "./components/AmsterdamIconGallery";
 
-<Meta title="Docs/Assets/Icons" />
+{/* Below "parameters" prop does not seem to work; see docs: https://github.com/etchteam/storybook-addon-status?tab=readme-ov-file#story-usage */}
+
+<Meta title="Docs/Assets/Icons" parameters={{ status: { type: "beta" } }} />
 
 # Icons
 
