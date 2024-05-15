@@ -9,6 +9,7 @@ import type { ForwardedRef, InputHTMLAttributes } from 'react'
 import { VisuallyHidden } from '../VisuallyHidden'
 
 type SearchFieldInputProps = {
+  /** Describes the field. */
   label?: string
 } & InputHTMLAttributes<HTMLInputElement>
 

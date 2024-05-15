@@ -17,6 +17,17 @@ const meta = {
     invalid: false,
     value: '',
   },
+  argTypes: {
+    disabled: {
+      description: 'Prevents interaction. Use sparingly.',
+    },
+    invalid: {
+      description: 'Whether the value fails a validation rule.',
+    },
+    value: {
+      description: 'The value of the field.',
+    },
+  },
   render: ({ invalid, ...args }) => {
     const [, setArgs] = useArgs()
 

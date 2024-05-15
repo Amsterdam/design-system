@@ -17,6 +17,9 @@ const meta = {
     size: undefined,
   },
   argTypes: {
+    disabled: {
+      description: 'Prevents interaction. Use sparingly.',
+    },
     onBackground: {
       control: {
         type: 'radio',

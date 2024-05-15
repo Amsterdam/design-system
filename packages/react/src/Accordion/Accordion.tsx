@@ -12,8 +12,9 @@ import { HeadingLevel } from '../Heading/Heading'
 import { useKeyboardFocus } from '../common/useKeyboardFocus'
 
 export type AccordionProps = {
-  /** The hierarchical level of the accordion title within the document. */
+  /** The hierarchical level of the Accordion Title within the document. */
   headingLevel: HeadingLevel
+  /** Whether to use a ‘section’ element and ‘region’ landmark for each Accordion Section. */
   section?: boolean
 } & PropsWithChildren<HTMLAttributes<HTMLDivElement>>
 

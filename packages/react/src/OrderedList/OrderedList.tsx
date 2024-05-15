@@ -13,7 +13,7 @@ export type OrderedListProps = {
   inverseColor?: boolean
   /** Whether the list items show a marker. */
   markers?: boolean
-  /** The size of the ordered list */
+  /** The text size for the ordered list */
   size?: 'small'
 } & PropsWithChildren<OlHTMLAttributes<HTMLOListElement>>
 

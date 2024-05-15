@@ -8,6 +8,7 @@ import { forwardRef } from 'react'
 import type { ForwardedRef, TextareaHTMLAttributes } from 'react'
 
 export type TextAreaProps = TextareaHTMLAttributes<HTMLTextAreaElement> & {
+  /** Allows the user to resize the text box. The default enables resizing in both directions. */
   resize?: 'none' | 'horizontal' | 'vertical'
 }
 

@@ -20,6 +20,9 @@ const meta = {
     disabled: false,
   },
   argTypes: {
+    disabled: {
+      description: 'Prevents interaction. Use sparingly.',
+    },
     resize: {
       control: {
         type: 'radio',
@@ -27,15 +30,8 @@ const meta = {
       },
       options: [undefined, 'none', 'horizontal', 'vertical'],
     },
-    cols: {
-      control: {
-        type: 'number',
-      },
-    },
-    rows: {
-      control: {
-        type: 'number',
-      },
+    value: {
+      description: 'The value of the field.',
     },
   },
   render: ({ invalid, ...args }) => {

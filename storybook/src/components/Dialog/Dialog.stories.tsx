@@ -28,9 +28,7 @@ const meta = {
   },
   argTypes: {
     actions: {
-      table: {
-        disable: true,
-      },
+      table: { disable: true },
     },
   },
 } satisfies Meta<typeof Dialog>
@@ -42,6 +40,14 @@ type Story = StoryObj<typeof meta>
 export const Default: Story = {
   args: {
     open: true,
+  },
+  argTypes: {
+    open: {
+      description: 'Whether the dialog box is active and available for interaction.',
+    },
+    title: {
+      description: 'The text for the heading.',
+    },
   },
   decorators: [
     (Story) => (

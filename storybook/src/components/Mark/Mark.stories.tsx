@@ -11,6 +11,7 @@ const meta = {
   component: Mark,
   argTypes: {
     children: {
+      description: 'The text to mark.',
       table: { disable: false },
     },
   },

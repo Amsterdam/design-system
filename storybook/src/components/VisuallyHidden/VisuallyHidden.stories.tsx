@@ -27,6 +27,7 @@ const meta = {
   },
   argTypes: {
     children: {
+      description: 'The content to hide visually.',
       table: { disable: false },
     },
   },

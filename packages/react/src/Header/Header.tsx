@@ -12,11 +12,17 @@ import type { LogoBrand } from '../Logo'
 import { VisuallyHidden } from '../VisuallyHidden'
 
 export type HeaderProps = {
+  /** The name of the brand for which to display the logo. */
   logoBrand?: LogoBrand
+  /** The url for the link on the logo. */
   logoLink?: string
+  /** The accessible text for the link on the logo. */
   logoLinkTitle?: string
+  /** The name of the application. */
   title?: string
+  /** The list of menu links. Use a Page Menu here. */
   links?: ReactNode
+  /** A button to toggle the visibility of a Mega Menu. */
   menu?: ReactNode
 } & HTMLAttributes<HTMLElement>
 

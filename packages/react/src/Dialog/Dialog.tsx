@@ -10,6 +10,7 @@ import { Heading } from '../Heading'
 import { IconButton } from '../IconButton'
 
 export type DialogProps = {
+  /** The list of buttons for this dialog. Start with a primary button. */
   actions?: ReactNode
 } & PropsWithChildren<DialogHTMLAttributes<HTMLDialogElement>>
 

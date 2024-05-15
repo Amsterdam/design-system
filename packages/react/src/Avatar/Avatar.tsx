@@ -43,8 +43,11 @@ const Content = ({ imageSrc, initials }: ContentProps) => {
 }
 
 export type AvatarProps = {
+  /** The background colour. */
   color?: AvatarColor
+  /** The url for the user’s image. Its center will be displayed. Should be square and scaled down. */
   imageSrc?: string
+  /** The text content. Should be the user’s initials. The first two characters will be displayed. */
   label: string
 } & HTMLAttributes<HTMLSpanElement>
 

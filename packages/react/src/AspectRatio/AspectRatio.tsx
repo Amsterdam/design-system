@@ -10,6 +10,7 @@ import type { ForwardedRef, HTMLAttributes, PropsWithChildren } from 'react'
 export type Ratio = 'x-tall' | 'tall' | 'square' | 'wide' | 'x-wide' | '2x-wide'
 
 export type AspectRatioProps = {
+  /** The name of a supported aspect ratio. */
   ratio?: Ratio
 } & PropsWithChildren<HTMLAttributes<HTMLDivElement>>
 

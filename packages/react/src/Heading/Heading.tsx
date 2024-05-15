@@ -13,7 +13,7 @@ export type HeadingLevel = 1 | 2 | 3 | 4
 type HeadingSize = 'level-1' | 'level-2' | 'level-3' | 'level-4' | 'level-5' | 'level-6'
 
 export type HeadingProps = {
-  /** The hierarchical level of the title. */
+  /** The hierarchical level of the heading. */
   level?: HeadingLevel
   /** Makes the title larger or smaller without changing its position in the heading hierarchy. */
   size?: HeadingSize

@@ -36,6 +36,14 @@ const meta = {
       </Select.Option>,
     ],
   },
+  argTypes: {
+    disabled: {
+      description: 'Prevents interaction. Use sparingly.',
+    },
+    invalid: {
+      description: 'Whether the value fails a validation rule.',
+    },
+  },
 } satisfies Meta<typeof Select>
 
 export default meta

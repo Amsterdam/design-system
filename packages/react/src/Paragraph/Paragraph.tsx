@@ -9,7 +9,7 @@ import { forwardRef } from 'react'
 import type { ForwardedRef, HTMLAttributes, PropsWithChildren } from 'react'
 
 export type ParagraphProps = {
-  /** The size of the paragraph. */
+  /** The text size for the paragraph. */
   size?: 'small' | 'large'
   /** Changes the text color for readability on a dark background. */
   inverseColor?: boolean

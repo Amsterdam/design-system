@@ -14,6 +14,11 @@ const meta = {
   args: {
     disabled: false,
   },
+  argTypes: {
+    disabled: {
+      description: 'Prevents interaction. Use sparingly.',
+    },
+  },
 } satisfies Meta<StoryProps>
 
 export default meta

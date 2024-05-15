@@ -20,6 +20,17 @@ export const Default: Story = {
     alt: '',
     src: 'https://picsum.photos/640/360',
   },
+  argTypes: {
+    alt: {
+      description: 'Describes the image for non-visual users.',
+    },
+    src: {
+      description: 'The url for the image.',
+    },
+    srcSet: {
+      description: 'A set of candidate images.',
+    },
+  },
 }
 
 export const MultipleSources: Story = {

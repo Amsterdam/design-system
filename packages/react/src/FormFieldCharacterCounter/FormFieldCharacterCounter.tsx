@@ -8,7 +8,9 @@ import { forwardRef } from 'react'
 import type { ForwardedRef, HTMLAttributes } from 'react'
 
 export type FormFieldCharacterCounterProps = HTMLAttributes<HTMLDivElement> & {
+  /** The current length of the field’s content. */
   length: number
+  /** The maximum length of the field’s content. */
   maxLength: number
 }
 

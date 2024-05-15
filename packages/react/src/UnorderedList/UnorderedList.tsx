@@ -13,7 +13,7 @@ export type UnorderedListProps = {
   inverseColor?: boolean
   /** Whether the list items show a marker. */
   markers?: boolean
-  /** The size of the unordered list. */
+  /** The text size for the unordered list. */
   size?: 'small'
 } & PropsWithChildren<HTMLAttributes<HTMLUListElement>>
 

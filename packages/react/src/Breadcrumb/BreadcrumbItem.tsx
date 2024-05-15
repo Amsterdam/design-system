@@ -8,6 +8,7 @@ import { forwardRef } from 'react'
 import type { ForwardedRef, HTMLAttributes, PropsWithChildren } from 'react'
 
 export type BreadcrumbItemProps = {
+  /** The url for the link on this breadcrumb item. */
   href: string
 } & PropsWithChildren<HTMLAttributes<HTMLLIElement>>
 

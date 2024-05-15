@@ -9,7 +9,9 @@ import type { AnchorHTMLAttributes, ForwardedRef } from 'react'
 import { VisuallyHidden } from '../VisuallyHidden'
 
 export type TopTaskLinkProps = {
+  /** The heading. */
   label: string
+  /** The text content. */
   description: string
 } & AnchorHTMLAttributes<HTMLAnchorElement>
 

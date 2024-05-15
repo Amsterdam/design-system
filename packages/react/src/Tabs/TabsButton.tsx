@@ -9,6 +9,7 @@ import type { ButtonHTMLAttributes, ForwardedRef, PropsWithChildren } from 'reac
 import { TabsContext } from './TabsContext'
 
 export type TabsButtonProps = {
+  /** An identifier. */
   tab: number
 } & PropsWithChildren<ButtonHTMLAttributes<HTMLButtonElement>>
 

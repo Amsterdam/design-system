@@ -8,6 +8,7 @@ import { forwardRef } from 'react'
 import type { ForwardedRef, HTMLAttributes, PropsWithChildren } from 'react'
 
 export type FieldsetProps = PropsWithChildren<HTMLAttributes<HTMLFieldSetElement>> & {
+  /** The text for the caption. */
   legend: string
 }
 

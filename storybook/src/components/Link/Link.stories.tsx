@@ -18,6 +18,7 @@ const meta = {
   },
   argTypes: {
     children: {
+      description: 'The text to attach the link to.',
       table: { disable: false },
     },
     onBackground: {
@@ -28,6 +29,7 @@ const meta = {
       options: [undefined, 'light', 'dark'],
     },
     href: {
+      description: 'The url for the link.',
       name: 'href',
       type: { name: 'string', required: false },
       table: {
@@ -36,6 +38,7 @@ const meta = {
       },
     },
     rel: {
+      description: 'Allows marking a link to an external resource.',
       name: 'rel',
       type: { name: 'string', required: false },
       table: {

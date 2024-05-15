@@ -14,6 +14,7 @@ const meta = {
   },
   argTypes: {
     children: {
+      description: 'The text content.',
       table: { disable: false },
     },
   },

@@ -13,18 +13,15 @@ import { Icon } from '../Icon'
 import { IconButton } from '../IconButton'
 
 export type AlertProps = {
-  /** Whether the alert can be dismissed by the user. Adds a button to the top right. */
+  /** Whether the user can dismiss the Alert. Adds a button to its top right. */
   closeable?: boolean
-  /**
-   * The hierarchical level of the alert title within the document.
-   * @default 2
-   */
+  /** The hierarchical level of the Heading within the document. */
   headingLevel?: HeadingProps['level']
-  /** Allows a callback when dismissing the alert. */
+  /** A function to run when dismissing. */
   onClose?: () => void
-  /** Highlights the meaning or tone of the message. */
+  /** The significance of the message conveyed. */
   severity?: 'error' | 'info' | 'success' | 'warning'
-  /** The title for the alert. */
+  /** The text for the Heading. */
   title?: string
 } & PropsWithChildren<HTMLAttributes<HTMLDivElement>>
 

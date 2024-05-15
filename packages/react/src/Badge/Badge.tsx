@@ -21,7 +21,9 @@ export const badgeColors = [
 type BadgeColor = (typeof badgeColors)[number]
 
 export type BadgeProps = {
+  /** The background colour. */
   color?: BadgeColor
+  /** The text content. */
   label: string | number
 } & HTMLAttributes<HTMLElement>
 
