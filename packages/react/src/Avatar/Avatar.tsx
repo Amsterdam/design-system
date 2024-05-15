@@ -25,12 +25,12 @@ export const avatarColors = [
 
 type AvatarColor = (typeof avatarColors)[number]
 
-type ContentProps = {
+type AvatarContentProps = {
   imageSrc?: string
   initials: string
 }
 
-const Content = ({ imageSrc, initials }: ContentProps) => {
+const AvatarContent = ({ imageSrc, initials }: AvatarContentProps) => {
   if (imageSrc) {
     return <Image src={imageSrc} alt="" />
   }
@@ -67,7 +67,7 @@ export const Avatar = forwardRef(
         className={clsx('ams-avatar', `ams-avatar--${color}`, imageSrc && 'ams-avatar--has-image', className)}
       >
         <VisuallyHidden>{a11yLabel}</VisuallyHidden>
-        <Content imageSrc={imageSrc} initials={initials} />
+        <AvatarContent imageSrc={imageSrc} initials={initials} />
       </span>
     )
   },
