@@ -32,27 +32,11 @@ const meta = {
       description: 'The url for the link.',
       name: 'href',
       type: { name: 'string', required: false },
-      table: {
-        category: 'HTML attribute',
-        defaultValue: { summary: '' },
-      },
     },
     rel: {
       description: 'Allows marking a link to an external resource.',
       name: 'rel',
       type: { name: 'string', required: false },
-      table: {
-        category: 'HTML attribute',
-        defaultValue: { summary: '' },
-      },
-    },
-    target: {
-      name: 'target',
-      type: { name: 'string', required: false },
-      table: {
-        category: 'HTML attribute',
-        defaultValue: { summary: '' },
-      },
     },
   },
 } satisfies Meta<typeof Link>
