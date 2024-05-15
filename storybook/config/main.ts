@@ -22,6 +22,7 @@ const config: StorybookConfig = {
         },
       },
     },
+    '@etchteam/storybook-addon-status',
   ],
   framework: {
     name: '@storybook/react-vite',
