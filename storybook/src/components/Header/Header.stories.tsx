@@ -5,11 +5,15 @@
 
 import { Header, PageMenu } from '@amsterdam/design-system-react/src'
 import { SearchIcon } from '@amsterdam/design-system-react-icons'
+import { BADGE } from '@geometricpanda/storybook-addon-badges'
 import { Meta, StoryObj } from '@storybook/react'
 
 const meta = {
   title: 'Components/Containers/Header',
   component: Header,
+  parameters: {
+    badges: [BADGE.BETA],
+  },
 } satisfies Meta<typeof Header>
 
 export default meta
