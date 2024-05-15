@@ -18,14 +18,14 @@
   font-family: var(--ams-text-area-font-family);
   font-size: var(--ams-text-area-font-size);
   font-weight: var(--ams-text-area-font-weight);
+  inline-size: 100%;
   line-height: var(--ams-text-area-line-height);
-  max-width: 100%;
+  max-inline-size: 100%; // This prevents overflow when using the `cols` prop
   min-height: var(--ams-text-area-min-height);
   outline-offset: var(--ams-text-area-outline-offset);
   padding-block: var(--ams-text-area-padding-block);
   padding-inline: var(--ams-text-area-padding-inline);
   touch-action: manipulation;
-  width: 100%;
 
   @include text-rendering;
   @include reset;
@@ -69,5 +69,5 @@
 }
 
 .ams-text-area--cols {
-  width: auto;
+  inline-size: auto;
 }
