@@ -10,6 +10,11 @@ import { Meta, StoryObj } from '@storybook/react'
 const meta = {
   title: 'Components/Containers/Header',
   component: Header,
+  parameters: {
+    status: {
+      type: 'beta',
+    },
+  },
 } satisfies Meta<typeof Header>
 
 export default meta
