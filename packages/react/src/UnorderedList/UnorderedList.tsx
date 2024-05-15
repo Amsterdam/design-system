@@ -9,13 +9,17 @@ import type { ForwardedRef, HTMLAttributes, PropsWithChildren } from 'react'
 import { UnorderedListItem } from './UnorderedListItem'
 
 export type UnorderedListProps = {
+  /** Changes the text color for readability on a dark background. */
   inverseColor?: boolean
+  /** Whether the list items show a marker. */
   markers?: boolean
+  /** The size of the unordered list. */
+  size?: 'small'
 } & PropsWithChildren<HTMLAttributes<HTMLUListElement>>
 
 const UnorderedListRoot = forwardRef(
   (
-    { children, className, inverseColor, markers = true, ...restProps }: UnorderedListProps,
+    { children, className, inverseColor, markers = true, size, ...restProps }: UnorderedListProps,
     ref: ForwardedRef<HTMLUListElement>,
   ) => {
     return (
@@ -25,6 +29,7 @@ const UnorderedListRoot = forwardRef(
           'ams-unordered-list',
           inverseColor && 'ams-unordered-list--inverse-color',
           !markers && 'ams-unordered-list--no-markers',
+          size && `ams-unordered-list--${size}`,
           className,
         )}
         {...restProps}

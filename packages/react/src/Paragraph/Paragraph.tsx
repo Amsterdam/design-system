@@ -9,11 +9,9 @@ import { forwardRef } from 'react'
 import type { ForwardedRef, HTMLAttributes, PropsWithChildren } from 'react'
 
 export type ParagraphProps = {
+  /** The size of the paragraph. */
   size?: 'small' | 'large'
-  /**
-   * De kleur van de paragraaf
-   * Gebruik deze property om de paragraaf in tegenovergestelde kleur te tonen.
-   */
+  /** Changes the text color for readability on a dark background. */
   inverseColor?: boolean
 } & PropsWithChildren<HTMLAttributes<HTMLParagraphElement>>
 
