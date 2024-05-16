@@ -15,6 +15,8 @@ import { IconButton } from '../IconButton'
 export type AlertProps = {
   /** Whether the user can dismiss the Alert. Adds a button to its top right. */
   closeable?: boolean
+  /** The label for the button that dismisses the Alert. */
+  closeButtonLabel?: string
   /** The hierarchical level of the Alert’s Heading within the document. */
   headingLevel?: HeadingProps['level']
   /** A function to run when dismissing. */
@@ -37,11 +39,12 @@ export const Alert = forwardRef(
     {
       children,
       className,
-      headingLevel = 2,
-      title,
-      severity = 'warning',
       closeable,
+      closeButtonLabel = 'Sluiten',
+      headingLevel = 2,
       onClose,
+      severity = 'warning',
+      title,
       ...restProps
     }: AlertProps,
     ref: ForwardedRef<HTMLDivElement>,
@@ -62,7 +65,7 @@ export const Alert = forwardRef(
           )}
           {children}
         </div>
-        {closeable && <IconButton label="Sluiten" size={alertSize} onClick={onClose} />}
+        {closeable && <IconButton label={closeButtonLabel} size={alertSize} onClick={onClose} />}
       </Tag>
     )
   },

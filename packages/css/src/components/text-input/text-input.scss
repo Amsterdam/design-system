@@ -18,12 +18,12 @@
   font-family: var(--ams-text-input-font-family);
   font-size: var(--ams-text-input-font-size);
   font-weight: var(--ams-text-input-font-weight);
+  inline-size: 100%;
   line-height: var(--ams-text-input-line-height);
   outline-offset: var(--ams-text-input-outline-offset);
   padding-block: var(--ams-text-input-padding-block);
   padding-inline: var(--ams-text-input-padding-inline);
   touch-action: manipulation;
-  width: 100%;
 
   @include text-rendering;
   @include reset;
