@@ -1,4 +1,4 @@
-import { fireEvent, render } from '@testing-library/react'
+import { fireEvent, render, screen } from '@testing-library/react'
 import { createRef } from 'react'
 import { Alert } from './Alert'
 import '@testing-library/jest-dom'
@@ -53,7 +53,7 @@ describe('Alert', () => {
   })
 
   it('renders the close button with a label', () => {
-    const { container } = render(<Alert closeable={true} closeButtonLabel="Close" />)
+    render(<Alert closeable={true} closeButtonLabel="Close" />)
 
     const closeButton = screen.getByRole('button', { name: 'Close' })
 
