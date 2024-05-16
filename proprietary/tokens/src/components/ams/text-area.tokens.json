@@ -8,7 +8,7 @@
       "font-size": { "value": "{ams.text.level.5.font-size}" },
       "font-weight": { "value": "{ams.text.font-weight.normal}" },
       "line-height": { "value": "{ams.text.level.5.line-height}" },
-      "min-height": {
+      "min-block-size": {
         "value": "calc({ams.text.level.5.line-height} * 1em + 2 * {ams.text-area.padding-block})"
       },
       "outline-offset": { "value": "{ams.focus.outline-offset}" },
