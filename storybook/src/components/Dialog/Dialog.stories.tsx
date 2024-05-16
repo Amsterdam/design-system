@@ -65,7 +65,7 @@ export const WithScrollbar: Story = {
   args: {
     actions: <Button onClick={closeDialog}>Sluiten</Button>,
     children: [
-      <Heading size="level-5" key={1}>
+      <Heading level={2} size="level-5" key={1}>
         Algemeen
       </Heading>,
       <Paragraph key={2}>
@@ -86,7 +86,7 @@ export const WithScrollbar: Story = {
         ook wijzigingen zijn in de wijze van het verwerken van persoonsgegevens. Wij raden u daarom aan om regelmatig
         deze pagina te bekijken. Deze pagina wordt doorlopend geactualiseerd.
       </Paragraph>,
-      <Heading size="level-5" key={6}>
+      <Heading level={2} size="level-5" key={6}>
         Geldende wet- en regelgeving en reikwijdte
       </Heading>,
       <Paragraph key={7}>
