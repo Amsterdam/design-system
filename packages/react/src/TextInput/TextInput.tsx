@@ -7,11 +7,14 @@ import clsx from 'clsx'
 import { forwardRef } from 'react'
 import type { ForwardedRef, InputHTMLAttributes } from 'react'
 
-export type TextInputProps = InputHTMLAttributes<HTMLInputElement>
+export type TextInputProps = {
+  /** The options for type in this input are 'text', 'password', 'email, 'tel', 'url' */
+  type?: 'text' | 'password' | 'email' | 'tel' | 'url'
+} & InputHTMLAttributes<HTMLInputElement>
 
 export const TextInput = forwardRef(
-  ({ className, ...restProps }: TextInputProps, ref: ForwardedRef<HTMLInputElement>) => (
-    <input {...restProps} className={clsx('ams-text-input', className)} ref={ref} type="text" />
+  ({ className, type = 'text', ...restProps }: TextInputProps, ref: ForwardedRef<HTMLInputElement>) => (
+    <input {...restProps} className={clsx('ams-text-input', className)} ref={ref} type={type} />
   ),
 )
 

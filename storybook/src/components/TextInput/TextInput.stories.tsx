@@ -30,7 +30,7 @@ const meta = {
           Toggling the invalid control sets the required attribute on the input
           and requires it to match "ž". Wrapped in a form, this triggers the invalid state.
         */}
-        <TextInput pattern={invalid ? '[ž]' : '.*'} required={invalid} onChange={handleChange} {...args} />
+        <TextInput required={invalid} onChange={handleChange} {...args} />
       </form>
     )
   },
@@ -51,11 +51,36 @@ export const Placeholder: Story = {
 export const Invalid: Story = {
   args: {
     invalid: true,
+    pattern: '[ž]',
   },
 }
 
 export const Disabled: Story = {
   args: {
     disabled: true,
+  },
+}
+
+export const Password: Story = {
+  args: {
+    type: 'password',
+  },
+}
+
+export const Email: Story = {
+  args: {
+    type: 'email',
+  },
+}
+
+export const Tel: Story = {
+  args: {
+    type: 'tel',
+  },
+}
+
+export const Url: Story = {
+  args: {
+    type: 'url',
   },
 }

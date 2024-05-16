@@ -33,3 +33,21 @@ export const Disabled: Story = {
     disabled: true,
   },
 }
+
+export const DateTimeLocal: Story = {
+  args: {
+    type: 'datetime-local',
+  },
+}
+
+export const Month: Story = {
+  args: {
+    type: 'month',
+  },
+}
+
+export const Week: Story = {
+  args: {
+    type: 'week',
+  },
+}
