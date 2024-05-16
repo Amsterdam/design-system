@@ -45,7 +45,7 @@ describe('Pagination', () => {
     expect(screen.getByTestId('firstSpacer')).toBeInTheDocument()
   })
 
-  it('should navigate to the next page when clicking on the "next" button', () => {
+  it('should navigate to the next page when clicking on the ‘next’ button', () => {
     const onPageChangeMock = jest.fn()
     render(<Pagination page={6} totalPages={10} onPageChange={onPageChangeMock} />)
 
@@ -60,7 +60,7 @@ describe('Pagination', () => {
     expect(screen.getByText('7')).toHaveAttribute('aria-current', 'true')
   })
 
-  it('should navigate to the previous page when clicking on the "previous" button', () => {
+  it('should navigate to the previous page when clicking on the ‘previous’ button', () => {
     const onPageChangeMock = jest.fn()
     render(<Pagination page={6} totalPages={10} onPageChange={onPageChangeMock} />)
 
@@ -98,10 +98,30 @@ describe('Pagination', () => {
     expect(screen.getByText('5')).not.toHaveAttribute('aria-current', 'true')
   })
 
+  it('renders custom labels for the ‘previous’ and ‘next’ buttons', () => {
+    render(<Pagination totalPages={10} previousLabel="previous" nextLabel="next" />)
+    const previousButton = screen.getByRole('button', { name: 'Vorige pagina' })
+    const nextButton = screen.getByRole('button', { name: 'Volgende pagina' })
+
+    expect(previousButton).toHaveTextContent('previous')
+    expect(nextButton).toHaveTextContent('next')
+  })
+
+  it('renders custom aria-labels for the ‘previous’ and ‘next’ buttons', () => {
+    render(<Pagination totalPages={10} previousAriaLabel="Previous page" nextAriaLabel="Next page" />)
+
+    const previousButton = screen.getByRole('button', { name: 'Previous page' })
+    const nextButton = screen.getByRole('button', { name: 'Next page' })
+
+    expect(previousButton).toBeInTheDocument()
+    expect(nextButton).toBeInTheDocument()
+  })
+
   it('supports ForwardRef in React', () => {
     const ref = createRef<HTMLElement>()
     const { container } = render(<Pagination totalPages={10} ref={ref} />)
     const component = container.querySelector(':only-child')
+
     expect(ref.current).toBe(component)
   })
 })
