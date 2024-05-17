@@ -37,7 +37,7 @@ export const AmsterdamArticlePage = ({
 
         {breadcrumbs && (
           <Grid paddingTop="medium">
-            <Grid.Cell span="all">
+            <Grid.Cell span={{ narrow: 4, medium: 8, wide: 10 }} start={{ narrow: 1, medium: 1, wide: 2 }}>
               <Breadcrumb>{breadcrumbs}</Breadcrumb>
             </Grid.Cell>
           </Grid>
