@@ -3,8 +3,6 @@
  * Copyright Gemeente Amsterdam
  */
 
-@import "../../common/breakpoint";
-
 .ams-dialog {
   background-color: var(--ams-dialog-background-color);
   border: var(--ams-dialog-border);
@@ -48,11 +46,13 @@
 
 .ams-dialog__footer {
   display: flex;
-  flex-direction: column;
-  grid-gap: var(--ams-dialog-footer-gap);
+  flex-wrap: wrap; // [1]
+  gap: var(--ams-dialog-footer-gap);
+  margin-inline-end: auto; // [1]
 
-  @media screen and (min-width: $ams-breakpoint-medium) {
-    flex-direction: row;
-    justify-content: end;
+  > * {
+    flex: auto; // [1]
   }
 }
+
+// [1] This combination stacks the buttons vertically and stretches them, until they fit next to each other.

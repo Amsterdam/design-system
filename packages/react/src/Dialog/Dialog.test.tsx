@@ -77,7 +77,15 @@ describe('Dialog', () => {
   it('renders DialogClose button', () => {
     render(<Dialog open />)
 
-    const closeButton = screen.getByText('Sluiten')
+    const closeButton = screen.getByRole('button', { name: 'Sluiten' })
+
+    expect(closeButton).toBeInTheDocument()
+  })
+
+  it('renders a custom close label', () => {
+    render(<Dialog open closeButtonLabel="Close" />)
+
+    const closeButton = screen.getByRole('button', { name: 'Close' })
 
     expect(closeButton).toBeInTheDocument()
   })
