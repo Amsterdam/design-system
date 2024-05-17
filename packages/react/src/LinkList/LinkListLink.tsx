@@ -12,8 +12,6 @@ import { Icon } from '../Icon'
 type BackgroundName = 'default' | 'light' | 'dark'
 
 export type LinkListLinkProps = {
-  /** The url for the link. */
-  href: string
   /** An icon to display instead of the default chevron. Don’t mix custom icons with chevrons in one list. */
   icon?: Function
   /** Describes the underlying background colour. Allows the text to provide visual contrast. */
@@ -31,7 +29,7 @@ const iconSizeMap = {
 /** One link with a Link List. */
 export const LinkListLink = forwardRef(
   (
-    { children, className, href, icon, onBackground, size, ...restProps }: LinkListLinkProps,
+    { children, className, icon, onBackground, size, ...restProps }: LinkListLinkProps,
     ref: ForwardedRef<HTMLAnchorElement>,
   ) => {
     return (
@@ -43,7 +41,6 @@ export const LinkListLink = forwardRef(
             size && `ams-link-list__link--${size}`,
             className,
           )}
-          href={href}
           ref={ref}
           {...restProps}
         >
