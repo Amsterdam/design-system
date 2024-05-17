@@ -5,6 +5,9 @@
 
 .ams-field {
   break-inside: avoid;
+  display: flex;
+  flex-direction: column;
+  gap: var(--ams-field-gap);
 }
 
 .ams-field__has-error {

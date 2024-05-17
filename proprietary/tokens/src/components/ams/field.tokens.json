@@ -1,6 +1,9 @@
 {
   "ams": {
     "field": {
+      "gap": {
+        "value": "{ams.space.stack.sm}"
+      },
       "has-error": {
         "border-inline-start": {
           "value": "3px solid {ams.color.primary-red}"
