@@ -45,6 +45,14 @@ export const parameters = {
       ],
     },
   },
+  status: {
+    statuses: {
+      beta: {
+        background: '#FF9100',
+        color: '#FFFFFF',
+      },
+    },
+  },
   viewport: {
     viewports,
   },
