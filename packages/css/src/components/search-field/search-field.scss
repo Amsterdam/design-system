@@ -27,12 +27,12 @@
   font-family: var(--ams-search-field-input-font-family);
   font-size: var(--ams-search-field-input-font-size);
   font-weight: var(--ams-search-field-input-font-weight);
+  inline-size: 100%;
   line-height: var(--ams-search-field-input-line-height);
   outline-offset: var(--ams-search-field-input-outline-offset);
   padding-block: var(--ams-search-field-input-padding-block);
   padding-inline: var(--ams-search-field-input-padding-inline);
   touch-action: manipulation;
-  width: 100%;
 
   @include text-rendering;
   @include reset-input;
@@ -53,10 +53,10 @@
 .ams-search-field__input::-webkit-search-cancel-button {
   appearance: none;
   background-image: var(--ams-search-field-input-cancel-button-background-image);
+  block-size: var(--ams-search-field-input-cancel-button-block-size);
   cursor: pointer;
-  height: var(--ams-search-field-input-cancel-button-height);
+  inline-size: var(--ams-search-field-input-cancel-button-inline-size);
   margin-inline-start: 0.5rem;
-  width: var(--ams-search-field-input-cancel-button-width);
 }
 
 @mixin reset-button {
