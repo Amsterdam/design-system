@@ -35,13 +35,14 @@
 }
 
 .ams-file-input::file-selector-button {
-  appearance: none;
+  appearance: none; // Reset default appearance on iOS devices
   background-color: var(--ams-file-input-file-selector-button-background-color);
   box-shadow: var(--ams-file-input-file-selector-button-box-shadow);
   color: var(--ams-file-input-file-selector-button-color);
   cursor: var(--ams-file-input-file-selector-button-cursor);
   font-family: inherit;
-  font-size: inherit;
+  font-size: inherit; // iOS specific fix
+  font-weight: inherit;
   margin-inline-end: var(--ams-file-input-file-selector-button-margin-inline-end);
   padding-block: var(--ams-file-input-file-selector-button-padding-block);
   padding-inline: var(--ams-file-input-file-selector-button-padding-inline);
