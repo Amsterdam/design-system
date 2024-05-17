@@ -10,7 +10,7 @@
   gap: var(--ams-field-gap);
 }
 
-.ams-field--has-error {
-  border-inline-start: var(--ams-field-has-error-border-inline-start);
-  padding-inline-start: var(--ams-field-has-error-padding-inline-start);
+.ams-field--invalid {
+  border-inline-start: var(--ams-field-invalid-border-inline-start);
+  padding-inline-start: var(--ams-field-invalid-padding-inline-start);
 }

@@ -27,10 +27,10 @@ describe('Field', () => {
   })
 
   it('renders with the error class', () => {
-    const { container } = render(<Field hasError />)
+    const { container } = render(<Field invalid />)
     const component = container.querySelector(':only-child')
 
-    expect(component).toHaveClass('ams-field--has-error')
+    expect(component).toHaveClass('ams-field--invalid')
   })
 
   it('supports ForwardRef in React', () => {

@@ -9,12 +9,12 @@ import type { ForwardedRef, HTMLAttributes, PropsWithChildren } from 'react'
 
 export type FieldProps = {
   /** Whether the field has an input with a validation error */
-  hasError?: boolean
+  invalid?: boolean
 } & PropsWithChildren<HTMLAttributes<HTMLDivElement>>
 
 export const Field = forwardRef(
-  ({ children, className, hasError, ...restProps }: FieldProps, ref: ForwardedRef<HTMLDivElement>) => (
-    <div {...restProps} ref={ref} className={clsx('ams-field', hasError && 'ams-field--has-error', className)}>
+  ({ children, className, invalid, ...restProps }: FieldProps, ref: ForwardedRef<HTMLDivElement>) => (
+    <div {...restProps} ref={ref} className={clsx('ams-field', invalid && 'ams-field--invalid', className)}>
       {children}
     </div>
   ),
