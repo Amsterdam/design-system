@@ -20,6 +20,12 @@ const meta = {
     disabled: false,
   },
   argTypes: {
+    cols: {
+      control: {
+        type: 'number',
+      },
+      description: 'The maximum number of characters per line.',
+    },
     disabled: {
       description: 'Prevents interaction. Avoid if possible.',
     },
@@ -29,6 +35,12 @@ const meta = {
         labels: { undefined: 'default', none: 'none', horizontal: 'horizontal', vertical: 'vertical' },
       },
       options: [undefined, 'none', 'horizontal', 'vertical'],
+    },
+    rows: {
+      control: {
+        type: 'number',
+      },
+      description: 'The number of lines to show',
     },
     value: {
       description: 'The value of the field.',
