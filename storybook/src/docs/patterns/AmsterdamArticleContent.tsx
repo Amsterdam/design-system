@@ -10,7 +10,7 @@ export const AmsterdamArticleContent = () => {
         <Column gap="medium">
           <Paragraph size="large">{exampleParagraph()}</Paragraph>
           <Paragraph>{exampleParagraph()}</Paragraph>
-          <Heading level={3}>{exampleHeading()}</Heading>
+          <Heading level={2}>{exampleHeading()}</Heading>
           <Paragraph>{exampleParagraph()}</Paragraph>
         </Column>
       </Grid.Cell>
