@@ -10,9 +10,9 @@ import type { AnchorHTMLAttributes, ForwardedRef } from 'react'
 export type BreadcrumbLinkProps = AnchorHTMLAttributes<HTMLAnchorElement>
 
 export const BreadcrumbLink = forwardRef(
-  ({ children, className, href, ...restProps }: BreadcrumbLinkProps, ref: ForwardedRef<HTMLAnchorElement>) => (
+  ({ children, className, ...restProps }: BreadcrumbLinkProps, ref: ForwardedRef<HTMLAnchorElement>) => (
     <li className="ams-breadcrumb__item">
-      <a {...restProps} className={clsx('ams-breadcrumb__link', className)} href={href} ref={ref}>
+      <a {...restProps} className={clsx('ams-breadcrumb__link', className)} ref={ref}>
         {children}
       </a>
     </li>
