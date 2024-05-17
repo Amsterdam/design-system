@@ -2,7 +2,7 @@
 
 # Field
 
-Wraps around a single input and can indicate if that input has a validation error.
+Wraps a single input and its related elements. May indicate that the input has a validation error.
 
 ## Guidelines
 
