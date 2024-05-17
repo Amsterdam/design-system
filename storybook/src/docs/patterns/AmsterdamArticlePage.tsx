@@ -1,4 +1,13 @@
-import { BreadcrumbProps, Footer, FooterProps, Grid, Header, Screen, SkipLink } from '@amsterdam/design-system-react'
+import {
+  Breadcrumb,
+  BreadcrumbProps,
+  Footer,
+  FooterProps,
+  Grid,
+  Header,
+  Screen,
+  SkipLink,
+} from '@amsterdam/design-system-react'
 import { ReactElement } from 'react'
 import { AmsterdamArticleContent } from './AmsterdamArticleContent'
 import { AmsterdamArticleHeader } from './AmsterdamArticleHeader'
@@ -28,7 +37,9 @@ export const AmsterdamArticlePage = ({
 
         {breadcrumbs && (
           <Grid paddingTop="medium">
-            <Grid.Cell span="all">{breadcrumbs}</Grid.Cell>
+            <Grid.Cell span="all">
+              <Breadcrumb>{breadcrumbs}</Breadcrumb>
+            </Grid.Cell>
           </Grid>
         )}
 
