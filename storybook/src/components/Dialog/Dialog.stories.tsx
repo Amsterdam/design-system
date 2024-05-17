@@ -132,9 +132,9 @@ export const VerticalButtons: Story = {
   args: {
     actions: (
       <>
-        <Button type="submit">Ja, ik wil doorgaan</Button>
+        <Button type="submit">Lange teksten op deze knoppen</Button>
         <Button onClick={closeDialog} variant="tertiary">
-          Nee, toch maar terug
+          Om verticaal stapelen te demonstreren
         </Button>
       </>
     ),
@@ -152,6 +152,5 @@ export const VerticalButtons: Story = {
     docs: {
       story: { height: '32em' },
     },
-    viewport: { defaultViewport: 'phone' },
   },
 }
