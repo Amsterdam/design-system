@@ -38,7 +38,7 @@ Be sure to follow these guidelines when you do:
 
 1. Add a `description` field instead of a JSDoc comment for native HTML attributes.
    Use terse sentences that end with a full stop.
-   When adding a prop, check for an corresponding existing prop and copy its description.
+   When adding a prop, check for a corresponding existing prop and copy its description.
 2. When mentioning a component, write its name in title case, e.g. ‘Card’ or ‘Form Field’.
    This represents the component more strongly and helps users recognise them as such.
 3. For props offering five options or less, use radio buttons rather than a select.

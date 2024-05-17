@@ -18,7 +18,7 @@ const meta = {
   },
   argTypes: {
     children: {
-      description: 'The text to attach the link to.',
+      description: 'The link text.',
       table: { disable: false },
     },
     onBackground: {

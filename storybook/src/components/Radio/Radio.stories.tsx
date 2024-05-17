@@ -18,7 +18,7 @@ const meta = {
   },
   argTypes: {
     checked: {
-      description: 'Whether the control is initially checked.',
+      description: 'Whether the control is checked.',
     },
     children: {
       description: 'The text for the label.',

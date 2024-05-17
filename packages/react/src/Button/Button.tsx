@@ -8,7 +8,7 @@ import { forwardRef } from 'react'
 import type { ButtonHTMLAttributes, ForwardedRef, PropsWithChildren } from 'react'
 
 export type ButtonProps = {
-  /** The level pf prominence. Use a primary button only once per page or section. */
+  /** The level of prominence. Use a primary button only once per page or section. */
   variant?: 'primary' | 'secondary' | 'tertiary'
 } & PropsWithChildren<ButtonHTMLAttributes<HTMLButtonElement>>
 

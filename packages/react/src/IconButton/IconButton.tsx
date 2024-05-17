@@ -11,7 +11,7 @@ import { Icon } from '../Icon'
 import { VisuallyHidden } from '../VisuallyHidden'
 
 export type IconButtonProps = {
-  /** The accessible text for the icon. Will be read out by screen readers. Should describe the button’s action. */
+  /** The accessible text for the button. Will be announced by screen readers. Should describe the button’s action. */
   label: string
   /** Describes the underlying background colour. Allows the icon to provide visual contrast. */
   onBackground?: 'light' | 'dark'

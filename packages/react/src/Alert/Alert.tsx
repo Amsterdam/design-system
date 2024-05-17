@@ -17,7 +17,7 @@ export type AlertProps = {
   closeable?: boolean
   /** The label for the button that dismisses the Alert. */
   closeButtonLabel?: string
-  /** The hierarchical level of the Alert’s Heading within the document. */
+  /** The hierarchical level of the Alert’s heading within the document. */
   headingLevel?: HeadingProps['level']
   /** A function to run when dismissing. */
   onClose?: () => void
