@@ -14,6 +14,11 @@ const meta = {
     alignEnd: false,
     wrap: undefined,
   },
+  parameters: {
+    status: {
+      type: 'beta',
+    },
+  },
 } satisfies Meta<typeof PageMenu>
 
 export default meta
