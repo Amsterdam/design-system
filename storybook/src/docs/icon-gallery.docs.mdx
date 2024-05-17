@@ -1,11 +1,12 @@
-import { Meta } from "@storybook/addon-docs/blocks";
+import { Meta } from "@storybook/blocks";
 import { AmsterdamIconGallery } from "./components/AmsterdamIconGallery";
+import { Badge } from "../../../packages/react/src/Badge";
 
-{/* Below "parameters" prop does not seem to work; see docs: https://github.com/etchteam/storybook-addon-status?tab=readme-ov-file#story-usage */}
-
-<Meta title="Docs/Assets/Icons" parameters={{ status: { type: "beta" } }} />
+<Meta title="Docs/Assets/Icons" />
 
 # Icons
+
+<Badge label="Beta" color="orange" style={{ position: "absolute", top: "2rem" }} />
 
 An overview of all currently available icons.
 

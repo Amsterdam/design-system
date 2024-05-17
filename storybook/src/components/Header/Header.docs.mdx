@@ -1,10 +1,13 @@
 import { Canvas, Controls, Markdown, Meta, Primary } from "@storybook/blocks";
 import * as HeaderStories from "./Header.stories.tsx";
 import README from "../../../../packages/css/src/components/header/README.md?raw";
+import { Badge } from "../../../../packages/react/src/Badge";
 
 <Meta of={HeaderStories} />
 
 <Markdown>{README}</Markdown>
+
+<Badge label="Beta" color="orange" style={{ position: "absolute", top: "2rem" }} />
 
 <Primary />
 
