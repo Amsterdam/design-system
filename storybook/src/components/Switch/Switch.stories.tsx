@@ -22,7 +22,7 @@ const meta = {
       description: 'Whether the control is initially checked.',
     },
     disabled: {
-      description: 'Prevents interaction. Use sparingly.',
+      description: 'Prevents interaction. Avoid if possible.',
     },
     onChange: {
       action: 'clicked',

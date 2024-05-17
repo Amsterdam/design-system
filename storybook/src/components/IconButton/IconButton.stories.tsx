@@ -18,7 +18,7 @@ const meta = {
   },
   argTypes: {
     disabled: {
-      description: 'Prevents interaction. Use sparingly.',
+      description: 'Prevents interaction. Avoid if possible.',
     },
     onBackground: {
       control: {

@@ -25,7 +25,7 @@ const meta = {
       table: { disable: false },
     },
     disabled: {
-      description: 'Prevents interaction. Use sparingly.',
+      description: 'Prevents interaction. Avoid if possible.',
     },
     invalid: {
       description: 'Whether the value fails a validation rule.',
