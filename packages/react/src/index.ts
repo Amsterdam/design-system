@@ -4,6 +4,7 @@
  */
 
 /* Append here */
+export * from './Field'
 export * from './Select'
 export * from './TimeInput'
 export * from './DateInput'

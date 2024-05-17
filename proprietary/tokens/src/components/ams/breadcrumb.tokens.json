@@ -10,7 +10,7 @@
           "value": "url(\"data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><path fill='%23000000' fill-rule='evenodd' d='m9.757 32-2.9-2.91L19.937 16 6.857 2.91 9.757 0l16 16z'/></svg>\")"
         }
       },
-      "item-link": {
+      "link": {
         "color": { "value": "{ams.link-appearance.color}" },
         "outline-offset": { "value": "{ams.focus.outline-offset}" },
         "text-decoration-line": { "value": "{ams.link-appearance.subtle.text-decoration-line}" },
