@@ -6,7 +6,7 @@
       },
       "invalid": {
         "border-inline-start": {
-          "value": "3px solid {ams.color.primary-red}"
+          "value": "{ams.border.width.lg} solid {ams.color.primary-red}"
         },
         "padding-inline-start": {
           "value": "{ams.space.inside.md}"
