@@ -1,4 +1,4 @@
-import { fireEvent, render } from '@testing-library/react'
+import { fireEvent, render, screen } from '@testing-library/react'
 import { createRef } from 'react'
 import { Alert } from './Alert'
 import '@testing-library/jest-dom'
@@ -50,6 +50,14 @@ describe('Alert', () => {
 
     expect(closeButton).toBeInTheDocument()
     expect(closeButton).toBeVisible()
+  })
+
+  it('renders the close button with a label', () => {
+    render(<Alert closeable={true} closeButtonLabel="Close" />)
+
+    const closeButton = screen.getByRole('button', { name: 'Close' })
+
+    expect(closeButton).toBeInTheDocument()
   })
 
   it('fires the onClose event when the close button is clicked', () => {
