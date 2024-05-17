@@ -1,6 +1,7 @@
 {
   "ams": {
     "file-input": {
+      "background-color": { "value": "{ams.color.primary-white}" },
       "border": { "value": "{ams.border.width.sm} dashed {ams.color.neutral-grey3}" },
       "color": { "value": "{ams.color.primary-black}" },
       "cursor": { "value": "{ams.action.activate.cursor}" },
@@ -16,9 +17,9 @@
         "cursor": { "value": "{ams.action.disabled.cursor}" }
       },
       "file-selector-button": {
-        "background-color": { "value": "{ams.color.primary-white}" },
         "color": { "value": "{ams.color.primary-blue}" },
         "cursor": { "value": "{ams.action.activate.cursor}" },
+        "background-color": { "value": "{ams.color.primary-white}" },
         "box-shadow": { "value": "inset 0 0 0 {ams.border.width.md} {ams.color.primary-blue}" },
         "margin-inline-end": { "value": "{ams.space.inside.md}" },
         "padding-block": { "value": "{ams.space.inside.xs}" },
