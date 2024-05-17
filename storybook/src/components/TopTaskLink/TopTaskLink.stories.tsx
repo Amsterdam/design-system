@@ -9,6 +9,11 @@ import { Meta, StoryObj } from '@storybook/react'
 const meta = {
   title: 'Components/Navigation/Top Task Link',
   component: TopTaskLink,
+  parameters: {
+    status: {
+      type: 'beta',
+    },
+  },
 } satisfies Meta<typeof TopTaskLink>
 
 export default meta
