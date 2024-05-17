@@ -11,6 +11,9 @@ const meta = {
   component: MegaMenu,
   parameters: {
     layout: 'fullscreen',
+    status: {
+      type: 'beta',
+    },
   },
   decorators: [
     (Story) => (
