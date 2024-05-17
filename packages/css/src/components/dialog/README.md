@@ -10,6 +10,13 @@ A Dialog allows the user to focus on one task or a piece of information by poppi
 - Use a dialog for short and non-frequent tasks.
   Consider using the main flow for regular tasks.
 
+## The order of buttons
+
+If your Dialog needs more than one button, put the one for the primary action first and the other buttons behind it.
+Sighted users will read the primary action first, in line with the natural reading order.
+The same goes for users of screen readers, who will hear the primary action first, and users of a keyboard, who will focus the primary action first.
+Also, this approach keeps the order of buttons consistent on both narrow and wide screens: if the buttons do not fit next to each other, they get stacked vertically with the primary action on top.
+
 ## Keyboard Support
 
 | key         | function                                                         |

@@ -6,7 +6,7 @@
 import { clsx } from 'clsx'
 import { forwardRef } from 'react'
 import type { ForwardedRef, HTMLAttributes, PropsWithChildren } from 'react'
-import { BreadcrumbItem } from './BreadcrumbItem'
+import { BreadcrumbLink } from './BreadcrumbLink'
 
 export type BreadcrumbProps = PropsWithChildren<HTMLAttributes<HTMLElement>>
 
@@ -20,4 +20,4 @@ const BreadcrumbRoot = forwardRef(
 
 BreadcrumbRoot.displayName = 'Breadcrumb'
 
-export const Breadcrumb = Object.assign(BreadcrumbRoot, { Item: BreadcrumbItem })
+export const Breadcrumb = Object.assign(BreadcrumbRoot, { Link: BreadcrumbLink })

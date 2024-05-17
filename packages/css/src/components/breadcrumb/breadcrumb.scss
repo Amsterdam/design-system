@@ -41,14 +41,14 @@
 }
 
 .ams-breadcrumb__link {
-  color: var(--ams-breadcrumb-item-link-color);
-  outline-offset: var(--ams-breadcrumb-item-link-outline-offset);
-  text-decoration-line: var(--ams-breadcrumb-item-link-text-decoration-line);
-  text-decoration-thickness: var(--ams-breadcrumb-item-link-text-decoration-thickness);
-  text-underline-offset: var(--ams-breadcrumb-item-link-text-underline-offset);
+  color: var(--ams-breadcrumb-link-color);
+  outline-offset: var(--ams-breadcrumb-link-outline-offset);
+  text-decoration-line: var(--ams-breadcrumb-link-text-decoration-line);
+  text-decoration-thickness: var(--ams-breadcrumb-link-text-decoration-thickness);
+  text-underline-offset: var(--ams-breadcrumb-link-text-underline-offset);
 
   &:hover {
-    color: var(--ams-breadcrumb-item-link-hover-color);
-    text-decoration-line: var(--ams-breadcrumb-item-link-hover-text-decoration-line);
+    color: var(--ams-breadcrumb-link-hover-color);
+    text-decoration-line: var(--ams-breadcrumb-link-hover-text-decoration-line);
   }
 }

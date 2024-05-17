@@ -24,18 +24,18 @@ describe('Breadcrumb', () => {
   })
 
   it('renders Breadcrumb component with children', () => {
-    const breadcrumbItems = [
-      { label: 'Item 1', href: '/item-1' },
-      { label: 'Item 2', href: '/item-2' },
-      { label: 'Item 3', href: '/item-3' },
+    const breadcrumbLinks = [
+      { label: 'Link 1', href: '/link-1' },
+      { label: 'Link 2', href: '/link-2' },
+      { label: 'Link 3', href: '/link-3' },
     ]
 
     const { container } = render(
       <Breadcrumb>
-        {breadcrumbItems.map((item, index) => (
-          <Breadcrumb.Item key={index} href={item.href}>
-            {item.label}
-          </Breadcrumb.Item>
+        {breadcrumbLinks.map((link, index) => (
+          <Breadcrumb.Link key={index} href={link.href}>
+            {link.label}
+          </Breadcrumb.Link>
         ))}
       </Breadcrumb>,
     )
@@ -52,7 +52,7 @@ describe('Breadcrumb', () => {
 
     const { container } = render(
       <Breadcrumb ref={ref}>
-        <Breadcrumb.Item href="/item-1">Valid Item</Breadcrumb.Item>
+        <Breadcrumb.Link href="/link-1">Valid Link</Breadcrumb.Link>
       </Breadcrumb>,
     )
 
