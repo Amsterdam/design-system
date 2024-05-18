@@ -25,7 +25,7 @@ const meta = {
   },
   argTypes: {
     label: {
-      description: 'Describes the field. Not displayed visually.',
+      description: 'Describes the field for screen readers.',
     },
     onSubmit: {
       table: { disable: true },
