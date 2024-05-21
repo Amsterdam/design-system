@@ -10,9 +10,7 @@ import { SelectOption } from './SelectOption'
 import { SelectOptionGroup } from './SelectOptionGroup'
 
 export type SelectProps = {
-  /**
-   * Whether the value fails a validation rule.
-   */
+  /** Whether the value fails a validation rule. */
   invalid?: boolean
 } & PropsWithChildren<SelectHTMLAttributes<HTMLSelectElement>>
 
