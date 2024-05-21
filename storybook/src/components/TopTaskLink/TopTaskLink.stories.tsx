@@ -21,6 +21,11 @@ export const Default: Story = {
     href: '#',
     label: 'Verhuizing doorgeven',
   },
+  argTypes: {
+    href: {
+      description: 'The url for the link.',
+    },
+  },
 }
 
 export const Multiple: Story = {

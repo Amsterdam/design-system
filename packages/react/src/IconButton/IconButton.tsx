@@ -11,9 +11,13 @@ import { Icon } from '../Icon'
 import { VisuallyHidden } from '../VisuallyHidden'
 
 export type IconButtonProps = {
+  /** The accessible text for the button. Will be announced by screen readers. Should describe the button’s action. */
   label: string
+  /** Describes the underlying background colour. Allows the icon to provide visual contrast. */
   onBackground?: 'light' | 'dark'
+  /** The size of the icon. Corresponds with the text levels. */
   size?: 'level-3' | 'level-4' | 'level-5' | 'level-6'
+  /** The component rendering the icon’s markup. */
   svg?: Function
 } & ButtonHTMLAttributes<HTMLButtonElement>
 

@@ -20,6 +20,15 @@ const meta = {
     disabled: false,
   },
   argTypes: {
+    cols: {
+      control: {
+        type: 'number',
+      },
+      description: 'The width, expressed in the average number of characters.',
+    },
+    disabled: {
+      description: 'Prevents interaction. Avoid if possible.',
+    },
     resize: {
       control: {
         type: 'radio',
@@ -27,15 +36,14 @@ const meta = {
       },
       options: [undefined, 'none', 'horizontal', 'vertical'],
     },
-    cols: {
-      control: {
-        type: 'number',
-      },
-    },
     rows: {
       control: {
         type: 'number',
       },
+      description: 'The number of lines to show',
+    },
+    value: {
+      description: 'The value of the field.',
     },
   },
   render: ({ invalid, ...args }) => {

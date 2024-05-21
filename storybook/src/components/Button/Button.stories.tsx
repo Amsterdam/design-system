@@ -17,7 +17,11 @@ const meta = {
   },
   argTypes: {
     children: {
+      description: 'The text for the label and/or an icon.',
       table: { disable: false },
+    },
+    disabled: {
+      description: 'Prevents interaction. Avoid if possible.',
     },
   },
 } satisfies Meta<typeof Button>

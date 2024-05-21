@@ -9,11 +9,11 @@ import type { ForwardedRef, OlHTMLAttributes, PropsWithChildren } from 'react'
 import { OrderedListItem } from './OrderedListItem'
 
 export type OrderedListProps = {
-  /** Changes the text color for readability on a dark background. */
+  /** Changes the text colour for readability on a dark background. */
   inverseColor?: boolean
   /** Whether the list items show a marker. */
   markers?: boolean
-  /** The size of the ordered list */
+  /** The size of the text. */
   size?: 'small'
 } & PropsWithChildren<OlHTMLAttributes<HTMLOListElement>>
 

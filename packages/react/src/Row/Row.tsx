@@ -13,9 +13,9 @@ type RowTag = 'article' | 'div' | 'section'
 type RowGap = (typeof rowGapSizes)[number]
 
 export type RowProps = {
-  /** The element to render the row with. */
+  /** The HTML element to use. */
   as?: RowTag
-  /** The amount of vertical space between the row’s children. */
+  /** The amount of vertical space between items. */
   gap?: RowGap
 } & PropsWithChildren<HTMLAttributes<HTMLElement>>
 

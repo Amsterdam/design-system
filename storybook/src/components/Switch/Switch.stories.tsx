@@ -15,7 +15,19 @@ const meta = {
     disabled: false,
   },
   argTypes: {
-    onChange: { action: 'clicked', table: { disable: true } },
+    'aria-label': {
+      description: 'Describes the control.',
+    },
+    checked: {
+      description: 'Whether the control is initially checked.',
+    },
+    disabled: {
+      description: 'Prevents interaction. Avoid if possible.',
+    },
+    onChange: {
+      action: 'clicked',
+      table: { disable: true },
+    },
   },
   render: (args) => {
     const [, setArgs] = useArgs()

@@ -18,10 +18,20 @@ const meta = {
     invalid: false,
   },
   argTypes: {
+    checked: {
+      description: 'Whether the control is checked.',
+    },
     children: {
+      description: 'The text for the label.',
       table: { disable: false },
     },
-    onChange: { action: 'clicked', table: { disable: true } },
+    disabled: {
+      description: 'Prevents interaction. Avoid if possible.',
+    },
+    onChange: {
+      action: 'clicked',
+      table: { disable: true },
+    },
   },
   render: (args) => {
     const [, setArgs] = useArgs()

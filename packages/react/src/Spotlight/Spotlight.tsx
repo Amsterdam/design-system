@@ -20,7 +20,9 @@ export const spotlightColors = [
 type SpotlightColor = (typeof spotlightColors)[number]
 
 export type SpotlightProps = {
+  /** The HTML element to use. */
   as?: 'article' | 'aside' | 'div' | 'footer' | 'section'
+  /** The background colour. */
   color?: SpotlightColor
 } & PropsWithChildren<HTMLAttributes<HTMLElement>>
 

@@ -10,7 +10,7 @@ import { Heading } from '../Heading'
 import { IconButton } from '../IconButton'
 
 export type DialogProps = {
-  /** Children for the footer of the dialog, like a save or close button. */
+  /** The button(s) in the footer. Start with a primary button. */
   actions?: ReactNode
   /** The label for the button that dismisses the Dialog. */
   closeButtonLabel?: string

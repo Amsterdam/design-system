@@ -12,6 +12,11 @@ const meta = {
   args: {
     disabled: false,
   },
+  argTypes: {
+    disabled: {
+      description: 'Prevents interaction. Avoid if possible.',
+    },
+  },
 } satisfies Meta<typeof TimeInput>
 
 export default meta
