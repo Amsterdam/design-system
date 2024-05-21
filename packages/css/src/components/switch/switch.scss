@@ -16,13 +16,15 @@
 }
 
 .ams-switch__label {
+  --ams-switch-track-padding: 0.0625rem;
+
   background-color: var(--ams-switch-background-color);
   border-radius: calc(var(--ams-switch-thumb-width) * 2);
   cursor: pointer;
   display: inline-block;
   outline-offset: var(--ams-switch-outline-offset);
-  padding-block: 1px;
-  padding-inline: 1px;
+  padding-block: var(--ams-switch-track-padding);
+  padding-inline: var(--ams-switch-track-padding);
   transition: background-color 0.2s ease-in-out;
   width: var(--ams-switch-width);
 
@@ -51,10 +53,11 @@
 }
 
 .ams-switch__input:checked + .ams-switch__label::before {
-  // The 2px is to account for the 1px padding-inline on the label
-  transform: translate(calc(var(--ams-switch-width) - var(--ams-switch-thumb-width) - 2px));
+  transform: translate(
+    calc(var(--ams-switch-width) - var(--ams-switch-thumb-width) - 2 * var(--ams-switch-track-padding))
+  );
 }
 
 .ams-switch:hover .ams-switch__input:enabled + .ams-switch__label::before {
-  box-shadow: 0 0 0 2px var(--ams-switch-thumb-hover-color);
+  box-shadow: 0 0 0 var(--ams-switch-thumb-hover-box-shadow-spread-radius) var(--ams-switch-thumb-hover-color);
 }

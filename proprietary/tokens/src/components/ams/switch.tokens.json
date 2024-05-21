@@ -1,21 +1,22 @@
 {
   "ams": {
     "switch": {
-      "font-family": { "value": "{ams.text.font-family}" },
       "background-color": { "value": "{ams.color.neutral-grey3}" },
+      "font-family": { "value": "{ams.text.font-family}" },
+      "outline-offset": { "value": "{ams.focus.outline-offset}" },
       "width": { "value": "3.5rem" },
       "thumb": {
         "background-color": { "value": "{ams.color.primary-white}" },
         "width": { "value": "1.75rem" },
         "height": { "value": "1.75rem" },
         "hover": {
+          "box-shadow-spread-radius": { "value": "0.125rem" },
           "color": { "value": "{ams.color.dark-blue}" }
         }
       },
       "checked": {
         "background-color": { "value": "{ams.color.primary-blue}" }
       },
-      "outline-offset": { "value": "{ams.focus.outline-offset}" },
       "disabled": {
         "background-color": { "value": "{ams.color.neutral-grey2}" }
       }

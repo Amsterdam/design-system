@@ -13,8 +13,8 @@ Still, we define its thickness and offset for the initial state.
 ```css
 .ams-link {
   text-decoration: none;
-  text-decoration-thickness: 2px;
-  text-underline-offset: 3px;
+  text-decoration-thickness: 0.125rem;
+  text-underline-offset: 0.1875rem;
 
   &:hover {
     text-decoration: underline;
@@ -30,8 +30,8 @@ Still, we define its thickness and offset for the initial state.
 
   &:hover {
     text-decoration: underline;
-    text-decoration-thickness: 2px;
-    text-underline-offset: 3px;
+    text-decoration-thickness: 0.125rem;
+    text-underline-offset: 0.1875rem;
   }
 }
 ```
