@@ -25,7 +25,7 @@ Controls are automatically generated based on the component’s typing.
 ### Prop descriptions
 
 We use JSDoc to describe each prop to keep documentation close to the actual definition.
-This also helps IDE’s pick up the description and display it in their user interface.
+This also helps IDEs pick up the description and display it in their user interface.
 The description briefly explains the essence of the prop.
 A guideline on how to use the prop may be added, as well as a description of its effect, e.g. visually.
 Prevent mentioning the component’s name in a prop description – that should be obvious.
