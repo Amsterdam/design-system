@@ -24,7 +24,7 @@ const meta = {
       control: {
         type: 'number',
       },
-      description: 'The maximum number of characters per line.',
+      description: 'The width, expressed in the average number of characters.',
     },
     disabled: {
       description: 'Prevents interaction. Avoid if possible.',
