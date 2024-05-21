@@ -33,11 +33,6 @@ const meta = {
       name: 'href',
       type: { name: 'string', required: false },
     },
-    rel: {
-      description: 'Allows marking a link to an external resource.',
-      name: 'rel',
-      type: { name: 'string', required: false },
-    },
   },
 } satisfies Meta<typeof Link>
 
