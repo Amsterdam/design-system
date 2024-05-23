@@ -11,6 +11,14 @@
   box-sizing: border-box;
 }
 
+@mixin ams-file-input-selector-button-forced-color-mode {
+  @media screen and (-ms-high-contrast: active), screen and (forced-colors: active) {
+    border: var(
+      --ams-file-input-file-selector-button-forced-color-mode-border
+    ); // add border because forced colors changes box-shadow to none
+  }
+}
+
 .ams-file-input {
   background-color: var(--ams-file-input-background-color);
   border: var(--ams-file-input-border);
@@ -20,8 +28,8 @@
   font-size: var(--ams-file-input-font-size);
   font-weight: var(--ams-file-input-font-weight);
   line-height: var(--ams-file-input-line-height);
-  max-inline-size: 100%;
-  outline-offset: var(--ams-file-input-outline-offset);
+  max-inline-size: calc(100% - var(--ams-file-input-padding-inline) * 2);
+  outline-offset: 4px; // Double the default focus outline offset to compensate for the dashed border
   padding-block: var(--ams-file-input-padding-block);
   padding-inline: var(--ams-file-input-padding-inline);
   touch-action: manipulation;
@@ -47,6 +55,7 @@
   padding-block: var(--ams-file-input-file-selector-button-padding-block);
   padding-inline: var(--ams-file-input-file-selector-button-padding-inline);
 
+  @include ams-file-input-selector-button-forced-color-mode;
   @include reset-button;
 }
 
