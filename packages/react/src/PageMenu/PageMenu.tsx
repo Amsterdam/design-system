@@ -9,14 +9,9 @@ import type { ForwardedRef, HTMLAttributes, PropsWithChildren } from 'react'
 import { PageMenuLink } from './PageMenuLink'
 
 export type PageMenuProps = {
-  /**
-   * Whether the page menu’s items align to its end.
-   * If the menu itself aligns to the end of its container, you should set this to `true`.
-   */
+  /** Whether the items align to the end margin. Set to `true` if the Page Menu itself does so. */
   alignEnd?: boolean
-  /**
-   * Whether menu items should wrap if they don’t fit on a single row.
-   */
+  /** Whether menu items should wrap if they don’t fit on a single row. */
   wrap?: boolean
 } & PropsWithChildren<HTMLAttributes<HTMLUListElement>>
 

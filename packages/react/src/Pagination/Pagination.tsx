@@ -10,22 +10,22 @@ import type { ForwardedRef, HTMLAttributes } from 'react'
 import { Icon } from '../Icon/Icon'
 
 export type PaginationProps = {
-  /**
-   * The maximum amount of pages shown. This has a lower limit of 5
-   */
+  /** The maximum amount of pages shown. Minimum value: 5. */
   maxVisiblePages?: number
-  /**
-   * Callback triggered when interaction changes the page number.
-   */
+  /** The accessible name for the link to the next page. */
+  nextAriaLabel?: string
+  /** The label for the link to the next page. */
+  nextLabel?: string
+  /** A function to run when the page number changes. */
   // eslint-disable-next-line no-unused-vars
   onPageChange?: (page: number) => void
-  /**
-   * The current page number.
-   */
+  /** The current page number. */
   page?: number
-  /**
-   * The total amount of pages.
-   */
+  /** The accessible name for the link to the previous page. */
+  previousAriaLabel?: string
+  /** The label for the link to the previous page. */
+  previousLabel?: string
+  /** The total amount of pages. */
   totalPages: number
 } & HTMLAttributes<HTMLElement>
 
@@ -81,7 +81,18 @@ function getRange(currentPage: number, totalPages: number, maxVisiblePages: numb
 
 export const Pagination = forwardRef(
   (
-    { className, maxVisiblePages = 7, onPageChange, page = 1, totalPages, ...restProps }: PaginationProps,
+    {
+      className,
+      maxVisiblePages = 7,
+      nextAriaLabel = 'Volgende pagina',
+      nextLabel = 'volgende',
+      onPageChange,
+      page = 1,
+      previousAriaLabel = 'Vorige pagina',
+      previousLabel = 'vorige',
+      totalPages,
+      ...restProps
+    }: PaginationProps,
     ref: ForwardedRef<HTMLElement>,
   ) => {
     const [currentPage, setCurrentPage] = useState(page)
@@ -117,14 +128,14 @@ export const Pagination = forwardRef(
         <ol className="ams-pagination__list">
           <li>
             <button
-              aria-label="Vorige pagina"
+              aria-label={previousAriaLabel}
               className="ams-pagination__button"
               disabled={currentPage === 1}
               onClick={onPrevious}
               type="button"
             >
               <Icon svg={ChevronLeftIcon} size="level-5" />
-              vorige
+              {previousLabel}
             </button>
           </li>
           {range.map((pageNumberOrSpacer) =>
@@ -156,13 +167,13 @@ export const Pagination = forwardRef(
           )}
           <li>
             <button
-              aria-label="Volgende pagina"
+              aria-label={nextAriaLabel}
               className="ams-pagination__button"
               disabled={currentPage === totalPages}
               onClick={onNext}
               type="button"
             >
-              volgende
+              {nextLabel}
               <Icon svg={ChevronRightIcon} size="level-5" />
             </button>
           </li>

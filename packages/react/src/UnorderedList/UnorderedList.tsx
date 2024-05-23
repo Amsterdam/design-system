@@ -9,11 +9,11 @@ import type { ForwardedRef, HTMLAttributes, PropsWithChildren } from 'react'
 import { UnorderedListItem } from './UnorderedListItem'
 
 export type UnorderedListProps = {
-  /** Changes the text color for readability on a dark background. */
+  /** Changes the text colour for readability on a dark background. */
   inverseColor?: boolean
   /** Whether the list items show a marker. */
   markers?: boolean
-  /** The size of the unordered list. */
+  /** The size of the text. */
   size?: 'small'
 } & PropsWithChildren<HTMLAttributes<HTMLUListElement>>
 

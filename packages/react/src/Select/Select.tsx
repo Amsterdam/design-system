@@ -10,7 +10,7 @@ import { SelectOption } from './SelectOption'
 import { SelectOptionGroup } from './SelectOptionGroup'
 
 export type SelectProps = {
-  /** There is no native invalid attribute for select, but you can use this to get the same result as other form components */
+  /** Whether the value fails a validation rule. */
   invalid?: boolean
 } & PropsWithChildren<SelectHTMLAttributes<HTMLSelectElement>>
 

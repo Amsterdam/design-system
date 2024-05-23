@@ -12,6 +12,7 @@ type InputProps = {
   label?: string
   placeholder?: string
 }
+
 type StoryProps = SearchFieldProps & InputProps
 
 const meta = {
@@ -24,15 +25,13 @@ const meta = {
   },
   argTypes: {
     label: {
-      control: 'text',
+      description: 'Describes the field for screen readers.',
     },
     onSubmit: {
-      table: {
-        disable: true,
-      },
+      table: { disable: true },
     },
     placeholder: {
-      control: 'text',
+      description: 'Displayed while the field is empty.',
     },
   },
   render: ({ label, placeholder, ...args }) => (

@@ -5,32 +5,35 @@
 
 import { Button, Dialog, Heading, Paragraph } from '@amsterdam/design-system-react/src'
 import { Meta, StoryObj } from '@storybook/react'
+import { MouseEvent } from 'react'
+
+const closeDialog = (event: MouseEvent<HTMLButtonElement>) => {
+  return event.currentTarget.closest('dialog')?.close()
+}
 
 const meta = {
   title: 'Components/Containers/Dialog',
   component: Dialog,
   args: {
-    title: 'Weet u het zeker?',
-    children: (
-      <Paragraph>
-        Weet u zeker dat u door wilt gaan met het uitvoeren van deze actie? Alle niet-opgeslagen data zal worden
-        verwijderd.
-      </Paragraph>
-    ),
     actions: (
       <>
-        <Button variant="tertiary" onClick={(event) => event.currentTarget.closest('dialog')?.close()}>
-          Terug
+        <Button type="submit">Doorgaan</Button>
+        <Button onClick={closeDialog} variant="tertiary">
+          Stoppen
         </Button>
-        <Button type="submit">Verder</Button>
       </>
     ),
+    children: (
+      <Paragraph>
+        Weet u zeker dat u door wilt gaan met het uitvoeren van deze actie? Dat verwijdert gegevens die nog niet
+        opgeslagen zijn.
+      </Paragraph>
+    ),
+    title: 'Niet alle gegevens zijn opgeslagen',
   },
   argTypes: {
     actions: {
-      table: {
-        disable: true,
-      },
+      table: { disable: true },
     },
   },
 } satisfies Meta<typeof Dialog>
@@ -42,6 +45,14 @@ type Story = StoryObj<typeof meta>
 export const Default: Story = {
   args: {
     open: true,
+  },
+  argTypes: {
+    open: {
+      description: 'Whether the dialog box is active and available for interaction.',
+    },
+    title: {
+      description: 'The text for the heading.',
+    },
   },
   decorators: [
     (Story) => (
@@ -58,10 +69,9 @@ export const Default: Story = {
 
 export const WithScrollbar: Story = {
   args: {
-    open: true,
-    title: 'Privacyverklaring gemeente Amsterdam',
+    actions: <Button onClick={closeDialog}>Sluiten</Button>,
     children: [
-      <Heading size="level-4" key={1}>
+      <Heading level={2} size="level-5" key={1}>
         Algemeen
       </Heading>,
       <Paragraph key={2}>
@@ -82,7 +92,7 @@ export const WithScrollbar: Story = {
         ook wijzigingen zijn in de wijze van het verwerken van persoonsgegevens. Wij raden u daarom aan om regelmatig
         deze pagina te bekijken. Deze pagina wordt doorlopend geactualiseerd.
       </Paragraph>,
-      <Heading size="level-4" key={6}>
+      <Heading level={2} size="level-5" key={6}>
         Geldende wet- en regelgeving en reikwijdte
       </Heading>,
       <Paragraph key={7}>
@@ -92,6 +102,8 @@ export const WithScrollbar: Story = {
         vinden op de website van Autoriteit Persoonsgegevens.
       </Paragraph>,
     ],
+    open: true,
+    title: 'Privacyverklaring gemeente Amsterdam',
   },
   decorators: [
     (Story) => (
@@ -109,14 +121,6 @@ export const WithScrollbar: Story = {
 export const TriggerButton: Story = {
   args: {
     id: 'openDialog',
-    actions: (
-      <>
-        <Button variant="tertiary" autoFocus onClick={(event) => event.currentTarget.closest('dialog')?.close()}>
-          Terug
-        </Button>
-        <Button type="submit">Verder</Button>
-      </>
-    ),
   },
   decorators: [
     (Story) => (
@@ -128,4 +132,31 @@ export const TriggerButton: Story = {
       </article>
     ),
   ],
+}
+
+export const VerticalButtons: Story = {
+  args: {
+    actions: (
+      <>
+        <Button type="submit">Lange teksten op deze knoppen</Button>
+        <Button onClick={closeDialog} variant="tertiary">
+          Om verticaal stapelen te demonstreren
+        </Button>
+      </>
+    ),
+    open: true,
+  },
+  decorators: [
+    (Story) => (
+      <div style={{ backgroundColor: '#0006', position: 'absolute', width: '100%', height: '100%' }}>
+        <Story />
+      </div>
+    ),
+  ],
+  parameters: {
+    layout: 'fullscreen',
+    docs: {
+      story: { height: '32em' },
+    },
+  },
 }

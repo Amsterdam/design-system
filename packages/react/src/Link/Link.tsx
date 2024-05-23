@@ -11,8 +11,10 @@ type LinkOnBackground = 'default' | 'light' | 'dark'
 type LinkVariant = 'standalone' | 'inline'
 
 export type LinkProps = {
-  variant?: LinkVariant
+  /** Describes the underlying background colour. Allows the text to provide visual contrast. */
   onBackground?: LinkOnBackground
+  /** Whether the link is inline or stands alone. */
+  variant?: LinkVariant
 } & Omit<AnchorHTMLAttributes<HTMLAnchorElement>, 'placeholder'>
 
 export const Link = forwardRef(

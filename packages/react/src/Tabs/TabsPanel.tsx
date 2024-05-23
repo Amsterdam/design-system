@@ -9,6 +9,7 @@ import type { ForwardedRef, HTMLAttributes, PropsWithChildren } from 'react'
 import { TabsContext } from './TabsContext'
 
 export type TabsPanelProps = {
+  /** The identifier of the corresponding Tab. */
   tab: number
 } & PropsWithChildren<HTMLAttributes<HTMLDivElement>>
 

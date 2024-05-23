@@ -36,6 +36,11 @@ const meta = {
       </Select.Option>,
     ],
   },
+  argTypes: {
+    disabled: {
+      description: 'Prevents interaction. Avoid if possible.',
+    },
+  },
 } satisfies Meta<typeof Select>
 
 export default meta

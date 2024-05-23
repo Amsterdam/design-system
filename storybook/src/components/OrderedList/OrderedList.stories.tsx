@@ -23,8 +23,17 @@ const meta = {
     start: undefined,
   },
   argTypes: {
-    reversed: { control: 'boolean' },
-    start: { control: 'number' },
+    reversed: {
+      control: 'boolean',
+      description: 'Numbers the items from the highest value down.',
+      table: {
+        defaultValue: { summary: 'false' },
+      },
+    },
+    start: {
+      control: 'number',
+      description: 'The value for the first list item’s marker.',
+    },
     size: {
       control: {
         type: 'radio',

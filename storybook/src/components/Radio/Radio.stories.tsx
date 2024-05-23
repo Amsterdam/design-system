@@ -17,10 +17,23 @@ const meta = {
     invalid: false,
   },
   argTypes: {
+    checked: {
+      description: 'Whether the control is checked.',
+    },
     children: {
+      description: 'The text for the label.',
       table: { disable: false },
     },
-    onChange: { action: 'clicked', table: { disable: true } },
+    disabled: {
+      description: 'Prevents interaction. Avoid if possible.',
+    },
+    invalid: {
+      description: 'Whether the value fails a validation rule.',
+    },
+    onChange: {
+      action: 'clicked',
+      table: { disable: true },
+    },
   },
   render: (args) => {
     const [, setArgs] = useArgs()
@@ -53,7 +66,10 @@ export const RadioGroup: Story = {
     invalid: {
       table: { disable: true },
     },
-    onChange: { action: 'clicked', table: { disable: true } },
+    onChange: {
+      action: 'clicked',
+      table: { disable: true },
+    },
   },
   render: () => (
     <Fieldset legend="Waar gaat uw melding over?">

@@ -8,7 +8,7 @@ import { forwardRef } from 'react'
 import type { ForwardedRef, HTMLAttributes, PropsWithChildren } from 'react'
 
 export type PageHeadingProps = {
-  /** Changes the text color for readability on a dark background. */
+  /** Changes the text colour for readability on a dark background. */
   inverseColor?: boolean
 } & PropsWithChildren<HTMLAttributes<HTMLHeadingElement>>
 

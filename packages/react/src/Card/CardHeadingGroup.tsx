@@ -9,6 +9,7 @@ import type { ForwardedRef, HTMLAttributes, PropsWithChildren } from 'react'
 import { Paragraph } from '../Paragraph'
 
 export type CardHeadingGroupProps = {
+  /** A short phrase of text, e.g. to categorise the card. Displayed above the card heading. */
   tagline: string
 } & PropsWithChildren<HTMLAttributes<HTMLElement>>
 
