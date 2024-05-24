@@ -13,6 +13,7 @@ import { AmsterdamArticleContent } from './AmsterdamArticleContent'
 import { AmsterdamArticleHeader } from './AmsterdamArticleHeader'
 
 export type AmsterdamArticlePageProps = {
+  articleHeading?: string
   articleImage?: string
   articleImageAlt?: string
   breadcrumbs?: ReactElement<BreadcrumbProps>
@@ -20,6 +21,7 @@ export type AmsterdamArticlePageProps = {
 }
 
 export const AmsterdamArticlePage = ({
+  articleHeading = 'Titel van het artikel',
   articleImage = '',
   articleImageAlt = '',
   breadcrumbs,
@@ -43,7 +45,7 @@ export const AmsterdamArticlePage = ({
           </Grid>
         )}
 
-        <AmsterdamArticleHeader src={articleImage} alt={articleImageAlt} />
+        <AmsterdamArticleHeader src={articleImage} alt={articleImageAlt} heading={articleHeading} />
 
         <AmsterdamArticleContent />
 

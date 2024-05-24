@@ -8,10 +8,11 @@ import { AmsterdamArticlePage } from './AmsterdamArticlePage'
 import { AmsterdamPage } from './AmsterdamPage'
 import * as BreadcrumbStories from '../../components/Breadcrumb/Breadcrumb.stories'
 import * as FooterStories from '../../components/Footer/Footer.stories'
+import * as HeadingStories from '../../components/Heading/Heading.stories'
 import * as ImageStories from '../../components/Image/Image.stories'
 
 const meta = {
-  title: 'Docs/Patterns/Amsterdam',
+  title: 'Pages/Amsterdam.nl',
   component: AmsterdamArticlePage,
   parameters: {
     layout: 'fullscreen',
@@ -28,6 +29,7 @@ export const Article: StoryObj = {
   args: {
     articleImage: ImageStories.LazyLoading.args?.src,
     articleImageAlt: ImageStories.LazyLoading.args?.alt,
+    articleHeading: HeadingStories.Default.args?.children,
     breadcrumbs: BreadcrumbStories.Default.args?.children,
     footer: FooterStories.Default.args?.children,
   },

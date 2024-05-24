@@ -3,14 +3,15 @@ import { AspectRatio, Grid, Heading, Image, Overlap } from '@amsterdam/design-sy
 export type AmsterdamArticleHeaderProps = {
   src: string
   alt: string
+  heading: string
 }
 
-export const AmsterdamArticleHeader = ({ src, alt }: AmsterdamArticleHeaderProps) => {
+export const AmsterdamArticleHeader = ({ src, alt, heading }: AmsterdamArticleHeaderProps) => {
   return (
     <header>
       <Grid paddingVertical="small">
         <Grid.Cell span={{ narrow: 4, medium: 8, wide: 10 }} start={{ narrow: 1, medium: 1, wide: 2 }}>
-          <Heading>Amsterdam Article Header</Heading>
+          <Heading>{heading}</Heading>
         </Grid.Cell>
       </Grid>
       {src && (
