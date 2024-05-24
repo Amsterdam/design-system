@@ -17,6 +17,8 @@ import README from "../../../../packages/css/src/components/field-set/README.md?
 A Field Set can have a description.
 Make sure to connect this description to the Field Set or a specific input,
 otherwise this won’t be read by a screen reader.
+Add an `aria-describedby` attribute to the Field Set
+and provide the `id` of the describing element as its value.
 
 <Canvas of={FieldSetStories.WithDescription} />
 
