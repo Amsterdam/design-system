@@ -7,7 +7,6 @@ A component to group related form inputs.
 ## Guidelines
 
 - Use Field Set when you need to show a relationship between multiple form inputs. For example, you may need to group a set of text inputs into a single Field Set when asking for an address.
-- When grouping radio inputs, use `role="radiogroup"` on Field Set to have this grouping explicitly announced as a radio group. Field Set has a default role of `group`.
 
 ## Relevant WCAG Requirements
 

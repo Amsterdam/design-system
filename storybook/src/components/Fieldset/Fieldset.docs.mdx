@@ -12,8 +12,24 @@ import README from "../../../../packages/css/src/components/field-set/README.md?
 
 ## Examples
 
+## With Error
+
+A Field Set can indicate whether any of the inputs it contains has a validation error.
+
+<Canvas of={FieldSetStories.WithError} />
+
+### Radio group
+
+Use a Field Set to group radio buttons.
+When grouping radio inputs, use `role="radiogroup"` on Field Set to have this grouping explicitly announced as a radio group.
+Field Set has a default role of `group`.
+
+<Canvas of={FieldSetStories.RadioGroup} />
+
 ### Checkbox group
 
-Field Set is used to group related form inputs, like checkboxes.
+Use a Field Set to group checkboxes.
+
+{/* TODO: docs over dat description niet werkt bij checkboxes */}
 
 <Canvas of={FieldSetStories.CheckboxGroup} />
