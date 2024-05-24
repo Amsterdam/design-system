@@ -18,7 +18,7 @@ describe('FieldSet', () => {
 
     const component = screen.getByRole('group', { name: 'Test' })
 
-    expect(component).toHaveClass('ams-fieldSet')
+    expect(component).toHaveClass('ams-field-set')
   })
 
   it('renders an additional class name', () => {
@@ -26,7 +26,7 @@ describe('FieldSet', () => {
 
     const component = screen.getByRole('group', { name: 'Test' })
 
-    expect(component).toHaveClass('ams-fieldSet extra')
+    expect(component).toHaveClass('ams-field-set extra')
   })
 
   it('renders the correct legend class name', () => {
@@ -34,7 +34,7 @@ describe('FieldSet', () => {
 
     const component = container.querySelector('legend')
 
-    expect(component).toHaveClass('ams-fieldSet__legend')
+    expect(component).toHaveClass('ams-field-set__legend')
   })
 
   it('supports ForwardRef in React', () => {
