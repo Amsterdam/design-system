@@ -27,9 +27,14 @@ const meta = {
       </Paragraph>
       <Column gap="extra-small">
         <Label htmlFor="input1">Voornaam</Label>
-        <TextInput id="input1" aria-invalid={args.invalid ? true : undefined} />
+        <TextInput id="input1" aria-invalid={args.invalid ? true : undefined} aria-required="true" />
         <Label htmlFor="input2">Achternaam</Label>
-        <TextInput id="input2" aria-describedby="description1" aria-invalid={args.invalid ? true : undefined} />
+        <TextInput
+          id="input2"
+          aria-describedby="description1"
+          aria-invalid={args.invalid ? true : undefined}
+          aria-required="true"
+        />
       </Column>
     </FieldSet>
   ),
@@ -83,11 +88,8 @@ export const CheckboxGroup: Story = {
     legend: 'Waar gaat uw melding over?',
   },
   render: (args) => (
-    <FieldSet legend={args.legend} aria-describedby="description3" invalid={args.invalid}>
-      <Paragraph id="description3" size="small" className="ams-mb--sm">
-        De laatstgenoemde melding.
-      </Paragraph>
-      <Column gap="extra-small">
+    <FieldSet legend={args.legend} invalid={args.invalid}>
+      <Column gap="extra-small" style={{ display: 'inline-grid' }}>
         <Checkbox name="about" value="horeca" invalid={args.invalid} aria-required="true">
           Horecabedrijf
         </Checkbox>
