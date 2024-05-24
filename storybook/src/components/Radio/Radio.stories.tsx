@@ -3,7 +3,7 @@
  * Copyright Gemeente Amsterdam
  */
 
-import { Fieldset, Radio } from '@amsterdam/design-system-react/src'
+import { FieldSet, Radio } from '@amsterdam/design-system-react/src'
 import { useArgs } from '@storybook/preview-api'
 import { Meta, StoryObj } from '@storybook/react'
 
@@ -72,7 +72,7 @@ export const RadioGroup: Story = {
     },
   },
   render: () => (
-    <Fieldset legend="Waar gaat uw melding over?">
+    <FieldSet legend="Waar gaat uw melding over?">
       <Radio name="soort" value="horecabedrijf">
         Horecabedrijf
       </Radio>
@@ -85,7 +85,7 @@ export const RadioGroup: Story = {
       <Radio name="soort" value="iets_anders">
         Iets anders
       </Radio>
-    </Fieldset>
+    </FieldSet>
   ),
   parameters: {
     docs: {
