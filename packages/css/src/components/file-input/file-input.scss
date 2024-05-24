@@ -29,7 +29,7 @@
   font-weight: var(--ams-file-input-font-weight);
   line-height: var(--ams-file-input-line-height);
   max-inline-size: calc(100% - var(--ams-file-input-padding-inline) * 2);
-  outline-offset: 4px; // Double the default focus outline offset to compensate for the dashed border
+  outline-offset: 0.25rem; // Double the default focus outline offset to compensate for the dashed border
   padding-block: var(--ams-file-input-padding-block);
   padding-inline: var(--ams-file-input-padding-inline);
   touch-action: manipulation;
