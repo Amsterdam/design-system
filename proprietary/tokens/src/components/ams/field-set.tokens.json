@@ -1,6 +1,6 @@
 {
   "ams": {
-    "fieldset": {
+    "field-set": {
       "legend": {
         "color": { "value": "{ams.color.primary-black}" },
         "font-family": { "value": "{ams.text.font-family}" },

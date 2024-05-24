@@ -6,4 +6,4 @@ Wraps a single input and its related elements. May indicate that the input has a
 
 ## Guidelines
 
-Only use Field to wrap a single input. Use [Fieldset](/docs/components-forms-fieldset--docs) to wrap multiple inputs.
+Only use Field to wrap a single input. Use [Fieldset](/docs/components-forms-field-set--docs) to wrap multiple inputs.
