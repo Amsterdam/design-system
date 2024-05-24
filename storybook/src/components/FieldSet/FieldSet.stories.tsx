@@ -20,34 +20,56 @@ const meta = {
       </form>
     ),
   ],
-  render: (args) => (
-    <FieldSet invalid={args.invalid} legend={args.legend}>
-      <Paragraph id="description1" size="small" className="ams-mb--sm">
-        Vul uw volledige achternaam, met voorvoegsels, in bij ‘Achternaam’
-      </Paragraph>
-      <Column gap="extra-small">
-        <Label htmlFor="input1">Voornaam</Label>
-        <TextInput id="input1" aria-invalid={args.invalid ? true : undefined} aria-required="true" />
-        <Label htmlFor="input2">Achternaam</Label>
-        <TextInput
-          id="input2"
-          aria-describedby="description1"
-          aria-invalid={args.invalid ? true : undefined}
-          aria-required="true"
-        />
-      </Column>
-    </FieldSet>
-  ),
 } satisfies Meta<typeof FieldSet>
 
 export default meta
 
 type Story = StoryObj<typeof meta>
 
-export const Default: Story = {}
+export const Default: Story = {
+  render: (args) => (
+    <FieldSet invalid={args.invalid} legend={args.legend}>
+      <Column gap="extra-small" style={{ width: '100%' }}>
+        <Label htmlFor="input1">Voornaam</Label>
+        <TextInput id="input1" aria-invalid={args.invalid ? true : undefined} aria-required="true" />
+        <Label htmlFor="input2">Achternaam</Label>
+        <TextInput id="input2" aria-invalid={args.invalid ? true : undefined} aria-required="true" />
+      </Column>
+    </FieldSet>
+  ),
+}
+
+export const WithDescription: Story = {
+  render: (args) => (
+    <FieldSet invalid={args.invalid} legend={args.legend} aria-describedby="description2">
+      <Paragraph id="description2" size="small" className="ams-mb--sm">
+        Vul uw naam in zoals in uw paspoort staat.
+      </Paragraph>
+      <Column gap="extra-small">
+        <Label htmlFor="input3">Voornaam</Label>
+        <TextInput id="input3" aria-invalid={args.invalid ? true : undefined} aria-required="true" />
+        <Label htmlFor="input4">Achternaam</Label>
+        <TextInput id="input4" aria-invalid={args.invalid ? true : undefined} aria-required="true" />
+      </Column>
+    </FieldSet>
+  ),
+}
 
 export const WithError: Story = {
-  args: { invalid: true, legend: 'Wat is uw naam?' },
+  args: { invalid: true },
+  render: (args) => (
+    <FieldSet invalid={args.invalid} legend={args.legend} aria-describedby="description3">
+      <Paragraph id="description3" size="small" className="ams-mb--sm">
+        Vul uw naam in zoals in uw paspoort staat.
+      </Paragraph>
+      <Column gap="extra-small">
+        <Label htmlFor="input5">Voornaam</Label>
+        <TextInput id="input5" aria-invalid={args.invalid ? true : undefined} aria-required="true" />
+        <Label htmlFor="input6">Achternaam</Label>
+        <TextInput id="input6" aria-invalid={args.invalid ? true : undefined} aria-required="true" />
+      </Column>
+    </FieldSet>
+  ),
 }
 
 export const RadioGroup: Story = {
@@ -57,12 +79,12 @@ export const RadioGroup: Story = {
   render: (args) => (
     <FieldSet
       legend={args.legend}
-      aria-describedby="description2"
+      aria-describedby="description4"
       role="radiogroup"
       aria-required="true"
       invalid={args.invalid}
     >
-      <Paragraph id="description2" size="small" className="ams-mb--sm">
+      <Paragraph id="description4" size="small" className="ams-mb--sm">
         De laatstgenoemde melding.
       </Paragraph>
       <Column gap="extra-small">
@@ -89,7 +111,7 @@ export const CheckboxGroup: Story = {
   },
   render: (args) => (
     <FieldSet legend={args.legend} invalid={args.invalid}>
-      <Column gap="extra-small" style={{ display: 'inline-grid' }}>
+      <Column gap="extra-small" style={{ width: '100%' }}>
         <Checkbox name="about" value="horeca" invalid={args.invalid} aria-required="true">
           Horecabedrijf
         </Checkbox>
