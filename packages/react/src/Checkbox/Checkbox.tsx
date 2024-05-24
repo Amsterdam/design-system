@@ -12,7 +12,7 @@ export type CheckboxProps = {
   invalid?: boolean
   /** Allows being neither checked nor unchecked. */
   indeterminate?: boolean
-} & PropsWithChildren<InputHTMLAttributes<HTMLInputElement>>
+} & PropsWithChildren<Omit<InputHTMLAttributes<HTMLInputElement>, 'aria-invalid' | 'type'>>
 
 export const Checkbox = forwardRef(
   (

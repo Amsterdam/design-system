@@ -11,6 +11,7 @@ const meta = {
   component: TimeInput,
   args: {
     disabled: false,
+    invalid: false,
   },
   argTypes: {
     disabled: {
@@ -27,7 +28,7 @@ export const Default: Story = {}
 
 export const Invalid: Story = {
   args: {
-    required: true,
+    invalid: true,
   },
 }
 

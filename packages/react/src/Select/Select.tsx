@@ -12,7 +12,7 @@ import { SelectOptionGroup } from './SelectOptionGroup'
 export type SelectProps = {
   /** Whether the value fails a validation rule. */
   invalid?: boolean
-} & PropsWithChildren<SelectHTMLAttributes<HTMLSelectElement>>
+} & PropsWithChildren<Omit<SelectHTMLAttributes<HTMLSelectElement>, 'aria-invalid'>>
 
 const SelectRoot = forwardRef(
   ({ children, className, invalid, ...restProps }: SelectProps, ref: ForwardedRef<HTMLSelectElement>) => (

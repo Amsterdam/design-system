@@ -10,7 +10,7 @@ import type { ForwardedRef, InputHTMLAttributes, PropsWithChildren } from 'react
 export type RadioProps = {
   /** Whether the value fails a validation rule. */
   invalid?: boolean
-} & PropsWithChildren<InputHTMLAttributes<HTMLInputElement>>
+} & PropsWithChildren<Omit<InputHTMLAttributes<HTMLInputElement>, 'aria-invalid' | 'type'>>
 
 export const Radio = forwardRef(
   ({ children, className, invalid, ...restProps }: RadioProps, ref: ForwardedRef<HTMLInputElement>) => {
