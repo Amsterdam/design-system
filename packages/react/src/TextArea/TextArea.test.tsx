@@ -103,4 +103,31 @@ describe('Text area', () => {
 
     expect(ref.current).toBe(component)
   })
+
+  // invalid state
+
+  it('is not invalid by default', () => {
+    render(<TextArea />)
+
+    const component = screen.getByRole('textbox')
+
+    expect(component).not.toBeInvalid()
+  })
+
+  it('can have an invalid state', () => {
+    render(<TextArea invalid />)
+
+    const component = screen.getByRole('textbox')
+
+    expect(component).toHaveAttribute('aria-invalid')
+    expect(component).toBeInvalid()
+  })
+
+  it('omits non-essential invalid attributes when not invalid', () => {
+    render(<TextArea invalid={false} />)
+
+    const component = screen.getByRole('textbox')
+
+    expect(component).not.toHaveAttribute('aria-invalid')
+  })
 })

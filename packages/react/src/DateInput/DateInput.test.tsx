@@ -38,4 +38,31 @@ describe('Date input', () => {
 
     expect(ref.current).toBe(component)
   })
+
+  // invalid state
+
+  it('is not invalid by default', () => {
+    const { container } = render(<DateInput />)
+
+    const component = container.querySelector(':only-child')
+
+    expect(component).not.toBeInvalid()
+  })
+
+  it('can have an invalid state', () => {
+    const { container } = render(<DateInput invalid />)
+
+    const component = container.querySelector(':only-child')
+
+    expect(component).toHaveAttribute('aria-invalid')
+    expect(component).toBeInvalid()
+  })
+
+  it('omits non-essential invalid attributes when not invalid', () => {
+    const { container } = render(<DateInput invalid={false} />)
+
+    const component = container.querySelector(':only-child')
+
+    expect(component).not.toHaveAttribute('aria-invalid')
+  })
 })
