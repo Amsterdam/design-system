@@ -15,6 +15,7 @@ import README from "../../../../packages/css/src/components/field/README.md?raw"
 A Field can have a description.
 Make sure to connect this description to the input in the Field,
 otherwise this won’t be read by a screen reader.
+Add an `aria-describedby` attribute to the input and provide the `id` of the describing element as its value.
 
 <Canvas of={FieldStories.WithDescription} />
 
