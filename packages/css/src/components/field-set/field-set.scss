@@ -1,0 +1,48 @@
+/**
+ * @license EUPL-1.2+
+ * Copyright Gemeente Amsterdam
+ */
+
+@import "../../common/hyphenation";
+@import "../../common/text-rendering";
+
+@mixin reset {
+  border: 0;
+  margin-inline: 0;
+  padding-block: 0;
+  padding-inline: 0;
+}
+
+.ams-field-set {
+  break-inside: avoid;
+
+  @include reset;
+}
+
+.ams-field-set--invalid {
+  border-inline-start: var(--ams-field-set-invalid-border-inline-start);
+  padding-inline-start: var(--ams-field-set-invalid-padding-inline-start);
+}
+
+@mixin reset-legend {
+  float: left; // [1]
+  padding-inline: 0;
+  width: 100%; // [1]
+}
+
+// [1] This combination allows the fieldset border to go around the legend, instead of through it.
+
+.ams-field-set__legend {
+  color: var(--ams-field-set-legend-color);
+  font-family: var(--ams-field-set-legend-font-family);
+  font-size: var(--ams-field-set-legend-font-size);
+  font-weight: var(--ams-field-set-legend-font-weight);
+  line-height: var(--ams-field-set-legend-line-height);
+  margin-block-end: var(
+    --ams-field-set-legend-margin-block-end
+  ); /* Because of a bug in Chrome we can’t use display grid or flex for this gap */
+
+  @include hyphenation;
+  @include text-rendering;
+  @include reset-legend;
+}
