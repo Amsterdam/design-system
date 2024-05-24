@@ -13,32 +13,42 @@ const meta = {
   args: {
     invalid: false,
   },
-  render: (args) => (
-    <Field invalid={args.invalid}>
-      <Label htmlFor="input1">Waar gaat het om?</Label>
-      <Paragraph id="description1" size="small">
-        Typ geen persoonsgegevens in deze omschrijving. We vragen dit later in dit formulier aan u.
-      </Paragraph>
-      <TextInput id="input1" aria-describedby="description1" aria-invalid={args.invalid ? true : undefined} />
-    </Field>
-  ),
 } satisfies Meta<typeof Field>
 
 export default meta
 
 type Story = StoryObj<typeof meta>
 
-export const Default: Story = {}
+export const Default: Story = {
+  render: (args) => (
+    <Field invalid={args.invalid}>
+      <Label htmlFor="input1">Waar gaat het om?</Label>
+      <TextInput id="input1" aria-invalid={args.invalid ? true : undefined} />
+    </Field>
+  ),
+}
+
+export const WithDescription: Story = {
+  render: (args) => (
+    <Field invalid={args.invalid}>
+      <Label htmlFor="input2">Waar gaat het om?</Label>
+      <Paragraph id="description1" size="small">
+        Typ geen persoonsgegevens in deze omschrijving. We vragen dit later in dit formulier aan u.
+      </Paragraph>
+      <TextInput id="input2" aria-describedby="description1" aria-invalid={args.invalid ? true : undefined} />
+    </Field>
+  ),
+}
 
 export const WithError: Story = {
   args: { invalid: true },
   render: (args) => (
     <Field invalid={args.invalid}>
-      <Label htmlFor="input2">Waar gaat het om?</Label>
+      <Label htmlFor="input3">Waar gaat het om?</Label>
       <Paragraph id="description2" size="small">
         Typ geen persoonsgegevens in deze omschrijving. We vragen dit later in dit formulier aan u.
       </Paragraph>
-      <TextInput id="input2" aria-describedby="description2" aria-invalid={args.invalid ? true : undefined} />
+      <TextInput id="input3" aria-describedby="description2" aria-invalid={args.invalid ? true : undefined} />
     </Field>
   ),
 }
