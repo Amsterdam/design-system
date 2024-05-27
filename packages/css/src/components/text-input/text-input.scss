@@ -35,6 +35,7 @@
 
 .ams-text-input::placeholder {
   color: var(--ams-text-input-placeholder-color);
+  opacity: 100%; // This resets the lower opacity set by Firefox
 }
 
 .ams-text-input:disabled {

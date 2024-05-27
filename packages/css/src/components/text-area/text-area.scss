@@ -37,6 +37,7 @@
 
 .ams-text-area::placeholder {
   color: var(--ams-text-area-placeholder-color);
+  opacity: 100%; // This resets the lower opacity set by Firefox
 }
 
 .ams-text-area:disabled {
