@@ -101,3 +101,19 @@ describe('Text input', () => {
     expect(component).not.toHaveAttribute('aria-invalid')
   })
 })
+
+it('renders bidirectional by default using `dir="auto"`', () => {
+  render(<TextInput />)
+
+  const component = screen.getByRole('textbox')
+
+  expect(component).toHaveAttribute('dir', 'auto')
+})
+
+it('renders left-to-right by using `dir="ltr"`', () => {
+  render(<TextInput dir="ltr" />)
+
+  const component = screen.getByRole('textbox')
+
+  expect(component).toHaveAttribute('dir', 'ltr')
+})
