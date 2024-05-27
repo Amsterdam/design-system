@@ -13,7 +13,7 @@ export type TextAreaProps = TextareaHTMLAttributes<HTMLTextAreaElement> & {
 }
 
 export const TextArea = forwardRef(
-  ({ className, resize, ...restProps }: TextAreaProps, ref: ForwardedRef<HTMLTextAreaElement>) => (
+  ({ className, dir, resize, ...restProps }: TextAreaProps, ref: ForwardedRef<HTMLTextAreaElement>) => (
     <textarea
       {...restProps}
       ref={ref}
@@ -23,6 +23,7 @@ export const TextArea = forwardRef(
         restProps.cols && 'ams-text-area--cols',
         className,
       )}
+      dir={dir ?? 'auto'}
     />
   ),
 )
