@@ -10,7 +10,7 @@
         "width": { "value": "1.75rem" },
         "height": { "value": "1.75rem" },
         "hover": {
-          "box-shadow-spread-radius": { "value": "0.125rem" },
+          "box-shadow": { "value": "0 0 0 0.125rem {ams.switch.thumb.hover.color}" },
           "color": { "value": "{ams.color.dark-blue}" }
         }
       },
