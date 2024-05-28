@@ -5,6 +5,7 @@
 
 /* Append here */
 export * from './TableOfContents'
+export * from './FileInput'
 export * from './Field'
 export * from './Select'
 export * from './TimeInput'
@@ -17,7 +18,7 @@ export * from './Radio'
 export * from './Tabs'
 export * from './TextArea'
 export * from './Column'
-export * from './Fieldset'
+export * from './FieldSet'
 export * from './LinkList'
 export * from './Badge'
 export * from './Table'

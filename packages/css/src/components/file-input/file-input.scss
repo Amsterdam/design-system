@@ -1,0 +1,68 @@
+/**
+ * @license EUPL-1.2+
+ * Copyright Gemeente Amsterdam
+ */
+
+@import "../../common/text-rendering";
+
+@mixin reset-button {
+  border: 0;
+  border-radius: 0; // Reset rounded borders on iOS devices
+  box-sizing: border-box;
+}
+
+.ams-file-input {
+  background-color: var(--ams-file-input-background-color);
+  border: var(--ams-file-input-border);
+  color: var(--ams-file-input-color);
+  cursor: var(--ams-file-input-cursor);
+  font-family: var(--ams-file-input-font-family);
+  font-size: var(--ams-file-input-font-size);
+  font-weight: var(--ams-file-input-font-weight);
+  line-height: var(--ams-file-input-line-height);
+  max-inline-size: calc(100% - var(--ams-file-input-padding-inline) * 2);
+  outline-offset: 0.25rem; // Double the default focus outline offset to compensate for the dashed border
+  padding-block: var(--ams-file-input-padding-block);
+  padding-inline: var(--ams-file-input-padding-inline);
+  touch-action: manipulation;
+
+  @include text-rendering;
+}
+
+.ams-file-input:disabled {
+  color: var(--ams-file-input-disabled-color);
+  cursor: var(--ams-file-input-disabled-cursor);
+}
+
+.ams-file-input::file-selector-button {
+  appearance: none; // Reset default appearance on iOS devices
+  background-color: var(--ams-file-input-file-selector-button-background-color);
+  box-shadow: var(--ams-file-input-file-selector-button-box-shadow);
+  color: var(--ams-file-input-file-selector-button-color);
+  cursor: var(--ams-file-input-file-selector-button-cursor);
+  font-family: inherit;
+  font-size: inherit; // iOS specific fix
+  font-weight: inherit;
+  margin-inline-end: var(--ams-file-input-file-selector-button-margin-inline-end);
+  padding-block: var(--ams-file-input-file-selector-button-padding-block);
+  padding-inline: var(--ams-file-input-file-selector-button-padding-inline);
+
+  @media screen and (-ms-high-contrast: active), screen and (forced-colors: active) {
+    border: var(
+      --ams-file-input-file-selector-button-forced-color-mode-border
+    ); // add border because forced colors changes box-shadow to none
+  }
+
+  @include reset-button;
+}
+
+.ams-file-input:disabled::file-selector-button {
+  box-shadow: var(--ams-file-input-file-selector-button-disabled-box-shadow);
+  color: var(--ams-file-input-disabled-color);
+  cursor: var(--ams-file-input-file-selector-button-disabled-cursor);
+}
+
+.ams-file-input:not(:disabled):hover::file-selector-button {
+  box-shadow: var(--ams-file-input-file-selector-button-hover-box-shadow);
+  color: var(--ams-file-input-file-selector-button-hover-color);
+}

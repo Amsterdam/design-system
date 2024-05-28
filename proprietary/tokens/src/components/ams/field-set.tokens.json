@@ -1,0 +1,22 @@
+{
+  "ams": {
+    "field-set": {
+      "invalid": {
+        "border-inline-start": {
+          "value": "{ams.border.width.lg} solid {ams.color.primary-red}"
+        },
+        "padding-inline-start": {
+          "value": "{ams.space.inside.md}"
+        }
+      },
+      "legend": {
+        "color": { "value": "{ams.color.primary-black}" },
+        "font-family": { "value": "{ams.text.font-family}" },
+        "font-size": { "value": "{ams.text.level.4.font-size}" },
+        "font-weight": { "value": "{ams.text.font-weight.bold}" },
+        "line-height": { "value": "{ams.text.level.4.line-height}" },
+        "margin-block-end": { "value": "{ams.space.inside.md}" }
+      }
+    }
+  }
+}

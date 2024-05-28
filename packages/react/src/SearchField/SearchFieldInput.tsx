@@ -14,7 +14,7 @@ type SearchFieldInputProps = {
 } & InputHTMLAttributes<HTMLInputElement>
 
 export const SearchFieldInput = forwardRef(
-  ({ className, label = 'Zoeken', ...restProps }: SearchFieldInputProps, ref: ForwardedRef<HTMLInputElement>) => {
+  ({ className, dir, label = 'Zoeken', ...restProps }: SearchFieldInputProps, ref: ForwardedRef<HTMLInputElement>) => {
     const id = useId()
 
     return (
@@ -26,6 +26,7 @@ export const SearchFieldInput = forwardRef(
           {...restProps}
           autoComplete="off"
           className={clsx('ams-search-field__input', className)}
+          dir={dir ?? 'auto'}
           enterKeyHint="search"
           id={id}
           ref={ref}

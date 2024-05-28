@@ -1,7 +1,7 @@
 {
   "ams": {
     "focus": {
-      "outline-offset": { "value": "2px" }
+      "outline-offset": { "value": "0.125rem" }
     }
   }
 }
