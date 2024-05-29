@@ -18,15 +18,15 @@ export const TextArea = forwardRef(
   ({ className, dir, invalid, resize, ...restProps }: TextAreaProps, ref: ForwardedRef<HTMLTextAreaElement>) => (
     <textarea
       {...restProps}
-      ref={ref}
+      aria-invalid={invalid || undefined}
       className={clsx(
         'ams-text-area',
         resize && `ams-text-area--resize-${resize}`,
         restProps.cols && 'ams-text-area--cols',
         className,
       )}
-      aria-invalid={invalid || undefined}
       dir={dir ?? 'auto'}
+      ref={ref}
     />
   ),
 )

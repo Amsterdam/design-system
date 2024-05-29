@@ -16,10 +16,10 @@ export const TimeInput = forwardRef(
   ({ className, invalid, ...restProps }: TimeInputProps, ref: ForwardedRef<HTMLInputElement>) => (
     <input
       {...restProps}
-      ref={ref}
-      className={clsx('ams-time-input', className)}
-      type="time"
       aria-invalid={invalid || undefined}
+      className={clsx('ams-time-input', className)}
+      ref={ref}
+      type="time"
     />
   ),
 )
