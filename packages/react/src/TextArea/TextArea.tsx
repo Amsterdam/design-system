@@ -15,7 +15,7 @@ export type TextAreaProps = {
 } & Omit<TextareaHTMLAttributes<HTMLTextAreaElement>, 'aria-invalid'>
 
 export const TextArea = forwardRef(
-  ({ className, invalid, resize, ...restProps }: TextAreaProps, ref: ForwardedRef<HTMLTextAreaElement>) => (
+  ({ className, dir, invalid, resize, ...restProps }: TextAreaProps, ref: ForwardedRef<HTMLTextAreaElement>) => (
     <textarea
       {...restProps}
       ref={ref}
@@ -26,6 +26,7 @@ export const TextArea = forwardRef(
         className,
       )}
       aria-invalid={invalid || undefined}
+      dir={dir ?? 'auto'}
     />
   ),
 )

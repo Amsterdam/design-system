@@ -62,7 +62,7 @@ export const onDarkBackground: Story = {
   },
   decorators: [
     (Story) => (
-      <div style={{ background: '#004699', display: 'inline', padding: '16px' }}>
+      <div style={{ background: '#004699', display: 'inline', padding: '1rem' }}>
         <Story />
       </div>
     ),
@@ -75,7 +75,7 @@ export const onLightBackground: Story = {
   },
   decorators: [
     (Story) => (
-      <div style={{ background: '#FFE600', display: 'inline', padding: '16px' }}>
+      <div style={{ background: '#FFE600', display: 'inline', padding: '1rem' }}>
         <Story />
       </div>
     ),

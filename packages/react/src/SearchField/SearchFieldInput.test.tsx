@@ -71,4 +71,20 @@ describe('Search field input', () => {
 
     expect(ref.current).toBe(component)
   })
+
+  it('renders bidirectional by default using `dir="auto"`', () => {
+    render(<SearchFieldInput />)
+
+    const component = screen.getByRole('searchbox', { name: 'Zoeken' })
+
+    expect(component).toHaveAttribute('dir', 'auto')
+  })
+
+  it('renders left-to-right by using `dir="ltr"`', () => {
+    render(<SearchFieldInput dir="ltr" />)
+
+    const component = screen.getByRole('searchbox', { name: 'Zoeken' })
+
+    expect(component).toHaveAttribute('dir', 'ltr')
+  })
 })

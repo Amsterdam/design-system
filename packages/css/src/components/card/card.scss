@@ -14,7 +14,7 @@
   &:has(:focus-visible) {
     outline-color: -webkit-focus-ring-color;
     outline-style: auto;
-    outline-width: 1px;
+    outline-width: 0.0625rem;
   }
 
   /*

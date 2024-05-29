@@ -37,13 +37,13 @@
   color: #004699;
   text-decoration: underline;
   text-decoration-thickness: 0.125rem;
-  text-underline-offset: 0.375rem;
+  text-underline-offset: 0.3333em;
 }
 
 .sbdocs-content.sbdocs-content .sbdocs-a:hover {
   color: #102e62;
   text-decoration-thickness: 0.1875rem;
-  text-underline-offset: 0.3125rem;
+  text-underline-offset: 0.2778em;
 }
 
 .sbdocs-content.sbdocs-content > :is(h1, h2, h3, h4, h5, h6),

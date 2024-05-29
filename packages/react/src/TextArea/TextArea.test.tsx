@@ -104,6 +104,22 @@ describe('Text area', () => {
     expect(ref.current).toBe(component)
   })
 
+  it('renders bidirectional by default using `dir="auto"`', () => {
+    render(<TextArea />)
+
+    const component = screen.getByRole('textbox')
+
+    expect(component).toHaveAttribute('dir', 'auto')
+  })
+
+  it('renders left-to-right by using `dir="ltr"`', () => {
+    render(<TextArea dir="ltr" />)
+
+    const component = screen.getByRole('textbox')
+
+    expect(component).toHaveAttribute('dir', 'ltr')
+  })
+
   // invalid state
 
   it('is not invalid by default', () => {

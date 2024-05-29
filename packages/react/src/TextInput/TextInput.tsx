@@ -13,10 +13,11 @@ export type TextInputProps = {
 } & Omit<InputHTMLAttributes<HTMLInputElement>, 'aria-invalid'>
 
 export const TextInput = forwardRef(
-  ({ className, invalid, ...restProps }: TextInputProps, ref: ForwardedRef<HTMLInputElement>) => (
+  ({ className, dir, invalid, ...restProps }: TextInputProps, ref: ForwardedRef<HTMLInputElement>) => (
     <input
       {...restProps}
       className={clsx('ams-text-input', className)}
+      dir={dir ?? 'auto'}
       ref={ref}
       type="text"
       aria-invalid={invalid || undefined}
