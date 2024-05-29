@@ -39,30 +39,30 @@ describe('Date input', () => {
     expect(ref.current).toBe(component)
   })
 
-  // invalid state
+  describe('Invalid state', () => {
+    it('is not invalid by default', () => {
+      const { container } = render(<DateInput />)
 
-  it('is not invalid by default', () => {
-    const { container } = render(<DateInput />)
+      const component = container.querySelector(':only-child')
 
-    const component = container.querySelector(':only-child')
+      expect(component).not.toBeInvalid()
+    })
 
-    expect(component).not.toBeInvalid()
-  })
+    it('can have an invalid state', () => {
+      const { container } = render(<DateInput invalid />)
 
-  it('can have an invalid state', () => {
-    const { container } = render(<DateInput invalid />)
+      const component = container.querySelector(':only-child')
 
-    const component = container.querySelector(':only-child')
+      expect(component).toHaveAttribute('aria-invalid')
+      expect(component).toBeInvalid()
+    })
 
-    expect(component).toHaveAttribute('aria-invalid')
-    expect(component).toBeInvalid()
-  })
+    it('omits non-essential invalid attributes when not invalid', () => {
+      const { container } = render(<DateInput invalid={false} />)
 
-  it('omits non-essential invalid attributes when not invalid', () => {
-    const { container } = render(<DateInput invalid={false} />)
+      const component = container.querySelector(':only-child')
 
-    const component = container.querySelector(':only-child')
-
-    expect(component).not.toHaveAttribute('aria-invalid')
+      expect(component).not.toHaveAttribute('aria-invalid')
+    })
   })
 })
