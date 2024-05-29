@@ -23,7 +23,7 @@ export const Default: Story = {
   render: (args) => (
     <Field invalid={args.invalid}>
       <Label htmlFor="input1">Waar gaat het om?</Label>
-      <TextInput id="input1" aria-invalid={args.invalid ? true : undefined} />
+      <TextInput id="input1" invalid={args.invalid} />
     </Field>
   ),
 }
@@ -35,7 +35,7 @@ export const WithDescription: Story = {
       <Paragraph id="description1" size="small">
         Typ geen persoonsgegevens in deze omschrijving. We vragen dit later in dit formulier aan u.
       </Paragraph>
-      <TextInput id="input2" aria-describedby="description1" aria-invalid={args.invalid ? true : undefined} />
+      <TextInput id="input2" aria-describedby="description1" invalid={args.invalid} />
     </Field>
   ),
 }
@@ -48,7 +48,7 @@ export const WithError: Story = {
       <Paragraph id="description2" size="small">
         Typ geen persoonsgegevens in deze omschrijving. We vragen dit later in dit formulier aan u.
       </Paragraph>
-      <TextInput id="input3" aria-describedby="description2" aria-invalid={args.invalid ? true : undefined} />
+      <TextInput id="input3" aria-describedby="description2" invalid={args.invalid} />
     </Field>
   ),
 }

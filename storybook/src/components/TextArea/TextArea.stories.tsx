@@ -3,14 +3,11 @@
  * Copyright Gemeente Amsterdam
  */
 
-import { TextArea, TextAreaProps } from '@amsterdam/design-system-react/src'
-import { useArgs } from '@storybook/preview-api'
+import { TextArea } from '@amsterdam/design-system-react/src'
 import { Meta, StoryObj } from '@storybook/react'
 import { exampleParagraph } from '../shared/exampleContent'
 
 const paragraph = exampleParagraph()
-
-type StoryProps = TextAreaProps & { invalid?: boolean }
 
 const meta = {
   title: 'Components/Forms/Text Area',
@@ -18,6 +15,7 @@ const meta = {
   args: {
     value: paragraph,
     disabled: false,
+    invalid: false,
   },
   argTypes: {
     cols: {
@@ -46,21 +44,7 @@ const meta = {
       description: 'The value of the field.',
     },
   },
-  render: ({ invalid, ...args }) => {
-    const [, setArgs] = useArgs()
-
-    const handleChange = (event: any) => {
-      setArgs({ value: event.target.value })
-    }
-
-    return (
-      <form>
-        {/* Set children to empty string to trigger invalid state */}
-        <TextArea required={invalid} onChange={handleChange} {...args} />
-      </form>
-    )
-  },
-} satisfies Meta<StoryProps>
+} satisfies Meta<typeof TextArea>
 
 export default meta
 
@@ -88,7 +72,6 @@ export const NoResize: Story = {
 
 export const Invalid: Story = {
   args: {
-    value: '',
     invalid: true,
   },
 }

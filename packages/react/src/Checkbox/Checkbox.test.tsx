@@ -43,97 +43,97 @@ describe('Checkbox', () => {
     expect(wrapper).toHaveClass('ams-checkbox')
   })
 
-  // checked state
+  describe('Checked state', () => {
+    it('is not checked by default', () => {
+      render(<Checkbox />)
 
-  it('is not checked by default', () => {
-    render(<Checkbox />)
+      const input = screen.getByRole('checkbox')
 
-    const input = screen.getByRole('checkbox')
+      expect(input).not.toBeChecked()
+    })
 
-    expect(input).not.toBeChecked()
+    it('can have a checked state', () => {
+      const handleChange = () => {}
+      render(<Checkbox checked onChange={handleChange} />)
+
+      const input = screen.getByRole('checkbox')
+
+      expect(input).toBeChecked()
+    })
   })
 
-  it('can have a checked state', () => {
-    const handleChange = () => {}
-    render(<Checkbox checked onChange={handleChange} />)
+  describe('Indeterminate state', () => {
+    it('is not indeterminate by default', () => {
+      render(<Checkbox />)
 
-    const input = screen.getByRole('checkbox')
+      const input = screen.getByRole('checkbox')
 
-    expect(input).toBeChecked()
+      expect(input).not.toBePartiallyChecked()
+    })
+
+    it('can have an indeterminate state', () => {
+      render(<Checkbox indeterminate />)
+
+      const input = screen.getByRole('checkbox')
+
+      expect(input).toBePartiallyChecked()
+    })
   })
 
-  // indeterminate state
+  describe('Invalid state', () => {
+    it('is not invalid by default', () => {
+      render(<Checkbox />)
 
-  it('is not indeterminate by default', () => {
-    render(<Checkbox />)
+      const input = screen.getByRole('checkbox')
 
-    const input = screen.getByRole('checkbox')
+      expect(input).not.toBeInvalid()
+    })
 
-    expect(input).not.toBePartiallyChecked()
+    it('can have an invalid state', () => {
+      render(<Checkbox invalid />)
+
+      const input = screen.getByRole('checkbox')
+
+      expect(input).toHaveAttribute('aria-invalid')
+      expect(input).toBeInvalid()
+    })
+
+    it('omits non-essential invalid attributes when not invalid', () => {
+      render(<Checkbox invalid={false} />)
+
+      const input = screen.getByRole('checkbox')
+
+      expect(input).not.toHaveAttribute('aria-invalid')
+    })
   })
 
-  it('can have an indeterminate state', () => {
-    render(<Checkbox indeterminate />)
+  describe('Disabled state', () => {
+    it('is not disabled by default', () => {
+      render(<Checkbox />)
 
-    const input = screen.getByRole('checkbox')
+      const input = screen.getByRole('checkbox')
 
-    expect(input).toBePartiallyChecked()
+      expect(input).not.toBeDisabled()
+    })
+
+    it('can have a disabled state', () => {
+      render(<Checkbox disabled />)
+
+      const input = screen.getByRole('checkbox')
+
+      expect(input).toBeDisabled()
+    })
   })
 
-  // invalid state
+  describe('Disabled invalid state', () => {
+    it('can have a disabled invalid state', () => {
+      render(<Checkbox disabled invalid />)
 
-  it('is not invalid by default', () => {
-    render(<Checkbox />)
+      const input = screen.getByRole('checkbox')
 
-    const input = screen.getByRole('checkbox')
-
-    expect(input).not.toBeInvalid()
-  })
-
-  it('can have an invalid state', () => {
-    render(<Checkbox invalid />)
-
-    const input = screen.getByRole('checkbox')
-
-    expect(input).toHaveAttribute('aria-invalid')
-    expect(input).toBeInvalid()
-  })
-
-  it('omits non-essential invalid attributes when not invalid', () => {
-    render(<Checkbox invalid={false} />)
-
-    const input = screen.getByRole('checkbox')
-
-    expect(input).not.toHaveAttribute('aria-invalid')
-  })
-
-  // disabled state
-
-  it('is not disabled by default', () => {
-    render(<Checkbox />)
-
-    const input = screen.getByRole('checkbox')
-
-    expect(input).not.toBeDisabled()
-  })
-
-  it('can have a disabled state', () => {
-    render(<Checkbox disabled />)
-
-    const input = screen.getByRole('checkbox')
-
-    expect(input).toBeDisabled()
-  })
-
-  // disabled invalid state
-
-  it('can have a disabled invalid state', () => {
-    render(<Checkbox disabled invalid />)
-
-    const input = screen.getByRole('checkbox')
-
-    expect(input).toBeDisabled()
-    expect(input).toBeInvalid()
+      expect(input).toBeDisabled()
+      expect(input).toBeInvalid()
+    })
   })
 
   it('can trigger a change event', () => {
