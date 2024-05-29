@@ -31,9 +31,9 @@ export const Default: Story = {
     <FieldSet invalid={args.invalid} legend={args.legend}>
       <Column gap="extra-small" style={{ width: '100%' }}>
         <Label htmlFor="input1">Voornaam</Label>
-        <TextInput id="input1" aria-invalid={args.invalid ? true : undefined} aria-required="true" />
+        <TextInput id="input1" invalid={args.invalid} aria-required="true" />
         <Label htmlFor="input2">Achternaam</Label>
-        <TextInput id="input2" aria-invalid={args.invalid ? true : undefined} aria-required="true" />
+        <TextInput id="input2" invalid={args.invalid} aria-required="true" />
       </Column>
     </FieldSet>
   ),
@@ -47,9 +47,9 @@ export const WithDescription: Story = {
       </Paragraph>
       <Column gap="extra-small">
         <Label htmlFor="input3">Voornaam</Label>
-        <TextInput id="input3" aria-invalid={args.invalid ? true : undefined} aria-required="true" />
+        <TextInput id="input3" invalid={args.invalid} aria-required="true" />
         <Label htmlFor="input4">Achternaam</Label>
-        <TextInput id="input4" aria-invalid={args.invalid ? true : undefined} aria-required="true" />
+        <TextInput id="input4" invalid={args.invalid} aria-required="true" />
       </Column>
     </FieldSet>
   ),
@@ -64,9 +64,9 @@ export const WithError: Story = {
       </Paragraph>
       <Column gap="extra-small">
         <Label htmlFor="input5">Voornaam</Label>
-        <TextInput id="input5" aria-invalid={args.invalid ? true : undefined} aria-required="true" />
+        <TextInput id="input5" invalid={args.invalid} aria-required="true" />
         <Label htmlFor="input6">Achternaam</Label>
-        <TextInput id="input6" aria-invalid={args.invalid ? true : undefined} aria-required="true" />
+        <TextInput id="input6" invalid={args.invalid} aria-required="true" />
       </Column>
     </FieldSet>
   ),

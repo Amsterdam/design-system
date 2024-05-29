@@ -45,6 +45,16 @@
   }
 }
 
+.ams-search-field__input:invalid,
+.ams-search-field__input[aria-invalid="true"] {
+  box-shadow: var(--ams-search-field-input-invalid-box-shadow);
+
+  &:hover {
+    // TODO: this should be the (currently non-existent) dark red hover color
+    box-shadow: var(--ams-search-field-input-invalid-hover-box-shadow);
+  }
+}
+
 .ams-search-field__input::placeholder {
   color: var(--ams-search-field-input-placeholder-color);
   opacity: 100%; // This resets the lower opacity set by Firefox

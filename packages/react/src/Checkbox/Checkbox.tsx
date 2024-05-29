@@ -12,7 +12,7 @@ export type CheckboxProps = {
   invalid?: boolean
   /** Allows being neither checked nor unchecked. */
   indeterminate?: boolean
-} & PropsWithChildren<InputHTMLAttributes<HTMLInputElement>>
+} & PropsWithChildren<Omit<InputHTMLAttributes<HTMLInputElement>, 'aria-invalid' | 'type'>>
 
 export const Checkbox = forwardRef(
   (
@@ -38,11 +38,11 @@ export const Checkbox = forwardRef(
       <div className={clsx('ams-checkbox', className)}>
         <input
           {...restProps}
-          type="checkbox"
-          className="ams-checkbox__input"
-          ref={innerRef}
-          id={id}
           aria-invalid={invalid || undefined}
+          className="ams-checkbox__input"
+          id={id}
+          ref={innerRef}
+          type="checkbox"
         />
         <label className="ams-checkbox__label" htmlFor={id}>
           <span className="ams-checkbox__checkmark" />
