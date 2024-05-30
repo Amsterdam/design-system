@@ -1,4 +1,4 @@
-import { Controls, Markdown, Meta, Primary } from "@storybook/blocks";
+import { Canvas, Controls, Markdown, Meta, Primary } from "@storybook/blocks";
 import * as TableOfContentsStories from "./TableOfContents.stories.tsx";
 import README from "../../../../packages/css/src/components/table-of-contents/README.md?raw";
 
@@ -9,3 +9,13 @@ import README from "../../../../packages/css/src/components/table-of-contents/RE
 <Primary />
 
 <Controls />
+
+## Multilevel
+
+<Canvas of={TableOfContentsStories.MultiLevel} />
+
+## Active
+
+When the user scrolls the page, the active section in the table of contents will be highlighted.
+
+<Canvas of={TableOfContentsStories.Active} />

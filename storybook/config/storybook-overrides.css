@@ -1,5 +1,19 @@
 /* stylelint-disable */
 
+@media (min-width: 36rem) {
+  #grid-row-test .ams-grid__cell {
+    grid-row: 1;
+
+    &:nth-child(2) {
+      padding-block-end: 50vh;
+    }
+  }
+  #grid-row-test-toc {
+    position: sticky;
+    top: 24px;
+  }
+}
+
 .sbdocs-wrapper.sbdocs-wrapper {
   padding-inline: 8vw;
 }
