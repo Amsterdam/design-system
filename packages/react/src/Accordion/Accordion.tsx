@@ -14,7 +14,7 @@ import { useKeyboardFocus } from '../common/useKeyboardFocus'
 export type AccordionProps = {
   /** The hierarchical level of the Accordion Section heading(s) within the document. */
   headingLevel: HeadingLevel
-  /** Whether to use a ‘section’ element for each Accordion Section. */
+  /** The HTML element to use for each Accordion Section. */
   sectionAs?: 'div' | 'section'
 } & PropsWithChildren<HTMLAttributes<HTMLDivElement>>
 
