@@ -23,10 +23,11 @@ export const AccordionSection = forwardRef(
     { label, expanded = false, children, className, ...otherProps }: AccordionSectionProps,
     ref: ForwardedRef<HTMLDivElement>,
   ) => {
-    const { headingLevel, section } = useContext(AccordionContext)
+    const { headingLevel, as } = useContext(AccordionContext)
     const [isExpanded, setIsExpanded] = useState(expanded)
 
     const HeadingX = getHeadingElement(headingLevel)
+    const Tag = as || 'section'
     const id = useId()
     const buttonId = `button-${id}`
     const panelId = `panel-${id}`
@@ -46,23 +47,13 @@ export const AccordionSection = forwardRef(
             {label}
           </button>
         </HeadingX>
-        {section ? (
-          <section
-            id={panelId}
-            aria-labelledby={buttonId}
-            className={clsx('ams-accordion__panel', { 'ams-accordion__panel--expanded': isExpanded })}
-          >
-            {children}
-          </section>
-        ) : (
-          <div
-            id={panelId}
-            aria-labelledby={buttonId}
-            className={clsx('ams-accordion__panel', { 'ams-accordion__panel--expanded': isExpanded })}
-          >
-            {children}
-          </div>
-        )}
+        <Tag
+          id={panelId}
+          aria-labelledby={buttonId}
+          className={clsx('ams-accordion__panel', { 'ams-accordion__panel--expanded': isExpanded })}
+        >
+          {children}
+        </Tag>
       </div>
     )
   },
