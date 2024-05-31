@@ -1,8 +1,11 @@
 import { Canvas, Controls, Markdown, Meta, Primary } from "@storybook/blocks";
 import * as HeaderStories from "./Header.stories.tsx";
 import README from "../../../../packages/css/src/components/header/README.md?raw";
+import { StatusBadge } from "../../docs/components/StatusBadge";
 
 <Meta of={HeaderStories} />
+
+<StatusBadge statusReason="Excepteur magna deserunt id quis ullamco est occaecat velit laborum incididunt est sint nostrud." />
 
 <Markdown>{README}</Markdown>
 
