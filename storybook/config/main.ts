@@ -22,6 +22,7 @@ const config: StorybookConfig = {
         },
       },
     },
+    '@whitespace/storybook-addon-html',
   ],
   framework: {
     name: '@storybook/react-vite',
