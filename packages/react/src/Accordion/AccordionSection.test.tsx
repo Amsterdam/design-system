@@ -71,9 +71,9 @@ describe('Accordion section', () => {
     expect(sectionQuery).toBeInTheDocument()
   })
 
-  it('does not render a section HTML tag when the section prop is false', () => {
+  it('does not render a section HTML tag when the sectionAs is "div"', () => {
     render(
-      <Accordion headingLevel={1} section={false}>
+      <Accordion headingLevel={1} sectionAs="div">
         <Accordion.Section label={testLabel}>{testContent}</Accordion.Section>
       </Accordion>,
     )
