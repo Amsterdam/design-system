@@ -6,7 +6,6 @@
 import clsx from 'clsx'
 import { forwardRef } from 'react'
 import type { ForwardedRef, HTMLAttributes, PropsWithChildren } from 'react'
-import { ErrorMessage } from '../ErrorMessage'
 
 export type FieldSetProps = PropsWithChildren<HTMLAttributes<HTMLFieldSetElement>> & {
   /** Whether the field set has an input with a validation error */
@@ -15,7 +14,7 @@ export type FieldSetProps = PropsWithChildren<HTMLAttributes<HTMLFieldSetElement
   legend: string
 }
 
-export const FieldSetRoot = forwardRef(
+export const FieldSet = forwardRef(
   ({ children, className, invalid, legend, ...restProps }: FieldSetProps, ref: ForwardedRef<HTMLFieldSetElement>) => (
     <fieldset
       {...restProps}
@@ -28,8 +27,4 @@ export const FieldSetRoot = forwardRef(
   ),
 )
 
-FieldSetRoot.displayName = 'FieldSet'
-
-export const FieldSet = Object.assign(FieldSetRoot, { ErrorMessage: ErrorMessage })
-
-FieldSet.ErrorMessage.displayName = 'FieldSet.ErrorMessage'
+FieldSet.displayName = 'FieldSet'

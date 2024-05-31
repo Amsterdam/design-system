@@ -3,7 +3,16 @@
  * Copyright Gemeente Amsterdam
  */
 
-import { Checkbox, Column, FieldSet, Label, Paragraph, Radio, TextInput } from '@amsterdam/design-system-react/src'
+import {
+  Checkbox,
+  Column,
+  ErrorMessage,
+  FieldSet,
+  Label,
+  Paragraph,
+  Radio,
+  TextInput,
+} from '@amsterdam/design-system-react/src'
 import { Meta, StoryObj } from '@storybook/react'
 
 const meta = {
@@ -64,10 +73,10 @@ export const WithError: Story = {
       </Paragraph>
       <Column gap="extra-small">
         <Label htmlFor="input5">Voornaam</Label>
-        {args.invalid && <FieldSet.ErrorMessage id="error1">Vul uw voornaam in.</FieldSet.ErrorMessage>}
+        {args.invalid && <ErrorMessage id="error1">Vul uw voornaam in.</ErrorMessage>}
         <TextInput id="input5" aria-describedby="error1" aria-required="true" invalid={args.invalid} />
         <Label htmlFor="input6">Achternaam</Label>
-        {args.invalid && <FieldSet.ErrorMessage id="error2">Vul uw achternaam in.</FieldSet.ErrorMessage>}
+        {args.invalid && <ErrorMessage id="error2">Vul uw achternaam in.</ErrorMessage>}
         <TextInput id="input6" aria-describedby="error2" aria-required="true" invalid={args.invalid} />
       </Column>
     </FieldSet>
@@ -124,9 +133,9 @@ export const RadioGroupWithError: Story = {
         De laatstgenoemde melding.
       </Paragraph>
       {args.invalid && (
-        <FieldSet.ErrorMessage className="ams-mb--sm" id="error3">
+        <ErrorMessage className="ams-mb--sm" id="error3">
           Geef aan waar uw laatstgenoemde melding over gaat.
-        </FieldSet.ErrorMessage>
+        </ErrorMessage>
       )}
       <Column gap="extra-small">
         <Radio name="about" value="horeca" invalid={args.invalid} aria-required="true">
@@ -176,17 +185,11 @@ export const CheckboxGroupWithError: Story = {
     legend: 'Waar gaat uw melding over?',
   },
   render: (args) => (
-    <FieldSet
-      aria-describedby="error4"
-      aria-errormessage="error4"
-      aria-required="true"
-      legend={args.legend}
-      invalid={args.invalid}
-    >
+    <FieldSet aria-describedby="error4" aria-errormessage="error4" legend={args.legend} invalid={args.invalid}>
       {args.invalid && (
-        <FieldSet.ErrorMessage className="ams-mb--sm" id="error4">
+        <ErrorMessage className="ams-mb--sm" id="error4">
           Geef aan waar uw melding over gaat.
-        </FieldSet.ErrorMessage>
+        </ErrorMessage>
       )}
       <Column gap="extra-small" style={{ width: '100%' }}>
         <Checkbox name="about" value="horeca" invalid={args.invalid} aria-required="true">
