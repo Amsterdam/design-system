@@ -18,37 +18,37 @@
 }
 
 .ams-icon--size-3 {
-  height: calc(var(--ams-icon-size-3-font-size) * var(--ams-icon-size-3-line-height));
+  block-size: calc(var(--ams-icon-size-3-font-size) * var(--ams-icon-size-3-line-height));
 }
 
 .ams-icon--size-3 svg {
-  height: var(--ams-icon-size-3-font-size);
-  width: var(--ams-icon-size-3-font-size);
+  block-size: var(--ams-icon-size-3-font-size);
+  inline-size: var(--ams-icon-size-3-font-size);
 }
 
 .ams-icon--size-4 {
-  height: calc(var(--ams-icon-size-4-font-size) * var(--ams-icon-size-4-line-height));
+  block-size: calc(var(--ams-icon-size-4-font-size) * var(--ams-icon-size-4-line-height));
 }
 
 .ams-icon--size-4 svg {
-  height: var(--ams-icon-size-4-font-size);
-  width: var(--ams-icon-size-4-font-size);
+  block-size: var(--ams-icon-size-4-font-size);
+  inline-size: var(--ams-icon-size-4-font-size);
 }
 
 .ams-icon--size-5 {
-  height: calc(var(--ams-icon-size-5-font-size) * var(--ams-icon-size-5-line-height));
+  block-size: calc(var(--ams-icon-size-5-font-size) * var(--ams-icon-size-5-line-height));
 }
 
 .ams-icon--size-5 svg {
-  height: var(--ams-icon-size-5-font-size);
-  width: var(--ams-icon-size-5-font-size);
+  block-size: var(--ams-icon-size-5-font-size);
+  inline-size: var(--ams-icon-size-5-font-size);
 }
 
 .ams-icon--size-6 {
-  height: calc(var(--ams-icon-size-6-font-size) * var(--ams-icon-size-6-line-height));
+  block-size: calc(var(--ams-icon-size-6-font-size) * var(--ams-icon-size-6-line-height));
 }
 
 .ams-icon--size-6 svg {
-  height: var(--ams-icon-size-6-font-size);
-  width: var(--ams-icon-size-6-font-size);
+  block-size: var(--ams-icon-size-6-font-size);
+  inline-size: var(--ams-icon-size-6-font-size);
 }

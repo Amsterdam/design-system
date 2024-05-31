@@ -3,10 +3,10 @@
     "screen": {
       "background-color": { "value": "{ams.color.primary-white}" },
       "wide": {
-        "max-width": { "value": "100rem" }
+        "max-inline-size": { "value": "100rem" }
       },
       "x-wide": {
-        "max-width": { "value": "132rem" }
+        "max-inline-size": { "value": "132rem" }
       }
     }
   }

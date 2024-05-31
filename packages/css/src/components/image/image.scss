@@ -4,9 +4,9 @@
  */
 
 .ams-image {
+  block-size: auto; /* [1] */
   font-style: italic; /* [3] */
-  height: auto; /* [1] */
-  max-width: 100%; /* [1] */
+  max-inline-size: 100%; /* [1] */
   vertical-align: middle; /* [2] */
 
   &--cover {
