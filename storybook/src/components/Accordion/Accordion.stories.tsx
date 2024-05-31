@@ -57,7 +57,7 @@ export const ExpandedByDefault: Story = {
 
 export const TooManyLandmarks: Story = {
   args: {
-    section: false,
+    sectionAs: 'div',
     children: [
       <Accordion.Section key={1} label="Eerste sectie">
         <Paragraph>{paragraph1}</Paragraph>
