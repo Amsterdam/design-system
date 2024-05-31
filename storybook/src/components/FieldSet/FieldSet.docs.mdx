@@ -25,10 +25,10 @@ and provide the `id` of the describing element as its value.
 ## With Error
 
 A Field Set can indicate whether any of the inputs it contains has a validation error.
-Use `FieldSet.ErrorMessage` to describe the error.
+Use Error Message to describe the error.
 Make sure to connect the error message to the input in the Field,
 otherwise it won’t be read by a screen reader.
-Add an `aria-describedby` attribute to the input and provide the `id` of `FieldSet.ErrorMessage` as its value.
+Add an `aria-describedby` attribute to the input and provide the `id` of Error Message as its value.
 
 <Canvas of={FieldSetStories.WithError} />
 
@@ -45,7 +45,7 @@ Always also set `aria-required` on the individual radio buttons though, to make 
 
 A Field Set with a radio button group can also have a validation error.
 In this case, connect the error message to the Field Set instead of an input.
-Add an `aria-describedby` attribute to the Field Set and provide the `id` of `FieldSet.ErrorMessage` as its value.
+Add an `aria-describedby` attribute to the Field Set and provide the `id` of Error Message as its value.
 
 <Canvas of={FieldSetStories.RadioGroupWithError} />
 
@@ -65,8 +65,8 @@ Try to avoid using descriptions for Field Sets containing checkboxes for this re
 A Field Set with a checkbox group can also have a validation error.
 Because of [the NVDA bug mentioned earlier](https://github.com/nvaccess/nvda/issues/12718), we need to connect the error message to the Field Set in two ways:
 
-1. Add an `aria-describedby` attribute to the Field Set and provide the `id` of `FieldSet.ErrorMessage` as its value.
-2. Add an `aria-errormessage` attribute to the Field Set and provide the `id` of `FieldSet.ErrorMessage` as its value.
+1. Add an `aria-describedby` attribute to the Field Set and provide the `id` of Error Message as its value.
+2. Add an `aria-errormessage` attribute to the Field Set and provide the `id` of Error Message as its value.
 
 {/* TODO: dit werkt niet, uitvogelen */}
 
