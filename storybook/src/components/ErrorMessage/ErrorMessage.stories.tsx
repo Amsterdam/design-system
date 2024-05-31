@@ -24,3 +24,10 @@ export default meta
 type Story = StoryObj<typeof meta>
 
 export const Default: Story = {}
+
+export const WithCustomPrefix: Story = {
+  args: {
+    children: 'Enter an email address in the correct format, like name@example.com',
+    prefix: 'Error: ',
+  },
+}

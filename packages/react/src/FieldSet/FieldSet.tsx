@@ -31,3 +31,5 @@ export const FieldSetRoot = forwardRef(
 FieldSetRoot.displayName = 'FieldSet'
 
 export const FieldSet = Object.assign(FieldSetRoot, { ErrorMessage: ErrorMessage })
+
+FieldSet.ErrorMessage.displayName = 'FieldSet.ErrorMessage'

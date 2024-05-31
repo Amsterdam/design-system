@@ -23,7 +23,8 @@ const FieldRoot = forwardRef(
 )
 
 FieldRoot.displayName = 'Field'
-ErrorMessage.displayName = 'Field.ErrorMessage'
-Label.displayName = 'Field.Label'
 
 export const Field = Object.assign(FieldRoot, { ErrorMessage: ErrorMessage, Label: Label })
+
+Field.ErrorMessage.displayName = 'Field.ErrorMessage'
+Field.Label.displayName = 'Field.Label'
