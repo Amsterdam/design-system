@@ -6,13 +6,13 @@
       "font-size": { "value": "{ams.text.level.5.font-size}" },
       "font-weight": { "value": "{ams.text.font-weight.normal}" },
       "gap": { "value": "0.75rem" },
+      "line-height": { "value": "{ams.text.level.5.line-height}" },
+      "list-style-type": { "value": "'\\2022'" },
       "inverse": {
         "color": {
           "value": "{ams.color.primary-white}"
         }
       },
-      "line-height": { "value": "{ams.text.level.5.line-height}" },
-      "list-style-type": { "value": "'\\2022'" },
       "item": {
         "margin-inline-start": {
           "value": "1.625rem",
@@ -22,6 +22,10 @@
           "value": "0.875rem",
           "comment": "The total level 1 indentation for Amsterdam is 40 pixels, or 2.5rem."
         }
+      },
+      "small": {
+        "font-size": { "value": "{ams.text.level.6.font-size}" },
+        "line-height": { "value": "{ams.text.level.6.line-height}" }
       },
       "unordered-list": {
         "list-style-type": { "value": "'\\2013'" },
@@ -35,10 +39,6 @@
             "comment": "The total level >=2 indentation for Amsterdam is 28 pixels, or 1.75rem."
           }
         }
-      },
-      "small": {
-        "font-size": { "value": "{ams.text.level.6.font-size}" },
-        "line-height": { "value": "{ams.text.level.6.line-height}" }
       }
     }
   }

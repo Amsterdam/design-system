@@ -11,13 +11,13 @@
           "value": "{ams.color.primary-white}"
         }
       },
-      "small": {
-        "font-size": { "value": "{ams.text.level.6.font-size}" },
-        "line-height": { "value": "{ams.text.level.6.line-height}" }
-      },
       "large": {
         "font-size": { "value": "{ams.text.level.4.font-size}" },
         "line-height": { "value": "{ams.text.level.4.line-height}" }
+      },
+      "small": {
+        "font-size": { "value": "{ams.text.level.6.font-size}" },
+        "line-height": { "value": "{ams.text.level.6.line-height}" }
       }
     }
   }

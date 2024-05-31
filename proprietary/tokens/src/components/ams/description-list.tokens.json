@@ -6,18 +6,18 @@
       "font-size": { "value": "{ams.text.level.5.font-size}" },
       "font-weight": { "value": "{ams.text.font-weight.normal}" },
       "gap": { "value": "{ams.space.stack.md}" },
+      "line-height": { "value": "{ams.text.level.5.line-height}" },
+      "details": {
+        "font-weight": { "value": "{ams.text.font-weight.bold}" },
+        "padding-inline-start": { "value": "{ams.space.inside.xl}" }
+      },
       "inverse": {
         "color": {
           "value": "{ams.color.primary-white}"
         }
       },
-      "line-height": { "value": "{ams.text.level.5.line-height}" },
       "row": {
         "gap": { "value": "{ams.space.stack.md}" }
-      },
-      "details": {
-        "font-weight": { "value": "{ams.text.font-weight.bold}" },
-        "padding-inline-start": { "value": "{ams.space.inside.xl}" }
       }
     }
   }
