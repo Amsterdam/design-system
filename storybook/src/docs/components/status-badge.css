@@ -2,8 +2,5 @@
   align-items: center;
   display: inline-flex;
   gap: 1em;
-}
-
-.ams-storybook-status-badge.ams-storybook-status-badge--top {
-  margin-block-end: 1rem;
+  padding-block-end: 1rem;
 }
