@@ -11,7 +11,7 @@ export const StatusBadge = ({
   documentTop: boolean
 }) => {
   return (
-    <span className={`ams-storybook-status-badge${documentTop ? ` ams-storybook-status-badge--top` : undefined}`}>
+    <span className={`ams-storybook-status-badge${documentTop ? ` ams-storybook-status-badge--top` : ''}`}>
       <Badge label={status} color="orange" />
       {statusReason && <span>{statusReason}</span>}
     </span>
