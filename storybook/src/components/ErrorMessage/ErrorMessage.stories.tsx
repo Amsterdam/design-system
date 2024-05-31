@@ -7,7 +7,7 @@ import { ErrorMessage } from '@amsterdam/design-system-react/src'
 import { Meta, StoryObj } from '@storybook/react'
 
 const meta = {
-  title: 'Error Message',
+  title: 'Components/Forms/Error Message',
   component: ErrorMessage,
   args: {
     children: 'Vul een geldig e-mailadres in, bijvoorbeeld naam@voorbeeld.nl.',
