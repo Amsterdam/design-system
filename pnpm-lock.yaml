@@ -89,6 +89,9 @@ importers:
       stylelint-order:
         specifier: 6.0.4
         version: 6.0.4(stylelint@16.5.0(typescript@5.4.5))
+      stylelint-use-logical:
+        specifier: 2.1.2
+        version: 2.1.2(stylelint@16.5.0(typescript@5.4.5))
       typescript:
         specifier: 5.4.5
         version: 5.4.5
@@ -7368,6 +7371,12 @@ packages:
     engines: {node: '>=18.12.0'}
     peerDependencies:
       stylelint: ^16.0.2
+
+  stylelint-use-logical@2.1.2:
+    resolution: {integrity: sha512-4ffvPNk/swH4KS3izExWuzQOuzLmi0gb0uOhvxWJ20vDA5W5xKCjcHHtLoAj1kKvTIX6eGIN5xGtaVin9PD0wg==}
+    engines: {node: '>=14.0.0'}
+    peerDependencies:
+      stylelint: '>= 11 < 17'
 
   stylelint@16.5.0:
     resolution: {integrity: sha512-IlCBtVrG+qTy3v+tZTk50W8BIomjY/RUuzdrDqdnlCYwVuzXtPbiGfxYqtyYAyOMcb+195zRsuHn6tgfPmFfbw==}
@@ -17253,6 +17262,10 @@ snapshots:
       postcss-resolve-nested-selector: 0.1.1
       postcss-selector-parser: 6.0.15
       postcss-value-parser: 4.2.0
+      stylelint: 16.5.0(typescript@5.4.5)
+
+  stylelint-use-logical@2.1.2(stylelint@16.5.0(typescript@5.4.5)):
+    dependencies:
       stylelint: 16.5.0(typescript@5.4.5)
 
   stylelint@16.5.0(typescript@5.4.5):
