@@ -50,6 +50,6 @@ export const parameters = {
   },
   viewMode: 'docs',
   html: {
-    root: 'div[lang="nl"] div',
+    root: 'div[lang="nl"]',
   },
 }
