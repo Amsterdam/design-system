@@ -4,7 +4,11 @@
       "color": { "value": "{ams.color.primary-black}" },
       "font-family": { "value": "{ams.text.font-family}" },
       "font-weight": { "value": "{ams.text.font-weight.bold}" },
-      "inverse-color": { "value": "{ams.color.primary-white}" },
+      "inverse": {
+        "color": {
+          "value": "{ams.color.primary-white}"
+        }
+      },
       "level": {
         "1": {
           "font-size": { "value": "{ams.text.level.1.font-size}" },

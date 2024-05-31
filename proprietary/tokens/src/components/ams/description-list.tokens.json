@@ -6,7 +6,11 @@
       "font-size": { "value": "{ams.text.level.5.font-size}" },
       "font-weight": { "value": "{ams.text.font-weight.normal}" },
       "gap": { "value": "{ams.space.stack.md}" },
-      "inverse-color": { "value": "{ams.color.primary-white}" },
+      "inverse": {
+        "color": {
+          "value": "{ams.color.primary-white}"
+        }
+      },
       "line-height": { "value": "{ams.text.level.5.line-height}" },
       "row": {
         "gap": { "value": "{ams.space.stack.md}" }
