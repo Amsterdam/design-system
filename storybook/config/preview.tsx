@@ -49,4 +49,7 @@ export const parameters = {
     viewports,
   },
   viewMode: 'docs',
+  html: {
+    root: 'div[lang="nl"]',
+  },
 }
