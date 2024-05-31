@@ -8,12 +8,12 @@ import { HeadingLevel } from '../Heading/Heading'
 
 export type AccordionContextValue = {
   headingLevel: HeadingLevel
-  section?: boolean
+  sectionAs?: 'div' | 'section'
 }
 
 const defaultValues: AccordionContextValue = {
   headingLevel: 1,
-  section: true,
+  sectionAs: 'section',
 }
 
 const AccordionContext = createContext(defaultValues)
