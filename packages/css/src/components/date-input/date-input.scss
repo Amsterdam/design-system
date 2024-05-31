@@ -23,12 +23,12 @@
   font-weight: var(--ams-date-input-font-weight);
   line-height: var(--ams-date-input-line-height);
 
-  // Set min height for iOS, otherwise an empty box is a lot smaller than a filled one.
+  // Set min block size for iOS, otherwise an empty box is a lot smaller than a filled one.
   min-block-size: calc(
     (var(--ams-date-input-font-size) * var(--ams-date-input-line-height)) + 2 * var(--ams-date-input-padding-block)
   );
 
-  // Set min width for iOS, so the width is closer to the filled in width.
+  // Set min inline size for iOS, so the size is closer to the filled in size.
   min-inline-size: calc(8ch + (2 * var(--ams-date-input-padding-inline)));
   outline-offset: var(--ams-date-input-outline-offset);
   padding-block: var(--ams-date-input-padding-block);

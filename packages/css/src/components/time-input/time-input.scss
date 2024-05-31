@@ -11,7 +11,7 @@
   border: 0;
   border-radius: 0; // Reset rounded borders on iOS devices
   box-sizing: border-box;
-  inline-size: auto; // Reset width of 10em set by Android devices
+  inline-size: auto; // Reset inline size of 10em set by Android devices
   margin-block: 0;
 }
 
@@ -24,12 +24,12 @@
   font-weight: var(--ams-time-input-font-weight);
   line-height: var(--ams-time-input-line-height);
 
-  // Set min height for iOS, otherwise an empty box is a lot smaller than a filled one.
+  // Set min block size for iOS, otherwise an empty box is a lot smaller than a filled one.
   min-block-size: calc(
     (var(--ams-time-input-font-size) * var(--ams-time-input-line-height)) + 2 * var(--ams-time-input-padding-block)
   );
 
-  // Set min width for iOS, so the width is closer to the filled in width.
+  // Set min inline size for iOS, so the size is closer to the filled in size.
   min-inline-size: calc(4ch + (2 * var(--ams-time-input-padding-inline)));
   outline-offset: var(--ams-time-input-outline-offset);
   padding-block: var(--ams-time-input-padding-block);

@@ -19,7 +19,7 @@
   --ams-switch-track-padding: 0.0625rem;
 
   background-color: var(--ams-switch-background-color);
-  border-radius: calc(var(--ams-switch-thumb-width) * 2);
+  border-radius: calc(var(--ams-switch-thumb-inline-size) * 2);
   cursor: pointer;
   display: inline-block;
   inline-size: var(--ams-switch-inline-size);
@@ -54,7 +54,7 @@
 
 .ams-switch__input:checked + .ams-switch__label::before {
   transform: translate(
-    calc(var(--ams-switch-width) - var(--ams-switch-thumb-width) - 2 * var(--ams-switch-track-padding))
+    calc(var(--ams-switch-inline-size) - var(--ams-switch-thumb-inline-size) - 2 * var(--ams-switch-track-padding))
   );
 }
 
