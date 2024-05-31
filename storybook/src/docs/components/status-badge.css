@@ -1,0 +1,19 @@
+.ams-storybook-status-badge {
+  align-items: center;
+  display: inline-flex;
+  gap: 1em;
+}
+
+/*
+ * Position the badge at the top of the page above the top-level heading without affecting margins.
+ * This class is applied by default.
+ */
+
+.ams-storybook-status-badge.ams-storybook-status-badge--top {
+  position: relative;
+  top: -1rem;
+}
+
+.ams-storybook-status-badge.ams-storybook-status-badge--top ~ h1 {
+  margin-block-start: 0;
+}
