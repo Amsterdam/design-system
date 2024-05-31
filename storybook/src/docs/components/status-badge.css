@@ -10,8 +10,7 @@
  */
 
 .ams-storybook-status-badge.ams-storybook-status-badge--top {
-  position: relative;
-  top: -1rem;
+  margin-block-end: 1rem;
 }
 
 .ams-storybook-status-badge.ams-storybook-status-badge--top ~ h1 {
