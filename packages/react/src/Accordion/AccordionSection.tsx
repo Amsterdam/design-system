@@ -23,11 +23,11 @@ export const AccordionSection = forwardRef(
     { label, expanded = false, children, className, ...otherProps }: AccordionSectionProps,
     ref: ForwardedRef<HTMLDivElement>,
   ) => {
-    const { headingLevel, as } = useContext(AccordionContext)
+    const { headingLevel, sectionAs } = useContext(AccordionContext)
     const [isExpanded, setIsExpanded] = useState(expanded)
 
     const HeadingX = getHeadingElement(headingLevel)
-    const Tag = as || 'section'
+    const Tag = sectionAs || 'section'
     const id = useId()
     const buttonId = `button-${id}`
     const panelId = `panel-${id}`
