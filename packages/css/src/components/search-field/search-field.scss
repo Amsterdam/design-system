@@ -11,9 +11,8 @@
 }
 
 @mixin reset-input {
-  // Reset native appearance, this causes issues on iOS and Android devices
-  -webkit-appearance: none;
-  appearance: none;
+  -webkit-appearance: none; // Reset appearance for Safari < 15.4
+  appearance: none; // Reset native appearance, this causes issues on iOS and Android devices
   border: 0;
   border-radius: 0; // Reset rounded borders on iOS devices
   box-sizing: border-box;
@@ -43,6 +42,16 @@
 
   &:focus {
     z-index: 1; // Make sure the focus outline isn’t cut off by the adjacent button
+  }
+}
+
+.ams-search-field__input:invalid,
+.ams-search-field__input[aria-invalid="true"] {
+  box-shadow: var(--ams-search-field-input-invalid-box-shadow);
+
+  &:hover {
+    // TODO: this should be the (currently non-existent) dark red hover color
+    box-shadow: var(--ams-search-field-input-invalid-hover-box-shadow);
   }
 }
 

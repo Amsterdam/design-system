@@ -7,5 +7,5 @@
   appearance: none;
   margin-block: 0;
   margin-inline: 0;
-  opacity: 0%; /* to hide native input field in older iOS */
+  width: 0; // Make sure the input doesn’t take up space on iOS
 }

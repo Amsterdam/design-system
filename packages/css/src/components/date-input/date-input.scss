@@ -6,9 +6,8 @@
 @import "../../common/text-rendering";
 
 @mixin reset {
-  // Reset native appearance, this causes issues on iOS and Android devices
-  -webkit-appearance: none;
-  appearance: none;
+  -webkit-appearance: none; // Reset appearance for Safari < 15.4
+  appearance: none; // Reset native appearance, this causes issues on iOS and Android devices
   border: 0;
   border-radius: 0; // Reset rounded borders on iOS devices
   box-sizing: border-box;

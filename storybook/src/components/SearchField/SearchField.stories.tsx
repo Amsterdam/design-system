@@ -9,6 +9,7 @@ import { useArgs } from '@storybook/preview-api'
 import { Meta, StoryObj } from '@storybook/react'
 
 type InputProps = {
+  invalid?: boolean
   label?: string
   placeholder?: string
 }
@@ -19,6 +20,7 @@ const meta = {
   title: 'Components/Forms/Search Field',
   component: SearchField,
   args: {
+    invalid: false,
     onSubmit: (e) => {
       e.preventDefault()
     },
@@ -34,9 +36,9 @@ const meta = {
       description: 'Displayed while the field is empty.',
     },
   },
-  render: ({ label, placeholder, ...args }) => (
+  render: ({ invalid, label, placeholder, ...args }) => (
     <SearchField {...args}>
-      <SearchField.Input label={label} placeholder={placeholder} />
+      <SearchField.Input invalid={invalid} label={label} placeholder={placeholder} />
       <SearchField.Button />
     </SearchField>
   ),
@@ -58,7 +60,7 @@ export const Controlled: any = {
   args: {
     value: '',
   },
-  render: function Component({ label, placeholder }: InputProps) {
+  render: function Component({ invalid, label, placeholder }: InputProps) {
     const [args, setArgs] = useArgs()
 
     const onValueChange = (event: any) => {
@@ -81,6 +83,7 @@ export const Controlled: any = {
         <SearchField.Input
           name="search-box"
           value={args['value']}
+          invalid={invalid}
           label={label}
           onChange={onValueChange}
           placeholder={placeholder}
