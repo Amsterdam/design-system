@@ -10,7 +10,12 @@ const meta = {
   title: 'Error Message',
   component: ErrorMessage,
   args: {
-    children: 'Nieuw component',
+    children: 'Vul een geldig e-mailadres in, bijvoorbeeld naam@voorbeeld.nl.',
+  },
+  argTypes: {
+    children: {
+      table: { disable: false },
+    },
   },
 } satisfies Meta<typeof ErrorMessage>
 

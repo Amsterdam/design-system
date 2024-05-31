@@ -6,13 +6,15 @@
 import clsx from 'clsx'
 import { forwardRef } from 'react'
 import type { ForwardedRef, HTMLAttributes, PropsWithChildren } from 'react'
+import { ErrorMessage } from '../ErrorMessage'
+import { Label } from '../Label'
 
 export type FieldProps = {
   /** Whether the field has an input with a validation error */
   invalid?: boolean
 } & PropsWithChildren<HTMLAttributes<HTMLDivElement>>
 
-export const Field = forwardRef(
+const FieldRoot = forwardRef(
   ({ children, className, invalid, ...restProps }: FieldProps, ref: ForwardedRef<HTMLDivElement>) => (
     <div {...restProps} ref={ref} className={clsx('ams-field', invalid && 'ams-field--invalid', className)}>
       {children}
@@ -20,4 +22,8 @@ export const Field = forwardRef(
   ),
 )
 
-Field.displayName = 'Field'
+FieldRoot.displayName = 'Field'
+ErrorMessage.displayName = 'Field.ErrorMessage'
+Label.displayName = 'Field.Label'
+
+export const Field = Object.assign(FieldRoot, { ErrorMessage: ErrorMessage, Label: Label })
