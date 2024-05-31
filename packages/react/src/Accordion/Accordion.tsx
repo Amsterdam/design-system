@@ -28,7 +28,7 @@ const AccordionRoot = forwardRef(
     const { keyDown } = useKeyboardFocus(innerRef, { rotating: true })
 
     return (
-      <AccordionContext.Provider value={{ headingLevel: headingLevel, as: sectionAs }}>
+      <AccordionContext.Provider value={{ headingLevel: headingLevel, sectionAs: sectionAs }}>
         <div className={clsx('ams-accordion', className)} onKeyDown={keyDown} ref={innerRef}>
           {children}
         </div>
