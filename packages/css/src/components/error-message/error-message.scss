@@ -1,0 +1,22 @@
+/**
+ * @license EUPL-1.2+
+ * Copyright Gemeente Amsterdam
+ */
+
+@import "../../common/text-rendering";
+
+@mixin reset {
+  box-sizing: border-box;
+  margin-block: 0;
+}
+
+.ams-error-message {
+  color: var(--ams-error-message-color);
+  font-family: var(--ams-error-message-font-family);
+  font-size: var(--ams-error-message-font-size);
+  font-weight: var(--ams-error-message-font-weight);
+  line-height: var(--ams-error-message-line-height);
+
+  @include text-rendering;
+  @include reset;
+}

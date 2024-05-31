@@ -1,0 +1,11 @@
+import { Controls, Markdown, Meta, Primary } from "@storybook/blocks";
+import * as ErrorMessageStories from "./ErrorMessage.stories.tsx";
+import README from "../../../../packages/css/src/components/error-message/README.md?raw";
+
+<Meta of={ErrorMessageStories} />
+
+<Markdown>{README}</Markdown>
+
+<Primary />
+
+<Controls />
