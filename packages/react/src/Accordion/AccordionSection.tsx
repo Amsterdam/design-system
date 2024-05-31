@@ -48,9 +48,9 @@ export const AccordionSection = forwardRef(
           </button>
         </HeadingX>
         <Tag
-          id={panelId}
           aria-labelledby={buttonId}
           className={clsx('ams-accordion__panel', { 'ams-accordion__panel--expanded': isExpanded })}
+          id={panelId}
         >
           {children}
         </Tag>
