@@ -15,13 +15,13 @@
 }
 
 .ams-screen--full-height {
-  min-height: 100vh;
+  min-block-size: 100vh;
 }
 
 .ams-screen--wide {
-  max-width: var(--ams-screen-wide-max-width);
+  max-inline-size: var(--ams-screen-wide-max-inline-size);
 }
 
 .ams-screen--x-wide {
-  max-width: var(--ams-screen-x-wide-max-width);
+  max-inline-size: var(--ams-screen-x-wide-max-inline-size);
 }

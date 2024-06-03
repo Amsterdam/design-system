@@ -4,9 +4,9 @@
  */
 
 .ams-image {
+  block-size: auto; /* [1] */
   font-style: italic; /* [3] */
-  height: auto; /* [1] */
-  max-width: 100%; /* [1] */
+  max-inline-size: 100%; /* [1] */
   vertical-align: middle; /* [2] */
 
   &--cover {
@@ -14,7 +14,7 @@
   }
 }
 
-// [1] Allow for fluid image sizing while maintaining aspect ratio governed by width/height attributes
+// [1] Allow for fluid image sizing while maintaining aspect ratio governed by inline/block size attributes
 // [2] Remove ‘phantom’ white space
 // [3] Italicise alt text to visually offset it from surrounding copy
 // Source: https://x.com/csswizardry/status/1717841334462005661

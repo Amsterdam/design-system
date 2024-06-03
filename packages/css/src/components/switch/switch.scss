@@ -19,28 +19,28 @@
   --ams-switch-track-padding: 0.0625rem;
 
   background-color: var(--ams-switch-background-color);
-  border-radius: calc(var(--ams-switch-thumb-width) * 2);
+  border-radius: calc(var(--ams-switch-thumb-inline-size) * 2);
   cursor: pointer;
   display: inline-block;
+  inline-size: var(--ams-switch-inline-size);
   outline-offset: var(--ams-switch-outline-offset);
   padding-block: var(--ams-switch-track-padding);
   padding-inline: var(--ams-switch-track-padding);
   transition: background-color 0.2s ease-in-out;
-  width: var(--ams-switch-width);
 
   @include reset;
 }
 
 .ams-switch__label::before {
   background-color: var(--ams-switch-thumb-background-color);
+  block-size: var(--ams-switch-thumb-block-size);
   border-radius: 50%;
   content: "";
   display: block;
-  height: var(--ams-switch-thumb-height);
+  inline-size: var(--ams-switch-thumb-inline-size);
   transition-duration: 0.1s;
   transition-property: box-shadow, transform;
   transition-timing-function: ease-in-out;
-  width: var(--ams-switch-thumb-width);
 }
 
 .ams-switch__input:checked + .ams-switch__label {
@@ -54,7 +54,7 @@
 
 .ams-switch__input:checked + .ams-switch__label::before {
   transform: translate(
-    calc(var(--ams-switch-width) - var(--ams-switch-thumb-width) - 2 * var(--ams-switch-track-padding))
+    calc(var(--ams-switch-inline-size) - var(--ams-switch-thumb-inline-size) - 2 * var(--ams-switch-track-padding))
   );
 }
 

@@ -4,8 +4,8 @@
  */
 
 .ams-logo {
+  block-size: var(--ams-logo-block-size);
   display: block;
-  height: var(--ams-logo-height);
 }
 
 .ams-logo__emblem {
