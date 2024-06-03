@@ -26,6 +26,20 @@ describe('Error message', () => {
     expect(component).toHaveClass('ams-error-message extra')
   })
 
+  it('renders a Dutch prefix by default', () => {
+    render(<ErrorMessage />)
+    const component = screen.getByText('Invoerfout', { exact: false })
+
+    expect(component).toBeInTheDocument()
+  })
+
+  it('renders a custom prefix', () => {
+    render(<ErrorMessage prefix="Error" />)
+    const component = screen.getByText('Error')
+
+    expect(component).toBeInTheDocument()
+  })
+
   it('supports ForwardRef in React', () => {
     const ref = createRef<HTMLParagraphElement>()
 
