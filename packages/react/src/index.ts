@@ -4,6 +4,7 @@
  */
 
 /* Append here */
+export * from './FormErrorList'
 export * from './FileInput'
 export * from './Field'
 export * from './Select'
