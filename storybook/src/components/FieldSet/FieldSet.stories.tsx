@@ -179,32 +179,28 @@ export const CheckboxGroup: Story = {
   ),
 }
 
-export const CheckboxGroupWithError: Story = {
-  args: {
-    invalid: true,
-    legend: 'Waar gaat uw melding over?',
-  },
-  render: (args) => (
-    <FieldSet aria-describedby="error4" aria-errormessage="error4" legend={args.legend} invalid={args.invalid}>
-      {args.invalid && (
-        <ErrorMessage className="ams-mb--sm" id="error4">
-          Geef aan waar uw melding over gaat.
-        </ErrorMessage>
-      )}
-      <Column gap="extra-small" style={{ width: '100%' }}>
-        <Checkbox name="about" value="horeca" invalid={args.invalid} aria-required="true">
-          Horecabedrijf
-        </Checkbox>
-        <Checkbox name="about" value="ander_bedrijf" invalid={args.invalid} aria-required="true">
-          Ander soort bedrijf
-        </Checkbox>
-        <Checkbox name="about" value="evenement" invalid={args.invalid} aria-required="true">
-          Evenement
-        </Checkbox>
-        <Checkbox name="about" value="anders" invalid={args.invalid} aria-required="true">
-          Iets anders
-        </Checkbox>
-      </Column>
-    </FieldSet>
-  ),
-}
+// export const CheckboxGroupWithError: Story = {
+//   args: {
+//     invalid: true,
+//     legend: 'Waar gaat uw melding over?',
+//   },
+//   render: (args) => (
+//     <FieldSet legend={args.legend} invalid={args.invalid}>
+//       {args.invalid && <ErrorMessage className="ams-mb--sm">Geef aan waar uw melding over gaat.</ErrorMessage>}
+//       <Column gap="extra-small" style={{ width: '100%' }}>
+//         <Checkbox name="about" value="horeca" invalid={args.invalid} aria-required="true">
+//           Horecabedrijf
+//         </Checkbox>
+//         <Checkbox name="about" value="ander_bedrijf" invalid={args.invalid} aria-required="true">
+//           Ander soort bedrijf
+//         </Checkbox>
+//         <Checkbox name="about" value="evenement" invalid={args.invalid} aria-required="true">
+//           Evenement
+//         </Checkbox>
+//         <Checkbox name="about" value="anders" invalid={args.invalid} aria-required="true">
+//           Iets anders
+//         </Checkbox>
+//       </Column>
+//     </FieldSet>
+//   ),
+// }

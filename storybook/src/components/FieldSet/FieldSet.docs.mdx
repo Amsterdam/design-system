@@ -26,7 +26,7 @@ and provide the `id` of the describing element as its value.
 
 A Field Set can indicate whether any of the inputs it contains has a validation error.
 Use Error Message to describe the error.
-Make sure to connect the error message to the input in the Field,
+Make sure to connect the error message to the correct input in the Field Set,
 otherwise it won’t be read by a screen reader.
 Add an `aria-describedby` attribute to the input and provide the `id` of Error Message as its value.
 
@@ -62,12 +62,6 @@ Try to avoid using descriptions for Field Sets containing checkboxes for this re
 
 ### Checkbox group with error
 
-A Field Set with a checkbox group can also have a validation error.
-Because of [the NVDA bug mentioned earlier](https://github.com/nvaccess/nvda/issues/12718), we need to connect the error message to the Field Set in two ways:
-
-1. Add an `aria-describedby` attribute to the Field Set and provide the `id` of Error Message as its value.
-2. Add an `aria-errormessage` attribute to the Field Set and provide the `id` of Error Message as its value.
-
-{/* TODO: dit werkt niet, uitvogelen */}
-
-<Canvas of={FieldSetStories.CheckboxGroupWithError} />
+Because of [the NVDA bug mentioned earlier](https://github.com/nvaccess/nvda/issues/12718),
+we currently do not have a reliable way to report error messages for checkbox groups with a validation error.
+We are working on adding this as soon as possible.
