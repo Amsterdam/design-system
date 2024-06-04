@@ -3,10 +3,8 @@
  * Copyright Gemeente Amsterdam
  */
 
-import { Column, Grid, Heading, Paragraph } from '@amsterdam/design-system-react'
 import { TableOfContents } from '@amsterdam/design-system-react/src'
 import { Meta, StoryObj } from '@storybook/react'
-import { exampleParagraph } from '../shared/exampleContent'
 
 const meta = {
   title: 'Components/Navigation/Table of Contents',
@@ -57,43 +55,4 @@ export const MultiLevel: Story = {
       <TableOfContents.Link href="#section-6" key={6} label="Moeilijke woordenboek (inclusief niet te gebruiken)" />,
     ],
   },
-}
-
-export const Active: Story = {
-  args: {
-    startLevel: 'h2',
-    children: [
-      <TableOfContents.Link href="#section-1" key={1} label="Zo werkt het" active />,
-      <TableOfContents.Link href="#section-2" key={2} label="Voorwaarden" />,
-      <TableOfContents.Link href="#section-3" key={3} label="Aanvragen" />,
-      <TableOfContents.Link href="#section-4" key={4} label="Zie ook" />,
-    ],
-  },
-  render: (args) => (
-    <Grid gapVertical="large" id="grid-row-test">
-      <Grid.Cell span={{ narrow: 4, medium: 3, wide: 3 }} start={{ narrow: 1, medium: 6, wide: 10 }}>
-        <TableOfContents {...args} id="grid-row-test-toc" />
-      </Grid.Cell>
-      <Grid.Cell span={{ narrow: 4, medium: 5, wide: 7 }} start={{ narrow: 1, medium: 1, wide: 3 }}>
-        <Column gap="medium">
-          <Heading level={2} id="section-1">
-            Zo werkt het
-          </Heading>
-          <Paragraph>{exampleParagraph()}</Paragraph>
-          <Heading level={2} id="section-2">
-            Voorwaarden
-          </Heading>
-          <Paragraph>{exampleParagraph()}</Paragraph>
-          <Heading level={2} id="section-3">
-            Aanvragen
-          </Heading>
-          <Paragraph>{exampleParagraph()}</Paragraph>
-          <Heading level={2} id="section-4">
-            Zie ook
-          </Heading>
-          <Paragraph>{exampleParagraph()}</Paragraph>
-        </Column>
-      </Grid.Cell>
-    </Grid>
-  ),
 }
