@@ -4,11 +4,11 @@
       "background-color": { "value": "{ams.color.neutral-grey3}" },
       "font-family": { "value": "{ams.text.font-family}" },
       "outline-offset": { "value": "{ams.focus.outline-offset}" },
-      "width": { "value": "3.5rem" },
+      "inline-size": { "value": "3.5rem" },
       "thumb": {
         "background-color": { "value": "{ams.color.primary-white}" },
-        "width": { "value": "1.75rem" },
-        "height": { "value": "1.75rem" },
+        "inline-size": { "value": "1.75rem" },
+        "block-size": { "value": "1.75rem" },
         "hover": {
           "box-shadow": { "value": "0 0 0 0.125rem {ams.switch.thumb.hover.color}" },
           "color": { "value": "{ams.color.dark-blue}" }
