@@ -14,22 +14,22 @@
 
 .ams-checkbox__checkmark {
   align-items: center;
+  block-size: calc(var(--ams-checkbox-font-size) * var(--ams-checkbox-line-height));
   display: flex;
   flex-shrink: 0;
-  height: calc(var(--ams-checkbox-font-size) * var(--ams-checkbox-line-height));
-  width: 1.5rem;
+  inline-size: 1.5rem;
 
   &::after {
     background-position: center;
     background-repeat: no-repeat;
     background-size: 1rem;
+    block-size: 1.5rem;
     border-color: var(--ams-checkbox-checkmark-border-color);
     border-style: solid;
     border-width: var(--ams-checkbox-checkmark-border-width);
     box-sizing: border-box;
     content: "";
-    height: 1.5rem;
-    width: 100%;
+    inline-size: 100%;
   }
 }
 

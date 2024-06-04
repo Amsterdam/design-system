@@ -35,7 +35,8 @@
 }
 
 .ams-file-input::file-selector-button {
-  appearance: none; // Reset default appearance on iOS devices
+  -webkit-appearance: none; // Reset appearance for Safari < 15.4
+  appearance: none; // Reset native appearance, this causes issues on iOS and Android devices
   background-color: var(--ams-file-input-file-selector-button-background-color);
   box-shadow: var(--ams-file-input-file-selector-button-box-shadow);
   color: var(--ams-file-input-file-selector-button-color);

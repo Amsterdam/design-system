@@ -9,11 +9,11 @@
   display: inline-flex;
   font-family: var(--ams-avatar-font-family);
   font-size: var(--ams-avatar-font-size);
+  inline-size: calc(var(--ams-avatar-line-height) * var(--ams-avatar-font-size));
   line-height: var(--ams-avatar-line-height);
   padding-block: var(--ams-avatar-padding-block);
   padding-inline: var(--ams-avatar-padding-inline);
   place-content: center;
-  width: calc(var(--ams-avatar-line-height) * var(--ams-avatar-font-size));
 
   svg {
     fill: currentColor;
@@ -21,11 +21,11 @@
 }
 
 .ams-avatar--has-image {
+  inline-size: calc(var(--ams-avatar-line-height) * var(--ams-avatar-font-size) + 2 * var(--ams-avatar-padding-inline));
   overflow: hidden;
   padding-block: 0;
   padding-inline: 0;
   vertical-align: middle; /* Remove ‘phantom’ white space when image doesn’t load */
-  width: calc(var(--ams-avatar-line-height) * var(--ams-avatar-font-size) + 2 * var(--ams-avatar-padding-inline));
 }
 
 .ams-avatar--blue {

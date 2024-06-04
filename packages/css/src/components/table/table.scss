@@ -24,7 +24,7 @@
 
 .ams-table__cell,
 .ams-table__header-cell {
-  border-bottom: var(--ams-table-cell-border-bottom);
+  border-block-end: var(--ams-table-cell-border-block-end);
   padding-block: var(--ams-table-cell-padding-block);
   padding-inline: var(--ams-table-cell-padding-inline);
   text-align: start;

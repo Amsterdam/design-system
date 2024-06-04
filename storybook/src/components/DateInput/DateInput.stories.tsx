@@ -3,23 +3,22 @@
  * Copyright Gemeente Amsterdam
  */
 
-import { DateInput, DateInputProps } from '@amsterdam/design-system-react'
+import { DateInput } from '@amsterdam/design-system-react/src'
 import { Meta, StoryObj } from '@storybook/react'
-
-type StoryProps = DateInputProps & { invalid?: boolean }
 
 const meta = {
   title: 'Components/Forms/Date Input',
   component: DateInput,
   args: {
     disabled: false,
+    invalid: false,
   },
   argTypes: {
     disabled: {
       description: 'Prevents interaction. Avoid if possible.',
     },
   },
-} satisfies Meta<StoryProps>
+} satisfies Meta<typeof DateInput>
 
 export default meta
 
@@ -29,7 +28,7 @@ export const Default: Story = {}
 
 export const Invalid: Story = {
   args: {
-    required: true,
+    invalid: true,
   },
 }
 

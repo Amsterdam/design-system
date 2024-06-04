@@ -41,79 +41,79 @@ describe('Radio', () => {
     expect(wrapper).toHaveClass('ams-radio extra')
   })
 
-  // checked state
+  describe('Checked state', () => {
+    it('is not checked by default', () => {
+      render(<Radio />)
 
-  it('is not checked by default', () => {
-    render(<Radio />)
+      const input = screen.getByRole('radio')
 
-    const input = screen.getByRole('radio')
+      expect(input).not.toBeChecked()
+    })
 
-    expect(input).not.toBeChecked()
+    it('can have a checked state', () => {
+      const handleChange = () => {}
+      render(<Radio checked onChange={handleChange} />)
+
+      const input = screen.getByRole('radio')
+
+      expect(input).toBeChecked()
+    })
   })
 
-  it('can have a checked state', () => {
-    const handleChange = () => {}
-    render(<Radio checked onChange={handleChange} />)
+  describe('Invalid state', () => {
+    it('is not invalid by default', () => {
+      render(<Radio />)
 
-    const input = screen.getByRole('radio')
+      const input = screen.getByRole('radio')
 
-    expect(input).toBeChecked()
+      expect(input).not.toBeInvalid()
+    })
+
+    it('can have an invalid state', () => {
+      render(<Radio invalid />)
+
+      const input = screen.getByRole('radio')
+
+      expect(input).toHaveAttribute('aria-invalid')
+      expect(input).toBeInvalid()
+    })
+
+    it('omits non-essential invalid attributes when not invalid', () => {
+      render(<Radio invalid={false} />)
+
+      const input = screen.getByRole('radio')
+
+      expect(input).not.toHaveAttribute('aria-invalid')
+    })
   })
 
-  // invalid state
+  describe('Disabled state', () => {
+    it('is not disabled by default', () => {
+      render(<Radio />)
 
-  it('is not invalid by default', () => {
-    render(<Radio />)
+      const input = screen.getByRole('radio')
 
-    const input = screen.getByRole('radio')
+      expect(input).not.toBeDisabled()
+    })
 
-    expect(input).not.toBeInvalid()
+    it('can have a disabled state', () => {
+      render(<Radio disabled />)
+
+      const input = screen.getByRole('radio')
+
+      expect(input).toBeDisabled()
+    })
   })
 
-  it('can have an invalid state', () => {
-    render(<Radio invalid />)
+  describe('Disabled invalid state', () => {
+    it('can have a disabled invalid state', () => {
+      render(<Radio disabled invalid />)
 
-    const input = screen.getByRole('radio')
+      const input = screen.getByRole('radio')
 
-    expect(input).toHaveAttribute('aria-invalid')
-    expect(input).toBeInvalid()
-  })
-
-  it('omits non-essential invalid attributes when not invalid', () => {
-    render(<Radio invalid={false} />)
-
-    const input = screen.getByRole('radio')
-
-    expect(input).not.toHaveAttribute('aria-invalid')
-  })
-
-  // disabled state
-
-  it('is not disabled by default', () => {
-    render(<Radio />)
-
-    const input = screen.getByRole('radio')
-
-    expect(input).not.toBeDisabled()
-  })
-
-  it('can have a disabled state', () => {
-    render(<Radio disabled />)
-
-    const input = screen.getByRole('radio')
-
-    expect(input).toBeDisabled()
-  })
-
-  // disabled invalid state
-
-  it('can have a disabled invalid state', () => {
-    render(<Radio disabled invalid />)
-
-    const input = screen.getByRole('radio')
-
-    expect(input).toBeDisabled()
-    expect(input).toBeInvalid()
+      expect(input).toBeDisabled()
+      expect(input).toBeInvalid()
+    })
   })
 
   it('can trigger a change event', () => {

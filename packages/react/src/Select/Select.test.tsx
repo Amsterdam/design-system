@@ -64,12 +64,31 @@ describe('Select', () => {
     expect(component).toBeDisabled()
   })
 
-  it('can be invalid', () => {
-    render(<Select invalid />)
+  describe('Invalid state', () => {
+    it('is not invalid by default', () => {
+      render(<Select />)
 
-    const component = screen.getByRole('combobox')
+      const component = screen.getByRole('combobox')
 
-    expect(component).toHaveClass('ams-select--invalid')
+      expect(component).not.toBeInvalid()
+    })
+
+    it('can have an invalid state', () => {
+      render(<Select invalid />)
+
+      const component = screen.getByRole('combobox')
+
+      expect(component).toHaveAttribute('aria-invalid')
+      expect(component).toBeInvalid()
+    })
+
+    it('omits non-essential invalid attributes when not invalid', () => {
+      render(<Select invalid={false} />)
+
+      const component = screen.getByRole('combobox')
+
+      expect(component).not.toHaveAttribute('aria-invalid')
+    })
   })
 
   it('is not required by default', () => {

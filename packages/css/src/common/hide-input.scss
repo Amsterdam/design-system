@@ -5,7 +5,7 @@
 
 @mixin hide-input {
   appearance: none;
+  inline-size: 0; // Make sure the input doesn’t take up space on iOS
   margin-block: 0;
   margin-inline: 0;
-  opacity: 0%; /* to hide native input field in older iOS */
 }
