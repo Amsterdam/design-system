@@ -1,6 +1,6 @@
 .ams-storybook-status-badge {
-  align-items: center;
+  align-items: baseline;
   display: inline-flex;
-  gap: 1em;
-  padding-block-end: 1rem;
+  gap: var(--ams-space-stack-xs);
+  margin-block-end: 1rem;
 }
