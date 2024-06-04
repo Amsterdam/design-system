@@ -33,6 +33,16 @@
   margin-block-end: 2em;
 }
 
+.sbdocs-content.sbdocs-content > .ams-storybook-status-badge {
+  margin-block-end: 1.5rem;
+}
+
+.sbdocs-content.sbdocs-content > .ams-storybook-status-badge > span:nth-child(2) {
+  color: #000000;
+  font-family: "Amsterdam Sans", Arial, sans-serif;
+  font-size: var(--ams-text-level-6-font-size);
+}
+
 .sbdocs-content.sbdocs-content .sbdocs-a {
   color: #004699;
   text-decoration: underline;
