@@ -47,14 +47,14 @@
   }
 }
 
-.ams-header__title {
+.ams-header__site-name {
   flex: 1 1 100%;
 
   @media screen and (min-width: $ams-breakpoint-wide) {
     min-inline-size: 0;
     order: 2;
 
-    .ams-header__title-heading {
+    .ams-header__site-name-heading {
       display: block;
       inline-size: 100%;
       line-height: 1;

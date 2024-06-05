@@ -26,9 +26,9 @@ export const WithLogoVariant: Story = {
   },
 }
 
-export const WithTitle: Story = {
+export const WithSiteName: Story = {
   args: {
-    title: 'Aan de Amsterdamse grachten',
+    siteName: 'Aan de Amsterdamse grachten',
   },
 }
 
@@ -67,16 +67,16 @@ export const WithLinksAndMenu: Story = {
   },
 }
 
-export const WithTitleAndMenu: Story = {
+export const WithSiteNameAndMenu: Story = {
   args: {
-    title: 'Aan de Amsterdamse grachten',
+    siteName: 'Aan de Amsterdamse grachten',
     menu: <button className="ams-header__menu-button">Menu</button>,
   },
 }
 
-export const WithTitleLinksAndMenu: Story = {
+export const WithSiteNameLinksAndMenu: Story = {
   args: {
-    title: 'Aan de Amsterdamse grachten',
+    siteName: 'Aan de Amsterdamse grachten',
     links: (
       <PageMenu alignEnd wrap={false}>
         <PageMenu.Link href="#">Contact</PageMenu.Link>

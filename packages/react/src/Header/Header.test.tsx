@@ -56,6 +56,17 @@ describe('Header', () => {
     expect(logoLinkTitle).toHaveTextContent('Go to homepage')
   })
 
+  it('renders a site name', () => {
+    render(<Header siteName="Site Name" />)
+
+    const heading = screen.getByRole('heading', {
+      name: 'Site Name',
+      level: 1,
+    })
+
+    expect(heading).toBeInTheDocument()
+  })
+
   it('renders with links', () => {
     const { container } = render(<Header links={<div>Menu Content</div>} />)
 

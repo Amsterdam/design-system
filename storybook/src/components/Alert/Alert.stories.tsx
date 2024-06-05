@@ -100,7 +100,7 @@ export const WithInlineLink: Story = {
   },
 }
 
-export const WithoutTitle: Story = {
+export const WithoutHeading: Story = {
   args: {
     children: (
       <Paragraph>
