@@ -10,16 +10,17 @@ import { Heading } from '../Heading'
 import { IconButton } from '../IconButton'
 
 export type DialogProps = {
-  heading: string
   /** The button(s) in the footer. Start with a primary button. */
   actions?: ReactNode
   /** The label for the button that dismisses the Dialog. */
   closeButtonLabel?: string
+  /** The text for the Heading. */
+  heading: string
 } & PropsWithChildren<DialogHTMLAttributes<HTMLDialogElement>>
 
 export const Dialog = forwardRef(
   (
-    { heading, actions, children, className, closeButtonLabel = 'Sluiten', ...restProps }: DialogProps,
+    { actions, children, className, closeButtonLabel = 'Sluiten', heading, ...restProps }: DialogProps,
     ref: ForwardedRef<HTMLDialogElement>,
   ) => (
     <dialog {...restProps} ref={ref} className={clsx('ams-dialog', className)}>

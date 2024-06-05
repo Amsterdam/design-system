@@ -17,14 +17,14 @@ export type AlertProps = {
   closeable?: boolean
   /** The label for the button that dismisses the Alert. */
   closeButtonLabel?: string
+  /** The text for the Heading. */
+  heading?: string
   /** The hierarchical level of the Alert’s heading within the document. */
   headingLevel?: HeadingProps['level']
   /** A function to run when dismissing. */
   onClose?: () => void
   /** The significance of the message conveyed. */
   severity?: 'error' | 'info' | 'success' | 'warning'
-  /** The text for the Heading. */
-  heading?: string
 } & PropsWithChildren<HTMLAttributes<HTMLDivElement>>
 
 const iconSvgBySeverity = {
@@ -41,10 +41,10 @@ export const Alert = forwardRef(
       className,
       closeable,
       closeButtonLabel = 'Sluiten',
+      heading,
       headingLevel = 2,
       onClose,
       severity = 'warning',
-      heading,
       ...restProps
     }: AlertProps,
     ref: ForwardedRef<HTMLDivElement>,
