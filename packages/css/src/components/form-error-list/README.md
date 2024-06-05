@@ -7,10 +7,10 @@ When a user makes an error, you must show both a Form Error List and an Error Me
 
 ## Guidelines
 
-- Always show an error summary when there is a validation error, even if there’s only one.
-- You must link the errors in the error summary to the answer they relate to (see below).
+- Always show a Form Error List when there is a validation error, even if there’s only one.
+- You must link the errors in the Form Error List to the answer they relate to (see below).
 
-## Linking from the error summary to each answer
+## Linking from the Form Error List to each answer
 
 For questions that require a user to answer using a single field, like a file upload, select, textarea, text input or character count, link to the `id` of that field.
 
@@ -19,9 +19,9 @@ If you do not know which field contains an error, link to the `id` of the first 
 
 For questions that require a user to select one or more options from a list using Radios or Checkboxes, link to the `id` of first Radio or Checkbox.
 
-## Where to put the error summary
+## Where to put the Form Error List
 
-Put the error summary at the top of the main container, outside of the `<form>`-tag. If your page includes breadcrumbs or a back link, place it below these, but above the `<h1>`.
+Put the Form Error List at the top of the main container, outside of the `<form>`-tag. If your page includes breadcrumbs or a back link, place it below these, but above the `<h1>`.
 
 ## Relevant WCAG requirements
 
