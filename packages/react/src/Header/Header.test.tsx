@@ -56,7 +56,7 @@ describe('Header', () => {
     expect(logoLinkTitle).toHaveTextContent('Go to homepage')
   })
 
-  it('renders a site name', () => {
+  it('renders an application name', () => {
     render(<Header appName="Application name" />)
 
     const heading = screen.getByRole('heading', {
