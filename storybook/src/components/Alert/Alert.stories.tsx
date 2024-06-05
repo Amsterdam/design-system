@@ -10,8 +10,8 @@ const meta = {
   title: 'Components/Feedback/Alert',
   component: Alert,
   args: {
-    heading: 'Let op',
     closeable: false,
+    heading: 'Let op',
   },
 } satisfies Meta<typeof Alert>
 
