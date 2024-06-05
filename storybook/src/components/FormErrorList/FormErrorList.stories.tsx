@@ -7,7 +7,7 @@ import { FormErrorList } from '@amsterdam/design-system-react/src'
 import { Meta, StoryObj } from '@storybook/react'
 
 const meta = {
-  title: 'Form Error List',
+  title: 'Components/Forms/Form Error List',
   component: FormErrorList,
   args: {
     errors: [
