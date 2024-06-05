@@ -32,13 +32,13 @@ const storyConfig = {
     image: 'https://picsum.photos/640/360',
   },
   wide: {
-    image: 'https://picsum.photos/450/360',
+    image: 'https://picsum.photos/480/360',
   },
   square: {
     image: 'https://picsum.photos/360/360',
   },
   tall: {
-    image: 'https://picsum.photos/360/450',
+    image: 'https://picsum.photos/360/480',
   },
   'x-tall': {
     image: 'https://picsum.photos/360/640',
