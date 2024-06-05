@@ -26,7 +26,7 @@ type Story = StoryObj<typeof meta>
 
 const storyConfig = {
   '2x-wide': {
-    image: 'https://picsum.photos/1280/360',
+    image: 'https://picsum.photos/1152/360',
   },
   'x-wide': {
     image: 'https://picsum.photos/640/360',

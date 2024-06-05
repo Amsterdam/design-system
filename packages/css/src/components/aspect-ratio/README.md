@@ -8,7 +8,7 @@ These are the proportions we use:
 
 | keyword   | ratio |
 | :-------- | ----: |
-| `2x-wide` |  32:9 |
+| `2x-wide` |  16:5 |
 | `x-wide`  |  16:9 |
 | `wide`    |   5:4 |
 | `square`  |   1:1 |
