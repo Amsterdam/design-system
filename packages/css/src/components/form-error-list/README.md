@@ -17,7 +17,7 @@ For questions that require a user to answer using a single field, like a file up
 When a user has to enter their answer into multiple fields, such as day, month and year fields, link to the `id` of the first field that contains an error.
 If you do not know which field contains an error, link to the `id` of the first field.
 
-For questions that require a user to select one or more options from a list using Radios or Checkboxes, link to the `id` of first Radio or Checkbox.
+For questions that require a user to select one or more options from a list using Radios or Checkboxes, link to the `id` of the first Radio or Checkbox.
 
 ## Where to put the Form Error List
 
