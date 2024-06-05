@@ -29,7 +29,7 @@ const meta = {
         opgeslagen zijn.
       </Paragraph>
     ),
-    title: 'Niet alle gegevens zijn opgeslagen',
+    heading: 'Niet alle gegevens zijn opgeslagen',
   },
   argTypes: {
     actions: {
@@ -50,7 +50,7 @@ export const Default: Story = {
     open: {
       description: 'Whether the dialog box is active and available for interaction.',
     },
-    title: {
+    heading: {
       description: 'The text for the heading.',
     },
   },
@@ -103,7 +103,7 @@ export const WithScrollbar: Story = {
       </Paragraph>,
     ],
     open: true,
-    title: 'Privacyverklaring gemeente Amsterdam',
+    heading: 'Privacyverklaring gemeente Amsterdam',
   },
   decorators: [
     (Story) => (
