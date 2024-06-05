@@ -42,6 +42,12 @@ describe('Alert', () => {
     expect(ref.current).toBe(component)
   })
 
+  it('renders a heading', () => {
+    const { getByText } = render(<Alert heading="Alert Title" />)
+
+    expect(getByText('Alert Title')).toBeInTheDocument()
+  })
+
   it('renders the close button', () => {
     const { container } = render(<Alert closeable={true} />)
 

@@ -10,7 +10,7 @@ const meta = {
   title: 'Components/Feedback/Alert',
   component: Alert,
   args: {
-    title: 'Let op',
+    heading: 'Let op',
     closeable: false,
   },
 } satisfies Meta<typeof Alert>
@@ -33,7 +33,7 @@ export const Default: Story = {
 export const Warning: Story = {
   args: {
     children: <Paragraph>U bent vergeten verplichte velden in te vullen.</Paragraph>,
-    title: 'Vul de gegevens aan',
+    heading: 'Vul de gegevens aan',
   },
 }
 
@@ -46,7 +46,7 @@ export const Error: Story = {
       </Paragraph>
     ),
     severity: 'error',
-    title: 'Niet gelukt',
+    heading: 'Niet gelukt',
   },
 }
 
@@ -55,7 +55,7 @@ export const Success: Story = {
     children: <Paragraph>Het formulier is verzonden. We hebben uw gegevens goed ontvangen.</Paragraph>,
     closeable: true,
     severity: 'success',
-    title: 'Gelukt',
+    heading: 'Gelukt',
   },
 }
 
@@ -74,7 +74,7 @@ export const Info: Story = {
 
 export const WithList: Story = {
   args: {
-    title: 'Vul de gegevens aan',
+    heading: 'Vul de gegevens aan',
     children: [
       <Paragraph key={1}>U bent vergeten de volgende verplichte velden in te vullen:</Paragraph>,
       <UnorderedList key={2}>
@@ -107,6 +107,6 @@ export const WithoutTitle: Story = {
         De geschatte wachttijd in de adreszoeker klopt momenteel niet altijd. We werken aan een oplossing.
       </Paragraph>
     ),
-    title: undefined,
+    heading: undefined,
   },
 }

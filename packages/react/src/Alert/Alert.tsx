@@ -24,7 +24,7 @@ export type AlertProps = {
   /** The significance of the message conveyed. */
   severity?: 'error' | 'info' | 'success' | 'warning'
   /** The text for the Heading. */
-  title?: string
+  heading?: string
 } & PropsWithChildren<HTMLAttributes<HTMLDivElement>>
 
 const iconSvgBySeverity = {
@@ -44,13 +44,13 @@ export const Alert = forwardRef(
       headingLevel = 2,
       onClose,
       severity = 'warning',
-      title,
+      heading,
       ...restProps
     }: AlertProps,
     ref: ForwardedRef<HTMLDivElement>,
   ) => {
-    const alertSize = title ? 'level-4' : 'level-5'
-    const Tag = title ? 'section' : 'div'
+    const alertSize = heading ? 'level-4' : 'level-5'
+    const Tag = heading ? 'section' : 'div'
 
     return (
       <Tag {...restProps} ref={ref} className={clsx('ams-alert', severity && `ams-alert--${severity}`, className)}>
@@ -58,9 +58,9 @@ export const Alert = forwardRef(
           <Icon size={alertSize} svg={iconSvgBySeverity[severity]} />
         </div>
         <div className="ams-alert__content">
-          {title && (
+          {heading && (
             <Heading level={headingLevel} size="level-4">
-              {title}
+              {heading}
             </Heading>
           )}
           {children}
