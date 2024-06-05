@@ -47,11 +47,11 @@ export const Default: Story = {
     open: true,
   },
   argTypes: {
-    open: {
-      description: 'Whether the dialog box is active and available for interaction.',
-    },
     heading: {
       description: 'The text for the heading.',
+    },
+    open: {
+      description: 'Whether the dialog box is active and available for interaction.',
     },
   },
   decorators: [
@@ -62,8 +62,10 @@ export const Default: Story = {
     ),
   ],
   parameters: {
+    docs: {
+      story: { height: '32em' },
+    },
     layout: 'fullscreen',
-    docs: { story: { height: '32em' } },
   },
 }
 
@@ -102,8 +104,8 @@ export const WithScrollbar: Story = {
         vinden op de website van Autoriteit Persoonsgegevens.
       </Paragraph>,
     ],
-    open: true,
     heading: 'Privacyverklaring gemeente Amsterdam',
+    open: true,
   },
   decorators: [
     (Story) => (
@@ -113,8 +115,10 @@ export const WithScrollbar: Story = {
     ),
   ],
   parameters: {
+    docs: {
+      story: { height: '100vh' },
+    },
     layout: 'fullscreen',
-    docs: { story: { height: '100vh' } },
   },
 }
 
@@ -154,9 +158,9 @@ export const VerticalButtons: Story = {
     ),
   ],
   parameters: {
-    layout: 'fullscreen',
     docs: {
       story: { height: '32em' },
     },
+    layout: 'fullscreen',
   },
 }

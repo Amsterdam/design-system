@@ -45,8 +45,8 @@ export const Error: Story = {
         Probeer het over een paar minuten opnieuw.
       </Paragraph>
     ),
-    severity: 'error',
     heading: 'Niet gelukt',
+    severity: 'error',
   },
 }
 
@@ -54,8 +54,8 @@ export const Success: Story = {
   args: {
     children: <Paragraph>Het formulier is verzonden. We hebben uw gegevens goed ontvangen.</Paragraph>,
     closeable: true,
-    severity: 'success',
     heading: 'Gelukt',
+    severity: 'success',
   },
 }
 
@@ -74,7 +74,6 @@ export const Info: Story = {
 
 export const WithList: Story = {
   args: {
-    heading: 'Vul de gegevens aan',
     children: [
       <Paragraph key={1}>U bent vergeten de volgende verplichte velden in te vullen:</Paragraph>,
       <UnorderedList key={2}>
@@ -82,6 +81,7 @@ export const WithList: Story = {
         <UnorderedList.Item>Telefoonnummer</UnorderedList.Item>
       </UnorderedList>,
     ],
+    heading: 'Vul de gegevens aan',
   },
 }
 

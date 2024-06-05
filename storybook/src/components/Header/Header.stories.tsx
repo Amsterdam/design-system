@@ -54,7 +54,6 @@ export const WithMenu: Story = {
 
 export const WithLinksAndMenu: Story = {
   args: {
-    menu: <button className="ams-header__menu-button">Menu</button>,
     links: (
       <PageMenu alignEnd wrap={false}>
         <PageMenu.Link href="#">Contact</PageMenu.Link>
@@ -64,6 +63,7 @@ export const WithLinksAndMenu: Story = {
         </PageMenu.Link>
       </PageMenu>
     ),
+    menu: <button className="ams-header__menu-button">Menu</button>,
   },
 }
 
