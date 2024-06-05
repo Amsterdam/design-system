@@ -35,7 +35,7 @@ describe('Error message', () => {
 
   it('renders a custom prefix', () => {
     render(<ErrorMessage prefix="Error" />)
-    const component = screen.getByText('Error')
+    const component = screen.getByText('Error', { exact: false })
 
     expect(component).toBeInTheDocument()
   })

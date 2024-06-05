@@ -15,11 +15,14 @@ export type ErrorMessageProps = {
 
 export const ErrorMessage = forwardRef(
   (
-    { children, className, prefix = 'Invoerfout: ', ...restProps }: ErrorMessageProps,
+    { children, className, prefix = 'Invoerfout', ...restProps }: ErrorMessageProps,
     ref: ForwardedRef<HTMLParagraphElement>,
   ) => (
     <p {...restProps} ref={ref} className={clsx('ams-error-message', className)}>
-      <VisuallyHidden>{prefix}</VisuallyHidden>
+      <VisuallyHidden>
+        {prefix}
+        {': '}
+      </VisuallyHidden>
       {children}
     </p>
   ),
