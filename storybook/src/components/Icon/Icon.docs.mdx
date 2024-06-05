@@ -1,8 +1,11 @@
 import { Canvas, Controls, Markdown, Meta, Primary } from "@storybook/blocks";
 import * as IconStories from "./Icon.stories.tsx";
 import README from "../../../../packages/css/src/components/icon/README.md?raw";
+import { StatusBadge } from "../../docs/components/StatusBadge";
 
 <Meta of={IconStories} />
+
+<StatusBadge reason="The set of available icon names and the component API will change." />
 
 <Markdown>{README}</Markdown>
 

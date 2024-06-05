@@ -51,16 +51,16 @@
   flex: 1 1 100%;
 
   @media screen and (min-width: $ams-breakpoint-wide) {
-    min-width: 0;
+    min-inline-size: 0;
     order: 2;
 
     .ams-header__title-heading {
       display: block;
+      inline-size: 100%;
       line-height: 1;
       overflow: hidden;
       text-overflow: ellipsis;
       white-space: nowrap;
-      width: 100%;
     }
   }
 }
