@@ -3,7 +3,16 @@
  * Copyright Gemeente Amsterdam
  */
 
-import { Checkbox, Column, FieldSet, Label, Paragraph, Radio, TextInput } from '@amsterdam/design-system-react/src'
+import {
+  Checkbox,
+  Column,
+  ErrorMessage,
+  FieldSet,
+  Label,
+  Paragraph,
+  Radio,
+  TextInput,
+} from '@amsterdam/design-system-react/src'
 import { Meta, StoryObj } from '@storybook/react'
 
 const meta = {
@@ -64,9 +73,11 @@ export const WithError: Story = {
       </Paragraph>
       <Column gap="extra-small">
         <Label htmlFor="input5">Voornaam</Label>
-        <TextInput id="input5" invalid={args.invalid} aria-required="true" />
+        {args.invalid && <ErrorMessage id="error1">Vul uw voornaam in.</ErrorMessage>}
+        <TextInput id="input5" aria-describedby="error1" aria-required="true" invalid={args.invalid} />
         <Label htmlFor="input6">Achternaam</Label>
-        <TextInput id="input6" invalid={args.invalid} aria-required="true" />
+        {args.invalid && <ErrorMessage id="error2">Vul uw achternaam in.</ErrorMessage>}
+        <TextInput id="input6" aria-describedby="error2" aria-required="true" invalid={args.invalid} />
       </Column>
     </FieldSet>
   ),
@@ -87,6 +98,45 @@ export const RadioGroup: Story = {
       <Paragraph id="description4" size="small" className="ams-mb--sm">
         De laatstgenoemde melding.
       </Paragraph>
+      <Column gap="extra-small">
+        <Radio name="about" value="horeca" invalid={args.invalid} aria-required="true">
+          Horecabedrijf
+        </Radio>
+        <Radio name="about" value="ander_bedrijf" invalid={args.invalid} aria-required="true">
+          Ander soort bedrijf
+        </Radio>
+        <Radio name="about" value="evenement" invalid={args.invalid} aria-required="true">
+          Evenement
+        </Radio>
+        <Radio name="about" value="anders" invalid={args.invalid} aria-required="true">
+          Iets anders
+        </Radio>
+      </Column>
+    </FieldSet>
+  ),
+}
+
+export const RadioGroupWithError: Story = {
+  args: {
+    legend: 'Waar gaat uw melding over?',
+    invalid: true,
+  },
+  render: (args) => (
+    <FieldSet
+      legend={args.legend}
+      aria-describedby="description5 error3"
+      role="radiogroup"
+      aria-required="true"
+      invalid={args.invalid}
+    >
+      <Paragraph id="description5" size="small" className="ams-mb--sm">
+        De laatstgenoemde melding.
+      </Paragraph>
+      {args.invalid && (
+        <ErrorMessage className="ams-mb--sm" id="error3">
+          Geef aan waar uw laatstgenoemde melding over gaat.
+        </ErrorMessage>
+      )}
       <Column gap="extra-small">
         <Radio name="about" value="horeca" invalid={args.invalid} aria-required="true">
           Horecabedrijf
@@ -128,3 +178,29 @@ export const CheckboxGroup: Story = {
     </FieldSet>
   ),
 }
+
+// export const CheckboxGroupWithError: Story = {
+//   args: {
+//     invalid: true,
+//     legend: 'Waar gaat uw melding over?',
+//   },
+//   render: (args) => (
+//     <FieldSet legend={args.legend} invalid={args.invalid}>
+//       {args.invalid && <ErrorMessage className="ams-mb--sm">Geef aan waar uw melding over gaat.</ErrorMessage>}
+//       <Column gap="extra-small" style={{ width: '100%' }}>
+//         <Checkbox name="about" value="horeca" invalid={args.invalid} aria-required="true">
+//           Horecabedrijf
+//         </Checkbox>
+//         <Checkbox name="about" value="ander_bedrijf" invalid={args.invalid} aria-required="true">
+//           Ander soort bedrijf
+//         </Checkbox>
+//         <Checkbox name="about" value="evenement" invalid={args.invalid} aria-required="true">
+//           Evenement
+//         </Checkbox>
+//         <Checkbox name="about" value="anders" invalid={args.invalid} aria-required="true">
+//           Iets anders
+//         </Checkbox>
+//       </Column>
+//     </FieldSet>
+//   ),
+// }
