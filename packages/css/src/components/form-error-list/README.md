@@ -27,7 +27,7 @@ Put the Form Error List at the top of the main container, outside of the `<form>
 
 Pay extra attention to these parts:
 
-- [WCAG requirement 1.3.1](https://www.w3.org/TR/WCAG21/#info-and-relationships): the heading level of the accordion sections depends on where in the page the accordion is placed, this may differ per page.
+- [WCAG requirement 1.3.1](https://www.w3.org/TR/WCAG21/#info-and-relationships): the heading level of the Form Error List depends on where in the page it is placed, this may differ per page.
 
 ## References
 
