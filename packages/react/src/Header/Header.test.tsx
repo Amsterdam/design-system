@@ -57,10 +57,10 @@ describe('Header', () => {
   })
 
   it('renders a site name', () => {
-    render(<Header siteName="Site Name" />)
+    render(<Header appName="Application name" />)
 
     const heading = screen.getByRole('heading', {
-      name: 'Site Name',
+      name: 'Application name',
       level: 1,
     })
 

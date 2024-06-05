@@ -19,7 +19,7 @@ export type HeaderProps = {
   /** The accessible text for the link on the logo. */
   logoLinkTitle?: string
   /** The name of the application. */
-  siteName?: string
+  appName?: string
   /** The list of menu links. Use a Page Menu here. */
   links?: ReactNode
   /** A button to toggle the visibility of a Mega Menu. */
@@ -33,7 +33,7 @@ export const Header = forwardRef(
       logoBrand = 'amsterdam',
       logoLink = '/',
       logoLinkTitle = 'Ga naar de homepage',
-      siteName,
+      appName,
       links,
       menu,
       ...restProps
@@ -49,10 +49,10 @@ export const Header = forwardRef(
           </a>
           {links && <div className="ams-header__links">{links}</div>}
           {menu && <div className="ams-header__menu">{menu}</div>}
-          {siteName && (
-            <div className="ams-header__site-name">
-              <Heading level={1} size="level-3" className="ams-header__site-name-heading">
-                {siteName}
+          {appName && (
+            <div className="ams-header__app-name">
+              <Heading level={1} size="level-3" className="ams-header__app-name-heading">
+                {appName}
               </Heading>
             </div>
           )}
