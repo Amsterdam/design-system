@@ -27,7 +27,7 @@ export const FormErrorList = forwardRef(
     }: FormErrorListProps,
     ref: ForwardedRef<HTMLDivElement>,
   ) => {
-    if (!errors) return undefined
+    if (errors.length === 0) return undefined
 
     return (
       <Alert

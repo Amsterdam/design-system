@@ -18,7 +18,13 @@ describe('Form error list', () => {
     expect(component).toBeVisible()
   })
 
-  it('does not render when there are no errors', () => {})
+  it('does not render when there are no errors', () => {
+    render(<FormErrorList errors={[]} />)
+
+    const component = screen.queryByRole('alert')
+
+    expect(component).not.toBeInTheDocument()
+  })
 
   it('renders a design system BEM class name', () => {
     render(<FormErrorList errors={testErrors} />)
@@ -36,11 +42,41 @@ describe('Form error list', () => {
     expect(component).toHaveClass('ams-form-error-list extra')
   })
 
-  it('renders a list item and link for every error', () => {})
+  it('renders a list item and link for every error', () => {
+    render(<FormErrorList errors={testErrors} />)
 
-  it('renders a custom heading', () => {})
+    const listitems = screen.getAllByRole('listitem')
+    const links = screen.getAllByRole('link')
 
-  it('renders the correct heading level', () => {})
+    expect(listitems.length).toBe(2)
+    expect(links.length).toBe(2)
+  })
+
+  it('renders a link with the correct name and href for every error', () => {
+    render(<FormErrorList errors={testErrors} />)
+
+    const link1 = screen.getByRole('link', { name: testErrors[0].label })
+    const link2 = screen.getByRole('link', { name: testErrors[1].label })
+
+    expect(link1).toHaveAttribute('href', testErrors[0].id)
+    expect(link2).toHaveAttribute('href', testErrors[1].id)
+  })
+
+  it('renders a custom heading', () => {
+    render(<FormErrorList errors={testErrors} heading="Testheading" />)
+
+    const component = screen.getByRole('heading', { name: 'Testheading' })
+
+    expect(component).toBeInTheDocument()
+  })
+
+  it('renders the correct heading level', () => {
+    render(<FormErrorList errors={testErrors} headingLevel={4} />)
+
+    const component = screen.getByRole('heading', { level: 4 })
+
+    expect(component).toBeInTheDocument()
+  })
 
   it('supports ForwardRef in React', () => {
     const ref = createRef<HTMLDivElement>()
