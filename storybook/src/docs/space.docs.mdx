@@ -140,20 +140,35 @@ In Compact Mode, the medium grid space grows from 16 to 40 pixels between window
 
 ## Stack Space
 
-This is the space between sets of components, for example between a list of cards, or next to an image.
-It is also used for combinations of components, like an icon accompanying a text, or a row of buttons.
+This is the space between components, e.g. between a list of cards, a row of buttons, or an icon and an accompanying text.
 
-This type of space is static; it is the same for any window width.
-Five options are available.
-The medium size is 16 pixels wide in both Spacious and Compact Mode.
+This type of space is based on the font size – the medium space length equals the font size.
+Because our typography is fluid, this type of spacing is as well.
+Seven options are available.
 
-|                 | Width |
-| --------------: | ----: |
-| **Extra small** |     8 |
-|       **Small** |    12 |
-|      **Medium** |    16 |
-|       **Large** |    24 |
-| **Extra large** |    32 |
+### Spacious
+
+|                        |       |    320 |   1600 |
+| ---------------------: | :---: | -----: | -----: |
+| **Double extra small** | `2xs` |    4.5 |      6 |
+|        **Extra small** | `xs`  |      9 |     12 |
+|              **Small** | `sm`  |   13.5 |     18 |
+|             **Medium** | `md`  | **18** | **24** |
+|              **Large** | `lg`  |     27 |     36 |
+|        **Extra large** | `xl`  |     36 |     48 |
+| **Double extra large** | `2xl` |     45 |     72 |
+
+### Compact
+
+|                        |       |    320 |   1600 |
+| ---------------------: | :---: | -----: | -----: |
+| **Double extra small** | `2xs` |    3.5 |    4.5 |
+|        **Extra small** | `xs`  |      7 |      9 |
+|              **Small** | `sm`  |   10.5 |   13.5 |
+|             **Medium** | `md`  | **14** | **18** |
+|              **Large** | `lg`  |     21 |     27 |
+|        **Extra large** | `xl`  |     28 |     36 |
+| **Double extra large** | `2xl` |     35 |     45 |
 
 ## Inside Space
 
