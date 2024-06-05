@@ -1,6 +1,6 @@
 {
   "extends": ["stylelint-config-standard-scss"],
-  "plugins": ["stylelint-order"],
+  "plugins": ["stylelint-order", "stylelint-use-logical"],
   "rules": {
     "alpha-value-notation": ["percentage"],
     "at-rule-empty-line-before": null,
@@ -9,6 +9,7 @@
     "color-function-notation": ["modern"],
     "color-no-invalid-hex": true,
     "comment-no-empty": true,
+    "csstools/use-logical": true,
     "custom-property-pattern": "^_?(ams|nl|utrecht)-[a-z0-9-]+$",
     "declaration-block-no-duplicate-properties": true,
     "declaration-block-no-redundant-longhand-properties": null,
@@ -50,16 +51,18 @@
     "order/properties-alphabetical-order": true,
     "property-disallowed-list": [
       [
+        "contain-intrinsic-height",
+        "contain-intrinsic-width",
         "margin",
-        "margin-bottom",
-        "margin-left",
-        "margin-right",
-        "margin-top",
         "padding",
-        "padding-bottom",
-        "padding-left",
-        "padding-right",
-        "padding-top"
+        "scroll-margin-bottom",
+        "scroll-margin-left",
+        "scroll-margin-right",
+        "scroll-margin-top",
+        "scroll-padding-bottom",
+        "scroll-padding-left",
+        "scroll-padding-right",
+        "scroll-padding-top"
       ]
     ],
     "property-no-unknown": true,

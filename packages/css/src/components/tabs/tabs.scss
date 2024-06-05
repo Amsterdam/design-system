@@ -12,7 +12,7 @@
 
 .ams-tabs__list {
   background-color: var(--ams-tabs-list-background-color);
-  border-bottom: var(--ams-tabs-list-border-bottom);
+  border-block-end: var(--ams-tabs-list-border-block-end);
   display: flex;
   overflow-x: auto;
 }

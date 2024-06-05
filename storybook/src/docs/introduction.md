@@ -19,9 +19,9 @@ We make these components available in various libraries so that designers and de
 
 ### Figma
 
-[Find our Figma Library here](https://www.figma.com/file/9IGm6IdPUYizBNGsUnueBd/Amsterdam-Design-System?type=design&node-id=2927%3A29177&mode=design&t=6KlrHnKkHU2uZ9s9-1) (if necessary, create an account on your @amsterdam.nl address).
-Various components and text styles are ready to use in your designs.
-Several others are in the final stages of review.
+[Find our Figma Library here](https://www.figma.com/file/9IGm6IdPUYizBNGsUnueBd/Amsterdam-Design-System?type=design&node-id=2927%3A29177&mode=design&t=6KlrHnKkHU2uZ9s9-1).
+Various components, text styles and grid styles are ready to use in your designs.
+Several others are in progress or being reviewed.
 Refer to the introduction and legend on the cover page.
 
 ### React
