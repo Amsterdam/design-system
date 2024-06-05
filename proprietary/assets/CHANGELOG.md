@@ -3,6 +3,13 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.2.1](https://github.com/Amsterdam/design-system/compare/design-system-assets-v0.2.0...design-system-assets-v0.2.1) (2024-06-05)
+
+
+### Features
+
+* favicon, app icons and optional Web Manifest ([#1205](https://github.com/Amsterdam/design-system/issues/1205)) ([5513961](https://github.com/Amsterdam/design-system/commit/55139617966514207402f791a5b4e9778d059946))
+
 ## [0.2.0](https://github.com/Amsterdam/design-system/compare/design-system-assets-v0.1.8...design-system-assets-v0.2.0) (2024-03-12)
 
 
