@@ -36,9 +36,9 @@ export const MultiLevel: Story = {
         <TableOfContents.Link href="#section-1" label="Waarom is het belangrijk om helder te schrijven?" />
         <TableOfContents.Link href="#section-2" label="Schrijf in stappen">
           <TableOfContents.List>
-            <TableOfContents.Link href="#section-4.1" label="Stap 2" />
-            <TableOfContents.Link href="#section-4.2" label="Stap 3" />
-            <TableOfContents.Link href="#section-4.3" label="Stap 4" />
+            <TableOfContents.Link href="#section-2.1" label="Stap 2" />
+            <TableOfContents.Link href="#section-2.2" label="Stap 3" />
+            <TableOfContents.Link href="#section-2.3" label="Stap 4" />
           </TableOfContents.List>
         </TableOfContents.Link>
         <TableOfContents.Link href="#section-3" label="Structuur van een heldere tekst">
