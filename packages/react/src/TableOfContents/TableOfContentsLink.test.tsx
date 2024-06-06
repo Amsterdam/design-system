@@ -11,6 +11,7 @@ describe('Table of Contents link', () => {
 
     expect(link).toBeInTheDocument()
     expect(link).toBeVisible()
+    expect(link).toHaveTextContent('Test')
   })
 
   it('renders a design system BEM class name', () => {
