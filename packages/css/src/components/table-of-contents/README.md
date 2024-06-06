@@ -2,4 +2,5 @@
 
 # Table of Contents
 
-A table of contents is a list of links to sections of a document.
+A list of links corresponding to the content sections on the page.
+It helps users to easily navigate to different sections on the same page.

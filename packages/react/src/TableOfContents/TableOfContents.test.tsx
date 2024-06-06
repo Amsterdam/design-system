@@ -1,4 +1,4 @@
-import { render } from '@testing-library/react'
+import { render, screen } from '@testing-library/react'
 import { createRef } from 'react'
 import { TableOfContents } from './TableOfContents'
 import '@testing-library/jest-dom'
@@ -10,6 +10,16 @@ describe('Table of contents', () => {
 
     expect(component).toBeInTheDocument()
     expect(component).toBeVisible()
+  })
+
+  it('renders children', () => {
+    render(
+      <TableOfContents>
+        <TableOfContents.List />
+      </TableOfContents>,
+    )
+    const testChild = screen.getByRole('list')
+    expect(testChild).toBeTruthy()
   })
 
   it('renders a design system BEM class name', () => {
@@ -27,7 +37,7 @@ describe('Table of contents', () => {
   })
 
   it('supports ForwardRef in React', () => {
-    const ref = createRef<HTMLDivElement>()
+    const ref = createRef<HTMLElement>()
 
     const { container } = render(<TableOfContents ref={ref} />)
     const component = container.querySelector(':only-child')

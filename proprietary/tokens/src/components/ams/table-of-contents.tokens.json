@@ -1,11 +1,10 @@
 {
   "ams": {
     "table-of-contents": {
-      "color": { "value": "{ams.color.primary-black}" },
       "font-family": { "value": "{ams.text.font-family}" },
       "font-size": { "value": "{ams.text.level.5.font-size}" },
       "font-weight": { "value": "{ams.text.font-weight.normal}" },
-      "gap": { "value": "{ams.space.inside.lg}" },
+      "gap": { "value": "{ams.space.inside.md}" },
       "line-height": { "value": "{ams.text.level.5.line-height}" },
       "link": {
         "color": { "value": "{ams.link-appearance.color}" },
@@ -16,37 +15,16 @@
         "hover": {
           "color": { "value": "{ams.link-appearance.hover.color}" },
           "text-decoration-line": { "value": "{ams.link-appearance.subtle.hover.text-decoration-line}" }
-        },
-        "on-background-dark": {
-          "color": { "value": "{ams.link-appearance.on-background-dark.color}" },
-          "hover": {
-            "color": { "value": "{ams.link-appearance.on-background-dark.color}" }
-          }
-        },
-        "on-background-light": {
-          "color": { "value": "{ams.link-appearance.on-background-light.color}" },
-          "hover": {
-            "color": { "value": "{ams.link-appearance.on-background-light.color}" }
-          }
         }
       },
       "list": {
-        "gap": { "value": "{ams.space.inside.lg}" },
-        "item": {
-          "background-image": {
-            "value": "url(\"data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><path fill-rule='evenodd' d='m16 25.757-16-16 2.91-2.9L16 19.937l13.09-13.08 2.91 2.9z'/></svg>\")"
-          },
-          "active": {
-            "background-image": {
-              "value": "url(\"data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><path fill-rule='evenodd' d='M29.09 25.757 16 12.677 2.91 25.757 0 22.857l16-16 16 16z'/></svg>\")"
-            }
-          }
-        },
+        "gap": { "value": "{ams.space.inside.md}" },
         "list": {
+          "padding-block-start": { "value": "{ams.space.inside.md}" },
           "padding-inline-start": { "value": "{ams.space.inside.lg}" }
         }
       },
-      "title": {
+      "heading": {
         "font-weight": { "value": "{ams.text.font-weight.bold}" },
         "font-size": { "value": "{ams.text.level.4.font-size}" },
         "line-height": { "value": "{ams.text.level.4.line-height}" }

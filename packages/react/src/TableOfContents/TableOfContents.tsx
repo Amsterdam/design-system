@@ -7,17 +7,18 @@ import clsx from 'clsx'
 import { forwardRef } from 'react'
 import type { ForwardedRef, HTMLAttributes, PropsWithChildren } from 'react'
 import { TableOfContentsLink } from './TableOfContentsLink'
+import { TableOfContentsList } from './TableOfContentsList'
 
 export type TableOfContentsProps = {
-  title?: string
-} & PropsWithChildren<HTMLAttributes<HTMLDivElement>>
+  heading?: string
+} & PropsWithChildren<HTMLAttributes<HTMLElement>>
 
 const TableOfContentsRoot = forwardRef(
-  ({ children, className, title, ...restProps }: TableOfContentsProps, ref: ForwardedRef<HTMLDivElement>) => {
+  ({ children, className, heading, ...restProps }: TableOfContentsProps, ref: ForwardedRef<HTMLElement>) => {
     return (
       <nav {...restProps} ref={ref} className={clsx('ams-table-of-contents', className)}>
-        {title && <div className="ams-table-of-contents__title">{title}</div>}
-        <ol className="ams-table-of-contents__list">{children}</ol>
+        {heading && <div className="ams-table-of-contents__heading">{heading}</div>}
+        {children}
       </nav>
     )
   },
@@ -25,4 +26,7 @@ const TableOfContentsRoot = forwardRef(
 
 TableOfContentsRoot.displayName = 'TableOfContents'
 
-export const TableOfContents = Object.assign(TableOfContentsRoot, { Link: TableOfContentsLink })
+export const TableOfContents = Object.assign(TableOfContentsRoot, {
+  Link: TableOfContentsLink,
+  List: TableOfContentsList,
+})
