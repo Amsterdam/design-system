@@ -29,14 +29,6 @@ describe('Table of Contents link', () => {
     expect(component).toHaveClass('ams-table-of-contents__link extra')
   })
 
-  it('renders a class name for the background color', () => {
-    render(<TableOfContents.Link label="Test" href="#" onBackground="dark" />)
-
-    const component = screen.getByRole('link')
-
-    expect(component).toHaveClass('ams-table-of-contents__link--on-background-dark')
-  })
-
   it('supports ForwardRef in React', () => {
     const ref = createRef<HTMLAnchorElement>()
 
