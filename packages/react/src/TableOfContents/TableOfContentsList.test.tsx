@@ -3,7 +3,7 @@ import { createRef } from 'react'
 import { TableOfContents } from './TableOfContents'
 import '@testing-library/jest-dom'
 
-describe('Unordered list', () => {
+describe('Table of Contents list', () => {
   it('renders an HTML ul element', () => {
     const { container } = render(<TableOfContents.List />)
     const list = container.querySelector('ul:only-child')

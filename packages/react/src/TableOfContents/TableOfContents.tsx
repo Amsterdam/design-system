@@ -10,6 +10,7 @@ import { TableOfContentsLink } from './TableOfContentsLink'
 import { TableOfContentsList } from './TableOfContentsList'
 
 export type TableOfContentsProps = {
+  /** The Heading for the Table of Contents. */
   heading?: string
 } & PropsWithChildren<HTMLAttributes<HTMLElement>>
 

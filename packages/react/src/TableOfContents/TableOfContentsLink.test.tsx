@@ -3,7 +3,7 @@ import { render, screen } from '@testing-library/react'
 import { createRef } from 'react'
 import { TableOfContents } from './TableOfContents'
 
-describe('Link list link', () => {
+describe('Table of Contents link', () => {
   it('renders', () => {
     render(<TableOfContents.Link label="Test" href="#" />)
 

@@ -8,6 +8,7 @@ import { forwardRef } from 'react'
 import type { AnchorHTMLAttributes, ForwardedRef } from 'react'
 
 export type TableOfContentsLinkProps = {
+  /** The text for the link. */
   label: string
 } & AnchorHTMLAttributes<HTMLAnchorElement>
 
