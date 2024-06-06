@@ -24,6 +24,7 @@ export default meta
 
 type Story = StoryObj<typeof meta>
 
+// TODO Implement the actual Amsterdam.nl footer
 export const Default: Story = {
   args: {
     children: [
@@ -101,8 +102,10 @@ export const Default: Story = {
         <Grid paddingVertical="small">
           <Grid.Cell span="all">
             <PageMenu>
+              <PageMenu.Link href="#">Over deze site</PageMenu.Link>
               <PageMenu.Link href="#">Privacy</PageMenu.Link>
-              <PageMenu.Link href="#">Toegankelijkheid</PageMenu.Link>
+              <PageMenu.Link href="#">Cookies</PageMenu.Link>
+              <PageMenu.Link href="#">Archief</PageMenu.Link>
             </PageMenu>
           </Grid.Cell>
         </Grid>

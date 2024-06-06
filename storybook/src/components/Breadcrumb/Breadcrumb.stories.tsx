@@ -24,9 +24,6 @@ export const Default: Story = {
       <Breadcrumb.Link href="#" key={2}>
         Nieuws
       </Breadcrumb.Link>,
-      <Breadcrumb.Link href="#" key={3}>
-        Kennisgevingen en bekendmakingen
-      </Breadcrumb.Link>,
     ],
   },
 }
