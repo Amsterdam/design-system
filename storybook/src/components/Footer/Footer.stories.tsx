@@ -14,6 +14,7 @@ import {
 } from '@amsterdam/design-system-react/src'
 import { EmailIcon, PhoneIcon } from '@amsterdam/design-system-react-icons'
 import { Meta, StoryObj } from '@storybook/react'
+import { Default as PageMenuStory } from '../../components/PageMenu/PageMenu.stories'
 
 const meta = {
   title: 'Components/Containers/Footer',
@@ -101,12 +102,7 @@ export const Default: Story = {
         </VisuallyHidden>
         <Grid paddingVertical="small">
           <Grid.Cell span="all">
-            <PageMenu>
-              <PageMenu.Link href="#">Over deze site</PageMenu.Link>
-              <PageMenu.Link href="#">Privacy</PageMenu.Link>
-              <PageMenu.Link href="#">Cookies</PageMenu.Link>
-              <PageMenu.Link href="#">Archief</PageMenu.Link>
-            </PageMenu>
+            <PageMenu>{PageMenuStory.args?.children}</PageMenu>
           </Grid.Cell>
         </Grid>
       </Footer.Bottom>,
