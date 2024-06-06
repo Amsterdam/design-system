@@ -51,9 +51,13 @@ describe('Dialog', () => {
   })
 
   it('renders a heading', () => {
-    const { getByText } = render(<Dialog heading="Dialog Title" />)
+    render(<Dialog heading="Dialog Heading" />)
 
-    expect(getByText('Dialog Title')).toBeInTheDocument()
+    const heading = screen.getByRole('heading', {
+      name: 'Dialog Heading',
+    })
+
+    expect(heading).toBeInTheDocument()
   })
 
   it('renders children', () => {

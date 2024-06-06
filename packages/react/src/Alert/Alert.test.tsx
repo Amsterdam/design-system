@@ -43,9 +43,13 @@ describe('Alert', () => {
   })
 
   it('renders a heading', () => {
-    const { getByText } = render(<Alert heading="Alert Title" />)
+    render(<Alert heading="Alert heading" />)
 
-    expect(getByText('Alert Title')).toBeInTheDocument()
+    const heading = screen.getByRole('heading', {
+      name: 'Alert heading',
+    })
+
+    expect(heading).toBeInTheDocument()
   })
 
   it('renders the close button', () => {
