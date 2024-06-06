@@ -12,7 +12,7 @@ import { exampleHeading, exampleParagraph } from '../../../components/shared/exa
 
 export type ArticleContentProps = {}
 
-export const ArticleContent = () => (
+export const ArticleBody = () => (
   <>
     <Grid paddingVertical="large">
       <Grid.Cell span={{ narrow: 4, medium: 8, wide: 10 }} start={{ narrow: 1, medium: 1, wide: 2 }}>

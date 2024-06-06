@@ -1,8 +1,9 @@
-import { Breadcrumb, Footer, Grid, Header, Screen, SkipLink } from '@amsterdam/design-system-react'
+import { Breadcrumb, Footer, Grid, Screen, SkipLink } from '@amsterdam/design-system-react'
 import type { BreadcrumbProps, FooterProps } from '@amsterdam/design-system-react'
 import { ReactElement } from 'react'
-import { ArticleContent } from './ArticleContent'
+import { ArticleBody } from './ArticleBody'
 import { ArticleHeader } from './ArticleHeader'
+import { AppHeader } from '../common/AppHeader'
 
 type ArticleProps = {
   breadcrumb: ReactElement<BreadcrumbProps>
@@ -16,18 +17,14 @@ export const Article = ({ breadcrumb, footer, heading, imageAlt, imageSrc }: Art
   <>
     <SkipLink href="#main">Direct naar inhoud</SkipLink>
     <Screen maxWidth="wide">
-      <Grid>
-        <Grid.Cell span="all">
-          <Header menu={<button className="ams-header__menu-button">Menu</button>} />
-        </Grid.Cell>
-      </Grid>
+      <AppHeader />
       <Grid paddingTop="medium">
         <Grid.Cell span={{ narrow: 4, medium: 8, wide: 10 }} start={{ narrow: 1, medium: 1, wide: 2 }}>
           <Breadcrumb>{breadcrumb}</Breadcrumb>
         </Grid.Cell>
       </Grid>
       <ArticleHeader imageAlt={imageAlt} imageSrc={imageSrc} heading={heading} />
-      <ArticleContent />
+      <ArticleBody />
       <Footer>{footer}</Footer>
     </Screen>
   </>
