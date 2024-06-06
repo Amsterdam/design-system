@@ -10,13 +10,13 @@ import type { ForwardedRef, HTMLAttributes } from 'react'
 import { Icon } from '../Icon/Icon'
 
 export type PaginationProps = {
-  /** The maximum amount of pages shown. This has a lower limit of 5. */
+  /** The maximum amount of pages shown. Minimum value: 5. */
   maxVisiblePages?: number
   /** The accessible name for the link to the next page. */
   nextAriaLabel?: string
   /** The label for the link to the next page. */
   nextLabel?: string
-  /** Callback triggered when interaction changes the page number. */
+  /** A function to run when the page number changes. */
   // eslint-disable-next-line no-unused-vars
   onPageChange?: (page: number) => void
   /** The current page number. */

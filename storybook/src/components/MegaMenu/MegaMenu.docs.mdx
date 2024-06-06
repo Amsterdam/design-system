@@ -1,8 +1,11 @@
 import { Canvas, Markdown, Meta, Primary } from "@storybook/blocks";
 import * as MegaMenuStories from "./MegaMenu.stories.tsx";
 import README from "../../../../packages/css/src/components/mega-menu/README.md?raw";
+import { StatusBadge } from "../../docs/components/StatusBadge";
 
 <Meta of={MegaMenuStories} />
+
+<StatusBadge reason="Needs work for narrow screens and integration with Mega Menu." />
 
 <Markdown>{README}</Markdown>
 

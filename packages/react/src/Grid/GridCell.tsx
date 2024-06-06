@@ -22,6 +22,7 @@ type GridCellSpanAndStartProps = {
 }
 
 export type GridCellProps = {
+  /** The HTML element to use. */
   as?: 'article' | 'div' | 'section'
 } & (GridCellSpanAllProp | GridCellSpanAndStartProps) &
   PropsWithChildren<HTMLAttributes<HTMLElement>>

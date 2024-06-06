@@ -10,11 +10,12 @@ which are automatically installed when you install the React package.
 
 ## Stability of the components
 
-The React components are released as _alpha_ version, which means the components are still work in progress and it is likely that some APIs will change between releases.
+The React Library has not yet reached a 1.0.0 version.
+However, most of them are stable enough to be used in production.
+Components that have known issues, or for which we anticipate API changes, show a ‘beta’ badge on their page.
 
-Make sure you specify the exact version as dependency, so you can schedule to upgrade to the latest version when you have time to test for regression bugs.
-
-<!-- TODO: add alpha, beta and production statuses to components. Also show in Storybook -->
+Make sure you specify the exact version as dependency.
+You can then schedule an upgrade to the latest version when you have time to test for regressions.
 
 ## Getting started
 

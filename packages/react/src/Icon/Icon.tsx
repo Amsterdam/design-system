@@ -10,8 +10,11 @@ import { forwardRef } from 'react'
 import type { ForwardedRef, HTMLAttributes } from 'react'
 
 export type IconProps = {
+  /** The size of the icon. Corresponds with the text levels. */
   size?: 'level-3' | 'level-4' | 'level-5' | 'level-6'
+  /** Whether the icon container should be made square. */
   square?: boolean
+  /** The component rendering the icon’s markup. */
   svg: Function
 } & HTMLAttributes<HTMLSpanElement>
 

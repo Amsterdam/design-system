@@ -13,9 +13,9 @@ type ColumnTag = 'article' | 'div' | 'section'
 type ColumnGap = (typeof columnGapSizes)[number]
 
 export type ColumnProps = {
-  /** The element to render the column with. */
+  /** The HTML element to use. */
   as?: ColumnTag
-  /** The amount of vertical space between the column’s children. */
+  /** The amount of vertical space between items. */
   gap?: ColumnGap
 } & PropsWithChildren<HTMLAttributes<HTMLElement>>
 

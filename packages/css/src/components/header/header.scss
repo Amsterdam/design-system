@@ -51,27 +51,27 @@
   flex: 1 1 100%;
 
   @media screen and (min-width: $ams-breakpoint-wide) {
-    min-width: 0;
+    min-inline-size: 0;
     order: 2;
 
     .ams-header__title-heading {
       display: block;
+      inline-size: 100%;
       line-height: 1;
       overflow: hidden;
       text-overflow: ellipsis;
       white-space: nowrap;
-      width: 100%;
     }
   }
 }
 
-// Temporary, will move to megamenu (and/or iconButton)
+// Temporary – will move to Mega Menu and/or Icon Button
 .ams-header__menu-button {
   background-color: transparent;
   background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><path fill='%23004699' fill-rule='evenodd' d='M0 3.238h32V7.81H0V3.238zm0 10.476h32v4.572H0v-4.572zM0 24.19h32v4.572H0V24.19z'/></svg>");
   background-position: center right;
   background-repeat: no-repeat;
-  background-size: 19px 19px;
+  background-size: 1.1875rem 1.1875rem;
   border: 0;
   color: var(--ams-page-menu-item-color);
   font-family: var(--ams-page-menu-item-font-family);
@@ -79,7 +79,7 @@
   font-weight: var(--ams-page-menu-item-font-weight);
   line-height: var(--ams-page-menu-item-line-height);
   margin-block: 0;
-  padding-inline: 0 30px;
+  padding-inline: 0 1.875rem;
   text-align: center;
   touch-action: manipulation;
 }

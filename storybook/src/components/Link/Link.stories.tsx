@@ -18,6 +18,7 @@ const meta = {
   },
   argTypes: {
     children: {
+      description: 'The link text.',
       table: { disable: false },
     },
     onBackground: {
@@ -28,28 +29,9 @@ const meta = {
       options: [undefined, 'light', 'dark'],
     },
     href: {
+      description: 'The url for the link.',
       name: 'href',
       type: { name: 'string', required: false },
-      table: {
-        category: 'HTML attribute',
-        defaultValue: { summary: '' },
-      },
-    },
-    rel: {
-      name: 'rel',
-      type: { name: 'string', required: false },
-      table: {
-        category: 'HTML attribute',
-        defaultValue: { summary: '' },
-      },
-    },
-    target: {
-      name: 'target',
-      type: { name: 'string', required: false },
-      table: {
-        category: 'HTML attribute',
-        defaultValue: { summary: '' },
-      },
     },
   },
 } satisfies Meta<typeof Link>
@@ -80,7 +62,7 @@ export const onDarkBackground: Story = {
   },
   decorators: [
     (Story) => (
-      <div style={{ background: '#004699', display: 'inline', padding: '16px' }}>
+      <div style={{ background: '#004699', display: 'inline', padding: '1rem' }}>
         <Story />
       </div>
     ),
@@ -93,7 +75,7 @@ export const onLightBackground: Story = {
   },
   decorators: [
     (Story) => (
-      <div style={{ background: '#FFE600', display: 'inline', padding: '16px' }}>
+      <div style={{ background: '#FFE600', display: 'inline', padding: '1rem' }}>
         <Story />
       </div>
     ),

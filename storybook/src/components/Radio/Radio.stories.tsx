@@ -3,7 +3,7 @@
  * Copyright Gemeente Amsterdam
  */
 
-import { Fieldset, Radio } from '@amsterdam/design-system-react/src'
+import { FieldSet, Radio } from '@amsterdam/design-system-react/src'
 import { useArgs } from '@storybook/preview-api'
 import { Meta, StoryObj } from '@storybook/react'
 
@@ -17,10 +17,23 @@ const meta = {
     invalid: false,
   },
   argTypes: {
+    checked: {
+      description: 'Whether the control is checked.',
+    },
     children: {
+      description: 'The text for the label.',
       table: { disable: false },
     },
-    onChange: { action: 'clicked', table: { disable: true } },
+    disabled: {
+      description: 'Prevents interaction. Avoid if possible.',
+    },
+    invalid: {
+      description: 'Whether the value fails a validation rule.',
+    },
+    onChange: {
+      action: 'clicked',
+      table: { disable: true },
+    },
   },
   render: (args) => {
     const [, setArgs] = useArgs()
@@ -53,10 +66,13 @@ export const RadioGroup: Story = {
     invalid: {
       table: { disable: true },
     },
-    onChange: { action: 'clicked', table: { disable: true } },
+    onChange: {
+      action: 'clicked',
+      table: { disable: true },
+    },
   },
   render: () => (
-    <Fieldset legend="Waar gaat uw melding over?">
+    <FieldSet legend="Waar gaat uw melding over?">
       <Radio name="soort" value="horecabedrijf">
         Horecabedrijf
       </Radio>
@@ -69,7 +85,7 @@ export const RadioGroup: Story = {
       <Radio name="soort" value="iets_anders">
         Iets anders
       </Radio>
-    </Fieldset>
+    </FieldSet>
   ),
   parameters: {
     docs: {

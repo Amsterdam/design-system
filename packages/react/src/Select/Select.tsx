@@ -10,18 +10,13 @@ import { SelectOption } from './SelectOption'
 import { SelectOptionGroup } from './SelectOptionGroup'
 
 export type SelectProps = {
-  /** There is no native invalid attribute for select, but you can use this to get the same result as other form components */
+  /** Whether the value fails a validation rule. */
   invalid?: boolean
-} & PropsWithChildren<SelectHTMLAttributes<HTMLSelectElement>>
+} & PropsWithChildren<Omit<SelectHTMLAttributes<HTMLSelectElement>, 'aria-invalid'>>
 
 const SelectRoot = forwardRef(
   ({ children, className, invalid, ...restProps }: SelectProps, ref: ForwardedRef<HTMLSelectElement>) => (
-    <select
-      {...restProps}
-      ref={ref}
-      className={clsx('ams-select', invalid && 'ams-select--invalid', className)}
-      aria-invalid={invalid || undefined}
-    >
+    <select {...restProps} aria-invalid={invalid || undefined} className={clsx('ams-select', className)} ref={ref}>
       {children}
     </select>
   ),

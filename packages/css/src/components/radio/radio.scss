@@ -14,23 +14,23 @@
 
 .ams-radio__circle {
   align-items: center;
+  block-size: calc(var(--ams-radio-font-size) * var(--ams-radio-line-height));
   display: flex;
   flex-shrink: 0;
-  height: calc(var(--ams-radio-font-size) * var(--ams-radio-line-height));
-  width: 1.5rem;
+  inline-size: 1.5rem;
 
   &::after {
     background-position: center;
     background-repeat: no-repeat;
     background-size: 1rem;
+    block-size: 1.5rem;
     border-color: var(--ams-radio-circle-border-color);
     border-radius: 100%;
     border-style: solid;
     border-width: var(--ams-radio-circle-border-width);
     box-sizing: border-box;
     content: "";
-    height: 1.5rem;
-    width: 100%;
+    inline-size: 100%;
   }
 }
 

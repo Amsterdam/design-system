@@ -21,3 +21,18 @@ Content taller than the dialog itself will scroll.
 Click or tap the button to open a dialog.
 
 <Canvas of={DialogStories.TriggerButton} />
+
+Some basic example code to open and close a dialog:
+
+```ts
+const openDialog = () => (document.querySelector("#openDialog") as HTMLDialogElement)?.showModal();
+
+const closeDialog = (e: MouseEvent<HTMLButtonElement>) => e.currentTarget.closest("dialog")?.close();
+```
+
+## Vertically Stacked Buttons
+
+If the buttons don’t fit next to each other, they will stack vertically and stretch to the full width.
+This can occur with a narrow Dialog, long Button labels, a large text size or zooming in.
+
+<Canvas of={DialogStories.VerticalButtons} />

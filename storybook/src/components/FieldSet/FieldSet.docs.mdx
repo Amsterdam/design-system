@@ -1,0 +1,67 @@
+import { Canvas, Controls, Markdown, Meta, Primary } from "@storybook/blocks";
+import * as FieldSetStories from "./FieldSet.stories.tsx";
+import README from "../../../../packages/css/src/components/field-set/README.md?raw";
+
+<Meta of={FieldSetStories} />
+
+<Markdown>{README}</Markdown>
+
+<Primary />
+
+<Controls />
+
+## Examples
+
+## With Description
+
+A Field Set can have a description.
+Make sure to connect this description to the Field Set or a specific input,
+otherwise this won’t be read by a screen reader.
+Add an `aria-describedby` attribute to the Field Set
+and provide the `id` of the describing element as its value.
+
+<Canvas of={FieldSetStories.WithDescription} />
+
+## With Error
+
+A Field Set can indicate whether any of the inputs it contains has a validation error.
+Use Error Message to describe the error.
+Make sure to connect the error message to the correct input in the Field Set,
+otherwise it won’t be read by a screen reader.
+Add an `aria-describedby` attribute to the input and provide the `id` of Error Message as its value.
+
+<Canvas of={FieldSetStories.WithError} />
+
+### Radio group
+
+Use a Field Set to group radio buttons.
+When grouping radio inputs, use `role="radiogroup"` on Field Set to have this grouping explicitly announced as a radio group (the default role is `group`).
+Using `role="radiogroup"` also allows you to use `aria-required` on Field Set, which isn’t allowed for role `group`.
+Always also set `aria-required` on the individual radio buttons though, to make sure it’s read by screen readers.
+
+<Canvas of={FieldSetStories.RadioGroup} />
+
+### Radio group with error
+
+A Field Set with a radio button group can also have a validation error.
+In this case, connect the error message to the Field Set instead of an input.
+Add an `aria-describedby` attribute to the Field Set and provide the `id` of Error Message as its value.
+
+<Canvas of={FieldSetStories.RadioGroupWithError} />
+
+### Checkbox group
+
+Use a Field Set to group checkboxes.
+
+Please note: [NVDA has a bug](https://github.com/nvaccess/nvda/issues/12718) which causes it to
+not report a description connected to a Field Set when it contains checkboxes.
+
+Try to avoid using descriptions for Field Sets containing checkboxes for this reason.
+
+<Canvas of={FieldSetStories.CheckboxGroup} />
+
+### Checkbox group with error
+
+Because of [the NVDA bug mentioned earlier](https://github.com/nvaccess/nvda/issues/12718),
+we currently do not have a reliable way to report error messages for checkbox groups with a validation error.
+We are working on adding this as soon as possible.

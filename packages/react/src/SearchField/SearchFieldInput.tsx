@@ -9,11 +9,17 @@ import type { ForwardedRef, InputHTMLAttributes } from 'react'
 import { VisuallyHidden } from '../VisuallyHidden'
 
 type SearchFieldInputProps = {
+  /** Whether the value fails a validation rule. */
+  invalid?: boolean
+  /** Describes the field for screen readers. */
   label?: string
 } & InputHTMLAttributes<HTMLInputElement>
 
 export const SearchFieldInput = forwardRef(
-  ({ className, label = 'Zoeken', ...restProps }: SearchFieldInputProps, ref: ForwardedRef<HTMLInputElement>) => {
+  (
+    { className, dir, invalid, label = 'Zoeken', ...restProps }: SearchFieldInputProps,
+    ref: ForwardedRef<HTMLInputElement>,
+  ) => {
     const id = useId()
 
     return (
@@ -23,8 +29,10 @@ export const SearchFieldInput = forwardRef(
         </label>
         <input
           {...restProps}
+          aria-invalid={invalid || undefined}
           autoComplete="off"
           className={clsx('ams-search-field__input', className)}
+          dir={dir ?? 'auto'}
           enterKeyHint="search"
           id={id}
           ref={ref}

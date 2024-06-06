@@ -25,14 +25,24 @@ If you want the contents of an accordion section to appear initially, pass the `
 
 By default, an accordion section uses the HTML tag `section` to render the content.
 Having many accordion sections on your page (more than 6) can lead to too many landmark regions, confusing screen reader users.
-In that case, use `section={false}`.
-Please note: Storybook does not correctly display this property in the code block.
+In that case, use `sectionAs="div"`.
 
 <Canvas of={AccordionStories.TooManyLandmarks} />
 
-## Technical explanation
+## Technical considerations
 
-Currently (28-6-2023), the HTML element `details` element has some accessibility problems.
+### The `Accordion` parent component
+
+The parent component is used for several reasons:
+
+- It sets the spacing between Accordion Sections.
+- It allows you to set the same heading level for all Accordion Sections.
+- It allows you to set the same HTML element for all Accordion Sections.
+- It adds the extra keyboard navigation described in the guidelines.
+
+### The HTML `details` element
+
+Currently (28-6-2023), the `details` element has some accessibility problems.
 [For example, a heading in a summary is not adequately understood by screen readers](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/summary#summaries_as_headings) and
 NVDA does not read Chrome and Edge’s collapsed and expanded status correctly.
 That’s why we chose not to use this native element.

@@ -8,8 +8,9 @@ import { forwardRef, useId } from 'react'
 import type { ForwardedRef, InputHTMLAttributes, PropsWithChildren } from 'react'
 
 export type RadioProps = {
+  /** Whether the value fails a validation rule. */
   invalid?: boolean
-} & PropsWithChildren<InputHTMLAttributes<HTMLInputElement>>
+} & PropsWithChildren<Omit<InputHTMLAttributes<HTMLInputElement>, 'aria-invalid' | 'type'>>
 
 export const Radio = forwardRef(
   ({ children, className, invalid, ...restProps }: RadioProps, ref: ForwardedRef<HTMLInputElement>) => {
@@ -21,11 +22,11 @@ export const Radio = forwardRef(
       <div className={clsx('ams-radio', className)}>
         <input
           {...restProps}
-          type="radio"
-          className="ams-radio__input"
-          ref={ref}
-          id={id}
           aria-invalid={invalid || undefined}
+          className="ams-radio__input"
+          id={id}
+          ref={ref}
+          type="radio"
         />
         <label className="ams-radio__label" htmlFor={id}>
           <span className="ams-radio__circle" />

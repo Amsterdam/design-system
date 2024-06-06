@@ -19,6 +19,7 @@ const meta = {
   },
   argTypes: {
     children: {
+      description: 'The paragraph text.',
       table: { disable: false },
     },
     size: {

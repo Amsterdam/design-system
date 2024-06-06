@@ -15,12 +15,14 @@ const meta = {
   },
   argTypes: {
     children: {
+      description: 'The text to attach the link to.',
       table: { disable: false },
     },
+    href: {
+      description: 'The url for the link. References an anchor on the current page.',
+    },
     style: {
-      table: {
-        disable: true,
-      },
+      table: { disable: true },
     },
   },
   decorators: [

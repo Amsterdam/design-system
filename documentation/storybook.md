@@ -21,17 +21,35 @@ We write our documentation in English, the stories are Dutch.
 ## Best practices for controls
 
 Controls are automatically generated based on the component’s typing.
-If you want to document native HTML attributes, you can use [`argTypes`](https://storybook.js.org/docs/api/arg-types).
-You can also use `argTypes` to override the automatically generated controls.
+
+### Prop descriptions
+
+We use JSDoc to describe each prop to keep documentation close to the actual definition.
+This also helps IDEs pick up the description and display it in their user interface.
+The description briefly explains the essence of the prop.
+A guideline on how to use the prop may be added, as well as a description of its effect, e.g. visually.
+Prevent mentioning the component’s name in a prop description – that should be obvious.
+Prop types that aren’t exported don’t require their properties to be described.
+
+### Arg Types
+
+Add [`argTypes`](https://storybook.js.org/docs/api/arg-types) to the Story to document native HTML attributes or override the generated controls.
 Be sure to follow these guidelines when you do:
 
-1. For props offering five options or less, use radio buttons rather than a select.
+1. Add a `description` field instead of a JSDoc comment for native HTML attributes.
+   Use terse sentences that end with a full stop.
+   When adding a prop, check for a corresponding existing prop and copy its description.
+2. When mentioning a component, write its name in title case, e.g. ‘Card’ or ‘Form Field’.
+   This represents the component more strongly and helps users recognise them as such.
+3. For props offering five options or less, use radio buttons rather than a select.
    This makes it easier to compare the options.
    It saves the user a click to select each option and shows everything up front.
-2. Don’t use inline radios.
+4. Don’t use inline radios.
    Their options appear rather small, making them difficult to target with a pointing device.
 
 More to follow.
+
+### The `children` prop
 
 By default, we hide the `children` prop from the controls.
 Children of React components are often React components themselves, which isn't very useful to show in Storybook.

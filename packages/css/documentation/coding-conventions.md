@@ -13,8 +13,8 @@ Still, we define its thickness and offset for the initial state.
 ```css
 .ams-link {
   text-decoration: none;
-  text-decoration-thickness: 2px;
-  text-underline-offset: 3px;
+  text-decoration-thickness: 0.125rem;
+  text-underline-offset: 0.1667em;
 
   &:hover {
     text-decoration: underline;
@@ -30,8 +30,8 @@ Still, we define its thickness and offset for the initial state.
 
   &:hover {
     text-decoration: underline;
-    text-decoration-thickness: 2px;
-    text-underline-offset: 3px;
+    text-decoration-thickness: 0.125rem;
+    text-underline-offset: 0.1667em;
   }
 }
 ```
@@ -41,3 +41,9 @@ Still, we define its thickness and offset for the initial state.
 We use Sass mixins to extract common patterns, especially if they need more than 1 declaration.
 We collect reset styles in mixins as well.
 Both the name of the mixins and their documentation help explain the approach.
+
+## Form validation styling
+
+We style both the native invalid state (`:invalid`) as the invalid state you can set manually, using `aria-invalid`.
+We’re currently not sure how our users will implement forms, which is why both options are supported.
+[Native form validation isn’t without its issues](https://adrianroselli.com/2019/02/avoid-default-field-validation.html) though, so we might only support manual validation in the future.

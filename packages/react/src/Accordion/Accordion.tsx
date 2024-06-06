@@ -12,13 +12,14 @@ import { HeadingLevel } from '../Heading/Heading'
 import { useKeyboardFocus } from '../common/useKeyboardFocus'
 
 export type AccordionProps = {
-  /** The hierarchical level of the accordion title within the document. */
+  /** The hierarchical level of the Accordion Section heading(s) within the document. */
   headingLevel: HeadingLevel
-  section?: boolean
+  /** The HTML element to use for each Accordion Section. */
+  sectionAs?: 'div' | 'section'
 } & PropsWithChildren<HTMLAttributes<HTMLDivElement>>
 
 const AccordionRoot = forwardRef(
-  ({ children, className, headingLevel, section = true }: AccordionProps, ref: ForwardedRef<HTMLDivElement>) => {
+  ({ children, className, headingLevel, sectionAs = 'section' }: AccordionProps, ref: ForwardedRef<HTMLDivElement>) => {
     const innerRef = useRef<HTMLDivElement>(null)
 
     // use a passed ref if it's there, otherwise use innerRef
@@ -27,7 +28,7 @@ const AccordionRoot = forwardRef(
     const { keyDown } = useKeyboardFocus(innerRef, { rotating: true })
 
     return (
-      <AccordionContext.Provider value={{ headingLevel: headingLevel, section: section }}>
+      <AccordionContext.Provider value={{ headingLevel: headingLevel, sectionAs: sectionAs }}>
         <div className={clsx('ams-accordion', className)} onKeyDown={keyDown} ref={innerRef}>
           {children}
         </div>

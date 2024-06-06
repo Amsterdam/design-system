@@ -19,6 +19,7 @@ const meta = {
   },
   argTypes: {
     children: {
+      description: 'The heading text.',
       table: { disable: false },
     },
   },

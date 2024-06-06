@@ -33,22 +33,22 @@
 .ams-breadcrumb__item:not(:last-child)::after {
   background-image: var(--ams-breadcrumb-separator-background-image);
   background-repeat: no-repeat;
+  block-size: 1ex;
   content: "";
   display: inline-block;
-  height: 1ex;
+  inline-size: 1ex;
   margin-inline: 0.5rem;
-  width: 1ex;
 }
 
 .ams-breadcrumb__link {
-  color: var(--ams-breadcrumb-item-link-color);
-  outline-offset: var(--ams-breadcrumb-item-link-outline-offset);
-  text-decoration-line: var(--ams-breadcrumb-item-link-text-decoration-line);
-  text-decoration-thickness: var(--ams-breadcrumb-item-link-text-decoration-thickness);
-  text-underline-offset: var(--ams-breadcrumb-item-link-text-underline-offset);
+  color: var(--ams-breadcrumb-link-color);
+  outline-offset: var(--ams-breadcrumb-link-outline-offset);
+  text-decoration-line: var(--ams-breadcrumb-link-text-decoration-line);
+  text-decoration-thickness: var(--ams-breadcrumb-link-text-decoration-thickness);
+  text-underline-offset: var(--ams-breadcrumb-link-text-underline-offset);
 
   &:hover {
-    color: var(--ams-breadcrumb-item-link-hover-color);
-    text-decoration-line: var(--ams-breadcrumb-item-link-hover-text-decoration-line);
+    color: var(--ams-breadcrumb-link-hover-color);
+    text-decoration-line: var(--ams-breadcrumb-link-hover-text-decoration-line);
   }
 }

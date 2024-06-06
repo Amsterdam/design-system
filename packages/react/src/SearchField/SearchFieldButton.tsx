@@ -11,7 +11,7 @@ import { Icon } from '../Icon'
 import { VisuallyHidden } from '../VisuallyHidden'
 
 type SearchFieldButtonProps = {
-  /** The label for the button that triggers the search action. */
+  /** Describes the field for screen readers. */
   label?: string
 } & HTMLAttributes<HTMLButtonElement>
 

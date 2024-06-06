@@ -10,7 +10,7 @@ import { DescriptionListDetails } from './DescriptionListDetails'
 import { DescriptionListTerm } from './DescriptionListTerm'
 
 export type DescriptionListProps = {
-  /** Changes the text color for readability on a dark background. */
+  /** Changes the text colour for readability on a dark background. */
   inverseColor?: boolean
 } & PropsWithChildren<HTMLAttributes<HTMLDListElement>>
 

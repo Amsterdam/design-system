@@ -15,6 +15,7 @@ Pagination indicates the current page and allows users to navigate to other page
 - Redirect users to the first page if they enter a URL with a page number that doesn’t exist.
 - Pagination can be combined with a counter at the top of the page indicating “Page # of ##.”
 - Start a page with an overview list at the top after changing the page.
+- Make sure that the visible and accessible labels for the ‘previous’ and ‘next’ buttons convey the same meaning at all times – e.g. don’t update one and forget the other.
 
 ## Relevant WCAG Rules
 

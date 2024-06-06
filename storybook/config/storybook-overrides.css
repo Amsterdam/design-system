@@ -33,17 +33,27 @@
   margin-block-end: 2em;
 }
 
+.sbdocs-content.sbdocs-content > .ams-storybook-status-badge {
+  margin-block-end: 1.5rem;
+}
+
+.sbdocs-content.sbdocs-content > .ams-storybook-status-badge > span:nth-child(2) {
+  color: #000000;
+  font-family: "Amsterdam Sans", Arial, sans-serif;
+  font-size: var(--ams-text-level-6-font-size);
+}
+
 .sbdocs-content.sbdocs-content .sbdocs-a {
   color: #004699;
   text-decoration: underline;
   text-decoration-thickness: 0.125rem;
-  text-underline-offset: 0.375rem;
+  text-underline-offset: 0.3333em;
 }
 
 .sbdocs-content.sbdocs-content .sbdocs-a:hover {
   color: #102e62;
   text-decoration-thickness: 0.1875rem;
-  text-underline-offset: 0.3125rem;
+  text-underline-offset: 0.2778em;
 }
 
 .sbdocs-content.sbdocs-content > :is(h1, h2, h3, h4, h5, h6),
@@ -55,6 +65,7 @@
 .sbdocs-content.sbdocs-content > h1,
 .sbdocs-content.sbdocs-content > div:not(.sb-unstyled) > h1 {
   font-size: 2.5rem;
+  margin-block-start: 0;
 }
 
 .sbdocs-content.sbdocs-content > h2,
@@ -86,11 +97,6 @@
 .sbdocs-content.sbdocs-content > div:not(.sb-unstyled) > :is(p, ol, ul) {
   margin-block: 0 1rem;
   padding-block: 0;
-}
-
-.sbdocs-content.sbdocs-content > :first-child,
-.sbdocs-content.sbdocs-content > div:not(.sb-unstyled) > :first-child {
-  margin-block-start: 0;
 }
 
 .sbdocs-content.sbdocs-content > table:not(.sb-unstyled) :is(td, th),
