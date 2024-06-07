@@ -5,13 +5,13 @@ import { TableOfContents } from './TableOfContents'
 
 describe('Table of Contents link', () => {
   it('renders', () => {
-    render(<TableOfContents.Link label="Test" href="#" />)
+    render(<TableOfContents.Link label="Test label" href="#" />)
 
     const link = screen.getByRole('link')
 
     expect(link).toBeInTheDocument()
     expect(link).toBeVisible()
-    expect(link).toHaveTextContent('Test')
+    expect(link).toHaveTextContent('Test label')
   })
 
   it('renders a design system BEM class name', () => {

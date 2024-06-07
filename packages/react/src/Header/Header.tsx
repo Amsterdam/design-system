@@ -12,16 +12,16 @@ import type { LogoBrand } from '../Logo'
 import { VisuallyHidden } from '../VisuallyHidden'
 
 export type HeaderProps = {
+  /** The name of the application. */
+  appName?: string
+  /** The list of menu links. Use a Page Menu here. */
+  links?: ReactNode
   /** The name of the brand for which to display the logo. */
   logoBrand?: LogoBrand
   /** The url for the link on the logo. */
   logoLink?: string
   /** The accessible text for the link on the logo. */
   logoLinkTitle?: string
-  /** The name of the application. */
-  title?: string
-  /** The list of menu links. Use a Page Menu here. */
-  links?: ReactNode
   /** A button to toggle the visibility of a Mega Menu. */
   menu?: ReactNode
 } & HTMLAttributes<HTMLElement>
@@ -29,12 +29,12 @@ export type HeaderProps = {
 export const Header = forwardRef(
   (
     {
+      appName,
       className,
+      links,
       logoBrand = 'amsterdam',
       logoLink = '/',
       logoLinkTitle = 'Ga naar de homepage',
-      title,
-      links,
       menu,
       ...restProps
     }: HeaderProps,
@@ -49,10 +49,10 @@ export const Header = forwardRef(
           </a>
           {links && <div className="ams-header__links">{links}</div>}
           {menu && <div className="ams-header__menu">{menu}</div>}
-          {title && (
-            <div className="ams-header__title">
-              <Heading level={1} size="level-3" className="ams-header__title-heading">
-                {title}
+          {appName && (
+            <div className="ams-header__app-name">
+              <Heading level={1} size="level-3" className="ams-header__app-name-heading">
+                {appName}
               </Heading>
             </div>
           )}
