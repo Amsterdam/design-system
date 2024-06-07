@@ -14,7 +14,10 @@ import type { HeadingLevel } from '../Heading'
 export type TableOfContentsProps = {
   /** The text for the Heading. */
   heading?: string
-  /** The hierarchical level of the Heading within the document. */
+  /**
+   * The hierarchical level of the Heading within the document.
+   * Note: this intentionally does not change the font size.
+   */
   headingLevel?: HeadingLevel
 } & PropsWithChildren<HTMLAttributes<HTMLElement>>
 

@@ -19,7 +19,10 @@ export type AlertProps = {
   closeButtonLabel?: string
   /** The text for the Heading. */
   heading?: string
-  /** The hierarchical level of the Heading within the document. */
+  /**
+   * The hierarchical level of the Heading within the document.
+   * Note: this intentionally does not change the font size.
+   */
   headingLevel?: HeadingLevel
   /** A function to run when dismissing. */
   onClose?: () => void
