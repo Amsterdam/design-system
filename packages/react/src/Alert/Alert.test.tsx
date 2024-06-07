@@ -43,10 +43,10 @@ describe('Alert', () => {
   })
 
   it('renders a heading', () => {
-    render(<Alert heading="Alert heading" />)
+    render(<Alert heading="Test heading" />)
 
     const heading = screen.getByRole('heading', {
-      name: 'Alert heading',
+      name: 'Test heading',
     })
 
     expect(heading).toBeInTheDocument()

@@ -5,7 +5,7 @@ import '@testing-library/jest-dom'
 
 describe('Dialog', () => {
   it('renders', () => {
-    render(<Dialog heading="Dialog Title" open />)
+    render(<Dialog heading="Test heading" open />)
 
     const component = screen.getByRole('dialog')
 
@@ -14,7 +14,7 @@ describe('Dialog', () => {
   })
 
   it('renders a design system BEM class name', () => {
-    render(<Dialog heading="Dialog Title" />)
+    render(<Dialog heading="Test heading" />)
 
     const component = screen.getByRole('dialog', { hidden: true })
 
@@ -22,7 +22,7 @@ describe('Dialog', () => {
   })
 
   it('renders an additional class name', () => {
-    render(<Dialog heading="Dialog Title" className="extra" />)
+    render(<Dialog heading="Test heading" className="extra" />)
 
     const component = screen.getByRole('dialog', { hidden: true })
 
@@ -34,7 +34,7 @@ describe('Dialog', () => {
   it('supports ForwardRef in React', () => {
     const ref = createRef<HTMLDialogElement>()
 
-    render(<Dialog heading="Dialog Title" ref={ref} />)
+    render(<Dialog heading="Test heading" ref={ref} />)
 
     const component = screen.getByRole('dialog', { hidden: true })
 
@@ -42,7 +42,7 @@ describe('Dialog', () => {
   })
 
   it('is not visible when open attribute is not used', () => {
-    render(<Dialog heading="Dialog Title" />)
+    render(<Dialog heading="Test heading" />)
 
     const component = screen.getByRole('dialog', { hidden: true })
 
@@ -51,7 +51,7 @@ describe('Dialog', () => {
   })
 
   it('renders a heading', () => {
-    render(<Dialog heading="Dialog Heading" open />)
+    render(<Dialog heading="Test heading" open />)
 
     const heading = screen.getByRole('heading', {
       name: 'Dialog Heading',
@@ -61,25 +61,25 @@ describe('Dialog', () => {
   })
 
   it('renders children', () => {
-    const { getByText } = render(<Dialog heading="Dialog Title">Dialog Content</Dialog>)
+    const { getByText } = render(<Dialog heading="Test heading">Test content</Dialog>)
 
-    expect(getByText('Dialog Content')).toBeInTheDocument()
+    expect(getByText('Test content')).toBeInTheDocument()
   })
 
   it('renders actions when provided', () => {
-    const { getByText } = render(<Dialog heading="Dialog Title" actions={<button>Click Me</button>} />)
+    const { getByText } = render(<Dialog heading="Test heading" actions={<button>Click Me</button>} />)
 
     expect(getByText('Click Me')).toBeInTheDocument()
   })
 
   it('does not render actions when not provided', () => {
-    const { queryByText } = render(<Dialog heading="Dialog Title" />)
+    const { queryByText } = render(<Dialog heading="Test heading" />)
 
     expect(queryByText('Click Me')).not.toBeInTheDocument()
   })
 
   it('renders DialogClose button', () => {
-    render(<Dialog heading="Dialog Title" open />)
+    render(<Dialog heading="Test heading" open />)
 
     const closeButton = screen.getByRole('button', { name: 'Sluiten' })
 
@@ -87,7 +87,7 @@ describe('Dialog', () => {
   })
 
   it('renders a custom close label', () => {
-    render(<Dialog heading="Dialog Title" open closeButtonLabel="Close" />)
+    render(<Dialog heading="Test heading" open closeButtonLabel="Close" />)
 
     const closeButton = screen.getByRole('button', { name: 'Close' })
 

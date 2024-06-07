@@ -68,12 +68,12 @@ describe('Header', () => {
   })
 
   it('renders with links', () => {
-    const { container } = render(<Header links={<div>Menu Content</div>} />)
+    const { container } = render(<Header links={<div>Test content</div>} />)
 
     const menu = container.querySelector('.ams-header__links')
 
     expect(menu).toBeInTheDocument()
-    expect(menu).toHaveTextContent('Menu Content')
+    expect(menu).toHaveTextContent('Test content')
   })
 
   it('renders with menu button', () => {
