@@ -1,0 +1,15 @@
+import { Canvas, Controls, Markdown, Meta, Primary } from "@storybook/blocks";
+import * as TableOfContentsStories from "./TableOfContents.stories.tsx";
+import README from "../../../../packages/css/src/components/table-of-contents/README.md?raw";
+
+<Meta of={TableOfContentsStories} />
+
+<Markdown>{README}</Markdown>
+
+<Primary />
+
+<Controls />
+
+## Multilevel
+
+<Canvas of={TableOfContentsStories.MultiLevel} />

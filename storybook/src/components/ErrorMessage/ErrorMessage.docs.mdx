@@ -1,0 +1,19 @@
+import { Canvas, Controls, Markdown, Meta, Primary } from "@storybook/blocks";
+import * as ErrorMessageStories from "./ErrorMessage.stories.tsx";
+import README from "../../../../packages/css/src/components/error-message/README.md?raw";
+
+<Meta of={ErrorMessageStories} />
+
+<Markdown>{README}</Markdown>
+
+<Primary />
+
+<Controls />
+
+## With a custom prefix
+
+Error messages are automatically prefixed with a visually hidden text, the Dutch word "Invoerfout".
+This makes the error message more clear for screen reader users.
+If you want to change this prefix, to support another language for example, you can use the `prefix` prop.
+
+<Canvas of={ErrorMessageStories.WithCustomPrefix} />

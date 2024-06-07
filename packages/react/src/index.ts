@@ -5,6 +5,8 @@
 
 /* Append here */
 export * from './FormErrorList'
+export * from './TableOfContents'
+export * from './ErrorMessage'
 export * from './FileInput'
 export * from './Field'
 export * from './Select'

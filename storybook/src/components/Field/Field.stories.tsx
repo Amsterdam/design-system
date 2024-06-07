@@ -3,8 +3,8 @@
  * Copyright Gemeente Amsterdam
  */
 
-import { TextInput } from '@amsterdam/design-system-react'
-import { Field, Label, Paragraph } from '@amsterdam/design-system-react/src'
+import { ErrorMessage, Label, TextInput } from '@amsterdam/design-system-react'
+import { Field, Paragraph } from '@amsterdam/design-system-react/src'
 import { Meta, StoryObj } from '@storybook/react'
 
 const meta = {
@@ -48,7 +48,8 @@ export const WithError: Story = {
       <Paragraph id="description2" size="small">
         Typ geen persoonsgegevens in deze omschrijving. We vragen dit later in dit formulier aan u.
       </Paragraph>
-      <TextInput id="input3" aria-describedby="description2" invalid={args.invalid} />
+      <ErrorMessage id="error">Geef aan waar het om gaat.</ErrorMessage>
+      <TextInput id="input3" aria-describedby="description2 error" aria-required invalid={args.invalid} />
     </Field>
   ),
 }

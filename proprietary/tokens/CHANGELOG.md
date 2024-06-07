@@ -3,6 +3,38 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.9.0](https://github.com/Amsterdam/design-system/compare/design-system-tokens-v0.8.0...design-system-tokens-v0.9.0) (2024-06-05)
+
+
+### ⚠ BREAKING CHANGES
+
+* Disallow directional style rules ([#1245](https://github.com/Amsterdam/design-system/issues/1245))
+* Use invalid prop for most inputs ([#1240](https://github.com/Amsterdam/design-system/issues/1240))
+* Add invalid prop to Field Set and update Field and Field Set docs ([#1237](https://github.com/Amsterdam/design-system/issues/1237))
+* Allow additional background colours for Badge and remove dark blue option ([#1236](https://github.com/Amsterdam/design-system/issues/1236))
+* Rename Breadcrumb Item to Link ([#1232](https://github.com/Amsterdam/design-system/issues/1232))
+* Use logical properties for Search Field, Select, Text Area and Text Input ([#1226](https://github.com/Amsterdam/design-system/issues/1226))
+* Flatten token names for default text size and line height ([#1221](https://github.com/Amsterdam/design-system/issues/1221))
+
+### Features
+
+* Add Error Message ([#1247](https://github.com/Amsterdam/design-system/issues/1247)) ([1dec2ea](https://github.com/Amsterdam/design-system/commit/1dec2ead41fba24e4128c2e1d60b72a7ccb29a92))
+* Add Field component ([#1228](https://github.com/Amsterdam/design-system/issues/1228)) ([66832aa](https://github.com/Amsterdam/design-system/commit/66832aaf14a209915b60498acecf90cecff27c23))
+* Add invalid prop to Field Set and update Field and Field Set docs ([#1237](https://github.com/Amsterdam/design-system/issues/1237)) ([d7316e8](https://github.com/Amsterdam/design-system/commit/d7316e81cd424f79f9bd655265d1c9b41296fecf))
+* Allow additional background colours for Badge and remove dark blue option ([#1236](https://github.com/Amsterdam/design-system/issues/1236)) ([eec669a](https://github.com/Amsterdam/design-system/commit/eec669ad79353fc205e12a35aa7d0a8297c72e41))
+* Allow small text for ordered lists ([#1219](https://github.com/Amsterdam/design-system/issues/1219)) ([0e77bd6](https://github.com/Amsterdam/design-system/commit/0e77bd60d8f395417c3c736d8e51a3ca3729ece5))
+* Allow small text for unordered lists ([#1217](https://github.com/Amsterdam/design-system/issues/1217)) ([5012851](https://github.com/Amsterdam/design-system/commit/5012851492e50e50e2a651250622740e517fd22f))
+* File Input ([#1218](https://github.com/Amsterdam/design-system/issues/1218)) ([7b6ba98](https://github.com/Amsterdam/design-system/commit/7b6ba98530caaefafedada5b89a175ef0b1a8784))
+* Rename Breadcrumb Item to Link ([#1232](https://github.com/Amsterdam/design-system/issues/1232)) ([6cf2e5e](https://github.com/Amsterdam/design-system/commit/6cf2e5e51217900a24d739c4569c13237b9fb4ab))
+* Use invalid prop for most inputs ([#1240](https://github.com/Amsterdam/design-system/issues/1240)) ([9477186](https://github.com/Amsterdam/design-system/commit/9477186b8432d6d20991e93d92c64a4357d6f391))
+* Use logical properties for Search Field, Select, Text Area and Text Input ([#1226](https://github.com/Amsterdam/design-system/issues/1226)) ([4471c7a](https://github.com/Amsterdam/design-system/commit/4471c7a154e9f1f31dd92298f932f4bbc134dbf9))
+
+
+### Bug Fixes
+
+* Disallow directional style rules ([#1245](https://github.com/Amsterdam/design-system/issues/1245)) ([8ab6f81](https://github.com/Amsterdam/design-system/commit/8ab6f81d4cbcdb75b7acb986a145d49ccd1895c8))
+* Flatten token names for default text size and line height ([#1221](https://github.com/Amsterdam/design-system/issues/1221)) ([6eeaeb4](https://github.com/Amsterdam/design-system/commit/6eeaeb41fae90a2d455b4e41da3ff3a4561dcbe4))
+
 ## [0.8.0](https://github.com/Amsterdam/design-system/compare/design-system-tokens-v0.7.1...design-system-tokens-v0.8.0) (2024-04-22)
 
 
