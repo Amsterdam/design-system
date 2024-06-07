@@ -1,2 +1,2 @@
 export { FormErrorList } from './FormErrorList'
-export type { FormErrorListProps } from './FormErrorList'
+export type { FormError, FormErrorListProps } from './FormErrorList'
