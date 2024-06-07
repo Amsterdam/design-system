@@ -56,13 +56,24 @@ describe('Header', () => {
     expect(logoLinkTitle).toHaveTextContent('Go to homepage')
   })
 
+  it('renders an application name', () => {
+    render(<Header appName="Application name" />)
+
+    const heading = screen.getByRole('heading', {
+      name: 'Application name',
+      level: 1,
+    })
+
+    expect(heading).toBeInTheDocument()
+  })
+
   it('renders with links', () => {
-    const { container } = render(<Header links={<div>Menu Content</div>} />)
+    const { container } = render(<Header links={<div>Test content</div>} />)
 
     const menu = container.querySelector('.ams-header__links')
 
     expect(menu).toBeInTheDocument()
-    expect(menu).toHaveTextContent('Menu Content')
+    expect(menu).toHaveTextContent('Test content')
   })
 
   it('renders with menu button', () => {

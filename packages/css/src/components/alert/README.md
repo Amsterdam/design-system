@@ -21,4 +21,4 @@ There are four types of notifications:
   The grid’s white space is a good reference – place the Alert in its own cell.
 - By default, the Alert cannot be closed.
   This functionality can be added optionally.
-- Optionally, the title can be omitted.
+- Optionally, the heading can be omitted.

@@ -2,7 +2,7 @@
 
 # Header
 
-Arranges the City’s logo, the title of the website, and a page menu.
+Arranges the City’s logo, the name of the application, and a page menu.
 
 ## Guidelines
 
