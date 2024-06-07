@@ -7,12 +7,22 @@ import {
   Footer,
   Grid,
   Heading,
+  Icon,
   LinkList,
   PageMenu,
   Paragraph,
+  Row,
   VisuallyHidden,
 } from '@amsterdam/design-system-react/src'
-import { EmailIcon, PhoneIcon } from '@amsterdam/design-system-react-icons'
+import {
+  CameraIcon,
+  ClockIcon,
+  EmailIcon,
+  FacebookIcon,
+  LinkedinIcon,
+  PhoneIcon,
+  TwitterIcon,
+} from '@amsterdam/design-system-react-icons'
 import { Meta, StoryObj } from '@storybook/react'
 import { Default as PageMenuStory } from '../../components/PageMenu/PageMenu.stories'
 
@@ -25,7 +35,6 @@ export default meta
 
 type Story = StoryObj<typeof meta>
 
-// TODO Implement the actual Amsterdam.nl footer
 export const Default: Story = {
   args: {
     children: [
@@ -34,65 +43,140 @@ export const Default: Story = {
           <Heading>Colofon</Heading>
         </VisuallyHidden>
         <Grid gapVertical="large" paddingVertical="medium">
-          <Grid.Cell span={3}>
-            <div style={{ display: 'grid', gap: '2.5rem' }}>
-              <Heading level={2} size="level-4" inverseColor>
-                Contact
+          <Grid.Cell span={4}>
+            <Heading className="ams-mb--xs" level={2} size="level-4" inverseColor>
+              Meer weten
+            </Heading>
+            <LinkList>
+              {['Veel gestelde vragen', 'Over ons', 'Werken bij', 'Kalender', 'Uit in Amsterdam', 'Bronnen'].map(
+                (label, index) => (
+                  <LinkList.Link href="#" key={index} onBackground="dark" size="small">
+                    {label}
+                  </LinkList.Link>
+                ),
+              )}
+            </LinkList>
+          </Grid.Cell>
+          <Grid.Cell span={4} start={{ narrow: 1, medium: 5, wide: 5 }}>
+            <Heading className="ams-mb--xs" level={2} size="level-4" inverseColor>
+              Contact
+            </Heading>
+            <Paragraph className="ams-mb--xs" inverseColor size="small">
+              Hebt u een vraag en kunt u het antwoord niet vinden op deze website? Neem dan contact met ons op.
+            </Paragraph>
+            <LinkList>
+              <LinkList.Link href="mailto:redactie@amsterdam.nl" icon={EmailIcon} onBackground="dark" size="small">
+                E-mail
+              </LinkList.Link>
+              <LinkList.Link href="tel:+3114020" icon={PhoneIcon} onBackground="dark" size="small">
+                14 020
+              </LinkList.Link>
+              <LinkList.Link href="#" icon={ClockIcon} onBackground="dark" size="small">
+                Contactgegevens en openingstijden
+              </LinkList.Link>
+            </LinkList>
+          </Grid.Cell>
+          <Grid.Cell span={4} start={{ narrow: 1, medium: 1, wide: 9 }}>
+            <section className="ams-mb--md">
+              <Heading className="ams-mb--xs" level={2} size="level-4" inverseColor>
+                Nieuwsbrief
               </Heading>
-              <Paragraph size="small" inverseColor>
-                Heeft u een vraag en kunt u het antwoord niet vinden op deze site? Neem dan contact met ons op.
-              </Paragraph>
               <LinkList>
-                <LinkList.Link href="mailto:redactie.os@amsterdam.nl" icon={EmailIcon} onBackground="dark" size="small">
-                  E-mail
-                </LinkList.Link>
-                <LinkList.Link href="tel:+31202510333" icon={PhoneIcon} onBackground="dark" size="small">
-                  020 251 0333
+                <LinkList.Link href="#" onBackground="dark" size="small">
+                  Inschrijven
                 </LinkList.Link>
               </LinkList>
-            </div>
+            </section>
+            <section>
+              <Heading className="ams-mb--xs" level={2} size="level-4" inverseColor>
+                Volg ons
+              </Heading>
+              <Row gap="small">
+                {[TwitterIcon, FacebookIcon, LinkedinIcon, CameraIcon].map((icon, index) => (
+                  <a href="#" key={index}>
+                    <Icon size="level-6" style={{ color: 'var(--ams-color-primary-white)' }} square svg={icon} />
+                  </a>
+                ))}
+              </Row>
+            </section>
+          </Grid.Cell>
+        </Grid>
+      </Footer.Top>,
+      <Footer.Bottom key="footer-bottom">
+        <VisuallyHidden>
+          <Heading level={2}>Over deze website</Heading>
+        </VisuallyHidden>
+        <Grid paddingVertical="small">
+          <Grid.Cell span="all">
+            <PageMenu>{PageMenuStory.args?.children}</PageMenu>
+          </Grid.Cell>
+        </Grid>
+      </Footer.Bottom>,
+    ],
+  },
+}
+
+export const Onderzoek: Story = {
+  args: {
+    children: [
+      <Footer.Top key="footer-top">
+        <VisuallyHidden>
+          <Heading>Colofon</Heading>
+        </VisuallyHidden>
+        <Grid gapVertical="large" paddingVertical="medium">
+          <Grid.Cell span={3}>
+            <Heading className="ams-mb--xs" level={2} size="level-4" inverseColor>
+              Contact
+            </Heading>
+            <Paragraph className="ams-mb--xs" size="small" inverseColor>
+              Heeft u een vraag en kunt u het antwoord niet vinden op deze site? Neem dan contact met ons op.
+            </Paragraph>
+            <LinkList>
+              <LinkList.Link href="mailto:redactie.os@amsterdam.nl" icon={EmailIcon} onBackground="dark" size="small">
+                E-mail
+              </LinkList.Link>
+              <LinkList.Link href="tel:+31202510333" icon={PhoneIcon} onBackground="dark" size="small">
+                020 251 0333
+              </LinkList.Link>
+            </LinkList>
           </Grid.Cell>
           <Grid.Cell span={3} start={{ narrow: 1, medium: 5, wide: 5 }}>
-            <div style={{ display: 'grid', gap: '2.5rem' }}>
-              <Heading level={2} size="level-4" inverseColor>
-                Panels en enquêtes
-              </Heading>
-              <Paragraph size="small" inverseColor>
-                Bent u uitgenodigd om mee te doen aan onderzoek of heeft u vragen over het panel of stadspaspanel?
-              </Paragraph>
-              <LinkList>
-                <LinkList.Link href="#" onBackground="dark" rel="external" size="small">
-                  Meedoen aan onderzoek
-                </LinkList.Link>
-                <LinkList.Link href="#" onBackground="dark" rel="external" size="small">
-                  Panel Amsterdam
-                </LinkList.Link>
-                <LinkList.Link href="#" onBackground="dark" rel="external" size="small">
-                  Stadspaspanel Amsterdam
-                </LinkList.Link>
-              </LinkList>
-            </div>
+            <Heading className="ams-mb--xs" level={2} size="level-4" inverseColor>
+              Panels en enquêtes
+            </Heading>
+            <Paragraph className="ams-mb--xs" inverseColor size="small">
+              Bent u uitgenodigd om mee te doen aan onderzoek of heeft u vragen over het panel of stadspaspanel?
+            </Paragraph>
+            <LinkList>
+              <LinkList.Link href="#" onBackground="dark" rel="external" size="small">
+                Meedoen aan onderzoek
+              </LinkList.Link>
+              <LinkList.Link href="#" onBackground="dark" rel="external" size="small">
+                Panel Amsterdam
+              </LinkList.Link>
+              <LinkList.Link href="#" onBackground="dark" rel="external" size="small">
+                Stadspaspanel Amsterdam
+              </LinkList.Link>
+            </LinkList>
           </Grid.Cell>
           <Grid.Cell span={3} start={{ narrow: 1, medium: 1, wide: 9 }}>
-            <div style={{ display: 'grid', gap: '2.5rem' }}>
-              <Heading level={2} size="level-4" inverseColor>
-                Onderzoek en Statistiek
-              </Heading>
-              <LinkList>
-                <LinkList.Link href="#" onBackground="dark" size="small">
-                  Over Onderzoek en Statistiek
-                </LinkList.Link>
-                <LinkList.Link href="#" onBackground="dark" size="small">
-                  Veelgestelde vragen
-                </LinkList.Link>
-                <LinkList.Link href="#" onBackground="dark" rel="external" size="small">
-                  Nieuwsbrief
-                </LinkList.Link>
-                <LinkList.Link href="#" onBackground="dark" size="small">
-                  Vacatures
-                </LinkList.Link>
-              </LinkList>
-            </div>
+            <Heading className="ams-mb--xs" level={2} size="level-4" inverseColor>
+              Onderzoek en Statistiek
+            </Heading>
+            <LinkList>
+              <LinkList.Link href="#" onBackground="dark" size="small">
+                Over Onderzoek en Statistiek
+              </LinkList.Link>
+              <LinkList.Link href="#" onBackground="dark" size="small">
+                Veelgestelde vragen
+              </LinkList.Link>
+              <LinkList.Link href="#" onBackground="dark" rel="external" size="small">
+                Nieuwsbrief
+              </LinkList.Link>
+              <LinkList.Link href="#" onBackground="dark" size="small">
+                Vacatures
+              </LinkList.Link>
+            </LinkList>
           </Grid.Cell>
         </Grid>
       </Footer.Top>,
