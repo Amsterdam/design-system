@@ -54,7 +54,7 @@ describe('Dialog', () => {
     render(<Dialog heading="Test heading" open />)
 
     const heading = screen.getByRole('heading', {
-      name: 'Dialog Heading',
+      name: 'Test heading',
     })
 
     expect(heading).toBeInTheDocument()
