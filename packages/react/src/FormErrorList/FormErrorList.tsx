@@ -7,7 +7,7 @@ import clsx from 'clsx'
 import { forwardRef } from 'react'
 import type { ForwardedRef, HTMLAttributes } from 'react'
 import { Alert } from '../Alert'
-import { HeadingLevel } from '../Heading/Heading'
+import type { HeadingLevel } from '../Heading'
 import { LinkList } from '../LinkList'
 
 export type FormError = {

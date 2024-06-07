@@ -8,7 +8,7 @@ import clsx from 'clsx'
 import { forwardRef } from 'react'
 import type { ForwardedRef, HTMLAttributes, PropsWithChildren } from 'react'
 import { Heading } from '../Heading'
-import type { HeadingProps } from '../Heading'
+import type { HeadingLevel } from '../Heading'
 import { Icon } from '../Icon'
 import { IconButton } from '../IconButton'
 
@@ -19,8 +19,8 @@ export type AlertProps = {
   closeButtonLabel?: string
   /** The text for the Heading. */
   heading?: string
-  /** The hierarchical level of the Alert’s heading within the document. */
-  headingLevel?: HeadingProps['level']
+  /** The hierarchical level of the Heading within the document. */
+  headingLevel?: HeadingLevel
   /** A function to run when dismissing. */
   onClose?: () => void
   /** The significance of the message conveyed. */

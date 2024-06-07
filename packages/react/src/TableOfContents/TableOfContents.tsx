@@ -8,13 +8,14 @@ import { forwardRef } from 'react'
 import type { ForwardedRef, HTMLAttributes, PropsWithChildren } from 'react'
 import { TableOfContentsLink } from './TableOfContentsLink'
 import { TableOfContentsList } from './TableOfContentsList'
-import { Heading, type HeadingProps } from '../Heading'
+import { Heading } from '../Heading'
+import type { HeadingLevel } from '../Heading'
 
 export type TableOfContentsProps = {
   /** The text for the Heading. */
   heading?: string
-  /** The hierarchical level of the Alert’s heading within the document. */
-  headingLevel?: HeadingProps['level']
+  /** The hierarchical level of the Heading within the document. */
+  headingLevel?: HeadingLevel
 } & PropsWithChildren<HTMLAttributes<HTMLElement>>
 
 const TableOfContentsRoot = forwardRef(
