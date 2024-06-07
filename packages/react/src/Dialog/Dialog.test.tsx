@@ -51,7 +51,7 @@ describe('Dialog', () => {
   })
 
   it('renders a heading', () => {
-    render(<Dialog heading="Dialog Heading" />)
+    render(<Dialog heading="Dialog Heading" open />)
 
     const heading = screen.getByRole('heading', {
       name: 'Dialog Heading',
