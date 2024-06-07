@@ -3,6 +3,34 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.9.0](https://github.com/Amsterdam/design-system/compare/design-system-react-v0.8.0...design-system-react-v0.9.0) (2024-06-05)
+
+
+### ⚠ BREAKING CHANGES
+
+* Change Accordion `section` boolean prop to `sectionAs` enum ([#1244](https://github.com/Amsterdam/design-system/issues/1244))
+* Use invalid prop for most inputs ([#1240](https://github.com/Amsterdam/design-system/issues/1240))
+* Add invalid prop to Field Set and update Field and Field Set docs ([#1237](https://github.com/Amsterdam/design-system/issues/1237))
+* Allow additional background colours for Badge and remove dark blue option ([#1236](https://github.com/Amsterdam/design-system/issues/1236))
+* Rename Breadcrumb Item to Link ([#1232](https://github.com/Amsterdam/design-system/issues/1232))
+
+### Features
+
+* Add Error Message ([#1247](https://github.com/Amsterdam/design-system/issues/1247)) ([1dec2ea](https://github.com/Amsterdam/design-system/commit/1dec2ead41fba24e4128c2e1d60b72a7ccb29a92))
+* Add Field component ([#1228](https://github.com/Amsterdam/design-system/issues/1228)) ([66832aa](https://github.com/Amsterdam/design-system/commit/66832aaf14a209915b60498acecf90cecff27c23))
+* Add invalid prop to Field Set and update Field and Field Set docs ([#1237](https://github.com/Amsterdam/design-system/issues/1237)) ([d7316e8](https://github.com/Amsterdam/design-system/commit/d7316e81cd424f79f9bd655265d1c9b41296fecf))
+* Allow additional background colours for Badge and remove dark blue option ([#1236](https://github.com/Amsterdam/design-system/issues/1236)) ([eec669a](https://github.com/Amsterdam/design-system/commit/eec669ad79353fc205e12a35aa7d0a8297c72e41))
+* Allow installing only the React or CSS package ([#1206](https://github.com/Amsterdam/design-system/issues/1206)) ([963860d](https://github.com/Amsterdam/design-system/commit/963860d916d54ce3a0b191eb51a83cf3023ab88b))
+* Allow overriding button labels in Alert, Dialog, Pagination, and Search Field ([#1220](https://github.com/Amsterdam/design-system/issues/1220)) ([c88e569](https://github.com/Amsterdam/design-system/commit/c88e569acd2dd56b37b24ad57e21fc47254d0aaf))
+* Allow small text for ordered lists ([#1219](https://github.com/Amsterdam/design-system/issues/1219)) ([0e77bd6](https://github.com/Amsterdam/design-system/commit/0e77bd60d8f395417c3c736d8e51a3ca3729ece5))
+* Allow small text for unordered lists ([#1217](https://github.com/Amsterdam/design-system/issues/1217)) ([5012851](https://github.com/Amsterdam/design-system/commit/5012851492e50e50e2a651250622740e517fd22f))
+* Change Accordion `section` boolean prop to `sectionAs` enum ([#1244](https://github.com/Amsterdam/design-system/issues/1244)) ([fef3fb1](https://github.com/Amsterdam/design-system/commit/fef3fb1b4d3cb53d2f9d6478225621423d97ad03))
+* File Input ([#1218](https://github.com/Amsterdam/design-system/issues/1218)) ([7b6ba98](https://github.com/Amsterdam/design-system/commit/7b6ba98530caaefafedada5b89a175ef0b1a8784))
+* **internal:** Indicate beta status for some components, patterns, and assets ([#1242](https://github.com/Amsterdam/design-system/issues/1242)) ([358f40a](https://github.com/Amsterdam/design-system/commit/358f40a9159eb6da3bf5ca053044143491dda12b))
+* Rename Breadcrumb Item to Link ([#1232](https://github.com/Amsterdam/design-system/issues/1232)) ([6cf2e5e](https://github.com/Amsterdam/design-system/commit/6cf2e5e51217900a24d739c4569c13237b9fb4ab))
+* Set dir auto by default for text input form fields ([#1238](https://github.com/Amsterdam/design-system/issues/1238)) ([b588d10](https://github.com/Amsterdam/design-system/commit/b588d104095365bcadff4f34f7db53e247afc873))
+* Use invalid prop for most inputs ([#1240](https://github.com/Amsterdam/design-system/issues/1240)) ([9477186](https://github.com/Amsterdam/design-system/commit/9477186b8432d6d20991e93d92c64a4357d6f391))
+
 ## [0.8.0](https://github.com/Amsterdam/design-system/compare/design-system-react-v0.7.1...design-system-react-v0.8.0) (2024-04-22)
 
 

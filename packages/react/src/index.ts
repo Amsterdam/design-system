@@ -4,6 +4,7 @@
  */
 
 /* Append here */
+export * from './TableOfContents'
 export * from './ErrorMessage'
 export * from './FileInput'
 export * from './Field'
