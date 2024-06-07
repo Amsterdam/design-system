@@ -11,8 +11,11 @@ import { HeadingLevel } from '../Heading/Heading'
 import { LinkList } from '../LinkList'
 
 export type FormErrorListProps = {
+  /** The list of error messages to display. */
   errors: { id: string; label: string }[]
+  /** The text for the Heading. */
   heading?: string
+  /** The hierarchical level of the Heading within the document. */
   headingLevel?: HeadingLevel
 } & HTMLAttributes<HTMLDivElement>
 
