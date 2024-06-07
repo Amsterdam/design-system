@@ -44,11 +44,11 @@ export const FormErrorList = forwardRef(
       <Alert
         {...restProps}
         className={clsx('ams-form-error-list', className)}
+        heading={heading}
         headingLevel={headingLevel}
         ref={ref}
         role="alert"
         severity="error"
-        title={heading}
       >
         <LinkList>
           {errors.map(({ id, label }) => (

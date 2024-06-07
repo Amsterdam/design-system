@@ -63,9 +63,9 @@ describe('Form error list', () => {
   })
 
   it('renders a custom heading', () => {
-    render(<FormErrorList errors={testErrors} heading="Testheading" />)
+    render(<FormErrorList errors={testErrors} heading="Test heading" />)
 
-    const component = screen.getByRole('heading', { name: 'Testheading' })
+    const component = screen.getByRole('heading', { name: 'Test heading' })
 
     expect(component).toBeInTheDocument()
   })
