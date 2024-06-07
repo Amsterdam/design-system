@@ -1,7 +1,7 @@
 import { AspectRatio, Card, Grid, Heading, Image } from '@amsterdam/design-system-react'
 
 export const HomeNews = () => (
-  <Grid paddingVertical="medium" gapVertical="small">
+  <Grid paddingVertical="medium">
     <Grid.Cell span="all">
       <Heading level={2}>Nieuws</Heading>
     </Grid.Cell>

@@ -43,10 +43,10 @@ export const Alignment: Story = {
       <PageMenu.Link href="#" key={1} lang="en">
         English
       </PageMenu.Link>,
-      <PageMenu.Link href="#" key={1} lang="en">
+      <PageMenu.Link href="#" key={2} lang="en">
         Contact
       </PageMenu.Link>,
-      <PageMenu.Link href="#" key={2} icon={SearchIcon}>
+      <PageMenu.Link href="#" key={3} icon={SearchIcon}>
         Zoeken
       </PageMenu.Link>,
     ],
