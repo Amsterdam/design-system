@@ -9,8 +9,8 @@
       "font-weight": { "value": "{ams.text.font-weight.normal}" },
       "line-height": { "value": "{ams.text.level.5.line-height}" },
       "outline-offset": { "value": "{ams.focus.outline-offset}" },
-      "padding-block": { "value": "{ams.space.inside.xs}" },
-      "padding-inline": { "value": "{ams.space.inside.md}" },
+      "padding-block": { "value": "{ams.space.xs}" },
+      "padding-inline": { "value": "{ams.space.md}" },
       "disabled": {
         "background-color": { "value": "{ams.color.primary-white}" },
         "box-shadow": { "value": "inset 0 0 0 {ams.border.width.sm} {ams.color.neutral-grey2}" },

@@ -2,11 +2,11 @@
   "ams": {
     "row": {
       "gap": {
-        "xs": { "value": "{ams.space.stack.xs}" },
-        "sm": { "value": "{ams.space.stack.sm}" },
-        "md": { "value": "{ams.space.stack.md}" },
-        "lg": { "value": "{ams.space.stack.lg}" },
-        "xl": { "value": "{ams.space.stack.xl}" }
+        "xs": { "value": "{ams.space.xs}" },
+        "sm": { "value": "{ams.space.sm}" },
+        "md": { "value": "{ams.space.md}" },
+        "lg": { "value": "{ams.space.lg}" },
+        "xl": { "value": "{ams.space.xl}" }
       }
     }
   }

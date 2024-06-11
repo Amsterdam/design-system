@@ -11,8 +11,8 @@
       },
       "cell": {
         "border-block-end": { "value": "{ams.border.width.sm} solid {ams.color.neutral-grey1}" },
-        "padding-block": { "value": "{ams.space.inside.md}" },
-        "padding-inline": { "value": "{ams.space.inside.md}" }
+        "padding-block": { "value": "{ams.space.md}" },
+        "padding-inline": { "value": "{ams.space.md}" }
       },
       "header-cell": {
         "font-weight": { "value": "{ams.text.font-weight.bold}" }

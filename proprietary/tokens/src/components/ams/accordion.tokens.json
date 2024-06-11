@@ -1,15 +1,15 @@
 {
   "ams": {
     "accordion": {
-      "gap": { "value": "{ams.space.inside.xs}" },
+      "gap": { "value": "{ams.space.xs}" },
       "button": {
         "color": { "value": "{ams.color.primary-blue}" },
         "font-family": { "value": "{ams.text.font-family}" },
         "font-size": { "value": "{ams.text.level.5.font-size}" },
         "font-weight": { "value": "{ams.text.font-weight.bold}" },
-        "gap": { "value": "{ams.space.inside.md}" },
+        "gap": { "value": "{ams.space.md}" },
         "line-height": { "value": "{ams.text.level.5.line-height}" },
-        "padding-block": { "value": "{ams.space.inside.sm}" },
+        "padding-block": { "value": "{ams.space.sm}" },
         "padding-inline": { "value": "0" },
         "focus": {
           "outline-offset": { "value": "{ams.focus.outline-offset}" }
@@ -19,7 +19,7 @@
         }
       },
       "panel": {
-        "padding-block": { "value": "0 {ams.space.inside.md}" },
+        "padding-block": { "value": "0 {ams.space.md}" },
         "padding-inline": { "value": "0" }
       }
     }

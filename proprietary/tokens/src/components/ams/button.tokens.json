@@ -6,8 +6,8 @@
       "font-size": { "value": "{ams.text.level.5.font-size}" },
       "line-height": { "value": "{ams.text.level.5.line-height}" },
       "gap": { "value": "1rem" },
-      "padding-block": { "value": "{ams.space.inside.xs}" },
-      "padding-inline": { "value": "{ams.space.inside.md}" },
+      "padding-block": { "value": "{ams.space.xs}" },
+      "padding-inline": { "value": "{ams.space.md}" },
       "outline-offset": { "value": "{ams.focus.outline-offset}" },
       "disabled": {
         "cursor": { "value": "{ams.action.disabled.cursor}" }

@@ -9,8 +9,8 @@
       "font-weight": { "value": "{ams.text.font-weight.normal}" },
       "line-height": { "value": "{ams.text.level.5.line-height}" },
       "outline-offset": { "value": "{ams.focus.outline-offset}" },
-      "padding-block": { "value": "{ams.space.inside.xs}" },
-      "padding-inline": { "value": "{ams.space.inside.lg}" },
+      "padding-block": { "value": "{ams.space.xs}" },
+      "padding-inline": { "value": "{ams.space.lg}" },
       "calender-picker-indicator": {
         "background-image": {
           "value": "url(\"data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 36 36' fill='%23004699'><path d='M28 6V2h-4v4H12V2H8v4H2v28h32V6zm2 24H6V14h24z'/><path d='M10 17h4v4h-4zm6 0h4v4h-4zm6 0h4v4h-4zm-12 6h4v4h-4zm6 0h4v4h-4z'/></svg>\")"

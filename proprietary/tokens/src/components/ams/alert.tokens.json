@@ -4,8 +4,8 @@
       "border-width": { "value": "{ams.border.width.xl}" },
       "border-style": { "value": "solid" },
       "gap": { "value": "1rem" },
-      "padding-block": { "value": "{ams.space.inside.md}" },
-      "padding-inline": { "value": "{ams.space.inside.lg}" },
+      "padding-block": { "value": "{ams.space.md}" },
+      "padding-inline": { "value": "{ams.space.lg}" },
       "error": {
         "border-color": { "value": "{ams.color.primary-red}" }
       },
