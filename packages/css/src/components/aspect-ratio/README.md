@@ -8,11 +8,11 @@ These are the proportions we use:
 
 | keyword   | ratio |
 | :-------- | ----: |
-| `2x-wide` |  32:9 |
+| `2x-wide` |  16:5 |
 | `x-wide`  |  16:9 |
-| `wide`    |   5:4 |
+| `wide`    |   4:3 |
 | `square`  |   1:1 |
-| `tall`    |   4:5 |
+| `tall`    |   3:4 |
 | `x-tall`  |  9:16 |
 
 ## Guidelines
