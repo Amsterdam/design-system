@@ -12,14 +12,19 @@ import { Image } from '../Image'
 import { VisuallyHidden } from '../VisuallyHidden'
 
 export const avatarColors = [
+  'black',
   'blue',
-  'dark-blue',
   'dark-green',
   'green',
+  'grey-1',
+  'grey-2',
+  'grey-3',
+  'light-blue',
   'magenta',
   'orange',
   'purple',
   'red',
+  'white',
   'yellow',
 ] as const
 
@@ -52,10 +57,7 @@ export type AvatarProps = {
 } & HTMLAttributes<HTMLSpanElement>
 
 export const Avatar = forwardRef(
-  (
-    { label, imageSrc, className, color = 'dark-blue', ...restProps }: AvatarProps,
-    ref: ForwardedRef<HTMLSpanElement>,
-  ) => {
+  ({ label, imageSrc, className, color = 'blue', ...restProps }: AvatarProps, ref: ForwardedRef<HTMLSpanElement>) => {
     const initials = label.slice(0, 2).toUpperCase()
 
     const a11yLabel = initials.length === 0 ? 'Gebruiker' : `Initialen gebruiker: ${initials}`
