@@ -12,33 +12,38 @@ import { TabsList } from './TabsList'
 import { TabsPanel } from './TabsPanel'
 import { useKeyboardFocus } from '../common/useKeyboardFocus'
 
-export type TabsProps = PropsWithChildren<HTMLAttributes<HTMLDivElement>>
+export type TabsProps = {
+  /** The initial active tab. */
+  activeTab?: number
+} & PropsWithChildren<HTMLAttributes<HTMLDivElement>>
 
-const TabsRoot = forwardRef(({ children, className, ...restProps }: TabsProps, ref: ForwardedRef<HTMLDivElement>) => {
-  const tabsId = useId()
-  const [activeTab, setActiveTab] = useState(0)
-  const innerRef = useRef<HTMLDivElement>(null)
+const TabsRoot = forwardRef(
+  ({ activeTab, children, className, ...restProps }: TabsProps, ref: ForwardedRef<HTMLDivElement>) => {
+    const tabsId = useId()
+    const [_activeTab, setActiveTab] = useState(activeTab ?? 0)
+    const innerRef = useRef<HTMLDivElement>(null)
 
-  const updateTab = (tab: number) => {
-    setActiveTab(tab)
-  }
+    const updateTab = (tab: number) => {
+      setActiveTab(tab)
+    }
 
-  // use a passed ref if it's there, otherwise use innerRef
-  useImperativeHandle(ref, () => innerRef.current as HTMLDivElement)
+    // use a passed ref if it's there, otherwise use innerRef
+    useImperativeHandle(ref, () => innerRef.current as HTMLDivElement)
 
-  const { keyDown } = useKeyboardFocus(innerRef, {
-    rotating: true,
-    horizontally: true,
-  })
+    const { keyDown } = useKeyboardFocus(innerRef, {
+      rotating: true,
+      horizontally: true,
+    })
 
-  return (
-    <TabsContext.Provider value={{ activeTab, updateTab, tabsId }}>
-      <div {...restProps} role="tabs" ref={innerRef} onKeyDown={keyDown} className={clsx('ams-tabs', className)}>
-        {children}
-      </div>
-    </TabsContext.Provider>
-  )
-})
+    return (
+      <TabsContext.Provider value={{ activeTab: _activeTab, updateTab, tabsId }}>
+        <div {...restProps} role="tabs" ref={innerRef} onKeyDown={keyDown} className={clsx('ams-tabs', className)}>
+          {children}
+        </div>
+      </TabsContext.Provider>
+    )
+  },
+)
 
 TabsRoot.displayName = 'Tabs'
 
