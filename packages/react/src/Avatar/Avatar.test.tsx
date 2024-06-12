@@ -70,7 +70,7 @@ describe('Avatar', () => {
 
     const component = container.querySelector(':only-child')
 
-    expect(component).toHaveClass('ams-avatar--dark-blue')
+    expect(component).toHaveClass('ams-avatar--dark')
   })
 
   avatarColors.map((color) =>
