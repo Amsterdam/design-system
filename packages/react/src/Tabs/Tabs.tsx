@@ -13,7 +13,7 @@ import { TabsPanel } from './TabsPanel'
 import { useKeyboardFocus } from '../common/useKeyboardFocus'
 
 export type TabsProps = {
-  /** The initial active tab. */
+  /** The initially active tab. */
   activeTab?: number
 } & PropsWithChildren<HTMLAttributes<HTMLDivElement>>
 

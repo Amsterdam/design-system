@@ -8,12 +8,14 @@ import { Meta, StoryObj } from '@storybook/react'
 import { PropsWithChildren } from 'react'
 import { exampleParagraph } from '../shared/exampleContent'
 
+const slowPanelDelay = 1000
+
 const SlowPanel = ({ children }: PropsWithChildren) => {
   console.log('[ARTIFICIALLY SLOW] Adding a 1000ms delay')
 
   let startTime = performance.now()
-  while (performance.now() - startTime < 1000) {
-    // Do nothing for 1000 ms to emulate extremely slow code
+  while (performance.now() - startTime < slowPanelDelay) {
+    /* Emulate slow code. */
   }
 
   return children
@@ -22,6 +24,15 @@ const SlowPanel = ({ children }: PropsWithChildren) => {
 const meta = {
   title: 'Components/Containers/Tabs',
   component: Tabs,
+  argTypes: {
+    activeTab: {
+      control: {
+        type: 'number',
+        min: 0,
+        max: 3,
+      },
+    },
+  },
 } satisfies Meta<typeof Tabs>
 
 export default meta
@@ -62,7 +73,7 @@ const defaultTabs = [
   <Tabs.Panel tab={2} key={3}>
     <div style={{ paddingTop: '2rem' }}>
       <Heading level={3}>Documenten</Heading>
-      <Paragraph>(This tab panel simulates a load time of 500 milliseconds.)</Paragraph>
+      <Paragraph>(This tab panel simulates a load time of {slowPanelDelay} milliseconds.)</Paragraph>
       <SlowPanel />
     </div>
   </Tabs.Panel>,
@@ -87,21 +98,24 @@ export const WithInitialTab: Story = {
   },
 }
 
-export const Tab: TabStory = {
+export const TabButton: TabStory = {
   args: {
     children: 'Gegevens',
-    tab: 0,
     disabled: false,
+    tab: 0,
   },
   argTypes: {
     children: {
       table: { disable: false },
     },
+    disabled: {
+      table: { disable: true },
+    },
     tab: {
       control: {
         type: 'number',
         min: 0,
-        max: 9,
+        max: 3,
       },
     },
   },
