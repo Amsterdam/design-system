@@ -1,3 +1,5 @@
+{/* @license CC0-1.0 */}
+
 import { Canvas, Controls, Markdown, Meta, Primary } from "@storybook/blocks";
 import * as HeaderStories from "./Header.stories.tsx";
 import README from "../../../../packages/css/src/components/header/README.md?raw";
@@ -17,9 +19,9 @@ import { StatusBadge } from "../../docs/components/StatusBadge";
 
 <Canvas of={HeaderStories.WithLogoVariant} />
 
-## With subsite title
+## With app name
 
-<Canvas of={HeaderStories.WithTitle} />
+<Canvas of={HeaderStories.WithAppName} />
 
 ## With menu
 
@@ -36,10 +38,10 @@ A Page Menu in the Header should not wrap.
 
 <Canvas of={HeaderStories.WithLinksAndMenu} />
 
-## With a title and menu
+## With app name and menu
 
-<Canvas of={HeaderStories.WithTitleAndMenu} />
+<Canvas of={HeaderStories.WithAppNameAndMenu} />
 
-## With a title, links and menu
+## With app name, links and menu
 
-<Canvas of={HeaderStories.WithTitleLinksAndMenu} />
+<Canvas of={HeaderStories.WithAppNameLinksAndMenu} />

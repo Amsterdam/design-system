@@ -8,7 +8,7 @@ import clsx from 'clsx'
 import { forwardRef } from 'react'
 import type { ForwardedRef, HTMLAttributes, PropsWithChildren } from 'react'
 import { Heading } from '../Heading'
-import type { HeadingProps } from '../Heading'
+import type { HeadingLevel } from '../Heading'
 import { Icon } from '../Icon'
 import { IconButton } from '../IconButton'
 
@@ -17,14 +17,17 @@ export type AlertProps = {
   closeable?: boolean
   /** The label for the button that dismisses the Alert. */
   closeButtonLabel?: string
-  /** The hierarchical level of the Alert’s heading within the document. */
-  headingLevel?: HeadingProps['level']
+  /** The text for the Heading. */
+  heading?: string
+  /**
+   * The hierarchical level of the Heading within the document.
+   * Note: this intentionally does not change the font size.
+   */
+  headingLevel?: HeadingLevel
   /** A function to run when dismissing. */
   onClose?: () => void
   /** The significance of the message conveyed. */
   severity?: 'error' | 'info' | 'success' | 'warning'
-  /** The text for the Heading. */
-  title?: string
 } & PropsWithChildren<HTMLAttributes<HTMLDivElement>>
 
 const iconSvgBySeverity = {
@@ -41,16 +44,16 @@ export const Alert = forwardRef(
       className,
       closeable,
       closeButtonLabel = 'Sluiten',
+      heading,
       headingLevel = 2,
       onClose,
       severity = 'warning',
-      title,
       ...restProps
     }: AlertProps,
     ref: ForwardedRef<HTMLDivElement>,
   ) => {
-    const alertSize = title ? 'level-4' : 'level-5'
-    const Tag = title ? 'section' : 'div'
+    const alertSize = heading ? 'level-4' : 'level-5'
+    const Tag = heading ? 'section' : 'div'
 
     return (
       <Tag {...restProps} ref={ref} className={clsx('ams-alert', severity && `ams-alert--${severity}`, className)}>
@@ -58,9 +61,9 @@ export const Alert = forwardRef(
           <Icon size={alertSize} svg={iconSvgBySeverity[severity]} />
         </div>
         <div className="ams-alert__content">
-          {title && (
+          {heading && (
             <Heading level={headingLevel} size="level-4">
-              {title}
+              {heading}
             </Heading>
           )}
           {children}

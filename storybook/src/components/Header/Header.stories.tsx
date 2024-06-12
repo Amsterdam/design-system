@@ -26,9 +26,9 @@ export const WithLogoVariant: Story = {
   },
 }
 
-export const WithTitle: Story = {
+export const WithAppName: Story = {
   args: {
-    title: 'Aan de Amsterdamse grachten',
+    appName: 'Aan de Amsterdamse grachten',
   },
 }
 
@@ -54,7 +54,6 @@ export const WithMenu: Story = {
 
 export const WithLinksAndMenu: Story = {
   args: {
-    menu: <button className="ams-header__menu-button">Menu</button>,
     links: (
       <PageMenu alignEnd wrap={false}>
         <PageMenu.Link href="#">Contact</PageMenu.Link>
@@ -64,19 +63,20 @@ export const WithLinksAndMenu: Story = {
         </PageMenu.Link>
       </PageMenu>
     ),
-  },
-}
-
-export const WithTitleAndMenu: Story = {
-  args: {
-    title: 'Aan de Amsterdamse grachten',
     menu: <button className="ams-header__menu-button">Menu</button>,
   },
 }
 
-export const WithTitleLinksAndMenu: Story = {
+export const WithAppNameAndMenu: Story = {
   args: {
-    title: 'Aan de Amsterdamse grachten',
+    appName: 'Aan de Amsterdamse grachten',
+    menu: <button className="ams-header__menu-button">Menu</button>,
+  },
+}
+
+export const WithAppNameLinksAndMenu: Story = {
+  args: {
+    appName: 'Aan de Amsterdamse grachten',
     links: (
       <PageMenu alignEnd wrap={false}>
         <PageMenu.Link href="#">Contact</PageMenu.Link>

@@ -29,7 +29,7 @@ const meta = {
         opgeslagen zijn.
       </Paragraph>
     ),
-    title: 'Niet alle gegevens zijn opgeslagen',
+    heading: 'Niet alle gegevens zijn opgeslagen',
   },
   argTypes: {
     actions: {
@@ -47,11 +47,11 @@ export const Default: Story = {
     open: true,
   },
   argTypes: {
+    heading: {
+      description: 'The text for the heading.',
+    },
     open: {
       description: 'Whether the dialog box is active and available for interaction.',
-    },
-    title: {
-      description: 'The text for the heading.',
     },
   },
   decorators: [
@@ -62,8 +62,10 @@ export const Default: Story = {
     ),
   ],
   parameters: {
+    docs: {
+      story: { height: '32em' },
+    },
     layout: 'fullscreen',
-    docs: { story: { height: '32em' } },
   },
 }
 
@@ -102,8 +104,8 @@ export const WithScrollbar: Story = {
         vinden op de website van Autoriteit Persoonsgegevens.
       </Paragraph>,
     ],
+    heading: 'Privacyverklaring gemeente Amsterdam',
     open: true,
-    title: 'Privacyverklaring gemeente Amsterdam',
   },
   decorators: [
     (Story) => (
@@ -113,8 +115,10 @@ export const WithScrollbar: Story = {
     ),
   ],
   parameters: {
+    docs: {
+      story: { height: '100vh' },
+    },
     layout: 'fullscreen',
-    docs: { story: { height: '100vh' } },
   },
 }
 
@@ -154,9 +158,9 @@ export const VerticalButtons: Story = {
     ),
   ],
   parameters: {
-    layout: 'fullscreen',
     docs: {
       story: { height: '32em' },
     },
+    layout: 'fullscreen',
   },
 }
