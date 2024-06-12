@@ -28,14 +28,14 @@
   vertical-align: middle; /* Remove ‘phantom’ white space when image doesn’t load */
 }
 
+.ams-avatar--black {
+  background-color: var(--ams-avatar-black-background-color);
+  color: var(--ams-avatar-black-color);
+}
+
 .ams-avatar--blue {
   background-color: var(--ams-avatar-blue-background-color);
   color: var(--ams-avatar-blue-color);
-}
-
-.ams-avatar--dark-blue {
-  background-color: var(--ams-avatar-dark-blue-background-color);
-  color: var(--ams-avatar-dark-blue-color);
 }
 
 .ams-avatar--dark-green {
@@ -46,6 +46,26 @@
 .ams-avatar--green {
   background-color: var(--ams-avatar-green-background-color);
   color: var(--ams-avatar-green-color);
+}
+
+.ams-avatar--grey-1 {
+  background-color: var(--ams-avatar-grey-1-background-color);
+  color: var(--ams-avatar-grey-1-color);
+}
+
+.ams-avatar--grey-2 {
+  background-color: var(--ams-avatar-grey-2-background-color);
+  color: var(--ams-avatar-grey-2-color);
+}
+
+.ams-avatar--grey-3 {
+  background-color: var(--ams-avatar-grey-3-background-color);
+  color: var(--ams-avatar-grey-3-color);
+}
+
+.ams-avatar--light-blue {
+  background-color: var(--ams-avatar-light-blue-background-color);
+  color: var(--ams-avatar-light-blue-color);
 }
 
 .ams-avatar--magenta {
@@ -66,6 +86,11 @@
 .ams-avatar--red {
   background-color: var(--ams-avatar-red-background-color);
   color: var(--ams-avatar-red-color);
+}
+
+.ams-avatar--white {
+  background-color: var(--ams-avatar-white-background-color);
+  color: var(--ams-avatar-white-color);
 }
 
 .ams-avatar--yellow {
