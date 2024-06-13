@@ -1,0 +1,50 @@
+/**
+ * @license EUPL-1.2+
+ * Copyright Gemeente Amsterdam
+ */
+
+@import "../../common/text-rendering";
+
+@mixin reset {
+  box-sizing: border-box;
+  margin-block: 0;
+  padding-inline: 0;
+}
+
+.ams-table-of-contents {
+  display: flex;
+  flex-direction: column;
+  font-family: var(--ams-table-of-contents-font-family);
+  font-size: var(--ams-table-of-contents-font-size);
+  font-weight: var(--ams-table-of-contents-font-weight);
+  gap: var(--ams-table-of-contents-gap);
+  line-height: var(--ams-table-of-contents-line-height);
+}
+
+.ams-table-of-contents__list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--ams-table-of-contents-list-gap);
+  list-style: none;
+
+  @include text-rendering;
+  @include reset;
+
+  .ams-table-of-contents__list {
+    padding-block-start: var(--ams-table-of-contents-list-list-padding-block-start);
+    padding-inline-start: var(--ams-table-of-contents-list-list-padding-inline-start);
+  }
+}
+
+.ams-table-of-contents__link {
+  color: var(--ams-table-of-contents-link-color);
+  outline-offset: var(--ams-table-of-contents-link-outline-offset);
+  text-decoration-line: var(--ams-table-of-contents-link-text-decoration-line);
+  text-decoration-thickness: var(--ams-table-of-contents-link-text-decoration-thickness);
+  text-underline-offset: var(--ams-table-of-contents-link-text-underline-offset);
+
+  &:hover {
+    color: var(--ams-table-of-contents-link-hover-color);
+    text-decoration-line: var(--ams-table-of-contents-link-hover-text-decoration-line);
+  }
+}
