@@ -10,17 +10,19 @@ import type { ForwardedRef, InputHTMLAttributes } from 'react'
 export type TextInputProps = {
   /** Whether the value fails a validation rule. */
   invalid?: boolean
+  /** The kind of data that the user should provide. */
+  type?: 'email' | 'password' | 'tel' | 'text' | 'url'
 } & Omit<InputHTMLAttributes<HTMLInputElement>, 'aria-invalid'>
 
 export const TextInput = forwardRef(
-  ({ className, dir, invalid, ...restProps }: TextInputProps, ref: ForwardedRef<HTMLInputElement>) => (
+  ({ className, dir, invalid, type = 'text', ...restProps }: TextInputProps, ref: ForwardedRef<HTMLInputElement>) => (
     <input
       {...restProps}
       aria-invalid={invalid || undefined}
       className={clsx('ams-text-input', className)}
       dir={dir ?? 'auto'}
       ref={ref}
-      type="text"
+      type={type}
     />
   ),
 )
