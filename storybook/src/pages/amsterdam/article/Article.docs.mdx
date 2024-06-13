@@ -7,4 +7,60 @@ import * as ArticleStories from "./Article.stories.tsx";
 
 # Article Page
 
-TODO
+This page type is mainly for news or related kinds of articles.
+
+## Layout
+
+```tsx
+import { Breadcrumb } from "./Breadcrumb";
+<SkipLink href="#main">Direct naar inhoud</SkipLink>
+<Screen maxWidth="wide">
+  <Grid>
+    <Header />
+  </Grid>
+  <main id="main">
+    <Grid>
+      <Breadcrumb/>
+      <Heading>
+      <Paragraph size="small" />
+    </Grid>
+    <AspectRatio>
+      <Image />
+    </AspectRatio>
+    <Grid>
+      <Paragraph size="large" />
+      <Paragraph />
+      <Heading level={2} />
+      <Paragraph />
+      <OrderedList />
+      <Paragraph />
+      <Heading level={3} />
+      <Paragraph />
+      <Accordion />
+      <Paragraph />
+    </Grid>
+    <Spotlight>
+      <Grid>
+        <Newsletter />
+        <Share />
+      </Grid>
+    </Spotlight>
+    <Grid>
+      <RelatedArticles />
+    </Grid>
+  </main>
+  <Footer>
+    <Grid />
+  </Footer>
+</Screen>
+```
+
+1. The page for an article starts with the BreadCrumb.
+2. The title is displayed as a level 1 Heading.
+3. Below that, the publication date and any tags.
+4. The main image for the article takes the full width.
+5. The lead paragraph uses Text Level 4.
+6. Article Headings have level 2.
+7. Sections can be wrapped in an Accordion.
+8. A link to the newsletter and options to share the page on social media are in a Spotlight.
+9. The end of the page has room for a couple of related articles.
