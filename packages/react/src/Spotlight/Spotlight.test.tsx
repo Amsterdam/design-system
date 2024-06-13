@@ -2,6 +2,7 @@ import { render, screen } from '@testing-library/react'
 import { createRef } from 'react'
 import { Spotlight, spotlightColors } from './Spotlight'
 import '@testing-library/jest-dom'
+import { Image } from '../Image'
 
 describe('Spotlight', () => {
   it('renders', () => {
@@ -53,7 +54,17 @@ describe('Spotlight', () => {
 
   it('renders a custom tag', () => {
     render(<Spotlight as="article" />)
+
     const cell = screen.getByRole('article')
+
+    expect(cell).toBeInTheDocument()
+  })
+
+  it('renders an image that pops out', () => {
+    render(<Spotlight PopoutMedia={<Image src="https://picsum.photos/640/360" alt="" />} />)
+
+    const cell = screen.getByRole('article')
+
     expect(cell).toBeInTheDocument()
   })
 })

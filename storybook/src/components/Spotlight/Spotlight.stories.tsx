@@ -5,6 +5,7 @@
 
 import { Blockquote, Grid, Spotlight } from '@amsterdam/design-system-react/src'
 import { Meta, StoryObj } from '@storybook/react'
+import { Image } from '../../../../packages/react/src/Image'
 import { exampleQuote } from '../shared/exampleContent'
 
 const quote = exampleQuote()
@@ -12,8 +13,8 @@ const quote = exampleQuote()
 const meta = {
   title: 'Components/Containers/Spotlight',
   component: Spotlight,
-  render: ({ as, color }) => (
-    <Spotlight as={as} color={color}>
+  render: ({ as, color, PopoutMedia }) => (
+    <Spotlight as={as} color={color} PopoutMedia={PopoutMedia}>
       <Grid paddingVertical="medium">
         <Grid.Cell span="all">
           <Blockquote inverseColor={!color || !['green', 'yellow'].includes(color)}>{quote}</Blockquote>
@@ -28,6 +29,12 @@ export default meta
 type Story = StoryObj<typeof meta>
 
 export const Default: Story = {}
+
+export const WithPopoutImage: Story = {
+  args: {
+    PopoutMedia: <Image src="https://picsum.photos/240/360" alt="" />,
+  },
+}
 
 export const Blue: Story = {
   args: {

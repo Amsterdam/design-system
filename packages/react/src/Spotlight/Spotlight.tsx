@@ -4,7 +4,8 @@
  */
 
 import clsx from 'clsx'
-import { forwardRef, HTMLAttributes, PropsWithChildren } from 'react'
+import { forwardRef, HTMLAttributes, PropsWithChildren, ReactElement } from 'react'
+import { Image } from '../Image'
 
 export const spotlightColors = [
   'blue',
@@ -24,11 +25,17 @@ export type SpotlightProps = {
   as?: 'article' | 'aside' | 'div' | 'footer' | 'section'
   /** The background colour. */
   color?: SpotlightColor
+  /** An image or map that pops out. */
+  PopoutMedia?: ReactElement<typeof Image>
 } & PropsWithChildren<HTMLAttributes<HTMLElement>>
 
 export const Spotlight = forwardRef(
-  ({ children, className, as: Tag = 'div', color = 'dark-blue', ...restProps }: SpotlightProps, ref: any) => (
+  (
+    { children, className, as: Tag = 'div', color = 'dark-blue', PopoutMedia, ...restProps }: SpotlightProps,
+    ref: any,
+  ) => (
     <Tag {...restProps} ref={ref} className={clsx('ams-spotlight', `ams-spotlight--${color}`, className)}>
+      {PopoutMedia}
       {children}
     </Tag>
   ),
