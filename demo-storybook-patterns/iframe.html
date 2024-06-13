@@ -507,14 +507,14 @@
 <script>
   window.global = window;
 
-  var disabledLinkOnclick = (e) => {
-    alert("Deze link doet het niet.");
+  const preventLink = (e) => {
     e.preventDefault();
+    alert("Deze link is niet actief.");
   };
 
-  var disableEmptyLinks = () => {
+  const disableEmptyLinks = () => {
     for (link of document.querySelectorAll('a[href="#"]')) {
-      link.onclick = disabledLinkOnclick;
+      link.onclick = preventLink;
     }
   };
 
@@ -523,7 +523,7 @@
   window.addEventListener("load", disableEmptyLinks);
 </script>
 
-    <script type="module" crossorigin src="./assets/iframe-Bsp0dcqa.js"></script>
+    <script type="module" crossorigin src="./assets/iframe-wbnAq956.js"></script>
   </head>
 
   <body>
