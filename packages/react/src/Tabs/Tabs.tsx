@@ -20,11 +20,11 @@ export type TabsProps = {
 const TabsRoot = forwardRef(
   ({ activeTab, children, className, ...restProps }: TabsProps, ref: ForwardedRef<HTMLDivElement>) => {
     const tabsId = useId()
-    const [activeTabId, setActiveTab] = useState(activeTab ?? 0)
+    const [activeTabId, setActiveTabId] = useState(activeTab ?? 0)
     const innerRef = useRef<HTMLDivElement>(null)
 
     const updateTab = (tab: number) => {
-      setActiveTab(tab)
+      setActiveTabId(tab)
     }
 
     // use a passed ref if it's there, otherwise use innerRef
