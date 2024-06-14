@@ -5,6 +5,7 @@
 
 import { AspectRatio, Card, Heading, Image, Paragraph } from '@amsterdam/design-system-react/src'
 import { Meta, StoryObj } from '@storybook/react'
+import { exampleTopTask } from '../shared/exampleContent'
 
 const dateFormat = new Intl.DateTimeFormat('nl', {
   day: 'numeric',
@@ -12,6 +13,8 @@ const dateFormat = new Intl.DateTimeFormat('nl', {
   year: 'numeric',
 })
 const today = dateFormat.format(Date.now())
+
+const topTask = exampleTopTask()
 
 const meta = {
   title: 'Components/Navigation/Card',
@@ -33,11 +36,9 @@ export const Default: Story = {
   args: {
     children: [
       <Heading size="level-4" key={1}>
-        <Card.Link href="/">Monitor Attracties MRA</Card.Link>
+        <Card.Link href="/">{topTask.heading}</Card.Link>
       </Heading>,
-      <Paragraph key={2}>
-        Ontwikkeling van het aantal attracties en bezoekers in de metropoolregio Amsterdam.
-      </Paragraph>,
+      <Paragraph key={2}>{topTask.description}</Paragraph>,
     ],
   },
 }
