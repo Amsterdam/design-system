@@ -506,24 +506,9 @@
 </script>
 <script>
   window.global = window;
-
-  const preventLink = (e) => {
-    e.preventDefault();
-    alert("Deze link is niet actief.");
-  };
-
-  const disableEmptyLinks = () => {
-    for (link of document.querySelectorAll('a[href="#"]')) {
-      link.onclick = preventLink;
-    }
-  };
-
-  window.setTimeout(disableEmptyLinks, 1024);
-  window.removeEventListener("load", disableEmptyLinks);
-  window.addEventListener("load", disableEmptyLinks);
 </script>
 
-    <script type="module" crossorigin src="./assets/iframe-8YKzsVWg.js"></script>
+    <script type="module" crossorigin src="./assets/iframe-6eF3EUrQ.js"></script>
   </head>
 
   <body>
