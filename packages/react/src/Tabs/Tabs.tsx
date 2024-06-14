@@ -20,7 +20,7 @@ export type TabsProps = {
 const TabsRoot = forwardRef(
   ({ activeTab, children, className, ...restProps }: TabsProps, ref: ForwardedRef<HTMLDivElement>) => {
     const tabsId = useId()
-    const [_activeTab, setActiveTab] = useState(activeTab ?? 0)
+    const [activeTabId, setActiveTab] = useState(activeTab ?? 0)
     const innerRef = useRef<HTMLDivElement>(null)
 
     const updateTab = (tab: number) => {
@@ -36,7 +36,7 @@ const TabsRoot = forwardRef(
     })
 
     return (
-      <TabsContext.Provider value={{ activeTab: _activeTab, updateTab, tabsId }}>
+      <TabsContext.Provider value={{ activeTab: activeTabId, updateTab, tabsId }}>
         <div {...restProps} role="tabs" ref={innerRef} onKeyDown={keyDown} className={clsx('ams-tabs', className)}>
           {children}
         </div>
