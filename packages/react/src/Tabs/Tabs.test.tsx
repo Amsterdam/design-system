@@ -141,11 +141,11 @@ describe('Tabs', () => {
       </Tabs>,
     )
 
-    const tabOne = screen.getByRole('tab', { name: 'Tab 1' })
+    const firstTab = screen.getByRole('tab', { name: 'Tab 1' })
     const lastTab = screen.getByRole('tab', { name: 'Tab 4' })
 
-    expect(tabOne).toHaveAttribute('aria-selected', 'true')
-    expect(tabOne).toHaveAttribute('tabindex', '0')
+    expect(firstTab).toHaveAttribute('aria-selected', 'true')
+    expect(firstTab).toHaveAttribute('tabindex', '0')
 
     expect(lastTab).toHaveAttribute('aria-selected', 'false')
     expect(lastTab).toHaveAttribute('tabindex', '-1')
@@ -170,13 +170,13 @@ describe('Tabs', () => {
     )
 
     const firstTab = screen.getByRole('tab', { name: 'Tab 1' })
-    const tabFour = screen.getByRole('tab', { name: 'Tab 4' })
+    const lastTab = screen.getByRole('tab', { name: 'Tab 4' })
 
     expect(firstTab).toHaveAttribute('aria-selected', 'true')
     expect(firstTab).toHaveAttribute('tabindex', '0')
 
-    expect(tabFour).toHaveAttribute('aria-selected', 'false')
-    expect(tabFour).toHaveAttribute('tabindex', '-1')
+    expect(lastTab).toHaveAttribute('aria-selected', 'false')
+    expect(lastTab).toHaveAttribute('tabindex', '-1')
 
     expect(screen.getByRole('tabpanel')).toHaveTextContent('Content 1')
   })
