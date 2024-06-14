@@ -22,7 +22,13 @@ export const Default: Story = {
         Home
       </Breadcrumb.Link>,
       <Breadcrumb.Link href="#" key={2}>
-        Nieuws
+        Afval
+      </Breadcrumb.Link>,
+      <Breadcrumb.Link href="#" key={3}>
+        Bedrijfsafval
+      </Breadcrumb.Link>,
+      <Breadcrumb.Link href="#" key={4}>
+        Recyclepunten voor bedrijven
       </Breadcrumb.Link>,
     ],
   },
