@@ -5,8 +5,8 @@
 
 import { Heading, Paragraph, Tabs } from '@amsterdam/design-system-react/src'
 import { Meta, StoryObj } from '@storybook/react'
-import { PropsWithChildren } from 'react'
-import { exampleParagraph } from '../shared/exampleContent'
+import { PropsWithChildren, ReactNode } from 'react'
+import { exampleParagraph as exampleParagraphContent } from '../shared/exampleContent'
 
 const slowPanelDelay = 1000
 
@@ -21,10 +21,52 @@ const SlowPanel = ({ children }: PropsWithChildren) => {
   return children
 }
 
+const exampleParagraph = <Paragraph>{exampleParagraphContent()}</Paragraph>
+
+type TabContent = {
+  label: string
+  body: ReactNode
+}
+
+const tabContent: Array<TabContent> = [
+  { label: 'Gegevens', body: exampleParagraph },
+  { label: 'Aanslagen', body: exampleParagraph },
+  {
+    label: 'Documenten',
+    body: (
+      <>
+        <Paragraph>(This tab panel simulates a load time of {slowPanelDelay} milliseconds.)</Paragraph>
+        <SlowPanel />
+      </>
+    ),
+  },
+  { label: 'Acties', body: exampleParagraph },
+]
+
+const defaultTabs = [
+  <Tabs.List key="tabsList">
+    {tabContent.map((content, index) => (
+      <Tabs.Button key={content.label} tab={index}>
+        {content.label}
+      </Tabs.Button>
+    ))}
+  </Tabs.List>,
+  ...(() =>
+    tabContent.map((content, index) => (
+      <Tabs.Panel tab={index} key={content.label}>
+        <div style={{ paddingTop: '2rem' }}>
+          <Heading level={3}>{content.label}</Heading>
+          <Paragraph>{content.body}</Paragraph>
+        </div>
+      </Tabs.Panel>
+    )))(),
+]
+
 const meta = {
   title: 'Components/Containers/Tabs',
   component: Tabs,
   argTypes: {
+    children: defaultTabs,
     activeTab: {
       control: {
         type: 'number',
@@ -50,40 +92,6 @@ const tabMeta = {
 
 type Story = StoryObj<typeof meta>
 type TabStory = StoryObj<typeof tabMeta>
-
-const defaultTabs = [
-  <Tabs.List key={0}>
-    <Tabs.Button tab={0}>Gegevens</Tabs.Button>
-    <Tabs.Button tab={1}>Aanslagen</Tabs.Button>
-    <Tabs.Button tab={2}>Documenten</Tabs.Button>
-    <Tabs.Button tab={3}>Acties</Tabs.Button>
-  </Tabs.List>,
-  <Tabs.Panel tab={0} key={1}>
-    <div style={{ paddingTop: '2rem' }}>
-      <Heading level={3}>Gegevens</Heading>
-      <Paragraph>{exampleParagraph()}</Paragraph>
-    </div>
-  </Tabs.Panel>,
-  <Tabs.Panel tab={1} key={2}>
-    <div style={{ paddingTop: '2rem' }}>
-      <Heading level={3}>Aanslagen</Heading>
-      <Paragraph>{exampleParagraph()}</Paragraph>
-    </div>
-  </Tabs.Panel>,
-  <Tabs.Panel tab={2} key={3}>
-    <div style={{ paddingTop: '2rem' }}>
-      <Heading level={3}>Documenten</Heading>
-      <Paragraph>(This tab panel simulates a load time of {slowPanelDelay} milliseconds.)</Paragraph>
-      <SlowPanel />
-    </div>
-  </Tabs.Panel>,
-  <Tabs.Panel tab={3} key={4}>
-    <div style={{ paddingTop: '2rem' }}>
-      <Heading level={3}>Acties</Heading>
-      <Paragraph>{exampleParagraph()}</Paragraph>
-    </div>
-  </Tabs.Panel>,
-]
 
 export const Default: Story = {
   args: {
