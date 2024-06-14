@@ -29,7 +29,7 @@ const TabsRoot = forwardRef(
     }, [children])
 
     useEffect(() => {
-      if (!activeTab) return
+      if (typeof activeTab !== 'number') return
       if (!Number.isInteger(activeTab)) return
 
       if (activeTab < 0) {
