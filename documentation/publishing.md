@@ -66,9 +66,8 @@ To fix this, check whether any closed PRs still have the `autorelease: pending` 
 
 ## Dependencies between packages
 
-We’ve established dependencies between our packages for smoother installation.
-For instance, our React package relies on our CSS package.
-When you install our React package, the corresponding version of our CSS package is automatically included.
+We’ve established dependencies between our packages to avoid version mismatches.
+For instance, our React package requires a specific version of our CSS package.
 
 Here’s the dependency structure:
 
