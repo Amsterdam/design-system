@@ -6,7 +6,7 @@ The `@amsterdam/design-system-react` package contains React implementations of v
 You can use this package in React apps.
 
 The design tokens and CSS used in these components are published in separate npm packages,
-which are automatically installed when you install the React package.
+so don’t forget to install and include `@amsterdam/design-system-tokens` and `@amsterdam/design-system-css` too.
 
 ## Stability of the components
 
@@ -19,20 +19,18 @@ You can then schedule an upgrade to the latest version when you have time to tes
 
 ## Getting started
 
-Install the React package:
+Install the packages you need, for instance:
 
-`npm install @amsterdam/design-system-react`
-
-This will automatically add separate packages containing our design tokens, assets, icons, and stylesheets.
+`npm install @amsterdam/design-system-assets @amsterdam/design-system-tokens @amsterdam/design-system-css @amsterdam/design-system-react @amsterdam/design-system-react-icons`
 
 Import the components and stylesheets you need, for example:
 
 ```javascript
 import { Paragraph } from "@amsterdam/design-system-react";
 
-import "@amsterdam/design-system-tokens/dist/index.css";
 import "@amsterdam/design-system-assets/font/index.css";
 import "@amsterdam/design-system-css/dist/index.css";
+import "@amsterdam/design-system-tokens/dist/index.css";
 
 function App() {
   return <Paragraph>Hello world</Paragraph>;
