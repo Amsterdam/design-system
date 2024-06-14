@@ -76,7 +76,7 @@ jobs:
 
       # The logic below handles the Storybook deploy:
       - name: "Restore build artifact: Storybook"
-        uses: dawidd6/action-download-artifact@v3
+        uses: dawidd6/action-download-artifact@v5
         with:
           workflow: "lint-test.yml"
           name: storybook
