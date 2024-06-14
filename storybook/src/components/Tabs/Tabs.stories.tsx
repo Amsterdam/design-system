@@ -21,26 +21,24 @@ const SlowPanel = ({ children }: PropsWithChildren) => {
   return children
 }
 
-const exampleParagraph = <Paragraph>{exampleParagraphContent()}</Paragraph>
-
 type TabContent = {
   label: string
   body: ReactNode
 }
 
 const tabContent: Array<TabContent> = [
-  { label: 'Gegevens', body: exampleParagraph },
-  { label: 'Aanslagen', body: exampleParagraph },
+  { label: 'Gegevens', body: exampleParagraphContent() },
+  { label: 'Aanslagen', body: exampleParagraphContent() },
   {
     label: 'Documenten',
     body: (
       <>
-        <Paragraph>(This tab panel simulates a load time of {slowPanelDelay} milliseconds.)</Paragraph>
+        (This tab panel simulates a load time of {slowPanelDelay} milliseconds.)
         <SlowPanel />
       </>
     ),
   },
-  { label: 'Acties', body: exampleParagraph },
+  { label: 'Acties', body: exampleParagraphContent() },
 ]
 
 const defaultTabs = [
