@@ -64,13 +64,13 @@ export const WithImage: Story = {
       <AspectRatio key={1} ratio="wide">
         <Image alt="" src="https://picsum.photos/480/360" />
       </AspectRatio>,
-      <Card.HeadingGroup key={2} tagline="Dossier">
+      <Card.HeadingGroup key={2} tagline="Nieuws">
         <Heading size="level-4">
-          <Card.Link href="/">Monitor Attracties MRA</Card.Link>
+          <Card.Link href="/">Nederlands eerste houten woonwijk komt in Zuidoost</Card.Link>
         </Heading>
       </Card.HeadingGroup>,
       <Paragraph key={3}>
-        Ontwikkeling van het aantal attracties en bezoekers in de metropoolregio Amsterdam.
+        We bouwen een levendige, groene en duurzame woonbuurt tussen de Gooiseweg en het Nelson Mandelapark.
       </Paragraph>,
       <Paragraph key={4} size="small">
         {today}
