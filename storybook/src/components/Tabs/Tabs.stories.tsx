@@ -69,7 +69,7 @@ const meta = {
       control: {
         type: 'number',
         min: 0,
-        max: 3,
+        max: tabContent.length - 1,
       },
     },
   },
