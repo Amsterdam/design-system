@@ -2,11 +2,11 @@
   "ams": {
     "proportion": {
       "x-tall": { "value": "9 / 16" },
-      "tall": { "value": "4 / 5" },
+      "tall": { "value": "3 / 4" },
       "square": { "value": "1 / 1" },
-      "wide": { "value": "5 / 4" },
+      "wide": { "value": "4 / 3" },
       "x-wide": { "value": "16 / 9" },
-      "2x-wide": { "value": "32 / 9" }
+      "2x-wide": { "value": "16 / 5" }
     }
   }
 }
