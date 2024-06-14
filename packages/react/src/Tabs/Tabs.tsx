@@ -4,8 +4,8 @@
  */
 
 import clsx from 'clsx'
-import { forwardRef, useId, useImperativeHandle, useRef, useState } from 'react'
-import type { ForwardedRef, HTMLAttributes, PropsWithChildren } from 'react'
+import { forwardRef, useEffect, useId, useImperativeHandle, useMemo, useRef, useState } from 'react'
+import type { ForwardedRef, HTMLAttributes, PropsWithChildren, ReactNode } from 'react'
 import { TabsButton } from './TabsButton'
 import { TabsContext } from './TabsContext'
 import { TabsList } from './TabsList'
@@ -20,14 +20,32 @@ export type TabsProps = {
 const TabsRoot = forwardRef(
   ({ activeTab, children, className, ...restProps }: TabsProps, ref: ForwardedRef<HTMLDivElement>) => {
     const tabsId = useId()
-    const [activeTabId, setActiveTabId] = useState(activeTab ?? 0)
     const innerRef = useRef<HTMLDivElement>(null)
+    const [activeTabId, setActiveTabId] = useState(0)
+
+    const allTabs = useMemo(() => {
+      if (!Array.isArray(children)) return []
+      return (children[0].props.children as ReactNode[]).map((child) => child)
+    }, [children])
+
+    useEffect(() => {
+      if (!activeTab) return
+      if (!Number.isInteger(activeTab)) return
+
+      if (activeTab < 0) {
+        setActiveTabId(0)
+      } else if (activeTab > allTabs.length - 1) {
+        setActiveTabId(allTabs.length - 1)
+      } else {
+        setActiveTabId(activeTab)
+      }
+    }, [activeTab, allTabs])
 
     const updateTab = (tab: number) => {
       setActiveTabId(tab)
     }
 
-    // use a passed ref if it's there, otherwise use innerRef
+    // Use a passed ref if it's there, otherwise use innerRef
     useImperativeHandle(ref, () => innerRef.current as HTMLDivElement)
 
     const { keyDown } = useKeyboardFocus(innerRef, {
