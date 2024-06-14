@@ -6,7 +6,7 @@
 import { Heading, Paragraph, Tabs } from '@amsterdam/design-system-react/src'
 import { Meta, StoryObj } from '@storybook/react'
 import { PropsWithChildren, ReactNode } from 'react'
-import { exampleParagraph as exampleParagraphContent } from '../shared/exampleContent'
+import { exampleParagraph } from '../shared/exampleContent'
 
 const slowPanelDelay = 1000
 
@@ -27,8 +27,8 @@ type TabContent = {
 }
 
 const tabContent: Array<TabContent> = [
-  { label: 'Gegevens', body: exampleParagraphContent() },
-  { label: 'Aanslagen', body: exampleParagraphContent() },
+  { label: 'Gegevens', body: exampleParagraph() },
+  { label: 'Aanslagen', body: exampleParagraph() },
   {
     label: 'Documenten',
     body: (
@@ -38,7 +38,7 @@ const tabContent: Array<TabContent> = [
       </>
     ),
   },
-  { label: 'Acties', body: exampleParagraphContent() },
+  { label: 'Acties', body: exampleParagraph() },
 ]
 
 const defaultTabs = [
