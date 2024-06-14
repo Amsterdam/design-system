@@ -55,7 +55,12 @@
       "plugins": ["@typescript-eslint", "import", "jest"]
     },
     {
-      "extends": ["plugin:react/recommended", "eslint-config-prettier", "./.eslintrc.ts.json"],
+      "extends": [
+        "plugin:react/recommended",
+        "eslint-config-prettier",
+        "./.eslintrc.ts.json",
+        "./.eslintrc.react.json"
+      ],
       "files": ["*.ts", "*.tsx"],
       "parser": "@typescript-eslint/parser",
       "parserOptions": {
