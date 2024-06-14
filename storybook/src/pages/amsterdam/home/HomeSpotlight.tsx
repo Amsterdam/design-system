@@ -4,10 +4,10 @@ export const HomeSpotlight = () => (
   <Spotlight color="purple">
     <Grid paddingVertical="medium">
       <Grid.Cell span={{ narrow: 4, medium: 4, wide: 6 }}>
-        <Heading inverseColor size="level-2" style={{ marginBlockEnd: '1.5rem' }}>
+        <Heading className="ams-mb--xs" inverseColor size="level-2">
           Ontheffing of vergunning
         </Heading>
-        <Paragraph inverseColor size="small" style={{ marginBlockEnd: '1.5rem' }}>
+        <Paragraph className="ams-mb--sm" inverseColor>
           Check welke ontheffing of vergunning u nodig heeft. Bijvoorbeeld een RVV, TVM, objectvergunning,{' '}
           nachtwerkontheffing, e-RVV, e-TVM of filmmelding. Dat regult u allemaal met 1 formulier.
         </Paragraph>
@@ -16,12 +16,12 @@ export const HomeSpotlight = () => (
         </Link>
       </Grid.Cell>
       <Grid.Cell span={{ narrow: 4, medium: 4, wide: 6 }}>
-        <Heading inverseColor size="level-2" style={{ marginBlockEnd: '1.5rem' }}>
+        <Heading className="ams-mb--xs" inverseColor size="level-2">
           Werkzaamheden
         </Heading>
-        <Paragraph inverseColor lang="la" size="small" style={{ marginBlockEnd: '1.5rem' }}>
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Asperiores beatae cumque deleniti exercitationem
-          facere fugiat laudantium libero magnam mollitia nisi, omnis pariatur preferendis.
+        <Paragraph className="ams-mb--sm" inverseColor>
+          Lees waar en wanneer we werken aan nieuwbouw, groot onderhoud, herinrichting van straten en wegen, aanpak van
+          parken of ontwikkeling van hele gebieden.
         </Paragraph>
         <Link href="#" onBackground="dark" variant="standalone">
           Alle bouw- en verkeerswerkzaamheden
