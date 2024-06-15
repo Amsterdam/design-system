@@ -22,14 +22,21 @@ The characters entered are hidden, usually represented by dots or asterisks, so 
 Use the password type when the input requires sensitive information, like passwords or PINs.
 It ensures that the input is not readable by others who might be looking at the screen.
 
-Guidelines:
+Consider setting the following attributes:
 
-1. Allow the user’s password manager to automatically enter the password through `autocomplete="current-password"`.
+1. Allow the user’s password manager to automatically fill the password through `autocomplete="current-password"`.
    When asking for a new password, use `autocomplete="new-password"` instead.
 2. Add a `minlength` attribute to ensure passwords meet a minimum length requirement.
+   Do not add a `maxlength` attribute.
 3. Use the `pattern` attribute to enforce password policies, like including numbers and special characters.
+   Describe these policies in the [Field](?path=/docs/components-forms-field--docs)’s description as well.
 4. If the password is a numeric PIN, add `inputmode="numeric"`.
    Devices with virtual keyboards then switch to a numeric keypad layout which makes entering the password easier.
+5. Set `autocapitalize="none"`, `autocorrect="off"` and `spellcheck="false"` to stop browsers automatically changing user input.
+   Passwords shouldn’t be checked for spelling or grammar.
+   This may also prevent posing the password to third-party plugins.
+
+Follow the [guidelines for asking for passwords](https://design-system.service.gov.uk/patterns/passwords/) of the GOV.UK Design System.
 
 <Canvas of={TextInputStories.Password} />
 
@@ -42,21 +49,32 @@ However, do not rely only on the browser’s validation.
 The `email` input field looks like a standard text input.
 On some devices, it may show an email-specific keyboard.
 
-Guidelines:
+Consider setting the following attributes:
 
 1. Set `autocomplete="email"` to help browsers autofill the user’s email address.
-2. Use the `required` attribute to make sure the field is filled before the form is submitted.
+2. Set `autocapitalize="none"`, `autocorrect="off"` and `spellcheck="false"` to stop browsers automatically changing user input.
+   Email addresses shouldn’t be checked for spelling or grammar.
+   This may also prevent posing the email address to third-party plugins.
+
+Follow the [guidelines for asking for email addresses](https://design-system.service.gov.uk/patterns/email-addresses/) of the GOV.UK Design System.
 
 <Canvas of={TextInputStories.EmailAddress} />
 
 ### Type: Web address
 
-This field helps the user enter an web address or URL.
+This field helps the user enter a web address or URL.
 It has built-in validation to check for a valid format.
 However, do not rely only on the browser’s validation.
 
 The `url` input field looks like a standard text input.
 On some devices, it may show a URL-specific keyboard to aid in entering web addresses.
+
+Consider setting the following attributes:
+
+1. Set `autocomplete="url"` to help browsers autofill the user’s web address.
+2. Set `autocapitalize="none"`, `autocorrect="off"` and `spellcheck="false"` to stop browsers automatically changing user input.
+   Email addresses shouldn’t be checked for spelling or grammar.
+   This may also prevent posing the web address to third-party plugins.
 
 <Canvas of={TextInputStories.WebAddress} />
 
@@ -72,21 +90,20 @@ On mobile devices, it may display a numeric keypad or a keyboard optimized for e
 Guidelines:
 
 1. Set `autocomplete="tel"` to help browsers autofill the user’s phone number.
-2. Use the `required` attribute to make sure the field is filled before the form is submitted.
+
+Follow the [guidelines for asking for telephone numbers](https://design-system.service.gov.uk/patterns/telephone-numbers/) of the GOV.UK Design System.
 
 <Canvas of={TextInputStories.PhoneNumber} />
 
 ### Placeholder
 
-This text appears in the field when it is empty.
+This text appears in the field when it is empty. It can give a brief hint about the kind of data to enter.
 
-Placeholder text can give a brief hint about the kind of data to enter.
-Use a word or short phrase that suggests the expected data.
-Do not use a full explanation or prompt.
+Don’t try too hard to find a suitable text for a placeholder.
+Inputs without placeholder text are just fine – the label and a description should be clear enough.
+Do not use a placeholder instead of a [Label](?path=/docs/components-forms-label--docs).
 
-Do not use placeholders instead of a [Label](?path=/docs/components-forms-label--docs).
-Placeholders disappear when the field is filled.
-This makes it hard for the user to remember what they need to enter, reducing usability and accessibility.
+Follow the [guidelines for placeholder text](https://www.nldesignsystem.nl/richtlijnen/formulieren/placeholders) by NL Design System.
 
 <Canvas of={TextInputStories.Placeholder} />
 
