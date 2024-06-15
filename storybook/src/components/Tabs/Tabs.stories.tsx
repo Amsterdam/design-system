@@ -26,7 +26,7 @@ type TabContent = {
   body: ReactNode
 }
 
-const tabContent: Array<TabContent> = [
+const tabsContent: Array<TabContent> = [
   { label: 'Gegevens', body: exampleParagraph() },
   { label: 'Aanslagen', body: exampleParagraph() },
   {
@@ -43,14 +43,14 @@ const tabContent: Array<TabContent> = [
 
 const defaultTabs = [
   <Tabs.List key="tabsList">
-    {tabContent.map((content, index) => (
+    {tabsContent.map((content, index) => (
       <Tabs.Button key={content.label} tab={index}>
         {content.label}
       </Tabs.Button>
     ))}
   </Tabs.List>,
   ...(() =>
-    tabContent.map((content, index) => (
+    tabsContent.map((content, index) => (
       <Tabs.Panel tab={index} key={content.label}>
         <div style={{ paddingTop: '2rem' }}>
           <Heading level={3}>{content.label}</Heading>
@@ -69,7 +69,7 @@ const meta = {
       control: {
         type: 'number',
         min: 0,
-        max: tabContent.length - 1,
+        max: tabsContent.length - 1,
       },
     },
   },
