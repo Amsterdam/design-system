@@ -63,8 +63,10 @@ const defaultTabs = [
 const meta = {
   title: 'Components/Containers/Tabs',
   component: Tabs,
-  argTypes: {
+  args: {
     children: defaultTabs,
+  },
+  argTypes: {
     activeTab: {
       control: {
         type: 'number',
@@ -79,15 +81,10 @@ export default meta
 
 type Story = StoryObj<typeof meta>
 
-export const Default: Story = {
-  args: {
-    children: defaultTabs,
-  },
-}
+export const Default: Story = {}
 
 export const WithInitialTab: Story = {
   args: {
     activeTab: 3,
-    children: defaultTabs,
   },
 }
