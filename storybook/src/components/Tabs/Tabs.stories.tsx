@@ -118,11 +118,7 @@ export const TabButton: TabStory = {
       table: { disable: true },
     },
     tab: {
-      control: {
-        type: 'number',
-        min: 0,
-        max: 3,
-      },
+      table: { disable: true },
     },
   },
   render: ({ children, ...args }) => <Tabs.Button {...args}>{children}</Tabs.Button>,
