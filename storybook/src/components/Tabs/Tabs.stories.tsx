@@ -77,19 +77,7 @@ const meta = {
 
 export default meta
 
-const tabMeta = {
-  component: Tabs.Button,
-  decorators: [
-    (Story) => (
-      <Tabs>
-        <Story />
-      </Tabs>
-    ),
-  ],
-} satisfies Meta<typeof Tabs.Button>
-
 type Story = StoryObj<typeof meta>
-type TabStory = StoryObj<typeof tabMeta>
 
 export const Default: Story = {
   args: {
@@ -102,24 +90,4 @@ export const WithInitialTab: Story = {
     activeTab: 3,
     children: defaultTabs,
   },
-}
-
-export const TabButton: TabStory = {
-  args: {
-    children: 'Gegevens',
-    disabled: false,
-    tab: 0,
-  },
-  argTypes: {
-    children: {
-      table: { disable: false },
-    },
-    disabled: {
-      table: { disable: true },
-    },
-    tab: {
-      table: { disable: true },
-    },
-  },
-  render: ({ children, ...args }) => <Tabs.Button {...args}>{children}</Tabs.Button>,
 }
