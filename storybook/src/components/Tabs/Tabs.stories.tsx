@@ -11,7 +11,7 @@ import { exampleParagraph } from '../shared/exampleContent'
 const slowPanelDelay = 1000
 
 const SlowPanel = ({ children }: PropsWithChildren) => {
-  console.log('[ARTIFICIALLY SLOW] Adding a 1000ms delay')
+  console.log(`[ARTIFICIALLY SLOW] Adding a ${slowPanelDelay}ms delay…`)
 
   let startTime = performance.now()
   while (performance.now() - startTime < slowPanelDelay) {
