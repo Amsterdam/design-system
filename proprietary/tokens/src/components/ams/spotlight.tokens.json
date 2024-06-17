@@ -2,10 +2,10 @@
   "ams": {
     "spotlight": {
       "blue": {
-        "background-color": { "value": "{ams.color.blue}" }
-      },
-      "dark-blue": {
         "background-color": { "value": "{ams.color.primary-blue}" }
+      },
+      "light-blue": {
+        "background-color": { "value": "{ams.color.blue}" }
       },
       "dark-green": {
         "background-color": { "value": "{ams.color.dark-green}" }

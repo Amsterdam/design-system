@@ -51,6 +51,14 @@ describe('Spotlight', () => {
     }),
   )
 
+  it('renders a gradient', () => {
+    const { container } = render(<Spotlight gradient />)
+
+    const component = container.querySelector(':only-child')
+
+    expect(component).toHaveClass('ams-spotlight--gradient')
+  })
+
   it('renders a custom tag', () => {
     render(<Spotlight as="article" />)
     const cell = screen.getByRole('article')

@@ -4,33 +4,86 @@
  */
 
 .ams-spotlight--blue {
+  --ams-spotlight-gradient-color: var(--ams-spotlight-blue-background-color);
+
   background-color: var(--ams-spotlight-blue-background-color);
 }
 
-.ams-spotlight--dark-blue {
-  background-color: var(--ams-spotlight-dark-blue-background-color);
+.ams-spotlight--light-blue {
+  --ams-spotlight-gradient-color: var(--ams-spotlight-light-blue-background-color);
+
+  background-color: var(--ams-spotlight-light-blue-background-color);
 }
 
 .ams-spotlight--dark-green {
+  --ams-spotlight-gradient-color: var(--ams-spotlight-dark-green-background-color);
+
   background-color: var(--ams-spotlight-dark-green-background-color);
 }
 
 .ams-spotlight--green {
+  --ams-spotlight-gradient-color: var(--ams-spotlight-green-background-color);
+
   background-color: var(--ams-spotlight-green-background-color);
 }
 
 .ams-spotlight--magenta {
+  --ams-spotlight-gradient-color: var(--ams-spotlight-magenta-background-color);
+
   background-color: var(--ams-spotlight-magenta-background-color);
 }
 
 .ams-spotlight--orange {
+  --ams-spotlight-gradient-color: var(--ams-spotlight-orange-background-color);
+
   background-color: var(--ams-spotlight-orange-background-color);
 }
 
 .ams-spotlight--purple {
+  --ams-spotlight-gradient-color: var(--ams-spotlight-purple-background-color);
+
   background-color: var(--ams-spotlight-purple-background-color);
 }
 
 .ams-spotlight--yellow {
+  --ams-spotlight-gradient-color: var(--ams-spotlight-yellow-background-color);
+
   background-color: var(--ams-spotlight-yellow-background-color);
+}
+
+.ams-spotlight--gradient {
+  // Default gradient position, dont't use a gradient unless an aspect ratio is used with image
+  --ams-spotlight-gradient-position: 0%;
+
+  background: linear-gradient(
+    to bottom,
+    var(--ams-color-primary-white),
+    var(--ams-color-primary-white) var(--ams-spotlight-gradient-position),
+    var(--ams-spotlight-gradient-color) var(--ams-spotlight-gradient-position),
+    var(--ams-spotlight-gradient-color)
+  );
+
+  &:has(.ams-aspect-ratio--x-tall) {
+    --ams-spotlight-gradient-position: 106dvw;
+  }
+
+  &:has(.ams-aspect-ratio--tall) {
+    --ams-spotlight-gradient-position: 88dvw;
+  }
+
+  &:has(.ams-aspect-ratio--square) {
+    --ams-spotlight-gradient-position: 70dvw;
+  }
+
+  &:has(.ams-aspect-ratio--wide) {
+    --ams-spotlight-gradient-position: 52dvw;
+  }
+
+  &:has(.ams-aspect-ratio--x-wide) {
+    --ams-spotlight-gradient-position: 41dvw;
+  }
+
+  &:has(.ams-aspect-ratio--2x-wide) {
+    --ams-spotlight-gradient-position: 23dvw;
+  }
 }
