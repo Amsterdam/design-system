@@ -4,41 +4,64 @@
  */
 
 import clsx from 'clsx'
-import { forwardRef, useId, useImperativeHandle, useRef, useState } from 'react'
-import type { ForwardedRef, HTMLAttributes, PropsWithChildren } from 'react'
+import { forwardRef, useEffect, useId, useImperativeHandle, useMemo, useRef, useState } from 'react'
+import type { ForwardedRef, HTMLAttributes, PropsWithChildren, ReactNode } from 'react'
 import { TabsButton } from './TabsButton'
 import { TabsContext } from './TabsContext'
 import { TabsList } from './TabsList'
 import { TabsPanel } from './TabsPanel'
 import { useKeyboardFocus } from '../common/useKeyboardFocus'
 
-export type TabsProps = PropsWithChildren<HTMLAttributes<HTMLDivElement>>
+export type TabsProps = {
+  /** The number of the active tab. Corresponds to its `tab` value. */
+  activeTab?: number
+} & PropsWithChildren<HTMLAttributes<HTMLDivElement>>
 
-const TabsRoot = forwardRef(({ children, className, ...restProps }: TabsProps, ref: ForwardedRef<HTMLDivElement>) => {
-  const tabsId = useId()
-  const [activeTab, setActiveTab] = useState(0)
-  const innerRef = useRef<HTMLDivElement>(null)
+const TabsRoot = forwardRef(
+  ({ activeTab, children, className, ...restProps }: TabsProps, ref: ForwardedRef<HTMLDivElement>) => {
+    const tabsId = useId()
+    const innerRef = useRef<HTMLDivElement>(null)
+    const [activeTabId, setActiveTabId] = useState(0)
 
-  const updateTab = (tab: number) => {
-    setActiveTab(tab)
-  }
+    const allTabs = useMemo(() => {
+      if (!Array.isArray(children)) return []
+      return (children[0].props.children as ReactNode[]).map((child) => child)
+    }, [children])
 
-  // use a passed ref if it's there, otherwise use innerRef
-  useImperativeHandle(ref, () => innerRef.current as HTMLDivElement)
+    useEffect(() => {
+      if (typeof activeTab !== 'number') return
+      if (!Number.isInteger(activeTab)) return
 
-  const { keyDown } = useKeyboardFocus(innerRef, {
-    rotating: true,
-    horizontally: true,
-  })
+      if (activeTab < 0) {
+        setActiveTabId(0)
+      } else if (activeTab > allTabs.length - 1) {
+        setActiveTabId(allTabs.length - 1)
+      } else {
+        setActiveTabId(activeTab)
+      }
+    }, [activeTab, allTabs])
 
-  return (
-    <TabsContext.Provider value={{ activeTab, updateTab, tabsId }}>
-      <div {...restProps} role="tabs" ref={innerRef} onKeyDown={keyDown} className={clsx('ams-tabs', className)}>
-        {children}
-      </div>
-    </TabsContext.Provider>
-  )
-})
+    const updateTab = (tab: number) => {
+      setActiveTabId(tab)
+    }
+
+    // Use a passed ref if it's there, otherwise use innerRef
+    useImperativeHandle(ref, () => innerRef.current as HTMLDivElement)
+
+    const { keyDown } = useKeyboardFocus(innerRef, {
+      rotating: true,
+      horizontally: true,
+    })
+
+    return (
+      <TabsContext.Provider value={{ activeTab: activeTabId, updateTab, tabsId }}>
+        <div {...restProps} role="tabs" ref={innerRef} onKeyDown={keyDown} className={clsx('ams-tabs', className)}>
+          {children}
+        </div>
+      </TabsContext.Provider>
+    )
+  },
+)
 
 TabsRoot.displayName = 'Tabs'
 
