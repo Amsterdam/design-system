@@ -23,6 +23,9 @@
         "hover": {
           "fill": { "value": "{ams.color.primary-blue}" }
         }
+      },
+      "content": {
+        "gap": { "value": "{ams.space.sm}" }
       }
     }
   }
