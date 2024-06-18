@@ -7,6 +7,18 @@ const pickRandomItem = (list: Array<string>): string => list[Math.floor(Math.ran
 
 const pickRandomList = (list: Array<Array<string>>): Array<string> => list[Math.floor(Math.random() * list.length)]
 
+export const exampleAccordionHeading = () =>
+  pickRandomItem([
+    'Dit grof afval halen we niet op',
+    'Dit grof afval halen we op',
+    'Downloads en documenten',
+    'Lees de voorwaarden',
+    'Publicaties en nieuwsberichten',
+    'Verhuizing doorgeven bij stadsloket',
+    'Verhuizing doorgeven per post',
+    'Voorgaande versies van ramingen',
+  ])
+
 export const exampleHeading = () =>
   pickRandomItem([
     'Meer plekken voor kunst en cultuur, verspreid over de stad',
