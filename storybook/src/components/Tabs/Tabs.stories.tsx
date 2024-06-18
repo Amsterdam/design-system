@@ -52,10 +52,8 @@ const defaultTabs = [
   ...(() =>
     tabsContent.map((content, index) => (
       <Tabs.Panel tab={index} key={content.label}>
-        <div style={{ paddingTop: '2rem' }}>
-          <Heading level={3}>{content.label}</Heading>
-          <Paragraph>{content.body}</Paragraph>
-        </div>
+        <Heading level={3}>{content.label}</Heading>
+        <Paragraph>{content.body}</Paragraph>
       </Tabs.Panel>
     )))(),
 ]

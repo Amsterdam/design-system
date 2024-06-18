@@ -1,6 +1,7 @@
 {
   "ams": {
     "tabs": {
+      "gap": { "value": "{ams.space.md}" },
       "list": {
         "background-color": { "value": "{ams.color.primary-white}" },
         "border-block-end": { "value": "{ams.border.width.md} solid {ams.color.primary-blue}" }
