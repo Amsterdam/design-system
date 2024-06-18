@@ -5,7 +5,7 @@
       "font-family": { "value": "{ams.text.font-family}" },
       "font-size": { "value": "{ams.text.level.5.font-size}" },
       "font-weight": { "value": "{ams.text.font-weight.normal}" },
-      "gap": { "value": "0.75rem" },
+      "gap": { "value": "{ams.space.sm}" },
       "inverse-color": { "value": "{ams.color.primary-white}" },
       "line-height": { "value": "{ams.text.level.5.line-height}" },
       "list-style-type": { "value": "decimal" },

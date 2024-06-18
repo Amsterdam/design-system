@@ -5,8 +5,8 @@
         "background-color": { "value": "{ams.color.primary-blue}" },
         "color": { "value": "{ams.color.primary-white}" },
         "outline-offset": { "value": "{ams.focus.outline-offset}" },
-        "padding-block": { "value": "{ams.space.xs}" },
-        "padding-inline": { "value": "{ams.space.xs}" },
+        "padding-block": { "value": "{ams.space.sm}" },
+        "padding-inline": { "value": "{ams.space.sm}" },
         "hover": {
           "background-color": { "value": "{ams.color.dark-blue}" }
         }
@@ -22,7 +22,7 @@
         "font-weight": { "value": "{ams.text.font-weight.normal}" },
         "line-height": { "value": "{ams.text.level.5.line-height}" },
         "outline-offset": { "value": "{ams.focus.outline-offset}" },
-        "padding-block": { "value": "{ams.space.xs}" },
+        "padding-block": { "value": "{ams.space.sm}" },
         "padding-inline": { "value": "{ams.space.md}" },
         "cancel-button": {
           "background-image": {

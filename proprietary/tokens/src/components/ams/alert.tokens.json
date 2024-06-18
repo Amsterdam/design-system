@@ -3,8 +3,8 @@
     "alert": {
       "border-width": { "value": "{ams.border.width.xl}" },
       "border-style": { "value": "solid" },
-      "gap": { "value": "1rem" },
-      "padding-block": { "value": "{ams.space.md}" },
+      "gap": { "value": "{ams.space.sm}" },
+      "padding-block": { "value": "{ams.space.lg}" },
       "padding-inline": { "value": "{ams.space.lg}" },
       "error": {
         "border-color": { "value": "{ams.color.primary-red}" }

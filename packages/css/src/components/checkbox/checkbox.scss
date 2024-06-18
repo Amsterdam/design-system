@@ -40,7 +40,7 @@
   font-family: var(--ams-checkbox-font-family);
   font-size: var(--ams-checkbox-font-size);
   font-weight: var(--ams-checkbox-font-weight);
-  gap: 0.5rem;
+  gap: var(--ams-checkbox-gap);
   line-height: var(--ams-checkbox-line-height);
   outline-offset: var(--ams-checkbox-outline-offset);
 
