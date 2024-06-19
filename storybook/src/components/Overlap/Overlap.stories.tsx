@@ -23,6 +23,7 @@ export const Default: Story = {
           alt=""
           cover
           sizes="(max-width: 36rem) 640px, (max-width: 68rem) 1280px, 1600px"
+          src="https://picsum.photos/1600/500"
           srcSet="https://picsum.photos/640/200 640w, https://picsum.photos/1280/400 1280w, https://picsum.photos/1600/500 1600w"
         />
       </AspectRatio>,
