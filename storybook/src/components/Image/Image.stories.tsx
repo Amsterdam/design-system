@@ -43,7 +43,7 @@ export const MultipleSources: Story = {
 
 export const LazyLoading: Story = {
   args: {
-    alt: 'Een toegankelijke beschrijving voor deze afbeelding',
+    alt: '',
     src: 'https://picsum.photos/2560/1440',
     loading: 'lazy',
   },
