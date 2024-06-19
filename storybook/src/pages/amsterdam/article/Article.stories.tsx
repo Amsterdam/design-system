@@ -20,7 +20,6 @@ const meta = {
     footer: FooterStories.Default.args?.children as ReactElement<FooterProps>,
     heading: HeadingStories.Default.args?.children as string,
     imageSrc: ImageStories.LazyLoading.args?.src,
-    imageAlt: ImageStories.LazyLoading.args?.alt,
   },
   argTypes: {
     breadcrumb: {

@@ -8,11 +8,10 @@ import { AppHeader } from '../common/AppHeader'
 type ArticleProps = {
   footer: ReactElement<FooterProps>
   heading: string
-  imageAlt: string
   imageSrc: string
 }
 
-export const Article = ({ footer, heading, imageAlt, imageSrc }: ArticleProps) => (
+export const Article = ({ footer, heading, imageSrc }: ArticleProps) => (
   <>
     <SkipLink href="#main">Direct naar inhoud</SkipLink>
     <Screen maxWidth="wide">
@@ -25,7 +24,7 @@ export const Article = ({ footer, heading, imageAlt, imageSrc }: ArticleProps) =
           </Breadcrumb>
         </Grid.Cell>
       </Grid>
-      <ArticleHeader imageAlt={imageAlt} imageSrc={imageSrc} heading={heading} />
+      <ArticleHeader heading={heading} imageSrc={imageSrc} />
       <ArticleBody />
       <Footer>{footer}</Footer>
     </Screen>
