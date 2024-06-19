@@ -7,11 +7,9 @@ import {
   Footer,
   Grid,
   Heading,
-  Icon,
   LinkList,
   PageMenu,
   Paragraph,
-  Row,
   VisuallyHidden,
 } from '@amsterdam/design-system-react/src'
 import {
@@ -34,6 +32,13 @@ const meta = {
 export default meta
 
 type Story = StoryObj<typeof meta>
+
+const socialPlatforms = [
+  { icon: TwitterIcon, name: 'Twitter' },
+  { icon: FacebookIcon, name: 'Facebook' },
+  { icon: LinkedinIcon, name: 'Linkedin' },
+  { icon: CameraIcon, name: 'Instagram' },
+]
 
 export const Default: Story = {
   args: {
@@ -91,13 +96,13 @@ export const Default: Story = {
               <Heading className="ams-mb--xs" level={2} size="level-4" inverseColor>
                 Volg ons
               </Heading>
-              <Row gap="small">
-                {[TwitterIcon, FacebookIcon, LinkedinIcon, CameraIcon].map((icon, index) => (
-                  <a href="#" key={index}>
-                    <Icon size="level-6" style={{ color: 'var(--ams-color-primary-white)' }} square svg={icon} />
-                  </a>
+              <LinkList>
+                {socialPlatforms.map(({ name, icon }) => (
+                  <LinkList.Link href="#" icon={icon} key={name} onBackground="dark" size="small">
+                    {name}
+                  </LinkList.Link>
                 ))}
-              </Row>
+              </LinkList>
             </section>
           </Grid.Cell>
         </Grid>
