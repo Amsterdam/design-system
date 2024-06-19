@@ -7,11 +7,15 @@ import clsx from 'clsx'
 import { forwardRef } from 'react'
 import type { ForwardedRef, InputHTMLAttributes } from 'react'
 
+export const textInputTypes = ['email', 'password', 'tel', 'text', 'url'] as const
+
+type TextInputType = (typeof textInputTypes)[number]
+
 export type TextInputProps = {
   /** Whether the value fails a validation rule. */
   invalid?: boolean
   /** The kind of data that the user should provide. */
-  type?: 'email' | 'password' | 'tel' | 'text' | 'url'
+  type?: TextInputType
 } & Omit<InputHTMLAttributes<HTMLInputElement>, 'aria-invalid'>
 
 export const TextInput = forwardRef(
