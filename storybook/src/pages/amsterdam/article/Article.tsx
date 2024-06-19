@@ -24,8 +24,10 @@ export const Article = ({ footer, heading, imageSrc }: ArticleProps) => (
           </Breadcrumb>
         </Grid.Cell>
       </Grid>
-      <ArticleHeader heading={heading} imageSrc={imageSrc} />
-      <ArticleBody />
+      <main id="main">
+        <ArticleHeader heading={heading} imageSrc={imageSrc} />
+        <ArticleBody />
+      </main>
       <Footer>{footer}</Footer>
     </Screen>
   </>

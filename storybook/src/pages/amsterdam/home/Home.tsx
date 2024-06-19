@@ -5,7 +5,7 @@ import { HomeNews } from './HomeNews'
 import { HomeSpotlight } from './HomeSpotlight'
 import { HomeTopTasks } from './HomeTopTasks'
 import { Default as OverlapStory } from '../../../components/Overlap/Overlap.stories'
-import { Default as SkipLinkStory } from '../../../components/SkipLink/SkipLink.stories'
+import SkipLinkStoryMeta from '../../../components/SkipLink/SkipLink.stories'
 import { AppHeader } from '../common/AppHeader'
 
 type HomeProps = {
@@ -14,13 +14,15 @@ type HomeProps = {
 
 export const Home = ({ footer }: HomeProps) => (
   <>
-    <SkipLink href="#main">{SkipLinkStory.args?.children}</SkipLink>
+    <SkipLink href="#main">{SkipLinkStoryMeta.args.children}</SkipLink>
     <Screen maxWidth="wide">
       <AppHeader />
-      <Overlap>{OverlapStory.args?.children}</Overlap>
-      <HomeTopTasks />
-      <HomeSpotlight />
-      <HomeNews />
+      <main id="main">
+        <Overlap>{OverlapStory.args?.children}</Overlap>
+        <HomeTopTasks />
+        <HomeSpotlight />
+        <HomeNews />
+      </main>
       <Footer>{footer}</Footer>
     </Screen>
   </>
