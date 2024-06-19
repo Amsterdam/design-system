@@ -6,16 +6,17 @@ Provides service information at the bottom of every page.
 
 ## Guidelines
 
-The Footer must be used on all websites for the City of Amsterdam.
-For applications, only its menu at the bottom can be sufficient.
-It is the same on every page of the application.
+The Footer consists of a dark blue [Spotlight](/docs/components-containers-spotlight--docs) and a [Page Menu](?path=/docs/components-navigation-page-menu--docs).
+It must be used on all websites for the City of Amsterdam.
+For applications, only the Page Menu can be sufficient.
+The Footer is the same on every page of the application.
 
-The large blue area offers space for various practical links:
+The Spotlight offers space for various practical links:
 
 - The first column focuses on contact information.
   The information is as specific as possible and tailored to the respective website or page (e.g., including a chat option if available).
 - The second column contains links to relevant (online) sites or sources.
 - The third column refers to newsletters, social media, etc.
 
-At the very bottom is a [Page Menu](?path=/docs/components-navigation-page-menu--docs) intended for links to privacy policies, cookie statements, explanations about the website, etc.
-Contact information should not go here.
+The menu at the very bottom is intended for links to privacy policies, cookie statements, information about the website itself, etc.
+Contact details should not go here.
