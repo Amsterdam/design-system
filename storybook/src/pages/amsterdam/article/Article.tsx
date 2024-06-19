@@ -1,32 +1,43 @@
-import { Breadcrumb, Footer, Grid, Screen, SkipLink } from '@amsterdam/design-system-react'
+import { Footer, Screen, SkipLink } from '@amsterdam/design-system-react'
 import type { FooterProps } from '@amsterdam/design-system-react'
 import { ReactElement } from 'react'
 import { ArticleBody } from './ArticleBody'
+import { ArticleBreadcrumb } from './ArticleBreadcrumb'
 import { ArticleHeader } from './ArticleHeader'
 import { AppHeader } from '../common/AppHeader'
 
-type ArticleProps = {
+export type ArticleProps = {
   footer: ReactElement<FooterProps>
   heading: string
   imageSrc: string
+  lead: string
+  paragraph1: string
+  spotlightHeading: string
+  spotlightLinkLabel: string
 }
 
-export const Article = ({ footer, heading, imageSrc }: ArticleProps) => (
+export const Article = ({
+  footer,
+  heading,
+  imageSrc,
+  lead,
+  paragraph1,
+  spotlightHeading,
+  spotlightLinkLabel,
+}: ArticleProps) => (
   <>
     <SkipLink href="#main">Direct naar inhoud</SkipLink>
     <Screen maxWidth="wide">
       <AppHeader />
-      <Grid paddingTop="medium">
-        <Grid.Cell span={{ narrow: 4, medium: 8, wide: 10 }} start={{ narrow: 1, medium: 1, wide: 2 }}>
-          <Breadcrumb>
-            <Breadcrumb.Link href="#">Home</Breadcrumb.Link>
-            <Breadcrumb.Link href="#">Nieuws</Breadcrumb.Link>
-          </Breadcrumb>
-        </Grid.Cell>
-      </Grid>
+      <ArticleBreadcrumb />
       <main id="main">
         <ArticleHeader heading={heading} imageSrc={imageSrc} />
-        <ArticleBody />
+        <ArticleBody
+          lead={lead}
+          paragraph1={paragraph1}
+          spotlightHeading={spotlightHeading}
+          spotlightLinkLabel={spotlightLinkLabel}
+        />
       </main>
       <Footer>{footer}</Footer>
     </Screen>

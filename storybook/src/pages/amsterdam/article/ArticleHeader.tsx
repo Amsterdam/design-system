@@ -1,15 +1,14 @@
-import { AspectRatio, Grid, Heading, Image, Overlap } from '@amsterdam/design-system-react'
+import { AspectRatio, Grid, Heading, Image, Overlap, Paragraph } from '@amsterdam/design-system-react'
+import type { ArticleProps } from './Article'
 
-export type ArticleHeaderProps = {
-  imageSrc: string
-  heading: string
-}
+type ArticleHeaderProps = Pick<ArticleProps, 'heading' | 'imageSrc'>
 
-export const ArticleHeader = ({ imageSrc, heading }: ArticleHeaderProps) => (
+export const ArticleHeader = ({ heading, imageSrc }: ArticleHeaderProps) => (
   <header>
-    <Grid paddingVertical="small">
+    <Grid paddingBottom="medium">
       <Grid.Cell span={{ narrow: 4, medium: 8, wide: 10 }} start={{ narrow: 1, medium: 1, wide: 2 }}>
-        <Heading>{heading}</Heading>
+        <Heading className="ams-mb--sm">{heading}</Heading>
+        <Paragraph size="small">7 juni 2024</Paragraph>
       </Grid.Cell>
     </Grid>
     <Overlap>
