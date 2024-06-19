@@ -15,23 +15,23 @@ export type TabsButtonProps = {
 
 export const TabsButton = forwardRef(
   ({ children, className, tab = 0, ...restProps }: TabsButtonProps, ref: ForwardedRef<HTMLButtonElement>) => {
-    const { activeTab, updateTab, tabsId } = useContext(TabsContext)
+    const { activeTab, tabsId, updateTab } = useContext(TabsContext)
 
     return (
       <button
         {...restProps}
-        role="tab"
-        id={`${tabsId}-tab-${tab}`}
         aria-controls={`${tabsId}-panel-${tab}`}
         aria-selected={activeTab === tab}
-        tabIndex={activeTab === tab ? 0 : -1}
-        ref={ref}
+        className={clsx('ams-tabs__button', className)}
+        id={`${tabsId}-tab-${tab}`}
         onClick={() => {
           startTransition(() => {
             updateTab(tab)
           })
         }}
-        className={clsx('ams-tabs__button', className)}
+        ref={ref}
+        role="tab"
+        tabIndex={activeTab === tab ? 0 : -1}
       >
         {children}
       </button>
