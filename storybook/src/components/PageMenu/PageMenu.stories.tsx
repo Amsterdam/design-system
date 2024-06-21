@@ -4,7 +4,7 @@
  */
 
 import { PageMenu } from '@amsterdam/design-system-react/src'
-import { LoginIcon, SearchIcon } from '@amsterdam/design-system-react-icons'
+import { SearchIcon } from '@amsterdam/design-system-react-icons'
 import { Meta, StoryObj } from '@storybook/react'
 
 const meta = {
@@ -24,10 +24,13 @@ export const Default: Story = {
   args: {
     children: [
       <PageMenu.Link href="#" key={1}>
-        English
+        Over deze site
       </PageMenu.Link>,
-      <PageMenu.Link href="#" icon={LoginIcon} key={2}>
-        Inloggen Mijn Amsterdam
+      <PageMenu.Link href="#" key={2}>
+        Privacy
+      </PageMenu.Link>,
+      <PageMenu.Link href="#" key={3}>
+        Cookies
       </PageMenu.Link>,
     ],
   },
@@ -37,13 +40,13 @@ export const Alignment: Story = {
   args: {
     alignEnd: true,
     children: [
-      <PageMenu.Link href="#" key={1}>
-        Contact
+      <PageMenu.Link href="#" key={1} lang="en">
+        English
       </PageMenu.Link>,
       <PageMenu.Link href="#" key={2}>
-        Mijn Amsterdam
+        Contact
       </PageMenu.Link>,
-      <PageMenu.Link href="#" icon={SearchIcon} key={3}>
+      <PageMenu.Link href="#" key={3} icon={SearchIcon}>
         Zoeken
       </PageMenu.Link>,
     ],

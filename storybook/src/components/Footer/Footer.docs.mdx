@@ -1,6 +1,6 @@
 {/* @license CC0-1.0 */}
 
-import { Markdown, Meta, Primary } from "@storybook/blocks";
+import { Canvas, Markdown, Meta, Primary } from "@storybook/blocks";
 import * as FooterStories from "./Footer.stories.tsx";
 import README from "../../../../packages/css/src/components/footer/README.md?raw";
 
@@ -9,3 +9,12 @@ import README from "../../../../packages/css/src/components/footer/README.md?raw
 <Markdown>{README}</Markdown>
 
 <Primary />
+
+## Examples
+
+### Onderzoek en Statistiek
+
+The footer for a specific website can be a bit different.
+Here’s an example for the ‘Onderzoek en Statistiek’ department.
+
+<Canvas of={FooterStories.Onderzoek} />
