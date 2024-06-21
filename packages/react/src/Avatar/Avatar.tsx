@@ -9,7 +9,6 @@ import { forwardRef } from 'react'
 import type { ForwardedRef, HTMLAttributes } from 'react'
 import { Icon } from '../Icon'
 import { Image } from '../Image'
-import { VisuallyHidden } from '../VisuallyHidden'
 
 export const avatarColors = [
   'black',
@@ -68,7 +67,7 @@ export const Avatar = forwardRef(
         ref={ref}
         className={clsx('ams-avatar', `ams-avatar--${color}`, imageSrc && 'ams-avatar--has-image', className)}
       >
-        <VisuallyHidden>{a11yLabel}</VisuallyHidden>
+        <span className="ams-visually-hidden">{a11yLabel}</span>
         <AvatarContent imageSrc={imageSrc} initials={initials} />
       </span>
     )
