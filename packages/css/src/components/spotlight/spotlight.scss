@@ -67,9 +67,9 @@
     --ams-spotlight-gradient-position: 106dvw;
   }
 
-  &:has(.ams-aspect-ratio--tall) {
-    --ams-spotlight-gradient-position: 88dvw;
-  }
+  // &:has(.ams-aspect-ratio--tall, .ams-heading) {
+  //   --ams-spotlight-gradient-position: 20dvw;
+  // }
 
   &:has(.ams-aspect-ratio--square) {
     --ams-spotlight-gradient-position: 70dvw;
@@ -85,5 +85,17 @@
 
   &:has(.ams-aspect-ratio--2x-wide) {
     --ams-spotlight-gradient-position: 23dvw;
+  }
+
+  &:has(.ams-aspect-ratio--tall) {
+    --ams-spotlight-gradient-position: 88dvw;
+
+    &:has(.ams-heading, .ams-paragraph) {
+      --ams-spotlight-gradient-position: 20dvw;
+
+      .ams-heading {
+        padding-block-start: 20dvw;
+      }
+    }
   }
 }

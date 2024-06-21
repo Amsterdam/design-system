@@ -3,6 +3,7 @@
  * Copyright Gemeente Amsterdam
  */
 
+import { Heading, Link } from '@amsterdam/design-system-react'
 import {
   AspectRatio,
   Blockquote,
@@ -251,6 +252,42 @@ export const Gradient2XWideAspect: Story = {
               {exampleParagraph()}
             </Paragraph>
           </Column>
+        </Grid.Cell>
+      </Grid>
+    </Spotlight>
+  ),
+}
+
+export const GradientTallAspectWithText: Story = {
+  parameters: {
+    layout: 'fullscreen',
+  },
+  args: {
+    color: 'blue',
+    gradient: true,
+  },
+  render: ({ as, color, gradient }) => (
+    <Spotlight as={as} color={color} gradient={gradient}>
+      <Grid paddingVertical="medium">
+        <Grid.Cell start={{ narrow: 1, medium: 1, wide: 2 }} span={{ narrow: 4, medium: 4, wide: 5 }}>
+          <Column gap="medium">
+            <Heading level={2} inverseColor>
+              Projecten op de kaart
+            </Heading>
+            <Paragraph inverseColor>
+              Overzicht van ruim 200 projecten in Amsterdam. Lees waar en wanneer we werken aan nieuwbouw, groot
+              onderhoud, herinrichting van straten en wegen, aanpak van parken of ontwikkeling van hele gebieden. En hoe
+              u kunt meedenken. Ga naar de kaart om een project in de stad te zien.
+            </Paragraph>
+            <Link variant="standalone" href="#" onClick={(e) => e.preventDefault} onBackground="dark">
+              Bekijk de projectenkaart
+            </Link>
+          </Column>
+        </Grid.Cell>
+        <Grid.Cell span={{ narrow: 4, medium: 4, wide: 5 }}>
+          <AspectRatio ratio="tall">
+            <Image alt="" src="https://picsum.photos/1200/1600" cover style={{ width: '100%', height: '100%' }} />
+          </AspectRatio>
         </Grid.Cell>
       </Grid>
     </Spotlight>
