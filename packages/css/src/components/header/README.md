@@ -2,7 +2,7 @@
 
 # Header
 
-Displays the City’s logo at the top of every page, and optionally a secondary navigation menu.
+Displays the City’s logo at the top of every page, and optionally a navigation menu.
 Includes the name of the application if it is not the general website.
 
 ## Guidelines
