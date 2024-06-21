@@ -26,6 +26,12 @@ type Story = StoryObj<typeof meta>
 
 export const Default: Story = {}
 
+export const DateTime: Story = {
+  args: {
+    type: 'datetime-local',
+  },
+}
+
 export const Invalid: Story = {
   args: {
     invalid: true,
