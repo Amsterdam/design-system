@@ -1,7 +1,8 @@
 import { render, screen } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
 import { createRef, useState } from 'react'
-import { TextInput } from './TextInput'
+import { TextInput, textInputTypes } from './TextInput'
+import { Label } from '../Label'
 import '@testing-library/jest-dom'
 
 describe('Text input', () => {
@@ -114,6 +115,34 @@ describe('Text input', () => {
       const component = screen.getByRole('textbox')
 
       expect(component).not.toHaveAttribute('aria-invalid')
+    })
+  })
+
+  describe('Type', () => {
+    textInputTypes
+      .filter((type) => type !== 'password')
+      .map((type) =>
+        it(`sets the ‘${type}’ type`, () => {
+          render(<TextInput type={type} />)
+
+          const component = screen.getByRole('textbox')
+
+          expect(component).toHaveAttribute('type', type)
+        }),
+      )
+
+    // https://github.com/testing-library/dom-testing-library/issues/567
+    it('sets the ‘password’ type', () => {
+      render(
+        <>
+          <Label htmlFor="password-field">Password</Label>
+          <TextInput id="password-field" type="password" />
+        </>,
+      )
+
+      const component = screen.getByLabelText(/password/i)
+
+      expect(component).toHaveAttribute('type', 'password')
     })
   })
 })

@@ -12,7 +12,6 @@ const meta = {
   args: {
     disabled: false,
     invalid: false,
-    value: '',
   },
   argTypes: {
     disabled: {
@@ -33,20 +32,51 @@ type Story = StoryObj<typeof meta>
 
 export const Default: Story = {}
 
+export const Password: Story = {
+  args: {
+    minLength: 8,
+    type: 'password',
+    value: 'password',
+  },
+}
+
+export const EmailAddress: Story = {
+  args: {
+    type: 'email',
+    value: 'designsystem@amsterdam.nl',
+  },
+}
+
+export const WebAddress: Story = {
+  args: {
+    type: 'url',
+    value: 'https://designsystem.amsterdam/',
+  },
+}
+
+export const PhoneNumber: Story = {
+  args: {
+    type: 'tel',
+    value: '14020',
+  },
+}
+
 export const Placeholder: Story = {
   args: {
-    placeholder: 'E-mail',
+    placeholder: 'Placeholder text',
   },
 }
 
 export const Invalid: Story = {
   args: {
     invalid: true,
+    value: 'Invalid value',
   },
 }
 
 export const Disabled: Story = {
   args: {
     disabled: true,
+    value: 'Disabled input',
   },
 }

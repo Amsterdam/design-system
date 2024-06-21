@@ -33,6 +33,7 @@
   line-height: var(--ams-accordion-button-line-height);
   padding-block: var(--ams-accordion-button-padding-block);
   padding-inline: var(--ams-accordion-button-padding-inline);
+  text-align: start;
 
   &:focus {
     outline-offset: var(--ams-accordion-button-focus-outline-offset);

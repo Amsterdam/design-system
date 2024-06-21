@@ -36,6 +36,7 @@ export const Default: Story = {
 export const MultipleSources: Story = {
   args: {
     alt: '',
+    src: 'https://picsum.photos/1280/720',
     srcSet: 'https://picsum.photos/640/360 640w, https://picsum.photos/1280/720 1280w',
     sizes: '(max-width: 36rem) 640px, 50vw',
   },

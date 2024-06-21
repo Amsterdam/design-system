@@ -8,9 +8,11 @@ describe('Page menu', () => {
   it('renders a page menu with children', () => {
     const { container } = render(
       <PageMenu>
-        <PageMenu.Link href="#">English</PageMenu.Link>
+        <PageMenu.Link href="#" lang="en">
+          English
+        </PageMenu.Link>
         <PageMenu.Link href="#" icon={LoginIcon}>
-          Inloggen Mijn Amsterdam
+          Mijn Amsterdam
         </PageMenu.Link>
       </PageMenu>,
     )
@@ -39,7 +41,9 @@ describe('Page menu', () => {
     const ref = createRef<HTMLUListElement>()
     const { container } = render(
       <PageMenu ref={ref}>
-        <PageMenu.Link href="#">English</PageMenu.Link>
+        <PageMenu.Link href="#" lang="en">
+          English
+        </PageMenu.Link>
       </PageMenu>,
     )
     const component = container.querySelector(':only-child')

@@ -38,7 +38,7 @@ type Story = StoryObj<typeof meta>
 export const Default: Story = {
   render: (args) => (
     <FieldSet invalid={args.invalid} legend={args.legend}>
-      <Column gap="extra-small" style={{ width: '100%' }}>
+      <Column gap="extra-small">
         <Label htmlFor="input1">Voornaam</Label>
         <TextInput id="input1" invalid={args.invalid} aria-required="true" />
         <Label htmlFor="input2">Achternaam</Label>
@@ -161,7 +161,7 @@ export const CheckboxGroup: Story = {
   },
   render: (args) => (
     <FieldSet legend={args.legend} invalid={args.invalid}>
-      <Column gap="extra-small" style={{ width: '100%' }}>
+      <Column gap="extra-small">
         <Checkbox name="about" value="horeca" invalid={args.invalid} aria-required="true">
           Horecabedrijf
         </Checkbox>
@@ -187,7 +187,7 @@ export const CheckboxGroup: Story = {
 //   render: (args) => (
 //     <FieldSet legend={args.legend} invalid={args.invalid}>
 //       {args.invalid && <ErrorMessage className="ams-mb--sm">Geef aan waar uw melding over gaat.</ErrorMessage>}
-//       <Column gap="extra-small" style={{ width: '100%' }}>
+//       <Column gap="extra-small">
 //         <Checkbox name="about" value="horeca" invalid={args.invalid} aria-required="true">
 //           Horecabedrijf
 //         </Checkbox>
