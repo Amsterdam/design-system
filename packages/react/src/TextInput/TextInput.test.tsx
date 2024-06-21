@@ -122,7 +122,7 @@ describe('Text input', () => {
     textInputTypes
       .filter((type) => type !== 'password')
       .map((type) =>
-        it(`passes on the ‘${type}’ type`, () => {
+        it(`sets the ‘${type}’ type`, () => {
           render(<TextInput type={type} />)
 
           const component = screen.getByRole('textbox')
@@ -132,7 +132,7 @@ describe('Text input', () => {
       )
 
     // https://github.com/testing-library/dom-testing-library/issues/567
-    it(`passes on the ‘password’ type`, () => {
+    it('sets the ‘password’ type', () => {
       render(
         <>
           <Label htmlFor="password-field">Password</Label>

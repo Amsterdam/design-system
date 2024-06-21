@@ -68,7 +68,7 @@ describe('Date input', () => {
 
   describe('Type', () => {
     dateInputTypes.map((type) =>
-      it(`passes on the ‘${type}’ type`, () => {
+      it(`sets the ‘${type}’ type`, () => {
         const { container } = render(<DateInput type={type} />)
 
         const component = container.querySelector(':only-child')
