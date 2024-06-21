@@ -14,14 +14,132 @@ import README from "../../../../packages/css/src/components/text-input/README.md
 
 ## Examples
 
+### Type: Password
+
+Creates an input where the user can enter a password.
+The characters entered are hidden, usually represented by dots or asterisks, so that the actual text is not visible.
+
+Use the password type when the input requires sensitive information, like passwords or PINs.
+It ensures that the input is not readable by others who might be looking at the screen.
+
+Consider setting the following attributes:
+
+1. Allow the user’s password manager to automatically fill the password through `autocomplete="current-password"`.
+   When asking for a new password, use `autocomplete="new-password"` instead.
+2. Add a `minlength` attribute to ensure passwords meet a minimum length requirement.
+   Do not add a `maxlength` attribute.
+3. Use the `pattern` attribute to enforce password policies, like including numbers and special characters.
+   Describe these policies in the [Field](?path=/docs/components-forms-field--docs)’s description as well.
+4. If the password is a numeric PIN, add `inputmode="numeric"`.
+   Devices with virtual keyboards then switch to a numeric keypad layout which makes entering the password easier.
+5. Set `autocapitalize="none"`, `autocorrect="off"` and `spellcheck="false"` to stop browsers automatically changing user input.
+   Passwords shouldn’t be checked for spelling or grammar.
+   This may also prevent posting the password to third-party plugins.
+
+Follow the [guidelines for asking for passwords](https://design-system.service.gov.uk/patterns/passwords/) of the GOV.UK Design System.
+
+<Canvas of={TextInputStories.Password} />
+
+### Type: Email address
+
+This field helps the user enter an email address.
+It has built-in validation to check for a valid email format.
+However, do not rely only on the browser’s validation.
+
+The `email` input field looks like a standard text input.
+On some devices, it may show an email-specific keyboard.
+
+Consider setting the following attributes:
+
+1. Set `autocomplete="email"` to help browsers autofill the user’s email address.
+2. Set `autocapitalize="none"`, `autocorrect="off"` and `spellcheck="false"` to stop browsers automatically changing user input.
+   Email addresses shouldn’t be checked for spelling or grammar.
+   This may also prevent posting the email address to third-party plugins.
+
+Follow the [guidelines for asking for email addresses](https://design-system.service.gov.uk/patterns/email-addresses/) of the GOV.UK Design System.
+
+<Canvas of={TextInputStories.EmailAddress} />
+
+### Type: Web address
+
+This field helps the user enter a web address or URL.
+It has built-in validation to check for a valid format.
+However, do not rely only on the browser’s validation.
+
+The `url` input field looks like a standard text input.
+On some devices, it may show a URL-specific keyboard to aid in entering web addresses.
+
+Consider setting the following attributes:
+
+1. Set `autocomplete="url"` to help browsers autofill the user’s web address.
+2. Set `autocapitalize="none"`, `autocorrect="off"` and `spellcheck="false"` to stop browsers automatically changing user input.
+   Email addresses shouldn’t be checked for spelling or grammar.
+   This may also prevent posting the web address to third-party plugins.
+
+<Canvas of={TextInputStories.WebAddress} />
+
+### Type: Phone number
+
+This field helps the user enter a phone number.
+It has built-in validation to check for a valid format.
+However, do not rely only on the browser’s validation.
+
+The `tel` input field looks like a standard text input.
+On mobile devices, it may display a numeric keypad or a keyboard optimized for entering phone numbers.
+
+Guidelines:
+
+1. Set `autocomplete="tel"` to help browsers autofill the user’s phone number.
+
+Follow the [guidelines for asking for telephone numbers](https://design-system.service.gov.uk/patterns/telephone-numbers/) of the GOV.UK Design System.
+
+<Canvas of={TextInputStories.PhoneNumber} />
+
 ### Placeholder
+
+This text appears in the field when it is empty. It can give a brief hint about the kind of data to enter.
+
+Don’t try too hard to find a suitable text for a placeholder.
+Inputs without placeholder text are just fine – the label and a description should be clear enough.
+Do not use a placeholder instead of a [Label](?path=/docs/components-forms-label--docs).
+
+Follow the [guidelines for placeholder text](https://www.nldesignsystem.nl/richtlijnen/formulieren/placeholders) by NL Design System.
 
 <Canvas of={TextInputStories.Placeholder} />
 
 ### Invalid
 
+Indicates that the input value does not meet the specified constraints.
+An [Error Message](?path=/docs/components-forms-error-message--docs) must be displayed above the field.
+To highlight the error even more, the parent [Field](?path=/docs/components-forms-field--docs) component’s `invalid` prop must also be set.
+
 <Canvas of={TextInputStories.Invalid} />
 
 ### Disabled
 
+A field that can not (yet) be used is indicated with a grey border.
+It will not respond to interactions, e.g. with the mouse or keyboard.
+
+Avoid disabling input fields.
+They cause usability and accessibility problems.
+
+Disabled fields are often skipped by screen readers.
+This makes it hard for the user who rely on assistive technologies to understand the form’s content.
+They are not included in form submissions, which can lead to incomplete or missing data.
+
+Alternatives:
+
+1. Use the `readonly` attribute.
+   This makes a field uneditable but keeps it accessible and included in form submissions.
+2. Display data as plain text or within a non-input element like a `span` or `div`.
+3. Use conditional logic to hide or show fields based on user interaction.
+   This ensures all necessary fields are accessible and editable when needed.
+4. Use a label or text to explain why a field is not editable if you must disable it temporarily.
+   This helps the user understand the context.
+
 <Canvas of={TextInputStories.Disabled} />
+
+## Further reading
+
+- Extensive [guidelines for all types of input](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/text) on Mozilla Developer Network.
+- An overview of [suitable metadata for various kinds of content](https://nl-design-system.github.io/utrecht/storybook/?path=/docs/react_react-textbox--docs) to be entered by Gemeente Utrecht.

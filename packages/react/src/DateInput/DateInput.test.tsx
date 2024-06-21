@@ -1,6 +1,6 @@
 import { render } from '@testing-library/react'
 import { createRef } from 'react'
-import { DateInput } from './DateInput'
+import { DateInput, dateInputTypes } from './DateInput'
 import '@testing-library/jest-dom'
 
 describe('Date input', () => {
@@ -64,5 +64,17 @@ describe('Date input', () => {
 
       expect(component).not.toHaveAttribute('aria-invalid')
     })
+  })
+
+  describe('Type', () => {
+    dateInputTypes.map((type) =>
+      it(`sets the ‘${type}’ type`, () => {
+        const { container } = render(<DateInput type={type} />)
+
+        const component = container.querySelector(':only-child')
+
+        expect(component).toHaveAttribute('type', type)
+      }),
+    )
   })
 })
