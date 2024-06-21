@@ -28,6 +28,10 @@
   float: inline-start; // [1]
   inline-size: 100%; // [1]
   padding-inline: 0;
+
+  + * {
+    clear: both; // This resets the applied float for the legends first sibling
+  }
 }
 
 // [1] This combination allows the fieldset border to go around the legend, instead of through it.
