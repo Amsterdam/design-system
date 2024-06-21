@@ -1,0 +1,46 @@
+{/* @license CC0-1.0 */}
+
+import { Meta } from "@storybook/blocks";
+import * as HomeStories from "./Home.stories.tsx";
+
+<Meta of={HomeStories} />
+
+# Home Page
+
+## Layout
+
+A typical layout for a homepage:
+
+```tsx
+<SkipLink href="#main">Direct naar inhoud</SkipLink>
+<Screen maxWidth="wide">
+  <Grid>
+    <Header />
+  </Grid>
+  <main id="main">
+    <Overlap>
+      <Search />
+    </Overlap>
+    <Grid>
+      <AppComponent1 />
+      <AppComponent2 />
+      <AppComponent3 />
+    </Grid>
+  </main>
+  <Footer>
+    <Grid />
+  </Footer>
+</Screen>
+```
+
+1. The Skip Link prevents users from having to pass all preceding navigation links.
+2. The Screen component sets a maximum width for the entire page.
+3. The Grid divides the available width into 4, 8, or 12 columns.
+4. The Header shows the logo and menus for the application.
+5. The main element wraps everything between Header and Footer.
+   It carries an id for the skip link to target.
+6. An Overlap stacks a Search Field on a background Image.
+   It is as wide as the Grid, hence it is a sibling of it.
+7. Other components in the main area are laid out on a Grid again.
+8. The Footer contains its own Grid.
+   This allows its background colour to stretch to the Screen’s width.

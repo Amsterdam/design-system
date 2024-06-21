@@ -7,11 +7,15 @@ import clsx from 'clsx'
 import { forwardRef } from 'react'
 import type { ForwardedRef, InputHTMLAttributes } from 'react'
 
+export const dateInputTypes = ['date', 'datetime-local'] as const
+
+type DateInputType = (typeof dateInputTypes)[number]
+
 export type DateInputProps = {
   /** Whether the value fails a validation rule. */
   invalid?: boolean
   /** The kind of data that the user should provide. */
-  type?: 'date' | 'datetime-local'
+  type?: DateInputType
 } & Omit<InputHTMLAttributes<HTMLInputElement>, 'aria-invalid' | 'type'>
 
 export const DateInput = forwardRef(

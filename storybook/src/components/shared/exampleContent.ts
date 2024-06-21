@@ -3,9 +3,7 @@
  * Copyright Gemeente Amsterdam
  */
 
-const pickRandomItem = (list: Array<string>): string => list[Math.floor(Math.random() * list.length)]
-
-const pickRandomList = (list: Array<Array<string>>): Array<string> => list[Math.floor(Math.random() * list.length)]
+const pickRandomContent = <T>(list: Array<T>): T => list[Math.floor(Math.random() * list.length)]
 
 export const exampleAccordionHeading = () =>
   pickRandomItem([
@@ -20,7 +18,7 @@ export const exampleAccordionHeading = () =>
   ])
 
 export const exampleHeading = () =>
-  pickRandomItem([
+  pickRandomContent<string>([
     'Meer plekken voor kunst en cultuur, verspreid over de stad',
     'Amsterdam Light Festival maakt de stad ook deze winter een beetje mooier',
     'Opvang voor dak- en thuisloze mensen vanwege lage temperaturen',
@@ -37,7 +35,7 @@ export const exampleHeading = () =>
   ])
 
 export const exampleLinkList = () =>
-  pickRandomList([
+  pickRandomContent<Array<string>>([
     ['Contactformulier', 'Adressen en openingstijden', 'Bel 14 020'],
     ['Monumenten en archeologie', 'Ateliers en broedplaatsen', 'Kunstenplan', 'Subsidies'],
     [
@@ -60,7 +58,7 @@ export const exampleLinkList = () =>
   ])
 
 export const exampleOrderedList = () =>
-  pickRandomList([
+  pickRandomContent<Array<string>>([
     [
       'Voor deze actie hebben uw kinderen een persoonlijke OV-chipkaart nodig. Hebben zij die nog niet, dan kunt u die nu al aanvragen. Ieder kind heeft een eigen OV-chipkaart nodig.',
       'U kunt hem aanvragen via ov-chipkaart.nl. De kaart kost € 7,50. U krijgt hem na een dag of 5 thuisgestuurd.',
@@ -98,7 +96,7 @@ export const exampleOrderedList = () =>
   ])
 
 export const exampleParagraph = () =>
-  pickRandomItem([
+  pickRandomContent<string>([
     'Het waterrijke achterland van de provincie Holland was een paradijs voor vissers. Maar terwijl de visserij floreerde in Holland, was Amsterdam eigenlijk helemaal geen visserijstad. Toch maakten Amsterdammers naam in de vishandel. Zij speelden namelijk een cruciale rol bij het klaarmaken en vervoeren van haring.',
     'De politie controleert op overtredingen met opgevoerde/illegale e-bikes en fatbikes. Er worden boetes uitgedeeld en bij grove overtredingen neemt de politie fatbikes in beslag.',
     'Na een flink aantal jaren zijn alle laaghangende takken weg, zodat de boom geen hinder meer geeft. Daarom zie je in het onderste deel van een stadsboom meestal geen zijtakken. Ook halen we takken weg die dood of zwak zijn. Zij kunnen afbreken en dat kan gevaarlijk zijn.',
@@ -113,7 +111,7 @@ export const exampleParagraph = () =>
   ])
 
 export const exampleQuote = () =>
-  pickRandomItem([
+  pickRandomContent<string>([
     'We kunnen in heel Nederland schoolpleinen creëren waar kinderen worden uitgedaagd om samen te spelen en te sporten.',
     'Ik hou zo van een Amsterdamse kroeg en van het zwijgend met gedachten spelen. Alleen het sluitingsuur, voor mij en velen, komt steeds te laat en altijd weer te vroeg.',
     'Voetballen is heel simpel, maar het moeilijkste wat er is, is simpel voetballen.',
@@ -123,8 +121,51 @@ export const exampleQuote = () =>
     'Zorg goed voor de stad en voor elkaar.',
   ])
 
+type TopTask = {
+  heading: string
+  description: string
+}
+
+export const exampleTopTask = () =>
+  pickRandomContent<TopTask>([
+    {
+      heading: 'Gemeentebelastingen',
+      description: 'Bekijk welke belastingen en heffingen er zijn, hoe u bezwaar maakt of een betalingsregeling treft.',
+    },
+    {
+      heading: 'Parkeren + Reizen (P+R)',
+      description: 'U kunt met uw auto goedkoop parkeren bij een P+R-locatie aan de rand van de stad.',
+    },
+    {
+      heading: 'Paspoort',
+      description: 'Vraag deze bewijzen aan of verleng ze. Geef een vermissing aan.',
+    },
+    {
+      heading: 'Onderwijs',
+      description:
+        'Meld een kind aan voor basisschool, middelbare school of kinderopvang. Bekijk het kindtegoed op uw Stadspas.',
+    },
+    {
+      heading: 'Meldingen openbare ruimte en overlast',
+      description:
+        'Ziet u op straat of in een park iets waarvan u wilt dat het gemaakt of opgeruimd wordt, dan kunt u dat bij de gemeente melden.',
+    },
+    {
+      heading: 'Verhuizing doorgeven',
+      description: 'Geef uw nieuwe adres door als u binnen Amsterdam of naar Amsterdam verhuist.',
+    },
+    {
+      heading: 'Grof afval',
+      description: 'Grof afval zijn spullen die niet in een vuilniszak passen.',
+    },
+    {
+      heading: 'Kennisgevingen en bekendmakingen',
+      description: 'Kennisgevingen en bekendmakingen van de gemeente Amsterdam van de laatste 8 weken.',
+    },
+  ])
+
 export const exampleUnorderedList = () =>
-  pickRandomList([
+  pickRandomContent<Array<string>>([
     [
       'Kopie van de pagina’s van het huur- of koopcontract waarop uw naam, adres en handtekeningen staan.',
       'Als u bij iemand woont: een toestemmingsverklaring van de bewoner en een kopie van het paspoort, rijbewijs of ID-kaart van de bewoner.',

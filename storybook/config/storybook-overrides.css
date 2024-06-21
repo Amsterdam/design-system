@@ -114,4 +114,8 @@
   font-size: 0.875rem;
 }
 
+:is(#storybook-root, .sbdocs-content) a[href="#"] {
+  cursor: not-allowed;
+}
+
 /* stylelint-enable */
