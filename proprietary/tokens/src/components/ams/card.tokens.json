@@ -2,7 +2,7 @@
   "ams": {
     "card": {
       "gap": { "value": "{ams.space.sm}" },
-      "hgroup": {
+      "heading-group": {
         "gap": { "value": "{ams.space.sm}" }
       },
       "link": {
