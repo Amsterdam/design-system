@@ -6,7 +6,7 @@
 const pickRandomContent = <T>(list: Array<T>): T => list[Math.floor(Math.random() * list.length)]
 
 export const exampleAccordionHeading = () =>
-  pickRandomItem([
+  pickRandomContent([
     'Dit grof afval halen we niet op',
     'Dit grof afval halen we op',
     'Downloads en documenten',
