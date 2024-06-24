@@ -1,0 +1,4 @@
+import{j as o}from"./jsx-runtime-X2b_N9AH.js";import{useMDXComponents as e}from"./index-CRbi4mQH.js";import{M as i}from"./index-DLxEyDYl.js";import{D as m}from"./DetailsPage.stories-CtynyGV_.js";import"./index-uCp2LrAq.js";import"./_commonjsHelpers-BosuxZz1.js";import"./iframe-CrHrx9oP.js";import"../sb-preview/runtime.js";import"./index-BOkhicXD.js";import"./index-DXimoRZY.js";import"./index-B8K4vdXH.js";import"./index-DrFu-skq.js";import"./index.esm-CmIuUHLm.js";import"./clsx-B-dksMZM.js";import"./index.esm-BmSTY5-j.js";import"./meta-BzcKvN1Q.js";/*@license CC0-1.0*/function n(t){const r={h1:"h1",...e(),...t.components};return o.jsxs(o.Fragment,{children:[`
+`,`
+`,o.jsx(i,{of:m}),`
+`,o.jsx(r.h1,{id:"details-page",children:"Details Page"})]})}function P(t={}){const{wrapper:r}={...e(),...t.components};return r?o.jsx(r,{...t,children:o.jsx(n,{...t})}):n(t)}export{P as default};
