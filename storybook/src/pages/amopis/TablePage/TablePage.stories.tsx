@@ -5,22 +5,12 @@
 
 import { Meta, StoryObj } from '@storybook/react'
 import { TablePage } from './TablePage'
-import { Layout } from '../common/Layout'
+import { commonMeta } from '../common/meta'
 
 const meta = {
+  ...commonMeta,
   title: 'Pages/Amopis/Table Page',
   component: TablePage,
-  parameters: {
-    layout: 'fullscreen',
-    themes: { themeOverride: 'Compact' },
-  },
-  decorators: [
-    (Story) => (
-      <Layout>
-        <Story />
-      </Layout>
-    ),
-  ],
 } satisfies Meta<typeof TablePage>
 
 export default meta
