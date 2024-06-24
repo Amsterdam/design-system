@@ -22,6 +22,7 @@ const meta = {
   },
   parameters: {
     layout: 'fullscreen',
+    themes: { themeOverride: 'Spacious' },
   },
 } satisfies Meta<typeof Home>
 
