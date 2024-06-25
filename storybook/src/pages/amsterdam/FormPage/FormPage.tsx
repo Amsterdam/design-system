@@ -18,7 +18,7 @@ import {
 } from '@amsterdam/design-system-react'
 import { useState } from 'react'
 
-export const Form = () => {
+export const FormPage = () => {
   const [textareaLength, setTextareaLength] = useState(0)
 
   return (

@@ -10,7 +10,7 @@ import { commonMeta } from '../common/meta'
 
 const meta = {
   ...commonMeta,
-  title: 'Pages/Amsterdam.nl/Article',
+  title: 'Pages/Amsterdam.nl/Article Page',
   component: Article,
   args: {
     heading: 'Ontvang uw paspoort of ID-kaart in de zomer gratis thuis',
