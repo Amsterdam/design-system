@@ -9,7 +9,7 @@ import { commonMeta } from '../common/meta'
 
 const meta = {
   ...commonMeta,
-  title: 'Pages/Amsterdam.nl/Home',
+  title: 'Pages/Amsterdam.nl/Home Page',
   component: Home,
 } satisfies Meta<typeof Home>
 

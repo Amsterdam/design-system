@@ -43,7 +43,7 @@ export const parameters = {
         'Components',
         ['Buttons', 'Containers', 'Feedback', 'Forms', 'Layout', 'Media', 'Navigation', 'Text'],
         'Pages',
-        ['Introduction', 'Amsterdam.nl', ['Home'], 'Amopis'],
+        ['Introduction', 'Amsterdam.nl', ['Home Page'], 'Amopis'],
       ],
     },
   },
