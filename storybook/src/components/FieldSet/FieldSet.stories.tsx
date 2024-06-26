@@ -160,7 +160,10 @@ export const CheckboxGroup: Story = {
     legend: 'Waar gaat uw melding over?',
   },
   render: (args) => (
-    <FieldSet legend={args.legend} invalid={args.invalid}>
+    <FieldSet aria-labelledby="fieldset1 description6" id="fieldset1" invalid={args.invalid} legend={args.legend}>
+      <Paragraph id="description6" size="small" className="ams-mb--sm">
+        De laatstgenoemde melding.
+      </Paragraph>
       <Column gap="extra-small">
         <Checkbox name="about" value="horeca" invalid={args.invalid} aria-required="true">
           Horecabedrijf
@@ -179,28 +182,40 @@ export const CheckboxGroup: Story = {
   ),
 }
 
-// export const CheckboxGroupWithError: Story = {
-//   args: {
-//     invalid: true,
-//     legend: 'Waar gaat uw melding over?',
-//   },
-//   render: (args) => (
-//     <FieldSet legend={args.legend} invalid={args.invalid}>
-//       {args.invalid && <ErrorMessage className="ams-mb--sm">Geef aan waar uw melding over gaat.</ErrorMessage>}
-//       <Column gap="extra-small">
-//         <Checkbox name="about" value="horeca" invalid={args.invalid} aria-required="true">
-//           Horecabedrijf
-//         </Checkbox>
-//         <Checkbox name="about" value="ander_bedrijf" invalid={args.invalid} aria-required="true">
-//           Ander soort bedrijf
-//         </Checkbox>
-//         <Checkbox name="about" value="evenement" invalid={args.invalid} aria-required="true">
-//           Evenement
-//         </Checkbox>
-//         <Checkbox name="about" value="anders" invalid={args.invalid} aria-required="true">
-//           Iets anders
-//         </Checkbox>
-//       </Column>
-//     </FieldSet>
-//   ),
-// }
+export const CheckboxGroupWithError: Story = {
+  args: {
+    invalid: true,
+    legend: 'Waar gaat uw melding over?',
+  },
+  render: (args) => (
+    <FieldSet
+      aria-labelledby="fieldset2 description7 error4"
+      id="fieldset2"
+      invalid={args.invalid}
+      legend={args.legend}
+    >
+      <Paragraph id="description7" size="small" className="ams-mb--sm">
+        De laatstgenoemde melding.
+      </Paragraph>
+      {args.invalid && (
+        <ErrorMessage className="ams-mb--sm" id="error4">
+          Geef aan waar uw melding over gaat.
+        </ErrorMessage>
+      )}
+      <Column gap="extra-small">
+        <Checkbox name="about" value="horeca" invalid={args.invalid} aria-required="true">
+          Horecabedrijf
+        </Checkbox>
+        <Checkbox name="about" value="ander_bedrijf" invalid={args.invalid} aria-required="true">
+          Ander soort bedrijf
+        </Checkbox>
+        <Checkbox name="about" value="evenement" invalid={args.invalid} aria-required="true">
+          Evenement
+        </Checkbox>
+        <Checkbox name="about" value="anders" invalid={args.invalid} aria-required="true">
+          Iets anders
+        </Checkbox>
+      </Column>
+    </FieldSet>
+  ),
+}
