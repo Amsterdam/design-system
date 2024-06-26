@@ -1,0 +1,23 @@
+{/* @license CC0-1.0 */}
+
+import { Meta } from "@storybook/blocks";
+
+<Meta title="Docs/Design Guidelines/Usability" />
+
+# Usability
+
+## Focus management
+
+In traditional multi-page applications (MPAs) moving to another page means resetting focus to the `<body>` element,
+or the first element with an `autofocus` attribute if there is one.
+For single-page applications (SPAs) this isn’t always done consistently.
+For example, Next.js sets the focus on a new page at roughly the same position as it was on the old page,
+resulting in an unexpected focus position.
+
+Make sure to correct this focus behaviour in your application.
+The simplest and most consistent way to do this is to set focus on the `<body>` element when moving to another page.
+For some applications it might make more sense to set the focus somewhere else when moving to a new page,
+but be very careful with this.
+Your assumptions on how your users use your app might not be correct.
+Only change the expected focus behaviour when user tests show it’s an improvement,
+including for users of screen readers.
