@@ -5,20 +5,24 @@
 import clsx from 'clsx'
 import { forwardRef } from 'react'
 import type { HTMLAttributes, PropsWithChildren } from 'react'
-import type { GridColumnNumber, GridColumnNumbers } from './Grid'
+import type { GridColumnNumber, GridColumnNumbers, GridRowNumber, GridRowNumbers } from './Grid'
 import { gridCellClasses } from './gridCellClasses'
 
 type GridCellSpanAllProp = {
   /** Lets the cell span the full width of all grid variants. */
-  span: 'all'
+  colspan: 'all'
   start?: never
+  row?: GridRowNumber | GridRowNumbers
+  rowspan?: 'all'
 }
 
 type GridCellSpanAndStartProps = {
   /** The amount of grid columns the cell spans. */
-  span?: GridColumnNumber | GridColumnNumbers
+  colspan?: GridColumnNumber | GridColumnNumbers
   /** The index of the grid column the cell starts at. */
   start?: GridColumnNumber | GridColumnNumbers
+  row?: GridRowNumber | GridRowNumbers
+  rowspan?: GridRowNumber | GridRowNumbers
 }
 
 export type GridCellProps = {
@@ -28,8 +32,12 @@ export type GridCellProps = {
   PropsWithChildren<HTMLAttributes<HTMLElement>>
 
 export const GridCell = forwardRef(
-  ({ as: Tag = 'div', children, className, span, start, ...restProps }: GridCellProps, ref: any) => (
-    <Tag {...restProps} ref={ref} className={clsx('ams-grid__cell', gridCellClasses(span, start), className)}>
+  ({ as: Tag = 'div', children, className, colspan, start, row, rowspan, ...restProps }: GridCellProps, ref: any) => (
+    <Tag
+      {...restProps}
+      ref={ref}
+      className={clsx('ams-grid__cell', gridCellClasses(colspan, start, rowspan, row), className)}
+    >
       {children}
     </Tag>
   ),

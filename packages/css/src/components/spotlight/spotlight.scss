@@ -3,6 +3,8 @@
  * Copyright Gemeente Amsterdam
  */
 
+@import "../../common/breakpoint";
+
 .ams-spotlight--blue {
   --ams-spotlight-gradient-color: var(--ams-spotlight-blue-background-color);
 
@@ -55,6 +57,16 @@
   // Default gradient position, dont't use a gradient unless an aspect ratio is used with image
   --ams-spotlight-gradient-position: 0%;
 
+  // background: none;
+
+  // .ams-grid::before {
+  //   background: var(--ams-spotlight-gradient-color);
+  //   content: "";
+  //   display: block;
+  //   grid-column: 1 / -1;
+  //   grid-row: 2 / 3;
+  // }
+
   background: linear-gradient(
     to bottom,
     var(--ams-color-primary-white),
@@ -66,10 +78,6 @@
   &:has(.ams-aspect-ratio--x-tall) {
     --ams-spotlight-gradient-position: 106dvw;
   }
-
-  // &:has(.ams-aspect-ratio--tall, .ams-heading) {
-  //   --ams-spotlight-gradient-position: 20dvw;
-  // }
 
   &:has(.ams-aspect-ratio--square) {
     --ams-spotlight-gradient-position: 70dvw;
@@ -90,11 +98,13 @@
   &:has(.ams-aspect-ratio--tall) {
     --ams-spotlight-gradient-position: 88dvw;
 
-    &:has(.ams-heading, .ams-paragraph) {
-      --ams-spotlight-gradient-position: 20dvw;
+    @media screen and (min-width: $ams-breakpoint-medium) {
+      &:has(.ams-heading, .ams-paragraph) {
+        --ams-spotlight-gradient-position: 60%;
 
-      .ams-heading {
-        padding-block-start: 20dvw;
+        .ams-grid.ams-grid--rows-2 {
+          grid-template-rows: 60% auto;
+        }
       }
     }
   }

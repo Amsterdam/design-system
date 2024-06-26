@@ -9,11 +9,18 @@ import type { ForwardedRef, HTMLAttributes, PropsWithChildren } from 'react'
 import { GridCell } from './GridCell'
 
 export type GridColumnNumber = 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11 | 12
+export type GridRowNumber = 1 | 2 | 3
 
 export type GridColumnNumbers = {
   narrow: GridColumnNumber
   medium: GridColumnNumber
   wide: GridColumnNumber
+}
+
+export type GridRowNumbers = {
+  narrow: GridRowNumber
+  medium: GridRowNumber
+  wide: GridRowNumber
 }
 
 export type GridPaddingSize = 'small' | 'medium' | 'large'
@@ -36,6 +43,7 @@ type GridPaddingTopAndBottomProps = {
 export type GridProps = {
   /** The amount of space between rows. */
   gapVertical?: 'none' | 'small' | 'large'
+  rows?: GridRowNumber
 } & (GridPaddingVerticalProp | GridPaddingTopAndBottomProps) &
   PropsWithChildren<HTMLAttributes<HTMLDivElement>>
 
@@ -63,7 +71,7 @@ const paddingClasses = (
 
 const GridRoot = forwardRef(
   (
-    { children, className, gapVertical, paddingBottom, paddingTop, paddingVertical, ...restProps }: GridProps,
+    { children, className, gapVertical, paddingBottom, paddingTop, paddingVertical, rows, ...restProps }: GridProps,
     ref: ForwardedRef<HTMLDivElement>,
   ) => (
     <div
@@ -72,6 +80,7 @@ const GridRoot = forwardRef(
       className={clsx(
         'ams-grid',
         gapVertical && `ams-grid--gap-vertical--${gapVertical}`,
+        rows && `ams-grid--rows-${rows}`,
         paddingClasses(paddingBottom, paddingTop, paddingVertical),
         className,
       )}

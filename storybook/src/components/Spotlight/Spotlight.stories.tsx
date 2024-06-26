@@ -27,7 +27,7 @@ const meta = {
   render: ({ as, color }) => (
     <Spotlight as={as} color={color}>
       <Grid paddingVertical="medium">
-        <Grid.Cell span="all">
+        <Grid.Cell colspan="all">
           <Blockquote inverseColor={!color || !['green', 'yellow'].includes(color)}>{quote}</Blockquote>
         </Grid.Cell>
       </Grid>
@@ -113,7 +113,7 @@ export const GradientXTallAspect: Story = {
   render: ({ as, color, gradient }) => (
     <Spotlight as={as} color={color} gradient={gradient}>
       <Grid paddingVertical="medium">
-        <Grid.Cell span="all">
+        <Grid.Cell colspan="all">
           <Column gap="medium">
             <AspectRatio ratio="x-tall">
               <Image alt="" src="https://picsum.photos/1440/2560" cover />
@@ -139,7 +139,7 @@ export const GradientTallAspect: Story = {
   render: ({ as, color, gradient }) => (
     <Spotlight as={as} color={color} gradient={gradient}>
       <Grid paddingVertical="medium">
-        <Grid.Cell span="all">
+        <Grid.Cell colspan="all">
           <Column gap="medium">
             <AspectRatio ratio="tall">
               <Image alt="" src="https://picsum.photos/1200/1600" cover />
@@ -165,7 +165,7 @@ export const GradientSquareAspect: Story = {
   render: ({ as, color, gradient }) => (
     <Spotlight as={as} color={color} gradient={gradient}>
       <Grid paddingVertical="medium">
-        <Grid.Cell span="all">
+        <Grid.Cell colspan="all">
           <Column gap="medium">
             <AspectRatio ratio="square">
               <Image alt="" src={image} cover />
@@ -191,7 +191,7 @@ export const GradientWideAspect: Story = {
   render: ({ as, color, gradient }) => (
     <Spotlight as={as} color={color} gradient={gradient}>
       <Grid paddingVertical="medium">
-        <Grid.Cell span="all">
+        <Grid.Cell colspan="all">
           <Column gap="medium">
             <AspectRatio ratio="wide">
               <Image alt="" src={image} cover />
@@ -217,7 +217,7 @@ export const GradientXWideAspect: Story = {
   render: ({ as, color, gradient }) => (
     <Spotlight as={as} color={color} gradient={gradient}>
       <Grid paddingVertical="medium">
-        <Grid.Cell span="all">
+        <Grid.Cell colspan="all">
           <Column gap="medium">
             <AspectRatio ratio="x-wide">
               <Image alt="" src={image} cover />
@@ -243,7 +243,7 @@ export const Gradient2XWideAspect: Story = {
   render: ({ as, color, gradient }) => (
     <Spotlight as={as} color={color} gradient={gradient}>
       <Grid paddingVertical="medium">
-        <Grid.Cell span="all">
+        <Grid.Cell colspan="all">
           <Column gap="medium">
             <AspectRatio ratio="2x-wide">
               <Image alt="" src={image} cover />
@@ -268,8 +268,13 @@ export const GradientTallAspectWithText: Story = {
   },
   render: ({ as, color, gradient }) => (
     <Spotlight as={as} color={color} gradient={gradient}>
-      <Grid paddingVertical="medium">
-        <Grid.Cell start={{ narrow: 1, medium: 1, wide: 2 }} span={{ narrow: 4, medium: 4, wide: 5 }}>
+      <Grid paddingBottom="large" rows={2}>
+        <Grid.Cell
+          start={{ narrow: 1, medium: 1, wide: 2 }}
+          colspan={{ narrow: 4, medium: 4, wide: 5 }}
+          row={{ narrow: 2, medium: 2, wide: 2 }}
+          rowspan={{ narrow: 1, medium: 1, wide: 1 }}
+        >
           <Column gap="medium">
             <Heading level={2} inverseColor>
               Projecten op de kaart
@@ -284,7 +289,11 @@ export const GradientTallAspectWithText: Story = {
             </Link>
           </Column>
         </Grid.Cell>
-        <Grid.Cell span={{ narrow: 4, medium: 4, wide: 5 }}>
+        <Grid.Cell
+          colspan={{ narrow: 4, medium: 4, wide: 5 }}
+          row={{ narrow: 1, medium: 1, wide: 1 }}
+          rowspan={{ narrow: 1, medium: 2, wide: 2 }}
+        >
           <AspectRatio ratio="tall">
             <Image alt="" src="https://picsum.photos/1200/1600" cover style={{ width: '100%', height: '100%' }} />
           </AspectRatio>
