@@ -39,10 +39,10 @@ export const Default: Story = {
   render: (args) => (
     <FieldSet invalid={args.invalid} legend={args.legend}>
       <Column gap="extra-small">
-        <Label htmlFor="input1">Voornaam</Label>
-        <TextInput id="input1" invalid={args.invalid} aria-required="true" />
-        <Label htmlFor="input2">Achternaam</Label>
-        <TextInput id="input2" invalid={args.invalid} aria-required="true" />
+        <Label htmlFor="input-a1">Voornaam</Label>
+        <TextInput id="input-a1" invalid={args.invalid} aria-required="true" />
+        <Label htmlFor="input-a2">Achternaam</Label>
+        <TextInput id="input-a2" invalid={args.invalid} aria-required="true" />
       </Column>
     </FieldSet>
   ),
@@ -50,15 +50,15 @@ export const Default: Story = {
 
 export const WithDescription: Story = {
   render: (args) => (
-    <FieldSet invalid={args.invalid} legend={args.legend} aria-describedby="description2">
-      <Paragraph id="description2" size="small" className="ams-mb--sm">
+    <FieldSet invalid={args.invalid} legend={args.legend} aria-describedby="description-b">
+      <Paragraph id="description-b" size="small" className="ams-mb--sm">
         Vul uw naam in zoals in uw paspoort staat.
       </Paragraph>
       <Column gap="extra-small">
-        <Label htmlFor="input3">Voornaam</Label>
-        <TextInput id="input3" invalid={args.invalid} aria-required="true" />
-        <Label htmlFor="input4">Achternaam</Label>
-        <TextInput id="input4" invalid={args.invalid} aria-required="true" />
+        <Label htmlFor="input-b1">Voornaam</Label>
+        <TextInput id="input-b1" invalid={args.invalid} aria-required="true" />
+        <Label htmlFor="input-b2">Achternaam</Label>
+        <TextInput id="input-b2" invalid={args.invalid} aria-required="true" />
       </Column>
     </FieldSet>
   ),
@@ -67,17 +67,17 @@ export const WithDescription: Story = {
 export const WithError: Story = {
   args: { invalid: true },
   render: (args) => (
-    <FieldSet invalid={args.invalid} legend={args.legend} aria-describedby="description3">
-      <Paragraph id="description3" size="small" className="ams-mb--sm">
+    <FieldSet invalid={args.invalid} legend={args.legend} aria-describedby="description-c">
+      <Paragraph id="description-c" size="small" className="ams-mb--sm">
         Vul uw naam in zoals in uw paspoort staat.
       </Paragraph>
       <Column gap="extra-small">
-        <Label htmlFor="input5">Voornaam</Label>
-        {args.invalid && <ErrorMessage id="error1">Vul uw voornaam in.</ErrorMessage>}
-        <TextInput id="input5" aria-describedby="error1" aria-required="true" invalid={args.invalid} />
-        <Label htmlFor="input6">Achternaam</Label>
-        {args.invalid && <ErrorMessage id="error2">Vul uw achternaam in.</ErrorMessage>}
-        <TextInput id="input6" aria-describedby="error2" aria-required="true" invalid={args.invalid} />
+        <Label htmlFor="input-c1">Voornaam</Label>
+        {args.invalid && <ErrorMessage id="error-c1">Vul uw voornaam in.</ErrorMessage>}
+        <TextInput id="input-c1" aria-describedby="error-c1" aria-required="true" invalid={args.invalid} />
+        <Label htmlFor="input-c2">Achternaam</Label>
+        {args.invalid && <ErrorMessage id="error-c2">Vul uw achternaam in.</ErrorMessage>}
+        <TextInput id="input-c2" aria-describedby="error-c2" aria-required="true" invalid={args.invalid} />
       </Column>
     </FieldSet>
   ),
@@ -90,12 +90,12 @@ export const RadioGroup: Story = {
   render: (args) => (
     <FieldSet
       legend={args.legend}
-      aria-describedby="description4"
+      aria-describedby="description-d"
       role="radiogroup"
       aria-required="true"
       invalid={args.invalid}
     >
-      <Paragraph id="description4" size="small" className="ams-mb--sm">
+      <Paragraph id="description-d" size="small" className="ams-mb--sm">
         De laatstgenoemde melding.
       </Paragraph>
       <Column gap="extra-small">
@@ -124,16 +124,16 @@ export const RadioGroupWithError: Story = {
   render: (args) => (
     <FieldSet
       legend={args.legend}
-      aria-describedby="description5 error3"
+      aria-describedby="description-e error-e"
       role="radiogroup"
       aria-required="true"
       invalid={args.invalid}
     >
-      <Paragraph id="description5" size="small" className="ams-mb--sm">
+      <Paragraph id="description-e" size="small" className="ams-mb--sm">
         De laatstgenoemde melding.
       </Paragraph>
       {args.invalid && (
-        <ErrorMessage className="ams-mb--sm" id="error3">
+        <ErrorMessage className="ams-mb--sm" id="error-e">
           Geef aan waar uw laatstgenoemde melding over gaat.
         </ErrorMessage>
       )}
@@ -160,8 +160,8 @@ export const CheckboxGroup: Story = {
     legend: 'Waar gaat uw melding over?',
   },
   render: (args) => (
-    <FieldSet aria-labelledby="fieldset1 description6" id="fieldset1" invalid={args.invalid} legend={args.legend}>
-      <Paragraph id="description6" size="small" className="ams-mb--sm">
+    <FieldSet aria-labelledby="fieldset-f description-f" id="fieldset-f" invalid={args.invalid} legend={args.legend}>
+      <Paragraph id="description-f" size="small" className="ams-mb--sm">
         De laatstgenoemde melding.
       </Paragraph>
       <Column gap="extra-small">
@@ -189,16 +189,16 @@ export const CheckboxGroupWithError: Story = {
   },
   render: (args) => (
     <FieldSet
-      aria-labelledby="fieldset2 description7 error4"
-      id="fieldset2"
+      aria-labelledby="fieldset-g description-g error-g"
+      id="fieldset-g"
       invalid={args.invalid}
       legend={args.legend}
     >
-      <Paragraph id="description7" size="small" className="ams-mb--sm">
+      <Paragraph id="description-g" size="small" className="ams-mb--sm">
         De laatstgenoemde melding.
       </Paragraph>
       {args.invalid && (
-        <ErrorMessage className="ams-mb--sm" id="error4">
+        <ErrorMessage className="ams-mb--sm" id="error-g">
           Geef aan waar uw melding over gaat.
         </ErrorMessage>
       )}
