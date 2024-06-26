@@ -6,7 +6,6 @@
 import clsx from 'clsx'
 import { forwardRef } from 'react'
 import type { AnchorHTMLAttributes, ForwardedRef } from 'react'
-import { VisuallyHidden } from '../VisuallyHidden'
 
 export type TopTaskLinkProps = {
   /** The title. */
@@ -20,7 +19,7 @@ export const TopTaskLink = forwardRef(
     <a {...restProps} ref={ref} className={clsx('ams-top-task-link', className)}>
       <span className="ams-top-task-link__label">{label}</span>
       {/* This comma makes screen readers add a slight pause between the label and the description. */}
-      <VisuallyHidden>,</VisuallyHidden>
+      <span className="ams-visually-hidden">,</span>
       <span className="ams-top-task-link__description">{description}</span>
     </a>
   ),

@@ -8,7 +8,6 @@ import clsx from 'clsx'
 import { forwardRef } from 'react'
 import type { ButtonHTMLAttributes, ForwardedRef } from 'react'
 import { Icon } from '../Icon'
-import { VisuallyHidden } from '../VisuallyHidden'
 
 export type IconButtonProps = {
   /** The accessible text for the button. Will be announced by screen readers. Should describe the button’s action. */
@@ -36,7 +35,7 @@ export const IconButton = forwardRef(
         className,
       )}
     >
-      <VisuallyHidden>{label}</VisuallyHidden>
+      <span className="ams-visually-hidden">{label}</span>
       <Icon svg={svg} size={size} square />
     </button>
   ),

@@ -9,7 +9,6 @@ import type { ForwardedRef, HTMLAttributes, ReactNode } from 'react'
 import { Heading } from '../Heading'
 import { Logo } from '../Logo'
 import type { LogoBrand } from '../Logo'
-import { VisuallyHidden } from '../VisuallyHidden'
 
 export type HeaderProps = {
   /** The name of the application. */
@@ -44,7 +43,7 @@ export const Header = forwardRef(
       <>
         <header {...restProps} ref={ref} className={clsx('ams-header', className)}>
           <a href={logoLink} className="ams-header__logo-link">
-            <VisuallyHidden>{logoLinkTitle}</VisuallyHidden>
+            <span className="ams-visually-hidden">{logoLinkTitle}</span>
             <Logo brand={logoBrand} />
           </a>
           {links && <div className="ams-header__links">{links}</div>}

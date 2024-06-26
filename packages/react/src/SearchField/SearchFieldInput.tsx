@@ -6,7 +6,6 @@
 import clsx from 'clsx'
 import { forwardRef, useId } from 'react'
 import type { ForwardedRef, InputHTMLAttributes } from 'react'
-import { VisuallyHidden } from '../VisuallyHidden'
 
 type SearchFieldInputProps = {
   /** Whether the value fails a validation rule. */
@@ -24,8 +23,8 @@ export const SearchFieldInput = forwardRef(
 
     return (
       <>
-        <label htmlFor={id}>
-          <VisuallyHidden>{label}</VisuallyHidden>
+        <label htmlFor={id} className="ams-visually-hidden">
+          {label}
         </label>
         <input
           {...restProps}

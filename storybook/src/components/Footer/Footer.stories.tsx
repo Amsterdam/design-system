@@ -3,15 +3,7 @@
  * Copyright Gemeente Amsterdam
  */
 
-import {
-  Footer,
-  Grid,
-  Heading,
-  LinkList,
-  PageMenu,
-  Paragraph,
-  VisuallyHidden,
-} from '@amsterdam/design-system-react/src'
+import { Footer, Grid, Heading, LinkList, PageMenu, Paragraph } from '@amsterdam/design-system-react/src'
 import {
   CameraIcon,
   ClockIcon,
@@ -44,9 +36,9 @@ export const Default: Story = {
   args: {
     children: [
       <Footer.Top key="footer-top">
-        <VisuallyHidden>
-          <Heading>Colofon</Heading>
-        </VisuallyHidden>
+        <Heading className="ams-visually-hidden" inverseColor>
+          Colofon
+        </Heading>
         <Grid gapVertical="large" paddingVertical="medium">
           <Grid.Cell span={4}>
             <Heading className="ams-mb--xs" level={2} size="level-4" inverseColor>
@@ -108,9 +100,9 @@ export const Default: Story = {
         </Grid>
       </Footer.Top>,
       <Footer.Bottom key="footer-bottom">
-        <VisuallyHidden>
-          <Heading level={2}>Over deze website</Heading>
-        </VisuallyHidden>
+        <Heading className="ams-visually-hidden" level={2}>
+          Over deze website
+        </Heading>
         <Grid paddingVertical="small">
           <Grid.Cell span="all">
             <PageMenu>{PageMenuStory.args?.children}</PageMenu>
@@ -125,9 +117,9 @@ export const Onderzoek: Story = {
   args: {
     children: [
       <Footer.Top key="footer-top">
-        <VisuallyHidden>
-          <Heading>Colofon</Heading>
-        </VisuallyHidden>
+        <Heading className="ams-visually-hidden" inverseColor>
+          Colofon
+        </Heading>
         <Grid gapVertical="large" paddingVertical="medium">
           <Grid.Cell span={3}>
             <Heading className="ams-mb--xs" level={2} size="level-4" inverseColor>
@@ -186,9 +178,9 @@ export const Onderzoek: Story = {
         </Grid>
       </Footer.Top>,
       <Footer.Bottom key="footer-bottom">
-        <VisuallyHidden>
-          <Heading level={2}>Over deze website</Heading>
-        </VisuallyHidden>
+        <Heading className="ams-visually-hidden" level={2}>
+          Over deze website
+        </Heading>
         <Grid paddingVertical="small">
           <Grid.Cell span="all">
             <PageMenu>{PageMenuStory.args?.children}</PageMenu>
