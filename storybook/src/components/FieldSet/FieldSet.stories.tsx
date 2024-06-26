@@ -40,9 +40,21 @@ export const Default: Story = {
     <FieldSet invalid={args.invalid} legend={args.legend}>
       <Column gap="extra-small">
         <Label htmlFor="input-a1">Voornaam</Label>
-        <TextInput id="input-a1" invalid={args.invalid} aria-required="true" />
+        {args.invalid && <ErrorMessage id="error-a1">Vul uw voornaam in.</ErrorMessage>}
+        <TextInput
+          aria-describedby={args.invalid ? 'error-a1' : undefined}
+          aria-required="true"
+          id="input-a1"
+          invalid={args.invalid}
+        />
         <Label htmlFor="input-a2">Achternaam</Label>
-        <TextInput id="input-a2" invalid={args.invalid} aria-required="true" />
+        {args.invalid && <ErrorMessage id="error-a2">Vul uw achternaam in.</ErrorMessage>}
+        <TextInput
+          aria-describedby={args.invalid ? 'error-a2' : undefined}
+          aria-required="true"
+          id="input-a2"
+          invalid={args.invalid}
+        />
       </Column>
     </FieldSet>
   ),
@@ -56,9 +68,21 @@ export const WithDescription: Story = {
       </Paragraph>
       <Column gap="extra-small">
         <Label htmlFor="input-b1">Voornaam</Label>
-        <TextInput id="input-b1" invalid={args.invalid} aria-required="true" />
+        {args.invalid && <ErrorMessage id="error-b1">Vul uw voornaam in.</ErrorMessage>}
+        <TextInput
+          aria-describedby={args.invalid ? 'error-b1' : undefined}
+          aria-required="true"
+          id="input-b1"
+          invalid={args.invalid}
+        />
         <Label htmlFor="input-b2">Achternaam</Label>
-        <TextInput id="input-b2" invalid={args.invalid} aria-required="true" />
+        {args.invalid && <ErrorMessage id="error-b2">Vul uw achternaam in.</ErrorMessage>}
+        <TextInput
+          aria-describedby={args.invalid ? 'error-b2' : undefined}
+          aria-required="true"
+          id="input-b2"
+          invalid={args.invalid}
+        />
       </Column>
     </FieldSet>
   ),
@@ -74,10 +98,20 @@ export const WithError: Story = {
       <Column gap="extra-small">
         <Label htmlFor="input-c1">Voornaam</Label>
         {args.invalid && <ErrorMessage id="error-c1">Vul uw voornaam in.</ErrorMessage>}
-        <TextInput id="input-c1" aria-describedby="error-c1" aria-required="true" invalid={args.invalid} />
+        <TextInput
+          aria-describedby={args.invalid ? 'error-c1' : undefined}
+          aria-required="true"
+          id="input-c1"
+          invalid={args.invalid}
+        />
         <Label htmlFor="input-c2">Achternaam</Label>
         {args.invalid && <ErrorMessage id="error-c2">Vul uw achternaam in.</ErrorMessage>}
-        <TextInput id="input-c2" aria-describedby="error-c2" aria-required="true" invalid={args.invalid} />
+        <TextInput
+          aria-describedby={args.invalid ? 'error-c2' : undefined}
+          aria-required="true"
+          id="input-c2"
+          invalid={args.invalid}
+        />
       </Column>
     </FieldSet>
   ),
@@ -89,26 +123,31 @@ export const RadioGroup: Story = {
   },
   render: (args) => (
     <FieldSet
-      legend={args.legend}
-      aria-describedby="description-d"
-      role="radiogroup"
+      aria-describedby={`description-d${args.invalid ? ' error-d' : ''}`}
       aria-required="true"
       invalid={args.invalid}
+      legend={args.legend}
+      role="radiogroup"
     >
-      <Paragraph id="description-d" size="small" className="ams-mb--sm">
+      <Paragraph className="ams-mb--sm" id="description-d" size="small">
         De laatstgenoemde melding.
       </Paragraph>
+      {args.invalid && (
+        <ErrorMessage className="ams-mb--sm" id="error-d">
+          Geef aan waar uw laatstgenoemde melding over gaat.
+        </ErrorMessage>
+      )}
       <Column gap="extra-small">
-        <Radio name="about" value="horeca" invalid={args.invalid} aria-required="true">
+        <Radio aria-required="true" invalid={args.invalid} name="about" value="horeca">
           Horecabedrijf
         </Radio>
-        <Radio name="about" value="ander_bedrijf" invalid={args.invalid} aria-required="true">
+        <Radio aria-required="true" invalid={args.invalid} name="about" value="ander_bedrijf">
           Ander soort bedrijf
         </Radio>
-        <Radio name="about" value="evenement" invalid={args.invalid} aria-required="true">
+        <Radio aria-required="true" invalid={args.invalid} name="about" value="evenement">
           Evenement
         </Radio>
-        <Radio name="about" value="anders" invalid={args.invalid} aria-required="true">
+        <Radio aria-required="true" invalid={args.invalid} name="about" value="anders">
           Iets anders
         </Radio>
       </Column>
@@ -123,13 +162,13 @@ export const RadioGroupWithError: Story = {
   },
   render: (args) => (
     <FieldSet
-      legend={args.legend}
-      aria-describedby="description-e error-e"
-      role="radiogroup"
+      aria-describedby={`description-e${args.invalid ? ' error-e' : ''}`}
       aria-required="true"
       invalid={args.invalid}
+      legend={args.legend}
+      role="radiogroup"
     >
-      <Paragraph id="description-e" size="small" className="ams-mb--sm">
+      <Paragraph className="ams-mb--sm" id="description-e" size="small">
         De laatstgenoemde melding.
       </Paragraph>
       {args.invalid && (
@@ -138,16 +177,16 @@ export const RadioGroupWithError: Story = {
         </ErrorMessage>
       )}
       <Column gap="extra-small">
-        <Radio name="about" value="horeca" invalid={args.invalid} aria-required="true">
+        <Radio aria-required="true" invalid={args.invalid} name="about" value="horeca">
           Horecabedrijf
         </Radio>
-        <Radio name="about" value="ander_bedrijf" invalid={args.invalid} aria-required="true">
+        <Radio aria-required="true" invalid={args.invalid} name="about" value="ander_bedrijf">
           Ander soort bedrijf
         </Radio>
-        <Radio name="about" value="evenement" invalid={args.invalid} aria-required="true">
+        <Radio aria-required="true" invalid={args.invalid} name="about" value="evenement">
           Evenement
         </Radio>
-        <Radio name="about" value="anders" invalid={args.invalid} aria-required="true">
+        <Radio aria-required="true" invalid={args.invalid} name="about" value="anders">
           Iets anders
         </Radio>
       </Column>
@@ -160,21 +199,31 @@ export const CheckboxGroup: Story = {
     legend: 'Waar gaat uw melding over?',
   },
   render: (args) => (
-    <FieldSet aria-labelledby="fieldset-f description-f" id="fieldset-f" invalid={args.invalid} legend={args.legend}>
-      <Paragraph id="description-f" size="small" className="ams-mb--sm">
+    <FieldSet
+      aria-labelledby={`fieldset-f description-f${args.invalid ? ' error-f' : ''}`}
+      id="fieldset-f"
+      invalid={args.invalid}
+      legend={args.legend}
+    >
+      <Paragraph className="ams-mb--sm" id="description-f" size="small">
         De laatstgenoemde melding.
       </Paragraph>
+      {args.invalid && (
+        <ErrorMessage className="ams-mb--sm" id="error-f">
+          Geef aan waar uw melding over gaat.
+        </ErrorMessage>
+      )}
       <Column gap="extra-small">
-        <Checkbox name="about" value="horeca" invalid={args.invalid} aria-required="true">
+        <Checkbox aria-required="true" invalid={args.invalid} name="about" value="horeca">
           Horecabedrijf
         </Checkbox>
-        <Checkbox name="about" value="ander_bedrijf" invalid={args.invalid} aria-required="true">
+        <Checkbox aria-required="true" invalid={args.invalid} name="about" value="ander_bedrijf">
           Ander soort bedrijf
         </Checkbox>
-        <Checkbox name="about" value="evenement" invalid={args.invalid} aria-required="true">
+        <Checkbox aria-required="true" invalid={args.invalid} name="about" value="evenement">
           Evenement
         </Checkbox>
-        <Checkbox name="about" value="anders" invalid={args.invalid} aria-required="true">
+        <Checkbox aria-required="true" invalid={args.invalid} name="about" value="anders">
           Iets anders
         </Checkbox>
       </Column>
@@ -189,7 +238,7 @@ export const CheckboxGroupWithError: Story = {
   },
   render: (args) => (
     <FieldSet
-      aria-labelledby="fieldset-g description-g error-g"
+      aria-labelledby={`fieldset-g description-g${args.invalid ? ' error-g' : ''}`}
       id="fieldset-g"
       invalid={args.invalid}
       legend={args.legend}
@@ -203,16 +252,16 @@ export const CheckboxGroupWithError: Story = {
         </ErrorMessage>
       )}
       <Column gap="extra-small">
-        <Checkbox name="about" value="horeca" invalid={args.invalid} aria-required="true">
+        <Checkbox aria-required="true" invalid={args.invalid} name="about" value="horeca">
           Horecabedrijf
         </Checkbox>
-        <Checkbox name="about" value="ander_bedrijf" invalid={args.invalid} aria-required="true">
+        <Checkbox aria-required="true" invalid={args.invalid} name="about" value="ander_bedrijf">
           Ander soort bedrijf
         </Checkbox>
-        <Checkbox name="about" value="evenement" invalid={args.invalid} aria-required="true">
+        <Checkbox aria-required="true" invalid={args.invalid} name="about" value="evenement">
           Evenement
         </Checkbox>
-        <Checkbox name="about" value="anders" invalid={args.invalid} aria-required="true">
+        <Checkbox aria-required="true" invalid={args.invalid} name="about" value="anders">
           Iets anders
         </Checkbox>
       </Column>
