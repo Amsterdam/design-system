@@ -6,6 +6,7 @@
 import clsx from 'clsx'
 import { forwardRef } from 'react'
 import type { ForwardedRef, HTMLAttributes } from 'react'
+import { useAddErrorCountToPageTitle } from './useAddErrorCountToPageTitle'
 import { Alert } from '../Alert'
 import type { HeadingLevel } from '../Heading'
 import { LinkList } from '../LinkList'
@@ -25,6 +26,8 @@ export type FormErrorListProps = {
    * Note: this intentionally does not change the font size.
    */
   headingLevel?: HeadingLevel
+  /** The text following the error count. */
+  pageTitleSuffix?: { plural: string; singular: string }
 } & HTMLAttributes<HTMLDivElement>
 
 export const FormErrorList = forwardRef(
@@ -34,10 +37,13 @@ export const FormErrorList = forwardRef(
       errors,
       heading = 'Verbeter de fouten voor u verder gaat',
       headingLevel = 2,
+      pageTitleSuffix,
       ...restProps
     }: FormErrorListProps,
     ref: ForwardedRef<HTMLDivElement>,
   ) => {
+    useAddErrorCountToPageTitle(errors, pageTitleSuffix)
+
     if (errors.length === 0) return undefined
 
     return (
