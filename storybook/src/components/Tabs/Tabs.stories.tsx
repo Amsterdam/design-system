@@ -43,17 +43,17 @@ const tabsContent: Array<TabContent> = [
 
 const defaultTabs = [
   <Tabs.List key="tabsList">
-    {tabsContent.map((content, index) => (
-      <Tabs.Button key={content.label} tab={index}>
-        {content.label}
+    {tabsContent.map(({ label }, index) => (
+      <Tabs.Button key={label} tab={index}>
+        {label}
       </Tabs.Button>
     ))}
   </Tabs.List>,
-  tabsContent.map((content, index) => (
-    <Tabs.Panel tab={index} key={content.label}>
+  tabsContent.map(({ body, label }, index) => (
+    <Tabs.Panel tab={index} key={label}>
       <div style={{ paddingTop: '2rem' }}>
-        <Heading level={3}>{content.label}</Heading>
-        <Paragraph>{content.body}</Paragraph>
+        <Heading level={3}>{label}</Heading>
+        <Paragraph>{body}</Paragraph>
       </div>
     </Tabs.Panel>
   )),
