@@ -49,15 +49,14 @@ const defaultTabs = [
       </Tabs.Button>
     ))}
   </Tabs.List>,
-  ...(() =>
-    tabsContent.map((content, index) => (
-      <Tabs.Panel tab={index} key={content.label}>
-        <div style={{ paddingTop: '2rem' }}>
-          <Heading level={3}>{content.label}</Heading>
-          <Paragraph>{content.body}</Paragraph>
-        </div>
-      </Tabs.Panel>
-    )))(),
+  tabsContent.map((content, index) => (
+    <Tabs.Panel tab={index} key={content.label}>
+      <div style={{ paddingTop: '2rem' }}>
+        <Heading level={3}>{content.label}</Heading>
+        <Paragraph>{content.body}</Paragraph>
+      </div>
+    </Tabs.Panel>
+  )),
 ]
 
 const meta = {
