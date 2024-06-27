@@ -18,15 +18,16 @@ type Story = StoryObj<typeof meta>
 export const Default: Story = {
   args: {
     children: [
-      <AspectRatio key="background-image" ratio="2x-wide">
+      <AspectRatio key={1} ratio="2x-wide">
         <Image
           alt=""
           cover
           sizes="(max-width: 36rem) 640px, (max-width: 68rem) 1280px, 1600px"
+          src="https://picsum.photos/1600/500"
           srcSet="https://picsum.photos/640/200 640w, https://picsum.photos/1280/400 1280w, https://picsum.photos/1600/500 1600w"
         />
       </AspectRatio>,
-      <Grid key="search-field" style={{ alignSelf: 'center' }}>
+      <Grid key={2} style={{ alignSelf: 'center' }}>
         <Grid.Cell span={{ narrow: 4, medium: 6, wide: 8 }} start={{ narrow: 1, medium: 2, wide: 3 }}>
           <SearchField onSubmit={(e) => e.preventDefault()}>
             <SearchField.Input label="Zoeken" placeholder="Wat kunnen we voor u vinden?" />

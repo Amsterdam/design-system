@@ -42,6 +42,8 @@ export const parameters = {
         ['Introduction', 'Assets', 'Design Guidelines'],
         'Components',
         ['Buttons', 'Containers', 'Feedback', 'Forms', 'Layout', 'Media', 'Navigation', 'Text'],
+        'Pages',
+        ['Introduction', 'Amsterdam.nl', ['Home']],
       ],
     },
   },
