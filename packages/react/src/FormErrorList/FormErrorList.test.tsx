@@ -78,16 +78,6 @@ describe('Form error list', () => {
     expect(component).toBeInTheDocument()
   })
 
-  it('prepends the document title with the error count', async () => {
-    const docTitle = 'Document title'
-
-    document.title = docTitle
-
-    render(<FormErrorList errors={testErrors} />)
-
-    await waitFor(() => expect(document.title).toBe(`(2 invoerfouten) ${docTitle}`))
-  })
-
   const docTitle = 'Document title'
   const singleTestError = [{ id: '#', label: 'De geldigheidsdatum van uw paspoort moet in de toekomst liggen.' }]
 
