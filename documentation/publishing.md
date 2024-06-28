@@ -2,7 +2,7 @@
 
 # Publishing
 
-We use a [Release Please GitHub Action](https://github.com/google-github-actions/release-please-action) to create changelog and release PRs for all our packages.
+We use a [Release Please GitHub Action](https://github.com/googleapis/release-please-action) to create changelog and release PRs for all our packages.
 When the release PR is merged, that same action publishes the new release to npm, creates a release on GitHub, and deploys it to our main Storybook environment.
 
 The [maintainers](./documentation/maintainers.md) can release new versions of our packages.
