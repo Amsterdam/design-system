@@ -32,14 +32,6 @@ type Story = StoryObj<typeof meta>
 
 export const Default: Story = {}
 
-export const Password: Story = {
-  args: {
-    minLength: 8,
-    type: 'password',
-    value: 'password',
-  },
-}
-
 export const EmailAddress: Story = {
   args: {
     type: 'email',
