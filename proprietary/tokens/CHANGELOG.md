@@ -3,6 +3,19 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.10.0](https://github.com/Amsterdam/design-system/compare/design-system-tokens-v0.9.0...design-system-tokens-v0.10.0) (2024-06-28)
+
+
+### ⚠ BREAKING CHANGES
+
+* Allow additional background colours for Avatar and remove dark blue option ([#1257](https://github.com/Amsterdam/design-system/issues/1257))
+
+### Features
+
+* Add Table of Contents component ([#1248](https://github.com/Amsterdam/design-system/issues/1248)) ([1f4c09a](https://github.com/Amsterdam/design-system/commit/1f4c09a08d2aa96d1c584eceb498d33c31aa52ad))
+* Allow additional background colours for Avatar and remove dark blue option ([#1257](https://github.com/Amsterdam/design-system/issues/1257)) ([a1a3c8f](https://github.com/Amsterdam/design-system/commit/a1a3c8fc58f249f0cd9c7d8bd09cc46f3f48cb5c))
+* Change values for tall, wide, and extra wide aspect ratios ([#1254](https://github.com/Amsterdam/design-system/issues/1254)) ([478508a](https://github.com/Amsterdam/design-system/commit/478508a758f311b89dfb8214813b25e50d875ff0))
+
 ## [0.9.0](https://github.com/Amsterdam/design-system/compare/design-system-tokens-v0.8.0...design-system-tokens-v0.9.0) (2024-06-05)
 
 
