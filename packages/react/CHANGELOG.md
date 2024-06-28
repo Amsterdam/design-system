@@ -3,6 +3,31 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.10.0](https://github.com/Amsterdam/design-system/compare/design-system-react-v0.9.0...design-system-react-v0.10.0) (2024-06-28)
+
+
+### ⚠ BREAKING CHANGES
+
+* Allow additional background colours for Avatar and remove dark blue option ([#1257](https://github.com/Amsterdam/design-system/issues/1257))
+* Rename title props for Alert, Header and Dialog and require it for Dialog ([#1251](https://github.com/Amsterdam/design-system/issues/1251))
+
+### Features
+
+* Add examples of entire pages to Storybook ([#1234](https://github.com/Amsterdam/design-system/issues/1234)) ([e5f8d58](https://github.com/Amsterdam/design-system/commit/e5f8d5820b4aac7e9ed145e3a3dbfd22480304de))
+* Add Form Error List ([#1252](https://github.com/Amsterdam/design-system/issues/1252)) ([e879942](https://github.com/Amsterdam/design-system/commit/e87994292f62434a1ebff704c909bea4a0feff25))
+* Add Table of Contents component ([#1248](https://github.com/Amsterdam/design-system/issues/1248)) ([1f4c09a](https://github.com/Amsterdam/design-system/commit/1f4c09a08d2aa96d1c584eceb498d33c31aa52ad))
+* Allow a specific Tab to be made active ([#1258](https://github.com/Amsterdam/design-system/issues/1258)) ([9d2f01d](https://github.com/Amsterdam/design-system/commit/9d2f01d1db3cd2de8cc1364cc8a677b70a50a9f8))
+* Allow additional background colours for Avatar and remove dark blue option ([#1257](https://github.com/Amsterdam/design-system/issues/1257)) ([a1a3c8f](https://github.com/Amsterdam/design-system/commit/a1a3c8fc58f249f0cd9c7d8bd09cc46f3f48cb5c))
+* Allow specifiying a time in a date input ([#1262](https://github.com/Amsterdam/design-system/issues/1262)) ([9378432](https://github.com/Amsterdam/design-system/commit/9378432dc01cf9961eada5bc4e5a0a9573836452))
+* Allow various types of text input ([#1259](https://github.com/Amsterdam/design-system/issues/1259)) ([dc1e5d5](https://github.com/Amsterdam/design-system/commit/dc1e5d5d0e1f7a1f9baa29581de11a3400d4d9da))
+* Rename title props for Alert, Header and Dialog and require it for Dialog ([#1251](https://github.com/Amsterdam/design-system/issues/1251)) ([bbec4de](https://github.com/Amsterdam/design-system/commit/bbec4de523bebb4d8187e713d4d79af228953674))
+
+
+### Bug Fixes
+
+* Remove `password` from Text Input types ([#1300](https://github.com/Amsterdam/design-system/issues/1300)) ([c5b75e0](https://github.com/Amsterdam/design-system/commit/c5b75e04fded8b9b4caf2d3403c49daa2bc4e08d))
+* Use visually hidden as utility class only ([#1269](https://github.com/Amsterdam/design-system/issues/1269)) ([d21296f](https://github.com/Amsterdam/design-system/commit/d21296f4c681bda553c2d243f2d71742dab72822))
+
 ## [0.9.0](https://github.com/Amsterdam/design-system/compare/design-system-react-v0.8.0...design-system-react-v0.9.0) (2024-06-05)
 
 
