@@ -19,7 +19,7 @@ We aim to create libraries for, or support otherwise, Figma, CSS, React, React N
 
 ## Getting started
 
-See the [getting started documentation for the React package](./packages/react/README.md) to use our React components.
+See the [getting started documentation for developers](https://designsystem.amsterdam/?path=/docs/docs-getting-started-developers--docs) on how to use our React components.
 
 ## Contributing
 
