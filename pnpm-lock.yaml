@@ -54,8 +54,8 @@ importers:
         specifier: 9.0.11
         version: 9.0.11
       lint-staged:
-        specifier: 15.2.5
-        version: 15.2.5
+        specifier: 15.2.7
+        version: 15.2.7
       markdownlint-cli:
         specifier: 0.41.0
         version: 0.41.0
@@ -1468,6 +1468,7 @@ packages:
   '@humanwhocodes/config-array@0.11.14':
     resolution: {integrity: sha512-3T8LkOmg45BV5FICb15QQMsyUSWrQ8AygVfC7ZG32zOalnqrilm018ZVCw0eapXux8FtA33q8PSRSstjee3jSg==}
     engines: {node: '>=10.10.0'}
+    deprecated: Use @eslint/config-array instead
 
   '@humanwhocodes/module-importer@1.0.1':
     resolution: {integrity: sha512-bxveV4V8v5Yb4ncFTT3rPSgZBOpCkjfK0y4oVVVJwIuDVBRMDXrPyXRL988i5ap9m9bnyEEjWfm5WkBmtffLfA==}
@@ -1475,6 +1476,7 @@ packages:
 
   '@humanwhocodes/object-schema@2.0.2':
     resolution: {integrity: sha512-6EwiSjwWYP7pTckG6I5eyFANjPhmPjUX9JRLUSfNPC7FX7zK9gyZAfUEaECL6ALTpGX5AjnBq3C9XmVWPitNpw==}
+    deprecated: Use @eslint/object-schema instead
 
   '@inquirer/figures@1.0.3':
     resolution: {integrity: sha512-ErXXzENMH5pJt5/ssXV0DfWUZqly8nGzf0UcBV9xTnP+KyffE2mqyxIMBrZ8ijQck2nU0TQm40EQB53YreyWHw==}
@@ -1765,6 +1767,7 @@ packages:
   '@npmcli/move-file@2.0.1':
     resolution: {integrity: sha512-mJd2Z5TjYWq/ttPLLGqArdtnC74J6bOzg4rMDnN+p1xTacZ2yPRCk2y0oSWQtygLR9YVQXgOcONrwtnk3JupxQ==}
     engines: {node: ^12.13.0 || ^14.15.0 || >=16.0.0}
+    deprecated: This functionality has been moved to @npmcli/fs
 
   '@npmcli/name-from-folder@2.0.0':
     resolution: {integrity: sha512-pwK+BfEBZJbKdNYpHHRTNBwBoqrN/iIMO0AiGvYsp3Hoaq0WbgGSWQR6SCldZovoDpY3yje5lkFUe6gsDgJ2vg==}
@@ -2879,6 +2882,7 @@ packages:
 
   abab@2.0.6:
     resolution: {integrity: sha512-j2afSsaIENvHZN2B8GOpF566vZ5WVk5opAiMTvWgaQT8DkbOqsTfvNAvHoRGU2zzP8cPoqys+xHTRDWW8L+/BA==}
+    deprecated: Use your platform's native atob() and btoa() methods instead
 
   abbrev@1.1.1:
     resolution: {integrity: sha512-nne9/IiQ/hzIhY6pdDnbBtz7DjPTKrY00P/zvPSm5pOFkl6xuGrGnXn/VtTNNfNtAfZ9/1RtehkszU9qcTii0Q==}
@@ -3013,6 +3017,7 @@ packages:
   are-we-there-yet@3.0.1:
     resolution: {integrity: sha512-QZW4EDmGwlYur0Yyf/b2uGucHQMa8aFUP7eu9ddR73vvhFyt4V0Vl3QHPcTNJ8l6qYOBdxgXdnBXQrHilfRQBg==}
     engines: {node: ^12.13.0 || ^14.15.0 || >=16.0.0}
+    deprecated: This package is no longer supported.
 
   are-we-there-yet@4.0.1:
     resolution: {integrity: sha512-2zuA+jpOYBRgoBCfa+fB87Rk0oGJjDX6pxGzqH6f33NzUhG25Xur6R0u0Z9VVAq8Z5JvQpQI6j6rtonuivC8QA==}
@@ -3940,6 +3945,7 @@ packages:
   domexception@4.0.0:
     resolution: {integrity: sha512-A2is4PLG+eeSfoTMA95/s4pvAoSo2mKtiM5jlHkAVewmiO8ISFTFKZjH7UAM1Atli/OT/7JHOrJRJiMKUZKYBw==}
     engines: {node: '>=12'}
+    deprecated: Use your platform's native DOMException instead
 
   domhandler@5.0.3:
     resolution: {integrity: sha512-cgwlv/1iFQiFnU96XXgROh8xTeetsnJiDsTc7TYCLFd9+/WNkIqPTxiM/8pSd8VIrhXGTf1Ny1q1hquVqDJB5w==}
@@ -4527,6 +4533,7 @@ packages:
   gauge@4.0.4:
     resolution: {integrity: sha512-f9m+BEN5jkg6a0fZjleidjN51VE1X+mPFQ2DJ0uv1V39oCLCbsGe6yjbBnp7eK7z/+GAon99a3nHuqbuuthyPg==}
     engines: {node: ^12.13.0 || ^14.15.0 || >=16.0.0}
+    deprecated: This package is no longer supported.
 
   gauge@5.0.1:
     resolution: {integrity: sha512-CmykPMJGuNan/3S4kZOpvvPYSNqSHANiWnh9XcMU2pSjtBfF0XzZ2p1bFAxTbnFxyBuPxQYHhzwaoOmUdqzvxQ==}
@@ -4632,10 +4639,12 @@ packages:
 
   glob@7.2.3:
     resolution: {integrity: sha512-nFR0zLpU2YCaRxwoCJvL6UvCH2JFyFVIvwTLsIf21AuHlMskA1hhTdk+LlYJtOlYt9v6dvszD2BGRqBL+iQK9Q==}
+    deprecated: Glob versions prior to v9 are no longer supported
 
   glob@8.1.0:
     resolution: {integrity: sha512-r8hpEjiQEYlF2QU0df3dS+nxxSIreXQS1qRhMJM0Q5NDdR386C7jb7Hwwod8Fgiuex+k0GFjgft18yvxm5XoCQ==}
     engines: {node: '>=12'}
+    deprecated: Glob versions prior to v9 are no longer supported
 
   glob@9.3.5:
     resolution: {integrity: sha512-e1LleDykUz2Iu+MTYdkSsuWX8lvAjAcs0Xef0lNIu0S2wOAzuTxCJtcd9S3cijlwYF18EsU3rzb8jPVobxDh9Q==}
@@ -4965,6 +4974,7 @@ packages:
 
   inflight@1.0.6:
     resolution: {integrity: sha512-k92I/b08q4wvFscXCLvqfsHCrjrF7yiXsQuIVvVE7N82W3+aqpzuUdBbfhWcy/FZR3/4IgflMgKLOsvPDrGCJA==}
+    deprecated: This module is not supported, and leaks memory. Do not use it. Check out lru-cache if you want a good and tested way to coalesce async requests by a key value, which is much more comprehensive and powerful.
 
   inherits@2.0.4:
     resolution: {integrity: sha512-k/vGaX4/Yla3WzyMCvTQOXYeIHvqOKtnqBduzTHpzpQZzAskKMhZ2K+EnBiSM9zGSoIFeMpXKxa4dYeZIQqewQ==}
@@ -5687,8 +5697,8 @@ packages:
   linkify-it@5.0.0:
     resolution: {integrity: sha512-5aHCbzQRADcdP+ATqnDuhhJ/MRIqDkZX5pyjFHRRysS8vZ5AbqGEoFIb6pYHPZ+L/OC2Lc+xT8uHVVR5CAK/wQ==}
 
-  lint-staged@15.2.5:
-    resolution: {integrity: sha512-j+DfX7W9YUvdzEZl3Rk47FhDF6xwDBV5wwsCPw6BwWZVPYJemusQmvb9bRsW23Sqsaa+vRloAWogbK4BUuU2zA==}
+  lint-staged@15.2.7:
+    resolution: {integrity: sha512-+FdVbbCZ+yoh7E/RosSdqKJyUM2OEjTciH0TFNkawKgvFp1zbGlEC39RADg+xKBG1R4mhoH2j85myBQZ5wR+lw==}
     engines: {node: '>=18.12.0'}
     hasBin: true
 
@@ -6078,10 +6088,6 @@ packages:
   micromark@4.0.0:
     resolution: {integrity: sha512-o/sd0nMof8kYff+TqcDx3VSrgBTcZpSvYcAHIfHhv5VAuNmisCxjhx6YmxS8PFEpb9z5WKWKPdzf0jM23ro3RQ==}
 
-  micromatch@4.0.5:
-    resolution: {integrity: sha512-DMy+ERcEW2q8Z2Po+WNXuw3c5YaUSFjAO5GsJqfEl7UjvtIuFKO6ZrKvcItdy98dwFI2N1tg3zNIdKaQT+aNdA==}
-    engines: {node: '>=8.6'}
-
   micromatch@4.0.7:
     resolution: {integrity: sha512-LPP/3KorzCwBxfeUuZmaR6bG2kdeHSbe0P2tY3FLRU4vYrjYz5hI4QZwV0njUx3jeuKe67YukQ1LSPZBKDqO/Q==}
     engines: {node: '>=8.6'}
@@ -6417,6 +6423,7 @@ packages:
   npmlog@6.0.2:
     resolution: {integrity: sha512-/vBvz5Jfr9dT/aFWd0FIRf+T/Q2WBsLENygUaFUqstqsycmZAP/t5BvFJTK0viFmSUxiUKTUplWy5vt+rvKIxg==}
     engines: {node: ^12.13.0 || ^14.15.0 || >=16.0.0}
+    deprecated: This package is no longer supported.
 
   npmlog@7.0.1:
     resolution: {integrity: sha512-uJ0YFk/mCQpLBt+bxN88AKd+gyqZvZDbtiNxk6Waqcj2aPRyfVx8ITawkyQynxUagInjdYT1+qj4NfA5KJJUxg==}
@@ -7088,6 +7095,7 @@ packages:
   read-package-json@6.0.4:
     resolution: {integrity: sha512-AEtWXYfopBj2z5N5PbkAOeNHRPUg5q+Nen7QLxV8M2zJq1ym6/lCz3fYNTCXe19puu2d06jfHhrP7v/S2PtMMw==}
     engines: {node: ^14.17.0 || ^16.13.0 || >=18.0.0}
+    deprecated: This package is no longer supported. Please use @npmcli/package-json instead.
 
   read-pkg-up@7.0.1:
     resolution: {integrity: sha512-zK0TB7Xd6JpCLmlLmufqykGE+/TlOePD6qKClNW7hHDKFh/J7/7gCWGR7joEQEW1bKq3a3yUZSObOoWLFQ4ohg==}
@@ -7277,6 +7285,7 @@ packages:
 
   rimraf@3.0.2:
     resolution: {integrity: sha512-JZkJMZkAGFFPP2YqXZXPbMlMBgsxzE8ILs4lMIX/2o0L9UBw9O/Y3o6wFw/i9YLapcUJWwqbi3kdxIPdC62TIA==}
+    deprecated: Rimraf versions prior to v4 are no longer supported
     hasBin: true
 
   rimraf@5.0.7:
@@ -7301,6 +7310,7 @@ packages:
 
   rollup-plugin-inject@3.0.2:
     resolution: {integrity: sha512-ptg9PQwzs3orn4jkgXJ74bfs5vYz1NCZlSQMBUA0wKcGp5i5pA1AO3fOUEte8enhGUC+iapTCzEWw2jEFFUO/w==}
+    deprecated: This package has been deprecated and is no longer maintained. Please use @rollup/plugin-inject.
 
   rollup-plugin-node-externals@7.1.2:
     resolution: {integrity: sha512-cVJFKs+ulZxpMmn/s+oi431d93Jq5+G7Sc5ixWDrL2k+Gj+MqXg0KMNWgKf8Mw5qpaG4jVDpsvuqFfiCvRcGeA==}
@@ -7563,6 +7573,7 @@ packages:
 
   sourcemap-codec@1.4.8:
     resolution: {integrity: sha512-9NykojV5Uih4lgo5So5dtw+f0JgJX30KCNI8gwhz2J9A15wD0Ml6tjHKwf6fTSa6fAdVBdZeNOs9eJ71qCk8vA==}
+    deprecated: Please use @jridgewell/sourcemap-codec instead
 
   space-separated-tokens@1.1.5:
     resolution: {integrity: sha512-q/JSVd1Lptzhf5bkYm4ob4iWPjx0KiRe3sRFBNrVqbJkFaBm5vbbowy1mymoPNLRa52+oadOhJ+K49wsSeSjTA==}
@@ -8531,10 +8542,6 @@ packages:
 
   yallist@4.0.0:
     resolution: {integrity: sha512-3wdGidZyq5PB084XLES5TpOSRA3wjXAlIWMhum2kRcv/41Sn2emQ0dycQW4uZXLejwKvg6EsvbdlVL+FYEct7A==}
-
-  yaml@2.3.4:
-    resolution: {integrity: sha512-8aAvwVUSHpfEqTQ4w/KMlf3HcRdt50E5ODIQJBw1fQ5RL34xabzxtUlzTXVqc4rkZsPbvrXKWnABCD7kWSmocA==}
-    engines: {node: '>= 14'}
 
   yaml@2.4.3:
     resolution: {integrity: sha512-sntgmxj8o7DE7g/Qi60cqpLBA3HG3STcDA0kO+WfB05jEKhZMbY7umNm2rBpQvsmZ16/lPXCJGW2672dgOUkrg==}
@@ -9808,7 +9815,7 @@ snapshots:
       jest-util: 29.7.0
       jest-validate: 29.7.0
       jest-watcher: 29.7.0
-      micromatch: 4.0.5
+      micromatch: 4.0.7
       pretty-format: 29.7.0
       slash: 3.0.0
       strip-ansi: 6.0.1
@@ -9919,7 +9926,7 @@ snapshots:
       jest-haste-map: 29.7.0
       jest-regex-util: 29.6.3
       jest-util: 29.7.0
-      micromatch: 4.0.5
+      micromatch: 4.0.7
       pirates: 4.0.5
       slash: 3.0.0
       write-file-atomic: 4.0.2
@@ -13721,7 +13728,7 @@ snapshots:
       '@nodelib/fs.walk': 1.2.8
       glob-parent: 5.1.2
       merge2: 1.4.1
-      micromatch: 4.0.5
+      micromatch: 4.0.7
 
   fast-json-stable-stringify@2.1.0: {}
 
@@ -13819,7 +13826,7 @@ snapshots:
     dependencies:
       detect-file: 1.0.0
       is-glob: 4.0.3
-      micromatch: 4.0.5
+      micromatch: 4.0.7
       resolve-dir: 1.0.1
 
   fined@2.0.0:
@@ -14905,7 +14912,7 @@ snapshots:
       jest-runner: 29.7.0
       jest-util: 29.7.0
       jest-validate: 29.7.0
-      micromatch: 4.0.5
+      micromatch: 4.0.7
       parse-json: 5.2.0
       pretty-format: 29.7.0
       slash: 3.0.0
@@ -14972,7 +14979,7 @@ snapshots:
       jest-regex-util: 29.6.3
       jest-util: 29.7.0
       jest-worker: 29.7.0
-      micromatch: 4.0.5
+      micromatch: 4.0.7
       walker: 1.0.8
     optionalDependencies:
       fsevents: 2.3.3
@@ -14996,7 +15003,7 @@ snapshots:
       '@types/stack-utils': 2.0.1
       chalk: 4.1.2
       graceful-fs: 4.2.11
-      micromatch: 4.0.5
+      micromatch: 4.0.7
       pretty-format: 29.7.0
       slash: 3.0.0
       stack-utils: 2.0.6
@@ -15195,7 +15202,7 @@ snapshots:
       chalk: 4.1.2
       flow-parser: 0.229.0
       graceful-fs: 4.2.11
-      micromatch: 4.0.5
+      micromatch: 4.0.7
       neo-async: 2.6.2
       node-dir: 0.1.17
       recast: 0.23.6
@@ -15346,7 +15353,7 @@ snapshots:
     dependencies:
       uc.micro: 2.1.0
 
-  lint-staged@15.2.5:
+  lint-staged@15.2.7:
     dependencies:
       chalk: 5.3.0
       commander: 12.1.0
@@ -16073,11 +16080,6 @@ snapshots:
       micromark-util-types: 2.0.0
     transitivePeerDependencies:
       - supports-color
-
-  micromatch@4.0.5:
-    dependencies:
-      braces: 3.0.2
-      picomatch: 2.3.1
 
   micromatch@4.0.7:
     dependencies:
@@ -18552,7 +18554,7 @@ snapshots:
       vfile-message: 4.0.2
       vfile-reporter: 8.1.0
       vfile-statistics: 3.0.0
-      yaml: 2.3.4
+      yaml: 2.4.3
     transitivePeerDependencies:
       - supports-color
 
@@ -19011,8 +19013,6 @@ snapshots:
   yallist@3.1.1: {}
 
   yallist@4.0.0: {}
-
-  yaml@2.3.4: {}
 
   yaml@2.4.3: {}
 
