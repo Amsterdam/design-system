@@ -8,7 +8,7 @@
       "gap": { "value": "{ams.space.sm}" },
       "outline-offset": { "value": "{ams.focus.outline-offset}" },
       "padding-block": { "value": "{ams.space.sm}" },
-      "padding-inline": { "value": "{ams.space.lg}" },
+      "padding-inline": { "value": "{ams.space.md}" },
       "disabled": {
         "cursor": { "value": "{ams.action.disabled.cursor}" }
       },

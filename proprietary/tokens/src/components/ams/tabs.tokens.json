@@ -15,7 +15,7 @@
         "line-height": { "value": "{ams.text.level.5.line-height}" },
         "outline-offset": { "value": "-0.25rem" },
         "padding-block": { "value": "{ams.space.sm}" },
-        "padding-inline": { "value": "{ams.space.lg}" },
+        "padding-inline": { "value": "{ams.space.md}" },
         "hover": {
           "color": { "value": "{ams.color.dark-blue}" },
           "box-shadow": { "value": "inset 0 -0.125rem 0 0 {ams.color.dark-blue}" }
