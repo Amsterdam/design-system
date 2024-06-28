@@ -21,7 +21,7 @@ For questions that require a user to select one or more options from a list usin
 
 ## Where to put the Form Error List
 
-Put the Form Error List at the top of the main container, outside of the `<form>`-tag. If your page includes breadcrumbs or a back link, place it below these, but above the `<h1>`.
+Put the Form Error List directly above the first question on the page. Place it outside of the `<form>`-tag, [to make sure screen readers do not skip it](https://nldesignsystem.nl/richtlijnen/formulieren/meerdere-stappen/#plaats-de-informatie-over-waar-de-gebruiker-is-in-de-stappen-boven-het-formulier).
 
 ## Relevant WCAG requirements
 
