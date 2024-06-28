@@ -7,7 +7,7 @@ import clsx from 'clsx'
 import { forwardRef } from 'react'
 import type { ForwardedRef, InputHTMLAttributes } from 'react'
 
-export const textInputTypes = ['email', 'password', 'tel', 'text', 'url'] as const
+export const textInputTypes = ['email', 'tel', 'text', 'url'] as const
 
 type TextInputType = (typeof textInputTypes)[number]
 

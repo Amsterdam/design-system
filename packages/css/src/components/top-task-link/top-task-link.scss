@@ -10,7 +10,7 @@
   break-inside: avoid;
   display: flex;
   flex-direction: column;
-  gap: 0.5rem;
+  gap: var(--ams-top-task-link-gap);
   outline-offset: var(--ams-top-task-link-outline-offset);
   text-decoration: none;
 }

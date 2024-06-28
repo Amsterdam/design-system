@@ -16,7 +16,10 @@
 }
 
 .ams-alert__content {
+  display: flex;
   flex: auto;
+  flex-direction: column;
+  gap: var(--ams-alert-content-gap);
 }
 
 .ams-alert--error {
