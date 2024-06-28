@@ -37,7 +37,7 @@
 
   cursor: pointer;
   display: flex;
-  gap: 0.5rem;
+  gap: var(--ams-pagination-button-gap);
   outline-offset: var(--ams-pagination-button-outline-offset);
   padding-inline: var(--ams-pagination-button-padding-inline);
   text-decoration-line: var(--ams-pagination-button-text-decoration-line);

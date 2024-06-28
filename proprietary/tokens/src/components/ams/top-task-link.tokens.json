@@ -1,6 +1,7 @@
 {
   "ams": {
     "top-task-link": {
+      "gap": { "value": "{ams.space.sm}" },
       "description": {
         "color": { "value": "{ams.color.primary-black}" },
         "font-family": { "value": "{ams.text.font-family}" },

@@ -6,8 +6,8 @@
       "font-size": { "value": "{ams.text.level.6.font-size}" },
       "font-weight": { "value": "{ams.text.font-weight.normal}" },
       "line-height": { "value": "{ams.text.level.6.line-height}" },
-      "padding-block": { "value": "0.25rem" },
-      "padding-inline": { "value": "0.25rem" },
+      "padding-block": { "value": "{ams.space.xs}" },
+      "padding-inline": { "value": "{ams.space.xs}" },
       "black": {
         "background-color": { "value": "{ams.color.primary-black}" },
         "color": { "value": "{ams.color.primary-white}" }

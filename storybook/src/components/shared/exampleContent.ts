@@ -5,6 +5,18 @@
 
 const pickRandomContent = <T>(list: Array<T>): T => list[Math.floor(Math.random() * list.length)]
 
+export const exampleAccordionHeading = () =>
+  pickRandomContent([
+    'Dit grof afval halen we niet op',
+    'Dit grof afval halen we op',
+    'Downloads en documenten',
+    'Lees de voorwaarden',
+    'Publicaties en nieuwsberichten',
+    'Verhuizing doorgeven bij stadsloket',
+    'Verhuizing doorgeven per post',
+    'Voorgaande versies van ramingen',
+  ])
+
 export const exampleHeading = () =>
   pickRandomContent<string>([
     'Meer plekken voor kunst en cultuur, verspreid over de stad',

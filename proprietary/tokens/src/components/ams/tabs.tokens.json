@@ -1,6 +1,7 @@
 {
   "ams": {
     "tabs": {
+      "gap": { "value": "{ams.space.md}" },
       "list": {
         "background-color": { "value": "{ams.color.primary-white}" },
         "border-block-end": { "value": "{ams.border.width.md} solid {ams.color.primary-blue}" }
@@ -13,8 +14,8 @@
         "font-weight": { "value": "{ams.text.font-weight.normal}" },
         "line-height": { "value": "{ams.text.level.5.line-height}" },
         "outline-offset": { "value": "-0.25rem" },
-        "padding-block": { "value": ".5rem" },
-        "padding-inline": { "value": "1rem" },
+        "padding-block": { "value": "{ams.space.sm}" },
+        "padding-inline": { "value": "{ams.space.md}" },
         "hover": {
           "color": { "value": "{ams.color.dark-blue}" },
           "box-shadow": { "value": "inset 0 -0.125rem 0 0 {ams.color.dark-blue}" }
