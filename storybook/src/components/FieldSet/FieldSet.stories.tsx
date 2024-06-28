@@ -7,6 +7,7 @@ import {
   Checkbox,
   Column,
   ErrorMessage,
+  Field,
   FieldSet,
   Label,
   Paragraph,
@@ -38,7 +39,7 @@ type Story = StoryObj<typeof meta>
 export const Default: Story = {
   render: (args) => (
     <FieldSet invalid={args.invalid} legend={args.legend}>
-      <Column gap="extra-small">
+      <Field className="ams-mb--sm">
         <Label htmlFor="input-a1">Voornaam</Label>
         {args.invalid && <ErrorMessage id="error-a1">Vul uw voornaam in.</ErrorMessage>}
         <TextInput
@@ -47,6 +48,8 @@ export const Default: Story = {
           id="input-a1"
           invalid={args.invalid}
         />
+      </Field>
+      <Field>
         <Label htmlFor="input-a2">Achternaam</Label>
         {args.invalid && <ErrorMessage id="error-a2">Vul uw achternaam in.</ErrorMessage>}
         <TextInput
@@ -55,7 +58,7 @@ export const Default: Story = {
           id="input-a2"
           invalid={args.invalid}
         />
-      </Column>
+      </Field>
     </FieldSet>
   ),
 }
@@ -66,7 +69,7 @@ export const WithDescription: Story = {
       <Paragraph id="description-b" size="small" className="ams-mb--sm">
         Vul uw naam in zoals in uw paspoort staat.
       </Paragraph>
-      <Column gap="extra-small">
+      <Field className="ams-mb--sm">
         <Label htmlFor="input-b1">Voornaam</Label>
         {args.invalid && <ErrorMessage id="error-b1">Vul uw voornaam in.</ErrorMessage>}
         <TextInput
@@ -75,6 +78,8 @@ export const WithDescription: Story = {
           id="input-b1"
           invalid={args.invalid}
         />
+      </Field>
+      <Field>
         <Label htmlFor="input-b2">Achternaam</Label>
         {args.invalid && <ErrorMessage id="error-b2">Vul uw achternaam in.</ErrorMessage>}
         <TextInput
@@ -83,7 +88,7 @@ export const WithDescription: Story = {
           id="input-b2"
           invalid={args.invalid}
         />
-      </Column>
+      </Field>
     </FieldSet>
   ),
 }
@@ -95,7 +100,7 @@ export const WithError: Story = {
       <Paragraph id="description-c" size="small" className="ams-mb--sm">
         Vul uw naam in zoals in uw paspoort staat.
       </Paragraph>
-      <Column gap="extra-small">
+      <Field className="ams-mb--sm">
         <Label htmlFor="input-c1">Voornaam</Label>
         {args.invalid && <ErrorMessage id="error-c1">Vul uw voornaam in.</ErrorMessage>}
         <TextInput
@@ -104,6 +109,8 @@ export const WithError: Story = {
           id="input-c1"
           invalid={args.invalid}
         />
+      </Field>
+      <Field>
         <Label htmlFor="input-c2">Achternaam</Label>
         {args.invalid && <ErrorMessage id="error-c2">Vul uw achternaam in.</ErrorMessage>}
         <TextInput
@@ -112,7 +119,7 @@ export const WithError: Story = {
           id="input-c2"
           invalid={args.invalid}
         />
-      </Column>
+      </Field>
     </FieldSet>
   ),
 }
