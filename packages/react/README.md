@@ -16,36 +16,3 @@ Components that have known issues, or for which we anticipate API changes, show 
 
 Make sure you specify the exact version as dependency.
 You can then schedule an upgrade to the latest version when you have time to test for regressions.
-
-## Getting started
-
-Install the packages you need, for instance:
-
-`npm install @amsterdam/design-system-assets @amsterdam/design-system-tokens @amsterdam/design-system-css @amsterdam/design-system-react @amsterdam/design-system-react-icons`
-
-Import the components and stylesheets you need, for example:
-
-```javascript
-import { Paragraph } from "@amsterdam/design-system-react";
-
-import "@amsterdam/design-system-assets/font/index.css";
-import "@amsterdam/design-system-css/dist/index.css";
-import "@amsterdam/design-system-tokens/dist/index.css";
-
-function App() {
-  return <Paragraph>Hello world</Paragraph>;
-}
-
-export default App;
-```
-
-## Compact mode
-
-For applications, the large text and ample white space of the theme can be counterproductive.
-That’s why there is a compact mode.
-To use the compact mode, import the compact CSS **after** the theme CSS, like so:
-
-```javascript
-import "@amsterdam/design-system-tokens/dist/index.css";
-import "@amsterdam/design-system-tokens/dist/compact.css";
-```
