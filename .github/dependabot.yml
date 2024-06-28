@@ -13,7 +13,7 @@ updates:
   - package-ecosystem: "npm"
     directory: "/"
     schedule:
-      interval: "weekly"
+      interval: "daily"
     versioning-strategy: "increase-if-necessary"
     open-pull-requests-limit: 20
     commit-message:
