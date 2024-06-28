@@ -1,4 +1,4 @@
-import { render, screen } from '@testing-library/react'
+import { render, screen, waitFor } from '@testing-library/react'
 import { createRef } from 'react'
 import { FormErrorList } from './FormErrorList'
 import '@testing-library/jest-dom'
@@ -76,6 +76,57 @@ describe('Form error list', () => {
     const component = screen.getByRole('heading', { level: 4 })
 
     expect(component).toBeInTheDocument()
+  })
+
+  it('prepends the document title with the error count', async () => {
+    const docTitle = 'Document title'
+
+    document.title = docTitle
+
+    render(<FormErrorList errors={testErrors} />)
+
+    await waitFor(() => expect(document.title).toBe(`(2 invoerfouten) ${docTitle}`))
+  })
+
+  const docTitle = 'Document title'
+  const singleTestError = [{ id: '#', label: 'De geldigheidsdatum van uw paspoort moet in de toekomst liggen.' }]
+
+  describe('prepends the document title with the error count', () => {
+    it('single error', async () => {
+      document.title = docTitle
+
+      render(<FormErrorList errors={singleTestError} />)
+
+      await waitFor(() => expect(document.title).toBe(`(1 invoerfout) ${docTitle}`))
+    })
+
+    it('multiple errors', async () => {
+      document.title = docTitle
+
+      render(<FormErrorList errors={testErrors} />)
+
+      await waitFor(() => expect(document.title).toBe(`(2 invoerfouten) ${docTitle}`))
+    })
+  })
+
+  describe('renders a custom document title suffix', () => {
+    const suffix = { plural: 'errors', singular: 'error' }
+
+    it('single error', async () => {
+      document.title = docTitle
+
+      render(<FormErrorList errors={singleTestError} docTitleSuffix={suffix} />)
+
+      await waitFor(() => expect(document.title).toBe(`(1 error) ${docTitle}`))
+    })
+
+    it('multiple errors', async () => {
+      document.title = docTitle
+
+      render(<FormErrorList errors={testErrors} docTitleSuffix={suffix} />)
+
+      await waitFor(() => expect(document.title).toBe(`(2 errors) ${docTitle}`))
+    })
   })
 
   it('supports ForwardRef in React', () => {

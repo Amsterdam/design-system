@@ -27,7 +27,7 @@ export type FormErrorListProps = {
    */
   headingLevel?: HeadingLevel
   /** The text following the error count. */
-  pageTitleSuffix?: { plural: string; singular: string }
+  docTitleSuffix?: { plural: string; singular: string }
 } & HTMLAttributes<HTMLDivElement>
 
 export const FormErrorList = forwardRef(
@@ -37,12 +37,12 @@ export const FormErrorList = forwardRef(
       errors,
       heading = 'Verbeter de fouten voor u verder gaat',
       headingLevel = 2,
-      pageTitleSuffix,
+      docTitleSuffix,
       ...restProps
     }: FormErrorListProps,
     ref: ForwardedRef<HTMLDivElement>,
   ) => {
-    useAddErrorCountToPageTitle(errors, pageTitleSuffix)
+    useAddErrorCountToPageTitle(errors, docTitleSuffix)
 
     if (errors.length === 0) return undefined
 
