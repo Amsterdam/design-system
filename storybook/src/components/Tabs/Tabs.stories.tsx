@@ -22,14 +22,16 @@ const SlowPanel = ({ children }: PropsWithChildren) => {
 }
 
 type TabContent = {
+  id: number
   label: string
   body: ReactNode
 }
 
 const tabsContent: Array<TabContent> = [
-  { label: 'Gegevens', body: exampleParagraph() },
-  { label: 'Aanslagen', body: exampleParagraph() },
+  { id: 0, label: 'Gegevens', body: exampleParagraph() },
+  { id: 1, label: 'Aanslagen', body: exampleParagraph() },
   {
+    id: 2,
     label: 'Documenten',
     body: (
       <>
@@ -38,24 +40,23 @@ const tabsContent: Array<TabContent> = [
       </>
     ),
   },
-  { label: 'Acties', body: exampleParagraph() },
+  { id: 3, label: 'Acties', body: exampleParagraph() },
 ]
 
 const defaultTabs = [
   <Tabs.List key="tabsList">
-    {tabsContent.map((content, index) => (
-      <Tabs.Button key={content.label} tab={index}>
-        {content.label}
+    {tabsContent.map(({ id, label }) => (
+      <Tabs.Button key={label} tab={id}>
+        {label}
       </Tabs.Button>
     ))}
   </Tabs.List>,
-  ...(() =>
-    tabsContent.map((content, index) => (
-      <Tabs.Panel tab={index} key={content.label}>
-        <Heading level={3}>{content.label}</Heading>
-        <Paragraph>{content.body}</Paragraph>
-      </Tabs.Panel>
-    )))(),
+  tabsContent.map(({ id, body, label }) => (
+    <Tabs.Panel key={label} tab={id}>
+      <Heading level={3}>{label}</Heading>
+      <Paragraph>{body}</Paragraph>
+    </Tabs.Panel>
+  )),
 ]
 
 const meta = {
