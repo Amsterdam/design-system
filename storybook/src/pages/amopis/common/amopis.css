@@ -17,13 +17,6 @@
   background-color: var(--ams-color-primary-white);
 }
 
-.ams-docs-amopis-user-badge {
-  background-color: var(--ams-color-primary-blue);
-  border-radius: 50%;
-  padding-block: 0.25rem;
-  padding-inline: 0.375rem;
-}
-
 .ams-docs-amopis-sidebar {
   align-items: center;
   background-color: var(--ams-color-primary-blue);
