@@ -1,0 +1,6 @@
+import{j as o}from"./jsx-runtime-X2b_N9AH.js";import{useMDXComponents as i}from"./index-CRbi4mQH.js";import{M as p,P as n}from"./index-BOC8kysb.js";import{F as e}from"./FormPage.stories-Dzx01l71.js";import"./index-uCp2LrAq.js";import"./_commonjsHelpers-BosuxZz1.js";import"./iframe-yJpXivWj.js";import"../sb-preview/runtime.js";import"./index-BOkhicXD.js";import"./index-DXimoRZY.js";import"./index-B8K4vdXH.js";import"./index-DrFu-skq.js";import"./index.esm-yXQQXCDi.js";import"./clsx-B-dksMZM.js";import"./index.esm-BmSTY5-j.js";import"./meta-LrtzOgSj.js";import"./PageMenu.stories-CIBTxqzb.js";import"./PageMenu-C-9UIlX6.js";import"./Icon-j44OzEOs.js";import"./Footer.stories-WkiPpHt8.js";import"./Spotlight-CscDyz0Q.js";import"./Grid-BRQJwiXa.js";import"./LinkList-B-fKfq07.js";import"./Heading-CGpdaMNv.js";import"./getHeadingElement-DiRwFEz7.js";import"./Paragraph-DpVlyIEJ.js";/*@license CC0-1.0*/function m(t){const r={h1:"h1",p:"p",...i(),...t.components};return o.jsxs(o.Fragment,{children:[`
+`,`
+`,o.jsx(p,{of:e}),`
+`,o.jsx(r.h1,{id:"form-page",children:"Form Page"}),`
+`,o.jsx(r.p,{children:"This example presents various types of fields."}),`
+`,o.jsx(n,{})]})}function b(t={}){const{wrapper:r}={...i(),...t.components};return r?o.jsx(r,{...t,children:o.jsx(m,{...t})}):m(t)}export{b as default};
