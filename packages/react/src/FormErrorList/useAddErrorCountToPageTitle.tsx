@@ -15,12 +15,12 @@ export const useAddErrorCountToPageTitle = (
     setDocumentTitle(document.title)
   }, [])
 
-  if (documentTitle) {
-    if (errors.length > 0) {
-      document.title = `(${errors.length} ${errors.length === 1 ? suffix.singular : suffix.plural}) ${documentTitle}`
-    } else {
-      document.title = documentTitle
-    }
+  if (!documentTitle) return null
+
+  if (errors.length > 0) {
+    document.title = `(${errors.length} ${errors.length === 1 ? suffix.singular : suffix.plural}) ${documentTitle}`
+  } else {
+    document.title = documentTitle
   }
 
   return null
