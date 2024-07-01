@@ -40,12 +40,12 @@
 }
 
 @media (width <= 1087px) {
-  .ams-docs-amopis-sidebar {
-    display: none;
-  }
-
   .ams-docs-amopis-app-grid {
     grid-template-columns: 1fr;
+  }
+
+  .ams-docs-amopis-sidebar {
+    display: none;
   }
 }
 

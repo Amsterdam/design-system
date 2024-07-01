@@ -9,7 +9,7 @@ type LayoutProps = PropsWithChildren<HTMLAttributes<HTMLElement>>
 export const Layout = ({ children }: LayoutProps) => (
   <>
     <SkipLink href="#main">Direct naar inhoud</SkipLink>
-    <Screen className="ams-screen--amopis ams-theme ams-theme--compact" fullHeight maxWidth="x-wide">
+    <Screen className="ams-theme ams-theme--compact" maxWidth="x-wide">
       <div className="ams-docs-amopis-app-grid">
         <Sidebar />
         <div className="ams-docs-amopis-app-content">
