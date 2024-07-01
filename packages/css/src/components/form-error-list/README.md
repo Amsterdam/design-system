@@ -25,7 +25,7 @@ Put the Form Error List directly above the first question on the page. Place it 
 
 ## Error count in document title
 
-The error count is added to the document title by this component,
+This component adds the error count to the document title,
 in line with [GOV.UK guidelines for informing users about validation errors](https://design-system.service.gov.uk/patterns/validation/#how-to-tell-the-user-about-validation-errors).
 
 ## Relevant WCAG requirements
