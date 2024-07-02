@@ -4,14 +4,14 @@
  */
 
 import { Meta, StoryObj } from '@storybook/react'
-import { Home } from './Home'
+import { FormPage } from './FormPage'
 import { commonMeta } from '../common/meta'
 
 const meta = {
   ...commonMeta,
-  title: 'Pages/Amsterdam.nl/Home Page',
-  component: Home,
-} satisfies Meta<typeof Home>
+  title: 'Pages/Amsterdam.nl/Form Page',
+  component: FormPage,
+} satisfies Meta<typeof FormPage>
 
 export default meta
 
