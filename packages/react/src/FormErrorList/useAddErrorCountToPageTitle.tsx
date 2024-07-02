@@ -4,7 +4,7 @@ export const useAddErrorCountToPageTitle = (
   /** The list of error messages used to calculate the error count. */
   errors: { id: string; label: string }[],
   /** The text following the error count. */
-  suffix = {
+  label = {
     plural: 'invoerfouten',
     singular: 'invoerfout',
   },
@@ -18,9 +18,9 @@ export const useAddErrorCountToPageTitle = (
   if (!documentTitle) return null
 
   if (errors.length === 1) {
-    document.title = `(${errors.length} ${suffix.singular}) ${documentTitle}`
+    document.title = `(${errors.length} ${label.singular}) ${documentTitle}`
   } else if (errors.length > 1) {
-    document.title = `(${errors.length} ${suffix.plural}) ${documentTitle}`
+    document.title = `(${errors.length} ${label.plural}) ${documentTitle}`
   } else {
     document.title = documentTitle
   }

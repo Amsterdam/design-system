@@ -17,6 +17,11 @@ export type FormError = {
 }
 
 export type FormErrorListProps = {
+  /**
+   * The text following the error count.
+   * This is used to show the error count in the document title.
+   */
+  errorCountLabel?: { plural: string; singular: string }
   /** The list of error messages to display. */
   errors: FormError[]
   /** The text for the Heading. */
@@ -26,23 +31,21 @@ export type FormErrorListProps = {
    * Note: this intentionally does not change the font size.
    */
   headingLevel?: HeadingLevel
-  /** The text following the error count. */
-  docTitleSuffix?: { plural: string; singular: string }
 } & HTMLAttributes<HTMLDivElement>
 
 export const FormErrorList = forwardRef(
   (
     {
       className,
+      errorCountLabel,
       errors,
       heading = 'Verbeter de fouten voor u verder gaat',
       headingLevel = 2,
-      docTitleSuffix,
       ...restProps
     }: FormErrorListProps,
     ref: ForwardedRef<HTMLDivElement>,
   ) => {
-    useAddErrorCountToPageTitle(errors, docTitleSuffix)
+    useAddErrorCountToPageTitle(errors, errorCountLabel)
 
     if (errors.length === 0) return undefined
 
