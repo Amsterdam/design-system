@@ -6,7 +6,7 @@
 import clsx from 'clsx'
 import { forwardRef } from 'react'
 import type { ForwardedRef, HTMLAttributes } from 'react'
-import { useAddErrorCountToPageTitle } from './useAddErrorCountToPageTitle'
+import { useAddErrorCountToDocumentTitle } from './useAddErrorCountToDocumentTitle'
 import { Alert } from '../Alert'
 import type { HeadingLevel } from '../Heading'
 import { LinkList } from '../LinkList'
@@ -45,7 +45,7 @@ export const FormErrorList = forwardRef(
     }: FormErrorListProps,
     ref: ForwardedRef<HTMLDivElement>,
   ) => {
-    useAddErrorCountToPageTitle(errors, errorCountLabel)
+    useAddErrorCountToDocumentTitle(errors, errorCountLabel)
 
     if (errors.length === 0) return undefined
 
