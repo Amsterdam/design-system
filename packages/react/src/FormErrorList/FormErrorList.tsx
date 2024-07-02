@@ -6,6 +6,7 @@
 import clsx from 'clsx'
 import { forwardRef } from 'react'
 import type { ForwardedRef, HTMLAttributes } from 'react'
+import { useAddErrorCountToDocumentTitle } from './useAddErrorCountToDocumentTitle'
 import { Alert } from '../Alert'
 import type { HeadingLevel } from '../Heading'
 import { LinkList } from '../LinkList'
@@ -16,6 +17,11 @@ export type FormError = {
 }
 
 export type FormErrorListProps = {
+  /**
+   * The text following the error count.
+   * This is used to show the error count in the document title.
+   */
+  errorCountLabel?: { plural: string; singular: string }
   /** The list of error messages to display. */
   errors: FormError[]
   /** The text for the Heading. */
@@ -31,6 +37,7 @@ export const FormErrorList = forwardRef(
   (
     {
       className,
+      errorCountLabel,
       errors,
       heading = 'Verbeter de fouten voor u verder gaat',
       headingLevel = 2,
@@ -38,6 +45,8 @@ export const FormErrorList = forwardRef(
     }: FormErrorListProps,
     ref: ForwardedRef<HTMLDivElement>,
   ) => {
+    useAddErrorCountToDocumentTitle(errors, errorCountLabel)
+
     if (errors.length === 0) return undefined
 
     return (

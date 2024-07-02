@@ -6,7 +6,42 @@ import { Meta } from "@storybook/blocks";
 
 # Space
 
-We distinguish 4 types of white space: Grid, Stack, Inside, and Type.
+We distinguish 3 types of white space: Component, Grid, and Type.
+
+## Component Space
+
+This is the space between components, e.g. between a list of cards, a row of buttons, or an icon and an accompanying text.
+
+Or at the 4 edges of a component: at the top, bottom, start, and end of its containing box,
+as used for buttons and input fields, and for larger components with a coloured background or border.
+
+This type of space is based on the font size – the medium space length equals the default Paragraph font size.
+Because our typography is fluid, this type of spacing is as well.
+We offer 5 lengths.
+
+### Spacious
+
+In Spacious Mode, the medium space grows from 18 to 24 pixels between window widths of 320 and 1600.
+
+|                 |      |    320 |      832 |   1600 |
+| --------------: | :--: | -----: | -------: | -----: |
+| **Extra small** | `xs` |    4.5 |      5.1 |      6 |
+|       **Small** | `sm` |      9 |      8.3 |     12 |
+|      **Medium** | `md` | **18** | **16.5** | **24** |
+|       **Large** | `lg` |     27 |     24.9 |     36 |
+| **Extra large** | `xl` |     36 |     33.2 |     48 |
+
+### Compact
+
+In Compact Mode, the medium space grows from 14 to 16 pixels between window widths of 320 and 1600.
+
+|                 |      |    320 |      832 |   1600 |
+| --------------: | :--: | -----: | -------: | -----: |
+| **Extra small** | `xs` |    3.5 |      3.7 |      4 |
+|       **Small** | `sm` |      7 |      6.8 |      8 |
+|      **Medium** | `md` | **14** | **13.5** | **16** |
+|       **Large** | `lg` |     21 |     20.3 |     24 |
+| **Extra large** | `xl` |     28 |     27.1 |     32 |
 
 ## Grid Space
 
@@ -30,7 +65,7 @@ In Spacious Mode, the medium grid space grows from 16 to 56 pixels between windo
 |       **Small** |   8    |   12   |   16   |   20   |   24   |   28   |
 |      **Medium** | **16** | **24** | **32** | **40** | **48** | **56** |
 |       **Large** |   24   |   36   |   48   |   60   |   72   |   84   |
-| **Extra large** |   32   |   48   |   64   |   80   |   96   |  102   |
+| **Extra large** |   32   |   48   |   64   |   80   |   96   |  112   |
 
 #### Compact
 
@@ -138,38 +173,6 @@ In Compact Mode, the medium grid space grows from 16 to 40 pixels between window
   </tbody>
 </table>
 
-## Stack Space
-
-This is the space between sets of components, for example between a list of cards, or next to an image.
-It is also used for combinations of components, like an icon accompanying a text, or a row of buttons.
-
-This type of space is static; it is the same for any window width.
-Five options are available.
-The medium size is 16 pixels wide in both Spacious and Compact Mode.
-
-|                 | Width |
-| --------------: | ----: |
-| **Extra small** |     8 |
-|       **Small** |    12 |
-|      **Medium** |    16 |
-|       **Large** |    24 |
-| **Extra large** |    32 |
-
-## Inside Space
-
-This is the space at the four edges of a component: at the top, bottom, start, and end of its containing box.
-It is used for buttons and input fields, and for larger components with a coloured background or border.
-
-The medium size is 16 pixels wide in both Spacious and Compact Mode.
-
-|                 | Width |
-| --------------: | ----: |
-| **Extra small** |     8 |
-|       **Small** |    12 |
-|      **Medium** |    16 |
-|       **Large** |    24 |
-| **Extra large** |    32 |
-
 ## Type Space
 
 This is the vertical space between text components like headings, paragraphs, and lists.
@@ -180,3 +183,4 @@ More information on this type of space will follow.
 
 We use pixels in our documentation on sizes to convey a more accurate mental image.
 In code, sizes are defined in relative units (like `rem`, `em`, `ex`, `vw`, `vh`, and `ch`) to make components more flexible and accessible.
+MDN offers a good overview on these [CSS values and units](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Values_and_Units).

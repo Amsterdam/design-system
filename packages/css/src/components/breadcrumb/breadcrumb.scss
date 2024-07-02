@@ -12,7 +12,7 @@
 }
 
 .ams-breadcrumb {
-  font-family: var(--ams-breadcrumb-font-family, inherit);
+  font-family: var(--ams-breadcrumb-font-family);
   font-size: var(--ams-breadcrumb-font-size);
   font-weight: var(--ams-breadcrumb-font-weight);
   line-height: var(--ams-breadcrumb-line-height);
@@ -33,11 +33,11 @@
 .ams-breadcrumb__item:not(:last-child)::after {
   background-image: var(--ams-breadcrumb-separator-background-image);
   background-repeat: no-repeat;
-  block-size: 1ex;
+  block-size: var(--ams-breadcrumb-separator-block-size);
   content: "";
   display: inline-block;
-  inline-size: 1ex;
-  margin-inline: 0.5rem;
+  inline-size: var(--ams-breadcrumb-separator-inline-size);
+  margin-inline: var(--ams-breadcrumb-separator-margin-inline);
 }
 
 .ams-breadcrumb__link {

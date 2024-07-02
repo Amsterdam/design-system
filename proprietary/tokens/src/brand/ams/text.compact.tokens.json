@@ -3,25 +3,25 @@
     "text": {
       "level": {
         "0": {
-          "font-size": { "value": "clamp(1.891rem, calc(1.927vw + 1.506rem), 3.433rem)" }
+          "font-size": { "value": "clamp(1.5768rem, 1.4299rem + 0.7346vw, 2.1645rem)" }
         },
         "1": {
-          "font-size": { "value": "clamp(1.621rem, calc(1.408vw + 1.34rem), 2.747rem)" }
+          "font-size": { "value": "clamp(1.4016rem, 1.2883rem + 0.5665vw, 1.8547rem)" }
         },
         "2": {
-          "font-size": { "value": "clamp(1.389rem, calc(1.01vw + 1.187rem), 2.197rem)" }
+          "font-size": { "value": "clamp(1.2458rem, 1.16rem + 0.4293vw, 1.5893rem)" }
         },
         "3": {
-          "font-size": { "value": "clamp(1.191rem, calc(0.709vw + 1.049rem), 1.758rem)" }
+          "font-size": { "value": "clamp(1.1074rem, 1.0438rem + 0.3181vw, 1.3619rem)" }
         },
         "4": {
-          "font-size": { "value": "clamp(1.021rem, calc(0.481vw + 0.925rem), 1.406rem)" }
+          "font-size": { "value": "clamp(0.9844rem, 0.9387rem + 0.2283vw, 1.167rem)" }
         },
         "5": {
-          "font-size": { "value": "clamp(0.875rem, calc(0.313vw + 0.813rem), 1.125rem)" }
+          "font-size": { "value": "clamp(0.875rem, 0.8438rem + 0.1563vw, 1rem)" }
         },
         "6": {
-          "font-size": { "value": "clamp(0.75rem, calc(0.188vw + 0.713rem), 0.9rem)" }
+          "font-size": { "value": "clamp(0.7778rem, 0.758rem + 0.0989vw, 0.8569rem)" }
         }
       }
     }

@@ -3,9 +3,9 @@
     "alert": {
       "border-width": { "value": "{ams.border.width.xl}" },
       "border-style": { "value": "solid" },
-      "gap": { "value": "1rem" },
-      "padding-block": { "value": "{ams.space.inside.md}" },
-      "padding-inline": { "value": "{ams.space.inside.lg}" },
+      "gap": { "value": "{ams.space.sm}" },
+      "padding-block": { "value": "{ams.space.md}" },
+      "padding-inline": { "value": "{ams.space.lg}" },
       "error": {
         "border-color": { "value": "{ams.color.primary-red}" }
       },
@@ -23,6 +23,9 @@
         "hover": {
           "fill": { "value": "{ams.color.primary-blue}" }
         }
+      },
+      "content": {
+        "gap": { "value": "{ams.space.sm}" }
       }
     }
   }

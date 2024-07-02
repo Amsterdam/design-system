@@ -1,6 +1,10 @@
 {
   "ams": {
     "card": {
+      "gap": { "value": "{ams.space.sm}" },
+      "heading-group": {
+        "gap": { "value": "{ams.space.sm}" }
+      },
       "link": {
         "color": { "value": "{ams.link-appearance.color}" },
         "text-decoration-line": { "value": "{ams.link-appearance.subtle.text-decoration-line}" },

@@ -5,7 +5,7 @@
 
 .ams-card {
   display: grid;
-  gap: 0.5rem;
+  gap: var(--ams-card-gap);
   outline-offset: var(--ams-card-outline-offset);
   position: relative;
   touch-action: manipulation;
@@ -40,7 +40,7 @@
 .ams-card__heading-group {
   display: flex;
   flex-direction: column-reverse;
-  gap: 0.5rem;
+  gap: var(--ams-card-heading-group-gap);
 }
 
 .ams-card__link {

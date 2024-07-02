@@ -41,7 +41,7 @@
   font-family: var(--ams-radio-font-family);
   font-size: var(--ams-radio-font-size);
   font-weight: var(--ams-radio-font-weight);
-  gap: 0.5rem;
+  gap: var(--ams-radio-gap);
   line-height: var(--ams-radio-line-height);
   outline-offset: var(--ams-radio-outline-offset);
 
