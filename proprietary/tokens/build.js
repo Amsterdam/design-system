@@ -1,4 +1,4 @@
-const StyleDictionary = require('style-dictionary')
+import StyleDictionary from 'style-dictionary'
 
 const modes = ['compact']
 
@@ -7,7 +7,7 @@ function generateSharedConfig(mode) {
 
   return {
     css: {
-      transforms: ['attribute/cti', 'name/cti/kebab', 'color/hsl-4'],
+      transforms: ['attribute/cti', 'name/kebab', 'color/hsl-4'],
       transformGroup: 'css',
       buildPath: 'dist/',
       files: [
@@ -21,7 +21,7 @@ function generateSharedConfig(mode) {
       ],
     },
     cssTheme: {
-      transforms: ['attribute/cti', 'name/cti/kebab', 'color/hsl-4'],
+      transforms: ['attribute/cti', 'name/kebab', 'color/hsl-4'],
       buildPath: 'dist/',
       files: [
         {
@@ -35,7 +35,7 @@ function generateSharedConfig(mode) {
       ],
     },
     js: {
-      transforms: ['attribute/cti', 'name/cti/camel', 'color/hsl-4'],
+      transforms: ['attribute/cti', 'name/camel', 'color/hsl-4'],
       buildPath: 'dist/',
       files: [
         {
@@ -45,7 +45,7 @@ function generateSharedConfig(mode) {
       ],
     },
     json: {
-      transforms: ['attribute/cti', 'name/cti/camel', 'color/hsl-4'],
+      transforms: ['attribute/cti', 'name/camel', 'color/hsl-4'],
       buildPath: 'dist/',
       files: [
         {
@@ -55,7 +55,7 @@ function generateSharedConfig(mode) {
       ],
     },
     scss: {
-      transforms: ['attribute/cti', 'name/cti/kebab', 'color/hsl-4'],
+      transforms: ['attribute/cti', 'name/kebab', 'color/hsl-4'],
       buildPath: 'dist/',
       files: [
         {
@@ -68,7 +68,7 @@ function generateSharedConfig(mode) {
       ],
     },
     typescript: {
-      transforms: ['attribute/cti', 'name/cti/camel', 'color/hsl-4'],
+      transforms: ['attribute/cti', 'name/camel', 'color/hsl-4'],
       transformGroup: 'js',
       buildPath: 'dist/',
       files: [
@@ -81,19 +81,20 @@ function generateSharedConfig(mode) {
   }
 }
 
-console.log('Building default mode...')
-StyleDictionary.extend({
+const defaultMode = new StyleDictionary({
   source: [
     // exclude non-default modes from source
     `./src/**/!(*.${modes.join(`|*.`)}).tokens.json`,
   ],
   platforms: generateSharedConfig(),
-}).buildAllPlatforms()
+})
 
-modes.forEach((mode) => {
-  console.log(`\n\nBuilding ${mode} mode...`)
-  StyleDictionary.extend({
+defaultMode.buildAllPlatforms()
+
+modes.map((mode) => {
+  const styleDictionary = new StyleDictionary({
     source: [`./src/**/*.${mode}.tokens.json`],
     platforms: generateSharedConfig(mode),
-  }).buildAllPlatforms()
+  })
+  return styleDictionary.buildAllPlatforms()
 })
