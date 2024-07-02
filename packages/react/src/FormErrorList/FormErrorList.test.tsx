@@ -99,13 +99,13 @@ describe('Form error list', () => {
     })
   })
 
-  describe('renders a custom document title suffix', () => {
-    const suffix = { plural: 'errors', singular: 'error' }
+  describe('renders a custom document title label', () => {
+    const label = { plural: 'errors', singular: 'error' }
 
     it('single error', async () => {
       document.title = docTitle
 
-      render(<FormErrorList errors={singleTestError} docTitleSuffix={suffix} />)
+      render(<FormErrorList errors={singleTestError} errorCountLabel={label} />)
 
       await waitFor(() => expect(document.title).toBe(`(1 error) ${docTitle}`))
     })
@@ -113,7 +113,7 @@ describe('Form error list', () => {
     it('multiple errors', async () => {
       document.title = docTitle
 
-      render(<FormErrorList errors={testErrors} docTitleSuffix={suffix} />)
+      render(<FormErrorList errors={testErrors} errorCountLabel={label} />)
 
       await waitFor(() => expect(document.title).toBe(`(2 errors) ${docTitle}`))
     })
