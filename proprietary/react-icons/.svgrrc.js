@@ -1,4 +1,5 @@
 module.exports = {
+  dimensions: false,
   indexTemplate: require('./indexTemplate.js'),
   jsxRuntime: 'automatic',
   outDir: 'src',
@@ -6,6 +7,7 @@ module.exports = {
     'aria-hidden': 'true',
     focusable: 'false',
   },
+  replaceAttrValues: { '#000': 'currentColor' },
   typescript: true,
   svgoConfig: './svgo.config.mjs',
 }
