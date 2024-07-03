@@ -1,7 +1,7 @@
 import { AspectRatio, Grid, Heading, Image, Overlap, Paragraph } from '@amsterdam/design-system-react'
-import type { ArticleProps } from './Article'
+import type { ArticlePageProps } from './ArticlePage'
 
-type ArticleHeaderProps = Pick<ArticleProps, 'heading' | 'imageSrc'>
+type ArticleHeaderProps = Pick<ArticlePageProps, 'heading' | 'imageSrc'>
 
 export const ArticleHeader = ({ heading, imageSrc }: ArticleHeaderProps) => (
   <header>

@@ -8,9 +8,9 @@ import {
   Spotlight,
   UnorderedList,
 } from '@amsterdam/design-system-react'
-import type { ArticleProps } from './Article'
+import type { ArticlePageProps } from './ArticlePage'
 
-type ArticleBodyProps = Pick<ArticleProps, 'lead' | 'paragraph1' | 'spotlightHeading' | 'spotlightLinkLabel'>
+type ArticleBodyProps = Pick<ArticlePageProps, 'lead' | 'paragraph1' | 'spotlightHeading' | 'spotlightLinkLabel'>
 
 export const ArticleBody = ({ lead, paragraph1, spotlightHeading, spotlightLinkLabel }: ArticleBodyProps) => (
   <>
