@@ -62,8 +62,7 @@ export const FormPage = () => {
                     <Label htmlFor="familyName">Achternaam</Label>
                     <TextInput autoComplete="family-name" id="familyName" name="familyName" />
                   </Field>
-                  <Field>
-                    <Label htmlFor="city">Woonplaats</Label>
+                  <FieldSet legend="Woonplaats">
                     <Radio name="city" value="amsterdam">
                       Amsterdam
                     </Radio>
@@ -73,7 +72,7 @@ export const FormPage = () => {
                     <Radio name="city" value="anders">
                       Anders
                     </Radio>
-                  </Field>
+                  </FieldSet>
                   <Field>
                     <Label htmlFor="email">E-mail</Label>
                     <TextInput autoComplete="email" id="email" name="email" />
