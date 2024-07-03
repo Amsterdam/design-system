@@ -7,11 +7,13 @@ export const AmsterdamIconGallery = () => {
 
   return (
     <IconGallery>
-      {icons.map((key) => (
-        <IconItem key={key} name={key.substring(0, key.length - 4)}>
-          <Icon svg={Icons[key]} />
-        </IconItem>
-      ))}
+      {icons
+        .filter((name) => name.startsWith('New'))
+        .map((key) => (
+          <IconItem key={key} name={key.substring(3, key.length - 8)}>
+            <Icon svg={Icons[key]} />
+          </IconItem>
+        ))}
     </IconGallery>
   )
 }
