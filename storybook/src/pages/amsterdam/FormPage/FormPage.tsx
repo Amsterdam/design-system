@@ -81,9 +81,9 @@ export const FormPage = () => {
                     <Field>
                       <Label htmlFor="countryCode">Landnummer</Label>
                       <Select id="countryCode" name="countryCode">
-                        <option value="+31">Nederland +31</option>
-                        <option value="+32">België +32</option>
-                        <option value="+33">Frankrijk +33</option>
+                        <Select.Option value="+31">Nederland +31</Select.Option>
+                        <Select.Option value="+32">België +32</Select.Option>
+                        <Select.Option value="+33">Frankrijk +33</Select.Option>
                       </Select>
                     </Field>
                     <Field>
