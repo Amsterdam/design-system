@@ -80,7 +80,7 @@ export const FormPage = () => {
                   <Row wrap>
                     <Field>
                       <Label htmlFor="countryCode">Landnummer</Label>
-                      <Select name="countryCode">
+                      <Select id="countryCode" name="countryCode">
                         <option value="+31">Nederland +31</option>
                         <option value="+32">België +32</option>
                         <option value="+33">Frankrijk +33</option>
@@ -88,7 +88,7 @@ export const FormPage = () => {
                     </Field>
                     <Field>
                       <Label htmlFor="phone">Telefoonnummer</Label>
-                      <TextInput autoComplete="phone" id="phone" name="phone" />
+                      <TextInput autoComplete="tel" id="phone" name="phone" />
                     </Field>
                   </Row>
                 </Column>
