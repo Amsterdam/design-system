@@ -5,19 +5,12 @@
 
 import { Meta, StoryObj } from '@storybook/react'
 import { FormPage } from './FormPage'
+import { commonMeta } from '../common/config'
 
 const meta = {
+  ...commonMeta,
   title: 'Pages/Amsterdam.nl/Form Page',
   component: FormPage,
-  argTypes: {
-    footer: {
-      table: { disable: true },
-    },
-  },
-  parameters: {
-    layout: 'fullscreen',
-    themes: { themeOverride: 'Spacious' },
-  },
 } satisfies Meta<typeof FormPage>
 
 export default meta
