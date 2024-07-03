@@ -5,7 +5,7 @@
 
 import { PageMenu } from '@amsterdam/design-system-react'
 import { Header } from '@amsterdam/design-system-react/src'
-import { SearchIcon } from '@amsterdam/design-system-react-icons'
+import { NewUserLineIcon, SearchIcon } from '@amsterdam/design-system-react-icons'
 import { Meta, StoryObj } from '@storybook/react'
 
 const meta = {
@@ -38,7 +38,9 @@ export const WithLinks: Story = {
     links: (
       <PageMenu alignEnd wrap={false}>
         <PageMenu.Link href="#">Contact</PageMenu.Link>
-        <PageMenu.Link href="#">Mijn Amsterdam</PageMenu.Link>
+        <PageMenu.Link href="#" icon={NewUserLineIcon}>
+          Mijn Amsterdam
+        </PageMenu.Link>
         <PageMenu.Link href="#" icon={SearchIcon}>
           Zoeken
         </PageMenu.Link>

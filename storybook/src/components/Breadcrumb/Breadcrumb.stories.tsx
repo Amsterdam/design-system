@@ -3,7 +3,9 @@
  * Copyright Gemeente Amsterdam
  */
 
-import { Breadcrumb } from '@amsterdam/design-system-react/src'
+import { Row } from '@amsterdam/design-system-react'
+import { Breadcrumb, Icon } from '@amsterdam/design-system-react/src'
+import { NewHouseLineIcon } from '@amsterdam/design-system-react-icons'
 import { Meta, StoryObj } from '@storybook/react'
 
 const meta = {
@@ -19,7 +21,10 @@ export const Default: Story = {
   args: {
     children: [
       <Breadcrumb.Link href="#" key={1}>
-        Home
+        <Row gap="extra-small" style={{ display: 'inline-flex', alignItems: 'baseline' }}>
+          <Icon svg={NewHouseLineIcon} size="level-6" />
+          <span>Home</span>
+        </Row>
       </Breadcrumb.Link>,
       <Breadcrumb.Link href="#" key={2}>
         Afval
