@@ -57,16 +57,6 @@
   // Default gradient position, dont't use a gradient unless an aspect ratio is used with image
   --ams-spotlight-gradient-position: 0%;
 
-  // background: none;
-
-  // .ams-grid::before {
-  //   background: var(--ams-spotlight-gradient-color);
-  //   content: "";
-  //   display: block;
-  //   grid-column: 1 / -1;
-  //   grid-row: 2 / 3;
-  // }
-
   background: linear-gradient(
     to bottom,
     var(--ams-color-primary-white),
@@ -75,37 +65,21 @@
     var(--ams-spotlight-gradient-color)
   );
 
-  &:has(.ams-aspect-ratio--x-tall) {
-    --ams-spotlight-gradient-position: 106dvw;
-  }
-
-  &:has(.ams-aspect-ratio--square) {
-    --ams-spotlight-gradient-position: 70dvw;
-  }
-
   &:has(.ams-aspect-ratio--wide) {
     --ams-spotlight-gradient-position: 52dvw;
+
+    @media screen and (min-width: $ams-breakpoint-medium) {
+      &:has(.ams-grid__cell:nth-child(2)) {
+        --ams-spotlight-gradient-position: 20%;
+
+        .ams-grid.ams-grid--rows-2 {
+          grid-template-rows: 20% auto;
+        }
+      }
+    }
   }
 
   &:has(.ams-aspect-ratio--x-wide) {
     --ams-spotlight-gradient-position: 41dvw;
-  }
-
-  &:has(.ams-aspect-ratio--2x-wide) {
-    --ams-spotlight-gradient-position: 23dvw;
-  }
-
-  &:has(.ams-aspect-ratio--tall) {
-    --ams-spotlight-gradient-position: 88dvw;
-
-    @media screen and (min-width: $ams-breakpoint-medium) {
-      &:has(.ams-heading, .ams-paragraph) {
-        --ams-spotlight-gradient-position: 60%;
-
-        .ams-grid.ams-grid--rows-2 {
-          grid-template-rows: 60% auto;
-        }
-      }
-    }
   }
 }
