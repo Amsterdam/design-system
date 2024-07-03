@@ -72,6 +72,8 @@
       &:has(.ams-grid__cell:nth-child(2)) {
         --ams-spotlight-gradient-position: 20%;
 
+        padding-block-end: 10%;
+
         .ams-grid.ams-grid--rows-2 {
           grid-template-rows: 20% auto;
         }

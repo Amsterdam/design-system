@@ -138,7 +138,7 @@ export const BreakoutWideAspectAndText: Story = {
   },
   render: ({ as, color, gradient }) => (
     <Spotlight as={as} color={color} gradient={gradient}>
-      <Grid paddingBottom="medium" rows={2}>
+      <Grid paddingVertical="medium" rows={2}>
         <Grid.Cell
           colspan={{ narrow: 4, medium: 4, wide: 5 }}
           row={{ narrow: 1, medium: 1, wide: 1 }}
