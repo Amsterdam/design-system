@@ -99,9 +99,9 @@ export const FormPage = () => {
                   dienstverlening.
                 </Paragraph>
               </Alert>
-              <Row>
+              <div>
                 <Button type="submit">Versturen</Button>
-              </Row>
+              </div>
             </form>
           </Grid.Cell>
         </Grid>
