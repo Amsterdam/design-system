@@ -17,11 +17,13 @@ export type RowProps = {
   as?: RowTag
   /** The amount of vertical space between items. */
   gap?: RowGap
+  /** Whether items of the row can wrap onto multiple lines. */
+  wrap?: Boolean
 } & PropsWithChildren<HTMLAttributes<HTMLElement>>
 
 export const Row = forwardRef(
-  ({ as: Tag = 'div', children, className, gap = 'medium', ...restProps }: RowProps, ref: any) => (
-    <Tag {...restProps} ref={ref} className={clsx('ams-row', `ams-row--${gap}`, className)}>
+  ({ as: Tag = 'div', children, className, gap = 'medium', wrap = false, ...restProps }: RowProps, ref: any) => (
+    <Tag {...restProps} ref={ref} className={clsx('ams-row', `ams-row--${gap}`, wrap && 'ams-row--wrap', className)}>
       {children}
     </Tag>
   ),
