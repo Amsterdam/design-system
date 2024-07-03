@@ -77,7 +77,7 @@ export const FormPage = () => {
                     <Label htmlFor="email">E-mail</Label>
                     <TextInput autoComplete="email" id="email" name="email" />
                   </Field>
-                  <Row>
+                  <Row wrap>
                     <Field>
                       <Label htmlFor="countryCode">Landnummer</Label>
                       <Select name="countryCode">
