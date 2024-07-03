@@ -8,11 +8,11 @@ import { Default as OverlapStory } from '../../../components/Overlap/Overlap.sto
 import SkipLinkStoryMeta from '../../../components/SkipLink/SkipLink.stories'
 import { AppHeader } from '../common/AppHeader'
 
-type HomeProps = {
+type HomePageProps = {
   footer: ReactElement<FooterProps>
 }
 
-export const Home = ({ footer }: HomeProps) => (
+export const HomePage = ({ footer }: HomePageProps) => (
   <>
     <SkipLink href="#main">{SkipLinkStoryMeta.args.children}</SkipLink>
     <Screen maxWidth="wide">

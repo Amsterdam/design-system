@@ -6,13 +6,13 @@
 import type { FooterProps } from '@amsterdam/design-system-react'
 import { Meta, StoryObj } from '@storybook/react'
 import type { ReactElement } from 'react'
-import { Article } from './Article'
+import { ArticlePage } from './ArticlePage'
 import * as FooterStories from '../../../components/Footer/Footer.stories'
 import * as ImageStories from '../../../components/Image/Image.stories'
 
 const meta = {
-  title: 'Pages/Amsterdam.nl/Article',
-  component: Article,
+  title: 'Pages/Amsterdam.nl/Article Page',
+  component: ArticlePage,
   args: {
     footer: FooterStories.Default.args?.children as ReactElement<FooterProps>,
     heading: 'Ontvang uw paspoort of ID-kaart in de zomer gratis thuis',
@@ -32,7 +32,7 @@ const meta = {
     layout: 'fullscreen',
     themes: { themeOverride: 'Spacious' },
   },
-} satisfies Meta<typeof Article>
+} satisfies Meta<typeof ArticlePage>
 
 export default meta
 

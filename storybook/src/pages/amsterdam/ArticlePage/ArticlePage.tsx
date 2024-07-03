@@ -6,7 +6,7 @@ import { ArticleBreadcrumb } from './ArticleBreadcrumb'
 import { ArticleHeader } from './ArticleHeader'
 import { AppHeader } from '../common/AppHeader'
 
-export type ArticleProps = {
+export type ArticlePageProps = {
   footer: ReactElement<FooterProps>
   heading: string
   imageSrc: string
@@ -16,7 +16,7 @@ export type ArticleProps = {
   spotlightLinkLabel: string
 }
 
-export const Article = ({
+export const ArticlePage = ({
   footer,
   heading,
   imageSrc,
@@ -24,7 +24,7 @@ export const Article = ({
   paragraph1,
   spotlightHeading,
   spotlightLinkLabel,
-}: ArticleProps) => (
+}: ArticlePageProps) => (
   <>
     <SkipLink href="#main">Direct naar inhoud</SkipLink>
     <Screen maxWidth="wide">
