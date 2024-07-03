@@ -34,8 +34,8 @@ export const FormPage = () => {
             <Breadcrumb>
               <Breadcrumb.Link>Home</Breadcrumb.Link>
             </Breadcrumb>
+            <Heading className="ams-mb--md">Contact</Heading>
             <form className="ams-gap--md" id="main" onSubmit={(e) => e.preventDefault()}>
-              <Heading>Contact</Heading>
               <Field>
                 <Label htmlFor="body">Wat wilt u aan de gemeente vragen?</Label>
                 <Paragraph id="bodyDescription" size="small">
