@@ -10,7 +10,7 @@ import {
   EmailIcon,
   FacebookIcon,
   LinkedinIcon,
-  PhoneIcon,
+  NewPhoneLineIcon as PhoneIcon,
   TwitterIcon,
 } from '@amsterdam/design-system-react-icons'
 import { Meta, StoryObj } from '@storybook/react'
