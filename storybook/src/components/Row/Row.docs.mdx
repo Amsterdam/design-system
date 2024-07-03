@@ -1,6 +1,6 @@
 {/* @license CC0-1.0 */}
 
-import { Controls, Markdown, Meta, Primary } from "@storybook/blocks";
+import { Canvas, Controls, Markdown, Meta, Primary } from "@storybook/blocks";
 import * as RowStories from "./Row.stories.tsx";
 import README from "../../../../packages/css/src/components/row/README.md?raw";
 
@@ -23,3 +23,9 @@ Wrap a Row around a set of components that need the same amount of white space b
 <Primary />
 
 <Controls />
+
+### Wrapping
+
+Items that may not fit together on a single line should be allowed to wrap onto multiple lines.
+
+<Canvas of={RowStories.Wrapping} />

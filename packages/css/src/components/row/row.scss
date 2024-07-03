@@ -15,3 +15,7 @@
     gap: var(--ams-row-gap-#{$size});
   }
 }
+
+.ams-row--wrap {
+  flex-wrap: wrap;
+}
