@@ -1,4 +1,4 @@
-import { Screen, SkipLink } from '@amsterdam/design-system-react'
+import { Footer, Screen, SkipLink } from '@amsterdam/design-system-react'
 import { HTMLAttributes, type PropsWithChildren } from 'react'
 import { AppHeader } from './AppHeader'
 import { Default as FooterStory } from '../../../components/Footer/Footer.stories'
@@ -11,7 +11,7 @@ export const Layout = ({ children }: LayoutProps) => (
     <Screen maxWidth="wide">
       <AppHeader />
       {children}
-      {FooterStory.args?.children}
+      <Footer>{FooterStory.args?.children}</Footer>
     </Screen>
   </>
 )
