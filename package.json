@@ -27,8 +27,8 @@
     "@lerna-lite/cli": "3.6.0",
     "@lerna-lite/run": "3.6.0",
     "@types/node": "20.14.9",
-    "@typescript-eslint/eslint-plugin": "7.14.1",
-    "@typescript-eslint/parser": "7.14.1",
+    "@typescript-eslint/eslint-plugin": "7.15.0",
+    "@typescript-eslint/parser": "7.15.0",
     "conventional-changelog-conventionalcommits": "8.0.0",
     "eslint": "8.57.0",
     "eslint-config-prettier": "9.1.0",
@@ -52,7 +52,7 @@
     "stylelint-config-standard-scss": "13.1.0",
     "stylelint-order": "6.0.4",
     "stylelint-use-logical": "2.1.2",
-    "typescript": "5.5.2",
+    "typescript": "5.5.3",
     "wait-on": "7.2.0"
   },
   "scripts": {
