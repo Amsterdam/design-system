@@ -5,10 +5,10 @@ import { HomeTopTasks } from './HomeTopTasks'
 import { Default as OverlapStory } from '../../../components/Overlap/Overlap.stories'
 
 export const HomePage = () => (
-  <>
+  <main id="main">
     <Overlap>{OverlapStory.args?.children}</Overlap>
     <HomeTopTasks />
     <HomeSpotlight />
     <HomeNews />
-  </>
+  </main>
 )
