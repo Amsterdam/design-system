@@ -1,5 +1,5 @@
 import { Footer, Screen, SkipLink } from '@amsterdam/design-system-react'
-import { HTMLAttributes, type PropsWithChildren } from 'react'
+import type { HTMLAttributes, PropsWithChildren } from 'react'
 import { AppHeader } from './AppHeader'
 import { Default as FooterStory } from '../../../components/Footer/Footer.stories'
 
