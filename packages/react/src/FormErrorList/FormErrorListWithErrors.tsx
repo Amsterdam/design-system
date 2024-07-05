@@ -4,27 +4,12 @@
  */
 
 import clsx from 'clsx'
-import { ForwardedRef, forwardRef, HTMLAttributes, useEffect, useImperativeHandle, useRef } from 'react'
-import type { FormError } from './FormErrorList'
+import { ForwardedRef, forwardRef, useEffect, useImperativeHandle, useRef } from 'react'
+import type { FormErrorListProps } from './FormErrorList'
 import { Alert } from '../Alert'
-import type { HeadingLevel } from '../Heading'
 import { LinkList } from '../LinkList'
 
-type FormErrorListRootProps = {
-  /** The list of error messages to display. */
-  errors: FormError[]
-  /** Whether the component receives focus on first render */
-  focusOnRender?: boolean
-  /** The text for the Heading. */
-  heading?: string
-  /**
-   * The hierarchical level of the Heading within the document.
-   * Note: this intentionally does not change the font size.
-   */
-  headingLevel?: HeadingLevel
-} & HTMLAttributes<HTMLDivElement>
-
-type FormErrorListWithErrorsProps = {
+type FormErrorListWithErrorsProps = Omit<FormErrorListProps, 'errorCountLabel'> & {
   /** Whether the component has set focus once. */
   hasFocusedOnce: boolean
   /** Callback to let parent component know whether focus has been set once. */
@@ -42,7 +27,7 @@ export const FormErrorListWithErrors = forwardRef(
       headingLevel = 2,
       setHasFocusedOnce,
       ...restProps
-    }: FormErrorListRootProps & FormErrorListWithErrorsProps,
+    }: FormErrorListWithErrorsProps,
     ref: ForwardedRef<HTMLDivElement>,
   ) => {
     const innerRef = useRef<HTMLDivElement>(null)

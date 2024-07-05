@@ -28,6 +28,12 @@ Put the Form Error List directly above the first question on the page. Place it 
 This component adds the error count to the document title,
 in line with [GOV.UK guidelines for informing users about validation errors](https://design-system.service.gov.uk/patterns/validation/#how-to-tell-the-user-about-validation-errors).
 
+## Focus on initial render
+
+This component receives focus on initial render.
+This allows keyboard users to quickly navigate to the errors in the form.
+Note: this functionality has been disabled on this page, to prevent unexpected focus behaviour.
+
 ## Relevant WCAG requirements
 
 Pay extra attention to these parts:
