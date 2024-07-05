@@ -128,7 +128,7 @@ describe('Form error list', () => {
   })
 
   it('can disable automatic focus', async () => {
-    const { container } = render(<FormErrorList errors={testErrors} autoFocus={false} />)
+    const { container } = render(<FormErrorList errors={testErrors} focusOnRender={false} />)
 
     const component = container.querySelector(':only-child')
 
