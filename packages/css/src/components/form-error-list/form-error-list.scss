@@ -1,0 +1,4 @@
+.ams-form-error-list {
+  // The offset is doubled to compensate for the Alert border
+  outline-offset: var(--ams-form-error-list-outline-offset);
+}

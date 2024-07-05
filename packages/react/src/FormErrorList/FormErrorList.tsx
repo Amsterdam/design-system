@@ -4,7 +4,7 @@
  */
 
 import clsx from 'clsx'
-import { forwardRef } from 'react'
+import { forwardRef, useEffect, useImperativeHandle, useRef, useState } from 'react'
 import type { ForwardedRef, HTMLAttributes } from 'react'
 import { useAddErrorCountToDocumentTitle } from './useAddErrorCountToDocumentTitle'
 import { Alert } from '../Alert'
@@ -17,11 +17,6 @@ export type FormError = {
 }
 
 export type FormErrorListProps = {
-  /**
-   * The text following the error count.
-   * This is used to show the error count in the document title.
-   */
-  errorCountLabel?: { plural: string; singular: string }
   /** The list of error messages to display. */
   errors: FormError[]
   /** The text for the Heading. */
@@ -33,21 +28,38 @@ export type FormErrorListProps = {
   headingLevel?: HeadingLevel
 } & HTMLAttributes<HTMLDivElement>
 
-export const FormErrorList = forwardRef(
+export type FormErrorListWithErrorsProps = {
+  /** Whether the component has set focus once. */
+  hasFocusedOnce: boolean
+  /** Callback to let parent component know whether focus has been set once. */
+  setHasFocusedOnce: any
+}
+
+const FormErrorListWithErrors = forwardRef(
   (
     {
+      autoFocus = true,
       className,
-      errorCountLabel,
       errors,
+      hasFocusedOnce,
       heading = 'Verbeter de fouten voor u verder gaat',
       headingLevel = 2,
+      setHasFocusedOnce,
       ...restProps
-    }: FormErrorListProps,
+    }: FormErrorListProps & FormErrorListWithErrorsProps,
     ref: ForwardedRef<HTMLDivElement>,
   ) => {
-    useAddErrorCountToDocumentTitle(errors, errorCountLabel)
+    const innerRef = useRef<HTMLDivElement>(null)
 
-    if (errors.length === 0) return undefined
+    // use a passed ref if it's there, otherwise use innerRef
+    useImperativeHandle(ref, () => innerRef.current as HTMLDivElement)
+
+    useEffect(() => {
+      if (innerRef.current && autoFocus && !hasFocusedOnce) {
+        innerRef.current.focus()
+        setHasFocusedOnce(true)
+      }
+    }, [innerRef])
 
     return (
       <Alert
@@ -55,9 +67,9 @@ export const FormErrorList = forwardRef(
         className={clsx('ams-form-error-list', className)}
         heading={heading}
         headingLevel={headingLevel}
-        ref={ref}
-        role="alert"
+        ref={innerRef}
         severity="error"
+        tabIndex={-1}
       >
         <LinkList>
           {errors.map(({ id, label }) => (
@@ -67,6 +79,43 @@ export const FormErrorList = forwardRef(
           ))}
         </LinkList>
       </Alert>
+    )
+  },
+)
+
+FormErrorListWithErrors.displayName = 'FormErrorListWithErrors'
+
+export type ErrorCountLabelProps = {
+  /**
+   * The text following the error count.
+   * This is used to show the error count in the document title.
+   */
+  errorCountLabel?: { plural: string; singular: string }
+}
+
+export const FormErrorList = forwardRef(
+  (
+    { errors, errorCountLabel, ...restProps }: FormErrorListProps & ErrorCountLabelProps,
+    ref: ForwardedRef<HTMLDivElement>,
+  ) => {
+    // A Form Error List without errors only resets the document title.
+    // With errors, it renders the FormErrorListWithErrors component.
+    useAddErrorCountToDocumentTitle(errors, errorCountLabel)
+
+    // Focus should only be set on first render of FormErrorListWithErrors.
+    // Subsequent renders should not set focus.
+    const [hasFocusedOnce, setHasFocusedOnce] = useState(false)
+
+    if (errors.length === 0) return undefined
+
+    return (
+      <FormErrorListWithErrors
+        {...restProps}
+        errors={errors}
+        ref={ref}
+        hasFocusedOnce={hasFocusedOnce}
+        setHasFocusedOnce={setHasFocusedOnce}
+      />
     )
   },
 )

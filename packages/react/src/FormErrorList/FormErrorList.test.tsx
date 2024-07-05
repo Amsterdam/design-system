@@ -10,34 +10,34 @@ describe('Form error list', () => {
   ]
 
   it('renders', () => {
-    render(<FormErrorList errors={testErrors} />)
+    const { container } = render(<FormErrorList errors={testErrors} />)
 
-    const component = screen.getByRole('alert')
+    const component = container.querySelector(':only-child')
 
     expect(component).toBeInTheDocument()
     expect(component).toBeVisible()
   })
 
   it('does not render when there are no errors', () => {
-    render(<FormErrorList errors={[]} />)
+    const { container } = render(<FormErrorList errors={[]} />)
 
-    const component = screen.queryByRole('alert')
+    const component = container.querySelector(':only-child')
 
     expect(component).not.toBeInTheDocument()
   })
 
   it('renders a design system BEM class name', () => {
-    render(<FormErrorList errors={testErrors} />)
+    const { container } = render(<FormErrorList errors={testErrors} />)
 
-    const component = screen.getByRole('alert')
+    const component = container.querySelector(':only-child')
 
     expect(component).toHaveClass('ams-form-error-list')
   })
 
   it('renders an additional class name', () => {
-    render(<FormErrorList errors={testErrors} className="extra" />)
+    const { container } = render(<FormErrorList errors={testErrors} className="extra" />)
 
-    const component = screen.getByRole('alert')
+    const component = container.querySelector(':only-child')
 
     expect(component).toHaveClass('ams-form-error-list extra')
   })
@@ -119,12 +119,28 @@ describe('Form error list', () => {
     })
   })
 
+  it('has focus on render', async () => {
+    const { container } = render(<FormErrorList errors={testErrors} />)
+
+    const component = container.querySelector(':only-child')
+
+    expect(component).toHaveFocus()
+  })
+
+  it('can disable automatic focus', async () => {
+    const { container } = render(<FormErrorList errors={testErrors} autoFocus={false} />)
+
+    const component = container.querySelector(':only-child')
+
+    expect(component).not.toHaveFocus()
+  })
+
   it('supports ForwardRef in React', () => {
     const ref = createRef<HTMLDivElement>()
 
-    render(<FormErrorList errors={testErrors} ref={ref} />)
+    const { container } = render(<FormErrorList errors={testErrors} ref={ref} />)
 
-    const component = screen.getByRole('alert')
+    const component = container.querySelector(':only-child')
 
     expect(ref.current).toBe(component)
   })
