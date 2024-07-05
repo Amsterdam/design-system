@@ -3,10 +3,10 @@
  * Copyright Gemeente Amsterdam
  */
 
-import { AspectRatio, Column, Image, Paragraph, Screen } from '@amsterdam/design-system-react'
+import { AspectRatio, Column, Heading, Image, Link, Paragraph, Screen } from '@amsterdam/design-system-react'
 import { Blockquote, Grid, Spotlight } from '@amsterdam/design-system-react/src'
 import { Meta, StoryObj } from '@storybook/react'
-import { exampleParagraph, exampleQuote } from '../shared/exampleContent'
+import { exampleHeading, exampleParagraph, exampleQuote } from '../shared/exampleContent'
 
 const quote = exampleQuote()
 
@@ -99,6 +99,39 @@ export const DarkBlueBreakout: Story = {
                 <Image src="https://picsum.photos/960/720" alt="" cover style={{ width: '100%', height: '100%' }} />
               </AspectRatio>
               <Paragraph inverseColor>{exampleParagraph()}</Paragraph>
+            </Column>
+          </Grid.Cell>
+        </Grid>
+      </Spotlight>
+    </Screen>
+  ),
+}
+
+export const DarkBlueBreakoutComplex: Story = {
+  args: {
+    color: 'dark-blue',
+    breakout: true,
+  },
+  render: ({ as, color, breakout }) => (
+    <Screen>
+      <Spotlight as={as} color={color} breakout={breakout}>
+        <Grid paddingVertical="medium">
+          <Grid.Cell start={{ narrow: 1, medium: 2, wide: 1 }} span={{ narrow: 4, medium: 6, wide: 6 }}>
+            <Column gap="medium">
+              <Heading level={3} inverseColor>
+                {exampleHeading()}
+              </Heading>
+              <Paragraph inverseColor>{exampleParagraph()}</Paragraph>
+              <Link variant="standalone" href="#" onBackground="dark">
+                Lees meer
+              </Link>
+            </Column>
+          </Grid.Cell>
+          <Grid.Cell start={{ narrow: 1, medium: 2, wide: 7 }} span={{ narrow: 4, medium: 6, wide: 6 }}>
+            <Column gap="medium">
+              <AspectRatio ratio="wide">
+                <Image src="https://picsum.photos/960/720" alt="" cover style={{ width: '100%', height: '100%' }} />
+              </AspectRatio>
             </Column>
           </Grid.Cell>
         </Grid>

@@ -2,6 +2,7 @@
  * @license EUPL-1.2+
  * Copyright Gemeente Amsterdam
  */
+@import "../../common/breakpoint";
 
 .ams-spotlight--blue {
   background-color: var(--ams-spotlight-blue-background-color);
@@ -36,9 +37,25 @@
 }
 
 .ams-spotlight--breakout {
-  margin-block-start: 20%;
+  --ams-spotlight-breakout-margin: 42cqmin;
+  --ams-spotlight-breakout-nagative-margin: -42cqmin;
+  --ams-spotlight-breakout-complex-margin: 22cqmin;
+  --ams-spotlight-breakout-complex-nagative-margin: -22cqmin;
 
-  .ams-grid__cell:first-child {
-    margin-block-start: -20%;
+  &:not(:has(.ams-grid__cell:nth-child(2))) {
+    margin-block-start: var(--ams-spotlight-breakout-margin);
+  }
+
+  .ams-grid__cell:nth-child(1):has(.ams-aspect-ratio) {
+    margin-block-start: var(--ams-spotlight-breakout-nagative-margin);
+  }
+
+  @media screen and (min-width: $ams-breakpoint-wide) {
+    &:has(.ams-grid__cell:nth-child(2) .ams-aspect-ratio) {
+      margin-block-start: var(--ams-spotlight-breakout-complex-margin);
+    }
+    .ams-grid__cell:nth-child(2):has(.ams-aspect-ratio) {
+      margin-block-start: var(--ams-spotlight-breakout-complex-nagative-margin);
+    }
   }
 }
