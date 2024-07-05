@@ -3,7 +3,9 @@
     "dialog": {
       "background-color": { "value": "{ams.color.primary-white}" },
       "border": { "value": "0" },
-      "max-inline-size": { "value": "min(87.69vw, 45rem)" },
+      "inline-size": { "value": "calc(100vw - 2 * {ams.space.grid.md})" },
+      "max-block-size": { "value": "calc(100vh - 2 * {ams.space.grid.md})" },
+      "max-inline-size": { "value": "48rem" },
       "form": {
         "gap": { "value": "{ams.space.md}" },
         "padding-block": { "value": "{ams.space.grid.md}" },
