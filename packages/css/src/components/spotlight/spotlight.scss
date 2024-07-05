@@ -34,3 +34,11 @@
 .ams-spotlight--yellow {
   background-color: var(--ams-spotlight-yellow-background-color);
 }
+
+.ams-spotlight--breakout {
+  margin-block-start: 20%;
+
+  .ams-grid__cell:first-child {
+    margin-block-start: -20%;
+  }
+}

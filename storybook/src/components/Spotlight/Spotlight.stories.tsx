@@ -3,9 +3,10 @@
  * Copyright Gemeente Amsterdam
  */
 
+import { AspectRatio, Column, Image, Paragraph, Screen } from '@amsterdam/design-system-react'
 import { Blockquote, Grid, Spotlight } from '@amsterdam/design-system-react/src'
 import { Meta, StoryObj } from '@storybook/react'
-import { exampleQuote } from '../shared/exampleContent'
+import { exampleParagraph, exampleQuote } from '../shared/exampleContent'
 
 const quote = exampleQuote()
 
@@ -81,4 +82,27 @@ export const CustomTagName: Story = {
   args: {
     as: 'section',
   },
+}
+
+export const DarkBlueBreakout: Story = {
+  args: {
+    color: 'dark-blue',
+    breakout: true,
+  },
+  render: ({ as, color, breakout }) => (
+    <Screen>
+      <Spotlight as={as} color={color} breakout={breakout}>
+        <Grid paddingVertical="medium">
+          <Grid.Cell start={{ narrow: 1, medium: 2, wide: 2 }} span={{ narrow: 4, medium: 6, wide: 10 }}>
+            <Column gap="medium">
+              <AspectRatio ratio="wide">
+                <Image src="https://picsum.photos/960/720" alt="" cover style={{ width: '100%', height: '100%' }} />
+              </AspectRatio>
+              <Paragraph inverseColor>{exampleParagraph()}</Paragraph>
+            </Column>
+          </Grid.Cell>
+        </Grid>
+      </Spotlight>
+    </Screen>
+  ),
 }

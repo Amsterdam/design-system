@@ -24,11 +24,20 @@ export type SpotlightProps = {
   as?: 'article' | 'aside' | 'div' | 'footer' | 'section'
   /** The background colour. */
   color?: SpotlightColor
+  /** Allow the content to break out of the top */
+  breakout?: boolean
 } & PropsWithChildren<HTMLAttributes<HTMLElement>>
 
 export const Spotlight = forwardRef(
-  ({ children, className, as: Tag = 'div', color = 'dark-blue', ...restProps }: SpotlightProps, ref: any) => (
-    <Tag {...restProps} ref={ref} className={clsx('ams-spotlight', `ams-spotlight--${color}`, className)}>
+  (
+    { children, className, as: Tag = 'div', color = 'dark-blue', breakout = false, ...restProps }: SpotlightProps,
+    ref: any,
+  ) => (
+    <Tag
+      {...restProps}
+      ref={ref}
+      className={clsx('ams-spotlight', `ams-spotlight--${color}`, breakout && 'ams-spotlight--breakout', className)}
+    >
       {children}
     </Tag>
   ),
