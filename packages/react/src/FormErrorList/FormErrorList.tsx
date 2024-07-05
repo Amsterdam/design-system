@@ -16,7 +16,7 @@ export type FormError = {
   label: string
 }
 
-export type FormErrorListProps = {
+type FormErrorListRootProps = {
   /** The list of error messages to display. */
   errors: FormError[]
   /** The text for the Heading. */
@@ -28,7 +28,7 @@ export type FormErrorListProps = {
   headingLevel?: HeadingLevel
 } & HTMLAttributes<HTMLDivElement>
 
-export type FormErrorListWithErrorsProps = {
+type FormErrorListWithErrorsProps = {
   /** Whether the component has set focus once. */
   hasFocusedOnce: boolean
   /** Callback to let parent component know whether focus has been set once. */
@@ -46,7 +46,7 @@ const FormErrorListWithErrors = forwardRef(
       headingLevel = 2,
       setHasFocusedOnce,
       ...restProps
-    }: FormErrorListProps & FormErrorListWithErrorsProps,
+    }: FormErrorListRootProps & FormErrorListWithErrorsProps,
     ref: ForwardedRef<HTMLDivElement>,
   ) => {
     const innerRef = useRef<HTMLDivElement>(null)
@@ -85,7 +85,7 @@ const FormErrorListWithErrors = forwardRef(
 
 FormErrorListWithErrors.displayName = 'FormErrorListWithErrors'
 
-export type ErrorCountLabelProps = {
+type ErrorCountLabelProps = {
   /**
    * The text following the error count.
    * This is used to show the error count in the document title.
@@ -93,11 +93,10 @@ export type ErrorCountLabelProps = {
   errorCountLabel?: { plural: string; singular: string }
 }
 
+export type FormErrorListProps = FormErrorListRootProps & ErrorCountLabelProps
+
 export const FormErrorList = forwardRef(
-  (
-    { errors, errorCountLabel, ...restProps }: FormErrorListProps & ErrorCountLabelProps,
-    ref: ForwardedRef<HTMLDivElement>,
-  ) => {
+  ({ errors, errorCountLabel, ...restProps }: FormErrorListProps, ref: ForwardedRef<HTMLDivElement>) => {
     // A Form Error List without errors only resets the document title.
     // With errors, it renders the FormErrorListWithErrors component.
     useAddErrorCountToDocumentTitle(errors, errorCountLabel)
