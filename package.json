@@ -24,7 +24,7 @@
     "./storybook"
   ],
   "devDependencies": {
-    "@lerna-lite/cli": "3.6.0",
+    "@lerna-lite/cli": "3.7.0",
     "@lerna-lite/run": "3.6.0",
     "@types/node": "20.14.9",
     "@typescript-eslint/eslint-plugin": "7.15.0",
