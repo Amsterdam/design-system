@@ -43,3 +43,23 @@
 .ams-row--align-start {
   justify-content: flex-start;
 }
+
+.ams-row--align-vertical-bottom {
+  align-items: flex-end;
+}
+
+.ams-row--align-vertical-baseline {
+  align-items: baseline;
+}
+
+.ams-row--align-vertical-center {
+  align-items: center;
+}
+
+.ams-row--align-vertical-stretch {
+  align-items: stretch;
+}
+
+.ams-row--align-vertical-top {
+  align-items: flex-start;
+}

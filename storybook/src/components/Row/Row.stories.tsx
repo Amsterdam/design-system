@@ -3,9 +3,23 @@
  * Copyright Gemeente Amsterdam
  */
 
-import { Button, mainAlignOptions, Paragraph, Row } from '@amsterdam/design-system-react/src'
+import { Button, crossAlignOptions, mainAlignOptions, Paragraph, Row } from '@amsterdam/design-system-react/src'
 import { Meta, StoryObj } from '@storybook/react'
+
 const ThreeButtons = Array.from(Array(3).keys()).map((i) => <Button key={i}>Button {i + 1}</Button>)
+const ThreeParagraphs = [
+  <Paragraph className="ams-docs-pink-box" key={1} style={{ inlineSize: '8rem' }}>
+    One line
+  </Paragraph>,
+  <Paragraph className="ams-docs-pink-box" key={2} style={{ inlineSize: '8rem' }}>
+    Two
+    <br />
+    lines
+  </Paragraph>,
+  <Paragraph className="ams-docs-pink-box" key={3} style={{ inlineSize: '8rem' }}>
+    One line
+  </Paragraph>,
+]
 
 const meta = {
   title: 'Components/Layout/Row',
@@ -17,6 +31,10 @@ const meta = {
     align: {
       control: 'radio',
       options: mainAlignOptions,
+    },
+    alignVertical: {
+      control: 'radio',
+      options: crossAlignOptions,
     },
     gap: {
       control: 'radio',
@@ -34,16 +52,21 @@ export const Default: Story = {}
 export const HorizontalAlignment: Story = {
   args: {
     align: 'evenly',
-    children: Array.from(Array(3).keys()).map((i) => (
-      <Paragraph className="ams-docs-pink-box" key={i} style={{ width: '8rem' }} />
-    )),
+    children: ThreeParagraphs,
+  },
+}
+
+export const VerticalAlignment: Story = {
+  args: {
+    alignVertical: 'center',
+    children: ThreeParagraphs,
   },
 }
 
 export const Wrapping: Story = {
   args: {
     children: Array.from(Array(4).keys()).map((i) => (
-      <Paragraph className="ams-docs-pink-box" key={i} style={{ width: '16rem' }} />
+      <Paragraph className="ams-docs-pink-box" key={i} style={{ inlineSize: '16rem' }} />
     )),
     wrap: true,
   },
