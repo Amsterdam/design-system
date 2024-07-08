@@ -67,16 +67,6 @@ describe('Row', () => {
   })
 
   describe('Alignment', () => {
-    crossAlignOptions.map((align) =>
-      it(`sets the ‘${align}’ vertical alignment`, () => {
-        const { container } = render(<Row alignVertical={align} />)
-
-        const component = container.querySelector(':only-child')
-
-        expect(component).toHaveClass(`ams-row--align-vertical-${align}`)
-      }),
-    )
-
     mainAlignOptions.map((align) =>
       it(`sets the ‘${align}’ alignment`, () => {
         const { container } = render(<Row align={align} />)
@@ -84,6 +74,16 @@ describe('Row', () => {
         const component = container.querySelector(':only-child')
 
         expect(component).toHaveClass(`ams-row--align-${align}`)
+      }),
+    )
+
+    crossAlignOptions.map((align) =>
+      it(`sets the ‘${align}’ vertical alignment`, () => {
+        const { container } = render(<Row alignVertical={align} />)
+
+        const component = container.querySelector(':only-child')
+
+        expect(component).toHaveClass(`ams-row--align-vertical-${align}`)
       }),
     )
   })

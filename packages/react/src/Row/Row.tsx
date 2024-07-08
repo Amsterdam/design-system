@@ -14,9 +14,9 @@ type RowGap = (typeof rowGapSizes)[number]
 type RowTag = 'article' | 'div' | 'section'
 
 export type RowProps = {
-  /** The horizontal align of the items in the row. */
+  /** The horizontal alignment of the items in the row. */
   align?: MainAlign
-  /** The vertical align of the items in the row. */
+  /** The vertical alignment of the items in the row. */
   alignVertical?: CrossAlign
   /** The HTML element to use. */
   as?: RowTag
