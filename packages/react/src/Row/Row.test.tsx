@@ -1,6 +1,7 @@
 import { render, screen } from '@testing-library/react'
 import { createRef } from 'react'
 import { Row, rowGapSizes } from './Row'
+import { mainAlignOptions } from '../common/layout'
 import '@testing-library/jest-dom'
 
 describe('Row', () => {
@@ -63,5 +64,17 @@ describe('Row', () => {
     const component = container.querySelector(':only-child')
 
     expect(ref.current).toBe(component)
+  })
+
+  describe('Alignment', () => {
+    mainAlignOptions.map((align) =>
+      it(`sets the ‘${align}’ alignment`, () => {
+        const { container } = render(<Row align={align} />)
+
+        const component = container.querySelector(':only-child')
+
+        expect(component).toHaveClass(`ams-row--align-${align}`)
+      }),
+    )
   })
 })
