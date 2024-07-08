@@ -1,7 +1,7 @@
 import { Grid, PageMenu, Screen, SkipLink } from '@amsterdam/design-system-react'
 import { HTMLAttributes } from 'react'
 import type { PropsWithChildren } from 'react'
-import { Sidebar } from './SideBar'
+import { Sidebar } from './Sidebar'
 import { SiteHeader } from './SiteHeader'
 
 type LayoutProps = PropsWithChildren<HTMLAttributes<HTMLElement>>

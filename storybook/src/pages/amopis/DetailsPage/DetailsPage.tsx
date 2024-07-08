@@ -30,7 +30,7 @@ export const DetailsPage = () => (
     <Grid.Cell span={{ narrow: 4, medium: 8, wide: 10 }} start={{ narrow: 1, medium: 1, wide: 3 }}>
       <Tabs>
         <Tabs.List>
-          {menu.level3.map((label, index) => (
+          {menu.level3.map(({ label }, index) => (
             <Tabs.Button tab={index} key={label}>
               {label}
             </Tabs.Button>

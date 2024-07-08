@@ -9,14 +9,14 @@ type SubmenuProps = {
 export const Submenu = ({ activeTab }: SubmenuProps) => (
   <Tabs activeTab={activeTab}>
     <Tabs.List className="ams-application-tabs-vertical">
-      {menu.level2.map((label, index) => (
+      {menu.level2.map(({ label }, index) => (
         <Tabs.Button key={label} tab={index}>
           <Icon size="level-6" svg={ChevronRightIcon} />
           {label}
         </Tabs.Button>
       ))}
     </Tabs.List>
-    {menu.level2.map((label, index) => (
+    {menu.level2.map(({ label }, index) => (
       <Tabs.Panel key={label} tab={index} style={{ display: 'none' }} />
     ))}
   </Tabs>
