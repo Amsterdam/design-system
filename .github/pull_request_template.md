@@ -1,10 +1,11 @@
 # Describe the pull request
 
-Thank you for contributing to the project! Please take some time to fill out this template, to help us quickly and smoothly handle your PR.
+Thank you for contributing to the project!
+Please use this template to help us handle your PR smoothly.
 
 ## What
 
-(What changes are being introduced in this PR?)
+(What changes does this PR introduce?)
 
 ## Why
 
@@ -26,6 +27,6 @@ Before submitting your pull request, please ensure you have done the following. 
 
 ## Additional notes
 
-- Please link to any related issues or discussions.
-- Please link to the relevant story in the feature branch deploy.
+- Provide links to any related issues or discussions.
+- Add a link to the specific story in the feature branch deploy.
 - Mention any areas where additional review or feedback is needed.
