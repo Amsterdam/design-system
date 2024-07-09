@@ -13,6 +13,12 @@
 }
 
 .ams-radio__circle {
+  --ams-radio-circle-color: transparent;
+  --ams-radio-circle-start: 0.5rem;
+
+  // To ensure smooth aliasing the end of the gradient is slightly bigger
+  --ams-radio-circle-end: 0.52rem;
+
   align-items: center;
   block-size: calc(var(--ams-radio-font-size) * var(--ams-radio-line-height));
   display: flex;
@@ -20,9 +26,11 @@
   inline-size: 1.5rem;
 
   &::after {
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: 1rem;
+    background: radial-gradient(
+      circle,
+      var(--ams-radio-circle-color) var(--ams-radio-circle-start),
+      transparent var(--ams-radio-circle-end)
+    );
     block-size: 1.5rem;
     border-color: var(--ams-radio-circle-border-color);
     border-radius: 100%;
@@ -62,7 +70,7 @@
 // Default checked
 .ams-radio__input:checked {
   + .ams-radio__label .ams-radio__circle::after {
-    background-image: var(--ams-radio-circle-checked-background-image);
+    --ams-radio-circle-color: var(--ams-radio-circle-checked-color);
   }
 }
 
@@ -89,7 +97,7 @@
 // Invalid checked
 .ams-radio__input[aria-invalid="true"]:checked {
   + .ams-radio__label .ams-radio__circle::after {
-    background-image: var(--ams-radio-circle-invalid-checked-background-image);
+    --ams-radio-circle-color: var(--ams-radio-circle-invalid-checked-color);
   }
 }
 
@@ -101,7 +109,7 @@
 // Disabled checked
 .ams-radio__input:disabled:checked {
   + .ams-radio__label .ams-radio__circle::after {
-    background-image: var(--ams-radio-circle-disabled-checked-background-image);
+    --ams-radio-circle-color: var(--ams-radio-circle-disabled-checked-color);
   }
 }
 
@@ -123,18 +131,18 @@
 
 // Default checked hover
 .ams-radio__input:checked + .ams-radio__label:hover .ams-radio__circle::after {
-  background-image: var(--ams-radio-circle-checked-hover-background-image);
+  --ams-radio-circle-color: var(--ams-radio-circle-checked-hover-color);
 }
 
 // Invalid checked hover
 .ams-radio__input[aria-invalid="true"]:checked + .ams-radio__label:hover .ams-radio__circle::after {
   // TODO: this should be the (currently non-existent) dark red hover color
-  background-image: var(--ams-radio-circle-invalid-checked-hover-background-image);
+  --ams-radio-circle-color: var(--ams-radio-circle-invalid-checked-hover-color);
 }
 
 // Disabled checked hover
 .ams-radio__input:disabled:checked + .ams-radio__label:hover .ams-radio__circle::after {
-  background-image: var(--ams-radio-circle-disabled-checked-hover-background-image);
+  --ams-radio-circle-color: var(--ams-radio-circle-disabled-checked-hover-color);
 }
 
 // Disabled invalid unchecked hover
@@ -149,6 +157,6 @@
 .ams-radio__input[aria-invalid="true"]:disabled:checked {
   + .ams-radio__label .ams-radio__circle::after {
     // TODO: currently disabled invalid gets the same styling as disabled. This should get its own styling.
-    background-image: var(--ams-radio-circle-disabled-checked-background-image);
+    --ams-radio-circle-color: var(--ams-radio-circle-disabled-checked-color);
   }
 }
