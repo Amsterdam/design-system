@@ -6,7 +6,6 @@
 import { Grid, Screen } from '@amsterdam/design-system-react/src'
 import type { GridCellProps } from '@amsterdam/design-system-react/src'
 import { Meta, StoryObj } from '@storybook/react'
-import { paddingArgType } from '../shared/argTypes'
 
 const meta = {
   title: 'Components/Layout/Grid',
@@ -19,9 +18,27 @@ const meta = {
       },
       options: ['none', 'small', undefined, 'large'],
     },
-    paddingVertical: paddingArgType,
-    paddingTop: paddingArgType,
-    paddingBottom: paddingArgType,
+    paddingVertical: {
+      control: {
+        type: 'radio',
+        labels: { undefined: 'none', small: 'small', medium: 'medium', large: 'large' },
+      },
+      options: [undefined, 'small', 'medium', 'large'],
+    },
+    paddingTop: {
+      control: {
+        type: 'radio',
+        labels: { undefined: 'none', small: 'small', medium: 'medium', large: 'large' },
+      },
+      options: [undefined, 'small', 'medium', 'large'],
+    },
+    paddingBottom: {
+      control: {
+        type: 'radio',
+        labels: { undefined: 'none', small: 'small', medium: 'medium', large: 'large' },
+      },
+      options: [undefined, 'small', 'medium', 'large'],
+    },
   },
 } satisfies Meta<typeof Grid>
 
@@ -135,10 +152,8 @@ export const CustomTagName: CellStory = {
     as: 'section',
   },
   render: ({ as }: GridCellProps) => (
-    <Grid>
-      <Grid.Cell as={as} span="all">
-        <p className="ams-docs-pink-box ams-docs-paragraph">Deze cel gebruikt het HTML-element `{as}`.</p>
-      </Grid.Cell>
-    </Grid>
+    <Grid.Cell as={as} span="all">
+      <p className="ams-docs-pink-box ams-docs-paragraph">Deze cel gebruikt het HTML-element `{as}`.</p>
+    </Grid.Cell>
   ),
 }
