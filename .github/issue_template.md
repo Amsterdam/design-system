@@ -31,6 +31,5 @@ Before submitting your issue, please ensure you have done the following:
 
 ## Additional notes
 
-- Mention if the issue is blocking development or critical for release.
 - Provide links to any related issues or discussions.
 - Try suggesting a potential solution or workaround.
