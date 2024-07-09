@@ -46,7 +46,7 @@ export const ArticleBody = ({ lead, paragraph1, spotlightHeading, spotlightLinkL
               </UnorderedList.Item>
             </UnorderedList>
             <Paragraph inverseColor>
-              <Link href="https://amsterdam.nl/paspoort/" onBackground="dark">
+              <Link href="https://amsterdam.nl/paspoort/" inverseColor>
                 {spotlightLinkLabel}
               </Link>
             </Paragraph>

@@ -2,8 +2,10 @@
   .ams-docs-figure {
     display: flex;
     gap: 0.25rem;
-    margin: 0; /* stylelint-disable-line */
-    padding: 0; /* stylelint-disable-line */
+    margin-block: 0;
+    margin-inline: 0;
+    padding-block: 0;
+    padding-inline: 0;
   }
 
   .ams-docs-image,
@@ -50,13 +52,24 @@
     display: flex;
     flex-direction: column;
     gap: 0.5rem;
-    padding: 0.5rem; /* stylelint-disable-line */
+    padding-block: 0.5rem;
+    padding-inline: 0.5rem;
     width: 50%;
   }
 
+  .ams-docs-dark-background,
+  .ams-docs-light-background {
+    margin-block: -1rem;
+    margin-inline: -1rem;
+    padding-block: 1rem;
+    padding-inline: 1rem;
+  }
+
   .ams-docs-dark-background {
-    background-color: #004699;
-    margin: -1rem; /* stylelint-disable-line */
-    padding: 1rem; /* stylelint-disable-line */
+    background-color: #004699; /* Dark blue */
+  }
+
+  .ams-docs-light-background {
+    background-color: #FFE600; /* Yellow */
   }
 </style>

@@ -26,15 +26,15 @@
           "text-decoration-line": { "value": "{ams.link-appearance.subtle.hover.text-decoration-line}" }
         },
         "on-background-dark": {
-          "color": { "value": "{ams.link-appearance.on-background-dark.color}" },
+          "color": { "value": "{ams.link-appearance.inverse.color}" },
           "hover": {
-            "color": { "value": "{ams.link-appearance.on-background-dark.color}" }
+            "color": { "value": "{ams.link-appearance.inverse.hover.color}" }
           }
         },
         "on-background-light": {
-          "color": { "value": "{ams.link-appearance.on-background-light.color}" },
+          "color": { "value": "{ams.link-appearance.contrast.color}" },
           "hover": {
-            "color": { "value": "{ams.link-appearance.on-background-light.color}" }
+            "color": { "value": "{ams.link-appearance.contrast.hover.color}" }
           }
         }
       }
