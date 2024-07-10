@@ -109,8 +109,8 @@ importers:
         version: link:../../proprietary/tokens
     devDependencies:
       sass:
-        specifier: 1.77.6
-        version: 1.77.6
+        specifier: 1.77.7
+        version: 1.77.7
 
   packages/react:
     dependencies:
@@ -183,7 +183,7 @@ importers:
         version: 4.17.21
       next:
         specifier: 14.2.4
-        version: 14.2.4(@babel/core@7.24.7)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(sass@1.77.6)
+        version: 14.2.4(@babel/core@7.24.7)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(sass@1.77.7)
       npm-run-all:
         specifier: 4.1.5
         version: 4.1.5
@@ -221,8 +221,8 @@ importers:
         specifier: 0.36.0
         version: 0.36.0(rollup@4.18.1)(typescript@5.5.3)
       sass:
-        specifier: 1.77.6
-        version: 1.77.6
+        specifier: 1.77.7
+        version: 1.77.7
       tslib:
         specifier: 2.6.3
         version: 2.6.3
@@ -343,7 +343,7 @@ importers:
         version: 8.1.11(encoding@0.1.13)(prettier@3.3.2)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(typescript@5.5.3)
       '@storybook/react-vite':
         specifier: 8.1.11
-        version: 8.1.11(encoding@0.1.13)(prettier@3.3.2)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(rollup@4.18.1)(typescript@5.5.3)(vite@5.3.3(@types/node@20.14.10)(sass@1.77.6)(terser@5.17.1))
+        version: 8.1.11(encoding@0.1.13)(prettier@3.3.2)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(rollup@4.18.1)(typescript@5.5.3)(vite@5.3.3(@types/node@20.14.10)(sass@1.77.7)(terser@5.17.1))
       '@storybook/theming':
         specifier: 8.1.11
         version: 8.1.11(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
@@ -352,7 +352,7 @@ importers:
         version: 18.3.3
       '@vitejs/plugin-react':
         specifier: 4.3.1
-        version: 4.3.1(vite@5.3.3(@types/node@20.14.10)(sass@1.77.6)(terser@5.17.1))
+        version: 4.3.1(vite@5.3.3(@types/node@20.14.10)(sass@1.77.7)(terser@5.17.1))
       '@whitespace/storybook-addon-html':
         specifier: 6.1.1
         version: 6.1.1(prettier@3.3.2)(react-syntax-highlighter@15.5.0(react@18.3.1))
@@ -373,7 +373,7 @@ importers:
         version: 8.1.11(@babel/preset-env@7.24.7(@babel/core@7.24.7))(encoding@0.1.13)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       vite:
         specifier: 5.3.3
-        version: 5.3.3(@types/node@20.14.10)(sass@1.77.6)(terser@5.17.1)
+        version: 5.3.3(@types/node@20.14.10)(sass@1.77.7)(terser@5.17.1)
 
 packages:
 
@@ -3445,10 +3445,6 @@ packages:
   brace-expansion@2.0.1:
     resolution: {integrity: sha512-XnAIvQ8eM+kC6aULx6wuQiwVsnzsi9d3WxzV3FpWTGA19F621kwdbsAcFKXgKUHZWsy+mY6iL1sHTxWEFCytDA==}
 
-  braces@3.0.2:
-    resolution: {integrity: sha512-b8um+L1RzM3WDSzvhm6gIz1yfTbBt6YTlcEKAvsmqCZZFw46z626lVj9j1yEPW33H5H+lBQpZMP1k8l+78Ha0A==}
-    engines: {node: '>=8'}
-
   braces@3.0.3:
     resolution: {integrity: sha512-yQbXgO/OSZVD2IsiLlro+7Hf6Q18EJrKSEsdoMzKePKXct3gvD8oLcOQdIzGupr5Fj+EDe8gO/lxc1BzfMpxvA==}
     engines: {node: '>=8'}
@@ -4573,10 +4569,6 @@ packages:
   filesize@6.4.0:
     resolution: {integrity: sha512-mjFIpOHC4jbfcTfoh4rkWpI31mF7viw9ikj/JyLoKzqlwG/YsefKfvYlYhdYdg/9mtK2z1AzgN/0LvVQ3zdlSQ==}
     engines: {node: '>= 0.4.0'}
-
-  fill-range@7.0.1:
-    resolution: {integrity: sha512-qOo9F+dMUmC2Lcb4BbVvnKJxTPjCm+RRpe4gDuGrzkL7mEVl/djYSu2OdQ2Pa302N4oqkSg9ir6jaLWJ2USVpQ==}
-    engines: {node: '>=8'}
 
   fill-range@7.1.1:
     resolution: {integrity: sha512-YsGpe3WHLK8ZYi4tWDg2Jy3ebRz2rXowDxnld4bkQB00cc/1Zw9AWnC0i9ztDJitivtQvaI9KaLyKrc+hBW0yg==}
@@ -7610,8 +7602,8 @@ packages:
   safer-buffer@2.1.2:
     resolution: {integrity: sha512-YZo3K82SD7Riyi0E1EQPojLz7kpepnSQI9IyPbHHg1XXXevb5dJI7tpyN2ADxGcQbHG7vcyRHk0cbwqcQriUtg==}
 
-  sass@1.77.6:
-    resolution: {integrity: sha512-ByXE1oLD79GVq9Ht1PeHWCPMPB8XHpBuz1r85oByKHjZY6qV6rWnQovQzXJXuQ/XyE1Oj3iPk3lo28uzaRA2/Q==}
+  sass@1.77.7:
+    resolution: {integrity: sha512-9ywH75cO+rLjbrZ6en3Gp8qAMwPGBapFtlsMJoDTkcMU/bSe5a6cjKVUn5Jr4Gzg5GbP3HE8cm+02pLCgcoMow==}
     engines: {node: '>=14.0.0'}
     hasBin: true
 
@@ -10381,13 +10373,13 @@ snapshots:
       '@types/yargs': 17.0.24
       chalk: 4.1.2
 
-  '@joshwooding/vite-plugin-react-docgen-typescript@0.3.1(typescript@5.5.3)(vite@5.3.3(@types/node@20.14.10)(sass@1.77.6)(terser@5.17.1))':
+  '@joshwooding/vite-plugin-react-docgen-typescript@0.3.1(typescript@5.5.3)(vite@5.3.3(@types/node@20.14.10)(sass@1.77.7)(terser@5.17.1))':
     dependencies:
       glob: 7.2.3
       glob-promise: 4.2.2(glob@7.2.3)
       magic-string: 0.27.0
       react-docgen-typescript: 2.2.2(typescript@5.5.3)
-      vite: 5.3.3(@types/node@20.14.10)(sass@1.77.6)(terser@5.17.1)
+      vite: 5.3.3(@types/node@20.14.10)(sass@1.77.7)(terser@5.17.1)
     optionalDependencies:
       typescript: 5.5.3
 
@@ -11258,7 +11250,7 @@ snapshots:
       - prettier
       - supports-color
 
-  '@storybook/builder-vite@8.1.11(encoding@0.1.13)(prettier@3.3.2)(typescript@5.5.3)(vite@5.3.3(@types/node@20.14.10)(sass@1.77.6)(terser@5.17.1))':
+  '@storybook/builder-vite@8.1.11(encoding@0.1.13)(prettier@3.3.2)(typescript@5.5.3)(vite@5.3.3(@types/node@20.14.10)(sass@1.77.7)(terser@5.17.1))':
     dependencies:
       '@storybook/channels': 8.1.11
       '@storybook/client-logger': 8.1.11
@@ -11277,7 +11269,7 @@ snapshots:
       fs-extra: 11.2.0
       magic-string: 0.30.10
       ts-dedent: 2.2.0
-      vite: 5.3.3(@types/node@20.14.10)(sass@1.77.6)(terser@5.17.1)
+      vite: 5.3.3(@types/node@20.14.10)(sass@1.77.7)(terser@5.17.1)
     optionalDependencies:
       typescript: 5.5.3
     transitivePeerDependencies:
@@ -11590,11 +11582,11 @@ snapshots:
       react: 18.3.1
       react-dom: 18.3.1(react@18.3.1)
 
-  '@storybook/react-vite@8.1.11(encoding@0.1.13)(prettier@3.3.2)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(rollup@4.18.1)(typescript@5.5.3)(vite@5.3.3(@types/node@20.14.10)(sass@1.77.6)(terser@5.17.1))':
+  '@storybook/react-vite@8.1.11(encoding@0.1.13)(prettier@3.3.2)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(rollup@4.18.1)(typescript@5.5.3)(vite@5.3.3(@types/node@20.14.10)(sass@1.77.7)(terser@5.17.1))':
     dependencies:
-      '@joshwooding/vite-plugin-react-docgen-typescript': 0.3.1(typescript@5.5.3)(vite@5.3.3(@types/node@20.14.10)(sass@1.77.6)(terser@5.17.1))
+      '@joshwooding/vite-plugin-react-docgen-typescript': 0.3.1(typescript@5.5.3)(vite@5.3.3(@types/node@20.14.10)(sass@1.77.7)(terser@5.17.1))
       '@rollup/pluginutils': 5.1.0(rollup@4.18.1)
-      '@storybook/builder-vite': 8.1.11(encoding@0.1.13)(prettier@3.3.2)(typescript@5.5.3)(vite@5.3.3(@types/node@20.14.10)(sass@1.77.6)(terser@5.17.1))
+      '@storybook/builder-vite': 8.1.11(encoding@0.1.13)(prettier@3.3.2)(typescript@5.5.3)(vite@5.3.3(@types/node@20.14.10)(sass@1.77.7)(terser@5.17.1))
       '@storybook/node-logger': 8.1.11
       '@storybook/react': 8.1.11(encoding@0.1.13)(prettier@3.3.2)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(typescript@5.5.3)
       '@storybook/types': 8.1.11
@@ -11605,7 +11597,7 @@ snapshots:
       react-dom: 18.3.1(react@18.3.1)
       resolve: 1.22.8
       tsconfig-paths: 4.2.0
-      vite: 5.3.3(@types/node@20.14.10)(sass@1.77.6)(terser@5.17.1)
+      vite: 5.3.3(@types/node@20.14.10)(sass@1.77.7)(terser@5.17.1)
     transitivePeerDependencies:
       - '@preact/preset-vite'
       - encoding
@@ -12259,14 +12251,14 @@ snapshots:
 
   '@ungap/structured-clone@1.2.0': {}
 
-  '@vitejs/plugin-react@4.3.1(vite@5.3.3(@types/node@20.14.10)(sass@1.77.6)(terser@5.17.1))':
+  '@vitejs/plugin-react@4.3.1(vite@5.3.3(@types/node@20.14.10)(sass@1.77.7)(terser@5.17.1))':
     dependencies:
       '@babel/core': 7.24.7
       '@babel/plugin-transform-react-jsx-self': 7.24.6(@babel/core@7.24.7)
       '@babel/plugin-transform-react-jsx-source': 7.24.6(@babel/core@7.24.7)
       '@types/babel__core': 7.20.5
       react-refresh: 0.14.2
-      vite: 5.3.3(@types/node@20.14.10)(sass@1.77.6)(terser@5.17.1)
+      vite: 5.3.3(@types/node@20.14.10)(sass@1.77.7)(terser@5.17.1)
     transitivePeerDependencies:
       - supports-color
 
@@ -12768,10 +12760,6 @@ snapshots:
     dependencies:
       balanced-match: 1.0.2
 
-  braces@3.0.2:
-    dependencies:
-      fill-range: 7.0.1
-
   braces@3.0.3:
     dependencies:
       fill-range: 7.1.1
@@ -13025,7 +13013,7 @@ snapshots:
   chokidar@3.5.3:
     dependencies:
       anymatch: 3.1.3
-      braces: 3.0.2
+      braces: 3.0.3
       glob-parent: 5.1.2
       is-binary-path: 2.1.0
       is-glob: 4.0.3
@@ -14184,10 +14172,6 @@ snapshots:
       minimatch: 5.1.6
 
   filesize@6.4.0: {}
-
-  fill-range@7.0.1:
-    dependencies:
-      to-regex-range: 5.0.1
 
   fill-range@7.1.1:
     dependencies:
@@ -16510,7 +16494,7 @@ snapshots:
 
   micromatch@4.0.5:
     dependencies:
-      braces: 3.0.2
+      braces: 3.0.3
       picomatch: 2.3.1
 
   micromatch@4.0.7:
@@ -16654,7 +16638,7 @@ snapshots:
 
   neo-async@2.6.2: {}
 
-  next@14.2.4(@babel/core@7.24.7)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(sass@1.77.6):
+  next@14.2.4(@babel/core@7.24.7)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(sass@1.77.7):
     dependencies:
       '@next/env': 14.2.4
       '@swc/helpers': 0.5.5
@@ -16675,7 +16659,7 @@ snapshots:
       '@next/swc-win32-arm64-msvc': 14.2.4
       '@next/swc-win32-ia32-msvc': 14.2.4
       '@next/swc-win32-x64-msvc': 14.2.4
-      sass: 1.77.6
+      sass: 1.77.7
     transitivePeerDependencies:
       - '@babel/core'
       - babel-plugin-macros
@@ -18112,7 +18096,7 @@ snapshots:
 
   safer-buffer@2.1.2: {}
 
-  sass@1.77.6:
+  sass@1.77.7:
     dependencies:
       chokidar: 3.5.3
       immutable: 4.3.0
@@ -19246,7 +19230,7 @@ snapshots:
       unist-util-stringify-position: 4.0.0
       vfile-message: 4.0.2
 
-  vite@5.3.3(@types/node@20.14.10)(sass@1.77.6)(terser@5.17.1):
+  vite@5.3.3(@types/node@20.14.10)(sass@1.77.7)(terser@5.17.1):
     dependencies:
       esbuild: 0.21.5
       postcss: 8.4.39
@@ -19254,7 +19238,7 @@ snapshots:
     optionalDependencies:
       '@types/node': 20.14.10
       fsevents: 2.3.3
-      sass: 1.77.6
+      sass: 1.77.7
       terser: 5.17.1
 
   vscode-json-languageservice@4.2.1:
