@@ -330,8 +330,8 @@ importers:
         specifier: 8.1.11
         version: 8.1.11
       '@storybook/manager-api':
-        specifier: 8.1.11
-        version: 8.1.11(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+        specifier: 8.2.1
+        version: 8.2.1(storybook@8.1.11(@babel/preset-env@7.24.7(@babel/core@7.24.7))(encoding@0.1.13)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))
       '@storybook/mdx2-csf':
         specifier: 1.1.0
         version: 1.1.0
@@ -2480,6 +2480,11 @@ packages:
 
   '@storybook/manager-api@8.1.11':
     resolution: {integrity: sha512-QSgwKfAw01K9YvvZj30iGBMgQ4YaCT3vojmttuqdH5ukyXkiO7pENLJj4Y+alwUeSi0g+SJeadCI3PXySBHOGg==}
+
+  '@storybook/manager-api@8.2.1':
+    resolution: {integrity: sha512-xFd4E6kmIITaQ+XiC6id1hqw9q8+HZqF3e49BBWhd3NtcdWuen+6RFH2Rk6uTI3ueWHKc7YdoIWsvkm6B/BJ1g==}
+    peerDependencies:
+      storybook: ^8.2.1
 
   '@storybook/manager@8.1.11':
     resolution: {integrity: sha512-e02y9dmxowo7cTKYm9am7UO6NOHoHy6Xi7xZf/UA932qLwFZUtk5pnwIEFaZWI3OQsRUCGhP+FL5zizU7uVZeg==}
@@ -11559,6 +11564,10 @@ snapshots:
     transitivePeerDependencies:
       - react
       - react-dom
+
+  '@storybook/manager-api@8.2.1(storybook@8.1.11(@babel/preset-env@7.24.7(@babel/core@7.24.7))(encoding@0.1.13)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))':
+    dependencies:
+      storybook: 8.1.11(@babel/preset-env@7.24.7(@babel/core@7.24.7))(encoding@0.1.13)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
 
   '@storybook/manager@8.1.11': {}
 
