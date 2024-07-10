@@ -303,8 +303,8 @@ importers:
         specifier: 8.1.11
         version: 8.1.11
       '@storybook/addon-actions':
-        specifier: 8.1.11
-        version: 8.1.11
+        specifier: 8.2.1
+        version: 8.2.1(storybook@8.1.11(@babel/preset-env@7.24.7(@babel/core@7.24.7))(encoding@0.1.13)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))
       '@storybook/addon-docs':
         specifier: 8.1.11
         version: 8.1.11(@types/react-dom@18.2.19)(encoding@0.1.13)(prettier@3.3.2)
@@ -2346,6 +2346,11 @@ packages:
 
   '@storybook/addon-actions@8.1.11':
     resolution: {integrity: sha512-jqYXgBgOVInStOCk//AA+dGkrfN8R7rDXA4lyu82zM59kvICtG9iqgmkSRDn0Z3zUkM+lIHZGoz0aLVQ8pxsgw==}
+
+  '@storybook/addon-actions@8.2.1':
+    resolution: {integrity: sha512-rosuPmufr41Uojjo1ok+1r2X3/qS4WvOn6Wc8SGos9oQZwCoIbRIABOg8sz41UatPKcYHF9sJKBy8l1NXCz6LQ==}
+    peerDependencies:
+      storybook: ^8.2.1
 
   '@storybook/addon-backgrounds@8.1.11':
     resolution: {integrity: sha512-naGf1ovmsU2pSWb270yRO1IidnO+0YCZ5Tcb8I4rPhZ0vsdXNURYKS1LPSk1OZkvaUXdeB4Im9HhHfUBJOW9oQ==}
@@ -11078,6 +11083,15 @@ snapshots:
       '@types/uuid': 9.0.8
       dequal: 2.0.3
       polished: 4.3.1
+      uuid: 9.0.1
+
+  '@storybook/addon-actions@8.2.1(storybook@8.1.11(@babel/preset-env@7.24.7(@babel/core@7.24.7))(encoding@0.1.13)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))':
+    dependencies:
+      '@storybook/global': 5.0.0
+      '@types/uuid': 9.0.8
+      dequal: 2.0.3
+      polished: 4.3.1
+      storybook: 8.1.11(@babel/preset-env@7.24.7(@babel/core@7.24.7))(encoding@0.1.13)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       uuid: 9.0.1
 
   '@storybook/addon-backgrounds@8.1.11':
