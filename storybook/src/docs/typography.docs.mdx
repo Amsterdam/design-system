@@ -34,12 +34,11 @@ Each level has a minimum text size, up to a window width of 320 pixels.
 There’s also a maximum text size starting at a window width of 1600 pixels.
 Between these points, the text grows linearly.
 
-### Typographic Scale
+### Typography System
 
-The typographic scale is based on a factor of 5 ÷ 4 = 1.25.
-For each adjacent level, the text is that much larger or smaller.
-
-The text size grows more slowly at the minimum window width, with a factor of 7 ÷ 6 ≈ 1.17.
+The typography system is based on two font sizes and two growth factors.
+The two font sizes are the minimum and maximum text sizes for Text Level 5 – the default body text.
+The larger levels grow with a larger factor than the smaller levels.
 This prevents headings from becoming too large on phones and other narrow windows and small texts from becoming too small.
 
 ### Two Themes for Websites and Applications
@@ -47,8 +46,10 @@ This prevents headings from becoming too large on phones and other narrow window
 #### Spacious
 
 The typography is quite spacious for websites, in line with the overall design.
-A standard paragraph is 18 pixels at a window width of 320 pixels.
-It grows to 24 pixels up to a width of 1600 pixels.
+A standard paragraph grows from 18 pixels at a window width of 320 pixels to 24 pixels for a window width of 1600 pixels.
+
+Larger text levels grow with a factor of 5 ÷ 4 = 1.25.
+Smaller text levels grow with a factor of 7 ÷ 6 ≈ 1.167.
 
 The maximum text sizes for all levels in the spacious theme:
 
@@ -70,10 +71,12 @@ And the minimum:
 
 #### Compact
 
-For applications, such large text is not necessary, even counterproductive.
-Hence, there’s a compact theme for typography.
-In this theme, a paragraph is 14 pixels at the minimum window width and 16 pixels at the maximum.
-Text is a quarter smaller and grows slightly more slowly.
+For applications, text that large would be counterproductive.
+That is why we have a compact theme for typography.
+In this theme, Text Level 5 grows from 14 to 16 pixels.
+
+Larger text levels grow with a factor of 7 ÷ 6 ≈ 1.167.
+Smaller text levels grow with a factor of 9 ÷ 8 = 1.125.
 
 The maximum text sizes for all levels in the compact theme:
 
@@ -113,9 +116,9 @@ The text sizes at those points are as follows, rounded to 1 decimal place:
 
 | Device Class | Design Width |    0 |    1 |    2 |    3 |    4 |    5 |    6 |
 | :----------- | ------------ | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
-| Phone        | 320          | 30.3 | 25.9 | 22.2 | 19.1 | 16.3 |   14 |   12 |
-| Tablet       | 832          | 40.1 | 33.1 | 27.4 | 22.7 | 18.8 | 15.6 |   13 |
-| Desktop      | 1600         | 54.9 | 43.9 | 35.2 | 28.1 | 22.5 |   18 | 14.4 |
+| Phone        | 320          | 25.2 | 22.4 | 19.9 | 17.7 | 15.8 |   14 | 12.4 |
+| Tablet       | 832          | 29.0 | 25.3 | 22.1 | 19.3 | 16.9 | 14.8 |   13 |
+| Desktop      | 1600         | 34.6 | 29.6 | 25.4 | 21.8 | 18.7 |   16 | 13.7 |
 
 ## Emphasis
 

@@ -27,7 +27,7 @@ export const Heading = forwardRef(
     ref: ForwardedRef<HTMLHeadingElement>,
   ) => {
     const HeadingX = getHeadingElement(level)
-    const sizeOrLevel = size ? size.split('-')[1] : level
+    const sizeOrLevel = size ?? `level-${level}`
 
     return (
       <HeadingX
