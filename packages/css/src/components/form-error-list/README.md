@@ -30,7 +30,7 @@ in line with [GOV.UK guidelines for informing users about validation errors](htt
 
 ## Focus on initial render
 
-This component receives focus on initial render.
+This component receives focus the first time it gets displayed on a page.
 This allows keyboard users to quickly navigate to the errors in the form.
 Note: this functionality has been disabled on this page, to prevent unexpected focus behaviour.
 
