@@ -1,6 +1,6 @@
 {
   "ams": {
-    "form-field-character-counter": {
+    "form-field-character-count": {
       "color": { "value": "{ams.color.primary-black}" },
       "font-family": { "value": "{ams.text.font-family}" },
       "font-size": { "value": "{ams.text.level.6.font-size}" },

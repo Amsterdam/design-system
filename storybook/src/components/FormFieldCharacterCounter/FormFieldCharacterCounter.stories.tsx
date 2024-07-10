@@ -3,17 +3,17 @@
  * Copyright Gemeente Amsterdam
  */
 
-import { FormFieldCharacterCounter } from '@amsterdam/design-system-react/src'
+import { FormFieldCharacterCount } from '@amsterdam/design-system-react/src'
 import { Meta, StoryObj } from '@storybook/react'
 
 const meta = {
-  title: 'Components/Forms/Form Field Character Counter',
-  component: FormFieldCharacterCounter,
+  title: 'Components/Forms/Form Field Character Count',
+  component: FormFieldCharacterCount,
   args: {
     length: 7,
     maxLength: 10,
   },
-} satisfies Meta<typeof FormFieldCharacterCounter>
+} satisfies Meta<typeof FormFieldCharacterCount>
 
 export default meta
 

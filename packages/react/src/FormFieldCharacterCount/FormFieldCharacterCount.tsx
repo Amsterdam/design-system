@@ -7,24 +7,21 @@ import clsx from 'clsx'
 import { forwardRef } from 'react'
 import type { ForwardedRef, HTMLAttributes } from 'react'
 
-export type FormFieldCharacterCounterProps = HTMLAttributes<HTMLDivElement> & {
+export type FormFieldCharacterCountProps = HTMLAttributes<HTMLDivElement> & {
   /** The current length of the field’s value. */
   length: number
   /** The maximum length of the field’s value. */
   maxLength: number
 }
 
-export const FormFieldCharacterCounter = forwardRef(
-  (
-    { className, length, maxLength, ...restProps }: FormFieldCharacterCounterProps,
-    ref: ForwardedRef<HTMLDivElement>,
-  ) => (
+export const FormFieldCharacterCount = forwardRef(
+  ({ className, length, maxLength, ...restProps }: FormFieldCharacterCountProps, ref: ForwardedRef<HTMLDivElement>) => (
     <div
       {...restProps}
       ref={ref}
       className={clsx(
-        'ams-form-field-character-counter',
-        length > maxLength && 'ams-form-field-character-counter--error',
+        'ams-form-field-character-count',
+        length > maxLength && 'ams-form-field-character-count--error',
         className,
       )}
       role="status"
@@ -34,4 +31,4 @@ export const FormFieldCharacterCounter = forwardRef(
   ),
 )
 
-FormFieldCharacterCounter.displayName = 'FormFieldCharacterCounter'
+FormFieldCharacterCount.displayName = 'FormFieldCharacterCount'
