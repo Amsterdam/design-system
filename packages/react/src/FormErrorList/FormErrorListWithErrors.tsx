@@ -4,7 +4,8 @@
  */
 
 import clsx from 'clsx'
-import { ForwardedRef, forwardRef, useEffect, useImperativeHandle, useRef } from 'react'
+import { forwardRef, useEffect, useImperativeHandle, useRef } from 'react'
+import type { Dispatch, ForwardedRef, SetStateAction } from 'react'
 import type { FormErrorListProps } from './FormErrorList'
 import { Alert } from '../Alert'
 import { LinkList } from '../LinkList'
@@ -13,7 +14,7 @@ type FormErrorListWithErrorsProps = Omit<FormErrorListProps, 'errorCountLabel'> 
   /** Whether the component has set focus once. */
   hasFocusedOnce: boolean
   /** Callback to let parent component know whether focus has been set once. */
-  setHasFocusedOnce: any
+  setHasFocusedOnce: Dispatch<SetStateAction<boolean>>
 }
 
 export const FormErrorListWithErrors = forwardRef(
