@@ -324,8 +324,8 @@ importers:
         specifier: 8.1.11
         version: 8.1.11(@types/react-dom@18.2.19)(@types/react@18.3.3)(encoding@0.1.13)(prettier@3.3.2)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       '@storybook/components':
-        specifier: 8.1.11
-        version: 8.1.11(@types/react-dom@18.2.19)(@types/react@18.3.3)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+        specifier: 8.2.1
+        version: 8.2.1(storybook@8.1.11(@babel/preset-env@7.24.7(@babel/core@7.24.7))(encoding@0.1.13)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))
       '@storybook/core-events':
         specifier: 8.1.11
         version: 8.1.11
@@ -2435,6 +2435,11 @@ packages:
     peerDependencies:
       react: ^16.8.0 || ^17.0.0 || ^18.0.0 || ^19.0.0-beta
       react-dom: ^16.8.0 || ^17.0.0 || ^18.0.0 || ^19.0.0-beta
+
+  '@storybook/components@8.2.1':
+    resolution: {integrity: sha512-63+RpKQsidYnHPSnV9S8WYdDB4gyra+cXAc/qx9BY+vA6nAESK56XUeBunx21CWOWRxsHIBmozx6V/JKzRPgLg==}
+    peerDependencies:
+      storybook: ^8.2.1
 
   '@storybook/core-common@8.1.11':
     resolution: {integrity: sha512-Ix0nplD4I4DrV2t9B+62jaw1baKES9UbR/Jz9LVKFF9nsua3ON0aVe73dOjMxFWBngpzBYWe+zYBTZ7aQtDH4Q==}
@@ -11381,6 +11386,10 @@ snapshots:
     transitivePeerDependencies:
       - '@types/react'
       - '@types/react-dom'
+
+  '@storybook/components@8.2.1(storybook@8.1.11(@babel/preset-env@7.24.7(@babel/core@7.24.7))(encoding@0.1.13)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))':
+    dependencies:
+      storybook: 8.1.11(@babel/preset-env@7.24.7(@babel/core@7.24.7))(encoding@0.1.13)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
 
   '@storybook/core-common@8.1.11(encoding@0.1.13)(prettier@3.3.2)':
     dependencies:
