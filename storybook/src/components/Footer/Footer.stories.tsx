@@ -47,7 +47,7 @@ export const Default: Story = {
             <LinkList>
               {['Veel gestelde vragen', 'Over ons', 'Werken bij', 'Kalender', 'Uit in Amsterdam', 'Bronnen'].map(
                 (label, index) => (
-                  <LinkList.Link href="#" key={index} onBackground="dark" size="small">
+                  <LinkList.Link href="#" key={index} inverseColor size="small">
                     {label}
                   </LinkList.Link>
                 ),
@@ -62,13 +62,13 @@ export const Default: Story = {
               Hebt u een vraag en kunt u het antwoord niet vinden op deze website? Neem dan contact met ons op.
             </Paragraph>
             <LinkList>
-              <LinkList.Link href="mailto:redactie@amsterdam.nl" icon={EmailIcon} onBackground="dark" size="small">
+              <LinkList.Link href="mailto:redactie@amsterdam.nl" icon={EmailIcon} inverseColor size="small">
                 E-mail
               </LinkList.Link>
-              <LinkList.Link href="tel:+3114020" icon={PhoneIcon} onBackground="dark" size="small">
+              <LinkList.Link href="tel:+3114020" icon={PhoneIcon} inverseColor size="small">
                 14 020
               </LinkList.Link>
-              <LinkList.Link href="#" icon={ClockIcon} onBackground="dark" size="small">
+              <LinkList.Link href="#" icon={ClockIcon} inverseColor size="small">
                 Contactgegevens en openingstijden
               </LinkList.Link>
             </LinkList>
@@ -79,7 +79,7 @@ export const Default: Story = {
                 Nieuwsbrief
               </Heading>
               <LinkList>
-                <LinkList.Link href="#" onBackground="dark" size="small">
+                <LinkList.Link href="#" inverseColor size="small">
                   Inschrijven
                 </LinkList.Link>
               </LinkList>
@@ -90,7 +90,7 @@ export const Default: Story = {
               </Heading>
               <LinkList>
                 {socialPlatforms.map(({ name, icon }) => (
-                  <LinkList.Link href="#" icon={icon} key={name} onBackground="dark" size="small">
+                  <LinkList.Link href="#" icon={icon} key={name} inverseColor size="small">
                     {name}
                   </LinkList.Link>
                 ))}
@@ -129,10 +129,10 @@ export const Onderzoek: Story = {
               Heeft u een vraag en kunt u het antwoord niet vinden op deze site? Neem dan contact met ons op.
             </Paragraph>
             <LinkList>
-              <LinkList.Link href="mailto:redactie.os@amsterdam.nl" icon={EmailIcon} onBackground="dark" size="small">
+              <LinkList.Link href="mailto:redactie.os@amsterdam.nl" icon={EmailIcon} inverseColor size="small">
                 E-mail
               </LinkList.Link>
-              <LinkList.Link href="tel:+31202510333" icon={PhoneIcon} onBackground="dark" size="small">
+              <LinkList.Link href="tel:+31202510333" icon={PhoneIcon} inverseColor size="small">
                 020 251 0333
               </LinkList.Link>
             </LinkList>
@@ -145,13 +145,13 @@ export const Onderzoek: Story = {
               Bent u uitgenodigd om mee te doen aan onderzoek of heeft u vragen over het panel of stadspaspanel?
             </Paragraph>
             <LinkList>
-              <LinkList.Link href="#" onBackground="dark" rel="external" size="small">
+              <LinkList.Link href="#" inverseColor rel="external" size="small">
                 Meedoen aan onderzoek
               </LinkList.Link>
-              <LinkList.Link href="#" onBackground="dark" rel="external" size="small">
+              <LinkList.Link href="#" inverseColor rel="external" size="small">
                 Panel Amsterdam
               </LinkList.Link>
-              <LinkList.Link href="#" onBackground="dark" rel="external" size="small">
+              <LinkList.Link href="#" inverseColor rel="external" size="small">
                 Stadspaspanel Amsterdam
               </LinkList.Link>
             </LinkList>
@@ -161,16 +161,16 @@ export const Onderzoek: Story = {
               Onderzoek en Statistiek
             </Heading>
             <LinkList>
-              <LinkList.Link href="#" onBackground="dark" size="small">
+              <LinkList.Link href="#" inverseColor size="small">
                 Over Onderzoek en Statistiek
               </LinkList.Link>
-              <LinkList.Link href="#" onBackground="dark" size="small">
+              <LinkList.Link href="#" inverseColor size="small">
                 Veelgestelde vragen
               </LinkList.Link>
-              <LinkList.Link href="#" onBackground="dark" rel="external" size="small">
+              <LinkList.Link href="#" inverseColor rel="external" size="small">
                 Nieuwsbrief
               </LinkList.Link>
-              <LinkList.Link href="#" onBackground="dark" size="small">
+              <LinkList.Link href="#" inverseColor size="small">
                 Vacatures
               </LinkList.Link>
             </LinkList>

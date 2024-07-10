@@ -6,40 +6,63 @@
 import { LinkList } from '@amsterdam/design-system-react/src'
 import * as Icons from '@amsterdam/design-system-react-icons'
 import { Meta, StoryObj } from '@storybook/react'
+import { contrastColorDecorator, inverseColorDecorator } from '../shared/decorators'
 import { exampleLinkList } from '../shared/exampleContent'
 
-const links = exampleLinkList()
+const linkList = exampleLinkList()
 
 const meta = {
   title: 'Components/Navigation/Link List',
   component: LinkList,
-  args: {
-    children: links.map((text, index) => (
-      <LinkList.Link href="#" key={index}>
-        {text}
-      </LinkList.Link>
-    )),
-  },
 } satisfies Meta<typeof LinkList>
 
 export default meta
 
 const linkMeta = {
-  title: 'Components/Navigation/Link List Link',
   component: LinkList.Link,
+  args: {
+    children: linkList[0],
+    contrastColor: undefined,
+    href: '#',
+    icon: Icons.ChevronRightIcon,
+    inverseColor: undefined,
+    size: undefined,
+  },
+} satisfies Meta<typeof LinkList.Link>
+
+type Story = StoryObj<typeof meta>
+type LinkStory = StoryObj<typeof linkMeta>
+
+const StoryTemplate: Story = {
+  args: {
+    children: linkList.map((text, index) => (
+      <LinkList.Link href="#" key={index}>
+        {text}
+      </LinkList.Link>
+    )),
+  },
+}
+
+const LinkStoryTemplate: LinkStory = {
+  args: {
+    children: linkList[0],
+    contrastColor: undefined,
+    href: '#',
+    icon: Icons.ChevronRightIcon,
+    inverseColor: undefined,
+    size: undefined,
+  },
   argTypes: {
+    contrastColor: {
+      control: { type: 'boolean' },
+    },
+    inverseColor: {
+      control: { type: 'boolean' },
+    },
     icon: {
       control: { type: 'select' },
       options: Object.keys(Icons),
       mapping: Icons,
-      defaultValue: Icons.ChevronRightIcon,
-    },
-    onBackground: {
-      control: {
-        type: 'radio',
-        labels: { undefined: '(not set)', light: 'light', dark: 'dark' },
-      },
-      options: [undefined, 'light', 'dark'],
     },
     size: {
       control: {
@@ -49,33 +72,24 @@ const linkMeta = {
       options: ['small', undefined, 'large'],
     },
   },
-} satisfies Meta<typeof LinkList.Link>
-
-type Story = StoryObj<typeof meta>
-type LinkStory = StoryObj<typeof linkMeta>
-
-const LinkTemplate: Story = {}
-
-const LinkStoryTemplate: LinkStory = {
-  args: {
-    href: '#',
-  },
-  argTypes: linkMeta.argTypes,
   decorators: [
     (Story) => (
       <LinkList>
         <Story />
       </LinkList>
     ),
+    contrastColorDecorator,
+    inverseColorDecorator,
   ],
   render: ({ children, ...args }) => <LinkList.Link {...args}>{children}</LinkList.Link>,
 }
 
 export const Default: Story = {
-  ...LinkTemplate,
+  ...StoryTemplate,
 }
 
 export const CustomIcons: Story = {
+  ...StoryTemplate,
   args: {
     children: [
       <LinkList.Link key="form" href="#" icon={Icons.ChattingIcon}>
@@ -92,6 +106,7 @@ export const CustomIcons: Story = {
 }
 
 export const SmallText: Story = {
+  ...StoryTemplate,
   args: {
     children: [
       <LinkList.Link key="about" href="#" size="small">
@@ -109,44 +124,20 @@ export const SmallText: Story = {
 
 export const Link: LinkStory = {
   ...LinkStoryTemplate,
+}
+
+export const ContrastColour: LinkStory = {
+  ...LinkStoryTemplate,
   args: {
-    children: 'Alles over openbare orde en veiligheid',
-    href: '#',
-    onBackground: undefined,
-    size: undefined,
+    ...LinkStoryTemplate.args,
+    contrastColor: true,
   },
 }
 
-export const OnDarkBackground: LinkStory = {
+export const InverseColour: LinkStory = {
   ...LinkStoryTemplate,
   args: {
-    children: links[0],
-    href: '#',
-    onBackground: 'dark',
+    ...LinkStoryTemplate.args,
+    inverseColor: true,
   },
-  decorators: [
-    ...LinkStoryTemplate.decorators,
-    (Story) => (
-      <div style={{ background: '#004699', padding: '1rem' }}>
-        <Story />
-      </div>
-    ),
-  ],
-}
-
-export const OnLightBackground: LinkStory = {
-  ...LinkStoryTemplate,
-  args: {
-    children: links[0],
-    href: '#',
-    onBackground: 'light',
-  },
-  decorators: [
-    ...LinkStoryTemplate.decorators,
-    (Story) => (
-      <div style={{ background: '#FFE600', padding: '1rem' }}>
-        <Story />
-      </div>
-    ),
-  ],
 }

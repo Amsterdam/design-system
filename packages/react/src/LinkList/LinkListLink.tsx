@@ -9,13 +9,13 @@ import { forwardRef } from 'react'
 import type { AnchorHTMLAttributes, ForwardedRef, PropsWithChildren } from 'react'
 import { Icon } from '../Icon'
 
-type BackgroundName = 'default' | 'light' | 'dark'
-
 export type LinkListLinkProps = {
   /** An icon to display instead of the default chevron. Don’t mix custom icons with chevrons in one list. */
   icon?: Function
-  /** Describes the underlying background colour. Allows the text to provide visual contrast. */
-  onBackground?: BackgroundName
+  /** Changes the text colour for readability on a light background. */
+  contrastColor?: boolean
+  /** Changes the text colour for readability on a dark background. */
+  inverseColor?: boolean
   /** The size of the text. Use the same size for all items in the list. */
   size?: 'small' | 'large'
 } & PropsWithChildren<AnchorHTMLAttributes<HTMLAnchorElement>>
@@ -29,7 +29,7 @@ const iconSizeMap = {
 /** One link with a Link List. */
 export const LinkListLink = forwardRef(
   (
-    { children, className, icon, onBackground, size, ...restProps }: LinkListLinkProps,
+    { children, className, icon, contrastColor, inverseColor, size, ...restProps }: LinkListLinkProps,
     ref: ForwardedRef<HTMLAnchorElement>,
   ) => {
     return (
@@ -37,7 +37,8 @@ export const LinkListLink = forwardRef(
         <a
           className={clsx(
             'ams-link-list__link',
-            onBackground && `ams-link-list__link--on-background-${onBackground}`,
+            contrastColor && 'ams-link-list__link--contrast-color',
+            inverseColor && 'ams-link-list__link--inverse-color',
             size && `ams-link-list__link--${size}`,
             className,
           )}
