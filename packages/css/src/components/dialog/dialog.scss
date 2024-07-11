@@ -12,13 +12,16 @@
 .ams-dialog {
   background-color: var(--ams-dialog-background-color);
   border: var(--ams-dialog-border);
-  display: flex;
   inline-size: var(--ams-dialog-inline-size);
   max-block-size: var(--ams-dialog-max-block-size);
   max-inline-size: var(--ams-dialog-max-inline-size);
   position: fixed;
 
   @include reset-dialog;
+
+  &[open] {
+    display: flex;
+  }
 
   /* no token because dialog does not inherit from any element */
   &::backdrop {
