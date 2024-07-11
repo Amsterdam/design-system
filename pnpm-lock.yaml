@@ -78,8 +78,8 @@ importers:
         specifier: 3.3.2
         version: 3.3.2
       rimraf:
-        specifier: 6.0.0
-        version: 6.0.0
+        specifier: 6.0.1
+        version: 6.0.1
       stylelint:
         specifier: 16.6.1
         version: 16.6.1(typescript@5.5.3)
@@ -6783,8 +6783,8 @@ packages:
     engines: {node: 14 >=14.20 || 16 >=16.20 || >=18}
     hasBin: true
 
-  rimraf@6.0.0:
-    resolution: {integrity: sha512-u+yqhM92LW+89cxUQK0SRyvXYQmyuKHx0jkx4W7KfwLGLqJnQM5031Uv1trE4gB9XEXBM/s6MxKlfW95IidqaA==}
+  rimraf@6.0.1:
+    resolution: {integrity: sha512-9dkvaxAsk/xNXSJzMgFqqMCuFgt2+KsOFek3TMLfo8NCPfWpBmqwyNn5Y+NX56QUYfCtsyhF3ayiboEoUmJk/A==}
     engines: {node: 20 || >=22}
     hasBin: true
 
@@ -16131,9 +16131,10 @@ snapshots:
     dependencies:
       glob: 10.4.2
 
-  rimraf@6.0.0:
+  rimraf@6.0.1:
     dependencies:
       glob: 11.0.0
+      package-json-from-dist: 1.0.0
 
   rollup-plugin-delete@2.0.0:
     dependencies:
