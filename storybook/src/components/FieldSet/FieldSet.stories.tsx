@@ -38,7 +38,7 @@ type Story = StoryObj<typeof meta>
 
 export const Default: Story = {
   render: (args) => (
-    <FieldSet invalid={args.invalid} legend={args.legend}>
+    <FieldSet invalid={args.invalid} legend={args.legend} notRequired={args.notRequired}>
       <Field className="ams-mb--sm">
         <Label htmlFor="input-a1">Voornaam</Label>
         {args.invalid && <ErrorMessage id="error-a1">Vul uw voornaam in.</ErrorMessage>}
@@ -65,7 +65,12 @@ export const Default: Story = {
 
 export const WithDescription: Story = {
   render: (args) => (
-    <FieldSet invalid={args.invalid} legend={args.legend} aria-describedby="description-b">
+    <FieldSet
+      invalid={args.invalid}
+      legend={args.legend}
+      notRequired={args.notRequired}
+      aria-describedby="description-b"
+    >
       <Paragraph id="description-b" size="small" className="ams-mb--sm">
         Vul uw naam in zoals in uw paspoort staat.
       </Paragraph>
@@ -93,10 +98,43 @@ export const WithDescription: Story = {
   ),
 }
 
+export const WithNotRequiredLabel: Story = {
+  args: { notRequired: true, notRequiredLabel: 'niet verplicht' },
+  render: (args) => (
+    <FieldSet invalid={args.invalid} legend={args.legend} notRequired={args.notRequired}>
+      <Field className="ams-mb--sm">
+        <Label htmlFor="input-a1">Voornaam</Label>
+        {args.invalid && <ErrorMessage id="error-a1">Vul uw voornaam in.</ErrorMessage>}
+        <TextInput
+          aria-describedby={args.invalid ? 'error-a1' : undefined}
+          aria-required="true"
+          id="input-a1"
+          invalid={args.invalid}
+        />
+      </Field>
+      <Field>
+        <Label htmlFor="input-a2">Achternaam</Label>
+        {args.invalid && <ErrorMessage id="error-a2">Vul uw achternaam in.</ErrorMessage>}
+        <TextInput
+          aria-describedby={args.invalid ? 'error-a2' : undefined}
+          aria-required="true"
+          id="input-a2"
+          invalid={args.invalid}
+        />
+      </Field>
+    </FieldSet>
+  ),
+}
+
 export const WithError: Story = {
   args: { invalid: true },
   render: (args) => (
-    <FieldSet invalid={args.invalid} legend={args.legend} aria-describedby="description-c">
+    <FieldSet
+      invalid={args.invalid}
+      legend={args.legend}
+      notRequired={args.notRequired}
+      aria-describedby="description-c"
+    >
       <Paragraph id="description-c" size="small" className="ams-mb--sm">
         Vul uw naam in zoals in uw paspoort staat.
       </Paragraph>
@@ -134,6 +172,48 @@ export const RadioGroup: Story = {
       aria-required="true"
       invalid={args.invalid}
       legend={args.legend}
+      notRequired={args.notRequired}
+      role="radiogroup"
+    >
+      <Paragraph className="ams-mb--sm" id="description-d" size="small">
+        De laatstgenoemde melding.
+      </Paragraph>
+      {args.invalid && (
+        <ErrorMessage className="ams-mb--sm" id="error-d">
+          Geef aan waar uw laatstgenoemde melding over gaat.
+        </ErrorMessage>
+      )}
+      <Column gap="extra-small">
+        <Radio aria-required="true" invalid={args.invalid} name="about" value="horeca">
+          Horecabedrijf
+        </Radio>
+        <Radio aria-required="true" invalid={args.invalid} name="about" value="ander_bedrijf">
+          Ander soort bedrijf
+        </Radio>
+        <Radio aria-required="true" invalid={args.invalid} name="about" value="evenement">
+          Evenement
+        </Radio>
+        <Radio aria-required="true" invalid={args.invalid} name="about" value="anders">
+          Iets anders
+        </Radio>
+      </Column>
+    </FieldSet>
+  ),
+}
+
+export const RadioGroupWithNotRequiredLabel: Story = {
+  args: {
+    legend: 'Waar gaat uw melding over?',
+    notRequired: true,
+    notRequiredLabel: 'niet verplicht',
+  },
+  render: (args) => (
+    <FieldSet
+      aria-describedby={`description-d${args.invalid ? ' error-d' : ''}`}
+      aria-required="true"
+      invalid={args.invalid}
+      legend={args.legend}
+      notRequired={args.notRequired}
       role="radiogroup"
     >
       <Paragraph className="ams-mb--sm" id="description-d" size="small">
@@ -173,6 +253,7 @@ export const RadioGroupWithError: Story = {
       aria-required="true"
       invalid={args.invalid}
       legend={args.legend}
+      notRequired={args.notRequired}
       role="radiogroup"
     >
       <Paragraph className="ams-mb--sm" id="description-e" size="small">
@@ -211,6 +292,7 @@ export const CheckboxGroup: Story = {
       id="fieldset-f"
       invalid={args.invalid}
       legend={args.legend}
+      notRequired={args.notRequired}
     >
       <Paragraph className="ams-mb--sm" id="description-f" size="small">
         De laatstgenoemde melding.
@@ -249,6 +331,7 @@ export const CheckboxGroupWithError: Story = {
       id="fieldset-g"
       invalid={args.invalid}
       legend={args.legend}
+      notRequired={args.notRequired}
     >
       <Paragraph id="description-g" size="small" className="ams-mb--sm">
         De laatstgenoemde melding.

@@ -50,3 +50,9 @@
   @include text-rendering;
   @include reset-legend;
 }
+
+.ams-field-set__legend--not-required {
+  color: var(--ams-field-set-legend-not-required-color);
+  font-size: var(--ams-field-set-legend-not-required-font-size);
+  font-weight: var(--ams-field-set-legend-not-required-font-weight);
+}

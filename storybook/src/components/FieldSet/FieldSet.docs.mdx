@@ -14,7 +14,7 @@ import README from "../../../../packages/css/src/components/field-set/README.md?
 
 ## Examples
 
-## With Description
+### With Description
 
 A Field Set can have a description.
 Make sure to connect this description to the Field Set or a specific input,
@@ -24,7 +24,15 @@ and provide the `id` of the describing element as its value.
 
 <Canvas of={FieldSetStories.WithDescription} />
 
-## With Error
+### With Not Required Label
+
+A Field Set can indicate whether all of the inputs it contains are <em>not</em> required.
+Make sure to <em>not</em> add a `required` or `aria-required="true"` attribute to <em>any</em> form element in this Field Set.
+Also never set either the `aria-required` attribute on a field set that is not of the `role="radiogroup"` (see: [Radio Group](#radio-group)).
+
+<Canvas of={FieldSetStories.WithNotRequiredLabel} />
+
+### With Error
 
 A Field Set can indicate whether any of the inputs it contains has a validation error.
 Use Error Message to describe the error.
@@ -43,7 +51,14 @@ Always also set `aria-required` on the individual radio buttons though, to make 
 
 <Canvas of={FieldSetStories.RadioGroup} />
 
-### Radio group with error
+### Radio Group With Not Required Label
+
+A Field Set with a radio button group can also indicate whether all of the radio inputs it contains are <em>not</em> required.
+Make sure to <em>not</em> add the `aria-required="true"` attribute to the Field Set and <em>any</em> input element in this Field Set.
+
+<Canvas of={FieldSetStories.RadioGroupWithNotRequiredLabel} />
+
+### Radio Group With Error
 
 A Field Set with a radio button group can also have a validation error.
 In this case, connect the error message to the Field Set instead of an input.
@@ -51,7 +66,7 @@ Add an `aria-describedby` attribute to the Field Set and provide the `id` of Err
 
 <Canvas of={FieldSetStories.RadioGroupWithError} />
 
-### Checkbox group
+### Checkbox Group
 
 Use a Field Set to group checkboxes.
 
@@ -78,7 +93,9 @@ The order of the `id`s is the order in which they are read by screen readers.
 
 <Canvas of={FieldSetStories.CheckboxGroup} />
 
-### Checkbox group with error
+Note that you should not make a Field Set containing inputs of `type="checkbox"` required.
+
+### Checkbox Group With Error
 
 Because of [the NVDA bug mentioned earlier](https://github.com/nvaccess/nvda/issues/12718),
 we add the Error Message text to the label as well.
