@@ -2,10 +2,10 @@ import {
   Alert,
   Breadcrumb,
   Button,
+  CharacterCount,
   Column,
   Field,
   FieldSet,
-  FormFieldCharacterCounter,
   Grid,
   Heading,
   Label,
@@ -40,7 +40,7 @@ export const FormPage = () => {
               onChange={(e) => setTextareaLength(e.target.value.length)}
               rows={4}
             />
-            <FormFieldCharacterCounter length={textareaLength} maxLength={1000} />
+            <CharacterCount length={textareaLength} maxLength={1000} />
           </Field>
           <FieldSet aria-describedby="contactDetailsDescription" legend="Wat zijn uw gegevens?">
             <Column gap="small">
