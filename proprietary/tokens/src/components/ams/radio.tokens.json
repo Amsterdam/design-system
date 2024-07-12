@@ -17,6 +17,10 @@
             "color:": { "value": "{ams.color.dark-blue}" }
           }
         },
+        "forced-color-mode": {
+          "border-color": { "value": "CanvasText" },
+          "color": { "value": "CanvasText" }
+        },
         "disabled": {
           "border-color": { "value": "{ams.color.neutral-grey3}" },
           "border-width": { "value": "{ams.border.width.md}" },

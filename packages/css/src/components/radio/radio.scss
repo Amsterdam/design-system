@@ -38,6 +38,7 @@
     border-width: var(--ams-radio-circle-border-width);
     box-sizing: border-box;
     content: "";
+    forced-color-adjust: none;
     inline-size: 100%;
   }
 }
@@ -158,5 +159,20 @@
   + .ams-radio__label .ams-radio__circle::after {
     // TODO: currently disabled invalid gets the same styling as disabled. This should get its own styling.
     --ams-radio-circle-color: var(--ams-radio-circle-disabled-checked-color);
+  }
+}
+
+@media screen and (-ms-high-contrast: active), screen and (forced-colors: active) {
+  .ams-radio__input:checked,
+  .ams-radio__input:disabled,
+  .ams-radio__input[aria-invalid="true"],
+  .ams-radio__input:checked:disabled,
+  .ams-radio__input[aria-invalid="true"]:checked {
+    + .ams-radio__label .ams-radio__circle::after,
+    + .ams-radio__label:hover .ams-radio__circle::after {
+      --ams-radio-circle-color: var(--ams-radio-circle-forced-color-mode-color);
+
+      border-color: var(--ams-radio-circle-forced-color-mode-border-color);
+    }
   }
 }
