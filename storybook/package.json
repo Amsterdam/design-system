@@ -31,7 +31,7 @@
     "@storybook/addon-docs": "8.2.1",
     "@storybook/addon-essentials": "8.2.1",
     "@storybook/addon-interactions": "8.2.1",
-    "@storybook/addon-links": "8.2.1",
+    "@storybook/addon-links": "8.2.2",
     "@storybook/addon-themes": "8.2.1",
     "@storybook/blocks": "8.2.1",
     "@storybook/components": "8.2.1",
