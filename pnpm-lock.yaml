@@ -300,8 +300,8 @@ importers:
         specifier: 3.0.1
         version: 3.0.1(@types/react@18.3.3)(react@18.3.1)
       '@storybook/addon-a11y':
-        specifier: 8.2.1
-        version: 8.2.1(storybook@8.2.1(@babel/preset-env@7.24.7(@babel/core@7.24.7)))
+        specifier: 8.2.2
+        version: 8.2.2(storybook@8.2.1(@babel/preset-env@7.24.7(@babel/core@7.24.7)))
       '@storybook/addon-actions':
         specifier: 8.2.1
         version: 8.2.1(storybook@8.2.1(@babel/preset-env@7.24.7(@babel/core@7.24.7)))
@@ -1925,10 +1925,10 @@ packages:
   '@sinonjs/fake-timers@10.0.2':
     resolution: {integrity: sha512-SwUDyjWnah1AaNl7kxsa7cfLhlTYoiyhDAIgyh+El30YvXs/o7OLXpYH88Zdhyx9JExKrmHDJ+10bwIcY80Jmw==}
 
-  '@storybook/addon-a11y@8.2.1':
-    resolution: {integrity: sha512-t+SiKtxutMJNHrv8wbpqTBlB3DSpGa4JRoW5aR4FnDMVTAOC/m0CD0+IbXzdwvxk/SmXuEe8HH7XFeShs9zQPg==}
+  '@storybook/addon-a11y@8.2.2':
+    resolution: {integrity: sha512-wW7aU0L+TCi+mTxvS6zmfVVe81vLcjBVNbhjzFHdWVwYej8rguwVpKXo2/UhQyXb38xe6qYICB5HAJyUYOO5Hg==}
     peerDependencies:
-      storybook: ^8.2.1
+      storybook: ^8.2.2
 
   '@storybook/addon-actions@8.2.1':
     resolution: {integrity: sha512-rosuPmufr41Uojjo1ok+1r2X3/qS4WvOn6Wc8SGos9oQZwCoIbRIABOg8sz41UatPKcYHF9sJKBy8l1NXCz6LQ==}
@@ -1959,6 +1959,11 @@ packages:
     resolution: {integrity: sha512-rz4Hj2J8jz4Zdq+pF5hMWpwHrsPQNmyGkG+MBli7GEge4Bed6HAQkDT8sE/3OGgizrudE1YBLnAIO1M+Lk85Ew==}
     peerDependencies:
       storybook: ^8.2.1
+
+  '@storybook/addon-highlight@8.2.2':
+    resolution: {integrity: sha512-yDTRzzL+IJAymgY32xoZl09BGBVmPOUV2wVNGYcZkkBLvz2GSQMTfUe1/7F4jAx//+rFBu48/MQzsTC7Bk8kPw==}
+    peerDependencies:
+      storybook: ^8.2.2
 
   '@storybook/addon-interactions@8.2.1':
     resolution: {integrity: sha512-dpYir2cMlQuTG/798GF0OQw5pWKks+16HLLB7wUSYolSHDdu3ahKtjCJcY4y+UTQSyLupC/5KHWty9czk/WTiA==}
@@ -9919,9 +9924,9 @@ snapshots:
     dependencies:
       '@sinonjs/commons': 2.0.0
 
-  '@storybook/addon-a11y@8.2.1(storybook@8.2.1(@babel/preset-env@7.24.7(@babel/core@7.24.7)))':
+  '@storybook/addon-a11y@8.2.2(storybook@8.2.1(@babel/preset-env@7.24.7(@babel/core@7.24.7)))':
     dependencies:
-      '@storybook/addon-highlight': 8.2.1(storybook@8.2.1(@babel/preset-env@7.24.7(@babel/core@7.24.7)))
+      '@storybook/addon-highlight': 8.2.2(storybook@8.2.1(@babel/preset-env@7.24.7(@babel/core@7.24.7)))
       axe-core: 4.8.4
       storybook: 8.2.1(@babel/preset-env@7.24.7(@babel/core@7.24.7))
 
@@ -9984,6 +9989,11 @@ snapshots:
       - supports-color
 
   '@storybook/addon-highlight@8.2.1(storybook@8.2.1(@babel/preset-env@7.24.7(@babel/core@7.24.7)))':
+    dependencies:
+      '@storybook/global': 5.0.0
+      storybook: 8.2.1(@babel/preset-env@7.24.7(@babel/core@7.24.7))
+
+  '@storybook/addon-highlight@8.2.2(storybook@8.2.1(@babel/preset-env@7.24.7(@babel/core@7.24.7)))':
     dependencies:
       '@storybook/global': 5.0.0
       storybook: 8.2.1(@babel/preset-env@7.24.7(@babel/core@7.24.7))
