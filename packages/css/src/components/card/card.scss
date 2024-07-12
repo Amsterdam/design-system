@@ -32,7 +32,8 @@
   a::after {
     content: "";
     display: block;
-    inset: 0;
+    inset-block: 0;
+    inset-inline: 0;
     position: absolute;
   }
 }
