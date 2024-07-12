@@ -1,4 +1,9 @@
 .ams-form-error-list {
-  // The offset is doubled to compensate for the Alert border
   outline-offset: var(--ams-form-error-list-outline-offset);
+
+  // In Chromium browsers, the outline overlaps with the border in this component.
+  // We're not sure why, but to fix this we double the offset for Chromium browsers here.
+  @supports (contain: paint) and (not (-moz-appearance: none)) {
+    outline-offset: calc(var(--ams-form-error-list-outline-offset) * 2);
+  }
 }
