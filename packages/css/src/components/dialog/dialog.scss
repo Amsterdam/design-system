@@ -4,7 +4,8 @@
  */
 
 @mixin reset-dialog {
-  inset: 0;
+  inset-block: 0;
+  inset-inline: 0;
   padding-block: 0;
   padding-inline: 0;
 }
