@@ -50,14 +50,14 @@ describe('Pagination', () => {
     render(<Pagination page={6} totalPages={10} onPageChange={onPageChangeMock} />)
 
     expect(onPageChangeMock).not.toHaveBeenCalled()
-    expect(screen.getByText('6')).toHaveAttribute('aria-current', 'true')
-    expect(screen.getByText('7')).not.toHaveAttribute('aria-current', 'true')
+    expect(screen.getByRole('button', { name: 'Pagina 6' })).toHaveAttribute('aria-current', 'true')
+    expect(screen.getByRole('button', { name: 'Ga naar pagina 7' })).not.toHaveAttribute('aria-current', 'true')
 
     fireEvent.click(screen.getByText('volgende'))
 
     expect(onPageChangeMock).toHaveBeenCalled()
-    expect(screen.getByText('6')).not.toHaveAttribute('aria-current', 'true')
-    expect(screen.getByText('7')).toHaveAttribute('aria-current', 'true')
+    expect(screen.getByRole('button', { name: 'Ga naar pagina 6' })).not.toHaveAttribute('aria-current', 'true')
+    expect(screen.getByRole('button', { name: 'Pagina 7' })).toHaveAttribute('aria-current', 'true')
   })
 
   it('should navigate to the previous page when clicking on the ‘previous’ button', () => {
@@ -65,14 +65,14 @@ describe('Pagination', () => {
     render(<Pagination page={6} totalPages={10} onPageChange={onPageChangeMock} />)
 
     expect(onPageChangeMock).not.toHaveBeenCalled()
-    expect(screen.getByText('6')).toHaveAttribute('aria-current', 'true')
-    expect(screen.getByText('5')).not.toHaveAttribute('aria-current', 'true')
+    expect(screen.getByRole('button', { name: 'Pagina 6' })).toHaveAttribute('aria-current', 'true')
+    expect(screen.getByRole('button', { name: 'Ga naar pagina 5' })).not.toHaveAttribute('aria-current', 'true')
 
     fireEvent.click(screen.getByText('vorige'))
 
     expect(onPageChangeMock).toHaveBeenCalled()
-    expect(screen.getByText('6')).not.toHaveAttribute('aria-current', 'true')
-    expect(screen.getByText('5')).toHaveAttribute('aria-current', 'true')
+    expect(screen.getByRole('button', { name: 'Ga naar pagina 6' })).not.toHaveAttribute('aria-current', 'true')
+    expect(screen.getByRole('button', { name: 'Pagina 5' })).toHaveAttribute('aria-current', 'true')
   })
 
   it('should be working in a controlled state', () => {
@@ -84,18 +84,18 @@ describe('Pagination', () => {
 
     render(<ControlledComponent />)
 
-    expect(screen.getByText('6')).toHaveAttribute('aria-current', 'true')
-    expect(screen.getByText('5')).not.toHaveAttribute('aria-current', 'true')
+    expect(screen.getByRole('button', { name: 'Pagina 6' })).toHaveAttribute('aria-current', 'true')
+    expect(screen.getByRole('button', { name: 'Ga naar pagina 5' })).not.toHaveAttribute('aria-current', 'true')
 
     fireEvent.click(screen.getByText('vorige'))
 
-    expect(screen.getByText('6')).not.toHaveAttribute('aria-current', 'true')
-    expect(screen.getByText('5')).toHaveAttribute('aria-current', 'true')
+    expect(screen.getByRole('button', { name: 'Ga naar pagina 6' })).not.toHaveAttribute('aria-current', 'true')
+    expect(screen.getByRole('button', { name: 'Pagina 5' })).toHaveAttribute('aria-current', 'true')
 
     fireEvent.click(screen.getByText('volgende'))
 
-    expect(screen.getByText('6')).toHaveAttribute('aria-current', 'true')
-    expect(screen.getByText('5')).not.toHaveAttribute('aria-current', 'true')
+    expect(screen.getByRole('button', { name: 'Pagina 6' })).toHaveAttribute('aria-current', 'true')
+    expect(screen.getByRole('button', { name: 'Ga naar pagina 5' })).not.toHaveAttribute('aria-current', 'true')
   })
 
   it('renders custom labels for the ‘previous’ and ‘next’ buttons', () => {
@@ -107,7 +107,7 @@ describe('Pagination', () => {
     expect(nextButton).toHaveTextContent('next')
   })
 
-  it('renders custom aria-labels for the ‘previous’ and ‘next’ buttons', () => {
+  it('renders accessible labels for the ‘previous’ and ‘next’ buttons', () => {
     render(<Pagination totalPages={10} previousAriaLabel="Previous page" nextAriaLabel="Next page" />)
 
     const previousButton = screen.getByRole('button', { name: 'Previous page' })

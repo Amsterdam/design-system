@@ -124,18 +124,14 @@ export const Pagination = forwardRef(
     }
 
     return (
-      <nav {...restProps} className={clsx('ams-pagination', className)} ref={ref} aria-label="Paginering">
+      <nav {...restProps} className={clsx('ams-pagination', className)} ref={ref}>
+        <span className="ams-visually-hidden">Paginering</span>
         <ol className="ams-pagination__list">
           <li>
-            <button
-              aria-label={previousAriaLabel}
-              className="ams-pagination__button"
-              disabled={currentPage === 1}
-              onClick={onPrevious}
-              type="button"
-            >
+            <button className="ams-pagination__button" disabled={currentPage === 1} onClick={onPrevious} type="button">
               <Icon svg={ChevronLeftIcon} size="level-5" />
-              {previousLabel}
+              <span className="ams-visually-hidden">{previousAriaLabel}</span>
+              <span aria-hidden>{previousLabel}</span>
             </button>
           </li>
           {range.map((pageNumberOrSpacer) =>
@@ -143,11 +139,6 @@ export const Pagination = forwardRef(
               <li key={pageNumberOrSpacer}>
                 <button
                   aria-current={pageNumberOrSpacer === currentPage ? true : undefined}
-                  aria-label={
-                    pageNumberOrSpacer === currentPage
-                      ? `Pagina ${pageNumberOrSpacer}`
-                      : `Ga naar pagina ${pageNumberOrSpacer}`
-                  }
                   className={clsx(
                     'ams-pagination__button',
                     pageNumberOrSpacer === currentPage && 'ams-pagination__button--current',
@@ -156,7 +147,12 @@ export const Pagination = forwardRef(
                   tabIndex={pageNumberOrSpacer === currentPage ? -1 : 0}
                   type="button"
                 >
-                  {pageNumberOrSpacer}
+                  <span className="ams-visually-hidden">
+                    {pageNumberOrSpacer === currentPage
+                      ? `Pagina ${pageNumberOrSpacer}`
+                      : `Ga naar pagina ${pageNumberOrSpacer}`}
+                  </span>
+                  <span aria-hidden>{pageNumberOrSpacer}</span>
                 </button>
               </li>
             ) : (
@@ -167,13 +163,13 @@ export const Pagination = forwardRef(
           )}
           <li>
             <button
-              aria-label={nextAriaLabel}
               className="ams-pagination__button"
               disabled={currentPage === totalPages}
               onClick={onNext}
               type="button"
             >
-              {nextLabel}
+              <span className="ams-visually-hidden">{nextAriaLabel}</span>
+              <span aria-hidden>{nextLabel}</span>
               <Icon svg={ChevronRightIcon} size="level-5" />
             </button>
           </li>
