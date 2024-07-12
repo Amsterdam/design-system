@@ -18,10 +18,6 @@
 
   @include reset-dialog;
 
-  &[open] {
-    display: flex;
-  }
-
   /* no token because dialog does not inherit from any element */
   &::backdrop {
     background: #0006;
