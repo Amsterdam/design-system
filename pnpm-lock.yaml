@@ -121,8 +121,8 @@ importers:
         specifier: workspace:*
         version: link:../../proprietary/react-icons
       '@babel/runtime':
-        specifier: 7.24.7
-        version: 7.24.7
+        specifier: 7.24.8
+        version: 7.24.8
       clsx:
         specifier: 2.1.1
         version: 2.1.1
@@ -1132,8 +1132,8 @@ packages:
   '@babel/regjsgen@0.8.0':
     resolution: {integrity: sha512-x/rqGMdzj+fWZvCOYForTghzbtqPDZ5gPwaoNGHdgDfF2QA/XZbCBp4Moo5scrkAMPhB7z26XM/AaHuIJdgauA==}
 
-  '@babel/runtime@7.24.7':
-    resolution: {integrity: sha512-UwgBRMjJP+xv857DCngvqXI3Iq6J4v0wXmwc6sapg+zyhbwmQX67LUEFrkK5tbyJ30jGuG3ZvWpBiB9LCy1kWw==}
+  '@babel/runtime@7.24.8':
+    resolution: {integrity: sha512-5F7SDGs1T72ZczbRwbGO9lQi0NLjQxzl6i4lJxLxfW9U5UluCSyEJeniWvnhl3/euNiqQVbo8zruhsDfid0esA==}
     engines: {node: '>=6.9.0'}
 
   '@babel/template@7.24.6':
@@ -8992,7 +8992,7 @@ snapshots:
 
   '@babel/regjsgen@0.8.0': {}
 
-  '@babel/runtime@7.24.7':
+  '@babel/runtime@7.24.8':
     dependencies:
       regenerator-runtime: 0.14.0
 
@@ -10321,7 +10321,7 @@ snapshots:
   '@testing-library/dom@10.3.1':
     dependencies:
       '@babel/code-frame': 7.24.7
-      '@babel/runtime': 7.24.7
+      '@babel/runtime': 7.24.8
       '@types/aria-query': 5.0.1
       aria-query: 5.3.0
       chalk: 4.1.2
@@ -10332,7 +10332,7 @@ snapshots:
   '@testing-library/jest-dom@6.4.6(@jest/globals@29.7.0)(@types/jest@29.5.12)(jest@29.7.0(@types/node@20.14.10))':
     dependencies:
       '@adobe/css-tools': 4.4.0
-      '@babel/runtime': 7.24.7
+      '@babel/runtime': 7.24.8
       aria-query: 5.3.0
       chalk: 3.0.0
       css.escape: 1.5.1
@@ -10346,7 +10346,7 @@ snapshots:
 
   '@testing-library/react@16.0.0(@testing-library/dom@10.3.1)(@types/react-dom@18.2.19)(@types/react@18.3.3)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)':
     dependencies:
-      '@babel/runtime': 7.24.7
+      '@babel/runtime': 7.24.8
       '@testing-library/dom': 10.3.1
       react: 18.3.1
       react-dom: 18.3.1(react@18.3.1)
@@ -15645,7 +15645,7 @@ snapshots:
 
   polished@4.3.1:
     dependencies:
-      '@babel/runtime': 7.24.7
+      '@babel/runtime': 7.24.8
 
   possible-typed-array-names@1.0.0: {}
 
@@ -15866,7 +15866,7 @@ snapshots:
 
   react-syntax-highlighter@15.5.0(react@18.3.1):
     dependencies:
-      '@babel/runtime': 7.24.7
+      '@babel/runtime': 7.24.8
       highlight.js: 10.7.3
       lowlight: 1.20.0
       prismjs: 1.29.0
@@ -15968,7 +15968,7 @@ snapshots:
 
   regenerator-transform@0.15.2:
     dependencies:
-      '@babel/runtime': 7.24.7
+      '@babel/runtime': 7.24.8
 
   regexp.prototype.flags@1.5.1:
     dependencies:
@@ -16149,7 +16149,7 @@ snapshots:
 
   rollup-plugin-filesize@10.0.0:
     dependencies:
-      '@babel/runtime': 7.24.7
+      '@babel/runtime': 7.24.8
       boxen: 5.1.2
       brotli-size: 4.0.0
       colors: 1.4.0
