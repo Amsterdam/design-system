@@ -303,8 +303,8 @@ importers:
         specifier: 8.2.1
         version: 8.2.1(storybook@8.2.1(@babel/preset-env@7.24.7(@babel/core@7.24.7)))
       '@storybook/addon-actions':
-        specifier: 8.2.1
-        version: 8.2.1(storybook@8.2.1(@babel/preset-env@7.24.7(@babel/core@7.24.7)))
+        specifier: 8.2.2
+        version: 8.2.2(storybook@8.2.1(@babel/preset-env@7.24.7(@babel/core@7.24.7)))
       '@storybook/addon-docs':
         specifier: 8.2.1
         version: 8.2.1(storybook@8.2.1(@babel/preset-env@7.24.7(@babel/core@7.24.7)))
@@ -1934,6 +1934,11 @@ packages:
     resolution: {integrity: sha512-rosuPmufr41Uojjo1ok+1r2X3/qS4WvOn6Wc8SGos9oQZwCoIbRIABOg8sz41UatPKcYHF9sJKBy8l1NXCz6LQ==}
     peerDependencies:
       storybook: ^8.2.1
+
+  '@storybook/addon-actions@8.2.2':
+    resolution: {integrity: sha512-SN4cSRt3f0qXi5te+yhMseSdQuZntA8lGlASbRmN77YQTpIaGsNiH88xFoky0s9qz531hiRfU1R0ZSMylBwSKw==}
+    peerDependencies:
+      storybook: ^8.2.2
 
   '@storybook/addon-backgrounds@8.2.1':
     resolution: {integrity: sha512-/60Ft8RtcfG/khqpZ8X4u3UZsgabzWgmAHY8hnbcM2uKO6dk6jHjiN4C72MKJ9eKnxcjoNGXN7igJzw5ebMbcg==}
@@ -9926,6 +9931,15 @@ snapshots:
       storybook: 8.2.1(@babel/preset-env@7.24.7(@babel/core@7.24.7))
 
   '@storybook/addon-actions@8.2.1(storybook@8.2.1(@babel/preset-env@7.24.7(@babel/core@7.24.7)))':
+    dependencies:
+      '@storybook/global': 5.0.0
+      '@types/uuid': 9.0.8
+      dequal: 2.0.3
+      polished: 4.3.1
+      storybook: 8.2.1(@babel/preset-env@7.24.7(@babel/core@7.24.7))
+      uuid: 9.0.1
+
+  '@storybook/addon-actions@8.2.2(storybook@8.2.1(@babel/preset-env@7.24.7(@babel/core@7.24.7)))':
     dependencies:
       '@storybook/global': 5.0.0
       '@types/uuid': 9.0.8
