@@ -336,8 +336,8 @@ importers:
         specifier: 1.1.0
         version: 1.1.0
       '@storybook/preview-api':
-        specifier: 8.2.1
-        version: 8.2.1(storybook@8.2.1(@babel/preset-env@7.24.7(@babel/core@7.24.7)))
+        specifier: 8.2.2
+        version: 8.2.2(storybook@8.2.1(@babel/preset-env@7.24.7(@babel/core@7.24.7)))
       '@storybook/react':
         specifier: 8.2.1
         version: 8.2.1(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(storybook@8.2.1(@babel/preset-env@7.24.7(@babel/core@7.24.7)))(typescript@5.5.3)
@@ -2074,10 +2074,10 @@ packages:
   '@storybook/mdx2-csf@1.1.0':
     resolution: {integrity: sha512-TXJJd5RAKakWx4BtpwvSNdgTDkKM6RkXU8GK34S/LhidQ5Pjz3wcnqb0TxEkfhK/ztbP8nKHqXFwLfa2CYkvQw==}
 
-  '@storybook/preview-api@8.2.1':
-    resolution: {integrity: sha512-hBmlGmIlcvfEktqlUHhPRu8216IfT0oareIMn7Zut7hNfymWIXg+svNMNDkgydvYzyOJdl9l8lGDJXIBse3fkA==}
+  '@storybook/preview-api@8.2.2':
+    resolution: {integrity: sha512-/2V5MBV50VmdrgVV18xaTVxpBMZDfUyCntIBixybAHQhaD4DS2nRT7nyZDA7XRKax1VKF0i8EdR8JcsmtIwaKQ==}
     peerDependencies:
-      storybook: ^8.2.1
+      storybook: ^8.2.2
 
   '@storybook/react-dom-shim@8.2.1':
     resolution: {integrity: sha512-c6nfjyqiNduN6qk9yMP3EVNMslTJB+KGpKEDjpNOBGrTLkapp4dKTk8fN3EiFc3jEwhfN+xY+19eXwq7JBWCtg==}
@@ -10145,7 +10145,7 @@ snapshots:
 
   '@storybook/mdx2-csf@1.1.0': {}
 
-  '@storybook/preview-api@8.2.1(storybook@8.2.1(@babel/preset-env@7.24.7(@babel/core@7.24.7)))':
+  '@storybook/preview-api@8.2.2(storybook@8.2.1(@babel/preset-env@7.24.7(@babel/core@7.24.7)))':
     dependencies:
       storybook: 8.2.1(@babel/preset-env@7.24.7(@babel/core@7.24.7))
 
