@@ -87,7 +87,6 @@ The current core team:
 Aram Limpens,
 Bas Kroese,
 Inge de Bondt (lead),
-Jesper Duinker,
 Niels Roozemond,
 Ruben Sibon,
 and
@@ -96,6 +95,7 @@ Vincent Smedinga (lead).
 Contributions by:
 Bettina Slee,
 Hee Chan van der Haar,
+Jesper Duinker,
 Justin Straver,
 Laurens van den Akker,
 Mike Alders,
