@@ -1,6 +1,6 @@
 <!-- @license CC0-1.0 -->
 
-# Terms of Use
+# Copyright Notice
 
 ## Branding, logo and authors’ rights
 
