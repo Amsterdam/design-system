@@ -10,6 +10,8 @@ import type { ForwardedRef, HTMLAttributes } from 'react'
 import { Icon } from '../Icon/Icon'
 
 export type PaginationProps = {
+  /** The accessible name for wrapping navigation element. */
+  ariaLabel?: string
   /** The maximum amount of pages shown. Minimum value: 5. */
   maxVisiblePages?: number
   /** The accessible name for the link to the next page. */
@@ -82,6 +84,7 @@ function getRange(currentPage: number, totalPages: number, maxVisiblePages: numb
 export const Pagination = forwardRef(
   (
     {
+      ariaLabel = 'Paginering',
       className,
       maxVisiblePages = 7,
       nextAriaLabel = 'Volgende pagina',
@@ -125,7 +128,7 @@ export const Pagination = forwardRef(
 
     return (
       <nav {...restProps} className={clsx('ams-pagination', className)} ref={ref}>
-        <span className="ams-visually-hidden">Paginering</span>
+        <span className="ams-visually-hidden">{ariaLabel}</span>
         <ol className="ams-pagination__list">
           <li>
             <button className="ams-pagination__button" disabled={currentPage === 1} onClick={onPrevious} type="button">
