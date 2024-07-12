@@ -53,6 +53,7 @@
       [
         "contain-intrinsic-height",
         "contain-intrinsic-width",
+        "inset",
         "margin",
         "padding",
         "scroll-margin-bottom",

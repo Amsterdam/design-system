@@ -96,12 +96,12 @@ describe('Heading', () => {
       level: 1,
     })
 
-    expect(sizeLevel1).toHaveClass('ams-heading--1')
-    expect(sizeLevel2).toHaveClass('ams-heading--2')
-    expect(sizeLevel3).toHaveClass('ams-heading--3')
-    expect(sizeLevel4).toHaveClass('ams-heading--4')
-    expect(sizeLevel5).toHaveClass('ams-heading--5')
-    expect(sizeLevel6).toHaveClass('ams-heading--6')
+    expect(sizeLevel1).toHaveClass('ams-heading--level-1')
+    expect(sizeLevel2).toHaveClass('ams-heading--level-2')
+    expect(sizeLevel3).toHaveClass('ams-heading--level-3')
+    expect(sizeLevel4).toHaveClass('ams-heading--level-4')
+    expect(sizeLevel5).toHaveClass('ams-heading--level-5')
+    expect(sizeLevel6).toHaveClass('ams-heading--level-6')
   })
 
   it('renders the right inverse color class', () => {
