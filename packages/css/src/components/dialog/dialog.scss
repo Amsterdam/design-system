@@ -5,7 +5,6 @@
 
 @mixin reset-dialog {
   inset-block: 0;
-  inset-inline: 0;
   padding-block: 0;
   padding-inline: 0;
 }
@@ -16,7 +15,6 @@
   inline-size: var(--ams-dialog-inline-size);
   max-block-size: var(--ams-dialog-max-block-size);
   max-inline-size: var(--ams-dialog-max-inline-size);
-  position: fixed;
 
   @include reset-dialog;
 
