@@ -9,8 +9,11 @@ import { forwardRef } from 'react'
 import type { ForwardedRef, HTMLAttributes, PropsWithChildren } from 'react'
 import { getHeadingElement } from './getHeadingElement'
 
-export type HeadingLevel = 1 | 2 | 3 | 4
-type HeadingSize = 'level-1' | 'level-2' | 'level-3' | 'level-4' | 'level-5' | 'level-6'
+export const headingLevels: Array<number> = [1, 2, 3, 4]
+export const headingSizes: Array<string> = ['level-1', 'level-2', 'level-3', 'level-4', 'level-5', 'level-6']
+
+export type HeadingLevel = (typeof headingLevels)[number]
+export type HeadingSize = (typeof headingSizes)[number]
 
 export type HeadingProps = {
   /** Changes the text colour for readability on a dark background. */
