@@ -6,7 +6,8 @@
 @import "../../common/size";
 
 .ams-column {
-  display: grid;
+  display: flex;
+  flex-direction: column;
 }
 
 @each $size, $label in $ams-sizes {
