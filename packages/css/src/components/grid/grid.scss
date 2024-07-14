@@ -69,14 +69,14 @@
   padding-block: var(--ams-grid-padding-block-lg);
 }
 
-.ams-grid__cell--span-all {
+.ams-grid__cell--colspan-all {
   grid-column: 1 / -1;
 }
 
 // The order of the following declaration blocks ensures the intended specificity.
 
 @for $i from 1 through 12 {
-  .ams-grid__cell--span-#{$i} {
+  .ams-grid__cell--colspan-#{$i} {
     grid-column-end: span $i;
   }
 
@@ -87,7 +87,7 @@
 
 @media screen and (min-width: $ams-breakpoint-medium) {
   @for $i from 1 through 12 {
-    .ams-grid__cell--span-#{$i}-medium {
+    .ams-grid__cell--colspan-#{$i}-medium {
       grid-column-end: span $i;
     }
 
@@ -99,12 +99,50 @@
 
 @media screen and (min-width: $ams-breakpoint-wide) {
   @for $i from 1 through 12 {
-    .ams-grid__cell--span-#{$i}-wide {
+    .ams-grid__cell--colspan-#{$i}-wide {
       grid-column-end: span $i;
     }
 
     .ams-grid__cell--start-#{$i}-wide {
       grid-column-start: $i;
+    }
+  }
+}
+
+// Set a grid row start value for each row number.
+
+@for $i from 1 through 3 {
+  .ams-grid--rows-#{$i} {
+    grid-template-rows: repeat(#{$i}, auto);
+  }
+
+  .ams-grid__cell--rowspan-#{$i} {
+    grid-row-end: span $i;
+  }
+
+  .ams-grid__cell--row-#{$i} {
+    grid-row-start: $i;
+  }
+}
+
+@media screen and (min-width: $ams-breakpoint-medium) {
+  @for $i from 1 through 3 {
+    .ams-grid__cell--rowspan-#{$i}-medium {
+      grid-row-end: span $i;
+    }
+    .ams-grid__cell--row-#{$i}-medium {
+      grid-row-start: $i;
+    }
+  }
+}
+
+@media screen and (min-width: $ams-breakpoint-wide) {
+  @for $i from 1 through 3 {
+    .ams-grid__cell--rowspan-#{$i}-wide {
+      grid-row-end: span $i;
+    }
+    .ams-grid__cell--row-#{$i}-wide {
+      grid-row-start: $i;
     }
   }
 }
