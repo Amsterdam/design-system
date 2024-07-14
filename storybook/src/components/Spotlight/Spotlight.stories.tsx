@@ -3,10 +3,10 @@
  * Copyright Gemeente Amsterdam
  */
 
-import { Blockquote, Grid } from '@amsterdam/design-system-react'
+import { AspectRatio, Blockquote, Grid, Image, Paragraph } from '@amsterdam/design-system-react'
 import { Spotlight } from '@amsterdam/design-system-react/src'
 import { Meta, StoryObj } from '@storybook/react'
-import { exampleQuote } from '../shared/exampleContent'
+import { exampleParagraph, exampleQuote } from '../shared/exampleContent'
 
 const quote = exampleQuote()
 
@@ -29,6 +29,35 @@ export default meta
 type Story = StoryObj<typeof meta>
 
 export const Default: Story = {}
+
+export const StickOut: Story = {
+  render: ({ as, color }) => (
+    <Grid>
+      <Grid.Cell
+        span="all"
+        style={{
+          gridRow: '2 / 3',
+          marginBlock: 'calc(var(--ams-space-grid-md) * -1)',
+          marginInline: 'calc(var(--ams-space-grid-lg) * -1)',
+        }}
+      >
+        <Spotlight as={as} color={color} style={{ height: '100%' }} />
+      </Grid.Cell>
+      <Grid.Cell span={{ narrow: 4, medium: 4, wide: 6 }} start={1} style={{ gridRow: 2 }}>
+        <Paragraph inverseColor={!color || !['green', 'yellow'].includes(color)}>{exampleParagraph()}</Paragraph>
+      </Grid.Cell>
+      <Grid.Cell
+        span={{ narrow: 4, medium: 4, wide: 6 }}
+        start={{ narrow: 1, medium: 5, wide: 7 }}
+        style={{ alignSelf: 'end', gridRow: '1 / 3' }}
+      >
+        <AspectRatio ratio="wide">
+          <Image alt="" src="https://picsum.photos/960/720" />
+        </AspectRatio>
+      </Grid.Cell>
+    </Grid>
+  ),
+}
 
 export const Blue: Story = {
   args: {
