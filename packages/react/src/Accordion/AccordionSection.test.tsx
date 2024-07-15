@@ -41,9 +41,13 @@ describe('Accordion section', () => {
     const sectionContent = getByText(testContent)
 
     expect(sectionContent).not.toHaveClass('ams-accordion__panel--expanded')
+
     fireEvent.click(button)
+
     expect(sectionContent).toHaveClass('ams-accordion__panel--expanded')
+
     fireEvent.click(button)
+
     expect(sectionContent).not.toHaveClass('ams-accordion__panel--expanded')
   })
 
