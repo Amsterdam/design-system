@@ -75,8 +75,8 @@ importers:
         specifier: 8.4.39
         version: 8.4.39
       prettier:
-        specifier: 3.3.2
-        version: 3.3.2
+        specifier: 3.3.3
+        version: 3.3.3
       rimraf:
         specifier: 6.0.1
         version: 6.0.1
@@ -355,7 +355,7 @@ importers:
         version: 4.3.1(vite@5.3.3(@types/node@20.14.10)(sass@1.77.8)(terser@5.17.1))
       '@whitespace/storybook-addon-html':
         specifier: 6.1.1
-        version: 6.1.1(prettier@3.3.2)(react-syntax-highlighter@15.5.0(react@18.3.1))
+        version: 6.1.1(prettier@3.3.3)(react-syntax-highlighter@15.5.0(react@18.3.1))
       react:
         specifier: 18.3.1
         version: 18.3.1
@@ -6508,6 +6508,11 @@ packages:
     engines: {node: '>=14'}
     hasBin: true
 
+  prettier@3.3.3:
+    resolution: {integrity: sha512-i2tDNA0O5IrMO757lfrdQZCc2jPNDVntV0m/+4whiDfWaTKfMNgR7Qz0NAeGz/nRqF4m5/6CLzbP4/liHt12Ew==}
+    engines: {node: '>=14'}
+    hasBin: true
+
   pretty-format@27.5.1:
     resolution: {integrity: sha512-Qb1gy5OrP5+zDf2Bvnzdl3jsTf1qXVMazbvCoKhtKqVs4/YK4ozX4gKQJJVyNe+cajNPn0KoC0MC3FUmaHWEmQ==}
     engines: {node: ^10.13.0 || ^12.13.0 || ^14.15.0 || >=15.0.0}
@@ -10966,9 +10971,9 @@ snapshots:
       loupe: 2.3.7
       pretty-format: 29.7.0
 
-  '@whitespace/storybook-addon-html@6.1.1(prettier@3.3.2)(react-syntax-highlighter@15.5.0(react@18.3.1))':
+  '@whitespace/storybook-addon-html@6.1.1(prettier@3.3.3)(react-syntax-highlighter@15.5.0(react@18.3.1))':
     dependencies:
-      prettier: 3.3.2
+      prettier: 3.3.3
       react-syntax-highlighter: 15.5.0(react@18.3.1)
 
   '@yarnpkg/fslib@2.10.3':
@@ -15963,6 +15968,8 @@ snapshots:
   prettier@2.8.8: {}
 
   prettier@3.3.2: {}
+
+  prettier@3.3.3: {}
 
   pretty-format@27.5.1:
     dependencies:
