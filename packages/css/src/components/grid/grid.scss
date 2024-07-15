@@ -80,8 +80,16 @@
     grid-column-end: span $i;
   }
 
+  .ams-grid__cell--row-span-#{$i} {
+    grid-row-end: span $i;
+  }
+
   .ams-grid__cell--start-#{$i} {
     grid-column-start: $i;
+  }
+
+  .ams-grid__cell--row-start-#{$i} {
+    grid-row-start: $i;
   }
 }
 
@@ -91,8 +99,16 @@
       grid-column-end: span $i;
     }
 
+    .ams-grid__cell--row-span-#{$i}-medium {
+      grid-row-end: span $i;
+    }
+
     .ams-grid__cell--start-#{$i}-medium {
       grid-column-start: $i;
+    }
+
+    .ams-grid__cell--row-start-#{$i}-medium {
+      grid-row-start: $i;
     }
   }
 }
@@ -103,8 +119,16 @@
       grid-column-end: span $i;
     }
 
+    .ams-grid__cell--row-span-#{$i}-wide {
+      grid-row-end: span $i;
+    }
+
     .ams-grid__cell--start-#{$i}-wide {
       grid-column-start: $i;
+    }
+
+    .ams-grid__cell--row-start-#{$i}-wide {
+      grid-row-start: $i;
     }
   }
 }
