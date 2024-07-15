@@ -29,7 +29,7 @@ export const ForSubBrand: Story = {
 
 export const WithAppName: Story = {
   args: {
-    appName: 'Aan de Amsterdamse grachten',
+    appName: 'Onderzoek en Statistiek',
   },
 }
 
@@ -70,14 +70,14 @@ export const WithLinksAndMenuButton: Story = {
 
 export const WithAppNameAndMenuButton: Story = {
   args: {
-    appName: 'Aan de Amsterdamse grachten',
+    appName: 'Onderzoek en Statistiek',
     menu: <button className="ams-header__menu-button">Menu</button>,
   },
 }
 
 export const WithAppNameLinksAndMenuButton: Story = {
   args: {
-    appName: 'Aan de Amsterdamse grachten',
+    appName: 'Onderzoek en Statistiek',
     links: (
       <PageMenu alignEnd wrap={false}>
         <PageMenu.Link href="#">Contact</PageMenu.Link>

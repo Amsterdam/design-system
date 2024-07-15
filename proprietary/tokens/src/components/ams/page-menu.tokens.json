@@ -1,7 +1,7 @@
 {
   "ams": {
     "page-menu": {
-      "column-gap": { "value": "{ams.space.grid.md}" },
+      "column-gap": { "value": "{ams.space.grid.sm}" },
       "row-gap": { "value": "{ams.space.grid.xs}" },
       "item": {
         "color": { "value": "{ams.link-appearance.color}" },
