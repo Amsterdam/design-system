@@ -6,20 +6,26 @@ import '@testing-library/jest-dom'
 describe('Breadcrumb', () => {
   it('renders', () => {
     render(<Breadcrumb />)
+
     const component = screen.getByRole('navigation')
+
     expect(component).toBeInTheDocument()
     expect(component).toBeVisible()
   })
 
   it('renders a design system BEM class name', () => {
     render(<Breadcrumb />)
+
     const component = screen.getByRole('navigation')
+
     expect(component).toHaveClass('ams-breadcrumb')
   })
 
   it('renders an additional class name', () => {
     render(<Breadcrumb className="extra" />)
+
     const component = screen.getByRole('navigation')
+
     expect(component).toHaveClass('ams-breadcrumb extra')
   })
 
