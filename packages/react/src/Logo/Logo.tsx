@@ -14,11 +14,13 @@ import {
   LogoStadsbankVanLening,
   LogoVgaVerzekeringen,
 } from './brand'
+import LogoNarrow from './brand/LogoNarrow'
 
 export type LogoBrand =
   | 'amsterdam'
   | 'ggd-amsterdam'
   | 'museum-weesp'
+  | 'narrow'
   | 'stadsarchief'
   | 'stadsbank-van-lening'
   | 'vga-verzekeringen'
@@ -33,6 +35,7 @@ const logoConfig: Record<
   ForwardRefExoticComponent<SVGProps<SVGSVGElement> & RefAttributes<SVGSVGElement>>
 > = {
   amsterdam: LogoAmsterdam,
+  narrow: LogoNarrow,
   'ggd-amsterdam': LogoGgdAmsterdam,
   'museum-weesp': LogoMuseumWeesp,
   stadsarchief: LogoStadsarchief,
@@ -44,7 +47,12 @@ export const Logo = forwardRef(
   ({ brand = 'amsterdam', className, ...restProps }: LogoProps, ref: ForwardedRef<SVGSVGElement>) => {
     const LogoComponent = logoConfig[brand]
 
-    return <LogoComponent {...restProps} ref={ref} className={clsx('ams-logo', className)} />
+    return (
+      <>
+        <LogoNarrow className="ams-logo--narrow" />
+        <LogoComponent {...restProps} ref={ref} className={clsx('ams-logo', className)} />
+      </>
+    )
   },
 )
 

@@ -3,9 +3,25 @@
  * Copyright Gemeente Amsterdam
  */
 
+@import "../../common/breakpoint";
+
 .ams-logo {
+  display: none;
+}
+
+.ams-logo,
+.ams-logo--narrow {
   block-size: var(--ams-logo-block-size);
-  display: block;
+}
+
+@media (min-width: $ams-breakpoint-medium) {
+  .ams-logo {
+    display: block;
+  }
+
+  .ams-logo--narrow {
+    display: none;
+  }
 }
 
 .ams-logo__emblem {
