@@ -39,7 +39,7 @@ export const Default: Story = {}
 
 export const StickOut: Story = {
   render: ({ as, color }) => (
-    <Grid>
+    <Grid paddingBottom="medium">
       <Grid.Cell
         span="all"
         rowSpan={{ narrow: 2, medium: 2, wide: 1 }}
