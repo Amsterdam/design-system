@@ -55,7 +55,8 @@ export const Header = forwardRef(
       {links && <div className="ams-header__links">{links}</div>}
       {menu && (
         <Button className="ams-header__menu-button" variant={'tertiary'}>
-          Menu <Icon svg={MenuIcon} size="level-6" />
+          <span className="ams-header__menu-button__label">Menu</span>
+          <Icon svg={MenuIcon} size="level-6" />
         </Button>
       )}
     </header>

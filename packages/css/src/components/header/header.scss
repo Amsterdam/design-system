@@ -41,6 +41,17 @@
   font-size: var(--ams-text-level-6-font-size);
 }
 
+/* TODO Allow Button to hide its label */
+.ams-header__menu-button__label {
+  display: none;
+}
+
+@media screen and (min-width: $ams-breakpoint-medium) {
+  .ams-header__menu-button__label {
+    display: inline;
+  }
+}
+
 /* TODO Create custom component */
 .ams-heading.ams-header__app-name {
   line-height: 1.3;
