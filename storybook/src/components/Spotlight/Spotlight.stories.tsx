@@ -35,7 +35,7 @@ export const StickOut: Story = {
     <Grid>
       <Grid.Cell
         span="all"
-        rowSpan={{ narrow: 2, medium: 1, wide: 1 }}
+        rowSpan={{ narrow: 2, medium: 2, wide: 1 }}
         rowStart={2}
         style={{
           marginBlock: 'calc(var(--ams-space-grid-md) * -1)',
@@ -44,7 +44,7 @@ export const StickOut: Story = {
       >
         <Spotlight as={as} color={color} style={{ height: '100%' }} />
       </Grid.Cell>
-      <Grid.Cell rowStart={{ narrow: 3, medium: 2, wide: 2 }} span={{ narrow: 4, medium: 4, wide: 6 }} start={1}>
+      <Grid.Cell rowStart={{ narrow: 3, medium: 3, wide: 2 }} span={{ narrow: 4, medium: 8, wide: 6 }} start={1}>
         <Paragraph inverseColor={!color || !['green', 'yellow'].includes(color)}>{exampleParagraph()}</Paragraph>
       </Grid.Cell>
       <Grid.Cell
