@@ -35,21 +35,24 @@ export const StickOut: Story = {
     <Grid>
       <Grid.Cell
         span="all"
+        rowSpan={{ narrow: 2, medium: 1, wide: 1 }}
+        rowStart={2}
         style={{
-          gridRow: '2 / 3',
           marginBlock: 'calc(var(--ams-space-grid-md) * -1)',
           marginInline: 'calc(var(--ams-space-grid-lg) * -1)',
         }}
       >
         <Spotlight as={as} color={color} style={{ height: '100%' }} />
       </Grid.Cell>
-      <Grid.Cell span={{ narrow: 4, medium: 4, wide: 6 }} start={1} style={{ gridRow: 2 }}>
+      <Grid.Cell rowStart={{ narrow: 3, medium: 2, wide: 2 }} span={{ narrow: 4, medium: 4, wide: 6 }} start={1}>
         <Paragraph inverseColor={!color || !['green', 'yellow'].includes(color)}>{exampleParagraph()}</Paragraph>
       </Grid.Cell>
       <Grid.Cell
-        span={{ narrow: 4, medium: 4, wide: 6 }}
-        start={{ narrow: 1, medium: 5, wide: 7 }}
-        style={{ alignSelf: 'end', gridRow: '1 / 3' }}
+        rowSpan={2}
+        rowStart={1}
+        span={{ narrow: 4, medium: 8, wide: 6 }}
+        start={{ narrow: 1, medium: 1, wide: 7 }}
+        style={{ alignSelf: 'end' }}
       >
         <AspectRatio ratio="wide">
           <Image alt="" src="https://picsum.photos/960/720" />
