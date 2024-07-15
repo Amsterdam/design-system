@@ -29,7 +29,7 @@ export const WithLogoVariant: Story = {
 
 export const WithAppName: Story = {
   args: {
-    appName: 'Aan de Amsterdamse grachten',
+    appName: 'Onderzoek en Statistiek',
   },
 }
 
@@ -70,14 +70,14 @@ export const WithLinksAndMenu: Story = {
 
 export const WithAppNameAndMenu: Story = {
   args: {
-    appName: 'Aan de Amsterdamse grachten',
+    appName: 'Onderzoek en Statistiek',
     menu: <button className="ams-header__menu-button">Menu</button>,
   },
 }
 
 export const WithAppNameLinksAndMenu: Story = {
   args: {
-    appName: 'Aan de Amsterdamse grachten',
+    appName: 'Onderzoek en Statistiek',
     links: (
       <PageMenu alignEnd wrap={false}>
         <PageMenu.Link href="#">Contact</PageMenu.Link>

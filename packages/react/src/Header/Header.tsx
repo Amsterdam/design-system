@@ -3,10 +3,13 @@
  * Copyright Gemeente Amsterdam
  */
 
+import { MenuIcon } from '@amsterdam/design-system-react-icons'
 import clsx from 'clsx'
 import { forwardRef } from 'react'
 import type { ForwardedRef, HTMLAttributes, ReactNode } from 'react'
+import { Button } from '../Button'
 import { Heading } from '../Heading'
+import { Icon } from '../Icon'
 import { Logo } from '../Logo'
 import type { LogoBrand } from '../Logo'
 
@@ -38,27 +41,25 @@ export const Header = forwardRef(
       ...restProps
     }: HeaderProps,
     ref: ForwardedRef<HTMLElement>,
-  ) => {
-    return (
-      <>
-        <header {...restProps} ref={ref} className={clsx('ams-header', className)}>
-          <a href={logoLink} className="ams-header__logo-link">
-            <span className="ams-visually-hidden">{logoLinkTitle}</span>
-            <Logo brand={logoBrand} />
-          </a>
-          {links && <div className="ams-header__links">{links}</div>}
-          {menu && <div className="ams-header__menu">{menu}</div>}
-          {appName && (
-            <div className="ams-header__app-name">
-              <Heading level={1} size="level-3" className="ams-header__app-name-heading">
-                {appName}
-              </Heading>
-            </div>
-          )}
-        </header>
-      </>
-    )
-  },
+  ) => (
+    <header {...restProps} className={clsx('ams-header', className)} ref={ref}>
+      <a className="ams-header__logo-link" href={logoLink}>
+        <span className="ams-visually-hidden">{logoLinkTitle}</span>
+        <Logo brand={logoBrand} />
+      </a>
+      {appName && (
+        <Heading className="ams-header__app-name" level={1} size="level-6">
+          {appName}
+        </Heading>
+      )}
+      {links && <div className="ams-header__links">{links}</div>}
+      {menu && (
+        <Button className="ams-header__menu-button" variant={'tertiary'}>
+          Menu <Icon svg={MenuIcon} size="level-6" />
+        </Button>
+      )}
+    </header>
+  ),
 )
 
 Header.displayName = 'Header'
