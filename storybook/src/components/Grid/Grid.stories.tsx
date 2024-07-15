@@ -123,6 +123,22 @@ export const SpanMultipleColumns: CellStory = {
   },
 }
 
+export const SpanMultipleRows: Story = {
+  ...StoryTemplate,
+  args: {
+    children: [
+      <Grid.Cell className="ams-docs-pink-box" span={4} rowSpan={2} key={1} style={{ padding: '1rem' }}>
+        <p className="ams-docs-paragraph">Deze cel beslaat 2 rijen.</p>
+      </Grid.Cell>,
+      <Grid.Cell className="ams-docs-pink-box" span={4} key={2} />,
+      <Grid.Cell className="ams-docs-pink-box" span={4} key={3} />,
+      <Grid.Cell className="ams-docs-pink-box" span={4} key={4} />,
+      <Grid.Cell className="ams-docs-pink-box" span={4} key={5} />,
+    ],
+    gapVertical: 'small',
+  },
+}
+
 export const ConfigureGridVariants: CellStory = {
   ...CellStoryTemplate,
   args: {
