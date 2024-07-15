@@ -34,7 +34,7 @@ export const Default: Story = {}
 
 export const Levels: Story = {
   render: (args) => (
-    <Column gap="medium">
+    <Column gap="small">
       {headingLevels.map((level) => (
         <Heading {...args} key={level} level={level} />
       ))}
@@ -44,7 +44,7 @@ export const Levels: Story = {
 
 export const Sizes: Story = {
   render: (args) => (
-    <Column gap="medium">
+    <Column gap="small">
       {headingSizes.map((size) => (
         <Heading {...args} key={size} size={size} />
       ))}
