@@ -59,4 +59,42 @@
     margin: -1rem; /* stylelint-disable-line */
     padding: 1rem; /* stylelint-disable-line */
   }
+
+  /** @source https://codepen.io/sosuke/pen/Pjoqqp */
+  .ams-storybook-show-grid {
+    --columns: 4;
+    --gaps: calc(var(--columns) - 1);
+    --gap-width: var(--ams-grid-column-gap);
+    --margin-width: var(--ams-grid-padding-inline);
+    --column-color: rgba(0, 70, 153, 0.09375);
+    --column-width: calc((100% - (var(--gaps) * var(--gap-width))) / var(--columns));
+
+    position: relative;
+  }
+
+  @media screen and (min-width: 36rem) {
+    .ams-storybook-show-grid {
+      --columns: 8;
+    }
+  }
+
+  @media screen and (min-width: 68rem) {
+    .ams-storybook-show-grid {
+      --columns: 12;
+    }
+  }
+
+  .ams-storybook-show-grid::after {
+    background-image: repeating-linear-gradient(
+      90deg,
+      var(--column-color) 0%,
+      var(--column-color) var(--column-width),
+      transparent var(--column-width),
+      transparent calc(var(--column-width) + var(--gap-width))
+    );
+    content: "";
+    inset-block: 0;
+    inset-inline: var(--margin-width);
+    position: absolute;
+  }
 </style>
