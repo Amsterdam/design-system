@@ -324,8 +324,8 @@ importers:
         specifier: 8.2.2
         version: 8.2.2(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(storybook@8.2.2(@babel/preset-env@7.24.8(@babel/core@7.24.8)))
       '@storybook/components':
-        specifier: 8.2.2
-        version: 8.2.2(storybook@8.2.2(@babel/preset-env@7.24.8(@babel/core@7.24.8)))
+        specifier: 8.2.4
+        version: 8.2.4(storybook@8.2.2(@babel/preset-env@7.24.8(@babel/core@7.24.8)))
       '@storybook/core-events':
         specifier: 8.2.2
         version: 8.2.2(storybook@8.2.2(@babel/preset-env@7.24.8(@babel/core@7.24.8)))
@@ -2055,10 +2055,10 @@ packages:
   '@storybook/codemod@8.2.2':
     resolution: {integrity: sha512-wRUVKLHVUhbLJYKW3QOufUxJGwaUT4jTCD8+HOGpHPdJO3NrwXu186xt4tuPZO2Y/NnacPeCQPsaK5ok4O8o7A==}
 
-  '@storybook/components@8.2.2':
-    resolution: {integrity: sha512-T1v3m0QgD1phtD2ImzkpYZHMgNU3PvqzmWPnKHmgiAOVLe65Xjx/AnrbXVGjCXpeJNdCqGPSGgDpPtJsrwTxNA==}
+  '@storybook/components@8.2.4':
+    resolution: {integrity: sha512-JLT1RoR/RXX+ZTeFoY85CRHb9Zz3l0PRRUSetEjoIJdnBGeL5C38bs0s9QnYjpCDLUlhdYhTln+GzmbyH8ocpA==}
     peerDependencies:
-      storybook: ^8.2.2
+      storybook: ^8.2.4
 
   '@storybook/core-events@8.2.2':
     resolution: {integrity: sha512-3ILEgRlYG3T2USDH+25bJXpwExyPWHALItF4xXuPRTzc+g8eZBTkT3sCIIXITD99BEZFu74qfGE0/FYut57TVg==}
@@ -10258,7 +10258,7 @@ snapshots:
       - supports-color
       - utf-8-validate
 
-  '@storybook/components@8.2.2(storybook@8.2.2(@babel/preset-env@7.24.8(@babel/core@7.24.8)))':
+  '@storybook/components@8.2.4(storybook@8.2.2(@babel/preset-env@7.24.8(@babel/core@7.24.8)))':
     dependencies:
       storybook: 8.2.2(@babel/preset-env@7.24.8(@babel/core@7.24.8))
 
