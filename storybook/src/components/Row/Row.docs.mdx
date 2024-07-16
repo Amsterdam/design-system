@@ -26,16 +26,28 @@ Wrap a Row around a set of components that need the same amount of white space b
 
 ### Horizontal Alignment
 
-Items can be aligned horizontally to the start, center or end of the row.
-Or whitespace can be distributed between, around or evenly around them.
+Items in the row can be aligned horizontally in several ways:
+
+- **Start**: align items to the start of the row. This is the default.
+- **Center**: center items within the row.
+- **End**: align items to the end of the row.
+- **Space Between**: distribute whitespace between items.
+- **Space Around**: distribute whitespace around items.
+- **Space Evenly**: distribute whitespace evenly around items.
+
+We left out the word ‘space’ from the values for the alignment prop, e.g. `align="around"`.
 
 <Canvas of={RowStories.HorizontalAlignment} />
 
 ### Vertical Alignment
 
-Items can be aligned vertically to the top, middle, or bottom of the row.
-They can also align to their common text baseline.
-By default, they stretch to fill the height of the row.
+Items in the row can be aligned vertically in several ways:
+
+- **Top**: align items to the top of the row.
+- **Center**: align items to the middle of the row.
+- **Bottom**: align items to the bottom of the row.
+- **Baseline**: align items to their common text baseline.
+- **Stretch**: stretch items to the height of the row. This is the default.
 
 <Canvas of={RowStories.VerticalAlignment} />
 
