@@ -315,8 +315,8 @@ importers:
         specifier: 8.2.2
         version: 8.2.2(@jest/globals@29.7.0)(@types/jest@29.5.12)(jest@29.7.0(@types/node@20.14.10))(storybook@8.2.2(@babel/preset-env@7.24.8(@babel/core@7.24.8)))
       '@storybook/addon-links':
-        specifier: 8.2.2
-        version: 8.2.2(react@18.3.1)(storybook@8.2.2(@babel/preset-env@7.24.8(@babel/core@7.24.8)))
+        specifier: 8.2.4
+        version: 8.2.4(react@18.3.1)(storybook@8.2.2(@babel/preset-env@7.24.8(@babel/core@7.24.8)))
       '@storybook/addon-themes':
         specifier: 8.2.2
         version: 8.2.2(storybook@8.2.2(@babel/preset-env@7.24.8(@babel/core@7.24.8)))
@@ -1990,11 +1990,11 @@ packages:
     peerDependencies:
       storybook: ^8.2.2
 
-  '@storybook/addon-links@8.2.2':
-    resolution: {integrity: sha512-eGh7O7SgTJMtnuXC0HlRPOegu1njcJS2cnVqjbzjvjxsPSBhbHpdYMi9Q9E7al/FKuqMUOjIR9YLIlmK1AJaqA==}
+  '@storybook/addon-links@8.2.4':
+    resolution: {integrity: sha512-1FgD6YXdXXSEDrp2aO4LxYt/X7LnBYx7cLlFla+xbn1CZLGqWLLeOT+BFd29wxpzs3u1Tap9r1iz1vRYL5ziyg==}
     peerDependencies:
       react: ^16.8.0 || ^17.0.0 || ^18.0.0 || ^19.0.0-beta
-      storybook: ^8.2.2
+      storybook: ^8.2.4
     peerDependenciesMeta:
       react:
         optional: true
@@ -10164,7 +10164,7 @@ snapshots:
       - jest
       - vitest
 
-  '@storybook/addon-links@8.2.2(react@18.3.1)(storybook@8.2.2(@babel/preset-env@7.24.8(@babel/core@7.24.8)))':
+  '@storybook/addon-links@8.2.4(react@18.3.1)(storybook@8.2.2(@babel/preset-env@7.24.8(@babel/core@7.24.8)))':
     dependencies:
       '@storybook/csf': 0.1.11
       '@storybook/global': 5.0.0
