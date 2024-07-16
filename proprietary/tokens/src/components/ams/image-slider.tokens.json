@@ -1,0 +1,7 @@
+{
+  "ams": {
+    "image-slider": {
+      "gap": { "value": "{ams.space.xs}" }
+    }
+  }
+}

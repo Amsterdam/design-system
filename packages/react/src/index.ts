@@ -4,6 +4,7 @@
  */
 
 /* Append here */
+export * from './ImageSlider'
 export * from './FormErrorList'
 export * from './TableOfContents'
 export * from './ErrorMessage'

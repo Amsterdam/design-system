@@ -1,0 +1,43 @@
+/**
+ * @license EUPL-1.2+
+ * Copyright Gemeente Amsterdam
+ */
+
+.ams-image-slider {
+  display: grid;
+  gap: var(--ams-image-slider-gap);
+  grid-template-rows: 1fr auto;
+}
+
+.ams-image-slider--snapstop .ams-image-slider__item {
+  scroll-snap-align: center;
+}
+
+.ams-image-slider__scroller {
+  align-items: center;
+  display: grid;
+  gap: var(--ams-image-slider-gap);
+  grid-auto-columns: 100%;
+  grid-auto-flow: column;
+  grid-column: 1/-1;
+  grid-row: 1;
+  overflow-x: auto;
+  overscroll-behavior-x: contain;
+  scroll-snap-type: x mandatory;
+
+  @media not (prefers-reduced-motion) {
+    scroll-behavior: smooth;
+  }
+}
+
+.ams-image-slider__controls {
+  display: flex;
+  grid-column: 1/-1;
+  grid-row: 1;
+  justify-content: space-between;
+}
+
+.ams-image-slider__control {
+  place-self: center;
+  z-index: 1;
+}
