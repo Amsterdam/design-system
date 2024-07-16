@@ -39,6 +39,7 @@ describe('Card heading group', () => {
 
   it('supports ForwardRef in React', () => {
     const ref = createRef<HTMLElement>()
+
     const { container } = render(<CardHeadingGroup tagline="test" ref={ref} />)
 
     const component = container.querySelector(':only-child')
