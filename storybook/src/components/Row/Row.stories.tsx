@@ -66,7 +66,7 @@ export const VerticalAlignment: Story = {
 export const Wrapping: Story = {
   args: {
     children: Array.from(Array(4).keys()).map((i) => (
-      <Paragraph className="ams-docs-pink-box" key={i} style={{ inlineSize: '16rem' }} />
+      <span className="ams-docs-pink-box" key={i} style={{ inlineSize: '16rem' }} />
     )),
     wrap: true,
   },
