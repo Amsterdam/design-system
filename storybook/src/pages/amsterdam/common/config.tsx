@@ -11,6 +11,5 @@ export const commonMeta = {
   ],
   parameters: {
     layout: 'fullscreen',
-    themes: { themeOverride: 'Spacious' },
   },
 } satisfies Meta

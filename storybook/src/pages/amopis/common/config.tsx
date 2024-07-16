@@ -48,7 +48,6 @@ export const menu: Menu = {
 export const commonMeta = {
   parameters: {
     layout: 'fullscreen',
-    themes: { themeOverride: 'Compact' },
   },
   decorators: [
     (Story) => (
