@@ -1,22 +1,22 @@
 {/* @license CC0-1.0 */}
 
 import { Meta } from "@storybook/blocks";
-import { WebAppIcons } from "./components/AppIcons";
+import { WebAppIcons } from "../components/AppIcons";
 
 <Meta title="Docs/Developer Guide/Web App" />
 
-# Progressive Web App: manifest and icons
+# Web App
 
-Turn a website into a Progressive Web App (PWA) with a Web Manifest and app icons.
+Turn a website into a Progressive Web App (PWA) with a web manifest and app icons.
 
 Here’s how to publish a web app with the proper app names and icons.
 This set covers all combinations of common operating systems (Android, iOS, macOS, and Windows) and browsers (Chrome, Safari, Edge, and Firefox).
 
 > There is seperate documentation on [how to add a website icon (a “favicon”)](/docs/docs-assets-web-app--docs).
 
-## Usage
+## How to Use
 
-### Install the assets
+### Install Assets
 
 First, install these assets as they come with the [Amsterdam Design System Assets](https://www.npmjs.com/package/@amsterdam/design-system-assets):
 
@@ -24,7 +24,7 @@ First, install these assets as they come with the [Amsterdam Design System Asset
 npm i @amsterdam/design-system-assets
 ```
 
-### Link the installed assets
+### Link Assets
 
 You can manually [symlink (symbolic link)](https://en.wikipedia.org/wiki/Symbolic_link#POSIX_and_Unix-like_operating_systems) and copy the files to the root or a `public` folder next to where the `index.html` is located in your project.
 An advantage of symlinking is that it tracks changes to the assets when there are package updates. Symlinks are basically shortcuts to files or directories.
@@ -79,13 +79,11 @@ Then link all these assets by placing the following tags in the `<head>`:
 </head>
 ```
 
-### Submit the changes
+### Submit Changes
 
 The symlink(s) and copied and edited files can be committed to the repository.
 
-## Overview & examples
-
-### Web App Icons
+## Web App Icons
 
 <WebAppIcons />
 

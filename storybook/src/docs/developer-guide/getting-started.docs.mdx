@@ -2,9 +2,9 @@
 
 import { Meta } from "@storybook/blocks";
 
-<Meta title="Docs/Developer Guide/Getting started" />
+<Meta title="Docs/Developer Guide/Getting Started" />
 
-# Getting started for developers
+# Getting Started
 
 ## React
 
@@ -22,11 +22,11 @@ Install the packages you need, for instance:
 Import the components and stylesheets you need, for example:
 
 ```javascript
-import { Paragraph } from "@amsterdam/design-system-react";
+import { Paragraph } from "packages/react/src/index";
 
-import "@amsterdam/design-system-assets/font/index.css";
-import "@amsterdam/design-system-css/dist/index.css";
-import "@amsterdam/design-system-tokens/dist/index.css";
+import "proprietary/assets/font/index.css";
+import "packages/css/dist/index.css";
+import "proprietary/tokens/dist/index.css";
 
 function App() {
   return <Paragraph>Hello world</Paragraph>;
@@ -35,7 +35,7 @@ function App() {
 export default App;
 ```
 
-## Compact mode
+## Compact Mode
 
 For applications, the large text and ample white space of the theme can be counterproductive.
 That’s why there is a compact mode.
