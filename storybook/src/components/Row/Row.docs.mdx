@@ -40,6 +40,21 @@ We left out the word ‘space’ from the values for the alignment prop, e.g. `a
 
 <Canvas of={RowStories.HorizontalAlignment} />
 
+#### End-align a Single Child
+
+To align a single component, wrap it in a `<Row>` and set the `align` prop to `end`.
+
+<Canvas of={RowStories.EndAlignASingleChild} />
+
+#### Align Opposing Texts
+
+This example shows a right-aligned link next to heading.
+Use `align="between"` to position them at opposing ends of the row.
+Add `alignVertical="baseline"` to align them vertically to their common baseline.
+Include `wrap` to allow the link to wrap to a new line if both components don’t fit on the same line.
+
+<Canvas of={RowStories.AlignOpposingTexts} />
+
 ### Vertical Alignment
 
 Items in the row can be aligned vertically in several ways:

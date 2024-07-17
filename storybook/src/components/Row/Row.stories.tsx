@@ -3,7 +3,16 @@
  * Copyright Gemeente Amsterdam
  */
 
-import { Button, crossAlignOptions, mainAlignOptions, Paragraph, Row } from '@amsterdam/design-system-react/src'
+import {
+  Avatar,
+  Button,
+  crossAlignOptions,
+  Heading,
+  Link,
+  mainAlignOptions,
+  Paragraph,
+  Row,
+} from '@amsterdam/design-system-react/src'
 import { Meta, StoryObj } from '@storybook/react'
 
 const ThreeButtons = Array.from(Array(3).keys()).map((i) => <Button key={i}>Button {i + 1}</Button>)
@@ -53,6 +62,22 @@ export const HorizontalAlignment: Story = {
   args: {
     align: 'evenly',
     children: ThreeParagraphs,
+  },
+}
+
+export const EndAlignASingleChild: Story = {
+  args: {
+    align: 'end',
+    children: <Avatar label="AB" />,
+  },
+}
+
+export const AlignOpposingTexts: Story = {
+  args: {
+    align: 'between',
+    alignVertical: 'baseline',
+    children: [<Heading level={3}>An example heading</Heading>, <Link href="#">An example link</Link>],
+    wrap: true,
   },
 }
 
