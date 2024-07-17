@@ -2,15 +2,14 @@
 
 # Heading
 
-A heading conveys information about the content below it.
-Use headings to allow the user to grasp the structure of the page quickly.
+Communicates the organization of the content on a page.
 
 ## Guidelines
 
-- A heading describes the content beneath it.
-- Do not use a heading for formatting and styling. Use it to represent the page’s structure.
-- Use headings hierarchically, and do not skip heading levels.
-  So, an `h1` heading should be followed by an `h2`, not an `h3`.
+- Every page should contain one Heading with level 1.
+- Do not skip heading levels, e.g. a level 2 Heading should be followed by one with level 3, not level 4.
+- Do not use a Heading for formatting and styling, but represent the page’s structure.
+  User agents may use heading information to generate a table of contents for a document.
 
 ## Relevant WCAG Requirements
 
