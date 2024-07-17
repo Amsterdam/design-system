@@ -42,6 +42,7 @@ describe('Text input', () => {
     render(<ControlledComponent />)
 
     const componentText = screen.getByDisplayValue('Hello')
+
     expect(componentText).toBeInTheDocument()
 
     const component = screen.getByRole('textbox')
@@ -50,6 +51,7 @@ describe('Text input', () => {
     }
 
     const newComponentText = screen.getByDisplayValue('Hello, World!')
+
     expect(newComponentText).toBeInTheDocument()
   })
 
@@ -105,6 +107,7 @@ describe('Text input', () => {
       const component = screen.getByRole('textbox')
 
       expect(component).toHaveAttribute('aria-invalid')
+
       expect(component).toBeInvalid()
     })
 

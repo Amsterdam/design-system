@@ -6,6 +6,7 @@ import '@testing-library/jest-dom'
 describe('Ordered list', () => {
   it('renders an HTML ol element', () => {
     const { container } = render(<OrderedList />)
+
     const list = container.querySelector('ol:only-child')
 
     expect(list).toBeInTheDocument()
