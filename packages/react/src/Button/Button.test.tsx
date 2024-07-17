@@ -95,10 +95,8 @@ describe('Button', () => {
 
     expect(buttonPrimary).toBeInTheDocument()
     expect(buttonPrimary).toBeDisabled()
-
     expect(buttonSecondary).toBeInTheDocument()
     expect(buttonSecondary).toBeDisabled()
-
     expect(buttonTertiary).toBeInTheDocument()
     expect(buttonTertiary).toBeDisabled()
   })

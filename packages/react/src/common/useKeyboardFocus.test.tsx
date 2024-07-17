@@ -6,6 +6,7 @@ describe('use focus with arrows', () => {
   const onFocusOneMock = jest.fn()
   const onFocusTwoMock = jest.fn()
   const onFocusThreeMock = jest.fn()
+
   const getComponent = (rotate: boolean | undefined = undefined) =>
     // eslint-disable-next-line react/display-name
     function () {
@@ -13,6 +14,7 @@ describe('use focus with arrows', () => {
       const { keyDown } = useKeyboardFocus(ref, {
         rotating: rotate,
       })
+
       return (
         <div onKeyDown={keyDown} tabIndex={0} role="menu" ref={ref}>
           <button onFocus={onFocusOneMock} type="button">
@@ -37,7 +39,9 @@ describe('use focus with arrows', () => {
   it('sets focus when using arrow keys', () => {
     const Component = getComponent()
     const { container } = render(<Component />)
+
     const firstChild = container.firstChild as HTMLElement
+
     expect(onFocusOneMock).not.toHaveBeenCalled()
 
     // 4 times, so we can check if there are no other elements focused after reaching the last one
@@ -57,6 +61,7 @@ describe('use focus with arrows', () => {
         key: KeyboardKeys.ArrowUp,
       })
     })
+
     expect(onFocusTwoMock).toHaveBeenCalledTimes(2)
     expect(onFocusOneMock).toHaveBeenCalledTimes(2)
   })
@@ -64,6 +69,7 @@ describe('use focus with arrows', () => {
   it('rotates focused elements', () => {
     const Component = getComponent(true)
     const { container } = render(<Component />)
+
     const firstChild = container.firstChild as HTMLElement
 
     Array.from(Array(9).keys()).forEach(() => {
@@ -79,6 +85,7 @@ describe('use focus with arrows', () => {
         key: KeyboardKeys.ArrowUp,
       })
     })
+
     expect(onFocusOneMock).toHaveBeenCalledTimes(6)
   })
 })

@@ -47,7 +47,6 @@ describe('Aspect ratio', () => {
     const component = container.querySelector(':only-child')
 
     expect(component).toHaveClass('extra')
-
     expect(component).toHaveClass('ams-aspect-ratio')
   })
 
