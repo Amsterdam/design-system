@@ -3,7 +3,8 @@
  * Copyright Gemeente Amsterdam
  */
 
-import { Column, Heading, headingSizes } from '@amsterdam/design-system-react/src'
+import { Column, Heading } from '@amsterdam/design-system-react/src'
+import type { HeadingProps } from '@amsterdam/design-system-react/src'
 import { Meta, StoryObj } from '@storybook/react'
 import { inverseColorDecorator } from '../shared/decorators'
 import { exampleHeading } from '../shared/exampleContent'
@@ -55,8 +56,8 @@ export const Level4: Story = {
 export const Sizes: Story = {
   render: (args) => (
     <Column gap="small">
-      {headingSizes.map((size) => (
-        <Heading {...args} key={size} size={size} />
+      {['level-1', 'level-2', 'level-3', 'level-4', 'level-5', 'level-6'].map((size) => (
+        <Heading {...args} key={size} size={size as HeadingProps['size']} />
       ))}
     </Column>
   ),

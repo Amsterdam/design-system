@@ -1,2 +1,2 @@
-export { Heading, headingSizes } from './Heading'
+export { Heading } from './Heading'
 export type { HeadingLevel, HeadingProps } from './Heading'
