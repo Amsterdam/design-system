@@ -13,13 +13,13 @@ We aim to create libraries for, or support otherwise, Figma, CSS, React, React N
 
 ## Related resources
 
-[A Storybook portal](https://amsterdam.github.io/design-system/) demonstrates our components and documentation.
+[A Storybook portal](https://designsystem.amsterdam/) demonstrates our components and documentation.
 
 [Our Figma file](https://www.figma.com/file/9IGm6IdPUYizBNGsUnueBd/Amsterdam-Design-System?type=design&node-id=741-19633&mode=design&t=N8P3h3W67O0KNdga-0) contains the design of our components and patterns.
 
 ## Getting started
 
-See the [getting started documentation for developers](https://designsystem.amsterdam/?path=/docs/docs-getting-started-developers--docs) on how to use our React components.
+See the [getting started documentation for developers](https://designsystem.amsterdam/?path=/docs/docs-developer-guide-getting-started--docs) on how to use our React components.
 
 ## Contributing
 

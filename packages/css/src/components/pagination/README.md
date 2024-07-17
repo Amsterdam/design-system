@@ -19,4 +19,4 @@ Pagination indicates the current page and allows users to navigate to other page
 
 ## Relevant WCAG Rules
 
-Pagination is an interactive element, and the [general requirements and guidelines for interactive elements](/docs/docs-design-guidelines-interactive-elements--docs) apply.
+Pagination is an interactive element, and the [general requirements and guidelines for interactivity](/docs/docs-developer-guide-interactivity--docs) apply.
