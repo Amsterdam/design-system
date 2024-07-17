@@ -40,10 +40,6 @@
   justify-content: space-evenly;
 }
 
-.ams-row--align-vertical-bottom {
-  align-items: flex-end;
-}
-
 .ams-row--align-vertical-baseline {
   align-items: baseline;
 }
@@ -52,6 +48,10 @@
   align-items: center;
 }
 
-.ams-row--align-vertical-top {
+.ams-row--align-vertical-end {
+  align-items: flex-end;
+}
+
+.ams-row--align-vertical-start {
   align-items: flex-start;
 }
