@@ -7,7 +7,7 @@ import clsx from 'clsx'
 import { forwardRef } from 'react'
 import type { HTMLAttributes, PropsWithChildren } from 'react'
 
-export const columnGapSizes: Array<string> = ['extra-small', 'small', 'medium', 'large', 'extra-large']
+export const columnGapSizes: Array<string> = ['extra-small', 'small', 'large', 'extra-large']
 
 type ColumnTag = 'article' | 'div' | 'section'
 type ColumnGap = (typeof columnGapSizes)[number]
@@ -20,7 +20,7 @@ export type ColumnProps = {
 } & PropsWithChildren<HTMLAttributes<HTMLElement>>
 
 export const Column = forwardRef(
-  ({ as: Tag = 'div', children, className, gap = 'medium', ...restProps }: ColumnProps, ref: any) => (
+  ({ as: Tag = 'div', children, className, gap, ...restProps }: ColumnProps, ref: any) => (
     <Tag {...restProps} ref={ref} className={clsx('ams-column', `ams-column--gap-${gap}`, className)}>
       {children}
     </Tag>

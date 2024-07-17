@@ -8,7 +8,7 @@ import { forwardRef } from 'react'
 import type { HTMLAttributes, PropsWithChildren } from 'react'
 import type { CrossAlign, MainAlign } from '../common/layout'
 
-export const rowGapSizes: Array<string> = ['extra-small', 'small', 'medium', 'large', 'extra-large']
+export const rowGapSizes: Array<string> = ['extra-small', 'small', 'large', 'extra-large']
 
 type RowGap = (typeof rowGapSizes)[number]
 type RowTag = 'article' | 'div' | 'section'
@@ -27,10 +27,7 @@ export type RowProps = {
 } & PropsWithChildren<HTMLAttributes<HTMLElement>>
 
 export const Row = forwardRef(
-  (
-    { align, alignVertical, as: Tag = 'div', children, className, gap = 'medium', wrap, ...restProps }: RowProps,
-    ref: any,
-  ) => (
+  ({ align, alignVertical, as: Tag = 'div', children, className, gap, wrap, ...restProps }: RowProps, ref: any) => (
     <Tag
       {...restProps}
       ref={ref}
