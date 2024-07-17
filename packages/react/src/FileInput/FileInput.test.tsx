@@ -6,6 +6,7 @@ import '@testing-library/jest-dom'
 describe('File input', () => {
   it('renders', () => {
     const { container } = render(<FileInput />)
+
     const component = container.querySelector('input[type="file"]')
 
     expect(component).toBeInTheDocument()
@@ -14,6 +15,7 @@ describe('File input', () => {
 
   it('renders a design system BEM class name', () => {
     const { container } = render(<FileInput />)
+
     const component = container.querySelector('input[type="file"]')
 
     expect(component).toHaveClass('ams-file-input')
@@ -21,6 +23,7 @@ describe('File input', () => {
 
   it('renders an additional class name', () => {
     const { container } = render(<FileInput className="extra" />)
+
     const component = container.querySelector('input[type="file"]')
 
     expect(component).toHaveClass('ams-file-input extra')
@@ -30,6 +33,7 @@ describe('File input', () => {
     const ref = createRef<HTMLInputElement>()
 
     const { container } = render(<FileInput ref={ref} />)
+
     const component = container.querySelector('input[type="file"]')
 
     expect(ref.current).toBe(component)

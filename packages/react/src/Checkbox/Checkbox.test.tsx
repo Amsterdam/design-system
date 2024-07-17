@@ -13,10 +13,8 @@ describe('Checkbox', () => {
 
     expect(wrapper).toBeInTheDocument()
     expect(wrapper).toBeVisible()
-
     expect(input).toBeInTheDocument()
     expect(input).toBeVisible()
-
     expect(label).toBeInTheDocument()
     expect(label).toBeVisible()
   })
@@ -39,7 +37,6 @@ describe('Checkbox', () => {
     const wrapper = container.querySelector(':only-child')
 
     expect(wrapper).toHaveClass('extra')
-
     expect(wrapper).toHaveClass('ams-checkbox')
   })
 

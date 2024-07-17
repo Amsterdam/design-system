@@ -27,7 +27,6 @@ describe('Logo', () => {
     const component = container.querySelector(':only-child')
 
     expect(component).toHaveClass('extra')
-
     expect(component).toHaveClass('ams-logo')
   })
 

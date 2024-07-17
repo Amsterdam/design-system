@@ -53,7 +53,9 @@ describe('Spotlight', () => {
 
   it('renders a custom tag', () => {
     render(<Spotlight as="article" />)
+
     const cell = screen.getByRole('article')
+
     expect(cell).toBeInTheDocument()
   })
 })
