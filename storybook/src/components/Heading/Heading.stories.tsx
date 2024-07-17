@@ -4,7 +4,6 @@
  */
 
 import { Column, Heading } from '@amsterdam/design-system-react/src'
-import type { HeadingProps } from '@amsterdam/design-system-react/src'
 import { Meta, StoryObj } from '@storybook/react'
 import { inverseColorDecorator } from '../shared/decorators'
 import { exampleHeading } from '../shared/exampleContent'
@@ -56,9 +55,12 @@ export const Level4: Story = {
 export const Sizes: Story = {
   render: (args) => (
     <Column gap="small">
-      {['level-1', 'level-2', 'level-3', 'level-4', 'level-5', 'level-6'].map((size) => (
-        <Heading {...args} key={size} size={size as HeadingProps['size']} />
-      ))}
+      <Heading {...args} key="level-1" size="level-1" />
+      <Heading {...args} key="level-2" size="level-2" />
+      <Heading {...args} key="level-3" size="level-3" />
+      <Heading {...args} key="level-4" size="level-4" />
+      <Heading {...args} key="level-5" size="level-5" />
+      <Heading {...args} key="level-6" size="level-6" />
     </Column>
   ),
 }
