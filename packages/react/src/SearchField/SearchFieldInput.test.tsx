@@ -51,6 +51,7 @@ describe('Search field input', () => {
     render(<ControlledComponent />)
 
     const componentText = screen.getByDisplayValue('Hello')
+
     expect(componentText).toBeInTheDocument()
 
     const component = screen.getByRole('searchbox', { name: 'Zoeken' })
@@ -59,6 +60,7 @@ describe('Search field input', () => {
     }
 
     const newComponentText = screen.getByDisplayValue('Hello, World!')
+
     expect(newComponentText).toBeInTheDocument()
   })
 
