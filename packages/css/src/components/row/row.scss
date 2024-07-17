@@ -11,7 +11,7 @@
 }
 
 @each $size, $label in $ams-sizes {
-  .ams-row--#{$label} {
+  .ams-row--gap-#{$label} {
     gap: var(--ams-row-gap-#{$size});
   }
 }

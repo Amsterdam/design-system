@@ -36,7 +36,7 @@ export const Row = forwardRef(
       ref={ref}
       className={clsx(
         'ams-row',
-        `ams-row--${gap}`,
+        `ams-row--gap-${gap}`,
         align && `ams-row--align-${align}`,
         alignVertical && `ams-row--align-vertical-${alignVertical}`,
         wrap && 'ams-row--wrap',
