@@ -19,7 +19,7 @@ export type IconProps = {
 } & HTMLAttributes<HTMLSpanElement>
 
 export const Icon = forwardRef(
-  ({ className, size = 'level-3', square, svg, ...otherProps }: IconProps, ref: ForwardedRef<HTMLElement>) => (
+  ({ className, size = 'level-3', square, svg, ...restProps }: IconProps, ref: ForwardedRef<HTMLElement>) => (
     <span
       ref={ref}
       className={clsx(
@@ -31,7 +31,7 @@ export const Icon = forwardRef(
         square && 'ams-icon--square',
         className,
       )}
-      {...otherProps}
+      {...restProps}
     >
       {svg()}
     </span>

@@ -17,7 +17,7 @@ export type ParagraphProps = {
 
 export const Paragraph = forwardRef(
   (
-    { children, className, inverseColor, size, ...otherProps }: ParagraphProps,
+    { children, className, inverseColor, size, ...restProps }: ParagraphProps,
     ref: ForwardedRef<HTMLParagraphElement>,
   ) => (
     <p
@@ -28,7 +28,7 @@ export const Paragraph = forwardRef(
         inverseColor && 'ams-paragraph--inverse-color',
         className,
       )}
-      {...otherProps}
+      {...restProps}
     >
       {children}
     </p>
