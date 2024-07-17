@@ -3,7 +3,7 @@
  * Copyright Gemeente Amsterdam
  */
 
-import { Column, Heading, headingLevels, headingSizes } from '@amsterdam/design-system-react/src'
+import { Column, Heading, headingSizes } from '@amsterdam/design-system-react/src'
 import { Meta, StoryObj } from '@storybook/react'
 import { inverseColorDecorator } from '../shared/decorators'
 import { exampleHeading } from '../shared/exampleContent'
@@ -32,14 +32,24 @@ type Story = StoryObj<typeof meta>
 
 export const Default: Story = {}
 
-export const Levels: Story = {
-  render: (args) => (
-    <Column gap="small">
-      {headingLevels.map((level) => (
-        <Heading {...args} key={level} level={level} />
-      ))}
-    </Column>
-  ),
+export const Level1: Story = {}
+
+export const Level2: Story = {
+  args: {
+    level: 2,
+  },
+}
+
+export const Level3: Story = {
+  args: {
+    level: 3,
+  },
+}
+
+export const Level4: Story = {
+  args: {
+    level: 4,
+  },
 }
 
 export const Sizes: Story = {
