@@ -22,13 +22,13 @@ However, barrel files have 2 potential pitfalls:
 
 We can avoid this last pitfall by adhering to the following code convention: barrel file imports should only be used to import from a package, not within one.
 
-To illustrate: If the `Accordion` React component needs the `HeadingLevel` type from the `Heading` React component, it should import it like this:
+To illustrate: If the `Accordion` React component needs the `HeadingProps` type from the `Heading` React component, it should import it like this:
 
-`import { HeadingLevel } from '../Heading/Heading'`
+`import type { HeadingProps } from '../Heading/Heading'`
 
 Instead of this:
 
-`import { HeadingLevel } from '../Heading'` or `import { HeadingLevel } from '../'`
+`import type { HeadingProps } from '../Heading'` or `import type { HeadingProps } from '../'`
 
 ## Subcomponents
 
