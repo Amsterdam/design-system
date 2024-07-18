@@ -73,16 +73,17 @@ And the minimum:
 
 For applications, text that large would be counterproductive.
 That is why we have a compact theme for typography.
-In this theme, Text Level 5 grows from 14 to 16 pixels.
+Typography is not fluid in this theme.
+Text Level 5 is 16 pixels on both narrow and wide windows.
 
-Larger text levels grow with a factor of 7 ÷ 6 ≈ 1.167.
-Smaller text levels grow with a factor of 9 ÷ 8 = 1.125.
+Larger text levels grow with a factor of 9 ÷ 8 ≈ 1.125.
+Smaller text levels grow with a factor of 16 ÷ 15 = 1.067.
 
 The maximum text sizes for all levels in the compact theme:
 
 <Typeset
   fontFamily="Amsterdam Sans, Arial, sans-serif"
-  fontSizes={[34.6, 29.6, 25.4, 21.8, 18.7, 16, 13.7]}
+  fontSizes={[28.8, 25.6, 22.8, 20.3, 18, 16, 14.2]}
   fontWeight={400}
   sampleText="Jouw typograaf biedt mij zulke exquise schreven"
 />
@@ -91,7 +92,7 @@ And the minimum:
 
 <Typeset
   fontFamily="Amsterdam Sans, Arial, sans-serif"
-  fontSizes={[25.2, 22.4, 19.9, 17.7, 15.8, 14, 12.4]}
+  fontSizes={[22.1, 20.7, 19.4, 18.2, 17.1, 16, 15]}
   fontWeight={400}
   sampleText="Jouw typograaf biedt mij zulke exquise schreven"
 />
@@ -114,11 +115,11 @@ The text sizes at those points are as follows, rounded to 1 decimal place:
 
 #### Compact
 
-| Device Class | Design Width |    0 |    1 |    2 |    3 |    4 |    5 |    6 |
-| :----------- | ------------ | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
-| Phone        | 320          | 25.2 | 22.4 | 19.9 | 17.7 | 15.8 |   14 | 12.4 |
-| Tablet       | 832          | 29.0 | 25.3 | 22.1 | 19.3 | 16.9 | 14.8 |   13 |
-| Desktop      | 1600         | 34.6 | 29.6 | 25.4 | 21.8 | 18.7 |   16 | 13.7 |
+| Device Class | Design Width |    0 |    1 |    2 |    3 |    4 |   5 |    6 |
+| :----------- | ------------ | ---: | ---: | ---: | ---: | ---: | --: | ---: |
+| Phone        | 320          | 22.1 | 20.7 | 19.4 | 18.2 | 17.1 |  16 |   15 |
+| Tablet       | 832          | 24.8 | 22.7 | 20.8 |   19 | 17.4 |  16 | 14.7 |
+| Desktop      | 1600         | 28.8 | 25.6 | 22.8 | 20.3 |   18 |  16 | 14.2 |
 
 ## Emphasis
 
