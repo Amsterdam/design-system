@@ -31,6 +31,9 @@ export const decorators = [
 export const parameters = {
   backgrounds: {
     disable: true,
+    grid: {
+      disable: true,
+    },
   },
   controls: {
     sort: 'alpha',
