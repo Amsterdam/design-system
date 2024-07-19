@@ -4,7 +4,6 @@
  */
 
 /* Append here */
-export * from './common/layout'
 export * from './FormErrorList'
 export * from './TableOfContents'
 export * from './ErrorMessage'

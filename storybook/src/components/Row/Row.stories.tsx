@@ -3,16 +3,8 @@
  * Copyright Gemeente Amsterdam
  */
 
-import {
-  Avatar,
-  Button,
-  crossAlignOptions,
-  Heading,
-  Link,
-  mainAlignOptions,
-  Paragraph,
-  Row,
-} from '@amsterdam/design-system-react/src'
+import { Avatar, Button, Heading, Link, Paragraph, Row } from '@amsterdam/design-system-react/src'
+import { crossAlignOptions, mainAlignOptions } from '@amsterdam/design-system-react/src/common/layout'
 import { Meta, StoryObj } from '@storybook/react'
 
 const ThreeButtons = Array.from(Array(3).keys()).map((i) => <Button key={i}>Button {i + 1}</Button>)
