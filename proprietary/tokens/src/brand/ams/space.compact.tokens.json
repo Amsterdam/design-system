@@ -1,11 +1,11 @@
 {
   "ams": {
     "space": {
-      "xs": { "value": "clamp(0.2188rem, 0.2109rem + 0.0391vw, 0.25rem)" },
-      "sm": { "value": "clamp(0.4375rem, 0.4219rem + 0.0781vw, 0.5rem)" },
-      "md": { "value": "clamp(0.875rem, 0.8438rem + 0.1563vw, 1rem)" },
-      "lg": { "value": "clamp(1.3125rem, 1.2656rem + 0.2344vw, 1.5rem)" },
-      "xl": { "value": "clamp(1.75rem, 1.6875rem + 0.3125vw, 2rem)" },
+      "xs": { "value": "0.25rem" },
+      "sm": { "value": "0.5rem" },
+      "md": { "value": "1rem" },
+      "lg": { "value": "1.5rem" },
+      "xl": { "value": "2rem" },
       "grid": {
         "xs": { "value": "clamp(0.25rem, calc(0.390625vw - 0.015625rem), 0.625rem)" },
         "sm": { "value": "clamp(0.5rem, calc(0.78125vw - 0.03125rem), 1.25rem)" },

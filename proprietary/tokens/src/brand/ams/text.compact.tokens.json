@@ -3,25 +3,25 @@
     "text": {
       "level": {
         "0": {
-          "font-size": { "value": "clamp(1.5768rem, 1.4299rem + 0.7346vw, 2.1645rem)" }
+          "font-size": { "value": "clamp(1.6105rem, calc(1.5626rem + 0.2394vw), 1.802rem)" }
         },
         "1": {
-          "font-size": { "value": "clamp(1.4016rem, 1.2883rem + 0.5665vw, 1.8547rem)" }
+          "font-size": { "value": "clamp(1.4641rem, calc(1.4297rem + 0.1721vw), 1.6018rem)" }
         },
         "2": {
-          "font-size": { "value": "clamp(1.2458rem, 1.16rem + 0.4293vw, 1.5893rem)" }
+          "font-size": { "value": "clamp(1.331rem, calc(1.3078rem + 0.116vw), 1.4238rem)" }
         },
         "3": {
-          "font-size": { "value": "clamp(1.1074rem, 1.0438rem + 0.3181vw, 1.3619rem)" }
+          "font-size": { "value": "clamp(1.21rem, calc(1.1961rem + 0.0695vw), 1.2656rem)" }
         },
         "4": {
-          "font-size": { "value": "clamp(0.9844rem, 0.9387rem + 0.2283vw, 1.167rem)" }
+          "font-size": { "value": "clamp(1.1rem, calc(1.0938rem + 0.0313vw), 1.125rem)" }
         },
         "5": {
-          "font-size": { "value": "clamp(0.875rem, 0.8438rem + 0.1563vw, 1rem)" }
+          "font-size": { "value": "1rem" }
         },
         "6": {
-          "font-size": { "value": "clamp(0.7778rem, 0.758rem + 0.0989vw, 0.8569rem)" }
+          "font-size": { "value": "clamp(0.8889rem, calc(0.9141rem + -0.0253vw), 0.9091rem)" }
         }
       }
     }

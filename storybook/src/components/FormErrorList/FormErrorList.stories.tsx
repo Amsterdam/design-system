@@ -14,6 +14,7 @@ const meta = {
       { id: '#', label: 'Vul een geldige datum in (bijvoorbeeld 6 januari 2030).' },
       { id: '#', label: 'De geldigheidsdatum van uw paspoort moet in de toekomst liggen.' },
     ],
+    focusOnRender: false,
   },
 } satisfies Meta<typeof FormErrorList>
 
