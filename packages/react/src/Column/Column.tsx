@@ -21,7 +21,7 @@ export type ColumnProps = {
 
 export const Column = forwardRef(
   ({ as: Tag = 'div', children, className, gap, ...restProps }: ColumnProps, ref: any) => (
-    <Tag {...restProps} ref={ref} className={clsx('ams-column', `ams-column--gap-${gap}`, className)}>
+    <Tag {...restProps} ref={ref} className={clsx('ams-column', gap && `ams-column--gap-${gap}`, className)}>
       {children}
     </Tag>
   ),
