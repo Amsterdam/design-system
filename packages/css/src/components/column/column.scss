@@ -8,10 +8,11 @@
 .ams-column {
   display: flex;
   flex-direction: column;
+  gap: var(--ams-column-gap-md);
 }
 
 @each $size, $label in $ams-sizes {
-  .ams-column--#{$label} {
+  .ams-column--gap-#{$label} {
     gap: var(--ams-column-gap-#{$size});
   }
 }

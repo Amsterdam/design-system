@@ -2,6 +2,7 @@
   "ams": {
     "column": {
       "gap": {
+        "no": { "value": "0" },
         "xs": { "value": "{ams.space.xs}" },
         "sm": { "value": "{ams.space.sm}" },
         "md": { "value": "{ams.space.md}" },

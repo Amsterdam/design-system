@@ -32,4 +32,4 @@ These features can be disruptive for a user searching for part of a word, and `a
 - [WCAG 1.3.5](https://www.w3.org/TR/WCAG22/#identify-input-purpose): It is clear both to the user and programmatically what the purpose of a form field is.
 - [WCAG 2.4.6](https://www.w3.org/TR/WCAG22/#headings-and-labels): There is a label describing the purpose of the input.
 
-Search Field is an interactive element; therefore, [the general requirements and guidelines for interactive elements](/docs/docs-design-guidelines-interactive-elements--docs) apply.
+Search Field is an interactive element; therefore, [the general requirements and guidelines for interactivity](/docs/docs-developer-guide-interactivity--docs) apply.

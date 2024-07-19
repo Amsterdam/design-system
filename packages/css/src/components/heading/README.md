@@ -13,7 +13,7 @@ Use Headings to allow the user to grasp the structure of the page quickly.
 - Do not use a Heading for formatting and styling, but to represent the page’s structure.
   Users of screen readers use headings to navigate the page – an incorrect hierarchy can confuse them.
 
-## Relevant WCAG Requirements
+## Relevant WCAG requirements
 
 - [WCAG 1.3.1](https://www.w3.org/WAI/WCAG21/quickref/#qr-content-structure-separation-programmatic):
   Text that looks like a heading is also recognized as a heading by a computer.
