@@ -5,7 +5,7 @@ import { WebAppIcons } from "../components/AppIcons";
 
 <Meta title="Docs/Developer Guide/Web App" />
 
-# Web App
+# Web app
 
 Turn a website into a Progressive Web App (PWA) with a web manifest and app icons.
 
@@ -14,9 +14,9 @@ This set covers all combinations of common operating systems (Android, iOS, macO
 
 > There is seperate documentation on [how to add a website icon (a “favicon”)](/docs/foundation-assets-favicon--docs).
 
-## How to Use
+## How to use
 
-### Install Assets
+### Install assets
 
 First, install these assets as they come with the [Amsterdam Design System Assets](https://www.npmjs.com/package/@amsterdam/design-system-assets):
 
@@ -24,7 +24,7 @@ First, install these assets as they come with the [Amsterdam Design System Asset
 npm i @amsterdam/design-system-assets
 ```
 
-### Link Assets
+### Link assets
 
 You can manually [symlink (symbolic link)](https://en.wikipedia.org/wiki/Symbolic_link#POSIX_and_Unix-like_operating_systems) and copy the files to the root or a `public` folder next to where the `index.html` is located in your project.
 An advantage of symlinking is that it tracks changes to the assets when there are package updates. Symlinks are basically shortcuts to files or directories.
@@ -79,11 +79,11 @@ Then link all these assets by placing the following tags in the `<head>`:
 </head>
 ```
 
-### Submit Changes
+### Submit changes
 
 The symlink(s) and copied and edited files can be committed to the repository.
 
-## Web App Icons
+## Web app icons
 
 <WebAppIcons />
 
@@ -107,7 +107,7 @@ Link the Web Manifest in the `<head>`:
 > Note: only include a Web Manifest if you want the website to be installable as a Progressive Web App (PWA).
 > Browsers [may prompt the user to install the app](https://web.dev/learn/pwa/installation-prompt) on their device if a manifest is found.
 
-## Further Reading
+## Further reading
 
 - [_Web App Manifest_ on web.dev](https://web.dev/learn/pwa/web-app-manifest)
 - [_Web app manifests: Icons_ on MDN Web Docs](https://developer.mozilla.org/en-US/docs/Web/Manifest/icons)

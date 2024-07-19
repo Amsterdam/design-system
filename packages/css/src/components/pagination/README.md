@@ -17,6 +17,6 @@ Pagination indicates the current page and allows users to navigate to other page
 - Start a page with an overview list at the top after changing the page.
 - Make sure that the visible and accessible labels for the ‘previous’ and ‘next’ buttons convey the same meaning at all times – e.g. don’t update one and forget the other.
 
-## Relevant WCAG Rules
+## Relevant WCAG rules
 
 Pagination is an interactive element, and the [general requirements and guidelines for interactivity](/docs/docs-developer-guide-interactivity--docs) apply.

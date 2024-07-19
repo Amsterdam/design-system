@@ -13,7 +13,7 @@ A small set of links for use in the Header and Footer.
 - The ‘Menu’ button opens the Mega Menu.
 - On narrow screens, menu items other than ‘Search’ and ‘Menu’ move from the Page Menu to the Mega Menu.
 
-## Relevant WCAG Requirements
+## Relevant WCAG requirements
 
 - [Consistent Navigation (Level AA)](https://www.w3.org/WAI/WCAG21/Understanding/consistent-navigation.html)
 

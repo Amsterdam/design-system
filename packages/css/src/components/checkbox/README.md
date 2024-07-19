@@ -17,13 +17,13 @@ Allows users to make a selection or agree to terms.
 - A list of checkboxes should be in a `fieldset` with a `legend` describing what the list is about.
   For example, if the checkboxes are used to get answers to a question, the `legend` is the question.
 
-## Checkbox Labels
+## Checkbox labels
 
 A label starts with a capital letter.
 It does not have punctuation at the end if it is a single sentence, word, or fragment.
 It is written in the first person when asking the user to agree to the terms and conditions.
 
-## Relevant WCAG Requirements
+## Relevant WCAG requirements
 
 - [WCAG 1.3.5](https://www.w3.org/WAI/WCAG21/Understanding/identify-input-purpose.html): It is clear for both users and programmatically what the purpose of a form field is.
 
