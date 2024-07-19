@@ -2,4 +2,14 @@
 
 # Margin
 
-Use these utility classes to add white space below a single element.
+Adds white space below a single element.
+
+The five sizes of [Component Space](/docs/foundation-design-tokens-space--docs) are available for the length of the margin.
+
+## Guidelines
+
+- Use this utility class to vertically separate one element from the next.
+- It can be used on any element and sets the `margin-block-end` CSS property. This declaration is marked with the `!important` flag to ensure it overrides any other margins.
+- Elements’ top and bottom margins are sometimes collapsed into a single margin. Consult [MDN](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_box_model/Mastering_margin_collapsing) for details.
+- To add equal margins between elements that are rendered by a loop, wrap them in a [Column](/docs/components-layout-column--docs) component instead.
+  This prevents having to treat the last sibling differently by not adding the margin to it.
