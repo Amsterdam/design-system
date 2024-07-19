@@ -1,0 +1,7 @@
+{
+  "ams": {
+    "form-error-list": {
+      "outline-offset": { "value": "{ams.focus.outline-offset}" }
+    }
+  }
+}

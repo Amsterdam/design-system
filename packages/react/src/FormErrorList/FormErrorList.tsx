@@ -3,13 +3,11 @@
  * Copyright Gemeente Amsterdam
  */
 
-import clsx from 'clsx'
-import { forwardRef } from 'react'
+import { forwardRef, useState } from 'react'
 import type { ForwardedRef, HTMLAttributes } from 'react'
+import { FormErrorListWithErrors } from './FormErrorListWithErrors'
 import { useAddErrorCountToDocumentTitle } from './useAddErrorCountToDocumentTitle'
-import { Alert } from '../Alert'
 import type { HeadingLevel } from '../Heading'
-import { LinkList } from '../LinkList'
 
 export type FormError = {
   id: string
@@ -24,6 +22,8 @@ export type FormErrorListProps = {
   errorCountLabel?: { plural: string; singular: string }
   /** The list of error messages to display. */
   errors: FormError[]
+  /** Whether the component receives focus on first render */
+  focusOnRender?: boolean
   /** The text for the Heading. */
   heading?: string
   /**
@@ -34,39 +34,25 @@ export type FormErrorListProps = {
 } & HTMLAttributes<HTMLDivElement>
 
 export const FormErrorList = forwardRef(
-  (
-    {
-      className,
-      errorCountLabel,
-      errors,
-      heading = 'Verbeter de fouten voor u verder gaat',
-      headingLevel = 2,
-      ...restProps
-    }: FormErrorListProps,
-    ref: ForwardedRef<HTMLDivElement>,
-  ) => {
+  ({ errors, errorCountLabel, ...restProps }: FormErrorListProps, ref: ForwardedRef<HTMLDivElement>) => {
+    // A Form Error List without errors only resets the document title.
+    // With errors, it renders the FormErrorListWithErrors component.
     useAddErrorCountToDocumentTitle(errors, errorCountLabel)
+
+    // Focus should only be set on first render of FormErrorListWithErrors.
+    // Subsequent renders should not set focus.
+    const [hasFocusedOnce, setHasFocusedOnce] = useState(false)
 
     if (errors.length === 0) return undefined
 
     return (
-      <Alert
+      <FormErrorListWithErrors
         {...restProps}
-        className={clsx('ams-form-error-list', className)}
-        heading={heading}
-        headingLevel={headingLevel}
+        errors={errors}
+        hasFocusedOnce={hasFocusedOnce}
         ref={ref}
-        role="alert"
-        severity="error"
-      >
-        <LinkList>
-          {errors.map(({ id, label }) => (
-            <LinkList.Link href={id} key={`${id}-${label}`}>
-              {label}
-            </LinkList.Link>
-          ))}
-        </LinkList>
-      </Alert>
+        setHasFocusedOnce={setHasFocusedOnce}
+      />
     )
   },
 )
