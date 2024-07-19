@@ -6,10 +6,11 @@ Communicates the organization of the content on a page.
 
 ## Guidelines
 
+- A heading describes the content beneath it.
 - Every page should contain one Heading with level 1.
 - Do not skip heading levels, e.g. a level 2 Heading should be followed by one with level 3, not level 4.
 - Do not use a Heading for formatting and styling, but to represent the page’s structure.
-  User agents may use heading information to generate a table of contents for a document.
+  Users of screen readers use headings to navigate the page – an incorrect hierarchy can confuse them.
 
 ## Relevant WCAG Requirements
 
