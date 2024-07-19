@@ -16,9 +16,12 @@ describe('Page menu', () => {
         </PageMenu.Link>
       </PageMenu>,
     )
+
     const component = container.querySelector(':only-child')
+
     const children = container.querySelectorAll('li')
     const icons = container.querySelectorAll('svg')
+
     expect(component).toBeInTheDocument()
     expect(component).toBeVisible()
     expect(children.length).toBe(2)
@@ -27,18 +30,23 @@ describe('Page menu', () => {
 
   it('renders a design system BEM class name', () => {
     const { container } = render(<PageMenu />)
+
     const component = container.querySelector(':only-child')
+
     expect(component).toHaveClass('ams-page-menu')
   })
 
   it('renders a class name for end alignment', () => {
     const { container } = render(<PageMenu alignEnd />)
+
     const component = container.querySelector(':only-child')
+
     expect(component).toHaveClass('ams-page-menu--align-end')
   })
 
   it('is able to pass a React ref', () => {
     const ref = createRef<HTMLUListElement>()
+
     const { container } = render(
       <PageMenu ref={ref}>
         <PageMenu.Link href="#" lang="en">
@@ -46,13 +54,17 @@ describe('Page menu', () => {
         </PageMenu.Link>
       </PageMenu>,
     )
+
     const component = container.querySelector(':only-child')
+
     expect(ref.current).toBe(component)
   })
 
   it('renders an additional class name', () => {
     const { container } = render(<PageMenu className="intro" />)
+
     const component = container.querySelector(':only-child')
+
     expect(component).toHaveClass('intro')
     expect(component).toHaveClass('ams-page-menu')
   })

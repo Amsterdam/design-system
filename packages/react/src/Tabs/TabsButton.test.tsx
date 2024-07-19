@@ -54,6 +54,7 @@ describe('Tabs button', () => {
 
   it('supports ForwardRef in React', () => {
     const ref = createRef<HTMLButtonElement>()
+
     render(<TabsButton tab={0} ref={ref} />)
 
     const component = screen.getByRole('tab')

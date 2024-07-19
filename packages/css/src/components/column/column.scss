@@ -6,11 +6,12 @@
 @import "../../common/size";
 
 .ams-column {
-  display: grid;
+  display: flex;
+  flex-direction: column;
 }
 
 @each $size, $label in $ams-sizes {
-  .ams-column--#{$label} {
+  .ams-column--gap-#{$label} {
     gap: var(--ams-column-gap-#{$size});
   }
 }
