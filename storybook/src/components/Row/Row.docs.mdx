@@ -24,6 +24,55 @@ Wrap a Row around a set of components that need the same amount of white space b
 
 <Controls />
 
+### Horizontal Alignment
+
+Items in the row can be aligned horizontally in several ways:
+
+- **Center**: center items within the row.
+- **End**: align items to the end of the row. This is the right side in left-to-right languages.
+- **Space Between**: distribute whitespace between items.
+- **Space Around**: distribute whitespace around items.
+- **Space Evenly**: distribute whitespace evenly around items.
+
+By default, items align to the **start** of the row – the left side in right-to-left languages.
+This options has no class name or prop.
+
+We left out the word ‘space’ from the values for the alignment prop, e.g. `align="around"`.
+
+This example ensures that the spaces between and around all items are equally wide.
+
+<Canvas of={RowStories.HorizontalAlignment} />
+
+#### End-align a Single Child
+
+To align a single component to the right (in left-to-right languages), wrap it in a `<Row>` and set the `align` prop to `end`.
+
+<Canvas of={RowStories.EndAlignASingleChild} />
+
+#### Align Opposing Texts
+
+This example shows a right-aligned link next to a heading.
+Use `align="between"` to position them at opposing ends of the row.
+Add `alignVertical="baseline"` to align them vertically to their common baseline.
+Include `wrap` to allow the link to wrap to a new line if both components don’t fit on the same line.
+
+<Canvas of={RowStories.AlignOpposingTexts} />
+
+### Vertical Alignment
+
+Items in the row can be aligned vertically in several ways:
+
+- **Start**: align items to the top of the row.
+- **Center**: align items to the middle of the row.
+- **End**: align items to the bottom of the row.
+- **Baseline**: align items to their common text baseline.
+
+By default, items **stretch** to the height of the row. This options has no class name or prop.
+
+This example centers three items vertically.
+
+<Canvas of={RowStories.VerticalAlignment} />
+
 ### Wrapping
 
 Items that may not fit together on a single line should be allowed to wrap onto multiple lines.
