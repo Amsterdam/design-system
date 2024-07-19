@@ -2,8 +2,6 @@
 
 # Contributing Guidelines
 
-<!-- *Pull requests, bug reports, and all other forms of contribution are welcomed and highly encouraged!* -->
-
 ## Contents
 
 - [Code of Conduct](#book-code-of-conduct)
@@ -11,8 +9,6 @@
 - [Opening an Issue](#inbox_tray-opening-an-issue)
 - [Submitting Pull Requests](#repeat-submitting-pull-requests)
 - [Credits](#pray-credits)
-
-<!-- > **This guide serves to set clear expectations for everyone involved with the project so that we can improve it together while also creating a welcoming space for everyone to participate. Following these guidelines will help ensure a positive experience for contributors and maintainers.** -->
 
 ## :book: Code of Conduct
 
@@ -29,11 +25,11 @@ TODO: add SUPPORT.md, https://docs.github.com/en/communities/setting-up-your-pro
 
 Before creating an issue, check if you are using the latest version of the project. If you are not up-to-date, see if updating fixes your issue first.
 
-### :lock: Reporting security issues
+### Reporting security issues
 
 Review our [Security Policy](https://github.com/Amsterdam/.github/blob/main/SECURITY.md). **Do not** file a public issue for security vulnerabilities.
 
-### :beetle: Bug reports and other issues
+### Bug reports and other issues
 
 For all other issues, you can [create an issue on GitHub](https://help.github.com/en/github/managing-your-work-on-github/creating-an-issue).
 
@@ -66,8 +62,6 @@ Please follow these contribution guidelines from the NL Design System community:
 - [CSS](https://nl-design-system.github.io/utrecht/storybook/?path=/docs/nl-design-system-contributing-css--docs)
 - [Design Tokens](https://nl-design-system.github.io/utrecht/storybook/?path=/docs/nl-design-system-contributing-design-tokens--docs)
 - [HTML](https://nl-design-system.github.io/utrecht/storybook/?path=/docs/nl-design-system-contributing-html--docs)
-- [npm package](https://nl-design-system.github.io/utrecht/storybook/?path=/docs/nl-design-system-contributing-npm-package--docs)
-- [Storybook](https://nl-design-system.github.io/utrecht/storybook/?path=/docs/nl-design-system-contributing-storybook--docs)
 
 Also follow our [CSS](./packages/css/documentation/coding-conventions.md) and [React](./packages/react/documentation/coding-conventions.md) coding conventions.
 
@@ -101,11 +95,12 @@ If there is no design, or if you have questions about an existing design, please
 
 You need to have the following tools installed to run Storybook locally:
 
-- Git
+- [Git](https://git-scm.com/)
 - [Node.js and npm](https://nodejs.org/en/)
-- `pnpm`, `npm install -g pnpm`
+- [Pnpm](https://pnpm.io/), `npm install -g pnpm`
 
-#### Install code editor
+<details>
+  <summary>Pro tip: VSCode extensions and linting on save</summary>
 
 You can use any editor you like, but if you use [Visual Studio Code](https://code.visualstudio.com/) we recommend the following extensions for this project:
 
@@ -131,6 +126,8 @@ To enable correct validation and to fix lint/style errors on save, add this to y
   "editor.formatOnSave": true,
 ```
 
+</details>
+
 #### Run storybook
 
 - Install dependencies: `pnpm install`
@@ -144,7 +141,8 @@ Enter the name of your component when prompted.
 Answer the other prompts if applicable, otherwise use the defaults.
 This will create files for the design tokens, CSS and React components, and React Stories.
 
-#### Locally link this library to a local project
+<details>
+  <summary>Pro tip: Locally linking this library to a local project</summary>
 
 If you need to link your local version of this library (to test your unpublished changes, for example) to a local project, follow these steps:
 
@@ -160,6 +158,8 @@ If you need to link your local version of this library (to test your unpublished
   <!-- TODO: is there a workaround for this? -->
 - Sometimes the local link is severed.
   Run `npm link @amsterdam/...` again if this happens.
+
+</details>
 
 ### Licensing
 
