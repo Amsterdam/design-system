@@ -102,6 +102,14 @@ describe('Form error list', () => {
   describe('renders a custom document title label', () => {
     const label = { plural: 'errors', singular: 'error' }
 
+    it('no errors', async () => {
+      document.title = docTitle
+
+      render(<FormErrorList errors={[]} />)
+
+      await waitFor(() => expect(document.title).toBe(docTitle))
+    })
+
     it('single error', async () => {
       document.title = docTitle
 
