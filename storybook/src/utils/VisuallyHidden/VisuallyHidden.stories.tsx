@@ -24,7 +24,7 @@ const meta = {
   title: 'Utilities/CSS/Visually Hidden',
   component: VisuallyHidden,
   args: {
-    children: 'This text can be read out by a screen reader.',
+    children: 'Here is the paragraph that will be read out by a screen reader.',
   },
   argTypes: {
     children: {
