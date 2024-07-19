@@ -3,15 +3,22 @@
  * Copyright Gemeente Amsterdam
  */
 
-import { Blockquote, Grid, Spotlight } from '@amsterdam/design-system-react/src'
+import { AspectRatio, Blockquote, Grid, Image, Paragraph, Screen, Spotlight } from '@amsterdam/design-system-react/src'
 import { Meta, StoryObj } from '@storybook/react'
-import { exampleQuote } from '../shared/exampleContent'
+import { exampleParagraph, exampleQuote } from '../shared/exampleContent'
 
 const quote = exampleQuote()
 
 const meta = {
   title: 'Components/Containers/Spotlight',
   component: Spotlight,
+  decorators: [
+    (Story) => (
+      <Screen>
+        <Story />
+      </Screen>
+    ),
+  ],
   render: ({ as, color }) => (
     <Spotlight as={as} color={color}>
       <Grid paddingVertical="medium">
@@ -28,6 +35,38 @@ export default meta
 type Story = StoryObj<typeof meta>
 
 export const Default: Story = {}
+
+export const StickOut: Story = {
+  render: ({ as, color }) => (
+    <Grid paddingBottom="medium">
+      <Grid.Cell
+        span="all"
+        rowSpan={{ narrow: 2, medium: 2, wide: 1 }}
+        rowStart={2}
+        style={{
+          marginBlock: 'calc(var(--ams-space-grid-md) * -1)',
+          marginInline: 'calc(var(--ams-space-grid-lg) * -1)',
+        }}
+      >
+        <Spotlight as={as} color={color} style={{ height: '100%' }} />
+      </Grid.Cell>
+      <Grid.Cell rowStart={{ narrow: 3, medium: 3, wide: 2 }} span={{ narrow: 4, medium: 8, wide: 6 }} start={1}>
+        <Paragraph inverseColor={!color || !['green', 'yellow'].includes(color)}>{exampleParagraph()}</Paragraph>
+      </Grid.Cell>
+      <Grid.Cell
+        rowSpan={2}
+        rowStart={1}
+        span={{ narrow: 4, medium: 8, wide: 6 }}
+        start={{ narrow: 1, medium: 1, wide: 7 }}
+        style={{ alignSelf: 'end' }}
+      >
+        <AspectRatio ratio="wide">
+          <Image alt="" src="https://picsum.photos/960/720" />
+        </AspectRatio>
+      </Grid.Cell>
+    </Grid>
+  ),
+}
 
 export const Blue: Story = {
   args: {

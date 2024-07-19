@@ -40,6 +40,9 @@ const meta = {
       options: [undefined, 'small', 'medium', 'large'],
     },
   },
+  parameters: {
+    layout: 'fullscreen',
+  },
 } satisfies Meta<typeof Grid>
 
 export default meta
@@ -66,7 +69,7 @@ type CellStory = StoryObj<typeof cellMeta>
 const StoryTemplate: Story = {
   decorators: [
     (Story) => (
-      <Screen>
+      <Screen className="ams-storybook-show-grid">
         <Story />
       </Screen>
     ),
@@ -76,7 +79,7 @@ const StoryTemplate: Story = {
 const CellStoryTemplate: CellStory = {
   decorators: [
     (Story) => (
-      <Screen>
+      <Screen className="ams-storybook-show-grid">
         <Grid>
           <Story />
         </Grid>
@@ -91,7 +94,9 @@ const TwelveGridCells = Array.from(Array(12).keys()).map((i) => <Grid.Cell class
 export const Default: Story = {
   ...StoryTemplate,
   args: {
-    children: TwelveGridCells,
+    style: {
+      height: '8rem',
+    },
   },
 }
 
@@ -116,6 +121,22 @@ export const SpanMultipleColumns: CellStory = {
   args: {
     children: <p className="ams-docs-paragraph ams-docs-pink-box">Deze cel beslaat 4 kolommen.</p>,
     span: 4,
+  },
+}
+
+export const SpanMultipleRows: Story = {
+  ...StoryTemplate,
+  args: {
+    children: [
+      <Grid.Cell className="ams-docs-pink-box" span={4} rowSpan={2} key={1} style={{ padding: '1rem' }}>
+        <p className="ams-docs-paragraph">Deze cel beslaat 2 rijen.</p>
+      </Grid.Cell>,
+      <Grid.Cell className="ams-docs-pink-box" span={4} key={2} />,
+      <Grid.Cell className="ams-docs-pink-box" span={4} key={3} />,
+      <Grid.Cell className="ams-docs-pink-box" span={4} key={4} />,
+      <Grid.Cell className="ams-docs-pink-box" span={4} key={5} />,
+    ],
+    gapVertical: 'small',
   },
 }
 
