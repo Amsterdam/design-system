@@ -10,6 +10,16 @@ type VisuallyHiddenProps = HTMLAttributes<HTMLSpanElement>
 
 const VisuallyHidden = ({ children }: VisuallyHiddenProps) => <span className="ams-visually-hidden">{children}</span>
 
+const render = ({ children }: VisuallyHiddenProps) => (
+  <div>
+    <p className="ams-paragraph">
+      This paragraph is available for everyone. Below this is a second paragraph, but it is aimed at non-visual user
+      agents only. It is not perceivable on a screen.
+    </p>
+    <p className="ams-paragraph ams-visually-hidden">{children}</p>
+  </div>
+)
+
 const meta = {
   title: 'Utilities/CSS/Visually Hidden',
   component: VisuallyHidden,
@@ -29,17 +39,5 @@ export default meta
 type Story = StoryObj<typeof meta>
 
 export const Default: Story = {
-  decorators: [
-    (Story) => (
-      <div>
-        <p className="ams-paragraph">
-          This text is available to all users. The text below this sentence is only available for non-visual user
-          agents.
-        </p>
-        <p className="ams-paragraph">
-          <Story />
-        </p>
-      </div>
-    ),
-  ],
+  render,
 }
