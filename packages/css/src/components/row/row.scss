@@ -8,6 +8,7 @@
 .ams-row {
   display: flex;
   flex-direction: row;
+  gap: var(--ams-row-gap-md);
 }
 
 @each $size, $label in $ams-sizes {
