@@ -5,7 +5,7 @@
 
 import { ChevronLeftIcon, ChevronRightIcon } from '@amsterdam/design-system-react-icons'
 import clsx from 'clsx'
-import { forwardRef, useEffect, useRef, useState } from 'react'
+import { forwardRef, useEffect, useRef } from 'react'
 import type { ForwardedRef, HTMLAttributes, PropsWithChildren } from 'react'
 import { ImageSliderItem } from './ImageSliderItem'
 // import useInViewPort from './useInViewPort'
@@ -24,10 +24,7 @@ export const ImageSliderRoot = forwardRef(
     { children, className, controls, scrollbar, snapstop, thumbnails, ...restProps }: ImageSliderProps,
     ref: ForwardedRef<HTMLDivElement>,
   ) => {
-    const [currentSlideIndex, setCurrentSlideIndex] = useState(0)
     const targetRef = useRef<HTMLDivElement>(null)
-    // const inViewport = useInViewPort(targetRef, { threshold: 0.5 })
-    // console.log(currentSlideIndex)
 
     useEffect(() => {
       const sliderScroller = targetRef.current
@@ -38,36 +35,22 @@ export const ImageSliderRoot = forwardRef(
 
       const slides = sliderScroller.querySelectorAll('.ams-image-slider__item')
       const slidesArray = Array.from(slides)
-      // const hasIntersected = new Set()
+      const hasIntersected = new Set()
 
-      console.log(slidesArray)
       const observer = new IntersectionObserver(
-        // (observations) => {
-        //   for (let observation of observations) {
-        //     hasIntersected.add(observation)
-
-        //     console.log(observation)
-        //     // toggle --in-view class if intersecting or not
-        //     observation.target.classList.toggle('--in-view', observation.isIntersecting)
-        //   }
-        (entries) => {
-          console.log(entries)
-          entries.forEach((entry) => {
-            if (entry.isIntersecting) {
-              const index = slidesArray.indexOf(entry.target)
-              setCurrentSlideIndex(index)
-              console.log(entry, currentSlideIndex)
-            }
-          })
+        (observations) => {
+          for (let observation of observations) {
+            hasIntersected.add(observation)
+            observation.target.classList.toggle('ams-image-slider__item--in-view', observation.isIntersecting)
+          }
         },
         {
           root: sliderScroller,
           threshold: 0.6,
         },
       )
-      console.log(observer)
 
-      slides.forEach((slide) => observer.unobserve(slide))
+      for (let slide of slidesArray) observer.observe(slide)
     }, [])
 
     return (
