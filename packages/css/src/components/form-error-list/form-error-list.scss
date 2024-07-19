@@ -1,6 +1,5 @@
 .ams-form-error-list {
   outline-offset: var(--ams-form-error-list-outline-offset);
-  outline-width: medium; /* Override initial value of `thick` on Safari for Mac */
 
   // In Chromium browsers, the outline overlaps with the border in this component.
   // We're not sure why, but to fix this we double the offset for Chromium browsers here.
