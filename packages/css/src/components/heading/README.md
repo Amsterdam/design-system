@@ -2,7 +2,8 @@
 
 # Heading
 
-Communicates the organization of the content on a page.
+Describes the content that follows it.
+Use Headings to allow the user to grasp the structure of the page quickly.
 
 ## Guidelines
 
