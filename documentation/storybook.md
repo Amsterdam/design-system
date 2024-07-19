@@ -4,7 +4,7 @@
 
 We use Storybook to display all components and allow interaction with them.
 
-We publish each merge to the `main` branch to [amsterdam.github.io/design-system](https://amsterdam.github.io/design-system/).
+We publish each merge to the `main` branch to [designsystem.amsterdam](https://designsystem.amsterdam/).
 
 ## Structure
 

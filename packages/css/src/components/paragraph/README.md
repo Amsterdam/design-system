@@ -11,7 +11,7 @@ Represents a paragraph of running text, form instructions, and other standalone 
 - Consider whether a paragraph with more than 7 sentences or 140 words would be clearer if you divide the text into two paragraphs.
   Texts with not overly long paragraphs are easier to understand, and grouping makes information quicker to locate.
 
-## Relevant WCAG Rules
+## Relevant WCAG rules
 
 - [WCAG 1.3.1](https://www.w3.org/TR/WCAG21/#info-and-relationships): Blocks that look like a paragraph are also recognized by a computer as a paragraph.
 - [WCAG 1.4.3](https://www.w3.org/TR/WCAG21/#contrast-minimum): The contrast of black text on a white background is high enough.

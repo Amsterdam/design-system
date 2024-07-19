@@ -37,6 +37,14 @@ describe('FieldSet', () => {
     expect(component).toHaveClass('ams-field-set__legend')
   })
 
+  it('renders the error class', () => {
+    const { container } = render(<FieldSet legend="Test" invalid />)
+
+    const component = container.querySelector(':only-child')
+
+    expect(component).toHaveClass('ams-field-set--invalid')
+  })
+
   it('supports ForwardRef in React', () => {
     const ref = createRef<HTMLFieldSetElement>()
 

@@ -20,7 +20,6 @@ describe('Row', () => {
     const component = container.querySelector(':only-child')
 
     expect(component).toHaveClass('ams-row')
-    expect(component).toHaveClass('ams-row--gap-medium')
   })
 
   rowGapSizes.map((size) =>
@@ -39,6 +38,14 @@ describe('Row', () => {
     const component = container.querySelector(':only-child')
 
     expect(component).toHaveClass('ams-row extra')
+  })
+
+  it('renders a class name to allow wrapping', () => {
+    const { container } = render(<Row wrap />)
+
+    const component = container.querySelector(':only-child')
+
+    expect(component).toHaveClass('ams-row--wrap')
   })
 
   it('renders with an article tag', () => {
