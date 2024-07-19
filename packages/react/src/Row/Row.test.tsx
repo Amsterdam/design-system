@@ -1,6 +1,7 @@
 import { render, screen } from '@testing-library/react'
 import { createRef } from 'react'
 import { Row, rowGapSizes } from './Row'
+import { crossAlignOptions, mainAlignOptions } from '../common/layout'
 import '@testing-library/jest-dom'
 
 describe('Row', () => {
@@ -18,7 +19,8 @@ describe('Row', () => {
 
     const component = container.querySelector(':only-child')
 
-    expect(component).toHaveClass('ams-row--medium')
+    expect(component).toHaveClass('ams-row')
+    expect(component).toHaveClass('ams-row--gap-medium')
   })
 
   rowGapSizes.map((size) =>
@@ -27,7 +29,7 @@ describe('Row', () => {
 
       const component = container.querySelector(':only-child')
 
-      expect(component).toHaveClass(`ams-row--${size}`)
+      expect(component).toHaveClass(`ams-row--gap-${size}`)
     }),
   )
 
@@ -36,7 +38,7 @@ describe('Row', () => {
 
     const component = container.querySelector(':only-child')
 
-    expect(component).toHaveClass('ams-row--medium extra')
+    expect(component).toHaveClass('ams-row extra')
   })
 
   it('renders with an article tag', () => {
@@ -63,5 +65,27 @@ describe('Row', () => {
     const component = container.querySelector(':only-child')
 
     expect(ref.current).toBe(component)
+  })
+
+  describe('Alignment', () => {
+    mainAlignOptions.map((align) =>
+      it(`sets the ‘${align}’ alignment`, () => {
+        const { container } = render(<Row align={align} />)
+
+        const component = container.querySelector(':only-child')
+
+        expect(component).toHaveClass(`ams-row--align-${align}`)
+      }),
+    )
+
+    crossAlignOptions.map((align) =>
+      it(`sets the ‘${align}’ vertical alignment`, () => {
+        const { container } = render(<Row alignVertical={align} />)
+
+        const component = container.querySelector(':only-child')
+
+        expect(component).toHaveClass(`ams-row--align-vertical-${align}`)
+      }),
+    )
   })
 })
