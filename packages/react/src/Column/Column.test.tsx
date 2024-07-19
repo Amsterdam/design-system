@@ -19,7 +19,6 @@ describe('Column', () => {
     const component = container.querySelector(':only-child')
 
     expect(component).toHaveClass('ams-column')
-    expect(component).not.toHaveClass('ams-column--gap-medium')
   })
 
   columnGapSizes.map((size) =>

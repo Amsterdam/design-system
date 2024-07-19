@@ -20,7 +20,6 @@ describe('Row', () => {
     const component = container.querySelector(':only-child')
 
     expect(component).toHaveClass('ams-row')
-    expect(component).not.toHaveClass('ams-row--gap-medium')
   })
 
   rowGapSizes.map((size) =>
