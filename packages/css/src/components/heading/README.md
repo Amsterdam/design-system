@@ -12,7 +12,7 @@ Use headings to allow the user to grasp the structure of the page quickly.
 - Use headings hierarchically, and do not skip heading levels.
   So, an `h1` heading should be followed by an `h2`, not an `h3`.
 
-## Relevant WCAG Requirements
+## Relevant WCAG requirements
 
 - [WCAG 1.3.1](https://www.w3.org/WAI/WCAG21/quickref/#qr-content-structure-separation-programmatic):
   Text that looks like a heading is also recognized as a heading by a computer.

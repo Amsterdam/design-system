@@ -20,7 +20,7 @@ On narrow screens, you will see three rows of four columns; on medium-wide scree
 
 <Controls />
 
-### Vertical Margin
+### Vertical margin
 
 Unlike the horizontal margins between columns, the vertical ones above and below are adjustable.
 The`paddingVertical`, `paddingTop`, and `paddingBottom` props add white space above and below the grid.
@@ -33,7 +33,7 @@ These white spaces also shrink and grow with the window width.
 
 <Canvas of={GridStories.VerticalSpace} />
 
-### Vertical White Space
+### Vertical white space
 
 A grid automatically creates multiple rows if the next cell no longer fits on the current row.
 
@@ -42,14 +42,14 @@ In some cases, more or less white space might be better.
 
 <Canvas of={GridStories.VerticalGap} />
 
-### Cells Spanning Columns
+### Cells spanning columns
 
 A cell defaults to spanning 1 column in the grid.
 Use the `span` prop to make a cell span more columns.
 
 <Canvas of={GridStories.SpanMultipleColumns} />
 
-### Different Widths
+### Different widths
 
 You can make the number of columns a cell spans depend on the window width.
 Use the `span` prop with 3 values for narrow, medium, and wide windows.
@@ -58,13 +58,13 @@ With `span={{ narrow: 4, medium: 6, wide: 8 }}`, this cell is 4 out of 4 columns
 
 <Canvas of={GridStories.ConfigureGridVariants} />
 
-### Full Width
+### Full width
 
 To make the cell full width – whether the grid has 4, 8, or 12 columns – use `span="all"`.
 
 <Canvas of={GridStories.SpanAllColumns} />
 
-### Start Position
+### Start position
 
 Each cell automatically starts in the next available position in the grid.
 You usually don’t need to specify a value of 1 explicitly.
@@ -79,7 +79,7 @@ An example with `start={2}`:
 
 <Canvas of={GridStories.StartPosition} />
 
-### Use Another HTML Element
+### Use another HTML element
 
 By default, a Grid Cell renders a `<div>`.
 Use the `as` prop to make your markup more semantic.
