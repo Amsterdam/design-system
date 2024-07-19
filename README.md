@@ -25,7 +25,7 @@ See the [getting started documentation for developers](https://designsystem.amst
 
 See the [documentation for contributors](./CONTRIBUTING.md).
 
-## Code of Conduct
+## Code of conduct
 
 We pledge to act and interact in ways that contribute to an open, welcoming, diverse, inclusive, and healthy community.
 Read [our Code of Conduct](https://github.com/Amsterdam/.github/blob/main/CODE_OF_CONDUCT.md) if you haven’t already.
