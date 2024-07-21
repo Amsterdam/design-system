@@ -8,19 +8,31 @@ import { forwardRef } from 'react'
 import type { HTMLAttributes, PropsWithChildren } from 'react'
 import type { CrossAlign, MainAlign } from '../common/layout'
 
-export const columnGapSizes: Array<string> = ['none', 'extra-small', 'small', 'large', 'extra-large'] as const
+export const columnGapSizes = ['none', 'extra-small', 'small', 'large', 'extra-large'] as const
 
 type ColumnGap = (typeof columnGapSizes)[number]
 type ColumnTag = 'article' | 'div' | 'section'
 
 export type ColumnProps = {
-  /** The vertical alignment of the items in the column. */
+  /**
+   * The vertical alignment of the items in the column.
+   * @default start
+   */
   align?: MainAlign
-  /** The horizontal alignment of the items in the column. */
+  /**
+   * The horizontal alignment of the items in the column.
+   * @default stretch
+   */
   alignHorizontal?: Omit<CrossAlign, 'baseline'>
-  /** The HTML element to use. */
+  /**
+   * The HTML element to use.
+   * @default div
+   */
   as?: ColumnTag
-  /** The amount of space between items. */
+  /**
+   * The amount of space between items.
+   * @default medium
+   */
   gap?: ColumnGap
 } & PropsWithChildren<HTMLAttributes<HTMLElement>>
 

@@ -35,9 +35,15 @@ const meta = {
       },
       options: [undefined, ...crossAlignOptions.filter((option) => option !== 'baseline')],
     },
+    className: {
+      table: { disable: true },
+    },
     gap: {
-      control: 'radio',
-      options: ['extra-small', 'small', 'medium', 'large', 'extra-large'],
+      control: {
+        type: 'radio',
+        labels: { undefined: 'medium' },
+      },
+      options: ['none', 'extra-small', 'small', undefined, 'large', 'extra-large'],
     },
   },
 } satisfies Meta<typeof Row>
