@@ -4,24 +4,50 @@
  */
 
 import { Card, Column, Heading, Paragraph } from '@amsterdam/design-system-react/src'
+import { crossAlignOptions, mainAlignOptions } from '@amsterdam/design-system-react/src/common/layout'
 import { Meta, StoryObj } from '@storybook/react'
 
-const ThreeBoxes = Array.from(Array(3).keys()).map((i) => (
-  <Paragraph className="ams-docs-pink-box" key={i}>
-    {i + 1}
-  </Paragraph>
-))
+const ThreeItems = [
+  <div className="ams-docs-column-child" key={0} />,
+  <div className="ams-docs-column-child" key={1} />,
+  <div className="ams-docs-column-child" key={2} />,
+]
 
 const meta = {
   title: 'Components/Layout/Column',
   component: Column,
   args: {
-    children: ThreeBoxes,
+    children: ThreeItems,
+    className: 'ams-docs-column',
   },
   argTypes: {
+    align: {
+      control: {
+        type: 'radio',
+        labels: { undefined: 'start' },
+      },
+      options: [undefined, ...mainAlignOptions],
+    },
+    alignHorizontal: {
+      control: {
+        type: 'radio',
+        labels: { undefined: 'stretch' },
+      },
+      options: [undefined, ...crossAlignOptions.filter((option) => option !== 'baseline')],
+    },
+    className: {
+      table: {
+        disable: true,
+      },
+    },
     gap: {
       control: 'radio',
       options: ['extra-small', 'small', 'medium', 'large', 'extra-large'],
+    },
+    style: {
+      table: {
+        disable: true,
+      },
     },
   },
 } satisfies Meta<typeof Column>
@@ -32,34 +58,58 @@ type Story = StoryObj<typeof meta>
 
 export const Default: Story = {}
 
+export const Alignment: Story = {
+  args: {
+    align: 'center',
+  },
+  argTypes: {
+    alignHorizontal: { table: { disable: true } },
+    as: { table: { disable: true } },
+    gap: { table: { disable: true } },
+  },
+}
+
+export const HorizontalAlignment: Story = {
+  args: {
+    alignHorizontal: 'center',
+  },
+  argTypes: {
+    align: { table: { disable: true } },
+    as: { table: { disable: true } },
+    gap: { table: { disable: true } },
+  },
+}
+
 export const CustomTagName: Story = {
   args: {
     as: 'section',
     children: [
+      <Heading level={3}>Zoekresultaten</Heading>,
       <Card key={1}>
-        <Card.HeadingGroup tagline="Nieuws">
-          <Heading level={2} size="level-3">
-            <Card.Link href="#">Nieuwe manieren om afval op te halen</Card.Link>
-          </Heading>
-        </Card.HeadingGroup>
+        <Heading level={4}>
+          <Card.Link href="#">Nieuwe manieren om afval op te halen</Card.Link>
+        </Heading>
         <Paragraph>
           Afvalboten, bakfietsen en ondergrondse containers. We experimenteren met nieuwe manieren om afval op te halen
           in het centrum.
         </Paragraph>
-        <Paragraph size="small">Gepubliceerd: 1 juli 2023</Paragraph>
       </Card>,
       <Card key={2}>
-        <Card.HeadingGroup tagline="Nieuws">
-          <Heading level={2} size="level-3">
-            <Card.Link href="#">Verlenging proef ophalen afval per boot</Card.Link>
-          </Heading>
-        </Card.HeadingGroup>
+        <Heading level={4}>
+          <Card.Link href="#">Verlenging proef ophalen afval per boot</Card.Link>
+        </Heading>
         <Paragraph>
           Een proef met het anders ophalen van afval. We halen vuilniszakken hier op met kleine wagentjes, kleine
           vuilniswagens en een afvalboot.
         </Paragraph>
-        <Paragraph size="small">Gepubliceerd: 15 juni 2023</Paragraph>
       </Card>,
     ],
+    className: undefined,
+    style: undefined,
+  },
+  argTypes: {
+    align: { table: { disable: true } },
+    alignHorizontal: { table: { disable: true } },
+    as: { table: { disable: true } },
   },
 }

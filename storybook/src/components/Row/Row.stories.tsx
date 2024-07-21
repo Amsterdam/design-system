@@ -30,11 +30,17 @@ const meta = {
   },
   argTypes: {
     align: {
-      control: 'radio',
+      control: {
+        type: 'radio',
+        labels: { undefined: 'start' },
+      },
       options: mainAlignOptions,
     },
     alignVertical: {
-      control: 'radio',
+      control: {
+        type: 'radio',
+        labels: { undefined: 'stretch' },
+      },
       options: crossAlignOptions,
     },
     gap: {

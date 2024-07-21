@@ -6,22 +6,37 @@
 import clsx from 'clsx'
 import { forwardRef } from 'react'
 import type { HTMLAttributes, PropsWithChildren } from 'react'
+import type { CrossAlign, MainAlign } from '../common/layout'
 
 export const columnGapSizes: Array<string> = ['none', 'extra-small', 'small', 'large', 'extra-large'] as const
 
-type ColumnTag = 'article' | 'div' | 'section'
 type ColumnGap = (typeof columnGapSizes)[number]
+type ColumnTag = 'article' | 'div' | 'section'
 
 export type ColumnProps = {
+  /** The vertical alignment of the items in the column. */
+  align?: MainAlign
+  /** The horizontal alignment of the items in the column. */
+  alignHorizontal?: Omit<CrossAlign, 'baseline'>
   /** The HTML element to use. */
   as?: ColumnTag
-  /** The amount of vertical space between items. */
+  /** The amount of space between items. */
   gap?: ColumnGap
 } & PropsWithChildren<HTMLAttributes<HTMLElement>>
 
 export const Column = forwardRef(
-  ({ as: Tag = 'div', children, className, gap, ...restProps }: ColumnProps, ref: any) => (
-    <Tag {...restProps} ref={ref} className={clsx('ams-column', gap && `ams-column--gap-${gap}`, className)}>
+  ({ align, alignHorizontal, as: Tag = 'div', children, className, gap, ...restProps }: ColumnProps, ref: any) => (
+    <Tag
+      {...restProps}
+      ref={ref}
+      className={clsx(
+        'ams-column',
+        align && `ams-column--align-${align}`,
+        alignHorizontal && `ams-column--align-horizontal-${alignHorizontal}`,
+        gap && `ams-column--gap-${gap}`,
+        className,
+      )}
+    >
       {children}
     </Tag>
   ),

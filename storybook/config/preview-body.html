@@ -1,4 +1,9 @@
 <style>
+  :root {
+    --ams-docs-grey: rgba(0, 0, 0, 0.0625);
+    --ams-docs-pink: rgba(229, 0, 130, 0.25);
+  }
+
   .ams-docs-figure {
     display: flex;
     gap: 0.25rem;
@@ -58,5 +63,57 @@
     background-color: #004699;
     margin: -1rem; /* stylelint-disable-line */
     padding: 1rem; /* stylelint-disable-line */
+  }
+
+  .ams-docs-column,
+  .ams-docs-row {
+    background: repeating-linear-gradient(
+      135deg,
+      var(--ams-docs-grey),
+      var(--ams-docs-grey) .5rem,
+      white .5rem,
+      white 1rem
+    );
+    border: thin solid var(--ams-docs-grey);
+  }
+
+  .ams-docs-column {
+    max-inline-size: 16rem;
+    min-block-size: 16rem;
+  }
+
+  .ams-docs-row {
+    min-block-size: 6rem;
+  }
+
+  .ams-docs-row-child {
+    flex-basis: 8rem;
+  }
+
+  .ams-docs-grid {
+    /* Todo columns background */
+  }
+
+  .ams-docs-child,
+  .ams-docs-column-child,
+  .ams-docs-row-child,
+  .ams-docs-grid-cell {
+    background-color: var(--ams-docs-pink);
+    border: thin dashed var(--ams-docs-grey);
+    font-family: "Amsterdam Sans", sans-serif;
+    font-size: var(--ams-paragraph-small-font-size);
+    line-height: var(--ams-paragraph-small-line-height);
+    margin-block: 0;
+    margin-inline: 0;
+    padding-block: 1.5rem;
+    text-align: center;
+  }
+
+  .ams-docs-row-child {
+    padding-inline: 1.5rem;
+  }
+
+  .ams-docs-column-child {
+    min-inline-size: 3rem;
   }
 </style>
