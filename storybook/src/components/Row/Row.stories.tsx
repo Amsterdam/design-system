@@ -3,30 +3,22 @@
  * Copyright Gemeente Amsterdam
  */
 
-import { Avatar, Button, Heading, Link, Paragraph, Row } from '@amsterdam/design-system-react/src'
+import { Avatar, Heading, Link, Row } from '@amsterdam/design-system-react/src'
 import { crossAlignOptions, mainAlignOptions } from '@amsterdam/design-system-react/src/common/layout'
 import { Meta, StoryObj } from '@storybook/react'
 
-const ThreeButtons = Array.from(Array(3).keys()).map((i) => <Button key={i}>Button {i + 1}</Button>)
-const ThreeParagraphs = [
-  <Paragraph className="ams-docs-pink-box" key={1} style={{ inlineSize: '8rem' }}>
-    One line
-  </Paragraph>,
-  <Paragraph className="ams-docs-pink-box" key={2} style={{ inlineSize: '8rem' }}>
-    Two
-    <br />
-    lines
-  </Paragraph>,
-  <Paragraph className="ams-docs-pink-box" key={3} style={{ inlineSize: '8rem' }}>
-    One line
-  </Paragraph>,
+const ThreeItems = [
+  <div className="ams-docs-row-child ams-docs-row-child" key={0} />,
+  <div className="ams-docs-row-child ams-docs-row-child" key={1} />,
+  <div className="ams-docs-row-child ams-docs-row-child" key={2} />,
 ]
 
 const meta = {
   title: 'Components/Layout/Row',
   component: Row,
   args: {
-    children: ThreeButtons,
+    children: ThreeItems,
+    className: 'ams-docs-row',
   },
   argTypes: {
     align: {
@@ -34,14 +26,14 @@ const meta = {
         type: 'radio',
         labels: { undefined: 'start' },
       },
-      options: mainAlignOptions,
+      options: [undefined, ...mainAlignOptions],
     },
     alignVertical: {
       control: {
         type: 'radio',
         labels: { undefined: 'stretch' },
       },
-      options: crossAlignOptions,
+      options: [undefined, ...crossAlignOptions.filter((option) => option !== 'baseline')],
     },
     gap: {
       control: 'radio',
@@ -56,17 +48,43 @@ type Story = StoryObj<typeof meta>
 
 export const Default: Story = {}
 
-export const HorizontalAlignment: Story = {
+export const Alignment: Story = {
   args: {
     align: 'evenly',
-    children: ThreeParagraphs,
+  },
+  argTypes: {
+    alignVertical: { table: { disable: true } },
+    as: { table: { disable: true } },
+    gap: { table: { disable: true } },
+    wrap: { table: { disable: true } },
   },
 }
 
 export const EndAlignASingleChild: Story = {
   args: {
     align: 'end',
+    alignVertical: 'center',
     children: <Avatar label="AB" />,
+  },
+  argTypes: {
+    alignVertical: { table: { disable: true } },
+    as: { table: { disable: true } },
+    gap: { table: { disable: true } },
+    wrap: { table: { disable: true } },
+  },
+}
+
+export const EndAlignASingleChildRtl: Story = {
+  args: {
+    align: 'end',
+    dir: 'rtl',
+  },
+  argTypes: {
+    alignVertical: { table: { disable: true } },
+    as: { table: { disable: true } },
+    dir: { table: { disable: true } },
+    gap: { table: { disable: true } },
+    wrap: { table: { disable: true } },
   },
 }
 
@@ -75,22 +93,40 @@ export const AlignOpposingTexts: Story = {
     align: 'between',
     alignVertical: 'baseline',
     children: [<Heading level={3}>An example heading</Heading>, <Link href="#">An example link</Link>],
+    className: undefined,
     wrap: true,
+  },
+  argTypes: {
+    alignVertical: { table: { disable: true } },
+    as: { table: { disable: true } },
+    gap: { table: { disable: true } },
+    wrap: { table: { disable: true } },
   },
 }
 
 export const VerticalAlignment: Story = {
   args: {
     alignVertical: 'center',
-    children: ThreeParagraphs,
+  },
+  argTypes: {
+    align: { table: { disable: true } },
+    as: { table: { disable: true } },
+    gap: { table: { disable: true } },
+    wrap: { table: { disable: true } },
   },
 }
 
 export const Wrapping: Story = {
   args: {
     children: Array.from(Array(4).keys()).map((i) => (
-      <span className="ams-docs-pink-box" key={i} style={{ inlineSize: '16rem' }} />
+      <span className="ams-docs-row-child" key={i} style={{ flexBasis: '16rem' }} />
     )),
     wrap: true,
+  },
+  argTypes: {
+    align: { table: { disable: true } },
+    alignVertical: { table: { disable: true } },
+    as: { table: { disable: true } },
+    gap: { table: { disable: true } },
   },
 }

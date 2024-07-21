@@ -105,7 +105,6 @@ export const CustomTagName: Story = {
       </Card>,
     ],
     className: undefined,
-    style: undefined,
   },
   argTypes: {
     align: { table: { disable: true } },

@@ -20,7 +20,7 @@ export type RowProps = {
   alignVertical?: CrossAlign
   /** The HTML element to use. */
   as?: RowTag
-  /** The amount of vertical space between items. */
+  /** The amount of space between items. */
   gap?: RowGap
   /** Whether items of the row can wrap onto multiple lines. */
   wrap?: boolean
