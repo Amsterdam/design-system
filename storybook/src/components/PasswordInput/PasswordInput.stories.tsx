@@ -7,10 +7,17 @@ import { PasswordInput } from '@amsterdam/design-system-react/src'
 import { Meta, StoryObj } from '@storybook/react'
 
 const meta = {
-  title: 'Password Input',
+  title: 'Components/Forms/Password Input',
   component: PasswordInput,
   args: {
-    children: 'Nieuw component',
+    disabled: false,
+    invalid: false,
+    minLength: 12,
+  },
+  argTypes: {
+    disabled: {
+      description: 'Prevents interaction. Avoid if possible.',
+    },
   },
 } satisfies Meta<typeof PasswordInput>
 

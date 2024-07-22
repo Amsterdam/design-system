@@ -5,15 +5,22 @@
 
 import clsx from 'clsx'
 import { forwardRef } from 'react'
-import type { ForwardedRef, InputHTMLAttributes, PropsWithChildren } from 'react'
+import type { ForwardedRef, InputHTMLAttributes } from 'react'
 
-export type PasswordInputProps = PropsWithChildren<InputHTMLAttributes<HTMLInputElement>>
+export type PasswordInputProps = {
+  /** Whether the value fails a validation rule. */
+  invalid?: boolean
+} & Omit<InputHTMLAttributes<HTMLInputElement>, 'aria-invalid' | 'type'>
 
 export const PasswordInput = forwardRef(
-  ({ children, className, ...restProps }: PasswordInputProps, ref: ForwardedRef<HTMLInputElement>) => (
-    <input {...restProps} ref={ref} className={clsx('ams-password-input', className)}>
-      {children}
-    </input>
+  ({ className, invalid, ...restProps }: PasswordInputProps, ref: ForwardedRef<HTMLInputElement>) => (
+    <input
+      {...restProps}
+      aria-invalid={invalid || undefined}
+      className={clsx('ams-password-input', className)}
+      ref={ref}
+      type="password"
+    />
   ),
 )
 
