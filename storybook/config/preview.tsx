@@ -43,6 +43,7 @@ export const parameters = {
         'Foundation',
         'Components',
         ['Buttons', 'Containers', 'Feedback', 'Forms', 'Layout', 'Media', 'Navigation', 'Text'],
+        'Utilities',
         'Pages',
         ['Introduction', 'Amsterdam.nl', ['Home Page']],
       ],
