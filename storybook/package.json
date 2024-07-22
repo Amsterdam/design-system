@@ -32,7 +32,7 @@
     "@storybook/addon-essentials": "8.2.4",
     "@storybook/addon-interactions": "8.2.4",
     "@storybook/addon-links": "8.2.4",
-    "@storybook/addon-themes": "8.2.4",
+    "@storybook/addon-themes": "8.2.5",
     "@storybook/blocks": "8.2.4",
     "@storybook/components": "8.2.4",
     "@storybook/core-events": "8.2.4",
