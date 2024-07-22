@@ -9,8 +9,17 @@
   grid-template-rows: 1fr auto;
 }
 
-.ams-image-slider--snapstop .ams-image-slider__item {
+.ams-image-slider__item {
   scroll-snap-align: center;
+
+  /** temporary fix for covering the entire gallery */
+  .ams-image {
+    inline-size: 100%;
+  }
+}
+
+.ams-image-slider--snapstop .ams-image-slider__item {
+  scroll-snap-stop: always;
 }
 
 .ams-image-slider__scroller {
@@ -27,6 +36,14 @@
 
   @media not (prefers-reduced-motion) {
     scroll-behavior: smooth;
+  }
+}
+
+.ams-image-slider:not(.ams-image-slider--scrollbar) .ams-image-slider__scroller {
+  scrollbar-width: none;
+
+  &::-webkit-scrollbar {
+    display: none;
   }
 }
 

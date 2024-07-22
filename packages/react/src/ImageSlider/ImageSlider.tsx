@@ -8,14 +8,17 @@ import clsx from 'clsx'
 import { forwardRef, useEffect, useRef } from 'react'
 import type { ForwardedRef, HTMLAttributes, PropsWithChildren } from 'react'
 import { ImageSliderItem } from './ImageSliderItem'
-// import useInViewPort from './useInViewPort'
 import { ImageSliderScroller } from './ImageSliderScroller'
 import { IconButton } from '../IconButton'
 
 export type ImageSliderProps = {
+  /** Show navigation controls */
   controls?: boolean
+  /** Show native scrollbar inside gallery */
   scrollbar?: boolean
+  /** Prevent passing over possible snap elements */
   snapstop?: boolean
+  /** Show thumbnails */
   thumbnails?: boolean
 } & PropsWithChildren<HTMLAttributes<HTMLDivElement>>
 
@@ -24,6 +27,7 @@ export const ImageSliderRoot = forwardRef(
     { children, className, controls, scrollbar, snapstop, thumbnails, ...restProps }: ImageSliderProps,
     ref: ForwardedRef<HTMLDivElement>,
   ) => {
+    // const [ currentSlide, setCurrentSlide ] = useState(0)
     const targetRef = useRef<HTMLDivElement>(null)
 
     useEffect(() => {

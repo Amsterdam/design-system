@@ -28,7 +28,7 @@ const meta = {
       </ImageSlider.Item>,
     ],
     controls: true,
-    scrollbar: true,
+    scrollbar: false,
     snapstop: true,
     thumbnails: true,
   },
