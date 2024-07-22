@@ -7,11 +7,11 @@ import { Paragraph } from '@amsterdam/design-system-react/src'
 import { Meta, StoryObj } from '@storybook/react'
 import type { HTMLAttributes } from 'react'
 
+const lengthOptions = ['xs', 'sm', 'md', 'lg', 'xl'] as const
+
 type MarginProps = {
   length: (typeof lengthOptions)[number]
 } & HTMLAttributes<HTMLElement>
-
-const lengthOptions = ['xs', 'sm', 'md', 'lg', 'xl'] as const
 
 const Margin = ({ children, length }: MarginProps) => <span className={`ams-mb--${length}`}>{children}</span>
 
