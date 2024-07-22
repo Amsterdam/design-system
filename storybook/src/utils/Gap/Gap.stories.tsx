@@ -3,6 +3,7 @@
  * Copyright Gemeente Amsterdam
  */
 
+import { Paragraph } from '@amsterdam/design-system-react/src'
 import { Meta, StoryObj } from '@storybook/react'
 import type { HTMLAttributes } from 'react'
 
@@ -16,9 +17,9 @@ const Gap = ({ children, length }: GapProps) => <span className={`ams-gap--${len
 
 const render = ({ length }: GapProps) => (
   <div className={`ams-gap--${length}`}>
-    <p className="ams-paragraph">These paragraphs are separated by a gap.</p>
-    <p className="ams-paragraph">These paragraphs are separated by a gap.</p>
-    <p className="ams-paragraph">These paragraphs are separated by a gap.</p>
+    <Paragraph>These paragraphs are separated by a gap.</Paragraph>
+    <Paragraph>These paragraphs are separated by a gap.</Paragraph>
+    <Paragraph>These paragraphs are separated by a gap.</Paragraph>
   </div>
 )
 

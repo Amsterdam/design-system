@@ -3,6 +3,7 @@
  * Copyright Gemeente Amsterdam
  */
 
+import { Paragraph } from '@amsterdam/design-system-react/src'
 import { Meta, StoryObj } from '@storybook/react'
 import type { HTMLAttributes } from 'react'
 
@@ -17,7 +18,7 @@ const Margin = ({ children, length }: MarginProps) => <span className={`ams-mb--
 const render = ({ length }: MarginProps) => (
   <div>
     <h1 className={`ams-heading ams-heading--2 ams-mb--${length}`}>This heading has a bottom margin</h1>
-    <p className="ams-paragraph">It introduces white space between the heading and this paragraph below.</p>
+    <Paragraph>It introduces white space between the heading and this paragraph below.</Paragraph>
   </div>
 )
 
