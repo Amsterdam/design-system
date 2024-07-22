@@ -5,7 +5,7 @@
 
 import { ChevronLeftIcon, ChevronRightIcon } from '@amsterdam/design-system-react-icons'
 import clsx from 'clsx'
-import { forwardRef, useEffect, useRef } from 'react'
+import { forwardRef, useEffect, useRef, useState } from 'react'
 import type { ForwardedRef, HTMLAttributes, PropsWithChildren } from 'react'
 import { ImageSliderItem } from './ImageSliderItem'
 import { ImageSliderScroller } from './ImageSliderScroller'
@@ -27,7 +27,7 @@ export const ImageSliderRoot = forwardRef(
     { children, className, controls, scrollbar, snapstop, thumbnails, ...restProps }: ImageSliderProps,
     ref: ForwardedRef<HTMLDivElement>,
   ) => {
-    // const [ currentSlide, setCurrentSlide ] = useState(0)
+    const [currentSlide, setCurrentSlide] = useState(0)
     const targetRef = useRef<HTMLDivElement>(null)
 
     useEffect(() => {
@@ -46,6 +46,7 @@ export const ImageSliderRoot = forwardRef(
           for (let observation of observations) {
             hasIntersected.add(observation)
             observation.target.classList.toggle('ams-image-slider__item--in-view', observation.isIntersecting)
+            if (observation.isIntersecting) setCurrentSlide(slidesArray.indexOf(observation.target))
           }
         },
         {
@@ -56,6 +57,47 @@ export const ImageSliderRoot = forwardRef(
 
       for (let slide of slidesArray) observer.observe(slide)
     }, [])
+
+    const goToSlide = (element: HTMLElement) => {
+      const sliderScroller = targetRef.current
+
+      if (!sliderScroller || !element) {
+        return
+      }
+
+      const delta = Math.abs(sliderScroller.offsetLeft - element.offsetLeft)
+      const scrollerPadding = parseInt(getComputedStyle(sliderScroller).getPropertyValue('padding-left'), 10)
+
+      const pos = sliderScroller.clientWidth / 2 > delta ? delta - scrollerPadding : delta + scrollerPadding
+
+      sliderScroller.scrollTo(pos, 0)
+    }
+
+    const goToNextSlide = (element: HTMLElement) => {
+      const next = element.nextElementSibling as HTMLElement | null
+
+      if (element === next) return
+
+      if (next) {
+        goToSlide(next)
+      } else {
+        console.log('at the end')
+        // goToSlide(element.parentElement?.firstElementChild as HTMLElement)
+      }
+    }
+
+    const goToPreviousSlide = (element: HTMLElement) => {
+      const next = element.previousElementSibling as HTMLElement | null
+
+      if (element === next) return
+
+      if (next) {
+        goToSlide(next)
+      } else {
+        console.log('at the start')
+        // goToSlide(element.parentElement?.lastElementChild as HTMLElement)
+      }
+    }
 
     return (
       <div
@@ -77,16 +119,22 @@ export const ImageSliderRoot = forwardRef(
               label="Vorige"
               onBackground="dark"
               className="ams-image-slider__control ams-image-slider__control--previous"
+              onClick={() =>
+                goToPreviousSlide(document.querySelector('.ams-image-slider__item--in-view') as HTMLElement)
+              }
             />
             <IconButton
               svg={ChevronRightIcon}
               label="Volgende"
               onBackground="dark"
               className="ams-image-slider__control ams-image-slider__control--next"
+              onClick={() => goToNextSlide(document.querySelector('.ams-image-slider__item--in-view') as HTMLElement)}
             />
           </div>
         )}
-        <ImageSliderScroller ref={targetRef}>{children}</ImageSliderScroller>
+        <ImageSliderScroller ref={targetRef} currentSlide={currentSlide}>
+          {children}
+        </ImageSliderScroller>
       </div>
     )
   },

@@ -7,7 +7,9 @@ import clsx from 'clsx'
 import { forwardRef } from 'react'
 import type { ForwardedRef, HTMLAttributes, PropsWithChildren } from 'react'
 
-export type ImageSliderScrollerProps = PropsWithChildren<HTMLAttributes<HTMLDivElement>>
+export type ImageSliderScrollerProps = {
+  currentSlide: number
+} & PropsWithChildren<HTMLAttributes<HTMLDivElement>>
 
 export const ImageSliderScroller = forwardRef(
   ({ children, className, ...restProps }: ImageSliderScrollerProps, ref: ForwardedRef<HTMLDivElement>) => (
