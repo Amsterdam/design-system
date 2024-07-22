@@ -17,9 +17,11 @@ describe('Breadcrumb link', () => {
     render(<BreadcrumbLink href="/" />)
 
     const item = screen.getByRole('listitem')
+
     expect(item).toHaveClass('ams-breadcrumb__item')
 
     const link = screen.getByRole('link')
+
     expect(link).toHaveClass('ams-breadcrumb__link')
   })
 
@@ -33,12 +35,15 @@ describe('Breadcrumb link', () => {
 
   it('renders the href attribute', () => {
     render(<BreadcrumbLink href="/" />)
+
     const component = screen.getByRole('link')
+
     expect(component).toHaveAttribute('href', '/')
   })
 
   it('supports ForwardRef in React', () => {
     const ref = createRef<HTMLAnchorElement>()
+
     render(<BreadcrumbLink href="/" ref={ref} />)
 
     const component = screen.getByRole('link')

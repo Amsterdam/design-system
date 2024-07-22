@@ -1,0 +1,48 @@
+{/* @license CC0-1.0 */}
+
+import { Meta, Typeset } from "@storybook/blocks";
+
+<Meta title="Foundation/Assets/Font" />
+
+# Font
+
+We have our own font: Amsterdam Sans.
+
+Its clear, open appearance complements the St. Andrew’s Crosses in the logo.
+The font is legible both offline and online, so we use it for all communication means.
+
+This sentence shows how all letters and numbers look:
+
+<Typeset
+  fontFamily="Amsterdam Sans, Arial, sans-serif"
+  fontSizes={[24]}
+  fontWeight={400}
+  sampleText="Jouw typograaf biedt mij zulke exquise schreven 012345689"
+/>
+
+## How to use
+
+If you are working with npm, include our package `@amsterdam/design-system-assets` in your dependencies.
+Then import `@amsterdam/design-system-assets/font/index.css` at the beginning of your stylesheet.
+
+You can also host the font yourself and include it in your application.
+Request it through the form below.
+
+If it is impossible to use Amsterdam Sans, use the Arial font, or the device’s generic sans-serif.
+Always specify these alternatives if downloading the font for the user fails, or while it is in progress:
+
+```css
+.class {
+  font-family: "Amsterdam Sans", Arial, sans-serif;
+}
+```
+
+## Requesting a license
+
+The font is explicitly not freely available.
+Amsterdam Sans is licensed exclusively to the City of Amsterdam and amsterdam&partners.
+Request the font files through the [Amsterdam Sans request form](https://formulier.amsterdam.nl/thema/huisstijl/amsterdam-sans-aanvragen).
+
+## More information
+
+For additional details about the font, refer to [Typography on Stijlweb](https://amsterdam.nl/stijlweb/basiselementen/typografie/).

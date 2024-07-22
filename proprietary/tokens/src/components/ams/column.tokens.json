@@ -2,11 +2,12 @@
   "ams": {
     "column": {
       "gap": {
-        "xs": { "value": "{ams.space.grid.xs}" },
-        "sm": { "value": "{ams.space.grid.sm}" },
-        "md": { "value": "{ams.space.grid.md}" },
-        "lg": { "value": "{ams.space.grid.lg}" },
-        "xl": { "value": "{ams.space.grid.xl}" }
+        "no": { "value": "0" },
+        "xs": { "value": "{ams.space.xs}" },
+        "sm": { "value": "{ams.space.sm}" },
+        "md": { "value": "{ams.space.md}" },
+        "lg": { "value": "{ams.space.lg}" },
+        "xl": { "value": "{ams.space.xl}" }
       }
     }
   }

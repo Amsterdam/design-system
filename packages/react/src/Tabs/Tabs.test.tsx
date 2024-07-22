@@ -74,10 +74,8 @@ describe('Tabs', () => {
 
     expect(tabOne).toHaveAttribute('aria-selected', 'true')
     expect(tabOne).toHaveAttribute('tabindex', '0')
-
     expect(tabTwo).toHaveAttribute('aria-selected', 'false')
     expect(tabTwo).toHaveAttribute('tabindex', '-1')
-
     expect(screen.getByRole('tabpanel')).toHaveTextContent('Content 1')
 
     if (tabTwo) {
@@ -86,10 +84,8 @@ describe('Tabs', () => {
 
     expect(tabOne).toHaveAttribute('aria-selected', 'false')
     expect(tabOne).toHaveAttribute('tabindex', '-1')
-
     expect(tabTwo).toHaveAttribute('aria-selected', 'true')
     expect(tabTwo).toHaveAttribute('tabindex', '0')
-
     expect(screen.getByRole('tabpanel')).toHaveTextContent('Content 2')
   })
 
@@ -118,10 +114,8 @@ describe('Tabs', () => {
 
     expect(tabOne).toHaveAttribute('aria-selected', 'false')
     expect(tabOne).toHaveAttribute('tabindex', '-1')
-
     expect(tabThree).toHaveAttribute('aria-selected', 'true')
     expect(tabThree).toHaveAttribute('tabindex', '0')
-
     expect(screen.getByRole('tabpanel')).toHaveTextContent('Content 3')
   })
 
@@ -146,10 +140,8 @@ describe('Tabs', () => {
 
     expect(firstTab).toHaveAttribute('aria-selected', 'true')
     expect(firstTab).toHaveAttribute('tabindex', '0')
-
     expect(lastTab).toHaveAttribute('aria-selected', 'false')
     expect(lastTab).toHaveAttribute('tabindex', '-1')
-
     expect(screen.getByRole('tabpanel')).toHaveTextContent('Content 1')
   })
 
@@ -174,10 +166,8 @@ describe('Tabs', () => {
 
     expect(firstTab).toHaveAttribute('aria-selected', 'true')
     expect(firstTab).toHaveAttribute('tabindex', '0')
-
     expect(lastTab).toHaveAttribute('aria-selected', 'false')
     expect(lastTab).toHaveAttribute('tabindex', '-1')
-
     expect(screen.getByRole('tabpanel')).toHaveTextContent('Content 1')
   })
 
@@ -201,7 +191,6 @@ describe('Tabs', () => {
 
     expect(firstTab).toHaveAttribute('aria-selected', 'true')
     expect(firstTab).toHaveAttribute('tabindex', '0')
-
     expect(screen.getByRole('tabpanel')).toHaveTextContent('Content 1')
   })
 })

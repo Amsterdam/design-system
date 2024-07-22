@@ -29,6 +29,14 @@ describe('Screen', () => {
     expect(component).toHaveClass('ams-screen--x-wide')
   })
 
+  it('renders the full-height class name', () => {
+    const { container } = render(<Screen fullHeight />)
+
+    const component = container.querySelector(':only-child')
+
+    expect(component).toHaveClass('ams-screen--full-height')
+  })
+
   it('renders an additional class name', () => {
     const { container } = render(<Screen className="extra" />)
 

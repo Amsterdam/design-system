@@ -56,6 +56,7 @@ describe('Page menu link', () => {
 
   it('supports ForwardRef in React', () => {
     const ref = createRef<HTMLAnchorElement>()
+
     render(
       <PageMenuLink href="#" className="extra" ref={ref}>
         Link
@@ -63,6 +64,7 @@ describe('Page menu link', () => {
     )
 
     const component = screen.getByRole('link')
+
     expect(ref.current).toBe(component)
   })
 })

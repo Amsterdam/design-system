@@ -75,22 +75,27 @@ describe('Heading', () => {
       name: 'Size level 1',
       level: 1,
     })
+
     const sizeLevel2 = screen.getByRole('heading', {
       name: 'Size level 2',
       level: 1,
     })
+
     const sizeLevel3 = screen.getByRole('heading', {
       name: 'Size level 3',
       level: 1,
     })
+
     const sizeLevel4 = screen.getByRole('heading', {
       name: 'Size level 4',
       level: 1,
     })
+
     const sizeLevel5 = screen.getByRole('heading', {
       name: 'Size level 5',
       level: 1,
     })
+
     const sizeLevel6 = screen.getByRole('heading', {
       name: 'Size level 6',
       level: 1,

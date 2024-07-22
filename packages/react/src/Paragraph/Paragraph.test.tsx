@@ -80,7 +80,6 @@ describe('Paragraph', () => {
     const paragraph = container.querySelector(':only-child')
 
     expect(paragraph).toHaveClass('intro')
-
     expect(paragraph).toHaveClass('ams-paragraph')
   })
 
