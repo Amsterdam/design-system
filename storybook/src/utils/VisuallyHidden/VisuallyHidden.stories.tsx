@@ -3,6 +3,7 @@
  * Copyright Gemeente Amsterdam
  */
 
+import { Paragraph } from '@amsterdam/design-system-react'
 import { Meta, StoryObj } from '@storybook/react'
 import type { HTMLAttributes } from 'react'
 
@@ -12,11 +13,11 @@ const VisuallyHidden = ({ children }: VisuallyHiddenProps) => <span className="a
 
 const render = ({ children }: VisuallyHiddenProps) => (
   <div>
-    <p className="ams-paragraph">
+    <Paragraph>
       This paragraph is available for everyone. Below this is a second paragraph, but it is aimed at non-visual user
       agents only. It is not perceivable on a screen.
-    </p>
-    <p className="ams-paragraph ams-visually-hidden">{children}</p>
+    </Paragraph>
+    <Paragraph className="ams-visually-hidden">{children}</Paragraph>
   </div>
 )
 
@@ -24,7 +25,7 @@ const meta = {
   title: 'Utilities/CSS/Visually Hidden',
   component: VisuallyHidden,
   args: {
-    children: 'Here is the paragraph that will be read out by a screen reader.',
+    children: 'Here is the paragraph that is visually hidden. A screen reader will pick it up and read it to its user.',
   },
   argTypes: {
     children: {
