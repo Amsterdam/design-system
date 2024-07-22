@@ -6,7 +6,7 @@
 import clsx from 'clsx'
 import { forwardRef } from 'react'
 import type { HTMLAttributes, PropsWithChildren } from 'react'
-import type { CrossAlign, MainAlign } from '../common/layout'
+import type { CrossAlignForColumn, MainAlign } from '../common/layout'
 
 export const columnGapSizes = ['none', 'extra-small', 'small', 'large', 'extra-large'] as const
 
@@ -23,7 +23,7 @@ export type ColumnProps = {
    * The horizontal alignment of the items in the column.
    * @default stretch
    */
-  alignHorizontal?: Omit<CrossAlign, 'baseline'>
+  alignHorizontal?: CrossAlignForColumn
   /**
    * The HTML element to use.
    * @default div

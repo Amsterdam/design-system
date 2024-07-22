@@ -4,7 +4,7 @@
  */
 
 import { Card, Column, Heading, Paragraph } from '@amsterdam/design-system-react/src'
-import { crossAlignOptions, mainAlignOptions } from '@amsterdam/design-system-react/src/common/layout'
+import { crossAlignOptionsForColumn, mainAlignOptions } from '@amsterdam/design-system-react/src/common/layout'
 import { Meta, StoryObj } from '@storybook/react'
 
 const ThreeItems = [
@@ -33,7 +33,7 @@ const meta = {
         type: 'radio',
         labels: { undefined: 'stretch' },
       },
-      options: [undefined, ...crossAlignOptions.filter((option) => option !== 'baseline')],
+      options: [undefined, ...crossAlignOptionsForColumn],
     },
     className: {
       table: { disable: true },
