@@ -89,7 +89,7 @@ const CellStoryTemplate: CellStory = {
   render: ({ children, ...args }) => <Grid.Cell {...args}>{children}</Grid.Cell>,
 }
 
-const TwelveGridCells = Array.from(Array(12).keys()).map((i) => <Grid.Cell className="ams-docs-grid-cell" key={i} />)
+const TwelveGridCells = Array.from(Array(12).keys()).map((i) => <Grid.Cell className="ams-docs-item" key={i} />)
 
 export const Default: Story = {
   ...StoryTemplate,
@@ -109,7 +109,7 @@ export const VerticalSpace: Story = {
 export const VerticalGap: Story = {
   ...StoryTemplate,
   args: {
-    children: Array.from(Array(6).keys()).map((i) => <Grid.Cell className="ams-docs-grid-cell" span={4} key={i} />),
+    children: Array.from(Array(6).keys()).map((i) => <Grid.Cell className="ams-docs-item" span={4} key={i} />),
     gapVertical: 'small',
   },
 }
@@ -117,7 +117,7 @@ export const VerticalGap: Story = {
 export const SpanMultipleColumns: CellStory = {
   ...CellStoryTemplate,
   args: {
-    children: <div className="ams-docs-grid-cell" />,
+    children: <div className="ams-docs-item" />,
     span: 4,
   },
 }
@@ -125,7 +125,7 @@ export const SpanMultipleColumns: CellStory = {
 export const ConfigureGridVariants: CellStory = {
   ...CellStoryTemplate,
   args: {
-    children: <div className="ams-docs-grid-cell" />,
+    children: <div className="ams-docs-item" />,
     span: { narrow: 4, medium: 6, wide: 8 },
   },
 }
@@ -133,7 +133,7 @@ export const ConfigureGridVariants: CellStory = {
 export const SpanAllColumns: CellStory = {
   ...CellStoryTemplate,
   args: {
-    children: <div className="ams-docs-grid-cell" />,
+    children: <div className="ams-docs-item" />,
     span: 'all',
   },
 }
@@ -141,7 +141,7 @@ export const SpanAllColumns: CellStory = {
 export const StartPosition: CellStory = {
   ...CellStoryTemplate,
   args: {
-    children: <div className="ams-docs-grid-cell" />,
+    children: <div className="ams-docs-item" />,
     span: 3,
     start: 2,
   },
@@ -154,7 +154,7 @@ export const CustomTagName: CellStory = {
   },
   render: ({ as }: GridCellProps) => (
     <Grid.Cell as={as} span="all">
-      <div className="ams-docs-grid-cell" />
+      <div className="ams-docs-item" />
     </Grid.Cell>
   ),
 }

@@ -19,12 +19,12 @@ export default meta
 type Story = StoryObj<typeof meta>
 
 export const Default: Story = {
-  args: { children: <div className="ams-docs-child">Ik pas in het scherm.</div> },
+  args: { children: <div className="ams-docs-item">Ik pas in het scherm.</div> },
 }
 
 export const ExtraWide: Story = {
   args: {
-    children: <div className="ams-docs-child">Ik pas in een extra breed scherm.</div>,
+    children: <div className="ams-docs-item">Ik pas in een extra breed scherm.</div>,
     maxWidth: 'x-wide',
   },
 }

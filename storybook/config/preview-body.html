@@ -74,18 +74,11 @@
     min-block-size: 6rem;
   }
 
-  .ams-docs-row-child {
-    flex-basis: 8rem;
-  }
-
   .ams-docs-grid {
     /* Todo columns background */
   }
 
-  .ams-docs-child,
-  .ams-docs-column-child,
-  .ams-docs-row-child,
-  .ams-docs-grid-cell {
+  .ams-docs-item {
     background-color: var(--ams-docs-pink);
     border: thin dashed var(--ams-docs-grey);
     font-family: "Amsterdam Sans", sans-serif;
@@ -97,11 +90,12 @@
     text-align: center;
   }
 
-  .ams-docs-row-child {
+  .ams-docs-row > .ams-docs-item {
+    flex-basis: 8rem;
     padding-inline: 1.5rem;
   }
 
-  .ams-docs-column-child {
+  .ams-docs-column > .ams-docs-item {
     min-inline-size: 3rem;
   }
 </style>
