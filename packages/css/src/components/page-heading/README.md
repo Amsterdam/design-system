@@ -11,7 +11,7 @@ Use this component for a name, title, or motto.
 - Only use this component once per page, typically only on the homepage.
 - Avoid using it if you need to display long pieces of text; the text should be short and precise.
 
-## Relevant WCAG Requirements
+## Relevant WCAG requirements
 
 The page heading component is a variant of a heading level 1 with a distinct style.
 When using this component, ensure that the heading hierarchy of the page remains logical.

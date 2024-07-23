@@ -11,6 +11,6 @@ A button containing only an icon.
   Only use universally recognized icons, such as a close icon or a play icon.
 - Provide a label text that describes what the button does for screen reader users.
 
-## Relevant WCAG Requirements
+## Relevant WCAG requirements
 
 The Icon Button follows [the same requirements and guidelines as a regular button](/docs/components-buttons-button--docs).
