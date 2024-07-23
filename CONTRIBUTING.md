@@ -21,7 +21,9 @@ Before creating an issue, check if you are using the latest version of the proje
 ### Reporting security issues
 
 **Do not** file a public issue for security vulnerabilities.
-Review our [Security Policy](https://github.com/Amsterdam/.github/blob/main/SECURITY.md).
+This may result in the vulnerability details being made public, creating an unsafe situation.
+You can submit your report via [the Zerocopter Coordinated Vulnerability Disclosure (CVD) form](https://app.zerocopter.com/en/cvd/fc5dad1c-27ee-4571-880b-438dc672d178).
+For more information, review our [Security Policy](https://github.com/Amsterdam/.github/blob/main/SECURITY.md).
 
 ### Bug reports and other issues
 
