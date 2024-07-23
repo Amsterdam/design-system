@@ -17,7 +17,7 @@ Displays an image.
   Do this especially for the main image of a page, where the difference between sizes on a narrow and wide screen is most significant.
 - Ensure that the aspect ratio of the image is supported by the [Aspect Ratio](/docs/components-layout-aspect-ratio--docs) component.
 
-## Relevant WCAG Requirements
+## Relevant WCAG requirements
 
 - [WCAG 1.1.1](https://www.w3.org/TR/WCAG22/#non-text-content): Non-text content must have a text alternative.
 - [WCAG 1.4.5](https://www.w3.org/TR/WCAG22/#images-of-text): Use text instead of images of text.

@@ -1,6 +1,6 @@
-import { HeadingLevel } from './Heading'
+import type { HeadingProps } from './Heading'
 
-export function getHeadingElement(level: HeadingLevel) {
+export function getHeadingTag(level: HeadingProps['level']) {
   switch (level) {
     case 2:
       return 'h2'

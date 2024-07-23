@@ -30,6 +30,14 @@ describe('Image', () => {
     expect(component).toHaveClass('ams-image')
   })
 
+  it('renders a class name to display the image as large as its container', () => {
+    const { container } = render(<Image cover />)
+
+    const component = container.querySelector(':only-child')
+
+    expect(component).toHaveClass('ams-image--cover')
+  })
+
   it('supports ForwardRef in React', () => {
     const ref = createRef<HTMLImageElement>()
 
