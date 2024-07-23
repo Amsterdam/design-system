@@ -20,7 +20,8 @@ Before creating an issue, check if you are using the latest version of the proje
 
 ### Reporting security issues
 
-Review our [Security Policy](https://github.com/Amsterdam/.github/blob/main/SECURITY.md). **Do not** file a public issue for security vulnerabilities.
+**Do not** file a public issue for security vulnerabilities.
+Review our [Security Policy](https://github.com/Amsterdam/.github/blob/main/SECURITY.md).
 
 ### Bug reports and other issues
 
