@@ -8,13 +8,13 @@ Adds white space below a single element.
 
 The five sizes of [Component Space](/docs/foundation-design-tokens-space--docs) are available for the length of the margin.
 
-| Class name    | Preview                                                                                  |
-| ------------- | ---------------------------------------------------------------------------------------- |
-| `.ams-mb--xs` | <div className="ams-docs-token-preview--space" style="inline-size: var(--ams-mb-xs);" /> |
-| `.ams-mb--sm` | <div className="ams-docs-token-preview--space" style="inline-size: var(--ams-mb-sm);" /> |
-| `.ams-mb--md` | <div className="ams-docs-token-preview--space" style="inline-size: var(--ams-mb-md);" /> |
-| `.ams-mb--lg` | <div className="ams-docs-token-preview--space" style="inline-size: var(--ams-mb-lg);" /> |
-| `.ams-mb--xl` | <div className="ams-docs-token-preview--space" style="inline-size: var(--ams-mb-xl);" /> |
+| Class name    | Preview                                                                                      |
+| ------------- | -------------------------------------------------------------------------------------------- |
+| `.ams-mb--xs` | <div className="ams-docs-token-preview--space" style="inline-size: var(--ams-margin-xs);" /> |
+| `.ams-mb--sm` | <div className="ams-docs-token-preview--space" style="inline-size: var(--ams-margin-sm);" /> |
+| `.ams-mb--md` | <div className="ams-docs-token-preview--space" style="inline-size: var(--ams-margin-md);" /> |
+| `.ams-mb--lg` | <div className="ams-docs-token-preview--space" style="inline-size: var(--ams-margin-lg);" /> |
+| `.ams-mb--xl` | <div className="ams-docs-token-preview--space" style="inline-size: var(--ams-margin-xl);" /> |
 
 ## Guidelines
 
