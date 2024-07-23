@@ -44,6 +44,14 @@ describe('Page menu', () => {
     expect(component).toHaveClass('ams-page-menu--align-end')
   })
 
+  it('renders a class name to prevent wrapping', () => {
+    const { container } = render(<PageMenu wrap={false} />)
+
+    const component = container.querySelector(':only-child')
+
+    expect(component).toHaveClass('ams-page-menu--no-wrap')
+  })
+
   it('is able to pass a React ref', () => {
     const ref = createRef<HTMLUListElement>()
 

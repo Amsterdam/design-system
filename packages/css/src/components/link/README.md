@@ -30,7 +30,7 @@ We discourage using styles for visited links because they often make the page le
 The inline link does have a visited style.
 It is not part of navigation elements that are frequently scanned.
 
-## Relevant WCAG Requirements
+## Relevant WCAG requirements
 
 - [WCAG 1.4.3](https://www.w3.org/TR/WCAG21/#contrast-minimum)
 - [WCAG 2.4.4](https://www.w3.org/TR/WCAG21/#link-purpose-in-context)

@@ -7,7 +7,7 @@ import { forwardRef, useState } from 'react'
 import type { ForwardedRef, HTMLAttributes } from 'react'
 import { FormErrorListWithErrors } from './FormErrorListWithErrors'
 import { useAddErrorCountToDocumentTitle } from './useAddErrorCountToDocumentTitle'
-import type { HeadingLevel } from '../Heading'
+import type { HeadingProps } from '../Heading'
 
 export type FormError = {
   id: string
@@ -30,7 +30,7 @@ export type FormErrorListProps = {
    * The hierarchical level of the Heading within the document.
    * Note: this intentionally does not change the font size.
    */
-  headingLevel?: HeadingLevel
+  headingLevel?: HeadingProps['level']
 } & HTMLAttributes<HTMLDivElement>
 
 export const FormErrorList = forwardRef(
