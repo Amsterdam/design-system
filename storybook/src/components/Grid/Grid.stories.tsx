@@ -40,6 +40,9 @@ const meta = {
       options: [undefined, 'small', 'medium', 'large'],
     },
   },
+  parameters: {
+    layout: 'fullscreen',
+  },
 } satisfies Meta<typeof Grid>
 
 export default meta
@@ -66,7 +69,7 @@ type CellStory = StoryObj<typeof cellMeta>
 const StoryTemplate: Story = {
   decorators: [
     (Story) => (
-      <Screen>
+      <Screen className="ams-storybook-show-grid">
         <Story />
       </Screen>
     ),
@@ -76,7 +79,7 @@ const StoryTemplate: Story = {
 const CellStoryTemplate: CellStory = {
   decorators: [
     (Story) => (
-      <Screen>
+      <Screen className="ams-storybook-show-grid">
         <Grid>
           <Story />
         </Grid>
@@ -91,7 +94,9 @@ const TwelveGridCells = Array.from(Array(12).keys()).map((i) => <Grid.Cell class
 export const Default: Story = {
   ...StoryTemplate,
   args: {
-    children: TwelveGridCells,
+    style: {
+      height: '8rem',
+    },
   },
 }
 
