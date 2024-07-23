@@ -7,6 +7,7 @@
 - [Code of Conduct](#book-code-of-conduct)
 - [Opening an Issue](#inbox_tray-opening-an-issue)
 - [Submitting Pull Requests](#repeat-submitting-a-pull-request)
+- [Local development](#computer-local-development)
 - [Credits](#pray-credits)
 
 ## :book: Code of Conduct
@@ -109,9 +110,15 @@ If there is no design, or if you have questions about an existing design, please
 - **Promptly address any CI failures**.
   If your pull request fails to build or pass tests, please push another commit to fix it.
 
-### Local development
+### Cooperation with NL Design System
 
-#### Install prerequisites
+This repository is part of the [NL Design System](https://nldesignsystem.nl/).
+When you contribute to this project you allow your contributions to be made a part of the NL Design System component library.
+For more information, please read about [their contribution model](https://nldesignsystem.nl/meedoen/estafettemodel/).
+
+## :computer: Local development
+
+### Install prerequisites
 
 You need to have the following tools installed to run Storybook locally:
 
@@ -148,13 +155,13 @@ To enable correct validation and to fix lint/style errors on save, add this to y
 
 </details>
 
-#### Run storybook
+### Run storybook
 
 - Install dependencies: `pnpm install`
 - Build the packages: `npm run build`
 - Run storybook: `npm start`
 
-#### Adding a new component
+### Adding a new component
 
 Scaffold all necessary files for a new component at once through `npm run plop`.
 Enter the name of your component when prompted.
@@ -212,12 +219,6 @@ If the content of a documentation file is copied from another source, use the li
 Package versioning and publishing is done by the [maintainers](./documentation/maintainers.md) of the repository.
 Contributors do not need to increment versions.
 Contact the maintainers if you want to release a new version of a package.
-
-### Cooperation with NL Design System
-
-This repository is part of the [NL Design System](https://nldesignsystem.nl/).
-When you contribute to this project you allow your contributions to be made a part of the NL Design System component library.
-For more information, please read about [their contribution model](https://nldesignsystem.nl/meedoen/estafettemodel/).
 
 ## :pray: Credits
 
