@@ -27,7 +27,7 @@ For more information, review our [Security Policy](https://github.com/Amsterdam/
 
 ### Bug reports and other issues
 
-For all other issues, you can [create an issue on GitHub](https://help.github.com/en/github/managing-your-work-on-github/creating-an-issue).
+For all other issues, you can [create an issue on GitHub](https://github.com/Amsterdam/design-system/issues).
 
 Follow these guidelines when doing so:
 
