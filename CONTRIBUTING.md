@@ -6,7 +6,7 @@
 
 - [Code of Conduct](#book-code-of-conduct)
 - [Opening an Issue](#inbox_tray-opening-an-issue)
-- [Submitting Pull Requests](#repeat-submitting-pull-requests)
+- [Submitting Pull Requests](#repeat-submitting-a-pull-request)
 - [Credits](#pray-credits)
 
 ## :book: Code of Conduct
@@ -16,7 +16,8 @@ Read [our Code of Conduct](https://github.com/Amsterdam/.github/blob/main/CODE_O
 
 ## :inbox_tray: Opening an issue
 
-Before creating an issue, check if you are using the latest version of the project. If you are not up-to-date, see if updating fixes your issue first.
+Before creating an issue, check if you are using the latest version of the project.
+If you are not up-to-date, see if updating fixes your issue first.
 
 ### Reporting a security issue
 
@@ -31,15 +32,23 @@ For all other issues, you can [create an issue on GitHub](https://github.com/Ams
 
 Follow these guidelines when doing so:
 
-- **Do not open a duplicate issue.** Search through existing issues to see if your issue has previously been reported. If your issue exists, comment with any additional information you have. You may simply note "I have this problem too", which helps prioritize the most common problems and requests.
+- **Do not open a duplicate issue.**
+  Search through existing issues to see if your issue has previously been reported.
+  If your issue exists, comment with any additional information you have.
+  You may simply note "I have this problem too", which helps prioritize the most common problems and requests.
 
-- **Prefer using [reactions](https://github.blog/2016-03-10-add-reactions-to-pull-requests-issues-and-comments/)**, not comments, if you simply want to "+1" an existing issue.
+- **Prefer using [reactions](https://github.blog/2016-03-10-add-reactions-to-pull-requests-issues-and-comments/)**,
+  not comments, if you simply want to "+1" an existing issue.
 
-- **Fully complete the provided issue template.** The bug report template requests all the information we need to quickly and efficiently address your issue. Be clear, concise, and descriptive.
+- **Fully complete the provided issue template.**
+  The bug report template requests all the information we need to quickly and efficiently address your issue.
+  Be clear, concise, and descriptive.
 
 ## :repeat: Submitting a pull request
 
-Before opening a pull request for non-trivial changes, it is usually best to first open an issue to discuss the changes, or discuss your intended approach for solving the problem in the comments for an existing issue.
+Before opening a pull request for non-trivial changes,
+it is usually best to first open an issue to discuss the changes,
+or discuss your intended approach for solving the problem in the comments for an existing issue.
 
 ### Git workflows
 
@@ -71,19 +80,34 @@ If there is no design, or if you have questions about an existing design, please
 
 ### Pull request guidelines
 
-- **Smaller is better.** Submit **one** pull request per bug fix or feature. A pull request should contain isolated changes pertaining to a single bug fix or feature implementation. **Do not** refactor or reformat code that is unrelated to your change. It is better to **submit many small pull requests** rather than a single large one. Enormous pull requests will take enormous amounts of time to review, or may be rejected altogether.
+- **Smaller is better.**
+  Submit **one** pull request per bug fix or feature.
+  A pull request should contain isolated changes pertaining to a single bug fix or feature implementation.
+  **Do not** refactor or reformat code that is unrelated to your change.
+  It is better to **submit many small pull requests** rather than a single large one.
+  Enormous pull requests will take enormous amounts of time to review, or may be rejected altogether.
 
-- **Coordinate bigger changes.** For large and non-trivial changes, open an issue to discuss a strategy with the maintainers. Otherwise, you risk doing a lot of work for nothing!
+- **Coordinate bigger changes.**
+  For large and non-trivial changes, open an issue to discuss a strategy with the maintainers.
+  Otherwise, you risk doing a lot of work for nothing!
 
-- **Prioritize understanding over cleverness.** Write code clearly and concisely. Remember that source code usually gets written once and read often. Ensure the code is clear to the reader. The purpose and logic should be obvious to a reasonably skilled developer, otherwise you should add a comment that explains it.
+- **Prioritize understanding over cleverness.**
+  Write code clearly and concisely.
+  Remember that source code usually gets written once and read often.
+  Ensure the code is clear to the reader.
+  The purpose and logic should be obvious to a reasonably skilled developer, otherwise you should add a comment that explains it.
 
-- **Follow existing coding style and conventions.** Keep your code consistent with the style, formatting, and conventions in the rest of the code base. When possible, these will be enforced with a linter. Consistency makes it easier to review and modify in the future.
+- **Follow existing coding style and conventions.**
+  Keep your code consistent with the style, formatting, and conventions in the rest of the code base.
+  When possible, these will be enforced with a linter.
+  Consistency makes it easier to review and modify in the future.
 
 - **[Follow our Definition of Done](https://github.com/Amsterdam/design-system/blob/main/documentation/definition-of-done.md)**.
 
 - **[Resolve any merge conflicts](https://help.github.com/en/github/collaborating-with-issues-and-pull-requests/resolving-a-merge-conflict-on-github)** that occur.
 
-- **Promptly address any CI failures**. If your pull request fails to build or pass tests, please push another commit to fix it.
+- **Promptly address any CI failures**.
+  If your pull request fails to build or pass tests, please push another commit to fix it.
 
 ### Local development
 
