@@ -18,7 +18,7 @@ Read [our Code of Conduct](https://github.com/Amsterdam/.github/blob/main/CODE_O
 
 Before creating an issue, check if you are using the latest version of the project. If you are not up-to-date, see if updating fixes your issue first.
 
-### Reporting security issues
+### Reporting a security issue
 
 **Do not** file a public issue for security vulnerabilities.
 This may result in the vulnerability details being made public, creating an unsafe situation.
@@ -37,7 +37,7 @@ Follow these guidelines when doing so:
 
 - **Fully complete the provided issue template.** The bug report template requests all the information we need to quickly and efficiently address your issue. Be clear, concise, and descriptive.
 
-## :repeat: Submitting pull requests
+## :repeat: Submitting a pull request
 
 Before opening a pull request for non-trivial changes, it is usually best to first open an issue to discuss the changes, or discuss your intended approach for solving the problem in the comments for an existing issue.
 
@@ -61,11 +61,11 @@ Please follow these contribution guidelines from the NL Design System community:
 
 Also follow our [CSS](./packages/css/documentation/coding-conventions.md) and [React](./packages/react/documentation/coding-conventions.md) coding conventions.
 
-### Aligning with design/UX
+### Aligning with UX design
 
 You can find the most up-to-date documentation on design and UX in the Storybook in this repository.
 
-If you want to add a component, first check if it’s already included in our [Figma Library](<https://www.figma.com/file/ORa7CBIooPgZj6HsEPBxNR/Design-bibliotheek-(gepubliceerd)?node-id=149%3A1324&t=Ud6eZytawJYnLlyi-0>).
+If you want to add a component, first check if it’s already included in our [Figma Library](https://www.figma.com/design/9IGm6IdPUYizBNGsUnueBd).
 
 If there is no design, or if you have questions about an existing design, please contact <designsystem@amsterdam.nl>.
 
