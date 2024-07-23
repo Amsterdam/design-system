@@ -5,7 +5,6 @@
 ## Contents
 
 - [Code of Conduct](#book-code-of-conduct)
-<!-- - [Asking Questions](#bulb-asking-questions) -->
 - [Opening an Issue](#inbox_tray-opening-an-issue)
 - [Submitting Pull Requests](#repeat-submitting-pull-requests)
 - [Credits](#pray-credits)
@@ -14,12 +13,6 @@
 
 We pledge to act and interact in ways that contribute to an open, welcoming, diverse, inclusive, and healthy community.
 Read [our Code of Conduct](https://github.com/Amsterdam/.github/blob/main/CODE_OF_CONDUCT.md) if you haven’t already.
-
-<!-- ## :bulb: Asking Questions
-
-See our [Support Guide](https://github.com/jessesquires/.github/blob/main/SUPPORT.md). In short, GitHub issues are not the appropriate place to debug your specific project, but should be reserved for filing bugs and feature requests.
-
-TODO: add SUPPORT.md, https://docs.github.com/en/communities/setting-up-your-project-for-healthy-contributions/adding-support-resources-to-your-project -->
 
 ## :inbox_tray: Opening an issue
 
