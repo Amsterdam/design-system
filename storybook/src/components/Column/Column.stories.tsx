@@ -3,7 +3,8 @@
  * Copyright Gemeente Amsterdam
  */
 
-import { Card, Column, Heading, Paragraph } from '@amsterdam/design-system-react/src'
+import { Card, Heading, Paragraph } from '@amsterdam/design-system-react'
+import { Column } from '@amsterdam/design-system-react/src'
 import { Meta, StoryObj } from '@storybook/react'
 
 const ThreeBoxes = Array.from(Array(3).keys()).map((i) => (

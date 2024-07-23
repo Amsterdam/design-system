@@ -3,7 +3,8 @@
  * Copyright Gemeente Amsterdam
  */
 
-import { Button, Icon } from '@amsterdam/design-system-react/src'
+import { Icon } from '@amsterdam/design-system-react'
+import { Button } from '@amsterdam/design-system-react/src'
 import { ShareIcon } from '@amsterdam/design-system-react-icons'
 import { Meta, StoryObj } from '@storybook/react'
 

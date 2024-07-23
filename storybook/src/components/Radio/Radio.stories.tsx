@@ -3,7 +3,8 @@
  * Copyright Gemeente Amsterdam
  */
 
-import { FieldSet, Radio } from '@amsterdam/design-system-react/src'
+import { FieldSet } from '@amsterdam/design-system-react'
+import { Radio } from '@amsterdam/design-system-react/src'
 import { useArgs } from '@storybook/preview-api'
 import { Meta, StoryObj } from '@storybook/react'
 
