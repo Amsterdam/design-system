@@ -8,13 +8,13 @@ Adds white space between a set of elements.
 
 The five sizes of [Component Space](/docs/foundation-design-tokens-space--docs) are available for the length of the margin.
 
-| Class name     | Preview                                                                                   |
-| -------------- | ----------------------------------------------------------------------------------------- |
-| `.ams-gap--xs` | <div className="ams-docs-token-preview--space" style="inline-size: var(--ams-gap-xs);" /> |
-| `.ams-gap--sm` | <div className="ams-docs-token-preview--space" style="inline-size: var(--ams-gap-sm);" /> |
-| `.ams-gap--md` | <div className="ams-docs-token-preview--space" style="inline-size: var(--ams-gap-md);" /> |
-| `.ams-gap--lg` | <div className="ams-docs-token-preview--space" style="inline-size: var(--ams-gap-lg);" /> |
-| `.ams-gap--xl` | <div className="ams-docs-token-preview--space" style="inline-size: var(--ams-gap-xl);" /> |
+| Class name    | Preview                                                                                   |
+| ------------- | ----------------------------------------------------------------------------------------- |
+| `ams-gap--xs` | <div className="ams-docs-token-preview--space" style="inline-size: var(--ams-gap-xs);" /> |
+| `ams-gap--sm` | <div className="ams-docs-token-preview--space" style="inline-size: var(--ams-gap-sm);" /> |
+| `ams-gap--md` | <div className="ams-docs-token-preview--space" style="inline-size: var(--ams-gap-md);" /> |
+| `ams-gap--lg` | <div className="ams-docs-token-preview--space" style="inline-size: var(--ams-gap-lg);" /> |
+| `ams-gap--xl` | <div className="ams-docs-token-preview--space" style="inline-size: var(--ams-gap-xl);" /> |
 
 ## Guidelines
 

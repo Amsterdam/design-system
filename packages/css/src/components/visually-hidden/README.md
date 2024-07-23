@@ -6,7 +6,7 @@ Hides content from sighted users but keeps it accessible to non-visual user agen
 
 ## Class name
 
-`.ams-visually-hidden`
+`ams-visually-hidden`
 
 ## Guidelines
 
