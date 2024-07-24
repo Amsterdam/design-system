@@ -121,8 +121,7 @@ export const Pagination = forwardRef(
       onChangePage(currentPage + 1)
     }
 
-    const id = useId()
-    const navLabelId = `nav-label-${id}`
+    const navLabelId = useId()
 
     // Don't show pagination if you only have one page
     if (totalPages <= 1) {
