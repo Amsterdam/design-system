@@ -58,12 +58,6 @@ export const Alignment: Story = {
   args: {
     align: 'evenly',
   },
-  argTypes: {
-    alignVertical: { table: { disable: true } },
-    as: { table: { disable: true } },
-    gap: { table: { disable: true } },
-    wrap: { table: { disable: true } },
-  },
 }
 
 export const EndAlignASingleChild: Story = {
@@ -71,12 +65,6 @@ export const EndAlignASingleChild: Story = {
     align: 'end',
     alignVertical: 'center',
     children: <Avatar label="AB" />,
-  },
-  argTypes: {
-    alignVertical: { table: { disable: true } },
-    as: { table: { disable: true } },
-    gap: { table: { disable: true } },
-    wrap: { table: { disable: true } },
   },
 }
 
@@ -86,11 +74,7 @@ export const EndAlignASingleChildRtl: Story = {
     dir: 'rtl',
   },
   argTypes: {
-    alignVertical: { table: { disable: true } },
-    as: { table: { disable: true } },
     dir: { table: { disable: true } },
-    gap: { table: { disable: true } },
-    wrap: { table: { disable: true } },
   },
 }
 
@@ -102,22 +86,11 @@ export const AlignOpposingTexts: Story = {
     className: undefined,
     wrap: true,
   },
-  argTypes: {
-    as: { table: { disable: true } },
-    gap: { table: { disable: true } },
-    wrap: { table: { disable: true } },
-  },
 }
 
 export const VerticalAlignment: Story = {
   args: {
     alignVertical: 'center',
-  },
-  argTypes: {
-    align: { table: { disable: true } },
-    as: { table: { disable: true } },
-    gap: { table: { disable: true } },
-    wrap: { table: { disable: true } },
   },
 }
 
@@ -127,11 +100,5 @@ export const Wrapping: Story = {
       <span className="ams-docs-item" key={i} style={{ flexBasis: '16rem' }} />
     )),
     wrap: true,
-  },
-  argTypes: {
-    align: { table: { disable: true } },
-    alignVertical: { table: { disable: true } },
-    as: { table: { disable: true } },
-    gap: { table: { disable: true } },
   },
 }

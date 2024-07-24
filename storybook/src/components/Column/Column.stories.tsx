@@ -58,21 +58,11 @@ export const Alignment: Story = {
   args: {
     align: 'center',
   },
-  argTypes: {
-    alignHorizontal: { table: { disable: true } },
-    as: { table: { disable: true } },
-    gap: { table: { disable: true } },
-  },
 }
 
 export const HorizontalAlignment: Story = {
   args: {
     alignHorizontal: 'center',
-  },
-  argTypes: {
-    align: { table: { disable: true } },
-    as: { table: { disable: true } },
-    gap: { table: { disable: true } },
   },
 }
 
@@ -101,10 +91,5 @@ export const CustomTagName: Story = {
       </Card>,
     ],
     className: undefined,
-  },
-  argTypes: {
-    align: { table: { disable: true } },
-    alignHorizontal: { table: { disable: true } },
-    as: { table: { disable: true } },
   },
 }
