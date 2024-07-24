@@ -512,11 +512,16 @@
   window.global = window;
 </script>
 
-    <script type="module" crossorigin src="./assets/iframe-Bm4TKUHQ.js"></script>
+    <script type="module" crossorigin src="./assets/iframe-BP4TiU4j.js"></script>
   </head>
 
   <body>
     <style>
+  :root {
+    --ams-docs-grey: rgba(0, 0, 0, 0.0625);
+    --ams-docs-pink: rgba(229, 0, 130, 0.25);
+  }
+
   .ams-docs-figure {
     display: flex;
     gap: 0.25rem;
@@ -553,18 +558,6 @@
     width: fit-content;
   }
 
-  .ams-docs-paragraph {
-    font-family: "Amsterdam Sans", sans-serif;
-    font-size: 1rem;
-    line-height: 1.5;
-  }
-
-  .ams-docs-pink-box {
-    background-color: rgba(229, 0, 130, 25%); /* stylelint-disable-line color-function-notation */
-    padding-block: 2rem;
-    text-align: center;
-  }
-
   .ams-docs-card {
     border: 0.0625rem solid hotpink;
     display: flex;
@@ -589,6 +582,65 @@
 
   .ams-docs-light-background {
     background-color: #FFE600; /* Yellow */
+  }
+
+  .ams-docs-column,
+  .ams-docs-row {
+    background: repeating-linear-gradient(
+      135deg,
+      var(--ams-docs-grey),
+      var(--ams-docs-grey) 0.5rem,
+      white 0.5rem,
+      white 1rem
+    );
+    border: thin solid var(--ams-docs-grey);
+  }
+
+  .ams-docs-column {
+    max-inline-size: 16rem;
+    min-block-size: 16rem;
+  }
+
+  .ams-docs-row {
+    min-block-size: 6rem;
+  }
+
+  .ams-docs-grid {
+    /* Todo columns background */
+  }
+
+  .ams-docs-item {
+    background-color: var(--ams-docs-pink);
+    border: thin dashed var(--ams-docs-grey);
+    font-family: "Amsterdam Sans", sans-serif;
+    font-size: var(--ams-paragraph-small-font-size);
+    line-height: var(--ams-paragraph-small-line-height);
+    margin-block: 0;
+    margin-inline: 0;
+    padding-block: 1.5rem;
+    text-align: center;
+  }
+
+  .ams-docs-row > .ams-docs-item {
+    flex-basis: 8rem;
+    padding-inline: 1.5rem;
+  }
+
+  .ams-docs-column > .ams-docs-item {
+    min-inline-size: 3rem;
+  }
+
+  [class*="ams-docs-token-preview--"] {
+    block-size: 1rem;
+  }
+
+  [class*="ams-docs-token-preview--border"] {
+    border-inline-start-style: solid;
+  }
+
+  [class*="ams-docs-token-preview--space"] {
+    outline: 1px dashed var(--ams-color-neutral-grey2);
+    background-color: var(--ams-color-primary-white);
   }
 </style>
 <div class="sb-preparing-story sb-wrapper">
