@@ -32,7 +32,7 @@ type Story = StoryObj<typeof meta>
 
 export const Default: Story = {}
 
-export const InvertedColor: Story = {
+export const InverseColour: Story = {
   args: {
     inverseColor: true,
   },
