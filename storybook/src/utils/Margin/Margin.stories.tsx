@@ -8,9 +8,9 @@ import { Meta, StoryObj } from '@storybook/react'
 import type { MarginProps } from './Margin'
 import { Margin } from './Margin'
 
-const render = ({ length }: MarginProps) => (
+const render = ({ size }: MarginProps) => (
   <>
-    <Heading className={`ams-mb--${length}`} level={2}>
+    <Heading className={`ams-mb--${size}`} level={2}>
       This heading has a bottom margin
     </Heading>
     <Paragraph key={1}>It introduces white space between the heading and this paragraph below.</Paragraph>
@@ -21,12 +21,7 @@ const meta = {
   title: 'Utilities/CSS/Margin',
   component: Margin,
   args: {
-    length: 'xs',
-  },
-  argTypes: {
-    length: {
-      control: 'radio',
-    },
+    size: 'xs',
   },
 } satisfies Meta<typeof Margin>
 

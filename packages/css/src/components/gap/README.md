@@ -6,7 +6,7 @@ Adds white space between a set of elements.
 
 ## Class names
 
-The five sizes of [Component Space](/docs/foundation-design-tokens-space--docs) are available for the length of the margin.
+The five sizes of [Component Space](/docs/foundation-design-tokens-space--docs) are available for the width or height of the gap.
 
 | Class name    | Preview                                                                                   |
 | ------------- | ----------------------------------------------------------------------------------------- |

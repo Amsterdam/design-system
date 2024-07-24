@@ -8,8 +8,8 @@ import { Meta, StoryObj } from '@storybook/react'
 import { Gap } from './Gap'
 import type { GapProps } from './Gap'
 
-const render = ({ length }: GapProps) => (
-  <div className={`ams-gap--${length}`}>
+const render = ({ size }: GapProps) => (
+  <div className={`ams-gap--${size}`}>
     <Paragraph>These paragraphs are separated by a gap.</Paragraph>
     <Paragraph>These paragraphs are separated by a gap.</Paragraph>
     <Paragraph>These paragraphs are separated by a gap.</Paragraph>
@@ -20,7 +20,7 @@ const meta = {
   title: 'Utilities/CSS/Gap',
   component: Gap,
   args: {
-    length: 'xs',
+    size: 'xs',
   },
 } satisfies Meta<typeof Gap>
 
