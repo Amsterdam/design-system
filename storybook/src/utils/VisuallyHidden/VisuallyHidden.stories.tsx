@@ -8,15 +8,15 @@ import { Meta, StoryObj } from '@storybook/react'
 import type { VisuallyHiddenProps } from './VisuallyHidden'
 import { VisuallyHidden } from './VisuallyHidden'
 
-const render = ({ children }: VisuallyHiddenProps) => [
-  <Paragraph key={0}>
-    This paragraph is available for everyone. Below this is a second paragraph, but it is aimed at non-visual user
-    agents only. It is not perceivable on a screen.
-  </Paragraph>,
-  <Paragraph className="ams-visually-hidden" key={1}>
-    {children}
-  </Paragraph>,
-]
+const render = ({ children }: VisuallyHiddenProps) => (
+  <>
+    <Paragraph>
+      This paragraph is available for everyone. Below this is a second paragraph, but it is aimed at non-visual user
+      agents only. It is not perceivable on a screen.
+    </Paragraph>
+    <Paragraph className="ams-visually-hidden">{children}</Paragraph>
+  </>
+)
 
 const meta = {
   title: 'Utilities/CSS/Visually Hidden',
