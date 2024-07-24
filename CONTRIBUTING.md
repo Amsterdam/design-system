@@ -1,37 +1,133 @@
 <!-- @license CC0-1.0 -->
 
-# Contributing
+# Contributing Guidelines
 
-Before starting work on a new component, check the [NL Design System community](https://github.com/nl-design-system/) for components that might already do exactly what you want.
-If these don’t exist, or aren’t up to our requirements, we can add a new component.
+## Contents
 
-Please also follow these contribution guidelines from the NL Design System community:
+- [Code of Conduct](#book-code-of-conduct)
+- [Opening an Issue](#inbox_tray-opening-an-issue)
+- [Submitting Pull Requests](#repeat-submitting-a-pull-request)
+- [Local development](#computer-local-development)
+- [Credits](#pray-credits)
+
+## :book: Code of Conduct
+
+We pledge to act and interact in ways that contribute to an open, welcoming, diverse, inclusive, and healthy community.
+Read [our Code of Conduct](https://github.com/Amsterdam/.github/blob/main/CODE_OF_CONDUCT.md) if you haven’t already.
+
+## :inbox_tray: Opening an issue
+
+Before creating an issue, check if you are using the latest version of the project.
+If you are not up-to-date, see if updating fixes your issue first.
+
+### Reporting a security issue
+
+**Do not** file a public issue for security vulnerabilities.
+This may result in the vulnerability details being made public, creating an unsafe situation.
+You can submit your report via [the Zerocopter Coordinated Vulnerability Disclosure (CVD) form](https://app.zerocopter.com/en/cvd/fc5dad1c-27ee-4571-880b-438dc672d178).
+For more information, review our [Security Policy](https://github.com/Amsterdam/.github/blob/main/SECURITY.md).
+
+### Bug reports and other issues
+
+For all other issues, you can [create an issue on GitHub](https://github.com/Amsterdam/design-system/issues).
+
+Follow these guidelines when doing so:
+
+- **Do not open a duplicate issue.**
+  Search through existing issues to see if your issue has previously been reported.
+  If your issue exists, comment with any additional information you have.
+  Reacting with a ‘thumbs up’ helps us prioritize the most common problems and requests.
+
+- **Prefer using [reactions](https://github.blog/2016-03-10-add-reactions-to-pull-requests-issues-and-comments/)**,
+  not comments, if you simply want to "+1" an existing issue.
+
+- **Fully complete the provided issue template.**
+  The bug report template requests all the information we need to quickly and efficiently address your issue.
+  Be clear, concise, and descriptive.
+
+## :repeat: Submitting a pull request
+
+Before opening a pull request for non-trivial changes,
+it is usually best to first open an issue to discuss the changes,
+or discuss your intended approach for solving the problem in the comments for an existing issue.
+
+### Git workflows
+
+We use [GitFlow](https://datasift.github.io/gitflow/IntroducingGitFlow.html) for this project.
+Members of the [Amsterdam GitHub organisation](https://github.com/Amsterdam) can request push access to the repository,
+to be able to push branches.
+If you do not want access, you can [fork the repo](https://help.github.com/en/github/getting-started-with-github/fork-a-repo) and [submit a pull request](https://help.github.com/en/github/collaborating-with-issues-and-pull-requests/proposing-changes-to-your-work-with-pull-requests).
+We currently do not have a workflow for contributors that do not work for the City of Amsterdam.
+If you do not work for the City of Amsterdam and want to contribute to this repository, please contact the [maintainers](./documentation/maintainers.md).
+
+### Contribution guidelines
+
+Please follow these contribution guidelines from the NL Design System community:
 
 - [Accessibility](https://nl-design-system.github.io/utrecht/storybook/?path=/docs/nl-design-system-contributing-accessibility--docs)
 - [CSS](https://nl-design-system.github.io/utrecht/storybook/?path=/docs/nl-design-system-contributing-css--docs)
 - [Design Tokens](https://nl-design-system.github.io/utrecht/storybook/?path=/docs/nl-design-system-contributing-design-tokens--docs)
 - [HTML](https://nl-design-system.github.io/utrecht/storybook/?path=/docs/nl-design-system-contributing-html--docs)
-- [npm package](https://nl-design-system.github.io/utrecht/storybook/?path=/docs/nl-design-system-contributing-npm-package--docs)
-- [Storybook](https://nl-design-system.github.io/utrecht/storybook/?path=/docs/nl-design-system-contributing-storybook--docs)
 
-## Aligning with design/UX
+Also follow our [CSS](./packages/css/documentation/coding-conventions.md) and [React](./packages/react/documentation/coding-conventions.md) coding conventions.
 
-Currently, you can find the most up-to-date documentation on design and UX on [amsterdam.nl/designsystem](https://amsterdam.nl/designsystem).
-In time, the Storybook(s) in this repository should be the definitive source for documentation on code, design and UX.
+### Aligning with UX design
 
-If you want to add a component, first check if it’s already included in our [Figma Library](<https://www.figma.com/file/ORa7CBIooPgZj6HsEPBxNR/Design-bibliotheek-(gepubliceerd)?node-id=149%3A1324&t=Ud6eZytawJYnLlyi-0>).
+You can find the most up-to-date documentation on design and UX in the Storybook in this repository.
+
+If you want to add a component, first check if it’s already included in our [Figma Library](https://www.figma.com/design/9IGm6IdPUYizBNGsUnueBd).
 
 If there is no design, or if you have questions about an existing design, please contact <designsystem@amsterdam.nl>.
 
-## Install prerequisites
+### Pull request guidelines
+
+- **Smaller is better.**
+  Submit **one** pull request per bug fix or feature.
+  A pull request should contain isolated changes pertaining to a single bug fix or feature implementation.
+  **Do not** refactor or reformat code that is unrelated to your change.
+  It is better to **submit many small pull requests** rather than a single large one.
+  Enormous pull requests will take enormous amounts of time to review, or may be rejected altogether.
+
+- **Coordinate bigger changes.**
+  For large and non-trivial changes, open an issue to discuss a strategy with the maintainers.
+  Otherwise, you risk doing a lot of work for nothing!
+
+- **Prioritize understanding over cleverness.**
+  Write code clearly and concisely.
+  Remember that source code usually gets written once and read often.
+  Ensure the code is clear to the reader.
+  The purpose and logic should be obvious to a reasonably skilled developer, otherwise you should add a comment that explains it.
+
+- **Follow existing coding style and conventions.**
+  Keep your code consistent with the style, formatting, and conventions in the rest of the code base.
+  When possible, these will be enforced with a linter.
+  Consistency makes it easier to review and modify in the future.
+
+- **[Follow our Definition of Done](https://github.com/Amsterdam/design-system/blob/main/documentation/definition-of-done.md)**.
+
+- **[Resolve any merge conflicts](https://help.github.com/en/github/collaborating-with-issues-and-pull-requests/resolving-a-merge-conflict-on-github)** that occur.
+
+- **Promptly address any CI failures**.
+  If your pull request fails to build or pass tests, please push another commit to fix it.
+
+### Cooperation with NL Design System
+
+This repository is part of the [NL Design System](https://nldesignsystem.nl/).
+When you contribute to this project you allow your contributions to be made a part of the NL Design System component library.
+For more information, please read about [their contribution model](https://nldesignsystem.nl/meedoen/estafettemodel/).
+
+## :computer: Local development
+
+### Install prerequisites
 
 You need to have the following tools installed to run Storybook locally:
 
-- Git
+- [Git](https://git-scm.com/)
 - [Node.js and npm](https://nodejs.org/en/)
-- `pnpm`, `npm install -g pnpm`
+- [Pnpm](https://pnpm.io/), `npm install -g pnpm`
 
-## Install code editor
+<details>
+  <summary>Pro tip: VSCode extensions and linting on save</summary>
 
 You can use any editor you like, but if you use [Visual Studio Code](https://code.visualstudio.com/) we recommend the following extensions for this project:
 
@@ -57,13 +153,23 @@ To enable correct validation and to fix lint/style errors on save, add this to y
   "editor.formatOnSave": true,
 ```
 
-## Run storybook
+</details>
+
+### Run storybook
 
 - Install dependencies: `pnpm install`
 - Build the packages: `npm run build`
 - Run storybook: `npm start`
 
-## Locally link this library to a local project
+### Adding a new component
+
+Scaffold all necessary files for a new component at once through `npm run plop`.
+Enter the name of your component when prompted.
+Answer the other prompts if applicable, otherwise use the defaults.
+This will create files for the design tokens, CSS and React components, and React Stories.
+
+<details>
+  <summary>Pro tip: Locally linking this library to a local project</summary>
 
 If you need to link your local version of this library (to test your unpublished changes, for example) to a local project, follow these steps:
 
@@ -74,13 +180,15 @@ If you need to link your local version of this library (to test your unpublished
 - Run `npm link <package-name>`.
   If you want to link multiple packages, separate the package names with a space.
   For example: `npm link @amsterdam/design-system-tokens @amsterdam/design-system-assets @amsterdam/design-system-react @amsterdam/design-system-react-icons`.
-  Be careful: you have to link all packages in the same namespace together.
+  **Be careful**: you have to link all packages in the same namespace together.
   Doing it one at a time will only link the last one.
   <!-- TODO: is there a workaround for this? -->
 - Sometimes the local link is severed.
   Run `npm link @amsterdam/...` again if this happens.
 
-## Licensing
+</details>
+
+### Licensing
 
 All Javascript, Typescript and style files should start with a license header.
 We use the EUPL-1.2+ license for these files.
@@ -106,31 +214,12 @@ The license header looks like this:
 
 If the content of a documentation file is copied from another source, use the license of the original file.
 
-## Git branching strategy and publishing
+### Publishing
 
-We use [GitFlow](https://datasift.github.io/gitflow/IntroducingGitFlow.html) for this project.
-All members of the [Amsterdam GitHub organisation](https://github.com/Amsterdam) are allowed to create features branches and open pull requests.
-Only [the maintainers of this repository](./documentation/maintainers.md) are allowed to merge pull requests into the `main` and `develop` branches.
-We currently do not have a workflow for contributors that do not work for the City of Amsterdam.
-If you do not work for the City of Amsterdam and want to contribute to this repository, please contact the maintainers.
-
-Package versioning and publishing is done through Lerna, by the maintainers of the repository.
+Package versioning and publishing is done by the [maintainers](./documentation/maintainers.md) of the repository.
 Contributors do not need to increment versions.
 Contact the maintainers if you want to release a new version of a package.
 
-## Adding a new component
+## :pray: Credits
 
-Scaffold all necessary files for a new component at once through `npx plop`.
-Enter the name of your component when prompted.
-This will create files for the design tokens, CSS and React components, and React Stories.
-
-## Publishing
-
-Only the [maintainers](./documentation/maintainers.md) can release new versions of our packages.
-See the [publishing docs](./documentation/publishing.md) for more information.
-
-## Cooperation with NL Design System
-
-This repository is part of the [NL Design System](https://nldesignsystem.nl/).
-When you contribute to this project you allow your contributions to be made a part of the NL Design System component library.
-For more information, please read about [their contribution model](https://nldesignsystem.nl/meedoen/estafettemodel/).
+This document is adapted from a template made by [@jessesquires](https://github.com/jessesquires).
