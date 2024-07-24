@@ -119,6 +119,14 @@ describe('Pagination', () => {
     expect(nextButton).toHaveTextContent('next')
   })
 
+  it('renders an accessible label for the navigation', () => {
+    render(<Pagination totalPages={10} visuallyHiddenLabel="Pagination" />)
+
+    const navElement = screen.getByRole('navigation')
+
+    expect(navElement).toHaveAccessibleName('Pagination')
+  })
+
   it('renders accessible labels for the ‘previous’ and ‘next’ buttons', () => {
     render(
       <Pagination totalPages={10} previousVisuallyHiddenLabel="Previous page" nextVisuallyHiddenLabel="Next page" />,
