@@ -3,7 +3,8 @@
  * Copyright Gemeente Amsterdam
  */
 
-import { Label, Switch } from '@amsterdam/design-system-react/src'
+import { Label } from '@amsterdam/design-system-react'
+import { Switch } from '@amsterdam/design-system-react/src'
 import { useArgs } from '@storybook/preview-api'
 import { Meta, StoryObj } from '@storybook/react'
 

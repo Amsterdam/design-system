@@ -3,7 +3,8 @@
  * Copyright Gemeente Amsterdam
  */
 
-import { Avatar, Heading, Link, Row } from '@amsterdam/design-system-react/src'
+import { Avatar, Heading, Link } from '@amsterdam/design-system-react'
+import { Row } from '@amsterdam/design-system-react/src'
 import { crossAlignOptions, mainAlignOptions } from '@amsterdam/design-system-react/src/common/layout'
 import { Meta, StoryObj } from '@storybook/react'
 

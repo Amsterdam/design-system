@@ -3,7 +3,8 @@
  * Copyright Gemeente Amsterdam
  */
 
-import { Footer, Grid, Heading, LinkList, PageMenu, Paragraph } from '@amsterdam/design-system-react/src'
+import { Grid, Heading, LinkList, PageMenu, Paragraph } from '@amsterdam/design-system-react'
+import { Footer } from '@amsterdam/design-system-react/src'
 import {
   CameraIcon,
   ClockIcon,
