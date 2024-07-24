@@ -30,6 +30,10 @@ We discourage using styles for visited links because they often make the page le
 The inline link does have a visited style.
 It is not part of navigation elements that are frequently scanned.
 
+### Using links with third-party routers
+
+Check out the [developer guide](/docs/docs-developer-guide-using-links-with-routers--docs) on how to integrate links with external routing solutions.
+
 ## Relevant WCAG requirements
 
 - [WCAG 1.4.3](https://www.w3.org/TR/WCAG21/#contrast-minimum)

@@ -18,6 +18,10 @@ A prominent navigation element to quickly start a task.
   If this is not possible, leave the last cells of the grid empty.
 - If you have a group of links for which a description is unnecessary or illogical, use a [Link List](/docs/components-navigation-link--docs).
 
+### Using links with third-party routers
+
+Check out the [developer guide](/docs/docs-developer-guide-using-links-with-routers--docs) on how to integrate links with external routing solutions.
+
 ## Relevant WCAG requirements
 
 The Top Task Link is subject to the same requirements as [regular links](/docs/components-navigation-link--docs).

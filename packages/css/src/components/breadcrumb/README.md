@@ -18,3 +18,7 @@ It distracts the user from their task, or one can accidentally interpret it as a
 
 It is a secondary navigation pattern.
 It can’t replace the main navigation.
+
+### Using links with third-party routers
+
+Check out the [developer guide](/docs/docs-developer-guide-using-links-with-routers--docs) on how to integrate links with external routing solutions.
