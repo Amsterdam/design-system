@@ -8,6 +8,10 @@
   display: inline-flex;
 }
 
+.ams-icon::before {
+  content: "\200B"; // Allow baseline alignment with text.
+}
+
 .ams-icon svg {
   fill: currentColor;
 }
