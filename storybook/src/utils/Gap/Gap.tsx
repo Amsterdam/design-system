@@ -5,12 +5,9 @@
 
 import { HTMLAttributes, PropsWithChildren } from 'react'
 
-const gapLengthOptions = ['xs', 'sm', 'md', 'lg', 'xl'] as const
-type GapLength = (typeof gapLengthOptions)[number]
-
 export type GapProps = {
   /** The amount of vertical space between items. */
-  length: GapLength
+  length: 'xs' | 'sm' | 'md' | 'lg' | 'xl'
 } & PropsWithChildren<HTMLAttributes<HTMLSpanElement>>
 
 /** Renders examples in Storybook. Not for reuse. */

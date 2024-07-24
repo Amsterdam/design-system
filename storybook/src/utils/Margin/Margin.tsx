@@ -3,14 +3,11 @@
  * Copyright Gemeente Amsterdam
  */
 
-import type { HTMLAttributes } from 'react'
-
-const marginLengthOptions = ['xs', 'sm', 'md', 'lg', 'xl'] as const
-type MarginLength = (typeof marginLengthOptions)[number]
+import type { HTMLAttributes, PropsWithChildren } from 'react'
 
 export type MarginProps = {
   /** The amount of white space to add below the element. */
-  length: MarginLength
+  length: 'xs' | 'sm' | 'md' | 'lg' | 'xl'
 } & PropsWithChildren<HTMLAttributes<HTMLSpanElement>>
 
 /** Renders examples in Storybook. Not for reuse. */

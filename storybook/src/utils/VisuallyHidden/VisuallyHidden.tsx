@@ -3,7 +3,7 @@
  * Copyright Gemeente Amsterdam
  */
 
-import type { HTMLAttributes } from 'react'
+import type { HTMLAttributes, PropsWithChildren } from 'react'
 
 export type VisuallyHiddenProps = PropsWithChildren<HTMLAttributes<HTMLSpanElement>>
 
