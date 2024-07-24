@@ -33,7 +33,7 @@ const meta = {
     length: {
       control: 'radio',
       description: 'The amount of vertical space between items.',
-      options: ['xs', 'sm', 'md', 'lg', 'xl'],
+      options: lengthOptions,
     },
   },
 } satisfies Meta<typeof Gap>

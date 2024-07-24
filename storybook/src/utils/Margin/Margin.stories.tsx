@@ -30,7 +30,7 @@ const meta = {
     length: {
       control: 'radio',
       description: 'The amount of white space to add below the element.',
-      options: ['xs', 'sm', 'md', 'lg', 'xl'],
+      options: lengthOptions,
     },
   },
 } satisfies Meta<typeof Margin>
