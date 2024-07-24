@@ -33,7 +33,7 @@ const meta = {
         type: 'radio',
         labels: { undefined: 'stretch' },
       },
-      options: [undefined, ...crossAlignOptions.filter((option) => option !== 'baseline')],
+      options: [undefined, ...crossAlignOptions],
     },
     className: {
       table: { disable: true },
@@ -103,7 +103,6 @@ export const AlignOpposingTexts: Story = {
     wrap: true,
   },
   argTypes: {
-    alignVertical: { table: { disable: true } },
     as: { table: { disable: true } },
     gap: { table: { disable: true } },
     wrap: { table: { disable: true } },
