@@ -11,9 +11,11 @@ describe('{{sentenceCase name}}', () => {
   it('renders', () => {
     {{#if role}}
     render(<{{pascalCase name}} />)
+
     const component = screen.getByRole('{{role}}')
     {{else}}
     const { container } = render(<{{pascalCase name}} />)
+
     const component = container.querySelector(':only-child')
     {{/if}}
 
@@ -24,9 +26,11 @@ describe('{{sentenceCase name}}', () => {
   it('renders a design system BEM class name', () => {
     {{#if role}}
     render(<{{pascalCase name}} />)
+
     const component = screen.getByRole('{{role}}')
     {{else}}
     const { container } = render(<{{pascalCase name}} />)
+
     const component = container.querySelector(':only-child')
     {{/if}}
 
@@ -36,9 +40,11 @@ describe('{{sentenceCase name}}', () => {
   it('renders an additional class name', () => {
     {{#if role}}
     render(<{{pascalCase name}} className="extra" />)
+
     const component = screen.getByRole('{{role}}')
     {{else}}
     const { container } = render(<{{pascalCase name}} className="extra" />)
+
     const component = container.querySelector(':only-child')
     {{/if}}
 
@@ -50,9 +56,11 @@ describe('{{sentenceCase name}}', () => {
 
     {{#if role}}
     render(<{{pascalCase name}} ref={ref} />)
+
     const component = screen.getByRole('{{role}}')
     {{else}}
     const { container } = render(<{{pascalCase name}} ref={ref} />)
+
     const component = container.querySelector(':only-child')
     {{/if}}
 

@@ -9,7 +9,7 @@ import type { ForwardedRef, HTMLAttributes, PropsWithChildren } from 'react'
 import { TableOfContentsLink } from './TableOfContentsLink'
 import { TableOfContentsList } from './TableOfContentsList'
 import { Heading } from '../Heading'
-import type { HeadingLevel } from '../Heading'
+import type { HeadingProps } from '../Heading'
 
 export type TableOfContentsProps = {
   /** The text for the Heading. */
@@ -18,7 +18,7 @@ export type TableOfContentsProps = {
    * The hierarchical level of the Heading within the document.
    * Note: this intentionally does not change the font size.
    */
-  headingLevel?: HeadingLevel
+  headingLevel?: HeadingProps['level']
 } & PropsWithChildren<HTMLAttributes<HTMLElement>>
 
 const TableOfContentsRoot = forwardRef(

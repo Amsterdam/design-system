@@ -22,13 +22,13 @@ However, barrel files have 2 potential pitfalls:
 
 We can avoid this last pitfall by adhering to the following code convention: barrel file imports should only be used to import from a package, not within one.
 
-To illustrate: If the `Accordion` React component needs the `HeadingLevel` type from the `Heading` React component, it should import it like this:
+To illustrate: If the `Accordion` React component needs the `HeadingProps` type from the `Heading` React component, it should import it like this:
 
-`import { HeadingLevel } from '../Heading/Heading'`
+`import type { HeadingProps } from '../Heading/Heading'`
 
 Instead of this:
 
-`import { HeadingLevel } from '../Heading'` or `import { HeadingLevel } from '../'`
+`import type { HeadingProps } from '../Heading'` or `import type { HeadingProps } from '../'`
 
 ## Subcomponents
 
@@ -36,7 +36,7 @@ Subcomponents (e.g. `Grid.Cell`) are kept in separate files (e.g. `GridCell.tsx`
 
 ## Text for screen readers only
 
-Use [Visually Hidden](https://amsterdam.github.io/design-system/?path=/docs/react_containers-visually-hidden--docs) or the `ams-visually-hidden` utility class to hide content from sighted users but keep it accessible to non-visual user agents, such as screen readers.
+Use the `ams-visually-hidden` [utility class](http://designsystem.amsterdam/?path=/docs/utilities-css-visually-hidden--docs) to hide content from sighted users but keep it accessible to non-visual user agents, such as screen readers.
 
 Do not use `aria-label`. Tools for automatic translation often [do not translate its value](https://adrianroselli.com/2019/11/aria-label-does-not-translate.html), and it may get overlooked when doing manual translation.
 

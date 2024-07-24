@@ -20,7 +20,7 @@ export type AccordionSectionProps = {
 
 export const AccordionSection = forwardRef(
   (
-    { label, expanded = false, children, className, ...otherProps }: AccordionSectionProps,
+    { label, expanded = false, children, className, ...restProps }: AccordionSectionProps,
     ref: ForwardedRef<HTMLDivElement>,
   ) => {
     const { headingLevel, sectionAs } = useContext(AccordionContext)
@@ -33,7 +33,7 @@ export const AccordionSection = forwardRef(
     const panelId = `panel-${id}`
 
     return (
-      <div className={clsx('ams-accordion__section', className)} ref={ref} {...otherProps}>
+      <div className={clsx('ams-accordion__section', className)} ref={ref} {...restProps}>
         <HeadingX className={'ams-accordion__header'}>
           <button
             aria-controls={panelId}

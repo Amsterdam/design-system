@@ -13,7 +13,6 @@ describe('Grid', () => {
     const component = container.querySelector(':only-child')
 
     expect(component).toBeInTheDocument()
-
     expect(component).toBeVisible()
   })
 
@@ -31,7 +30,6 @@ describe('Grid', () => {
     const component = container.querySelector(':only-child')
 
     expect(component).toHaveClass('extra')
-
     expect(component).toHaveClass('ams-grid')
   })
 
