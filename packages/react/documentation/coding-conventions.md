@@ -36,7 +36,7 @@ Subcomponents (e.g. `Grid.Cell`) are kept in separate files (e.g. `GridCell.tsx`
 
 ## Text for screen readers only
 
-Use [Visually Hidden](https://designsystem.amsterdam/?path=/docs/components-containers-visually-hidden--docs) or the `ams-visually-hidden` utility class to hide content from sighted users but keep it accessible to non-visual user agents, such as screen readers.
+Use the `ams-visually-hidden` [utility class](http://designsystem.amsterdam/?path=/docs/utilities-css-visually-hidden--docs) to hide content from sighted users but keep it accessible to non-visual user agents, such as screen readers.
 
 Do not use `aria-label`. Tools for automatic translation often [do not translate its value](https://adrianroselli.com/2019/11/aria-label-does-not-translate.html), and it may get overlooked when doing manual translation.
 

@@ -8,21 +8,36 @@ import { forwardRef } from 'react'
 import type { HTMLAttributes, PropsWithChildren } from 'react'
 import type { CrossAlign, MainAlign } from '../common/layout'
 
-export const rowGapSizes: Array<string> = ['none', 'extra-small', 'small', 'large', 'extra-large'] as const
+export const rowGapSizes = ['none', 'extra-small', 'small', 'large', 'extra-large'] as const
 
 type RowGap = (typeof rowGapSizes)[number]
 type RowTag = 'article' | 'div' | 'section'
 
 export type RowProps = {
-  /** The horizontal alignment of the items in the row. */
+  /**
+   * The horizontal alignment of the items in the row.
+   * @default start
+   */
   align?: MainAlign
-  /** The vertical alignment of the items in the row. */
+  /**
+   * The vertical alignment of the items in the row.
+   * @default stretch
+   */
   alignVertical?: CrossAlign
-  /** The HTML element to use. */
+  /**
+   * The HTML element to use.
+   * @default div
+   */
   as?: RowTag
-  /** The amount of vertical space between items. */
+  /**
+   * The amount of space between items.
+   * @default medium
+   */
   gap?: RowGap
-  /** Whether items of the row can wrap onto multiple lines. */
+  /**
+   * Whether items of the row can wrap onto multiple lines.
+   * @default false
+   */
   wrap?: boolean
 } & PropsWithChildren<HTMLAttributes<HTMLElement>>
 
