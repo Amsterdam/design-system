@@ -12,11 +12,13 @@ type VisuallyHiddenProps = HTMLAttributes<HTMLSpanElement>
 const VisuallyHidden = ({ children }: VisuallyHiddenProps) => <span className="ams-visually-hidden">{children}</span>
 
 const render = ({ children }: VisuallyHiddenProps) => [
-  <Paragraph>
+  <Paragraph key={0}>
     This paragraph is available for everyone. Below this is a second paragraph, but it is aimed at non-visual user
     agents only. It is not perceivable on a screen.
   </Paragraph>,
-  <Paragraph className="ams-visually-hidden">{children}</Paragraph>,
+  <Paragraph className="ams-visually-hidden" key={1}>
+    {children}
+  </Paragraph>,
 ]
 
 const meta = {

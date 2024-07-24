@@ -16,8 +16,10 @@ type MarginProps = {
 const Margin = ({ children, length }: MarginProps) => <span className={`ams-mb--${length}`}>{children}</span>
 
 const render = ({ length }: MarginProps) => [
-  <h1 className={`ams-heading ams-heading--2 ams-mb--${length}`}>This heading has a bottom margin</h1>,
-  <Paragraph>It introduces white space between the heading and this paragraph below.</Paragraph>,
+  <h1 className={`ams-heading ams-heading--2 ams-mb--${length}`} key={0}>
+    This heading has a bottom margin
+  </h1>,
+  <Paragraph key={1}>It introduces white space between the heading and this paragraph below.</Paragraph>,
 ]
 
 const meta = {
