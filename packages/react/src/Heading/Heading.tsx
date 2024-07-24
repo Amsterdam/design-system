@@ -7,7 +7,7 @@
 import clsx from 'clsx'
 import { forwardRef } from 'react'
 import type { ForwardedRef, HTMLAttributes, PropsWithChildren } from 'react'
-import { getHeadingElement } from './getHeadingElement'
+import { getHeadingTag } from './getHeadingTag'
 
 export type HeadingProps = {
   /** Changes the text colour for readability on a dark background. */
@@ -23,11 +23,11 @@ export const Heading = forwardRef(
     { children, className, inverseColor, level = 1, size, ...restProps }: HeadingProps,
     ref: ForwardedRef<HTMLHeadingElement>,
   ) => {
-    const HeadingX = getHeadingElement(level)
+    const Tag = getHeadingTag(level)
     const sizeOrLevel = size ?? `level-${level}`
 
     return (
-      <HeadingX
+      <Tag
         ref={ref}
         className={clsx(
           'ams-heading',
@@ -38,7 +38,7 @@ export const Heading = forwardRef(
         {...restProps}
       >
         {children}
-      </HeadingX>
+      </Tag>
     )
   },
 )

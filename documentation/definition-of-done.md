@@ -8,7 +8,6 @@
 - You’ve added or updated the story of the component
 - Your code has the necessary tests written
 - The component’s style is imported in `css/src/index.scss`
-- You’ve updated the [changelog](../CHANGELOG.md) unreleased section
 - The component can have an additional class name to enable restyling
 - The component has an EUPL-1.2+ license header, and all documentation has a Creative Commons 0 (CC0) license header
 
