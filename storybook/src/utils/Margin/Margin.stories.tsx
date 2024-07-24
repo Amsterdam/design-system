@@ -13,7 +13,7 @@ const render = ({ size }: MarginProps) => (
     <Heading className={`ams-mb--${size}`} level={2}>
       This heading has a bottom margin
     </Heading>
-    <Paragraph key={1}>It introduces white space between the heading and this paragraph below.</Paragraph>
+    <Paragraph>It introduces white space between the heading and this paragraph below.</Paragraph>
   </>
 )
 
