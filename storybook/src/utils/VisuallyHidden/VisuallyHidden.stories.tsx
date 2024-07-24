@@ -5,20 +5,17 @@
 
 import { Paragraph } from '@amsterdam/design-system-react'
 import { Meta, StoryObj } from '@storybook/react'
-import type { HTMLAttributes } from 'react'
-
-type VisuallyHiddenProps = HTMLAttributes<HTMLSpanElement>
-
-const VisuallyHidden = ({ children }: VisuallyHiddenProps) => <span className="ams-visually-hidden">{children}</span>
+import type { VisuallyHiddenProps } from './VisuallyHidden'
+import { VisuallyHidden } from './VisuallyHidden'
 
 const render = ({ children }: VisuallyHiddenProps) => (
-  <div>
+  <>
     <Paragraph>
       This paragraph is available for everyone. Below this is a second paragraph, but it is aimed at non-visual user
       agents only. It is not perceivable on a screen.
     </Paragraph>
     <Paragraph className="ams-visually-hidden">{children}</Paragraph>
-  </div>
+  </>
 )
 
 const meta = {

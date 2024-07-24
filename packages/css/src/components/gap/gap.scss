@@ -10,7 +10,9 @@
 }
 
 @each $size in map-keys($ams-sizes) {
-  .ams-gap--#{$size} {
-    gap: var(--ams-gap-#{$size}) !important;
+  @if $size != "no" {
+    .ams-gap--#{$size} {
+      grid-gap: var(--ams-gap-#{$size}) !important;
+    }
   }
 }

@@ -3,7 +3,8 @@
  * Copyright Gemeente Amsterdam
  */
 
-import { Link, Paragraph } from '@amsterdam/design-system-react/src'
+import { Paragraph } from '@amsterdam/design-system-react'
+import { Link } from '@amsterdam/design-system-react/src'
 import type { Meta, StoryObj } from '@storybook/react'
 
 type Story = StoryObj<typeof Link>
