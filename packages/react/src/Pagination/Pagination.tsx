@@ -10,25 +10,25 @@ import type { ForwardedRef, HTMLAttributes } from 'react'
 import { Icon } from '../Icon/Icon'
 
 export type PaginationProps = {
-  /** The accessible name for wrapping navigation element. */
-  ariaLabel?: string
   /** The maximum amount of pages shown. Minimum value: 5. */
   maxVisiblePages?: number
-  /** The accessible name for the link to the next page. */
-  nextAriaLabel?: string
-  /** The label for the link to the next page. */
+  /** The visible label for the next page-button. */
   nextLabel?: string
+  /** The accessible name for next page-button. */
+  nextVisuallyHiddenLabel?: string
   /** A function to run when the page number changes. */
   // eslint-disable-next-line no-unused-vars
   onPageChange?: (page: number) => void
   /** The current page number. */
   page?: number
-  /** The accessible name for the link to the previous page. */
-  previousAriaLabel?: string
-  /** The label for the link to the previous page. */
+  /** The visible label for the previous page-button. */
   previousLabel?: string
+  /** The accessible name for the previous page-button. */
+  previousVisuallyHiddenLabel?: string
   /** The total amount of pages. */
   totalPages: number
+  /** The accessible name for the Pagination component. */
+  visuallyHiddenLabel?: string
 } & HTMLAttributes<HTMLElement>
 
 /**
@@ -84,16 +84,16 @@ function getRange(currentPage: number, totalPages: number, maxVisiblePages: numb
 export const Pagination = forwardRef(
   (
     {
-      ariaLabel = 'Paginering',
       className,
       maxVisiblePages = 7,
-      nextAriaLabel = 'Volgende pagina',
       nextLabel = 'volgende',
+      nextVisuallyHiddenLabel = 'Volgende pagina',
       onPageChange,
       page = 1,
-      previousAriaLabel = 'Vorige pagina',
       previousLabel = 'vorige',
+      previousVisuallyHiddenLabel = 'Vorige pagina',
       totalPages,
+      visuallyHiddenLabel = 'Paginering',
       ...restProps
     }: PaginationProps,
     ref: ForwardedRef<HTMLElement>,
@@ -132,13 +132,13 @@ export const Pagination = forwardRef(
     return (
       <nav {...restProps} aria-labelledby={navLabelId} className={clsx('ams-pagination', className)} ref={ref}>
         <span id={navLabelId} className="ams-visually-hidden">
-          {ariaLabel}
+          {visuallyHiddenLabel}
         </span>
         <ol className="ams-pagination__list">
           <li>
             <button className="ams-pagination__button" disabled={currentPage === 1} onClick={onPrevious} type="button">
               <Icon svg={ChevronLeftIcon} size="level-5" />
-              <span className="ams-visually-hidden">{previousAriaLabel}</span>
+              <span className="ams-visually-hidden">{previousVisuallyHiddenLabel}</span>
               <span aria-hidden>{previousLabel}</span>
             </button>
           </li>
@@ -176,7 +176,7 @@ export const Pagination = forwardRef(
               onClick={onNext}
               type="button"
             >
-              <span className="ams-visually-hidden">{nextAriaLabel}</span>
+              <span className="ams-visually-hidden">{nextVisuallyHiddenLabel}</span>
               <span aria-hidden>{nextLabel}</span>
               <Icon svg={ChevronRightIcon} size="level-5" />
             </button>
