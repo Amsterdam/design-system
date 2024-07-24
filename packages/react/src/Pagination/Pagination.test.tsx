@@ -120,7 +120,9 @@ describe('Pagination', () => {
   })
 
   it('renders accessible labels for the ‘previous’ and ‘next’ buttons', () => {
-    render(<Pagination totalPages={10} previousAriaLabel="Previous page" nextAriaLabel="Next page" />)
+    render(
+      <Pagination totalPages={10} previousVisuallyHiddenLabel="Previous page" nextVisuallyHiddenLabel="Next page" />,
+    )
 
     const previousButton = screen.getByRole('button', { name: 'Previous page' })
     const nextButton = screen.getByRole('button', { name: 'Next page' })
