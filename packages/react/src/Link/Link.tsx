@@ -19,11 +19,11 @@ export type LinkProps = {
 
 export const Link = forwardRef(
   (
-    { children, variant = 'standalone', onBackground, className, ...otherProps }: LinkProps,
+    { children, variant = 'standalone', onBackground, className, ...restProps }: LinkProps,
     ref: ForwardedRef<HTMLAnchorElement>,
   ) => (
     <a
-      {...otherProps}
+      {...restProps}
       ref={ref}
       className={clsx(
         'ams-link',

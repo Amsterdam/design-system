@@ -1,0 +1,20 @@
+/**
+ * @license EUPL-1.2+
+ * Copyright Gemeente Amsterdam
+ */
+
+@import "../../common/text-rendering";
+
+.ams-character-count {
+  color: var(--ams-character-count-color);
+  font-family: var(--ams-character-count-font-family);
+  font-size: var(--ams-character-count-font-size);
+  font-weight: var(--ams-character-count-font-weight);
+  line-height: var(--ams-character-count-line-height);
+
+  @include text-rendering;
+}
+
+.ams-character-count--error {
+  color: var(--ams-character-count-error-color);
+}

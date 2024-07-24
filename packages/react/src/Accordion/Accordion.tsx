@@ -8,12 +8,12 @@ import { forwardRef, useImperativeHandle, useRef } from 'react'
 import type { ForwardedRef, HTMLAttributes, PropsWithChildren } from 'react'
 import AccordionContext from './AccordionContext'
 import { AccordionSection } from './AccordionSection'
-import { HeadingLevel } from '../Heading/Heading'
+import type { HeadingProps } from '../Heading/Heading'
 import { useKeyboardFocus } from '../common/useKeyboardFocus'
 
 export type AccordionProps = {
   /** The hierarchical level of the Accordion Section heading(s) within the document. */
-  headingLevel: HeadingLevel
+  headingLevel: HeadingProps['level']
   /** The HTML element to use for each Accordion Section. */
   sectionAs?: 'div' | 'section'
 } & PropsWithChildren<HTMLAttributes<HTMLDivElement>>
