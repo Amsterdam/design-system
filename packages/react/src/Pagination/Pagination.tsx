@@ -14,7 +14,7 @@ export type PaginationProps = {
   maxVisiblePages?: number
   /** The visible label for the next page-button. */
   nextLabel?: string
-  /** The accessible name for next page-button. */
+  /** The accessible name for the next page-button. */
   nextVisuallyHiddenLabel?: string
   /** A function to run when the page number changes. */
   // eslint-disable-next-line no-unused-vars
