@@ -11,7 +11,7 @@ type GapLength = (typeof gapLengthOptions)[number]
 export type GapProps = {
   /** The amount of vertical space between items. */
   length: GapLength
-} & PropsWithChildren<HTMLAttributes<HTMLElement>>
+} & PropsWithChildren<HTMLAttributes<HTMLSpanElement>>
 
 /** Renders examples in Storybook. Not for reuse. */
 export const Gap = ({ children, length }: GapProps) => <span className={`ams-gap--${length}`}>{children}</span>
