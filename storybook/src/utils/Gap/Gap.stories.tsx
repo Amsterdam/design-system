@@ -5,15 +5,7 @@
 
 import { Paragraph } from '@amsterdam/design-system-react'
 import { Meta, StoryObj } from '@storybook/react'
-import type { HTMLAttributes } from 'react'
-
-const lengthOptions = ['xs', 'sm', 'md', 'lg', 'xl'] as const
-
-type GapProps = {
-  length: (typeof lengthOptions)[number]
-} & HTMLAttributes<HTMLElement>
-
-const Gap = ({ children, length }: GapProps) => <span className={`ams-gap--${length}`}>{children}</span>
+import { Gap, GapProps } from './Gap'
 
 const render = ({ length }: GapProps) => (
   <div className={`ams-gap--${length}`}>
@@ -28,13 +20,6 @@ const meta = {
   component: Gap,
   args: {
     length: 'xs',
-  },
-  argTypes: {
-    length: {
-      control: 'radio',
-      description: 'The amount of vertical space between items.',
-      options: lengthOptions,
-    },
   },
 } satisfies Meta<typeof Gap>
 
