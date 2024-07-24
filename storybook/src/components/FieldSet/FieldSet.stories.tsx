@@ -8,12 +8,12 @@ import {
   Column,
   ErrorMessage,
   Field,
-  FieldSet,
   Label,
   Paragraph,
   Radio,
   TextInput,
-} from '@amsterdam/design-system-react/src'
+} from '@amsterdam/design-system-react'
+import { FieldSet } from '@amsterdam/design-system-react/src'
 import { Meta, StoryObj } from '@storybook/react'
 
 const meta = {

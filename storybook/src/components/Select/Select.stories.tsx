@@ -3,7 +3,7 @@
  * Copyright Gemeente Amsterdam
  */
 
-import { Select } from '@amsterdam/design-system-react'
+import { Select } from '@amsterdam/design-system-react/src'
 import { Meta, StoryObj } from '@storybook/react'
 
 const meta = {

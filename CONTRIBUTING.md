@@ -222,4 +222,4 @@ Contact the maintainers if you want to release a new version of a package.
 
 ## :pray: Credits
 
-This document is adapted from a template made by [@jessesquires](https://github.com/jessesquires).
+This document is adapted from [a template made by jessesquires](https://github.com/jessesquires/.github).
