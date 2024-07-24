@@ -5,11 +5,8 @@
 
 import { Paragraph } from '@amsterdam/design-system-react'
 import { Meta, StoryObj } from '@storybook/react'
-import type { HTMLAttributes } from 'react'
-
-type VisuallyHiddenProps = HTMLAttributes<HTMLSpanElement>
-
-const VisuallyHidden = ({ children }: VisuallyHiddenProps) => <span className="ams-visually-hidden">{children}</span>
+import type { VisuallyHiddenProps } from './VisuallyHidden'
+import { VisuallyHidden } from './VisuallyHidden'
 
 const render = ({ children }: VisuallyHiddenProps) => [
   <Paragraph key={0}>

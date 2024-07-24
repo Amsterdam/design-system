@@ -5,15 +5,8 @@
 
 import { Paragraph } from '@amsterdam/design-system-react'
 import { Meta, StoryObj } from '@storybook/react'
-import type { HTMLAttributes } from 'react'
-
-const lengthOptions = ['xs', 'sm', 'md', 'lg', 'xl'] as const
-
-type MarginProps = {
-  length: (typeof lengthOptions)[number]
-} & HTMLAttributes<HTMLElement>
-
-const Margin = ({ children, length }: MarginProps) => <span className={`ams-mb--${length}`}>{children}</span>
+import type { MarginProps } from './Margin'
+import { Margin } from './Margin'
 
 const render = ({ length }: MarginProps) => [
   <h1 className={`ams-heading ams-heading--2 ams-mb--${length}`} key={0}>
@@ -31,8 +24,6 @@ const meta = {
   argTypes: {
     length: {
       control: 'radio',
-      description: 'The amount of white space to add below the element.',
-      options: lengthOptions,
     },
   },
 } satisfies Meta<typeof Margin>
