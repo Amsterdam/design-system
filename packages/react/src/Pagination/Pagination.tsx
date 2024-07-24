@@ -5,7 +5,7 @@
 
 import { ChevronLeftIcon, ChevronRightIcon } from '@amsterdam/design-system-react-icons'
 import clsx from 'clsx'
-import { forwardRef, useMemo, useState } from 'react'
+import { forwardRef, useId, useMemo, useState } from 'react'
 import type { ForwardedRef, HTMLAttributes } from 'react'
 import { Icon } from '../Icon/Icon'
 
@@ -121,14 +121,19 @@ export const Pagination = forwardRef(
       onChangePage(currentPage + 1)
     }
 
+    const id = useId()
+    const navLabelId = `nav-label-${id}`
+
     // Don't show pagination if you only have one page
     if (totalPages <= 1) {
       return null
     }
 
     return (
-      <nav {...restProps} className={clsx('ams-pagination', className)} ref={ref}>
-        <span className="ams-visually-hidden">{ariaLabel}</span>
+      <nav {...restProps} aria-labelledby={navLabelId} className={clsx('ams-pagination', className)} ref={ref}>
+        <span id={navLabelId} className="ams-visually-hidden">
+          {ariaLabel}
+        </span>
         <ol className="ams-pagination__list">
           <li>
             <button className="ams-pagination__button" disabled={currentPage === 1} onClick={onPrevious} type="button">
