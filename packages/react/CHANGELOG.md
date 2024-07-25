@@ -10,6 +10,7 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 * Remove Visually Hidden component ([#1391](https://github.com/Amsterdam/design-system/issues/1391))
 * Remove HeadingLevel type, group Heading sizes in story ([#1387](https://github.com/Amsterdam/design-system/issues/1387))
+* Apply default gap in Row and Column without extra class ([#1422](https://github.com/Amsterdam/design-system/issues/1422))
 * Rename Form Field Character Counter to Character Count ([#1363](https://github.com/Amsterdam/design-system/issues/1363))
 
 ### Features
