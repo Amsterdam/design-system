@@ -19,4 +19,4 @@ A cell often spans multiple columns of the grid.
 
 ## Design
 
-The [design choices](/docs/foundation-design-tokens-grid--docs) are described in the general documentation.
+The [design choices](/docs/brand-design-tokens-grid--docs) are described in the general documentation.
