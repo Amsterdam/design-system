@@ -3,6 +3,28 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.11.0](https://github.com/Amsterdam/design-system/compare/design-system-tokens-v0.10.0...design-system-tokens-v0.11.0) (2024-07-25)
+
+
+### ⚠ BREAKING CHANGES
+
+* Apply default gap in Row and Column without extra class ([#1422](https://github.com/Amsterdam/design-system/issues/1422))
+* Rename Form Field Character Counter to Character Count ([#1363](https://github.com/Amsterdam/design-system/issues/1363))
+* Improve sizing behaviour of Dialog ([#1329](https://github.com/Amsterdam/design-system/issues/1329))
+* Merge ‘stack’ and ‘inside’ space categories and update components ([#1267](https://github.com/Amsterdam/design-system/issues/1267))
+
+### Features
+
+* Add focus on initial render to Form Error List ([#1328](https://github.com/Amsterdam/design-system/issues/1328)) ([09387b7](https://github.com/Amsterdam/design-system/commit/09387b7b7d5f03a7422910314de4ae4d0ccbb983))
+* Apply default gap in Row and Column without extra class ([#1422](https://github.com/Amsterdam/design-system/issues/1422)) ([3af0b1f](https://github.com/Amsterdam/design-system/commit/3af0b1fb40ca941fd3966d08e6afe18995e6d02f))
+* Decrease space length in Compact Mode  ([#1307](https://github.com/Amsterdam/design-system/issues/1307)) ([27af2a6](https://github.com/Amsterdam/design-system/commit/27af2a62df5304bb5d80324b235463a4409071b5))
+* Decrease text size in Compact Mode ([#1306](https://github.com/Amsterdam/design-system/issues/1306)) ([991efda](https://github.com/Amsterdam/design-system/commit/991efdafe7a19fa32049687a700ae7a5a2806f98))
+* Improve sizing behaviour of Dialog ([#1329](https://github.com/Amsterdam/design-system/issues/1329)) ([a54d239](https://github.com/Amsterdam/design-system/commit/a54d239e2aff832bc15f8f90ea8880c02fa0d6ce))
+* Merge ‘stack’ and ‘inside’ space categories and update components ([#1267](https://github.com/Amsterdam/design-system/issues/1267)) ([a0de626](https://github.com/Amsterdam/design-system/commit/a0de626d4fbdc9e0eac71492d544d35ad4dc8769))
+* Remove fluidity from body text and spacing in Compact Mode ([#1389](https://github.com/Amsterdam/design-system/issues/1389)) ([050b063](https://github.com/Amsterdam/design-system/commit/050b063ba968d4c4657611293f3d3798f0fd02de))
+* Rename Form Field Character Counter to Character Count ([#1363](https://github.com/Amsterdam/design-system/issues/1363)) ([a5299db](https://github.com/Amsterdam/design-system/commit/a5299dbfb3659bada5565893be63f615b511c0ee))
+* Use flexbox and regular space in Column as we do in Row ([#1388](https://github.com/Amsterdam/design-system/issues/1388)) ([86d693c](https://github.com/Amsterdam/design-system/commit/86d693cf75be205cd096abe339cdd3f97e9b1a2f))
+
 ## [0.10.0](https://github.com/Amsterdam/design-system/compare/design-system-tokens-v0.9.0...design-system-tokens-v0.10.0) (2024-06-28)
 
 
