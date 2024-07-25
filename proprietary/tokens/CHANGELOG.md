@@ -8,7 +8,6 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 ### ⚠ BREAKING CHANGES
 
-* Apply default gap in Row and Column without extra class ([#1422](https://github.com/Amsterdam/design-system/issues/1422))
 * Rename Form Field Character Counter to Character Count ([#1363](https://github.com/Amsterdam/design-system/issues/1363))
 * Improve sizing behaviour of Dialog ([#1329](https://github.com/Amsterdam/design-system/issues/1329))
 * Merge ‘stack’ and ‘inside’ space categories and update components ([#1267](https://github.com/Amsterdam/design-system/issues/1267))
