@@ -2,4 +2,4 @@
 
 # Column
 
-Stacks its children vertically and adds a vertical gap between them.
+Stacks its children vertically with gaps between them and offers alignment options.
