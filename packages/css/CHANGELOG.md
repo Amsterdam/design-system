@@ -8,14 +8,10 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 ### ⚠ BREAKING CHANGES
 
-* Remove Visually Hidden component ([#1391](https://github.com/Amsterdam/design-system/issues/1391))
-* Remove HeadingLevel type, group Heading sizes in story ([#1387](https://github.com/Amsterdam/design-system/issues/1387))
 * Apply default gap in Row and Column without extra class ([#1422](https://github.com/Amsterdam/design-system/issues/1422))
 * Include ‘gap-’ in class names for Row and Column gap ([#1421](https://github.com/Amsterdam/design-system/issues/1421))
 * Rename Form Field Character Counter to Character Count ([#1363](https://github.com/Amsterdam/design-system/issues/1363))
-* Improve sizing behaviour of Dialog ([#1329](https://github.com/Amsterdam/design-system/issues/1329))
 * Change CSS classes for Heading level for consistency with token names ([#1355](https://github.com/Amsterdam/design-system/issues/1355))
-* Merge ‘stack’ and ‘inside’ space categories and update components ([#1267](https://github.com/Amsterdam/design-system/issues/1267))
 
 ### Features
 
