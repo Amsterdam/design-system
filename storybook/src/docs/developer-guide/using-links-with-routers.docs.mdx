@@ -16,13 +16,14 @@ Some examples for common routing solutions:
 
 You can hook into the Next router using the `legacyBehaviour` and `passHref` props on the Next link component, like so:
 
-```javascript
-import { Link } from "@amsterdam/design-system-react";
-import NextLink from "next/link";
+{/* prettier-ignore */}
+```js
+import { Link } from "@amsterdam/design-system-react"
+import NextLink from "next/link"
 
 <NextLink legacyBehavior passHref href="/amsterdam">
   <Link>Link label</Link>
-</NextLink>;
+</NextLink>
 ```
 
 ## React Router
@@ -30,27 +31,28 @@ import NextLink from "next/link";
 React Router allows you to hook into their routing functionality with [the useLinkClickHandler hook](https://reactrouter.com/en/main/hooks/use-link-click-handler).
 You can use this hook directly on a link component, or you can write a component which adds this functionality to the link component you pass to it, like so:
 
-```javascript
-import { Link } from "@amsterdam/design-system-react";
-import { useLinkClickHandler, useHref } from "react-router-dom";
+{/* prettier-ignore */}
+```js
+import { Link } from "@amsterdam/design-system-react"
+import { useLinkClickHandler, useHref } from "react-router-dom"
 
 const ReactRouterLink = ({ component, to, ...restProps }) => {
-  const Tag = component;
-  let href = useHref(to);
-  let handleClick = useLinkClickHandler(to);
+  const Tag = component
+  let href = useHref(to)
+  let handleClick = useLinkClickHandler(to)
 
   return (
     <Tag
       href={href}
       onClick={(event) => {
-        handleClick(event);
+        handleClick(event)
       }}
       {...restProps}
     />
-  );
-};
+  )
+}
 
 <ReactRouterLink component={Link} to="/amsterdam">
   Link label
-</ReactRouterLink>;
+</ReactRouterLink>
 ```
