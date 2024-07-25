@@ -6,7 +6,7 @@ Adds white space below a single element.
 
 ## Class names
 
-The five sizes of [Component Space](/docs/foundation-design-tokens-space--docs) are available for the height of the bottom margin.
+The five sizes of [Component Space](/docs/brand-design-tokens-space--docs) are available for the height of the bottom margin.
 
 | Class name   | Preview                                                                                      |
 | ------------ | -------------------------------------------------------------------------------------------- |
