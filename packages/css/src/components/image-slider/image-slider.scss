@@ -30,6 +30,7 @@
   grid-auto-flow: column;
   grid-column: 1/-1;
   grid-row: 1;
+  outline-offset: 2px;
   overflow-x: auto;
   overscroll-behavior-x: contain;
   scroll-snap-type: x mandatory;
@@ -57,4 +58,23 @@
 .ams-image-slider__control {
   place-self: center;
   z-index: 1;
+}
+
+.ams-image-slider__thumbnails {
+  display: grid;
+  gap: 1rem;
+  grid-auto-flow: column;
+  grid-column: 1/-1;
+  max-inline-size: 100%;
+  overflow-x: auto;
+  overscroll-behavior-x: contain;
+  place-self: flex-start;
+  scrollbar-width: none;
+}
+
+.ams-image-slider__thumbnail {
+  aspect-ratio: 1 / 1;
+  background-size: cover;
+  border: none;
+  min-block-size: 8rem;
 }

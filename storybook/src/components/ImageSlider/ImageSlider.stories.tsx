@@ -11,17 +11,17 @@ const meta = {
   component: ImageSlider,
   args: {
     children: [
-      <ImageSlider.Item key="1">
+      <ImageSlider.Item key="1" slideId={0}>
         <AspectRatio ratio="x-wide">
           <Image src="https://picsum.photos/1280/720?1" loading="lazy" cover />
         </AspectRatio>
       </ImageSlider.Item>,
-      <ImageSlider.Item key="2">
+      <ImageSlider.Item key="2" slideId={1}>
         <AspectRatio ratio="x-wide">
           <Image src="https://picsum.photos/1280/720?2" loading="lazy" cover />
         </AspectRatio>
       </ImageSlider.Item>,
-      <ImageSlider.Item key="3">
+      <ImageSlider.Item key="3" slideId={2}>
         <AspectRatio ratio="x-wide">
           <Image src="https://picsum.photos/1280/720?3" loading="lazy" cover />
         </AspectRatio>

@@ -6,7 +6,8 @@
 import { ChevronLeftIcon, ChevronRightIcon } from '@amsterdam/design-system-react-icons'
 import clsx from 'clsx'
 import { forwardRef, useEffect, useRef, useState } from 'react'
-import type { ForwardedRef, HTMLAttributes, PropsWithChildren } from 'react'
+import type { ForwardedRef, HTMLAttributes, KeyboardEventHandler, PropsWithChildren } from 'react'
+import { ImageSliderContext } from './ImageSliderContext'
 import { ImageSliderItem } from './ImageSliderItem'
 import { ImageSliderScroller } from './ImageSliderScroller'
 import { IconButton } from '../IconButton'
@@ -27,36 +28,44 @@ export const ImageSliderRoot = forwardRef(
     { children, className, controls, scrollbar, snapstop, thumbnails, ...restProps }: ImageSliderProps,
     ref: ForwardedRef<HTMLDivElement>,
   ) => {
-    const [currentSlide, setCurrentSlide] = useState(0)
+    const [currentSlideId, setCurrentSlideId] = useState(0)
+    const [atStart, setAtStart] = useState(true)
+    const [atEnd, setAtEnd] = useState(false)
     const targetRef = useRef<HTMLDivElement>(null)
+    const hasIntersected = new Set<IntersectionObserverEntry>()
+
+    const inView = (observations: IntersectionObserverEntry[]) => {
+      const slides = targetRef.current?.children || []
+      const slidesArray = Array.from(slides)
+
+      for (let observation of observations) {
+        hasIntersected.add(observation)
+        if (observation.isIntersecting) {
+          setCurrentSlideId(slidesArray.indexOf(observation.target))
+        }
+      }
+    }
+
+    const observerOptions = {
+      root: targetRef.current,
+      threshold: 0.6,
+    }
 
     useEffect(() => {
-      const sliderScroller = targetRef.current
+      const observer = new IntersectionObserver(inView, observerOptions)
 
-      if (!sliderScroller) {
-        return
+      if (targetRef.current) {
+        const slides = targetRef.current.children
+        const slidesArray = Array.from(slides)
+        for (let slide of slidesArray) observer.observe(slide)
+
+        targetRef.current.addEventListener('scrollend', synchronise.bind(targetRef.current))
       }
+    }, [targetRef, observerOptions])
 
-      const slides = sliderScroller.querySelectorAll('.ams-image-slider__item')
-      const slidesArray = Array.from(slides)
-      const hasIntersected = new Set()
-
-      const observer = new IntersectionObserver(
-        (observations) => {
-          for (let observation of observations) {
-            hasIntersected.add(observation)
-            observation.target.classList.toggle('ams-image-slider__item--in-view', observation.isIntersecting)
-            if (observation.isIntersecting) setCurrentSlide(slidesArray.indexOf(observation.target))
-          }
-        },
-        {
-          root: sliderScroller,
-          threshold: 0.6,
-        },
-      )
-
-      for (let slide of slidesArray) observer.observe(slide)
-    }, [])
+    const synchronise = () => {
+      updateControls()
+    }
 
     const goToSlide = (element: HTMLElement) => {
       const sliderScroller = targetRef.current
@@ -66,76 +75,103 @@ export const ImageSliderRoot = forwardRef(
       }
 
       const delta = Math.abs(sliderScroller.offsetLeft - element.offsetLeft)
-      const scrollerPadding = parseInt(getComputedStyle(sliderScroller).getPropertyValue('padding-left'), 10)
 
-      const pos = sliderScroller.clientWidth / 2 > delta ? delta - scrollerPadding : delta + scrollerPadding
-
-      sliderScroller.scrollTo(pos, 0)
+      sliderScroller.scrollTo(delta, 0)
     }
 
-    const goToNextSlide = (element: HTMLElement) => {
-      const next = element.nextElementSibling as HTMLElement | null
+    const goToNextSlide = () => {
+      const sliderScroller = targetRef.current
+      const element = sliderScroller?.children[currentSlideId]
+      const next = element?.nextElementSibling as HTMLElement | null
 
       if (element === next) return
 
-      if (next) {
-        goToSlide(next)
-      } else {
-        console.log('at the end')
-        // goToSlide(element.parentElement?.firstElementChild as HTMLElement)
-      }
+      if (next) goToSlide(next)
     }
 
-    const goToPreviousSlide = (element: HTMLElement) => {
-      const next = element.previousElementSibling as HTMLElement | null
+    const goToPreviousSlide = () => {
+      const sliderScroller = targetRef.current
+      const element = sliderScroller?.children[currentSlideId]
+      const next = element?.previousElementSibling as HTMLElement | null
 
       if (element === next) return
 
-      if (next) {
-        goToSlide(next)
-      } else {
-        console.log('at the start')
-        // goToSlide(element.parentElement?.lastElementChild as HTMLElement)
+      if (next) goToSlide(next)
+    }
+
+    const updateControls = () => {
+      const sliderScroller = targetRef.current
+      const { lastElementChild: last, firstElementChild: first } = sliderScroller as HTMLDivElement
+
+      setAtStart(first === sliderScroller?.children[currentSlideId])
+      setAtEnd(last === sliderScroller?.children[currentSlideId])
+    }
+
+    const createThumbnailImage = (slide: Element) => {
+      return `url(${(slide as HTMLElement).querySelector('img')?.getAttribute('src')})`
+    }
+
+    const handleKeyDown: KeyboardEventHandler<HTMLDivElement> = (e) => {
+      if (e.key === 'ArrowRight') {
+        goToNextSlide()
+      } else if (e.key === 'ArrowLeft') {
+        goToPreviousSlide()
       }
     }
 
     return (
-      <div
-        {...restProps}
-        ref={ref}
-        className={clsx(
-          'ams-image-slider',
-          controls && 'ams-image-slider--controls',
-          scrollbar && 'ams-image-slider--scrollbar',
-          snapstop && 'ams-image-slider--snapstop',
-          thumbnails && 'ams-image-slider--thumbnails',
-          className,
-        )}
-      >
-        {controls && (
-          <div className="ams-image-slider__controls">
-            <IconButton
-              svg={ChevronLeftIcon}
-              label="Vorige"
-              onBackground="dark"
-              className="ams-image-slider__control ams-image-slider__control--previous"
-              onClick={() =>
-                goToPreviousSlide(document.querySelector('.ams-image-slider__item--in-view') as HTMLElement)
-              }
-            />
-            <IconButton
-              svg={ChevronRightIcon}
-              label="Volgende"
-              onBackground="dark"
-              className="ams-image-slider__control ams-image-slider__control--next"
-              onClick={() => goToNextSlide(document.querySelector('.ams-image-slider__item--in-view') as HTMLElement)}
-            />
-          </div>
-        )}
-        <ImageSliderScroller ref={targetRef} currentSlide={currentSlide}>
-          {children}
-        </ImageSliderScroller>
-      </div>
+      <ImageSliderContext.Provider value={{ currentSlide: currentSlideId }}>
+        <div
+          {...restProps}
+          ref={ref}
+          className={clsx(
+            'ams-image-slider',
+            controls && 'ams-image-slider--controls',
+            scrollbar && 'ams-image-slider--scrollbar',
+            snapstop && 'ams-image-slider--snapstop',
+            thumbnails && 'ams-image-slider--thumbnails',
+            className,
+          )}
+        >
+          {controls && (
+            <div className="ams-image-slider__controls" onKeyDown={handleKeyDown}>
+              <IconButton
+                svg={ChevronLeftIcon}
+                label="Vorige"
+                onBackground="dark"
+                className="ams-image-slider__control ams-image-slider__control--previous"
+                onClick={() => goToPreviousSlide()}
+                disabled={atStart}
+              />
+              <IconButton
+                svg={ChevronRightIcon}
+                label="Volgende"
+                onBackground="dark"
+                className="ams-image-slider__control ams-image-slider__control--next"
+                onClick={() => goToNextSlide()}
+                disabled={atEnd}
+              />
+            </div>
+          )}
+          <ImageSliderScroller tabIndex={0} ref={targetRef}>
+            {children}
+          </ImageSliderScroller>
+          {thumbnails && (
+            <div className="ams-image-slider__thumbnails">
+              {Array.from(targetRef.current?.children || []).map((child, index) => (
+                <button
+                  key={index}
+                  className="ams-image-slider__thumbnail"
+                  style={{ backgroundImage: createThumbnailImage(child) }}
+                  onClick={() => goToSlide(child as HTMLElement)}
+                >
+                  {index}
+                </button>
+              ))}
+            </div>
+          )}
+        </div>
+      </ImageSliderContext.Provider>
     )
   },
 )
