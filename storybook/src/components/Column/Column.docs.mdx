@@ -8,15 +8,12 @@ import README from "../../../../packages/css/src/components/column/README.md?raw
 
 <Markdown>{README}</Markdown>
 
-## Design
-
-The five [space](/docs/foundation-design-tokens-space--docs) sizes are available for the size of the gap.
-
 ## How to Use
 
-Wrap a Column around a set of components that need the same amount of white space between them.
-
-To add white space below a single element, the [Margin Bottom](/docs/utilities-css-margin--docs) utility class can be used as well.
+- Wrap a Column around a set of elements that need the same amount of white space between them.
+- The five sizes of [Component Space](/docs/brand-design-tokens-space--docs) are available for the width or height of the gap.
+- To add white space below a single element, you can add a [Margin Bottom](/docs/utilities-css-margin--docs) instead.
+- Align the elements horizontally or vertically through the alignment props.
 
 ## Examples
 
@@ -26,9 +23,39 @@ To add white space below a single element, the [Margin Bottom](/docs/utilities-c
 
 <Controls />
 
-### Use Another HTML Element
+### Alignment
+
+Items in the column can be aligned vertically in several ways:
+
+- **Center**: center items within the column.
+- **End**: align items to the bottom of the column – to the bottom.
+- **Space Between**: distribute whitespace between items.
+- **Space Around**: distribute whitespace around items.
+- **Space Evenly**: distribute whitespace evenly around items.
+
+By default, items align to the **start** of the column – at the top.
+This option has no class name or prop value.
+
+This example centers three items vertically.
+
+<Canvas of={ColumnStories.Alignment} />
+
+### Horizontal alignment
+
+Items in the column can be aligned horizontally in several ways:
+
+- **Start**: align items to the start of the column. This is the left side in left-to-right languages.
+- **Center**: center items within the column.
+- **End**: align items to the end of the column. This is the right side in left-to-right languages.
+
+This example centers three items horizontally.
+
+<Canvas of={ColumnStories.HorizontalAlignment} />
+
+### Use another HTML element
 
 By default, a Column renders a `<div>`.
 Use the `as` prop to make your markup more semantic.
+In this example, the Column uses a `<section>` element to group the heading and the cards.
 
 <Canvas of={ColumnStories.CustomTagName} />
