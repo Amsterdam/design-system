@@ -20,13 +20,6 @@ export default meta
 
 const linkMeta = {
   component: LinkList.Link,
-  args: {
-    children: linkList[0],
-    contrastColor: false,
-    href: '#',
-    icon: Icons.ChevronRightIcon,
-    inverseColor: false,
-  },
 } satisfies Meta<typeof LinkList.Link>
 
 type Story = StoryObj<typeof meta>
@@ -51,12 +44,6 @@ const LinkStoryTemplate: LinkStory = {
     inverseColor: false,
   },
   argTypes: {
-    contrastColor: {
-      control: { type: 'boolean' },
-    },
-    inverseColor: {
-      control: { type: 'boolean' },
-    },
     icon: {
       control: { type: 'select' },
       options: Object.keys(Icons),
@@ -65,7 +52,7 @@ const LinkStoryTemplate: LinkStory = {
     size: {
       control: {
         type: 'radio',
-        labels: { small: 'small', undefined: 'medium', large: 'large' },
+        labels: { undefined: 'medium' },
       },
       options: ['small', undefined, 'large'],
     },
