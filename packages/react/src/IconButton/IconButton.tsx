@@ -12,7 +12,7 @@ import { Icon } from '../Icon'
 export type IconButtonProps = {
   /** The accessible text for the button. Will be announced by screen readers. Should describe the button’s action. */
   label: string
-  /** Changes the text colour for readability on a light background. */
+  /** Changes the text colour for readability on a light (but not white) background. */
   contrastColor?: boolean
   /** Changes the text colour for readability on a dark background. */
   inverseColor?: boolean
