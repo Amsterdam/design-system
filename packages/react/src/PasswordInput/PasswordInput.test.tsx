@@ -1,5 +1,6 @@
 import { render, screen } from '@testing-library/react'
-import { createRef } from 'react'
+import userEvent from '@testing-library/user-event'
+import { createRef, useState } from 'react'
 import { PasswordInput } from './PasswordInput'
 import { Label } from '../Label'
 import '@testing-library/jest-dom'
@@ -28,6 +29,40 @@ describe('Password input', () => {
     const component = container.querySelector(':only-child')
 
     expect(component).toHaveClass('ams-password-input extra')
+  })
+
+  it('should be working in a controlled state', async () => {
+    function ControlledComponent() {
+      const [value, setValue] = useState('Hello')
+
+      return <PasswordInput value={value} onChange={(e) => setValue(e.target.value)} />
+    }
+
+    const { container } = render(<ControlledComponent />)
+
+    const componentText = screen.getByDisplayValue('Hello')
+
+    expect(componentText).toBeInTheDocument()
+
+    const component = container.querySelector(':only-child')
+    if (component) {
+      await userEvent.type(component, ', World!')
+    }
+
+    const newComponentText = screen.getByDisplayValue('Hello, World!')
+
+    expect(newComponentText).toBeInTheDocument()
+  })
+
+  it('should not update the value when disabled', async () => {
+    const { container } = render(<PasswordInput disabled defaultValue="Hello" />)
+
+    const component = container.querySelector(':only-child')
+    if (component) {
+      await userEvent.type(component, ', World!')
+    }
+
+    expect(component).toHaveValue('Hello')
   })
 
   it('supports ForwardRef in React', () => {
