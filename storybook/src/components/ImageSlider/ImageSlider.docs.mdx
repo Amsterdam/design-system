@@ -1,6 +1,6 @@
 {/* @license CC0-1.0 */}
 
-import { Controls, Markdown, Meta, Primary } from "@storybook/blocks";
+import { Canvas, Controls, Markdown, Meta, Primary } from "@storybook/blocks";
 import * as ImageSliderStories from "./ImageSlider.stories.tsx";
 import README from "../../../../packages/css/src/components/image-slider/README.md?raw";
 
@@ -11,3 +11,25 @@ import README from "../../../../packages/css/src/components/image-slider/README.
 <Primary />
 
 <Controls />
+
+## Examples
+
+### No Controls
+
+<Canvas of={ImageSliderStories.NoControls} />
+
+### No Thumbnails
+
+<Canvas of={ImageSliderStories.NoThumbnails} />
+
+### Snapstop
+
+Turning on `snapStop` will make the slider stop at each image. You might need to refresh the window to see the effect.
+
+<Canvas of={ImageSliderStories.Snapstop} />
+
+### Native scrollbar
+
+Turning on `nativeScrollbar` will make the slider use the native scrollbar. You might need this if you disable to other controls.
+
+<Canvas of={ImageSliderStories.NativeScrollbar} />

@@ -44,7 +44,7 @@ const meta = {
     ],
     controls: true,
     scrollbar: false,
-    snapstop: true,
+    snapstop: false,
     thumbnails: true,
   },
 } satisfies Meta<typeof ImageSlider>
@@ -54,3 +54,31 @@ export default meta
 type Story = StoryObj<typeof meta>
 
 export const Default: Story = {}
+
+export const NoControls: Story = {
+  args: {
+    controls: false,
+  },
+}
+
+export const NoThumbnails: Story = {
+  args: {
+    thumbnails: false,
+  },
+}
+
+export const Snapstop: Story = {
+  args: {
+    snapstop: true,
+    thumbnails: false,
+    controls: false,
+  },
+}
+
+export const NativeScrollbar: Story = {
+  args: {
+    scrollbar: true,
+    controls: false,
+    thumbnails: false,
+  },
+}
