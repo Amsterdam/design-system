@@ -46,18 +46,6 @@ type Story = StoryObj<typeof meta>
 
 export const Default: Story = {}
 
-export const ContrastColour: Story = {
-  args: {
-    contrastColor: true,
-  },
-}
-
-export const InverseColour: Story = {
-  args: {
-    inverseColor: true,
-  },
-}
-
 export const Level3: Story = {
   args: {
     size: 'level-3',
@@ -79,5 +67,17 @@ export const Level5: Story = {
 export const Level6: Story = {
   args: {
     size: 'level-6',
+  },
+}
+
+export const ContrastColour: Story = {
+  args: {
+    contrastColor: true,
+  },
+}
+
+export const InverseColour: Story = {
+  args: {
+    inverseColor: true,
   },
 }
