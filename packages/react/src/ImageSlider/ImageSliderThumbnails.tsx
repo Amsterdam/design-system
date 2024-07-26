@@ -25,8 +25,9 @@ export const ImageSliderThumbnails = forwardRef(
               onClick={() => goToSlideId(index)}
               aria-setsize={thumbnails.length}
               aria-posinset={index + 1}
+              aria-label={`Image ${index + 1} of ${thumbnails.length}`}
             >
-              {thumbnail}
+              <div aria-hidden="true">{thumbnail}</div>
             </button>
           ))}
       </nav>
