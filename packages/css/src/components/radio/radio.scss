@@ -14,7 +14,7 @@
 
 @mixin ams-radio-forced-color-mode {
   @media (forced-colors: active) {
-    background-color: CanvasText; // Use default text color for radio circle
+    background-color: CanvasText; // Use default text color for radio icon
   }
 }
 
@@ -38,14 +38,14 @@
 
   &::before {
     align-items: center;
-    background-color: var(--ams-radio-circle-background-color);
+    background-color: var(--ams-radio-icon-background-color);
     block-size: calc(var(--ams-radio-font-size) * var(--ams-radio-line-height));
     content: "";
     display: flex;
     flex-shrink: 0;
     inline-size: 1.5rem;
-    -webkit-mask-image: var(--ams-radio-circle-mask-image);
-    mask-image: var(--ams-radio-circle-mask-image);
+    -webkit-mask-image: var(--ams-radio-icon-mask-image);
+    mask-image: var(--ams-radio-icon-mask-image);
     -webkit-mask-position: center;
     mask-position: center;
     -webkit-mask-repeat: no-repeat;
@@ -59,7 +59,7 @@
 
 // Hover
 .ams-radio__input + .ams-radio__label:hover::before {
-  background-color: var(--ams-radio-circle-hover-background-color);
+  background-color: var(--ams-radio-icon-hover-background-color);
 
   @include ams-radio-forced-color-mode;
 }
@@ -67,15 +67,15 @@
 // Checked
 .ams-radio__input:checked {
   + .ams-radio__label::before {
-    -webkit-mask-image: var(--ams-radio-circle-checked-mask-image);
-    mask-image: var(--ams-radio-circle-checked-mask-image);
+    -webkit-mask-image: var(--ams-radio-icon-checked-mask-image);
+    mask-image: var(--ams-radio-icon-checked-mask-image);
   }
 }
 
 // Invalid
 .ams-radio__input[aria-invalid="true"] {
   + .ams-radio__label::before {
-    background-color: var(--ams-radio-circle-invalid-background-color);
+    background-color: var(--ams-radio-icon-invalid-background-color);
 
     @include ams-radio-forced-color-mode;
   }
@@ -88,7 +88,7 @@
     cursor: not-allowed;
 
     &::before {
-      background-color: var(--ams-radio-circle-disabled-background-color);
+      background-color: var(--ams-radio-icon-disabled-background-color);
 
       @include ams-radio-forced-color-mode;
     }
@@ -104,7 +104,7 @@
 .ams-radio__input[aria-invalid="true"]:disabled {
   + .ams-radio__label::before {
     // TODO: currently disabled invalid gets the same styling as disabled. This should get its own styling.
-    background-color: var(--ams-radio-circle-disabled-background-color);
+    background-color: var(--ams-radio-icon-disabled-background-color);
 
     @include ams-radio-forced-color-mode;
   }
@@ -113,7 +113,7 @@
 // Invalid hover
 .ams-radio__input[aria-invalid="true"] + .ams-radio__label:hover::before {
   // TODO: this should be the (currently non-existent) dark red hover color
-  background-color: var(--ams-radio-circle-invalid-hover-background-color);
+  background-color: var(--ams-radio-icon-invalid-hover-background-color);
 
   @include ams-radio-forced-color-mode;
 }
@@ -121,7 +121,7 @@
 // Disabled invalid hover
 .ams-radio__input[aria-invalid="true"]:disabled + .ams-radio__label:hover::before {
   // TODO: currently disabled invalid gets the same styling as disabled. This should get its own styling.
-  background-color: var(--ams-radio-circle-disabled-background-color);
+  background-color: var(--ams-radio-icon-disabled-background-color);
 
   @include ams-radio-forced-color-mode;
 }

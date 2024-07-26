@@ -8,7 +8,7 @@
       "gap": { "value": "{ams.space.sm}" },
       "line-height": { "value": "{ams.text.level.5.line-height}" },
       "outline-offset": { "value": "{ams.focus.outline-offset}" },
-      "circle": {
+      "icon": {
         "background-color": { "value": "{ams.color.primary-blue}" },
         "mask-image": {
           "value": "url(\"data:image/svg+xml,<svg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'><circle r='0.925rem' cx='1rem' cy='1rem' stroke-width='0.15rem' stroke='black' fill='none' /></svg>\")"
