@@ -110,15 +110,15 @@
   min-inline-size: 3rem;
 }
 
-[class*="ams-docs-token-preview--"] {
+[class*="ams-docs-token-example--"] {
   block-size: 1rem;
 }
 
-[class*="ams-docs-token-preview--border"] {
+[class*="ams-docs-token-example--border"] {
   border-inline-start-style: solid;
 }
 
-[class*="ams-docs-token-preview--space"] {
+[class*="ams-docs-token-example--space"] {
   background-color: var(--ams-color-primary-white);
   outline: 1px dashed var(--ams-color-neutral-grey2);
 }
