@@ -13,11 +13,12 @@ export type PasswordInputProps = {
 } & Omit<InputHTMLAttributes<HTMLInputElement>, 'aria-invalid' | 'type'>
 
 export const PasswordInput = forwardRef(
-  ({ className, invalid, ...restProps }: PasswordInputProps, ref: ForwardedRef<HTMLInputElement>) => (
+  ({ className, dir, invalid, ...restProps }: PasswordInputProps, ref: ForwardedRef<HTMLInputElement>) => (
     <input
       {...restProps}
       aria-invalid={invalid || undefined}
       className={clsx('ams-password-input', className)}
+      dir={dir ?? 'auto'}
       ref={ref}
       type="password"
     />
