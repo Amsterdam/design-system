@@ -13,9 +13,9 @@ A small set of links for use in the Header and Footer.
 - The ‘Menu’ button opens the Mega Menu.
 - On narrow screens, menu items other than ‘Search’ and ‘Menu’ move from the Page Menu to the Mega Menu.
 
-### Using links with third-party routers
+### Using links with routing libraries
 
-Check out the [developer guide](/docs/docs-developer-guide-using-links-with-routers--docs) on how to integrate links with external routing solutions.
+Check out the [developer guide](/docs/docs-developer-guide-routing-libraries--docs) on how to integrate links with external routing libraries.
 
 ## Relevant WCAG requirements
 

@@ -18,9 +18,9 @@ A prominent navigation element to quickly start a task.
   If this is not possible, leave the last cells of the grid empty.
 - If you have a group of links for which a description is unnecessary or illogical, use a [Link List](/docs/components-navigation-link--docs).
 
-### Using links with third-party routers
+### Using links with routing libraries
 
-Check out the [developer guide](/docs/docs-developer-guide-using-links-with-routers--docs) on how to integrate links with external routing solutions.
+Check out the [developer guide](/docs/docs-developer-guide-routing-libraries--docs) on how to integrate links with external routing libraries.
 
 ## Relevant WCAG requirements
 
