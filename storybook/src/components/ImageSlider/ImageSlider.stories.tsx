@@ -82,3 +82,25 @@ export const NativeScrollbar: Story = {
     thumbnails: false,
   },
 }
+
+export const VariousSizes: Story = {
+  args: {
+    children: [
+      <ImageSlider.Item slideId={0}>
+        <AspectRatio ratio="x-wide">
+          <Image src="https://picsum.photos/id/122/1280/720" loading="lazy" cover />
+        </AspectRatio>
+      </ImageSlider.Item>,
+      <ImageSlider.Item slideId={1}>
+        <AspectRatio ratio="square">
+          <Image src="https://picsum.photos/id/101/1280/1280" loading="lazy" cover />
+        </AspectRatio>
+      </ImageSlider.Item>,
+      <ImageSlider.Item slideId={2}>
+        <AspectRatio ratio="x-wide">
+          <Image src="https://picsum.photos/id/153/1280/720" loading="lazy" cover />
+        </AspectRatio>
+      </ImageSlider.Item>,
+    ],
+  },
+}

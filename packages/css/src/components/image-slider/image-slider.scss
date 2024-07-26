@@ -73,6 +73,7 @@
 }
 
 .ams-image-slider__thumbnail {
+  background-color: var(--ams-image-slider-thumbnails-thumbnail-background-color);
   border: none;
   opacity: var(--ams-image-slider-thumbnails-thumbnail-opacity);
   padding-inline: 0;

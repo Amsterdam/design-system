@@ -9,6 +9,7 @@
       "thumbnails": {
         "gap": { "value": "{ams.space.xs}" },
         "thumbnail": {
+          "background-color": { "value": "transparent" },
           "opacity": { "value": "40%" },
           "outline-offset": { "value": "{ams.focus.outline-offset}" },
           "in-view": {
