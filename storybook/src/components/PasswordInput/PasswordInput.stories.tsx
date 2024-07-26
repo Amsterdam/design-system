@@ -19,6 +19,13 @@ const meta = {
       description: 'Prevents interaction. Avoid if possible.',
     },
   },
+  decorators: [
+    (Story) => (
+      <form noValidate>
+        <Story />
+      </form>
+    ),
+  ],
 } satisfies Meta<typeof PasswordInput>
 
 export default meta
