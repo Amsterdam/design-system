@@ -22,11 +22,25 @@ export type ImageSliderProps = {
   snapstop?: boolean
   /** Show thumbnails */
   thumbnails?: boolean
+  /** Label for the previous button */
+  previousLabel?: string
+  /** Label for the next button */
+  nextLabel?: string
 } & PropsWithChildren<HTMLAttributes<HTMLDivElement>>
 
 export const ImageSliderRoot = forwardRef(
   (
-    { children, className, controls, scrollbar, snapstop, thumbnails, ...restProps }: ImageSliderProps,
+    {
+      children,
+      className,
+      controls,
+      scrollbar,
+      snapstop,
+      thumbnails,
+      previousLabel = 'Vorige',
+      nextLabel = 'Volgende',
+      ...restProps
+    }: ImageSliderProps,
     ref: ForwardedRef<HTMLDivElement>,
   ) => {
     const [currentSlideId, setCurrentSlideId] = useState(0)
@@ -138,7 +152,7 @@ export const ImageSliderRoot = forwardRef(
             <div className="ams-image-slider__controls" onKeyDown={handleKeyDown}>
               <IconButton
                 svg={ChevronLeftIcon}
-                label="Vorige"
+                label={previousLabel}
                 onBackground="dark"
                 className="ams-image-slider__control ams-image-slider__control--previous"
                 onClick={() => goToPreviousSlide()}
@@ -146,7 +160,7 @@ export const ImageSliderRoot = forwardRef(
               />
               <IconButton
                 svg={ChevronRightIcon}
-                label="Volgende"
+                label={nextLabel}
                 onBackground="dark"
                 className="ams-image-slider__control ams-image-slider__control--next"
                 onClick={() => goToNextSlide()}
