@@ -9,49 +9,25 @@
       "line-height": { "value": "{ams.text.level.5.line-height}" },
       "outline-offset": { "value": "{ams.focus.outline-offset}" },
       "circle": {
-        "border-color": { "value": "{ams.color.primary-blue}" },
-        "border-width": { "value": "{ams.border.width.md}" },
+        "background-color": { "value": "{ams.color.primary-blue}" },
+        "mask-image": {
+          "value": "url(\"data:image/svg+xml,<svg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'><circle r='0.925rem' cx='1rem' cy='1rem' stroke-width='0.15rem' stroke='black' fill='none' /></svg>\")"
+        },
         "checked": {
-          "background-image": {
-            "value": "url(\"data:image/svg+xml,%3Csvg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg' fill='%23004699'%3E%3Ccircle cx='16' cy='16' r='16' /%3E%3C/svg%3E\")"
-          },
-          "hover": {
-            "background-image": {
-              "value": "url(\"data:image/svg+xml,%3Csvg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg' fill='%23102E62'%3E%3Ccircle cx='16' cy='16' r='16' /%3E%3C/svg%3E\")"
-            }
+          "mask-image": {
+            "value": "url(\"data:image/svg+xml,<svg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'><circle r='0.925rem' cx='1rem' cy='1rem' stroke-width='0.15rem' stroke='black' fill='none' /><circle r='0.7rem' cx='1rem' cy='1rem' fill='black' /></svg>\")"
           }
         },
         "disabled": {
-          "border-color": { "value": "{ams.color.neutral-grey3}" },
-          "border-width": { "value": "{ams.border.width.md}" },
-          "checked": {
-            "background-image": {
-              "value": "url(\"data:image/svg+xml,%3Csvg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg' fill='%23767676'%3E%3Ccircle cx='16' cy='16' r='16' /%3E%3C/svg%3E\")"
-            },
-            "hover": {
-              "background-image": {
-                "value": "url(\"data:image/svg+xml,%3Csvg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg' fill='%23767676'%3E%3Ccircle cx='16' cy='16' r='16' /%3E%3C/svg%3E\")"
-              }
-            }
-          }
+          "background-color": { "value": "{ams.color.neutral-grey3}" }
         },
         "hover": {
-          "border-color": { "value": "{ams.color.dark-blue}" }
+          "background-color": { "value": "{ams.color.dark-blue}" }
         },
         "invalid": {
-          "border-color": { "value": "{ams.color.primary-red}" },
-          "checked": {
-            "background-image": {
-              "value": "url(\"data:image/svg+xml,%3Csvg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg' fill='%23EC0000'%3E%3Ccircle cx='16' cy='16' r='16' /%3E%3C/svg%3E\")"
-            },
-            "hover": {
-              "background-image": {
-                "value": "url(\"data:image/svg+xml,%3Csvg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg' fill='%23EC0000'%3E%3Ccircle cx='16' cy='16' r='16' /%3E%3C/svg%3E\")"
-              }
-            }
-          },
+          "background-color": { "value": "{ams.color.primary-red}" },
           "hover": {
-            "border-color": { "value": "{ams.color.primary-red}" }
+            "background-color": { "value": "{ams.color.primary-red}" }
           }
         }
       },
