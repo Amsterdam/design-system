@@ -22,11 +22,10 @@ const linkMeta = {
   component: LinkList.Link,
   args: {
     children: linkList[0],
-    contrastColor: undefined,
+    contrastColor: false,
     href: '#',
     icon: Icons.ChevronRightIcon,
-    inverseColor: undefined,
-    size: undefined,
+    inverseColor: false,
   },
 } satisfies Meta<typeof LinkList.Link>
 
@@ -46,11 +45,10 @@ const StoryTemplate: Story = {
 const LinkStoryTemplate: LinkStory = {
   args: {
     children: linkList[0],
-    contrastColor: undefined,
+    contrastColor: false,
     href: '#',
     icon: Icons.ChevronRightIcon,
-    inverseColor: undefined,
-    size: undefined,
+    inverseColor: false,
   },
   argTypes: {
     contrastColor: {

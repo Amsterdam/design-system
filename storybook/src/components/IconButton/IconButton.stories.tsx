@@ -12,8 +12,10 @@ const meta = {
   title: 'Components/Buttons/Icon Button',
   component: IconButton,
   args: {
-    label: 'Sluiten',
+    contrastColor: false,
     disabled: false,
+    inverseColor: false,
+    label: 'Sluiten',
     size: undefined,
   },
   argTypes: {

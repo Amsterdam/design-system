@@ -15,7 +15,9 @@ const meta = {
   component: Link,
   args: {
     children: 'Link label',
+    contrastColor: false,
     href: '#',
+    inverseColor: false,
   },
   argTypes: {
     children: {
