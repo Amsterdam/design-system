@@ -37,11 +37,9 @@
   }
 
   &::before {
-    align-items: center;
     background-color: var(--ams-radio-icon-background-color);
     block-size: calc(var(--ams-radio-font-size) * var(--ams-radio-line-height));
     content: "";
-    display: flex;
     flex-shrink: 0;
     inline-size: 1.5rem;
     -webkit-mask-image: var(--ams-radio-icon-mask-image);
