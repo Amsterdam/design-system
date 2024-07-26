@@ -10,20 +10,20 @@ import { ImageSliderContext } from './ImageSliderContext'
 
 export type ImageSliderThumbnailsProps = {
   thumbnails: ReactNode[]
-} & HTMLAttributes<HTMLDivElement>
+} & HTMLAttributes<HTMLElement>
 
 export const ImageSliderThumbnails = forwardRef(
-  ({ thumbnails, className, ...restProps }: ImageSliderThumbnailsProps, ref: ForwardedRef<HTMLDivElement>) => {
+  ({ thumbnails, className, ...restProps }: ImageSliderThumbnailsProps, ref: ForwardedRef<HTMLElement>) => {
     const { goToSlideId } = useContext(ImageSliderContext)
     return (
-      <div {...restProps} ref={ref} className={clsx('ams-image-slider__thumbnails', className)}>
+      <nav {...restProps} ref={ref} className={clsx('ams-image-slider__thumbnails', className)}>
         {thumbnails &&
           thumbnails.map((thumbnail, index) => (
             <button key={index} className="ams-image-slider__thumbnail" onClick={() => goToSlideId(index)}>
               {thumbnail}
             </button>
           ))}
-      </div>
+      </nav>
     )
   },
 )
