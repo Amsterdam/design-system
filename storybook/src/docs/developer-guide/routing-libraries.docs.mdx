@@ -38,8 +38,8 @@ import { useLinkClickHandler, useHref } from "react-router-dom"
 
 const ReactRouterLink = ({ component, to, ...restProps }) => {
   const Tag = component
-  let href = useHref(to)
-  let handleClick = useLinkClickHandler(to)
+  const href = useHref(to)
+  const handleClick = useLinkClickHandler(to)
 
   return (
     <Tag
