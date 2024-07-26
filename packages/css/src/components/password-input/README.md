@@ -10,6 +10,10 @@ Helps users enter a password.
   It ensures that the input is not readable by others who might be looking at the screen.
 - The characters entered are hidden, represented by squares.
 
+This component sets `autocapitalize="off"`, `autocorrect="off"` and `spellcheck="false"` to stop browsers automatically changing user input.
+Passwords shouldn’t be checked for spelling or grammar.
+This may also prevent posting the password to third-party plugins.
+
 Consider setting the following attributes:
 
 1. Allow the user’s password manager to automatically fill the password through `autocomplete="current-password"`.
@@ -21,8 +25,5 @@ Consider setting the following attributes:
    Describe these policies in the [Field](/docs/components-forms-field--docs)’s description as well.
 4. If the password is a numeric PIN, add `inputmode="numeric"`.
    Devices with virtual keyboards then switch to a numeric keypad layout which makes entering the password easier.
-5. Set `autocapitalize="none"`, `autocorrect="off"` and `spellcheck="false"` to stop browsers automatically changing user input.
-   Passwords shouldn’t be checked for spelling or grammar.
-   This may also prevent posting the password to third-party plugins.
 
 Follow the [guidelines for asking for passwords](https://design-system.service.gov.uk/patterns/passwords/) of the GOV.UK Design System.
