@@ -31,6 +31,16 @@ describe('Password input', () => {
     expect(component).toHaveClass('ams-password-input extra')
   })
 
+  it('renders three attributes for privacy', () => {
+    const { container } = render(<PasswordInput />)
+
+    const component = container.querySelector(':only-child')
+
+    expect(component).toHaveAttribute('autocapitalize', 'off')
+    expect(component).toHaveAttribute('autocorrect', 'off')
+    expect(component).toHaveAttribute('spellcheck', 'false')
+  })
+
   it('should be working in a controlled state', async () => {
     function ControlledComponent() {
       const [value, setValue] = useState('Hello')
