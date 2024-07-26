@@ -43,12 +43,20 @@ describe('Link list link', () => {
     expect(component).toHaveClass('ams-link-list__link--small')
   })
 
-  it('renders a class name for the background color', () => {
-    render(<LinkList.Link href="#" onBackground="dark" />)
+  it('renders the class name for contrast color', () => {
+    render(<LinkList.Link href="#" contrastColor />)
 
     const component = screen.getByRole('link')
 
-    expect(component).toHaveClass('ams-link-list__link--on-background-dark')
+    expect(component).toHaveClass('ams-link-list__link--contrast-color')
+  })
+
+  it('renders the class name for inverse color', () => {
+    render(<LinkList.Link href="#" inverseColor />)
+
+    const component = screen.getByRole('link')
+
+    expect(component).toHaveClass('ams-link-list__link--inverse-color')
   })
 
   it('supports ForwardRef in React', () => {

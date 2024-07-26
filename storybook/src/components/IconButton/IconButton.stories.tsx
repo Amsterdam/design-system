@@ -6,26 +6,21 @@
 import { IconButton } from '@amsterdam/design-system-react/src'
 import * as Icons from '@amsterdam/design-system-react-icons'
 import { Meta, StoryObj } from '@storybook/react'
+import { contrastColorDecorator, inverseColorDecorator } from '../shared/decorators'
 
 const meta = {
   title: 'Components/Buttons/Icon Button',
   component: IconButton,
   args: {
-    label: 'Sluiten',
-    onBackground: undefined,
+    contrastColor: false,
     disabled: false,
+    inverseColor: false,
+    label: 'Sluiten',
     size: undefined,
   },
   argTypes: {
     disabled: {
       description: 'Prevents interaction. Avoid if possible.',
-    },
-    onBackground: {
-      control: {
-        type: 'radio',
-        labels: { undefined: 'default', light: 'light', dark: 'dark' },
-      },
-      options: [undefined, 'light', 'dark'],
     },
     size: {
       control: {
@@ -42,6 +37,7 @@ const meta = {
       mapping: Icons,
     },
   },
+  decorators: [inverseColorDecorator, contrastColorDecorator],
 } satisfies Meta<typeof IconButton>
 
 export default meta
@@ -49,18 +45,6 @@ export default meta
 type Story = StoryObj<typeof meta>
 
 export const Default: Story = {}
-
-export const OnLightBackground: Story = {
-  args: {
-    onBackground: 'light',
-  },
-}
-
-export const OnDarkBackground: Story = {
-  args: {
-    onBackground: 'dark',
-  },
-}
 
 export const Level3: Story = {
   args: {
@@ -83,5 +67,17 @@ export const Level5: Story = {
 export const Level6: Story = {
   args: {
     size: 'level-6',
+  },
+}
+
+export const ContrastColour: Story = {
+  args: {
+    contrastColor: true,
+  },
+}
+
+export const InverseColour: Story = {
+  args: {
+    inverseColor: true,
   },
 }

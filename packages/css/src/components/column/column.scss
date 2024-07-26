@@ -12,7 +12,41 @@
 }
 
 @each $size, $label in $ams-sizes {
-  .ams-column--gap-#{$label} {
-    gap: var(--ams-column-gap-#{$size});
+  @if $size != "md" {
+    .ams-column--gap-#{$label} {
+      gap: var(--ams-column-gap-#{$size});
+    }
   }
+}
+
+.ams-column--align-around {
+  justify-content: space-around;
+}
+
+.ams-column--align-between {
+  justify-content: space-between;
+}
+
+.ams-column--align-center {
+  justify-content: center;
+}
+
+.ams-column--align-end {
+  justify-content: flex-end;
+}
+
+.ams-column--align-evenly {
+  justify-content: space-evenly;
+}
+
+.ams-column--align-horizontal-center {
+  align-items: center;
+}
+
+.ams-column--align-horizontal-end {
+  align-items: flex-end;
+}
+
+.ams-column--align-horizontal-start {
+  align-items: flex-start;
 }
