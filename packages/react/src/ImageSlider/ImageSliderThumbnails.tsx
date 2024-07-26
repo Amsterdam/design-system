@@ -19,7 +19,13 @@ export const ImageSliderThumbnails = forwardRef(
       <nav {...restProps} ref={ref} className={clsx('ams-image-slider__thumbnails', className)}>
         {thumbnails &&
           thumbnails.map((thumbnail, index) => (
-            <button key={index} className="ams-image-slider__thumbnail" onClick={() => goToSlideId(index)}>
+            <button
+              key={index}
+              className="ams-image-slider__thumbnail"
+              onClick={() => goToSlideId(index + 1)}
+              aria-setsize={thumbnails.length}
+              aria-posinset={index}
+            >
               {thumbnail}
             </button>
           ))}
