@@ -25,12 +25,12 @@
 .ams-image-slider__scroller {
   align-items: center;
   display: grid;
-  gap: var(--ams-image-slider-gap);
+  gap: var(--ams-image-slider-scroller-gap);
   grid-auto-columns: 100%;
   grid-auto-flow: column;
   grid-column: 1/-1;
   grid-row: 1;
-  outline-offset: 2px;
+  outline-offset: var(--ams-image-slider-scroller-outline-offset);
   overflow-x: auto;
   overscroll-behavior-x: contain;
   scroll-snap-type: x mandatory;
@@ -63,7 +63,7 @@
 .ams-image-slider__thumbnails {
   display: grid;
   gap: var(--ams-image-slider-thumbnails-gap);
-  grid-auto-columns: 80px;
+  grid-auto-columns: minmax(58px, 188px);
   grid-auto-flow: column;
   max-inline-size: 100%;
   overflow-x: auto;
@@ -74,6 +74,11 @@
 
 .ams-image-slider__thumbnail {
   border: none;
+  opacity: var(--ams-image-slider-thumbnails-thumbnail-opacity);
   padding-inline: 0;
   scroll-snap-align: start;
+
+  &:has([class*="--in-view"]) {
+    opacity: var(--ams-image-slider-thumbnails-thumbnail-in-view-opacity);
+  }
 }

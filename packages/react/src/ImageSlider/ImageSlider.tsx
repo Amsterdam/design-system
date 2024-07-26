@@ -81,15 +81,13 @@ export const ImageSliderRoot = forwardRef(
     }
 
     const goToSlideId = (id: number) => {
-      const sliderScroller = targetRef.current
-      const element = sliderScroller?.children[id] as HTMLElement
+      const element = targetRef.current?.children[id] as HTMLElement
 
       goToSlide(element)
     }
 
     const goToNextSlide = () => {
-      const sliderScroller = targetRef.current
-      const element = sliderScroller?.children[currentSlideId]
+      const element = targetRef.current?.children[currentSlideId]
       const next = element?.nextElementSibling as HTMLElement | null
 
       if (element === next) return
@@ -98,8 +96,7 @@ export const ImageSliderRoot = forwardRef(
     }
 
     const goToPreviousSlide = () => {
-      const sliderScroller = targetRef.current
-      const element = sliderScroller?.children[currentSlideId]
+      const element = targetRef.current?.children[currentSlideId]
       const next = element?.previousElementSibling as HTMLElement | null
 
       if (element === next) return
@@ -160,21 +157,7 @@ export const ImageSliderRoot = forwardRef(
           <ImageSliderScroller tabIndex={0} ref={targetRef}>
             {children}
           </ImageSliderScroller>
-          {thumbnails && (
-            <ImageSliderThumbnails thumbnails={Children.toArray(children)} />
-            // <div className="ams-image-slider__thumbnails">
-            //   {Array.from(targetRef.current?.children || []).map((child, index) => (
-            //     <button
-            //       key={index}
-            //       className="ams-image-slider__thumbnail"
-            //       style={{ backgroundImage: createThumbnailImage(child) }}
-            //       onClick={() => goToSlide(child as HTMLElement)}
-            //     >
-            //       {index}
-            //     </button>
-            //   ))}
-            // </div>
-          )}
+          {thumbnails && <ImageSliderThumbnails thumbnails={Children.toArray(children)} />}
         </div>
       </ImageSliderContext.Provider>
     )

@@ -2,8 +2,19 @@
   "ams": {
     "image-slider": {
       "gap": { "value": "{ams.space.xs}" },
+      "scroller": {
+        "gap": { "value": "{ams.space.xs}" },
+        "outline-offset": { "value": "{ams.focus.outline-offset}" }
+      },
       "thumbnails": {
-        "gap": { "value": "{ams.space.xs}" }
+        "gap": { "value": "{ams.space.xs}" },
+        "thumbnail": {
+          "opacity": { "value": "40%" },
+          "outline-offset": { "value": "{ams.focus.outline-offset}" },
+          "in-view": {
+            "opacity": { "value": "100%" }
+          }
+        }
       }
     }
   }
