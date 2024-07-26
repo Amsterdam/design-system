@@ -30,7 +30,7 @@ const meta = {
       type: { name: 'string', required: false },
     },
   },
-  decorators: [contrastColorDecorator, inverseColorDecorator],
+  decorators: [inverseColorDecorator, contrastColorDecorator],
 } satisfies Meta<typeof Link>
 
 export default meta

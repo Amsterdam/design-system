@@ -76,8 +76,8 @@ const LinkStoryTemplate: LinkStory = {
         <Story />
       </LinkList>
     ),
-    contrastColorDecorator,
     inverseColorDecorator,
+    contrastColorDecorator,
   ],
   render: ({ children, ...args }) => <LinkList.Link {...args}>{children}</LinkList.Link>,
 }

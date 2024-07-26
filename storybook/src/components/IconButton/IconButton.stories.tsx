@@ -37,7 +37,7 @@ const meta = {
       mapping: Icons,
     },
   },
-  decorators: [contrastColorDecorator, inverseColorDecorator],
+  decorators: [inverseColorDecorator, contrastColorDecorator],
 } satisfies Meta<typeof IconButton>
 
 export default meta
