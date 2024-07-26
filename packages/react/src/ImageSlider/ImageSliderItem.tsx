@@ -9,6 +9,7 @@ import type { ForwardedRef, HTMLAttributes, PropsWithChildren } from 'react'
 import { ImageSliderContext } from './ImageSliderContext'
 
 export type ImageSliderItemProps = {
+  /** this ID needs to match the key or order of the slides (starting with 0) */
   slideId: number
 } & PropsWithChildren<HTMLAttributes<HTMLDivElement>>
 
@@ -16,8 +17,6 @@ export const ImageSliderItem = forwardRef(
   ({ children, slideId, className, ...restProps }: ImageSliderItemProps, ref: ForwardedRef<HTMLDivElement>) => {
     const { currentSlide } = useContext(ImageSliderContext)
     const isInView = currentSlide === slideId
-
-    // if (isInView) updateSlide(slideId)
 
     return (
       <div

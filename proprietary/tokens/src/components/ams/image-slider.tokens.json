@@ -1,7 +1,10 @@
 {
   "ams": {
     "image-slider": {
-      "gap": { "value": "{ams.space.xs}" }
+      "gap": { "value": "{ams.space.xs}" },
+      "thumbnails": {
+        "gap": { "value": "{ams.space.xs}" }
+      }
     }
   }
 }

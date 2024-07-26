@@ -5,11 +5,12 @@
 
 import { ChevronLeftIcon, ChevronRightIcon } from '@amsterdam/design-system-react-icons'
 import clsx from 'clsx'
-import { forwardRef, useEffect, useRef, useState } from 'react'
+import { Children, forwardRef, useEffect, useRef, useState } from 'react'
 import type { ForwardedRef, HTMLAttributes, KeyboardEventHandler, PropsWithChildren } from 'react'
 import { ImageSliderContext } from './ImageSliderContext'
 import { ImageSliderItem } from './ImageSliderItem'
 import { ImageSliderScroller } from './ImageSliderScroller'
+import { ImageSliderThumbnails } from './ImageSliderThumbnails'
 import { IconButton } from '../IconButton'
 
 export type ImageSliderProps = {
@@ -79,6 +80,13 @@ export const ImageSliderRoot = forwardRef(
       sliderScroller.scrollTo(delta, 0)
     }
 
+    const goToSlideId = (id: number) => {
+      const sliderScroller = targetRef.current
+      const element = sliderScroller?.children[id] as HTMLElement
+
+      goToSlide(element)
+    }
+
     const goToNextSlide = () => {
       const sliderScroller = targetRef.current
       const element = sliderScroller?.children[currentSlideId]
@@ -107,10 +115,6 @@ export const ImageSliderRoot = forwardRef(
       setAtEnd(last === sliderScroller?.children[currentSlideId])
     }
 
-    const createThumbnailImage = (slide: Element) => {
-      return `url(${(slide as HTMLElement).querySelector('img')?.getAttribute('src')})`
-    }
-
     const handleKeyDown: KeyboardEventHandler<HTMLDivElement> = (e) => {
       if (e.key === 'ArrowRight') {
         goToNextSlide()
@@ -120,7 +124,7 @@ export const ImageSliderRoot = forwardRef(
     }
 
     return (
-      <ImageSliderContext.Provider value={{ currentSlide: currentSlideId }}>
+      <ImageSliderContext.Provider value={{ currentSlide: currentSlideId, goToSlideId }}>
         <div
           {...restProps}
           ref={ref}
@@ -157,18 +161,19 @@ export const ImageSliderRoot = forwardRef(
             {children}
           </ImageSliderScroller>
           {thumbnails && (
-            <div className="ams-image-slider__thumbnails">
-              {Array.from(targetRef.current?.children || []).map((child, index) => (
-                <button
-                  key={index}
-                  className="ams-image-slider__thumbnail"
-                  style={{ backgroundImage: createThumbnailImage(child) }}
-                  onClick={() => goToSlide(child as HTMLElement)}
-                >
-                  {index}
-                </button>
-              ))}
-            </div>
+            <ImageSliderThumbnails thumbnails={Children.toArray(children)} />
+            // <div className="ams-image-slider__thumbnails">
+            //   {Array.from(targetRef.current?.children || []).map((child, index) => (
+            //     <button
+            //       key={index}
+            //       className="ams-image-slider__thumbnail"
+            //       style={{ backgroundImage: createThumbnailImage(child) }}
+            //       onClick={() => goToSlide(child as HTMLElement)}
+            //     >
+            //       {index}
+            //     </button>
+            //   ))}
+            // </div>
           )}
         </div>
       </ImageSliderContext.Provider>

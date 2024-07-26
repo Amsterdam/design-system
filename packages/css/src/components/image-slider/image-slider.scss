@@ -62,19 +62,18 @@
 
 .ams-image-slider__thumbnails {
   display: grid;
-  gap: 1rem;
+  gap: var(--ams-image-slider-thumbnails-gap);
+  grid-auto-columns: 80px;
   grid-auto-flow: column;
-  grid-column: 1/-1;
   max-inline-size: 100%;
   overflow-x: auto;
   overscroll-behavior-x: contain;
-  place-self: flex-start;
+  scroll-snap-type: x mandatory;
   scrollbar-width: none;
 }
 
 .ams-image-slider__thumbnail {
-  aspect-ratio: 1 / 1;
-  background-size: cover;
   border: none;
-  min-block-size: 8rem;
+  padding-inline: 0;
+  scroll-snap-align: start;
 }
