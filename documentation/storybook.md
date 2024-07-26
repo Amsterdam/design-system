@@ -31,10 +31,20 @@ A guideline on how to use the prop may be added, as well as a description of its
 Prevent mentioning the component’s name in a prop description – that should be obvious.
 Prop types that aren’t exported don’t require their properties to be described.
 
+### Args
+
+Add [`args`](https://storybook.js.org/docs/react/writing-stories/args) to the Story to set initial values for props.
+Follow these guidelines:
+
+1. For Boolean props, set their default value to `false`,
+   unless this has side effects e.g. rendering a class name.
+   In that case, don’t specify a value.
+   Storybook will then display a button ‘Set boolean’ that show a switch.
+
 ### Arg Types
 
 Add [`argTypes`](https://storybook.js.org/docs/api/arg-types) to the Story to document native HTML attributes or override the generated controls.
-Be sure to follow these guidelines when you do:
+Follow these guidelines:
 
 1. Add a `description` field instead of a JSDoc comment for native HTML attributes.
    Use terse sentences that end with a full stop.

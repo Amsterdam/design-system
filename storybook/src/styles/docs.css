@@ -48,12 +48,20 @@
   padding-inline: 0.5rem;
 }
 
-.ams-docs-dark-background {
-  background-color: #004699;
+.ams-docs-dark-background,
+.ams-docs-light-background {
   margin-block: -1rem;
   margin-inline: -1rem;
   padding-block: 1rem;
   padding-inline: 1rem;
+}
+
+.ams-docs-dark-background {
+  background-color: #004699; /* Dark blue */
+}
+
+.ams-docs-light-background {
+  background-color: #ffe600; /* Yellow */
 }
 
 .ams-docs-column,
