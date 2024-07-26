@@ -44,7 +44,7 @@ const meta = {
     ],
     controls: true,
     scrollbar: false,
-    snapstop: false,
+    snapstop: true,
     thumbnails: true,
   },
 } satisfies Meta<typeof ImageSlider>
@@ -67,9 +67,9 @@ export const NoThumbnails: Story = {
   },
 }
 
-export const Snapstop: Story = {
+export const NoSnapstop: Story = {
   args: {
-    snapstop: true,
+    snapstop: false,
     thumbnails: false,
     controls: false,
   },
