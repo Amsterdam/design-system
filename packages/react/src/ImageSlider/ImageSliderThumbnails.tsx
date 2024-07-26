@@ -22,9 +22,9 @@ export const ImageSliderThumbnails = forwardRef(
             <button
               key={index}
               className="ams-image-slider__thumbnail"
-              onClick={() => goToSlideId(index + 1)}
+              onClick={() => goToSlideId(index)}
               aria-setsize={thumbnails.length}
-              aria-posinset={index}
+              aria-posinset={index + 1}
             >
               {thumbnail}
             </button>
