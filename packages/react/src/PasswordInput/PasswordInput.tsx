@@ -20,7 +20,7 @@ export const PasswordInput = forwardRef(
     <input
       {...restProps}
       aria-invalid={invalid || undefined}
-      autoCapitalize="off"
+      autoCapitalize="none"
       autoCorrect="off"
       className={clsx('ams-password-input', className)}
       dir={dir ?? 'auto'}

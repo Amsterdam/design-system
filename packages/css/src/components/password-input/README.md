@@ -10,7 +10,7 @@ Helps users enter a password.
   It ensures that the input is not readable by others who might be looking at the screen.
 - The characters entered are hidden, represented by squares.
 
-This component sets `autocapitalize="off"`, `autocorrect="off"` and `spellcheck="false"` to stop browsers automatically changing user input.
+This component sets `autocapitalize="none"`, `autocorrect="off"` and `spellcheck="false"` to stop browsers automatically changing user input.
 Passwords shouldn’t be checked for spelling or grammar.
 This may also prevent posting the password to third-party plugins.
 These props cannot be overridden.

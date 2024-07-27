@@ -36,7 +36,7 @@ describe('Password input', () => {
 
     const component = container.querySelector(':only-child')
 
-    expect(component).toHaveAttribute('autocapitalize', 'off')
+    expect(component).toHaveAttribute('autocapitalize', 'none')
     expect(component).toHaveAttribute('autocorrect', 'off')
     expect(component).toHaveAttribute('spellcheck', 'false')
   })
