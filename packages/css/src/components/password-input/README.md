@@ -13,6 +13,7 @@ Helps users enter a password.
 This component sets `autocapitalize="off"`, `autocorrect="off"` and `spellcheck="false"` to stop browsers automatically changing user input.
 Passwords shouldn’t be checked for spelling or grammar.
 This may also prevent posting the password to third-party plugins.
+These props cannot be overridden.
 
 Consider setting the following attributes:
 

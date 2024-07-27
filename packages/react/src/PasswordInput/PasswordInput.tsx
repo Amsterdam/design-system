@@ -10,7 +10,10 @@ import type { ForwardedRef, InputHTMLAttributes } from 'react'
 export type PasswordInputProps = {
   /** Whether the value fails a validation rule. */
   invalid?: boolean
-} & Omit<InputHTMLAttributes<HTMLInputElement>, 'aria-invalid' | 'type'>
+} & Omit<
+  InputHTMLAttributes<HTMLInputElement>,
+  'aria-invalid' | 'autoCapitalize' | 'autoCorrect' | 'spellCheck' | 'type'
+>
 
 export const PasswordInput = forwardRef(
   ({ className, dir, invalid, ...restProps }: PasswordInputProps, ref: ForwardedRef<HTMLInputElement>) => (
