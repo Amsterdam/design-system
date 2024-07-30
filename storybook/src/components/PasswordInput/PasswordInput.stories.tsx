@@ -12,7 +12,6 @@ const meta = {
   args: {
     disabled: false,
     invalid: false,
-    minLength: 12,
   },
   argTypes: {
     disabled: {
