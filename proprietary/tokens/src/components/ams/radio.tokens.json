@@ -14,8 +14,15 @@
           "value": "url(\"data:image/svg+xml,<svg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'><circle r='0.925rem' cx='1rem' cy='1rem' stroke-width='0.15rem' stroke='black' fill='none' /></svg>\")"
         },
         "checked": {
+          "background-color": { "value": "{ams.color.primary-blue}" },
+          "disabled": {
+            "background-color": { "value": "{ams.color.neutral-grey3}" }
+          },
+          "hover": {
+            "background-color": { "value": "{ams.color.dark-blue}" }
+          },
           "mask-image": {
-            "value": "url(\"data:image/svg+xml,<svg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'><circle r='0.925rem' cx='1rem' cy='1rem' stroke-width='0.15rem' stroke='black' fill='none' /><circle r='0.7rem' cx='1rem' cy='1rem' fill='black' /></svg>\")"
+            "value": "url(\"data:image/svg+xml,<svg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'><circle r='0.7rem' cx='1rem' cy='1rem' fill='black' /></svg>\")"
           }
         },
         "disabled": {
