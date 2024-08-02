@@ -3,6 +3,34 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.11.0](https://github.com/Amsterdam/design-system/compare/design-system-react-v0.10.0...design-system-react-v0.11.0) (2024-07-25)
+
+
+### ⚠ BREAKING CHANGES
+
+* Remove Visually Hidden component ([#1391](https://github.com/Amsterdam/design-system/issues/1391))
+* Remove HeadingLevel type, group Heading sizes in story ([#1387](https://github.com/Amsterdam/design-system/issues/1387))
+* Apply default gap in Row and Column without extra class ([#1422](https://github.com/Amsterdam/design-system/issues/1422))
+* Rename Form Field Character Counter to Character Count ([#1363](https://github.com/Amsterdam/design-system/issues/1363))
+
+### Features
+
+* Add focus on initial render to Form Error List ([#1328](https://github.com/Amsterdam/design-system/issues/1328)) ([09387b7](https://github.com/Amsterdam/design-system/commit/09387b7b7d5f03a7422910314de4ae4d0ccbb983))
+* Add horizontal and vertical alignment options to Column ([#1428](https://github.com/Amsterdam/design-system/issues/1428)) ([d5a7766](https://github.com/Amsterdam/design-system/commit/d5a7766bfd60f62e4a9b69e369bfa08bbd425fa6))
+* Add horizontal and vertical alignment options to Row ([#1330](https://github.com/Amsterdam/design-system/issues/1330)) ([1b9c269](https://github.com/Amsterdam/design-system/commit/1b9c269f10392d1ab6503e6b047849a586d56502))
+* Allow a row to wrap its items onto multiple lines ([#1319](https://github.com/Amsterdam/design-system/issues/1319)) ([42424eb](https://github.com/Amsterdam/design-system/commit/42424ebb413b9976958883a7b03f5b0d31225c39))
+* Apply default gap in Row and Column without extra class ([#1422](https://github.com/Amsterdam/design-system/issues/1422)) ([3af0b1f](https://github.com/Amsterdam/design-system/commit/3af0b1fb40ca941fd3966d08e6afe18995e6d02f))
+* Let Form Error List add the error count to the document title ([#1309](https://github.com/Amsterdam/design-system/issues/1309)) ([f18f03b](https://github.com/Amsterdam/design-system/commit/f18f03bc3ce582099ec120176ea5c6abe265451e))
+* Remove HeadingLevel type, group Heading sizes in story ([#1387](https://github.com/Amsterdam/design-system/issues/1387)) ([8d05017](https://github.com/Amsterdam/design-system/commit/8d050178d2a7991ae9bd620d096bfb956d14f9cf))
+* Remove Visually Hidden component ([#1391](https://github.com/Amsterdam/design-system/issues/1391)) ([83a60ca](https://github.com/Amsterdam/design-system/commit/83a60ca5310704b3348440dd9f1ee8bc1f22811f))
+* Rename Form Field Character Counter to Character Count ([#1363](https://github.com/Amsterdam/design-system/issues/1363)) ([a5299db](https://github.com/Amsterdam/design-system/commit/a5299dbfb3659bada5565893be63f615b511c0ee))
+
+
+### Bug Fixes
+
+* Change CSS classes for Heading level for consistency with token names ([#1355](https://github.com/Amsterdam/design-system/issues/1355)) ([7c34bbe](https://github.com/Amsterdam/design-system/commit/7c34bbea69b377b8e5efffd169374d383cddc54b))
+* Include ‘gap-’ in class names for Row and Column gap ([#1421](https://github.com/Amsterdam/design-system/issues/1421)) ([21cfcbf](https://github.com/Amsterdam/design-system/commit/21cfcbfc80b8fd3dac797428ee42a52447a9b9de))
+
 ## [0.10.0](https://github.com/Amsterdam/design-system/compare/design-system-react-v0.9.0...design-system-react-v0.10.0) (2024-06-28)
 
 

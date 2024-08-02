@@ -38,22 +38,22 @@
           "text-underline-offset": { "value": "{ams.link-appearance.regular.hover.text-underline-offset}" }
         }
       },
-      "on-background-dark": {
-        "color": { "value": "{ams.link-appearance.on-background-dark.color}" },
+      "contrast-color": {
+        "color": { "value": "{ams.link-appearance.contrast.color}" },
         "hover": {
-          "color": { "value": "{ams.link-appearance.on-background-dark.color}" }
+          "color": { "value": "{ams.link-appearance.contrast.hover.color}" }
         },
         "visited": {
-          "color": { "value": "{ams.link-appearance.on-background-dark.color}" }
+          "color": { "value": "{ams.link-appearance.contrast.visited.color}" }
         }
       },
-      "on-background-light": {
-        "color": { "value": "{ams.link-appearance.on-background-light.color}" },
+      "inverse-color": {
+        "color": { "value": "{ams.link-appearance.inverse.color}" },
         "hover": {
-          "color": { "value": "{ams.link-appearance.on-background-light.color}" }
+          "color": { "value": "{ams.link-appearance.inverse.hover.color}" }
         },
         "visited": {
-          "color": { "value": "{ams.link-appearance.on-background-light.color}" }
+          "color": { "value": "{ams.link-appearance.inverse.visited.color}" }
         }
       }
     }

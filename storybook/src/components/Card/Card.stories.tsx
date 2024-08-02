@@ -3,7 +3,8 @@
  * Copyright Gemeente Amsterdam
  */
 
-import { AspectRatio, Card, Heading, Image, Paragraph } from '@amsterdam/design-system-react/src'
+import { AspectRatio, Heading, Image, Paragraph } from '@amsterdam/design-system-react'
+import { Card } from '@amsterdam/design-system-react/src'
 import { Meta, StoryObj } from '@storybook/react'
 import { exampleTopTask } from '../shared/exampleContent'
 

@@ -11,7 +11,7 @@ export const HomeSpotlight = () => (
           Check welke ontheffing of vergunning u nodig heeft. Bijvoorbeeld een RVV, TVM, objectvergunning,{' '}
           nachtwerkontheffing, e-RVV, e-TVM of filmmelding. Dat regult u allemaal met 1 formulier.
         </Paragraph>
-        <Link href="#" onBackground="dark" variant="standalone">
+        <Link href="#" inverseColor variant="standalone">
           Eenvoudig regelen
         </Link>
       </Grid.Cell>
@@ -23,7 +23,7 @@ export const HomeSpotlight = () => (
           Lees waar en wanneer we werken aan nieuwbouw, groot onderhoud, herinrichting van straten en wegen, aanpak van
           parken of ontwikkeling van hele gebieden.
         </Paragraph>
-        <Link href="#" onBackground="dark" variant="standalone">
+        <Link href="#" inverseColor variant="standalone">
           Alle bouw- en verkeerswerkzaamheden
         </Link>
       </Grid.Cell>

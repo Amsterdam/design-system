@@ -48,11 +48,11 @@ export const exampleLinkList = () =>
       'EIT Culture & Creativity',
     ],
     [
-      'Dam tot Damloop 17 september. afsluitingen',
-      'De Nieuwe Noorder, omleiding',
-      'Brug bij Zwarte Gouw/Weerslootpad, omleiding fietsers en voetgangers',
-      'Metaalbewerkerweg en Kamperfoelieweg, omleiding voor fietsers',
-      'H.M. Terwogtweg, afsluitweg',
+      'Dam tot Damloop 17 september: afsluitingen',
+      'De Nieuwe Noorder: omleiding',
+      'Brug bij Zwarte Gouw/Weerslootpad: omleiding fietsers en voetgangers',
+      'Metaalbewerkerweg en Kamperfoelieweg: omleiding voor fietsers',
+      'H.M. Terwogtweg: afsluitweg',
       'Meer werkzaamheden in stadsdeel Noord',
     ],
   ])
