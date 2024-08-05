@@ -327,8 +327,8 @@ importers:
         specifier: 8.2.5
         version: 8.2.5(storybook@8.2.5(@babel/preset-env@7.24.8(@babel/core@7.24.9)))
       '@storybook/core-events':
-        specifier: 8.2.5
-        version: 8.2.5(storybook@8.2.5(@babel/preset-env@7.24.8(@babel/core@7.24.9)))
+        specifier: 8.2.7
+        version: 8.2.7(storybook@8.2.5(@babel/preset-env@7.24.8(@babel/core@7.24.9)))
       '@storybook/manager-api':
         specifier: 8.2.5
         version: 8.2.5(storybook@8.2.5(@babel/preset-env@7.24.8(@babel/core@7.24.9)))
@@ -2068,10 +2068,10 @@ packages:
     peerDependencies:
       storybook: ^8.2.5
 
-  '@storybook/core-events@8.2.5':
-    resolution: {integrity: sha512-HaV49SZ2nOaQy5xyT3O+Juueg6Si72MLFb+YppAejV1XhfcQ23slZXta5/zuq3ym5AsBLDpnBSyNuPym5gSD9w==}
+  '@storybook/core-events@8.2.7':
+    resolution: {integrity: sha512-w4Gz7ExwCFrr/Z6JTTLj/jLDsiapqq71lGcCTE7fZp4blN/FovB/oOehljAkjyCOCL8Rx3kiSeWIicO+M8o1Fw==}
     peerDependencies:
-      storybook: ^8.2.5
+      storybook: ^8.2.7
 
   '@storybook/core@8.2.5':
     resolution: {integrity: sha512-KjaeIkbdcog4Jmx3MoSjQZpfESin1qHEcFiLoOkICOpuKsj37xdMFcuSre8IbcVGCJPkt1RvEmfeu1N90jOgww==}
@@ -10290,7 +10290,7 @@ snapshots:
     dependencies:
       storybook: 8.2.5(@babel/preset-env@7.24.8(@babel/core@7.24.9))
 
-  '@storybook/core-events@8.2.5(storybook@8.2.5(@babel/preset-env@7.24.8(@babel/core@7.24.9)))':
+  '@storybook/core-events@8.2.7(storybook@8.2.5(@babel/preset-env@7.24.8(@babel/core@7.24.9)))':
     dependencies:
       storybook: 8.2.5(@babel/preset-env@7.24.8(@babel/core@7.24.9))
 
