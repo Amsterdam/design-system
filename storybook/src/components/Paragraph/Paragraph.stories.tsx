@@ -51,7 +51,7 @@ export const Small: Story = {
   },
 }
 
-export const InvertedColor: Story = {
+export const InverseColour: Story = {
   args: {
     inverseColor: true,
   },

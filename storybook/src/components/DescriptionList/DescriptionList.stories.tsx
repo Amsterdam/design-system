@@ -47,7 +47,7 @@ export const MultipleDetails: Story = {
   },
 }
 
-export const InvertedColor: Story = {
+export const InverseColour: Story = {
   args: {
     inverseColor: true,
   },
