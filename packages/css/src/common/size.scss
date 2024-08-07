@@ -3,11 +3,12 @@
  * Copyright Gemeente Amsterdam
  */
 
-/** The set of available options for sizing. */
+/** The set of available widths for gaps and margins. */
 $ams-sizes: (
   "no": "none",
   "xs": "extra-small",
   "sm": "small",
+  "md": "medium",
   "lg": "large",
   "xl": "extra-large",
 );

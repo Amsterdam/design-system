@@ -40,7 +40,7 @@ export const parameters = {
       order: [
         'Docs',
         ['Introduction', 'Developer Guide', ['Getting Started']],
-        'Foundation',
+        'Brand',
         'Components',
         ['Buttons', 'Containers', 'Feedback', 'Forms', 'Layout', 'Media', 'Navigation', 'Text'],
         'Utilities',

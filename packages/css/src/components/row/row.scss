@@ -12,8 +12,10 @@
 }
 
 @each $size, $label in $ams-sizes {
-  .ams-row--gap-#{$label} {
-    gap: var(--ams-row-gap-#{$size});
+  @if $size != "md" {
+    .ams-row--gap-#{$label} {
+      gap: var(--ams-row-gap-#{$size});
+    }
   }
 }
 
