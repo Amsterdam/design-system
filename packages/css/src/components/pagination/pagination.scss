@@ -45,14 +45,7 @@
   text-underline-offset: var(--ams-pagination-button-text-underline-offset);
   touch-action: manipulation;
 
-  &:hover {
-    color: var(--ams-pagination-button-hover-color);
-    text-decoration-line: var(--ams-pagination-button-hover-text-decoration-line);
-  }
-
-  &:disabled {
-    display: none;
-  }
+  @include text-rendering;
 
   // Override for icon size
   span.ams-icon svg {
@@ -60,7 +53,14 @@
     inline-size: 1rem;
   }
 
-  @include text-rendering;
+  &:disabled {
+    display: none;
+  }
+
+  &:hover {
+    color: var(--ams-pagination-button-hover-color);
+    text-decoration-line: var(--ams-pagination-button-hover-text-decoration-line);
+  }
 }
 
 .ams-pagination__button--current {

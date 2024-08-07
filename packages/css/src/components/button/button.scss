@@ -22,13 +22,13 @@
   padding-inline: var(--ams-button-padding-inline);
   touch-action: manipulation;
 
+  @include text-rendering;
+  @include reset-button;
+
   &:disabled,
   &[aria-disabled="true"] {
     cursor: var(--ams-button-disabled-cursor);
   }
-
-  @include text-rendering;
-  @include reset-button;
 }
 
 @mixin ams-button-forced-color-mode {
@@ -42,6 +42,8 @@
   box-shadow: var(--ams-button-primary-box-shadow);
   color: var(--ams-button-primary-color);
 
+  @include ams-button-forced-color-mode;
+
   &:disabled,
   [aria-disabled="true"] {
     background-color: var(--ams-button-primary-disabled-background-color);
@@ -52,14 +54,14 @@
     background-color: var(--ams-button-primary-hover-background-color);
     box-shadow: var(--ams-button-primary-hover-box-shadow);
   }
-
-  @include ams-button-forced-color-mode;
 }
 
 .ams-button--secondary {
   background-color: var(--ams-button-secondary-background-color);
   box-shadow: var(--ams-button-secondary-box-shadow);
   color: var(--ams-button-secondary-color);
+
+  @include ams-button-forced-color-mode;
 
   &:disabled,
   [aria-disabled="true"] {
@@ -72,8 +74,6 @@
     box-shadow: var(--ams-button-secondary-hover-box-shadow);
     color: var(--ams-button-secondary-hover-color);
   }
-
-  @include ams-button-forced-color-mode;
 }
 
 .ams-button--tertiary {
