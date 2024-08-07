@@ -16,3 +16,7 @@
   @include hyphenation;
   @include text-rendering;
 }
+
+.ams-label__not-required {
+  color: var(--ams-label-not-required-color);
+}

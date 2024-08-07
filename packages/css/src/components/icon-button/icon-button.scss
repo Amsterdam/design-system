@@ -16,6 +16,8 @@
   outline-offset: var(--ams-icon-button-outline-offset);
   touch-action: manipulation;
 
+  @include reset;
+
   &:hover {
     background-color: var(--ams-icon-button-hover-background-color);
     color: var(--ams-icon-button-hover-color);
@@ -26,8 +28,6 @@
     color: var(--ams-icon-button-disabled-color);
     cursor: not-allowed;
   }
-
-  @include reset;
 }
 
 .ams-icon-button--contrast-color {

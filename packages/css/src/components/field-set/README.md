@@ -7,6 +7,8 @@ A component to group related form inputs.
 ## Guidelines
 
 - Use Field Set when you need to show a relationship between multiple form inputs. For example, you may need to group a set of text inputs into a single Field Set when asking for an address.
+- If all the child form elements get a `required` attribute with the same value, then add the same property with that value to the field set. Also make sure to have an empty string as a value for the `notRequiredLabel` property on all the Label components to avoid many, redundant ‟not required” labels.
+- If the various child form elements have mixed `required` attribute values then do the reverse and set the `notRequiredLabel` property on the Field Set to an empty string and set the `required` property on the child labels as needed.
 
 ## Relevant WCAG requirements
 
