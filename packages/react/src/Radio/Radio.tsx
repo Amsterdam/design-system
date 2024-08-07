@@ -29,7 +29,6 @@ export const Radio = forwardRef(
           type="radio"
         />
         <label className="ams-radio__label" htmlFor={id}>
-          <span className="ams-radio__circle" />
           {children}
         </label>
       </div>
