@@ -12,7 +12,7 @@ const meta = {
   args: {
     children: 'Label',
     notRequiredLabel: 'niet verplicht',
-    required: false,
+    required: undefined,
   },
   argTypes: {
     children: {

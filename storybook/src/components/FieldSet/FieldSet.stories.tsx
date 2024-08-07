@@ -23,7 +23,7 @@ const meta = {
     invalid: false,
     legend: 'Wat is uw naam?',
     notRequiredLabel: 'niet verplicht',
-    required: false,
+    required: undefined,
   },
   decorators: [
     (Story) => (

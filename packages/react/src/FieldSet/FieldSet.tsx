@@ -39,7 +39,7 @@ export const FieldSet = forwardRef(
     >
       <legend className="ams-field-set__legend">
         {legend}
-        {!required && notRequiredLabel && <LabelOptionalFlag notRequiredLabel={notRequiredLabel} />}
+        {required === false && notRequiredLabel && <LabelOptionalFlag notRequiredLabel={notRequiredLabel} />}
       </legend>
       {children}
     </fieldset>

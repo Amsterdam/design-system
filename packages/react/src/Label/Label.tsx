@@ -28,7 +28,7 @@ export const Label = forwardRef(
   ) => (
     <label {...restProps} ref={ref} className={clsx('ams-label', className)}>
       {children}
-      {!required && notRequiredLabel && <LabelOptionalFlag notRequiredLabel={notRequiredLabel} />}
+      {required === false && notRequiredLabel && <LabelOptionalFlag notRequiredLabel={notRequiredLabel} />}
     </label>
   ),
 )
