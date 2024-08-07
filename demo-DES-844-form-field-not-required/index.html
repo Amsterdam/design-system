@@ -77,7 +77,7 @@
   // Somewhat hacky way to expand all folders. Storybook does not support that natively.
   var clickCollapsedItemsUntilNoneLeft = () => {
     const collapsedItems = document.querySelectorAll(
-      ':is(button[data-parent-id="components"], button[data-parent-id="pages"])[aria-expanded="false"]',
+      ':is(button[data-parent-id="brand"], button[data-parent-id="components"], button[data-parent-id="utilities"], button[data-parent-id="pages"])[aria-expanded="false"]',
     );
 
     for (item of collapsedItems) {
