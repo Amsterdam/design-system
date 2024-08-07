@@ -6,16 +6,17 @@
 import clsx from 'clsx'
 import { forwardRef } from 'react'
 import type { ForwardedRef, HTMLAttributes, PropsWithChildren } from 'react'
+import { LabelOptionalFlag } from '../Label/Label'
 
 export type FieldSetProps = PropsWithChildren<HTMLAttributes<HTMLFieldSetElement>> & {
   /** Whether the field set has an input with a validation error */
   invalid?: boolean
   /** The text for the caption. */
   legend: string
-  /** Whether the field set is not required. */
-  notRequired?: boolean
   /** Text to inform the user that the field is explicitely not required. */
   notRequiredLabel?: string
+  /** Whether the field set is required. */
+  required?: boolean
 }
 
 export const FieldSet = forwardRef(
@@ -25,8 +26,8 @@ export const FieldSet = forwardRef(
       className,
       invalid,
       legend,
+      required,
       notRequiredLabel = 'niet verplicht',
-      notRequired,
       ...restProps
     }: FieldSetProps,
     ref: ForwardedRef<HTMLFieldSetElement>,
@@ -38,11 +39,7 @@ export const FieldSet = forwardRef(
     >
       <legend className="ams-field-set__legend">
         {legend}
-        {notRequired === true && (
-          <em className="ams-field-set__legend--not-required">
-            <span className="ams-visually-hidden">,</span> ({notRequiredLabel})
-          </em>
-        )}
+        {!required && notRequiredLabel && <LabelOptionalFlag notRequiredLabel={notRequiredLabel} />}
       </legend>
       {children}
     </fieldset>
