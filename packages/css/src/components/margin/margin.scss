@@ -6,7 +6,9 @@
 @import "../../common/size";
 
 @each $size in map-keys($ams-sizes) {
-  .ams-mb--#{$size} {
-    margin-block-end: var(--ams-margin-#{$size}) !important;
+  @if $size != "no" {
+    .ams-mb--#{$size} {
+      margin-block-end: var(--ams-margin-#{$size}) !important;
+    }
   }
 }

@@ -18,17 +18,25 @@ export type FormErrorListProps = {
   /**
    * The text following the error count.
    * This is used to show the error count in the document title.
+   * @default { plural: 'invoerfouten', singular: 'invoerfout' }
    */
   errorCountLabel?: { plural: string; singular: string }
   /** The list of error messages to display. */
   errors: FormError[]
-  /** Whether the component receives focus on first render */
+  /**
+   * Whether the component receives focus on first render
+   * @default true
+   */
   focusOnRender?: boolean
-  /** The text for the Heading. */
+  /**
+   * The text for the Heading.
+   * @default Verbeter de fouten voor u verder gaat
+   */
   heading?: string
   /**
    * The hierarchical level of the Heading within the document.
    * Note: this intentionally does not change the font size.
+   * @default 2
    */
   headingLevel?: HeadingProps['level']
 } & HTMLAttributes<HTMLDivElement>

@@ -3,7 +3,8 @@
  * Copyright Gemeente Amsterdam
  */
 
-import { Accordion, Paragraph } from '@amsterdam/design-system-react/src'
+import { Paragraph } from '@amsterdam/design-system-react'
+import { Accordion } from '@amsterdam/design-system-react/src'
 import { Meta, StoryObj } from '@storybook/react'
 import { exampleAccordionHeading, exampleParagraph } from '../shared/exampleContent'
 

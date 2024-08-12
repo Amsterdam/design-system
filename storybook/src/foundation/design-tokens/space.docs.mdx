@@ -2,7 +2,7 @@
 
 import { Meta } from "@storybook/blocks";
 
-<Meta title="Foundation/Design Tokens/Space" />
+<Meta title="Brand/Design Tokens/Space" />
 
 # Space
 
@@ -15,33 +15,33 @@ This is the space between components, e.g. between a list of cards, a row of but
 Or at the 4 edges of a component: at the top, bottom, start, and end of its containing box,
 as used for buttons and input fields, and for larger components with a coloured background or border.
 
-This type of space is based on the font size – the medium space length equals the default Paragraph font size.
-We offer 5 lengths.
+This type of space is based on the font size – the medium space size equals the default Paragraph font size.
+We offer 5 sizes.
 
 ### Spacious
 
 Because our typography is fluid in Spacious Mode, spacing is as well.
 The medium space grows from 18 to 24 pixels between window widths of 320 and 1600.
 
-|                 |      |    320 |      832 |   1600 |
-| --------------: | :--: | -----: | -------: | -----: |
-| **Extra small** | `xs` |    4.5 |      5.1 |      6 |
-|       **Small** | `sm` |      9 |      8.3 |     12 |
-|      **Medium** | `md` | **18** | **16.5** | **24** |
-|       **Large** | `lg` |     27 |     24.9 |     36 |
-| **Extra large** | `xl` |     36 |     33.2 |     48 |
+| Token name     | ≤&nbsp;320 |      832 | ≥&nbsp;1600 | Example                                                                                         |
+| :------------- | ---------: | -------: | ----------: | ----------------------------------------------------------------------------------------------- |
+| `ams-space-xs` |        4.5 |      5.1 |           6 | <div className="ams-docs-token-example--space" style={{ inlineSize: 'var(--ams-space-xs)' }} /> |
+| `ams-space-sm` |          9 |      8.3 |          12 | <div className="ams-docs-token-example--space" style={{ inlineSize: 'var(--ams-space-sm)' }} /> |
+| `ams-space-md` |     **18** | **16.5** |      **24** | <div className="ams-docs-token-example--space" style={{ inlineSize: 'var(--ams-space-md)' }} /> |
+| `ams-space-lg` |         27 |     24.9 |          36 | <div className="ams-docs-token-example--space" style={{ inlineSize: 'var(--ams-space-lg)' }} /> |
+| `ams-space-xl` |         36 |     33.2 |          48 | <div className="ams-docs-token-example--space" style={{ inlineSize: 'var(--ams-space-xl)' }} /> |
 
 ### Compact
 
 In Compact Mode, the medium space is 16 pixels.
 
-|                 |      |        |
-| --------------: | :--: | -----: |
-| **Extra small** | `xs` |      4 |
-|       **Small** | `sm` |      8 |
-|      **Medium** | `md` | **16** |
-|       **Large** | `lg` |     24 |
-| **Extra large** | `xl` |     32 |
+| Token name     |        | Example                                                                                                            |
+| :------------- | -----: | ------------------------------------------------------------------------------------------------------------------ |
+| `ams-space-xs` |      4 | <div className="ams-theme--compact ams-docs-token-example--space" style={{ inlineSize: 'var(--ams-space-xs)' }} /> |
+| `ams-space-sm` |      8 | <div className="ams-theme--compact ams-docs-token-example--space" style={{ inlineSize: 'var(--ams-space-sm)' }} /> |
+| `ams-space-md` | **16** | <div className="ams-theme--compact ams-docs-token-example--space" style={{ inlineSize: 'var(--ams-space-md)' }} /> |
+| `ams-space-lg` |     24 | <div className="ams-theme--compact ams-docs-token-example--space" style={{ inlineSize: 'var(--ams-space-lg)' }} /> |
+| `ams-space-xl` |     32 | <div className="ams-theme--compact ams-docs-token-example--space" style={{ inlineSize: 'var(--ams-space-xl)' }} /> |
 
 ## Grid Space
 
@@ -52,126 +52,32 @@ It implements the Law of Proximity, one of the [Gestalt Principles](https://www.
 
 The width or height of this type of space is fluid, depending on the width of the window.
 Five options are available, of which the middle one is the default.
-Multiplication factors for the smaller and larger lengths are ¼, ½, 1½, and 2.
+Multiplication factors for the smaller and larger sizes are ¼, ½, 1½, and 2.
 The tables below show the resulting pixel widths at some reference widths.
 
 #### Spacious
 
 In Spacious Mode, the medium grid space grows from 16 to 56 pixels between window widths of 320 and 1600.
 
-|                 |  320   |  576   |  832   |  1088  |  1344  |  1600  |
-| --------------: | :----: | :----: | :----: | :----: | :----: | :----: |
-| **Extra small** |   4    |   6    |   8    |   10   |   12   |   14   |
-|       **Small** |   8    |   12   |   16   |   20   |   24   |   28   |
-|      **Medium** | **16** | **24** | **32** | **40** | **48** | **56** |
-|       **Large** |   24   |   36   |   48   |   60   |   72   |   84   |
-| **Extra large** |   32   |   48   |   64   |   80   |   96   |  112   |
+| Token name          | ≤&nbsp;320 |  576   |  832   |  1088  |  1344  | ≥&nbsp;1600 | Example                                                                                              |
+| :------------------ | :--------: | :----: | :----: | :----: | :----: | :---------: | ---------------------------------------------------------------------------------------------------- |
+| `ams-space-grid-xs` |     4      |   6    |   8    |   10   |   12   |     14      | <div className="ams-docs-token-example--space" style={{ inlineSize: 'var(--ams-space-grid-xs)' }} /> |
+| `ams-space-grid-sm` |     8      |   12   |   16   |   20   |   24   |     28      | <div className="ams-docs-token-example--space" style={{ inlineSize: 'var(--ams-space-grid-sm)' }} /> |
+| `ams-space-grid-md` |   **16**   | **24** | **32** | **40** | **48** |   **56**    | <div className="ams-docs-token-example--space" style={{ inlineSize: 'var(--ams-space-grid-md)' }} /> |
+| `ams-space-grid-lg` |     24     |   36   |   48   |   60   |   72   |     84      | <div className="ams-docs-token-example--space" style={{ inlineSize: 'var(--ams-space-grid-lg)' }} /> |
+| `ams-space-grid-xl` |     32     |   48   |   64   |   80   |   96   |     112     | <div className="ams-docs-token-example--space" style={{ inlineSize: 'var(--ams-space-grid-xl)' }} /> |
 
 #### Compact
 
 In Compact Mode, the medium grid space grows from 16 to 40 pixels between window widths of 1088 and 2624.
 
-<table>
-  <thead>
-    <tr>
-      <th style={{ textAlign: "right" }}></th>
-      <th style={{ textAlign: "center" }}>320</th>
-      <th style={{ textAlign: "center" }}>576</th>
-      <th style={{ textAlign: "center" }}>832</th>
-      <th style={{ textAlign: "center" }}>1088</th>
-      <th style={{ textAlign: "center" }}>1344</th>
-      <th style={{ textAlign: "center" }}>1600</th>
-      <th style={{ textAlign: "center" }}>1856</th>
-      <th style={{ textAlign: "center" }}>2112</th>
-      <th style={{ textAlign: "center" }}>2368</th>
-      <th style={{ textAlign: "center" }}>2624</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td style={{ textAlign: "right" }}>
-        <strong>Extra small</strong>
-      </td>
-      <td colspan={4} style={{ textAlign: "center" }}>
-        4
-      </td>
-      <td style={{ textAlign: "center" }}>5</td>
-      <td style={{ textAlign: "center" }}>6</td>
-      <td style={{ textAlign: "center" }}>7</td>
-      <td style={{ textAlign: "center" }}>8</td>
-      <td style={{ textAlign: "center" }}>9</td>
-      <td style={{ textAlign: "center" }}>10</td>
-    </tr>
-    <tr>
-      <td style={{ textAlign: "right" }}>
-        <strong>Small</strong>
-      </td>
-      <td colspan={4} style={{ textAlign: "center" }}>
-        8
-      </td>
-      <td style={{ textAlign: "center" }}>10</td>
-      <td style={{ textAlign: "center" }}>12</td>
-      <td style={{ textAlign: "center" }}>14</td>
-      <td style={{ textAlign: "center" }}>16</td>
-      <td style={{ textAlign: "center" }}>18</td>
-      <td style={{ textAlign: "center" }}>20</td>
-    </tr>
-    <tr>
-      <td style={{ textAlign: "right" }}>
-        <strong>Medium</strong>
-      </td>
-      <td colspan={4} style={{ textAlign: "center" }}>
-        <strong>16</strong>
-      </td>
-      <td style={{ textAlign: "center" }}>
-        <strong>20</strong>
-      </td>
-      <td style={{ textAlign: "center" }}>
-        <strong>24</strong>
-      </td>
-      <td style={{ textAlign: "center" }}>
-        <strong>28</strong>
-      </td>
-      <td style={{ textAlign: "center" }}>
-        <strong>32</strong>
-      </td>
-      <td style={{ textAlign: "center" }}>
-        <strong>36</strong>
-      </td>
-      <td style={{ textAlign: "center" }}>
-        <strong>40</strong>
-      </td>
-    </tr>
-    <tr>
-      <td style={{ textAlign: "right" }}>
-        <strong>Large</strong>
-      </td>
-      <td colspan={4} style={{ textAlign: "center" }}>
-        24
-      </td>
-      <td style={{ textAlign: "center" }}>30</td>
-      <td style={{ textAlign: "center" }}>36</td>
-      <td style={{ textAlign: "center" }}>42</td>
-      <td style={{ textAlign: "center" }}>48</td>
-      <td style={{ textAlign: "center" }}>54</td>
-      <td style={{ textAlign: "center" }}>60</td>
-    </tr>
-    <tr>
-      <td style={{ textAlign: "right" }}>
-        <strong>Extra large</strong>
-      </td>
-      <td colspan={4} style={{ textAlign: "center" }}>
-        32
-      </td>
-      <td style={{ textAlign: "center" }}>40</td>
-      <td style={{ textAlign: "center" }}>48</td>
-      <td style={{ textAlign: "center" }}>56</td>
-      <td style={{ textAlign: "center" }}>64</td>
-      <td style={{ textAlign: "center" }}>72</td>
-      <td style={{ textAlign: "center" }}>80</td>
-    </tr>
-  </tbody>
-</table>
+| Token name          | ≤&nbsp;1088 |  1344  |  1600  |  1856  |  2112  |  2368  | ≥&nbsp;2624 | Example                                                                                                                 |
+| ------------------- | :---------: | :----: | :----: | :----: | :----: | :----: | :---------: | ----------------------------------------------------------------------------------------------------------------------- |
+| `ams-space-grid-xs` |      4      |   5    |   6    |   7    |   8    |   9    |     10      | <div className="ams-theme--compact ams-docs-token-example--space" style={{ inlineSize: "var(--ams-space-grid-sm)" }} /> |
+| `ams-space-grid-md` |      8      |   10   |   12   |   14   |   16   |   18   |     20      | <div className="ams-theme--compact ams-docs-token-example--space" style={{ inlineSize: "var(--ams-space-grid-sm)" }} /> |
+| `ams-space-grid-lg` |   **16**    | **20** | **24** | **28** | **32** | **36** |   **40**    | <div className="ams-theme--compact ams-docs-token-example--space" style={{ inlineSize: "var(--ams-space-grid-md)" }} /> |
+| `ams-space-grid-xl` |     24      |   30   |   36   |   42   |   48   |   54   |     60      | <div className="ams-theme--compact ams-docs-token-example--space" style={{ inlineSize: "var(--ams-space-grid-lg)" }} /> |
+| `ams-space-grid-xs` |     32      |   40   |   48   |   56   |   64   |   72   |     80      | <div className="ams-theme--compact ams-docs-token-example--space" style={{ inlineSize: "var(--ams-space-grid-xl)" }} /> |
 
 ## Type Space
 
