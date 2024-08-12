@@ -154,6 +154,7 @@ export const ImageSliderRoot = forwardRef(
                 svg={ChevronLeftIcon}
                 label={previousLabel}
                 contrastColor={true}
+                inverseColor={true}
                 className="ams-image-slider__control ams-image-slider__control--previous"
                 onClick={() => goToPreviousSlide()}
                 disabled={atStart}
@@ -162,6 +163,7 @@ export const ImageSliderRoot = forwardRef(
                 svg={ChevronRightIcon}
                 label={nextLabel}
                 contrastColor={true}
+                inverseColor={true}
                 className="ams-image-slider__control ams-image-slider__control--next"
                 onClick={() => goToNextSlide()}
                 disabled={atEnd}
