@@ -75,11 +75,16 @@
 .ams-image-slider__thumbnail {
   background-color: var(--ams-image-slider-thumbnails-thumbnail-background-color);
   border: none;
+  cursor: var(--ams-image-slider-thumbnails-thumbnail-cursor);
   opacity: var(--ams-image-slider-thumbnails-thumbnail-opacity);
   padding-inline: 0;
   scroll-snap-align: start;
 
   &:has([class*="--in-view"]) {
     opacity: var(--ams-image-slider-thumbnails-thumbnail-in-view-opacity);
+  }
+
+  &:hover {
+    opacity: var(--ams-image-slider-thumbnails-thumbnail-hover-opacity);
   }
 }
