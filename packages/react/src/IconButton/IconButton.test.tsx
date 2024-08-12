@@ -37,20 +37,20 @@ describe('Icon button', () => {
     expect(component).toBeInTheDocument()
   })
 
-  it('renders the right on background light class', () => {
-    render(<IconButton label="Test" onBackground="light" />)
+  it('renders the class name for contrast color', () => {
+    render(<IconButton label="Test" contrastColor />)
 
     const component = screen.getByRole('button')
 
-    expect(component).toHaveClass('ams-icon-button--on-background-light')
+    expect(component).toHaveClass('ams-icon-button--contrast-color')
   })
 
-  it('renders the right on background dark class', () => {
-    render(<IconButton label="Test" onBackground="dark" />)
+  it('renders the class name for inverse color', () => {
+    render(<IconButton label="Test" inverseColor />)
 
     const component = screen.getByRole('button')
 
-    expect(component).toHaveClass('ams-icon-button--on-background-dark')
+    expect(component).toHaveClass('ams-icon-button--inverse-color')
   })
 
   it('supports ForwardRef in React', () => {

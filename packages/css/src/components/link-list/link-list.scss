@@ -53,18 +53,18 @@
   @include hyphenation;
 }
 
-.ams-link-list__link--on-background-dark {
-  color: var(--ams-link-list-link-on-background-dark-color);
+.ams-link-list__link--contrast-color {
+  color: var(--ams-link-list-link-contrast-color-color);
 
   &:hover {
-    color: var(--ams-link-list-link-on-background-dark-hover-color);
+    color: var(--ams-link-list-link-contrast-color-hover-color);
   }
 }
 
-.ams-link-list__link--on-background-light {
-  color: var(--ams-link-list-link-on-background-light-color);
+.ams-link-list__link--inverse-color {
+  color: var(--ams-link-list-link-inverse-color-color);
 
   &:hover {
-    color: var(--ams-link-list-link-on-background-light-hover-color);
+    color: var(--ams-link-list-link-inverse-color-hover-color);
   }
 }

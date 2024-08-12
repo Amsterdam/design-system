@@ -30,31 +30,31 @@
   @include reset;
 }
 
-.ams-icon-button--on-background-light {
-  color: var(--ams-icon-button-on-background-light-color);
+.ams-icon-button--contrast-color {
+  color: var(--ams-icon-button-contrast-color-color);
 
   &:hover {
-    background-color: var(--ams-icon-button-on-background-light-hover-background-color);
-    color: var(--ams-icon-button-on-background-light-hover-color);
+    background-color: var(--ams-icon-button-contrast-color-hover-background-color);
+    color: var(--ams-icon-button-contrast-color-hover-color);
   }
 
   &:disabled {
     background-color: transparent;
-    color: var(--ams-icon-button-on-background-light-disabled-color);
+    color: var(--ams-icon-button-contrast-color-disabled-color);
   }
 }
 
-.ams-icon-button--on-background-dark {
-  background-color: var(--ams-icon-button-on-background-dark-background-color);
-  color: var(--ams-icon-button-on-background-dark-color);
+.ams-icon-button--inverse-color {
+  background-color: var(--ams-icon-button-inverse-color-background-color);
+  color: var(--ams-icon-button-inverse-color-color);
 
   &:hover {
-    background-color: var(--ams-icon-button-on-background-dark-hover-background-color);
-    color: var(--ams-icon-button-on-background-dark-hover-color);
+    background-color: var(--ams-icon-button-inverse-color-hover-background-color);
+    color: var(--ams-icon-button-inverse-color-hover-color);
   }
 
   &:disabled {
-    background-color: var(--ams-icon-button-on-background-dark-disabled-background-color);
-    color: var(--ams-icon-button-on-background-dark-disabled-color);
+    background-color: var(--ams-icon-button-inverse-color-disabled-background-color);
+    color: var(--ams-icon-button-inverse-color-disabled-color);
   }
 }

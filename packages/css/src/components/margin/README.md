@@ -8,13 +8,13 @@ Adds white space below a single element.
 
 The five sizes of [Component Space](/docs/brand-design-tokens-space--docs) are available for the height of the bottom margin.
 
-| Class name   | Preview                                                                                      |
+| Class name   | Example                                                                                      |
 | ------------ | -------------------------------------------------------------------------------------------- |
-| `ams-mb--xs` | <div className="ams-docs-token-preview--space" style="inline-size: var(--ams-margin-xs);" /> |
-| `ams-mb--sm` | <div className="ams-docs-token-preview--space" style="inline-size: var(--ams-margin-sm);" /> |
-| `ams-mb--md` | <div className="ams-docs-token-preview--space" style="inline-size: var(--ams-margin-md);" /> |
-| `ams-mb--lg` | <div className="ams-docs-token-preview--space" style="inline-size: var(--ams-margin-lg);" /> |
-| `ams-mb--xl` | <div className="ams-docs-token-preview--space" style="inline-size: var(--ams-margin-xl);" /> |
+| `ams-mb--xs` | <div className="ams-docs-token-example--space" style="inline-size: var(--ams-margin-xs);" /> |
+| `ams-mb--sm` | <div className="ams-docs-token-example--space" style="inline-size: var(--ams-margin-sm);" /> |
+| `ams-mb--md` | <div className="ams-docs-token-example--space" style="inline-size: var(--ams-margin-md);" /> |
+| `ams-mb--lg` | <div className="ams-docs-token-example--space" style="inline-size: var(--ams-margin-lg);" /> |
+| `ams-mb--xl` | <div className="ams-docs-token-example--space" style="inline-size: var(--ams-margin-xl);" /> |
 
 ## Guidelines
 
