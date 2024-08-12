@@ -8,24 +8,36 @@
       "gap": { "value": "{ams.space.sm}" },
       "line-height": { "value": "{ams.text.level.5.line-height}" },
       "outline-offset": { "value": "{ams.focus.outline-offset}" },
-      "icon": {
+      "button": {
         "background-color": { "value": "{ams.color.primary-blue}" },
         "mask-image": {
           "value": "url(\"data:image/svg+xml,<svg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'><circle r='0.925rem' cx='1rem' cy='1rem' stroke-width='0.15rem' stroke='black' fill='none' /></svg>\")"
         },
         "checked": {
           "background-color": { "value": "{ams.color.primary-blue}" },
+          "mask-image": {
+            "value": "url(\"data:image/svg+xml,<svg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'><circle r='0.7rem' cx='1rem' cy='1rem' fill='black' /></svg>\")"
+          },
           "disabled": {
+            "background-color": { "value": "{ams.color.neutral-grey3}" }
+          },
+          "disabled-invalid": {
             "background-color": { "value": "{ams.color.neutral-grey3}" }
           },
           "hover": {
             "background-color": { "value": "{ams.color.dark-blue}" }
           },
-          "mask-image": {
-            "value": "url(\"data:image/svg+xml,<svg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'><circle r='0.7rem' cx='1rem' cy='1rem' fill='black' /></svg>\")"
+          "invalid": {
+            "background-color": { "value": "{ams.color.primary-red}" },
+            "hover": {
+              "background-color": { "value": "{ams.color.primary-red}" }
+            }
           }
         },
         "disabled": {
+          "background-color": { "value": "{ams.color.neutral-grey3}" }
+        },
+        "disabled-invalid": {
           "background-color": { "value": "{ams.color.neutral-grey3}" }
         },
         "hover": {

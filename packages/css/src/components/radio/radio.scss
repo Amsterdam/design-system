@@ -14,10 +14,17 @@
 
 @mixin forced-colors {
   @media (forced-colors: active) {
-    background-color: CanvasText; // Use default text color for radio icon
+    background-color: FieldText; // Use default input text color for radio button
   }
 }
 
+@mixin forced-colors-disabled-input {
+  @media (forced-colors: active) {
+    background-color: GrayText;
+  }
+}
+
+// Default
 .ams-radio__label {
   color: var(--ams-radio-color);
   cursor: pointer;
@@ -30,33 +37,14 @@
   outline-offset: var(--ams-radio-outline-offset);
   position: relative;
 
-  &:hover {
-    color: var(--ams-radio-hover-color);
-    text-decoration-line: underline;
-    text-decoration-thickness: var(--ams-radio-hover-text-decoration-thickness);
-    text-underline-offset: 0.375rem;
-  }
-
-  &::before {
-    background-color: var(--ams-radio-icon-background-color);
-    block-size: calc(var(--ams-radio-font-size) * var(--ams-radio-line-height));
-    content: "";
-    flex-shrink: 0;
-    inline-size: 1.5rem;
-    -webkit-mask-image: var(--ams-radio-icon-mask-image);
-    mask-image: var(--ams-radio-icon-mask-image);
-    -webkit-mask-position: center;
-    mask-position: center;
-    -webkit-mask-repeat: no-repeat;
-    mask-repeat: no-repeat;
-
-    @include forced-colors;
-  }
-
+  // Radio button check mark
   &::after {
+    background-color: var(--ams-radio-button-checked-background-color);
     block-size: calc(var(--ams-radio-font-size) * var(--ams-radio-line-height));
     flex-shrink: 0;
     inline-size: 1.5rem;
+    -webkit-mask-image: var(--ams-radio-button-checked-mask-image);
+    mask-image: var(--ams-radio-button-checked-mask-image);
     -webkit-mask-position: center;
     mask-position: center;
     -webkit-mask-repeat: no-repeat;
@@ -66,83 +54,139 @@
     @include forced-colors;
   }
 
+  // Radio button
+  &::before {
+    background-color: var(--ams-radio-button-background-color);
+    block-size: calc(var(--ams-radio-font-size) * var(--ams-radio-line-height));
+    content: "";
+    flex-shrink: 0;
+    inline-size: 1.5rem;
+    -webkit-mask-image: var(--ams-radio-button-mask-image);
+    mask-image: var(--ams-radio-button-mask-image);
+    -webkit-mask-position: center;
+    mask-position: center;
+    -webkit-mask-repeat: no-repeat;
+    mask-repeat: no-repeat;
+
+    @include forced-colors;
+  }
+
   @include text-rendering;
 }
 
-// Unchecked hover
-.ams-radio__input + .ams-radio__label:hover::before {
-  background-color: var(--ams-radio-icon-hover-background-color);
+// Default hover
+.ams-radio__label:hover {
+  color: var(--ams-radio-hover-color);
+  text-decoration-line: underline;
+  text-decoration-thickness: var(--ams-radio-hover-text-decoration-thickness);
+  text-underline-offset: 0.375rem;
 
-  @include forced-colors;
-}
+  &::after {
+    background-color: var(--ams-radio-button-checked-hover-background-color);
 
-// Checked
-.ams-radio__input:checked {
-  + .ams-radio__label::after {
-    background-color: var(--ams-radio-icon-checked-background-color);
-    content: "";
-    -webkit-mask-image: var(--ams-radio-icon-checked-mask-image);
-    mask-image: var(--ams-radio-icon-checked-mask-image);
+    @include forced-colors;
+  }
+
+  &::before {
+    background-color: var(--ams-radio-button-hover-background-color);
+
+    @include forced-colors;
   }
 }
 
-// Checked hover
-.ams-radio__input:checked + .ams-radio__label:hover::after {
-  background-color: var(--ams-radio-icon-checked-hover-background-color);
-
-  @include forced-colors;
+// Checked
+.ams-radio__input:checked + .ams-radio__label::after {
+  content: "";
 }
 
-// // Invalid
-// .ams-radio__input[aria-invalid="true"] {
-//   + .ams-radio__label::before {
-//     background-color: var(--ams-radio-icon-invalid-background-color);
+// Invalid
+.ams-radio__input[aria-invalid="true"] + .ams-radio__label {
+  &::after {
+    background-color: var(--ams-radio-button-checked-invalid-background-color);
 
-//     @include forced-colors;
-//   }
-// }
+    @include forced-colors;
+  }
 
-// // Disabled
-// .ams-radio__input:disabled {
-//   + .ams-radio__label {
-//     color: var(--ams-radio-disabled-color);
-//     cursor: not-allowed;
+  &::before {
+    background-color: var(--ams-radio-button-invalid-background-color);
 
-//     &::before {
-//       background-color: var(--ams-radio-icon-disabled-background-color);
+    @include forced-colors;
+  }
+}
 
-//       @include forced-colors;
-//     }
-//   }
-// }
+// Disabled
+.ams-radio__input:disabled + .ams-radio__label {
+  color: var(--ams-radio-disabled-color);
+  cursor: not-allowed;
 
-// // Disabled label
-// .ams-radio__input:disabled + .ams-radio__label:hover {
-//   text-decoration: none;
-// }
+  &::after {
+    background-color: var(--ams-radio-button-checked-disabled-background-color);
 
-// // Disabled invalid
-// .ams-radio__input[aria-invalid="true"]:disabled {
-//   + .ams-radio__label::before {
-//     // TODO: currently disabled invalid gets the same styling as disabled. This should get its own styling.
-//     background-color: var(--ams-radio-icon-disabled-background-color);
+    @include forced-colors-disabled-input;
+  }
 
-//     @include forced-colors;
-//   }
-// }
+  &::before {
+    background-color: var(--ams-radio-button-disabled-background-color);
 
-// // Invalid hover
-// .ams-radio__input[aria-invalid="true"] + .ams-radio__label:hover::before {
-//   // TODO: this should be the (currently non-existent) dark red hover color
-//   background-color: var(--ams-radio-icon-invalid-hover-background-color);
+    @include forced-colors-disabled-input;
+  }
+}
 
-//   @include forced-colors;
-// }
+// Disabled invalid
+.ams-radio__input[aria-invalid="true"]:disabled {
+  + .ams-radio__label {
+    &::after {
+      // TODO: currently disabled invalid gets the same styling as disabled. This should get its own styling.
+      background-color: var(--ams-radio-button-checked-disabled-invalid-background-color);
 
-// // Disabled invalid hover
-// .ams-radio__input[aria-invalid="true"]:disabled + .ams-radio__label:hover::before {
-//   // TODO: currently disabled invalid gets the same styling as disabled. This should get its own styling.
-//   background-color: var(--ams-radio-icon-disabled-background-color);
+      @include forced-colors-disabled-input;
+    }
+    &::before {
+      // TODO: currently disabled invalid gets the same styling as disabled. This should get its own styling.
+      background-color: var(--ams-radio-button-disabled-invalid-background-color);
 
-//   @include forced-colors;
-// }
+      @include forced-colors-disabled-input;
+    }
+  }
+}
+
+// HOVER
+
+// Disabled label hover
+.ams-radio__input:disabled + .ams-radio__label:hover {
+  text-decoration: none;
+}
+
+// Invalid hover
+.ams-radio__input[aria-invalid="true"] + .ams-radio__label:hover {
+  &::after {
+    // TODO: this should be the (currently non-existent) dark red hover color
+    background-color: var(--ams-radio-button-checked-invalid-hover-background-color);
+
+    @include forced-colors;
+  }
+
+  &::before {
+    // TODO: this should be the (currently non-existent) dark red hover color
+    background-color: var(--ams-radio-button-invalid-hover-background-color);
+
+    @include forced-colors;
+  }
+}
+
+// Disabled invalid hover
+.ams-radio__input[aria-invalid="true"]:disabled + .ams-radio__label:hover {
+  &::after {
+    // TODO: currently disabled invalid gets the same styling as disabled. This should get its own styling.
+    background-color: var(--ams-radio-button-checked-disabled-invalid-background-color);
+
+    @include forced-colors-disabled-input;
+  }
+
+  &::before {
+    // TODO: currently disabled invalid gets the same styling as disabled. This should get its own styling.
+    background-color: var(--ams-radio-button-disabled-invalid-background-color);
+
+    @include forced-colors-disabled-input;
+  }
+}
