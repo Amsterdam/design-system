@@ -153,7 +153,6 @@ export const ImageSliderRoot = forwardRef(
               <IconButton
                 svg={ChevronLeftIcon}
                 label={previousLabel}
-                contrastColor={true}
                 inverseColor={true}
                 className="ams-image-slider__control ams-image-slider__control--previous"
                 onClick={() => goToPreviousSlide()}
@@ -162,7 +161,6 @@ export const ImageSliderRoot = forwardRef(
               <IconButton
                 svg={ChevronRightIcon}
                 label={nextLabel}
-                contrastColor={true}
                 inverseColor={true}
                 className="ams-image-slider__control ams-image-slider__control--next"
                 onClick={() => goToNextSlide()}
