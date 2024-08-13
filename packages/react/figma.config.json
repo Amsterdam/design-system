@@ -1,0 +1,9 @@
+{
+  "codeConnect": {
+    "include": ["src/**"],
+    "exclude": [],
+    "importPaths": {
+      "*": "@amsterdam/design-system-react"
+    }
+  }
+}
