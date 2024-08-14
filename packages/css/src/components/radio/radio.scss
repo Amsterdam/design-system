@@ -42,7 +42,7 @@
     background-color: var(--ams-radio-button-checked-background-color);
     block-size: var(--ams-radio-button-checked-block-size);
     flex-shrink: 0;
-    inline-size: 1.5rem;
+    inline-size: var(--ams-radio-button-checked-inline-size);
     -webkit-mask-image: var(--ams-radio-button-checked-mask-image);
     mask-image: var(--ams-radio-button-checked-mask-image);
     -webkit-mask-position: center;
@@ -60,7 +60,7 @@
     block-size: var(--ams-radio-button-block-size);
     content: "";
     flex-shrink: 0;
-    inline-size: 1.5rem;
+    inline-size: var(--ams-radio-button-inline-size);
     -webkit-mask-image: var(--ams-radio-button-mask-image);
     mask-image: var(--ams-radio-button-mask-image);
     -webkit-mask-position: center;

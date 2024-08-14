@@ -11,12 +11,14 @@
       "button": {
         "background-color": { "value": "{ams.color.primary-blue}" },
         "block-size": { "value": "calc({ams.radio.font-size} * {ams.radio.line-height})" },
+        "inline-size": { "value": "1.5rem" },
         "mask-image": {
           "value": "url(\"data:image/svg+xml,<svg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'><circle r='0.925rem' cx='1rem' cy='1rem' stroke-width='0.15rem' stroke='black' fill='none' /></svg>\")"
         },
         "checked": {
           "background-color": { "value": "{ams.color.primary-blue}" },
-          "block-size": { "value": "calc({ams.radio.font-size} * {ams.radio.line-height})" },
+          "block-size": { "value": "{ams.radio.button.block-size}" },
+          "inline-size": { "value": "{ams.radio.button.inline-size}" },
           "mask-image": {
             "value": "url(\"data:image/svg+xml,<svg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'><circle r='0.7rem' cx='1rem' cy='1rem' fill='black' /></svg>\")"
           },
