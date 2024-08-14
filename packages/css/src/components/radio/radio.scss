@@ -36,6 +36,8 @@
   line-height: var(--ams-radio-line-height);
   outline-offset: var(--ams-radio-outline-offset);
   position: relative;
+  text-decoration-thickness: var(--ams-radio-text-decoration-thickness);
+  text-underline-offset: var(--ams-radio-text-underline-offset);
 
   // Radio button check mark
   &::after {
@@ -77,9 +79,7 @@
 // Default hover
 .ams-radio__label:hover {
   color: var(--ams-radio-hover-color);
-  text-decoration-line: underline;
-  text-decoration-thickness: var(--ams-radio-hover-text-decoration-thickness);
-  text-underline-offset: 0.375rem;
+  text-decoration-line: var(--ams-radio-hover-text-decoration-line);
 
   &::after {
     background-color: var(--ams-radio-button-checked-hover-background-color);

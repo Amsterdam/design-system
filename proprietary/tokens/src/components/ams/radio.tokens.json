@@ -8,6 +8,8 @@
       "gap": { "value": "{ams.space.sm}" },
       "line-height": { "value": "{ams.text.level.5.line-height}" },
       "outline-offset": { "value": "{ams.focus.outline-offset}" },
+      "text-decoration-thickness": { "value": "{ams.link-appearance.text-decoration-thickness}" },
+      "text-underline-offset": { "value": "{ams.link-appearance.text-underline-offset}" },
       "button": {
         "background-color": { "value": "{ams.color.primary-blue}" },
         "block-size": { "value": "calc({ams.radio.font-size} * {ams.radio.line-height})" },
@@ -59,7 +61,7 @@
       },
       "hover": {
         "color": { "value": "{ams.color.dark-blue}" },
-        "text-decoration-thickness": { "value": "{ams.border.width.md}" }
+        "text-decoration-line": { "value": "{ams.link-appearance.subtle.hover.text-decoration-line}" }
       }
     }
   }
