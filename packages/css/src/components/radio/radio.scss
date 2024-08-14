@@ -40,7 +40,7 @@
   // Radio button check mark
   &::after {
     background-color: var(--ams-radio-button-checked-background-color);
-    block-size: calc(var(--ams-radio-font-size) * var(--ams-radio-line-height));
+    block-size: var(--ams-radio-button-checked-block-size);
     flex-shrink: 0;
     inline-size: 1.5rem;
     -webkit-mask-image: var(--ams-radio-button-checked-mask-image);
@@ -57,7 +57,7 @@
   // Radio button
   &::before {
     background-color: var(--ams-radio-button-background-color);
-    block-size: calc(var(--ams-radio-font-size) * var(--ams-radio-line-height));
+    block-size: var(--ams-radio-button-block-size);
     content: "";
     flex-shrink: 0;
     inline-size: 1.5rem;
