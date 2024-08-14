@@ -48,12 +48,20 @@
   padding-inline: 0.5rem;
 }
 
-.ams-docs-dark-background {
-  background-color: #004699;
+.ams-docs-dark-background,
+.ams-docs-light-background {
   margin-block: -1rem;
   margin-inline: -1rem;
   padding-block: 1rem;
   padding-inline: 1rem;
+}
+
+.ams-docs-dark-background {
+  background-color: #004699; /* Dark blue */
+}
+
+.ams-docs-light-background {
+  background-color: #ffe600; /* Yellow */
 }
 
 .ams-docs-column,
@@ -102,15 +110,15 @@
   min-inline-size: 3rem;
 }
 
-[class*="ams-docs-token-preview--"] {
+[class*="ams-docs-token-example--"] {
   block-size: 1rem;
 }
 
-[class*="ams-docs-token-preview--border"] {
+[class*="ams-docs-token-example--border"] {
   border-inline-start-style: solid;
 }
 
-[class*="ams-docs-token-preview--space"] {
+[class*="ams-docs-token-example--space"] {
   background-color: var(--ams-color-primary-white);
   outline: 1px dashed var(--ams-color-neutral-grey2);
 }

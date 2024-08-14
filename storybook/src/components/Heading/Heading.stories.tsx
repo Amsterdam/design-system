@@ -66,7 +66,7 @@ export const Sizes: Story = {
   ),
 }
 
-export const InvertedColor: Story = {
+export const InverseColour: Story = {
   args: {
     inverseColor: true,
   },
