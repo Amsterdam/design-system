@@ -24,8 +24,6 @@
     "./storybook"
   ],
   "devDependencies": {
-    "@lerna-lite/cli": "3.8.0",
-    "@lerna-lite/run": "3.8.0",
     "@types/node": "20.14.15",
     "@typescript-eslint/eslint-plugin": "7.18.0",
     "@typescript-eslint/parser": "7.18.0",
@@ -56,8 +54,8 @@
     "wait-on": "7.2.0"
   },
   "scripts": {
-    "build": "lerna run build",
-    "clean": "lerna run clean",
+    "build": "pnpm -r build",
+    "clean": "pnpm -r clean",
     "lint": "npm-run-all --continue-on-error lint:** lint-workspaces",
     "lint:css": "stylelint --allow-empty-input '**/*.{css,scss}'",
     "lint:js": "eslint . --ext .js,.json,.jsx,.mdx,.ts,.tsx --report-unused-disable-directives",
@@ -68,14 +66,14 @@
     "lint-fix:css": "stylelint --fix '**/*.{css,scss}'",
     "lint-fix:js": "eslint . --ext .js,.json,.jsx,.mdx,.ts,.tsx --fix --report-unused-disable-directives",
     "lint-fix:md": "markdownlint --fix **/*.md",
-    "lint-workspaces": "lerna run --no-bail lint",
+    "lint-workspaces": "pnpm -r --no-bail lint",
     "plop": "plop",
     "prepare": "husky",
     "prettier": "prettier --write .",
     "start": "npm-run-all --parallel watch:**",
     "test": "npm run test-workspaces",
     "test-update": "npm-run-all --sequential clean lint build test",
-    "test-workspaces": "lerna run --no-bail test",
+    "test-workspaces": "pnpm -r --no-bail test",
     "update-major": "npm-check-updates --configFileName .ncurc.major.js --deep --dep dev,prod --target latest --upgrade && pnpm install",
     "update-minor": "npm-check-updates --configFileName .ncurc.minor.js --deep --dep dev,prod --target minor --upgrade && pnpm install",
     "update-patch": "npm-check-updates --configFileName .ncurc.patch.js --deep --dep dev,prod --target patch --upgrade && pnpm install",
