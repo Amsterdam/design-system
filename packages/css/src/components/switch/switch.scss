@@ -16,12 +16,12 @@
 }
 
 .ams-switch__label {
-  --ams-switch-track-padding: 0.0625rem;
+  --ams-switch-track-border-width: 0.0625rem;
 
   background-color: var(--ams-switch-background-color);
 
   // Using a transparent border to make sure the component is visible in forced colors mode.
-  border: var(--ams-switch-track-padding) solid transparent;
+  border: var(--ams-switch-track-border-width) solid transparent;
   border-radius: calc(var(--ams-switch-thumb-inline-size) * 2);
   cursor: pointer;
   display: inline-block;
@@ -58,7 +58,7 @@
 }
 
 .ams-switch__input:checked + .ams-switch__label::before {
-  transform: translate(calc(100% - 2 * var(--ams-switch-track-padding)));
+  transform: translate(calc(100% - 2 * var(--ams-switch-track-border-width)));
 }
 
 .ams-switch:hover .ams-switch__input:enabled + .ams-switch__label::before {
