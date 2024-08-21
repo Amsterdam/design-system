@@ -19,13 +19,14 @@
   --ams-switch-track-padding: 0.0625rem;
 
   background-color: var(--ams-switch-background-color);
+
+  // Using a transparent border to make sure the component is visible in forced colors mode.
+  border: var(--ams-switch-track-padding) solid transparent;
   border-radius: calc(var(--ams-switch-thumb-inline-size) * 2);
   cursor: pointer;
   display: inline-block;
   inline-size: var(--ams-switch-inline-size);
   outline-offset: var(--ams-switch-outline-offset);
-  padding-block: var(--ams-switch-track-padding);
-  padding-inline: var(--ams-switch-track-padding);
   transition: background-color 0.2s ease-in-out;
 
   @include reset;
@@ -41,6 +42,10 @@
   transition-duration: 0.1s;
   transition-property: box-shadow, transform;
   transition-timing-function: ease-in-out;
+
+  @media (forced-colors: active) {
+    background-color: ButtonText;
+  }
 }
 
 .ams-switch__input:checked + .ams-switch__label {
@@ -53,9 +58,7 @@
 }
 
 .ams-switch__input:checked + .ams-switch__label::before {
-  transform: translate(
-    calc(var(--ams-switch-inline-size) - var(--ams-switch-thumb-inline-size) - 2 * var(--ams-switch-track-padding))
-  );
+  transform: translate(calc(100% - 2 * var(--ams-switch-track-padding)));
 }
 
 .ams-switch:hover .ams-switch__input:enabled + .ams-switch__label::before {
