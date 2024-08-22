@@ -1,6 +1,6 @@
 {
   "codeConnect": {
-    "include": ["src/**"],
+    "include": ["src/**", "figma/**"],
     "exclude": [],
     "importPaths": {
       "*": "@amsterdam/design-system-react"
