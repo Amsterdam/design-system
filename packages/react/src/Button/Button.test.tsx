@@ -5,7 +5,7 @@ import { Button } from './Button'
 
 describe('Button', () => {
   it('renders an element with role button', () => {
-    render(<Button>Click me!</Button>)
+    render(<Button label="Click me!" />)
 
     const button = screen.getByRole('button', {
       name: 'Click me!',
@@ -16,7 +16,7 @@ describe('Button', () => {
   })
 
   it('renders an additional class name', () => {
-    render(<Button className="extra">Click me!</Button>)
+    render(<Button label="Click me!" className="extra" />)
 
     const button = screen.getByRole('button', {
       name: 'Click me!',
@@ -26,7 +26,7 @@ describe('Button', () => {
   })
 
   it('renders a default button with variant primary', () => {
-    render(<Button>primary</Button>)
+    render(<Button label="primary" />)
 
     const button = screen.getByRole('button', {
       name: 'primary',
@@ -40,9 +40,9 @@ describe('Button', () => {
   it('renders a button with a specified variant', () => {
     render(
       <>
-        <Button variant="primary">primary</Button>
-        <Button variant="secondary">secondary</Button>
-        <Button variant="tertiary">tertiary</Button>
+        <Button variant="primary" label="primary" />
+        <Button variant="secondary" label="secondary" />
+        <Button variant="tertiary" label="tertiary" />
       </>,
     )
 
@@ -69,15 +69,9 @@ describe('Button', () => {
   it('renders a disabled button with a specified variant', () => {
     render(
       <>
-        <Button disabled variant="primary">
-          primary
-        </Button>
-        <Button disabled variant="secondary">
-          secondary
-        </Button>
-        <Button disabled variant="tertiary">
-          tertiary
-        </Button>
+        <Button disabled variant="primary" label="primary" />
+        <Button disabled variant="secondary" label="secondary" />
+        <Button disabled variant="tertiary" label="tertiary" />
       </>,
     )
 
@@ -104,7 +98,7 @@ describe('Button', () => {
   it('is able to pass a React ref', () => {
     const ref = createRef<HTMLButtonElement>()
 
-    const { container } = render(<Button ref={ref} />)
+    const { container } = render(<Button label="Click me!" ref={ref} />)
 
     const button = container.querySelector(':only-child')
 

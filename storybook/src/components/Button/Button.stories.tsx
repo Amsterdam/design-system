@@ -3,7 +3,6 @@
  * Copyright Gemeente Amsterdam
  */
 
-import { Icon } from '@amsterdam/design-system-react'
 import { Button } from '@amsterdam/design-system-react/src'
 import { ShareIcon } from '@amsterdam/design-system-react-icons'
 import { Meta, StoryObj } from '@storybook/react'
@@ -12,7 +11,7 @@ const meta = {
   title: 'Components/Buttons/Button',
   component: Button,
   args: {
-    children: 'Button label',
+    label: 'Button label',
     variant: 'primary',
     disabled: false,
   },
@@ -45,20 +44,29 @@ export const Tertiary: Story = {
   },
 }
 
-export const WithIcon: Story = {
+export const StartIcon: Story = {
   args: {
-    children: ['Button label', <Icon key="icon" svg={ShareIcon} size="level-5" />],
+    iconStart: ShareIcon,
   },
-  argTypes: {
-    children: {
-      table: { disable: true },
-    },
+}
+
+export const EndIcon: Story = {
+  args: {
+    iconEnd: ShareIcon,
+  },
+}
+
+export const OnlyIcon: Story = {
+  args: {
+    variant: 'tertiary',
+    hideLabel: true,
+    iconStart: ShareIcon,
   },
 }
 
 export const TextWrapping: Story = {
   args: {
-    children: 'Vergunningsaanvraag verzenden',
+    label: 'Vergunningsaanvraag verzenden',
   },
   decorators: [
     (Story) => (
