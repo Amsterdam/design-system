@@ -13,7 +13,7 @@ const meta = {
   title: 'Components/Forms/Text Area',
   component: TextArea,
   args: {
-    value: paragraph,
+    defaultValue: paragraph,
     disabled: false,
     invalid: false,
   },
@@ -23,6 +23,9 @@ const meta = {
         type: 'number',
       },
       description: 'The width, expressed in the average number of characters.',
+    },
+    defaultValue: {
+      table: { disable: true },
     },
     disabled: {
       description: 'Prevents interaction. Avoid if possible.',
@@ -39,9 +42,6 @@ const meta = {
         type: 'number',
       },
       description: 'The number of lines to show',
-    },
-    value: {
-      description: 'The value of the field.',
     },
   },
 } satisfies Meta<typeof TextArea>
