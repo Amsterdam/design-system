@@ -6,25 +6,30 @@ figma.connect(
   'https://www.figma.com/design/9IGm6IdPUYizBNGsUnueBd/Amsterdam-Design-System?node-id=15700-53370&t=TrURZbZ6TkhD9Nri-11',
   {
     props: {
-      iconshape: figma.instance('Icon'),
-      text: figma.string('Text'),
+      label: figma.string('Label'),
       hierarchy: figma.enum('Hierarchy', {
         Primary: 'primary',
         Secondary: 'secondary',
         Tertiary: 'tertiary',
       }),
-      disabled: figma.boolean('Disabled'),
-      icon: figma.enum('Icon', {
-        Start: 'start',
-        End: 'end',
-        // Only: 'only',
+      iconStart: figma.boolean('Has icon start', {
+        true: figma.instance('Icon start'),
+        false: undefined,
+      }),
+      iconEnd: figma.boolean('Has icon end', {
+        true: figma.instance('Icon end'),
+        false: undefined,
+      }),
+      isDisabled: figma.enum('State', {
+        Disabled: true,
       }),
     },
-    example: ({ hierarchy, disabled, text, icon, iconshape }) => (
-      <Button variant={hierarchy} disabled={disabled}>
-        {icon === 'start' && iconshape}
-        {text}
-        {icon === 'end' && iconshape}
+    example: ({ label, hierarchy, iconStart, iconEnd, isDisabled }) => (
+      <Button variant={hierarchy} disabled={isDisabled}>
+        {iconStart}
+        {/* fragment is temp bugfix, figma removes label when icon is activated */}
+        <>{label}</>
+        {iconEnd}
       </Button>
     ),
   },
