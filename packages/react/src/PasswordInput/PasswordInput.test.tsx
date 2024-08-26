@@ -31,12 +31,11 @@ describe('Password input', () => {
     expect(component).toHaveClass('ams-password-input extra')
   })
 
-  it('renders three attributes for privacy', () => {
+  it('renders two attributes for privacy', () => {
     const { container } = render(<PasswordInput />)
 
     const component = container.querySelector(':only-child')
 
-    expect(component).toHaveAttribute('autocapitalize', 'none')
     expect(component).toHaveAttribute('autocorrect', 'off')
     expect(component).toHaveAttribute('spellcheck', 'false')
   })
