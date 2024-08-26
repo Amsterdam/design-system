@@ -42,6 +42,10 @@
   &:disabled {
     color: var(--ams-tabs-button-disabled-color);
     cursor: var(--ams-tab-button-disabled-cursor);
+
+    @media (forced-colors: active) {
+      color: GrayText;
+    }
   }
 
   &:hover:not([aria-selected="true"], [disabled]) {
@@ -52,5 +56,9 @@
   &[aria-selected="true"] {
     background-color: var(--ams-tabs-button-selected-background-color);
     color: var(--ams-tabs-button-selected-color);
+
+    @media (forced-colors: active) {
+      background-color: SelectedItem;
+    }
   }
 }
