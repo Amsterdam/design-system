@@ -3,7 +3,7 @@
  * Copyright Gemeente Amsterdam
  */
 
-import { FieldSet } from '@amsterdam/design-system-react'
+import { Column, ErrorMessage, FieldSet, Paragraph } from '@amsterdam/design-system-react'
 import { Radio } from '@amsterdam/design-system-react/src'
 import { useArgs } from '@storybook/preview-api'
 import { Meta, StoryObj } from '@storybook/react'
@@ -53,7 +53,7 @@ type Story = StoryObj<typeof meta>
 
 export const Default: Story = {}
 
-export const RadioGroup: Story = {
+export const InAFieldSet: Story = {
   argTypes: {
     checked: {
       table: { disable: true },
@@ -64,7 +64,56 @@ export const RadioGroup: Story = {
     disabled: {
       table: { disable: true },
     },
-    invalid: {
+    onChange: {
+      action: 'clicked',
+      table: { disable: true },
+    },
+  },
+  render: (args) => (
+    <FieldSet
+      aria-describedby={`description1${args.invalid ? ' error1' : ''}`}
+      invalid={args.invalid}
+      legend="Waar gaat uw melding over?"
+      role="radiogroup"
+    >
+      <Paragraph className="ams-mb--sm" id="description1" size="small">
+        De laatstgenoemde melding.
+      </Paragraph>
+      {args.invalid && (
+        <ErrorMessage className="ams-mb--sm" id="error1">
+          Geef aan waar uw laatstgenoemde melding over gaat.
+        </ErrorMessage>
+      )}
+      <Column gap="extra-small">
+        <Radio invalid={args.invalid} name="about" value="horeca">
+          Horecabedrijf
+        </Radio>
+        <Radio invalid={args.invalid} name="about" value="ander_bedrijf">
+          Ander soort bedrijf
+        </Radio>
+        <Radio invalid={args.invalid} name="about" value="evenement">
+          Evenement
+        </Radio>
+        <Radio invalid={args.invalid} name="about" value="anders">
+          Iets anders
+        </Radio>
+      </Column>
+    </FieldSet>
+  ),
+}
+
+export const InAnInvalidFieldSet: Story = {
+  args: {
+    invalid: true,
+  },
+  argTypes: {
+    checked: {
+      table: { disable: true },
+    },
+    children: {
+      table: { disable: true },
+    },
+    disabled: {
       table: { disable: true },
     },
     onChange: {
@@ -72,25 +121,35 @@ export const RadioGroup: Story = {
       table: { disable: true },
     },
   },
-  render: () => (
-    <FieldSet legend="Waar gaat uw melding over?">
-      <Radio name="soort" value="horecabedrijf">
-        Horecabedrijf
-      </Radio>
-      <Radio name="soort" value="ander_soort_bedrijf">
-        Ander soort bedrijf
-      </Radio>
-      <Radio name="soort" value="evenement">
-        Evenement
-      </Radio>
-      <Radio name="soort" value="iets_anders">
-        Iets anders
-      </Radio>
+  render: (args) => (
+    <FieldSet
+      aria-describedby={`description2${args.invalid ? ' error2' : ''}`}
+      invalid={args.invalid}
+      legend="Waar gaat uw melding over?"
+      role="radiogroup"
+    >
+      <Paragraph className="ams-mb--sm" id="description2" size="small">
+        De laatstgenoemde melding.
+      </Paragraph>
+      {args.invalid && (
+        <ErrorMessage className="ams-mb--sm" id="error2">
+          Geef aan waar uw laatstgenoemde melding over gaat.
+        </ErrorMessage>
+      )}
+      <Column gap="extra-small">
+        <Radio invalid={args.invalid} name="about" value="horeca">
+          Horecabedrijf
+        </Radio>
+        <Radio invalid={args.invalid} name="about" value="ander_bedrijf">
+          Ander soort bedrijf
+        </Radio>
+        <Radio invalid={args.invalid} name="about" value="evenement">
+          Evenement
+        </Radio>
+        <Radio invalid={args.invalid} name="about" value="anders">
+          Iets anders
+        </Radio>
+      </Column>
     </FieldSet>
   ),
-  parameters: {
-    docs: {
-      source: { type: 'dynamic' },
-    },
-  },
 }

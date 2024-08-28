@@ -12,7 +12,27 @@ import README from "../../../../packages/css/src/components/radio/README.md?raw"
 
 <Controls />
 
-Group radios together with a [Field Set](/docs/components-forms-field-set--docs) that describes them.
-This is usually a question, like ‘Where do you live?’.
+## Examples
 
-<Canvas of={RadioStories.RadioGroup} />
+### In a Field Set
+
+Usually, you should place Radio’s inside a Field Set component.
+Here’s an example of a Field Set component that includes a legend, a description, and a group of Radio’s.
+
+When grouping radio inputs, use `role="radiogroup"` on Field Set to have this grouping explicitly announced as a radio group (the default role is group).
+Using `role="radiogroup"` also allows you to use `aria-required` on Field Set, which isn’t allowed for role group.
+Always also set `aria-required` on the individual radio buttons though, to make sure it’s read by screen readers.
+
+If you don’t need the description, just take out the description Paragraph and the `aria-describedby` from the Field Set.
+
+For more information, check [the Field Set component documentation](/docs/components-forms-field-set--docs).
+
+<Canvas of={RadioStories.InAFieldSet} />
+
+### In an invalid Field Set
+
+This is an example of an invalid Field Set with a Label, a description, an Error Message and a group of Radio’s.
+
+For more information, check [the Field Set component documentation](/docs/components-forms-field-set--docs).
+
+<Canvas of={RadioStories.InAnInvalidFieldSet} />
