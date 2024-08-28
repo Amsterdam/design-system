@@ -24,13 +24,13 @@ Click or tap the button to open a dialog.
 
 <Canvas of={DialogStories.TriggerButton} />
 
-Some basic example code to open and close a dialog:
+You can open the dialog using this code:
 
 ```ts
 const openDialog = () => (document.querySelector("#openDialog") as HTMLDialogElement)?.showModal();
-
-const closeDialog = (e: MouseEvent<HTMLButtonElement>) => e.currentTarget.closest("dialog")?.close();
 ```
+
+To close it, use the the `closeDialog` function from the React package.
 
 ## Vertically Stacked Buttons
 
