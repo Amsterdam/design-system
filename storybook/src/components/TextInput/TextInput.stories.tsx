@@ -82,7 +82,23 @@ export const InAField: Story = {
         Omschrijving.
       </Paragraph>
       {args.invalid && <ErrorMessage id="error1">Foutmelding.</ErrorMessage>}
-      <TextInput aria-describedby={`description1${args.invalid ? 'error1' : ''}`} id="input1" {...args} />
+      <TextInput aria-describedby={`description1${args.invalid ? ' error1' : ''}`} id="input1" {...args} />
+    </Field>
+  ),
+}
+
+export const InAnInvalidField: Story = {
+  args: {
+    invalid: true,
+  },
+  render: (args) => (
+    <Field invalid={args.invalid}>
+      <Label htmlFor="input1">Label</Label>
+      <Paragraph id="description1" size="small">
+        Omschrijving.
+      </Paragraph>
+      {args.invalid && <ErrorMessage id="error1">Foutmelding.</ErrorMessage>}
+      <TextInput aria-describedby={`description1${args.invalid ? ' error1' : ''}`} id="input1" {...args} />
     </Field>
   ),
 }

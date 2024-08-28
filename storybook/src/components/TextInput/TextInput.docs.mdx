@@ -113,9 +113,23 @@ Alternatives:
 
 <Canvas of={TextInputStories.Disabled} />
 
-### In a form field
+### In a Field
+
+Usually, you should place a Text Input inside a Field component.
+Here’s an example of a Field component that includes a Label, a description, and a Text Input.
+If you don’t need the description, just take out the description Paragraph and the `aria-describedby` from the Text Input.
+
+For more information, check [the Field component documentation](/docs/components-forms-field--docs).
 
 <Canvas of={TextInputStories.InAField} />
+
+### In an invalid Field
+
+This is an example of an invalid Field with a Label, a description, an Error Message and a Text Input.
+
+For more information, check [the Field component documentation](/docs/components-forms-field--docs).
+
+<Canvas of={TextInputStories.InAnInvalidField} />
 
 ## Further reading
 
