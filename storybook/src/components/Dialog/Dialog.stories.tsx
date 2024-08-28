@@ -3,14 +3,9 @@
  * Copyright Gemeente Amsterdam
  */
 
-import { Button, Heading, Paragraph } from '@amsterdam/design-system-react'
+import { Button, closeDialog, Heading, Paragraph } from '@amsterdam/design-system-react'
 import { Dialog } from '@amsterdam/design-system-react/src'
 import { Meta, StoryObj } from '@storybook/react'
-import { MouseEvent } from 'react'
-
-const closeDialog = (event: MouseEvent<HTMLButtonElement>) => {
-  return event.currentTarget.closest('dialog')?.close()
-}
 
 const meta = {
   title: 'Components/Containers/Dialog',
