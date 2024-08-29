@@ -29,7 +29,7 @@ export const Dialog = forwardRef(
       <form className="ams-dialog__form" method="dialog">
         <header className="ams-dialog__header">
           <Heading size="level-4">{heading}</Heading>
-          <IconButton label={closeButtonLabel} size="level-4" type="button" onClick={closeDialog} />
+          <IconButton label={closeButtonLabel} onClick={closeDialog} size="level-4" type="button" />
         </header>
         <article className="ams-dialog__article">{children}</article>
         {actions && <footer className="ams-dialog__footer">{actions}</footer>}
