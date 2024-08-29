@@ -26,7 +26,7 @@ export const Dialog = forwardRef(
     ref: ForwardedRef<HTMLDialogElement>,
   ) => (
     <dialog {...restProps} ref={ref} className={clsx('ams-dialog', className)}>
-      <form method="dialog" className="ams-dialog__form">
+      <form className="ams-dialog__form" method="dialog">
         <header className="ams-dialog__header">
           <Heading size="level-4">{heading}</Heading>
           <IconButton label={closeButtonLabel} size="level-4" type="button" onClick={closeDialog} />
