@@ -4,7 +4,7 @@
  */
 
 import { Button, closeDialog, Heading, Paragraph } from '@amsterdam/design-system-react'
-import { Dialog } from '@amsterdam/design-system-react/src'
+import { Dialog, openDialog } from '@amsterdam/design-system-react/src'
 import { Meta, StoryObj } from '@storybook/react'
 
 const meta = {
@@ -125,9 +125,7 @@ export const TriggerButton: Story = {
   decorators: [
     (Story) => (
       <article>
-        <Button onClick={() => (document.querySelector('#openDialog') as HTMLDialogElement)?.showModal()}>
-          Open Dialog
-        </Button>
+        <Button onClick={() => openDialog('#openDialog')}>Open Dialog</Button>
         <Story />
       </article>
     ),

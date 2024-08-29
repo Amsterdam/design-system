@@ -20,6 +20,8 @@ export type DialogProps = {
 
 export const closeDialog = (event: MouseEvent<HTMLButtonElement>) => event.currentTarget.closest('dialog')?.close()
 
+export const openDialog = (id: string) => (document.querySelector(id) as HTMLDialogElement)?.showModal()
+
 export const Dialog = forwardRef(
   (
     { actions, children, className, closeButtonLabel = 'Sluiten', heading, ...restProps }: DialogProps,
