@@ -65,36 +65,35 @@ export const InAFieldSet: Story = {
       table: { disable: true },
     },
     onChange: {
-      action: 'clicked',
       table: { disable: true },
     },
   },
-  render: (args) => (
+  render: ({ invalid }) => (
     <FieldSet
-      aria-describedby={`description1${args.invalid ? ' error1' : ''}`}
-      invalid={args.invalid}
+      aria-describedby={`description1${invalid ? ' error1' : ''}`}
+      invalid={invalid}
       legend="Waar gaat uw melding over?"
       role="radiogroup"
     >
       <Paragraph className="ams-mb--sm" id="description1" size="small">
         De laatstgenoemde melding.
       </Paragraph>
-      {args.invalid && (
+      {invalid && (
         <ErrorMessage className="ams-mb--sm" id="error1">
           Geef aan waar uw laatstgenoemde melding over gaat.
         </ErrorMessage>
       )}
       <Column gap="extra-small">
-        <Radio invalid={args.invalid} name="about" value="horeca">
+        <Radio invalid={invalid} name="about" value="horeca">
           Horecabedrijf
         </Radio>
-        <Radio invalid={args.invalid} name="about" value="ander_bedrijf">
+        <Radio invalid={invalid} name="about" value="ander_bedrijf">
           Ander soort bedrijf
         </Radio>
-        <Radio invalid={args.invalid} name="about" value="evenement">
+        <Radio invalid={invalid} name="about" value="evenement">
           Evenement
         </Radio>
-        <Radio invalid={args.invalid} name="about" value="anders">
+        <Radio invalid={invalid} name="about" value="anders">
           Iets anders
         </Radio>
       </Column>
@@ -117,36 +116,35 @@ export const InAFieldSetWithValidation: Story = {
       table: { disable: true },
     },
     onChange: {
-      action: 'clicked',
       table: { disable: true },
     },
   },
-  render: (args) => (
+  render: ({ invalid }) => (
     <FieldSet
-      aria-describedby={`description2${args.invalid ? ' error2' : ''}`}
-      invalid={args.invalid}
+      aria-describedby={`description2${invalid ? ' error2' : ''}`}
+      invalid={invalid}
       legend="Waar gaat uw melding over?"
       role="radiogroup"
     >
       <Paragraph className="ams-mb--sm" id="description2" size="small">
         De laatstgenoemde melding.
       </Paragraph>
-      {args.invalid && (
+      {invalid && (
         <ErrorMessage className="ams-mb--sm" id="error2">
           Geef aan waar uw laatstgenoemde melding over gaat.
         </ErrorMessage>
       )}
       <Column gap="extra-small">
-        <Radio invalid={args.invalid} name="about" value="horeca">
+        <Radio invalid={invalid} name="about" value="horeca">
           Horecabedrijf
         </Radio>
-        <Radio invalid={args.invalid} name="about" value="ander_bedrijf">
+        <Radio invalid={invalid} name="about" value="ander_bedrijf">
           Ander soort bedrijf
         </Radio>
-        <Radio invalid={args.invalid} name="about" value="evenement">
+        <Radio invalid={invalid} name="about" value="evenement">
           Evenement
         </Radio>
-        <Radio invalid={args.invalid} name="about" value="anders">
+        <Radio invalid={invalid} name="about" value="anders">
           Iets anders
         </Radio>
       </Column>
