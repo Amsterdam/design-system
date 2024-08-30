@@ -55,3 +55,21 @@ Alternatives:
    This helps the user understand the context.
 
 <Canvas of={DateInputStories.Disabled} />
+
+### In a Field
+
+Use a Field component to group a Date Input with a Label, description and / or an error message.
+
+If you don’t need the description, just take out the description Paragraph and the `aria-describedby` from the Date Input.
+
+Check [the Field component documentation](/docs/components-forms-field--docs) for more information on configuring it.
+
+<Canvas of={DateInputStories.InAField} />
+
+### In a Field With Validation
+
+If the Date Input can become invalid, add an Error Message component and its `id` to the `aria-describedby` attribute of the Date Input.
+
+Check [the Field component documentation](/docs/components-forms-field--docs) for more information on configuring it.
+
+<Canvas of={DateInputStories.InAFieldWithValidation} />
