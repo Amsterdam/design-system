@@ -20,7 +20,7 @@ Use a Field Set to group several Radios with a legend, description and / or an e
 
 Add `role="radiogroup"` to the Field Set to have it explicitly announced as a radio group (the default role is just ‘group’).
 The ‘radio group’ role also allows using `aria-required` on Field Set; that isn’t allowed for the ‘group’ role.
-Always also set `aria-required` on the individual Radios though, to make sure it’s read by screen readers.
+Even so, always set `aria-required` on the individual Radios as well to ensure that screen readers can read it.
 
 If you don’t need the description, just take out the description Paragraph and the `aria-describedby` from the Field Set.
 
