@@ -6,9 +6,9 @@ Allows users to select one option from a list.
 
 ## Guidelines
 
-- Do not assume that users will know how many options they can select based on the visual difference between radios and checkboxes alone.
+- Do not assume that users will know how many options they can select based on the visual difference between Radios and Checkboxes alone.
   If needed, add a hint explaining this, for example, ‘Select one option’.
-- Order radio options alphabetically by default.
+- Order Radios alphabetically by default.
   In some cases, it can be helpful to order them from most-to-least common options.
   For example, you could order options for ‘Where do you live?’ based on population size.
   However you should do this with extreme caution as it can reinforce bias.
