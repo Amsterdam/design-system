@@ -19,8 +19,8 @@ import README from "../../../../packages/css/src/components/radio/README.md?raw"
 Usually, you should place Radio’s inside a Field Set component.
 Here’s an example of a Field Set component that includes a legend, a description, and a group of Radio’s.
 
-When grouping radio inputs, use `role="radiogroup"` on Field Set to have this grouping explicitly announced as a radio group (the default role is group).
-Using `role="radiogroup"` also allows you to use `aria-required` on Field Set, which isn’t allowed for role group.
+When grouping Radios, add `role="radiogroup"` to the Field Set to have it explicitly announced as a radio group (the default role is just ‘group’).
+The ‘radio group’ role also allows using `aria-required` on Field Set; that isn’t allowed for the ‘group’ role.
 Always also set `aria-required` on the individual radio buttons though, to make sure it’s read by screen readers.
 
 If you don’t need the description, just take out the description Paragraph and the `aria-describedby` from the Field Set.
