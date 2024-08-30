@@ -64,9 +64,6 @@ export const InAFieldSet: Story = {
     disabled: {
       table: { disable: true },
     },
-    onChange: {
-      table: { disable: true },
-    },
   },
   render: ({ invalid }) => (
     <FieldSet
@@ -113,9 +110,6 @@ export const InAFieldSetWithValidation: Story = {
       table: { disable: true },
     },
     disabled: {
-      table: { disable: true },
-    },
-    onChange: {
       table: { disable: true },
     },
   },
