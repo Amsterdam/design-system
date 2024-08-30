@@ -96,7 +96,7 @@ export const InAField: Story = {
   ),
 }
 
-export const InAnInvalidField: Story = {
+export const InAFieldWithValidation: Story = {
   args: {
     invalid: true,
   },

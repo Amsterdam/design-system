@@ -34,18 +34,18 @@ import README from "../../../../packages/css/src/components/text-area/README.md?
 
 ### In a Field
 
-Usually, you should place a Text Area inside a Field component.
-Here’s an example of a Field component that includes a Label, a description, and a Text Area.
+Use a Field component to group a Text Area with a Label, description and / or an error message.
+
 If you don’t need the description, just take out the description Paragraph and the `aria-describedby` from the Text Input.
 
-For more information, check [the Field component documentation](/docs/components-forms-field--docs).
+Check [the Field component documentation](/docs/components-forms-field--docs) for more information on configuring it.
 
 <Canvas of={TextAreaStories.InAField} />
 
-### In an invalid Field
+### In a Field With Validation
 
-This is an example of an invalid Field with a Label, a description, an Error Message and a Text Area.
+If the Text Area can become invalid, add an Error Message component and its `id` to the `aria-describedby` prop of the Text Area.
 
-For more information, check [the Field component documentation](/docs/components-forms-field--docs).
+Check [the Field component documentation](/docs/components-forms-field--docs) for more information on configuring it.
 
-<Canvas of={TextAreaStories.InAnInvalidField} />
+<Canvas of={TextAreaStories.InAFieldWithValidation} />
