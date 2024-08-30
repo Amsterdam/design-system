@@ -28,7 +28,7 @@ and provide the `id` of the describing element as its value.
 
 A Field Set can indicate whether any of the inputs it contains has a validation error.
 Use Error Message to describe the error.
-Make sure to connect the error message to the correct input in the Field Set,
+Make sure to connect the Error Message to the correct input in the Field Set,
 otherwise it won’t be read by a screen reader.
 Add an `aria-describedby` attribute to the input and provide the `id` of Error Message as its value.
 
@@ -36,7 +36,7 @@ Add an `aria-describedby` attribute to the input and provide the `id` of Error M
 
 ### Radio group
 
-Use a Field Set to group several Radios with a legend, description, and / or an error message.
+Use a Field Set to group several Radios with a legend, description, and / or an Error Message.
 
 Add `role="radiogroup"` to the Field Set to have it explicitly announced as a radio group (the default role is just ‘group’).
 The ‘radio group’ role also allows using `aria-required` on Field Set; that isn’t allowed for the ‘group’ role.
@@ -47,7 +47,7 @@ Even so, always set `aria-required` on the individual Radios as well to ensure t
 ### Radio group with validation
 
 A Field Set with a Radio group can also have a validation error.
-In this case, connect the error message to the Field Set instead of an input.
+In this case, connect the Error Message to the Field Set instead of an input.
 Add an `aria-describedby` attribute to the Field Set and provide the `id` of Error Message as its value.
 
 <Canvas of={FieldSetStories.RadioGroupWithValidation} />
