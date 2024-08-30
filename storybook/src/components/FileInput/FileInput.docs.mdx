@@ -12,13 +12,15 @@ import README from "../../../../packages/css/src/components/file-input/README.md
 
 <Controls />
 
-## Multiple Files
+## Examples
+
+### Multiple Files
 
 Allow multiple files to be selected. The label will update to show the number of files selected.
 
 <Canvas of={FileInputStories.Multiple} />
 
-## Accept
+### Accept
 
 Limit the types of files that can be selected. Some examples are `image/*`, `video/*`, or `audio/*`. To limit to a specific file type, use the MIME type, such as `application/pdf`.
 
@@ -26,6 +28,16 @@ Limit the types of files that can be selected. Some examples are `image/*`, `vid
 
 <Canvas of={FileInputStories.Accept} />
 
-## Disabled
+### Disabled
 
 <Canvas of={FileInputStories.Disabled} />
+
+### In a Field
+
+Use a Field component to group a File Input with a Label and possibly a description.
+
+If you don’t need the description, just take out the description Paragraph and the `aria-describedby` from the File Input.
+
+Check [the Field component documentation](/docs/components-forms-field--docs) for more information on configuring it.
+
+<Canvas of={FileInputStories.InAField} />
