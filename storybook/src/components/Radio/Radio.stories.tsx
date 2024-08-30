@@ -102,7 +102,7 @@ export const InAFieldSet: Story = {
   ),
 }
 
-export const InAnInvalidFieldSet: Story = {
+export const InAFieldSetWithValidation: Story = {
   args: {
     invalid: true,
   },
