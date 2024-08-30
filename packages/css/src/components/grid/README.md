@@ -17,6 +17,8 @@ Multiple instances of the grid component are possible on a page, but the columns
 Within the grid, you create cells containing the desired content.
 A cell often spans multiple columns of the grid.
 
+The Gap utility classes must not be used on the Grid component.
+
 ## Design
 
 The [design choices](/docs/brand-design-tokens-grid--docs) are described in the general documentation.

@@ -25,6 +25,11 @@ Also, this approach keeps the order of buttons consistent on both narrow and wid
 | Shift + Tab | Moves focus to the previous focusable element inside the dialog. |
 | Escape      | Closes the dialog.                                               |
 
+## Closing Dialog without submit
+
+You can close a Dialog without submitting by using `<button type="button" onClick={closeDialog}>`.
+This uses the `closeDialog` function from the React package.
+
 ## References
 
 - [HTMLDialogElement](https://developer.mozilla.org/en-US/docs/Web/API/HTMLDialogElement)

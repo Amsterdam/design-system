@@ -14,14 +14,14 @@ const meta = {
     invalid: false,
   },
   argTypes: {
+    defaultValue: {
+      table: { disable: true },
+    },
     disabled: {
       description: 'Prevents interaction. Avoid if possible.',
     },
     invalid: {
       description: 'Whether the value fails a validation rule.',
-    },
-    value: {
-      description: 'The value of the field.',
     },
   },
 } satisfies Meta<typeof TextInput>
@@ -34,22 +34,22 @@ export const Default: Story = {}
 
 export const EmailAddress: Story = {
   args: {
+    defaultValue: 'designsystem@amsterdam.nl',
     type: 'email',
-    value: 'designsystem@amsterdam.nl',
   },
 }
 
 export const WebAddress: Story = {
   args: {
+    defaultValue: 'https://designsystem.amsterdam/',
     type: 'url',
-    value: 'https://designsystem.amsterdam/',
   },
 }
 
 export const PhoneNumber: Story = {
   args: {
+    defaultValue: '14020',
     type: 'tel',
-    value: '14020',
   },
 }
 
@@ -61,14 +61,14 @@ export const Placeholder: Story = {
 
 export const Invalid: Story = {
   args: {
+    defaultValue: 'Invalid value',
     invalid: true,
-    value: 'Invalid value',
   },
 }
 
 export const Disabled: Story = {
   args: {
+    defaultValue: 'Disabled input',
     disabled: true,
-    value: 'Disabled input',
   },
 }
