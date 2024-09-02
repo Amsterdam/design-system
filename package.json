@@ -37,7 +37,7 @@
     "eslint-plugin-react": "7.35.0",
     "html-validate": "8.21.0",
     "husky": "9.1.4",
-    "lint-staged": "15.2.9",
+    "lint-staged": "15.2.10",
     "markdownlint-cli": "0.41.0",
     "npm-check-updates": "17.0.6",
     "npm-package-json-lint": "8.0.0",
