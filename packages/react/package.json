@@ -60,7 +60,7 @@
     "postcss": "8.4.41",
     "react": "18.3.1",
     "react-dom": "18.3.1",
-    "rollup": "4.21.0",
+    "rollup": "4.21.2",
     "rollup-plugin-delete": "2.0.0",
     "rollup-plugin-dts": "6.1.1",
     "rollup-plugin-filesize": "10.0.0",
