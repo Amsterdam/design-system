@@ -54,8 +54,8 @@ importers:
         specifier: 0.41.0
         version: 0.41.0
       npm-check-updates:
-        specifier: 17.0.6
-        version: 17.0.6
+        specifier: 17.1.1
+        version: 17.1.1
       npm-package-json-lint:
         specifier: 8.0.0
         version: 8.0.0(typescript@5.5.4)
@@ -5648,8 +5648,8 @@ packages:
     resolution: {integrity: sha512-Vq0eyEQy+elFpzsKjMss9kxqb9tG3YHg4dsyWuUENuzvSUWe1TCnW/vV9FkhvBk/brEDoDiVd+M1Btosa6ImdQ==}
     engines: {node: ^14.17.0 || ^16.13.0 || >=18.0.0}
 
-  npm-check-updates@17.0.6:
-    resolution: {integrity: sha512-KCiaJH1cfnh/RyzKiDNjNfXgcKFyQs550Uf1OF/Yzb8xO56w+RLpP/OKRUx23/GyP/mLYwEpOO65qjmVdh6j0A==}
+  npm-check-updates@17.1.1:
+    resolution: {integrity: sha512-2aqIzGAEWB7xPf0hKHTkNmUM5jHbn2S5r2/z/7dA5Ij2h/sVYAg9R/uVkaUC3VORPAfBm7pKkCWo6E9clEVQ9A==}
     engines: {node: ^18.18.0 || >=20.0.0, npm: '>=8.12.1'}
     hasBin: true
 
@@ -14352,7 +14352,7 @@ snapshots:
     dependencies:
       npm-normalize-package-bin: 3.0.1
 
-  npm-check-updates@17.0.6: {}
+  npm-check-updates@17.1.1: {}
 
   npm-install-checks@6.2.0:
     dependencies:
