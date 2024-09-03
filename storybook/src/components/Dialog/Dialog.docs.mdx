@@ -12,26 +12,29 @@ import README from "../../../../packages/css/src/components/dialog/README.md?raw
 
 <Controls />
 
-## With Scrollbar
+## Examples
+
+### With scrollbar
 
 Content taller than the dialog itself will scroll.
 
 <Canvas of={DialogStories.WithScrollbar} className="ams-dialog-story" />
 
-## Open Dialog Button
+### Trigger button
 
-Click or tap the button to open a dialog.
+Click or tap this button to open the Dialog.
 
 <Canvas of={DialogStories.TriggerButton} />
 
-To open the dialog, use the `openDialog` function from the React package.
-Pass the Dialog’s `id` to the function to select it.
+#### Utility functions
 
+To open the Dialog, use the `openDialog` function from the React package.
+Pass the Dialog’s `id` to the function to select it.
 To close the Dialog, use the `closeDialog` function.
 
-## Vertically Stacked Buttons
+### Vertically stacked buttons
 
 If the buttons don’t fit next to each other, they will stack vertically and stretch to the full width.
-This can occur with a narrow Dialog, long Button labels, a large text size or zooming in.
+This can occur with a narrow Dialog, long Button labels, a large text size, or when zooming in.
 
 <Canvas of={DialogStories.VerticalButtons} />

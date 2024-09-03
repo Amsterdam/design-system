@@ -8,29 +8,29 @@ import README from "../../../../packages/css/src/components/select/README.md?raw
 
 <Markdown>{README}</Markdown>
 
-# Default
-
 <Primary />
 
 <Controls />
 
-## Multiple
+## Examples
+
+### Multiple
 
 Avoid adding functionality to allow selecting multiple options. Multi select is harder to use
 on desktop as they require the user to hold down the `Ctrl` or `Cmd` key while clicking on the options.
 It is recommended to use checkboxes instead.
 
-## Grouped
+### Grouped
 
 Use the `Select.Group` component to group options.
 The component requires a `label` attribute.
 
 <Canvas of={SelectStories.Grouped} />
 
-## Invalid
+### Invalid
 
 <Canvas of={SelectStories.Invalid} />
 
-## Disabled
+### Disabled
 
 <Canvas of={SelectStories.Disabled} />

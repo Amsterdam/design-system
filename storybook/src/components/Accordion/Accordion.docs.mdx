@@ -23,15 +23,15 @@ If you want the contents of an accordion section to appear initially, pass the `
 
 <Canvas of={AccordionStories.ExpandedByDefault} />
 
-## Too many landmarks
+### Improve semantics
 
-By default, an accordion section uses the HTML tag `section` to render the content.
-Having many accordion sections on your page (more than 6) can lead to too many landmark regions, confusing screen reader users.
+By default, an Accordion Section renders a `section` element in HTML.
+Having many accordion sections on your page can lead to too many landmark regions, confusing screen reader users.
 In that case, use `sectionAs="div"`.
 
-<Canvas of={AccordionStories.TooManyLandmarks} />
+<Canvas of={AccordionStories.ImproveSemantics} />
 
-## Technical considerations
+### Technical considerations
 
 ### The `Accordion` parent component
 

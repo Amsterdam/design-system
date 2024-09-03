@@ -114,7 +114,7 @@ export const Default: Story = {
   },
 }
 
-export const Onderzoek: Story = {
+export const OnderzoekEnStatistiek: Story = {
   args: {
     children: [
       <Footer.Top key="footer-top">
