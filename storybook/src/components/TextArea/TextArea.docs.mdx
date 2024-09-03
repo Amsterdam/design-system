@@ -31,3 +31,21 @@ import README from "../../../../packages/css/src/components/text-area/README.md?
 ## Disabled
 
 <Canvas of={TextAreaStories.Disabled} />
+
+### In a Field
+
+Use a Field to group a Text Area with a Label, description and / or an Error Message.
+
+If you don’t need the description, remove its Paragraph and the `aria-describedby` from the Text Input.
+
+Check [the Field docs](/docs/components-forms-field--docs) for more information on configuring it.
+
+<Canvas of={TextAreaStories.InAField} />
+
+### In a Field With Validation
+
+If the Text Area can become invalid, add an Error Message and its `id` to the `aria-describedby` prop of the Text Area.
+
+Check [the Field docs](/docs/components-forms-field--docs) for more information on configuring it.
+
+<Canvas of={TextAreaStories.InAFieldWithValidation} />
