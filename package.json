@@ -51,7 +51,7 @@
     "stylelint-order": "6.0.4",
     "stylelint-use-logical": "2.1.2",
     "typescript": "5.5.4",
-    "wait-on": "7.2.0"
+    "wait-on": "8.0.0"
   },
   "scripts": {
     "build": "pnpm -r build",
