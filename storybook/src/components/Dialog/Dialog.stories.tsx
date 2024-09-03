@@ -18,10 +18,8 @@ const meta = {
   args: {
     actions: (
       <>
-        <Button type="submit">Doorgaan</Button>
-        <Button onClick={closeDialog} variant="tertiary">
-          Stoppen
-        </Button>
+        <Button type="submit" label="Doorgaan" />
+        <Button onClick={closeDialog} variant="tertiary" label="Stoppen" />
       </>
     ),
     children: (
@@ -72,7 +70,7 @@ export const Default: Story = {
 
 export const WithScrollbar: Story = {
   args: {
-    actions: <Button onClick={closeDialog}>Sluiten</Button>,
+    actions: <Button onClick={closeDialog} label="Sluiten" />,
     children: [
       <Heading level={2} size="level-5" key={1}>
         Algemeen
@@ -130,9 +128,10 @@ export const TriggerButton: Story = {
   decorators: [
     (Story) => (
       <article>
-        <Button onClick={() => (document.querySelector('#openDialog') as HTMLDialogElement)?.showModal()}>
-          Open Dialog
-        </Button>
+        <Button
+          onClick={() => (document.querySelector('#openDialog') as HTMLDialogElement)?.showModal()}
+          label="Open Dialog"
+        />
         <Story />
       </article>
     ),
@@ -143,10 +142,8 @@ export const VerticalButtons: Story = {
   args: {
     actions: (
       <>
-        <Button type="submit">Lange teksten op deze knoppen</Button>
-        <Button onClick={closeDialog} variant="tertiary">
-          Om verticaal stapelen te demonstreren
-        </Button>
+        <Button type="submit" label="Lange teksten op deze knoppen" />
+        <Button onClick={closeDialog} variant="tertiary" label="Om verticaal stapelen te demonstreren" />
       </>
     ),
     open: true,
