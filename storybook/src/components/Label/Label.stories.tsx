@@ -11,8 +11,8 @@ const meta = {
   component: Label,
   args: {
     children: 'Label',
-    notRequiredLabel: 'niet verplicht',
-    required: undefined,
+    hint: '',
+    optional: false,
   },
   argTypes: {
     children: {
