@@ -23,13 +23,13 @@ If you want the contents of an accordion section to appear initially, pass the `
 
 <Canvas of={AccordionStories.ExpandedByDefault} />
 
-### Improve semantics
+### Limit the amount of accessibility landmarks
 
-By default, an Accordion Section renders a `section` element in HTML.
-Having many Accordion Sections on your page can lead to too many landmark regions, confusing screen reader users.
-In that case, use `sectionAs="div"`.
+An Accordion Section renders a `section` element in HTML by default.
+Each of them introduces a landmark region, but having many of them on a page can confuse screen reader users.
+Consider using general `div` elements instead through `sectionAs="div"`.
 
-<Canvas of={AccordionStories.ImproveSemantics} />
+<Canvas of={AccordionStories.ReduceLandmarks} />
 
 ### Technical considerations
 
