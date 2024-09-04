@@ -1,0 +1,102 @@
+{/* @license CC0-1.0 */}
+
+import { Meta } from "@storybook/blocks";
+import { AppleTouchIcon, Favicon, SvgIcon } from "../../docs/components/AppIcons";
+
+<Meta title="Brand/Assets/Favicon" />
+
+# Favicon
+
+Represent the website in bookmarks, on home screens, in syndication and other tools.
+
+Here’s how to display a website icon (a favicon) in the web browser.
+This set covers all common browsers (Chrome, Safari, Edge, and Firefox).
+
+> There is seperate documentation on [how to publish a web app with the proper app names and icons](/docs/docs-developer-guide-web-app--docs).
+
+## How to use
+
+### Install assets
+
+First, install these assets as they come with the [Amsterdam Design System Assets](https://www.npmjs.com/package/@amsterdam/design-system-assets):
+
+```sh
+npm i @amsterdam/design-system-assets
+```
+
+### Link assets
+
+You can manually [symlink (symbolic link)](https://en.wikipedia.org/wiki/Symbolic_link#POSIX_and_Unix-like_operating_systems) and copy the files to the root or a `public` folder next to where the `index.html` is located in your project.
+An advantage of symlinking is that it tracks changes to the assets when there are package updates. Symlinks are basically shortcuts to files or directories.
+
+Symlinking [the entire favicon directory](https://github.com/Amsterdam/design-system/tree/develop/proprietary/assets/favicon) can be done as follows:
+
+```sh
+# `cd` to the directory where you want to make the symlinks. For example:
+cd public
+
+# Symlink the icons folder. The symlink file (the last argument) can be named anything you like.
+ln -s ../node_modules/@amsterdam/design-system-assets/favicon favicon
+```
+
+> Important: the symlink, the last argument in the above command, cannot be a path, but can only be the file or directory name.
+> I.e. you need to be in the directory where you want to make the symbolic link.
+
+> Note that undoing a symlink can be done by simply removing the created file or directory link:
+>
+> ```sh
+> rm -r favicon
+> ```
+
+Then link all these assets by placing the following tags in the `<head>`:
+
+```html
+<head>
+  ...
+  <link rel="icon" href="favicon/favicon.ico" size="16x16 32x32 48x48 64x64" />
+  <link rel="icon" href="favicon/icon.svg" type="image/svg+xml" />
+  <link rel="apple-touch-icon" href="favicon/apple-touch-icon.png" />
+  ...
+</head>
+```
+
+### Submit Changes
+
+The symlink(s) and edited files can be committed to the repository.
+
+## Examples
+
+### Favicon
+
+<Favicon />
+
+We include a classic icon file with this exact name as a baseline for some browsers and RSS readers.
+
+```html
+<link rel="icon" href="favicon.ico" sizes="16x16 32x32 48x48 64x64" />
+```
+
+### SVG Icon
+
+<SvgIcon />
+
+Roughly 75% of browsers support SVG favicons, which are more efficient and versatile.
+
+```html
+<link rel="icon" type="image/svg+xml" href="icon.svg" />
+```
+
+### Apple Touch Icon
+
+<AppleTouchIcon />
+
+An iPhone or iPad uses this image when adding the webpage as a shortcut to your home screen.
+
+```html
+<link rel="apple-touch-icon" href="apple-touch-icon.png" />
+```
+
+## Further reading
+
+- [_How to Favicon in 2024: Six files that fit most needs_ by Andrey Sitnik](https://evilmartians.com/chronicles/how-to-favicon-in-2021-six-files-that-fit-most-needs)
+- [_Definitive edition of “How to Favicon” in 2023_ by Masa Kudamatsu](https://dev.to/masakudamatsu/favicon-nightmare-how-to-maintain-sanity-3al7)

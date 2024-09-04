@@ -3,7 +3,8 @@
  * Copyright Gemeente Amsterdam
  */
 
-import { Grid, TopTaskLink } from '@amsterdam/design-system-react/src'
+import { Grid } from '@amsterdam/design-system-react'
+import { TopTaskLink } from '@amsterdam/design-system-react/src'
 import { Meta, StoryObj } from '@storybook/react'
 
 const meta = {
@@ -28,7 +29,7 @@ export const Default: Story = {
   },
 }
 
-export const Multiple: Story = {
+export const MultipleLinks: Story = {
   args: {
     description: 'Omschrijving',
     label: 'Titel',

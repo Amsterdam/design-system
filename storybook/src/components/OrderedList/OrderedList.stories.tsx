@@ -3,7 +3,8 @@
  * Copyright Gemeente Amsterdam
  */
 
-import { Heading, OrderedList, Paragraph } from '@amsterdam/design-system-react/src'
+import { Heading, Paragraph } from '@amsterdam/design-system-react'
+import { OrderedList } from '@amsterdam/design-system-react/src'
 import type { Meta, StoryObj } from '@storybook/react'
 import { inverseColorDecorator } from '../shared/decorators'
 import { exampleOrderedList } from '../shared/exampleContent'
@@ -26,9 +27,6 @@ const meta = {
     reversed: {
       control: 'boolean',
       description: 'Numbers the items from the highest value down.',
-      table: {
-        defaultValue: { summary: 'false' },
-      },
     },
     start: {
       control: 'number',
@@ -51,7 +49,7 @@ type Story = StoryObj<typeof meta>
 
 export const Default: Story = {}
 
-export const Small: Story = {
+export const SmallText: Story = {
   args: {
     size: 'small',
   },

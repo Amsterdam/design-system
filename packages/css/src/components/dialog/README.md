@@ -17,13 +17,18 @@ Sighted users will read the primary action first, in line with the natural readi
 The same goes for users of screen readers, who will hear the primary action first, and users of a keyboard, who will focus the primary action first.
 Also, this approach keeps the order of buttons consistent on both narrow and wide screens: if the buttons do not fit next to each other, they get stacked vertically with the primary action on top.
 
-## Keyboard Support
+## Keyboard support
 
 | key         | function                                                         |
 | :---------- | :--------------------------------------------------------------- |
 | Tab         | Moves focus to the next focusable element inside the dialog.     |
 | Shift + Tab | Moves focus to the previous focusable element inside the dialog. |
 | Escape      | Closes the dialog.                                               |
+
+## Closing Dialog without submit
+
+You can close a Dialog without submitting by using `<button type="button" onClick={closeDialog}>`.
+This uses the `closeDialog` function from the React package.
 
 ## References
 

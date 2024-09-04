@@ -3,6 +3,7 @@
  * Copyright Gemeente Amsterdam
  */
 
+import { ErrorMessage, Field, Label, Paragraph } from '@amsterdam/design-system-react'
 import { TextArea } from '@amsterdam/design-system-react/src'
 import { Meta, StoryObj } from '@storybook/react'
 import { exampleParagraph } from '../shared/exampleContent'
@@ -13,7 +14,7 @@ const meta = {
   title: 'Components/Forms/Text Area',
   component: TextArea,
   args: {
-    value: paragraph,
+    defaultValue: paragraph,
     disabled: false,
     invalid: false,
   },
@@ -23,6 +24,9 @@ const meta = {
         type: 'number',
       },
       description: 'The width, expressed in the average number of characters.',
+    },
+    defaultValue: {
+      table: { disable: true },
     },
     disabled: {
       description: 'Prevents interaction. Avoid if possible.',
@@ -39,9 +43,6 @@ const meta = {
         type: 'number',
       },
       description: 'The number of lines to show',
-    },
-    value: {
-      description: 'The value of the field.',
     },
   },
 } satisfies Meta<typeof TextArea>
@@ -80,4 +81,33 @@ export const Disabled: Story = {
   args: {
     disabled: true,
   },
+}
+
+export const InAField: Story = {
+  render: (args) => (
+    <Field invalid={args.invalid}>
+      <Label htmlFor="input1">Label</Label>
+      <Paragraph id="description1" size="small">
+        Omschrijving.
+      </Paragraph>
+      {args.invalid && <ErrorMessage id="error1">Foutmelding.</ErrorMessage>}
+      <TextArea aria-describedby={`description1${args.invalid ? ' error1' : ''}`} id="input1" {...args} />
+    </Field>
+  ),
+}
+
+export const InAFieldWithValidation: Story = {
+  args: {
+    invalid: true,
+  },
+  render: (args) => (
+    <Field invalid={args.invalid}>
+      <Label htmlFor="input2">Label</Label>
+      <Paragraph id="description2" size="small">
+        Omschrijving.
+      </Paragraph>
+      {args.invalid && <ErrorMessage id="error2">Foutmelding.</ErrorMessage>}
+      <TextArea aria-describedby={`description2${args.invalid ? ' error2' : ''}`} id="input2" {...args} />
+    </Field>
+  ),
 }

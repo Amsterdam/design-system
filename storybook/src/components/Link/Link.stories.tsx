@@ -3,8 +3,10 @@
  * Copyright Gemeente Amsterdam
  */
 
-import { Link, Paragraph } from '@amsterdam/design-system-react/src'
+import { Paragraph } from '@amsterdam/design-system-react'
+import { Link } from '@amsterdam/design-system-react/src'
 import type { Meta, StoryObj } from '@storybook/react'
+import { contrastColorDecorator, inverseColorDecorator } from '../shared/decorators'
 
 type Story = StoryObj<typeof Link>
 
@@ -13,20 +15,14 @@ const meta = {
   component: Link,
   args: {
     children: 'Link label',
+    contrastColor: false,
     href: '#',
-    onBackground: undefined, // Workaround to avoid 'onBackground' being set to an empty function
+    inverseColor: false,
   },
   argTypes: {
     children: {
       description: 'The link text.',
       table: { disable: false },
-    },
-    onBackground: {
-      control: {
-        type: 'radio',
-        labels: { undefined: 'default', light: 'light', dark: 'dark' },
-      },
-      options: [undefined, 'light', 'dark'],
     },
     href: {
       description: 'The url for the link.',
@@ -34,6 +30,7 @@ const meta = {
       type: { name: 'string', required: false },
     },
   },
+  decorators: [inverseColorDecorator, contrastColorDecorator],
 } satisfies Meta<typeof Link>
 
 export default meta
@@ -56,28 +53,14 @@ export const Inline: Story = {
   ],
 }
 
-export const onDarkBackground: Story = {
+export const ContrastColour: Story = {
   args: {
-    onBackground: 'dark',
+    contrastColor: true,
   },
-  decorators: [
-    (Story) => (
-      <div style={{ background: '#004699', display: 'inline', padding: '1rem' }}>
-        <Story />
-      </div>
-    ),
-  ],
 }
 
-export const onLightBackground: Story = {
+export const InverseColour: Story = {
   args: {
-    onBackground: 'light',
+    inverseColor: true,
   },
-  decorators: [
-    (Story) => (
-      <div style={{ background: '#FFE600', display: 'inline', padding: '1rem' }}>
-        <Story />
-      </div>
-    ),
-  ],
 }

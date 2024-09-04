@@ -27,8 +27,8 @@ In other words, the input allows any valid combination of year, month, day, hour
 ### Invalid
 
 Indicates that the input value does not meet the specified constraints.
-An [Error Message](?path=/docs/components-forms-error-message--docs) must be displayed above the field.
-To highlight the error even more, the parent [Field](?path=/docs/components-forms-field--docs) component’s `invalid` prop must also be set.
+An [Error Message](/docs/components-forms-error-message--docs) must be displayed above the field.
+To highlight the error even more, the parent [Field](/docs/components-forms-field--docs) component’s `invalid` prop must also be set.
 
 <Canvas of={DateInputStories.Invalid} />
 
@@ -55,3 +55,21 @@ Alternatives:
    This helps the user understand the context.
 
 <Canvas of={DateInputStories.Disabled} />
+
+### In a Field
+
+Use a Field to group a Date Input with a Label, description and / or an Error Message.
+
+If you don’t need the description, remove its Paragraph and the `aria-describedby` from the Date Input.
+
+Check [the Field docs](/docs/components-forms-field--docs) for more information on configuring it.
+
+<Canvas of={DateInputStories.InAField} />
+
+### In a Field with validation
+
+If the Date Input can become invalid, add an Error Message and its `id` to the `aria-describedby` attribute of the Date Input.
+
+Check [the Field docs](/docs/components-forms-field--docs) for more information on configuring it.
+
+<Canvas of={DateInputStories.InAFieldWithValidation} />

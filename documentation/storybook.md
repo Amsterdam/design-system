@@ -4,7 +4,7 @@
 
 We use Storybook to display all components and allow interaction with them.
 
-We publish each merge to the `main` branch to [amsterdam.github.io/design-system](https://amsterdam.github.io/design-system/).
+We publish each merge to the `main` branch to [designsystem.amsterdam](https://designsystem.amsterdam/).
 
 ## Structure
 
@@ -16,7 +16,10 @@ The docs display:
 3. The controls for the component, which displays all args for the component.
 4. A canvas for every other story, each with an introduction.
 
-We write our documentation in English, the stories are Dutch.
+We write our documentation in English, the stories are in Dutch.
+
+All headings use sentence case.
+Component names are in title case – starting each word with a capital letter – to make people recognise them as such.
 
 ## Best practices for controls
 
@@ -31,10 +34,23 @@ A guideline on how to use the prop may be added, as well as a description of its
 Prevent mentioning the component’s name in a prop description – that should be obvious.
 Prop types that aren’t exported don’t require their properties to be described.
 
+### Args
+
+Add [`args`](https://storybook.js.org/docs/react/writing-stories/args) to the Story to set initial values for props.
+Follow these guidelines:
+
+1. For Boolean props, set their default value to `false`,
+   unless this has side effects e.g. rendering a class name.
+   In that case, don’t specify a value.
+   Storybook will then display a button ‘Set boolean’ that show a switch.
+2. Hide args with `table: { disable: true }` in the `argTypes` object if they don’t apply to the story,
+   e.g. if the story composes multiple instances of the component.
+   We don’t hide ‘less relevant’ args in other cases, not even in stories that focus on a single prop.
+
 ### Arg Types
 
 Add [`argTypes`](https://storybook.js.org/docs/api/arg-types) to the Story to document native HTML attributes or override the generated controls.
-Be sure to follow these guidelines when you do:
+Follow these guidelines:
 
 1. Add a `description` field instead of a JSDoc comment for native HTML attributes.
    Use terse sentences that end with a full stop.

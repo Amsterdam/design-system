@@ -4,11 +4,13 @@
 
 Tabs are used to bundle related content in a compact overview within a page. Each tab has a short name, and these names indicate the relationship between the information displayed in each tab.
 
-## How to Use
+## Guidelines
 
 - The content of each tab is viewable independently, not in the context of one another.
 - The content within each tab should have a similar structure.
 - Use when there is limited visual space and content needs to be divided into sections.
+- Each tab consists of a button and a panel.
+  A `tab` prop with a corresponding value connects them.
 
 You can navigate tabs with your keyboard:
 

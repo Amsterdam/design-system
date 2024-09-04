@@ -1,0 +1,162 @@
+:root {
+  --ams-docs-grey: rgb(0 0 0 / 6.25%);
+  --ams-docs-pink: rgb(229 0 130 / 25%);
+}
+
+.ams-docs-figure {
+  display: flex;
+  gap: 0.25rem;
+  margin-block: 0;
+  margin-inline: 0;
+  padding-block: 0;
+  padding-inline: 0;
+}
+
+.ams-docs-image,
+.ams-docs-figure > img {
+  display: block;
+  max-inline-size: 100%;
+  outline: 0.0625rem dashed #e8e8e8;
+}
+
+.ams-docs-figure > figcaption {
+  text-align: center;
+}
+
+.ams-docs-gallery {
+  align-items: flex-end;
+  display: flex;
+  gap: 2rem;
+  margin-block: 1.5rem;
+}
+
+.ams-docs-gallery .ams-docs-figure {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  inline-size: fit-content;
+  margin-inline: 0;
+}
+
+.ams-docs-card {
+  border: 0.0625rem solid hotpink;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  inline-size: 50%;
+  padding-block: 0.5rem;
+  padding-inline: 0.5rem;
+}
+
+.ams-docs-dark-background,
+.ams-docs-light-background {
+  margin-block: -1rem;
+  margin-inline: -1rem;
+  padding-block: 1rem;
+  padding-inline: 1rem;
+}
+
+.ams-docs-dark-background {
+  background-color: #004699; /* Dark blue */
+}
+
+.ams-docs-light-background {
+  background-color: #ffe600; /* Yellow */
+}
+
+.ams-docs-column,
+.ams-docs-row {
+  background: repeating-linear-gradient(
+    135deg,
+    var(--ams-docs-grey),
+    var(--ams-docs-grey) 0.5rem,
+    white 0.5rem,
+    white 1rem
+  );
+  border: thin solid var(--ams-docs-grey);
+}
+
+.ams-docs-column {
+  max-inline-size: 16rem;
+  min-block-size: 16rem;
+}
+
+.ams-docs-row {
+  min-block-size: 6rem;
+}
+
+.ams-docs-grid {
+  /* Todo columns background */
+}
+
+.ams-docs-item {
+  background-color: var(--ams-docs-pink);
+  border: thin dashed var(--ams-docs-grey);
+  font-family: "Amsterdam Sans", sans-serif;
+  font-size: var(--ams-paragraph-small-font-size);
+  line-height: var(--ams-paragraph-small-line-height);
+  margin-block: 0;
+  margin-inline: 0;
+  padding-block: 1.5rem;
+  text-align: center;
+}
+
+.ams-docs-row > .ams-docs-item {
+  flex-basis: 8rem;
+  padding-inline: 1.5rem;
+}
+
+.ams-docs-column > .ams-docs-item {
+  min-inline-size: 3rem;
+}
+
+[class*="ams-docs-token-example--"] {
+  block-size: 1rem;
+}
+
+[class*="ams-docs-token-example--border"] {
+  border-inline-start-style: solid;
+}
+
+[class*="ams-docs-token-example--space"] {
+  background-color: var(--ams-color-primary-white);
+  outline: 1px dashed var(--ams-color-neutral-grey2);
+}
+
+/** @source https://codepen.io/sosuke/pen/Pjoqqp */
+.ams-storybook-show-grid {
+  --columns: 4;
+  --gaps: calc(var(--columns) - 1);
+  --gap-width: var(--ams-grid-column-gap);
+  --margin-width: var(--ams-grid-padding-inline);
+  --column-color: rgba(0, 70, 153, 0.09375);
+  --column-width: calc((100% - (var(--gaps) * var(--gap-width))) / var(--columns));
+
+  position: relative;
+}
+
+@media screen and (min-width: 36rem) {
+  .ams-storybook-show-grid {
+    --columns: 8;
+  }
+}
+
+@media screen and (min-width: 68rem) {
+  .ams-storybook-show-grid {
+    --columns: 12;
+  }
+}
+
+.ams-storybook-show-grid::after {
+  background-image: repeating-linear-gradient(
+    90deg,
+    var(--column-color) 0%,
+    var(--column-color) var(--column-width),
+    transparent var(--column-width),
+    transparent calc(var(--column-width) + var(--gap-width))
+  );
+  content: "";
+  inset-block: 0;
+  inset-inline: var(--margin-width);
+  position: absolute;
+}

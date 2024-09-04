@@ -6,6 +6,7 @@ import '@testing-library/jest-dom'
 describe('Switch', () => {
   it('renders an element with role switch', () => {
     render(<Switch />)
+
     const switchElement = screen.getByRole('switch')
 
     expect(switchElement).toBeInTheDocument()
@@ -14,6 +15,7 @@ describe('Switch', () => {
 
   it('is not disabled by default', () => {
     render(<Switch />)
+
     const switchElement = screen.getByRole('switch')
 
     expect(switchElement).not.toBeDisabled()
@@ -23,6 +25,7 @@ describe('Switch', () => {
     const handleChange = jest.fn()
 
     render(<Switch onChange={handleChange} />)
+
     const switchElement = screen.getByRole('switch')
 
     switchElement.click()
@@ -34,6 +37,7 @@ describe('Switch', () => {
     const handleChange = jest.fn()
 
     render(<Switch disabled onChange={handleChange} />)
+
     const switchElement = screen.getByRole('switch')
 
     switchElement.click()
@@ -50,7 +54,6 @@ describe('Switch', () => {
           <label htmlFor="switch-label" data-testid="switch-label">
             Label
           </label>
-
           <Switch onChange={handleChange} id="switch-label" />
         </>
       )
@@ -66,6 +69,7 @@ describe('Switch', () => {
 
   it('sets the checked state when switch is clicked', () => {
     render(<Switch />)
+
     const switchElement = screen.getByRole('switch')
 
     expect(switchElement).not.toBeChecked()
@@ -77,6 +81,7 @@ describe('Switch', () => {
 
   it('renders a design system BEM class name', () => {
     const { container } = render(<Switch />)
+
     const component = container.querySelector(':only-child')
 
     expect(component).toHaveClass('ams-switch')
@@ -84,6 +89,7 @@ describe('Switch', () => {
 
   it('renders an additional class name', () => {
     const { container } = render(<Switch className="extra" />)
+
     const component = container.querySelector(':only-child')
 
     expect(component).toHaveClass('ams-switch', 'extra')
@@ -91,6 +97,7 @@ describe('Switch', () => {
 
   it('is able to pass a React ref', () => {
     const ref = createRef<HTMLInputElement>()
+
     render(<Switch ref={ref} />)
 
     const switchElement = screen.getByRole('switch')

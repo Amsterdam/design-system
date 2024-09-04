@@ -8,7 +8,7 @@ import clsx from 'clsx'
 import { forwardRef, useContext, useId, useState } from 'react'
 import type { ForwardedRef, HTMLAttributes, PropsWithChildren } from 'react'
 import AccordionContext from './AccordionContext'
-import { getHeadingElement } from '../Heading/getHeadingElement'
+import { getHeadingTag } from '../Heading/getHeadingTag'
 import { Icon } from '../Icon/Icon'
 
 export type AccordionSectionProps = {
@@ -20,21 +20,21 @@ export type AccordionSectionProps = {
 
 export const AccordionSection = forwardRef(
   (
-    { label, expanded = false, children, className, ...otherProps }: AccordionSectionProps,
+    { label, expanded = false, children, className, ...restProps }: AccordionSectionProps,
     ref: ForwardedRef<HTMLDivElement>,
   ) => {
     const { headingLevel, sectionAs } = useContext(AccordionContext)
     const [isExpanded, setIsExpanded] = useState(expanded)
 
-    const HeadingX = getHeadingElement(headingLevel)
-    const Tag = sectionAs || 'section'
+    const HeadingTag = getHeadingTag(headingLevel)
+    const SectionTag = sectionAs || 'section'
     const id = useId()
     const buttonId = `button-${id}`
     const panelId = `panel-${id}`
 
     return (
-      <div className={clsx('ams-accordion__section', className)} ref={ref} {...otherProps}>
-        <HeadingX className={'ams-accordion__header'}>
+      <div className={clsx('ams-accordion__section', className)} ref={ref} {...restProps}>
+        <HeadingTag className="ams-accordion__header">
           <button
             aria-controls={panelId}
             aria-expanded={isExpanded}
@@ -46,14 +46,14 @@ export const AccordionSection = forwardRef(
             <Icon svg={ChevronDownIcon} size="level-5" className="ams-accordion__icon" />
             {label}
           </button>
-        </HeadingX>
-        <Tag
+        </HeadingTag>
+        <SectionTag
           aria-labelledby={buttonId}
           className={clsx('ams-accordion__panel', { 'ams-accordion__panel--expanded': isExpanded })}
           id={panelId}
         >
           {children}
-        </Tag>
+        </SectionTag>
       </div>
     )
   },

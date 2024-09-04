@@ -6,6 +6,7 @@ import '@testing-library/jest-dom'
 describe('Table of contents', () => {
   it('renders', () => {
     const { container } = render(<TableOfContents />)
+
     const component = container.querySelector(':only-child')
 
     expect(component).toBeInTheDocument()
@@ -35,6 +36,7 @@ describe('Table of contents', () => {
 
   it('renders a design system BEM class name', () => {
     const { container } = render(<TableOfContents />)
+
     const component = container.querySelector(':only-child')
 
     expect(component).toHaveClass('ams-table-of-contents')
@@ -42,6 +44,7 @@ describe('Table of contents', () => {
 
   it('renders an additional class name', () => {
     const { container } = render(<TableOfContents className="extra" />)
+
     const component = container.querySelector(':only-child')
 
     expect(component).toHaveClass('ams-table-of-contents extra')
@@ -49,7 +52,9 @@ describe('Table of contents', () => {
 
   it('supports ForwardRef in React', () => {
     const ref = createRef<HTMLElement>()
+
     const { container } = render(<TableOfContents ref={ref} />)
+
     const component = container.querySelector(':only-child')
 
     expect(ref.current).toBe(component)

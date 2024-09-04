@@ -19,8 +19,12 @@ The link is mandatory.
   For referencing a thematic page, use a [top task link](/docs/components-navigation-top-task-link--docs).
   You can also use a [regular link](/docs/components-navigation-link--docs).
 
-## Screen Readers
+### Screen readers
 
 With a screen reader, you can navigate using headings and links in a document.
 The title of a card is a link within a heading, allowing you to utilize both navigation methods.
 A screen reader reads the title first, followed by the rest of the content.
+
+### Using links with routing libraries
+
+Check out the [developer guide](/docs/docs-developer-guide-routing-libraries--docs) on how to integrate links with external routing libraries.

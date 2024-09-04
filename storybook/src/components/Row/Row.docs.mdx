@@ -8,21 +8,72 @@ import README from "../../../../packages/css/src/components/row/README.md?raw";
 
 <Markdown>{README}</Markdown>
 
-## Design
+## Guidelines
 
-The five [space](/docs/docs-design-guidelines-space--docs) sizes are available for the width of the gap.
-
-## How to Use
-
-Wrap a Row around a set of components that need the same amount of white space between them.
-
-## Examples
-
-### Default
+- Wrap a Row around a set of elements that need the same amount of white space between them.
+- The five sizes of [Component Space](/docs/brand-design-tokens-space--docs) are available for the width of the gap.
+- Align the elements horizontally or vertically through the alignment props.
 
 <Primary />
 
 <Controls />
+
+## Examples
+
+### Alignment
+
+Items in the row can be aligned horizontally in several ways:
+
+- **Center**: center items within the row.
+- **End**: align items to the end of the row. This is the right side in left-to-right languages.
+- **Space Between**: distribute whitespace between items.
+- **Space Around**: distribute whitespace around items.
+- **Space Evenly**: distribute whitespace evenly around items.
+
+By default, items align to the **start** of the row – the left side in right-to-left languages.
+This option has no class name or prop value.
+
+We left out the word ‘space’ from the values for the alignment prop, e.g. `align="around"`.
+
+This example ensures that the spaces between and around all items are equally wide.
+
+<Canvas of={RowStories.Alignment} />
+
+#### End-align a single child
+
+To align a single component to the right (in left-to-right languages), wrap it in a `<Row>` and set the `align` prop to `end`.
+
+<Canvas of={RowStories.EndAlignASingleChild} />
+
+For right-to-left languages, the end of the row is on the left side.
+
+<Canvas of={RowStories.EndAlignASingleChildRtl} />
+
+#### Align opposing texts
+
+This example shows a right-aligned link next to a heading.
+
+- Use `align="between"` to have all remaining space between them, which pushes the items to the opposing ends of the row.
+- Add `alignVertical="baseline"` to align them vertically to their common baseline.
+- Include `wrap` to allow the link to wrap to a new line if both components don’t fit on the same line.
+
+<Canvas of={RowStories.AlignOpposingTexts} />
+
+### Vertical alignment
+
+Items in the row can be aligned vertically in several ways:
+
+- **Start**: align items to the top of the row.
+- **Center**: align items to the middle of the row.
+- **End**: align items to the bottom of the row.
+- **Baseline**: align items to their common text baseline.
+
+By default, items **stretch** to the height of the row.
+This option has no class name or prop value.
+
+This example centers three items vertically.
+
+<Canvas of={RowStories.VerticalAlignment} />
 
 ### Wrapping
 

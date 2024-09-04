@@ -1,6 +1,7 @@
 import { render, screen } from '@testing-library/react'
 import { createRef } from 'react'
 import { Column, columnGapSizes } from './Column'
+import { crossAlignOptionsForColumn, mainAlignOptions } from '../common/layout'
 import '@testing-library/jest-dom'
 
 describe('Column', () => {
@@ -18,7 +19,7 @@ describe('Column', () => {
 
     const component = container.querySelector(':only-child')
 
-    expect(component).toHaveClass('ams-column--medium')
+    expect(component).toHaveClass('ams-column')
   })
 
   columnGapSizes.map((size) =>
@@ -27,7 +28,7 @@ describe('Column', () => {
 
       const component = container.querySelector(':only-child')
 
-      expect(component).toHaveClass(`ams-column--${size}`)
+      expect(component).toHaveClass(`ams-column--gap-${size}`)
     }),
   )
 
@@ -36,7 +37,7 @@ describe('Column', () => {
 
     const component = container.querySelector(':only-child')
 
-    expect(component).toHaveClass('ams-column--medium extra')
+    expect(component).toHaveClass('ams-column extra')
   })
 
   it('renders with an article tag', () => {
@@ -63,5 +64,27 @@ describe('Column', () => {
     const component = container.querySelector(':only-child')
 
     expect(ref.current).toBe(component)
+  })
+
+  describe('Alignment', () => {
+    mainAlignOptions.map((align) =>
+      it(`sets the ‘${align}’ alignment`, () => {
+        const { container } = render(<Column align={align} />)
+
+        const component = container.querySelector(':only-child')
+
+        expect(component).toHaveClass(`ams-column--align-${align}`)
+      }),
+    )
+
+    crossAlignOptionsForColumn.map((align) =>
+      it(`sets the ‘${align}’ vertical alignment`, () => {
+        const { container } = render(<Column alignHorizontal={align} />)
+
+        const component = container.querySelector(':only-child')
+
+        expect(component).toHaveClass(`ams-column--align-horizontal-${align}`)
+      }),
+    )
   })
 })

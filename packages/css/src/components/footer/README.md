@@ -6,10 +6,10 @@ Provides service information at the bottom of every page.
 
 ## Guidelines
 
-The Footer consists of a dark blue [Spotlight](/docs/components-containers-spotlight--docs) and a [Page Menu](?path=/docs/components-navigation-page-menu--docs).
-It must be used on all websites for the City of Amsterdam.
-For applications, only the Page Menu can be sufficient.
-The Footer is the same on every page of the application.
+- The Footer consists of a dark blue [Spotlight](/docs/components-containers-spotlight--docs) and a [Page Menu](/docs/components-navigation-page-menu--docs).
+  It must be used on all websites for the City of Amsterdam.
+- For applications, only the Page Menu can be sufficient.
+- The Footer is the same on every page of the application.
 
 The Spotlight offers space for various practical links:
 

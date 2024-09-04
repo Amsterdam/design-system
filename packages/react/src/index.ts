@@ -4,6 +4,7 @@
  */
 
 /* Append here */
+export * from './PasswordInput'
 export * from './FormErrorList'
 export * from './TableOfContents'
 export * from './ErrorMessage'
@@ -42,7 +43,6 @@ export * from './Spotlight'
 export * from './Card'
 export * from './Alert'
 export * from './AspectRatio'
-export * from './VisuallyHidden'
 export * from './Footer'
 export * from './PageMenu'
 export * from './TopTaskLink'

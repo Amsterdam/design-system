@@ -3,7 +3,8 @@
  * Copyright Gemeente Amsterdam
  */
 
-import { Label, Switch } from '@amsterdam/design-system-react/src'
+import { Label } from '@amsterdam/design-system-react'
+import { Switch } from '@amsterdam/design-system-react/src'
 import { useArgs } from '@storybook/preview-api'
 import { Meta, StoryObj } from '@storybook/react'
 
@@ -15,9 +16,6 @@ const meta = {
     disabled: false,
   },
   argTypes: {
-    'aria-label': {
-      description: 'Describes the control.',
-    },
     checked: {
       description: 'Whether the control is initially checked.',
     },
@@ -44,11 +42,7 @@ export default meta
 
 type Story = StoryObj<typeof meta>
 
-export const Default: Story = {
-  args: {
-    'aria-label': 'Default',
-  },
-}
+export const Default: Story = {}
 
 export const WithLabel: Story = {
   decorators: [

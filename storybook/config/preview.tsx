@@ -2,7 +2,8 @@ import '@amsterdam/design-system-tokens/dist/index.css'
 import '@amsterdam/design-system-tokens/dist/compact.theme.css'
 import '@amsterdam/design-system-assets/font/index.css'
 import '@amsterdam/design-system-css/dist/index.css'
-import './storybook-overrides.css'
+import '../src/styles/docs.css'
+import '../src/styles/overrides.css'
 import { withThemeByClassName } from '@storybook/addon-themes'
 import { viewports } from './viewports'
 
@@ -42,9 +43,11 @@ export const parameters = {
     storySort: {
       order: [
         'Docs',
-        ['Introduction', 'Getting started', 'Assets', 'Design Guidelines'],
+        ['Introduction', 'Developer Guide', ['Getting Started']],
+        'Brand',
         'Components',
         ['Buttons', 'Containers', 'Feedback', 'Forms', 'Layout', 'Media', 'Navigation', 'Text'],
+        'Utilities',
         'Pages',
         ['Introduction', 'Amsterdam.nl', ['Home Page']],
       ],

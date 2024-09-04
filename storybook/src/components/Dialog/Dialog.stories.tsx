@@ -3,13 +3,9 @@
  * Copyright Gemeente Amsterdam
  */
 
-import { Button, Dialog, Heading, Paragraph } from '@amsterdam/design-system-react/src'
+import { Button, closeDialog, Heading, Paragraph } from '@amsterdam/design-system-react'
+import { Dialog, openDialog } from '@amsterdam/design-system-react/src'
 import { Meta, StoryObj } from '@storybook/react'
-import { MouseEvent } from 'react'
-
-const closeDialog = (event: MouseEvent<HTMLButtonElement>) => {
-  return event.currentTarget.closest('dialog')?.close()
-}
 
 const meta = {
   title: 'Components/Containers/Dialog',
@@ -129,9 +125,7 @@ export const TriggerButton: Story = {
   decorators: [
     (Story) => (
       <article>
-        <Button onClick={() => (document.querySelector('#openDialog') as HTMLDialogElement)?.showModal()}>
-          Open Dialog
-        </Button>
+        <Button onClick={() => openDialog('#openDialog')}>Open Dialog</Button>
         <Story />
       </article>
     ),

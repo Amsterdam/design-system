@@ -8,45 +8,40 @@ import README from "../../../../packages/css/src/components/ordered-list/README.
 
 <Markdown>{README}</Markdown>
 
-## Examples
-
-### Default
-
-The list uses ascending numbers as markers, providing enough space for numbers up to 99.
-Extra white space between items enhances the distinction, mainly when they consist of multiple lines of text.
-
 <Primary />
 
 <Controls />
 
-## Small
+## Examples
+
+### Small text
 
 Use a list with a smaller font size in form descriptions and captions and the like.
 
-<Canvas of={OrderedListStories.Small} />
+<Canvas of={OrderedListStories.SmallText} />
 
-### Two Levels
+### Two levels
 
 A list may have one nested level.
 In this case, lowercase letters are used as markers.
 
 <Canvas of={OrderedListStories.TwoLevels} />
 
-### Starting Number
+### Starting number
 
 When necessary, the list can start with a higher number.
 Use the HTML attribute `start`.
 
 <Canvas of={OrderedListStories.StartingNumber} />
 
-### Reverse Order
+### Reverse order
 
 The numbers can also be in reverse order.
 Use the HTML attribute `reversed`.
 
 <Canvas of={OrderedListStories.DescendingNumbers} />
 
-### Without Markers
+### Without markers
 
 An overview of articles or search results can be presented as an ordered can be seen as an unordered list.
 In such cases, apply the list semantics while hiding markers.
@@ -59,7 +54,7 @@ For example, here are three news articles:
 
 <Canvas of={OrderedListStories.WithoutMarkers} />
 
-### Inverse Colour
+### Inverse colour
 
 Set the `inverseColor` prop if the List sits on a dark background.
 This ensures the colour of the text provides enough contrast.

@@ -14,25 +14,38 @@ import README from "../../../../packages/css/src/components/heading/README.md?ra
 
 ## Examples
 
-### Heading 1
+### Levels
 
-<Canvas of={HeadingStories.Heading1} />
+We’ve limited the number of heading levels to four.
+More detailed content should probably be split into multiple pages or have some sections merged.
 
-### Heading 2
+#### Level 1
 
-<Canvas of={HeadingStories.Heading2} />
+<Canvas of={HeadingStories.Level1} />
 
-### Heading 3
+#### Level 2
 
-<Canvas of={HeadingStories.Heading3} />
+<Canvas of={HeadingStories.Level2} />
 
-### Heading 4
+#### Level 3
 
-<Canvas of={HeadingStories.Heading4} />
+<Canvas of={HeadingStories.Level3} />
+
+#### Level 4
+
+<Canvas of={HeadingStories.Level4} />
+
+### Sizes
+
+It may be visually more suitable to display a heading in a smaller font size.
+Six sizes from the set of [Text Levels](/docs/brand-design-tokens-text--docs) can be used for this purpose.
+Ensure that you still select a level that accurately represents the section’s hierarchy.
+
+<Canvas of={HeadingStories.Sizes} />
 
 ### Inverse colour
 
 Set the `inverseColor` prop if the Heading sits on a dark background.
 This ensures the colour of the text provides enough contrast.
 
-<Canvas of={HeadingStories.InvertedColor} />
+<Canvas of={HeadingStories.InverseColour} />

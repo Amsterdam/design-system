@@ -8,14 +8,53 @@
 .ams-row {
   display: flex;
   flex-direction: row;
+  gap: var(--ams-row-gap-md);
 }
 
 @each $size, $label in $ams-sizes {
-  .ams-row--#{$label} {
-    gap: var(--ams-row-gap-#{$size});
+  @if $size != "md" {
+    .ams-row--gap-#{$label} {
+      gap: var(--ams-row-gap-#{$size});
+    }
   }
 }
 
 .ams-row--wrap {
   flex-wrap: wrap;
+}
+
+.ams-row--align-around {
+  justify-content: space-around;
+}
+
+.ams-row--align-between {
+  justify-content: space-between;
+}
+
+.ams-row--align-center {
+  justify-content: center;
+}
+
+.ams-row--align-end {
+  justify-content: flex-end;
+}
+
+.ams-row--align-evenly {
+  justify-content: space-evenly;
+}
+
+.ams-row--align-vertical-baseline {
+  align-items: baseline;
+}
+
+.ams-row--align-vertical-center {
+  align-items: center;
+}
+
+.ams-row--align-vertical-end {
+  align-items: flex-end;
+}
+
+.ams-row--align-vertical-start {
+  align-items: flex-start;
 }

@@ -7,32 +7,31 @@ import clsx from 'clsx'
 import { forwardRef } from 'react'
 import type { AnchorHTMLAttributes, ForwardedRef } from 'react'
 
-type LinkOnBackground = 'default' | 'light' | 'dark'
 type LinkVariant = 'standalone' | 'inline'
 
 export type LinkProps = {
-  /** Describes the underlying background colour. Allows the text to provide visual contrast. */
-  onBackground?: LinkOnBackground
+  /** Changes the text colour for readability on a light background. */
+  contrastColor?: boolean
+  /** Changes the text colour for readability on a dark background. */
+  inverseColor?: boolean
   /** Whether the link is inline or stands alone. */
   variant?: LinkVariant
 } & Omit<AnchorHTMLAttributes<HTMLAnchorElement>, 'placeholder'>
 
 export const Link = forwardRef(
   (
-    { children, variant = 'standalone', onBackground, className, ...otherProps }: LinkProps,
+    { children, className, contrastColor, inverseColor, variant = 'standalone', ...restProps }: LinkProps,
     ref: ForwardedRef<HTMLAnchorElement>,
   ) => (
     <a
-      {...otherProps}
+      {...restProps}
       ref={ref}
       className={clsx(
         'ams-link',
-        {
-          'ams-link--standalone': variant === 'standalone',
-          'ams-link--inline': variant === 'inline',
-          'ams-link--on-background-light': onBackground === 'light',
-          'ams-link--on-background-dark': onBackground === 'dark',
-        },
+        contrastColor && 'ams-link--contrast-color',
+        inverseColor && 'ams-link--inverse-color',
+        variant === 'inline' && 'ams-link--inline',
+        variant === 'standalone' && 'ams-link--standalone',
         className,
       )}
     >

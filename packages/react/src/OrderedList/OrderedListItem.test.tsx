@@ -30,6 +30,7 @@ describe('Ordered list item', () => {
 
   it('supports ForwardRef in React', () => {
     const ref = createRef<HTMLLIElement>()
+
     render(<OrderedListItem ref={ref} />)
 
     const component = screen.getByRole('listitem')

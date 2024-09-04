@@ -3,7 +3,8 @@
  * Copyright Gemeente Amsterdam
  */
 
-import { Icon, Paragraph, UnorderedList } from '@amsterdam/design-system-react/src'
+import { Icon, Paragraph } from '@amsterdam/design-system-react'
+import { UnorderedList } from '@amsterdam/design-system-react/src'
 import {
   AlertIcon,
   AnnouncementIcon,
@@ -137,7 +138,7 @@ export const InverseColor: Story = {
   ),
 }
 
-export const Small: Story = {
+export const SmallText: Story = {
   args: {
     size: 'small',
   },

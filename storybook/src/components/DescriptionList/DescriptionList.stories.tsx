@@ -3,7 +3,7 @@
  * Copyright Gemeente Amsterdam
  */
 
-import { DescriptionList } from '@amsterdam/design-system-react'
+import { DescriptionList } from '@amsterdam/design-system-react/src'
 import { Meta, StoryObj } from '@storybook/react'
 import { inverseColorDecorator } from '../shared/decorators'
 import { exampleParagraph } from '../shared/exampleContent'
@@ -47,7 +47,7 @@ export const MultipleDetails: Story = {
   },
 }
 
-export const InvertedColor: Story = {
+export const InverseColour: Story = {
   args: {
     inverseColor: true,
   },

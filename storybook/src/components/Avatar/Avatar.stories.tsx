@@ -3,7 +3,8 @@
  * Copyright Gemeente Amsterdam
  */
 
-import { Avatar, Header, PageMenu } from '@amsterdam/design-system-react/src'
+import { Header, PageMenu } from '@amsterdam/design-system-react'
+import { Avatar } from '@amsterdam/design-system-react/src'
 import { SearchIcon } from '@amsterdam/design-system-react-icons'
 import { Meta, StoryObj } from '@storybook/react'
 
@@ -22,7 +23,7 @@ type Story = StoryObj<typeof meta>
 
 export const Default: Story = {}
 
-export const WithPicture: Story = {
+export const WithImage: Story = {
   args: {
     label: 'PS',
     imageSrc: 'https://i.pravatar.cc/128',
