@@ -73,7 +73,7 @@ type CellStory = StoryObj<typeof cellMeta>
 const StoryTemplate: Story = {
   decorators: [
     (Story) => (
-      <Screen className="ams-storybook-show-grid">
+      <Screen className="ams-docs-grid">
         <Story />
       </Screen>
     ),
@@ -83,7 +83,7 @@ const StoryTemplate: Story = {
 const CellStoryTemplate: CellStory = {
   decorators: [
     (Story) => (
-      <Screen className="ams-storybook-show-grid">
+      <Screen className="ams-docs-grid">
         <Grid>
           <Story />
         </Grid>
