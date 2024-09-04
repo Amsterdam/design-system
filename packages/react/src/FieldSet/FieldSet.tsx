@@ -13,9 +13,9 @@ export type FieldSetProps = PropsWithChildren<HTMLAttributes<HTMLFieldSetElement
   invalid?: boolean
   /** The text for the caption. */
   legend: string
-  /** Text to inform the user that the field is explicitely not required. */
+  /** Informs the user that providing a value for the inputs is optional. */
   notRequiredLabel?: string
-  /** Whether the field set is required. */
+  /** Whether a value is required for all inputs. */
   required?: boolean
 }
 

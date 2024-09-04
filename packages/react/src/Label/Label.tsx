@@ -9,9 +9,9 @@ import { forwardRef } from 'react'
 import type { ForwardedRef, LabelHTMLAttributes, PropsWithChildren } from 'react'
 
 export type LabelProps = PropsWithChildren<LabelHTMLAttributes<HTMLLabelElement>> & {
-  /** Text to inform the user that the field is explicitely not required. */
+  /** Informs the user that providing a value for the associated input is optional. */
   notRequiredLabel?: string
-  /** Whether the field set is required. */
+  /** Whether the associated input is required. */
   required?: boolean
 }
 
