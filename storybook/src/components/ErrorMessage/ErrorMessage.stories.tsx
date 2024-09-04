@@ -25,7 +25,7 @@ type Story = StoryObj<typeof meta>
 
 export const Default: Story = {}
 
-export const WithCustomPrefix: Story = {
+export const CustomPrefix: Story = {
   args: {
     children: 'Enter an email address in the correct format, like name@example.com',
     prefix: 'Error',
