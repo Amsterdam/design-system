@@ -1,4 +1,0 @@
-import{j as n}from"./jsx-runtime-BlAj40OV.js";import{c as m}from"./clsx-B-dksMZM.js";import{r as i}from"./index-Cs7sjTYM.js";const r=i.forwardRef(({children:a,className:l,...c},p)=>n.jsx("label",{...c,ref:p,className:m("ams-label",l),children:a}));r.displayName="Label";try{r.displayName="Label",r.__docgenInfo={description:"",displayName:"Label",props:{}}}catch{}/**
- * @license EUPL-1.2+
- * Copyright Gemeente Amsterdam
- */const d={title:"Components/Forms/Label",component:r,args:{children:"Label"},argTypes:{children:{description:"The text content.",table:{disable:!1}}}},e={};var t,o,s;e.parameters={...e.parameters,docs:{...(t=e.parameters)==null?void 0:t.docs,source:{originalSource:"{}",...(s=(o=e.parameters)==null?void 0:o.docs)==null?void 0:s.source}}};const b=["Default"],x=Object.freeze(Object.defineProperty({__proto__:null,Default:e,__namedExportsOrder:b,default:d},Symbol.toStringTag,{value:"Module"}));export{x as L};
