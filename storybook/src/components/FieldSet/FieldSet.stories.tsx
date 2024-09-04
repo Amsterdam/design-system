@@ -93,7 +93,7 @@ export const WithDescription: Story = {
   ),
 }
 
-export const WithError: Story = {
+export const WithValidation: Story = {
   args: { invalid: true },
   render: (args) => (
     <FieldSet invalid={args.invalid} legend={args.legend} aria-describedby="description-c">
@@ -162,7 +162,7 @@ export const RadioGroup: Story = {
   ),
 }
 
-export const RadioGroupWithError: Story = {
+export const RadioGroupWithValidation: Story = {
   args: {
     legend: 'Waar gaat uw melding over?',
     invalid: true,
@@ -238,7 +238,7 @@ export const CheckboxGroup: Story = {
   ),
 }
 
-export const CheckboxGroupWithError: Story = {
+export const CheckboxGroupWithValidation: Story = {
   args: {
     invalid: true,
     legend: 'Waar gaat uw melding over?',

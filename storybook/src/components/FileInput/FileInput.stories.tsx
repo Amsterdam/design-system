@@ -3,6 +3,7 @@
  * Copyright Gemeente Amsterdam
  */
 
+import { Field, Label, Paragraph } from '@amsterdam/design-system-react'
 import { FileInput } from '@amsterdam/design-system-react/src'
 import { Meta, StoryObj } from '@storybook/react'
 
@@ -49,4 +50,16 @@ export const Accept: Story = {
 
 export const Disabled: Story = {
   args: { disabled: true },
+}
+
+export const InAField: Story = {
+  render: (args) => (
+    <Field>
+      <Label htmlFor="input1">Label</Label>
+      <Paragraph id="description1" size="small">
+        Omschrijving.
+      </Paragraph>
+      <FileInput aria-describedby="description1" id="input1" {...args} />
+    </Field>
+  ),
 }
