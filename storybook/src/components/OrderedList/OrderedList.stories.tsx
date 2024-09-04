@@ -27,9 +27,6 @@ const meta = {
     reversed: {
       control: 'boolean',
       description: 'Numbers the items from the highest value down.',
-      table: {
-        defaultValue: { summary: 'false' },
-      },
     },
     start: {
       control: 'number',

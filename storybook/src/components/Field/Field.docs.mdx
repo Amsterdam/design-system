@@ -21,12 +21,12 @@ Add an `aria-describedby` attribute to the input and provide the `id` of the des
 
 <Canvas of={FieldStories.WithDescription} />
 
-## With error
+## With validation
 
 A Field can indicate if the contained input has a validation error.
 Use Error Message to describe the error.
-Make sure to connect the error message to the input in the Field,
+Make sure to connect the Error Message to the input in the Field,
 otherwise it won’t be read by a screen reader.
 Add an `aria-describedby` attribute to the input and provide the `id` of Error Message as its value.
 
-<Canvas of={FieldStories.WithError} />
+<Canvas of={FieldStories.WithValidation} />
