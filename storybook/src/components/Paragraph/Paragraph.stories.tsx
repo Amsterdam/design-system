@@ -39,13 +39,13 @@ type Story = StoryObj<typeof meta>
 
 export const Default: Story = {}
 
-export const Large: Story = {
+export const LargeText: Story = {
   args: {
     size: 'large',
   },
 }
 
-export const Small: Story = {
+export const SmallText: Story = {
   args: {
     size: 'small',
   },

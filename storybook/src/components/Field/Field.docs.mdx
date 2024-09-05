@@ -12,7 +12,9 @@ import README from "../../../../packages/css/src/components/field/README.md?raw"
 
 <Controls />
 
-## With description
+## Examples
+
+### With description
 
 A Field can have a description.
 Make sure to connect this description to the input in the Field,
@@ -21,10 +23,10 @@ Add an `aria-describedby` attribute to the input and provide the `id` of the des
 
 <Canvas of={FieldStories.WithDescription} />
 
-## With validation
+### With validation
 
 A Field can indicate if the contained input has a validation error.
-Use Error Message to describe the error.
+Use an [Error Message](/docs/components-forms-error-message--docs) to describe the error.
 Make sure to connect the Error Message to the input in the Field,
 otherwise it won’t be read by a screen reader.
 Add an `aria-describedby` attribute to the input and provide the `id` of Error Message as its value.

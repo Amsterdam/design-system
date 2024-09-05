@@ -32,10 +32,10 @@ Also never set either the `aria-required` attribute on a field set that is not o
 
 <Canvas of={FieldSetStories.WithHint} />
 
-### With Error
+### With Validation
 
 A Field Set can indicate whether any of the inputs it contains has a validation error.
-Use Error Message to describe the error.
+Use an [Error Message](/docs/components-forms-error-message--docs) to describe the error.
 Make sure to connect the Error Message to the correct input in the Field Set,
 otherwise it won’t be read by a screen reader.
 Add an `aria-describedby` attribute to the input and provide the `id` of Error Message as its value.

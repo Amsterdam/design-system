@@ -28,7 +28,7 @@ type Story = StoryObj<typeof meta>
 
 export const Default: Story = {}
 
-export const MultiLevel: Story = {
+export const MultipleLevels: Story = {
   args: {
     heading: 'Inhoudsopgave',
     children: (

@@ -8,23 +8,18 @@ import README from "../../../../packages/css/src/components/link-list/README.md?
 
 <Markdown>{README}</Markdown>
 
-## Examples
-
-### Default
-
-The Link List has no props.
-It is just a container for the items, rendering a `<ul>` element.
-
 <Primary />
 
-### Custom Icons
+## Examples
+
+### Custom icons
 
 Replace the list icon with a more meaningful one to help understand a link more quickly or easily.
 Avoid using both semantic and list icons in the same list.
 
 <Canvas of={LinkListStories.CustomIcons} />
 
-### Small Text
+### Small text
 
 In the [Footer](/docs/components-containers-footer--docs), we use small text, also for lists.
 Specify this for each item in the list.
@@ -41,7 +36,7 @@ Any attributes and the `ref` are passed on to the `<a>` element.
 
 <Controls of={LinkListStories.Link} />
 
-### On a Coloured Background
+### On a coloured background
 
 A link on a coloured background must adjust its text colour to provide enough contrast.
 We have lighter and darker background colours, and links behave differently on each.
@@ -56,10 +51,10 @@ Although they only address headings and paragraphs, the same principle applies t
 - There is no current scenario to set both properties at the same time.
   For now, the 'inverse' appearance will prevail.
 
-#### Contrast Colour
+#### Contrast colour
 
 <Canvas of={LinkListStories.ContrastColour} />
 
-#### Inverse Colour
+#### Inverse colour
 
 <Canvas of={LinkListStories.InverseColour} />

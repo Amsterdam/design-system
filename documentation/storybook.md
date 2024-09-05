@@ -16,7 +16,10 @@ The docs display:
 3. The controls for the component, which displays all args for the component.
 4. A canvas for every other story, each with an introduction.
 
-We write our documentation in English, the stories are Dutch.
+We write our documentation in English, the stories are in Dutch.
+
+All headings use sentence case.
+Component names are in title case – starting each word with a capital letter – to make people recognise them as such.
 
 ## Best practices for controls
 

@@ -49,7 +49,7 @@ type Story = StoryObj<typeof meta>
 
 export const Default: Story = {}
 
-export const Small: Story = {
+export const SmallText: Story = {
   args: {
     size: 'small',
   },

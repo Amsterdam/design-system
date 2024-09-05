@@ -78,7 +78,7 @@ export const Yellow: Story = {
   },
 }
 
-export const CustomTagName: Story = {
+export const ImproveSemantics: Story = {
   args: {
     as: 'section',
   },

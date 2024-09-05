@@ -138,7 +138,7 @@ export const InverseColor: Story = {
   ),
 }
 
-export const Small: Story = {
+export const SmallText: Story = {
   args: {
     size: 'small',
   },
