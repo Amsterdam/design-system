@@ -24,13 +24,13 @@ and provide the `id` of the describing element as its value.
 
 <Canvas of={FieldSetStories.WithDescription} />
 
-### With Not Required Label
+### With Hint Marking Field Set As Required
 
-A Field Set can indicate whether all of the inputs it contains are <em>not</em> required.
+A Field Set can indicate whether all of the inputs it contains are optional or required.
 Make sure to <em>not</em> add a `required` or `aria-required="true"` attribute to <em>any</em> form element in this Field Set.
 Also never set either the `aria-required` attribute on a field set that is not of the `role="radiogroup"` (see: [Radio Group](#radio-group)).
 
-<Canvas of={FieldSetStories.WithNotRequiredLabel} />
+<Canvas of={FieldSetStories.WithHint} />
 
 ### With Error
 
@@ -42,7 +42,7 @@ Add an `aria-describedby` attribute to the input and provide the `id` of Error M
 
 <Canvas of={FieldSetStories.WithValidation} />
 
-### Radio group
+## Radio Group
 
 Use a Field Set to group several Radios with a legend, description, and / or an Error Message.
 
@@ -52,14 +52,14 @@ Even so, always set `aria-required` on the individual Radios as well to ensure t
 
 <Canvas of={FieldSetStories.RadioGroup} />
 
-### Radio Group With Not Required Label
+### Radio Group With Hint Marking Group As Optional
 
-A Field Set with a radio button group can also indicate whether all of the radio inputs it contains are <em>not</em> required.
+A Field Set with a Radio group can also indicate whether all of the radios it contains are <em>not</em> required.
 Make sure to <em>not</em> add the `aria-required="true"` attribute to the Field Set and <em>any</em> input element in this Field Set.
 
-<Canvas of={FieldSetStories.RadioGroupWithNotRequiredLabel} />
+<Canvas of={FieldSetStories.RadioGroupWithHint} />
 
-### Radio group with validation
+### Radio Group With Validation
 
 A Field Set with a Radio group can also have a validation error.
 In this case, connect the Error Message to the Field Set instead of an input.
@@ -96,9 +96,7 @@ The order of the `id`s is the order in which they are read by screen readers.
 
 Note that you should not make a Field Set containing inputs of `type="checkbox"` required.
 
-### Checkbox group with validation
-
-> > > > > > > cb354c9d85d4cdccfa3c3cf7763a52b003f7ee0f
+### Checkbox Group With Validation
 
 Because of [the NVDA bug mentioned earlier](https://github.com/nvaccess/nvda/issues/12718),
 we add the Error Message text to the label as well.
