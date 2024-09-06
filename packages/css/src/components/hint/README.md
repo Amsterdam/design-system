@@ -2,7 +2,7 @@
 
 # Hint
 
-Provides additional information to a `Label` or `Legend` in a `Field` or `FieldSet` respectively. Typically used to communicate whether a form field is optional or required.
+Provides additional information to an inline element such as a `Label` or `Legend` in a `Field` or `FieldSet` respectively. Typically used to communicate whether a form field is optional or required.
 
 ## Class name
 
