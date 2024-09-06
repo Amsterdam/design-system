@@ -18,7 +18,7 @@ describe('Hint', () => {
 
     const component = container.querySelector(':only-child')
 
-    expect(component).toHaveClass('ams-mark')
+    expect(component).toHaveClass('ams-hint')
   })
 
   it('renders an additional class name', () => {
@@ -26,7 +26,7 @@ describe('Hint', () => {
 
     const component = container.querySelector(':only-child')
 
-    expect(component).toHaveClass('ams-mark extra')
+    expect(component).toHaveClass('ams-hint extra')
   })
 
   it('supports ForwardRef in React', () => {
