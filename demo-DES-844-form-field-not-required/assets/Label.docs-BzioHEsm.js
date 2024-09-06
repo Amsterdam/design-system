@@ -1,6 +1,0 @@
-import{j as e}from"./jsx-runtime-BlAj40OV.js";import{useMDXComponents as n}from"./index-BI1Biiay.js";import{ae as i,ak as a,al as s,am as p}from"./index-fhJqfeaW.js";import{L as l}from"./Label.stories-ChjfcUqA.js";import"./index-Cs7sjTYM.js";import"./_commonjsHelpers-BosuxZz1.js";import"./iframe-BJipYxvg.js";import"../sb-preview/runtime.js";import"./index-BU4L-DQy.js";import"./index-D-8MO0q_.js";import"./index-nrpnv_Jx.js";import"./index-DrFu-skq.js";import"./clsx-B-dksMZM.js";const m="<!-- @license CC0-1.0 -->\n\n# Label\n\nDescribes a form control.\n\n## Guidelines\n\n- Always associate a form element (such as an `input` or `textarea`) with a label.\n- Make sure to set the `optional` prop to `true` if the associated form element is not required for form submission. The label will then get the descriptive text “niet verplicht” or the value of the `hint` prop (make sure it's appropriate).\n- If the `optional` prop is `undefined` or `false` the text value of the `hint` prop will be displayed after the label.\n";/*@license CC0-1.0*/function r(t){return e.jsxs(e.Fragment,{children:[`
-`,`
-`,e.jsx(i,{of:l}),`
-`,e.jsx(a,{children:m}),`
-`,e.jsx(s,{}),`
-`,e.jsx(p,{})]})}function v(t={}){const{wrapper:o}={...n(),...t.components};return o?e.jsx(o,{...t,children:e.jsx(r,{...t})}):r()}export{v as default};
