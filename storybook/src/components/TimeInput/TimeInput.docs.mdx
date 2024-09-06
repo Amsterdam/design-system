@@ -21,3 +21,21 @@ import README from "../../../../packages/css/src/components/time-input/README.md
 ### Disabled
 
 <Canvas of={TimeInputStories.Disabled} />
+
+### In a Field
+
+Use a Field to group a Time Input with a Label, description and / or an Error Message.
+
+If you don’t need the description, remove its Paragraph and the `aria-describedby` from the Time Input.
+
+Check [the Field docs](/docs/components-forms-field--docs) for more information on configuring it.
+
+<Canvas of={TimeInputStories.InAField} />
+
+### In a Field with validation
+
+If the Time Input can become invalid, add an Error Message and its `id` to the `aria-describedby` attribute of the Time Input.
+
+Check [the Field docs](/docs/components-forms-field--docs) for more information on configuring it.
+
+<Canvas of={TimeInputStories.InAFieldWithValidation} />
