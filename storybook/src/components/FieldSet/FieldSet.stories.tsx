@@ -39,26 +39,26 @@ export default meta
 type Story = StoryObj<typeof meta>
 
 export const Default: Story = {
-  render: (args) => (
-    <FieldSet invalid={args.invalid} legend={args.legend} hint={args.hint} optional={args.optional}>
+  render: ({ invalid, legend, hint, optional }) => (
+    <FieldSet invalid={invalid} legend={legend} hint={hint} optional={optional}>
       <Field className="ams-mb--sm">
         <Label htmlFor="input-a1">Voornaam</Label>
-        {args.invalid && <ErrorMessage id="error-a1">Vul uw voornaam in.</ErrorMessage>}
+        {invalid && <ErrorMessage id="error-a1">Vul uw voornaam in.</ErrorMessage>}
         <TextInput
-          aria-describedby={args.invalid ? 'error-a1' : undefined}
+          aria-describedby={invalid ? 'error-a1' : undefined}
           aria-required="true"
           id="input-a1"
-          invalid={args.invalid}
+          invalid={invalid}
         />
       </Field>
       <Field>
         <Label htmlFor="input-a2">Achternaam</Label>
-        {args.invalid && <ErrorMessage id="error-a2">Vul uw achternaam in.</ErrorMessage>}
+        {invalid && <ErrorMessage id="error-a2">Vul uw achternaam in.</ErrorMessage>}
         <TextInput
-          aria-describedby={args.invalid ? 'error-a2' : undefined}
+          aria-describedby={invalid ? 'error-a2' : undefined}
           aria-required="true"
           id="input-a2"
-          invalid={args.invalid}
+          invalid={invalid}
         />
       </Field>
     </FieldSet>
@@ -97,26 +97,26 @@ export const WithDescription: Story = {
 
 export const WithHint: Story = {
   args: { optional: false, hint: 'verplicht' },
-  render: (args) => (
-    <FieldSet invalid={args.invalid} legend={args.legend} optional={args.optional} hint={args.hint}>
+  render: ({ invalid, legend, hint, optional }) => (
+    <FieldSet invalid={invalid} legend={legend} optional={optional} hint={hint}>
       <Field className="ams-mb--sm">
         <Label htmlFor="input-a1">Voornaam</Label>
-        {args.invalid && <ErrorMessage id="error-a1">Vul uw voornaam in.</ErrorMessage>}
+        {invalid && <ErrorMessage id="error-a1">Vul uw voornaam in.</ErrorMessage>}
         <TextInput
-          aria-describedby={args.invalid ? 'error-a1' : undefined}
+          aria-describedby={invalid ? 'error-a1' : undefined}
           aria-required="true"
           id="input-a1"
-          invalid={args.invalid}
+          invalid={invalid}
         />
       </Field>
       <Field>
         <Label htmlFor="input-a2">Achternaam</Label>
-        {args.invalid && <ErrorMessage id="error-a2">Vul uw achternaam in.</ErrorMessage>}
+        {invalid && <ErrorMessage id="error-a2">Vul uw achternaam in.</ErrorMessage>}
         <TextInput
-          aria-describedby={args.invalid ? 'error-a2' : undefined}
+          aria-describedby={invalid ? 'error-a2' : undefined}
           aria-required="true"
           id="input-a2"
-          invalid={args.invalid}
+          invalid={invalid}
         />
       </Field>
     </FieldSet>
