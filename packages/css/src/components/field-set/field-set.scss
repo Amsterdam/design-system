@@ -49,4 +49,9 @@
   @include hyphenation;
   @include text-rendering;
   @include reset-legend;
+
+  & > .ams-hint {
+    display: inline-flex;
+    flex-wrap: nowrap;
+  }
 }

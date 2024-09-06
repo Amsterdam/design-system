@@ -34,7 +34,7 @@ export const Label = forwardRef(
 
     return (
       <label {...restProps} ref={ref} className={clsx('ams-label', className)}>
-        {children}&nbsp;{optionalHint}
+        {children} {optionalHint}
       </label>
     )
   },

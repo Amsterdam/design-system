@@ -15,4 +15,9 @@
 
   @include hyphenation;
   @include text-rendering;
+
+  & > .ams-hint {
+    display: inline-flex;
+    flex-wrap: nowrap;
+  }
 }
