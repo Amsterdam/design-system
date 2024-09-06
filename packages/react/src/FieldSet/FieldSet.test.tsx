@@ -55,7 +55,7 @@ describe('FieldSet', () => {
     expect(ref.current).toBe(component)
   })
 
-  it('renders a hint text after the label not marked as optional', () => {
+  it("renders a hint text after the field-set's legend not marked as optional", () => {
     const { container } = render(<FieldSet legend="Legend" hint="hint text" />)
 
     const legend = container.querySelector('legend')
@@ -63,7 +63,7 @@ describe('FieldSet', () => {
     expect(legend).toHaveTextContent('Legend (hint text)')
   })
 
-  it('renders the default hint text "niet verplicht" after the label marked as optional', () => {
+  it('renders the default hint text "niet verplicht" after the field-set\'s legend marked as optional', () => {
     const { container } = render(<FieldSet legend="Legend" optional={true} />)
 
     const legend = container.querySelector('legend')
@@ -71,7 +71,7 @@ describe('FieldSet', () => {
     expect(legend).toHaveTextContent('Legend (niet verplicht)')
   })
 
-  it('renders the provided hint text "optional" after the label marked as optional', () => {
+  it('renders the provided hint text "optional" after the field-set\'s legend marked as optional', () => {
     const { container } = render(<FieldSet legend="Legend" optional={true} hint="optional" />)
 
     const legend = container.querySelector('legend')
@@ -79,7 +79,7 @@ describe('FieldSet', () => {
     expect(legend).toHaveTextContent('Legend (optional)')
   })
 
-  it('renders the provided hint text "required" after the label marked as not optional', () => {
+  it('renders the provided hint text "required" after the field-set\'s legend marked as not optional', () => {
     const { container } = render(<FieldSet legend="Legend" optional={false} hint="required" />)
 
     const legend = container.querySelector('legend')
