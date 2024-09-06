@@ -87,7 +87,7 @@ describe('Label', () => {
     expect(ref.current).toBe(div)
   })
 
-  it('renders a hint text after the label not marked as optional', () => {
+  it('renders the provided hint text after the label', () => {
     const { container } = render(
       <Label htmlFor="form-control" hint="hint text">
         Label
@@ -99,7 +99,7 @@ describe('Label', () => {
     expect(label).toHaveTextContent('Label (hint text)')
   })
 
-  it('renders the default hint text "niet verplicht" after the label marked as optional', () => {
+  it('renders the default hint text after the label', () => {
     const { container } = render(
       <Label htmlFor="form-control" optional={true}>
         Label
@@ -111,16 +111,16 @@ describe('Label', () => {
     expect(label).toHaveTextContent('Label (niet verplicht)')
   })
 
-  it('renders the provided hint text "optional" after the label marked as optional', () => {
+  it('renders the provided hint text after the label when `optional` is set to `false`', () => {
     const { container } = render(
-      <Label htmlFor="form-control" optional={true} hint="optional">
+      <Label htmlFor="form-control" optional={true} hint="not required">
         Label
       </Label>,
     )
 
     const label = container.querySelector('label:only-child')
 
-    expect(label).toHaveTextContent('Label (optional)')
+    expect(label).toHaveTextContent('Label (not required)')
   })
 
   it('renders the provided hint text "required" after the label marked as not optional', () => {

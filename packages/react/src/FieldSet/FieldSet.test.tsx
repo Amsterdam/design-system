@@ -55,7 +55,7 @@ describe('FieldSet', () => {
     expect(ref.current).toBe(component)
   })
 
-  it('renders the provided hint text', () => {
+  it('renders the provided hint text after the legend', () => {
     render(<FieldSet legend="Legend" hint="hint text" />)
 
     const component = screen.getByRole('group', { name: 'Legend (hint text)' })
@@ -63,7 +63,7 @@ describe('FieldSet', () => {
     expect(component).toBeInTheDocument()
   })
 
-  it('renders the default hint text', () => {
+  it('renders the default hint text after the legend', () => {
     const { container } = render(<FieldSet legend="Legend" optional={true} />)
 
     const legend = container.querySelector('legend')
@@ -71,15 +71,15 @@ describe('FieldSet', () => {
     expect(legend).toHaveTextContent('Legend (niet verplicht)')
   })
 
-  it('renders the provided hint text when both `optional` and `hint` props are used', () => {
+  it('renders the provided hint text after the legend when both `optional` and `hint` props are used', () => {
     const { container } = render(<FieldSet legend="Legend" optional={true} hint="not required" />)
 
     const legend = container.querySelector('legend')
 
-    expect(legend).toHaveTextContent('Legend (optional)')
+    expect(legend).toHaveTextContent('Legend (not required)')
   })
 
-  it('renders the provided hint text when `optional` is set to `false`', () => {
+  it('renders the provided hint text after the legend when `optional` is set to `false`', () => {
     const { container } = render(<FieldSet legend="Legend" optional={false} hint="required" />)
 
     const legend = container.querySelector('legend')

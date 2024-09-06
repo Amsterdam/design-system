@@ -13,8 +13,6 @@ export type FieldSetProps = PropsWithChildren<HTMLAttributes<HTMLFieldSetElement
   invalid?: boolean
   /** The text for the caption. */
   legend: string
-  /** Appends the text '(niet verplicht)' to the label if no hint is provided. Use when the associated inputs are optional. */
-  optional?: boolean
 } & HintProps
 
 export const FieldSet = forwardRef(
@@ -22,14 +20,6 @@ export const FieldSet = forwardRef(
     { children, className, invalid, legend, hint, optional, ...restProps }: FieldSetProps,
     ref: ForwardedRef<HTMLFieldSetElement>,
   ) => {
-    let optionalHint = null
-
-    if (optional) {
-      optionalHint = hint ? <Hint hint={hint} /> : <Hint hint="niet verplicht" />
-    } else if (hint) {
-      optionalHint = <Hint hint={hint} />
-    }
-
     return (
       <fieldset
         {...restProps}
@@ -37,7 +27,7 @@ export const FieldSet = forwardRef(
         className={clsx('ams-field-set', invalid && 'ams-field-set--invalid', className)}
       >
         <legend className="ams-field-set__legend">
-          {legend} {optionalHint}
+          {legend} <Hint hint={hint} optional={optional} />
         </legend>
         {children}
       </fieldset>
