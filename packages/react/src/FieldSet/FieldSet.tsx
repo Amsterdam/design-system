@@ -43,7 +43,7 @@ export const FieldSet = forwardRef(
         className={clsx('ams-field-set', invalid && 'ams-field-set--invalid', className)}
       >
         <legend className="ams-field-set__legend">
-          {legend} {optionalHint}
+          {legend}&nbsp;{optionalHint}
         </legend>
         {children}
       </fieldset>
