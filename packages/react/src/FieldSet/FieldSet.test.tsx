@@ -55,12 +55,12 @@ describe('FieldSet', () => {
     expect(ref.current).toBe(component)
   })
 
-  it("renders a hint text after the field-set's legend not marked as optional", () => {
-    const { container } = render(<FieldSet legend="Legend" hint="hint text" />)
+  it("renders the provided hint text", () => {
+    render(<FieldSet legend="Legend" hint="hint text" />)
 
-    const legend = container.querySelector('legend')
+    const component = screen.getByRole('group', { name: 'Legend (hint text)' })
 
-    expect(legend).toHaveTextContent('Legend (hint text)')
+    expect(component).toBeInTheDocument()
   })
 
   it('renders the default hint text "niet verplicht" after the field-set\'s legend marked as optional', () => {
