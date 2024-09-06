@@ -47,12 +47,6 @@
 
   @include text-rendering;
 
-  // Override for icon size
-  span.ams-icon svg {
-    block-size: 1rem;
-    inline-size: 1rem;
-  }
-
   &:disabled {
     display: none;
   }
@@ -60,6 +54,12 @@
   &:hover {
     color: var(--ams-pagination-button-hover-color);
     text-decoration-line: var(--ams-pagination-button-hover-text-decoration-line);
+  }
+
+  // Override for icon size
+  span.ams-icon svg {
+    block-size: 1rem;
+    inline-size: 1rem;
   }
 }
 
