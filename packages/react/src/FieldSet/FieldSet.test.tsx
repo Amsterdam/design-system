@@ -56,11 +56,11 @@ describe('FieldSet', () => {
   })
 
   it("renders the provided hint text", () => {
-    const { container } = render(<FieldSet legend="Legend" hint="hint text" />)
+    render(<FieldSet legend="Legend" hint="hint text" />)
 
-    const legend = container.querySelector('legend')
+    const component = screen.getByRole('group', { name: 'Legend (hint text)' })
 
-    expect(legend).toHaveTextContent('Legend (hint text)')
+    expect(component).toBeInTheDocument()
   })
 
   it('renders the default hint text "niet verplicht" after the field-set\'s legend marked as optional', () => {
