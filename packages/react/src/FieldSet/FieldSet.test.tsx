@@ -55,7 +55,7 @@ describe('FieldSet', () => {
     expect(ref.current).toBe(component)
   })
 
-  it("renders a hint text after the field-set's legend not marked as optional", () => {
+  it("renders the provided hint text", () => {
     const { container } = render(<FieldSet legend="Legend" hint="hint text" />)
 
     const legend = container.querySelector('legend')
