@@ -27,8 +27,7 @@ and provide the `id` of the describing element as its value.
 ### With Hint Marking Field Set As Required
 
 A Field Set can indicate whether all of the inputs it contains are optional or required.
-Make sure to <em>not</em> add a `required` or `aria-required="true"` attribute to <em>any</em> form element in this Field Set.
-Also never set either the `aria-required` attribute on a field set that is not of the `role="radiogroup"` (see: [Radio Group](#radio-group)).
+Make sure to add a `required` or `aria-required="true"` attribute to <em>all</em> form element in this Field Set.
 
 <Canvas of={FieldSetStories.WithHint} />
 
@@ -55,7 +54,7 @@ Even so, always set `aria-required` on the individual Radios as well to ensure t
 ### Radio Group With Hint Marking Group As Optional
 
 A Field Set with a Radio group can also indicate whether all of the radios it contains are <em>not</em> required.
-Make sure to <em>not</em> add the `aria-required="true"` attribute to the Field Set and <em>any</em> input element in this Field Set.
+Make sure to add the `required` or `aria-required="true"` attribute to <em>any</em> samely named Radios in this Field Set.
 
 <Canvas of={FieldSetStories.RadioGroupWithHint} />
 

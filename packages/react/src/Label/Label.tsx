@@ -9,12 +9,12 @@ import { forwardRef } from 'react'
 import type { ForwardedRef, LabelHTMLAttributes, PropsWithChildren } from 'react'
 
 type LabelHintProp = {
-  /** Provides additional context to the user, i.e. whether the associated form field is optional or required. Make sure that this prop communicates field optionality if the `optional` prop is `true` and vice versa. */
+  /** Provides additional context to the user, for example whether the associated form field is optional or required. Will disregard the value of the optional prop if provided with a text. */
   hint?: string
 }
 
 type LabelOptionalProp = {
-  /** Whether the associated input is optional. Will render the value of the hint prop or 'niet verplicht'. Make sure that the hint communicates field optionality this prop is `true` and vice versa. */
+  /** Whether the associated input is optional. Will append the text '(niet verplicht)' to the label if no hint is provided. */
   optional?: boolean
 }
 

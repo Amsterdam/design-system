@@ -161,7 +161,6 @@ export const RadioGroup: Story = {
   render: (args) => (
     <FieldSet
       aria-describedby={`description-d${args.invalid ? ' error-d' : ''}`}
-      aria-required="true"
       invalid={args.invalid}
       legend={args.legend}
       role="radiogroup"
@@ -201,7 +200,6 @@ export const RadioGroupWithHint: Story = {
   render: (args) => (
     <FieldSet
       aria-describedby={`description-d${args.invalid ? ' error-d' : ''}`}
-      aria-required="true"
       invalid={args.invalid}
       legend={args.legend}
       hint={args.hint}
@@ -217,16 +215,16 @@ export const RadioGroupWithHint: Story = {
         </ErrorMessage>
       )}
       <Column gap="extra-small">
-        <Radio aria-required="true" invalid={args.invalid} name="about" value="horeca">
+        <Radio aria-required="false" invalid={args.invalid} name="about" value="horeca">
           Horecabedrijf
         </Radio>
-        <Radio aria-required="true" invalid={args.invalid} name="about" value="ander_bedrijf">
+        <Radio aria-required="false" invalid={args.invalid} name="about" value="ander_bedrijf">
           Ander soort bedrijf
         </Radio>
-        <Radio aria-required="true" invalid={args.invalid} name="about" value="evenement">
+        <Radio aria-required="false" invalid={args.invalid} name="about" value="evenement">
           Evenement
         </Radio>
-        <Radio aria-required="true" invalid={args.invalid} name="about" value="anders">
+        <Radio aria-required="false" invalid={args.invalid} name="about" value="anders">
           Iets anders
         </Radio>
       </Column>
@@ -242,7 +240,6 @@ export const RadioGroupWithValidation: Story = {
   render: (args) => (
     <FieldSet
       aria-describedby={`description-e${args.invalid ? ' error-e' : ''}`}
-      aria-required="true"
       invalid={args.invalid}
       legend={args.legend}
       role="radiogroup"
