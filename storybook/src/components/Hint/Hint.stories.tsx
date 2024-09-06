@@ -3,7 +3,7 @@
  * Copyright Gemeente Amsterdam
  */
 
-import { Heading, Label, Paragraph } from '@amsterdam/design-system-react'
+import { Column, FieldSet, Heading, Label, Paragraph } from '@amsterdam/design-system-react'
 import { Hint } from '@amsterdam/design-system-react/src'
 import { Meta, StoryObj } from '@storybook/react'
 
@@ -20,7 +20,17 @@ export const Default: Story = {
   args: {
     hint: 'hint',
   },
-  render: ({ hint }) => <Label hint={hint}>Label</Label>,
+  render: ({ hint }) => (
+    <Column>
+      <Label>
+        Label <Hint hint={hint} />
+      </Label>
+
+      <Label hint={hint}>Labels have a hint prop</Label>
+
+      <FieldSet legend="Field Sets also have a hint prop" hint={hint}></FieldSet>
+    </Column>
+  ),
 }
 
 export const InCopy: Story = {
