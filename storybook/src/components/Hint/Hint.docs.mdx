@@ -1,0 +1,21 @@
+{/* @license CC0-1.0 */}
+
+import { Canvas, Controls, Markdown, Meta, Primary } from "@storybook/blocks";
+import * as HintStories from "./Hint.stories.tsx";
+import README from "../../../../packages/css/src/components/hint/README.md?raw";
+
+<Meta of={HintStories} />
+
+<Markdown>{README}</Markdown>
+
+<Primary />
+
+<Controls />
+
+## Examples
+
+### In copy
+
+Hints inherit the CSS styling, such as `font-size`, of their parent element, with the exception of `color`.
+
+<Canvas of={HintStories.InCopy} />
