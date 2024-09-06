@@ -27,7 +27,7 @@ and provide the `id` of the describing element as its value.
 ### With Hint
 
 A Field Set can indicate whether all of the inputs it contains are optional or required.
-Make sure to add a `required` or `aria-required="true"` attribute to <em>all</em> form element in this Field Set.
+Make sure to add `aria-required="true"` to <em>all</em> form elements in the Field Set when they are required.
 
 <Canvas of={FieldSetStories.WithHint} />
 
@@ -50,13 +50,6 @@ The ‘radio group’ role also allows using `aria-required` on Field Set; that 
 Even so, always set `aria-required` on the individual Radios as well to ensure that screen readers can read it.
 
 <Canvas of={FieldSetStories.RadioGroup} />
-
-### Radio group with Hint
-
-A Field Set with a Radio group can also indicate whether all of the radios it contains are <em>not</em> required.
-Make sure to add the `required` or `aria-required="true"` attribute to <em>any</em> samely named Radios in this Field Set.
-
-<Canvas of={FieldSetStories.RadioGroupWithHint} />
 
 ### Radio group with validation
 
@@ -92,8 +85,6 @@ Add an `id` to the Field Set and the description, and add both to the `aria-labe
 The order of the `id`s is the order in which they are read by screen readers.
 
 <Canvas of={FieldSetStories.CheckboxGroup} />
-
-Note that you should not make a Field Set containing inputs of `type="checkbox"` required.
 
 ### Checkbox group with validation
 

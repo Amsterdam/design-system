@@ -100,22 +100,22 @@ export const WithHint: Story = {
   render: ({ invalid, legend, hint, optional }) => (
     <FieldSet invalid={invalid} legend={legend} optional={optional} hint={hint}>
       <Field className="ams-mb--sm">
-        <Label htmlFor="input-a1">Voornaam</Label>
-        {invalid && <ErrorMessage id="error-a1">Vul uw voornaam in.</ErrorMessage>}
+        <Label htmlFor="input-b3">Voornaam</Label>
+        {invalid && <ErrorMessage id="error-b3">Vul uw voornaam in.</ErrorMessage>}
         <TextInput
-          aria-describedby={invalid ? 'error-a1' : undefined}
+          aria-describedby={invalid ? 'error-b3' : undefined}
           aria-required="true"
-          id="input-a1"
+          id="input-b3"
           invalid={invalid}
         />
       </Field>
       <Field>
-        <Label htmlFor="input-a2">Achternaam</Label>
-        {invalid && <ErrorMessage id="error-a2">Vul uw achternaam in.</ErrorMessage>}
+        <Label htmlFor="input-b4">Achternaam</Label>
+        {invalid && <ErrorMessage id="error-b4">Vul uw achternaam in.</ErrorMessage>}
         <TextInput
-          aria-describedby={invalid ? 'error-a2' : undefined}
+          aria-describedby={invalid ? 'error-b4' : undefined}
           aria-required="true"
-          id="input-a2"
+          id="input-b4"
           invalid={invalid}
         />
       </Field>
@@ -184,47 +184,6 @@ export const RadioGroup: Story = {
           Evenement
         </Radio>
         <Radio aria-required="true" invalid={args.invalid} name="about" value="anders">
-          Iets anders
-        </Radio>
-      </Column>
-    </FieldSet>
-  ),
-}
-
-export const RadioGroupWithHint: Story = {
-  args: {
-    hint: 'niet verplicht',
-    legend: 'Waar gaat uw melding over?',
-    optional: true,
-  },
-  render: (args) => (
-    <FieldSet
-      aria-describedby={`description-d${args.invalid ? ' error-d' : ''}`}
-      invalid={args.invalid}
-      legend={args.legend}
-      hint={args.hint}
-      optional={args.optional}
-      role="radiogroup"
-    >
-      <Paragraph className="ams-mb--sm" id="description-d" size="small">
-        De laatstgenoemde melding.
-      </Paragraph>
-      {args.invalid && (
-        <ErrorMessage className="ams-mb--sm" id="error-d">
-          Geef aan waar uw laatstgenoemde melding over gaat.
-        </ErrorMessage>
-      )}
-      <Column gap="extra-small">
-        <Radio aria-required="false" invalid={args.invalid} name="about" value="horeca">
-          Horecabedrijf
-        </Radio>
-        <Radio aria-required="false" invalid={args.invalid} name="about" value="ander_bedrijf">
-          Ander soort bedrijf
-        </Radio>
-        <Radio aria-required="false" invalid={args.invalid} name="about" value="evenement">
-          Evenement
-        </Radio>
-        <Radio aria-required="false" invalid={args.invalid} name="about" value="anders">
           Iets anders
         </Radio>
       </Column>
