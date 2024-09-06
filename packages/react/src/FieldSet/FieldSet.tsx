@@ -13,7 +13,7 @@ export type FieldSetProps = PropsWithChildren<HTMLAttributes<HTMLFieldSetElement
   invalid?: boolean
   /** The text for the caption. */
   legend: string
-  /** Whether the associated inputs are optional. Will append the text '(niet verplicht)' to the label if no hint is provided. */
+  /** Appends the text '(niet verplicht)' to the label if no hint is provided. Use when the associated inputs are optional. */
   optional?: boolean
 } & HintProps
 
