@@ -34,3 +34,21 @@ The component requires a `label` attribute.
 ### Disabled
 
 <Canvas of={SelectStories.Disabled} />
+
+### In a Field
+
+Use a Field to group a Select with a Label, description and / or an Error Message.
+
+If you don’t need the description, remove its Paragraph and the `aria-describedby` from the Select.
+
+Check [the Field docs](/docs/components-forms-field--docs) for more information on configuring it.
+
+<Canvas of={SelectStories.InAField} />
+
+### In a Field with validation
+
+If the Select can become invalid, add an Error Message and its `id` to the `aria-describedby` attribute of the Select.
+
+Check [the Field docs](/docs/components-forms-field--docs) for more information on configuring it.
+
+<Canvas of={SelectStories.InAFieldWithValidation} />
