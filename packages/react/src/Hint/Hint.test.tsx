@@ -5,7 +5,7 @@ import '@testing-library/jest-dom'
 
 describe('Hint', () => {
   it('renders', () => {
-    const { container } = render(<Hint />)
+    const { container } = render(<Hint hint="hint" />)
 
     const component = container.querySelector(':only-child')
 
@@ -14,7 +14,7 @@ describe('Hint', () => {
   })
 
   it('renders a design system BEM class name', () => {
-    const { container } = render(<Hint />)
+    const { container } = render(<Hint optional />)
 
     const component = container.querySelector(':only-child')
 
@@ -22,7 +22,7 @@ describe('Hint', () => {
   })
 
   it('renders an additional class name', () => {
-    const { container } = render(<Hint className="extra" />)
+    const { container } = render(<Hint optional className="extra" />)
 
     const component = container.querySelector(':only-child')
 
@@ -42,32 +42,32 @@ describe('Hint', () => {
   it('renders the provided hint text', () => {
     const { container } = render(<Hint hint="hint text" />)
 
-    const hint = container.querySelector('span.ams-hint')
+    const component = container.querySelector(':only-child')
 
-    expect(hint).toHaveTextContent('(hint text)')
+    expect(component).toHaveTextContent('(hint text)')
   })
 
   it('renders the default hint text', () => {
     const { container } = render(<Hint optional={true} />)
 
-    const label = container.querySelector('label:only-child')
+    const component = container.querySelector(':only-child')
 
-    expect(label).toHaveTextContent('Label (niet verplicht)')
+    expect(component).toHaveTextContent('(niet verplicht)')
   })
 
   it('renders the provided hint text when `optional` is set to `false`', () => {
     const { container } = render(<Hint optional={true} hint="not required" />)
 
-    const label = container.querySelector('label:only-child')
+    const component = container.querySelector(':only-child')
 
-    expect(label).toHaveTextContent('Label (not required)')
+    expect(component).toHaveTextContent('(not required)')
   })
 
-  it('renders the provided hint text "required" marked as not optional', () => {
+  it('renders the provided hint text "required" while also being marked as not optional', () => {
     const { container } = render(<Hint optional={false} hint="required" />)
 
-    const label = container.querySelector('label:only-child')
+    const component = container.querySelector(':only-child')
 
-    expect(label).toHaveTextContent('Label (required)')
+    expect(component).toHaveTextContent('(required)')
   })
 })

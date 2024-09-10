@@ -79,7 +79,7 @@ describe('FieldSet', () => {
     expect(legend).toHaveTextContent('Legend (not required)')
   })
 
-  it('renders the provided hint text after the legend when `optional` is set to `false`', () => {
+  it('renders the provided hint text after the legend while `optional` is set to `false`', () => {
     const { container } = render(<FieldSet legend="Legend" optional={false} hint="required" />)
 
     const legend = container.querySelector('legend')

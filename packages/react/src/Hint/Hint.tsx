@@ -16,9 +16,9 @@ export type HintProps = PropsWithChildren<HTMLAttributes<HTMLElement>> & {
 
 const getHintText = ({ hint, optional }: HintProps) => {
   if (hint) {
-    return <Hint hint={hint} />
+    return hint
   } else if (optional) {
-    return <Hint hint="niet verplicht" />
+    return 'niet verplicht'
   }
 
   return null
