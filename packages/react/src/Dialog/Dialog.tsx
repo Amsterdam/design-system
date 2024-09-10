@@ -20,7 +20,7 @@ export type DialogProps = {
 
 const closeDialog = (event: MouseEvent<HTMLButtonElement>) => event.currentTarget.closest('dialog')?.close()
 
-export const DialogRoot = forwardRef(
+const DialogRoot = forwardRef(
   (
     { actions, children, className, closeButtonLabel = 'Sluiten', heading, ...restProps }: DialogProps,
     ref: ForwardedRef<HTMLDialogElement>,
