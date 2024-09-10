@@ -5,6 +5,11 @@
 
 @import "../../common/breakpoint";
 
+$ams-grid-column-count: 12;
+$ams-grid-column-count-medium: 8;
+$ams-grid-column-count-wide: 12;
+$ams-grid-row-span-max: 4;
+
 .ams-grid {
   column-gap: var(--ams-grid-column-gap);
   display: grid;
@@ -21,6 +26,8 @@
   }
 }
 
+// Grid gap
+
 .ams-grid--gap-vertical--none {
   row-gap: initial;
 }
@@ -32,6 +39,8 @@
 .ams-grid--gap-vertical--large {
   row-gap: var(--ams-grid-row-gap-lg);
 }
+
+// Grid padding
 
 .ams-grid--padding-bottom--small {
   padding-block-end: var(--ams-grid-padding-block-sm);
@@ -73,19 +82,48 @@
   grid-column: 1 / -1;
 }
 
-// The order of the following declaration blocks ensures the intended specificity.
+// Column span
+// The order of these declaration blocks ensures the intended specificity.
 
-@for $i from 1 through 12 {
+@for $i from 1 through $ams-grid-column-count {
   .ams-grid__cell--span-#{$i} {
     grid-column-end: span $i;
   }
 
-  .ams-grid__cell--row-span-#{$i} {
-    grid-row-end: span $i;
-  }
-
   .ams-grid__cell--start-#{$i} {
     grid-column-start: $i;
+  }
+}
+
+@media screen and (min-width: $ams-breakpoint-medium) {
+  @for $i from 1 through $ams-grid-column-count-medium {
+    .ams-grid__cell--span-#{$i}-medium {
+      grid-column-end: span $i;
+    }
+
+    .ams-grid__cell--start-#{$i}-medium {
+      grid-column-start: $i;
+    }
+  }
+}
+
+@media screen and (min-width: $ams-breakpoint-wide) {
+  @for $i from 1 through $ams-grid-column-count-wide {
+    .ams-grid__cell--span-#{$i}-wide {
+      grid-column-end: span $i;
+    }
+
+    .ams-grid__cell--start-#{$i}-wide {
+      grid-column-start: $i;
+    }
+  }
+}
+
+// Row span
+
+@for $i from 1 through $ams-grid-row-span-max {
+  .ams-grid__cell--row-span-#{$i} {
+    grid-row-end: span $i;
   }
 
   .ams-grid__cell--row-start-#{$i} {
@@ -94,17 +132,9 @@
 }
 
 @media screen and (min-width: $ams-breakpoint-medium) {
-  @for $i from 1 through 12 {
-    .ams-grid__cell--span-#{$i}-medium {
-      grid-column-end: span $i;
-    }
-
+  @for $i from 1 through $ams-grid-row-span-max {
     .ams-grid__cell--row-span-#{$i}-medium {
       grid-row-end: span $i;
-    }
-
-    .ams-grid__cell--start-#{$i}-medium {
-      grid-column-start: $i;
     }
 
     .ams-grid__cell--row-start-#{$i}-medium {
@@ -114,17 +144,9 @@
 }
 
 @media screen and (min-width: $ams-breakpoint-wide) {
-  @for $i from 1 through 12 {
-    .ams-grid__cell--span-#{$i}-wide {
-      grid-column-end: span $i;
-    }
-
+  @for $i from 1 through $ams-grid-row-span-max {
     .ams-grid__cell--row-span-#{$i}-wide {
       grid-row-end: span $i;
-    }
-
-    .ams-grid__cell--start-#{$i}-wide {
-      grid-column-start: $i;
     }
 
     .ams-grid__cell--row-start-#{$i}-wide {
