@@ -27,8 +27,7 @@ Also, this approach keeps the order of buttons consistent on both narrow and wid
 
 ## Closing Dialog without submit
 
-You can close a Dialog without submitting by using `<button type="button" onClick={closeDialog}>`.
-This uses the `closeDialog` function from the React package.
+You can close a Dialog without submitting by using `<button type="button" onClick={Dialog.close}>`.
 
 ## References
 
