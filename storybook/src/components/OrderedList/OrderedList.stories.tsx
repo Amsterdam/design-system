@@ -37,7 +37,7 @@ const meta = {
         type: 'radio',
         labels: { small: 'small', undefined: 'medium' },
       },
-      options: ['small', undefined, 'large'],
+      options: ['small', undefined],
     },
   },
   decorators: [inverseColorDecorator],
