@@ -19,6 +19,7 @@ export type DialogProps = {
 } & PropsWithChildren<DialogHTMLAttributes<HTMLDialogElement>>
 
 const closeDialog = (event: MouseEvent<HTMLButtonElement>) => event.currentTarget.closest('dialog')?.close()
+const openDialog = (id: string) => (document.querySelector(id) as HTMLDialogElement)?.showModal()
 
 const DialogRoot = forwardRef(
   (
@@ -42,5 +43,5 @@ DialogRoot.displayName = 'Dialog'
 
 export const Dialog = Object.assign(DialogRoot, {
   close: closeDialog,
-  open: (id: string) => (document.querySelector(id) as HTMLDialogElement)?.showModal(),
+  open: openDialog,
 })
