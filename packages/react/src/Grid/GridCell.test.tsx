@@ -114,7 +114,7 @@ describe('Grid cell', () => {
   })
 
   it('renders the correct class for the `coverGap` prop', () => {
-    const { container } = render(<Grid.Cell coverGap />)
+    const { container } = render(<Grid.Cell coverGap span="all" />)
 
     const component = container.querySelector(':only-child')
 
