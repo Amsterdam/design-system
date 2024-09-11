@@ -49,12 +49,6 @@ type Story = StoryObj<typeof meta>
 
 export const Default: Story = {}
 
-export const SmallText: Story = {
-  args: {
-    size: 'small',
-  },
-}
-
 export const TwoLevels: Story = {
   render: (args) => (
     <OrderedList {...args}>
@@ -150,4 +144,10 @@ export const InverseColor: Story = {
       </OrderedList.Item>
     </OrderedList>
   ),
+}
+
+export const SmallText: Story = {
+  args: {
+    size: 'small',
+  },
 }
