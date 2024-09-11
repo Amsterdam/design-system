@@ -113,6 +113,14 @@ describe('Grid cell', () => {
     expect(component).toHaveClass('ams-grid__cell--span-all')
   })
 
+  it('renders the correct class for the `coverGap` prop', () => {
+    const { container } = render(<Grid.Cell coverGap />)
+
+    const component = container.querySelector(':only-child')
+
+    expect(component).toHaveClass('ams-grid__cell--cover-gap')
+  })
+
   it('renders a custom tag', () => {
     render(<Grid.Cell as="article" />)
 

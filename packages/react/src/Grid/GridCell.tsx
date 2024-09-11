@@ -9,12 +9,15 @@ import type { GridColumnNumber, GridRowNumber, ResponsiveGridValues } from './Gr
 import { gridCellClasses } from './gridCellClasses'
 
 type GridCellSpanAllProp = {
+  /** Expand the cell horizontally and vertically to cover its adjacent gaps and margins. */
+  coverGap?: boolean
   /** Lets the cell span the full width of all grid variants. */
   span: 'all'
   start?: never
 }
 
 type GridCellSpanAndStartProps = {
+  coverGap?: never
   /** The amount of grid columns the cell spans. */
   span?: ResponsiveGridValues<GridColumnNumber>
   /** The index of the grid column the cell starts at. */
@@ -36,11 +39,19 @@ export type GridCellProps = {
   PropsWithChildren<HTMLAttributes<HTMLElement>>
 
 export const GridCell = forwardRef(
-  ({ as: Tag = 'div', children, className, rowSpan, rowStart, span, start, ...restProps }: GridCellProps, ref: any) => (
+  (
+    { as: Tag = 'div', children, className, coverGap, rowSpan, rowStart, span, start, ...restProps }: GridCellProps,
+    ref: any,
+  ) => (
     <Tag
       {...restProps}
       ref={ref}
-      className={clsx('ams-grid__cell', gridCellClasses(rowSpan, rowStart, span, start), className)}
+      className={clsx(
+        'ams-grid__cell',
+        coverGap && 'ams-grid__cell--cover-gap',
+        gridCellClasses(rowSpan, rowStart, span, start),
+        className,
+      )}
     >
       {children}
     </Tag>

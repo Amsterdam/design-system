@@ -40,15 +40,7 @@ export const Default: Story = {}
 export const StickOut: Story = {
   render: ({ as, color }) => (
     <Grid paddingBottom="medium">
-      <Grid.Cell
-        span="all"
-        rowSpan={{ narrow: 2, medium: 2, wide: 1 }}
-        rowStart={2}
-        style={{
-          marginBlock: 'calc(var(--ams-space-grid-md) * -1)',
-          marginInline: 'calc(var(--ams-space-grid-lg) * -1)',
-        }}
-      >
+      <Grid.Cell coverGap rowSpan={{ narrow: 2, medium: 2, wide: 1 }} rowStart={2} span="all">
         <Spotlight as={as} color={color} style={{ height: '100%' }} />
       </Grid.Cell>
       <Grid.Cell rowStart={{ narrow: 3, medium: 3, wide: 2 }} span={{ narrow: 4, medium: 8, wide: 6 }} start={1}>

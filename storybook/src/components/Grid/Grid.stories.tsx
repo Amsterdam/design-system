@@ -15,6 +15,9 @@ const meta = {
     className: 'ams-docs-grid',
   },
   argTypes: {
+    className: {
+      table: { disable: true },
+    },
     gapVertical: {
       control: {
         type: 'radio',
@@ -54,6 +57,12 @@ const cellMeta = {
     as: {
       control: { type: 'radio' },
       options: ['article', 'div', 'section'],
+    },
+    className: {
+      table: { disable: true },
+    },
+    coverGap: {
+      control: { type: 'boolean' },
     },
     span: {
       control: { type: 'number', min: 1, max: 12 },
@@ -127,7 +136,13 @@ export const SpanMultipleRows: Story = {
   ...StoryTemplate,
   args: {
     children: [
-      <Grid.Cell className="ams-docs-item" span={4} rowSpan={2} key={1} style={{ padding: '1rem' }} />,
+      <Grid.Cell
+        className="ams-docs-item ams-docs-item--highlight"
+        key={1}
+        rowSpan={2}
+        span={4}
+        style={{ padding: '1rem' }}
+      />,
       <Grid.Cell className="ams-docs-item" span={4} key={2} />,
       <Grid.Cell className="ams-docs-item" span={4} key={3} />,
       <Grid.Cell className="ams-docs-item" span={4} key={4} />,
@@ -160,6 +175,28 @@ export const StartPosition: CellStory = {
     span: 3,
     start: 2,
   },
+}
+
+export const CoverGap: CellStory = {
+  ...CellStoryTemplate,
+  args: {
+    className: 'ams-docs-item ams-docs-item--highlight',
+    coverGap: true,
+    span: 'all',
+  },
+  decorators: [
+    (Story) => (
+      <Screen>
+        <Grid>
+          <Grid.Cell className="ams-docs-item" span={{ narrow: 2, medium: 4, wide: 6 }} />
+          <Grid.Cell className="ams-docs-item" span={{ narrow: 2, medium: 4, wide: 6 }} />
+          <Story />
+          <Grid.Cell className="ams-docs-item" span={{ narrow: 2, medium: 4, wide: 6 }} />
+          <Grid.Cell className="ams-docs-item" span={{ narrow: 2, medium: 4, wide: 6 }} />
+        </Grid>
+      </Screen>
+    ),
+  ],
 }
 
 export const ImproveSemantics: CellStory = {

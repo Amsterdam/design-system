@@ -154,3 +154,18 @@ $ams-grid-row-span-max: 4;
     }
   }
 }
+
+// Cover gap
+
+.ams-grid__cell--cover-gap {
+  margin-block: calc(var(--ams-space-grid-md) * -1);
+  margin-inline: calc(var(--ams-space-grid-lg) * -1);
+
+  .ams-grid--gap-vertical--small > & {
+    margin-block: calc(var(--ams-space-grid-sm) * -1);
+  }
+
+  .ams-grid--gap-vertical--large > & {
+    margin-block: calc(var(--ams-space-grid-lg) * -1);
+  }
+}
