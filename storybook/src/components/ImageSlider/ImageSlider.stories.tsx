@@ -5,6 +5,7 @@
 
 import { AspectRatio, Image, ImageSlider } from '@amsterdam/design-system-react/src'
 import { Meta, StoryObj } from '@storybook/react'
+import React from 'react'
 
 const meta = {
   title: 'Components/Media/Image Slider',
@@ -34,11 +35,6 @@ const meta = {
       <ImageSlider.Item slideId={4}>
         <AspectRatio ratio="x-wide">
           <Image src="https://picsum.photos/id/123/1280/720" loading="lazy" cover alt="This is gallery image 5" />
-        </AspectRatio>
-      </ImageSlider.Item>,
-      <ImageSlider.Item slideId={5}>
-        <AspectRatio ratio="x-wide">
-          <Image src="https://picsum.photos/id/151/1280/720" loading="lazy" cover alt="This is gallery image 6" />
         </AspectRatio>
       </ImageSlider.Item>,
     ],
@@ -83,24 +79,24 @@ export const NativeScrollbar: Story = {
   },
 }
 
-export const VariousSizes: Story = {
-  args: {
-    children: [
-      <ImageSlider.Item slideId={0}>
-        <AspectRatio ratio="x-wide">
-          <Image src="https://picsum.photos/id/122/1280/720" loading="lazy" cover alt="This is gallery image 1" />
-        </AspectRatio>
-      </ImageSlider.Item>,
-      <ImageSlider.Item slideId={1}>
-        <AspectRatio ratio="square">
-          <Image src="https://picsum.photos/id/101/1280/1280" loading="lazy" cover alt="This is gallery image 2" />
-        </AspectRatio>
-      </ImageSlider.Item>,
-      <ImageSlider.Item slideId={2}>
-        <AspectRatio ratio="x-wide">
-          <Image src="https://picsum.photos/id/153/1280/720" loading="lazy" cover alt="This is gallery image 3" />
-        </AspectRatio>
-      </ImageSlider.Item>,
-    ],
-  },
-}
+// export const VariousSizes: Story = {
+//   args: {
+//     children: [
+//       <ImageSlider.Item slideId={0}>
+//         <AspectRatio ratio="x-wide">
+//           <Image src="https://picsum.photos/id/122/1280/720" loading="lazy" cover alt="This is gallery image 1" />
+//         </AspectRatio>
+//       </ImageSlider.Item>,
+//       <ImageSlider.Item slideId={1}>
+//         <AspectRatio ratio="square">
+//           <Image src="https://picsum.photos/id/101/1280/1280" loading="lazy" cover alt="This is gallery image 2" />
+//         </AspectRatio>
+//       </ImageSlider.Item>,
+//       <ImageSlider.Item slideId={2}>
+//         <AspectRatio ratio="x-wide">
+//           <Image src="https://picsum.photos/id/153/1280/720" loading="lazy" cover alt="This is gallery image 3" />
+//         </AspectRatio>
+//       </ImageSlider.Item>,
+//     ],
+//   },
+// }
