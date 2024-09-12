@@ -12,22 +12,15 @@ const meta = {
   component: Dialog,
   args: {
     footer: (
-      <>
-        <Button type="submit" form="dialog">
-          Doorgaan
-        </Button>
-        <Button onClick={Dialog.close} variant="tertiary">
-          Stoppen
-        </Button>
-      </>
+      <Button onClick={Dialog.close} variant="primary">
+        Sluiten
+      </Button>
     ),
     children: (
-      <form method="dialog" id="dialog">
-        <Paragraph>
-          Weet u zeker dat u door wilt gaan met het uitvoeren van deze actie? Dat verwijdert gegevens die nog niet
-          opgeslagen zijn.
-        </Paragraph>
-      </form>
+      <Paragraph>
+        Weet u zeker dat u door wilt gaan met het uitvoeren van deze actie? Dat verwijdert gegevens die nog niet
+        opgeslagen zijn.
+      </Paragraph>
     ),
     heading: 'Niet alle gegevens zijn opgeslagen',
   },
@@ -53,6 +46,43 @@ export const Default: Story = {
     open: {
       description: 'Whether the dialog box is active and available for interaction.',
     },
+  },
+  decorators: [
+    (Story) => (
+      <div style={{ backgroundColor: '#0006', position: 'absolute', width: '100%', height: '100%' }}>
+        <Story />
+      </div>
+    ),
+  ],
+  parameters: {
+    docs: {
+      story: { height: '32em' },
+    },
+    layout: 'fullscreen',
+  },
+}
+
+export const FormDialog: Story = {
+  args: {
+    open: true,
+    footer: (
+      <>
+        <Button type="submit" form="dialog1">
+          Doorgaan
+        </Button>
+        <Button onClick={Dialog.close} variant="tertiary">
+          Stoppen
+        </Button>
+      </>
+    ),
+    children: (
+      <form method="dialog" id="dialog1">
+        <Paragraph>
+          Weet u zeker dat u door wilt gaan met het uitvoeren van deze actie? Dat verwijdert gegevens die nog niet
+          opgeslagen zijn.
+        </Paragraph>
+      </form>
+    ),
   },
   decorators: [
     (Story) => (
@@ -140,13 +170,21 @@ export const VerticalButtons: Story = {
   args: {
     footer: (
       <>
-        <Button type="submit" form="dialog">
+        <Button type="submit" form="dialog2">
           Lange teksten op deze knoppen
         </Button>
         <Button onClick={Dialog.close} variant="tertiary">
           Om verticaal stapelen te demonstreren
         </Button>
       </>
+    ),
+    children: (
+      <form method="dialog" id="dialog2">
+        <Paragraph>
+          Weet u zeker dat u door wilt gaan met het uitvoeren van deze actie? Dat verwijdert gegevens die nog niet
+          opgeslagen zijn.
+        </Paragraph>
+      </form>
     ),
     open: true,
   },

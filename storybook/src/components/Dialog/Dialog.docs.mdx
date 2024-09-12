@@ -14,6 +14,16 @@ import README from "../../../../packages/css/src/components/dialog/README.md?raw
 
 ## Examples
 
+### Form dialog
+
+The preferred way to handle a dialog is by using a `<form method="dialog">` element. The submit button
+will automatically close the dialog and return the value of the submit or cancel button. It is optional,
+to allow for custom handling of the dialog, so you need to add this form to the children if required.
+Then if you want to have sticky buttons in the footer, you can have a submit button outside of the `<form>`
+by using the form attribute to target the `id` of the form.
+
+<Canvas of={DialogStories.FormDialog} className="ams-dialog-story" />
+
 ### With scrollbar
 
 Content taller than the dialog itself will scroll.
