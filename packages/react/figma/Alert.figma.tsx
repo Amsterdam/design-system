@@ -1,4 +1,5 @@
 import figma from '@figma/code-connect'
+import React from 'react'
 import { Alert } from '../src/Alert/Alert'
 
 /**
@@ -11,7 +12,7 @@ import { Alert } from '../src/Alert/Alert'
 
 figma.connect(
   Alert,
-  'https://www.figma.com/design/9IGm6IdPUYizBNGsUnueBd/Amsterdam-Design-System?node-id=18418-109765&m=dev',
+  'https://www.figma.com/design/9IGm6IdPUYizBNGsUnueBd/Amsterdam-Design-System?node-id=24373-51087&m=dev',
   {
     props: {
       // showheading: figma.boolean('Show heading'),

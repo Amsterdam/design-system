@@ -13,7 +13,7 @@ export type HeadingProps = {
   /** Changes the text colour for readability on a dark background. */
   inverseColor?: boolean
   /** The hierarchical level within the document. */
-  level?: 1 | 2 | 3 | 4
+  level?: 0 | 1 | 2 | 3 | 4 | 5 | 6
   /** Uses larger or smaller text without changing its position in the heading hierarchy. */
   size?: 'level-1' | 'level-2' | 'level-3' | 'level-4' | 'level-5' | 'level-6'
 } & PropsWithChildren<HTMLAttributes<HTMLHeadingElement>>
