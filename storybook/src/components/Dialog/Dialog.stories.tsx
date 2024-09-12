@@ -6,11 +6,6 @@
 import { Button, Heading, Paragraph } from '@amsterdam/design-system-react'
 import { Dialog } from '@amsterdam/design-system-react/src'
 import { Meta, StoryObj } from '@storybook/react'
-import { MouseEvent } from 'react'
-
-const closeDialog = (event: MouseEvent<HTMLButtonElement>) => {
-  return event.currentTarget.closest('dialog')?.close()
-}
 
 const meta = {
   title: 'Components/Containers/Dialog',
@@ -19,7 +14,7 @@ const meta = {
     actions: (
       <>
         <Button type="submit">Doorgaan</Button>
-        <Button onClick={closeDialog} variant="tertiary">
+        <Button onClick={Dialog.close} variant="tertiary">
           Stoppen
         </Button>
       </>
@@ -72,7 +67,7 @@ export const Default: Story = {
 
 export const WithScrollbar: Story = {
   args: {
-    actions: <Button onClick={closeDialog}>Sluiten</Button>,
+    actions: <Button onClick={Dialog.close}>Sluiten</Button>,
     children: [
       <Heading level={2} size="level-5" key={1}>
         Algemeen
@@ -130,9 +125,7 @@ export const TriggerButton: Story = {
   decorators: [
     (Story) => (
       <article>
-        <Button onClick={() => (document.querySelector('#openDialog') as HTMLDialogElement)?.showModal()}>
-          Open Dialog
-        </Button>
+        <Button onClick={() => Dialog.open('#openDialog')}>Open Dialog</Button>
         <Story />
       </article>
     ),
@@ -144,7 +137,7 @@ export const VerticalButtons: Story = {
     actions: (
       <>
         <Button type="submit">Lange teksten op deze knoppen</Button>
-        <Button onClick={closeDialog} variant="tertiary">
+        <Button onClick={Dialog.close} variant="tertiary">
           Om verticaal stapelen te demonstreren
         </Button>
       </>

@@ -12,22 +12,42 @@ import README from "../../../../packages/css/src/components/text-area/README.md?
 
 <Controls />
 
-## Vertical Resize
+## Examples
+
+### Vertical resize
 
 <Canvas of={TextAreaStories.VerticalResize} />
 
-## Horizontal Resize
+### Horizontal resize
 
 <Canvas of={TextAreaStories.HorizontalResize} />
 
-## No Resize
+### No resize
 
 <Canvas of={TextAreaStories.NoResize} />
 
-## Invalid
+### Invalid
 
 <Canvas of={TextAreaStories.Invalid} />
 
-## Disabled
+### Disabled
 
 <Canvas of={TextAreaStories.Disabled} />
+
+#### In a Field
+
+Use a Field to group a Text Area with a Label, description and / or an Error Message.
+
+If you don’t need the description, remove its Paragraph and the `aria-describedby` from the Text Input.
+
+Check [the Field docs](/docs/components-forms-field--docs) for more information on configuring it.
+
+<Canvas of={TextAreaStories.InAField} />
+
+#### In a Field with validation
+
+If the Text Area can become invalid, add an Error Message and its `id` to the `aria-describedby` prop of the Text Area.
+
+Check [the Field docs](/docs/components-forms-field--docs) for more information on configuring it.
+
+<Canvas of={TextAreaStories.InAFieldWithValidation} />

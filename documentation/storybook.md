@@ -16,7 +16,10 @@ The docs display:
 3. The controls for the component, which displays all args for the component.
 4. A canvas for every other story, each with an introduction.
 
-We write our documentation in English, the stories are Dutch.
+We write our documentation in English, the stories are in Dutch.
+
+All headings use sentence case.
+Component names are in title case – starting each word with a capital letter – to make people recognise them as such.
 
 ## Best practices for controls
 
@@ -40,6 +43,9 @@ Follow these guidelines:
    unless this has side effects e.g. rendering a class name.
    In that case, don’t specify a value.
    Storybook will then display a button ‘Set boolean’ that show a switch.
+2. Hide args with `table: { disable: true }` in the `argTypes` object if they don’t apply to the story,
+   e.g. if the story composes multiple instances of the component.
+   We don’t hide ‘less relevant’ args in other cases, not even in stories that focus on a single prop.
 
 ### Arg Types
 

@@ -8,17 +8,17 @@ import README from "../../../../packages/css/src/components/grid/README.md?raw";
 
 <Markdown>{README}</Markdown>
 
-## Examples
-
-The pink areas below represent the columns of the grid.
-The spaces in between are white.
-
-The grid has 12 columns on wide screens, so all 12 cells in this example are in a row.
-On narrow screens, you will see three rows of four columns; on medium-wide screens, one row of eight and one of four.
-
 <Primary />
 
 <Controls />
+
+## Examples
+
+The pink areas represent the columns of the grid.
+The gaps between the columns are transparent.
+
+The grid has 12 columns on wide screens, so all 12 cells in the example above are in a row.
+On narrow screens, you will see three rows of four columns; on medium-wide screens, one row of eight and one of four.
 
 ### Vertical margin
 
@@ -79,16 +79,16 @@ An example with `start={2}`:
 
 <Canvas of={GridStories.StartPosition} />
 
-### Use another HTML element
+### Improve semantics
 
-By default, a Grid Cell renders a `<div>`.
+By default, a Grid Cell renders a `<div>` element in HTML.
 Use the `as` prop to make your markup more semantic.
 
-<Canvas of={GridStories.CustomTagName} />
+<Canvas of={GridStories.ImproveSemantics} />
 
 ## Guidelines
 
-Ensure that the number of columns you assign to a cell matches the amount of columns in the grid for the respective window width.
-The same applies to starting a cell in a later column.
-If the total of both values is too large, the browser adds columns to the grid.
-This is not allowed.
+- Ensure that the number of columns you assign to a cell matches the amount of columns in the grid for the respective window width.
+- The same applies to starting a cell in a later column.
+- If the total of both values is too large, the browser adds columns to the grid.
+  This is not allowed.
