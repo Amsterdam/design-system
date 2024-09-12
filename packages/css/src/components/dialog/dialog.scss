@@ -23,13 +23,13 @@
   }
 }
 
-.ams-dialog__wrapper {
+.ams-dialog__content {
   display: grid;
-  gap: var(--ams-dialog-wrapper-gap);
+  gap: var(--ams-dialog-content-gap);
   grid-template-rows: auto 1fr auto;
-  max-block-size: var(--ams-dialog-wrapper-max-block-size);
-  padding-block: var(--ams-dialog-wrapper-padding-block);
-  padding-inline: var(--ams-dialog-wrapper-padding-inline);
+  max-block-size: var(--ams-dialog-content-max-block-size);
+  padding-block: var(--ams-dialog-content-padding-block);
+  padding-inline: var(--ams-dialog-content-padding-inline);
 }
 
 .ams-dialog__article {
