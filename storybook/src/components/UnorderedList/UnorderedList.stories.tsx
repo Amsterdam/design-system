@@ -31,6 +31,15 @@ const meta = {
     inverseColor: false,
     markers: undefined,
   },
+  argTypes: {
+    size: {
+      control: {
+        type: 'radio',
+        labels: { small: 'small', undefined: 'medium' },
+      },
+      options: ['small', undefined],
+    },
+  },
   decorators: [inverseColorDecorator],
 } satisfies Meta<typeof UnorderedList>
 
