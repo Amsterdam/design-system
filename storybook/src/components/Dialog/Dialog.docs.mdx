@@ -16,11 +16,13 @@ import README from "../../../../packages/css/src/components/dialog/README.md?raw
 
 ### Form dialog
 
-The preferred way to handle a dialog is by using a `<form method="dialog">` element. The submit button
-will automatically close the dialog and return the value of the submit or cancel button. It is optional,
-to allow for custom handling of the dialog, so you need to add this form to the children if required.
-Then if you want to have sticky buttons in the footer, you can have a submit button outside of the `<form>`
-by using the form attribute to target the `id` of the form.
+The `<form method="dialog">` element is a practical way to manage dialogs.
+It simplifies the process by automatically handling the closure and data submission
+when a user interacts with a submit or cancel button. For more complex scenarios,
+developers can opt for custom handling by adding the form as a child element.
+Additionally, creating sticky buttons in a dialog's footer is achievable by placing
+a submit button outside the `<form>` and associating it with the form's ID using the
+`form` attribute.
 
 <Canvas of={DialogStories.FormDialog} className="ams-dialog-story" />
 

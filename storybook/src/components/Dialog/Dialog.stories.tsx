@@ -67,7 +67,7 @@ export const FormDialog: Story = {
     open: true,
     footer: (
       <>
-        <Button type="submit" form="dialog1">
+        <Button type="submit" form="dialog1" value="continue">
           Doorgaan
         </Button>
         <Button onClick={Dialog.close} variant="tertiary">
