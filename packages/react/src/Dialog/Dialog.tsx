@@ -11,7 +11,7 @@ import { IconButton } from '../IconButton'
 
 export type DialogProps = {
   /** The button(s) in the footer. Start with a primary button. */
-  actions?: ReactNode
+  footer?: ReactNode
   /** The label for the button that dismisses the Dialog. */
   closeButtonLabel?: string
   /** The text for the Heading. */
@@ -23,18 +23,18 @@ const openDialog = (id: string) => (document.querySelector(id) as HTMLDialogElem
 
 const DialogRoot = forwardRef(
   (
-    { actions, children, className, closeButtonLabel = 'Sluiten', heading, ...restProps }: DialogProps,
+    { footer, children, className, closeButtonLabel = 'Sluiten', heading, ...restProps }: DialogProps,
     ref: ForwardedRef<HTMLDialogElement>,
   ) => (
     <dialog {...restProps} ref={ref} className={clsx('ams-dialog', className)}>
-      <form className="ams-dialog__form" method="dialog">
+      <div className="ams-dialog__wrapper">
         <header className="ams-dialog__header">
           <Heading size="level-4">{heading}</Heading>
           <IconButton label={closeButtonLabel} onClick={closeDialog} size="level-4" type="button" />
         </header>
         <article className="ams-dialog__article">{children}</article>
-        {actions && <footer className="ams-dialog__footer">{actions}</footer>}
-      </form>
+        {footer && <footer className="ams-dialog__footer">{footer}</footer>}
+      </div>
     </dialog>
   ),
 )

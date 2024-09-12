@@ -11,24 +11,28 @@ const meta = {
   title: 'Components/Containers/Dialog',
   component: Dialog,
   args: {
-    actions: (
+    footer: (
       <>
-        <Button type="submit">Doorgaan</Button>
+        <Button type="submit" form="dialog">
+          Doorgaan
+        </Button>
         <Button onClick={Dialog.close} variant="tertiary">
           Stoppen
         </Button>
       </>
     ),
     children: (
-      <Paragraph>
-        Weet u zeker dat u door wilt gaan met het uitvoeren van deze actie? Dat verwijdert gegevens die nog niet
-        opgeslagen zijn.
-      </Paragraph>
+      <form method="dialog" id="dialog">
+        <Paragraph>
+          Weet u zeker dat u door wilt gaan met het uitvoeren van deze actie? Dat verwijdert gegevens die nog niet
+          opgeslagen zijn.
+        </Paragraph>
+      </form>
     ),
     heading: 'Niet alle gegevens zijn opgeslagen',
   },
   argTypes: {
-    actions: {
+    footer: {
       table: { disable: true },
     },
   },
@@ -67,7 +71,7 @@ export const Default: Story = {
 
 export const WithScrollbar: Story = {
   args: {
-    actions: <Button onClick={Dialog.close}>Sluiten</Button>,
+    footer: <Button onClick={Dialog.close}>Sluiten</Button>,
     children: [
       <Heading level={2} size="level-5" key={1}>
         Algemeen
@@ -134,9 +138,11 @@ export const TriggerButton: Story = {
 
 export const VerticalButtons: Story = {
   args: {
-    actions: (
+    footer: (
       <>
-        <Button type="submit">Lange teksten op deze knoppen</Button>
+        <Button type="submit" form="dialog">
+          Lange teksten op deze knoppen
+        </Button>
         <Button onClick={Dialog.close} variant="tertiary">
           Om verticaal stapelen te demonstreren
         </Button>
