@@ -9,7 +9,7 @@ $ams-grid-column-count: 12;
 $ams-grid-column-count-medium: 8;
 $ams-grid-column-count-wide: 12;
 
-.ams-grid {
+@mixin ams-grid {
   column-gap: var(--ams-grid-column-gap);
   display: grid;
   grid-template-columns: repeat(var(--ams-grid-column-count), 1fr);
@@ -23,6 +23,10 @@ $ams-grid-column-count-wide: 12;
   @media screen and (min-width: $ams-breakpoint-wide) {
     grid-template-columns: repeat(var(--ams-grid-wide-column-count), 1fr);
   }
+}
+
+.ams-grid {
+  @include ams-grid;
 }
 
 // Grid gap

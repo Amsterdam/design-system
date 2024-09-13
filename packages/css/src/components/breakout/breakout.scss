@@ -4,26 +4,12 @@
  */
 
 @import "../../common/breakpoint";
+@import "../grid/grid";
 
-$ams-breakout-column-count: 12;
-$ams-breakout-column-count-medium: 8;
-$ams-breakout-column-count-wide: 12;
 $ams-breakout-row-span-max: 4;
 
 .ams-breakout {
-  column-gap: var(--ams-breakout-column-gap);
-  display: grid;
-  grid-template-columns: repeat(var(--ams-breakout-column-count), 1fr);
-  padding-inline: var(--ams-breakout-padding-inline);
-  row-gap: var(--ams-breakout-row-gap-md);
-
-  @media screen and (min-width: $ams-breakpoint-medium) {
-    grid-template-columns: repeat(var(--ams-breakout-medium-column-count), 1fr);
-  }
-
-  @media screen and (min-width: $ams-breakpoint-wide) {
-    grid-template-columns: repeat(var(--ams-breakout-wide-column-count), 1fr);
-  }
+  @include ams-grid;
 }
 
 // Grid gap
@@ -85,7 +71,7 @@ $ams-breakout-row-span-max: 4;
 // Column span
 // The order of these declaration blocks ensures the intended specificity.
 
-@for $i from 1 through $ams-breakout-column-count {
+@for $i from 1 through $ams-grid-column-count {
   .ams-breakout__cell--col-span-#{$i} {
     grid-column-end: span $i;
   }
@@ -96,7 +82,7 @@ $ams-breakout-row-span-max: 4;
 }
 
 @media screen and (min-width: $ams-breakpoint-medium) {
-  @for $i from 1 through $ams-breakout-column-count-medium {
+  @for $i from 1 through $ams-grid-column-count-medium {
     .ams-breakout__cell--col-span-#{$i}-medium {
       grid-column-end: span $i;
     }
@@ -108,7 +94,7 @@ $ams-breakout-row-span-max: 4;
 }
 
 @media screen and (min-width: $ams-breakpoint-wide) {
-  @for $i from 1 through $ams-breakout-column-count-wide {
+  @for $i from 1 through $ams-grid-column-count-wide {
     .ams-breakout__cell--col-span-#{$i}-wide {
       grid-column-end: span $i;
     }
