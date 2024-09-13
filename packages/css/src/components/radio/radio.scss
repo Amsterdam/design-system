@@ -38,10 +38,6 @@
   circle:first-child {
     stroke: var(--ams-radio-button-background-color);
     stroke-width: 0.15rem;
-
-    @media (forced-colors: active) {
-      stroke: FieldText;
-    }
   }
 
   circle:nth-child(2) {
@@ -57,18 +53,10 @@
 
   .ams-radio__icon circle:first-child {
     stroke: var(--ams-radio-button-checked-hover-background-color);
-
-    @media (forced-colors: active) {
-      stroke: FieldText;
-    }
   }
 
   .ams-radio__icon circle:nth-child(2) {
     fill: var(--ams-radio-button-hover-background-color);
-
-    @media (forced-colors: active) {
-      fill: FieldText;
-    }
   }
 }
 
@@ -76,10 +64,6 @@
 .ams-radio__input[aria-invalid="true"] + .ams-radio__label {
   .ams-radio__icon circle:first-child {
     stroke: var(--ams-radio-button-invalid-background-color);
-
-    @media (forced-colors: active) {
-      stroke: FieldText;
-    }
   }
 
   .ams-radio__icon circle:nth-child(2) {
@@ -89,18 +73,8 @@
 
 // Checked
 .ams-radio__input:checked + .ams-radio__label {
-  .ams-radio__icon circle:first-child {
-    @media (forced-colors: active) {
-      stroke: ActiveText;
-    }
-  }
-
   .ams-radio__icon circle:nth-child(2) {
     display: block;
-
-    @media (forced-colors: active) {
-      fill: ActiveText;
-    }
   }
 }
 
@@ -111,18 +85,10 @@
 
   .ams-radio__icon circle:first-child {
     stroke: var(--ams-radio-button-disabled-background-color);
-
-    @media (forced-colors: active) {
-      stroke: GrayText;
-    }
   }
 
   .ams-radio__icon circle:nth-child(2) {
     fill: var(--ams-radio-button-checked-disabled-background-color);
-
-    @media (forced-colors: active) {
-      fill: GrayText;
-    }
   }
 }
 
@@ -132,19 +98,11 @@
     .ams-radio__icon circle:first-child {
       // TODO: currently disabled invalid gets the same styling as disabled. This should get its own styling.
       stroke: var(--ams-radio-button-disabled-invalid-background-color);
-
-      @media (forced-colors: active) {
-        stroke: GrayText;
-      }
     }
 
     .ams-radio__icon circle:nth-child(2) {
       // TODO: currently disabled invalid gets the same styling as disabled. This should get its own styling.
       fill: var(--ams-radio-button-checked-disabled-invalid-background-color);
-
-      @media (forced-colors: active) {
-        fill: GrayText;
-      }
     }
   }
 }
@@ -161,28 +119,11 @@
   .ams-radio__icon circle:first-child {
     // TODO: this should be the (currently non-existent) dark red hover color
     stroke: var(--ams-radio-button-invalid-hover-background-color);
-
-    @media (forced-colors: active) {
-      stroke: FieldText;
-    }
   }
 
   .ams-radio__icon circle:nth-child(2) {
     // TODO: this should be the (currently non-existent) dark red hover color
     fill: var(--ams-radio-button-checked-invalid-hover-background-color);
-
-    @media (forced-colors: active) {
-      fill: ActiveText;
-    }
-  }
-}
-
-// Invalid checked hover
-.ams-radio__input[aria-invalid="true"]:checked + .ams-radio__label:hover {
-  .ams-radio__icon circle:first-child {
-    @media (forced-colors: active) {
-      stroke: ActiveText;
-    }
   }
 }
 
@@ -191,18 +132,69 @@
   .ams-radio__icon circle:first-child {
     // TODO: currently disabled invalid gets the same styling as disabled. This should get its own styling.
     stroke: var(--ams-radio-button-disabled-invalid-background-color);
-
-    @media (forced-colors: active) {
-      stroke: GrayText;
-    }
   }
 
   .ams-radio__icon circle:nth-child(2) {
     // TODO: currently disabled invalid gets the same styling as disabled. This should get its own styling.
     fill: var(--ams-radio-button-checked-disabled-invalid-background-color);
+  }
+}
 
-    @media (forced-colors: active) {
-      fill: GrayText;
+// FORCED COLORS
+
+// Default
+@media (forced-colors: active) {
+  .ams-radio__label,
+  .ams-radio__label:hover,
+  .ams-radio__input[aria-invalid="true"] + .ams-radio__label,
+  .ams-radio__input[aria-invalid="true"] + .ams-radio__label:hover {
+    .ams-radio__icon {
+      circle:first-child {
+        stroke: FieldText;
+      }
+
+      // These two selectors never target the same element, so it's safe to disable the linter here.
+      /* stylelint-disable-next-line no-descending-specificity */
+      circle:nth-child(2) {
+        fill: FieldText;
+      }
+    }
+  }
+}
+
+// Checked
+@media (forced-colors: active) {
+  .ams-radio__input:checked + .ams-radio__label,
+  .ams-radio__input[aria-invalid="true"]:checked + .ams-radio__label:hover {
+    .ams-radio__icon {
+      circle:first-child {
+        stroke: ActiveText;
+      }
+
+      // These two selectors never target the same element, so it's safe to disable the linter here.
+      /* stylelint-disable-next-line no-descending-specificity */
+      circle:nth-child(2) {
+        fill: ActiveText;
+      }
+    }
+  }
+}
+
+// Disabled
+@media (forced-colors: active) {
+  .ams-radio__input:disabled + .ams-radio__label,
+  .ams-radio__input[aria-invalid="true"]:disabled + .ams-radio__label,
+  .ams-radio__input[aria-invalid="true"]:disabled + .ams-radio__label:hover {
+    .ams-radio__icon {
+      circle:first-child {
+        stroke: GrayText;
+      }
+
+      // These two selectors never target the same element, so it's safe to disable the linter here.
+      /* stylelint-disable-next-line no-descending-specificity */
+      circle:nth-child(2) {
+        fill: GrayText;
+      }
     }
   }
 }
