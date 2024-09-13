@@ -3,7 +3,7 @@
  * Copyright Gemeente Amsterdam
  */
 
-import { AspectRatio, Image, ImageSlider } from '@amsterdam/design-system-react/src'
+import { AspectRatio, Image, ImageSlider, Screen } from '@amsterdam/design-system-react/src'
 import { Meta, StoryObj } from '@storybook/react'
 import React from 'react'
 
@@ -43,6 +43,13 @@ const meta = {
     snapstop: true,
     thumbnails: true,
   },
+  decorators: [
+    (Story) => (
+      <Screen>
+        <Story />
+      </Screen>
+    ),
+  ],
 } satisfies Meta<typeof ImageSlider>
 
 export default meta
