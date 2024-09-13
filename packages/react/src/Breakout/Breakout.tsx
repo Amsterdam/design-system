@@ -11,7 +11,6 @@ import { BreakoutCell } from './BreakoutCell'
 export type BreakoutColumnNumber = 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11 | 12
 export type BreakoutRowNumber = 1 | 2 | 3 | 4
 export type BreakoutPaddingSize = 'small' | 'medium' | 'large'
-export type ResponsiveBreakoutValues<T> = T | { narrow: T; medium: T; wide: T }
 
 type BreakoutPaddingVerticalProp = {
   paddingBottom?: never
