@@ -61,9 +61,6 @@ const cellMeta = {
     className: {
       table: { disable: true },
     },
-    coverGap: {
-      control: { type: 'boolean' },
-    },
     span: {
       control: { type: 'number', min: 1, max: 12 },
     },
@@ -175,28 +172,6 @@ export const StartPosition: CellStory = {
     span: 3,
     start: 2,
   },
-}
-
-export const CoverGap: CellStory = {
-  ...CellStoryTemplate,
-  args: {
-    className: 'ams-docs-item ams-docs-item--highlight',
-    coverGap: true,
-    span: 'all',
-  },
-  decorators: [
-    (Story) => (
-      <Screen>
-        <Grid>
-          <Grid.Cell className="ams-docs-item" span={{ narrow: 2, medium: 4, wide: 6 }} />
-          <Grid.Cell className="ams-docs-item" span={{ narrow: 2, medium: 4, wide: 6 }} />
-          <Story />
-          <Grid.Cell className="ams-docs-item" span={{ narrow: 2, medium: 4, wide: 6 }} />
-          <Grid.Cell className="ams-docs-item" span={{ narrow: 2, medium: 4, wide: 6 }} />
-        </Grid>
-      </Screen>
-    ),
-  ],
 }
 
 export const ImproveSemantics: CellStory = {
