@@ -5,9 +5,8 @@
 import clsx from 'clsx'
 import { forwardRef } from 'react'
 import type { HTMLAttributes, PropsWithChildren } from 'react'
-import type { GridColumnNumber } from './Grid'
+import type { GridColumnNumber, ResponsiveGridValues } from './Grid'
 import { gridCellClasses } from './gridCellClasses'
-import type { ResponsiveGridValues } from '../common/types'
 
 type GridCellSpanAllProp = {
   /** Lets the cell span the full width of all grid variants. */

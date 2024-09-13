@@ -7,7 +7,7 @@ import { forwardRef } from 'react'
 import type { HTMLAttributes, PropsWithChildren } from 'react'
 import type { BreakoutColumnNumber, BreakoutRowNumber } from './Breakout'
 import { breakoutCellClasses } from './breakoutCellClasses'
-import type { ResponsiveGridValues } from '../common/types'
+import type { ResponsiveGridValues } from '../Grid'
 
 type BreakoutCellSpanAllProp = {
   /** Expand the cell horizontally and vertically to cover its adjacent gaps and margins. */
