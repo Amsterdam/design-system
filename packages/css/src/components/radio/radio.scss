@@ -31,18 +31,18 @@
 }
 
 .ams-radio__icon {
-  block-size: var(--ams-radio-button-checked-block-size);
+  block-size: var(--ams-radio-icon-block-size);
   flex-shrink: 0;
-  inline-size: var(--ams-radio-button-checked-inline-size);
+  inline-size: var(--ams-radio-icon-inline-size);
 
   circle:first-child {
-    stroke: var(--ams-radio-button-background-color);
+    stroke: var(--ams-radio-icon-outer-stroke);
     stroke-width: 0.15rem;
   }
 
   circle:nth-child(2) {
     display: none;
-    fill: var(--ams-radio-button-checked-background-color);
+    fill: var(--ams-radio-icon-inner-fill);
   }
 }
 
@@ -52,22 +52,22 @@
   text-decoration-line: var(--ams-radio-hover-text-decoration-line);
 
   .ams-radio__icon circle:first-child {
-    stroke: var(--ams-radio-button-checked-hover-background-color);
+    stroke: var(--ams-radio-icon-hover-outer-stroke);
   }
 
   .ams-radio__icon circle:nth-child(2) {
-    fill: var(--ams-radio-button-hover-background-color);
+    fill: var(--ams-radio-icon-hover-inner-fill);
   }
 }
 
 // Invalid
 .ams-radio__input[aria-invalid="true"] + .ams-radio__label {
   .ams-radio__icon circle:first-child {
-    stroke: var(--ams-radio-button-invalid-background-color);
+    stroke: var(--ams-radio-icon-invalid-outer-stroke);
   }
 
   .ams-radio__icon circle:nth-child(2) {
-    fill: var(--ams-radio-button-checked-invalid-background-color);
+    fill: var(--ams-radio-icon-invalid-inner-fill);
   }
 }
 
@@ -84,11 +84,11 @@
   cursor: not-allowed;
 
   .ams-radio__icon circle:first-child {
-    stroke: var(--ams-radio-button-disabled-background-color);
+    stroke: var(--ams-radio-icon-disabled-outer-stroke);
   }
 
   .ams-radio__icon circle:nth-child(2) {
-    fill: var(--ams-radio-button-checked-disabled-background-color);
+    fill: var(--ams-radio-icon-disabled-inner-fill);
   }
 }
 
@@ -97,12 +97,12 @@
   + .ams-radio__label {
     .ams-radio__icon circle:first-child {
       // TODO: currently disabled invalid gets the same styling as disabled. This should get its own styling.
-      stroke: var(--ams-radio-button-disabled-invalid-background-color);
+      stroke: var(--ams-radio-icon-disabled-invalid-outer-stroke);
     }
 
     .ams-radio__icon circle:nth-child(2) {
       // TODO: currently disabled invalid gets the same styling as disabled. This should get its own styling.
-      fill: var(--ams-radio-button-checked-disabled-invalid-background-color);
+      fill: var(--ams-radio-icon-disabled-invalid-inner-fill);
     }
   }
 }
@@ -118,12 +118,12 @@
 .ams-radio__input[aria-invalid="true"] + .ams-radio__label:hover {
   .ams-radio__icon circle:first-child {
     // TODO: this should be the (currently non-existent) dark red hover color
-    stroke: var(--ams-radio-button-invalid-hover-background-color);
+    stroke: var(--ams-radio-icon-invalid-hover-outer-stroke);
   }
 
   .ams-radio__icon circle:nth-child(2) {
     // TODO: this should be the (currently non-existent) dark red hover color
-    fill: var(--ams-radio-button-checked-invalid-hover-background-color);
+    fill: var(--ams-radio-icon-invalid-hover-inner-fill);
   }
 }
 
@@ -131,12 +131,12 @@
 .ams-radio__input[aria-invalid="true"]:disabled + .ams-radio__label:hover {
   .ams-radio__icon circle:first-child {
     // TODO: currently disabled invalid gets the same styling as disabled. This should get its own styling.
-    stroke: var(--ams-radio-button-disabled-invalid-background-color);
+    stroke: var(--ams-radio-icon-disabled-invalid-hover-outer-stroke);
   }
 
   .ams-radio__icon circle:nth-child(2) {
     // TODO: currently disabled invalid gets the same styling as disabled. This should get its own styling.
-    fill: var(--ams-radio-button-checked-disabled-invalid-background-color);
+    fill: var(--ams-radio-icon-disabled-invalid-hover-inner-fill);
   }
 }
 
