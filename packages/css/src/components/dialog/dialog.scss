@@ -33,8 +33,6 @@
 }
 
 .ams-dialog__content {
-  display: grid;
-  gap: var(--ams-space-md); /* Until we have a consistent way of spacing text elements */
   max-block-size: 100%; /* Safari */
   overflow-y: auto;
   overscroll-behavior-y: contain;

@@ -103,31 +103,31 @@ export const WithScrollbar: Story = {
   args: {
     footer: <Button onClick={Dialog.close}>Sluiten</Button>,
     children: [
-      <Heading level={2} size="level-5" key={1}>
+      <Heading level={2} size="level-5" key={1} className="ams-mb--sm">
         Algemeen
       </Heading>,
-      <Paragraph key={2}>
+      <Paragraph key={2} className="ams-mb--sm">
         De gemeente Amsterdam verwerkt bij de uitvoering van haar taken en verplichtingen persoonsgegevens. De manier
         waarop de gemeente Amsterdam om gaat met persoonsgegevens is vastgelegd in het stedelijk kader verwerken
         persoonsgegevens.
       </Paragraph>,
-      <Paragraph key={3}>
+      <Paragraph key={3} className="ams-mb--sm">
         Deze verklaring geeft aanvullende informatie over de omgang met persoonsgegevens door de gemeente Amsterdam en
         over uw mogelijkheden tot het uitoefenen van uw rechten met betrekking tot persoonsgegevens.
       </Paragraph>,
-      <Paragraph key={4}>
+      <Paragraph key={4} className="ams-mb--sm">
         Meer specifieke informatie over privacy en de verwerking van persoonsgegevens door de gemeente Amsterdam kunt u
         op de hoofdpagina vinden.
       </Paragraph>,
-      <Paragraph key={5}>
+      <Paragraph key={5} className="ams-mb--sm">
         Vanwege nieuwe wetgeving of andere ontwikkelingen, past de gemeente regelmatig haar processen aan. Dit kunnen
         ook wijzigingen zijn in de wijze van het verwerken van persoonsgegevens. Wij raden u daarom aan om regelmatig
         deze pagina te bekijken. Deze pagina wordt doorlopend geactualiseerd.
       </Paragraph>,
-      <Heading level={2} size="level-5" key={6}>
+      <Heading level={2} size="level-5" key={6} className="ams-mb--sm">
         Geldende wet- en regelgeving en reikwijdte
       </Heading>,
-      <Paragraph key={7}>
+      <Paragraph key={7} className="ams-mb--sm">
         Vanaf 25 mei 2018 is de Algemene verordening gegevensbescherming (Avg) van toepassing op alle verwerkingen van
         persoonsgegevens. Deze Europese wetgeving heeft directe werking in Nederland. Voor die zaken die nationaal
         geregeld moeten worden, is de Uitvoeringswet Avg in Nederland aanvullend van toepassing. Deze wetteksten kunt u
