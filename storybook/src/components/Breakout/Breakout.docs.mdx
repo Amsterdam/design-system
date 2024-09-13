@@ -1,0 +1,19 @@
+{/* @license CC0-1.0 */}
+
+import { Canvas, Controls, Markdown, Meta, Primary } from "@storybook/blocks";
+import * as BreakoutStories from "./Breakout.stories.tsx";
+import README from "../../../../packages/css/src/components/breakout/README.md?raw";
+
+<Meta of={BreakoutStories} />
+
+<Markdown>{README}</Markdown>
+
+<Primary />
+
+<Controls />
+
+## Examples
+
+### Map on top
+
+<Canvas of={BreakoutStories.MapOnTop} />

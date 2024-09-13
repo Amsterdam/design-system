@@ -1,0 +1,171 @@
+/**
+ * @license EUPL-1.2+
+ * Copyright Gemeente Amsterdam
+ */
+
+@import "../../common/breakpoint";
+
+$ams-breakout-column-count: 12;
+$ams-breakout-column-count-medium: 8;
+$ams-breakout-column-count-wide: 12;
+$ams-breakout-row-span-max: 4;
+
+.ams-breakout {
+  column-gap: var(--ams-breakout-column-gap);
+  display: grid;
+  grid-template-columns: repeat(var(--ams-breakout-column-count), 1fr);
+  padding-inline: var(--ams-breakout-padding-inline);
+  row-gap: var(--ams-breakout-row-gap-md);
+
+  @media screen and (min-width: $ams-breakpoint-medium) {
+    grid-template-columns: repeat(var(--ams-breakout-medium-column-count), 1fr);
+  }
+
+  @media screen and (min-width: $ams-breakpoint-wide) {
+    grid-template-columns: repeat(var(--ams-breakout-wide-column-count), 1fr);
+  }
+}
+
+// Grid gap
+
+.ams-breakout--gap-vertical--none {
+  row-gap: initial;
+}
+
+.ams-breakout--gap-vertical--small {
+  row-gap: var(--ams-breakout-row-gap-sm);
+}
+
+.ams-breakout--gap-vertical--large {
+  row-gap: var(--ams-breakout-row-gap-lg);
+}
+
+// Grid padding
+
+.ams-breakout--padding-bottom--small {
+  padding-block-end: var(--ams-breakout-padding-block-sm);
+}
+
+.ams-breakout--padding-bottom--medium {
+  padding-block-end: var(--ams-breakout-padding-block-md);
+}
+
+.ams-breakout--padding-bottom--large {
+  padding-block-end: var(--ams-breakout-padding-block-lg);
+}
+
+.ams-breakout--padding-top--small {
+  padding-block-start: var(--ams-breakout-padding-block-sm);
+}
+
+.ams-breakout--padding-top--medium {
+  padding-block-start: var(--ams-breakout-padding-block-md);
+}
+
+.ams-breakout--padding-top--large {
+  padding-block-start: var(--ams-breakout-padding-block-lg);
+}
+
+.ams-breakout--padding-vertical--small {
+  padding-block: var(--ams-breakout-padding-block-sm);
+}
+
+.ams-breakout--padding-vertical--medium {
+  padding-block: var(--ams-breakout-padding-block-md);
+}
+
+.ams-breakout--padding-vertical--large {
+  padding-block: var(--ams-breakout-padding-block-lg);
+}
+
+.ams-breakout__cell--span-all {
+  grid-column: 1 / -1;
+}
+
+// Column span
+// The order of these declaration blocks ensures the intended specificity.
+
+@for $i from 1 through $ams-breakout-column-count {
+  .ams-breakout__cell--span-#{$i} {
+    grid-column-end: span $i;
+  }
+
+  .ams-breakout__cell--start-#{$i} {
+    grid-column-start: $i;
+  }
+}
+
+@media screen and (min-width: $ams-breakpoint-medium) {
+  @for $i from 1 through $ams-breakout-column-count-medium {
+    .ams-breakout__cell--span-#{$i}-medium {
+      grid-column-end: span $i;
+    }
+
+    .ams-breakout__cell--start-#{$i}-medium {
+      grid-column-start: $i;
+    }
+  }
+}
+
+@media screen and (min-width: $ams-breakpoint-wide) {
+  @for $i from 1 through $ams-breakout-column-count-wide {
+    .ams-breakout__cell--span-#{$i}-wide {
+      grid-column-end: span $i;
+    }
+
+    .ams-breakout__cell--start-#{$i}-wide {
+      grid-column-start: $i;
+    }
+  }
+}
+
+// Row span
+
+@for $i from 1 through $ams-breakout-row-span-max {
+  .ams-breakout__cell--row-span-#{$i} {
+    grid-row-end: span $i;
+  }
+
+  .ams-breakout__cell--row-start-#{$i} {
+    grid-row-start: $i;
+  }
+}
+
+@media screen and (min-width: $ams-breakpoint-medium) {
+  @for $i from 1 through $ams-breakout-row-span-max {
+    .ams-breakout__cell--row-span-#{$i}-medium {
+      grid-row-end: span $i;
+    }
+
+    .ams-breakout__cell--row-start-#{$i}-medium {
+      grid-row-start: $i;
+    }
+  }
+}
+
+@media screen and (min-width: $ams-breakpoint-wide) {
+  @for $i from 1 through $ams-breakout-row-span-max {
+    .ams-breakout__cell--row-span-#{$i}-wide {
+      grid-row-end: span $i;
+    }
+
+    .ams-breakout__cell--row-start-#{$i}-wide {
+      grid-row-start: $i;
+    }
+  }
+}
+
+// Cover gap
+
+.ams-breakout__cell--cover-gap {
+  margin-block: calc(var(--ams-space-grid-md) * -1);
+  margin-inline: calc(var(--ams-space-grid-lg) * -1);
+
+  .ams-breakout--gap-vertical--small > & {
+    margin-block: calc(var(--ams-space-grid-sm) * -1);
+  }
+
+  .ams-breakout--gap-vertical--large > & {
+    margin-block: calc(var(--ams-space-grid-lg) * -1);
+  }
+}
