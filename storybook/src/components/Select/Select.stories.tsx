@@ -3,8 +3,33 @@
  * Copyright Gemeente Amsterdam
  */
 
+import { ErrorMessage, Field, Label, Paragraph } from '@amsterdam/design-system-react'
 import { Select } from '@amsterdam/design-system-react/src'
 import { Meta, StoryObj } from '@storybook/react'
+
+const optionList = [
+  <Select.Option key="1" value="1">
+    Centrum
+  </Select.Option>,
+  <Select.Option key="2" value="2">
+    Noord
+  </Select.Option>,
+  <Select.Option key="3" value="3">
+    West
+  </Select.Option>,
+  <Select.Option key="4" value="4" disabled>
+    Westpoort
+  </Select.Option>,
+  <Select.Option key="6" value="5">
+    Nieuw-West
+  </Select.Option>,
+  <Select.Option key="7" value="6">
+    Zuid
+  </Select.Option>,
+  <Select.Option key="8" value="7">
+    Zuidoost
+  </Select.Option>,
+]
 
 const meta = {
   title: 'Components/Forms/Select',
@@ -12,29 +37,7 @@ const meta = {
   args: {
     invalid: false,
     disabled: false,
-    children: [
-      <Select.Option key="1" value="1">
-        Centrum
-      </Select.Option>,
-      <Select.Option key="2" value="2">
-        Noord
-      </Select.Option>,
-      <Select.Option key="3" value="3">
-        West
-      </Select.Option>,
-      <Select.Option key="4" value="4" disabled>
-        Westpoort
-      </Select.Option>,
-      <Select.Option key="6" value="5">
-        Nieuw-West
-      </Select.Option>,
-      <Select.Option key="7" value="6">
-        Zuid
-      </Select.Option>,
-      <Select.Option key="8" value="7">
-        Zuidoost
-      </Select.Option>,
-    ],
+    children: optionList,
   },
   argTypes: {
     disabled: {
@@ -110,4 +113,37 @@ export const Disabled: Story = {
   args: {
     disabled: true,
   },
+}
+
+export const InAField: Story = {
+  render: (args) => (
+    <Field invalid={args.invalid}>
+      <Label htmlFor="input1">Label</Label>
+      <Paragraph id="description1" size="small">
+        Omschrijving.
+      </Paragraph>
+      {args.invalid && <ErrorMessage id="error1">Foutmelding.</ErrorMessage>}
+      <Select aria-describedby={`description1${args.invalid ? ' error1' : ''}`} id="input1" {...args}>
+        {optionList}
+      </Select>
+    </Field>
+  ),
+}
+
+export const InAFieldWithValidation: Story = {
+  args: {
+    invalid: true,
+  },
+  render: (args) => (
+    <Field invalid={args.invalid}>
+      <Label htmlFor="input2">Label</Label>
+      <Paragraph id="description2" size="small">
+        Omschrijving.
+      </Paragraph>
+      {args.invalid && <ErrorMessage id="error2">Foutmelding.</ErrorMessage>}
+      <Select aria-describedby={`description2${args.invalid ? ' error2' : ''}`} id="input2" {...args}>
+        {optionList}
+      </Select>
+    </Field>
+  ),
 }

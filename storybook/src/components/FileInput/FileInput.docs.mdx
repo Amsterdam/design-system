@@ -12,20 +12,32 @@ import README from "../../../../packages/css/src/components/file-input/README.md
 
 <Controls />
 
-## Multiple Files
+## Examples
+
+### Multiple files
 
 Allow multiple files to be selected. The label will update to show the number of files selected.
 
-<Canvas of={FileInputStories.Multiple} />
+<Canvas of={FileInputStories.MultipleFiles} />
 
-## Accept
+### Restrict file types
 
 Limit the types of files that can be selected. Some examples are `image/*`, `video/*`, or `audio/*`. To limit to a specific file type, use the MIME type, such as `application/pdf`.
 
 - [MDN File Input](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/file#limiting_accepted_file_types): More examples
 
-<Canvas of={FileInputStories.Accept} />
+<Canvas of={FileInputStories.RestrictFileTypes} />
 
-## Disabled
+### Disabled
 
 <Canvas of={FileInputStories.Disabled} />
+
+### In a Field
+
+Use a Field component to group a File Input with a Label and possibly a description.
+
+If you don’t need the description, remove its Paragraph and the `aria-describedby` from the Text Input.
+
+Check [the Field docs](/docs/components-forms-field--docs) for more information on configuring it.
+
+<Canvas of={FileInputStories.InAField} />

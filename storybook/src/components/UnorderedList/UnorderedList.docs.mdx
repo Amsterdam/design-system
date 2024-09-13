@@ -8,19 +8,13 @@ import README from "../../../../packages/css/src/components/unordered-list/READM
 
 <Markdown>{README}</Markdown>
 
-## Examples
-
-### Default
-
-Items of an unordered list have square markers.
-There is extra white space between the items.
-This provides better distinction between the items, especially when they consist of multiple lines of text.
-
 <Primary />
 
 <Controls />
 
-### Two Levels
+## Examples
+
+### Two levels
 
 A list can have one deeper level.
 In this case, an en dash is used as the list item marker.
@@ -28,7 +22,7 @@ It is left-aligned with the text of the higher-level item.
 
 <Canvas of={UnorderedListStories.TwoLevels} />
 
-### Without Markers
+### Without markers
 
 An overview of equivalent elements is also an unordered list.
 In such cases, apply the list semantics while hiding markers.
@@ -41,7 +35,7 @@ This example is based on the top tasks on the homepage of the website:
 
 <Canvas of={UnorderedListStories.WithoutMarkers} />
 
-### Inverse Colour
+### Inverse colour
 
 Set the `inverseColor` prop if the List sits on a dark background.
 This ensures the colour of the text provides enough contrast.
@@ -49,8 +43,8 @@ When nesting lists, set the prop on all lists.
 
 <Canvas of={UnorderedListStories.InverseColor} />
 
-### Small
+### Small text
 
 Use a list with a smaller font size in form descriptions and captions and the like.
 
-<Canvas of={UnorderedListStories.Small} />
+<Canvas of={UnorderedListStories.SmallText} />

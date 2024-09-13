@@ -8,20 +8,18 @@ import README from "../../../../packages/css/src/components/column/README.md?raw
 
 <Markdown>{README}</Markdown>
 
-## How to Use
+## Guidelines
 
 - Wrap a Column around a set of elements that need the same amount of white space between them.
 - The five sizes of [Component Space](/docs/brand-design-tokens-space--docs) are available for the width or height of the gap.
 - To add white space below a single element, you can add a [Margin Bottom](/docs/utilities-css-margin--docs) instead.
 - Align the elements horizontally or vertically through the alignment props.
 
-## Examples
-
-### Default
-
 <Primary />
 
 <Controls />
+
+## Examples
 
 ### Alignment
 
@@ -52,10 +50,10 @@ This example centers three items horizontally.
 
 <Canvas of={ColumnStories.HorizontalAlignment} />
 
-### Use another HTML element
+### Improve semantics
 
-By default, a Column renders a `<div>`.
+By default, a Column renders a `<div>` element in HTML.
 Use the `as` prop to make your markup more semantic.
 In this example, the Column uses a `<section>` element to group the heading and the cards.
 
-<Canvas of={ColumnStories.CustomTagName} />
+<Canvas of={ColumnStories.ImproveSemantics} />

@@ -14,7 +14,7 @@ import README from "../../../../packages/css/src/components/field-set/README.md?
 
 ## Examples
 
-## With Description
+### With description
 
 A Field Set can have a description.
 Make sure to connect this description to the Field Set or a specific input,
@@ -24,36 +24,37 @@ and provide the `id` of the describing element as its value.
 
 <Canvas of={FieldSetStories.WithDescription} />
 
-## With Error
+### With validation
 
 A Field Set can indicate whether any of the inputs it contains has a validation error.
-Use Error Message to describe the error.
-Make sure to connect the error message to the correct input in the Field Set,
+Use an [Error Message](/docs/components-forms-error-message--docs) to describe the error.
+Make sure to connect the Error Message to the correct input in the Field Set,
 otherwise it won’t be read by a screen reader.
 Add an `aria-describedby` attribute to the input and provide the `id` of Error Message as its value.
 
-<Canvas of={FieldSetStories.WithError} />
+<Canvas of={FieldSetStories.WithValidation} />
 
 ### Radio group
 
-Use a Field Set to group radio buttons.
-When grouping radio inputs, use `role="radiogroup"` on Field Set to have this grouping explicitly announced as a radio group (the default role is `group`).
-Using `role="radiogroup"` also allows you to use `aria-required` on Field Set, which isn’t allowed for role `group`.
-Always also set `aria-required` on the individual radio buttons though, to make sure it’s read by screen readers.
+Use a Field Set to group several Radios with a legend, description, and / or an Error Message.
+
+Add `role="radiogroup"` to the Field Set to have it explicitly announced as a radio group (the default role is just ‘group’).
+The ‘radio group’ role also allows using `aria-required` on Field Set; that isn’t allowed for the ‘group’ role.
+Even so, always set `aria-required` on the individual Radios as well to ensure that screen readers can read it.
 
 <Canvas of={FieldSetStories.RadioGroup} />
 
-### Radio group with error
+### Radio group with validation
 
-A Field Set with a radio button group can also have a validation error.
-In this case, connect the error message to the Field Set instead of an input.
+A Field Set with a Radio group can also have a validation error.
+In this case, connect the Error Message to the Field Set instead of an input.
 Add an `aria-describedby` attribute to the Field Set and provide the `id` of Error Message as its value.
 
-<Canvas of={FieldSetStories.RadioGroupWithError} />
+<Canvas of={FieldSetStories.RadioGroupWithValidation} />
 
 ### Checkbox group
 
-Use a Field Set to group checkboxes.
+Use a Field Set to group Checkboxes.
 
 Please note: [NVDA has a bug](https://github.com/nvaccess/nvda/issues/12718) which causes it to
 not report a description connected to a Field Set when it contains checkboxes.
@@ -78,7 +79,7 @@ The order of the `id`s is the order in which they are read by screen readers.
 
 <Canvas of={FieldSetStories.CheckboxGroup} />
 
-### Checkbox group with error
+### Checkbox group with validation
 
 Because of [the NVDA bug mentioned earlier](https://github.com/nvaccess/nvda/issues/12718),
 we add the Error Message text to the label as well.
@@ -97,4 +98,4 @@ Add an `id` to the Field Set and the Error Message, and add both to the `aria-la
 
 The order of the `id`s is the order in which they are read by screen readers.
 
-<Canvas of={FieldSetStories.CheckboxGroupWithError} />
+<Canvas of={FieldSetStories.CheckboxGroupWithValidation} />

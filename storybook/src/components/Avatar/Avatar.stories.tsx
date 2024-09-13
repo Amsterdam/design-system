@@ -23,7 +23,7 @@ type Story = StoryObj<typeof meta>
 
 export const Default: Story = {}
 
-export const WithPicture: Story = {
+export const WithImage: Story = {
   args: {
     label: 'PS',
     imageSrc: 'https://i.pravatar.cc/128',

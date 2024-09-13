@@ -17,3 +17,24 @@ import README from "../../../../packages/css/src/components/checkbox/README.md?r
 ### Long label
 
 <Canvas of={CheckboxStories.LongLabel} />
+
+### In a Field Set
+
+Use a Field Set to group several Checkboxes with a legend, description and / or an Error Message.
+
+Because of an [NVDA bug](https://github.com/nvaccess/nvda/issues/12718), we add the description text to the Field Set with `aria-labelledby`,
+instead of `aria-describedby`.
+
+If you don’t need the description, remove its Paragraph and the Paragraphs `id` from the Field Set `aria-labelledby`.
+
+Check [the Field Set docs](/docs/components-forms-field-set--docs) for more information on configuring it.
+
+<Canvas of={CheckboxStories.InAFieldSet} />
+
+### In a Field Set with validation
+
+If the Checkbox can become invalid, add an Error Message component and its `id` to the `aria-labelledby` attribute of the Field Set.
+
+Check [the Field Set docs](/docs/components-forms-field-set--docs) for more information on configuring it.
+
+<Canvas of={CheckboxStories.InAFieldSetWithValidation} />

@@ -13,6 +13,5 @@ Therefore, it is blue and clickable.
 
 ## Guidelines
 
-Use a Link List to present multiple links within a theme.
-
-For additional guidelines, refer to the [Link](/docs/components-navigation-link--docs) component.
+- Use a Link List to present multiple links within a theme.
+- For additional guidelines, refer to the [Link](/docs/components-navigation-link--docs) component.

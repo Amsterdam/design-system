@@ -67,7 +67,7 @@ export const HorizontalAlignment: Story = {
   },
 }
 
-export const CustomTagName: Story = {
+export const ImproveSemantics: Story = {
   args: {
     as: 'section',
     children: [

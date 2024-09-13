@@ -9,7 +9,7 @@ A circular badge representing a person.
 The avatar contains 1 or 2 initial letters from the person's full name, a picture, or a generic icon.
 The default background colour is dark blue.
 
-## Usage
+## Guidelines
 
-Display an avatar for the person currently using the application,
-or to associate a person with a content item.
+- Display an avatar for the person currently using the application,
+  or to associate a person with a content item.

@@ -27,4 +27,4 @@ It is written in the first person when asking the user to agree to the terms and
 
 - [WCAG 1.3.5](https://www.w3.org/WAI/WCAG21/Understanding/identify-input-purpose.html): It is clear for both users and programmatically what the purpose of a form field is.
 
-Checkbox is an interactive element; therefore, [the general requirements and guidelines for interactivity](/docs/docs-developer-guide-interactivity--docs) apply.
+Checkbox is an interactive element, and the [general requirements and guidelines for interactivity](/docs/docs-developer-guide-interactivity--docs) apply.

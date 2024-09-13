@@ -20,6 +20,15 @@
   }
 }
 
+.ams-avatar:not(.ams-avatar--has-image) {
+  @media (forced-colors: active) {
+    border-style: solid;
+    border-width: var(--ams-avatar-forced-colors-border-width);
+    padding-block: calc(var(--ams-avatar-padding-block) - var(--ams-avatar-forced-colors-border-width));
+    padding-inline: calc(var(--ams-avatar-padding-inline) - var(--ams-avatar-forced-colors-border-width));
+  }
+}
+
 .ams-avatar--has-image {
   inline-size: calc(var(--ams-avatar-line-height) * var(--ams-avatar-font-size) + 2 * var(--ams-avatar-padding-inline));
   overflow: hidden;

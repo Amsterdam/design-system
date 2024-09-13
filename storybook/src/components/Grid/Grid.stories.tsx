@@ -148,7 +148,7 @@ export const StartPosition: CellStory = {
   },
 }
 
-export const CustomTagName: CellStory = {
+export const ImproveSemantics: CellStory = {
   ...CellStoryTemplate,
   args: {
     as: 'section',

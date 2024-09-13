@@ -117,3 +117,10 @@
 :is(#storybook-root, .sbdocs-content) a[href="#"] {
   cursor: not-allowed;
 }
+
+/* Override to make sure the default transparent border isn't shown in forced colors mode. */
+.innerZoomElementWrapper.innerZoomElementWrapper > div {
+  @media (forced-colors: active) {
+    border-color: Canvas !important;
+  }
+}

@@ -19,7 +19,9 @@ The five sizes of [Component Space](/docs/brand-design-tokens-space--docs) are a
 ## Guidelines
 
 - Use this utility class to vertically separate the children of a parent element from each other.
-- It can be used on any element and sets the `gap` CSS property.
+- Do not use it on the Grid component.
+  Grid is responsible for its own gaps.
+- It can be used on any other element and sets the `gap` CSS property.
   It also makes the element a grid container; the gap would be ignored otherwise.
   These declarations are marked with the `!important` flag to ensure they override any other gaps and display modes.
 - To add a gap between 2 siblings, the first one can be given a [Margin Bottom](/docs/utilities-css-margin--docs) instead.

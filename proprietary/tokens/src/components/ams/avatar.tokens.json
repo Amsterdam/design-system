@@ -20,6 +20,9 @@
         "background-color": { "value": "{ams.color.dark-green}" },
         "color": { "value": "{ams.color.primary-white}" }
       },
+      "forced-colors": {
+        "border-width": { "value": "{ams.border.width.md}" }
+      },
       "green": {
         "background-color": { "value": "{ams.color.green}" },
         "color": { "value": "{ams.color.primary-black}" }

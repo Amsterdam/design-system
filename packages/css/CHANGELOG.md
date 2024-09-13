@@ -3,6 +3,13 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.11.1](https://github.com/Amsterdam/design-system/compare/design-system-css-v0.11.0...design-system-css-v0.11.1) (2024-08-29)
+
+
+### Bug Fixes
+
+* Close Dialog without submit ([#1547](https://github.com/Amsterdam/design-system/issues/1547)) ([d9cc107](https://github.com/Amsterdam/design-system/commit/d9cc1079e2f784fd7002b7f785fcfdaa750cb240))
+
 ## [0.11.0](https://github.com/Amsterdam/design-system/compare/design-system-css-v0.10.0...design-system-css-v0.11.0) (2024-07-25)
 
 

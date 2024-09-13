@@ -27,9 +27,6 @@ const meta = {
     reversed: {
       control: 'boolean',
       description: 'Numbers the items from the highest value down.',
-      table: {
-        defaultValue: { summary: 'false' },
-      },
     },
     start: {
       control: 'number',
@@ -40,7 +37,7 @@ const meta = {
         type: 'radio',
         labels: { small: 'small', undefined: 'medium' },
       },
-      options: ['small', undefined, 'large'],
+      options: ['small', undefined],
     },
   },
   decorators: [inverseColorDecorator],
@@ -51,12 +48,6 @@ export default meta
 type Story = StoryObj<typeof meta>
 
 export const Default: Story = {}
-
-export const Small: Story = {
-  args: {
-    size: 'small',
-  },
-}
 
 export const TwoLevels: Story = {
   render: (args) => (
@@ -153,4 +144,10 @@ export const InverseColor: Story = {
       </OrderedList.Item>
     </OrderedList>
   ),
+}
+
+export const SmallText: Story = {
+  args: {
+    size: 'small',
+  },
 }

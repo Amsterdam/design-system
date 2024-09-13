@@ -26,7 +26,7 @@ On some devices, it may show an email-specific keyboard.
 Consider setting the following attributes:
 
 1. Set `autocomplete="email"` to help browsers autofill the user’s email address.
-2. Set `autocapitalize="none"`, `autocorrect="off"` and `spellcheck="false"` to stop browsers automatically changing user input.
+2. Set `autocorrect="off"` and `spellcheck="false"` to stop browsers automatically changing user input.
    Email addresses shouldn’t be checked for spelling or grammar.
    This may also prevent posting the email address to third-party plugins.
 
@@ -46,7 +46,7 @@ On some devices, it may show a URL-specific keyboard to aid in entering web addr
 Consider setting the following attributes:
 
 1. Set `autocomplete="url"` to help browsers autofill the user’s web address.
-2. Set `autocapitalize="none"`, `autocorrect="off"` and `spellcheck="false"` to stop browsers automatically changing user input.
+2. Set `autocorrect="off"` and `spellcheck="false"` to stop browsers automatically changing user input.
    Email addresses shouldn’t be checked for spelling or grammar.
    This may also prevent posting the web address to third-party plugins.
 
@@ -112,6 +112,24 @@ Alternatives:
    This helps the user understand the context.
 
 <Canvas of={TextInputStories.Disabled} />
+
+### In a Field
+
+Use a Field to group a Text Input with a Label, description and / or an Error Message.
+
+If you don’t need the description, remove its Paragraph and the `aria-describedby` from the Text Input.
+
+Check [the Field docs](/docs/components-forms-field--docs) for more information on configuring it.
+
+<Canvas of={TextInputStories.InAField} />
+
+### In a Field with validation
+
+If the Text Input can become invalid, add an Error Message and its `id` to the `aria-describedby` attribute of the Text Input.
+
+Check [the Field docs](/docs/components-forms-field--docs) for more information on configuring it.
+
+<Canvas of={TextInputStories.InAFieldWithValidation} />
 
 ## Further reading
 
