@@ -14,7 +14,7 @@ import README from "../../../../packages/css/src/components/field-set/README.md?
 
 ## Examples
 
-## With description
+### With description
 
 A Field Set can have a description.
 Make sure to connect this description to the Field Set or a specific input,
@@ -24,10 +24,10 @@ and provide the `id` of the describing element as its value.
 
 <Canvas of={FieldSetStories.WithDescription} />
 
-## With validation
+### With validation
 
 A Field Set can indicate whether any of the inputs it contains has a validation error.
-Use Error Message to describe the error.
+Use an [Error Message](/docs/components-forms-error-message--docs) to describe the error.
 Make sure to connect the Error Message to the correct input in the Field Set,
 otherwise it won’t be read by a screen reader.
 Add an `aria-describedby` attribute to the input and provide the `id` of Error Message as its value.

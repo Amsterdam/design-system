@@ -40,11 +40,11 @@ type Story = StoryObj<typeof meta>
 
 export const Default: Story = {}
 
-export const Multiple: Story = {
+export const MultipleFiles: Story = {
   args: { multiple: true },
 }
 
-export const Accept: Story = {
+export const RestrictFileTypes: Story = {
   args: { accept: 'application/pdf' },
 }
 

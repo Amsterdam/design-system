@@ -11,6 +11,8 @@ Allows the user to perform actions and operate the user interface.
 - Use the correct type of button for the corresponding application.
   For example, a button within a form must always be of the type `submit`.
 - Make sure one can operate a button through a keyboard.
+- Primary, secondary and tertiary buttons can be used side by side.
+  Skipping levels is allowed.
 
 ## Relevant WCAG requirements
 

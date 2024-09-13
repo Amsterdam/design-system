@@ -7,17 +7,11 @@ Users can use it to navigate.
 
 ## Guidelines
 
-### Use like this
-
-Only use the breadcrumb trail if it adds something functional for the user and the structure is ‘static’.
-
-### Avoid this
-
-Do not display the breadcrumb trail on a form page.
-It distracts the user from their task, or one can accidentally interpret it as a Progress Indicator.
-
-It is a secondary navigation pattern.
-It can’t replace the main navigation.
+- Only use the breadcrumb trail if it adds something functional for the user and the structure is ‘static’.
+- Do not display the breadcrumb trail on a form page.
+  It distracts the user from their task, or one can accidentally interpret it as a Progress Indicator.
+- This is a secondary navigation pattern.
+  It can’t replace the main navigation.
 
 ### Using links with routing libraries
 
