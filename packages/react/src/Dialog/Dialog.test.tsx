@@ -73,9 +73,11 @@ describe('Dialog', () => {
   })
 
   it('does not render footer when not provided', () => {
-    const { queryByText } = render(<Dialog heading="Test heading" />)
+    const { container } = render(<Dialog heading="Test heading" />)
 
-    expect(queryByText('Click Me')).not.toBeInTheDocument()
+    const component = container.querySelector('footer')
+
+    expect(component).not.toBeInTheDocument()
   })
 
   it('renders DialogClose button', () => {
