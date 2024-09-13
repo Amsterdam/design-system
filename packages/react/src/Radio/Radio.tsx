@@ -3,6 +3,7 @@
  * Copyright Gemeente Amsterdam
  */
 
+import { RadioIcon } from '@amsterdam/design-system-react-icons'
 import clsx from 'clsx'
 import { forwardRef, useId } from 'react'
 import type { ForwardedRef, InputHTMLAttributes, PropsWithChildren } from 'react'
@@ -29,6 +30,7 @@ export const Radio = forwardRef(
           type="radio"
         />
         <label className="ams-radio__label" htmlFor={id}>
+          <RadioIcon className="ams-radio__icon" />
           {children}
         </label>
       </div>
