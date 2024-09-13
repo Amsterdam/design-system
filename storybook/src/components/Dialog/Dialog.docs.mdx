@@ -14,15 +14,12 @@ import README from "../../../../packages/css/src/components/dialog/README.md?raw
 
 ## Examples
 
-### Form dialog
+### Form in a Dialog
 
-The `<form method="dialog">` element is a practical way to manage dialogs.
-It simplifies the process by automatically handling the closure and data submission
-when a user interacts with a submit or cancel button. For more complex scenarios,
-developers can opt for custom handling by adding the form as a child element.
-Additionally, creating sticky buttons in a dialog's footer is achievable by placing
-a submit button outside the `<form>` and associating it with the form's ID using the
-`form` attribute.
+Set `method="dialog"` when using a form in Dialog.
+This closes the Dialog when submitting the form.
+Pass the submit Button to the `footer` prop,
+and link it to the form by passing its `id` to the Buttons `form` attribute.
 
 <Canvas of={DialogStories.FormDialog} />
 
