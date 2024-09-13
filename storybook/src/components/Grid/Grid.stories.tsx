@@ -15,9 +15,6 @@ const meta = {
     className: 'ams-docs-grid',
   },
   argTypes: {
-    className: {
-      table: { disable: true },
-    },
     gapVertical: {
       control: {
         type: 'radio',
@@ -57,9 +54,6 @@ const cellMeta = {
     as: {
       control: { type: 'radio' },
       options: ['article', 'div', 'section'],
-    },
-    className: {
-      table: { disable: true },
     },
     span: {
       control: { type: 'number', min: 1, max: 12 },
@@ -126,26 +120,6 @@ export const SpanMultipleColumns: CellStory = {
   args: {
     children: <div className="ams-docs-item" />,
     span: 4,
-  },
-}
-
-export const SpanMultipleRows: Story = {
-  ...StoryTemplate,
-  args: {
-    children: [
-      <Grid.Cell
-        className="ams-docs-item ams-docs-item--highlight"
-        key={1}
-        rowSpan={2}
-        span={4}
-        style={{ padding: '1rem' }}
-      />,
-      <Grid.Cell className="ams-docs-item" span={4} key={2} />,
-      <Grid.Cell className="ams-docs-item" span={4} key={3} />,
-      <Grid.Cell className="ams-docs-item" span={4} key={4} />,
-      <Grid.Cell className="ams-docs-item" span={4} key={5} />,
-    ],
-    gapVertical: 'small',
   },
 }
 

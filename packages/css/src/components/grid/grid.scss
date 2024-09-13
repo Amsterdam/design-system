@@ -8,7 +8,6 @@
 $ams-grid-column-count: 12;
 $ams-grid-column-count-medium: 8;
 $ams-grid-column-count-wide: 12;
-$ams-grid-row-span-max: 4;
 
 .ams-grid {
   column-gap: var(--ams-grid-column-gap);
@@ -115,42 +114,6 @@ $ams-grid-row-span-max: 4;
 
     .ams-grid__cell--start-#{$i}-wide {
       grid-column-start: $i;
-    }
-  }
-}
-
-// Row span
-
-@for $i from 1 through $ams-grid-row-span-max {
-  .ams-grid__cell--row-span-#{$i} {
-    grid-row-end: span $i;
-  }
-
-  .ams-grid__cell--row-start-#{$i} {
-    grid-row-start: $i;
-  }
-}
-
-@media screen and (min-width: $ams-breakpoint-medium) {
-  @for $i from 1 through $ams-grid-row-span-max {
-    .ams-grid__cell--row-span-#{$i}-medium {
-      grid-row-end: span $i;
-    }
-
-    .ams-grid__cell--row-start-#{$i}-medium {
-      grid-row-start: $i;
-    }
-  }
-}
-
-@media screen and (min-width: $ams-breakpoint-wide) {
-  @for $i from 1 through $ams-grid-row-span-max {
-    .ams-grid__cell--row-span-#{$i}-wide {
-      grid-row-end: span $i;
-    }
-
-    .ams-grid__cell--row-start-#{$i}-wide {
-      grid-row-start: $i;
     }
   }
 }
