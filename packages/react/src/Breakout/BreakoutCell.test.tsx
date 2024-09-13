@@ -42,79 +42,83 @@ describe('Breakout cell', () => {
   it('renders no class names for undefined values for start and span', () => {
     const { container } = render(<Breakout.Cell />)
 
-    const elementWithSpanClass = container.querySelector('[class*="ams-breakout__cell--span"]')
-    const elementWithStartClass = container.querySelector('[class*="ams-breakout__cell--start"]')
+    const elementWithColSpanClass = container.querySelector('[class*="ams-breakout__cell--col-span"]')
+    const elementWithColStartClass = container.querySelector('[class*="ams-breakout__cell--col-start"]')
+    const elementWithRowSpanClass = container.querySelector('[class*="ams-breakout__cell--row-span"]')
+    const elementWithRowStartClass = container.querySelector('[class*="ams-breakout__cell--row-start"]')
 
-    expect(elementWithSpanClass).not.toBeInTheDocument()
-    expect(elementWithStartClass).not.toBeInTheDocument()
+    expect(elementWithColSpanClass).not.toBeInTheDocument()
+    expect(elementWithColStartClass).not.toBeInTheDocument()
+    expect(elementWithRowSpanClass).not.toBeInTheDocument()
+    expect(elementWithRowStartClass).not.toBeInTheDocument()
   })
 
   it('renders class names for single number values for start and span', () => {
-    const { container } = render(<Breakout.Cell span={4} start={2} />)
+    const { container } = render(<Breakout.Cell colSpan={4} colStart={2} />)
 
     const component = container.querySelector(':only-child')
 
-    expect(component).toHaveClass('ams-breakout__cell--span-4 ams-breakout__cell--start-2')
+    expect(component).toHaveClass('ams-breakout__cell--col-span-4 ams-breakout__cell--col-start-2')
   })
 
   it('renders class names for a single number value for start', () => {
-    const { container } = render(<Breakout.Cell span={8} />)
+    const { container } = render(<Breakout.Cell colSpan={8} />)
 
     const component = container.querySelector(':only-child')
 
-    expect(component).toHaveClass('ams-breakout__cell--span-8')
+    expect(component).toHaveClass('ams-breakout__cell--col-span-8')
   })
 
   it('renders class names for a single number value for span', () => {
-    const { container } = render(<Breakout.Cell start={6} />)
+    const { container } = render(<Breakout.Cell colStart={6} />)
 
     const component = container.querySelector(':only-child')
 
-    expect(component).toHaveClass('ams-breakout__cell--start-6')
+    expect(component).toHaveClass('ams-breakout__cell--col-start-6')
   })
 
   it('renders class names for a single number for span and array values for start', () => {
-    const { container } = render(<Breakout.Cell span={8} start={{ narrow: 2, medium: 4, wide: 6 }} />)
+    const { container } = render(<Breakout.Cell colSpan={8} colStart={{ narrow: 2, medium: 4, wide: 6 }} />)
 
     const component = container.querySelector(':only-child')
 
     expect(component).toHaveClass(
-      'ams-breakout__cell--span-8 ams-breakout__cell--start-2 ams-breakout__cell--start-4-medium ams-breakout__cell--start-6-wide',
+      'ams-breakout__cell--col-span-8 ams-breakout__cell--col-start-2 ams-breakout__cell--col-start-4-medium ams-breakout__cell--col-start-6-wide',
     )
   })
 
   it('renders class names for array values for span and a single number for start', () => {
-    const { container } = render(<Breakout.Cell span={{ narrow: 3, medium: 5, wide: 7 }} start={2} />)
+    const { container } = render(<Breakout.Cell colSpan={{ narrow: 3, medium: 5, wide: 7 }} colStart={2} />)
 
     const component = container.querySelector(':only-child')
 
     expect(component).toHaveClass(
-      'ams-breakout__cell--span-3 ams-breakout__cell--span-5-medium ams-breakout__cell--span-7-wide ams-breakout__cell--start-2',
+      'ams-breakout__cell--col-span-3 ams-breakout__cell--col-span-5-medium ams-breakout__cell--col-span-7-wide ams-breakout__cell--col-start-2',
     )
   })
 
   it('renders class names for array values for both start and span', () => {
     const { container } = render(
-      <Breakout.Cell span={{ narrow: 2, medium: 4, wide: 6 }} start={{ narrow: 1, medium: 3, wide: 5 }} />,
+      <Breakout.Cell colSpan={{ medium: 4, narrow: 2, wide: 6 }} colStart={{ medium: 3, narrow: 1, wide: 5 }} />,
     )
 
     const component = container.querySelector(':only-child')
 
     expect(component).toHaveClass(
-      'ams-breakout__cell--span-2 ams-breakout__cell--span-4-medium ams-breakout__cell--span-6-wide ams-breakout__cell--start-1 ams-breakout__cell--start-3-medium ams-breakout__cell--start-5-wide',
+      'ams-breakout__cell--col-span-2 ams-breakout__cell--col-span-4-medium ams-breakout__cell--col-span-6-wide ams-breakout__cell--col-start-1 ams-breakout__cell--col-start-3-medium ams-breakout__cell--col-start-5-wide',
     )
   })
 
   it('renders the correct class name for the “all” value of span', () => {
-    const { container } = render(<Breakout.Cell span="all" />)
+    const { container } = render(<Breakout.Cell colSpan="all" />)
 
     const component = container.querySelector(':only-child')
 
-    expect(component).toHaveClass('ams-breakout__cell--span-all')
+    expect(component).toHaveClass('ams-breakout__cell--col-span-all')
   })
 
   it('renders the correct class for the `coverGap` prop', () => {
-    const { container } = render(<Breakout.Cell coverGap span="all" />)
+    const { container } = render(<Breakout.Cell colSpan="all" coverGap />)
 
     const component = container.querySelector(':only-child')
 

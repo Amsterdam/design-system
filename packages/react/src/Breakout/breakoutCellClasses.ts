@@ -6,36 +6,36 @@
 import type { BreakoutCellProps } from './BreakoutCell'
 
 export const breakoutCellClasses = (
+  colSpan?: BreakoutCellProps['colSpan'],
+  colStart?: BreakoutCellProps['colStart'],
   rowSpan?: BreakoutCellProps['rowSpan'],
   rowStart?: BreakoutCellProps['rowStart'],
-  span?: BreakoutCellProps['span'],
-  start?: BreakoutCellProps['start'],
 ): string[] => {
-  if (!span && !start) {
+  if (!colSpan && !colStart && !rowSpan && !rowStart) {
     return []
   }
 
   const classes = [] as string[]
 
-  if (span === 'all' || typeof span === 'number') {
-    classes.push(`ams-breakout__cell--span-${span}`)
-  } else if (span) {
-    const { narrow, medium, wide } = span
+  if (colSpan === 'all' || typeof colSpan === 'number') {
+    classes.push(`ams-breakout__cell--col-span-${colSpan}`)
+  } else if (colSpan) {
+    const { narrow, medium, wide } = colSpan
     classes.push(
-      `ams-breakout__cell--span-${narrow}`,
-      `ams-breakout__cell--span-${medium}-medium`,
-      `ams-breakout__cell--span-${wide}-wide`,
+      `ams-breakout__cell--col-span-${narrow}`,
+      `ams-breakout__cell--col-span-${medium}-medium`,
+      `ams-breakout__cell--col-span-${wide}-wide`,
     )
   }
 
-  if (typeof start === 'number') {
-    classes.push(`ams-breakout__cell--start-${start}`)
-  } else if (start) {
-    const { narrow, medium, wide } = start
+  if (typeof colStart === 'number') {
+    classes.push(`ams-breakout__cell--col-start-${colStart}`)
+  } else if (colStart) {
+    const { narrow, medium, wide } = colStart
     classes.push(
-      `ams-breakout__cell--start-${narrow}`,
-      `ams-breakout__cell--start-${medium}-medium`,
-      `ams-breakout__cell--start-${wide}-wide`,
+      `ams-breakout__cell--col-start-${narrow}`,
+      `ams-breakout__cell--col-start-${medium}-medium`,
+      `ams-breakout__cell--col-start-${wide}-wide`,
     )
   }
 

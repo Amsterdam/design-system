@@ -78,7 +78,7 @@ $ams-breakout-row-span-max: 4;
   padding-block: var(--ams-breakout-padding-block-lg);
 }
 
-.ams-breakout__cell--span-all {
+.ams-breakout__cell--col-span-all {
   grid-column: 1 / -1;
 }
 
@@ -86,22 +86,22 @@ $ams-breakout-row-span-max: 4;
 // The order of these declaration blocks ensures the intended specificity.
 
 @for $i from 1 through $ams-breakout-column-count {
-  .ams-breakout__cell--span-#{$i} {
+  .ams-breakout__cell--col-span-#{$i} {
     grid-column-end: span $i;
   }
 
-  .ams-breakout__cell--start-#{$i} {
+  .ams-breakout__cell--col-start-#{$i} {
     grid-column-start: $i;
   }
 }
 
 @media screen and (min-width: $ams-breakpoint-medium) {
   @for $i from 1 through $ams-breakout-column-count-medium {
-    .ams-breakout__cell--span-#{$i}-medium {
+    .ams-breakout__cell--col-span-#{$i}-medium {
       grid-column-end: span $i;
     }
 
-    .ams-breakout__cell--start-#{$i}-medium {
+    .ams-breakout__cell--col-start-#{$i}-medium {
       grid-column-start: $i;
     }
   }
@@ -109,11 +109,11 @@ $ams-breakout-row-span-max: 4;
 
 @media screen and (min-width: $ams-breakpoint-wide) {
   @for $i from 1 through $ams-breakout-column-count-wide {
-    .ams-breakout__cell--span-#{$i}-wide {
+    .ams-breakout__cell--col-span-#{$i}-wide {
       grid-column-end: span $i;
     }
 
-    .ams-breakout__cell--start-#{$i}-wide {
+    .ams-breakout__cell--col-start-#{$i}-wide {
       grid-column-start: $i;
     }
   }

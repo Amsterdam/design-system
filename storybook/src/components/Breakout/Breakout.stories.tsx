@@ -20,17 +20,21 @@ export const Default: Story = {
   args: {
     children: (
       <>
-        <Breakout.Cell coverGap rowStart={2} rowSpan={{ narrow: 2, medium: 2, wide: 1 }} span="all">
+        <Breakout.Cell colSpan="all" coverGap rowSpan={{ medium: 2, narrow: 2, wide: 1 }} rowStart={2}>
           <Spotlight style={{ height: '100%' }} />
         </Breakout.Cell>
-        <Breakout.Cell rowStart={{ narrow: 3, medium: 3, wide: 2 }} start={1} span={{ narrow: 4, medium: 8, wide: 6 }}>
+        <Breakout.Cell
+          colSpan={{ medium: 8, narrow: 4, wide: 6 }}
+          colStart={1}
+          rowStart={{ medium: 3, narrow: 3, wide: 2 }}
+        >
           <Paragraph inverseColor>{exampleParagraph()}</Paragraph>
         </Breakout.Cell>
         <Breakout.Cell
+          colSpan={{ medium: 8, narrow: 4, wide: 6 }}
+          colStart={{ medium: 1, narrow: 1, wide: 7 }}
           rowSpan={2}
           rowStart={1}
-          span={{ narrow: 4, medium: 8, wide: 6 }}
-          start={{ narrow: 1, medium: 1, wide: 7 }}
           style={{ alignSelf: 'end' }}
         >
           <AspectRatio ratio="square">
@@ -46,15 +50,19 @@ export const MapOnTop: Story = {
   args: {
     children: (
       <>
-        <Breakout.Cell rowStart={1} rowSpan={2} span="all">
+        <Breakout.Cell colSpan="all" rowSpan={2} rowStart={1}>
           <AspectRatio ratio="x-wide">
             <Image alt="" src="https://picsum.photos/1600/900" />
           </AspectRatio>
         </Breakout.Cell>
-        <Breakout.Cell coverGap rowStart={2} rowSpan={2} span="all">
+        <Breakout.Cell colSpan="all" coverGap rowSpan={2} rowStart={2}>
           <Spotlight style={{ height: '100%' }} />
         </Breakout.Cell>
-        <Breakout.Cell rowStart={3} start={{ narrow: 1, medium: 2, wide: 3 }} span={{ narrow: 4, medium: 6, wide: 8 }}>
+        <Breakout.Cell
+          colSpan={{ medium: 6, narrow: 4, wide: 8 }}
+          colStart={{ medium: 2, narrow: 1, wide: 3 }}
+          rowStart={3}
+        >
           <Heading className="ams-mb--xs" inverseColor level={2}>
             Heading
           </Heading>

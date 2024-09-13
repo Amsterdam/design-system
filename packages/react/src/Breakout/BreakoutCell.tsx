@@ -12,16 +12,16 @@ type BreakoutCellSpanAllProp = {
   /** Expand the cell horizontally and vertically to cover its adjacent gaps and margins. */
   coverGap?: boolean
   /** Lets the cell span the full width of all grid variants. */
-  span: 'all'
-  start?: never
+  colSpan: 'all'
+  colStart?: never
 }
 
 type BreakoutCellSpanAndStartProps = {
-  coverGap?: never
   /** The amount of grid columns the cell spans. */
-  span?: ResponsiveBreakoutValues<BreakoutColumnNumber>
+  colSpan?: ResponsiveBreakoutValues<BreakoutColumnNumber>
   /** The index of the grid column the cell starts at. */
-  start?: ResponsiveBreakoutValues<BreakoutColumnNumber>
+  colStart?: ResponsiveBreakoutValues<BreakoutColumnNumber>
+  coverGap?: never
 }
 
 type BreakoutCellRowSpanAndStartProps = {
@@ -40,7 +40,17 @@ export type BreakoutCellProps = {
 
 export const BreakoutCell = forwardRef(
   (
-    { as: Tag = 'div', children, className, coverGap, rowSpan, rowStart, span, start, ...restProps }: BreakoutCellProps,
+    {
+      as: Tag = 'div',
+      children,
+      className,
+      colSpan,
+      colStart,
+      coverGap,
+      rowSpan,
+      rowStart,
+      ...restProps
+    }: BreakoutCellProps,
     ref: any,
   ) => (
     <Tag
@@ -49,7 +59,7 @@ export const BreakoutCell = forwardRef(
       className={clsx(
         'ams-breakout__cell',
         coverGap && 'ams-breakout__cell--cover-gap',
-        breakoutCellClasses(rowSpan, rowStart, span, start),
+        breakoutCellClasses(colSpan, colStart, rowSpan, rowStart),
         className,
       )}
     >
