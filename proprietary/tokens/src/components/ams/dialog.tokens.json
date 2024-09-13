@@ -3,9 +3,9 @@
     "dialog": {
       "background-color": { "value": "{ams.color.primary-white}" },
       "border": { "value": "0" },
-      "inline-size": { "value": "calc(100dvw - 2 * {ams.space.grid.md})" },
+      "inline-size": { "value": "calc(100% - 2 * {ams.space.grid.md})" },
       "max-inline-size": { "value": "48rem" },
-      "content": {
+      "wrapper": {
         "gap": { "value": "{ams.space.md}" },
         "max-block-size": { "value": "calc(100dvh - 4 * {ams.space.grid.md})" },
         "padding-block": { "value": "{ams.space.grid.md}" },
