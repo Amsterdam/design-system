@@ -3,13 +3,20 @@
  * Copyright Gemeente Amsterdam
  */
 
-import { AspectRatio, Breakout, Heading, Image, Paragraph, Spotlight } from '@amsterdam/design-system-react/src'
+import { AspectRatio, Breakout, Heading, Image, Paragraph, Screen, Spotlight } from '@amsterdam/design-system-react/src'
 import { Meta, StoryObj } from '@storybook/react'
 import { exampleParagraph } from '../shared/exampleContent'
 
 const meta = {
   title: 'Components/Containers/Breakout',
   component: Breakout,
+  decorators: [
+    (Story) => (
+      <Screen>
+        <Story />
+      </Screen>
+    ),
+  ],
 } satisfies Meta<typeof Breakout>
 
 export default meta

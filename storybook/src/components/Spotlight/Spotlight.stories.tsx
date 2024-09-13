@@ -3,7 +3,7 @@
  * Copyright Gemeente Amsterdam
  */
 
-import { Blockquote, Grid } from '@amsterdam/design-system-react/src'
+import { Blockquote, Grid, Screen } from '@amsterdam/design-system-react/src'
 import { Spotlight } from '@amsterdam/design-system-react/src'
 import { Meta, StoryObj } from '@storybook/react'
 import { exampleQuote } from '../shared/exampleContent'
@@ -13,6 +13,13 @@ const quote = exampleQuote()
 const meta = {
   title: 'Components/Containers/Spotlight',
   component: Spotlight,
+  decorators: [
+    (Story) => (
+      <Screen>
+        <Story />
+      </Screen>
+    ),
+  ],
   render: ({ as, color }) => (
     <Spotlight as={as} color={color}>
       <Grid paddingVertical="medium">
