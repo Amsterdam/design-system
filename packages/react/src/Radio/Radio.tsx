@@ -9,7 +9,7 @@ import { forwardRef, useId } from 'react'
 import type { ForwardedRef, InputHTMLAttributes, PropsWithChildren, ReactNode } from 'react'
 
 export type RadioProps = {
-  /** An icon to display instead of the default icon.  */
+  /** An icon to display instead of the default icon. */
   icon?: ReactNode
   /** Whether the value fails a validation rule. */
   invalid?: boolean
