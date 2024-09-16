@@ -10,9 +10,14 @@
       "outline-offset": { "value": "{ams.focus.outline-offset}" },
       "text-decoration-thickness": { "value": "{ams.link-appearance.text-decoration-thickness}" },
       "text-underline-offset": { "value": "{ams.link-appearance.text-underline-offset}" },
+      "disabled": {
+        "color": { "value": "{ams.color.neutral-grey3}" }
+      },
+      "hover": {
+        "color": { "value": "{ams.color.dark-blue}" },
+        "text-decoration-line": { "value": "{ams.link-appearance.subtle.hover.text-decoration-line}" }
+      },
       "icon": {
-        "block-size": { "value": "calc({ams.radio.font-size} * {ams.radio.line-height})" },
-        "inline-size": { "value": "1.5rem" },
         "disabled": {
           "inner": {
             "fill": { "value": "{ams.color.neutral-grey3}" }
@@ -68,12 +73,9 @@
           "stroke": { "value": "{ams.color.primary-blue}" }
         }
       },
-      "disabled": {
-        "color": { "value": "{ams.color.neutral-grey3}" }
-      },
-      "hover": {
-        "color": { "value": "{ams.color.dark-blue}" },
-        "text-decoration-line": { "value": "{ams.link-appearance.subtle.hover.text-decoration-line}" }
+      "icon-container": {
+        "block-size": { "value": "calc({ams.radio.font-size} * {ams.radio.line-height})" },
+        "inline-size": { "value": "1.5rem" }
       }
     }
   }

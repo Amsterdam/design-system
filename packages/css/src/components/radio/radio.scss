@@ -30,11 +30,14 @@
   @include text-rendering;
 }
 
-.ams-radio__icon {
-  block-size: var(--ams-radio-icon-block-size);
+.ams-radio__icon-container {
+  block-size: var(--ams-radio-icon-container-block-size);
+  display: flex;
   flex-shrink: 0;
-  inline-size: var(--ams-radio-icon-inline-size);
+  inline-size: var(--ams-radio-icon-container-inline-size);
+}
 
+.ams-radio__icon {
   circle:first-child {
     stroke: var(--ams-radio-icon-outer-stroke);
     stroke-width: 0.15rem;
