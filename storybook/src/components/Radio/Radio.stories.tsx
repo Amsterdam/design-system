@@ -29,6 +29,9 @@ const meta = {
     disabled: {
       description: 'Prevents interaction. Avoid if possible.',
     },
+    icon: {
+      table: { disable: true },
+    },
     invalid: {
       description: 'Whether the value fails a validation rule.',
     },
