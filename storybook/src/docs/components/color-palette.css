@@ -64,15 +64,15 @@
 
 .ams-storybook-color-palette__swatches--oklch {
   --ams-lightness: 41.07%;
-  --ams-chrome: 0.238;
+  --ams-chroma: 0.238;
   --ams-hue: 281.1;
 
   /* Swatches */
-  --ams-swatch-1: oklch(calc(var(--ams-lightness) + 20%) var(--ams-chrome) var(--ams-hue));
-  --ams-swatch-2: oklch(calc(var(--ams-lightness) + 10%) var(--ams-chrome) var(--ams-hue));
-  --ams-swatch-3: oklch(var(--ams-lightness) var(--ams-chrome) var(--ams-hue));
-  --ams-swatch-4: oklch(calc(var(--ams-lightness) - 10%) var(--ams-chrome) var(--ams-hue));
-  --ams-swatch-5: oklch(calc(var(--ams-lightness) - 20%) var(--ams-chrome) var(--ams-hue));
+  --ams-swatch-1: oklch(calc(var(--ams-lightness) + 20%) var(--ams-chroma) var(--ams-hue));
+  --ams-swatch-2: oklch(calc(var(--ams-lightness) + 10%) var(--ams-chroma) var(--ams-hue));
+  --ams-swatch-3: oklch(var(--ams-lightness) var(--ams-chroma) var(--ams-hue));
+  --ams-swatch-4: oklch(calc(var(--ams-lightness) - 10%) var(--ams-chroma) var(--ams-hue));
+  --ams-swatch-5: oklch(calc(var(--ams-lightness) - 20%) var(--ams-chroma) var(--ams-hue));
 
   .ams-storybook-color-palette__swatch:nth-of-type(1) {
     background-color: var(--ams-swatch-1);
@@ -92,43 +92,43 @@
 
   &.ams-storybook-color-palette--blue {
     --ams-lightness: 41.07%;
-    --ams-chrome: 0.149;
+    --ams-chroma: 0.149;
     --ams-hue: 257.57;
   }
 
   &.ams-storybook-color-palette--red {
     --ams-lightness: 59.22%;
-    --ams-chrome: 0.243;
+    --ams-chroma: 0.243;
     --ams-hue: 29.23;
   }
 
   &.ams-storybook-color-palette--green {
     --ams-lightness: 82.01%;
-    --ams-chrome: 0.188;
+    --ams-chroma: 0.188;
     --ams-hue: 116.48;
   }
 
   &.ams-storybook-color-palette--yellow {
     --ams-lightness: 91.68%;
-    --ams-chrome: 0.191;
+    --ams-chroma: 0.191;
     --ams-hue: 101.41;
   }
 
   &.ams-storybook-color-palette--orange {
     --ams-lightness: 75.86%;
-    --ams-chrome: 0.1768;
+    --ams-chroma: 0.1768;
     --ams-hue: 60.637;
   }
 
   &.ams-storybook-color-palette--magenta {
     --ams-lightness: 47.25%;
-    --ams-chrome: 0.202;
+    --ams-chroma: 0.202;
     --ams-hue: 343.22;
   }
 
   &.ams-storybook-color-palette--grey {
     --ams-lightness: 80.15%;
-    --ams-chrome: 0;
+    --ams-chroma: 0;
     --ams-hue: 0;
   }
 }
