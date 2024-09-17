@@ -14,6 +14,8 @@ import { StatusBadge } from "../../docs/components/StatusBadge";
 The basic colours of Amsterdam are white, red, and black.
 We have 8 additional colours and 3 shades of grey.
 
+## HEX
+
 <ColorPalette>
   <ColorPalette.Section>
     <ColorPalette.Tile color={tokens.ams.color["primary-white"]} name="white" />
@@ -37,5 +39,33 @@ We have 8 additional colours and 3 shades of grey.
     <ColorPalette.Tile color={tokens.ams.color["neutral-grey1"]} name="light grey" />
     <ColorPalette.Tile color={tokens.ams.color["neutral-grey2"]} name="grey" />
     <ColorPalette.Tile color={tokens.ams.color["neutral-grey3"]} name="dark grey" />
+  </ColorPalette.Section>
+</ColorPalette>
+
+## OKLCH
+
+<ColorPalette>
+  <ColorPalette.Section>
+    <ColorPalette.Swatches color="blue" type="oklch" />
+    <ColorPalette.Swatches color="red" type="oklch" />
+    <ColorPalette.Swatches color="green" type="oklch" />
+    <ColorPalette.Swatches color="yellow" type="oklch" />
+    <ColorPalette.Swatches color="orange" type="oklch" />
+    <ColorPalette.Swatches color="magenta" type="oklch" />
+    <ColorPalette.Swatches color="grey" type="oklch" />
+  </ColorPalette.Section>
+</ColorPalette>
+
+## HSL
+
+<ColorPalette>
+  <ColorPalette.Section>
+    <ColorPalette.Swatches color="blue" type="hsl" />
+    <ColorPalette.Swatches color="red" type="hsl" />
+    <ColorPalette.Swatches color="green" type="hsl" />
+    <ColorPalette.Swatches color="yellow" type="hsl" />
+    <ColorPalette.Swatches color="orange" type="hsl" />
+    <ColorPalette.Swatches color="magenta" type="hsl" />
+    <ColorPalette.Swatches color="grey" type="hsl" />
   </ColorPalette.Section>
 </ColorPalette>
