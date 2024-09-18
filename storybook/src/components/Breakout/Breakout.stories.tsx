@@ -101,11 +101,7 @@ export const MediaOnTop: Story = {
         <Heading className="ams-mb--xs" inverseColor level={2}>
           Heading
         </Heading>
-        <Paragraph inverseColor>
-          Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ducimus, amet consequatur! Necessitatibus veniam
-          libero nobis dignissimos dolorum repellat alias dolores minima labore a maxime nihil error aut, omnis ullam
-          sint autem non?
-        </Paragraph>
+        <Paragraph inverseColor>{exampleParagraph()}</Paragraph>
       </Breakout.Cell>,
     ],
   },
