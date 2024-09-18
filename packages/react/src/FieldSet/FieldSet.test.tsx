@@ -66,24 +66,24 @@ describe('FieldSet', () => {
   it('renders the default hint text after the legend', () => {
     const { container } = render(<FieldSet legend="Legend" optional />)
 
-    const legend = container.querySelector('legend')
+    const component = container.querySelector(':only-child')
 
-    expect(legend).toHaveTextContent('Legend (niet verplicht)')
+    expect(component).toHaveTextContent('Legend (niet verplicht)')
   })
 
   it('renders the provided hint text after the legend when both `optional` and `hint` props are used', () => {
     const { container } = render(<FieldSet legend="Legend" optional={true} hint="not required" />)
 
-    const legend = container.querySelector('legend')
+    const component = container.querySelector(':only-child')
 
-    expect(legend).toHaveTextContent('Legend (not required)')
+    expect(component).toHaveTextContent('Legend (not required)')
   })
 
   it('renders the provided hint text after the legend while `optional` is set to `false`', () => {
     const { container } = render(<FieldSet legend="Legend" optional={false} hint="required" />)
 
-    const legend = container.querySelector('legend')
+    const component = container.querySelector(':only-child')
 
-    expect(legend).toHaveTextContent('Legend (required)')
+    expect(component).toHaveTextContent('Legend (required)')
   })
 })
