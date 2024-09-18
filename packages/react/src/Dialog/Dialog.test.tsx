@@ -66,16 +66,18 @@ describe('Dialog', () => {
     expect(getByText('Test content')).toBeInTheDocument()
   })
 
-  it('renders actions when provided', () => {
-    const { getByText } = render(<Dialog heading="Test heading" actions={<button>Click Me</button>} />)
+  it('renders footer when provided', () => {
+    const { getByText } = render(<Dialog heading="Test heading" footer={<button>Click Me</button>} />)
 
     expect(getByText('Click Me')).toBeInTheDocument()
   })
 
-  it('does not render actions when not provided', () => {
-    const { queryByText } = render(<Dialog heading="Test heading" />)
+  it('does not render footer when not provided', () => {
+    const { container } = render(<Dialog heading="Test heading" />)
 
-    expect(queryByText('Click Me')).not.toBeInTheDocument()
+    const component = container.querySelector('footer')
+
+    expect(component).not.toBeInTheDocument()
   })
 
   it('renders DialogClose button', () => {

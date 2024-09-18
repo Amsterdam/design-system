@@ -13,7 +13,6 @@
   background-color: var(--ams-dialog-background-color);
   border: var(--ams-dialog-border);
   inline-size: var(--ams-dialog-inline-size);
-  max-block-size: var(--ams-dialog-max-block-size);
   max-inline-size: var(--ams-dialog-max-inline-size);
 
   @include reset-dialog;
@@ -24,16 +23,16 @@
   }
 }
 
-.ams-dialog__form {
+.ams-dialog__wrapper {
   display: grid;
-  gap: var(--ams-dialog-form-gap);
-  padding-block: var(--ams-dialog-form-padding-block);
-  padding-inline: var(--ams-dialog-form-padding-inline);
+  gap: var(--ams-dialog-wrapper-gap);
+  grid-template-rows: auto 1fr auto;
+  max-block-size: var(--ams-dialog-wrapper-max-block-size);
+  padding-block: var(--ams-dialog-wrapper-padding-block);
+  padding-inline: var(--ams-dialog-wrapper-padding-inline);
 }
 
-.ams-dialog__article {
-  display: grid;
-  gap: var(--ams-space-md); /* Until we have a consistent way of spacing text elements */
+.ams-dialog__content {
   max-block-size: 100%; /* Safari */
   overflow-y: auto;
   overscroll-behavior-y: contain;
