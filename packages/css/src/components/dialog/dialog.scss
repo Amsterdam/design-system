@@ -22,12 +22,12 @@ so do not apply these styles without an `open` attribute. */
   padding-block: var(--ams-dialog-padding-block);
   padding-inline: var(--ams-dialog-padding-inline);
 
+  @include reset-dialog;
+
   /* No token because dialog does not inherit from any element in FireFox and Safari */
   &::backdrop {
     background: #0006;
   }
-
-  @include reset-dialog;
 }
 
 .ams-dialog__body {
