@@ -42,11 +42,10 @@ so do not apply these styles without an `open` attribute. */
   justify-content: space-between;
 }
 
-.ams-dialog__footer {
-  display: flex;
+.ams-dialog__action-group {
+  display: inline-flex;
   flex-wrap: wrap; // [1]
-  gap: var(--ams-dialog-footer-gap);
-  margin-inline-end: auto; // [1]
+  gap: var(--ams-dialog-action-group-gap);
 
   > * {
     flex: auto; // [1]

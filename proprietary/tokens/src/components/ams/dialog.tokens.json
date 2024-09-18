@@ -12,7 +12,7 @@
       "header": {
         "gap": { "value": "{ams.space.md}" }
       },
-      "footer": {
+      "action-group": {
         "gap": { "value": "{ams.space.md}" }
       }
     }

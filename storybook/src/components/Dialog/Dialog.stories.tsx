@@ -12,9 +12,11 @@ const meta = {
   component: Dialog,
   args: {
     footer: (
-      <Button onClick={Dialog.close} variant="primary">
-        Sluiten
-      </Button>
+      <Dialog.ActionGroup>
+        <Button onClick={Dialog.close} variant="primary">
+          Sluiten
+        </Button>
+      </Dialog.ActionGroup>
     ),
     children: (
       <Paragraph>
@@ -37,6 +39,8 @@ type Story = StoryObj<typeof meta>
 
 export const Default: Story = {
   args: {
+    children: <Paragraph>De gegevens zijn opgeslagen.</Paragraph>,
+    heading: 'Gelukt',
     open: true,
   },
   argTypes: {
@@ -66,14 +70,14 @@ export const FormDialog: Story = {
   args: {
     open: true,
     footer: (
-      <>
+      <Dialog.ActionGroup>
         <Button type="submit" form="dialog1" value="continue">
           Doorgaan
         </Button>
         <Button onClick={Dialog.close} variant="tertiary">
           Stoppen
         </Button>
-      </>
+      </Dialog.ActionGroup>
     ),
     children: (
       <form method="dialog" id="dialog1">
@@ -101,7 +105,11 @@ export const FormDialog: Story = {
 
 export const WithScrollbar: Story = {
   args: {
-    footer: <Button onClick={Dialog.close}>Sluiten</Button>,
+    footer: (
+      <Dialog.ActionGroup>
+        <Button onClick={Dialog.close}>Sluiten</Button>
+      </Dialog.ActionGroup>
+    ),
     children: [
       <Heading level={2} size="level-5" key={1} className="ams-mb--sm">
         Algemeen
@@ -169,14 +177,14 @@ export const TriggerButton: Story = {
 export const VerticalButtons: Story = {
   args: {
     footer: (
-      <>
+      <Dialog.ActionGroup>
         <Button type="submit" form="dialog2">
           Lange teksten op deze knoppen
         </Button>
         <Button onClick={Dialog.close} variant="tertiary">
           Om verticaal stapelen te demonstreren
         </Button>
-      </>
+      </Dialog.ActionGroup>
     ),
     children: (
       <form method="dialog" id="dialog2">
