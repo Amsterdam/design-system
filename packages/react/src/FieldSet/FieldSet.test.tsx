@@ -64,7 +64,7 @@ describe('FieldSet', () => {
   })
 
   it('renders the default hint text after the legend', () => {
-    const { container } = render(<FieldSet legend="Legend" optional={true} />)
+    const { container } = render(<FieldSet legend="Legend" optional />)
 
     const legend = container.querySelector('legend')
 
