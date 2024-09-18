@@ -17,7 +17,7 @@ export type FieldSetProps = PropsWithChildren<HTMLAttributes<HTMLFieldSetElement
 
 export const FieldSet = forwardRef(
   (
-    { children, className, invalid, legend, hint, optional, ...restProps }: FieldSetProps,
+    { children, className, hint, invalid, legend, optional, ...restProps }: FieldSetProps,
     ref: ForwardedRef<HTMLFieldSetElement>,
   ) => {
     return (
