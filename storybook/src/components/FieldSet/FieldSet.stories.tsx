@@ -40,7 +40,7 @@ type Story = StoryObj<typeof meta>
 
 export const Default: Story = {
   render: ({ invalid, legend, hint, optional }) => (
-    <FieldSet aria-required hint={hint} invalid={invalid} legend={legend} optional={optional}>
+    <FieldSet hint={hint} invalid={invalid} legend={legend} optional={optional}>
       <Field className="ams-mb--sm">
         <Label htmlFor="input-a1">Voornaam</Label>
         {invalid && <ErrorMessage id="error-a1">Vul uw voornaam in.</ErrorMessage>}
@@ -57,7 +57,7 @@ export const Default: Story = {
 
 export const WithDescription: Story = {
   render: (args) => (
-    <FieldSet aria-describedby="description-b" aria-required invalid={args.invalid} legend={args.legend}>
+    <FieldSet aria-describedby="description-b" invalid={args.invalid} legend={args.legend}>
       <Paragraph id="description-b" size="small" className="ams-mb--sm">
         Vul uw naam in zoals in uw paspoort staat.
       </Paragraph>
@@ -88,7 +88,7 @@ export const WithDescription: Story = {
 export const WithHint: Story = {
   args: { optional: false, hint: 'verplicht' },
   render: ({ invalid, legend, hint, optional }) => (
-    <FieldSet aria-required hint={hint} invalid={invalid} legend={legend} optional={optional}>
+    <FieldSet hint={hint} invalid={invalid} legend={legend} optional={optional}>
       <Field className="ams-mb--sm">
         <Label htmlFor="input-b3">Voornaam</Label>
         {invalid && <ErrorMessage id="error-b3">Vul uw voornaam in.</ErrorMessage>}
@@ -106,7 +106,7 @@ export const WithHint: Story = {
 export const WithValidation: Story = {
   args: { invalid: true },
   render: (args) => (
-    <FieldSet aria-describedby="description-c" aria-required invalid={args.invalid} legend={args.legend}>
+    <FieldSet aria-describedby="description-c" invalid={args.invalid} legend={args.legend}>
       <Paragraph id="description-c" size="small" className="ams-mb--sm">
         Vul uw naam in zoals in uw paspoort staat.
       </Paragraph>
@@ -218,7 +218,6 @@ export const CheckboxGroup: Story = {
   render: (args) => (
     <FieldSet
       aria-labelledby={`fieldset-f description-f${args.invalid ? ' error-f' : ''}`}
-      aria-required
       id="fieldset-f"
       invalid={args.invalid}
       legend={args.legend}
@@ -257,7 +256,6 @@ export const CheckboxGroupWithValidation: Story = {
   render: (args) => (
     <FieldSet
       aria-labelledby={`fieldset-g description-g${args.invalid ? ' error-g' : ''}`}
-      aria-required
       id="fieldset-g"
       invalid={args.invalid}
       legend={args.legend}
