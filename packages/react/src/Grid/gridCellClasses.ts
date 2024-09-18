@@ -16,7 +16,7 @@ export const addGridClass = (prefix: string, value?: ResponsiveGridValues<number
   return []
 }
 
-export const gridCellClasses = (colSpan?: GridCellProps['colSpan'], colStart?: GridCellProps['colStart']): string[] => [
+export const gridCellClasses = (colSpan?: GridCellProps['span'], colStart?: GridCellProps['start']): string[] => [
   ...addGridClass('ams-grid__cell--span-', colSpan),
   ...addGridClass('ams-grid__cell--start-', colStart),
 ]
