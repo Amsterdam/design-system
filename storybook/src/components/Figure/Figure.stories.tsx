@@ -4,12 +4,12 @@
  */
 
 import { Image } from '@amsterdam/design-system-react'
-import { AspectRatio } from '@amsterdam/design-system-react/src'
+import { Figure } from '@amsterdam/design-system-react/src'
 import { Meta, StoryObj } from '@storybook/react'
 
 const meta = {
   title: 'Components/Layout/Aspect Ratio',
-  component: AspectRatio,
+  component: Figure,
   args: {
     ratio: 'square',
   },
@@ -19,7 +19,7 @@ const meta = {
       options: ['2x-wide', 'x-wide', 'wide', 'square', 'tall', 'x-tall'],
     },
   },
-} satisfies Meta<typeof AspectRatio>
+} satisfies Meta<typeof Figure>
 
 export default meta
 
@@ -55,9 +55,9 @@ const StoryTemplate: Story = {
     ),
   ],
   render: ({ ratio }) => (
-    <AspectRatio ratio={ratio}>
+    <Figure ratio={ratio}>
       <Image alt="" src={storyConfig[ratio ?? 'square'].image} />
-    </AspectRatio>
+    </Figure>
   ),
 }
 
