@@ -5,33 +5,15 @@
 
 import clsx from 'clsx'
 import { forwardRef } from 'react'
-import type { ForwardedRef, HTMLAttributes, PropsWithChildren } from 'react'
+import type { ForwardedRef } from 'react'
 import { BreakoutCell } from './BreakoutCell'
+import type { GridColumnNumber, GridPaddingSize, GridProps } from '../Grid/Grid'
 
-export type BreakoutColumnNumber = 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11 | 12
+export type BreakoutColumnNumber = GridColumnNumber
+export type BreakoutPaddingSize = GridPaddingSize
 export type BreakoutRowNumber = 1 | 2 | 3 | 4
-export type BreakoutPaddingSize = 'small' | 'medium' | 'large'
 
-type BreakoutPaddingVerticalProp = {
-  paddingBottom?: never
-  paddingTop?: never
-  /** The amount of space above and below. */
-  paddingVertical?: BreakoutPaddingSize
-}
-
-type BreakoutPaddingTopAndBottomProps = {
-  /** The amount of space below. */
-  paddingBottom?: BreakoutPaddingSize
-  /** The amount of space above. */
-  paddingTop?: BreakoutPaddingSize
-  paddingVertical?: never
-}
-
-export type BreakoutProps = {
-  /** The amount of space between rows. */
-  gapVertical?: 'none' | 'small' | 'large'
-} & (BreakoutPaddingVerticalProp | BreakoutPaddingTopAndBottomProps) &
-  PropsWithChildren<HTMLAttributes<HTMLDivElement>>
+export type BreakoutProps = GridProps
 
 const paddingClasses = (
   paddingBottom?: BreakoutPaddingSize,
