@@ -13,6 +13,9 @@ The text next to it defines the height of the Spotlight.
 On narrower screens, the text moves below the image.
 Ensure that the text is short, or the image tall, to prevent losing the break-out effect.
 
+This component is a copy of `Grid`, so it offers the same props.
+Additionally, `Breakout` allows cells to span multiple columns, and a cell to expand to cover its adjacent gaps and margins.
+
 _The example isn’t very wide on this page.
 And due to how Storybook works, the Grid in the example may incorrectly use 12 columns.
 Both circumstances prevent the image from breaking out if the random example text is long.
@@ -26,6 +29,13 @@ The [separate page](?path=/story/components-containers-breakout--default) for th
 
 ### Vertical layout
 
-Large content, such as a map, can be placed at the top of the Spotlight, with related text positioned underneath.
+Large content, such as a map or a big image, can be placed at the top of the Spotlight, with related text positioned underneath.
 
-<Canvas of={BreakoutStories.MapOnTop} />
+<Canvas of={BreakoutStories.MediaOnTop} />
+
+### Covering gaps
+
+The Breakout’s Cell that contains the Spotlight must use the `coverGap` prop to extend to the gaps and margins around it.
+This prop can be used only on Cells that span all columns of the grid, so `span="all"` is required as well.
+
+<Canvas of={BreakoutStories.CoverGap} />

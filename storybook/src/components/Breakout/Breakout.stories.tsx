@@ -8,7 +8,7 @@ import { Meta, StoryObj } from '@storybook/react'
 import { exampleParagraph } from '../shared/exampleContent'
 
 const meta = {
-  title: 'Components/Containers/Breakout',
+  title: 'Components/Layout/Breakout',
   component: Breakout,
   decorators: [
     (Story) => (
@@ -21,7 +21,38 @@ const meta = {
 
 export default meta
 
+const cellMeta = {
+  component: Breakout.Cell,
+  argTypes: {
+    as: {
+      control: { type: 'radio' },
+      options: ['article', 'div', 'section'],
+    },
+    className: {
+      table: { disable: true },
+    },
+    colSpan: {
+      control: { type: 'number', min: 1, max: 12 },
+    },
+    colStart: {
+      control: { type: 'number', min: 1, max: 12 },
+    },
+    coverGap: { type: 'boolean' },
+    rowSpan: {
+      control: { type: 'number', min: 1, max: 4 },
+    },
+    rowStart: {
+      control: { type: 'number', min: 1, max: 4 },
+    },
+  },
+} satisfies Meta<typeof Breakout.Cell>
+
 type Story = StoryObj<typeof meta>
+type CellStory = StoryObj<typeof cellMeta>
+
+const CellStoryTemplate: CellStory = {
+  render: ({ children, ...args }) => <Breakout.Cell {...args}>{children}</Breakout.Cell>,
+}
 
 export const Default: Story = {
   args: {
@@ -51,7 +82,7 @@ export const Default: Story = {
   },
 }
 
-export const MapOnTop: Story = {
+export const MediaOnTop: Story = {
   args: {
     children: [
       <Breakout.Cell colSpan="all" rowSpan={2} rowStart={1}>
@@ -78,4 +109,26 @@ export const MapOnTop: Story = {
       </Breakout.Cell>,
     ],
   },
+}
+
+export const CoverGap: CellStory = {
+  ...CellStoryTemplate,
+  args: {
+    className: 'ams-docs-item ams-docs-item--highlight',
+    coverGap: true,
+    colSpan: 'all',
+  },
+  decorators: [
+    (Story) => (
+      <Screen>
+        <Breakout>
+          <Breakout.Cell className="ams-docs-item" colSpan={{ narrow: 2, medium: 4, wide: 6 }} />
+          <Breakout.Cell className="ams-docs-item" colSpan={{ narrow: 2, medium: 4, wide: 6 }} />
+          <Story />
+          <Breakout.Cell className="ams-docs-item" colSpan={{ narrow: 2, medium: 4, wide: 6 }} />
+          <Breakout.Cell className="ams-docs-item" colSpan={{ narrow: 2, medium: 4, wide: 6 }} />
+        </Breakout>
+      </Screen>
+    ),
+  ],
 }
