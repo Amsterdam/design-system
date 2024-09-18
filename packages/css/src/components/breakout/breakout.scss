@@ -5,6 +5,7 @@
 
 @import "../../common/breakpoint";
 @import "../grid/grid";
+@import "../grid/mixins";
 
 $ams-breakout-row-span-max: 4;
 
@@ -15,57 +16,57 @@ $ams-breakout-row-span-max: 4;
 // Grid gap
 
 .ams-breakout--gap-vertical--none {
-  row-gap: initial;
+  @include ams-grid--gap-vertical--none;
 }
 
 .ams-breakout--gap-vertical--small {
-  row-gap: var(--ams-breakout-row-gap-sm);
+  @include ams-grid--gap-vertical--small;
 }
 
 .ams-breakout--gap-vertical--large {
-  row-gap: var(--ams-breakout-row-gap-lg);
+  @include ams-grid--gap-vertical--large;
 }
 
 // Grid padding
 
 .ams-breakout--padding-bottom--small {
-  padding-block-end: var(--ams-breakout-padding-block-sm);
+  @include ams-grid--padding-bottom--small;
 }
 
 .ams-breakout--padding-bottom--medium {
-  padding-block-end: var(--ams-breakout-padding-block-md);
+  @include ams-grid--padding-bottom--medium;
 }
 
 .ams-breakout--padding-bottom--large {
-  padding-block-end: var(--ams-breakout-padding-block-lg);
+  @include ams-grid--padding-bottom--large;
 }
 
 .ams-breakout--padding-top--small {
-  padding-block-start: var(--ams-breakout-padding-block-sm);
+  @include ams-grid--padding-top--small;
 }
 
 .ams-breakout--padding-top--medium {
-  padding-block-start: var(--ams-breakout-padding-block-md);
+  @include ams-grid--padding-top--medium;
 }
 
 .ams-breakout--padding-top--large {
-  padding-block-start: var(--ams-breakout-padding-block-lg);
+  @include ams-grid--padding-top--large;
 }
 
 .ams-breakout--padding-vertical--small {
-  padding-block: var(--ams-breakout-padding-block-sm);
+  @include ams-grid--padding-vertical--small;
 }
 
 .ams-breakout--padding-vertical--medium {
-  padding-block: var(--ams-breakout-padding-block-md);
+  @include ams-grid--padding-vertical--medium;
 }
 
 .ams-breakout--padding-vertical--large {
-  padding-block: var(--ams-breakout-padding-block-lg);
+  @include ams-grid--padding-vertical--large;
 }
 
 .ams-breakout__cell--col-span-all {
-  grid-column: 1 / -1;
+  @include ams-grid__cell--span-all;
 }
 
 // Column span
@@ -73,22 +74,22 @@ $ams-breakout-row-span-max: 4;
 
 @for $i from 1 through $ams-grid-column-count {
   .ams-breakout__cell--col-span-#{$i} {
-    grid-column-end: span $i;
+    @include ams-grid__cell--span($i);
   }
 
   .ams-breakout__cell--col-start-#{$i} {
-    grid-column-start: $i;
+    @include ams-grid__cell--start($i);
   }
 }
 
 @media screen and (min-width: $ams-breakpoint-medium) {
   @for $i from 1 through $ams-grid-column-count-medium {
     .ams-breakout__cell--col-span-#{$i}-medium {
-      grid-column-end: span $i;
+      @include ams-grid__cell--span-medium($i);
     }
 
     .ams-breakout__cell--col-start-#{$i}-medium {
-      grid-column-start: $i;
+      @include ams-grid__cell--start-medium($i);
     }
   }
 }
@@ -96,11 +97,11 @@ $ams-breakout-row-span-max: 4;
 @media screen and (min-width: $ams-breakpoint-wide) {
   @for $i from 1 through $ams-grid-column-count-wide {
     .ams-breakout__cell--col-span-#{$i}-wide {
-      grid-column-end: span $i;
+      @include ams-grid__cell--span-wide($i);
     }
 
     .ams-breakout__cell--col-start-#{$i}-wide {
-      grid-column-start: $i;
+      @include ams-grid__cell--start-wide($i);
     }
   }
 }

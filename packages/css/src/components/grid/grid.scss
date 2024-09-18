@@ -4,26 +4,11 @@
  */
 
 @import "../../common/breakpoint";
+@import "mixins";
 
 $ams-grid-column-count: 12;
 $ams-grid-column-count-medium: 8;
 $ams-grid-column-count-wide: 12;
-
-@mixin ams-grid {
-  column-gap: var(--ams-grid-column-gap);
-  display: grid;
-  grid-template-columns: repeat(var(--ams-grid-column-count), 1fr);
-  padding-inline: var(--ams-grid-padding-inline);
-  row-gap: var(--ams-grid-row-gap-md);
-
-  @media screen and (min-width: $ams-breakpoint-medium) {
-    grid-template-columns: repeat(var(--ams-grid-medium-column-count), 1fr);
-  }
-
-  @media screen and (min-width: $ams-breakpoint-wide) {
-    grid-template-columns: repeat(var(--ams-grid-wide-column-count), 1fr);
-  }
-}
 
 .ams-grid {
   @include ams-grid;
@@ -32,57 +17,57 @@ $ams-grid-column-count-wide: 12;
 // Grid gap
 
 .ams-grid--gap-vertical--none {
-  row-gap: initial;
+  @include ams-grid--gap-vertical--none;
 }
 
 .ams-grid--gap-vertical--small {
-  row-gap: var(--ams-grid-row-gap-sm);
+  @include ams-grid--gap-vertical--small;
 }
 
 .ams-grid--gap-vertical--large {
-  row-gap: var(--ams-grid-row-gap-lg);
+  @include ams-grid--gap-vertical--large;
 }
 
 // Grid padding
 
 .ams-grid--padding-bottom--small {
-  padding-block-end: var(--ams-grid-padding-block-sm);
+  @include ams-grid--padding-bottom--small;
 }
 
 .ams-grid--padding-bottom--medium {
-  padding-block-end: var(--ams-grid-padding-block-md);
+  @include ams-grid--padding-bottom--medium;
 }
 
 .ams-grid--padding-bottom--large {
-  padding-block-end: var(--ams-grid-padding-block-lg);
+  @include ams-grid--padding-bottom--large;
 }
 
 .ams-grid--padding-top--small {
-  padding-block-start: var(--ams-grid-padding-block-sm);
+  @include ams-grid--padding-top--small;
 }
 
 .ams-grid--padding-top--medium {
-  padding-block-start: var(--ams-grid-padding-block-md);
+  @include ams-grid--padding-top--medium;
 }
 
 .ams-grid--padding-top--large {
-  padding-block-start: var(--ams-grid-padding-block-lg);
+  @include ams-grid--padding-top--large;
 }
 
 .ams-grid--padding-vertical--small {
-  padding-block: var(--ams-grid-padding-block-sm);
+  @include ams-grid--padding-vertical--small;
 }
 
 .ams-grid--padding-vertical--medium {
-  padding-block: var(--ams-grid-padding-block-md);
+  @include ams-grid--padding-vertical--medium;
 }
 
 .ams-grid--padding-vertical--large {
-  padding-block: var(--ams-grid-padding-block-lg);
+  @include ams-grid--padding-vertical--large;
 }
 
 .ams-grid__cell--span-all {
-  grid-column: 1 / -1;
+  @include ams-grid__cell--span-all;
 }
 
 // Column span
@@ -90,22 +75,22 @@ $ams-grid-column-count-wide: 12;
 
 @for $i from 1 through $ams-grid-column-count {
   .ams-grid__cell--span-#{$i} {
-    grid-column-end: span $i;
+    @include ams-grid__cell--span($i);
   }
 
   .ams-grid__cell--start-#{$i} {
-    grid-column-start: $i;
+    @include ams-grid__cell--start($i);
   }
 }
 
 @media screen and (min-width: $ams-breakpoint-medium) {
   @for $i from 1 through $ams-grid-column-count-medium {
     .ams-grid__cell--span-#{$i}-medium {
-      grid-column-end: span $i;
+      @include ams-grid__cell--span-medium($i);
     }
 
     .ams-grid__cell--start-#{$i}-medium {
-      grid-column-start: $i;
+      @include ams-grid__cell--start-medium($i);
     }
   }
 }
@@ -113,11 +98,11 @@ $ams-grid-column-count-wide: 12;
 @media screen and (min-width: $ams-breakpoint-wide) {
   @for $i from 1 through $ams-grid-column-count-wide {
     .ams-grid__cell--span-#{$i}-wide {
-      grid-column-end: span $i;
+      @include ams-grid__cell--span-wide($i);
     }
 
     .ams-grid__cell--start-#{$i}-wide {
-      grid-column-start: $i;
+      @include ams-grid__cell--start-wide($i);
     }
   }
 }
