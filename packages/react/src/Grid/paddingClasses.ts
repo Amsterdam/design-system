@@ -6,7 +6,7 @@ export const paddingClasses = (
   paddingTop?: GridPaddingSize,
   paddingVertical?: GridPaddingSize,
 ): string[] => {
-  const classes = [] as string[]
+  const classes: string[] = []
 
   if (paddingVertical) {
     return [`ams-${componentName}--padding-vertical--${paddingVertical}`]
