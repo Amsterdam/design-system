@@ -14,11 +14,22 @@ import README from "../../../../packages/css/src/components/dialog/README.md?raw
 
 ## Examples
 
+### Form in a Dialog
+
+Set `method="dialog"` when using a form in Dialog.
+This closes the Dialog when submitting the form.
+Pass the submit Button to the `footer` prop,
+and link it to the form by passing its `id` to the Buttons `form` attribute.
+The Dialog returns the value of the submit Button, so you can check which Button was clicked.
+For more information, see [Handling the return value from the dialog (MDN)](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/dialog#handling_the_return_value_from_the_dialog).
+
+<Canvas of={DialogStories.FormDialog} />
+
 ### With scrollbar
 
 Content taller than the dialog itself will scroll.
 
-<Canvas of={DialogStories.WithScrollbar} className="ams-dialog-story" />
+<Canvas of={DialogStories.WithScrollbar} />
 
 ### Trigger Button
 
@@ -28,9 +39,9 @@ Click or tap this Button to open the Dialog.
 
 #### Utility functions
 
-To open the Dialog, use the `openDialog` function from the React package.
+To open the Dialog, use `Dialog.open(id)` from the React package.
 Pass the Dialog’s `id` to the function to select it.
-To close the Dialog, use the `closeDialog` function.
+To close the Dialog, use `Dialog.close`.
 
 ### Vertically stacked Buttons
 
