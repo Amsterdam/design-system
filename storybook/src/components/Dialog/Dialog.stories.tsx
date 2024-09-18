@@ -11,18 +11,18 @@ const meta = {
   title: 'Components/Containers/Dialog',
   component: Dialog,
   args: {
+    children: (
+      <Paragraph>
+        Weet u zeker dat u door wilt gaan met het uitvoeren van deze actie? Dat verwijdert gegevens die nog niet
+        opgeslagen zijn.
+      </Paragraph>
+    ),
     footer: (
       <Dialog.ActionGroup>
         <Button onClick={Dialog.close} variant="primary">
           Sluiten
         </Button>
       </Dialog.ActionGroup>
-    ),
-    children: (
-      <Paragraph>
-        Weet u zeker dat u door wilt gaan met het uitvoeren van deze actie? Dat verwijdert gegevens die nog niet
-        opgeslagen zijn.
-      </Paragraph>
     ),
     heading: 'Niet alle gegevens zijn opgeslagen',
   },
@@ -68,7 +68,14 @@ export const Default: Story = {
 
 export const FormDialog: Story = {
   args: {
-    open: true,
+    children: (
+      <form method="dialog" id="dialog1">
+        <Paragraph>
+          Weet u zeker dat u door wilt gaan met het uitvoeren van deze actie? Dat verwijdert gegevens die nog niet
+          opgeslagen zijn.
+        </Paragraph>
+      </form>
+    ),
     footer: (
       <Dialog.ActionGroup>
         <Button type="submit" form="dialog1" value="continue">
@@ -79,14 +86,7 @@ export const FormDialog: Story = {
         </Button>
       </Dialog.ActionGroup>
     ),
-    children: (
-      <form method="dialog" id="dialog1">
-        <Paragraph>
-          Weet u zeker dat u door wilt gaan met het uitvoeren van deze actie? Dat verwijdert gegevens die nog niet
-          opgeslagen zijn.
-        </Paragraph>
-      </form>
-    ),
+    open: true,
   },
   decorators: [
     (Story) => (
@@ -105,11 +105,6 @@ export const FormDialog: Story = {
 
 export const WithScrollbar: Story = {
   args: {
-    footer: (
-      <Dialog.ActionGroup>
-        <Button onClick={Dialog.close}>Sluiten</Button>
-      </Dialog.ActionGroup>
-    ),
     children: [
       <Heading level={2} size="level-5" key={1} className="ams-mb--sm">
         Algemeen
@@ -142,6 +137,11 @@ export const WithScrollbar: Story = {
         vinden op de website van Autoriteit Persoonsgegevens.
       </Paragraph>,
     ],
+    footer: (
+      <Dialog.ActionGroup>
+        <Button onClick={Dialog.close}>Sluiten</Button>
+      </Dialog.ActionGroup>
+    ),
     heading: 'Privacyverklaring gemeente Amsterdam',
     open: true,
   },
@@ -176,6 +176,14 @@ export const TriggerButton: Story = {
 
 export const VerticalButtons: Story = {
   args: {
+    children: (
+      <form method="dialog" id="dialog2">
+        <Paragraph>
+          Weet u zeker dat u door wilt gaan met het uitvoeren van deze actie? Dat verwijdert gegevens die nog niet
+          opgeslagen zijn.
+        </Paragraph>
+      </form>
+    ),
     footer: (
       <Dialog.ActionGroup>
         <Button type="submit" form="dialog2">
@@ -185,14 +193,6 @@ export const VerticalButtons: Story = {
           Om verticaal stapelen te demonstreren
         </Button>
       </Dialog.ActionGroup>
-    ),
-    children: (
-      <form method="dialog" id="dialog2">
-        <Paragraph>
-          Weet u zeker dat u door wilt gaan met het uitvoeren van deze actie? Dat verwijdert gegevens die nog niet
-          opgeslagen zijn.
-        </Paragraph>
-      </form>
     ),
     open: true,
   },
