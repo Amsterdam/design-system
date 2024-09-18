@@ -77,7 +77,7 @@ describe('Dialog', () => {
   })
 
   it('does not render footer when not provided', () => {
-    const { container } = render(<Dialog heading="Test heading" open />)
+    const { container } = render(<Dialog heading="Test heading" />)
 
     const component = container.querySelector('footer')
 
