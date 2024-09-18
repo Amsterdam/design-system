@@ -3,9 +3,11 @@
  * Copyright Gemeente Amsterdam
  */
 
-import { AspectRatio, Breakout, Heading, Image, Paragraph, Screen, Spotlight } from '@amsterdam/design-system-react/src'
+import { AspectRatio, Breakout, Image, Paragraph, Screen, Spotlight } from '@amsterdam/design-system-react/src'
 import { Meta, StoryObj } from '@storybook/react'
 import { exampleParagraph } from '../shared/exampleContent'
+
+const paragraph = exampleParagraph()
 
 const meta = {
   title: 'Components/Layout/Breakout',
@@ -65,7 +67,7 @@ export const Default: Story = {
         colStart={1}
         rowStart={{ medium: 3, narrow: 3, wide: 2 }}
       >
-        <Paragraph inverseColor>{exampleParagraph()}</Paragraph>
+        <Paragraph inverseColor>{paragraph}</Paragraph>
       </Breakout.Cell>,
       <Breakout.Cell
         colSpan={{ medium: 8, narrow: 4, wide: 6 }}
@@ -98,10 +100,7 @@ export const MediaOnTop: Story = {
         colStart={{ medium: 2, narrow: 1, wide: 3 }}
         rowStart={3}
       >
-        <Heading className="ams-mb--xs" inverseColor level={2}>
-          Heading
-        </Heading>
-        <Paragraph inverseColor>{exampleParagraph()}</Paragraph>
+        <Paragraph inverseColor>{paragraph}</Paragraph>
       </Breakout.Cell>,
     ],
   },
