@@ -7,6 +7,7 @@ import clsx from 'clsx'
 import { forwardRef } from 'react'
 import type { ForwardedRef, HTMLAttributes, PropsWithChildren } from 'react'
 import { GridCell } from './GridCell'
+import { paddingClasses } from './paddingClasses'
 
 export type GridColumnNumber = 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11 | 12
 export type GridPaddingSize = 'small' | 'medium' | 'large'
@@ -33,28 +34,6 @@ export type GridProps = {
 } & (GridPaddingVerticalProp | GridPaddingTopAndBottomProps) &
   PropsWithChildren<HTMLAttributes<HTMLDivElement>>
 
-const paddingClasses = (
-  paddingBottom?: GridPaddingSize,
-  paddingTop?: GridPaddingSize,
-  paddingVertical?: GridPaddingSize,
-): string[] => {
-  const classes = [] as string[]
-
-  if (paddingVertical) {
-    return [`ams-grid--padding-vertical--${paddingVertical}`]
-  }
-
-  if (paddingBottom) {
-    classes.push(`ams-grid--padding-bottom--${paddingBottom}`)
-  }
-
-  if (paddingTop) {
-    classes.push(`ams-grid--padding-top--${paddingTop}`)
-  }
-
-  return classes
-}
-
 const GridRoot = forwardRef(
   (
     { children, className, gapVertical, paddingBottom, paddingTop, paddingVertical, ...restProps }: GridProps,
@@ -66,7 +45,7 @@ const GridRoot = forwardRef(
       className={clsx(
         'ams-grid',
         gapVertical && `ams-grid--gap-vertical--${gapVertical}`,
-        paddingClasses(paddingBottom, paddingTop, paddingVertical),
+        paddingClasses('grid', paddingBottom, paddingTop, paddingVertical),
         className,
       )}
     >
