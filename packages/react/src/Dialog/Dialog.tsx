@@ -13,7 +13,7 @@ import { DialogActionGroup } from './DialogActionGroup'
 export type DialogProps = {
   /** The label for the button that dismisses the Dialog. */
   closeButtonLabel?: string
-  /** The button(s) in the footer. Start with a primary button. */
+  /** Content for the footer, often an Action Group with one or more buttons. */
   footer?: ReactNode
   /** The text for the Heading. */
   heading: string
