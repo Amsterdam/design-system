@@ -30,7 +30,7 @@ describe('Dialog Action Group', () => {
   })
 
   it('supports ForwardRef in React', () => {
-    const ref = createRef<HTMLElement>()
+    const ref = createRef<HTMLDivElement>()
 
     const { container } = render(<Dialog.ActionGroup ref={ref} />)
 
