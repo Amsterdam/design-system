@@ -64,6 +64,13 @@
   background-color: #ffe600; /* Yellow */
 }
 
+.ams-docs-backdrop {
+  background-color: #0006;
+  block-size: 100%;
+  inline-size: 100%;
+  position: absolute;
+}
+
 .ams-docs-column,
 .ams-docs-row {
   background: repeating-linear-gradient(

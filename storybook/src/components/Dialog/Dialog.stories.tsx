@@ -67,7 +67,7 @@ export const Default: Story = {
   },
   decorators: [
     (Story) => (
-      <div style={{ backgroundColor: '#0006', position: 'absolute', width: '100%', height: '100%' }}>
+      <div className="ams-docs-backdrop">
         <Story />
       </div>
     ),
@@ -102,7 +102,7 @@ export const AskingToConfirm: Story = {
   },
   decorators: [
     (Story) => (
-      <div style={{ backgroundColor: '#0006', position: 'absolute', width: '100%', height: '100%' }}>
+      <div className="ams-docs-backdrop">
         <Story />
       </div>
     ),
@@ -161,7 +161,7 @@ export const WithScrollbar: Story = {
   },
   decorators: [
     (Story) => (
-      <div style={{ backgroundColor: '#0006', height: '100%', position: 'absolute', width: '100%' }}>
+      <div className="ams-docs-backdrop">
         <Story />
       </div>
     ),
@@ -191,7 +191,7 @@ export const VerticalButtons: Story = {
   },
   decorators: [
     (Story) => (
-      <div style={{ backgroundColor: '#0006', height: '100%', position: 'absolute', width: '100%' }}>
+      <div className="ams-docs-backdrop">
         <Story />
       </div>
     ),
