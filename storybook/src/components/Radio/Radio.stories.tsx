@@ -5,9 +5,9 @@
 
 import { Column, ErrorMessage, FieldSet, Paragraph } from '@amsterdam/design-system-react'
 import { Radio } from '@amsterdam/design-system-react/src'
-import { FavouriteIcon } from '@amsterdam/design-system-react-icons'
 import { useArgs } from '@storybook/preview-api'
 import { Meta, StoryObj } from '@storybook/react'
+import CustomIcon from './CustomIcon'
 
 const meta = {
   title: 'Components/Forms/Radio',
@@ -152,6 +152,6 @@ export const InAFieldSetWithValidation: Story = {
 
 export const CustomIcons: Story = {
   args: {
-    icon: <FavouriteIcon />,
+    icon: <CustomIcon />,
   },
 }
