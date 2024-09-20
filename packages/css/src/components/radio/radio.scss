@@ -33,7 +33,7 @@
 .ams-radio__icon-container {
   block-size: var(--ams-radio-icon-container-block-size);
   display: flex;
-  flex-shrink: 0;
+  flex: none;
   inline-size: var(--ams-radio-icon-container-inline-size);
 }
 
