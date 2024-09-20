@@ -84,7 +84,9 @@
     opacity: var(--ams-image-slider-thumbnails-thumbnail-in-view-opacity);
   }
 
-  &:hover {
+  &:hover,
+  &:focus {
     opacity: var(--ams-image-slider-thumbnails-thumbnail-hover-opacity);
+    outline: 0;
   }
 }
