@@ -3,7 +3,7 @@
  * Copyright Gemeente Amsterdam
  */
 
-import { AspectRatio, Image, ImageSlider, Screen } from '@amsterdam/design-system-react/src'
+import { ImageSlider, Screen } from '@amsterdam/design-system-react/src'
 import { Meta, StoryObj } from '@storybook/react'
 import React from 'react'
 
@@ -11,32 +11,32 @@ const meta = {
   title: 'Components/Media/Image Slider',
   component: ImageSlider,
   args: {
-    children: [
-      <ImageSlider.Item slideId={0}>
-        <AspectRatio ratio="x-wide">
-          <Image src="https://picsum.photos/id/122/1280/720" loading="lazy" cover alt="This is gallery image 1" />
-        </AspectRatio>
-      </ImageSlider.Item>,
-      <ImageSlider.Item slideId={1}>
-        <AspectRatio ratio="x-wide">
-          <Image src="https://picsum.photos/id/101/1280/720" loading="lazy" cover alt="This is gallery image 2" />
-        </AspectRatio>
-      </ImageSlider.Item>,
-      <ImageSlider.Item slideId={2}>
-        <AspectRatio ratio="x-wide">
-          <Image src="https://picsum.photos/id/153/1280/720" loading="lazy" cover alt="This is gallery image 3" />
-        </AspectRatio>
-      </ImageSlider.Item>,
-      <ImageSlider.Item slideId={3}>
-        <AspectRatio ratio="x-wide">
-          <Image src="https://picsum.photos/id/159/1280/720" loading="lazy" cover alt="This is gallery image 4" />
-        </AspectRatio>
-      </ImageSlider.Item>,
-      <ImageSlider.Item slideId={4}>
-        <AspectRatio ratio="x-wide">
-          <Image src="https://picsum.photos/id/123/1280/720" loading="lazy" cover alt="This is gallery image 5" />
-        </AspectRatio>
-      </ImageSlider.Item>,
+    slides: [
+      {
+        src: 'https://picsum.photos/id/122/1280/720',
+        alt: 'This is gallery image 1',
+        ratio: 'x-wide',
+      },
+      {
+        src: 'https://picsum.photos/id/101/1280/720',
+        alt: 'This is gallery image 2',
+        ratio: 'x-wide',
+      },
+      {
+        src: 'https://picsum.photos/id/153/1280/720',
+        alt: 'This is gallery image 3',
+        ratio: 'x-wide',
+      },
+      {
+        src: 'https://picsum.photos/id/159/1280/720',
+        alt: 'This is gallery image 4',
+        ratio: 'x-wide',
+      },
+      {
+        src: 'https://picsum.photos/id/123/1280/720',
+        alt: 'This is gallery image 5',
+        ratio: 'x-wide',
+      },
     ],
     controls: true,
     scrollbar: false,

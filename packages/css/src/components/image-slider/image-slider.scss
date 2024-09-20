@@ -63,30 +63,38 @@
 .ams-image-slider__thumbnails {
   display: grid;
   gap: var(--ams-image-slider-thumbnails-gap);
-  grid-auto-columns: minmax(58px, 188px);
-  grid-auto-flow: column;
+  grid-template-columns: repeat(5, 1fr);
   max-inline-size: 100%;
-  overflow-x: auto;
-  overscroll-behavior-x: contain;
-  scroll-snap-type: x mandatory;
-  scrollbar-width: none;
+
+  // grid-auto-flow: column;
+  // grid-auto-columns: minmax(58px, 188px);
+  // overflow-x: auto;
+  // overscroll-behavior-x: contain;
+  // scroll-snap-type: x mandatory;
+  // scrollbar-width: none;
 }
 
 .ams-image-slider__thumbnail {
   background-color: var(--ams-image-slider-thumbnails-thumbnail-background-color);
+  background-size: cover;
   border: none;
   cursor: var(--ams-image-slider-thumbnails-thumbnail-cursor);
   opacity: var(--ams-image-slider-thumbnails-thumbnail-opacity);
+  outline-offset: var(--ams-button-outline-offset);
+  padding-block: 0;
   padding-inline: 0;
+  position: relative;
   scroll-snap-align: start;
 
-  &:has([class*="--in-view"]) {
-    opacity: var(--ams-image-slider-thumbnails-thumbnail-in-view-opacity);
+  &:hover {
+    opacity: var(--ams-image-slider-thumbnails-thumbnail-hover-opacity);
   }
 
-  &:hover,
-  &:focus {
-    opacity: var(--ams-image-slider-thumbnails-thumbnail-hover-opacity);
-    outline: 0;
-  }
+  // &:focus-visible {
+  //   outline: 4px solid blue;
+  // }
+}
+
+.ams-image-slider__thumbnail--in-view {
+  opacity: var(--ams-image-slider-thumbnails-thumbnail-in-view-opacity);
 }

@@ -5,30 +5,39 @@
 
 import clsx from 'clsx'
 import { forwardRef, useContext } from 'react'
-import type { ForwardedRef, HTMLAttributes, ReactNode } from 'react'
+import type { ForwardedRef, HTMLAttributes } from 'react'
+import { SlideProps } from './ImageSlider'
 import { ImageSliderContext } from './ImageSliderContext'
 
 export type ImageSliderThumbnailsProps = {
-  thumbnails: ReactNode[]
+  thumbnails: SlideProps[]
+  imageLabel?: string
+  currentSlide?: number
 } & HTMLAttributes<HTMLElement>
 
 export const ImageSliderThumbnails = forwardRef(
-  ({ thumbnails, className, ...restProps }: ImageSliderThumbnailsProps, ref: ForwardedRef<HTMLElement>) => {
+  (
+    { thumbnails, imageLabel, currentSlide, className, ...restProps }: ImageSliderThumbnailsProps,
+    ref: ForwardedRef<HTMLElement>,
+  ) => {
     const { goToSlideId } = useContext(ImageSliderContext)
     return (
-      <nav {...restProps} ref={ref} className={clsx('ams-image-slider__thumbnails', className)}>
+      <nav {...restProps} ref={ref} className={clsx('ams-image-slider__thumbnails', className)} role="tablist">
         {thumbnails &&
           thumbnails.map((thumbnail, index) => (
             <button
               key={index}
-              className="ams-image-slider__thumbnail"
+              className={clsx(
+                'ams-image-slider__thumbnail',
+                thumbnail.ratio && `ams-aspect-ratio--${thumbnail.ratio}`,
+                currentSlide === index && 'ams-image-slider__thumbnail--in-view',
+              )}
               onClick={() => goToSlideId(index)}
               aria-setsize={thumbnails.length}
               aria-posinset={index + 1}
-              aria-label={`Image ${index + 1} of ${thumbnails.length}`}
-            >
-              <div aria-hidden="true">{thumbnail}</div>
-            </button>
+              aria-label={`${imageLabel} ${index + 1}: ${thumbnail.alt}`}
+              style={{ backgroundImage: `url(${thumbnail.src})` }}
+            ></button>
           ))}
       </nav>
     )

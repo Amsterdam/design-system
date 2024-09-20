@@ -5,15 +5,26 @@
 
 import { ChevronLeftIcon, ChevronRightIcon } from '@amsterdam/design-system-react-icons'
 import clsx from 'clsx'
-import { Children, forwardRef, useEffect, useRef, useState } from 'react'
-import type { ForwardedRef, HTMLAttributes, KeyboardEventHandler, PropsWithChildren } from 'react'
+import { forwardRef, useEffect, useRef, useState } from 'react'
+import type { ForwardedRef, HTMLAttributes, KeyboardEventHandler } from 'react'
 import { ImageSliderContext } from './ImageSliderContext'
 import { ImageSliderItem } from './ImageSliderItem'
 import { ImageSliderScroller } from './ImageSliderScroller'
 import { ImageSliderThumbnails } from './ImageSliderThumbnails'
+import { Ratio } from '../AspectRatio'
 import { IconButton } from '../IconButton'
+import { Image } from '../Image/Image'
+
+export type SlideProps = {
+  src: string
+  ratio: Ratio
+  srcSet?: Array<string>
+  sizes?: string
+  alt?: string
+}
 
 export type ImageSliderProps = {
+  slides: SlideProps[]
   /** Show navigation controls */
   controls?: boolean
   /** Show native scrollbar inside gallery */
@@ -26,19 +37,22 @@ export type ImageSliderProps = {
   previousLabel?: string
   /** Label for the next button */
   nextLabel?: string
-} & PropsWithChildren<HTMLAttributes<HTMLDivElement>>
+  /** Label for the image if you need to translate the alt text */
+  imageLabel?: string
+} & HTMLAttributes<HTMLDivElement>
 
 export const ImageSliderRoot = forwardRef(
   (
     {
-      children,
       className,
+      slides,
       controls,
       scrollbar,
       snapstop,
       thumbnails,
       previousLabel = 'Vorige',
       nextLabel = 'Volgende',
+      imageLabel = 'Afbeelding',
       ...restProps
     }: ImageSliderProps,
     ref: ForwardedRef<HTMLDivElement>,
@@ -169,9 +183,15 @@ export const ImageSliderRoot = forwardRef(
             </div>
           )}
           <ImageSliderScroller tabIndex={0} ref={targetRef}>
-            {children}
+            {slides.map((slide, index) => (
+              <ImageSliderItem key={index} slideId={index}>
+                <Image src={slide.src} srcSet={slide.srcSet?.join(', ')} sizes={slide.sizes} alt={slide.alt} />
+              </ImageSliderItem>
+            ))}
           </ImageSliderScroller>
-          {thumbnails && <ImageSliderThumbnails thumbnails={Children.toArray(children)} />}
+          {thumbnails && (
+            <ImageSliderThumbnails thumbnails={slides} imageLabel={imageLabel} currentSlide={currentSlideId} />
+          )}
         </div>
       </ImageSliderContext.Provider>
     )
