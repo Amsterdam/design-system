@@ -20,16 +20,20 @@ describe('Radio', () => {
     expect(label).toBeVisible()
   })
 
-  it('renders a design system BEM class name', () => {
+  it('renders design system BEM class names', () => {
     const { container } = render(<Radio />)
 
     const wrapper = container.querySelector(':only-child')
     const input = screen.getByRole('radio')
     const label = container.querySelector('label')
+    const circle = container.querySelector('.ams-radio__circle')
+    const indicator = container.querySelector('.ams-radio__checked-indicator')
 
     expect(wrapper).toHaveClass('ams-radio')
     expect(input).toHaveClass('ams-radio__input')
     expect(label).toHaveClass('ams-radio__label')
+    expect(circle).toBeInTheDocument()
+    expect(indicator).toBeInTheDocument()
   })
 
   it('renders an additional class name', () => {
