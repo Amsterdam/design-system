@@ -94,17 +94,15 @@
 }
 
 // Disabled invalid
-.ams-radio__input[aria-invalid="true"]:disabled {
-  + .ams-radio__label {
-    .ams-radio__icon-outer {
-      // TODO: currently disabled invalid gets the same styling as disabled. This should get its own styling.
-      stroke: var(--ams-radio-icon-disabled-invalid-outer-stroke);
-    }
+.ams-radio__input[aria-invalid="true"]:disabled + .ams-radio__label {
+  .ams-radio__icon-outer {
+    // TODO: currently disabled invalid gets the same styling as disabled. This should get its own styling.
+    stroke: var(--ams-radio-icon-disabled-invalid-outer-stroke);
+  }
 
-    .ams-radio__icon-inner {
-      // TODO: currently disabled invalid gets the same styling as disabled. This should get its own styling.
-      fill: var(--ams-radio-icon-disabled-invalid-inner-fill);
-    }
+  .ams-radio__icon-inner {
+    // TODO: currently disabled invalid gets the same styling as disabled. This should get its own styling.
+    fill: var(--ams-radio-icon-disabled-invalid-inner-fill);
   }
 }
 
