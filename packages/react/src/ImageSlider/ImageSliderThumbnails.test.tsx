@@ -1,23 +1,26 @@
 import { render } from '@testing-library/react'
 import { createRef } from 'react'
-import { ImageSlider } from './ImageSlider'
+import { SlideProps } from './ImageSlider'
 import { ImageSliderThumbnails } from './ImageSliderThumbnails'
 import '@testing-library/jest-dom'
-import { AspectRatio } from '../AspectRatio'
-import { Image } from '../Image'
 
 describe('Image slider thumbnails', () => {
-  const thumbnails = [
-    <ImageSlider.Item slideId={0}>
-      <AspectRatio ratio="x-wide">
-        <Image src="https://picsum.photos/id/122/1280/720" loading="lazy" cover alt="This is gallery image 1" />
-      </AspectRatio>
-    </ImageSlider.Item>,
-    <ImageSlider.Item slideId={1}>
-      <AspectRatio ratio="x-wide">
-        <Image src="https://picsum.photos/id/101/1280/720" loading="lazy" cover alt="This is gallery image 2" />
-      </AspectRatio>
-    </ImageSlider.Item>,
+  const thumbnails: SlideProps[] = [
+    {
+      src: 'https://picsum.photos/id/122/1280/720',
+      alt: 'This is gallery image 1',
+      ratio: 'x-wide',
+    },
+    {
+      src: 'https://picsum.photos/id/101/1280/720',
+      alt: 'This is gallery image 2',
+      ratio: 'x-wide',
+    },
+    {
+      src: 'https://picsum.photos/id/153/1280/720',
+      alt: 'This is gallery image 3',
+      ratio: 'x-wide',
+    },
   ]
   it('renders', () => {
     const { container } = render(<ImageSliderThumbnails thumbnails={thumbnails} />)

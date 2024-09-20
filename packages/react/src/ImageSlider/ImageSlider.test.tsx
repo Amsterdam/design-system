@@ -1,9 +1,7 @@
 import { render } from '@testing-library/react'
 import { createRef } from 'react'
-import { ImageSlider } from './ImageSlider'
+import { ImageSlider, SlideProps } from './ImageSlider'
 import '@testing-library/jest-dom'
-import { AspectRatio } from '../AspectRatio'
-import { Image } from '../Image'
 
 const observe = jest.fn()
 const unobserve = jest.fn()
@@ -22,8 +20,26 @@ window.IntersectionObserver = jest.fn(() => ({
 }))
 
 describe('Image slider', () => {
+  const slides: SlideProps[] = [
+    {
+      src: 'https://picsum.photos/id/122/1280/720',
+      alt: 'This is gallery image 1',
+      ratio: 'x-wide',
+    },
+    {
+      src: 'https://picsum.photos/id/101/1280/720',
+      alt: 'This is gallery image 2',
+      ratio: 'x-wide',
+    },
+    {
+      src: 'https://picsum.photos/id/153/1280/720',
+      alt: 'This is gallery image 3',
+      ratio: 'x-wide',
+    },
+  ]
+
   it('renders', () => {
-    const { container } = render(<ImageSlider />)
+    const { container } = render(<ImageSlider slides={slides} />)
 
     const component = container.querySelector(':only-child')
 
@@ -31,18 +47,17 @@ describe('Image slider', () => {
     expect(component).toBeVisible()
   })
 
-  it('renders children', () => {
-    const { container } = render(
-      <ImageSlider>
-        <ImageSlider.Item slideId={0}>child</ImageSlider.Item>
-      </ImageSlider>,
-    )
+  it('renders slides', () => {
+    const { container } = render(<ImageSlider slides={slides} />)
 
-    expect(container).toHaveTextContent('child')
+    const slideElements = container.querySelectorAll('.ams-image-slider__item')
+    const slideArray = Array.from(slideElements)
+
+    expect(slideArray).toHaveLength(3)
   })
 
   it('renders a design system BEM class name', () => {
-    const { container } = render(<ImageSlider />)
+    const { container } = render(<ImageSlider slides={slides} />)
 
     const component = container.querySelector(':only-child')
 
@@ -50,7 +65,7 @@ describe('Image slider', () => {
   })
 
   it('renders an additional class name', () => {
-    const { container } = render(<ImageSlider className="extra" />)
+    const { container } = render(<ImageSlider slides={slides} className="extra" />)
 
     const component = container.querySelector(':only-child')
 
@@ -60,7 +75,7 @@ describe('Image slider', () => {
   it('supports ForwardRef in React', () => {
     const ref = createRef<HTMLDivElement>()
 
-    const { container } = render(<ImageSlider ref={ref} />)
+    const { container } = render(<ImageSlider slides={slides} ref={ref} />)
 
     const component = container.querySelector(':only-child')
 
@@ -68,15 +83,7 @@ describe('Image slider', () => {
   })
 
   it('renders thumbnails', () => {
-    const { container } = render(
-      <ImageSlider thumbnails>
-        <ImageSlider.Item slideId={0}>
-          <AspectRatio ratio="x-wide">
-            <Image src="https://picsum.photos/10" loading="lazy" cover />
-          </AspectRatio>
-        </ImageSlider.Item>
-      </ImageSlider>,
-    )
+    const { container } = render(<ImageSlider thumbnails slides={slides}></ImageSlider>)
 
     expect(container.querySelector('.ams-image-slider__thumbnail')).toBeInTheDocument()
   })
