@@ -1,1 +1,1 @@
-<svg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'><circle class="ams-radio__icon-outer" r='15' cx='16' cy='16' /><circle class="ams-radio__icon-inner" r='11' cx='16' cy='16' /></svg>
+<svg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'><circle class="ams-radio__circle" r='14' cx='16' cy='16' /><circle class="ams-radio__checked-indicator" r='10' cx='16' cy='16' /></svg>
