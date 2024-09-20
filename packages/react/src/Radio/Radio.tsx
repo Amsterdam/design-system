@@ -32,7 +32,7 @@ export const Radio = forwardRef(
           type="radio"
         />
         <label className="ams-radio__label" htmlFor={id}>
-          <span className="ams-radio__icon-container">{icon ?? <RadioIcon className="ams-radio__icon" />}</span>
+          <span className="ams-radio__icon-container">{icon ?? <RadioIcon />}</span>
           {children}
         </label>
       </div>

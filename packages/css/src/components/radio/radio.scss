@@ -36,16 +36,14 @@
   inline-size: var(--ams-radio-icon-container-inline-size);
 }
 
-.ams-radio__icon {
-  circle:first-child {
-    stroke: var(--ams-radio-icon-outer-stroke);
-    stroke-width: 0.125rem;
-  }
+.ams-radio__icon-outer {
+  stroke: var(--ams-radio-icon-outer-stroke);
+  stroke-width: 0.125rem;
+}
 
-  circle:nth-child(2) {
-    display: none;
-    fill: var(--ams-radio-icon-inner-fill);
-  }
+.ams-radio__icon-inner {
+  display: none;
+  fill: var(--ams-radio-icon-inner-fill);
 }
 
 // Default hover
@@ -53,29 +51,29 @@
   color: var(--ams-radio-hover-color);
   text-decoration-line: var(--ams-radio-hover-text-decoration-line);
 
-  .ams-radio__icon circle:first-child {
+  .ams-radio__icon-outer {
     stroke: var(--ams-radio-icon-hover-outer-stroke);
   }
 
-  .ams-radio__icon circle:nth-child(2) {
+  .ams-radio__icon-inner {
     fill: var(--ams-radio-icon-hover-inner-fill);
   }
 }
 
 // Invalid
 .ams-radio__input[aria-invalid="true"] + .ams-radio__label {
-  .ams-radio__icon circle:first-child {
+  .ams-radio__icon-outer {
     stroke: var(--ams-radio-icon-invalid-outer-stroke);
   }
 
-  .ams-radio__icon circle:nth-child(2) {
+  .ams-radio__icon-inner {
     fill: var(--ams-radio-icon-invalid-inner-fill);
   }
 }
 
 // Checked
 .ams-radio__input:checked + .ams-radio__label {
-  .ams-radio__icon circle:nth-child(2) {
+  .ams-radio__icon-inner {
     display: block;
   }
 }
@@ -85,11 +83,11 @@
   color: var(--ams-radio-disabled-color);
   cursor: not-allowed;
 
-  .ams-radio__icon circle:first-child {
+  .ams-radio__icon-outer {
     stroke: var(--ams-radio-icon-disabled-outer-stroke);
   }
 
-  .ams-radio__icon circle:nth-child(2) {
+  .ams-radio__icon-inner {
     fill: var(--ams-radio-icon-disabled-inner-fill);
   }
 }
@@ -97,12 +95,12 @@
 // Disabled invalid
 .ams-radio__input[aria-invalid="true"]:disabled {
   + .ams-radio__label {
-    .ams-radio__icon circle:first-child {
+    .ams-radio__icon-outer {
       // TODO: currently disabled invalid gets the same styling as disabled. This should get its own styling.
       stroke: var(--ams-radio-icon-disabled-invalid-outer-stroke);
     }
 
-    .ams-radio__icon circle:nth-child(2) {
+    .ams-radio__icon-inner {
       // TODO: currently disabled invalid gets the same styling as disabled. This should get its own styling.
       fill: var(--ams-radio-icon-disabled-invalid-inner-fill);
     }
@@ -118,12 +116,12 @@
 
 // Invalid hover
 .ams-radio__input[aria-invalid="true"] + .ams-radio__label:hover {
-  .ams-radio__icon circle:first-child {
+  .ams-radio__icon-outer {
     // TODO: this should be the (currently non-existent) dark red hover color
     stroke: var(--ams-radio-icon-invalid-hover-outer-stroke);
   }
 
-  .ams-radio__icon circle:nth-child(2) {
+  .ams-radio__icon-inner {
     // TODO: this should be the (currently non-existent) dark red hover color
     fill: var(--ams-radio-icon-invalid-hover-inner-fill);
   }
@@ -131,12 +129,12 @@
 
 // Disabled invalid hover
 .ams-radio__input[aria-invalid="true"]:disabled + .ams-radio__label:hover {
-  .ams-radio__icon circle:first-child {
+  .ams-radio__icon-outer {
     // TODO: currently disabled invalid gets the same styling as disabled. This should get its own styling.
     stroke: var(--ams-radio-icon-disabled-invalid-hover-outer-stroke);
   }
 
-  .ams-radio__icon circle:nth-child(2) {
+  .ams-radio__icon-inner {
     // TODO: currently disabled invalid gets the same styling as disabled. This should get its own styling.
     fill: var(--ams-radio-icon-disabled-invalid-hover-inner-fill);
   }
@@ -150,16 +148,12 @@
   .ams-radio__label:hover,
   .ams-radio__input[aria-invalid="true"] + .ams-radio__label,
   .ams-radio__input[aria-invalid="true"] + .ams-radio__label:hover {
-    .ams-radio__icon {
-      circle:first-child {
-        stroke: FieldText;
-      }
+    .ams-radio__icon-outer {
+      stroke: FieldText;
+    }
 
-      // These two selectors never target the same element, so it's safe to disable the linter here.
-      /* stylelint-disable-next-line no-descending-specificity */
-      circle:nth-child(2) {
-        fill: FieldText;
-      }
+    .ams-radio__icon-inner {
+      fill: FieldText;
     }
   }
 }
@@ -168,16 +162,12 @@
 @media (forced-colors: active) {
   .ams-radio__input:checked + .ams-radio__label,
   .ams-radio__input[aria-invalid="true"]:checked + .ams-radio__label:hover {
-    .ams-radio__icon {
-      circle:first-child {
-        stroke: ActiveText;
-      }
+    .ams-radio__icon-outer {
+      stroke: ActiveText;
+    }
 
-      // These two selectors never target the same element, so it's safe to disable the linter here.
-      /* stylelint-disable-next-line no-descending-specificity */
-      circle:nth-child(2) {
-        fill: ActiveText;
-      }
+    .ams-radio__icon-inner {
+      fill: ActiveText;
     }
   }
 }
@@ -187,16 +177,12 @@
   .ams-radio__input:disabled + .ams-radio__label,
   .ams-radio__input[aria-invalid="true"]:disabled + .ams-radio__label,
   .ams-radio__input[aria-invalid="true"]:disabled + .ams-radio__label:hover {
-    .ams-radio__icon {
-      circle:first-child {
-        stroke: GrayText;
-      }
+    .ams-radio__icon-outer {
+      stroke: GrayText;
+    }
 
-      // These two selectors never target the same element, so it's safe to disable the linter here.
-      /* stylelint-disable-next-line no-descending-specificity */
-      circle:nth-child(2) {
-        fill: GrayText;
-      }
+    .ams-radio__icon-inner {
+      fill: GrayText;
     }
   }
 }
