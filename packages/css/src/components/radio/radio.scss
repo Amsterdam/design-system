@@ -38,13 +38,13 @@
 
 .ams-radio__circle {
   fill: none;
-  stroke: var(--ams-radio-icon-outer-stroke);
+  stroke: var(--ams-radio-circle-stroke);
   stroke-width: 0.125rem;
 }
 
 .ams-radio__checked-indicator {
   display: none;
-  fill: var(--ams-radio-icon-inner-fill);
+  fill: var(--ams-radio-checked-indicator-fill);
 }
 
 // Default hover
@@ -53,22 +53,22 @@
   text-decoration-line: var(--ams-radio-hover-text-decoration-line);
 
   .ams-radio__circle {
-    stroke: var(--ams-radio-icon-hover-outer-stroke);
+    stroke: var(--ams-radio-circle-hover-stroke);
   }
 
   .ams-radio__checked-indicator {
-    fill: var(--ams-radio-icon-hover-inner-fill);
+    fill: var(--ams-radio-checked-indicator-hover-fill);
   }
 }
 
 // Invalid
 .ams-radio__input[aria-invalid="true"] + .ams-radio__label {
   .ams-radio__circle {
-    stroke: var(--ams-radio-icon-invalid-outer-stroke);
+    stroke: var(--ams-radio-circle-invalid-stroke);
   }
 
   .ams-radio__checked-indicator {
-    fill: var(--ams-radio-icon-invalid-inner-fill);
+    fill: var(--ams-radio-checked-indicator-invalid-fill);
   }
 }
 
@@ -85,11 +85,11 @@
   cursor: not-allowed;
 
   .ams-radio__circle {
-    stroke: var(--ams-radio-icon-disabled-outer-stroke);
+    stroke: var(--ams-radio-circle-disabled-stroke);
   }
 
   .ams-radio__checked-indicator {
-    fill: var(--ams-radio-icon-disabled-inner-fill);
+    fill: var(--ams-radio-checked-indicator-disabled-fill);
   }
 }
 
@@ -97,12 +97,12 @@
 .ams-radio__input[aria-invalid="true"]:disabled + .ams-radio__label {
   .ams-radio__circle {
     // TODO: currently disabled invalid gets the same styling as disabled. This should get its own styling.
-    stroke: var(--ams-radio-icon-disabled-invalid-outer-stroke);
+    stroke: var(--ams-radio-circle-disabled-invalid-stroke);
   }
 
   .ams-radio__checked-indicator {
     // TODO: currently disabled invalid gets the same styling as disabled. This should get its own styling.
-    fill: var(--ams-radio-icon-disabled-invalid-inner-fill);
+    fill: var(--ams-radio-checked-indicator-disabled-invalid-fill);
   }
 }
 
@@ -117,12 +117,12 @@
 .ams-radio__input[aria-invalid="true"] + .ams-radio__label:hover {
   .ams-radio__circle {
     // TODO: this should be the (currently non-existent) dark red hover color
-    stroke: var(--ams-radio-icon-invalid-hover-outer-stroke);
+    stroke: var(--ams-radio-circle-invalid-hover-stroke);
   }
 
   .ams-radio__checked-indicator {
     // TODO: this should be the (currently non-existent) dark red hover color
-    fill: var(--ams-radio-icon-invalid-hover-inner-fill);
+    fill: var(--ams-radio-checked-indicator-invalid-hover-fill);
   }
 }
 
@@ -130,12 +130,12 @@
 .ams-radio__input[aria-invalid="true"]:disabled + .ams-radio__label:hover {
   .ams-radio__circle {
     // TODO: currently disabled invalid gets the same styling as disabled. This should get its own styling.
-    stroke: var(--ams-radio-icon-disabled-invalid-hover-outer-stroke);
+    stroke: var(--ams-radio-circle-disabled-invalid-hover-stroke);
   }
 
   .ams-radio__checked-indicator {
     // TODO: currently disabled invalid gets the same styling as disabled. This should get its own styling.
-    fill: var(--ams-radio-icon-disabled-invalid-hover-inner-fill);
+    fill: var(--ams-radio-checked-indicator-disabled-invalid-hover-fill);
   }
 }
 
