@@ -4,6 +4,11 @@
  */
 
 .ams-aspect-ratio {
+  block-size: auto;
+  inline-size: fit-content;
+}
+
+.ams-aspect-ratio__container {
   overflow: hidden;
   position: relative;
 }
