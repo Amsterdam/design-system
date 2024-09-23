@@ -17,13 +17,19 @@ import { Image } from '../Image/Image'
 
 export type SlideProps = {
   src: string
+  /** Prove a URL to the image */
   ratio: Ratio
+  /** Define an aspect ratio to use on all images */
+  alt: string
+  /** Describe to image */
   srcSet?: Array<string>
+  /** Provide a src-set array to use responsive images */
   sizes?: string
-  alt?: string
+  /** Provide a sizes attribute to each image */
 }
 
 export type ImageSliderProps = {
+  /** An array of images to display */
   slides: SlideProps[]
   /** Show navigation controls */
   controls?: boolean
