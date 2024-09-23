@@ -69,13 +69,6 @@ export const NoThumbnails: Story = {
   },
 }
 
-export const NoSnapstop: Story = {
-  args: {
-    thumbnails: false,
-    controls: false,
-  },
-}
-
 export const NativeScrollbar: Story = {
   args: {
     scrollbar: true,
@@ -84,24 +77,30 @@ export const NativeScrollbar: Story = {
   },
 }
 
-// export const VariousSizes: Story = {
-//   args: {
-//     children: [
-//       <ImageSlider.Item slideId={0}>
-//         <AspectRatio ratio="x-wide">
-//           <Image src="https://picsum.photos/id/122/1280/720" loading="lazy" cover alt="This is gallery image 1" />
-//         </AspectRatio>
-//       </ImageSlider.Item>,
-//       <ImageSlider.Item slideId={1}>
-//         <AspectRatio ratio="square">
-//           <Image src="https://picsum.photos/id/101/1280/1280" loading="lazy" cover alt="This is gallery image 2" />
-//         </AspectRatio>
-//       </ImageSlider.Item>,
-//       <ImageSlider.Item slideId={2}>
-//         <AspectRatio ratio="x-wide">
-//           <Image src="https://picsum.photos/id/153/1280/720" loading="lazy" cover alt="This is gallery image 3" />
-//         </AspectRatio>
-//       </ImageSlider.Item>,
-//     ],
-//   },
-// }
+export const SourceSetImages: Story = {
+  args: {
+    slides: [
+      {
+        src: 'https://picsum.photos/id/122/640/360',
+        srcSet: 'https://picsum.photos/id/122/640/360 640w, https://picsum.photos/id/122/1280/720 1280w',
+        sizes: '(max-width: 36rem) 640px, 50vw',
+        alt: 'Bridge',
+        ratio: 'x-wide',
+      },
+      {
+        src: 'https://picsum.photos/id/101/640/360',
+        srcSet: 'https://picsum.photos/id/101/640/360 640w, https://picsum.photos/id/101/1280/720 1280w',
+        sizes: '(max-width: 36rem) 640px, 50vw',
+        alt: 'Bunker',
+        ratio: 'x-wide',
+      },
+      {
+        src: 'https://picsum.photos/id/153/640/360',
+        srcSet: 'https://picsum.photos/id/153/640/360 640w, https://picsum.photos/id/153/1280/720 1280w',
+        sizes: '(max-width: 36rem) 640px, 50vw',
+        alt: 'Chairs',
+        ratio: 'x-wide',
+      },
+    ],
+  },
+}

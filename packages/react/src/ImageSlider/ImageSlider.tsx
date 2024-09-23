@@ -22,7 +22,7 @@ export type SlideProps = {
   /** Define an aspect ratio to use on all images */
   alt: string
   /** Describe to image */
-  srcSet?: Array<string>
+  srcSet?: string
   /** Provide a src-set array to use responsive images */
   sizes?: string
   /** Provide a sizes attribute to each image */
@@ -226,7 +226,7 @@ export const ImageSliderRoot = forwardRef(
           <ImageSliderScroller tabIndex={0} ref={targetRef} aria-live="polite" role="group">
             {slides.map((slide, index) => (
               <ImageSliderItem key={index} slideId={index}>
-                <Image src={slide.src} srcSet={slide.srcSet?.join(', ')} sizes={slide.sizes} alt={slide.alt} />
+                <Image src={slide.src} srcSet={slide.srcSet} sizes={slide.sizes} alt={slide.alt} />
               </ImageSliderItem>
             ))}
           </ImageSliderScroller>
