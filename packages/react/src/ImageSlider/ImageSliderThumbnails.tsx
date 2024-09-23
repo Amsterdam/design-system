@@ -33,10 +33,13 @@ export const ImageSliderThumbnails = forwardRef(
                 currentSlide === index && 'ams-image-slider__thumbnail--in-view',
               )}
               onClick={() => goToSlideId(index)}
+              style={{ backgroundImage: `url(${thumbnail.src})` }}
+              aria-label={`${imageLabel} ${index + 1}: ${thumbnail.alt}`}
+              aria-selected={currentSlide === index ? 'true' : 'false'}
               aria-setsize={thumbnails.length}
               aria-posinset={index + 1}
-              aria-label={`${imageLabel} ${index + 1}: ${thumbnail.alt}`}
-              style={{ backgroundImage: `url(${thumbnail.src})` }}
+              tabIndex={currentSlide === index ? 0 : -1}
+              role="tab"
             ></button>
           ))}
       </nav>

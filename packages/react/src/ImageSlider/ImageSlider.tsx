@@ -5,8 +5,8 @@
 
 import { ChevronLeftIcon, ChevronRightIcon } from '@amsterdam/design-system-react-icons'
 import clsx from 'clsx'
-import { forwardRef, useEffect, useRef, useState } from 'react'
-import type { ForwardedRef, HTMLAttributes, KeyboardEventHandler } from 'react'
+import { forwardRef, KeyboardEvent as ReactKeyboardEvent, useEffect, useRef, useState } from 'react'
+import type { ForwardedRef, HTMLAttributes } from 'react'
 import { ImageSliderContext } from './ImageSliderContext'
 import { ImageSliderItem } from './ImageSliderItem'
 import { ImageSliderScroller } from './ImageSliderScroller'
@@ -29,8 +29,6 @@ export type ImageSliderProps = {
   controls?: boolean
   /** Show native scrollbar inside gallery */
   scrollbar?: boolean
-  /** Prevent passing over possible snap elements */
-  snapstop?: boolean
   /** Show thumbnails */
   thumbnails?: boolean
   /** Label for the previous button */
@@ -48,7 +46,6 @@ export const ImageSliderRoot = forwardRef(
       slides,
       controls,
       scrollbar,
-      snapstop,
       thumbnails,
       previousLabel = 'Vorige',
       nextLabel = 'Volgende',
@@ -70,7 +67,7 @@ export const ImageSliderRoot = forwardRef(
       for (let observation of observations) {
         hasIntersected.add(observation)
         if (observation.isIntersecting) {
-          setCurrentSlideId(slidesArray.indexOf(observation.target))
+          setCurrentSlideId(slidesArray.indexOf(observation.target as HTMLElement))
         }
       }
     }
@@ -83,17 +80,62 @@ export const ImageSliderRoot = forwardRef(
     useEffect(() => {
       const observer = new IntersectionObserver(inView, observerOptions)
 
+      const handleKeyDown = (event: KeyboardEvent) => {
+        switch (event.key) {
+          case 'ArrowLeft':
+            goToPreviousSlide()
+            break
+          case 'ArrowRight':
+            goToNextSlide()
+            break
+        }
+      }
+
       if (targetRef.current) {
         const slides = targetRef.current.children
         const slidesArray = Array.from(slides)
         for (let slide of slidesArray) observer.observe(slide)
 
-        targetRef.current.addEventListener('scrollend', synchronise.bind(targetRef.current))
+        targetRef.current.addEventListener('scrollend', synchronise)
+        targetRef.current.addEventListener('keydown', handleKeyDown)
+      }
+
+      return () => {
+        if (targetRef.current) {
+          targetRef.current.removeEventListener('scrollend', synchronise)
+          targetRef.current.removeEventListener('keydown', handleKeyDown)
+        }
       }
     }, [targetRef, observerOptions])
 
     const synchronise = () => {
       updateControls()
+    }
+
+    const handleThumbsKeyDown = (event: ReactKeyboardEvent<HTMLElement>) => {
+      const target = event.target as HTMLElement
+      const element = target.parentElement?.children[currentSlideId]
+
+      if (event.key === 'ArrowRight') {
+        const next = element?.nextElementSibling as HTMLElement | null
+
+        if (next === element) return
+
+        if (next) {
+          next.focus()
+          goToNextSlide()
+        }
+      }
+      if (event.key === 'ArrowLeft') {
+        const previous = element?.previousElementSibling as HTMLElement | null
+
+        if (previous === element) return
+
+        if (previous) {
+          previous.focus()
+          goToPreviousSlide()
+        }
+      }
     }
 
     const goToSlide = (element: HTMLElement) => {
@@ -125,11 +167,11 @@ export const ImageSliderRoot = forwardRef(
 
     const goToPreviousSlide = () => {
       const element = targetRef.current?.children[currentSlideId]
-      const next = element?.previousElementSibling as HTMLElement | null
+      const previous = element?.previousElementSibling as HTMLElement | null
 
-      if (element === next) return
+      if (element === previous) return
 
-      if (next) goToSlide(next)
+      if (previous) goToSlide(previous)
     }
 
     const updateControls = () => {
@@ -140,30 +182,23 @@ export const ImageSliderRoot = forwardRef(
       setAtEnd(last === sliderScroller?.children[currentSlideId])
     }
 
-    const handleKeyDown: KeyboardEventHandler<HTMLDivElement> = (e) => {
-      if (e.key === 'ArrowRight') {
-        goToNextSlide()
-      } else if (e.key === 'ArrowLeft') {
-        goToPreviousSlide()
-      }
-    }
-
     return (
       <ImageSliderContext.Provider value={{ currentSlide: currentSlideId, goToSlideId }}>
         <div
           {...restProps}
           ref={ref}
+          aria-roledescription="carousel"
+          tabIndex={-1}
           className={clsx(
             'ams-image-slider',
             controls && 'ams-image-slider--controls',
             scrollbar && 'ams-image-slider--scrollbar',
-            snapstop && 'ams-image-slider--snapstop',
             thumbnails && 'ams-image-slider--thumbnails',
             className,
           )}
         >
           {controls && (
-            <div className="ams-image-slider__controls" onKeyDown={handleKeyDown}>
+            <div className="ams-image-slider__controls">
               <IconButton
                 svg={ChevronLeftIcon}
                 label={previousLabel}
@@ -182,7 +217,7 @@ export const ImageSliderRoot = forwardRef(
               />
             </div>
           )}
-          <ImageSliderScroller tabIndex={0} ref={targetRef}>
+          <ImageSliderScroller tabIndex={0} ref={targetRef} aria-live="polite" role="group">
             {slides.map((slide, index) => (
               <ImageSliderItem key={index} slideId={index}>
                 <Image src={slide.src} srcSet={slide.srcSet?.join(', ')} sizes={slide.sizes} alt={slide.alt} />
@@ -190,7 +225,12 @@ export const ImageSliderRoot = forwardRef(
             ))}
           </ImageSliderScroller>
           {thumbnails && (
-            <ImageSliderThumbnails thumbnails={slides} imageLabel={imageLabel} currentSlide={currentSlideId} />
+            <ImageSliderThumbnails
+              thumbnails={slides}
+              imageLabel={imageLabel}
+              currentSlide={currentSlideId}
+              onKeyDown={handleThumbsKeyDown}
+            />
           )}
         </div>
       </ImageSliderContext.Provider>

@@ -14,33 +14,32 @@ const meta = {
     slides: [
       {
         src: 'https://picsum.photos/id/122/1280/720',
-        alt: 'This is gallery image 1',
+        alt: 'Bridge',
         ratio: 'x-wide',
       },
       {
         src: 'https://picsum.photos/id/101/1280/720',
-        alt: 'This is gallery image 2',
+        alt: 'Bunker',
         ratio: 'x-wide',
       },
       {
         src: 'https://picsum.photos/id/153/1280/720',
-        alt: 'This is gallery image 3',
+        alt: 'Chairs',
         ratio: 'x-wide',
       },
       {
         src: 'https://picsum.photos/id/159/1280/720',
-        alt: 'This is gallery image 4',
+        alt: 'Droplet',
         ratio: 'x-wide',
       },
       {
         src: 'https://picsum.photos/id/123/1280/720',
-        alt: 'This is gallery image 5',
+        alt: 'Dew',
         ratio: 'x-wide',
       },
     ],
     controls: true,
     scrollbar: false,
-    snapstop: true,
     thumbnails: true,
   },
   decorators: [
@@ -72,7 +71,6 @@ export const NoThumbnails: Story = {
 
 export const NoSnapstop: Story = {
   args: {
-    snapstop: false,
     thumbnails: false,
     controls: false,
   },

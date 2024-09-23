@@ -11,15 +11,12 @@
 
 .ams-image-slider__item {
   scroll-snap-align: center;
+  scroll-snap-stop: always;
 
   /** temporary fix for covering the entire gallery */
   .ams-image {
     inline-size: 100%;
   }
-}
-
-.ams-image-slider--snapstop .ams-image-slider__item {
-  scroll-snap-stop: always;
 }
 
 .ams-image-slider__scroller {
@@ -64,6 +61,7 @@
   display: grid;
   gap: var(--ams-image-slider-thumbnails-gap);
   grid-template-columns: repeat(5, 1fr);
+  list-style: none;
   max-inline-size: 100%;
 
   // grid-auto-flow: column;
