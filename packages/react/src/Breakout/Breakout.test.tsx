@@ -29,8 +29,7 @@ describe('Breakout', () => {
 
     const component = container.querySelector(':only-child')
 
-    expect(component).toHaveClass('extra')
-    expect(component).toHaveClass('ams-breakout')
+    expect(component).toHaveClass('ams-breakout extra')
   })
 
   it('renders the correct class name for a zero gap', () => {
