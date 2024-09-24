@@ -7,6 +7,8 @@ A component to group related form inputs.
 ## Guidelines
 
 - Use Field Set when you need to show a relationship between multiple form inputs. For example, you may need to group a set of text inputs into a single Field Set when asking for an address.
+- Set `optional` to `true` if all inputs in a Field Set are not required.
+- Use `hint` to show a custom hint text.
 
 ## Relevant WCAG requirements
 

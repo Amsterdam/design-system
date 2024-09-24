@@ -4,6 +4,7 @@
  */
 
 /* Append here */
+export * from './Hint'
 export * from './PasswordInput'
 export * from './FormErrorList'
 export * from './TableOfContents'

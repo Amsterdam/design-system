@@ -11,11 +11,11 @@
   font-weight: var(--ams-link-font-weight);
   outline-offset: var(--ams-link-outline-offset);
 
+  @include text-rendering;
+
   &:hover {
     color: var(--ams-link-hover-color);
   }
-
-  @include text-rendering;
 }
 
 .ams-link--standalone {
