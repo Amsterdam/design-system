@@ -6,9 +6,7 @@
 @import "../../common/breakpoint";
 @import "mixins";
 
-$ams-grid-column-count: 4;
-$ams-grid-column-count-medium: 8;
-$ams-grid-column-count-wide: 12;
+$ams-grid-column-count: 12;
 
 .ams-grid {
   @include ams-grid;
@@ -84,7 +82,7 @@ $ams-grid-column-count-wide: 12;
 }
 
 @media screen and (min-width: $ams-breakpoint-medium) {
-  @for $i from 1 through $ams-grid-column-count-medium {
+  @for $i from 1 through $ams-grid-column-count {
     .ams-grid__cell--span-#{$i}-medium {
       @include ams-grid__cell--span-medium($i);
     }
@@ -96,7 +94,7 @@ $ams-grid-column-count-wide: 12;
 }
 
 @media screen and (min-width: $ams-breakpoint-wide) {
-  @for $i from 1 through $ams-grid-column-count-wide {
+  @for $i from 1 through $ams-grid-column-count {
     .ams-grid__cell--span-#{$i}-wide {
       @include ams-grid__cell--span-wide($i);
     }
