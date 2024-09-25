@@ -150,7 +150,7 @@ export const InAFieldSetWithValidation: Story = {
   ),
 }
 
-export const CustomIcons: Story = {
+export const WithCustomIcon: Story = {
   args: {
     icon: <CustomIcon />,
   },
