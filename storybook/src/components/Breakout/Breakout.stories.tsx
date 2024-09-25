@@ -6,9 +6,6 @@
 import { Breakout } from '@amsterdam/design-system-react/src'
 import { AspectRatio, Image, Paragraph, Screen, Spotlight } from '@amsterdam/design-system-react'
 import { Meta, StoryObj } from '@storybook/react'
-import { exampleParagraph } from '../shared/exampleContent'
-
-const paragraph = exampleParagraph()
 
 const meta = {
   title: 'Components/Layout/Breakout',
@@ -68,7 +65,9 @@ export const Default: Story = {
         colStart={1}
         rowStart={{ medium: 3, narrow: 3, wide: 2 }}
       >
-        <Paragraph inverseColor>{paragraph}</Paragraph>
+        <Paragraph inverseColor>
+          Het doel van deze club is om ervoor te zorgen dat de Zuidas steeds duurzamer wordt.
+        </Paragraph>
       </Breakout.Cell>,
       <Breakout.Cell
         colSpan={{ medium: 8, narrow: 4, wide: 6 }}
@@ -101,7 +100,12 @@ export const MediaOnTop: Story = {
         colStart={{ medium: 2, narrow: 1, wide: 3 }}
         rowStart={3}
       >
-        <Paragraph inverseColor>{paragraph}</Paragraph>
+        <Paragraph className="ams-mb--sm" inverseColor>
+          Vertel ons in het evenementenformulier wat u wilt gaan doen. U checkt daarmee of u een vergunning nodig hebt.
+        </Paragraph>
+        <Paragraph inverseColor>
+          Daarna vraagt u de vergunning aan in hetzelfde formulier. Of doet u een gratis melding of vooraankondiging.
+        </Paragraph>
       </Breakout.Cell>,
     ],
   },
