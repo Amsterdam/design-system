@@ -3,7 +3,8 @@
  * Copyright Gemeente Amsterdam
  */
 
-import { AspectRatio, Breakout, Image, Paragraph, Screen, Spotlight } from '@amsterdam/design-system-react/src'
+import { Breakout } from '@amsterdam/design-system-react/src'
+import { AspectRatio, Image, Paragraph, Screen, Spotlight } from '@amsterdam/design-system-react'
 import { Meta, StoryObj } from '@storybook/react'
 import { exampleParagraph } from '../shared/exampleContent'
 
