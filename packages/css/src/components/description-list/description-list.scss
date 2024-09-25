@@ -20,12 +20,12 @@
   gap: var(--ams-description-list-gap);
   line-height: var(--ams-description-list-line-height);
 
+  @include reset;
+  @include text-rendering;
+
   @media screen and (min-width: $ams-breakpoint-medium) {
     grid-template-columns: 1fr 2fr;
   }
-
-  @include reset;
-  @include text-rendering;
 }
 
 .ams-description-list--inverse-color {
@@ -46,10 +46,10 @@
   font-weight: var(--ams-description-list-details-font-weight);
   padding-inline-start: var(--ams-description-list-details-padding-inline-start);
 
+  @include reset-details;
+
   @media screen and (min-width: $ams-breakpoint-medium) {
     grid-column-start: 2;
     padding-inline-start: 0;
   }
-
-  @include reset-details;
 }

@@ -45,6 +45,8 @@
   line-height: var(--ams-radio-line-height);
   outline-offset: var(--ams-radio-outline-offset);
 
+  @include text-rendering;
+
   &:hover {
     color: var(--ams-radio-hover-color);
     text-decoration-line: underline;
@@ -55,8 +57,6 @@
       border-color: var(--ams-radio-circle-hover-border-color);
     }
   }
-
-  @include text-rendering;
 }
 
 // Default checked
