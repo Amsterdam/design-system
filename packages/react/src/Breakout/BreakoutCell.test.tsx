@@ -77,7 +77,7 @@ describe('Breakout cell', () => {
     expect(component).toHaveClass('ams-breakout__cell--col-start-6')
   })
 
-  it('renders class names for a single number for colSpan and array values for colStart', () => {
+  it('renders class names for a single number for colSpan and an object for colStart', () => {
     const { container } = render(<Breakout.Cell colSpan={8} colStart={{ narrow: 2, medium: 4, wide: 6 }} />)
 
     const component = container.querySelector(':only-child')
@@ -87,7 +87,7 @@ describe('Breakout cell', () => {
     )
   })
 
-  it('renders class names for array values for colSpan and a single number for colStart', () => {
+  it('renders class names for an object for colSpan and a single number for colStart', () => {
     const { container } = render(<Breakout.Cell colSpan={{ narrow: 3, medium: 5, wide: 7 }} colStart={2} />)
 
     const component = container.querySelector(':only-child')
@@ -97,7 +97,7 @@ describe('Breakout cell', () => {
     )
   })
 
-  it('renders class names for array values for both colSpan and colStart', () => {
+  it('renders class names for an object for both colSpan and colStart', () => {
     const { container } = render(
       <Breakout.Cell colSpan={{ medium: 4, narrow: 2, wide: 6 }} colStart={{ medium: 3, narrow: 1, wide: 5 }} />,
     )
@@ -141,7 +141,7 @@ describe('Breakout cell', () => {
     expect(component).toHaveClass('ams-breakout__cell--row-span-2')
   })
 
-  it('renders class names for a single number for rowSpan and array values for rowStart', () => {
+  it('renders class names for a single number for rowSpan and an object for rowStart', () => {
     const { container } = render(<Breakout.Cell rowSpan={3} rowStart={{ narrow: 1, medium: 2, wide: 3 }} />)
 
     const component = container.querySelector(':only-child')
@@ -151,7 +151,7 @@ describe('Breakout cell', () => {
     )
   })
 
-  it('renders class names for array values for rowSpan and a single number for rowStart', () => {
+  it('renders class names for an object for rowSpan and a single number for rowStart', () => {
     const { container } = render(<Breakout.Cell rowSpan={{ narrow: 2, medium: 3, wide: 4 }} rowStart={1} />)
 
     const component = container.querySelector(':only-child')
@@ -161,7 +161,7 @@ describe('Breakout cell', () => {
     )
   })
 
-  it('renders class names for array values for both rowSpan and rowStart', () => {
+  it('renders class names for an object for both rowSpan and rowStart', () => {
     const { container } = render(
       <Breakout.Cell rowSpan={{ medium: 3, narrow: 2, wide: 4 }} rowStart={{ medium: 2, narrow: 1, wide: 3 }} />,
     )
