@@ -16,6 +16,9 @@ Ensure that the text is short, or the image tall, to prevent losing the break-ou
 This component is an extension of `Grid`, so it offers the same props.
 Additionally, `Breakout` allows cells to span multiple columns, and a cell to expand to cover its adjacent gaps and margins.
 
+The Breakout’s Cell that contains the Spotlight must use the `coverGap` prop to extend to the gaps and margins around it.
+This prop can be used only on Cells that span all columns of the grid, so `span="all"` is required as well.
+
 <Primary />
 
 <Controls />
@@ -27,10 +30,3 @@ Additionally, `Breakout` allows cells to span multiple columns, and a cell to ex
 Large content, such as a map or a big image, can be placed at the top of the Spotlight, with related text positioned underneath.
 
 <Canvas of={BreakoutStories.MediaOnTop} />
-
-### Covering gaps
-
-The Breakout’s Cell that contains the Spotlight must use the `coverGap` prop to extend to the gaps and margins around it.
-This prop can be used only on Cells that span all columns of the grid, so `span="all"` is required as well.
-
-<Canvas of={BreakoutStories.CoverGap} />
