@@ -15,6 +15,9 @@ const meta = {
     className: 'ams-docs-grid',
   },
   argTypes: {
+    className: {
+      table: { disable: true },
+    },
     gapVertical: {
       control: {
         type: 'radio',

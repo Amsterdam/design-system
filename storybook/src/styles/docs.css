@@ -1,6 +1,7 @@
 :root {
   --ams-docs-grey: rgb(0 0 0 / 6.25%);
   --ams-docs-pink: rgb(229 0 130 / 25%);
+  --ams-docs-lightblue: rgb(0 130 229 / 25%);
 }
 
 .ams-docs-figure {
@@ -95,10 +96,12 @@
   font-family: "Amsterdam Sans", sans-serif;
   font-size: var(--ams-paragraph-small-font-size);
   line-height: var(--ams-paragraph-small-line-height);
-  margin-block: 0;
-  margin-inline: 0;
   padding-block: 1.5rem;
   text-align: center;
+}
+
+.ams-docs-item--highlight {
+  background-color: var(--ams-docs-lightblue);
 }
 
 .ams-docs-row > .ams-docs-item {

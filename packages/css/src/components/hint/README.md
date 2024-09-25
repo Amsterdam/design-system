@@ -2,7 +2,7 @@
 
 # Hint
 
-Shows a hint text. Only used internally by Label and Field Set. 
+Shows a hint text. Only used internally by Label and Field Set.
 
 ## Class name
 
