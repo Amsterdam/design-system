@@ -11,6 +11,7 @@ import type { GridProps } from '../Grid'
 import { paddingClasses } from '../Grid/paddingClasses'
 
 export type BreakoutRowNumber = 1 | 2 | 3 | 4
+export type BreakoutRowNumbers = { narrow: BreakoutRowNumber; medium: BreakoutRowNumber; wide: BreakoutRowNumber }
 
 export type BreakoutProps = GridProps
 
