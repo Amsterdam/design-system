@@ -64,12 +64,12 @@ $ams-grid-column-count: 12;
   @include ams-grid--padding-vertical--large;
 }
 
+// Column span
+// The order of these declaration blocks ensures the intended specificity.
+
 .ams-grid__cell--span-all {
   @include ams-grid__cell--span-all;
 }
-
-// Column span
-// The order of these declaration blocks ensures the intended specificity.
 
 @for $i from 1 through $ams-grid-column-count {
   .ams-grid__cell--span-#{$i} {

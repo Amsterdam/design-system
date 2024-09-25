@@ -10,19 +10,21 @@ import { breakoutCellClasses } from './breakoutCellClasses'
 import type { GridColumnNumber, GridColumnNumbers } from '../Grid/Grid'
 
 type BreakoutCellSpanAllProp = {
-  /** Expand the cell horizontally and vertically to cover its adjacent gaps and margins. */
-  coverGap?: boolean
   /** Lets the cell span the full width of all grid variants. */
   colSpan: 'all'
   colStart?: never
+  /** The content of this cell.
+   * The Cell containing the Spotlight expands horizontally and vertically to cover the adjacent gaps and margins.
+   * The Cell containing the Image aligns itself to the bottom of the row, in case it is less tall than the text. */
+  has?: 'spotlight'
 }
 
 type BreakoutCellSpanAndStartProps = {
   /** The amount of grid columns the cell spans. */
-  colSpan?: GridColumnNumber | GridColumnNumbers
+  colSpan?: 'all' | GridColumnNumber | GridColumnNumbers
   /** The index of the grid column the cell starts at. */
   colStart?: GridColumnNumber | GridColumnNumbers
-  coverGap?: never
+  has?: 'figure'
 }
 
 type BreakoutCellRowSpanAndStartProps = {
@@ -47,7 +49,7 @@ export const BreakoutCell = forwardRef(
       className,
       colSpan,
       colStart,
-      coverGap,
+      has,
       rowSpan,
       rowStart,
       ...restProps
@@ -59,8 +61,8 @@ export const BreakoutCell = forwardRef(
       ref={ref}
       className={clsx(
         'ams-breakout__cell',
-        coverGap && 'ams-breakout__cell--cover-gap',
         breakoutCellClasses(colSpan, colStart, rowSpan, rowStart),
+        has && `ams-breakout__cell--has-${has}`,
         className,
       )}
     >

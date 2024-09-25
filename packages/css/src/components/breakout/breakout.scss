@@ -65,12 +65,12 @@ $ams-breakout-row-span-max: 4;
   @include ams-grid--padding-vertical--large;
 }
 
+// Column span
+// The order of these declaration blocks ensures the intended specificity.
+
 .ams-breakout__cell--col-span-all {
   @include ams-grid__cell--span-all;
 }
-
-// Column span
-// The order of these declaration blocks ensures the intended specificity.
 
 @for $i from 1 through $ams-grid-column-count {
   .ams-breakout__cell--col-span-#{$i} {
@@ -103,6 +103,26 @@ $ams-breakout-row-span-max: 4;
     .ams-breakout__cell--col-start-#{$i}-wide {
       @include ams-grid__cell--start-wide($i);
     }
+  }
+}
+
+// Has content
+
+.ams-breakout__cell--has-figure {
+  align-self: end;
+}
+
+.ams-breakout__cell--has-spotlight {
+  display: grid; /* Stretches the empty Spotlight vertically. */
+  margin-block: calc(var(--ams-space-grid-md) * -1);
+  margin-inline: calc(var(--ams-space-grid-lg) * -1);
+
+  .ams-breakout--gap-vertical--small > & {
+    margin-block: calc(var(--ams-space-grid-sm) * -1);
+  }
+
+  .ams-breakout--gap-vertical--large > & {
+    margin-block: calc(var(--ams-space-grid-lg) * -1);
   }
 }
 
@@ -139,20 +159,5 @@ $ams-breakout-row-span-max: 4;
     .ams-breakout__cell--row-start-#{$i}-wide {
       grid-row-start: $i;
     }
-  }
-}
-
-// Cover gap
-
-.ams-breakout__cell--cover-gap {
-  margin-block: calc(var(--ams-space-grid-md) * -1);
-  margin-inline: calc(var(--ams-space-grid-lg) * -1);
-
-  .ams-breakout--gap-vertical--small > & {
-    margin-block: calc(var(--ams-space-grid-sm) * -1);
-  }
-
-  .ams-breakout--gap-vertical--large > & {
-    margin-block: calc(var(--ams-space-grid-lg) * -1);
   }
 }

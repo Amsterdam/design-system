@@ -174,12 +174,20 @@ describe('Breakout cell', () => {
   })
 })
 
-it('renders the correct class for the `coverGap` prop', () => {
-  const { container } = render(<Breakout.Cell colSpan="all" coverGap />)
+it(`renders the correct class if it has a Figure`, () => {
+  const { container } = render(<Breakout.Cell has="figure" />)
 
   const component = container.querySelector(':only-child')
 
-  expect(component).toHaveClass('ams-breakout__cell--cover-gap')
+  expect(component).toHaveClass(`ams-breakout__cell--has-figure`)
+})
+
+it(`renders the correct class if it has a Spotlight`, () => {
+  const { container } = render(<Breakout.Cell colSpan="all" has="spotlight" />)
+
+  const component = container.querySelector(':only-child')
+
+  expect(component).toHaveClass(`ams-breakout__cell--has-spotlight`)
 })
 
 it('renders a custom tag', () => {

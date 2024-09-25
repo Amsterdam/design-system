@@ -26,8 +26,8 @@ type Story = StoryObj<typeof meta>
 export const Default: Story = {
   args: {
     children: [
-      <Breakout.Cell colSpan="all" coverGap rowSpan={{ medium: 2, narrow: 2, wide: 1 }} rowStart={2}>
-        <Spotlight style={{ height: '100%' }} />
+      <Breakout.Cell colSpan="all" has="spotlight" rowSpan={{ medium: 2, narrow: 2, wide: 1 }} rowStart={2}>
+        <Spotlight />
       </Breakout.Cell>,
       <Breakout.Cell
         colSpan={{ medium: 8, narrow: 4, wide: 6 }}
@@ -41,9 +41,9 @@ export const Default: Story = {
       <Breakout.Cell
         colSpan={{ medium: 8, narrow: 4, wide: 6 }}
         colStart={{ medium: 1, narrow: 1, wide: 7 }}
+        has="figure"
         rowSpan={2}
         rowStart={1}
-        style={{ alignSelf: 'end' }}
       >
         <AspectRatio ratio="square">
           <Image alt="" src="https://picsum.photos/960/960" />
@@ -53,16 +53,16 @@ export const Default: Story = {
   },
 }
 
-export const MediaOnTop: Story = {
+export const VerticalLayout: Story = {
   args: {
     children: [
-      <Breakout.Cell colSpan="all" rowSpan={2} rowStart={1}>
+      <Breakout.Cell colSpan="all" has="figure" rowSpan={2} rowStart={1}>
         <AspectRatio ratio="x-wide">
           <Image alt="" src="https://picsum.photos/1600/900" />
         </AspectRatio>
       </Breakout.Cell>,
-      <Breakout.Cell colSpan="all" coverGap rowSpan={2} rowStart={2}>
-        <Spotlight style={{ height: '100%' }} />
+      <Breakout.Cell colSpan="all" has="spotlight" rowSpan={2} rowStart={2}>
+        <Spotlight />
       </Breakout.Cell>,
       <Breakout.Cell
         colSpan={{ medium: 6, narrow: 4, wide: 8 }}
