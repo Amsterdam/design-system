@@ -7,11 +7,9 @@ import clsx from 'clsx'
 import { forwardRef } from 'react'
 import type { ForwardedRef } from 'react'
 import { BreakoutCell } from './BreakoutCell'
-import type { GridColumnNumber, GridPaddingSize, GridProps } from '../Grid/Grid'
+import type { GridProps } from '../Grid'
 import { paddingClasses } from '../Grid/paddingClasses'
 
-export type BreakoutColumnNumber = GridColumnNumber
-export type BreakoutPaddingSize = GridPaddingSize
 export type BreakoutRowNumber = 1 | 2 | 3 | 4
 
 export type BreakoutProps = GridProps

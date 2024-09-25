@@ -1,7 +1,7 @@
 import { render } from '@testing-library/react'
 import { createRef } from 'react'
 import { Breakout } from './Breakout'
-import type { BreakoutPaddingSize } from './Breakout'
+import type { GridPaddingSize } from '../Grid/Grid'
 import '@testing-library/jest-dom'
 
 const paddingSizes = ['small', 'medium', 'large']
@@ -58,7 +58,7 @@ describe('Breakout', () => {
 
   paddingSizes.forEach((size) => {
     it(`renders the correct class name for a ${size} bottom padding`, () => {
-      const { container } = render(<Breakout paddingBottom={size as BreakoutPaddingSize} />)
+      const { container } = render(<Breakout paddingBottom={size as GridPaddingSize} />)
 
       const component = container.querySelector(':only-child')
 
@@ -68,7 +68,7 @@ describe('Breakout', () => {
 
   paddingSizes.forEach((size) => {
     it(`renders the correct class name for a ${size} top padding`, () => {
-      const { container } = render(<Breakout paddingTop={size as BreakoutPaddingSize} />)
+      const { container } = render(<Breakout paddingTop={size as GridPaddingSize} />)
 
       const component = container.querySelector(':only-child')
 
@@ -78,7 +78,7 @@ describe('Breakout', () => {
 
   paddingSizes.forEach((size) => {
     it(`renders the correct class name for a ${size} vertical padding`, () => {
-      const { container } = render(<Breakout paddingVertical={size as BreakoutPaddingSize} />)
+      const { container } = render(<Breakout paddingVertical={size as GridPaddingSize} />)
 
       const component = container.querySelector(':only-child')
 

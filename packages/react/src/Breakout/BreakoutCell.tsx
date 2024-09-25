@@ -5,9 +5,9 @@
 import clsx from 'clsx'
 import { forwardRef } from 'react'
 import type { HTMLAttributes, PropsWithChildren } from 'react'
-import type { BreakoutColumnNumber, BreakoutRowNumber } from './Breakout'
+import type { BreakoutRowNumber } from './Breakout'
 import { breakoutCellClasses } from './breakoutCellClasses'
-import type { ResponsiveGridValues } from '../Grid'
+import type { GridColumnNumber, ResponsiveGridValues } from '../Grid'
 
 type BreakoutCellSpanAllProp = {
   /** Expand the cell horizontally and vertically to cover its adjacent gaps and margins. */
@@ -19,9 +19,9 @@ type BreakoutCellSpanAllProp = {
 
 type BreakoutCellSpanAndStartProps = {
   /** The amount of grid columns the cell spans. */
-  colSpan?: ResponsiveGridValues<BreakoutColumnNumber>
+  colSpan?: ResponsiveGridValues<GridColumnNumber>
   /** The index of the grid column the cell starts at. */
-  colStart?: ResponsiveGridValues<BreakoutColumnNumber>
+  colStart?: ResponsiveGridValues<GridColumnNumber>
   coverGap?: never
 }
 
