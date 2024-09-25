@@ -73,7 +73,7 @@ describe('Grid cell', () => {
     expect(component).toHaveClass('ams-grid__cell--start-6')
   })
 
-  it('renders class names for a single number for span and array values for start', () => {
+  it('renders class names for a single number for span and an object for start', () => {
     const { container } = render(<Grid.Cell span={8} start={{ narrow: 2, medium: 4, wide: 6 }} />)
 
     const component = container.querySelector(':only-child')
@@ -83,7 +83,7 @@ describe('Grid cell', () => {
     )
   })
 
-  it('renders class names for array values for span and a single number for start', () => {
+  it('renders class names for an object for span and a single number for start', () => {
     const { container } = render(<Grid.Cell span={{ narrow: 3, medium: 5, wide: 7 }} start={2} />)
 
     const component = container.querySelector(':only-child')
@@ -93,7 +93,7 @@ describe('Grid cell', () => {
     )
   })
 
-  it('renders class names for array values for both start and span', () => {
+  it('renders class names for an object for both start and span', () => {
     const { container } = render(
       <Grid.Cell span={{ narrow: 2, medium: 4, wide: 6 }} start={{ narrow: 1, medium: 3, wide: 5 }} />,
     )
