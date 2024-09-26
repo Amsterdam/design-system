@@ -47,6 +47,9 @@ const meta = {
       options: [undefined, 'small', 'medium', 'large'],
     },
   },
+  parameters: {
+    layout: 'fullscreen',
+  },
 } satisfies Meta<typeof Grid>
 
 export default meta
@@ -70,10 +73,19 @@ const cellMeta = {
 type Story = StoryObj<typeof meta>
 type CellStory = StoryObj<typeof cellMeta>
 
+const BackgroundGrid = () => (
+  <Grid className="ams-docs-grid">
+    {Array.from(Array(12).keys()).map((i) => (
+      <Grid.Cell className="ams-docs-grid__cell" key={i} />
+    ))}
+  </Grid>
+)
+
 const StoryTemplate: Story = {
   decorators: [
     (Story) => (
       <Screen>
+        <BackgroundGrid />
         <Story />
       </Screen>
     ),
@@ -84,6 +96,7 @@ const CellStoryTemplate: CellStory = {
   decorators: [
     (Story) => (
       <Screen>
+        <BackgroundGrid />
         <Grid>
           <Story />
         </Grid>
