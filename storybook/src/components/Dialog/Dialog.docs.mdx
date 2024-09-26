@@ -26,9 +26,9 @@ To close the Dialog, use either `Dialog.close`, or a `<form>` as in the followin
 Use a `<form>` when asking to confirm an action, e.g. through ‘OK’ and ‘Cancel’ buttons.
 Add `method="dialog"` to let the browser close the Dialog automatically when the form is submitted.
 
-Wrap one or more buttons in an [Action Group](?path=/docs/components-buttons-action-group--docs) and place it in the `footer`.
+Wrap the buttons in an [Action Group](?path=/docs/components-buttons-action-group--docs) and place it in the `footer`.
 This ensures correct whitespace and scrolling behaviour.
-At the same time, it positions the buttons outside the `form` element.
+At the same time, this will position the buttons outside the `form` element.
 Create an `id` for the form and add it to the submit Button’s `form` attribute to connect the two.
 
 If the Action Group needs to live inside of the `form`, add a medium bottom margin (`ams-mb--md`) to the element before it and make scrolling work correctly.
