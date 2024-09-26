@@ -98,7 +98,7 @@ const CellStoryTemplate: CellStory = {
     (Story) => (
       <Screen>
         <BackgroundGrid />
-        <Grid>
+        <Grid paddingVertical="medium">
           <Story />
         </Grid>
       </Screen>
