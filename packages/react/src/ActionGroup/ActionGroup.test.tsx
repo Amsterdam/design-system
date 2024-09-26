@@ -3,7 +3,7 @@ import { createRef } from 'react'
 import { ActionGroup } from './ActionGroup'
 import '@testing-library/jest-dom'
 
-describe('Action group', () => {
+describe('Action Group', () => {
   it('renders', () => {
     const { container } = render(<ActionGroup />)
 

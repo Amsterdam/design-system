@@ -1,6 +1,6 @@
 {/* @license CC0-1.0 */}
 
-import { Controls, Markdown, Meta, Primary } from "@storybook/blocks";
+import { Canvas, Markdown, Meta, Primary } from "@storybook/blocks";
 import * as ActionGroupStories from "./ActionGroup.stories.tsx";
 import README from "../../../../packages/css/src/components/action-group/README.md?raw";
 
@@ -10,4 +10,12 @@ import README from "../../../../packages/css/src/components/action-group/README.
 
 <Primary />
 
-<Controls />
+## Examples
+
+### Stacked
+
+If the Buttons don’t fit next to each other, they will automatically stack vertically and stretch to the full width.
+This can occur in a narrow Dialog, with long labels, a large text size, or when zooming in.
+Resize the pink rectangle to see this in action.
+
+<Canvas of={ActionGroupStories.Stacked} />

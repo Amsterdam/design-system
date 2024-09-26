@@ -4,5 +4,11 @@
  */
 
 .ams-action-group {
-  /* Add styles here */
+  display: inline-flex;
+  flex-wrap: wrap;
+  gap: var(--ams-dialog-action-group-gap);
+
+  > * {
+    flex: auto;
+  }
 }
