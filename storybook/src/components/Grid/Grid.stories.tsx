@@ -12,7 +12,8 @@ const meta = {
   title: 'Components/Layout/Grid',
   component: Grid,
   args: {
-    className: 'ams-docs-grid',
+    gapVertical: undefined /* Keeps this prop at the top of the Controls table. */,
+    paddingVertical: 'medium',
   },
   argTypes: {
     className: {
@@ -47,6 +48,9 @@ const meta = {
       options: [undefined, 'small', 'medium', 'large'],
     },
   },
+  parameters: {
+    layout: 'fullscreen',
+  },
 } satisfies Meta<typeof Grid>
 
 export default meta
@@ -70,10 +74,19 @@ const cellMeta = {
 type Story = StoryObj<typeof meta>
 type CellStory = StoryObj<typeof cellMeta>
 
+const BackgroundGrid = () => (
+  <Grid className="ams-docs-grid">
+    {Array.from(Array(12).keys()).map((i) => (
+      <Grid.Cell className="ams-docs-grid__cell" key={i} />
+    ))}
+  </Grid>
+)
+
 const StoryTemplate: Story = {
   decorators: [
     (Story) => (
       <Screen>
+        <BackgroundGrid />
         <Story />
       </Screen>
     ),
@@ -84,6 +97,7 @@ const CellStoryTemplate: CellStory = {
   decorators: [
     (Story) => (
       <Screen>
+        <BackgroundGrid />
         <Grid>
           <Story />
         </Grid>
@@ -93,32 +107,29 @@ const CellStoryTemplate: CellStory = {
   render: ({ children, ...args }) => <Grid.Cell {...args}>{children}</Grid.Cell>,
 }
 
-const TwelveGridCells = Array.from(Array(12).keys()).map((i) => <Grid.Cell className="ams-docs-item" key={i} />)
-
 export const Default: Story = {
   ...StoryTemplate,
-  args: {
-    children: TwelveGridCells,
-  },
 }
 
-export const VerticalSpace: Story = {
+export const VerticalPadding: Story = {
   ...StoryTemplate,
   args: {
-    children: TwelveGridCells,
-    paddingVertical: 'medium',
+    children: <Grid.Cell className="ams-docs-item" span="all" />,
   },
 }
 
 export const VerticalGap: Story = {
   ...StoryTemplate,
   args: {
-    children: Array.from(Array(6).keys()).map((i) => <Grid.Cell className="ams-docs-item" span={4} key={i} />),
+    children: [
+      <Grid.Cell className="ams-docs-item" span="all" key={1} />,
+      <Grid.Cell className="ams-docs-item" span="all" key={2} />,
+    ],
     gapVertical: 'small',
   },
 }
 
-export const SpanMultipleColumns: CellStory = {
+export const SpanColumns: CellStory = {
   ...CellStoryTemplate,
   args: {
     children: <div className="ams-docs-item" />,
@@ -126,7 +137,7 @@ export const SpanMultipleColumns: CellStory = {
   },
 }
 
-export const ConfigureGridVariants: CellStory = {
+export const SpanResponsively: CellStory = {
   ...CellStoryTemplate,
   args: {
     children: <div className="ams-docs-item" />,
@@ -147,7 +158,7 @@ export const StartPosition: CellStory = {
   args: {
     children: <div className="ams-docs-item" />,
     span: 3,
-    start: 2,
+    start: { narrow: 2, medium: 4, wide: 6 },
   },
 }
 
