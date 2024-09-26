@@ -41,15 +41,3 @@ so do not apply these styles without an `open` attribute. */
   overflow-y: auto;
   overscroll-behavior-y: contain;
 }
-
-.ams-dialog__action-group {
-  display: inline-flex;
-  flex-wrap: wrap; // [1]
-  gap: var(--ams-dialog-action-group-gap);
-
-  > * {
-    flex: auto; // [1]
-  }
-}
-
-// [1] This combination stacks the buttons vertically and stretches them, until they fit next to each other.

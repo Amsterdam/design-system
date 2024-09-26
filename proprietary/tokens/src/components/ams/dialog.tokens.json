@@ -11,9 +11,6 @@
       "padding-inline": { "value": "{ams.space.grid.lg}" },
       "header": {
         "gap": { "value": "{ams.space.md}" }
-      },
-      "action-group": {
-        "gap": { "value": "{ams.space.md}" }
       }
     }
   }

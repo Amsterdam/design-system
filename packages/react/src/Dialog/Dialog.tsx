@@ -8,7 +8,6 @@ import { forwardRef, MouseEvent } from 'react'
 import type { DialogHTMLAttributes, ForwardedRef, PropsWithChildren, ReactNode } from 'react'
 import { Heading } from '../Heading'
 import { IconButton } from '../IconButton'
-import { DialogActionGroup } from './DialogActionGroup'
 
 export type DialogProps = {
   /** The label for the button that dismisses the Dialog. */
@@ -41,7 +40,6 @@ const DialogRoot = forwardRef(
 DialogRoot.displayName = 'Dialog'
 
 export const Dialog = Object.assign(DialogRoot, {
-  ActionGroup: DialogActionGroup,
   close: closeDialog,
   open: openDialog,
 })

@@ -26,7 +26,7 @@ To close the Dialog, use either `Dialog.close`, or a `<form>` as in the followin
 Use a `<form>` when asking to confirm an action, e.g. through ‘OK’ and ‘Cancel’ buttons.
 Add `method="dialog"` to let the browser close the Dialog automatically when the form is submitted.
 
-Wrap one or more buttons in an Action Group and place it in the `footer`.
+Wrap one or more buttons in an [Action Group](?path=/docs/components-buttons-action-group--docs) and place it in the `footer`.
 This ensures correct whitespace and scrolling behaviour.
 At the same time, it positions the buttons outside the `form` element.
 Create an `id` for the form and add it to the submit Button’s `form` attribute to connect the two.
@@ -43,10 +43,3 @@ For more information, see [Handling the return value from the dialog (MDN)](http
 Content that doesn’t fit entirely in the Dialog will scroll.
 
 <Canvas of={DialogStories.WithScrollbar} />
-
-### Vertically stacked Buttons
-
-If the Buttons don’t fit next to each other, they will stack vertically and stretch to the full width.
-This can occur with a narrow Dialog, long Button labels, a large text size, or when zooming in.
-
-<Canvas of={DialogStories.VerticalButtons} />

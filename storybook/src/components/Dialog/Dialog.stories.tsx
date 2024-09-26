@@ -3,7 +3,7 @@
  * Copyright Gemeente Amsterdam
  */
 
-import { Button, Column, Heading, Paragraph } from '@amsterdam/design-system-react'
+import { ActionGroup, Button, Column, Heading, Paragraph } from '@amsterdam/design-system-react'
 import { Dialog } from '@amsterdam/design-system-react/src'
 import { Meta, StoryObj } from '@storybook/react'
 
@@ -17,14 +17,14 @@ const defaultChildren = (formId: string) => (
 )
 
 const defaultFooter = (formId: string) => (
-  <Dialog.ActionGroup>
+  <ActionGroup>
     <Button form={formId} type="submit" value="submit">
       Doorgaan
     </Button>
     <Button onClick={Dialog.close} variant="tertiary">
       Stoppen
     </Button>
-  </Dialog.ActionGroup>
+  </ActionGroup>
 )
 
 const meta = {
@@ -56,11 +56,11 @@ export const Default: Story = {
   args: {
     children: <Paragraph>De gegevens zijn opgeslagen.</Paragraph>,
     footer: (
-      <Dialog.ActionGroup>
+      <ActionGroup>
         <Button onClick={Dialog.close} variant="primary">
           Sluiten
         </Button>
-      </Dialog.ActionGroup>
+      </ActionGroup>
     ),
     heading: 'Gelukt',
     open: true,
@@ -152,9 +152,9 @@ export const WithScrollbar: Story = {
       </Column>
     ),
     footer: (
-      <Dialog.ActionGroup>
+      <ActionGroup>
         <Button onClick={Dialog.close}>Sluiten</Button>
-      </Dialog.ActionGroup>
+      </ActionGroup>
     ),
     heading: 'Privacyverklaring gemeente Amsterdam',
     open: true,
@@ -169,36 +169,6 @@ export const WithScrollbar: Story = {
   parameters: {
     docs: {
       story: { height: '100vh' },
-    },
-    layout: 'fullscreen',
-  },
-}
-
-export const VerticalButtons: Story = {
-  args: {
-    children: defaultChildren('ams-dialog-vertical-buttons-form'),
-    footer: (
-      <Dialog.ActionGroup>
-        <Button form="ams-dialog-vertical-buttons-form" type="submit" value="submit">
-          Lange teksten op deze knoppen
-        </Button>
-        <Button onClick={Dialog.close} variant="tertiary">
-          Om verticaal stapelen te demonstreren
-        </Button>
-      </Dialog.ActionGroup>
-    ),
-    open: true,
-  },
-  decorators: [
-    (Story) => (
-      <div className="ams-docs-backdrop">
-        <Story />
-      </div>
-    ),
-  ],
-  parameters: {
-    docs: {
-      story: { height: '36rem' },
     },
     layout: 'fullscreen',
   },
