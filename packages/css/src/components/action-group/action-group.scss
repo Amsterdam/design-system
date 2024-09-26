@@ -4,6 +4,7 @@
  */
 
 .ams-action-group {
+  align-items: baseline;
   display: inline-flex;
   flex-wrap: wrap;
   gap: var(--ams-action-group-gap);
