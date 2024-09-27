@@ -1,30 +1,30 @@
-import { render } from '@testing-library/react'
+import { render, screen } from '@testing-library/react'
 import { createRef } from 'react'
 import { ActionGroup } from './ActionGroup'
 import '@testing-library/jest-dom'
 
 describe('Action Group', () => {
   it('renders', () => {
-    const { container } = render(<ActionGroup />)
+    render(<ActionGroup />)
 
-    const component = container.querySelector(':only-child')
+    const component = screen.getByRole('group')
 
     expect(component).toBeInTheDocument()
     expect(component).toBeVisible()
   })
 
   it('renders a design system BEM class name', () => {
-    const { container } = render(<ActionGroup />)
+    render(<ActionGroup />)
 
-    const component = container.querySelector(':only-child')
+    const component = screen.getByRole('group')
 
     expect(component).toHaveClass('ams-action-group')
   })
 
   it('renders an additional class name', () => {
-    const { container } = render(<ActionGroup className="extra" />)
+    render(<ActionGroup className="extra" />)
 
-    const component = container.querySelector(':only-child')
+    const component = screen.getByRole('group')
 
     expect(component).toHaveClass('ams-action-group extra')
   })
@@ -32,9 +32,9 @@ describe('Action Group', () => {
   it('supports ForwardRef in React', () => {
     const ref = createRef<HTMLDivElement>()
 
-    const { container } = render(<ActionGroup ref={ref} />)
+    render(<ActionGroup ref={ref} />)
 
-    const component = container.querySelector(':only-child')
+    const component = screen.getByRole('group')
 
     expect(ref.current).toBe(component)
   })

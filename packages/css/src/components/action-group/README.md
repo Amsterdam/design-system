@@ -11,3 +11,4 @@ Groups one or more related actions and manages their layout.
 - Sighted users will read the primary action first, in line with the natural reading order.
   The same goes for users of screen readers, who will hear the primary action first, and users of a keyboard, who will focus the primary action first.
 - Also, this approach keeps the order of buttons consistent on both narrow and wide screens: if the buttons do not fit next to each other, they get stacked vertically with the primary action on top.
+- Replace the default ’group’ role with `role="toolbar"` for button toolbars.
