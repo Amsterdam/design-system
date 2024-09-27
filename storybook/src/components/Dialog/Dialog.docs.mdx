@@ -31,7 +31,9 @@ This ensures correct whitespace and scrolling behaviour.
 At the same time, this will position the buttons outside the `form` element.
 Create an `id` for the form and add it to the submit Button’s `form` attribute to connect the two.
 
-If the Action Group needs to live inside of the `form`, add a medium bottom margin (`ams-mb--md`) to the element before it and make scrolling work correctly.
+If the Action Group must be in the `form`, implement the whitespace and scrolling behaviour as well.
+Add a medium bottom margin (`ams-mb--md`) to the element before it.
+Make sure the content of the form scrolls if necessary, while the Action Group is visible at the bottom at all times.
 
 The form returns the `value` of the submit Button, which allows inferring which Button the user clicked.
 For more information, see [Handling the return value from the dialog (MDN)](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/dialog#handling_the_return_value_from_the_dialog).
