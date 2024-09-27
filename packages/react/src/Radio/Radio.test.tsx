@@ -1,3 +1,4 @@
+import { FavouriteIcon } from '@amsterdam/design-system-react-icons'
 import { render, screen } from '@testing-library/react'
 import { createRef } from 'react'
 import { Radio } from './Radio'
@@ -19,16 +20,20 @@ describe('Radio', () => {
     expect(label).toBeVisible()
   })
 
-  it('renders a design system BEM class name', () => {
+  it('renders design system BEM class names', () => {
     const { container } = render(<Radio />)
 
     const wrapper = container.querySelector(':only-child')
     const input = screen.getByRole('radio')
     const label = container.querySelector('label')
+    const circle = container.querySelector('.ams-radio__circle')
+    const indicator = container.querySelector('.ams-radio__checked-indicator')
 
     expect(wrapper).toHaveClass('ams-radio')
     expect(input).toHaveClass('ams-radio__input')
     expect(label).toHaveClass('ams-radio__label')
+    expect(circle).toBeInTheDocument()
+    expect(indicator).toBeInTheDocument()
   })
 
   it('renders an additional class name', () => {
@@ -148,6 +153,14 @@ describe('Radio', () => {
     label?.click()
 
     expect(handleChange).toHaveBeenCalled()
+  })
+
+  it('shows a custom icon', () => {
+    const { container } = render(<Radio icon={<FavouriteIcon className="test-class" />} />)
+
+    const icon = container.querySelector('svg')
+
+    expect(icon).toHaveClass('test-class')
   })
 
   it('supports ForwardRef in React', () => {

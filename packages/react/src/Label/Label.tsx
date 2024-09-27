@@ -7,16 +7,18 @@
 import clsx from 'clsx'
 import { forwardRef } from 'react'
 import type { ForwardedRef, LabelHTMLAttributes, PropsWithChildren } from 'react'
+import { Hint, HintProps } from '../Hint'
+
+export type LabelProps = PropsWithChildren<LabelHTMLAttributes<HTMLLabelElement>> & HintProps
 
 export const Label = forwardRef(
-  (
-    { children, className, ...restProps }: PropsWithChildren<LabelHTMLAttributes<HTMLLabelElement>>,
-    ref: ForwardedRef<HTMLLabelElement>,
-  ) => (
-    <label {...restProps} ref={ref} className={clsx('ams-label', className)}>
-      {children}
-    </label>
-  ),
+  ({ children, className, hint, optional, ...restProps }: LabelProps, ref: ForwardedRef<HTMLLabelElement>) => {
+    return (
+      <label {...restProps} ref={ref} className={clsx('ams-label', className)}>
+        {children} <Hint hint={hint} optional={optional} />
+      </label>
+    )
+  },
 )
 
 Label.displayName = 'Label'

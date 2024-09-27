@@ -54,4 +54,36 @@ describe('FieldSet', () => {
 
     expect(ref.current).toBe(component)
   })
+
+  it('renders the provided hint text after the legend', () => {
+    render(<FieldSet legend="Legend" hint="hint text" />)
+
+    const component = screen.getByRole('group', { name: 'Legend (hint text)' })
+
+    expect(component).toBeInTheDocument()
+  })
+
+  it('renders the default hint text after the legend', () => {
+    render(<FieldSet legend="Legend" optional />)
+
+    const component = screen.getByRole('group', { name: 'Legend (niet verplicht)' })
+
+    expect(component).toBeInTheDocument()
+  })
+
+  it('renders the provided hint text after the legend when both `optional` and `hint` props are used', () => {
+    render(<FieldSet legend="Legend" optional={true} hint="not required" />)
+
+    const component = screen.getByRole('group', { name: 'Legend (not required)' })
+
+    expect(component).toBeInTheDocument()
+  })
+
+  it('renders the provided hint text after the legend while `optional` is set to `false`', () => {
+    render(<FieldSet legend="Legend" optional={false} hint="required" />)
+
+    const component = screen.getByRole('group', { name: 'Legend (required)' })
+
+    expect(component).toBeInTheDocument()
+  })
 })
