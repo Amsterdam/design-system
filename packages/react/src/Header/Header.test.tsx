@@ -1,3 +1,4 @@
+import { fireEvent } from '@testing-library/dom'
 import { render, screen } from '@testing-library/react'
 import { createRef } from 'react'
 import { Header } from './Header'
@@ -26,8 +27,7 @@ describe('Header', () => {
 
     const component = screen.getByRole('banner')
 
-    expect(component).toHaveClass('extra')
-    expect(component).toHaveClass('ams-header')
+    expect(component).toHaveClass('ams-header extra')
   })
 
   it('supports ForwardRef in React', () => {
@@ -53,7 +53,7 @@ describe('Header', () => {
 
     const logoLinkTitle = screen.getByRole('link', { name: 'Go to homepage' })
 
-    expect(logoLinkTitle).toHaveTextContent('Go to homepage')
+    expect(logoLinkTitle).toBeInTheDocument()
   })
 
   it('renders an application name', () => {
@@ -72,15 +72,24 @@ describe('Header', () => {
 
     const menu = container.querySelector('.ams-header__links')
 
-    expect(menu).toBeInTheDocument()
     expect(menu).toHaveTextContent('Test content')
   })
 
-  it('renders with menu button', () => {
-    render(<Header menu={<button>Menu Button</button>} />)
+  it('renders with menu button and fires onClickMenu callback', () => {
+    const onClickMenu = jest.fn()
+    render(<Header onClickMenu={onClickMenu} />)
 
-    const menu = screen.getByRole('button')
+    const menuButton = screen.getByRole('button', { name: /menu/i })
+    expect(menuButton).toBeInTheDocument()
 
-    expect(menu).toBeInTheDocument()
+    fireEvent.click(menuButton)
+    expect(onClickMenu).toHaveBeenCalledTimes(1)
+  })
+
+  it('does not render menu button when onClickMenu is not provided', () => {
+    render(<Header />)
+
+    const menuButton = screen.queryByRole('button', { name: /menu/i })
+    expect(menuButton).not.toBeInTheDocument()
   })
 })

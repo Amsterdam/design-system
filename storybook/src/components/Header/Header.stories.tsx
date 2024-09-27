@@ -49,7 +49,7 @@ export const WithLinks: Story = {
 
 export const WithMenuButton: Story = {
   args: {
-    menu: <button className="ams-header__menu-button">Menu</button>,
+    onClickMenu: () => {},
   },
 }
 
@@ -64,14 +64,14 @@ export const WithLinksAndMenuButton: Story = {
         </PageMenu.Link>
       </PageMenu>
     ),
-    menu: <button className="ams-header__menu-button">Menu</button>,
+    onClickMenu: () => {},
   },
 }
 
 export const WithAppNameAndMenuButton: Story = {
   args: {
     appName: 'Onderzoek en Statistiek',
-    menu: <button className="ams-header__menu-button">Menu</button>,
+    onClickMenu: () => {},
   },
 }
 
@@ -87,6 +87,6 @@ export const WithAppNameLinksAndMenuButton: Story = {
         </PageMenu.Link>
       </PageMenu>
     ),
-    menu: <button className="ams-header__menu-button">Menu</button>,
+    onClickMenu: () => {},
   },
 }

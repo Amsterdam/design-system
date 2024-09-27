@@ -24,8 +24,8 @@ export type HeaderProps = {
   logoLink?: string
   /** The accessible text for the link on the logo. */
   logoLinkTitle?: string
-  /** A button to toggle the visibility of a Mega Menu. */
-  menu?: ReactNode
+  /** Provide a callback that toggles the visibility of a Mega Menu. */
+  onClickMenu?: () => void
 } & HTMLAttributes<HTMLElement>
 
 export const Header = forwardRef(
@@ -37,7 +37,7 @@ export const Header = forwardRef(
       logoBrand = 'amsterdam',
       logoLink = '/',
       logoLinkTitle = 'Ga naar de homepage',
-      menu,
+      onClickMenu,
       ...restProps
     }: HeaderProps,
     ref: ForwardedRef<HTMLElement>,
@@ -53,8 +53,8 @@ export const Header = forwardRef(
         </Heading>
       )}
       {links && <div className="ams-header__links">{links}</div>}
-      {menu && (
-        <Button className="ams-header__menu-button" variant={'tertiary'}>
+      {onClickMenu && (
+        <Button className="ams-header__menu-button" onClick={onClickMenu} variant={'tertiary'}>
           Menu <Icon svg={MenuIcon} size="level-6" />
         </Button>
       )}

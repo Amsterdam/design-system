@@ -4,10 +4,7 @@ import { Alignment as PageMenuStory } from '../../../components/PageMenu/PageMen
 export const AppHeader = () => (
   <Grid>
     <Grid.Cell span="all">
-      <Header
-        links={<PageMenu alignEnd>{PageMenuStory.args?.children}</PageMenu>}
-        menu={<button className="ams-header__menu-button">Menu</button>}
-      />
+      <Header links={<PageMenu alignEnd>{PageMenuStory.args?.children}</PageMenu>} onClickMenu={() => {}} />
     </Grid.Cell>
   </Grid>
 )

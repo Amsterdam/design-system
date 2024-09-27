@@ -27,18 +27,19 @@
   }
 }
 
-.ams-header__menu-button {
-  flex: none;
-  margin-inline-start: auto;
-}
-
 .ams-header__app-name {
   flex: auto;
+}
+
+.ams-header__menu-button {
+  flex: none;
 }
 
 /* TODO Add `size` prop to Button */
 .ams-button.ams-header__menu-button {
   font-size: var(--ams-text-level-6-font-size);
+  padding-block: 0;
+  padding-inline: 0;
 }
 
 /* TODO Create custom component */
