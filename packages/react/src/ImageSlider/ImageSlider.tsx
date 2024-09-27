@@ -29,33 +29,27 @@ export type SlideProps = {
 }
 
 export type ImageSliderProps = {
-  /** An array of images to display */
-  slides: SlideProps[]
   /** Show navigation controls */
   controls?: boolean
-  /** Show native scrollbar inside gallery */
-  scrollbar?: boolean
-  /** Show thumbnails */
-  thumbnails?: boolean
-  /** Label for the previous button */
-  previousLabel?: string
-  /** Label for the next button */
-  nextLabel?: string
   /** Label for the image if you need to translate the alt text */
   imageLabel?: string
+  /** Label for the next button */
+  nextLabel?: string
+  /** Label for the previous button */
+  previousLabel?: string
+  /** An array of images to display */
+  slides: SlideProps[]
 } & HTMLAttributes<HTMLDivElement>
 
 export const ImageSliderRoot = forwardRef(
   (
     {
       className,
-      slides,
       controls,
-      scrollbar,
-      thumbnails,
-      previousLabel = 'Vorige',
-      nextLabel = 'Volgende',
       imageLabel = 'Afbeelding',
+      nextLabel = 'Volgende',
+      previousLabel = 'Vorige',
+      slides,
       ...restProps
     }: ImageSliderProps,
     ref: ForwardedRef<HTMLDivElement>,
@@ -98,9 +92,8 @@ export const ImageSliderRoot = forwardRef(
       }
 
       if (targetRef.current) {
-        const slides = targetRef.current.children
-        const slidesArray = Array.from(slides)
-        for (let slide of slidesArray) observer.observe(slide)
+        const slides = Array.from(targetRef.current.children)
+        for (let slide of slides) observer.observe(slide)
 
         targetRef.current.addEventListener('scrollend', synchronise)
         targetRef.current.addEventListener('keydown', handleKeyDown)
@@ -195,13 +188,7 @@ export const ImageSliderRoot = forwardRef(
           ref={ref}
           aria-roledescription="carousel"
           tabIndex={-1}
-          className={clsx(
-            'ams-image-slider',
-            controls && 'ams-image-slider--controls',
-            scrollbar && 'ams-image-slider--scrollbar',
-            thumbnails && 'ams-image-slider--thumbnails',
-            className,
-          )}
+          className={clsx('ams-image-slider', controls && 'ams-image-slider--controls', className)}
         >
           {controls && (
             <div className="ams-image-slider__controls">
@@ -226,18 +213,22 @@ export const ImageSliderRoot = forwardRef(
           <ImageSliderScroller tabIndex={0} ref={targetRef} aria-live="polite" role="group">
             {slides.map((slide, index) => (
               <ImageSliderItem key={index} slideId={index}>
-                <Image src={slide.src} srcSet={slide.srcSet} sizes={slide.sizes} alt={slide.alt} />
+                <Image
+                  src={slide.src}
+                  srcSet={slide.srcSet}
+                  sizes={slide.sizes}
+                  alt={slide.alt}
+                  className={`ams-aspect-ratio--${slide.ratio}`}
+                />
               </ImageSliderItem>
             ))}
           </ImageSliderScroller>
-          {thumbnails && (
-            <ImageSliderThumbnails
-              thumbnails={slides}
-              imageLabel={imageLabel}
-              currentSlide={currentSlideId}
-              onKeyDown={handleThumbsKeyDown}
-            />
-          )}
+          <ImageSliderThumbnails
+            thumbnails={slides}
+            imageLabel={imageLabel}
+            currentSlide={currentSlideId}
+            onKeyDown={handleThumbsKeyDown}
+          />
         </div>
       </ImageSliderContext.Provider>
     )
