@@ -36,7 +36,7 @@ export const WithAppName: Story = {
 export const WithLinks: Story = {
   args: {
     links: (
-      <PageMenu alignEnd wrap={false}>
+      <PageMenu alignEnd>
         <PageMenu.Link href="#">Contact</PageMenu.Link>
         <PageMenu.Link href="#">Mijn Amsterdam</PageMenu.Link>
         <PageMenu.Link href="#" icon={SearchIcon}>
@@ -56,7 +56,7 @@ export const WithMenuButton: Story = {
 export const WithLinksAndMenuButton: Story = {
   args: {
     links: (
-      <PageMenu alignEnd wrap={false}>
+      <PageMenu alignEnd>
         <PageMenu.Link href="#">Contact</PageMenu.Link>
         <PageMenu.Link href="#">Mijn Amsterdam</PageMenu.Link>
         <PageMenu.Link href="#" icon={SearchIcon}>
@@ -79,7 +79,7 @@ export const WithAppNameLinksAndMenuButton: Story = {
   args: {
     appName: 'Onderzoek en Statistiek',
     links: (
-      <PageMenu alignEnd wrap={false}>
+      <PageMenu alignEnd>
         <PageMenu.Link href="#">Contact</PageMenu.Link>
         <PageMenu.Link href="#">Mijn Amsterdam</PageMenu.Link>
         <PageMenu.Link href="#" icon={SearchIcon}>

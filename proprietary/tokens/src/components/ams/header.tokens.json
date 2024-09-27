@@ -1,11 +1,12 @@
 {
   "ams": {
     "header": {
-      "column-gap": {
-        "value": "{ams.space.grid.md}",
-        "comment": "Must have the same value as `ams.grid.column-gap`."
-      },
+      "column-gap": { "value": "{ams.space.grid.md}" },
       "padding-block": { "value": "{ams.space.md}" },
+      "row-gap": { "value": "{ams.space.md}" },
+      "section": {
+        "column-gap": { "value": "{ams.space.grid.sm}" }
+      },
       "logo-link": {
         "outline-offset": { "value": "{ams.focus.outline-offset}" }
       }

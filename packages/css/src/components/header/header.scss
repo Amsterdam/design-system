@@ -6,33 +6,26 @@
 @import "../../common/breakpoint";
 
 .ams-header {
-  align-items: center;
   column-gap: var(--ams-header-column-gap);
   display: flex;
+  flex-wrap: wrap;
   padding-block: var(--ams-header-padding-block);
+  row-gap: var(--ams-header-row-gap);
 }
 
-.ams-header__logo-link {
-  flex: none;
-  outline-offset: var(--ams-header-logo-link-outline-offset);
-}
-
-.ams-header__links {
-  display: none;
+.ams-header__section {
+  align-items: center;
+  column-gap: var(--ams-header-section-column-gap);
+  display: flex;
   flex: auto;
-  margin-inline-start: auto;
 
-  @media screen and (min-width: $ams-breakpoint-medium) {
-    display: block;
+  &:last-child {
+    justify-content: end;
   }
 }
 
-.ams-header__app-name {
-  flex: auto;
-}
-
-.ams-header__menu-button {
-  flex: none;
+.ams-header__logo-link {
+  outline-offset: var(--ams-header-logo-link-outline-offset);
 }
 
 /* TODO Add `size` prop to Button */

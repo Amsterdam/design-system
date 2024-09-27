@@ -43,21 +43,25 @@ export const Header = forwardRef(
     ref: ForwardedRef<HTMLElement>,
   ) => (
     <header {...restProps} className={clsx('ams-header', className)} ref={ref}>
-      <a className="ams-header__logo-link" href={logoLink}>
-        <span className="ams-visually-hidden">{logoLinkTitle}</span>
-        <Logo brand={logoBrand} />
-      </a>
-      {appName && (
-        <Heading className="ams-header__app-name" level={1} size="level-6">
-          {appName}
-        </Heading>
-      )}
-      {links && <div className="ams-header__links">{links}</div>}
-      {onClickMenu && (
-        <Button className="ams-header__menu-button" onClick={onClickMenu} variant={'tertiary'}>
-          Menu <Icon svg={MenuIcon} size="level-6" />
-        </Button>
-      )}
+      <div className="ams-header__section">
+        <a className="ams-header__logo-link" href={logoLink}>
+          <span className="ams-visually-hidden">{logoLinkTitle}</span>
+          <Logo brand={logoBrand} />
+        </a>
+        {appName && (
+          <Heading level={1} size="level-6">
+            {appName}
+          </Heading>
+        )}
+      </div>
+      <div className="ams-header__section">
+        {links && <div className="ams-header__links">{links}</div>}
+        {onClickMenu && (
+          <Button className="ams-header__menu-button" onClick={onClickMenu} variant={'tertiary'}>
+            Menu <Icon svg={MenuIcon} size="level-6" />
+          </Button>
+        )}
+      </div>
     </header>
   ),
 )
