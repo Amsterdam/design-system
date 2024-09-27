@@ -83,7 +83,7 @@ describe('Image slider', () => {
   })
 
   it('renders thumbnails', () => {
-    const { container } = render(<ImageSlider thumbnails slides={slides}></ImageSlider>)
+    const { container } = render(<ImageSlider slides={slides}></ImageSlider>)
 
     expect(container.querySelector('.ams-image-slider__thumbnail')).toBeInTheDocument()
   })
