@@ -30,7 +30,7 @@
   },
   "devDependencies": {
     "@rollup/plugin-node-resolve": "15.2.3",
-    "@rollup/pluginutils": "5.1.0",
+    "@rollup/pluginutils": "5.1.2",
     "@svgr/cli": "8.1.0",
     "@types/react": "18.3.8",
     "react": "18.3.1",
