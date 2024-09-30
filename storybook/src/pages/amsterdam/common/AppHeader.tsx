@@ -1,7 +1,7 @@
 import { Grid, Header, PageMenu, SearchField } from '@amsterdam/design-system-react'
 import { MenuIcon, SearchIcon } from '@amsterdam/design-system-react-icons'
 import { useState } from 'react'
-import { Default as MegaMenuStory } from '../../../components/MegaMenu/MegaMenu.stories'
+import { MultipleCategories as MegaMenuStory } from '../../../components/MegaMenu/MegaMenu.stories'
 
 export const AppHeader = () => {
   const [showMenu, setShowMenu] = useState(false)
@@ -22,11 +22,7 @@ export const AppHeader = () => {
         </PageMenu>
       }
     >
-      {showMenu && (
-        <Grid.Cell span="all">
-          <div style={{ paddingBlockEnd: 'var(--ams-space-grid-md)' }}>{MegaMenuStory.args?.children}</div>
-        </Grid.Cell>
-      )}
+      {showMenu && MegaMenuStory.args?.children}
       {showSearch && (
         <Grid.Cell span={{ narrow: 4, medium: 6, wide: 8 }} start={{ narrow: 1, medium: 2, wide: 3 }}>
           <div style={{ paddingBlockEnd: 'var(--ams-space-grid-md)', paddingBlockStart: 'var(--ams-space-grid-sm)' }}>
