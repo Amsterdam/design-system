@@ -1,4 +1,3 @@
-import { fireEvent } from '@testing-library/dom'
 import { render, screen } from '@testing-library/react'
 import { createRef } from 'react'
 import { Header } from './Header'
@@ -73,23 +72,5 @@ describe('Header', () => {
     const menu = container.querySelector('.ams-header__links')
 
     expect(menu).toHaveTextContent('Test content')
-  })
-
-  it('renders with menu button and fires onClickMenu callback', () => {
-    const onClickMenu = jest.fn()
-    render(<Header onClickMenu={onClickMenu} />)
-
-    const menuButton = screen.getByRole('button', { name: /menu/i })
-    expect(menuButton).toBeInTheDocument()
-
-    fireEvent.click(menuButton)
-    expect(onClickMenu).toHaveBeenCalledTimes(1)
-  })
-
-  it('does not render menu button when onClickMenu is not provided', () => {
-    render(<Header />)
-
-    const menuButton = screen.queryByRole('button', { name: /menu/i })
-    expect(menuButton).not.toBeInTheDocument()
   })
 })

@@ -3,16 +3,13 @@
  * Copyright Gemeente Amsterdam
  */
 
-import { MenuIcon } from '@amsterdam/design-system-react-icons'
 import clsx from 'clsx'
 import { forwardRef } from 'react'
 import type { ForwardedRef, HTMLAttributes, ReactNode } from 'react'
 import { Grid } from '../Grid'
 import { Heading } from '../Heading'
-import { Icon } from '../Icon'
 import { Logo } from '../Logo'
 import type { LogoBrand } from '../Logo'
-import { PageMenu } from '../PageMenu'
 
 export type HeaderProps = {
   /** The name of the application. */
@@ -25,8 +22,6 @@ export type HeaderProps = {
   logoLink?: string
   /** The accessible text for the link on the logo. */
   logoLinkTitle?: string
-  /** Provide a callback that toggles the visibility of a Mega Menu. */
-  onClickMenu?: () => void
 } & HTMLAttributes<HTMLElement>
 
 export const Header = forwardRef(
@@ -39,7 +34,6 @@ export const Header = forwardRef(
       logoBrand = 'amsterdam',
       logoLink = '/',
       logoLinkTitle = 'Ga naar de homepage',
-      onClickMenu,
       ...restProps
     }: HeaderProps,
     ref: ForwardedRef<HTMLElement>,
@@ -57,14 +51,7 @@ export const Header = forwardRef(
             </Heading>
           )}
         </div>
-        <div className="ams-header__section">
-          {links && <div className="ams-header__links">{links}</div>}
-          {onClickMenu && (
-            <PageMenu.Button onClick={onClickMenu}>
-              Menu <Icon svg={MenuIcon} size="level-6" />
-            </PageMenu.Button>
-          )}
-        </div>
+        <div className="ams-header__section">{links && <div className="ams-header__links">{links}</div>}</div>
       </Grid.Cell>
       {children}
     </Grid>

@@ -5,8 +5,14 @@
 
 import { PageMenu, Screen } from '@amsterdam/design-system-react'
 import { Header } from '@amsterdam/design-system-react/src'
-import { SearchIcon } from '@amsterdam/design-system-react-icons'
+import { MenuIcon, SearchIcon } from '@amsterdam/design-system-react-icons'
 import { Meta, StoryObj } from '@storybook/react'
+
+const MenuButton = (
+  <PageMenu.Button icon={MenuIcon} onClick={() => {}}>
+    Menu
+  </PageMenu.Button>
+)
 
 const meta = {
   title: 'Components/Containers/Header',
@@ -49,6 +55,7 @@ export const WithLinks: Story = {
         <PageMenu.Link href="#" icon={SearchIcon}>
           Zoeken
         </PageMenu.Link>
+        {MenuButton}
       </PageMenu>
     ),
   },
@@ -56,7 +63,7 @@ export const WithLinks: Story = {
 
 export const WithMenuButton: Story = {
   args: {
-    onClickMenu: () => {},
+    links: <PageMenu alignEnd>{MenuButton}</PageMenu>,
   },
 }
 
@@ -69,16 +76,15 @@ export const WithLinksAndMenuButton: Story = {
         <PageMenu.Link href="#" icon={SearchIcon}>
           Zoeken
         </PageMenu.Link>
+        {MenuButton}
       </PageMenu>
     ),
-    onClickMenu: () => {},
   },
 }
 
 export const WithAppNameAndMenuButton: Story = {
   args: {
     appName: 'Onderzoek en Statistiek',
-    onClickMenu: () => {},
   },
 }
 
@@ -92,8 +98,8 @@ export const WithAppNameLinksAndMenuButton: Story = {
         <PageMenu.Link href="#" icon={SearchIcon}>
           Zoeken
         </PageMenu.Link>
+        {MenuButton}
       </PageMenu>
     ),
-    onClickMenu: () => {},
   },
 }
