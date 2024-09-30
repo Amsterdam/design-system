@@ -33,6 +33,7 @@ export const Header = forwardRef(
   (
     {
       appName,
+      children,
       className,
       links,
       logoBrand = 'amsterdam',
@@ -65,6 +66,7 @@ export const Header = forwardRef(
           )}
         </div>
       </Grid.Cell>
+      {children}
     </Grid>
   ),
 )
