@@ -318,8 +318,8 @@ importers:
         specifier: 8.3.2
         version: 8.3.2(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(storybook@8.3.2)
       '@storybook/components':
-        specifier: 8.3.2
-        version: 8.3.2(storybook@8.3.2)
+        specifier: 8.3.4
+        version: 8.3.4(storybook@8.3.2)
       '@storybook/core-events':
         specifier: 8.3.2
         version: 8.3.2(storybook@8.3.2)
@@ -1869,10 +1869,10 @@ packages:
       vite-plugin-glimmerx:
         optional: true
 
-  '@storybook/components@8.3.2':
-    resolution: {integrity: sha512-yB/ETNTNVZi8xvVsTMWvtiI4APRj2zzAa3nHyQO0X+DC4jjysT9D1ruL6jZJ/2DHMp7A9U6v2if83dby/kszfg==}
+  '@storybook/components@8.3.4':
+    resolution: {integrity: sha512-iQzLJd87uGbFBbYNqlrN/ABrnx3dUrL0tjPCarzglzshZoPCNOsllJeJx5TJwB9kCxSZ8zB9TTOgr7NXl+oyVA==}
     peerDependencies:
-      storybook: ^8.3.2
+      storybook: ^8.3.4
 
   '@storybook/core-events@8.3.2':
     resolution: {integrity: sha512-Nf63X2MLIiw1Czc/zxZ1hWLCNr6+NujJb6Dy96pgcGYLiKduFi9nKPG5eP0VEXpPWFWOc7ccCPxZ+Iw0q+USPw==}
@@ -9135,7 +9135,7 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
-  '@storybook/components@8.3.2(storybook@8.3.2)':
+  '@storybook/components@8.3.4(storybook@8.3.2)':
     dependencies:
       storybook: 8.3.2
 
@@ -9227,7 +9227,7 @@ snapshots:
 
   '@storybook/react@8.3.2(@storybook/test@8.3.2(storybook@8.3.2))(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(storybook@8.3.2)(typescript@5.6.2)':
     dependencies:
-      '@storybook/components': 8.3.2(storybook@8.3.2)
+      '@storybook/components': 8.3.4(storybook@8.3.2)
       '@storybook/global': 5.0.0
       '@storybook/manager-api': 8.3.2(storybook@8.3.2)
       '@storybook/preview-api': 8.3.2(storybook@8.3.2)
