@@ -7,6 +7,7 @@ import { MenuIcon } from '@amsterdam/design-system-react-icons'
 import clsx from 'clsx'
 import { forwardRef } from 'react'
 import type { ForwardedRef, HTMLAttributes, ReactNode } from 'react'
+import { Grid } from '../Grid'
 import { Heading } from '../Heading'
 import { Icon } from '../Icon'
 import { Logo } from '../Logo'
@@ -42,27 +43,29 @@ export const Header = forwardRef(
     }: HeaderProps,
     ref: ForwardedRef<HTMLElement>,
   ) => (
-    <header {...restProps} className={clsx('ams-header', className)} ref={ref}>
-      <div className="ams-header__section">
-        <a className="ams-header__logo-link" href={logoLink}>
-          <span className="ams-visually-hidden">{logoLinkTitle}</span>
-          <Logo brand={logoBrand} />
-        </a>
-        {appName && (
-          <Heading level={1} size="level-6">
-            {appName}
-          </Heading>
-        )}
-      </div>
-      <div className="ams-header__section">
-        {links && <div className="ams-header__links">{links}</div>}
-        {onClickMenu && (
-          <PageMenu.Button onClick={onClickMenu}>
-            Menu <Icon svg={MenuIcon} size="level-6" />
-          </PageMenu.Button>
-        )}
-      </div>
-    </header>
+    <Grid as="header" gapVertical="none">
+      <Grid.Cell {...restProps} className={clsx('ams-header', className)} ref={ref} span="all">
+        <div className="ams-header__section">
+          <a className="ams-header__logo-link" href={logoLink}>
+            <span className="ams-visually-hidden">{logoLinkTitle}</span>
+            <Logo brand={logoBrand} />
+          </a>
+          {appName && (
+            <Heading level={1} size="level-6">
+              {appName}
+            </Heading>
+          )}
+        </div>
+        <div className="ams-header__section">
+          {links && <div className="ams-header__links">{links}</div>}
+          {onClickMenu && (
+            <PageMenu.Button onClick={onClickMenu}>
+              Menu <Icon svg={MenuIcon} size="level-6" />
+            </PageMenu.Button>
+          )}
+        </div>
+      </Grid.Cell>
+    </Grid>
   ),
 )
 
