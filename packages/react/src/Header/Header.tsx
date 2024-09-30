@@ -7,11 +7,11 @@ import { MenuIcon } from '@amsterdam/design-system-react-icons'
 import clsx from 'clsx'
 import { forwardRef } from 'react'
 import type { ForwardedRef, HTMLAttributes, ReactNode } from 'react'
-import { Button } from '../Button'
 import { Heading } from '../Heading'
 import { Icon } from '../Icon'
 import { Logo } from '../Logo'
 import type { LogoBrand } from '../Logo'
+import { PageMenu } from '../PageMenu'
 
 export type HeaderProps = {
   /** The name of the application. */
@@ -57,9 +57,9 @@ export const Header = forwardRef(
       <div className="ams-header__section">
         {links && <div className="ams-header__links">{links}</div>}
         {onClickMenu && (
-          <Button className="ams-header__menu-button" onClick={onClickMenu} variant={'tertiary'}>
+          <PageMenu.Button onClick={onClickMenu}>
             Menu <Icon svg={MenuIcon} size="level-6" />
-          </Button>
+          </PageMenu.Button>
         )}
       </div>
     </header>

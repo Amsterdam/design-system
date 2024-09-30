@@ -28,13 +28,6 @@
   outline-offset: var(--ams-header-logo-link-outline-offset);
 }
 
-/* TODO Add `size` prop to Button */
-.ams-button.ams-header__menu-button {
-  font-size: var(--ams-text-level-6-font-size);
-  padding-block: 0;
-  padding-inline: 0;
-}
-
 /* TODO Create custom component */
 .ams-heading.ams-header__app-name {
   line-height: 1.3;
