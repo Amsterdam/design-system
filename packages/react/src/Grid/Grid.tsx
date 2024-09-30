@@ -29,6 +29,8 @@ type GridPaddingTopAndBottomProps = {
 }
 
 export type GridProps = {
+  /** The HTML element to use. */
+  as?: 'header' | 'div' | 'footer'
   /** The amount of space between rows. */
   gapVertical?: 'none' | 'small' | 'large'
 } & (GridPaddingVerticalProp | GridPaddingTopAndBottomProps) &
@@ -36,10 +38,19 @@ export type GridProps = {
 
 const GridRoot = forwardRef(
   (
-    { children, className, gapVertical, paddingBottom, paddingTop, paddingVertical, ...restProps }: GridProps,
+    {
+      as: Tag = 'div',
+      children,
+      className,
+      gapVertical,
+      paddingBottom,
+      paddingTop,
+      paddingVertical,
+      ...restProps
+    }: GridProps,
     ref: ForwardedRef<HTMLDivElement>,
   ) => (
-    <div
+    <Tag
       {...restProps}
       ref={ref}
       className={clsx(
@@ -50,7 +61,7 @@ const GridRoot = forwardRef(
       )}
     >
       {children}
-    </div>
+    </Tag>
   ),
 )
 
