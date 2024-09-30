@@ -1,6 +1,6 @@
 import { render } from '@testing-library/react'
 import { createRef } from 'react'
-import { ImageSlider, SlideProps } from './ImageSlider'
+import { ImageSlider, ImageSliderImageProps } from './ImageSlider'
 import '@testing-library/jest-dom'
 
 const observe = jest.fn()
@@ -20,7 +20,7 @@ window.IntersectionObserver = jest.fn(() => ({
 }))
 
 describe('Image slider', () => {
-  const slides: SlideProps[] = [
+  const images: ImageSliderImageProps[] = [
     {
       src: 'https://picsum.photos/id/122/320/180',
       alt: 'Bridge',
@@ -39,7 +39,7 @@ describe('Image slider', () => {
   ]
 
   it('renders', () => {
-    const { container } = render(<ImageSlider slides={slides} />)
+    const { container } = render(<ImageSlider images={images} />)
 
     const component = container.querySelector(':only-child')
 
@@ -47,8 +47,8 @@ describe('Image slider', () => {
     expect(component).toBeVisible()
   })
 
-  it('renders slides', () => {
-    const { container } = render(<ImageSlider slides={slides} />)
+  it('renders images', () => {
+    const { container } = render(<ImageSlider images={images} />)
 
     const slideElements = container.querySelectorAll('.ams-image-slider__item')
     const slideArray = Array.from(slideElements)
@@ -57,7 +57,7 @@ describe('Image slider', () => {
   })
 
   it('renders a design system BEM class name', () => {
-    const { container } = render(<ImageSlider slides={slides} />)
+    const { container } = render(<ImageSlider images={images} />)
 
     const component = container.querySelector(':only-child')
 
@@ -65,7 +65,7 @@ describe('Image slider', () => {
   })
 
   it('renders an additional class name', () => {
-    const { container } = render(<ImageSlider slides={slides} className="extra" />)
+    const { container } = render(<ImageSlider images={images} className="extra" />)
 
     const component = container.querySelector(':only-child')
 
@@ -75,7 +75,7 @@ describe('Image slider', () => {
   it('supports ForwardRef in React', () => {
     const ref = createRef<HTMLDivElement>()
 
-    const { container } = render(<ImageSlider slides={slides} ref={ref} />)
+    const { container } = render(<ImageSlider images={images} ref={ref} />)
 
     const component = container.querySelector(':only-child')
 
@@ -83,7 +83,7 @@ describe('Image slider', () => {
   })
 
   it('renders thumbnails', () => {
-    const { container } = render(<ImageSlider slides={slides}></ImageSlider>)
+    const { container } = render(<ImageSlider images={images}></ImageSlider>)
 
     expect(container.querySelector('.ams-image-slider__thumbnail')).toBeInTheDocument()
   })

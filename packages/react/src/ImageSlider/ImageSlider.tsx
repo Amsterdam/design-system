@@ -13,19 +13,12 @@ import { ImageSliderScroller } from './ImageSliderScroller'
 import { ImageSliderThumbnails } from './ImageSliderThumbnails'
 import { Ratio } from '../AspectRatio'
 import { IconButton } from '../IconButton'
-import { Image } from '../Image/Image'
+import { Image, ImageProps } from '../Image/Image'
 
-export type SlideProps = {
-  src: string
-  /** Prove a URL to the image */
-  ratio: Ratio
+export type ImageSliderImageProps = ImageProps & {
   /** Define an aspect ratio to use on all images */
-  alt: string
+  ratio: Ratio
   /** Describe to image */
-  srcSet?: string
-  /** Provide a src-set array to use responsive images */
-  sizes?: string
-  /** Provide a sizes attribute to each image */
 }
 
 export type ImageSliderProps = {
@@ -38,7 +31,7 @@ export type ImageSliderProps = {
   /** Label for the previous button */
   previousLabel?: string
   /** An array of images to display */
-  slides: SlideProps[]
+  images: ImageSliderImageProps[]
 } & HTMLAttributes<HTMLDivElement>
 
 export const ImageSliderRoot = forwardRef(
@@ -49,7 +42,7 @@ export const ImageSliderRoot = forwardRef(
       imageLabel = 'Afbeelding',
       nextLabel = 'Volgende',
       previousLabel = 'Vorige',
-      slides,
+      images,
       ...restProps
     }: ImageSliderProps,
     ref: ForwardedRef<HTMLDivElement>,
@@ -61,13 +54,12 @@ export const ImageSliderRoot = forwardRef(
     const hasIntersected = new Set<IntersectionObserverEntry>()
 
     const inView = (observations: IntersectionObserverEntry[]) => {
-      const slides = targetRef.current?.children || []
-      const slidesArray = Array.from(slides)
+      const images = Array.from(targetRef.current?.children || [])
 
       for (let observation of observations) {
         hasIntersected.add(observation)
         if (observation.isIntersecting) {
-          setCurrentSlideId(slidesArray.indexOf(observation.target as HTMLElement))
+          setCurrentSlideId(images.indexOf(observation.target as HTMLElement))
         }
       }
     }
@@ -92,8 +84,8 @@ export const ImageSliderRoot = forwardRef(
       }
 
       if (targetRef.current) {
-        const slides = Array.from(targetRef.current.children)
-        for (let slide of slides) observer.observe(slide)
+        const images = Array.from(targetRef.current.children)
+        for (let slide of images) observer.observe(slide)
 
         targetRef.current.addEventListener('scrollend', synchronise)
         targetRef.current.addEventListener('keydown', handleKeyDown)
@@ -125,6 +117,7 @@ export const ImageSliderRoot = forwardRef(
           goToNextSlide()
         }
       }
+
       if (event.key === 'ArrowLeft') {
         const previous = element?.previousElementSibling as HTMLElement | null
 
@@ -211,7 +204,7 @@ export const ImageSliderRoot = forwardRef(
             </div>
           )}
           <ImageSliderScroller tabIndex={0} ref={targetRef} aria-live="polite" role="group">
-            {slides.map((slide, index) => (
+            {images.map((slide, index) => (
               <ImageSliderItem key={index} slideId={index}>
                 <Image
                   src={slide.src}
@@ -224,7 +217,7 @@ export const ImageSliderRoot = forwardRef(
             ))}
           </ImageSliderScroller>
           <ImageSliderThumbnails
-            thumbnails={slides}
+            thumbnails={images}
             imageLabel={imageLabel}
             currentSlide={currentSlideId}
             onKeyDown={handleThumbsKeyDown}

@@ -11,7 +11,7 @@ const meta = {
   title: 'Components/Media/Image Slider',
   component: ImageSlider,
   args: {
-    slides: [
+    images: [
       {
         src: 'https://picsum.photos/id/122/1280/720',
         alt: 'Bridge',
@@ -39,8 +39,6 @@ const meta = {
       },
     ],
     controls: true,
-    scrollbar: false,
-    thumbnails: true,
   },
   decorators: [
     (Story) => (
@@ -63,23 +61,9 @@ export const NoControls: Story = {
   },
 }
 
-export const NoThumbnails: Story = {
-  args: {
-    thumbnails: false,
-  },
-}
-
-export const NativeScrollbar: Story = {
-  args: {
-    scrollbar: true,
-    controls: false,
-    thumbnails: false,
-  },
-}
-
 export const SourceSetImages: Story = {
   args: {
-    slides: [
+    images: [
       {
         src: 'https://picsum.photos/id/122/640/360',
         srcSet: 'https://picsum.photos/id/122/640/360 640w, https://picsum.photos/id/122/1280/720 1280w',
