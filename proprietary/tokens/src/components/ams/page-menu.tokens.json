@@ -3,6 +3,9 @@
     "page-menu": {
       "column-gap": { "value": "{ams.space.grid.sm}" },
       "row-gap": { "value": "{ams.space.grid.xs}" },
+      "button": {
+        "cursor": { "value": "{ams.action.activate.cursor}" }
+      },
       "item": {
         "color": { "value": "{ams.link-appearance.color}" },
         "font-family": { "value": "{ams.text.font-family}" },

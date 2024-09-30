@@ -6,6 +6,7 @@
 import clsx from 'clsx'
 import { forwardRef } from 'react'
 import type { ForwardedRef, HTMLAttributes, PropsWithChildren } from 'react'
+import { PageMenuButton } from './PageMenuButton'
 import { PageMenuLink } from './PageMenuLink'
 
 export type PageMenuProps = {
@@ -37,4 +38,4 @@ const PageMenuRoot = forwardRef(
 
 PageMenuRoot.displayName = 'PageMenu'
 
-export const PageMenu = Object.assign(PageMenuRoot, { Link: PageMenuLink })
+export const PageMenu = Object.assign(PageMenuRoot, { Button: PageMenuButton, Link: PageMenuLink })

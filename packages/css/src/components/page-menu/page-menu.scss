@@ -15,6 +15,17 @@
   box-sizing: border-box;
 }
 
+@mixin reset-button {
+  background: none;
+  border: 0;
+  margin-block: 0; // [1]
+  margin-inline: 0; // [1]
+  padding-block: 0;
+  padding-inline: 0;
+
+  // [1] Remove the margin in older Safari.
+}
+
 .ams-page-menu {
   align-items: center;
   column-gap: var(--ams-page-menu-column-gap);
@@ -51,20 +62,30 @@
   text-underline-offset: var(--ams-page-menu-item-text-underline-offset);
   touch-action: manipulation;
   white-space: nowrap;
+
+  @include text-rendering;
+
+  &:hover {
+    color: var(--ams-page-menu-item-hover-color);
+  }
+
+  svg {
+    color: currentColor;
+  }
 }
 
 .ams-page-menu__link {
   @include page-menu-item;
-  @include text-rendering;
   @include reset-item;
+
+  &:hover {
+    text-decoration-line: var(--ams-page-menu-item-hover-text-decoration-line);
+  }
 }
 
-.ams-page-menu__link:hover,
-.ams-page-menu__button:hover {
-  color: var(--ams-page-menu-item-hover-color);
-  text-decoration-line: var(--ams-page-menu-item-hover-text-decoration-line);
-}
+.ams-page-menu__button {
+  cursor: var(--ams-page-menu-button-cursor);
 
-.ams-page-menu__link svg {
-  color: currentColor;
+  @include page-menu-item;
+  @include reset-button;
 }
