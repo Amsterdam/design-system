@@ -309,8 +309,8 @@ importers:
         specifier: 8.3.2
         version: 8.3.2(storybook@8.3.2)
       '@storybook/addon-links':
-        specifier: 8.3.2
-        version: 8.3.2(react@18.3.1)(storybook@8.3.2)
+        specifier: 8.3.4
+        version: 8.3.4(react@18.3.1)(storybook@8.3.2)
       '@storybook/addon-themes':
         specifier: 8.3.2
         version: 8.3.2(storybook@8.3.2)
@@ -1807,11 +1807,11 @@ packages:
     peerDependencies:
       storybook: ^8.3.2
 
-  '@storybook/addon-links@8.3.2':
-    resolution: {integrity: sha512-CHp/3XSB/AWyoP9b2tNaaKNTyftLPIPWqMhqhH1V5irjXhLDpBBEkmgbvB19xJ4qCfDjjOjokSLmSBaVOnzv2g==}
+  '@storybook/addon-links@8.3.4':
+    resolution: {integrity: sha512-R1DjARmxRIKJDGIG6uxmQ1yFNyoQbb+QIPUFjgWCak8+AdLJbC7W+Esvo9F5hQfh6czyy0piiM3qj5hpQJVh3A==}
     peerDependencies:
       react: ^16.8.0 || ^17.0.0 || ^18.0.0 || ^19.0.0-beta
-      storybook: ^8.3.2
+      storybook: ^8.3.4
     peerDependenciesMeta:
       react:
         optional: true
@@ -9061,7 +9061,7 @@ snapshots:
       storybook: 8.3.2
       ts-dedent: 2.2.0
 
-  '@storybook/addon-links@8.3.2(react@18.3.1)(storybook@8.3.2)':
+  '@storybook/addon-links@8.3.4(react@18.3.1)(storybook@8.3.2)':
     dependencies:
       '@storybook/csf': 0.1.11
       '@storybook/global': 5.0.0
