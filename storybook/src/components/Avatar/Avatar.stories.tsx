@@ -43,7 +43,7 @@ export const InAHeader: Story = {
   },
   render: (args) => (
     <Header
-      links={
+      menu={
         <PageMenu alignEnd>
           <PageMenu.Link href="#">Contact</PageMenu.Link>
           <PageMenu.Link href="#" icon={SearchIcon}>

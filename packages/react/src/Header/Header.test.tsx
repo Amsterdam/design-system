@@ -67,7 +67,7 @@ describe('Header', () => {
   })
 
   it('renders with links', () => {
-    const { container } = render(<Header links={<div>Test content</div>} />)
+    const { container } = render(<Header menu={<div>Test content</div>} />)
 
     const menu = container.querySelector('.ams-header__links')
 

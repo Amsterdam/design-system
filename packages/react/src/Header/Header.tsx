@@ -14,14 +14,14 @@ import type { LogoBrand } from '../Logo'
 export type HeaderProps = {
   /** The name of the application. */
   appName?: string
-  /** The list of menu links. Use a Page Menu here. */
-  links?: ReactNode
   /** The name of the brand for which to display the logo. */
   logoBrand?: LogoBrand
   /** The url for the link on the logo. */
   logoLink?: string
   /** The accessible text for the link on the logo. */
   logoLinkTitle?: string
+  /** A menu for in the header. Use a Page Menu. */
+  menu?: ReactNode
 } & HTMLAttributes<HTMLElement>
 
 export const Header = forwardRef(
@@ -30,10 +30,10 @@ export const Header = forwardRef(
       appName,
       children,
       className,
-      links,
       logoBrand = 'amsterdam',
       logoLink = '/',
       logoLinkTitle = 'Ga naar de homepage',
+      menu,
       ...restProps
     }: HeaderProps,
     ref: ForwardedRef<HTMLElement>,
@@ -51,7 +51,7 @@ export const Header = forwardRef(
             </Heading>
           )}
         </div>
-        <div className="ams-header__section">{links && <div className="ams-header__links">{links}</div>}</div>
+        <div className="ams-header__section">{menu}</div>
       </Grid.Cell>
       {children}
     </Grid>

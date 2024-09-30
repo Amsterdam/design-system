@@ -46,16 +46,13 @@ export const WithAppName: Story = {
   },
 }
 
-export const WithLinks: Story = {
+export const WithMenu: Story = {
   args: {
-    links: (
+    menu: (
       <PageMenu alignEnd>
-        <PageMenu.Link href="#">Contact</PageMenu.Link>
-        <PageMenu.Link href="#">Mijn Amsterdam</PageMenu.Link>
-        <PageMenu.Link href="#" icon={SearchIcon}>
-          Zoeken
-        </PageMenu.Link>
-        {MenuButton}
+        <PageMenu.Link href="#">Menu link 1</PageMenu.Link>
+        <PageMenu.Link href="#">Menu link 2</PageMenu.Link>
+        <PageMenu.Link href="#">Menu link 3</PageMenu.Link>
       </PageMenu>
     ),
   },
@@ -63,13 +60,13 @@ export const WithLinks: Story = {
 
 export const WithMenuButton: Story = {
   args: {
-    links: <PageMenu alignEnd>{MenuButton}</PageMenu>,
+    menu: <PageMenu alignEnd>{MenuButton}</PageMenu>,
   },
 }
 
-export const WithLinksAndMenuButton: Story = {
+export const WithMenuAndMenuButton: Story = {
   args: {
-    links: (
+    menu: (
       <PageMenu alignEnd>
         <PageMenu.Link href="#">Contact</PageMenu.Link>
         <PageMenu.Link href="#">Mijn Amsterdam</PageMenu.Link>
@@ -82,16 +79,17 @@ export const WithLinksAndMenuButton: Story = {
   },
 }
 
-export const WithAppNameAndMenuButton: Story = {
+export const WithAppNameAndMenu: Story = {
   args: {
     appName: 'Onderzoek en Statistiek',
+    menu: <PageMenu alignEnd>{MenuButton}</PageMenu>,
   },
 }
 
-export const WithAppNameLinksAndMenuButton: Story = {
+export const WithAppNameMenuAndMenuButton: Story = {
   args: {
     appName: 'Onderzoek en Statistiek',
-    links: (
+    menu: (
       <PageMenu alignEnd>
         <PageMenu.Link href="#">Contact</PageMenu.Link>
         <PageMenu.Link href="#">Mijn Amsterdam</PageMenu.Link>
