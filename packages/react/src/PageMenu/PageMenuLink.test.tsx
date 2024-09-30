@@ -34,6 +34,18 @@ describe('Page menu link', () => {
     expect(component).toHaveClass('ams-page-menu__link extra')
   })
 
+  it('renders a class name for a secondary item', () => {
+    render(
+      <PageMenuLink href="#" rank="secondary">
+        Link
+      </PageMenuLink>,
+    )
+
+    const component = screen.getByRole('listitem')
+
+    expect(component).toHaveClass('ams-page-menu__item--secondary')
+  })
+
   it('does not render an icon by default', () => {
     const { container } = render(<PageMenuLink href="#">Link</PageMenuLink>)
 

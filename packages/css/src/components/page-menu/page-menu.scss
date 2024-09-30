@@ -3,6 +3,7 @@
  * Copyright Gemeente Amsterdam
  */
 
+@import "../../common/breakpoint";
 @import "../../common/text-rendering";
 
 @mixin reset-list {
@@ -46,7 +47,15 @@
   flex-wrap: nowrap;
 }
 
-@mixin page-menu-item {
+.ams-page-menu__item {
+  &--secondary {
+    @media screen and (not (min-width: $ams-breakpoint-medium)) {
+      display: none;
+    }
+  }
+}
+
+@mixin ams-page-menu-link-or-button {
   color: var(--ams-page-menu-item-color);
   display: inline-flex;
   flex-direction: row;
@@ -75,7 +84,7 @@
 }
 
 .ams-page-menu__link {
-  @include page-menu-item;
+  @include ams-page-menu-link-or-button;
   @include reset-item;
 
   &:hover {
@@ -86,6 +95,6 @@
 .ams-page-menu__button {
   cursor: var(--ams-page-menu-button-cursor);
 
-  @include page-menu-item;
+  @include ams-page-menu-link-or-button;
   @include reset-button;
 }

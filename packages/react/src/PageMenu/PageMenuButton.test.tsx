@@ -35,13 +35,21 @@ describe('Page Menu Button', () => {
     expect(button).toHaveClass('ams-page-menu__button extra')
   })
 
+  it('renders a class name for a secondary item', () => {
+    render(<PageMenuButton rank="secondary">Button</PageMenuButton>)
+
+    const component = screen.getByRole('listitem')
+
+    expect(component).toHaveClass('ams-page-menu__item--secondary')
+  })
+
   it('is able to pass a React ref', () => {
     const ref = createRef<HTMLButtonElement>()
 
-    const { container } = render(<PageMenuButton ref={ref} />)
+    render(<PageMenuButton ref={ref} />)
 
-    const button = container.querySelector(':only-child')
+    const component = screen.getByRole('button')
 
-    expect(ref.current).toBe(button)
+    expect(ref.current).toBe(component)
   })
 })

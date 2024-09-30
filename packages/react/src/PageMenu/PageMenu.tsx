@@ -16,6 +16,11 @@ export type PageMenuProps = {
   wrap?: boolean
 } & PropsWithChildren<HTMLAttributes<HTMLUListElement>>
 
+export type PageMenuItemProps = {
+  /** Secondary items only appear in the Page Menu if there is enough space for them. */
+  rank?: 'secondary'
+}
+
 const PageMenuRoot = forwardRef(
   (
     { alignEnd, children, className, wrap = true, ...restProps }: PageMenuProps,

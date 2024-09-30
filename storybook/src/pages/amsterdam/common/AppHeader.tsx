@@ -11,8 +11,12 @@ export const AppHeader = () => {
     <Header
       menu={
         <PageMenu alignEnd>
-          <PageMenu.Link href="#">Contact</PageMenu.Link>
-          <PageMenu.Link href="#">Mijn Amsterdam</PageMenu.Link>
+          <PageMenu.Link href="#" rank="secondary">
+            Contact
+          </PageMenu.Link>
+          <PageMenu.Link href="#" rank="secondary">
+            Mijn Amsterdam
+          </PageMenu.Link>
           <PageMenu.Button icon={SearchIcon} onClick={() => setShowSearch(!showSearch)}>
             Zoeken
           </PageMenu.Button>
