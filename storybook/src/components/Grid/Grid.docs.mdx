@@ -14,68 +14,58 @@ import README from "../../../../packages/css/src/components/grid/README.md?raw";
 
 ## Examples
 
-The pink areas represent the columns of the grid.
-The gaps between the columns are transparent.
+The grey strokes in the examples on this page indicate the columns of the grid.
+The gaps between the columns are white – note that they can be wider than the columns.
+Pink boxes represent cells on the grid.
 
-The grid has 12 columns on wide screens, so all 12 cells in the example above are in a row.
-On narrow screens, you will see three rows of four columns; on medium-wide screens, one row of eight and one of four.
+### Vertical padding
 
-### Vertical margin
-
-Unlike the horizontal margins between columns, the vertical ones above and below are adjustable.
-The`paddingVertical`, `paddingTop`, and `paddingBottom` props add white space above and below the grid.
-This is useful in a coloured area like [Footer](/docs/components-containers-footer--docs) or [Spotlight](/docs/components-containers-spotlight--docs) or between two consecutive grids.
-
+Add white space above and below the grid through the `padding…` props.
+This is useful on a coloured background, like [Footer](/docs/components-containers-footer--docs) or [Spotlight](/docs/components-containers-spotlight--docs), or between two consecutive grids.
 Specify a value of `medium` for vertical white space as wide as the horizontal.
-Use `small` for half of that width and `large` for double.
+Use `small` for half that width and `large` for double.
+This padding is responsive as well.
 
-These white spaces also shrink and grow with the window width.
+<Canvas of={GridStories.VerticalPadding} />
 
-<Canvas of={GridStories.VerticalSpace} />
+### Vertical gap
 
-### Vertical white space
-
-A grid automatically creates multiple rows if the next cell no longer fits on the current row.
-
-By default, there is as much white space between two rows as between two columns.
-In some cases, more or less white space might be better.
+A grid automatically creates a new row if the next cell doesn’t fit the current one.
+White space between rows is as wide as that between columns.
+Use the `verticalGap` prop to make it larger, smaller, or even remove it.
 
 <Canvas of={GridStories.VerticalGap} />
 
-### Cells spanning columns
+### Span columns
 
 A cell defaults to spanning 1 column in the grid.
 Use the `span` prop to make a cell span more columns.
 
-<Canvas of={GridStories.SpanMultipleColumns} />
+<Canvas of={GridStories.SpanColumns} />
 
-### Different widths
+### Span responsively
 
 You can make the number of columns a cell spans depend on the window width.
 Use the `span` prop with 3 values for narrow, medium, and wide windows.
+E.g. `span={{ narrow: 4, medium: 6, wide: 8 }}` makes the cell span all 4 columns on narrow windows, 6 of the 8 on medium windows, and 8 of the 12 on wide windows.
 
-With `span={{ narrow: 4, medium: 6, wide: 8 }}`, this cell is 4 out of 4 columns wide on narrow windows, 6 out of 8 on medium windows, and 8 out of 12 on wide windows.
+<Canvas of={GridStories.SpanResponsively} />
 
-<Canvas of={GridStories.ConfigureGridVariants} />
+### Span all columns
 
-### Full width
-
-To make the cell full width – whether the grid has 4, 8, or 12 columns – use `span="all"`.
+To stretch the cell to all columns of the grid – whether that are 4, 8, or 12 – use `span="all"`.
 
 <Canvas of={GridStories.SpanAllColumns} />
 
 ### Start position
 
 Each cell automatically starts in the next available position in the grid.
-You usually don’t need to specify a value of 1 explicitly.
-You can adjust the starting position of a cell with the `start` prop.
-This way, you can align cells in multiple rows or place a cell in the centre of a wide grid.
+Adjust the starting position of a cell with the `start` prop.
+This way, you can align cells in multiple rows or center a cell horizontally.
 It can also skip a column for more white space between cells.
 
 The starting position of a cell may also depend on the window width.
-Use the `start` prop with 3 values, just like with `span`.
-
-An example with `start={2}`:
+Use the `start` prop with 3 values, e.g. `start={{ narrow: 2, medium: 4, wide: 6 }}`.
 
 <Canvas of={GridStories.StartPosition} />
 
