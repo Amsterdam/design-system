@@ -3,7 +3,7 @@
  * Copyright Gemeente Amsterdam
  */
 
-import { PageMenu } from '@amsterdam/design-system-react'
+import { PageMenu, Screen } from '@amsterdam/design-system-react'
 import { Header } from '@amsterdam/design-system-react/src'
 import { SearchIcon } from '@amsterdam/design-system-react-icons'
 import { Meta, StoryObj } from '@storybook/react'
@@ -11,6 +11,13 @@ import { Meta, StoryObj } from '@storybook/react'
 const meta = {
   title: 'Components/Containers/Header',
   component: Header,
+  decorators: [
+    (Story) => (
+      <Screen>
+        <Story />
+      </Screen>
+    ),
+  ],
 } satisfies Meta<typeof Header>
 
 export default meta
