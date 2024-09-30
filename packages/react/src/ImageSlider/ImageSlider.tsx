@@ -16,9 +16,8 @@ import { IconButton } from '../IconButton'
 import { Image, ImageProps } from '../Image/Image'
 
 export type ImageSliderImageProps = ImageProps & {
-  /** Define an aspect ratio to use on all images */
+  /** Define an aspect ratio to use on the image */
   ratio: Ratio
-  /** Describe to image */
 }
 
 export type ImageSliderProps = {
