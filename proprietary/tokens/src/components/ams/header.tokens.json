@@ -2,7 +2,6 @@
   "ams": {
     "header": {
       "column-gap": { "value": "{ams.space.grid.md}" },
-      "padding-block": { "value": "{ams.space.md}" },
       "row-gap": { "value": "{ams.space.md}" },
       "section": {
         "column-gap": { "value": "{ams.space.grid.sm}" }

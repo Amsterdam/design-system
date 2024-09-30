@@ -25,12 +25,10 @@ export const AppHeader = () => {
       {showMenu && MegaMenuStory.args?.children}
       {showSearch && (
         <Grid.Cell span={{ narrow: 4, medium: 6, wide: 8 }} start={{ narrow: 1, medium: 2, wide: 3 }}>
-          <div style={{ paddingBlockEnd: 'var(--ams-space-grid-md)', paddingBlockStart: 'var(--ams-space-grid-sm)' }}>
-            <SearchField onSubmit={(e) => e.preventDefault()}>
-              <SearchField.Input label="Zoeken" placeholder="Wat kunnen we voor u vinden?" />
-              <SearchField.Button />
-            </SearchField>
-          </div>
+          <SearchField onSubmit={(e) => e.preventDefault()}>
+            <SearchField.Input label="Zoeken" placeholder="Wat kunnen we voor u vinden?" />
+            <SearchField.Button />
+          </SearchField>
         </Grid.Cell>
       )}
     </Header>

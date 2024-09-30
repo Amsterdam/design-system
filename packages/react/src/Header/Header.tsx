@@ -38,7 +38,7 @@ export const Header = forwardRef(
     }: HeaderProps,
     ref: ForwardedRef<HTMLElement>,
   ) => (
-    <Grid as="header" gapVertical="none">
+    <Grid as="header" paddingVertical="medium">
       <Grid.Cell {...restProps} className={clsx('ams-header', className)} ref={ref} span="all">
         <div className="ams-header__section">
           <a className="ams-header__logo-link" href={logoLink}>
