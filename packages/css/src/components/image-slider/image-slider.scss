@@ -48,7 +48,7 @@
   grid-row: 1;
   justify-content: space-between;
 
-  @media (pointer: coarse) and (max-width: $ams-breakpoint-wide) {
+  @media (pointer: coarse) and (max-width: $ams-breakpoint-medium) {
     display: none;
   }
 }
