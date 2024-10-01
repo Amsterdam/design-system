@@ -4,25 +4,56 @@
  */
 
 import clsx from 'clsx'
-import { forwardRef, useContext } from 'react'
+import { forwardRef, KeyboardEvent, useContext } from 'react'
 import type { ForwardedRef, HTMLAttributes } from 'react'
-import { SlideProps } from './ImageSlider'
+import { ImageSliderImageProps } from './ImageSlider'
 import { ImageSliderContext } from './ImageSliderContext'
 
 export type ImageSliderThumbnailsProps = {
-  thumbnails: SlideProps[]
+  thumbnails: ImageSliderImageProps[]
   imageLabel?: string
   currentSlide?: number
 } & HTMLAttributes<HTMLElement>
 
 export const ImageSliderThumbnails = forwardRef(
-  (
-    { thumbnails, imageLabel, currentSlide, className, ...restProps }: ImageSliderThumbnailsProps,
-    ref: ForwardedRef<HTMLElement>,
-  ) => {
-    const { goToSlideId } = useContext(ImageSliderContext)
+  ({ thumbnails, imageLabel, className, ...restProps }: ImageSliderThumbnailsProps, ref: ForwardedRef<HTMLElement>) => {
+    const { currentSlide, goToNextSlide, goToPreviousSlide, goToSlideId } = useContext(ImageSliderContext)
+
+    const handleThumbsKeyDown = (event: KeyboardEvent<HTMLElement>) => {
+      const target = event.target as HTMLElement
+      const element = target.parentElement?.children[currentSlide]
+
+      if (event.key === 'ArrowRight') {
+        const next = element?.nextElementSibling as HTMLElement | null
+
+        if (next === element) return
+
+        if (next) {
+          next.focus()
+          goToNextSlide()
+        }
+      }
+
+      if (event.key === 'ArrowLeft') {
+        const previous = element?.previousElementSibling as HTMLElement | null
+
+        if (previous === element) return
+
+        if (previous) {
+          previous.focus()
+          goToPreviousSlide()
+        }
+      }
+    }
+
     return (
-      <nav {...restProps} ref={ref} className={clsx('ams-image-slider__thumbnails', className)} role="tablist">
+      <nav
+        {...restProps}
+        ref={ref}
+        className={clsx('ams-image-slider__thumbnails', className)}
+        role="tablist"
+        onKeyDown={handleThumbsKeyDown}
+      >
         {thumbnails &&
           thumbnails.map((thumbnail, index) => (
             <button

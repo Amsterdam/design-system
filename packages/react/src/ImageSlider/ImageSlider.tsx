@@ -5,7 +5,7 @@
 
 import { ChevronLeftIcon, ChevronRightIcon } from '@amsterdam/design-system-react-icons'
 import clsx from 'clsx'
-import { forwardRef, KeyboardEvent as ReactKeyboardEvent, useEffect, useRef, useState } from 'react'
+import { forwardRef, useEffect, useRef, useState } from 'react'
 import type { ForwardedRef, HTMLAttributes } from 'react'
 import { ImageSliderContext } from './ImageSliderContext'
 import { ImageSliderItem } from './ImageSliderItem'
@@ -102,32 +102,32 @@ export const ImageSliderRoot = forwardRef(
       updateControls()
     }
 
-    const handleThumbsKeyDown = (event: ReactKeyboardEvent<HTMLElement>) => {
-      const target = event.target as HTMLElement
-      const element = target.parentElement?.children[currentSlideId]
+    // const handleThumbsKeyDown = (event: ReactKeyboardEvent<HTMLElement>) => {
+    //   const target = event.target as HTMLElement
+    //   const element = target.parentElement?.children[currentSlideId]
 
-      if (event.key === 'ArrowRight') {
-        const next = element?.nextElementSibling as HTMLElement | null
+    //   if (event.key === 'ArrowRight') {
+    //     const next = element?.nextElementSibling as HTMLElement | null
 
-        if (next === element) return
+    //     if (next === element) return
 
-        if (next) {
-          next.focus()
-          goToNextSlide()
-        }
-      }
+    //     if (next) {
+    //       next.focus()
+    //       goToNextSlide()
+    //     }
+    //   }
 
-      if (event.key === 'ArrowLeft') {
-        const previous = element?.previousElementSibling as HTMLElement | null
+    //   if (event.key === 'ArrowLeft') {
+    //     const previous = element?.previousElementSibling as HTMLElement | null
 
-        if (previous === element) return
+    //     if (previous === element) return
 
-        if (previous) {
-          previous.focus()
-          goToPreviousSlide()
-        }
-      }
-    }
+    //     if (previous) {
+    //       previous.focus()
+    //       goToPreviousSlide()
+    //     }
+    //   }
+    // }
 
     const goToSlide = (element: HTMLElement) => {
       const sliderScroller = targetRef.current
@@ -174,7 +174,9 @@ export const ImageSliderRoot = forwardRef(
     }
 
     return (
-      <ImageSliderContext.Provider value={{ currentSlide: currentSlideId, goToSlideId }}>
+      <ImageSliderContext.Provider
+        value={{ currentSlide: currentSlideId, goToNextSlide, goToPreviousSlide, goToSlideId }}
+      >
         <div
           {...restProps}
           ref={ref}
@@ -215,12 +217,7 @@ export const ImageSliderRoot = forwardRef(
               </ImageSliderItem>
             ))}
           </ImageSliderScroller>
-          <ImageSliderThumbnails
-            thumbnails={images}
-            imageLabel={imageLabel}
-            currentSlide={currentSlideId}
-            onKeyDown={handleThumbsKeyDown}
-          />
+          <ImageSliderThumbnails thumbnails={images} imageLabel={imageLabel} />
         </div>
       </ImageSliderContext.Provider>
     )

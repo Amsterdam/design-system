@@ -10,11 +10,13 @@ import type { ForwardedRef, HTMLAttributes, PropsWithChildren } from 'react'
 export type ImageSliderScrollerProps = PropsWithChildren<HTMLAttributes<HTMLDivElement>>
 
 export const ImageSliderScroller = forwardRef(
-  ({ children, className, ...restProps }: ImageSliderScrollerProps, ref: ForwardedRef<HTMLDivElement>) => (
-    <div {...restProps} ref={ref} className={clsx('ams-image-slider__scroller', className)}>
-      {children}
-    </div>
-  ),
+  ({ children, className, ...restProps }: ImageSliderScrollerProps, ref: ForwardedRef<HTMLDivElement>) => {
+    return (
+      <div {...restProps} ref={ref} className={clsx('ams-image-slider__scroller', className)}>
+        {children}
+      </div>
+    )
+  },
 )
 
 ImageSliderScroller.displayName = 'ImageSlider.Scroller'
