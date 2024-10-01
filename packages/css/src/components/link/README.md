@@ -13,6 +13,7 @@ Use a link in the following cases:
 - To navigate to another website (see [External links](#external-links))
 - To navigate to an element on the same page
 - To link to emails or phone numbers (start the link with `mailto:` or `tel:`)
+- Wrap 2 or more consecutive buttons and/or links in an [Action Group](https://designsystem.amsterdam/?path=/docs/components-buttons-action-group--docs).
 
 A link is a navigation component.
 Use a button instead of a link when an action is desired.
