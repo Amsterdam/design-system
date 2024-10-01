@@ -43,10 +43,6 @@
   justify-content: end;
 }
 
-.ams-page-menu--no-wrap {
-  flex-wrap: nowrap;
-}
-
 .ams-page-menu__item {
   &--secondary {
     @media screen and (not (min-width: $ams-breakpoint-medium)) {

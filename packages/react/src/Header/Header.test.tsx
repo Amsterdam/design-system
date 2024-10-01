@@ -66,10 +66,10 @@ describe('Header', () => {
     expect(heading).toBeInTheDocument()
   })
 
-  it('renders with links', () => {
+  it('renders with menu', () => {
     const { container } = render(<Header menu={<div>Test content</div>} />)
 
-    const menu = container.querySelector('.ams-header__links')
+    const menu = container.querySelector('.ams-header__menu')
 
     expect(menu).toHaveTextContent('Test content')
   })

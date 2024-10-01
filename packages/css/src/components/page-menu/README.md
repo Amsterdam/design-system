@@ -7,11 +7,11 @@ A small set of links for use in the Header and Footer.
 ## Guidelines
 
 - Limit the amount of menu items in the Header to 5 items or less, including ‘Search’ and ‘Menu’.
-- The menu should fit on a single line and is right-aligned.
-- The menu in the footer is left-aligned.
+- The menu in the Header aligns to the end; the one in the Footer aligns to the start.
 - Submenus are not allowed.
 - The ‘Menu’ button opens the Mega Menu.
 - On narrow screens, menu items other than ‘Search’ and ‘Menu’ move from the Page Menu to the Mega Menu.
+- Labels should be short so that the menu wraps to multiple lines only if necessary.
 
 ### Using links with routing libraries
 
