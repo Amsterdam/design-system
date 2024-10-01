@@ -102,33 +102,6 @@ export const ImageSliderRoot = forwardRef(
       updateControls()
     }
 
-    // const handleThumbsKeyDown = (event: ReactKeyboardEvent<HTMLElement>) => {
-    //   const target = event.target as HTMLElement
-    //   const element = target.parentElement?.children[currentSlideId]
-
-    //   if (event.key === 'ArrowRight') {
-    //     const next = element?.nextElementSibling as HTMLElement | null
-
-    //     if (next === element) return
-
-    //     if (next) {
-    //       next.focus()
-    //       goToNextSlide()
-    //     }
-    //   }
-
-    //   if (event.key === 'ArrowLeft') {
-    //     const previous = element?.previousElementSibling as HTMLElement | null
-
-    //     if (previous === element) return
-
-    //     if (previous) {
-    //       previous.focus()
-    //       goToPreviousSlide()
-    //     }
-    //   }
-    // }
-
     const goToSlide = (element: HTMLElement) => {
       const sliderScroller = targetRef.current
 
