@@ -6,11 +6,10 @@ Allows the user to perform actions and operate the user interface.
 
 ## Guidelines
 
-- A short label text that describes the function of the button.
-- A clear contrasting colour scheme so that it is easy to recognize and quickly locate.
-- Use the correct type of button for the corresponding application.
-  For example, a button within a form must always be of the type `submit`.
+- Choose a short label that describes the function of the button.
+- Use the correct type of button for the corresponding application, e.g. `type="submit"` for the primary form button.
 - Make sure one can operate a button through a keyboard.
+- Wrap 2 or more consecutive buttons and/or links in an [Action Group](?path=/docs/components-buttons-action-group--docs).
 - Primary, secondary and tertiary buttons can be used side by side.
   Skipping levels is allowed.
 
