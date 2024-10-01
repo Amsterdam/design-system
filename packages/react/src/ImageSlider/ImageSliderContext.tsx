@@ -6,6 +6,8 @@
 import { createContext } from 'react'
 
 export type ImageSliderContextValue = {
+  atStart: boolean
+  atEnd: boolean
   currentSlide: number
   goToNextSlide: () => void
   goToPreviousSlide: () => void
@@ -14,6 +16,8 @@ export type ImageSliderContextValue = {
 }
 
 const defaultValues: ImageSliderContextValue = {
+  atStart: true,
+  atEnd: false,
   currentSlide: 0,
   goToNextSlide: () => {},
   goToPreviousSlide: () => {},

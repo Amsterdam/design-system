@@ -3,16 +3,15 @@
  * Copyright Gemeente Amsterdam
  */
 
-import { ChevronLeftIcon, ChevronRightIcon } from '@amsterdam/design-system-react-icons'
 import clsx from 'clsx'
 import { forwardRef, useEffect, useRef, useState } from 'react'
 import type { ForwardedRef, HTMLAttributes } from 'react'
 import { ImageSliderContext } from './ImageSliderContext'
+import { ImageSliderControls } from './ImageSliderControls'
 import { ImageSliderItem } from './ImageSliderItem'
 import { ImageSliderScroller } from './ImageSliderScroller'
 import { ImageSliderThumbnails } from './ImageSliderThumbnails'
 import { Ratio } from '../AspectRatio'
-import { IconButton } from '../IconButton'
 import { Image, ImageProps } from '../Image/Image'
 
 export type ImageSliderImageProps = ImageProps & {
@@ -39,8 +38,8 @@ export const ImageSliderRoot = forwardRef(
       className,
       controls,
       imageLabel = 'Afbeelding',
-      nextLabel = 'Volgende',
-      previousLabel = 'Vorige',
+      previousLabel,
+      nextLabel,
       images,
       ...restProps
     }: ImageSliderProps,
@@ -148,7 +147,7 @@ export const ImageSliderRoot = forwardRef(
 
     return (
       <ImageSliderContext.Provider
-        value={{ currentSlide: currentSlideId, goToNextSlide, goToPreviousSlide, goToSlideId }}
+        value={{ atStart, atEnd, currentSlide: currentSlideId, goToNextSlide, goToPreviousSlide, goToSlideId }}
       >
         <div
           {...restProps}
@@ -157,26 +156,7 @@ export const ImageSliderRoot = forwardRef(
           tabIndex={-1}
           className={clsx('ams-image-slider', controls && 'ams-image-slider--controls', className)}
         >
-          {controls && (
-            <div className="ams-image-slider__controls">
-              <IconButton
-                svg={ChevronLeftIcon}
-                label={previousLabel}
-                inverseColor={true}
-                className="ams-image-slider__control ams-image-slider__control--previous"
-                onClick={() => goToPreviousSlide()}
-                disabled={atStart}
-              />
-              <IconButton
-                svg={ChevronRightIcon}
-                label={nextLabel}
-                inverseColor={true}
-                className="ams-image-slider__control ams-image-slider__control--next"
-                onClick={() => goToNextSlide()}
-                disabled={atEnd}
-              />
-            </div>
-          )}
+          {controls && <ImageSliderControls previousLabel={previousLabel} nextLabel={nextLabel} />}
           <ImageSliderScroller tabIndex={0} ref={targetRef} aria-live="polite" role="group">
             {images.map((image, index) => (
               <ImageSliderItem key={index} slideId={index}>
