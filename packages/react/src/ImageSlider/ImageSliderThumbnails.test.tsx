@@ -1,11 +1,11 @@
 import { render } from '@testing-library/react'
 import { createRef } from 'react'
-import { SlideProps } from './ImageSlider'
+import { ImageSliderImageProps } from './ImageSlider'
 import { ImageSliderThumbnails } from './ImageSliderThumbnails'
 import '@testing-library/jest-dom'
 
 describe('Image slider thumbnails', () => {
-  const thumbnails: SlideProps[] = [
+  const thumbnails: ImageSliderImageProps[] = [
     {
       src: 'https://picsum.photos/id/122/1280/720',
       alt: 'This is gallery image 1',
