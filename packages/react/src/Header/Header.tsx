@@ -46,7 +46,7 @@ export const Header = forwardRef(
             <Logo brand={logoBrand} />
           </a>
           {appName && (
-            <Heading level={1} size="level-6">
+            <Heading level={1} size="level-5">
               {appName}
             </Heading>
           )}
