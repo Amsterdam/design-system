@@ -30,7 +30,7 @@ describe('Grid cell', () => {
   })
 
   it('supports ForwardRef in React', () => {
-    const ref = createRef<HTMLDivElement>()
+    const ref = createRef<HTMLElement>()
 
     const { container } = render(<Grid.Cell ref={ref} />)
 

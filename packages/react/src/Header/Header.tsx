@@ -5,7 +5,7 @@
 
 import clsx from 'clsx'
 import { forwardRef } from 'react'
-import type { ForwardedRef, HTMLAttributes, ReactNode } from 'react'
+import type { HTMLAttributes, ReactNode } from 'react'
 import { Heading } from '../Heading'
 import { Logo } from '../Logo'
 import type { LogoBrand } from '../Logo'
@@ -37,7 +37,7 @@ export const Header = forwardRef(
       menu,
       ...restProps
     }: HeaderProps,
-    ref: ForwardedRef<HTMLDivElement>,
+    ref: any,
   ) => (
     <Tag {...restProps} ref={ref} className={clsx('ams-header', className)}>
       <div className="ams-header__section">

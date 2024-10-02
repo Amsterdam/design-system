@@ -32,7 +32,7 @@ describe('Spotlight', () => {
   })
 
   it('supports ForwardRef in React', () => {
-    const ref = createRef<HTMLDivElement>()
+    const ref = createRef<HTMLElement>()
 
     const { container } = render(<Spotlight ref={ref} />)
 

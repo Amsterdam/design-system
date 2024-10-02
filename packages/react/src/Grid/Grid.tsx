@@ -5,7 +5,7 @@
 
 import clsx from 'clsx'
 import { forwardRef } from 'react'
-import type { ForwardedRef, HTMLAttributes, PropsWithChildren } from 'react'
+import type { HTMLAttributes, PropsWithChildren } from 'react'
 import { GridCell } from './GridCell'
 import { paddingClasses } from './paddingClasses'
 
@@ -48,7 +48,7 @@ const GridRoot = forwardRef(
       paddingVertical,
       ...restProps
     }: GridProps,
-    ref: ForwardedRef<HTMLDivElement>,
+    ref: any,
   ) => (
     <Tag
       {...restProps}
