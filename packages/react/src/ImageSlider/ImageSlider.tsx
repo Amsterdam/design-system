@@ -12,7 +12,7 @@ import { ImageSliderItem } from './ImageSliderItem'
 import { ImageSliderScroller } from './ImageSliderScroller'
 import { ImageSliderThumbnails } from './ImageSliderThumbnails'
 import { Ratio } from '../AspectRatio'
-import { ImageProps } from '../Image/Image'
+import { Image, ImageProps } from '../Image/Image'
 
 export type ImageSliderImageProps = ImageProps & {
   /** Define an aspect ratio to use on the image */
@@ -157,7 +157,19 @@ export const ImageSliderRoot = forwardRef(
           className={clsx('ams-image-slider', controls && 'ams-image-slider--controls', className)}
         >
           {controls && <ImageSliderControls previousLabel={previousLabel} nextLabel={nextLabel} />}
-          <ImageSliderScroller images={images} tabIndex={0} ref={targetRef} aria-live="polite" role="group" />
+          <ImageSliderScroller tabIndex={0} ref={targetRef} aria-live="polite" role="group">
+            {images.map((image, index) => (
+              <ImageSliderItem key={index} slideId={index}>
+                <Image
+                  src={image.src}
+                  srcSet={image.srcSet}
+                  sizes={image.sizes}
+                  alt={image.alt}
+                  className={`ams-aspect-ratio--${image.ratio}`}
+                />
+              </ImageSliderItem>
+            ))}
+          </ImageSliderScroller>
           <ImageSliderThumbnails thumbnails={images} imageLabel={imageLabel} />
         </div>
       </ImageSliderContext.Provider>

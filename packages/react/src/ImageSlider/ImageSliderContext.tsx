@@ -4,7 +4,6 @@
  */
 
 import { createContext } from 'react'
-// import { ImageSliderImageProps } from './ImageSlider'
 
 export type ImageSliderContextValue = {
   atStart: boolean
@@ -14,7 +13,6 @@ export type ImageSliderContextValue = {
   goToPreviousSlide: () => void
   // eslint-disable-next-line no-unused-vars
   goToSlideId: (id: number) => void
-  // images: ImageSliderImageProps[]
 }
 
 const defaultValues: ImageSliderContextValue = {
@@ -24,7 +22,6 @@ const defaultValues: ImageSliderContextValue = {
   goToNextSlide: () => {},
   goToPreviousSlide: () => {},
   goToSlideId: () => {},
-  // images: [],
 }
 
 export const ImageSliderContext = createContext(defaultValues)
