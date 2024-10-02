@@ -4,7 +4,7 @@ import { createRef } from 'react'
 import { PageMenuLink } from './PageMenuLink'
 import '@testing-library/jest-dom'
 
-describe('Page menu link', () => {
+describe('Page Menu Link', () => {
   it('renders with href attribute', () => {
     render(<PageMenuLink href="#">Link</PageMenuLink>)
 
@@ -32,18 +32,6 @@ describe('Page menu link', () => {
     const component = screen.getByRole('link')
 
     expect(component).toHaveClass('ams-page-menu__link extra')
-  })
-
-  it('renders a class name for a secondary item', () => {
-    render(
-      <PageMenuLink href="#" rank="secondary">
-        Link
-      </PageMenuLink>,
-    )
-
-    const component = screen.getByRole('listitem')
-
-    expect(component).toHaveClass('ams-page-menu__item--secondary')
   })
 
   it('does not render an icon by default', () => {

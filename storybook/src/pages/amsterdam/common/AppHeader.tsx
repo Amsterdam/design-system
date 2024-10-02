@@ -15,30 +15,34 @@ export const AppHeader = () => {
           appName="Onderzoek en Statistiek"
           menu={
             <PageMenu alignEnd>
-              <PageMenu.Link href="#" rank="secondary">
-                English
-              </PageMenu.Link>
-              <PageMenu.Link href="#" rank="secondary">
-                Contact
-              </PageMenu.Link>
-              <PageMenu.Button
-                icon={SearchIcon}
-                onClick={() => {
-                  setShowMegaMenu(false)
-                  setShowSearchField(!showSearchField)
-                }}
-              >
-                Zoeken
-              </PageMenu.Button>
-              <PageMenu.Button
-                icon={MenuIcon}
-                onClick={() => {
-                  setShowSearchField(false)
-                  setShowMegaMenu(!showMegaMenu)
-                }}
-              >
-                Menu
-              </PageMenu.Button>
+              <PageMenu.Item rank="secondary">
+                <PageMenu.Link href="#">English</PageMenu.Link>
+              </PageMenu.Item>
+              <PageMenu.Item rank="secondary">
+                <PageMenu.Link href="#">Contact</PageMenu.Link>
+              </PageMenu.Item>
+              <PageMenu.Item>
+                <PageMenu.Button
+                  icon={SearchIcon}
+                  onClick={() => {
+                    setShowMegaMenu(false)
+                    setShowSearchField(!showSearchField)
+                  }}
+                >
+                  Zoeken
+                </PageMenu.Button>
+              </PageMenu.Item>
+              <PageMenu.Item>
+                <PageMenu.Button
+                  icon={MenuIcon}
+                  onClick={() => {
+                    setShowSearchField(false)
+                    setShowMegaMenu(!showMegaMenu)
+                  }}
+                >
+                  Menu
+                </PageMenu.Button>
+              </PageMenu.Item>
             </PageMenu>
           }
         />

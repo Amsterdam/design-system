@@ -9,25 +9,33 @@ import { MenuIcon, SearchIcon } from '@amsterdam/design-system-react-icons'
 import { Meta, StoryObj } from '@storybook/react'
 
 const MenuButton = (
-  <PageMenu.Button icon={MenuIcon} onClick={() => {}}>
-    Menu
-  </PageMenu.Button>
+  <PageMenu.Item>
+    <PageMenu.Button icon={MenuIcon} onClick={() => {}}>
+      Menu
+    </PageMenu.Button>
+  </PageMenu.Item>
 )
 
 const SearchButton = (
-  <PageMenu.Button icon={SearchIcon} onClick={() => {}}>
-    Zoeken
-  </PageMenu.Button>
+  <PageMenu.Item>
+    <PageMenu.Button icon={SearchIcon} onClick={() => {}}>
+      Zoeken
+    </PageMenu.Button>
+  </PageMenu.Item>
 )
 
 const SecondaryLinks = (
   <>
-    <PageMenu.Link href="#" lang="en" rank="secondary">
-      English
-    </PageMenu.Link>
-    <PageMenu.Link href="#" rank="secondary">
-      Mijn Amsterdam
-    </PageMenu.Link>
+    <PageMenu.Item>
+      <PageMenu.Link href="#" lang="en" rank="secondary">
+        English
+      </PageMenu.Link>
+    </PageMenu.Item>
+    <PageMenu.Item>
+      <PageMenu.Link href="#" rank="secondary">
+        Mijn Amsterdam
+      </PageMenu.Link>
+    </PageMenu.Item>
   </>
 )
 
@@ -73,9 +81,15 @@ export const WithMenu: Story = {
   args: {
     menu: (
       <PageMenu alignEnd>
-        <PageMenu.Link href="#">Menu link 1</PageMenu.Link>
-        <PageMenu.Link href="#">Menu link 2</PageMenu.Link>
-        <PageMenu.Link href="#">Menu link 3</PageMenu.Link>
+        <PageMenu.Item>
+          <PageMenu.Link href="#">Menu link 1</PageMenu.Link>
+        </PageMenu.Item>
+        <PageMenu.Item>
+          <PageMenu.Link href="#">Menu link 2</PageMenu.Link>
+        </PageMenu.Item>
+        <PageMenu.Item>
+          <PageMenu.Link href="#">Menu link 3</PageMenu.Link>
+        </PageMenu.Item>
       </PageMenu>
     ),
   },
