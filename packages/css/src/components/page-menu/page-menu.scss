@@ -40,7 +40,8 @@
 }
 
 .ams-page-menu--align-end {
-  justify-content: end;
+  justify-content: flex-end;
+  margin-inline-start: auto;
 }
 
 .ams-page-menu__item {

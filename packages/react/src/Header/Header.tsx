@@ -51,7 +51,7 @@ export const Header = forwardRef(
           </Heading>
         )}
       </div>
-      <div className="ams-header__section ams-header__section--align-end">{menu}</div>
+      <div className="ams-header__section">{menu}</div>
     </Tag>
   ),
 )

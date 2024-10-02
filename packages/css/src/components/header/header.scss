@@ -17,10 +17,6 @@
   column-gap: var(--ams-header-section-column-gap);
   display: flex;
   flex: auto;
-
-  &--align-end {
-    justify-content: end;
-  }
 }
 
 .ams-header__logo-link {
