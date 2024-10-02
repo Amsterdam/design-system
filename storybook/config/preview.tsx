@@ -36,6 +36,9 @@ export const parameters = {
   controls: {
     sort: 'alpha',
   },
+  grid: {
+    disable: true,
+  },
   options: {
     storySort: {
       order: [

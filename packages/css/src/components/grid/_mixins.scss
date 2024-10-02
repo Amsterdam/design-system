@@ -1,0 +1,110 @@
+/**
+ * @license EUPL-1.2+
+ * Copyright Gemeente Amsterdam
+ */
+
+@mixin ams-grid {
+  column-gap: var(--ams-grid-column-gap);
+  display: grid;
+  grid-template-columns: repeat(var(--ams-grid-column-count), 1fr);
+  padding-inline: var(--ams-grid-padding-inline);
+  row-gap: var(--ams-grid-row-gap-md);
+
+  @media screen and (min-width: $ams-breakpoint-medium) {
+    grid-template-columns: repeat(var(--ams-grid-medium-column-count), 1fr);
+  }
+
+  @media screen and (min-width: $ams-breakpoint-wide) {
+    grid-template-columns: repeat(var(--ams-grid-wide-column-count), 1fr);
+  }
+}
+
+// Grid gap
+
+@mixin ams-grid--gap-vertical--none {
+  row-gap: initial;
+}
+
+@mixin ams-grid--gap-vertical--small {
+  row-gap: var(--ams-grid-row-gap-sm);
+}
+
+@mixin ams-grid--gap-vertical--large {
+  row-gap: var(--ams-grid-row-gap-lg);
+}
+
+// Grid padding
+
+@mixin ams-grid--padding-bottom--small {
+  padding-block-end: var(--ams-grid-padding-block-sm);
+}
+
+@mixin ams-grid--padding-bottom--medium {
+  padding-block-end: var(--ams-grid-padding-block-md);
+}
+
+@mixin ams-grid--padding-bottom--large {
+  padding-block-end: var(--ams-grid-padding-block-lg);
+}
+
+@mixin ams-grid--padding-top--small {
+  padding-block-start: var(--ams-grid-padding-block-sm);
+}
+
+@mixin ams-grid--padding-top--medium {
+  padding-block-start: var(--ams-grid-padding-block-md);
+}
+
+@mixin ams-grid--padding-top--large {
+  padding-block-start: var(--ams-grid-padding-block-lg);
+}
+
+@mixin ams-grid--padding-vertical--small {
+  padding-block: var(--ams-grid-padding-block-sm);
+}
+
+@mixin ams-grid--padding-vertical--medium {
+  padding-block: var(--ams-grid-padding-block-md);
+}
+
+@mixin ams-grid--padding-vertical--large {
+  padding-block: var(--ams-grid-padding-block-lg);
+}
+
+@mixin ams-grid__cell--span-all {
+  grid-column: 1 / -1;
+}
+
+// Column span
+
+@mixin ams-grid__cell--span($i) {
+  grid-column-end: span $i;
+}
+
+@mixin ams-grid__cell--start($i) {
+  grid-column-start: $i;
+}
+
+@mixin ams-grid__cell--span-medium($i) {
+  @media screen and (min-width: $ams-breakpoint-medium) {
+    grid-column-end: span $i;
+  }
+}
+
+@mixin ams-grid__cell--start-medium($i) {
+  @media screen and (min-width: $ams-breakpoint-medium) {
+    grid-column-start: $i;
+  }
+}
+
+@mixin ams-grid__cell--span-wide($i) {
+  @media screen and (min-width: $ams-breakpoint-wide) {
+    grid-column-end: span $i;
+  }
+}
+
+@mixin ams-grid__cell--start-wide($i) {
+  @media screen and (min-width: $ams-breakpoint-wide) {
+    grid-column-start: $i;
+  }
+}

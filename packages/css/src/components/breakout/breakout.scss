@@ -1,0 +1,163 @@
+/**
+ * @license EUPL-1.2+
+ * Copyright Gemeente Amsterdam
+ */
+
+@import "../../common/breakpoint";
+@import "../grid/grid";
+@import "../grid/mixins";
+
+$ams-breakout-row-span-max: 4;
+
+.ams-breakout {
+  @include ams-grid;
+}
+
+// Grid gap
+
+.ams-breakout--gap-vertical--none {
+  @include ams-grid--gap-vertical--none;
+}
+
+.ams-breakout--gap-vertical--small {
+  @include ams-grid--gap-vertical--small;
+}
+
+.ams-breakout--gap-vertical--large {
+  @include ams-grid--gap-vertical--large;
+}
+
+// Grid padding
+
+.ams-breakout--padding-bottom--small {
+  @include ams-grid--padding-bottom--small;
+}
+
+.ams-breakout--padding-bottom--medium {
+  @include ams-grid--padding-bottom--medium;
+}
+
+.ams-breakout--padding-bottom--large {
+  @include ams-grid--padding-bottom--large;
+}
+
+.ams-breakout--padding-top--small {
+  @include ams-grid--padding-top--small;
+}
+
+.ams-breakout--padding-top--medium {
+  @include ams-grid--padding-top--medium;
+}
+
+.ams-breakout--padding-top--large {
+  @include ams-grid--padding-top--large;
+}
+
+.ams-breakout--padding-vertical--small {
+  @include ams-grid--padding-vertical--small;
+}
+
+.ams-breakout--padding-vertical--medium {
+  @include ams-grid--padding-vertical--medium;
+}
+
+.ams-breakout--padding-vertical--large {
+  @include ams-grid--padding-vertical--large;
+}
+
+// Column span
+// The order of these declaration blocks ensures the intended specificity.
+
+.ams-breakout__cell--col-span-all {
+  @include ams-grid__cell--span-all;
+}
+
+@for $i from 1 through $ams-grid-column-count {
+  .ams-breakout__cell--col-span-#{$i} {
+    @include ams-grid__cell--span($i);
+  }
+
+  .ams-breakout__cell--col-start-#{$i} {
+    @include ams-grid__cell--start($i);
+  }
+}
+
+@media screen and (min-width: $ams-breakpoint-medium) {
+  @for $i from 1 through $ams-grid-column-count {
+    .ams-breakout__cell--col-span-#{$i}-medium {
+      @include ams-grid__cell--span-medium($i);
+    }
+
+    .ams-breakout__cell--col-start-#{$i}-medium {
+      @include ams-grid__cell--start-medium($i);
+    }
+  }
+}
+
+@media screen and (min-width: $ams-breakpoint-wide) {
+  @for $i from 1 through $ams-grid-column-count {
+    .ams-breakout__cell--col-span-#{$i}-wide {
+      @include ams-grid__cell--span-wide($i);
+    }
+
+    .ams-breakout__cell--col-start-#{$i}-wide {
+      @include ams-grid__cell--start-wide($i);
+    }
+  }
+}
+
+// Has content
+
+.ams-breakout__cell--has-figure {
+  align-self: end;
+}
+
+.ams-breakout__cell--has-spotlight {
+  display: grid; /* Stretches the empty Spotlight vertically. */
+  margin-block: calc(var(--ams-space-grid-md) * -1);
+  margin-inline: calc(var(--ams-space-grid-lg) * -1);
+
+  .ams-breakout--gap-vertical--small > & {
+    margin-block: calc(var(--ams-space-grid-sm) * -1);
+  }
+
+  .ams-breakout--gap-vertical--large > & {
+    margin-block: calc(var(--ams-space-grid-lg) * -1);
+  }
+}
+
+// Row span
+
+@for $i from 1 through $ams-breakout-row-span-max {
+  .ams-breakout__cell--row-span-#{$i} {
+    grid-row-end: span $i;
+  }
+
+  .ams-breakout__cell--row-start-#{$i} {
+    grid-row-start: $i;
+  }
+}
+
+@media screen and (min-width: $ams-breakpoint-medium) {
+  @for $i from 1 through $ams-breakout-row-span-max {
+    .ams-breakout__cell--row-span-#{$i}-medium {
+      grid-row-end: span $i;
+    }
+
+    .ams-breakout__cell--row-start-#{$i}-medium {
+      grid-row-start: $i;
+    }
+  }
+}
+
+@media screen and (min-width: $ams-breakpoint-wide) {
+  @for $i from 1 through $ams-breakout-row-span-max {
+    .ams-breakout__cell--row-span-#{$i}-wide {
+      grid-row-end: span $i;
+    }
+
+    .ams-breakout__cell--row-start-#{$i}-wide {
+      grid-row-start: $i;
+    }
+  }
+}
