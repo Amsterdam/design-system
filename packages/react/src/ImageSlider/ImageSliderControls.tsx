@@ -5,7 +5,7 @@
 
 import { ChevronLeftIcon, ChevronRightIcon } from '@amsterdam/design-system-react-icons'
 import clsx from 'clsx'
-import React, { forwardRef, useContext } from 'react'
+import { forwardRef, useContext } from 'react'
 import type { ForwardedRef, HTMLAttributes } from 'react'
 import { ImageSliderContext } from './ImageSliderContext'
 import { IconButton } from '../IconButton'
