@@ -3,8 +3,11 @@
 import { Canvas, Controls, Markdown, Meta, Primary } from "@storybook/blocks";
 import * as ImageSliderStories from "./ImageSlider.stories.tsx";
 import README from "../../../../packages/css/src/components/image-slider/README.md?raw";
+import { StatusBadge } from "../../docs/components/StatusBadge";
 
 <Meta of={ImageSliderStories} />
+
+<StatusBadge reason="Needs work optimizing rendering" />
 
 <Markdown>{README}</Markdown>
 
