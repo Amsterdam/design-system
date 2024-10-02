@@ -26,15 +26,13 @@ const SearchButton = (
 
 const SecondaryLinks = (
   <>
-    <PageMenu.Item>
-      <PageMenu.Link href="#" lang="en" rank="secondary">
+    <PageMenu.Item rank="secondary">
+      <PageMenu.Link href="#" lang="en">
         English
       </PageMenu.Link>
     </PageMenu.Item>
-    <PageMenu.Item>
-      <PageMenu.Link href="#" rank="secondary">
-        Mijn Amsterdam
-      </PageMenu.Link>
+    <PageMenu.Item rank="secondary">
+      <PageMenu.Link href="#">Mijn Amsterdam</PageMenu.Link>
     </PageMenu.Item>
   </>
 )
@@ -44,7 +42,10 @@ const meta = {
   component: Header,
   argTypes: {
     as: {
-      control: { type: 'radio' },
+      control: {
+        type: 'radio',
+        labels: { header: 'header', undefined: 'div' },
+      },
       options: ['header', 'div'],
     },
   },

@@ -12,7 +12,6 @@ const meta = {
   component: PageMenu,
   args: {
     alignEnd: false,
-    wrap: undefined,
   },
 } satisfies Meta<typeof PageMenu>
 

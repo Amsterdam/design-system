@@ -11,8 +11,6 @@ export const AppHeader = () => {
     <Grid as="header" paddingVertical="medium">
       <Grid.Cell span="all">
         <Header
-          className="poop"
-          appName="Onderzoek en Statistiek"
           menu={
             <PageMenu alignEnd>
               <PageMenu.Item rank="secondary">
