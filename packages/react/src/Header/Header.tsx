@@ -6,29 +6,30 @@
 import clsx from 'clsx'
 import { forwardRef } from 'react'
 import type { ForwardedRef, HTMLAttributes, ReactNode } from 'react'
-import { Grid } from '../Grid'
 import { Heading } from '../Heading'
 import { Logo } from '../Logo'
 import type { LogoBrand } from '../Logo'
 
 export type HeaderProps = {
-  /** The name of the application. */
+  /** A site-wide title for the website or application. */
   appName?: string
-  /** The name of the brand for which to display the logo. */
+  /** The HTML element to use. */
+  as?: 'header' | 'div'
+  /** The brand for which to display the logo. */
   logoBrand?: LogoBrand
   /** The url for the link on the logo. */
   logoLink?: string
   /** The accessible text for the link on the logo. */
   logoLinkTitle?: string
-  /** A menu for in the header. Use a Page Menu. */
+  /** A secondary menu of links and buttons. Use a Page Menu. Can include buttons to show the Mega Menu or a Search Field. */
   menu?: ReactNode
-} & HTMLAttributes<HTMLElement>
+} & HTMLAttributes<HTMLDivElement>
 
 export const Header = forwardRef(
   (
     {
       appName,
-      children,
+      as: Tag = 'div',
       className,
       logoBrand = 'amsterdam',
       logoLink = '/',
@@ -36,25 +37,22 @@ export const Header = forwardRef(
       menu,
       ...restProps
     }: HeaderProps,
-    ref: ForwardedRef<HTMLElement>,
+    ref: ForwardedRef<HTMLDivElement>,
   ) => (
-    <Grid as="header" paddingVertical="medium">
-      <Grid.Cell {...restProps} className={clsx('ams-header', className)} ref={ref} span="all">
-        <div className="ams-header__section">
-          <a className="ams-header__logo-link" href={logoLink}>
-            <span className="ams-visually-hidden">{logoLinkTitle}</span>
-            <Logo brand={logoBrand} />
-          </a>
-          {appName && (
-            <Heading level={1} size="level-5">
-              {appName}
-            </Heading>
-          )}
-        </div>
-        <div className="ams-header__section ams-header__section--align-end">{menu}</div>
-      </Grid.Cell>
-      {children}
-    </Grid>
+    <Tag {...restProps} ref={ref} className={clsx('ams-header', className)}>
+      <div className="ams-header__section">
+        <a className="ams-header__logo-link" href={logoLink}>
+          <span className="ams-visually-hidden">{logoLinkTitle}</span>
+          <Logo brand={logoBrand} />
+        </a>
+        {appName && (
+          <Heading level={1} size="level-5">
+            {appName}
+          </Heading>
+        )}
+      </div>
+      <div className="ams-header__section ams-header__section--align-end">{menu}</div>
+    </Tag>
   ),
 )
 

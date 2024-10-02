@@ -14,9 +14,32 @@ const MenuButton = (
   </PageMenu.Button>
 )
 
+const SearchButton = (
+  <PageMenu.Button icon={SearchIcon} onClick={() => {}}>
+    Zoeken
+  </PageMenu.Button>
+)
+
+const SecondaryLinks = (
+  <>
+    <PageMenu.Link href="#" lang="en" rank="secondary">
+      English
+    </PageMenu.Link>
+    <PageMenu.Link href="#" rank="secondary">
+      Mijn Amsterdam
+    </PageMenu.Link>
+  </>
+)
+
 const meta = {
   title: 'Components/Containers/Header',
   component: Header,
+  argTypes: {
+    as: {
+      control: { type: 'radio' },
+      options: ['header', 'div'],
+    },
+  },
   decorators: [
     (Story) => (
       <Screen>
@@ -68,11 +91,8 @@ export const WithMenuAndMenuButton: Story = {
   args: {
     menu: (
       <PageMenu alignEnd>
-        <PageMenu.Link href="#">Contact</PageMenu.Link>
-        <PageMenu.Link href="#">Mijn Amsterdam</PageMenu.Link>
-        <PageMenu.Link href="#" icon={SearchIcon}>
-          Zoeken
-        </PageMenu.Link>
+        {SecondaryLinks}
+        {SearchButton}
         {MenuButton}
       </PageMenu>
     ),
@@ -91,11 +111,8 @@ export const WithAppNameMenuAndMenuButton: Story = {
     appName: 'Onderzoek en Statistiek',
     menu: (
       <PageMenu alignEnd>
-        <PageMenu.Link href="#">Contact</PageMenu.Link>
-        <PageMenu.Link href="#">Mijn Amsterdam</PageMenu.Link>
-        <PageMenu.Link href="#" icon={SearchIcon}>
-          Zoeken
-        </PageMenu.Link>
+        {SecondaryLinks}
+        {SearchButton}
         {MenuButton}
       </PageMenu>
     ),

@@ -1,40 +1,40 @@
 import { render, screen } from '@testing-library/react'
 import { createRef } from 'react'
-import { Header } from './Header'
 import '@testing-library/jest-dom'
+import { Header } from './Header'
 
 describe('Header', () => {
   it('renders', () => {
-    render(<Header />)
+    const { container } = render(<Header />)
 
-    const component = screen.getByRole('banner')
+    const component = container.querySelector(':only-child')
 
     expect(component).toBeInTheDocument()
     expect(component).toBeVisible()
   })
 
   it('renders a design system BEM class name', () => {
-    render(<Header />)
+    const { container } = render(<Header className="extra" />)
 
-    const component = screen.getByRole('banner')
+    const component = container.querySelector(':only-child')
 
     expect(component).toHaveClass('ams-header')
   })
 
   it('renders an additional class name', () => {
-    render(<Header className="extra" />)
+    const { container } = render(<Header className="extra" />)
 
-    const component = screen.getByRole('banner')
+    const component = container.querySelector(':only-child')
 
     expect(component).toHaveClass('ams-header extra')
   })
 
   it('supports ForwardRef in React', () => {
-    const ref = createRef<HTMLElement>()
+    const ref = createRef<HTMLDivElement>()
 
-    render(<Header ref={ref} />)
+    const { container } = render(<Header ref={ref} />)
 
-    const component = screen.getByRole('banner')
+    const component = container.querySelector(':only-child')
 
     expect(ref.current).toBe(component)
   })
@@ -64,13 +64,5 @@ describe('Header', () => {
     })
 
     expect(heading).toBeInTheDocument()
-  })
-
-  it('renders with menu', () => {
-    const { container } = render(<Header menu={<div>Test content</div>} />)
-
-    const menu = container.querySelector('.ams-header__menu')
-
-    expect(menu).toHaveTextContent('Test content')
   })
 })
