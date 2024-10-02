@@ -50,10 +50,9 @@ describe('Image slider', () => {
   it('renders images', () => {
     const { container } = render(<ImageSlider images={images} />)
 
-    const slideElements = container.querySelectorAll('.ams-image-slider__item')
-    const slideArray = Array.from(slideElements)
+    const slides = Array.from(container.querySelectorAll('.ams-image-slider__item'))
 
-    expect(slideArray).toHaveLength(3)
+    expect(slides).toHaveLength(3)
   })
 
   it('renders a design system BEM class name', () => {
