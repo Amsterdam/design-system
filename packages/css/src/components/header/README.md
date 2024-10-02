@@ -2,22 +2,24 @@
 
 # Header
 
-Displays the City’s logo at the top of every page, and optionally a navigation menu.
-Includes the name of the application if it is not the general website.
+Establishes the City of Amsterdam as the official source of the website or application.
+Contains the main and secondary navigation and optionally a site-wide title.
 
-## Guidelines
+## How to use
 
-- The Header must be used on all websites and applications for the City of Amsterdam.
-- It includes the logo of the City or the organization, the site title (except for the general website), and a menu with links to commonly used pages.
-- The Header is important because it conveys our corporate identity and is the first thing people see.
-  Using it consistently helps users recognize and trust the website.
-- It is the same on every page of the application.
-- The page menu can contain a maximum of 5 items.
-  The last two will often be ‘Search’ and ‘Menu’.
-- Labels should be short to ensure the menu fits on one line, even on medium-wide screens.
-- An icon can be added to the end of a link to make its function easier to find.
+The Header must be used on all websites and applications for the City of Amsterdam.
+One objective of the Header is to convey our corporate identity.
+Using it consistently helps users recognize and trust our websites.
+Within a website, the Header must be the same on every page.
+
+Both navigation menus support variations in the amount and grouping of links to accommodate websites of varying sizes and information architectures.
+
+The component does not render a `header` HTML element by default.
+If the Header triggers a Main Menu, both should be in the `header` – best through a `<Grid as="header">`.
+
+See [Mega Menu](https://designsystem.amsterdam/?path=/docs/components-navigation-mega-menu--docs) and [Page Menu](https://designsystem.amsterdam/?path=/docs/components-navigation-page-menu--docs) for more guidelines.
 
 ## References
 
-- A Header is a [landmark](https://www.w3.org/TR/wai-aria-practices-1.1/#aria_landmark_roles) and can be use to group navigation elements.
+- A Header is a [landmark](https://www.w3.org/TR/wai-aria-practices-1.1/#aria_landmark_roles) and can be used to group navigation elements.
 - [WCAG 3.2.3](https://wcag.com/designers/3-2-3-consistent-navigation/) Consistent Navigation: Navigation menus that appear on multiple pages are consistent.
