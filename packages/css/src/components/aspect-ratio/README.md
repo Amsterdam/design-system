@@ -17,4 +17,4 @@ These are the proportions we use:
 
 ## Guidelines
 
-- Use this component to constrain images, videos and other elements to one of the available aspect ratios.
+- Use this CSS class to constrain images, videos and other elements to one of the available aspect ratios.

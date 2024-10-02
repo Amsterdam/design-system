@@ -3,7 +3,7 @@
  * Copyright Gemeente Amsterdam
  */
 
-import { AspectRatio, Heading, Image, Paragraph } from '@amsterdam/design-system-react'
+import { Heading, Image, Paragraph } from '@amsterdam/design-system-react'
 import { Card } from '@amsterdam/design-system-react/src'
 import { Meta, StoryObj } from '@storybook/react'
 import { exampleTopTask } from '../shared/exampleContent'
@@ -62,9 +62,7 @@ export const WithTagline: Story = {
 export const WithImage: Story = {
   args: {
     children: [
-      <AspectRatio key={1} ratio="wide">
-        <Image alt="" src="https://picsum.photos/480/360" />
-      </AspectRatio>,
+      <Image key={1} alt="" aspectRatio="wide" src="https://picsum.photos/480/360" />,
       <Card.HeadingGroup key={2} tagline="Nieuws">
         <Heading size="level-4">
           <Card.Link href="/">Nederlands eerste houten woonwijk komt in Zuidoost</Card.Link>

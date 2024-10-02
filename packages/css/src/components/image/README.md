@@ -15,6 +15,7 @@ Displays an image.
   For example, provide small, medium, and large variants for various screen sizes.
   This prevents unnecessary downloading of large files.
   Do this especially for the main image of a page, where the difference between sizes on a narrow and wide screen is most significant.
+  <!-- TODO: document usage of aspectRatio prop -->
 - Ensure that the aspect ratio of the image is supported by the [Aspect Ratio](/docs/components-layout-aspect-ratio--docs) component.
 
 ## Relevant WCAG requirements

@@ -4,6 +4,12 @@
  */
 
 .ams-aspect-ratio {
+  block-size: auto;
+  inline-size: fit-content;
+}
+
+// TODO: needed on a wrapping element around the media element? I.e. Figure?
+.ams-aspect-ratio__container {
   overflow: hidden;
   position: relative;
 }
