@@ -9,8 +9,14 @@ import type { ForwardedRef, HTMLAttributes, PropsWithChildren } from 'react'
 import { GridCell } from './GridCell'
 import { paddingClasses } from './paddingClasses'
 
-export type GridColumnNumber = 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11 | 12
-export type GridColumnNumbers = { narrow: GridColumnNumber; medium: GridColumnNumber; wide: GridColumnNumber }
+export type GridNarrowColumnNumber = 1 | 2 | 3 | 4
+export type GridMediumColumnNumber = GridNarrowColumnNumber | 5 | 6 | 7 | 8
+export type GridColumnNumber = GridMediumColumnNumber | 9 | 10 | 11 | 12
+export type GridColumnNumbers = {
+  narrow: GridNarrowColumnNumber
+  medium: GridMediumColumnNumber
+  wide: GridColumnNumber
+}
 export type GridPaddingSize = 'small' | 'medium' | 'large'
 
 type GridPaddingVerticalProp = {
