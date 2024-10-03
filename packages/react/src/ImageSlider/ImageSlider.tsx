@@ -122,22 +122,31 @@ export const ImageSliderRoot = forwardRef(
     const goToNextSlide = useCallback(() => {
       const element = targetRef.current?.children[currentSlideId]
       const nextElement = element?.nextElementSibling as HTMLElement | null
+
       if (nextElement) goToSlide(nextElement)
     }, [currentSlideId, goToSlide])
 
     const goToPreviousSlide = useCallback(() => {
       const element = targetRef.current?.children[currentSlideId]
       const previousElement = element?.previousElementSibling as HTMLElement | null
+
       if (previousElement) goToSlide(previousElement)
     }, [currentSlideId, goToSlide])
 
     useEffect(() => {
       const handleResize = () => {
-        if (targetRef.current && targetRef.current.children[currentSlideId]) {
-          const element = targetRef.current.children[currentSlideId] as HTMLElement
-          goToSlide(element)
-        }
+        const sliderScrollerElement = targetRef.current
+        const currentSlideElement = targetRef.current?.children[currentSlideId] as HTMLElement | null
+
+        if (!sliderScrollerElement || !currentSlideElement) return
+
+        const expectedScrollLeft = currentSlideElement.offsetLeft
+
+        if (Math.abs(sliderScrollerElement.scrollLeft - expectedScrollLeft) < 1) return
+
+        goToSlide(currentSlideElement)
       }
+
       window.addEventListener('resize', handleResize)
       return () => window.removeEventListener('resize', handleResize)
     }, [currentSlideId, goToSlide])
