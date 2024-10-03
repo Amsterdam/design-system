@@ -8,7 +8,7 @@ export const AppHeader = () => {
   const [showSearchField, setShowSearchField] = useState(false)
 
   return (
-    <Grid as="header" paddingVertical="medium">
+    <Grid paddingVertical="medium">
       <Grid.Cell span="all">
         <Header
           menu={

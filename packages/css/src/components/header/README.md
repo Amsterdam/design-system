@@ -12,11 +12,7 @@ One objective of the Header is to convey our corporate identity.
 Using it consistently helps users recognize and trust our websites.
 Within a website, the Header must be the same on every page.
 
-Both navigation menus support variations in the amount and grouping of links to accommodate websites of varying sizes and information architectures.
-
-The component does not render a `header` HTML element by default.
-If the Header triggers a Main Menu, both should be in the `header` – best through a `<Grid as="header">`.
-
+Both navigation menus in the Header support variations in the amount and grouping of links to accommodate websites of varying sizes and information architectures.
 See [Mega Menu](https://designsystem.amsterdam/?path=/docs/components-navigation-mega-menu--docs) and [Page Menu](https://designsystem.amsterdam/?path=/docs/components-navigation-page-menu--docs) for more guidelines.
 
 ## References

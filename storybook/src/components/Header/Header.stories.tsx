@@ -40,15 +40,6 @@ const SecondaryLinks = (
 const meta = {
   title: 'Components/Containers/Header',
   component: Header,
-  argTypes: {
-    as: {
-      control: {
-        type: 'radio',
-        labels: { header: 'header', undefined: 'div' },
-      },
-      options: ['header', 'div'],
-    },
-  },
   decorators: [
     (Story) => (
       <Screen>
