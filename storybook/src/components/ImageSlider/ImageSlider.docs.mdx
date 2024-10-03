@@ -7,7 +7,7 @@ import { StatusBadge } from "../../docs/components/StatusBadge";
 
 <Meta of={ImageSliderStories} />
 
-<StatusBadge reason="Needs work optimizing rendering" />
+<StatusBadge reason="Needs work to optimize rendering." />
 
 <Markdown>{README}</Markdown>
 
@@ -17,12 +17,10 @@ import { StatusBadge } from "../../docs/components/StatusBadge";
 
 ## Examples
 
-### No Controls
+### Responsive images
 
-<Canvas of={ImageSliderStories.NoControls} />
+Provide a set of smaller and larger instances for every image (through `srcSet`, see [MDN](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/img#srcset)) to let the browser select the optimal source file.
+A mobile device can often download a smaller file, saving the user’s bandwidth and time.
+Don’t forget to still include the required `src` attribute.
 
-### Source set images
-
-To use source set images, you need to pass an array of objects with `srcSet` and `src` properties. The `srcSet` property should be a string with the image URLs separated by commas. The `src` property should be the URL of the image to use as a fallback.
-
-<Canvas of={ImageSliderStories.SourceSetImages} />
+<Canvas of={ImageSliderStories.ResponsiveImages} />

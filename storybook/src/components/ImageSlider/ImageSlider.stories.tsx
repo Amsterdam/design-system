@@ -55,13 +55,7 @@ type Story = StoryObj<typeof meta>
 
 export const Default: Story = {}
 
-export const NoControls: Story = {
-  args: {
-    controls: false,
-  },
-}
-
-export const SourceSetImages: Story = {
+export const ResponsiveImages: Story = {
   args: {
     images: [
       {
