@@ -22,19 +22,19 @@ window.IntersectionObserver = jest.fn(() => ({
 describe('Image Slider', () => {
   const images: ImageSliderImageProps[] = [
     {
-      src: 'https://picsum.photos/id/122/320/180',
       alt: 'Bridge',
-      ratio: 'x-wide',
+      aspectRatio: 'x-wide',
+      src: 'https://picsum.photos/id/122/320/180',
     },
     {
-      src: 'https://picsum.photos/id/101/320/180',
       alt: 'Bunker',
-      ratio: 'x-wide',
+      aspectRatio: 'x-wide',
+      src: 'https://picsum.photos/id/101/320/180',
     },
     {
-      src: 'https://picsum.photos/id/153/320/180',
       alt: 'Chairs',
-      ratio: 'x-wide',
+      aspectRatio: 'x-wide',
+      src: 'https://picsum.photos/id/153/320/180',
     },
   ]
 

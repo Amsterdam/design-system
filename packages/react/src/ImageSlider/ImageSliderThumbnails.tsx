@@ -63,7 +63,7 @@ export const ImageSliderThumbnails = forwardRef(
               className={clsx(
                 'ams-image-slider__thumbnail',
                 currentSlideId === index && 'ams-image-slider__thumbnail--in-view',
-                thumbnail.ratio && `ams-aspect-ratio--${thumbnail.ratio}`,
+                thumbnail.aspectRatio && `ams-aspect-ratio--${thumbnail.aspectRatio}`,
               )}
               key={index}
               onClick={() => goToSlideId(index)}

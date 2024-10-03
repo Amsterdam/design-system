@@ -8,17 +8,17 @@ describe('Image Slider Thumbnails', () => {
   const thumbnails: ImageSliderImageProps[] = [
     {
       alt: 'This is gallery image 1',
-      ratio: 'x-wide',
+      aspectRatio: 'x-wide',
       src: 'https://picsum.photos/id/122/1280/720',
     },
     {
       alt: 'This is gallery image 2',
-      ratio: 'x-wide',
+      aspectRatio: 'x-wide',
       src: 'https://picsum.photos/id/101/1280/720',
     },
     {
       alt: 'This is gallery image 3',
-      ratio: 'x-wide',
+      aspectRatio: 'x-wide',
       src: 'https://picsum.photos/id/153/1280/720',
     },
   ]

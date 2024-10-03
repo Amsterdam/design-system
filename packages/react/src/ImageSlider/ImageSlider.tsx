@@ -15,8 +15,8 @@ import { Ratio } from '../AspectRatio'
 import { Image, ImageProps } from '../Image/Image'
 
 export type ImageSliderImageProps = ImageProps & {
-  /** Define an aspect ratio to use on the image */
-  ratio: Ratio
+  /** Specify the aspect ratio to use for the images. */
+  aspectRatio: Ratio
 }
 
 export type ImageSliderProps = {
@@ -154,9 +154,15 @@ export const ImageSliderRoot = forwardRef(
         >
           {controls && <ImageSliderControls nextLabel={nextLabel} previousLabel={previousLabel} />}
           <ImageSliderScroller aria-live="polite" ref={targetRef} role="group" tabIndex={0}>
-            {images.map(({ alt, ratio, sizes, src, srcSet }, index) => (
+            {images.map(({ alt, aspectRatio, sizes, src, srcSet }, index) => (
               <ImageSliderItem key={index} slideId={index}>
-                <Image alt={alt} className={`ams-aspect-ratio--${ratio}`} sizes={sizes} src={src} srcSet={srcSet} />
+                <Image
+                  alt={alt}
+                  className={`ams-aspect-ratio--${aspectRatio}`}
+                  sizes={sizes}
+                  src={src}
+                  srcSet={srcSet}
+                />
               </ImageSliderItem>
             ))}
           </ImageSliderScroller>
