@@ -2,9 +2,9 @@
   "ams": {
     "header": {
       "column-gap": { "value": "{ams.space.grid.md}" },
-      "row-gap": { "value": "{ams.space.md}" },
+      "row-gap": { "value": "{ams.space.grid.sm}" },
       "section": {
-        "column-gap": { "value": "{ams.space.grid.sm}" }
+        "column-gap": { "value": "{ams.space.md}" }
       },
       "logo-link": {
         "outline-offset": { "value": "{ams.focus.outline-offset}" }
