@@ -11,34 +11,34 @@ const meta = {
   title: 'Components/Media/Image Slider',
   component: ImageSlider,
   args: {
+    controls: true,
     images: [
       {
-        src: 'https://picsum.photos/id/122/1280/720',
         alt: 'Bridge',
         ratio: 'x-wide',
+        src: 'https://picsum.photos/id/122/1280/720',
       },
       {
-        src: 'https://picsum.photos/id/101/1280/720',
         alt: 'Bunker',
         ratio: 'x-wide',
+        src: 'https://picsum.photos/id/101/1280/720',
       },
       {
-        src: 'https://picsum.photos/id/153/1280/720',
         alt: 'Chairs',
         ratio: 'x-wide',
+        src: 'https://picsum.photos/id/153/1280/720',
       },
       {
-        src: 'https://picsum.photos/id/159/1280/720',
         alt: 'Droplet',
         ratio: 'x-wide',
+        src: 'https://picsum.photos/id/159/1280/720',
       },
       {
-        src: 'https://picsum.photos/id/123/1280/720',
         alt: 'Dew',
         ratio: 'x-wide',
+        src: 'https://picsum.photos/id/123/1280/720',
       },
     ],
-    controls: true,
   },
   decorators: [
     (Story) => (
@@ -65,25 +65,25 @@ export const SourceSetImages: Story = {
   args: {
     images: [
       {
-        src: 'https://picsum.photos/id/122/640/360',
-        srcSet: 'https://picsum.photos/id/122/640/360 640w, https://picsum.photos/id/122/1280/720 1280w',
-        sizes: '(max-width: 36rem) 640px, 50vw',
         alt: 'Bridge',
         ratio: 'x-wide',
+        sizes: '(max-width: 36rem) 640px, 50vw',
+        src: 'https://picsum.photos/id/122/640/360',
+        srcSet: 'https://picsum.photos/id/122/640/360 640w, https://picsum.photos/id/122/1280/720 1280w',
       },
       {
-        src: 'https://picsum.photos/id/101/640/360',
-        srcSet: 'https://picsum.photos/id/101/640/360 640w, https://picsum.photos/id/101/1280/720 1280w',
-        sizes: '(max-width: 36rem) 640px, 50vw',
         alt: 'Bunker',
         ratio: 'x-wide',
+        sizes: '(max-width: 36rem) 640px, 50vw',
+        src: 'https://picsum.photos/id/101/640/360',
+        srcSet: 'https://picsum.photos/id/101/640/360 640w, https://picsum.photos/id/101/1280/720 1280w',
       },
       {
-        src: 'https://picsum.photos/id/153/640/360',
-        srcSet: 'https://picsum.photos/id/153/640/360 640w, https://picsum.photos/id/153/1280/720 1280w',
-        sizes: '(max-width: 36rem) 640px, 50vw',
         alt: 'Chairs',
         ratio: 'x-wide',
+        sizes: '(max-width: 36rem) 640px, 50vw',
+        src: 'https://picsum.photos/id/153/640/360',
+        srcSet: 'https://picsum.photos/id/153/640/360 640w, https://picsum.photos/id/153/1280/720 1280w',
       },
     ],
   },

@@ -4,24 +4,25 @@ import { ImageSliderImageProps } from './ImageSlider'
 import { ImageSliderThumbnails } from './ImageSliderThumbnails'
 import '@testing-library/jest-dom'
 
-describe('Image slider thumbnails', () => {
+describe('Image Slider Thumbnails', () => {
   const thumbnails: ImageSliderImageProps[] = [
     {
-      src: 'https://picsum.photos/id/122/1280/720',
       alt: 'This is gallery image 1',
       ratio: 'x-wide',
+      src: 'https://picsum.photos/id/122/1280/720',
     },
     {
-      src: 'https://picsum.photos/id/101/1280/720',
       alt: 'This is gallery image 2',
       ratio: 'x-wide',
+      src: 'https://picsum.photos/id/101/1280/720',
     },
     {
-      src: 'https://picsum.photos/id/153/1280/720',
       alt: 'This is gallery image 3',
       ratio: 'x-wide',
+      src: 'https://picsum.photos/id/153/1280/720',
     },
   ]
+
   it('renders', () => {
     const { container } = render(<ImageSliderThumbnails thumbnails={thumbnails} />)
 

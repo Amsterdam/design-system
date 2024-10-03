@@ -19,7 +19,7 @@ window.IntersectionObserver = jest.fn(() => ({
   thresholds: [],
 }))
 
-describe('Image slider', () => {
+describe('Image Slider', () => {
   const images: ImageSliderImageProps[] = [
     {
       src: 'https://picsum.photos/id/122/320/180',
@@ -47,7 +47,7 @@ describe('Image slider', () => {
     expect(component).toBeVisible()
   })
 
-  it('renders images', () => {
+  it('renders slides', () => {
     const { container } = render(<ImageSlider images={images} />)
 
     const slides = Array.from(container.querySelectorAll('.ams-image-slider__item'))
@@ -64,7 +64,7 @@ describe('Image slider', () => {
   })
 
   it('renders an additional class name', () => {
-    const { container } = render(<ImageSlider images={images} className="extra" />)
+    const { container } = render(<ImageSlider className="extra" images={images} />)
 
     const component = container.querySelector(':only-child')
 
@@ -82,8 +82,8 @@ describe('Image slider', () => {
   })
 
   it('renders thumbnails', () => {
-    const { container } = render(<ImageSlider images={images}></ImageSlider>)
+    const { container } = render(<ImageSlider images={images} />)
 
-    expect(container.querySelector('.ams-image-slider__thumbnail')).toBeInTheDocument()
+    expect(container.querySelector('.ams-image-slider__thumbnails')).toBeInTheDocument()
   })
 })

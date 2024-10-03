@@ -3,9 +3,10 @@ import { createRef } from 'react'
 import { ImageSliderControls } from './ImageSliderControls'
 import '@testing-library/jest-dom'
 
-describe('Image slider controls', () => {
+describe('Image Slider Controls', () => {
   const nextLabel = 'Volgende'
   const previousLabel = 'Vorige'
+
   it('renders', () => {
     const { container } = render(<ImageSliderControls nextLabel={nextLabel} previousLabel={previousLabel} />)
 
@@ -14,6 +15,7 @@ describe('Image slider controls', () => {
     expect(component).toBeInTheDocument()
     expect(component).toBeVisible()
   })
+
   it('supports ForwardRef in React', () => {
     const ref = createRef<HTMLDivElement>()
 

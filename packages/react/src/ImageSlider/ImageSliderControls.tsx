@@ -11,33 +11,35 @@ import { ImageSliderContext } from './ImageSliderContext'
 import { IconButton } from '../IconButton'
 
 export type ImageSliderControlsProps = {
-  previousLabel: string
+  /** The label for the ‘next’ button */
   nextLabel: string
+  /** The label for the ‘previous’ button */
+  previousLabel: string
 } & HTMLAttributes<HTMLDivElement>
 
 export const ImageSliderControls = forwardRef(
   (
-    { previousLabel, nextLabel, className, ...restProps }: ImageSliderControlsProps,
+    { className, nextLabel, previousLabel, ...restProps }: ImageSliderControlsProps,
     ref: ForwardedRef<HTMLDivElement>,
   ) => {
-    const { atStart, atEnd, goToPreviousSlide, goToNextSlide } = useContext(ImageSliderContext)
+    const { atStart, atEnd, goToNextSlide, goToPreviousSlide } = useContext(ImageSliderContext)
     return (
-      <div {...restProps} ref={ref} className={clsx('ams-image-slider__controls', className)}>
+      <div {...restProps} className={clsx('ams-image-slider__controls', className)} ref={ref}>
         <IconButton
-          svg={ChevronLeftIcon}
-          label={previousLabel}
-          inverseColor={true}
           className="ams-image-slider__control ams-image-slider__control--previous"
-          onClick={() => goToPreviousSlide()}
           disabled={atStart}
+          inverseColor={true}
+          label={previousLabel}
+          onClick={() => goToPreviousSlide()}
+          svg={ChevronLeftIcon}
         />
         <IconButton
-          svg={ChevronRightIcon}
-          label={nextLabel}
-          inverseColor={true}
           className="ams-image-slider__control ams-image-slider__control--next"
-          onClick={() => goToNextSlide()}
           disabled={atEnd}
+          inverseColor={true}
+          label={nextLabel}
+          onClick={() => goToNextSlide()}
+          svg={ChevronRightIcon}
         />
       </div>
     )

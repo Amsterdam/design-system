@@ -9,7 +9,7 @@ import type { ForwardedRef, HTMLAttributes, PropsWithChildren } from 'react'
 import { ImageSliderContext } from './ImageSliderContext'
 
 export type ImageSliderItemProps = {
-  /** this ID needs to match the key or order of the slides (starting with 0) */
+  /** The identifier of the item. Must match the key or order of the slides (starting at 0). */
   slideId: number
 } & PropsWithChildren<HTMLAttributes<HTMLDivElement>>
 
@@ -21,8 +21,8 @@ export const ImageSliderItem = forwardRef(
     return (
       <div
         {...restProps}
-        ref={ref}
         className={clsx('ams-image-slider__item', isInView && 'ams-image-slider__item--in-view', className)}
+        ref={ref}
         {...(!isInView && { inert: '' })}
       >
         {children}

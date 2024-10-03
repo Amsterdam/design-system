@@ -20,16 +20,16 @@ export type ImageSliderImageProps = ImageProps & {
 }
 
 export type ImageSliderProps = {
-  /** Show navigation controls */
+  /** Display buttons to navigate to the previous or next image. */
   controls?: boolean
-  /** Label for the image if you need to translate the alt text */
+  /** Label for the image if you need to translate the alt text. */
   imageLabel?: string
-  /** Label for the next button */
-  nextLabel?: string
-  /** Label for the previous button */
-  previousLabel?: string
-  /** An array of images to display */
+  /** The set of images to display. */
   images: ImageSliderImageProps[]
+  /** The label for the ‘next’ button */
+  nextLabel?: string
+  /** The label for the ‘previous’ button */
+  previousLabel?: string
 } & HTMLAttributes<HTMLDivElement>
 
 export const ImageSliderRoot = forwardRef(
@@ -38,9 +38,9 @@ export const ImageSliderRoot = forwardRef(
       className,
       controls,
       imageLabel = 'Afbeelding',
+      images,
       nextLabel = 'Volgende',
       previousLabel = 'Vorige',
-      images,
       ...restProps
     }: ImageSliderProps,
     ref: ForwardedRef<HTMLDivElement>,
@@ -95,18 +95,14 @@ export const ImageSliderRoot = forwardRef(
           targetRef.current.removeEventListener('keydown', handleKeyDown)
         }
       }
-    }, [targetRef, observerOptions])
+    }, [observerOptions, targetRef])
 
-    const synchronise = () => {
-      updateControls()
-    }
+    const synchronise = () => updateControls()
 
     const goToSlide = (element: HTMLElement) => {
       const sliderScroller = targetRef.current
 
-      if (!sliderScroller || !element) {
-        return
-      }
+      if (!sliderScroller || !element) return
 
       const delta = Math.abs(sliderScroller.offsetLeft - element.offsetLeft)
 
@@ -151,26 +147,20 @@ export const ImageSliderRoot = forwardRef(
       >
         <div
           {...restProps}
-          ref={ref}
           aria-roledescription="carousel"
-          tabIndex={-1}
           className={clsx('ams-image-slider', controls && 'ams-image-slider--controls', className)}
+          tabIndex={-1}
+          ref={ref}
         >
-          {controls && <ImageSliderControls previousLabel={previousLabel} nextLabel={nextLabel} />}
-          <ImageSliderScroller tabIndex={0} ref={targetRef} aria-live="polite" role="group">
-            {images.map((image, index) => (
+          {controls && <ImageSliderControls nextLabel={nextLabel} previousLabel={previousLabel} />}
+          <ImageSliderScroller aria-live="polite" ref={targetRef} role="group" tabIndex={0}>
+            {images.map(({ alt, ratio, sizes, src, srcSet }, index) => (
               <ImageSliderItem key={index} slideId={index}>
-                <Image
-                  src={image.src}
-                  srcSet={image.srcSet}
-                  sizes={image.sizes}
-                  alt={image.alt}
-                  className={`ams-aspect-ratio--${image.ratio}`}
-                />
+                <Image alt={alt} className={`ams-aspect-ratio--${ratio}`} sizes={sizes} src={src} srcSet={srcSet} />
               </ImageSliderItem>
             ))}
           </ImageSliderScroller>
-          <ImageSliderThumbnails thumbnails={images} imageLabel={imageLabel} />
+          <ImageSliderThumbnails imageLabel={imageLabel} thumbnails={images} />
         </div>
       </ImageSliderContext.Provider>
     )

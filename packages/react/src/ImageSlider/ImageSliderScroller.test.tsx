@@ -3,7 +3,7 @@ import { createRef } from 'react'
 import { ImageSliderScroller } from './ImageSliderScroller'
 import '@testing-library/jest-dom'
 
-describe('Image slider scroller', () => {
+describe('Image Slider Scroller', () => {
   it('renders', () => {
     const { container } = render(<ImageSliderScroller />)
 
