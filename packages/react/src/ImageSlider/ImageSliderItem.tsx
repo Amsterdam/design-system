@@ -4,7 +4,7 @@
  */
 
 import clsx from 'clsx'
-import { forwardRef, useContext } from 'react'
+import { forwardRef, useContext, useMemo } from 'react'
 import type { ForwardedRef, HTMLAttributes, PropsWithChildren } from 'react'
 import { ImageSliderContext } from './ImageSliderContext'
 
@@ -16,15 +16,15 @@ export type ImageSliderItemProps = {
 export const ImageSliderItem = forwardRef(
   ({ children, slideId, className, ...restProps }: ImageSliderItemProps, ref: ForwardedRef<HTMLDivElement>) => {
     const { currentSlideId } = useContext(ImageSliderContext)
-    const isInView = currentSlideId === slideId
+
+    const isInView = useMemo(() => currentSlideId === slideId, [currentSlideId, slideId])
+    const itemClassName = useMemo(
+      () => clsx('ams-image-slider__item', isInView && 'ams-image-slider__item--in-view', className),
+      [isInView, className],
+    )
 
     return (
-      <div
-        {...restProps}
-        className={clsx('ams-image-slider__item', isInView && 'ams-image-slider__item--in-view', className)}
-        ref={ref}
-        {...(!isInView && { inert: '' })}
-      >
+      <div {...restProps} className={itemClassName} ref={ref} {...(!isInView && { inert: '' })}>
         {children}
       </div>
     )

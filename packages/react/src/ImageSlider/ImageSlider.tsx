@@ -4,7 +4,7 @@
  */
 
 import clsx from 'clsx'
-import { forwardRef, useEffect, useRef, useState } from 'react'
+import { forwardRef, useCallback, useEffect, useMemo, useRef, useState } from 'react'
 import type { ForwardedRef, HTMLAttributes } from 'react'
 import { ImageSliderContext } from './ImageSliderContext'
 import { ImageSliderControls } from './ImageSliderControls'
@@ -49,97 +49,84 @@ export const ImageSliderRoot = forwardRef(
     const [isAtStart, setIsAtStart] = useState(true)
     const [isAtEnd, setIsAtEnd] = useState(false)
     const targetRef = useRef<HTMLDivElement>(null)
-    const hasIntersected = new Set<IntersectionObserverEntry>()
+    const observerRef = useRef<IntersectionObserver | null>(null)
 
-    const inView = (observations: IntersectionObserverEntry[]) => {
+    const inView = useCallback((observations: IntersectionObserverEntry[]) => {
       const images = Array.from(targetRef.current?.children || [])
 
-      for (let observation of observations) {
-        hasIntersected.add(observation)
-
+      observations.forEach((observation) => {
         if (observation.isIntersecting) {
           setCurrentSlideId(images.indexOf(observation.target as HTMLElement))
         }
-      }
-    }
+      })
+    }, [])
 
-    const observerOptions = {
-      root: targetRef.current,
-      threshold: 0.6,
-    }
+    const observerOptions = useMemo(
+      () => ({
+        root: targetRef.current,
+        threshold: 0.6,
+      }),
+      [],
+    )
 
-    useEffect(() => {
-      const observer = new IntersectionObserver(inView, observerOptions)
-
-      const keyActionMap = {
-        ArrowLeft: goToPreviousSlide,
-        ArrowRight: goToNextSlide,
-      }
-
-      const handleKeyDown = (event: KeyboardEvent) => {
-        const action = keyActionMap[event.key as keyof typeof keyActionMap]
-        action?.()
-      }
-
-      if (targetRef.current) {
-        const slides = Array.from(targetRef.current.children)
-        for (let slide of slides) observer.observe(slide)
-
-        targetRef.current.addEventListener('scrollend', synchronise)
-        targetRef.current.addEventListener('keydown', handleKeyDown)
-      }
-
-      return () => {
-        if (targetRef.current) {
-          targetRef.current.removeEventListener('scrollend', synchronise)
-          targetRef.current.removeEventListener('keydown', handleKeyDown)
-        }
-      }
-    }, [observerOptions, targetRef])
-
-    const synchronise = () => updateControls()
-
-    const goToSlide = (element: HTMLElement) => {
+    const updateControls = useCallback(() => {
       const sliderScrollerElement = targetRef.current
+      if (!sliderScrollerElement) return
 
-      if (!sliderScrollerElement || !element) return
-
-      const delta = Math.abs(sliderScrollerElement.offsetLeft - element.offsetLeft)
-
-      sliderScrollerElement.scrollTo(delta, 0)
-    }
-
-    const goToSlideId = (id: number) => {
-      const element = targetRef.current?.children[id] as HTMLElement | null
-
-      if (element) goToSlide(element)
-    }
-
-    const goToNextSlide = () => {
-      const element = targetRef.current?.children[currentSlideId]
-      const nextElement = element?.nextElementSibling as HTMLElement | null
-
-      if (element === nextElement) return
-
-      if (nextElement) goToSlide(nextElement)
-    }
-
-    const goToPreviousSlide = () => {
-      const element = targetRef.current?.children[currentSlideId]
-      const previousElement = element?.previousElementSibling as HTMLElement | null
-
-      if (element === previousElement) return
-
-      if (previousElement) goToSlide(previousElement)
-    }
-
-    const updateControls = () => {
-      const sliderScrollerElement = targetRef.current
       const { lastElementChild: lastElement, firstElementChild: firstElement } = sliderScrollerElement as HTMLDivElement
 
       setIsAtStart(firstElement === sliderScrollerElement?.children[currentSlideId])
       setIsAtEnd(lastElement === sliderScrollerElement?.children[currentSlideId])
-    }
+    }, [currentSlideId])
+
+    useEffect(() => {
+      if (targetRef.current) {
+        observerRef.current = new IntersectionObserver(inView, observerOptions)
+        const observer = observerRef.current
+
+        const slides = Array.from(targetRef.current.children)
+        slides.forEach((slide) => observer.observe(slide))
+
+        targetRef.current.addEventListener('scrollend', synchronise)
+
+        updateControls()
+
+        return () => {
+          slides.forEach((slide) => observer.unobserve(slide))
+          targetRef.current?.removeEventListener('scrollend', synchronise)
+        }
+      }
+
+      return undefined
+    }, [inView, observerOptions, updateControls])
+
+    const synchronise = useCallback(() => updateControls(), [updateControls])
+
+    const goToSlide = useCallback((element: HTMLElement) => {
+      const sliderScrollerElement = targetRef.current
+      if (!sliderScrollerElement || !element) return
+      sliderScrollerElement.scrollTo({ left: Math.abs(sliderScrollerElement.offsetLeft - element.offsetLeft) })
+    }, [])
+
+    const goToSlideId = useCallback(
+      (id: number) => {
+        const element = targetRef.current?.children[id] as HTMLElement | null
+        if (element) goToSlide(element)
+      },
+      [goToSlide],
+    )
+
+    const goToNextSlide = useCallback(() => {
+      const element = targetRef.current?.children[currentSlideId]
+      const nextElement = element?.nextElementSibling as HTMLElement | null
+      if (nextElement) goToSlide(nextElement)
+    }, [currentSlideId, goToSlide])
+
+    const goToPreviousSlide = useCallback(() => {
+      const element = targetRef.current?.children[currentSlideId]
+      const previousElement = element?.previousElementSibling as HTMLElement | null
+      if (previousElement) goToSlide(previousElement)
+    }, [currentSlideId, goToSlide])
 
     return (
       <ImageSliderContext.Provider

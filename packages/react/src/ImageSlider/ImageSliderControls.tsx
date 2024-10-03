@@ -5,7 +5,7 @@
 
 import { ChevronLeftIcon, ChevronRightIcon } from '@amsterdam/design-system-react-icons'
 import clsx from 'clsx'
-import { forwardRef, useContext } from 'react'
+import { forwardRef, useCallback, useContext } from 'react'
 import type { ForwardedRef, HTMLAttributes } from 'react'
 import { ImageSliderContext } from './ImageSliderContext'
 import { IconButton } from '../IconButton'
@@ -23,6 +23,10 @@ export const ImageSliderControls = forwardRef(
     ref: ForwardedRef<HTMLDivElement>,
   ) => {
     const { isAtStart, isAtEnd, goToNextSlide, goToPreviousSlide } = useContext(ImageSliderContext)
+
+    const handleClickPrevious = useCallback(() => goToPreviousSlide(), [goToPreviousSlide])
+    const handleClickNext = useCallback(() => goToNextSlide(), [goToNextSlide])
+
     return (
       <div {...restProps} className={clsx('ams-image-slider__controls', className)} ref={ref}>
         <IconButton
@@ -30,7 +34,7 @@ export const ImageSliderControls = forwardRef(
           disabled={isAtStart}
           inverseColor={true}
           label={previousLabel}
-          onClick={() => goToPreviousSlide()}
+          onClick={handleClickPrevious}
           svg={ChevronLeftIcon}
         />
         <IconButton
@@ -38,7 +42,7 @@ export const ImageSliderControls = forwardRef(
           disabled={isAtEnd}
           inverseColor={true}
           label={nextLabel}
-          onClick={() => goToNextSlide()}
+          onClick={handleClickNext}
           svg={ChevronRightIcon}
         />
       </div>
