@@ -22,3 +22,8 @@
 .ams-header__logo-link {
   outline-offset: var(--ams-header-logo-link-outline-offset);
 }
+
+/* TODO Remove after updating Header line heights in DES-973. */
+.ams-heading.ams-header__app-name {
+  line-height: 1.25;
+}
