@@ -8,13 +8,13 @@ import { forwardRef } from 'react'
 import type { ForwardedRef, HTMLAttributes, PropsWithChildren } from 'react'
 import { MegaMenuListCategory } from './MegaMenuListCategory'
 
-export type MegaMenuProps = PropsWithChildren<HTMLAttributes<HTMLDivElement>>
+export type MegaMenuProps = PropsWithChildren<HTMLAttributes<HTMLElement>>
 
 const MegaMenuRoot = forwardRef(
-  ({ children, className, ...restProps }: MegaMenuProps, ref: ForwardedRef<HTMLDivElement>) => (
-    <div {...restProps} ref={ref} className={clsx('ams-mega-menu', className)}>
+  ({ children, className, ...restProps }: MegaMenuProps, ref: ForwardedRef<HTMLElement>) => (
+    <nav {...restProps} ref={ref} className={clsx('ams-mega-menu', className)}>
       {children}
-    </div>
+    </nav>
   ),
 )
 
