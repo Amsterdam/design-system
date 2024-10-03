@@ -46,8 +46,8 @@ export const ImageSliderRoot = forwardRef(
     ref: ForwardedRef<HTMLDivElement>,
   ) => {
     const [currentSlideId, setCurrentSlideId] = useState(0)
-    const [atStart, setAtStart] = useState(true)
-    const [atEnd, setAtEnd] = useState(false)
+    const [isAtStart, setIsAtStart] = useState(true)
+    const [isAtEnd, setIsAtEnd] = useState(false)
     const targetRef = useRef<HTMLDivElement>(null)
     const hasIntersected = new Set<IntersectionObserverEntry>()
 
@@ -56,6 +56,7 @@ export const ImageSliderRoot = forwardRef(
 
       for (let observation of observations) {
         hasIntersected.add(observation)
+
         if (observation.isIntersecting) {
           setCurrentSlideId(images.indexOf(observation.target as HTMLElement))
         }
@@ -82,8 +83,8 @@ export const ImageSliderRoot = forwardRef(
       }
 
       if (targetRef.current) {
-        const images = Array.from(targetRef.current.children)
-        for (let slide of images) observer.observe(slide)
+        const slides = Array.from(targetRef.current.children)
+        for (let slide of slides) observer.observe(slide)
 
         targetRef.current.addEventListener('scrollend', synchronise)
         targetRef.current.addEventListener('keydown', handleKeyDown)
@@ -100,50 +101,50 @@ export const ImageSliderRoot = forwardRef(
     const synchronise = () => updateControls()
 
     const goToSlide = (element: HTMLElement) => {
-      const sliderScroller = targetRef.current
+      const sliderScrollerElement = targetRef.current
 
-      if (!sliderScroller || !element) return
+      if (!sliderScrollerElement || !element) return
 
-      const delta = Math.abs(sliderScroller.offsetLeft - element.offsetLeft)
+      const delta = Math.abs(sliderScrollerElement.offsetLeft - element.offsetLeft)
 
-      sliderScroller.scrollTo(delta, 0)
+      sliderScrollerElement.scrollTo(delta, 0)
     }
 
     const goToSlideId = (id: number) => {
       const element = targetRef.current?.children[id] as HTMLElement
 
-      goToSlide(element)
+      if (element) goToSlide(element)
     }
 
     const goToNextSlide = () => {
       const element = targetRef.current?.children[currentSlideId]
-      const next = element?.nextElementSibling as HTMLElement | null
+      const nextElement = element?.nextElementSibling as HTMLElement
 
-      if (element === next) return
+      if (element === nextElement) return
 
-      if (next) goToSlide(next)
+      if (nextElement) goToSlide(nextElement)
     }
 
     const goToPreviousSlide = () => {
       const element = targetRef.current?.children[currentSlideId]
-      const previous = element?.previousElementSibling as HTMLElement | null
+      const previousElement = element?.previousElementSibling as HTMLElement
 
-      if (element === previous) return
+      if (element === previousElement) return
 
-      if (previous) goToSlide(previous)
+      if (previousElement) goToSlide(previousElement)
     }
 
     const updateControls = () => {
-      const sliderScroller = targetRef.current
-      const { lastElementChild: last, firstElementChild: first } = sliderScroller as HTMLDivElement
+      const sliderScrollerElement = targetRef.current
+      const { lastElementChild: lastElement, firstElementChild: firstElement } = sliderScrollerElement as HTMLDivElement
 
-      setAtStart(first === sliderScroller?.children[currentSlideId])
-      setAtEnd(last === sliderScroller?.children[currentSlideId])
+      setIsAtStart(firstElement === sliderScrollerElement?.children[currentSlideId])
+      setIsAtEnd(lastElement === sliderScrollerElement?.children[currentSlideId])
     }
 
     return (
       <ImageSliderContext.Provider
-        value={{ atStart, atEnd, currentSlideId, goToNextSlide, goToPreviousSlide, goToSlideId }}
+        value={{ isAtStart, isAtEnd, currentSlideId, goToNextSlide, goToPreviousSlide, goToSlideId }}
       >
         <div
           {...restProps}

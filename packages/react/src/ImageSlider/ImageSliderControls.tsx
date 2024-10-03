@@ -22,12 +22,12 @@ export const ImageSliderControls = forwardRef(
     { className, nextLabel, previousLabel, ...restProps }: ImageSliderControlsProps,
     ref: ForwardedRef<HTMLDivElement>,
   ) => {
-    const { atStart, atEnd, goToNextSlide, goToPreviousSlide } = useContext(ImageSliderContext)
+    const { isAtStart, isAtEnd, goToNextSlide, goToPreviousSlide } = useContext(ImageSliderContext)
     return (
       <div {...restProps} className={clsx('ams-image-slider__controls', className)} ref={ref}>
         <IconButton
           className="ams-image-slider__control ams-image-slider__control--previous"
-          disabled={atStart}
+          disabled={isAtStart}
           inverseColor={true}
           label={previousLabel}
           onClick={() => goToPreviousSlide()}
@@ -35,7 +35,7 @@ export const ImageSliderControls = forwardRef(
         />
         <IconButton
           className="ams-image-slider__control ams-image-slider__control--next"
-          disabled={atEnd}
+          disabled={isAtEnd}
           inverseColor={true}
           label={nextLabel}
           onClick={() => goToNextSlide()}
