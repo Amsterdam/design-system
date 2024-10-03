@@ -71,15 +71,14 @@ export const ImageSliderRoot = forwardRef(
     useEffect(() => {
       const observer = new IntersectionObserver(inView, observerOptions)
 
+      const keyActionMap = {
+        ArrowLeft: goToPreviousSlide,
+        ArrowRight: goToNextSlide,
+      }
+
       const handleKeyDown = (event: KeyboardEvent) => {
-        switch (event.key) {
-          case 'ArrowLeft':
-            goToPreviousSlide()
-            break
-          case 'ArrowRight':
-            goToNextSlide()
-            break
-        }
+        const action = keyActionMap[event.key as keyof typeof keyActionMap]
+        action?.()
       }
 
       if (targetRef.current) {
