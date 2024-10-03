@@ -5,11 +5,11 @@
 import clsx from 'clsx'
 import { forwardRef } from 'react'
 import type { HTMLAttributes, PropsWithChildren } from 'react'
-import type { BreakoutRowNumber, BreakoutRowNumbers } from './Breakout'
-import { breakoutCellClasses } from './breakoutCellClasses'
+import type { SpotlightGridRowNumber, SpotlightGridRowNumbers } from './SpotlightGrid'
+import { spotlightGridCellClasses } from './spotlightGridCellClasses'
 import type { GridColumnNumber, GridColumnNumbers } from '../Grid/Grid'
 
-type BreakoutCellSpanAllProp = {
+type SpotlightGridCellSpanAllProp = {
   /** Lets the cell span the full width of all grid variants. */
   colSpan: 'all'
   colStart?: never
@@ -19,7 +19,7 @@ type BreakoutCellSpanAllProp = {
   has?: 'spotlight'
 }
 
-type BreakoutCellSpanAndStartProps = {
+type SpotlightGridCellSpanAndStartProps = {
   /** The amount of grid columns the cell spans. */
   colSpan?: 'all' | GridColumnNumber | GridColumnNumbers
   /** The index of the grid column the cell starts at. */
@@ -27,21 +27,21 @@ type BreakoutCellSpanAndStartProps = {
   has?: 'figure'
 }
 
-type BreakoutCellRowSpanAndStartProps = {
+type SpotlightGridCellRowSpanAndStartProps = {
   /** The amount of grid rows the cell spans. */
-  rowSpan?: BreakoutRowNumber | BreakoutRowNumbers
+  rowSpan?: SpotlightGridRowNumber | SpotlightGridRowNumbers
   /** The index of the grid row the cell starts at. */
-  rowStart?: BreakoutRowNumber | BreakoutRowNumbers
+  rowStart?: SpotlightGridRowNumber | SpotlightGridRowNumbers
 }
 
-export type BreakoutCellProps = {
+export type SpotlightGridCellProps = {
   /** The HTML element to use. */
   as?: 'article' | 'div' | 'section'
-} & (BreakoutCellSpanAllProp | BreakoutCellSpanAndStartProps) &
-  BreakoutCellRowSpanAndStartProps &
+} & (SpotlightGridCellSpanAllProp | SpotlightGridCellSpanAndStartProps) &
+  SpotlightGridCellRowSpanAndStartProps &
   PropsWithChildren<HTMLAttributes<HTMLElement>>
 
-export const BreakoutCell = forwardRef(
+export const SpotlightGridCell = forwardRef(
   (
     {
       as: Tag = 'div',
@@ -53,16 +53,16 @@ export const BreakoutCell = forwardRef(
       rowSpan,
       rowStart,
       ...restProps
-    }: BreakoutCellProps,
+    }: SpotlightGridCellProps,
     ref: any,
   ) => (
     <Tag
       {...restProps}
       ref={ref}
       className={clsx(
-        'ams-breakout__cell',
-        breakoutCellClasses(colSpan, colStart, rowSpan, rowStart),
-        has && `ams-breakout__cell--has-${has}`,
+        'ams-spotlight-grid__cell',
+        spotlightGridCellClasses(colSpan, colStart, rowSpan, rowStart),
+        has && `ams-spotlight-grid__cell--has-${has}`,
         className,
       )}
     >
@@ -71,4 +71,4 @@ export const BreakoutCell = forwardRef(
   ),
 )
 
-BreakoutCell.displayName = 'Breakout.Cell'
+SpotlightGridCell.displayName = 'SpotlightGrid.Cell'

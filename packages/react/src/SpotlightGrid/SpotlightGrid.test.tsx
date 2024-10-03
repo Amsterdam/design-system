@@ -1,14 +1,14 @@
 import { render } from '@testing-library/react'
 import { createRef } from 'react'
-import { Breakout } from './Breakout'
+import { SpotlightGrid } from './SpotlightGrid'
 import type { GridPaddingSize } from '../Grid/Grid'
 import '@testing-library/jest-dom'
 
 const paddingSizes = ['small', 'medium', 'large']
 
-describe('Breakout', () => {
+describe('SpotlightGrid', () => {
   it('renders', () => {
-    const { container } = render(<Breakout />)
+    const { container } = render(<SpotlightGrid />)
 
     const component = container.querySelector(':only-child')
 
@@ -17,79 +17,79 @@ describe('Breakout', () => {
   })
 
   it('renders a design system BEM class name', () => {
-    const { container } = render(<Breakout />)
+    const { container } = render(<SpotlightGrid />)
 
     const component = container.querySelector(':only-child')
 
-    expect(component).toHaveClass('ams-breakout')
+    expect(component).toHaveClass('ams-spotlight-grid')
   })
 
   it('renders an additional class name', () => {
-    const { container } = render(<Breakout className="extra" />)
+    const { container } = render(<SpotlightGrid className="extra" />)
 
     const component = container.querySelector(':only-child')
 
-    expect(component).toHaveClass('ams-breakout extra')
+    expect(component).toHaveClass('ams-spotlight-grid extra')
   })
 
   it('renders the correct class name for a zero gap', () => {
-    const { container } = render(<Breakout gapVertical="none" />)
+    const { container } = render(<SpotlightGrid gapVertical="none" />)
 
     const component = container.querySelector(':only-child')
 
-    expect(component).toHaveClass('ams-breakout--gap-vertical--none')
+    expect(component).toHaveClass('ams-spotlight-grid--gap-vertical--none')
   })
 
   it(`renders the correct class name for a small gap`, () => {
-    const { container } = render(<Breakout gapVertical="small" />)
+    const { container } = render(<SpotlightGrid gapVertical="small" />)
 
     const component = container.querySelector(':only-child')
 
-    expect(component).toHaveClass('ams-breakout--gap-vertical--small')
+    expect(component).toHaveClass('ams-spotlight-grid--gap-vertical--small')
   })
 
   it(`renders the correct class name for a large gap`, () => {
-    const { container } = render(<Breakout gapVertical="large" />)
+    const { container } = render(<SpotlightGrid gapVertical="large" />)
 
     const component = container.querySelector(':only-child')
 
-    expect(component).toHaveClass('ams-breakout--gap-vertical--large')
+    expect(component).toHaveClass('ams-spotlight-grid--gap-vertical--large')
   })
 
   paddingSizes.forEach((size) => {
     it(`renders the correct class name for a ${size} bottom padding`, () => {
-      const { container } = render(<Breakout paddingBottom={size as GridPaddingSize} />)
+      const { container } = render(<SpotlightGrid paddingBottom={size as GridPaddingSize} />)
 
       const component = container.querySelector(':only-child')
 
-      expect(component).toHaveClass(`ams-breakout--padding-bottom--${size}`)
+      expect(component).toHaveClass(`ams-spotlight-grid--padding-bottom--${size}`)
     })
   })
 
   paddingSizes.forEach((size) => {
     it(`renders the correct class name for a ${size} top padding`, () => {
-      const { container } = render(<Breakout paddingTop={size as GridPaddingSize} />)
+      const { container } = render(<SpotlightGrid paddingTop={size as GridPaddingSize} />)
 
       const component = container.querySelector(':only-child')
 
-      expect(component).toHaveClass(`ams-breakout--padding-top--${size}`)
+      expect(component).toHaveClass(`ams-spotlight-grid--padding-top--${size}`)
     })
   })
 
   paddingSizes.forEach((size) => {
     it(`renders the correct class name for a ${size} vertical padding`, () => {
-      const { container } = render(<Breakout paddingVertical={size as GridPaddingSize} />)
+      const { container } = render(<SpotlightGrid paddingVertical={size as GridPaddingSize} />)
 
       const component = container.querySelector(':only-child')
 
-      expect(component).toHaveClass(`ams-breakout--padding-vertical--${size}`)
+      expect(component).toHaveClass(`ams-spotlight-grid--padding-vertical--${size}`)
     })
   })
 
   it('supports ForwardRef in React', () => {
     const ref = createRef<HTMLDivElement>()
 
-    const { container } = render(<Breakout ref={ref} />)
+    const { container } = render(<SpotlightGrid ref={ref} />)
 
     const component = container.querySelector(':only-child')
 
