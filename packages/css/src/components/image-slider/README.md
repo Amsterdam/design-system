@@ -9,6 +9,7 @@ Displays a small set of images in a limited space.
 The first or selected image shows at its maximum size.
 Every image displays a thumbnail at about 20% of its width.
 Users can use buttons, thumbnails or swiping to navigate between the images.
+The buttons re not displayed on a narrow touch device.
 The images do not slide automatically.
 
 ## How to use
