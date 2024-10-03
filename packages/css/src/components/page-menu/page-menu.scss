@@ -54,12 +54,12 @@
 
 @mixin ams-page-menu-link-or-button {
   color: var(--ams-page-menu-item-color);
+  column-gap: var(--ams-page-menu-item-column-gap);
   display: inline-flex;
   flex-direction: row;
   font-family: var(--ams-page-menu-item-font-family);
   font-size: var(--ams-page-menu-item-font-size);
   font-weight: var(--ams-page-menu-item-font-weight);
-  gap: var(--ams-page-menu-item-gap);
   line-height: var(--ams-page-menu-item-line-height);
   outline-offset: var(--ams-page-menu-item-outline-offset);
   text-align: center;
