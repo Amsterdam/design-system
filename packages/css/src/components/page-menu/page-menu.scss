@@ -52,7 +52,7 @@
   }
 }
 
-@mixin ams-page-menu-link-or-button {
+@mixin ams-page-menu-element {
   color: var(--ams-page-menu-item-color);
   column-gap: var(--ams-page-menu-item-column-gap);
   display: inline-flex;
@@ -81,7 +81,7 @@
 }
 
 .ams-page-menu__link {
-  @include ams-page-menu-link-or-button;
+  @include ams-page-menu-element;
   @include reset-item;
 
   &:hover {
@@ -92,6 +92,6 @@
 .ams-page-menu__button {
   cursor: var(--ams-page-menu-button-cursor);
 
-  @include ams-page-menu-link-or-button;
+  @include ams-page-menu-element;
   @include reset-button;
 }
