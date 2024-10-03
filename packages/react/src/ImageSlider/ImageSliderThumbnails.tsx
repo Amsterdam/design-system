@@ -18,28 +18,28 @@ export const ImageSliderThumbnails = forwardRef(
   ({ className, imageLabel, thumbnails, ...restProps }: ImageSliderThumbnailsProps, ref: ForwardedRef<HTMLElement>) => {
     const { currentSlideId, goToNextSlide, goToPreviousSlide, goToSlideId } = useContext(ImageSliderContext)
 
-    const handleThumbsKeyDown = (event: KeyboardEvent<HTMLElement>) => {
+    const handleKeyDown = (event: KeyboardEvent<HTMLElement>) => {
       const target = event.target as HTMLElement
       const element = target.parentElement?.children[currentSlideId]
 
       if (event.key === 'ArrowRight') {
-        const next = element?.nextElementSibling as HTMLElement | null
+        const nextElement = element?.nextElementSibling as HTMLElement | null
 
-        if (next === element) return
+        if (nextElement === element) return
 
-        if (next) {
-          next.focus()
+        if (nextElement) {
+          nextElement.focus()
           goToNextSlide()
         }
       }
 
       if (event.key === 'ArrowLeft') {
-        const previous = element?.previousElementSibling as HTMLElement | null
+        const previousElement = element?.previousElementSibling as HTMLElement | null
 
-        if (previous === element) return
+        if (previousElement === element) return
 
-        if (previous) {
-          previous.focus()
+        if (previousElement) {
+          previousElement.focus()
           goToPreviousSlide()
         }
       }
@@ -49,29 +49,28 @@ export const ImageSliderThumbnails = forwardRef(
       <nav
         {...restProps}
         className={clsx('ams-image-slider__thumbnails', className)}
-        onKeyDown={handleThumbsKeyDown}
+        onKeyDown={handleKeyDown}
         ref={ref}
         role="tablist"
       >
-        {thumbnails &&
-          thumbnails.map((thumbnail, index) => (
-            <button
-              aria-label={`${imageLabel} ${index + 1}: ${thumbnail.alt}`}
-              aria-posinset={index + 1}
-              aria-selected={currentSlideId === index ? 'true' : 'false'}
-              aria-setsize={thumbnails.length}
-              className={clsx(
-                'ams-image-slider__thumbnail',
-                currentSlideId === index && 'ams-image-slider__thumbnail--in-view',
-                thumbnail.aspectRatio && `ams-aspect-ratio--${thumbnail.aspectRatio}`,
-              )}
-              key={index}
-              onClick={() => goToSlideId(index)}
-              role="tab"
-              style={{ backgroundImage: `url(${thumbnail.src})` }}
-              tabIndex={currentSlideId === index ? 0 : -1}
-            />
-          ))}
+        {thumbnails.map(({ alt, aspectRatio, src }, index) => (
+          <button
+            aria-label={`${imageLabel} ${index + 1}: ${alt}`}
+            aria-posinset={index + 1}
+            aria-selected={currentSlideId === index ? 'true' : 'false'}
+            aria-setsize={thumbnails.length}
+            className={clsx(
+              'ams-image-slider__thumbnail',
+              aspectRatio && `ams-aspect-ratio--${aspectRatio}`,
+              currentSlideId === index && 'ams-image-slider__thumbnail--in-view',
+            )}
+            key={index}
+            onClick={() => goToSlideId(index)}
+            role="tab"
+            style={{ backgroundImage: `url(${src})` }}
+            tabIndex={currentSlideId === index ? 0 : -1}
+          />
+        ))}
       </nav>
     )
   },

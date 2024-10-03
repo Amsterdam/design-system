@@ -110,14 +110,14 @@ export const ImageSliderRoot = forwardRef(
     }
 
     const goToSlideId = (id: number) => {
-      const element = targetRef.current?.children[id] as HTMLElement
+      const element = targetRef.current?.children[id] as HTMLElement | null
 
       if (element) goToSlide(element)
     }
 
     const goToNextSlide = () => {
       const element = targetRef.current?.children[currentSlideId]
-      const nextElement = element?.nextElementSibling as HTMLElement
+      const nextElement = element?.nextElementSibling as HTMLElement | null
 
       if (element === nextElement) return
 
@@ -126,7 +126,7 @@ export const ImageSliderRoot = forwardRef(
 
     const goToPreviousSlide = () => {
       const element = targetRef.current?.children[currentSlideId]
-      const previousElement = element?.previousElementSibling as HTMLElement
+      const previousElement = element?.previousElementSibling as HTMLElement | null
 
       if (element === previousElement) return
 
