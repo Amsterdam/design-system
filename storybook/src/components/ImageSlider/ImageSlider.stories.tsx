@@ -3,7 +3,7 @@
  * Copyright Gemeente Amsterdam
  */
 
-import { ImageSlider, Screen } from '@amsterdam/design-system-react/src'
+import { Grid, ImageSlider, Screen } from '@amsterdam/design-system-react/src'
 import { Meta, StoryObj } from '@storybook/react'
 import React from 'react'
 
@@ -81,4 +81,18 @@ export const ResponsiveImages: Story = {
       },
     ],
   },
+}
+
+export const UsingGrid: Story = {
+  decorators: [
+    (Story) => (
+      <Screen>
+        <Grid paddingVertical="medium">
+          <Grid.Cell span={{ narrow: 4, medium: 8, wide: 10 }} start={{ narrow: 1, medium: 1, wide: 2 }}>
+            <Story />
+          </Grid.Cell>
+        </Grid>
+      </Screen>
+    ),
+  ],
 }
