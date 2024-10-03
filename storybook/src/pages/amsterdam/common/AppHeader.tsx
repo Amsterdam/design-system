@@ -45,7 +45,7 @@ export const AppHeader = () => {
           }
         />
       </Grid.Cell>
-      {showMegaMenu && MegaMenuStory.args?.children}
+      {showMegaMenu && <Grid.Cell span="all">{MegaMenuStory.args?.children}</Grid.Cell>}
       {showSearchField && (
         <Grid.Cell span={{ narrow: 4, medium: 6, wide: 8 }} start={{ narrow: 1, medium: 2, wide: 3 }}>
           <SearchField onSubmit={(e) => e.preventDefault()}>
