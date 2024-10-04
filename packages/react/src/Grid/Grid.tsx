@@ -11,11 +11,11 @@ import { paddingClasses } from './paddingClasses'
 
 export type GridNarrowColumnNumber = 1 | 2 | 3 | 4
 export type GridMediumColumnNumber = GridNarrowColumnNumber | 5 | 6 | 7 | 8
-export type GridColumnNumber = GridMediumColumnNumber | 9 | 10 | 11 | 12
+export type GridWideColumnNumber = GridMediumColumnNumber | 9 | 10 | 11 | 12
 export type GridColumnNumbers = {
   narrow: GridNarrowColumnNumber
   medium: GridMediumColumnNumber
-  wide: GridColumnNumber
+  wide: GridWideColumnNumber
 }
 export type GridPaddingSize = 'small' | 'medium' | 'large'
 
