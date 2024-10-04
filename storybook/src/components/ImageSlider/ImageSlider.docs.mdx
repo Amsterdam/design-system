@@ -1,0 +1,23 @@
+{/* @license CC0-1.0 */}
+
+import { Canvas, Controls, Markdown, Meta, Primary } from "@storybook/blocks";
+import * as ImageSliderStories from "./ImageSlider.stories.tsx";
+import README from "../../../../packages/css/src/components/image-slider/README.md?raw";
+
+<Meta of={ImageSliderStories} />
+
+<Markdown>{README}</Markdown>
+
+<Primary />
+
+<Controls />
+
+## Examples
+
+### Responsive images
+
+Provide a set of smaller and larger instances for every image (through `srcSet`, see [MDN](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/img#srcset)) to let the browser select the optimal source file.
+A mobile device can often download a smaller file, saving the user’s bandwidth and time.
+Don’t forget to still include the required `src` attribute.
+
+<Canvas of={ImageSliderStories.ResponsiveImages} />

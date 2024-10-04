@@ -6,6 +6,7 @@ Emphasizes a section on a page through a distinctive background colour.
 
 ## Guidelines
 
+- Display the Spotlight at the entire width of the [Screen](/docs/components-layout-screen--docs); do not position it on the [Grid](/docs/components-layout-grid--docs).
 - Refer to [this overview on Stijlweb](https://amsterdam.nl/stijlweb/basiselementen/kleuren/#PagCls_15671872) to determine whether you can use black or white text on the background colour of your choice.
 
 ## Relevant WCAG requirements
