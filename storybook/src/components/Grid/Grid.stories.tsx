@@ -173,3 +173,21 @@ export const ImproveSemantics: CellStory = {
     </Grid.Cell>
   ),
 }
+
+export const GridCellWithClassNames: CellStory = {
+  ...CellStoryTemplate,
+  render: () => (
+    <Grid.Cell className="ams-grid__cell--span-2 ams-grid__cell--span-6-wide ams-grid__cell--start-4 ams-grid__cell--start-8-medium ams-grid__cell--start-5-wide">
+      <div className="ams-docs-item" />
+    </Grid.Cell>
+  ),
+}
+
+export const StartPositionAndSpan: CellStory = {
+  ...CellStoryTemplate,
+  args: {
+    children: <div className="ams-docs-item" />,
+    span: { narrow: 2, medium: 5, wide: 8 },
+    start: { narrow: 1, medium: 4, wide: 7 },
+  },
+}
