@@ -15,9 +15,11 @@ The images do not slide automatically.
 ## How to use
 
 - Use this for a series of images that belong together.
+- Provide at least 2 images and at most 5.
 - Feature the most essential image first.
-- Display the Image Slider at the entire width of the [Screen](/docs/components-layout-screen--docs); do not position it on the [Grid](/docs/components-layout-grid--docs).
-- Provide at least 2 images but at most 5.
-- Assume that some or many users will not use the Slider and only see the first image.
+- Assume that some or many users will not navigate between the slides and only see the first image.
   Display all images separately if you want each of them to receive attention.
+- A full-width Image Slider should run from one edge of the Screen to the other;
+  position it next to a Grid, not in a Cell spanning all columns.
+  Smaller sliders are fine in a Grid Cell.
 - Consult the [Image](/docs/components-media-image--docs) docs for guidelines on the individual images.
