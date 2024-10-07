@@ -1,3 +1,8 @@
+/**
+ * @license EUPL-1.2+
+ * Copyright Gemeente Amsterdam
+ */
+
 export const crossAlignOptions = ['start', 'center', 'baseline', 'end'] as const
 export type CrossAlign = (typeof crossAlignOptions)[number]
 

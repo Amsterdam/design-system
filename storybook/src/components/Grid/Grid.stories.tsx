@@ -58,10 +58,6 @@ export default meta
 const cellMeta = {
   component: Grid.Cell,
   argTypes: {
-    as: {
-      control: { type: 'radio' },
-      options: ['article', 'div', 'section'],
-    },
     span: {
       control: { type: 'number', min: 1, max: 12 },
     },

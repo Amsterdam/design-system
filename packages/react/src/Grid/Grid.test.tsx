@@ -1,7 +1,8 @@
-import { render } from '@testing-library/react'
+import { render, screen } from '@testing-library/react'
 import { createRef } from 'react'
-import { Grid } from './Grid'
+import { Grid, gridTags } from './Grid'
 import type { GridPaddingSize } from './Grid'
+import { ariaRoleForTag } from '../common/accessibility'
 import '@testing-library/jest-dom'
 
 const paddingSizes = ['small', 'medium', 'large']
@@ -84,6 +85,21 @@ describe('Grid', () => {
       const component = container.querySelector(':only-child')
 
       expect(component).toHaveClass(`ams-grid--padding-vertical--${size}`)
+    })
+  })
+
+  gridTags.forEach((tag) => {
+    it(`renders with a custom ${tag} tag`, () => {
+      const { container } = render(<Grid as={tag} aria-label={tag === 'section' ? 'Accessible name' : undefined} />)
+
+      let component: HTMLElement | null
+      if (tag === 'div') {
+        component = container.querySelector(tag)
+      } else {
+        component = screen.queryByRole(ariaRoleForTag[tag])
+      }
+
+      expect(component).toBeInTheDocument()
     })
   })
 

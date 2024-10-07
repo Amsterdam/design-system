@@ -13,6 +13,9 @@ export type GridColumnNumber = 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11 | 12
 export type GridColumnNumbers = { narrow: GridColumnNumber; medium: GridColumnNumber; wide: GridColumnNumber }
 export type GridPaddingSize = 'small' | 'medium' | 'large'
 
+export const gridTags = ['article', 'aside', 'div', 'footer', 'header', 'main', 'nav', 'section'] as const
+export type GridTag = (typeof gridTags)[number]
+
 type GridPaddingVerticalProp = {
   paddingBottom?: never
   paddingTop?: never
@@ -29,8 +32,8 @@ type GridPaddingTopAndBottomProps = {
 }
 
 export type GridProps = {
-  /** The HTML element to use. */
-  as?: 'header' | 'div' | 'footer'
+  /** The HTML tag to use. */
+  as?: GridTag
   /** The amount of space between rows. */
   gapVertical?: 'none' | 'small' | 'large'
 } & (GridPaddingVerticalProp | GridPaddingTopAndBottomProps) &
