@@ -4,8 +4,8 @@
  */
 
 import clsx from 'clsx'
-import { forwardRef, type LiHTMLAttributes } from 'react'
-import type { ForwardedRef, PropsWithChildren } from 'react'
+import { forwardRef } from 'react'
+import type { ForwardedRef, LiHTMLAttributes, PropsWithChildren } from 'react'
 
 export type PageMenuItemProps = {
   /** Secondary items only appear in the Page Menu if there is enough space for them. */
