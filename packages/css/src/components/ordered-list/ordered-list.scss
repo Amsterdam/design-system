@@ -50,6 +50,7 @@
 /** A nested list has a different marker and less indentation for correct alignment. */
 :is(.ams-ordered-list, .ams-unordered-list) .ams-ordered-list {
   list-style-type: var(--ams-ordered-list-ordered-list-list-style-type);
+  padding-block-start: var(--ams-ordered-list-ordered-list-padding-block-start);
 
   .ams-ordered-list__item {
     margin-inline-start: var(--ams-ordered-list-ordered-list-item-margin-inline-start);
