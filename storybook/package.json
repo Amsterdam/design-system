@@ -42,7 +42,7 @@
     "@storybook/react": "8.3.4",
     "@storybook/react-vite": "8.3.4",
     "@storybook/theming": "8.3.4",
-    "@types/react": "18.3.10",
+    "@types/react": "18.3.11",
     "@vitejs/plugin-react": "4.3.2",
     "@whitespace/storybook-addon-html": "6.1.1",
     "react": "18.3.1",
