@@ -309,8 +309,8 @@ importers:
         specifier: 8.3.4
         version: 8.3.4(storybook@8.3.4)
       '@storybook/addon-links':
-        specifier: 8.3.4
-        version: 8.3.4(react@18.3.1)(storybook@8.3.4)
+        specifier: 8.3.5
+        version: 8.3.5(react@18.3.1)(storybook@8.3.4)
       '@storybook/addon-themes':
         specifier: 8.3.4
         version: 8.3.4(storybook@8.3.4)
@@ -1807,11 +1807,11 @@ packages:
     peerDependencies:
       storybook: ^8.3.4
 
-  '@storybook/addon-links@8.3.4':
-    resolution: {integrity: sha512-R1DjARmxRIKJDGIG6uxmQ1yFNyoQbb+QIPUFjgWCak8+AdLJbC7W+Esvo9F5hQfh6czyy0piiM3qj5hpQJVh3A==}
+  '@storybook/addon-links@8.3.5':
+    resolution: {integrity: sha512-giRCpn6cfJMYPnVJkojoQDO5ae6098fgY9YgAhwaJej/9dufNcioFdbiyfK1vyzbG6TGeTmJ9ncWCXgWRtzxPQ==}
     peerDependencies:
       react: ^16.8.0 || ^17.0.0 || ^18.0.0 || ^19.0.0-beta
-      storybook: ^8.3.4
+      storybook: ^8.3.5
     peerDependenciesMeta:
       react:
         optional: true
@@ -3553,6 +3553,7 @@ packages:
   eslint@8.57.1:
     resolution: {integrity: sha512-ypowyDxpVSYpkXr9WPv2PAZCtNip1Mv5KTW0SCurXv/9iOpcrH9PaqUElksqEB6pChqHGDRCFTyrZlGhnLNGiA==}
     engines: {node: ^12.22.0 || ^14.17.0 || >=16.0.0}
+    deprecated: This version is no longer supported. Please see https://eslint.org/version-support for other options.
     hasBin: true
 
   espree@9.6.1:
@@ -9048,7 +9049,7 @@ snapshots:
       storybook: 8.3.4
       ts-dedent: 2.2.0
 
-  '@storybook/addon-links@8.3.4(react@18.3.1)(storybook@8.3.4)':
+  '@storybook/addon-links@8.3.5(react@18.3.1)(storybook@8.3.4)':
     dependencies:
       '@storybook/csf': 0.1.11
       '@storybook/global': 5.0.0
