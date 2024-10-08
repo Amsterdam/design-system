@@ -11,7 +11,7 @@ const meta = {
   title: 'Components/Buttons/Button',
   component: Button,
   args: {
-    label: 'Button label',
+    children: 'Actietekst',
     variant: 'primary',
     disabled: false,
   },
@@ -42,27 +42,29 @@ export const Tertiary: Story = {
 
 export const StartIcon: Story = {
   args: {
-    iconStart: ShareIcon,
+    icon: ShareIcon,
+    iconPosition: 'start',
   },
 }
 
 export const EndIcon: Story = {
   args: {
-    iconEnd: ShareIcon,
+    icon: ShareIcon,
+    iconPosition: 'end',
   },
 }
 
 export const OnlyIcon: Story = {
   args: {
     variant: 'tertiary',
-    hideLabel: true,
-    iconStart: ShareIcon,
+    icon: ShareIcon,
+    iconPosition: 'only',
   },
 }
 
 export const TextWrapping: Story = {
   args: {
-    label: 'Vergunningsaanvraag verzenden',
+    children: 'Vergunningsaanvraag verzenden',
   },
   decorators: [
     (Story) => (

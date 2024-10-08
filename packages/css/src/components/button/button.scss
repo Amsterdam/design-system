@@ -95,3 +95,17 @@
     color: var(--ams-button-tertiary-hover-color);
   }
 }
+
+.ams-button--icon-only {
+  padding-block: var(--ams-button-icon-only-padding-block);
+  padding-inline: var(--ams-button-icon-only-padding-inline);
+}
+
+// TODO: Proposition
+// .ams-button--icon-start {
+//   padding-inline-start: var(--ams-button-icon-start-padding-inline-start);
+// }
+
+// .ams-button--icon-end {
+//   padding-inline-end: var(--ams-button-icon-end-padding-inline-end);
+// }
