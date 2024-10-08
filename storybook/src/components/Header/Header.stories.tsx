@@ -3,14 +3,50 @@
  * Copyright Gemeente Amsterdam
  */
 
-import { PageMenu } from '@amsterdam/design-system-react'
+import { PageMenu, Screen } from '@amsterdam/design-system-react'
 import { Header } from '@amsterdam/design-system-react/src'
-import { SearchIcon } from '@amsterdam/design-system-react-icons'
+import { MenuIcon, SearchIcon } from '@amsterdam/design-system-react-icons'
 import { Meta, StoryObj } from '@storybook/react'
+
+const MenuButton = (
+  <PageMenu.Item>
+    <PageMenu.Button icon={MenuIcon} onClick={() => {}}>
+      Menu
+    </PageMenu.Button>
+  </PageMenu.Item>
+)
+
+const SearchButton = (
+  <PageMenu.Item>
+    <PageMenu.Button icon={SearchIcon} onClick={() => {}}>
+      Zoeken
+    </PageMenu.Button>
+  </PageMenu.Item>
+)
+
+const SecondaryLinks = (
+  <>
+    <PageMenu.Item rank="secondary">
+      <PageMenu.Link href="#" lang="en">
+        English
+      </PageMenu.Link>
+    </PageMenu.Item>
+    <PageMenu.Item rank="secondary">
+      <PageMenu.Link href="#">Mijn Amsterdam</PageMenu.Link>
+    </PageMenu.Item>
+  </>
+)
 
 const meta = {
   title: 'Components/Containers/Header',
   component: Header,
+  decorators: [
+    (Story) => (
+      <Screen>
+        <Story />
+      </Screen>
+    ),
+  ],
 } satisfies Meta<typeof Header>
 
 export default meta
@@ -29,19 +65,23 @@ export const ForSubBrand: Story = {
 
 export const WithAppName: Story = {
   args: {
-    appName: 'Aan de Amsterdamse grachten',
+    appName: 'Onderzoek en Statistiek',
   },
 }
 
-export const WithLinks: Story = {
+export const WithMenu: Story = {
   args: {
-    links: (
-      <PageMenu alignEnd wrap={false}>
-        <PageMenu.Link href="#">Contact</PageMenu.Link>
-        <PageMenu.Link href="#">Mijn Amsterdam</PageMenu.Link>
-        <PageMenu.Link href="#" icon={SearchIcon}>
-          Zoeken
-        </PageMenu.Link>
+    menu: (
+      <PageMenu alignEnd>
+        <PageMenu.Item>
+          <PageMenu.Link href="#">Menu link 1</PageMenu.Link>
+        </PageMenu.Item>
+        <PageMenu.Item>
+          <PageMenu.Link href="#">Menu link 2</PageMenu.Link>
+        </PageMenu.Item>
+        <PageMenu.Item>
+          <PageMenu.Link href="#">Menu link 3</PageMenu.Link>
+        </PageMenu.Item>
       </PageMenu>
     ),
   },
@@ -49,44 +89,38 @@ export const WithLinks: Story = {
 
 export const WithMenuButton: Story = {
   args: {
-    menu: <button className="ams-header__menu-button">Menu</button>,
+    menu: <PageMenu alignEnd>{MenuButton}</PageMenu>,
   },
 }
 
-export const WithLinksAndMenuButton: Story = {
+export const WithMenuAndMenuButton: Story = {
   args: {
-    links: (
-      <PageMenu alignEnd wrap={false}>
-        <PageMenu.Link href="#">Contact</PageMenu.Link>
-        <PageMenu.Link href="#">Mijn Amsterdam</PageMenu.Link>
-        <PageMenu.Link href="#" icon={SearchIcon}>
-          Zoeken
-        </PageMenu.Link>
+    menu: (
+      <PageMenu alignEnd>
+        {SecondaryLinks}
+        {SearchButton}
+        {MenuButton}
       </PageMenu>
     ),
-    menu: <button className="ams-header__menu-button">Menu</button>,
   },
 }
 
-export const WithAppNameAndMenuButton: Story = {
+export const WithAppNameAndMenu: Story = {
   args: {
-    appName: 'Aan de Amsterdamse grachten',
-    menu: <button className="ams-header__menu-button">Menu</button>,
+    appName: 'Onderzoek en Statistiek',
+    menu: <PageMenu alignEnd>{MenuButton}</PageMenu>,
   },
 }
 
-export const WithAppNameLinksAndMenuButton: Story = {
+export const WithAppNameMenuAndMenuButton: Story = {
   args: {
-    appName: 'Aan de Amsterdamse grachten',
-    links: (
-      <PageMenu alignEnd wrap={false}>
-        <PageMenu.Link href="#">Contact</PageMenu.Link>
-        <PageMenu.Link href="#">Mijn Amsterdam</PageMenu.Link>
-        <PageMenu.Link href="#" icon={SearchIcon}>
-          Zoeken
-        </PageMenu.Link>
+    appName: 'Onderzoek en Statistiek',
+    menu: (
+      <PageMenu alignEnd>
+        {SecondaryLinks}
+        {SearchButton}
+        {MenuButton}
       </PageMenu>
     ),
-    menu: <button className="ams-header__menu-button">Menu</button>,
   },
 }
