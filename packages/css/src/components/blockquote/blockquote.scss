@@ -21,6 +21,10 @@
   line-height: var(--ams-blockquote-line-height);
   quotes: "“" "”";
 
+  @include hyphenation;
+  @include text-rendering;
+  @include reset;
+
   &::before {
     content: open-quote;
   }
@@ -28,10 +32,6 @@
   &::after {
     content: close-quote;
   }
-
-  @include hyphenation;
-  @include text-rendering;
-  @include reset;
 }
 
 .ams-blockquote--inverse-color {

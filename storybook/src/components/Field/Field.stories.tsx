@@ -40,7 +40,7 @@ export const WithDescription: Story = {
   ),
 }
 
-export const WithError: Story = {
+export const WithValidation: Story = {
   args: { invalid: true },
   render: (args) => (
     <Field invalid={args.invalid}>

@@ -5,8 +5,12 @@
 
 @mixin reset {
   border: 0;
+  margin-block: 0; // [1]
+  margin-inline: 0; // [1]
   padding-block: 0;
   padding-inline: 0;
+
+  // [1] Remove the margin in older Safari.
 }
 
 .ams-icon-button {
@@ -15,6 +19,8 @@
   cursor: pointer;
   outline-offset: var(--ams-icon-button-outline-offset);
   touch-action: manipulation;
+
+  @include reset;
 
   &:hover {
     background-color: var(--ams-icon-button-hover-background-color);
@@ -26,8 +32,6 @@
     color: var(--ams-icon-button-disabled-color);
     cursor: not-allowed;
   }
-
-  @include reset;
 }
 
 .ams-icon-button--contrast-color {

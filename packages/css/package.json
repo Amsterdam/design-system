@@ -1,5 +1,5 @@
 {
-  "version": "0.11.0",
+  "version": "0.11.1",
   "author": "Community for NL Design System",
   "description": "CSS files for components for the City of Amsterdam based on the NL Design System architecture",
   "license": "EUPL-1.2",
@@ -19,7 +19,7 @@
     "clean": "rimraf dist/"
   },
   "devDependencies": {
-    "sass": "1.77.8"
+    "sass": "1.79.4"
   },
   "peerDependencies": {
     "@amsterdam/design-system-tokens": "workspace:*",

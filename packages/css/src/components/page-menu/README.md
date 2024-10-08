@@ -21,4 +21,4 @@ Check out the [developer guide](/docs/docs-developer-guide-routing-libraries--do
 
 - [Consistent Navigation (Level AA)](https://www.w3.org/WAI/WCAG21/Understanding/consistent-navigation.html)
 
-PageMenu is an interactive element, and the [general requirements and guidelines for interactivity](/docs/docs-developer-guide-interactivity--docs) apply.
+Page Menu is an interactive element, and the [general requirements and guidelines for interactivity](/docs/docs-developer-guide-interactivity--docs) apply.
