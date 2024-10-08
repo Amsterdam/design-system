@@ -16,7 +16,7 @@ export const AppHeader = () => {
   const toggleFeature = (feature: Feature) =>
     setVisibleFeature((currentFeature) => (feature === currentFeature ? undefined : feature))
 
-  const visibilityClass = (feature: Feature) => (feature === visibleFeature ? null : 'ams-visually-hidden')
+  const visibilityClass = (feature: Feature) => (feature === visibleFeature ? undefined : 'ams-visually-hidden')
 
   const HeaderMenu = useMemo(
     () => (
