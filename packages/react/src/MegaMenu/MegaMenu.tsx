@@ -20,4 +20,5 @@ const MegaMenuRoot = forwardRef(
 
 MegaMenuRoot.displayName = 'MegaMenu'
 
+/** @deprecated Use Grid, Heading, and LinkList instead, and probably an upcoming Columns component. */
 export const MegaMenu = Object.assign(MegaMenuRoot, { ListCategory: MegaMenuListCategory })
