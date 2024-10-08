@@ -62,7 +62,7 @@ export const MultipleCategories: Story = {
   args: {
     children: (
       <Grid>
-        <Grid.Cell key={1} span={{ narrow: 4, medium: 8, wide: 8 }}>
+        <Grid.Cell span={{ narrow: 4, medium: 8, wide: 8 }}>
           <Heading level={3} size="level-3">
             Thema’s
           </Heading>
@@ -113,7 +113,7 @@ export const MultipleCategories: Story = {
             </LinkList>
           </MegaMenu.ListCategory>
         </Grid.Cell>
-        <Grid.Cell key={2} span={{ narrow: 4, medium: 8, wide: 4 }}>
+        <Grid.Cell span={{ narrow: 4, medium: 8, wide: 4 }}>
           <Heading level={3} size="level-3">
             Categorieën
           </Heading>
