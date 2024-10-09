@@ -16,6 +16,9 @@ const meta = {
     disabled: false,
   },
   argTypes: {
+    icon: {
+      table: { disable: true },
+    },
     disabled: {
       description: 'Prevents interaction. Avoid if possible.',
     },

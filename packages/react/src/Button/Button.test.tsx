@@ -1,3 +1,4 @@
+import { ShareIcon } from '@amsterdam/design-system-react-icons'
 import { render, screen } from '@testing-library/react'
 import '@testing-library/jest-dom'
 import { createRef } from 'react'
@@ -5,7 +6,7 @@ import { Button } from './Button'
 
 describe('Button', () => {
   it('renders an element with role button', () => {
-    render(<Button label="Click me!" />)
+    render(<Button>Click me!</Button>)
 
     const button = screen.getByRole('button', {
       name: 'Click me!',
@@ -16,7 +17,7 @@ describe('Button', () => {
   })
 
   it('renders an additional class name', () => {
-    render(<Button label="Click me!" className="extra" />)
+    render(<Button className="extra">Click me!</Button>)
 
     const button = screen.getByRole('button', {
       name: 'Click me!',
@@ -26,7 +27,7 @@ describe('Button', () => {
   })
 
   it('renders a default button with variant primary', () => {
-    render(<Button label="primary" />)
+    render(<Button>primary</Button>)
 
     const button = screen.getByRole('button', {
       name: 'primary',
@@ -40,9 +41,9 @@ describe('Button', () => {
   it('renders a button with a specified variant', () => {
     render(
       <>
-        <Button variant="primary" label="primary" />
-        <Button variant="secondary" label="secondary" />
-        <Button variant="tertiary" label="tertiary" />
+        <Button variant="primary">primary</Button>
+        <Button variant="secondary">secondary</Button>
+        <Button variant="tertiary">tertiary</Button>
       </>,
     )
 
@@ -69,9 +70,15 @@ describe('Button', () => {
   it('renders a disabled button with a specified variant', () => {
     render(
       <>
-        <Button disabled variant="primary" label="primary" />
-        <Button disabled variant="secondary" label="secondary" />
-        <Button disabled variant="tertiary" label="tertiary" />
+        <Button disabled variant="primary">
+          primary
+        </Button>
+        <Button disabled variant="secondary">
+          secondary
+        </Button>
+        <Button disabled variant="tertiary">
+          tertiary
+        </Button>
       </>,
     )
 
@@ -98,10 +105,26 @@ describe('Button', () => {
   it('is able to pass a React ref', () => {
     const ref = createRef<HTMLButtonElement>()
 
-    const { container } = render(<Button label="Click me!" ref={ref} />)
+    const { container } = render(<Button ref={ref}>Click me!</Button>)
 
     const button = container.querySelector(':only-child')
 
     expect(ref.current).toBe(button)
+  })
+
+  it('renders a button with an icon', () => {
+    render(
+      <Button icon={ShareIcon} iconPosition="end">
+        Share
+      </Button>,
+    )
+
+    const button = screen.getByRole('button', {
+      name: 'Share',
+    })
+
+    expect(button).toBeInTheDocument()
+    const icon = button.querySelector('.ams-icon')
+    expect(icon).toBeInTheDocument()
   })
 })
