@@ -25,7 +25,7 @@
       },
       "ordered-list": {
         "list-style-type": { "value": "lower-alpha" },
-        "padding-block-start": { "value": "{ams.space.xs}" },
+        "padding-block-start": { "value": "{ams.space.sm}" },
         "item": {
           "margin-inline-start": {
             "value": "1.5rem",
