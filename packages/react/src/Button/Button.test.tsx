@@ -1,3 +1,4 @@
+import { ShareIcon } from '@amsterdam/design-system-react-icons'
 import { render, screen } from '@testing-library/react'
 import '@testing-library/jest-dom'
 import { createRef } from 'react'
@@ -104,10 +105,26 @@ describe('Button', () => {
   it('is able to pass a React ref', () => {
     const ref = createRef<HTMLButtonElement>()
 
-    const { container } = render(<Button ref={ref} />)
+    const { container } = render(<Button ref={ref}>Click me!</Button>)
 
     const button = container.querySelector(':only-child')
 
     expect(ref.current).toBe(button)
+  })
+
+  it('renders a button with an icon', () => {
+    render(
+      <Button icon={ShareIcon} iconPosition="end">
+        Share
+      </Button>,
+    )
+
+    const button = screen.getByRole('button', {
+      name: 'Share',
+    })
+
+    expect(button).toBeInTheDocument()
+    const icon = button.querySelector('.ams-icon')
+    expect(icon).toBeInTheDocument()
   })
 })
