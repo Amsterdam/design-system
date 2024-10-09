@@ -49,6 +49,7 @@
 
 /** A nested list has a different marker and less indentation for correct alignment. */
 :is(.ams-ordered-list, .ams-unordered-list) .ams-ordered-list {
+  gap: var(--ams-ordered-list-ordered-list-gap);
   list-style-type: var(--ams-ordered-list-ordered-list-list-style-type);
   padding-block-start: var(--ams-ordered-list-ordered-list-padding-block-start);
 
