@@ -51,6 +51,7 @@
 :is(.ams-ordered-list, .ams-unordered-list) .ams-unordered-list {
   gap: var(--ams-unordered-list-unordered-list-gap);
   list-style-type: var(--ams-unordered-list-unordered-list-list-style-type);
+  padding-block-end: var(--ams-unordered-list-unordered-list-padding-block-end);
   padding-block-start: var(--ams-unordered-list-unordered-list-padding-block-start);
 
   .ams-unordered-list__item {

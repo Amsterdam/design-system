@@ -22,6 +22,7 @@
       "unordered-list": {
         "gap": { "value": "{ams.space.sm}" },
         "list-style-type": { "value": "'\\2013'" },
+        "padding-block-end": { "value": "0" },
         "padding-block-start": { "value": "{ams.space.sm}" },
         "item": {
           "margin-inline-start": {
