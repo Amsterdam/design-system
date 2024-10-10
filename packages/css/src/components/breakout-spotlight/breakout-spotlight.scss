@@ -7,88 +7,88 @@
 @import "../grid/grid";
 @import "../grid/mixins";
 
-$ams-spotlight-grid-row-span-max: 4;
+$ams-breakout-spotlight-row-span-max: 4;
 
-.ams-spotlight-grid {
+.ams-breakout-spotlight {
   @include ams-grid;
 }
 
 // Grid gap
 
-.ams-spotlight-grid--gap-vertical--none {
+.ams-breakout-spotlight--gap-vertical--none {
   @include ams-grid--gap-vertical--none;
 }
 
-.ams-spotlight-grid--gap-vertical--small {
+.ams-breakout-spotlight--gap-vertical--small {
   @include ams-grid--gap-vertical--small;
 }
 
-.ams-spotlight-grid--gap-vertical--large {
+.ams-breakout-spotlight--gap-vertical--large {
   @include ams-grid--gap-vertical--large;
 }
 
 // Grid padding
 
-.ams-spotlight-grid--padding-bottom--small {
+.ams-breakout-spotlight--padding-bottom--small {
   @include ams-grid--padding-bottom--small;
 }
 
-.ams-spotlight-grid--padding-bottom--medium {
+.ams-breakout-spotlight--padding-bottom--medium {
   @include ams-grid--padding-bottom--medium;
 }
 
-.ams-spotlight-grid--padding-bottom--large {
+.ams-breakout-spotlight--padding-bottom--large {
   @include ams-grid--padding-bottom--large;
 }
 
-.ams-spotlight-grid--padding-top--small {
+.ams-breakout-spotlight--padding-top--small {
   @include ams-grid--padding-top--small;
 }
 
-.ams-spotlight-grid--padding-top--medium {
+.ams-breakout-spotlight--padding-top--medium {
   @include ams-grid--padding-top--medium;
 }
 
-.ams-spotlight-grid--padding-top--large {
+.ams-breakout-spotlight--padding-top--large {
   @include ams-grid--padding-top--large;
 }
 
-.ams-spotlight-grid--padding-vertical--small {
+.ams-breakout-spotlight--padding-vertical--small {
   @include ams-grid--padding-vertical--small;
 }
 
-.ams-spotlight-grid--padding-vertical--medium {
+.ams-breakout-spotlight--padding-vertical--medium {
   @include ams-grid--padding-vertical--medium;
 }
 
-.ams-spotlight-grid--padding-vertical--large {
+.ams-breakout-spotlight--padding-vertical--large {
   @include ams-grid--padding-vertical--large;
 }
 
 // Column span
 // The order of these declaration blocks ensures the intended specificity.
 
-.ams-spotlight-grid__cell--col-span-all {
+.ams-breakout-spotlight__cell--col-span-all {
   @include ams-grid__cell--span-all;
 }
 
 @for $i from 1 through $ams-grid-column-count {
-  .ams-spotlight-grid__cell--col-span-#{$i} {
+  .ams-breakout-spotlight__cell--col-span-#{$i} {
     @include ams-grid__cell--span($i);
   }
 
-  .ams-spotlight-grid__cell--col-start-#{$i} {
+  .ams-breakout-spotlight__cell--col-start-#{$i} {
     @include ams-grid__cell--start($i);
   }
 }
 
 @media screen and (min-width: $ams-breakpoint-medium) {
   @for $i from 1 through $ams-grid-column-count {
-    .ams-spotlight-grid__cell--col-span-#{$i}-medium {
+    .ams-breakout-spotlight__cell--col-span-#{$i}-medium {
       @include ams-grid__cell--span-medium($i);
     }
 
-    .ams-spotlight-grid__cell--col-start-#{$i}-medium {
+    .ams-breakout-spotlight__cell--col-start-#{$i}-medium {
       @include ams-grid__cell--start-medium($i);
     }
   }
@@ -96,11 +96,11 @@ $ams-spotlight-grid-row-span-max: 4;
 
 @media screen and (min-width: $ams-breakpoint-wide) {
   @for $i from 1 through $ams-grid-column-count {
-    .ams-spotlight-grid__cell--col-span-#{$i}-wide {
+    .ams-breakout-spotlight__cell--col-span-#{$i}-wide {
       @include ams-grid__cell--span-wide($i);
     }
 
-    .ams-spotlight-grid__cell--col-start-#{$i}-wide {
+    .ams-breakout-spotlight__cell--col-start-#{$i}-wide {
       @include ams-grid__cell--start-wide($i);
     }
   }
@@ -108,55 +108,55 @@ $ams-spotlight-grid-row-span-max: 4;
 
 // Has content
 
-.ams-spotlight-grid__cell--has-figure {
+.ams-breakout-spotlight__cell--has-figure {
   align-self: end;
 }
 
-.ams-spotlight-grid__cell--has-spotlight {
+.ams-breakout-spotlight__cell--has-spotlight {
   display: grid; /* Stretches the empty Spotlight vertically. */
   margin-block: calc(var(--ams-space-grid-md) * -1);
   margin-inline: calc(var(--ams-space-grid-lg) * -1);
 
-  .ams-spotlight-grid--gap-vertical--small > & {
+  .ams-breakout-spotlight--gap-vertical--small > & {
     margin-block: calc(var(--ams-space-grid-sm) * -1);
   }
 
-  .ams-spotlight-grid--gap-vertical--large > & {
+  .ams-breakout-spotlight--gap-vertical--large > & {
     margin-block: calc(var(--ams-space-grid-lg) * -1);
   }
 }
 
 // Row span
 
-@for $i from 1 through $ams-spotlight-grid-row-span-max {
-  .ams-spotlight-grid__cell--row-span-#{$i} {
+@for $i from 1 through $ams-breakout-spotlight-row-span-max {
+  .ams-breakout-spotlight__cell--row-span-#{$i} {
     grid-row-end: span $i;
   }
 
-  .ams-spotlight-grid__cell--row-start-#{$i} {
+  .ams-breakout-spotlight__cell--row-start-#{$i} {
     grid-row-start: $i;
   }
 }
 
 @media screen and (min-width: $ams-breakpoint-medium) {
-  @for $i from 1 through $ams-spotlight-grid-row-span-max {
-    .ams-spotlight-grid__cell--row-span-#{$i}-medium {
+  @for $i from 1 through $ams-breakout-spotlight-row-span-max {
+    .ams-breakout-spotlight__cell--row-span-#{$i}-medium {
       grid-row-end: span $i;
     }
 
-    .ams-spotlight-grid__cell--row-start-#{$i}-medium {
+    .ams-breakout-spotlight__cell--row-start-#{$i}-medium {
       grid-row-start: $i;
     }
   }
 }
 
 @media screen and (min-width: $ams-breakpoint-wide) {
-  @for $i from 1 through $ams-spotlight-grid-row-span-max {
-    .ams-spotlight-grid__cell--row-span-#{$i}-wide {
+  @for $i from 1 through $ams-breakout-spotlight-row-span-max {
+    .ams-breakout-spotlight__cell--row-span-#{$i}-wide {
       grid-row-end: span $i;
     }
 
-    .ams-spotlight-grid__cell--row-start-#{$i}-wide {
+    .ams-breakout-spotlight__cell--row-start-#{$i}-wide {
       grid-row-start: $i;
     }
   }

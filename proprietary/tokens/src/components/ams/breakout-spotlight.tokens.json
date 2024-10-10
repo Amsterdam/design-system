@@ -1,6 +1,6 @@
 {
   "ams": {
-    "spotlight-grid": {
+    "breakout-spotlight": {
       "row-gap": {
         "sm": { "value": "{ams.space.grid.sm}" },
         "md": { "value": "{ams.space.grid.md}" },

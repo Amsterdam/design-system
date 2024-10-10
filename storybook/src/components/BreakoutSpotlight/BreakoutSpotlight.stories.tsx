@@ -4,12 +4,12 @@
  */
 
 import { AspectRatio, Image, Paragraph, Screen, Spotlight } from '@amsterdam/design-system-react'
-import { SpotlightGrid } from '@amsterdam/design-system-react/src'
+import { BreakoutSpotlight } from '@amsterdam/design-system-react/src'
 import { Meta, StoryObj } from '@storybook/react'
 
 const meta = {
-  title: 'Components/Layout/Spotlight Grid',
-  component: SpotlightGrid,
+  title: 'Components/Layout/Breakout Spotlight',
+  component: BreakoutSpotlight,
   decorators: [
     (Story) => (
       <Screen>
@@ -17,7 +17,7 @@ const meta = {
       </Screen>
     ),
   ],
-} satisfies Meta<typeof SpotlightGrid>
+} satisfies Meta<typeof BreakoutSpotlight>
 
 export default meta
 
@@ -26,10 +26,10 @@ type Story = StoryObj<typeof meta>
 export const Default: Story = {
   args: {
     children: [
-      <SpotlightGrid.Cell colSpan="all" has="spotlight" rowSpan={{ medium: 2, narrow: 2, wide: 1 }} rowStart={2}>
+      <BreakoutSpotlight.Cell colSpan="all" has="spotlight" rowSpan={{ medium: 2, narrow: 2, wide: 1 }} rowStart={2}>
         <Spotlight />
-      </SpotlightGrid.Cell>,
-      <SpotlightGrid.Cell
+      </BreakoutSpotlight.Cell>,
+      <BreakoutSpotlight.Cell
         colSpan={{ medium: 8, narrow: 4, wide: 6 }}
         colStart={1}
         rowStart={{ medium: 3, narrow: 3, wide: 2 }}
@@ -37,8 +37,8 @@ export const Default: Story = {
         <Paragraph inverseColor>
           Het doel van deze club is om ervoor te zorgen dat de Zuidas steeds duurzamer wordt.
         </Paragraph>
-      </SpotlightGrid.Cell>,
-      <SpotlightGrid.Cell
+      </BreakoutSpotlight.Cell>,
+      <BreakoutSpotlight.Cell
         colSpan={{ medium: 8, narrow: 4, wide: 6 }}
         colStart={{ medium: 1, narrow: 1, wide: 7 }}
         has="figure"
@@ -48,7 +48,7 @@ export const Default: Story = {
         <AspectRatio ratio="square">
           <Image alt="" src="https://picsum.photos/960/960" />
         </AspectRatio>
-      </SpotlightGrid.Cell>,
+      </BreakoutSpotlight.Cell>,
     ],
   },
 }
@@ -56,15 +56,15 @@ export const Default: Story = {
 export const VerticalLayout: Story = {
   args: {
     children: [
-      <SpotlightGrid.Cell colSpan="all" has="figure" rowSpan={2} rowStart={1}>
+      <BreakoutSpotlight.Cell colSpan="all" has="figure" rowSpan={2} rowStart={1}>
         <AspectRatio ratio="x-wide">
           <Image alt="" src="https://picsum.photos/1600/900" />
         </AspectRatio>
-      </SpotlightGrid.Cell>,
-      <SpotlightGrid.Cell colSpan="all" has="spotlight" rowSpan={2} rowStart={2}>
+      </BreakoutSpotlight.Cell>,
+      <BreakoutSpotlight.Cell colSpan="all" has="spotlight" rowSpan={2} rowStart={2}>
         <Spotlight />
-      </SpotlightGrid.Cell>,
-      <SpotlightGrid.Cell
+      </BreakoutSpotlight.Cell>,
+      <BreakoutSpotlight.Cell
         colSpan={{ medium: 6, narrow: 4, wide: 8 }}
         colStart={{ medium: 2, narrow: 1, wide: 3 }}
         rowStart={3}
@@ -75,7 +75,7 @@ export const VerticalLayout: Story = {
         <Paragraph inverseColor>
           Daarna vraagt u de vergunning aan in hetzelfde formulier. Of doet u een gratis melding of vooraankondiging.
         </Paragraph>
-      </SpotlightGrid.Cell>,
+      </BreakoutSpotlight.Cell>,
     ],
   },
 }

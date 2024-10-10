@@ -1,10 +1,10 @@
 {/* @license CC0-1.0 */}
 
 import { Canvas, Controls, Markdown, Meta, Primary } from "@storybook/blocks";
-import * as SpotlightGridStories from "./SpotlightGrid.stories.tsx";
-import README from "../../../../packages/css/src/components/spotlight-grid/README.md?raw";
+import * as BreakoutSpotlightStories from "./BreakoutSpotlight.stories.tsx";
+import README from "../../../../packages/css/src/components/breakout-spotlight/README.md?raw";
 
-<Meta of={SpotlightGridStories} />
+<Meta of={BreakoutSpotlightStories} />
 
 <Markdown>{README}</Markdown>
 
@@ -12,7 +12,7 @@ import README from "../../../../packages/css/src/components/spotlight-grid/READM
 
 This component is an extension of `Grid`.
 It offers the same props, although `span` and `start` have been renamed to `colSpan` and `colStart`.
-Additionally, `SpotlightGrid` allows cells to span multiple rows.
+Additionally, `BreakoutSpotlight` allows cells to span multiple rows.
 
 The Cell containing the Spotlight must have `has="spotlight"` to extend to the gaps and margins around it.
 This prop can be used only on Cells that span all columns of the grid, so `span="all"` is required as well.
@@ -34,4 +34,4 @@ On narrower screens, let the text move below the image.
 
 A large figure can be placed at the top of the Spotlight, with related text positioned underneath.
 
-<Canvas of={SpotlightGridStories.VerticalLayout} />
+<Canvas of={BreakoutSpotlightStories.VerticalLayout} />

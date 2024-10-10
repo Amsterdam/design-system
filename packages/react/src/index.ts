@@ -5,7 +5,7 @@
 
 /* Append here */
 export * from './ActionGroup'
-export * from './SpotlightGrid'
+export * from './BreakoutSpotlight'
 export * from './Hint'
 export * from './ImageSlider'
 export * from './PasswordInput'
