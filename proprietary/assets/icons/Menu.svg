@@ -1,1 +1,5 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><path fill-rule="evenodd" d="M0 3.238h32V7.81H0V3.238zm0 10.476h32v4.572H0v-4.572zM0 24.19h32v4.572H0V24.19z"/></svg>
+<svg width="22" height="15" viewBox="0 0 22 15" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M22 0.959961H0V2.95996H22V0.959961Z" fill="black"/>
+<path d="M22 6.95996H0V8.95996H22V6.95996Z" fill="black"/>
+<path d="M0 12.96H22V14.96H0V12.96Z" fill="black"/>
+</svg>
