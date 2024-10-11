@@ -19,6 +19,9 @@ const meta = {
     icon: {
       table: { disable: true },
     },
+    iconStart: {
+      table: { disable: true },
+    },
     disabled: {
       description: 'Prevents interaction. Avoid if possible.',
     },
@@ -45,15 +48,13 @@ export const Tertiary: Story = {
 
 export const StartIcon: Story = {
   args: {
-    icon: ShareIcon,
-    iconPosition: 'start',
+    iconStart: ShareIcon,
   },
 }
 
 export const EndIcon: Story = {
   args: {
     icon: ShareIcon,
-    iconPosition: 'end',
   },
 }
 
@@ -61,7 +62,7 @@ export const OnlyIcon: Story = {
   args: {
     variant: 'tertiary',
     icon: ShareIcon,
-    iconPosition: 'only',
+    iconOnly: true,
   },
 }
 
