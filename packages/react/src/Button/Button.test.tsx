@@ -113,11 +113,7 @@ describe('Button', () => {
   })
 
   it('renders a button with an icon', () => {
-    render(
-      <Button icon={ShareIcon} iconPosition="end">
-        Share
-      </Button>,
-    )
+    render(<Button icon={ShareIcon}>Share</Button>)
 
     const button = screen.getByRole('button', {
       name: 'Share',
