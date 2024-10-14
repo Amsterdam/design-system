@@ -11,7 +11,7 @@ const meta = {
   title: 'Components/Buttons/Button',
   component: Button,
   args: {
-    children: 'Actietekst',
+    children: 'Versturen',
     variant: 'primary',
     disabled: false,
   },
@@ -33,12 +33,14 @@ export const Primary: Story = {}
 
 export const Secondary: Story = {
   args: {
+    children: 'Annuleren',
     variant: 'secondary',
   },
 }
 
 export const Tertiary: Story = {
   args: {
+    children: 'Terug',
     variant: 'tertiary',
   },
 }
