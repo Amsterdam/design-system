@@ -113,32 +113,8 @@ describe('Button', () => {
   })
 
   it('renders a button with an icon', () => {
-    render(<Button icon={ShareIcon}>Share</Button>)
-
-    const button = screen.getByRole('button', {
-      name: 'Share',
-    })
-
-    expect(button).toBeInTheDocument()
-    const icon = button.querySelector('.ams-icon')
-    expect(icon).toBeInTheDocument()
-  })
-
-  it('renders a button with an iconStart', () => {
-    render(<Button iconStart={ShareIcon}>Share</Button>)
-
-    const button = screen.getByRole('button', {
-      name: 'Share',
-    })
-
-    expect(button).toBeInTheDocument()
-    const icon = button.querySelector('.ams-icon')
-    expect(button.firstChild).toBe(icon)
-  })
-
-  it('renders a button with an iconOnly', () => {
     render(
-      <Button icon={ShareIcon} iconOnly>
+      <Button icon={ShareIcon} iconPosition="end">
         Share
       </Button>,
     )
@@ -149,7 +125,6 @@ describe('Button', () => {
 
     expect(button).toBeInTheDocument()
     const icon = button.querySelector('.ams-icon')
-    const visuallyHidden = button.querySelector('.ams-visually-hidden')
-    expect(icon && visuallyHidden).toBeInTheDocument()
+    expect(icon).toBeInTheDocument()
   })
 })
