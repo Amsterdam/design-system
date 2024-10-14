@@ -12,15 +12,15 @@ const meta = {
   component: Button,
   args: {
     children: 'Versturen',
-    variant: 'primary',
     disabled: false,
+    variant: 'primary',
   },
   argTypes: {
-    icon: {
-      table: { disable: true },
-    },
     disabled: {
       description: 'Prevents interaction. Avoid if possible.',
+    },
+    icon: {
+      table: { disable: true },
     },
   },
 } satisfies Meta<typeof Button>
@@ -45,24 +45,27 @@ export const Tertiary: Story = {
   },
 }
 
-export const Icon: Story = {
+export const WithIcon: Story = {
   args: {
+    children: 'Delen',
     icon: ShareIcon,
   },
 }
 
-export const StartIcon: Story = {
+export const WithIconAtStart: Story = {
   args: {
+    children: 'Delen',
     icon: ShareIcon,
     iconPosition: 'start',
   },
 }
 
-export const OnlyIcon: Story = {
+export const WithIconOnly: Story = {
   args: {
-    variant: 'tertiary',
+    children: 'Delen',
     icon: ShareIcon,
     iconPosition: 'only',
+    variant: 'tertiary',
   },
 }
 
