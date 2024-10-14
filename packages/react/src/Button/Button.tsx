@@ -8,27 +8,25 @@ import { forwardRef } from 'react'
 import type { ButtonHTMLAttributes, ForwardedRef, PropsWithChildren } from 'react'
 import { Icon } from '../Icon'
 
-type ButtonIcon = {
-  icon?: Function
-  iconStart?: never
-  iconOnly?: boolean
-}
-
-type ButtonIconStart = {
-  icon?: never
-  iconStart?: Function
-  iconOnly?: boolean
-}
-
 export type ButtonProps = {
   /** The level of prominence. Use a primary button only once per page or section. */
   variant?: 'primary' | 'secondary' | 'tertiary'
-} & (ButtonIcon | ButtonIconStart) &
-  PropsWithChildren<ButtonHTMLAttributes<HTMLButtonElement>>
+  icon?: Function
+  iconPosition?: 'none' | 'start' | 'end' | 'only'
+} & PropsWithChildren<ButtonHTMLAttributes<HTMLButtonElement>>
 
 export const Button = forwardRef(
   (
-    { children, className, type, disabled, variant = 'primary', icon, iconStart, iconOnly, ...restProps }: ButtonProps,
+    {
+      children,
+      className,
+      type,
+      disabled,
+      variant = 'primary',
+      icon,
+      iconPosition = 'none',
+      ...restProps
+    }: ButtonProps,
     ref: ForwardedRef<HTMLButtonElement>,
   ) => {
     return (
@@ -36,12 +34,12 @@ export const Button = forwardRef(
         {...restProps}
         ref={ref}
         disabled={disabled}
-        className={clsx('ams-button', `ams-button--${variant}`, { 'ams-button--icon-only': iconOnly }, className)}
+        className={clsx('ams-button', `ams-button--${variant}`, `ams-button--icon-${iconPosition}`, className)}
         type={type || 'button'}
       >
-        {iconStart && <Icon svg={iconStart} size="level-5" square />}
-        {iconOnly ? <span className="ams-visually-hidden">{children}</span> : children}
-        {icon && <Icon svg={icon} size="level-5" square />}
+        {icon && (iconPosition === 'start' || iconPosition === 'only') && <Icon svg={icon} size="level-5" square />}
+        {icon && iconPosition === 'only' ? <span className="ams-visually-hidden">{children}</span> : children}
+        {icon && iconPosition === 'end' && <Icon svg={icon} size="level-5" square />}
       </button>
     )
   },
