@@ -81,5 +81,6 @@
     "watch:react": "npm run --workspace packages/react build:watch",
     "watch:storybook": "npm run --workspace storybook start",
     "watch:tokens": "npm run --workspace proprietary/tokens watch"
-  }
+  },
+  "packageManager": "pnpm@9.12.1"
 }
