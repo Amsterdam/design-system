@@ -43,17 +43,16 @@ export const Tertiary: Story = {
   },
 }
 
+export const EndIcon: Story = {
+  args: {
+    icon: ShareIcon,
+  },
+}
+
 export const StartIcon: Story = {
   args: {
     icon: ShareIcon,
     iconPosition: 'start',
-  },
-}
-
-export const EndIcon: Story = {
-  args: {
-    icon: ShareIcon,
-    iconPosition: 'end',
   },
 }
 

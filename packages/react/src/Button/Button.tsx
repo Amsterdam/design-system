@@ -12,21 +12,12 @@ export type ButtonProps = {
   /** The level of prominence. Use a primary button only once per page or section. */
   variant?: 'primary' | 'secondary' | 'tertiary'
   icon?: Function
-  iconPosition?: 'none' | 'start' | 'end' | 'only'
+  iconPosition?: 'start' | 'only'
 } & PropsWithChildren<ButtonHTMLAttributes<HTMLButtonElement>>
 
 export const Button = forwardRef(
   (
-    {
-      children,
-      className,
-      type,
-      disabled,
-      variant = 'primary',
-      icon,
-      iconPosition = 'none',
-      ...restProps
-    }: ButtonProps,
+    { children, className, disabled, icon, iconPosition, type, variant = 'primary', ...restProps }: ButtonProps,
     ref: ForwardedRef<HTMLButtonElement>,
   ) => {
     return (
@@ -39,7 +30,7 @@ export const Button = forwardRef(
       >
         {icon && (iconPosition === 'start' || iconPosition === 'only') && <Icon svg={icon} size="level-5" square />}
         {icon && iconPosition === 'only' ? <span className="ams-visually-hidden">{children}</span> : children}
-        {icon && iconPosition === 'end' && <Icon svg={icon} size="level-5" square />}
+        {icon && !iconPosition && <Icon svg={icon} size="level-5" square />}
       </button>
     )
   },
