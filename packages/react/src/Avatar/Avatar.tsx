@@ -3,7 +3,7 @@
  * Copyright Gemeente Amsterdam
  */
 
-import { PersonalLoginIcon } from '@amsterdam/design-system-react-icons'
+import { UserIcon } from '@amsterdam/design-system-react-icons'
 import clsx from 'clsx'
 import { forwardRef } from 'react'
 import type { ForwardedRef, HTMLAttributes } from 'react'
@@ -43,7 +43,7 @@ const AvatarContent = ({ imageSrc, initials }: AvatarContentProps) => {
     return <span aria-hidden={true}>{initials}</span>
   }
 
-  return <Icon svg={PersonalLoginIcon} size="level-6" />
+  return <Icon svg={UserIcon} size="level-6" />
 }
 
 export type AvatarProps = {

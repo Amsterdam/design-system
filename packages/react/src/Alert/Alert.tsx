@@ -3,7 +3,7 @@
  * Copyright Gemeente Amsterdam
  */
 
-import { AlertIcon, CheckmarkIcon, InfoIcon } from '@amsterdam/design-system-react-icons'
+import { CheckmarkIcon, InfoIcon, WarningIcon } from '@amsterdam/design-system-react-icons'
 import clsx from 'clsx'
 import { forwardRef } from 'react'
 import type { ForwardedRef, HTMLAttributes, PropsWithChildren } from 'react'
@@ -31,10 +31,10 @@ export type AlertProps = {
 } & PropsWithChildren<HTMLAttributes<HTMLDivElement>>
 
 const iconSvgBySeverity = {
-  error: AlertIcon,
+  error: WarningIcon,
   info: InfoIcon,
   success: CheckmarkIcon,
-  warning: AlertIcon,
+  warning: WarningIcon,
 }
 
 export const Alert = forwardRef(
