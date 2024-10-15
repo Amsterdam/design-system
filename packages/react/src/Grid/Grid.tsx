@@ -5,13 +5,16 @@
 
 import clsx from 'clsx'
 import { forwardRef } from 'react'
-import type { ForwardedRef, HTMLAttributes, PropsWithChildren } from 'react'
+import type { HTMLAttributes, PropsWithChildren } from 'react'
 import { GridCell } from './GridCell'
 import { paddingClasses } from './paddingClasses'
 
 export type GridColumnNumber = 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11 | 12
 export type GridColumnNumbers = { narrow: GridColumnNumber; medium: GridColumnNumber; wide: GridColumnNumber }
 export type GridPaddingSize = 'small' | 'medium' | 'large'
+
+export const gridTags = ['article', 'aside', 'div', 'footer', 'header', 'main', 'nav', 'section'] as const
+export type GridTag = (typeof gridTags)[number]
 
 type GridPaddingVerticalProp = {
   paddingBottom?: never
@@ -29,6 +32,8 @@ type GridPaddingTopAndBottomProps = {
 }
 
 export type GridProps = {
+  /** The HTML tag to use. */
+  as?: GridTag
   /** The amount of space between rows. */
   gapVertical?: 'none' | 'small' | 'large'
 } & (GridPaddingVerticalProp | GridPaddingTopAndBottomProps) &
@@ -36,10 +41,19 @@ export type GridProps = {
 
 const GridRoot = forwardRef(
   (
-    { children, className, gapVertical, paddingBottom, paddingTop, paddingVertical, ...restProps }: GridProps,
-    ref: ForwardedRef<HTMLDivElement>,
+    {
+      as: Tag = 'div',
+      children,
+      className,
+      gapVertical,
+      paddingBottom,
+      paddingTop,
+      paddingVertical,
+      ...restProps
+    }: GridProps,
+    ref: any,
   ) => (
-    <div
+    <Tag
       {...restProps}
       ref={ref}
       className={clsx(
@@ -50,7 +64,7 @@ const GridRoot = forwardRef(
       )}
     >
       {children}
-    </div>
+    </Tag>
   ),
 )
 
