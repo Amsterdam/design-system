@@ -1,11 +1,15 @@
 {
   "version": "0.11.0",
-  "author": "Community for NL Design System",
-  "description": "Design tokens for components for the City of Amsterdam based on the NL Design System architecture",
+  "author": "Design System Team, City of Amsterdam <designsystem@amsterdam.nl>",
+  "description": "All design tokens from the Amsterdam Design System. Use it to apply its visual design to your website or application. The tokens are pure CSS, making them compatible with most if not all technology stacks.",
   "license": "SEE LICENSE IN LICENSE.md",
   "name": "@amsterdam/design-system-tokens",
   "type": "module",
   "keywords": [
+    "amsterdam",
+    "amsterdam-design-system",
+    "design-system",
+    "design-tokens",
     "nl-design-system"
   ],
   "private": false,
