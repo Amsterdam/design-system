@@ -2,10 +2,15 @@
 
 # Amsterdam Design System: Tokens
 
-This package provides the design tokens of the Amsterdam Design System.
-Every token is a variable that stores a single visual design choice.
-Tokens exist for colours, typographic attributes, spacing lengths, border widths, animation properties, etc.
-Every token has a value that is valid in CSS.
+This package provides all design tokens from the Amsterdam Design System.
+Use it to apply its visual design to your website or application.
+The tokens are pure CSS, making them compatible with most if not all technology stacks.
+
+## About
+
+Every design token is a variable representing a single visual design choice.
+Tokens exist for colours, various aspects of text, spacing lengths, border widths, the configuration of animations, and more.
+The value of every token is valid in CSS.
 
 Some examples:
 
@@ -20,92 +25,102 @@ Some examples:
 }
 ```
 
+Tokens start their name with a prefix of `ams-` in CSS.
+The name of a component token (see below) ends with the property that uses it, e.g. `-font-size`.
+
 All tokens together form a theme that encodes the entire branding of the City of Amsterdam.
 
-We use these tokens in our [CSS components](https://www.npmjs.com/package/@amsterdam/design-system-css) and [React components](https://www.npmjs.com/package/@amsterdam/design-system-react).
-Any web-based application for Amsterdam can implement the design system through this package.
+## Installation
 
-## Install the package
+Use this package separately if you want or need to reference the tokens directly in your project.
 
-Use this package alone if you want or need to use the design tokens directly in your project.
 Note that our [CSS components](https://www.npmjs.com/package/@amsterdam/design-system-css) and [React components](https://www.npmjs.com/package/@amsterdam/design-system-react) provide more functionality and apply the tokens automatically.
+You should use these packages if your application uses React, or if it allows applying our HTML classes.
+
+```sh
+npm i @amsterdam/design-system-tokens
+```
 
 ```sh
 pnpm add @amsterdam/design-system-tokens
 ```
 
-## Import the tokens
+```sh
+yarn add @amsterdam/design-system-tokens
+```
 
-Find the tokens in the `dist` directory and import them into your project.
+## Usage in CSS
 
-Tokens are typically applied as custom properties in CSS.
+Tokens are typically used as custom properties in CSS.
+
+### Main stylesheet
+
+This package offers a main stylesheet containing all tokens.
+They are declared as global CSS variables through the `:root` selector.
 
 ```ts
 import "@amsterdam/design-system-tokens/dist/index.css";
 ```
 
-### Root or class selector
-
-The stylesheets wrap the tokens into a `:root` selector.
 If that doesn’t work for your project, use `index.theme.css` instead, which uses an `.ams-theme` selector.
 Add that class to a root element of your application.
 
+```ts
+import "@amsterdam/design-system-tokens/dist/index.theme.css";
+```
+
+```html
+<html class="ams-theme">
+  …
+</html>
+```
+
 ### Compact mode
 
-Applications need less whitespace and smaller text sizes than websites.
-Add the compact stylesheet to override the values of these tokens.
+Our branding is rather spacious for websites.
+The main stylesheets implements this ‘spacious mode’ as the default.
+A compact stylesheet is available for applications, as they require less white space and smaller text.
+
+Note that the compact stylesheet is not independent – it only contains overrides.
+Import it after the main stylesheet for the correct result.
 
 ```ts
 import "@amsterdam/design-system-tokens/dist/index.css";
 import "@amsterdam/design-system-tokens/dist/compact.css";
 ```
 
-Dark mode will work the same way when it’s ready.
+### Three layers
 
-### Other formats
+The tokens are organised in three layers: brand, common and component tokens.
 
-The tokens can be imported as Sass variables as well.
+#### Brand tokens
 
-```sass
-@import "@amsterdam/design-system-tokens/dist/index.scss"
-```
-
-To use the tokens in JavaScript, import the JSON file.
-
-```ts
-import tokens from "@amsterdam/design-system-tokens/dist/index.json";
-```
-
-## Use the tokens
-
-All tokens' names start with a prefix of `ams-`.
-The name of component tokens ends with the CSS property that uses them, e.g. `-font-size`.
-
-### Component tokens
-
-Every component uses tokens for every property that expresses branding.
-Apply these values in your stylesheets to the corresponding components.
-
-```html
-<button class="my-button" type="button">Button label</button>
-```
+These express the corporate identity of the City of Amsterdam.
+They are our fundamental selection from all possible colours, text characteristics, spacing lengths, border widths, etc.
+Examples:
 
 ```css
-.my-button {
-  font-family: var(--ams-button-font-family);
-  background-color: var(--ams-button-primary-background-color);
+:root {
+  --ams-color-primary-red: #ec0000;
+  --ams-space-md: 1rem;
+  --ams-proportion-wide: 4/3;
+  --ams-border-width-lg: 0.1875rem;
 }
 ```
 
-### Common tokens
+Brand tokens must only be referenced by common tokens; not by component tokens or component stylesheets.
+(We are currently working to apply this rule to our own libraries.)
 
-Various groups of components share visual design characteristics.
-E.g. all kinds of links have the same colour, and the borders of various inputs are equally thick.
-We use common tokens to express these relations.
-This also makes it easier to change this shared appearance in the future.
+Find the [list of brand tokens](https://github.com/Amsterdam/design-system/tree/main/proprietary/tokens/src/brand/ams) on GitHub.
 
-Prefer using common tokens over component tokens.
-If
+#### Common tokens
+
+Related components share visual design characteristics.
+E.g. all kinds of links have the same colour, and the borders of various form inputs are equally thick.
+Common tokens express these relations and streamline future changes.
+
+Design system components use common tokens where possible.
+The same goes for custom components that you may create in your application.
 
 ```html
 <input class="my-input" type="text" />
@@ -118,22 +133,95 @@ If
 }
 ```
 
-### Brand tokens
+(This is an example; these specific tokens do not exist yet.)
 
-The brand tokens express the branding of the City of Amsterdam.
-They are our selection from all possible colours, text characteristics, spacing lengths, border widths, etc.
-They are the basis of everything else – no token can have a value for which no brand token exists.
+Find the [list of common tokens](https://github.com/Amsterdam/design-system/tree/main/proprietary/tokens/src/common/ams) on GitHub.
 
-Brand tokens must only be used in common tokens, not in component tokens.
+#### Component tokens
+
+Every design system component defines a token for every property that expresses branding and uses it in its stylesheet.
+
+Use these tokens when recreating an existing component to receive the correct values for them – now and in the future.
+Do not apply these tokens to other components – components must be independent.
+
+```html
+<button class="my-button" type="button">Button label</button>
+```
+
+```css
+.my-button {
+  font-family: var(--ams-button-font-family);
+  background-color: var(--ams-button-primary-background-color);
+}
+```
+
+Find the [list of component tokens](https://github.com/Amsterdam/design-system/tree/main/proprietary/tokens/src/component/ams) on GitHub.
 
 ### Overriding tokens
 
-The value of tokens must not be overridden in an application for the City of Amsterdam.
-If you need a different value, create a new token with a different name – and let us know.
-This way, the design system remains consistent and predictable.
+This package allows creating a theme to reuse our components for a different brand.
+This is a key feature of [NL Design System](https://nldesignsystem.nl/) of which we are part.
 
-A custom theme could restyle our components for a different brand.
-This is an essential feature of [NL Design System](https://nldesignsystem.nl/) of which we are part.
+However, websites and applications for the City of Amsterdam must follow the design system as closely as possible.
+We repeat: websites and applications for the City of Amsterdam must follow the design system as closely as possible.
+
+At the same time, we are aware that adopting a design system can pose challenges in practice.
+If there is a good reason to (temporarily) adapt a component, do so by overriding the values of its appropriate tokens in a separate stylesheet.
+Note that redefining the value of a token is a much better approach than redeclaring styles, adding class names or even inline styles.
+
+## Usage in Sass
+
+The tokens can be imported as Sass variables as well.
+
+```sass
+@import "@amsterdam/design-system-tokens/dist/index.scss"
+```
+
+Import the compact tokens if you need them.
+Sass will override spacious values automatically.
+
+```sass
+@import "@amsterdam/design-system-tokens/dist/compact.scss"
+```
+
+## Usage in JavaScript
+
+Import the JSON file to use the tokens in TypeScript or JavaScript.
+Here, tokens start their name with a prefix of `ams.`.
+Use ‘dot notation’ or square brackets to access the tokens.
+
+```ts
+import tokens from "@amsterdam/design-system-tokens/dist/index.json";
+
+const buttonBackgroundColor = tokens.ams.color["primary-blue"];
+const rowGap = tokens.ams.space.md;
+```
+
+Import and merge the compact tokens if you need them.
+
+```ts
+import spaciousTokens from "@amsterdam/design-system-tokens/dist/index.json";
+import compactTokens from "@amsterdam/design-system-tokens/dist/compact.json";
+
+const tokens = { ...spaciousTokens, ...compactTokens };
+```
+
+## Usage in Figma
+
+The tokens are used in our [Figma Library](https://www.figma.com/file/9IGm6IdPUYizBNGsUnueBd/Amsterdam-Design-System?type=design&node-id=741-19633&mode=design&t=N8P3h3W67O0KNdga-0) as well.
+
+## Updating
+
+When updating to a new release of this package, check the [change log](https://github.com/Amsterdam/design-system/blob/main/proprietary/tokens/CHANGELOG.md) for breaking changes.
+If there are any, update your application accordingly.
+
+## Roadmap
+
+We are considering the following features:
+
+- Overviews of all tokens in our Storybook
+- Packaging tokens separately for each component
+- Adding tokens to implement dark mode
 
 ## Support
 
