@@ -6,6 +6,7 @@
 .ams-logo {
   block-size: var(--ams-logo-block-size);
   display: block;
+  min-block-size: var(--ams-logo-min-block-size);
 }
 
 .ams-logo__emblem {
