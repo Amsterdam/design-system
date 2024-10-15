@@ -12,7 +12,6 @@ const meta = {
   component: PageMenu,
   args: {
     alignEnd: false,
-    wrap: undefined,
   },
 } satisfies Meta<typeof PageMenu>
 
@@ -23,15 +22,15 @@ type Story = StoryObj<typeof meta>
 export const Default: Story = {
   args: {
     children: [
-      <PageMenu.Link href="#" key={1}>
-        Over deze site
-      </PageMenu.Link>,
-      <PageMenu.Link href="#" key={2}>
-        Privacy
-      </PageMenu.Link>,
-      <PageMenu.Link href="#" key={3}>
-        Cookies
-      </PageMenu.Link>,
+      <PageMenu.Item key={1}>
+        <PageMenu.Link href="#">Over deze site</PageMenu.Link>
+      </PageMenu.Item>,
+      <PageMenu.Item key={2}>
+        <PageMenu.Link href="#">Privacy</PageMenu.Link>
+      </PageMenu.Item>,
+      <PageMenu.Item key={3}>
+        <PageMenu.Link href="#">Cookies</PageMenu.Link>
+      </PageMenu.Item>,
     ],
   },
 }
@@ -40,15 +39,19 @@ export const Alignment: Story = {
   args: {
     alignEnd: true,
     children: [
-      <PageMenu.Link href="#" key={1} lang="en">
-        English
-      </PageMenu.Link>,
-      <PageMenu.Link href="#" key={2}>
-        Contact
-      </PageMenu.Link>,
-      <PageMenu.Link href="#" key={3} icon={SearchIcon}>
-        Zoeken
-      </PageMenu.Link>,
+      <PageMenu.Item key={1}>
+        <PageMenu.Link href="#" lang="en">
+          English
+        </PageMenu.Link>
+      </PageMenu.Item>,
+      <PageMenu.Item key={2}>
+        <PageMenu.Link href="#">Contact</PageMenu.Link>
+      </PageMenu.Item>,
+      <PageMenu.Item key={3}>
+        <PageMenu.Button icon={SearchIcon} onClick={() => {}}>
+          Zoeken
+        </PageMenu.Button>
+      </PageMenu.Item>,
     ],
   },
 }
@@ -56,33 +59,21 @@ export const Alignment: Story = {
 export const Wrapping: Story = {
   args: {
     children: [
-      <PageMenu.Link href="#" key={1}>
-        Onderzoeken
-      </PageMenu.Link>,
-      <PageMenu.Link href="#" key={2}>
-        Bezoeken
-      </PageMenu.Link>,
-      <PageMenu.Link href="#" key={3}>
-        Archiveren
-      </PageMenu.Link>,
-      <PageMenu.Link href="#" key={4}>
-        Nieuws
-      </PageMenu.Link>,
-      <PageMenu.Link href="#" key={5}>
-        Themasites
-      </PageMenu.Link>,
-      <PageMenu.Link href="#" key={6}>
-        Onderwijs
-      </PageMenu.Link>,
-      <PageMenu.Link href="#" key={7}>
-        Steun ons
-      </PageMenu.Link>,
-      <PageMenu.Link href="#" key={8}>
-        Organisatie
-      </PageMenu.Link>,
-      <PageMenu.Link href="#" key={9}>
-        Contact
-      </PageMenu.Link>,
-    ],
+      'Onderzoeken',
+      'Bezoeken',
+      'Archiveren',
+      'Nieuws',
+      'Themasites',
+      'Onderwijs',
+      'Steun ons',
+      'Organisatie',
+      'Contact',
+    ].map((label, index) => (
+      <PageMenu.Item>
+        <PageMenu.Link href="#" key={index}>
+          {label}
+        </PageMenu.Link>
+      </PageMenu.Item>
+    )),
   },
 }

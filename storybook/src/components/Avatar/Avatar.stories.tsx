@@ -45,13 +45,17 @@ export const InAHeader: Story = {
     <Header
       links={
         <PageMenu alignEnd>
-          <PageMenu.Link href="#">Contact</PageMenu.Link>
-          <PageMenu.Link href="#" icon={SearchIcon}>
-            Zoeken
-          </PageMenu.Link>
-          <li>
+          <PageMenu.Item>
+            <PageMenu.Link href="#">Contact</PageMenu.Link>
+          </PageMenu.Item>
+          <PageMenu.Item>
+            <PageMenu.Button icon={SearchIcon} onClick={() => {}}>
+              Zoeken
+            </PageMenu.Button>
+          </PageMenu.Item>
+          <PageMenu.Item>
             <Avatar {...args} />
-          </li>
+          </PageMenu.Item>
         </PageMenu>
       }
     />

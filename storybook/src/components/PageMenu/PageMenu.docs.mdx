@@ -3,11 +3,8 @@
 import { Canvas, Controls, Markdown, Meta, Primary } from "@storybook/blocks";
 import * as PageMenuStories from "./PageMenu.stories.tsx";
 import README from "../../../../packages/css/src/components/page-menu/README.md?raw";
-import { StatusBadge } from "../../docs/components/StatusBadge";
 
 <Meta of={PageMenuStories} />
-
-<StatusBadge reason="May be affected by changes to Header and/or have its name changed." />
 
 <Markdown>{README}</Markdown>
 
@@ -27,6 +24,5 @@ In the [Header](/docs/components-containers-header--docs), the menu aligns to th
 
 If all menu items do not fit on a single line, e.g. on a narrow screen or with zoomed-in text, they wrap to new lines.
 This is often useful in the [Footer](/docs/components-containers-footer--docs).
-The Header has its own responsive behaviour; its Page Menu should be configured not to wrap.
 
 <Canvas of={PageMenuStories.Wrapping} />

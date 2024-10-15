@@ -3,12 +3,15 @@
     "page-menu": {
       "column-gap": { "value": "{ams.space.grid.md}" },
       "row-gap": { "value": "{ams.space.grid.xs}" },
+      "button": {
+        "cursor": { "value": "{ams.action.activate.cursor}" }
+      },
       "item": {
         "color": { "value": "{ams.link-appearance.color}" },
+        "column-gap": { "value": "{ams.space.xs}" },
         "font-family": { "value": "{ams.text.font-family}" },
         "font-size": { "value": "{ams.text.level.6.font-size}" },
         "font-weight": { "value": "{ams.text.font-weight.normal}" },
-        "gap": { "value": "{ams.space.sm}" },
         "line-height": { "value": "{ams.text.level.6.line-height}" },
         "outline-offset": { "value": "{ams.focus.outline-offset}" },
         "text-decoration-line": { "value": "{ams.link-appearance.subtle.text-decoration-line}" },

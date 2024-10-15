@@ -3,6 +3,7 @@
  * Copyright Gemeente Amsterdam
  */
 
+@import "../../common/breakpoint";
 @import "../../common/text-rendering";
 
 @mixin reset-list {
@@ -13,6 +14,17 @@
 
 @mixin reset-item {
   box-sizing: border-box;
+}
+
+@mixin reset-button {
+  background: none;
+  border: 0;
+  margin-block: 0; // [1]
+  margin-inline: 0; // [1]
+  padding-block: 0;
+  padding-inline: 0;
+
+  // [1] Remove the margin in older Safari.
 }
 
 .ams-page-menu {
@@ -28,21 +40,26 @@
 }
 
 .ams-page-menu--align-end {
-  justify-content: end;
+  justify-content: flex-end;
+  margin-inline-start: auto;
 }
 
-.ams-page-menu--no-wrap {
-  flex-wrap: nowrap;
+.ams-page-menu__item {
+  &--secondary {
+    @media screen and (not (min-width: $ams-breakpoint-medium)) {
+      display: none;
+    }
+  }
 }
 
-@mixin page-menu-item {
+@mixin ams-page-menu-element {
   color: var(--ams-page-menu-item-color);
+  column-gap: var(--ams-page-menu-item-column-gap);
   display: inline-flex;
   flex-direction: row;
   font-family: var(--ams-page-menu-item-font-family);
   font-size: var(--ams-page-menu-item-font-size);
   font-weight: var(--ams-page-menu-item-font-weight);
-  gap: var(--ams-page-menu-item-gap);
   line-height: var(--ams-page-menu-item-line-height);
   outline-offset: var(--ams-page-menu-item-outline-offset);
   text-align: center;
@@ -51,20 +68,30 @@
   text-underline-offset: var(--ams-page-menu-item-text-underline-offset);
   touch-action: manipulation;
   white-space: nowrap;
+
+  @include text-rendering;
+
+  &:hover {
+    color: var(--ams-page-menu-item-hover-color);
+  }
+
+  svg {
+    color: currentColor;
+  }
 }
 
 .ams-page-menu__link {
-  @include page-menu-item;
-  @include text-rendering;
+  @include ams-page-menu-element;
   @include reset-item;
+
+  &:hover {
+    text-decoration-line: var(--ams-page-menu-item-hover-text-decoration-line);
+  }
 }
 
-.ams-page-menu__link:hover,
-.ams-page-menu__button:hover {
-  color: var(--ams-page-menu-item-hover-color);
-  text-decoration-line: var(--ams-page-menu-item-hover-text-decoration-line);
-}
+.ams-page-menu__button {
+  cursor: var(--ams-page-menu-button-cursor);
 
-.ams-page-menu__link svg {
-  color: currentColor;
+  @include ams-page-menu-element;
+  @include reset-button;
 }

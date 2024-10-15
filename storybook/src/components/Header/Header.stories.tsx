@@ -29,19 +29,25 @@ export const ForSubBrand: Story = {
 
 export const WithAppName: Story = {
   args: {
-    appName: 'Aan de Amsterdamse grachten',
+    appName: 'Onderzoek en Statistiek',
   },
 }
 
 export const WithLinks: Story = {
   args: {
     links: (
-      <PageMenu alignEnd wrap={false}>
-        <PageMenu.Link href="#">Contact</PageMenu.Link>
-        <PageMenu.Link href="#">Mijn Amsterdam</PageMenu.Link>
-        <PageMenu.Link href="#" icon={SearchIcon}>
-          Zoeken
-        </PageMenu.Link>
+      <PageMenu alignEnd>
+        <PageMenu.Item>
+          <PageMenu.Link href="#">Contact</PageMenu.Link>
+        </PageMenu.Item>
+        <PageMenu.Item>
+          <PageMenu.Link href="#">Mijn Amsterdam</PageMenu.Link>
+        </PageMenu.Item>
+        <PageMenu.Item>
+          <PageMenu.Button icon={SearchIcon} onClick={() => {}}>
+            Zoeken
+          </PageMenu.Button>
+        </PageMenu.Item>
       </PageMenu>
     ),
   },
@@ -56,12 +62,18 @@ export const WithMenuButton: Story = {
 export const WithLinksAndMenuButton: Story = {
   args: {
     links: (
-      <PageMenu alignEnd wrap={false}>
-        <PageMenu.Link href="#">Contact</PageMenu.Link>
-        <PageMenu.Link href="#">Mijn Amsterdam</PageMenu.Link>
-        <PageMenu.Link href="#" icon={SearchIcon}>
-          Zoeken
-        </PageMenu.Link>
+      <PageMenu alignEnd>
+        <PageMenu.Item>
+          <PageMenu.Link href="#">Contact</PageMenu.Link>
+        </PageMenu.Item>
+        <PageMenu.Item>
+          <PageMenu.Link href="#">Mijn Amsterdam</PageMenu.Link>
+        </PageMenu.Item>
+        <PageMenu.Item>
+          <PageMenu.Button icon={SearchIcon} onClick={() => {}}>
+            Zoeken
+          </PageMenu.Button>
+        </PageMenu.Item>
       </PageMenu>
     ),
     menu: <button className="ams-header__menu-button">Menu</button>,
@@ -70,21 +82,27 @@ export const WithLinksAndMenuButton: Story = {
 
 export const WithAppNameAndMenuButton: Story = {
   args: {
-    appName: 'Aan de Amsterdamse grachten',
+    appName: 'Onderzoek en Statistiek',
     menu: <button className="ams-header__menu-button">Menu</button>,
   },
 }
 
 export const WithAppNameLinksAndMenuButton: Story = {
   args: {
-    appName: 'Aan de Amsterdamse grachten',
+    appName: 'Onderzoek en Statistiek',
     links: (
-      <PageMenu alignEnd wrap={false}>
-        <PageMenu.Link href="#">Contact</PageMenu.Link>
-        <PageMenu.Link href="#">Mijn Amsterdam</PageMenu.Link>
-        <PageMenu.Link href="#" icon={SearchIcon}>
-          Zoeken
-        </PageMenu.Link>
+      <PageMenu alignEnd>
+        <PageMenu.Item>
+          <PageMenu.Link href="#">Contact</PageMenu.Link>
+        </PageMenu.Item>
+        <PageMenu.Item>
+          <PageMenu.Link href="#">Mijn Amsterdam</PageMenu.Link>
+        </PageMenu.Item>
+        <PageMenu.Item>
+          <PageMenu.Button icon={SearchIcon} onClick={() => {}}>
+            Zoeken
+          </PageMenu.Button>
+        </PageMenu.Item>
       </PageMenu>
     ),
     menu: <button className="ams-header__menu-button">Menu</button>,
