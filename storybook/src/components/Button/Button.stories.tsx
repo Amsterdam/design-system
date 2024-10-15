@@ -14,6 +14,9 @@ const meta = {
     children: 'Versturen',
     disabled: false,
     variant: 'primary',
+    /* This is the only was storybook will honor the conditional in the iconPosition argType (line 29) */
+    // @ts-ignore
+    icon: null,
   },
   argTypes: {
     disabled: {
@@ -21,6 +24,14 @@ const meta = {
     },
     icon: {
       table: { disable: true },
+    },
+    iconPosition: {
+      if: { arg: 'icon', neq: null },
+      control: {
+        type: 'inline-radio',
+        labels: { undefined: 'end', start: 'start', only: 'only' },
+      },
+      options: [undefined, 'start', 'only'],
     },
   },
 } satisfies Meta<typeof Button>
