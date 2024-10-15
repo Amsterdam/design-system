@@ -2,7 +2,7 @@
 
 # Amsterdam Design System: Tokens
 
-This package provides all design tokens from the Amsterdam Design System.
+This package provides all design tokens from the [Amsterdam Design System](https://designsystem.amsterdam).
 Use it to apply its visual design to your website or application.
 The tokens are pure CSS, making them compatible with most if not all technology stacks.
 
@@ -32,7 +32,7 @@ All tokens together form a theme that encodes the entire branding of the City of
 
 ## Installation
 
-Use this package separately if you want or need to reference the tokens directly in your project.
+Use only this package if you want or need to reference the tokens directly in your project.
 
 Note that our [CSS components](https://www.npmjs.com/package/@amsterdam/design-system-css) and [React components](https://www.npmjs.com/package/@amsterdam/design-system-react) provide more functionality and apply the tokens automatically.
 You should use these packages if your application uses React, or if it allows applying our HTML classes.
@@ -78,8 +78,8 @@ import "@amsterdam/design-system-tokens/dist/index.theme.css";
 ### Compact mode
 
 Our branding is rather spacious for websites.
-The main stylesheets implements this ‘spacious mode’ as the default.
-A compact stylesheet is available for applications, as they require less white space and smaller text.
+The main stylesheet implements this ‘spacious mode’ as the default.
+A compact stylesheet is available for applications that require less white space and smaller text.
 
 Note that the compact stylesheet is not independent – it only contains overrides.
 Import it after the main stylesheet for the correct result.
@@ -226,4 +226,4 @@ We are considering the following features:
 ## Support
 
 Contact us if you have a question, find an issue, or want to contribute.
-Find ways to reach us on [designsystem.amsterdam](https://designsystem.amsterdam).
+Find ways to reach us on [designsystem.amsterdam](https://designsystem.amsterdam/).
