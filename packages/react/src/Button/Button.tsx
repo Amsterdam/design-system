@@ -9,10 +9,12 @@ import type { ButtonHTMLAttributes, ForwardedRef, PropsWithChildren } from 'reac
 import { Icon } from '../Icon'
 
 export type ButtonProps = {
+  /** An icon to add to the button. */
+  icon?: Function
+  /** The position of the icon. The default is after the label. */
+  iconPosition?: 'start' | 'only'
   /** The level of prominence. Use a primary button only once per page or section. */
   variant?: 'primary' | 'secondary' | 'tertiary'
-  icon?: Function
-  iconPosition?: 'start' | 'only'
 } & PropsWithChildren<ButtonHTMLAttributes<HTMLButtonElement>>
 
 export const Button = forwardRef(

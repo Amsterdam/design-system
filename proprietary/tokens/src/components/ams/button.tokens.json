@@ -60,12 +60,6 @@
       "icon-only": {
         "padding-block": { "value": "{ams.space.sm}" },
         "padding-inline": { "value": "{ams.space.sm}" }
-      },
-      "icon-start": {
-        "padding-inline-start": { "value": "{ams.space.sm}" }
-      },
-      "icon-end": {
-        "padding-inline-end": { "value": "{ams.space.sm}" }
       }
     }
   }
