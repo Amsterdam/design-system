@@ -227,4 +227,4 @@ We are considering the following features:
 ## Support
 
 Contact us if you have a question, find an issue, or want to contribute.
-Find ways to reach us on [designsystem.amsterdam](https://designsystem.amsterdam/).
+Find ways to reach us on [designsystem.amsterdam](https://designsystem.amsterdam/?path=/docs/docs-introduction--docs#send-a-message)..
