@@ -6,14 +6,14 @@
 import { Icon, Paragraph } from '@amsterdam/design-system-react'
 import { UnorderedList } from '@amsterdam/design-system-react/src'
 import {
-  AlertIcon,
   AnnouncementIcon,
   CarIcon,
-  DocumentEuroSignIcon,
-  HousingIcon,
+  DocumentEuroIcon,
+  HouseIcon,
   LocationIcon,
   PassportIcon,
-  TrashBinIcon,
+  TrashIcon,
+  WarningIcon,
 } from '@amsterdam/design-system-react-icons'
 import type { Meta, StoryObj } from '@storybook/react'
 import { inverseColorDecorator } from '../shared/decorators'
@@ -96,25 +96,25 @@ export const WithoutMarkers: Story = {
       </UnorderedList.Item>,
       <UnorderedList.Item key={4}>
         <div className="ams-docs-card">
-          <Icon svg={DocumentEuroSignIcon} size="level-6" />
+          <Icon svg={DocumentEuroIcon} size="level-6" />
           <Paragraph>Gemeentebelastingen</Paragraph>
         </div>
       </UnorderedList.Item>,
       <UnorderedList.Item key={5}>
         <div className="ams-docs-card">
-          <Icon svg={AlertIcon} size="level-6" />
+          <Icon svg={WarningIcon} size="level-6" />
           <Paragraph>Melding openbare ruimte en overlast</Paragraph>
         </div>
       </UnorderedList.Item>,
       <UnorderedList.Item key={6}>
         <div className="ams-docs-card">
-          <Icon svg={HousingIcon} size="level-6" />
+          <Icon svg={HouseIcon} size="level-6" />
           <Paragraph>Verhuizing doorgeven</Paragraph>
         </div>
       </UnorderedList.Item>,
       <UnorderedList.Item key={7}>
         <div className="ams-docs-card">
-          <Icon svg={TrashBinIcon} size="level-6" />
+          <Icon svg={TrashIcon} size="level-6" />
           <Paragraph>Grof afval</Paragraph>
         </div>
       </UnorderedList.Item>,
