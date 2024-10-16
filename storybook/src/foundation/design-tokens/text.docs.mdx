@@ -8,7 +8,7 @@ import { Meta, Typeset } from "@storybook/blocks";
 
 ## Size
 
-### Seven Text Levels
+### Seven text levels
 
 There are 7 levels of text size and corresponding line height.
 Each typographic element belongs to one of these levels: heading, paragraph, link, quote, form text, etc.
@@ -34,22 +34,22 @@ Each level has a minimum text size, up to a window width of 320 pixels.
 There’s also a maximum text size starting at a window width of 1600 pixels.
 Between these points, the text grows linearly.
 
-### Typography System
+### Typographic scale
 
-The typography system is based on two font sizes and two growth factors.
-The two font sizes are the minimum and maximum text sizes for Text Level 5 – the default body text.
-The larger levels grow with a larger factor than the smaller levels.
-This prevents headings from becoming too large on phones and other narrow windows and small texts from becoming too small.
+All text sizes are derived from four foundational values: two text sizes and two growth factors.
 
-### Two Themes for Websites and Applications
+1. The minimum text size for body text at a window width of 320 pixels, and the maximum at a window width of 1600.
+2. The multiplication between text levels at either of these window widths.
+   They are different to let the size of headings increase slower on smaller screens.
+
+### Two themes for websites and applications
 
 #### Spacious
 
 The typography is quite spacious for websites, in line with the overall design.
-A standard paragraph grows from 18 pixels at a window width of 320 pixels to 24 pixels for a window width of 1600 pixels.
 
-Larger text levels grow with a factor of 5 ÷ 4 = 1.25.
-Smaller text levels grow with a factor of 7 ÷ 6 ≈ 1.167.
+1. Body text grows from 18 pixels to 24 pixels.
+2. Every next level is 7 ÷ 6 ≈ 1.167 larger on narrow screens, and 5 ÷ 4 = 1.25 on wide ones.
 
 The maximum text sizes for all levels in the spacious theme:
 
@@ -73,11 +73,9 @@ And the minimum:
 
 For applications, text that large would be counterproductive.
 That is why we have a compact theme for typography.
-Typography is not fluid in this theme.
-Text Level 5 is 16 pixels on both narrow and wide windows.
 
-Larger text levels grow with a factor of 9 ÷ 8 ≈ 1.125.
-Smaller text levels grow with a factor of 11 ÷ 10 = 1.1.
+1. Typography is not fluid in this theme. Body text is 16 pixels.
+2. Every next level is 11 ÷ 10 ≈ 1.1 larger on narrow screens, and 9 ÷ 8 = 1.125 on wide ones.
 
 The maximum text sizes for all levels in the compact theme:
 
@@ -97,7 +95,7 @@ And the minimum:
   sampleText="Jouw typograaf biedt mij zulke exquise schreven"
 />
 
-### Window Widths for Design
+### Window widths for design
 
 In practice, a window can have any width.
 Designing for all those widths is impractical.
@@ -203,13 +201,13 @@ Exceptions:
 1. The label of a button is centred.
 2. In a table, it might be better to centre or right-align text.
 
-### Line Length
+### Line length
 
 Long lines of text are challenging to read.
 Around 80 characters per line is the maximum.
 In the 12-column [grid](/docs/components-layout-grid--docs), paragraphs meet this when they occupy 8 columns or fewer.
 
-### Word Breaking
+### Word breaking
 
 The Dutch language has many long words, such as ‘gemeenteraadsverkiezingen’ (municipal elections).
 Ensure in your application that these words are hyphenated neatly and do not break out of their container or get hidden.
