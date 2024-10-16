@@ -1,6 +1,6 @@
 <!-- @license CC0-1.0 -->
 
-# Assets
+# Amsterdam Design System: Assets
 
 Assets for the City of Amsterdam
 
