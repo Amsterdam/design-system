@@ -8,12 +8,6 @@
   inline-size: fit-content;
 }
 
-// TODO: needed on a wrapping element around the media element? I.e. Figure?
-.ams-aspect-ratio__container {
-  overflow: hidden;
-  position: relative;
-}
-
 .ams-aspect-ratio--x-tall {
   aspect-ratio: var(--ams-aspect-ratio-x-tall);
 }
