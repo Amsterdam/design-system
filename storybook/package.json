@@ -24,7 +24,7 @@
     "@amsterdam/design-system-react": "workspace:*",
     "@amsterdam/design-system-react-icons": "workspace:*",
     "@amsterdam/design-system-tokens": "workspace:*",
-    "@babel/core": "7.25.7",
+    "@babel/core": "7.25.8",
     "@mdx-js/react": "3.0.1",
     "@storybook/addon-a11y": "8.3.5",
     "@storybook/addon-actions": "8.3.5",
@@ -50,6 +50,6 @@
     "remark-gfm": "4.0.0",
     "require-from-string": "2.0.2",
     "storybook": "8.3.5",
-    "vite": "5.4.8"
+    "vite": "5.4.9"
   }
 }
