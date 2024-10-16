@@ -133,8 +133,6 @@ The same goes for custom components that you may create in your application.
 }
 ```
 
-(This is an example; these specific tokens do not exist yet.)
-
 Find the [list of common tokens](https://github.com/Amsterdam/design-system/tree/main/proprietary/tokens/src/common/ams) on GitHub.
 
 #### Component tokens
