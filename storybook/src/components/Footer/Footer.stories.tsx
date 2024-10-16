@@ -3,7 +3,7 @@
  * Copyright Gemeente Amsterdam
  */
 
-import { Grid, Heading, LinkList, PageMenu, Paragraph } from '@amsterdam/design-system-react'
+import { Grid, Heading, LinkList, PageMenu, Paragraph, Screen } from '@amsterdam/design-system-react'
 import { Footer } from '@amsterdam/design-system-react/src'
 import {
   CameraIcon,
@@ -20,6 +20,13 @@ import { Default as PageMenuStory } from '../../components/PageMenu/PageMenu.sto
 const meta = {
   title: 'Components/Containers/Footer',
   component: Footer,
+  decorators: [
+    (Story) => (
+      <Screen>
+        <Story />
+      </Screen>
+    ),
+  ],
 } satisfies Meta<typeof Footer>
 
 export default meta

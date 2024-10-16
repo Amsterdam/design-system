@@ -11,17 +11,15 @@ import { Logo } from '../Logo'
 import type { LogoBrand } from '../Logo'
 
 export type HeaderProps = {
-  /** The name of the application. */
+  /** A site-wide title for the website or application. */
   appName?: string
-  /** The list of menu links. Use a Page Menu here. */
-  links?: ReactNode
-  /** The name of the brand for which to display the logo. */
+  /** The brand for which to display the logo. */
   logoBrand?: LogoBrand
   /** The url for the link on the logo. */
   logoLink?: string
   /** The accessible text for the link on the logo. */
   logoLinkTitle?: string
-  /** A button to toggle the visibility of a Mega Menu. */
+  /** A secondary menu of links and buttons. Use a Page Menu. Can include buttons to show the Mega Menu or a Search Field. */
   menu?: ReactNode
 } & HTMLAttributes<HTMLElement>
 
@@ -30,7 +28,6 @@ export const Header = forwardRef(
     {
       appName,
       className,
-      links,
       logoBrand = 'amsterdam',
       logoLink = '/',
       logoLinkTitle = 'Ga naar de homepage',
@@ -38,27 +35,22 @@ export const Header = forwardRef(
       ...restProps
     }: HeaderProps,
     ref: ForwardedRef<HTMLElement>,
-  ) => {
-    return (
-      <>
-        <header {...restProps} ref={ref} className={clsx('ams-header', className)}>
-          <a href={logoLink} className="ams-header__logo-link">
-            <span className="ams-visually-hidden">{logoLinkTitle}</span>
-            <Logo brand={logoBrand} />
-          </a>
-          {links && <div className="ams-header__links">{links}</div>}
-          {menu && <div className="ams-header__menu">{menu}</div>}
-          {appName && (
-            <div className="ams-header__app-name">
-              <Heading level={1} size="level-3" className="ams-header__app-name-heading">
-                {appName}
-              </Heading>
-            </div>
-          )}
-        </header>
-      </>
-    )
-  },
+  ) => (
+    <header {...restProps} ref={ref} className={clsx('ams-header', className)}>
+      <div className="ams-header__section">
+        <a className="ams-header__logo-link" href={logoLink}>
+          <span className="ams-visually-hidden">{logoLinkTitle}</span>
+          <Logo brand={logoBrand} />
+        </a>
+        {appName && (
+          <Heading className="ams-header__app-name" level={1} size="level-5">
+            {appName}
+          </Heading>
+        )}
+      </div>
+      <div className="ams-header__section">{menu}</div>
+    </header>
+  ),
 )
 
 Header.displayName = 'Header'
