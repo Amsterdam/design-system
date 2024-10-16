@@ -7,12 +7,7 @@ import { forwardRef } from 'react'
 import type { HTMLAttributes, PropsWithChildren } from 'react'
 import type { BreakoutRowNumber, BreakoutRowNumbers } from './Breakout'
 import { breakoutCellClasses } from './breakoutCellClasses'
-import type {
-  GridColumnNumbers,
-  GridMediumColumnNumber,
-  GridNarrowColumnNumber,
-  GridWideColumnNumber,
-} from '../Grid/Grid'
+import type { GridColumnNumber, GridColumnNumbers } from '../Grid/Grid'
 
 type BreakoutCellSpanAllProp = {
   /** Lets the cell span the full width of all grid variants. */
@@ -26,9 +21,9 @@ type BreakoutCellSpanAllProp = {
 
 type BreakoutCellSpanAndStartProps = {
   /** The amount of grid columns the cell spans. */
-  colSpan?: 'all' | GridNarrowColumnNumber | GridMediumColumnNumber | GridWideColumnNumber | GridColumnNumbers
+  colSpan?: 'all' | GridColumnNumber | GridColumnNumbers
   /** The index of the grid column the cell starts at. */
-  colStart?: GridNarrowColumnNumber | GridMediumColumnNumber | GridWideColumnNumber | GridColumnNumbers
+  colStart?: GridColumnNumber | GridColumnNumbers
   has?: 'figure'
 }
 

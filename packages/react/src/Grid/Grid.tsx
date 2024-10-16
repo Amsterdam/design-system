@@ -9,13 +9,17 @@ import type { ForwardedRef, HTMLAttributes, PropsWithChildren } from 'react'
 import { GridCell } from './GridCell'
 import { paddingClasses } from './paddingClasses'
 
-export type GridNarrowColumnNumber = 1 | 2 | 3 | 4
-export type GridMediumColumnNumber = GridNarrowColumnNumber | 5 | 6 | 7 | 8
-export type GridWideColumnNumber = GridMediumColumnNumber | 9 | 10 | 11 | 12
+type Enumerate<N extends number, Acc extends number[] = []> = Acc['length'] extends N
+  ? Acc[number]
+  : Enumerate<N, [...Acc, Acc['length']]>
+
+type Range<F extends number, T extends number> = Exclude<Enumerate<T>, Enumerate<F>>
+
+export type GridColumnNumber = Range<1, 13>
 export type GridColumnNumbers = {
-  narrow: GridNarrowColumnNumber
-  medium: GridMediumColumnNumber
-  wide: GridWideColumnNumber
+  narrow: Range<1, 5>
+  medium: Range<1, 9>
+  wide: Range<1, 13>
 }
 export type GridPaddingSize = 'small' | 'medium' | 'large'
 

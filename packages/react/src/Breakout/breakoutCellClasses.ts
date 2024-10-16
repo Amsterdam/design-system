@@ -9,7 +9,7 @@ import { addGridClass } from '../Grid/gridCellClasses'
 export const breakoutCellClasses = (
   colSpan?: BreakoutCellProps['colSpan'],
   colStart?: BreakoutCellProps['colStart'],
-  rowSpan?: BreakoutCellProps['rowSpan'],
+  rowSpan?: BreakoutCellProps['rowSpan'] | 'all',
   rowStart?: BreakoutCellProps['rowStart'],
 ): string[] => [
   ...addGridClass('ams-breakout__cell--col-span-', colSpan),

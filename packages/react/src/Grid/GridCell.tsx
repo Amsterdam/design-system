@@ -5,7 +5,7 @@
 import clsx from 'clsx'
 import { forwardRef } from 'react'
 import type { HTMLAttributes, PropsWithChildren } from 'react'
-import type { GridColumnNumbers, GridMediumColumnNumber, GridNarrowColumnNumber, GridWideColumnNumber } from './Grid'
+import type { GridColumnNumber, GridColumnNumbers } from './Grid'
 import { gridCellClasses } from './gridCellClasses'
 
 type GridCellSpanAllProp = {
@@ -16,9 +16,9 @@ type GridCellSpanAllProp = {
 
 type GridCellSpanAndStartProps = {
   /** The amount of grid columns the cell spans. */
-  span?: GridNarrowColumnNumber | GridMediumColumnNumber | GridWideColumnNumber | GridColumnNumbers
+  span?: GridColumnNumber | GridColumnNumbers
   /** The index of the grid column the cell starts at. */
-  start?: GridNarrowColumnNumber | GridMediumColumnNumber | GridWideColumnNumber | GridColumnNumbers
+  start?: GridColumnNumber | GridColumnNumbers
 }
 
 export type GridCellProps = {
