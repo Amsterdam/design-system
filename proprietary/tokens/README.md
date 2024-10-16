@@ -32,7 +32,7 @@ All tokens together form a theme that encodes the entire branding of the City of
 
 ## Installation
 
-Use only this package if you want or need to reference the tokens directly in your project.
+Use this package by itself if you want or need to reference the tokens directly in your stylesheets.
 
 Note that our [CSS components](https://www.npmjs.com/package/@amsterdam/design-system-css) and [React components](https://www.npmjs.com/package/@amsterdam/design-system-react) provide more functionality and apply the tokens automatically.
 You should use these packages if your application uses React, or if it allows applying our HTML classes.
@@ -91,7 +91,7 @@ import "@amsterdam/design-system-tokens/dist/compact.css";
 
 ### Three layers
 
-The tokens are organised in three layers: brand, common and component tokens.
+The tokens are organised in three layers: brand, common and component.
 
 #### Brand tokens
 
@@ -123,13 +123,13 @@ Design system components use common tokens where possible.
 The same goes for custom components that you may create in your application.
 
 ```html
-<input class="my-input" type="text" />
+<a class="my-link" href="#">…</a>
 ```
 
 ```css
 .my-input {
-  font-size: var(--ams-common-input-font-size);
-  border-width: var(--ams-common-input-border-width);
+  color: var(--ams-link-appearance-color);
+  text-underline-offset: var(--ams-link-appearance-text-underline-offset);
 }
 ```
 
@@ -198,6 +198,7 @@ const rowGap = tokens.ams.space.md;
 ```
 
 Import and merge the compact tokens if you need them.
+Then you can use the tokens in scripting or css-in-js libraries.
 
 ```ts
 import spaciousTokens from "@amsterdam/design-system-tokens/dist/index.json";
