@@ -14,19 +14,19 @@ import README from "../../../../packages/css/src/components/image/README.md?raw"
 
 ## Examples
 
-### Provide multiple sources
+### Responsive images
 
-Use the srcSet prop, which controls the corresponding HTML attribute (see [MDN](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/img#srcset)), to let the browser select the optimal source file for the image.
+Provide a set of smaller and larger instances of the image (through `srcSet`, see [MDN](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/img#srcset)) to let the browser select the optimal source file.
 A mobile device can often download a smaller file, saving the user’s bandwidth and time.
 Don’t forget to still include the required `src` attribute.
 
-<Canvas of={ImageStories.MultipleSources} />
+<Canvas of={ImageStories.ResponsiveImages} />
 
 ### Provide aspect ratio
 
 {/* TODO: add aspect ratio story */}
 
-### Prevent unnecessary loading
+### Lazy loading
 
 Set the `loading` attribute (see [MDN](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/img#loading)) to `lazy` and the browser will wait to load the image until it is close to the viewport.
 Consider setting this for images below the top area of the page.
