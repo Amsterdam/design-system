@@ -13,7 +13,7 @@ type Enumerate<N extends number, Acc extends number[] = []> = Acc['length'] exte
   ? Acc[number]
   : Enumerate<N, [...Acc, Acc['length']]>
 
-type Range<F extends number, T extends number> = Exclude<Enumerate<T>, Enumerate<F>>
+export type Range<F extends number, T extends number> = Exclude<Enumerate<T>, Enumerate<F>>
 
 export type GridColumnNumber = Range<1, 13>
 export type GridColumnNumbers = {
