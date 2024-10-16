@@ -108,9 +108,6 @@ Examples:
 }
 ```
 
-Brand tokens must only be referenced by common tokens; not by component tokens or component stylesheets.
-(We are currently working to apply this rule to our own libraries.)
-
 Find the [list of brand tokens](https://github.com/Amsterdam/design-system/tree/main/proprietary/tokens/src/brand/ams) on GitHub.
 
 #### Common tokens
