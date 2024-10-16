@@ -38,6 +38,15 @@ describe('Image', () => {
     expect(component).toHaveClass('ams-image--cover')
   })
 
+  it('renders class names to display the image in a given aspect ratio', () => {
+    const { container } = render(<Image aspectRatio="x-tall" />)
+
+    const component = container.querySelector(':only-child')
+
+    expect(component).toHaveClass('ams-aspect-ratio')
+    expect(component).toHaveClass('ams-aspect-ratio--x-tall')
+  })
+
   it('supports ForwardRef in React', () => {
     const ref = createRef<HTMLImageElement>()
 
