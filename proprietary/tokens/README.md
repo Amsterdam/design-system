@@ -4,7 +4,7 @@
 
 This package provides all design tokens from the [Amsterdam Design System](https://designsystem.amsterdam).
 Use it to apply its visual design to your website or application.
-The tokens are pure CSS, making them compatible with most if not all technology stacks.
+The tokens are exported in multiple formats, including CSS custom properties and JSON, making them compatible with most if not all technology stacks.
 
 ## About
 
@@ -25,7 +25,7 @@ Some examples:
 }
 ```
 
-Tokens start their name with a prefix of `ams-` in CSS.
+Tokens start their name with a prefix of `--ams-` in CSS.
 The name of a component token (see below) ends with the property that uses it, e.g. `-font-size`.
 
 All tokens together form a theme that encodes the entire branding of the City of Amsterdam.
@@ -70,9 +70,9 @@ import "@amsterdam/design-system-tokens/dist/index.theme.css";
 ```
 
 ```html
-<html class="ams-theme">
+<body class="ams-theme">
   …
-</html>
+</body>
 ```
 
 ### Compact mode
