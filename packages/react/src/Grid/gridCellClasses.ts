@@ -3,12 +3,10 @@
  * Copyright Gemeente Amsterdam
  */
 
+import type { GridColumnNumber, GridColumnNumbers } from './Grid'
 import type { GridCellProps } from './GridCell'
 
-export const addGridClass = (
-  prefix: string,
-  value?: number | { narrow: number; medium: number; wide: number } | 'all',
-): string[] => {
+export const addGridClass = (prefix: string, value?: GridColumnNumber | GridColumnNumbers | 'all'): string[] => {
   if (value === 'all' || typeof value === 'number') {
     return [`${prefix}${value}`]
   } else if (value) {
