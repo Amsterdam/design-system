@@ -5,7 +5,7 @@
       "font-family": { "value": "{ams.text.font-family}" },
       "font-size": { "value": "{ams.text.level.5.font-size}" },
       "font-weight": { "value": "{ams.text.font-weight.normal}" },
-      "gap": { "value": "{ams.space.sm}" },
+      "gap": { "value": "{ams.space.md}" },
       "inverse-color": { "value": "{ams.color.primary-white}" },
       "line-height": { "value": "{ams.text.level.5.line-height}" },
       "list-style-type": { "value": "'\\2022'" },
@@ -20,7 +20,10 @@
         }
       },
       "unordered-list": {
+        "gap": { "value": "{ams.space.sm}" },
         "list-style-type": { "value": "'\\2013'" },
+        "padding-block-end": { "value": "0" },
+        "padding-block-start": { "value": "{ams.space.sm}" },
         "item": {
           "margin-inline-start": {
             "value": "0.875rem",

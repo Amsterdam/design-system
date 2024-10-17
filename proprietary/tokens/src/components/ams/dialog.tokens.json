@@ -3,18 +3,13 @@
     "dialog": {
       "background-color": { "value": "{ams.color.primary-white}" },
       "border": { "value": "0" },
+      "gap": { "value": "{ams.space.md}" },
       "inline-size": { "value": "calc(100% - 2 * {ams.space.grid.md})" },
-      "max-block-size": { "value": "calc(100% - 2 * {ams.space.grid.md})" },
+      "max-block-size": { "value": "calc(100dvh - 2 * {ams.space.grid.md})" },
       "max-inline-size": { "value": "48rem" },
-      "form": {
-        "gap": { "value": "{ams.space.md}" },
-        "padding-block": { "value": "{ams.space.grid.md}" },
-        "padding-inline": { "value": "{ams.space.grid.lg}" }
-      },
+      "padding-block": { "value": "{ams.space.grid.md}" },
+      "padding-inline": { "value": "{ams.space.grid.lg}" },
       "header": {
-        "gap": { "value": "{ams.space.md}" }
-      },
-      "footer": {
         "gap": { "value": "{ams.space.md}" }
       }
     }

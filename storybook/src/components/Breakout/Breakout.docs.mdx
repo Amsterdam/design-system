@@ -1,0 +1,37 @@
+{/* @license CC0-1.0 */}
+
+import { Canvas, Controls, Markdown, Meta, Primary } from "@storybook/blocks";
+import * as BreakoutStories from "./Breakout.stories.tsx";
+import README from "../../../../packages/css/src/components/breakout/README.md?raw";
+
+<Meta of={BreakoutStories} />
+
+<Markdown>{README}</Markdown>
+
+### How to use
+
+This component is an extension of `Grid`.
+It offers the same props, although `span` and `start` have been renamed to `colSpan` and `colStart`.
+Additionally, `Breakout` allows cells to span multiple rows.
+
+The Cell containing the Spotlight must have `has="spotlight"` to extend to the gaps and margins around it.
+This prop can be used only on Cells that span all columns of the grid, so `span="all"` is required as well.
+
+The Cell containing the figure must have `has="figure"` to ensure it aligns to the bottom.
+
+The content that doesn’t break out defines the height of the Spotlight.
+Ensure that the text is short, or the image tall, to prevent losing the break-out effect.
+
+On narrower screens, let the text move below the image.
+
+<Primary />
+
+<Controls />
+
+## Examples
+
+### Vertical layout
+
+A large figure can be placed at the top of the Spotlight, with related text positioned underneath.
+
+<Canvas of={BreakoutStories.VerticalLayout} />

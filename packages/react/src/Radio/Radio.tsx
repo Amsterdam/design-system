@@ -3,17 +3,20 @@
  * Copyright Gemeente Amsterdam
  */
 
+import { RadioIcon } from '@amsterdam/design-system-react-icons'
 import clsx from 'clsx'
 import { forwardRef, useId } from 'react'
-import type { ForwardedRef, InputHTMLAttributes, PropsWithChildren } from 'react'
+import type { ForwardedRef, InputHTMLAttributes, PropsWithChildren, ReactNode } from 'react'
 
 export type RadioProps = {
+  /** An icon to display instead of the default icon. */
+  icon?: ReactNode
   /** Whether the value fails a validation rule. */
   invalid?: boolean
 } & PropsWithChildren<Omit<InputHTMLAttributes<HTMLInputElement>, 'aria-invalid' | 'type'>>
 
 export const Radio = forwardRef(
-  ({ children, className, invalid, ...restProps }: RadioProps, ref: ForwardedRef<HTMLInputElement>) => {
+  ({ children, className, icon, invalid, ...restProps }: RadioProps, ref: ForwardedRef<HTMLInputElement>) => {
     const id = useId()
 
     return (
@@ -29,7 +32,7 @@ export const Radio = forwardRef(
           type="radio"
         />
         <label className="ams-radio__label" htmlFor={id}>
-          <span className="ams-radio__circle" />
+          <span className="ams-radio__icon-container">{icon ?? <RadioIcon />}</span>
           {children}
         </label>
       </div>

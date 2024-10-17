@@ -12,6 +12,7 @@ Manages the maximum width and alignment of the entire website or application.
   [Header](/docs/components-containers-header--docs),
   [Footer](/docs/components-containers-footer--docs),
   [Spotlight](/docs/components-containers-spotlight--docs),
+  [Image Slider](/docs/components-media-image-slider--docs),
   and Figure.
 
 ## Design

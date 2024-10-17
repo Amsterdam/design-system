@@ -88,4 +88,30 @@ describe('use focus with arrows', () => {
 
     expect(onFocusOneMock).toHaveBeenCalledTimes(6)
   })
+
+  it('sets focus to first element when using "Home" key', () => {
+    const Component = getComponent()
+    const { container } = render(<Component />)
+
+    const firstChild = container.firstChild as HTMLElement
+
+    fireEvent.keyDown(firstChild, {
+      key: KeyboardKeys.Home,
+    })
+
+    expect(onFocusOneMock).toHaveBeenCalledTimes(1)
+  })
+
+  it('sets focus to last element when using "End" key', () => {
+    const Component = getComponent()
+    const { container } = render(<Component />)
+
+    const firstChild = container.firstChild as HTMLElement
+
+    fireEvent.keyDown(firstChild, {
+      key: KeyboardKeys.End,
+    })
+
+    expect(onFocusThreeMock).toHaveBeenCalledTimes(1)
+  })
 })

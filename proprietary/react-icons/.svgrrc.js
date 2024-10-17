@@ -7,4 +7,5 @@ module.exports = {
     focusable: 'false',
   },
   typescript: true,
+  svgoConfig: './svgo.config.mjs',
 }
