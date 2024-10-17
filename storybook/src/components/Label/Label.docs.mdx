@@ -1,6 +1,6 @@
 {/* @license CC0-1.0 */}
 
-import { Controls, Markdown, Meta, Primary } from "@storybook/blocks";
+import { Canvas, Controls, Markdown, Meta, Primary } from "@storybook/blocks";
 import * as LabelStories from "./Label.stories.tsx";
 import README from "../../../../packages/css/src/components/label/README.md?raw";
 
@@ -11,3 +11,17 @@ import README from "../../../../packages/css/src/components/label/README.md?raw"
 <Primary />
 
 <Controls />
+
+## Examples
+
+### Optional
+
+Use the `optional` prop to indicate that the field is optional.
+
+<Canvas of={LabelStories.Optional} />
+
+### With hint
+
+Use the `hint` prop to either customize the text for the optional property or to privide another type of remark.
+
+<Canvas of={LabelStories.WithHint} />

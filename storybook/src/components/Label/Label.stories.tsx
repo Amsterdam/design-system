@@ -27,3 +27,15 @@ export default meta
 type Story = StoryObj<typeof meta>
 
 export const Default: Story = {}
+
+export const Optional: Story = {
+  args: {
+    optional: true,
+  },
+}
+
+export const WithHint: Story = {
+  args: {
+    hint: 'not required',
+  },
+}
