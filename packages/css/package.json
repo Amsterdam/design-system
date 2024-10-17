@@ -1,10 +1,15 @@
 {
   "version": "0.11.1",
-  "author": "Community for NL Design System",
-  "description": "CSS files for components for the City of Amsterdam based on the NL Design System architecture",
+  "author": "Design System Team, City of Amsterdam <designsystem@amsterdam.nl>",
+  "description": "Stylesheets for all components from the Amsterdam Design System and some general utilities. Use it to apply the visual design of the City of Amsterdam to your HTML elements or non-React components.",
+  "homepage": "https://designsystem.amsterdam/",
   "license": "EUPL-1.2",
   "name": "@amsterdam/design-system-css",
   "keywords": [
+    "amsterdam",
+    "amsterdam-design-system",
+    "css",
+    "design-system",
     "nl-design-system"
   ],
   "private": false,
