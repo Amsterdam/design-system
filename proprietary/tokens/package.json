@@ -10,8 +10,8 @@
     "amsterdam",
     "amsterdam-design-system",
     "design-system",
-    "design-tokens",
-    "nl-design-system"
+    "nl-design-system",
+    "tokens"
   ],
   "private": false,
   "publishConfig": {

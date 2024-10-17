@@ -4,7 +4,7 @@
 
 This package provides all design tokens from the [Amsterdam Design System](https://designsystem.amsterdam).
 Use it to apply its visual design to your website or application.
-The tokens are exported in multiple formats, including CSS custom properties and JSON, making them compatible with most if not all technology stacks.
+The tokens are exported in multiple formats, including CSS custom properties and JSON, making them compatible with most, if not all, technology stacks.
 
 ## About
 
@@ -32,13 +32,13 @@ All tokens together form a theme that encodes the entire branding of the City of
 
 ## Installation
 
-Use this package by itself if you want or need to reference the tokens directly in your stylesheets.
+Install this package by itself if you want or need to reference tokens directly in your stylesheets.
 
 Note that our [CSS components](https://www.npmjs.com/package/@amsterdam/design-system-css) and [React components](https://www.npmjs.com/package/@amsterdam/design-system-react) provide more functionality and apply the tokens automatically.
-You should use these packages if your application uses React, or if it allows applying our HTML classes.
+You should use those packages if your application uses React or if it allows you to apply our HTML classes.
 
 ```sh
-npm i @amsterdam/design-system-tokens
+npm install @amsterdam/design-system-tokens
 ```
 
 ```sh
@@ -113,7 +113,7 @@ Find the [list of brand tokens](https://github.com/Amsterdam/design-system/tree/
 #### Common tokens
 
 Related components share visual design characteristics.
-E.g. all kinds of links have the same colour, and the borders of various form inputs are equally thick.
+For example, all links have the same colour, and the borders of various form inputs are equally thick.
 Common tokens express these relations and streamline future changes.
 
 Design system components use common tokens where possible.
@@ -154,7 +154,7 @@ Find the [list of component tokens](https://github.com/Amsterdam/design-system/t
 
 ### Overriding tokens
 
-This package allows creating a theme to reuse our components for a different brand.
+This package allows the creation of a theme to reuse our components for a different brand.
 This is a key feature of [NL Design System](https://nldesignsystem.nl/) of which we are part.
 
 However, websites and applications for the City of Amsterdam must follow the design system as closely as possible.
@@ -208,18 +208,11 @@ The tokens are used in our [Figma Library](https://www.figma.com/file/9IGm6IdPUY
 
 ## Updating
 
-When updating to a new release of this package, check the [change log](https://github.com/Amsterdam/design-system/blob/main/proprietary/tokens/CHANGELOG.md) for breaking changes.
-If there are any, update your application accordingly.
-
-## Roadmap
-
-We are considering the following features:
-
-- Overviews of all tokens in our Storybook
-- Packaging tokens separately for each component
-- Adding tokens to implement dark mode
+We follow semantic versioning and publish a [change log](https://github.com/Amsterdam/design-system/blob/main/proprietary/tokens/CHANGELOG.md) to guide you through updates.
+The tokens are a public API of the design system.
+Note that detecting changed or deleted tokens is still a manual process.
 
 ## Support
 
 Contact us if you have a question, find an issue, or want to contribute.
-Find ways to reach us on [designsystem.amsterdam](https://designsystem.amsterdam/?path=/docs/docs-introduction--docs#send-a-message)..
+Find ways to reach us on [designsystem.amsterdam](https://designsystem.amsterdam/?path=/docs/docs-introduction--docs#send-a-message).

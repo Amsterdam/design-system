@@ -90,11 +90,3 @@ argTypes: {
    Decorators are not shown in the code view, `args.children` are.
 3. Always check your stories’ code view.
 4. `args.children` can be an array, separated by commas and given ascending numbers as keys.
-
-## Future plans
-
-We are considering what to document for each component in the various libraries.
-
-We aim to document each implementation of each component – CSS, React, React Native, and Salesforce Lightning Web Components.
-
-We’re eager to get the most out of Storybook features for accessibility, testing, and more.
