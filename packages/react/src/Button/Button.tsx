@@ -7,10 +7,11 @@ import clsx from 'clsx'
 import { forwardRef } from 'react'
 import type { ButtonHTMLAttributes, ForwardedRef, PropsWithChildren } from 'react'
 import { Icon } from '../Icon'
+import type { IconProps } from '../Icon'
 
 export type ButtonProps = {
   /** An icon to add to the button. */
-  icon?: Function
+  icon?: IconProps['svg']
   /** The position of the icon. The default is after the label. */
   iconPosition?: 'start' | 'only'
   /** The level of prominence. Use a primary button only once per page or section. */
