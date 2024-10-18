@@ -10,7 +10,11 @@ import { GridCell } from './GridCell'
 import { paddingClasses } from './paddingClasses'
 
 export type GridColumnNumber = 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11 | 12
-export type GridColumnNumbers = { narrow: GridColumnNumber; medium: GridColumnNumber; wide: GridColumnNumber }
+export type GridColumnNumbers = {
+  narrow: 1 | 2 | 3 | 4
+  medium: 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8
+  wide: GridColumnNumber
+}
 export type GridPaddingSize = 'small' | 'medium' | 'large'
 
 type GridPaddingVerticalProp = {
