@@ -31,7 +31,7 @@ export const Button = forwardRef(
         className={clsx(
           'ams-button',
           `ams-button--${variant}`,
-          iconPosition === 'only' && `.ams-button--icon-position-only`,
+          iconPosition === 'only' && `ams-button--icon-position-only`,
           className,
         )}
         type={type || 'button'}
