@@ -42,8 +42,6 @@ export const ResponsiveImages: Story = {
   },
 }
 
-// TODO: add aspect ratio story
-
 export const LazyLoading: Story = {
   args: {
     alt: '',
