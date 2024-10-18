@@ -27,7 +27,12 @@ export const Button = forwardRef(
         {...restProps}
         ref={ref}
         disabled={disabled}
-        className={clsx('ams-button', `ams-button--${variant}`, `ams-button--icon-${iconPosition}`, className)}
+        className={clsx(
+          'ams-button',
+          `ams-button--${variant}`,
+          iconPosition === 'only' && `.ams-button--icon-position-only`,
+          className,
+        )}
         type={type || 'button'}
       >
         {icon && (iconPosition === 'start' || iconPosition === 'only') && <Icon svg={icon} size="level-5" square />}
