@@ -1,0 +1,19 @@
+/**
+ * @license EUPL-1.2+
+ * Copyright Gemeente Amsterdam
+ */
+
+@mixin ams-aspect-ratio {
+  block-size: auto;
+  inline-size: fit-content;
+  overflow: hidden;
+  position: relative;
+}
+
+@mixin generate-aspect-ratio-classes($infix: "") {
+  @each $name in ("x-tall", "tall", "square", "wide", "x-wide", "2x-wide") {
+    &#{$infix}--#{$name} {
+      aspect-ratio: var(--ams-aspect-ratio-#{$name});
+    }
+  }
+}

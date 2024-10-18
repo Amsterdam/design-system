@@ -1,4 +1,4 @@
-import { AspectRatio, Grid, Heading, Image, Overlap, Paragraph } from '@amsterdam/design-system-react'
+import { Grid, Heading, Image, Overlap, Paragraph } from '@amsterdam/design-system-react'
 import type { ArticlePageProps } from './ArticlePage'
 
 type ArticleHeaderProps = Pick<ArticlePageProps, 'heading' | 'imageSrc'>
@@ -12,9 +12,7 @@ export const ArticleHeader = ({ heading, imageSrc }: ArticleHeaderProps) => (
       </Grid.Cell>
     </Grid>
     <Overlap>
-      <AspectRatio ratio="2x-wide">
-        <Image alt="" loading="lazy" src={imageSrc} />
-      </AspectRatio>
+      <Image alt="" loading="lazy" aspectRatio="2x-wide" src={imageSrc} />
     </Overlap>
   </header>
 )
