@@ -8,7 +8,7 @@ import { ActionGroup } from '@amsterdam/design-system-react/src'
 import { Meta, StoryObj } from '@storybook/react'
 
 const meta = {
-  title: 'Components/Buttons/Action Group',
+  title: 'Components/Layout/Action Group',
   component: ActionGroup,
   args: {
     children: [<Button>Doorgaan</Button>, <Button variant="tertiary">Stoppen</Button>],
