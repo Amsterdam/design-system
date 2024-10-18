@@ -11,8 +11,11 @@
       "row": {
         "gap": { "value": "{ams.space.sm}" }
       },
+      "term": {
+        "font-weight": { "value": "{ams.text.font-weight.bold}" }
+      },
       "details": {
-        "font-weight": { "value": "{ams.text.font-weight.bold}" },
+        "font-weight": { "value": "{ams.text.font-weight.normal}" },
         "padding-inline-start": { "value": "{ams.space.lg}" }
       }
     }

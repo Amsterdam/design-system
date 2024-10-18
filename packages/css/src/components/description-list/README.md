@@ -9,8 +9,7 @@ A collection of terms and their details.
 On a narrow screen, details appear indented below their term.
 From the medium breakpoint, terms and details appear next to each other.
 The column for the details is twice as wide as the one for the term.
-
-Details are set in bold text.
+The term is set in bold text.
 
 ## References
 

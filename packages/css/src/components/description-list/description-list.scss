@@ -33,6 +33,8 @@
 }
 
 .ams-description-list__term {
+  font-weight: var(--ams-description-list-term-font-weight);
+
   @media screen and (min-width: $ams-breakpoint-medium) {
     grid-column-start: 1;
   }
