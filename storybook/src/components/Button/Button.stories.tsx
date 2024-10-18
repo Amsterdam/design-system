@@ -4,7 +4,7 @@
  */
 
 import { Button } from '@amsterdam/design-system-react/src'
-import { ShareIcon } from '@amsterdam/design-system-react-icons'
+import { PhoneIcon } from '@amsterdam/design-system-react-icons'
 import { Meta, StoryObj } from '@storybook/react'
 
 const meta = {
@@ -58,23 +58,23 @@ export const Tertiary: Story = {
 
 export const WithIcon: Story = {
   args: {
-    children: 'Delen',
-    icon: ShareIcon,
+    children: 'Bel 14 020',
+    icon: PhoneIcon,
   },
 }
 
 export const WithIconAtStart: Story = {
   args: {
-    children: 'Delen',
-    icon: ShareIcon,
+    children: 'Bel 14 020',
+    icon: PhoneIcon,
     iconPosition: 'start',
   },
 }
 
 export const WithIconOnly: Story = {
   args: {
-    children: 'Delen',
-    icon: ShareIcon,
+    children: 'Bel 14 020',
+    icon: PhoneIcon,
     iconPosition: 'only',
     variant: 'tertiary',
   },
