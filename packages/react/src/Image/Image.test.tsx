@@ -43,8 +43,7 @@ describe('Image', () => {
 
     const component = container.querySelector(':only-child')
 
-    expect(component).toHaveClass('ams-aspect-ratio')
-    expect(component).toHaveClass('ams-aspect-ratio--x-tall')
+    expect(component).toHaveClass('ams-image ams-image-aspect-ratio--x-tall')
   })
 
   it('supports ForwardRef in React', () => {
