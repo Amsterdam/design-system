@@ -4,7 +4,6 @@
  */
 
 import clsx from 'clsx'
-import { debounce } from 'lodash'
 import { forwardRef, useCallback, useEffect, useMemo, useRef, useState } from 'react'
 import type { ForwardedRef, HTMLAttributes } from 'react'
 import { ImageSliderContext } from './ImageSliderContext'
@@ -148,9 +147,8 @@ export const ImageSliderRoot = forwardRef(
         goToSlide(currentSlideElement)
       }
 
-      const debouncedHandleResize = debounce(handleResize, 200)
-      window.addEventListener('resize', debouncedHandleResize)
-      return () => window.removeEventListener('resize', debouncedHandleResize)
+      window.addEventListener('resize', handleResize)
+      return () => window.removeEventListener('resize', handleResize)
     }, [currentSlideId, goToSlide])
 
     return (
