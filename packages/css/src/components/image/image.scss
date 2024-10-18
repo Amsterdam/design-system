@@ -3,6 +3,8 @@
  * Copyright Gemeente Amsterdam
  */
 
+@import "../aspect-ratio/mixins";
+
 .ams-image {
   block-size: auto; /* [1] */
   font-style: italic; /* [3] */
@@ -10,32 +12,10 @@
   vertical-align: middle; /* [2] */
 
   &[class*="ams-image-aspect-ratio--"] {
-    inline-size: fit-content;
+    @include ams-aspect-ratio;
   }
 
-  &-aspect-ratio--x-tall {
-    aspect-ratio: var(--ams-aspect-ratio-x-tall);
-  }
-
-  &-aspect-ratio--tall {
-    aspect-ratio: var(--ams-aspect-ratio-tall);
-  }
-
-  &-aspect-ratio--square {
-    aspect-ratio: var(--ams-aspect-ratio-square);
-  }
-
-  &-aspect-ratio--wide {
-    aspect-ratio: var(--ams-aspect-ratio-wide);
-  }
-
-  &-aspect-ratio--x-wide {
-    aspect-ratio: var(--ams-aspect-ratio-x-wide);
-  }
-
-  &-aspect-ratio--2x-wide {
-    aspect-ratio: var(--ams-aspect-ratio-2x-wide);
-  }
+  @include generate-aspect-ratio-classes("-aspect-ratio");
 
   &--cover {
     object-fit: cover;
