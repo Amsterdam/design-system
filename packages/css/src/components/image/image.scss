@@ -9,6 +9,34 @@
   max-inline-size: 100%; /* [1] */
   vertical-align: middle; /* [2] */
 
+  &[class*="ams-image-aspect-ratio--"] {
+    inline-size: fit-content;
+  }
+
+  &-aspect-ratio--x-tall {
+    aspect-ratio: var(--ams-aspect-ratio-x-tall);
+  }
+
+  &-aspect-ratio--tall {
+    aspect-ratio: var(--ams-aspect-ratio-tall);
+  }
+
+  &-aspect-ratio--square {
+    aspect-ratio: var(--ams-aspect-ratio-square);
+  }
+
+  &-aspect-ratio--wide {
+    aspect-ratio: var(--ams-aspect-ratio-wide);
+  }
+
+  &-aspect-ratio--x-wide {
+    aspect-ratio: var(--ams-aspect-ratio-x-wide);
+  }
+
+  &-aspect-ratio--2x-wide {
+    aspect-ratio: var(--ams-aspect-ratio-2x-wide);
+  }
+
   &--cover {
     object-fit: cover;
   }

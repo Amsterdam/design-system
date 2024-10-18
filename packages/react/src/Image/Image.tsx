@@ -21,7 +21,7 @@ export const Image = forwardRef(
       className={clsx(
         'ams-image',
         cover && 'ams-image--cover',
-        aspectRatio && `ams-aspect-ratio ams-aspect-ratio--${aspectRatio}`,
+        aspectRatio && `ams-image-aspect-ratio--${aspectRatio}`,
         className,
       )}
     />
