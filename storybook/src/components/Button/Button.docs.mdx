@@ -16,27 +16,44 @@ import README from "../../../../packages/css/src/components/button/README.md?raw
 
 ### Primary
 
-The most important call-to-action.
-One primary Button may be used per screen.
+A primary button draws attention to the most important call to action.
+Only one primary Button should be used per screen.
 
 <Canvas of={ButtonStories.Primary} />
 
 ### Secondary
 
-Use the secondary Button for less prominent calls to action.
-It is possible to use more than 1 secondary Button.
+Use a secondary button for other actions.
 
 <Canvas of={ButtonStories.Secondary} />
 
 ### Tertiary
 
-Use tertiary Buttons for unimportant calls to action – as many as necessary.
+Tertiary buttons can be used to distinguish their importance from secondary buttons.
+They are also a good choice for buttons with an icon only.
 
 <Canvas of={ButtonStories.Tertiary} />
 
-### With icon
+### With an icon
+
+Add an icon if it makes it easier or faster to understand its purpose.
+The icon will appear after the label.
 
 <Canvas of={ButtonStories.WithIcon} />
+
+### With an icon at the start
+
+The icon can also appear before the label.
+
+<Canvas of={ButtonStories.WithIconAtStart} />
+
+### With an icon only
+
+A button can even consist of an icon only.
+Do this only for icons that are universally recognized.
+You must still provide a label – it will be used to make the button accessible.
+
+<Canvas of={ButtonStories.WithIconOnly} />
 
 ### Text wrapping
 

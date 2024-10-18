@@ -3,26 +3,35 @@
  * Copyright Gemeente Amsterdam
  */
 
-import { Icon } from '@amsterdam/design-system-react'
 import { Button } from '@amsterdam/design-system-react/src'
-import { ShareIcon } from '@amsterdam/design-system-react-icons'
+import { PhoneIcon } from '@amsterdam/design-system-react-icons'
 import { Meta, StoryObj } from '@storybook/react'
 
 const meta = {
   title: 'Components/Buttons/Button',
   component: Button,
   args: {
-    children: 'Button label',
-    variant: 'primary',
+    children: 'Versturen',
     disabled: false,
+    variant: 'primary',
+    /* This is the only was storybook will honor the conditional in the iconPosition argType (line 29) */
+    // @ts-ignore
+    icon: null,
   },
   argTypes: {
-    children: {
-      description: 'The text for the label and/or an icon.',
-      table: { disable: false },
-    },
     disabled: {
       description: 'Prevents interaction. Avoid if possible.',
+    },
+    icon: {
+      table: { disable: true },
+    },
+    iconPosition: {
+      if: { arg: 'icon', neq: null },
+      control: {
+        type: 'inline-radio',
+        labels: { undefined: 'end', start: 'start', only: 'only' },
+      },
+      options: [undefined, 'start', 'only'],
     },
   },
 } satisfies Meta<typeof Button>
@@ -35,24 +44,39 @@ export const Primary: Story = {}
 
 export const Secondary: Story = {
   args: {
+    children: 'Annuleren',
     variant: 'secondary',
   },
 }
 
 export const Tertiary: Story = {
   args: {
+    children: 'Terug',
     variant: 'tertiary',
   },
 }
 
 export const WithIcon: Story = {
   args: {
-    children: ['Button label', <Icon key="icon" svg={ShareIcon} size="level-5" />],
+    children: 'Bel 14 020',
+    icon: PhoneIcon,
   },
-  argTypes: {
-    children: {
-      table: { disable: true },
-    },
+}
+
+export const WithIconAtStart: Story = {
+  args: {
+    children: 'Bel 14 020',
+    icon: PhoneIcon,
+    iconPosition: 'start',
+  },
+}
+
+export const WithIconOnly: Story = {
+  args: {
+    children: 'Bel 14 020',
+    icon: PhoneIcon,
+    iconPosition: 'only',
+    variant: 'tertiary',
   },
 }
 
