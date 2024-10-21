@@ -27,7 +27,7 @@
     "@babel/core": "7.25.8",
     "@mdx-js/react": "3.0.1",
     "@storybook/addon-a11y": "8.3.5",
-    "@storybook/addon-actions": "8.3.5",
+    "@storybook/addon-actions": "8.3.6",
     "@storybook/addon-docs": "8.3.5",
     "@storybook/addon-essentials": "8.3.5",
     "@storybook/addon-interactions": "8.3.5",
