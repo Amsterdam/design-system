@@ -30,7 +30,7 @@
     "@storybook/addon-actions": "8.3.5",
     "@storybook/addon-docs": "8.3.5",
     "@storybook/addon-essentials": "8.3.5",
-    "@storybook/addon-interactions": "8.3.5",
+    "@storybook/addon-interactions": "8.3.6",
     "@storybook/addon-links": "8.3.5",
     "@storybook/addon-themes": "8.3.5",
     "@storybook/blocks": "8.3.5",
