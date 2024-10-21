@@ -34,7 +34,7 @@ type Story = StoryObj<typeof meta>
 
 export const Default: Story = {}
 
-export const MultipleDetails: Story = {
+export const MultipleDescriptions: Story = {
   args: {
     children: [
       <DescriptionList.Term key={1}>blinde, slechtziende</DescriptionList.Term>,

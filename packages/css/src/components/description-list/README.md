@@ -2,13 +2,13 @@
 
 # Description List
 
-A collection of terms and their details.
+A collection of terms and their descriptions.
 
 ## Design
 
-On a narrow screen, details appear indented below their term.
-From the medium breakpoint, terms and details appear next to each other.
-The column for the details is twice as wide as the one for the term.
+On a narrow screen, descriptions appear indented below their term.
+From the medium breakpoint, terms and descriptions appear next to each other.
+The column for the descriptions is twice as wide as the one for the term.
 The term is set in bold text.
 
 ## References
