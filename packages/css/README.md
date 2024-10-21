@@ -54,8 +54,9 @@ Although it is not a typical use case, the stylesheet can be included in an HTML
 <!doctype html>
 <html lang="en">
   <head>
-    <title>Amsterdam Design System</title>
+    <link rel="stylesheet" href="node_modules/@amsterdam/design-system-assets/font/index.css" />
     <link rel="stylesheet" href="node_modules/@amsterdam/design-system-css/dist/index.css" />
+    <link rel="stylesheet" href="node_modules/@amsterdam/design-system-tokens/dist/index.css" />
   </head>
   <body class="ams-body">
     <p class="ams-paragraph">Hello, world!</p>
