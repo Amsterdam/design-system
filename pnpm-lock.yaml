@@ -332,8 +332,8 @@ importers:
         specifier: 8.3.5
         version: 8.3.5(storybook@8.3.5)
       '@storybook/core-events':
-        specifier: 8.3.5
-        version: 8.3.5(storybook@8.3.5)
+        specifier: 8.3.6
+        version: 8.3.6(storybook@8.3.5)
       '@storybook/manager-api':
         specifier: 8.3.5
         version: 8.3.5(storybook@8.3.5)
@@ -1908,10 +1908,10 @@ packages:
     peerDependencies:
       storybook: ^8.3.5
 
-  '@storybook/core-events@8.3.5':
-    resolution: {integrity: sha512-tA4ptifvmxDd4n5CYpL2ksEg2YuLr3a9IPvEww+XJWsyx+lTQ5rwbaRyu8CUxJfOsppyz5cf9OOqRcZ0ENcrpQ==}
+  '@storybook/core-events@8.3.6':
+    resolution: {integrity: sha512-+y+WBQ6dXBCilsTFhuGR4nARP+658tev+SCML695hcGjN23C7Pk+68VXtFvDtdATtABDLtFfSAeGc+qamJ3WUg==}
     peerDependencies:
-      storybook: ^8.3.5
+      storybook: ^8.3.6
 
   '@storybook/core@8.3.5':
     resolution: {integrity: sha512-GOGfTvdioNa/n+Huwg4u/dsyYyBcM+gEcdxi3B7i5x4yJ3I912KoVshumQAOF2myKSRdI8h8aGWdx7nnjd0+5Q==}
@@ -9121,7 +9121,7 @@ snapshots:
     dependencies:
       storybook: 8.3.5
 
-  '@storybook/core-events@8.3.5(storybook@8.3.5)':
+  '@storybook/core-events@8.3.6(storybook@8.3.5)':
     dependencies:
       storybook: 8.3.5
 
