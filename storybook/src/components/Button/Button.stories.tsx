@@ -14,9 +14,6 @@ const meta = {
     children: 'Versturen',
     disabled: false,
     variant: 'primary',
-    /* This is the only was storybook will honor the conditional in the iconPosition argType (line 29) */
-    // @ts-ignore
-    icon: null,
   },
   argTypes: {
     disabled: {
