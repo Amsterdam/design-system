@@ -4,7 +4,7 @@
  */
 
 import { Button } from '@amsterdam/design-system-react/src'
-import { PhoneIcon } from '@amsterdam/design-system-react-icons'
+import * as Icons from '@amsterdam/design-system-react-icons'
 import { Meta, StoryObj } from '@storybook/react'
 
 const meta = {
@@ -23,10 +23,13 @@ const meta = {
       description: 'Prevents interaction. Avoid if possible.',
     },
     icon: {
-      table: { disable: true },
+      control: {
+        type: 'select',
+      },
+      options: Object.keys(Icons),
+      mapping: Icons,
     },
     iconPosition: {
-      if: { arg: 'icon', neq: null },
       control: {
         type: 'inline-radio',
         labels: { undefined: 'end', start: 'start', only: 'only' },
@@ -58,23 +61,23 @@ export const Tertiary: Story = {
 
 export const WithIcon: Story = {
   args: {
-    children: 'Bel 14 020',
-    icon: PhoneIcon,
+    children: 'Sluiten',
+    icon: Icons.CloseIcon,
   },
 }
 
 export const WithIconAtStart: Story = {
   args: {
-    children: 'Bel 14 020',
-    icon: PhoneIcon,
+    children: 'Sluiten',
+    icon: Icons.CloseIcon,
     iconPosition: 'start',
   },
 }
 
 export const WithIconOnly: Story = {
   args: {
-    children: 'Bel 14 020',
-    icon: PhoneIcon,
+    children: 'Sluiten',
+    icon: Icons.CloseIcon,
     iconPosition: 'only',
     variant: 'tertiary',
   },
