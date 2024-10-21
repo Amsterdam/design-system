@@ -6,9 +6,6 @@
 import { DescriptionList } from '@amsterdam/design-system-react/src'
 import { Meta, StoryObj } from '@storybook/react'
 import { inverseColorDecorator } from '../shared/decorators'
-import { exampleParagraph } from '../shared/exampleContent'
-
-const paragraph = exampleParagraph()
 
 const meta = {
   title: 'Components/Text/Description List',
@@ -16,12 +13,16 @@ const meta = {
   decorators: [inverseColorDecorator],
   args: {
     children: [
-      <DescriptionList.Term key={1}>Gebied</DescriptionList.Term>,
-      <DescriptionList.Details key={2}>Gemeente Amsterdam</DescriptionList.Details>,
-      <DescriptionList.Term key={3}>Stadsdeel</DescriptionList.Term>,
-      <DescriptionList.Details key={4}>West</DescriptionList.Details>,
-      <DescriptionList.Term key={5}>Opmerkingen</DescriptionList.Term>,
-      <DescriptionList.Details key={6}>{paragraph}</DescriptionList.Details>,
+      <DescriptionList.Term key={1}>het hoger onderwijs</DescriptionList.Term>,
+      <DescriptionList.Details key={2}>het hbo en wo</DescriptionList.Details>,
+      <DescriptionList.Term key={3}>het mbo en hoger onderwijs</DescriptionList.Term>,
+      <DescriptionList.Details key={4}>het vervolgonderwijs</DescriptionList.Details>,
+      <DescriptionList.Term key={5}>laagopgeleid</DescriptionList.Term>,
+      <DescriptionList.Details key={6}>praktisch opgeleid</DescriptionList.Details>,
+      <DescriptionList.Term key={7}>hoogopgeleid</DescriptionList.Term>,
+      <DescriptionList.Details key={8}>theoretisch opgeleid</DescriptionList.Details>,
+      <DescriptionList.Term key={9}>opleidingsniveau</DescriptionList.Term>,
+      <DescriptionList.Details key={10}>onderwijsrichting</DescriptionList.Details>,
     ],
     inverseColor: false,
   },
@@ -36,13 +37,11 @@ export const Default: Story = {}
 export const MultipleDetails: Story = {
   args: {
     children: [
-      <DescriptionList.Term key={1}>Gebied</DescriptionList.Term>,
-      <DescriptionList.Details key={2}>Gemeente Amsterdam</DescriptionList.Details>,
-      <DescriptionList.Term key={3}>Stadsdeel</DescriptionList.Term>,
-      <DescriptionList.Details key={4}>Noord</DescriptionList.Details>,
-      <DescriptionList.Details key={5}>Oost</DescriptionList.Details>,
-      <DescriptionList.Details key={6}>Zuid</DescriptionList.Details>,
-      <DescriptionList.Details key={7}>West</DescriptionList.Details>,
+      <DescriptionList.Term key={1}>blinde, slechtziende</DescriptionList.Term>,
+      <DescriptionList.Details key={2}>persoon met een visuele beperking</DescriptionList.Details>,
+      <DescriptionList.Details key={3}>persoon met een visuele handicap</DescriptionList.Details>,
+      <DescriptionList.Details key={4}>persoon die blind is</DescriptionList.Details>,
+      <DescriptionList.Details key={5}>persoon die slechtziend is</DescriptionList.Details>,
     ],
   },
 }
