@@ -39,7 +39,7 @@
   }
 }
 
-@mixin reset-details {
+@mixin reset-dd {
   margin-inline: 0;
 }
 
@@ -47,7 +47,7 @@
   font-weight: var(--ams-description-list-details-font-weight);
   padding-inline-start: var(--ams-description-list-details-padding-inline-start);
 
-  @include reset-details;
+  @include reset-dd;
 
   @media screen and (min-width: $ams-breakpoint-medium) {
     grid-column-start: 2;
