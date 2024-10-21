@@ -20,30 +20,7 @@ and [React icons](https://www.npmjs.com/package/@amsterdam/design-system-react-i
 Install all packages.
 
 ```sh
-npm install
-  @amsterdam/design-system-assets
-  @amsterdam/design-system-css
-  @amsterdam/design-system-react
-  @amsterdam/design-system-react-icons
-  @amsterdam/design-system-tokens
-```
-
-```sh
-pnpm add
-  @amsterdam/design-system-assets
-  @amsterdam/design-system-css
-  @amsterdam/design-system-react
-  @amsterdam/design-system-react-icons
-  @amsterdam/design-system-tokens
-```
-
-```sh
-yarn add
-  @amsterdam/design-system-assets
-  @amsterdam/design-system-css
-  @amsterdam/design-system-react
-  @amsterdam/design-system-react-icons
-  @amsterdam/design-system-tokens
+npm install @amsterdam/design-system-assets @amsterdam/design-system-css @amsterdam/design-system-react @amsterdam/design-system-react-icons @amsterdam/design-system-tokens
 ```
 
 The React components themselves are unstyled.

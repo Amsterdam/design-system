@@ -19,21 +19,7 @@ The stylesheets reference our [design tokens](https://www.npmjs.com/package/@ams
 Both packages need to be installed.
 
 ```sh
-npm install
-  @amsterdam/design-system-css
-  @amsterdam/design-system-tokens
-```
-
-```sh
-pnpm add
-  @amsterdam/design-system-css
-  @amsterdam/design-system-tokens
-```
-
-```sh
-yarn add
-  @amsterdam/design-system-css
-  @amsterdam/design-system-tokens
+npm install @amsterdam/design-system-css @amsterdam/design-system-tokens
 ```
 
 ## Usage

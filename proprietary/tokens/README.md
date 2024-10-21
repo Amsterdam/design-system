@@ -24,14 +24,6 @@ You should use those packages if your application uses React or if it allows you
 npm install @amsterdam/design-system-tokens
 ```
 
-```sh
-pnpm add @amsterdam/design-system-tokens
-```
-
-```sh
-yarn add @amsterdam/design-system-tokens
-```
-
 ## Usage in CSS
 
 Tokens are typically used as custom properties in CSS.

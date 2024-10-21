@@ -15,14 +15,6 @@ Note that our [React components](https://www.npmjs.com/package/@amsterdam/design
 npm install @amsterdam/design-system-react-icons
 ```
 
-```sh
-pnpm add @amsterdam/design-system-react-icons
-```
-
-```sh
-yarn add @amsterdam/design-system-react-icons
-```
-
 ## Usage
 
 Import the component for the icon you need and use it in your JSX.

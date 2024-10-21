@@ -16,14 +16,6 @@ You should use that package if your application uses React.
 npm install @amsterdam/design-system-assets
 ```
 
-```sh
-pnpm add @amsterdam/design-system-assets
-```
-
-```sh
-yarn add @amsterdam/design-system-assets
-```
-
 ## Usage
 
 ### Application icons
