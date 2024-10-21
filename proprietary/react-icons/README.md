@@ -2,7 +2,7 @@
 
 # Amsterdam Design System: React icons
 
-This package provides all icons as React components from the [Amsterdam Design System](https://designsystem.amsterdam).
+This package provides all icons from the [Amsterdam Design System](https://designsystem.amsterdam) as React components.
 Use it to use the correct icons in your React project.
 
 ## Installation
