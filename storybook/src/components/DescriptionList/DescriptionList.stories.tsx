@@ -3,6 +3,7 @@
  * Copyright Gemeente Amsterdam
  */
 
+import { Link, Paragraph, UnorderedList } from '@amsterdam/design-system-react'
 import { DescriptionList } from '@amsterdam/design-system-react/src'
 import { Meta, StoryObj } from '@storybook/react'
 import { inverseColorDecorator } from '../shared/decorators'
@@ -42,6 +43,28 @@ export const MultipleDescriptions: Story = {
       <DescriptionList.Details key={3}>persoon met een visuele handicap</DescriptionList.Details>,
       <DescriptionList.Details key={4}>persoon die blind is</DescriptionList.Details>,
       <DescriptionList.Details key={5}>persoon die slechtziend is</DescriptionList.Details>,
+    ],
+  },
+}
+
+export const RichDescription: Story = {
+  args: {
+    children: [
+      <DescriptionList.Term key={1}>Amsterdam Light Festival</DescriptionList.Term>,
+      <DescriptionList.Details key={2}>
+        <Paragraph className="ams-mb--sm">
+          Een jaarlijks evenement waarbij kunstenaars van over de hele wereld hun{' '}
+          <strong>creatieve lichtinstallaties</strong> tonen. De kunstwerken zijn verspreid over de stad en zijn zowel
+          vanaf het water als vanaf de kant te bewonderen.
+        </Paragraph>
+        <UnorderedList>
+          <UnorderedList.Item>Kleed je warm aan, want de meeste exposities zijn buiten.</UnorderedList.Item>
+          <UnorderedList.Item>Er zijn begeleide boottochten en wandelroutes beschikbaar.</UnorderedList.Item>
+          <UnorderedList.Item>
+            Voor de volledige lijst met exposities kun je <Link href="#">de festivalbrochure downloaden</Link>.
+          </UnorderedList.Item>
+        </UnorderedList>
+      </DescriptionList.Details>,
     ],
   },
 }
