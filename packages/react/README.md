@@ -5,7 +5,7 @@
 This package provides all React components from the [Amsterdam Design System](https://designsystem.amsterdam).
 Use it to compose pages in your website or application.
 
-## About
+## Introduction
 
 This package is the primary entry point for digital services that we build in-house.
 We’ve adopted the architecture of [NL Design System](https://nldesignsystem.nl/).

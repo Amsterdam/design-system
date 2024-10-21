@@ -6,28 +6,11 @@ This package provides all design tokens from the [Amsterdam Design System](https
 Use it to apply its visual design to your website or application.
 The tokens are exported in multiple formats, including CSS custom properties and JSON, making them compatible with most, if not all, technology stacks.
 
-## About
+## Introduction
 
 Every design token is a variable representing a single visual design choice.
 Tokens exist for colours, various aspects of text, spacing lengths, border widths, the configuration of animations, and more.
 The value of every token is valid in CSS.
-
-Some examples:
-
-```css
-:root {
-  --ams-color-blue: #004699;
-  --ams-text-font-weight-bold: 800;
-  --ams-border-width-medium: 0.125rem;
-  --ams-button-padding-inline: 1.5rem;
-  --ams-space-xl: clamp(2.25rem, 2.0625rem + 0.9375vw, 3rem);
-  --ams-text-input-invalid-border-color: var(--ams-color-red);
-}
-```
-
-Tokens start their name with a prefix of `--ams-` in CSS.
-The name of a component token (see below) ends with the property that uses it, e.g. `-font-size`.
-
 All tokens together form a theme that encodes the entire branding of the City of Amsterdam.
 
 ## Installation
@@ -52,6 +35,7 @@ yarn add @amsterdam/design-system-tokens
 ## Usage in CSS
 
 Tokens are typically used as custom properties in CSS.
+Their name starts with a prefix of `--ams-`; that of a component token (see below) with the property that uses it, e.g. `-font-size`.
 
 ### Main stylesheet
 

@@ -5,24 +5,13 @@
 This package provides stylesheets for all components in the [Amsterdam Design System](https://designsystem.amsterdam) and some general utilities.
 Use it to apply the visual design of the City of Amsterdam to your HTML elements or non-React components.
 
-## About
+## Introduction
 
-The set of classes for a component can be seen as a blueprint for its markup and features.
-An `.ams-component` root selector applies the essential styles of the component to its element, and additional classes like `.ams-component--variant` modify its appearance or behaviour.
+We publish our components’ stylesheets as a separate package to help replicating them in other libraries, platforms, or Saas-applications.
+The classes are a contract between the component’s definition and its implementations and they facilitate ongoing upgrades.
 
 Our [React components](https://www.npmjs.com/package/@amsterdam/design-system-react) use these classes in the HTML they render.
 You should use that package if your application uses React.
-
-The classes employ the [naming convention of NL Design System](https://nldesignsystem.nl/handboek/developer/architectuur#bem-class-names-voor-css).
-Other communities only need to overwrite design tokens to use our components with their branding.
-
-## Motivation
-
-Publishing the stylesheets as a separate package saves a lot of work when replicating components in other libraries, platforms, or Saas-applications.
-This is a powerful approach to implement the design system across different technologies.
-
-The classes act like a contract between the component’s definition and its implementations.
-As a bonus, updates to tokens or styles can be propagated to all of them.
 
 ## Installation
 
@@ -48,6 +37,12 @@ yarn add
 ```
 
 ## Usage
+
+The set of classes for a component can be seen as a blueprint for its markup and features.
+An `.ams-component` root selector applies the essential styles of the component to its element, and additional classes like `.ams-component--variant` modify its appearance or behaviour.
+
+The classes employ the [naming convention of NL Design System](https://nldesignsystem.nl/handboek/developer/architectuur#bem-class-names-voor-css).
+Other communities only need to overwrite design tokens to use our components with their branding.
 
 ### In JavaScript
 
