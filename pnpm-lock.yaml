@@ -350,8 +350,8 @@ importers:
         specifier: 8.3.5
         version: 8.3.5(@storybook/test@8.3.5(storybook@8.3.5))(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(rollup@4.24.0)(storybook@8.3.5)(typescript@5.6.3)(vite@5.4.9(@types/node@22.7.5)(sass@1.79.5)(terser@5.17.1))
       '@storybook/theming':
-        specifier: 8.3.5
-        version: 8.3.5(storybook@8.3.5)
+        specifier: 8.3.6
+        version: 8.3.6(storybook@8.3.5)
       '@types/react':
         specifier: 18.3.11
         version: 18.3.11
@@ -1988,10 +1988,10 @@ packages:
     peerDependencies:
       storybook: ^8.3.5
 
-  '@storybook/theming@8.3.5':
-    resolution: {integrity: sha512-9HmDDyC691oqfg4RziIM9ElsS2HITaxmH7n/yeUPtuirkPdAQzqOzhvH/Sa0qOhifzs8VjR+Gd/a/ZQ+S38r7w==}
+  '@storybook/theming@8.3.6':
+    resolution: {integrity: sha512-LQjUk6GXRW9ELkoBKuqzQKFUW+ajfGPfVELcfs3/VQX61VhthJ4olov4bGPc04wsmmFMgN/qODxT485IwOHfPQ==}
     peerDependencies:
-      storybook: ^8.3.5
+      storybook: ^8.3.6
 
   '@svgr/babel-plugin-add-jsx-attribute@8.0.0':
     resolution: {integrity: sha512-b9MIk7yhdS1pMCZM8VeNfUlSKVRhsHZNMl5O9SfaX0l0t5wjdgu4IDzGB8bpnGBBOjGST3rRFVsaaEtI4W6f7g==}
@@ -9214,7 +9214,7 @@ snapshots:
       '@storybook/manager-api': 8.3.5(storybook@8.3.5)
       '@storybook/preview-api': 8.3.5(storybook@8.3.5)
       '@storybook/react-dom-shim': 8.3.5(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(storybook@8.3.5)
-      '@storybook/theming': 8.3.5(storybook@8.3.5)
+      '@storybook/theming': 8.3.6(storybook@8.3.5)
       '@types/escodegen': 0.0.6
       '@types/estree': 0.0.51
       '@types/node': 22.7.5
@@ -9249,7 +9249,7 @@ snapshots:
       storybook: 8.3.5
       util: 0.12.5
 
-  '@storybook/theming@8.3.5(storybook@8.3.5)':
+  '@storybook/theming@8.3.6(storybook@8.3.5)':
     dependencies:
       storybook: 8.3.5
 
