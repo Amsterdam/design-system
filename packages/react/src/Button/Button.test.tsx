@@ -112,15 +112,52 @@ describe('Button', () => {
     expect(ref.current).toBe(button)
   })
 
-  it('renders a button with an icon', () => {
-    render(<Button icon={ShareIcon}>Share</Button>)
+  it('renders a button with an icon at the end', () => {
+    render(
+      <Button icon={ShareIcon}>
+        <span>Share</span>
+      </Button>,
+    )
 
     const button = screen.getByRole('button', {
       name: 'Share',
     })
 
     expect(button).toBeInTheDocument()
-    const icon = button.querySelector('.ams-icon')
+    const icon = button.querySelector('.ams-icon:last-child')
     expect(icon).toBeInTheDocument()
+  })
+
+  it('renders a button with an icon at the start', () => {
+    render(
+      <Button icon={ShareIcon} iconPosition="start">
+        <span>Share</span>
+      </Button>,
+    )
+
+    const button = screen.getByRole('button', {
+      name: 'Share',
+    })
+
+    expect(button).toBeInTheDocument()
+    const icon = button.querySelector('.ams-icon:first-child')
+    expect(icon).toBeInTheDocument()
+  })
+
+  it('renders a button with an icon only', () => {
+    render(
+      <Button icon={ShareIcon} iconPosition="only" variant="tertiary">
+        Share
+      </Button>,
+    )
+
+    const button = screen.getByRole('button', {
+      name: 'Share',
+    })
+
+    expect(button).toBeInTheDocument()
+    expect(button).toHaveClass('ams-button--icon-position-only')
+    const label = button.querySelector('.ams-visually-hidden')
+    expect(label).toHaveTextContent('Share')
   })
 })
