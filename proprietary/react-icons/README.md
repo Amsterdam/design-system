@@ -9,7 +9,7 @@ Use it to use the correct icons in your React project.
 
 Install this package by itself if you want or need to use icons directly in your React project.
 
-Note that our [React components](https://www.npmjs.com/package/@amsterdam/design-system-react) contains an [Icon component](https://designsystem.amsterdam/?path=/docs/components-media-icon--docs) that offers a convenient API for using the icons and streamlines alignment with text.
+Note that our [React components](https://www.npmjs.com/package/@amsterdam/design-system-react) contain an [Icon component](https://designsystem.amsterdam/?path=/docs/components-media-icon--docs) that offers a convenient API for using the icons and streamlines alignment with text.
 
 ```sh
 npm install @amsterdam/design-system-react-icons
@@ -31,7 +31,7 @@ Import the component for the icon you need and use it in your JSX.
 import { SearchIcon } from '@amsterdam/design-system-react-icons'
 
 export const App = () => (
-  <div class="ams-screen">
+  <div>
     <SearchIcon />
   </div>
 )
