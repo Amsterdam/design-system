@@ -11,7 +11,7 @@
   box-sizing: border-box;
 }
 
-.ams-file-input {
+.ams-file-input:not(.ams-file-input--has-preview) {
   background-color: var(--ams-file-input-background-color);
   border: var(--ams-file-input-border);
   color: var(--ams-file-input-color);
@@ -34,7 +34,7 @@
   cursor: var(--ams-file-input-disabled-cursor);
 }
 
-.ams-file-input::file-selector-button {
+.ams-file-input:not(.ams-file-input--has-preview)::file-selector-button {
   -webkit-appearance: none; // Reset appearance for Safari < 15.4
   appearance: none; // Reset native appearance, this causes issues on iOS and Android devices
   background-color: var(--ams-file-input-file-selector-button-background-color);
@@ -66,4 +66,20 @@
 .ams-file-input:not(:disabled):hover::file-selector-button {
   box-shadow: var(--ams-file-input-file-selector-button-hover-box-shadow);
   color: var(--ams-file-input-file-selector-button-hover-color);
+}
+
+.ams-file-input--has-preview {
+  appearance: none;
+  display: none;
+}
+
+.ams-file-input__label {
+  border: 2px dashed var(--ams-color-neutral-grey3);
+  display: block;
+  padding-block: 2rem;
+  padding-inline: 2rem;
+}
+
+.ams-file-input__preview {
+  padding-block: 1rem;
 }

@@ -63,3 +63,7 @@ export const InAField: Story = {
     </Field>
   ),
 }
+
+export const WithPreview: Story = {
+  args: { showFiles: true, multiple: true },
+}
