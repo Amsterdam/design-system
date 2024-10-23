@@ -10,8 +10,8 @@
     "amsterdam",
     "amsterdam-design-system",
     "design-system",
-    "design-tokens",
-    "nl-design-system"
+    "nl-design-system",
+    "tokens"
   ],
   "private": false,
   "publishConfig": {
@@ -30,6 +30,6 @@
   "devDependencies": {
     "chokidar-cli": "3.0.0",
     "npm-run-all": "4.1.5",
-    "style-dictionary": "4.1.3"
+    "style-dictionary": "4.1.4"
   }
 }

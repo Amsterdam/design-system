@@ -95,3 +95,8 @@
     color: var(--ams-button-tertiary-hover-color);
   }
 }
+
+.ams-button--icon-position-only {
+  padding-block: var(--ams-button-icon-position-only-padding-block);
+  padding-inline: var(--ams-button-icon-position-only-padding-inline);
+}
