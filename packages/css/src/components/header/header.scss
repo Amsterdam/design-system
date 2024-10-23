@@ -43,3 +43,7 @@
   padding-inline-end: var(--ams-grid-padding-inline);
   pointer-events: auto;
 }
+
+.ams-header__mega-menu--closed.ams-header__mega-menu--closed {
+  display: none;
+}
