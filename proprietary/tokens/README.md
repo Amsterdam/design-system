@@ -34,15 +34,17 @@ Their name starts with a prefix of `--ams-`; that of a component token (see belo
 This package offers a main stylesheet containing all tokens.
 They are declared as global CSS variables through the `:root` selector.
 
+<!-- prettier-ignore -->
 ```ts
-import "@amsterdam/design-system-tokens/dist/index.css";
+import "@amsterdam/design-system-tokens/dist/index.css"
 ```
 
 If that doesn’t work for your project, use `index.theme.css` instead, which uses an `.ams-theme` selector.
 Add that class to a root element of your application.
 
+<!-- prettier-ignore -->
 ```ts
-import "@amsterdam/design-system-tokens/dist/index.theme.css";
+import "@amsterdam/design-system-tokens/dist/index.theme.css"
 ```
 
 ```html
@@ -60,9 +62,10 @@ A compact stylesheet is available for applications that require less white space
 Note that the compact stylesheet is not independent – it only contains overrides.
 Import it after the main stylesheet for the correct result.
 
+<!-- prettier-ignore -->
 ```ts
-import "@amsterdam/design-system-tokens/dist/index.css";
-import "@amsterdam/design-system-tokens/dist/compact.css";
+import "@amsterdam/design-system-tokens/dist/index.css"
+import "@amsterdam/design-system-tokens/dist/compact.css"
 ```
 
 ### Three layers
@@ -161,21 +164,23 @@ Import the JSON file to use the tokens in TypeScript or JavaScript.
 Here, tokens start their name with a prefix of `ams.`.
 Use ‘dot notation’ or square brackets to access the tokens.
 
+<!-- prettier-ignore -->
 ```ts
-import tokens from "@amsterdam/design-system-tokens/dist/index.json";
+import tokens from "@amsterdam/design-system-tokens/dist/index.json"
 
-const buttonBackgroundColor = tokens.ams.color["primary-blue"];
-const rowGap = tokens.ams.space.md;
+const buttonBackgroundColor = tokens.ams.color["primary-blue"]
+const rowGap = tokens.ams.space.md
 ```
 
 Import and merge the compact tokens if you need them.
 Then you can use the tokens in scripting or css-in-js libraries.
 
+<!-- prettier-ignore -->
 ```ts
-import spaciousTokens from "@amsterdam/design-system-tokens/dist/index.json";
-import compactTokens from "@amsterdam/design-system-tokens/dist/compact.json";
+import spaciousTokens from "@amsterdam/design-system-tokens/dist/index.json"
+import compactTokens from "@amsterdam/design-system-tokens/dist/compact.json"
 
-const tokens = { ...spaciousTokens, ...compactTokens };
+const tokens = { ...spaciousTokens, ...compactTokens }
 ```
 
 ## Usage in Figma
