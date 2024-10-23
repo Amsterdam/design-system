@@ -39,7 +39,7 @@
 .ams-radio__circle {
   fill: none;
   stroke: var(--ams-radio-circle-stroke);
-  stroke-width: 0.125rem;
+  stroke-width: var(--ams-radio-circle-stroke-width);
 }
 
 .ams-radio__checked-indicator {
@@ -54,6 +54,7 @@
 
   .ams-radio__circle {
     stroke: var(--ams-radio-circle-hover-stroke);
+    stroke-width: var(--ams-radio-circle-hover-stroke-width);
   }
 
   .ams-radio__checked-indicator {
