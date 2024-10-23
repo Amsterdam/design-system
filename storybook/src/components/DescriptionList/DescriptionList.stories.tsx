@@ -14,16 +14,16 @@ const meta = {
   decorators: [inverseColorDecorator],
   args: {
     children: [
-      <DescriptionList.Term key={1}>het hoger onderwijs</DescriptionList.Term>,
-      <DescriptionList.Details key={2}>het hbo en wo</DescriptionList.Details>,
-      <DescriptionList.Term key={3}>het mbo en hoger onderwijs</DescriptionList.Term>,
-      <DescriptionList.Details key={4}>het vervolgonderwijs</DescriptionList.Details>,
-      <DescriptionList.Term key={5}>laagopgeleid</DescriptionList.Term>,
-      <DescriptionList.Details key={6}>praktisch opgeleid</DescriptionList.Details>,
-      <DescriptionList.Term key={7}>hoogopgeleid</DescriptionList.Term>,
-      <DescriptionList.Details key={8}>theoretisch opgeleid</DescriptionList.Details>,
-      <DescriptionList.Term key={9}>opleidingsniveau</DescriptionList.Term>,
-      <DescriptionList.Details key={10}>onderwijsrichting</DescriptionList.Details>,
+      <DescriptionList.Term key={1}>Het hoger onderwijs</DescriptionList.Term>,
+      <DescriptionList.Details key={2}>Het hbo en wo</DescriptionList.Details>,
+      <DescriptionList.Term key={3}>Het mbo en hoger onderwijs</DescriptionList.Term>,
+      <DescriptionList.Details key={4}>Het vervolgonderwijs</DescriptionList.Details>,
+      <DescriptionList.Term key={5}>Laagopgeleid</DescriptionList.Term>,
+      <DescriptionList.Details key={6}>Praktisch opgeleid</DescriptionList.Details>,
+      <DescriptionList.Term key={7}>Hoogopgeleid</DescriptionList.Term>,
+      <DescriptionList.Details key={8}>Theoretisch opgeleid</DescriptionList.Details>,
+      <DescriptionList.Term key={9}>Opleidingsniveau</DescriptionList.Term>,
+      <DescriptionList.Details key={10}>Onderwijsrichting</DescriptionList.Details>,
     ],
     inverseColor: false,
   },
@@ -38,11 +38,11 @@ export const Default: Story = {}
 export const MultipleDescriptions: Story = {
   args: {
     children: [
-      <DescriptionList.Term key={1}>blinde, slechtziende</DescriptionList.Term>,
-      <DescriptionList.Details key={2}>persoon met een visuele beperking</DescriptionList.Details>,
-      <DescriptionList.Details key={3}>persoon met een visuele handicap</DescriptionList.Details>,
-      <DescriptionList.Details key={4}>persoon die blind is</DescriptionList.Details>,
-      <DescriptionList.Details key={5}>persoon die slechtziend is</DescriptionList.Details>,
+      <DescriptionList.Term key={1}>Blinde, slechtziende</DescriptionList.Term>,
+      <DescriptionList.Details key={2}>Persoon met een visuele beperking</DescriptionList.Details>,
+      <DescriptionList.Details key={3}>Persoon met een visuele handicap</DescriptionList.Details>,
+      <DescriptionList.Details key={4}>Persoon die blind is</DescriptionList.Details>,
+      <DescriptionList.Details key={5}>Persoon die slechtziend is</DescriptionList.Details>,
     ],
   },
 }
