@@ -1,11 +1,19 @@
 {
   "version": "0.0.0",
-  "author": "Community for NL Design System",
-  "description": "Design system based on the NL Design System architecture",
+  "author": "Design System Team, City of Amsterdam <designsystem@amsterdam.nl>",
+  "description": "Reusable components, patterns and guidelines powering the City of Amsterdam’s digital services.",
+  "homepage": "https://designsystem.amsterdam/",
   "license": "EUPL-1.2",
   "name": "@amsterdam/design-system",
   "keywords": [
-    "nl-design-system"
+    "amsterdam",
+    "amsterdam-design-system",
+    "assets",
+    "css",
+    "design-system",
+    "icons",
+    "nl-design-system",
+    "react"
   ],
   "private": true,
   "engines": {

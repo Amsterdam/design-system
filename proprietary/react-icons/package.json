@@ -1,10 +1,15 @@
 {
   "version": "0.1.12",
-  "author": "Community for NL Design System",
-  "description": "React icon components for the City of Amsterdam",
+  "author": "Design System Team, City of Amsterdam <designsystem@amsterdam.nl>",
+  "description": "All icons from the Amsterdam Design System as React components. Use it to use the correct icons in your React project.",
+  "homepage": "https://designsystem.amsterdam/",
   "license": "SEE LICENSE IN LICENSE.md",
   "name": "@amsterdam/design-system-react-icons",
   "keywords": [
+    "amsterdam",
+    "amsterdam-design-system",
+    "design-system",
+    "icons",
     "nl-design-system"
   ],
   "private": false,
