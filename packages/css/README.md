@@ -40,9 +40,7 @@ import "@amsterdam/design-system-css/dist/index.css";
 import "@amsterdam/design-system-tokens/dist/index.css";
 
 export const App = () => (
-  <div class="ams-screen">
-    <p className="ams-paragraph">Hello, world!</p>
-  </div>
+  <p className="ams-paragraph">Hello, world!</p>
 )
 ```
 

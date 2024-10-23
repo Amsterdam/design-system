@@ -35,12 +35,10 @@ Then import and use the components in your JSX.
 import "@amsterdam/design-system-assets/font/index.css";
 import "@amsterdam/design-system-css/dist/index.css";
 import "@amsterdam/design-system-tokens/dist/index.css";
-import { Paragraph, Screen } from "@amsterdam/design-system-react";
+import { Paragraph } from "@amsterdam/design-system-react";
 
 const App = () => (
-  <Screen>
-    <Paragraph>Hello world</Paragraph>
-  </Screen>
+  <Paragraph>Hello, world!</Paragraph>
 )
 
 export default App;
