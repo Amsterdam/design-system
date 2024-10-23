@@ -3,7 +3,7 @@
  * Copyright Gemeente Amsterdam
  */
 
-import { Grid, Heading, LinkList, MegaMenu, PageMenu, Screen } from '@amsterdam/design-system-react'
+import { PageMenu, Screen } from '@amsterdam/design-system-react'
 import { Header } from '@amsterdam/design-system-react/src'
 import { MenuIcon, SearchIcon } from '@amsterdam/design-system-react-icons'
 import { Meta, StoryObj } from '@storybook/react'
@@ -34,43 +34,6 @@ const SecondaryLinks = (
     <PageMenu.Item rank="secondary">
       <PageMenu.Link href="#">Mijn Amsterdam</PageMenu.Link>
     </PageMenu.Item>
-  </>
-)
-
-const CompleteNav = (
-  <>
-    <Grid paddingBottom="large" style={{ width: '100%', pointerEvents: 'auto' }}>
-      <Grid.Cell span="all">
-        <Heading level={1} size="level-2">
-          Alle onderwerpen
-        </Heading>
-        <MegaMenu.ListCategory>
-          <LinkList>
-            <LinkList.Link href="#">Afval</LinkList.Link>
-            <LinkList.Link href="#">Bestuur en organisatie</LinkList.Link>
-            <LinkList.Link href="#">Bouw- en verkeersprojecten</LinkList.Link>
-            <LinkList.Link href="#">Burgerzaken</LinkList.Link>
-            <LinkList.Link href="#">Diversiteit</LinkList.Link>
-            <LinkList.Link href="#">Gemeentebelastingen</LinkList.Link>
-            <LinkList.Link href="#">Gezondheidsdienst (GGD)</LinkList.Link>
-            <LinkList.Link href="#">Kunst en cultuur</LinkList.Link>
-            <LinkList.Link href="#">Ondernemen</LinkList.Link>
-            <LinkList.Link href="#">Onderwijs en jeugd</LinkList.Link>
-            <LinkList.Link href="#">Parkeren</LinkList.Link>
-            <LinkList.Link href="#">Sport</LinkList.Link>
-            <LinkList.Link href="#">Stadsdelen</LinkList.Link>
-            <LinkList.Link href="#">Subsidies</LinkList.Link>
-            <LinkList.Link href="#">Vacatures</LinkList.Link>
-            <LinkList.Link href="#">Verkeer en vervoer</LinkList.Link>
-            <LinkList.Link href="#">Vrije tijd</LinkList.Link>
-            <LinkList.Link href="#">Werk aan de weg</LinkList.Link>
-            <LinkList.Link href="#">Werk en inkomen</LinkList.Link>
-            <LinkList.Link href="#">Wonen en leefomgeving</LinkList.Link>
-            <LinkList.Link href="#">Zorg en ondersteuning</LinkList.Link>
-          </LinkList>
-        </MegaMenu.ListCategory>
-      </Grid.Cell>
-    </Grid>
   </>
 )
 
@@ -152,6 +115,5 @@ export const WithAppNameAndMenu: Story = {
 export const WithAppNameMenuAndMenuButton: Story = {
   args: {
     appName: 'Onderzoek en Statistiek',
-    menu: CompleteNav,
   },
 }

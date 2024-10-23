@@ -6,14 +6,16 @@
 @import "../../common/breakpoint";
 
 .ams-header {
-  position: relative;
+  display: grid;
 }
 
 .ams-header__section {
   align-items: center;
+  align-self: start;
   column-gap: var(--ams-header-section-column-gap);
   display: flex;
-  flex: auto;
+  grid-column: 1;
+  grid-row: 1;
 }
 
 .ams-header__logo-link {
@@ -29,8 +31,9 @@
   column-gap: var(--ams-header-column-gap);
   display: flex;
   flex-wrap: wrap;
+  grid-column: 1;
+  grid-row: 1;
   inset-block-start: 0;
   pointer-events: none;
-  position: absolute;
   row-gap: var(--ams-header-row-gap);
 }
