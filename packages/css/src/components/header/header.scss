@@ -16,6 +16,7 @@
   display: flex;
   grid-column: 1;
   grid-row: 1;
+  padding-inline-start: var(--ams-grid-padding-inline);
 }
 
 .ams-header__logo-link {
@@ -36,4 +37,9 @@
   inset-block-start: 0;
   pointer-events: none;
   row-gap: var(--ams-header-row-gap);
+}
+
+.ams-header__page-menu.ams-header__page-menu {
+  padding-inline-end: var(--ams-grid-padding-inline);
+  pointer-events: auto;
 }

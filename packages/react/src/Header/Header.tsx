@@ -64,7 +64,7 @@ export const Header = forwardRef(
             </div>
             {appName && <span className="ams-heading ams-heading--level-5 ams-header__app-name">{appName}</span>}
           </div>
-          <PageMenu alignEnd style={{ pointerEvents: 'auto' }}>
+          <PageMenu alignEnd className="ams-header__page-menu">
             <PageMenu.Item rank="secondary">
               <PageMenu.Link href="#" lang="en">
                 English
