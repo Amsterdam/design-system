@@ -1,16 +1,6 @@
 {
   "ams": {
     "search-field": {
-      "button": {
-        "background-color": { "value": "{ams.color.primary-blue}" },
-        "color": { "value": "{ams.color.primary-white}" },
-        "outline-offset": { "value": "{ams.focus.outline-offset}" },
-        "padding-block": { "value": "{ams.space.sm}" },
-        "padding-inline": { "value": "{ams.space.sm}" },
-        "hover": {
-          "background-color": { "value": "{ams.color.dark-blue}" }
-        }
-      },
       "input": {
         "background-color": { "value": "{ams.color.primary-white}" },
         "box-shadow": { "value": "inset 0 0 0 {ams.border.width.sm} {ams.color.primary-black}" },

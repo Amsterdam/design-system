@@ -68,29 +68,3 @@
   inline-size: var(--ams-search-field-input-cancel-button-inline-size);
   margin-inline-start: 0.5rem;
 }
-
-@mixin reset-button {
-  border: 0;
-  margin-block: 0; // [1]
-  margin-inline: 0; // [1]
-
-  // [1] Remove the margin in older Safari.
-}
-
-.ams-search-field__button {
-  background-color: var(--ams-search-field-button-background-color);
-  color: var(--ams-search-field-button-color);
-  cursor: pointer;
-  outline-offset: var(--ams-search-field-button-outline-offset);
-
-  // TODO Check if these paddings are necessary
-  padding-block: var(--ams-search-field-button-padding-block);
-  padding-inline: var(--ams-search-field-button-padding-inline);
-  touch-action: manipulation;
-
-  @include reset-button;
-
-  &:hover {
-    background-color: var(--ams-search-field-button-hover-background-color);
-  }
-}
