@@ -5,13 +5,7 @@
   "homepage": "https://designsystem.amsterdam/",
   "license": "EUPL-1.2",
   "name": "@amsterdam/storybook",
-  "keywords": [
-    "amsterdam",
-    "amsterdam-design-system",
-    "design-system",
-    "nl-design-system",
-    "storybook"
-  ],
+  "keywords": [],
   "private": true,
   "repository": {
     "type": "git",
