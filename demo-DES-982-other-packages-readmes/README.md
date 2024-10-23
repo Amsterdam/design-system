@@ -27,8 +27,9 @@ The Design System handbook helps using [a favicon](https://designsystem.amsterda
 The package contains our Amsterdam Sans font in OpenType format (.otf) and Web Open Format Font (.woff).
 Import our stylesheet to make all of them available to your project.
 
+<!-- prettier-ignore -->
 ```ts
-import "@amsterdam/design-system-assets/font/index.css";
+import "@amsterdam/design-system-assets/font/index.css"
 ```
 
 The Design System Handbook offers [more guidance in using the font](https://designsystem.amsterdam/?path=/docs/brand-assets-font--docs).
