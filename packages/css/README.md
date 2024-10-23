@@ -62,25 +62,6 @@ Although it is not a typical use case, the stylesheet can be included in an HTML
 </html>
 ```
 
-### With CSS Modules
-
-The BEM class names can be particularly useful to include only the CSS you need using [CSS modules](https://css-tricks.com/css-modules-part-1-need/) ([in React](https://css-tricks.com/css-modules-part-3-react/)).
-
-```js
-import React from "react";
-import style from "@amsterdam/design-system-css";
-
-export default class ExamplePage extends React.Component {
-  render() {
-    return (
-      <>
-        <p className={btn["ams-paragraph"]}>Hello, world!</p>
-      </>
-    );
-  }
-}
-```
-
 ### Compact mode
 
 [Load the compact tokens](https://github.com/Amsterdam/design-system/blob/main/proprietary/tokens/README.md) to use the compact appearance of the design system, e.g. for applications.
