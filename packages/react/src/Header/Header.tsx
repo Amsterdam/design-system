@@ -3,12 +3,14 @@
  * Copyright Gemeente Amsterdam
  */
 
+import { MenuIcon } from '@amsterdam/design-system-react-icons'
 import clsx from 'clsx'
 import { forwardRef } from 'react'
 import type { ForwardedRef, HTMLAttributes, ReactNode } from 'react'
 import { Heading } from '../Heading'
 import { Logo } from '../Logo'
 import type { LogoBrand } from '../Logo'
+import { PageMenu } from '../PageMenu'
 
 export type HeaderProps = {
   /** A site-wide title for the website or application. */
@@ -48,7 +50,33 @@ export const Header = forwardRef(
           </Heading>
         )}
       </div>
-      <div className="ams-header__section">{menu}</div>
+      <nav className="ams-header__navigation">
+        {/* The logo and appname section is recreated here, to make sure the pagemenu breaks at the right spot */}
+        <div className="ams-header__section" aria-hidden style={{ opacity: 0 }}>
+          <div className="ams-header__logo-link">
+            <Logo brand={logoBrand} />
+          </div>
+          {appName && <span className="ams-heading ams-heading--level-5 ams-header__app-name">{appName}</span>}
+        </div>
+        <div className="ams-header__section" style={{ pointerEvents: 'auto' }}>
+          <PageMenu alignEnd>
+            <PageMenu.Item rank="secondary">
+              <PageMenu.Link href="#" lang="en">
+                English
+              </PageMenu.Link>
+            </PageMenu.Item>
+            <PageMenu.Item rank="secondary">
+              <PageMenu.Link href="#">Mijn Amsterdam</PageMenu.Link>
+            </PageMenu.Item>
+            <PageMenu.Item>
+              <PageMenu.Button icon={MenuIcon} onClick={() => {}}>
+                Menu
+              </PageMenu.Button>
+            </PageMenu.Item>
+          </PageMenu>
+        </div>
+        {menu}
+      </nav>
     </header>
   ),
 )

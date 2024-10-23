@@ -6,10 +6,7 @@
 @import "../../common/breakpoint";
 
 .ams-header {
-  column-gap: var(--ams-header-column-gap);
-  display: flex;
-  flex-wrap: wrap;
-  row-gap: var(--ams-header-row-gap);
+  position: relative;
 }
 
 .ams-header__section {
@@ -26,4 +23,14 @@
 /* TODO Remove after updating Header line heights in DES-973. */
 .ams-heading.ams-header__app-name {
   line-height: 1.25;
+}
+
+.ams-header__navigation {
+  column-gap: var(--ams-header-column-gap);
+  display: flex;
+  flex-wrap: wrap;
+  inset-block-start: 0;
+  pointer-events: none;
+  position: absolute;
+  row-gap: var(--ams-header-row-gap);
 }
