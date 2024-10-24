@@ -2,11 +2,15 @@
  * @license EUPL-1.2+
  * Copyright Gemeente Amsterdam
  */
+
 import clsx from 'clsx'
 import { forwardRef } from 'react'
 import type { HTMLAttributes, PropsWithChildren } from 'react'
 import type { GridColumnNumber, GridColumnNumbers } from './Grid'
 import { gridCellClasses } from './gridCellClasses'
+
+export const gridCellTags = ['article', 'aside', 'div', 'footer', 'header', 'main', 'nav', 'section'] as const
+export type GridCellTag = (typeof gridCellTags)[number]
 
 type GridCellSpanAllProp = {
   /** Lets the cell span the full width of all grid variants. */
@@ -22,8 +26,8 @@ type GridCellSpanAndStartProps = {
 }
 
 export type GridCellProps = {
-  /** The HTML element to use. */
-  as?: 'article' | 'div' | 'section'
+  /** The HTML tag to use. */
+  as?: GridCellTag
 } & (GridCellSpanAllProp | GridCellSpanAndStartProps) &
   PropsWithChildren<HTMLAttributes<HTMLElement>>
 
