@@ -3,7 +3,7 @@ import { createRef } from 'react'
 import { DescriptionList } from './DescriptionList'
 import '@testing-library/jest-dom'
 
-describe('Description list', () => {
+describe('Description List', () => {
   it('renders', () => {
     const { container } = render(<DescriptionList />)
 

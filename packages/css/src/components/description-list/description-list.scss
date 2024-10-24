@@ -16,7 +16,6 @@
   display: grid;
   font-family: var(--ams-description-list-font-family);
   font-size: var(--ams-description-list-font-size);
-  font-weight: var(--ams-description-list-font-weight);
   gap: var(--ams-description-list-gap);
   line-height: var(--ams-description-list-line-height);
 
@@ -33,6 +32,8 @@
 }
 
 .ams-description-list__term {
+  font-weight: var(--ams-description-list-term-font-weight);
+
   @media screen and (min-width: $ams-breakpoint-medium) {
     grid-column-start: 1;
   }
