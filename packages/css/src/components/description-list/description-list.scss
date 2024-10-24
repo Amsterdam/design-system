@@ -21,9 +21,23 @@
 
   @include reset;
   @include text-rendering;
+}
 
-  @media screen and (min-width: $ams-breakpoint-medium) {
+@media screen and (min-width: $ams-breakpoint-medium) {
+  .ams-description-list {
+    grid-template-columns: auto 1fr;
+  }
+
+  .ams-description-list--terms-width-sm {
+    grid-template-columns: 1fr 4fr;
+  }
+
+  .ams-description-list--terms-width-md {
     grid-template-columns: 1fr 2fr;
+  }
+
+  .ams-description-list--terms-width-lg {
+    grid-template-columns: 1fr 1fr;
   }
 }
 

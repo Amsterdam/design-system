@@ -27,6 +27,20 @@ const meta = {
     ],
     inverseColor: false,
   },
+  argTypes: {
+    termsWidth: {
+      control: {
+        type: 'radio',
+        labels: { undefined: 'auto', sm: 'small', md: 'medium', lg: 'large' },
+      },
+      options: [undefined, 'sm', 'md', 'lg'],
+      table: {
+        defaultValue: {
+          summary: 'auto',
+        },
+      },
+    },
+  },
 } satisfies Meta<typeof DescriptionList>
 
 export default meta
