@@ -13,11 +13,12 @@
 
 .ams-description-list {
   color: var(--ams-description-list-color);
+  column-gap: var(--ams-description-list-column-gap);
   display: grid;
   font-family: var(--ams-description-list-font-family);
   font-size: var(--ams-description-list-font-size);
-  gap: var(--ams-description-list-gap);
   line-height: var(--ams-description-list-line-height);
+  row-gap: var(--ams-description-list-row-gap);
 
   @include reset;
   @include text-rendering;
