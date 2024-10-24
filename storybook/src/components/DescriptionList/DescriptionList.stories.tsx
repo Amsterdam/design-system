@@ -62,25 +62,29 @@ export const MultipleDescriptions: Story = {
 }
 
 export const RichDescription: Story = {
-  args: {
-    children: [
-      <DescriptionList.Term key={1}>Amsterdam Light Festival</DescriptionList.Term>,
+  render: (args) => (
+    <DescriptionList {...args}>
+      <DescriptionList.Term key={1}>Amsterdam Light Festival</DescriptionList.Term>
       <DescriptionList.Details key={2}>
-        <Paragraph className="ams-mb--sm">
+        <Paragraph className="ams-mb--sm" inverseColor={args.inverseColor}>
           Een jaarlijks evenement waarbij kunstenaars van over de hele wereld hun{' '}
           <strong>creatieve lichtinstallaties</strong> tonen. De kunstwerken zijn verspreid over de stad en zijn zowel
           vanaf het water als vanaf de kant te bewonderen.
         </Paragraph>
-        <UnorderedList>
+        <UnorderedList inverseColor={args.inverseColor}>
           <UnorderedList.Item>Kleed je warm aan, want de meeste exposities zijn buiten.</UnorderedList.Item>
           <UnorderedList.Item>Er zijn begeleide boottochten en wandelroutes beschikbaar.</UnorderedList.Item>
           <UnorderedList.Item>
-            Voor de volledige lijst met exposities kun je <Link href="#">de festivalbrochure downloaden</Link>.
+            Voor de volledige lijst met exposities kun je{' '}
+            <Link href="#" inverseColor={args.inverseColor}>
+              de festivalbrochure downloaden
+            </Link>
+            .
           </UnorderedList.Item>
         </UnorderedList>
-      </DescriptionList.Details>,
-    ],
-  },
+      </DescriptionList.Details>
+    </DescriptionList>
+  ),
 }
 
 export const MultipleTerms: Story = {
