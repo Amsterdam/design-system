@@ -4,7 +4,7 @@
  */
 
 import clsx from 'clsx'
-import { forwardRef } from 'react'
+import { forwardRef, type ReactNode } from 'react'
 import type { ButtonHTMLAttributes, ForwardedRef, PropsWithChildren } from 'react'
 import { Icon } from '../Icon'
 import type { IconProps } from '../Icon'
@@ -35,17 +35,32 @@ export const Button = forwardRef(
     { children, className, disabled, icon, iconBefore, iconOnly, type, variant = 'primary', ...restProps }: ButtonProps,
     ref: ForwardedRef<HTMLButtonElement>,
   ) => {
+    const content = (): ReactNode => {
+      if (!icon) return children
+
+      if (iconOnly) {
+        return [
+          <Icon key={1} svg={icon} size="level-5" square={true} />,
+          <span className="ams-visually-hidden" key={2}>
+            {children}
+          </span>,
+        ]
+      }
+
+      if (iconBefore) return [<Icon svg={icon} size="level-5" />, children]
+
+      return [children, <Icon svg={icon} size="level-5" />]
+    }
+
     return (
       <button
         {...restProps}
-        ref={ref}
-        disabled={disabled}
         className={clsx('ams-button', `ams-button--${variant}`, iconOnly && `ams-button--icon-only`, className)}
+        disabled={disabled}
+        ref={ref}
         type={type || 'button'}
       >
-        {icon && (iconBefore || iconOnly) && <Icon svg={icon} size="level-5" square={iconOnly} />}
-        {icon && iconOnly ? <span className="ams-visually-hidden">{children}</span> : children}
-        {icon && !iconBefore && !iconOnly && <Icon svg={icon} size="level-5" />}
+        {content()}
       </button>
     )
   },
