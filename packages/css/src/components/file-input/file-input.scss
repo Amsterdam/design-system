@@ -75,9 +75,10 @@
 
 .ams-file-input__label {
   border: 2px dashed var(--ams-color-neutral-grey3);
-  display: block;
+  display: grid;
   padding-block: 2rem;
   padding-inline: 2rem;
+  place-content: center;
 }
 
 .ams-file-input__preview {
