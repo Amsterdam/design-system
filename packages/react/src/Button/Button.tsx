@@ -14,14 +14,14 @@ type IconButtonProps = {
   hideLabel?: boolean
   /** An icon to add to the button. */
   icon: IconProps['svg']
-  /** The position of the icon. The default is after the label. */
-  iconPosition?: 'start'
+  /** Position the icon before the label. After is the default. Requires the `icon` prop to be set. */
+  iconBefore?: boolean
 }
 
 type TextButtonProps = {
   hideLabel?: never
   icon?: never
-  iconPosition?: never
+  iconBefore?: never
 }
 
 export type ButtonProps = {
@@ -37,7 +37,7 @@ export const Button = forwardRef(
       className,
       disabled,
       icon,
-      iconPosition,
+      iconBefore,
       hideLabel,
       type,
       variant = 'primary',
@@ -53,9 +53,9 @@ export const Button = forwardRef(
         className={clsx('ams-button', `ams-button--${variant}`, hideLabel && `ams-button--hide-label`, className)}
         type={type || 'button'}
       >
-        {icon && (iconPosition === 'start' || hideLabel) && <Icon svg={icon} size="level-5" square={hideLabel} />}
+        {icon && (iconBefore || hideLabel) && <Icon svg={icon} size="level-5" square={hideLabel} />}
         {icon && hideLabel ? <span className="ams-visually-hidden">{children}</span> : children}
-        {icon && !iconPosition && !hideLabel && <Icon svg={icon} size="level-5" />}
+        {icon && !iconBefore && !hideLabel && <Icon svg={icon} size="level-5" />}
       </button>
     )
   },

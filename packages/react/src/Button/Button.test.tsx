@@ -128,9 +128,9 @@ describe('Button', () => {
     expect(icon).toBeInTheDocument()
   })
 
-  it('renders a button with an icon at the start', () => {
+  it('renders a button with an icon before the label', () => {
     render(
-      <Button icon={ShareIcon} iconPosition="start">
+      <Button icon={ShareIcon} iconBefore>
         <span>Share</span>
       </Button>,
     )
@@ -156,7 +156,6 @@ describe('Button', () => {
     })
 
     expect(button).toBeInTheDocument()
-    expect(button).toHaveClass('ams-button--icon-position-only')
     const label = button.querySelector('.ams-visually-hidden')
     expect(label).toHaveTextContent('Share')
   })

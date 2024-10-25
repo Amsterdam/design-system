@@ -36,15 +36,13 @@ const meta = {
       options: [undefined, ...Object.keys(Icons)],
       mapping: Icons,
     },
-    iconPosition: {
+    iconBefore: {
       control: {
-        type: 'inline-radio',
-        labels: { undefined: 'end', start: 'start' },
+        type: 'boolean',
       },
       if: {
         arg: 'icon',
       },
-      options: [undefined, 'start'],
     },
   },
 } satisfies Meta<typeof Button>
@@ -76,11 +74,11 @@ export const WithIcon: Story = {
   },
 }
 
-export const WithIconAtStart: Story = {
+export const WithiconBefore: Story = {
   args: {
     children: 'Sluiten',
     icon: Icons.CloseIcon,
-    iconPosition: 'start',
+    iconBefore: true,
   },
 }
 
