@@ -54,15 +54,15 @@
   }
 }
 
-@mixin reset-details {
+@mixin reset-description {
   margin-inline: 0;
 }
 
-.ams-description-list__details {
-  font-weight: var(--ams-description-list-details-font-weight);
-  padding-inline-start: var(--ams-description-list-details-padding-inline-start);
+.ams-description-list__description {
+  font-weight: var(--ams-description-list-description-font-weight);
+  padding-inline-start: var(--ams-description-list-description-padding-inline-start);
 
-  @include reset-details;
+  @include reset-description;
 
   @media screen and (min-width: $ams-breakpoint-medium) {
     grid-column-start: 2;
