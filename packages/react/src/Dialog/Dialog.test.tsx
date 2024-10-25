@@ -26,9 +26,7 @@ describe('Dialog', () => {
 
     const component = screen.getByRole('dialog', { hidden: true })
 
-    expect(component).toHaveClass('extra')
-
-    expect(component).toHaveClass('ams-dialog')
+    expect(component).toHaveClass('ams-dialog extra')
   })
 
   it('supports ForwardRef in React', () => {
@@ -66,16 +64,24 @@ describe('Dialog', () => {
     expect(getByText('Test content')).toBeInTheDocument()
   })
 
-  it('renders actions when provided', () => {
-    const { getByText } = render(<Dialog heading="Test heading" actions={<button>Click Me</button>} />)
+  it('renders footer when provided', () => {
+    render(<Dialog heading="Test heading" footer={<button>Click Me</button>} open />)
 
-    expect(getByText('Click Me')).toBeInTheDocument()
+    const footer = screen.getByRole('contentinfo')
+    const button = screen.getByRole('button', {
+      name: 'Click Me',
+    })
+
+    expect(footer).toBeInTheDocument()
+    expect(button).toBeInTheDocument()
   })
 
-  it('does not render actions when not provided', () => {
-    const { queryByText } = render(<Dialog heading="Test heading" />)
+  it('does not render footer when not provided', () => {
+    const { container } = render(<Dialog heading="Test heading" />)
 
-    expect(queryByText('Click Me')).not.toBeInTheDocument()
+    const component = container.querySelector('footer')
+
+    expect(component).not.toBeInTheDocument()
   })
 
   it('renders DialogClose button', () => {

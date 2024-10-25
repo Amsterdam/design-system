@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.3.0](https://github.com/Amsterdam/design-system/compare/design-system-assets-v0.2.1...design-system-assets-v0.3.0) (2024-10-25)
+
+
+### ⚠ BREAKING CHANGES
+
+* Use inline SVG icon for Radio button ([#1460](https://github.com/Amsterdam/design-system/issues/1460))
+
+### Features
+
+* Use inline SVG icon for Radio button ([#1460](https://github.com/Amsterdam/design-system/issues/1460)) ([c19055b](https://github.com/Amsterdam/design-system/commit/c19055bd6453ce40ca43b31d599f14ec65d6037a))
+
 ## [0.2.1](https://github.com/Amsterdam/design-system/compare/design-system-assets-v0.2.0...design-system-assets-v0.2.1) (2024-06-05)
 
 

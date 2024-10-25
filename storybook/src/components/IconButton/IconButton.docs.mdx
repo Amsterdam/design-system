@@ -14,18 +14,6 @@ import README from "../../../../packages/css/src/components/icon-button/README.m
 
 ## Examples
 
-### On Light Background
-
-On a light (not white) background, the icon is black.
-
-<Canvas of={IconButtonStories.OnLightBackground} />
-
-### On Dark Background
-
-On a dark background, the icon is white.
-
-<Canvas of={IconButtonStories.OnDarkBackground} />
-
 ### Level 3
 
 <Canvas of={IconButtonStories.Level3} />
@@ -41,3 +29,26 @@ On a dark background, the icon is white.
 ### Level 6
 
 <Canvas of={IconButtonStories.Level6} />
+
+### On a coloured background
+
+An Icon Button on a coloured background must adjust its foreground colour to provide enough contrast.
+We have lighter and darker background colours, and Icon Buttons behave differently on each.
+Stijlweb shows [which colours suit which backgrounds](https://amsterdam.nl/stijlweb/basiselementen/kleuren/).
+Although they only address headings and paragraphs, the same principle applies to Icon Buttons.
+
+- Set the `contrastColor` prop on a yellow, orange or green background.
+  It will make the Icon Button black.
+- Use the `inverseColor` prop on a purple or dark blue background.
+  It will make the Icon Button white.
+- On the other background colours, choose either one, but do so consistently.
+- There is no current scenario to set both properties at the same time.
+  For now, the 'inverse' appearance will prevail.
+
+#### Contrast colour
+
+<Canvas of={IconButtonStories.ContrastColour} />
+
+#### Inverse colour
+
+<Canvas of={IconButtonStories.InverseColour} />

@@ -12,29 +12,36 @@ import README from "../../../../packages/css/src/components/dialog/README.md?raw
 
 <Controls />
 
-## With Scrollbar
+## Examples
 
-Content taller than the dialog itself will scroll.
+### Open and close
 
-<Canvas of={DialogStories.WithScrollbar} className="ams-dialog-story" />
+To open the Dialog, use `Dialog.open(dialogId)` from the React package.
+To close the Dialog, use either `Dialog.close`, or a `<form>` as in the following example.
 
-## Open Dialog Button
+<Canvas of={DialogStories.OpenAndClose} />
 
-Click or tap the button to open a dialog.
+### Asking to confirm
 
-<Canvas of={DialogStories.TriggerButton} />
+Use a `<form>` when asking to confirm an action, e.g. through ‘OK’ and ‘Cancel’ buttons.
+Add `method="dialog"` to let the browser close the Dialog automatically when the form is submitted.
 
-Some basic example code to open and close a dialog:
+Wrap the buttons in an [Action Group](?path=/docs/components-buttons-action-group--docs) and place it in the `footer`.
+This ensures correct whitespace and scrolling behaviour.
+At the same time, this will position the buttons outside the `form` element.
+Create an `id` for the form and add it to the submit Button’s `form` attribute to connect the two.
 
-```ts
-const openDialog = () => (document.querySelector("#openDialog") as HTMLDialogElement)?.showModal();
+If the Action Group must be in the `form`, implement the whitespace and scrolling behaviour as well.
+Add a medium bottom margin (`ams-mb--md`) to the element before it.
+Make sure the content of the form scrolls if necessary, while the Action Group is visible at the bottom at all times.
 
-const closeDialog = (e: MouseEvent<HTMLButtonElement>) => e.currentTarget.closest("dialog")?.close();
-```
+The form returns the `value` of the submit Button, which allows inferring which Button the user clicked.
+For more information, see [Handling the return value from the dialog (MDN)](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/dialog#handling_the_return_value_from_the_dialog).
 
-## Vertically Stacked Buttons
+<Canvas of={DialogStories.AskingToConfirm} />
 
-If the buttons don’t fit next to each other, they will stack vertically and stretch to the full width.
-This can occur with a narrow Dialog, long Button labels, a large text size or zooming in.
+### Tall content will scroll
 
-<Canvas of={DialogStories.VerticalButtons} />
+Content that doesn’t fit entirely in the Dialog will scroll.
+
+<Canvas of={DialogStories.WithScrollbar} />

@@ -9,7 +9,7 @@ This helps everyone work faster and better, with more time to create value.
 To our citizens and businesses, all our channels look the same and work similarly;
 they are broadly accessible and evoke trust.
 
-We aim to create libraries for, or support otherwise, Figma, CSS, React, React Native, Salesforce, and Mendix.
+We aim to create libraries for, or support otherwise, Figma, CSS, React, React Native, and Mendix.
 
 ## Related resources
 

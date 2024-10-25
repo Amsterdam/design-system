@@ -1,6 +1,6 @@
 {/* @license CC0-1.0 */}
 
-import { Controls, Markdown, Meta, Primary } from "@storybook/blocks";
+import { Canvas, Controls, Markdown, Meta, Primary } from "@storybook/blocks";
 import * as LabelStories from "./Label.stories.tsx";
 import README from "../../../../packages/css/src/components/label/README.md?raw";
 
@@ -11,3 +11,20 @@ import README from "../../../../packages/css/src/components/label/README.md?raw"
 <Primary />
 
 <Controls />
+
+## Examples
+
+### Optional
+
+Use the `optional` prop to indicate that the user doesn’t need to fill in the field to submit the form.
+
+<Canvas of={LabelStories.Optional} />
+
+### With hint
+
+Use the `hint` prop to either customize the text for the optional property or provide another type of remark.
+
+Note: ensure the hint meets [language level B1](https://www.amsterdam.nl/schrijfwijzer/heldere-taal-basis-onze-huisstijl/).
+For the same reason, the default hint text in Dutch is ‘niet verplicht’, not ‘optioneel’.
+
+<Canvas of={LabelStories.WithHint} />

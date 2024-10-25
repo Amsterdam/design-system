@@ -12,15 +12,29 @@ import README from "../../../../packages/css/src/components/description-list/REA
 
 <Controls />
 
-## Multiple details
+## Examples
 
-A term may have multiple details.
+### Multiple descriptions
 
-<Canvas of={DescriptionListStories.MultipleDetails} />
+A term may have multiple descriptions.
+
+<Canvas of={DescriptionListStories.MultipleDescriptions} />
+
+### Rich description
+
+A description can include rich content such as inline formatting, links, paragraphs, and even lists.
+
+<Canvas of={DescriptionListStories.RichDescription} />
+
+### Multiple terms
+
+Multiple terms may share one description.
+
+<Canvas of={DescriptionListStories.MultipleTerms} />
 
 ### Inverse colour
 
 Set the `inverseColor` prop if the Description List sits on a dark background.
 This ensures the colour of the text provides enough contrast.
 
-<Canvas of={DescriptionListStories.InvertedColor} />
+<Canvas of={DescriptionListStories.InverseColour} />

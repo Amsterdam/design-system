@@ -8,23 +8,18 @@ import README from "../../../../packages/css/src/components/link-list/README.md?
 
 <Markdown>{README}</Markdown>
 
-## Examples
-
-### Default
-
-The Link List has no props.
-It is just a container for the items, rendering a `<ul>` element.
-
 <Primary />
 
-### Custom Icons
+## Examples
+
+### Custom icons
 
 Replace the list icon with a more meaningful one to help understand a link more quickly or easily.
 Avoid using both semantic and list icons in the same list.
 
 <Canvas of={LinkListStories.CustomIcons} />
 
-### Small Text
+### Small text
 
 In the [Footer](/docs/components-containers-footer--docs), we use small text, also for lists.
 Specify this for each item in the list.
@@ -41,14 +36,25 @@ Any attributes and the `ref` are passed on to the `<a>` element.
 
 <Controls of={LinkListStories.Link} />
 
-### On a Coloured Background
+### On a coloured background
 
-On a dark background, the link colour is white.
+A link on a coloured background must adjust its text colour to provide enough contrast.
+We have lighter and darker background colours, and links behave differently on each.
+Stijlweb shows [which colours suit which backgrounds](https://amsterdam.nl/stijlweb/basiselementen/kleuren/).
+Although they only address headings and paragraphs, the same principle applies to links.
 
-Specify the background context for each link in the list – the link is responsible for its own colors.
+- Set the `contrastColor` prop on a yellow, orange or green background.
+  It will make the link black.
+- Use the `inverseColor` prop on a purple or dark blue background.
+  It will make the link white.
+- On the other background colours, choose either one, but do so consistently.
+- There is no current scenario to set both properties at the same time.
+  For now, the 'inverse' appearance will prevail.
 
-<Canvas of={LinkListStories.OnDarkBackground} />
+#### Contrast colour
 
-The same goes for a light (not white) background color. The link colour is black here.
+<Canvas of={LinkListStories.ContrastColour} />
 
-<Canvas of={LinkListStories.OnLightBackground} />
+#### Inverse colour
+
+<Canvas of={LinkListStories.InverseColour} />

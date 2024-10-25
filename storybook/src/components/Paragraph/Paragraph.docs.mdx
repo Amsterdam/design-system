@@ -8,34 +8,32 @@ import README from "../../../../packages/css/src/components/paragraph/README.md?
 
 <Markdown>{README}</Markdown>
 
-## Examples
-
-### Default
-
 <Primary />
 
 <Controls />
 
-### Large
+## Examples
 
-Use this size only for the introductory text of a page.
-It is not mandatory to use an introductory text, and there should be a maximum of 1 per page.
+### Large text
 
-An introductory text is a concise description of the page’s content.
+Use this size only for the lead paragraph of a page.
+It is not mandatory to use a lead paragraph, but there must be no more than 1 per page.
+
+A lead paragraph introduces the page’s content.
 Use this text to entice the reader to continue reading.
 
-<Canvas of={ParagraphStories.Large} />
+<Canvas of={ParagraphStories.LargeText} />
 
-### Small
+### Small text
 
 Use this size for auxiliary texts, captions, metadata, etc.
 Keep these texts short.
 
-<Canvas of={ParagraphStories.Small} />
+<Canvas of={ParagraphStories.SmallText} />
 
 ### Inverse colour
 
 Set the `inverseColor` prop if the Paragraph sits on a dark background.
 This ensures the colour of the text provides enough contrast.
 
-<Canvas of={ParagraphStories.InvertedColor} />
+<Canvas of={ParagraphStories.InverseColour} />

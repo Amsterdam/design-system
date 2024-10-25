@@ -1,12 +1,17 @@
 {
-  "version": "0.11.0",
-  "author": "Community for NL Design System",
-  "description": "Design tokens for components for the City of Amsterdam based on the NL Design System architecture",
+  "version": "0.12.0",
+  "author": "Design System Team, City of Amsterdam <designsystem@amsterdam.nl>",
+  "description": "All design tokens from the Amsterdam Design System. Use it to apply its visual design to your website or application.",
+  "homepage": "https://designsystem.amsterdam/",
   "license": "SEE LICENSE IN LICENSE.md",
   "name": "@amsterdam/design-system-tokens",
   "type": "module",
   "keywords": [
-    "nl-design-system"
+    "amsterdam",
+    "amsterdam-design-system",
+    "design-system",
+    "nl-design-system",
+    "tokens"
   ],
   "private": false,
   "publishConfig": {
@@ -25,6 +30,6 @@
   "devDependencies": {
     "chokidar-cli": "3.0.0",
     "npm-run-all": "4.1.5",
-    "style-dictionary": "4.0.1"
+    "style-dictionary": "4.1.4"
   }
 }

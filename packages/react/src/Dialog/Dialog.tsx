@@ -4,36 +4,42 @@
  */
 
 import clsx from 'clsx'
-import { forwardRef } from 'react'
+import { forwardRef, MouseEvent } from 'react'
 import type { DialogHTMLAttributes, ForwardedRef, PropsWithChildren, ReactNode } from 'react'
 import { Heading } from '../Heading'
 import { IconButton } from '../IconButton'
 
 export type DialogProps = {
-  /** The button(s) in the footer. Start with a primary button. */
-  actions?: ReactNode
   /** The label for the button that dismisses the Dialog. */
   closeButtonLabel?: string
+  /** Content for the footer, often one Button or an Action Group containing more of them. */
+  footer?: ReactNode
   /** The text for the Heading. */
   heading: string
 } & PropsWithChildren<DialogHTMLAttributes<HTMLDialogElement>>
 
-export const Dialog = forwardRef(
+const closeDialog = (event: MouseEvent<HTMLButtonElement>) => event.currentTarget.closest('dialog')?.close()
+const openDialog = (id: string) => (document.querySelector(id) as HTMLDialogElement)?.showModal()
+
+const DialogRoot = forwardRef(
   (
-    { actions, children, className, closeButtonLabel = 'Sluiten', heading, ...restProps }: DialogProps,
+    { children, className, closeButtonLabel = 'Sluiten', footer, heading, ...restProps }: DialogProps,
     ref: ForwardedRef<HTMLDialogElement>,
   ) => (
     <dialog {...restProps} ref={ref} className={clsx('ams-dialog', className)}>
-      <form method="dialog" className="ams-dialog__form">
-        <header className="ams-dialog__header">
-          <Heading size="level-4">{heading}</Heading>
-          <IconButton formNoValidate label={closeButtonLabel} size="level-4" />
-        </header>
-        <article className="ams-dialog__article">{children}</article>
-        {actions && <footer className="ams-dialog__footer">{actions}</footer>}
-      </form>
+      <header className="ams-dialog__header">
+        <Heading size="level-4">{heading}</Heading>
+        <IconButton label={closeButtonLabel} onClick={closeDialog} size="level-4" type="button" />
+      </header>
+      <div className="ams-dialog__body">{children}</div>
+      {footer && <footer className="ams-dialog__footer">{footer}</footer>}
     </dialog>
   ),
 )
 
-Dialog.displayName = 'Dialog'
+DialogRoot.displayName = 'Dialog'
+
+export const Dialog = Object.assign(DialogRoot, {
+  close: closeDialog,
+  open: openDialog,
+})

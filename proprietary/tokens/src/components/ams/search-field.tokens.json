@@ -13,9 +13,7 @@
       },
       "input": {
         "background-color": { "value": "{ams.color.primary-white}" },
-        "box-shadow": {
-          "value": "inset 0 0 0 {ams.border.width.sm} {ams.color.primary-black}"
-        },
+        "box-shadow": { "value": "inset 0 0 0 {ams.border.width.sm} {ams.color.primary-black}" },
         "color": { "value": "{ams.color.primary-black}" },
         "font-family": { "value": "{ams.text.font-family}" },
         "font-size": { "value": "{ams.text.level.5.font-size}" },

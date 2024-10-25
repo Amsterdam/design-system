@@ -59,7 +59,7 @@ export const ExpandedByDefault: Story = {
   },
 }
 
-export const TooManyLandmarks: Story = {
+export const ReduceLandmarks: Story = {
   args: {
     sectionAs: 'div',
     children: [

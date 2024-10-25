@@ -1,0 +1,26 @@
+{
+  "ams": {
+    "image-slider": {
+      "gap": { "value": "{ams.space.xs}" },
+      "scroller": {
+        "gap": { "value": "{ams.space.xs}" },
+        "outline-offset": { "value": "{ams.focus.outline-offset}" }
+      },
+      "thumbnails": {
+        "gap": { "value": "{ams.space.xs}" },
+        "thumbnail": {
+          "background-color": { "value": "transparent" },
+          "cursor": { "value": "{ams.action.activate.cursor}" },
+          "opacity": { "value": "40%" },
+          "outline-offset": { "value": "{ams.focus.outline-offset}" },
+          "in-view": {
+            "opacity": { "value": "100%" }
+          },
+          "hover": {
+            "opacity": { "value": "100%" }
+          }
+        }
+      }
+    }
+  }
+}

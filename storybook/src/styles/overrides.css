@@ -1,4 +1,4 @@
-/* stylelint-disable */
+/* stylelint-disable no-descending-specificity, selector-class-pattern, selector-max-id */
 
 .sbdocs-wrapper.sbdocs-wrapper {
   padding-inline: 8vw;
@@ -11,8 +11,8 @@
 .sbdocs-content.sbdocs-content > table:not(.sb-unstyled) :is(td, th),
 .sbdocs-content.sbdocs-content > div:not(.sb-unstyled) > table:not(.sb-unstyled) :is(td, th),
 .sbdocs-content.sbdocs-content > div:not(.sb-unstyled) figcaption {
-  color: #000000;
-  font-family: "Amsterdam Sans", Arial, sans-serif;
+  color: #000;
+  font-family: "Amsterdam Sans", "Arial", sans-serif;
 }
 
 .sbdocs-content.sbdocs-content > p,
@@ -38,8 +38,8 @@
 }
 
 .sbdocs-content.sbdocs-content > .ams-storybook-status-badge > span:nth-child(2) {
-  color: #000000;
-  font-family: "Amsterdam Sans", Arial, sans-serif;
+  color: #000;
+  font-family: "Amsterdam Sans", "Arial", sans-serif;
   font-size: var(--ams-text-level-6-font-size);
 }
 
@@ -70,8 +70,8 @@
 
 .sbdocs-content.sbdocs-content > h2,
 .sbdocs-content.sbdocs-content > div:not(.sb-unstyled) > h2 {
+  border-block-end: none;
   font-size: 1.5rem;
-  border-bottom: none;
 }
 
 .sbdocs-content.sbdocs-content > h3,
@@ -118,4 +118,9 @@
   cursor: not-allowed;
 }
 
-/* stylelint-enable */
+/* Override to make sure the default transparent border isn't shown in forced colors mode. */
+.innerZoomElementWrapper.innerZoomElementWrapper > div {
+  @media (forced-colors: active) {
+    border-color: Canvas !important;
+  }
+}

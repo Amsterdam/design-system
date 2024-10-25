@@ -5,28 +5,30 @@
 
 import { ChevronLeftIcon, ChevronRightIcon } from '@amsterdam/design-system-react-icons'
 import clsx from 'clsx'
-import { forwardRef, useMemo, useState } from 'react'
+import { forwardRef, useId, useMemo, useState } from 'react'
 import type { ForwardedRef, HTMLAttributes } from 'react'
 import { Icon } from '../Icon/Icon'
 
 export type PaginationProps = {
   /** The maximum amount of pages shown. Minimum value: 5. */
   maxVisiblePages?: number
-  /** The accessible name for the link to the next page. */
-  nextAriaLabel?: string
-  /** The label for the link to the next page. */
+  /** The visible label for the next page-button. */
   nextLabel?: string
+  /** The accessible name for the next page-button. */
+  nextVisuallyHiddenLabel?: string
   /** A function to run when the page number changes. */
   // eslint-disable-next-line no-unused-vars
   onPageChange?: (page: number) => void
   /** The current page number. */
   page?: number
-  /** The accessible name for the link to the previous page. */
-  previousAriaLabel?: string
-  /** The label for the link to the previous page. */
+  /** The visible label for the previous page-button. */
   previousLabel?: string
+  /** The accessible name for the previous page-button. */
+  previousVisuallyHiddenLabel?: string
   /** The total amount of pages. */
   totalPages: number
+  /** The accessible name for the Pagination component. */
+  visuallyHiddenLabel?: string
 } & HTMLAttributes<HTMLElement>
 
 /**
@@ -84,13 +86,14 @@ export const Pagination = forwardRef(
     {
       className,
       maxVisiblePages = 7,
-      nextAriaLabel = 'Volgende pagina',
       nextLabel = 'volgende',
+      nextVisuallyHiddenLabel = 'Volgende pagina',
       onPageChange,
       page = 1,
-      previousAriaLabel = 'Vorige pagina',
       previousLabel = 'vorige',
+      previousVisuallyHiddenLabel = 'Vorige pagina',
       totalPages,
+      visuallyHiddenLabel = 'Paginering',
       ...restProps
     }: PaginationProps,
     ref: ForwardedRef<HTMLElement>,
@@ -118,24 +121,24 @@ export const Pagination = forwardRef(
       onChangePage(currentPage + 1)
     }
 
+    const navLabelId = useId()
+
     // Don't show pagination if you only have one page
     if (totalPages <= 1) {
       return null
     }
 
     return (
-      <nav {...restProps} className={clsx('ams-pagination', className)} ref={ref} aria-label="Paginering">
+      <nav {...restProps} aria-labelledby={navLabelId} className={clsx('ams-pagination', className)} ref={ref}>
+        <span id={navLabelId} className="ams-visually-hidden">
+          {visuallyHiddenLabel}
+        </span>
         <ol className="ams-pagination__list">
           <li>
-            <button
-              aria-label={previousAriaLabel}
-              className="ams-pagination__button"
-              disabled={currentPage === 1}
-              onClick={onPrevious}
-              type="button"
-            >
+            <button className="ams-pagination__button" disabled={currentPage === 1} onClick={onPrevious} type="button">
               <Icon svg={ChevronLeftIcon} size="level-5" />
-              {previousLabel}
+              <span className="ams-visually-hidden">{previousVisuallyHiddenLabel}</span>
+              <span aria-hidden>{previousLabel}</span>
             </button>
           </li>
           {range.map((pageNumberOrSpacer) =>
@@ -143,11 +146,6 @@ export const Pagination = forwardRef(
               <li key={pageNumberOrSpacer}>
                 <button
                   aria-current={pageNumberOrSpacer === currentPage ? true : undefined}
-                  aria-label={
-                    pageNumberOrSpacer === currentPage
-                      ? `Pagina ${pageNumberOrSpacer}`
-                      : `Ga naar pagina ${pageNumberOrSpacer}`
-                  }
                   className={clsx(
                     'ams-pagination__button',
                     pageNumberOrSpacer === currentPage && 'ams-pagination__button--current',
@@ -156,7 +154,12 @@ export const Pagination = forwardRef(
                   tabIndex={pageNumberOrSpacer === currentPage ? -1 : 0}
                   type="button"
                 >
-                  {pageNumberOrSpacer}
+                  <span className="ams-visually-hidden">
+                    {pageNumberOrSpacer === currentPage
+                      ? `Pagina ${pageNumberOrSpacer}`
+                      : `Ga naar pagina ${pageNumberOrSpacer}`}
+                  </span>
+                  <span aria-hidden>{pageNumberOrSpacer}</span>
                 </button>
               </li>
             ) : (
@@ -167,13 +170,13 @@ export const Pagination = forwardRef(
           )}
           <li>
             <button
-              aria-label={nextAriaLabel}
               className="ams-pagination__button"
               disabled={currentPage === totalPages}
               onClick={onNext}
               type="button"
             >
-              {nextLabel}
+              <span className="ams-visually-hidden">{nextVisuallyHiddenLabel}</span>
+              <span aria-hidden>{nextLabel}</span>
               <Icon svg={ChevronRightIcon} size="level-5" />
             </button>
           </li>

@@ -33,7 +33,7 @@ export const Default: Story = {
   },
 }
 
-export const MultipleSources: Story = {
+export const ResponsiveImages: Story = {
   args: {
     alt: '',
     src: 'https://picsum.photos/1280/720',

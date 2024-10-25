@@ -29,7 +29,7 @@ export const Default: Story = {
   },
 }
 
-export const Multiple: Story = {
+export const MultipleLinks: Story = {
   args: {
     description: 'Omschrijving',
     label: 'Titel',

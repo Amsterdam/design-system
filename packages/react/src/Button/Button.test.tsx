@@ -1,3 +1,4 @@
+import { CloseIcon } from '@amsterdam/design-system-react-icons'
 import { render, screen } from '@testing-library/react'
 import '@testing-library/jest-dom'
 import { createRef } from 'react'
@@ -104,10 +105,60 @@ describe('Button', () => {
   it('is able to pass a React ref', () => {
     const ref = createRef<HTMLButtonElement>()
 
-    const { container } = render(<Button ref={ref} />)
+    const { container } = render(<Button ref={ref}>Click me!</Button>)
 
     const button = container.querySelector(':only-child')
 
     expect(ref.current).toBe(button)
+  })
+
+  it('renders a button with an icon at the end', () => {
+    render(
+      <Button icon={CloseIcon}>
+        <span>Sluiten</span>
+      </Button>,
+    )
+
+    const button = screen.getByRole('button', {
+      name: 'Sluiten',
+    })
+    const icon = button.querySelector('.ams-icon:last-child')
+
+    expect(button).toBeInTheDocument()
+    expect(icon).toBeInTheDocument()
+  })
+
+  it('renders a button with an icon before the label', () => {
+    render(
+      <Button icon={CloseIcon} iconBefore>
+        <span>Sluiten</span>
+      </Button>,
+    )
+
+    const button = screen.getByRole('button', {
+      name: 'Sluiten',
+    })
+    const icon = button.querySelector('.ams-icon:first-child')
+
+    expect(button).toBeInTheDocument()
+    expect(icon).toBeInTheDocument()
+  })
+
+  it('renders a button with an icon only', () => {
+    render(
+      <Button icon={CloseIcon} iconOnly variant="tertiary">
+        Sluiten
+      </Button>,
+    )
+
+    const button = screen.getByRole('button', {
+      name: 'Sluiten',
+    })
+    const icon = button.querySelector('.ams-icon')
+    const label = button.querySelector('.ams-visually-hidden')
+
+    expect(button).toBeInTheDocument()
+    expect(icon).toBeInTheDocument()
+    expect(label).toBeInTheDocument()
   })
 })

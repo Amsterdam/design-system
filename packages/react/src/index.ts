@@ -4,6 +4,11 @@
  */
 
 /* Append here */
+export * from './ActionGroup'
+export * from './Breakout'
+export * from './Hint'
+export * from './ImageSlider'
+export * from './PasswordInput'
 export * from './FormErrorList'
 export * from './TableOfContents'
 export * from './ErrorMessage'

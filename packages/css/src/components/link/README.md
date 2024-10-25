@@ -13,6 +13,7 @@ Use a link in the following cases:
 - To navigate to another website (see [External links](#external-links))
 - To navigate to an element on the same page
 - To link to emails or phone numbers (start the link with `mailto:` or `tel:`)
+- Wrap 2 or more consecutive buttons and/or links in an [Action Group](https://designsystem.amsterdam/?path=/docs/components-buttons-action-group--docs).
 
 A link is a navigation component.
 Use a button instead of a link when an action is desired.
@@ -29,6 +30,10 @@ Visited links indicate that a user has already opened the link.
 We discourage using styles for visited links because they often make the page less clear and navigation more challenging.
 The inline link does have a visited style.
 It is not part of navigation elements that are frequently scanned.
+
+### Using links with routing libraries
+
+Check out the [developer guide](/docs/docs-developer-guide-routing-libraries--docs) on how to integrate links with external routing libraries.
 
 ## Relevant WCAG requirements
 

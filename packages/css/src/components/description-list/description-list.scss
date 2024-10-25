@@ -13,19 +13,33 @@
 
 .ams-description-list {
   color: var(--ams-description-list-color);
+  column-gap: var(--ams-description-list-column-gap);
   display: grid;
   font-family: var(--ams-description-list-font-family);
   font-size: var(--ams-description-list-font-size);
-  font-weight: var(--ams-description-list-font-weight);
-  gap: var(--ams-description-list-gap);
   line-height: var(--ams-description-list-line-height);
-
-  @media screen and (min-width: $ams-breakpoint-medium) {
-    grid-template-columns: 1fr 2fr;
-  }
+  row-gap: var(--ams-description-list-row-gap);
 
   @include reset;
   @include text-rendering;
+}
+
+@media screen and (min-width: $ams-breakpoint-medium) {
+  .ams-description-list {
+    grid-template-columns: auto 1fr;
+  }
+
+  .ams-description-list--terms-width-sm {
+    grid-template-columns: 1fr 4fr;
+  }
+
+  .ams-description-list--terms-width-md {
+    grid-template-columns: 1fr 2fr;
+  }
+
+  .ams-description-list--terms-width-lg {
+    grid-template-columns: 1fr 1fr;
+  }
 }
 
 .ams-description-list--inverse-color {
@@ -33,6 +47,8 @@
 }
 
 .ams-description-list__term {
+  font-weight: var(--ams-description-list-term-font-weight);
+
   @media screen and (min-width: $ams-breakpoint-medium) {
     grid-column-start: 1;
   }
@@ -46,10 +62,10 @@
   font-weight: var(--ams-description-list-details-font-weight);
   padding-inline-start: var(--ams-description-list-details-padding-inline-start);
 
+  @include reset-details;
+
   @media screen and (min-width: $ams-breakpoint-medium) {
     grid-column-start: 2;
     padding-inline-start: 0;
   }
-
-  @include reset-details;
 }
