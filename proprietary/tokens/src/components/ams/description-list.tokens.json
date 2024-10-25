@@ -2,14 +2,12 @@
   "ams": {
     "description-list": {
       "color": { "value": "{ams.color.primary-black}" },
+      "column-gap": { "value": "{ams.space.lg}" },
       "font-family": { "value": "{ams.text.font-family}" },
       "font-size": { "value": "{ams.text.level.5.font-size}" },
-      "gap": { "value": "{ams.space.sm}" },
       "inverse-color": { "value": "{ams.color.primary-white}" },
       "line-height": { "value": "{ams.text.level.5.line-height}" },
-      "row": {
-        "gap": { "value": "{ams.space.sm}" }
-      },
+      "row-gap": { "value": "{ams.space.sm}" },
       "term": {
         "font-weight": { "value": "{ams.text.font-weight.bold}" }
       },

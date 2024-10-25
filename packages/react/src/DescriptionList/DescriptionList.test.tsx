@@ -1,6 +1,6 @@
 import { render } from '@testing-library/react'
 import { createRef } from 'react'
-import { DescriptionList } from './DescriptionList'
+import { DescriptionList, descriptionListTermsWidths } from './DescriptionList'
 import '@testing-library/jest-dom'
 
 describe('Description List', () => {
@@ -28,6 +28,16 @@ describe('Description List', () => {
 
     expect(component).toHaveClass('ams-description-list extra')
   })
+
+  descriptionListTermsWidths.map((width) =>
+    it(`renders the class name for the ‘${width}’ terms column width`, () => {
+      const { container } = render(<DescriptionList termsWidth={width} />)
+
+      const component = container.querySelector(':only-child')
+
+      expect(component).toHaveClass(`ams-description-list--terms-width-${width}`)
+    }),
+  )
 
   it('supports ForwardRef in React', () => {
     const ref = createRef<HTMLDListElement>()
