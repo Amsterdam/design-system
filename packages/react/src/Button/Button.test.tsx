@@ -146,7 +146,7 @@ describe('Button', () => {
 
   it('renders a button with an icon only', () => {
     render(
-      <Button hideLabel icon={CloseIcon} variant="tertiary">
+      <Button icon={CloseIcon} iconOnly variant="tertiary">
         Sluiten
       </Button>,
     )

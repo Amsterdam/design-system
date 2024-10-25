@@ -10,18 +10,18 @@ import { Icon } from '../Icon'
 import type { IconProps } from '../Icon'
 
 type IconButtonProps = {
-  /** Leaves only the icon visible in the button. Requires the `icon` prop to be set. */
-  hideLabel?: boolean
   /** An icon to add to the button. */
   icon: IconProps['svg']
   /** Position the icon before the label. After is the default. Requires the `icon` prop to be set. */
   iconBefore?: boolean
+  /** Leaves only the icon visible in the button. Requires the `icon` prop to be set. */
+  iconOnly?: boolean
 }
 
 type TextButtonProps = {
-  hideLabel?: never
   icon?: never
   iconBefore?: never
+  iconOnly?: never
 }
 
 export type ButtonProps = {
@@ -32,17 +32,7 @@ export type ButtonProps = {
 
 export const Button = forwardRef(
   (
-    {
-      children,
-      className,
-      disabled,
-      icon,
-      iconBefore,
-      hideLabel,
-      type,
-      variant = 'primary',
-      ...restProps
-    }: ButtonProps,
+    { children, className, disabled, icon, iconBefore, iconOnly, type, variant = 'primary', ...restProps }: ButtonProps,
     ref: ForwardedRef<HTMLButtonElement>,
   ) => {
     return (
@@ -50,12 +40,12 @@ export const Button = forwardRef(
         {...restProps}
         ref={ref}
         disabled={disabled}
-        className={clsx('ams-button', `ams-button--${variant}`, hideLabel && `ams-button--hide-label`, className)}
+        className={clsx('ams-button', `ams-button--${variant}`, iconOnly && `ams-button--icon-only`, className)}
         type={type || 'button'}
       >
-        {icon && (iconBefore || hideLabel) && <Icon svg={icon} size="level-5" square={hideLabel} />}
-        {icon && hideLabel ? <span className="ams-visually-hidden">{children}</span> : children}
-        {icon && !iconBefore && !hideLabel && <Icon svg={icon} size="level-5" />}
+        {icon && (iconBefore || iconOnly) && <Icon svg={icon} size="level-5" square={iconOnly} />}
+        {icon && iconOnly ? <span className="ams-visually-hidden">{children}</span> : children}
+        {icon && !iconBefore && !iconOnly && <Icon svg={icon} size="level-5" />}
       </button>
     )
   },

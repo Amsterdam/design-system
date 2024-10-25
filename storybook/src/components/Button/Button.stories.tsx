@@ -13,20 +13,12 @@ const meta = {
   args: {
     children: 'Versturen',
     disabled: false,
-    hideLabel: false,
+    iconOnly: false,
     variant: 'primary',
   },
   argTypes: {
     disabled: {
       description: 'Prevents interaction. Avoid if possible.',
-    },
-    hideLabel: {
-      control: {
-        type: 'boolean',
-      },
-      if: {
-        arg: 'icon',
-      },
     },
     icon: {
       control: {
@@ -37,6 +29,14 @@ const meta = {
       mapping: Icons,
     },
     iconBefore: {
+      control: {
+        type: 'boolean',
+      },
+      if: {
+        arg: 'icon',
+      },
+    },
+    iconOnly: {
       control: {
         type: 'boolean',
       },
@@ -85,8 +85,8 @@ export const WithiconBefore: Story = {
 export const WithIconOnly: Story = {
   args: {
     children: 'Sluiten',
-    hideLabel: true,
     icon: Icons.CloseIcon,
+    iconOnly: true,
     variant: 'tertiary',
   },
 }
