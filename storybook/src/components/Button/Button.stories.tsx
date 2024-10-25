@@ -13,11 +13,20 @@ const meta = {
   args: {
     children: 'Versturen',
     disabled: false,
+    hideLabel: false,
     variant: 'primary',
   },
   argTypes: {
     disabled: {
       description: 'Prevents interaction. Avoid if possible.',
+    },
+    hideLabel: {
+      control: {
+        type: 'boolean',
+      },
+      if: {
+        arg: 'icon',
+      },
     },
     icon: {
       control: {
@@ -30,9 +39,12 @@ const meta = {
     iconPosition: {
       control: {
         type: 'inline-radio',
-        labels: { undefined: 'end', start: 'start', only: 'only' },
+        labels: { undefined: 'end', start: 'start' },
       },
-      options: [undefined, 'start', 'only'],
+      if: {
+        arg: 'icon',
+      },
+      options: [undefined, 'start'],
     },
   },
 } satisfies Meta<typeof Button>
@@ -75,8 +87,8 @@ export const WithIconAtStart: Story = {
 export const WithIconOnly: Story = {
   args: {
     children: 'Sluiten',
+    hideLabel: true,
     icon: Icons.CloseIcon,
-    iconPosition: 'only',
     variant: 'tertiary',
   },
 }

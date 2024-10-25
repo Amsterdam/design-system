@@ -57,7 +57,7 @@
           "color": { "value": "{ams.color.neutral-grey2}" }
         }
       },
-      "icon-position-only": {
+      "hide-label": {
         "padding-block": { "value": "{ams.space.sm}" },
         "padding-inline": { "value": "{ams.space.sm}" }
       }

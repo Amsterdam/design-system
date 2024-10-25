@@ -146,7 +146,7 @@ describe('Button', () => {
 
   it('renders a button with an icon only', () => {
     render(
-      <Button icon={ShareIcon} iconPosition="only" variant="tertiary">
+      <Button hideLabel icon={ShareIcon} variant="tertiary">
         Share
       </Button>,
     )
