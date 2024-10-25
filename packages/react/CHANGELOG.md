@@ -7,24 +7,25 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 ### ⚠ BREAKING CHANGES
 
-* Make API for icon in button friendlier ([#1700](https://github.com/Amsterdam/design-system/issues/1700))
-* Support various column widths for Description List ([#1697](https://github.com/Amsterdam/design-system/issues/1697))
-* Make terms bold instead of descriptions in Description List ([#1693](https://github.com/Amsterdam/design-system/issues/1693))
-* Add Action Group component, e.g. to wrap Dialog buttons in ([#1592](https://github.com/Amsterdam/design-system/issues/1592))
-* Use inline SVG icon for Radio button ([#1460](https://github.com/Amsterdam/design-system/issues/1460))
-* Remove unnecessary Dialog wrapper ([#1591](https://github.com/Amsterdam/design-system/issues/1591))
 * Remove form from Dialog ([#1582](https://github.com/Amsterdam/design-system/issues/1582))
+* Replace ‘on background’ props with ‘inverseColor’ and ‘contrastColor’ for Link, Link List Link, and Icon Button ([#1448](https://github.com/Amsterdam/design-system/issues/1448))
+* Add and rename Pagination props, remove use of aria-label
+ ([#1366](https://github.com/Amsterdam/design-system/issues/1366))
 
 ### Features
 
 * Add Action Group component, e.g. to wrap Dialog buttons in ([#1592](https://github.com/Amsterdam/design-system/issues/1592)) ([d0ea054](https://github.com/Amsterdam/design-system/commit/d0ea054b98a7f2ee41bd9a8434b76a85e9b8c9f2))
-* Add Breakout component that lets a figure stick out of a Spotlight ([#1397](https://github.com/Amsterdam/design-system/issues/1397)) ([715f4d6](https://github.com/Amsterdam/design-system/commit/715f4d6241353b9b9f1f68dad7b7773b9c618492))
+* Add and rename Pagination props, remove use of aria-label
+ ([#1366](https://github.com/Amsterdam/design-system/issues/1366)) ([ce0937](https://github.com/Amsterdam/design-system/commit/ce09376a745a7414bcf6f22c44a2f480f29cb945))
+* Add Breakout component that lets a figure stick out of a Spotlight ([#1397](https://github.com/Amsterdam/design-system/issues/1397)) ([715f4d6](<https://github.com/>
+Amsterdam/design-system/commit/715f4d6241353b9b9f1f68dad7b7773b9c618492))
 * Add Hint as component and Label and FieldSet props ([#1499](https://github.com/Amsterdam/design-system/issues/1499)) ([3d86882](https://github.com/Amsterdam/design-system/commit/3d86882f22e4629a17a98cbbf96f03ad56620be9))
+* Add initial Password Input component ([#1449](https://github.com/Amsterdam/design-system/issues/1449)) ([3cc863](https://github.com/Amsterdam/design-system/commit/3cc863ec8f1f2b50f79a426fd41676ab05838768))
 * Add utility functions as methods to Dialog ([#1576](https://github.com/Amsterdam/design-system/issues/1576)) ([f25bc01](https://github.com/Amsterdam/design-system/commit/f25bc016f1cea8c81e4b341af515fcad2f00a416))
-* Allow Button to display an icon without a label ([#1654](https://github.com/Amsterdam/design-system/issues/1654)) ([2d347b6](https://github.com/Amsterdam/design-system/commit/2d347b654b701cd6cce9182d5b6837960f41b551))
+* Allow Button to display an icon without a label ([#1654](https://github.com/Amsterdam/design-system/issues/1654), [#1700](https://github.com/Amsterdam/design-system/issues/1700)) ([2d347b6](https://github.com/Amsterdam/design-system/commit/2d347b654b701cd6cce9182d5b6837960f41b551), [33c4c0e](https://github.com/Amsterdam/design-system/commit/33c4c0edefdf9c785bb828b0c61f0a120d697b02))
 * Image slider ([#1595](https://github.com/Amsterdam/design-system/issues/1595)) ([58e7766](https://github.com/Amsterdam/design-system/commit/58e77661ad99acb5d3f6e10cbfca981345dc8704))
-* Make API for icon in button friendlier ([#1700](https://github.com/Amsterdam/design-system/issues/1700)) ([33c4c0e](https://github.com/Amsterdam/design-system/commit/33c4c0edefdf9c785bb828b0c61f0a120d697b02))
 * Make terms bold instead of descriptions in Description List ([#1693](https://github.com/Amsterdam/design-system/issues/1693)) ([cc8f40e](https://github.com/Amsterdam/design-system/commit/cc8f40e631669a2f3423b7f55b8b129c025efcf9))
+* Replace ‘on background’ props with ‘inverseColor’ and ‘contrastColor’ for Link, Link List Link, and Icon Button ([#1448](https://github.com/Amsterdam/design-system/issues/1448)) ([f5176b1](https://github.com/Amsterdam/design-system/commit/f5176b1e2c85c166fa2b6cb67d11ce0b1f9727a3))
 * Remove form from Dialog ([#1582](https://github.com/Amsterdam/design-system/issues/1582)) ([4fb6e53](https://github.com/Amsterdam/design-system/commit/4fb6e53441f3bae914eb483da2f0537a65273fd2))
 * Remove unnecessary Dialog wrapper ([#1591](https://github.com/Amsterdam/design-system/issues/1591)) ([450b0c3](https://github.com/Amsterdam/design-system/commit/450b0c3e9adf5bdd9fb868400e17aaaea4b2c545))
 * Support various column widths for Description List ([#1697](https://github.com/Amsterdam/design-system/issues/1697)) ([5a98c07](https://github.com/Amsterdam/design-system/commit/5a98c07cad19eea38a2ff299378dc4dc5b80018c))

@@ -7,7 +7,6 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 ### ⚠ BREAKING CHANGES
 
-* Make API for icon in button friendlier ([#1700](https://github.com/Amsterdam/design-system/issues/1700))
 * Support various column widths for Description List ([#1697](https://github.com/Amsterdam/design-system/issues/1697))
 * Make terms bold instead of descriptions in Description List ([#1693](https://github.com/Amsterdam/design-system/issues/1693))
 * Add Action Group component, e.g. to wrap Dialog buttons in ([#1592](https://github.com/Amsterdam/design-system/issues/1592))
@@ -23,9 +22,8 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 * Add Breakout component that lets a figure stick out of a Spotlight ([#1397](https://github.com/Amsterdam/design-system/issues/1397)) ([715f4d6](https://github.com/Amsterdam/design-system/commit/715f4d6241353b9b9f1f68dad7b7773b9c618492))
 * Add Hint as component and Label and FieldSet props ([#1499](https://github.com/Amsterdam/design-system/issues/1499)) ([3d86882](https://github.com/Amsterdam/design-system/commit/3d86882f22e4629a17a98cbbf96f03ad56620be9))
 * Add initial Password Input component ([#1449](https://github.com/Amsterdam/design-system/issues/1449)) ([3cc863e](https://github.com/Amsterdam/design-system/commit/3cc863ec8f1f2b50f79a426fd41676ab05838768))
-* Allow Button to display an icon without a label ([#1654](https://github.com/Amsterdam/design-system/issues/1654)) ([2d347b6](https://github.com/Amsterdam/design-system/commit/2d347b654b701cd6cce9182d5b6837960f41b551))
+* Allow Button to display an icon without a label ([#1654](https://github.com/Amsterdam/design-system/issues/1654), [#1700](https://github.com/Amsterdam/design-system/issues/1700)) ([2d347b6](https://github.com/Amsterdam/design-system/commit/2d347b654b701cd6cce9182d5b6837960f41b551), [33c4c0e](https://github.com/Amsterdam/design-system/commit/33c4c0edefdf9c785bb828b0c61f0a120d697b02))
 * Image slider ([#1595](https://github.com/Amsterdam/design-system/issues/1595)) ([58e7766](https://github.com/Amsterdam/design-system/commit/58e77661ad99acb5d3f6e10cbfca981345dc8704))
-* Make API for icon in button friendlier ([#1700](https://github.com/Amsterdam/design-system/issues/1700)) ([33c4c0e](https://github.com/Amsterdam/design-system/commit/33c4c0edefdf9c785bb828b0c61f0a120d697b02))
 * Make terms bold instead of descriptions in Description List ([#1693](https://github.com/Amsterdam/design-system/issues/1693)) ([cc8f40e](https://github.com/Amsterdam/design-system/commit/cc8f40e631669a2f3423b7f55b8b129c025efcf9))
 * Remove form from Dialog ([#1582](https://github.com/Amsterdam/design-system/issues/1582)) ([4fb6e53](https://github.com/Amsterdam/design-system/commit/4fb6e53441f3bae914eb483da2f0537a65273fd2))
 * Remove unnecessary Dialog wrapper ([#1591](https://github.com/Amsterdam/design-system/issues/1591)) ([450b0c3](https://github.com/Amsterdam/design-system/commit/450b0c3e9adf5bdd9fb868400e17aaaea4b2c545))
