@@ -9,14 +9,22 @@ import type { ButtonHTMLAttributes, ForwardedRef, PropsWithChildren, ReactNode }
 import { Icon } from '../Icon'
 import type { IconProps } from '../Icon'
 
-type IconButtonProps = {
-  /** An icon to add to the button. */
-  icon: IconProps['svg']
-  /** Position the icon before the label. After is the default. Requires the `icon` prop to be set. */
+type IconBeforeProp = {
+  /** Shows the icon before the label. Requires a value for `icon`. Cannot be used together with `iconOnly`. */
   iconBefore?: boolean
-  /** Leaves only the icon visible in the button. Requires the `icon` prop to be set. */
+  iconOnly?: never
+}
+
+type IconOnlyProp = {
+  iconBefore?: never
+  /** Shows the icon without the label. Requires a value for `icon`. Cannot be used together with `iconBefore`. */
   iconOnly?: boolean
 }
+
+type IconButtonProps = {
+  /** Adds an icon to the button, showing it after the label. */
+  icon: IconProps['svg']
+} & (IconBeforeProp | IconOnlyProp)
 
 type TextButtonProps = {
   icon?: never
