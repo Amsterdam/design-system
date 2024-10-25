@@ -74,7 +74,7 @@ export const WithIcon: Story = {
   },
 }
 
-export const WithiconBefore: Story = {
+export const WithIconBefore: Story = {
   args: {
     children: 'Sluiten',
     icon: Icons.CloseIcon,
