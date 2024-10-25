@@ -1,4 +1,4 @@
-import { ShareIcon } from '@amsterdam/design-system-react-icons'
+import { CloseIcon } from '@amsterdam/design-system-react-icons'
 import { render, screen } from '@testing-library/react'
 import '@testing-library/jest-dom'
 import { createRef } from 'react'
@@ -114,13 +114,13 @@ describe('Button', () => {
 
   it('renders a button with an icon at the end', () => {
     render(
-      <Button icon={ShareIcon}>
-        <span>Share</span>
+      <Button icon={CloseIcon}>
+        <span>Sluiten</span>
       </Button>,
     )
 
     const button = screen.getByRole('button', {
-      name: 'Share',
+      name: 'Sluiten',
     })
 
     expect(button).toBeInTheDocument()
@@ -130,13 +130,13 @@ describe('Button', () => {
 
   it('renders a button with an icon before the label', () => {
     render(
-      <Button icon={ShareIcon} iconBefore>
-        <span>Share</span>
+      <Button icon={CloseIcon} iconBefore>
+        <span>Sluiten</span>
       </Button>,
     )
 
     const button = screen.getByRole('button', {
-      name: 'Share',
+      name: 'Sluiten',
     })
 
     expect(button).toBeInTheDocument()
@@ -146,17 +146,17 @@ describe('Button', () => {
 
   it('renders a button with an icon only', () => {
     render(
-      <Button hideLabel icon={ShareIcon} variant="tertiary">
-        Share
+      <Button hideLabel icon={CloseIcon} variant="tertiary">
+        Sluiten
       </Button>,
     )
 
     const button = screen.getByRole('button', {
-      name: 'Share',
+      name: 'Sluiten',
     })
 
     expect(button).toBeInTheDocument()
     const label = button.querySelector('.ams-visually-hidden')
-    expect(label).toHaveTextContent('Share')
+    expect(label).toHaveTextContent('Sluiten')
   })
 })
