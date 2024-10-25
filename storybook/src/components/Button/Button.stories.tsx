@@ -13,6 +13,7 @@ const meta = {
   args: {
     children: 'Versturen',
     disabled: false,
+    icon: undefined,
     iconBefore: false,
     iconOnly: false,
     variant: 'primary',
