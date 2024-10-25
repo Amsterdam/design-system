@@ -79,6 +79,11 @@
   padding-block: 2rem;
   padding-inline: 2rem;
   place-content: center;
+
+  &:hover,
+  &:focus {
+    border-color: var(--ams-color-primary-blue);
+  }
 }
 
 .ams-file-input__preview {
