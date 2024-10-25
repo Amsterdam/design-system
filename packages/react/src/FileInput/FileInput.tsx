@@ -3,9 +3,11 @@
  * Copyright Gemeente Amsterdam
  */
 
+import { DocumentIcon } from '@amsterdam/design-system-react-icons'
 import clsx from 'clsx'
 import { forwardRef, useEffect, useId, useImperativeHandle, useRef, useState } from 'react'
 import type { ForwardedRef, InputHTMLAttributes } from 'react'
+import { Icon } from '../Icon'
 import { Paragraph } from '../Paragraph'
 
 export type FileInputProps = {
@@ -69,10 +71,20 @@ export const FileInput = forwardRef<HTMLInputElement, FileInputProps>(
           <div ref={previewRef} className="ams-file-input__preview">
             {files && files.length > 0 ? (
               Array.from(files).map((file, index) => (
-                <Paragraph key={index}>
-                  <img src={URL.createObjectURL(file)} alt={file.name} width={100} height={'auto'} />
-                  {file.name} ({prettyBytes(file.size)}) ({file.type})
-                </Paragraph>
+                <div className="ams-file-input__file">
+                  <div className="ams-file-input__thumb">
+                    {file.type.includes('image') ? (
+                      <img src={URL.createObjectURL(file)} alt={file.name} width={100} height="auto" />
+                    ) : (
+                      <Icon svg={DocumentIcon} size="level-5" square />
+                    )}
+                  </div>
+                  <Paragraph key={index}>
+                    {file.name}
+                    <br />
+                    {prettyBytes(file.size)} ({file.type})
+                  </Paragraph>
+                </div>
               ))
             ) : (
               <Paragraph>Geen bestanden geselecteerd</Paragraph>

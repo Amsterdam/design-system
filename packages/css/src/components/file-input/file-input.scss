@@ -81,5 +81,20 @@
 }
 
 .ams-file-input__preview {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
   padding-block: 1rem;
+}
+
+.ams-file-input__file {
+  display: flex;
+  flex-direction: row;
+  gap: 1rem;
+}
+
+.ams-file-input__thumb {
+  display: grid;
+  flex: 0 0 100px;
+  place-items: center;
 }
