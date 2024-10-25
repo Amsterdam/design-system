@@ -3,6 +3,21 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.3.0](https://github.com/Amsterdam/design-system/compare/design-system-assets-v0.2.2...design-system-assets-v0.3.0) (2024-10-25)
+
+
+### ⚠ BREAKING CHANGES
+
+* Use inline SVG icon for Radio button ([#1460](https://github.com/Amsterdam/design-system/issues/1460))
+* Shorten namespaces in theme and tokens ([#1125](https://github.com/Amsterdam/design-system/issues/1125))
+
+### Features
+
+* favicon, app icons and optional Web Manifest ([#1205](https://github.com/Amsterdam/design-system/issues/1205)) ([5513961](https://github.com/Amsterdam/design-system/commit/55139617966514207402f791a5b4e9778d059946))
+* Logo Museum Weesp  ([#1088](https://github.com/Amsterdam/design-system/issues/1088)) ([da1b780](https://github.com/Amsterdam/design-system/commit/da1b7808b5bcf17acb93fe46531a9722814e9256))
+* Shorten namespaces in theme and tokens ([#1125](https://github.com/Amsterdam/design-system/issues/1125)) ([1c81f3b](https://github.com/Amsterdam/design-system/commit/1c81f3bd14c1f202eec2341aec1888fb74d956d5))
+* Use inline SVG icon for Radio button ([#1460](https://github.com/Amsterdam/design-system/issues/1460)) ([c19055b](https://github.com/Amsterdam/design-system/commit/c19055bd6453ce40ca43b31d599f14ec65d6037a))
+
 ## [0.2.2](https://github.com/Amsterdam/design-system/compare/design-system-assets-v0.2.1...design-system-assets-v0.2.2) (2024-10-25)
 
 ### Features
