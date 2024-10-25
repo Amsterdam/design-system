@@ -4,8 +4,8 @@
  */
 
 import clsx from 'clsx'
-import { forwardRef, type ReactNode } from 'react'
-import type { ButtonHTMLAttributes, ForwardedRef, PropsWithChildren } from 'react'
+import { forwardRef } from 'react'
+import type { ButtonHTMLAttributes, ForwardedRef, PropsWithChildren, ReactNode } from 'react'
 import { Icon } from '../Icon'
 import type { IconProps } from '../Icon'
 
