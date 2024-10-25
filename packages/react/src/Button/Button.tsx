@@ -67,7 +67,7 @@ export const Button = forwardRef(
         className={clsx(
           'ams-button',
           `ams-button--${variant}`,
-          iconOnly && !iconBefore && `ams-button--icon-only`,
+          icon && iconOnly && !iconBefore && `ams-button--icon-only`,
           className,
         )}
         disabled={disabled}
