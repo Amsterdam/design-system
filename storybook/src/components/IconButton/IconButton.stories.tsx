@@ -32,8 +32,9 @@ const meta = {
     svg: {
       control: {
         type: 'select',
+        labels: { undefined: 'none' },
       },
-      options: Object.keys(Icons),
+      options: [undefined, ...Object.keys(Icons)],
       mapping: Icons,
     },
   },
