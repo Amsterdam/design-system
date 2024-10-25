@@ -15,9 +15,8 @@ const meta = {
     svg: {
       control: {
         type: 'select',
-        labels: { undefined: 'none' },
       },
-      options: [undefined, ...Object.keys(Icons)],
+      options: Object.keys(Icons),
       mapping: Icons,
     },
   },
