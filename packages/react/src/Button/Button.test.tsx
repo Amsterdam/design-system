@@ -122,9 +122,9 @@ describe('Button', () => {
     const button = screen.getByRole('button', {
       name: 'Sluiten',
     })
+    const icon = button.querySelector('.ams-icon:last-child')
 
     expect(button).toBeInTheDocument()
-    const icon = button.querySelector('.ams-icon:last-child')
     expect(icon).toBeInTheDocument()
   })
 
@@ -138,9 +138,9 @@ describe('Button', () => {
     const button = screen.getByRole('button', {
       name: 'Sluiten',
     })
+    const icon = button.querySelector('.ams-icon:first-child')
 
     expect(button).toBeInTheDocument()
-    const icon = button.querySelector('.ams-icon:first-child')
     expect(icon).toBeInTheDocument()
   })
 
@@ -154,9 +154,11 @@ describe('Button', () => {
     const button = screen.getByRole('button', {
       name: 'Sluiten',
     })
+    const icon = button.querySelector('.ams-icon')
+    const label = button.querySelector('.ams-visually-hidden')
 
     expect(button).toBeInTheDocument()
-    const label = button.querySelector('.ams-visually-hidden')
-    expect(label).toHaveTextContent('Sluiten')
+    expect(icon).toBeInTheDocument()
+    expect(label).toBeInTheDocument()
   })
 })
