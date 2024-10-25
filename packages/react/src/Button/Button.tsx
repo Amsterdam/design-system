@@ -44,20 +44,21 @@ export const Button = forwardRef(
     ref: ForwardedRef<HTMLButtonElement>,
   ) => {
     const content = (): ReactNode => {
-      if (!icon) return children
-
-      if (iconOnly) {
-        return [
-          <Icon key={1} svg={icon} size="level-5" square={true} />,
-          <span className="ams-visually-hidden" key={2}>
-            {children}
-          </span>,
-        ]
+      switch (true) {
+        case !icon:
+          return children
+        case iconBefore:
+          return [<Icon svg={icon} size="level-5" />, children]
+        case iconOnly:
+          return [
+            <Icon key={1} svg={icon} size="level-5" square={true} />,
+            <span className="ams-visually-hidden" key={2}>
+              {children}
+            </span>,
+          ]
+        default:
+          return [children, <Icon svg={icon} size="level-5" />]
       }
-
-      if (iconBefore) return [<Icon svg={icon} size="level-5" />, children]
-
-      return [children, <Icon svg={icon} size="level-5" />]
     }
 
     return (
