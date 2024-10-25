@@ -56,7 +56,7 @@ export const FileInput = forwardRef<HTMLInputElement, FileInputProps>(
     return (
       <>
         {showFiles && (
-          <label htmlFor={fileInputId} className="ams-file-input__label">
+          <label htmlFor={fileInputId} className="ams-file-input__label" tabIndex={1}>
             <Paragraph>Selecteer of sleep uw bestanden hier</Paragraph>
           </label>
         )}

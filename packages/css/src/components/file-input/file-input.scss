@@ -77,6 +77,7 @@
   border: 2px dashed var(--ams-color-neutral-grey3);
   cursor: pointer;
   display: grid;
+  outline-offset: 4px;
   padding-block: 2rem;
   padding-inline: 2rem;
   place-content: center;
