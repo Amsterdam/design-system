@@ -13,7 +13,7 @@ jobs:
 
     steps:
       - name: Create release
-        uses: googleapis/release-please-action@v4
+        uses: googleapis/release-please-action@d1a8f221d7723166f48a584aebba00ef3f6febec # v4.1.4
         id: release
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
@@ -21,7 +21,7 @@ jobs:
 
       # The logic below handles the npm publication:
       - name: Check out branch
-        uses: actions/checkout@v4
+        uses: actions/checkout@eef61447b9ff4aafe5dcd4e0bbf5d482be7e7871 # v4.2.1
         with:
           # This is necessary because on.workflow_run always runs on the
           # default branch, which is 'develop' in our case
@@ -31,14 +31,14 @@ jobs:
         if: ${{ steps.release.outputs.releases_created == 'true' }}
 
       - name: Set up Node.js version
-        uses: actions/setup-node@v4
+        uses: actions/setup-node@0a44ba7841725637a19e28fa30b79a866c81b0a6 # v4.0.4
         with:
           node-version: 20
           registry-url: "https://registry.npmjs.org"
         if: ${{ steps.release.outputs.releases_created == 'true' }}
 
       - name: Install pnpm
-        uses: pnpm/action-setup@v4
+        uses: pnpm/action-setup@fe02b34f77f8bc703788d5817da081398fad5dd2 # v4.0.0
         id: pnpm-install
         with:
           version: 9
@@ -52,7 +52,7 @@ jobs:
         if: ${{ steps.release.outputs.releases_created == 'true' }}
 
       - name: Set up pnpm cache
-        uses: actions/cache@v4
+        uses: actions/cache@6849a6489940f00c2f30c0fb92c6274307ccb58a # v4.1.2
         with:
           path: ${{ steps.pnpm-cache.outputs.pnpm_cache_dir }}
           key: ${{ runner.os }}-pnpm-store-${{ hashFiles('**/pnpm-lock.yaml') }}
@@ -76,7 +76,7 @@ jobs:
 
       # The logic below handles the Storybook deploy:
       - name: "Restore build artifact: Storybook"
-        uses: dawidd6/action-download-artifact@v6
+        uses: dawidd6/action-download-artifact#bf251b5aa9c2f7eeb574a96ee720e24f801b7c11 # v6
         with:
           workflow: "lint-test.yml"
           name: storybook
@@ -84,7 +84,7 @@ jobs:
         if: ${{ steps.release.outputs.releases_created == 'true' }}
 
       - name: Deploy to GitHub Pages
-        uses: JamesIves/github-pages-deploy-action@v4
+        uses: JamesIves/github-pages-deploy-action@94f3c658273cf92fb48ef99e5fbc02bd2dc642b2 # v4.6.3
         with:
           branch: gh-pages
           folder: dist/storybook
