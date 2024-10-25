@@ -22,7 +22,6 @@ jobs:
         uses: pnpm/action-setup@fe02b34f77f8bc703788d5817da081398fad5dd2 # v4.0.0
         id: pnpm-install
         with:
-          version: 9
           run_install: false
 
       - name: Get pnpm store directory
@@ -60,7 +59,6 @@ jobs:
         uses: pnpm/action-setup@fe02b34f77f8bc703788d5817da081398fad5dd2 # v4.0.0
         id: pnpm-install
         with:
-          version: 9
           run_install: false
 
       - name: Get pnpm store directory
