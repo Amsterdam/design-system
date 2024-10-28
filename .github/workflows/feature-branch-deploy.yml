@@ -67,7 +67,7 @@ jobs:
           target-folder: demo-${{ env.BRANCH_NAME }}
 
       - name: Wait for GitHub Pages to be deployed
-        uses: mydea/action-wait-for-api@v1
+        uses: mydea/action-wait-for-api@v2
         with:
           url: https://${{ github.repository_owner }}.github.io/${{ github.event.repository.name }}/demo-${{ env.BRANCH_NAME }}/${{ github.sha }}.txt
           expected-status: 200
