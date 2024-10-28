@@ -3,7 +3,7 @@
  * Copyright Gemeente Amsterdam
  */
 
-import { Grid, Paragraph, Screen } from '@amsterdam/design-system-react'
+import { Grid, Paragraph } from '@amsterdam/design-system-react'
 import { SkipLink } from '@amsterdam/design-system-react/src'
 import { Meta, StoryObj } from '@storybook/react'
 
@@ -28,13 +28,13 @@ const meta = {
   },
   decorators: [
     (Story) => (
-      <Screen>
+      <>
         <Grid>
           <Grid.Cell span="all">
             <Story />
           </Grid.Cell>
         </Grid>
-      </Screen>
+      </>
     ),
   ],
 } satisfies Meta<typeof SkipLink>

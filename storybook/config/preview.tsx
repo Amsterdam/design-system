@@ -4,6 +4,7 @@ import '@amsterdam/design-system-assets/font/index.css'
 import '@amsterdam/design-system-css/dist/index.css'
 import '../src/styles/docs.css'
 import '../src/styles/overrides.css'
+import { Screen } from '@amsterdam/design-system-react'
 import { withThemeByClassName } from '@storybook/addon-themes'
 import { viewports } from './viewports'
 
@@ -13,12 +14,12 @@ export const argTypes = {
   },
 }
 
-// Set language to Dutch for Canvas and Stories
+// Wrap in Screen, set language to Dutch for Canvas and Stories
 export const decorators = [
   (Story: any) => (
-    <div lang="nl">
+    <Screen lang="nl">
       <Story />
-    </div>
+    </Screen>
   ),
   withThemeByClassName({
     themes: {
@@ -57,7 +58,4 @@ export const parameters = {
     viewports,
   },
   viewMode: 'docs',
-  html: {
-    root: 'div[lang="nl"]',
-  },
 }
