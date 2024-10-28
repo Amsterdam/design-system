@@ -82,18 +82,6 @@ export const RichDescription: Story = {
   ),
 }
 
-export const MultipleTerms: Story = {
-  args: {
-    children: [
-      <DescriptionList.Term key={1}>mbo-leerling</DescriptionList.Term>,
-      <DescriptionList.Term key={2}>mbo-scholier</DescriptionList.Term>,
-      <DescriptionList.Description key={3} style={{ gridRow: '1 / 2' }}>
-        mbo-student
-      </DescriptionList.Description>,
-    ],
-  },
-}
-
 export const InverseColour: Story = {
   args: {
     inverseColor: true,
