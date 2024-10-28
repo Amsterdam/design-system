@@ -78,14 +78,15 @@
 .ams-file-input__file {
   display: flex;
   flex-direction: row;
-  gap: var(--ams-file-input-preview-file-gap);
-}
-
-.ams-file-input__file-title {
+  font-family: var(--ams-file-input-preview-file-font-family);
   font-size: var(--ams-file-input-preview-file-font-size);
   font-weight: var(--ams-file-input-preview-file-font-weight);
   gap: var(--ams-file-input-preview-file-gap);
   line-height: var(--ams-file-input-preview-file-line-height);
+}
+
+.ams-file-input__file-title {
+  gap: var(--ams-file-input-preview-file-gap);
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
