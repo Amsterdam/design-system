@@ -5,7 +5,7 @@ import '@testing-library/jest-dom'
 
 describe('Description List Description', () => {
   it('renders', () => {
-    render(<DescriptionList.Details>Test</DescriptionList.Details>)
+    render(<DescriptionList.Description>Test</DescriptionList.Description>)
 
     const component = screen.getByRole('definition')
 
@@ -14,25 +14,25 @@ describe('Description List Description', () => {
   })
 
   it('renders a design system BEM class name', () => {
-    render(<DescriptionList.Details>Test</DescriptionList.Details>)
+    render(<DescriptionList.Description>Test</DescriptionList.Description>)
 
     const component = screen.getByRole('definition')
 
-    expect(component).toHaveClass('ams-description-list__details')
+    expect(component).toHaveClass('ams-description-list__description')
   })
 
   it('renders an additional class name', () => {
-    render(<DescriptionList.Details className="extra">Test</DescriptionList.Details>)
+    render(<DescriptionList.Description className="extra">Test</DescriptionList.Description>)
 
     const component = screen.getByRole('definition')
 
-    expect(component).toHaveClass('ams-description-list__details extra')
+    expect(component).toHaveClass('ams-description-list__description extra')
   })
 
   it('supports ForwardRef in React', () => {
     const ref = createRef<HTMLElement>()
 
-    render(<DescriptionList.Details ref={ref}>Test</DescriptionList.Details>)
+    render(<DescriptionList.Description ref={ref}>Test</DescriptionList.Description>)
 
     const component = screen.getByRole('definition')
 
