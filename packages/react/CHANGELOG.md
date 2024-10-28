@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.13.0](https://github.com/Amsterdam/design-system/compare/design-system-react-v0.12.0...design-system-react-v0.13.0) (2024-10-28)
+
+
+### ⚠ BREAKING CHANGES
+
+* Rename Description List ‘details’ to ’description’ ([#1703](https://github.com/Amsterdam/design-system/issues/1703))
+
+### Bug Fixes
+
+* Don’t render a Description List class for an undefined value ([#1705](https://github.com/Amsterdam/design-system/issues/1705)) ([63c1fed](https://github.com/Amsterdam/design-system/commit/63c1fed6beb60a8d42c6dd3fe029ef45c7d150ac))
+* Rename Description List ‘details’ to ’description’ ([#1703](https://github.com/Amsterdam/design-system/issues/1703)) ([139d8cb](https://github.com/Amsterdam/design-system/commit/139d8cb5c8fc4ffc93a2283abeabda6b8364b7cc))
+
 ## [0.12.0](https://github.com/Amsterdam/design-system/compare/design-system-react-v0.11.1...design-system-react-v0.12.0) (2024-10-25)
 
 ### ⚠ BREAKING CHANGES
