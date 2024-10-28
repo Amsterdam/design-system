@@ -11,7 +11,7 @@
       "term": {
         "font-weight": { "value": "{ams.text.font-weight.bold}" }
       },
-      "details": {
+      "description": {
         "font-weight": { "value": "{ams.text.font-weight.normal}" },
         "padding-inline-start": { "value": "{ams.space.lg}" }
       }

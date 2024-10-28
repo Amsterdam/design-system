@@ -15,15 +15,15 @@ const meta = {
   args: {
     children: [
       <DescriptionList.Term key={1}>Het hoger onderwijs</DescriptionList.Term>,
-      <DescriptionList.Details key={2}>Het hbo en wo</DescriptionList.Details>,
+      <DescriptionList.Description key={2}>Het hbo en wo</DescriptionList.Description>,
       <DescriptionList.Term key={3}>Het mbo en hoger onderwijs</DescriptionList.Term>,
-      <DescriptionList.Details key={4}>Het vervolgonderwijs</DescriptionList.Details>,
+      <DescriptionList.Description key={4}>Het vervolgonderwijs</DescriptionList.Description>,
       <DescriptionList.Term key={5}>Laagopgeleid</DescriptionList.Term>,
-      <DescriptionList.Details key={6}>Praktisch opgeleid</DescriptionList.Details>,
+      <DescriptionList.Description key={6}>Praktisch opgeleid</DescriptionList.Description>,
       <DescriptionList.Term key={7}>Hoogopgeleid</DescriptionList.Term>,
-      <DescriptionList.Details key={8}>Theoretisch opgeleid</DescriptionList.Details>,
+      <DescriptionList.Description key={8}>Theoretisch opgeleid</DescriptionList.Description>,
       <DescriptionList.Term key={9}>Opleidingsniveau</DescriptionList.Term>,
-      <DescriptionList.Details key={10}>Onderwijsrichting</DescriptionList.Details>,
+      <DescriptionList.Description key={10}>Onderwijsrichting</DescriptionList.Description>,
     ],
     inverseColor: false,
   },
@@ -48,10 +48,10 @@ export const MultipleDescriptions: Story = {
   args: {
     children: [
       <DescriptionList.Term key={1}>Blinde, slechtziende</DescriptionList.Term>,
-      <DescriptionList.Details key={2}>Persoon met een visuele beperking</DescriptionList.Details>,
-      <DescriptionList.Details key={3}>Persoon met een visuele handicap</DescriptionList.Details>,
-      <DescriptionList.Details key={4}>Persoon die blind is</DescriptionList.Details>,
-      <DescriptionList.Details key={5}>Persoon die slechtziend is</DescriptionList.Details>,
+      <DescriptionList.Description key={2}>Persoon met een visuele beperking</DescriptionList.Description>,
+      <DescriptionList.Description key={3}>Persoon met een visuele handicap</DescriptionList.Description>,
+      <DescriptionList.Description key={4}>Persoon die blind is</DescriptionList.Description>,
+      <DescriptionList.Description key={5}>Persoon die slechtziend is</DescriptionList.Description>,
     ],
   },
 }
@@ -60,7 +60,7 @@ export const RichDescription: Story = {
   render: (args) => (
     <DescriptionList {...args}>
       <DescriptionList.Term key={1}>Amsterdam Light Festival</DescriptionList.Term>
-      <DescriptionList.Details key={2}>
+      <DescriptionList.Description key={2}>
         <Paragraph className="ams-mb--sm" inverseColor={args.inverseColor}>
           Een jaarlijks evenement waarbij kunstenaars van over de hele wereld hun{' '}
           <strong>creatieve lichtinstallaties</strong> tonen. De kunstwerken zijn verspreid over de stad en zijn zowel
@@ -77,21 +77,9 @@ export const RichDescription: Story = {
             .
           </UnorderedList.Item>
         </UnorderedList>
-      </DescriptionList.Details>
+      </DescriptionList.Description>
     </DescriptionList>
   ),
-}
-
-export const MultipleTerms: Story = {
-  args: {
-    children: [
-      <DescriptionList.Term key={1}>mbo-leerling</DescriptionList.Term>,
-      <DescriptionList.Term key={2}>mbo-scholier</DescriptionList.Term>,
-      <DescriptionList.Details key={3} style={{ gridRow: '1 / 2' }}>
-        mbo-student
-      </DescriptionList.Details>,
-    ],
-  },
 }
 
 export const InverseColour: Story = {
