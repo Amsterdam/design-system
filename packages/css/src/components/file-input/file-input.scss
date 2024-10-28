@@ -11,7 +11,7 @@
   box-sizing: border-box;
 }
 
-.ams-file-input:not(.ams-file-input--has-preview) {
+.ams-file-input {
   background-color: var(--ams-file-input-background-color);
   border: var(--ams-file-input-border);
   color: var(--ams-file-input-color);
@@ -34,7 +34,7 @@
   cursor: var(--ams-file-input-disabled-cursor);
 }
 
-.ams-file-input:not(.ams-file-input--has-preview)::file-selector-button {
+.ams-file-input::file-selector-button {
   -webkit-appearance: none; // Reset appearance for Safari < 15.4
   appearance: none; // Reset native appearance, this causes issues on iOS and Android devices
   background-color: var(--ams-file-input-file-selector-button-background-color);
@@ -68,41 +68,35 @@
   color: var(--ams-file-input-file-selector-button-hover-color);
 }
 
-.ams-file-input--has-preview {
-  appearance: none;
-  display: none;
-}
-
-.ams-file-input__label {
-  border: 2px dashed var(--ams-color-neutral-grey3);
-  cursor: pointer;
-  display: grid;
-  outline-offset: 4px;
-  padding-block: 2rem;
-  padding-inline: 2rem;
-  place-content: center;
-
-  &:hover,
-  &:focus {
-    border-color: var(--ams-color-primary-blue);
-  }
-}
-
 .ams-file-input__preview {
   display: flex;
   flex-direction: column;
-  gap: 1rem;
-  padding-block: 1rem;
+  gap: var(--ams-file-input-preview-gap);
+  padding-block: var(--ams-file-input-preview-padding-block);
 }
 
 .ams-file-input__file {
   display: flex;
   flex-direction: row;
-  gap: 1rem;
+  gap: var(--ams-file-input-preview-file-gap);
 }
 
-.ams-file-input__thumb {
+.ams-file-input__file-title {
+  font-size: var(--ams-file-input-preview-file-font-size);
+  font-weight: var(--ams-file-input-preview-file-font-weight);
+  gap: var(--ams-file-input-preview-file-gap);
+  line-height: var(--ams-file-input-preview-file-line-height);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.ams-file-input__file-details {
+  color: var(--ams-file-input-preview-file-details-color);
+}
+
+.ams-file-input__file-preview {
   display: grid;
-  flex: 0 0 100px;
+  flex: 0 0 50px;
   place-items: center;
 }

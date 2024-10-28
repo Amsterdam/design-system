@@ -8,7 +8,6 @@ import clsx from 'clsx'
 import { forwardRef, useEffect, useId, useImperativeHandle, useRef, useState } from 'react'
 import type { ForwardedRef, InputHTMLAttributes } from 'react'
 import { Icon } from '../Icon'
-import { Paragraph } from '../Paragraph'
 
 export type FileInputProps = {
   showFiles?: boolean
@@ -40,26 +39,46 @@ export const FileInput = forwardRef<HTMLInputElement, FileInputProps>(
       return () => window.removeEventListener('change', updateFilesPreview)
     }, [showFiles])
 
-    const prettyBytes = (num: number, precision = 3, addSpace = true) => {
+    const prettyBytes = (num: number, precision = 3) => {
       const UNITS = ['B', 'KB', 'MB', 'GB', 'TB', 'PB', 'EB', 'ZB', 'YB']
 
-      if (Math.abs(num) < 1) {
-        return num + (addSpace ? ' ' : '') + UNITS[0]
+      if (num === 0) return '0 B'
+
+      const exponent = Math.floor(Math.log10(num) / 3)
+      const size = (num / Math.pow(1000, exponent)).toPrecision(precision)
+
+      return `${size}${UNITS[exponent]}`
+    }
+
+    const prettyType = (type: string) => {
+      switch (type) {
+        case 'image/gif':
+          return 'gif'
+        case 'image/jpeg':
+          return 'jpg'
+        case 'image/png':
+          return 'png'
+        case 'application/pdf':
+          return 'PDF'
+        case 'application/msword':
+          return 'Word'
+        case 'application/vnd.openxmlformats-officedocument.wordprocessingml.document':
+          return 'Word'
+        case 'application/vnd.ms-excel':
+          return 'Excel'
+        case 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet':
+          return 'Excel'
+        case 'application/vnd.ms-powerpoint':
+          return 'PowerPoint'
+        case 'application/vnd.openxmlformats-officedocument.presentationml.presentation':
+          return 'PowerPoint'
+        default:
+          return type
       }
-
-      const exponent = Math.min(Math.floor(Math.log10(Math.abs(num)) / 3), UNITS.length - 1)
-      const n = Number((Math.abs(num) / 1000 ** exponent).toPrecision(precision))
-
-      return (num < 0 ? '-' : '') + n + (addSpace ? ' ' : '') + UNITS[exponent]
     }
 
     return (
       <>
-        {showFiles && (
-          <label htmlFor={fileInputId} className="ams-file-input__label" tabIndex={1}>
-            <Paragraph>Selecteer of sleep uw bestanden hier</Paragraph>
-          </label>
-        )}
         <input
           {...restProps}
           id={showFiles ? fileInputId : undefined}
@@ -69,26 +88,25 @@ export const FileInput = forwardRef<HTMLInputElement, FileInputProps>(
         />
         {showFiles && (
           <div ref={previewRef} className="ams-file-input__preview">
-            {files && files.length > 0 ? (
-              Array.from(files).map((file, index) => (
-                <div className="ams-file-input__file">
-                  <div className="ams-file-input__thumb">
-                    {file.type.includes('image') ? (
-                      <img src={URL.createObjectURL(file)} alt={file.name} width={100} height="auto" />
-                    ) : (
-                      <Icon svg={DocumentIcon} size="level-5" square />
-                    )}
+            {files && files.length > 0
+              ? Array.from(files).map((file) => (
+                  <div className="ams-file-input__file">
+                    <div className="ams-file-input__file-preview">
+                      {file.type.includes('image') ? (
+                        <img src={URL.createObjectURL(file)} alt={file.name} width={50} height="auto" />
+                      ) : (
+                        <Icon svg={DocumentIcon} size="level-3" square />
+                      )}
+                    </div>
+                    <div className="ams-file-input__file-title">
+                      {file.name}
+                      <div className="ams-file-input__file-details">
+                        ({prettyType(file.type)} {prettyBytes(file.size)} )
+                      </div>
+                    </div>
                   </div>
-                  <Paragraph key={index}>
-                    {file.name}
-                    <br />
-                    {prettyBytes(file.size)} ({file.type})
-                  </Paragraph>
-                </div>
-              ))
-            ) : (
-              <Paragraph>Geen bestanden geselecteerd</Paragraph>
-            )}
+                ))
+              : null}
           </div>
         )}
       </>
