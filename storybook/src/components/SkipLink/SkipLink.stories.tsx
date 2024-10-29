@@ -28,13 +28,11 @@ const meta = {
   },
   decorators: [
     (Story) => (
-      <>
-        <Grid>
-          <Grid.Cell span="all">
-            <Story />
-          </Grid.Cell>
-        </Grid>
-      </>
+      <Grid>
+        <Grid.Cell span="all">
+          <Story />
+        </Grid.Cell>
+      </Grid>
     ),
   ],
 } satisfies Meta<typeof SkipLink>
