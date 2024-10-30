@@ -3,15 +3,55 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
-## [0.11.1](https://github.com/Amsterdam/design-system/compare/design-system-css-v0.11.0...design-system-css-v0.11.1) (2024-08-29)
+## [0.13.0](https://github.com/Amsterdam/design-system/compare/design-system-css-v0.12.0...design-system-css-v0.13.0) (2024-10-28)
 
+
+### ⚠ BREAKING CHANGES
+
+* Rename Description List ‘details’ to ’description’ ([#1703](https://github.com/Amsterdam/design-system/issues/1703))
+
+### Bug Fixes
+
+* Rename Description List ‘details’ to ’description’ ([#1703](https://github.com/Amsterdam/design-system/issues/1703)) ([139d8cb](https://github.com/Amsterdam/design-system/commit/139d8cb5c8fc4ffc93a2283abeabda6b8364b7cc))
+
+## [0.12.0](https://github.com/Amsterdam/design-system/compare/design-system-css-v0.11.1...design-system-css-v0.12.0) (2024-10-25)
+
+### ⚠ BREAKING CHANGES
+
+* Add Action Group component, e.g. to wrap Dialog buttons in ([#1592](https://github.com/Amsterdam/design-system/issues/1592))
+* Use inline SVG icon for Radio button ([#1460](https://github.com/Amsterdam/design-system/issues/1460))
+* Remove unnecessary Dialog wrapper ([#1591](https://github.com/Amsterdam/design-system/issues/1591))
+* Remove form from Dialog ([#1582](https://github.com/Amsterdam/design-system/issues/1582))
+* Replace ‘on background’ props with ‘inverseColor’ and ‘contrastColor’ for Link, Link List Link, and Icon Button ([#1448](https://github.com/Amsterdam/design-system/issues/1448))
+
+### Features
+
+* Add Action Group component, e.g. to wrap Dialog buttons in ([#1592](https://github.com/Amsterdam/design-system/issues/1592)) ([d0ea054](https://github.com/Amsterdam/design-system/commit/d0ea054b98a7f2ee41bd9a8434b76a85e9b8c9f2))
+* Add border to Avatar in forced colors mode ([#1578](https://github.com/Amsterdam/design-system/issues/1578)) ([1f29f35](https://github.com/Amsterdam/design-system/commit/1f29f358ab7b831c502e8fa2cbd284d1853ff6af))
+* Add Breakout component that lets a figure stick out of a Spotlight ([#1397](https://github.com/Amsterdam/design-system/issues/1397)) ([715f4d6](https://github.com/Amsterdam/design-system/commit/715f4d6241353b9b9f1f68dad7b7773b9c618492))
+* Add Hint as component and Label and FieldSet props ([#1499](https://github.com/Amsterdam/design-system/issues/1499)) ([3d86882](https://github.com/Amsterdam/design-system/commit/3d86882f22e4629a17a98cbbf96f03ad56620be9))
+* Add initial Password Input component ([#1449](https://github.com/Amsterdam/design-system/issues/1449)) ([3cc863](https://github.com/Amsterdam/design-system/commit/3cc863ec8f1f2b50f79a426fd41676ab05838768))
+* Add utility functions as methods to Dialog ([#1576](https://github.com/Amsterdam/design-system/issues/1576)) ([f25bc01](https://github.com/Amsterdam/design-system/commit/f25bc016f1cea8c81e4b341af515fcad2f00a416))
+* Allow Button to display an icon without a label ([#1654](https://github.com/Amsterdam/design-system/issues/1654), [#1700](https://github.com/Amsterdam/design-system/issues/1700)) ([2d347b6](https://github.com/Amsterdam/design-system/commit/2d347b654b701cd6cce9182d5b6837960f41b551), [33c4c0e](https://github.com/Amsterdam/design-system/commit/33c4c0edefdf9c785bb828b0c61f0a120d697b02))
+* Image slider ([#1595](https://github.com/Amsterdam/design-system/issues/1595)) ([58e7766](https://github.com/Amsterdam/design-system/commit/58e77661ad99acb5d3f6e10cbfca981345dc8704))
+* Make terms bold instead of descriptions in Description List ([#1693](https://github.com/Amsterdam/design-system/issues/1693)) ([cc8f40e](https://github.com/Amsterdam/design-system/commit/cc8f40e631669a2f3423b7f55b8b129c025efcf9))
+* Replace ‘on background’ props with ‘inverseColor’ and ‘contrastColor’ for Link, Link List Link, and Icon Button ([#1448](https://github.com/Amsterdam/design-system/issues/1448)) ([f5176b1](https://github.com/Amsterdam/design-system/commit/f5176b1e2c85c166fa2b6cb67d11ce0b1f9727a3))
+* Remove form from Dialog ([#1582](https://github.com/Amsterdam/design-system/issues/1582)) ([4fb6e53](https://github.com/Amsterdam/design-system/commit/4fb6e53441f3bae914eb483da2f0537a65273fd2))
+* Remove margin Safari sets on buttons ([#1529](https://github.com/Amsterdam/design-system/issues/1529)) ([2ccc1b](https://github.com/Amsterdam/design-system/commit/2ccc1bc4eba83a49c37213582fae5d9e7ee6fc98))
+* Remove unnecessary Dialog wrapper ([#1591](https://github.com/Amsterdam/design-system/issues/1591)) ([450b0c3](https://github.com/Amsterdam/design-system/commit/450b0c3e9adf5bdd9fb868400e17aaaea4b2c545))
+* Show selected and disabled Tabs in forced colors mode ([#1517](https://github.com/Amsterdam/design-system/issues/1517)) ([339bd1](https://github.com/Amsterdam/design-system/commit/339bd1eff89e095a96be048ea6f6311bbf3e7980))
+* Show Switch in forced colors mode ([#1528](https://github.com/Amsterdam/design-system/issues/1528)) ([302ae7](https://github.com/Amsterdam/design-system/commit/302ae75ecc5de23cbb0f371d169daa9ed0a1a61c))
+* Support various column widths for Description List ([#1697](https://github.com/Amsterdam/design-system/issues/1697)) ([5a98c07](https://github.com/Amsterdam/design-system/commit/5a98c07cad19eea38a2ff299378dc4dc5b80018c))
+* Update spacing in Ordered and Unordered List ([#1632](https://github.com/Amsterdam/design-system/issues/1632)) ([986e023](https://github.com/Amsterdam/design-system/commit/986e023b83007560911724e819f54fb18c97f1dc))
+* Use inline SVG icon for Radio button ([#1460](https://github.com/Amsterdam/design-system/issues/1460)) ([c19055b](https://github.com/Amsterdam/design-system/commit/c19055bd6453ce40ca43b31d599f14ec65d6037a))
+
+## [0.11.1](https://github.com/Amsterdam/design-system/compare/design-system-css-v0.11.0...design-system-css-v0.11.1) (2024-08-29)
 
 ### Bug Fixes
 
 * Close Dialog without submit ([#1547](https://github.com/Amsterdam/design-system/issues/1547)) ([d9cc107](https://github.com/Amsterdam/design-system/commit/d9cc1079e2f784fd7002b7f785fcfdaa750cb240))
 
 ## [0.11.0](https://github.com/Amsterdam/design-system/compare/design-system-css-v0.10.0...design-system-css-v0.11.0) (2024-07-25)
-
 
 ### ⚠ BREAKING CHANGES
 
@@ -36,14 +76,12 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 * Rename Form Field Character Counter to Character Count ([#1363](https://github.com/Amsterdam/design-system/issues/1363)) ([a5299db](https://github.com/Amsterdam/design-system/commit/a5299dbfb3659bada5565893be63f615b511c0ee))
 * Use flexbox and regular space in Column as we do in Row ([#1388](https://github.com/Amsterdam/design-system/issues/1388)) ([86d693c](https://github.com/Amsterdam/design-system/commit/86d693cf75be205cd096abe339cdd3f97e9b1a2f))
 
-
 ### Bug Fixes
 
 * Change CSS classes for Heading level for consistency with token names ([#1355](https://github.com/Amsterdam/design-system/issues/1355)) ([7c34bbe](https://github.com/Amsterdam/design-system/commit/7c34bbea69b377b8e5efffd169374d383cddc54b))
 * Include ‘gap-’ in class names for Row and Column gap ([#1421](https://github.com/Amsterdam/design-system/issues/1421)) ([21cfcbf](https://github.com/Amsterdam/design-system/commit/21cfcbfc80b8fd3dac797428ee42a52447a9b9de))
 
 ## [0.10.0](https://github.com/Amsterdam/design-system/compare/design-system-css-v0.9.0...design-system-css-v0.10.0) (2024-06-28)
-
 
 ### ⚠ BREAKING CHANGES
 
@@ -59,14 +97,12 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 * Change values for tall, wide, and extra wide aspect ratios ([#1254](https://github.com/Amsterdam/design-system/issues/1254)) ([478508a](https://github.com/Amsterdam/design-system/commit/478508a758f311b89dfb8214813b25e50d875ff0))
 * Rename title props for Alert, Header and Dialog and require it for Dialog ([#1251](https://github.com/Amsterdam/design-system/issues/1251)) ([bbec4de](https://github.com/Amsterdam/design-system/commit/bbec4de523bebb4d8187e713d4d79af228953674))
 
-
 ### Bug Fixes
 
 * Fix FieldSet float issue ([#1268](https://github.com/Amsterdam/design-system/issues/1268)) ([5593916](https://github.com/Amsterdam/design-system/commit/5593916904db612f4dfa1c5d02c88add35d0103a))
 * Start-align text in Accordion Button ([#1266](https://github.com/Amsterdam/design-system/issues/1266)) ([6eb474d](https://github.com/Amsterdam/design-system/commit/6eb474ddd50c344dd06da064689d5ed1a374d907))
 
 ## [0.9.0](https://github.com/Amsterdam/design-system/compare/design-system-css-v0.8.0...design-system-css-v0.9.0) (2024-06-05)
-
 
 ### ⚠ BREAKING CHANGES
 
@@ -93,7 +129,6 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 * Use invalid prop for most inputs ([#1240](https://github.com/Amsterdam/design-system/issues/1240)) ([9477186](https://github.com/Amsterdam/design-system/commit/9477186b8432d6d20991e93d92c64a4357d6f391))
 * Use logical properties for Search Field, Select, Text Area and Text Input ([#1226](https://github.com/Amsterdam/design-system/issues/1226)) ([4471c7a](https://github.com/Amsterdam/design-system/commit/4471c7a154e9f1f31dd92298f932f4bbc134dbf9))
 
-
 ### Bug Fixes
 
 * Disallow directional style rules ([#1245](https://github.com/Amsterdam/design-system/issues/1245)) ([8ab6f81](https://github.com/Amsterdam/design-system/commit/8ab6f81d4cbcdb75b7acb986a145d49ccd1895c8))
@@ -102,7 +137,6 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 * Reset the lower placeholder opacity set by Firefox ([#1239](https://github.com/Amsterdam/design-system/issues/1239)) ([d2b371e](https://github.com/Amsterdam/design-system/commit/d2b371e02c385b2ee8371c9ca0c85ea5c0e706aa))
 
 ## [0.8.0](https://github.com/Amsterdam/design-system/compare/design-system-css-v0.7.1...design-system-css-v0.8.0) (2024-04-22)
-
 
 ### ⚠ BREAKING CHANGES
 
@@ -124,26 +158,22 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 * Set explicit white background on text fields ([#1200](https://github.com/Amsterdam/design-system/issues/1200)) ([e22d48e](https://github.com/Amsterdam/design-system/commit/e22d48eae8994eb370e3edef38a0ca1e015925bf))
 * Time input component ([#1202](https://github.com/Amsterdam/design-system/issues/1202)) ([ccec68e](https://github.com/Amsterdam/design-system/commit/ccec68efafa02d5f9ac9bd4abea6c5e7cb72d556))
 
-
 ### Bug Fixes
 
 * Fix SearchField styling on Safari on iOS ([#1203](https://github.com/Amsterdam/design-system/issues/1203)) ([eb05fff](https://github.com/Amsterdam/design-system/commit/eb05fff8295af3c59ef584700e3c1bc06da0c924))
 
 ## [0.7.1](https://github.com/Amsterdam/design-system/compare/design-system-css-v0.7.0...design-system-css-v0.7.1) (2024-03-22)
 
-
 ### Features
 
 * Add Avatar component ([#1134](https://github.com/Amsterdam/design-system/issues/1134)) ([8dec2cf](https://github.com/Amsterdam/design-system/commit/8dec2cff8f7885ccb163774c0dc979fb2c781256))
 * Add Form Field Character Counter ([#1114](https://github.com/Amsterdam/design-system/issues/1114)) ([779ae8c](https://github.com/Amsterdam/design-system/commit/779ae8c9764b23508ffbfb38c6dc2f7a7c1cbd28))
-
 
 ### Bug Fixes
 
 * Use semantic Heading for the title of a Dialog ([#1123](https://github.com/Amsterdam/design-system/issues/1123)) ([0493fd8](https://github.com/Amsterdam/design-system/commit/0493fd87587d36a83bb7aa9cbb69b8debf5d66f0))
 
 ## [0.7.0](https://github.com/Amsterdam/design-system/compare/design-system-css-v0.6.1...design-system-css-v0.7.0) (2024-03-12)
-
 
 ### ⚠ BREAKING CHANGES
 
@@ -155,13 +185,11 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 ## [0.6.1](https://github.com/Amsterdam/design-system/compare/design-system-css-v0.6.0...design-system-css-v0.6.1) (2024-03-11)
 
-
 ### Bug Fixes
 
 * Button fixes ([#1122](https://github.com/Amsterdam/design-system/issues/1122)) ([b5a9504](https://github.com/Amsterdam/design-system/commit/b5a950491f46710d92526ce6012f7d76992a569f))
 
 ## [0.6.0](https://github.com/Amsterdam/design-system/compare/design-system-css-v0.5.0...design-system-css-v0.6.0) (2024-03-08)
-
 
 ### ⚠ BREAKING CHANGES
 
@@ -187,13 +215,11 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 * Rename ‘header logo’ to ‘header logo link’ and add missing token for outline offset ([#1108](https://github.com/Amsterdam/design-system/issues/1108)) ([f87e834](https://github.com/Amsterdam/design-system/commit/f87e8345ec900ab08941d5d7ab40f8abd16a569a))
 * Use spacing tokens in Grid component ([#1089](https://github.com/Amsterdam/design-system/issues/1089)) ([b55f0a3](https://github.com/Amsterdam/design-system/commit/b55f0a3b64dcfb660a878ade75033a1dd835ac2d))
 
-
 ### Bug Fixes
 
 * Remove whitespace at the right end of dialog content ([#1091](https://github.com/Amsterdam/design-system/issues/1091)) ([23e1253](https://github.com/Amsterdam/design-system/commit/23e1253e38bba8ac85ebbd696af37742d1c1a02d))
 
 ## [0.5.0](https://github.com/Amsterdam/design-system/compare/@amsterdam/design-system-css@0.4.0...design-system-css-v0.5.0) (2024-02-09)
-
 
 ### ⚠ BREAKING CHANGES
 
@@ -207,7 +233,6 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 * Rename `root.css` to `index.css` ([#1067](https://github.com/Amsterdam/design-system/issues/1067)) ([e773434](https://github.com/Amsterdam/design-system/commit/e7734347a9e7205d510a16a543294bde69b9c6f0))
 * Hyphenate headings and other large text components ([#1056](https://github.com/Amsterdam/design-system/issues/1056)) ([f875171](https://github.com/Amsterdam/design-system/commit/f8751716018d4ed269a086e1764741ad29714fa0))
 * Remove deprecated `inList` variant of Link ([#1064](https://github.com/Amsterdam/design-system/issues/1064)) ([b30784b](https://github.com/Amsterdam/design-system/commit/b30784b352b4a057069ceb397951b79a6e2547f2))
-
 
 ## [0.4.0](https://github.com/Amsterdam/design-system/compare/@amsterdam/design-system-css@0.3.0...@amsterdam/design-system-css@0.4.0) (2024-01-31)
 
