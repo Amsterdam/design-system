@@ -12,7 +12,7 @@ export const ArticleHeader = ({ heading, imageSrc }: ArticleHeaderProps) => (
       </Grid.Cell>
     </Grid>
     <Overlap>
-      <Image alt="" loading="lazy" aspectRatio="2x-wide" src={imageSrc} />
+      <Image alt="" aspectRatio="2x-wide" loading="lazy" src={imageSrc} />
     </Overlap>
   </header>
 )
