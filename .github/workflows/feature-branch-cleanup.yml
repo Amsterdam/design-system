@@ -19,14 +19,17 @@ jobs:
           BRANCH_NAME=$(echo $RAW_BRANCH_NAME | sed 's/[^/]*\///')
           echo "BRANCH_NAME=$BRANCH_NAME" >> $GITHUB_ENV
 
-      - name: Check out
+      - name: Check out branch to access .nvmrc
         uses: actions/checkout@v4
-        with:
-          ref: gh-pages
 
       - uses: actions/setup-node@v4
         with:
           node-version-file: .nvmrc
+
+      - name: Check out gh-pages branch
+        uses: actions/checkout@v4
+        with:
+          ref: gh-pages
 
       - name: Delete folder
         run: |
