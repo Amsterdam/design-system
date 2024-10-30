@@ -15,14 +15,14 @@ export type ImageProps = {
   ImgHTMLAttributes<HTMLImageElement>
 
 export const Image = forwardRef(
-  ({ aspectRatio, className, cover = false, ...restProps }: ImageProps, ref: ForwardedRef<HTMLImageElement>) => (
+  ({ aspectRatio, className, cover, ...restProps }: ImageProps, ref: ForwardedRef<HTMLImageElement>) => (
     <img
       {...restProps}
       ref={ref}
       className={clsx(
         'ams-image',
-        cover && 'ams-image--cover',
-        aspectRatio && `ams-image-aspect-ratio--${aspectRatio}`,
+        (cover === true || (cover === undefined && aspectRatio)) && 'ams-image--cover',
+        aspectRatio && `ams-aspect-ratio--${aspectRatio}`,
         className,
       )}
     />

@@ -3,9 +3,10 @@
  * Copyright Gemeente Amsterdam
  */
 
-@import "./mixins";
-
 .ams-aspect-ratio {
-  @include ams-aspect-ratio;
-  @include generate-aspect-ratio-classes;
+  @each $name in ("x-tall", "tall", "square", "wide", "x-wide", "2x-wide") {
+    &--#{$name} {
+      aspect-ratio: var(--ams-aspect-ratio-#{$name});
+    }
+  }
 }

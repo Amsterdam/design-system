@@ -3,19 +3,16 @@
  * Copyright Gemeente Amsterdam
  */
 
-@import "../aspect-ratio/mixins";
-
 .ams-image {
   block-size: auto; /* [1] */
   font-style: italic; /* [3] */
   max-inline-size: 100%; /* [1] */
   vertical-align: middle; /* [2] */
 
-  &[class*="ams-image-aspect-ratio--"] {
-    @include ams-aspect-ratio;
+  &[class*="ams-aspect-ratio--"] {
+    inline-size: fit-content;
+    position: relative;
   }
-
-  @include generate-aspect-ratio-classes("-aspect-ratio");
 
   &--cover {
     object-fit: cover;
