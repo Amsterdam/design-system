@@ -1,10 +1,15 @@
 {
-  "version": "0.1.12",
-  "author": "Community for NL Design System",
-  "description": "React icon components for the City of Amsterdam",
+  "version": "0.1.13",
+  "author": "Design System Team, City of Amsterdam <designsystem@amsterdam.nl>",
+  "description": "All icons from the Amsterdam Design System as React components. Use it to use the correct icons in your React project.",
+  "homepage": "https://designsystem.amsterdam/",
   "license": "SEE LICENSE IN LICENSE.md",
   "name": "@amsterdam/design-system-react-icons",
   "keywords": [
+    "amsterdam",
+    "amsterdam-design-system",
+    "design-system",
+    "icons",
     "nl-design-system"
   ],
   "private": false,
@@ -30,11 +35,11 @@
   },
   "devDependencies": {
     "@rollup/plugin-node-resolve": "15.3.0",
-    "@rollup/pluginutils": "5.1.2",
+    "@rollup/pluginutils": "5.1.3",
     "@svgr/cli": "8.1.0",
-    "@types/react": "18.3.11",
+    "@types/react": "18.3.12",
     "react": "18.3.1",
-    "rollup": "4.24.0",
+    "rollup": "4.24.2",
     "rollup-plugin-peer-deps-external": "2.2.4",
     "rollup-plugin-typescript2": "0.36.0"
   },
