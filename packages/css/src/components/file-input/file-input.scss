@@ -86,6 +86,7 @@
 }
 
 .ams-file-input__file-title {
+  flex: 1;
   gap: var(--ams-file-input-preview-file-gap);
   overflow: hidden;
   text-overflow: ellipsis;
