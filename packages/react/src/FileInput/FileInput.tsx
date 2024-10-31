@@ -7,6 +7,7 @@ import { DocumentIcon } from '@amsterdam/design-system-react-icons'
 import clsx from 'clsx'
 import { forwardRef, useEffect, useId, useImperativeHandle, useRef, useState } from 'react'
 import type { ForwardedRef, InputHTMLAttributes } from 'react'
+import { Button } from '../Button'
 import { Icon } from '../Icon'
 
 export type FileInputProps = {
@@ -104,6 +105,22 @@ export const FileInput = forwardRef<HTMLInputElement, FileInputProps>(
                         ({prettyType(file.type)} {prettyBytes(file.size)} )
                       </div>
                     </div>
+                    <Button
+                      variant="tertiary"
+                      onClick={() => {
+                        setFiles((prevFiles) => {
+                          const newFiles = new DataTransfer()
+                          Array.from(prevFiles || []).forEach((f) => newFiles.items.add(f))
+                          newFiles.items.remove(Array.from(prevFiles || []).indexOf(file))
+                          if (inputRef.current) {
+                            inputRef.current.files = newFiles.files
+                          }
+                          return newFiles.files
+                        })
+                      }}
+                    >
+                      Verwijder
+                    </Button>
                   </div>
                 ))
               : null}
