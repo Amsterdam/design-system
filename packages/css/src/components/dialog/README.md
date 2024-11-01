@@ -9,7 +9,7 @@ A Dialog allows the user to focus on one task or a piece of information by poppi
 - Use dialogs sparingly because they interrupt the user’s workflow.
 - Use a dialog for short and non-frequent tasks.
   Consider using the main flow for regular tasks.
-- Wrap multiple buttons in an [Action Group](https://designsystem.amsterdam/?path=/docs/components-buttons-action-group--docs).
+- Wrap multiple buttons in an [Action Group](https://designsystem.amsterdam/?path=/docs/components-layout-action-group--docs).
 
 ## Keyboard support
 
