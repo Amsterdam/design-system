@@ -6,7 +6,7 @@ Displays an image.
 
 ## Guidelines
 
-- Do not forget to include a description of the image in the `alt` attribute.
+- Always add a description of the image in the `alt` attribute.
   This ensures that screen reader users can also access this information.
   Additionally, it can aid in search engine optimization.
 - A description is unnecessary for decorative images; use `alt=""` for these.
