@@ -15,7 +15,7 @@
   text-decoration: none;
 }
 
-@mixin reset {
+@mixin reset-label-or-description {
   box-sizing: border-box;
 }
 
@@ -31,7 +31,7 @@
 
   @include hyphenation;
   @include text-rendering;
-  @include reset;
+  @include reset-label-or-description;
 }
 
 .ams-top-task-link:hover .ams-top-task-link__label {
@@ -46,5 +46,5 @@
   font-weight: var(--ams-top-task-link-description-font-weight);
   line-height: var(--ams-top-task-link-description-line-height);
 
-  @include reset;
+  @include reset-label-or-description;
 }

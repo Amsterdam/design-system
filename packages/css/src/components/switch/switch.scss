@@ -6,7 +6,7 @@
 @import "../../common/input-label-focus";
 @import "../../common/hide-input";
 
-@mixin reset {
+@mixin reset-label {
   box-sizing: border-box;
 }
 
@@ -29,7 +29,7 @@
   outline-offset: var(--ams-switch-outline-offset);
   transition: background-color 0.2s ease-in-out;
 
-  @include reset;
+  @include reset-label;
 }
 
 .ams-switch__label::before {

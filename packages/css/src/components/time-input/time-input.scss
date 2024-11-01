@@ -5,7 +5,7 @@
 
 @import "../../common/text-rendering";
 
-@mixin reset {
+@mixin reset-input {
   -webkit-appearance: none; // Reset appearance for Safari < 15.4
   appearance: none; // Reset native appearance, this causes issues on iOS and Android devices
   border: 0;
@@ -37,7 +37,7 @@
   touch-action: manipulation;
 
   @include text-rendering;
-  @include reset;
+  @include reset-input;
 
   &:hover {
     box-shadow: var(--ams-time-input-hover-box-shadow);

@@ -6,7 +6,7 @@
 @import "../../common/hyphenation";
 @import "../../common/text-rendering";
 
-@mixin reset {
+@mixin reset-h1 {
   box-sizing: border-box;
   margin-block: 0;
 }
@@ -22,7 +22,7 @@
 
   @include hyphenation;
   @include text-rendering;
-  @include reset;
+  @include reset-h1;
 }
 
 .ams-page-heading--inverse-color {

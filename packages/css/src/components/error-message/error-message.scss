@@ -5,7 +5,7 @@
 
 @import "../../common/text-rendering";
 
-@mixin reset {
+@mixin reset-paragraph {
   box-sizing: border-box;
   margin-block: 0;
 }
@@ -18,5 +18,5 @@
   line-height: var(--ams-error-message-line-height);
 
   @include text-rendering;
-  @include reset;
+  @include reset-paragraph;
 }

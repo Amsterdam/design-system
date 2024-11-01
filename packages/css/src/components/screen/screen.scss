@@ -3,7 +3,7 @@
  * Copyright Gemeente Amsterdam
  */
 
-@mixin reset {
+@mixin reset-div {
   box-sizing: border-box;
 }
 
@@ -12,7 +12,7 @@
   margin-inline: auto;
   position: relative;
 
-  @include reset;
+  @include reset-div;
 }
 
 .ams-screen--full-height {
