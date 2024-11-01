@@ -6,7 +6,7 @@
 import { MenuIcon } from '@amsterdam/design-system-react-icons'
 import clsx from 'clsx'
 import { forwardRef, useContext } from 'react'
-import type { AnchorHTMLAttributes, ForwardedRef, HTMLAttributes, PropsWithChildren, ReactNode } from 'react'
+import type { AnchorHTMLAttributes, ForwardedRef, HTMLAttributes, PropsWithChildren } from 'react'
 import { Grid } from '../Grid'
 import { Heading } from '../Heading'
 import { Icon } from '../Icon'
@@ -18,35 +18,32 @@ import { MegaMenuListCategory } from '../MegaMenu/MegaMenuListCategory'
 // import { MegaMenu } from '../MegaMenu'
 
 type HeaderNavigationProps = {
-  children: ReactNode
   logoBrand: LogoBrand
   appName?: string
   label?: string
-}
+} & PropsWithChildren
 
 // TODO: hier willen we misschien een los component van maken, geen subcomponent van Header.
 // Als je geen mega menu hebt, dan hoef je ook niet logo en app na te maken en context in te laden e.d.
 // Als we er een subcomponent van maken, dan kun je 'm gelijk niet meer als server component gebruiken denk ik
 
-const HeaderNavigation = ({ children, logoBrand, appName, label = 'Hoofdnavigatie' }: HeaderNavigationProps) => {
-  return (
-    <nav className="ams-header__navigation" aria-labelledby="primary-navigation">
-      <h2 id="primary-navigation" className="ams-visually-hidden">
-        {label}
-      </h2>
-      {/* The logo and app name section is recreated here, to make sure the page menu breaks at the right spot */}
-      <div className="ams-header__section" aria-hidden style={{ opacity: 0 }}>
-        <div className="ams-header__logo-link">
-          <Logo brand={logoBrand} />
-        </div>
-        {appName && <span className="ams-heading ams-heading--level-5 ams-header__app-name">{appName}</span>}
+const HeaderNavigation = ({ children, logoBrand, appName, label = 'Hoofdnavigatie' }: HeaderNavigationProps) => (
+  <nav className="ams-header__navigation" aria-labelledby="primary-navigation">
+    <h2 id="primary-navigation" className="ams-visually-hidden">
+      {label}
+    </h2>
+    {/* The logo and app name section is recreated here, to make sure the page menu breaks at the right spot */}
+    <div className="ams-header__section" aria-hidden style={{ opacity: 0 }}>
+      <div className="ams-header__logo-link">
+        <Logo brand={logoBrand} />
       </div>
-      <HeaderNavigationContextProvider>{children}</HeaderNavigationContextProvider>
-    </nav>
-  )
-}
+      {appName && <span className="ams-heading ams-heading--level-5 ams-header__app-name">{appName}</span>}
+    </div>
+    <HeaderNavigationContextProvider>{children}</HeaderNavigationContextProvider>
+  </nav>
+)
 
-const HeaderMenu = ({ children }: { children: ReactNode }) => <ul className="ams-header__menu">{children}</ul>
+const HeaderMenu = ({ children }: PropsWithChildren) => <ul className="ams-header__menu">{children}</ul>
 
 type HeaderMenuLinkProps = {
   secondary?: boolean
@@ -85,13 +82,22 @@ const MegaMenu = ({ children }: PropsWithChildren) => {
   const { open } = useContext(HeaderNavigationContext)
 
   return (
-    <Grid className={clsx(!open && 'ams-header__mega-menu--closed')} paddingBottom="large" id="ams-mega-menu">
+    <Grid className={clsx('ams-mega-menu', !open && 'ams-mega-menu--closed')} id="ams-mega-menu" paddingBottom="large">
       {children}
     </Grid>
   )
 }
 
-// TODO: MegaMenuSecondaryLinkList maken, lijstje met links die worden getoond op kleinere schermen.
+const MegaMenuSecondaryLinkList = ({ children }: PropsWithChildren) => (
+  <LinkList className="ams-mega-menu__secondary-link-list">{children}</LinkList>
+)
+
+const MegaMenuSecondaryLinkListLink = ({
+  children,
+  ...restProps
+}: PropsWithChildren<AnchorHTMLAttributes<HTMLAnchorElement>>) => (
+  <LinkList.Link {...restProps}>{children}</LinkList.Link>
+)
 
 export type HeaderProps = {
   /** A site-wide title for the website or application. */
@@ -102,8 +108,6 @@ export type HeaderProps = {
   logoLink?: string
   /** The accessible text for the link on the logo. */
   logoLinkTitle?: string
-  /** A secondary menu of links and buttons. Use a Page Menu. Can include buttons to show the Mega Menu or a Search Field. */
-  menu?: ReactNode
 } & HTMLAttributes<HTMLElement>
 
 export const Header = forwardRef(
@@ -144,6 +148,12 @@ export const Header = forwardRef(
             </HeaderMenu>
             <MegaMenu>
               <Grid.Cell span="all">
+                <MegaMenuSecondaryLinkList>
+                  <MegaMenuSecondaryLinkListLink href="#" lang="en">
+                    English
+                  </MegaMenuSecondaryLinkListLink>
+                  <MegaMenuSecondaryLinkListLink href="#">Mijn Amsterdam</MegaMenuSecondaryLinkListLink>
+                </MegaMenuSecondaryLinkList>
                 <Heading level={1} size="level-2">
                   Alle onderwerpen
                 </Heading>

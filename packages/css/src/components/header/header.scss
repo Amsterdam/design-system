@@ -80,8 +80,17 @@
   }
 }
 
-.ams-header__mega-menu--closed.ams-header__mega-menu--closed {
-  display: none;
+.ams-mega-menu {
   inline-size: 100%;
   pointer-events: auto;
+}
+
+.ams-mega-menu--closed.ams-mega-menu--closed {
+  display: none;
+}
+
+.ams-mega-menu__secondary-link-list {
+  @media screen and (min-width: $ams-breakpoint-medium) {
+    display: none;
+  }
 }
