@@ -48,7 +48,7 @@ export const Button = forwardRef(
         case !icon:
           return children
         case iconBefore:
-          return [<Icon svg={icon} size="level-5" />, children]
+          return [<Icon key={1} svg={icon} size="level-5" />, children]
         case iconOnly:
           return [
             <Icon key={1} svg={icon} size="level-5" square={true} />,
@@ -57,7 +57,7 @@ export const Button = forwardRef(
             </span>,
           ]
         default:
-          return [children, <Icon svg={icon} size="level-5" />]
+          return [children, <Icon key={2} svg={icon} size="level-5" />]
       }
     }
 
