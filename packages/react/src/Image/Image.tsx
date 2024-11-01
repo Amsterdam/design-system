@@ -8,6 +8,8 @@ import { forwardRef } from 'react'
 import type { ForwardedRef, ImgHTMLAttributes } from 'react'
 
 export type ImageProps = {
+  /** Descriptive text for the image. */
+  alt: string
   /** Whether to display the image exactly as large as its container. This will clip the image if necessary. */
   cover?: boolean
 } & ImgHTMLAttributes<HTMLImageElement>

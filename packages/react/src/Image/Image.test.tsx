@@ -5,7 +5,7 @@ import '@testing-library/jest-dom'
 
 describe('Image', () => {
   it('renders', () => {
-    const { container } = render(<Image />)
+    const { container } = render(<Image alt={'Image'} />)
 
     const component = container.querySelector(':only-child')
 
@@ -14,7 +14,7 @@ describe('Image', () => {
   })
 
   it('renders a design system BEM class name', () => {
-    const { container } = render(<Image />)
+    const { container } = render(<Image alt={'Image'} />)
 
     const component = container.querySelector(':only-child')
 
@@ -22,7 +22,7 @@ describe('Image', () => {
   })
 
   it('renders an additional class name', () => {
-    const { container } = render(<Image className="extra" />)
+    const { container } = render(<Image alt={'Image'} className="extra" />)
 
     const component = container.querySelector(':only-child')
 
@@ -31,7 +31,7 @@ describe('Image', () => {
   })
 
   it('renders a class name to display the image as large as its container', () => {
-    const { container } = render(<Image cover />)
+    const { container } = render(<Image alt={'Image'} cover />)
 
     const component = container.querySelector(':only-child')
 
@@ -41,7 +41,7 @@ describe('Image', () => {
   it('supports ForwardRef in React', () => {
     const ref = createRef<HTMLImageElement>()
 
-    const { container } = render(<Image ref={ref} />)
+    const { container } = render(<Image alt={'Image'} ref={ref} />)
 
     const component = container.querySelector(':only-child')
 
