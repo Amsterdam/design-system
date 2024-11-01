@@ -5,7 +5,7 @@
 
 import { MenuIcon } from '@amsterdam/design-system-react-icons'
 import clsx from 'clsx'
-import { forwardRef, useContext, useState } from 'react'
+import { forwardRef, useContext } from 'react'
 import type {
   AnchorHTMLAttributes,
   ForwardedRef,
@@ -132,12 +132,6 @@ export const Header = forwardRef(
     }: HeaderProps,
     ref: ForwardedRef<HTMLElement>,
   ) => {
-    const [open, setOpen] = useState(false)
-
-    const handleClick = () => {
-      setOpen(!open)
-    }
-
     return (
       <>
         <header {...restProps} ref={ref} className={clsx('ams-header', className)}>
@@ -163,7 +157,7 @@ export const Header = forwardRef(
                 <HeaderMenuLink href="#">Mijn Amsterdam</HeaderMenuLink>
               </HeaderMenuItem>
               <HeaderMenuItem>
-                <MegaMenuButton onClick={handleClick}>Menu</MegaMenuButton>
+                <MegaMenuButton>Menu</MegaMenuButton>
               </HeaderMenuItem>
             </HeaderMenu>
             <MegaMenu>
