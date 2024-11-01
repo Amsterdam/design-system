@@ -15,6 +15,7 @@ const meta = {
     totalPages: 10,
   },
   argTypes: { onPageChange: { action: 'page changed' } },
+  render: (args) => <Pagination key={JSON.stringify(args)} {...args} />,
 } satisfies Meta<typeof Pagination>
 
 export default meta
