@@ -82,4 +82,6 @@
 
 .ams-header__mega-menu--closed.ams-header__mega-menu--closed {
   display: none;
+  inline-size: 100%;
+  pointer-events: auto;
 }

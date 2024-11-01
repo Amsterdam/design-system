@@ -85,12 +85,7 @@ const MegaMenu = ({ children }: PropsWithChildren) => {
   const { open } = useContext(HeaderNavigationContext)
 
   return (
-    <Grid
-      className={clsx(!open && 'ams-header__mega-menu--closed')}
-      paddingBottom="large"
-      style={{ width: '100%', pointerEvents: 'auto' }}
-      id="ams-mega-menu"
-    >
+    <Grid className={clsx(!open && 'ams-header__mega-menu--closed')} paddingBottom="large" id="ams-mega-menu">
       {children}
     </Grid>
   )
