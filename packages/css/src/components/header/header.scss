@@ -4,6 +4,7 @@
  */
 
 @import "../../common/breakpoint";
+@import "../page-menu/page-menu";
 
 .ams-header {
   display: grid;
@@ -39,9 +40,44 @@
   row-gap: var(--ams-header-row-gap);
 }
 
-.ams-header__page-menu.ams-header__page-menu {
+@mixin reset-list {
+  box-sizing: border-box;
+  margin-block: 0;
+  padding-inline: 0;
+}
+
+.ams-header__menu {
+  align-items: center;
+  column-gap: var(--ams-page-menu-column-gap);
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  list-style: none;
+  margin-inline-start: auto;
   padding-inline-end: var(--ams-grid-padding-inline);
   pointer-events: auto;
+  row-gap: var(--ams-page-menu-row-gap);
+
+  @include reset-list;
+}
+
+@mixin reset-item {
+  box-sizing: border-box;
+}
+
+.ams-header__menu-item__secondary {
+  @media screen and (not (min-width: $ams-breakpoint-medium)) {
+    display: none;
+  }
+}
+
+.ams-header__menu-link {
+  @include ams-page-menu-element;
+
+  &:hover {
+    text-decoration-line: var(--ams-page-menu-item-hover-text-decoration-line);
+  }
 }
 
 .ams-header__mega-menu--closed.ams-header__mega-menu--closed {

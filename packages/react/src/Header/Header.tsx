@@ -5,15 +5,107 @@
 
 import { MenuIcon } from '@amsterdam/design-system-react-icons'
 import clsx from 'clsx'
-import { forwardRef, useState } from 'react'
-import type { ForwardedRef, HTMLAttributes, ReactNode } from 'react'
+import { forwardRef, useContext, useState } from 'react'
+import type {
+  AnchorHTMLAttributes,
+  ForwardedRef,
+  HTMLAttributes,
+  LiHTMLAttributes,
+  PropsWithChildren,
+  ReactNode,
+} from 'react'
 import { Grid } from '../Grid'
 import { Heading } from '../Heading'
+import { Icon } from '../Icon'
 import { LinkList } from '../LinkList'
 import { Logo } from '../Logo'
 import type { LogoBrand } from '../Logo'
-import { MegaMenu } from '../MegaMenu'
-import { PageMenu } from '../PageMenu'
+import { HeaderNavigationContext, HeaderNavigationContextProvider } from './HeaderNavigationContext'
+import { MegaMenuListCategory } from '../MegaMenu/MegaMenuListCategory'
+// import { MegaMenu } from '../MegaMenu'
+
+type HeaderNavigationProps = {
+  children: ReactNode
+  logoBrand: LogoBrand
+  appName?: string
+  label?: string
+}
+
+// TODO: hier willen we misschien een los component van maken, geen subcomponent van Header.
+// Als je geen mega menu hebt, dan hoef je ook niet logo en app na te maken en context in te laden e.d.
+// Als we er een subcomponent van maken, dan kun je 'm gelijk niet meer als server component gebruiken denk ik
+
+const HeaderNavigation = ({ children, logoBrand, appName, label = 'Hoofdnavigatie' }: HeaderNavigationProps) => {
+  return (
+    <nav className="ams-header__navigation" aria-labelledby="primary-navigation">
+      <h2 id="primary-navigation" className="ams-visually-hidden">
+        {label}
+      </h2>
+      {/* The logo and app name section is recreated here, to make sure the page menu breaks at the right spot */}
+      <div className="ams-header__section" aria-hidden style={{ opacity: 0 }}>
+        <div className="ams-header__logo-link">
+          <Logo brand={logoBrand} />
+        </div>
+        {appName && <span className="ams-heading ams-heading--level-5 ams-header__app-name">{appName}</span>}
+      </div>
+      <HeaderNavigationContextProvider>{children}</HeaderNavigationContextProvider>
+    </nav>
+  )
+}
+
+const HeaderMenu = ({ children }: { children: ReactNode }) => <ul className="ams-header__menu">{children}</ul>
+
+type HeaderMenuItemProps = {
+  secondary?: boolean
+} & PropsWithChildren<LiHTMLAttributes<HTMLLIElement>>
+
+const HeaderMenuItem = ({ children, secondary }: HeaderMenuItemProps) => (
+  <li className={clsx('ams-header__menu-item', secondary && 'ams-header__menu-item__secondary')}>{children}</li>
+)
+
+type HeaderMenuLinkProps = PropsWithChildren<AnchorHTMLAttributes<HTMLAnchorElement>>
+
+const HeaderMenuLink = ({ children, ...restProps }: HeaderMenuLinkProps) => (
+  <a {...restProps} className={clsx('ams-header__menu-link')}>
+    {children}
+  </a>
+)
+
+const MegaMenuButton = ({ children, ...restProps }: PropsWithChildren<HTMLAttributes<HTMLButtonElement>>) => {
+  const { open, setOpen } = useContext(HeaderNavigationContext)
+
+  return (
+    <button
+      {...restProps}
+      type="button"
+      className="ams-page-menu__button"
+      aria-controls="ams-mega-menu"
+      aria-expanded={open}
+      onClick={() => setOpen(!open)}
+    >
+      <span className="ams-visually-hidden">{open ? 'Verberg ' : 'Toon '}</span>
+      {children}
+      <Icon svg={MenuIcon} size="level-6" />
+    </button>
+  )
+}
+
+const MegaMenu = ({ children }: PropsWithChildren) => {
+  const { open } = useContext(HeaderNavigationContext)
+
+  return (
+    <Grid
+      className={clsx(!open && 'ams-header__mega-menu--closed')}
+      paddingBottom="large"
+      style={{ width: '100%', pointerEvents: 'auto' }}
+      id="ams-mega-menu"
+    >
+      {children}
+    </Grid>
+  )
+}
+
+// TODO: MegaMenuSecondaryLinks maken, lijstje met links die worden getoond op kleinere schermen. Secondary als prop?
 
 export type HeaderProps = {
   /** A site-wide title for the website or application. */
@@ -60,48 +152,26 @@ export const Header = forwardRef(
               </Heading>
             )}
           </div>
-          <nav className="ams-header__navigation" aria-labelledby="primary-navigation">
-            <h2 id="primary-navigation" className="ams-visually-hidden">
-              Hoofdnavigatie
-            </h2>
-            {/* The logo and app name section is recreated here, to make sure the page menu breaks at the right spot */}
-            <div className="ams-header__section" aria-hidden style={{ opacity: 0 }}>
-              <div className="ams-header__logo-link">
-                <Logo brand={logoBrand} />
-              </div>
-              {appName && <span className="ams-heading ams-heading--level-5 ams-header__app-name">{appName}</span>}
-            </div>
-            <PageMenu alignEnd className="ams-header__page-menu">
-              <PageMenu.Item rank="secondary">
-                <PageMenu.Link href="#" lang="en">
+          <HeaderNavigation logoBrand={logoBrand} appName={appName}>
+            <HeaderMenu>
+              <HeaderMenuItem secondary>
+                <HeaderMenuLink href="#" lang="en">
                   English
-                </PageMenu.Link>
-              </PageMenu.Item>
-              <PageMenu.Item rank="secondary">
-                <PageMenu.Link href="#">Mijn Amsterdam</PageMenu.Link>
-              </PageMenu.Item>
-              <PageMenu.Item>
-                <PageMenu.Button
-                  icon={MenuIcon}
-                  onClick={handleClick}
-                  aria-expanded={open}
-                  aria-controls="ams-mega-menu"
-                >
-                  <span className="ams-visually-hidden">{`${open ? 'Verberg' : 'Toon'} `}</span>Menu
-                </PageMenu.Button>
-              </PageMenu.Item>
-            </PageMenu>
-            <Grid
-              className={!open ? 'ams-header__mega-menu--closed' : ''}
-              paddingBottom="large"
-              style={{ width: '100%', pointerEvents: 'auto' }}
-              id="ams-mega-menu"
-            >
+                </HeaderMenuLink>
+              </HeaderMenuItem>
+              <HeaderMenuItem secondary>
+                <HeaderMenuLink href="#">Mijn Amsterdam</HeaderMenuLink>
+              </HeaderMenuItem>
+              <HeaderMenuItem>
+                <MegaMenuButton onClick={handleClick}>Menu</MegaMenuButton>
+              </HeaderMenuItem>
+            </HeaderMenu>
+            <MegaMenu>
               <Grid.Cell span="all">
                 <Heading level={1} size="level-2">
                   Alle onderwerpen
                 </Heading>
-                <MegaMenu.ListCategory>
+                <MegaMenuListCategory>
                   <LinkList>
                     <LinkList.Link href="#">Afval</LinkList.Link>
                     <LinkList.Link href="#">Bestuur en organisatie</LinkList.Link>
@@ -125,10 +195,10 @@ export const Header = forwardRef(
                     <LinkList.Link href="#">Wonen en leefomgeving</LinkList.Link>
                     <LinkList.Link href="#">Zorg en ondersteuning</LinkList.Link>
                   </LinkList>
-                </MegaMenu.ListCategory>
+                </MegaMenuListCategory>
               </Grid.Cell>
-            </Grid>
-          </nav>
+            </MegaMenu>
+          </HeaderNavigation>
         </header>
         <p>hallo</p>
       </>
