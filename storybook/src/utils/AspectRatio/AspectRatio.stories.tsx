@@ -4,6 +4,7 @@
  */
 
 import { Paragraph } from '@amsterdam/design-system-react'
+import tokens from '@amsterdam/design-system-tokens/dist/index.json'
 import { Meta, StoryObj } from '@storybook/react'
 import { AspectRatio } from './AspectRatio'
 import type { AspectRatioProps } from './AspectRatio'
@@ -13,9 +14,9 @@ const render = ({ aspectRatio }: AspectRatioProps) => (
     <Paragraph
       style={{
         alignItems: 'center',
-        backgroundColor: 'gray',
+        backgroundColor: tokens.ams.color['neutral-grey2'],
         blockSize: '100%',
-        color: 'white',
+        color: tokens.ams.color['primary-white'],
         display: 'inline-flex',
         inlineSize: '100%',
         justifyContent: 'center',

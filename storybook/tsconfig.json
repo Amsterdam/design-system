@@ -1,7 +1,8 @@
 {
   "compilerOptions": {
     "jsx": "react-jsx",
-    "allowSyntheticDefaultImports": true
+    "allowSyntheticDefaultImports": true,
+    "resolveJsonModule": true
   },
   "extends": "../tsconfig.json",
   "include": ["src/**/*.ts", "src/**/*.tsx", "config/**/*.ts", "config/**/*.tsx"],
