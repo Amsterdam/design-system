@@ -6,14 +6,7 @@
 import { MenuIcon } from '@amsterdam/design-system-react-icons'
 import clsx from 'clsx'
 import { forwardRef, useContext } from 'react'
-import type {
-  AnchorHTMLAttributes,
-  ForwardedRef,
-  HTMLAttributes,
-  LiHTMLAttributes,
-  PropsWithChildren,
-  ReactNode,
-} from 'react'
+import type { AnchorHTMLAttributes, ForwardedRef, HTMLAttributes, PropsWithChildren, ReactNode } from 'react'
 import { Grid } from '../Grid'
 import { Heading } from '../Heading'
 import { Icon } from '../Icon'
@@ -55,38 +48,36 @@ const HeaderNavigation = ({ children, logoBrand, appName, label = 'Hoofdnavigati
 
 const HeaderMenu = ({ children }: { children: ReactNode }) => <ul className="ams-header__menu">{children}</ul>
 
-type HeaderMenuItemProps = {
+type HeaderMenuLinkProps = {
   secondary?: boolean
-} & PropsWithChildren<LiHTMLAttributes<HTMLLIElement>>
+} & PropsWithChildren<AnchorHTMLAttributes<HTMLAnchorElement>>
 
-const HeaderMenuItem = ({ children, secondary }: HeaderMenuItemProps) => (
-  <li className={clsx('ams-header__menu-item', secondary && 'ams-header__menu-item__secondary')}>{children}</li>
-)
-
-type HeaderMenuLinkProps = PropsWithChildren<AnchorHTMLAttributes<HTMLAnchorElement>>
-
-const HeaderMenuLink = ({ children, ...restProps }: HeaderMenuLinkProps) => (
-  <a {...restProps} className={clsx('ams-header__menu-link')}>
-    {children}
-  </a>
+const HeaderMenuLink = ({ children, secondary, ...restProps }: HeaderMenuLinkProps) => (
+  <li className={clsx(secondary && 'ams-header__menu-item--secondary')}>
+    <a {...restProps} className="ams-header__menu-link">
+      {children}
+    </a>
+  </li>
 )
 
 const MegaMenuButton = ({ children, ...restProps }: PropsWithChildren<HTMLAttributes<HTMLButtonElement>>) => {
   const { open, setOpen } = useContext(HeaderNavigationContext)
 
   return (
-    <button
-      {...restProps}
-      type="button"
-      className="ams-page-menu__button"
-      aria-controls="ams-mega-menu"
-      aria-expanded={open}
-      onClick={() => setOpen(!open)}
-    >
-      <span className="ams-visually-hidden">{open ? 'Verberg ' : 'Toon '}</span>
-      {children}
-      <Icon svg={MenuIcon} size="level-6" />
-    </button>
+    <li>
+      <button
+        {...restProps}
+        type="button"
+        className="ams-page-menu__button"
+        aria-controls="ams-mega-menu"
+        aria-expanded={open}
+        onClick={() => setOpen(!open)}
+      >
+        <span className="ams-visually-hidden">{open ? 'Verberg ' : 'Toon '}</span>
+        {children}
+        <Icon svg={MenuIcon} size="level-6" />
+      </button>
+    </li>
   )
 }
 
@@ -105,7 +96,7 @@ const MegaMenu = ({ children }: PropsWithChildren) => {
   )
 }
 
-// TODO: MegaMenuSecondaryLinks maken, lijstje met links die worden getoond op kleinere schermen. Secondary als prop?
+// TODO: MegaMenuSecondaryLinkList maken, lijstje met links die worden getoond op kleinere schermen.
 
 export type HeaderProps = {
   /** A site-wide title for the website or application. */
@@ -148,17 +139,13 @@ export const Header = forwardRef(
           </div>
           <HeaderNavigation logoBrand={logoBrand} appName={appName}>
             <HeaderMenu>
-              <HeaderMenuItem secondary>
-                <HeaderMenuLink href="#" lang="en">
-                  English
-                </HeaderMenuLink>
-              </HeaderMenuItem>
-              <HeaderMenuItem secondary>
-                <HeaderMenuLink href="#">Mijn Amsterdam</HeaderMenuLink>
-              </HeaderMenuItem>
-              <HeaderMenuItem>
-                <MegaMenuButton>Menu</MegaMenuButton>
-              </HeaderMenuItem>
+              <HeaderMenuLink href="#" lang="en" secondary>
+                English
+              </HeaderMenuLink>
+              <HeaderMenuLink href="#" secondary>
+                Mijn Amsterdam
+              </HeaderMenuLink>
+              <MegaMenuButton>Menu</MegaMenuButton>
             </HeaderMenu>
             <MegaMenu>
               <Grid.Cell span="all">
