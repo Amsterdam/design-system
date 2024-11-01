@@ -8,23 +8,14 @@ import { forwardRef } from 'react'
 import type { ForwardedRef, ImgHTMLAttributes } from 'react'
 import { AspectRatioProps } from '../common/aspectRatio'
 
-export type ImageProps = {
-  /** Whether to display the image exactly as large as its container. This will clip the image if necessary. */
-  cover?: boolean
-} & AspectRatioProps &
-  ImgHTMLAttributes<HTMLImageElement>
+export type ImageProps = AspectRatioProps & ImgHTMLAttributes<HTMLImageElement>
 
 export const Image = forwardRef(
-  ({ aspectRatio = 'wide', className, cover, ...restProps }: ImageProps, ref: ForwardedRef<HTMLImageElement>) => (
+  ({ aspectRatio = 'wide', className, ...restProps }: ImageProps, ref: ForwardedRef<HTMLImageElement>) => (
     <img
       {...restProps}
       ref={ref}
-      className={clsx(
-        'ams-image',
-        (cover === true || (cover === undefined && aspectRatio)) && 'ams-image--cover',
-        aspectRatio && `ams-aspect-ratio--${aspectRatio}`,
-        className,
-      )}
+      className={clsx('ams-image', aspectRatio && `ams-aspect-ratio--${aspectRatio}`, className)}
     />
   ),
 )

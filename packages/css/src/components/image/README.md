@@ -15,7 +15,8 @@ Displays an image.
   For example, provide small, medium, and large variants for various screen sizes.
   This prevents unnecessary downloading of large files.
   Do this especially for the main image of a page, where the difference between sizes on a narrow and wide screen is most significant.
-- The image has an aspect ratio of 16:9 by default. [Other options](/docs/brand-design-tokens-aspect-ratio--docs) are available.
+- An Image should always have an aspect ratio. The default is 16:9. [Other options](/docs/brand-design-tokens-aspect-ratio--docs) are available.
+- If the source image is not an exact fit for the given dimensions it will cover the container with clipped sides.
 
 ## Relevant WCAG requirements
 

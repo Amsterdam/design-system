@@ -30,20 +30,20 @@ describe('Image', () => {
     expect(component).toHaveClass('ams-image')
   })
 
-  it('renders a class name to display the image as large as its container', () => {
-    const { container } = render(<Image cover />)
-
-    const component = container.querySelector(':only-child')
-
-    expect(component).toHaveClass('ams-image--cover')
-  })
-
   it('renders class names to display the image in a given aspect ratio', () => {
     const { container } = render(<Image aspectRatio="x-tall" />)
 
     const component = container.querySelector(':only-child')
 
     expect(component).toHaveClass('ams-aspect-ratio--x-tall')
+  })
+
+  it('renders class names to display the image with the default aspect ratio', () => {
+    const { container } = render(<Image />)
+
+    const component = container.querySelector(':only-child')
+
+    expect(component).toHaveClass('ams-aspect-ratio--wide')
   })
 
   it('supports ForwardRef in React', () => {

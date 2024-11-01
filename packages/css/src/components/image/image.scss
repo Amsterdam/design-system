@@ -11,11 +11,8 @@
 
   &[class*="ams-aspect-ratio--"] {
     inline-size: fit-content;
-    position: relative;
-  }
-
-  &--cover {
     object-fit: cover;
+    position: relative;
   }
 }
 
