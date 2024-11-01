@@ -54,11 +54,6 @@ jobs:
         run: |
           touch ./storybook/dist/${{ github.sha }}.txt
 
-      # Our workflows use .nvmrc instead of a fixed version, so we need to copy this file over
-      # to the dist files for use in the feature branch cleanup workflow
-      - name: Copy over .nvmrc to dist
-        run: cp .nvmrc ./storybook/dist/
-
       - name: Pushing to pages branch
         uses: JamesIves/github-pages-deploy-action@v4
         with:
@@ -67,7 +62,7 @@ jobs:
           target-folder: demo-${{ env.BRANCH_NAME }}
 
       - name: Wait for GitHub Pages to be deployed
-        uses: mydea/action-wait-for-api@v1
+        uses: mydea/action-wait-for-api@v2
         with:
           url: https://${{ github.repository_owner }}.github.io/${{ github.event.repository.name }}/demo-${{ env.BRANCH_NAME }}/${{ github.sha }}.txt
           expected-status: 200
