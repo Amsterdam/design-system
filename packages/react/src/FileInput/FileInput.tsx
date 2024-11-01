@@ -60,7 +60,7 @@ export const FileInput = forwardRef<HTMLInputElement, FileInputProps>(
         case 'image/png':
           return 'png'
         case 'application/pdf':
-          return 'PDF'
+          return 'pdf'
         case 'application/msword':
           return 'Word'
         case 'application/vnd.openxmlformats-officedocument.wordprocessingml.document':
@@ -102,7 +102,7 @@ export const FileInput = forwardRef<HTMLInputElement, FileInputProps>(
                     <div className="ams-file-input__file-title">
                       {file.name}
                       <div className="ams-file-input__file-details">
-                        ({prettyType(file.type)} {prettyBytes(file.size)} )
+                        ({prettyType(file.type)}, {prettyBytes(file.size)} )
                       </div>
                     </div>
                     <Button
