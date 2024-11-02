@@ -7,6 +7,13 @@
 @import "../page-menu/page-menu";
 
 .ams-header {
+  column-gap: var(--ams-header-column-gap);
+  display: flex;
+  flex-wrap: wrap;
+  row-gap: var(--ams-header-row-gap);
+}
+
+.ams-header--has-mega-menu {
   display: grid;
 }
 
@@ -38,6 +45,12 @@
   inset-block-start: 0;
   pointer-events: none;
   row-gap: var(--ams-header-row-gap);
+}
+
+.ams-header__navigation-lite {
+  align-items: center;
+  display: flex;
+  margin-inline-start: auto;
 }
 
 @mixin reset-list {

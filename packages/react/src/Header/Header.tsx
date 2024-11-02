@@ -14,7 +14,7 @@ import { LinkList } from '../LinkList'
 import { Logo } from '../Logo'
 import type { LogoBrand } from '../Logo'
 import { HeaderNavigationContext, HeaderNavigationContextProvider } from './HeaderNavigationContext'
-import { MegaMenuListCategory } from '../MegaMenu/MegaMenuListCategory'
+// import { MegaMenuListCategory } from '../MegaMenu/MegaMenuListCategory'
 // import { MegaMenu } from '../MegaMenu'
 
 type HeaderNavigationProps = {
@@ -27,7 +27,7 @@ type HeaderNavigationProps = {
 // Als je geen mega menu hebt, dan hoef je ook niet logo en app na te maken en context in te laden e.d.
 // Als we er een subcomponent van maken, dan kun je 'm gelijk niet meer als server component gebruiken denk ik
 
-const HeaderNavigation = ({ children, logoBrand, appName, label = 'Hoofdnavigatie' }: HeaderNavigationProps) => (
+export const HeaderNavigation = ({ children, logoBrand, appName, label = 'Hoofdnavigatie' }: HeaderNavigationProps) => (
   <nav className="ams-header__navigation" aria-labelledby="primary-navigation">
     <h2 id="primary-navigation" className="ams-visually-hidden">
       {label}
@@ -40,6 +40,19 @@ const HeaderNavigation = ({ children, logoBrand, appName, label = 'Hoofdnavigati
       {appName && <span className="ams-heading ams-heading--level-5 ams-header__app-name">{appName}</span>}
     </div>
     <HeaderNavigationContextProvider>{children}</HeaderNavigationContextProvider>
+  </nav>
+)
+
+type HeaderNavigationLiteProps = {
+  label?: string
+} & PropsWithChildren
+
+const HeaderNavigationLite = ({ children, label = 'Hoofdnavigatie' }: HeaderNavigationLiteProps) => (
+  <nav className="ams-header__navigation-lite" aria-labelledby="primary-navigation">
+    <h2 id="primary-navigation" className="ams-visually-hidden">
+      {label}
+    </h2>
+    {children}
   </nav>
 )
 
@@ -57,7 +70,7 @@ const HeaderMenuLink = ({ children, secondary, ...restProps }: HeaderMenuLinkPro
   </li>
 )
 
-const MegaMenuButton = ({ children, ...restProps }: PropsWithChildren<HTMLAttributes<HTMLButtonElement>>) => {
+export const MegaMenuButton = ({ children, ...restProps }: PropsWithChildren<HTMLAttributes<HTMLButtonElement>>) => {
   const { open, setOpen } = useContext(HeaderNavigationContext)
 
   return (
@@ -78,7 +91,7 @@ const MegaMenuButton = ({ children, ...restProps }: PropsWithChildren<HTMLAttrib
   )
 }
 
-const MegaMenu = ({ children }: PropsWithChildren) => {
+export const MegaMenu = ({ children }: PropsWithChildren) => {
   const { open } = useContext(HeaderNavigationContext)
 
   return (
@@ -88,11 +101,11 @@ const MegaMenu = ({ children }: PropsWithChildren) => {
   )
 }
 
-const MegaMenuSecondaryLinkList = ({ children }: PropsWithChildren) => (
+export const MegaMenuSecondaryLinkList = ({ children }: PropsWithChildren) => (
   <LinkList className="ams-mega-menu__secondary-link-list">{children}</LinkList>
 )
 
-const MegaMenuSecondaryLinkListLink = ({
+export const MegaMenuSecondaryLinkListLink = ({
   children,
   ...restProps
 }: PropsWithChildren<AnchorHTMLAttributes<HTMLAnchorElement>>) => (
@@ -102,6 +115,7 @@ const MegaMenuSecondaryLinkListLink = ({
 export type HeaderProps = {
   /** A site-wide title for the website or application. */
   appName?: string
+  hasMegaMenu?: boolean
   /** The brand for which to display the logo. */
   logoBrand?: LogoBrand
   /** The url for the link on the logo. */
@@ -115,6 +129,7 @@ export const Header = forwardRef(
     {
       appName,
       className,
+      hasMegaMenu,
       logoBrand = 'amsterdam',
       logoLink = '/',
       logoLinkTitle = 'Ga naar de homepage',
@@ -124,7 +139,11 @@ export const Header = forwardRef(
   ) => {
     return (
       <>
-        <header {...restProps} ref={ref} className={clsx('ams-header', className)}>
+        <header
+          {...restProps}
+          ref={ref}
+          className={clsx('ams-header', hasMegaMenu && 'ams-header--has-mega-menu', className)}
+        >
           <div className="ams-header__section">
             <a className="ams-header__logo-link" href={logoLink}>
               <span className="ams-visually-hidden">{logoLinkTitle}</span>
@@ -136,7 +155,15 @@ export const Header = forwardRef(
               </Heading>
             )}
           </div>
-          <HeaderNavigation logoBrand={logoBrand} appName={appName}>
+          <HeaderNavigationLite>
+            <HeaderMenu>
+              <HeaderMenuLink href="#" lang="en">
+                English
+              </HeaderMenuLink>
+              <HeaderMenuLink href="#">Mijn Amsterdam</HeaderMenuLink>
+            </HeaderMenu>
+          </HeaderNavigationLite>
+          {/* <HeaderNavigation logoBrand={logoBrand} appName={appName}>
             <HeaderMenu>
               <HeaderMenuLink href="#" lang="en" secondary>
                 English
@@ -184,7 +211,7 @@ export const Header = forwardRef(
                 </MegaMenuListCategory>
               </Grid.Cell>
             </MegaMenu>
-          </HeaderNavigation>
+          </HeaderNavigation> */}
         </header>
         <p>hallo</p>
       </>
