@@ -58,9 +58,7 @@ export const Button = forwardRef(
           return (
             <>
               <Icon svg={icon} size="level-5" square={true} />
-              <span className="ams-visually-hidden" key={2}>
-                {children}
-              </span>
+              <span className="ams-visually-hidden">{children}</span>
             </>
           )
         default:
