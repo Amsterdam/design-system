@@ -57,7 +57,7 @@ export const Button = forwardRef(
     >
       {icon && (iconBefore || iconOnly) && <Icon svg={icon} size="level-5" square={iconOnly} />}
       {icon && iconOnly ? <span className="ams-visually-hidden">{children}</span> : children}
-      {icon && !iconBefore && <Icon svg={icon} size="level-5" />}
+      {icon && !iconBefore && !iconOnly && <Icon svg={icon} size="level-5" />}
     </button>
   ),
 )
