@@ -5,7 +5,7 @@
 
 import clsx from 'clsx'
 import { forwardRef } from 'react'
-import type { ButtonHTMLAttributes, ForwardedRef, PropsWithChildren, ReactNode } from 'react'
+import type { ButtonHTMLAttributes, ForwardedRef, PropsWithChildren } from 'react'
 import { Icon } from '../Icon'
 import type { IconProps } from '../Icon'
 
@@ -42,42 +42,19 @@ export const Button = forwardRef(
   (
     { children, className, disabled, icon, iconBefore, iconOnly, type, variant = 'primary', ...restProps }: ButtonProps,
     ref: ForwardedRef<HTMLButtonElement>,
-  ) => {
-    const content = (): ReactNode => {
-      switch (true) {
-        case !icon:
-          return children
-        case iconBefore:
-          return [<Icon svg={icon} size="level-5" />, children]
-        case iconOnly:
-          return [
-            <Icon key={1} svg={icon} size="level-5" square={true} />,
-            <span className="ams-visually-hidden" key={2}>
-              {children}
-            </span>,
-          ]
-        default:
-          return [children, <Icon svg={icon} size="level-5" />]
-      }
-    }
-
-    return (
-      <button
-        {...restProps}
-        className={clsx(
-          'ams-button',
-          `ams-button--${variant}`,
-          icon && iconOnly && !iconBefore && `ams-button--icon-only`,
-          className,
-        )}
-        disabled={disabled}
-        ref={ref}
-        type={type || 'button'}
-      >
-        {content()}
-      </button>
-    )
-  },
+  ) => (
+    <button
+      {...restProps}
+      className={clsx('ams-button', `ams-button--${variant}`, icon && iconOnly && `ams-button--icon-only`, className)}
+      disabled={disabled}
+      ref={ref}
+      type={type || 'button'}
+    >
+      {icon && (iconBefore || iconOnly) && <Icon svg={icon} size="level-5" square={iconOnly} />}
+      {icon && iconOnly ? <span className="ams-visually-hidden">{children}</span> : children}
+      {icon && !iconBefore && !iconOnly && <Icon svg={icon} size="level-5" />}
+    </button>
+  ),
 )
 
 Button.displayName = 'Button'
