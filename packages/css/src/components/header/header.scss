@@ -36,7 +36,7 @@
   line-height: 1.25;
 }
 
-.ams-header__navigation {
+.ams-mega-menu-navigation {
   column-gap: var(--ams-header-column-gap);
   display: flex;
   flex-wrap: wrap;
@@ -56,7 +56,7 @@
 @mixin reset-list {
   box-sizing: border-box;
   margin-block: 0;
-  padding-inline: 0;
+  padding-inline-start: 0;
 }
 
 .ams-header__menu {

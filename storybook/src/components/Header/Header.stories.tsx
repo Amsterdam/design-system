@@ -3,39 +3,20 @@
  * Copyright Gemeente Amsterdam
  */
 
-import { PageMenu, Screen } from '@amsterdam/design-system-react'
-import { Header } from '@amsterdam/design-system-react/src'
-import { MenuIcon, SearchIcon } from '@amsterdam/design-system-react-icons'
+import { Grid, Heading, LinkList, Screen } from '@amsterdam/design-system-react'
+import {
+  Header,
+  HeaderMenu,
+  HeaderMenuLink,
+  HeaderNavigation,
+  MegaMenuButton,
+  MegaMenuNavigation,
+  MegaMenuNavigationMenu,
+  MegaMenuSecondaryLinkList,
+  MegaMenuSecondaryLinkListLink,
+} from '@amsterdam/design-system-react/src'
+import { MegaMenuListCategory } from '@amsterdam/design-system-react/src/MegaMenu/MegaMenuListCategory'
 import { Meta, StoryObj } from '@storybook/react'
-
-const MenuButton = (
-  <PageMenu.Item>
-    <PageMenu.Button icon={MenuIcon} onClick={() => {}}>
-      Menu
-    </PageMenu.Button>
-  </PageMenu.Item>
-)
-
-const SearchButton = (
-  <PageMenu.Item>
-    <PageMenu.Button icon={SearchIcon} onClick={() => {}}>
-      Zoeken
-    </PageMenu.Button>
-  </PageMenu.Item>
-)
-
-const SecondaryLinks = (
-  <>
-    <PageMenu.Item rank="secondary">
-      <PageMenu.Link href="#" lang="en">
-        English
-      </PageMenu.Link>
-    </PageMenu.Item>
-    <PageMenu.Item rank="secondary">
-      <PageMenu.Link href="#">Mijn Amsterdam</PageMenu.Link>
-    </PageMenu.Item>
-  </>
-)
 
 const meta = {
   title: 'Components/Containers/Header',
@@ -71,49 +52,104 @@ export const WithAppName: Story = {
 
 export const WithMenu: Story = {
   args: {
-    menu: (
-      <PageMenu alignEnd>
-        <PageMenu.Item>
-          <PageMenu.Link href="#">Menu link 1</PageMenu.Link>
-        </PageMenu.Item>
-        <PageMenu.Item>
-          <PageMenu.Link href="#">Menu link 2</PageMenu.Link>
-        </PageMenu.Item>
-        <PageMenu.Item>
-          <PageMenu.Link href="#">Menu link 3</PageMenu.Link>
-        </PageMenu.Item>
-      </PageMenu>
+    appName: 'Onderzoek en Statistiek',
+    children: (
+      <HeaderNavigation>
+        <HeaderMenu>
+          <HeaderMenuLink href="#">Menu link 1</HeaderMenuLink>
+          <HeaderMenuLink href="#">Menu link 2</HeaderMenuLink>
+          <HeaderMenuLink href="#">Menu link 3</HeaderMenuLink>
+        </HeaderMenu>
+      </HeaderNavigation>
     ),
   },
 }
 
-export const WithMenuButton: Story = {
-  args: {
-    menu: <PageMenu alignEnd>{MenuButton}</PageMenu>,
-  },
-}
-
-export const WithMenuAndMenuButton: Story = {
-  args: {
-    menu: (
-      <PageMenu alignEnd>
-        {SecondaryLinks}
-        {SearchButton}
-        {MenuButton}
-      </PageMenu>
-    ),
-  },
-}
-
-export const WithAppNameAndMenu: Story = {
+export const WithMegaMenu: Story = {
   args: {
     appName: 'Onderzoek en Statistiek',
-    menu: <PageMenu alignEnd>{MenuButton}</PageMenu>,
+    hasMegaMenu: true,
   },
+  render: (args) => (
+    <Header {...args}>
+      <MegaMenuNavigation appName={args.appName} logoBrand={args.logoBrand}>
+        <HeaderMenu>
+          <HeaderMenuLink href="#" secondary>
+            Menu link 1
+          </HeaderMenuLink>
+          <HeaderMenuLink href="#" secondary>
+            Menu link 2
+          </HeaderMenuLink>
+          <MegaMenuButton>Menu</MegaMenuButton>
+        </HeaderMenu>
+        <MegaMenuNavigationMenu>
+          <Grid.Cell span="all">
+            <MegaMenuSecondaryLinkList>
+              <MegaMenuSecondaryLinkListLink href="#">Menu link 1</MegaMenuSecondaryLinkListLink>
+              <MegaMenuSecondaryLinkListLink href="#">Menu link 2</MegaMenuSecondaryLinkListLink>
+            </MegaMenuSecondaryLinkList>
+            <Heading level={1} size="level-2">
+              Alle onderwerpen
+            </Heading>
+            <MegaMenuListCategory>
+              <LinkList>
+                <LinkList.Link href="#">Afval</LinkList.Link>
+                <LinkList.Link href="#">Bestuur en organisatie</LinkList.Link>
+                <LinkList.Link href="#">Bouw- en verkeersprojecten</LinkList.Link>
+                <LinkList.Link href="#">Burgerzaken</LinkList.Link>
+                <LinkList.Link href="#">Diversiteit</LinkList.Link>
+                <LinkList.Link href="#">Gemeentebelastingen</LinkList.Link>
+                <LinkList.Link href="#">Gezondheidsdienst (GGD)</LinkList.Link>
+                <LinkList.Link href="#">Kunst en cultuur</LinkList.Link>
+                <LinkList.Link href="#">Ondernemen</LinkList.Link>
+                <LinkList.Link href="#">Onderwijs en jeugd</LinkList.Link>
+                <LinkList.Link href="#">Parkeren</LinkList.Link>
+                <LinkList.Link href="#">Sport</LinkList.Link>
+                <LinkList.Link href="#">Stadsdelen</LinkList.Link>
+                <LinkList.Link href="#">Subsidies</LinkList.Link>
+                <LinkList.Link href="#">Vacatures</LinkList.Link>
+                <LinkList.Link href="#">Verkeer en vervoer</LinkList.Link>
+                <LinkList.Link href="#">Vrije tijd</LinkList.Link>
+                <LinkList.Link href="#">Werk aan de weg</LinkList.Link>
+                <LinkList.Link href="#">Werk en inkomen</LinkList.Link>
+                <LinkList.Link href="#">Wonen en leefomgeving</LinkList.Link>
+                <LinkList.Link href="#">Zorg en ondersteuning</LinkList.Link>
+              </LinkList>
+            </MegaMenuListCategory>
+          </Grid.Cell>
+        </MegaMenuNavigationMenu>
+      </MegaMenuNavigation>
+    </Header>
+  ),
 }
 
-export const WithAppNameMenuAndMenuButton: Story = {
-  args: {
-    appName: 'Onderzoek en Statistiek',
-  },
-}
+// export const WithMenuButton: Story = {
+//   args: {
+//     menu: <PageMenu alignEnd>{MenuButton}</PageMenu>,
+//   },
+// }
+
+// export const WithMenuAndMenuButton: Story = {
+//   args: {
+//     menu: (
+//       <PageMenu alignEnd>
+//         {SecondaryLinks}
+//         {SearchButton}
+//         {MenuButton}
+//       </PageMenu>
+//     ),
+//   },
+// }
+
+// export const WithAppNameAndMenu: Story = {
+//   args: {
+//     appName: 'Onderzoek en Statistiek',
+//     menu: <PageMenu alignEnd>{MenuButton}</PageMenu>,
+//   },
+// }
+
+// export const WithAppNameMenuAndMenuButton: Story = {
+//   args: {
+//     appName: 'Onderzoek en Statistiek',
+//   },
+// }
