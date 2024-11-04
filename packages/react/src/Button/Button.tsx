@@ -57,7 +57,7 @@ export const Button = forwardRef(
             </span>,
           ]
         default:
-          return [children, <Icon key={2} svg={icon} size="level-5" />]
+          return [children, <Icon key={1} svg={icon} size="level-5" />]
       }
     }
 
