@@ -57,7 +57,7 @@ export const Button = forwardRef(
         case iconOnly:
           return (
             <>
-              <Icon svg={icon} size="level-5" square={true} />
+              <Icon svg={icon} size="level-5" square />
               <span className="ams-visually-hidden">{children}</span>
             </>
           )
