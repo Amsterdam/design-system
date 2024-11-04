@@ -48,16 +48,28 @@ export const Button = forwardRef(
         case !icon:
           return children
         case iconBefore:
-          return [<Icon key={1} svg={icon} size="level-5" />, children]
-        case iconOnly:
-          return [
-            <Icon key={1} svg={icon} size="level-5" square={true} />,
-            <span className="ams-visually-hidden" key={2}>
+          return (
+            <>
+              <Icon svg={icon} size="level-5" />
               {children}
-            </span>,
-          ]
+            </>
+          )
+        case iconOnly:
+          return (
+            <>
+              <Icon svg={icon} size="level-5" square={true} />
+              <span className="ams-visually-hidden" key={2}>
+                {children}
+              </span>
+            </>
+          )
         default:
-          return [children, <Icon key={1} svg={icon} size="level-5" />]
+          return (
+            <>
+              {children}
+              <Icon svg={icon} size="level-5" />
+            </>
+          )
       }
     }
 
