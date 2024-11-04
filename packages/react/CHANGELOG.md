@@ -3,6 +3,13 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.13.1](https://github.com/Amsterdam/design-system/compare/design-system-react-v0.13.0...design-system-react-v0.13.1) (2024-11-04)
+
+
+### Bug Fixes
+
+* Resolve warnings against missing array keys in Button ([#1736](https://github.com/Amsterdam/design-system/issues/1736)) ([c60c897](https://github.com/Amsterdam/design-system/commit/c60c897655870da33e4dc8ba290d6563604f7f69))
+
 ## [0.13.0](https://github.com/Amsterdam/design-system/compare/design-system-react-v0.12.0...design-system-react-v0.13.0) (2024-10-28)
 
 
