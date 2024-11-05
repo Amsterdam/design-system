@@ -14,9 +14,9 @@ import { ImageSliderThumbnails } from './ImageSliderThumbnails'
 import { Ratio } from '../AspectRatio'
 import { Image, ImageProps } from '../Image/Image'
 
-export type ImageSliderImageProps = ImageProps & {
+export type ImageSliderImageProps = Omit<ImageProps, 'aspectRatio'> & {
   /** Specify the aspect ratio to use for the images. */
-  aspectRatio: Ratio
+  aspectRatio: Exclude<Ratio, 'tall' | 'x-tall' | '2x-wide'>
 }
 
 export type ImageSliderProps = {
