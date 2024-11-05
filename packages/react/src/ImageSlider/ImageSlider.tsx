@@ -15,7 +15,7 @@ import { Ratio } from '../AspectRatio'
 import { Image, ImageProps } from '../Image/Image'
 
 export type ImageSliderImageProps = Omit<ImageProps, 'aspectRatio'> & {
-  /** Specify the aspect ratio to use for the images. */
+  /** The aspect ratio to use for the images. Options: `tall`, `square`, `wide`, and `x-wide`. */
   aspectRatio: Pick<Ratio, 'tall' | 'square' | 'wide' | 'x-wide'>
 }
 

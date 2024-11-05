@@ -17,6 +17,8 @@ The images do not slide automatically.
 - Use this for a series of images that belong together.
 - Provide at least 2 images and at most 5.
 - Feature the most essential image first.
+- All images must have the same aspect ratio.
+  Note that very wide or tall aspect ratios are not supported.
 - Assume that some or many users will not navigate between the slides and only see the first image.
   Display all images separately if you want each of them to receive attention.
 - A full-width Image Slider should run from one edge of the Screen to the other;
