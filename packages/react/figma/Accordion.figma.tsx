@@ -7,7 +7,7 @@ figma.connect(
   'https://www.figma.com/design/9IGm6IdPUYizBNGsUnueBd/Amsterdam-Design-System?node-id=21707-769&m=dev',
   {
     props: {
-      children: figma.children(['Accordion Section']),
+      children: figma.children(['_Accordion section']),
     },
     example: ({ children }) => <Accordion headingLevel={1}>{children}</Accordion>,
   },

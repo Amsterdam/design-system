@@ -12,24 +12,26 @@ figma.connect(
         Secondary: 'secondary',
         Tertiary: 'tertiary',
       }),
-      iconStart: figma.boolean('Has icon start', {
-        true: figma.instance('Icon start'),
-        false: undefined,
+      Icon: figma.instance('Icon'),
+      iconBefore: figma.enum('Icon position', {
+        None: false,
+        End: false,
+        Start: true,
+        Only: false,
       }),
-      iconEnd: figma.boolean('Has icon end', {
-        true: figma.instance('Icon end'),
-        false: undefined,
+      iconOnly: figma.enum('Icon position', {
+        None: false,
+        End: false,
+        Start: false,
+        Only: true,
       }),
       isDisabled: figma.enum('State', {
         Disabled: true,
       }),
     },
-    example: ({ label, hierarchy, iconStart, iconEnd, isDisabled }) => (
-      <Button variant={hierarchy} disabled={isDisabled}>
-        {iconStart}
-        {/* fragment is temp bugfix, figma removes label when icon is activated */}
-        <>{label}</>
-        {iconEnd}
+    example: ({ label, hierarchy, Icon, iconBefore, iconOnly, isDisabled }) => (
+      <Button variant={hierarchy} icon={Icon} iconBefore={iconBefore} iconOnly={iconOnly} disabled={isDisabled}>
+        {label}
       </Button>
     ),
   },
