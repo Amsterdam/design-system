@@ -9,7 +9,7 @@ import type { ForwardedRef } from 'react'
 import { Button } from '../Button'
 import type { ButtonProps } from '../Button'
 
-type SearchFieldButtonProps = Omit<ButtonProps, 'icon' | 'iconPosition' | 'variant'>
+type SearchFieldButtonProps = Omit<ButtonProps, 'icon' | 'iconBefore' | 'iconOnly' | 'variant'>
 
 export const SearchFieldButton = forwardRef(
   ({ children = 'Zoeken', ...restProps }: SearchFieldButtonProps, ref: ForwardedRef<HTMLButtonElement>) => (
