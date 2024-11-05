@@ -84,15 +84,9 @@ argTypes: {
 
 ## Best practices for stories
 
-1. Use decorators and / or `args.children` before reaching for `render`. `render` can easily mess up the stories’ code view.
+1. Import the Story’s component from the `src` directory so that Storybook can display its types.
+   Import other components from the package as usual.
+2. Use decorators and / or `args.children` before reaching for `render`. `render` can easily mess up the stories’ code view.
    Decorators are not shown in the code view, `args.children` are.
-2. Always check your stories’ code view.
-3. `args.children` can be an array, separated by commas and given ascending numbers as keys.
-
-## Future plans
-
-We are considering what to document for each component in the various libraries.
-
-We aim to document each implementation of each component – CSS, React, React Native, and Salesforce Lightning Web Components.
-
-We’re eager to get the most out of Storybook features for accessibility, testing, and more.
+3. Always check your stories’ code view.
+4. `args.children` can be an array, separated by commas and given ascending numbers as keys.

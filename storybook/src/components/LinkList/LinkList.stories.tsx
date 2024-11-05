@@ -45,8 +45,11 @@ const LinkStoryTemplate: LinkStory = {
   },
   argTypes: {
     icon: {
-      control: { type: 'select' },
-      options: Object.keys(Icons),
+      control: {
+        type: 'select',
+        labels: { undefined: 'none' },
+      },
+      options: [undefined, ...Object.keys(Icons)],
       mapping: Icons,
     },
     size: {

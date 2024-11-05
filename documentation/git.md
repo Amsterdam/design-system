@@ -26,7 +26,7 @@ Configure this immediately after downloading.
 
 From the directory that holds the repository:
 
-```bash
+```sh
 git config user.name Your Name
 
 git config user.email your.email@amsterdam.nl
@@ -139,7 +139,7 @@ For users of Git via the CLI, it may be helpful to create aliases for some commo
 You can save this in a configuration file of your shell.
 For example:
 
-```bash
+```sh
 alias gcd="git checkout develop"
 alias gcp="git checkout -"
 alias gh="git push"

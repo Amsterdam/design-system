@@ -32,7 +32,7 @@ This will cause a major version bump in both packages on release and add its des
 
 1. Locally merge the latest version of `develop` into `main` using a fast-forward merge, and push to the remote:
 
-   ```shell
+   ```sh
      git checkout main
      git pull
      git merge --ff-only origin/develop
@@ -46,7 +46,7 @@ This will cause a major version bump in both packages on release and add its des
 3. When complete, the Action adds a new release commit to `main`.
    Locally merge this commit back into `develop` and push it to the remote:
 
-   ```shell
+   ```sh
     git checkout develop
     git pull
     git merge --ff-only origin/main

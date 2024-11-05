@@ -10,6 +10,7 @@
 .ams-screen {
   background-color: var(--ams-screen-background-color);
   margin-inline: auto;
+  position: relative;
 
   @include reset;
 }

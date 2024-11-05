@@ -30,11 +30,6 @@ so do not apply these styles without an `open` attribute. */
   }
 }
 
-.ams-dialog__body {
-  overflow-y: auto;
-  overscroll-behavior-y: contain;
-}
-
 .ams-dialog__header {
   align-items: flex-start;
   display: flex;
@@ -42,15 +37,7 @@ so do not apply these styles without an `open` attribute. */
   justify-content: space-between;
 }
 
-.ams-dialog__footer {
-  display: flex;
-  flex-wrap: wrap; // [1]
-  gap: var(--ams-dialog-footer-gap);
-  margin-inline-end: auto; // [1]
-
-  > * {
-    flex: auto; // [1]
-  }
+.ams-dialog__body {
+  overflow-y: auto;
+  overscroll-behavior-y: contain;
 }
-
-// [1] This combination stacks the buttons vertically and stretches them, until they fit next to each other.

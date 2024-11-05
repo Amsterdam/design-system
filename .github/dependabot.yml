@@ -14,6 +14,21 @@ updates:
     directory: "/"
     schedule:
       interval: "weekly"
+    # Prod and dev dependencies are split in two groups,
+    # because their PRs get a different prefix ('fix' for prod, 'chore' for dev)
+    groups:
+      patch-and-minor-dependencies:
+        applies-to: "version-updates"
+        dependency-type: "production"
+        update-types:
+          - "patch"
+          - "minor"
+      patch-and-minor-dev-dependencies:
+        applies-to: "version-updates"
+        dependency-type: "development"
+        update-types:
+          - "patch"
+          - "minor"
     versioning-strategy: "increase-if-necessary"
     open-pull-requests-limit: 20
     commit-message:

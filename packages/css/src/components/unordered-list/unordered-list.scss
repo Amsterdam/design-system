@@ -5,7 +5,6 @@
 
 @import "../../common/text-rendering";
 
-/** Apply border box sizing, reset white space and list styles. */
 @mixin reset {
   box-sizing: border-box;
   list-style: none;
@@ -13,7 +12,6 @@
   padding-inline-start: 0;
 }
 
-/** A list is a grid column with a gap between items. */
 .ams-unordered-list {
   display: grid;
   gap: var(--ams-unordered-list-gap);
@@ -22,7 +20,6 @@
   @include reset;
 }
 
-/** A list with markers sets typography for its text content. */
 .ams-unordered-list:not(.ams-unordered-list--no-markers) {
   color: var(--ams-unordered-list-color);
   font-family: var(--ams-unordered-list-font-family);
@@ -31,7 +28,6 @@
   line-height: var(--ams-unordered-list-line-height);
   list-style-type: var(--ams-unordered-list-list-style-type);
 
-  /** List items are responsible for indentation and marker positioning. */
   .ams-unordered-list__item {
     margin-inline-start: var(--ams-unordered-list-item-margin-inline-start);
     padding-inline-start: var(--ams-unordered-list-item-padding-inline-start);
@@ -47,9 +43,11 @@
   line-height: var(--ams-unordered-list-small-line-height);
 }
 
-/** A nested list has a different marker and less indentation for correct alignment. */
 :is(.ams-ordered-list, .ams-unordered-list) .ams-unordered-list {
+  gap: var(--ams-unordered-list-unordered-list-gap);
   list-style-type: var(--ams-unordered-list-unordered-list-list-style-type);
+  padding-block-end: var(--ams-unordered-list-unordered-list-padding-block-end);
+  padding-block-start: var(--ams-unordered-list-unordered-list-padding-block-start);
 
   .ams-unordered-list__item {
     margin-inline-start: var(--ams-unordered-list-unordered-list-item-margin-inline-start);

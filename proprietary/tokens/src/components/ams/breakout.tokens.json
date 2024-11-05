@@ -1,0 +1,11 @@
+{
+  "ams": {
+    "breakout": {
+      "row-gap": {
+        "sm": { "value": "{ams.space.grid.sm}" },
+        "md": { "value": "{ams.space.grid.md}" },
+        "lg": { "value": "{ams.space.grid.lg}" }
+      }
+    }
+  }
+}
