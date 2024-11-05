@@ -18,7 +18,7 @@ export const SearchFieldButton = forwardRef(
       {...restProps}
       className={clsx('ams-search-field__button', className)}
       icon={SearchIcon}
-      iconPosition="only"
+      iconBefore
       ref={ref}
     >
       {children}
