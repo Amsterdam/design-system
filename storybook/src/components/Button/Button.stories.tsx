@@ -13,6 +13,9 @@ const meta = {
   args: {
     children: 'Versturen',
     disabled: false,
+    icon: undefined,
+    iconBefore: false,
+    iconOnly: false,
     variant: 'primary',
   },
   argTypes: {
@@ -22,16 +25,26 @@ const meta = {
     icon: {
       control: {
         type: 'select',
+        labels: { undefined: 'none' },
       },
-      options: Object.keys(Icons),
+      options: [undefined, ...Object.keys(Icons)],
       mapping: Icons,
     },
-    iconPosition: {
+    iconBefore: {
       control: {
-        type: 'inline-radio',
-        labels: { undefined: 'end', start: 'start', only: 'only' },
+        type: 'boolean',
       },
-      options: [undefined, 'start', 'only'],
+      if: {
+        arg: 'icon',
+      },
+    },
+    iconOnly: {
+      control: {
+        type: 'boolean',
+      },
+      if: {
+        arg: 'icon',
+      },
     },
   },
 } satisfies Meta<typeof Button>
@@ -63,11 +76,11 @@ export const WithIcon: Story = {
   },
 }
 
-export const WithIconAtStart: Story = {
+export const WithIconBefore: Story = {
   args: {
     children: 'Sluiten',
     icon: Icons.CloseIcon,
-    iconPosition: 'start',
+    iconBefore: true,
   },
 }
 
@@ -75,7 +88,7 @@ export const WithIconOnly: Story = {
   args: {
     children: 'Sluiten',
     icon: Icons.CloseIcon,
-    iconPosition: 'only',
+    iconOnly: true,
     variant: 'tertiary',
   },
 }

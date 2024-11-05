@@ -1,11 +1,19 @@
 {
   "version": "0.0.0",
-  "author": "Community for NL Design System",
-  "description": "Design system based on the NL Design System architecture",
+  "author": "Design System Team, City of Amsterdam <designsystem@amsterdam.nl>",
+  "description": "Reusable components, patterns and guidelines powering the City of Amsterdam’s digital services.",
+  "homepage": "https://designsystem.amsterdam/",
   "license": "EUPL-1.2",
   "name": "@amsterdam/design-system",
   "keywords": [
-    "nl-design-system"
+    "amsterdam",
+    "amsterdam-design-system",
+    "assets",
+    "css",
+    "design-system",
+    "icons",
+    "nl-design-system",
+    "react"
   ],
   "private": true,
   "engines": {
@@ -19,7 +27,7 @@
     "./storybook"
   ],
   "devDependencies": {
-    "@types/node": "22.7.8",
+    "@types/node": "22.8.7",
     "@typescript-eslint/eslint-plugin": "7.18.0",
     "@typescript-eslint/parser": "7.18.0",
     "conventional-changelog-conventionalcommits": "8.0.0",
@@ -29,12 +37,12 @@
     "eslint-plugin-jest": "28.8.3",
     "eslint-plugin-json": "3.1.0",
     "eslint-plugin-mdx": "3.1.5",
-    "eslint-plugin-react": "7.37.1",
+    "eslint-plugin-react": "7.37.2",
     "html-validate": "8.24.2",
     "husky": "9.1.6",
     "lint-staged": "15.2.10",
     "markdownlint-cli": "0.42.0",
-    "npm-check-updates": "17.1.4",
+    "npm-check-updates": "17.1.10",
     "npm-package-json-lint": "8.0.0",
     "npm-run-all": "4.1.5",
     "plop": "4.0.1",
@@ -92,5 +100,6 @@
       "path-to-regexp@<0.1.10": ">=0.1.10",
       "cookie@<0.7.0": ">=0.7.0"
     }
-  }
+  },
+  "packageManager": "pnpm@9.12.2+sha512.22721b3a11f81661ae1ec68ce1a7b879425a1ca5b991c975b074ac220b187ce56c708fe5db69f4c962c989452eee76c82877f4ee80f474cebd61ee13461b6228"
 }
