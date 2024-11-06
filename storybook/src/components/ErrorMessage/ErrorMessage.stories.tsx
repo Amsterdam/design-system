@@ -4,6 +4,7 @@
  */
 
 import { ErrorMessage } from '@amsterdam/design-system-react/src'
+import { AnnouncementIcon } from '@amsterdam/design-system-react-icons'
 import { Meta, StoryObj } from '@storybook/react'
 
 const meta = {
@@ -29,5 +30,11 @@ export const CustomPrefix: Story = {
   args: {
     children: 'Enter an email address in the correct format, like name@example.com',
     prefix: 'Error',
+  },
+}
+
+export const WithCustomIcon: Story = {
+  args: {
+    icon: AnnouncementIcon,
   },
 }
