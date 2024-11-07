@@ -21,4 +21,4 @@ The class can be applied to any component or element.
 ## Guidelines
 
 - Apply one of these classes to an image, video or other media content to constrain its dimensions to one of the available aspect ratios.
-- The default aspect ratio is 16 / 9.
+- The default aspect ratio is 16:9.
