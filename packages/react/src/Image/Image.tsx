@@ -11,7 +11,7 @@ import { AspectRatioProps } from '../common/types'
 export type ImageProps = AspectRatioProps & ImgHTMLAttributes<HTMLImageElement>
 
 export const Image = forwardRef(
-  ({ aspectRatio = 'wide', className, ...restProps }: ImageProps, ref: ForwardedRef<HTMLImageElement>) => (
+  ({ aspectRatio, className, ...restProps }: ImageProps, ref: ForwardedRef<HTMLImageElement>) => (
     <img
       {...restProps}
       ref={ref}
