@@ -26,8 +26,7 @@ describe('Image', () => {
 
     const component = container.querySelector(':only-child')
 
-    expect(component).toHaveClass('extra')
-    expect(component).toHaveClass('ams-image')
+    expect(component).toHaveClass('ams-image extra')
   })
 
   it('renders class names to display the image in a given aspect ratio', () => {
