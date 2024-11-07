@@ -4,19 +4,17 @@
  */
 
 .ams-image {
+  aspect-ratio: var(--ams-image-aspect-ratio);
   block-size: auto; /* [1] */
   font-style: italic; /* [3] */
+  inline-size: fit-content;
   max-inline-size: 100%; /* [1] */
+  object-fit: cover; /* [4] */
   vertical-align: middle; /* [2] */
-
-  &[class*="ams-aspect-ratio--"] {
-    inline-size: fit-content;
-    object-fit: cover;
-    position: relative;
-  }
 }
 
 // [1] Allow for fluid image sizing while maintaining aspect ratio governed by inline/block size attributes
 // [2] Remove ‘phantom’ white space
 // [3] Italicise alt text to visually offset it from surrounding copy
 // Source: https://x.com/csswizardry/status/1717841334462005661
+// [4] Crop the image to maintain a supported aspect ratio
