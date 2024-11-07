@@ -12,9 +12,8 @@ import { ImageSliderItem } from './ImageSliderItem'
 import { ImageSliderScroller } from './ImageSliderScroller'
 import { ImageSliderThumbnails } from './ImageSliderThumbnails'
 import { Image, ImageProps } from '../Image/Image'
-import { AspectRatioProps } from '../common/types'
 
-export type ImageSliderImageProps = ImageProps & AspectRatioProps
+export type ImageSliderImageProps = ImageProps
 
 export type ImageSliderProps = {
   /** Display buttons to navigate to the previous or next image. */
