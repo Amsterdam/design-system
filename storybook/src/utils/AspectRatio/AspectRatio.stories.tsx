@@ -3,42 +3,31 @@
  * Copyright Gemeente Amsterdam
  */
 
-import { Paragraph } from '@amsterdam/design-system-react'
-import tokens from '@amsterdam/design-system-tokens/dist/index.json'
 import { Meta, StoryObj } from '@storybook/react'
 import { AspectRatio } from './AspectRatio'
 import type { AspectRatioProps } from './AspectRatio'
-
-const render = ({ aspectRatio }: AspectRatioProps) => (
-  <div className={`ams-aspect-ratio--${aspectRatio}`}>
-    <Paragraph
-      style={{
-        alignItems: 'center',
-        backgroundColor: tokens.ams.color['neutral-grey2'],
-        blockSize: '100%',
-        color: tokens.ams.color['primary-white'],
-        display: 'inline-flex',
-        inlineSize: '100%',
-        justifyContent: 'center',
-      }}
-    >
-      This gray block has two dimensions with fixed proportions.
-    </Paragraph>
-  </div>
-)
 
 const meta = {
   title: 'Utilities/CSS/Aspect Ratio',
   component: AspectRatio,
   args: {
-    aspectRatio: 'wide',
+    aspectRatio: 'x-wide',
   },
+  argTypes: {
+    aspectRatio: {
+      control: 'radio',
+      options: ['2x-wide', 'x-wide', 'wide', 'square', 'tall', 'x-tall'],
+    },
+  },
+  render: ({ aspectRatio }: AspectRatioProps) => (
+    <div className="ams-docs-column ams-docs-aspect-ratio">
+      <div className={`ams-docs-item ams-aspect-ratio--${aspectRatio}`}></div>
+    </div>
+  ),
 } satisfies Meta<typeof AspectRatio>
 
 export default meta
 
 type Story = StoryObj<typeof meta>
 
-export const Default: Story = {
-  render,
-}
+export const Default: Story = {}
