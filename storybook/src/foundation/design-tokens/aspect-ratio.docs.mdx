@@ -6,17 +6,27 @@ import { Meta } from "@storybook/blocks";
 
 # Aspect Ratio
 
-Constrain elements like images and videos to one of the available aspect ratios.
+Constrains media content to a supported aspect ratio.
 
-## Ratios
+## Design
 
-We have 6 named aspect ratios:
+Media content like images, videos, and maps take up sizable portions of a screen.
+Using just a limited set of aspect ratios to display them keeps the visual impression of a page composed.
 
-| Token name                 | ratio  | Example                                                                                                                         |
-| :------------------------- | :----: | ------------------------------------------------------------------------------------------------------------------------------- |
-| `ams.aspect-ratio.x-tall`  | 9 / 16 | <div className="ams-docs-token-example--space" style={{ blockSize: '3rem', aspectRatio: 'var(--ams-aspect-ratio-x-tall)' }} />  |
-| `ams.aspect-ratio.tall`    | 3 / 4  | <div className="ams-docs-token-example--space" style={{ blockSize: '3rem', aspectRatio: 'var(--ams-aspect-ratio-tall)' }} />    |
-| `ams.aspect-ratio.square`  | 1 / 1  | <div className="ams-docs-token-example--space" style={{ blockSize: '3rem', aspectRatio: 'var(--ams-aspect-ratio-square)' }} />  |
-| `ams.aspect-ratio.wide`    | 4 / 3  | <div className="ams-docs-token-example--space" style={{ blockSize: '3rem', aspectRatio: 'var(--ams-aspect-ratio-wide)' }} />    |
-| `ams.aspect-ratio.x-wide`  | 16 / 9 | <div className="ams-docs-token-example--space" style={{ blockSize: '3rem', aspectRatio: 'var(--ams-aspect-ratio-x-wide)' }} />  |
-| `ams.aspect-ratio.2x-wide` | 16 / 5 | <div className="ams-docs-token-example--space" style={{ blockSize: '3rem', aspectRatio: 'var(--ams-aspect-ratio-2x-wide)' }} /> |
+The default aspect ratio for media is 16 / 9.
+
+Content with intrinsic dimensions that do not match an aspect ratio will be cropped without distorting its appearance.
+
+| Token name                 |  Value | Example                                                                                                      |
+| :------------------------- | -----: | ------------------------------------------------------------------------------------------------------------ |
+| `ams.aspect-ratio.x-tall`  | 9 / 16 | <div className="ams-docs-token-example--space" style={{ aspectRatio: 'var(--ams-aspect-ratio-x-tall)' }} />  |
+| `ams.aspect-ratio.tall`    |  3 / 4 | <div className="ams-docs-token-example--space" style={{ aspectRatio: 'var(--ams-aspect-ratio-tall)' }} />    |
+| `ams.aspect-ratio.square`  |  1 / 1 | <div className="ams-docs-token-example--space" style={{ aspectRatio: 'var(--ams-aspect-ratio-square)' }} />  |
+| `ams.aspect-ratio.wide`    |  4 / 3 | <div className="ams-docs-token-example--space" style={{ aspectRatio: 'var(--ams-aspect-ratio-wide)' }} />    |
+| `ams.aspect-ratio.x-wide`  | 16 / 9 | <div className="ams-docs-token-example--space" style={{ aspectRatio: 'var(--ams-aspect-ratio-x-wide)' }} />  |
+| `ams.aspect-ratio.2x-wide` | 16 / 5 | <div className="ams-docs-token-example--space" style={{ aspectRatio: 'var(--ams-aspect-ratio-2x-wide)' }} /> |
+
+## Related components
+
+- The [Image](https://designsystem.amsterdam/?path=/docs/components-media-image--docs) component has an `aspectRatio` prop that sets one of these classes.
+- The [Breakout](https://designsystem.amsterdam/?path=/docs/components-layout-breakout--docs) layout positions an image with a certain aspect ratio in a Spotlight.

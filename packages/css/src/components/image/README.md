@@ -4,6 +4,12 @@
 
 Displays an image.
 
+## Design
+
+Every Image must display in one of the [available aspect ratios](https://designsystem.amsterdam/?path=/docs/brand-design-tokens-aspect-ratio--docs).
+The default is 16:9.
+If the intrinsic dimensions of the source do not match an aspect ratio, the image will get cropped to cover the intended area without distorting its appearance.
+
 ## Guidelines
 
 - Do not forget to include a description of the image in the `alt` attribute.
@@ -15,8 +21,6 @@ Displays an image.
   For example, provide small, medium, and large variants for various screen sizes.
   This prevents unnecessary downloading of large files.
   Do this especially for the main image of a page, where the difference between sizes on a narrow and wide screen is most significant.
-- An Image should always have an aspect ratio. The default is 16:9. [Other options](/docs/brand-design-tokens-aspect-ratio--docs) are available.
-- If the source image is not an exact fit for the given dimensions it will cover the container with clipped sides.
 
 ## Relevant WCAG requirements
 
