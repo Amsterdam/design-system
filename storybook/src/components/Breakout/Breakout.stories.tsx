@@ -55,7 +55,7 @@ export const VerticalLayout: Story = {
   args: {
     children: [
       <Breakout.Cell colSpan="all" has="figure" rowSpan={2} rowStart={1}>
-        <Image alt="" src="https://picsum.photos/1600/900" aspectRatio="x-wide" />
+        <Image alt="" src="https://picsum.photos/1600/900" />
       </Breakout.Cell>,
       <Breakout.Cell colSpan="all" has="spotlight" rowSpan={2} rowStart={2}>
         <Spotlight />
