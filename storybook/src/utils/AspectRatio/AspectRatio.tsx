@@ -3,7 +3,7 @@
  * Copyright Gemeente Amsterdam
  */
 
-import { AspectRatioProps as IAspectRatioProps } from '@amsterdam/design-system-react/src/common/aspectRatio'
+import { AspectRatioProps as IAspectRatioProps } from '@amsterdam/design-system-react/src/common/types'
 import { HTMLAttributes, PropsWithChildren } from 'react'
 
 export type AspectRatioProps = IAspectRatioProps & PropsWithChildren<HTMLAttributes<HTMLSpanElement>>

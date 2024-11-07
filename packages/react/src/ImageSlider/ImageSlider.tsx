@@ -12,7 +12,7 @@ import { ImageSliderItem } from './ImageSliderItem'
 import { ImageSliderScroller } from './ImageSliderScroller'
 import { ImageSliderThumbnails } from './ImageSliderThumbnails'
 import { Image, ImageProps } from '../Image/Image'
-import { AspectRatioProps } from '../common/aspectRatio'
+import { AspectRatioProps } from '../common/types'
 
 export type ImageSliderImageProps = ImageProps & AspectRatioProps
 

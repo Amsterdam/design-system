@@ -6,7 +6,7 @@
 import clsx from 'clsx'
 import { forwardRef } from 'react'
 import type { ForwardedRef, ImgHTMLAttributes } from 'react'
-import { AspectRatioProps } from '../common/aspectRatio'
+import { AspectRatioProps } from '../common/types'
 
 export type ImageProps = AspectRatioProps & ImgHTMLAttributes<HTMLImageElement>
 
