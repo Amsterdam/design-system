@@ -22,7 +22,6 @@ export const Default: Story = {
       <Image
         key={1}
         alt=""
-        cover
         aspectRatio="2x-wide"
         sizes="(max-width: 36rem) 640px, (max-width: 68rem) 1280px, 1600px"
         src="https://picsum.photos/1600/500"
