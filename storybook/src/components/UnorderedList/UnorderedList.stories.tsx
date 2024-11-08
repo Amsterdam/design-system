@@ -16,7 +16,6 @@ import {
   TrashBinIcon,
 } from '@amsterdam/design-system-react-icons'
 import type { Meta, StoryObj } from '@storybook/react'
-import { inverseColorDecorator } from '../shared/decorators'
 import { exampleUnorderedList } from '../shared/exampleContent'
 
 const unorderedListItems = exampleUnorderedList().map((text, index) => (
@@ -40,7 +39,6 @@ const meta = {
       options: ['small', undefined],
     },
   },
-  decorators: [inverseColorDecorator],
 } satisfies Meta<typeof UnorderedList>
 
 export default meta
