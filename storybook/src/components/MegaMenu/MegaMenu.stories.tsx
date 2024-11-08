@@ -3,7 +3,7 @@
  * Copyright Gemeente Amsterdam
  */
 
-import { Grid, Heading, LinkList, Screen } from '@amsterdam/design-system-react'
+import { Grid, Heading, LinkList } from '@amsterdam/design-system-react'
 import { MegaMenu } from '@amsterdam/design-system-react/src'
 import { Meta, StoryObj } from '@storybook/react'
 
@@ -13,13 +13,6 @@ const meta = {
   parameters: {
     layout: 'fullscreen',
   },
-  decorators: [
-    (Story) => (
-      <Screen>
-        <Story />
-      </Screen>
-    ),
-  ],
 } satisfies Meta<typeof MegaMenu>
 
 export default meta
