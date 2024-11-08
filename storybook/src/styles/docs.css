@@ -57,12 +57,12 @@
   padding-inline: 1rem;
 }
 
-.ams-docs-dark-background {
-  background-color: #004699; /* Dark blue */
-}
-
 .ams-docs-light-background {
   background-color: #ffe600; /* Yellow */
+}
+
+.ams-docs-dark-background {
+  background-color: #004699; /* Dark blue */
 }
 
 .ams-docs-backdrop {
