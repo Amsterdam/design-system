@@ -3,7 +3,7 @@
  * Copyright Gemeente Amsterdam
  */
 
-import { AspectRatio, Grid, Image, SearchField } from '@amsterdam/design-system-react'
+import { Grid, Image, SearchField } from '@amsterdam/design-system-react'
 import { Overlap } from '@amsterdam/design-system-react/src'
 import { Meta, StoryObj } from '@storybook/react'
 
@@ -19,15 +19,14 @@ type Story = StoryObj<typeof meta>
 export const Default: Story = {
   args: {
     children: [
-      <AspectRatio key={1} ratio="2x-wide">
-        <Image
-          alt=""
-          cover
-          sizes="(max-width: 36rem) 640px, (max-width: 68rem) 1280px, 1600px"
-          src="https://picsum.photos/1600/500"
-          srcSet="https://picsum.photos/640/200 640w, https://picsum.photos/1280/400 1280w, https://picsum.photos/1600/500 1600w"
-        />
-      </AspectRatio>,
+      <Image
+        key={1}
+        alt=""
+        aspectRatio="2x-wide"
+        sizes="(max-width: 36rem) 640px, (max-width: 68rem) 1280px, 1600px"
+        src="https://picsum.photos/1600/500"
+        srcSet="https://picsum.photos/640/200 640w, https://picsum.photos/1280/400 1280w, https://picsum.photos/1600/500 1600w"
+      />,
       <Grid key={2} style={{ alignSelf: 'center' }}>
         <Grid.Cell span={{ narrow: 4, medium: 6, wide: 8 }} start={{ narrow: 1, medium: 2, wide: 3 }}>
           <SearchField onSubmit={(e) => e.preventDefault()}>

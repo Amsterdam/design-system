@@ -8,7 +8,6 @@
 @mixin reset-button {
   border: 0;
   border-radius: 0; // Reset rounded borders on iOS devices
-  box-sizing: border-box;
 }
 
 .ams-file-input {
@@ -39,6 +38,7 @@
   appearance: none; // Reset native appearance, this causes issues on iOS and Android devices
   background-color: var(--ams-file-input-file-selector-button-background-color);
   box-shadow: var(--ams-file-input-file-selector-button-box-shadow);
+  box-sizing: border-box;
   color: var(--ams-file-input-file-selector-button-color);
   cursor: var(--ams-file-input-file-selector-button-cursor);
   font-family: inherit;
