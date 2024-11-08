@@ -6,7 +6,7 @@
 .ams-aspect-ratio {
   @each $name in ("x-tall", "tall", "square", "wide", "x-wide", "2x-wide") {
     &--#{$name} {
-      aspect-ratio: var(--ams-aspect-ratio-#{$name});
+      aspect-ratio: var(--ams-aspect-ratio-#{$name}) !important;
     }
   }
 }
