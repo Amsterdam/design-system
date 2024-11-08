@@ -5,7 +5,6 @@
 
 import { Meta, StoryObj } from '@storybook/react'
 import { AspectRatio } from './AspectRatio'
-import type { AspectRatioProps } from './AspectRatio'
 
 const meta = {
   title: 'Utilities/CSS/Aspect Ratio',
@@ -19,7 +18,7 @@ const meta = {
       options: ['2x-wide', 'x-wide', 'wide', 'square', 'tall', 'x-tall'],
     },
   },
-  render: ({ aspectRatio }: AspectRatioProps) => (
+  render: ({ aspectRatio }) => (
     <div className="ams-docs-column ams-docs-aspect-ratio">
       <div className={`ams-docs-item ams-aspect-ratio--${aspectRatio}`}></div>
     </div>
