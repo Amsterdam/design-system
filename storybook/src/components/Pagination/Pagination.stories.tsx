@@ -14,8 +14,28 @@ const meta = {
     maxVisiblePages: 7,
     totalPages: 10,
   },
-  argTypes: { onPageChange: { action: 'page changed' } },
-  render: (args) => <Pagination key={JSON.stringify(args)} {...args} />,
+  argTypes: {
+    onPageChange: { action: 'page changed' },
+    page: {
+      control: {
+        type: 'number',
+        min: 1,
+      },
+    },
+  },
+  decorators: [
+    // Wrap the story in a div with a key, to force a rerender when the 'page' arg changes
+    (Story, { args }) => (
+      <div key={JSON.stringify(args)} id="ams-docs-custom-root">
+        <Story />
+      </div>
+    ),
+  ],
+  parameters: {
+    html: {
+      root: '#ams-docs-custom-root',
+    },
+  },
 } satisfies Meta<typeof Pagination>
 
 export default meta
