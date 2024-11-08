@@ -6,15 +6,17 @@
 import clsx from 'clsx'
 import { forwardRef } from 'react'
 import type { ForwardedRef, ImgHTMLAttributes } from 'react'
+import { AspectRatioProps } from '../common/types'
 
-export type ImageProps = {
-  /** Whether to display the image exactly as large as its container. This will clip the image if necessary. */
-  cover?: boolean
-} & ImgHTMLAttributes<HTMLImageElement>
+export type ImageProps = AspectRatioProps & ImgHTMLAttributes<HTMLImageElement>
 
 export const Image = forwardRef(
-  ({ className, cover = false, ...restProps }: ImageProps, ref: ForwardedRef<HTMLImageElement>) => (
-    <img {...restProps} ref={ref} className={clsx('ams-image', cover && 'ams-image--cover', className)} />
+  ({ aspectRatio, className, ...restProps }: ImageProps, ref: ForwardedRef<HTMLImageElement>) => (
+    <img
+      {...restProps}
+      ref={ref}
+      className={clsx('ams-image', aspectRatio && `ams-aspect-ratio--${aspectRatio}`, className)}
+    />
   ),
 )
 

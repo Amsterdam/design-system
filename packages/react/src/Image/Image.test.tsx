@@ -1,6 +1,7 @@
 import { render } from '@testing-library/react'
 import { createRef } from 'react'
 import { Image } from './Image'
+import { aspectRatioOptions } from '../common/types'
 import '@testing-library/jest-dom'
 
 describe('Image', () => {
@@ -26,16 +27,17 @@ describe('Image', () => {
 
     const component = container.querySelector(':only-child')
 
-    expect(component).toHaveClass('extra')
-    expect(component).toHaveClass('ams-image')
+    expect(component).toHaveClass('ams-image extra')
   })
 
-  it('renders a class name to display the image as large as its container', () => {
-    const { container } = render(<Image cover />)
+  aspectRatioOptions.forEach((aspectRatio) => {
+    it(`renders class names to display the image in the ${aspectRatio} aspect ratio`, () => {
+      const { container } = render(<Image aspectRatio={aspectRatio} />)
 
-    const component = container.querySelector(':only-child')
+      const component = container.querySelector(':only-child')
 
-    expect(component).toHaveClass('ams-image--cover')
+      expect(component).toHaveClass(`ams-aspect-ratio--${aspectRatio}`)
+    })
   })
 
   it('supports ForwardRef in React', () => {
