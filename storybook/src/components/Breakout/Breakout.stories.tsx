@@ -3,7 +3,7 @@
  * Copyright Gemeente Amsterdam
  */
 
-import { AspectRatio, Image, Paragraph, Screen, Spotlight } from '@amsterdam/design-system-react'
+import { Image, Paragraph, Screen, Spotlight } from '@amsterdam/design-system-react'
 import { Breakout } from '@amsterdam/design-system-react/src'
 import { Meta, StoryObj } from '@storybook/react'
 
@@ -45,9 +45,7 @@ export const Default: Story = {
         rowSpan={2}
         rowStart={1}
       >
-        <AspectRatio ratio="square">
-          <Image alt="" src="https://picsum.photos/960/960" />
-        </AspectRatio>
+        <Image alt="" src="https://picsum.photos/960/960" aspectRatio="square" />
       </Breakout.Cell>,
     ],
   },
@@ -57,9 +55,7 @@ export const VerticalLayout: Story = {
   args: {
     children: [
       <Breakout.Cell colSpan="all" has="figure" rowSpan={2} rowStart={1}>
-        <AspectRatio ratio="x-wide">
-          <Image alt="" src="https://picsum.photos/1600/900" />
-        </AspectRatio>
+        <Image alt="" src="https://picsum.photos/1600/900" />
       </Breakout.Cell>,
       <Breakout.Cell colSpan="all" has="spotlight" rowSpan={2} rowStart={2}>
         <Spotlight />
