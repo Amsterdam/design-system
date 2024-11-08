@@ -6,7 +6,7 @@ import '@testing-library/jest-dom'
 
 describe('Image', () => {
   it('renders', () => {
-    const { container } = render(<Image alt={'Image'} />)
+    const { container } = render(<Image alt="" />)
 
     const component = container.querySelector(':only-child')
 
@@ -15,7 +15,7 @@ describe('Image', () => {
   })
 
   it('renders a design system BEM class name', () => {
-    const { container } = render(<Image alt={'Image'} />)
+    const { container } = render(<Image alt="" />)
 
     const component = container.querySelector(':only-child')
 
@@ -23,7 +23,7 @@ describe('Image', () => {
   })
 
   it('renders an additional class name', () => {
-    const { container } = render(<Image alt={'Image'} className="extra" />)
+    const { container } = render(<Image alt="" className="extra" />)
 
     const component = container.querySelector(':only-child')
 
@@ -32,7 +32,7 @@ describe('Image', () => {
 
   aspectRatioOptions.forEach((aspectRatio) => {
     it(`renders class names to display the image in the ${aspectRatio} aspect ratio`, () => {
-      const { container } = render(<Image aspectRatio={aspectRatio} />)
+      const { container } = render(<Image alt="" aspectRatio={aspectRatio} />)
 
       const component = container.querySelector(':only-child')
 
@@ -43,7 +43,7 @@ describe('Image', () => {
   it('supports ForwardRef in React', () => {
     const ref = createRef<HTMLImageElement>()
 
-    const { container } = render(<Image alt={'Image'} ref={ref} />)
+    const { container } = render(<Image alt="" ref={ref} />)
 
     const component = container.querySelector(':only-child')
 
