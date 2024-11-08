@@ -6,7 +6,7 @@
 @import "../../common/breakpoint";
 @import "../../common/text-rendering";
 
-@mixin reset-ol {
+@mixin reset-dl {
   box-sizing: border-box;
   margin-block: 0;
 }
@@ -20,7 +20,7 @@
   line-height: var(--ams-description-list-line-height);
   row-gap: var(--ams-description-list-row-gap);
 
-  @include reset-ol;
+  @include reset-dl;
   @include text-rendering;
 }
 
@@ -54,7 +54,7 @@
   }
 }
 
-@mixin reset-description {
+@mixin reset-dd {
   margin-inline: 0;
 }
 
@@ -62,7 +62,7 @@
   font-weight: var(--ams-description-list-description-font-weight);
   padding-inline-start: var(--ams-description-list-description-padding-inline-start);
 
-  @include reset-description;
+  @include reset-dd;
 
   @media screen and (min-width: $ams-breakpoint-medium) {
     grid-column-start: 2;

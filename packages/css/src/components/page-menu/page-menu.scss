@@ -5,13 +5,13 @@
 
 @import "../../common/text-rendering";
 
-@mixin reset-list {
+@mixin reset-ul {
   box-sizing: border-box;
   margin-block: 0;
   padding-inline: 0;
 }
 
-@mixin reset-item {
+@mixin reset-a {
   box-sizing: border-box;
 }
 
@@ -24,7 +24,7 @@
   list-style: none;
   row-gap: var(--ams-page-menu-row-gap);
 
-  @include reset-list;
+  @include reset-ul;
 }
 
 .ams-page-menu--align-end {
@@ -56,7 +56,7 @@
 .ams-page-menu__link {
   @include page-menu-item;
   @include text-rendering;
-  @include reset-item;
+  @include reset-a;
 }
 
 .ams-page-menu__link:hover,

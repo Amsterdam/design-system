@@ -15,11 +15,8 @@
   text-decoration: none;
 }
 
-@mixin reset-label-or-description {
-  box-sizing: border-box;
-}
-
 .ams-top-task-link__label {
+  box-sizing: border-box;
   color: var(--ams-top-task-link-label-color);
   font-family: var(--ams-top-task-link-label-font-family);
   font-size: var(--ams-top-task-link-label-font-size);
@@ -31,7 +28,6 @@
 
   @include hyphenation;
   @include text-rendering;
-  @include reset-label-or-description;
 }
 
 .ams-top-task-link:hover .ams-top-task-link__label {
@@ -40,11 +36,10 @@
 }
 
 .ams-top-task-link__description {
+  box-sizing: border-box;
   color: var(--ams-top-task-link-description-color);
   font-family: var(--ams-top-task-link-description-font-family);
   font-size: var(--ams-top-task-link-description-font-size);
   font-weight: var(--ams-top-task-link-description-font-weight);
   line-height: var(--ams-top-task-link-description-line-height);
-
-  @include reset-label-or-description;
 }

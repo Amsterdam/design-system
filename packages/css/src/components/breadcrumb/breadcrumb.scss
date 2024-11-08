@@ -5,7 +5,7 @@
 
 @import "../../common/text-rendering";
 
-@mixin reset-list {
+@mixin reset-ol {
   box-sizing: border-box;
   margin-block: 0;
   padding-inline: 0;
@@ -23,7 +23,7 @@
   break-inside: avoid;
 
   @include text-rendering;
-  @include reset-list;
+  @include reset-ol;
 }
 
 .ams-breadcrumb__item {
