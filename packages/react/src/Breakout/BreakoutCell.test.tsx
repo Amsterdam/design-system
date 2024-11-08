@@ -30,7 +30,7 @@ describe('Breakout cell', () => {
   })
 
   it('supports ForwardRef in React', () => {
-    const ref = createRef<HTMLDivElement>()
+    const ref = createRef<HTMLElement>()
 
     const { container } = render(<Breakout.Cell ref={ref} />)
 
