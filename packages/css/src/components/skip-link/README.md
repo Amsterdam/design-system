@@ -2,7 +2,7 @@
 
 # Skip Link
 
-Allows navigating past recurring content, such as a menu in the header or the breadcrumbs of a page.
+Allows skipping past recurring navigation blocks at the top of a page.
 
 ## Design
 
