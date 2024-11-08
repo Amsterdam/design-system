@@ -6,7 +6,7 @@
 @import "../../common/hyphenation";
 @import "../../common/text-rendering";
 
-@mixin reset {
+@mixin reset-fieldset {
   border: 0;
   margin-inline: 0;
   padding-block: 0;
@@ -16,7 +16,7 @@
 .ams-field-set {
   break-inside: avoid;
 
-  @include reset;
+  @include reset-fieldset;
 }
 
 .ams-field-set--invalid {

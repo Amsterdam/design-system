@@ -36,7 +36,7 @@ type AvatarContentProps = {
 
 const AvatarContent = ({ imageSrc, initials }: AvatarContentProps) => {
   if (imageSrc) {
-    return <Image src={imageSrc} alt="" />
+    return <Image alt="" src={imageSrc} />
   }
 
   if (initials.length) {

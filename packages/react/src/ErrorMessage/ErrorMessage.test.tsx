@@ -54,4 +54,18 @@ describe('Error message', () => {
 
     expect(ref.current).toBe(component)
   })
+
+  it('shows an icon', () => {
+    const { container } = render(<ErrorMessage />)
+
+    const iconWrapper = container.querySelector('.ams-icon')
+    const icon = container.querySelector('svg')
+
+    expect(iconWrapper).toBeInTheDocument()
+    expect(icon).toBeInTheDocument()
+  })
+
+  // TODO: we can't currently test this, because we can't pass a class or anything to the SVG
+  // We plan on changing this, so we can test this in the future
+  it.skip('shows a custom icon', () => {})
 })

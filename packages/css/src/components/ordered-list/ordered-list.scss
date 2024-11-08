@@ -5,19 +5,19 @@
 
 @import "../../common/text-rendering";
 
-@mixin reset {
-  box-sizing: border-box;
+@mixin reset-ol {
   list-style-type: none;
   margin-block: 0;
   padding-inline-start: 0;
 }
 
 .ams-ordered-list {
+  box-sizing: border-box;
   display: grid;
   gap: var(--ams-ordered-list-gap);
 
   @include text-rendering;
-  @include reset;
+  @include reset-ol;
 }
 
 .ams-ordered-list:not(.ams-ordered-list--no-markers) {

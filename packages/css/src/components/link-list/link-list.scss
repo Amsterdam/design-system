@@ -6,19 +6,19 @@
 @import "../../common/hyphenation";
 @import "../../common/text-rendering";
 
-@mixin reset-list {
-  box-sizing: border-box;
+@mixin reset-ul {
   list-style: none;
   margin-block: 0;
   padding-inline-start: 0;
 }
 
 .ams-link-list {
+  box-sizing: border-box;
   display: grid;
   gap: var(--ams-link-list-gap);
 
   @include text-rendering;
-  @include reset-list;
+  @include reset-ul;
 }
 
 .ams-link-list__link {

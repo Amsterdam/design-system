@@ -3,7 +3,7 @@
  * Copyright Gemeente Amsterdam
  */
 
-@mixin reset {
+@mixin reset-button {
   border: 0;
   margin-block: 0; // [1]
   margin-inline: 0; // [1]
@@ -20,7 +20,7 @@
   outline-offset: var(--ams-icon-button-outline-offset);
   touch-action: manipulation;
 
-  @include reset;
+  @include reset-button;
 
   &:hover {
     background-color: var(--ams-icon-button-hover-background-color);
