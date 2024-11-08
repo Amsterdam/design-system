@@ -115,7 +115,7 @@ describe('Grid cell', () => {
       if (tag === 'div') {
         component = container.querySelector(tag)
       } else {
-        component = screen.queryByRole(ariaRoleForTag[tag])
+        component = screen.getByRole(ariaRoleForTag[tag])
       }
 
       expect(component).toBeInTheDocument()
