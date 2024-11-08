@@ -4,30 +4,9 @@
  */
 
 .ams-aspect-ratio {
-  overflow: hidden;
-  position: relative;
-}
-
-.ams-aspect-ratio--x-tall {
-  aspect-ratio: var(--ams-aspect-ratio-x-tall);
-}
-
-.ams-aspect-ratio--tall {
-  aspect-ratio: var(--ams-aspect-ratio-tall);
-}
-
-.ams-aspect-ratio--square {
-  aspect-ratio: var(--ams-aspect-ratio-square);
-}
-
-.ams-aspect-ratio--wide {
-  aspect-ratio: var(--ams-aspect-ratio-wide);
-}
-
-.ams-aspect-ratio--x-wide {
-  aspect-ratio: var(--ams-aspect-ratio-x-wide);
-}
-
-.ams-aspect-ratio--2x-wide {
-  aspect-ratio: var(--ams-aspect-ratio-2x-wide);
+  @each $name in ("x-tall", "tall", "square", "wide", "x-wide", "2x-wide") {
+    &--#{$name} {
+      aspect-ratio: var(--ams-aspect-ratio-#{$name}) !important;
+    }
+  }
 }

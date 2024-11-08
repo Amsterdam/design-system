@@ -22,7 +22,7 @@
     "directory": "proprietary/assets"
   },
   "scripts": {
-    "optimize-icons": "svgo -f icons"
+    "optimize-icons": "svgo -f icons --exclude=Radio.svg"
   },
   "devDependencies": {
     "svgo": "3.3.2"

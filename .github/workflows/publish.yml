@@ -38,7 +38,7 @@ jobs:
         if: ${{ steps.release.outputs.releases_created == 'true' }}
 
       - name: Install pnpm
-        uses: pnpm/action-setup@v3
+        uses: pnpm/action-setup@v4
         id: pnpm-install
         with:
           run_install: false
@@ -75,7 +75,7 @@ jobs:
 
       # The logic below handles the Storybook deploy:
       - name: "Restore build artifact: Storybook"
-        uses: dawidd6/action-download-artifact@v3
+        uses: dawidd6/action-download-artifact@v6
         with:
           workflow: "lint-test.yml"
           name: storybook

@@ -11,13 +11,9 @@ import { ImageSliderControls } from './ImageSliderControls'
 import { ImageSliderItem } from './ImageSliderItem'
 import { ImageSliderScroller } from './ImageSliderScroller'
 import { ImageSliderThumbnails } from './ImageSliderThumbnails'
-import { Ratio } from '../AspectRatio'
 import { Image, ImageProps } from '../Image/Image'
 
-export type ImageSliderImageProps = ImageProps & {
-  /** Specify the aspect ratio to use for the images. */
-  aspectRatio: Ratio
-}
+export type ImageSliderImageProps = ImageProps
 
 export type ImageSliderProps = {
   /** Display buttons to navigate to the previous or next image. */
