@@ -6,9 +6,9 @@ Displays an image.
 
 ## Design
 
-Every Image must display in one of the [available aspect ratios](https://designsystem.amsterdam/?path=/docs/brand-design-tokens-aspect-ratio--docs).
+Every Image should be shown in one of the [available aspect ratios](https://designsystem.amsterdam/?path=/docs/brand-design-tokens-aspect-ratio--docs).
 The default is 16:9.
-If the intrinsic dimensions of the source do not match an aspect ratio, the image will get cropped to cover the intended area without distorting its appearance.
+If the intrinsic dimensions of the source do not match an aspect ratio, the image will get cropped to cover the intended area.
 
 ## Guidelines
 
