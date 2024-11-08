@@ -127,6 +127,12 @@
   }
 }
 
+.ams-docs-aspect-ratio {
+  min-block-size: initial;
+  padding-block: var(--ams-space-md);
+  padding-inline: var(--ams-space-md);
+}
+
 .ams-docs-item {
   background-color: var(--ams-docs-pink);
   border: thin dashed var(--ams-docs-grey);
