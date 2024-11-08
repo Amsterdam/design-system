@@ -2,7 +2,7 @@
 
 # Aspect Ratio
 
-Aspect Ratio updates the height of an element with its width.
+Constrains media content to a supported aspect ratio.
 
 ## Class names
 
