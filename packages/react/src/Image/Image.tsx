@@ -8,7 +8,13 @@ import { forwardRef } from 'react'
 import type { ForwardedRef, ImgHTMLAttributes } from 'react'
 import { AspectRatioProps } from '../common/types'
 
-export type ImageProps = AspectRatioProps & ImgHTMLAttributes<HTMLImageElement>
+export type ImageProps = {
+  /**
+   * A textual description of the content of the image.
+   */
+  alt: string
+} & AspectRatioProps &
+  ImgHTMLAttributes<HTMLImageElement>
 
 export const Image = forwardRef(
   ({ aspectRatio, className, ...restProps }: ImageProps, ref: ForwardedRef<HTMLImageElement>) => (
