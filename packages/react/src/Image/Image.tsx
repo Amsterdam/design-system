@@ -10,8 +10,7 @@ import { AspectRatioProps } from '../common/types'
 
 export type ImageProps = {
   /**
-   * Describes the image to blind or visually impaired users.
-   * Also displayed if the image is not (yet) loaded.
+   * A textual description of the content of the image.
    */
   alt: string
 } & AspectRatioProps &
