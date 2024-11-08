@@ -58,4 +58,7 @@ export const parameters = {
     viewports,
   },
   viewMode: 'docs',
+  html: {
+    root: '.ams-screen',
+  },
 }
