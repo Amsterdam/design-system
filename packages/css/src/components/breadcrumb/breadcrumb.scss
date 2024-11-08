@@ -6,7 +6,6 @@
 @import "../../common/text-rendering";
 
 @mixin reset-ol {
-  box-sizing: border-box;
   margin-block: 0;
   padding-inline: 0;
 }
@@ -19,6 +18,7 @@
 }
 
 .ams-breadcrumb__list {
+  box-sizing: border-box;
   break-after: avoid;
   break-inside: avoid;
 

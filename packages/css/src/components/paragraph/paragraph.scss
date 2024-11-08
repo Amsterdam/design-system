@@ -6,11 +6,11 @@
 @import "../../common/text-rendering";
 
 @mixin reset-p {
-  box-sizing: border-box;
   margin-block: 0;
 }
 
 .ams-paragraph {
+  box-sizing: border-box;
   color: var(--ams-paragraph-color);
   font-family: var(--ams-paragraph-font-family);
   font-size: var(--ams-paragraph-font-size);

@@ -6,10 +6,6 @@
 @import "../../common/input-label-focus";
 @import "../../common/hide-input";
 
-@mixin reset-label {
-  box-sizing: border-box;
-}
-
 .ams-switch__input {
   @include hide-input;
   @include input-label-focus;
@@ -23,13 +19,12 @@
   // Using a transparent border to make sure the component is visible in forced colors mode.
   border: var(--ams-switch-track-border-width) solid transparent;
   border-radius: calc(var(--ams-switch-thumb-inline-size) * 2);
+  box-sizing: border-box;
   cursor: pointer;
   display: inline-block;
   inline-size: var(--ams-switch-inline-size);
   outline-offset: var(--ams-switch-outline-offset);
   transition: background-color 0.2s ease-in-out;
-
-  @include reset-label;
 }
 
 .ams-switch__label::before {

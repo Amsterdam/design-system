@@ -10,13 +10,13 @@
   appearance: none; // Reset native appearance, this causes issues on iOS and Android devices
   border: 0;
   border-radius: 0; // Reset rounded borders on iOS devices
-  box-sizing: border-box;
   margin-block: 0;
 }
 
 .ams-text-area {
   background-color: var(--ams-text-area-background-color);
   box-shadow: var(--ams-text-area-box-shadow);
+  box-sizing: border-box;
   color: var(--ams-text-area-color);
   font-family: var(--ams-text-area-font-family);
   font-size: var(--ams-text-area-font-size);

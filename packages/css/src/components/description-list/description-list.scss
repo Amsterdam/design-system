@@ -7,11 +7,11 @@
 @import "../../common/text-rendering";
 
 @mixin reset-dl {
-  box-sizing: border-box;
   margin-block: 0;
 }
 
 .ams-description-list {
+  box-sizing: border-box;
   color: var(--ams-description-list-color);
   column-gap: var(--ams-description-list-column-gap);
   display: grid;

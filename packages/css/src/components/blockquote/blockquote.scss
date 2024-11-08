@@ -7,12 +7,12 @@
 @import "../../common/text-rendering";
 
 @mixin reset-blockquote {
-  box-sizing: border-box;
   margin-block: 0;
   margin-inline: 0;
 }
 
 .ams-blockquote {
+  box-sizing: border-box;
   break-inside: avoid;
   color: var(--ams-blockquote-color);
   font-family: var(--ams-blockquote-font-family);

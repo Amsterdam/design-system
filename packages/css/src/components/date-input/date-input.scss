@@ -10,13 +10,13 @@
   appearance: none; // Reset native appearance, this causes issues on iOS and Android devices
   border: 0;
   border-radius: 0; // Reset rounded borders on iOS devices
-  box-sizing: border-box;
   margin-block: 0;
 }
 
 .ams-date-input {
   background-color: var(--ams-date-input-background-color);
   box-shadow: var(--ams-date-input-box-shadow);
+  box-sizing: border-box;
   color: var(--ams-date-input-color);
   font-family: var(--ams-date-input-font-family);
   font-size: var(--ams-date-input-font-size);

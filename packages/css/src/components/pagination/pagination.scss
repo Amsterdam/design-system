@@ -26,7 +26,6 @@
 
 @mixin reset-button {
   all: unset;
-  box-sizing: border-box;
   outline: revert;
 }
 
@@ -35,6 +34,7 @@
   at the bottom `all: unset` overrides the `gap` property. */
   @include reset-button;
 
+  box-sizing: border-box;
   cursor: pointer;
   display: flex;
   gap: var(--ams-pagination-button-gap);

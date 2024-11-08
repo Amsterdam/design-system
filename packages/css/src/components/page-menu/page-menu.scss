@@ -6,17 +6,13 @@
 @import "../../common/text-rendering";
 
 @mixin reset-ul {
-  box-sizing: border-box;
   margin-block: 0;
   padding-inline: 0;
 }
 
-@mixin reset-a {
-  box-sizing: border-box;
-}
-
 .ams-page-menu {
   align-items: center;
+  box-sizing: border-box;
   column-gap: var(--ams-page-menu-column-gap);
   display: flex;
   flex-direction: row;
@@ -54,9 +50,10 @@
 }
 
 .ams-page-menu__link {
+  box-sizing: border-box;
+
   @include page-menu-item;
   @include text-rendering;
-  @include reset-a;
 }
 
 .ams-page-menu__link:hover,
