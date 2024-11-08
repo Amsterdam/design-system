@@ -57,6 +57,7 @@
   padding-inline: 1rem;
 }
 
+/* Do not change the order of these two selectors. They ensure the dark background wins if both are set, which is in line with the implementation of the React-component. */
 .ams-docs-light-background {
   background-color: #ffe600; /* Yellow */
 }
