@@ -1,21 +1,171 @@
 {
   "ams": {
     "color": {
-      "primary-black": { "value": "#000000" },
-      "primary-white": { "value": "#FFFFFF" },
-      "primary-blue": { "value": "#004699" },
-      "primary-red": { "value": "#EC0000" },
-      "dark-blue": { "value": "#102E62" },
-      "orange": { "value": "#FF9100" },
-      "yellow": { "value": "#FFE600" },
-      "green": { "value": "#BED200" },
-      "dark-green": { "value": "#00A03C" },
-      "blue": { "value": "#009DE6" },
-      "purple": { "value": "#A00078" },
-      "magenta": { "value": "#E50082" },
-      "neutral-grey1": { "value": "#E8E8E8" },
-      "neutral-grey2": { "value": "#BEBEBE" },
-      "neutral-grey3": { "value": "#767676" }
+      "primary-black": {
+        "value": "#000000"
+      },
+      "primary-white": {
+        "value": "#FFFFFF"
+      },
+      "primary-blue": {
+        "value": "#004699"
+      },
+      "primary-red": {
+        "value": "#EC0000"
+      },
+      "dark-blue": {
+        "value": "#102E62"
+      },
+      "orange": {
+        "value": "#FF9100"
+      },
+      "yellow": {
+        "value": "#FFE600"
+      },
+      "green": {
+        "value": "#BED200"
+      },
+      "dark-green": {
+        "value": "#00A03C"
+      },
+      "blue": {
+        "value": "#009DE6"
+      },
+      "purple": {
+        "value": "#A00078"
+      },
+      "magenta": {
+        "value": "#E50082"
+      },
+      "neutral-grey1": {
+        "value": "#E8E8E8"
+      },
+      "neutral-grey2": {
+        "value": "#BEBEBE"
+      },
+      "neutral-grey3": {
+        "value": "#767676"
+      }
+    },
+    "brand": {
+      "color": {
+        "red": {
+          "300": {
+            "value": "#F8C6C6"
+          },
+          "600": {
+            "value": "#EC0000"
+          },
+          "900": {
+            "value": "#950000"
+          }
+        },
+        "lime": {
+          "300": {
+            "value": "#E7EEC6"
+          },
+          "600": {
+            "value": "#BED200"
+          },
+          "900": {
+            "value": "#788500"
+          }
+        },
+        "green": {
+          "300": {
+            "value": "#C6DEC9"
+          },
+          "600": {
+            "value": "#00A03C"
+          },
+          "900": {
+            "value": "#006526"
+          }
+        },
+        "azure": {
+          "300": {
+            "value": "#C6DDF5"
+          },
+          "600": {
+            "value": "#009DE6"
+          },
+          "900": {
+            "value": "#006391"
+          }
+        },
+        "blue": {
+          "300": {
+            "value": "#C6CADC"
+          },
+          "600": {
+            "value": "#004699"
+          },
+          "900": {
+            "value": "#002C61"
+          }
+        },
+        "yellow": {
+          "300": {
+            "value": "#FFF5C6"
+          },
+          "600": {
+            "value": "#FFE600"
+          },
+          "900": {
+            "value": "#A19100"
+          }
+        },
+        "orange": {
+          "300": {
+            "value": "#FFDAC6"
+          },
+          "600": {
+            "value": "#FF9100"
+          },
+          "900": {
+            "value": "#A15C00"
+          }
+        },
+        "magenta": {
+          "300": {
+            "value": "#F5C6D6"
+          },
+          "600": {
+            "value": "#E50082"
+          },
+          "900": {
+            "value": "#910052"
+          }
+        },
+        "purple": {
+          "300": {
+            "value": "#DEC6D4"
+          },
+          "600": {
+            "value": "#A00078"
+          },
+          "900": {
+            "value": "#65004C"
+          }
+        },
+        "neutral": {
+          "100": {
+            "value": "#FFFFFF"
+          },
+          "300": {
+            "value": "#E8E8E8"
+          },
+          "600": {
+            "value": "#BEBEBE"
+          },
+          "900": {
+            "value": "#767676"
+          },
+          "1000": {
+            "value": "#000000"
+          }
+        }
+      }
     }
   }
 }
