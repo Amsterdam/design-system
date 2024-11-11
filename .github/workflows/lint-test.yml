@@ -13,14 +13,14 @@ jobs:
       - name: Check out branch
         uses: actions/checkout@v4
 
+      - name: Install pnpm
+        uses: pnpm/action-setup@v4
+
       - name: Set up Node.js version
         uses: actions/setup-node@v4
         with:
           cache: pnpm
           node-version-file: .nvmrc
-
-      - name: Install pnpm
-        uses: pnpm/action-setup@v4
 
       - name: Install dependencies
         run: pnpm install --frozen-lockfile
@@ -33,14 +33,14 @@ jobs:
       - name: Check out branch
         uses: actions/checkout@v4
 
+      - name: Install pnpm
+        uses: pnpm/action-setup@v4
+
       - name: Set up Node.js version
         uses: actions/setup-node@v4
         with:
           cache: pnpm
           node-version-file: .nvmrc
-
-      - name: Install pnpm
-        uses: pnpm/action-setup@v4
 
       - name: Install dependencies
         run: pnpm install --frozen-lockfile

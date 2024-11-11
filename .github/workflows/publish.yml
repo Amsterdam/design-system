@@ -30,16 +30,16 @@ jobs:
         # a new release is created:
         if: ${{ steps.release.outputs.releases_created == 'true' }}
 
+      - name: Install pnpm
+        uses: pnpm/action-setup@v4
+        if: ${{ steps.release.outputs.releases_created == 'true' }}
+
       - name: Set up Node.js version
         uses: actions/setup-node@v4
         with:
           cache: pnpm
           node-version-file: .nvmrc
           registry-url: "https://registry.npmjs.org"
-        if: ${{ steps.release.outputs.releases_created == 'true' }}
-
-      - name: Install pnpm
-        uses: pnpm/action-setup@v4
         if: ${{ steps.release.outputs.releases_created == 'true' }}
 
       - name: Install dependencies
