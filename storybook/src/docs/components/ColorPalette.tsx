@@ -14,18 +14,29 @@ const ColorPaletteRoot = forwardRef(({ children, ...restProps }: DivProps, ref: 
 ColorPaletteRoot.displayName = 'ColorPalette'
 
 type ColorPaletteSwatchProps = {
-  color: Record<'100' | '300' | '600' | '900' | '1000', string>
+  color: Record<string, string>
   name: string
 }
 
 const ColorPaletteSwatch = ({ color, name }: ColorPaletteSwatchProps) => (
   <div className={clsx('ams-docs-color-swatch', `ams-docs-color-swatch--${name}`)}>
     <code className="ams-docs-color-code">ams.brand.color.{name}</code>
-    {name === 'neutral' && <ColorPaletteTile color={color['100']} level="100" />}
-    <ColorPaletteTile color={color['300']} level="300" />
-    <ColorPaletteTile color={color['600']} level="600" />
-    <ColorPaletteTile color={color['900']} level="900" />
-    {name === 'neutral' && <ColorPaletteTile color={color['1000']} level="1000" />}
+    {name === 'neutral' ? (
+      <>
+        <ColorPaletteTile color={color['0']} level="0" />
+        <ColorPaletteTile color={color['200']} level="200" />
+        <ColorPaletteTile color={color['300']} level="300" />
+        <ColorPaletteTile color={color['600']} level="600" />
+        <ColorPaletteTile color={color['800']} level="800" />
+        <ColorPaletteTile color={color['1000']} level="1000" />
+      </>
+    ) : (
+      <>
+        <ColorPaletteTile color={color['300']} level="300" />
+        <ColorPaletteTile color={color['600']} level="600" />
+        <ColorPaletteTile color={color['900']} level="900" />
+      </>
+    )}
   </div>
 )
 

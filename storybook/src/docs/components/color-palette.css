@@ -8,7 +8,7 @@
 .ams-docs-color-swatch {
   display: grid;
   gap: 0 2px;
-  grid-template-columns: repeat(5, 1fr);
+  grid-template-columns: repeat(6, 1fr);
 
   > :nth-child(1) {
     grid-column: 1 / -1;
@@ -23,13 +23,13 @@
 }
 
 :not(.ams-docs-color-swatch--neutral) > .ams-docs-color-tile--600 {
-  grid-column: span 3;
+  grid-column: span 4;
 }
 
 .ams-docs-color-sample {
   block-size: 6rem;
 
-  .ams-docs-color-swatch--neutral > .ams-docs-color-tile--100 & {
+  .ams-docs-color-swatch--neutral > .ams-docs-color-tile--0 & {
     box-shadow: inset 0 0 0 0.0625rem rgb(0 0 0 / 12.5%);
   }
 }
