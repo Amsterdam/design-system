@@ -6,11 +6,23 @@
 import { FileList } from '@amsterdam/design-system-react/src'
 import { Meta, StoryObj } from '@storybook/react'
 
+const sampleDataTransfer = new DataTransfer()
+sampleDataTransfer.items.add(new File(['sample1'], 'sample1.txt', { type: 'text/plain', lastModified: Date.now() }))
+sampleDataTransfer.items.add(new File(['sample2'], 'sample2.txt', { type: 'text/plain', lastModified: Date.now() }))
+const sampleFiles = sampleDataTransfer.files
+
 const meta = {
-  title: 'FileList',
+  title: 'Components/Forms/File List',
   component: FileList,
   args: {
-    children: 'Nieuw component',
+    files: sampleFiles,
+  },
+  argTypes: {
+    files: {
+      table: {
+        disable: true,
+      },
+    },
   },
 } satisfies Meta<typeof FileList>
 

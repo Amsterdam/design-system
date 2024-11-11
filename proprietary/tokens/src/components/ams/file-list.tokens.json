@@ -1,5 +1,18 @@
 {
   "ams": {
-    "file-list": {}
+    "file-list": {
+      "gap": { "value": "{ams.space.md}" },
+      "padding-block": { "value": "{ams.space.md}" },
+      "file": {
+        "font-family": { "value": "{ams.text.font-family}" },
+        "font-size": { "value": "{ams.text.level.6.font-size}" },
+        "font-weight": { "value": "{ams.text.font-weight.normal}" },
+        "gap": { "value": "{ams.space.sm}" },
+        "line-height": { "value": "{ams.text.level.6.line-height}" },
+        "details": {
+          "color": { "value": "{ams.color.neutral-grey3}" }
+        }
+      }
+    }
   }
 }

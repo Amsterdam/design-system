@@ -4,5 +4,36 @@
  */
 
 .ams-file-list {
-  /* Add styles here */
+  display: flex;
+  flex-direction: column;
+  gap: var(--ams-file-list-gap);
+  padding-block: var(--ams-file-list-padding-block);
+}
+
+.ams-file-list__file {
+  display: flex;
+  flex-direction: row;
+  font-family: var(--ams-file-list-file-font-family);
+  font-size: var(--ams-file-list-file-font-size);
+  font-weight: var(--ams-file-list-file-font-weight);
+  gap: var(--ams-file-list-file-gap);
+  line-height: var(--ams-file-list-file-line-height);
+}
+
+.ams-file-list__file-preview {
+  display: grid;
+  flex: 0 0 50px;
+  place-items: center;
+}
+
+.ams-file-list__file-name {
+  flex: 1;
+  gap: var(--ams-file-list-file-gap);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.ams-file-input__file-details {
+  color: var(--ams-file-list-file-details-color);
 }
