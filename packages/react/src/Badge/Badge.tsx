@@ -24,7 +24,7 @@ export const badgeColors = [
   'yellow',
 ] as const
 
-type BadgeColor = (typeof badgeColors)[number]
+export type BadgeColor = (typeof badgeColors)[number]
 
 export type BadgeProps = {
   /** The background colour. */

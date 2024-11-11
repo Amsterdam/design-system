@@ -15,69 +15,139 @@
 .ams-badge--black {
   background-color: var(--ams-badge-black-background-color);
   color: var(--ams-badge-black-color);
+
+  &:hover {
+    background-color: var(--ams-badge-black-hover-background-color);
+    color: var(--ams-badge-black-hover-color);
+  }
 }
 
 .ams-badge--blue {
   background-color: var(--ams-badge-blue-background-color);
   color: var(--ams-badge-blue-color);
+
+  &:hover {
+    background-color: var(--ams-badge-blue-hover-background-color);
+    color: var(--ams-badge-blue-hover-color);
+  }
 }
 
 .ams-badge--dark-green {
   background-color: var(--ams-badge-dark-green-background-color);
   color: var(--ams-badge-dark-green-color);
+
+  &:hover {
+    background-color: var(--ams-badge-dark-green-hover-background-color);
+    color: var(--ams-badge-dark-green-hover-color);
+  }
 }
 
 .ams-badge--green {
   background-color: var(--ams-badge-green-background-color);
   color: var(--ams-badge-green-color);
+
+  &:hover {
+    background-color: var(--ams-badge-green-hover-background-color);
+    color: var(--ams-badge-green-hover-color);
+  }
 }
 
 .ams-badge--grey-1 {
   background-color: var(--ams-badge-grey-1-background-color);
   color: var(--ams-badge-grey-1-color);
+
+  &:hover {
+    background-color: var(--ams-badge-grey-1-hover-background-color);
+    color: var(--ams-badge-grey-1-hover-color);
+  }
 }
 
 .ams-badge--grey-2 {
   background-color: var(--ams-badge-grey-2-background-color);
   color: var(--ams-badge-grey-2-color);
+
+  &:hover {
+    background-color: var(--ams-badge-grey-2-hover-background-color);
+    color: var(--ams-badge-grey-2-hover-color);
+  }
 }
 
 .ams-badge--grey-3 {
   background-color: var(--ams-badge-grey-3-background-color);
   color: var(--ams-badge-grey-3-color);
+
+  &:hover {
+    background-color: var(--ams-badge-grey-3-hover-background-color);
+    color: var(--ams-badge-grey-3-hover-color);
+  }
 }
 
 .ams-badge--light-blue {
   background-color: var(--ams-badge-light-blue-background-color);
   color: var(--ams-badge-light-blue-color);
+
+  &:hover {
+    background-color: var(--ams-badge-light-blue-hover-background-color);
+    color: var(--ams-badge-light-blue-hover-color);
+  }
 }
 
 .ams-badge--magenta {
   background-color: var(--ams-badge-magenta-background-color);
   color: var(--ams-badge-magenta-color);
+
+  &:hover {
+    background-color: var(--ams-badge-magenta-hover-background-color);
+    color: var(--ams-badge-magenta-hover-color);
+  }
 }
 
 .ams-badge--orange {
   background-color: var(--ams-badge-orange-background-color);
   color: var(--ams-badge-orange-color);
+
+  &:hover {
+    background-color: var(--ams-badge-orange-hover-background-color);
+    color: var(--ams-badge-orange-hover-color);
+  }
 }
 
 .ams-badge--purple {
   background-color: var(--ams-badge-purple-background-color);
   color: var(--ams-badge-purple-color);
+
+  &:hover {
+    background-color: var(--ams-badge-purple-hover-background-color);
+    color: var(--ams-badge-purple-hover-color);
+  }
 }
 
 .ams-badge--red {
   background-color: var(--ams-badge-red-background-color);
   color: var(--ams-badge-red-color);
+
+  &:hover {
+    background-color: var(--ams-badge-red-hover-background-color);
+    color: var(--ams-badge-red-hover-color);
+  }
 }
 
 .ams-badge--white {
   background-color: var(--ams-badge-white-background-color);
   color: var(--ams-badge-white-color);
+
+  &:hover {
+    background-color: var(--ams-badge-white-hover-background-color);
+    color: var(--ams-badge-white-hover-color);
+  }
 }
 
 .ams-badge--yellow {
   background-color: var(--ams-badge-yellow-background-color);
   color: var(--ams-badge-yellow-color);
+
+  &:hover {
+    background-color: var(--ams-badge-yellow-hover-background-color);
+    color: var(--ams-badge-yellow-hover-color);
+  }
 }
