@@ -6,12 +6,10 @@
 import { Link, Paragraph, UnorderedList } from '@amsterdam/design-system-react'
 import { DescriptionList } from '@amsterdam/design-system-react/src'
 import { Meta, StoryObj } from '@storybook/react'
-import { inverseColorDecorator } from '../shared/decorators'
 
 const meta = {
   title: 'Components/Text/Description List',
   component: DescriptionList,
-  decorators: [inverseColorDecorator],
   args: {
     children: [
       <DescriptionList.Term key={1}>Het hoger onderwijs</DescriptionList.Term>,

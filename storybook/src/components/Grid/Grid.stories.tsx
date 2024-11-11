@@ -3,7 +3,6 @@
  * Copyright Gemeente Amsterdam
  */
 
-import { Screen } from '@amsterdam/design-system-react'
 import { Grid } from '@amsterdam/design-system-react/src'
 import type { GridCellProps } from '@amsterdam/design-system-react/src'
 import { Meta, StoryObj } from '@storybook/react'
@@ -81,10 +80,10 @@ const BackgroundGrid = () => (
 const StoryTemplate: Story = {
   decorators: [
     (Story) => (
-      <Screen>
+      <>
         <BackgroundGrid />
         <Story />
-      </Screen>
+      </>
     ),
   ],
 }
@@ -92,12 +91,12 @@ const StoryTemplate: Story = {
 const CellStoryTemplate: CellStory = {
   decorators: [
     (Story) => (
-      <Screen>
+      <>
         <BackgroundGrid />
         <Grid paddingVertical="medium">
           <Story />
         </Grid>
-      </Screen>
+      </>
     ),
   ],
   render: ({ children, ...args }) => <Grid.Cell {...args}>{children}</Grid.Cell>,

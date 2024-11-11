@@ -6,7 +6,6 @@
 import { Column } from '@amsterdam/design-system-react'
 import { Heading } from '@amsterdam/design-system-react/src'
 import { Meta, StoryObj } from '@storybook/react'
-import { inverseColorDecorator } from '../shared/decorators'
 import { exampleHeading } from '../shared/exampleContent'
 
 const heading = exampleHeading()
@@ -24,7 +23,6 @@ const meta = {
       table: { disable: false },
     },
   },
-  decorators: [inverseColorDecorator],
 } satisfies Meta<typeof Heading>
 
 export default meta
