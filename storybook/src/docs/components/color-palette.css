@@ -1,50 +1,35 @@
-.ams-storybook-color-palette {
-  display: flex;
-  flex-direction: column;
-  gap: 2rem;
-}
-
-.ams-storybook-color-palette__section {
-  align-items: start;
+.ams-docs-color-palette {
+  align-items: center;
   display: grid;
-  gap: 2rem;
+  gap: 4rem;
+  grid-template-columns: repeat(auto-fill, minmax(16rem, 1fr));
+}
+
+.ams-docs-color-swatch {
+  display: grid;
+  gap: 0 2px;
   grid-template-columns: repeat(5, 1fr);
+
+  > :nth-child(1) {
+    grid-column: 1 / -1;
+  }
 }
 
-.ams-storybook-color-palette__tile {
-  display: flex;
-  flex-direction: column;
-  gap: 0.25rem;
+.ams-docs-color-code {
+  display: block;
+  font-size: 13px;
+  padding-block-end: 0.5rem;
+  text-align: center;
 }
 
-.ams-storybook-color-palette__example {
-  aspect-ratio: var(--ams-aspect-ratio-x-wide);
-  border: 0.0625rem solid rgb(0 0 0 / 12.5%);
-  grid-area: example;
+:not(.ams-docs-color-swatch--neutral) > .ams-docs-color-tile--600 {
+  grid-column: span 3;
 }
 
-.ams-storybook-color-palette__description,
-.ams-storybook-color-palette__name,
-.ams-storybook-color-palette__color {
-  margin-block: 0;
-  margin-inline: 0;
-  padding-block: 0;
-  padding-inline: 0;
-}
+.ams-docs-color-sample {
+  block-size: 6rem;
 
-.ams-storybook-color-palette__description {
-  color: #000;
-  column-gap: 1ch;
-  display: flex;
-  flex-wrap: wrap;
-  font-family: "Amsterdam Sans", "Arial", sans-serif;
-  justify-content: space-between;
-}
-
-.ams-storybook-color-palette__name {
-  font-weight: 800;
-}
-
-.ams-storybook-color-palette__color {
-  text-align: end;
+  .ams-docs-color-swatch--neutral > .ams-docs-color-tile--100 & {
+    box-shadow: inset 0 0 0 0.0625rem rgb(0 0 0 / 12.5%);
+  }
 }

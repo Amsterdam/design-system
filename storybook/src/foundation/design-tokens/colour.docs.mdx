@@ -3,39 +3,23 @@
 import tokens from "@amsterdam/design-system-tokens/dist/index.json";
 import { Meta } from "@storybook/blocks";
 import { ColorPalette } from "../../docs/components/ColorPalette";
-import { StatusBadge } from "../../docs/components/StatusBadge";
 
 <Meta title="Brand/Design Tokens/Colour" />
 
-<StatusBadge reason="The set of available colours and their names will change." />
-
 # Colour
 
-The basic colours of Amsterdam are white, red, and black.
-We have 8 additional colours and 3 shades of grey.
+Our 9 colours have 3 shades each.
+Neutrals come in 5 shades.
 
 <ColorPalette>
-  <ColorPalette.Section>
-    <ColorPalette.Tile color={tokens.ams.color["primary-white"]} name="white" />
-    <ColorPalette.Tile color={tokens.ams.color["primary-red"]} name="red" />
-    <ColorPalette.Tile color={tokens.ams.color["primary-black"]} name="black" />
-  </ColorPalette.Section>
-  <ColorPalette.Section>
-    <ColorPalette.Tile color={tokens.ams.color["green"]} name="green" />
-    <ColorPalette.Tile color={tokens.ams.color["dark-green"]} name="dark green" />
-    <ColorPalette.Tile color={tokens.ams.color["blue"]} name="blue" />
-    <ColorPalette.Tile color={tokens.ams.color["primary-blue"]} name="dark blue" />
-    <ColorPalette.Tile color={tokens.ams.color["dark-blue"]} name="darker blue" />
-  </ColorPalette.Section>
-  <ColorPalette.Section>
-    <ColorPalette.Tile color={tokens.ams.color["yellow"]} name="yellow" />
-    <ColorPalette.Tile color={tokens.ams.color["orange"]} name="orange" />
-    <ColorPalette.Tile color={tokens.ams.color["magenta"]} name="magenta" />
-    <ColorPalette.Tile color={tokens.ams.color["purple"]} name="purple" />
-  </ColorPalette.Section>
-  <ColorPalette.Section>
-    <ColorPalette.Tile color={tokens.ams.color["neutral-grey1"]} name="light grey" />
-    <ColorPalette.Tile color={tokens.ams.color["neutral-grey2"]} name="grey" />
-    <ColorPalette.Tile color={tokens.ams.color["neutral-grey3"]} name="dark grey" />
-  </ColorPalette.Section>
+  <ColorPalette.Swatch color={tokens.ams.brand.color.red} name="red" />
+  <ColorPalette.Swatch color={tokens.ams.brand.color.azure} name="azure" />
+  <ColorPalette.Swatch color={tokens.ams.brand.color.blue} name="blue" />
+  <ColorPalette.Swatch color={tokens.ams.brand.color.yellow} name="yellow" />
+  <ColorPalette.Swatch color={tokens.ams.brand.color.lime} name="lime" />
+  <ColorPalette.Swatch color={tokens.ams.brand.color.green} name="green" />
+  <ColorPalette.Swatch color={tokens.ams.brand.color.orange} name="orange" />
+  <ColorPalette.Swatch color={tokens.ams.brand.color.magenta} name="magenta" />
+  <ColorPalette.Swatch color={tokens.ams.brand.color.purple} name="purple" />
+  <ColorPalette.Swatch color={tokens.ams.brand.color.neutral} name="neutral" />
 </ColorPalette>
