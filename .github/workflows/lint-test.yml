@@ -16,31 +16,14 @@ jobs:
       - name: Set up Node.js version
         uses: actions/setup-node@v4
         with:
+          cache: pnpm
           node-version-file: .nvmrc
 
       - name: Install pnpm
         uses: pnpm/action-setup@v4
-        id: pnpm-install
-        with:
-          run_install: false
-
-      - name: Get pnpm store directory
-        id: pnpm-cache
-        run: |
-          echo "pnpm_cache_dir=$(pnpm store path)" >> $GITHUB_OUTPUT
-
-      - name: Set up pnpm cache
-        uses: actions/cache@v4
-        with:
-          path: ${{ steps.pnpm-cache.outputs.pnpm_cache_dir }}
-          key: ${{ runner.os }}-pnpm-store-${{ hashFiles('**/pnpm-lock.yaml') }}
-          restore-keys: |
-            ${{ runner.os }}-pnpm-store-
 
       - name: Install dependencies
-        run: |
-          pnpm install
-          pnpm ls --recursive
+        run: pnpm install --frozen-lockfile
 
   build-lint-test:
     runs-on: ubuntu-latest
@@ -53,30 +36,14 @@ jobs:
       - name: Set up Node.js version
         uses: actions/setup-node@v4
         with:
+          cache: pnpm
           node-version-file: .nvmrc
 
       - name: Install pnpm
         uses: pnpm/action-setup@v4
-        id: pnpm-install
-        with:
-          run_install: false
-
-      - name: Get pnpm store directory
-        id: pnpm-cache
-        run: |
-          echo "pnpm_cache_dir=$(pnpm store path)" >> $GITHUB_OUTPUT
-
-      - name: Set up pnpm cache
-        uses: actions/cache@v4
-        with:
-          path: ${{ steps.pnpm-cache.outputs.pnpm_cache_dir }}
-          key: ${{ runner.os }}-pnpm-store-${{ hashFiles('**/pnpm-lock.yaml') }}
-          restore-keys: |
-            ${{ runner.os }}-pnpm-store-
 
       - name: Install dependencies
-        run: |
-          pnpm install
+        run: pnpm install --frozen-lockfile
 
       - name: "Continuous Integration: build"
         run: |
