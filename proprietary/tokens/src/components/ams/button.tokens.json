@@ -54,7 +54,7 @@
         },
         "disabled": {
           "background-color": { "value": "transparent" },
-          "color": { "value": "{ams.brand.color.neutral-grey3}" }
+          "color": { "value": "{ams.brand.color.neutral.600}" }
         }
       },
       "icon-only": {
