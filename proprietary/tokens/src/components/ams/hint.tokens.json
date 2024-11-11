@@ -1,7 +1,7 @@
 {
   "ams": {
     "hint": {
-      "color": { "value": "{ams.color.neutral-grey3}" }
+      "color": { "value": "{ams.brand.color.neutral.600}" }
     }
   }
 }

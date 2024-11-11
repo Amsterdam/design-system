@@ -80,7 +80,7 @@ Examples:
 
 ```css
 :root {
-  --ams-color-primary-red: #ec0000;
+  --ams-brand-color-red: #ec0000;
   --ams-space-md: 1rem;
   --ams-aspect-ratio-wide: 4/3;
   --ams-border-width-lg: 0.1875rem;
@@ -168,7 +168,7 @@ Use ‘dot notation’ or square brackets to access the tokens.
 ```ts
 import tokens from "@amsterdam/design-system-tokens/dist/index.json"
 
-const buttonBackgroundColor = tokens.ams.color["primary-blue"]
+const buttonBackgroundColor = tokens.ams.brand.color["blue"]
 const rowGap = tokens.ams.space.md
 ```
 

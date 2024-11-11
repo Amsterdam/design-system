@@ -1,7 +1,7 @@
 {
   "ams": {
     "mark": {
-      "background-color": { "value": "{ams.color.yellow}" }
+      "background-color": { "value": "{ams.brand.color.yellow.600}" }
     }
   }
 }

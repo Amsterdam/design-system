@@ -1,11 +1,11 @@
 {
   "ams": {
     "link-appearance": {
-      "color": { "value": "{ams.color.primary-blue}" },
+      "color": { "value": "{ams.brand.color.blue.600}" },
       "text-decoration-thickness": { "value": "{ams.border.width.md}" },
       "text-underline-offset": { "value": "0.3333em" },
       "hover": {
-        "color": { "value": "{ams.color.dark-blue}" }
+        "color": { "value": "{ams.brand.color.blue.900}" }
       },
       "regular": {
         "text-decoration-line": { "value": "underline" },
@@ -21,21 +21,21 @@
         }
       },
       "contrast": {
-        "color": { "value": "{ams.color.primary-black}" },
+        "color": { "value": "{ams.brand.color.neutral.1000}" },
         "hover": {
-          "color": { "value": "{ams.color.primary-black}" }
+          "color": { "value": "{ams.brand.color.neutral.1000}" }
         },
         "visited": {
-          "color": { "value": "{ams.color.primary-black}" }
+          "color": { "value": "{ams.brand.color.neutral.1000}" }
         }
       },
       "inverse": {
-        "color": { "value": "{ams.color.primary-white}" },
+        "color": { "value": "{ams.brand.color.neutral.0}" },
         "hover": {
-          "color": { "value": "{ams.color.primary-white}" }
+          "color": { "value": "{ams.brand.color.neutral.0}" }
         },
         "visited": {
-          "color": { "value": "{ams.color.primary-white}" }
+          "color": { "value": "{ams.brand.color.neutral.0}" }
         }
       }
     }

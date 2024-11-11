@@ -1,7 +1,7 @@
 {
   "ams": {
     "table": {
-      "color": { "value": "{ams.color.primary-black}" },
+      "color": { "value": "{ams.brand.color.neutral.1000}" },
       "font-family": { "value": "{ams.text.font-family}" },
       "font-size": { "value": "{ams.text.level.5.font-size}" },
       "font-weight": { "value": "{ams.text.font-weight.normal}" },
@@ -10,7 +10,7 @@
         "font-weight": { "value": "{ams.text.font-weight.bold}" }
       },
       "cell": {
-        "border-block-end": { "value": "{ams.border.width.sm} solid {ams.color.neutral-grey1}" },
+        "border-block-end": { "value": "{ams.border.width.sm} solid {ams.brand.color.neutral.200}" },
         "padding-block": { "value": "{ams.space.sm}" },
         "padding-inline": { "value": "{ams.space.md}" }
       },

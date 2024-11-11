@@ -1,13 +1,13 @@
 {
   "ams": {
     "character-count": {
-      "color": { "value": "{ams.color.primary-black}" },
+      "color": { "value": "{ams.brand.color.neutral.1000}" },
       "font-family": { "value": "{ams.text.font-family}" },
       "font-size": { "value": "{ams.text.level.6.font-size}" },
       "font-weight": { "value": "{ams.text.font-weight.normal}" },
       "line-height": { "value": "{ams.text.level.6.line-height}" },
       "error": {
-        "color": { "value": "{ams.color.primary-red}" }
+        "color": { "value": "{ams.brand.color.red.600}" }
       }
     }
   }

@@ -1,7 +1,7 @@
 {
   "ams": {
     "checkbox": {
-      "color": { "value": "{ams.color.primary-black}" },
+      "color": { "value": "{ams.brand.color.neutral.1000}" },
       "font-family": { "value": "{ams.text.font-family}" },
       "font-size": { "value": "{ams.text.level.5.font-size}" },
       "font-weight": { "value": "{ams.text.font-weight.normal}" },
@@ -9,70 +9,70 @@
       "line-height": { "value": "{ams.text.level.5.line-height}" },
       "outline-offset": { "value": "{ams.focus.outline-offset}" },
       "checkmark": {
-        "border-color": { "value": "{ams.color.primary-blue}" },
+        "border-color": { "value": "{ams.brand.color.blue.600}" },
         "border-width": { "value": "{ams.border.width.md}" },
         "checked": {
-          "background-color": { "value": "{ams.color.primary-blue}" },
+          "background-color": { "value": "{ams.brand.color.blue.600}" },
           "background-image": {
             "value": "url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32' fill='%23ffffff'%3E%3Cpath fill-rule='evenodd' d='M12.216 27.016 0 14.168l2.91-2.77 9.346 9.837L29.129 4 32 6.8z'/%3E%3C/svg%3E\")"
           },
           "hover": {
-            "background-color": { "value": "{ams.color.dark-blue}" }
+            "background-color": { "value": "{ams.brand.color.blue.900}" }
           }
         },
         "disabled": {
-          "border-color": { "value": "{ams.color.neutral-grey3}" },
+          "border-color": { "value": "{ams.brand.color.neutral.600}" },
           "border-width": { "value": "{ams.border.width.md}" },
           "checked": {
-            "background-color": { "value": "{ams.color.neutral-grey3}" },
+            "background-color": { "value": "{ams.brand.color.neutral.600}" },
             "hover": {
-              "background-color": { "value": "{ams.color.neutral-grey3}" }
+              "background-color": { "value": "{ams.brand.color.neutral.600}" }
             }
           },
           "indeterminate": {
-            "background-color": { "value": "{ams.color.neutral-grey3}" },
+            "background-color": { "value": "{ams.brand.color.neutral.600}" },
             "hover": {
-              "background-color": { "value": "{ams.color.neutral-grey3}" }
+              "background-color": { "value": "{ams.brand.color.neutral.600}" }
             }
           }
         },
         "hover": {
-          "border-color": { "value": "{ams.color.dark-blue}" },
+          "border-color": { "value": "{ams.brand.color.blue.900}" },
           "border-width": { "value": "{ams.border.width.lg}" }
         },
         "invalid": {
-          "border-color": { "value": "{ams.color.primary-red}" },
+          "border-color": { "value": "{ams.brand.color.red.600}" },
           "checked": {
-            "background-color": { "value": "{ams.color.primary-red}" },
+            "background-color": { "value": "{ams.brand.color.red.600}" },
             "hover": {
-              "background-color": { "value": "{ams.color.primary-red}" }
+              "background-color": { "value": "{ams.brand.color.red.600}" }
             }
           },
           "hover": {
-            "border-color": { "value": "{ams.color.primary-red}" }
+            "border-color": { "value": "{ams.brand.color.red.600}" }
           },
           "indeterminate": {
-            "background-color": { "value": "{ams.color.primary-red}" },
+            "background-color": { "value": "{ams.brand.color.red.600}" },
             "hover": {
-              "background-color": { "value": "{ams.color.primary-red}" }
+              "background-color": { "value": "{ams.brand.color.red.600}" }
             }
           }
         },
         "indeterminate": {
-          "background-color": { "value": "{ams.color.primary-blue}" },
+          "background-color": { "value": "{ams.brand.color.blue.600}" },
           "background-image": {
             "value": "url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32' fill='white'%3E%3Cpath fill-rule='evenodd' d='M0 13.714h32v4H0z'/%3E%3C/svg%3E\")"
           },
           "hover": {
-            "background-color": { "value": "{ams.color.dark-blue}" }
+            "background-color": { "value": "{ams.brand.color.blue.900}" }
           }
         }
       },
       "disabled": {
-        "color": { "value": "{ams.color.neutral-grey3}" }
+        "color": { "value": "{ams.brand.color.neutral.600}" }
       },
       "hover": {
-        "color": { "value": "{ams.color.dark-blue}" },
+        "color": { "value": "{ams.brand.color.blue.900}" },
         "text-decoration-thickness": { "value": "{ams.border.width.md}" }
       }
     }
