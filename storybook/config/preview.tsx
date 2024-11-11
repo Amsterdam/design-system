@@ -6,7 +6,8 @@ import '../src/styles/docs.css'
 import '../src/styles/overrides.css'
 import { Screen } from '@amsterdam/design-system-react'
 import { withThemeByClassName } from '@storybook/addon-themes'
-import type { StoryFn } from '@storybook/react'
+import type { StoryContext, StoryFn } from '@storybook/react'
+import clsx from 'clsx'
 import { viewports } from './viewports'
 
 export const argTypes = {
@@ -17,8 +18,14 @@ export const argTypes = {
 
 // Wrap in Screen, set language to Dutch for Canvas and Stories
 export const decorators = [
-  (Story: StoryFn) => (
-    <Screen lang="nl">
+  (Story: StoryFn, { args }: StoryContext) => (
+    <Screen
+      className={clsx({
+        'ams-docs-dark-background': args['inverseColor'],
+        'ams-docs-light-background': args['contrastColor'],
+      })}
+      lang="nl"
+    >
       <Story />
     </Screen>
   ),

@@ -6,7 +6,6 @@
 import { Heading, Paragraph } from '@amsterdam/design-system-react'
 import { OrderedList } from '@amsterdam/design-system-react/src'
 import type { Meta, StoryObj } from '@storybook/react'
-import { inverseColorDecorator } from '../shared/decorators'
 import { exampleOrderedList } from '../shared/exampleContent'
 
 const orderedListItems = exampleOrderedList().map((text, index) => (
@@ -40,7 +39,6 @@ const meta = {
       options: ['small', undefined],
     },
   },
-  decorators: [inverseColorDecorator],
 } satisfies Meta<typeof OrderedList>
 
 export default meta
