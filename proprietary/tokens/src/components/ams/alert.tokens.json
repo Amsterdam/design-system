@@ -7,15 +7,19 @@
       "padding-block": { "value": "{ams.space.md}" },
       "padding-inline": { "value": "{ams.space.lg}" },
       "error": {
+        "background-color": { "value": "{ams.brand.color.red.20}" },
         "border-color": { "value": "{ams.brand.color.red.60}" }
       },
       "info": {
+        "background-color": { "value": "{ams.brand.color.blue.20}" },
         "border-color": { "value": "{ams.brand.color.blue.60}" }
       },
       "success": {
+        "background-color": { "value": "{ams.brand.color.green.20}" },
         "border-color": { "value": "{ams.brand.color.green.60}" }
       },
       "warning": {
+        "background-color": { "value": "{ams.brand.color.orange.20}" },
         "border-color": { "value": "{ams.brand.color.orange.60}" }
       },
       "close": {
