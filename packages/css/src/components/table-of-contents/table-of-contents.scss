@@ -5,8 +5,7 @@
 
 @import "../../common/text-rendering";
 
-@mixin reset {
-  box-sizing: border-box;
+@mixin reset-ul {
   margin-block: 0;
   padding-inline: 0;
 }
@@ -22,13 +21,14 @@
 }
 
 .ams-table-of-contents__list {
+  box-sizing: border-box;
   display: flex;
   flex-direction: column;
   gap: var(--ams-table-of-contents-list-gap);
   list-style: none;
 
   @include text-rendering;
-  @include reset;
+  @include reset-ul;
 
   .ams-table-of-contents__list {
     padding-block-start: var(--ams-table-of-contents-list-list-padding-block-start);

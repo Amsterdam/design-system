@@ -5,7 +5,7 @@
 
 import { Card, Heading, Paragraph } from '@amsterdam/design-system-react'
 import { Column } from '@amsterdam/design-system-react/src'
-import { crossAlignOptionsForColumn, mainAlignOptions } from '@amsterdam/design-system-react/src/common/layout'
+import { crossAlignOptionsForColumn, mainAlignOptions } from '@amsterdam/design-system-react/src/common/types'
 import { Meta, StoryObj } from '@storybook/react'
 
 const ThreeItems = [

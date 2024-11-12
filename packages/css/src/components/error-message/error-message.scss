@@ -5,18 +5,20 @@
 
 @import "../../common/text-rendering";
 
-@mixin reset {
-  box-sizing: border-box;
+@mixin reset-p {
   margin-block: 0;
 }
 
 .ams-error-message {
+  box-sizing: border-box;
   color: var(--ams-error-message-color);
+  display: inline-flex;
   font-family: var(--ams-error-message-font-family);
   font-size: var(--ams-error-message-font-size);
   font-weight: var(--ams-error-message-font-weight);
+  gap: var(--ams-error-message-gap);
   line-height: var(--ams-error-message-line-height);
 
   @include text-rendering;
-  @include reset;
+  @include reset-p;
 }

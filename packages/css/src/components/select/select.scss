@@ -3,7 +3,7 @@
  * Copyright Gemeente Amsterdam
  */
 
-@mixin reset {
+@mixin reset-select {
   appearance: none; // Reset native appearance to hide default chevron
   border: 0;
   border-radius: 0; // Reset rounded borders for Safari on MacOS
@@ -23,7 +23,7 @@
   padding-inline: var(--ams-select-padding-inline);
   touch-action: manipulation;
 
-  @include reset;
+  @include reset-select;
 
   &:not([multiple]) {
     background-image: var(--ams-select-background-image);

@@ -6,7 +6,6 @@
 import { LinkList } from '@amsterdam/design-system-react/src'
 import * as Icons from '@amsterdam/design-system-react-icons'
 import { Meta, StoryObj } from '@storybook/react'
-import { contrastColorDecorator, inverseColorDecorator } from '../shared/decorators'
 import { exampleLinkList } from '../shared/exampleContent'
 
 const linkList = exampleLinkList()
@@ -45,8 +44,11 @@ const LinkStoryTemplate: LinkStory = {
   },
   argTypes: {
     icon: {
-      control: { type: 'select' },
-      options: Object.keys(Icons),
+      control: {
+        type: 'select',
+        labels: { undefined: 'none' },
+      },
+      options: [undefined, ...Object.keys(Icons)],
       mapping: Icons,
     },
     size: {
@@ -63,8 +65,6 @@ const LinkStoryTemplate: LinkStory = {
         <Story />
       </LinkList>
     ),
-    inverseColorDecorator,
-    contrastColorDecorator,
   ],
   render: ({ children, ...args }) => <LinkList.Link {...args}>{children}</LinkList.Link>,
 }

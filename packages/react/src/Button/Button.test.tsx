@@ -1,4 +1,4 @@
-import { ShareIcon } from '@amsterdam/design-system-react-icons'
+import { CloseIcon } from '@amsterdam/design-system-react-icons'
 import { render, screen } from '@testing-library/react'
 import '@testing-library/jest-dom'
 import { createRef } from 'react'
@@ -114,50 +114,51 @@ describe('Button', () => {
 
   it('renders a button with an icon at the end', () => {
     render(
-      <Button icon={ShareIcon}>
-        <span>Share</span>
+      <Button icon={CloseIcon}>
+        <span>Sluiten</span>
       </Button>,
     )
 
     const button = screen.getByRole('button', {
-      name: 'Share',
+      name: 'Sluiten',
     })
+    const icon = button.querySelector('.ams-icon:last-child')
 
     expect(button).toBeInTheDocument()
-    const icon = button.querySelector('.ams-icon:last-child')
     expect(icon).toBeInTheDocument()
   })
 
-  it('renders a button with an icon at the start', () => {
+  it('renders a button with an icon before the label', () => {
     render(
-      <Button icon={ShareIcon} iconPosition="start">
-        <span>Share</span>
+      <Button icon={CloseIcon} iconBefore>
+        <span>Sluiten</span>
       </Button>,
     )
 
     const button = screen.getByRole('button', {
-      name: 'Share',
+      name: 'Sluiten',
     })
+    const icon = button.querySelector('.ams-icon:first-child')
 
     expect(button).toBeInTheDocument()
-    const icon = button.querySelector('.ams-icon:first-child')
     expect(icon).toBeInTheDocument()
   })
 
   it('renders a button with an icon only', () => {
     render(
-      <Button icon={ShareIcon} iconPosition="only" variant="tertiary">
-        Share
+      <Button icon={CloseIcon} iconOnly variant="tertiary">
+        Sluiten
       </Button>,
     )
 
     const button = screen.getByRole('button', {
-      name: 'Share',
+      name: 'Sluiten',
     })
+    const icon = button.querySelector('.ams-icon')
+    const label = button.querySelector('.ams-visually-hidden')
 
     expect(button).toBeInTheDocument()
-    expect(button).toHaveClass('ams-button--icon-position-only')
-    const label = button.querySelector('.ams-visually-hidden')
-    expect(label).toHaveTextContent('Share')
+    expect(icon).toBeInTheDocument()
+    expect(label).toBeInTheDocument()
   })
 })

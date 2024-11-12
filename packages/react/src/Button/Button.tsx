@@ -9,16 +9,27 @@ import type { ButtonHTMLAttributes, ForwardedRef, PropsWithChildren } from 'reac
 import { Icon } from '../Icon'
 import type { IconProps } from '../Icon'
 
-type IconButtonProps = {
-  /** An icon to add to the button. */
-  icon: IconProps['svg']
-  /** The position of the icon. The default is after the label. */
-  iconPosition?: 'start' | 'only'
+type IconBeforeProp = {
+  /** Shows the icon before the label. Requires a value for `icon`. Cannot be used together with `iconOnly`. */
+  iconBefore?: boolean
+  iconOnly?: never
 }
+
+type IconOnlyProp = {
+  iconBefore?: never
+  /** Shows the icon without the label. Requires a value for `icon`. Cannot be used together with `iconBefore`. */
+  iconOnly?: boolean
+}
+
+type IconButtonProps = {
+  /** Adds an icon to the button, showing it after the label. */
+  icon: IconProps['svg']
+} & (IconBeforeProp | IconOnlyProp)
 
 type TextButtonProps = {
   icon?: never
-  iconPosition?: never
+  iconBefore?: never
+  iconOnly?: never
 }
 
 export type ButtonProps = {
@@ -29,30 +40,21 @@ export type ButtonProps = {
 
 export const Button = forwardRef(
   (
-    { children, className, disabled, icon, iconPosition, type, variant = 'primary', ...restProps }: ButtonProps,
+    { children, className, disabled, icon, iconBefore, iconOnly, type, variant = 'primary', ...restProps }: ButtonProps,
     ref: ForwardedRef<HTMLButtonElement>,
-  ) => {
-    return (
-      <button
-        {...restProps}
-        ref={ref}
-        disabled={disabled}
-        className={clsx(
-          'ams-button',
-          `ams-button--${variant}`,
-          icon && iconPosition === 'only' && `ams-button--icon-position-only`,
-          className,
-        )}
-        type={type || 'button'}
-      >
-        {icon && (iconPosition === 'start' || iconPosition === 'only') && (
-          <Icon svg={icon} size="level-5" square={iconPosition === 'only'} />
-        )}
-        {icon && iconPosition === 'only' ? <span className="ams-visually-hidden">{children}</span> : children}
-        {icon && !iconPosition && <Icon svg={icon} size="level-5" />}
-      </button>
-    )
-  },
+  ) => (
+    <button
+      {...restProps}
+      className={clsx('ams-button', `ams-button--${variant}`, icon && iconOnly && `ams-button--icon-only`, className)}
+      disabled={disabled}
+      ref={ref}
+      type={type || 'button'}
+    >
+      {icon && (iconBefore || iconOnly) && <Icon svg={icon} size="level-5" square={iconOnly} />}
+      {icon && iconOnly ? <span className="ams-visually-hidden">{children}</span> : children}
+      {icon && !iconBefore && !iconOnly && <Icon svg={icon} size="level-5" />}
+    </button>
+  ),
 )
 
 Button.displayName = 'Button'

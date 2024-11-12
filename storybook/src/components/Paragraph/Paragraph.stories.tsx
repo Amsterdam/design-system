@@ -5,7 +5,6 @@
 
 import { Paragraph } from '@amsterdam/design-system-react/src'
 import { Meta, StoryObj } from '@storybook/react'
-import { inverseColorDecorator } from '../shared/decorators'
 import { exampleParagraph } from '../shared/exampleContent'
 
 const paragraph = exampleParagraph()
@@ -30,7 +29,6 @@ const meta = {
       options: ['small', undefined, 'large'],
     },
   },
-  decorators: [inverseColorDecorator],
 } satisfies Meta<typeof Paragraph>
 
 export default meta

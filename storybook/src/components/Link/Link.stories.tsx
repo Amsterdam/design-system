@@ -6,7 +6,6 @@
 import { Paragraph } from '@amsterdam/design-system-react'
 import { Link } from '@amsterdam/design-system-react/src'
 import type { Meta, StoryObj } from '@storybook/react'
-import { contrastColorDecorator, inverseColorDecorator } from '../shared/decorators'
 
 type Story = StoryObj<typeof Link>
 
@@ -30,7 +29,6 @@ const meta = {
       type: { name: 'string', required: false },
     },
   },
-  decorators: [inverseColorDecorator, contrastColorDecorator],
 } satisfies Meta<typeof Link>
 
 export default meta
