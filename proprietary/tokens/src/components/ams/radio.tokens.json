@@ -43,6 +43,7 @@
         }
       },
       "circle": {
+        "fill": { "value": "{ams.color.primary-white}" },
         "stroke": { "value": "{ams.color.primary-blue}" },
         "stroke-width": { "value": "{ams.border.width.md}" },
         "disabled": {

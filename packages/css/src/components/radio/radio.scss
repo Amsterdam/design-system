@@ -37,7 +37,7 @@
 }
 
 .ams-radio__circle {
-  fill: none;
+  fill: var(--ams-radio-circle-fill);
   stroke: var(--ams-radio-circle-stroke);
   stroke-width: var(--ams-radio-circle-stroke-width);
 }
