@@ -5,6 +5,7 @@
 
 import { FileList } from '@amsterdam/design-system-react/src'
 import { Meta, StoryObj } from '@storybook/react'
+import { FileInputWithFileList } from './FileInputWithFileList'
 
 const sampleDataTransfer = new DataTransfer()
 sampleDataTransfer.items.add(new File(['sample1'], 'sample1.txt', { type: 'text/plain', lastModified: Date.now() }))
@@ -31,3 +32,7 @@ export default meta
 type Story = StoryObj<typeof meta>
 
 export const Default: Story = {}
+
+export const WithInput: Story = {
+  render: () => <FileInputWithFileList />,
+}
