@@ -42,15 +42,15 @@
         "background-color": { "value": "{ams.brand.color.neutral.200}" },
         "color": { "value": "{ams.brand.color.neutral.1000}" },
         "hover": {
-          "background-color": { "value": "{ams.brand.color.neutral.200}" },
+          "background-color": { "value": "{ams.brand.color.neutral.400}" },
           "color": { "value": "{ams.brand.color.neutral.1000}" }
         }
       },
       "grey-2": {
-        "background-color": { "value": "{ams.brand.color.neutral.300}" },
+        "background-color": { "value": "{ams.brand.color.neutral.400}" },
         "color": { "value": "{ams.brand.color.neutral.1000}" },
         "hover": {
-          "background-color": { "value": "{ams.brand.color.neutral.300}" },
+          "background-color": { "value": "{ams.brand.color.neutral.600}" },
           "color": { "value": "{ams.brand.color.neutral.1000}" }
         }
       },
@@ -106,7 +106,7 @@
         "background-color": { "value": "{ams.brand.color.neutral.0}" },
         "color": { "value": "{ams.brand.color.neutral.1000}" },
         "hover": {
-          "background-color": { "value": "{ams.brand.color.neutral.300}" },
+          "background-color": { "value": "{ams.brand.color.neutral.200}" },
           "color": { "value": "{ams.brand.color.neutral.1000}" }
         }
       },

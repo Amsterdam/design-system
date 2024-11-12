@@ -25,7 +25,7 @@
           "color": { "value": "{ams.brand.color.neutral.0}" }
         },
         "disabled": {
-          "color": { "value": "{ams.brand.color.neutral.300}" },
+          "color": { "value": "{ams.brand.color.neutral.600}" },
           "cursor": { "value": "{ams.action.disabled.cursor}" }
         }
       }

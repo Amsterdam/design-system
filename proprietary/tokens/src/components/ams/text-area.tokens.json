@@ -16,8 +16,8 @@
       "padding-inline": { "value": "{ams.space.md}" },
       "disabled": {
         "background-color": { "value": "{ams.brand.color.neutral.0}" },
-        "box-shadow": { "value": "inset 0 0 0 {ams.border.width.sm} {ams.brand.color.neutral.300}" },
-        "color": { "value": "{ams.brand.color.neutral.300}" },
+        "box-shadow": { "value": "inset 0 0 0 {ams.border.width.sm} {ams.brand.color.neutral.400}" },
+        "color": { "value": "{ams.brand.color.neutral.600}" },
         "cursor": { "value": "{ams.action.disabled.cursor}" }
       },
       "hover": {

@@ -13,8 +13,8 @@
       "padding-inline": { "value": "{ams.space.md}" },
       "disabled": {
         "background-color": { "value": "{ams.brand.color.neutral.0}" },
-        "box-shadow": { "value": "inset 0 0 0 {ams.border.width.sm} {ams.brand.color.neutral.300}" },
-        "color": { "value": "{ams.brand.color.neutral.300}" }
+        "box-shadow": { "value": "inset 0 0 0 {ams.border.width.sm} {ams.brand.color.neutral.400}" },
+        "color": { "value": "{ams.brand.color.neutral.400}" }
       },
       "hover": {
         "box-shadow": { "value": "inset 0 0 0 {ams.border.width.md} {ams.brand.color.red.800}" }
