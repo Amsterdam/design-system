@@ -1,5 +1,5 @@
 {
-  "version": "0.2.1",
+  "version": "0.2.2",
   "author": "Design System Team, City of Amsterdam <designsystem@amsterdam.nl>",
   "description": "All assets from the Amsterdam Design System. Use it to include the correct fonts, icons or logos in your website or application.",
   "homepage": "https://designsystem.amsterdam/",
@@ -22,7 +22,7 @@
     "directory": "proprietary/assets"
   },
   "scripts": {
-    "optimize-icons": "svgo -f icons"
+    "optimize-icons": "svgo -f icons --exclude=Radio.svg"
   },
   "devDependencies": {
     "svgo": "3.3.2"
