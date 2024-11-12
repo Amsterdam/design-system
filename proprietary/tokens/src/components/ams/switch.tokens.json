@@ -11,7 +11,7 @@
         "block-size": { "value": "1.75rem" },
         "hover": {
           "box-shadow": { "value": "0 0 0 0.125rem {ams.switch.thumb.hover.color}" },
-          "color": { "value": "{ams.brand.color.blue.900}" }
+          "color": { "value": "{ams.brand.color.blue.800}" }
         }
       },
       "checked": {

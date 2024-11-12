@@ -11,7 +11,7 @@
       "padding-block": { "value": "{ams.space.sm}" },
       "padding-inline": { "value": "{ams.space.md}" },
       "hover": {
-        "background-color": { "value": "{ams.brand.color.blue.900}" }
+        "background-color": { "value": "{ams.brand.color.blue.800}" }
       }
     }
   }

@@ -5,7 +5,7 @@
       "outline-offset": { "value": "{ams.focus.outline-offset}" },
       "hover": {
         "background-color": { "value": "rgba(0, 70, 153, 0.125)" },
-        "color": { "value": "{ams.brand.color.blue.900}" }
+        "color": { "value": "{ams.brand.color.blue.800}" }
       },
       "disabled": {
         "color": { "value": "{ams.brand.color.neutral.300}" }
@@ -24,7 +24,7 @@
         "background-color": { "value": "{ams.brand.color.blue.600}" },
         "color": { "value": "{ams.brand.color.neutral.0}" },
         "hover": {
-          "background-color": { "value": "{ams.brand.color.blue.900}" },
+          "background-color": { "value": "{ams.brand.color.blue.800}" },
           "color": { "value": "{ams.brand.color.neutral.0}" }
         },
         "disabled": {

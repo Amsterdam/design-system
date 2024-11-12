@@ -28,7 +28,7 @@
         "invalid": {
           "box-shadow": { "value": "inset 0 0 0 {ams.border.width.sm} {ams.brand.color.red.600}" },
           "hover": {
-            "box-shadow": { "value": "inset 0 0 0 {ams.border.width.md} {ams.brand.color.red.900}" }
+            "box-shadow": { "value": "inset 0 0 0 {ams.border.width.md} {ams.brand.color.red.800}" }
           }
         },
         "placeholder": {

@@ -25,8 +25,8 @@
         "padding-block": { "value": "{ams.space.sm}" },
         "padding-inline": { "value": "{ams.space.md}" },
         "hover": {
-          "box-shadow": { "value": "inset 0 0 0 {ams.border.width.lg} {ams.brand.color.blue.900}" },
-          "color": { "value": "{ams.brand.color.blue.900}" }
+          "box-shadow": { "value": "inset 0 0 0 {ams.border.width.lg} {ams.brand.color.blue.800}" },
+          "color": { "value": "{ams.brand.color.blue.800}" }
         },
         "disabled": {
           "box-shadow": { "value": "inset 0 0 0 {ams.border.width.md} {ams.brand.color.neutral.300}" },

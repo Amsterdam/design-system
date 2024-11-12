@@ -18,7 +18,7 @@
         "background-color": { "value": "{ams.brand.color.blue.600}" },
         "color": { "value": "{ams.brand.color.neutral.0}" },
         "hover": {
-          "background-color": { "value": "{ams.brand.color.blue.900}" },
+          "background-color": { "value": "{ams.brand.color.blue.800}" },
           "color": { "value": "{ams.brand.color.neutral.0}" }
         }
       },
@@ -26,7 +26,7 @@
         "background-color": { "value": "{ams.brand.color.green.600}" },
         "color": { "value": "{ams.brand.color.neutral.0}" },
         "hover": {
-          "background-color": { "value": "{ams.brand.color.green.900}" },
+          "background-color": { "value": "{ams.brand.color.green.800}" },
           "color": { "value": "{ams.brand.color.neutral.0}" }
         }
       },
@@ -34,7 +34,7 @@
         "background-color": { "value": "{ams.brand.color.lime.600}" },
         "color": { "value": "{ams.brand.color.neutral.1000}" },
         "hover": {
-          "background-color": { "value": "{ams.brand.color.lime.900}" },
+          "background-color": { "value": "{ams.brand.color.lime.800}" },
           "color": { "value": "{ams.brand.color.neutral.1000}" }
         }
       },
@@ -58,7 +58,7 @@
         "background-color": { "value": "{ams.brand.color.neutral.600}" },
         "color": { "value": "{ams.brand.color.neutral.0}" },
         "hover": {
-          "background-color": { "value": "{ams.brand.color.neutral.900}" },
+          "background-color": { "value": "{ams.brand.color.neutral.800}" },
           "color": { "value": "{ams.brand.color.neutral.0}" }
         }
       },
@@ -66,7 +66,7 @@
         "background-color": { "value": "{ams.brand.color.azure.600}" },
         "color": { "value": "{ams.brand.color.neutral.1000}" },
         "hover": {
-          "background-color": { "value": "{ams.brand.color.azure.900}" },
+          "background-color": { "value": "{ams.brand.color.azure.800}" },
           "color": { "value": "{ams.brand.color.neutral.1000}" }
         }
       },
@@ -74,7 +74,7 @@
         "background-color": { "value": "{ams.brand.color.magenta.600}" },
         "color": { "value": "{ams.brand.color.neutral.0}" },
         "hover": {
-          "background-color": { "value": "{ams.brand.color.magenta.900}" },
+          "background-color": { "value": "{ams.brand.color.magenta.800}" },
           "color": { "value": "{ams.brand.color.neutral.0}" }
         }
       },
@@ -82,7 +82,7 @@
         "background-color": { "value": "{ams.brand.color.orange.600}" },
         "color": { "value": "{ams.brand.color.neutral.1000}" },
         "hover": {
-          "background-color": { "value": "{ams.brand.color.orange.900}" },
+          "background-color": { "value": "{ams.brand.color.orange.800}" },
           "color": { "value": "{ams.brand.color.neutral.1000}" }
         }
       },
@@ -90,7 +90,7 @@
         "background-color": { "value": "{ams.brand.color.purple.600}" },
         "color": { "value": "{ams.brand.color.neutral.0}" },
         "hover": {
-          "background-color": { "value": "{ams.brand.color.purple.900}" },
+          "background-color": { "value": "{ams.brand.color.purple.800}" },
           "color": { "value": "{ams.brand.color.neutral.0}" }
         }
       },
@@ -98,7 +98,7 @@
         "background-color": { "value": "{ams.brand.color.red.600}" },
         "color": { "value": "{ams.brand.color.neutral.0}" },
         "hover": {
-          "background-color": { "value": "{ams.brand.color.red.900}" },
+          "background-color": { "value": "{ams.brand.color.red.800}" },
           "color": { "value": "{ams.brand.color.neutral.0}" }
         }
       },
@@ -114,7 +114,7 @@
         "background-color": { "value": "{ams.brand.color.yellow.600}" },
         "color": { "value": "{ams.brand.color.neutral.1000}" },
         "hover": {
-          "background-color": { "value": "{ams.brand.color.yellow.900}" },
+          "background-color": { "value": "{ams.brand.color.yellow.800}" },
           "color": { "value": "{ams.brand.color.neutral.1000}" }
         }
       }

@@ -20,7 +20,7 @@
         "text-decoration-thickness": { "value": "{ams.link-appearance.text-decoration-thickness}" },
         "text-underline-offset": { "value": "{ams.link-appearance.text-underline-offset}" },
         "hover": {
-          "color": { "value": "{ams.brand.color.blue.900}" },
+          "color": { "value": "{ams.brand.color.blue.800}" },
           "text-decoration-line": { "value": "{ams.link-appearance.subtle.hover.text-decoration-line}" }
         }
       }

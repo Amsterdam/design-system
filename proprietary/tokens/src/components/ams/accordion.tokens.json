@@ -15,7 +15,7 @@
           "outline-offset": { "value": "{ams.focus.outline-offset}" }
         },
         "hover": {
-          "color": { "value": "{ams.brand.color.blue.900}" }
+          "color": { "value": "{ams.brand.color.blue.800}" }
         }
       },
       "panel": {
