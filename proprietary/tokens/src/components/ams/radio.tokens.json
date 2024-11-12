@@ -32,7 +32,7 @@
         }
       },
       "hover-indicator": {
-        "stroke-width": { "value": "3px" },
+        "stroke-width": { "value": "{ams.border.width.lg}" },
         "hover": {
           "stroke": { "value": "{ams.color.primary-blue}" }
         },
@@ -44,7 +44,7 @@
       },
       "circle": {
         "stroke": { "value": "{ams.color.primary-blue}" },
-        "stroke-width": { "value": "2px" },
+        "stroke-width": { "value": "{ams.border.width.md}" },
         "disabled": {
           "stroke": { "value": "{ams.color.neutral-grey3}" }
         },
