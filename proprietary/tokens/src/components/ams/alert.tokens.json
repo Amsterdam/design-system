@@ -7,25 +7,25 @@
       "padding-block": { "value": "{ams.space.md}" },
       "padding-inline": { "value": "{ams.space.lg}" },
       "error": {
-        "background-color": { "value": "{ams.brand.color.red.200}" },
-        "border-color": { "value": "{ams.brand.color.red.600}" }
+        "background-color": { "value": "{ams.brand.color.red.20}" },
+        "border-color": { "value": "{ams.brand.color.red.60}" }
       },
       "info": {
-        "background-color": { "value": "{ams.brand.color.blue.200}" },
-        "border-color": { "value": "{ams.brand.color.blue.600}" }
+        "background-color": { "value": "{ams.brand.color.blue.20}" },
+        "border-color": { "value": "{ams.brand.color.blue.60}" }
       },
       "success": {
-        "background-color": { "value": "{ams.brand.color.green.200}" },
-        "border-color": { "value": "{ams.brand.color.green.600}" }
+        "background-color": { "value": "{ams.brand.color.green.20}" },
+        "border-color": { "value": "{ams.brand.color.green.60}" }
       },
       "warning": {
-        "background-color": { "value": "{ams.brand.color.orange.200}" },
-        "border-color": { "value": "{ams.brand.color.orange.600}" }
+        "background-color": { "value": "{ams.brand.color.orange.20}" },
+        "border-color": { "value": "{ams.brand.color.orange.60}" }
       },
       "close": {
-        "fill": { "value": "{ams.brand.color.neutral.1000}" },
+        "fill": { "value": "{ams.brand.color.neutral.100}" },
         "hover": {
-          "fill": { "value": "{ams.brand.color.blue.600}" }
+          "fill": { "value": "{ams.brand.color.blue.60}" }
         }
       },
       "content": {

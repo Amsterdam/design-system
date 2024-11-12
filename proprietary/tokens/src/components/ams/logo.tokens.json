@@ -2,9 +2,9 @@
   "ams": {
     "logo": {
       "block-size": { "value": "2.5rem" },
-      "emblem": { "color": { "value": "{ams.brand.color.red.600}" } },
-      "title": { "color": { "value": "{ams.brand.color.red.600}" } },
-      "subsite": { "color": { "value": "{ams.brand.color.neutral.1000}" } }
+      "emblem": { "color": { "value": "{ams.brand.color.red.60}" } },
+      "title": { "color": { "value": "{ams.brand.color.red.60}" } },
+      "subsite": { "color": { "value": "{ams.brand.color.neutral.100}" } }
     }
   }
 }

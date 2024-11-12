@@ -14,7 +14,7 @@ const ColorPaletteRoot = forwardRef(({ children, ...restProps }: DivProps, ref: 
 ColorPaletteRoot.displayName = 'ColorPalette'
 
 type ColorPaletteSwatchProps = {
-  color: Record<'0' | '200' | '400' | '600' | '800' | '1000', string>
+  color: Record<'0' | '20' | '40' | '60' | '80' | '100', string>
   name: string
 }
 
@@ -24,17 +24,17 @@ const ColorPaletteSwatch = ({ color, name }: ColorPaletteSwatchProps) => (
     {name === 'neutral' ? (
       <>
         <ColorPaletteTile color={color['0']} level="0" />
-        <ColorPaletteTile color={color['200']} level="200" />
-        <ColorPaletteTile color={color['400']} level="400" />
-        <ColorPaletteTile color={color['600']} level="600" />
-        <ColorPaletteTile color={color['800']} level="800" />
-        <ColorPaletteTile color={color['1000']} level="1000" />
+        <ColorPaletteTile color={color['20']} level="20" />
+        <ColorPaletteTile color={color['40']} level="40" />
+        <ColorPaletteTile color={color['60']} level="60" />
+        <ColorPaletteTile color={color['80']} level="80" />
+        <ColorPaletteTile color={color['100']} level="100" />
       </>
     ) : (
       <>
-        <ColorPaletteTile color={color['200']} level="200" />
-        <ColorPaletteTile color={color['600']} level="600" />
-        <ColorPaletteTile color={color['800']} level="800" />
+        <ColorPaletteTile color={color['20']} level="20" />
+        <ColorPaletteTile color={color['60']} level="60" />
+        <ColorPaletteTile color={color['80']} level="80" />
       </>
     )}
   </div>

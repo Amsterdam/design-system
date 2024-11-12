@@ -7,115 +7,115 @@
       "line-height": { "value": "{ams.text.level.5.line-height}" },
       "padding-inline": { "value": "{ams.space.lg}" },
       "black": {
-        "background-color": { "value": "{ams.brand.color.neutral.1000}" },
+        "background-color": { "value": "{ams.brand.color.neutral.100}" },
         "color": { "value": "{ams.brand.color.neutral.0}" },
         "hover": {
-          "background-color": { "value": "{ams.brand.color.neutral.800}" },
+          "background-color": { "value": "{ams.brand.color.neutral.80}" },
           "color": { "value": "{ams.brand.color.neutral.0}" }
         }
       },
       "blue": {
-        "background-color": { "value": "{ams.brand.color.blue.600}" },
+        "background-color": { "value": "{ams.brand.color.blue.60}" },
         "color": { "value": "{ams.brand.color.neutral.0}" },
         "hover": {
-          "background-color": { "value": "{ams.brand.color.blue.800}" },
+          "background-color": { "value": "{ams.brand.color.blue.80}" },
           "color": { "value": "{ams.brand.color.neutral.0}" }
         }
       },
       "dark-green": {
-        "background-color": { "value": "{ams.brand.color.green.600}" },
+        "background-color": { "value": "{ams.brand.color.green.60}" },
         "color": { "value": "{ams.brand.color.neutral.0}" },
         "hover": {
-          "background-color": { "value": "{ams.brand.color.green.800}" },
+          "background-color": { "value": "{ams.brand.color.green.80}" },
           "color": { "value": "{ams.brand.color.neutral.0}" }
         }
       },
       "green": {
-        "background-color": { "value": "{ams.brand.color.lime.600}" },
-        "color": { "value": "{ams.brand.color.neutral.1000}" },
+        "background-color": { "value": "{ams.brand.color.lime.60}" },
+        "color": { "value": "{ams.brand.color.neutral.100}" },
         "hover": {
-          "background-color": { "value": "{ams.brand.color.lime.800}" },
-          "color": { "value": "{ams.brand.color.neutral.1000}" }
+          "background-color": { "value": "{ams.brand.color.lime.80}" },
+          "color": { "value": "{ams.brand.color.neutral.100}" }
         }
       },
       "grey-1": {
-        "background-color": { "value": "{ams.brand.color.neutral.200}" },
-        "color": { "value": "{ams.brand.color.neutral.1000}" },
+        "background-color": { "value": "{ams.brand.color.neutral.20}" },
+        "color": { "value": "{ams.brand.color.neutral.100}" },
         "hover": {
-          "background-color": { "value": "{ams.brand.color.neutral.400}" },
-          "color": { "value": "{ams.brand.color.neutral.1000}" }
+          "background-color": { "value": "{ams.brand.color.neutral.40}" },
+          "color": { "value": "{ams.brand.color.neutral.100}" }
         }
       },
       "grey-2": {
-        "background-color": { "value": "{ams.brand.color.neutral.400}" },
-        "color": { "value": "{ams.brand.color.neutral.1000}" },
+        "background-color": { "value": "{ams.brand.color.neutral.40}" },
+        "color": { "value": "{ams.brand.color.neutral.100}" },
         "hover": {
-          "background-color": { "value": "{ams.brand.color.neutral.600}" },
-          "color": { "value": "{ams.brand.color.neutral.1000}" }
+          "background-color": { "value": "{ams.brand.color.neutral.60}" },
+          "color": { "value": "{ams.brand.color.neutral.100}" }
         }
       },
       "grey-3": {
-        "background-color": { "value": "{ams.brand.color.neutral.600}" },
+        "background-color": { "value": "{ams.brand.color.neutral.60}" },
         "color": { "value": "{ams.brand.color.neutral.0}" },
         "hover": {
-          "background-color": { "value": "{ams.brand.color.neutral.800}" },
+          "background-color": { "value": "{ams.brand.color.neutral.80}" },
           "color": { "value": "{ams.brand.color.neutral.0}" }
         }
       },
       "light-blue": {
-        "background-color": { "value": "{ams.brand.color.azure.600}" },
-        "color": { "value": "{ams.brand.color.neutral.1000}" },
+        "background-color": { "value": "{ams.brand.color.azure.60}" },
+        "color": { "value": "{ams.brand.color.neutral.100}" },
         "hover": {
-          "background-color": { "value": "{ams.brand.color.azure.800}" },
-          "color": { "value": "{ams.brand.color.neutral.1000}" }
+          "background-color": { "value": "{ams.brand.color.azure.80}" },
+          "color": { "value": "{ams.brand.color.neutral.100}" }
         }
       },
       "magenta": {
-        "background-color": { "value": "{ams.brand.color.magenta.600}" },
+        "background-color": { "value": "{ams.brand.color.magenta.60}" },
         "color": { "value": "{ams.brand.color.neutral.0}" },
         "hover": {
-          "background-color": { "value": "{ams.brand.color.magenta.800}" },
+          "background-color": { "value": "{ams.brand.color.magenta.80}" },
           "color": { "value": "{ams.brand.color.neutral.0}" }
         }
       },
       "orange": {
-        "background-color": { "value": "{ams.brand.color.orange.600}" },
-        "color": { "value": "{ams.brand.color.neutral.1000}" },
+        "background-color": { "value": "{ams.brand.color.orange.60}" },
+        "color": { "value": "{ams.brand.color.neutral.100}" },
         "hover": {
-          "background-color": { "value": "{ams.brand.color.orange.800}" },
-          "color": { "value": "{ams.brand.color.neutral.1000}" }
+          "background-color": { "value": "{ams.brand.color.orange.80}" },
+          "color": { "value": "{ams.brand.color.neutral.100}" }
         }
       },
       "purple": {
-        "background-color": { "value": "{ams.brand.color.purple.600}" },
+        "background-color": { "value": "{ams.brand.color.purple.60}" },
         "color": { "value": "{ams.brand.color.neutral.0}" },
         "hover": {
-          "background-color": { "value": "{ams.brand.color.purple.800}" },
+          "background-color": { "value": "{ams.brand.color.purple.80}" },
           "color": { "value": "{ams.brand.color.neutral.0}" }
         }
       },
       "red": {
-        "background-color": { "value": "{ams.brand.color.red.600}" },
+        "background-color": { "value": "{ams.brand.color.red.60}" },
         "color": { "value": "{ams.brand.color.neutral.0}" },
         "hover": {
-          "background-color": { "value": "{ams.brand.color.red.800}" },
+          "background-color": { "value": "{ams.brand.color.red.80}" },
           "color": { "value": "{ams.brand.color.neutral.0}" }
         }
       },
       "white": {
         "background-color": { "value": "{ams.brand.color.neutral.0}" },
-        "color": { "value": "{ams.brand.color.neutral.1000}" },
+        "color": { "value": "{ams.brand.color.neutral.100}" },
         "hover": {
-          "background-color": { "value": "{ams.brand.color.neutral.200}" },
-          "color": { "value": "{ams.brand.color.neutral.1000}" }
+          "background-color": { "value": "{ams.brand.color.neutral.20}" },
+          "color": { "value": "{ams.brand.color.neutral.100}" }
         }
       },
       "yellow": {
-        "background-color": { "value": "{ams.brand.color.yellow.600}" },
-        "color": { "value": "{ams.brand.color.neutral.1000}" },
+        "background-color": { "value": "{ams.brand.color.yellow.60}" },
+        "color": { "value": "{ams.brand.color.neutral.100}" },
         "hover": {
-          "background-color": { "value": "{ams.brand.color.yellow.800}" },
-          "color": { "value": "{ams.brand.color.neutral.1000}" }
+          "background-color": { "value": "{ams.brand.color.yellow.80}" },
+          "color": { "value": "{ams.brand.color.neutral.100}" }
         }
       }
     }

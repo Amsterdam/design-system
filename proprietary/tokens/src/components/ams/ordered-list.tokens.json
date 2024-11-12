@@ -1,7 +1,7 @@
 {
   "ams": {
     "ordered-list": {
-      "color": { "value": "{ams.brand.color.neutral.1000}" },
+      "color": { "value": "{ams.brand.color.neutral.100}" },
       "font-family": { "value": "{ams.text.font-family}" },
       "font-size": { "value": "{ams.text.level.5.font-size}" },
       "font-weight": { "value": "{ams.text.font-weight.normal}" },

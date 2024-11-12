@@ -22,7 +22,7 @@
   text-align: center;
 }
 
-:not(.ams-docs-color-swatch--neutral) > .ams-docs-color-tile--600 {
+:not(.ams-docs-color-swatch--neutral) > .ams-docs-color-tile--60 {
   grid-column: span 4;
 }
 
