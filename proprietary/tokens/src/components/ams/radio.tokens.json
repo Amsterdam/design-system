@@ -31,6 +31,17 @@
           }
         }
       },
+      "hover-indicator": {
+        "stroke-width": { "value": "3px" },
+        "hover": {
+          "stroke": { "value": "{ams.color.primary-blue}" }
+        },
+        "invalid": {
+          "hover": {
+            "stroke": { "value": "{ams.color.primary-red}" }
+          }
+        }
+      },
       "circle": {
         "stroke": { "value": "{ams.color.primary-blue}" },
         "stroke-width": { "value": "2px" },
@@ -44,8 +55,7 @@
           }
         },
         "hover": {
-          "stroke": { "value": "{ams.color.dark-blue}" },
-          "stroke-width": { "value": "3px" }
+          "stroke": { "value": "{ams.color.dark-blue}" }
         },
         "invalid": {
           "stroke": { "value": "{ams.color.primary-red}" },

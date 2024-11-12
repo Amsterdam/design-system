@@ -42,6 +42,12 @@
   stroke-width: var(--ams-radio-circle-stroke-width);
 }
 
+.ams-radio__hover-indicator {
+  fill: none;
+  stroke: transparent;
+  stroke-width: var(--ams-radio-hover-indicator-stroke-width);
+}
+
 .ams-radio__checked-indicator {
   display: none;
   fill: var(--ams-radio-checked-indicator-fill);
@@ -54,7 +60,10 @@
 
   .ams-radio__circle {
     stroke: var(--ams-radio-circle-hover-stroke);
-    stroke-width: var(--ams-radio-circle-hover-stroke-width);
+  }
+
+  .ams-radio__hover-indicator {
+    stroke: var(--ams-radio-hover-indicator-hover-stroke);
   }
 
   .ams-radio__checked-indicator {
@@ -109,9 +118,13 @@
 
 // HOVER
 
-// Disabled label hover
+// Disabled hover
 .ams-radio__input:disabled + .ams-radio__label:hover {
   text-decoration: none;
+
+  .ams-radio__hover-indicator {
+    stroke: transparent;
+  }
 }
 
 // Invalid hover
@@ -119,6 +132,11 @@
   .ams-radio__circle {
     // TODO: this should be the (currently non-existent) dark red hover color
     stroke: var(--ams-radio-circle-invalid-hover-stroke);
+  }
+
+  .ams-radio__hover-indicator {
+    // TODO: this should be the (currently non-existent) dark red hover color
+    stroke: var(--ams-radio-hover-indicator-invalid-hover-stroke);
   }
 
   .ams-radio__checked-indicator {
