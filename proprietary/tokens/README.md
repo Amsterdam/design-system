@@ -80,7 +80,7 @@ Examples:
 
 ```css
 :root {
-  --ams-brand-color-red: #ec0000;
+  --ams-brand-color-red-60: #ec0000;
   --ams-space-md: 1rem;
   --ams-aspect-ratio-wide: 4/3;
   --ams-border-width-lg: 0.1875rem;
@@ -168,8 +168,9 @@ Use ‘dot notation’ or square brackets to access the tokens.
 ```ts
 import tokens from "@amsterdam/design-system-tokens/dist/index.json"
 
-const buttonBackgroundColor = tokens.ams.brand.color["blue"]
-const rowGap = tokens.ams.space.md
+const { ams } = tokens
+const buttonBackgroundColor = ams.brand.color.blue['60']
+const rowGap = ams.space.md
 ```
 
 Import and merge the compact tokens if you need them.
@@ -180,7 +181,7 @@ Then you can use the tokens in scripting or css-in-js libraries.
 import spaciousTokens from "@amsterdam/design-system-tokens/dist/index.json"
 import compactTokens from "@amsterdam/design-system-tokens/dist/compact.json"
 
-const tokens = { ...spaciousTokens, ...compactTokens }
+const { ams } = { ...spaciousTokens, ...compactTokens }
 ```
 
 ## Usage in Figma
