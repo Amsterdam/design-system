@@ -18,7 +18,7 @@
         "background-color": { "value": "{ams.brand.color.blue.60}" }
       },
       "disabled": {
-        "background-color": { "value": "{ams.brand.color.neutral.40}" }
+        "background-color": { "value": "{ams.brand.color.neutral.60}" }
       }
     }
   }

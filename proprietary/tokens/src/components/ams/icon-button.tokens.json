@@ -29,7 +29,7 @@
         },
         "disabled": {
           "color": { "value": "{ams.brand.color.neutral.0}" },
-          "background-color": { "value": "{ams.brand.color.neutral.40}" }
+          "background-color": { "value": "{ams.brand.color.neutral.60}" }
         }
       }
     }
