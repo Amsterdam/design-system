@@ -1,5 +1,5 @@
-<svg viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
-  <circle cx="16" cy="16" r="14" class="ams-radio__circle" />
-  <circle cx="16" cy="16" r="13" class="ams-radio__hover-indicator" />
-  <circle cx="16" cy="16" r="9" class="ams-radio__checked-indicator" />
+<svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+  <circle cx="12" cy="12" r="10" class="ams-radio__circle" />
+  <circle cx="12" cy="12" r="9.5" class="ams-radio__hover-indicator" />
+  <circle cx="12" cy="12" r="6" class="ams-radio__checked-indicator" />
 </svg>
