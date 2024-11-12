@@ -152,6 +152,9 @@
     stroke: var(--ams-radio-circle-disabled-invalid-hover-stroke);
   }
 
+  .ams-radio__hover-indicator {
+    stroke: transparent;
+  }
   .ams-radio__checked-indicator {
     // TODO: currently disabled invalid gets the same styling as disabled. This should get its own styling.
     fill: var(--ams-radio-checked-indicator-disabled-invalid-hover-fill);
