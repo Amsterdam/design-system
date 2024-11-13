@@ -52,7 +52,7 @@ const ColorPaletteTile = ({ color, level }: ColorPaletteTileProps) => (
     {color && (
       <>
         <code className="ams-docs-color-code">{level}</code>
-        <div className="ams-docs-color-sample" style={{ backgroundColor: color }} />
+        <div className="ams-docs-color-sample" style={{ backgroundColor: color }} title={color} />
       </>
     )}
   </div>
