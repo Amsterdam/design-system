@@ -1,3 +1,4 @@
+// @ts-nocheck
 import figma from '@figma/code-connect'
 import { Button } from '../src/Button/Button'
 
