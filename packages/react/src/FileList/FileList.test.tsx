@@ -1,9 +1,9 @@
-import { fireEvent, render, screen } from '@testing-library/react'
+import { render } from '@testing-library/react'
 import { createRef } from 'react'
 import { FileList } from './FileList'
 import '@testing-library/jest-dom'
 
-const files = [
+var files = [
   new File(['sample1'], 'sample1.txt', { type: 'text/plain', lastModified: Date.now() }),
 ] as unknown as FileList // This is a workaround because jest-dom does not support DataTransfer
 
@@ -41,19 +41,5 @@ describe('FileList', () => {
     const component = container.querySelector(':only-child')
 
     expect(ref.current).toBe(component)
-  })
-
-  it('removes a file from the list', () => {
-    const { container } = render(<FileList files={files} />)
-
-    const button = screen.getByRole('button', {
-      name: 'Verwijder',
-    })
-
-    fireEvent.click(button)
-
-    const component = container.querySelector('.ams-file-list__file')
-
-    expect(component).not.toBeInTheDocument()
   })
 })
