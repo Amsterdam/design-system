@@ -5,7 +5,7 @@
 
 import { DocumentIcon } from '@amsterdam/design-system-react-icons'
 import clsx from 'clsx'
-import { forwardRef, useState } from 'react'
+import { forwardRef } from 'react'
 import type { ForwardedRef, HTMLAttributes } from 'react'
 import { Button } from '../Button'
 import { Icon } from '../Icon'
@@ -13,20 +13,15 @@ import { formatFileSize, formatFileType } from '../common'
 
 export type FileListProps = {
   files: FileList
-  removeable?: boolean
+  // eslint-disable-next-line no-unused-vars
+  onDelete?: (index: number) => void
 } & HTMLAttributes<HTMLDivElement>
 
 export const FileList = forwardRef(
-  ({ files, removeable = true, className, ...restProps }: FileListProps, ref: ForwardedRef<HTMLDivElement>) => {
-    const [fileList, setFileList] = useState(Array.from(files))
-
-    const removeFile = (index: number) => {
-      setFileList((prevFiles) => prevFiles.filter((_, i) => i !== index))
-    }
-
+  ({ files, onDelete, className, ...restProps }: FileListProps, ref: ForwardedRef<HTMLDivElement>) => {
     return (
       <div {...restProps} ref={ref} className={clsx('ams-file-list', className)}>
-        {fileList.map((file, index) => (
+        {Array.from(files).map((file, index) => (
           <div key={index} className="ams-file-list__file">
             <div className="ams-file-list__file-preview">
               {file.type.includes('image') ? (
@@ -41,8 +36,8 @@ export const FileList = forwardRef(
                 ({formatFileType(file.type)}, {formatFileSize(file.size)})
               </div>
             </div>
-            {removeable && (
-              <Button variant="tertiary" onClick={() => removeFile(index)}>
+            {onDelete && (
+              <Button variant="tertiary" onClick={() => onDelete(index)}>
                 Verwijder
               </Button>
             )}
