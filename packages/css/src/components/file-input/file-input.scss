@@ -13,13 +13,14 @@
 .ams-file-input {
   background-color: var(--ams-file-input-background-color);
   border: var(--ams-file-input-border);
+  box-sizing: border-box;
   color: var(--ams-file-input-color);
   cursor: var(--ams-file-input-cursor);
   font-family: var(--ams-file-input-font-family);
   font-size: var(--ams-file-input-font-size);
   font-weight: var(--ams-file-input-font-weight);
+  inline-size: 100%;
   line-height: var(--ams-file-input-line-height);
-  max-inline-size: calc(100% - var(--ams-file-input-padding-inline) * 2);
   outline-offset: calc(var(--ams-focus-outline-offset) * 2); // Compensate for the dashed border
   padding-block: var(--ams-file-input-padding-block);
   padding-inline: var(--ams-file-input-padding-inline);
