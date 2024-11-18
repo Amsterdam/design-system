@@ -167,7 +167,7 @@
 
 [class*="ams-docs-token-example--space"] {
   background-color: var(--ams-brand-color-neutral-0);
-  outline: 1px dashed var(--ams-brand-color-neutral-200);
+  outline: 1px dashed var(--ams-brand-color-neutral-40);
 }
 
 .ams-resize-horizontal {
