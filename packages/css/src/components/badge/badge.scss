@@ -12,6 +12,11 @@
   padding-inline: var(--ams-badge-padding-inline);
 }
 
+.ams-badge--azure {
+  background-color: var(--ams-badge-azure-background-color);
+  color: var(--ams-badge-azure-color);
+}
+
 .ams-badge--black {
   background-color: var(--ams-badge-black-background-color);
   color: var(--ams-badge-black-color);
@@ -32,6 +37,11 @@
   color: var(--ams-badge-lime-color);
 }
 
+.ams-badge--magenta {
+  background-color: var(--ams-badge-magenta-background-color);
+  color: var(--ams-badge-magenta-color);
+}
+
 .ams-badge--neutral-20 {
   background-color: var(--ams-badge-neutral-20-background-color);
   color: var(--ams-badge-neutral-20-color);
@@ -50,16 +60,6 @@
 .ams-badge--neutral-80 {
   background-color: var(--ams-badge-neutral-80-background-color);
   color: var(--ams-badge-neutral-80-color);
-}
-
-.ams-badge--azure {
-  background-color: var(--ams-badge-azure-background-color);
-  color: var(--ams-badge-azure-color);
-}
-
-.ams-badge--magenta {
-  background-color: var(--ams-badge-magenta-background-color);
-  color: var(--ams-badge-magenta-color);
 }
 
 .ams-badge--orange {
