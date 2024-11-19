@@ -11,8 +11,8 @@
         "border-color": { "value": "{ams.brand.color.red.60}" }
       },
       "info": {
-        "background-color": { "value": "{ams.brand.color.blue.20}" },
-        "border-color": { "value": "{ams.brand.color.blue.60}" }
+        "background-color": { "value": "{ams.brand.color.azure.20}" },
+        "border-color": { "value": "{ams.brand.color.azure.60}" }
       },
       "success": {
         "background-color": { "value": "{ams.brand.color.green.20}" },
