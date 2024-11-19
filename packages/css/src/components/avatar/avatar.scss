@@ -37,6 +37,11 @@
   vertical-align: middle; /* Remove ‘phantom’ white space when image doesn’t load */
 }
 
+.ams-avatar--azure {
+  background-color: var(--ams-avatar-azure-background-color);
+  color: var(--ams-avatar-azure-color);
+}
+
 .ams-avatar--black {
   background-color: var(--ams-avatar-black-background-color);
   color: var(--ams-avatar-black-color);
@@ -57,6 +62,11 @@
   color: var(--ams-avatar-lime-color);
 }
 
+.ams-avatar--magenta {
+  background-color: var(--ams-avatar-magenta-background-color);
+  color: var(--ams-avatar-magenta-color);
+}
+
 .ams-avatar--neutral-20 {
   background-color: var(--ams-avatar-neutral-20-background-color);
   color: var(--ams-avatar-neutral-20-color);
@@ -75,16 +85,6 @@
 .ams-avatar--neutral-80 {
   background-color: var(--ams-avatar-neutral-80-background-color);
   color: var(--ams-avatar-neutral-80-color);
-}
-
-.ams-avatar--azure {
-  background-color: var(--ams-avatar-azure-background-color);
-  color: var(--ams-avatar-azure-color);
-}
-
-.ams-avatar--magenta {
-  background-color: var(--ams-avatar-magenta-background-color);
-  color: var(--ams-avatar-magenta-color);
 }
 
 .ams-avatar--orange {
