@@ -1,12 +1,12 @@
 {
   "ams": {
     "paragraph": {
-      "color": { "value": "{ams.color.primary-black}" },
+      "color": { "value": "{ams.brand.color.neutral.100}" },
       "font-family": { "value": "{ams.text.font-family}" },
       "font-size": { "value": "{ams.text.level.5.font-size}" },
       "font-weight": { "value": "{ams.text.font-weight.normal}" },
       "line-height": { "value": "{ams.text.level.5.line-height}" },
-      "inverse-color": { "value": "{ams.color.primary-white}" },
+      "inverse-color": { "value": "{ams.brand.color.neutral.0}" },
       "small": {
         "font-size": { "value": "{ams.text.level.6.font-size}" },
         "line-height": { "value": "{ams.text.level.6.line-height}" }
