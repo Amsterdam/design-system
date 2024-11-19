@@ -55,7 +55,6 @@
   box-shadow: var(--ams-text-area-invalid-box-shadow);
 
   &:hover {
-    // TODO: this should be the (currently non-existent) dark red hover color
     box-shadow: var(--ams-text-area-invalid-hover-box-shadow);
   }
 }

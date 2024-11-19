@@ -130,7 +130,6 @@
 // Invalid hover
 .ams-radio__input[aria-invalid="true"] + .ams-radio__label:hover {
   .ams-radio__circle {
-    // TODO: this should be the (currently non-existent) dark red hover color
     stroke: var(--ams-radio-circle-invalid-hover-stroke);
   }
 
@@ -140,7 +139,6 @@
   }
 
   .ams-radio__checked-indicator {
-    // TODO: this should be the (currently non-existent) dark red hover color
     fill: var(--ams-radio-checked-indicator-invalid-hover-fill);
   }
 }

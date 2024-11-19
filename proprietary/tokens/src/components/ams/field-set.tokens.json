@@ -2,11 +2,11 @@
   "ams": {
     "field-set": {
       "invalid": {
-        "border-inline-start": { "value": "{ams.border.width.lg} solid {ams.color.primary-red}" },
+        "border-inline-start": { "value": "{ams.border.width.lg} solid {ams.brand.color.red.60}" },
         "padding-inline-start": { "value": "{ams.space.md}" }
       },
       "legend": {
-        "color": { "value": "{ams.color.primary-black}" },
+        "color": { "value": "{ams.brand.color.neutral.100}" },
         "font-family": { "value": "{ams.text.font-family}" },
         "font-size": { "value": "{ams.text.level.4.font-size}" },
         "font-weight": { "value": "{ams.text.font-weight.bold}" },
