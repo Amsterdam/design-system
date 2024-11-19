@@ -1,7 +1,7 @@
 {
   "ams": {
     "screen": {
-      "background-color": { "value": "{ams.color.primary-white}" },
+      "background-color": { "value": "{ams.brand.color.neutral.0}" },
       "wide": {
         "max-inline-size": { "value": "100rem" }
       },
