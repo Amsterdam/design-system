@@ -34,16 +34,16 @@
       "hover-indicator": {
         "stroke-width": { "value": "3px" },
         "hover": {
-          "stroke": { "value": "{ams.color.primary-blue}" }
+          "stroke": { "value": "{ams.brand.color.blue.60}" }
         },
         "invalid": {
           "hover": {
-            "stroke": { "value": "{ams.color.primary-red}" }
+            "stroke": { "value": "{ams.brand.color.red}" }
           }
         }
       },
       "circle": {
-        "fill": { "value": "{ams.color.primary-white}" },
+        "fill": { "value": "{ams.brand.color.neutral.0}" },
         "stroke": { "value": "{ams.brand.color.blue.60}" },
         "stroke-width": { "value": "2px" },
         "disabled": {
