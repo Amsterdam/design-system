@@ -22,12 +22,6 @@
         "background-color": { "value": "{ams.brand.color.orange.20}" },
         "border-color": { "value": "{ams.brand.color.orange.60}" }
       },
-      "close": {
-        "fill": { "value": "{ams.brand.color.neutral.100}" },
-        "hover": {
-          "fill": { "value": "{ams.brand.color.blue.60}" }
-        }
-      },
       "content": {
         "gap": { "value": "{ams.space.sm}" }
       }
