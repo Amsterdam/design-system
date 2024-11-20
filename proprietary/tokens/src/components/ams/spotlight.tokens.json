@@ -1,16 +1,16 @@
 {
   "ams": {
     "spotlight": {
-      "blue": {
+      "azure": {
         "background-color": { "value": "{ams.brand.color.azure.60}" }
       },
-      "dark-blue": {
+      "blue": {
         "background-color": { "value": "{ams.brand.color.blue.60}" }
       },
-      "dark-green": {
+      "green": {
         "background-color": { "value": "{ams.brand.color.green.60}" }
       },
-      "green": {
+      "lime": {
         "background-color": { "value": "{ams.brand.color.lime.60}" }
       },
       "magenta": {

@@ -68,7 +68,7 @@ export const Alert = forwardRef(
           )}
           {children}
         </div>
-        {closeable && <IconButton label={closeButtonLabel} size={alertSize} onClick={onClose} />}
+        {closeable && <IconButton contrastColor label={closeButtonLabel} size={alertSize} onClick={onClose} />}
       </Tag>
     )
   },
