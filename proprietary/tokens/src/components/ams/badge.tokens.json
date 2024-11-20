@@ -6,6 +6,10 @@
       "font-weight": { "value": "{ams.text.font-weight.bold}" },
       "line-height": { "value": "{ams.text.level.5.line-height}" },
       "padding-inline": { "value": "{ams.space.xs}" },
+      "azure": {
+        "background-color": { "value": "{ams.brand.color.azure.60}" },
+        "color": { "value": "{ams.brand.color.neutral.100}" }
+      },
       "black": {
         "background-color": { "value": "{ams.brand.color.neutral.100}" },
         "color": { "value": "{ams.brand.color.neutral.0}" }
@@ -14,32 +18,32 @@
         "background-color": { "value": "{ams.brand.color.blue.60}" },
         "color": { "value": "{ams.brand.color.neutral.0}" }
       },
-      "dark-green": {
+      "green": {
         "background-color": { "value": "{ams.brand.color.green.60}" },
         "color": { "value": "{ams.brand.color.neutral.0}" }
       },
-      "green": {
+      "lime": {
         "background-color": { "value": "{ams.brand.color.lime.60}" },
-        "color": { "value": "{ams.brand.color.neutral.100}" }
-      },
-      "grey-1": {
-        "background-color": { "value": "{ams.brand.color.neutral.20}" },
-        "color": { "value": "{ams.brand.color.neutral.100}" }
-      },
-      "grey-2": {
-        "background-color": { "value": "{ams.brand.color.neutral.40}" },
-        "color": { "value": "{ams.brand.color.neutral.100}" }
-      },
-      "grey-3": {
-        "background-color": { "value": "{ams.brand.color.neutral.60}" },
-        "color": { "value": "{ams.brand.color.neutral.0}" }
-      },
-      "light-blue": {
-        "background-color": { "value": "{ams.brand.color.azure.60}" },
         "color": { "value": "{ams.brand.color.neutral.100}" }
       },
       "magenta": {
         "background-color": { "value": "{ams.brand.color.magenta.60}" },
+        "color": { "value": "{ams.brand.color.neutral.0}" }
+      },
+      "neutral-20": {
+        "background-color": { "value": "{ams.brand.color.neutral.20}" },
+        "color": { "value": "{ams.brand.color.neutral.100}" }
+      },
+      "neutral-40": {
+        "background-color": { "value": "{ams.brand.color.neutral.40}" },
+        "color": { "value": "{ams.brand.color.neutral.100}" }
+      },
+      "neutral-60": {
+        "background-color": { "value": "{ams.brand.color.neutral.60}" },
+        "color": { "value": "{ams.brand.color.neutral.0}" }
+      },
+      "neutral-80": {
+        "background-color": { "value": "{ams.brand.color.neutral.80}" },
         "color": { "value": "{ams.brand.color.neutral.0}" }
       },
       "orange": {

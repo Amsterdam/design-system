@@ -12,7 +12,7 @@ export type FooterTopProps = PropsWithChildren<HTMLAttributes<HTMLDivElement>>
 
 export const FooterTop = forwardRef(
   ({ children, className, ...restProps }: FooterTopProps, ref: ForwardedRef<HTMLDivElement>) => (
-    <Spotlight {...restProps} color="dark-blue" ref={ref} className={clsx('ams-footer__top', className)}>
+    <Spotlight {...restProps} color="blue" ref={ref} className={clsx('ams-footer__top', className)}>
       {children}
     </Spotlight>
   ),
