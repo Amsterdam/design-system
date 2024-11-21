@@ -4,17 +4,17 @@
       "gap": { "value": "{ams.space.sm}" },
       "description": {
         "color": { "value": "{ams.brand.color.neutral.100}" },
-        "font-family": { "value": "{ams.text.font-family}" },
-        "font-size": { "value": "{ams.text.level.6.font-size}" },
-        "font-weight": { "value": "{ams.text.font-weight.normal}" },
-        "line-height": { "value": "{ams.text.level.6.line-height}" }
+        "font-family": { "value": "{ams.common.typography.body-text.font-family}" },
+        "font-size": { "value": "{ams.common.typography.body-text.sm.font-size}" },
+        "font-weight": { "value": "{ams.common.typography.body-text.font-weight}" },
+        "line-height": { "value": "{ams.common.typography.body-text.sm.line-height}" }
       },
       "label": {
         "color": { "value": "{ams.link-appearance.color}" },
-        "font-family": { "value": "{ams.text.font-family}" },
-        "font-size": { "value": "{ams.text.level.4.font-size}" },
-        "font-weight": { "value": "{ams.text.font-weight.bold}" },
-        "line-height": { "value": "{ams.text.level.4.line-height}" },
+        "font-family": { "value": "{ams.common.typography.body-text.font-family}" },
+        "font-size": { "value": "{ams.common.typography.body-text.lg.font-size}" },
+        "font-weight": { "value": "{ams.common.typography.bold.font-weight}" },
+        "line-height": { "value": "{ams.common.typography.body-text.lg.line-height}" },
         "text-decoration-line": { "value": "{ams.link-appearance.subtle.text-decoration-line}" },
         "text-decoration-thickness": { "value": "{ams.link-appearance.text-decoration-thickness}" },
         "text-underline-offset": { "value": "{ams.link-appearance.text-underline-offset}" },

@@ -1,11 +1,11 @@
 {
   "ams": {
     "table-of-contents": {
-      "font-family": { "value": "{ams.text.font-family}" },
-      "font-size": { "value": "{ams.text.level.5.font-size}" },
-      "font-weight": { "value": "{ams.text.font-weight.normal}" },
+      "font-family": { "value": "{ams.common.typography.body-text.font-family}" },
+      "font-size": { "value": "{ams.common.typography.body-text.font-size}" },
+      "font-weight": { "value": "{ams.common.typography.body-text.font-weight}" },
       "gap": { "value": "{ams.space.md}" },
-      "line-height": { "value": "{ams.text.level.5.line-height}" },
+      "line-height": { "value": "{ams.common.typography.body-text.line-height}" },
       "link": {
         "color": { "value": "{ams.link-appearance.color}" },
         "outline-offset": { "value": "{ams.focus.outline-offset}" },
@@ -25,9 +25,9 @@
         }
       },
       "heading": {
-        "font-weight": { "value": "{ams.text.font-weight.bold}" },
-        "font-size": { "value": "{ams.text.level.4.font-size}" },
-        "line-height": { "value": "{ams.text.level.4.line-height}" }
+        "font-weight": { "value": "{ams.common.typography.body-text.font-weight}" },
+        "font-size": { "value": "{ams.common.typography.body-text.lg.font-size}" },
+        "line-height": { "value": "{ams.common.typography.body-text.lg.line-height}" }
       }
     }
   }

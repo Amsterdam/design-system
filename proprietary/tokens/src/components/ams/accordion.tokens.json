@@ -4,11 +4,11 @@
       "gap": { "value": "{ams.space.md}" },
       "button": {
         "color": { "value": "{ams.brand.color.blue.60}" },
-        "font-family": { "value": "{ams.text.font-family}" },
-        "font-size": { "value": "{ams.text.level.5.font-size}" },
-        "font-weight": { "value": "{ams.text.font-weight.bold}" },
+        "font-family": { "value": "{ams.common.typography.headings.font-family}" },
+        "font-size": { "value": "{ams.common.typography.headings.level-5.font-size}" },
+        "font-weight": { "value": "{ams.common.typography.headings.font-weight}" },
         "gap": { "value": "{ams.space.sm}" },
-        "line-height": { "value": "{ams.text.level.5.line-height}" },
+        "line-height": { "value": "{ams.common.typography.headings.level-5.line-height}" },
         "padding-block": { "value": "{ams.space.sm}" },
         "padding-inline": { "value": "0" },
         "focus": {

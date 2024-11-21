@@ -2,11 +2,11 @@
   "ams": {
     "page-heading": {
       "color": { "value": "{ams.brand.color.neutral.100}" },
-      "font-family": { "value": "{ams.text.font-family}" },
-      "font-size": { "value": "{ams.text.level.0.font-size}" },
-      "font-weight": { "value": "{ams.text.font-weight.bold}" },
+      "font-family": { "value": "{ams.common.typography.headings.font-family}" },
+      "font-size": { "value": "{ams.common.typography.headings.level-0.font-size}" },
+      "font-weight": { "value": "{ams.common.typography.headings.font-weight}" },
       "inverse-color": { "value": "{ams.brand.color.neutral.0}" },
-      "line-height": { "value": "{ams.text.level.0.font-size}" }
+      "line-height": { "value": "{ams.common.typography.headings.level-0.line-height}" }
     }
   }
 }

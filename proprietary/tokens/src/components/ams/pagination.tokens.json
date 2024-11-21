@@ -2,10 +2,10 @@
   "ams": {
     "pagination": {
       "color": { "value": "{ams.link-appearance.color}" },
-      "font-family": { "value": "{ams.text.font-family}" },
-      "font-size": { "value": "{ams.text.level.5.font-size}" },
-      "font-weight": { "value": "{ams.text.font-weight.normal}" },
-      "line-height": { "value": "{ams.text.level.5.line-height}" },
+      "font-family": { "value": "{ams.common.typography.body-text.font-family}" },
+      "font-size": { "value": "{ams.common.typography.body-text.font-size}" },
+      "font-weight": { "value": "{ams.common.typography.body-text.font-weight}" },
+      "line-height": { "value": "{ams.common.typography.body-text.line-height}" },
       "button": {
         "gap": { "value": "{ams.space.xs}" },
         "outline-offset": { "value": "{ams.focus.outline-offset}" },
@@ -14,7 +14,7 @@
         "text-decoration-thickness": { "value": "{ams.link-appearance.text-decoration-thickness}" },
         "text-underline-offset": { "value": "{ams.link-appearance.text-underline-offset}" },
         "current": {
-          "font-weight": { "value": "{ams.text.font-weight.bold}" }
+          "font-weight": { "value": "{ams.common.typography.bold.font-weight}" }
         },
         "hover": {
           "color": { "value": "{ams.link-appearance.hover.color}" },

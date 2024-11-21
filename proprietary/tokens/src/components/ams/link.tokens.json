@@ -2,8 +2,8 @@
   "ams": {
     "link": {
       "color": { "value": "{ams.link-appearance.color}" },
-      "font-family": { "value": "{ams.text.font-family}" },
-      "font-weight": { "value": "{ams.text.font-weight.normal}" },
+      "font-family": { "value": "{ams.common.typography.body-text.font-family}" },
+      "font-weight": { "value": "{ams.common.typography.body-text.font-weight}" },
       "outline-offset": { "value": "{ams.focus.outline-offset}" },
       "hover": {
         "color": { "value": "{ams.link-appearance.hover.color}" }
@@ -26,8 +26,8 @@
         }
       },
       "standalone": {
-        "font-size": { "value": "{ams.text.level.5.font-size}" },
-        "line-height": { "value": "{ams.text.level.5.line-height}" },
+        "font-size": { "value": "{ams.common.typography.body-text.font-size}" },
+        "line-height": { "value": "{ams.common.typography.body-text.line-height}" },
         "text-decoration-line": { "value": "{ams.link-appearance.regular.text-decoration-line}" },
         "text-decoration-thickness": { "value": "{ams.link-appearance.text-decoration-thickness}" },
         "text-underline-offset": { "value": "{ams.link-appearance.text-underline-offset}" },

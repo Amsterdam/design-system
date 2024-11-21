@@ -2,11 +2,11 @@
   "ams": {
     "radio": {
       "color": { "value": "{ams.brand.color.neutral.100}" },
-      "font-family": { "value": "{ams.text.font-family}" },
-      "font-size": { "value": "{ams.text.level.5.font-size}" },
-      "font-weight": { "value": "{ams.text.font-weight.normal}" },
+      "font-family": { "value": "{ams.common.typography.body-text.font-family}" },
+      "font-size": { "value": "{ams.common.typography.body-text.font-size}" },
+      "font-weight": { "value": "{ams.common.typography.body-text.font-weight}" },
       "gap": { "value": "{ams.space.sm}" },
-      "line-height": { "value": "{ams.text.level.5.line-height}" },
+      "line-height": { "value": "{ams.common.typography.body-text.line-height}" },
       "outline-offset": { "value": "{ams.focus.outline-offset}" },
       "text-decoration-thickness": { "value": "{ams.link-appearance.text-decoration-thickness}" },
       "text-underline-offset": { "value": "{ams.link-appearance.text-underline-offset}" },

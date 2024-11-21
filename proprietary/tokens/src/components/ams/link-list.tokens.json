@@ -4,22 +4,22 @@
       "gap": { "value": "{ams.space.sm}" },
       "link": {
         "color": { "value": "{ams.link-appearance.color}" },
-        "font-family": { "value": "{ams.text.font-family}" },
-        "font-size": { "value": "{ams.text.level.5.font-size}" },
-        "font-weight": { "value": "{ams.text.font-weight.normal}" },
+        "font-family": { "value": "{ams.common.typography.body-text.font-family}" },
+        "font-size": { "value": "{ams.common.typography.body-text.font-size}" },
+        "font-weight": { "value": "{ams.common.typography.body-text.font-weight}" },
         "gap": { "value": "{ams.space.sm}" },
-        "line-height": { "value": "{ams.text.level.5.line-height}" },
+        "line-height": { "value": "{ams.common.typography.body-text.line-height}" },
         "outline-offset": { "value": "{ams.focus.outline-offset}" },
         "text-decoration-line": { "value": "{ams.link-appearance.subtle.text-decoration-line}" },
         "text-decoration-thickness": { "value": "{ams.link-appearance.text-decoration-thickness}" },
         "text-underline-offset": { "value": "{ams.link-appearance.text-underline-offset}" },
         "small": {
-          "font-size": { "value": "{ams.text.level.6.font-size}" },
-          "line-height": { "value": "{ams.text.level.6.line-height}" }
+          "font-size": { "value": "{ams.common.typography.body-text.sm.font-size}" },
+          "line-height": { "value": "{ams.common.typography.body-text.sm.line-height}" }
         },
         "large": {
-          "font-size": { "value": "{ams.text.level.4.font-size}" },
-          "line-height": { "value": "{ams.text.level.4.line-height}" }
+          "font-size": { "value": "{ams.common.typography.body-text.lg.font-size}" },
+          "line-height": { "value": "{ams.common.typography.body-text.lg.line-height}" }
         },
         "hover": {
           "color": { "value": "{ams.link-appearance.hover.color}" },
