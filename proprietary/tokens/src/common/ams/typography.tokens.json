@@ -1,0 +1,61 @@
+{
+  "ams": {
+    "common": {
+      "typography": {
+        "body-text": {
+          "font-family": { "value": "{ams.brand.typography.font-family.body-text}" },
+          "font-size": { "value": "{ams.brand.typography.font-size.md}" },
+          "font-weight": { "value": "{ams.brand.typography.font-weight.normal}" },
+          "line-height": { "value": "{ams.brand.typography.line-height.5xl}" },
+          "sm": {
+            "font-size": { "value": "{ams.brand.typography.font-size.sm}" },
+            "line-height": { "value": "{ams.brand.typography.line-height.2xl}" }
+          },
+          "lg": {
+            "font-size": { "value": "{ams.brand.typography.font-size.lg}" },
+            "line-height": { "value": "{ams.brand.typography.line-height.2xl}" }
+          },
+          "xl": {
+            "font-size": { "value": "{ams.brand.typography.font-size.xl}" },
+            "line-height": { "value": "{ams.brand.typography.line-height.md}" }
+          }
+        },
+        "bold": {
+          "font-weight": { "value": "{ams.brand.typography.font-weight.bold}" }
+        },
+        "headings": {
+          "font-family": { "value": "{ams.brand.typography.font-family.headings}" },
+          "font-weight": { "value": "{ams.brand.typography.font-weight.x-bold}" },
+          "level-0": {
+            "font-size": { "value": "{ams.brand.typography.font-size.4xl}" },
+            "line-height": { "value": "{ams.brand.typography.line-height.5xs}" }
+          },
+          "level-1": {
+            "font-size": { "value": "{ams.brand.typography.font-size.3xl}" },
+            "line-height": { "value": "{ams.brand.typography.line-height.4xs}" }
+          },
+          "level-2": {
+            "font-size": { "value": "{ams.brand.typography.font-size.2xl}" },
+            "line-height": { "value": "{ams.brand.typography.line-height.3xs}" }
+          },
+          "level-3": {
+            "font-size": { "value": "{ams.brand.typography.font-size.xl}" },
+            "line-height": { "value": "{ams.brand.typography.line-height.2xs}" }
+          },
+          "level-4": {
+            "font-size": { "value": "{ams.brand.typography.font-size.lg}" },
+            "line-height": { "value": "{ams.brand.typography.line-height.xs}" }
+          },
+          "level-5": {
+            "font-size": { "value": "{ams.brand.typography.font-size.md}" },
+            "line-height": { "value": "{ams.brand.typography.line-height.sm}" }
+          },
+          "level-6": {
+            "font-size": { "value": "{ams.brand.typography.font-size.sm}" },
+            "line-height": { "value": "{ams.brand.typography.line-height.md}" }
+          }
+        }
+      }
+    }
+  }
+}
