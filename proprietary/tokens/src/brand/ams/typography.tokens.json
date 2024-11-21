@@ -1,0 +1,39 @@
+{
+  "ams": {
+    "brand": {
+      "typography": {
+        "font-family": {
+          "body-text": { "value": "'Amsterdam Sans', Arial, sans-serif" },
+          "headings": { "value": "'Amsterdam Sans', Arial, sans-serif" },
+          "monospace": { "value": "monospace" }
+        },
+        "font-size": {
+          "sm": { "value": "clamp(0.9643rem, calc(0.9054rem + 0.2946vw), 1.2rem)" },
+          "md": { "value": "clamp(1.125rem, calc(1.0313rem + 0.4688vw), 1.5rem)" },
+          "lg": { "value": "clamp(1.3125rem, calc(1.1719rem + 0.7031vw), 1.875rem)" },
+          "xl": { "value": "clamp(1.5313rem, calc(1.3281rem + 1.0156vw), 2.3438rem)" },
+          "2xl": { "value": "clamp(1.7865rem, calc(1.5007rem + 1.429vw), 2.9297rem)" },
+          "3xl": { "value": "clamp(2.0842rem, calc(1.6897rem + 1.9724vw), 3.6621rem)" },
+          "4xl": { "value": "clamp(2.4316rem, calc(1.8951rem + 2.6826vw), 4.5776rem)" }
+        },
+        "font-weight": {
+          "light": { "value": 300 },
+          "normal": { "value": 400 },
+          "bold": { "value": 700 },
+          "x-bold": { "value": 800 }
+        },
+        "line-height": {
+          "5xs": { "value": "113.86%" },
+          "4xs": { "value": "117.54%" },
+          "3xs": { "value": "121.33%" },
+          "2xs": { "value": "125.24%" },
+          "xs": { "value": "129.28%" },
+          "sm": { "value": "133.45%" },
+          "md": { "value": "137.76%" },
+          "2xl": { "value": "151.52%" },
+          "5xl": { "value": "166.67%" }
+        }
+      }
+    }
+  }
+}
