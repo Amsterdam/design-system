@@ -40,7 +40,7 @@
 .sbdocs-content.sbdocs-content > .ams-storybook-status-badge > span:nth-child(2) {
   color: #000;
   font-family: "Amsterdam Sans", "Arial", sans-serif;
-  font-size: var(--ams-text-level-6-font-size);
+  font-size: var(--ams-common-typography-font-size-sm);
 }
 
 .sbdocs-content.sbdocs-content .sbdocs-a {
