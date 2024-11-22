@@ -5,12 +5,12 @@
 
 @import "../../common/text-rendering";
 
-@mixin reset {
-  box-sizing: border-box;
+@mixin reset-p {
   margin-block: 0;
 }
 
 .ams-paragraph {
+  box-sizing: border-box;
   color: var(--ams-paragraph-color);
   font-family: var(--ams-paragraph-font-family);
   font-size: var(--ams-paragraph-font-size);
@@ -18,7 +18,7 @@
   line-height: var(--ams-paragraph-line-height);
 
   @include text-rendering;
-  @include reset;
+  @include reset-p;
 }
 
 .ams-paragraph--small {

@@ -1,12 +1,12 @@
 {
   "ams": {
     "ordered-list": {
-      "color": { "value": "{ams.color.primary-black}" },
+      "color": { "value": "{ams.brand.color.neutral.100}" },
       "font-family": { "value": "{ams.text.font-family}" },
       "font-size": { "value": "{ams.text.level.5.font-size}" },
       "font-weight": { "value": "{ams.text.font-weight.normal}" },
       "gap": { "value": "{ams.space.md}" },
-      "inverse-color": { "value": "{ams.color.primary-white}" },
+      "inverse-color": { "value": "{ams.brand.color.neutral.0}" },
       "line-height": { "value": "{ams.text.level.5.line-height}" },
       "list-style-type": { "value": "decimal" },
       "small": {

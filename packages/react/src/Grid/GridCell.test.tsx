@@ -1,6 +1,8 @@
 import { render, screen } from '@testing-library/react'
 import { createRef } from 'react'
 import { Grid } from './Grid'
+import { gridCellTags } from './GridCell'
+import { ariaRoleForTag } from '../common/accessibility'
 import '@testing-library/jest-dom'
 
 describe('Grid cell', () => {
@@ -27,16 +29,6 @@ describe('Grid cell', () => {
     const component = container.querySelector(':only-child')
 
     expect(component).toHaveClass('ams-grid__cell extra')
-  })
-
-  it('supports ForwardRef in React', () => {
-    const ref = createRef<HTMLDivElement>()
-
-    const { container } = render(<Grid.Cell ref={ref} />)
-
-    const component = container.querySelector(':only-child')
-
-    expect(ref.current).toBe(component)
   })
 
   it('renders no class names for undefined values for start and span', () => {
@@ -113,11 +105,30 @@ describe('Grid cell', () => {
     expect(component).toHaveClass('ams-grid__cell--span-all')
   })
 
-  it('renders a custom tag', () => {
-    render(<Grid.Cell as="article" />)
+  gridCellTags.forEach((tag) => {
+    it(`renders with a custom ${tag} tag`, () => {
+      const { container } = render(
+        <Grid.Cell as={tag} aria-label={tag === 'section' ? 'Accessible name' : undefined} />,
+      )
 
-    const cell = screen.getByRole('article')
+      let component: HTMLElement | null
+      if (tag === 'div') {
+        component = container.querySelector(tag)
+      } else {
+        component = screen.getByRole(ariaRoleForTag[tag])
+      }
 
-    expect(cell).toBeInTheDocument()
+      expect(component).toBeInTheDocument()
+    })
+  })
+
+  it('supports ForwardRef in React', () => {
+    const ref = createRef<HTMLElement>()
+
+    const { container } = render(<Grid.Cell ref={ref} />)
+
+    const component = container.querySelector(':only-child')
+
+    expect(ref.current).toBe(component)
   })
 })

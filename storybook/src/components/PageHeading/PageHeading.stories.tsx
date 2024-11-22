@@ -5,7 +5,6 @@
 
 import { PageHeading } from '@amsterdam/design-system-react/src'
 import { Meta, StoryObj } from '@storybook/react'
-import { inverseColorDecorator } from '../shared/decorators'
 
 const meta = {
   title: 'Components/Text/Page Heading',
@@ -20,7 +19,6 @@ const meta = {
       table: { disable: false },
     },
   },
-  decorators: [inverseColorDecorator],
 } satisfies Meta<typeof PageHeading>
 
 export default meta

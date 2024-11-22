@@ -4,24 +4,18 @@
  */
 
 import { SearchIcon } from '@amsterdam/design-system-react-icons'
-import clsx from 'clsx'
 import { forwardRef } from 'react'
-import type { ForwardedRef, HTMLAttributes } from 'react'
-import { Icon } from '../Icon'
+import type { ForwardedRef } from 'react'
+import { Button } from '../Button'
+import type { ButtonProps } from '../Button'
 
-type SearchFieldButtonProps = {
-  /** Describes the field for screen readers. */
-  label?: string
-} & HTMLAttributes<HTMLButtonElement>
+type SearchFieldButtonProps = Omit<ButtonProps, 'icon' | 'iconBefore' | 'iconOnly' | 'variant'>
 
-// TODO: replace this with IconButton when that's done
-// TODO: discuss if IconButton is the right component to replace this
 export const SearchFieldButton = forwardRef(
-  ({ label = 'Zoeken', className, ...restProps }: SearchFieldButtonProps, ref: ForwardedRef<HTMLButtonElement>) => (
-    <button {...restProps} ref={ref} className={clsx('ams-search-field__button', className)}>
-      <span className="ams-visually-hidden">{label}</span>
-      <Icon svg={SearchIcon} size="level-5" square />
-    </button>
+  ({ children = 'Zoeken', ...restProps }: SearchFieldButtonProps, ref: ForwardedRef<HTMLButtonElement>) => (
+    <Button {...restProps} icon={SearchIcon} iconOnly ref={ref}>
+      {children}
+    </Button>
   ),
 )
 

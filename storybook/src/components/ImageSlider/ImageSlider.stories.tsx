@@ -3,9 +3,8 @@
  * Copyright Gemeente Amsterdam
  */
 
-import { ImageSlider, Screen } from '@amsterdam/design-system-react/src'
+import { ImageSlider } from '@amsterdam/design-system-react/src'
 import { Meta, StoryObj } from '@storybook/react'
-import React from 'react'
 
 const meta = {
   title: 'Components/Media/Image Slider',
@@ -40,13 +39,6 @@ const meta = {
       },
     ],
   },
-  decorators: [
-    (Story) => (
-      <Screen>
-        <Story />
-      </Screen>
-    ),
-  ],
 } satisfies Meta<typeof ImageSlider>
 
 export default meta

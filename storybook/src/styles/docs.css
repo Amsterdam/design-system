@@ -57,12 +57,13 @@
   padding-inline: 1rem;
 }
 
-.ams-docs-dark-background {
-  background-color: #004699; /* Dark blue */
-}
-
+/* Do not change the order of these two selectors. They ensure the dark background wins if both are set, which is in line with the implementation of the React-component. */
 .ams-docs-light-background {
   background-color: #ffe600; /* Yellow */
+}
+
+.ams-docs-dark-background {
+  background-color: #004699; /* Dark blue */
 }
 
 .ams-docs-backdrop {
@@ -127,6 +128,12 @@
   }
 }
 
+.ams-docs-aspect-ratio {
+  min-block-size: initial;
+  padding-block: var(--ams-space-md);
+  padding-inline: var(--ams-space-md);
+}
+
 .ams-docs-item {
   background-color: var(--ams-docs-pink);
   border: thin dashed var(--ams-docs-grey);
@@ -159,8 +166,8 @@
 }
 
 [class*="ams-docs-token-example--space"] {
-  background-color: var(--ams-color-primary-white);
-  outline: 1px dashed var(--ams-color-neutral-grey2);
+  background-color: var(--ams-brand-color-neutral-0);
+  outline: 1px dashed var(--ams-brand-color-neutral-40);
 }
 
 .ams-resize-horizontal {

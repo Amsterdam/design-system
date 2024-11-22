@@ -3,16 +3,11 @@
  * Copyright Gemeente Amsterdam
  */
 
-@mixin reset {
-  box-sizing: border-box;
-}
-
 .ams-screen {
   background-color: var(--ams-screen-background-color);
+  box-sizing: border-box;
   margin-inline: auto;
   position: relative;
-
-  @include reset;
 }
 
 .ams-screen--full-height {

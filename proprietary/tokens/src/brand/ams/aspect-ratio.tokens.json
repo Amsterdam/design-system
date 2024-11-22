@@ -1,6 +1,6 @@
 {
   "ams": {
-    "proportion": {
+    "aspect-ratio": {
       "x-tall": { "value": "9 / 16" },
       "tall": { "value": "3 / 4" },
       "square": { "value": "1 / 1" },

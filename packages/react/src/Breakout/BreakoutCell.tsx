@@ -2,9 +2,10 @@
  * @license EUPL-1.2+
  * Copyright Gemeente Amsterdam
  */
+
 import clsx from 'clsx'
 import { forwardRef } from 'react'
-import type { HTMLAttributes, PropsWithChildren } from 'react'
+import type { ForwardedRef, HTMLAttributes, PropsWithChildren } from 'react'
 import type { BreakoutRowNumber, BreakoutRowNumbers } from './Breakout'
 import { breakoutCellClasses } from './breakoutCellClasses'
 import type { GridColumnNumber, GridColumnNumbers } from '../Grid/Grid'
@@ -54,7 +55,7 @@ export const BreakoutCell = forwardRef(
       rowStart,
       ...restProps
     }: BreakoutCellProps,
-    ref: any,
+    ref: ForwardedRef<any>,
   ) => (
     <Tag
       {...restProps}

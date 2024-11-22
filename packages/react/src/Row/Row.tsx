@@ -6,7 +6,7 @@
 import clsx from 'clsx'
 import { forwardRef } from 'react'
 import type { HTMLAttributes, PropsWithChildren } from 'react'
-import type { CrossAlign, MainAlign } from '../common/layout'
+import type { CrossAlign, MainAlign } from '../common/types'
 
 export const rowGapSizes = ['none', 'extra-small', 'small', 'large', 'extra-large'] as const
 

@@ -3,10 +3,10 @@
  * Copyright Gemeente Amsterdam
  */
 
-import { RadioIcon } from '@amsterdam/design-system-react-icons'
 import clsx from 'clsx'
 import { forwardRef, useId } from 'react'
 import type { ForwardedRef, InputHTMLAttributes, PropsWithChildren, ReactNode } from 'react'
+import RadioIcon from './RadioIcon'
 
 export type RadioProps = {
   /** An icon to display instead of the default icon. */

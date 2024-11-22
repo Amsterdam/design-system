@@ -1,7 +1,7 @@
 import { render, screen } from '@testing-library/react'
 import { createRef } from 'react'
 import { Row, rowGapSizes } from './Row'
-import { crossAlignOptions, mainAlignOptions } from '../common/layout'
+import { crossAlignOptions, mainAlignOptions } from '../common/types'
 import '@testing-library/jest-dom'
 
 describe('Row', () => {

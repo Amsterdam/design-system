@@ -2,19 +2,23 @@
 
 # Aspect Ratio
 
-Aspect Ratio updates the height of an element with its width.
+Constrains media content to a supported aspect ratio.
 
-These are the proportions we use:
+## Class names
 
-| keyword   | ratio |
-| :-------- | ----: |
-| `2x-wide` |  16:5 |
-| `x-wide`  |  16:9 |
-| `wide`    |   4:3 |
-| `square`  |   1:1 |
-| `tall`    |   3:4 |
-| `x-tall`  |  9:16 |
+Each available aspect ratio has an associated class name.
+The class can be applied to any component or element.
+
+| Class name                  | Example                                                                     |
+| :-------------------------- | :-------------------------------------------------------------------------- |
+| `ams-aspect-ratio--x-tall`  | <div className="ams-docs-token-example--space ams-aspect-ratio--x-tall" />  |
+| `ams-aspect-ratio--tall`    | <div className="ams-docs-token-example--space ams-aspect-ratio--tall" />    |
+| `ams-aspect-ratio--square`  | <div className="ams-docs-token-example--space ams-aspect-ratio--square" />  |
+| `ams-aspect-ratio--wide`    | <div className="ams-docs-token-example--space ams-aspect-ratio--wide" />    |
+| `ams-aspect-ratio--x-wide`  | <div className="ams-docs-token-example--space ams-aspect-ratio--x-wide" />  |
+| `ams-aspect-ratio--2x-wide` | <div className="ams-docs-token-example--space ams-aspect-ratio--2x-wide" /> |
 
 ## Guidelines
 
-- Use this component to constrain images, videos and other elements to one of the available aspect ratios.
+- Apply one of these classes to an image, video or other media content to constrain its dimensions to one of the available aspect ratios.
+- The default aspect ratio is 16:9.

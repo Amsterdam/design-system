@@ -5,18 +5,18 @@
 
 @import "../../common/text-rendering";
 
-@mixin reset {
+@mixin reset-textarea {
   -webkit-appearance: none; // Reset appearance for Safari < 15.4
   appearance: none; // Reset native appearance, this causes issues on iOS and Android devices
   border: 0;
   border-radius: 0; // Reset rounded borders on iOS devices
-  box-sizing: border-box;
   margin-block: 0;
 }
 
 .ams-text-area {
   background-color: var(--ams-text-area-background-color);
   box-shadow: var(--ams-text-area-box-shadow);
+  box-sizing: border-box;
   color: var(--ams-text-area-color);
   font-family: var(--ams-text-area-font-family);
   font-size: var(--ams-text-area-font-size);
@@ -31,7 +31,7 @@
   touch-action: manipulation;
 
   @include text-rendering;
-  @include reset;
+  @include reset-textarea;
 
   &:hover {
     box-shadow: var(--ams-text-area-hover-box-shadow);
@@ -55,7 +55,6 @@
   box-shadow: var(--ams-text-area-invalid-box-shadow);
 
   &:hover {
-    // TODO: this should be the (currently non-existent) dark red hover color
     box-shadow: var(--ams-text-area-invalid-hover-box-shadow);
   }
 }

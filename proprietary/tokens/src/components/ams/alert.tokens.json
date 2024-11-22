@@ -7,22 +7,20 @@
       "padding-block": { "value": "{ams.space.md}" },
       "padding-inline": { "value": "{ams.space.lg}" },
       "error": {
-        "border-color": { "value": "{ams.color.primary-red}" }
+        "background-color": { "value": "{ams.brand.color.red.20}" },
+        "border-color": { "value": "{ams.brand.color.red.60}" }
       },
       "info": {
-        "border-color": { "value": "{ams.color.primary-blue}" }
+        "background-color": { "value": "{ams.brand.color.azure.20}" },
+        "border-color": { "value": "{ams.brand.color.azure.60}" }
       },
       "success": {
-        "border-color": { "value": "{ams.color.dark-green}" }
+        "background-color": { "value": "{ams.brand.color.green.20}" },
+        "border-color": { "value": "{ams.brand.color.green.60}" }
       },
       "warning": {
-        "border-color": { "value": "{ams.color.orange}" }
-      },
-      "close": {
-        "fill": { "value": "{ams.color.primary-black}" },
-        "hover": {
-          "fill": { "value": "{ams.color.primary-blue}" }
-        }
+        "background-color": { "value": "{ams.brand.color.orange.20}" },
+        "border-color": { "value": "{ams.brand.color.orange.60}" }
       },
       "content": {
         "gap": { "value": "{ams.space.sm}" }

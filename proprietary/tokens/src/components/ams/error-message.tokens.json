@@ -1,10 +1,11 @@
 {
   "ams": {
     "error-message": {
-      "color": { "value": "{ams.color.primary-red}" },
+      "color": { "value": "{ams.brand.color.red.60}" },
       "font-family": { "value": "{ams.text.font-family}" },
       "font-size": { "value": "{ams.text.level.6.font-size}" },
       "font-weight": { "value": "{ams.text.font-weight.normal}" },
+      "gap": { "value": "{ams.space.xs}" },
       "line-height": { "value": "{ams.text.level.6.line-height}" }
     }
   }

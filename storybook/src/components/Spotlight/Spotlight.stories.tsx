@@ -3,7 +3,7 @@
  * Copyright Gemeente Amsterdam
  */
 
-import { Blockquote, Grid, Screen } from '@amsterdam/design-system-react'
+import { Blockquote, Grid } from '@amsterdam/design-system-react'
 import { Spotlight } from '@amsterdam/design-system-react/src'
 import { Meta, StoryObj } from '@storybook/react'
 import { exampleQuote } from '../shared/exampleContent'
@@ -13,18 +13,11 @@ const quote = exampleQuote()
 const meta = {
   title: 'Components/Containers/Spotlight',
   component: Spotlight,
-  decorators: [
-    (Story) => (
-      <Screen>
-        <Story />
-      </Screen>
-    ),
-  ],
   render: ({ as, color }) => (
     <Spotlight as={as} color={color}>
       <Grid paddingVertical="medium">
         <Grid.Cell span="all">
-          <Blockquote inverseColor={!color || !['green', 'yellow'].includes(color)}>{quote}</Blockquote>
+          <Blockquote inverseColor={!color || !['lime', 'yellow'].includes(color)}>{quote}</Blockquote>
         </Grid.Cell>
       </Grid>
     </Spotlight>
@@ -37,27 +30,27 @@ type Story = StoryObj<typeof meta>
 
 export const Default: Story = {}
 
+export const Azure: Story = {
+  args: {
+    color: 'azure',
+  },
+}
+
 export const Blue: Story = {
   args: {
     color: 'blue',
   },
 }
 
-export const DarkBlue: Story = {
-  args: {
-    color: 'dark-blue',
-  },
-}
-
-export const DarkGreen: Story = {
-  args: {
-    color: 'dark-green',
-  },
-}
-
 export const Green: Story = {
   args: {
     color: 'green',
+  },
+}
+
+export const Lime: Story = {
+  args: {
+    color: 'lime',
   },
 }
 

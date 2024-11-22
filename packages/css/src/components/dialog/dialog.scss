@@ -4,7 +4,6 @@
  */
 
 @mixin reset-dialog {
-  box-sizing: border-box;
   inset-block: 0;
 }
 
@@ -13,6 +12,7 @@ so do not apply these styles without an `open` attribute. */
 .ams-dialog:not(dialog:not([open])) {
   background-color: var(--ams-dialog-background-color);
   border: var(--ams-dialog-border);
+  box-sizing: border-box;
   display: flex; // Using flex here, because grid works strangely in Safari
   flex-direction: column;
   gap: var(--ams-dialog-gap);

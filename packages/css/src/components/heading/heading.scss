@@ -6,12 +6,12 @@
 @import "../../common/hyphenation";
 @import "../../common/text-rendering";
 
-@mixin reset {
-  box-sizing: border-box;
+@mixin reset-hx {
   margin-block: 0;
 }
 
 .ams-heading {
+  box-sizing: border-box;
   break-after: avoid;
   break-inside: avoid;
   color: var(--ams-heading-color);
@@ -20,7 +20,7 @@
 
   @include hyphenation;
   @include text-rendering;
-  @include reset;
+  @include reset-hx;
 }
 
 .ams-heading--level-1 {

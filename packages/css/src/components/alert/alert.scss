@@ -23,17 +23,21 @@
 }
 
 .ams-alert--error {
+  background-color: var(--ams-alert-error-background-color);
   border-color: var(--ams-alert-error-border-color);
 }
 
 .ams-alert--info {
+  background-color: var(--ams-alert-info-background-color);
   border-color: var(--ams-alert-info-border-color);
 }
 
 .ams-alert--success {
+  background-color: var(--ams-alert-success-background-color);
   border-color: var(--ams-alert-success-border-color);
 }
 
 .ams-alert--warning {
+  background-color: var(--ams-alert-warning-background-color);
   border-color: var(--ams-alert-warning-border-color);
 }

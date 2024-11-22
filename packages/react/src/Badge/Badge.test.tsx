@@ -52,7 +52,7 @@ describe('Badge', () => {
 
     const component = container.querySelector(':only-child')
 
-    expect(component).toHaveClass('ams-badge--dark-green')
+    expect(component).toHaveClass('ams-badge--green')
   })
 
   badgeColors.map((color) =>
