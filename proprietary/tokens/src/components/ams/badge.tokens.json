@@ -5,7 +5,7 @@
       "font-size": { "value": "{ams.common.typography.body-text.font-size}" },
       "font-weight": { "value": "{ams.common.typography.bold.font-weight}" },
       "line-height": { "value": "{ams.common.typography.body-text.line-height}" },
-      "padding-inline": { "value": "{ams.sspace.xs}" },
+      "padding-inline": { "value": "{ams.space.xs}" },
       "azure": {
         "background-color": { "value": "{ams.brand.color.azure.60}" },
         "color": { "value": "{ams.brand.color.neutral.100}" }
