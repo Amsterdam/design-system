@@ -1,4 +1,5 @@
 import figma from '@figma/code-connect'
+import React from 'react'
 import { Accordion } from '../src/Accordion/Accordion'
 import { AccordionSection } from '../src/Accordion/AccordionSection'
 

@@ -22,13 +22,6 @@
     "strict": true,
     "target": "es2020"
   },
-  "include": [
-    "next-env.d.ts",
-    "src/**/*.ts",
-    "src/**/*.tsx",
-    "figma/Accordion.figma.tsx",
-    "figma/Button.figma.tsx",
-    "figma/Heading.figma.tsx"
-  ],
+  "include": ["next-env.d.ts", "src/**/*.ts", "src/**/*.tsx", "figma/**/*.tsx"],
   "exclude": ["node_modules"]
 }
