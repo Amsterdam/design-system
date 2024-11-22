@@ -1,0 +1,17 @@
+{
+  "ams": {
+    "brand": {
+      "typography": {
+        "font-size": {
+          "sm": { "value": "clamp(0.8889rem, calc(0.9141rem + -0.0253vw), 0.9091rem)" },
+          "md": { "value": "1rem" },
+          "lg": { "value": "clamp(1.1rem, calc(1.0938rem + 0.0313vw), 1.125rem)" },
+          "xl": { "value": "clamp(1.21rem, calc(1.1961rem + 0.0695vw), 1.2656rem)" },
+          "2xl": { "value": "clamp(1.331rem, calc(1.3078rem + 0.116vw), 1.4238rem)" },
+          "3xl": { "value": "clamp(1.4641rem, calc(1.4297rem + 0.1721vw), 1.6018rem)" },
+          "4xl": { "value": "clamp(1.6105rem, calc(1.5626rem + 0.2394vw), 1.802rem)" }
+        }
+      }
+    }
+  }
+}
