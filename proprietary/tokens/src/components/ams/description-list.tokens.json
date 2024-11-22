@@ -1,11 +1,11 @@
 {
   "ams": {
     "description-list": {
-      "color": { "value": "{ams.color.primary-black}" },
+      "color": { "value": "{ams.brand.color.neutral.100}" },
       "column-gap": { "value": "{ams.space.lg}" },
       "font-family": { "value": "{ams.text.font-family}" },
       "font-size": { "value": "{ams.text.level.5.font-size}" },
-      "inverse-color": { "value": "{ams.color.primary-white}" },
+      "inverse-color": { "value": "{ams.brand.color.neutral.0}" },
       "line-height": { "value": "{ams.text.level.5.line-height}" },
       "row-gap": { "value": "{ams.space.sm}" },
       "term": {

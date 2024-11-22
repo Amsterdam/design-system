@@ -6,7 +6,6 @@
 import { IconButton } from '@amsterdam/design-system-react/src'
 import * as Icons from '@amsterdam/design-system-react-icons'
 import { Meta, StoryObj } from '@storybook/react'
-import { contrastColorDecorator, inverseColorDecorator } from '../shared/decorators'
 
 const meta = {
   title: 'Components/Buttons/Icon Button',
@@ -37,7 +36,6 @@ const meta = {
       mapping: Icons,
     },
   },
-  decorators: [inverseColorDecorator, contrastColorDecorator],
 } satisfies Meta<typeof IconButton>
 
 export default meta
