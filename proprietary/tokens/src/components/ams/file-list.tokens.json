@@ -10,7 +10,7 @@
         "gap": { "value": "{ams.space.sm}" },
         "line-height": { "value": "{ams.text.level.6.line-height}" },
         "details": {
-          "color": { "value": "{ams.color.neutral-grey3}" }
+          "color": { "value": "{ams.brand.color.neutral.60}" }
         }
       }
     }
