@@ -39,8 +39,12 @@ Still, we define its thickness and offset for the initial state.
 ## Use mixins for patterns and resets
 
 We use Sass mixins to extract common patterns, especially if they need more than 1 declaration.
-We collect reset styles in mixins as well.
 Both the name of the mixins and their documentation help explain the approach.
+
+We collect reset styles in mixins as well.
+These are named after the element they reset, e.g. `@mixin reset-ul`.
+This helps reusing reset styles per element, and reminds to update the mixin if the element type changes.
+The declarations in the mixin must override default user agent styling; otherwise it is not a reset.
 
 ## Form validation styling
 

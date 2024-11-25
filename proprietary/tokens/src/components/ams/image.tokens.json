@@ -1,0 +1,7 @@
+{
+  "ams": {
+    "image": {
+      "aspect-ratio": { "value": "{ams.aspect-ratio.x-wide}" }
+    }
+  }
+}

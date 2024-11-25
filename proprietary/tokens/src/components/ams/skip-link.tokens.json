@@ -1,8 +1,8 @@
 {
   "ams": {
     "skip-link": {
-      "background-color": { "value": "{ams.color.primary-blue}" },
-      "color": { "value": "{ams.color.primary-white}" },
+      "background-color": { "value": "{ams.brand.color.blue.60}" },
+      "color": { "value": "{ams.brand.color.neutral.0}" },
       "font-family": { "value": "{ams.text.font-family}" },
       "font-size": { "value": "{ams.text.level.6.font-size}" },
       "font-weight": { "value": "{ams.text.font-weight.normal}" },
@@ -11,7 +11,7 @@
       "padding-block": { "value": "{ams.space.sm}" },
       "padding-inline": { "value": "{ams.space.md}" },
       "hover": {
-        "background-color": { "value": "{ams.color.dark-blue}" }
+        "background-color": { "value": "{ams.brand.color.blue.80}" }
       }
     }
   }
