@@ -37,9 +37,8 @@ If the intrinsic dimensions of the source do not match an aspect ratio, the imag
 
 - [Alt Text: Not Always Needed](https://www.nngroup.com/articles/alt-text-usability/)
   (Nielsen Norman Group)
-  “Just like anyone else, what people want most is an easy path to accomplish basic tasks.
-  Adding alt text to every image does not automatically make webpage content easy to navigate and consume.
-  Screen-reader users navigate digital devices differently — they do not rely on visual information,
+  “Adding alt text to every image does not automatically make webpage content easy to navigate and consume.
+  Screen-reader users [...] do not rely on visual information,
   which means they are not interested in designers’ attempts to recreate visual experiences for them.”
 - [How to Write Good Alt Text](https://www.w3.org/WAI/tutorials/images/decision-tree/)
   (Web Accessibility Initiative)
