@@ -46,17 +46,24 @@ export const MultipleDescriptions: Story = {
   args: {
     children: [
       <DescriptionList.Term key={1}>Blinde, slechtziende</DescriptionList.Term>,
-      <DescriptionList.Description key={1.2}>Persoon met een visuele beperking</DescriptionList.Description>,
-      <DescriptionList.Description key={1.3}>Persoon met een visuele handicap</DescriptionList.Description>,
-      <DescriptionList.Description key={1.4}>Persoon die blind is</DescriptionList.Description>,
-      <DescriptionList.Description key={1.5}>Persoon die slechtziend is</DescriptionList.Description>,
-      <DescriptionList.Term key={2}>Doof</DescriptionList.Term>,
-      <DescriptionList.Term key={3}>Slechthorend</DescriptionList.Term>,
-      <DescriptionList.Description key={2.1} style={{ gridRowStart: 5 }}>
-        Persoon die niet of slecht hoort
-      </DescriptionList.Description>,
-      <DescriptionList.Term key={4}>Dyslexie</DescriptionList.Term>,
-      <DescriptionList.Description key={4.1}>Moeite met lezen en schrijven</DescriptionList.Description>,
+      <DescriptionList.Description key={2}>Persoon met een visuele beperking</DescriptionList.Description>,
+      <DescriptionList.Description key={3}>Persoon met een visuele handicap</DescriptionList.Description>,
+      <DescriptionList.Description key={4}>Persoon die blind is</DescriptionList.Description>,
+      <DescriptionList.Description key={5}>Persoon die slechtziend is</DescriptionList.Description>,
+    ],
+  },
+}
+
+export const MultipleTerms: Story = {
+  args: {
+    children: [
+      <div key={1}>
+        <DescriptionList.Term>Naam</DescriptionList.Term>
+        <DescriptionList.Term>Voornaam</DescriptionList.Term>
+        <DescriptionList.Term>Roepnaam</DescriptionList.Term>
+        <DescriptionList.Term>Bijnaam</DescriptionList.Term>
+      </div>,
+      <DescriptionList.Description key={2}>De naam waarmee een persoon wordt aangesproken</DescriptionList.Description>,
     ],
   },
 }
