@@ -178,6 +178,10 @@
   box-shadow: inset 0 0 0 0.0625rem rgb(0 0 0 / 12.5%);
 }
 
+[class*="ams-docs-token-example--font-size"] {
+  block-size: auto;
+}
+
 [class*="ams-docs-token-example--space"] {
   background-color: #fff;
   outline: 1px dashed var(--ams-docs-grey);
