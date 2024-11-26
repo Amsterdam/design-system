@@ -17,7 +17,7 @@
           },
           "xl": {
             "font-size": { "value": "{ams.brand.typography.font-size.xl}" },
-            "line-height": { "value": "{ams.brand.typography.line-height.md}" }
+            "line-height": { "value": "{ams.brand.typography.line-height.2xl}" }
           }
         },
         "bold": {
