@@ -56,14 +56,27 @@ export const MultipleDescriptions: Story = {
 
 export const MultipleTerms: Story = {
   args: {
+    termsWidth: 'md',
     children: [
-      <div key={1}>
-        <DescriptionList.Term>Naam</DescriptionList.Term>
-        <DescriptionList.Term>Voornaam</DescriptionList.Term>
-        <DescriptionList.Term>Roepnaam</DescriptionList.Term>
-        <DescriptionList.Term>Bijnaam</DescriptionList.Term>
-      </div>,
-      <DescriptionList.Description key={2}>De naam waarmee een persoon wordt aangesproken</DescriptionList.Description>,
+      <DescriptionList.Group key={1}>
+        <DescriptionList.Term key={1}>Achternaam</DescriptionList.Term>
+        <DescriptionList.Description key={2}>
+          De naam die een persoon van zijn of haar ouders krijgt
+        </DescriptionList.Description>
+      </DescriptionList.Group>,
+      <DescriptionList.Group key={2}>
+        <DescriptionList.Term key={1}>Naam</DescriptionList.Term>
+        <DescriptionList.Term key={2}>Voornaam</DescriptionList.Term>
+        <DescriptionList.Term key={3}>Roepnaam</DescriptionList.Term>
+        <DescriptionList.Term key={4}>Bijnaam</DescriptionList.Term>
+        <DescriptionList.Description key={5}>
+          De naam waarmee een persoon wordt aangesproken
+        </DescriptionList.Description>
+      </DescriptionList.Group>,
+      <DescriptionList.Group key={3}>
+        <DescriptionList.Term key={1}>Geboortedatum</DescriptionList.Term>
+        <DescriptionList.Description key={2}>De datum waarop een persoon is geboren</DescriptionList.Description>
+      </DescriptionList.Group>,
     ],
   },
 }
