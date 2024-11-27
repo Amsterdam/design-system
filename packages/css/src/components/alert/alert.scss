@@ -5,6 +5,7 @@
 
 .ams-alert {
   align-items: flex-start;
+  background-color: var(--ams-alert-background-color);
   border-style: var(--ams-alert-border-style);
   border-width: var(--ams-alert-border-width);
   display: flex;
