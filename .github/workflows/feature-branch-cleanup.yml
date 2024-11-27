@@ -1,7 +1,5 @@
 # Based on https://evilmartians.com/chronicles/super-github-pages-budget-frontend-staging-with-storybook-and-more
 
-## TEST
-
 name: Feature branch cleanup
 on:
   pull_request:
