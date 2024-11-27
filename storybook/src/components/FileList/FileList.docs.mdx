@@ -1,6 +1,7 @@
 {/* @license CC0-1.0 */}
 
-import { Canvas, Controls, Markdown, Meta, Primary } from "@storybook/blocks";
+import { Canvas, Controls, Markdown, Meta, Primary, Source } from "@storybook/blocks";
+import FileInputWithFileList from "./FileInputWithFileList?raw";
 import * as FileListStories from "./FileList.stories.tsx";
 import README from "../../../../packages/css/src/components/file-list/README.md?raw";
 
@@ -20,3 +21,5 @@ To connect a File Input to a File List, use the `onChange` event to update the
 list of files and use `onDelete` when removing a file from the list.
 
 <Canvas of={FileListStories.WithInput} />
+
+<Source code={FileInputWithFileList} language="jsx" />

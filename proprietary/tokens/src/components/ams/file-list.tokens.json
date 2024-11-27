@@ -11,6 +11,9 @@
         "line-height": { "value": "{ams.text.level.6.line-height}" },
         "details": {
           "color": { "value": "{ams.brand.color.neutral.60}" }
+        },
+        "preview": {
+          "width": { "value": "clamp(2.5rem, 10vw, 5rem)" }
         }
       }
     }

@@ -1,3 +1,5 @@
 <!-- @license CC0-1.0 -->
 
-# FileList
+# File List
+
+An overview of files, showing their name, type, size, and a preview.

@@ -18,34 +18,34 @@ export type FileListProps = {
 } & HTMLAttributes<HTMLDivElement>
 
 export const FileList = forwardRef(
-  ({ files, onDelete, className, ...restProps }: FileListProps, ref: ForwardedRef<HTMLDivElement>) => {
-    return (
-      <div {...restProps} ref={ref} className={clsx('ams-file-list', className)}>
-        {Array.from(files).map((file, index) => (
-          <div key={index} className="ams-file-list__file">
-            <div className="ams-file-list__file-preview">
-              {file.type.includes('image') ? (
-                <img src={URL.createObjectURL(file)} alt={file.name} width={50} height="auto" />
-              ) : (
-                <Icon svg={DocumentIcon} size="level-3" square />
-              )}
+  ({ files, onDelete, className, ...restProps }: FileListProps, ref: ForwardedRef<HTMLDivElement>) => (
+    <div {...restProps} ref={ref} className={clsx('ams-file-list', className)}>
+      {Array.from(files).map((file, index) => (
+        <div key={index} className="ams-file-list__file">
+          <div className="ams-file-list__file-preview">
+            {file.type.includes('image') ? (
+              <img src={URL.createObjectURL(file)} alt={file.name} />
+            ) : (
+              <Icon svg={DocumentIcon} size="level-3" square />
+            )}
+          </div>
+          <div className="ams-file-list__file-name">
+            {file.name}
+            <div className="ams-file-input__file-details">
+              ({formatFileType(file.type)}, {formatFileSize(file.size)})
             </div>
-            <div className="ams-file-list__file-name">
-              {file.name}
-              <div className="ams-file-input__file-details">
-                ({formatFileType(file.type)}, {formatFileSize(file.size)})
-              </div>
-            </div>
-            {onDelete && (
+          </div>
+          {onDelete && (
+            <div>
               <Button variant="tertiary" onClick={() => onDelete(index)}>
                 Verwijder
               </Button>
-            )}
-          </div>
-        ))}
-      </div>
-    )
-  },
+            </div>
+          )}
+        </div>
+      ))}
+    </div>
+  ),
 )
 
 FileList.displayName = 'FileList'

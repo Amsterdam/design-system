@@ -22,8 +22,13 @@
 
 .ams-file-list__file-preview {
   display: grid;
-  flex: 0 0 50px;
+  flex: 0 0 var(--ams-file-list-file-preview-width);
   place-items: center;
+
+  img {
+    inline-size: 100%;
+    min-block-size: auto;
+  }
 }
 
 .ams-file-list__file-name {
