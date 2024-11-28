@@ -56,7 +56,12 @@ Vereist voor CSS properties `color`, `background-color`, `border-*-color`, `box-
 - `ams.color.green-60`
 - `ams.color.lime-60`
 - `ams.color.magenta-60`
+- `ams.color.neutral-0`
+- `ams.color.neutral-20`
+- `ams.color.neutral-40`
 - `ams.color.neutral-60`
+- `ams.color.neutral-80`
+- `ams.color.neutral-100`
 - `ams.color.orange-60`
 - `ams.color.purple-60`
 - `ams.color.red-60`
