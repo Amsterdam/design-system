@@ -200,6 +200,8 @@ React Native heeft ‘touchables’
 Pressables?
 Far-fetched?)
 
+(Waarschijnlijk toch beter om te splitsen naar links en buttons; die groepen zijn groot genoeg en delen niet alles.)
+
 #### Actions Cursor
 
 Deze hebben we al; de namen moeten een beetje gehusseld worden.
@@ -231,11 +233,14 @@ Zie ook Common Tokens voor Form Controls hieronder.)
 
 Groepeert alle aspecten van statische tekst – dus uitgezonderd links, buttons, formulieren.
 
-Te gebruiken door Paragraph,
+Te gebruiken door Paragraph, (Un)Ordered List, Description List, Blockquote, Breadcrumb, Badge, etc. etc.
 
 (Afgeleid van `body-text` in de Brand Tokens, al is Body Texts geen gangbaar meervoud.
 Verleidelijk om `body` te gebruiken maar dat is verwarrend met `<body>` en `.ams-body`.
-Utrecht gebruikt `document` maar headings zitten ook in het document.)
+Utrecht gebruikt `document` maar headings zitten ook in het document.
+Prose? Content? Section content? Toch Body en dan body --> document?)
+
+(Moet misschien toch tekst-eigenschappen van links, buttons en formulieren doen?)
 
 #### Body Texts Font Family
 
@@ -356,7 +361,7 @@ Deze structuur voor Brand en Common Tokens zou als volgt worden toegepast in onz
 
 - `ams.accordion.button.color` = `ams.actions.color.default`
 - `ams.alert.border-style` = "solid" (staat er nu zo, zonder token, is dat oké?)
-- `ams.breadcrumb-link` = `ams.action.color.default`
+- `ams.breadcrumb-link.color` = `ams.action.color.default`
 - `ams.button.background-color` = `ams.actions.color.default`
 - `ams.button.color` = `ams.body-texts.color.inverse`
 - `ams.button.font-family` = `ams.body-text.font-family`
@@ -374,7 +379,7 @@ Dit typte ik eerst bij Common Tokens:
 
 (Ik heb de neiging om Common Tokens op 1 van 2 manieren in te richten:
 1 als groep componenten zoals Form Controls,
-2 als een aspect dat door meerdere componenten wordt gebruikt zoals Actions en Feedback.
+2 als een aspect dat door meerdere componenten wordt gebruikt zoals Feedback, Typography en Focus.
 Mag dat allebei?
 Blijkt hieruit dat we een level missen?
 Breek ik mijn eigen regels?)
@@ -421,5 +426,5 @@ Alleen Common Tokens toestaan is wat te strikt – in sommige gevallen moet je d
 Ook NLDS geeft aan dat beide mag.
 
 Wel moeten mensen op de een of andere manier zorgen dat ze een Common Token kiezen als daar een toepasselijke van bestaat.
-Als iemand een `ColorInput` gaat maken moet die voor de border de `ams.form-controls.border` gebruiken, niet de `ams.border-width.md`.
+Als iemand een `ColorInput` gaat maken moet die voor de border de `ams.form-controls.border-width` gebruiken, niet de `ams.border-width.md`.
 Wellicht kunnen we dat zelfs via Style Dictionary en extended token config ondersteunen?
