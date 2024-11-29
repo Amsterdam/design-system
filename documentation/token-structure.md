@@ -1,25 +1,51 @@
 # ADS Token Structure
 
+## Naamgeving
+
+De namen van Brand, Common en Component tokens zijn combinaties van de volgende onderdelen.
+Elk onderdeel bestaat uit letters en eventueel koppelstreepjes; de prefix alleen uit letters.
+
+### Prefix
+
+De naam van de organisatie of een afkorting daarvan.
+Voor ons is dit `ams`.
+
+### Group
+
+Een gangbare term voor een groep componenten, óf voor een aspect van vormgeving of gedrag.
+Voorbeelden: `form-controls`, `links`, `feedback`.
+
+### Block
+
+De naam van een component.
+Voorbeelden: `accordion`, `button`, `card`, `date-input`.
+
+### Element
+
+Een onderdeel van een component.
+Voorbeelden: `icon`, `label`, `checked-indicator`.
+
+### Modifier
+
+Een variatie of status van een component.
+Voorbeelden: `xs`, `level-1`, `primary`, `hover`.
+
+### Property
+
+De naam van de visuele eigenschap waarvoor de ontwerpkeuze geldt.
+Het is bij voorkeur een bestaande CSS-property, een andere CSS-term of een gangbare aanduiding voor een verzameling properties.
+Voorbeelden: `color`, `font-weight`, `padding-inline`.
+
+### Option
+
+De naam van een toegestane waarde voor een property.
+De opties zijn t-shirtmaten, een geordende lijst of een verzameling termen.
+Voorbeelden: `xl`, `green-60` of `warning`.
+
 ## Brand Tokens
 
 Brand Tokens hebben de vorm `prefix.property.option`.
 Alle drie de elementen zijn verplicht.
-
-1. Prefix = `ams`
-2. Property is een CSS-property of een gangbare term voor een groep properties.
-3. Option is een label voor een toegestane waarde voor de property.
-
-Property en Option mogen dashes bevatten.
-
-Voorbeeld van een groep properties is Spacing voor margin, padding en gap.
-Althans, momenteel gebruiken we dezelfde waarden voor die drie.
-Kopiëren om een CSS-property af te dwingen is onzin.
-Daarnaast worden de tokens voor ‘border width’ ook op andere, soortgelijke properties toegepast.
-
-De labels voor de Options zijn t-shirt sizes, genummerd of een verzameling.
-De waarde van elke Option is een geldige CSS-value.
-
-Voor elke groep Brand Tokens (die met een gedeelde property) is er een lijst van CSS-properties waarvoor gebruik van het token vereist is.
 
 ### Aspect ratio
 
@@ -141,11 +167,6 @@ Vereist voor CSS properties `margin-*`, `padding-*`, `*-gap`.
 Common Tokens hebben de vorm `prefix.group.property.option`.
 Alle vier de elementen zijn verplicht.
 Als er één optie is dan heet die `default`.
-
-1. Prefix = `ams` (zelfde als bij Brand Tokens).
-2. Group wordt uitgedrukt door een gangbare term voor een groep componenten of voor een aspect van vormgeving of gedrag.
-3. Property is een CSS-property of een gangbare term voor een groep properties (zelfde als bij Brand Tokens).
-4. Option is een label voor een toegestane waarde voor de property (zelfde als bij Brand Tokens).
 
 Options worden hier veel vaker als verzamelingen ingedeeld dan als t-shirt sizes of genummerd omdat ze hier meer betekenisvol (semantisch) zijn.
 (En je hebt snel de neiging hier Component Token Modifiers te gebruiken, zoals ‘disabled’ en ‘hover’, zie Form Controls.)
@@ -328,12 +349,6 @@ Maar is dus ook een andere groepering dan vergelijkbare componenten en misschien
 ## Component Tokens
 
 Component Tokens hebben de vorm `prefix.block.element?.modifier?.property`, in overeenstemming met NLDS.
-
-1. Prefix = `ams` (voor ons dan)
-2. Block is de naam van het component, bijvoorbeeld `button` of `link`.
-3. Element is een onderdeel van het component, bijvoorbeeld `icon` of `label`.
-4. Modifier is een variatie of state van het component, bijvoorbeeld `large`, `checked` of `hover`.
-5. Property is de naam van de visuele eigenschap waarvoor je een ontwerpkeuze kan maken, bijvoorbeeld `color` of `font-weight`.
 
 ### Voorbeelden
 
