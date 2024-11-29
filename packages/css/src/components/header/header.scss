@@ -6,81 +6,126 @@
 @import "../../common/breakpoint";
 
 .ams-header {
-  align-items: center;
-  display: flex;
-  flex-wrap: wrap;
-  padding-block: var(--ams-header-padding-block);
-  row-gap: 1.5rem;
+  column-gap: var(--ams-header-column-gap);
+  display: grid;
+  row-gap: var(--ams-header-row-gap);
+}
 
-  @media screen and (min-width: $ams-breakpoint-wide) {
-    column-gap: var(--ams-header-column-gap);
-    flex-wrap: nowrap;
-  }
+.ams-header__brand-section {
+  align-items: center;
+  align-self: start;
+  column-gap: var(--ams-header-section-column-gap); // TODO
+  display: flex;
+  grid-column: 1;
+  grid-row: 1;
+  padding-inline-start: var(--ams-grid-padding-inline);
 }
 
 .ams-header__logo-link {
-  flex: none;
   outline-offset: var(--ams-header-logo-link-outline-offset);
 }
 
-.ams-header__links {
-  display: none;
+.ams-header__navigation {
+  column-gap: var(--ams-header-column-gap);
+  display: flex;
+  flex-wrap: wrap;
+  grid-column: 1;
+  grid-row: 1;
+  inset-block-start: 0;
+  pointer-events: none;
+  row-gap: var(--ams-header-row-gap);
+}
 
-  @media screen and (min-width: $ams-breakpoint-medium) {
-    display: block;
-    flex: 10 0 auto;
-  }
-
-  @media screen and (min-width: $ams-breakpoint-wide) {
-    order: 3;
-  }
+@mixin reset-list {
+  margin-block: 0;
+  padding-inline-start: 0;
 }
 
 .ams-header__menu {
-  flex: 1;
-  padding-inline-start: var(--ams-page-menu-column-gap); // TODO Don’t use tokens of another component
-  text-align: end;
+  align-items: center;
+  box-sizing: border-box;
+  column-gap: var(--ams-page-menu-column-gap);
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  list-style: none;
+  margin-inline-start: auto;
+  padding-inline-end: var(--ams-grid-padding-inline);
+  pointer-events: auto;
+  row-gap: var(--ams-page-menu-row-gap);
 
-  @media screen and (min-width: $ams-breakpoint-wide) {
-    order: 4;
-    padding-inline-start: 0;
+  @include reset-list;
+}
+
+.ams-header__menu-item--secondary {
+  @media screen and (not (min-width: $ams-breakpoint-wide)) {
+    display: none;
   }
 }
 
-.ams-header__app-name {
-  flex: 1 1 100%;
-
-  @media screen and (min-width: $ams-breakpoint-wide) {
-    min-inline-size: 0;
-    order: 2;
-
-    .ams-header__app-name-heading {
-      display: block;
-      inline-size: 100%;
-      line-height: 1;
-      overflow: hidden;
-      text-overflow: ellipsis;
-      white-space: nowrap;
-    }
-  }
-}
-
-// Temporary – will move to Mega Menu and/or Icon Button
-.ams-header__menu-button {
-  background-color: transparent;
-  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><path fill='%23004699' fill-rule='evenodd' d='M0 3.238h32V7.81H0V3.238zm0 10.476h32v4.572H0v-4.572zM0 24.19h32v4.572H0V24.19z'/></svg>");
-  background-position: center right;
-  background-repeat: no-repeat;
-  background-size: 1.1875rem 1.1875rem;
-  border: 0;
+// TODO: tokens kopieren
+@mixin shared-styles {
   color: var(--ams-page-menu-item-color);
   font-family: var(--ams-page-menu-item-font-family);
   font-size: var(--ams-page-menu-item-font-size);
   font-weight: var(--ams-page-menu-item-font-weight);
   line-height: var(--ams-page-menu-item-line-height);
-  margin-block: 0;
-  margin-inline: 0;
-  padding-inline: 0 1.875rem;
-  text-align: center;
+  outline-offset: var(--ams-page-menu-item-outline-offset);
   touch-action: manipulation;
+  white-space: nowrap;
+
+  @include text-rendering;
+
+  &:hover {
+    color: var(--ams-page-menu-item-hover-color);
+  }
+}
+
+// TODO: tokens kopieren
+.ams-header__menu-link {
+  text-decoration-line: var(--ams-page-menu-item-text-decoration-line);
+  text-decoration-thickness: var(--ams-page-menu-item-text-decoration-thickness);
+  text-underline-offset: var(--ams-page-menu-item-text-underline-offset);
+
+  @include shared-styles;
+
+  &:hover {
+    text-decoration-line: var(--ams-page-menu-item-hover-text-decoration-line);
+  }
+}
+
+.ams-header__mega-menu-button-item:not(.ams-header__mega-menu-button-item--always-show) {
+  @media screen and (min-width: $ams-breakpoint-wide) {
+    display: none;
+  }
+}
+
+@mixin reset-button {
+  background: none;
+  border: 0;
+  margin-block: 0; // [1]
+  margin-inline: 0; // [1]
+  padding-block: 0;
+  padding-inline: 0;
+
+  // [1] Remove the margin in older Safari.
+}
+
+.ams-header__mega-menu-button {
+  column-gap: var(--ams-page-menu-item-column-gap);
+  cursor: pointer;
+  display: inline-flex;
+
+  @include shared-styles;
+  @include reset-button;
+}
+
+.ams-header__mega-menu {
+  inline-size: 100%;
+  pointer-events: auto;
+}
+
+.ams-header__mega-menu--closed.ams-header__mega-menu--closed {
+  display: none;
 }
