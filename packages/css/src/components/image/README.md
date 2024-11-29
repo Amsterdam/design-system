@@ -1,4 +1,5 @@
 <!-- @license CC0-1.0 -->
+<!-- eslint-disable markdown/no-missing-label-refs -->
 
 # Image
 
@@ -32,3 +33,15 @@ If the intrinsic dimensions of the source do not match an aspect ratio, the imag
 - [WCAG 1.1.1](https://www.w3.org/TR/WCAG22/#non-text-content): Non-text content must have a text alternative.
 - [WCAG 1.4.5](https://www.w3.org/TR/WCAG22/#images-of-text): Use text instead of images of text.
 - [WCAG 1.4.9](https://www.w3.org/TR/WCAG22/#images-of-text-no-exception): Use images of text only when there is no alternative.
+
+## Further reading
+
+- [Alt Text: Not Always Needed](https://www.nngroup.com/articles/alt-text-usability/)
+  (Nielsen Norman Group)
+  “Adding alt text to every image does not automatically make webpage content easy to navigate and consume.
+  Screen-reader users [...] do not rely on visual information,
+  which means they are not interested in designers’ attempts to recreate visual experiences for them.”
+- [How to Write Good Alt Text](https://www.w3.org/WAI/tutorials/images/decision-tree/)
+  (Web Accessibility Initiative)
+  Four questions help you decide whether an image needs describing and how to do so.
+  “This decision tree describes how to use the alt attribute of the image element in various situations.”
