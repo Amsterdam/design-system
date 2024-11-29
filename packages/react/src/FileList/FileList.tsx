@@ -9,19 +9,20 @@ import { forwardRef } from 'react'
 import type { ForwardedRef, HTMLAttributes } from 'react'
 import { Button } from '../Button'
 import { Icon } from '../Icon'
-import { formatFileSize, formatFileType } from '../common'
+import { formatFileSize } from '../common/formatFileSize'
+import { formatFileType } from '../common/formatFileType'
 
 export type FileListProps = {
   files: FileList
   // eslint-disable-next-line no-unused-vars
   onDelete?: (index: number) => void
-} & HTMLAttributes<HTMLDivElement>
+} & HTMLAttributes<HTMLOListElement>
 
 export const FileList = forwardRef(
-  ({ files, onDelete, className, ...restProps }: FileListProps, ref: ForwardedRef<HTMLDivElement>) => (
-    <div {...restProps} ref={ref} className={clsx('ams-file-list', className)}>
+  ({ files, onDelete, className, ...restProps }: FileListProps, ref: ForwardedRef<HTMLOListElement>) => (
+    <ol {...restProps} ref={ref} className={clsx('ams-file-list', className)}>
       {Array.from(files).map((file, index) => (
-        <div key={index} className="ams-file-list__file">
+        <li key={index} className="ams-file-list__file">
           <div className="ams-file-list__file-preview">
             {file.type.includes('image') ? (
               <img src={URL.createObjectURL(file)} alt={file.name} />
@@ -29,7 +30,7 @@ export const FileList = forwardRef(
               <Icon svg={DocumentIcon} size="level-3" square />
             )}
           </div>
-          <div className="ams-file-list__file-name">
+          <div className="ams-file-list__file-info">
             {file.name}
             <div className="ams-file-input__file-details">
               ({formatFileType(file.type)}, {formatFileSize(file.size)})
@@ -42,9 +43,9 @@ export const FileList = forwardRef(
               </Button>
             </div>
           )}
-        </div>
+        </li>
       ))}
-    </div>
+    </ol>
   ),
 )
 

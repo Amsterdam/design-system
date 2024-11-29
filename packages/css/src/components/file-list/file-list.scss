@@ -3,11 +3,21 @@
  * Copyright Gemeente Amsterdam
  */
 
+@import "../../common/text-rendering";
+
+@mixin reset-ol {
+  margin-block: 0;
+  padding-inline: 0;
+}
+
 .ams-file-list {
   display: flex;
   flex-direction: column;
   gap: var(--ams-file-list-gap);
   padding-block: var(--ams-file-list-padding-block);
+
+  @include text-rendering;
+  @include reset-ol;
 }
 
 .ams-file-list__file {
@@ -31,7 +41,7 @@
   }
 }
 
-.ams-file-list__file-name {
+.ams-file-list__file-info {
   flex: 1;
   gap: var(--ams-file-list-file-gap);
   overflow: hidden;
