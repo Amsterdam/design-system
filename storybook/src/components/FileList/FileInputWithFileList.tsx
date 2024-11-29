@@ -5,13 +5,13 @@ export const FileInputWithFileList = () => {
   const inputRef = useRef<HTMLInputElement>(null)
   const [files, setFiles] = useState<FileList | null>(null)
 
-  const handleFilesChange = () => {
+  const changeFiles = () => {
     if (inputRef.current) {
       setFiles(inputRef.current.files)
     }
   }
 
-  const handleFileRemove = (index: number) => {
+  const removeFile = (index: number) => {
     if (files) {
       const newFiles = new DataTransfer()
       Array.from(files).forEach((file, i) => {
@@ -26,8 +26,8 @@ export const FileInputWithFileList = () => {
 
   return (
     <>
-      <FileInput multiple ref={inputRef} onChange={handleFilesChange} />
-      {files && <FileList files={files} onDelete={handleFileRemove} />}
+      <FileInput multiple ref={inputRef} onChange={changeFiles} />
+      {files && <FileList files={files} onDelete={removeFile} />}
     </>
   )
 }

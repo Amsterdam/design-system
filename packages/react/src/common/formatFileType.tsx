@@ -21,18 +21,15 @@ export const formatFileType = (fileType: string) => {
     case 'application/pdf':
       return 'pdf'
     case 'application/msword':
-      return 'Word'
     case 'application/vnd.openxmlformats-officedocument.wordprocessingml.document':
       return 'Word'
     case 'application/vnd.ms-excel':
-      return 'Excel'
     case 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet':
       return 'Excel'
     case 'application/vnd.ms-powerpoint':
-      return 'PowerPoint'
     case 'application/vnd.openxmlformats-officedocument.presentationml.presentation':
       return 'PowerPoint'
     default:
-      return fileType
+      return 'Document'
   }
 }
