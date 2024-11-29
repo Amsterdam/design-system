@@ -20,7 +20,7 @@ export type FileListProps = {
 
 export const FileList = forwardRef(
   ({ files, onDelete, className, ...restProps }: FileListProps, ref: ForwardedRef<HTMLOListElement>) => (
-    <ol {...restProps} ref={ref} className={clsx('ams-file-list', className)}>
+    <ul {...restProps} ref={ref} className={clsx('ams-file-list', className)}>
       {Array.from(files).map((file, index) => (
         <li key={index} className="ams-file-list__file">
           <div className="ams-file-list__file-preview">
@@ -45,7 +45,7 @@ export const FileList = forwardRef(
           )}
         </li>
       ))}
-    </ol>
+    </ul>
   ),
 )
 
