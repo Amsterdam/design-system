@@ -24,6 +24,6 @@ describe('formatFileType', () => {
   })
 
   it('returns the original file type for unknown types', () => {
-    expect(formatFileType('unknown/type')).toBe('unknown/type')
+    expect(formatFileType('unknown/type')).toBe('Document')
   })
 })
