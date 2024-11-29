@@ -151,6 +151,7 @@
 :is(.ams-checkbox__input:invalid, .ams-checkbox__input[aria-invalid="true"])
   + .ams-checkbox__label:hover
   .ams-checkbox__checkmark::after {
+  // TODO: this should be the (currently non-existent) dark red hover color
   border-color: var(--ams-checkbox-checkmark-invalid-hover-border-color);
 }
 
@@ -168,6 +169,7 @@
 :is(.ams-checkbox__input:invalid:checked, .ams-checkbox__input[aria-invalid="true"]:checked)
   + .ams-checkbox__label:hover
   .ams-checkbox__checkmark::after {
+  // TODO: this should be the (currently non-existent) dark red hover color
   background-color: var(--ams-checkbox-checkmark-invalid-checked-hover-background-color);
 }
 
@@ -175,6 +177,7 @@
 :is(.ams-checkbox__input:invalid:indeterminate, .ams-checkbox__input[aria-invalid="true"]:indeterminate)
   + .ams-checkbox__label:hover
   .ams-checkbox__checkmark::after {
+  // TODO: this should be the (currently non-existent) dark red hover color
   background-color: var(--ams-checkbox-checkmark-invalid-indeterminate-hover-background-color);
 }
 

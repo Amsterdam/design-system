@@ -82,9 +82,6 @@ function generateSharedConfig(mode) {
 }
 
 const defaultMode = new StyleDictionary({
-  log: {
-    verbosity: 'verbose',
-  },
   source: [
     // exclude non-default modes from source
     `./src/**/!(*.${modes.join(`|*.`)}).tokens.json`,
@@ -96,9 +93,6 @@ defaultMode.buildAllPlatforms()
 
 modes.map((mode) => {
   const styleDictionary = new StyleDictionary({
-    log: {
-      verbosity: 'verbose',
-    },
     source: [`./src/**/*.${mode}.tokens.json`],
     platforms: generateSharedConfig(mode),
   })

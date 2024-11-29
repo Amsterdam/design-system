@@ -11,16 +11,15 @@ import { Icon } from '../Icon'
 import { Image } from '../Image'
 
 export const avatarColors = [
-  'azure',
   'black',
   'blue',
+  'dark-green',
   'green',
-  'lime',
+  'grey-1',
+  'grey-2',
+  'grey-3',
+  'light-blue',
   'magenta',
-  'neutral-20',
-  'neutral-40',
-  'neutral-60',
-  'neutral-80',
   'orange',
   'purple',
   'red',

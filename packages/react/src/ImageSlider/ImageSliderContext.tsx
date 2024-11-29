@@ -11,7 +11,7 @@ export type ImageSliderContextValue = {
   isAtEnd: boolean
   goToNextSlide: () => void
   goToPreviousSlide: () => void
-  // eslint-disable-next-line no-unused-vars
+   
   goToSlideId: (id: number) => void
 }
 

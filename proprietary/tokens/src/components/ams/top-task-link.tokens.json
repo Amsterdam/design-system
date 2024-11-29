@@ -3,7 +3,7 @@
     "top-task-link": {
       "gap": { "value": "{ams.space.sm}" },
       "description": {
-        "color": { "value": "{ams.brand.color.neutral.100}" },
+        "color": { "value": "{ams.color.primary-black}" },
         "font-family": { "value": "{ams.text.font-family}" },
         "font-size": { "value": "{ams.text.level.6.font-size}" },
         "font-weight": { "value": "{ams.text.font-weight.normal}" },
@@ -19,7 +19,7 @@
         "text-decoration-thickness": { "value": "{ams.link-appearance.text-decoration-thickness}" },
         "text-underline-offset": { "value": "{ams.link-appearance.text-underline-offset}" },
         "hover": {
-          "color": { "value": "{ams.brand.color.blue.80}" },
+          "color": { "value": "{ams.color.dark-blue}" },
           "text-decoration-line": { "value": "{ams.link-appearance.subtle.hover.text-decoration-line}" }
         }
       },

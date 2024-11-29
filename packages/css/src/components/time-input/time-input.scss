@@ -72,6 +72,7 @@
   box-shadow: var(--ams-time-input-invalid-box-shadow);
 
   &:hover {
+    // TODO: this should be the (currently non-existent) dark red hover color
     box-shadow: var(--ams-time-input-invalid-hover-box-shadow);
   }
 }

@@ -8,16 +8,15 @@ import { forwardRef } from 'react'
 import type { ForwardedRef, HTMLAttributes } from 'react'
 
 export const badgeColors = [
-  'azure',
   'black',
   'blue',
+  'dark-green',
   'green',
-  'lime',
+  'grey-1',
+  'grey-2',
+  'grey-3',
+  'light-blue',
   'magenta',
-  'neutral-20',
-  'neutral-40',
-  'neutral-60',
-  'neutral-80',
   'orange',
   'purple',
   'red',
@@ -35,7 +34,7 @@ export type BadgeProps = {
 } & HTMLAttributes<HTMLElement>
 
 export const Badge = forwardRef(
-  ({ label, className, color = 'green', ...restProps }: BadgeProps, ref: ForwardedRef<HTMLElement>) => (
+  ({ label, className, color = 'dark-green', ...restProps }: BadgeProps, ref: ForwardedRef<HTMLElement>) => (
     <span {...restProps} ref={ref} className={clsx('ams-badge', `ams-badge--${color}`, className)}>
       {label}
     </span>
