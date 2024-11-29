@@ -1,13 +1,39 @@
 {
   "ams": {
     "header": {
-      "column-gap": { "value": "{ams.space.grid.md}" },
-      "row-gap": { "value": "{ams.space.grid.md}" },
-      "section": {
-        "column-gap": { "value": "{ams.space.md}" }
+      "brand-section": {
+        "column-gap": { "value": "{ams.space.md}" },
+        "row-gap": { "value": "{ams.space.grid.xs}" }
       },
       "logo-link": {
         "outline-offset": { "value": "{ams.focus.outline-offset}" }
+      },
+      "menu": {
+        "column-gap": { "value": "{ams.space.grid.md}" },
+        "item": {
+          "color": { "value": "{ams.link-appearance.color}" },
+          "column-gap": { "value": "{ams.space.xs}" },
+          "font-family": { "value": "{ams.text.font-family}" },
+          "font-size": { "value": "{ams.text.level.6.font-size}" },
+          "font-weight": { "value": "{ams.text.font-weight.normal}" },
+          "line-height": { "value": "{ams.text.level.6.line-height}" },
+          "outline-offset": { "value": "{ams.focus.outline-offset}" },
+          "hover": {
+            "color": { "value": "{ams.link-appearance.hover.color}" }
+          }
+        },
+        "link": {
+          "text-decoration-line": { "value": "{ams.link-appearance.subtle.text-decoration-line}" },
+          "text-decoration-thickness": { "value": "{ams.link-appearance.text-decoration-thickness}" },
+          "text-underline-offset": { "value": "{ams.link-appearance.text-underline-offset}" },
+          "hover": {
+            "text-decoration-line": { "value": "{ams.link-appearance.subtle.hover.text-decoration-line}" }
+          }
+        }
+      },
+      "navigation": {
+        "column-gap": { "value": "{ams.space.grid.md}" },
+        "row-gap": { "value": "{ams.space.grid.md}" }
       }
     }
   }
