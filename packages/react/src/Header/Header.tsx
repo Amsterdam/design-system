@@ -108,7 +108,17 @@ export const HeaderRoot = forwardRef(
                 onClick={() => setOpen(!open)}
                 type="button"
               >
-                {menuButtonText}
+                <span
+                  className={clsx(
+                    'ams-header__mega-menu-button-label',
+                    open && 'ams-header__mega-menu-button-label--open',
+                  )}
+                >
+                  {menuButtonText}
+                </span>
+                <span aria-hidden="true" className="ams-header__mega-menu-button-hidden-label">
+                  {menuButtonText}
+                </span>
                 <Icon svg={MenuIcon} size="level-6" />
               </button>
             </li>

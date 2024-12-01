@@ -108,10 +108,29 @@
 .ams-header__mega-menu-button {
   column-gap: var(--ams-header-menu-item-column-gap);
   cursor: pointer;
-  display: inline-flex;
+  display: grid;
+  grid-auto-flow: column;
 
   @include shared-styles;
   @include reset-button;
+}
+
+.ams-header__mega-menu-button-label {
+  grid-area: 1 / 1;
+}
+
+.ams-header__mega-menu-button-label--open {
+  font-weight: var(--ams-header-mega-menu-button-label-open-font-weight);
+}
+
+// This hidden label is used to prevent a layout shift when the mega menu is opened
+// and the button text becomes bold.
+.ams-header__mega-menu-button-hidden-label {
+  font-weight: var(--ams-header-mega-menu-button-label-open-font-weight);
+  grid-area: 1 / 1;
+  pointer-events: none;
+  user-select: none;
+  visibility: hidden;
 }
 
 .ams-header__mega-menu {

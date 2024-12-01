@@ -8,6 +8,15 @@
       "logo-link": {
         "outline-offset": { "value": "{ams.focus.outline-offset}" }
       },
+      "mega-menu": {
+        "button": {
+          "label": {
+            "open": {
+              "font-weight": { "value": "{ams.text.font-weight.bold}" }
+            }
+          }
+        }
+      },
       "menu": {
         "column-gap": { "value": "{ams.space.grid.md}" },
         "item": {
