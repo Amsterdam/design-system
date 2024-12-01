@@ -7,6 +7,7 @@
 
 .ams-header {
   display: grid;
+  padding-inline: var(--ams-grid-padding-inline);
 }
 
 .ams-header__brand-section {
@@ -15,7 +16,6 @@
   column-gap: var(--ams-header-brand-section-column-gap);
   display: flex;
   grid-area: 1 / 1;
-  padding-inline-start: var(--ams-grid-padding-inline);
 }
 
 .ams-header__logo-link {
@@ -47,7 +47,6 @@
   justify-content: flex-end;
   list-style: none;
   margin-inline-start: auto;
-  padding-inline-end: var(--ams-grid-padding-inline);
   pointer-events: auto;
   row-gap: var(--ams-header-menu-row-gap);
 
@@ -118,6 +117,11 @@
 .ams-header__mega-menu {
   inline-size: 100%;
   pointer-events: auto;
+}
+
+// Reset the inline padding of the grid here, and set on the root header element instead.
+.ams-header__mega-menu.ams-header__mega-menu {
+  padding-inline: 0;
 }
 
 .ams-header__mega-menu--closed.ams-header__mega-menu--closed {
