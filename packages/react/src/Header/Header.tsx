@@ -3,7 +3,6 @@
  * Copyright Gemeente Amsterdam
  */
 
-import { MenuIcon } from '@amsterdam/design-system-react-icons'
 import clsx from 'clsx'
 import { forwardRef, useState } from 'react'
 import type { AnchorHTMLAttributes, ForwardedRef, HTMLAttributes, PropsWithChildren, ReactNode } from 'react'
@@ -12,6 +11,7 @@ import { Heading } from '../Heading'
 import { Icon } from '../Icon'
 import { Logo } from '../Logo'
 import type { LogoBrand } from '../Logo'
+import { HeaderMenuIcon } from './HeaderMenuIcon'
 
 type HeaderMenuLinkProps = {
   secondary?: boolean
@@ -119,7 +119,12 @@ export const HeaderRoot = forwardRef(
                 <span aria-hidden="true" className="ams-header__mega-menu-button-hidden-label">
                   {menuButtonText}
                 </span>
-                <Icon svg={MenuIcon} size="level-6" />
+                <Icon
+                  svg={
+                    <HeaderMenuIcon className={clsx('ams-header__menu-icon', open && 'ams-header__menu-icon--open')} />
+                  }
+                  size="level-6"
+                />
               </button>
             </li>
           </ul>

@@ -133,6 +133,44 @@
   visibility: hidden;
 }
 
+.ams-header__menu-icon {
+  line {
+    stroke: currentColor;
+    stroke-width: 3px;
+    transform-origin: center;
+    transition:
+      translate 0.1s ease-in-out,
+      rotate 0.2s ease-in-out,
+      opacity 0.1s ease-in-out;
+
+    @media (prefers-reduced-motion) {
+      transition: none;
+    }
+  }
+
+  .ams-header__menu-icon-top {
+    translate: 0 -7px;
+  }
+
+  .ams-header__menu-icon-bottom {
+    translate: 0 7px;
+  }
+}
+
+.ams-header__menu-icon--open {
+  .ams-header__menu-icon-top {
+    rotate: 45deg;
+    translate: 0;
+  }
+  .ams-header__menu-icon-middle {
+    opacity: 0%;
+  }
+  .ams-header__menu-icon-bottom {
+    rotate: -45deg;
+    translate: 0;
+  }
+}
+
 .ams-header__mega-menu {
   inline-size: 100%;
   pointer-events: auto;
