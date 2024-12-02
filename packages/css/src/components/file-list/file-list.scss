@@ -5,7 +5,7 @@
 
 @import "../../common/text-rendering";
 
-@mixin reset-ol {
+@mixin reset-ul {
   margin-block: 0;
   padding-inline: 0;
 }
@@ -17,7 +17,7 @@
   padding-block: var(--ams-file-list-padding-block);
 
   @include text-rendering;
-  @include reset-ol;
+  @include reset-ul;
 }
 
 .ams-file-list__file {
