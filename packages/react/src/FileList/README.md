@@ -1,5 +1,5 @@
 <!-- @license CC0-1.0 -->
 
-# React FileList component
+# React File List component
 
-[FileList documentation](../../../css/src/components/file-list/README.md)
+[File List documentation](../../../css/src/components/file-list/README.md)

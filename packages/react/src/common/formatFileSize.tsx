@@ -4,9 +4,9 @@
  */
 
 /**
- *
- * @param fileType
- * @returns Human readable file size
+ * @param fileSize The size of the file in bytes.
+ * @param precision The number of significant digits in the output.
+ * @returns A human readable file size
  */
 export const formatFileSize = (fileSize: number, precision = 3) => {
   const UNITS = ['bytes', 'kB', 'MB', 'GB']
