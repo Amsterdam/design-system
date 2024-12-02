@@ -4,7 +4,7 @@
 
 ## Commit hashes for GitHub Actions
 
-We use commit hashes instead of version numbers for GitHub Actions in our workflows.
+We use a commit hash instead of a version number to specify which release of a GitHub Action we use in our workflows.
 
 Version numbers are based on Git tags, which are mutable.
 This means a maintainer can alter what code a tag like 'v1.0.0' refers to.
