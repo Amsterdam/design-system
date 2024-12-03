@@ -21,10 +21,10 @@ jobs:
           echo "BRANCH_NAME=$BRANCH_NAME" >> $GITHUB_ENV
 
       - name: Check out
-        uses: actions/checkout@v4
+        uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
 
       - name: Create deployment
-        uses: bobheadxi/deployments@v1
+        uses: bobheadxi/deployments@648679e8e4915b27893bd7dbc35cb504dc915bc8 # v1.5.0
         id: deployment
         with:
           step: start
@@ -32,9 +32,9 @@ jobs:
           env: demo-${{ env.BRANCH_NAME }}
 
       - name: Install pnpm
-        uses: pnpm/action-setup@v4
+        uses: pnpm/action-setup@fe02b34f77f8bc703788d5817da081398fad5dd2 # v4.0.0
 
-      - uses: actions/setup-node@v4
+      - uses: actions/setup-node@39370e3970a6d050c480ffad4ff0ed4d3fdee5af # v4.1.0
         with:
           cache: pnpm
           node-version-file: .nvmrc
@@ -52,14 +52,14 @@ jobs:
           touch ./storybook/dist/${{ github.sha }}.txt
 
       - name: Pushing to pages branch
-        uses: JamesIves/github-pages-deploy-action@v4
+        uses: JamesIves/github-pages-deploy-action@62fec3add6773ec5dbbf18d2ee4260911aa35cf4 # v4.6.9
         with:
           branch: gh-pages
           folder: storybook/dist
           target-folder: demo-${{ env.BRANCH_NAME }}
 
       - name: Wait for GitHub Pages to be deployed
-        uses: mydea/action-wait-for-api@v2
+        uses: mydea/action-wait-for-api@45d9c58e690337a05eb5ae14a1478f29eacbf9db # v2.0.0
         with:
           url: https://${{ github.repository_owner }}.github.io/${{ github.event.repository.name }}/demo-${{ env.BRANCH_NAME }}/${{ github.sha }}.txt
           expected-status: 200
@@ -67,7 +67,7 @@ jobs:
           interval: 15
 
       - name: Update deployment status
-        uses: bobheadxi/deployments@v1
+        uses: bobheadxi/deployments@648679e8e4915b27893bd7dbc35cb504dc915bc8 # v1.5.0
         if: always()
         with:
           step: finish
