@@ -43,7 +43,7 @@ const DescriptionListRoot = forwardRef(
 DescriptionListRoot.displayName = 'DescriptionList'
 
 export const DescriptionList = Object.assign(DescriptionListRoot, {
-  Term: DescriptionListTerm,
   Description: DescriptionListDescription,
   Group: DescriptionListGroup,
+  Term: DescriptionListTerm,
 })

@@ -22,9 +22,9 @@ A term may have multiple descriptions.
 
 ### Multiple terms
 
-In the case of multiple consequtive terms for a description you need to
-wrap all `DescriptionList.Term` and `DescriptionList.Description` pairs in `DescriptionList.Group`.
-And it will also require the minWidth property to be set to anything but `auto` to prevent the misalignment of different groups.
+If multiple terms share a single description, group them in a `DescriptionList.Group` to ensure proper grid layout.
+Note that this approach is incompatible with the automatic width of the terms column.
+The ‘medium’ fixed width option will be applied; the other options can be selected as well.
 
 <Canvas of={DescriptionListStories.MultipleTerms} />
 
