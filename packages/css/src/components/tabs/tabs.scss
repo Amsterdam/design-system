@@ -20,8 +20,6 @@
 }
 
 .ams-tabs__list {
-  background-color: var(--ams-tabs-list-background-color);
-  border-block-end: var(--ams-tabs-list-border-block-end);
   box-shadow: var(--ams-tabs-list-box-shadow);
   display: flex;
   overflow-x: auto;
@@ -41,7 +39,6 @@
   @include reset-button;
 
   &:disabled {
-    background-color: var(--ams-tabs-button-disabled-background-color);
     color: var(--ams-tabs-button-disabled-color);
     cursor: var(--ams-tabs-button-disabled-cursor);
 
@@ -51,13 +48,11 @@
   }
 
   &:hover:not([aria-selected="true"], [disabled]) {
-    background-color: var(--ams-tabs-button-hover-background-color);
     box-shadow: var(--ams-tabs-button-hover-box-shadow);
     color: var(--ams-tabs-button-hover-color);
   }
 
   &[aria-selected="true"] {
-    background-color: var(--ams-tabs-button-selected-background-color);
     box-shadow: var(--ams-tabs-button-selected-box-shadow);
     color: var(--ams-tabs-button-selected-color);
     font-weight: var(--ams-tabs-button-selected-font-weight);

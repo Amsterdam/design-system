@@ -3,8 +3,6 @@
     "tabs": {
       "gap": { "value": "{ams.space.md}" },
       "list": {
-        "background-color": { "value": "initial" },
-        "border-block-end": { "value": "initial" },
         "box-shadow": { "value": "inset 0 calc({ams.border.width.md} * -1) {ams.brand.color.neutral.20}" }
       },
       "button": {
@@ -19,17 +17,14 @@
         "padding-inline": { "value": "{ams.space.md}" },
         "hover": {
           "color": { "value": "{ams.brand.color.blue.80}" },
-          "background-color": { "value": "initial" },
           "box-shadow": { "value": "inset 0 calc({ams.border.width.md} * -1) {ams.brand.color.blue.80}" }
         },
         "selected": {
-          "background-color": { "value": "initial" },
           "box-shadow": { "value": "inset 0 calc({ams.border.width.xl} * -1) {ams.brand.color.blue.60}" },
           "color": { "value": "{ams.brand.color.blue.60}" },
           "font-weight": { "value": "{ams.text.font-weight.bold}" }
         },
         "disabled": {
-          "background-color": { "value": "initial" },
           "color": { "value": "{ams.brand.color.neutral.60}" },
           "cursor": { "value": "{ams.action.disabled.cursor}" }
         }
