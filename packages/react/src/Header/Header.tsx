@@ -4,7 +4,7 @@
  */
 
 import clsx from 'clsx'
-import { forwardRef, useState } from 'react'
+import { forwardRef, useEffect, useState } from 'react'
 import type { ForwardedRef, HTMLAttributes, ReactNode } from 'react'
 import { Grid } from '../Grid'
 import { Heading } from '../Heading'
@@ -13,6 +13,7 @@ import { Logo } from '../Logo'
 import type { LogoBrand } from '../Logo'
 import { HeaderMenuIcon } from './HeaderMenuIcon'
 import { HeaderMenuLink } from './HeaderMenuLink'
+import useMediaQuery from '../common/useMediaQuery'
 
 export type HeaderProps = {
   /** Whether the menu button is always shown. By default, it only shows on narrow screens. */
@@ -51,6 +52,15 @@ const HeaderRoot = forwardRef(
     ref: ForwardedRef<HTMLElement>,
   ) => {
     const [open, setOpen] = useState(false)
+
+    const isWideScreen = useMediaQuery('wide')
+
+    useEffect(() => {
+      // Close the menu when the menu button disappears
+      if (!alwaysShowMenuButton && isWideScreen) {
+        setOpen(false)
+      }
+    }, [isWideScreen])
 
     return (
       <header {...restProps} ref={ref} className={clsx('ams-header', className)}>
