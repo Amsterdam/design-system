@@ -15,26 +15,23 @@ import { HeaderMenuIcon } from './HeaderMenuIcon'
 import { HeaderMenuLink } from './HeaderMenuLink'
 
 export type HeaderProps = {
+  /** Whether the menu button is always shown. By default, it only shows on narrow screens. */
   alwaysShowMenuButton?: boolean
   /** The name of the application. */
   appName?: string
-  /** The list of menu links. Use a Page Menu here. */
-  links?: ReactNode
   /** The name of the brand for which to display the logo. */
   logoBrand?: LogoBrand
   /** The url for the link on the logo. */
   logoLink?: string
   /** The accessible text for the link on the logo. */
   logoLinkTitle?: string
-  /** A button to toggle the visibility of a Mega Menu. */
+  /** A slot for the menu. Use Header.MenuLink here. */
   menu?: ReactNode
+  /** The text for the menu button. */
   menuButtonText?: string
+  /** The accessible label for the navigation section. */
   navigationLabel?: string
 } & HTMLAttributes<HTMLElement>
-
-// TODO: change state als je over grens media query gaat
-// TODO: gov.uk leest elke keer als je menu opent en sluit 'Show / close navigation menu' voor.
-// Da's wel handig, alleen als je dat met een vis hidden span doet leest 'ie 'm niet elke keer voor.
 
 const HeaderRoot = forwardRef(
   (
