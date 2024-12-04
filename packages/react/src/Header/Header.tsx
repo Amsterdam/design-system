@@ -5,25 +5,14 @@
 
 import clsx from 'clsx'
 import { forwardRef, useState } from 'react'
-import type { AnchorHTMLAttributes, ForwardedRef, HTMLAttributes, PropsWithChildren, ReactNode } from 'react'
+import type { ForwardedRef, HTMLAttributes, ReactNode } from 'react'
 import { Grid } from '../Grid'
 import { Heading } from '../Heading'
 import { Icon } from '../Icon'
 import { Logo } from '../Logo'
 import type { LogoBrand } from '../Logo'
 import { HeaderMenuIcon } from './HeaderMenuIcon'
-
-type HeaderMenuLinkProps = {
-  secondary?: boolean
-} & PropsWithChildren<AnchorHTMLAttributes<HTMLAnchorElement>>
-
-const HeaderMenuLink = ({ children, secondary, ...restProps }: HeaderMenuLinkProps) => (
-  <li className={clsx(secondary && 'ams-header__menu-item--secondary')}>
-    <a {...restProps} className="ams-header__menu-link">
-      {children}
-    </a>
-  </li>
-)
+import { HeaderMenuLink } from './HeaderMenuLink'
 
 export type HeaderProps = {
   alwaysShowMenuButton?: boolean
@@ -47,7 +36,7 @@ export type HeaderProps = {
 // TODO: gov.uk leest elke keer als je menu opent en sluit 'Show / close navigation menu' voor.
 // Da's wel handig, alleen als je dat met een vis hidden span doet leest 'ie 'm niet elke keer voor.
 
-export const HeaderRoot = forwardRef(
+const HeaderRoot = forwardRef(
   (
     {
       alwaysShowMenuButton,
