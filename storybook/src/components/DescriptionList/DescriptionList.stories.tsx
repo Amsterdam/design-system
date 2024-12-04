@@ -58,12 +58,10 @@ export const MultipleTerms: Story = {
   args: {
     termsWidth: 'md',
     children: [
-      <DescriptionList.Group key={1}>
-        <DescriptionList.Term key={1}>Achternaam</DescriptionList.Term>
-        <DescriptionList.Description key={2}>
-          De naam die een persoon van zijn of haar ouders krijgt
-        </DescriptionList.Description>
-      </DescriptionList.Group>,
+      <DescriptionList.Term key={1}>Achternaam</DescriptionList.Term>,
+      <DescriptionList.Description key={2}>
+        De naam die een persoon van zijn of haar ouders krijgt
+      </DescriptionList.Description>,
       <DescriptionList.Group key={2}>
         <DescriptionList.Term key={1}>Naam</DescriptionList.Term>
         <DescriptionList.Term key={2}>Voornaam</DescriptionList.Term>
@@ -72,11 +70,12 @@ export const MultipleTerms: Story = {
         <DescriptionList.Description key={5}>
           De naam waarmee een persoon wordt aangesproken
         </DescriptionList.Description>
+        <DescriptionList.Description key={6}>
+          De naam waarmee een persoon wordt aangesproken
+        </DescriptionList.Description>
       </DescriptionList.Group>,
-      <DescriptionList.Group key={3}>
-        <DescriptionList.Term key={1}>Geboortedatum</DescriptionList.Term>
-        <DescriptionList.Description key={2}>De datum waarop een persoon is geboren</DescriptionList.Description>
-      </DescriptionList.Group>,
+      <DescriptionList.Term key={1}>Geboortedatum</DescriptionList.Term>,
+      <DescriptionList.Description key={2}>De datum waarop een persoon is geboren</DescriptionList.Description>,
     ],
   },
 }
