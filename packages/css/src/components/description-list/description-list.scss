@@ -54,6 +54,7 @@
 }
 
 // Solution for browsers that support subgrid, the group will align to the parent grid
+// This selector is to increase specificity to override the previously set grid-template-columns
 @supports (grid-template-columns: subgrid) {
   .ams-description-list .ams-description-list__group {
     grid-template-columns: subgrid;
