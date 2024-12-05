@@ -28,7 +28,7 @@
   .ams-description-list__group {
     column-gap: var(--ams-description-list-column-gap);
     display: grid;
-    grid-auto-flow: row dense;
+    grid-auto-flow: dense;
     grid-column: span 2;
   }
 
