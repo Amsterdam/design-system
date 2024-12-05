@@ -66,7 +66,7 @@ export const MultipleTerms: Story = {
         <DescriptionList.Term key={3.1}>Voornaam</DescriptionList.Term>
         <DescriptionList.Term key={3.2}>Roepnaam</DescriptionList.Term>
         <DescriptionList.Term key={3.3}>Bijnaam</DescriptionList.Term>
-        <DescriptionList.Description key={3.4}>
+        <DescriptionList.Description key={3.4} style={{ gridRow: '1 / 4' }}>
           De naam waarmee een persoon wordt aangesproken
         </DescriptionList.Description>
       </DescriptionList.Group>,
