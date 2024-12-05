@@ -3,9 +3,9 @@ import { createRef } from 'react'
 import { DescriptionList } from './DescriptionList'
 import '@testing-library/jest-dom'
 
-describe('Description List Group', () => {
+describe('Description List Section', () => {
   it('renders', () => {
-    const { container } = render(<DescriptionList.Group>Test</DescriptionList.Group>)
+    const { container } = render(<DescriptionList.Section>Test</DescriptionList.Section>)
 
     const component = container.querySelector(':only-child')
 
@@ -14,7 +14,7 @@ describe('Description List Group', () => {
   })
 
   it('renders a design system BEM class name', () => {
-    const { container } = render(<DescriptionList.Group>Test</DescriptionList.Group>)
+    const { container } = render(<DescriptionList.Section>Test</DescriptionList.Section>)
 
     const component = container.querySelector(':only-child')
 
@@ -22,7 +22,7 @@ describe('Description List Group', () => {
   })
 
   it('renders an additional class name', () => {
-    const { container } = render(<DescriptionList.Group className="extra">Test</DescriptionList.Group>)
+    const { container } = render(<DescriptionList.Section className="extra">Test</DescriptionList.Section>)
 
     const component = container.querySelector(':only-child')
 
@@ -32,7 +32,7 @@ describe('Description List Group', () => {
   it('supports ForwardRef in React', () => {
     const ref = createRef<HTMLDivElement>()
 
-    const { container } = render(<DescriptionList.Group ref={ref}>Test</DescriptionList.Group>)
+    const { container } = render(<DescriptionList.Section ref={ref}>Test</DescriptionList.Section>)
 
     const component = container.querySelector(':only-child')
 

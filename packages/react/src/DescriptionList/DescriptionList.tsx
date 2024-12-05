@@ -7,7 +7,7 @@ import clsx from 'clsx'
 import { forwardRef } from 'react'
 import type { ForwardedRef, HTMLAttributes, PropsWithChildren } from 'react'
 import { DescriptionListDescription } from './DescriptionListDescription'
-import { DescriptionListGroup } from './DescriptionListGroup'
+import { DescriptionListSection } from './DescriptionListSection'
 import { DescriptionListTerm } from './DescriptionListTerm'
 
 export const descriptionListTermsWidths = ['sm', 'md', 'lg'] as const
@@ -44,6 +44,6 @@ DescriptionListRoot.displayName = 'DescriptionList'
 
 export const DescriptionList = Object.assign(DescriptionListRoot, {
   Description: DescriptionListDescription,
-  Group: DescriptionListGroup,
+  Section: DescriptionListSection,
   Term: DescriptionListTerm,
 })
