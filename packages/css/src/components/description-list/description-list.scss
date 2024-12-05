@@ -53,6 +53,13 @@
   }
 }
 
+// Solution for browsers that support subgrid, the group will align to the parent grid
+@supports (grid-template-columns: subgrid) {
+  .ams-description-list .ams-description-list__group {
+    grid-template-columns: subgrid;
+  }
+}
+
 .ams-description-list--inverse-color {
   color: var(--ams-description-list-inverse-color);
 }
