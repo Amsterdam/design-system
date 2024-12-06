@@ -72,7 +72,7 @@ const alwaysShowMenuButtonStoryLinks = [
   ],
 ]
 
-export const WithAlwaysVisibleMenuButton: Story = {
+export const AlwaysShowMenuButton: Story = {
   args: {
     appName: 'Data Amsterdam',
     children: [
@@ -122,6 +122,13 @@ export const WithAlwaysVisibleMenuButton: Story = {
       </>
     ),
     showMenuButton: 'always',
+  },
+}
+
+export const NeverShowMenuButton: Story = {
+  args: {
+    appName: 'Mijn Amsterdam',
+    showMenuButton: 'never',
   },
 }
 
