@@ -17,40 +17,6 @@ export default meta
 type Story = StoryObj<typeof meta>
 
 const defaultStoryLinks = [
-  { label: 'Stad', href: '#' },
-  { label: 'Techniek', href: '#' },
-  { label: 'Historie', href: '#' },
-  { label: 'Duurzaamheid', href: '#' },
-  { label: 'Zoeken', href: '#' },
-]
-
-export const Default: Story = {
-  args: {
-    appName: 'Aan de Amsterdamse grachten',
-    menu: (
-      <>
-        {defaultStoryLinks.map(({ label, href }) => (
-          <Header.MenuLink key={label} href={href} secondary>
-            {label}
-          </Header.MenuLink>
-        ))}
-      </>
-    ),
-    children: (
-      <Grid.Cell span="all">
-        <LinkList>
-          {defaultStoryLinks.map(({ label, href }) => (
-            <LinkList.Link key={label} href={href}>
-              {label}
-            </LinkList.Link>
-          ))}
-        </LinkList>
-      </Grid.Cell>
-    ),
-  },
-}
-
-const alwaysShowMenuButtonStoryLinks = [
   [
     { label: 'Kaart', href: '#' },
     { label: 'Panoramabeelden', href: '#' },
@@ -69,7 +35,7 @@ const alwaysShowMenuButtonStoryLinks = [
   ],
 ]
 
-export const AlwaysShowMenuButton: Story = {
+export const Default: Story = {
   args: {
     appName: 'Data Amsterdam',
     menu: (
@@ -89,7 +55,7 @@ export const AlwaysShowMenuButton: Story = {
           Onderdelen
         </Heading>
         <LinkList>
-          {alwaysShowMenuButtonStoryLinks[0].map(({ label, href }) => (
+          {defaultStoryLinks[0].map(({ label, href }) => (
             <LinkList.Link key={label} href={href}>
               {label}
             </LinkList.Link>
@@ -101,7 +67,7 @@ export const AlwaysShowMenuButton: Story = {
           Over ons
         </Heading>
         <LinkList>
-          {alwaysShowMenuButtonStoryLinks[1].map(({ label, href }) => (
+          {defaultStoryLinks[1].map(({ label, href }) => (
             <LinkList.Link key={label} href={href}>
               {label}
             </LinkList.Link>
@@ -113,7 +79,7 @@ export const AlwaysShowMenuButton: Story = {
           Help
         </Heading>
         <LinkList>
-          {alwaysShowMenuButtonStoryLinks[2].map(({ label, href }) => (
+          {defaultStoryLinks[2].map(({ label, href }) => (
             <LinkList.Link key={label} href={href}>
               {label}
             </LinkList.Link>
@@ -124,7 +90,41 @@ export const AlwaysShowMenuButton: Story = {
   },
 }
 
-export const NeverShowMenuButton: Story = {
+const WithoutMenuButtonOnWideScreenStoryLinks = [
+  { label: 'Stad', href: '#' },
+  { label: 'Techniek', href: '#' },
+  { label: 'Historie', href: '#' },
+  { label: 'Duurzaamheid', href: '#' },
+  { label: 'Zoeken', href: '#' },
+]
+
+export const WithoutMenuButtonOnWideScreen: Story = {
+  args: {
+    appName: 'Aan de Amsterdamse grachten',
+    menu: (
+      <>
+        {WithoutMenuButtonOnWideScreenStoryLinks.map(({ label, href }) => (
+          <Header.MenuLink key={label} href={href} secondary>
+            {label}
+          </Header.MenuLink>
+        ))}
+      </>
+    ),
+    children: (
+      <Grid.Cell span="all">
+        <LinkList>
+          {WithoutMenuButtonOnWideScreenStoryLinks.map(({ label, href }) => (
+            <LinkList.Link key={label} href={href}>
+              {label}
+            </LinkList.Link>
+          ))}
+        </LinkList>
+      </Grid.Cell>
+    ),
+  },
+}
+
+export const WithoutMenuButton: Story = {
   args: {
     appName: 'Mijn Amsterdam',
     showMenuButton: 'never',
