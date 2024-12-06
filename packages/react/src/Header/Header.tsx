@@ -26,8 +26,8 @@ export type HeaderProps = {
   logoLink?: string
   /** The accessible text for the link on the logo. */
   logoLinkTitle?: string
-  /** A slot for the menu. Use Header.MenuLink here. */
-  menu?: ReactNode
+  /** A slot for the menu items. Use Header.MenuLink here. */
+  menuItems?: ReactNode
   /** The text for the menu button. */
   menuButtonText?: string
   /** The accessible label for the navigation section. */
@@ -46,7 +46,7 @@ const HeaderRoot = forwardRef(
       logoBrand = 'amsterdam',
       logoLink = '/',
       logoLinkTitle = 'Ga naar de homepage',
-      menu,
+      menuItems,
       menuButtonText = 'Menu',
       navigationLabel = 'Hoofdnavigatie',
       ...restProps
@@ -92,7 +92,7 @@ const HeaderRoot = forwardRef(
             </div>
 
             <ul className="ams-header__menu">
-              {menu}
+              {menuItems}
               <li
                 className={clsx(
                   'ams-header__mega-menu-button-item',

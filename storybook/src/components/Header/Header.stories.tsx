@@ -38,13 +38,11 @@ const defaultStoryLinks = [
 export const Default: Story = {
   args: {
     appName: 'Data Amsterdam',
-    menu: (
-      <>
-        <Header.MenuLink href="#" secondary>
-          Inloggen
-        </Header.MenuLink>
-      </>
-    ),
+    menuItems: [
+      <Header.MenuLink key={1} href="#" secondary>
+        Inloggen
+      </Header.MenuLink>,
+    ],
     showMenuButton: 'always',
     children: [
       <Header.SecondaryLinkList key={0}>
@@ -101,15 +99,11 @@ const WithoutMenuButtonOnWideScreenStoryLinks = [
 export const WithoutMenuButtonOnWideScreen: Story = {
   args: {
     appName: 'Aan de Amsterdamse grachten',
-    menu: (
-      <>
-        {WithoutMenuButtonOnWideScreenStoryLinks.map(({ label, href }) => (
-          <Header.MenuLink key={label} href={href} secondary>
-            {label}
-          </Header.MenuLink>
-        ))}
-      </>
-    ),
+    menuItems: WithoutMenuButtonOnWideScreenStoryLinks.map(({ label, href }) => (
+      <Header.MenuLink key={label} href={href} secondary>
+        {label}
+      </Header.MenuLink>
+    )),
     children: (
       <Grid.Cell span="all">
         <LinkList>
