@@ -74,7 +74,6 @@ const alwaysShowMenuButtonStoryLinks = [
 
 export const WithAlwaysVisibleMenuButton: Story = {
   args: {
-    alwaysShowMenuButton: true,
     appName: 'Data Amsterdam',
     children: [
       <Grid.Cell key={1} span={4}>
@@ -122,6 +121,7 @@ export const WithAlwaysVisibleMenuButton: Story = {
         </Header.MenuLink>
       </>
     ),
+    showMenuButton: 'always',
   },
 }
 
@@ -130,13 +130,14 @@ export const WithCustomLogoLink: Story = {
     logoBrand: 'ggd-amsterdam',
     logoLink: 'https://www.ggd.amsterdam.nl/',
     logoLinkTitle: 'Naar de homepage van de GGD Amsterdam',
+    showMenuButton: 'never',
   },
 }
 
 export const WithCustomTexts: Story = {
   args: {
-    alwaysShowMenuButton: true,
     menuButtonText: 'Hoofdmenu',
     navigationLabel: 'Navigatie',
+    showMenuButton: 'always',
   },
 }

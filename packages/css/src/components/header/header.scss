@@ -88,7 +88,7 @@
   }
 }
 
-.ams-header__mega-menu-button-item:not(.ams-header__mega-menu-button-item--always-show) {
+.ams-header__mega-menu-button-item:not(.ams-header__mega-menu-button-item--show-always) {
   @media screen and (min-width: $ams-breakpoint-wide) {
     display: none;
   }

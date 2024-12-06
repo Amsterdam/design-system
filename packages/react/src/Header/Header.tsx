@@ -16,8 +16,6 @@ import { HeaderMenuLink } from './HeaderMenuLink'
 import useMediaQuery from '../common/useMediaQuery'
 
 export type HeaderProps = {
-  /** Whether the menu button is always shown. By default, it only shows on narrow screens. */
-  alwaysShowMenuButton?: boolean
   /** The name of the application. */
   appName?: string
   /** The name of the brand for which to display the logo. */
@@ -32,12 +30,14 @@ export type HeaderProps = {
   menuButtonText?: string
   /** The accessible label for the navigation section. */
   navigationLabel?: string
+  /** When to show the menu button. The default is show only when the screen is narrow. */
+  showMenuButton?: 'always' | 'never'
 } & HTMLAttributes<HTMLElement>
 
 const HeaderRoot = forwardRef(
   (
     {
-      alwaysShowMenuButton,
+      showMenuButton,
       appName,
       className,
       children,
@@ -57,7 +57,7 @@ const HeaderRoot = forwardRef(
 
     useEffect(() => {
       // Close the menu when the menu button disappears
-      if (!alwaysShowMenuButton && isWideScreen) {
+      if (!showMenuButton && isWideScreen) {
         setOpen(false)
       }
     }, [isWideScreen])
@@ -75,64 +75,70 @@ const HeaderRoot = forwardRef(
             </Heading>
           )}
         </div>
-        <nav className="ams-header__navigation" aria-labelledby="primary-navigation">
-          <h2 id="primary-navigation" className="ams-visually-hidden">
-            {navigationLabel}
-          </h2>
+        {showMenuButton !== 'never' && (
+          <nav className="ams-header__navigation" aria-labelledby="primary-navigation">
+            <h2 id="primary-navigation" className="ams-visually-hidden">
+              {navigationLabel}
+            </h2>
 
-          {/* The logo and app name section is recreated here, to make sure the page menu breaks at the right spot */}
-          <div className="ams-header__brand-section" aria-hidden style={{ opacity: 0 }}>
-            <div className="ams-header__logo-link">
-              <Logo brand={logoBrand} />
+            {/* The logo and app name section is recreated here, to make sure the page menu breaks at the right spot */}
+            <div className="ams-header__brand-section" aria-hidden style={{ opacity: 0 }}>
+              <div className="ams-header__logo-link">
+                <Logo brand={logoBrand} />
+              </div>
+              {appName && <span className="ams-heading ams-heading--level-5">{appName}</span>}
             </div>
-            {appName && <span className="ams-heading ams-heading--level-5">{appName}</span>}
-          </div>
 
-          <ul className="ams-header__menu">
-            {menu}
-            <li
-              className={clsx(
-                'ams-header__mega-menu-button-item',
-                alwaysShowMenuButton && 'ams-header__mega-menu-button-item--always-show',
-              )}
-            >
-              <button
-                {...restProps}
-                aria-controls="ams-mega-menu"
-                aria-expanded={open}
-                className="ams-header__mega-menu-button"
-                onClick={() => setOpen(!open)}
-                type="button"
+            <ul className="ams-header__menu">
+              {menu}
+              <li
+                className={clsx(
+                  'ams-header__mega-menu-button-item',
+                  showMenuButton === 'always' && 'ams-header__mega-menu-button-item--show-always',
+                )}
               >
-                <span
-                  className={clsx(
-                    'ams-header__mega-menu-button-label',
-                    open && 'ams-header__mega-menu-button-label--open',
-                  )}
+                <button
+                  {...restProps}
+                  aria-controls="ams-mega-menu"
+                  aria-expanded={open}
+                  className="ams-header__mega-menu-button"
+                  onClick={() => setOpen(!open)}
+                  type="button"
                 >
-                  {menuButtonText}
-                </span>
-                <span aria-hidden="true" className="ams-header__mega-menu-button-hidden-label">
-                  {menuButtonText}
-                </span>
-                <Icon
-                  svg={
-                    <HeaderMenuIcon className={clsx('ams-header__menu-icon', open && 'ams-header__menu-icon--open')} />
-                  }
-                  size="level-6"
-                />
-              </button>
-            </li>
-          </ul>
+                  <span
+                    className={clsx(
+                      'ams-header__mega-menu-button-label',
+                      open && 'ams-header__mega-menu-button-label--open',
+                    )}
+                  >
+                    {menuButtonText}
+                  </span>
+                  <span aria-hidden="true" className="ams-header__mega-menu-button-hidden-label">
+                    {menuButtonText}
+                  </span>
+                  <Icon
+                    svg={
+                      <HeaderMenuIcon
+                        className={clsx('ams-header__menu-icon', open && 'ams-header__menu-icon--open')}
+                      />
+                    }
+                    size="level-6"
+                  />
+                </button>
+              </li>
+            </ul>
 
-          <Grid
-            className={clsx('ams-header__mega-menu', !open && 'ams-header__mega-menu--closed')}
-            id="ams-mega-menu"
-            paddingBottom="large"
-          >
-            {children}
-          </Grid>
-        </nav>
+            {children && (
+              <Grid
+                className={clsx('ams-header__mega-menu', !open && 'ams-header__mega-menu--closed')}
+                id="ams-mega-menu"
+                paddingBottom="large"
+              >
+                {children}
+              </Grid>
+            )}
+          </nav>
+        )}
       </header>
     )
   },
