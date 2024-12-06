@@ -13,6 +13,8 @@ import { Logo } from '../Logo'
 import type { LogoBrand } from '../Logo'
 import { HeaderMenuIcon } from './HeaderMenuIcon'
 import { HeaderMenuLink } from './HeaderMenuLink'
+import { HeaderSecondaryLinkList } from './HeaderSecondaryLinkList'
+import { HeaderSecondaryLinkListLink } from './HeaderSecondaryLinkListLink'
 import useMediaQuery from '../common/useMediaQuery'
 
 export type HeaderProps = {
@@ -146,4 +148,8 @@ const HeaderRoot = forwardRef(
 
 HeaderRoot.displayName = 'Header'
 
-export const Header = Object.assign(HeaderRoot, { MenuLink: HeaderMenuLink })
+export const Header = Object.assign(HeaderRoot, {
+  MenuLink: HeaderMenuLink,
+  SecondaryLinkList: HeaderSecondaryLinkList,
+  SecondaryLinkListLink: HeaderSecondaryLinkListLink,
+})

@@ -27,6 +27,15 @@ const defaultStoryLinks = [
 export const Default: Story = {
   args: {
     appName: 'Aan de Amsterdamse grachten',
+    menu: (
+      <>
+        {defaultStoryLinks.map(({ label, href }) => (
+          <Header.MenuLink key={label} href={href} secondary>
+            {label}
+          </Header.MenuLink>
+        ))}
+      </>
+    ),
     children: (
       <Grid.Cell span="all">
         <Heading size="level-2" className="ams-mb--sm">
@@ -40,15 +49,6 @@ export const Default: Story = {
           ))}
         </LinkList>
       </Grid.Cell>
-    ),
-    menu: (
-      <>
-        {defaultStoryLinks.map(({ label, href }) => (
-          <Header.MenuLink key={label} href={href} secondary>
-            {label}
-          </Header.MenuLink>
-        ))}
-      </>
     ),
   },
 }
@@ -75,9 +75,21 @@ const alwaysShowMenuButtonStoryLinks = [
 export const AlwaysShowMenuButton: Story = {
   args: {
     appName: 'Data Amsterdam',
+    menu: (
+      <>
+        <Header.MenuLink href="#" secondary>
+          Inloggen
+        </Header.MenuLink>
+      </>
+    ),
+    showMenuButton: 'always',
     children: [
+      <Grid.Cell key={0} span="all">
+        <Header.SecondaryLinkList>
+          <Header.SecondaryLinkListLink href="#">Inloggen</Header.SecondaryLinkListLink>
+        </Header.SecondaryLinkList>
+      </Grid.Cell>,
       <Grid.Cell key={1} span={4}>
-        {/* TODO: link die alleen verschijnt op kleine schermen */}
         <Heading level={2} size="level-3" className="ams-mb--sm">
           Onderdelen
         </Heading>
@@ -114,14 +126,6 @@ export const AlwaysShowMenuButton: Story = {
         </LinkList>
       </Grid.Cell>,
     ],
-    menu: (
-      <>
-        <Header.MenuLink href="#" secondary>
-          Inloggen
-        </Header.MenuLink>
-      </>
-    ),
-    showMenuButton: 'always',
   },
 }
 

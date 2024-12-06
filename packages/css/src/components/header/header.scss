@@ -184,3 +184,9 @@
 .ams-header__mega-menu--closed.ams-header__mega-menu--closed {
   display: none;
 }
+
+.ams-header__secondary-link-list {
+  @media screen and (min-width: $ams-breakpoint-wide) {
+    display: none;
+  }
+}

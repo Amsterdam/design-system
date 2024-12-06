@@ -1,7 +1,7 @@
 import clsx from 'clsx'
 import { AnchorHTMLAttributes, ForwardedRef, forwardRef, PropsWithChildren } from 'react'
 
-type HeaderMenuLinkProps = {
+export type HeaderMenuLinkProps = {
   secondary?: boolean
 } & PropsWithChildren<AnchorHTMLAttributes<HTMLAnchorElement>>
 
