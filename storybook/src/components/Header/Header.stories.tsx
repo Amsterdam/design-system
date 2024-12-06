@@ -38,9 +38,6 @@ export const Default: Story = {
     ),
     children: (
       <Grid.Cell span="all">
-        <Heading size="level-2" className="ams-mb--sm">
-          Alle onderwerpen
-        </Heading>
         <LinkList>
           {defaultStoryLinks.map(({ label, href }) => (
             <LinkList.Link key={label} href={href}>
@@ -84,11 +81,9 @@ export const AlwaysShowMenuButton: Story = {
     ),
     showMenuButton: 'always',
     children: [
-      <Grid.Cell key={0} span="all">
-        <Header.SecondaryLinkList>
-          <Header.SecondaryLinkListLink href="#">Inloggen</Header.SecondaryLinkListLink>
-        </Header.SecondaryLinkList>
-      </Grid.Cell>,
+      <Header.SecondaryLinkList key={0}>
+        <Header.SecondaryLinkListLink href="#">Inloggen</Header.SecondaryLinkListLink>
+      </Header.SecondaryLinkList>,
       <Grid.Cell key={1} span={4}>
         <Heading level={2} size="level-3" className="ams-mb--sm">
           Onderdelen
