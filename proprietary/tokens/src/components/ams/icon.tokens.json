@@ -2,20 +2,20 @@
   "ams": {
     "icon": {
       "size-3": {
-        "font-size": { "value": "{ams.text.level.3.font-size}" },
-        "line-height": { "value": "{ams.text.level.3.line-height}" }
+        "font-size": { "value": "{ams.common.typography.body-text.xl.font-size}" },
+        "line-height": { "value": "{ams.common.typography.body-text.xl.line-height}" }
       },
       "size-4": {
-        "font-size": { "value": "{ams.text.level.4.font-size}" },
-        "line-height": { "value": "{ams.text.level.4.line-height}" }
+        "font-size": { "value": "{ams.common.typography.body-text.lg.font-size}" },
+        "line-height": { "value": "{ams.common.typography.body-text.lg.line-height}" }
       },
       "size-5": {
-        "font-size": { "value": "{ams.text.level.5.font-size}" },
-        "line-height": { "value": "{ams.text.level.5.line-height}" }
+        "font-size": { "value": "{ams.common.typography.body-text.font-size}" },
+        "line-height": { "value": "{ams.common.typography.body-text.line-height}" }
       },
       "size-6": {
-        "font-size": { "value": "{ams.text.level.6.font-size}" },
-        "line-height": { "value": "{ams.text.level.6.line-height}" }
+        "font-size": { "value": "{ams.common.typography.body-text.sm.font-size}" },
+        "line-height": { "value": "{ams.common.typography.body-text.sm.line-height}" }
       }
     }
   }

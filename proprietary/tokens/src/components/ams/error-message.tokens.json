@@ -2,11 +2,11 @@
   "ams": {
     "error-message": {
       "color": { "value": "{ams.brand.color.red.60}" },
-      "font-family": { "value": "{ams.text.font-family}" },
-      "font-size": { "value": "{ams.text.level.6.font-size}" },
-      "font-weight": { "value": "{ams.text.font-weight.normal}" },
+      "font-family": { "value": "{ams.common.typography.body-text.font-family}" },
+      "font-size": { "value": "{ams.common.typography.body-text.sm.font-size}" },
+      "font-weight": { "value": "{ams.common.typography.body-text.font-weight}" },
       "gap": { "value": "{ams.space.xs}" },
-      "line-height": { "value": "{ams.text.level.6.line-height}" }
+      "line-height": { "value": "{ams.common.typography.body-text.sm.line-height}" }
     }
   }
 }
