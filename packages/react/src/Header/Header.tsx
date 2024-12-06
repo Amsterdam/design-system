@@ -6,7 +6,6 @@
 import clsx from 'clsx'
 import { forwardRef, useEffect, useState } from 'react'
 import type { ForwardedRef, HTMLAttributes, ReactNode } from 'react'
-import { Grid } from '../Grid'
 import { Heading } from '../Heading'
 import { Icon } from '../Icon'
 import { Logo } from '../Logo'
@@ -131,13 +130,12 @@ const HeaderRoot = forwardRef(
             </ul>
 
             {children && (
-              <Grid
+              <div
                 className={clsx('ams-header__mega-menu', !open && 'ams-header__mega-menu--closed')}
                 id="ams-mega-menu"
-                paddingBottom="large"
               >
                 {children}
-              </Grid>
+              </div>
             )}
           </nav>
         )}

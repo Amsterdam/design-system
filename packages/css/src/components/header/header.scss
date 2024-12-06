@@ -176,11 +176,6 @@
   pointer-events: auto;
 }
 
-// Reset the inline padding of the grid here, and set on the root header element instead.
-.ams-header__mega-menu.ams-header__mega-menu {
-  padding-inline: 0;
-}
-
 .ams-header__mega-menu--closed.ams-header__mega-menu--closed {
   display: none;
 }

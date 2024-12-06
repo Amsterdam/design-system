@@ -44,47 +44,50 @@ export const Default: Story = {
       </Header.MenuLink>,
     ],
     showMenuButton: 'always',
-    children: [
-      <Header.SecondaryLinkList key={0}>
-        <Header.SecondaryLinkListLink href="#">Inloggen</Header.SecondaryLinkListLink>
-      </Header.SecondaryLinkList>,
-      <Grid.Cell key={1} span={4}>
-        <Heading level={2} size="level-3" className="ams-mb--sm">
-          Onderdelen
-        </Heading>
-        <LinkList>
-          {defaultStoryLinks[0].map(({ label, href }) => (
-            <LinkList.Link key={label} href={href}>
-              {label}
-            </LinkList.Link>
-          ))}
-        </LinkList>
-      </Grid.Cell>,
-      <Grid.Cell key={2} span={4}>
-        <Heading level={2} size="level-3" className="ams-mb--sm">
-          Over ons
-        </Heading>
-        <LinkList>
-          {defaultStoryLinks[1].map(({ label, href }) => (
-            <LinkList.Link key={label} href={href}>
-              {label}
-            </LinkList.Link>
-          ))}
-        </LinkList>
-      </Grid.Cell>,
-      <Grid.Cell key={3} span={4}>
-        <Heading level={2} size="level-3" className="ams-mb--sm">
-          Help
-        </Heading>
-        <LinkList>
-          {defaultStoryLinks[2].map(({ label, href }) => (
-            <LinkList.Link key={label} href={href}>
-              {label}
-            </LinkList.Link>
-          ))}
-        </LinkList>
-      </Grid.Cell>,
-    ],
+    children: (
+      // TODO: Add noInlinePadding to Grid?
+      <Grid paddingBottom="large" style={{ paddingInline: 0 }}>
+        <Header.SecondaryLinkList>
+          <Header.SecondaryLinkListLink href="#">Inloggen</Header.SecondaryLinkListLink>
+        </Header.SecondaryLinkList>
+        <Grid.Cell span={4}>
+          <Heading level={2} size="level-3" className="ams-mb--sm">
+            Onderdelen
+          </Heading>
+          <LinkList>
+            {defaultStoryLinks[0].map(({ label, href }) => (
+              <LinkList.Link key={label} href={href}>
+                {label}
+              </LinkList.Link>
+            ))}
+          </LinkList>
+        </Grid.Cell>
+        <Grid.Cell span={4}>
+          <Heading level={2} size="level-3" className="ams-mb--sm">
+            Over ons
+          </Heading>
+          <LinkList>
+            {defaultStoryLinks[1].map(({ label, href }) => (
+              <LinkList.Link key={label} href={href}>
+                {label}
+              </LinkList.Link>
+            ))}
+          </LinkList>
+        </Grid.Cell>
+        <Grid.Cell span={4}>
+          <Heading level={2} size="level-3" className="ams-mb--sm">
+            Help
+          </Heading>
+          <LinkList>
+            {defaultStoryLinks[2].map(({ label, href }) => (
+              <LinkList.Link key={label} href={href}>
+                {label}
+              </LinkList.Link>
+            ))}
+          </LinkList>
+        </Grid.Cell>
+      </Grid>
+    ),
   },
 }
 
@@ -105,15 +108,13 @@ export const WithoutMenuButtonOnWideScreen: Story = {
       </Header.MenuLink>
     )),
     children: (
-      <Grid.Cell span="all">
-        <LinkList>
-          {WithoutMenuButtonOnWideScreenStoryLinks.map(({ label, href }) => (
-            <LinkList.Link key={label} href={href}>
-              {label}
-            </LinkList.Link>
-          ))}
-        </LinkList>
-      </Grid.Cell>
+      <LinkList className="ams-mb--lg">
+        {WithoutMenuButtonOnWideScreenStoryLinks.map(({ label, href }) => (
+          <LinkList.Link key={label} href={href}>
+            {label}
+          </LinkList.Link>
+        ))}
+      </LinkList>
     ),
   },
 }
