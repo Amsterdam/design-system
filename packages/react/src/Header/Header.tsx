@@ -82,7 +82,7 @@ const HeaderRoot = forwardRef(
             </h2>
 
             {/* The logo and app name section is recreated here, to make sure the page menu breaks at the right spot */}
-            <div className="ams-header__brand-section" aria-hidden style={{ opacity: 0 }}>
+            <div className="ams-header__brand-section ams-header__brand-section--hidden" aria-hidden>
               <div className="ams-header__logo-link">
                 <Logo brand={logoBrand} />
               </div>

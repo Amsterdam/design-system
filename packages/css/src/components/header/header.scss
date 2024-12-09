@@ -18,6 +18,11 @@
   grid-area: 1 / 1;
 }
 
+.ams-header__brand-section--hidden {
+  opacity: 0%;
+  user-select: none;
+}
+
 .ams-header__logo-link {
   outline-offset: var(--ams-header-logo-link-outline-offset);
 }
