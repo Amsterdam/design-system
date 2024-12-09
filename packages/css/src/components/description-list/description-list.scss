@@ -25,20 +25,39 @@
 }
 
 @media screen and (min-width: $ams-breakpoint-medium) {
-  .ams-description-list {
+  .ams-description-list__section {
+    column-gap: var(--ams-description-list-column-gap);
+    display: grid;
+    grid-auto-flow: dense;
+    grid-column: span 2;
+  }
+
+  .ams-description-list,
+  .ams-description-list__section {
     grid-template-columns: auto 1fr;
   }
 
-  .ams-description-list--terms-width-sm {
+  .ams-description-list--terms-width-sm,
+  .ams-description-list--terms-width-sm .ams-description-list__section {
     grid-template-columns: 1fr 4fr;
   }
 
-  .ams-description-list--terms-width-md {
+  .ams-description-list--terms-width-md,
+  .ams-description-list--terms-width-md .ams-description-list__section {
     grid-template-columns: 1fr 2fr;
   }
 
-  .ams-description-list--terms-width-lg {
+  .ams-description-list--terms-width-lg,
+  .ams-description-list--terms-width-lg .ams-description-list__section {
     grid-template-columns: 1fr 1fr;
+  }
+}
+
+// Solution for browsers that support subgrid, the group will align to the parent grid
+// This selector is to increase specificity to override the previously set grid-template-columns
+@supports (grid-template-columns: subgrid) {
+  .ams-description-list .ams-description-list__section {
+    grid-template-columns: subgrid;
   }
 }
 
