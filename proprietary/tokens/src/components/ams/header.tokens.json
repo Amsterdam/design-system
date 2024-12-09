@@ -29,6 +29,7 @@
           "font-weight": { "value": "{ams.text.font-weight.normal}" },
           "line-height": { "value": "{ams.text.level.6.line-height}" },
           "outline-offset": { "value": "{ams.focus.outline-offset}" },
+          "padding-block": { "value": "{ams.space.xs}" },
           "hover": {
             "color": { "value": "{ams.link-appearance.hover.color}" }
           }

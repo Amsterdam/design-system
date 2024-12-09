@@ -81,6 +81,7 @@
   font-weight: var(--ams-header-menu-item-font-weight);
   line-height: var(--ams-header-menu-item-line-height);
   outline-offset: var(--ams-header-menu-item-outline-offset);
+  padding-block: var(--ams-header-menu-item-padding-block);
   touch-action: manipulation;
   white-space: nowrap;
 
@@ -92,6 +93,7 @@
 }
 
 .ams-header__menu-link {
+  display: inline-block;
   text-decoration-line: var(--ams-header-menu-link-text-decoration-line);
   text-decoration-thickness: var(--ams-header-menu-link-text-decoration-thickness);
   text-underline-offset: var(--ams-header-menu-link-text-underline-offset);
@@ -114,7 +116,6 @@
   border: 0;
   margin-block: 0; // [1]
   margin-inline: 0; // [1]
-  padding-block: 0;
   padding-inline: 0;
 
   // [1] Remove the margin in older Safari.
