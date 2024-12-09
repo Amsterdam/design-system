@@ -4,7 +4,7 @@
  */
 
 @use "../../common/hyphenation";
-@use "../../common/text-rendering";
+@use "../../common/text-rendering" as *;
 
 @mixin reset-fieldset {
   border: 0;
@@ -47,6 +47,6 @@
   ); /* Because of a bug in Chrome we can’t use display grid or flex for this gap */
 
   @include hyphenation.hyphenation;
-  @include text-rendering.text-rendering;
+  @include text-rendering;
   @include reset-legend;
 }

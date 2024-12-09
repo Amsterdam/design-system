@@ -4,7 +4,7 @@
  */
 
 @use "../../common/hyphenation";
-@use "../../common/text-rendering";
+@use "../../common/text-rendering" as *;
 
 @mixin reset-blockquote {
   margin-block: 0;
@@ -22,7 +22,7 @@
   quotes: "“" "”";
 
   @include hyphenation.hyphenation;
-  @include text-rendering.text-rendering;
+  @include text-rendering;
   @include reset-blockquote;
 
   &::before {

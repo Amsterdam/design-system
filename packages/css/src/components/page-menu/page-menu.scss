@@ -3,7 +3,7 @@
  * Copyright Gemeente Amsterdam
  */
 
-@use "../../common/text-rendering";
+@use "../../common/text-rendering" as *;
 
 @mixin reset-ul {
   margin-block: 0;
@@ -53,7 +53,7 @@
   box-sizing: border-box;
 
   @include page-menu-item;
-  @include text-rendering.text-rendering;
+  @include text-rendering;
 }
 
 .ams-page-menu__link:hover,

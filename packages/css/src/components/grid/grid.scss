@@ -4,91 +4,91 @@
  */
 
 @use "../../common/breakpoint";
-@use "mixins";
+@use "mixins" as *;
 
 $ams-grid-column-count: 12;
 
 .ams-grid {
-  @include mixins.ams-grid;
+  @include ams-grid;
 }
 
 // Grid gap
 
 .ams-grid--gap-vertical--none {
-  @include mixins.ams-grid--gap-vertical--none;
+  @include ams-grid--gap-vertical--none;
 }
 
 .ams-grid--gap-vertical--small {
-  @include mixins.ams-grid--gap-vertical--small;
+  @include ams-grid--gap-vertical--small;
 }
 
 .ams-grid--gap-vertical--large {
-  @include mixins.ams-grid--gap-vertical--large;
+  @include ams-grid--gap-vertical--large;
 }
 
 // Grid padding
 
 .ams-grid--padding-bottom--small {
-  @include mixins.ams-grid--padding-bottom--small;
+  @include ams-grid--padding-bottom--small;
 }
 
 .ams-grid--padding-bottom--medium {
-  @include mixins.ams-grid--padding-bottom--medium;
+  @include ams-grid--padding-bottom--medium;
 }
 
 .ams-grid--padding-bottom--large {
-  @include mixins.ams-grid--padding-bottom--large;
+  @include ams-grid--padding-bottom--large;
 }
 
 .ams-grid--padding-top--small {
-  @include mixins.ams-grid--padding-top--small;
+  @include ams-grid--padding-top--small;
 }
 
 .ams-grid--padding-top--medium {
-  @include mixins.ams-grid--padding-top--medium;
+  @include ams-grid--padding-top--medium;
 }
 
 .ams-grid--padding-top--large {
-  @include mixins.ams-grid--padding-top--large;
+  @include ams-grid--padding-top--large;
 }
 
 .ams-grid--padding-vertical--small {
-  @include mixins.ams-grid--padding-vertical--small;
+  @include ams-grid--padding-vertical--small;
 }
 
 .ams-grid--padding-vertical--medium {
-  @include mixins.ams-grid--padding-vertical--medium;
+  @include ams-grid--padding-vertical--medium;
 }
 
 .ams-grid--padding-vertical--large {
-  @include mixins.ams-grid--padding-vertical--large;
+  @include ams-grid--padding-vertical--large;
 }
 
 // Column span
 // The order of these declaration blocks ensures the intended specificity.
 
 .ams-grid__cell--span-all {
-  @include mixins.ams-grid__cell--span-all;
+  @include ams-grid__cell--span-all;
 }
 
 @for $i from 1 through $ams-grid-column-count {
   .ams-grid__cell--span-#{$i} {
-    @include mixins.ams-grid__cell--span($i);
+    @include ams-grid__cell--span($i);
   }
 
   .ams-grid__cell--start-#{$i} {
-    @include mixins.ams-grid__cell--start($i);
+    @include ams-grid__cell--start($i);
   }
 }
 
 @media screen and (min-width: breakpoint.$ams-breakpoint-medium) {
   @for $i from 1 through $ams-grid-column-count {
     .ams-grid__cell--span-#{$i}-medium {
-      @include mixins.ams-grid__cell--span-medium($i);
+      @include ams-grid__cell--span-medium($i);
     }
 
     .ams-grid__cell--start-#{$i}-medium {
-      @include mixins.ams-grid__cell--start-medium($i);
+      @include ams-grid__cell--start-medium($i);
     }
   }
 }
@@ -96,11 +96,11 @@ $ams-grid-column-count: 12;
 @media screen and (min-width: breakpoint.$ams-breakpoint-wide) {
   @for $i from 1 through $ams-grid-column-count {
     .ams-grid__cell--span-#{$i}-wide {
-      @include mixins.ams-grid__cell--span-wide($i);
+      @include ams-grid__cell--span-wide($i);
     }
 
     .ams-grid__cell--start-#{$i}-wide {
-      @include mixins.ams-grid__cell--start-wide($i);
+      @include ams-grid__cell--start-wide($i);
     }
   }
 }

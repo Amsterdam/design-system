@@ -4,7 +4,7 @@
  */
 
 @use "../../common/hyphenation";
-@use "../../common/text-rendering";
+@use "../../common/text-rendering" as *;
 
 .ams-label {
   color: var(--ams-label-color);
@@ -14,5 +14,5 @@
   line-height: var(--ams-label-line-height);
 
   @include hyphenation.hyphenation;
-  @include text-rendering.text-rendering;
+  @include text-rendering;
 }

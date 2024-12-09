@@ -3,7 +3,7 @@
  * Copyright Gemeente Amsterdam
  */
 
-@use "../../common/text-rendering";
+@use "../../common/text-rendering" as *;
 
 @mixin reset-ul {
   list-style: none;
@@ -16,7 +16,7 @@
   display: grid;
   gap: var(--ams-unordered-list-gap);
 
-  @include text-rendering.text-rendering;
+  @include text-rendering;
   @include reset-ul;
 }
 

@@ -3,7 +3,7 @@
  * Copyright Gemeente Amsterdam
  */
 
-@use "../../common/text-rendering";
+@use "../../common/text-rendering" as *;
 
 @mixin reset-ol {
   list-style-type: none;
@@ -45,7 +45,7 @@
   text-underline-offset: var(--ams-pagination-button-text-underline-offset);
   touch-action: manipulation;
 
-  @include text-rendering.text-rendering;
+  @include text-rendering;
 
   &:disabled {
     display: none;

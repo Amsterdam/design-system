@@ -4,7 +4,7 @@
  */
 
 @use "../../common/hyphenation";
-@use "../../common/text-rendering";
+@use "../../common/text-rendering" as *;
 
 .ams-top-task-link {
   break-inside: avoid;
@@ -27,7 +27,7 @@
   text-underline-offset: var(--ams-top-task-link-label-text-underline-offset);
 
   @include hyphenation.hyphenation;
-  @include text-rendering.text-rendering;
+  @include text-rendering;
 }
 
 .ams-top-task-link:hover .ams-top-task-link__label {

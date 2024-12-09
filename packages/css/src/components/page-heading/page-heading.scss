@@ -4,7 +4,7 @@
  */
 
 @use "../../common/hyphenation";
-@use "../../common/text-rendering";
+@use "../../common/text-rendering" as *;
 
 @mixin reset-h1 {
   margin-block: 0;
@@ -21,7 +21,7 @@
   line-height: var(--ams-page-heading-line-height);
 
   @include hyphenation.hyphenation;
-  @include text-rendering.text-rendering;
+  @include text-rendering;
   @include reset-h1;
 }
 

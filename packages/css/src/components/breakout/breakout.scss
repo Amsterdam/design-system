@@ -5,91 +5,91 @@
 
 @use "../../common/breakpoint";
 @use "../grid/grid";
-@use "../grid/mixins";
+@use "../grid/mixins" as *;
 
 $ams-breakout-row-span-max: 4;
 
 .ams-breakout {
-  @include mixins.ams-grid;
+  @include ams-grid;
 }
 
 // Grid gap
 
 .ams-breakout--gap-vertical--none {
-  @include mixins.ams-grid--gap-vertical--none;
+  @include ams-grid--gap-vertical--none;
 }
 
 .ams-breakout--gap-vertical--small {
-  @include mixins.ams-grid--gap-vertical--small;
+  @include ams-grid--gap-vertical--small;
 }
 
 .ams-breakout--gap-vertical--large {
-  @include mixins.ams-grid--gap-vertical--large;
+  @include ams-grid--gap-vertical--large;
 }
 
 // Grid padding
 
 .ams-breakout--padding-bottom--small {
-  @include mixins.ams-grid--padding-bottom--small;
+  @include ams-grid--padding-bottom--small;
 }
 
 .ams-breakout--padding-bottom--medium {
-  @include mixins.ams-grid--padding-bottom--medium;
+  @include ams-grid--padding-bottom--medium;
 }
 
 .ams-breakout--padding-bottom--large {
-  @include mixins.ams-grid--padding-bottom--large;
+  @include ams-grid--padding-bottom--large;
 }
 
 .ams-breakout--padding-top--small {
-  @include mixins.ams-grid--padding-top--small;
+  @include ams-grid--padding-top--small;
 }
 
 .ams-breakout--padding-top--medium {
-  @include mixins.ams-grid--padding-top--medium;
+  @include ams-grid--padding-top--medium;
 }
 
 .ams-breakout--padding-top--large {
-  @include mixins.ams-grid--padding-top--large;
+  @include ams-grid--padding-top--large;
 }
 
 .ams-breakout--padding-vertical--small {
-  @include mixins.ams-grid--padding-vertical--small;
+  @include ams-grid--padding-vertical--small;
 }
 
 .ams-breakout--padding-vertical--medium {
-  @include mixins.ams-grid--padding-vertical--medium;
+  @include ams-grid--padding-vertical--medium;
 }
 
 .ams-breakout--padding-vertical--large {
-  @include mixins.ams-grid--padding-vertical--large;
+  @include ams-grid--padding-vertical--large;
 }
 
 // Column span
 // The order of these declaration blocks ensures the intended specificity.
 
 .ams-breakout__cell--col-span-all {
-  @include mixins.ams-grid__cell--span-all;
+  @include ams-grid__cell--span-all;
 }
 
 @for $i from 1 through grid.$ams-grid-column-count {
   .ams-breakout__cell--col-span-#{$i} {
-    @include mixins.ams-grid__cell--span($i);
+    @include ams-grid__cell--span($i);
   }
 
   .ams-breakout__cell--col-start-#{$i} {
-    @include mixins.ams-grid__cell--start($i);
+    @include ams-grid__cell--start($i);
   }
 }
 
 @media screen and (min-width: breakpoint.$ams-breakpoint-medium) {
   @for $i from 1 through grid.$ams-grid-column-count {
     .ams-breakout__cell--col-span-#{$i}-medium {
-      @include mixins.ams-grid__cell--span-medium($i);
+      @include ams-grid__cell--span-medium($i);
     }
 
     .ams-breakout__cell--col-start-#{$i}-medium {
-      @include mixins.ams-grid__cell--start-medium($i);
+      @include ams-grid__cell--start-medium($i);
     }
   }
 }
@@ -97,11 +97,11 @@ $ams-breakout-row-span-max: 4;
 @media screen and (min-width: breakpoint.$ams-breakpoint-wide) {
   @for $i from 1 through grid.$ams-grid-column-count {
     .ams-breakout__cell--col-span-#{$i}-wide {
-      @include mixins.ams-grid__cell--span-wide($i);
+      @include ams-grid__cell--span-wide($i);
     }
 
     .ams-breakout__cell--col-start-#{$i}-wide {
-      @include mixins.ams-grid__cell--start-wide($i);
+      @include ams-grid__cell--start-wide($i);
     }
   }
 }

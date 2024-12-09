@@ -3,7 +3,7 @@
  * Copyright Gemeente Amsterdam
  */
 
-@use "../../common/text-rendering";
+@use "../../common/text-rendering" as *;
 
 @mixin reset-textarea {
   -webkit-appearance: none; // Reset appearance for Safari < 15.4
@@ -30,7 +30,7 @@
   padding-inline: var(--ams-text-area-padding-inline);
   touch-action: manipulation;
 
-  @include text-rendering.text-rendering;
+  @include text-rendering;
   @include reset-textarea;
 
   &:hover {

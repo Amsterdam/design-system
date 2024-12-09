@@ -5,7 +5,7 @@
 
 @use "../../common/input-label-focus";
 @use "../../common/hide-input";
-@use "../../common/text-rendering";
+@use "../../common/text-rendering" as *;
 
 .ams-radio__input {
   @include hide-input.hide-input;
@@ -26,7 +26,7 @@
   text-decoration-thickness: var(--ams-radio-text-decoration-thickness);
   text-underline-offset: var(--ams-radio-text-underline-offset);
 
-  @include text-rendering.text-rendering;
+  @include text-rendering;
 }
 
 .ams-radio__icon-container {

@@ -3,7 +3,7 @@
  * Copyright Gemeente Amsterdam
  */
 
-@use "../../common/text-rendering";
+@use "../../common/text-rendering" as *;
 
 .ams-search-field {
   display: flex;
@@ -33,7 +33,7 @@
   padding-inline: var(--ams-search-field-input-padding-inline);
   touch-action: manipulation;
 
-  @include text-rendering.text-rendering;
+  @include text-rendering;
   @include reset-input;
 
   &:hover {

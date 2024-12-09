@@ -4,7 +4,7 @@
  */
 
 @use "../../common/hyphenation";
-@use "../../common/text-rendering";
+@use "../../common/text-rendering" as *;
 
 @mixin reset-ul {
   list-style: none;
@@ -17,7 +17,7 @@
   display: grid;
   gap: var(--ams-link-list-gap);
 
-  @include text-rendering.text-rendering;
+  @include text-rendering;
   @include reset-ul;
 }
 

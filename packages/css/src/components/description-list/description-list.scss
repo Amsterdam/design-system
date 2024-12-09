@@ -4,7 +4,7 @@
  */
 
 @use "../../common/breakpoint";
-@use "../../common/text-rendering";
+@use "../../common/text-rendering" as *;
 
 @mixin reset-dl {
   margin-block: 0;
@@ -21,7 +21,7 @@
   row-gap: var(--ams-description-list-row-gap);
 
   @include reset-dl;
-  @include text-rendering.text-rendering;
+  @include text-rendering;
 }
 
 @media screen and (min-width: breakpoint.$ams-breakpoint-medium) {

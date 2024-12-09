@@ -4,7 +4,7 @@
  */
 
 @use "../../common/hyphenation";
-@use "../../common/text-rendering";
+@use "../../common/text-rendering" as *;
 
 @mixin reset-hx {
   margin-block: 0;
@@ -19,7 +19,7 @@
   font-weight: var(--ams-heading-font-weight);
 
   @include hyphenation.hyphenation;
-  @include text-rendering.text-rendering;
+  @include text-rendering;
   @include reset-hx;
 }
 

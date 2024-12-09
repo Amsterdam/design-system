@@ -3,7 +3,7 @@
  * Copyright Gemeente Amsterdam
  */
 
-@use "../../common/text-rendering";
+@use "../../common/text-rendering" as *;
 
 .ams-link {
   color: var(--ams-link-color);
@@ -11,7 +11,7 @@
   font-weight: var(--ams-link-font-weight);
   outline-offset: var(--ams-link-outline-offset);
 
-  @include text-rendering.text-rendering;
+  @include text-rendering;
 
   &:hover {
     color: var(--ams-link-hover-color);
