@@ -39,8 +39,11 @@ export const Default: Story = {
   args: {
     appName: 'Data Amsterdam',
     menuItems: [
-      <Header.MenuLink key={1} href="#" secondary>
+      <Header.MenuLink key={1} href="#">
         Inloggen
+      </Header.MenuLink>,
+      <Header.MenuLink key={2} href="#" fixed>
+        Zoeken
       </Header.MenuLink>,
     ],
     showMenuButton: 'always',
@@ -98,17 +101,21 @@ const WithoutMenuButtonOnWideScreenStoryLinks = [
   { label: 'Techniek', href: '#' },
   { label: 'Historie', href: '#' },
   { label: 'Duurzaamheid', href: '#' },
-  { label: 'Zoeken', href: '#' },
 ]
 
 export const WithoutMenuButtonOnWideScreen: Story = {
   args: {
     appName: 'Aan de Amsterdamse grachten',
-    menuItems: WithoutMenuButtonOnWideScreenStoryLinks.map(({ label, href }) => (
-      <Header.MenuLink key={label} href={href} secondary>
-        {label}
-      </Header.MenuLink>
-    )),
+    menuItems: [
+      WithoutMenuButtonOnWideScreenStoryLinks.map(({ label, href }) => (
+        <Header.MenuLink key={label} href={href}>
+          {label}
+        </Header.MenuLink>
+      )),
+      <Header.MenuLink key={2} href="#" fixed>
+        Zoeken
+      </Header.MenuLink>,
+    ],
     children: (
       <LinkList className="ams-mb--lg">
         {WithoutMenuButtonOnWideScreenStoryLinks.map(({ label, href }) => (

@@ -2,12 +2,12 @@ import clsx from 'clsx'
 import { AnchorHTMLAttributes, ForwardedRef, forwardRef, PropsWithChildren } from 'react'
 
 export type HeaderMenuLinkProps = {
-  secondary?: boolean
+  fixed?: boolean
 } & PropsWithChildren<AnchorHTMLAttributes<HTMLAnchorElement>>
 
 export const HeaderMenuLink = forwardRef(
-  ({ children, secondary, ...restProps }: HeaderMenuLinkProps, ref: ForwardedRef<HTMLAnchorElement>) => (
-    <li className={clsx(secondary && 'ams-header__menu-item--secondary')}>
+  ({ children, fixed, ...restProps }: HeaderMenuLinkProps, ref: ForwardedRef<HTMLAnchorElement>) => (
+    <li className={clsx('ams-header__menu-item', fixed && 'ams-header__menu-item--fixed')}>
       <a {...restProps} className="ams-header__menu-link" ref={ref}>
         {children}
       </a>

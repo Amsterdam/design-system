@@ -53,10 +53,14 @@
   @include reset-list;
 }
 
-.ams-header__menu-item--secondary {
+.ams-header__menu-item {
   @media screen and (not (min-width: $ams-breakpoint-wide)) {
     display: none;
   }
+}
+
+.ams-header__menu-item--fixed {
+  display: revert;
 }
 
 @mixin shared-styles {
