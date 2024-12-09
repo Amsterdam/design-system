@@ -106,12 +106,12 @@ export const WithoutMenuButtonOnWideScreen: Story = {
   args: {
     appName: 'Aan de Amsterdamse grachten',
     menuItems: [
-      WithoutMenuButtonOnWideScreenStoryLinks.map(({ label, href }) => (
+      ...WithoutMenuButtonOnWideScreenStoryLinks.map(({ label, href }) => (
         <Header.MenuLink key={label} href={href}>
           {label}
         </Header.MenuLink>
       )),
-      <Header.MenuLink key={2} href="#" fixed>
+      <Header.MenuLink key="Zoeken" href="#" fixed>
         Zoeken
       </Header.MenuLink>,
     ],
