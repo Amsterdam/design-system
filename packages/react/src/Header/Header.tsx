@@ -70,7 +70,7 @@ const HeaderRoot = forwardRef(
             <Logo brand={logoBrand} />
           </a>
           {appName && (
-            <Heading level={1} size="level-5">
+            <Heading level={1} size="level-5" className="ams-header__app-name">
               {appName}
             </Heading>
           )}
@@ -86,7 +86,7 @@ const HeaderRoot = forwardRef(
               <div className="ams-header__logo-link">
                 <Logo brand={logoBrand} />
               </div>
-              {appName && <span className="ams-heading ams-heading--level-5">{appName}</span>}
+              {appName && <span className="ams-heading ams-heading--level-5 ams-header__app-name">{appName}</span>}
             </div>
 
             <ul className="ams-header__menu">
