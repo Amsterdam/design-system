@@ -3,7 +3,7 @@
  * Copyright Gemeente Amsterdam
  */
 
-@import "../../common/size";
+@use "../../common/size";
 
 .ams-column {
   display: flex;
@@ -11,7 +11,7 @@
   gap: var(--ams-column-gap-md);
 }
 
-@each $size, $label in $ams-sizes {
+@each $size, $label in size.$ams-sizes {
   @if $size != "md" {
     .ams-column--gap-#{$label} {
       gap: var(--ams-column-gap-#{$size});

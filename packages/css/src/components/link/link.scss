@@ -3,7 +3,7 @@
  * Copyright Gemeente Amsterdam
  */
 
-@import "../../common/text-rendering";
+@use "../../common/text-rendering" as *;
 
 .ams-link {
   color: var(--ams-link-color);
