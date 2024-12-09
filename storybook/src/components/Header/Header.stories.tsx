@@ -46,7 +46,6 @@ export const Default: Story = {
         Zoeken
       </Header.MenuLink>,
     ],
-    showMenuButton: 'always',
     children: (
       // TODO: Add noInlinePadding to Grid?
       <Grid paddingBottom="large" style={{ paddingInline: 0 }}>
@@ -116,6 +115,7 @@ export const WithoutMenuButtonOnWideScreen: Story = {
         Zoeken
       </Header.MenuLink>,
     ],
+    noMenuButtonOnWideScreen: true,
     children: (
       <LinkList className="ams-mb--lg">
         {WithoutMenuButtonOnWideScreenStoryLinks.map(({ label, href }) => (
@@ -131,7 +131,6 @@ export const WithoutMenuButtonOnWideScreen: Story = {
 export const WithoutMenuButton: Story = {
   args: {
     appName: 'Mijn Amsterdam',
-    showMenuButton: 'never',
   },
 }
 
@@ -140,7 +139,6 @@ export const WithCustomLogoLink: Story = {
     logoBrand: 'ggd-amsterdam',
     logoLink: 'https://www.ggd.amsterdam.nl/',
     logoLinkTitle: 'Naar de homepage van de GGD Amsterdam',
-    showMenuButton: 'never',
   },
 }
 
@@ -148,6 +146,14 @@ export const WithCustomTexts: Story = {
   args: {
     menuButtonText: 'Hoofdmenu',
     navigationLabel: 'Navigatie',
-    showMenuButton: 'always',
+    children: (
+      <Grid style={{ paddingInline: 0 }}>
+        <Grid.Cell span="all">
+          <LinkList>
+            <LinkList.Link href="#">Inloggen</LinkList.Link>
+          </LinkList>
+        </Grid.Cell>
+      </Grid>
+    ),
   },
 }

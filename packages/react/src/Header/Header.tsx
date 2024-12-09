@@ -30,14 +30,13 @@ export type HeaderProps = {
   menuButtonText?: string
   /** The accessible label for the navigation section. */
   navigationLabel?: string
-  /** When to show the menu button. The default is show only when the screen is narrow. */
-  showMenuButton?: 'always' | 'never'
+  /** Whether the menu button is visible on wide screens.  */
+  noMenuButtonOnWideScreen?: boolean
 } & HTMLAttributes<HTMLElement>
 
 const HeaderRoot = forwardRef(
   (
     {
-      showMenuButton,
       appName,
       className,
       children,
@@ -47,6 +46,7 @@ const HeaderRoot = forwardRef(
       menuItems,
       menuButtonText = 'Menu',
       navigationLabel = 'Hoofdnavigatie',
+      noMenuButtonOnWideScreen,
       ...restProps
     }: HeaderProps,
     ref: ForwardedRef<HTMLElement>,
@@ -57,7 +57,7 @@ const HeaderRoot = forwardRef(
 
     useEffect(() => {
       // Close the menu when the menu button disappears
-      if (!showMenuButton && isWideScreen) {
+      if (noMenuButtonOnWideScreen && isWideScreen) {
         setOpen(false)
       }
     }, [isWideScreen])
@@ -75,7 +75,7 @@ const HeaderRoot = forwardRef(
             </Heading>
           )}
         </div>
-        {showMenuButton !== 'never' && (
+        {(children || menuItems) && (
           <nav className="ams-header__navigation" aria-labelledby="primary-navigation">
             <h2 id="primary-navigation" className="ams-visually-hidden">
               {navigationLabel}
@@ -92,10 +92,7 @@ const HeaderRoot = forwardRef(
             <ul className="ams-header__menu">
               {menuItems}
               <li
-                className={clsx(
-                  'ams-header__mega-menu-button-item',
-                  showMenuButton === 'always' && 'ams-header__mega-menu-button-item--show-always',
-                )}
+                className={clsx(noMenuButtonOnWideScreen && 'ams-header__mega-menu-button-item--hide-on-wide-screen')}
               >
                 <button
                   {...restProps}

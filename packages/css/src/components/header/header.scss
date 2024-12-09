@@ -103,7 +103,7 @@
   }
 }
 
-.ams-header__mega-menu-button-item:not(.ams-header__mega-menu-button-item--show-always) {
+.ams-header__mega-menu-button-item--hide-on-wide-screen {
   @media screen and (min-width: $ams-breakpoint-wide) {
     display: none;
   }
