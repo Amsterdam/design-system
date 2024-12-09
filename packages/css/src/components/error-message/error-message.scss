@@ -3,7 +3,7 @@
  * Copyright Gemeente Amsterdam
  */
 
-@import "../../common/text-rendering";
+@use "../../common/text-rendering";
 
 @mixin reset-p {
   margin-block: 0;
@@ -19,6 +19,6 @@
   gap: var(--ams-error-message-gap);
   line-height: var(--ams-error-message-line-height);
 
-  @include text-rendering;
+  @include text-rendering.text-rendering;
   @include reset-p;
 }

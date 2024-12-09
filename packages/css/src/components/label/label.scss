@@ -3,8 +3,8 @@
  * Copyright Gemeente Amsterdam
  */
 
-@import "../../common/hyphenation";
-@import "../../common/text-rendering";
+@use "../../common/hyphenation";
+@use "../../common/text-rendering";
 
 .ams-label {
   color: var(--ams-label-color);
@@ -13,6 +13,6 @@
   font-weight: var(--ams-label-font-weight);
   line-height: var(--ams-label-line-height);
 
-  @include hyphenation;
-  @include text-rendering;
+  @include hyphenation.hyphenation;
+  @include text-rendering.text-rendering;
 }

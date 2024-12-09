@@ -3,7 +3,7 @@
  * Copyright Gemeente Amsterdam
  */
 
-@import "../../common/text-rendering";
+@use "../../common/text-rendering";
 
 @mixin reset-ol {
   margin-block: 0;
@@ -22,7 +22,7 @@
   break-after: avoid;
   break-inside: avoid;
 
-  @include text-rendering;
+  @include text-rendering.text-rendering;
   @include reset-ol;
 }
 

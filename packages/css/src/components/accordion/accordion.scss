@@ -3,14 +3,14 @@
  * Copyright Gemeente Amsterdam
  */
 
-@import "../../common/text-rendering";
+@use "../../common/text-rendering";
 
 .ams-accordion {
   display: flex;
   flex-direction: column;
   gap: var(--ams-accordion-gap);
 
-  @include text-rendering;
+  @include text-rendering.text-rendering;
 }
 
 .ams-accordion__header {

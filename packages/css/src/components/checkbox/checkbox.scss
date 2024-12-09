@@ -3,13 +3,13 @@
  * Copyright Gemeente Amsterdam
  */
 
-@import "../../common/input-label-focus";
-@import "../../common/hide-input";
-@import "../../common/text-rendering";
+@use "../../common/input-label-focus";
+@use "../../common/hide-input";
+@use "../../common/text-rendering";
 
 .ams-checkbox__input {
-  @include hide-input;
-  @include input-label-focus;
+  @include hide-input.hide-input;
+  @include input-label-focus.input-label-focus;
 }
 
 .ams-checkbox__checkmark {
@@ -44,7 +44,7 @@
   line-height: var(--ams-checkbox-line-height);
   outline-offset: var(--ams-checkbox-outline-offset);
 
-  @include text-rendering;
+  @include text-rendering.text-rendering;
 
   &:hover {
     color: var(--ams-checkbox-hover-color);

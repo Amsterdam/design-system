@@ -3,7 +3,7 @@
  * Copyright Gemeente Amsterdam
  */
 
-@import "../../common/breakpoint";
+@use "../../common/breakpoint";
 
 .ams-header {
   align-items: center;
@@ -12,7 +12,7 @@
   padding-block: var(--ams-header-padding-block);
   row-gap: 1.5rem;
 
-  @media screen and (min-width: $ams-breakpoint-wide) {
+  @media screen and (min-width: breakpoint.$ams-breakpoint-wide) {
     column-gap: var(--ams-header-column-gap);
     flex-wrap: nowrap;
   }
@@ -26,12 +26,12 @@
 .ams-header__links {
   display: none;
 
-  @media screen and (min-width: $ams-breakpoint-medium) {
+  @media screen and (min-width: breakpoint.$ams-breakpoint-medium) {
     display: block;
     flex: 10 0 auto;
   }
 
-  @media screen and (min-width: $ams-breakpoint-wide) {
+  @media screen and (min-width: breakpoint.$ams-breakpoint-wide) {
     order: 3;
   }
 }
@@ -41,7 +41,7 @@
   padding-inline-start: var(--ams-page-menu-column-gap); // TODO Don’t use tokens of another component
   text-align: end;
 
-  @media screen and (min-width: $ams-breakpoint-wide) {
+  @media screen and (min-width: breakpoint.$ams-breakpoint-wide) {
     order: 4;
     padding-inline-start: 0;
   }
@@ -50,7 +50,7 @@
 .ams-header__app-name {
   flex: 1 1 100%;
 
-  @media screen and (min-width: $ams-breakpoint-wide) {
+  @media screen and (min-width: breakpoint.$ams-breakpoint-wide) {
     min-inline-size: 0;
     order: 2;
 

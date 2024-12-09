@@ -3,8 +3,8 @@
  * Copyright Gemeente Amsterdam
  */
 
-@import "../../common/hyphenation";
-@import "../../common/text-rendering";
+@use "../../common/hyphenation";
+@use "../../common/text-rendering";
 
 @mixin reset-ul {
   list-style: none;
@@ -17,7 +17,7 @@
   display: grid;
   gap: var(--ams-link-list-gap);
 
-  @include text-rendering;
+  @include text-rendering.text-rendering;
   @include reset-ul;
 }
 
@@ -50,7 +50,7 @@
   font-size: var(--ams-link-list-link-large-font-size);
   line-height: var(--ams-link-list-link-large-line-height);
 
-  @include hyphenation;
+  @include hyphenation.hyphenation;
 }
 
 .ams-link-list__link--contrast-color {

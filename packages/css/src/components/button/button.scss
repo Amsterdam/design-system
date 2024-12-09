@@ -3,7 +3,7 @@
  * Copyright Gemeente Amsterdam
  */
 
-@import "../../common/text-rendering";
+@use "../../common/text-rendering";
 
 @mixin reset-button {
   border: 0;
@@ -26,7 +26,7 @@
   padding-inline: var(--ams-button-padding-inline);
   touch-action: manipulation;
 
-  @include text-rendering;
+  @include text-rendering.text-rendering;
   @include reset-button;
 
   &:disabled,
