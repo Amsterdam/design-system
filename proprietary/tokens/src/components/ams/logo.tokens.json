@@ -1,8 +1,9 @@
 {
   "ams": {
     "logo": {
-      "block-size": { "value": "2.5rem" },
+      "block-size": { "value": "{ams.space.grid.md}" },
       "emblem": { "color": { "value": "{ams.brand.color.red.60}" } },
+      "min-block-size": { "value": "2.5rem" },
       "title": { "color": { "value": "{ams.brand.color.red.60}" } },
       "subsite": { "color": { "value": "{ams.brand.color.neutral.100}" } }
     }
