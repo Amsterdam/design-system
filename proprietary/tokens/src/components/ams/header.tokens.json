@@ -19,6 +19,7 @@
       },
       "menu": {
         "column-gap": { "value": "{ams.space.grid.md}" },
+        "row-gap": { "value": "{ams.space.grid.xs}" },
         "item": {
           "color": { "value": "{ams.link-appearance.color}" },
           "column-gap": { "value": "{ams.space.xs}" },
