@@ -12,8 +12,7 @@ import { Logo } from '../Logo'
 import type { LogoBrand } from '../Logo'
 import { HeaderMenuIcon } from './HeaderMenuIcon'
 import { HeaderMenuLink } from './HeaderMenuLink'
-import { HeaderSecondaryLinkList } from './HeaderSecondaryLinkList'
-import { HeaderSecondaryLinkListLink } from './HeaderSecondaryLinkListLink'
+import { HeaderNarrowScreenOnlyGridCell } from './HeaderNarrowScreenOnlyGridCell'
 import useMediaQuery from '../common/useMediaQuery'
 
 export type HeaderProps = {
@@ -148,6 +147,5 @@ HeaderRoot.displayName = 'Header'
 
 export const Header = Object.assign(HeaderRoot, {
   MenuLink: HeaderMenuLink,
-  SecondaryLinkList: HeaderSecondaryLinkList,
-  SecondaryLinkListLink: HeaderSecondaryLinkListLink,
+  NarrowScreenOnlyGridCell: HeaderNarrowScreenOnlyGridCell,
 })

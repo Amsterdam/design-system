@@ -47,9 +47,11 @@ export const Default: Story = {
     children: (
       // TODO: Add noInlinePadding to Grid?
       <Grid paddingBottom="large" style={{ paddingInline: 0 }}>
-        <Header.SecondaryLinkList>
-          <Header.SecondaryLinkListLink href="#">Inloggen</Header.SecondaryLinkListLink>
-        </Header.SecondaryLinkList>
+        <Header.NarrowScreenOnlyGridCell span="all">
+          <LinkList>
+            <LinkList.Link href="#">Inloggen</LinkList.Link>
+          </LinkList>
+        </Header.NarrowScreenOnlyGridCell>
         <Grid.Cell span={4}>
           <Heading level={2} size="level-3" className="ams-mb--sm">
             Onderdelen
