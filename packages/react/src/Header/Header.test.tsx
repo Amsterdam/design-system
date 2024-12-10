@@ -1,5 +1,6 @@
 import { render, screen } from '@testing-library/react'
 // import { createRef } from 'react'
+import './matchMedia.mock'
 import { Header } from './Header'
 import '@testing-library/jest-dom'
 
