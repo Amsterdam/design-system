@@ -3,7 +3,7 @@
  * Copyright Gemeente Amsterdam
  */
 
-@use "../../common/hyphenation";
+@use "../../common/hyphenation" as *;
 @use "../../common/text-rendering" as *;
 
 .ams-top-task-link {
@@ -26,7 +26,7 @@
   text-decoration-thickness: var(--ams-top-task-link-label-text-decoration-thickness);
   text-underline-offset: var(--ams-top-task-link-label-text-underline-offset);
 
-  @include hyphenation.hyphenation;
+  @include hyphenation;
   @include text-rendering;
 }
 

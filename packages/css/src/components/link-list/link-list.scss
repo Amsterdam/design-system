@@ -3,7 +3,7 @@
  * Copyright Gemeente Amsterdam
  */
 
-@use "../../common/hyphenation";
+@use "../../common/hyphenation" as *;
 @use "../../common/text-rendering" as *;
 
 @mixin reset-ul {
@@ -50,7 +50,7 @@
   font-size: var(--ams-link-list-link-large-font-size);
   line-height: var(--ams-link-list-link-large-line-height);
 
-  @include hyphenation.hyphenation;
+  @include hyphenation;
 }
 
 .ams-link-list__link--contrast-color {

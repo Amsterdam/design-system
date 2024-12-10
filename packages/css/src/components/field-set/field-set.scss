@@ -3,7 +3,7 @@
  * Copyright Gemeente Amsterdam
  */
 
-@use "../../common/hyphenation";
+@use "../../common/hyphenation" as *;
 @use "../../common/text-rendering" as *;
 
 @mixin reset-fieldset {
@@ -46,7 +46,7 @@
     --ams-field-set-legend-margin-block-end
   ); /* Because of a bug in Chrome we can’t use display grid or flex for this gap */
 
-  @include hyphenation.hyphenation;
+  @include hyphenation;
   @include text-rendering;
   @include reset-legend;
 }

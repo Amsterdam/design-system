@@ -3,7 +3,7 @@
  * Copyright Gemeente Amsterdam
  */
 
-@use "../../common/hyphenation";
+@use "../../common/hyphenation" as *;
 @use "../../common/text-rendering" as *;
 
 @mixin reset-blockquote {
@@ -21,7 +21,7 @@
   line-height: var(--ams-blockquote-line-height);
   quotes: "“" "”";
 
-  @include hyphenation.hyphenation;
+  @include hyphenation;
   @include text-rendering;
   @include reset-blockquote;
 
