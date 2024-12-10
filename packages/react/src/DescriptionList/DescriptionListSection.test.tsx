@@ -18,7 +18,7 @@ describe('Description List Section', () => {
 
     const component = container.querySelector(':only-child')
 
-    expect(component).toHaveClass('ams-description-list__group')
+    expect(component).toHaveClass('ams-description-list__section')
   })
 
   it('renders an additional class name', () => {
@@ -26,7 +26,7 @@ describe('Description List Section', () => {
 
     const component = container.querySelector(':only-child')
 
-    expect(component).toHaveClass('ams-description-list__group extra')
+    expect(component).toHaveClass('ams-description-list__section extra')
   })
 
   it('supports ForwardRef in React', () => {
