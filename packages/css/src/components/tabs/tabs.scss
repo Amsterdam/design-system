@@ -28,6 +28,7 @@
 .ams-tabs__button {
   color: var(--ams-tabs-button-color);
   cursor: var(--ams-tabs-button-cursor);
+  display: grid;
   font-family: var(--ams-tabs-button-font-family);
   font-size: var(--ams-tabs-button-font-size);
   font-weight: var(--ams-tabs-button-font-weight);
@@ -61,4 +62,18 @@
       background-color: SelectedItem;
     }
   }
+}
+
+.ams-tabs__button-label,
+.ams-tabs__button-label-hidden {
+  grid-area: 1 / 1;
+}
+
+// This hidden label is used to prevent a layout shift when the mega menu is opened
+// and the button text becomes bold.
+.ams-tabs__button-label-hidden {
+  font-weight: var(--ams-tabs-button-selected-font-weight);
+  pointer-events: none;
+  user-select: none;
+  visibility: hidden;
 }
