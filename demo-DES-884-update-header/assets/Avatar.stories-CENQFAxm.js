@@ -1,0 +1,14 @@
+import{j as e}from"./jsx-runtime-j_jdvEMj.js";import{i as x}from"./index.esm-Dydeoktt.js";import{c as I}from"./clsx-B-dksMZM.js";import{r as j}from"./index-B-o1Wr-g.js";import{I as A}from"./Image-BeIE0HQj.js";import{I as k}from"./Icon-B6-t9cKk.js";const w=({imageSrc:a,initials:r})=>a?e.jsx(A,{alt:"",src:a}):r.length?e.jsx("span",{"aria-hidden":!0,children:r}):e.jsx(k,{svg:x,size:"level-6"}),o=j.forwardRef(({label:a,imageSrc:r,className:f,color:h="blue",...S},y)=>{const n=a.slice(0,2).toUpperCase(),_=n.length===0?"Gebruiker":`Initialen gebruiker: ${n}`;return e.jsxs("span",{...S,ref:y,className:I("ams-avatar",`ams-avatar--${h}`,r&&"ams-avatar--has-image",f),children:[e.jsx("span",{className:"ams-visually-hidden",children:_}),e.jsx(w,{imageSrc:r,initials:n})]})});o.displayName="Avatar";try{o.displayName="Avatar",o.__docgenInfo={description:"",displayName:"Avatar",props:{color:{defaultValue:{value:"blue"},description:"The background colour.",name:"color",required:!1,type:{name:"enum",value:[{value:'"azure"'},{value:'"black"'},{value:'"blue"'},{value:'"green"'},{value:'"lime"'},{value:'"magenta"'},{value:'"neutral-20"'},{value:'"neutral-40"'},{value:'"neutral-60"'},{value:'"neutral-80"'},{value:'"orange"'},{value:'"purple"'},{value:'"red"'},{value:'"white"'},{value:'"yellow"'}]}},imageSrc:{defaultValue:null,description:"The url for the user’s image. Its center will be displayed. Should be square and scaled down.",name:"imageSrc",required:!1,type:{name:"string"}},label:{defaultValue:null,description:"The text content. Should be the user’s initials. The first two characters will be displayed.",name:"label",required:!0,type:{name:"string"}}}}}catch{}/**
+ * @license EUPL-1.2+
+ * Copyright Gemeente Amsterdam
+ */const N={title:"Components/Feedback/Avatar",component:o,args:{label:"DS",imageSrc:""}},t={},s={args:{label:"PS",imageSrc:"https://i.pravatar.cc/128"}},l={args:{imageSrc:void 0,label:""}};var c,i,u;t.parameters={...t.parameters,docs:{...(c=t.parameters)==null?void 0:c.docs,source:{originalSource:"{}",...(u=(i=t.parameters)==null?void 0:i.docs)==null?void 0:u.source}}};var m,d,p;s.parameters={...s.parameters,docs:{...(m=s.parameters)==null?void 0:m.docs,source:{originalSource:`{
+  args: {
+    label: 'PS',
+    imageSrc: 'https://i.pravatar.cc/128'
+  }
+}`,...(p=(d=s.parameters)==null?void 0:d.docs)==null?void 0:p.source}}};var v,g,b;l.parameters={...l.parameters,docs:{...(v=l.parameters)==null?void 0:v.docs,source:{originalSource:`{
+  args: {
+    imageSrc: undefined,
+    label: ''
+  }
+}`,...(b=(g=l.parameters)==null?void 0:g.docs)==null?void 0:b.source}}};const T=["Default","WithImage","FallbackIcon"],E=Object.freeze(Object.defineProperty({__proto__:null,Default:t,FallbackIcon:l,WithImage:s,__namedExportsOrder:T,default:N},Symbol.toStringTag,{value:"Module"}));export{E as A,l as F,s as W};
