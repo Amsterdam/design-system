@@ -3,12 +3,12 @@
  * Copyright Gemeente Amsterdam
  */
 
-@import "../../common/input-label-focus";
-@import "../../common/hide-input";
+@use "../../common/input-label-focus";
+@use "../../common/hide-input";
 
 .ams-switch__input {
-  @include hide-input;
-  @include input-label-focus;
+  @include hide-input.hide-input;
+  @include input-label-focus.input-label-focus;
 }
 
 .ams-switch__label {
