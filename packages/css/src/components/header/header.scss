@@ -132,7 +132,8 @@
   @include reset-button;
 }
 
-.ams-header__mega-menu-button-label {
+.ams-header__mega-menu-button-label,
+.ams-header__mega-menu-button-hidden-label {
   grid-area: 1 / 1;
 }
 
@@ -144,7 +145,6 @@
 // and the button text becomes bold.
 .ams-header__mega-menu-button-hidden-label {
   font-weight: var(--ams-header-mega-menu-button-label-open-font-weight);
-  grid-area: 1 / 1;
   pointer-events: none;
   user-select: none;
   visibility: hidden;
