@@ -47,8 +47,7 @@ export const Default: Story = {
       </Header.MenuLink>,
     ],
     children: (
-      // TODO: Add noInlinePadding to Grid?
-      <Grid paddingBottom="large" style={{ paddingInline: 0 }}>
+      <Grid paddingBottom="large">
         <Header.NarrowScreenOnlyGridCell span="all">
           <LinkList>
             <LinkList.Link href="#">Inloggen</LinkList.Link>
@@ -147,7 +146,7 @@ export const WithCustomTexts: Story = {
     menuButtonText: 'Hoofdmenu',
     navigationLabel: 'Navigatie',
     children: (
-      <Grid style={{ paddingInline: 0 }}>
+      <Grid>
         <Grid.Cell span="all">
           <LinkList>
             <LinkList.Link href="#">Inloggen</LinkList.Link>

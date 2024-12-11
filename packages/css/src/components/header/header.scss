@@ -191,6 +191,12 @@
 .ams-header__mega-menu {
   inline-size: 100%;
   pointer-events: auto;
+
+  // Remove inline padding from Grids that are used in the mega menu.
+  // The grid inline padding is set on the header element.
+  & .ams-grid {
+    padding-inline: 0;
+  }
 }
 
 .ams-header__mega-menu--closed.ams-header__mega-menu--closed {
