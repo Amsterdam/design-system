@@ -36,7 +36,7 @@ type Story = StoryObj<typeof meta>
 export const Default: Story = {
   args: {
     children: [
-      <Heading size="level-4" key={1}>
+      <Heading key={1} className="ams-mb--sm" size="level-4">
         <Card.Link href="/">{topTask.heading}</Card.Link>
       </Heading>,
       <Paragraph key={2}>{topTask.description}</Paragraph>,
@@ -47,7 +47,7 @@ export const Default: Story = {
 export const WithTagline: Story = {
   args: {
     children: [
-      <Card.HeadingGroup key={1} tagline="Dossier">
+      <Card.HeadingGroup key={1} className="ams-mb--sm" tagline="Dossier">
         <Heading size="level-4">
           <Card.Link href="/">Monitor Attracties MRA</Card.Link>
         </Heading>
@@ -62,13 +62,13 @@ export const WithTagline: Story = {
 export const WithImage: Story = {
   args: {
     children: [
-      <Image key={1} alt="" aspectRatio="wide" src="https://picsum.photos/480/360" />,
-      <Card.HeadingGroup key={2} tagline="Nieuws">
+      <Image key={1} alt="" aspectRatio="wide" className="ams-mb--sm" src="https://picsum.photos/480/360" />,
+      <Card.HeadingGroup key={2} className="ams-mb--sm" tagline="Nieuws">
         <Heading size="level-4">
           <Card.Link href="/">Nederlands eerste houten woonwijk komt in Zuidoost</Card.Link>
         </Heading>
       </Card.HeadingGroup>,
-      <Paragraph key={3}>
+      <Paragraph key={3} className="ams-mb--sm">
         We bouwen een levendige, groene en duurzame woonbuurt tussen de Gooiseweg en het Nelson Mandelapark.
       </Paragraph>,
       <Paragraph key={4} size="small">

@@ -7,7 +7,7 @@ export const HomeNews = () => (
     </Grid.Cell>
     <Grid.Cell span={4}>
       <Card>
-        <Image alt="" src="https://picsum.photos/640/360?random=1" />
+        <Image alt="" className="ams-mb--sm" src="https://picsum.photos/640/360?random=1" />
         <Card.HeadingGroup tagline="Nieuws">
           <Heading level={2} size="level-4">
             <Card.Link href="#">Nederlands eerste houten woonwijk komt in Zuidoost</Card.Link>
@@ -17,7 +17,7 @@ export const HomeNews = () => (
     </Grid.Cell>
     <Grid.Cell span={4}>
       <Card>
-        <Image alt="" src="https://picsum.photos/640/360?random=2" />
+        <Image alt="" className="ams-mb--sm" src="https://picsum.photos/640/360?random=2" />
         <Card.HeadingGroup tagline="Nieuws">
           <Heading level={2} size="level-4">
             <Card.Link href="#">Gratis openbaar vervoer voor kinderen</Card.Link>
@@ -27,7 +27,7 @@ export const HomeNews = () => (
     </Grid.Cell>
     <Grid.Cell span={4}>
       <Card>
-        <Image alt="" src="https://picsum.photos/640/360?random=3" />
+        <Image alt="" className="ams-mb--sm" src="https://picsum.photos/640/360?random=3" />
         <Card.HeadingGroup tagline="Nieuws">
           <Heading level={2} size="level-4">
             <Card.Link href="#">Zonnepanelen op uw dak? Zo houdt u uw huis veilig</Card.Link>
