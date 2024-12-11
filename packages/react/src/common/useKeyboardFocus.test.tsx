@@ -8,7 +8,6 @@ describe('use focus with arrows', () => {
   const onFocusThreeMock = jest.fn()
 
   const getComponent = (rotate: boolean | undefined = undefined) =>
-    // eslint-disable-next-line react/display-name
     function () {
       const ref = useRef<HTMLDivElement>(null)
       const { keyDown } = useKeyboardFocus(ref, {

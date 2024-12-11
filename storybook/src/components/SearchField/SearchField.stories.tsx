@@ -75,7 +75,6 @@ export const Controlled: any = {
           const value = formData.get('search-box')
           // search actions should not be triggered without a value
           if (value) {
-            // eslint-disable-next-line no-alert
             alert(`Gezocht op '${value}'`)
           }
         }}

@@ -19,13 +19,11 @@ npm install @amsterdam/design-system-react-icons
 
 Import the component for the icon you need, as well as the generic Icon component, and use them in your JSX.
 
-```ts
-import { Icon } from '@amsterdam/design-system-react'
-import { SearchIcon } from '@amsterdam/design-system-react-icons'
+```js
+import { Icon } from "@amsterdam/design-system-react";
+import { SearchIcon } from "@amsterdam/design-system-react-icons";
 
-export const App = () => (
-  <Icon svg={SearchIcon} />
-)
+export const App = () => <Icon svg={SearchIcon} />;
 ```
 
 ## Updating

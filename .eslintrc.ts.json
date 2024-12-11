@@ -1,6 +1,5 @@
 {
   "rules": {
-    "@typescript-eslint/consistent-type-definitions": ["error", "type"],
     "array-callback-return": ["error", { "checkForEach": false }],
     "block-scoped-var": "error",
     "consistent-return": "error",
