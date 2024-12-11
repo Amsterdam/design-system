@@ -36,9 +36,7 @@ export const TabsButton = forwardRef(
         <span aria-hidden="true" className="ams-tabs__button-label-hidden">
           {children}
         </span>
-        <span aria-hidden="true" className="ams-tabs__button-label">
-          {children}
-        </span>
+        <span className="ams-tabs__button-label">{children}</span>
       </button>
     )
   },
