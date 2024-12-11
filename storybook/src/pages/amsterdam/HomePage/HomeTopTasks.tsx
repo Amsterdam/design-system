@@ -7,7 +7,7 @@ export const HomeTopTasks = () => (
     </Grid.Cell>
     <Grid.Cell span={{ narrow: 4, medium: 4, wide: 3 }}>
       <Card>
-        <Heading level={2} size="level-4">
+        <Heading className="ams-mb--sm" level={2} size="level-4">
           <Card.Link href="#">Gemeentebelastingen</Card.Link>
         </Heading>
         <Paragraph size="small">
@@ -17,7 +17,7 @@ export const HomeTopTasks = () => (
     </Grid.Cell>
     <Grid.Cell span={{ narrow: 4, medium: 4, wide: 3 }}>
       <Card>
-        <Heading level={3} size="level-4">
+        <Heading className="ams-mb--sm" level={3} size="level-4">
           <Card.Link href="#">Parkeren + Reizen (P+R)</Card.Link>
         </Heading>
         <Paragraph size="small">
@@ -27,7 +27,7 @@ export const HomeTopTasks = () => (
     </Grid.Cell>
     <Grid.Cell span={{ narrow: 4, medium: 4, wide: 3 }}>
       <Card>
-        <Heading level={3} size="level-4">
+        <Heading className="ams-mb--sm" level={3} size="level-4">
           <Card.Link href="#">Paspoort, ID-kaart en rijbewijs</Card.Link>
         </Heading>
         <Paragraph size="small">Vraag deze bewijzen aan of verleng ze. Geef een vermissing aan.</Paragraph>
@@ -35,7 +35,7 @@ export const HomeTopTasks = () => (
     </Grid.Cell>
     <Grid.Cell span={{ narrow: 4, medium: 4, wide: 3 }}>
       <Card>
-        <Heading level={3} size="level-4">
+        <Heading className="ams-mb--sm" level={3} size="level-4">
           <Card.Link href="#">Onderwijs</Card.Link>
         </Heading>
         <Paragraph size="small">
@@ -45,7 +45,7 @@ export const HomeTopTasks = () => (
     </Grid.Cell>
     <Grid.Cell span={{ narrow: 4, medium: 4, wide: 3 }}>
       <Card>
-        <Heading level={3} size="level-4">
+        <Heading className="ams-mb--sm" level={3} size="level-4">
           <Card.Link href="#">Meldingen openbare ruimte en overlast</Card.Link>
         </Heading>
         <Paragraph size="small">
@@ -56,7 +56,7 @@ export const HomeTopTasks = () => (
     </Grid.Cell>
     <Grid.Cell span={{ narrow: 4, medium: 4, wide: 3 }}>
       <Card>
-        <Heading level={3} size="level-4">
+        <Heading className="ams-mb--sm" level={3} size="level-4">
           <Card.Link href="#">Verhuizing doorgeven</Card.Link>
         </Heading>
         <Paragraph size="small">Geef uw nieuwe adres door als u binnen Amsterdam of naar Amsterdam verhuist.</Paragraph>
@@ -64,7 +64,7 @@ export const HomeTopTasks = () => (
     </Grid.Cell>
     <Grid.Cell span={{ narrow: 4, medium: 4, wide: 3 }}>
       <Card>
-        <Heading level={3} size="level-4">
+        <Heading className="ams-mb--sm" level={3} size="level-4">
           <Card.Link href="#">Grof afval</Card.Link>
         </Heading>
         <Paragraph size="small">Grof afval zijn spullen die niet in een vuilniszak passen.</Paragraph>
@@ -72,7 +72,7 @@ export const HomeTopTasks = () => (
     </Grid.Cell>
     <Grid.Cell span={{ narrow: 4, medium: 4, wide: 3 }}>
       <Card>
-        <Heading level={3} size="level-4">
+        <Heading className="ams-mb--sm" level={3} size="level-4">
           <Card.Link href="#">Kennisgevingen en bekendmakingen</Card.Link>
         </Heading>
         <Paragraph size="small">
