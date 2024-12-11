@@ -50,14 +50,6 @@
   }
 }
 
-// Solution for browsers that support subgrid, the group will align to the parent grid
-// This selector is to increase specificity to override the previously set grid-template-columns
-@supports (grid-template-columns: subgrid) {
-  .ams-description-list .ams-description-list__section {
-    grid-template-columns: subgrid;
-  }
-}
-
 .ams-description-list--inverse-color {
   color: var(--ams-description-list-inverse-color);
 }
@@ -74,13 +66,18 @@
   @media screen and (min-width: $ams-breakpoint-medium) {
     column-gap: var(--ams-description-list-column-gap);
     display: grid;
-    grid-auto-flow: dense;
     grid-column: span 2;
 
     dd:only-of-type {
       grid-row: 1 / 9;
     }
   }
+}
+
+// Solution for browsers that support subgrid, the group will align to the parent grid
+// This selector is to increase specificity to override the previously set grid-template-columns
+.ams-description-list .ams-description-list__section {
+  grid-template-columns: subgrid;
 }
 
 .ams-description-list__description {
