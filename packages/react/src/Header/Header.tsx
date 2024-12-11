@@ -102,14 +102,7 @@ const HeaderRoot = forwardRef(
                   onClick={() => setOpen(!open)}
                   type="button"
                 >
-                  <span
-                    className={clsx(
-                      'ams-header__mega-menu-button-label',
-                      open && 'ams-header__mega-menu-button-label--open',
-                    )}
-                  >
-                    {menuButtonText}
-                  </span>
+                  <span className="ams-header__mega-menu-button-label">{menuButtonText}</span>
                   <span aria-hidden="true" className="ams-header__mega-menu-button-hidden-label">
                     {menuButtonText}
                   </span>

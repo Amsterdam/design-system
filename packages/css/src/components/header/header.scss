@@ -132,13 +132,13 @@
   @include reset-button;
 }
 
+.ams-header__mega-menu-button[aria-expanded="true"] {
+  font-weight: var(--ams-header-mega-menu-button-label-open-font-weight);
+}
+
 .ams-header__mega-menu-button-label,
 .ams-header__mega-menu-button-hidden-label {
   grid-area: 1 / 1;
-}
-
-.ams-header__mega-menu-button-label--open {
-  font-weight: var(--ams-header-mega-menu-button-label-open-font-weight);
 }
 
 // This hidden label is used to prevent a layout shift when the mega menu is opened
