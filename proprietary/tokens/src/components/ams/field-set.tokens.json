@@ -7,10 +7,10 @@
       },
       "legend": {
         "color": { "value": "{ams.brand.color.neutral.100}" },
-        "font-family": { "value": "{ams.text.font-family}" },
-        "font-size": { "value": "{ams.text.level.4.font-size}" },
-        "font-weight": { "value": "{ams.text.font-weight.bold}" },
-        "line-height": { "value": "{ams.text.level.4.line-height}" },
+        "font-family": { "value": "{ams.common.typography.headings.font-family}" },
+        "font-size": { "value": "{ams.common.typography.headings.level-4.font-size}" },
+        "font-weight": { "value": "{ams.common.typography.headings.font-weight}" },
+        "line-height": { "value": "{ams.common.typography.headings.level-4.line-height}" },
         "margin-block-end": { "value": "{ams.space.md}" }
       }
     }
