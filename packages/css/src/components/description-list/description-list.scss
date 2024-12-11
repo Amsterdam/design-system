@@ -68,7 +68,7 @@
     display: grid;
     grid-column: span 2;
 
-    dd:only-of-type {
+    :only-of-type {
       grid-row: 1 / 9;
     }
   }
