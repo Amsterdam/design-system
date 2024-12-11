@@ -69,7 +69,7 @@
   grid-area: 1 / 1;
 }
 
-// This hidden label is used to prevent a layout shift when the mega menu is opened
+// This hidden label is used to prevent a layout shift when the tab is selected
 // and the button text becomes bold.
 .ams-tabs__button-label-hidden {
   font-weight: var(--ams-tabs-button-selected-font-weight);
