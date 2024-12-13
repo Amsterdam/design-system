@@ -72,7 +72,7 @@ $ams-breakout-row-span-max: 4;
   @include ams-grid__cell--span-all;
 }
 
-@for $i from 1 through grid.$ams-grid-column-count {
+@for $i from 1 through $ams-grid-column-count {
   .ams-breakout__cell--col-span-#{$i} {
     @include ams-grid__cell--span($i);
   }
@@ -83,7 +83,7 @@ $ams-breakout-row-span-max: 4;
 }
 
 @media screen and (min-width: $ams-breakpoint-medium) {
-  @for $i from 1 through grid.$ams-grid-column-count {
+  @for $i from 1 through $ams-grid-column-count {
     .ams-breakout__cell--col-span-#{$i}-medium {
       @include ams-grid__cell--span-medium($i);
     }
@@ -95,7 +95,7 @@ $ams-breakout-row-span-max: 4;
 }
 
 @media screen and (min-width: $ams-breakpoint-wide) {
-  @for $i from 1 through grid.$ams-grid-column-count {
+  @for $i from 1 through $ams-grid-column-count {
     .ams-breakout__cell--col-span-#{$i}-wide {
       @include ams-grid__cell--span-wide($i);
     }
