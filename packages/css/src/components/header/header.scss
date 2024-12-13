@@ -3,7 +3,7 @@
  * Copyright Gemeente Amsterdam
  */
 
-@import "../../common/breakpoint";
+@use "../../common/breakpoint" as *;
 
 .ams-header {
   align-items: center;

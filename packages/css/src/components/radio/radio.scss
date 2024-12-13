@@ -3,9 +3,9 @@
  * Copyright Gemeente Amsterdam
  */
 
-@import "../../common/input-label-focus";
-@import "../../common/hide-input";
-@import "../../common/text-rendering";
+@use "../../common/input-label-focus" as *;
+@use "../../common/hide-input" as *;
+@use "../../common/text-rendering" as *;
 
 .ams-radio__input {
   @include hide-input;
