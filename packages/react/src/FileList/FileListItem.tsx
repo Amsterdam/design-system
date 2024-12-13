@@ -14,28 +14,28 @@ import { formatFileType } from '../common/formatFileType'
 
 export type FileListItemProps = {
   file: File
-  onRemove?: () => void
+  onDelete?: () => void
 } & HTMLAttributes<HTMLLIElement>
 
 export const FileListItem = forwardRef(
-  ({ file, onRemove, className, ...restProps }: FileListItemProps, ref: ForwardedRef<HTMLLIElement>) => (
-    <li {...restProps} ref={ref} className={clsx('ams-file-list__file', className)}>
-      <div className="ams-file-list__file-preview">
+  ({ file, onDelete, className, ...restProps }: FileListItemProps, ref: ForwardedRef<HTMLLIElement>) => (
+    <li {...restProps} ref={ref} className={clsx('ams-file-list__item', className)}>
+      <div className="ams-file-list__item-preview">
         {file.type.includes('image') ? (
           <img src={URL.createObjectURL(file)} alt={file.name} />
         ) : (
           <Icon svg={DocumentIcon} size="level-3" square />
         )}
       </div>
-      <div className="ams-file-list__file-info">
+      <div className="ams-file-list__item-info">
         {file.name}
-        <div className="ams-file-input__file-details">
+        <div className="ams-file-input__item-details">
           ({formatFileType(file.type)}, {formatFileSize(file.size)})
         </div>
       </div>
-      {onRemove && (
+      {onDelete && (
         <div>
-          <Button variant="tertiary" onClick={() => onRemove()}>
+          <Button variant="tertiary" onClick={() => onDelete()}>
             Verwijder
           </Button>
         </div>

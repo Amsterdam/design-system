@@ -21,7 +21,7 @@
   @include reset-ul;
 }
 
-.ams-file-list__file {
+.ams-file-list__item {
   display: flex;
   flex-direction: row;
   font-family: var(--ams-file-list-file-font-family);
@@ -31,7 +31,7 @@
   line-height: var(--ams-file-list-file-line-height);
 }
 
-.ams-file-list__file-preview {
+.ams-file-list__item-preview {
   display: grid;
   flex: 0 0 var(--ams-file-list-file-preview-width);
   place-items: center;
@@ -42,7 +42,7 @@
   }
 }
 
-.ams-file-list__file-info {
+.ams-file-list__item-info {
   flex: 1;
   gap: var(--ams-file-list-file-gap);
   overflow: hidden;
@@ -50,6 +50,6 @@
   white-space: nowrap;
 }
 
-.ams-file-input__file-details {
+.ams-file-input__item-details {
   color: var(--ams-file-list-file-details-color);
 }

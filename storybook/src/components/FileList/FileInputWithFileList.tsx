@@ -30,7 +30,7 @@ export const FileInputWithFileList = () => {
       {files && (
         <FileList>
           {Array.from(files).map((file, index) => (
-            <FileList.Item key={index} file={file} onRemove={() => removeFile(index)} />
+            <FileList.Item key={index} file={file} onDelete={() => removeFile(index)} />
           ))}
         </FileList>
       )}

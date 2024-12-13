@@ -1,34 +1,30 @@
-import { render } from '@testing-library/react'
+import { render, screen } from '@testing-library/react'
 import { createRef } from 'react'
 import { FileList } from './FileList'
 import '@testing-library/jest-dom'
 
-// var files = [
-//   new File(['sample1'], 'sample1.txt', { type: 'text/plain', lastModified: Date.now() }),
-// ] as unknown as FileList // This is a workaround because jest-dom does not support DataTransfer
-
 describe('FileList', () => {
   it('renders', () => {
-    const { container } = render(<FileList />)
+    render(<FileList />)
 
-    const component = container.querySelector(':only-child')
+    const component = screen.getByRole('list')
 
     expect(component).toBeInTheDocument()
     expect(component).toBeVisible()
   })
 
   it('renders a design system BEM class name', () => {
-    const { container } = render(<FileList />)
+    render(<FileList />)
 
-    const component = container.querySelector(':only-child')
+    const component = screen.getByRole('list')
 
     expect(component).toHaveClass('ams-file-list')
   })
 
   it('renders an additional class name', () => {
-    const { container } = render(<FileList className="extra" />)
+    render(<FileList className="extra" />)
 
-    const component = container.querySelector(':only-child')
+    const component = screen.getByRole('list')
 
     expect(component).toHaveClass('ams-file-list extra')
   })
@@ -36,9 +32,9 @@ describe('FileList', () => {
   it('supports ForwardRef in React', () => {
     const ref = createRef<HTMLOListElement>()
 
-    const { container } = render(<FileList ref={ref} />)
+    render(<FileList ref={ref} />)
 
-    const component = container.querySelector(':only-child')
+    const component = screen.getByRole('list')
 
     expect(ref.current).toBe(component)
   })
