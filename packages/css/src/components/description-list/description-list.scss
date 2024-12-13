@@ -68,14 +68,14 @@
     display: grid;
     grid-column: span 2;
 
-    :only-of-type {
+    > :only-of-type {
       grid-row: 1 / 9;
     }
   }
 }
 
-// Solution for browsers that support subgrid, the group will align to the parent grid
-// This selector is to increase specificity to override the previously set grid-template-columns
+// Aligns terms and descriptions in a section to the grid of the list.
+// The extra class selector increases specificity to match earlier declarations.
 .ams-description-list .ams-description-list__section {
   grid-template-columns: subgrid;
 }
