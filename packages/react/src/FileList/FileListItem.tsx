@@ -21,7 +21,7 @@ export const FileListItem = forwardRef(
   ({ file, onDelete, className, ...restProps }: FileListItemProps, ref: ForwardedRef<HTMLLIElement>) => (
     <li {...restProps} ref={ref} className={clsx('ams-file-list__item', className)}>
       <div className="ams-file-list__item-preview">
-        {file.type.includes('image') ? (
+        {file.type.startsWith('image/') ? (
           <img src={URL.createObjectURL(file)} alt={file.name} />
         ) : (
           <Icon svg={DocumentIcon} size="level-3" square />
