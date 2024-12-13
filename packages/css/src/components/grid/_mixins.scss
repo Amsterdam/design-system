@@ -1,4 +1,4 @@
-@use "../../common/breakpoint";
+@use "../../common/breakpoint" as *;
 
 /**
  * @license EUPL-1.2+
@@ -12,11 +12,11 @@
   padding-inline: var(--ams-grid-padding-inline);
   row-gap: var(--ams-grid-row-gap-md);
 
-  @media screen and (min-width: breakpoint.$ams-breakpoint-medium) {
+  @media screen and (min-width: $ams-breakpoint-medium) {
     grid-template-columns: repeat(var(--ams-grid-medium-column-count), 1fr);
   }
 
-  @media screen and (min-width: breakpoint.$ams-breakpoint-wide) {
+  @media screen and (min-width: $ams-breakpoint-wide) {
     grid-template-columns: repeat(var(--ams-grid-wide-column-count), 1fr);
   }
 }
@@ -88,25 +88,25 @@
 }
 
 @mixin ams-grid__cell--span-medium($i) {
-  @media screen and (min-width: breakpoint.$ams-breakpoint-medium) {
+  @media screen and (min-width: $ams-breakpoint-medium) {
     grid-column-end: span $i;
   }
 }
 
 @mixin ams-grid__cell--start-medium($i) {
-  @media screen and (min-width: breakpoint.$ams-breakpoint-medium) {
+  @media screen and (min-width: $ams-breakpoint-medium) {
     grid-column-start: $i;
   }
 }
 
 @mixin ams-grid__cell--span-wide($i) {
-  @media screen and (min-width: breakpoint.$ams-breakpoint-wide) {
+  @media screen and (min-width: $ams-breakpoint-wide) {
     grid-column-end: span $i;
   }
 }
 
 @mixin ams-grid__cell--start-wide($i) {
-  @media screen and (min-width: breakpoint.$ams-breakpoint-wide) {
+  @media screen and (min-width: $ams-breakpoint-wide) {
     grid-column-start: $i;
   }
 }

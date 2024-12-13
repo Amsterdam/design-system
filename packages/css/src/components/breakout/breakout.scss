@@ -3,8 +3,8 @@
  * Copyright Gemeente Amsterdam
  */
 
-@use "../../common/breakpoint";
-@use "../grid/grid";
+@use "../../common/breakpoint" as *;
+@use "../grid/grid" as *;
 @use "../grid/mixins" as *;
 
 $ams-breakout-row-span-max: 4;
@@ -82,7 +82,7 @@ $ams-breakout-row-span-max: 4;
   }
 }
 
-@media screen and (min-width: breakpoint.$ams-breakpoint-medium) {
+@media screen and (min-width: $ams-breakpoint-medium) {
   @for $i from 1 through grid.$ams-grid-column-count {
     .ams-breakout__cell--col-span-#{$i}-medium {
       @include ams-grid__cell--span-medium($i);
@@ -94,7 +94,7 @@ $ams-breakout-row-span-max: 4;
   }
 }
 
-@media screen and (min-width: breakpoint.$ams-breakpoint-wide) {
+@media screen and (min-width: $ams-breakpoint-wide) {
   @for $i from 1 through grid.$ams-grid-column-count {
     .ams-breakout__cell--col-span-#{$i}-wide {
       @include ams-grid__cell--span-wide($i);
@@ -138,7 +138,7 @@ $ams-breakout-row-span-max: 4;
   }
 }
 
-@media screen and (min-width: breakpoint.$ams-breakpoint-medium) {
+@media screen and (min-width: $ams-breakpoint-medium) {
   @for $i from 1 through $ams-breakout-row-span-max {
     .ams-breakout__cell--row-span-#{$i}-medium {
       grid-row-end: span $i;
@@ -150,7 +150,7 @@ $ams-breakout-row-span-max: 4;
   }
 }
 
-@media screen and (min-width: breakpoint.$ams-breakpoint-wide) {
+@media screen and (min-width: $ams-breakpoint-wide) {
   @for $i from 1 through $ams-breakout-row-span-max {
     .ams-breakout__cell--row-span-#{$i}-wide {
       grid-row-end: span $i;

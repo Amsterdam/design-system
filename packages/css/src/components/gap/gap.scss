@@ -4,13 +4,13 @@
  */
 
 @use "sass:map";
-@use "../../common/size";
+@use "../../common/size" as *;
 
 [class|="ams-gap-"] {
   display: grid !important;
 }
 
-@each $size in map.keys(size.$ams-sizes) {
+@each $size in map.keys($ams-sizes) {
   @if $size != "no" {
     .ams-gap--#{$size} {
       grid-gap: var(--ams-gap-#{$size}) !important;

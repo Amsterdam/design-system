@@ -3,7 +3,7 @@
  * Copyright Gemeente Amsterdam
  */
 
-@use "../../common/breakpoint";
+@use "../../common/breakpoint" as *;
 @use "../../common/text-rendering" as *;
 
 @mixin reset-dl {
@@ -24,7 +24,7 @@
   @include text-rendering;
 }
 
-@media screen and (min-width: breakpoint.$ams-breakpoint-medium) {
+@media screen and (min-width: $ams-breakpoint-medium) {
   .ams-description-list {
     grid-template-columns: auto 1fr;
   }
@@ -49,7 +49,7 @@
 .ams-description-list__term {
   font-weight: var(--ams-description-list-term-font-weight);
 
-  @media screen and (min-width: breakpoint.$ams-breakpoint-medium) {
+  @media screen and (min-width: $ams-breakpoint-medium) {
     grid-column-start: 1;
   }
 }
@@ -64,7 +64,7 @@
 
   @include reset-dd;
 
-  @media screen and (min-width: breakpoint.$ams-breakpoint-medium) {
+  @media screen and (min-width: $ams-breakpoint-medium) {
     grid-column-start: 2;
     padding-inline-start: 0;
   }
