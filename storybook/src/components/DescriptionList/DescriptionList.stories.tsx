@@ -54,6 +54,26 @@ export const MultipleDescriptions: Story = {
   },
 }
 
+export const MultipleTerms: Story = {
+  args: {
+    termsWidth: 'md',
+    children: [
+      <DescriptionList.Term key={1}>Achternaam</DescriptionList.Term>,
+      <DescriptionList.Description key={2}>
+        De naam die een persoon van zijn of haar ouders krijgt
+      </DescriptionList.Description>,
+      <DescriptionList.Section key={3}>
+        <DescriptionList.Term>Voornaam</DescriptionList.Term>
+        <DescriptionList.Term>Roepnaam</DescriptionList.Term>
+        <DescriptionList.Term>Bijnaam</DescriptionList.Term>
+        <DescriptionList.Description>De naam waarmee een persoon wordt aangesproken</DescriptionList.Description>
+      </DescriptionList.Section>,
+      <DescriptionList.Term key={4}>Geboortedatum</DescriptionList.Term>,
+      <DescriptionList.Description key={5}>De datum waarop een persoon is geboren</DescriptionList.Description>,
+    ],
+  },
+}
+
 export const RichDescription: Story = {
   render: (args) => (
     <DescriptionList {...args}>

@@ -3,7 +3,7 @@
  * Copyright Gemeente Amsterdam
  */
 
-@import "../../common/size";
+@use "../../common/size" as *;
 
 .ams-row {
   display: flex;

@@ -3,9 +3,10 @@
  * Copyright Gemeente Amsterdam
  */
 
-@import "../../common/size";
+@use "sass:map";
+@use "../../common/size" as *;
 
-@each $size in map-keys($ams-sizes) {
+@each $size in map.keys($ams-sizes) {
   @if $size != "no" {
     .ams-mb--#{$size} {
       margin-block-end: var(--ams-margin-#{$size}) !important;
