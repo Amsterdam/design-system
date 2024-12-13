@@ -71,7 +71,7 @@ Screen reader users will no longer be able to skip the description,
 but we think that is preferable to missing the description entirely.
 Add an `id` to the Field Set and the description, and add both to the `aria-labelledby` attribute of Field Set, like so:
 
-```jsx
+```tsx
 <FieldSet aria-labelledby="fieldset description" id="fieldset" legend="Label">
   <Paragraph id="description">Description</Paragraph>
   ...
@@ -88,7 +88,7 @@ Because of [the NVDA bug mentioned earlier](https://github.com/nvaccess/nvda/iss
 we add the Error Message text to the label as well.
 Add an `id` to the Field Set and the Error Message, and add both to the `aria-labelledby` attribute of Field Set, like so:
 
-```jsx
+```tsx
 <FieldSet aria-labelledby="fieldset error" id="fieldset" legend="Label">
   <ErrorMessage id="error">Error message</ErrorMessage>
   ...

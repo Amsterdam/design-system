@@ -26,7 +26,7 @@
     "build": "rollup -c",
     "build:watch": "rollup -c --watch",
     "clean": "rimraf dist/",
-    "lint": "tsc --project ./tsconfig.json --noEmit && tsc --noEmit --project ./tsconfig.test.json",
+    "lint": "tsc --noEmit --project ./tsconfig.json && tsc --noEmit --project ./tsconfig.test.json",
     "test": "jest --verbose --coverage",
     "watch:test": "jest --verbose --watch"
   },

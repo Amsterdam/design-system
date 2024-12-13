@@ -223,10 +223,6 @@ export default tseslint.config(
     processor: mdx.createRemarkProcessor({
       lintCodeBlocks: true,
     }),
-    rules: {
-      ...markdown.configs.recommended.rules,
-      ...mdx.flat.rules,
-    },
   },
   {
     ...mdx.flatCodeBlocks,

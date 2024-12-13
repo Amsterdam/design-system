@@ -35,7 +35,7 @@ Other communities only need to overwrite design tokens to use our components wit
 Import the main stylesheet and use the class names in your markup.
 
 <!-- prettier-ignore -->
-```jsx
+```tsx
 import "@amsterdam/design-system-assets/font/index.css"
 import "@amsterdam/design-system-css/dist/index.css"
 import "@amsterdam/design-system-tokens/dist/index.css"

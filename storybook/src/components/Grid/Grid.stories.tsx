@@ -54,6 +54,7 @@ const meta = {
 
 export default meta
 
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 const cellMeta = {
   component: Grid.Cell,
   argTypes: {

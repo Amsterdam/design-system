@@ -149,7 +149,6 @@ To enable correct validation and to fix lint/style errors on save, add this to y
   "editor.codeActionsOnSave": {
     "source.fixAll.eslint": true,
     "source.fixAll.stylelint": true,
-    "source.fixAll.markdownlint": true
   },
   "editor.defaultFormatter": "esbenp.prettier-vscode",
   "editor.formatOnSave": true,
@@ -200,7 +199,7 @@ The copyright holder for all files created by people working for the City of Ams
 If you use code from other EUPL-1.2 or higher licensed files that have a copyright notice, don’t forget to add this copyright notice as well.
 So, for a file with code written by someone working for the City of Amsterdam in 2023, but also containing code from another EUPL-1.2 or higher licensed file written by John Doe in 2021, the header would look like this:
 
-```js
+```ts
 /**
  * @license EUPL-1.2+
  * Copyright (c) 2021 John Doe
