@@ -66,6 +66,7 @@ export default tseslint.config(
       react: { version: 'detect' },
     },
     rules: {
+      '@typescript-eslint/consistent-type-definitions': ['error', 'type'],
       'array-callback-return': [
         'error',
         {
@@ -229,8 +230,6 @@ export default tseslint.config(
     rules: {
       ...mdx.flatCodeBlocks.rules,
       '@typescript-eslint/no-unused-vars': 'off',
-      'no-undef': 'off',
-      'react/jsx-no-undef': 'off',
     },
   },
 )

@@ -139,22 +139,20 @@ You can use any editor you like, but if you use [Visual Studio Code](https://cod
 
 To enable correct validation and to fix lint/style errors on save, add this to your VSCode `settings.json`:
 
-<!-- eslint-disable -->
-
 ```json
+{
   "eslint.useFlatConfig": true,
   "css.validate": false,
   "scss.validate": false,
   "stylelint.validate": ["css", "scss"],
   "editor.codeActionsOnSave": {
     "source.fixAll.eslint": true,
-    "source.fixAll.stylelint": true,
+    "source.fixAll.stylelint": true
   },
   "editor.defaultFormatter": "esbenp.prettier-vscode",
-  "editor.formatOnSave": true,
+  "editor.formatOnSave": true
+}
 ```
-
-<!-- eslint-enable -->
 
 </details>
 
