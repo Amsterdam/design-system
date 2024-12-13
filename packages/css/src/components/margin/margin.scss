@@ -4,9 +4,9 @@
  */
 
 @use "sass:map";
-@use "../../common/size";
+@use "../../common/size" as *;
 
-@each $size in map.keys(size.$ams-sizes) {
+@each $size in map.keys($ams-sizes) {
   @if $size != "no" {
     .ams-mb--#{$size} {
       margin-block-end: var(--ams-margin-#{$size}) !important;
