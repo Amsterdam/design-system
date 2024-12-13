@@ -3,13 +3,14 @@
  * Copyright Gemeente Amsterdam
  */
 
-@import "../../common/size";
+@use "sass:map";
+@use "../../common/size" as *;
 
 [class|="ams-gap-"] {
   display: grid !important;
 }
 
-@each $size in map-keys($ams-sizes) {
+@each $size in map.keys($ams-sizes) {
   @if $size != "no" {
     .ams-gap--#{$size} {
       grid-gap: var(--ams-gap-#{$size}) !important;

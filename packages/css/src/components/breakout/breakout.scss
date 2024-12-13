@@ -3,9 +3,9 @@
  * Copyright Gemeente Amsterdam
  */
 
-@import "../../common/breakpoint";
-@import "../grid/grid";
-@import "../grid/mixins";
+@use "../../common/breakpoint" as *;
+@use "../grid/grid" as *;
+@use "../grid/mixins" as *;
 
 $ams-breakout-row-span-max: 4;
 

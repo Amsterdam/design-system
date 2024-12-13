@@ -3,7 +3,7 @@
  * Copyright Gemeente Amsterdam
  */
 
-@import "../../common/text-rendering";
+@use "../../common/text-rendering" as *;
 
 @mixin reset-textarea {
   -webkit-appearance: none; // Reset appearance for Safari < 15.4
