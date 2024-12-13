@@ -13,7 +13,7 @@ import type { LogoBrand } from '../Logo'
 import { HeaderMenuIcon } from './HeaderMenuIcon'
 import { HeaderMenuLink } from './HeaderMenuLink'
 import { HeaderNarrowScreenOnlyGridCell } from './HeaderNarrowScreenOnlyGridCell'
-import useMediaQuery from '../common/useMediaQuery'
+import useIsAfterBreakpoint from '../common/useIsAfterBreakpoint'
 
 export type HeaderProps = {
   /** The name of the application. */
@@ -53,14 +53,14 @@ const HeaderRoot = forwardRef(
   ) => {
     const [open, setOpen] = useState(false)
 
-    const isWideScreen = useMediaQuery('wide')
+    const isWideWindow = useIsAfterBreakpoint('wide')
 
     useEffect(() => {
       // Close the menu when the menu button disappears
-      if (noMenuButtonOnWideScreen && isWideScreen) {
+      if (noMenuButtonOnWideScreen && isWideWindow) {
         setOpen(false)
       }
-    }, [isWideScreen])
+    }, [isWideWindow])
 
     return (
       <header {...restProps} ref={ref} className={clsx('ams-header', className)}>

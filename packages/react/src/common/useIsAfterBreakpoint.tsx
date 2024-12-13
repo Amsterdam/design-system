@@ -6,9 +6,9 @@ const breakpoints = {
   wide: '68rem',
 }
 
-type useMediaQueryProps = 'medium' | 'wide'
+type useIsAfterBreakpointProps = 'medium' | 'wide'
 
-const useMediaQuery = (breakpoint: useMediaQueryProps) => {
+const useIsAfterBreakpoint = (breakpoint: useIsAfterBreakpointProps) => {
   const [matches, setMatches] = useState(false)
 
   useEffect(() => {
@@ -33,4 +33,4 @@ const useMediaQuery = (breakpoint: useMediaQueryProps) => {
   return matches
 }
 
-export default useMediaQuery
+export default useIsAfterBreakpoint
