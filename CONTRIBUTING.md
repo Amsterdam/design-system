@@ -133,7 +133,6 @@ You can use any editor you like, but if you use [Visual Studio Code](https://cod
 
 - [EditorConfig](https://marketplace.visualstudio.com/items?itemName=EditorConfig.EditorConfig)
 - [ESLint](https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint)
-- [markdownlint](https://marketplace.visualstudio.com/items?itemName=DavidAnson.vscode-markdownlint)
 - [MDX](https://marketplace.visualstudio.com/items?itemName=silvenon.mdx)
 - [Prettier - Code formatter](https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode)
 - [stylelint](https://marketplace.visualstudio.com/items?itemName=stylelint.vscode-stylelint)
@@ -143,6 +142,7 @@ To enable correct validation and to fix lint/style errors on save, add this to y
 <!-- eslint-disable -->
 
 ```json
+  "eslint.useFlatConfig": true,
   "css.validate": false,
   "scss.validate": false,
   "stylelint.validate": ["css", "scss"],
