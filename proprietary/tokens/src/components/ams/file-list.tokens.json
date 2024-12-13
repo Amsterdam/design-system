@@ -1,0 +1,21 @@
+{
+  "ams": {
+    "file-list": {
+      "gap": { "value": "{ams.space.md}" },
+      "padding-block": { "value": "{ams.space.md}" },
+      "file": {
+        "font-family": { "value": "{ams.text.font-family}" },
+        "font-size": { "value": "{ams.text.level.6.font-size}" },
+        "font-weight": { "value": "{ams.text.font-weight.normal}" },
+        "gap": { "value": "{ams.space.sm}" },
+        "line-height": { "value": "{ams.text.level.6.line-height}" },
+        "details": {
+          "color": { "value": "{ams.brand.color.neutral.60}" }
+        },
+        "preview": {
+          "width": { "value": "clamp(2.5rem, 10vw, 5rem)" }
+        }
+      }
+    }
+  }
+}
