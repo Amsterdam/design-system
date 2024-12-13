@@ -52,10 +52,8 @@ export default tseslint.config(
 
   // Markdown
   {
-    plugins: { markdown },
-  },
-  {
     files: ['**/*.md'],
+    plugins: { markdown },
     ignores: ['dist/**/*.md', 'CHANGELOG.md'],
     processor: 'markdown/markdown',
     rules: {
