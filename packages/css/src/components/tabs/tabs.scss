@@ -3,7 +3,7 @@
  * Copyright Gemeente Amsterdam
  */
 
-@import "../../common/breakpoint";
+@use "../../common/breakpoint" as *;
 
 @mixin reset-button {
   background-color: transparent;

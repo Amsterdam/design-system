@@ -3,8 +3,8 @@
  * Copyright Gemeente Amsterdam
  */
 
-@import "../../common/hyphenation";
-@import "../../common/text-rendering";
+@use "../../common/hyphenation" as *;
+@use "../../common/text-rendering" as *;
 
 @mixin reset-fieldset {
   border: 0;
