@@ -12,6 +12,10 @@
   fill: currentColor;
 }
 
+.ams-icon--inverse-color {
+  color: var(--ams-icon-inverse-color);
+}
+
 .ams-icon--square {
   aspect-ratio: 1 / 1;
   justify-content: center;
