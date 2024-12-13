@@ -27,7 +27,13 @@ export const FileInputWithFileList = () => {
   return (
     <>
       <FileInput multiple ref={inputRef} onChange={changeFiles} />
-      {files && <FileList files={files} onDelete={removeFile} />}
+      {files && (
+        <FileList>
+          {Array.from(files).map((file, index) => (
+            <FileList.Item key={index} file={file} onRemove={() => removeFile(index)} />
+          ))}
+        </FileList>
+      )}
     </>
   )
 }
