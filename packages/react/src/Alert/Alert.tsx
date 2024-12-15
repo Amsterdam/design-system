@@ -57,10 +57,10 @@ export const Alert = forwardRef(
 
     return (
       <Tag {...restProps} ref={ref} className={clsx('ams-alert', severity && `ams-alert--${severity}`, className)}>
-        <div className="ams-alert__icon">
-          <Icon size={alertSize} svg={iconSvgBySeverity[severity]} />
+        <div className="ams-alert__section ams-alert__severity">
+          <Icon inverseColor size={alertSize} svg={iconSvgBySeverity[severity]} />
         </div>
-        <div className="ams-alert__content">
+        <div className="ams-alert__section ams-alert__content">
           {heading && (
             <Heading level={headingLevel} size="level-4">
               {heading}
@@ -68,7 +68,11 @@ export const Alert = forwardRef(
           )}
           {children}
         </div>
-        {closeable && <IconButton label={closeButtonLabel} size={alertSize} onClick={onClose} />}
+        {closeable && (
+          <div className="ams-alert__section">
+            <IconButton label={closeButtonLabel} size={alertSize} onClick={onClose} />
+          </div>
+        )}
       </Tag>
     )
   },
