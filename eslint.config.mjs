@@ -25,15 +25,7 @@ const compat = new FlatCompat({
 export default tseslint.config(
   // Global
   {
-    ignores: [
-      '**/node_modules/',
-      '**/vendor/',
-      '**/build/',
-      '**/coverage/',
-      '**/dist/',
-      '**/tmp/',
-      'proprietary/react-icons',
-    ],
+    ignores: ['**/vendor/', '**/build/', '**/coverage/', '**/dist/', '**/tmp/', 'proprietary/react-icons'],
   },
   {
     languageOptions: {
