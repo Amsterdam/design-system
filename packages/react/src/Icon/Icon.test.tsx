@@ -50,11 +50,7 @@ describe('Icon', () => {
   })
 
   it('renders the inverse color class', () => {
-    const { container } = render(
-      <Icon svg={AlertIcon} inverseColor>
-        Paragraph
-      </Icon>,
-    )
+    const { container } = render(<Icon svg={AlertIcon} inverseColor />)
 
     const icon = container.querySelector('span:only-child')
 
