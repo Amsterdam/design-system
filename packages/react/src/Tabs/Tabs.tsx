@@ -5,7 +5,7 @@
 
 import clsx from 'clsx'
 import { forwardRef, useEffect, useId, useImperativeHandle, useMemo, useRef, useState } from 'react'
-import type { ForwardedRef, HTMLAttributes, PropsWithChildren, ReactNode } from 'react'
+import type { ForwardedRef, HTMLAttributes, PropsWithChildren } from 'react'
 import { TabsButton } from './TabsButton'
 import { TabsContext } from './TabsContext'
 import { TabsList } from './TabsList'
@@ -25,7 +25,7 @@ const TabsRoot = forwardRef(
 
     const allTabs = useMemo(() => {
       if (!Array.isArray(children)) return []
-      return (children[0].props.children as ReactNode[]).map((child) => child)
+      return children[0].props.children
     }, [children])
 
     useEffect(() => {
