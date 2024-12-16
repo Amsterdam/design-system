@@ -8,7 +8,7 @@ describe('Alert', () => {
     const { container } = render(<Alert />)
 
     const component = container.querySelector(':only-child')
-    const icon = component?.querySelector('.ams-alert__icon')
+    const icon = component?.querySelector('.ams-alert__severity > .ams-icon')
 
     expect(component).toBeInTheDocument()
     expect(component).toBeVisible()
