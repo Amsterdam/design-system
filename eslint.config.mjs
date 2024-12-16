@@ -59,6 +59,7 @@ export default tseslint.config(
     },
     rules: {
       '@typescript-eslint/consistent-type-definitions': ['error', 'type'],
+      '@typescript-eslint/no-unused-vars': 'error',
       'array-callback-return': [
         'error',
         {
@@ -154,7 +155,6 @@ export default tseslint.config(
       'no-unsafe-negation': 'error',
       'no-unused-expressions': 'error',
       'no-unused-labels': 'error',
-      '@typescript-eslint/no-unused-vars': 'error',
       'no-useless-call': 'error',
       'no-useless-catch': 'error',
       'no-useless-concat': 'error',
