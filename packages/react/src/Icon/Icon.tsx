@@ -10,6 +10,8 @@ import { forwardRef } from 'react'
 import type { ForwardedRef, HTMLAttributes } from 'react'
 
 export type IconProps = {
+  /** Changes the icon colour for readability on a dark background. */
+  inverseColor?: boolean
   /** The size of the icon. Corresponds with the text levels. */
   size?: 'level-3' | 'level-4' | 'level-5' | 'level-6'
   /** Whether the icon container should be made square. */
@@ -19,11 +21,15 @@ export type IconProps = {
 } & HTMLAttributes<HTMLSpanElement>
 
 export const Icon = forwardRef(
-  ({ className, size = 'level-3', square, svg, ...restProps }: IconProps, ref: ForwardedRef<HTMLElement>) => (
+  (
+    { className, inverseColor, size = 'level-3', square, svg, ...restProps }: IconProps,
+    ref: ForwardedRef<HTMLElement>,
+  ) => (
     <span
       ref={ref}
       className={clsx(
         'ams-icon',
+        inverseColor && 'ams-icon--inverse-color',
         size === 'level-3' && 'ams-icon--size-3',
         size === 'level-4' && 'ams-icon--size-4',
         size === 'level-5' && 'ams-icon--size-5',
