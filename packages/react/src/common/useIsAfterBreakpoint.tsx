@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react'
+import { useLayoutEffect, useState } from 'react'
 
 // TODO: we should set the breakpoint in JS somewhere and render this and the sass variables from that
 const breakpoints = {
@@ -11,7 +11,7 @@ type useIsAfterBreakpointProps = 'medium' | 'wide'
 const useIsAfterBreakpoint = (breakpoint: useIsAfterBreakpointProps) => {
   const [matches, setMatches] = useState(false)
 
-  useEffect(() => {
+  useLayoutEffect(() => {
     // Check for window object to avoid SSR issues
     if (breakpoint && typeof window !== 'undefined') {
       const media = window.matchMedia(`(min-width: ${breakpoints[breakpoint]})`)
