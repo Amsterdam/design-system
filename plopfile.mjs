@@ -52,7 +52,7 @@ export default function (plop) {
         type: 'append',
         path: 'packages/css/src/components/index.scss',
         pattern: `/* Append here */`,
-        template: `@import "./{{kebabCase name}}/{{kebabCase name}}";`,
+        template: `@use "./{{kebabCase name}}/{{kebabCase name}}" as *;`,
       },
       {
         type: 'add',
