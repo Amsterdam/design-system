@@ -6,15 +6,16 @@
 import clsx from 'clsx'
 import { forwardRef } from 'react'
 import type { ForwardedRef, HTMLAttributes, PropsWithChildren } from 'react'
+import { FigureCaption } from './FigureCaption'
 
 export type FigureProps = PropsWithChildren<HTMLAttributes<HTMLElement>>
 
-export const Figure = forwardRef(
-  ({ children, className, ...restProps }: FigureProps, ref: ForwardedRef<HTMLElement>) => (
-    <figure {...restProps} ref={ref} className={clsx('ams-figure', className)}>
-      {children}
-    </figure>
-  ),
-)
+const FigureRoot = forwardRef(({ children, className, ...restProps }: FigureProps, ref: ForwardedRef<HTMLElement>) => (
+  <figure {...restProps} ref={ref} className={clsx('ams-figure', className)}>
+    {children}
+  </figure>
+))
 
-Figure.displayName = 'Figure'
+FigureRoot.displayName = 'Figure'
+
+export const Figure = Object.assign(FigureRoot, { Caption: FigureCaption })

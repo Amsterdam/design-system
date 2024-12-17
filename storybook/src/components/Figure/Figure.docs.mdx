@@ -1,6 +1,6 @@
 {/* @license CC0-1.0 */}
 
-import { Controls, Markdown, Meta, Primary } from "@storybook/blocks";
+import { Canvas, Markdown, Meta, Primary } from "@storybook/blocks";
 import * as FigureStories from "./Figure.stories.tsx";
 import README from "../../../../packages/css/src/components/figure/README.md?raw";
 
@@ -10,4 +10,11 @@ import README from "../../../../packages/css/src/components/figure/README.md?raw
 
 <Primary />
 
-<Controls />
+## Examples
+
+### Inverse colour
+
+Set the `inverseColor` prop if the Figure Caption sits on a dark background.
+This ensures the colour of the text provides enough contrast.
+
+<Canvas of={FigureStories.InverseColour} />

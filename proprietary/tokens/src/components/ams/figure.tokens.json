@@ -1,5 +1,15 @@
 {
   "ams": {
-    "figure": {}
+    "figure": {
+      "gap": { "value": "{ams.space.sm}" },
+      "caption": {
+        "color": { "value": "{ams.brand.color.neutral.100}" },
+        "font-family": { "value": "{ams.text.font-family}" },
+        "font-size": { "value": "{ams.text.level.6.font-size}" },
+        "font-weight": { "value": "{ams.text.font-weight.normal}" },
+        "line-height": { "value": "{ams.text.level.6.line-height}" },
+        "inverse-color": { "value": "{ams.brand.color.neutral.0}" }
+      }
+    }
   }
 }
