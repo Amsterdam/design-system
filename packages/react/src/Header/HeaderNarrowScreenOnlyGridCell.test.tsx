@@ -3,7 +3,7 @@ import { createRef } from 'react'
 import { HeaderNarrowScreenOnlyGridCell } from './HeaderNarrowScreenOnlyGridCell'
 import '@testing-library/jest-dom'
 
-describe('HeaderNarrowScreenOnlyGridCell', () => {
+describe('Header narrow screen only grid cell', () => {
   it('renders', () => {
     const { container } = render(<HeaderNarrowScreenOnlyGridCell />)
 
