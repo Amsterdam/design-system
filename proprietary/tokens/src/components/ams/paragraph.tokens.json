@@ -2,18 +2,18 @@
   "ams": {
     "paragraph": {
       "color": { "value": "{ams.brand.color.neutral.100}" },
-      "font-family": { "value": "{ams.text.font-family}" },
-      "font-size": { "value": "{ams.text.level.5.font-size}" },
-      "font-weight": { "value": "{ams.text.font-weight.normal}" },
-      "line-height": { "value": "{ams.text.level.5.line-height}" },
+      "font-family": { "value": "{ams.common.typography.body-text.font-family}" },
+      "font-size": { "value": "{ams.common.typography.body-text.font-size}" },
+      "font-weight": { "value": "{ams.common.typography.body-text.font-weight}" },
       "inverse-color": { "value": "{ams.brand.color.neutral.0}" },
+      "line-height": { "value": "{ams.common.typography.body-text.line-height}" },
       "small": {
-        "font-size": { "value": "{ams.text.level.6.font-size}" },
-        "line-height": { "value": "{ams.text.level.6.line-height}" }
+        "font-size": { "value": "{ams.common.typography.body-text.sm.font-size}" },
+        "line-height": { "value": "{ams.common.typography.body-text.sm.line-height}" }
       },
       "large": {
-        "font-size": { "value": "{ams.text.level.4.font-size}" },
-        "line-height": { "value": "{ams.text.level.4.line-height}" }
+        "font-size": { "value": "{ams.common.typography.body-text.lg.font-size}" },
+        "line-height": { "value": "{ams.common.typography.body-text.lg.line-height}" }
       }
     }
   }

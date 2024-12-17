@@ -2,10 +2,10 @@
   "ams": {
     "avatar": {
       "aspect-ratio": { "value": "{ams.aspect-ratio.square}" },
-      "font-family": { "value": "{ams.text.font-family}" },
-      "font-size": { "value": "{ams.text.level.6.font-size}" },
-      "font-weight": { "value": "{ams.text.font-weight.normal}" },
-      "line-height": { "value": "{ams.text.level.6.line-height}" },
+      "font-family": { "value": "{ams.common.typography.body-text.font-family}" },
+      "font-size": { "value": "{ams.common.typography.body-text.sm.font-size}" },
+      "font-weight": { "value": "{ams.common.typography.body-text.font-weight}" },
+      "line-height": { "value": "{ams.common.typography.body-text.sm.line-height}" },
       "padding-block": { "value": "{ams.space.xs}" },
       "padding-inline": { "value": "{ams.space.xs}" },
       "azure": {
