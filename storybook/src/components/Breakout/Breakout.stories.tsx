@@ -3,7 +3,7 @@
  * Copyright Gemeente Amsterdam
  */
 
-import { Image, Paragraph, Screen, Spotlight } from '@amsterdam/design-system-react'
+import { Figure, Image, Paragraph, Screen, Spotlight } from '@amsterdam/design-system-react'
 import { Breakout } from '@amsterdam/design-system-react/src'
 import { Meta, StoryObj } from '@storybook/react'
 
@@ -46,6 +46,37 @@ export const Default: Story = {
         rowStart={1}
       >
         <Image alt="" aspectRatio="square" src="https://picsum.photos/960/960" />
+      </Breakout.Cell>,
+    ],
+  },
+}
+
+export const WithCaption: Story = {
+  args: {
+    children: [
+      <Breakout.Cell colSpan="all" has="spotlight" rowSpan={{ medium: 2, narrow: 2, wide: 1 }} rowStart={2}>
+        <Spotlight />
+      </Breakout.Cell>,
+      <Breakout.Cell
+        colSpan={{ medium: 8, narrow: 4, wide: 6 }}
+        colStart={1}
+        rowStart={{ medium: 3, narrow: 3, wide: 2 }}
+      >
+        <Paragraph inverseColor>
+          Het doel van deze club is om ervoor te zorgen dat de Zuidas steeds duurzamer wordt.
+        </Paragraph>
+      </Breakout.Cell>,
+      <Breakout.Cell
+        colSpan={{ medium: 8, narrow: 4, wide: 6 }}
+        colStart={{ medium: 1, narrow: 1, wide: 7 }}
+        has="figure"
+        rowSpan={2}
+        rowStart={1}
+      >
+        <Figure>
+          <Image alt="" src="https://picsum.photos/960/540" />
+          <Figure.Caption inverseColor>Metrostation Zuid in 2022. Foto: Gemeente Amsterdam.</Figure.Caption>
+        </Figure>
       </Breakout.Cell>,
     ],
   },
