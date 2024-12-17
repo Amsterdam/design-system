@@ -56,11 +56,11 @@ export const Default: Story = {
 export const VerticalLayout: Story = {
   args: {
     children: [
-      <Breakout.Cell colSpan="all" has="figure" key={1} rowSpan={2} rowStart={1}>
-        <Image alt="" src="https://picsum.photos/1600/900" />
-      </Breakout.Cell>,
-      <Breakout.Cell colSpan="all" has="spotlight" key={2} rowSpan={2} rowStart={2}>
+      <Breakout.Cell colSpan="all" has="spotlight" key={1} rowSpan={2} rowStart={2}>
         <Spotlight />
+      </Breakout.Cell>,
+      <Breakout.Cell colSpan="all" has="figure" key={2} rowSpan={2} rowStart={1}>
+        <Image alt="" src="https://picsum.photos/1600/900" />
       </Breakout.Cell>,
       <Breakout.Cell
         colSpan={{ medium: 6, narrow: 4, wide: 8 }}
