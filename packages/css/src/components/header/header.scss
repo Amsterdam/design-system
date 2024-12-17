@@ -80,7 +80,7 @@
   display: revert;
 }
 
-@mixin shared-styles {
+@mixin header-menu-action {
   color: var(--ams-header-menu-item-color);
   font-family: var(--ams-header-menu-item-font-family);
   font-size: var(--ams-header-menu-item-font-size);
@@ -104,7 +104,7 @@
   text-decoration-thickness: var(--ams-header-menu-link-text-decoration-thickness);
   text-underline-offset: var(--ams-header-menu-link-text-underline-offset);
 
-  @include shared-styles;
+  @include header-menu-action;
 
   &:hover {
     text-decoration-line: var(--ams-header-menu-link-hover-text-decoration-line);
@@ -133,7 +133,7 @@
   display: grid;
   grid-auto-flow: column;
 
-  @include shared-styles;
+  @include header-menu-action;
   @include reset-button;
 }
 
