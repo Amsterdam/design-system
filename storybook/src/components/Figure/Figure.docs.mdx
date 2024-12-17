@@ -1,0 +1,13 @@
+{/* @license CC0-1.0 */}
+
+import { Controls, Markdown, Meta, Primary } from "@storybook/blocks";
+import * as FigureStories from "./Figure.stories.tsx";
+import README from "../../../../packages/css/src/components/figure/README.md?raw";
+
+<Meta of={FigureStories} />
+
+<Markdown>{README}</Markdown>
+
+<Primary />
+
+<Controls />

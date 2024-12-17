@@ -4,6 +4,7 @@
  */
 
 /* Append here */
+export * from './Figure'
 export * from './FileList'
 export * from './ActionGroup'
 export * from './Breakout'
