@@ -45,7 +45,7 @@ describe('Header', () => {
   it('renders a brand section', () => {
     const { container } = render(<Header />)
 
-    const component = container.querySelector('.ams-header__brand-section')
+    const component = container.querySelector('.ams-header__branding')
 
     expect(component).toBeInTheDocument()
   })
@@ -83,7 +83,7 @@ describe('Header', () => {
   })
 
   it('renders an application name', () => {
-    render(<Header appName="Application name" />)
+    render(<Header brandName="Application name" />)
 
     const heading = screen.getByRole('heading', {
       name: 'Application name',

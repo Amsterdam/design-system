@@ -12,15 +12,15 @@
   padding-inline: var(--ams-grid-padding-inline);
 }
 
-.ams-header__brand-section {
+.ams-header__branding {
   align-items: center;
   align-self: start;
-  column-gap: var(--ams-header-brand-section-column-gap);
+  column-gap: var(--ams-header-branding-column-gap);
   display: flex;
   grid-area: 1 / 1;
 }
 
-.ams-header__brand-section--hidden {
+.ams-header__branding--hidden {
   opacity: 0%;
   user-select: none;
 }
@@ -30,7 +30,7 @@
 }
 
 /* TODO Remove after updating Heading line heights in DES-973. */
-.ams-heading.ams-header__app-name {
+.ams-heading.ams-header__brand-name {
   line-height: 1.35;
 }
 

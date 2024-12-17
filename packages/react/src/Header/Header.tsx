@@ -17,7 +17,7 @@ import useIsAfterBreakpoint from '../common/useIsAfterBreakpoint'
 
 export type HeaderProps = {
   /** The name of the application. */
-  appName?: string
+  brandName?: string
   /** The name of the brand for which to display the logo. */
   logoBrand?: LogoBrand
   /** The url for the link on the logo. */
@@ -37,7 +37,7 @@ export type HeaderProps = {
 const HeaderRoot = forwardRef(
   (
     {
-      appName,
+      brandName,
       className,
       children,
       logoBrand = 'amsterdam',
@@ -64,14 +64,14 @@ const HeaderRoot = forwardRef(
 
     return (
       <header {...restProps} ref={ref} className={clsx('ams-header', className)}>
-        <div className="ams-header__brand-section">
+        <div className="ams-header__branding">
           <a className="ams-header__logo-link" href={logoLink}>
             <span className="ams-visually-hidden">{logoLinkTitle}</span>
             <Logo brand={logoBrand} />
           </a>
-          {appName && (
-            <Heading level={1} size="level-5" className="ams-header__app-name">
-              {appName}
+          {brandName && (
+            <Heading level={1} size="level-5" className="ams-header__brand-name">
+              {brandName}
             </Heading>
           )}
         </div>
@@ -81,12 +81,14 @@ const HeaderRoot = forwardRef(
               {navigationLabel}
             </h2>
 
-            {/* The logo and app name section is recreated here, to make sure the page menu breaks at the right spot */}
-            <div className="ams-header__brand-section ams-header__brand-section--hidden" aria-hidden>
+            {/* The branding section is recreated here, to make sure the page menu breaks at the right spot */}
+            <div className="ams-header__branding ams-header__branding--hidden" aria-hidden>
               <div className="ams-header__logo-link">
                 <Logo brand={logoBrand} />
               </div>
-              {appName && <span className="ams-heading ams-heading--level-5 ams-header__app-name">{appName}</span>}
+              {brandName && (
+                <span className="ams-heading ams-heading--level-5 ams-header__brand-name">{brandName}</span>
+              )}
             </div>
 
             <ul className="ams-header__menu">

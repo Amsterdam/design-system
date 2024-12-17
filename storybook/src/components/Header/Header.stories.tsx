@@ -37,7 +37,7 @@ const defaultStoryLinks = [
 
 export const Default: Story = {
   args: {
-    appName: 'Data Amsterdam',
+    brandName: 'Data Amsterdam',
     menuItems: [
       <Header.MenuLink key={1} href="#">
         Inloggen
@@ -103,7 +103,7 @@ const WithoutMenuButtonOnWideScreenStoryLinks = [
 
 export const WithoutMenuButtonOnWideScreen: Story = {
   args: {
-    appName: 'Aan de Amsterdamse grachten',
+    brandName: 'Aan de Amsterdamse grachten',
     menuItems: [
       ...WithoutMenuButtonOnWideScreenStoryLinks.map(({ label, href }) => (
         <Header.MenuLink key={label} href={href}>
@@ -129,7 +129,7 @@ export const WithoutMenuButtonOnWideScreen: Story = {
 
 export const WithoutMenuButton: Story = {
   args: {
-    appName: 'Mijn Amsterdam',
+    brandName: 'Mijn Amsterdam',
   },
 }
 
