@@ -3,7 +3,7 @@ import { createRef } from 'react'
 import { HeaderMenuLink } from './HeaderMenuLink'
 import '@testing-library/jest-dom'
 
-describe('Breadcrumb link', () => {
+describe('Header menu link', () => {
   it('renders', () => {
     render(<HeaderMenuLink href="/" />)
 
