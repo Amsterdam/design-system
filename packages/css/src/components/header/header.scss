@@ -7,6 +7,11 @@
 @import "../../common/text-rendering";
 
 .ams-header {
+  /*
+  * The branding section is created twice: once outside the navigation and once hidden inside it.
+  * This keeps all navigation in one nav element and lets the menu wrap around the branding section.
+  * Display grid is used to let both branding sections overlap.
+  */
   display: grid;
   padding-block: var(--ams-header-padding-block);
   padding-inline: var(--ams-grid-padding-inline);
@@ -14,15 +19,15 @@
 
 .ams-header__branding {
   align-items: center;
-  align-self: start;
+  align-self: start; // To align the branding section to the top of the header when it wraps
   column-gap: var(--ams-header-branding-column-gap);
   display: flex;
-  grid-area: 1 / 1;
+  grid-area: 1 / 1; // To allow this section to overlap with the second branding section
 }
 
 .ams-header__branding--hidden {
   opacity: 0%;
-  user-select: none;
+  user-select: none; // The hidden branding section should not be selectable
 }
 
 .ams-header__logo-link {
@@ -38,39 +43,39 @@
   column-gap: var(--ams-header-navigation-column-gap);
   display: flex;
   flex-wrap: wrap;
-  grid-area: 1 / 1;
-  inset-block-start: 0;
+  grid-area: 1 / 1; // To allow this section to overlap with the branding section
+  // This section blocks pointer events initially, so the hidden branding section can't be activated.
+  // The menu and collapsible menu set it back to auto, to make sure they can be activated.
   pointer-events: none;
   row-gap: var(--ams-header-navigation-row-gap);
 }
 
 @mixin reset-list {
+  list-style: none;
   margin-block: 0;
   padding-inline-start: 0;
 }
 
 .ams-header__menu {
   align-items: center;
-  box-sizing: border-box;
   column-gap: var(--ams-header-menu-column-gap);
   display: flex;
-  flex-direction: row;
   flex-wrap: wrap;
   justify-content: flex-end;
-  list-style: none;
-  margin-inline-start: auto;
-  pointer-events: auto;
+  pointer-events: auto; // Set pointer events back to auto to allow the menu to be activated
   row-gap: var(--ams-header-menu-row-gap);
 
   @include reset-list;
 }
 
+// Do not show menu items below the wide breakpoint...
 .ams-header__menu-item {
   @media screen and (not (min-width: $ams-breakpoint-wide)) {
     display: none;
   }
 }
 
+// ...unless they're fixed.
 .ams-header__menu-item--fixed {
   display: revert;
 }
@@ -138,7 +143,7 @@
 
 .ams-header__mega-menu-button-label,
 .ams-header__mega-menu-button-hidden-label {
-  grid-area: 1 / 1;
+  grid-area: 1 / 1; // To allow the label and the hidden label to overlap
 }
 
 // This hidden label is used to prevent a layout shift when the mega menu is opened
@@ -190,7 +195,7 @@
 
 .ams-header__mega-menu {
   inline-size: 100%;
-  pointer-events: auto;
+  pointer-events: auto; // Set pointer events back to auto to allow the mega menu to be activated
 
   // Remove inline padding from Grids that are used in the mega menu.
   // The grid inline padding is set on the header element.
