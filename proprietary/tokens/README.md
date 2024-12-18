@@ -167,7 +167,7 @@ Here, tokens start their name with a prefix of `ams.`.
 Use ‘dot notation’ or square brackets to access the tokens.
 
 <!-- prettier-ignore -->
-```ts
+```tsx
 import tokens from "@amsterdam/design-system-tokens/dist/index.json"
 
 const { ams } = tokens
@@ -179,9 +179,9 @@ Import and merge the compact tokens if you need them.
 Then you can use the tokens in scripting or css-in-js libraries.
 
 <!-- prettier-ignore -->
-```ts
-import spaciousTokens from "@amsterdam/design-system-tokens/dist/index.json"
+```tsx
 import compactTokens from "@amsterdam/design-system-tokens/dist/compact.json"
+import spaciousTokens from "@amsterdam/design-system-tokens/dist/index.json"
 
 const { ams } = { ...spaciousTokens, ...compactTokens }
 ```
