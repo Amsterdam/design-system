@@ -3,8 +3,8 @@
  * Copyright Gemeente Amsterdam
  */
 
-@import "../../common/breakpoint";
-@import "../../common/text-rendering";
+@use "../../common/breakpoint" as *;
+@use "../../common/text-rendering" as *;
 
 .ams-header {
   /*
