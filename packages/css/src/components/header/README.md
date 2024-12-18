@@ -12,10 +12,10 @@ Includes the name of the application if it is not the general website.
 - The Header is important because it conveys our corporate identity and is the first thing people see.
   Using it consistently helps users recognize and trust the website.
 - It is the same on every page of the application.
-- The page menu can contain a maximum of 5 items.
+- The inline menu can contain a maximum of 5 items.
   The last two will often be ‘Search’ and ‘Menu’.
-- Labels should be short to ensure the menu fits on one line, even on medium-wide screens.
-- An icon can be added to the end of a link to make its function easier to find.
+- Labels should be short to allow the menu to fit on one line as much as possible.
+- An icon can be added to the end of a link to make its destination easier to guess.
 
 ## References
 
