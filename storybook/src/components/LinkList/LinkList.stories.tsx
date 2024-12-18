@@ -17,6 +17,7 @@ const meta = {
 
 export default meta
 
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 const linkMeta = {
   component: LinkList.Link,
 } satisfies Meta<typeof LinkList.Link>
