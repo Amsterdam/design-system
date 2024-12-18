@@ -94,18 +94,45 @@ export const Default: Story = {
   },
 }
 
-const WithoutMenuButtonOnWideScreenStoryLinks = [
+export const WithMovingLinks: Story = {
+  args: {
+    menuItems: [
+      <Header.MenuLink key={1} href="#">
+        Inloggen
+      </Header.MenuLink>,
+      <Header.MenuLink key={2} href="#" fixed>
+        Zoeken
+      </Header.MenuLink>,
+    ],
+    children: (
+      <Grid paddingBottom="large" gapVertical="small">
+        <Header.GridCellNarrowWindowOnly span="all">
+          <LinkList>
+            <LinkList.Link href="#">Inloggen</LinkList.Link>
+          </LinkList>
+        </Header.GridCellNarrowWindowOnly>
+        <Grid.Cell span="all">
+          <LinkList>
+            <LinkList.Link href="#">Regular collapsible menu link</LinkList.Link>
+          </LinkList>
+        </Grid.Cell>
+      </Grid>
+    ),
+  },
+}
+
+const WithoutMenuButtonOnWideWindowStoryLinks = [
   { label: 'Stad', href: '#' },
   { label: 'Techniek', href: '#' },
   { label: 'Historie', href: '#' },
   { label: 'Duurzaamheid', href: '#' },
 ]
 
-export const WithoutMenuButtonOnWideScreen: Story = {
+export const WithoutMenuButtonOnWideWindow: Story = {
   args: {
     brandName: 'Aan de Amsterdamse grachten',
     menuItems: [
-      ...WithoutMenuButtonOnWideScreenStoryLinks.map(({ label, href }) => (
+      ...WithoutMenuButtonOnWideWindowStoryLinks.map(({ label, href }) => (
         <Header.MenuLink key={label} href={href}>
           {label}
         </Header.MenuLink>
@@ -117,7 +144,7 @@ export const WithoutMenuButtonOnWideScreen: Story = {
     noMenuButtonOnWideScreen: true,
     children: (
       <LinkList className="ams-mb--lg">
-        {WithoutMenuButtonOnWideScreenStoryLinks.map(({ label, href }) => (
+        {WithoutMenuButtonOnWideWindowStoryLinks.map(({ label, href }) => (
           <LinkList.Link key={label} href={href}>
             {label}
           </LinkList.Link>
@@ -130,6 +157,11 @@ export const WithoutMenuButtonOnWideScreen: Story = {
 export const WithoutMenuButton: Story = {
   args: {
     brandName: 'Mijn Amsterdam',
+    menuItems: (
+      <Header.MenuLink fixed href="#">
+        Inloggen
+      </Header.MenuLink>
+    ),
   },
 }
 

@@ -17,18 +17,44 @@ import { StatusBadge } from "../../docs/components/StatusBadge";
 
 ## Examples
 
-### Without menu button on wide screens
+### With moving links
 
-<Canvas of={HeaderStories.WithoutMenuButtonOnWideScreen} />
+Links can move from the inline menu to the collapsible one on narrow windows.
+A `MenuLink` is hidden by default on narrow windows.
+Use `GridCellNarrowWindowOnly` to show that same link in the collapsible menu on narrow windows.
+
+If you do not want the `MenuLink` to be hidden, use the `fixed` prop.
+
+In this example, ‘Inloggen’ moves to the collapsible menu, while ‘Zoeken’ does not.
+
+<Canvas of={HeaderStories.WithMovingLinks} />
+
+### Without menu button on wide windows
+
+If you only have a few links, you may not always need a collapsible menu.
+Use `noMenuButtonOnWideScreen` to hide the menu button on wide windows.
+On narrow windows, the menu button will still be visible,
+so do not forget to add the links to the collapsible menu.
+
+<Canvas of={HeaderStories.WithoutMenuButtonOnWideWindow} />
 
 ### Without menu button
+
+In some cases, a collapsible menu might not be necessary.
+If the Header has no `children`, the menu button will not appear.
+Remember to use the `fixed` prop if you want the inline menu links to stay in place.
 
 <Canvas of={HeaderStories.WithoutMenuButton} />
 
 ### With custom logo link
 
+The destination and accessible text of the logo link can be customized,
+as well as the logo itself.
+
 <Canvas of={HeaderStories.WithCustomLogoLink} />
 
 ### With custom texts
+
+The text of the menu button and the accessible navigation description can be customized.
 
 <Canvas of={HeaderStories.WithCustomTexts} />

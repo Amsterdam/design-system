@@ -14,7 +14,9 @@ Includes the name of the application if it is not the general website.
 - It is the same on every page of the application.
 - The inline menu can contain a maximum of 5 items.
   The last two will often be ‘Search’ and ‘Menu’.
-- Labels should be short to allow the menu to fit on one line as much as possible.
+- The 'Menu' button opens a collapsible menu, which has room for more links.
+- On narrow windows, links can move from the inline menu to the collapsible one.
+- Labels should be short to help the inline menu fit on a single line whenever possible.
 - An icon can be added to the end of a link to make its destination easier to guess.
 
 ## References

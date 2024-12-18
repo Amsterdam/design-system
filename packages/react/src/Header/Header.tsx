@@ -93,31 +93,33 @@ const HeaderRoot = forwardRef(
 
             <ul className="ams-header__menu">
               {menuItems}
-              <li
-                className={clsx(noMenuButtonOnWideScreen && 'ams-header__mega-menu-button-item--hide-on-wide-screen')}
-              >
-                <button
-                  {...restProps}
-                  aria-controls="ams-mega-menu"
-                  aria-expanded={open}
-                  className="ams-header__mega-menu-button"
-                  onClick={() => setOpen(!open)}
-                  type="button"
+              {children && (
+                <li
+                  className={clsx(noMenuButtonOnWideScreen && 'ams-header__mega-menu-button-item--hide-on-wide-screen')}
                 >
-                  <span className="ams-header__mega-menu-button-label">{menuButtonText}</span>
-                  <span aria-hidden="true" className="ams-header__mega-menu-button-hidden-label">
-                    {menuButtonText}
-                  </span>
-                  <Icon
-                    svg={
-                      <HeaderMenuIcon
-                        className={clsx('ams-header__menu-icon', open && 'ams-header__menu-icon--open')}
-                      />
-                    }
-                    size="level-6"
-                  />
-                </button>
-              </li>
+                  <button
+                    {...restProps}
+                    aria-controls="ams-mega-menu"
+                    aria-expanded={open}
+                    className="ams-header__mega-menu-button"
+                    onClick={() => setOpen(!open)}
+                    type="button"
+                  >
+                    <span className="ams-header__mega-menu-button-label">{menuButtonText}</span>
+                    <span aria-hidden="true" className="ams-header__mega-menu-button-hidden-label">
+                      {menuButtonText}
+                    </span>
+                    <Icon
+                      svg={
+                        <HeaderMenuIcon
+                          className={clsx('ams-header__menu-icon', open && 'ams-header__menu-icon--open')}
+                        />
+                      }
+                      size="level-6"
+                    />
+                  </button>
+                </li>
+              )}
             </ul>
 
             {children && (
