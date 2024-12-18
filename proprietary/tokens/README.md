@@ -152,11 +152,12 @@ As they are already prefixed, the namespace that Sass would assign isn’t neces
 @use "@amsterdam/design-system-tokens/dist/index.scss" as *;
 ```
 
-Import the compact tokens if you need them.
-Sass will override spacious values automatically.
+Import the compact tokens if needed.
+Note that Sass doesn't allow importing them alongside the default set due to naming conflicts.
+Address these tokens through the `compact` namespace and do not use the spacious tokens they replace.
 
 ```sass
-@use "@amsterdam/design-system-tokens/dist/compact.scss" as *;
+@use "@amsterdam/design-system-tokens/dist/compact.scss";
 ```
 
 ## Usage in JavaScript
