@@ -2,6 +2,10 @@
   "ams": {
     "header": {
       "padding-block": { "value": "{ams.space.grid.sm}" },
+      "padding-inline": {
+        "value": "{ams.grid.padding-inline}",
+        "comment": "Must be the Grid inline padding, to make sure Header and Grid line up"
+      },
       "branding": {
         "column-gap": { "value": "{ams.space.md}" },
         "row-gap": { "value": "{ams.space.grid.xs}" }
