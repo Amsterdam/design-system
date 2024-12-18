@@ -1,13 +1,25 @@
-import { Grid, Header, PageMenu } from '@amsterdam/design-system-react'
-import { Alignment as PageMenuStory } from '../../../components/PageMenu/PageMenu.stories'
+import { Header, LinkList } from '@amsterdam/design-system-react'
 
 export const AppHeader = () => (
-  <Grid>
-    <Grid.Cell span="all">
-      <Header
-        links={<PageMenu alignEnd>{PageMenuStory.args?.children}</PageMenu>}
-        menu={<button className="ams-header__menu-button">Menu</button>}
-      />
-    </Grid.Cell>
-  </Grid>
+  <Header
+    noMenuButtonOnWideWindow
+    menuItems={[
+      <Header.MenuLink key="1" href="#" lang="en">
+        English
+      </Header.MenuLink>,
+      <Header.MenuLink key="2" href="#">
+        Mijn Amsterdam
+      </Header.MenuLink>,
+      <Header.MenuLink key="3" href="#" fixed>
+        Zoeken
+      </Header.MenuLink>,
+    ]}
+  >
+    <LinkList className="ams-mb--lg">
+      <LinkList.Link href="#" lang="en">
+        English
+      </LinkList.Link>
+      <LinkList.Link href="#">Mijn Amsterdam</LinkList.Link>
+    </LinkList>
+  </Header>
 )

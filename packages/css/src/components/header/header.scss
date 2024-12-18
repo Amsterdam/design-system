@@ -4,83 +4,213 @@
  */
 
 @use "../../common/breakpoint" as *;
+@use "../../common/text-rendering" as *;
 
 .ams-header {
-  align-items: center;
-  display: flex;
-  flex-wrap: wrap;
+  /*
+  * The branding section is created twice: once outside the navigation and once hidden inside it.
+  * This keeps all navigation in one nav element and lets the menu wrap around the branding section.
+  * Display grid is used to let both branding sections overlap.
+  */
+  display: grid;
   padding-block: var(--ams-header-padding-block);
-  row-gap: 1.5rem;
+  padding-inline: var(--ams-header-padding-inline);
+}
 
-  @media screen and (min-width: $ams-breakpoint-wide) {
-    column-gap: var(--ams-header-column-gap);
-    flex-wrap: nowrap;
-  }
+.ams-header__branding {
+  align-items: center;
+  align-self: start; // To align the branding section to the top of the header when it wraps
+  column-gap: var(--ams-header-branding-column-gap);
+  display: flex;
+  grid-area: 1 / 1; // To allow this section to overlap with the second branding section
+}
+
+.ams-header__branding--hidden {
+  opacity: 0%;
+  user-select: none; // The hidden branding section should not be selectable
 }
 
 .ams-header__logo-link {
-  flex: none;
   outline-offset: var(--ams-header-logo-link-outline-offset);
 }
 
-.ams-header__links {
-  display: none;
+/* TODO Remove after updating Heading line heights in DES-973. */
+.ams-heading.ams-header__brand-name {
+  line-height: 1.35;
+}
 
-  @media screen and (min-width: $ams-breakpoint-medium) {
-    display: block;
-    flex: 10 0 auto;
-  }
+.ams-header__navigation {
+  column-gap: var(--ams-header-navigation-column-gap);
+  display: flex;
+  flex-wrap: wrap;
+  grid-area: 1 / 1; // To allow this section to overlap with the branding section
+  // This section blocks pointer events initially, so the hidden branding section can't be activated.
+  // The menu and collapsible menu set it back to auto, to make sure they can be activated.
+  pointer-events: none;
+  row-gap: var(--ams-header-navigation-row-gap);
+}
 
-  @media screen and (min-width: $ams-breakpoint-wide) {
-    order: 3;
-  }
+@mixin reset-list {
+  list-style: none;
+  margin-block: 0;
+  padding-inline-start: 0;
 }
 
 .ams-header__menu {
-  flex: 1;
-  padding-inline-start: var(--ams-page-menu-column-gap); // TODO Don’t use tokens of another component
-  text-align: end;
+  align-items: center;
+  column-gap: var(--ams-header-menu-column-gap);
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  margin-inline-start: auto;
+  pointer-events: auto; // Set pointer events back to auto to allow the menu to be activated
+  row-gap: var(--ams-header-menu-row-gap);
 
-  @media screen and (min-width: $ams-breakpoint-wide) {
-    order: 4;
-    padding-inline-start: 0;
+  @include reset-list;
+}
+
+// Do not show menu items below the wide breakpoint...
+.ams-header__menu-item {
+  @media screen and (not (min-width: $ams-breakpoint-wide)) {
+    display: none;
   }
 }
 
-.ams-header__app-name {
-  flex: 1 1 100%;
+// ...unless they're fixed.
+.ams-header__menu-item--fixed {
+  display: revert;
+}
 
+@mixin header-menu-action {
+  color: var(--ams-header-menu-item-color);
+  font-family: var(--ams-header-menu-item-font-family);
+  font-size: var(--ams-header-menu-item-font-size);
+  font-weight: var(--ams-header-menu-item-font-weight);
+  line-height: var(--ams-header-menu-item-line-height);
+  outline-offset: var(--ams-header-menu-item-outline-offset);
+  padding-block: var(--ams-header-menu-item-padding-block);
+  touch-action: manipulation;
+  white-space: nowrap;
+
+  @include text-rendering;
+
+  &:hover {
+    color: var(--ams-header-menu-item-hover-color);
+  }
+}
+
+.ams-header__menu-link {
+  display: inline-block;
+  text-decoration-line: var(--ams-header-menu-link-text-decoration-line);
+  text-decoration-thickness: var(--ams-header-menu-link-text-decoration-thickness);
+  text-underline-offset: var(--ams-header-menu-link-text-underline-offset);
+
+  @include header-menu-action;
+
+  &:hover {
+    text-decoration-line: var(--ams-header-menu-link-hover-text-decoration-line);
+  }
+}
+
+.ams-header__mega-menu-button-item--hide-on-wide-window {
   @media screen and (min-width: $ams-breakpoint-wide) {
-    min-inline-size: 0;
-    order: 2;
+    display: none;
+  }
+}
 
-    .ams-header__app-name-heading {
-      display: block;
-      inline-size: 100%;
-      line-height: 1;
-      overflow: hidden;
-      text-overflow: ellipsis;
-      white-space: nowrap;
+@mixin reset-button {
+  background: none;
+  border: 0;
+  margin-block: 0; // [1]
+  margin-inline: 0; // [1]
+  padding-inline: 0;
+
+  // [1] Remove the margin in older Safari.
+}
+
+.ams-header__mega-menu-button {
+  column-gap: var(--ams-header-menu-item-column-gap);
+  cursor: pointer;
+  display: grid;
+  grid-auto-flow: column;
+
+  @include header-menu-action;
+  @include reset-button;
+}
+
+.ams-header__mega-menu-button[aria-expanded="true"] {
+  font-weight: var(--ams-header-mega-menu-button-label-open-font-weight);
+}
+
+.ams-header__mega-menu-button-label,
+.ams-header__mega-menu-button-hidden-label {
+  grid-area: 1 / 1; // To allow the label and the hidden label to overlap
+}
+
+// This hidden label is used to prevent a layout shift when the mega menu is opened
+// and the button text becomes bold.
+.ams-header__mega-menu-button-hidden-label {
+  font-weight: var(--ams-header-mega-menu-button-label-open-font-weight);
+  pointer-events: none;
+  user-select: none;
+  visibility: hidden;
+}
+
+.ams-header__menu-icon {
+  line {
+    stroke: currentColor;
+    stroke-width: 3px;
+    transform-origin: center;
+    transition:
+      translate 0.1s ease-in-out,
+      rotate 0.2s ease-in-out,
+      opacity 0.1s ease-in-out;
+
+    @media (prefers-reduced-motion) {
+      transition: none;
     }
   }
+
+  .ams-header__menu-icon-top {
+    translate: 0 -7px;
+  }
+
+  .ams-header__menu-icon-bottom {
+    translate: 0 7px;
+  }
 }
 
-// Temporary – will move to Mega Menu and/or Icon Button
-.ams-header__menu-button {
-  background-color: transparent;
-  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><path fill='%23004699' fill-rule='evenodd' d='M0 3.238h32V7.81H0V3.238zm0 10.476h32v4.572H0v-4.572zM0 24.19h32v4.572H0V24.19z'/></svg>");
-  background-position: center right;
-  background-repeat: no-repeat;
-  background-size: 1.1875rem 1.1875rem;
-  border: 0;
-  color: var(--ams-page-menu-item-color);
-  font-family: var(--ams-page-menu-item-font-family);
-  font-size: var(--ams-page-menu-item-font-size);
-  font-weight: var(--ams-page-menu-item-font-weight);
-  line-height: var(--ams-page-menu-item-line-height);
-  margin-block: 0;
-  margin-inline: 0;
-  padding-inline: 0 1.875rem;
-  text-align: center;
-  touch-action: manipulation;
+.ams-header__menu-icon--open {
+  .ams-header__menu-icon-top {
+    rotate: 45deg;
+    translate: 0;
+  }
+  .ams-header__menu-icon-middle {
+    opacity: 0%;
+  }
+  .ams-header__menu-icon-bottom {
+    rotate: -45deg;
+    translate: 0;
+  }
+}
+
+.ams-header__mega-menu {
+  inline-size: 100%;
+  pointer-events: auto; // Set pointer events back to auto to allow the mega menu to be activated
+
+  // Remove inline padding from Grids that are used in the mega menu.
+  // The grid inline padding is set on the header element.
+  & .ams-grid {
+    padding-inline: 0;
+  }
+}
+
+.ams-header__mega-menu--closed.ams-header__mega-menu--closed {
+  display: none;
+}
+
+.ams-header__grid-cell-narrow-window-only {
+  @media screen and (min-width: $ams-breakpoint-wide) {
+    display: none;
+  }
 }

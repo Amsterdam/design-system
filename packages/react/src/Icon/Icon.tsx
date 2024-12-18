@@ -7,7 +7,7 @@
 
 import clsx from 'clsx'
 import { forwardRef } from 'react'
-import type { ForwardedRef, HTMLAttributes } from 'react'
+import type { ForwardedRef, HTMLAttributes, ReactNode } from 'react'
 
 export type IconProps = {
   /** Changes the icon colour for readability on a dark background. */
@@ -17,7 +17,7 @@ export type IconProps = {
   /** Whether the icon container should be made square. */
   square?: boolean
   /** The component rendering the icon’s markup. */
-  svg: Function
+  svg: Function | ReactNode
 } & HTMLAttributes<HTMLSpanElement>
 
 export const Icon = forwardRef(
@@ -39,7 +39,7 @@ export const Icon = forwardRef(
       )}
       {...restProps}
     >
-      {svg()}
+      {typeof svg === 'function' ? svg() : svg}
     </span>
   ),
 )
