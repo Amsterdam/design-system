@@ -62,6 +62,7 @@
   display: flex;
   flex-wrap: wrap;
   justify-content: flex-end;
+  margin-inline-start: auto;
   pointer-events: auto; // Set pointer events back to auto to allow the menu to be activated
   row-gap: var(--ams-header-menu-row-gap);
 
