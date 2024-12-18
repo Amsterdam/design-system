@@ -2,7 +2,7 @@ import { Header, LinkList } from '@amsterdam/design-system-react'
 
 export const AppHeader = () => (
   <Header
-    noMenuButtonOnWideScreen
+    noMenuButtonOnWideWindow
     menuItems={[
       <Header.MenuLink key="1" href="#" lang="en">
         English

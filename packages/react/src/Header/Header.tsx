@@ -31,7 +31,7 @@ export type HeaderProps = {
   /** The accessible label for the navigation section. */
   navigationLabel?: string
   /** Whether the menu button is visible on wide screens.  */
-  noMenuButtonOnWideScreen?: boolean
+  noMenuButtonOnWideWindow?: boolean
 } & HTMLAttributes<HTMLElement>
 
 const HeaderRoot = forwardRef(
@@ -46,7 +46,7 @@ const HeaderRoot = forwardRef(
       menuItems,
       menuButtonText = 'Menu',
       navigationLabel = 'Hoofdnavigatie',
-      noMenuButtonOnWideScreen,
+      noMenuButtonOnWideWindow,
       ...restProps
     }: HeaderProps,
     ref: ForwardedRef<HTMLElement>,
@@ -57,7 +57,7 @@ const HeaderRoot = forwardRef(
 
     useEffect(() => {
       // Close the menu when the menu button disappears
-      if (noMenuButtonOnWideScreen && isWideWindow) {
+      if (noMenuButtonOnWideWindow && isWideWindow) {
         setOpen(false)
       }
     }, [isWideWindow])
@@ -95,7 +95,7 @@ const HeaderRoot = forwardRef(
               {menuItems}
               {children && (
                 <li
-                  className={clsx(noMenuButtonOnWideScreen && 'ams-header__mega-menu-button-item--hide-on-wide-screen')}
+                  className={clsx(noMenuButtonOnWideWindow && 'ams-header__mega-menu-button-item--hide-on-wide-window')}
                 >
                   <button
                     {...restProps}

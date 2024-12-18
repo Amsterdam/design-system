@@ -162,12 +162,12 @@ describe('Header', () => {
     expect(component).toBeInTheDocument()
   })
 
-  it('renders the correct class when noMenuButtonOnWideScreen is true', () => {
-    render(<Header noMenuButtonOnWideScreen>Test</Header>)
+  it('renders the correct class when noMenuButtonOnWideWindow is true', () => {
+    render(<Header noMenuButtonOnWideWindow>Test</Header>)
 
     const component = screen.getByRole('listitem')
 
-    expect(component).toHaveClass('ams-header__mega-menu-button-item--hide-on-wide-screen')
+    expect(component).toHaveClass('ams-header__mega-menu-button-item--hide-on-wide-window')
   })
 
   it('opens and closes the mega menu', async () => {

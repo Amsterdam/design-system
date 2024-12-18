@@ -112,7 +112,7 @@
   }
 }
 
-.ams-header__mega-menu-button-item--hide-on-wide-screen {
+.ams-header__mega-menu-button-item--hide-on-wide-window {
   @media screen and (min-width: $ams-breakpoint-wide) {
     display: none;
   }

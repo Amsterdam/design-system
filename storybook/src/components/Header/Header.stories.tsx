@@ -141,7 +141,7 @@ export const WithoutMenuButtonOnWideWindow: Story = {
         Zoeken
       </Header.MenuLink>,
     ],
-    noMenuButtonOnWideScreen: true,
+    noMenuButtonOnWideWindow: true,
     children: (
       <LinkList className="ams-mb--lg">
         {WithoutMenuButtonOnWideWindowStoryLinks.map(({ label, href }) => (
