@@ -1,11 +1,11 @@
 import { render } from '@testing-library/react'
 import { createRef } from 'react'
-import { HeaderNarrowScreenOnlyGridCell } from './HeaderNarrowScreenOnlyGridCell'
+import { HeaderGridCellNarrowWindowOnly } from './HeaderGridCellNarrowWindowOnly'
 import '@testing-library/jest-dom'
 
 describe('Header narrow screen only grid cell', () => {
   it('renders', () => {
-    const { container } = render(<HeaderNarrowScreenOnlyGridCell />)
+    const { container } = render(<HeaderGridCellNarrowWindowOnly />)
 
     const component = container.querySelector(':only-child')
 
@@ -14,7 +14,7 @@ describe('Header narrow screen only grid cell', () => {
   })
 
   it('renders a Grid.Cell', () => {
-    const { container } = render(<HeaderNarrowScreenOnlyGridCell />)
+    const { container } = render(<HeaderGridCellNarrowWindowOnly />)
 
     const component = container.querySelector(':only-child')
 
@@ -22,25 +22,25 @@ describe('Header narrow screen only grid cell', () => {
   })
 
   it('renders a design system BEM class name', () => {
-    const { container } = render(<HeaderNarrowScreenOnlyGridCell />)
+    const { container } = render(<HeaderGridCellNarrowWindowOnly />)
 
     const component = container.querySelector(':only-child')
 
-    expect(component).toHaveClass('ams-header__narrow-screen-only-grid-cell')
+    expect(component).toHaveClass('ams-header__grid-cell-narrow-window-only')
   })
 
   it('renders an additional class name', () => {
-    const { container } = render(<HeaderNarrowScreenOnlyGridCell className="extra" />)
+    const { container } = render(<HeaderGridCellNarrowWindowOnly className="extra" />)
 
     const component = container.querySelector(':only-child')
 
-    expect(component).toHaveClass('ams-header__narrow-screen-only-grid-cell extra')
+    expect(component).toHaveClass('ams-header__grid-cell-narrow-window-only extra')
   })
 
   it('supports ForwardRef in React', () => {
     const ref = createRef<HTMLDivElement>()
 
-    const { container } = render(<HeaderNarrowScreenOnlyGridCell ref={ref} />)
+    const { container } = render(<HeaderGridCellNarrowWindowOnly ref={ref} />)
 
     const component = container.querySelector(':only-child')
 

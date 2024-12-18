@@ -48,11 +48,11 @@ export const Default: Story = {
     ],
     children: (
       <Grid paddingBottom="large">
-        <Header.NarrowScreenOnlyGridCell span="all">
+        <Header.GridCellNarrowWindowOnly span="all">
           <LinkList>
             <LinkList.Link href="#">Inloggen</LinkList.Link>
           </LinkList>
-        </Header.NarrowScreenOnlyGridCell>
+        </Header.GridCellNarrowWindowOnly>
         <Grid.Cell span={4}>
           <Heading level={2} size="level-3" className="ams-mb--sm">
             Onderdelen

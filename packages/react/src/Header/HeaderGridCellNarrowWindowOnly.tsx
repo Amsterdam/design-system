@@ -2,12 +2,12 @@ import clsx from 'clsx'
 import { ForwardedRef, forwardRef } from 'react'
 import { Grid, GridCellProps } from '../Grid'
 
-export const HeaderNarrowScreenOnlyGridCell = forwardRef(
+export const HeaderGridCellNarrowWindowOnly = forwardRef(
   ({ children, className, ...restProps }: GridCellProps, ref: ForwardedRef<HTMLElement>) => (
-    <Grid.Cell {...restProps} className={clsx('ams-header__narrow-screen-only-grid-cell', className)} ref={ref}>
+    <Grid.Cell {...restProps} className={clsx('ams-header__grid-cell-narrow-window-only', className)} ref={ref}>
       {children}
     </Grid.Cell>
   ),
 )
 
-HeaderNarrowScreenOnlyGridCell.displayName = 'Header.NarrowScreenOnlyGridCell'
+HeaderGridCellNarrowWindowOnly.displayName = 'Header.GridCellNarrowWindowOnly'

@@ -208,7 +208,7 @@
   display: none;
 }
 
-.ams-header__narrow-screen-only-grid-cell {
+.ams-header__grid-cell-narrow-window-only {
   @media screen and (min-width: $ams-breakpoint-wide) {
     display: none;
   }

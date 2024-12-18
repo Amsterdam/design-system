@@ -10,9 +10,9 @@ import { Heading } from '../Heading'
 import { Icon } from '../Icon'
 import { Logo } from '../Logo'
 import type { LogoBrand } from '../Logo'
+import { HeaderGridCellNarrowWindowOnly } from './HeaderGridCellNarrowWindowOnly'
 import { HeaderMenuIcon } from './HeaderMenuIcon'
 import { HeaderMenuLink } from './HeaderMenuLink'
-import { HeaderNarrowScreenOnlyGridCell } from './HeaderNarrowScreenOnlyGridCell'
 import useIsAfterBreakpoint from '../common/useIsAfterBreakpoint'
 
 export type HeaderProps = {
@@ -138,6 +138,6 @@ const HeaderRoot = forwardRef(
 HeaderRoot.displayName = 'Header'
 
 export const Header = Object.assign(HeaderRoot, {
+  GridCellNarrowWindowOnly: HeaderGridCellNarrowWindowOnly,
   MenuLink: HeaderMenuLink,
-  NarrowScreenOnlyGridCell: HeaderNarrowScreenOnlyGridCell,
 })
