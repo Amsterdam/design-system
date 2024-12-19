@@ -1,0 +1,9 @@
+{
+  "ams": {
+    "footer": {
+      "top": {
+        "background-color": { "value": "{ams.brand.color.blue.60}" }
+      }
+    }
+  }
+}
