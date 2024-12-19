@@ -36,12 +36,6 @@ export const Azure: Story = {
   },
 }
 
-export const Blue: Story = {
-  args: {
-    color: 'blue',
-  },
-}
-
 export const Green: Story = {
   args: {
     color: 'green',
@@ -63,12 +57,6 @@ export const Magenta: Story = {
 export const Orange: Story = {
   args: {
     color: 'orange',
-  },
-}
-
-export const Purple: Story = {
-  args: {
-    color: 'purple',
   },
 }
 
