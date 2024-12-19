@@ -21,6 +21,13 @@ const meta = {
   args: {
     headingLevel: 3,
   },
+  argTypes: {
+    headingLevel: {
+      control: {
+        labels: { undefined: 1 },
+      },
+    },
+  },
 } satisfies Meta<typeof Accordion>
 
 export default meta
