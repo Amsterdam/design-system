@@ -14,6 +14,7 @@ With an accordion, you offer content to users progressively.
 - Don’t hide essential information in an accordion.
 - An accordion consists of several accordion sections.
 - Use a minimum of 3 and a maximum of 10 sections underneath each other.
+- Choose the correct Heading level (`h1` – `h4`) for the accordion sections.
 - It is essential for accordion sections to have clear headings, as the user cannot "scan" the hidden content to find relevant information.
 - Hiding the content has the disadvantage that "search in page" does not yield any hidden content results.
 - If you know the search term the user used to get to the accordion page, you can automatically expand the sections that contain the search term.
