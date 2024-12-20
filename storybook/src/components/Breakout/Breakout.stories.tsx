@@ -26,12 +26,13 @@ type Story = StoryObj<typeof meta>
 export const Default: Story = {
   args: {
     children: [
-      <Breakout.Cell colSpan="all" has="spotlight" rowSpan={{ medium: 2, narrow: 2, wide: 1 }} rowStart={2}>
-        <Spotlight />
+      <Breakout.Cell colSpan="all" has="spotlight" key={1} rowSpan={{ medium: 2, narrow: 2, wide: 1 }} rowStart={2}>
+        <Spotlight color="green" />
       </Breakout.Cell>,
       <Breakout.Cell
         colSpan={{ medium: 8, narrow: 4, wide: 6 }}
         colStart={1}
+        key={2}
         rowStart={{ medium: 3, narrow: 3, wide: 2 }}
       >
         <Paragraph inverseColor>
@@ -42,6 +43,7 @@ export const Default: Story = {
         colSpan={{ medium: 8, narrow: 4, wide: 6 }}
         colStart={{ medium: 1, narrow: 1, wide: 7 }}
         has="figure"
+        key={3}
         rowSpan={2}
         rowStart={1}
       >
@@ -54,15 +56,16 @@ export const Default: Story = {
 export const VerticalLayout: Story = {
   args: {
     children: [
-      <Breakout.Cell colSpan="all" has="figure" rowSpan={2} rowStart={1}>
-        <Image alt="" src="https://picsum.photos/1600/900" />
+      <Breakout.Cell colSpan="all" has="spotlight" key={1} rowSpan={2} rowStart={2}>
+        <Spotlight color="orange" />
       </Breakout.Cell>,
-      <Breakout.Cell colSpan="all" has="spotlight" rowSpan={2} rowStart={2}>
-        <Spotlight />
+      <Breakout.Cell colSpan="all" has="figure" key={2} rowSpan={2} rowStart={1}>
+        <Image alt="" src="https://picsum.photos/1600/900" />
       </Breakout.Cell>,
       <Breakout.Cell
         colSpan={{ medium: 6, narrow: 4, wide: 8 }}
         colStart={{ medium: 2, narrow: 1, wide: 3 }}
+        key={3}
         rowStart={3}
       >
         <Paragraph className="ams-mb--sm" inverseColor>

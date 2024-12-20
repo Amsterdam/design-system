@@ -32,7 +32,7 @@ Import the stylesheets for the fonts, tokens, and components.
 Then import and use the components in your JSX.
 
 <!-- prettier-ignore -->
-```ts
+```tsx
 import "@amsterdam/design-system-assets/font/index.css"
 import "@amsterdam/design-system-css/dist/index.css"
 import "@amsterdam/design-system-tokens/dist/index.css"

@@ -17,7 +17,7 @@ Some examples for common routing libraries:
 You can hook into the Next router using the `legacyBehaviour` and `passHref` props on the Next link component, like so:
 
 {/* prettier-ignore */}
-```js
+```tsx
 import { Link } from "@amsterdam/design-system-react"
 import NextLink from "next/link"
 
@@ -32,9 +32,9 @@ React Router allows you to hook into their routing functionality with [the useLi
 You can use this hook directly on a link component, or you can write a component which adds this functionality to the link component you pass to it, like so:
 
 {/* prettier-ignore */}
-```js
+```jsx
 import { Link } from "@amsterdam/design-system-react"
-import { useLinkClickHandler, useHref } from "react-router-dom"
+import { useHref, useLinkClickHandler } from "react-router-dom"
 
 const ReactRouterLink = ({ component, to, ...restProps }) => {
   const Tag = component
