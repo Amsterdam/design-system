@@ -1,13 +1,55 @@
 {
   "ams": {
     "header": {
-      "column-gap": {
-        "value": "{ams.space.grid.md}",
-        "comment": "Must have the same value as `ams.grid.column-gap`."
+      "padding-block": { "value": "{ams.space.grid.sm}" },
+      "padding-inline": {
+        "value": "{ams.grid.padding-inline}",
+        "comment": "Must be the Grid inline padding, to make sure Header and Grid line up"
       },
-      "padding-block": { "value": "{ams.space.md}" },
+      "branding": {
+        "column-gap": { "value": "{ams.space.md}" },
+        "row-gap": { "value": "{ams.space.grid.xs}" }
+      },
       "logo-link": {
         "outline-offset": { "value": "{ams.focus.outline-offset}" }
+      },
+      "mega-menu": {
+        "button": {
+          "label": {
+            "open": {
+              "font-weight": { "value": "{ams.text.font-weight.bold}" }
+            }
+          }
+        }
+      },
+      "menu": {
+        "column-gap": { "value": "{ams.space.lg}" },
+        "row-gap": { "value": "{ams.space.xs}" },
+        "item": {
+          "color": { "value": "{ams.link-appearance.color}" },
+          "column-gap": { "value": "{ams.space.xs}" },
+          "font-family": { "value": "{ams.text.font-family}" },
+          "font-size": { "value": "{ams.text.level.5.font-size}" },
+          "font-weight": { "value": "{ams.text.font-weight.normal}" },
+          "line-height": { "value": "{ams.text.level.5.line-height}" },
+          "outline-offset": { "value": "{ams.focus.outline-offset}" },
+          "padding-block": { "value": "{ams.space.xs}" },
+          "hover": {
+            "color": { "value": "{ams.link-appearance.hover.color}" }
+          }
+        },
+        "link": {
+          "text-decoration-line": { "value": "{ams.link-appearance.subtle.text-decoration-line}" },
+          "text-decoration-thickness": { "value": "{ams.link-appearance.text-decoration-thickness}" },
+          "text-underline-offset": { "value": "{ams.link-appearance.text-underline-offset}" },
+          "hover": {
+            "text-decoration-line": { "value": "{ams.link-appearance.subtle.hover.text-decoration-line}" }
+          }
+        }
+      },
+      "navigation": {
+        "column-gap": { "value": "{ams.space.lg}" },
+        "row-gap": { "value": "{ams.space.grid.md}" }
       }
     }
   }
