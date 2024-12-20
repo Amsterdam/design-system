@@ -1,44 +1,68 @@
 {
   "ams": {
-    "brand": {
-      "color": {
-        "azure": {
-          "60": { "value": "#009DE6" }
+    "color": {
+      "canvas": {
+        "default": { "value": "{ams.brand.color.neutral.0}" }
+      },
+      "feedback": {
+        "error": {
+          "default": { "value": "{ams.brand.color.red.60}" }
         },
-        "blue": {
-          "60": { "value": "#004699" },
-          "80": { "value": "#003677" }
+        "info": {
+          "default": { "value": "{ams.brand.color.azure.60}" }
+        },
+        "success": {
+          "default": { "value": "{ams.brand.color.green.60}" }
+        },
+        "warning": {
+          "default": { "value": "{ams.brand.color.red.60}" }
+        }
+      },
+      "footer": {
+        "default": { "value": "{ams.brand.color.blue.60}" }
+      },
+      "interactive": {
+        "default": { "value": "{ams.brand.color.blue.60}" },
+        "hover": { "value": "{ams.brand.color.blue.80}" },
+        "disabled": {
+          "default": { "value": "{ams.brand.color.neutral.60}" }
+        },
+        "error": {
+          "comment": "TODO Rename to ‘invalid’.",
+          "default": { "value": "{ams.brand.color.red.60}" },
+          "hover": { "value": "{ams.brand.color.red.80}" }
+        }
+      },
+      "separator": {
+        "default": { "value": "{ams.brand.color.neutral.20}" }
+      },
+      "supplemental": {
+        "azure": {
+          "default": { "value": "{ams.brand.color.azure.60}" }
         },
         "green": {
-          "60": { "value": "#00A03C" }
+          "default": { "value": "{ams.brand.color.green.60}" }
         },
         "lime": {
-          "60": { "value": "#BED200" }
+          "default": { "value": "{ams.brand.color.lime.60}" }
         },
         "magenta": {
-          "60": { "value": "#E50082" }
-        },
-        "neutral": {
-          "0": { "value": "#FFFFFF" },
-          "20": { "value": "#D1D1D1" },
-          "40": { "value": "#A4A4A4" },
-          "60": { "value": "#767676" },
-          "80": { "value": "#474747" },
-          "100": { "value": "#181818" }
+          "default": { "value": "{ams.brand.color.magenta.60}" }
         },
         "orange": {
-          "60": { "value": "#FF9100" }
+          "default": { "value": "{ams.brand.color.orange.60}" }
         },
         "purple": {
-          "60": { "value": "#A00078" }
-        },
-        "red": {
-          "60": { "value": "#EC0000" },
-          "80": { "value": "#B70000" }
+          "default": { "value": "{ams.brand.color.purple.60}" }
         },
         "yellow": {
-          "60": { "value": "#FFE600" }
+          "default": { "value": "{ams.brand.color.yellow.60}" }
         }
+      },
+      "text": {
+        "default": { "value": "{ams.brand.color.neutral.100}" },
+        "secondary": { "value": "{ams.brand.color.neutral.60}" },
+        "inverse": { "value": "{ams.brand.color.neutral.0}" }
       }
     }
   }
