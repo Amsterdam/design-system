@@ -13,37 +13,8 @@ const caption = exampleCaption()
 const meta = {
   title: 'Components/Media/Figure',
   component: Figure,
-} satisfies Meta<typeof Figure>
-
-export default meta
-
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
-const captionMeta = {
-  component: Figure.Caption,
-} satisfies Meta<typeof Figure.Caption>
-
-type Story = StoryObj<typeof meta>
-type CaptionStory = StoryObj<typeof captionMeta>
-
-export const Default: Story = {
-  args: {
-    children: [
-      <Image
-        alt=""
-        aspectRatio="2x-wide"
-        sizes="(max-width: 36rem) 640px, (max-width: 68rem) 1280px, 1600px"
-        src="https://picsum.photos/1600/500"
-        srcSet="https://picsum.photos/640/200 640w, https://picsum.photos/1280/400 1280w, https://picsum.photos/1600/500 1600w"
-      />,
-      <Figure.Caption>{caption}</Figure.Caption>,
-    ],
-  },
-}
-
-export const InverseColour: CaptionStory = {
   args: {
     children: caption,
-    inverseColor: true,
   },
   render: ({ children, ...args }) => (
     <Figure>
@@ -57,4 +28,22 @@ export const InverseColour: CaptionStory = {
       <Figure.Caption {...args}>{children}</Figure.Caption>
     </Figure>
   ),
+} satisfies Meta<typeof Figure>
+
+export default meta
+
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
+const captionMeta = {
+  component: Figure.Caption,
+} satisfies Meta<typeof Figure.Caption>
+
+type Story = StoryObj<typeof meta>
+type CaptionStory = StoryObj<typeof captionMeta>
+
+export const Default: Story = {}
+
+export const InverseColour: CaptionStory = {
+  args: {
+    inverseColor: true,
+  },
 }
