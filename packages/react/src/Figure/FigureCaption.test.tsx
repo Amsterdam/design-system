@@ -38,7 +38,7 @@ describe('Figure Caption', () => {
   })
 
   it('supports ForwardRef in React', () => {
-    const ref = createRef<HTMLAnchorElement>()
+    const ref = createRef<HTMLElement>()
 
     const { container } = render(<FigureCaption ref={ref} />)
 
