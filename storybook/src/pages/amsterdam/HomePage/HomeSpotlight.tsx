@@ -1,7 +1,7 @@
 import { Grid, Heading, Link, Paragraph, Spotlight } from '@amsterdam/design-system-react'
 
 export const HomeSpotlight = () => (
-  <Spotlight color="purple">
+  <Spotlight>
     <Grid paddingVertical="medium">
       <Grid.Cell span={{ narrow: 4, medium: 4, wide: 6 }}>
         <Heading className="ams-mb--xs" inverseColor size="level-2">

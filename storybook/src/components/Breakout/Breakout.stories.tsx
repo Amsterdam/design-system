@@ -27,7 +27,7 @@ export const Default: Story = {
   args: {
     children: [
       <Breakout.Cell colSpan="all" has="spotlight" key={1} rowSpan={{ medium: 2, narrow: 2, wide: 1 }} rowStart={2}>
-        <Spotlight />
+        <Spotlight color="green" />
       </Breakout.Cell>,
       <Breakout.Cell
         colSpan={{ medium: 8, narrow: 4, wide: 6 }}
@@ -88,7 +88,7 @@ export const VerticalLayout: Story = {
   args: {
     children: [
       <Breakout.Cell colSpan="all" has="spotlight" key={1} rowSpan={2} rowStart={2}>
-        <Spotlight />
+        <Spotlight color="orange" />
       </Breakout.Cell>,
       <Breakout.Cell colSpan="all" has="figure" key={2} rowSpan={2} rowStart={1}>
         <Image alt="" src="https://picsum.photos/1600/900" />
