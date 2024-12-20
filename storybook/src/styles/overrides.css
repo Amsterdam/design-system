@@ -10,7 +10,7 @@
 .sbdocs-content.sbdocs-content > div:not(.sb-unstyled) > :is(ol, ul) li,
 .sbdocs-content.sbdocs-content > table:not(.sb-unstyled) :is(td, th),
 .sbdocs-content.sbdocs-content > div:not(.sb-unstyled) > table:not(.sb-unstyled) :is(td, th),
-.sbdocs-content.sbdocs-content > div:not(.sb-unstyled) figcaption {
+.sbdocs-content.sbdocs-content > div:not(.sb-unstyled) > figure > figcaption {
   color: #000;
   font-family: "Amsterdam Sans", "Arial", sans-serif;
 }
@@ -110,7 +110,7 @@
   font-size: 1rem;
 }
 
-.sbdocs-content.sbdocs-content > div:not(.sb-unstyled) figcaption {
+.sbdocs-content.sbdocs-content > div:not(.sb-unstyled) > figure > figcaption {
   font-size: 0.875rem;
 }
 
