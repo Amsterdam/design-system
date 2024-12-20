@@ -15,6 +15,7 @@ const meta = {
   component: Figure,
   args: {
     children: caption,
+    inverseColor: false,
   },
   render: ({ children, ...args }) => (
     <Figure>
@@ -28,21 +29,16 @@ const meta = {
       <Figure.Caption {...args}>{children}</Figure.Caption>
     </Figure>
   ),
-} satisfies Meta<typeof Figure>
+} satisfies Meta<typeof Figure.Caption>
+// We use the Caption type here to allow inverseColor. This works as long as Figure has no props of its own.
 
 export default meta
 
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
-const captionMeta = {
-  component: Figure.Caption,
-} satisfies Meta<typeof Figure.Caption>
-
 type Story = StoryObj<typeof meta>
-type CaptionStory = StoryObj<typeof captionMeta>
 
 export const Default: Story = {}
 
-export const InverseColour: CaptionStory = {
+export const InverseColour: Story = {
   args: {
     inverseColor: true,
   },
