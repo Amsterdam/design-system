@@ -158,6 +158,10 @@ Address these tokens through the `compact` namespace and do not use the spacious
 
 ```sass
 @use "@amsterdam/design-system-tokens/dist/compact.scss";
+
+.class {
+  padding-block: compact.$ams-space-md;
+}
 ```
 
 ## Usage in JavaScript
