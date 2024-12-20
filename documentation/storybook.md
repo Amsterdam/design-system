@@ -74,7 +74,7 @@ For example, when the child is a simple string (like in the default Button compo
 
 To do this, you can override the default like so:
 
-```js
+```txt
 argTypes: {
   children: {
     table: { disable: false },

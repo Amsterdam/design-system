@@ -146,16 +146,22 @@ Note that redefining the value of a token is a much better approach than redecla
 ## Usage in Sass
 
 The tokens can be imported as Sass variables as well.
+As they are already prefixed, the namespace that Sass would assign isn’t necessary.
 
 ```sass
-@import "@amsterdam/design-system-tokens/dist/index.scss"
+@use "@amsterdam/design-system-tokens/dist/index.scss" as *;
 ```
 
-Import the compact tokens if you need them.
-Sass will override spacious values automatically.
+Import the compact tokens if needed.
+Note that Sass doesn't allow importing them alongside the default set due to naming conflicts.
+Address these tokens through the `compact` namespace and do not use the spacious tokens they replace.
 
 ```sass
-@import "@amsterdam/design-system-tokens/dist/compact.scss"
+@use "@amsterdam/design-system-tokens/dist/compact.scss";
+
+.class {
+  padding-block: compact.$ams-space-md;
+}
 ```
 
 ## Usage in JavaScript
@@ -165,7 +171,7 @@ Here, tokens start their name with a prefix of `ams.`.
 Use ‘dot notation’ or square brackets to access the tokens.
 
 <!-- prettier-ignore -->
-```ts
+```tsx
 import tokens from "@amsterdam/design-system-tokens/dist/index.json"
 
 const { ams } = tokens
@@ -177,9 +183,9 @@ Import and merge the compact tokens if you need them.
 Then you can use the tokens in scripting or css-in-js libraries.
 
 <!-- prettier-ignore -->
-```ts
-import spaciousTokens from "@amsterdam/design-system-tokens/dist/index.json"
+```tsx
 import compactTokens from "@amsterdam/design-system-tokens/dist/compact.json"
+import spaciousTokens from "@amsterdam/design-system-tokens/dist/index.json"
 
 const { ams } = { ...spaciousTokens, ...compactTokens }
 ```

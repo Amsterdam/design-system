@@ -22,7 +22,7 @@ export const ArticleBody = ({ lead, paragraph1, spotlightHeading, spotlightLinkL
         <Paragraph>{paragraph1}</Paragraph>
       </Grid.Cell>
     </Grid>
-    <Spotlight as="section" color="purple">
+    <Spotlight as="section">
       <Grid paddingTop="medium" paddingBottom="large">
         <Grid.Cell span={{ narrow: 4, medium: 6, wide: 8 }} start={{ narrow: 1, medium: 2, wide: 3 }}>
           <Column gap="small">
