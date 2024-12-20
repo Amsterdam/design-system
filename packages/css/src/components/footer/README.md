@@ -6,10 +6,10 @@ Provides service information at the bottom of every page.
 
 ## Guidelines
 
-- The Footer consists of two sections: a full-width blue area and a [Page Menu](/docs/components-navigation-page-menu--docs) below it.
-  It must be used on all websites for the City of Amsterdam.
-- The Footer is the same on every page of the application.
-- For applications, only the Page Menu can be sufficient.
+- The Footer usually consists of two sections: a full-width blue area and a [Page Menu](/docs/components-navigation-page-menu--docs) below it.
+- A Footer containing only a Page Menu can be sufficient for applications.
+- The Footer must be used on all websites for the City of Amsterdam.
+- It must be the same on every page.
 
 The top section offers space for various practical links:
 
