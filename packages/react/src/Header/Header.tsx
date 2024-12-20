@@ -115,7 +115,7 @@ const HeaderRoot = forwardRef(
                           className={clsx('ams-header__menu-icon', open && 'ams-header__menu-icon--open')}
                         />
                       }
-                      size="level-6"
+                      size="level-5"
                     />
                   </button>
                 </li>
