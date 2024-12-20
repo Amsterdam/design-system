@@ -23,8 +23,8 @@
         }
       },
       "menu": {
-        "column-gap": { "value": "{ams.space.grid.md}" },
-        "row-gap": { "value": "{ams.space.grid.xs}" },
+        "column-gap": { "value": "{ams.space.lg}" },
+        "row-gap": { "value": "{ams.space.xs}" },
         "item": {
           "color": { "value": "{ams.link-appearance.color}" },
           "column-gap": { "value": "{ams.space.xs}" },
@@ -48,7 +48,7 @@
         }
       },
       "navigation": {
-        "column-gap": { "value": "{ams.space.grid.md}" },
+        "column-gap": { "value": "{ams.space.lg}" },
         "row-gap": { "value": "{ams.space.grid.md}" }
       }
     }
