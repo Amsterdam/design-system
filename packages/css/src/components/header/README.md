@@ -11,7 +11,7 @@ Includes the name of the application if it is not the general website.
 - It includes the logo of the City or the organization, the site title (except for the general website), and a menu with links to commonly used pages.
 - The Header is important because it conveys our corporate identity and is the first thing people see.
   Using it consistently helps users recognize and trust the website.
-- It is the same on every page of the application.
+- The Header is the same on every page of the application, although full-screen pages may hide it, e.g. a video or a map.
 - The inline menu can contain a maximum of 5 items.
   The last two will often be ‘Search’ and ‘Menu’.
 - The 'Menu' button opens a collapsible menu, which has room for more links.
