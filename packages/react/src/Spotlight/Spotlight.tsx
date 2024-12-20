@@ -23,7 +23,7 @@ export const Spotlight = forwardRef(
     <Tag
       {...restProps}
       ref={ref}
-      className={clsx('ams-spotlight', { color !== defaultColor && `ams-spotlight--${color}` }, className)}
+      className={clsx('ams-spotlight', color !== defaultColor && `ams-spotlight--${color}`, className)}
     >
       {children}
     </Tag>
