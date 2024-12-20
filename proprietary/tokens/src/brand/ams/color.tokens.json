@@ -1,21 +1,69 @@
 {
   "ams": {
     "color": {
-      "primary-black": { "value": "#000000" },
-      "primary-white": { "value": "#FFFFFF" },
-      "primary-blue": { "value": "#004699" },
-      "primary-red": { "value": "#EC0000" },
-      "dark-blue": { "value": "#102E62" },
-      "orange": { "value": "#FF9100" },
-      "yellow": { "value": "#FFE600" },
-      "green": { "value": "#BED200" },
-      "dark-green": { "value": "#00A03C" },
-      "blue": { "value": "#009DE6" },
-      "purple": { "value": "#A00078" },
-      "magenta": { "value": "#E50082" },
-      "neutral-grey1": { "value": "#E8E8E8" },
-      "neutral-grey2": { "value": "#BEBEBE" },
-      "neutral-grey3": { "value": "#767676" }
+      "canvas": {
+        "default": { "value": "{ams.brand.color.neutral.0}" }
+      },
+      "feedback": {
+        "error": {
+          "default": { "value": "{ams.brand.color.red.60}" }
+        },
+        "info": {
+          "default": { "value": "{ams.brand.color.azure.60}" }
+        },
+        "success": {
+          "default": { "value": "{ams.brand.color.green.60}" }
+        },
+        "warning": {
+          "default": { "value": "{ams.brand.color.red.60}" }
+        }
+      },
+      "footer": {
+        "default": { "value": "{ams.brand.color.blue.60}" }
+      },
+      "interactive": {
+        "default": { "value": "{ams.brand.color.blue.60}" },
+        "hover": { "value": "{ams.brand.color.blue.80}" },
+        "disabled": {
+          "default": { "value": "{ams.brand.color.neutral.60}" }
+        },
+        "error": {
+          "comment": "TODO Rename to ‘invalid’.",
+          "default": { "value": "{ams.brand.color.red.60}" },
+          "hover": { "value": "{ams.brand.color.red.80}" }
+        }
+      },
+      "separator": {
+        "default": { "value": "{ams.brand.color.neutral.20}" }
+      },
+      "supplemental": {
+        "azure": {
+          "default": { "value": "{ams.brand.color.azure.60}" }
+        },
+        "green": {
+          "default": { "value": "{ams.brand.color.green.60}" }
+        },
+        "lime": {
+          "default": { "value": "{ams.brand.color.lime.60}" }
+        },
+        "magenta": {
+          "default": { "value": "{ams.brand.color.magenta.60}" }
+        },
+        "orange": {
+          "default": { "value": "{ams.brand.color.orange.60}" }
+        },
+        "purple": {
+          "default": { "value": "{ams.brand.color.purple.60}" }
+        },
+        "yellow": {
+          "default": { "value": "{ams.brand.color.yellow.60}" }
+        }
+      },
+      "text": {
+        "default": { "value": "{ams.brand.color.neutral.100}" },
+        "secondary": { "value": "{ams.brand.color.neutral.60}" },
+        "inverse": { "value": "{ams.brand.color.neutral.0}" }
+      }
     }
   }
 }
