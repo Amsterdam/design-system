@@ -39,8 +39,8 @@ export const Default: Story = {
   args: {
     brandName: 'Data Amsterdam',
     menuItems: [
-      <Header.MenuLink key={1} href="#">
-        Inloggen
+      <Header.MenuLink key={1} href="#" lang="en">
+        English
       </Header.MenuLink>,
       <Header.MenuLink key={2} href="#" fixed>
         Zoeken
@@ -50,7 +50,9 @@ export const Default: Story = {
       <Grid paddingBottom="large">
         <Header.GridCellNarrowWindowOnly span="all">
           <LinkList>
-            <LinkList.Link href="#">Inloggen</LinkList.Link>
+            <LinkList.Link href="#" lang="en">
+              English
+            </LinkList.Link>
           </LinkList>
         </Header.GridCellNarrowWindowOnly>
         <Grid.Cell span={4}>
@@ -97,8 +99,8 @@ export const Default: Story = {
 export const WithMovingLinks: Story = {
   args: {
     menuItems: [
-      <Header.MenuLink key={1} href="#">
-        Inloggen
+      <Header.MenuLink key={1} href="#" lang="en">
+        English
       </Header.MenuLink>,
       <Header.MenuLink key={2} href="#" fixed>
         Zoeken
@@ -108,7 +110,9 @@ export const WithMovingLinks: Story = {
       <Grid paddingBottom="large" gapVertical="small">
         <Header.GridCellNarrowWindowOnly span="all">
           <LinkList>
-            <LinkList.Link href="#">Inloggen</LinkList.Link>
+            <LinkList.Link href="#" lang="en">
+              English
+            </LinkList.Link>
           </LinkList>
         </Header.GridCellNarrowWindowOnly>
         <Grid.Cell span="all">
@@ -181,7 +185,9 @@ export const WithCustomTexts: Story = {
       <Grid>
         <Grid.Cell span="all">
           <LinkList>
-            <LinkList.Link href="#">Inloggen</LinkList.Link>
+            <LinkList.Link href="#" lang="en">
+              English
+            </LinkList.Link>
           </LinkList>
         </Grid.Cell>
       </Grid>
