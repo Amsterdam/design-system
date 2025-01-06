@@ -43,7 +43,7 @@
     "eslint-plugin-mdx": "3.1.5",
     "eslint-plugin-react": "7.37.3",
     "globals": "15.14.0",
-    "html-validate": "8.29.0",
+    "html-validate": "9.1.1",
     "husky": "9.1.7",
     "lint-staged": "15.3.0",
     "npm-check-updates": "17.1.13",
