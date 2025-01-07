@@ -6,7 +6,7 @@
       "font-size": { "value": "{ams.text.level.5.font-size}" },
       "font-weight": { "value": "{ams.text.font-weight.normal}" },
       "gap": { "value": "{ams.space.md}" },
-      "inverse-color": { "value": "{ams.brand.color.neutral.0}" },
+      "inverse-color": { "value": "{ams.color.text.inverse}" },
       "line-height": { "value": "{ams.text.level.5.line-height}" },
       "list-style-type": { "value": "'\\2022'" },
       "item": {
