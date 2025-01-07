@@ -6,7 +6,7 @@
       "outline-offset": { "value": "{ams.focus.outline-offset}" },
       "inline-size": { "value": "3.5rem" },
       "thumb": {
-        "background-color": { "value": "{ams.brand.color.neutral.0}" },
+        "background-color": { "value": "{ams.color.canvas.default}" },
         "inline-size": { "value": "1.75rem" },
         "block-size": { "value": "1.75rem" },
         "hover": {

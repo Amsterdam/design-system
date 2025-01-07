@@ -1,7 +1,7 @@
 {
   "ams": {
     "alert": {
-      "background-color": { "value": "{ams.brand.color.neutral.0}" },
+      "background-color": { "value": "{ams.color.canvas.default}" },
       "border-width": { "value": "{ams.border.width.xl}" },
       "border-style": { "value": "solid" },
       "gap": { "value": "{ams.space.sm}" },

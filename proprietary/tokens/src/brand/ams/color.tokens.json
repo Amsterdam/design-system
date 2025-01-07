@@ -2,7 +2,10 @@
   "ams": {
     "color": {
       "canvas": {
-        "default": { "value": "{ams.brand.color.neutral.0}" }
+        "default": {
+          "value": "{ams.brand.color.neutral.0}",
+          "comment": "TODO Try to find a better name. Don’t split body, screen, inputs etc. for now."
+        }
       },
       "feedback": {
         "error": {
