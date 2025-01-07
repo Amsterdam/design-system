@@ -2,7 +2,7 @@
   "ams": {
     "skip-link": {
       "background-color": { "value": "{ams.brand.color.blue.60}" },
-      "color": { "value": "{ams.brand.color.neutral.0}" },
+      "color": { "value": "{ams.color.text.inverse}" },
       "font-family": { "value": "{ams.text.font-family}" },
       "font-size": { "value": "{ams.text.level.6.font-size}" },
       "font-weight": { "value": "{ams.text.font-weight.normal}" },
