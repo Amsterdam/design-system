@@ -3,7 +3,7 @@
     "tabs": {
       "gap": { "value": "{ams.space.md}" },
       "list": {
-        "box-shadow": { "value": "inset 0 calc({ams.border.width.md} * -1) {ams.brand.color.neutral.20}" }
+        "box-shadow": { "value": "inset 0 calc({ams.border.width.md} * -1) {ams.color.separator.default}" }
       },
       "button": {
         "color": { "value": "{ams.brand.color.blue.60}" },
