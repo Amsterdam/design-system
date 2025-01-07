@@ -5,7 +5,7 @@
       "column-gap": { "value": "{ams.space.lg}" },
       "font-family": { "value": "{ams.text.font-family}" },
       "font-size": { "value": "{ams.text.level.5.font-size}" },
-      "inverse-color": { "value": "{ams.brand.color.neutral.0}" },
+      "inverse-color": { "value": "{ams.color.text.inverse}" },
       "line-height": { "value": "{ams.text.level.5.line-height}" },
       "row-gap": { "value": "{ams.space.sm}" },
       "term": {
