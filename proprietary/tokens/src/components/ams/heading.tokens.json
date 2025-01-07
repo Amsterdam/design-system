@@ -1,7 +1,7 @@
 {
   "ams": {
     "heading": {
-      "color": { "value": "{ams.brand.color.neutral.100}" },
+      "color": { "value": "{ams.color.text.default}" },
       "font-family": { "value": "{ams.text.font-family}" },
       "font-weight": { "value": "{ams.text.font-weight.bold}" },
       "inverse-color": { "value": "{ams.brand.color.neutral.0}" },

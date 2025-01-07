@@ -3,7 +3,7 @@
     "top-task-link": {
       "gap": { "value": "{ams.space.sm}" },
       "description": {
-        "color": { "value": "{ams.brand.color.neutral.100}" },
+        "color": { "value": "{ams.color.text.default}" },
         "font-family": { "value": "{ams.text.font-family}" },
         "font-size": { "value": "{ams.text.level.6.font-size}" },
         "font-weight": { "value": "{ams.text.font-weight.normal}" },

@@ -8,7 +8,7 @@
       "padding-inline": { "value": "{ams.space.xs}" },
       "azure": {
         "background-color": { "value": "{ams.brand.color.azure.60}" },
-        "color": { "value": "{ams.brand.color.neutral.100}" }
+        "color": { "value": "{ams.color.text.default}" }
       },
       "black": {
         "background-color": { "value": "{ams.brand.color.neutral.100}" },
@@ -24,7 +24,7 @@
       },
       "lime": {
         "background-color": { "value": "{ams.brand.color.lime.60}" },
-        "color": { "value": "{ams.brand.color.neutral.100}" }
+        "color": { "value": "{ams.color.text.default}" }
       },
       "magenta": {
         "background-color": { "value": "{ams.brand.color.magenta.60}" },
@@ -32,11 +32,11 @@
       },
       "neutral-20": {
         "background-color": { "value": "{ams.brand.color.neutral.20}" },
-        "color": { "value": "{ams.brand.color.neutral.100}" }
+        "color": { "value": "{ams.color.text.default}" }
       },
       "neutral-40": {
         "background-color": { "value": "{ams.brand.color.neutral.40}" },
-        "color": { "value": "{ams.brand.color.neutral.100}" }
+        "color": { "value": "{ams.color.text.default}" }
       },
       "neutral-60": {
         "background-color": { "value": "{ams.brand.color.neutral.60}" },
@@ -48,7 +48,7 @@
       },
       "orange": {
         "background-color": { "value": "{ams.brand.color.orange.60}" },
-        "color": { "value": "{ams.brand.color.neutral.100}" }
+        "color": { "value": "{ams.color.text.default}" }
       },
       "purple": {
         "background-color": { "value": "{ams.brand.color.purple.60}" },
@@ -60,11 +60,11 @@
       },
       "white": {
         "background-color": { "value": "{ams.brand.color.neutral.0}" },
-        "color": { "value": "{ams.brand.color.neutral.100}" }
+        "color": { "value": "{ams.color.text.default}" }
       },
       "yellow": {
         "background-color": { "value": "{ams.brand.color.yellow.60}" },
-        "color": { "value": "{ams.brand.color.neutral.100}" }
+        "color": { "value": "{ams.color.text.default}" }
       }
     }
   }

@@ -1,7 +1,7 @@
 {
   "ams": {
     "checkbox": {
-      "color": { "value": "{ams.brand.color.neutral.100}" },
+      "color": { "value": "{ams.color.text.default}" },
       "font-family": { "value": "{ams.text.font-family}" },
       "font-size": { "value": "{ams.text.level.5.font-size}" },
       "font-weight": { "value": "{ams.text.font-weight.normal}" },
