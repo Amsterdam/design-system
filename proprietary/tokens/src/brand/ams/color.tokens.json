@@ -24,6 +24,9 @@
       "interactive": {
         "default": { "value": "{ams.brand.color.blue.60}" },
         "hover": { "value": "{ams.brand.color.blue.80}" },
+        "contrast": {
+          "default": { "value": "{ams.brand.color.neutral.100}" }
+        },
         "disabled": {
           "default": { "value": "{ams.brand.color.neutral.60}" }
         },
@@ -31,6 +34,9 @@
           "comment": "TODO Rename to ‘invalid’.",
           "default": { "value": "{ams.brand.color.red.60}" },
           "hover": { "value": "{ams.brand.color.red.80}" }
+        },
+        "inverse": {
+          "default": { "value": "{ams.brand.color.neutral.0}" }
         }
       },
       "separator": {
