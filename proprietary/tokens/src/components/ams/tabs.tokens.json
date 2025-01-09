@@ -25,7 +25,7 @@
           "font-weight": { "value": "{ams.text.font-weight.bold}" }
         },
         "disabled": {
-          "color": { "value": "{ams.brand.color.neutral.60}" },
+          "color": { "value": "{ams.color.interactive.disabled.default}" },
           "cursor": { "value": "{ams.action.disabled.cursor}" }
         }
       }
