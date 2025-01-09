@@ -1,24 +1,24 @@
 {
   "ams": {
     "spotlight": {
-      "background-color": { "value": "{ams.color.purple}" },
-      "blue": {
-        "background-color": { "value": "{ams.color.blue}" }
-      },
-      "dark-green": {
-        "background-color": { "value": "{ams.color.dark-green}" }
+      "background-color": { "value": "{ams.color.supplemental.purple.default}" },
+      "azure": {
+        "background-color": { "value": "{ams.color.supplemental.azure.default}" }
       },
       "green": {
-        "background-color": { "value": "{ams.color.green}" }
+        "background-color": { "value": "{ams.color.supplemental.green.default}" }
+      },
+      "lime": {
+        "background-color": { "value": "{ams.color.supplemental.lime.default}" }
       },
       "magenta": {
-        "background-color": { "value": "{ams.color.magenta}" }
+        "background-color": { "value": "{ams.color.supplemental.magenta.default}" }
       },
       "orange": {
-        "background-color": { "value": "{ams.color.orange}" }
+        "background-color": { "value": "{ams.color.supplemental.orange.default}" }
       },
       "yellow": {
-        "background-color": { "value": "{ams.color.yellow}" }
+        "background-color": { "value": "{ams.color.supplemental.yellow.default}" }
       }
     }
   }
