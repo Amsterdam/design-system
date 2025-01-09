@@ -5,9 +5,9 @@
         "value": "clamp(1rem, calc(0.375rem + 3.125vw), 3.5rem)",
         "comment": "This is the same size as Grid space medium"
       },
-      "emblem": { "color": { "value": "{ams.brand.color.red.60}" } },
+      "emblem": { "color": { "value": "{ams.color.logo.default}" } },
       "min-block-size": { "value": "2.5rem" },
-      "title": { "color": { "value": "{ams.brand.color.red.60}" } },
+      "title": { "color": { "value": "{ams.color.logo.default}" } },
       "subsite": { "color": { "value": "{ams.color.text.default}" } }
     }
   }
