@@ -3,7 +3,7 @@
     "accordion": {
       "gap": { "value": "{ams.space.md}" },
       "button": {
-        "color": { "value": "{ams.brand.color.blue.60}" },
+        "color": { "value": "{ams.color.interactive.default}" },
         "font-family": { "value": "{ams.text.font-family}" },
         "font-size": { "value": "{ams.text.level.5.font-size}" },
         "font-weight": { "value": "{ams.text.font-weight.bold}" },
@@ -15,7 +15,7 @@
           "outline-offset": { "value": "{ams.focus.outline-offset}" }
         },
         "hover": {
-          "color": { "value": "{ams.brand.color.blue.80}" }
+          "color": { "value": "{ams.color.interactive.hover}" }
         }
       },
       "panel": {

@@ -1,7 +1,7 @@
 {
   "ams": {
     "error-message": {
-      "color": { "value": "{ams.brand.color.red.60}" },
+      "color": { "value": "{ams.color.feedback.error.default}" },
       "font-family": { "value": "{ams.text.font-family}" },
       "font-size": { "value": "{ams.text.level.6.font-size}" },
       "font-weight": { "value": "{ams.text.font-weight.normal}" },

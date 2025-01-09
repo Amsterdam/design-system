@@ -3,7 +3,7 @@
     "field": {
       "gap": { "value": "{ams.space.sm}" },
       "invalid": {
-        "border-inline-start": { "value": "{ams.border.width.lg} solid {ams.brand.color.red.60}" },
+        "border-inline-start": { "value": "{ams.border.width.lg} solid {ams.color.feedback.error.default}" },
         "padding-inline-start": { "value": "{ams.space.md}" }
       }
     }
