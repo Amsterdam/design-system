@@ -6,7 +6,7 @@
         "box-shadow": { "value": "inset 0 calc({ams.border.width.md} * -1) {ams.color.separator.default}" }
       },
       "button": {
-        "color": { "value": "{ams.brand.color.blue.60}" },
+        "color": { "value": "{ams.color.interactive.default}" },
         "cursor": { "value": "{ams.action.activate.cursor}" },
         "font-family": { "value": "{ams.text.font-family}" },
         "font-size": { "value": "{ams.text.level.5.font-size}" },
@@ -16,12 +16,12 @@
         "padding-block": { "value": "{ams.space.sm}" },
         "padding-inline": { "value": "{ams.space.md}" },
         "hover": {
-          "color": { "value": "{ams.brand.color.blue.80}" },
-          "box-shadow": { "value": "inset 0 calc({ams.border.width.md} * -1) {ams.brand.color.blue.80}" }
+          "color": { "value": "{ams.color.interactive.hover}" },
+          "box-shadow": { "value": "inset 0 calc({ams.border.width.md} * -1) {ams.color.interactive.hover}" }
         },
         "selected": {
-          "box-shadow": { "value": "inset 0 calc({ams.border.width.xl} * -1) {ams.brand.color.blue.60}" },
-          "color": { "value": "{ams.brand.color.blue.60}" },
+          "box-shadow": { "value": "inset 0 calc({ams.border.width.xl} * -1) {ams.color.interactive.default}" },
+          "color": { "value": "{ams.color.interactive.default}" },
           "font-weight": { "value": "{ams.text.font-weight.bold}" }
         },
         "disabled": {

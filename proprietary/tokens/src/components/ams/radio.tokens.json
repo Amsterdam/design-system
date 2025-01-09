@@ -11,7 +11,7 @@
       "text-decoration-thickness": { "value": "{ams.link-appearance.text-decoration-thickness}" },
       "text-underline-offset": { "value": "{ams.link-appearance.text-underline-offset}" },
       "checked-indicator": {
-        "fill": { "value": "{ams.brand.color.blue.60}" },
+        "fill": { "value": "{ams.color.interactive.default}" },
         "disabled": {
           "fill": { "value": "{ams.brand.color.neutral.60}" }
         },
@@ -22,29 +22,29 @@
           }
         },
         "hover": {
-          "fill": { "value": "{ams.brand.color.blue.80}" }
+          "fill": { "value": "{ams.color.interactive.hover}" }
         },
         "invalid": {
-          "fill": { "value": "{ams.brand.color.red.60}" },
+          "fill": { "value": "{ams.color.interactive.invalid.default}" },
           "hover": {
-            "fill": { "value": "{ams.brand.color.red.80}" }
+            "fill": { "value": "{ams.color.interactive.invalid.hover}" }
           }
         }
       },
       "hover-indicator": {
         "stroke-width": { "value": "3px" },
         "hover": {
-          "stroke": { "value": "{ams.brand.color.blue.60}" }
+          "stroke": { "value": "{ams.color.interactive.default}" }
         },
         "invalid": {
           "hover": {
-            "stroke": { "value": "{ams.brand.color.red}" }
+            "stroke": { "value": "{ams.color.interactive.hover}" }
           }
         }
       },
       "circle": {
         "fill": { "value": "{ams.color.canvas.default}" },
-        "stroke": { "value": "{ams.brand.color.blue.60}" },
+        "stroke": { "value": "{ams.color.interactive.default}" },
         "stroke-width": { "value": "2px" },
         "disabled": {
           "stroke": { "value": "{ams.brand.color.neutral.60}" }
@@ -56,12 +56,12 @@
           }
         },
         "hover": {
-          "stroke": { "value": "{ams.brand.color.blue.80}" }
+          "stroke": { "value": "{ams.color.interactive.hover}" }
         },
         "invalid": {
-          "stroke": { "value": "{ams.brand.color.red.60}" },
+          "stroke": { "value": "{ams.color.interactive.invalid.default}" },
           "hover": {
-            "stroke": { "value": "{ams.brand.color.red.80}" }
+            "stroke": { "value": "{ams.color.interactive.invalid.hover}" }
           }
         }
       },
@@ -69,7 +69,7 @@
         "color": { "value": "{ams.brand.color.neutral.60}" }
       },
       "hover": {
-        "color": { "value": "{ams.brand.color.blue.80}" },
+        "color": { "value": "{ams.color.interactive.hover}" },
         "text-decoration-line": { "value": "{ams.link-appearance.subtle.hover.text-decoration-line}" }
       },
       "icon-container": {

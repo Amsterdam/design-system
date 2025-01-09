@@ -7,7 +7,7 @@
       "font-weight": { "value": "{ams.text.font-weight.normal}" },
       "line-height": { "value": "{ams.text.level.6.line-height}" },
       "error": {
-        "color": { "value": "{ams.brand.color.red.60}" }
+        "color": { "value": "{ams.color.feedback.error.default}" }
       }
     }
   }
