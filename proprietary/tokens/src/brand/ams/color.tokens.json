@@ -41,6 +41,9 @@
           "default": { "value": "{ams.brand.color.neutral.0}" }
         }
       },
+      "logo": {
+        "default": { "value": "{ams.brand.color.red.60}" }
+      },
       "separator": {
         "default": { "value": "{ams.brand.color.neutral.20}" }
       },
