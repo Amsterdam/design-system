@@ -18,15 +18,15 @@
       },
       "file-selector-button": {
         "background-color": { "value": "{ams.color.canvas.default}" },
-        "box-shadow": { "value": "inset 0 0 0 {ams.border.width.md} {ams.brand.color.blue.60}" },
-        "color": { "value": "{ams.brand.color.blue.60}" },
+        "box-shadow": { "value": "inset 0 0 0 {ams.border.width.md} {ams.color.interactive.default}" },
+        "color": { "value": "{ams.color.interactive.default}" },
         "cursor": { "value": "{ams.action.activate.cursor}" },
         "margin-inline-end": { "value": "{ams.space.md}" },
         "padding-block": { "value": "{ams.space.sm}" },
         "padding-inline": { "value": "{ams.space.md}" },
         "hover": {
-          "box-shadow": { "value": "inset 0 0 0 {ams.border.width.lg} {ams.brand.color.blue.80}" },
-          "color": { "value": "{ams.brand.color.blue.80}" }
+          "box-shadow": { "value": "inset 0 0 0 {ams.border.width.lg} {ams.color.interactive.hover}" },
+          "color": { "value": "{ams.color.interactive.hover}" }
         },
         "disabled": {
           "box-shadow": { "value": "inset 0 0 0 {ams.border.width.md} {ams.brand.color.neutral.60}" },
