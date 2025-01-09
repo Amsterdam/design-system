@@ -24,6 +24,9 @@
       "footer": {
         "default": { "value": "{ams.brand.color.blue.60}" }
       },
+      "highlight": {
+        "default": { "value": "{ams.brand.color.yellow.60}" }
+      },
       "interactive": {
         "default": { "value": "{ams.brand.color.blue.60}" },
         "hover": { "value": "{ams.brand.color.blue.80}" },
