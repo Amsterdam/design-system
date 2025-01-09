@@ -7,7 +7,7 @@
       "line-height": { "value": "{ams.text.level.5.line-height}" },
       "padding-inline": { "value": "{ams.space.xs}" },
       "azure": {
-        "background-color": { "value": "{ams.brand.color.azure.60}" },
+        "background-color": { "value": "{ams.color.supplemental.azure.default}" },
         "color": { "value": "{ams.color.text.default}" }
       },
       "black": {
@@ -19,15 +19,15 @@
         "color": { "value": "{ams.color.text.inverse}" }
       },
       "green": {
-        "background-color": { "value": "{ams.brand.color.green.60}" },
+        "background-color": { "value": "{ams.color.supplemental.green.default}" },
         "color": { "value": "{ams.color.text.inverse}" }
       },
       "lime": {
-        "background-color": { "value": "{ams.brand.color.lime.60}" },
+        "background-color": { "value": "{ams.color.supplemental.lime.default}" },
         "color": { "value": "{ams.color.text.default}" }
       },
       "magenta": {
-        "background-color": { "value": "{ams.brand.color.magenta.60}" },
+        "background-color": { "value": "{ams.color.supplemental.magenta.default}" },
         "color": { "value": "{ams.color.text.inverse}" }
       },
       "neutral-20": {
@@ -47,11 +47,11 @@
         "color": { "value": "{ams.color.text.inverse}" }
       },
       "orange": {
-        "background-color": { "value": "{ams.brand.color.orange.60}" },
+        "background-color": { "value": "{ams.color.supplemental.orange.default}" },
         "color": { "value": "{ams.color.text.default}" }
       },
       "purple": {
-        "background-color": { "value": "{ams.brand.color.purple.60}" },
+        "background-color": { "value": "{ams.color.supplemental.purple.default}" },
         "color": { "value": "{ams.color.text.inverse}" }
       },
       "red": {
@@ -63,7 +63,7 @@
         "color": { "value": "{ams.color.text.default}" }
       },
       "yellow": {
-        "background-color": { "value": "{ams.brand.color.yellow.60}" },
+        "background-color": { "value": "{ams.color.supplemental.yellow.default}" },
         "color": { "value": "{ams.color.text.default}" }
       }
     }
