@@ -3,10 +3,10 @@
     "tabs": {
       "gap": { "value": "{ams.space.md}" },
       "list": {
-        "box-shadow": { "value": "inset 0 calc({ams.border.width.md} * -1) {ams.brand.color.neutral.20}" }
+        "box-shadow": { "value": "inset 0 calc({ams.border.width.md} * -1) {ams.color.grey-1}" }
       },
       "button": {
-        "color": { "value": "{ams.brand.color.blue.60}" },
+        "color": { "value": "{ams.color.primary-blue}" },
         "cursor": { "value": "{ams.action.activate.cursor}" },
         "font-family": { "value": "{ams.text.font-family}" },
         "font-size": { "value": "{ams.text.level.5.font-size}" },
@@ -16,16 +16,16 @@
         "padding-block": { "value": "{ams.space.sm}" },
         "padding-inline": { "value": "{ams.space.md}" },
         "hover": {
-          "color": { "value": "{ams.brand.color.blue.80}" },
-          "box-shadow": { "value": "inset 0 calc({ams.border.width.md} * -1) {ams.brand.color.blue.80}" }
+          "color": { "value": "{ams.color.dark-blue}" },
+          "box-shadow": { "value": "inset 0 -0.125rem 0 0 {ams.color.dark-blue}" }
         },
         "selected": {
-          "box-shadow": { "value": "inset 0 calc({ams.border.width.xl} * -1) {ams.brand.color.blue.60}" },
-          "color": { "value": "{ams.brand.color.blue.60}" },
+          "box-shadow": { "value": "inset 0 calc({ams.border.width.xl} * -1) {ams.color.primary-blue}" },
+          "color": { "value": "{ams.color.primary-blue}" },
           "font-weight": { "value": "{ams.text.font-weight.bold}" }
         },
         "disabled": {
-          "color": { "value": "{ams.brand.color.neutral.60}" },
+          "color": { "value": "{ams.color.neutral-grey2}" },
           "cursor": { "value": "{ams.action.disabled.cursor}" }
         }
       }
