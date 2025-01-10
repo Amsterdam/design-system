@@ -41,7 +41,7 @@ This will cause a major version bump in both packages on release and add its des
 
 2. This triggers a GitHub Action, which creates a release PR.
    Review this PR and make sure to check the changelogs for the different packages.
-   A commit might only be a breaking change for one package, but it will be marked as breaking for all affected packages
+   A commit might only be a breaking change for one package, but it will be marked as breaking for all affected packages.
 
    Note: Release Please uses the PR description to create the GitHub release notes.
    When you update a changelog, be sure to update both CHANGELOG.md and the PR description.
