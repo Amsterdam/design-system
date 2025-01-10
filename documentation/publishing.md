@@ -43,7 +43,7 @@ This will cause a major version bump in both packages on release and add its des
    Review this PR and make sure to check the changelogs for the different packages.
    A commit might only be a breaking change for one package, but it will be marked as breaking for all affected packages
 
-   Note: GitHub releases use the PR description to create the release notes.
+   Note: Release Please uses the PR description to create the GitHub release notes.
    When you update a changelog, be sure to update both CHANGELOG.md and the PR description.
 
    Approve the PR, then merge it – no need to wait for the checks.
