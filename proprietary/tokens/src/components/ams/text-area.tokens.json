@@ -2,7 +2,7 @@
   "ams": {
     "text-area": {
       "background-color": { "value": "{ams.color.canvas.default}" },
-      "box-shadow": { "value": "inset 0 0 0 {ams.border.width.sm} {ams.brand.color.neutral.100}" },
+      "box-shadow": { "value": "inset 0 0 0 {ams.border.width.sm} {ams.color.border.default}" },
       "color": { "value": "{ams.color.text.default}" },
       "font-family": { "value": "{ams.text.font-family}" },
       "font-size": { "value": "{ams.text.level.5.font-size}" },
@@ -21,7 +21,7 @@
         "cursor": { "value": "{ams.action.disabled.cursor}" }
       },
       "hover": {
-        "box-shadow": { "value": "inset 0 0 0 {ams.border.width.md} {ams.brand.color.neutral.100}" }
+        "box-shadow": { "value": "inset 0 0 0 {ams.border.width.md} {ams.color.border.default}" }
       },
       "invalid": {
         "box-shadow": { "value": "inset 0 0 0 {ams.border.width.sm} {ams.color.interactive.invalid.default}" },
