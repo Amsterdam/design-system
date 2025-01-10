@@ -1,24 +1,24 @@
 {
   "ams": {
     "spotlight": {
-      "background-color": { "value": "{ams.brand.color.purple.60}" },
-      "azure": {
-        "background-color": { "value": "{ams.brand.color.azure.60}" }
+      "background-color": { "value": "{ams.color.purple}" },
+      "blue": {
+        "background-color": { "value": "{ams.color.blue}" }
+      },
+      "dark-green": {
+        "background-color": { "value": "{ams.color.dark-green}" }
       },
       "green": {
-        "background-color": { "value": "{ams.brand.color.green.60}" }
-      },
-      "lime": {
-        "background-color": { "value": "{ams.brand.color.lime.60}" }
+        "background-color": { "value": "{ams.color.green}" }
       },
       "magenta": {
-        "background-color": { "value": "{ams.brand.color.magenta.60}" }
+        "background-color": { "value": "{ams.color.magenta}" }
       },
       "orange": {
-        "background-color": { "value": "{ams.brand.color.orange.60}" }
+        "background-color": { "value": "{ams.color.orange}" }
       },
       "yellow": {
-        "background-color": { "value": "{ams.brand.color.yellow.60}" }
+        "background-color": { "value": "{ams.color.yellow}" }
       }
     }
   }

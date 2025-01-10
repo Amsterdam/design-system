@@ -27,7 +27,7 @@ export const Default: Story = {
   args: {
     children: [
       <Breakout.Cell colSpan="all" has="spotlight" key={1} rowSpan={{ medium: 2, narrow: 2, wide: 1 }} rowStart={2}>
-        <Spotlight color="green" />
+        <Spotlight color="dark-green" />
       </Breakout.Cell>,
       <Breakout.Cell
         colSpan={{ medium: 8, narrow: 4, wide: 6 }}

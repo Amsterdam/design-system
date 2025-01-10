@@ -12,11 +12,6 @@
   padding-inline: var(--ams-badge-padding-inline);
 }
 
-.ams-badge--azure {
-  background-color: var(--ams-badge-azure-background-color);
-  color: var(--ams-badge-azure-color);
-}
-
 .ams-badge--black {
   background-color: var(--ams-badge-black-background-color);
   color: var(--ams-badge-black-color);
@@ -27,39 +22,39 @@
   color: var(--ams-badge-blue-color);
 }
 
+.ams-badge--dark-green {
+  background-color: var(--ams-badge-dark-green-background-color);
+  color: var(--ams-badge-dark-green-color);
+}
+
 .ams-badge--green {
   background-color: var(--ams-badge-green-background-color);
   color: var(--ams-badge-green-color);
 }
 
-.ams-badge--lime {
-  background-color: var(--ams-badge-lime-background-color);
-  color: var(--ams-badge-lime-color);
+.ams-badge--grey-1 {
+  background-color: var(--ams-badge-grey-1-background-color);
+  color: var(--ams-badge-grey-1-color);
+}
+
+.ams-badge--grey-2 {
+  background-color: var(--ams-badge-grey-2-background-color);
+  color: var(--ams-badge-grey-2-color);
+}
+
+.ams-badge--grey-3 {
+  background-color: var(--ams-badge-grey-3-background-color);
+  color: var(--ams-badge-grey-3-color);
+}
+
+.ams-badge--light-blue {
+  background-color: var(--ams-badge-light-blue-background-color);
+  color: var(--ams-badge-light-blue-color);
 }
 
 .ams-badge--magenta {
   background-color: var(--ams-badge-magenta-background-color);
   color: var(--ams-badge-magenta-color);
-}
-
-.ams-badge--neutral-20 {
-  background-color: var(--ams-badge-neutral-20-background-color);
-  color: var(--ams-badge-neutral-20-color);
-}
-
-.ams-badge--neutral-40 {
-  background-color: var(--ams-badge-neutral-40-background-color);
-  color: var(--ams-badge-neutral-40-color);
-}
-
-.ams-badge--neutral-60 {
-  background-color: var(--ams-badge-neutral-60-background-color);
-  color: var(--ams-badge-neutral-60-color);
-}
-
-.ams-badge--neutral-80 {
-  background-color: var(--ams-badge-neutral-80-background-color);
-  color: var(--ams-badge-neutral-80-color);
 }
 
 .ams-badge--orange {
