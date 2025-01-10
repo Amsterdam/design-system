@@ -2,7 +2,7 @@
   "version": "0.14.0",
   "author": "Design System Team, City of Amsterdam <designsystem@amsterdam.nl>",
   "description": "All design tokens from the Amsterdam Design System. Use it to apply its visual design to your website or application.",
-  "homepage": "https://designsystem.amsterdam/",
+  "homepage": "https://designsystem.amsterdam",
   "license": "SEE LICENSE IN LICENSE.md",
   "name": "@amsterdam/design-system-tokens",
   "type": "module",
