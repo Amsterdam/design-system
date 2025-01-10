@@ -1,6 +1,7 @@
 import { Icon } from '@amsterdam/design-system-react/src'
 // import * as Icons from '@amsterdam/design-system-react-icons'
 import { IconGallery, IconItem } from '@storybook/blocks'
+// Temporary workaround for the fact that the new icons are not yet available in the design system
 import * as Icons from '../../../../proprietary/react-icons/src/index'
 
 const deprecatedIcons = [
