@@ -1,6 +1,9 @@
 {
   "ams": {
     "color": {
+      "border": {
+        "default": { "value": "{ams.brand.color.neutral.100}" }
+      },
       "canvas": {
         "default": {
           "value": "{ams.brand.color.neutral.0}",
