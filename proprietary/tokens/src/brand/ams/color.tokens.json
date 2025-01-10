@@ -34,7 +34,8 @@
         "default": { "value": "{ams.brand.color.blue.60}" },
         "hover": { "value": "{ams.brand.color.blue.80}" },
         "contrast": {
-          "default": { "value": "{ams.brand.color.neutral.100}" }
+          "default": { "value": "{ams.brand.color.neutral.100}" },
+          "hover": { "value": "{ams.brand.color.neutral.100}" }
         },
         "disabled": {
           "default": { "value": "{ams.brand.color.neutral.60}" }
@@ -44,10 +45,12 @@
           "hover": { "value": "{ams.brand.color.red.80}" }
         },
         "inverse": {
-          "default": { "value": "{ams.brand.color.neutral.0}" }
+          "default": { "value": "{ams.brand.color.neutral.0}" },
+          "hover": { "value": "{ams.brand.color.neutral.0}" }
         },
         "visited": {
-          "default": { "value": "{ams.brand.color.purple.60}" }
+          "default": { "value": "{ams.brand.color.purple.60}" },
+          "hover": { "value": "{ams.brand.color.purple.80}" }
         }
       },
       "logo": {

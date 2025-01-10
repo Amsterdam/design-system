@@ -12,6 +12,14 @@ Our colour palette is vibrant and crisp.
 The main colours are red, blue, black, and white.
 They are complemented by a range of accent colors and shades of gray.
 
+## Palette
+
+We have nine colours in our palette.
+Their default tone has a value of 60.
+Some colours offer a darker shade at 80.
+
+Next to these, six neutral colours are available, including white and black.
+
 <ColorPalette>
   <ColorPalette.Swatch color={tokens.ams.brand.color.red} name="red" />
   <ColorPalette.Swatch color={tokens.ams.brand.color.azure} name="azure" />
@@ -24,6 +32,42 @@ They are complemented by a range of accent colors and shades of gray.
   <ColorPalette.Swatch color={tokens.ams.brand.color.purple} name="purple" />
   <ColorPalette.Swatch color={tokens.ams.brand.color.neutral} name="neutral" />
 </ColorPalette>
+
+## Brand tokens
+
+| Token name                             | Color name  | Example                                                                                                                                                            |
+| :------------------------------------- | :---------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `ams.color.border`                     | neutral-100 | <div className="ams-docs-token-example--color" style={{ backgroundColor: 'var(--ams-color-border-default)' }} />                                                   |
+| `ams.color.canvas`                     | neutral-0   | <div className="ams-docs-token-example--color ams-docs-token-example--color-border" style={{ backgroundColor: 'var(--ams-color-canvas-default)' }} />              |
+| `ams.color.feedback.error`             | red-60      | <div className="ams-docs-token-example--color" style={{ backgroundColor: 'var(--ams-color-feedback-error-default)' }} />                                           |
+| `ams.color.feedback.info`              | azure-60    | <div className="ams-docs-token-example--color" style={{ backgroundColor: 'var(--ams-color-feedback-info-default)' }} />                                            |
+| `ams.color.feedback.success`           | green-60    | <div className="ams-docs-token-example--color" style={{ backgroundColor: 'var(--ams-color-feedback-success-default)' }} />                                         |
+| `ams.color.feedback.warning`           | orange-60   | <div className="ams-docs-token-example--color" style={{ backgroundColor: 'var(--ams-color-feedback-warning-default)' }} />                                         |
+| `ams.color.footer`                     | blue-60     | <div className="ams-docs-token-example--color" style={{ backgroundColor: 'var(--ams-color-footer-default)' }} />                                                   |
+| `ams.color.highlight`                  | yellow-60   | <div className="ams-docs-token-example--color" style={{ backgroundColor: 'var(--ams-color-highlight-default)' }} />                                                |
+| `ams.color.interactive`                | blue-60     | <div className="ams-docs-token-example--color" style={{ backgroundColor: 'var(--ams-color-interactive-default)' }} />                                              |
+| `ams.color.interactive.hover`          | blue-80     | <div className="ams-docs-token-example--color" style={{ backgroundColor: 'var(--ams-color-interactive-hover)' }} />                                                |
+| `ams.color.interactive.contrast`       | neutral-100 | <div className="ams-docs-token-example--color" style={{ backgroundColor: 'var(--ams-color-interactive-contrast-default)' }} />                                     |
+| `ams.color.interactive.contrast.hover` | neutral-100 | <div className="ams-docs-token-example--color" style={{ backgroundColor: 'var(--ams-color-interactive-contrast-hover)' }} />                                       |
+| `ams.color.interactive.disabled`       | neutral-60  | <div className="ams-docs-token-example--color" style={{ backgroundColor: 'var(--ams-color-interactive-disabled-default)' }} />                                     |
+| `ams.color.interactive.invalid`        | neutral-60  | <div className="ams-docs-token-example--color" style={{ backgroundColor: 'var(--ams-color-interactive-invalid-default)' }} />                                      |
+| `ams.color.interactive.invalid.hover`  | neutral-60  | <div className="ams-docs-token-example--color" style={{ backgroundColor: 'var(--ams-color-interactive-invalid-hover)' }} />                                        |
+| `ams.color.interactive.inverse`        | neutral-100 | <div className="ams-docs-token-example--color ams-docs-token-example--color-border" style={{ backgroundColor: 'var(--ams-color-interactive-inverse-default)' }} /> |
+| `ams.color.interactive.inverse.hover`  | neutral-100 | <div className="ams-docs-token-example--color ams-docs-token-example--color-border" style={{ backgroundColor: 'var(--ams-color-interactive-inverse-default)' }} /> |
+| `ams.color.interactive.visited`        | purple-60   | <div className="ams-docs-token-example--color" style={{ backgroundColor: 'var(--ams-color-interactive-visited-default)' }} />                                      |
+| `ams.color.interactive.visited.hover`  | purple-80   | <div className="ams-docs-token-example--color" style={{ backgroundColor: 'var(--ams-color-interactive-visited-hover)' }} />                                        |
+| `ams.color.logo`                       | red-60      | <div className="ams-docs-token-example--color" style={{ backgroundColor: 'var(--ams-color-logo-default)' }} />                                                     |
+| `ams.color.separator`                  | neutral-20  | <div className="ams-docs-token-example--color" style={{ backgroundColor: 'var(--ams-color-separator-default)' }} />                                                |
+| `ams.color.supplemental.azure`         | azure-60    | <div className="ams-docs-token-example--color" style={{ backgroundColor: 'var(--ams-color-supplemental-azure-default)' }} />                                       |
+| `ams.color.supplemental.green`         | green-60    | <div className="ams-docs-token-example--color" style={{ backgroundColor: 'var(--ams-color-supplemental-green-default)' }} />                                       |
+| `ams.color.supplemental.lime`          | lime-60     | <div className="ams-docs-token-example--color" style={{ backgroundColor: 'var(--ams-color-supplemental-lime-default)' }} />                                        |
+| `ams.color.supplemental.magenta`       | magenta-60  | <div className="ams-docs-token-example--color" style={{ backgroundColor: 'var(--ams-color-supplemental-magenta-default)' }} />                                     |
+| `ams.color.supplemental.orange`        | orange-60   | <div className="ams-docs-token-example--color" style={{ backgroundColor: 'var(--ams-color-supplemental-orange-default)' }} />                                      |
+| `ams.color.supplemental.purple`        | purple-60   | <div className="ams-docs-token-example--color" style={{ backgroundColor: 'var(--ams-color-supplemental-purple-default)' }} />                                      |
+| `ams.color.supplemental.yellow`        | yellow-60   | <div className="ams-docs-token-example--color" style={{ backgroundColor: 'var(--ams-color-supplemental-yellow-default)' }} />                                      |
+| `ams.color.text`                       | neutral-100 | <div className="ams-docs-token-example--color" style={{ backgroundColor: 'var(--ams-color-text-default)' }} />                                                     |
+| `ams.color.text.secondary`             | neutral-60  | <div className="ams-docs-token-example--color" style={{ backgroundColor: 'var(--ams-color-text-secondary)' }} />                                                   |
+| `ams.color.text.inverse`               | neutral-0   | <div className="ams-docs-token-example--color ams-docs-token-example--color-border" style={{ backgroundColor: 'var(--ams-color-text-inverse)' }} />                |
 
 ## Application
 

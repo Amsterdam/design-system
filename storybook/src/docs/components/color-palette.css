@@ -3,6 +3,7 @@
   display: grid;
   gap: 4rem;
   grid-template-columns: repeat(auto-fill, minmax(16rem, 1fr));
+  padding-block-start: var(--ams-space-md);
 }
 
 .ams-docs-color-swatch {
