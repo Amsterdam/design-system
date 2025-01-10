@@ -3,6 +3,47 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.14.0](https://github.com/Amsterdam/design-system/compare/design-system-react-v0.13.1...design-system-react-v0.14.0) (2025-01-10)
+
+
+### ⚠ BREAKING CHANGES
+
+* Add collapsible menu to Header ([#1784](https://github.com/Amsterdam/design-system/issues/1784))
+* Disallow blue Spotlight and make purple the default ([#1798](https://github.com/Amsterdam/design-system/issues/1798))
+* Make Tabs correctly handle a single Tab Button ([#1775](https://github.com/Amsterdam/design-system/issues/1775))
+* Make active Tab look less like a primary Button ([#1773](https://github.com/Amsterdam/design-system/issues/1773))
+* Make background of Alert white again ([#1765](https://github.com/Amsterdam/design-system/issues/1765))
+* Replace renamed colours for Avatar, Badge and Spotlight ([#1758](https://github.com/Amsterdam/design-system/issues/1758))
+* Change colours for Alert ([#1757](https://github.com/Amsterdam/design-system/issues/1757))
+* Require an alt prop for every Image ([#1739](https://github.com/Amsterdam/design-system/issues/1739))
+* Replace Aspect Ratio component with utility classes and prop on Image ([#1593](https://github.com/Amsterdam/design-system/issues/1593))
+* Use new Button features for SearchField ([#1695](https://github.com/Amsterdam/design-system/issues/1695))
+
+### Features
+
+* Add collapsible menu to Header ([#1784](https://github.com/Amsterdam/design-system/issues/1784)) ([44ce6d8](https://github.com/Amsterdam/design-system/commit/44ce6d8ac5a3fc48fd7de258c48fbafdd9928b9f))
+* Add Figure component ([#1795](https://github.com/Amsterdam/design-system/issues/1795)) ([3505dcc](https://github.com/Amsterdam/design-system/commit/3505dcca183551dce318046f54ad4570cc6e6d2b))
+* Add File List component to display below a File Input ([#1751](https://github.com/Amsterdam/design-system/issues/1751)) ([0192404](https://github.com/Amsterdam/design-system/commit/01924048c53805eb1536d2aa9b5454bcd44375b8))
+* Add Icon to Error Message ([#1746](https://github.com/Amsterdam/design-system/issues/1746)) ([eca5fe4](https://github.com/Amsterdam/design-system/commit/eca5fe4ed0325b01860f816c70247c26e2158f9c))
+* Allow an icon to display with an inverse color ([#1787](https://github.com/Amsterdam/design-system/issues/1787)) ([1f5d166](https://github.com/Amsterdam/design-system/commit/1f5d16697a1b332b6c1bbd830cda1220010a78d6))
+* Change colours for Alert ([#1757](https://github.com/Amsterdam/design-system/issues/1757)) ([4c03c65](https://github.com/Amsterdam/design-system/commit/4c03c65933da539af223c73e581bf99274bc86a4))
+* Disallow blue Spotlight and make purple the default ([#1798](https://github.com/Amsterdam/design-system/issues/1798)) ([8d1c266](https://github.com/Amsterdam/design-system/commit/8d1c266f3f7e90b02bcb240c41256578a80c7668))
+* Let Footer set its own background colour ([#1797](https://github.com/Amsterdam/design-system/issues/1797)) ([310f595](https://github.com/Amsterdam/design-system/commit/310f59553a9ad057f3fe80b23bfda5acf108906d))
+* Let Grid and Grid Cell render any structural tag ([#1662](https://github.com/Amsterdam/design-system/issues/1662)) ([9bbb43a](https://github.com/Amsterdam/design-system/commit/9bbb43a42963b5985de9f3b9bd3a76531b74f799))
+* Make active Tab look less like a primary Button ([#1773](https://github.com/Amsterdam/design-system/issues/1773)) ([2ec0102](https://github.com/Amsterdam/design-system/commit/2ec010286dd64ecebefa040a0ab18cf192542d0f))
+* Make background of Alert white again ([#1765](https://github.com/Amsterdam/design-system/issues/1765)) ([2a59067](https://github.com/Amsterdam/design-system/commit/2a59067d9c10f542f0e3c6f8c4ed7809ab23e4c7))
+* Make border of Radio thicker when hovering ([#1696](https://github.com/Amsterdam/design-system/issues/1696)) ([8839012](https://github.com/Amsterdam/design-system/commit/88390124aa5197f6c784dae4fc2a7c3e18d75ca6))
+* Replace Aspect Ratio component with utility classes and prop on Image ([#1593](https://github.com/Amsterdam/design-system/issues/1593)) ([766efba](https://github.com/Amsterdam/design-system/commit/766efbac45e8831a19f3e99bd9d0550028d8d4fd))
+* Replace renamed colours for Avatar, Badge and Spotlight ([#1758](https://github.com/Amsterdam/design-system/issues/1758)) ([5c8132a](https://github.com/Amsterdam/design-system/commit/5c8132a9a616d611b7ceee192cecb327e3b45451))
+* Require an alt prop for every Image ([#1739](https://github.com/Amsterdam/design-system/issues/1739)) ([9145dff](https://github.com/Amsterdam/design-system/commit/9145dffd2a3767f5be19adc2683ba11c50dd9485))
+* Use new Button features for SearchField ([#1695](https://github.com/Amsterdam/design-system/issues/1695)) ([7b275d0](https://github.com/Amsterdam/design-system/commit/7b275d0c803b309095ba7c425bb6bf04630775a9))
+
+
+### Bug Fixes
+
+* Correct layout of Description List if multiple terms share a description ([#1763](https://github.com/Amsterdam/design-system/issues/1763)) ([ca913af](https://github.com/Amsterdam/design-system/commit/ca913afd56aba3a8c2305479df9177bceea09804))
+* Make Tabs correctly handle a single Tab Button ([#1775](https://github.com/Amsterdam/design-system/issues/1775)) ([f8e89c1](https://github.com/Amsterdam/design-system/commit/f8e89c1163a3d344f295921ccdae0c7dcca1e329))
+
 ## [0.13.1](https://github.com/Amsterdam/design-system/compare/design-system-react-v0.13.0...design-system-react-v0.13.1) (2024-11-04)
 
 

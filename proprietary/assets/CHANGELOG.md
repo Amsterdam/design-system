@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.2.3](https://github.com/Amsterdam/design-system/compare/design-system-assets-v0.2.2...design-system-assets-v0.2.3) (2025-01-10)
+
+
+### Features
+
+* Make border of Radio thicker when hovering ([#1696](https://github.com/Amsterdam/design-system/issues/1696)) ([8839012](https://github.com/Amsterdam/design-system/commit/88390124aa5197f6c784dae4fc2a7c3e18d75ca6))
+* SVGO config ([#1671](https://github.com/Amsterdam/design-system/issues/1671)) ([7b79ade](https://github.com/Amsterdam/design-system/commit/7b79adef8b2ff7977e5af7cc6f329191f1dfff3f))
+
 ## [0.2.2](https://github.com/Amsterdam/design-system/compare/design-system-assets-v0.2.1...design-system-assets-v0.2.2) (2024-10-25)
 
 ### Features
