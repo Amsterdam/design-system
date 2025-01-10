@@ -36,12 +36,6 @@ export const Blue: Story = {
   },
 }
 
-export const DarkBlue: Story = {
-  args: {
-    color: 'dark-blue',
-  },
-}
-
 export const DarkGreen: Story = {
   args: {
     color: 'dark-green',

@@ -1,7 +1,7 @@
 {
   "ams": {
     "alert": {
-      "background-color": { "value": "{ams.color.primary-black}" },
+      "background-color": { "value": "{ams.color.primary-white}" },
       "border-width": { "value": "{ams.border.width.xl}" },
       "border-style": { "value": "solid" },
       "gap": { "value": "{ams.space.sm}" },
@@ -11,7 +11,7 @@
         "border-color": { "value": "{ams.color.primary-red}" }
       },
       "info": {
-        "border-color": { "value": "{ams.color.primary-blue}" }
+        "border-color": { "value": "{ams.color.blue}" }
       },
       "success": {
         "border-color": { "value": "{ams.color.dark-green}" }
