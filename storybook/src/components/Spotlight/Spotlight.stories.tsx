@@ -17,7 +17,7 @@ const meta = {
     <Spotlight as={as} color={color}>
       <Grid paddingVertical="medium">
         <Grid.Cell span="all">
-          <Blockquote inverseColor={!color || !['lime', 'yellow'].includes(color)}>{quote}</Blockquote>
+          <Blockquote inverseColor={!color || !['green', 'yellow'].includes(color)}>{quote}</Blockquote>
         </Grid.Cell>
       </Grid>
     </Spotlight>
@@ -30,21 +30,27 @@ type Story = StoryObj<typeof meta>
 
 export const Default: Story = {}
 
-export const Azure: Story = {
+export const Blue: Story = {
   args: {
-    color: 'azure',
+    color: 'blue',
+  },
+}
+
+export const DarkBlue: Story = {
+  args: {
+    color: 'dark-blue',
+  },
+}
+
+export const DarkGreen: Story = {
+  args: {
+    color: 'dark-green',
   },
 }
 
 export const Green: Story = {
   args: {
     color: 'green',
-  },
-}
-
-export const Lime: Story = {
-  args: {
-    color: 'lime',
   },
 }
 
