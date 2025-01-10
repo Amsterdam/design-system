@@ -124,3 +124,21 @@
     border-color: Canvas !important;
   }
 }
+
+.icon-item-normal,
+.icon-item-deprecated {
+  /* display: inline-flex; */
+  display: contents;
+}
+
+.icon-item-deprecated div {
+  text-decoration: line-through;
+}
+
+.icon-item-new div {
+  font-weight: 700;
+}
+
+.icon-item-old div {
+  font-style: italic;
+}
