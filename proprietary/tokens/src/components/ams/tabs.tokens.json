@@ -20,7 +20,7 @@
         "padding-inline": { "value": "{ams.space.md}" },
         "hover": {
           "color": { "value": "{ams.color.dark-blue}" },
-          "box-shadow": { "value": "inset 0 -0.125rem 0 0 {ams.color.dark-blue}" }
+          "box-shadow": { "value": "inset 0 calc({ams.border.width.md} * -1) {ams.color.dark-blue}" }
         },
         "selected": {
           "box-shadow": { "value": "inset 0 calc({ams.border.width.xl} * -1) {ams.color.primary-blue}" },
