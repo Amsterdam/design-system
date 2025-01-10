@@ -3,7 +3,7 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
-## [0.2.3](https://github.com/Amsterdam/design-system/compare/design-system-assets-v0.2.2...design-system-assets-v0.2.3) (2025-01-10)
+## [0.3.0](https://github.com/Amsterdam/design-system/compare/design-system-assets-v0.2.2...design-system-assets-v0.3.0) (2025-01-10)
 
 ### ⚠ BREAKING CHANGES
 
