@@ -17,33 +17,44 @@ import { StatusBadge } from "../../docs/components/StatusBadge";
 
 ## Examples
 
-### For a sub-brand
+### With moving links
 
-<Canvas of={HeaderStories.ForSubBrand} />
+Links can move from the inline menu to the collapsible one on narrow windows.
+A `MenuLink` is hidden by default on narrow windows.
+Use `GridCellNarrowWindowOnly` to show that same link in the collapsible menu on narrow windows.
 
-### With app name
+If you do not want the `MenuLink` to be hidden, use the `fixed` prop.
 
-<Canvas of={HeaderStories.WithAppName} />
+In this example, ‘English’ moves to the collapsible menu, while ‘Zoeken’ does not.
 
-### With menu button
+<Canvas of={HeaderStories.WithMovingLinks} />
 
-<Canvas of={HeaderStories.WithMenuButton} />
+### Without menu button on wide windows
 
-### With links
+If you only have a few links, you may not always need a collapsible menu.
+Use `noMenuButtonOnWideWindow` to hide the menu button on wide windows.
+On narrow windows, the menu button will still be visible,
+so do not forget to add the links to the collapsible menu.
 
-Use a [Page Menu](/docs/components-navigation-page-menu--docs) to add links.
-A Page Menu in the Header should not wrap.
+<Canvas of={HeaderStories.WithoutMenuButtonOnWideWindow} />
 
-<Canvas of={HeaderStories.WithLinks} />
+### Without menu button
 
-### With links and menu button
+In some cases, a collapsible menu might not be necessary.
+If the Header has no `children`, the menu button will not appear.
+Remember to use the `fixed` prop if you want the inline menu links to stay in place.
 
-<Canvas of={HeaderStories.WithLinksAndMenuButton} />
+<Canvas of={HeaderStories.WithoutMenuButton} />
 
-### With app name and menu button
+### With custom logo link
 
-<Canvas of={HeaderStories.WithAppNameAndMenuButton} />
+The destination and accessible text of the logo link can be customized,
+as well as the logo itself.
 
-### With app name, links and menu button
+<Canvas of={HeaderStories.WithCustomLogoLink} />
 
-<Canvas of={HeaderStories.WithAppNameLinksAndMenuButton} />
+### With custom texts
+
+The text of the menu button and the accessible navigation description can be customized.
+
+<Canvas of={HeaderStories.WithCustomTexts} />

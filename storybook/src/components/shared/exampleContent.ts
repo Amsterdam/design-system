@@ -17,6 +17,19 @@ export const exampleAccordionHeading = () =>
     'Voorgaande versies van ramingen',
   ])
 
+export const exampleCaption = () =>
+  pickRandomContent<string>([
+    'Een rustige Amsterdamse gracht met eeuwenoude gevels die weerspiegelen in het water, terwijl fietsen nonchalant tegen de brugleuning rusten – een alledaags tafereel vol historie en charme. Foto: Liam Dekker.',
+    'Een rij geparkeerde fietsen langs een smalle gracht met klassieke Amsterdamse gevels op de achtergrond.',
+    'Een klein houten bootje dobbert rustig op het water, omringd door bomen en bakstenen panden met grote ramen. Foto: Sophie van der Brugge.',
+    'Een typische Amsterdamse brug met smeedijzeren leuningen, vol met fietsen en uitzicht op een grachtenpand met een klokgevel.',
+    'Een stille gracht met weerspiegelende gevels, terwijl een tram in de verte over een brug rijdt. Foto: Isabel Groeneveld.',
+    'Een zonovergoten terras aan de gracht, met stoelen op de kade en uitzicht op een sierlijke ophaalbrug.',
+    'Een grachtenpand met vrolijke bloemenbakken op de vensterbanken en een smalle trap naar de voordeur. Foto: Joris Zandvoort.',
+    'Een schuin geplaatste fiets tegen een lantaarnpaal, met op de achtergrond een karakteristiek houten bruggetje.',
+    'Een groep Ajax-supporters in rood-witte sjaals verzamelt zich op een plein, klaar voor een wedstrijd in de Johan Cruijff ArenA. Foto: Louis Flitskamp.',
+  ])
+
 export const exampleHeading = () =>
   pickRandomContent<string>([
     'Meer plekken voor kunst en cultuur, verspreid over de stad',

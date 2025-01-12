@@ -80,7 +80,7 @@ Examples:
 
 ```css
 :root {
-  --ams-brand-color-red-60: #ec0000;
+  --ams-color-primary-red: #ec0000;
   --ams-space-md: 1rem;
   --ams-aspect-ratio-wide: 4/3;
   --ams-border-width-lg: 0.1875rem;
@@ -146,16 +146,22 @@ Note that redefining the value of a token is a much better approach than redecla
 ## Usage in Sass
 
 The tokens can be imported as Sass variables as well.
+As they are already prefixed, the namespace that Sass would assign isn’t necessary.
 
 ```sass
-@import "@amsterdam/design-system-tokens/dist/index.scss"
+@use "@amsterdam/design-system-tokens/dist/index.scss" as *;
 ```
 
-Import the compact tokens if you need them.
-Sass will override spacious values automatically.
+Import the compact tokens if needed.
+Note that Sass doesn't allow importing them alongside the default set due to naming conflicts.
+Address these tokens through the `compact` namespace and do not use the spacious tokens they replace.
 
 ```sass
-@import "@amsterdam/design-system-tokens/dist/compact.scss"
+@use "@amsterdam/design-system-tokens/dist/compact.scss";
+
+.class {
+  padding-block: compact.$ams-space-md;
+}
 ```
 
 ## Usage in JavaScript
@@ -168,9 +174,8 @@ Use ‘dot notation’ or square brackets to access the tokens.
 ```tsx
 import tokens from "@amsterdam/design-system-tokens/dist/index.json"
 
-const { ams } = tokens
-const buttonBackgroundColor = ams.brand.color.blue['60']
-const rowGap = ams.space.md
+const buttonBackgroundColor = tokens.ams.color["primary-blue"]
+const rowGap = tokens.ams.space.md
 ```
 
 Import and merge the compact tokens if you need them.
@@ -181,7 +186,7 @@ Then you can use the tokens in scripting or css-in-js libraries.
 import compactTokens from "@amsterdam/design-system-tokens/dist/compact.json"
 import spaciousTokens from "@amsterdam/design-system-tokens/dist/index.json"
 
-const { ams } = { ...spaciousTokens, ...compactTokens }
+const tokens = { ...spaciousTokens, ...compactTokens }
 ```
 
 ## Usage in Figma
