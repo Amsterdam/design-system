@@ -124,8 +124,8 @@ export const AmsterdamIconGallery = () => {
 
   return (
     <>
-      <Heading level={3} size="level-2" className="ams-mb--sm">
-        New & Updated icons
+      <Heading level={2} className="ams-mb--sm">
+        New icons
       </Heading>
       <IconGallery>
         {updatedIcons.map((key) => (
@@ -134,7 +134,7 @@ export const AmsterdamIconGallery = () => {
           </IconItem>
         ))}
       </IconGallery>
-      <Heading level={3} size="level-2" className="ams-mb--sm">
+      <Heading level={2} className="ams-mb--sm">
         Deprecated icons
       </Heading>
       <IconGallery>
@@ -144,7 +144,7 @@ export const AmsterdamIconGallery = () => {
           </IconItem>
         ))}
       </IconGallery>
-      <Heading level={3} size="level-2" className="ams-mb--sm">
+      <Heading level={2} className="ams-mb--sm">
         Old icons
       </Heading>
       <IconGallery>
