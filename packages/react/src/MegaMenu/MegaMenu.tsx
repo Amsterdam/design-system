@@ -20,4 +20,5 @@ const MegaMenuRoot = forwardRef(
 
 MegaMenuRoot.displayName = 'MegaMenu'
 
+/** @deprecated Use child components in Header instead. */
 export const MegaMenu = Object.assign(MegaMenuRoot, { ListCategory: MegaMenuListCategory })
