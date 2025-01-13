@@ -1,9 +1,9 @@
 {
   "ams": {
     "date-input": {
-      "background-color": { "value": "{ams.brand.color.neutral.0}" },
-      "box-shadow": { "value": "inset 0 0 0 {ams.border.width.sm} {ams.brand.color.neutral.100}" },
-      "color": { "value": "{ams.brand.color.neutral.100}" },
+      "background-color": { "value": "{ams.color.primary-white}" },
+      "box-shadow": { "value": "inset 0 0 0 {ams.border.width.sm} {ams.color.primary-black}" },
+      "color": { "value": "{ams.color.primary-black}" },
       "font-family": { "value": "{ams.text.font-family}" },
       "font-size": { "value": "{ams.text.level.5.font-size}" },
       "font-weight": { "value": "{ams.text.font-weight.normal}" },
@@ -17,9 +17,9 @@
         }
       },
       "disabled": {
-        "background-color": { "value": "{ams.brand.color.neutral.0}" },
-        "box-shadow": { "value": "inset 0 0 0 {ams.border.width.sm} {ams.brand.color.neutral.60}" },
-        "color": { "value": "{ams.brand.color.neutral.60}" },
+        "background-color": { "value": "{ams.color.primary-white}" },
+        "box-shadow": { "value": "inset 0 0 0 {ams.border.width.sm} {ams.color.neutral-grey3}" },
+        "color": { "value": "{ams.color.neutral-grey3}" },
         "calender-picker-indicator": {
           "background-image": {
             "value": "url(\"data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 36 36' fill='%23BEBEBE'><path d='M28 6V2h-4v4H12V2H8v4H2v28h32V6zm2 24H6V14h24z'/><path d='M10 17h4v4h-4zm6 0h4v4h-4zm6 0h4v4h-4zm-12 6h4v4h-4zm6 0h4v4h-4z'/></svg>\")"
@@ -27,7 +27,7 @@
         }
       },
       "hover": {
-        "box-shadow": { "value": "inset 0 0 0 {ams.border.width.md} {ams.brand.color.neutral.100}" },
+        "box-shadow": { "value": "inset 0 0 0 {ams.border.width.md} {ams.color.primary-black}" },
         "calender-picker-indicator": {
           "background-image": {
             "value": "url(\"data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 36 36' fill='%23102E62'><path d='M28 6V2h-4v4H12V2H8v4H2v28h32V6zm2 24H6V14h24z'/><path d='M10 17h4v4h-4zm6 0h4v4h-4zm6 0h4v4h-4zm-12 6h4v4h-4zm6 0h4v4h-4z'/></svg>\")"
@@ -35,9 +35,9 @@
         }
       },
       "invalid": {
-        "box-shadow": { "value": "inset 0 0 0 {ams.border.width.sm} {ams.brand.color.red.60}" },
+        "box-shadow": { "value": "inset 0 0 0 {ams.border.width.sm} {ams.color.primary-red}" },
         "hover": {
-          "box-shadow": { "value": "inset 0 0 0 {ams.border.width.md} {ams.brand.color.red.80}" }
+          "box-shadow": { "value": "inset 0 0 0 {ams.border.width.md} {ams.color.primary-red}" }
         }
       }
     }

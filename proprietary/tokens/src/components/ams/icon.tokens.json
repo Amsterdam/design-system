@@ -2,7 +2,7 @@
   "ams": {
     "icon": {
       "inverse": {
-        "color": { "value": "{ams.brand.color.neutral.0}" }
+        "color": { "value": "{ams.color.primary-white}" }
       },
       "size-3": {
         "font-size": { "value": "{ams.text.level.3.font-size}" },

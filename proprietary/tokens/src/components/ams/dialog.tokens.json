@@ -1,7 +1,7 @@
 {
   "ams": {
     "dialog": {
-      "background-color": { "value": "{ams.brand.color.neutral.0}" },
+      "background-color": { "value": "{ams.color.primary-white}" },
       "border": { "value": "0" },
       "gap": { "value": "{ams.space.md}" },
       "inline-size": { "value": "calc(100% - 2 * {ams.space.grid.md})" },
