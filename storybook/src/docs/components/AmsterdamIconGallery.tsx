@@ -1,3 +1,4 @@
+import { Heading } from '@amsterdam/design-system-react'
 import { Icon } from '@amsterdam/design-system-react/src'
 // import * as Icons from '@amsterdam/design-system-react-icons'
 import { IconGallery, IconItem } from '@storybook/blocks'
@@ -112,24 +113,47 @@ const newIcons = [
   'WhatsappIcon',
   'Wheelchair1Icon',
   'Wheelchair2Icon',
-  'X-twitterIcon',
+  'XTwitterIcon',
 ]
 
 export const AmsterdamIconGallery = () => {
   const icons = Object.keys(Icons) as Array<keyof typeof Icons>
+  const updatedIcons = icons.filter((icon) => newIcons.includes(icon))
+  const depIcons = icons.filter((icon) => deprecatedIcons.includes(icon))
+  const oldIcons = icons.filter((icon) => !updatedIcons.includes(icon) && !depIcons.includes(icon))
 
   return (
-    <IconGallery>
-      {icons.map((key) => (
-        <div
-          className={`icon-item-${deprecatedIcons.includes(key) ? 'deprecated' : 'normal'} icon-item-${newIcons.includes(key) ? 'new' : 'old'}`}
-          key={key}
-        >
+    <>
+      <Heading level={3} size="level-2" className="ams-mb--sm">
+        New & Updated icons
+      </Heading>
+      <IconGallery>
+        {updatedIcons.map((key) => (
           <IconItem name={key.substring(0, key.length - 4)}>
             <Icon svg={Icons[key]} />
           </IconItem>
-        </div>
-      ))}
-    </IconGallery>
+        ))}
+      </IconGallery>
+      <Heading level={3} size="level-2" className="ams-mb--sm">
+        Deprecated icons
+      </Heading>
+      <IconGallery>
+        {depIcons.map((key) => (
+          <IconItem name={key.substring(0, key.length - 4)}>
+            <Icon svg={Icons[key]} />
+          </IconItem>
+        ))}
+      </IconGallery>
+      <Heading level={3} size="level-2" className="ams-mb--sm">
+        Old icons
+      </Heading>
+      <IconGallery>
+        {oldIcons.map((key) => (
+          <IconItem name={key.substring(0, key.length - 4)}>
+            <Icon svg={Icons[key]} />
+          </IconItem>
+        ))}
+      </IconGallery>
+    </>
   )
 }
