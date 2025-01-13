@@ -18,6 +18,7 @@ const deprecatedIcons = [
   'HousingIcon',
   'PersonalLoginIcon',
   'PictureIcon',
+  'ChatBubbleIcon',
 ]
 
 const newIcons = [
