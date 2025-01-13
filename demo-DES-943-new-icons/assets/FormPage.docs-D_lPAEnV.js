@@ -1,0 +1,5 @@
+import{j as o}from"./jsx-runtime-z8MfsBtr.js";import{useMDXComponents as i}from"./index-BAvqEBP-.js";import{ae as e}from"./index-Dcqoah3P.js";import{F as n}from"./FormPage.stories-Cn7QFNlK.js";import"./index-C9rmetsa.js";import"./index-D7uoVdV3.js";import"./_commonjsHelpers-CqkleIqs.js";import"./iframe-Cvf06z96.js";import"../sb-preview/runtime.js";import"./index-D-OUEn-9.js";import"./index-Cu4lwwaE.js";import"./index-NOh9rqHv.js";import"./index-ogSvIofg.js";import"./index.esm-Bhtbwa0W.js";import"./clsx-B-dksMZM.js";import"./index.esm-CQcqDN2g.js";import"./config-D4qQkvRa.js";import"./Footer.stories-BnrznCko.js";import"./PageMenu.stories-DHjtqDH4.js";import"./Icon-BoBhPfLP.js";/*@license CC0-1.0*/function m(t){const r={h1:"h1",p:"p",...i(),...t.components};return o.jsxs(o.Fragment,{children:[`
+`,`
+`,o.jsx(e,{of:n}),`
+`,o.jsx(r.h1,{id:"form-page",children:"Form page"}),`
+`,o.jsx(r.p,{children:"This simple example presents various types of fields."})]})}function w(t={}){const{wrapper:r}={...i(),...t.components};return r?o.jsx(r,{...t,children:o.jsx(m,{...t})}):m(t)}export{w as default};
