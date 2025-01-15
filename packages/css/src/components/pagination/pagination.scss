@@ -12,7 +12,6 @@
 }
 
 .ams-pagination__list {
-  color: var(--ams-pagination-color);
   display: flex;
   flex-wrap: wrap;
   font-family: var(--ams-pagination-font-family);
@@ -25,6 +24,7 @@
 }
 
 .ams-pagination__link {
+  color: var(--ams-pagination-link-color);
   display: flex;
   gap: var(--ams-pagination-link-gap);
   outline-offset: var(--ams-pagination-link-outline-offset);
@@ -35,10 +35,6 @@
   touch-action: manipulation;
 
   @include text-rendering;
-
-  &:disabled {
-    display: none;
-  }
 
   &:hover {
     color: var(--ams-pagination-link-hover-color);
@@ -52,7 +48,7 @@
   }
 }
 
-.ams-pagination__link--current {
+.ams-pagination__link[aria-current="page"] {
   font-weight: var(--ams-pagination-link-current-font-weight);
 
   &:hover {

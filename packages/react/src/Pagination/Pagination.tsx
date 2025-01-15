@@ -112,7 +112,7 @@ export const Pagination = forwardRef(
         </span>
         <ol className="ams-pagination__list">
           <li>
-            <a className="ams-pagination__link">
+            <a className="ams-pagination__link" rel="prev">
               <Icon svg={ChevronLeftIcon} size="level-5" />
               <span className="ams-visually-hidden">{previousVisuallyHiddenLabel}</span>
               <span aria-hidden>{previousLabel}</span>
@@ -121,14 +121,7 @@ export const Pagination = forwardRef(
           {range.map((pageNumberOrSpacer) =>
             typeof pageNumberOrSpacer === 'number' ? (
               <li key={pageNumberOrSpacer}>
-                <a
-                  aria-current={pageNumberOrSpacer === page ? true : undefined}
-                  className={clsx(
-                    'ams-pagination__link',
-                    pageNumberOrSpacer === page && 'ams-pagination__link--current',
-                  )}
-                  // tabIndex={pageNumberOrSpacer === page ? -1 : 0}
-                >
+                <a aria-current={pageNumberOrSpacer === page ? 'page' : undefined} className="ams-pagination__link">
                   <span className="ams-visually-hidden">
                     {pageNumberOrSpacer === page
                       ? `Pagina ${pageNumberOrSpacer}`
@@ -144,7 +137,7 @@ export const Pagination = forwardRef(
             ),
           )}
           <li>
-            <a className="ams-pagination__link">
+            <a className="ams-pagination__link" rel="next">
               <span className="ams-visually-hidden">{nextVisuallyHiddenLabel}</span>
               <span aria-hidden>{nextLabel}</span>
               <Icon svg={ChevronRightIcon} size="level-5" />
