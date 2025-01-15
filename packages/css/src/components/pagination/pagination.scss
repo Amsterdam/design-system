@@ -5,6 +5,16 @@
 
 @use "../../common/text-rendering" as *;
 
+.ams-pagination {
+  display: flex;
+  flex-wrap: wrap;
+  font-family: var(--ams-pagination-font-family);
+  font-size: var(--ams-pagination-font-size);
+  font-weight: var(--ams-pagination-font-weight);
+  justify-content: center;
+  line-height: var(--ams-pagination-line-height);
+}
+
 @mixin reset-ol {
   list-style-type: none;
   margin-block: 0;
@@ -14,11 +24,6 @@
 .ams-pagination__list {
   display: flex;
   flex-wrap: wrap;
-  font-family: var(--ams-pagination-font-family);
-  font-size: var(--ams-pagination-font-size);
-  font-weight: var(--ams-pagination-font-weight);
-  justify-content: center;
-  line-height: var(--ams-pagination-line-height);
 
   @include reset-ol;
 }

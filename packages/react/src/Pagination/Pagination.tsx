@@ -113,14 +113,12 @@ export const Pagination = forwardRef(
         <span id={id} className="ams-visually-hidden">
           {visuallyHiddenLabel}
         </span>
+        <a className="ams-pagination__link" href={linkTemplate(page - 1)} rel="prev">
+          <Icon svg={ChevronLeftIcon} size="level-5" />
+          <span className="ams-visually-hidden">{previousVisuallyHiddenLabel}</span>
+          <span aria-hidden>{previousLabel}</span>
+        </a>
         <ol className="ams-pagination__list">
-          <li>
-            <a className="ams-pagination__link" href={linkTemplate(page - 1)} rel="prev">
-              <Icon svg={ChevronLeftIcon} size="level-5" />
-              <span className="ams-visually-hidden">{previousVisuallyHiddenLabel}</span>
-              <span aria-hidden>{previousLabel}</span>
-            </a>
-          </li>
           {range.map((pageNumberOrSpacer) =>
             typeof pageNumberOrSpacer === 'number' ? (
               <li key={pageNumberOrSpacer}>
@@ -143,14 +141,12 @@ export const Pagination = forwardRef(
               </li>
             ),
           )}
-          <li>
-            <a className="ams-pagination__link" href={linkTemplate(page + 1)} rel="next">
-              <span className="ams-visually-hidden">{nextVisuallyHiddenLabel}</span>
-              <span aria-hidden>{nextLabel}</span>
-              <Icon svg={ChevronRightIcon} size="level-5" />
-            </a>
-          </li>
         </ol>
+        <a className="ams-pagination__link" href={linkTemplate(page + 1)} rel="next">
+          <span className="ams-visually-hidden">{nextVisuallyHiddenLabel}</span>
+          <span aria-hidden>{nextLabel}</span>
+          <Icon svg={ChevronRightIcon} size="level-5" />
+        </a>
       </nav>
     )
   },
