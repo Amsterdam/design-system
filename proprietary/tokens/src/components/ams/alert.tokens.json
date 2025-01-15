@@ -13,9 +13,6 @@
         "padding-block": { "value": "{ams.space.md}" },
         "padding-inline": { "value": "{ams.space.md}" }
       },
-      "header": {
-        "gap": { "value": "{ams.space.sm}" }
-      },
       "error": {
         "border-color": { "value": "{ams.color.primary-red}" },
         "icon": {

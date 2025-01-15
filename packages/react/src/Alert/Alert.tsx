@@ -11,6 +11,7 @@ import { Heading } from '../Heading'
 import type { HeadingProps } from '../Heading'
 import { Icon } from '../Icon'
 import { IconButton } from '../IconButton'
+import { Row } from '../Row'
 
 export type AlertProps = {
   /** Whether the user can dismiss the Alert. Adds a button to its top right. */
@@ -57,12 +58,12 @@ export const Alert = forwardRef(
         <Icon inverseColor size="level-4" svg={iconSvgBySeverity[severity]} />
       </div>
       <div className="ams-alert__content">
-        <div className="ams-alert__header">
+        <Row align="between" alignVertical="start">
           <Heading level={headingLevel} size="level-4">
             {heading}
           </Heading>
           {closeable && <IconButton label={closeButtonLabel} onClick={onClose} size="level-4" />}
-        </div>
+        </Row>
         {children}
       </div>
     </section>
