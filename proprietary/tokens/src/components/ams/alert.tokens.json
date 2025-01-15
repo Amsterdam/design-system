@@ -4,12 +4,13 @@
       "background-color": { "value": "{ams.color.primary-white}" },
       "border-style": { "value": "solid" },
       "border-width": { "value": "{ams.border.width.xl}" },
-      "section": {
+      "severity": {
         "padding-block": { "value": "{ams.space.md}" },
         "padding-inline": { "value": "{ams.space.xs}" }
       },
       "content": {
         "gap": { "value": "{ams.space.sm}" },
+        "padding-block": { "value": "{ams.space.md}" },
         "padding-inline": { "value": "{ams.space.md}" }
       },
       "header": {
