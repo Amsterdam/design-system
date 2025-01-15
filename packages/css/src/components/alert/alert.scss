@@ -5,6 +5,7 @@
 
 .ams-alert {
   background-color: var(--ams-alert-background-color);
+  border-color: var(--ams-alert-border-color);
   border-style: var(--ams-alert-border-style);
   border-width: var(--ams-alert-border-width);
   display: flex;
@@ -13,6 +14,8 @@
 }
 
 .ams-alert__severity {
+  background-color: var(--ams-alert-icon-background-color);
+  border-inline-end-color: var(--ams-alert-border-color);
   border-inline-end-style: solid;
   border-inline-end-width: var(--ams-alert-border-width);
   flex: none;
@@ -35,15 +38,6 @@
   > .ams-alert__severity {
     background-color: var(--ams-alert-error-icon-background-color);
     border-inline-end-color: var(--ams-alert-error-border-color);
-  }
-}
-
-.ams-alert--info {
-  border-color: var(--ams-alert-info-border-color);
-
-  > .ams-alert__severity {
-    background-color: var(--ams-alert-info-icon-background-color);
-    border-inline-end-color: var(--ams-alert-info-border-color);
   }
 }
 

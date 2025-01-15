@@ -13,6 +13,8 @@ import { Icon } from '../Icon'
 import { IconButton } from '../IconButton'
 import { Row } from '../Row'
 
+type Severity = 'error' | 'success' | 'warning'
+
 export type AlertProps = {
   /** Whether the user can dismiss the Alert. Adds a button to its top right. */
   closeable?: boolean
@@ -28,12 +30,11 @@ export type AlertProps = {
   /** A function to run when dismissing. */
   onClose?: () => void
   /** The significance of the message conveyed. */
-  severity?: 'error' | 'info' | 'success' | 'warning'
+  severity?: Severity
 } & PropsWithChildren<HTMLAttributes<HTMLDivElement>>
 
-const iconSvgBySeverity = {
+const iconSvgBySeverity: Record<Severity, Function> = {
   error: AlertIcon,
-  info: InfoIcon,
   success: CheckmarkIcon,
   warning: AlertIcon,
 }
@@ -48,26 +49,30 @@ export const Alert = forwardRef(
       heading,
       headingLevel = 2,
       onClose,
-      severity = 'warning',
+      severity,
       ...restProps
     }: AlertProps,
     ref: ForwardedRef<HTMLDivElement>,
-  ) => (
-    <section {...restProps} ref={ref} className={clsx('ams-alert', severity && `ams-alert--${severity}`, className)}>
-      <div className="ams-alert__severity">
-        <Icon inverseColor size="level-4" svg={iconSvgBySeverity[severity]} />
-      </div>
-      <div className="ams-alert__content">
-        <Row align="between" alignVertical="start">
-          <Heading level={headingLevel} size="level-4">
-            {heading}
-          </Heading>
-          {closeable && <IconButton label={closeButtonLabel} onClick={onClose} size="level-4" />}
-        </Row>
-        {children}
-      </div>
-    </section>
-  ),
+  ) => {
+    const SeverityIcon = severity ? iconSvgBySeverity[severity] : InfoIcon
+
+    return (
+      <section {...restProps} ref={ref} className={clsx('ams-alert', severity && `ams-alert--${severity}`, className)}>
+        <div className="ams-alert__section ams-alert__severity">
+          <Icon inverseColor size="level-4" svg={SeverityIcon} />
+        </div>
+        <div className="ams-alert__section ams-alert__content">
+          <Row align="between" alignVertical="start">
+            <Heading level={headingLevel} size="level-4">
+              {heading}
+            </Heading>
+            {closeable && <IconButton label={closeButtonLabel} onClick={onClose} size="level-4" />}
+          </Row>
+          {children}
+        </div>
+      </section>
+    )
+  },
 )
 
 Alert.displayName = 'Alert'

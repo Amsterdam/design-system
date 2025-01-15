@@ -35,6 +35,7 @@ export const Warning: Story = {
   args: {
     children: <Paragraph>U bent vergeten verplichte velden in te vullen.</Paragraph>,
     heading: 'Vul de gegevens aan',
+    severity: 'warning',
   },
 }
 
@@ -69,7 +70,6 @@ export const Info: Story = {
       </Paragraph>
     ),
     closeable: true,
-    severity: 'info',
   },
 }
 
@@ -97,6 +97,5 @@ export const WithInlineLink: Story = {
         gesloten. Ook 14 020 en alle andere telefoonnummers van de gemeente zijn niet bereikbaar.
       </Paragraph>
     ),
-    severity: 'info',
   },
 }
