@@ -18,7 +18,7 @@ export type AlertProps = {
   /** The label for the button that dismisses the Alert. */
   closeButtonLabel?: string
   /** The text for the Heading. */
-  heading?: string
+  heading: string
   /**
    * The hierarchical level of the Heading within the document.
    * Note: this intentionally does not change the font size.
@@ -51,31 +51,24 @@ export const Alert = forwardRef(
       ...restProps
     }: AlertProps,
     ref: ForwardedRef<HTMLDivElement>,
-  ) => {
-    const alertSize = heading ? 'level-4' : 'level-5'
-    const Tag = heading ? 'section' : 'div'
-
-    return (
-      <Tag {...restProps} ref={ref} className={clsx('ams-alert', severity && `ams-alert--${severity}`, className)}>
-        <div className="ams-alert__section ams-alert__severity">
-          <Icon inverseColor size={alertSize} svg={iconSvgBySeverity[severity]} />
+  ) => (
+    <section {...restProps} ref={ref} className={clsx('ams-alert', severity && `ams-alert--${severity}`, className)}>
+      <div className="ams-alert__section ams-alert__severity">
+        <Icon inverseColor size="level-4" svg={iconSvgBySeverity[severity]} />
+      </div>
+      <div className="ams-alert__section ams-alert__content">
+        <Heading level={headingLevel} size="level-4">
+          {heading}
+        </Heading>
+        {children}
+      </div>
+      {closeable && (
+        <div className="ams-alert__section">
+          <IconButton label={closeButtonLabel} onClick={onClose} size="level-4" />
         </div>
-        <div className="ams-alert__section ams-alert__content">
-          {heading && (
-            <Heading level={headingLevel} size="level-4">
-              {heading}
-            </Heading>
-          )}
-          {children}
-        </div>
-        {closeable && (
-          <div className="ams-alert__section">
-            <IconButton label={closeButtonLabel} size={alertSize} onClick={onClose} />
-          </div>
-        )}
-      </Tag>
-    )
-  },
+      )}
+    </section>
+  ),
 )
 
 Alert.displayName = 'Alert'

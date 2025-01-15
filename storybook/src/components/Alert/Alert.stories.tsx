@@ -100,14 +100,3 @@ export const WithInlineLink: Story = {
     severity: 'info',
   },
 }
-
-export const WithoutHeading: Story = {
-  args: {
-    children: (
-      <Paragraph>
-        De geschatte wachttijd in de adreszoeker klopt momenteel niet altijd. We werken aan een oplossing.
-      </Paragraph>
-    ),
-    heading: undefined,
-  },
-}

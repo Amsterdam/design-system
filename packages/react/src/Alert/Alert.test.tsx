@@ -5,7 +5,7 @@ import '@testing-library/jest-dom'
 
 describe('Alert', () => {
   it('renders', () => {
-    const { container } = render(<Alert />)
+    const { container } = render(<Alert heading="Let op!" />)
 
     const component = container.querySelector(':only-child')
     const icon = component?.querySelector('.ams-alert__severity > .ams-icon')
@@ -17,7 +17,7 @@ describe('Alert', () => {
   })
 
   it('renders a design system BEM class name', () => {
-    const { container } = render(<Alert />)
+    const { container } = render(<Alert heading="Let op!" />)
 
     const component = container.querySelector(':only-child')
 
@@ -25,7 +25,7 @@ describe('Alert', () => {
   })
 
   it('renders an additional class name', () => {
-    const { container } = render(<Alert className="extra" />)
+    const { container } = render(<Alert className="extra" heading="Let op!" />)
 
     const component = container.querySelector(':only-child')
 
@@ -35,7 +35,7 @@ describe('Alert', () => {
   it('supports ForwardRef in React', () => {
     const ref = createRef<HTMLDivElement>()
 
-    const { container } = render(<Alert ref={ref} />)
+    const { container } = render(<Alert heading="Let op!" ref={ref} />)
 
     const component = container.querySelector(':only-child')
 
@@ -53,7 +53,7 @@ describe('Alert', () => {
   })
 
   it('renders the close button', () => {
-    const { container } = render(<Alert closeable={true} />)
+    const { container } = render(<Alert closeable heading="Let op!" />)
 
     const component = container.querySelector(':only-child')
     const closeButton = component?.querySelector('.ams-icon-button')
@@ -63,7 +63,7 @@ describe('Alert', () => {
   })
 
   it('renders the close button with a label', () => {
-    render(<Alert closeable={true} closeButtonLabel="Close" />)
+    render(<Alert closeable closeButtonLabel="Close" heading="Let op!" />)
 
     const closeButton = screen.getByRole('button', { name: 'Close' })
 
@@ -72,7 +72,7 @@ describe('Alert', () => {
 
   it('fires the onClose event when the close button is clicked', () => {
     const onClose = jest.fn()
-    const { container } = render(<Alert closeable={true} onClose={onClose} />)
+    const { container } = render(<Alert closeable onClose={onClose} heading="Let op!" />)
 
     const component = container.querySelector(':only-child')
     const closeButton = component?.querySelector('.ams-icon-button')
