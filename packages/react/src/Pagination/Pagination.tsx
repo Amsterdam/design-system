@@ -5,30 +5,9 @@
 
 import { ChevronLeftIcon, ChevronRightIcon } from '@amsterdam/design-system-react-icons'
 import clsx from 'clsx'
-import { forwardRef, useId, useMemo, useState } from 'react'
+import { forwardRef, useId } from 'react'
 import type { ForwardedRef, HTMLAttributes } from 'react'
 import { Icon } from '../Icon/Icon'
-
-export type PaginationProps = {
-  /** The maximum amount of pages shown. Minimum value: 5. */
-  maxVisiblePages?: number
-  /** The visible label for the next page-button. */
-  nextLabel?: string
-  /** The accessible name for the next page-button. */
-  nextVisuallyHiddenLabel?: string
-  /** A function to run when the page number changes. */
-  onPageChange?: (page: number) => void
-  /** The current page number. */
-  page?: number
-  /** The visible label for the previous page-button. */
-  previousLabel?: string
-  /** The accessible name for the previous page-button. */
-  previousVisuallyHiddenLabel?: string
-  /** The total amount of pages. */
-  totalPages: number
-  /** The accessible name for the Pagination component. */
-  visuallyHiddenLabel?: string
-} & HTMLAttributes<HTMLElement>
 
 /**
  * This returns an array of the range, including spacers
@@ -80,6 +59,25 @@ function getRange(currentPage: number, totalPages: number, maxVisiblePages: numb
   return pages
 }
 
+export type PaginationProps = {
+  /** The maximum amount of pages shown. Minimum value: 5. */
+  maxVisiblePages?: number
+  /** The visible label for the next page-button. */
+  nextLabel?: string
+  /** The accessible name for the next page-button. */
+  nextVisuallyHiddenLabel?: string
+  /** The current page number. */
+  page?: number
+  /** The visible label for the previous page-button. */
+  previousLabel?: string
+  /** The accessible name for the previous page-button. */
+  previousVisuallyHiddenLabel?: string
+  /** The total amount of pages. */
+  totalPages: number
+  /** The accessible name for the Pagination component. */
+  visuallyHiddenLabel?: string
+} & HTMLAttributes<HTMLElement>
+
 export const Pagination = forwardRef(
   (
     {
@@ -87,7 +85,6 @@ export const Pagination = forwardRef(
       maxVisiblePages = 7,
       nextLabel = 'volgende',
       nextVisuallyHiddenLabel = 'Volgende pagina',
-      onPageChange,
       page = 1,
       previousLabel = 'vorige',
       previousVisuallyHiddenLabel = 'Vorige pagina',
@@ -97,28 +94,8 @@ export const Pagination = forwardRef(
     }: PaginationProps,
     ref: ForwardedRef<HTMLElement>,
   ) => {
-    const [currentPage, setCurrentPage] = useState(page)
-
     // Get array of page numbers and / or spacers
-    const range = useMemo(
-      () => getRange(currentPage, totalPages, maxVisiblePages),
-      [currentPage, totalPages, maxVisiblePages],
-    )
-
-    const onChangePage = (newPage: number) => {
-      if (onPageChange !== undefined) {
-        onPageChange(newPage)
-      }
-      setCurrentPage(newPage)
-    }
-
-    const onPrevious = () => {
-      onChangePage(currentPage - 1)
-    }
-
-    const onNext = () => {
-      onChangePage(currentPage + 1)
-    }
+    const range = getRange(page, totalPages, maxVisiblePages)
 
     const navLabelId = useId()
 
@@ -134,7 +111,7 @@ export const Pagination = forwardRef(
         </span>
         <ol className="ams-pagination__list">
           <li>
-            <button className="ams-pagination__button" disabled={currentPage === 1} onClick={onPrevious} type="button">
+            <button className="ams-pagination__button" disabled={page === 1} type="button">
               <Icon svg={ChevronLeftIcon} size="level-5" />
               <span className="ams-visually-hidden">{previousVisuallyHiddenLabel}</span>
               <span aria-hidden>{previousLabel}</span>
@@ -144,17 +121,16 @@ export const Pagination = forwardRef(
             typeof pageNumberOrSpacer === 'number' ? (
               <li key={pageNumberOrSpacer}>
                 <button
-                  aria-current={pageNumberOrSpacer === currentPage ? true : undefined}
+                  aria-current={pageNumberOrSpacer === page ? true : undefined}
                   className={clsx(
                     'ams-pagination__button',
-                    pageNumberOrSpacer === currentPage && 'ams-pagination__button--current',
+                    pageNumberOrSpacer === page && 'ams-pagination__button--current',
                   )}
-                  onClick={() => pageNumberOrSpacer !== currentPage && onChangePage(pageNumberOrSpacer)}
-                  tabIndex={pageNumberOrSpacer === currentPage ? -1 : 0}
+                  tabIndex={pageNumberOrSpacer === page ? -1 : 0}
                   type="button"
                 >
                   <span className="ams-visually-hidden">
-                    {pageNumberOrSpacer === currentPage
+                    {pageNumberOrSpacer === page
                       ? `Pagina ${pageNumberOrSpacer}`
                       : `Ga naar pagina ${pageNumberOrSpacer}`}
                   </span>
@@ -168,12 +144,7 @@ export const Pagination = forwardRef(
             ),
           )}
           <li>
-            <button
-              className="ams-pagination__button"
-              disabled={currentPage === totalPages}
-              onClick={onNext}
-              type="button"
-            >
+            <button className="ams-pagination__button" disabled={page === totalPages} type="button">
               <span className="ams-visually-hidden">{nextVisuallyHiddenLabel}</span>
               <span aria-hidden>{nextLabel}</span>
               <Icon svg={ChevronRightIcon} size="level-5" />
