@@ -15,7 +15,6 @@ const meta = {
     totalPages: 10,
   },
   argTypes: {
-    onPageChange: { action: 'page changed' },
     page: {
       control: {
         type: 'number',

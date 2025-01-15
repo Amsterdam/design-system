@@ -24,25 +24,14 @@
   @include reset-ol;
 }
 
-@mixin reset-button {
-  all: unset;
-  outline: revert;
-}
-
-.ams-pagination__button {
-  /* The reset is included at the top of the block here, if you set it
-  at the bottom `all: unset` overrides the `gap` property. */
-  @include reset-button;
-
-  box-sizing: border-box;
-  cursor: pointer;
+.ams-pagination__link {
   display: flex;
-  gap: var(--ams-pagination-button-gap);
-  outline-offset: var(--ams-pagination-button-outline-offset);
-  padding-inline: var(--ams-pagination-button-padding-inline);
-  text-decoration-line: var(--ams-pagination-button-text-decoration-line);
-  text-decoration-thickness: var(--ams-pagination-button-text-decoration-thickness);
-  text-underline-offset: var(--ams-pagination-button-text-underline-offset);
+  gap: var(--ams-pagination-link-gap);
+  outline-offset: var(--ams-pagination-link-outline-offset);
+  padding-inline: var(--ams-pagination-link-padding-inline);
+  text-decoration-line: var(--ams-pagination-link-text-decoration-line);
+  text-decoration-thickness: var(--ams-pagination-link-text-decoration-thickness);
+  text-underline-offset: var(--ams-pagination-link-text-underline-offset);
   touch-action: manipulation;
 
   @include text-rendering;
@@ -52,8 +41,8 @@
   }
 
   &:hover {
-    color: var(--ams-pagination-button-hover-color);
-    text-decoration-line: var(--ams-pagination-button-hover-text-decoration-line);
+    color: var(--ams-pagination-link-hover-color);
+    text-decoration-line: var(--ams-pagination-link-hover-text-decoration-line);
   }
 
   // Override for icon size
@@ -63,9 +52,8 @@
   }
 }
 
-.ams-pagination__button--current {
-  cursor: default;
-  font-weight: var(--ams-pagination-button-current-font-weight);
+.ams-pagination__link--current {
+  font-weight: var(--ams-pagination-link-current-font-weight);
 
   &:hover {
     text-decoration: none;
