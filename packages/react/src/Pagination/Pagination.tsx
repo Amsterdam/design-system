@@ -62,6 +62,8 @@ function getRange(currentPage: number, totalPages: number, maxVisiblePages: numb
 export type PaginationProps = {
   /** The id of the component. */
   id?: string
+  /** The template used to construct the link hrefs. */
+  linkTemplate: (page: number) => string
   /** The maximum amount of pages shown. Minimum value: 5. */
   maxVisiblePages?: number
   /** The visible label for the next page-link. */
@@ -85,6 +87,7 @@ export const Pagination = forwardRef(
     {
       className,
       id = 'ams-pagination',
+      linkTemplate,
       maxVisiblePages = 7,
       nextLabel = 'volgende',
       nextVisuallyHiddenLabel = 'Volgende pagina',
@@ -112,7 +115,7 @@ export const Pagination = forwardRef(
         </span>
         <ol className="ams-pagination__list">
           <li>
-            <a className="ams-pagination__link" rel="prev">
+            <a className="ams-pagination__link" href={linkTemplate(page - 1)} rel="prev">
               <Icon svg={ChevronLeftIcon} size="level-5" />
               <span className="ams-visually-hidden">{previousVisuallyHiddenLabel}</span>
               <span aria-hidden>{previousLabel}</span>
@@ -121,7 +124,11 @@ export const Pagination = forwardRef(
           {range.map((pageNumberOrSpacer) =>
             typeof pageNumberOrSpacer === 'number' ? (
               <li key={pageNumberOrSpacer}>
-                <a aria-current={pageNumberOrSpacer === page ? 'page' : undefined} className="ams-pagination__link">
+                <a
+                  aria-current={pageNumberOrSpacer === page ? 'page' : undefined}
+                  className="ams-pagination__link"
+                  href={linkTemplate(pageNumberOrSpacer)}
+                >
                   <span className="ams-visually-hidden">
                     {pageNumberOrSpacer === page
                       ? `Pagina ${pageNumberOrSpacer}`
@@ -137,7 +144,7 @@ export const Pagination = forwardRef(
             ),
           )}
           <li>
-            <a className="ams-pagination__link" rel="next">
+            <a className="ams-pagination__link" href={linkTemplate(page + 1)} rel="next">
               <span className="ams-visually-hidden">{nextVisuallyHiddenLabel}</span>
               <span aria-hidden>{nextLabel}</span>
               <Icon svg={ChevronRightIcon} size="level-5" />
