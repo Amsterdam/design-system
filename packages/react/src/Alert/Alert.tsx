@@ -57,16 +57,14 @@ export const Alert = forwardRef(
         <Icon inverseColor size="level-4" svg={iconSvgBySeverity[severity]} />
       </div>
       <div className="ams-alert__section ams-alert__content">
-        <Heading level={headingLevel} size="level-4">
-          {heading}
-        </Heading>
+        <div className="ams-alert__header">
+          <Heading level={headingLevel} size="level-4">
+            {heading}
+          </Heading>
+          {closeable && <IconButton label={closeButtonLabel} onClick={onClose} size="level-4" />}
+        </div>
         {children}
       </div>
-      {closeable && (
-        <div className="ams-alert__section">
-          <IconButton label={closeButtonLabel} onClick={onClose} size="level-4" />
-        </div>
-      )}
     </section>
   ),
 )

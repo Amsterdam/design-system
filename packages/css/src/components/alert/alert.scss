@@ -31,6 +31,14 @@
   padding-inline: var(--ams-alert-content-padding-inline);
 }
 
+.ams-alert__header {
+  align-items: start;
+  display: flex;
+  flex-direction: row;
+  gap: var(--ams-alert-header-gap);
+  justify-content: space-between;
+}
+
 .ams-alert--error {
   border-color: var(--ams-alert-error-border-color);
 
