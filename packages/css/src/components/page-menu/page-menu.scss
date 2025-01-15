@@ -15,7 +15,6 @@
   box-sizing: border-box;
   column-gap: var(--ams-page-menu-column-gap);
   display: flex;
-  flex-direction: row;
   flex-wrap: wrap;
   list-style: none;
   row-gap: var(--ams-page-menu-row-gap);
@@ -34,7 +33,6 @@
 @mixin page-menu-item {
   color: var(--ams-page-menu-item-color);
   display: inline-flex;
-  flex-direction: row;
   font-family: var(--ams-page-menu-item-font-family);
   font-size: var(--ams-page-menu-item-font-size);
   font-weight: var(--ams-page-menu-item-font-weight);
