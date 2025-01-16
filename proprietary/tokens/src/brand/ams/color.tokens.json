@@ -47,7 +47,8 @@
           "default": { "value": "{ams.brand.color.neutral.0}" }
         },
         "visited": {
-          "default": { "value": "{ams.brand.color.purple.60}" }
+          "default": { "value": "{ams.brand.color.purple.60}" },
+          "hover": { "value": "{ams.brand.color.purple.80}" }
         }
       },
       "logo": {

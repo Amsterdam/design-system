@@ -47,6 +47,10 @@
 
   &:visited {
     color: var(--ams-link-inline-visited-color);
+
+    &:hover {
+      color: var(--ams-link-inline-visited-hover-color);
+    }
   }
 }
 

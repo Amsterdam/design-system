@@ -8,7 +8,10 @@
         "color": { "value": "{ams.color.interactive.hover}" }
       },
       "visited": {
-        "color": { "value": "{ams.color.interactive.visited.default}" }
+        "color": { "value": "{ams.color.interactive.visited.default}" },
+        "hover": {
+          "color": { "value": "{ams.color.interactive.visited.hover}" }
+        }
       },
       "regular": {
         "text-decoration-line": { "value": "underline" },
