@@ -23,7 +23,7 @@ export type AlertProps = {
    * The hierarchical level of the Heading within the document.
    * Note: this intentionally does not change the font size.
    */
-  headingLevel?: HeadingProps['level']
+  headingLevel: HeadingProps['level']
   /** A function to run when dismissing. */
   onClose?: () => void
   /** The significance of the message conveyed. */
@@ -45,7 +45,7 @@ export const Alert = forwardRef(
       closeable,
       closeButtonLabel = 'Sluiten',
       heading,
-      headingLevel = 2,
+      headingLevel,
       onClose,
       severity = 'warning',
       ...restProps

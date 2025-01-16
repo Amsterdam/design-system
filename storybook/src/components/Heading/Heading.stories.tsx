@@ -16,6 +16,7 @@ const meta = {
   args: {
     children: heading,
     inverseColor: false,
+    level: 1,
   },
   argTypes: {
     children: {

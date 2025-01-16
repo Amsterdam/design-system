@@ -38,7 +38,7 @@ export type FormErrorListProps = {
    * Note: this intentionally does not change the font size.
    * @default 2
    */
-  headingLevel?: HeadingProps['level']
+  headingLevel: HeadingProps['level']
 } & HTMLAttributes<HTMLDivElement>
 
 export const FormErrorList = forwardRef(
