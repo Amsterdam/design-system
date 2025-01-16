@@ -4,7 +4,7 @@ import { Heading } from './Heading'
 import '@testing-library/jest-dom'
 
 describe('Heading', () => {
-  it('renders a heading role element', () => {
+  it('renders an element with role heading', () => {
     render(<Heading level={1}>Breaking news</Heading>)
 
     const heading = screen.getByRole('heading', {
@@ -33,7 +33,7 @@ describe('Heading', () => {
     expect(h4).toBeInTheDocument()
   })
 
-  it('renders the right style level class', () => {
+  it('renders the correct style level class', () => {
     render(
       <>
         <Heading level={1} size="level-1">
@@ -57,35 +57,12 @@ describe('Heading', () => {
       </>,
     )
 
-    const sizeLevel1 = screen.getByRole('heading', {
-      name: 'Size level 1',
-      level: 1,
-    })
-
-    const sizeLevel2 = screen.getByRole('heading', {
-      name: 'Size level 2',
-      level: 1,
-    })
-
-    const sizeLevel3 = screen.getByRole('heading', {
-      name: 'Size level 3',
-      level: 1,
-    })
-
-    const sizeLevel4 = screen.getByRole('heading', {
-      name: 'Size level 4',
-      level: 1,
-    })
-
-    const sizeLevel5 = screen.getByRole('heading', {
-      name: 'Size level 5',
-      level: 1,
-    })
-
-    const sizeLevel6 = screen.getByRole('heading', {
-      name: 'Size level 6',
-      level: 1,
-    })
+    const sizeLevel1 = screen.getByRole('heading', { level: 1, name: 'Size level 1' })
+    const sizeLevel2 = screen.getByRole('heading', { level: 1, name: 'Size level 2' })
+    const sizeLevel3 = screen.getByRole('heading', { level: 1, name: 'Size level 3' })
+    const sizeLevel4 = screen.getByRole('heading', { level: 1, name: 'Size level 4' })
+    const sizeLevel5 = screen.getByRole('heading', { level: 1, name: 'Size level 5' })
+    const sizeLevel6 = screen.getByRole('heading', { level: 1, name: 'Size level 6' })
 
     expect(sizeLevel1).toHaveClass('ams-heading--level-1')
     expect(sizeLevel2).toHaveClass('ams-heading--level-2')
@@ -95,9 +72,9 @@ describe('Heading', () => {
     expect(sizeLevel6).toHaveClass('ams-heading--level-6')
   })
 
-  it('renders the right inverse color class', () => {
+  it('renders the inverse color class', () => {
     render(
-      <Heading level={1} inverseColor>
+      <Heading inverseColor level={1}>
         Heading
       </Heading>,
     )
@@ -107,24 +84,21 @@ describe('Heading', () => {
     expect(heading).toHaveClass('ams-heading--inverse-color')
   })
 
-  it('renders rich text content', () => {
+  it('renders inline markup', () => {
     render(
       <Heading level={1}>
         <strong>Breaking</strong> news
       </Heading>,
     )
 
-    const heading = screen.getByRole('heading', {
-      name: 'Breaking news',
-    })
+    const heading = screen.getByRole('heading', { name: 'Breaking news' })
+    const inlineMarkup = heading.querySelector('strong')
 
-    const richText = heading.querySelector('strong')
-
-    expect(richText).toBeInTheDocument()
+    expect(inlineMarkup).toBeInTheDocument()
   })
 
   it('renders an additional class name', () => {
-    const { container } = render(<Heading level={1} className="large" />)
+    const { container } = render(<Heading className="large" level={1} />)
 
     const heading = container.querySelector(':only-child')
 
@@ -136,7 +110,6 @@ describe('Heading', () => {
     const ref = createRef<HTMLHeadingElement>()
 
     const { container } = render(<Heading level={1} ref={ref} />)
-
     const heading = container.querySelector(':only-child')
 
     expect(ref.current).toBe(heading)
