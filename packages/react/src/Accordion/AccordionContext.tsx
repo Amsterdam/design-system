@@ -4,11 +4,12 @@
  */
 
 import { createContext } from 'react'
+import type { AccordionProps } from './Accordion'
 import type { HeadingProps } from '../Heading/Heading'
 
 export type AccordionContextValue = {
   headingLevel: HeadingProps['level']
-  sectionAs?: 'div' | 'section'
+  sectionAs?: AccordionProps['sectionAs']
 }
 
 const defaultValues: AccordionContextValue = {
