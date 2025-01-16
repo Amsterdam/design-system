@@ -24,17 +24,19 @@ export const Default: Story = {
   args: {
     children: (
       <Paragraph>
-        Tijdens Koningsdag zijn alle Stadsloketten gesloten. Ook 14 020 en alle andere telefoonnummers van de gemeente
-        zijn niet bereikbaar.
+        Tijdens de hijswerkzaamheden geldt er een korte verkeersstop. We zetten verkeersregelaars in, volg hun
+        aanwijzingen op. De verkeersstop duurt ongeveer 10 minuten.
       </Paragraph>
     ),
+    heading: 'Tijdelijk geen verkeer mogelijk',
   },
 }
 
 export const Warning: Story = {
   args: {
-    children: <Paragraph>U bent vergeten verplichte velden in te vullen.</Paragraph>,
+    children: <Paragraph>Sommige verplichte velden zijn nog niet ingevuld.</Paragraph>,
     heading: 'Vul de gegevens aan',
+    severity: 'warning',
   },
 }
 
@@ -69,7 +71,6 @@ export const Info: Story = {
       </Paragraph>
     ),
     closeable: true,
-    severity: 'info',
   },
 }
 
@@ -83,6 +84,7 @@ export const WithList: Story = {
       </UnorderedList>,
     ],
     heading: 'Vul de gegevens aan',
+    severity: 'warning',
   },
 }
 
@@ -97,17 +99,6 @@ export const WithInlineLink: Story = {
         gesloten. Ook 14 020 en alle andere telefoonnummers van de gemeente zijn niet bereikbaar.
       </Paragraph>
     ),
-    severity: 'info',
-  },
-}
-
-export const WithoutHeading: Story = {
-  args: {
-    children: (
-      <Paragraph>
-        De geschatte wachttijd in de adreszoeker klopt momenteel niet altijd. We werken aan een oplossing.
-      </Paragraph>
-    ),
-    heading: undefined,
+    severity: 'warning',
   },
 }
