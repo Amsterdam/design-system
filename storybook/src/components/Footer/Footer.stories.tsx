@@ -21,6 +21,17 @@ const meta = {
   component: Footer,
   args: {
     bottomTitle: 'Over deze website',
+    bottomLinks: [
+      <Footer.BottomLink href="#" key={1}>
+        Over deze site
+      </Footer.BottomLink>,
+      <Footer.BottomLink href="#" key={2}>
+        Privacy
+      </Footer.BottomLink>,
+      <Footer.BottomLink href="#" key={3}>
+        Cookies
+      </Footer.BottomLink>,
+    ],
   },
 } satisfies Meta<typeof Footer>
 
@@ -37,17 +48,6 @@ const socialPlatforms = [
 
 export const Default: Story = {
   args: {
-    bottomLinks: [
-      <Footer.BottomLink href="#" key={1}>
-        Over deze site
-      </Footer.BottomLink>,
-      <Footer.BottomLink href="#" key={2}>
-        Privacy
-      </Footer.BottomLink>,
-      <Footer.BottomLink href="#" key={3}>
-        Cookies
-      </Footer.BottomLink>,
-    ],
     children: [
       <Heading className="ams-visually-hidden" inverseColor>
         Colofon
@@ -117,17 +117,6 @@ export const Default: Story = {
 
 export const OnderzoekEnStatistiek: Story = {
   args: {
-    bottomLinks: [
-      <Footer.BottomLink href="#" key={1}>
-        Over deze site
-      </Footer.BottomLink>,
-      <Footer.BottomLink href="#" key={2}>
-        Privacy
-      </Footer.BottomLink>,
-      <Footer.BottomLink href="#" key={3}>
-        Cookies
-      </Footer.BottomLink>,
-    ],
     children: [
       <Heading className="ams-visually-hidden" inverseColor>
         Colofon
