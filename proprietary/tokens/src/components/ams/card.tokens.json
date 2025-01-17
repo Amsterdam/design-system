@@ -1,7 +1,6 @@
 {
   "ams": {
     "card": {
-      "gap": { "value": "{ams.space.sm}" },
       "heading-group": {
         "gap": { "value": "{ams.space.sm}" }
       },
