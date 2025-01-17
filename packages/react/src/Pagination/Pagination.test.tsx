@@ -1,5 +1,6 @@
 import { render, screen } from '@testing-library/react'
 import { createRef } from 'react'
+import type { AnchorHTMLAttributes } from 'react'
 import { Pagination } from './Pagination'
 import '@testing-library/jest-dom'
 
@@ -139,6 +140,16 @@ describe('Pagination', () => {
 
     expect(previousLink).toBeInTheDocument()
     expect(nextLink).toBeInTheDocument()
+  })
+
+  it('renders a custom link component', () => {
+    const CustomLink = (props: AnchorHTMLAttributes<HTMLAnchorElement>) => <a data-test {...props} />
+
+    render(<Pagination linkComponent={CustomLink} linkTemplate={linkTemplate} totalPages={10} />)
+
+    const customLink = screen.getByRole('link', { name: 'Pagina 1' })
+
+    expect(customLink).toHaveAttribute('data-test')
   })
 
   it('supports ForwardRef in React', () => {

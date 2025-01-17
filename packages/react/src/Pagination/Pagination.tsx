@@ -6,13 +6,15 @@
 import { ChevronLeftIcon, ChevronRightIcon } from '@amsterdam/design-system-react-icons'
 import clsx from 'clsx'
 import { forwardRef } from 'react'
-import type { ForwardedRef, HTMLAttributes } from 'react'
+import type { AnchorHTMLAttributes, ComponentType, ForwardedRef, HTMLAttributes } from 'react'
 import { getRange } from './getRange'
 import { Icon } from '../Icon/Icon'
 
 export type PaginationProps = {
-  /** The id of the component. */
+  /** The id of the accessible label. */
   id?: string
+  /** The React component to use for the links. */
+  linkComponent?: ComponentType<AnchorHTMLAttributes<HTMLAnchorElement>>
   /** The template used to construct the link hrefs. */
   linkTemplate: (page: number) => string
   /** The maximum amount of pages shown. Minimum value: 5. */
@@ -36,6 +38,7 @@ export type PaginationProps = {
 export const Pagination = forwardRef(
   (
     {
+      linkComponent = (props: AnchorHTMLAttributes<HTMLAnchorElement>) => <a {...props} />,
       className,
       id = 'ams-pagination',
       linkTemplate,
@@ -51,6 +54,8 @@ export const Pagination = forwardRef(
     }: PaginationProps,
     ref: ForwardedRef<HTMLElement>,
   ) => {
+    const Link = linkComponent
+
     // Get array of page numbers and / or spacers
     const range = getRange(page, totalPages, maxVisiblePages)
 
@@ -65,17 +70,17 @@ export const Pagination = forwardRef(
           {visuallyHiddenLabel}
         </span>
         {page !== 1 && (
-          <a className="ams-pagination__link" href={linkTemplate(page - 1)} rel="prev">
+          <Link className="ams-pagination__link" href={linkTemplate(page - 1)} rel="prev">
             <Icon svg={ChevronLeftIcon} size="level-5" />
             <span className="ams-visually-hidden">{previousVisuallyHiddenLabel}</span>
             <span aria-hidden>{previousLabel}</span>
-          </a>
+          </Link>
         )}
         <ol className="ams-pagination__list">
           {range.map((pageNumberOrSpacer) =>
             typeof pageNumberOrSpacer === 'number' ? (
               <li key={pageNumberOrSpacer}>
-                <a
+                <Link
                   aria-current={pageNumberOrSpacer === page ? 'page' : undefined}
                   className="ams-pagination__link"
                   href={linkTemplate(pageNumberOrSpacer)}
@@ -86,7 +91,7 @@ export const Pagination = forwardRef(
                       : `Ga naar pagina ${pageNumberOrSpacer}`}
                   </span>
                   <span aria-hidden>{pageNumberOrSpacer}</span>
-                </a>
+                </Link>
               </li>
             ) : (
               <li key={pageNumberOrSpacer} aria-hidden data-testid={pageNumberOrSpacer}>
@@ -96,11 +101,11 @@ export const Pagination = forwardRef(
           )}
         </ol>
         {page !== totalPages && (
-          <a className="ams-pagination__link" href={linkTemplate(page + 1)} rel="next">
+          <Link className="ams-pagination__link" href={linkTemplate(page + 1)} rel="next">
             <span className="ams-visually-hidden">{nextVisuallyHiddenLabel}</span>
             <span aria-hidden>{nextLabel}</span>
             <Icon svg={ChevronRightIcon} size="level-5" />
-          </a>
+          </Link>
         )}
       </nav>
     )
