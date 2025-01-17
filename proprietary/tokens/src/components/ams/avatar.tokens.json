@@ -9,7 +9,7 @@
       "padding-block": { "value": "{ams.space.xs}" },
       "padding-inline": { "value": "{ams.space.xs}" },
       "azure": {
-        "background-color": { "value": "{ams.color.supplemental.azure.default}" },
+        "background-color": { "value": "{ams.color.highlight.azure.default}" },
         "color": { "value": "{ams.color.text.default}" }
       },
       "black": {
@@ -21,15 +21,15 @@
         "color": { "value": "{ams.color.text.inverse}" }
       },
       "green": {
-        "background-color": { "value": "{ams.color.supplemental.green.default}" },
+        "background-color": { "value": "{ams.color.highlight.green.default}" },
         "color": { "value": "{ams.color.text.inverse}" }
       },
       "lime": {
-        "background-color": { "value": "{ams.color.supplemental.lime.default}" },
+        "background-color": { "value": "{ams.color.highlight.lime.default}" },
         "color": { "value": "{ams.color.text.default}" }
       },
       "magenta": {
-        "background-color": { "value": "{ams.color.supplemental.magenta.default}" },
+        "background-color": { "value": "{ams.color.highlight.magenta.default}" },
         "color": { "value": "{ams.color.text.inverse}" }
       },
       "neutral-20": {
@@ -49,11 +49,11 @@
         "color": { "value": "{ams.color.text.inverse}" }
       },
       "orange": {
-        "background-color": { "value": "{ams.color.supplemental.orange.default}" },
+        "background-color": { "value": "{ams.color.highlight.orange.default}" },
         "color": { "value": "{ams.color.text.default}" }
       },
       "purple": {
-        "background-color": { "value": "{ams.color.supplemental.purple.default}" },
+        "background-color": { "value": "{ams.color.highlight.purple.default}" },
         "color": { "value": "{ams.color.text.inverse}" }
       },
       "red": {
@@ -65,7 +65,7 @@
         "color": { "value": "{ams.color.text.default}" }
       },
       "yellow": {
-        "background-color": { "value": "{ams.color.supplemental.yellow.default}" },
+        "background-color": { "value": "{ams.color.highlight.yellow.default}" },
         "color": { "value": "{ams.color.text.default}" }
       },
       "forced-colors": {
