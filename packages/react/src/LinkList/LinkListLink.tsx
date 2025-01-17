@@ -9,16 +9,25 @@ import { forwardRef } from 'react'
 import type { AnchorHTMLAttributes, ForwardedRef, PropsWithChildren } from 'react'
 import { Icon } from '../Icon'
 
+type ListLinkLinkContrastColorProp = {
+  /** Changes the text colour for readability on a light background. */
+  contrastColor?: boolean
+  inverseColor?: never
+}
+
+type ListLinkLinkInverseColorProp = {
+  /** Changes the text colour for readability on a dark background. */
+  inverseColor?: boolean
+  contrastColor?: never
+}
+
 export type LinkListLinkProps = {
   /** An icon to display instead of the default chevron. Don’t mix custom icons with chevrons in one list. */
   icon?: Function
-  /** Changes the text colour for readability on a light background. */
-  contrastColor?: boolean
-  /** Changes the text colour for readability on a dark background. */
-  inverseColor?: boolean
   /** The size of the text. Use the same size for all items in the list. */
   size?: 'small' | 'large'
-} & PropsWithChildren<AnchorHTMLAttributes<HTMLAnchorElement>>
+} & (ListLinkLinkContrastColorProp | ListLinkLinkInverseColorProp) &
+  PropsWithChildren<AnchorHTMLAttributes<HTMLAnchorElement>>
 
 const iconSizeMap = {
   small: 'level-6',

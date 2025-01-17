@@ -9,18 +9,27 @@ import { forwardRef } from 'react'
 import type { ButtonHTMLAttributes, ForwardedRef } from 'react'
 import { Icon } from '../Icon'
 
+type IconButtonContrastColorProp = {
+  /** Changes the text colour for readability on a light background. */
+  contrastColor?: boolean
+  inverseColor?: never
+}
+
+type IconButtonInverseColorProp = {
+  /** Changes the text colour for readability on a dark background. */
+  inverseColor?: boolean
+  contrastColor?: never
+}
+
 export type IconButtonProps = {
   /** The accessible text for the button. Will be announced by screen readers. Should describe the button’s action. */
   label: string
-  /** Changes the text colour for readability on a light (but not white) background. */
-  contrastColor?: boolean
-  /** Changes the text colour for readability on a dark background. */
-  inverseColor?: boolean
   /** The size of the icon. Corresponds with the text levels. */
   size?: 'level-3' | 'level-4' | 'level-5' | 'level-6'
   /** The component rendering the icon’s markup. */
   svg?: Function
-} & ButtonHTMLAttributes<HTMLButtonElement>
+} & (IconButtonContrastColorProp | IconButtonInverseColorProp) &
+  ButtonHTMLAttributes<HTMLButtonElement>
 
 export const IconButton = forwardRef(
   (
