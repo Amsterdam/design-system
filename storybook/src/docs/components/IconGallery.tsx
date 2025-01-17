@@ -18,6 +18,9 @@ const deprecatedIcons = [
   'PersonalLoginIcon',
   'PictureIcon',
   'ChatBubbleIcon',
+  'Search.svg',
+  'Favourite.svg',
+  'Handicap.svg',
 ]
 
 const newIcons = [
