@@ -25,7 +25,7 @@ export const FormErrorListWithErrors = forwardRef(
       focusOnRender = true,
       hasFocusedOnce,
       heading = 'Verbeter de fouten voor u verder gaat',
-      headingLevel = 2,
+      headingLevel,
       setHasFocusedOnce,
       ...restProps
     }: FormErrorListWithErrorsProps,

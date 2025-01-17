@@ -19,7 +19,7 @@ const meta = {
   title: 'Components/Containers/Accordion',
   component: Accordion,
   args: {
-    headingLevel: 1,
+    headingLevel: 3,
   },
 } satisfies Meta<typeof Accordion>
 

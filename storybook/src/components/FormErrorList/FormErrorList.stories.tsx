@@ -15,6 +15,7 @@ const meta = {
       { id: '#', label: 'De geldigheidsdatum van uw paspoort moet in de toekomst liggen.' },
     ],
     focusOnRender: false,
+    headingLevel: 2,
   },
 } satisfies Meta<typeof FormErrorList>
 

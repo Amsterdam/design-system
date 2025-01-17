@@ -16,6 +16,7 @@ const meta = {
   args: {
     children: heading,
     inverseColor: false,
+    level: 1,
   },
   argTypes: {
     children: {
@@ -67,5 +68,6 @@ export const Sizes: Story = {
 export const InverseColour: Story = {
   args: {
     inverseColor: true,
+    level: 2,
   },
 }
