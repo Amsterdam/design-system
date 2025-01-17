@@ -61,15 +61,13 @@ The names of our branches follow a fixed format:
 
 ### Start with a group
 
-We group branches to quickly see what type of work it contains and how urgent it may be.
+We group branches to indicate what kind of work it contains and how urgent it may be.
 
 The names of the groups are:
 
-- `feature` for new functions and extensions to existing ones
-- `bug` for bug fixes
-- `refactor` for technical changes without functional impact
-- `task` for any other work, e.g.
-- documentation or configuration
+- `feat` for new functions and extensions to existing ones
+- `fix` for bug fixes
+- `chore` for any other work, e.g. documentation or configuration
 
 Conclude the group label with a forward slash ‘/’.
 Git applications use that convention to visually group branches.
@@ -89,10 +87,10 @@ Derive these from the name of the product backlog item (PBI) to which the sub-ta
 
 All together, good branch names look like this:
 
-- `feature/DES-178-introduce-checkbox`
-- `bug/DES-447-correct-button-outline`
-- `refactor/DES-368-use-singular-for-enums`
-- `task/DES-104-add-initial-git-guidelines`
+- `feat/DES-178-introduce-checkbox-component`
+- `fix/DES-447-align-button-icon-with-label`
+- `chore/DES-368-use-singular-nouns-for-enums`
+- `chore/DES-104-add-initial-git-guidelines`
 
 ## Describe each commit
 
