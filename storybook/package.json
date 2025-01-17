@@ -2,7 +2,7 @@
   "version": "0.0.0",
   "author": "Design System Team, City of Amsterdam <designsystem@amsterdam.nl>",
   "description": "The handbook for the Amsterdam Design System, created with Storybook.",
-  "homepage": "https://designsystem.amsterdam/",
+  "homepage": "https://designsystem.amsterdam",
   "license": "EUPL-1.2",
   "name": "@amsterdam/storybook",
   "keywords": [],
