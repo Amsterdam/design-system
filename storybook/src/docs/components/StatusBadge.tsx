@@ -2,14 +2,16 @@ import './status-badge.css'
 import { Badge } from '@amsterdam/design-system-react/src'
 
 type StatusBadgeProps = {
-  /* Explains how the component must change to transition into another status. */
-  reason: string
+  /* Describes the reason for the status or suggests an alternative for a deprecated component. */
+  description: string
+  /* The status of the component. */
+  status: 'beta' | 'deprecated' | string
 }
 
 /** Indicates the status of a component. Use this to prepare implementers for API changes. */
-export const StatusBadge = ({ reason }: StatusBadgeProps) => (
+export const StatusBadge = ({ description, status = 'beta' }: StatusBadgeProps) => (
   <span className="ams-storybook-status-badge">
-    <Badge color="orange" label="beta" />
-    <span>{reason}</span>
+    <Badge color={status === 'deprecated' ? 'red' : 'orange'} label={status} />
+    <span>{description}</span>
   </span>
 )
