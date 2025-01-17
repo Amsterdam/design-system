@@ -13,27 +13,14 @@ const meta = {
     page: 1,
     maxVisiblePages: 7,
     totalPages: 10,
+    linkTemplate: (page) => `#?pagina=${page}`,
   },
   argTypes: {
-    onPageChange: { action: 'page changed' },
     page: {
       control: {
         type: 'number',
         min: 1,
       },
-    },
-  },
-  decorators: [
-    // Wrap the story in a div with a key, to force a rerender when the 'page' arg changes
-    (Story, { args }) => (
-      <div key={JSON.stringify(args)} id="ams-docs-custom-root">
-        <Story />
-      </div>
-    ),
-  ],
-  parameters: {
-    html: {
-      root: '#ams-docs-custom-root',
     },
   },
 } satisfies Meta<typeof Pagination>
