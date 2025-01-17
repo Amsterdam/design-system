@@ -38,9 +38,9 @@ export type PaginationProps = {
 export const Pagination = forwardRef(
   (
     {
-      linkComponent = (props: AnchorHTMLAttributes<HTMLAnchorElement>) => <a {...props} />,
       className,
       id = 'ams-pagination',
+      linkComponent = (props: AnchorHTMLAttributes<HTMLAnchorElement>) => <a {...props} />,
       linkTemplate,
       maxVisiblePages = 7,
       nextLabel = 'volgende',
