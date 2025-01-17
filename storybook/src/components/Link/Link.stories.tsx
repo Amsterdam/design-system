@@ -62,3 +62,18 @@ export const InverseColour: Story = {
     inverseColor: true,
   },
 }
+
+export const Visited: Story = {
+  args: {
+    children: 'Amsterdam Design System',
+    href: 'https://designsystem.amsterdam',
+    variant: 'inline',
+  },
+  decorators: [
+    (Story) => (
+      <Paragraph>
+        Welkom terug bij het <Story /> handboek.
+      </Paragraph>
+    ),
+  ],
+}

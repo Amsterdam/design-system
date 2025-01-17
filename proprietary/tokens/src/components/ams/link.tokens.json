@@ -22,7 +22,10 @@
           "text-underline-offset": { "value": "{ams.link-appearance.regular.hover.text-underline-offset}" }
         },
         "visited": {
-          "color": { "value": "{ams.color.purple}" }
+          "color": { "value": "{ams.link-appearance.visited.color}" },
+          "hover": {
+            "color": { "value": "{ams.link-appearance.visited.hover.color}" }
+          }
         }
       },
       "standalone": {

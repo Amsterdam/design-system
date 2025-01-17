@@ -1,35 +1,35 @@
 {
   "ams": {
     "icon-button": {
-      "color": { "value": "{ams.color.primary-blue}" },
+      "color": { "value": "{ams.color.interactive.default}" },
       "outline-offset": { "value": "{ams.focus.outline-offset}" },
       "hover": {
         "background-color": { "value": "rgba(0, 70, 153, 0.125)" },
-        "color": { "value": "{ams.color.dark-blue}" }
+        "color": { "value": "{ams.color.interactive.hover}" }
       },
       "disabled": {
-        "color": { "value": "{ams.color.neutral-grey3}" }
+        "color": { "value": "{ams.color.interactive.disabled.default}" }
       },
       "contrast-color": {
-        "color": { "value": "{ams.color.primary-black}" },
+        "color": { "value": "{ams.color.interactive.contrast.default}" },
         "hover": {
           "background-color": { "value": "rgba(0, 0, 0, 0.125)" },
-          "color": { "value": "{ams.color.primary-black}" }
+          "color": { "value": "{ams.color.interactive.contrast.default}" }
         },
         "disabled": {
-          "color": { "value": "{ams.color.neutral-grey3}" }
+          "color": { "value": "{ams.color.interactive.disabled.default}" }
         }
       },
       "inverse-color": {
-        "background-color": { "value": "{ams.color.primary-blue}" },
-        "color": { "value": "{ams.color.primary-white}" },
+        "background-color": { "value": "{ams.color.interactive.default}" },
+        "color": { "value": "{ams.color.interactive.inverse.default}" },
         "hover": {
-          "background-color": { "value": "{ams.color.dark-blue}" },
-          "color": { "value": "{ams.color.primary-white}" }
+          "background-color": { "value": "{ams.color.interactive.hover}" },
+          "color": { "value": "{ams.color.interactive.inverse.default}" }
         },
         "disabled": {
-          "color": { "value": "{ams.color.primary-white}" },
-          "background-color": { "value": "{ams.color.neutral-grey3}" }
+          "color": { "value": "{ams.color.interactive.inverse.default}" },
+          "background-color": { "value": "{ams.color.interactive.disabled.default}" }
         }
       }
     }
