@@ -15,6 +15,9 @@ export type PageMenuProps = {
   wrap?: boolean
 } & PropsWithChildren<HTMLAttributes<HTMLUListElement>>
 
+/**
+ * @deprecated Use `Header.MenuLink` or `Footer.BottomLink` instead.
+ */
 const PageMenuRoot = forwardRef(
   (
     { alignEnd, children, className, wrap = true, ...restProps }: PageMenuProps,
