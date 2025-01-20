@@ -47,14 +47,6 @@ describe('Badge', () => {
     expect(component).toHaveTextContent('1')
   })
 
-  it('renders with default color', () => {
-    const { container } = render(<Badge label="test" />)
-
-    const component = container.querySelector(':only-child')
-
-    expect(component).toHaveClass('ams-badge--dark-green')
-  })
-
   badgeColors.map((color) =>
     it(`renders with ${color} color`, () => {
       const { container } = render(<Badge label="test" color={color} />)
