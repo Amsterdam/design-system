@@ -58,10 +58,10 @@ export const Alert = forwardRef(
 
     return (
       <section {...restProps} ref={ref} className={clsx('ams-alert', severity && `ams-alert--${severity}`, className)}>
-        <div className="ams-alert__section ams-alert__severity">
+        <div className="ams-alert__severity">
           <Icon inverseColor size="level-4" svg={SeverityIcon} />
         </div>
-        <div className="ams-alert__section ams-alert__content">
+        <div className="ams-alert__content">
           <Row align="between" alignVertical="start">
             <Heading level={headingLevel} size="level-4">
               {heading}
