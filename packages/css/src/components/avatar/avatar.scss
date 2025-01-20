@@ -15,6 +15,10 @@
   padding-inline: var(--ams-avatar-padding-inline);
   place-content: center;
 
+  .ams-image {
+    aspect-ratio: initial;
+  }
+
   svg {
     fill: currentColor;
   }
