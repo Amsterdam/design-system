@@ -10,22 +10,7 @@ import type { ForwardedRef, HTMLAttributes } from 'react'
 import { Icon } from '../Icon'
 import { Image } from '../Image'
 
-export const avatarColors = [
-  'black',
-  'blue',
-  'dark-green',
-  'green',
-  'grey-1',
-  'grey-2',
-  'grey-3',
-  'light-blue',
-  'magenta',
-  'orange',
-  'purple',
-  'red',
-  'white',
-  'yellow',
-] as const
+export const avatarColors = ['dark-green', 'green', 'light-blue', 'magenta', 'orange', 'purple', 'yellow'] as const
 
 type AvatarColor = (typeof avatarColors)[number]
 
@@ -56,7 +41,7 @@ export type AvatarProps = {
 } & HTMLAttributes<HTMLSpanElement>
 
 export const Avatar = forwardRef(
-  ({ label, imageSrc, className, color = 'blue', ...restProps }: AvatarProps, ref: ForwardedRef<HTMLSpanElement>) => {
+  ({ label, imageSrc, className, color = 'purple', ...restProps }: AvatarProps, ref: ForwardedRef<HTMLSpanElement>) => {
     const initials = label.slice(0, 2).toUpperCase()
 
     const a11yLabel = initials.length === 0 ? 'Gebruiker' : `Initialen gebruiker: ${initials}`
