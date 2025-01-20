@@ -44,7 +44,7 @@ describe('Link list link', () => {
   })
 
   it('renders the class name for contrast color', () => {
-    render(<LinkList.Link href="#" contrastColor />)
+    render(<LinkList.Link href="#" color="contrast" />)
 
     const component = screen.getByRole('link')
 
@@ -52,7 +52,7 @@ describe('Link list link', () => {
   })
 
   it('renders the class name for inverse color', () => {
-    render(<LinkList.Link href="#" inverseColor />)
+    render(<LinkList.Link href="#" color="inverse" />)
 
     const component = screen.getByRole('link')
 

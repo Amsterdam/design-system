@@ -9,15 +9,15 @@ import type { ForwardedRef, HTMLAttributes, PropsWithChildren } from 'react'
 
 export type PageHeadingProps = {
   /** Changes the text colour for readability on a dark background. */
-  inverseColor?: boolean
+  color?: 'inverse'
 } & PropsWithChildren<HTMLAttributes<HTMLHeadingElement>>
 
 export const PageHeading = forwardRef(
-  ({ children, className, inverseColor, ...restProps }: PageHeadingProps, ref: ForwardedRef<HTMLHeadingElement>) => (
+  ({ children, className, color, ...restProps }: PageHeadingProps, ref: ForwardedRef<HTMLHeadingElement>) => (
     <h1
       {...restProps}
       ref={ref}
-      className={clsx('ams-page-heading', inverseColor && 'ams-page-heading--inverse-color', className)}
+      className={clsx('ams-page-heading', color && `ams-page-heading--${color}-color`, className)}
     >
       {children}
     </h1>

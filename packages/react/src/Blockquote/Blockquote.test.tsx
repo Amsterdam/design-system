@@ -44,7 +44,7 @@ describe('Blockquote', () => {
   })
 
   it('renders the right inverse color class', () => {
-    const { container } = render(<Blockquote inverseColor />)
+    const { container } = render(<Blockquote color="inverse" />)
 
     const quote = container.querySelector('blockquote:only-child')
 

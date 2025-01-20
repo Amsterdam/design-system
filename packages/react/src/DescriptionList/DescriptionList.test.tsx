@@ -50,7 +50,7 @@ describe('Description List', () => {
   })
 
   it('renders the right inverse color class', () => {
-    const { container } = render(<DescriptionList inverseColor />)
+    const { container } = render(<DescriptionList color="inverse" />)
 
     const component = container.querySelector(':only-child')
 

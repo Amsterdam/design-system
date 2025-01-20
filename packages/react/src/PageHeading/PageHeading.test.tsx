@@ -34,7 +34,7 @@ describe('Page heading', () => {
   })
 
   it('renders the right inverse color class', () => {
-    render(<PageHeading inverseColor>Titel</PageHeading>)
+    render(<PageHeading color="inverse">Titel</PageHeading>)
 
     const pageHeading = screen.getByRole('heading', { name: 'Titel' })
 

@@ -67,7 +67,7 @@ describe('Paragraph', () => {
   })
 
   it('renders the right inverse color class', () => {
-    render(<Paragraph inverseColor>Paragraph</Paragraph>)
+    render(<Paragraph color="inverse">Paragraph</Paragraph>)
 
     const paragraph = screen.getByText('Paragraph')
 
