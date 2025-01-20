@@ -22,7 +22,7 @@ describe('Figure Caption', () => {
   })
 
   it('renders the right inverse color class', () => {
-    const { container } = render(<FigureCaption inverseColor>Caption</FigureCaption>)
+    const { container } = render(<FigureCaption color="inverse">Caption</FigureCaption>)
 
     const component = container.querySelector(':only-child')
 

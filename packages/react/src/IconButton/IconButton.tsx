@@ -9,42 +9,26 @@ import { forwardRef } from 'react'
 import type { ButtonHTMLAttributes, ForwardedRef } from 'react'
 import { Icon } from '../Icon'
 
-type IconButtonContrastColorProp = {
-  /** Changes the text colour for readability on a light background. */
-  contrastColor?: boolean
-  inverseColor?: never
-}
-
-type IconButtonInverseColorProp = {
-  /** Changes the text colour for readability on a dark background. */
-  inverseColor?: boolean
-  contrastColor?: never
-}
-
 export type IconButtonProps = {
+  /** Changes the text colour for readability on a light or dark background. */
+  color?: 'contrast' | 'inverse'
   /** The accessible text for the button. Will be announced by screen readers. Should describe the button’s action. */
   label: string
   /** The size of the icon. Corresponds with the text levels. */
   size?: 'level-3' | 'level-4' | 'level-5' | 'level-6'
   /** The component rendering the icon’s markup. */
   svg?: Function
-} & (IconButtonContrastColorProp | IconButtonInverseColorProp) &
-  ButtonHTMLAttributes<HTMLButtonElement>
+} & ButtonHTMLAttributes<HTMLButtonElement>
 
 export const IconButton = forwardRef(
   (
-    { className, label, contrastColor, inverseColor, size = 'level-5', svg = CloseIcon, ...restProps }: IconButtonProps,
+    { className, label, color, size = 'level-5', svg = CloseIcon, ...restProps }: IconButtonProps,
     ref: ForwardedRef<HTMLButtonElement>,
   ) => (
     <button
       {...restProps}
       ref={ref}
-      className={clsx(
-        'ams-icon-button',
-        contrastColor && 'ams-icon-button--contrast-color',
-        inverseColor && 'ams-icon-button--inverse-color',
-        className,
-      )}
+      className={clsx('ams-icon-button', color && `ams-icon-button--${color}-color`, className)}
     >
       <span className="ams-visually-hidden">{label}</span>
       <Icon svg={svg} size={size} square />

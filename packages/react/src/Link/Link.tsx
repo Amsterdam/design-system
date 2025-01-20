@@ -10,7 +10,8 @@ import type { AnchorHTMLAttributes, ForwardedRef } from 'react'
 type LinkVariant = 'standalone' | 'inline'
 
 export type LinkProps = {
-  color?: 'inverse' | 'contrast'
+  /** Changes the text colour for readability on a light or dark background. */
+  color?: 'contrast' | 'inverse'
   /** Whether the link is inline or stands alone. */
   variant?: LinkVariant
 } & Omit<AnchorHTMLAttributes<HTMLAnchorElement>, 'placeholder'>

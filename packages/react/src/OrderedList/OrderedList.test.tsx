@@ -29,7 +29,7 @@ describe('Ordered list', () => {
   })
 
   it('renders an inverse color class', () => {
-    render(<OrderedList inverseColor />)
+    render(<OrderedList color="inverse" />)
 
     const component = screen.getByRole('list')
 

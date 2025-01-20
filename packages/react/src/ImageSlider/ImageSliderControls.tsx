@@ -32,7 +32,7 @@ export const ImageSliderControls = forwardRef(
         <IconButton
           className="ams-image-slider__control ams-image-slider__control--previous"
           disabled={isAtStart}
-          inverseColor={true}
+          color="inverse"
           label={previousLabel}
           onClick={handleClickPrevious}
           svg={ChevronLeftIcon}
@@ -40,7 +40,7 @@ export const ImageSliderControls = forwardRef(
         <IconButton
           className="ams-image-slider__control ams-image-slider__control--next"
           disabled={isAtEnd}
-          inverseColor={true}
+          color="inverse"
           label={nextLabel}
           onClick={handleClickNext}
           svg={ChevronRightIcon}

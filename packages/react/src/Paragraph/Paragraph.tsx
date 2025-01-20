@@ -10,22 +10,19 @@ import type { ForwardedRef, HTMLAttributes, PropsWithChildren } from 'react'
 
 export type ParagraphProps = {
   /** Changes the text colour for readability on a dark background. */
-  inverseColor?: boolean
+  color?: 'inverse'
   /** The size of the text. */
   size?: 'small' | 'large'
 } & PropsWithChildren<HTMLAttributes<HTMLParagraphElement>>
 
 export const Paragraph = forwardRef(
-  (
-    { children, className, inverseColor, size, ...restProps }: ParagraphProps,
-    ref: ForwardedRef<HTMLParagraphElement>,
-  ) => (
+  ({ children, className, color, size, ...restProps }: ParagraphProps, ref: ForwardedRef<HTMLParagraphElement>) => (
     <p
       ref={ref}
       className={clsx(
         'ams-paragraph',
         size && `ams-paragraph--${size}`,
-        inverseColor && 'ams-paragraph--inverse-color',
+        color && `ams-paragraph--${color}-color`,
         className,
       )}
       {...restProps}

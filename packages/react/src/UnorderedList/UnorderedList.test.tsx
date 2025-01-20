@@ -28,7 +28,7 @@ describe('Unordered list', () => {
   })
 
   it('renders an inverse color class', () => {
-    render(<UnorderedList inverseColor />)
+    render(<UnorderedList color="inverse" />)
 
     const component = screen.getByRole('list')
 

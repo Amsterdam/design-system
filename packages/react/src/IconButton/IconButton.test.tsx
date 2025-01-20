@@ -38,7 +38,7 @@ describe('Icon button', () => {
   })
 
   it('renders the class name for contrast color', () => {
-    render(<IconButton label="Test" contrastColor />)
+    render(<IconButton label="Test" color="contrast" />)
 
     const component = screen.getByRole('button')
 
@@ -46,7 +46,7 @@ describe('Icon button', () => {
   })
 
   it('renders the class name for inverse color', () => {
-    render(<IconButton label="Test" inverseColor />)
+    render(<IconButton label="Test" color="inverse" />)
 
     const component = screen.getByRole('button')
 
