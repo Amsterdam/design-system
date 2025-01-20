@@ -2,79 +2,76 @@
   "ams": {
     "color": {
       "border": {
-        "default": { "value": "{ams.brand.color.neutral.100}" }
+        "default": { "value": "#181818" }
       },
       "canvas": {
-        "default": {
-          "value": "{ams.brand.color.neutral.0}",
-          "comment": "TODO Try to find a better name. Don’t split body, screen, inputs etc. for now."
-        }
+        "default": { "value": "#ffffff" }
       },
       "feedback": {
         "error": {
-          "default": { "value": "{ams.brand.color.red.60}" }
+          "default": { "value": "#ec0000" }
         },
         "info": {
-          "default": { "value": "{ams.brand.color.azure.60}" }
+          "default": { "value": "#009de6" }
         },
         "success": {
-          "default": { "value": "{ams.brand.color.green.60}" }
+          "default": { "value": "#00a03c" }
         },
         "warning": {
-          "default": { "value": "{ams.brand.color.orange.60}" }
+          "default": { "value": "#ff9100" }
         }
       },
       "footer": {
-        "default": { "value": "{ams.brand.color.blue.60}" }
+        "default": { "value": "#004699" }
       },
       "highlight": {
         "azure": {
-          "default": { "value": "{ams.brand.color.azure.60}" }
+          "default": { "value": "#009de6" }
         },
         "green": {
-          "default": { "value": "{ams.brand.color.green.60}" }
+          "default": { "value": "#00a03c" }
         },
         "lime": {
-          "default": { "value": "{ams.brand.color.lime.60}" }
+          "default": { "value": "#bed200" }
         },
         "magenta": {
-          "default": { "value": "{ams.brand.color.magenta.60}" }
+          "default": { "value": "#e50082" }
         },
         "orange": {
-          "default": { "value": "{ams.brand.color.orange.60}" }
+          "default": { "value": "#ff9100" }
         },
         "purple": {
-          "default": { "value": "{ams.brand.color.purple.60}" }
+          "default": { "value": "#a00078" }
         },
         "yellow": {
-          "default": { "value": "{ams.brand.color.yellow.60}" }
+          "default": { "value": "#ffe600" }
         }
       },
       "interactive": {
-        "default": { "value": "{ams.brand.color.blue.60}" },
-        "hover": { "value": "{ams.brand.color.blue.80}" },
+        "default": { "value": "#004699" },
+        "hover": { "value": "#003677" },
         "contrast": {
-          "default": { "value": "{ams.brand.color.neutral.100}" }
+          "default": { "value": "#000000" }
         },
         "disabled": {
-          "default": { "value": "{ams.brand.color.neutral.60}" }
+          "default": { "value": "#767676" }
         },
         "invalid": {
-          "default": { "value": "{ams.brand.color.red.60}" },
-          "hover": { "value": "{ams.brand.color.red.80}" }
+          "default": { "value": "#ec0000" },
+          "hover": { "value": "#b70000" }
         },
         "inverse": {
-          "default": { "value": "{ams.brand.color.neutral.0}" }
+          "default": { "value": "#ffffff" }
         },
         "visited": {
-          "default": { "value": "{ams.brand.color.purple.60}" }
+          "default": { "value": "#a00078" }
         }
       },
       "logo": {
-        "default": { "value": "{ams.brand.color.red.60}" }
+        "default": { "value": "#ec0000" }
       },
       "separator": {
-        "default": { "value": "{ams.brand.color.neutral.20}" }
+        "default": { "value": "#d1d1d1" }
       },
       "switch": {
         "track": {
@@ -82,9 +79,9 @@
         }
       },
       "text": {
-        "default": { "value": "{ams.brand.color.neutral.100}" },
-        "secondary": { "value": "{ams.brand.color.neutral.60}" },
-        "inverse": { "value": "{ams.brand.color.neutral.0}" }
+        "default": { "value": "#181818" },
+        "secondary": { "value": "#767676" },
+        "inverse": { "value": "#ffffff" }
       }
     }
   }
