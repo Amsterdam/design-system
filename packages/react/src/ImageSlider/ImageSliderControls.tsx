@@ -31,16 +31,16 @@ export const ImageSliderControls = forwardRef(
       <div {...restProps} className={clsx('ams-image-slider__controls', className)} ref={ref}>
         <IconButton
           className="ams-image-slider__control ams-image-slider__control--previous"
-          disabled={isAtStart}
           color="inverse"
+          disabled={isAtStart}
           label={previousLabel}
           onClick={handleClickPrevious}
           svg={ChevronLeftIcon}
         />
         <IconButton
           className="ams-image-slider__control ams-image-slider__control--next"
-          disabled={isAtEnd}
           color="inverse"
+          disabled={isAtEnd}
           label={nextLabel}
           onClick={handleClickNext}
           svg={ChevronRightIcon}

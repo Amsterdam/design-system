@@ -30,8 +30,8 @@ const DescriptionListRoot = forwardRef(
       ref={ref}
       className={clsx(
         'ams-description-list',
-        termsWidth && `ams-description-list--terms-width-${termsWidth}`,
         color && `ams-description-list--${color}-color`,
+        termsWidth && `ams-description-list--terms-width-${termsWidth}`,
         className,
       )}
     >
