@@ -6,12 +6,12 @@ Introduces a page section and describes the following content.
 
 ## Guidelines
 
+- Use Headings to allow the user to quickly grasp the structure of the page.
 - All headings together represent the document’s structure. Users of screen readers may use headings to navigate the page – an incorrect hierarchy will confuse them.
 - Every page should contain one heading with level 1.
-  The level of subsequent headings should be appropriate: a subsection must use one level higher than the section it belongs to.
+  Do not skip heading levels, e.g. a level 2 Heading should be followed by one with level 3, not level 4.
   The `level` prop doesn’t have a default value; the correct level should be determined for each instance.
-- Search engines give more weight to text in headers.
-- Don’t use a Heading only to produce its appearance.
+- Don’t use a Heading just for its visual appearance.
 
 ## Relevant WCAG requirements
 

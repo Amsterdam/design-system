@@ -20,8 +20,9 @@ export type AlertProps = {
   /** The text for the Heading. */
   heading?: string
   /**
-   * The hierarchical level of the Alert’s Heading within the document.
+   * This property represents the hierarchical level of the Alert’s Heading within the document.
    * There is no default value; determine the correct level for each instance.
+   * Note: the font size is intentionally the same for every level.
    **/
   headingLevel: HeadingProps['level']
   /** A function to run when dismissing. */
