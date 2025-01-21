@@ -28,7 +28,7 @@ const DialogRoot = forwardRef(
   ) => (
     <dialog {...restProps} ref={ref} className={clsx('ams-dialog', className)}>
       <header className="ams-dialog__header">
-        <Heading level={2} size="level-4">
+        <Heading level={1} size="level-4">
           {heading}
         </Heading>
         <IconButton label={closeButtonLabel} onClick={closeDialog} size="level-4" type="button" />
