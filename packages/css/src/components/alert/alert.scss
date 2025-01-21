@@ -5,20 +5,28 @@
 
 .ams-alert {
   background-color: var(--ams-alert-background-color);
-  border-color: var(--ams-alert-border-color);
-  border-style: var(--ams-alert-border-style);
-  border-width: var(--ams-alert-border-width);
+  box-shadow: var(--ams-alert-box-shadow);
   display: flex;
+
+  @media (forced-colors: active) {
+    border-style: solid;
+    border-width: var(--ams-alert-forced-colors-border-width);
+  }
 }
 
 .ams-alert__severity {
-  background-color: var(--ams-alert-icon-background-color);
-  border-inline-end-color: var(--ams-alert-border-color);
-  border-inline-end-style: solid;
-  border-inline-end-width: var(--ams-alert-border-width);
+  background-color: var(--ams-alert-severity-background-color);
   flex: none;
   padding-block: var(--ams-alert-severity-padding-block);
   padding-inline: var(--ams-alert-severity-padding-inline);
+
+  @media (forced-colors: active) {
+    background-color: ButtonBorder;
+
+    .ams-icon {
+      color: ButtonFace;
+    }
+  }
 }
 
 .ams-alert__content {
@@ -31,28 +39,25 @@
 }
 
 .ams-alert--error {
-  border-color: var(--ams-alert-error-border-color);
+  box-shadow: var(--ams-alert-error-box-shadow);
 
   > .ams-alert__severity {
-    background-color: var(--ams-alert-error-icon-background-color);
-    border-inline-end-color: var(--ams-alert-error-border-color);
+    background-color: var(--ams-alert-error-severity-background-color);
   }
 }
 
 .ams-alert--success {
-  border-color: var(--ams-alert-success-border-color);
+  box-shadow: var(--ams-alert-success-box-shadow);
 
   > .ams-alert__severity {
-    background-color: var(--ams-alert-success-icon-background-color);
-    border-inline-end-color: var(--ams-alert-success-border-color);
+    background-color: var(--ams-alert-success-severity-background-color);
   }
 }
 
 .ams-alert--warning {
-  border-color: var(--ams-alert-warning-border-color);
+  box-shadow: var(--ams-alert-warning-box-shadow);
 
   > .ams-alert__severity {
-    background-color: var(--ams-alert-warning-icon-background-color);
-    border-inline-end-color: var(--ams-alert-warning-border-color);
+    background-color: var(--ams-alert-warning-severity-background-color);
   }
 }
