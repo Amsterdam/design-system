@@ -3,7 +3,7 @@
  * Copyright Gemeente Amsterdam
  */
 
-import { Link, Paragraph, UnorderedList } from '@amsterdam/design-system-react'
+import { Link, Paragraph } from '@amsterdam/design-system-react'
 import { Alert } from '@amsterdam/design-system-react/src'
 import { Meta, StoryObj } from '@storybook/react'
 
@@ -71,20 +71,6 @@ export const Info: Story = {
       </Paragraph>
     ),
     closeable: true,
-  },
-}
-
-export const WithList: Story = {
-  args: {
-    children: [
-      <Paragraph key={1}>U bent vergeten de volgende verplichte velden in te vullen:</Paragraph>,
-      <UnorderedList key={2}>
-        <UnorderedList.Item>Naam</UnorderedList.Item>
-        <UnorderedList.Item>Telefoonnummer</UnorderedList.Item>
-      </UnorderedList>,
-    ],
-    heading: 'Vul de gegevens aan',
-    severity: 'warning',
   },
 }
 
