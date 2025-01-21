@@ -14,11 +14,11 @@
   }
 }
 
-.ams-alert__severity {
-  background-color: var(--ams-alert-severity-background-color);
+.ams-alert__severity-indicator {
+  background-color: var(--ams-alert-severity-indicator-background-color);
   flex: none;
-  padding-block: var(--ams-alert-severity-padding-block);
-  padding-inline: var(--ams-alert-severity-padding-inline);
+  padding-block: var(--ams-alert-severity-indicator-padding-block);
+  padding-inline: var(--ams-alert-severity-indicator-padding-inline);
 
   @media (forced-colors: active) {
     background-color: ButtonBorder;
@@ -41,23 +41,23 @@
 .ams-alert--error {
   box-shadow: var(--ams-alert-error-box-shadow);
 
-  > .ams-alert__severity {
-    background-color: var(--ams-alert-error-severity-background-color);
+  > .ams-alert__severity-indicator {
+    background-color: var(--ams-alert-error-severity-indicator-background-color);
   }
 }
 
 .ams-alert--success {
   box-shadow: var(--ams-alert-success-box-shadow);
 
-  > .ams-alert__severity {
-    background-color: var(--ams-alert-success-severity-background-color);
+  > .ams-alert__severity-indicator {
+    background-color: var(--ams-alert-success-severity-indicator-background-color);
   }
 }
 
 .ams-alert--warning {
   box-shadow: var(--ams-alert-warning-box-shadow);
 
-  > .ams-alert__severity {
-    background-color: var(--ams-alert-warning-severity-background-color);
+  > .ams-alert__severity-indicator {
+    background-color: var(--ams-alert-warning-severity-indicator-background-color);
   }
 }
