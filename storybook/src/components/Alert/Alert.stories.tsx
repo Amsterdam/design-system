@@ -92,13 +92,14 @@ export const WithInlineLink: Story = {
   args: {
     children: (
       <Paragraph>
-        Tijdens Koningsdag zijn{' '}
+        Aangepast op 30 april: de werkzaamheden lopen uit tot ten met 31 juli 2025.{' '}
         <Link variant="inline" href="#">
-          alle Stadsloketten
+          Lees het nieuwsbericht
         </Link>{' '}
-        gesloten. Ook 14 020 en alle andere telefoonnummers van de gemeente zijn niet bereikbaar.
+        voor meer informatie.
       </Paragraph>
     ),
+    heading: 'De werkzaamheden duren langer',
     severity: 'warning',
   },
 }
