@@ -19,15 +19,15 @@ export type PaginationProps = {
   linkTemplate: (page: number) => string
   /** The maximum amount of pages shown. Minimum value: 5. */
   maxVisiblePages?: number
-  /** The visible label for the next page-link. */
+  /** The visible label for the link to the next page. */
   nextLabel?: string
-  /** The accessible name for the next page-link. */
+  /** The accessible name for the link to the next page. */
   nextVisuallyHiddenLabel?: string
   /** The current page number. */
   page?: number
-  /** The visible label for the previous page-link. */
+  /** The visible label for the link to the previous page. */
   previousLabel?: string
-  /** The accessible name for the previous page-link. */
+  /** The accessible name for the link to the previous page. */
   previousVisuallyHiddenLabel?: string
   /** The total amount of pages. */
   totalPages: number
