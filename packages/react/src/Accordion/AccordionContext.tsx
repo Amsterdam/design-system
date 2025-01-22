@@ -8,12 +8,12 @@ import type { AccordionProps } from './Accordion'
 import type { HeadingProps } from '../Heading/Heading'
 
 export type AccordionContextValue = {
-  headingLevel: HeadingProps['level'] | null
+  headingLevel: HeadingProps['level']
   sectionAs?: AccordionProps['sectionAs']
 }
 
 const defaultValues: AccordionContextValue = {
-  headingLevel: null,
+  headingLevel: 1,
   sectionAs: 'section',
 }
 
