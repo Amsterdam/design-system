@@ -24,9 +24,9 @@ describe('Heading', () => {
       </>,
     )
 
-    const h2 = screen.getByRole('heading', { level: 2 })
-    const h3 = screen.getByRole('heading', { level: 3 })
-    const h4 = screen.getByRole('heading', { level: 4 })
+    const h2 = screen.getByRole('heading', { level: 2, name: 'Heading 2' })
+    const h3 = screen.getByRole('heading', { level: 3, name: 'Heading 3' })
+    const h4 = screen.getByRole('heading', { level: 4, name: 'Heading 4' })
 
     expect(h2).toBeInTheDocument()
     expect(h3).toBeInTheDocument()
