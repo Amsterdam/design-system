@@ -5,7 +5,7 @@ import { TableOfContents } from './TableOfContents'
 
 describe('Table of Contents link', () => {
   it('renders', () => {
-    render(<TableOfContents.Link label="Test label" href="#" />)
+    render(<TableOfContents.Link href="#" label="Test label" />)
 
     const link = screen.getByRole('link')
 
@@ -15,7 +15,7 @@ describe('Table of Contents link', () => {
   })
 
   it('renders a design system BEM class name', () => {
-    render(<TableOfContents.Link label="Test" href="#" />)
+    render(<TableOfContents.Link href="#" label="Test" />)
 
     const component = screen.getByRole('link')
 
@@ -23,7 +23,7 @@ describe('Table of Contents link', () => {
   })
 
   it('renders an additional class name', () => {
-    render(<TableOfContents.Link label="Test" href="#" className="extra" />)
+    render(<TableOfContents.Link className="extra" href="#" label="Test" />)
 
     const component = screen.getByRole('link')
 
@@ -33,7 +33,7 @@ describe('Table of Contents link', () => {
   it('supports ForwardRef in React', () => {
     const ref = createRef<HTMLAnchorElement>()
 
-    render(<TableOfContents.Link label="Test" href="#" ref={ref} />)
+    render(<TableOfContents.Link ref={ref} href="#" label="Test" />)
 
     const component = screen.getByRole('link')
 

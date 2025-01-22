@@ -13,7 +13,7 @@ type SearchFieldButtonProps = Omit<ButtonProps, 'icon' | 'iconBefore' | 'iconOnl
 
 export const SearchFieldButton = forwardRef(
   ({ children = 'Zoeken', ...restProps }: SearchFieldButtonProps, ref: ForwardedRef<HTMLButtonElement>) => (
-    <Button {...restProps} icon={SearchIcon} iconOnly ref={ref}>
+    <Button {...restProps} ref={ref} icon={SearchIcon} iconOnly>
       {children}
     </Button>
   ),

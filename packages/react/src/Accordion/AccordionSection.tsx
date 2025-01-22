@@ -12,15 +12,15 @@ import { getHeadingTag } from '../Heading/getHeadingTag'
 import { Icon } from '../Icon/Icon'
 
 export type AccordionSectionProps = {
-  /** The heading text. */
-  label: string
   /** Whether the content is displayed initially. */
   expanded?: boolean
+  /** The heading text. */
+  label: string
 } & PropsWithChildren<HTMLAttributes<HTMLElement>>
 
 export const AccordionSection = forwardRef(
   (
-    { label, expanded = false, children, className, ...restProps }: AccordionSectionProps,
+    { children, className, expanded = false, label, ...restProps }: AccordionSectionProps,
     ref: ForwardedRef<HTMLDivElement>,
   ) => {
     const { headingLevel, sectionAs } = useContext(AccordionContext)
@@ -33,24 +33,24 @@ export const AccordionSection = forwardRef(
     const panelId = `panel-${id}`
 
     return (
-      <div className={clsx('ams-accordion__section', className)} ref={ref} {...restProps}>
+      <div ref={ref} className={clsx('ams-accordion__section', className)} {...restProps}>
         <HeadingTag className="ams-accordion__header">
           <button
+            id={buttonId}
             aria-controls={panelId}
             aria-expanded={isExpanded}
             className="ams-accordion__button"
-            id={buttonId}
-            onClick={() => setIsExpanded(!isExpanded)}
             type="button"
+            onClick={() => setIsExpanded(!isExpanded)}
           >
-            <Icon svg={ChevronDownIcon} size="level-5" className="ams-accordion__icon" />
+            <Icon className="ams-accordion__icon" size="level-5" svg={ChevronDownIcon} />
             {label}
           </button>
         </HeadingTag>
         <SectionTag
+          id={panelId}
           aria-labelledby={buttonId}
           className={clsx('ams-accordion__panel', { 'ams-accordion__panel--expanded': isExpanded })}
-          id={panelId}
         >
           {children}
         </SectionTag>

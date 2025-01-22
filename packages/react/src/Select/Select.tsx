@@ -16,7 +16,7 @@ export type SelectProps = {
 
 const SelectRoot = forwardRef(
   ({ children, className, invalid, ...restProps }: SelectProps, ref: ForwardedRef<HTMLSelectElement>) => (
-    <select {...restProps} aria-invalid={invalid || undefined} className={clsx('ams-select', className)} ref={ref}>
+    <select {...restProps} ref={ref} aria-invalid={invalid || undefined} className={clsx('ams-select', className)}>
       {children}
     </select>
   ),
@@ -24,4 +24,4 @@ const SelectRoot = forwardRef(
 
 SelectRoot.displayName = 'Select'
 
-export const Select = Object.assign(SelectRoot, { Option: SelectOption, Group: SelectOptionGroup })
+export const Select = Object.assign(SelectRoot, { Group: SelectOptionGroup, Option: SelectOption })

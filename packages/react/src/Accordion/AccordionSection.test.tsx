@@ -53,7 +53,7 @@ describe('Accordion section', () => {
 
   it('adds --expanded class when expanded prop is true', () => {
     const { getByText } = render(
-      <Accordion.Section label={testLabel} expanded>
+      <Accordion.Section expanded label={testLabel}>
         {testContent}
       </Accordion.Section>,
     )
@@ -95,8 +95,8 @@ describe('Accordion section', () => {
     )
 
     const heading = screen.getByRole('heading', {
-      name: testLabel,
       level: 3,
+      name: testLabel,
     })
 
     expect(heading).toBeInTheDocument()
@@ -116,7 +116,7 @@ describe('Accordion section', () => {
 
   it('renders an additional class name', () => {
     const { container } = render(
-      <Accordion.Section label={testLabel} className="test">
+      <Accordion.Section className="test" label={testLabel}>
         {testContent}
       </Accordion.Section>,
     )
@@ -130,7 +130,7 @@ describe('Accordion section', () => {
     const ref = createRef<HTMLDivElement>()
 
     const { container } = render(
-      <Accordion.Section label={testLabel} ref={ref}>
+      <Accordion.Section ref={ref} label={testLabel}>
         {testContent}
       </Accordion.Section>,
     )

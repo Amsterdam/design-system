@@ -22,23 +22,23 @@ export const FormPage = () => {
   const [textareaLength, setTextareaLength] = useState(0)
 
   return (
-    <Grid paddingTop="small" paddingBottom="medium">
+    <Grid paddingBottom="medium" paddingTop="small">
       <Grid.Cell span={{ narrow: 4, medium: 6, wide: 8 }} start={{ narrow: 1, medium: 2, wide: 3 }}>
         <Breadcrumb>
           <Breadcrumb.Link>Home</Breadcrumb.Link>
         </Breadcrumb>
         <Heading className="ams-mb--md">Contact</Heading>
-        <form className="ams-gap--md" id="main" onSubmit={(e) => e.preventDefault()}>
+        <form id="main" className="ams-gap--md" onSubmit={(e) => e.preventDefault()}>
           <Field>
             <Label htmlFor="body">Wat wilt u aan de gemeente vragen?</Label>
             <Paragraph id="bodyDescription" size="small">
               Een duidelijke beschrijving van uw vraag helpt ons bij het behandelen.
             </Paragraph>
             <TextArea
-              aria-describedby="bodyDescription"
               id="body"
-              onChange={(e) => setTextareaLength(e.target.value.length)}
+              aria-describedby="bodyDescription"
               rows={4}
+              onChange={(e) => setTextareaLength(e.target.value.length)}
             />
             <CharacterCount length={textareaLength} maxLength={1000} />
           </Field>
@@ -53,7 +53,7 @@ export const FormPage = () => {
               </Field>
               <Field>
                 <Label htmlFor="familyName">Achternaam</Label>
-                <TextInput autoComplete="family-name" id="familyName" name="familyName" />
+                <TextInput id="familyName" name="familyName" autoComplete="family-name" />
               </Field>
               <FieldSet legend="Woonplaats">
                 <Radio name="city" value="amsterdam">
@@ -68,7 +68,7 @@ export const FormPage = () => {
               </FieldSet>
               <Field>
                 <Label htmlFor="email">E-mail</Label>
-                <TextInput autoComplete="email" id="email" name="email" />
+                <TextInput id="email" name="email" autoComplete="email" />
               </Field>
               <Row wrap>
                 <Field>
@@ -81,7 +81,7 @@ export const FormPage = () => {
                 </Field>
                 <Field>
                   <Label htmlFor="phone">Telefoonnummer</Label>
-                  <TextInput autoComplete="tel" id="phone" name="phone" />
+                  <TextInput id="phone" name="phone" autoComplete="tel" />
                 </Field>
               </Row>
             </Column>

@@ -86,8 +86,8 @@ describe('Header', () => {
     render(<Header brandName="Application name" />)
 
     const heading = screen.getByRole('heading', {
-      name: 'Application name',
       level: 1,
+      name: 'Application name',
     })
 
     expect(heading).toBeInTheDocument()

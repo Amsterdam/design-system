@@ -75,30 +75,30 @@ export const InAFieldSet: Story = {
   },
   render: ({ invalid }) => (
     <FieldSet
-      aria-labelledby={`fieldset1 description1${invalid ? ' error1' : ''}`}
       id="fieldset1"
+      aria-labelledby={`fieldset1 description1${invalid ? ' error1' : ''}`}
       invalid={invalid}
       legend="Waar gaat uw melding over?"
     >
-      <Paragraph className="ams-mb--sm" id="description1" size="small">
+      <Paragraph id="description1" className="ams-mb--sm" size="small">
         De laatstgenoemde melding.
       </Paragraph>
       {invalid && (
-        <ErrorMessage className="ams-mb--sm" id="error1">
+        <ErrorMessage id="error1" className="ams-mb--sm">
           Geef aan waar uw laatstgenoemde melding over gaat.
         </ErrorMessage>
       )}
       <Column gap="extra-small">
-        <Checkbox invalid={invalid} name="about" value="horeca">
+        <Checkbox name="about" invalid={invalid} value="horeca">
           Horecabedrijf
         </Checkbox>
-        <Checkbox invalid={invalid} name="about" value="ander_bedrijf">
+        <Checkbox name="about" invalid={invalid} value="ander_bedrijf">
           Ander soort bedrijf
         </Checkbox>
-        <Checkbox invalid={invalid} name="about" value="evenement">
+        <Checkbox name="about" invalid={invalid} value="evenement">
           Evenement
         </Checkbox>
-        <Checkbox invalid={invalid} name="about" value="anders">
+        <Checkbox name="about" invalid={invalid} value="anders">
           Iets anders
         </Checkbox>
       </Column>
@@ -126,30 +126,30 @@ export const InAFieldSetWithValidation: Story = {
   },
   render: ({ invalid }) => (
     <FieldSet
-      aria-labelledby={`fieldset2 description2${invalid ? ' error2' : ''}`}
       id="fieldset2"
+      aria-labelledby={`fieldset2 description2${invalid ? ' error2' : ''}`}
       invalid={invalid}
       legend="Waar gaat uw melding over?"
     >
-      <Paragraph className="ams-mb--sm" id="description2" size="small">
+      <Paragraph id="description2" className="ams-mb--sm" size="small">
         De laatstgenoemde melding.
       </Paragraph>
       {invalid && (
-        <ErrorMessage className="ams-mb--sm" id="error2">
+        <ErrorMessage id="error2" className="ams-mb--sm">
           Geef aan waar uw laatstgenoemde melding over gaat.
         </ErrorMessage>
       )}
       <Column gap="extra-small">
-        <Checkbox invalid={invalid} name="about" value="horeca">
+        <Checkbox name="about" invalid={invalid} value="horeca">
           Horecabedrijf
         </Checkbox>
-        <Checkbox invalid={invalid} name="about" value="ander_bedrijf">
+        <Checkbox name="about" invalid={invalid} value="ander_bedrijf">
           Ander soort bedrijf
         </Checkbox>
-        <Checkbox invalid={invalid} name="about" value="evenement">
+        <Checkbox name="about" invalid={invalid} value="evenement">
           Evenement
         </Checkbox>
-        <Checkbox invalid={invalid} name="about" value="anders">
+        <Checkbox name="about" invalid={invalid} value="anders">
           Iets anders
         </Checkbox>
       </Column>

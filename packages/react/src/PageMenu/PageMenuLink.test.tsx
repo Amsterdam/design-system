@@ -24,7 +24,7 @@ describe('Page menu link', () => {
 
   it('renders an additional class name', () => {
     render(
-      <PageMenuLink href="#" className="extra">
+      <PageMenuLink className="extra" href="#">
         Link
       </PageMenuLink>,
     )
@@ -58,7 +58,7 @@ describe('Page menu link', () => {
     const ref = createRef<HTMLAnchorElement>()
 
     render(
-      <PageMenuLink href="#" className="extra" ref={ref}>
+      <PageMenuLink ref={ref} className="extra" href="#">
         Link
       </PageMenuLink>,
     )

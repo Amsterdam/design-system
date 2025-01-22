@@ -9,9 +9,9 @@ import { crossAlignOptionsForColumn, mainAlignOptions } from '@amsterdam/design-
 import { Meta, StoryObj } from '@storybook/react'
 
 const ThreeItems = [
-  <div className="ams-docs-item" key={0} />,
-  <div className="ams-docs-item" key={1} />,
-  <div className="ams-docs-item" key={2} />,
+  <div key={0} className="ams-docs-item" />,
+  <div key={1} className="ams-docs-item" />,
+  <div key={2} className="ams-docs-item" />,
 ]
 
 const meta = {
@@ -24,15 +24,15 @@ const meta = {
   argTypes: {
     align: {
       control: {
-        type: 'radio',
         labels: { undefined: 'start' },
+        type: 'radio',
       },
       options: [undefined, ...mainAlignOptions],
     },
     alignHorizontal: {
       control: {
-        type: 'radio',
         labels: { undefined: 'stretch' },
+        type: 'radio',
       },
       options: [undefined, ...crossAlignOptionsForColumn],
     },
@@ -41,8 +41,8 @@ const meta = {
     },
     gap: {
       control: {
-        type: 'radio',
         labels: { undefined: 'medium' },
+        type: 'radio',
       },
       options: ['none', 'extra-small', 'small', undefined, 'large', 'extra-large'],
     },

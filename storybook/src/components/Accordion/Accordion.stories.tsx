@@ -49,7 +49,7 @@ export const ExpandedByDefault: Story = {
       <Accordion.Section key={1} label={heading1}>
         <Paragraph>{paragraph1}</Paragraph>
       </Accordion.Section>,
-      <Accordion.Section key={2} label={heading2} expanded>
+      <Accordion.Section key={2} expanded label={heading2}>
         <Paragraph>{paragraph2}</Paragraph>
       </Accordion.Section>,
       <Accordion.Section key={3} label={heading3}>
@@ -61,7 +61,6 @@ export const ExpandedByDefault: Story = {
 
 export const ReduceLandmarks: Story = {
   args: {
-    sectionAs: 'div',
     children: [
       <Accordion.Section key={1} label={heading1}>
         <Paragraph>{paragraph1}</Paragraph>
@@ -73,5 +72,6 @@ export const ReduceLandmarks: Story = {
         <Paragraph>{paragraph3}</Paragraph>
       </Accordion.Section>,
     ],
+    sectionAs: 'div',
   },
 }

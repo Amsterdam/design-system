@@ -19,8 +19,8 @@ describe('Heading', () => {
     render(<Heading>Breaking news</Heading>)
 
     const heading = screen.getByRole('heading', {
-      name: 'Breaking news',
       level: 1,
+      name: 'Breaking news',
     })
 
     expect(heading).toBeInTheDocument()
@@ -37,20 +37,20 @@ describe('Heading', () => {
     )
 
     const h1 = screen.getByRole('heading', {
-      name: 'H1',
       level: 1,
+      name: 'H1',
     })
     const h2 = screen.getByRole('heading', {
-      name: 'H2',
       level: 2,
+      name: 'H2',
     })
     const h3 = screen.getByRole('heading', {
-      name: 'H3',
       level: 3,
+      name: 'H3',
     })
     const h4 = screen.getByRole('heading', {
-      name: 'H4',
       level: 4,
+      name: 'H4',
     })
 
     expect(h1).toBeInTheDocument()
@@ -72,33 +72,33 @@ describe('Heading', () => {
     )
 
     const sizeLevel1 = screen.getByRole('heading', {
-      name: 'Size level 1',
       level: 1,
+      name: 'Size level 1',
     })
 
     const sizeLevel2 = screen.getByRole('heading', {
-      name: 'Size level 2',
       level: 1,
+      name: 'Size level 2',
     })
 
     const sizeLevel3 = screen.getByRole('heading', {
-      name: 'Size level 3',
       level: 1,
+      name: 'Size level 3',
     })
 
     const sizeLevel4 = screen.getByRole('heading', {
-      name: 'Size level 4',
       level: 1,
+      name: 'Size level 4',
     })
 
     const sizeLevel5 = screen.getByRole('heading', {
-      name: 'Size level 5',
       level: 1,
+      name: 'Size level 5',
     })
 
     const sizeLevel6 = screen.getByRole('heading', {
-      name: 'Size level 6',
       level: 1,
+      name: 'Size level 6',
     })
 
     expect(sizeLevel1).toHaveClass('ams-heading--level-1')

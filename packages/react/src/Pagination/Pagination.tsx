@@ -128,14 +128,14 @@ export const Pagination = forwardRef(
     }
 
     return (
-      <nav {...restProps} aria-labelledby={navLabelId} className={clsx('ams-pagination', className)} ref={ref}>
+      <nav {...restProps} ref={ref} aria-labelledby={navLabelId} className={clsx('ams-pagination', className)}>
         <span id={navLabelId} className="ams-visually-hidden">
           {visuallyHiddenLabel}
         </span>
         <ol className="ams-pagination__list">
           <li>
-            <button className="ams-pagination__button" disabled={currentPage === 1} onClick={onPrevious} type="button">
-              <Icon svg={ChevronLeftIcon} size="level-5" />
+            <button className="ams-pagination__button" disabled={currentPage === 1} type="button" onClick={onPrevious}>
+              <Icon size="level-5" svg={ChevronLeftIcon} />
               <span className="ams-visually-hidden">{previousVisuallyHiddenLabel}</span>
               <span aria-hidden>{previousLabel}</span>
             </button>
@@ -149,9 +149,9 @@ export const Pagination = forwardRef(
                     'ams-pagination__button',
                     pageNumberOrSpacer === currentPage && 'ams-pagination__button--current',
                   )}
-                  onClick={() => pageNumberOrSpacer !== currentPage && onChangePage(pageNumberOrSpacer)}
                   tabIndex={pageNumberOrSpacer === currentPage ? -1 : 0}
                   type="button"
+                  onClick={() => pageNumberOrSpacer !== currentPage && onChangePage(pageNumberOrSpacer)}
                 >
                   <span className="ams-visually-hidden">
                     {pageNumberOrSpacer === currentPage
@@ -171,12 +171,12 @@ export const Pagination = forwardRef(
             <button
               className="ams-pagination__button"
               disabled={currentPage === totalPages}
-              onClick={onNext}
               type="button"
+              onClick={onNext}
             >
               <span className="ams-visually-hidden">{nextVisuallyHiddenLabel}</span>
               <span aria-hidden>{nextLabel}</span>
-              <Icon svg={ChevronRightIcon} size="level-5" />
+              <Icon size="level-5" svg={ChevronRightIcon} />
             </button>
           </li>
         </ol>

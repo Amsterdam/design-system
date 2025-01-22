@@ -23,7 +23,7 @@ type ColorPaletteTileProps = {
   name: string
 }
 
-const ColorPaletteTile = ({ name, color }: ColorPaletteTileProps) => (
+const ColorPaletteTile = ({ color, name }: ColorPaletteTileProps) => (
   <div className="ams-storybook-color-palette__tile">
     <div className="ams-storybook-color-palette__example" style={{ backgroundColor: color }} />
     <dl className="sb-unstyled ams-storybook-color-palette__description">

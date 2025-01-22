@@ -22,7 +22,7 @@ describe('Card link', () => {
   })
 
   it('renders an additional class name', () => {
-    render(<CardLink href="/" className="extra" />)
+    render(<CardLink className="extra" href="/" />)
 
     const component = screen.getByRole('link')
 
@@ -32,7 +32,7 @@ describe('Card link', () => {
   it('supports ForwardRef in React', () => {
     const ref = createRef<HTMLAnchorElement>()
 
-    render(<CardLink href="/" ref={ref} />)
+    render(<CardLink ref={ref} href="/" />)
 
     const component = screen.getByRole('link')
 

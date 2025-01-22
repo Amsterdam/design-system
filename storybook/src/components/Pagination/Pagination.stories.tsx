@@ -10,16 +10,16 @@ const meta = {
   title: 'Components/Navigation/Pagination',
   component: Pagination,
   args: {
-    page: 1,
     maxVisiblePages: 7,
+    page: 1,
     totalPages: 10,
   },
   argTypes: {
     onPageChange: { action: 'page changed' },
     page: {
       control: {
-        type: 'number',
         min: 1,
+        type: 'number',
       },
     },
   },

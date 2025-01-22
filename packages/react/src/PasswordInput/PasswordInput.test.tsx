@@ -64,7 +64,7 @@ describe('Password input', () => {
   })
 
   it('should not update the value when disabled', async () => {
-    const { container } = render(<PasswordInput disabled defaultValue="Hello" />)
+    const { container } = render(<PasswordInput defaultValue="Hello" disabled />)
 
     const component = container.querySelector(':only-child')
     if (component) {

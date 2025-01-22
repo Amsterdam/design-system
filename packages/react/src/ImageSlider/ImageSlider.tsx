@@ -69,7 +69,7 @@ export const ImageSliderRoot = forwardRef(
       const sliderScrollerElement = targetRef.current
       if (!sliderScrollerElement) return
 
-      const { lastElementChild: lastElement, firstElementChild: firstElement } = sliderScrollerElement as HTMLDivElement
+      const { firstElementChild: firstElement, lastElementChild: lastElement } = sliderScrollerElement as HTMLDivElement
 
       setIsAtStart(firstElement === sliderScrollerElement?.children[currentSlideId])
       setIsAtEnd(lastElement === sliderScrollerElement?.children[currentSlideId])
@@ -149,17 +149,17 @@ export const ImageSliderRoot = forwardRef(
 
     return (
       <ImageSliderContext.Provider
-        value={{ isAtStart, isAtEnd, currentSlideId, goToNextSlide, goToPreviousSlide, goToSlideId }}
+        value={{ currentSlideId, goToNextSlide, goToPreviousSlide, goToSlideId, isAtEnd, isAtStart }}
       >
         <div
           {...restProps}
+          ref={ref}
           aria-roledescription="carousel"
           className={clsx('ams-image-slider', controls && 'ams-image-slider--controls', className)}
           tabIndex={-1}
-          ref={ref}
         >
           {controls && <ImageSliderControls nextLabel={nextLabel} previousLabel={previousLabel} />}
-          <ImageSliderScroller aria-live="polite" ref={targetRef} role="group" tabIndex={0}>
+          <ImageSliderScroller ref={targetRef} aria-live="polite" role="group" tabIndex={0}>
             {images.map(({ alt, aspectRatio, sizes, src, srcSet }, index) => (
               <ImageSliderItem key={index} slideId={index}>
                 <Image

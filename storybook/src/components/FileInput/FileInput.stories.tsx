@@ -12,8 +12,8 @@ const meta = {
   component: FileInput,
   args: {
     accept: undefined,
-    multiple: false,
     disabled: false,
+    multiple: false,
   },
   argTypes: {
     accept: {
@@ -21,12 +21,12 @@ const meta = {
         type: 'text',
       },
     },
-    multiple: {
+    disabled: {
       control: {
         type: 'boolean',
       },
     },
-    disabled: {
+    multiple: {
       control: {
         type: 'boolean',
       },
@@ -59,7 +59,7 @@ export const InAField: Story = {
       <Paragraph id="description1" size="small">
         Omschrijving.
       </Paragraph>
-      <FileInput aria-describedby="description1" id="input1" {...args} />
+      <FileInput id="input1" aria-describedby="description1" {...args} />
     </Field>
   ),
 }

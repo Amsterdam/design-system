@@ -47,6 +47,7 @@ export const ImageSliderThumbnails = forwardRef(
       () =>
         thumbnails.map(({ alt, aspectRatio, src }, index) => (
           <button
+            key={index}
             aria-label={`${imageLabel} ${index + 1}: ${alt}`}
             aria-posinset={index + 1}
             aria-selected={currentSlideId === index ? 'true' : 'false'}
@@ -56,11 +57,10 @@ export const ImageSliderThumbnails = forwardRef(
               currentSlideId === index && 'ams-image-slider__thumbnail--in-view',
               aspectRatio && `ams-aspect-ratio--${aspectRatio}`,
             )}
-            key={index}
-            onClick={() => goToSlideId(index)}
             role="tab"
             style={{ backgroundImage: `url(${src})` }}
             tabIndex={currentSlideId === index ? 0 : -1}
+            onClick={() => goToSlideId(index)}
           />
         )),
       [currentSlideId, goToSlideId, imageLabel, thumbnails],
@@ -69,10 +69,10 @@ export const ImageSliderThumbnails = forwardRef(
     return (
       <nav
         {...restProps}
-        className={clsx('ams-image-slider__thumbnails', className)}
-        onKeyDown={handleKeyDown}
         ref={ref}
+        className={clsx('ams-image-slider__thumbnails', className)}
         role="tablist"
+        onKeyDown={handleKeyDown}
       >
         {renderThumbnails}
       </nav>

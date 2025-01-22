@@ -24,10 +24,10 @@ export type HeaderProps = {
   logoLink?: string
   /** The accessible text for the link on the logo. */
   logoLinkTitle?: string
-  /** A slot for the menu items. Use Header.MenuLink here. */
-  menuItems?: ReactNode
   /** The text for the menu button. */
   menuButtonText?: string
+  /** A slot for the menu items. Use Header.MenuLink here. */
+  menuItems?: ReactNode
   /** The accessible label for the navigation section. */
   navigationLabel?: string
   /** Whether the menu button is visible on wide screens.  */
@@ -38,13 +38,13 @@ const HeaderRoot = forwardRef(
   (
     {
       brandName,
-      className,
       children,
+      className,
       logoBrand = 'amsterdam',
       logoLink = '/',
       logoLinkTitle = 'Ga naar de homepage',
-      menuItems,
       menuButtonText = 'Menu',
+      menuItems,
       navigationLabel = 'Hoofdnavigatie',
       noMenuButtonOnWideWindow,
       ...restProps
@@ -70,19 +70,19 @@ const HeaderRoot = forwardRef(
             <Logo brand={logoBrand} />
           </a>
           {brandName && (
-            <Heading level={1} size="level-5" className="ams-header__brand-name">
+            <Heading className="ams-header__brand-name" level={1} size="level-5">
               {brandName}
             </Heading>
           )}
         </div>
         {(children || menuItems) && (
-          <nav className="ams-header__navigation" aria-labelledby="primary-navigation">
+          <nav aria-labelledby="primary-navigation" className="ams-header__navigation">
             <h2 id="primary-navigation" className="ams-visually-hidden">
               {navigationLabel}
             </h2>
 
             {/* The branding section is recreated here, to make sure the page menu breaks at the right spot */}
-            <div className="ams-header__branding ams-header__branding--hidden" aria-hidden>
+            <div aria-hidden className="ams-header__branding ams-header__branding--hidden">
               <div className="ams-header__logo-link">
                 <Logo brand={logoBrand} />
               </div>
@@ -102,20 +102,20 @@ const HeaderRoot = forwardRef(
                     aria-controls="ams-mega-menu"
                     aria-expanded={open}
                     className="ams-header__mega-menu-button"
-                    onClick={() => setOpen(!open)}
                     type="button"
+                    onClick={() => setOpen(!open)}
                   >
                     <span className="ams-header__mega-menu-button-label">{menuButtonText}</span>
                     <span aria-hidden="true" className="ams-header__mega-menu-button-hidden-label">
                       {menuButtonText}
                     </span>
                     <Icon
+                      size="level-5"
                       svg={
                         <HeaderMenuIcon
                           className={clsx('ams-header__menu-icon', open && 'ams-header__menu-icon--open')}
                         />
                       }
-                      size="level-5"
                     />
                   </button>
                 </li>
@@ -124,8 +124,8 @@ const HeaderRoot = forwardRef(
 
             {children && (
               <div
-                className={clsx('ams-header__mega-menu', !open && 'ams-header__mega-menu--closed')}
                 id="ams-mega-menu"
+                className={clsx('ams-header__mega-menu', !open && 'ams-header__mega-menu--closed')}
               >
                 {children}
               </div>

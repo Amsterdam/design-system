@@ -21,7 +21,7 @@ const defaultFooter = (formId: string) => (
     <Button form={formId} type="submit" value="submit">
       Doorgaan
     </Button>
-    <Button onClick={Dialog.close} variant="tertiary">
+    <Button variant="tertiary" onClick={Dialog.close}>
       Stoppen
     </Button>
   </ActionGroup>
@@ -57,7 +57,7 @@ export const Default: Story = {
     children: <Paragraph>De gegevens zijn opgeslagen.</Paragraph>,
     footer: (
       <ActionGroup>
-        <Button onClick={Dialog.close} variant="primary">
+        <Button variant="primary" onClick={Dialog.close}>
           Sluiten
         </Button>
       </ActionGroup>

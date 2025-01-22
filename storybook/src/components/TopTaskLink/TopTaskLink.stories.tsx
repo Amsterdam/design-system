@@ -34,6 +34,11 @@ export const MultipleLinks: Story = {
     description: 'Omschrijving',
     label: 'Titel',
   },
+  parameters: {
+    docs: {
+      source: { type: 'dynamic' },
+    },
+  },
   render: () => (
     <Grid>
       <Grid.Cell span={3}>
@@ -66,9 +71,4 @@ export const MultipleLinks: Story = {
       </Grid.Cell>
     </Grid>
   ),
-  parameters: {
-    docs: {
-      source: { type: 'dynamic' },
-    },
-  },
 }

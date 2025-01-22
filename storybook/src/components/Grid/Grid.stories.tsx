@@ -20,29 +20,29 @@ const meta = {
     },
     gapVertical: {
       control: {
+        labels: { large: 'large', none: 'none', small: 'small', undefined: 'medium' },
         type: 'radio',
-        labels: { none: 'none', small: 'small', undefined: 'medium', large: 'large' },
       },
       options: ['none', 'small', undefined, 'large'],
     },
-    paddingVertical: {
+    paddingBottom: {
       control: {
+        labels: { large: 'large', medium: 'medium', small: 'small', undefined: 'none' },
         type: 'radio',
-        labels: { undefined: 'none', small: 'small', medium: 'medium', large: 'large' },
       },
       options: [undefined, 'small', 'medium', 'large'],
     },
     paddingTop: {
       control: {
+        labels: { large: 'large', medium: 'medium', small: 'small', undefined: 'none' },
         type: 'radio',
-        labels: { undefined: 'none', small: 'small', medium: 'medium', large: 'large' },
       },
       options: [undefined, 'small', 'medium', 'large'],
     },
-    paddingBottom: {
+    paddingVertical: {
       control: {
+        labels: { large: 'large', medium: 'medium', small: 'small', undefined: 'none' },
         type: 'radio',
-        labels: { undefined: 'none', small: 'small', medium: 'medium', large: 'large' },
       },
       options: [undefined, 'small', 'medium', 'large'],
     },
@@ -59,10 +59,10 @@ const cellMeta = {
   component: Grid.Cell,
   argTypes: {
     span: {
-      control: { type: 'number', min: 1, max: 12 },
+      control: { max: 12, min: 1, type: 'number' },
     },
     start: {
-      control: { type: 'number', min: 1, max: 12 },
+      control: { max: 12, min: 1, type: 'number' },
     },
   },
 } satisfies Meta<typeof Grid.Cell>
@@ -73,7 +73,7 @@ type CellStory = StoryObj<typeof cellMeta>
 const BackgroundGrid = () => (
   <Grid className="ams-docs-grid">
     {Array.from(Array(12).keys()).map((i) => (
-      <Grid.Cell className="ams-docs-grid__cell" key={i} />
+      <Grid.Cell key={i} className="ams-docs-grid__cell" />
     ))}
   </Grid>
 )
@@ -118,8 +118,8 @@ export const VerticalGap: Story = {
   ...StoryTemplate,
   args: {
     children: [
-      <Grid.Cell className="ams-docs-item" span="all" key={1} />,
-      <Grid.Cell className="ams-docs-item" span="all" key={2} />,
+      <Grid.Cell key={1} className="ams-docs-item" span="all" />,
+      <Grid.Cell key={2} className="ams-docs-item" span="all" />,
     ],
     gapVertical: 'small',
   },

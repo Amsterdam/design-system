@@ -35,7 +35,7 @@ export const WithLink: Story = {
   args: {
     children: [
       <Button key={1}>Bewerken</Button>,
-      <Link download href="#" key={2} variant="standalone">
+      <Link key={2} download href="#" variant="standalone">
         Downloaden
       </Link>,
     ],

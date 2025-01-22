@@ -91,7 +91,7 @@ export const WithInlineLink: Story = {
     children: (
       <Paragraph>
         Tijdens Koningsdag zijn{' '}
-        <Link variant="inline" href="#">
+        <Link href="#" variant="inline">
           alle Stadsloketten
         </Link>{' '}
         gesloten. Ook 14 020 en alle andere telefoonnummers van de gemeente zijn niet bereikbaar.

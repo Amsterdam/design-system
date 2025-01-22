@@ -12,7 +12,7 @@ export type BreadcrumbProps = PropsWithChildren<HTMLAttributes<HTMLElement>>
 
 const BreadcrumbRoot = forwardRef(
   ({ children, className, ...restProps }: BreadcrumbProps, ref: ForwardedRef<HTMLElement>) => (
-    <nav {...restProps} className={clsx('ams-breadcrumb', className)} ref={ref}>
+    <nav {...restProps} ref={ref} className={clsx('ams-breadcrumb', className)}>
       <ol className="ams-breadcrumb__list">{children}</ol>
     </nav>
   ),

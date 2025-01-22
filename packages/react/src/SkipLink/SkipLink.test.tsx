@@ -22,7 +22,7 @@ describe('Skip link', () => {
   })
 
   it('renders an additional class name', () => {
-    render(<SkipLink href="/" className="extra" />)
+    render(<SkipLink className="extra" href="/" />)
 
     const component = screen.getByRole('link')
 
@@ -32,7 +32,7 @@ describe('Skip link', () => {
   it('supports ForwardRef in React', () => {
     const ref = createRef<HTMLAnchorElement>()
 
-    render(<SkipLink href="/" ref={ref} />)
+    render(<SkipLink ref={ref} href="/" />)
 
     const component = screen.getByRole('link')
 

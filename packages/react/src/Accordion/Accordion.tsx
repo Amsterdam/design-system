@@ -29,7 +29,7 @@ const AccordionRoot = forwardRef(
 
     return (
       <AccordionContext.Provider value={{ headingLevel: headingLevel, sectionAs: sectionAs }}>
-        <div className={clsx('ams-accordion', className)} onKeyDown={keyDown} ref={innerRef}>
+        <div ref={innerRef} className={clsx('ams-accordion', className)} onKeyDown={keyDown}>
           {children}
         </div>
       </AccordionContext.Provider>

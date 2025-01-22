@@ -14,7 +14,7 @@ export type TabsPanelProps = {
 } & PropsWithChildren<HTMLAttributes<HTMLDivElement>>
 
 export const TabsPanel = forwardRef(
-  ({ tab, children, className, ...restProps }: TabsPanelProps, ref: ForwardedRef<HTMLDivElement>) => {
+  ({ children, className, tab, ...restProps }: TabsPanelProps, ref: ForwardedRef<HTMLDivElement>) => {
     const { activeTab, tabsId } = useContext(TabsContext)
 
     if (tab !== activeTab) {
@@ -24,12 +24,12 @@ export const TabsPanel = forwardRef(
     return (
       <div
         {...restProps}
-        role="tabpanel"
-        aria-labelledby={`${tabsId}-tab-${tab}`}
         id={`${tabsId}-panel-${tab}`}
-        tabIndex={0}
         ref={ref}
+        aria-labelledby={`${tabsId}-tab-${tab}`}
         className={clsx('ams-tabs__panel', className)}
+        role="tabpanel"
+        tabIndex={0}
       >
         {children}
       </div>

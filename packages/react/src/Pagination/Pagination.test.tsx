@@ -22,7 +22,7 @@ describe('Pagination', () => {
   })
 
   it('can have a additional class name', () => {
-    const { container } = render(<Pagination totalPages={10} className="extra" />)
+    const { container } = render(<Pagination className="extra" totalPages={10} />)
 
     const component = container.querySelector(':only-child')
 
@@ -31,7 +31,7 @@ describe('Pagination', () => {
   })
 
   it('should render all the pages when totalPages < maxVisiblePages', () => {
-    render(<Pagination totalPages={6} maxVisiblePages={7} />)
+    render(<Pagination maxVisiblePages={7} totalPages={6} />)
 
     expect(screen.getAllByRole('listitem').length).toBe(8) // 6 + 2 buttons
     expect(screen.queryByTestId('lastSpacer')).not.toBeInTheDocument()
@@ -39,7 +39,7 @@ describe('Pagination', () => {
   })
 
   it('should render the pages including one (last) spacer when totalPages > maxVisiblePages', () => {
-    render(<Pagination page={1} totalPages={10} maxVisiblePages={7} />)
+    render(<Pagination maxVisiblePages={7} page={1} totalPages={10} />)
 
     expect(screen.getAllByRole('listitem').length).toBe(8) // 6 + 2 buttons
     expect(screen.getByTestId('lastSpacer')).toBeInTheDocument()
@@ -47,7 +47,7 @@ describe('Pagination', () => {
   })
 
   it('should render the pages including the two spacers when totalPages > maxVisiblePages and current page > 4', () => {
-    render(<Pagination page={6} totalPages={10} maxVisiblePages={7} />)
+    render(<Pagination maxVisiblePages={7} page={6} totalPages={10} />)
 
     expect(screen.getAllByRole('listitem').length).toBe(7) // 5 + 2 buttons
     expect(screen.getByTestId('lastSpacer')).toBeInTheDocument()
@@ -110,7 +110,7 @@ describe('Pagination', () => {
   })
 
   it('renders custom labels for the ‘previous’ and ‘next’ buttons', () => {
-    render(<Pagination totalPages={10} previousLabel="previous" nextLabel="next" />)
+    render(<Pagination nextLabel="next" previousLabel="previous" totalPages={10} />)
 
     const previousButton = screen.getByRole('button', { name: 'Vorige pagina' })
     const nextButton = screen.getByRole('button', { name: 'Volgende pagina' })
@@ -129,7 +129,7 @@ describe('Pagination', () => {
 
   it('renders accessible labels for the ‘previous’ and ‘next’ buttons', () => {
     render(
-      <Pagination totalPages={10} previousVisuallyHiddenLabel="Previous page" nextVisuallyHiddenLabel="Next page" />,
+      <Pagination nextVisuallyHiddenLabel="Next page" previousVisuallyHiddenLabel="Previous page" totalPages={10} />,
     )
 
     const previousButton = screen.getByRole('button', { name: 'Previous page' })
@@ -142,7 +142,7 @@ describe('Pagination', () => {
   it('supports ForwardRef in React', () => {
     const ref = createRef<HTMLElement>()
 
-    const { container } = render(<Pagination totalPages={10} ref={ref} />)
+    const { container } = render(<Pagination ref={ref} totalPages={10} />)
 
     const component = container.querySelector(':only-child')
 

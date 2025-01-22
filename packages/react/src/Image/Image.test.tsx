@@ -43,7 +43,7 @@ describe('Image', () => {
   it('supports ForwardRef in React', () => {
     const ref = createRef<HTMLImageElement>()
 
-    const { container } = render(<Image alt="" ref={ref} />)
+    const { container } = render(<Image ref={ref} alt="" />)
 
     const component = container.querySelector(':only-child')
 

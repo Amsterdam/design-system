@@ -56,7 +56,7 @@ describe('Text input', () => {
   })
 
   it('should not update the value when disabled', async () => {
-    render(<TextInput disabled defaultValue="Hello" />)
+    render(<TextInput defaultValue="Hello" disabled />)
 
     const component = screen.getByRole('textbox')
     if (component) {

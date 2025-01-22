@@ -33,8 +33,8 @@ const meta = {
     },
     resize: {
       control: {
+        labels: { horizontal: 'horizontal', none: 'none', undefined: 'default', vertical: 'vertical' },
         type: 'radio',
-        labels: { undefined: 'default', none: 'none', horizontal: 'horizontal', vertical: 'vertical' },
       },
       options: [undefined, 'none', 'horizontal', 'vertical'],
     },
@@ -91,7 +91,7 @@ export const InAField: Story = {
         Omschrijving.
       </Paragraph>
       {args.invalid && <ErrorMessage id="error1">Foutmelding.</ErrorMessage>}
-      <TextArea aria-describedby={`description1${args.invalid ? ' error1' : ''}`} id="input1" {...args} />
+      <TextArea id="input1" aria-describedby={`description1${args.invalid ? ' error1' : ''}`} {...args} />
     </Field>
   ),
 }
@@ -107,7 +107,7 @@ export const InAFieldWithValidation: Story = {
         Omschrijving.
       </Paragraph>
       {args.invalid && <ErrorMessage id="error2">Foutmelding.</ErrorMessage>}
-      <TextArea aria-describedby={`description2${args.invalid ? ' error2' : ''}`} id="input2" {...args} />
+      <TextArea id="input2" aria-describedby={`description2${args.invalid ? ' error2' : ''}`} {...args} />
     </Field>
   ),
 }

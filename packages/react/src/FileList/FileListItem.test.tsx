@@ -23,7 +23,7 @@ describe('FileListItem', () => {
   })
 
   it('renders an additional class name', () => {
-    render(<FileListItem file={file} className="extra" />)
+    render(<FileListItem className="extra" file={file} />)
 
     const component = screen.getByRole('listitem')
 
@@ -33,7 +33,7 @@ describe('FileListItem', () => {
   it('supports ForwardRef in React', () => {
     const ref = createRef<HTMLLIElement>()
 
-    render(<FileListItem file={file} ref={ref} />)
+    render(<FileListItem ref={ref} file={file} />)
 
     const component = screen.getByRole('listitem')
 

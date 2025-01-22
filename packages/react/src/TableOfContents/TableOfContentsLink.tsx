@@ -15,7 +15,7 @@ export type TableOfContentsLinkProps = {
 export const TableOfContentsLink = forwardRef(
   ({ children, className, label, ...restProps }: TableOfContentsLinkProps, ref: ForwardedRef<HTMLAnchorElement>) => (
     <li className="ams-table-of-contents__item">
-      <a {...restProps} className={clsx('ams-table-of-contents__link', className)} ref={ref}>
+      <a {...restProps} ref={ref} className={clsx('ams-table-of-contents__link', className)}>
         {label}
       </a>
       {children}

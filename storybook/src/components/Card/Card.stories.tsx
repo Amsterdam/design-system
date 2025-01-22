@@ -36,7 +36,7 @@ type Story = StoryObj<typeof meta>
 export const Default: Story = {
   args: {
     children: [
-      <Heading size="level-4" key={1}>
+      <Heading key={1} size="level-4">
         <Card.Link href="/">{topTask.heading}</Card.Link>
       </Heading>,
       <Paragraph key={2}>{topTask.description}</Paragraph>,

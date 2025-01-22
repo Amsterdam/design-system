@@ -25,7 +25,7 @@ describe('Link', () => {
 
   it('renders inline variant', () => {
     const { container } = render(
-      <Link variant="inline" href="#">
+      <Link href="#" variant="inline">
         {linktext}
       </Link>,
     )
@@ -58,7 +58,7 @@ describe('Link', () => {
 
   it('renders the class name for inverse color', () => {
     const { container } = render(
-      <Link inverseColor href="#">
+      <Link href="#" inverseColor>
         {linktext}
       </Link>,
     )

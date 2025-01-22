@@ -22,7 +22,7 @@ describe('Avatar', () => {
   })
 
   it('renders an additional class name', () => {
-    const { container } = render(<Avatar label="VS" className="extra" />)
+    const { container } = render(<Avatar className="extra" label="VS" />)
 
     const component = container.querySelector(':only-child')
 
@@ -48,7 +48,7 @@ describe('Avatar', () => {
   })
 
   it('renders with a profile picture', () => {
-    const { container } = render(<Avatar label="RS" imageSrc="image-source" />)
+    const { container } = render(<Avatar imageSrc="image-source" label="RS" />)
 
     const component = screen.getByText('Initialen gebruiker: RS')
     const image = container.querySelector('[src="image-source"]')
@@ -75,7 +75,7 @@ describe('Avatar', () => {
 
   avatarColors.map((color) =>
     it(`renders with ${color} color`, () => {
-      const { container } = render(<Avatar label="AL" color={color} />)
+      const { container } = render(<Avatar color={color} label="AL" />)
 
       const component = container.querySelector(':only-child')
 
@@ -86,7 +86,7 @@ describe('Avatar', () => {
   it('supports ForwardRef in React', () => {
     const ref = createRef<HTMLSpanElement>()
 
-    const { container } = render(<Avatar label="AL" ref={ref} />)
+    const { container } = render(<Avatar ref={ref} label="AL" />)
 
     const component = container.querySelector(':only-child')
 

@@ -23,13 +23,13 @@ type Story = StoryObj<typeof meta>
 export const Default: Story = {
   args: {
     children: [
-      <PageMenu.Link href="#" key={1}>
+      <PageMenu.Link key={1} href="#">
         Over deze site
       </PageMenu.Link>,
-      <PageMenu.Link href="#" key={2}>
+      <PageMenu.Link key={2} href="#">
         Privacy
       </PageMenu.Link>,
-      <PageMenu.Link href="#" key={3}>
+      <PageMenu.Link key={3} href="#">
         Cookies
       </PageMenu.Link>,
     ],
@@ -40,13 +40,13 @@ export const Alignment: Story = {
   args: {
     alignEnd: true,
     children: [
-      <PageMenu.Link href="#" key={1} lang="en">
+      <PageMenu.Link key={1} href="#" lang="en">
         English
       </PageMenu.Link>,
-      <PageMenu.Link href="#" key={2}>
+      <PageMenu.Link key={2} href="#">
         Contact
       </PageMenu.Link>,
-      <PageMenu.Link href="#" key={3} icon={SearchIcon}>
+      <PageMenu.Link key={3} href="#" icon={SearchIcon}>
         Zoeken
       </PageMenu.Link>,
     ],
@@ -56,31 +56,31 @@ export const Alignment: Story = {
 export const Wrapping: Story = {
   args: {
     children: [
-      <PageMenu.Link href="#" key={1}>
+      <PageMenu.Link key={1} href="#">
         Onderzoeken
       </PageMenu.Link>,
-      <PageMenu.Link href="#" key={2}>
+      <PageMenu.Link key={2} href="#">
         Bezoeken
       </PageMenu.Link>,
-      <PageMenu.Link href="#" key={3}>
+      <PageMenu.Link key={3} href="#">
         Archiveren
       </PageMenu.Link>,
-      <PageMenu.Link href="#" key={4}>
+      <PageMenu.Link key={4} href="#">
         Nieuws
       </PageMenu.Link>,
-      <PageMenu.Link href="#" key={5}>
+      <PageMenu.Link key={5} href="#">
         Themasites
       </PageMenu.Link>,
-      <PageMenu.Link href="#" key={6}>
+      <PageMenu.Link key={6} href="#">
         Onderwijs
       </PageMenu.Link>,
-      <PageMenu.Link href="#" key={7}>
+      <PageMenu.Link key={7} href="#">
         Steun ons
       </PageMenu.Link>,
-      <PageMenu.Link href="#" key={8}>
+      <PageMenu.Link key={8} href="#">
         Organisatie
       </PageMenu.Link>,
-      <PageMenu.Link href="#" key={9}>
+      <PageMenu.Link key={9} href="#">
         Contact
       </PageMenu.Link>,
     ],

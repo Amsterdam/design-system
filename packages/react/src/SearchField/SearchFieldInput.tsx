@@ -23,18 +23,18 @@ export const SearchFieldInput = forwardRef(
 
     return (
       <>
-        <label htmlFor={id} className="ams-visually-hidden">
+        <label className="ams-visually-hidden" htmlFor={id}>
           {label}
         </label>
         <input
           {...restProps}
+          id={id}
+          ref={ref}
           aria-invalid={invalid || undefined}
           autoComplete="off"
           className={clsx('ams-search-field__input', className)}
           dir={dir ?? 'auto'}
           enterKeyHint="search"
-          id={id}
-          ref={ref}
           spellCheck="false"
           type="search"
         />

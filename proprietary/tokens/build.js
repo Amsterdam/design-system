@@ -7,8 +7,6 @@ function generateSharedConfig(mode) {
 
   return {
     css: {
-      transforms: ['attribute/cti', 'name/kebab', 'color/hsl-4'],
-      transformGroup: 'css',
       buildPath: 'dist/',
       files: [
         {
@@ -19,33 +17,34 @@ function generateSharedConfig(mode) {
           },
         },
       ],
+      transformGroup: 'css',
+      transforms: ['attribute/cti', 'name/kebab', 'color/hsl-4'],
     },
     cssTheme: {
-      transforms: ['attribute/cti', 'name/kebab', 'color/hsl-4'],
       buildPath: 'dist/',
       files: [
         {
           destination: `${name}.theme.css`,
           format: 'css/variables',
           options: {
-            selector: `.ams-theme${name === 'index' ? '' : `--${name}`}`,
             outputReferences: true,
+            selector: `.ams-theme${name === 'index' ? '' : `--${name}`}`,
           },
         },
       ],
+      transforms: ['attribute/cti', 'name/kebab', 'color/hsl-4'],
     },
     js: {
-      transforms: ['attribute/cti', 'name/camel', 'color/hsl-4'],
       buildPath: 'dist/',
       files: [
         {
-          format: 'javascript/es6',
           destination: `${name}.mjs`,
+          format: 'javascript/es6',
         },
       ],
+      transforms: ['attribute/cti', 'name/camel', 'color/hsl-4'],
     },
     json: {
-      transforms: ['attribute/cti', 'name/camel', 'color/hsl-4'],
       buildPath: 'dist/',
       files: [
         {
@@ -53,9 +52,9 @@ function generateSharedConfig(mode) {
           format: 'json/nested',
         },
       ],
+      transforms: ['attribute/cti', 'name/camel', 'color/hsl-4'],
     },
     scss: {
-      transforms: ['attribute/cti', 'name/kebab', 'color/hsl-4'],
       buildPath: 'dist/',
       files: [
         {
@@ -66,17 +65,18 @@ function generateSharedConfig(mode) {
           },
         },
       ],
+      transforms: ['attribute/cti', 'name/kebab', 'color/hsl-4'],
     },
     typescript: {
-      transforms: ['attribute/cti', 'name/camel', 'color/hsl-4'],
-      transformGroup: 'js',
       buildPath: 'dist/',
       files: [
         {
-          format: 'typescript/module-declarations',
           destination: `${name}.d.ts`,
+          format: 'typescript/module-declarations',
         },
       ],
+      transformGroup: 'js',
+      transforms: ['attribute/cti', 'name/camel', 'color/hsl-4'],
     },
   }
 }
@@ -85,11 +85,11 @@ const defaultMode = new StyleDictionary({
   log: {
     verbosity: 'verbose',
   },
+  platforms: generateSharedConfig(),
   source: [
     // exclude non-default modes from source
     `./src/**/!(*.${modes.join(`|*.`)}).tokens.json`,
   ],
-  platforms: generateSharedConfig(),
 })
 
 defaultMode.buildAllPlatforms()
@@ -99,8 +99,8 @@ modes.map((mode) => {
     log: {
       verbosity: 'verbose',
     },
-    source: [`./src/**/*.${mode}.tokens.json`],
     platforms: generateSharedConfig(mode),
+    source: [`./src/**/*.${mode}.tokens.json`],
   })
   return styleDictionary.buildAllPlatforms()
 })

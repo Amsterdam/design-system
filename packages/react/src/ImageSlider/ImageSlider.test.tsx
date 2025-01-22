@@ -10,13 +10,13 @@ const takeRecords = jest.fn()
 
 // Mock implementation of IntersectionObserver
 window.IntersectionObserver = jest.fn(() => ({
-  observe,
-  unobserve,
   disconnect,
-  takeRecords,
+  observe,
   root: null,
   rootMargin: '',
+  takeRecords,
   thresholds: [],
+  unobserve,
 }))
 
 describe('Image Slider', () => {
@@ -74,7 +74,7 @@ describe('Image Slider', () => {
   it('supports ForwardRef in React', () => {
     const ref = createRef<HTMLDivElement>()
 
-    const { container } = render(<ImageSlider images={images} ref={ref} />)
+    const { container } = render(<ImageSlider ref={ref} images={images} />)
 
     const component = container.querySelector(':only-child')
 

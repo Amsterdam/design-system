@@ -135,45 +135,45 @@ export const exampleQuote = () =>
   ])
 
 type TopTask = {
-  heading: string
   description: string
+  heading: string
 }
 
 export const exampleTopTask = () =>
   pickRandomContent<TopTask>([
     {
-      heading: 'Gemeentebelastingen',
       description: 'Bekijk welke belastingen en heffingen er zijn, hoe u bezwaar maakt of een betalingsregeling treft.',
+      heading: 'Gemeentebelastingen',
     },
     {
-      heading: 'Parkeren + Reizen (P+R)',
       description: 'U kunt met uw auto goedkoop parkeren bij een P+R-locatie aan de rand van de stad.',
+      heading: 'Parkeren + Reizen (P+R)',
     },
     {
-      heading: 'Paspoort',
       description: 'Vraag deze bewijzen aan of verleng ze. Geef een vermissing aan.',
+      heading: 'Paspoort',
     },
     {
-      heading: 'Onderwijs',
       description:
         'Meld een kind aan voor basisschool, middelbare school of kinderopvang. Bekijk het kindtegoed op uw Stadspas.',
+      heading: 'Onderwijs',
     },
     {
-      heading: 'Meldingen openbare ruimte en overlast',
       description:
         'Ziet u op straat of in een park iets waarvan u wilt dat het gemaakt of opgeruimd wordt, dan kunt u dat bij de gemeente melden.',
+      heading: 'Meldingen openbare ruimte en overlast',
     },
     {
-      heading: 'Verhuizing doorgeven',
       description: 'Geef uw nieuwe adres door als u binnen Amsterdam of naar Amsterdam verhuist.',
+      heading: 'Verhuizing doorgeven',
     },
     {
-      heading: 'Grof afval',
       description: 'Grof afval zijn spullen die niet in een vuilniszak passen.',
+      heading: 'Grof afval',
     },
     {
-      heading: 'Kennisgevingen en bekendmakingen',
       description: 'Kennisgevingen en bekendmakingen van de gemeente Amsterdam van de laatste 8 weken.',
+      heading: 'Kennisgevingen en bekendmakingen',
     },
   ])
 

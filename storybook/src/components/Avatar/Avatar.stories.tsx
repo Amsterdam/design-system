@@ -10,8 +10,8 @@ const meta = {
   title: 'Components/Feedback/Avatar',
   component: Avatar,
   args: {
-    label: 'DS',
     imageSrc: '',
+    label: 'DS',
   },
 } satisfies Meta<typeof Avatar>
 
@@ -23,8 +23,8 @@ export const Default: Story = {}
 
 export const WithImage: Story = {
   args: {
-    label: 'PS',
     imageSrc: 'https://i.pravatar.cc/128',
+    label: 'PS',
   },
 }
 

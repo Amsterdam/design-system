@@ -28,7 +28,7 @@ type LinkStory = StoryObj<typeof linkMeta>
 const StoryTemplate: Story = {
   args: {
     children: linkList.map((text, index) => (
-      <LinkList.Link href="#" key={index}>
+      <LinkList.Link key={index} href="#">
         {text}
       </LinkList.Link>
     )),
@@ -46,16 +46,16 @@ const LinkStoryTemplate: LinkStory = {
   argTypes: {
     icon: {
       control: {
-        type: 'select',
         labels: { undefined: 'none' },
+        type: 'select',
       },
-      options: [undefined, ...Object.keys(Icons)],
       mapping: Icons,
+      options: [undefined, ...Object.keys(Icons)],
     },
     size: {
       control: {
-        type: 'radio',
         labels: { undefined: 'medium' },
+        type: 'radio',
       },
       options: ['small', undefined, 'large'],
     },

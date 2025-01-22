@@ -22,13 +22,13 @@ const PageMenuRoot = forwardRef(
   ) => (
     <ul
       {...restProps}
+      ref={ref}
       className={clsx(
         'ams-page-menu',
         alignEnd && `ams-page-menu--align-end`,
         !wrap && `ams-page-menu--no-wrap`,
         className,
       )}
-      ref={ref}
     >
       {children}
     </ul>

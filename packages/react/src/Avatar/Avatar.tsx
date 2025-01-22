@@ -43,7 +43,7 @@ const AvatarContent = ({ imageSrc, initials }: AvatarContentProps) => {
     return <span aria-hidden={true}>{initials}</span>
   }
 
-  return <Icon svg={PersonalLoginIcon} size="level-6" />
+  return <Icon size="level-6" svg={PersonalLoginIcon} />
 }
 
 export type AvatarProps = {
@@ -56,7 +56,7 @@ export type AvatarProps = {
 } & HTMLAttributes<HTMLSpanElement>
 
 export const Avatar = forwardRef(
-  ({ label, imageSrc, className, color = 'blue', ...restProps }: AvatarProps, ref: ForwardedRef<HTMLSpanElement>) => {
+  ({ className, color = 'blue', imageSrc, label, ...restProps }: AvatarProps, ref: ForwardedRef<HTMLSpanElement>) => {
     const initials = label.slice(0, 2).toUpperCase()
 
     const a11yLabel = initials.length === 0 ? 'Gebruiker' : `Initialen gebruiker: ${initials}`

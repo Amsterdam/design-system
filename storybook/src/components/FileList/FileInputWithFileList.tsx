@@ -26,7 +26,7 @@ export const FileInputWithFileList = () => {
 
   return (
     <>
-      <FileInput multiple ref={inputRef} onChange={changeFiles} />
+      <FileInput ref={inputRef} multiple onChange={changeFiles} />
       {files && (
         <FileList>
           {Array.from(files).map((file, index) => (

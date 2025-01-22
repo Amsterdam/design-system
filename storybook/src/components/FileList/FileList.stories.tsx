@@ -14,12 +14,12 @@ const meta = {
     children: [
       <FileList.Item
         key="1"
-        file={new File(['sample1'], 'sample1.txt', { type: 'text/plain', lastModified: Date.now() })}
+        file={new File(['sample1'], 'sample1.txt', { lastModified: Date.now(), type: 'text/plain' })}
         onDelete={() => {}}
       />,
       <FileList.Item
         key="2"
-        file={new File(['sample2'], 'sample2.txt', { type: 'text/plain', lastModified: Date.now() })}
+        file={new File(['sample2'], 'sample2.txt', { lastModified: Date.now(), type: 'text/plain' })}
         onDelete={() => {}}
       />,
     ],

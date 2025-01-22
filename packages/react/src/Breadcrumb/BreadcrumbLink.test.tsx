@@ -26,7 +26,7 @@ describe('Breadcrumb link', () => {
   })
 
   it('renders an additional class name', () => {
-    render(<BreadcrumbLink href="/" className="extra" />)
+    render(<BreadcrumbLink className="extra" href="/" />)
 
     const component = screen.getByRole('link')
 
@@ -44,7 +44,7 @@ describe('Breadcrumb link', () => {
   it('supports ForwardRef in React', () => {
     const ref = createRef<HTMLAnchorElement>()
 
-    render(<BreadcrumbLink href="/" ref={ref} />)
+    render(<BreadcrumbLink ref={ref} href="/" />)
 
     const component = screen.getByRole('link')
 

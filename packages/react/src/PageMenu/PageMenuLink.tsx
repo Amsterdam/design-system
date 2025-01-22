@@ -17,7 +17,7 @@ export const PageMenuLink = forwardRef(
     <li>
       <a {...restProps} ref={ref} className={clsx('ams-page-menu__link', className)}>
         {children}
-        {icon && <Icon svg={icon} size="level-6" />}
+        {icon && <Icon size="level-6" svg={icon} />}
       </a>
     </li>
   ),

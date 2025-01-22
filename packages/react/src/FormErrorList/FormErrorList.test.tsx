@@ -35,7 +35,7 @@ describe('Form error list', () => {
   })
 
   it('renders an additional class name', () => {
-    const { container } = render(<FormErrorList errors={testErrors} className="extra" />)
+    const { container } = render(<FormErrorList className="extra" errors={testErrors} />)
 
     const component = container.querySelector(':only-child')
 
@@ -113,7 +113,7 @@ describe('Form error list', () => {
     it('single error', async () => {
       document.title = docTitle
 
-      render(<FormErrorList errors={singleTestError} errorCountLabel={label} />)
+      render(<FormErrorList errorCountLabel={label} errors={singleTestError} />)
 
       await waitFor(() => expect(document.title).toBe(`(1 error) ${docTitle}`))
     })
@@ -121,7 +121,7 @@ describe('Form error list', () => {
     it('multiple errors', async () => {
       document.title = docTitle
 
-      render(<FormErrorList errors={testErrors} errorCountLabel={label} />)
+      render(<FormErrorList errorCountLabel={label} errors={testErrors} />)
 
       await waitFor(() => expect(document.title).toBe(`(2 errors) ${docTitle}`))
     })
@@ -146,7 +146,7 @@ describe('Form error list', () => {
   it('supports ForwardRef in React', () => {
     const ref = createRef<HTMLDivElement>()
 
-    const { container } = render(<FormErrorList errors={testErrors} ref={ref} />)
+    const { container } = render(<FormErrorList ref={ref} errors={testErrors} />)
 
     const component = container.querySelector(':only-child')
 

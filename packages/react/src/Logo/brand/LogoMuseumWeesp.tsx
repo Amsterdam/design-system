@@ -3,12 +3,12 @@ import type { ForwardedRef, SVGProps } from 'react'
 
 const LogoMuseumWeesp = forwardRef((props: SVGProps<SVGSVGElement>, ref: ForwardedRef<SVGSVGElement>) => (
   <svg
-    className="ams-logo"
-    aria-hidden="true"
-    focusable="false"
     ref={ref}
-    viewBox="0 0 121 42"
+    aria-hidden="true"
+    className="ams-logo"
     fill="none"
+    focusable="false"
+    viewBox="0 0 121 42"
     xmlns="http://www.w3.org/2000/svg"
     {...props}
   >
