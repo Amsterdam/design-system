@@ -19,14 +19,6 @@
   flex: none;
   padding-block: var(--ams-alert-severity-indicator-padding-block);
   padding-inline: var(--ams-alert-severity-indicator-padding-inline);
-
-  @media (forced-colors: active) {
-    background-color: ButtonBorder;
-
-    .ams-icon {
-      color: ButtonFace;
-    }
-  }
 }
 
 .ams-alert__content {
