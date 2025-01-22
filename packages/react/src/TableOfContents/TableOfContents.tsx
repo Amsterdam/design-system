@@ -16,7 +16,7 @@ export type TableOfContentsProps = {
   heading?: string
   /**
    * The hierarchical level of the Heading within the document.
-   * Note: the font size is intentionally the same for every level.
+   * Note: this intentionally does not change the font size.
    */
   headingLevel?: HeadingProps['level']
 } & PropsWithChildren<HTMLAttributes<HTMLElement>>
