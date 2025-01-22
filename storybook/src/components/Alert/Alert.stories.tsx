@@ -13,6 +13,7 @@ const meta = {
   args: {
     closeable: false,
     heading: 'Let op',
+    headingLevel: 2,
   },
   argTypes: {
     severity: {
