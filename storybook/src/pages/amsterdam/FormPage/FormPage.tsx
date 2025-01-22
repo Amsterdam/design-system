@@ -86,7 +86,7 @@ export const FormPage = () => {
               </Row>
             </Column>
           </FieldSet>
-          <Alert severity="info">
+          <Alert heading="Waarom vragen we om deze gegevens?">
             <Paragraph>
               We bewaren uw contactgegevens voor het afhandelen van uw vraag of klacht en het verbeteren van onze
               dienstverlening.
