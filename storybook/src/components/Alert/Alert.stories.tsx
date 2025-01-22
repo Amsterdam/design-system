@@ -3,7 +3,7 @@
  * Copyright Gemeente Amsterdam
  */
 
-import { Link, Paragraph, UnorderedList } from '@amsterdam/design-system-react'
+import { Link, Paragraph } from '@amsterdam/design-system-react'
 import { Alert } from '@amsterdam/design-system-react/src'
 import { Meta, StoryObj } from '@storybook/react'
 
@@ -13,6 +13,14 @@ const meta = {
   args: {
     closeable: false,
     heading: 'Let op',
+  },
+  argTypes: {
+    severity: {
+      control: {
+        labels: { undefined: 'information' },
+      },
+      options: [undefined, 'success', 'warning', 'error'],
+    },
   },
 } satisfies Meta<typeof Alert>
 
@@ -24,17 +32,19 @@ export const Default: Story = {
   args: {
     children: (
       <Paragraph>
-        Tijdens Koningsdag zijn alle Stadsloketten gesloten. Ook 14 020 en alle andere telefoonnummers van de gemeente
-        zijn niet bereikbaar.
+        Tijdens de hijswerkzaamheden geldt er een korte verkeersstop. We zetten verkeersregelaars in, volg hun
+        aanwijzingen op. De verkeersstop duurt ongeveer 10 minuten.
       </Paragraph>
     ),
+    heading: 'Tijdelijk geen verkeer mogelijk',
   },
 }
 
 export const Warning: Story = {
   args: {
-    children: <Paragraph>U bent vergeten verplichte velden in te vullen.</Paragraph>,
+    children: <Paragraph>Sommige verplichte velden zijn nog niet ingevuld.</Paragraph>,
     heading: 'Vul de gegevens aan',
+    severity: 'warning',
   },
 }
 
@@ -69,20 +79,6 @@ export const Info: Story = {
       </Paragraph>
     ),
     closeable: true,
-    severity: 'info',
-  },
-}
-
-export const WithList: Story = {
-  args: {
-    children: [
-      <Paragraph key={1}>U bent vergeten de volgende verplichte velden in te vullen:</Paragraph>,
-      <UnorderedList key={2}>
-        <UnorderedList.Item>Naam</UnorderedList.Item>
-        <UnorderedList.Item>Telefoonnummer</UnorderedList.Item>
-      </UnorderedList>,
-    ],
-    heading: 'Vul de gegevens aan',
   },
 }
 
@@ -90,24 +86,14 @@ export const WithInlineLink: Story = {
   args: {
     children: (
       <Paragraph>
-        Tijdens Koningsdag zijn{' '}
+        Aangepast op 30 april: de werkzaamheden lopen uit tot ten met 31 juli 2025.{' '}
         <Link href="#" variant="inline">
-          alle Stadsloketten
+          Lees het nieuwsbericht
         </Link>{' '}
-        gesloten. Ook 14 020 en alle andere telefoonnummers van de gemeente zijn niet bereikbaar.
+        voor meer informatie.
       </Paragraph>
     ),
-    severity: 'info',
-  },
-}
-
-export const WithoutHeading: Story = {
-  args: {
-    children: (
-      <Paragraph>
-        De geschatte wachttijd in de adreszoeker klopt momenteel niet altijd. We werken aan een oplossing.
-      </Paragraph>
-    ),
-    heading: undefined,
+    heading: 'De werkzaamheden duren langer',
+    severity: 'warning',
   },
 }

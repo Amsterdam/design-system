@@ -8,7 +8,6 @@ import clsx from 'clsx'
 import { forwardRef } from 'react'
 import type { ForwardedRef, HTMLAttributes } from 'react'
 import { Icon } from '../Icon'
-import { Image } from '../Image'
 
 export const avatarColors = [
   'black',
@@ -36,7 +35,7 @@ type AvatarContentProps = {
 
 const AvatarContent = ({ imageSrc, initials }: AvatarContentProps) => {
   if (imageSrc) {
-    return <Image alt="" src={imageSrc} />
+    return <img alt="" src={imageSrc} />
   }
 
   if (initials.length) {

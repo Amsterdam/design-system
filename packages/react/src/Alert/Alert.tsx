@@ -11,6 +11,9 @@ import { Heading } from '../Heading'
 import type { HeadingProps } from '../Heading'
 import { Icon } from '../Icon'
 import { IconButton } from '../IconButton'
+import { Row } from '../Row'
+
+type Severity = 'error' | 'success' | 'warning'
 
 export type AlertProps = {
   /** Whether the user can dismiss the Alert. Adds a button to its top right. */
@@ -18,7 +21,7 @@ export type AlertProps = {
   /** The label for the button that dismisses the Alert. */
   closeButtonLabel?: string
   /** The text for the Heading. */
-  heading?: string
+  heading: string
   /**
    * The hierarchical level of the Heading within the document.
    * Note: this intentionally does not change the font size.
@@ -27,12 +30,11 @@ export type AlertProps = {
   /** A function to run when dismissing. */
   onClose?: () => void
   /** The significance of the message conveyed. */
-  severity?: 'error' | 'info' | 'success' | 'warning'
+  severity?: Severity
 } & PropsWithChildren<HTMLAttributes<HTMLDivElement>>
 
-const iconSvgBySeverity = {
+const iconSvgBySeverity: Record<Severity, Function> = {
   error: AlertIcon,
-  info: InfoIcon,
   success: CheckmarkIcon,
   warning: AlertIcon,
 }
@@ -47,29 +49,28 @@ export const Alert = forwardRef(
       heading,
       headingLevel = 2,
       onClose,
-      severity = 'warning',
+      severity,
       ...restProps
     }: AlertProps,
     ref: ForwardedRef<HTMLDivElement>,
   ) => {
-    const alertSize = heading ? 'level-4' : 'level-5'
-    const Tag = heading ? 'section' : 'div'
+    const SeverityIcon = severity ? iconSvgBySeverity[severity] : InfoIcon
 
     return (
-      <Tag {...restProps} ref={ref} className={clsx('ams-alert', severity && `ams-alert--${severity}`, className)}>
-        <div className="ams-alert__icon">
-          <Icon size={alertSize} svg={iconSvgBySeverity[severity]} />
+      <section {...restProps} ref={ref} className={clsx('ams-alert', severity && `ams-alert--${severity}`, className)}>
+        <div className="ams-alert__severity-indicator">
+          <Icon inverseColor size="level-4" svg={SeverityIcon} />
         </div>
         <div className="ams-alert__content">
-          {heading && (
+          <Row align="between" alignVertical="start">
             <Heading level={headingLevel} size="level-4">
               {heading}
             </Heading>
-          )}
+            {closeable && <IconButton label={closeButtonLabel} size="level-4" onClick={onClose} />}
+          </Row>
           {children}
         </div>
-        {closeable && <IconButton label={closeButtonLabel} size={alertSize} onClick={onClose} />}
-      </Tag>
+      </section>
     )
   },
 )

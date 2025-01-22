@@ -4,21 +4,19 @@
 
 An Alert informs the user of a significant or time-sensitive message without interrupting their task.
 
-## Specifications
-
-There are four types of notifications:
-
-- **Warning** (orange) when action is needed to prevent damage.
-- **Error** (red) indicates an error has occurred.
-- **Confirmation** (green) to reassure that a process is complete.
-- **Notification** (blue) to bring attention to a message.
-
 ## Guidelines
 
-- Place an orange Alert directly below the Header for important and urgent information.
+- Use an Alert if the message’s purpose matches one of the following:
+  - **Information** to bring attention to a message.
+    This variation is blue and it is the default.
+  - **Success** to reassure that a process is complete.
+    This variation is green.
+  - **Warning** when action is needed to prevent damage.
+    This variation is orange.
+  - **Error** indicates an error has occurred.
+    This variation is red.
+- Place the Alert in a Grid Cell to create enough white space around it.
+- Important and urgent information is to be placed directly below the Header.
   Examples: system outage or changes in the opening hours of a City Office.
-- Ensure sufficient white space around the Alert.
-  The grid’s white space is a good reference – place the Alert in its own cell.
-- By default, the Alert cannot be closed.
-  This functionality can be added optionally.
-- Optionally, the heading can be omitted.
+  This can be applied to the entire application or to a part of it.
+- Add a close button if the user should be able to dismiss the Alert.
