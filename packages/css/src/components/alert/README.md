@@ -19,4 +19,4 @@ An Alert informs the user of a significant or time-sensitive message without int
 - Important and urgent information is to be placed directly below the Header.
   Examples: system outage or changes in the opening hours of a City Office.
   This can be applied to the entire application or to a part of it.
-- Add a close button to allow the user to dismiss the Alert.
+- Add a close button if the user should be able to dismiss the Alert.
