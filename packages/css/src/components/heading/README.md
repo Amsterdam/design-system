@@ -2,16 +2,16 @@
 
 # Heading
 
-Describes the content that follows it.
-Use Headings to allow the user to grasp the structure of the page quickly.
+Introduces a page section and describes the following content.
 
 ## Guidelines
 
-- A heading describes the content beneath it.
-- Every page should contain one Heading with level 1.
-- Do not skip heading levels, e.g. a level 2 Heading should be followed by one with level 3, not level 4.
-- Do not use a Heading for formatting and styling, but to represent the page’s structure.
-  Users of screen readers use headings to navigate the page – an incorrect hierarchy can confuse them.
+- Use Headings to allow the user to quickly grasp the structure of the page.
+- All headings together represent the document’s structure. Users of screen readers may use headings to navigate the page – an incorrect hierarchy will confuse them.
+- Every page should contain one heading with level 1.
+  Do not skip heading levels, e.g. a level 2 Heading should be followed by one with level 3, not level 4.
+  The `level` prop doesn’t have a default value; the correct level should be determined for each instance.
+- Don’t use a Heading just for its visual appearance.
 
 ## Relevant WCAG requirements
 

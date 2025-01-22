@@ -2,25 +2,37 @@
   "ams": {
     "alert": {
       "background-color": { "value": "{ams.color.canvas.default}" },
-      "border-width": { "value": "{ams.border.width.xl}" },
-      "border-style": { "value": "solid" },
-      "gap": { "value": "{ams.space.sm}" },
-      "padding-block": { "value": "{ams.space.md}" },
-      "padding-inline": { "value": "{ams.space.lg}" },
-      "error": {
-        "border-color": { "value": "{ams.color.feedback.error.default}" }
+      "box-shadow": { "value": "inset 0 0 0 {ams.border.width.xl} {ams.color.feedback.info.default}" },
+      "forced-colors": {
+        "border-width": { "value": "{ams.border.width.xl}" }
       },
-      "info": {
-        "border-color": { "value": "{ams.color.feedback.info.default}" }
-      },
-      "success": {
-        "border-color": { "value": "{ams.color.feedback.success.default}" }
-      },
-      "warning": {
-        "border-color": { "value": "{ams.color.feedback.warning.default}" }
+      "severity-indicator": {
+        "background-color": { "value": "{ams.color.feedback.info.default}" },
+        "padding-block": { "value": "{ams.space.md}" },
+        "padding-inline": { "value": "{ams.space.xs}" }
       },
       "content": {
-        "gap": { "value": "{ams.space.sm}" }
+        "gap": { "value": "{ams.space.sm}" },
+        "padding-block": { "value": "{ams.space.md}" },
+        "padding-inline": { "value": "{ams.space.md}" }
+      },
+      "error": {
+        "box-shadow": { "value": "inset 0 0 0 {ams.border.width.xl} {ams.color.feedback.error.default}" },
+        "severity-indicator": {
+          "background-color": { "value": "{ams.color.feedback.error.default}" }
+        }
+      },
+      "success": {
+        "box-shadow": { "value": "inset 0 0 0 {ams.border.width.xl} {ams.color.feedback.success.default}" },
+        "severity-indicator": {
+          "background-color": { "value": "{ams.color.feedback.success.default}" }
+        }
+      },
+      "warning": {
+        "box-shadow": { "value": "inset 0 0 0 {ams.border.width.xl} {ams.color.feedback.warning.default}" },
+        "severity-indicator": {
+          "background-color": { "value": "{ams.color.feedback.warning.default}" }
+        }
       }
     }
   }
