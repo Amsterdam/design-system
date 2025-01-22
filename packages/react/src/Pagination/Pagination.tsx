@@ -54,15 +54,15 @@ export const Pagination = forwardRef(
     }: PaginationProps,
     ref: ForwardedRef<HTMLElement>,
   ) => {
-    const Link = linkComponent
-
-    // Get array of page numbers and / or spacers
-    const range = getRange(page, totalPages, maxVisiblePages)
-
     // Don't show pagination if you only have one page
     if (totalPages <= 1) {
       return null
     }
+
+    const Link = linkComponent
+
+    // Get array of page numbers and / or spacers
+    const range = getRange(page, totalPages, maxVisiblePages)
 
     return (
       <nav {...restProps} aria-labelledby={id} className={clsx('ams-pagination', className)} ref={ref}>
