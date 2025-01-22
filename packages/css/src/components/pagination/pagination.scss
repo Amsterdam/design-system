@@ -30,7 +30,7 @@
 
 .ams-pagination__link {
   color: var(--ams-pagination-link-color);
-  display: flex;
+  display: inline-flex;
   gap: var(--ams-pagination-link-gap);
   outline-offset: var(--ams-pagination-link-outline-offset);
   padding-inline: var(--ams-pagination-link-padding-inline);
