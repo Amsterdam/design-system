@@ -24,6 +24,36 @@ const compat = new FlatCompat({
   allConfig: eslint.configs.all,
 })
 
+const perfectionistCommonConfig = {
+  customSizesGroups: {
+    customGroups: [
+      {
+        groupName: 'small',
+        selector: 'property',
+        elementNamePattern: '^(small|sm|narrow|phone|min|start)$',
+      },
+      {
+        groupName: 'medium',
+        selector: 'property',
+        elementNamePattern: '^(medium|md|tablet)$',
+      },
+      {
+        groupName: 'large',
+        selector: 'property',
+        elementNamePattern: '^(large|lg|wide|desktop|max|end)$',
+      },
+    ],
+    groups: ['small', 'medium', 'large'],
+    useConfigurationIf: {
+      allNamesMatchPattern: '^(small|sm|narrow|phone|min|start|medium|md|tablet|large|lg|wide|desktop|max|end)$',
+    },
+  },
+  partition: {
+    partitionByComment: true,
+    partitionByNewLine: true,
+  },
+}
+
 export default tseslint.config(
   // Global
   {
@@ -183,14 +213,67 @@ export default tseslint.config(
       'no-var': 'error',
       'no-void': 'error',
       'no-with': 'error',
-      'perfectionist/sort-objects': [
+      'perfectionist/sort-enums': [
+        'error',
+        {
+          ...perfectionistCommonConfig.partition,
+        },
+      ],
+      'perfectionist/sort-interfaces': [
+        'error',
+        {
+          ...perfectionistCommonConfig.partition,
+        },
+      ],
+      'perfectionist/sort-jsx-props': [
         'error',
         {
           customGroups: {
-            first: ['id', 'name'],
-            last: ['overrides'],
+            key: '^key$',
+            as: '^as$',
+            id: '^id$',
+            name: '^name$',
+            ref: '^ref$',
+            methods: '^on[A-Z].*$',
           },
-          groups: ['first', 'unknown', 'last'],
+          groups: ['key', 'as', 'id', 'name', 'ref', 'unknown', 'methods'],
+          ...perfectionistCommonConfig.partition.partitionByNewLine,
+        },
+      ],
+      'perfectionist/sort-maps': [
+        'error',
+        {
+          ...perfectionistCommonConfig.partition,
+        },
+      ],
+      'perfectionist/sort-object-types': [
+        'error',
+        {
+          ...perfectionistCommonConfig.customSizesGroups,
+          ...perfectionistCommonConfig.partition,
+        },
+      ],
+      'perfectionist/sort-objects': [
+        'error',
+        {
+          ...perfectionistCommonConfig.customSizesGroups,
+          ...perfectionistCommonConfig.partition,
+        },
+        {
+          customGroups: [
+            {
+              groupName: 'title',
+              selector: 'property',
+              elementNamePattern: '^title$',
+            },
+            {
+              groupName: 'component',
+              selector: 'property',
+              elementNamePattern: '^component$',
+            },
+          ],
+          groups: ['title', 'component'],
+          ...perfectionistCommonConfig.partition,
         },
       ],
       'prefer-regex-literals': 'error',
