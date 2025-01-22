@@ -10,7 +10,7 @@ describe('Form error list', () => {
   ]
 
   it('renders', () => {
-    const { container } = render(<FormErrorList errors={testErrors} />)
+    const { container } = render(<FormErrorList errors={testErrors} headingLevel={2} />)
 
     const component = container.querySelector(':only-child')
 
@@ -19,7 +19,7 @@ describe('Form error list', () => {
   })
 
   it('does not render when there are no errors', () => {
-    const { container } = render(<FormErrorList errors={[]} />)
+    const { container } = render(<FormErrorList errors={[]} headingLevel={2} />)
 
     const component = container.querySelector(':only-child')
 
@@ -27,7 +27,7 @@ describe('Form error list', () => {
   })
 
   it('renders a design system BEM class name', () => {
-    const { container } = render(<FormErrorList errors={testErrors} />)
+    const { container } = render(<FormErrorList errors={testErrors} headingLevel={2} />)
 
     const component = container.querySelector(':only-child')
 
@@ -35,7 +35,7 @@ describe('Form error list', () => {
   })
 
   it('renders an additional class name', () => {
-    const { container } = render(<FormErrorList className="extra" errors={testErrors} />)
+    const { container } = render(<FormErrorList className="extra" errors={testErrors} headingLevel={2} />)
 
     const component = container.querySelector(':only-child')
 
@@ -43,17 +43,17 @@ describe('Form error list', () => {
   })
 
   it('renders a list item and link for every error', () => {
-    render(<FormErrorList errors={testErrors} />)
+    render(<FormErrorList errors={testErrors} headingLevel={2} />)
 
-    const listitems = screen.getAllByRole('listitem')
+    const listItems = screen.getAllByRole('listitem')
     const links = screen.getAllByRole('link')
 
-    expect(listitems.length).toBe(2)
+    expect(listItems.length).toBe(2)
     expect(links.length).toBe(2)
   })
 
   it('renders a link with the correct name and href for every error', () => {
-    render(<FormErrorList errors={testErrors} />)
+    render(<FormErrorList errors={testErrors} headingLevel={2} />)
 
     const link1 = screen.getByRole('link', { name: testErrors[0].label })
     const link2 = screen.getByRole('link', { name: testErrors[1].label })
@@ -63,7 +63,7 @@ describe('Form error list', () => {
   })
 
   it('renders a custom heading', () => {
-    render(<FormErrorList errors={testErrors} heading="Test heading" />)
+    render(<FormErrorList errors={testErrors} heading="Test heading" headingLevel={2} />)
 
     const component = screen.getByRole('heading', { name: 'Test heading' })
 
@@ -85,7 +85,7 @@ describe('Form error list', () => {
     it('single error', async () => {
       document.title = docTitle
 
-      render(<FormErrorList errors={singleTestError} />)
+      render(<FormErrorList errors={singleTestError} headingLevel={2} />)
 
       await waitFor(() => expect(document.title).toBe(`(1 invoerfout) ${docTitle}`))
     })
@@ -93,7 +93,7 @@ describe('Form error list', () => {
     it('multiple errors', async () => {
       document.title = docTitle
 
-      render(<FormErrorList errors={testErrors} />)
+      render(<FormErrorList errors={testErrors} headingLevel={2} />)
 
       await waitFor(() => expect(document.title).toBe(`(2 invoerfouten) ${docTitle}`))
     })
@@ -105,7 +105,7 @@ describe('Form error list', () => {
     it('no errors', async () => {
       document.title = docTitle
 
-      render(<FormErrorList errors={[]} />)
+      render(<FormErrorList errors={[]} headingLevel={2} />)
 
       await waitFor(() => expect(document.title).toBe(docTitle))
     })
@@ -113,7 +113,7 @@ describe('Form error list', () => {
     it('single error', async () => {
       document.title = docTitle
 
-      render(<FormErrorList errorCountLabel={label} errors={singleTestError} />)
+      render(<FormErrorList errorCountLabel={label} errors={singleTestError} headingLevel={2} />)
 
       await waitFor(() => expect(document.title).toBe(`(1 error) ${docTitle}`))
     })
@@ -121,14 +121,14 @@ describe('Form error list', () => {
     it('multiple errors', async () => {
       document.title = docTitle
 
-      render(<FormErrorList errorCountLabel={label} errors={testErrors} />)
+      render(<FormErrorList errorCountLabel={label} errors={testErrors} headingLevel={2} />)
 
       await waitFor(() => expect(document.title).toBe(`(2 errors) ${docTitle}`))
     })
   })
 
   it('has focus on render', async () => {
-    const { container } = render(<FormErrorList errors={testErrors} />)
+    const { container } = render(<FormErrorList errors={testErrors} headingLevel={2} />)
 
     const component = container.querySelector(':only-child')
 
@@ -136,7 +136,7 @@ describe('Form error list', () => {
   })
 
   it('can disable automatic focus', async () => {
-    const { container } = render(<FormErrorList errors={testErrors} focusOnRender={false} />)
+    const { container } = render(<FormErrorList errors={testErrors} focusOnRender={false} headingLevel={2} />)
 
     const component = container.querySelector(':only-child')
 
@@ -146,7 +146,7 @@ describe('Form error list', () => {
   it('supports ForwardRef in React', () => {
     const ref = createRef<HTMLDivElement>()
 
-    const { container } = render(<FormErrorList ref={ref} errors={testErrors} />)
+    const { container } = render(<FormErrorList ref={ref} errors={testErrors} headingLevel={2} />)
 
     const component = container.querySelector(':only-child')
 

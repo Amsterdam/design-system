@@ -34,11 +34,11 @@ export type FormErrorListProps = {
    */
   heading?: string
   /**
-   * The hierarchical level of the Heading within the document.
+   * The hierarchical level of the Form Error List’s Heading within the document.
+   * There is no default value; determine the correct level for each instance.
    * Note: this intentionally does not change the font size.
-   * @default 2
-   */
-  headingLevel?: HeadingProps['level']
+   **/
+  headingLevel: HeadingProps['level']
 } & HTMLAttributes<HTMLDivElement>
 
 export const FormErrorList = forwardRef(
