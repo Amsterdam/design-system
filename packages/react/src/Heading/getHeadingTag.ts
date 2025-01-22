@@ -1,3 +1,15 @@
 import type { HeadingProps } from './Heading'
 
-export const getHeadingTag = (level: HeadingProps['level']): `h${HeadingProps['level']}` => `h${level}`
+export function getHeadingTag(level: HeadingProps['level']) {
+  switch (level) {
+    case 2:
+      return 'h2'
+    case 3:
+      return 'h3'
+    case 4:
+      return 'h4'
+    // Ensure valid HTML with invalid input outside of TypeScript.
+    default:
+      return 'h1'
+  }
+}
