@@ -14,6 +14,14 @@ const meta = {
     closeable: false,
     heading: 'Let op',
   },
+  argTypes: {
+    severity: {
+      control: {
+        labels: { undefined: 'information' },
+      },
+      options: [undefined, 'success', 'warning', 'error'],
+    },
+  },
 } satisfies Meta<typeof Alert>
 
 export default meta
