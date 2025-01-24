@@ -7,36 +7,10 @@ import { ChevronLeftIcon, ChevronRightIcon } from '@amsterdam/design-system-reac
 import clsx from 'clsx'
 import { forwardRef } from 'react'
 import type { AnchorHTMLAttributes, ComponentType, ForwardedRef, HTMLAttributes } from 'react'
+import { LinkItem } from './LinkItem'
+import { Spacer } from './Spacer'
 import { getRange } from './getRange'
 import { Icon } from '../Icon/Icon'
-
-type LinkItemProps = Pick<PaginationProps, 'linkComponent' | 'linkTemplate'> & {
-  currentPage: PaginationProps['page']
-  pageNumber: number
-}
-
-const LinkItem = ({ currentPage, linkComponent, linkTemplate, pageNumber }: LinkItemProps) => {
-  if (!linkComponent) return null
-
-  const Link = linkComponent
-
-  return (
-    <li>
-      <Link
-        aria-current={pageNumber === currentPage ? 'page' : undefined}
-        className="ams-pagination__link"
-        href={linkTemplate(pageNumber)}
-      >
-        <span className="ams-visually-hidden">
-          {pageNumber === currentPage ? `Pagina ${pageNumber}` : `Ga naar pagina ${pageNumber}`}
-        </span>
-        <span aria-hidden>{pageNumber}</span>
-      </Link>
-    </li>
-  )
-}
-
-const Spacer = () => <li aria-hidden>{'\u2026'}</li>
 
 export type PaginationProps = {
   /** The React component to use for the links. */
