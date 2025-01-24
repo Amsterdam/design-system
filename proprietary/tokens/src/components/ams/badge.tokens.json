@@ -29,7 +29,7 @@
         "color": { "value": "{ams.color.text.inverse}" }
       },
       "red": {
-        "background-color": { "value": "{ams.color.highlight.red}" },
+        "background-color": { "value": "{ams.color.feedback.error}" },
         "color": { "value": "{ams.color.text.inverse}" }
       },
       "yellow": {
