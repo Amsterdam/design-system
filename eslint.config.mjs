@@ -228,15 +228,6 @@ export default tseslint.config(
       'perfectionist/sort-jsx-props': [
         'error',
         {
-          customGroups: {
-            key: '^key$',
-            as: '^as$',
-            id: '^id$',
-            name: '^name$',
-            ref: '^ref$',
-            methods: '^on[A-Z].*$',
-          },
-          groups: ['key', 'as', 'id', 'name', 'ref', 'unknown', 'methods'],
           ...perfectionistCommonConfig.partition.partitionByNewLine,
         },
       ],
