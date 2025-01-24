@@ -10,6 +10,38 @@ import type { AnchorHTMLAttributes, ComponentType, ForwardedRef, HTMLAttributes 
 import { getRange } from './getRange'
 import { Icon } from '../Icon/Icon'
 
+type LinkItemProps = Pick<PaginationProps, 'linkComponent' | 'linkTemplate'> & {
+  currentPage: PaginationProps['page']
+  pageNumber: number
+}
+
+const LinkItem = ({ currentPage, linkComponent, linkTemplate, pageNumber }: LinkItemProps) => {
+  if (!linkComponent) return null
+
+  const Link = linkComponent
+
+  return (
+    <li>
+      <Link
+        aria-current={pageNumber === currentPage ? 'page' : undefined}
+        className="ams-pagination__link"
+        href={linkTemplate(pageNumber)}
+      >
+        <span className="ams-visually-hidden">
+          {pageNumber === currentPage ? `Pagina ${pageNumber}` : `Ga naar pagina ${pageNumber}`}
+        </span>
+        <span aria-hidden>{pageNumber}</span>
+      </Link>
+    </li>
+  )
+}
+
+const Spacer = ({ spacer }) => (
+  <li aria-hidden data-testid={spacer}>
+    {'\u2026'}
+  </li>
+)
+
 export type PaginationProps = {
   /** The id of the accessible label. */
   id?: string
@@ -79,24 +111,15 @@ export const Pagination = forwardRef(
         <ol className="ams-pagination__list">
           {range.map((pageNumberOrSpacer) =>
             typeof pageNumberOrSpacer === 'number' ? (
-              <li key={pageNumberOrSpacer}>
-                <Link
-                  aria-current={pageNumberOrSpacer === page ? 'page' : undefined}
-                  className="ams-pagination__link"
-                  href={linkTemplate(pageNumberOrSpacer)}
-                >
-                  <span className="ams-visually-hidden">
-                    {pageNumberOrSpacer === page
-                      ? `Pagina ${pageNumberOrSpacer}`
-                      : `Ga naar pagina ${pageNumberOrSpacer}`}
-                  </span>
-                  <span aria-hidden>{pageNumberOrSpacer}</span>
-                </Link>
-              </li>
+              <LinkItem
+                currentPage={page}
+                key={pageNumberOrSpacer}
+                linkComponent={linkComponent}
+                linkTemplate={linkTemplate}
+                pageNumber={pageNumberOrSpacer}
+              />
             ) : (
-              <li key={pageNumberOrSpacer} aria-hidden data-testid={pageNumberOrSpacer}>
-                {'\u2026'}
-              </li>
+              <Spacer key={pageNumberOrSpacer} spacer={pageNumberOrSpacer} />
             ),
           )}
         </ol>
