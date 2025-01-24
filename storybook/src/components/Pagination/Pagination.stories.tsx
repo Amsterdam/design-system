@@ -10,30 +10,17 @@ const meta = {
   title: 'Components/Navigation/Pagination',
   component: Pagination,
   args: {
+    linkTemplate: (page) => `#?pagina=${page}`,
     maxVisiblePages: 7,
     page: 1,
     totalPages: 10,
   },
   argTypes: {
-    onPageChange: { action: 'page changed' },
     page: {
       control: {
         min: 1,
         type: 'number',
       },
-    },
-  },
-  decorators: [
-    // Wrap the story in a div with a key, to force a rerender when the 'page' arg changes
-    (Story, { args }) => (
-      <div id="ams-docs-custom-root" key={JSON.stringify(args)}>
-        <Story />
-      </div>
-    ),
-  ],
-  parameters: {
-    html: {
-      root: '#ams-docs-custom-root',
     },
   },
 } satisfies Meta<typeof Pagination>

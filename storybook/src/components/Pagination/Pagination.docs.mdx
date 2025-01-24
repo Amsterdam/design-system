@@ -11,3 +11,37 @@ import README from "../../../../packages/css/src/components/pagination/README.md
 <Primary />
 
 <Controls />
+
+## How to use
+
+### Specifying a link template
+
+Use the `linkTemplate` prop to set the `href` attribute for the Pagination links.
+Remember to include URL parameters other than the page number,
+e.g. those for a paginated search page.
+
+{/* prettier-ignore */}
+```tsx
+const linkTemplate = (page) => `/?pagina=${page}&categorie=video&thema=bestuur`
+
+return <Pagination linkTemplate={linkTemplate} />
+```
+
+### With a custom link component
+
+Pass a custom link component to use Pagination with your application’s routing library.
+Here’s an example with the Link component of Next.js:
+
+{/* prettier-ignore */}
+```tsx
+import { Pagination } from "@amsterdam/design-system-react"
+import NextLink from "next/link"
+
+const LinkComponent = (props) => (
+  <NextLink href={props.href} legacyBehavior passHref>
+    <a {...props} />
+  </NextLink>
+)
+
+return <Pagination linkComponent={LinkComponent} />
+```
