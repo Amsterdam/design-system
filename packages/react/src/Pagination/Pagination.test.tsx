@@ -35,27 +35,49 @@ describe('Pagination', () => {
   it('should render all the pages when totalPages < maxVisiblePages', () => {
     render(<Pagination linkTemplate={linkTemplate} maxVisiblePages={7} totalPages={6} />)
 
-    expect(screen.getAllByRole('listitem').length).toBe(6)
-    expect(screen.queryByTestId('lastSpacer')).not.toBeInTheDocument()
-    expect(screen.queryByTestId('firstSpacer')).not.toBeInTheDocument()
+    const listItem = screen.getAllByRole('listitem', { hidden: true })
+
+    const range = ['1', '2', '3', '4', '5', '6']
+
+    range.forEach((item, index) => {
+      expect(listItem[index]).toHaveTextContent(item)
+    })
   })
 
-  it('should render the pages including one (last) spacer when totalPages > maxVisiblePages', () => {
+  it('should render the pages including one (last) spacer in the correct location when totalPages > maxVisiblePages', () => {
     render(<Pagination linkTemplate={linkTemplate} maxVisiblePages={7} page={1} totalPages={10} />)
 
-    const spacers = screen.getAllByText('…')
+    const listItem = screen.getAllByRole('listitem', { hidden: true })
 
-    expect(screen.getAllByRole('listitem').length).toBe(6)
-    expect(spacers.length).toBe(1)
+    const range = ['1', '2', '3', '4', '5', '…', '10']
+
+    range.forEach((item, index) => {
+      expect(listItem[index]).toHaveTextContent(item)
+    })
   })
 
-  it('should render the pages including the two spacers when totalPages > maxVisiblePages and current page > 4', () => {
+  it('should render the pages including the two spacers in the correct location when totalPages > maxVisiblePages and current page > 4', () => {
     render(<Pagination linkTemplate={linkTemplate} maxVisiblePages={7} page={6} totalPages={10} />)
 
-    const spacers = screen.getAllByText('…')
+    const listItem = screen.getAllByRole('listitem', { hidden: true })
 
-    expect(screen.getAllByRole('listitem').length).toBe(5)
-    expect(spacers.length).toBe(2)
+    const range = ['1', '…', '5', '6', '7', '…', '10']
+
+    range.forEach((item, index) => {
+      expect(listItem[index]).toHaveTextContent(item)
+    })
+  })
+
+  it('should render the pages including one (first) spacer in the correct location when totalPages > maxVisiblePages and page > maxVisiblePages', () => {
+    render(<Pagination linkTemplate={linkTemplate} maxVisiblePages={7} page={8} totalPages={10} />)
+
+    const listItem = screen.getAllByRole('listitem', { hidden: true })
+
+    const range = ['1', '…', '6', '7', '8', '9', '10']
+
+    range.forEach((item, index) => {
+      expect(listItem[index]).toHaveTextContent(item)
+    })
   })
 
   it('should set aria-current to true on the current page', () => {
