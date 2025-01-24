@@ -25,7 +25,6 @@ export const Link = forwardRef(
   ) => (
     <a
       {...restProps}
-      ref={ref}
       className={clsx(
         'ams-link',
         contrastColor && 'ams-link--contrast-color',
@@ -34,6 +33,7 @@ export const Link = forwardRef(
         variant === 'standalone' && 'ams-link--standalone',
         className,
       )}
+      ref={ref}
     >
       {children}
     </a>

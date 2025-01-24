@@ -24,11 +24,11 @@ const meta = {
     },
     icon: {
       control: {
-        type: 'select',
         labels: { undefined: 'none' },
+        type: 'select',
       },
-      options: [undefined, ...Object.keys(Icons)],
       mapping: Icons,
+      options: [undefined, ...Object.keys(Icons)],
     },
     iconBefore: {
       control: {

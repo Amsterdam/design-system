@@ -44,7 +44,7 @@ export const Logo = forwardRef(
   ({ brand = 'amsterdam', className, ...restProps }: LogoProps, ref: ForwardedRef<SVGSVGElement>) => {
     const LogoComponent = logoConfig[brand]
 
-    return <LogoComponent {...restProps} ref={ref} className={clsx('ams-logo', className)} />
+    return <LogoComponent {...restProps} className={clsx('ams-logo', className)} ref={ref} />
   },
 )
 

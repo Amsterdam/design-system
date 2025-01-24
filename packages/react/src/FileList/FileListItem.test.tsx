@@ -23,7 +23,7 @@ describe('FileListItem', () => {
   })
 
   it('renders an additional class name', () => {
-    render(<FileListItem file={file} className="extra" />)
+    render(<FileListItem className="extra" file={file} />)
 
     const component = screen.getByRole('listitem')
 

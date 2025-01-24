@@ -22,7 +22,7 @@ describe('Dialog', () => {
   })
 
   it('renders an additional class name', () => {
-    render(<Dialog heading="Test heading" className="extra" />)
+    render(<Dialog className="extra" heading="Test heading" />)
 
     const component = screen.getByRole('dialog', { hidden: true })
 
@@ -65,7 +65,7 @@ describe('Dialog', () => {
   })
 
   it('renders footer when provided', () => {
-    render(<Dialog heading="Test heading" footer={<button>Click Me</button>} open />)
+    render(<Dialog footer={<button>Click Me</button>} heading="Test heading" open />)
 
     const footer = screen.getByRole('contentinfo')
     const button = screen.getByRole('button', {
@@ -93,7 +93,7 @@ describe('Dialog', () => {
   })
 
   it('renders a custom close label', () => {
-    render(<Dialog heading="Test heading" open closeButtonLabel="Close" />)
+    render(<Dialog closeButtonLabel="Close" heading="Test heading" open />)
 
     const closeButton = screen.getByRole('button', { name: 'Close' })
 

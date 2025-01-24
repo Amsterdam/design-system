@@ -14,7 +14,7 @@ export type LinkListProps = PropsWithChildren<HTMLAttributes<HTMLUListElement>>
 const LinkListRoot = forwardRef(
   ({ children, className, ...restProps }: LinkListProps, ref: ForwardedRef<HTMLUListElement>) => {
     return (
-      <ul ref={ref} className={clsx('ams-link-list', className)} {...restProps}>
+      <ul className={clsx('ams-link-list', className)} ref={ref} {...restProps}>
         {children}
       </ul>
     )

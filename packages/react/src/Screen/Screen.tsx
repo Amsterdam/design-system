@@ -23,8 +23,8 @@ export const Screen = forwardRef(
   ) => (
     <div
       {...restProps}
-      ref={ref}
       className={clsx('ams-screen', fullHeight && 'ams-screen--full-height', `ams-screen--${maxWidth}`, className)}
+      ref={ref}
     >
       {children}
     </div>

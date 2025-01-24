@@ -15,7 +15,7 @@ export type CardHeadingGroupProps = {
 
 export const CardHeadingGroup = forwardRef(
   ({ children, className, tagline, ...restProps }: CardHeadingGroupProps, ref: ForwardedRef<HTMLElement>) => (
-    <hgroup {...restProps} ref={ref} className={clsx('ams-card__heading-group', className)}>
+    <hgroup {...restProps} className={clsx('ams-card__heading-group', className)} ref={ref}>
       {children}
       <Paragraph size="small">{tagline}</Paragraph>
     </hgroup>

@@ -2,18 +2,18 @@ import { Header, LinkList } from '@amsterdam/design-system-react'
 
 export const AppHeader = () => (
   <Header
-    noMenuButtonOnWideWindow
     menuItems={[
-      <Header.MenuLink key="1" href="#" lang="en">
+      <Header.MenuLink href="#" key="1" lang="en">
         English
       </Header.MenuLink>,
-      <Header.MenuLink key="2" href="#">
+      <Header.MenuLink href="#" key="2">
         Mijn Amsterdam
       </Header.MenuLink>,
-      <Header.MenuLink key="3" href="#" fixed>
+      <Header.MenuLink fixed href="#" key="3">
         Zoeken
       </Header.MenuLink>,
     ]}
+    noMenuButtonOnWideWindow
   >
     <LinkList className="ams-mb--lg">
       <LinkList.Link href="#" lang="en">

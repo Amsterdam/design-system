@@ -44,7 +44,7 @@ describe('Password input', () => {
     function ControlledComponent() {
       const [value, setValue] = useState('Hello')
 
-      return <PasswordInput value={value} onChange={(e) => setValue(e.target.value)} />
+      return <PasswordInput onChange={(e) => setValue(e.target.value)} value={value} />
     }
 
     const { container } = render(<ControlledComponent />)
@@ -64,7 +64,7 @@ describe('Password input', () => {
   })
 
   it('should not update the value when disabled', async () => {
-    const { container } = render(<PasswordInput disabled defaultValue="Hello" />)
+    const { container } = render(<PasswordInput defaultValue="Hello" disabled />)
 
     const component = container.querySelector(':only-child')
     if (component) {

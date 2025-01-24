@@ -10,7 +10,6 @@ const meta = {
   title: 'Components/Navigation/Table of Contents',
   component: TableOfContents,
   args: {
-    heading: 'Op deze pagina',
     children: (
       <TableOfContents.List>
         <TableOfContents.Link href="#section-1" label="Zo werkt het" />
@@ -19,6 +18,7 @@ const meta = {
         <TableOfContents.Link href="#section-4" label="Zie ook" />
       </TableOfContents.List>
     ),
+    heading: 'Op deze pagina',
   },
 } satisfies Meta<typeof TableOfContents>
 
@@ -30,7 +30,6 @@ export const Default: Story = {}
 
 export const MultipleLevels: Story = {
   args: {
-    heading: 'Inhoudsopgave',
     children: (
       <TableOfContents.List>
         <TableOfContents.Link href="#section-1" label="Waarom is het belangrijk om helder te schrijven?" />
@@ -58,5 +57,6 @@ export const MultipleLevels: Story = {
         <TableOfContents.Link href="#section-6" label="Moeilijke woordenboek (inclusief niet te gebruiken)" />
       </TableOfContents.List>
     ),
+    heading: 'Inhoudsopgave',
   },
 }

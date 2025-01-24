@@ -90,7 +90,7 @@ describe('Grid', () => {
 
   gridTags.forEach((tag) => {
     it(`renders with a custom ${tag} tag`, () => {
-      const { container } = render(<Grid as={tag} aria-label={tag === 'section' ? 'Accessible name' : undefined} />)
+      const { container } = render(<Grid aria-label={tag === 'section' ? 'Accessible name' : undefined} as={tag} />)
 
       let component: HTMLElement | null
       if (tag === 'div') {

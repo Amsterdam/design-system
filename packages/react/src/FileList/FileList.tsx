@@ -12,7 +12,7 @@ export type FileListProps = {} & PropsWithChildren<HTMLAttributes<HTMLUListEleme
 
 export const FileListRoot = forwardRef(
   ({ children, className, ...restProps }: FileListProps, ref: ForwardedRef<HTMLOListElement>) => (
-    <ul {...restProps} ref={ref} className={clsx('ams-file-list', className)}>
+    <ul {...restProps} className={clsx('ams-file-list', className)} ref={ref}>
       {children}
     </ul>
   ),

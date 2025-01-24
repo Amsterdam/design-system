@@ -32,7 +32,7 @@ export const Hint = forwardRef(
 
     return (
       hintText && (
-        <span {...restProps} ref={ref} className={clsx('ams-hint', className)}>
+        <span {...restProps} className={clsx('ams-hint', className)} ref={ref}>
           ({hintText})
         </span>
       )

@@ -24,15 +24,15 @@ const meta = {
   argTypes: {
     align: {
       control: {
-        type: 'radio',
         labels: { undefined: 'start' },
+        type: 'radio',
       },
       options: [undefined, ...mainAlignOptions],
     },
     alignHorizontal: {
       control: {
-        type: 'radio',
         labels: { undefined: 'stretch' },
+        type: 'radio',
       },
       options: [undefined, ...crossAlignOptionsForColumn],
     },
@@ -41,8 +41,8 @@ const meta = {
     },
     gap: {
       control: {
-        type: 'radio',
         labels: { undefined: 'medium' },
+        type: 'radio',
       },
       options: ['none', 'extra-small', 'small', undefined, 'large', 'extra-large'],
     },

@@ -129,13 +129,13 @@ export const Pagination = forwardRef(
 
     return (
       <nav {...restProps} aria-labelledby={navLabelId} className={clsx('ams-pagination', className)} ref={ref}>
-        <span id={navLabelId} className="ams-visually-hidden">
+        <span className="ams-visually-hidden" id={navLabelId}>
           {visuallyHiddenLabel}
         </span>
         <ol className="ams-pagination__list">
           <li>
             <button className="ams-pagination__button" disabled={currentPage === 1} onClick={onPrevious} type="button">
-              <Icon svg={ChevronLeftIcon} size="level-5" />
+              <Icon size="level-5" svg={ChevronLeftIcon} />
               <span className="ams-visually-hidden">{previousVisuallyHiddenLabel}</span>
               <span aria-hidden>{previousLabel}</span>
             </button>
@@ -162,7 +162,7 @@ export const Pagination = forwardRef(
                 </button>
               </li>
             ) : (
-              <li key={pageNumberOrSpacer} aria-hidden data-testid={pageNumberOrSpacer}>
+              <li aria-hidden data-testid={pageNumberOrSpacer} key={pageNumberOrSpacer}>
                 {'\u2026'}
               </li>
             ),
@@ -176,7 +176,7 @@ export const Pagination = forwardRef(
             >
               <span className="ams-visually-hidden">{nextVisuallyHiddenLabel}</span>
               <span aria-hidden>{nextLabel}</span>
-              <Icon svg={ChevronRightIcon} size="level-5" />
+              <Icon size="level-5" svg={ChevronRightIcon} />
             </button>
           </li>
         </ol>

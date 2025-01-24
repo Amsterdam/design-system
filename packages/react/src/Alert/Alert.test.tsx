@@ -72,7 +72,7 @@ describe('Alert', () => {
 
   it('fires the onClose event when the close button is clicked', () => {
     const onClose = jest.fn()
-    const { container } = render(<Alert closeable onClose={onClose} heading="Let op!" headingLevel={2} />)
+    const { container } = render(<Alert closeable heading="Let op!" headingLevel={2} onClose={onClose} />)
 
     const component = container.querySelector(':only-child')
     const closeButton = component?.querySelector('.ams-icon-button')

@@ -28,7 +28,7 @@ describe('Image Slider Item', () => {
   })
 
   it('renders an additional class name', () => {
-    const { container } = render(<ImageSliderItem slideId={0} className="extra" />)
+    const { container } = render(<ImageSliderItem className="extra" slideId={0} />)
 
     const component = container.querySelector(':only-child')
 
@@ -38,7 +38,7 @@ describe('Image Slider Item', () => {
   it('supports ForwardRef in React', () => {
     const ref = createRef<HTMLDivElement>()
 
-    const { container } = render(<ImageSliderItem slideId={0} ref={ref} />)
+    const { container } = render(<ImageSliderItem ref={ref} slideId={0} />)
 
     const component = container.querySelector(':only-child')
 

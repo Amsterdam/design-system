@@ -46,7 +46,7 @@ export const Alignment: Story = {
       <PageMenu.Link href="#" key={2}>
         Contact
       </PageMenu.Link>,
-      <PageMenu.Link href="#" key={3} icon={SearchIcon}>
+      <PageMenu.Link href="#" icon={SearchIcon} key={3}>
         Zoeken
       </PageMenu.Link>,
     ],

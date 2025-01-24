@@ -23,7 +23,7 @@ export const SearchFieldInput = forwardRef(
 
     return (
       <>
-        <label htmlFor={id} className="ams-visually-hidden">
+        <label className="ams-visually-hidden" htmlFor={id}>
           {label}
         </label>
         <input

@@ -46,16 +46,16 @@ const LinkStoryTemplate: LinkStory = {
   argTypes: {
     icon: {
       control: {
-        type: 'select',
         labels: { undefined: 'none' },
+        type: 'select',
       },
-      options: [undefined, ...Object.keys(Icons)],
       mapping: Icons,
+      options: [undefined, ...Object.keys(Icons)],
     },
     size: {
       control: {
-        type: 'radio',
         labels: { undefined: 'medium' },
+        type: 'radio',
       },
       options: ['small', undefined, 'large'],
     },
@@ -78,13 +78,13 @@ export const CustomIcons: Story = {
   ...StoryTemplate,
   args: {
     children: [
-      <LinkList.Link key="form" href="#" icon={Icons.ChattingIcon}>
+      <LinkList.Link href="#" icon={Icons.ChattingIcon} key="form">
         Contactformulier
       </LinkList.Link>,
-      <LinkList.Link key="address" href="#" icon={Icons.HousingIcon}>
+      <LinkList.Link href="#" icon={Icons.HousingIcon} key="address">
         Adressen en openingstijden
       </LinkList.Link>,
-      <LinkList.Link key="phone" href="#" icon={Icons.PhoneIcon}>
+      <LinkList.Link href="#" icon={Icons.PhoneIcon} key="phone">
         Bel 14 020
       </LinkList.Link>,
     ],
@@ -95,13 +95,13 @@ export const SmallText: Story = {
   ...StoryTemplate,
   args: {
     children: [
-      <LinkList.Link key="about" href="#" size="small">
+      <LinkList.Link href="#" key="about" size="small">
         Over deze website
       </LinkList.Link>,
-      <LinkList.Link key="newsletter" href="#" size="small">
+      <LinkList.Link href="#" key="newsletter" size="small">
         Abonneer u op de nieuwsbrief
       </LinkList.Link>,
-      <LinkList.Link key="jobs" href="#" size="small">
+      <LinkList.Link href="#" key="jobs" size="small">
         Werken bij de gemeente Amsterdam
       </LinkList.Link>,
     ],

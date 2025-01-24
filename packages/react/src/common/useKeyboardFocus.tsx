@@ -6,12 +6,12 @@
 import type { KeyboardEvent, RefObject } from 'react'
 
 export const KeyboardKeys = {
-  ArrowUp: 'ArrowUp',
   ArrowDown: 'ArrowDown',
-  ArrowRight: 'ArrowRight',
   ArrowLeft: 'ArrowLeft',
-  Home: 'Home',
+  ArrowRight: 'ArrowRight',
+  ArrowUp: 'ArrowUp',
   End: 'End',
+  Home: 'Home',
 }
 
 const FOCUSABLE_ELEMENTS = [
@@ -25,13 +25,13 @@ const FOCUSABLE_ELEMENTS = [
 ]
 
 type Options = {
-  rotating?: boolean
   directChildrenOnly?: boolean
   horizontally?: boolean
+  rotating?: boolean
 }
 
 export const useKeyboardFocus = (ref: RefObject<HTMLElement>, options: Options) => {
-  const { rotating = false, directChildrenOnly = false, horizontally = false } = options
+  const { directChildrenOnly = false, horizontally = false, rotating = false } = options
 
   const next = horizontally ? KeyboardKeys.ArrowRight : KeyboardKeys.ArrowDown
   const previous = horizontally ? KeyboardKeys.ArrowLeft : KeyboardKeys.ArrowUp

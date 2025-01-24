@@ -20,8 +20,8 @@ const meta = {
       control: {
         type: 'select',
       },
-      options: Object.keys(Icons),
       mapping: Icons,
+      options: Object.keys(Icons),
     },
   },
 } satisfies Meta<typeof Icon>
