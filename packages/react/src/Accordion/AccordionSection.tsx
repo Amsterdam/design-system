@@ -33,24 +33,24 @@ export const AccordionSection = forwardRef(
     const panelId = `panel-${id}`
 
     return (
-      <div ref={ref} className={clsx('ams-accordion__section', className)} {...restProps}>
+      <div className={clsx('ams-accordion__section', className)} ref={ref} {...restProps}>
         <HeadingTag className="ams-accordion__header">
           <button
-            id={buttonId}
             aria-controls={panelId}
             aria-expanded={isExpanded}
             className="ams-accordion__button"
-            type="button"
+            id={buttonId}
             onClick={() => setIsExpanded(!isExpanded)}
+            type="button"
           >
             <Icon className="ams-accordion__icon" size="level-5" svg={ChevronDownIcon} />
             {label}
           </button>
         </HeadingTag>
         <SectionTag
-          id={panelId}
           aria-labelledby={buttonId}
           className={clsx('ams-accordion__panel', { 'ams-accordion__panel--expanded': isExpanded })}
+          id={panelId}
         >
           {children}
         </SectionTag>

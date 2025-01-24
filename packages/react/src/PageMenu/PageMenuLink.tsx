@@ -15,7 +15,7 @@ export type PageMenuLinkProps = {
 export const PageMenuLink = forwardRef(
   ({ children, className, icon, ...restProps }: PageMenuLinkProps, ref: ForwardedRef<HTMLAnchorElement>) => (
     <li>
-      <a {...restProps} ref={ref} className={clsx('ams-page-menu__link', className)}>
+      <a {...restProps} className={clsx('ams-page-menu__link', className)} ref={ref}>
         {children}
         {icon && <Icon size="level-6" svg={icon} />}
       </a>

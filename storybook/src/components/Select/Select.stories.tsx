@@ -17,7 +17,7 @@ const optionList = [
   <Select.Option key="3" value="3">
     West
   </Select.Option>,
-  <Select.Option key="4" disabled value="4">
+  <Select.Option disabled key="4" value="4">
     Westpoort
   </Select.Option>,
   <Select.Option key="6" value="5">
@@ -123,7 +123,7 @@ export const InAField: Story = {
         Omschrijving.
       </Paragraph>
       {args.invalid && <ErrorMessage id="error1">Foutmelding.</ErrorMessage>}
-      <Select id="input1" aria-describedby={`description1${args.invalid ? ' error1' : ''}`} {...args}>
+      <Select aria-describedby={`description1${args.invalid ? ' error1' : ''}`} id="input1" {...args}>
         {optionList}
       </Select>
     </Field>
@@ -141,7 +141,7 @@ export const InAFieldWithValidation: Story = {
         Omschrijving.
       </Paragraph>
       {args.invalid && <ErrorMessage id="error2">Foutmelding.</ErrorMessage>}
-      <Select id="input2" aria-describedby={`description2${args.invalid ? ' error2' : ''}`} {...args}>
+      <Select aria-describedby={`description2${args.invalid ? ' error2' : ''}`} id="input2" {...args}>
         {optionList}
       </Select>
     </Field>

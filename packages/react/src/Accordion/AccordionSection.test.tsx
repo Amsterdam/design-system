@@ -130,7 +130,7 @@ describe('Accordion section', () => {
     const ref = createRef<HTMLDivElement>()
 
     const { container } = render(
-      <Accordion.Section ref={ref} label={testLabel}>
+      <Accordion.Section label={testLabel} ref={ref}>
         {testContent}
       </Accordion.Section>,
     )

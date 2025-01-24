@@ -40,7 +40,7 @@ describe('Character count', () => {
   it('supports ForwardRef in React', () => {
     const ref = createRef<HTMLDivElement>()
 
-    render(<CharacterCount ref={ref} length={10} maxLength={100} />)
+    render(<CharacterCount length={10} maxLength={100} ref={ref} />)
 
     const component = screen.getByRole('status')
 

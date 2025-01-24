@@ -76,25 +76,25 @@ export const InAFieldSet: Story = {
       legend="Waar gaat uw melding over?"
       role="radiogroup"
     >
-      <Paragraph id="description1" className="ams-mb--sm" size="small">
+      <Paragraph className="ams-mb--sm" id="description1" size="small">
         De laatstgenoemde melding.
       </Paragraph>
       {invalid && (
-        <ErrorMessage id="error1" className="ams-mb--sm">
+        <ErrorMessage className="ams-mb--sm" id="error1">
           Geef aan waar uw laatstgenoemde melding over gaat.
         </ErrorMessage>
       )}
       <Column gap="extra-small">
-        <Radio name="about" invalid={invalid} value="horeca">
+        <Radio invalid={invalid} name="about" value="horeca">
           Horecabedrijf
         </Radio>
-        <Radio name="about" invalid={invalid} value="ander_bedrijf">
+        <Radio invalid={invalid} name="about" value="ander_bedrijf">
           Ander soort bedrijf
         </Radio>
-        <Radio name="about" invalid={invalid} value="evenement">
+        <Radio invalid={invalid} name="about" value="evenement">
           Evenement
         </Radio>
-        <Radio name="about" invalid={invalid} value="anders">
+        <Radio invalid={invalid} name="about" value="anders">
           Iets anders
         </Radio>
       </Column>
@@ -124,25 +124,25 @@ export const InAFieldSetWithValidation: Story = {
       legend="Waar gaat uw melding over?"
       role="radiogroup"
     >
-      <Paragraph id="description2" className="ams-mb--sm" size="small">
+      <Paragraph className="ams-mb--sm" id="description2" size="small">
         De laatstgenoemde melding.
       </Paragraph>
       {invalid && (
-        <ErrorMessage id="error2" className="ams-mb--sm">
+        <ErrorMessage className="ams-mb--sm" id="error2">
           Geef aan waar uw laatstgenoemde melding over gaat.
         </ErrorMessage>
       )}
       <Column gap="extra-small">
-        <Radio name="about" invalid={invalid} value="horeca">
+        <Radio invalid={invalid} name="about" value="horeca">
           Horecabedrijf
         </Radio>
-        <Radio name="about" invalid={invalid} value="ander_bedrijf">
+        <Radio invalid={invalid} name="about" value="ander_bedrijf">
           Ander soort bedrijf
         </Radio>
-        <Radio name="about" invalid={invalid} value="evenement">
+        <Radio invalid={invalid} name="about" value="evenement">
           Evenement
         </Radio>
-        <Radio name="about" invalid={invalid} value="anders">
+        <Radio invalid={invalid} name="about" value="anders">
           Iets anders
         </Radio>
       </Column>

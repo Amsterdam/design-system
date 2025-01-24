@@ -36,7 +36,7 @@ describe('Text input', () => {
     function ControlledComponent() {
       const [value, setValue] = useState('Hello')
 
-      return <TextInput value={value} onChange={(e) => setValue(e.target.value)} />
+      return <TextInput onChange={(e) => setValue(e.target.value)} value={value} />
     }
 
     render(<ControlledComponent />)

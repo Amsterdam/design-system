@@ -19,7 +19,7 @@ export type FileListItemProps = {
 
 export const FileListItem = forwardRef(
   ({ className, file, onDelete, ...restProps }: FileListItemProps, ref: ForwardedRef<HTMLLIElement>) => (
-    <li {...restProps} ref={ref} className={clsx('ams-file-list__item', className)}>
+    <li {...restProps} className={clsx('ams-file-list__item', className)} ref={ref}>
       <div className="ams-file-list__item-preview">
         {file.type.startsWith('image/') ? (
           <img alt={file.name} src={URL.createObjectURL(file)} />
@@ -35,7 +35,7 @@ export const FileListItem = forwardRef(
       </div>
       {onDelete && (
         <div>
-          <Button variant="tertiary" onClick={() => onDelete()}>
+          <Button onClick={() => onDelete()} variant="tertiary">
             Verwijder
           </Button>
         </div>

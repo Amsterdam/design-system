@@ -44,7 +44,7 @@ describe('Password input', () => {
     function ControlledComponent() {
       const [value, setValue] = useState('Hello')
 
-      return <PasswordInput value={value} onChange={(e) => setValue(e.target.value)} />
+      return <PasswordInput onChange={(e) => setValue(e.target.value)} value={value} />
     }
 
     const { container } = render(<ControlledComponent />)

@@ -109,7 +109,7 @@ describe('Heading', () => {
   it('is able to pass a React ref', () => {
     const ref = createRef<HTMLHeadingElement>()
 
-    const { container } = render(<Heading ref={ref} level={1} />)
+    const { container } = render(<Heading level={1} ref={ref} />)
     const heading = container.querySelector(':only-child')
 
     expect(ref.current).toBe(heading)

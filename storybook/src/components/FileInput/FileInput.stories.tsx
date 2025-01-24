@@ -59,7 +59,7 @@ export const InAField: Story = {
       <Paragraph id="description1" size="small">
         Omschrijving.
       </Paragraph>
-      <FileInput id="input1" aria-describedby="description1" {...args} />
+      <FileInput aria-describedby="description1" id="input1" {...args} />
     </Field>
   ),
 }

@@ -146,7 +146,7 @@ describe('Form error list', () => {
   it('supports ForwardRef in React', () => {
     const ref = createRef<HTMLDivElement>()
 
-    const { container } = render(<FormErrorList ref={ref} errors={testErrors} headingLevel={2} />)
+    const { container } = render(<FormErrorList errors={testErrors} headingLevel={2} ref={ref} />)
 
     const component = container.querySelector(':only-child')
 

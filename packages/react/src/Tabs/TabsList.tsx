@@ -11,7 +11,7 @@ export type TabsListProps = PropsWithChildren<HTMLAttributes<HTMLDivElement>>
 
 export const TabsList = forwardRef(
   ({ children, className, ...restProps }: TabsListProps, ref: ForwardedRef<HTMLDivElement>) => (
-    <div {...restProps} ref={ref} className={clsx('ams-tabs__list', className)} role="tablist">
+    <div {...restProps} className={clsx('ams-tabs__list', className)} ref={ref} role="tablist">
       {children}
     </div>
   ),

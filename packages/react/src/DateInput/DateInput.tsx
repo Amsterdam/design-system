@@ -22,9 +22,9 @@ export const DateInput = forwardRef(
   ({ className, invalid, type = 'date', ...restProps }: DateInputProps, ref: ForwardedRef<HTMLInputElement>) => (
     <input
       {...restProps}
-      ref={ref}
       aria-invalid={invalid || undefined}
       className={clsx('ams-date-input', className)}
+      ref={ref}
       type={type}
     />
   ),

@@ -11,7 +11,7 @@ export type TableBodyProps = PropsWithChildren<HTMLAttributes<HTMLTableSectionEl
 
 export const TableBody = forwardRef(
   ({ children, className, ...restProps }: TableBodyProps, ref: ForwardedRef<HTMLTableSectionElement>) => (
-    <tbody {...restProps} ref={ref} className={clsx('ams-table__body', className)}>
+    <tbody {...restProps} className={clsx('ams-table__body', className)} ref={ref}>
       {children}
     </tbody>
   ),

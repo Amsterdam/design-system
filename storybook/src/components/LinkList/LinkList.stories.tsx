@@ -28,7 +28,7 @@ type LinkStory = StoryObj<typeof linkMeta>
 const StoryTemplate: Story = {
   args: {
     children: linkList.map((text, index) => (
-      <LinkList.Link key={index} href="#">
+      <LinkList.Link href="#" key={index}>
         {text}
       </LinkList.Link>
     )),
@@ -78,13 +78,13 @@ export const CustomIcons: Story = {
   ...StoryTemplate,
   args: {
     children: [
-      <LinkList.Link key="form" href="#" icon={Icons.ChattingIcon}>
+      <LinkList.Link href="#" icon={Icons.ChattingIcon} key="form">
         Contactformulier
       </LinkList.Link>,
-      <LinkList.Link key="address" href="#" icon={Icons.HousingIcon}>
+      <LinkList.Link href="#" icon={Icons.HousingIcon} key="address">
         Adressen en openingstijden
       </LinkList.Link>,
-      <LinkList.Link key="phone" href="#" icon={Icons.PhoneIcon}>
+      <LinkList.Link href="#" icon={Icons.PhoneIcon} key="phone">
         Bel 14 020
       </LinkList.Link>,
     ],
@@ -95,13 +95,13 @@ export const SmallText: Story = {
   ...StoryTemplate,
   args: {
     children: [
-      <LinkList.Link key="about" href="#" size="small">
+      <LinkList.Link href="#" key="about" size="small">
         Over deze website
       </LinkList.Link>,
-      <LinkList.Link key="newsletter" href="#" size="small">
+      <LinkList.Link href="#" key="newsletter" size="small">
         Abonneer u op de nieuwsbrief
       </LinkList.Link>,
-      <LinkList.Link key="jobs" href="#" size="small">
+      <LinkList.Link href="#" key="jobs" size="small">
         Werken bij de gemeente Amsterdam
       </LinkList.Link>,
     ],

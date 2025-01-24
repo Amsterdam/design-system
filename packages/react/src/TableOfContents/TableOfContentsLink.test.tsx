@@ -33,7 +33,7 @@ describe('Table of Contents link', () => {
   it('supports ForwardRef in React', () => {
     const ref = createRef<HTMLAnchorElement>()
 
-    render(<TableOfContents.Link ref={ref} href="#" label="Test" />)
+    render(<TableOfContents.Link href="#" label="Test" ref={ref} />)
 
     const component = screen.getByRole('link')
 

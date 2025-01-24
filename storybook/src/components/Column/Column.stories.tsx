@@ -9,9 +9,9 @@ import { crossAlignOptionsForColumn, mainAlignOptions } from '@amsterdam/design-
 import { Meta, StoryObj } from '@storybook/react'
 
 const ThreeItems = [
-  <div key={0} className="ams-docs-item" />,
-  <div key={1} className="ams-docs-item" />,
-  <div key={2} className="ams-docs-item" />,
+  <div className="ams-docs-item" key={0} />,
+  <div className="ams-docs-item" key={1} />,
+  <div className="ams-docs-item" key={2} />,
 ]
 
 const meta = {

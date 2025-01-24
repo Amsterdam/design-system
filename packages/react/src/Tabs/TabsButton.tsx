@@ -20,18 +20,18 @@ export const TabsButton = forwardRef(
     return (
       <button
         {...restProps}
-        id={`${tabsId}-tab-${tab}`}
-        ref={ref}
         aria-controls={`${tabsId}-panel-${tab}`}
         aria-selected={activeTab === tab}
         className={clsx('ams-tabs__button', className)}
-        role="tab"
-        tabIndex={activeTab === tab ? 0 : -1}
+        id={`${tabsId}-tab-${tab}`}
         onClick={() => {
           startTransition(() => {
             updateTab(tab)
           })
         }}
+        ref={ref}
+        role="tab"
+        tabIndex={activeTab === tab ? 0 : -1}
       >
         <span aria-hidden="true" className="ams-tabs__button-label-hidden">
           {children}

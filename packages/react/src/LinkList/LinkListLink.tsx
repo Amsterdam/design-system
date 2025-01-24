@@ -35,7 +35,6 @@ export const LinkListLink = forwardRef(
     return (
       <li>
         <a
-          ref={ref}
           className={clsx(
             'ams-link-list__link',
             contrastColor && 'ams-link-list__link--contrast-color',
@@ -43,6 +42,7 @@ export const LinkListLink = forwardRef(
             size && `ams-link-list__link--${size}`,
             className,
           )}
+          ref={ref}
           {...restProps}
         >
           <Icon size={iconSizeMap[size ?? 'medium']} svg={icon ?? ChevronRightIcon} />

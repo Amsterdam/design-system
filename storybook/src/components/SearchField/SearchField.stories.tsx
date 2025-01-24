@@ -81,12 +81,12 @@ export const Controlled: any = {
         }}
       >
         <SearchField.Input
-          name="search-box"
           invalid={invalid}
           label={label}
+          name="search-box"
+          onChange={onValueChange}
           placeholder={placeholder}
           value={args['value']}
-          onChange={onValueChange}
         />
         <SearchField.Button />
       </SearchField>

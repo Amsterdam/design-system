@@ -153,13 +153,13 @@ export const ImageSliderRoot = forwardRef(
       >
         <div
           {...restProps}
-          ref={ref}
           aria-roledescription="carousel"
           className={clsx('ams-image-slider', controls && 'ams-image-slider--controls', className)}
+          ref={ref}
           tabIndex={-1}
         >
           {controls && <ImageSliderControls nextLabel={nextLabel} previousLabel={previousLabel} />}
-          <ImageSliderScroller ref={targetRef} aria-live="polite" role="group" tabIndex={0}>
+          <ImageSliderScroller aria-live="polite" ref={targetRef} role="group" tabIndex={0}>
             {images.map(({ alt, aspectRatio, sizes, src, srcSet }, index) => (
               <ImageSliderItem key={index} slideId={index}>
                 <Image

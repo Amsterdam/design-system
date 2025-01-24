@@ -63,7 +63,7 @@ const HeaderRoot = forwardRef(
     }, [isWideWindow])
 
     return (
-      <header {...restProps} ref={ref} className={clsx('ams-header', className)}>
+      <header {...restProps} className={clsx('ams-header', className)} ref={ref}>
         <div className="ams-header__branding">
           <a className="ams-header__logo-link" href={logoLink}>
             <span className="ams-visually-hidden">{logoLinkTitle}</span>
@@ -77,7 +77,7 @@ const HeaderRoot = forwardRef(
         </div>
         {(children || menuItems) && (
           <nav aria-labelledby="primary-navigation" className="ams-header__navigation">
-            <h2 id="primary-navigation" className="ams-visually-hidden">
+            <h2 className="ams-visually-hidden" id="primary-navigation">
               {navigationLabel}
             </h2>
 
@@ -102,8 +102,8 @@ const HeaderRoot = forwardRef(
                     aria-controls="ams-mega-menu"
                     aria-expanded={open}
                     className="ams-header__mega-menu-button"
-                    type="button"
                     onClick={() => setOpen(!open)}
+                    type="button"
                   >
                     <span className="ams-header__mega-menu-button-label">{menuButtonText}</span>
                     <span aria-hidden="true" className="ams-header__mega-menu-button-hidden-label">
@@ -124,8 +124,8 @@ const HeaderRoot = forwardRef(
 
             {children && (
               <div
-                id="ams-mega-menu"
                 className={clsx('ams-header__mega-menu', !open && 'ams-header__mega-menu--closed')}
+                id="ams-mega-menu"
               >
                 {children}
               </div>

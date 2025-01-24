@@ -11,7 +11,7 @@ export type ActionGroupProps = PropsWithChildren<HTMLAttributes<HTMLDivElement>>
 
 export const ActionGroup = forwardRef(
   ({ children, className, ...restProps }: ActionGroupProps, ref: ForwardedRef<HTMLDivElement>) => (
-    <div {...restProps} ref={ref} className={clsx('ams-action-group', className)} role="group">
+    <div {...restProps} className={clsx('ams-action-group', className)} ref={ref} role="group">
       {children}
     </div>
   ),

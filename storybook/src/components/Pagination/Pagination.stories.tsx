@@ -26,7 +26,7 @@ const meta = {
   decorators: [
     // Wrap the story in a div with a key, to force a rerender when the 'page' arg changes
     (Story, { args }) => (
-      <div key={JSON.stringify(args)} id="ams-docs-custom-root">
+      <div id="ams-docs-custom-root" key={JSON.stringify(args)}>
         <Story />
       </div>
     ),

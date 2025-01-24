@@ -57,7 +57,7 @@ describe('Pagination', () => {
   it('should navigate to the next page when clicking on the ‘next’ button', () => {
     const onPageChangeMock = jest.fn()
 
-    render(<Pagination page={6} totalPages={10} onPageChange={onPageChangeMock} />)
+    render(<Pagination onPageChange={onPageChangeMock} page={6} totalPages={10} />)
 
     expect(onPageChangeMock).not.toHaveBeenCalled()
     expect(screen.getByRole('button', { name: 'Pagina 6' })).toHaveAttribute('aria-current', 'true')
@@ -73,7 +73,7 @@ describe('Pagination', () => {
   it('should navigate to the previous page when clicking on the ‘previous’ button', () => {
     const onPageChangeMock = jest.fn()
 
-    render(<Pagination page={6} totalPages={10} onPageChange={onPageChangeMock} />)
+    render(<Pagination onPageChange={onPageChangeMock} page={6} totalPages={10} />)
 
     expect(onPageChangeMock).not.toHaveBeenCalled()
     expect(screen.getByRole('button', { name: 'Pagina 6' })).toHaveAttribute('aria-current', 'true')
@@ -90,7 +90,7 @@ describe('Pagination', () => {
     function ControlledComponent() {
       const [page, setPage] = useState(6)
 
-      return <Pagination page={page} totalPages={10} onPageChange={setPage} />
+      return <Pagination onPageChange={setPage} page={page} totalPages={10} />
     }
 
     render(<ControlledComponent />)

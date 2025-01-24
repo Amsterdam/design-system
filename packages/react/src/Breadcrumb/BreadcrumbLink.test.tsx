@@ -44,7 +44,7 @@ describe('Breadcrumb link', () => {
   it('supports ForwardRef in React', () => {
     const ref = createRef<HTMLAnchorElement>()
 
-    render(<BreadcrumbLink ref={ref} href="/" />)
+    render(<BreadcrumbLink href="/" ref={ref} />)
 
     const component = screen.getByRole('link')
 

@@ -26,7 +26,6 @@ export const Icon = forwardRef(
     ref: ForwardedRef<HTMLElement>,
   ) => (
     <span
-      ref={ref}
       className={clsx(
         'ams-icon',
         inverseColor && 'ams-icon--inverse-color',
@@ -37,6 +36,7 @@ export const Icon = forwardRef(
         square && 'ams-icon--square',
         className,
       )}
+      ref={ref}
       {...restProps}
     >
       {typeof svg === 'function' ? svg() : svg}

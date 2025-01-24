@@ -39,7 +39,7 @@ describe('Breadcrumb', () => {
     const { container } = render(
       <Breadcrumb>
         {breadcrumbLinks.map((link, index) => (
-          <Breadcrumb.Link key={index} href={link.href}>
+          <Breadcrumb.Link href={link.href} key={index}>
             {link.label}
           </Breadcrumb.Link>
         ))}

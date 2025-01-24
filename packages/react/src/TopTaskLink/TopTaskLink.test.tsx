@@ -43,7 +43,7 @@ describe('Top task link', () => {
   it('supports ForwardRef in React', () => {
     const ref = createRef<HTMLAnchorElement>()
 
-    render(<TopTaskLink ref={ref} description="Description" href="/" label="Label" />)
+    render(<TopTaskLink description="Description" href="/" label="Label" ref={ref} />)
 
     const link = screen.getByRole('link', {
       name: 'Label , Description',

@@ -11,7 +11,7 @@ export type ImageSliderScrollerProps = PropsWithChildren<HTMLAttributes<HTMLDivE
 
 export const ImageSliderScroller = forwardRef(
   ({ children, className, ...restProps }: ImageSliderScrollerProps, ref: ForwardedRef<HTMLDivElement>) => (
-    <div {...restProps} ref={ref} className={clsx('ams-image-slider__scroller', className)}>
+    <div {...restProps} className={clsx('ams-image-slider__scroller', className)} ref={ref}>
       {children}
     </div>
   ),

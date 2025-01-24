@@ -32,7 +32,7 @@ describe('Badge', () => {
   it('supports ForwardRef in React', () => {
     const ref = createRef<HTMLElement>()
 
-    const { container } = render(<Badge ref={ref} label="test" />)
+    const { container } = render(<Badge label="test" ref={ref} />)
 
     const component = container.querySelector(':only-child')
 

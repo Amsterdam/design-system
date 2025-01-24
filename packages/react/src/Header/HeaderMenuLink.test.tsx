@@ -52,7 +52,7 @@ describe('Header menu link', () => {
   it('supports ForwardRef in React', () => {
     const ref = createRef<HTMLAnchorElement>()
 
-    render(<HeaderMenuLink ref={ref} href="/" />)
+    render(<HeaderMenuLink href="/" ref={ref} />)
 
     const component = screen.getByRole('link')
 

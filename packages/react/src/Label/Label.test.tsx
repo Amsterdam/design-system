@@ -80,7 +80,7 @@ describe('Label', () => {
   it('supports ForwardRef in React', () => {
     const ref = createRef<HTMLLabelElement>()
 
-    const { container } = render(<Label ref={ref} htmlFor="form-control" />)
+    const { container } = render(<Label htmlFor="form-control" ref={ref} />)
 
     const div = container.querySelector(':only-child')
 

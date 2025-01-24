@@ -11,7 +11,7 @@ export type FileInputProps = InputHTMLAttributes<HTMLInputElement>
 
 export const FileInput = forwardRef(
   ({ className, ...restProps }: FileInputProps, ref: ForwardedRef<HTMLInputElement>) => (
-    <input {...restProps} ref={ref} className={clsx('ams-file-input', className)} type="file" />
+    <input {...restProps} className={clsx('ams-file-input', className)} ref={ref} type="file" />
   ),
 )
 

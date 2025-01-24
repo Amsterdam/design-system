@@ -56,9 +56,9 @@ export const FormErrorList = forwardRef(
     return (
       <FormErrorListWithErrors
         {...restProps}
-        ref={ref}
         errors={errors}
         hasFocusedOnce={hasFocusedOnce}
+        ref={ref}
         setHasFocusedOnce={setHasFocusedOnce}
       />
     )

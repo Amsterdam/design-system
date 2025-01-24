@@ -48,7 +48,7 @@ describe('FieldSet', () => {
   it('supports ForwardRef in React', () => {
     const ref = createRef<HTMLFieldSetElement>()
 
-    render(<FieldSet ref={ref} legend="Test" />)
+    render(<FieldSet legend="Test" ref={ref} />)
 
     const component = screen.getByRole('group', { name: 'Test' })
 

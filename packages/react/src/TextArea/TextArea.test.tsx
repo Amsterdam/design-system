@@ -66,7 +66,7 @@ describe('Text area', () => {
     function ControlledComponent() {
       const [value, setValue] = useState('Hello')
 
-      return <TextArea value={value} onChange={(e) => setValue(e.target.value)} />
+      return <TextArea onChange={(e) => setValue(e.target.value)} value={value} />
     }
 
     render(<ControlledComponent />)

@@ -73,7 +73,7 @@ type CellStory = StoryObj<typeof cellMeta>
 const BackgroundGrid = () => (
   <Grid className="ams-docs-grid">
     {Array.from(Array(12).keys()).map((i) => (
-      <Grid.Cell key={i} className="ams-docs-grid__cell" />
+      <Grid.Cell className="ams-docs-grid__cell" key={i} />
     ))}
   </Grid>
 )
@@ -118,8 +118,8 @@ export const VerticalGap: Story = {
   ...StoryTemplate,
   args: {
     children: [
-      <Grid.Cell key={1} className="ams-docs-item" span="all" />,
-      <Grid.Cell key={2} className="ams-docs-item" span="all" />,
+      <Grid.Cell className="ams-docs-item" key={1} span="all" />,
+      <Grid.Cell className="ams-docs-item" key={2} span="all" />,
     ],
     gapVertical: 'small',
   },

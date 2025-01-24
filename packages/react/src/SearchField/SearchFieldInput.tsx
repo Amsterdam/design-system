@@ -28,13 +28,13 @@ export const SearchFieldInput = forwardRef(
         </label>
         <input
           {...restProps}
-          id={id}
-          ref={ref}
           aria-invalid={invalid || undefined}
           autoComplete="off"
           className={clsx('ams-search-field__input', className)}
           dir={dir ?? 'auto'}
           enterKeyHint="search"
+          id={id}
+          ref={ref}
           spellCheck="false"
           type="search"
         />

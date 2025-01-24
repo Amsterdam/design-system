@@ -128,13 +128,13 @@ export const Pagination = forwardRef(
     }
 
     return (
-      <nav {...restProps} ref={ref} aria-labelledby={navLabelId} className={clsx('ams-pagination', className)}>
-        <span id={navLabelId} className="ams-visually-hidden">
+      <nav {...restProps} aria-labelledby={navLabelId} className={clsx('ams-pagination', className)} ref={ref}>
+        <span className="ams-visually-hidden" id={navLabelId}>
           {visuallyHiddenLabel}
         </span>
         <ol className="ams-pagination__list">
           <li>
-            <button className="ams-pagination__button" disabled={currentPage === 1} type="button" onClick={onPrevious}>
+            <button className="ams-pagination__button" disabled={currentPage === 1} onClick={onPrevious} type="button">
               <Icon size="level-5" svg={ChevronLeftIcon} />
               <span className="ams-visually-hidden">{previousVisuallyHiddenLabel}</span>
               <span aria-hidden>{previousLabel}</span>
@@ -149,9 +149,9 @@ export const Pagination = forwardRef(
                     'ams-pagination__button',
                     pageNumberOrSpacer === currentPage && 'ams-pagination__button--current',
                   )}
+                  onClick={() => pageNumberOrSpacer !== currentPage && onChangePage(pageNumberOrSpacer)}
                   tabIndex={pageNumberOrSpacer === currentPage ? -1 : 0}
                   type="button"
-                  onClick={() => pageNumberOrSpacer !== currentPage && onChangePage(pageNumberOrSpacer)}
                 >
                   <span className="ams-visually-hidden">
                     {pageNumberOrSpacer === currentPage
@@ -162,7 +162,7 @@ export const Pagination = forwardRef(
                 </button>
               </li>
             ) : (
-              <li key={pageNumberOrSpacer} aria-hidden data-testid={pageNumberOrSpacer}>
+              <li aria-hidden data-testid={pageNumberOrSpacer} key={pageNumberOrSpacer}>
                 {'\u2026'}
               </li>
             ),
@@ -171,8 +171,8 @@ export const Pagination = forwardRef(
             <button
               className="ams-pagination__button"
               disabled={currentPage === totalPages}
-              type="button"
               onClick={onNext}
+              type="button"
             >
               <span className="ams-visually-hidden">{nextVisuallyHiddenLabel}</span>
               <span aria-hidden>{nextLabel}</span>

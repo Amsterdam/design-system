@@ -48,8 +48,8 @@ export const Avatar = forwardRef(
     return (
       <span
         {...restProps}
-        ref={ref}
         className={clsx('ams-avatar', color && `ams-avatar--${color}`, imageSrc && 'ams-avatar--has-image', className)}
+        ref={ref}
       >
         <span className="ams-visually-hidden">{a11yLabel}</span>
         <AvatarContent imageSrc={imageSrc} initials={initials} />

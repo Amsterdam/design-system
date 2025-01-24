@@ -19,11 +19,11 @@ export const PasswordInput = forwardRef(
   ({ className, dir, invalid, ...restProps }: PasswordInputProps, ref: ForwardedRef<HTMLInputElement>) => (
     <input
       {...restProps}
-      ref={ref}
       aria-invalid={invalid || undefined}
       autoCorrect="off"
       className={clsx('ams-password-input', className)}
       dir={dir ?? 'auto'}
+      ref={ref}
       spellCheck="false"
       type="password"
     />

@@ -5,7 +5,7 @@ import type { ForwardedRef, HTMLAttributes, PropsWithChildren } from 'react'
 export type DivProps = PropsWithChildren<HTMLAttributes<HTMLDivElement>>
 
 const ColorPaletteRoot = forwardRef(({ children, ...restProps }: DivProps, ref: ForwardedRef<HTMLDivElement>) => (
-  <div {...restProps} ref={ref} className="ams-storybook-color-palette">
+  <div {...restProps} className="ams-storybook-color-palette" ref={ref}>
     {children}
   </div>
 ))

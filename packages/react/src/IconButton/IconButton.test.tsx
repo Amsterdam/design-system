@@ -56,7 +56,7 @@ describe('Icon button', () => {
   it('supports ForwardRef in React', () => {
     const ref = createRef<HTMLButtonElement>()
 
-    render(<IconButton ref={ref} label="Test" />)
+    render(<IconButton label="Test" ref={ref} />)
 
     const component = screen.getByRole('button')
 

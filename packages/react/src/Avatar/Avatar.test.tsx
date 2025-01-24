@@ -78,7 +78,7 @@ describe('Avatar', () => {
   it('supports ForwardRef in React', () => {
     const ref = createRef<HTMLSpanElement>()
 
-    const { container } = render(<Avatar ref={ref} label="AL" />)
+    const { container } = render(<Avatar label="AL" ref={ref} />)
 
     const component = container.querySelector(':only-child')
 

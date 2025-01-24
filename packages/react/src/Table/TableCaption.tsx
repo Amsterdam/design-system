@@ -12,7 +12,7 @@ export type TableCaptionProps = PropsWithChildren<HTMLAttributes<HTMLTableCaptio
 
 export const TableCaption = forwardRef(
   ({ children, className, ...restProps }: TableCaptionProps, ref: ForwardedRef<HTMLTableCaptionElement>) => (
-    <caption {...restProps} ref={ref} className={clsx('ams-table__caption', className)}>
+    <caption {...restProps} className={clsx('ams-table__caption', className)} ref={ref}>
       {children}
     </caption>
   ),

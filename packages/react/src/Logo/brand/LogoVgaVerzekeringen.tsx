@@ -3,10 +3,10 @@ import type { ForwardedRef, SVGProps } from 'react'
 
 const LogoVgaVerzekeringen = forwardRef((props: SVGProps<SVGSVGElement>, ref: ForwardedRef<SVGSVGElement>) => (
   <svg
-    ref={ref}
     aria-hidden="true"
     className="ams-logo"
     focusable="false"
+    ref={ref}
     viewBox="0 0 145 43"
     xmlns="http://www.w3.org/2000/svg"
     {...props}

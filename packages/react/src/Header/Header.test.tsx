@@ -121,10 +121,10 @@ describe('Header', () => {
     render(
       <Header
         menuItems={[
-          <Header.MenuLink key={1} href="/">
+          <Header.MenuLink href="/" key={1}>
             Menu Item 1
           </Header.MenuLink>,
-          <Header.MenuLink key={2} href="/">
+          <Header.MenuLink href="/" key={2}>
             Menu Item 2
           </Header.MenuLink>,
         ]}

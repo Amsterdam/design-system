@@ -72,7 +72,7 @@ describe('Link', () => {
     const ref = createRef<HTMLAnchorElement>()
 
     const { container } = render(
-      <Link ref={ref} href="https://example.com/">
+      <Link href="https://example.com/" ref={ref}>
         {'https://example.com/'}
       </Link>,
     )

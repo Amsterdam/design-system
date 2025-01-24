@@ -22,10 +22,10 @@ export const TextInput = forwardRef(
   ({ className, dir, invalid, type = 'text', ...restProps }: TextInputProps, ref: ForwardedRef<HTMLInputElement>) => (
     <input
       {...restProps}
-      ref={ref}
       aria-invalid={invalid || undefined}
       className={clsx('ams-text-input', className)}
       dir={dir ?? 'auto'}
+      ref={ref}
       type={type}
     />
   ),

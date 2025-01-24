@@ -28,17 +28,17 @@ export const FormPage = () => {
           <Breadcrumb.Link>Home</Breadcrumb.Link>
         </Breadcrumb>
         <Heading className="ams-mb--md">Contact</Heading>
-        <form id="main" className="ams-gap--md" onSubmit={(e) => e.preventDefault()}>
+        <form className="ams-gap--md" id="main" onSubmit={(e) => e.preventDefault()}>
           <Field>
             <Label htmlFor="body">Wat wilt u aan de gemeente vragen?</Label>
             <Paragraph id="bodyDescription" size="small">
               Een duidelijke beschrijving van uw vraag helpt ons bij het behandelen.
             </Paragraph>
             <TextArea
-              id="body"
               aria-describedby="bodyDescription"
-              rows={4}
+              id="body"
               onChange={(e) => setTextareaLength(e.target.value.length)}
+              rows={4}
             />
             <CharacterCount length={textareaLength} maxLength={1000} />
           </Field>
@@ -53,7 +53,7 @@ export const FormPage = () => {
               </Field>
               <Field>
                 <Label htmlFor="familyName">Achternaam</Label>
-                <TextInput id="familyName" name="familyName" autoComplete="family-name" />
+                <TextInput autoComplete="family-name" id="familyName" name="familyName" />
               </Field>
               <FieldSet legend="Woonplaats">
                 <Radio name="city" value="amsterdam">
@@ -68,7 +68,7 @@ export const FormPage = () => {
               </FieldSet>
               <Field>
                 <Label htmlFor="email">E-mail</Label>
-                <TextInput id="email" name="email" autoComplete="email" />
+                <TextInput autoComplete="email" id="email" name="email" />
               </Field>
               <Row wrap>
                 <Field>
@@ -81,7 +81,7 @@ export const FormPage = () => {
                 </Field>
                 <Field>
                   <Label htmlFor="phone">Telefoonnummer</Label>
-                  <TextInput id="phone" name="phone" autoComplete="tel" />
+                  <TextInput autoComplete="tel" id="phone" name="phone" />
                 </Field>
               </Row>
             </Column>

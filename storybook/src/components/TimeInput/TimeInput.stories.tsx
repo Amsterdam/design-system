@@ -47,7 +47,7 @@ export const InAField: Story = {
         Omschrijving.
       </Paragraph>
       {args.invalid && <ErrorMessage id="error1">Foutmelding.</ErrorMessage>}
-      <TimeInput id="input1" aria-describedby={`description1${args.invalid ? ' error1' : ''}`} {...args} />
+      <TimeInput aria-describedby={`description1${args.invalid ? ' error1' : ''}`} id="input1" {...args} />
     </Field>
   ),
 }
@@ -63,7 +63,7 @@ export const InAFieldWithValidation: Story = {
         Omschrijving.
       </Paragraph>
       {args.invalid && <ErrorMessage id="error2">Foutmelding.</ErrorMessage>}
-      <TimeInput id="input2" aria-describedby={`description2${args.invalid ? ' error2' : ''}`} {...args} />
+      <TimeInput aria-describedby={`description2${args.invalid ? ' error2' : ''}`} id="input2" {...args} />
     </Field>
   ),
 }

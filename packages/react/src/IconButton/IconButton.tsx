@@ -29,13 +29,13 @@ export const IconButton = forwardRef(
   ) => (
     <button
       {...restProps}
-      ref={ref}
       className={clsx(
         'ams-icon-button',
         contrastColor && 'ams-icon-button--contrast-color',
         inverseColor && 'ams-icon-button--inverse-color',
         className,
       )}
+      ref={ref}
     >
       <span className="ams-visually-hidden">{label}</span>
       <Icon size={size} square svg={svg} />

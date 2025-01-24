@@ -24,10 +24,10 @@ export const TabsPanel = forwardRef(
     return (
       <div
         {...restProps}
-        id={`${tabsId}-panel-${tab}`}
-        ref={ref}
         aria-labelledby={`${tabsId}-tab-${tab}`}
         className={clsx('ams-tabs__panel', className)}
+        id={`${tabsId}-panel-${tab}`}
+        ref={ref}
         role="tabpanel"
         tabIndex={0}
       >

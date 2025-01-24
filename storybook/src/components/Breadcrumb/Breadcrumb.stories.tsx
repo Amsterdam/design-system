@@ -18,16 +18,16 @@ type Story = StoryObj<typeof meta>
 export const Default: Story = {
   args: {
     children: [
-      <Breadcrumb.Link key={1} href="#">
+      <Breadcrumb.Link href="#" key={1}>
         Home
       </Breadcrumb.Link>,
-      <Breadcrumb.Link key={2} href="#">
+      <Breadcrumb.Link href="#" key={2}>
         Afval
       </Breadcrumb.Link>,
-      <Breadcrumb.Link key={3} href="#">
+      <Breadcrumb.Link href="#" key={3}>
         Bedrijfsafval
       </Breadcrumb.Link>,
-      <Breadcrumb.Link key={4} href="#">
+      <Breadcrumb.Link href="#" key={4}>
         Recyclepunten voor bedrijven
       </Breadcrumb.Link>,
     ],

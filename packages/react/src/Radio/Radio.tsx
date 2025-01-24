@@ -25,10 +25,10 @@ export const Radio = forwardRef(
       <div className={clsx('ams-radio', className)}>
         <input
           {...restProps}
-          id={id}
-          ref={ref}
           aria-invalid={invalid || undefined}
           className="ams-radio__input"
+          id={id}
+          ref={ref}
           type="radio"
         />
         <label className="ams-radio__label" htmlFor={id}>

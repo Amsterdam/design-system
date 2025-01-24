@@ -49,7 +49,7 @@ export const ExpandedByDefault: Story = {
       <Accordion.Section key={1} label={heading1}>
         <Paragraph>{paragraph1}</Paragraph>
       </Accordion.Section>,
-      <Accordion.Section key={2} expanded label={heading2}>
+      <Accordion.Section expanded key={2} label={heading2}>
         <Paragraph>{paragraph2}</Paragraph>
       </Accordion.Section>,
       <Accordion.Section key={3} label={heading3}>

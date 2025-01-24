@@ -24,7 +24,7 @@ export const ImageSliderItem = forwardRef(
     )
 
     return (
-      <div {...restProps} ref={ref} className={itemClassName} {...(!isInView && { inert: '' })}>
+      <div {...restProps} className={itemClassName} ref={ref} {...(!isInView && { inert: '' })}>
         {children}
       </div>
     )

@@ -32,7 +32,7 @@ describe('Dialog', () => {
   it('supports ForwardRef in React', () => {
     const ref = createRef<HTMLDialogElement>()
 
-    render(<Dialog ref={ref} heading="Test heading" />)
+    render(<Dialog heading="Test heading" ref={ref} />)
 
     const component = screen.getByRole('dialog', { hidden: true })
 

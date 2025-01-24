@@ -62,7 +62,7 @@ export const WithTagline: Story = {
 export const WithImage: Story = {
   args: {
     children: [
-      <Image key={1} alt="" aspectRatio="wide" src="https://picsum.photos/480/360" />,
+      <Image alt="" aspectRatio="wide" key={1} src="https://picsum.photos/480/360" />,
       <Card.HeadingGroup key={2} tagline="Nieuws">
         <Heading size="level-4">
           <Card.Link href="/">Nederlands eerste houten woonwijk komt in Zuidoost</Card.Link>

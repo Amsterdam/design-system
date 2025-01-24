@@ -24,7 +24,7 @@ describe('Accordion', () => {
   it('supports ForwardRef in React', () => {
     const ref = createRef<HTMLDivElement>()
 
-    const { container } = render(<Accordion ref={ref} headingLevel={1} />)
+    const { container } = render(<Accordion headingLevel={1} ref={ref} />)
 
     const accordion = container.querySelector('.ams-accordion')
 

@@ -12,7 +12,7 @@ import { FooterTop } from './FooterTop'
 export type FooterProps = PropsWithChildren<HTMLAttributes<HTMLElement>>
 
 const FooterRoot = forwardRef(({ children, className, ...restProps }: FooterProps, ref: ForwardedRef<HTMLElement>) => (
-  <footer {...restProps} ref={ref} className={clsx('ams-footer', className)}>
+  <footer {...restProps} className={clsx('ams-footer', className)} ref={ref}>
     {children}
   </footer>
 ))

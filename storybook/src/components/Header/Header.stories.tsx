@@ -53,7 +53,7 @@ export const Default: Story = {
           </Heading>
           <LinkList>
             {defaultStoryLinks[0].map(({ href, label }) => (
-              <LinkList.Link key={label} href={href}>
+              <LinkList.Link href={href} key={label}>
                 {label}
               </LinkList.Link>
             ))}
@@ -65,7 +65,7 @@ export const Default: Story = {
           </Heading>
           <LinkList>
             {defaultStoryLinks[1].map(({ href, label }) => (
-              <LinkList.Link key={label} href={href}>
+              <LinkList.Link href={href} key={label}>
                 {label}
               </LinkList.Link>
             ))}
@@ -77,7 +77,7 @@ export const Default: Story = {
           </Heading>
           <LinkList>
             {defaultStoryLinks[2].map(({ href, label }) => (
-              <LinkList.Link key={label} href={href}>
+              <LinkList.Link href={href} key={label}>
                 {label}
               </LinkList.Link>
             ))}
@@ -86,10 +86,10 @@ export const Default: Story = {
       </Grid>
     ),
     menuItems: [
-      <Header.MenuLink key={1} href="#" lang="en">
+      <Header.MenuLink href="#" key={1} lang="en">
         English
       </Header.MenuLink>,
-      <Header.MenuLink key={2} fixed href="#">
+      <Header.MenuLink fixed href="#" key={2}>
         Zoeken
       </Header.MenuLink>,
     ],
@@ -115,10 +115,10 @@ export const WithMovingLinks: Story = {
       </Grid>
     ),
     menuItems: [
-      <Header.MenuLink key={1} href="#" lang="en">
+      <Header.MenuLink href="#" key={1} lang="en">
         English
       </Header.MenuLink>,
-      <Header.MenuLink key={2} fixed href="#">
+      <Header.MenuLink fixed href="#" key={2}>
         Zoeken
       </Header.MenuLink>,
     ],
@@ -138,7 +138,7 @@ export const WithoutMenuButtonOnWideWindow: Story = {
     children: (
       <LinkList className="ams-mb--lg">
         {WithoutMenuButtonOnWideWindowStoryLinks.map(({ href, label }) => (
-          <LinkList.Link key={label} href={href}>
+          <LinkList.Link href={href} key={label}>
             {label}
           </LinkList.Link>
         ))}
@@ -146,11 +146,11 @@ export const WithoutMenuButtonOnWideWindow: Story = {
     ),
     menuItems: [
       ...WithoutMenuButtonOnWideWindowStoryLinks.map(({ href, label }) => (
-        <Header.MenuLink key={label} href={href}>
+        <Header.MenuLink href={href} key={label}>
           {label}
         </Header.MenuLink>
       )),
-      <Header.MenuLink key="Zoeken" fixed href="#">
+      <Header.MenuLink fixed href="#" key="Zoeken">
         Zoeken
       </Header.MenuLink>,
     ],

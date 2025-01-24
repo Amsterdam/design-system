@@ -33,7 +33,7 @@ describe('FileListItem', () => {
   it('supports ForwardRef in React', () => {
     const ref = createRef<HTMLLIElement>()
 
-    render(<FileListItem ref={ref} file={file} />)
+    render(<FileListItem file={file} ref={ref} />)
 
     const component = screen.getByRole('listitem')
 

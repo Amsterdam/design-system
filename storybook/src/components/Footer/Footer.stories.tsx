@@ -48,7 +48,7 @@ export const Default: Story = {
             <LinkList>
               {['Veel gestelde vragen', 'Over ons', 'Werken bij', 'Kalender', 'Uit in Amsterdam', 'Bronnen'].map(
                 (label, index) => (
-                  <LinkList.Link key={index} href="#" inverseColor size="small">
+                  <LinkList.Link href="#" inverseColor key={index} size="small">
                     {label}
                   </LinkList.Link>
                 ),
@@ -91,7 +91,7 @@ export const Default: Story = {
               </Heading>
               <LinkList>
                 {socialPlatforms.map(({ icon, name }) => (
-                  <LinkList.Link key={name} href="#" icon={icon} inverseColor size="small">
+                  <LinkList.Link href="#" icon={icon} inverseColor key={name} size="small">
                     {name}
                   </LinkList.Link>
                 ))}

@@ -32,7 +32,7 @@ describe('Card link', () => {
   it('supports ForwardRef in React', () => {
     const ref = createRef<HTMLAnchorElement>()
 
-    render(<CardLink ref={ref} href="/" />)
+    render(<CardLink href="/" ref={ref} />)
 
     const component = screen.getByRole('link')
 

@@ -16,7 +16,7 @@ export type TopTaskLinkProps = {
 
 export const TopTaskLink = forwardRef(
   ({ className, description, label, ...restProps }: TopTaskLinkProps, ref: ForwardedRef<HTMLAnchorElement>) => (
-    <a {...restProps} ref={ref} className={clsx('ams-top-task-link', className)}>
+    <a {...restProps} className={clsx('ams-top-task-link', className)} ref={ref}>
       <span className="ams-top-task-link__label">{label}</span>
       {/* This comma makes screen readers add a slight pause between the label and the description. */}
       <span className="ams-visually-hidden">,</span>

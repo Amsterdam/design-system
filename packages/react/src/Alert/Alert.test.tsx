@@ -35,7 +35,7 @@ describe('Alert', () => {
   it('supports ForwardRef in React', () => {
     const ref = createRef<HTMLDivElement>()
 
-    const { container } = render(<Alert ref={ref} heading="Let op!" headingLevel={2} />)
+    const { container } = render(<Alert heading="Let op!" headingLevel={2} ref={ref} />)
 
     const component = container.querySelector(':only-child')
 

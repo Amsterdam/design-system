@@ -9,9 +9,9 @@ import { crossAlignOptions, mainAlignOptions } from '@amsterdam/design-system-re
 import { Meta, StoryObj } from '@storybook/react'
 
 const ThreeItems = [
-  <div key={0} className="ams-docs-item" />,
-  <div key={1} className="ams-docs-item" />,
-  <div key={2} className="ams-docs-item" />,
+  <div className="ams-docs-item" key={0} />,
+  <div className="ams-docs-item" key={1} />,
+  <div className="ams-docs-item" key={2} />,
 ]
 
 const meta = {
@@ -98,7 +98,7 @@ export const VerticalAlignment: Story = {
 export const Wrapping: Story = {
   args: {
     children: Array.from(Array(4).keys()).map((i) => (
-      <span key={i} className="ams-docs-item" style={{ flexBasis: '16rem' }} />
+      <span className="ams-docs-item" key={i} style={{ flexBasis: '16rem' }} />
     )),
     wrap: true,
   },

@@ -38,10 +38,10 @@ export const Checkbox = forwardRef(
       <div className={clsx('ams-checkbox', className)}>
         <input
           {...restProps}
-          id={id}
-          ref={innerRef}
           aria-invalid={invalid || undefined}
           className="ams-checkbox__input"
+          id={id}
+          ref={innerRef}
           type="checkbox"
         />
         <label className="ams-checkbox__label" htmlFor={id}>

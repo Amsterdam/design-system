@@ -62,7 +62,7 @@ describe('Link list link', () => {
   it('supports ForwardRef in React', () => {
     const ref = createRef<HTMLAnchorElement>()
 
-    render(<LinkList.Link ref={ref} href="#" />)
+    render(<LinkList.Link href="#" ref={ref} />)
 
     const component = screen.getByRole('link')
 

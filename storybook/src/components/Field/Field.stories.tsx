@@ -35,7 +35,7 @@ export const WithDescription: Story = {
       <Paragraph id="description1" size="small">
         Typ geen persoonsgegevens in deze omschrijving. We vragen dit later in dit formulier aan u.
       </Paragraph>
-      <TextInput id="input2" aria-describedby="description1" invalid={args.invalid} />
+      <TextInput aria-describedby="description1" id="input2" invalid={args.invalid} />
     </Field>
   ),
 }
@@ -49,7 +49,7 @@ export const WithValidation: Story = {
         Typ geen persoonsgegevens in deze omschrijving. We vragen dit later in dit formulier aan u.
       </Paragraph>
       <ErrorMessage id="error">Geef aan waar het om gaat.</ErrorMessage>
-      <TextInput id="input3" aria-describedby="description2 error" aria-required invalid={args.invalid} />
+      <TextInput aria-describedby="description2 error" aria-required id="input3" invalid={args.invalid} />
     </Field>
   ),
 }
