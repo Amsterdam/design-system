@@ -39,8 +39,6 @@ const LinkItem = ({ currentPage, linkComponent, linkTemplate, pageNumber }: Link
 const Spacer = () => <li aria-hidden>{'\u2026'}</li>
 
 export type PaginationProps = {
-  /** The id of the accessible label. */
-  id?: string
   /** The React component to use for the links. */
   linkComponent?: ComponentType<AnchorHTMLAttributes<HTMLAnchorElement>>
   /** The template used to construct the link hrefs. */
@@ -61,13 +59,18 @@ export type PaginationProps = {
   totalPages: number
   /** The accessible name for the Pagination component. */
   visuallyHiddenLabel?: string
+  /**
+   * Connects the component with an internal element that defines its accessible name.
+   * Note: must be unique for the page.
+   */
+  visuallyHiddenLabelId?: string
 } & HTMLAttributes<HTMLElement>
 
 export const Pagination = forwardRef(
   (
     {
       className,
-      id = 'ams-pagination',
+      id = 'ams-pagination-a11y-label',
       linkComponent = (props: AnchorHTMLAttributes<HTMLAnchorElement>) => <a {...props} />,
       linkTemplate,
       maxVisiblePages = 7,
