@@ -28,6 +28,21 @@ These commit descriptions are eventually used to determine the release type and 
 For example, a PR specifies that it’s introducing a breaking change and changes code in both the `css` and `react` packages.
 This will cause a major version bump in both packages on release and add its description to the changelogs of both packages.
 
+### Adding a scope
+
+If the change involves just one component, include its name in parentheses to show it as the scope of the PR, like this:
+
+```text
+fix(Avatar): Correct the aspect ratio for the image
+```
+
+The changelog for this PR will display the scope as a prefix, so it will read: “**Avatar**: Correct the aspect ratio for the image.”
+There’s no need to repeat the component name in the rest of the PR title.
+Changelog entries are sorted alphabetically, which helps group changes for the same component.
+
+For changes that impact 2 to 5 components, separate their names with commas.
+Other scopes, like `docs`, are allowed, as is omitting it.
+
 ## How to create a release
 
 1. Locally merge the latest version of `develop` into `main` using a fast-forward merge, and push to the remote:
