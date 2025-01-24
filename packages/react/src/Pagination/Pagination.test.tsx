@@ -101,7 +101,7 @@ describe('Pagination', () => {
   })
 
   it('sets a custom id for the accessible label', () => {
-    render(<Pagination id="custom-id" linkTemplate={linkTemplate} totalPages={10} />)
+    render(<Pagination linkTemplate={linkTemplate} totalPages={10} visuallyHiddenLabelId="custom-id" />)
 
     const component = screen.getByRole('navigation', { name: 'Paginering' })
 
