@@ -21,7 +21,7 @@
         "background-color": { "value": "{ams.color.highlight.lime}" },
         "color": { "value": "{ams.color.text.default}" }
       },
-      "light-blue": {
+      "blue": {
         "background-color": { "value": "{ams.color.highlight.azure}" },
         "color": { "value": "{ams.color.text.default}" }
       },
