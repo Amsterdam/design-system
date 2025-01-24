@@ -10,6 +10,8 @@ If you want to have rights to publish as well, contact one of the [maintainers](
 
 ## Conventional commits
 
+### Choosing a commit type
+
 To know whether a release is major, minor or patch and to generate changelogs automatically, we use the [conventional commits spec](https://www.conventionalcommits.org/en/v1.0.0/).
 The titles of our PRs specify whether a change is:
 
@@ -18,8 +20,8 @@ The titles of our PRs specify whether a change is:
 - a new feature (`feat`), a minor release, or
 - a breaking change (`feat!`), a major release.
 
-Use the `chore` prefix when updating development dependencies, changing configuration or updating documentation that isn’t about a component.
-Use the’ fix’ prefix for refactors, regular dependency updates or updates to documentation about components.
+Use the `chore` type when updating development dependencies, changing configuration or updating documentation that isn’t about a component.
+Use the `fix` type for refactors, regular dependency updates or updates to documentation about components.
 
 The PR title also describes the change in a clear, human-friendly way.
 This PR title becomes the description of a commit when we squash merge a feature branch PR into `develop`.
