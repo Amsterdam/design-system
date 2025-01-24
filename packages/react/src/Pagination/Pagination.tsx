@@ -36,11 +36,7 @@ const LinkItem = ({ currentPage, linkComponent, linkTemplate, pageNumber }: Link
   )
 }
 
-const Spacer = ({ spacer }) => (
-  <li aria-hidden data-testid={spacer}>
-    {'\u2026'}
-  </li>
-)
+const Spacer = () => <li aria-hidden>{'\u2026'}</li>
 
 export type PaginationProps = {
   /** The id of the accessible label. */
@@ -119,7 +115,7 @@ export const Pagination = forwardRef(
                 pageNumber={pageNumberOrSpacer}
               />
             ) : (
-              <Spacer key={pageNumberOrSpacer} spacer={pageNumberOrSpacer} />
+              <Spacer key={pageNumberOrSpacer} />
             ),
           )}
         </ol>

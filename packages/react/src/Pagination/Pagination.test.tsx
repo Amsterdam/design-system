@@ -43,17 +43,19 @@ describe('Pagination', () => {
   it('should render the pages including one (last) spacer when totalPages > maxVisiblePages', () => {
     render(<Pagination linkTemplate={linkTemplate} maxVisiblePages={7} page={1} totalPages={10} />)
 
+    const spacers = screen.getAllByText('…')
+
     expect(screen.getAllByRole('listitem').length).toBe(6)
-    expect(screen.getByTestId('lastSpacer')).toBeInTheDocument()
-    expect(screen.queryByTestId('firstSpacer')).not.toBeInTheDocument()
+    expect(spacers.length).toBe(1)
   })
 
   it('should render the pages including the two spacers when totalPages > maxVisiblePages and current page > 4', () => {
     render(<Pagination linkTemplate={linkTemplate} maxVisiblePages={7} page={6} totalPages={10} />)
 
+    const spacers = screen.getAllByText('…')
+
     expect(screen.getAllByRole('listitem').length).toBe(5)
-    expect(screen.getByTestId('lastSpacer')).toBeInTheDocument()
-    expect(screen.getByTestId('firstSpacer')).toBeInTheDocument()
+    expect(spacers.length).toBe(2)
   })
 
   it('should set aria-current to true on the current page', () => {
