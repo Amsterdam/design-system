@@ -58,7 +58,7 @@ export const Alert = forwardRef(
     const SeverityIcon = severity ? iconSvgBySeverity[severity] : InfoIcon
 
     return (
-      <section {...restProps} ref={ref} className={clsx('ams-alert', severity && `ams-alert--${severity}`, className)}>
+      <section {...restProps} className={clsx('ams-alert', severity && `ams-alert--${severity}`, className)} ref={ref}>
         <div className="ams-alert__severity-indicator">
           <Icon inverseColor size="level-4" svg={SeverityIcon} />
         </div>

@@ -99,7 +99,7 @@ describe('Breakout cell', () => {
 
   it('renders class names for an object for both colSpan and colStart', () => {
     const { container } = render(
-      <Breakout.Cell colSpan={{ medium: 4, narrow: 2, wide: 6 }} colStart={{ medium: 3, narrow: 1, wide: 5 }} />,
+      <Breakout.Cell colSpan={{ narrow: 2, medium: 4, wide: 6 }} colStart={{ narrow: 1, medium: 3, wide: 5 }} />,
     )
 
     const component = container.querySelector(':only-child')
@@ -163,7 +163,7 @@ describe('Breakout cell', () => {
 
   it('renders class names for an object for both rowSpan and rowStart', () => {
     const { container } = render(
-      <Breakout.Cell rowSpan={{ medium: 3, narrow: 2, wide: 4 }} rowStart={{ medium: 2, narrow: 1, wide: 3 }} />,
+      <Breakout.Cell rowSpan={{ narrow: 2, medium: 3, wide: 4 }} rowStart={{ narrow: 1, medium: 2, wide: 3 }} />,
     )
 
     const component = container.querySelector(':only-child')

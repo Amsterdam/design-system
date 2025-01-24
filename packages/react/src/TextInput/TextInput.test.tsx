@@ -36,7 +36,7 @@ describe('Text input', () => {
     function ControlledComponent() {
       const [value, setValue] = useState('Hello')
 
-      return <TextInput value={value} onChange={(e) => setValue(e.target.value)} />
+      return <TextInput onChange={(e) => setValue(e.target.value)} value={value} />
     }
 
     render(<ControlledComponent />)
@@ -56,7 +56,7 @@ describe('Text input', () => {
   })
 
   it('should not update the value when disabled', async () => {
-    render(<TextInput disabled defaultValue="Hello" />)
+    render(<TextInput defaultValue="Hello" disabled />)
 
     const component = screen.getByRole('textbox')
     if (component) {

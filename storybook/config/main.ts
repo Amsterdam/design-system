@@ -2,10 +2,6 @@ import type { StorybookConfig } from '@storybook/react-vite'
 import remarkGfm from 'remark-gfm'
 
 const config: StorybookConfig = {
-  core: {
-    disableTelemetry: true,
-  },
-  stories: ['../src/**/*.docs.mdx', '../src/**/*.stories.@(js|jsx|ts|tsx)'],
   addons: [
     '@storybook/addon-links',
     '@storybook/addon-essentials',
@@ -24,14 +20,18 @@ const config: StorybookConfig = {
     },
     '@whitespace/storybook-addon-html',
   ],
-  framework: {
-    name: '@storybook/react-vite',
-    options: {},
+  core: {
+    disableTelemetry: true,
   },
   docs: {
     autodocs: true,
   },
+  framework: {
+    name: '@storybook/react-vite',
+    options: {},
+  },
   staticDirs: ['../../proprietary/assets'],
+  stories: ['../src/**/*.docs.mdx', '../src/**/*.stories.@(js|jsx|ts|tsx)'],
   typescript: {
     reactDocgen: 'react-docgen-typescript',
   },

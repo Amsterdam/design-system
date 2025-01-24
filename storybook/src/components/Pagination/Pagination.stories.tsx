@@ -10,23 +10,23 @@ const meta = {
   title: 'Components/Navigation/Pagination',
   component: Pagination,
   args: {
-    page: 1,
     maxVisiblePages: 7,
+    page: 1,
     totalPages: 10,
   },
   argTypes: {
     onPageChange: { action: 'page changed' },
     page: {
       control: {
-        type: 'number',
         min: 1,
+        type: 'number',
       },
     },
   },
   decorators: [
     // Wrap the story in a div with a key, to force a rerender when the 'page' arg changes
     (Story, { args }) => (
-      <div key={JSON.stringify(args)} id="ams-docs-custom-root">
+      <div id="ams-docs-custom-root" key={JSON.stringify(args)}>
         <Story />
       </div>
     ),

@@ -21,13 +21,13 @@ export const Paragraph = forwardRef(
     ref: ForwardedRef<HTMLParagraphElement>,
   ) => (
     <p
-      ref={ref}
       className={clsx(
         'ams-paragraph',
         size && `ams-paragraph--${size}`,
         inverseColor && 'ams-paragraph--inverse-color',
         className,
       )}
+      ref={ref}
       {...restProps}
     >
       {children}

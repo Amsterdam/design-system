@@ -14,7 +14,7 @@ describe('Accordion', () => {
   })
 
   it('renders an additional class name', () => {
-    const { container } = render(<Accordion headingLevel={1} className="test" />)
+    const { container } = render(<Accordion className="test" headingLevel={1} />)
 
     const accordion = container.querySelector('.ams-accordion')
 

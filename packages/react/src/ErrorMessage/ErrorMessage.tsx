@@ -21,8 +21,8 @@ export const ErrorMessage = forwardRef(
     { children, className, icon, prefix = 'Invoerfout', ...restProps }: ErrorMessageProps,
     ref: ForwardedRef<HTMLParagraphElement>,
   ) => (
-    <p {...restProps} ref={ref} className={clsx('ams-error-message', className)}>
-      <Icon svg={icon ? icon : AlertIcon} size="level-6" />
+    <p {...restProps} className={clsx('ams-error-message', className)} ref={ref}>
+      <Icon size="level-6" svg={icon ? icon : AlertIcon} />
       <span className="ams-visually-hidden">
         {prefix}
         {': '}

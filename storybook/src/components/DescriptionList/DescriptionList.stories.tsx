@@ -28,8 +28,8 @@ const meta = {
   argTypes: {
     termsWidth: {
       control: {
+        labels: { lg: 'large', md: 'medium', sm: 'small', undefined: 'auto' },
         type: 'radio',
-        labels: { undefined: 'auto', sm: 'small', md: 'medium', lg: 'large' },
       },
       options: [undefined, 'sm', 'md', 'lg'],
     },
@@ -56,7 +56,6 @@ export const MultipleDescriptions: Story = {
 
 export const MultipleTerms: Story = {
   args: {
-    termsWidth: 'md',
     children: [
       <DescriptionList.Term key={1}>Achternaam</DescriptionList.Term>,
       <DescriptionList.Description key={2}>
@@ -71,6 +70,7 @@ export const MultipleTerms: Story = {
       <DescriptionList.Term key={4}>Geboortedatum</DescriptionList.Term>,
       <DescriptionList.Description key={5}>De datum waarop een persoon is geboren</DescriptionList.Description>,
     ],
+    termsWidth: 'md',
   },
 }
 

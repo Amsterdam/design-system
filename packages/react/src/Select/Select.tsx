@@ -24,4 +24,4 @@ const SelectRoot = forwardRef(
 
 SelectRoot.displayName = 'Select'
 
-export const Select = Object.assign(SelectRoot, { Option: SelectOption, Group: SelectOptionGroup })
+export const Select = Object.assign(SelectRoot, { Group: SelectOptionGroup, Option: SelectOption })

@@ -108,7 +108,7 @@ describe('Grid cell', () => {
   gridCellTags.forEach((tag) => {
     it(`renders with a custom ${tag} tag`, () => {
       const { container } = render(
-        <Grid.Cell as={tag} aria-label={tag === 'section' ? 'Accessible name' : undefined} />,
+        <Grid.Cell aria-label={tag === 'section' ? 'Accessible name' : undefined} as={tag} />,
       )
 
       let component: HTMLElement | null

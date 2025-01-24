@@ -14,7 +14,7 @@ export type FieldProps = {
 
 export const Field = forwardRef(
   ({ children, className, invalid, ...restProps }: FieldProps, ref: ForwardedRef<HTMLDivElement>) => (
-    <div {...restProps} ref={ref} className={clsx('ams-field', invalid && 'ams-field--invalid', className)}>
+    <div {...restProps} className={clsx('ams-field', invalid && 'ams-field--invalid', className)} ref={ref}>
       {children}
     </div>
   ),

@@ -23,8 +23,8 @@ const meta = {
     },
     size: {
       control: {
-        type: 'radio',
         labels: { undefined: 'level-5' },
+        type: 'radio',
       },
       options: ['level-3', 'level-4', undefined, 'level-6'],
     },
@@ -32,8 +32,8 @@ const meta = {
       control: {
         type: 'select',
       },
-      options: Object.keys(Icons),
       mapping: Icons,
+      options: Object.keys(Icons),
     },
   },
 } satisfies Meta<typeof IconButton>

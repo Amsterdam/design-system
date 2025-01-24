@@ -20,9 +20,9 @@ export const Default: Story = {
   args: {
     children: [
       <Image
-        key={1}
         alt=""
         aspectRatio="2x-wide"
+        key={1}
         sizes="(max-width: 36rem) 640px, (max-width: 68rem) 1280px, 1600px"
         src="https://picsum.photos/1600/500"
         srcSet="https://picsum.photos/640/200 640w, https://picsum.photos/1280/400 1280w, https://picsum.photos/1600/500 1600w"

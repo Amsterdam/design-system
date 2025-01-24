@@ -30,11 +30,11 @@ export const decorators = [
     </Screen>
   ),
   withThemeByClassName({
-    themes: {
-      Spacious: '',
-      Compact: 'ams-theme--compact',
-    },
     defaultTheme: 'Spacious',
+    themes: {
+      Compact: 'ams-theme--compact',
+      Spacious: '',
+    },
   }),
 ]
 
@@ -47,6 +47,9 @@ export const parameters = {
   },
   grid: {
     disable: true,
+  },
+  html: {
+    root: '.ams-screen',
   },
   options: {
     storySort: {
@@ -62,11 +65,8 @@ export const parameters = {
       ],
     },
   },
+  viewMode: 'docs',
   viewport: {
     viewports,
-  },
-  viewMode: 'docs',
-  html: {
-    root: '.ams-screen',
   },
 }

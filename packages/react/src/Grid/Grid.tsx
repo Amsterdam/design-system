@@ -59,13 +59,13 @@ const GridRoot = forwardRef(
   ) => (
     <Tag
       {...restProps}
-      ref={ref}
       className={clsx(
         'ams-grid',
         gapVertical && `ams-grid--gap-vertical--${gapVertical}`,
         paddingClasses('grid', paddingBottom, paddingTop, paddingVertical),
         className,
       )}
+      ref={ref}
     >
       {children}
     </Tag>

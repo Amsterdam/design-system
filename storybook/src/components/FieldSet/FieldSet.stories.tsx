@@ -20,10 +20,10 @@ const meta = {
   title: 'Components/Forms/Field Set',
   component: FieldSet,
   args: {
+    hint: '',
     invalid: false,
     legend: 'Wat is uw naam?',
     optional: false,
-    hint: '',
   },
   decorators: [
     (Story) => (
@@ -39,7 +39,7 @@ export default meta
 type Story = StoryObj<typeof meta>
 
 export const Default: Story = {
-  render: ({ invalid, legend, hint, optional }) => (
+  render: ({ hint, invalid, legend, optional }) => (
     <FieldSet hint={hint} invalid={invalid} legend={legend} optional={optional}>
       <Field className="ams-mb--sm">
         <Label htmlFor="input-a1">Voornaam</Label>
@@ -68,7 +68,7 @@ export const Default: Story = {
 export const WithDescription: Story = {
   render: (args) => (
     <FieldSet aria-describedby="description-b" invalid={args.invalid} legend={args.legend}>
-      <Paragraph id="description-b" size="small" className="ams-mb--sm">
+      <Paragraph className="ams-mb--sm" id="description-b" size="small">
         Vul uw naam in zoals in uw paspoort staat.
       </Paragraph>
       <Field className="ams-mb--sm">
@@ -96,8 +96,8 @@ export const WithDescription: Story = {
 }
 
 export const WithHint: Story = {
-  args: { optional: false, hint: 'verplicht' },
-  render: ({ invalid, legend, hint, optional }) => (
+  args: { hint: 'verplicht', optional: false },
+  render: ({ hint, invalid, legend, optional }) => (
     <FieldSet hint={hint} invalid={invalid} legend={legend} optional={optional}>
       <Field className="ams-mb--sm">
         <Label htmlFor="input-b3">Voornaam</Label>
@@ -127,7 +127,7 @@ export const WithValidation: Story = {
   args: { invalid: true },
   render: (args) => (
     <FieldSet aria-describedby="description-c" invalid={args.invalid} legend={args.legend}>
-      <Paragraph id="description-c" size="small" className="ams-mb--sm">
+      <Paragraph className="ams-mb--sm" id="description-c" size="small">
         Vul uw naam in zoals in uw paspoort staat.
       </Paragraph>
       <Field className="ams-mb--sm">
@@ -194,8 +194,8 @@ export const RadioGroup: Story = {
 
 export const RadioGroupWithValidation: Story = {
   args: {
-    legend: 'Waar gaat uw melding over?',
     invalid: true,
+    legend: 'Waar gaat uw melding over?',
   },
   render: (args) => (
     <FieldSet
@@ -280,7 +280,7 @@ export const CheckboxGroupWithValidation: Story = {
       invalid={args.invalid}
       legend={args.legend}
     >
-      <Paragraph id="description-g" size="small" className="ams-mb--sm">
+      <Paragraph className="ams-mb--sm" id="description-g" size="small">
         De laatstgenoemde melding.
       </Paragraph>
       {args.invalid && (

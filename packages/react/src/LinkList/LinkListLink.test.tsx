@@ -28,7 +28,7 @@ describe('Link list link', () => {
   })
 
   it('renders an additional class name', () => {
-    render(<LinkList.Link href="#" className="extra" />)
+    render(<LinkList.Link className="extra" href="#" />)
 
     const component = screen.getByRole('link')
 
@@ -44,7 +44,7 @@ describe('Link list link', () => {
   })
 
   it('renders the class name for contrast color', () => {
-    render(<LinkList.Link href="#" contrastColor />)
+    render(<LinkList.Link contrastColor href="#" />)
 
     const component = screen.getByRole('link')
 

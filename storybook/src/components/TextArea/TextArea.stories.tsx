@@ -33,8 +33,8 @@ const meta = {
     },
     resize: {
       control: {
+        labels: { horizontal: 'horizontal', none: 'none', undefined: 'default', vertical: 'vertical' },
         type: 'radio',
-        labels: { undefined: 'default', none: 'none', horizontal: 'horizontal', vertical: 'vertical' },
       },
       options: [undefined, 'none', 'horizontal', 'vertical'],
     },
