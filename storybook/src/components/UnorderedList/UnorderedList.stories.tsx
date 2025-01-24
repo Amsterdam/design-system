@@ -33,8 +33,8 @@ const meta = {
   argTypes: {
     size: {
       control: {
-        type: 'radio',
         labels: { small: 'small', undefined: 'medium' },
+        type: 'radio',
       },
       options: ['small', undefined],
     },
@@ -76,49 +76,49 @@ export const WithoutMarkers: Story = {
     children: [
       <UnorderedList.Item key={1}>
         <div className="ams-docs-card">
-          <Icon svg={LocationIcon} size="level-6" />
+          <Icon size="level-6" svg={LocationIcon} />
           <Paragraph>Stadsloket: locaties en openingstijden</Paragraph>
         </div>
       </UnorderedList.Item>,
       <UnorderedList.Item key={2}>
         <div className="ams-docs-card">
-          <Icon svg={CarIcon} size="level-6" />
+          <Icon size="level-6" svg={CarIcon} />
           <Paragraph>Parkeren + Reizen (P+R)</Paragraph>
         </div>
       </UnorderedList.Item>,
       <UnorderedList.Item key={3}>
         <div className="ams-docs-card">
-          <Icon svg={PassportIcon} size="level-6" />
+          <Icon size="level-6" svg={PassportIcon} />
           <Paragraph>Paspoort, ID-kaart en Rijbewijs</Paragraph>
         </div>
       </UnorderedList.Item>,
       <UnorderedList.Item key={4}>
         <div className="ams-docs-card">
-          <Icon svg={DocumentEuroSignIcon} size="level-6" />
+          <Icon size="level-6" svg={DocumentEuroSignIcon} />
           <Paragraph>Gemeentebelastingen</Paragraph>
         </div>
       </UnorderedList.Item>,
       <UnorderedList.Item key={5}>
         <div className="ams-docs-card">
-          <Icon svg={AlertIcon} size="level-6" />
+          <Icon size="level-6" svg={AlertIcon} />
           <Paragraph>Melding openbare ruimte en overlast</Paragraph>
         </div>
       </UnorderedList.Item>,
       <UnorderedList.Item key={6}>
         <div className="ams-docs-card">
-          <Icon svg={HousingIcon} size="level-6" />
+          <Icon size="level-6" svg={HousingIcon} />
           <Paragraph>Verhuizing doorgeven</Paragraph>
         </div>
       </UnorderedList.Item>,
       <UnorderedList.Item key={7}>
         <div className="ams-docs-card">
-          <Icon svg={TrashBinIcon} size="level-6" />
+          <Icon size="level-6" svg={TrashBinIcon} />
           <Paragraph>Grof afval</Paragraph>
         </div>
       </UnorderedList.Item>,
       <UnorderedList.Item key={8}>
         <div className="ams-docs-card">
-          <Icon svg={AnnouncementIcon} size="level-6" />
+          <Icon size="level-6" svg={AnnouncementIcon} />
           <Paragraph>Kennisgevingen en bekendmakingen</Paragraph>
         </div>
       </UnorderedList.Item>,

@@ -26,7 +26,7 @@ describe('Header menu link', () => {
   })
 
   it('renders an additional class name', () => {
-    render(<HeaderMenuLink href="/" className="extra" />)
+    render(<HeaderMenuLink className="extra" href="/" />)
 
     const component = screen.getByRole('link')
 
@@ -42,7 +42,7 @@ describe('Header menu link', () => {
   })
 
   it('renders the ‘fixed’ prop classname', () => {
-    render(<HeaderMenuLink href="/" fixed />)
+    render(<HeaderMenuLink fixed href="/" />)
 
     const component = screen.getByRole('listitem')
 

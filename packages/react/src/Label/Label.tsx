@@ -14,7 +14,7 @@ export type LabelProps = PropsWithChildren<LabelHTMLAttributes<HTMLLabelElement>
 export const Label = forwardRef(
   ({ children, className, hint, optional, ...restProps }: LabelProps, ref: ForwardedRef<HTMLLabelElement>) => {
     return (
-      <label {...restProps} ref={ref} className={clsx('ams-label', className)}>
+      <label {...restProps} className={clsx('ams-label', className)} ref={ref}>
         {children} <Hint hint={hint} optional={optional} />
       </label>
     )

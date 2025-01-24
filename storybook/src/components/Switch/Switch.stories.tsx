@@ -47,7 +47,7 @@ export const Default: Story = {}
 export const WithLabel: Story = {
   decorators: [
     (Story) => (
-      <div style={{ display: 'flex', alignItems: 'center', gap: '5rem' }}>
+      <div style={{ alignItems: 'center', display: 'flex', gap: '5rem' }}>
         <Story />
       </div>
     ),

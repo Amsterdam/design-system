@@ -70,7 +70,6 @@ export const Pagination = forwardRef(
   (
     {
       className,
-      id = 'ams-pagination-a11y-label',
       linkComponent = (props: AnchorHTMLAttributes<HTMLAnchorElement>) => <a {...props} />,
       linkTemplate,
       maxVisiblePages = 7,
@@ -81,6 +80,7 @@ export const Pagination = forwardRef(
       previousVisuallyHiddenLabel = 'Vorige pagina',
       totalPages,
       visuallyHiddenLabel = 'Paginering',
+      visuallyHiddenLabelId = 'ams-pagination-a11y-label',
       ...restProps
     }: PaginationProps,
     ref: ForwardedRef<HTMLElement>,
@@ -96,13 +96,18 @@ export const Pagination = forwardRef(
     const range = getRange(page, totalPages, maxVisiblePages)
 
     return (
-      <nav {...restProps} aria-labelledby={id} className={clsx('ams-pagination', className)} ref={ref}>
-        <span id={id} className="ams-visually-hidden">
+      <nav
+        {...restProps}
+        aria-labelledby={visuallyHiddenLabelId}
+        className={clsx('ams-pagination', className)}
+        ref={ref}
+      >
+        <span className="ams-visually-hidden" id={visuallyHiddenLabelId}>
           {visuallyHiddenLabel}
         </span>
         {page !== 1 && (
           <Link className="ams-pagination__link" href={linkTemplate(page - 1)} rel="prev">
-            <Icon svg={ChevronLeftIcon} size="level-5" />
+            <Icon size="level-5" svg={ChevronLeftIcon} />
             <span className="ams-visually-hidden">{previousVisuallyHiddenLabel}</span>
             <span aria-hidden>{previousLabel}</span>
           </Link>
@@ -126,7 +131,7 @@ export const Pagination = forwardRef(
           <Link className="ams-pagination__link" href={linkTemplate(page + 1)} rel="next">
             <span className="ams-visually-hidden">{nextVisuallyHiddenLabel}</span>
             <span aria-hidden>{nextLabel}</span>
-            <Icon svg={ChevronRightIcon} size="level-5" />
+            <Icon size="level-5" svg={ChevronRightIcon} />
           </Link>
         )}
       </nav>

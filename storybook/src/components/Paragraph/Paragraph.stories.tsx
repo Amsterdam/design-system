@@ -23,8 +23,8 @@ const meta = {
     },
     size: {
       control: {
+        labels: { large: 'large', small: 'small', undefined: 'medium' },
         type: 'radio',
-        labels: { small: 'small', undefined: 'medium', large: 'large' },
       },
       options: ['small', undefined, 'large'],
     },

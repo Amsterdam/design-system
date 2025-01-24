@@ -11,7 +11,7 @@ export type TableRowProps = PropsWithChildren<HTMLAttributes<HTMLTableRowElement
 
 export const TableRow = forwardRef(
   ({ children, className, ...restProps }: TableRowProps, ref: ForwardedRef<HTMLTableRowElement>) => (
-    <tr {...restProps} ref={ref} className={clsx('ams-table__row', className)}>
+    <tr {...restProps} className={clsx('ams-table__row', className)} ref={ref}>
       {children}
     </tr>
   ),

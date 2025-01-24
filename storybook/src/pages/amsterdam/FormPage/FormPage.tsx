@@ -22,7 +22,7 @@ export const FormPage = () => {
   const [textareaLength, setTextareaLength] = useState(0)
 
   return (
-    <Grid paddingTop="small" paddingBottom="medium">
+    <Grid paddingBottom="medium" paddingTop="small">
       <Grid.Cell span={{ narrow: 4, medium: 6, wide: 8 }} start={{ narrow: 1, medium: 2, wide: 3 }}>
         <Breadcrumb>
           <Breadcrumb.Link>Home</Breadcrumb.Link>
@@ -86,7 +86,7 @@ export const FormPage = () => {
               </Row>
             </Column>
           </FieldSet>
-          <Alert severity="info">
+          <Alert heading="Waarom vragen we om deze gegevens?">
             <Paragraph>
               We bewaren uw contactgegevens voor het afhandelen van uw vraag of klacht en het verbeteren van onze
               dienstverlening.

@@ -4,14 +4,23 @@
  */
 
 import { Avatar } from '@amsterdam/design-system-react/src'
+import { avatarColors } from '@amsterdam/design-system-react/src/Avatar/Avatar'
 import { Meta, StoryObj } from '@storybook/react'
 
 const meta = {
   title: 'Components/Feedback/Avatar',
   component: Avatar,
   args: {
-    label: 'DS',
     imageSrc: '',
+    label: 'DS',
+  },
+  argTypes: {
+    color: {
+      control: {
+        labels: { undefined: 'purple (default)' },
+      },
+      options: [undefined, ...avatarColors],
+    },
   },
 } satisfies Meta<typeof Avatar>
 
@@ -23,8 +32,8 @@ export const Default: Story = {}
 
 export const WithImage: Story = {
   args: {
-    label: 'PS',
     imageSrc: 'https://i.pravatar.cc/128',
+    label: 'PS',
   },
 }
 

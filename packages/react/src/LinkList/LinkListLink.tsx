@@ -10,10 +10,10 @@ import type { AnchorHTMLAttributes, ForwardedRef, PropsWithChildren } from 'reac
 import { Icon } from '../Icon'
 
 export type LinkListLinkProps = {
-  /** An icon to display instead of the default chevron. Don’t mix custom icons with chevrons in one list. */
-  icon?: Function
   /** Changes the text colour for readability on a light background. */
   contrastColor?: boolean
+  /** An icon to display instead of the default chevron. Don’t mix custom icons with chevrons in one list. */
+  icon?: Function
   /** Changes the text colour for readability on a dark background. */
   inverseColor?: boolean
   /** The size of the text. Use the same size for all items in the list. */
@@ -29,7 +29,7 @@ const iconSizeMap = {
 /** One link with a Link List. */
 export const LinkListLink = forwardRef(
   (
-    { children, className, icon, contrastColor, inverseColor, size, ...restProps }: LinkListLinkProps,
+    { children, className, contrastColor, icon, inverseColor, size, ...restProps }: LinkListLinkProps,
     ref: ForwardedRef<HTMLAnchorElement>,
   ) => {
     return (
@@ -45,7 +45,7 @@ export const LinkListLink = forwardRef(
           ref={ref}
           {...restProps}
         >
-          <Icon svg={icon ?? ChevronRightIcon} size={iconSizeMap[size ?? 'medium']} />
+          <Icon size={iconSizeMap[size ?? 'medium']} svg={icon ?? ChevronRightIcon} />
           {children}
         </a>
       </li>

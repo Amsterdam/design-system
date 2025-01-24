@@ -16,8 +16,8 @@ export const PageHeading = forwardRef(
   ({ children, className, inverseColor, ...restProps }: PageHeadingProps, ref: ForwardedRef<HTMLHeadingElement>) => (
     <h1
       {...restProps}
-      ref={ref}
       className={clsx('ams-page-heading', inverseColor && 'ams-page-heading--inverse-color', className)}
+      ref={ref}
     >
       {children}
     </h1>

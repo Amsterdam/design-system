@@ -22,7 +22,7 @@ describe('Badge', () => {
   })
 
   it('renders an additional class name', () => {
-    const { container } = render(<Badge label="test" className="extra" />)
+    const { container } = render(<Badge className="extra" label="test" />)
 
     const component = container.querySelector(':only-child')
 
@@ -47,17 +47,9 @@ describe('Badge', () => {
     expect(component).toHaveTextContent('1')
   })
 
-  it('renders with default color', () => {
-    const { container } = render(<Badge label="test" />)
-
-    const component = container.querySelector(':only-child')
-
-    expect(component).toHaveClass('ams-badge--dark-green')
-  })
-
   badgeColors.map((color) =>
     it(`renders with ${color} color`, () => {
-      const { container } = render(<Badge label="test" color={color} />)
+      const { container } = render(<Badge color={color} label="test" />)
 
       const component = container.querySelector(':only-child')
 

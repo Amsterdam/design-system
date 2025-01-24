@@ -15,7 +15,7 @@ describe('use focus with arrows', () => {
       })
 
       return (
-        <div onKeyDown={keyDown} tabIndex={0} role="menu" ref={ref}>
+        <div onKeyDown={keyDown} ref={ref} role="menu" tabIndex={0}>
           <button onFocus={onFocusOneMock} type="button">
             One
           </button>

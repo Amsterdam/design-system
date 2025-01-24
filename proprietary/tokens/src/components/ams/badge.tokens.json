@@ -1,38 +1,16 @@
 {
   "ams": {
     "badge": {
+      "background-color": { "value": "{ams.color.dark-green}" },
+      "color": { "value": "{ams.color.primary-white}" },
       "font-family": { "value": "{ams.text.font-family}" },
       "font-size": { "value": "{ams.text.level.5.font-size}" },
       "font-weight": { "value": "{ams.text.font-weight.bold}" },
       "line-height": { "value": "{ams.text.level.5.line-height}" },
       "padding-inline": { "value": "{ams.space.xs}" },
-      "black": {
-        "background-color": { "value": "{ams.color.primary-black}" },
-        "color": { "value": "{ams.color.primary-white}" }
-      },
-      "blue": {
-        "background-color": { "value": "{ams.color.primary-blue}" },
-        "color": { "value": "{ams.color.primary-white}" }
-      },
-      "dark-green": {
-        "background-color": { "value": "{ams.color.dark-green}" },
-        "color": { "value": "{ams.color.primary-white}" }
-      },
       "green": {
         "background-color": { "value": "{ams.color.green}" },
         "color": { "value": "{ams.color.primary-black}" }
-      },
-      "grey-1": {
-        "background-color": { "value": "{ams.color.neutral-grey1}" },
-        "color": { "value": "{ams.color.primary-black}" }
-      },
-      "grey-2": {
-        "background-color": { "value": "{ams.color.neutral-grey2}" },
-        "color": { "value": "{ams.color.primary-black}" }
-      },
-      "grey-3": {
-        "background-color": { "value": "{ams.color.neutral-grey3}" },
-        "color": { "value": "{ams.color.primary-white}" }
       },
       "light-blue": {
         "background-color": { "value": "{ams.color.blue}" },
@@ -53,10 +31,6 @@
       "red": {
         "background-color": { "value": "{ams.color.primary-red}" },
         "color": { "value": "{ams.color.primary-white}" }
-      },
-      "white": {
-        "background-color": { "value": "{ams.color.primary-white}" },
-        "color": { "value": "{ams.color.primary-black}" }
       },
       "yellow": {
         "background-color": { "value": "{ams.color.yellow}" },

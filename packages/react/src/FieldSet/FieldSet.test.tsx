@@ -22,7 +22,7 @@ describe('FieldSet', () => {
   })
 
   it('renders an additional class name', () => {
-    render(<FieldSet legend="Test" className="extra" />)
+    render(<FieldSet className="extra" legend="Test" />)
 
     const component = screen.getByRole('group', { name: 'Test' })
 
@@ -38,7 +38,7 @@ describe('FieldSet', () => {
   })
 
   it('renders the error class', () => {
-    const { container } = render(<FieldSet legend="Test" invalid />)
+    const { container } = render(<FieldSet invalid legend="Test" />)
 
     const component = container.querySelector(':only-child')
 
@@ -56,7 +56,7 @@ describe('FieldSet', () => {
   })
 
   it('renders the provided hint text after the legend', () => {
-    render(<FieldSet legend="Legend" hint="hint text" />)
+    render(<FieldSet hint="hint text" legend="Legend" />)
 
     const component = screen.getByRole('group', { name: 'Legend (hint text)' })
 
@@ -72,7 +72,7 @@ describe('FieldSet', () => {
   })
 
   it('renders the provided hint text after the legend when both `optional` and `hint` props are used', () => {
-    render(<FieldSet legend="Legend" optional={true} hint="not required" />)
+    render(<FieldSet hint="not required" legend="Legend" optional={true} />)
 
     const component = screen.getByRole('group', { name: 'Legend (not required)' })
 
@@ -80,7 +80,7 @@ describe('FieldSet', () => {
   })
 
   it('renders the provided hint text after the legend while `optional` is set to `false`', () => {
-    render(<FieldSet legend="Legend" optional={false} hint="required" />)
+    render(<FieldSet hint="required" legend="Legend" optional={false} />)
 
     const component = screen.getByRole('group', { name: 'Legend (required)' })
 

@@ -14,7 +14,7 @@ export type ImageSliderItemProps = {
 } & PropsWithChildren<HTMLAttributes<HTMLDivElement>>
 
 export const ImageSliderItem = forwardRef(
-  ({ children, slideId, className, ...restProps }: ImageSliderItemProps, ref: ForwardedRef<HTMLDivElement>) => {
+  ({ children, className, slideId, ...restProps }: ImageSliderItemProps, ref: ForwardedRef<HTMLDivElement>) => {
     const { currentSlideId } = useContext(ImageSliderContext)
 
     const isInView = useMemo(() => currentSlideId === slideId, [currentSlideId, slideId])

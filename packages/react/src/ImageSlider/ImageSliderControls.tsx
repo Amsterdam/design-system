@@ -22,7 +22,7 @@ export const ImageSliderControls = forwardRef(
     { className, nextLabel, previousLabel, ...restProps }: ImageSliderControlsProps,
     ref: ForwardedRef<HTMLDivElement>,
   ) => {
-    const { isAtStart, isAtEnd, goToNextSlide, goToPreviousSlide } = useContext(ImageSliderContext)
+    const { goToNextSlide, goToPreviousSlide, isAtEnd, isAtStart } = useContext(ImageSliderContext)
 
     const handleClickPrevious = useCallback(() => goToPreviousSlide(), [goToPreviousSlide])
     const handleClickNext = useCallback(() => goToNextSlide(), [goToNextSlide])
