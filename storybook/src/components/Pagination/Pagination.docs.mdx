@@ -38,7 +38,7 @@ import { Pagination } from "@amsterdam/design-system-react"
 import NextLink from "next/link"
 
 const LinkComponent = (props) => (
-  <NextLink legacyBehavior passHref href={props.href}>
+  <NextLink href={props.href} legacyBehavior passHref>
     <a {...props} />
   </NextLink>
 )
