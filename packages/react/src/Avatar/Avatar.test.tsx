@@ -65,14 +65,6 @@ describe('Avatar', () => {
     expect(component).toHaveTextContent('AB')
   })
 
-  it('renders with default color', () => {
-    const { container } = render(<Avatar label="VS" />)
-
-    const component = container.querySelector(':only-child')
-
-    expect(component).toHaveClass('ams-avatar--blue')
-  })
-
   avatarColors.map((color) =>
     it(`renders with ${color} color`, () => {
       const { container } = render(<Avatar label="AL" color={color} />)

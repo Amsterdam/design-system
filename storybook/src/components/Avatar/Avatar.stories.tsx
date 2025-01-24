@@ -4,6 +4,7 @@
  */
 
 import { Avatar } from '@amsterdam/design-system-react/src'
+import { avatarColors } from '@amsterdam/design-system-react/src/Avatar/Avatar'
 import { Meta, StoryObj } from '@storybook/react'
 
 const meta = {
@@ -12,6 +13,14 @@ const meta = {
   args: {
     label: 'DS',
     imageSrc: '',
+  },
+  argTypes: {
+    color: {
+      control: {
+        labels: { undefined: 'purple (default)' },
+      },
+      options: [undefined, ...avatarColors],
+    },
   },
 } satisfies Meta<typeof Avatar>
 
