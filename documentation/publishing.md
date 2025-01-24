@@ -18,7 +18,7 @@ The titles of our PRs specify whether a change is:
 - a `chore` which doesn’t trigger a release
 - a `fix` resulting in a patch release,
 - a new feature (`feat`), a minor release, or
-- a breaking change (`feat!`), a major release.
+- a breaking change (append an `!`), a major release.
 
 Use the `chore` type when updating development dependencies, changing configuration or updating documentation that isn’t about a component.
 Use the `fix` type for refactors, regular dependency updates or updates to documentation about components.
