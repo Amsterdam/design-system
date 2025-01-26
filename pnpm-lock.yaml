@@ -101,6 +101,9 @@ importers:
       stylelint-use-logical:
         specifier: 2.1.2
         version: 2.1.2(stylelint@16.13.2(typescript@5.7.3))
+      stylelint-value-no-unknown-custom-properties:
+        specifier: 6.0.1
+        version: 6.0.1(stylelint@16.13.2(typescript@5.7.3))
       typescript:
         specifier: 5.7.3
         version: 5.7.3
@@ -4900,6 +4903,7 @@ packages:
 
   lodash.get@4.4.2:
     resolution: {integrity: sha512-z+Uw/vLuy6gQe8cfaFWD7p0wVv8fJl3mbzXh33RS+0oW2wvUqiRXiQ69gLWSLpgB5/6sU+r6BlQR0MBILadqTQ==}
+    deprecated: This package is deprecated. Use the optional chaining (?.) operator instead.
 
   lodash.merge@4.6.2:
     resolution: {integrity: sha512-0KpjqXRVvrYyCsX1swR/XTK0va6VQkQM6MNo7PqW77ByjAhoARA8EfrP1N4+KlKj8YS0ZUCtRT/YUuhyYDujIQ==}
@@ -6592,6 +6596,12 @@ packages:
     engines: {node: '>=14.0.0'}
     peerDependencies:
       stylelint: '>= 11 < 17'
+
+  stylelint-value-no-unknown-custom-properties@6.0.1:
+    resolution: {integrity: sha512-N60PTdaTknB35j6D4FhW0GL2LlBRV++bRpXMMldWMQZ240yFQaoltzlLY4lXXs7Z0J5mNUYZQ/gjyVtU2DhCMA==}
+    engines: {node: '>=18.12.0'}
+    peerDependencies:
+      stylelint: '>=16'
 
   stylelint@16.13.2:
     resolution: {integrity: sha512-wDlgh0mRO9RtSa3TdidqHd0nOG8MmUyVKl+dxA6C1j8aZRzpNeEgdhFmU5y4sZx4Fc6r46p0fI7p1vR5O2DZqA==}
@@ -14800,6 +14810,12 @@ snapshots:
 
   stylelint-use-logical@2.1.2(stylelint@16.13.2(typescript@5.7.3)):
     dependencies:
+      stylelint: 16.13.2(typescript@5.7.3)
+
+  stylelint-value-no-unknown-custom-properties@6.0.1(stylelint@16.13.2(typescript@5.7.3)):
+    dependencies:
+      postcss-value-parser: 4.2.0
+      resolve: 1.22.10
       stylelint: 16.13.2(typescript@5.7.3)
 
   stylelint@16.13.2(typescript@5.7.3):
