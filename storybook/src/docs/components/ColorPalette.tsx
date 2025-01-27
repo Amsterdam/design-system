@@ -20,7 +20,7 @@ type ColorPaletteSwatchProps = {
 
 const ColorPaletteSwatch = ({ color, name }: ColorPaletteSwatchProps) => (
   <div className={clsx('ams-docs-color-swatch', `ams-docs-color-swatch--${name}`)}>
-    <code className="ams-docs-color-code">ams.brand.color.{name}</code>
+    <span className="ams-docs-color-name">{name}</span>
     {name === 'neutral' ? (
       <>
         <ColorPaletteTile color={color['0']} level="0" />
@@ -44,16 +44,13 @@ type ColorPaletteTileProps = {
   level: string
 }
 
-const ColorPaletteTile = ({ color, level }: ColorPaletteTileProps) => (
-  <div className={clsx('ams-docs-color-tile', `ams-docs-color-tile--${level}`)}>
-    {color && (
-      <>
-        <code className="ams-docs-color-code">{level}</code>
-        <div className="ams-docs-color-sample" style={{ backgroundColor: color }} title={color} />
-      </>
-    )}
-  </div>
-)
+const ColorPaletteTile = ({ color, level }: ColorPaletteTileProps) =>
+  color && (
+    <div className={clsx('ams-docs-color-tile', `ams-docs-color-tile--${level}`)}>
+      <span className="ams-docs-color-level">{level}</span>
+      <div className="ams-docs-color-sample" style={{ backgroundColor: color }} title={color} />
+    </div>
+  )
 
 ColorPaletteTile.displayName = 'ColorPalette.Tile'
 
