@@ -62,9 +62,6 @@
         },
         "inverse": {
           "default": { "value": "#ffffff" }
-        },
-        "visited": {
-          "default": { "value": "#a00078" }
         }
       },
       "logo": {

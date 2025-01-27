@@ -7,9 +7,6 @@
       "hover": {
         "color": { "value": "{ams.color.interactive.hover}" }
       },
-      "visited": {
-        "color": { "value": "{ams.color.interactive.visited.default}" }
-      },
       "regular": {
         "text-decoration-line": { "value": "underline" },
         "hover": {
@@ -27,17 +24,11 @@
         "color": { "value": "{ams.color.interactive.contrast.default}" },
         "hover": {
           "color": { "value": "{ams.color.interactive.contrast.default}" }
-        },
-        "visited": {
-          "color": { "value": "{ams.color.interactive.contrast.default}" }
         }
       },
       "inverse": {
         "color": { "value": "{ams.color.interactive.inverse.default}" },
         "hover": {
-          "color": { "value": "{ams.color.interactive.inverse.default}" }
-        },
-        "visited": {
           "color": { "value": "{ams.color.interactive.inverse.default}" }
         }
       }
