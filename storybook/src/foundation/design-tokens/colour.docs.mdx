@@ -14,7 +14,9 @@ They are complemented by a range of accent colors.
 
 ## Palette
 
-These are the colours in our palette.
+The primary appearance of each color has been called level 60.
+Some colors offer a darker shade at level 80 for hover effects.
+A light neutral color is at level 20, white is at level 0, and black is at level 100.
 
 <ColorPalette>
   <ColorPalette.Swatch color={tokens.ams.brand.color.red} name="red" />
@@ -31,14 +33,17 @@ These are the colours in our palette.
 
 ## Brand tokens
 
+The term 'Brand' represents the highest level in the three-tier token structure of the [NL Design System](https://nldesignsystem.nl/handboek/design-tokens/).
+
+Our brand color tokens have meaningful (semantic) names instead of generic labels like 'blue-60' or 'red-100' that other design systems may use.
+This approach ensures that the correct color is used in the appropriate context.
+Always use a token for its intended purpose based on its name.
+Please reach out to us if you require a different color token.
+
 ### Feedback colours
 
-Use these tokens to provide feedback to the user.
-The ‘info’ token
-
-Alert, Character Count, Error Message, Field and Field Set use these tokens.
-
-Note that interactive
+Use these colors for positive and negative feedback, warnings, and messages that need attention.
+Interactive elements in an invalid state use the 'invalid interactive' token, not the 'error feedback' token.
 
 | Token name                   | Color name | Example                                                                                                                    |
 | ---------------------------- | ---------- | -------------------------------------------------------------------------------------------------------------------------- |
@@ -49,7 +54,9 @@ Note that interactive
 
 ### Interactive colours
 
-Use these tokens for all elements that
+Use these tokens for every interactive element.
+All our links and buttons are blue, along with some form controls.
+Links on a light background use the 'contrast' color, while those on a dark background use the 'inverse' color.
 
 | Token name                            | Color name  | Example                                                                                                                                                            |
 | ------------------------------------- | ----------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
@@ -64,6 +71,8 @@ Use these tokens for all elements that
 
 ### Text colours
 
+Regular text is off-black, secondary text is dark gray, and text on a dark background is white.
+
 | Token name                 | Color name  | Example                                                                                                                                                     |
 | -------------------------- | ----------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `ams.color.text`           | neutral-100 | <div className="ams-docs-token-example--color" style={{ backgroundColor: 'var(--ams-color-text-default)' }} />                                              |
@@ -71,6 +80,8 @@ Use these tokens for all elements that
 | `ams.color.text.inverse`   | neutral-0   | <div className="ams-docs-token-example--color ams-docs-token-example--color-border" style={{ backgroundColor: 'var(--ams-color-text-inverse-default)' }} /> |
 
 ### Highlight colours
+
+Components can these colours to stand out.
 
 | Token name                    | Color name | Example                                                                                                                     |
 | ----------------------------- | ---------- | --------------------------------------------------------------------------------------------------------------------------- |
@@ -84,6 +95,8 @@ Use these tokens for all elements that
 
 ### Specific colours
 
+These colours are used for specific elements.
+
 | Token name               | Color name  | Example                                                                                                                                               |
 | ------------------------ | ----------- | ----------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `ams.color.border`       | neutral-100 | <div className="ams-docs-token-example--color" style={{ backgroundColor: 'var(--ams-color-border-default)' }} />                                      |
@@ -92,41 +105,3 @@ Use these tokens for all elements that
 | `ams.color.logo`         | red-60      | <div className="ams-docs-token-example--color" style={{ backgroundColor: 'var(--ams-color-logo-default)' }} />                                        |
 | `ams.color.separator`    | neutral-20  | <div className="ams-docs-token-example--color" style={{ backgroundColor: 'var(--ams-color-separator-default)' }} />                                   |
 | `ams.color.switch.track` | neutral-60  | <div className="ams-docs-token-example--color" style={{ backgroundColor: 'var(--ams-color-switch-track-default)' }} />                                |
-
-## Application
-
-### Red
-
-Red is obviously prominent in our logo.
-The only other usage for it is to indicate errors.
-
-### Blue
-
-Blue indicates interactivity.
-Literally all buttons and links are blue; and dark blue on hover.
-Radio, Checkbox and Switch are blue as well.
-Our Page Footer has a blue background.
-
-### Black
-
-Almost all text is black, as are links on a light background colour.
-Borders of inputs are black as well.
-
-### White
-
-Our pages have a white background, as do inputs.
-Text and links on a dark background are white instead of black and blue.
-
-### Neutral
-
-We use shades of gray for borders, backgrounds and labels of disabled controls.
-Secondary text is dark gray.
-
-### Azure, Lime, Green, Yellow, Orange, Magenta, Purple
-
-These colours can be used to stand out.
-Spotlight and Breakout use them to create prominent sections.
-It allows a use to personalize their Avatar.
-Badges can represent different meanings through colour.
-Highlighted text is yellow.
-The colour of an Alert, which is either azure, orange, red, or green, conveys the severity of its message.
