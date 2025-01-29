@@ -18,9 +18,6 @@
           "default": { "value": "#ff9100" }
         }
       },
-      "footer": {
-        "default": { "value": "#004699" }
-      },
       "highlight": {
         "azure": {
           "default": { "value": "#009de6" }
