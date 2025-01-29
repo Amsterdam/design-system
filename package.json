@@ -17,7 +17,7 @@
   ],
   "private": true,
   "engines": {
-    "node": "^22",
+    "node": "^20",
     "npm": "^10",
     "pnpm": "^9"
   },
