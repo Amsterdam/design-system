@@ -1,8 +1,9 @@
 {
   "ams": {
     "color": {
-      "canvas": {
-        "default": { "value": "#ffffff" }
+      "background": {
+        "canvas": { "value": "#ffffff" },
+        "opening": { "value": "#ffffff" }
       },
       "feedback": {
         "error": {
