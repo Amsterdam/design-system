@@ -1,9 +1,6 @@
 {
   "ams": {
     "color": {
-      "border": {
-        "default": { "value": "#181818" }
-      },
       "canvas": {
         "default": { "value": "#ffffff" }
       },
@@ -62,6 +59,9 @@
         },
         "inverse": {
           "default": { "value": "#ffffff" }
+        },
+        "secondary": {
+          "default": { "value": "#181818" }
         }
       },
       "logo": {

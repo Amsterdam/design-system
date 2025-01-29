@@ -2,7 +2,7 @@
   "ams": {
     "file-input": {
       "background-color": { "value": "{ams.color.canvas.default}" },
-      "border": { "value": "{ams.border.width.sm} dashed {ams.color.border.default}" },
+      "border": { "value": "{ams.border.width.sm} dashed {ams.color.interactive.secondary.default}" },
       "color": { "value": "{ams.color.text.default}" },
       "cursor": { "value": "{ams.action.activate.cursor}" },
       "font-family": { "value": "{ams.text.font-family}" },
