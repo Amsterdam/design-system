@@ -61,9 +61,6 @@
           "default": { "value": "#181818" }
         }
       },
-      "logo": {
-        "default": { "value": "#ec0000" }
-      },
       "separator": {
         "default": { "value": "#d1d1d1" }
       },
