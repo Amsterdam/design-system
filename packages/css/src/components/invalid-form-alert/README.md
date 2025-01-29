@@ -12,7 +12,7 @@ When a user makes an error, you must show both a Invalid Form Alert and an Error
 
 ## Linking from the Invalid Form Alert to each answer
 
-For questions that require a user to answer using a single field, like a file upload, select, textarea, text input or character count, link to the `id` of that field.
+For questions that require a user to answer using a single field, like a file upload, select, textarea or text input, link to the `id` of that field.
 
 When a user has to enter their answer into multiple fields, such as day, month and year fields, link to the `id` of the first field that contains an error.
 If you do not know which field contains an error, link to the `id` of the first field.
