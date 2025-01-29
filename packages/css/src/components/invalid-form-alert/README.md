@@ -1,16 +1,16 @@
 <!-- @license CC0-1.0 -->
 
-# Form Error List
+# Invalid Form Alert
 
 Use this component at the top of a page to summarise any errors a user has made.
-When a user makes an error, you must show both a Form Error List and an Error Message above each answer that contains an error.
+When a user makes an error, you must show both a Invalid Form Alert and an Error Message above each answer that contains an error.
 
 ## Guidelines
 
-- Always show a Form Error List when there is a validation error, even if there’s only one.
-- You must link the errors in the Form Error List to the answer they relate to (see below).
+- Always show an Invalid Form Alert when there is a validation error, even if there’s only one.
+- You must link the errors in the Invalid Form Alert to the answer they relate to (see below).
 
-## Linking from the Form Error List to each answer
+## Linking from the Invalid Form Alert to each answer
 
 For questions that require a user to answer using a single field, like a file upload, select, textarea, text input or character count, link to the `id` of that field.
 
@@ -19,9 +19,9 @@ If you do not know which field contains an error, link to the `id` of the first 
 
 For questions that require a user to select one or more options from a list using Radios or Checkboxes, link to the `id` of the first Radio or Checkbox.
 
-## Where to put the Form Error List
+## Where to put the Invalid Form Alert
 
-Put the Form Error List directly above the first question on the page. Place it outside of the `<form>`-tag, [to make sure screen readers do not skip it](https://nldesignsystem.nl/richtlijnen/formulieren/meerdere-stappen/#plaats-de-informatie-over-waar-de-gebruiker-is-in-de-stappen-boven-het-formulier).
+Put the Invalid Form Alert directly above the first question on the page. Place it outside of the `<form>`-tag, [to make sure screen readers do not skip it](https://nldesignsystem.nl/richtlijnen/formulieren/meerdere-stappen/#plaats-de-informatie-over-waar-de-gebruiker-is-in-de-stappen-boven-het-formulier).
 
 ## Error count in document title
 
@@ -39,7 +39,7 @@ Note: this functionality has been disabled on this page, to prevent unexpected f
 
 Pay extra attention to these parts:
 
-- [WCAG requirement 1.3.1](https://www.w3.org/TR/WCAG21/#info-and-relationships): the heading level of the Form Error List depends on where in the page it is placed, this may differ per page.
+- [WCAG requirement 1.3.1](https://www.w3.org/TR/WCAG21/#info-and-relationships): the heading level of the Invalid Form Alert depends on where in the page it is placed, this may differ per page.
 
 ## References
 

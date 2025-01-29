@@ -1,6 +1,6 @@
 {
   "ams": {
-    "form-error-list": {
+    "invalid-form-alert": {
       "outline-offset": { "value": "{ams.focus.outline-offset}" }
     }
   }
