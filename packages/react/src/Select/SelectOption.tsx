@@ -14,7 +14,7 @@ export const SelectOption = forwardRef(
     { children, className, ...restProps }: PropsWithChildren<SelectOptionProps>,
     ref: ForwardedRef<HTMLOptionElement>,
   ) => (
-    <option {...restProps} ref={ref} className={clsx('ams-select__option', className)}>
+    <option {...restProps} className={clsx('ams-select__option', className)} ref={ref}>
       {children}
     </option>
   ),

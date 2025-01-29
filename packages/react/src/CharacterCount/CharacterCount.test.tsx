@@ -22,7 +22,7 @@ describe('Character count', () => {
   })
 
   it('renders an additional class name', () => {
-    render(<CharacterCount length={10} maxLength={100} className="extra" />)
+    render(<CharacterCount className="extra" length={10} maxLength={100} />)
 
     const component = screen.getByRole('status')
 

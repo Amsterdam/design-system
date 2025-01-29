@@ -11,7 +11,7 @@ export type FooterBottomProps = PropsWithChildren<HTMLAttributes<HTMLDivElement>
 
 export const FooterBottom = forwardRef(
   ({ children, className, ...restProps }: FooterBottomProps, ref: ForwardedRef<HTMLDivElement>) => (
-    <div {...restProps} ref={ref} className={clsx('ams-footer__bottom', className)}>
+    <div {...restProps} className={clsx('ams-footer__bottom', className)} ref={ref}>
       {children}
     </div>
   ),

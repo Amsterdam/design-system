@@ -28,13 +28,13 @@ export const Heading = forwardRef(
 
     return (
       <Tag
-        ref={ref}
         className={clsx(
           'ams-heading',
           `ams-heading--${sizeOrLevel}`,
           inverseColor && 'ams-heading--inverse-color',
           className,
         )}
+        ref={ref}
         {...restProps}
       >
         {children}

@@ -11,7 +11,7 @@ export type TableCellProps = PropsWithChildren<TdHTMLAttributes<HTMLTableCellEle
 
 export const TableCell = forwardRef(
   ({ children, className, ...restProps }: TableCellProps, ref: ForwardedRef<HTMLTableCellElement>) => (
-    <td {...restProps} ref={ref} className={clsx('ams-table__cell', className)}>
+    <td {...restProps} className={clsx('ams-table__cell', className)} ref={ref}>
       {children}
     </td>
   ),

@@ -27,16 +27,16 @@ const meta = {
       control: 'boolean',
       description: 'Numbers the items from the highest value down.',
     },
+    size: {
+      control: {
+        labels: { small: 'small', undefined: 'medium' },
+        type: 'radio',
+      },
+      options: ['small', undefined],
+    },
     start: {
       control: 'number',
       description: 'The value for the first list item’s marker.',
-    },
-    size: {
-      control: {
-        type: 'radio',
-        labels: { small: 'small', undefined: 'medium' },
-      },
-      options: ['small', undefined],
     },
   },
 } satisfies Meta<typeof OrderedList>

@@ -19,7 +19,7 @@ describe('Image Slider Controls', () => {
   it('supports ForwardRef in React', () => {
     const ref = createRef<HTMLDivElement>()
 
-    const { container } = render(<ImageSliderControls ref={ref} nextLabel={nextLabel} previousLabel={previousLabel} />)
+    const { container } = render(<ImageSliderControls nextLabel={nextLabel} previousLabel={previousLabel} ref={ref} />)
 
     const component = container.querySelector(':only-child')
 

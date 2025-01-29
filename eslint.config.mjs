@@ -13,6 +13,8 @@ import react from 'eslint-plugin-react'
 import tseslint from 'typescript-eslint'
 import tsParser from '@typescript-eslint/parser'
 import tsPlugin from '@typescript-eslint/eslint-plugin'
+import perfectionist from 'eslint-plugin-perfectionist'
+import eslintConfigPrettier from 'eslint-config-prettier'
 
 const __filename = fileURLToPath(import.meta.url)
 const __dirname = path.dirname(__filename)
@@ -22,20 +24,69 @@ const compat = new FlatCompat({
   allConfig: eslint.configs.all,
 })
 
+const perfectionistCommonConfig = {
+  customSizesGroups: {
+    customGroups: [
+      {
+        groupName: 'small',
+        selector: 'property',
+        elementNamePattern: '^(small|sm|narrow|phone|min|start)$',
+      },
+      {
+        groupName: 'medium',
+        selector: 'property',
+        elementNamePattern: '^(medium|md|tablet)$',
+      },
+      {
+        groupName: 'large',
+        selector: 'property',
+        elementNamePattern: '^(large|lg|wide|desktop|max|end)$',
+      },
+    ],
+    groups: ['small', 'medium', 'large'],
+    useConfigurationIf: {
+      allNamesMatchPattern: '^(small|sm|narrow|phone|min|start|medium|md|tablet|large|lg|wide|desktop|max|end)$',
+    },
+  },
+  partition: {
+    partitionByComment: true,
+    partitionByNewLine: true,
+  },
+}
+
 export default tseslint.config(
   // Global
   {
+    name: 'amsterdam-design-system/global-ignores',
     ignores: ['**/vendor/', '**/build/', '**/coverage/', '**/dist/', '**/tmp/', 'proprietary/react-icons'],
   },
   {
+    name: 'amsterdam-design-system/language-options',
     languageOptions: {
       globals: { ...globals.browser, ...globals.es6, ...globals.jest },
     },
   },
-  ...compat.extends('eslint-config-prettier'),
+  {
+    name: 'eslint-config-prettier',
+    ...eslintConfigPrettier,
+  },
+  {
+    name: 'amsterdam-design-system/plugins-settings',
+    plugins: { perfectionist, react },
+    settings: {
+      react: {
+        version: 'detect',
+      },
+    },
+  },
+  {
+    name: 'eslint-plugin-perfectionist/recommended-natural',
+    ...perfectionist['recommended-natural'],
+  },
 
-  // JavaScript, TypeScript & React
+  // JavaScript, TypeScript and React
   ...compat.extends('plugin:react/recommended').map(() => ({
+    name: 'amsterdam-design-system/javascript-typescript-react',
     files: ['**/*.js', '**/*.jsx', '**/*.ts', '**/*.tsx'],
     plugins: {
       '@typescript-eslint': tsPlugin,
@@ -55,7 +106,6 @@ export default tseslint.config(
           extensions: ['js', 'mjs', 'jsx', 'ts', 'tsx'],
         },
       },
-      react: { version: 'detect' },
     },
     rules: {
       '@typescript-eslint/consistent-type-definitions': ['error', 'type'],
@@ -163,6 +213,60 @@ export default tseslint.config(
       'no-var': 'error',
       'no-void': 'error',
       'no-with': 'error',
+      'perfectionist/sort-enums': [
+        'error',
+        {
+          ...perfectionistCommonConfig.partition,
+        },
+      ],
+      'perfectionist/sort-interfaces': [
+        'error',
+        {
+          ...perfectionistCommonConfig.partition,
+        },
+      ],
+      'perfectionist/sort-jsx-props': [
+        'error',
+        {
+          ...perfectionistCommonConfig.partition.partitionByNewLine,
+        },
+      ],
+      'perfectionist/sort-maps': [
+        'error',
+        {
+          ...perfectionistCommonConfig.partition,
+        },
+      ],
+      'perfectionist/sort-object-types': [
+        'error',
+        {
+          ...perfectionistCommonConfig.customSizesGroups,
+          ...perfectionistCommonConfig.partition,
+        },
+      ],
+      'perfectionist/sort-objects': [
+        'error',
+        {
+          ...perfectionistCommonConfig.customSizesGroups,
+          ...perfectionistCommonConfig.partition,
+        },
+        {
+          customGroups: [
+            {
+              groupName: 'title',
+              selector: 'property',
+              elementNamePattern: '^title$',
+            },
+            {
+              groupName: 'component',
+              selector: 'property',
+              elementNamePattern: '^component$',
+            },
+          ],
+          groups: ['title', 'component'],
+          ...perfectionistCommonConfig.partition,
+        },
+      ],
       'prefer-regex-literals': 'error',
       radix: 'error',
       // Start of React rules
@@ -190,6 +294,7 @@ export default tseslint.config(
 
   // JSON
   {
+    name: 'amsterdam-design-system/json',
     files: ['**/*.json'],
     plugins: { json },
     language: 'json/json',
@@ -198,6 +303,7 @@ export default tseslint.config(
 
   // Markdown
   {
+    name: 'amsterdam-design-system/markdown',
     files: ['**/*.md'],
     plugins: { markdown },
     ignores: ['CHANGELOG.md'],
@@ -211,6 +317,7 @@ export default tseslint.config(
 
   // MDX
   {
+    name: 'amsterdam-design-system/mdx',
     ...mdx.flat,
     files: ['**/*.mdx'],
     processor: mdx.createRemarkProcessor({
@@ -218,6 +325,7 @@ export default tseslint.config(
     }),
   },
   {
+    name: 'amsterdam-design-system/mdx-flat-code-block',
     ...mdx.flatCodeBlocks,
     rules: {
       ...mdx.flatCodeBlocks.rules,

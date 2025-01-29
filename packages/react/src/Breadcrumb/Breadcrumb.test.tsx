@@ -31,15 +31,15 @@ describe('Breadcrumb', () => {
 
   it('renders Breadcrumb component with children', () => {
     const breadcrumbLinks = [
-      { label: 'Link 1', href: '/link-1' },
-      { label: 'Link 2', href: '/link-2' },
-      { label: 'Link 3', href: '/link-3' },
+      { href: '/link-1', label: 'Link 1' },
+      { href: '/link-2', label: 'Link 2' },
+      { href: '/link-3', label: 'Link 3' },
     ]
 
     const { container } = render(
       <Breadcrumb>
         {breadcrumbLinks.map((link, index) => (
-          <Breadcrumb.Link key={index} href={link.href}>
+          <Breadcrumb.Link href={link.href} key={index}>
             {link.label}
           </Breadcrumb.Link>
         ))}

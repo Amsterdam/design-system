@@ -21,7 +21,7 @@ describe('Tabs panel', () => {
   })
 
   it('renders an additional class name', () => {
-    render(<TabsPanel tab={0} className="extra" />)
+    render(<TabsPanel className="extra" tab={0} />)
 
     const component = screen.getByRole('tabpanel')
 
@@ -47,7 +47,7 @@ describe('Tabs panel', () => {
   it('supports ForwardRef in React', () => {
     const ref = createRef<HTMLDivElement>()
 
-    render(<TabsPanel tab={0} ref={ref} />)
+    render(<TabsPanel ref={ref} tab={0} />)
 
     const component = screen.getByRole('tabpanel')
 

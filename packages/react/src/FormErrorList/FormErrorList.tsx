@@ -42,7 +42,7 @@ export type FormErrorListProps = {
 } & HTMLAttributes<HTMLDivElement>
 
 export const FormErrorList = forwardRef(
-  ({ errors, errorCountLabel, ...restProps }: FormErrorListProps, ref: ForwardedRef<HTMLDivElement>) => {
+  ({ errorCountLabel, errors, ...restProps }: FormErrorListProps, ref: ForwardedRef<HTMLDivElement>) => {
     // A Form Error List without errors only resets the document title.
     // With errors, it renders the FormErrorListWithErrors component.
     useAddErrorCountToDocumentTitle(errors, errorCountLabel)

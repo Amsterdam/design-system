@@ -12,8 +12,8 @@ const meta = {
   component: FileInput,
   args: {
     accept: undefined,
-    multiple: false,
     disabled: false,
+    multiple: false,
   },
   argTypes: {
     accept: {
@@ -21,12 +21,12 @@ const meta = {
         type: 'text',
       },
     },
-    multiple: {
+    disabled: {
       control: {
         type: 'boolean',
       },
     },
-    disabled: {
+    multiple: {
       control: {
         type: 'boolean',
       },

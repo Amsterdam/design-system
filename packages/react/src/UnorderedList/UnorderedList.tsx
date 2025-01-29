@@ -24,7 +24,6 @@ const UnorderedListRoot = forwardRef(
   ) => {
     return (
       <ul
-        ref={ref}
         className={clsx(
           'ams-unordered-list',
           inverseColor && 'ams-unordered-list--inverse-color',
@@ -32,6 +31,7 @@ const UnorderedListRoot = forwardRef(
           size && `ams-unordered-list--${size}`,
           className,
         )}
+        ref={ref}
         {...restProps}
       >
         {children}

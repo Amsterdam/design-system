@@ -11,7 +11,7 @@ export type DescriptionListSectionProps = PropsWithChildren<HTMLAttributes<HTMLD
 
 export const DescriptionListSection = forwardRef(
   ({ children, className, ...restProps }: DescriptionListSectionProps, ref: ForwardedRef<HTMLDivElement>) => (
-    <div {...restProps} ref={ref} className={clsx('ams-description-list__section', className)}>
+    <div {...restProps} className={clsx('ams-description-list__section', className)} ref={ref}>
       {children}
     </div>
   ),

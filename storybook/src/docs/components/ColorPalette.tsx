@@ -5,7 +5,7 @@ import type { ForwardedRef, HTMLAttributes, PropsWithChildren } from 'react'
 export type DivProps = PropsWithChildren<HTMLAttributes<HTMLDivElement>>
 
 const ColorPaletteRoot = forwardRef(({ children, ...restProps }: DivProps, ref: ForwardedRef<HTMLDivElement>) => (
-  <div {...restProps} ref={ref} className="ams-storybook-color-palette">
+  <div {...restProps} className="ams-storybook-color-palette" ref={ref}>
     {children}
   </div>
 ))
@@ -23,7 +23,7 @@ type ColorPaletteTileProps = {
   name: string
 }
 
-const ColorPaletteTile = ({ name, color }: ColorPaletteTileProps) => (
+const ColorPaletteTile = ({ color, name }: ColorPaletteTileProps) => (
   <div className="ams-storybook-color-palette__tile">
     <div className="ams-storybook-color-palette__example" style={{ backgroundColor: color }} />
     <dl className="sb-unstyled ams-storybook-color-palette__description">
