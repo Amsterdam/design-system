@@ -9,7 +9,7 @@ import { InvalidFormAlertWithErrors } from './InvalidFormAlertWithErrors'
 import { useAddErrorCountToDocumentTitle } from './useAddErrorCountToDocumentTitle'
 import type { HeadingProps } from '../Heading'
 
-export type FormError = {
+export type ErrorLink = {
   id: string
   label: string
 }
@@ -22,7 +22,7 @@ export type InvalidFormAlertProps = {
    */
   errorCountLabel?: { plural: string; singular: string }
   /** The list of error messages to display. */
-  errors: FormError[]
+  errors: ErrorLink[]
   /**
    * Whether the component receives focus on first render
    * @default true

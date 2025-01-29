@@ -1,2 +1,2 @@
 export { InvalidFormAlert } from './InvalidFormAlert'
-export type { FormError, InvalidFormAlertProps } from './InvalidFormAlert'
+export type { ErrorLink, InvalidFormAlertProps } from './InvalidFormAlert'
