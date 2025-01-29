@@ -64,11 +64,6 @@
       "separator": {
         "default": { "value": "#d1d1d1" }
       },
-      "switch": {
-        "track": {
-          "default": { "value": "#767676" }
-        }
-      },
       "text": {
         "default": { "value": "#181818" },
         "secondary": { "value": "#767676" },
