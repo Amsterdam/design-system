@@ -3,12 +3,12 @@
  * Copyright Gemeente Amsterdam
  */
 
-import { FormErrorList } from '@amsterdam/design-system-react/src'
+import { InvalidFormAlert } from '@amsterdam/design-system-react/src'
 import { Meta, StoryObj } from '@storybook/react'
 
 const meta = {
-  title: 'Components/Forms/Form Error List',
-  component: FormErrorList,
+  title: 'Components/Forms/Invalid Form Alert',
+  component: InvalidFormAlert,
   args: {
     errors: [
       { id: '#', label: 'Vul een geldige datum in (bijvoorbeeld 6 januari 2030).' },
@@ -17,7 +17,7 @@ const meta = {
     focusOnRender: false,
     headingLevel: 2,
   },
-} satisfies Meta<typeof FormErrorList>
+} satisfies Meta<typeof InvalidFormAlert>
 
 export default meta
 
