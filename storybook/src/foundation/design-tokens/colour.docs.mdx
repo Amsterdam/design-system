@@ -14,9 +14,9 @@ They are complemented by a range of accent colors.
 
 ## Palette
 
-The primary appearance of each color has been called level 60.
+The primary appearance of each colour has been called level 60.
 Some colors offer a darker shade at level 80 for hover effects.
-A light neutral color is at level 20, white is at level 0, and black is at level 100.
+A light neutral colour is at level 20, white is at level 0, and black is at level 100.
 
 <ColorPalette>
   <ColorPalette.Swatch name="red">
@@ -60,12 +60,31 @@ A light neutral color is at level 20, white is at level 0, and black is at level
 
 The term 'Brand' represents the highest level in the three-tier token structure of the [NL Design System](https://nldesignsystem.nl/handboek/design-tokens/).
 
-Our brand color tokens have meaningful (semantic) names instead of generic labels like 'blue-60' or 'red-100' that other design systems may use.
-This approach ensures that the correct color is used in the appropriate context.
+Our brand colour tokens have meaningful (semantic) names instead of generic labels like 'blue-60' or 'red-100' that other design systems may use.
+This approach ensures that the correct colour is used in the appropriate context.
 Always use a token for its intended purpose based on its name.
-Please reach out to us if you require a different color token.
+Please reach out to us if you require a different colour token.
 
-### Feedback colours
+### Texts
+
+These are the potential foreground colors for text.
+
+| Token name                 | Color name  | Example                                                                                                                                             |
+| -------------------------- | ----------- | --------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `ams.color.text`           | neutral-100 | <div className="ams-docs-token-example--color" style={{ backgroundColor: 'var(--ams-color-text)' }} />                                              |
+| `ams.color.text.secondary` | neutral-60  | <div className="ams-docs-token-example--color" style={{ backgroundColor: 'var(--ams-color-text-secondary)' }} />                                    |
+| `ams.color.text.inverse`   | neutral-0   | <div className="ams-docs-token-example--color ams-docs-token-example--color-border" style={{ backgroundColor: 'var(--ams-color-text-inverse)' }} /> |
+
+### Backgrounds
+
+These colors are meant to create a visual background that has no specific meaning.
+
+| Token name                     | Color name | Example                                                                                                                                                   |
+| ------------------------------ | ---------- | --------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `ams.color.background.canvas`  | neutral-0  | <div className="ams-docs-token-example--color ams-docs-token-example--color-border" style={{ backgroundColor: 'var(--ams-color-background-canvas)' }} />  |
+| `ams.color.background.opening` | neutral-0  | <div className="ams-docs-token-example--color ams-docs-token-example--color-border" style={{ backgroundColor: 'var(--ams-color-background-opening)' }} /> |
+
+### Feedback
 
 Use these colors for positive and negative feedback, warnings, and messages that need attention.
 Interactive elements in an invalid state use the 'invalid interactive' token, not the 'error feedback' token.
@@ -77,11 +96,9 @@ Interactive elements in an invalid state use the 'invalid interactive' token, no
 | `ams.color.feedback.success` | green-60   | <div className="ams-docs-token-example--color" style={{ backgroundColor: 'var(--ams-color-feedback-success)' }} /> |
 | `ams.color.feedback.warning` | orange-60  | <div className="ams-docs-token-example--color" style={{ backgroundColor: 'var(--ams-color-feedback-warning)' }} /> |
 
-### Interactive colours
+### Interaction
 
-Use these tokens for every interactive element.
-All our links and buttons are blue, along with some form controls.
-Links on a light background use the 'contrast' color, while those on a dark background use the 'inverse' color.
+These colors show parts that the user can interact with, like links, buttons, and form controls.
 
 | Token name                            | Color name  | Example                                                                                                                                                    |
 | ------------------------------------- | ----------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -94,17 +111,7 @@ Links on a light background use the 'contrast' color, while those on a dark back
 | `ams.color.interactive.inverse`       | neutral-0   | <div className="ams-docs-token-example--color ams-docs-token-example--color-border" style={{ backgroundColor: 'var(--ams-color-interactive-inverse)' }} /> |
 | `ams.color.interactive.secondary`     | neutral-100 | <div className="ams-docs-token-example--color" style={{ backgroundColor: 'var(--ams-color-interactive-secondary)' }} />                                    |
 
-### Text colours
-
-Regular text is off-black, secondary text is dark gray, and text on a dark background is white.
-
-| Token name                 | Color name  | Example                                                                                                                                             |
-| -------------------------- | ----------- | --------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `ams.color.text`           | neutral-100 | <div className="ams-docs-token-example--color" style={{ backgroundColor: 'var(--ams-color-text)' }} />                                              |
-| `ams.color.text.secondary` | neutral-60  | <div className="ams-docs-token-example--color" style={{ backgroundColor: 'var(--ams-color-text-secondary)' }} />                                    |
-| `ams.color.text.inverse`   | neutral-0   | <div className="ams-docs-token-example--color ams-docs-token-example--color-border" style={{ backgroundColor: 'var(--ams-color-text-inverse)' }} /> |
-
-### Highlight colours
+### Highlighting
 
 Components can these colours to stand out.
 
@@ -118,18 +125,9 @@ Components can these colours to stand out.
 | `ams.color.highlight.purple`  | purple-60  | <div className="ams-docs-token-example--color" style={{ backgroundColor: 'var(--ams-color-highlight-purple)' }} />  |
 | `ams.color.highlight.yellow`  | yellow-60  | <div className="ams-docs-token-example--color" style={{ backgroundColor: 'var(--ams-color-highlight-yellow)' }} />  |
 
-### Background colours
+### Separation
 
-These colors are meant to create a visual background that has no specific meaning.
-
-| Token name                     | Color name | Example                                                                                                                                                   |
-| ------------------------------ | ---------- | --------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `ams.color.background.canvas`  | neutral-0  | <div className="ams-docs-token-example--color ams-docs-token-example--color-border" style={{ backgroundColor: 'var(--ams-color-background-canvas)' }} />  |
-| `ams.color.background.opening` | neutral-0  | <div className="ams-docs-token-example--color ams-docs-token-example--color-border" style={{ backgroundColor: 'var(--ams-color-background-opening)' }} /> |
-
-### Specific colours
-
-These colours are used for specific elements.
+This colour is used to distinguish components or space.
 
 | Token name            | Color name | Example                                                                                                     |
 | --------------------- | ---------- | ----------------------------------------------------------------------------------------------------------- |
