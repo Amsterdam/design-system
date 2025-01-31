@@ -80,7 +80,7 @@ Examples:
 
 ```css
 :root {
-  --ams-color-primary-red: #ec0000;
+  --ams-color-feedback-error: #ec0000;
   --ams-space-md: 1rem;
   --ams-aspect-ratio-wide: 4/3;
   --ams-border-width-lg: 0.1875rem;
