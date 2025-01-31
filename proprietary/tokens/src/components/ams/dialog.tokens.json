@@ -1,7 +1,7 @@
 {
   "ams": {
     "dialog": {
-      "background-color": { "value": "{ams.color.background.canvas}" },
+      "background-color": { "value": "{ams.color.background}" },
       "border": { "value": "0" },
       "gap": { "value": "{ams.space.md}" },
       "inline-size": { "value": "calc(100% - 2 * {ams.space.grid.md})" },

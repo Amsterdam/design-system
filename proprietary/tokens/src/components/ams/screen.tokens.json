@@ -1,7 +1,7 @@
 {
   "ams": {
     "screen": {
-      "background-color": { "value": "{ams.color.background.canvas}" },
+      "background-color": { "value": "{ams.color.background}" },
       "wide": {
         "max-inline-size": { "value": "100rem" }
       },
