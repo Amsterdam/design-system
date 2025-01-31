@@ -43,7 +43,9 @@ export const WithText: Story = {
   render: (args) => (
     <>
       <Icon {...args} size="level-3" />
-      <Heading size="level-3">Inline text</Heading>
+      <Heading level={1} size="level-3">
+        Inline text
+      </Heading>
     </>
   ),
 }
