@@ -10,7 +10,7 @@
     "jsx": "react-jsx",
     "lib": ["es2020", "dom"],
     "module": "es2020",
-    "moduleResolution": "node",
+    "moduleResolution": "bundler",
     "noFallthroughCasesInSwitch": true,
     "noImplicitOverride": true,
     "noImplicitReturns": true,

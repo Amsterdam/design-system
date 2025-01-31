@@ -4,7 +4,7 @@ export const HomeSpotlight = () => (
   <Spotlight>
     <Grid paddingVertical="medium">
       <Grid.Cell span={{ narrow: 4, medium: 4, wide: 6 }}>
-        <Heading className="ams-mb--xs" color="inverse" size="level-2">
+        <Heading className="ams-mb--xs" color="inverse" level={1} size="level-2">
           Ontheffing of vergunning
         </Heading>
         <Paragraph className="ams-mb--sm" color="inverse">
@@ -16,7 +16,7 @@ export const HomeSpotlight = () => (
         </Link>
       </Grid.Cell>
       <Grid.Cell span={{ narrow: 4, medium: 4, wide: 6 }}>
-        <Heading className="ams-mb--xs" color="inverse" size="level-2">
+        <Heading className="ams-mb--xs" color="inverse" level={1} size="level-2">
           Werkzaamheden
         </Heading>
         <Paragraph className="ams-mb--sm" color="inverse">

@@ -15,7 +15,7 @@ const meta = {
     disabled: false,
     icon: undefined,
     iconBefore: false,
-    iconOnly: false,
+    iconOnly: undefined,
     variant: 'primary',
   },
   argTypes: {
