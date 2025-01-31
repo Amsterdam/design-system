@@ -5,26 +5,26 @@ import '@testing-library/jest-dom'
 
 describe('Tabs', () => {
   it('renders', () => {
-    render(<Tabs />)
+    const { container } = render(<Tabs />)
 
-    const component = screen.getByRole('tabs')
+    const component = container.querySelector(':only-child')
 
     expect(component).toBeInTheDocument()
     expect(component).toBeVisible()
   })
 
   it('renders a design system BEM class name', () => {
-    render(<Tabs />)
+    const { container } = render(<Tabs />)
 
-    const component = screen.getByRole('tabs')
+    const component = container.querySelector(':only-child')
 
     expect(component).toHaveClass('ams-tabs')
   })
 
   it('renders an additional class name', () => {
-    render(<Tabs className="extra" />)
+    const { container } = render(<Tabs className="extra" />)
 
-    const component = screen.getByRole('tabs')
+    const component = container.querySelector(':only-child')
 
     expect(component).toHaveClass('ams-tabs extra')
   })
@@ -32,9 +32,9 @@ describe('Tabs', () => {
   it('supports ForwardRef in React', () => {
     const ref = createRef<HTMLDivElement>()
 
-    render(<Tabs ref={ref} />)
+    const { container } = render(<Tabs ref={ref} />)
 
-    const component = screen.getByRole('tabs')
+    const component = container.querySelector(':only-child')
 
     expect(ref.current).toBe(component)
   })
@@ -51,7 +51,6 @@ describe('Tabs', () => {
       </Tabs>,
     )
 
-    expect(screen.getByRole('tabs')).toBeInTheDocument()
     expect(screen.getByRole('tablist')).toBeInTheDocument()
     expect(screen.getByRole('tab', { selected: true })).toBeInTheDocument()
     expect(screen.getByRole('tabpanel')).toBeInTheDocument()

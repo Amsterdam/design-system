@@ -28,7 +28,6 @@ For more information: [Links to cross-origin destinations are unsafe](https://de
 
 Visited links indicate that a user has already opened the link.
 We discourage using styles for visited links because they often make the page less clear and navigation more challenging.
-The inline link does have a visited style.
 It is not part of navigation elements that are frequently scanned.
 
 ### Using links with routing libraries
