@@ -89,9 +89,9 @@ Examples:
 
 Find the [list of brand tokens](https://github.com/Amsterdam/design-system/tree/main/proprietary/tokens/src/brand/ams) on GitHub.
 
-##### Removing 'default' keys
+##### Removing ‘default’ keys
 
-Some brand tokens include a 'default' key in JSON to allow for additional variants, such as `ams.color.interactive.default` and `ams.color.interactive.disabled`
+Some brand tokens include a ‘default’ key in JSON to allow for additional variants, such as `ams.color.interactive.default` and `ams.color.interactive.disabled`
 However, this key is not needed for collections of variables that are flat, like our CSS custom properties.
 Therefore, we remove this key in non-nested variables.
 For instance, `--ams-color-interactive` and `--ams-color-interactive-disabled`.
