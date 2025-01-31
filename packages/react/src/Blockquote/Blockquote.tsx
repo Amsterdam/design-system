@@ -16,8 +16,8 @@ export const Blockquote = forwardRef(
   ({ children, className, color, ...restProps }: BlockquoteProps, ref: ForwardedRef<HTMLQuoteElement>) => (
     <blockquote
       {...restProps}
-      ref={ref}
       className={clsx('ams-blockquote', color && `ams-blockquote--${color}-color`, className)}
+      ref={ref}
     >
       {children}
     </blockquote>

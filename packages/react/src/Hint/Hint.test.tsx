@@ -22,7 +22,7 @@ describe('Hint', () => {
   })
 
   it('renders an additional class name', () => {
-    const { container } = render(<Hint optional className="extra" />)
+    const { container } = render(<Hint className="extra" optional />)
 
     const component = container.querySelector(':only-child')
 
@@ -56,7 +56,7 @@ describe('Hint', () => {
   })
 
   it('renders the provided hint text when `optional` is set to `false`', () => {
-    const { container } = render(<Hint optional={true} hint="not required" />)
+    const { container } = render(<Hint hint="not required" optional={true} />)
 
     const component = container.querySelector(':only-child')
 
@@ -64,7 +64,7 @@ describe('Hint', () => {
   })
 
   it('renders the provided hint text "required" while also being marked as not optional', () => {
-    const { container } = render(<Hint optional={false} hint="required" />)
+    const { container } = render(<Hint hint="required" optional={false} />)
 
     const component = container.querySelector(':only-child')
 

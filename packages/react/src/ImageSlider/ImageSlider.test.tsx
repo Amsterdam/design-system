@@ -10,13 +10,13 @@ const takeRecords = jest.fn()
 
 // Mock implementation of IntersectionObserver
 window.IntersectionObserver = jest.fn(() => ({
-  observe,
-  unobserve,
   disconnect,
-  takeRecords,
+  observe,
   root: null,
   rootMargin: '',
+  takeRecords,
   thresholds: [],
+  unobserve,
 }))
 
 describe('Image Slider', () => {

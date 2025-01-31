@@ -40,7 +40,6 @@ export const Column = forwardRef(
   ({ align, alignHorizontal, as: Tag = 'div', children, className, gap, ...restProps }: ColumnProps, ref: any) => (
     <Tag
       {...restProps}
-      ref={ref}
       className={clsx(
         'ams-column',
         align && `ams-column--align-${align}`,
@@ -48,6 +47,7 @@ export const Column = forwardRef(
         gap && `ams-column--gap-${gap}`,
         className,
       )}
+      ref={ref}
     >
       {children}
     </Tag>

@@ -23,7 +23,6 @@ export type IconProps = {
 export const Icon = forwardRef(
   ({ className, color, size = 'level-3', square, svg, ...restProps }: IconProps, ref: ForwardedRef<HTMLElement>) => (
     <span
-      ref={ref}
       className={clsx(
         'ams-icon',
         color && `ams-icon--${color}-color`,
@@ -34,6 +33,7 @@ export const Icon = forwardRef(
         square && 'ams-icon--square',
         className,
       )}
+      ref={ref}
       {...restProps}
     >
       {typeof svg === 'function' ? svg() : svg}

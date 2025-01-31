@@ -16,8 +16,8 @@ export const FigureCaption = forwardRef(
   ({ children, className, color, ...restProps }: FigureCaptionProps, ref: ForwardedRef<HTMLElement>) => (
     <figcaption
       {...restProps}
-      ref={ref}
       className={clsx('ams-figure__caption', color && `ams-figure__caption--${color}-color`, className)}
+      ref={ref}
     >
       {children}
     </figcaption>

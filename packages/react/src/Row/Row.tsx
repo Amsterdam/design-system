@@ -45,7 +45,6 @@ export const Row = forwardRef(
   ({ align, alignVertical, as: Tag = 'div', children, className, gap, wrap, ...restProps }: RowProps, ref: any) => (
     <Tag
       {...restProps}
-      ref={ref}
       className={clsx(
         'ams-row',
         align && `ams-row--align-${align}`,
@@ -54,6 +53,7 @@ export const Row = forwardRef(
         wrap && 'ams-row--wrap',
         className,
       )}
+      ref={ref}
     >
       {children}
     </Tag>

@@ -22,13 +22,13 @@ const BreakoutRoot = forwardRef(
   ) => (
     <div
       {...restProps}
-      ref={ref}
       className={clsx(
         'ams-breakout',
         gapVertical && `ams-breakout--gap-vertical--${gapVertical}`,
         paddingClasses('breakout', paddingBottom, paddingTop, paddingVertical),
         className,
       )}
+      ref={ref}
     >
       {children}
     </div>

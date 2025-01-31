@@ -4,6 +4,8 @@
  */
 
 .ams-badge {
+  background-color: var(--ams-badge-background-color);
+  color: var(--ams-badge-color);
   display: inline-block;
   font-family: var(--ams-badge-font-family);
   font-size: var(--ams-badge-font-size);
@@ -12,39 +14,9 @@
   padding-inline: var(--ams-badge-padding-inline);
 }
 
-.ams-badge--black {
-  background-color: var(--ams-badge-black-background-color);
-  color: var(--ams-badge-black-color);
-}
-
-.ams-badge--blue {
-  background-color: var(--ams-badge-blue-background-color);
-  color: var(--ams-badge-blue-color);
-}
-
-.ams-badge--dark-green {
-  background-color: var(--ams-badge-dark-green-background-color);
-  color: var(--ams-badge-dark-green-color);
-}
-
 .ams-badge--green {
   background-color: var(--ams-badge-green-background-color);
   color: var(--ams-badge-green-color);
-}
-
-.ams-badge--grey-1 {
-  background-color: var(--ams-badge-grey-1-background-color);
-  color: var(--ams-badge-grey-1-color);
-}
-
-.ams-badge--grey-2 {
-  background-color: var(--ams-badge-grey-2-background-color);
-  color: var(--ams-badge-grey-2-color);
-}
-
-.ams-badge--grey-3 {
-  background-color: var(--ams-badge-grey-3-background-color);
-  color: var(--ams-badge-grey-3-color);
 }
 
 .ams-badge--light-blue {
@@ -70,11 +42,6 @@
 .ams-badge--red {
   background-color: var(--ams-badge-red-background-color);
   color: var(--ams-badge-red-color);
-}
-
-.ams-badge--white {
-  background-color: var(--ams-badge-white-background-color);
-  color: var(--ams-badge-white-color);
 }
 
 .ams-badge--yellow {

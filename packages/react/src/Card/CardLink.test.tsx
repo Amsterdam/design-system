@@ -22,7 +22,7 @@ describe('Card link', () => {
   })
 
   it('renders an additional class name', () => {
-    render(<CardLink href="/" className="extra" />)
+    render(<CardLink className="extra" href="/" />)
 
     const component = screen.getByRole('link')
 

@@ -18,8 +18,8 @@ export const CharacterCount = forwardRef(
   ({ className, length, maxLength, ...restProps }: CharacterCountProps, ref: ForwardedRef<HTMLDivElement>) => (
     <div
       {...restProps}
-      ref={ref}
       className={clsx('ams-character-count', length > maxLength && 'ams-character-count--error', className)}
+      ref={ref}
       role="status"
     >
       {`${length} van ${maxLength} tekens`}

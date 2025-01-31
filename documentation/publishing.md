@@ -10,16 +10,18 @@ If you want to have rights to publish as well, contact one of the [maintainers](
 
 ## Conventional commits
 
+### Choosing a commit type
+
 To know whether a release is major, minor or patch and to generate changelogs automatically, we use the [conventional commits spec](https://www.conventionalcommits.org/en/v1.0.0/).
 The titles of our PRs specify whether a change is:
 
 - a `chore` which doesn’t trigger a release
 - a `fix` resulting in a patch release,
 - a new feature (`feat`), a minor release, or
-- a breaking change (`feat!`), a major release.
+- a breaking change (append an `!`), a major release.
 
-Use the `chore` prefix when updating development dependencies, changing configuration or updating documentation that isn’t about a component.
-Use the’ fix’ prefix for refactors, regular dependency updates or updates to documentation about components.
+Use the `chore` type when updating development dependencies, changing configuration or updating documentation that isn’t about a component.
+Use the `fix` type for refactors, regular dependency updates or updates to documentation about components.
 
 The PR title also describes the change in a clear, human-friendly way.
 This PR title becomes the description of a commit when we squash merge a feature branch PR into `develop`.
@@ -27,6 +29,21 @@ These commit descriptions are eventually used to determine the release type and 
 
 For example, a PR specifies that it’s introducing a breaking change and changes code in both the `css` and `react` packages.
 This will cause a major version bump in both packages on release and add its description to the changelogs of both packages.
+
+### Adding a scope
+
+If the change involves just one component, include its name in parentheses to show it as the scope of the PR, like this:
+
+```text
+fix(Avatar): Correct the aspect ratio for the image
+```
+
+The changelog for this PR will display the scope as a prefix, so it will read: “**Avatar**: Correct the aspect ratio for the image.”
+There’s no need to repeat the component name in the rest of the PR title.
+Changelog entries are sorted alphabetically, which helps group changes for the same component.
+
+For changes that impact 2 to 5 components, separate their names with commas.
+Other scopes, like `docs`, are allowed, as is omitting it.
 
 ## How to create a release
 

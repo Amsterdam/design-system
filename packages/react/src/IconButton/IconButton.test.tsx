@@ -22,7 +22,7 @@ describe('Icon button', () => {
   })
 
   it('renders an additional class name', () => {
-    render(<IconButton label="Test" className="extra" />)
+    render(<IconButton className="extra" label="Test" />)
 
     const component = screen.getByRole('button')
 
@@ -30,7 +30,7 @@ describe('Icon button', () => {
   })
 
   it('renders an accessible label', () => {
-    render(<IconButton label="Test" className="extra" />)
+    render(<IconButton className="extra" label="Test" />)
 
     const component = screen.getByRole('button', { name: 'Test' })
 
@@ -38,7 +38,7 @@ describe('Icon button', () => {
   })
 
   it('renders the class name for contrast color', () => {
-    render(<IconButton label="Test" color="contrast" />)
+    render(<IconButton color="contrast" label="Test" />)
 
     const component = screen.getByRole('button')
 
@@ -46,7 +46,7 @@ describe('Icon button', () => {
   })
 
   it('renders the class name for inverse color', () => {
-    render(<IconButton label="Test" color="inverse" />)
+    render(<IconButton color="inverse" label="Test" />)
 
     const component = screen.getByRole('button')
 

@@ -27,13 +27,13 @@ const DescriptionListRoot = forwardRef(
   ) => (
     <dl
       {...restProps}
-      ref={ref}
       className={clsx(
         'ams-description-list',
         color && `ams-description-list--${color}-color`,
         termsWidth && `ams-description-list--terms-width-${termsWidth}`,
         className,
       )}
+      ref={ref}
     >
       {children}
     </dl>

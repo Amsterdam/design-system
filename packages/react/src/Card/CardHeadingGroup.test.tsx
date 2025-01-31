@@ -22,7 +22,7 @@ describe('Card heading group', () => {
   })
 
   it('renders an additional class name', () => {
-    const { container } = render(<CardHeadingGroup tagline="test" className="extra" />)
+    const { container } = render(<CardHeadingGroup className="extra" tagline="test" />)
 
     const component = container.querySelector(':only-child')
 
@@ -40,7 +40,7 @@ describe('Card heading group', () => {
   it('supports ForwardRef in React', () => {
     const ref = createRef<HTMLElement>()
 
-    const { container } = render(<CardHeadingGroup tagline="test" ref={ref} />)
+    const { container } = render(<CardHeadingGroup ref={ref} tagline="test" />)
 
     const component = container.querySelector(':only-child')
 

@@ -14,7 +14,7 @@ export type SearchFieldProps = PropsWithChildren<HTMLAttributes<HTMLFormElement>
 const SearchFieldRoot = forwardRef(
   ({ children, className, ...restProps }: SearchFieldProps, ref: ForwardedRef<HTMLFormElement>) => {
     return (
-      <form role="search" {...restProps} ref={ref} className={clsx('ams-search-field', className)}>
+      <form role="search" {...restProps} className={clsx('ams-search-field', className)} ref={ref}>
         {children}
       </form>
     )
