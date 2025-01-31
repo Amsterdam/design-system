@@ -29,6 +29,7 @@
   color: var(--ams-tabs-button-color);
   cursor: var(--ams-tabs-button-cursor);
   display: grid;
+  flex-shrink: 0;
   font-family: var(--ams-tabs-button-font-family);
   font-size: var(--ams-tabs-button-font-size);
   font-weight: var(--ams-tabs-button-font-weight);
