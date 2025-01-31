@@ -2,7 +2,7 @@
   "ams": {
     "footer": {
       "top": {
-        "background-color": { "value": "{ams.color.primary-blue}" }
+        "background-color": { "value": "#004699" }
       }
     }
   }
