@@ -2,8 +2,8 @@
   "ams": {
     "avatar": {
       "aspect-ratio": { "value": "{ams.aspect-ratio.square}" },
-      "background-color": { "value": "{ams.color.purple}" },
-      "color": { "value": "{ams.color.primary-white}" },
+      "background-color": { "value": "{ams.color.highlight.purple}" },
+      "color": { "value": "{ams.color.text.inverse}" },
       "font-family": { "value": "{ams.text.font-family}" },
       "font-size": { "value": "{ams.text.level.6.font-size}" },
       "font-weight": { "value": "{ams.text.font-weight.normal}" },
@@ -11,31 +11,31 @@
       "padding-block": { "value": "{ams.space.xs}" },
       "padding-inline": { "value": "{ams.space.xs}" },
       "dark-green": {
-        "background-color": { "value": "{ams.color.dark-green}" },
-        "color": { "value": "{ams.color.primary-white}" }
+        "background-color": { "value": "{ams.color.highlight.green}" },
+        "color": { "value": "{ams.color.text.inverse}" }
       },
       "forced-colors": {
         "border-width": { "value": "{ams.border.width.md}" }
       },
       "green": {
-        "background-color": { "value": "{ams.color.green}" },
-        "color": { "value": "{ams.color.primary-black}" }
+        "background-color": { "value": "{ams.color.highlight.lime}" },
+        "color": { "value": "{ams.color.text.default}" }
       },
       "light-blue": {
-        "background-color": { "value": "{ams.color.blue}" },
-        "color": { "value": "{ams.color.primary-black}" }
+        "background-color": { "value": "{ams.color.highlight.azure}" },
+        "color": { "value": "{ams.color.text.default}" }
       },
       "magenta": {
-        "background-color": { "value": "{ams.color.magenta}" },
-        "color": { "value": "{ams.color.primary-white}" }
+        "background-color": { "value": "{ams.color.highlight.magenta}" },
+        "color": { "value": "{ams.color.text.inverse}" }
       },
       "orange": {
-        "background-color": { "value": "{ams.color.orange}" },
-        "color": { "value": "{ams.color.primary-black}" }
+        "background-color": { "value": "{ams.color.highlight.orange}" },
+        "color": { "value": "{ams.color.text.default}" }
       },
       "yellow": {
-        "background-color": { "value": "{ams.color.yellow}" },
-        "color": { "value": "{ams.color.primary-black}" }
+        "background-color": { "value": "{ams.color.highlight.yellow}" },
+        "color": { "value": "{ams.color.text.default}" }
       }
     }
   }

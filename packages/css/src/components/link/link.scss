@@ -44,10 +44,6 @@
     text-decoration-thickness: var(--ams-link-inline-hover-text-decoration-thickness);
     text-underline-offset: var(--ams-link-inline-hover-text-underline-offset);
   }
-
-  &:visited {
-    color: var(--ams-link-inline-visited-color);
-  }
 }
 
 .ams-link--contrast-color {
@@ -56,10 +52,6 @@
   &:hover {
     color: var(--ams-link-contrast-color-hover-color);
   }
-
-  &:visited {
-    color: var(--ams-link-contrast-color-visited-color);
-  }
 }
 
 .ams-link--inverse-color {
@@ -67,9 +59,5 @@
 
   &:hover {
     color: var(--ams-link-inverse-color-hover-color);
-  }
-
-  &:visited {
-    color: var(--ams-link-inverse-color-visited-color);
   }
 }

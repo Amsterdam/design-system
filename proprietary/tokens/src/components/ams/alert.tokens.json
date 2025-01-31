@@ -1,13 +1,13 @@
 {
   "ams": {
     "alert": {
-      "background-color": { "value": "{ams.color.primary-white}" },
-      "box-shadow": { "value": "inset 0 0 0 {ams.border.width.xl} {ams.color.blue}" },
+      "background-color": { "value": "{ams.color.background}" },
+      "box-shadow": { "value": "inset 0 0 0 {ams.border.width.xl} {ams.color.feedback.info}" },
       "forced-colors": {
         "border-width": { "value": "{ams.border.width.xl}" }
       },
       "severity-indicator": {
-        "background-color": { "value": "{ams.color.blue}" },
+        "background-color": { "value": "{ams.color.feedback.info}" },
         "padding-block": { "value": "{ams.space.md}" },
         "padding-inline": { "value": "{ams.space.xs}" }
       },
@@ -17,21 +17,21 @@
         "padding-inline": { "value": "{ams.space.md}" }
       },
       "error": {
-        "box-shadow": { "value": "inset 0 0 0 {ams.border.width.xl} {ams.color.primary-red}" },
+        "box-shadow": { "value": "inset 0 0 0 {ams.border.width.xl} {ams.color.feedback.error}" },
         "severity-indicator": {
-          "background-color": { "value": "{ams.color.primary-red}" }
+          "background-color": { "value": "{ams.color.feedback.error}" }
         }
       },
       "success": {
-        "box-shadow": { "value": "inset 0 0 0 {ams.border.width.xl} {ams.color.dark-green}" },
+        "box-shadow": { "value": "inset 0 0 0 {ams.border.width.xl} {ams.color.feedback.success}" },
         "severity-indicator": {
-          "background-color": { "value": "{ams.color.dark-green}" }
+          "background-color": { "value": "{ams.color.feedback.success}" }
         }
       },
       "warning": {
-        "box-shadow": { "value": "inset 0 0 0 {ams.border.width.xl} {ams.color.orange}" },
+        "box-shadow": { "value": "inset 0 0 0 {ams.border.width.xl} {ams.color.feedback.warning}" },
         "severity-indicator": {
-          "background-color": { "value": "{ams.color.orange}" }
+          "background-color": { "value": "{ams.color.feedback.warning}" }
         }
       }
     }
