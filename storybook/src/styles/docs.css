@@ -73,6 +73,10 @@
   position: absolute;
 }
 
+.ams-screen:has(.ams-docs-backdrop) {
+  display: contents;
+}
+
 .ams-docs-column,
 .ams-docs-grid,
 .ams-docs-row {
