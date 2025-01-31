@@ -32,7 +32,7 @@ describe('Unordered list', () => {
 
     const component = screen.getByRole('list')
 
-    expect(component).toHaveClass('ams-unordered-list--inverse-color')
+    expect(component).toHaveClass('ams-unordered-list--color-inverse')
   })
 
   it('renders an additional class name', () => {

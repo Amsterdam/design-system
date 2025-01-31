@@ -26,7 +26,7 @@ const UnorderedListRoot = forwardRef(
       <ul
         className={clsx(
           'ams-unordered-list',
-          color && `ams-unordered-list--${color}-color`,
+          color && `ams-unordered-list--color-${color}`,
           !markers && 'ams-unordered-list--no-markers',
           size && `ams-unordered-list--${size}`,
           className,

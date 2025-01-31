@@ -15,7 +15,13 @@ const meta = {
   component: Figure,
   args: {
     children: caption,
-    inverseColor: false,
+    color: {
+      control: {
+        labels: { inverse: 'inverse', undefined: 'default' },
+        type: 'radio',
+      },
+      options: [undefined, 'inverse'],
+    },
   },
   render: ({ children, ...args }) => (
     <Figure>
@@ -30,7 +36,6 @@ const meta = {
     </Figure>
   ),
 } satisfies Meta<typeof Figure.Caption>
-// We use the Caption type here to allow inverseColor. This works as long as Figure has no props of its own.
 
 export default meta
 
@@ -40,6 +45,6 @@ export const Default: Story = {}
 
 export const InverseColour: Story = {
   args: {
-    inverseColor: true,
+    color: 'inverse',
   },
 }

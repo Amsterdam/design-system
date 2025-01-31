@@ -25,7 +25,7 @@ export const Link = forwardRef(
       {...restProps}
       className={clsx(
         'ams-link',
-        color && `ams-link--${color}-color`,
+        color && `ams-link--color-${color}`,
         variant === 'inline' && 'ams-link--inline',
         variant === 'standalone' && 'ams-link--standalone',
         className,

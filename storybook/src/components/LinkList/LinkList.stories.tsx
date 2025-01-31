@@ -38,10 +38,8 @@ const StoryTemplate: Story = {
 const LinkStoryTemplate: LinkStory = {
   args: {
     children: linkList[0],
-    contrastColor: false,
     href: '#',
     icon: Icons.ChevronRightIcon,
-    inverseColor: false,
   },
   argTypes: {
     icon: {
@@ -116,7 +114,7 @@ export const ContrastColour: LinkStory = {
   ...LinkStoryTemplate,
   args: {
     ...LinkStoryTemplate.args,
-    contrastColor: true,
+    color: 'contrast',
   },
 }
 
@@ -124,6 +122,6 @@ export const InverseColour: LinkStory = {
   ...LinkStoryTemplate,
   args: {
     ...LinkStoryTemplate.args,
-    inverseColor: true,
+    color: 'inverse',
   },
 }

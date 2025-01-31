@@ -14,8 +14,6 @@ export type LinkListLinkProps = {
   color?: 'contrast' | 'inverse'
   /** An icon to display instead of the default chevron. Don’t mix custom icons with chevrons in one list. */
   icon?: Function
-  /** Changes the text colour for readability on a dark background. */
-  inverseColor?: boolean
   /** The size of the text. Use the same size for all items in the list. */
   size?: 'small' | 'large'
 } & PropsWithChildren<AnchorHTMLAttributes<HTMLAnchorElement>>
@@ -37,7 +35,7 @@ export const LinkListLink = forwardRef(
         <a
           className={clsx(
             'ams-link-list__link',
-            color && `ams-link-list__link--${color}-color`,
+            color && `ams-link-list__link--color-${color}`,
             size && `ams-link-list__link--${size}`,
             className,
           )}

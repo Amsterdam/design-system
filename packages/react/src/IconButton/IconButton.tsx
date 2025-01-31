@@ -27,7 +27,7 @@ export const IconButton = forwardRef(
   ) => (
     <button
       {...restProps}
-      className={clsx('ams-icon-button', color && `ams-icon-button--${color}-color`, className)}
+      className={clsx('ams-icon-button', color && `ams-icon-button--color-${color}`, className)}
       ref={ref}
     >
       <span className="ams-visually-hidden">{label}</span>

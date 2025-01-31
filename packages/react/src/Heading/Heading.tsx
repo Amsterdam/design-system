@@ -28,7 +28,7 @@ export const Heading = forwardRef(
         className={clsx(
           'ams-heading',
           `ams-heading--${sizeOrLevel}`,
-          color && `ams-heading--${color}-color`,
+          color && `ams-heading--color-${color}`,
           className,
         )}
         ref={ref}

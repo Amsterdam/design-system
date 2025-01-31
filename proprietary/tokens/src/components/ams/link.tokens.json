@@ -35,13 +35,13 @@
           "text-underline-offset": { "value": "{ams.link-appearance.regular.hover.text-underline-offset}" }
         }
       },
-      "contrast-color": {
+      "color-contrast": {
         "color": { "value": "{ams.link-appearance.contrast.color}" },
         "hover": {
           "color": { "value": "{ams.link-appearance.contrast.hover.color}" }
         }
       },
-      "inverse-color": {
+      "color-inverse": {
         "color": { "value": "{ams.link-appearance.inverse.color}" },
         "hover": {
           "color": { "value": "{ams.link-appearance.inverse.hover.color}" }

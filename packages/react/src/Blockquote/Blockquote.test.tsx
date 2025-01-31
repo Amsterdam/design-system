@@ -48,7 +48,7 @@ describe('Blockquote', () => {
 
     const quote = container.querySelector('blockquote:only-child')
 
-    expect(quote).toHaveClass('ams-blockquote--inverse-color')
+    expect(quote).toHaveClass('ams-blockquote--color-inverse')
   })
 
   it('supports ForwardRef in React', () => {

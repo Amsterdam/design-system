@@ -25,7 +25,7 @@ const OrderedListRoot = forwardRef(
     <ol
       className={clsx(
         'ams-ordered-list',
-        color && `ams-ordered-list--${color}-color`,
+        color && `ams-ordered-list--color-${color}`,
         !markers && 'ams-ordered-list--no-markers',
         size && `ams-ordered-list--${size}`,
         className,

@@ -53,18 +53,18 @@
   @include hyphenation;
 }
 
-.ams-link-list__link--contrast-color {
-  color: var(--ams-link-list-link-contrast-color-color);
+.ams-link-list__link--color-contrast {
+  color: var(--ams-link-list-link-color-contrast-color);
 
   &:hover {
-    color: var(--ams-link-list-link-contrast-color-hover-color);
+    color: var(--ams-link-list-link-color-contrast-hover-color);
   }
 }
 
-.ams-link-list__link--inverse-color {
-  color: var(--ams-link-list-link-inverse-color-color);
+.ams-link-list__link--color-inverse {
+  color: var(--ams-link-list-link-color-inverse-color);
 
   &:hover {
-    color: var(--ams-link-list-link-inverse-color-hover-color);
+    color: var(--ams-link-list-link-color-inverse-hover-color);
   }
 }

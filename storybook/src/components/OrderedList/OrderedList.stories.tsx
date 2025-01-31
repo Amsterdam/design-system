@@ -17,12 +17,18 @@ const meta = {
   component: OrderedList,
   args: {
     children: orderedListItems,
-    inverseColor: false,
     markers: undefined,
     reversed: undefined,
     start: undefined,
   },
   argTypes: {
+    color: {
+      control: {
+        labels: { inverse: 'inverse', undefined: 'default' },
+        type: 'radio',
+      },
+      options: [undefined, 'inverse'],
+    },
     reversed: {
       control: 'boolean',
       description: 'Numbers the items from the highest value down.',
@@ -128,7 +134,7 @@ export const WithoutMarkers: Story = {
 
 export const InverseColor: Story = {
   args: {
-    inverseColor: true,
+    color: 'inverse',
   },
   render: (args) => (
     <OrderedList {...args}>

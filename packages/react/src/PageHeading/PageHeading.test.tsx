@@ -38,7 +38,7 @@ describe('Page heading', () => {
 
     const pageHeading = screen.getByRole('heading', { name: 'Titel' })
 
-    expect(pageHeading).toHaveClass('ams-page-heading--inverse-color')
+    expect(pageHeading).toHaveClass('ams-page-heading--color-inverse')
   })
 
   it('supports ForwardRef in React', () => {

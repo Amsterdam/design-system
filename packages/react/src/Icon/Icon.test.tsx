@@ -54,7 +54,7 @@ describe('Icon', () => {
 
     const icon = container.querySelector('span:only-child')
 
-    expect(icon).toHaveClass('ams-icon--inverse-color')
+    expect(icon).toHaveClass('ams-icon--color-inverse')
   })
 
   it('renders an additional class name', () => {

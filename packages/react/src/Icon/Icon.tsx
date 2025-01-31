@@ -25,7 +25,7 @@ export const Icon = forwardRef(
     <span
       className={clsx(
         'ams-icon',
-        color && `ams-icon--${color}-color`,
+        color && `ams-icon--color-${color}`,
         size === 'level-3' && 'ams-icon--size-3',
         size === 'level-4' && 'ams-icon--size-4',
         size === 'level-5' && 'ams-icon--size-5',

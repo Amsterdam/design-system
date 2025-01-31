@@ -71,7 +71,7 @@ describe('Paragraph', () => {
 
     const paragraph = screen.getByText('Paragraph')
 
-    expect(paragraph).toHaveClass('ams-paragraph--inverse-color')
+    expect(paragraph).toHaveClass('ams-paragraph--color-inverse')
   })
 
   it('renders an additional class name', () => {

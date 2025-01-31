@@ -48,7 +48,7 @@ describe('Link list link', () => {
 
     const component = screen.getByRole('link')
 
-    expect(component).toHaveClass('ams-link-list__link--contrast-color')
+    expect(component).toHaveClass('ams-link-list__link--color-contrast')
   })
 
   it('renders the class name for inverse color', () => {
@@ -56,7 +56,7 @@ describe('Link list link', () => {
 
     const component = screen.getByRole('link')
 
-    expect(component).toHaveClass('ams-link-list__link--inverse-color')
+    expect(component).toHaveClass('ams-link-list__link--color-inverse')
   })
 
   it('supports ForwardRef in React', () => {

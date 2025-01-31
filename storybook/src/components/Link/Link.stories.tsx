@@ -14,14 +14,19 @@ const meta = {
   component: Link,
   args: {
     children: 'Link label',
-    contrastColor: false,
     href: '#',
-    inverseColor: false,
   },
   argTypes: {
     children: {
       description: 'The link text.',
       table: { disable: false },
+    },
+    color: {
+      control: {
+        labels: { inverse: 'inverse', undefined: 'default' },
+        type: 'radio',
+      },
+      options: [undefined, 'inverse'],
     },
     href: {
       description: 'The url for the link.',
@@ -53,12 +58,12 @@ export const Inline: Story = {
 
 export const ContrastColour: Story = {
   args: {
-    contrastColor: true,
+    color: 'contrast',
   },
 }
 
 export const InverseColour: Story = {
   args: {
-    inverseColor: true,
+    color: 'inverse',
   },
 }

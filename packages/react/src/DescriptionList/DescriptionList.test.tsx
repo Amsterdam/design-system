@@ -54,6 +54,6 @@ describe('Description List', () => {
 
     const component = container.querySelector(':only-child')
 
-    expect(component).toHaveClass('ams-description-list--inverse-color')
+    expect(component).toHaveClass('ams-description-list--color-inverse')
   })
 })

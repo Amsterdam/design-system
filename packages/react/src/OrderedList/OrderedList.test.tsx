@@ -33,7 +33,7 @@ describe('Ordered list', () => {
 
     const component = screen.getByRole('list')
 
-    expect(component).toHaveClass('ams-ordered-list--inverse-color')
+    expect(component).toHaveClass('ams-ordered-list--color-inverse')
   })
 
   it('renders an additional class name', () => {

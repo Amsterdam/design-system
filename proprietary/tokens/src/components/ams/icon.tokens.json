@@ -1,7 +1,7 @@
 {
   "ams": {
     "icon": {
-      "inverse": {
+      "color-inverse": {
         "color": { "value": "{ams.color.text.inverse}" }
       },
       "size-3": {

@@ -14,7 +14,6 @@ const meta = {
   component: Paragraph,
   args: {
     children: paragraph,
-    inverseColor: false,
   },
   argTypes: {
     children: {
@@ -51,6 +50,6 @@ export const SmallText: Story = {
 
 export const InverseColour: Story = {
   args: {
-    inverseColor: true,
+    color: 'inverse',
   },
 }
