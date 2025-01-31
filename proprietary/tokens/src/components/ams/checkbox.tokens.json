@@ -21,18 +21,18 @@
           }
         },
         "disabled": {
-          "border-color": { "value": "{ams.color.interactive.disabled.default}" },
+          "border-color": { "value": "{ams.color.interactive.disabled}" },
           "border-width": { "value": "{ams.border.width.md}" },
           "checked": {
-            "background-color": { "value": "{ams.color.interactive.disabled.default}" },
+            "background-color": { "value": "{ams.color.interactive.disabled}" },
             "hover": {
-              "background-color": { "value": "{ams.color.interactive.disabled.default}" }
+              "background-color": { "value": "{ams.color.interactive.disabled}" }
             }
           },
           "indeterminate": {
-            "background-color": { "value": "{ams.color.interactive.disabled.default}" },
+            "background-color": { "value": "{ams.color.interactive.disabled}" },
             "hover": {
-              "background-color": { "value": "{ams.color.interactive.disabled.default}" }
+              "background-color": { "value": "{ams.color.interactive.disabled}" }
             }
           }
         },
@@ -69,7 +69,7 @@
         }
       },
       "disabled": {
-        "color": { "value": "{ams.color.interactive.disabled.default}" }
+        "color": { "value": "{ams.color.interactive.disabled}" }
       },
       "hover": {
         "color": { "value": "{ams.color.interactive.hover}" },

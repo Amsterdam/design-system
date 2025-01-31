@@ -3,7 +3,7 @@
     "tabs": {
       "gap": { "value": "{ams.space.md}" },
       "list": {
-        "box-shadow": { "value": "inset 0 calc({ams.border.width.md} * -1) {ams.color.separator.default}" }
+        "box-shadow": { "value": "inset 0 calc({ams.border.width.md} * -1) {ams.color.separator}" }
       },
       "button": {
         "color": { "value": "{ams.color.interactive.default}" },
@@ -25,7 +25,7 @@
           "font-weight": { "value": "{ams.text.font-weight.bold}" }
         },
         "disabled": {
-          "color": { "value": "{ams.color.interactive.disabled.default}" },
+          "color": { "value": "{ams.color.interactive.disabled}" },
           "cursor": { "value": "{ams.action.disabled.cursor}" }
         }
       }

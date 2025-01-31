@@ -13,12 +13,12 @@
       "checked-indicator": {
         "fill": { "value": "{ams.color.interactive.default}" },
         "disabled": {
-          "fill": { "value": "{ams.color.interactive.disabled.default}" }
+          "fill": { "value": "{ams.color.interactive.disabled}" }
         },
         "disabled-invalid": {
-          "fill": { "value": "{ams.color.interactive.disabled.default}" },
+          "fill": { "value": "{ams.color.interactive.disabled}" },
           "hover": {
-            "fill": { "value": "{ams.color.interactive.disabled.default}" }
+            "fill": { "value": "{ams.color.interactive.disabled}" }
           }
         },
         "hover": {
@@ -47,12 +47,12 @@
         "stroke": { "value": "{ams.color.interactive.default}" },
         "stroke-width": { "value": "2px" },
         "disabled": {
-          "stroke": { "value": "{ams.color.interactive.disabled.default}" }
+          "stroke": { "value": "{ams.color.interactive.disabled}" }
         },
         "disabled-invalid": {
-          "stroke": { "value": "{ams.color.interactive.disabled.default}" },
+          "stroke": { "value": "{ams.color.interactive.disabled}" },
           "hover": {
-            "stroke": { "value": "{ams.color.interactive.disabled.default}" }
+            "stroke": { "value": "{ams.color.interactive.disabled}" }
           }
         },
         "hover": {
@@ -66,7 +66,7 @@
         }
       },
       "disabled": {
-        "color": { "value": "{ams.color.interactive.disabled.default}" }
+        "color": { "value": "{ams.color.interactive.disabled}" }
       },
       "hover": {
         "color": { "value": "{ams.color.interactive.hover}" },

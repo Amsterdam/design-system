@@ -21,15 +21,15 @@
         }
       },
       "contrast": {
-        "color": { "value": "{ams.color.interactive.contrast.default}" },
+        "color": { "value": "{ams.color.interactive.contrast}" },
         "hover": {
-          "color": { "value": "{ams.color.interactive.contrast.default}" }
+          "color": { "value": "{ams.color.interactive.contrast}" }
         }
       },
       "inverse": {
-        "color": { "value": "{ams.color.interactive.inverse.default}" },
+        "color": { "value": "{ams.color.interactive.inverse}" },
         "hover": {
-          "color": { "value": "{ams.color.interactive.inverse.default}" }
+          "color": { "value": "{ams.color.interactive.inverse}" }
         }
       }
     }

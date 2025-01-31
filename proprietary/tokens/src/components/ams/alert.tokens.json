@@ -2,12 +2,12 @@
   "ams": {
     "alert": {
       "background-color": { "value": "{ams.color.background.opening}" },
-      "box-shadow": { "value": "inset 0 0 0 {ams.border.width.xl} {ams.color.feedback.info.default}" },
+      "box-shadow": { "value": "inset 0 0 0 {ams.border.width.xl} {ams.color.feedback.info}" },
       "forced-colors": {
         "border-width": { "value": "{ams.border.width.xl}" }
       },
       "severity-indicator": {
-        "background-color": { "value": "{ams.color.feedback.info.default}" },
+        "background-color": { "value": "{ams.color.feedback.info}" },
         "padding-block": { "value": "{ams.space.md}" },
         "padding-inline": { "value": "{ams.space.xs}" }
       },
@@ -17,21 +17,21 @@
         "padding-inline": { "value": "{ams.space.md}" }
       },
       "error": {
-        "box-shadow": { "value": "inset 0 0 0 {ams.border.width.xl} {ams.color.feedback.error.default}" },
+        "box-shadow": { "value": "inset 0 0 0 {ams.border.width.xl} {ams.color.feedback.error}" },
         "severity-indicator": {
-          "background-color": { "value": "{ams.color.feedback.error.default}" }
+          "background-color": { "value": "{ams.color.feedback.error}" }
         }
       },
       "success": {
-        "box-shadow": { "value": "inset 0 0 0 {ams.border.width.xl} {ams.color.feedback.success.default}" },
+        "box-shadow": { "value": "inset 0 0 0 {ams.border.width.xl} {ams.color.feedback.success}" },
         "severity-indicator": {
-          "background-color": { "value": "{ams.color.feedback.success.default}" }
+          "background-color": { "value": "{ams.color.feedback.success}" }
         }
       },
       "warning": {
-        "box-shadow": { "value": "inset 0 0 0 {ams.border.width.xl} {ams.color.feedback.warning.default}" },
+        "box-shadow": { "value": "inset 0 0 0 {ams.border.width.xl} {ams.color.feedback.warning}" },
         "severity-indicator": {
-          "background-color": { "value": "{ams.color.feedback.warning.default}" }
+          "background-color": { "value": "{ams.color.feedback.warning}" }
         }
       }
     }

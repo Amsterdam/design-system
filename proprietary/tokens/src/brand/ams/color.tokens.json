@@ -6,65 +6,33 @@
         "opening": { "value": "#ffffff" }
       },
       "feedback": {
-        "error": {
-          "default": { "value": "#ec0000" }
-        },
-        "info": {
-          "default": { "value": "#009de6" }
-        },
-        "success": {
-          "default": { "value": "#00a03c" }
-        },
-        "warning": {
-          "default": { "value": "#ff9100" }
-        }
+        "error": { "value": "#ec0000" },
+        "info": { "value": "#009de6" },
+        "success": { "value": "#00a03c" },
+        "warning": { "value": "#ff9100" }
       },
       "highlight": {
-        "azure": {
-          "default": { "value": "#009de6" }
-        },
-        "green": {
-          "default": { "value": "#00a03c" }
-        },
-        "lime": {
-          "default": { "value": "#bed200" }
-        },
-        "magenta": {
-          "default": { "value": "#e50082" }
-        },
-        "orange": {
-          "default": { "value": "#ff9100" }
-        },
-        "purple": {
-          "default": { "value": "#a00078" }
-        },
-        "yellow": {
-          "default": { "value": "#ffe600" }
-        }
+        "azure": { "value": "#009de6" },
+        "green": { "value": "#00a03c" },
+        "lime": { "value": "#bed200" },
+        "magenta": { "value": "#e50082" },
+        "orange": { "value": "#ff9100" },
+        "purple": { "value": "#a00078" },
+        "yellow": { "value": "#ffe600" }
       },
       "interactive": {
         "default": { "value": "#004699" },
         "hover": { "value": "#003677" },
-        "contrast": {
-          "default": { "value": "#000000" }
-        },
-        "disabled": {
-          "default": { "value": "#767676" }
-        },
+        "contrast": { "value": "#000000" },
+        "disabled": { "value": "#767676" },
         "invalid": {
           "default": { "value": "#ec0000" },
           "hover": { "value": "#b70000" }
         },
-        "inverse": {
-          "default": { "value": "#ffffff" }
-        },
-        "secondary": {
-          "default": { "value": "#181818" }
-        }
+        "inverse": { "value": "#ffffff" },
+        "secondary": { "value": "#181818" }
       },
-      "separator": {
-        "default": { "value": "#d1d1d1" }
-      },
+      "separator": { "value": "#d1d1d1" },
       "text": {
         "default": { "value": "#181818" },
         "secondary": { "value": "#767676" },
