@@ -15,6 +15,7 @@
       },
       "mega-menu": {
         "button": {
+          "cursor": { "value": "{ams.cursor.interactive}" },
           "label": {
             "open": {
               "font-weight": { "value": "{ams.text.font-weight.bold}" }
