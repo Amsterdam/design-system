@@ -3,7 +3,7 @@
     "color": {
       "background": {
         "canvas": { "value": "#ffffff" },
-        "opening": { "value": "#ffffff" }
+        "default": { "value": "#ffffff" }
       },
       "feedback": {
         "error": { "value": "#ec0000" },

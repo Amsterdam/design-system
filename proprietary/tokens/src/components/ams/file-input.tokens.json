@@ -1,7 +1,7 @@
 {
   "ams": {
     "file-input": {
-      "background-color": { "value": "{ams.color.background.opening}" },
+      "background-color": { "value": "{ams.color.background.default}" },
       "border": { "value": "{ams.border.width.sm} dashed {ams.color.interactive.secondary}" },
       "color": { "value": "{ams.color.text.default}" },
       "cursor": { "value": "{ams.action.activate.cursor}" },
