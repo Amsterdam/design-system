@@ -73,6 +73,15 @@
   position: absolute;
 }
 
+.ams-screen:has(.ams-docs-backdrop) {
+  min-block-size: 28rem;
+}
+
+/* stylelint-disable-next-line selector-max-id, selector-id-pattern */
+#story--components-containers-dialog--with-scrollbar .ams-screen:has(.ams-docs-backdrop) {
+  min-block-size: 100vh;
+}
+
 .ams-docs-column,
 .ams-docs-grid,
 .ams-docs-row {
