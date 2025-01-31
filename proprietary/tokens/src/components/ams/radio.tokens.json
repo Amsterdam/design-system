@@ -34,11 +34,11 @@
       "hover-indicator": {
         "stroke-width": { "value": "3px" },
         "hover": {
-          "stroke": { "value": "{ams.color.interactive.default}" }
+          "stroke": { "value": "{ams.color.interactive.hover}" }
         },
         "invalid": {
           "hover": {
-            "stroke": { "value": "{ams.color.interactive.hover}" }
+            "stroke": { "value": "{ams.color.interactive.invalid.hover}" }
           }
         }
       },
