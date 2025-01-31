@@ -36,7 +36,7 @@ type Story = StoryObj<typeof meta>
 export const Default: Story = {
   args: {
     children: [
-      <Heading key={1} size="level-4">
+      <Heading key={1} level={1} size="level-4">
         <Card.Link href="/">{topTask.heading}</Card.Link>
       </Heading>,
       <Paragraph key={2}>{topTask.description}</Paragraph>,
@@ -48,7 +48,7 @@ export const WithTagline: Story = {
   args: {
     children: [
       <Card.HeadingGroup key={1} tagline="Dossier">
-        <Heading size="level-4">
+        <Heading level={1} size="level-4">
           <Card.Link href="/">Monitor Attracties MRA</Card.Link>
         </Heading>
       </Card.HeadingGroup>,
@@ -64,7 +64,7 @@ export const WithImage: Story = {
     children: [
       <Image alt="" aspectRatio="wide" key={1} src="https://picsum.photos/480/360" />,
       <Card.HeadingGroup key={2} tagline="Nieuws">
-        <Heading size="level-4">
+        <Heading level={1} size="level-4">
           <Card.Link href="/">Nederlands eerste houten woonwijk komt in Zuidoost</Card.Link>
         </Heading>
       </Card.HeadingGroup>,

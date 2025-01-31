@@ -27,7 +27,9 @@ export const FormPage = () => {
         <Breadcrumb>
           <Breadcrumb.Link>Home</Breadcrumb.Link>
         </Breadcrumb>
-        <Heading className="ams-mb--md">Contact</Heading>
+        <Heading className="ams-mb--md" level={1}>
+          Contact
+        </Heading>
         <form className="ams-gap--md" id="main" onSubmit={(e) => e.preventDefault()}>
           <Field>
             <Label htmlFor="body">Wat wilt u aan de gemeente vragen?</Label>
@@ -86,7 +88,7 @@ export const FormPage = () => {
               </Row>
             </Column>
           </FieldSet>
-          <Alert heading="Waarom vragen we om deze gegevens?">
+          <Alert heading="Waarom vragen we om deze gegevens?" headingLevel={2}>
             <Paragraph>
               We bewaren uw contactgegevens voor het afhandelen van uw vraag of klacht en het verbeteren van onze
               dienstverlening.
