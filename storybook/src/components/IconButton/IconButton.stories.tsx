@@ -18,10 +18,10 @@ const meta = {
   argTypes: {
     color: {
       control: {
-        labels: { inverse: 'inverse', undefined: 'default' },
+        labels: { contrast: 'contrast', inverse: 'inverse', undefined: 'default' },
         type: 'radio',
       },
-      options: [undefined, 'inverse'],
+      options: [undefined, 'contrast', 'inverse'],
     },
     disabled: {
       description: 'Prevents interaction. Avoid if possible.',

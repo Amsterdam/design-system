@@ -42,6 +42,13 @@ const LinkStoryTemplate: LinkStory = {
     icon: Icons.ChevronRightIcon,
   },
   argTypes: {
+    color: {
+      control: {
+        labels: { contrast: 'contrast', inverse: 'inverse', undefined: 'default' },
+        type: 'radio',
+      },
+      options: [undefined, 'contrast', 'inverse'],
+    },
     icon: {
       control: {
         labels: { undefined: 'none' },

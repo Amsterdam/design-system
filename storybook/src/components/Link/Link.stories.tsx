@@ -23,10 +23,10 @@ const meta = {
     },
     color: {
       control: {
-        labels: { inverse: 'inverse', undefined: 'default' },
+        labels: { contrast: 'contrast', inverse: 'inverse', undefined: 'default' },
         type: 'radio',
       },
-      options: [undefined, 'inverse'],
+      options: [undefined, 'contrast', 'inverse'],
     },
     href: {
       description: 'The url for the link.',

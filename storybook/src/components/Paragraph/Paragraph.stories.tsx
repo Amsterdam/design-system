@@ -20,6 +20,13 @@ const meta = {
       description: 'The paragraph text.',
       table: { disable: false },
     },
+    color: {
+      control: {
+        labels: { inverse: 'inverse', undefined: 'default' },
+        type: 'radio',
+      },
+      options: [undefined, 'inverse'],
+    },
     size: {
       control: {
         labels: { large: 'large', small: 'small', undefined: 'medium' },
