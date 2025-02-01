@@ -17,7 +17,7 @@
         "button": {
           "label": {
             "open": {
-              "font-weight": { "value": "{ams.brand.typography.font-weight.bold}" }
+              "font-weight": { "value": "{ams.typography.font-weight.bold}" }
             }
           }
         }
