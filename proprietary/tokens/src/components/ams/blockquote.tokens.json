@@ -5,7 +5,7 @@
       "font-family": { "value": "{ams.common.typography.body-text.font-family}" },
       "font-size": { "value": "{ams.common.typography.body-text.xl.font-size}" },
       "font-weight": { "value": "{ams.common.typography.bold.font-weight}" },
-      "inverse-color": { "value": "{ams.brand.color.neutral.0}" },
+      "inverse-color": { "value": "{ams.color.text.inverse}" },
       "line-height": { "value": "{ams.common.typography.body-text.xl.line-height}" }
     }
   }
