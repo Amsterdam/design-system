@@ -8,10 +8,10 @@
       "button": {
         "color": { "value": "{ams.color.interactive.default}" },
         "cursor": { "value": "{ams.action.activate.cursor}" },
-        "font-family": { "value": "{ams.common.typography.body-text.font-family}" },
-        "font-size": { "value": "{ams.common.typography.body-text.font-size}" },
-        "font-weight": { "value": "{ams.common.typography.body-text.font-weight}" },
-        "line-height": { "value": "{ams.common.typography.body-text.line-height}" },
+        "font-family": { "value": "{ams.body-text.font-family}" },
+        "font-size": { "value": "{ams.body-text.font-size}" },
+        "font-weight": { "value": "{ams.body-text.font-weight}" },
+        "line-height": { "value": "{ams.body-text.line-height}" },
         "outline-offset": { "value": "-0.25rem" },
         "padding-block": { "value": "{ams.space.sm}" },
         "padding-inline": { "value": "{ams.space.md}" },
@@ -22,7 +22,7 @@
         "selected": {
           "box-shadow": { "value": "inset 0 calc({ams.border.width.xl} * -1) {ams.color.interactive.default}" },
           "color": { "value": "{ams.color.interactive.default}" },
-          "font-weight": { "value": "{ams.common.typography.bold.font-weight}" }
+          "font-weight": { "value": "{ams.body-text.bold.font-weight}" }
         },
         "disabled": {
           "color": { "value": "{ams.color.interactive.disabled}" },

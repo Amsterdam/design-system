@@ -2,12 +2,12 @@
   "ams": {
     "table": {
       "color": { "value": "{ams.color.text.default}" },
-      "font-family": { "value": "{ams.common.typography.body-text.font-family}" },
-      "font-size": { "value": "{ams.common.typography.body-text.font-size}" },
-      "font-weight": { "value": "{ams.common.typography.body-text.font-weight}" },
-      "line-height": { "value": "{ams.common.typography.body-text.line-height}" },
+      "font-family": { "value": "{ams.body-text.font-family}" },
+      "font-size": { "value": "{ams.body-text.font-size}" },
+      "font-weight": { "value": "{ams.body-text.font-weight}" },
+      "line-height": { "value": "{ams.body-text.line-height}" },
       "caption": {
-        "font-weight": { "value": "{ams.common.typography.bold.font-weight}" }
+        "font-weight": { "value": "{ams.body-text.bold.font-weight}" }
       },
       "cell": {
         "border-block-end": { "value": "{ams.border.width.sm} solid {ams.color.separator}" },
@@ -15,7 +15,7 @@
         "padding-inline": { "value": "{ams.space.md}" }
       },
       "header-cell": {
-        "font-weight": { "value": "{ams.common.typography.bold.font-weight}" }
+        "font-weight": { "value": "{ams.body-text.bold.font-weight}" }
       }
     }
   }
