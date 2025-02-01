@@ -8,17 +8,17 @@ import { Meta, Typeset } from "@storybook/blocks";
 
 ## Font size
 
-### Tokens
+### Brand tokens
 
-| Token name                           | Value                                                   | Example                                                                                                                        |
-| :----------------------------------- | ------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------ |
-| `ams.brand.typography.font-size.sm`  | clamp(0.9643rem, calc(0.9054rem + 0.2946vw), 1.2rem)    | <div className="ams-docs-token-example--font-size" style={{ fontSize: 'var(--ams-brand-typography-font-size-sm)' }}>Abc</div>  |
-| `ams.brand.typography.font-size.md`  | clamp(1.125rem, calc(1.0313rem + 0.4688vw), 1.5rem)     | <div className="ams-docs-token-example--font-size" style={{ fontSize: 'var(--ams-brand-typography-font-size-md)' }}>Abc</div>  |
-| `ams.brand.typography.font-size.lg`  | clamp(1.3125rem, calc(1.1719rem + 0.7031vw), 1.875rem)  | <div className="ams-docs-token-example--font-size" style={{ fontSize: 'var(--ams-brand-typography-font-size-lg)' }}>Abc</div>  |
-| `ams.brand.typography.font-size.xl`  | clamp(1.5313rem, calc(1.3281rem + 1.0156vw), 2.3438rem) | <div className="ams-docs-token-example--font-size" style={{ fontSize: 'var(--ams-brand-typography-font-size-xl)' }}>Abc</div>  |
-| `ams.brand.typography.font-size.2xl` | clamp(1.7865rem, calc(1.5007rem + 1.429vw), 2.9297rem)  | <div className="ams-docs-token-example--font-size" style={{ fontSize: 'var(--ams-brand-typography-font-size-2xl)' }}>Abc</div> |
-| `ams.brand.typography.font-size.3xl` | clamp(2.0842rem, calc(1.6897rem + 1.9724vw), 3.6621rem) | <div className="ams-docs-token-example--font-size" style={{ fontSize: 'var(--ams-brand-typography-font-size-3xl)' }}>Abc</div> |
-| `ams.brand.typography.font-size.4xl` | clamp(2.4316rem, calc(1.8951rem + 2.6826vw), 4.5776rem) | <div className="ams-docs-token-example--font-size" style={{ fontSize: 'var(--ams-brand-typography-font-size-4xl)' }}>Abc</div> |
+| Token name                                  | Value                                                   | Example                                                                                                                        |
+| :------------------------------------------ | :------------------------------------------------------ | :----------------------------------------------------------------------------------------------------------------------------- |
+| `var(--ams-brand-typography-font-size-sm)`  | clamp(0.9643rem, calc(0.9054rem + 0.2946vw), 1.2rem)    | <div className="ams-docs-token-example--font-size" style={{ fontSize: 'var(--ams-brand-typography-font-size-sm)' }}>Abc</div>  |
+| `var(--ams-brand-typography-font-size-md)`  | clamp(1.125rem, calc(1.0313rem + 0.4688vw), 1.5rem)     | <div className="ams-docs-token-example--font-size" style={{ fontSize: 'var(--ams-brand-typography-font-size-md)' }}>Abc</div>  |
+| `var(--ams-brand-typography-font-size-lg)`  | clamp(1.3125rem, calc(1.1719rem + 0.7031vw), 1.875rem)  | <div className="ams-docs-token-example--font-size" style={{ fontSize: 'var(--ams-brand-typography-font-size-lg)' }}>Abc</div>  |
+| `var(--ams-brand-typography-font-size-xl)`  | clamp(1.5313rem, calc(1.3281rem + 1.0156vw), 2.3438rem) | <div className="ams-docs-token-example--font-size" style={{ fontSize: 'var(--ams-brand-typography-font-size-xl)' }}>Abc</div>  |
+| `var(--ams-brand-typography-font-size-2xl)` | clamp(1.7865rem, calc(1.5007rem + 1.429vw), 2.9297rem)  | <div className="ams-docs-token-example--font-size" style={{ fontSize: 'var(--ams-brand-typography-font-size-2xl)' }}>Abc</div> |
+| `var(--ams-brand-typography-font-size-3xl)` | clamp(2.0842rem, calc(1.6897rem + 1.9724vw), 3.6621rem) | <div className="ams-docs-token-example--font-size" style={{ fontSize: 'var(--ams-brand-typography-font-size-3xl)' }}>Abc</div> |
+| `var(--ams-brand-typography-font-size-4xl)` | clamp(2.4316rem, calc(1.8951rem + 2.6826vw), 4.5776rem) | <div className="ams-docs-token-example--font-size" style={{ fontSize: 'var(--ams-brand-typography-font-size-4xl)' }}>Abc</div> |
 
 ### Seven text levels
 
@@ -27,15 +27,15 @@ Each typographic element belongs to one of these levels: heading, paragraph, lin
 They are numbered from 0 to 6 to align them with the levels of headings.
 Examples:
 
-| Level | Heading components | Body text components                   |
-| ----: | :----------------- | -------------------------------------- |
-|     0 | Page heading       |                                        |
-|     1 | Heading 1          |                                        |
-|     2 | Heading 2          |                                        |
-|     3 | Heading 3          | Blockquote                             |
-|     4 | Heading 4          | Large Paragraph                        |
-|     5 | Heading 5          | Paragraph, List, Link, Button          |
-|     6 | Heading 6          | Small Paragraph, Page Menu, Breadcrumb |
+| Level | Heading components | Body text components                        |
+| ----: | :----------------- | :------------------------------------------ |
+|     0 | Page heading       |                                             |
+|     1 | Heading 1          |                                             |
+|     2 | Heading 2          |                                             |
+|     3 | Heading 3          | Blockquote                                  |
+|     4 | Heading 4          | Large Paragraph                             |
+|     5 | Heading 5          | Paragraph, List, Link, Button               |
+|     6 | Heading 6          | Small Paragraph, Breadcrumb, Figure Caption |
 
 ### Responsive
 
@@ -118,7 +118,7 @@ The font sizes at those points are as follows, rounded to 1 decimal place:
 #### Spacious
 
 | Device Class | Design Width |    0 |    1 |    2 |    3 |    4 |    5 |    6 |
-| :----------- | ------------ | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
+| :----------- | :----------- | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
 | Phone        | 320          | 38.9 | 33.3 | 28.6 | 24.5 |   21 |   18 | 15.4 |
 | Tablet       | 832          | 52.6 | 43.4 | 35.9 | 29.7 | 24.6 | 20.4 | 16.9 |
 | Desktop      | 1600         | 73.2 | 58.6 | 46.9 | 37.5 |   30 |   24 | 19.2 |
@@ -126,7 +126,7 @@ The font sizes at those points are as follows, rounded to 1 decimal place:
 #### Compact
 
 | Device Class | Design Width |    0 |    1 |    2 |    3 |    4 |   5 |    6 |
-| :----------- | ------------ | ---: | ---: | ---: | ---: | ---: | --: | ---: |
+| :----------- | :----------- | ---: | ---: | ---: | ---: | ---: | --: | ---: |
 | Phone        | 320          | 25.8 | 23.4 | 21.3 | 19.4 | 17.6 |  16 | 14.6 |
 | Tablet       | 832          |   27 | 24.3 | 21.9 | 19.7 | 17.8 |  16 | 14.4 |
 | Desktop      | 1600         | 28.8 | 25.6 | 22.8 | 20.3 |   18 |  16 | 14.2 |
