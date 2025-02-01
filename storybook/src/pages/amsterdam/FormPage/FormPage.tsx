@@ -33,7 +33,7 @@ export const FormPage = () => {
         <form className="ams-gap--md" id="main" onSubmit={(e) => e.preventDefault()}>
           <Field>
             <Label htmlFor="body">Wat wilt u aan de gemeente vragen?</Label>
-            <Paragraph id="bodyDescription" size="small">
+            <Paragraph id="bodyDescription">
               Een duidelijke beschrijving van uw vraag helpt ons bij het behandelen.
             </Paragraph>
             <TextArea
