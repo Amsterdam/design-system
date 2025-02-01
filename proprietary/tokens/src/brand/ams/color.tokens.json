@@ -26,8 +26,7 @@
           "default": { "value": "#ec0000" },
           "hover": { "value": "#b70000" }
         },
-        "inverse": { "value": "#ffffff" },
-        "secondary": { "value": "#181818" }
+        "inverse": { "value": "#ffffff" }
       },
       "separator": { "value": "#d1d1d1" },
       "text": {
