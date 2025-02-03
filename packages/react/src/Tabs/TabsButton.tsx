@@ -5,7 +5,7 @@
 
 import clsx from 'clsx'
 import { forwardRef, startTransition, useContext } from 'react'
-import type { ButtonHTMLAttributes, ForwardedRef, PropsWithChildren } from 'react'
+import type { ButtonHTMLAttributes, ForwardedRef, MouseEvent, PropsWithChildren } from 'react'
 import { TabsContext } from './TabsContext'
 
 export type TabsButtonProps = {
@@ -14,8 +14,15 @@ export type TabsButtonProps = {
 } & PropsWithChildren<ButtonHTMLAttributes<HTMLButtonElement>>
 
 export const TabsButton = forwardRef(
-  ({ children, className, tab = 0, ...restProps }: TabsButtonProps, ref: ForwardedRef<HTMLButtonElement>) => {
+  ({ children, className, onClick, tab = 0, ...restProps }: TabsButtonProps, ref: ForwardedRef<HTMLButtonElement>) => {
     const { activeTab, tabsId, updateTab } = useContext(TabsContext)
+
+    const handleClick = (e: MouseEvent<HTMLButtonElement>) => {
+      onClick?.(e)
+      startTransition(() => {
+        updateTab(tab)
+      })
+    }
 
     return (
       <button
@@ -24,11 +31,7 @@ export const TabsButton = forwardRef(
         aria-selected={activeTab === tab}
         className={clsx('ams-tabs__button', className)}
         id={`${tabsId}-tab-${tab}`}
-        onClick={() => {
-          startTransition(() => {
-            updateTab(tab)
-          })
-        }}
+        onClick={handleClick}
         ref={ref}
         role="tab"
         tabIndex={activeTab === tab ? 0 : -1}
