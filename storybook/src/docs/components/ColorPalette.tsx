@@ -1,38 +1,47 @@
 import './color-palette.css'
+import clsx from 'clsx'
 import { forwardRef } from 'react'
 import type { ForwardedRef, HTMLAttributes, PropsWithChildren } from 'react'
 
 export type DivProps = PropsWithChildren<HTMLAttributes<HTMLDivElement>>
 
 const ColorPaletteRoot = forwardRef(({ children, ...restProps }: DivProps, ref: ForwardedRef<HTMLDivElement>) => (
-  <div {...restProps} ref={ref} className="ams-storybook-color-palette">
+  <div {...restProps} className="ams-docs-color-palette" ref={ref}>
     {children}
   </div>
 ))
 
 ColorPaletteRoot.displayName = 'ColorPalette'
 
-const ColorPaletteSection = ({ children }: DivProps) => (
-  <div className="ams-storybook-color-palette__section">{children}</div>
-)
-
-ColorPaletteSection.displayName = 'ColorPalette.Section'
-
-type ColorPaletteTileProps = {
-  color: string
+type ColorPaletteSwatchProps = PropsWithChildren<{
   name: string
-}
+}>
 
-const ColorPaletteTile = ({ name, color }: ColorPaletteTileProps) => (
-  <div className="ams-storybook-color-palette__tile">
-    <div className="ams-storybook-color-palette__example" style={{ backgroundColor: color }} />
-    <dl className="sb-unstyled ams-storybook-color-palette__description">
-      <dt className="ams-storybook-color-palette__name">{name}</dt>
-      <dd className="ams-storybook-color-palette__color">{color}</dd>
-    </dl>
+const ColorPaletteSwatch = ({ children, name }: ColorPaletteSwatchProps) => (
+  <div className={clsx('ams-docs-color-swatch', `ams-docs-color-swatch--${name}`)}>
+    <span className="ams-docs-color-name">{name}</span>
+    {children}
   </div>
 )
 
+ColorPaletteSwatch.displayName = 'ColorPalette.Swatch'
+
+type ColorPaletteTileProps = {
+  color: string
+  level: string
+}
+
+const ColorPaletteTile = ({ color, level }: ColorPaletteTileProps) =>
+  color && (
+    <div className={clsx('ams-docs-color-tile', `ams-docs-color-tile--${level}`)}>
+      <span className="ams-docs-color-level">{level}</span>
+      <div className="ams-docs-color-sample" style={{ backgroundColor: color }} title={color} />
+    </div>
+  )
+
 ColorPaletteTile.displayName = 'ColorPalette.Tile'
 
-export const ColorPalette = Object.assign(ColorPaletteRoot, { Section: ColorPaletteSection, Tile: ColorPaletteTile })
+export const ColorPalette = Object.assign(ColorPaletteRoot, {
+  Swatch: ColorPaletteSwatch,
+  Tile: ColorPaletteTile,
+})

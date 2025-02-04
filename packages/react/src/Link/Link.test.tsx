@@ -25,7 +25,7 @@ describe('Link', () => {
 
   it('renders inline variant', () => {
     const { container } = render(
-      <Link variant="inline" href="#">
+      <Link href="#" variant="inline">
         {linktext}
       </Link>,
     )
@@ -58,7 +58,7 @@ describe('Link', () => {
 
   it('renders the class name for inverse color', () => {
     const { container } = render(
-      <Link inverseColor href="#">
+      <Link href="#" inverseColor>
         {linktext}
       </Link>,
     )
@@ -72,7 +72,7 @@ describe('Link', () => {
     const ref = createRef<HTMLAnchorElement>()
 
     const { container } = render(
-      <Link ref={ref} href="https://example.com/">
+      <Link href="https://example.com/" ref={ref}>
         {'https://example.com/'}
       </Link>,
     )

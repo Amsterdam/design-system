@@ -8,15 +8,15 @@ import { forwardRef, useEffect, useId, useImperativeHandle, useRef } from 'react
 import type { ForwardedRef, InputHTMLAttributes, PropsWithChildren } from 'react'
 
 export type CheckboxProps = {
-  /** Whether the value fails a validation rule. */
-  invalid?: boolean
   /** Allows being neither checked nor unchecked. */
   indeterminate?: boolean
+  /** Whether the value fails a validation rule. */
+  invalid?: boolean
 } & PropsWithChildren<Omit<InputHTMLAttributes<HTMLInputElement>, 'aria-invalid' | 'type'>>
 
 export const Checkbox = forwardRef(
   (
-    { children, className, invalid, indeterminate, ...restProps }: CheckboxProps,
+    { children, className, indeterminate, invalid, ...restProps }: CheckboxProps,
     ref: ForwardedRef<HTMLInputElement>,
   ) => {
     const id = useId()

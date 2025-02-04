@@ -66,7 +66,7 @@ describe('Text area', () => {
     function ControlledComponent() {
       const [value, setValue] = useState('Hello')
 
-      return <TextArea value={value} onChange={(e) => setValue(e.target.value)} />
+      return <TextArea onChange={(e) => setValue(e.target.value)} value={value} />
     }
 
     render(<ControlledComponent />)
@@ -86,7 +86,7 @@ describe('Text area', () => {
   })
 
   it('should not update the value when disabled', async () => {
-    render(<TextArea disabled defaultValue="Hello" />)
+    render(<TextArea defaultValue="Hello" disabled />)
 
     const component = screen.getByRole('textbox')
     if (component) {

@@ -22,12 +22,14 @@ export const FormPage = () => {
   const [textareaLength, setTextareaLength] = useState(0)
 
   return (
-    <Grid paddingTop="small" paddingBottom="medium">
+    <Grid paddingBottom="medium" paddingTop="small">
       <Grid.Cell span={{ narrow: 4, medium: 6, wide: 8 }} start={{ narrow: 1, medium: 2, wide: 3 }}>
         <Breadcrumb>
           <Breadcrumb.Link>Home</Breadcrumb.Link>
         </Breadcrumb>
-        <Heading className="ams-mb--md">Contact</Heading>
+        <Heading className="ams-mb--md" level={1}>
+          Contact
+        </Heading>
         <form className="ams-gap--md" id="main" onSubmit={(e) => e.preventDefault()}>
           <Field>
             <Label htmlFor="body">Wat wilt u aan de gemeente vragen?</Label>
@@ -86,7 +88,7 @@ export const FormPage = () => {
               </Row>
             </Column>
           </FieldSet>
-          <Alert severity="info">
+          <Alert heading="Waarom vragen we om deze gegevens?" headingLevel={2}>
             <Paragraph>
               We bewaren uw contactgegevens voor het afhandelen van uw vraag of klacht en het verbeteren van onze
               dienstverlening.

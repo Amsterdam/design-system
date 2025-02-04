@@ -14,7 +14,7 @@ export const SelectOptionGroup = forwardRef(
     { children, className, ...restProps }: PropsWithChildren<SelectOptionGroupProps>,
     ref: ForwardedRef<HTMLOptGroupElement>,
   ) => (
-    <optgroup {...restProps} ref={ref} className={clsx('ams-select__group', className)}>
+    <optgroup {...restProps} className={clsx('ams-select__group', className)} ref={ref}>
       {children}
     </optgroup>
   ),

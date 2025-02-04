@@ -1,150 +1,187 @@
-import { fireEvent, render, screen } from '@testing-library/react'
-import { createRef, useState } from 'react'
+import { render, screen } from '@testing-library/react'
+import { createRef } from 'react'
+import type { AnchorHTMLAttributes } from 'react'
 import { Pagination } from './Pagination'
 import '@testing-library/jest-dom'
 
 describe('Pagination', () => {
-  it('renders', () => {
-    const { container } = render(<Pagination totalPages={10} />)
+  const linkTemplate = (page: number) => `#?pagina=${page}`
 
-    const component = container.querySelector(':only-child')
+  it('renders', () => {
+    render(<Pagination linkTemplate={linkTemplate} totalPages={10} />)
+
+    const component = screen.getByRole('navigation', { name: 'Paginering' })
 
     expect(component).toBeInTheDocument()
     expect(component).toBeVisible()
   })
 
   it('renders a design system BEM class name', () => {
-    const { container } = render(<Pagination totalPages={10} />)
+    render(<Pagination linkTemplate={linkTemplate} totalPages={10} />)
 
-    const component = container.querySelector(':only-child')
+    const component = screen.getByRole('navigation', { name: 'Paginering' })
 
     expect(component).toHaveClass('ams-pagination')
   })
 
   it('can have a additional class name', () => {
-    const { container } = render(<Pagination totalPages={10} className="extra" />)
+    render(<Pagination className="extra" linkTemplate={linkTemplate} totalPages={10} />)
 
-    const component = container.querySelector(':only-child')
+    const component = screen.getByRole('navigation', { name: 'Paginering' })
 
-    expect(component).toHaveClass('extra')
-    expect(component).toHaveClass('ams-pagination')
+    expect(component).toHaveClass('ams-pagination extra')
   })
 
   it('should render all the pages when totalPages < maxVisiblePages', () => {
-    render(<Pagination totalPages={6} maxVisiblePages={7} />)
+    render(<Pagination linkTemplate={linkTemplate} maxVisiblePages={7} totalPages={6} />)
 
-    expect(screen.getAllByRole('listitem').length).toBe(8) // 6 + 2 buttons
-    expect(screen.queryByTestId('lastSpacer')).not.toBeInTheDocument()
-    expect(screen.queryByTestId('firstSpacer')).not.toBeInTheDocument()
+    const listItem = screen.getAllByRole('listitem', { hidden: true })
+
+    const range = ['1', '2', '3', '4', '5', '6']
+
+    range.forEach((item, index) => {
+      expect(listItem[index]).toHaveTextContent(item)
+    })
   })
 
-  it('should render the pages including one (last) spacer when totalPages > maxVisiblePages', () => {
-    render(<Pagination page={1} totalPages={10} maxVisiblePages={7} />)
+  it('should render the pages including one (last) spacer in the correct location when totalPages > maxVisiblePages', () => {
+    render(<Pagination linkTemplate={linkTemplate} maxVisiblePages={7} page={1} totalPages={10} />)
 
-    expect(screen.getAllByRole('listitem').length).toBe(8) // 6 + 2 buttons
-    expect(screen.getByTestId('lastSpacer')).toBeInTheDocument()
-    expect(screen.queryByTestId('firstSpacer')).not.toBeInTheDocument()
+    const listItem = screen.getAllByRole('listitem', { hidden: true })
+
+    const range = ['1', '2', '3', '4', '5', '…', '10']
+
+    range.forEach((item, index) => {
+      expect(listItem[index]).toHaveTextContent(item)
+    })
   })
 
-  it('should render the pages including the two spacers when totalPages > maxVisiblePages and current page > 4', () => {
-    render(<Pagination page={6} totalPages={10} maxVisiblePages={7} />)
+  it('should render the pages including the two spacers in the correct location when totalPages > maxVisiblePages and current page > 4', () => {
+    render(<Pagination linkTemplate={linkTemplate} maxVisiblePages={7} page={6} totalPages={10} />)
 
-    expect(screen.getAllByRole('listitem').length).toBe(7) // 5 + 2 buttons
-    expect(screen.getByTestId('lastSpacer')).toBeInTheDocument()
-    expect(screen.getByTestId('firstSpacer')).toBeInTheDocument()
+    const listItem = screen.getAllByRole('listitem', { hidden: true })
+
+    const range = ['1', '…', '5', '6', '7', '…', '10']
+
+    range.forEach((item, index) => {
+      expect(listItem[index]).toHaveTextContent(item)
+    })
   })
 
-  it('should navigate to the next page when clicking on the ‘next’ button', () => {
-    const onPageChangeMock = jest.fn()
+  it('should render the pages including one (first) spacer in the correct location when totalPages > maxVisiblePages and page > maxVisiblePages', () => {
+    render(<Pagination linkTemplate={linkTemplate} maxVisiblePages={7} page={8} totalPages={10} />)
 
-    render(<Pagination page={6} totalPages={10} onPageChange={onPageChangeMock} />)
+    const listItem = screen.getAllByRole('listitem', { hidden: true })
 
-    expect(onPageChangeMock).not.toHaveBeenCalled()
-    expect(screen.getByRole('button', { name: 'Pagina 6' })).toHaveAttribute('aria-current', 'true')
-    expect(screen.getByRole('button', { name: 'Ga naar pagina 7' })).not.toHaveAttribute('aria-current', 'true')
+    const range = ['1', '…', '6', '7', '8', '9', '10']
 
-    fireEvent.click(screen.getByText('volgende'))
-
-    expect(onPageChangeMock).toHaveBeenCalled()
-    expect(screen.getByRole('button', { name: 'Ga naar pagina 6' })).not.toHaveAttribute('aria-current', 'true')
-    expect(screen.getByRole('button', { name: 'Pagina 7' })).toHaveAttribute('aria-current', 'true')
+    range.forEach((item, index) => {
+      expect(listItem[index]).toHaveTextContent(item)
+    })
   })
 
-  it('should navigate to the previous page when clicking on the ‘previous’ button', () => {
-    const onPageChangeMock = jest.fn()
+  it('should set aria-current to true on the current page', () => {
+    render(<Pagination linkTemplate={linkTemplate} page={4} totalPages={10} />)
 
-    render(<Pagination page={6} totalPages={10} onPageChange={onPageChangeMock} />)
+    const currentPageLink = screen.getByRole('link', { name: 'Pagina 4' })
 
-    expect(onPageChangeMock).not.toHaveBeenCalled()
-    expect(screen.getByRole('button', { name: 'Pagina 6' })).toHaveAttribute('aria-current', 'true')
-    expect(screen.getByRole('button', { name: 'Ga naar pagina 5' })).not.toHaveAttribute('aria-current', 'true')
-
-    fireEvent.click(screen.getByText('vorige'))
-
-    expect(onPageChangeMock).toHaveBeenCalled()
-    expect(screen.getByRole('button', { name: 'Ga naar pagina 6' })).not.toHaveAttribute('aria-current', 'true')
-    expect(screen.getByRole('button', { name: 'Pagina 5' })).toHaveAttribute('aria-current', 'true')
+    expect(currentPageLink).toHaveAttribute('aria-current', 'page')
   })
 
-  it('should be working in a controlled state', () => {
-    function ControlledComponent() {
-      const [page, setPage] = useState(6)
+  it('should set the correct href on the links', () => {
+    render(<Pagination linkTemplate={linkTemplate} page={4} totalPages={10} />)
 
-      return <Pagination page={page} totalPages={10} onPageChange={setPage} />
-    }
+    const previousPageLink = screen.getByRole('link', { name: 'Vorige pagina' })
+    const currentPageLink = screen.getByRole('link', { name: 'Pagina 4' })
+    const nextPageLink = screen.getByRole('link', { name: 'Volgende pagina' })
 
-    render(<ControlledComponent />)
-
-    expect(screen.getByRole('button', { name: 'Pagina 6' })).toHaveAttribute('aria-current', 'true')
-    expect(screen.getByRole('button', { name: 'Ga naar pagina 5' })).not.toHaveAttribute('aria-current', 'true')
-
-    fireEvent.click(screen.getByText('vorige'))
-
-    expect(screen.getByRole('button', { name: 'Ga naar pagina 6' })).not.toHaveAttribute('aria-current', 'true')
-    expect(screen.getByRole('button', { name: 'Pagina 5' })).toHaveAttribute('aria-current', 'true')
-
-    fireEvent.click(screen.getByText('volgende'))
-
-    expect(screen.getByRole('button', { name: 'Pagina 6' })).toHaveAttribute('aria-current', 'true')
-    expect(screen.getByRole('button', { name: 'Ga naar pagina 5' })).not.toHaveAttribute('aria-current', 'true')
+    expect(previousPageLink).toHaveAttribute('href', '#?pagina=3')
+    expect(currentPageLink).toHaveAttribute('href', '#?pagina=4')
+    expect(nextPageLink).toHaveAttribute('href', '#?pagina=5')
   })
 
-  it('renders custom labels for the ‘previous’ and ‘next’ buttons', () => {
-    render(<Pagination totalPages={10} previousLabel="previous" nextLabel="next" />)
+  it('sets a custom id for the accessible label', () => {
+    render(<Pagination linkTemplate={linkTemplate} totalPages={10} visuallyHiddenLabelId="custom-id" />)
 
-    const previousButton = screen.getByRole('button', { name: 'Vorige pagina' })
-    const nextButton = screen.getByRole('button', { name: 'Volgende pagina' })
+    const component = screen.getByRole('navigation', { name: 'Paginering' })
 
-    expect(previousButton).toHaveTextContent('previous')
-    expect(nextButton).toHaveTextContent('next')
+    expect(component).toHaveAttribute('aria-labelledby', 'custom-id')
+  })
+
+  it('should not render when totalPages is 1 or less', () => {
+    render(<Pagination linkTemplate={linkTemplate} totalPages={1} />)
+
+    expect(screen.queryByRole('navigation')).not.toBeInTheDocument()
+  })
+
+  it('should not show the previous link on the first page', () => {
+    render(<Pagination linkTemplate={linkTemplate} page={1} totalPages={10} />)
+
+    expect(screen.queryByRole('link', { name: 'Vorige pagina' })).not.toBeInTheDocument()
+  })
+
+  it('should not show the next link on the last page', () => {
+    render(<Pagination linkTemplate={linkTemplate} page={10} totalPages={10} />)
+
+    expect(screen.queryByRole('link', { name: 'Volgende pagina' })).not.toBeInTheDocument()
+  })
+
+  it('renders custom labels for the ‘previous’ and ‘next’ links', () => {
+    render(
+      <Pagination linkTemplate={linkTemplate} nextLabel="next" page={4} previousLabel="previous" totalPages={10} />,
+    )
+
+    const previousLink = screen.getByRole('link', { name: 'Vorige pagina' })
+    const nextLink = screen.getByRole('link', { name: 'Volgende pagina' })
+
+    expect(previousLink).toHaveTextContent('previous')
+    expect(previousLink).toHaveAttribute('rel', 'prev')
+    expect(nextLink).toHaveTextContent('next')
+    expect(nextLink).toHaveAttribute('rel', 'next')
   })
 
   it('renders an accessible label for the navigation', () => {
-    render(<Pagination totalPages={10} visuallyHiddenLabel="Pagination" />)
+    render(<Pagination linkTemplate={linkTemplate} totalPages={10} visuallyHiddenLabel="Pagination" />)
 
-    const navElement = screen.getByRole('navigation')
+    const component = screen.getByRole('navigation', { name: 'Pagination' })
 
-    expect(navElement).toHaveAccessibleName('Pagination')
+    expect(component).toBeInTheDocument()
   })
 
-  it('renders accessible labels for the ‘previous’ and ‘next’ buttons', () => {
+  it('renders accessible labels for the ‘previous’ and ‘next’ links', () => {
     render(
-      <Pagination totalPages={10} previousVisuallyHiddenLabel="Previous page" nextVisuallyHiddenLabel="Next page" />,
+      <Pagination
+        linkTemplate={linkTemplate}
+        nextVisuallyHiddenLabel="Next page"
+        page={4}
+        previousVisuallyHiddenLabel="Previous page"
+        totalPages={10}
+      />,
     )
 
-    const previousButton = screen.getByRole('button', { name: 'Previous page' })
-    const nextButton = screen.getByRole('button', { name: 'Next page' })
+    const previousLink = screen.getByRole('link', { name: 'Previous page' })
+    const nextLink = screen.getByRole('link', { name: 'Next page' })
 
-    expect(previousButton).toBeInTheDocument()
-    expect(nextButton).toBeInTheDocument()
+    expect(previousLink).toBeInTheDocument()
+    expect(nextLink).toBeInTheDocument()
+  })
+
+  it('renders a custom link component', () => {
+    const CustomLink = (props: AnchorHTMLAttributes<HTMLAnchorElement>) => <a data-test {...props} />
+
+    render(<Pagination linkComponent={CustomLink} linkTemplate={linkTemplate} totalPages={10} />)
+
+    const customLink = screen.getByRole('link', { name: 'Pagina 1' })
+
+    expect(customLink).toHaveAttribute('data-test')
   })
 
   it('supports ForwardRef in React', () => {
     const ref = createRef<HTMLElement>()
 
-    const { container } = render(<Pagination totalPages={10} ref={ref} />)
+    render(<Pagination linkTemplate={linkTemplate} ref={ref} totalPages={10} />)
 
-    const component = container.querySelector(':only-child')
+    const component = screen.getByRole('navigation', { name: 'Paginering' })
 
     expect(ref.current).toBe(component)
   })

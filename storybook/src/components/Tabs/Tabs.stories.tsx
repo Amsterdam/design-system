@@ -23,25 +23,25 @@ const SlowPanel = ({ children }: PropsWithChildren) => {
 }
 
 type TabContent = {
+  body: ReactNode
   id: number
   label: string
-  body: ReactNode
 }
 
 const tabsContent: Array<TabContent> = [
-  { id: 0, label: 'Gegevens', body: exampleParagraph() },
-  { id: 1, label: 'Aanslagen', body: exampleParagraph() },
+  { body: exampleParagraph(), id: 0, label: 'Gegevens' },
+  { body: exampleParagraph(), id: 1, label: 'Aanslagen' },
   {
-    id: 2,
-    label: 'Documenten',
     body: (
       <>
         (This tab panel simulates a load time of {slowPanelDelay} milliseconds.)
         <SlowPanel />
       </>
     ),
+    id: 2,
+    label: 'Documenten',
   },
-  { id: 3, label: 'Acties', body: exampleParagraph() },
+  { body: exampleParagraph(), id: 3, label: 'Acties' },
 ]
 
 const defaultTabs = [
@@ -52,7 +52,7 @@ const defaultTabs = [
       </Tabs.Button>
     ))}
   </Tabs.List>,
-  tabsContent.map(({ id, body, label }) => (
+  tabsContent.map(({ body, id, label }) => (
     <Tabs.Panel key={label} tab={id}>
       <Heading className="ams-mb--xs" level={3}>
         {label}
@@ -71,9 +71,9 @@ const meta = {
   argTypes: {
     activeTab: {
       control: {
-        type: 'number',
-        min: 0,
         max: tabsContent.length - 1,
+        min: 0,
+        type: 'number',
       },
     },
   },

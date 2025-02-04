@@ -13,14 +13,14 @@ export type HeadingProps = {
   /** Changes the text colour for readability on a dark background. */
   inverseColor?: boolean
   /** The hierarchical level within the document. */
-  level?: 1 | 2 | 3 | 4
+  level: 1 | 2 | 3 | 4
   /** Uses larger or smaller text without changing its position in the heading hierarchy. */
   size?: 'level-1' | 'level-2' | 'level-3' | 'level-4' | 'level-5' | 'level-6'
 } & PropsWithChildren<HTMLAttributes<HTMLHeadingElement>>
 
 export const Heading = forwardRef(
   (
-    { children, className, inverseColor, level = 1, size, ...restProps }: HeadingProps,
+    { children, className, inverseColor, level, size, ...restProps }: HeadingProps,
     ref: ForwardedRef<HTMLHeadingElement>,
   ) => {
     const Tag = getHeadingTag(level)
@@ -28,13 +28,13 @@ export const Heading = forwardRef(
 
     return (
       <Tag
-        ref={ref}
         className={clsx(
           'ams-heading',
           `ams-heading--${sizeOrLevel}`,
           inverseColor && 'ams-heading--inverse-color',
           className,
         )}
+        ref={ref}
         {...restProps}
       >
         {children}

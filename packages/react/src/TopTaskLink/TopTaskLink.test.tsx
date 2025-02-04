@@ -5,7 +5,7 @@ import '@testing-library/jest-dom'
 
 describe('Top task link', () => {
   it('renders a link role element', () => {
-    render(<TopTaskLink href="/" label="Label" description="Description" />)
+    render(<TopTaskLink description="Description" href="/" label="Label" />)
 
     const link = screen.getByRole('link', {
       name: 'Label , Description',
@@ -16,7 +16,7 @@ describe('Top task link', () => {
   })
 
   it('renders a design system BEM class name', () => {
-    render(<TopTaskLink href="/" label="Label" description="Description" />)
+    render(<TopTaskLink description="Description" href="/" label="Label" />)
 
     const link = screen.getByRole('link', {
       name: 'Label , Description',
@@ -30,7 +30,7 @@ describe('Top task link', () => {
   })
 
   it('renders an additional class name', () => {
-    render(<TopTaskLink href="/" label="Label" description="Description" className="extra" />)
+    render(<TopTaskLink className="extra" description="Description" href="/" label="Label" />)
 
     const link = screen.getByRole('link', {
       name: 'Label , Description',
@@ -43,7 +43,7 @@ describe('Top task link', () => {
   it('supports ForwardRef in React', () => {
     const ref = createRef<HTMLAnchorElement>()
 
-    render(<TopTaskLink href="/" label="Label" description="Description" ref={ref} />)
+    render(<TopTaskLink description="Description" href="/" label="Label" ref={ref} />)
 
     const link = screen.getByRole('link', {
       name: 'Label , Description',

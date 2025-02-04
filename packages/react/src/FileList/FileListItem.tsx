@@ -18,13 +18,13 @@ export type FileListItemProps = {
 } & HTMLAttributes<HTMLLIElement>
 
 export const FileListItem = forwardRef(
-  ({ file, onDelete, className, ...restProps }: FileListItemProps, ref: ForwardedRef<HTMLLIElement>) => (
-    <li {...restProps} ref={ref} className={clsx('ams-file-list__item', className)}>
+  ({ className, file, onDelete, ...restProps }: FileListItemProps, ref: ForwardedRef<HTMLLIElement>) => (
+    <li {...restProps} className={clsx('ams-file-list__item', className)} ref={ref}>
       <div className="ams-file-list__item-preview">
         {file.type.startsWith('image/') ? (
-          <img src={URL.createObjectURL(file)} alt={file.name} />
+          <img alt={file.name} src={URL.createObjectURL(file)} />
         ) : (
-          <Icon svg={DocumentIcon} size="level-3" square />
+          <Icon size="level-3" square svg={DocumentIcon} />
         )}
       </div>
       <div className="ams-file-list__item-info">
@@ -35,7 +35,7 @@ export const FileListItem = forwardRef(
       </div>
       {onDelete && (
         <div>
-          <Button variant="tertiary" onClick={() => onDelete()}>
+          <Button onClick={() => onDelete()} variant="tertiary">
             Verwijder
           </Button>
         </div>

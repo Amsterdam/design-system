@@ -26,9 +26,11 @@ const DialogRoot = forwardRef(
     { children, className, closeButtonLabel = 'Sluiten', footer, heading, ...restProps }: DialogProps,
     ref: ForwardedRef<HTMLDialogElement>,
   ) => (
-    <dialog {...restProps} ref={ref} className={clsx('ams-dialog', className)}>
+    <dialog {...restProps} className={clsx('ams-dialog', className)} ref={ref}>
       <header className="ams-dialog__header">
-        <Heading size="level-4">{heading}</Heading>
+        <Heading level={1} size="level-4">
+          {heading}
+        </Heading>
         <IconButton label={closeButtonLabel} onClick={closeDialog} size="level-4" type="button" />
       </header>
       <div className="ams-dialog__body">{children}</div>

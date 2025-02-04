@@ -49,13 +49,13 @@ const TabsRoot = forwardRef(
     useImperativeHandle(ref, () => innerRef.current as HTMLDivElement)
 
     const { keyDown } = useKeyboardFocus(innerRef, {
-      rotating: true,
       horizontally: true,
+      rotating: true,
     })
 
     return (
-      <TabsContext.Provider value={{ activeTab: activeTabId, updateTab, tabsId }}>
-        <div {...restProps} role="tabs" ref={innerRef} onKeyDown={keyDown} className={clsx('ams-tabs', className)}>
+      <TabsContext.Provider value={{ activeTab: activeTabId, tabsId, updateTab }}>
+        <div {...restProps} className={clsx('ams-tabs', className)} onKeyDown={keyDown} ref={innerRef}>
           {children}
         </div>
       </TabsContext.Provider>

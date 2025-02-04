@@ -18,34 +18,26 @@ type Story = StoryObj<typeof meta>
 
 const defaultStoryLinks = [
   [
-    { label: 'Kaart', href: '#' },
-    { label: 'Panoramabeelden', href: '#' },
-    { label: 'Tabellen', href: '#' },
-    { label: 'Catalogus (Beta)', href: '#' },
-    { label: 'Kaarten', href: '#' },
-    { label: 'Datacatalogus', href: '#' },
+    { href: '#', label: 'Kaart' },
+    { href: '#', label: 'Panoramabeelden' },
+    { href: '#', label: 'Tabellen' },
+    { href: '#', label: 'Catalogus (Beta)' },
+    { href: '#', label: 'Kaarten' },
+    { href: '#', label: 'Datacatalogus' },
   ],
   [
-    { label: 'Over de organisatie', href: '#' },
-    { label: 'Over het dataplatform', href: '#' },
+    { href: '#', label: 'Over de organisatie' },
+    { href: '#', label: 'Over het dataplatform' },
   ],
   [
-    { label: 'Help', href: '#' },
-    { label: 'Contact', href: '#' },
+    { href: '#', label: 'Help' },
+    { href: '#', label: 'Contact' },
   ],
 ]
 
 export const Default: Story = {
   args: {
     brandName: 'Data Amsterdam',
-    menuItems: [
-      <Header.MenuLink key={1} href="#" lang="en">
-        English
-      </Header.MenuLink>,
-      <Header.MenuLink key={2} href="#" fixed>
-        Zoeken
-      </Header.MenuLink>,
-    ],
     children: (
       <Grid paddingBottom="large">
         <Header.GridCellNarrowWindowOnly span="all">
@@ -56,36 +48,36 @@ export const Default: Story = {
           </LinkList>
         </Header.GridCellNarrowWindowOnly>
         <Grid.Cell span={4}>
-          <Heading level={2} size="level-3" className="ams-mb--sm">
+          <Heading className="ams-mb--sm" level={2} size="level-3">
             Onderdelen
           </Heading>
           <LinkList>
-            {defaultStoryLinks[0].map(({ label, href }) => (
-              <LinkList.Link key={label} href={href}>
+            {defaultStoryLinks[0].map(({ href, label }) => (
+              <LinkList.Link href={href} key={label}>
                 {label}
               </LinkList.Link>
             ))}
           </LinkList>
         </Grid.Cell>
         <Grid.Cell span={4}>
-          <Heading level={2} size="level-3" className="ams-mb--sm">
+          <Heading className="ams-mb--sm" level={2} size="level-3">
             Over ons
           </Heading>
           <LinkList>
-            {defaultStoryLinks[1].map(({ label, href }) => (
-              <LinkList.Link key={label} href={href}>
+            {defaultStoryLinks[1].map(({ href, label }) => (
+              <LinkList.Link href={href} key={label}>
                 {label}
               </LinkList.Link>
             ))}
           </LinkList>
         </Grid.Cell>
         <Grid.Cell span={4}>
-          <Heading level={2} size="level-3" className="ams-mb--sm">
+          <Heading className="ams-mb--sm" level={2} size="level-3">
             Help
           </Heading>
           <LinkList>
-            {defaultStoryLinks[2].map(({ label, href }) => (
-              <LinkList.Link key={label} href={href}>
+            {defaultStoryLinks[2].map(({ href, label }) => (
+              <LinkList.Link href={href} key={label}>
                 {label}
               </LinkList.Link>
             ))}
@@ -93,21 +85,21 @@ export const Default: Story = {
         </Grid.Cell>
       </Grid>
     ),
+    menuItems: [
+      <Header.MenuLink href="#" key={1} lang="en">
+        English
+      </Header.MenuLink>,
+      <Header.MenuLink fixed href="#" key={2}>
+        Zoeken
+      </Header.MenuLink>,
+    ],
   },
 }
 
 export const WithMovingLinks: Story = {
   args: {
-    menuItems: [
-      <Header.MenuLink key={1} href="#" lang="en">
-        English
-      </Header.MenuLink>,
-      <Header.MenuLink key={2} href="#" fixed>
-        Zoeken
-      </Header.MenuLink>,
-    ],
     children: (
-      <Grid paddingBottom="large" gapVertical="small">
+      <Grid gapVertical="small" paddingBottom="large">
         <Header.GridCellNarrowWindowOnly span="all">
           <LinkList>
             <LinkList.Link href="#" lang="en">
@@ -122,39 +114,47 @@ export const WithMovingLinks: Story = {
         </Grid.Cell>
       </Grid>
     ),
+    menuItems: [
+      <Header.MenuLink href="#" key={1} lang="en">
+        English
+      </Header.MenuLink>,
+      <Header.MenuLink fixed href="#" key={2}>
+        Zoeken
+      </Header.MenuLink>,
+    ],
   },
 }
 
 const WithoutMenuButtonOnWideWindowStoryLinks = [
-  { label: 'Stad', href: '#' },
-  { label: 'Techniek', href: '#' },
-  { label: 'Historie', href: '#' },
-  { label: 'Duurzaamheid', href: '#' },
+  { href: '#', label: 'Stad' },
+  { href: '#', label: 'Techniek' },
+  { href: '#', label: 'Historie' },
+  { href: '#', label: 'Duurzaamheid' },
 ]
 
 export const WithoutMenuButtonOnWideWindow: Story = {
   args: {
     brandName: 'Aan de Amsterdamse grachten',
-    menuItems: [
-      ...WithoutMenuButtonOnWideWindowStoryLinks.map(({ label, href }) => (
-        <Header.MenuLink key={label} href={href}>
-          {label}
-        </Header.MenuLink>
-      )),
-      <Header.MenuLink key="Zoeken" href="#" fixed>
-        Zoeken
-      </Header.MenuLink>,
-    ],
-    noMenuButtonOnWideWindow: true,
     children: (
       <LinkList className="ams-mb--lg">
-        {WithoutMenuButtonOnWideWindowStoryLinks.map(({ label, href }) => (
-          <LinkList.Link key={label} href={href}>
+        {WithoutMenuButtonOnWideWindowStoryLinks.map(({ href, label }) => (
+          <LinkList.Link href={href} key={label}>
             {label}
           </LinkList.Link>
         ))}
       </LinkList>
     ),
+    menuItems: [
+      ...WithoutMenuButtonOnWideWindowStoryLinks.map(({ href, label }) => (
+        <Header.MenuLink href={href} key={label}>
+          {label}
+        </Header.MenuLink>
+      )),
+      <Header.MenuLink fixed href="#" key="Zoeken">
+        Zoeken
+      </Header.MenuLink>,
+    ],
+    noMenuButtonOnWideWindow: true,
   },
 }
 
@@ -179,8 +179,6 @@ export const WithCustomLogoLink: Story = {
 
 export const WithCustomTexts: Story = {
   args: {
-    menuButtonText: 'Hoofdmenu',
-    navigationLabel: 'Navigatie',
     children: (
       <Grid>
         <Grid.Cell span="all">
@@ -192,5 +190,7 @@ export const WithCustomTexts: Story = {
         </Grid.Cell>
       </Grid>
     ),
+    menuButtonText: 'Hoofdmenu',
+    navigationLabel: 'Navigatie',
   },
 }

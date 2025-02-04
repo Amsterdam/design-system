@@ -23,7 +23,6 @@ const OrderedListRoot = forwardRef(
     ref: ForwardedRef<HTMLOListElement>,
   ) => (
     <ol
-      ref={ref}
       className={clsx(
         'ams-ordered-list',
         inverseColor && 'ams-ordered-list--inverse-color',
@@ -31,6 +30,7 @@ const OrderedListRoot = forwardRef(
         size && `ams-ordered-list--${size}`,
         className,
       )}
+      ref={ref}
       {...restProps}
     >
       {children}

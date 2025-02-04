@@ -22,7 +22,7 @@ describe('Skip link', () => {
   })
 
   it('renders an additional class name', () => {
-    render(<SkipLink href="/" className="extra" />)
+    render(<SkipLink className="extra" href="/" />)
 
     const component = screen.getByRole('link')
 

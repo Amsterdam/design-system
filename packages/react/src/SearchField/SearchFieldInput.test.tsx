@@ -45,7 +45,7 @@ describe('Search field input', () => {
     function ControlledComponent() {
       const [value, setValue] = useState('Hello')
 
-      return <SearchFieldInput value={value} onChange={(e) => setValue(e.target.value)} />
+      return <SearchFieldInput onChange={(e) => setValue(e.target.value)} value={value} />
     }
 
     render(<ControlledComponent />)

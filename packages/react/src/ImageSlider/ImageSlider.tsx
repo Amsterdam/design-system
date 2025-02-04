@@ -69,7 +69,7 @@ export const ImageSliderRoot = forwardRef(
       const sliderScrollerElement = targetRef.current
       if (!sliderScrollerElement) return
 
-      const { lastElementChild: lastElement, firstElementChild: firstElement } = sliderScrollerElement as HTMLDivElement
+      const { firstElementChild: firstElement, lastElementChild: lastElement } = sliderScrollerElement as HTMLDivElement
 
       setIsAtStart(firstElement === sliderScrollerElement?.children[currentSlideId])
       setIsAtEnd(lastElement === sliderScrollerElement?.children[currentSlideId])
@@ -149,14 +149,14 @@ export const ImageSliderRoot = forwardRef(
 
     return (
       <ImageSliderContext.Provider
-        value={{ isAtStart, isAtEnd, currentSlideId, goToNextSlide, goToPreviousSlide, goToSlideId }}
+        value={{ currentSlideId, goToNextSlide, goToPreviousSlide, goToSlideId, isAtEnd, isAtStart }}
       >
         <div
           {...restProps}
           aria-roledescription="carousel"
           className={clsx('ams-image-slider', controls && 'ams-image-slider--controls', className)}
-          tabIndex={-1}
           ref={ref}
+          tabIndex={-1}
         >
           {controls && <ImageSliderControls nextLabel={nextLabel} previousLabel={previousLabel} />}
           <ImageSliderScroller aria-live="polite" ref={targetRef} role="group" tabIndex={0}>

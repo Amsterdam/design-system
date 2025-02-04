@@ -7,13 +7,13 @@
 
 .ams-row {
   display: flex;
-  flex-direction: row;
   gap: var(--ams-row-gap-md);
 }
 
 @each $size, $label in $ams-sizes {
   @if $size != "md" {
     .ams-row--gap-#{$label} {
+      /* stylelint-disable-next-line csstools/value-no-unknown-custom-properties */
       gap: var(--ams-row-gap-#{$size});
     }
   }

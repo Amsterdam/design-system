@@ -1,16 +1,16 @@
 import { render, screen, waitFor } from '@testing-library/react'
 import { createRef } from 'react'
-import { FormErrorList } from './FormErrorList'
+import { InvalidFormAlert } from './InvalidFormAlert'
 import '@testing-library/jest-dom'
 
-describe('Form error list', () => {
+describe('Invalid Form Alert', () => {
   const testErrors = [
     { id: '#', label: 'Vul een geldige datum in (bijvoorbeeld 6 januari 2030).' },
     { id: '#', label: 'De geldigheidsdatum van uw paspoort moet in de toekomst liggen.' },
   ]
 
   it('renders', () => {
-    const { container } = render(<FormErrorList errors={testErrors} />)
+    const { container } = render(<InvalidFormAlert errors={testErrors} headingLevel={2} />)
 
     const component = container.querySelector(':only-child')
 
@@ -19,7 +19,7 @@ describe('Form error list', () => {
   })
 
   it('does not render when there are no errors', () => {
-    const { container } = render(<FormErrorList errors={[]} />)
+    const { container } = render(<InvalidFormAlert errors={[]} headingLevel={2} />)
 
     const component = container.querySelector(':only-child')
 
@@ -27,33 +27,33 @@ describe('Form error list', () => {
   })
 
   it('renders a design system BEM class name', () => {
-    const { container } = render(<FormErrorList errors={testErrors} />)
+    const { container } = render(<InvalidFormAlert errors={testErrors} headingLevel={2} />)
 
     const component = container.querySelector(':only-child')
 
-    expect(component).toHaveClass('ams-form-error-list')
+    expect(component).toHaveClass('ams-invalid-form-alert')
   })
 
   it('renders an additional class name', () => {
-    const { container } = render(<FormErrorList errors={testErrors} className="extra" />)
+    const { container } = render(<InvalidFormAlert className="extra" errors={testErrors} headingLevel={2} />)
 
     const component = container.querySelector(':only-child')
 
-    expect(component).toHaveClass('ams-form-error-list extra')
+    expect(component).toHaveClass('ams-invalid-form-alert extra')
   })
 
   it('renders a list item and link for every error', () => {
-    render(<FormErrorList errors={testErrors} />)
+    render(<InvalidFormAlert errors={testErrors} headingLevel={2} />)
 
-    const listitems = screen.getAllByRole('listitem')
+    const listItems = screen.getAllByRole('listitem')
     const links = screen.getAllByRole('link')
 
-    expect(listitems.length).toBe(2)
+    expect(listItems.length).toBe(2)
     expect(links.length).toBe(2)
   })
 
   it('renders a link with the correct name and href for every error', () => {
-    render(<FormErrorList errors={testErrors} />)
+    render(<InvalidFormAlert errors={testErrors} headingLevel={2} />)
 
     const link1 = screen.getByRole('link', { name: testErrors[0].label })
     const link2 = screen.getByRole('link', { name: testErrors[1].label })
@@ -63,7 +63,7 @@ describe('Form error list', () => {
   })
 
   it('renders a custom heading', () => {
-    render(<FormErrorList errors={testErrors} heading="Test heading" />)
+    render(<InvalidFormAlert errors={testErrors} heading="Test heading" headingLevel={2} />)
 
     const component = screen.getByRole('heading', { name: 'Test heading' })
 
@@ -71,7 +71,7 @@ describe('Form error list', () => {
   })
 
   it('renders the correct heading level', () => {
-    render(<FormErrorList errors={testErrors} headingLevel={4} />)
+    render(<InvalidFormAlert errors={testErrors} headingLevel={4} />)
 
     const component = screen.getByRole('heading', { level: 4 })
 
@@ -85,7 +85,7 @@ describe('Form error list', () => {
     it('single error', async () => {
       document.title = docTitle
 
-      render(<FormErrorList errors={singleTestError} />)
+      render(<InvalidFormAlert errors={singleTestError} headingLevel={2} />)
 
       await waitFor(() => expect(document.title).toBe(`(1 invoerfout) ${docTitle}`))
     })
@@ -93,7 +93,7 @@ describe('Form error list', () => {
     it('multiple errors', async () => {
       document.title = docTitle
 
-      render(<FormErrorList errors={testErrors} />)
+      render(<InvalidFormAlert errors={testErrors} headingLevel={2} />)
 
       await waitFor(() => expect(document.title).toBe(`(2 invoerfouten) ${docTitle}`))
     })
@@ -105,7 +105,7 @@ describe('Form error list', () => {
     it('no errors', async () => {
       document.title = docTitle
 
-      render(<FormErrorList errors={[]} />)
+      render(<InvalidFormAlert errors={[]} headingLevel={2} />)
 
       await waitFor(() => expect(document.title).toBe(docTitle))
     })
@@ -113,7 +113,7 @@ describe('Form error list', () => {
     it('single error', async () => {
       document.title = docTitle
 
-      render(<FormErrorList errors={singleTestError} errorCountLabel={label} />)
+      render(<InvalidFormAlert errorCountLabel={label} errors={singleTestError} headingLevel={2} />)
 
       await waitFor(() => expect(document.title).toBe(`(1 error) ${docTitle}`))
     })
@@ -121,14 +121,14 @@ describe('Form error list', () => {
     it('multiple errors', async () => {
       document.title = docTitle
 
-      render(<FormErrorList errors={testErrors} errorCountLabel={label} />)
+      render(<InvalidFormAlert errorCountLabel={label} errors={testErrors} headingLevel={2} />)
 
       await waitFor(() => expect(document.title).toBe(`(2 errors) ${docTitle}`))
     })
   })
 
   it('has focus on render', async () => {
-    const { container } = render(<FormErrorList errors={testErrors} />)
+    const { container } = render(<InvalidFormAlert errors={testErrors} headingLevel={2} />)
 
     const component = container.querySelector(':only-child')
 
@@ -136,7 +136,7 @@ describe('Form error list', () => {
   })
 
   it('can disable automatic focus', async () => {
-    const { container } = render(<FormErrorList errors={testErrors} focusOnRender={false} />)
+    const { container } = render(<InvalidFormAlert errors={testErrors} focusOnRender={false} headingLevel={2} />)
 
     const component = container.querySelector(':only-child')
 
@@ -146,7 +146,7 @@ describe('Form error list', () => {
   it('supports ForwardRef in React', () => {
     const ref = createRef<HTMLDivElement>()
 
-    const { container } = render(<FormErrorList errors={testErrors} ref={ref} />)
+    const { container } = render(<InvalidFormAlert errors={testErrors} headingLevel={2} ref={ref} />)
 
     const component = container.querySelector(':only-child')
 

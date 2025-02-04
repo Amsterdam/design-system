@@ -59,13 +59,13 @@ export const BreakoutCell = forwardRef(
   ) => (
     <Tag
       {...restProps}
-      ref={ref}
       className={clsx(
         'ams-breakout__cell',
         breakoutCellClasses(colSpan, colStart, rowSpan, rowStart),
         has && `ams-breakout__cell--has-${has}`,
         className,
       )}
+      ref={ref}
     >
       {children}
     </Tag>

@@ -6,18 +6,18 @@
 import clsx from 'clsx'
 import { forwardRef, useEffect, useImperativeHandle, useRef } from 'react'
 import type { Dispatch, ForwardedRef, SetStateAction } from 'react'
-import type { FormErrorListProps } from './FormErrorList'
+import type { InvalidFormAlertProps } from './InvalidFormAlert'
 import { Alert } from '../Alert'
 import { LinkList } from '../LinkList'
 
-type FormErrorListWithErrorsProps = Omit<FormErrorListProps, 'errorCountLabel'> & {
+type InvalidFormAlertWithErrorsProps = Omit<InvalidFormAlertProps, 'errorCountLabel'> & {
   /** Whether the component has set focus once. */
   hasFocusedOnce: boolean
   /** Callback to let parent component know whether focus has been set once. */
   setHasFocusedOnce: Dispatch<SetStateAction<boolean>>
 }
 
-export const FormErrorListWithErrors = forwardRef(
+export const InvalidFormAlertWithErrors = forwardRef(
   (
     {
       className,
@@ -25,10 +25,10 @@ export const FormErrorListWithErrors = forwardRef(
       focusOnRender = true,
       hasFocusedOnce,
       heading = 'Verbeter de fouten voor u verder gaat',
-      headingLevel = 2,
+      headingLevel,
       setHasFocusedOnce,
       ...restProps
-    }: FormErrorListWithErrorsProps,
+    }: InvalidFormAlertWithErrorsProps,
     ref: ForwardedRef<HTMLDivElement>,
   ) => {
     const innerRef = useRef<HTMLDivElement>(null)
@@ -46,7 +46,7 @@ export const FormErrorListWithErrors = forwardRef(
     return (
       <Alert
         {...restProps}
-        className={clsx('ams-form-error-list', className)}
+        className={clsx('ams-invalid-form-alert', className)}
         heading={heading}
         headingLevel={headingLevel}
         ref={innerRef}
@@ -65,4 +65,4 @@ export const FormErrorListWithErrors = forwardRef(
   },
 )
 
-FormErrorListWithErrors.displayName = 'FormErrorListWithErrors'
+InvalidFormAlertWithErrors.displayName = 'InvalidFormAlertWithErrors'

@@ -11,7 +11,7 @@ import { FigureCaption } from './FigureCaption'
 export type FigureProps = PropsWithChildren<HTMLAttributes<HTMLElement>>
 
 const FigureRoot = forwardRef(({ children, className, ...restProps }: FigureProps, ref: ForwardedRef<HTMLElement>) => (
-  <figure {...restProps} ref={ref} className={clsx('ams-figure', className)}>
+  <figure {...restProps} className={clsx('ams-figure', className)} ref={ref}>
     {children}
   </figure>
 ))
