@@ -67,6 +67,7 @@ const meta = {
   component: Tabs,
   args: {
     children: defaultTabs,
+    onChange: (tabId) => console.log(`Tab ${tabId} was selected.`),
   },
   argTypes: {
     activeTab: {
