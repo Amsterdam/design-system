@@ -17,8 +17,8 @@ export const TabsButton = forwardRef(
   ({ children, className, onClick, tab = 0, ...restProps }: TabsButtonProps, ref: ForwardedRef<HTMLButtonElement>) => {
     const { activeTab, tabsId, updateTab } = useContext(TabsContext)
 
-    const handleClick = (e: MouseEvent<HTMLButtonElement>) => {
-      onClick?.(e)
+    const handleClick = (event: MouseEvent<HTMLButtonElement>) => {
+      onClick?.(event)
       startTransition(() => {
         updateTab(tab)
       })
