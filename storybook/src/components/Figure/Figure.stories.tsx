@@ -15,13 +15,15 @@ const meta = {
   component: Figure.Caption,
   args: {
     children: caption,
-    // color: {
-    //   control: {
-    //     labels: { undefined: 'default' },
-    //     type: 'radio',
-    //   },
-    //   options: [undefined, 'inverse'],
-    // },
+  },
+  argTypes: {
+    color: {
+      control: {
+        labels: { undefined: 'default' },
+        type: 'radio',
+      },
+      options: [undefined, 'inverse'],
+    },
   },
   render: ({ children, ...args }) => (
     <Figure>
