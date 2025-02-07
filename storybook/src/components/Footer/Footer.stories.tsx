@@ -3,7 +3,7 @@
  * Copyright Gemeente Amsterdam
  */
 
-import { Grid, Heading, LinkList, PageMenu, Paragraph } from '@amsterdam/design-system-react'
+import { Grid, Heading, LinkList, Paragraph } from '@amsterdam/design-system-react'
 import { Footer } from '@amsterdam/design-system-react/src'
 import {
   CameraIcon,
@@ -15,7 +15,6 @@ import {
   TwitterIcon,
 } from '@amsterdam/design-system-react-icons'
 import { Meta, StoryObj } from '@storybook/react'
-import { Default as PageMenuStory } from '../../components/PageMenu/PageMenu.stories'
 
 const meta = {
   title: 'Components/Containers/Footer',
@@ -106,7 +105,11 @@ export const Default: Story = {
         </Heading>
         <Grid paddingVertical="small">
           <Grid.Cell span="all">
-            <PageMenu>{PageMenuStory.args?.children}</PageMenu>
+            <Footer.Menu>
+              <Footer.MenuLink href="#">Over deze site</Footer.MenuLink>
+              <Footer.MenuLink href="#">Privacy</Footer.MenuLink>
+              <Footer.MenuLink href="#">Cookies</Footer.MenuLink>
+            </Footer.Menu>
           </Grid.Cell>
         </Grid>
       </Footer.Bottom>,
@@ -184,7 +187,11 @@ export const OnderzoekEnStatistiek: Story = {
         </Heading>
         <Grid paddingVertical="small">
           <Grid.Cell span="all">
-            <PageMenu>{PageMenuStory.args?.children}</PageMenu>
+            <Footer.Menu>
+              <Footer.MenuLink href="#">Over deze site</Footer.MenuLink>
+              <Footer.MenuLink href="#">Privacy</Footer.MenuLink>
+              <Footer.MenuLink href="#">Cookies</Footer.MenuLink>
+            </Footer.Menu>
           </Grid.Cell>
         </Grid>
       </Footer.Bottom>,

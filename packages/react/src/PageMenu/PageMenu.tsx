@@ -37,4 +37,7 @@ const PageMenuRoot = forwardRef(
 
 PageMenuRoot.displayName = 'PageMenu'
 
+/**
+ * @deprecated Use Footer.Links or the `menuItems` prop in Header instead.
+ */
 export const PageMenu = Object.assign(PageMenuRoot, { Link: PageMenuLink })
