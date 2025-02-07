@@ -28,7 +28,7 @@ describe('Ordered list', () => {
     expect(component).toHaveClass('ams-ordered-list--no-markers')
   })
 
-  it('renders an inverse color class', () => {
+  it('renders the class name for inverse color', () => {
     render(<OrderedList color="inverse" />)
 
     const component = screen.getByRole('list')

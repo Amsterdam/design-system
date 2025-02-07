@@ -66,7 +66,7 @@ describe('Paragraph', () => {
     expect(largeParagraph).toHaveClass('ams-paragraph--large')
   })
 
-  it('renders the right inverse color class', () => {
+  it('renders the class name for inverse color', () => {
     render(<Paragraph color="inverse">Paragraph</Paragraph>)
 
     const paragraph = screen.getByText('Paragraph')

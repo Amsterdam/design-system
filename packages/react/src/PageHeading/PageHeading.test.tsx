@@ -33,7 +33,7 @@ describe('Page heading', () => {
     expect(component).toHaveClass('ams-page-heading')
   })
 
-  it('renders the right inverse color class', () => {
+  it('renders the class name for inverse color', () => {
     render(<PageHeading color="inverse">Titel</PageHeading>)
 
     const pageHeading = screen.getByRole('heading', { name: 'Titel' })

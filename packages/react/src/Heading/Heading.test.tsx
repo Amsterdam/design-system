@@ -72,7 +72,7 @@ describe('Heading', () => {
     expect(sizeLevel6).toHaveClass('ams-heading--level-6')
   })
 
-  it('renders the inverse color class', () => {
+  it('renders the class name for inverse color', () => {
     render(
       <Heading color="inverse" level={1}>
         Heading

@@ -43,7 +43,7 @@ describe('Blockquote', () => {
     expect(quote).toHaveClass('ams-blockquote')
   })
 
-  it('renders the right inverse color class', () => {
+  it('renders the class name for inverse color', () => {
     const { container } = render(<Blockquote color="inverse" />)
 
     const quote = container.querySelector('blockquote:only-child')

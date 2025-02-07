@@ -49,7 +49,7 @@ describe('Icon', () => {
     expect(icon).toHaveClass('ams-icon--square')
   })
 
-  it('renders the inverse color class', () => {
+  it('renders the class name for inverse color', () => {
     const { container } = render(<Icon color="inverse" svg={AlertIcon} />)
 
     const icon = container.querySelector('span:only-child')
