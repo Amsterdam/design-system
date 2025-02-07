@@ -23,7 +23,7 @@ const meta = {
     },
     color: {
       control: {
-        labels: { contrast: 'contrast', inverse: 'inverse', undefined: 'default' },
+        labels: { undefined: 'default' },
         type: 'radio',
       },
       options: [undefined, 'contrast', 'inverse'],

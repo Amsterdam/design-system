@@ -6,7 +6,7 @@
       "font-size": { "value": "{ams.text.level.3.font-size}" },
       "font-weight": { "value": "{ams.text.font-weight.bold}" },
       "line-height": { "value": "{ams.text.level.3.line-height}" },
-      "color-inverse": { "value": "{ams.color.text.inverse}" }
+      "inverse": { "color": { "value": "{ams.color.text.inverse}" } }
     }
   }
 }

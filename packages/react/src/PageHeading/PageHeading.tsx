@@ -14,11 +14,7 @@ export type PageHeadingProps = {
 
 export const PageHeading = forwardRef(
   ({ children, className, color, ...restProps }: PageHeadingProps, ref: ForwardedRef<HTMLHeadingElement>) => (
-    <h1
-      {...restProps}
-      className={clsx('ams-page-heading', color && `ams-page-heading--color-${color}`, className)}
-      ref={ref}
-    >
+    <h1 {...restProps} className={clsx('ams-page-heading', color && `ams-page-heading--${color}`, className)} ref={ref}>
       {children}
     </h1>
   ),

@@ -24,7 +24,7 @@ const meta = {
   argTypes: {
     color: {
       control: {
-        labels: { inverse: 'inverse', undefined: 'default' },
+        labels: { undefined: 'default' },
         type: 'radio',
       },
       options: [undefined, 'inverse'],

@@ -35,7 +35,7 @@ export const LinkListLink = forwardRef(
         <a
           className={clsx(
             'ams-link-list__link',
-            color && `ams-link-list__link--color-${color}`,
+            color && `ams-link-list__link--${color}`,
             size && `ams-link-list__link--${size}`,
             className,
           )}

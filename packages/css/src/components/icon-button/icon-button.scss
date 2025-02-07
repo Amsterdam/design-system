@@ -34,31 +34,31 @@
   }
 }
 
-.ams-icon-button--color-contrast {
-  color: var(--ams-icon-button-color-contrast-color);
+.ams-icon-button--contrast {
+  color: var(--ams-icon-button-contrast-color);
 
   &:hover {
-    background-color: var(--ams-icon-button-color-contrast-hover-background-color);
-    color: var(--ams-icon-button-color-contrast-hover-color);
+    background-color: var(--ams-icon-button-contrast-hover-background-color);
+    color: var(--ams-icon-button-contrast-hover-color);
   }
 
   &:disabled {
     background-color: transparent;
-    color: var(--ams-icon-button-color-contrast-disabled-color);
+    color: var(--ams-icon-button-contrast-disabled-color);
   }
 }
 
-.ams-icon-button--color-inverse {
-  background-color: var(--ams-icon-button-color-inverse-background-color);
-  color: var(--ams-icon-button-color-inverse-color);
+.ams-icon-button--inverse {
+  background-color: var(--ams-icon-button-inverse-background-color);
+  color: var(--ams-icon-button-inverse-color);
 
   &:hover {
-    background-color: var(--ams-icon-button-color-inverse-hover-background-color);
-    color: var(--ams-icon-button-color-inverse-hover-color);
+    background-color: var(--ams-icon-button-inverse-hover-background-color);
+    color: var(--ams-icon-button-inverse-hover-color);
   }
 
   &:disabled {
-    background-color: var(--ams-icon-button-color-inverse-disabled-background-color);
-    color: var(--ams-icon-button-color-inverse-disabled-color);
+    background-color: var(--ams-icon-button-inverse-disabled-background-color);
+    color: var(--ams-icon-button-inverse-disabled-color);
   }
 }

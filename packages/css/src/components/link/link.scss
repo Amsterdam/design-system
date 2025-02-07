@@ -46,18 +46,18 @@
   }
 }
 
-.ams-link--color-contrast {
-  color: var(--ams-link-color-contrast-color);
+.ams-link--contrast {
+  color: var(--ams-link-contrast-color);
 
   &:hover {
-    color: var(--ams-link-color-contrast-hover-color);
+    color: var(--ams-link-contrast-hover-color);
   }
 }
 
-.ams-link--color-inverse {
-  color: var(--ams-link-color-inverse-color);
+.ams-link--inverse {
+  color: var(--ams-link-inverse-color);
 
   &:hover {
-    color: var(--ams-link-color-inverse-hover-color);
+    color: var(--ams-link-inverse-hover-color);
   }
 }

@@ -18,12 +18,7 @@ export type ParagraphProps = {
 export const Paragraph = forwardRef(
   ({ children, className, color, size, ...restProps }: ParagraphProps, ref: ForwardedRef<HTMLParagraphElement>) => (
     <p
-      className={clsx(
-        'ams-paragraph',
-        color && `ams-paragraph--color-${color}`,
-        size && `ams-paragraph--${size}`,
-        className,
-      )}
+      className={clsx('ams-paragraph', color && `ams-paragraph--${color}`, size && `ams-paragraph--${size}`, className)}
       ref={ref}
       {...restProps}
     >

@@ -81,7 +81,7 @@ describe('Heading', () => {
 
     const heading = screen.getByRole('heading', { name: 'Heading' })
 
-    expect(heading).toHaveClass('ams-heading--color-inverse')
+    expect(heading).toHaveClass('ams-heading--inverse')
   })
 
   it('renders inline markup', () => {
