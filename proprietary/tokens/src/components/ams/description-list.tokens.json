@@ -1,11 +1,10 @@
 {
   "ams": {
     "description-list": {
-      "color": { "value": "{ams.color.primary-black}" },
+      "color": { "value": "{ams.color.text.default}" },
       "column-gap": { "value": "{ams.space.lg}" },
       "font-family": { "value": "{ams.text.font-family}" },
       "font-size": { "value": "{ams.text.level.5.font-size}" },
-      "inverse-color": { "value": "{ams.color.primary-white}" },
       "line-height": { "value": "{ams.text.level.5.line-height}" },
       "row-gap": { "value": "{ams.space.sm}" },
       "term": {
@@ -14,6 +13,9 @@
       "description": {
         "font-weight": { "value": "{ams.text.font-weight.normal}" },
         "padding-inline-start": { "value": "{ams.space.lg}" }
+      },
+      "inverse": {
+        "color": { "value": "{ams.color.text.inverse}" }
       }
     }
   }

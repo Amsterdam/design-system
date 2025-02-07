@@ -12,10 +12,18 @@ const caption = exampleCaption()
 
 const meta = {
   title: 'Components/Media/Figure',
-  component: Figure,
+  component: Figure.Caption,
   args: {
     children: caption,
-    inverseColor: false,
+  },
+  argTypes: {
+    color: {
+      control: {
+        labels: { undefined: 'default' },
+        type: 'radio',
+      },
+      options: [undefined, 'inverse'],
+    },
   },
   render: ({ children, ...args }) => (
     <Figure>
@@ -30,7 +38,6 @@ const meta = {
     </Figure>
   ),
 } satisfies Meta<typeof Figure.Caption>
-// We use the Caption type here to allow inverseColor. This works as long as Figure has no props of its own.
 
 export default meta
 
@@ -40,6 +47,6 @@ export const Default: Story = {}
 
 export const InverseColour: Story = {
   args: {
-    inverseColor: true,
+    color: 'inverse',
   },
 }

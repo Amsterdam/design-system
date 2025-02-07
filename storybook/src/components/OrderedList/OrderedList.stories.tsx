@@ -17,12 +17,18 @@ const meta = {
   component: OrderedList,
   args: {
     children: orderedListItems,
-    inverseColor: false,
     markers: undefined,
     reversed: undefined,
     start: undefined,
   },
   argTypes: {
+    color: {
+      control: {
+        labels: { undefined: 'default' },
+        type: 'radio',
+      },
+      options: [undefined, 'inverse'],
+    },
     reversed: {
       control: 'boolean',
       description: 'Numbers the items from the highest value down.',
@@ -98,7 +104,9 @@ export const WithoutMarkers: Story = {
   args: {
     children: [
       <OrderedList.Item key={1}>
-        <Heading size="level-4">Weg met steen, hallo extra groen en koelte</Heading>
+        <Heading level={1} size="level-4">
+          Weg met steen, hallo extra groen en koelte
+        </Heading>
         <Paragraph>
           Sinds 2021 kwamen er maar liefst 60 nieuwe groene plekken bij in de stad. Groen is fijn en het verkoelt de
           stad in de zomer. Een paar voorbeelden.
@@ -106,7 +114,9 @@ export const WithoutMarkers: Story = {
         <Paragraph size="small">16 augustus 2023</Paragraph>
       </OrderedList.Item>,
       <OrderedList.Item key={2}>
-        <Heading size="level-4">Amsterdam bindt de strijd aan met lawaaierige voertuigen</Heading>
+        <Heading level={1} size="level-4">
+          Amsterdam bindt de strijd aan met lawaaierige voertuigen
+        </Heading>
         <Paragraph>
           Deze zomer testen we of digitale borden langs de weg kunnen helpen om geluidsoverlast van voertuigen zoals
           motoren en auto’s tegen te gaan.
@@ -114,7 +124,9 @@ export const WithoutMarkers: Story = {
         <Paragraph size="small">10 augustus 2023</Paragraph>
       </OrderedList.Item>,
       <OrderedList.Item key={3}>
-        <Heading size="level-4">Een prachtroute door de wonderlijke Baarsjes</Heading>
+        <Heading level={1} size="level-4">
+          Een prachtroute door de wonderlijke Baarsjes
+        </Heading>
         <Paragraph>
           In de Baarsjes zijn kunst en cultuur met elkaar vervlochten. We zetten een prachtige wandelroute voor u uit en
           laten zien hoe het was en hoe het nu is.
@@ -128,7 +140,7 @@ export const WithoutMarkers: Story = {
 
 export const InverseColor: Story = {
   args: {
-    inverseColor: true,
+    color: 'inverse',
   },
   render: (args) => (
     <OrderedList {...args}>

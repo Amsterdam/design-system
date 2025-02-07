@@ -1,35 +1,35 @@
 {
   "ams": {
     "icon-button": {
-      "color": { "value": "{ams.color.primary-blue}" },
+      "color": { "value": "{ams.color.interactive.default}" },
       "outline-offset": { "value": "{ams.focus.outline-offset}" },
       "hover": {
         "background-color": { "value": "rgba(0, 70, 153, 0.125)" },
-        "color": { "value": "{ams.color.dark-blue}" }
+        "color": { "value": "{ams.color.interactive.hover}" }
       },
       "disabled": {
-        "color": { "value": "{ams.color.neutral-grey3}" }
+        "color": { "value": "{ams.color.interactive.disabled}" }
       },
-      "contrast-color": {
-        "color": { "value": "{ams.color.primary-black}" },
+      "contrast": {
+        "color": { "value": "{ams.color.interactive.contrast}" },
         "hover": {
           "background-color": { "value": "rgba(0, 0, 0, 0.125)" },
-          "color": { "value": "{ams.color.primary-black}" }
+          "color": { "value": "{ams.color.interactive.contrast}" }
         },
         "disabled": {
-          "color": { "value": "{ams.color.neutral-grey3}" }
+          "color": { "value": "{ams.color.interactive.disabled}" }
         }
       },
-      "inverse-color": {
-        "background-color": { "value": "{ams.color.primary-blue}" },
-        "color": { "value": "{ams.color.primary-white}" },
+      "inverse": {
+        "background-color": { "value": "{ams.color.interactive.default}" },
+        "color": { "value": "{ams.color.interactive.inverse}" },
         "hover": {
-          "background-color": { "value": "{ams.color.dark-blue}" },
-          "color": { "value": "{ams.color.primary-white}" }
+          "background-color": { "value": "{ams.color.interactive.hover}" },
+          "color": { "value": "{ams.color.interactive.inverse}" }
         },
         "disabled": {
-          "color": { "value": "{ams.color.primary-white}" },
-          "background-color": { "value": "{ams.color.neutral-grey3}" }
+          "color": { "value": "{ams.color.interactive.inverse}" },
+          "background-color": { "value": "{ams.color.interactive.disabled}" }
         }
       }
     }

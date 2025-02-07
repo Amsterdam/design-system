@@ -14,12 +14,18 @@ const meta = {
   component: Paragraph,
   args: {
     children: paragraph,
-    inverseColor: false,
   },
   argTypes: {
     children: {
       description: 'The paragraph text.',
       table: { disable: false },
+    },
+    color: {
+      control: {
+        labels: { undefined: 'default' },
+        type: 'radio',
+      },
+      options: [undefined, 'inverse'],
     },
     size: {
       control: {
@@ -51,6 +57,6 @@ export const SmallText: Story = {
 
 export const InverseColour: Story = {
   args: {
-    inverseColor: true,
+    color: 'inverse',
   },
 }

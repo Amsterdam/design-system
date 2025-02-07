@@ -21,8 +21,8 @@ export const decorators = [
   (Story: StoryFn, { args }: StoryContext) => (
     <Screen
       className={clsx({
-        'ams-docs-dark-background': args['inverseColor'],
-        'ams-docs-light-background': args['contrastColor'],
+        'ams-docs-dark-background': args['color'] === 'inverse',
+        'ams-docs-light-background': args['color'] === 'contrast',
       })}
       lang="nl"
     >

@@ -55,7 +55,7 @@ const TabsRoot = forwardRef(
 
     return (
       <TabsContext.Provider value={{ activeTab: activeTabId, tabsId, updateTab }}>
-        <div {...restProps} className={clsx('ams-tabs', className)} onKeyDown={keyDown} ref={innerRef} role="tabs">
+        <div {...restProps} className={clsx('ams-tabs', className)} onKeyDown={keyDown} ref={innerRef}>
           {children}
         </div>
       </TabsContext.Provider>

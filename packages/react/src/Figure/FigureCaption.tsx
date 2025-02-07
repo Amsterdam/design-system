@@ -9,14 +9,14 @@ import type { ForwardedRef, HTMLAttributes, PropsWithChildren } from 'react'
 
 export type FigureCaptionProps = {
   /** Changes the text colour for readability on a dark background. */
-  inverseColor?: boolean
+  color?: 'inverse'
 } & PropsWithChildren<HTMLAttributes<HTMLElement>>
 
 export const FigureCaption = forwardRef(
-  ({ children, className, inverseColor, ...restProps }: FigureCaptionProps, ref: ForwardedRef<HTMLElement>) => (
+  ({ children, className, color, ...restProps }: FigureCaptionProps, ref: ForwardedRef<HTMLElement>) => (
     <figcaption
       {...restProps}
-      className={clsx('ams-figure__caption', inverseColor && 'ams-figure__caption--inverse-color', className)}
+      className={clsx('ams-figure__caption', color && `ams-figure__caption--${color}`, className)}
       ref={ref}
     >
       {children}

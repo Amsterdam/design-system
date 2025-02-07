@@ -38,19 +38,19 @@ describe('Icon button', () => {
   })
 
   it('renders the class name for contrast color', () => {
-    render(<IconButton contrastColor label="Test" />)
+    render(<IconButton color="contrast" label="Test" />)
 
     const component = screen.getByRole('button')
 
-    expect(component).toHaveClass('ams-icon-button--contrast-color')
+    expect(component).toHaveClass('ams-icon-button--contrast')
   })
 
   it('renders the class name for inverse color', () => {
-    render(<IconButton inverseColor label="Test" />)
+    render(<IconButton color="inverse" label="Test" />)
 
     const component = screen.getByRole('button')
 
-    expect(component).toHaveClass('ams-icon-button--inverse-color')
+    expect(component).toHaveClass('ams-icon-button--inverse')
   })
 
   it('supports ForwardRef in React', () => {
