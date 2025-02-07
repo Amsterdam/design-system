@@ -12,16 +12,16 @@ const caption = exampleCaption()
 
 const meta = {
   title: 'Components/Media/Figure',
-  component: Figure,
+  component: Figure.Caption,
   args: {
     children: caption,
-    color: {
-      control: {
-        labels: { undefined: 'default' },
-        type: 'radio',
-      },
-      options: [undefined, 'inverse'],
-    },
+    // color: {
+    //   control: {
+    //     labels: { undefined: 'default' },
+    //     type: 'radio',
+    //   },
+    //   options: [undefined, 'inverse'],
+    // },
   },
   render: ({ children, ...args }) => (
     <Figure>
