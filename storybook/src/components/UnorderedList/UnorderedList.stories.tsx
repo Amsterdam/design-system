@@ -27,7 +27,6 @@ const meta = {
   component: UnorderedList,
   args: {
     children: unorderedListItems,
-    inverseColor: false,
     markers: undefined,
   },
   argTypes: {
@@ -129,7 +128,7 @@ export const WithoutMarkers: Story = {
 
 export const InverseColor: Story = {
   args: {
-    inverseColor: true,
+    color: 'inverse',
   },
   render: (args) => (
     <UnorderedList {...args}>

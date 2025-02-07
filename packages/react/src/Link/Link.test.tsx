@@ -46,26 +46,26 @@ describe('Link', () => {
 
   it('renders the class name for contrast color', () => {
     const { container } = render(
-      <Link contrastColor href="#">
+      <Link color="contrast" href="#">
         {linktext}
       </Link>,
     )
 
     const link = container.querySelector('a:only-child')
 
-    expect(link).toHaveClass('ams-link ams-link--contrast-color')
+    expect(link).toHaveClass('ams-link ams-link--contrast')
   })
 
   it('renders the class name for inverse color', () => {
     const { container } = render(
-      <Link href="#" inverseColor>
+      <Link color="inverse" href="#">
         {linktext}
       </Link>,
     )
 
     const link = container.querySelector('a:only-child')
 
-    expect(link).toHaveClass('ams-link ams-link--inverse-color')
+    expect(link).toHaveClass('ams-link ams-link--inverse')
   })
 
   it('supports ForwardRef in React', () => {

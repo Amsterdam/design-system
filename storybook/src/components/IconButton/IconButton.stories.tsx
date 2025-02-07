@@ -11,13 +11,18 @@ const meta = {
   title: 'Components/Buttons/Icon Button',
   component: IconButton,
   args: {
-    contrastColor: false,
     disabled: false,
-    inverseColor: false,
     label: 'Sluiten',
     size: undefined,
   },
   argTypes: {
+    color: {
+      control: {
+        labels: { undefined: 'default' },
+        type: 'radio',
+      },
+      options: [undefined, 'contrast', 'inverse'],
+    },
     disabled: {
       description: 'Prevents interaction. Avoid if possible.',
     },
@@ -70,12 +75,12 @@ export const Level6: Story = {
 
 export const ContrastColour: Story = {
   args: {
-    contrastColor: true,
+    color: 'contrast',
   },
 }
 
 export const InverseColour: Story = {
   args: {
-    inverseColor: true,
+    color: 'inverse',
   },
 }

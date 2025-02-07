@@ -21,12 +21,12 @@ describe('Figure Caption', () => {
     expect(component).toHaveClass('ams-figure__caption')
   })
 
-  it('renders the right inverse color class', () => {
-    const { container } = render(<FigureCaption inverseColor>Caption</FigureCaption>)
+  it('renders the class name for inverse color', () => {
+    const { container } = render(<FigureCaption color="inverse">Caption</FigureCaption>)
 
     const component = container.querySelector(':only-child')
 
-    expect(component).toHaveClass('ams-figure__caption--inverse-color')
+    expect(component).toHaveClass('ams-figure__caption--inverse')
   })
 
   it('renders an additional class name', () => {
