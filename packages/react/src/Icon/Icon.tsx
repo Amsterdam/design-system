@@ -10,7 +10,7 @@ import { forwardRef } from 'react'
 import type { ForwardedRef, HTMLAttributes, ReactNode } from 'react'
 
 export type IconProps = {
-  /** Changes the text colour for readability on a dark background. */
+  /** Changes the icon colour for readability on a dark background. */
   color?: 'inverse'
   /** The size of the icon. Corresponds with the text levels. */
   size?: 'level-3' | 'level-4' | 'level-5' | 'level-6'
