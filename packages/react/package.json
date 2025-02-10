@@ -42,9 +42,9 @@
     "clsx": "2.1.1"
   },
   "devDependencies": {
-    "@babel/core": "7.26.7",
-    "@babel/plugin-transform-runtime": "7.25.9",
-    "@babel/preset-env": "7.26.7",
+    "@babel/core": "7.26.8",
+    "@babel/plugin-transform-runtime": "7.26.8",
+    "@babel/preset-env": "7.26.8",
     "@babel/preset-react": "7.26.3",
     "@rollup/plugin-babel": "6.0.4",
     "@rollup/plugin-commonjs": "28.0.2",
@@ -64,7 +64,7 @@
     "postcss": "8.5.1",
     "react": "18.3.1",
     "react-dom": "18.3.1",
-    "rollup": "4.34.1",
+    "rollup": "4.34.6",
     "rollup-plugin-delete": "2.1.0",
     "rollup-plugin-dts": "6.1.1",
     "rollup-plugin-filesize": "10.0.0",
@@ -72,7 +72,7 @@
     "rollup-plugin-node-polyfills": "0.2.1",
     "rollup-plugin-peer-deps-external": "2.2.4",
     "rollup-plugin-typescript2": "0.36.0",
-    "sass": "1.83.4",
+    "sass": "1.84.0",
     "tslib": "2.8.1"
   },
   "peerDependencies": {
