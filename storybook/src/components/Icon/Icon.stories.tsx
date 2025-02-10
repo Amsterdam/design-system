@@ -12,10 +12,16 @@ const meta = {
   title: 'Components/Media/Icon',
   component: Icon,
   args: {
-    inverseColor: false,
     svg: Icons.EmailIcon,
   },
   argTypes: {
+    color: {
+      control: {
+        labels: { undefined: 'default' },
+        type: 'radio',
+      },
+      options: [undefined, 'inverse'],
+    },
     svg: {
       control: {
         type: 'select',
@@ -43,7 +49,9 @@ export const WithText: Story = {
   render: (args) => (
     <>
       <Icon {...args} size="level-3" />
-      <Heading size="level-3">Inline text</Heading>
+      <Heading level={1} size="level-3">
+        Inline text
+      </Heading>
     </>
   ),
 }
@@ -80,6 +88,6 @@ export const Level6: Story = {
 
 export const InverseColour: Story = {
   args: {
-    inverseColor: true,
+    color: 'inverse',
   },
 }
