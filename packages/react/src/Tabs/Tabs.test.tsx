@@ -94,10 +94,6 @@ describe('Tabs', () => {
     expect(screen.getByRole('tabpanel')).toHaveTextContent('Content 2')
   })
 
-  it.skip('should forward the onClick event on the Tab', () => {
-    // This feature has not been implemented yet
-  })
-
   it('calls onChange with the newly activated tab', async () => {
     const user = userEvent.setup()
 
