@@ -3,8 +3,6 @@ import userEvent from '@testing-library/user-event'
 import { createRef } from 'react'
 import { Tabs } from './Tabs'
 import '@testing-library/jest-dom'
-import { TabsButton } from './TabsButton'
-import { TabsContext } from './TabsContext'
 
 describe('Tabs', () => {
   it('renders', () => {
