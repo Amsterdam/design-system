@@ -1,4 +1,5 @@
-import { fireEvent, render, screen } from '@testing-library/react'
+import { render, screen } from '@testing-library/react'
+import userEvent from '@testing-library/user-event'
 import { createRef } from 'react'
 import { Tabs } from './Tabs'
 import '@testing-library/jest-dom'
@@ -60,6 +61,8 @@ describe('Tabs', () => {
   })
 
   it('should select a tab when clicked', async () => {
+    const user = userEvent.setup()
+
     render(
       <Tabs>
         <Tabs.List>
@@ -81,7 +84,7 @@ describe('Tabs', () => {
     expect(screen.getByRole('tabpanel')).toHaveTextContent('Content 1')
 
     if (tabTwo) {
-      fireEvent.click(tabTwo)
+      await user.click(tabTwo)
     }
 
     expect(tabOne).toHaveAttribute('aria-selected', 'false')
@@ -95,7 +98,9 @@ describe('Tabs', () => {
     // This feature has not been implemented yet
   })
 
-  it('calls onChange with the newly activated tab', () => {
+  it('calls onChange with the newly activated tab', async () => {
+    const user = userEvent.setup()
+
     const onChange = jest.fn()
     const contextValue = {
       activeTab: 0,
@@ -110,7 +115,7 @@ describe('Tabs', () => {
     )
 
     const button = screen.getByRole('tab', { name: 'Tab 1' })
-    fireEvent.click(button)
+    await user.click(button)
 
     expect(onChange).toHaveBeenCalledWith(1)
   })
