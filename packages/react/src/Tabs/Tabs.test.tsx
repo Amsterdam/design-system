@@ -2,6 +2,8 @@ import { fireEvent, render, screen } from '@testing-library/react'
 import { createRef } from 'react'
 import { Tabs } from './Tabs'
 import '@testing-library/jest-dom'
+import { TabsButton } from './TabsButton'
+import { TabsContext } from './TabsContext'
 
 describe('Tabs', () => {
   it('renders', () => {
@@ -91,6 +93,26 @@ describe('Tabs', () => {
 
   it.skip('should forward the onClick event on the Tab', () => {
     // This feature has not been implemented yet
+  })
+
+  it('calls onChange with the newly activated tab', () => {
+    const onChange = jest.fn()
+    const contextValue = {
+      activeTab: 0,
+      tabsId: 'test-tabs',
+      updateTab: onChange,
+    }
+
+    render(
+      <TabsContext.Provider value={contextValue}>
+        <TabsButton tab={1}>Tab 1</TabsButton>
+      </TabsContext.Provider>,
+    )
+
+    const button = screen.getByRole('tab', { name: 'Tab 1' })
+    fireEvent.click(button)
+
+    expect(onChange).toHaveBeenCalledWith(1)
   })
 
   it('should be able to set the initially active tab', () => {
