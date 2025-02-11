@@ -102,16 +102,12 @@ describe('Tabs', () => {
     const user = userEvent.setup()
 
     const onChange = jest.fn()
-    const contextValue = {
-      activeTab: 0,
-      tabsId: 'test-tabs',
-      updateTab: onChange,
-    }
-
     render(
-      <TabsContext.Provider value={contextValue}>
-        <TabsButton tab={1}>Tab 1</TabsButton>
-      </TabsContext.Provider>,
+      <Tabs onChange={onChange}>
+        <Tabs.List>
+          <Tabs.Button tab={1}>Tab 1</Tabs.Button>
+        </Tabs.List>
+      </Tabs>,
     )
 
     const button = screen.getByRole('tab', { name: 'Tab 1' })
