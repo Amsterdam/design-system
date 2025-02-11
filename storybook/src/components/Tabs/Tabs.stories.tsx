@@ -78,7 +78,7 @@ const meta = {
     },
     onChange: {
       action: 'clicked',
-      table: { disable: true },
+      description: 'Provides the id of the activated tab.',
     },
   },
 } satisfies Meta<typeof Tabs>

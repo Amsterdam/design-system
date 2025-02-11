@@ -15,7 +15,7 @@ import { useKeyboardFocus } from '../common/useKeyboardFocus'
 export type TabsProps = {
   /** The number of the active tab. Corresponds to its `tab` value. */
   activeTab?: number
-  /* Provides the id of the activated Tab Panel. */
+  /* Provides the id of the activated tab. */
   onChange?: (tabId: number) => void
 } & PropsWithChildren<HTMLAttributes<HTMLDivElement>>
 

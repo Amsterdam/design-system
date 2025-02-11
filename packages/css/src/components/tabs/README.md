@@ -24,11 +24,6 @@ You can navigate tabs with your keyboard:
 | Home           | If the tabs have focus: go to the first tab    |
 | End            | If the tabs have focus, go to the last tab     |
 
-### Getting the active tab
-
-The `Tabs` component offers an `onChange` callback that provides the index of the currently active tab.
-This can be used in the application to keep track of the active tab.
-
 ### Caution
 
 Do not use tabs if the content in each tab functions just as well on separate pages.

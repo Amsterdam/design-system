@@ -3,7 +3,7 @@ import { createRef } from 'react'
 import { TabsPanel } from './TabsPanel'
 import '@testing-library/jest-dom'
 
-describe('Tabs panel', () => {
+describe('Tabs Panel', () => {
   it('renders', () => {
     render(<TabsPanel tab={0} />)
 
