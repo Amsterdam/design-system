@@ -67,7 +67,6 @@ const meta = {
   component: Tabs,
   args: {
     children: defaultTabs,
-    onChange: (tabId) => console.log(`Tab ${tabId} was selected.`),
   },
   argTypes: {
     activeTab: {
@@ -76,6 +75,10 @@ const meta = {
         min: 0,
         max: tabsContent.length - 1,
       },
+    },
+    onChange: {
+      action: 'clicked',
+      table: { disable: true },
     },
   },
 } satisfies Meta<typeof Tabs>
