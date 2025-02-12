@@ -1,0 +1,38 @@
+{/* @license CC0-1.0 */}
+
+import { Meta } from "@storybook/blocks";
+
+<Meta title="Brand/Design Tokens/Links" />
+
+# Links
+
+We have defined a group of link styles for all link components.
+This includes a common set of styles,
+along with specific styles for ‘regular’ and ‘subtle’ links.
+Links can also have a contrast color for light (but not white) backgrounds
+or an inverse color for dark backgrounds.
+
+## Common
+
+All links have the following common styles:
+
+| CSS variable                                 | Value                                | Description                                           |
+| :------------------------------------------- | :----------------------------------- | :---------------------------------------------------- |
+| `var(--ams-links-color)`                     | `var(--ams-color-interactive)`       | The default color for links is our interactive color. |
+| `var(--ams-links-text-decoration-thickness)` | `var(--ams-border-width-md)`         | Link underlines are our medium border width.          |
+| `var(--ams-links-text-underline-offset)`     | `0.3333em`                           |                                                       |
+| `var(--ams-links-hover-color)`               | `var(--ams-color-interactive-hover)` | The hover color is our interactive hover color.       |
+
+## Regular
+
+| CSS variable                                               | Value                        | Description                                                                       |
+| :--------------------------------------------------------- | :--------------------------- | :-------------------------------------------------------------------------------- |
+| `var(--ams-links-regular-text-decoration-line)`            | `underline`                  | Regular links always show an underline.                                           |
+| `var(--ams-links-regular-hover-text-decoration-thickness)` | `var(--ams-border-width-lg)` | The underline gets thicker on hover.                                              |
+| `var(--ams-links-regular-hover-text-underline-offset)`     | `0.2778em`                   | The offset decreases when you hover, making the underline look like it is rising. |
+
+## Subtle
+
+## Contrast
+
+## Inverse
