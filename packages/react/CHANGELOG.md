@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.14.1](https://github.com/Amsterdam/design-system/compare/design-system-react-v0.14.0...design-system-react-v0.14.1) (2025-02-12)
+
+
+### Features
+
+* **Tabs:** Emit the id of an activated Tab Panel ([#1854](https://github.com/Amsterdam/design-system/issues/1854)) ([58a4976](https://github.com/Amsterdam/design-system/commit/58a497620c2107344db46621288fa0d961bc251f))
+
+
+### Bug Fixes
+
+* **Tabs:** Execute click handler on Button ([#1847](https://github.com/Amsterdam/design-system/issues/1847)) ([d91ef67](https://github.com/Amsterdam/design-system/commit/d91ef67417424be3642ea1eca92a5210b7601515))
+
 ## [0.14.0](https://github.com/Amsterdam/design-system/compare/design-system-react-v0.13.1...design-system-react-v0.14.0) (2025-01-10)
 
 ### ⚠ BREAKING CHANGES
