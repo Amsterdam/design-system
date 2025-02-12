@@ -1,24 +1,24 @@
 {
   "ams": {
     "body-text": {
-      "font-family": { "value": "{ams.typography.font-family.body-text}" },
-      "font-size": { "value": "{ams.typography.font-size.md}" },
-      "font-weight": { "value": "{ams.typography.font-weight.normal}" },
-      "line-height": { "value": "{ams.typography.line-height.5xl}" },
+      "font-family": { "value": "'Amsterdam Sans', Arial, sans-serif" },
+      "font-size": { "value": "clamp(1.125rem, calc(1.0313rem + 0.4688vw), 1.5rem)" },
+      "font-weight": { "value": "400" },
+      "line-height": { "value": "166.67%" },
       "sm": {
-        "font-size": { "value": "{ams.typography.font-size.sm}" },
-        "line-height": { "value": "{ams.typography.line-height.2xl}" }
+        "font-size": { "value": "clamp(0.9643rem, calc(0.9054rem + 0.2946vw), 1.2rem)" },
+        "line-height": { "value": "151.52%" }
       },
       "lg": {
-        "font-size": { "value": "{ams.typography.font-size.lg}" },
-        "line-height": { "value": "{ams.typography.line-height.2xl}" }
+        "font-size": { "value": "clamp(1.3125rem, calc(1.1719rem + 0.7031vw), 1.875rem)" },
+        "line-height": { "value": "151.52%" }
       },
       "xl": {
-        "font-size": { "value": "{ams.typography.font-size.xl}" },
-        "line-height": { "value": "{ams.typography.line-height.2xl}" }
+        "font-size": { "value": "clamp(1.5313rem, calc(1.3281rem + 1.0156vw), 2.3438rem)" },
+        "line-height": { "value": "151.52%" }
       },
       "bold": {
-        "font-weight": { "value": "{ams.typography.font-weight.bold}" }
+        "font-weight": { "value": "700" }
       }
     }
   }
