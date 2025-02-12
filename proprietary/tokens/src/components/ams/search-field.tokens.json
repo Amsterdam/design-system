@@ -18,6 +18,7 @@
           },
           "block-size": { "value": "{ams.typography.body-text.font-size}" },
           "color": { "value": "{ams.color.interactive.default}" },
+          "cursor": { "value": "{ams.cursor.interactive}" },
           "inline-size": { "value": "{ams.typography.body-text.font-size}" }
         },
         "hover": {

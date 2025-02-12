@@ -2,6 +2,7 @@
   "ams": {
     "checkbox": {
       "color": { "value": "{ams.color.text.default}" },
+      "cursor": { "value": "{ams.cursor.interactive}" },
       "font-family": { "value": "{ams.typography.body-text.font-family}" },
       "font-size": { "value": "{ams.typography.body-text.font-size}" },
       "font-weight": { "value": "{ams.typography.body-text.font-weight}" },
@@ -69,6 +70,7 @@
         }
       },
       "disabled": {
+        "cursor": { "value": "{ams.cursor.disabled}" },
         "color": { "value": "{ams.color.interactive.disabled}" }
       },
       "hover": {

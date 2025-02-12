@@ -35,7 +35,7 @@
 
 .ams-checkbox__label {
   color: var(--ams-checkbox-color);
-  cursor: pointer;
+  cursor: var(--ams-checkbox-cursor);
   display: inline-flex;
   font-family: var(--ams-checkbox-font-family);
   font-size: var(--ams-checkbox-font-size);
@@ -92,7 +92,7 @@
 .ams-checkbox__input:disabled {
   + .ams-checkbox__label {
     color: var(--ams-checkbox-disabled-color);
-    cursor: not-allowed;
+    cursor: var(--ams-checkbox-disabled-cursor);
 
     .ams-checkbox__checkmark::after {
       border-color: var(--ams-checkbox-checkmark-disabled-border-color);

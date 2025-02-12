@@ -1,7 +1,7 @@
 {
   "ams": {
     "button": {
-      "cursor": { "value": "{ams.action.activate.cursor}" },
+      "cursor": { "value": "{ams.cursor.interactive}" },
       "font-family": { "value": "{ams.typography.body-text.font-family}" },
       "font-size": { "value": "{ams.typography.body-text.font-size}" },
       "line-height": { "value": "{ams.typography.body-text.line-height}" },
@@ -10,7 +10,7 @@
       "padding-block": { "value": "{ams.space.sm}" },
       "padding-inline": { "value": "{ams.space.md}" },
       "disabled": {
-        "cursor": { "value": "{ams.action.disabled.cursor}" }
+        "cursor": { "value": "{ams.cursor.disabled}" }
       },
       "forced-color-mode": {
         "border": { "value": "{ams.border.width.md} solid" }
