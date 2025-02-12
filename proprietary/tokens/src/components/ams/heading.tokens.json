@@ -2,34 +2,34 @@
   "ams": {
     "heading": {
       "color": { "value": "{ams.color.text.default}" },
-      "font-family": { "value": "{ams.headings.font-family}" },
-      "font-weight": { "value": "{ams.headings.font-weight}" },
+      "font-family": { "value": "{ams.typography.heading.font-family}" },
+      "font-weight": { "value": "{ams.typography.heading.font-weight}" },
       "inverse": {
         "color": { "value": "{ams.color.text.inverse}" }
       },
       "level-1": {
-        "font-size": { "value": "{ams.headings.level-1.font-size}" },
-        "line-height": { "value": "{ams.headings.level-1.line-height}" }
+        "font-size": { "value": "{ams.typography.heading.level-1.font-size}" },
+        "line-height": { "value": "{ams.typography.heading.level-1.line-height}" }
       },
       "level-2": {
-        "font-size": { "value": "{ams.headings.level-2.font-size}" },
-        "line-height": { "value": "{ams.headings.level-2.line-height}" }
+        "font-size": { "value": "{ams.typography.heading.level-2.font-size}" },
+        "line-height": { "value": "{ams.typography.heading.level-2.line-height}" }
       },
       "level-3": {
-        "font-size": { "value": "{ams.headings.level-3.font-size}" },
-        "line-height": { "value": "{ams.headings.level-3.line-height}" }
+        "font-size": { "value": "{ams.typography.heading.level-3.font-size}" },
+        "line-height": { "value": "{ams.typography.heading.level-3.line-height}" }
       },
       "level-4": {
-        "font-size": { "value": "{ams.headings.level-4.font-size}" },
-        "line-height": { "value": "{ams.headings.level-4.line-height}" }
+        "font-size": { "value": "{ams.typography.heading.level-4.font-size}" },
+        "line-height": { "value": "{ams.typography.heading.level-4.line-height}" }
       },
       "level-5": {
-        "font-size": { "value": "{ams.headings.level-5.font-size}" },
-        "line-height": { "value": "{ams.headings.level-5.line-height}" }
+        "font-size": { "value": "{ams.typography.heading.level-5.font-size}" },
+        "line-height": { "value": "{ams.typography.heading.level-5.line-height}" }
       },
       "level-6": {
-        "font-size": { "value": "{ams.headings.level-6.font-size}" },
-        "line-height": { "value": "{ams.headings.level-6.line-height}" }
+        "font-size": { "value": "{ams.typography.heading.level-6.font-size}" },
+        "line-height": { "value": "{ams.typography.heading.level-6.line-height}" }
       }
     }
   }
