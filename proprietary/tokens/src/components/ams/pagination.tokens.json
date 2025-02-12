@@ -1,7 +1,7 @@
 {
   "ams": {
     "pagination": {
-      "font-family": { "value": "{ams.typography.body-text.font-family}" },
+      "font-family": { "value": "{ams.typography.font-family}" },
       "font-size": { "value": "{ams.typography.body-text.font-size}" },
       "font-weight": { "value": "{ams.typography.body-text.font-weight}" },
       "line-height": { "value": "{ams.typography.body-text.line-height}" },

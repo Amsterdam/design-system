@@ -5,7 +5,7 @@
       "border": { "value": "{ams.border.width.sm} dashed {ams.color.interactive.secondary}" },
       "color": { "value": "{ams.color.text.default}" },
       "cursor": { "value": "{ams.cursor.interactive}" },
-      "font-family": { "value": "{ams.typography.body-text.font-family}" },
+      "font-family": { "value": "{ams.typography.font-family}" },
       "font-size": { "value": "{ams.typography.body-text.font-size}" },
       "font-weight": { "value": "{ams.typography.body-text.font-weight}" },
       "line-height": { "value": "{ams.typography.body-text.line-height}" },
