@@ -15,7 +15,7 @@
 // Default
 .ams-radio__label {
   color: var(--ams-radio-color);
-  cursor: pointer;
+  cursor: var(--ams-radio-cursor);
   display: inline-flex;
   font-family: var(--ams-radio-font-family);
   font-size: var(--ams-radio-font-size);
@@ -92,7 +92,7 @@
 // Disabled
 .ams-radio__input:disabled + .ams-radio__label {
   color: var(--ams-radio-disabled-color);
-  cursor: not-allowed;
+  cursor: var(--ams-radio-disabled-cursor);
 
   .ams-radio__circle {
     stroke: var(--ams-radio-circle-disabled-stroke);
