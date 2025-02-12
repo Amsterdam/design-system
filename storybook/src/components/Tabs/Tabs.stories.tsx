@@ -3,11 +3,11 @@
  * Copyright Gemeente Amsterdam
  */
 
-import { Heading, Paragraph } from '@amsterdam/design-system-react'
+import { Heading, Paragraph, Table } from '@amsterdam/design-system-react'
 import { Tabs } from '@amsterdam/design-system-react/src'
 import { Meta, StoryObj } from '@storybook/react'
 import { PropsWithChildren, ReactNode } from 'react'
-import { exampleParagraph } from '../shared/exampleContent'
+import { cityParts, exampleParagraph } from '../shared/exampleContent'
 
 const slowPanelDelay = 1000
 
@@ -92,5 +92,48 @@ export const Default: Story = {}
 export const WithInitialTab: Story = {
   args: {
     activeTab: 3,
+  },
+}
+
+export const WithWideContent: Story = {
+  args: {
+    children: [
+      <Tabs.List key="tabsList">
+        {cityParts.map((name, index) => (
+          <Tabs.Button key={name} tab={index}>
+            {name}
+          </Tabs.Button>
+        ))}
+      </Tabs.List>,
+      cityParts.map((name, index) => (
+        <Tabs.Panel key={name} tab={index}>
+          <Table>
+            <Table.Caption>
+              Voorbeeld van een tabel voor {name === 'Weesp' ? 'stadsgebied' : 'stadsdeel'} {name}
+            </Table.Caption>
+            <Table.Header>
+              <Table.Row>
+                <Table.HeaderCell></Table.HeaderCell>
+                {Array.from({ length: 12 }, (_, index) => (
+                  <Table.HeaderCell key={index}>Kolom</Table.HeaderCell>
+                ))}
+              </Table.Row>
+            </Table.Header>
+            <Table.Body>
+              {Array.from({ length: 3 }, (_, rowIndex) => (
+                <Table.Row key={rowIndex}>
+                  <Table.HeaderCell scope="row">Rij</Table.HeaderCell>
+                  {Array.from({ length: 12 }, (_, columnIndex) => (
+                    <Table.Cell key={columnIndex} style={{ textAlign: 'end' }}>
+                      {(rowIndex + 1) * (columnIndex + 1)}.000
+                    </Table.Cell>
+                  ))}
+                </Table.Row>
+              ))}
+            </Table.Body>
+          </Table>
+        </Tabs.Panel>
+      )),
+    ],
   },
 }

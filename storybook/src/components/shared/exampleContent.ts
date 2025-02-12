@@ -5,6 +5,8 @@
 
 const pickRandomContent = <T>(list: Array<T>): T => list[Math.floor(Math.random() * list.length)]
 
+export const cityParts = ['Centrum', 'Nieuw-West', 'Noord', 'Weesp', 'West', 'Westpoort', 'Zuid', 'Zuidoost']
+
 export const exampleAccordionHeading = () =>
   pickRandomContent([
     'Dit grof afval halen we niet op',
