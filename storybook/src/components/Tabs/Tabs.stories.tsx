@@ -76,6 +76,10 @@ const meta = {
         max: tabsContent.length - 1,
       },
     },
+    onChange: {
+      action: 'clicked',
+      description: 'Provides the id of the activated tab.',
+    },
   },
 } satisfies Meta<typeof Tabs>
 

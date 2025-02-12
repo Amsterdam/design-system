@@ -1,4 +1,5 @@
-import { fireEvent, render, screen } from '@testing-library/react'
+import { render, screen } from '@testing-library/react'
+import userEvent from '@testing-library/user-event'
 import { createRef } from 'react'
 import { Tabs } from './Tabs'
 import '@testing-library/jest-dom'
@@ -58,6 +59,8 @@ describe('Tabs', () => {
   })
 
   it('should select a tab when clicked', async () => {
+    const user = userEvent.setup()
+
     render(
       <Tabs>
         <Tabs.List>
@@ -79,7 +82,7 @@ describe('Tabs', () => {
     expect(screen.getByRole('tabpanel')).toHaveTextContent('Content 1')
 
     if (tabTwo) {
-      fireEvent.click(tabTwo)
+      await user.click(tabTwo)
     }
 
     expect(tabOne).toHaveAttribute('aria-selected', 'false')
@@ -89,8 +92,22 @@ describe('Tabs', () => {
     expect(screen.getByRole('tabpanel')).toHaveTextContent('Content 2')
   })
 
-  it.skip('should forward the onClick event on the Tab', () => {
-    // This feature has not been implemented yet
+  it('calls onChange with the newly activated tab', async () => {
+    const user = userEvent.setup()
+
+    const onChange = jest.fn()
+    render(
+      <Tabs onChange={onChange}>
+        <Tabs.List>
+          <Tabs.Button tab={1}>Tab 1</Tabs.Button>
+        </Tabs.List>
+      </Tabs>,
+    )
+
+    const button = screen.getByRole('tab', { name: 'Tab 1' })
+    await user.click(button)
+
+    expect(onChange).toHaveBeenCalledWith(1)
   })
 
   it('should be able to set the initially active tab', () => {
