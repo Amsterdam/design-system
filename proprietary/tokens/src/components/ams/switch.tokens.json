@@ -3,7 +3,6 @@
     "switch": {
       "background-color": { "value": "#767676" },
       "cursor": { "value": "{ams.cursor.interactive}" },
-      "font-family": { "value": "{ams.typography.font-family}" },
       "outline-offset": { "value": "{ams.focus.outline-offset}" },
       "inline-size": { "value": "3.5rem" },
       "thumb": {
