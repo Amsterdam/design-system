@@ -1,6 +1,6 @@
 {
   "ams": {
-    "link-appearance": {
+    "links": {
       "color": { "value": "{ams.color.interactive.default}" },
       "text-decoration-thickness": { "value": "{ams.border.width.md}" },
       "text-underline-offset": { "value": "0.3333em" },
