@@ -27,12 +27,12 @@ describe('Unordered list', () => {
     expect(component).toHaveClass('ams-unordered-list--no-markers')
   })
 
-  it('renders an inverse color class', () => {
-    render(<UnorderedList inverseColor />)
+  it('renders the class name for inverse color', () => {
+    render(<UnorderedList color="inverse" />)
 
     const component = screen.getByRole('list')
 
-    expect(component).toHaveClass('ams-unordered-list--inverse-color')
+    expect(component).toHaveClass('ams-unordered-list--inverse')
   })
 
   it('renders an additional class name', () => {

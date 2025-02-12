@@ -5,10 +5,10 @@
       "button": {
         "color": { "value": "{ams.color.interactive.default}" },
         "font-family": { "value": "{ams.headings.font-family}" },
-        "font-size": { "value": "{ams.headings.level-5.font-size}" },
+        "font-size": { "value": "{ams.headings.level-4.font-size}" },
         "font-weight": { "value": "{ams.headings.font-weight}" },
         "gap": { "value": "{ams.space.sm}" },
-        "line-height": { "value": "{ams.headings.level-5.line-height}" },
+        "line-height": { "value": "{ams.headings.level-4.line-height}" },
         "padding-block": { "value": "{ams.space.sm}" },
         "padding-inline": { "value": "0" },
         "focus": {

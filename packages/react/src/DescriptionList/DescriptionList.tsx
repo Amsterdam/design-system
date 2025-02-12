@@ -15,22 +15,22 @@ type DescriptionListTermsWidth = (typeof descriptionListTermsWidths)[number]
 
 export type DescriptionListProps = {
   /** Changes the text colour for readability on a dark background. */
-  inverseColor?: boolean
+  color?: 'inverse'
   /* The width of the column containing the terms. */
   termsWidth?: DescriptionListTermsWidth
 } & PropsWithChildren<HTMLAttributes<HTMLDListElement>>
 
 const DescriptionListRoot = forwardRef(
   (
-    { children, className, inverseColor, termsWidth, ...restProps }: DescriptionListProps,
+    { children, className, color, termsWidth, ...restProps }: DescriptionListProps,
     ref: ForwardedRef<HTMLDListElement>,
   ) => (
     <dl
       {...restProps}
       className={clsx(
         'ams-description-list',
+        color && `ams-description-list--${color}`,
         termsWidth && `ams-description-list--terms-width-${termsWidth}`,
-        inverseColor && 'ams-description-list--inverse-color',
         className,
       )}
       ref={ref}

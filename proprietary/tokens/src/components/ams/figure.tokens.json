@@ -8,7 +8,9 @@
         "font-size": { "value": "{ams.body-text.sm.font-size}" },
         "font-weight": { "value": "{ams.body-text.font-weight}" },
         "line-height": { "value": "{ams.body-text.sm.line-height}" },
-        "inverse-color": { "value": "{ams.color.text.inverse}" }
+        "inverse": {
+          "color": { "value": "{ams.color.text.inverse}" }
+        }
       }
     }
   }

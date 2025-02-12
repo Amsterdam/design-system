@@ -4,7 +4,9 @@
       "color": { "value": "{ams.color.text.default}" },
       "font-family": { "value": "{ams.headings.font-family}" },
       "font-weight": { "value": "{ams.headings.font-weight}" },
-      "inverse-color": { "value": "{ams.color.text.inverse}" },
+      "inverse": {
+        "color": { "value": "{ams.color.text.inverse}" }
+      },
       "level-1": {
         "font-size": { "value": "{ams.headings.level-1.font-size}" },
         "line-height": { "value": "{ams.headings.level-1.line-height}" }

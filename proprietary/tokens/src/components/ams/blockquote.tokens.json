@@ -5,8 +5,10 @@
       "font-family": { "value": "{ams.body-text.font-family}" },
       "font-size": { "value": "{ams.body-text.xl.font-size}" },
       "font-weight": { "value": "{ams.body-text.bold.font-weight}" },
-      "inverse-color": { "value": "{ams.color.text.inverse}" },
-      "line-height": { "value": "{ams.body-text.xl.line-height}" }
+      "line-height": { "value": "{ams.body-text.xl.line-height}" },
+      "inverse": {
+        "color": { "value": "{ams.color.text.inverse}" }
+      }
     }
   }
 }

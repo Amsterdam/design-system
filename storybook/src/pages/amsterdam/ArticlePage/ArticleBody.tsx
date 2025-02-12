@@ -26,10 +26,10 @@ export const ArticleBody = ({ lead, paragraph1, spotlightHeading, spotlightLinkL
       <Grid paddingBottom="large" paddingTop="medium">
         <Grid.Cell span={{ narrow: 4, medium: 6, wide: 8 }} start={{ narrow: 1, medium: 2, wide: 3 }}>
           <Column gap="small">
-            <Heading inverseColor level={2}>
+            <Heading color="inverse" level={2}>
               {spotlightHeading}
             </Heading>
-            <UnorderedList inverseColor>
+            <UnorderedList color="inverse">
               <UnorderedList.Item>
                 Vraag uw paspoort of ID-kaart aan bij een Stadsloket in Amsterdam.
               </UnorderedList.Item>
@@ -45,8 +45,8 @@ export const ArticleBody = ({ lead, paragraph1, spotlightHeading, spotlightLinkL
                 inloggegevens kunt u zelf inplannen wanneer u uw reisdocument bezorgd wilt hebben.
               </UnorderedList.Item>
             </UnorderedList>
-            <Paragraph inverseColor>
-              <Link href="https://amsterdam.nl/paspoort/" inverseColor>
+            <Paragraph color="inverse">
+              <Link color="inverse" href="https://amsterdam.nl/paspoort/">
                 {spotlightLinkLabel}
               </Link>
             </Paragraph>

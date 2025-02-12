@@ -12,10 +12,16 @@ const meta = {
   title: 'Components/Media/Icon',
   component: Icon,
   args: {
-    inverseColor: false,
     svg: Icons.EmailIcon,
   },
   argTypes: {
+    color: {
+      control: {
+        labels: { undefined: 'default' },
+        type: 'radio',
+      },
+      options: [undefined, 'inverse'],
+    },
     svg: {
       control: {
         type: 'select',
@@ -82,6 +88,6 @@ export const Level6: Story = {
 
 export const InverseColour: Story = {
   args: {
-    inverseColor: true,
+    color: 'inverse',
   },
 }

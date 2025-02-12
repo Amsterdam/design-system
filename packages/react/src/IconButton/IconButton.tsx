@@ -10,10 +10,8 @@ import type { ButtonHTMLAttributes, ForwardedRef } from 'react'
 import { Icon } from '../Icon'
 
 export type IconButtonProps = {
-  /** Changes the text colour for readability on a light (but not white) background. */
-  contrastColor?: boolean
-  /** Changes the text colour for readability on a dark background. */
-  inverseColor?: boolean
+  /** Changes the text colour for readability on a light or dark background. */
+  color?: 'contrast' | 'inverse'
   /** The accessible text for the button. Will be announced by screen readers. Should describe the button’s action. */
   label: string
   /** The size of the icon. Corresponds with the text levels. */
@@ -24,17 +22,12 @@ export type IconButtonProps = {
 
 export const IconButton = forwardRef(
   (
-    { className, contrastColor, inverseColor, label, size = 'level-5', svg = CloseIcon, ...restProps }: IconButtonProps,
+    { className, color, label, size = 'level-5', svg = CloseIcon, ...restProps }: IconButtonProps,
     ref: ForwardedRef<HTMLButtonElement>,
   ) => (
     <button
       {...restProps}
-      className={clsx(
-        'ams-icon-button',
-        contrastColor && 'ams-icon-button--contrast-color',
-        inverseColor && 'ams-icon-button--inverse-color',
-        className,
-      )}
+      className={clsx('ams-icon-button', color && `ams-icon-button--${color}`, className)}
       ref={ref}
     >
       <span className="ams-visually-hidden">{label}</span>
