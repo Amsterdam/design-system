@@ -5,7 +5,7 @@
       "blue": {
         "background-color": { "value": "{ams.color.highlight.azure}" }
       },
-      "dark-green": {
+      "green": {
         "background-color": { "value": "{ams.color.highlight.green}" }
       },
       "lime": {
