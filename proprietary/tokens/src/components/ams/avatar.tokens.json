@@ -10,12 +10,12 @@
       "line-height": { "value": "{ams.text.level.6.line-height}" },
       "padding-block": { "value": "{ams.space.xs}" },
       "padding-inline": { "value": "{ams.space.xs}" },
-      "dark-green": {
-        "background-color": { "value": "{ams.color.highlight.green}" },
-        "color": { "value": "{ams.color.text.inverse}" }
-      },
       "forced-colors": {
         "border-width": { "value": "{ams.border.width.md}" }
+      },
+      "green": {
+        "background-color": { "value": "{ams.color.highlight.green}" },
+        "color": { "value": "{ams.color.text.inverse}" }
       },
       "light-blue": {
         "background-color": { "value": "{ams.color.highlight.azure}" },
