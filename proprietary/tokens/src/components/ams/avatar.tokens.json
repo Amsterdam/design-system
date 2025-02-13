@@ -17,12 +17,12 @@
       "forced-colors": {
         "border-width": { "value": "{ams.border.width.md}" }
       },
-      "green": {
-        "background-color": { "value": "{ams.color.highlight.lime}" },
-        "color": { "value": "{ams.color.text.default}" }
-      },
       "light-blue": {
         "background-color": { "value": "{ams.color.highlight.azure}" },
+        "color": { "value": "{ams.color.text.default}" }
+      },
+      "lime": {
+        "background-color": { "value": "{ams.color.highlight.lime}" },
         "color": { "value": "{ams.color.text.default}" }
       },
       "magenta": {
