@@ -8,7 +8,7 @@
       "dark-green": {
         "background-color": { "value": "{ams.color.highlight.green}" }
       },
-      "green": {
+      "lime": {
         "background-color": { "value": "{ams.color.highlight.lime}" }
       },
       "magenta": {
