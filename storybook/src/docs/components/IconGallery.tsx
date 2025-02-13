@@ -134,7 +134,7 @@ export const IconGallery = () => {
 
   return (
     <>
-      <Heading level={2} className="ams-mb--sm">
+      <Heading className="ams-mb--sm" level={2}>
         New icons
       </Heading>
       <div className="ams-storybook-icon-gallery">
@@ -145,7 +145,7 @@ export const IconGallery = () => {
           </div>
         ))}
       </div>
-      <Heading level={2} className="ams-mb--sm">
+      <Heading className="ams-mb--sm" level={2}>
         Fill icons
       </Heading>
       <div className="ams-storybook-icon-gallery">
@@ -156,7 +156,7 @@ export const IconGallery = () => {
           </div>
         ))}
       </div>
-      <Heading level={2} className="ams-mb--sm">
+      <Heading className="ams-mb--sm" level={2}>
         Old icons
       </Heading>
       <div className="ams-storybook-icon-gallery">
@@ -167,7 +167,7 @@ export const IconGallery = () => {
           </div>
         ))}
       </div>
-      <Heading level={2} className="ams-mb--sm">
+      <Heading className="ams-mb--sm" level={2}>
         Deprecated icons
       </Heading>
       <div className="ams-storybook-icon-gallery">
