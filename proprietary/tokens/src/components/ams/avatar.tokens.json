@@ -13,13 +13,13 @@
       "forced-colors": {
         "border-width": { "value": "{ams.border.width.md}" }
       },
+      "azure": {
+        "background-color": { "value": "{ams.color.highlight.azure}" },
+        "color": { "value": "{ams.color.text.default}" }
+      },
       "green": {
         "background-color": { "value": "{ams.color.highlight.green}" },
         "color": { "value": "{ams.color.text.inverse}" }
-      },
-      "light-blue": {
-        "background-color": { "value": "{ams.color.highlight.azure}" },
-        "color": { "value": "{ams.color.text.default}" }
       },
       "lime": {
         "background-color": { "value": "{ams.color.highlight.lime}" },
