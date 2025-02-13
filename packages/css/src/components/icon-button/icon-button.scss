@@ -16,7 +16,7 @@
 .ams-icon-button {
   background-color: transparent;
   color: var(--ams-icon-button-color);
-  cursor: pointer;
+  cursor: var(--ams-icon-button-cursor);
   outline-offset: var(--ams-icon-button-outline-offset);
   touch-action: manipulation;
 
@@ -30,35 +30,35 @@
   &:disabled {
     background-color: transparent;
     color: var(--ams-icon-button-disabled-color);
-    cursor: not-allowed;
+    cursor: var(--ams-icon-button-disabled-cursor);
   }
 }
 
-.ams-icon-button--contrast-color {
-  color: var(--ams-icon-button-contrast-color-color);
+.ams-icon-button--contrast {
+  color: var(--ams-icon-button-contrast-color);
 
   &:hover {
-    background-color: var(--ams-icon-button-contrast-color-hover-background-color);
-    color: var(--ams-icon-button-contrast-color-hover-color);
+    background-color: var(--ams-icon-button-contrast-hover-background-color);
+    color: var(--ams-icon-button-contrast-hover-color);
   }
 
   &:disabled {
     background-color: transparent;
-    color: var(--ams-icon-button-contrast-color-disabled-color);
+    color: var(--ams-icon-button-contrast-disabled-color);
   }
 }
 
-.ams-icon-button--inverse-color {
-  background-color: var(--ams-icon-button-inverse-color-background-color);
-  color: var(--ams-icon-button-inverse-color-color);
+.ams-icon-button--inverse {
+  background-color: var(--ams-icon-button-inverse-background-color);
+  color: var(--ams-icon-button-inverse-color);
 
   &:hover {
-    background-color: var(--ams-icon-button-inverse-color-hover-background-color);
-    color: var(--ams-icon-button-inverse-color-hover-color);
+    background-color: var(--ams-icon-button-inverse-hover-background-color);
+    color: var(--ams-icon-button-inverse-hover-color);
   }
 
   &:disabled {
-    background-color: var(--ams-icon-button-inverse-color-disabled-background-color);
-    color: var(--ams-icon-button-inverse-color-disabled-color);
+    background-color: var(--ams-icon-button-inverse-disabled-background-color);
+    color: var(--ams-icon-button-inverse-disabled-color);
   }
 }

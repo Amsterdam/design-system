@@ -35,7 +35,7 @@ export const Default: Story = {
         key={2}
         rowStart={{ narrow: 3, medium: 3, wide: 2 }}
       >
-        <Paragraph inverseColor>
+        <Paragraph color="inverse">
           Het doel van deze club is om ervoor te zorgen dat de Zuidas steeds duurzamer wordt.
         </Paragraph>
       </Breakout.Cell>,
@@ -68,10 +68,10 @@ export const VerticalLayout: Story = {
         key={3}
         rowStart={3}
       >
-        <Paragraph className="ams-mb--sm" inverseColor>
+        <Paragraph className="ams-mb--sm" color="inverse">
           Vertel ons in het evenementenformulier wat u wilt gaan doen. U checkt daarmee of u een vergunning nodig hebt.
         </Paragraph>
-        <Paragraph inverseColor>
+        <Paragraph color="inverse">
           Daarna vraagt u de vergunning aan in hetzelfde formulier. Of doet u een gratis melding of vooraankondiging.
         </Paragraph>
       </Breakout.Cell>,

@@ -14,12 +14,18 @@ const meta = {
   component: Blockquote,
   args: {
     children: quote,
-    inverseColor: false,
   },
   argTypes: {
     children: {
       description: 'The text for the quote.',
       table: { disable: false },
+    },
+    color: {
+      control: {
+        labels: { undefined: 'default' },
+        type: 'radio',
+      },
+      options: [undefined, 'inverse'],
     },
   },
 } satisfies Meta<typeof Blockquote>
@@ -32,6 +38,6 @@ export const Default: Story = {}
 
 export const InverseColour: Story = {
   args: {
-    inverseColor: true,
+    color: 'inverse',
   },
 }

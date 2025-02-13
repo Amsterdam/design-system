@@ -72,16 +72,16 @@ describe('Heading', () => {
     expect(sizeLevel6).toHaveClass('ams-heading--level-6')
   })
 
-  it('renders the inverse color class', () => {
+  it('renders the class name for inverse color', () => {
     render(
-      <Heading inverseColor level={1}>
+      <Heading color="inverse" level={1}>
         Heading
       </Heading>,
     )
 
     const heading = screen.getByRole('heading', { name: 'Heading' })
 
-    expect(heading).toHaveClass('ams-heading--inverse-color')
+    expect(heading).toHaveClass('ams-heading--inverse')
   })
 
   it('renders inline markup', () => {
