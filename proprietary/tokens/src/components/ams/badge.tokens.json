@@ -8,7 +8,7 @@
       "font-weight": { "value": "{ams.text.font-weight.bold}" },
       "line-height": { "value": "{ams.text.level.5.line-height}" },
       "padding-inline": { "value": "{ams.space.xs}" },
-      "light-blue": {
+      "azure": {
         "background-color": { "value": "{ams.color.highlight.azure}" },
         "color": { "value": "{ams.color.text.default}" }
       },
