@@ -9,4 +9,4 @@ Guides the user in taking a specific action or describes its surrounding content
 
 The badge can contain a short text or a number.
 Any colour from the ‘highlight’ and ‘feedback’ groups can be used as a background colour.
-The default is dark green.
+The default is green.
