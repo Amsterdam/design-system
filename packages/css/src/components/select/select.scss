@@ -45,7 +45,7 @@
 .ams-select:disabled {
   box-shadow: var(--ams-select-disabled-box-shadow);
   color: var(--ams-select-disabled-color);
-  cursor: not-allowed;
+  cursor: var(--ams-select-disabled-cursor);
 
   &:not([multiple]) {
     background-image: var(--ams-select-disabled-background-image);

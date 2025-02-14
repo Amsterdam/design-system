@@ -115,6 +115,7 @@
 }
 
 :is(#storybook-root, .sbdocs-content) a[href="#"] {
+  /* stylelint-disable-next-line declaration-property-value-allowed-list */
   cursor: not-allowed;
 }
 

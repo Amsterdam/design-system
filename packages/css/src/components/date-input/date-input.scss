@@ -47,7 +47,7 @@
 .ams-date-input::-webkit-calendar-picker-indicator {
   appearance: none;
   background-image: var(--ams-date-input-calender-picker-indicator-background-image);
-  cursor: pointer;
+  cursor: var(--ams-date-input-calender-picker-indicator-cursor);
 }
 
 .ams-date-input:hover::-webkit-calendar-picker-indicator {
@@ -58,7 +58,7 @@
   background-color: var(--ams-date-input-disabled-background-color);
   box-shadow: var(--ams-date-input-disabled-box-shadow);
   color: var(--ams-date-input-disabled-color);
-  cursor: not-allowed;
+  cursor: var(--ams-date-input-disabled-cursor);
 }
 
 .ams-date-input:disabled::-webkit-calendar-picker-indicator {

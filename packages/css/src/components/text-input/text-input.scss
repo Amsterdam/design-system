@@ -45,7 +45,7 @@
   background-color: var(--ams-text-input-disabled-background-color);
   box-shadow: var(--ams-text-input-disabled-box-shadow);
   color: var(--ams-text-input-disabled-color);
-  cursor: not-allowed;
+  cursor: var(--ams-text-input-disabled-cursor);
 }
 
 .ams-text-input:invalid,
