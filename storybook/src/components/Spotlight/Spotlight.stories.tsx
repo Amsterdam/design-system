@@ -26,7 +26,7 @@ const meta = {
     <Spotlight as={as} color={color}>
       <Grid paddingVertical="medium">
         <Grid.Cell span="all">
-          <Blockquote color={!color || ['azure', 'green', 'magenta'].includes(color) ? 'inverse' : undefined}>
+          <Blockquote color={!color || ['green', 'magenta'].includes(color) ? 'inverse' : undefined}>
             {quote}
           </Blockquote>
         </Grid.Cell>
