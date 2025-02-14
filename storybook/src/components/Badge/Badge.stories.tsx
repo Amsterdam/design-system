@@ -16,7 +16,7 @@ const meta = {
   argTypes: {
     color: {
       control: {
-        labels: { undefined: 'dark-green (default)' },
+        labels: { undefined: 'green (default)' },
       },
       options: [undefined, ...badgeColors],
     },

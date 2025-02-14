@@ -3,6 +3,7 @@
  * Copyright Gemeente Amsterdam
  */
 
+@use "../../common/hyphenation" as *;
 @use "../../common/text-rendering" as *;
 
 @mixin reset-ol {
@@ -22,6 +23,7 @@
   break-after: avoid;
   break-inside: avoid;
 
+  @include hyphenation;
   @include text-rendering;
   @include reset-ol;
 }
