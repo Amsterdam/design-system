@@ -3,6 +3,7 @@
  * Copyright Gemeente Amsterdam
  */
 
+@use "../../common/hyphenation" as *;
 @use "../../common/text-rendering" as *;
 
 @mixin reset-p {
@@ -18,6 +19,7 @@
   line-height: var(--ams-paragraph-line-height);
 
   @include text-rendering;
+  @include hyphenation;
   @include reset-p;
 }
 

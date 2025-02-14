@@ -1,25 +1,41 @@
-import { Header, LinkList } from '@amsterdam/design-system-react'
+import { Grid, Header, Heading, LinkList } from '@amsterdam/design-system-react'
+import { headerMenuLinks, megaMenuLinks } from './menu'
 
 export const AppHeader = () => (
   <Header
-    menuItems={[
-      <Header.MenuLink href="#" key="1" lang="en">
-        English
-      </Header.MenuLink>,
-      <Header.MenuLink href="#" key="2">
-        Mijn Amsterdam
-      </Header.MenuLink>,
-      <Header.MenuLink fixed href="#" key="3">
-        Zoeken
-      </Header.MenuLink>,
-    ]}
-    noMenuButtonOnWideWindow
+    menuButtonText="Alle onderwerpen"
+    menuItems={headerMenuLinks.map(({ fixed, href, label, lang }) => (
+      <Header.MenuLink fixed={fixed} href={href ?? '#'} key={label} lang={lang} rel={href ? 'external' : undefined}>
+        {label}
+      </Header.MenuLink>
+    ))}
   >
-    <LinkList className="ams-mb--lg">
-      <LinkList.Link href="#" lang="en">
-        English
-      </LinkList.Link>
-      <LinkList.Link href="#">Mijn Amsterdam</LinkList.Link>
-    </LinkList>
+    <Grid paddingBottom="large" paddingTop="small">
+      <Header.GridCellNarrowWindowOnly span="all">
+        <LinkList>
+          {headerMenuLinks
+            .filter((link) => !link.fixed)
+            .map(({ href, label, lang }) => (
+              <LinkList.Link href={href ?? '#'} key={label} lang={lang} rel={href ? 'external' : undefined}>
+                {label}
+              </LinkList.Link>
+            ))}
+        </LinkList>
+      </Header.GridCellNarrowWindowOnly>
+      <Grid.Cell span="all">
+        <Heading className="ams-mb--sm" level={2} size="level-3">
+          Alle onderwerpen
+        </Heading>
+        <div className="ams-mega-menu__columns">
+          <LinkList>
+            {megaMenuLinks.map((label) => (
+              <LinkList.Link href="#" key={label}>
+                {label}
+              </LinkList.Link>
+            ))}
+          </LinkList>
+        </div>
+      </Grid.Cell>
+    </Grid>
   </Header>
 )
