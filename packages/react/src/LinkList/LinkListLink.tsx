@@ -18,12 +18,6 @@ export type LinkListLinkProps = {
   size?: 'small' | 'large'
 } & PropsWithChildren<AnchorHTMLAttributes<HTMLAnchorElement>>
 
-const iconSizeMap = {
-  small: 'level-6',
-  medium: 'level-5',
-  large: 'level-4',
-} as const
-
 /** One link with a Link List. */
 export const LinkListLink = forwardRef(
   (
@@ -42,7 +36,7 @@ export const LinkListLink = forwardRef(
           ref={ref}
           {...restProps}
         >
-          <Icon size={iconSizeMap[size ?? 'medium']} svg={icon ?? ChevronRightIcon} />
+          <Icon size={size ? `body-text-${size}` : undefined} svg={icon ?? ChevronRightIcon} />
           {children}
         </a>
       </li>
