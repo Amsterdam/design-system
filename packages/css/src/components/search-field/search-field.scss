@@ -64,7 +64,7 @@
   appearance: none;
   background-image: var(--ams-search-field-input-cancel-button-background-image);
   block-size: var(--ams-search-field-input-cancel-button-block-size);
-  cursor: pointer;
+  cursor: var(--ams-search-field-input-cancel-button-cursor);
   inline-size: var(--ams-search-field-input-cancel-button-inline-size);
   margin-inline-start: 0.5rem;
 }
