@@ -19,9 +19,11 @@
             "color": { "value": "{ams.link-appearance.hover.color}" },
             "text-decoration-line": { "value": "{ams.link-appearance.subtle.hover.text-decoration-line}" }
           }
-        }
+        },
+        "padding-block": { "value": "{ams.space.grid.sm}" },
+        "padding-inline": { "value": "{ams.grid.padding-inline}" }
       },
-      "top": {
+      "spotlight": {
         "background-color": { "value": "#004699" }
       }
     }

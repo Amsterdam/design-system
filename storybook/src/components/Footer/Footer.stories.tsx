@@ -35,7 +35,7 @@ const socialPlatforms = [
 export const Default: Story = {
   args: {
     children: [
-      <Footer.Top key="footer-top">
+      <Footer.Spotlight key="footer-spotlight">
         <Heading className="ams-visually-hidden" color="inverse" level={1}>
           Colofon
         </Heading>
@@ -98,21 +98,15 @@ export const Default: Story = {
             </section>
           </Grid.Cell>
         </Grid>
-      </Footer.Top>,
-      <Footer.Bottom key="footer-bottom">
-        <Heading className="ams-visually-hidden" level={2}>
-          Over deze website
-        </Heading>
-        <Grid paddingVertical="small">
-          <Grid.Cell span="all">
-            <Footer.Menu>
-              <Footer.MenuLink href="#">Over deze site</Footer.MenuLink>
-              <Footer.MenuLink href="#">Privacy</Footer.MenuLink>
-              <Footer.MenuLink href="#">Cookies</Footer.MenuLink>
-            </Footer.Menu>
-          </Grid.Cell>
-        </Grid>
-      </Footer.Bottom>,
+      </Footer.Spotlight>,
+      <Heading className="ams-visually-hidden" level={2}>
+        Over deze website
+      </Heading>,
+      <Footer.Menu>
+        <Footer.MenuLink href="#">Over deze site</Footer.MenuLink>
+        <Footer.MenuLink href="#">Privacy</Footer.MenuLink>
+        <Footer.MenuLink href="#">Cookies</Footer.MenuLink>
+      </Footer.Menu>,
     ],
   },
 }
@@ -120,7 +114,7 @@ export const Default: Story = {
 export const OnderzoekEnStatistiek: Story = {
   args: {
     children: [
-      <Footer.Top key="footer-top">
+      <Footer.Spotlight key="footer-Spotlight">
         <Heading className="ams-visually-hidden" color="inverse" level={1}>
           Colofon
         </Heading>
@@ -180,21 +174,15 @@ export const OnderzoekEnStatistiek: Story = {
             </LinkList>
           </Grid.Cell>
         </Grid>
-      </Footer.Top>,
-      <Footer.Bottom key="footer-bottom">
-        <Heading className="ams-visually-hidden" level={2}>
-          Over deze website
-        </Heading>
-        <Grid paddingVertical="small">
-          <Grid.Cell span="all">
-            <Footer.Menu>
-              <Footer.MenuLink href="#">Over deze site</Footer.MenuLink>
-              <Footer.MenuLink href="#">Privacy</Footer.MenuLink>
-              <Footer.MenuLink href="#">Cookies</Footer.MenuLink>
-            </Footer.Menu>
-          </Grid.Cell>
-        </Grid>
-      </Footer.Bottom>,
+      </Footer.Spotlight>,
+      <Heading className="ams-visually-hidden" level={2}>
+        Over deze website
+      </Heading>,
+      <Footer.Menu>
+        <Footer.MenuLink href="#">Over deze site</Footer.MenuLink>
+        <Footer.MenuLink href="#">Privacy</Footer.MenuLink>
+        <Footer.MenuLink href="#">Cookies</Footer.MenuLink>
+      </Footer.Menu>,
     ],
   },
 }

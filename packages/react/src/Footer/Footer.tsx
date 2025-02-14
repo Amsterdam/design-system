@@ -6,10 +6,10 @@
 import clsx from 'clsx'
 import { forwardRef } from 'react'
 import type { ForwardedRef, HTMLAttributes, PropsWithChildren } from 'react'
-import { FooterBottom } from './FooterBottom'
+// import { FooterBottom } from './FooterBottom'
 import { FooterMenu } from './FooterMenu'
 import { FooterMenuLink } from './FooterMenuLink'
-import { FooterTop } from './FooterTop'
+import { FooterSpotlight } from './FooterSpotlight'
 
 export type FooterProps = PropsWithChildren<HTMLAttributes<HTMLElement>>
 
@@ -22,8 +22,8 @@ const FooterRoot = forwardRef(({ children, className, ...restProps }: FooterProp
 FooterRoot.displayName = 'Footer'
 
 export const Footer = Object.assign(FooterRoot, {
-  Bottom: FooterBottom,
+  // Bottom: FooterBottom,
   Menu: FooterMenu,
   MenuLink: FooterMenuLink,
-  Top: FooterTop,
+  Spotlight: FooterSpotlight,
 })
