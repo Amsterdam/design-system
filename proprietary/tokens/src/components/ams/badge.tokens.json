@@ -1,7 +1,7 @@
 {
   "ams": {
     "badge": {
-      "background-color": { "value": "{ams.color.highlight.green}" },
+      "background-color": { "value": "{ams.color.feedback.success}" },
       "color": { "value": "{ams.color.text.inverse}" },
       "font-family": { "value": "{ams.text.font-family}" },
       "font-size": { "value": "{ams.text.level.5.font-size}" },
@@ -9,7 +9,7 @@
       "line-height": { "value": "{ams.text.level.5.line-height}" },
       "padding-inline": { "value": "{ams.space.xs}" },
       "azure": {
-        "background-color": { "value": "{ams.color.highlight.azure}" },
+        "background-color": { "value": "{ams.color.feedback.info}" },
         "color": { "value": "{ams.color.text.default}" }
       },
       "lime": {
@@ -21,7 +21,7 @@
         "color": { "value": "{ams.color.text.inverse}" }
       },
       "orange": {
-        "background-color": { "value": "{ams.color.highlight.orange}" },
+        "background-color": { "value": "{ams.color.feedback.warning}" },
         "color": { "value": "{ams.color.text.default}" }
       },
       "purple": {
