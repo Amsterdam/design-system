@@ -5,6 +5,7 @@
 
 import { Blockquote, Grid } from '@amsterdam/design-system-react'
 import { Spotlight } from '@amsterdam/design-system-react/src'
+import { spotlightColors } from '@amsterdam/design-system-react/src/Spotlight/Spotlight'
 import { Meta, StoryObj } from '@storybook/react'
 import { exampleQuote } from '../shared/exampleContent'
 
@@ -13,6 +14,14 @@ const quote = exampleQuote()
 const meta = {
   title: 'Components/Containers/Spotlight',
   component: Spotlight,
+  argTypes: {
+    color: {
+      control: {
+        labels: { undefined: 'purple (default)' },
+      },
+      options: [undefined, ...spotlightColors],
+    },
+  },
   render: ({ as, color }) => (
     <Spotlight as={as} color={color}>
       <Grid paddingVertical="medium">
