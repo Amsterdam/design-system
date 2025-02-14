@@ -5,6 +5,7 @@
 
 @use "../../common/input-label-focus" as *;
 @use "../../common/hide-input" as *;
+@use "../../common/hyphenation" as *;
 @use "../../common/text-rendering" as *;
 
 .ams-checkbox__input {
@@ -44,6 +45,7 @@
   line-height: var(--ams-checkbox-line-height);
   outline-offset: var(--ams-checkbox-outline-offset);
 
+  @include hyphenation;
   @include text-rendering;
 
   &:hover {
