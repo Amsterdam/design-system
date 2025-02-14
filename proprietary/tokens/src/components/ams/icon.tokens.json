@@ -5,20 +5,20 @@
         "color": { "value": "{ams.color.text.inverse}" }
       },
       "size-3": {
-        "font-size": { "value": "{ams.typography.body-text.xl.font-size}" },
-        "line-height": { "value": "{ams.typography.body-text.xl.line-height}" }
+        "font-size": { "value": "{ams.typography.body-text.x-large.font-size}" },
+        "line-height": { "value": "{ams.typography.body-text.x-large.line-height}" }
       },
       "size-4": {
-        "font-size": { "value": "{ams.typography.body-text.lg.font-size}" },
-        "line-height": { "value": "{ams.typography.body-text.lg.line-height}" }
+        "font-size": { "value": "{ams.typography.body-text.large.font-size}" },
+        "line-height": { "value": "{ams.typography.body-text.large.line-height}" }
       },
       "size-5": {
         "font-size": { "value": "{ams.typography.body-text.font-size}" },
         "line-height": { "value": "{ams.typography.body-text.line-height}" }
       },
       "size-6": {
-        "font-size": { "value": "{ams.typography.body-text.sm.font-size}" },
-        "line-height": { "value": "{ams.typography.body-text.sm.line-height}" }
+        "font-size": { "value": "{ams.typography.body-text.small.font-size}" },
+        "line-height": { "value": "{ams.typography.body-text.small.line-height}" }
       }
     }
   }

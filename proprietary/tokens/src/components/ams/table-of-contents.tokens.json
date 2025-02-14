@@ -26,8 +26,8 @@
       },
       "heading": {
         "font-weight": { "value": "{ams.typography.body-text.font-weight}" },
-        "font-size": { "value": "{ams.typography.body-text.lg.font-size}" },
-        "line-height": { "value": "{ams.typography.body-text.lg.line-height}" }
+        "font-size": { "value": "{ams.typography.body-text.large.font-size}" },
+        "line-height": { "value": "{ams.typography.body-text.large.line-height}" }
       }
     }
   }

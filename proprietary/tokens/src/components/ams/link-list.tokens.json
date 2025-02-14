@@ -14,12 +14,12 @@
         "text-decoration-thickness": { "value": "{ams.link-appearance.text-decoration-thickness}" },
         "text-underline-offset": { "value": "{ams.link-appearance.text-underline-offset}" },
         "small": {
-          "font-size": { "value": "{ams.typography.body-text.sm.font-size}" },
-          "line-height": { "value": "{ams.typography.body-text.sm.line-height}" }
+          "font-size": { "value": "{ams.typography.body-text.small.font-size}" },
+          "line-height": { "value": "{ams.typography.body-text.small.line-height}" }
         },
         "large": {
-          "font-size": { "value": "{ams.typography.body-text.lg.font-size}" },
-          "line-height": { "value": "{ams.typography.body-text.lg.line-height}" }
+          "font-size": { "value": "{ams.typography.body-text.large.font-size}" },
+          "line-height": { "value": "{ams.typography.body-text.large.line-height}" }
         },
         "hover": {
           "color": { "value": "{ams.link-appearance.hover.color}" },

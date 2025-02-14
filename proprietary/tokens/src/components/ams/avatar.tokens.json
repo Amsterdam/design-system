@@ -5,9 +5,9 @@
       "background-color": { "value": "{ams.color.highlight.purple}" },
       "color": { "value": "{ams.color.text.inverse}" },
       "font-family": { "value": "{ams.typography.font-family}" },
-      "font-size": { "value": "{ams.typography.body-text.sm.font-size}" },
+      "font-size": { "value": "{ams.typography.body-text.small.font-size}" },
       "font-weight": { "value": "{ams.typography.body-text.font-weight}" },
-      "line-height": { "value": "{ams.typography.body-text.sm.line-height}" },
+      "line-height": { "value": "{ams.typography.body-text.small.line-height}" },
       "padding-block": { "value": "{ams.space.xs}" },
       "padding-inline": { "value": "{ams.space.xs}" },
       "dark-green": {

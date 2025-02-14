@@ -3,13 +3,13 @@
     "typography": {
       "body-text": {
         "font-size": { "value": "1rem" },
-        "sm": {
+        "small": {
           "font-size": { "value": "clamp(0.8889rem, calc(0.9141rem + -0.0253vw), 0.9091rem)" }
         },
-        "lg": {
+        "large": {
           "font-size": { "value": "clamp(1.1rem, calc(1.0938rem + 0.0313vw), 1.125rem)" }
         },
-        "xl": {
+        "x-large": {
           "font-size": { "value": "clamp(1.21rem, calc(1.1961rem + 0.0695vw), 1.2656rem)" }
         }
       },

@@ -9,8 +9,8 @@
       "line-height": { "value": "{ams.typography.body-text.line-height}" },
       "list-style-type": { "value": "decimal" },
       "small": {
-        "font-size": { "value": "{ams.typography.body-text.sm.font-size}" },
-        "line-height": { "value": "{ams.typography.body-text.sm.line-height}" }
+        "font-size": { "value": "{ams.typography.body-text.small.font-size}" },
+        "line-height": { "value": "{ams.typography.body-text.small.line-height}" }
       },
       "inverse": {
         "color": { "value": "{ams.color.text.inverse}" }

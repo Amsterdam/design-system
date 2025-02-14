@@ -6,15 +6,15 @@
         "font-size": { "value": "clamp(1.125rem, calc(1.0313rem + 0.4688vw), 1.5rem)" },
         "font-weight": { "value": "400" },
         "line-height": { "value": "1.6" },
-        "sm": {
+        "small": {
           "font-size": { "value": "clamp(0.9643rem, calc(0.9054rem + 0.2946vw), 1.2rem)" },
           "line-height": { "value": "1.6" }
         },
-        "lg": {
+        "large": {
           "font-size": { "value": "clamp(1.3125rem, calc(1.1719rem + 0.7031vw), 1.875rem)" },
           "line-height": { "value": "1.5" }
         },
-        "xl": {
+        "x-large": {
           "font-size": { "value": "clamp(1.5313rem, calc(1.3281rem + 1.0156vw), 2.3438rem)" },
           "line-height": { "value": "1.3" }
         },
