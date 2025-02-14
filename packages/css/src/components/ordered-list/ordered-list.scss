@@ -3,6 +3,7 @@
  * Copyright Gemeente Amsterdam
  */
 
+@use "../../common/hyphenation" as *;
 @use "../../common/text-rendering" as *;
 
 @mixin reset-ol {
@@ -17,6 +18,7 @@
   gap: var(--ams-ordered-list-gap);
 
   @include text-rendering;
+  @include hyphenation;
   @include reset-ol;
 }
 
