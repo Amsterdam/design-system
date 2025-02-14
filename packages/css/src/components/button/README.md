@@ -9,7 +9,7 @@ Allows the user to perform actions and operate the user interface.
 - Choose a short label that describes the function of the button.
 - Use the correct type of button for the corresponding application, e.g. `type="submit"` for the primary form button.
 - Make sure one can operate a button through a keyboard.
-- Wrap 2 or more consecutive buttons and/or links in an [Action Group](/docs/components-buttons-action-group--docs).
+- Wrap 2 or more consecutive buttons and/or links in an [Action Group](https://designsystem.amsterdam/?path=/docs/components-layout-action-group--docs).
 - Primary, secondary and tertiary buttons can be used side by side.
   Skipping levels is allowed.
 
