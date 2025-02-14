@@ -6,10 +6,9 @@
 import clsx from 'clsx'
 import { forwardRef, HTMLAttributes, PropsWithChildren } from 'react'
 
-const defaultColor = 'purple'
-export const spotlightColors = ['blue', 'dark-green', 'green', 'magenta', 'orange', 'yellow'] as const
+export const spotlightColors = ['azure', 'green', 'lime', 'magenta', 'orange', 'yellow'] as const
 
-type SpotlightColor = (typeof spotlightColors)[number] | typeof defaultColor
+type SpotlightColor = (typeof spotlightColors)[number]
 
 export type SpotlightProps = {
   /** The HTML element to use. */
@@ -19,12 +18,8 @@ export type SpotlightProps = {
 } & PropsWithChildren<HTMLAttributes<HTMLElement>>
 
 export const Spotlight = forwardRef(
-  ({ as: Tag = 'div', children, className, color = defaultColor, ...restProps }: SpotlightProps, ref: any) => (
-    <Tag
-      {...restProps}
-      className={clsx('ams-spotlight', color !== defaultColor && `ams-spotlight--${color}`, className)}
-      ref={ref}
-    >
+  ({ as: Tag = 'div', children, className, color, ...restProps }: SpotlightProps, ref: any) => (
+    <Tag {...restProps} className={clsx('ams-spotlight', color && `ams-spotlight--${color}`, className)} ref={ref}>
       {children}
     </Tag>
   ),
