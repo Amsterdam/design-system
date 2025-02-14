@@ -6,6 +6,7 @@
 @use "../../common/text-rendering" as *;
 
 @mixin reset-ul {
+  list-style: none;
   margin-block: 0;
 }
 
@@ -18,7 +19,6 @@
   column-gap: var(--ams-footer-menu-column-gap);
   display: flex;
   flex-wrap: wrap;
-  list-style: none;
   padding-block: var(--ams-footer-menu-padding-block);
   padding-inline: var(--ams-footer-menu-padding-inline);
   row-gap: var(--ams-footer-menu-row-gap);
