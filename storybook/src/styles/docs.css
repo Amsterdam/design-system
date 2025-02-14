@@ -179,8 +179,7 @@
 }
 
 [class*="ams-docs-token-example--space"] {
-  background-color: #fff;
-  outline: 1px dashed var(--ams-docs-grey);
+  background-color: var(--ams-docs-pink);
 }
 
 .ams-resize-horizontal {

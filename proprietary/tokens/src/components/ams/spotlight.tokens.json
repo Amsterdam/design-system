@@ -2,13 +2,13 @@
   "ams": {
     "spotlight": {
       "background-color": { "value": "{ams.color.highlight.purple}" },
-      "blue": {
+      "azure": {
         "background-color": { "value": "{ams.color.highlight.azure}" }
       },
-      "dark-green": {
+      "green": {
         "background-color": { "value": "{ams.color.highlight.green}" }
       },
-      "green": {
+      "lime": {
         "background-color": { "value": "{ams.color.highlight.lime}" }
       },
       "magenta": {
