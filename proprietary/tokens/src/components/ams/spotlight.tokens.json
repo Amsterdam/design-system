@@ -2,7 +2,7 @@
   "ams": {
     "spotlight": {
       "background-color": { "value": "{ams.color.highlight.purple}" },
-      "blue": {
+      "azure": {
         "background-color": { "value": "{ams.color.highlight.azure}" }
       },
       "green": {

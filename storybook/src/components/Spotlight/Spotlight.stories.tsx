@@ -41,9 +41,9 @@ type Story = StoryObj<typeof meta>
 
 export const Default: Story = {}
 
-export const Blue: Story = {
+export const Azure: Story = {
   args: {
-    color: 'blue',
+    color: 'azure',
   },
 }
 
