@@ -9,19 +9,19 @@ import { Meta } from "@storybook/blocks";
 We have defined a group of link styles for all link components.
 This includes a common set of styles,
 along with specific styles for ‘regular’ and ‘subtle’ links.
-Links can also have a contrast color for light (but not white) backgrounds
-or an inverse color for dark backgrounds.
+Links can also have a contrast colour for light (but not white) backgrounds
+or an inverse colour for dark backgrounds.
 
 ## Common
 
 All links have the following common styles:
 
-| CSS variable                                 | Value                                | Description                                           |
-| :------------------------------------------- | :----------------------------------- | :---------------------------------------------------- |
-| `var(--ams-links-color)`                     | `var(--ams-color-interactive)`       | The default color for links is our interactive color. |
-| `var(--ams-links-text-decoration-thickness)` | `var(--ams-border-width-md)`         | Link underlines are our medium border width.          |
-| `var(--ams-links-text-underline-offset)`     | `0.3333em`                           |                                                       |
-| `var(--ams-links-hover-color)`               | `var(--ams-color-interactive-hover)` | The hover color is our interactive hover color.       |
+| CSS variable                                 | Value                                | Description                                             |
+| :------------------------------------------- | :----------------------------------- | :------------------------------------------------------ |
+| `var(--ams-links-color)`                     | `var(--ams-color-interactive)`       | The default colour for links is our interactive colour. |
+| `var(--ams-links-text-decoration-thickness)` | `var(--ams-border-width-md)`         | Link underlines are our medium border width.            |
+| `var(--ams-links-text-underline-offset)`     | `0.3333em`                           |                                                         |
+| `var(--ams-links-hover-color)`               | `var(--ams-color-interactive-hover)` | The hover colour is our interactive hover colour.       |
 
 ## Regular
 
@@ -33,6 +33,29 @@ All links have the following common styles:
 
 ## Subtle
 
+Subtle links are used in places where the context helps indicate that the text is a link.
+For instance, in the Header or Pagination components.
+As a result, their styling can be less obvious.
+
+| CSS variable                                         | Value       | Description                                                                                                          |
+| :--------------------------------------------------- | :---------- | :------------------------------------------------------------------------------------------------------------------- |
+| `var(--ams-links-subtle-text-decoration-line)`       | `none`      | Subtle links do not show an underline by default. The surrounding context should clearly indicate that it is a link. |
+| `var(--ams-links-subtle-hover-text-decoration-line)` | `underline` | An underline is shown on hover.                                                                                      |
+
 ## Contrast
 
+On light but not white backgrounds (like yellow or lime), the interactive contrast colour is used for links.
+
+| CSS variable                            | Value                                   | Description                                                                                                   |
+| :-------------------------------------- | :-------------------------------------- | :------------------------------------------------------------------------------------------------------------ |
+| `var(--ams-links-contrast-color)`       | `var(--ams-color-interactive-contrast)` | On light backgrounds, the interactive contrast colour is used.                                                |
+| `var(--ams-links-contrast-hover-color)` | `var(--ams-color-interactive-contrast)` | The same colour is used on hover. We currently do not show a difference between the default and hover states. |
+
 ## Inverse
+
+On dark backgrounds, the inverse colour is used for links.
+
+| CSS variable                           | Value                                  | Description                                                                                                   |
+| :------------------------------------- | :------------------------------------- | :------------------------------------------------------------------------------------------------------------ |
+| `var(--ams-links-inverse-color)`       | `var(--ams-color-interactive-inverse)` | On dark backgrounds, the interactive inverse colour is used.                                                  |
+| `var(--ams-links-inverse-hover-color)` | `var(--ams-color-interactive-inverse)` | The same colour is used on hover. We currently do not show a difference between the default and hover states. |
