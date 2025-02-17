@@ -33,14 +33,6 @@ describe('Page menu link', () => {
     expect(component).toHaveClass('ams-footer__menu-link extra')
   })
 
-  it('renders an icon when specified', () => {
-    const { container } = render(<Footer.MenuLink href="#">Link</Footer.MenuLink>)
-
-    const svg = container.querySelector('.ams-icon')
-
-    expect(svg).toBeInTheDocument()
-  })
-
   it('supports ForwardRef in React', () => {
     const ref = createRef<HTMLAnchorElement>()
 
