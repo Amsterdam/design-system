@@ -1,4 +1,3 @@
-import { ChevronRightIcon } from '@amsterdam/design-system-react-icons'
 import { render, screen } from '@testing-library/react'
 import { createRef } from 'react'
 import { Footer } from './Footer'
@@ -34,20 +33,8 @@ describe('Page menu link', () => {
     expect(component).toHaveClass('ams-footer__menu-link extra')
   })
 
-  it('does not render an icon by default', () => {
-    const { container } = render(<Footer.MenuLink href="#">Link</Footer.MenuLink>)
-
-    const svg = container.querySelector('.ams-icon')
-
-    expect(svg).not.toBeInTheDocument()
-  })
-
   it('renders an icon when specified', () => {
-    const { container } = render(
-      <Footer.MenuLink href="#" icon={ChevronRightIcon}>
-        Link
-      </Footer.MenuLink>,
-    )
+    const { container } = render(<Footer.MenuLink href="#">Link</Footer.MenuLink>)
 
     const svg = container.querySelector('.ams-icon')
 
