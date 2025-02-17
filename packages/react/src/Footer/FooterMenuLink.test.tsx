@@ -1,12 +1,12 @@
 import { ChevronRightIcon } from '@amsterdam/design-system-react-icons'
 import { render, screen } from '@testing-library/react'
 import { createRef } from 'react'
-import { FooterMenuLink } from './FooterMenuLink'
+import { Footer } from './Footer'
 import '@testing-library/jest-dom'
 
 describe('Page menu link', () => {
   it('renders with href attribute', () => {
-    render(<FooterMenuLink href="#">Link</FooterMenuLink>)
+    render(<Footer.MenuLink href="#">Link</Footer.MenuLink>)
 
     const component = screen.getByRole('link')
 
@@ -15,7 +15,7 @@ describe('Page menu link', () => {
   })
 
   it('renders a design system BEM class name', () => {
-    render(<FooterMenuLink href="#">Link</FooterMenuLink>)
+    render(<Footer.MenuLink href="#">Link</Footer.MenuLink>)
 
     const component = screen.getByRole('link')
 
@@ -24,9 +24,9 @@ describe('Page menu link', () => {
 
   it('renders an additional class name', () => {
     render(
-      <FooterMenuLink className="extra" href="#">
+      <Footer.MenuLink className="extra" href="#">
         Link
-      </FooterMenuLink>,
+      </Footer.MenuLink>,
     )
 
     const component = screen.getByRole('link')
@@ -35,7 +35,7 @@ describe('Page menu link', () => {
   })
 
   it('does not render an icon by default', () => {
-    const { container } = render(<FooterMenuLink href="#">Link</FooterMenuLink>)
+    const { container } = render(<Footer.MenuLink href="#">Link</Footer.MenuLink>)
 
     const svg = container.querySelector('.ams-icon')
 
@@ -44,9 +44,9 @@ describe('Page menu link', () => {
 
   it('renders an icon when specified', () => {
     const { container } = render(
-      <FooterMenuLink href="#" icon={ChevronRightIcon}>
+      <Footer.MenuLink href="#" icon={ChevronRightIcon}>
         Link
-      </FooterMenuLink>,
+      </Footer.MenuLink>,
     )
 
     const svg = container.querySelector('.ams-icon')
@@ -58,9 +58,9 @@ describe('Page menu link', () => {
     const ref = createRef<HTMLAnchorElement>()
 
     render(
-      <FooterMenuLink className="extra" href="#" ref={ref}>
+      <Footer.MenuLink className="extra" href="#" ref={ref}>
         Link
-      </FooterMenuLink>,
+      </Footer.MenuLink>,
     )
 
     const component = screen.getByRole('link')

@@ -1,21 +1,20 @@
 import { LoginIcon } from '@amsterdam/design-system-react-icons'
 import { render } from '@testing-library/react'
 import { createRef } from 'react'
-import { FooterMenu } from './FooterMenu'
+import { Footer } from './Footer'
 import '@testing-library/jest-dom'
-import { FooterMenuLink } from './FooterMenuLink'
 
 describe('Page menu', () => {
   it('renders a page menu with children', () => {
     const { container } = render(
-      <FooterMenu>
-        <FooterMenuLink href="#" lang="en">
+      <Footer.Menu>
+        <Footer.MenuLink href="#" lang="en">
           English
-        </FooterMenuLink>
-        <FooterMenuLink href="#" icon={LoginIcon}>
+        </Footer.MenuLink>
+        <Footer.MenuLink href="#" icon={LoginIcon}>
           Mijn Amsterdam
-        </FooterMenuLink>
-      </FooterMenu>,
+        </Footer.MenuLink>
+      </Footer.Menu>,
     )
 
     const component = container.querySelector(':only-child')
@@ -30,7 +29,7 @@ describe('Page menu', () => {
   })
 
   it('renders a design system BEM class name', () => {
-    const { container } = render(<FooterMenu />)
+    const { container } = render(<Footer.Menu />)
 
     const component = container.querySelector(':only-child')
 
@@ -41,11 +40,11 @@ describe('Page menu', () => {
     const ref = createRef<HTMLUListElement>()
 
     const { container } = render(
-      <FooterMenu ref={ref}>
-        <FooterMenuLink href="#" lang="en">
+      <Footer.Menu ref={ref}>
+        <Footer.MenuLink href="#" lang="en">
           English
-        </FooterMenuLink>
-      </FooterMenu>,
+        </Footer.MenuLink>
+      </Footer.Menu>,
     )
 
     const component = container.querySelector(':only-child')
@@ -54,7 +53,7 @@ describe('Page menu', () => {
   })
 
   it('renders an additional class name', () => {
-    const { container } = render(<FooterMenu className="intro" />)
+    const { container } = render(<Footer.Menu className="intro" />)
 
     const component = container.querySelector(':only-child')
 

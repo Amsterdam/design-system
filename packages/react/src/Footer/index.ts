@@ -1,3 +1,5 @@
 export { Footer } from './Footer'
 export type { FooterProps } from './Footer'
+export type { FooterMenuProps } from './FooterMenu'
+export type { FooterMenuLinkProps } from './FooterMenuLink'
 export type { FooterSpotlightProps } from './FooterSpotlight'

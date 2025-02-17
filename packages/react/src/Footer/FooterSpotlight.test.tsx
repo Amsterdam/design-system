@@ -1,11 +1,11 @@
 import { render } from '@testing-library/react'
 import { createRef } from 'react'
-import { FooterSpotlight } from './FooterSpotlight'
+import { Footer } from './Footer'
 import '@testing-library/jest-dom'
 
 describe('Footer top', () => {
   it('renders', () => {
-    const { container } = render(<FooterSpotlight />)
+    const { container } = render(<Footer.Spotlight />)
 
     const component = container.querySelector(':only-child')
 
@@ -14,7 +14,7 @@ describe('Footer top', () => {
   })
 
   it('renders a design system BEM class name', () => {
-    const { container } = render(<FooterSpotlight />)
+    const { container } = render(<Footer.Spotlight />)
 
     const component = container.querySelector(':only-child')
 
@@ -22,7 +22,7 @@ describe('Footer top', () => {
   })
 
   it('renders an additional class name', () => {
-    const { container } = render(<FooterSpotlight className="extra" />)
+    const { container } = render(<Footer.Spotlight className="extra" />)
 
     const component = container.querySelector(':only-child')
 
@@ -32,7 +32,7 @@ describe('Footer top', () => {
   it('supports ForwardRef in React', () => {
     const ref = createRef<HTMLDivElement>()
 
-    const { container } = render(<FooterSpotlight ref={ref} />)
+    const { container } = render(<Footer.Spotlight ref={ref} />)
 
     const component = container.querySelector(':only-child')
 

@@ -99,10 +99,10 @@ export const Default: Story = {
           </Grid.Cell>
         </Grid>
       </Footer.Spotlight>,
-      <Heading className="ams-visually-hidden" level={2}>
+      <Heading className="ams-visually-hidden" key="footer-heading" level={2}>
         Over deze website
       </Heading>,
-      <Footer.Menu>
+      <Footer.Menu key="footer-menu">
         <Footer.MenuLink href="#">Over deze site</Footer.MenuLink>
         <Footer.MenuLink href="#">Privacy</Footer.MenuLink>
         <Footer.MenuLink href="#">Cookies</Footer.MenuLink>
@@ -114,7 +114,7 @@ export const Default: Story = {
 export const OnderzoekEnStatistiek: Story = {
   args: {
     children: [
-      <Footer.Spotlight key="footer-Spotlight">
+      <Footer.Spotlight key="footer-spotlight">
         <Heading className="ams-visually-hidden" color="inverse" level={1}>
           Colofon
         </Heading>
@@ -175,10 +175,10 @@ export const OnderzoekEnStatistiek: Story = {
           </Grid.Cell>
         </Grid>
       </Footer.Spotlight>,
-      <Heading className="ams-visually-hidden" level={2}>
+      <Heading className="ams-visually-hidden" key="footer-heading" level={2}>
         Over deze website
       </Heading>,
-      <Footer.Menu>
+      <Footer.Menu key="footer-menu">
         <Footer.MenuLink href="#">Over deze site</Footer.MenuLink>
         <Footer.MenuLink href="#">Privacy</Footer.MenuLink>
         <Footer.MenuLink href="#">Cookies</Footer.MenuLink>

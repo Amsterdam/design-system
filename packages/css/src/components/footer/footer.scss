@@ -3,6 +3,7 @@
  * Copyright Gemeente Amsterdam
  */
 
+@use "../../common/hyphenation" as *;
 @use "../../common/text-rendering" as *;
 
 @mixin reset-ul {
@@ -15,7 +16,6 @@
 }
 
 .ams-footer__menu {
-  align-items: center;
   column-gap: var(--ams-footer-menu-column-gap);
   display: flex;
   flex-wrap: wrap;
@@ -31,23 +31,17 @@
   font-family: var(--ams-footer-menu-link-font-family);
   font-size: var(--ams-footer-menu-link-font-size);
   font-weight: var(--ams-footer-menu-link-font-weight);
-  gap: var(--ams-footer-menu-link-gap);
   line-height: var(--ams-footer-menu-link-line-height);
   outline-offset: var(--ams-footer-menu-link-outline-offset);
   text-decoration-line: var(--ams-footer-menu-link-text-decoration-line);
   text-decoration-thickness: var(--ams-footer-menu-link-text-decoration-thickness);
   text-underline-offset: var(--ams-footer-menu-link-text-underline-offset);
-  touch-action: manipulation;
 
+  @include hyphenation;
   @include text-rendering;
-}
 
-.ams-footer-menu__link:hover,
-.ams-footer-menu__button:hover {
-  color: var(--ams-footer-menu-link-hover-color);
-  text-decoration-line: var(--ams-footer-menu-link-hover-text-decoration-line);
-}
-
-.ams-footer-menu__link svg {
-  color: currentColor;
+  &:hover {
+    color: var(--ams-footer-menu-link-hover-color);
+    text-decoration-line: var(--ams-footer-menu-link-hover-text-decoration-line);
+  }
 }
