@@ -45,7 +45,7 @@
   background-color: var(--ams-text-input-disabled-background-color);
   box-shadow: var(--ams-text-input-disabled-box-shadow);
   color: var(--ams-text-input-disabled-color);
-  cursor: not-allowed;
+  cursor: var(--ams-text-input-disabled-cursor);
 }
 
 .ams-text-input:invalid,
@@ -53,7 +53,6 @@
   box-shadow: var(--ams-text-input-invalid-box-shadow);
 
   &:hover {
-    // TODO: this should be the (currently non-existent) dark red hover color
     box-shadow: var(--ams-text-input-invalid-hover-box-shadow);
   }
 }

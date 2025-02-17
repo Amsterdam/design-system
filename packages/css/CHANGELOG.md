@@ -3,6 +3,13 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.14.1](https://github.com/Amsterdam/design-system/compare/design-system-css-v0.14.0...design-system-css-v0.14.1) (2025-02-12)
+
+
+### Features
+
+* **Tabs:** Scroll wide content of a Tab Panel horizontally ([#1855](https://github.com/Amsterdam/design-system/issues/1855)) ([8ece501](https://github.com/Amsterdam/design-system/commit/8ece501ad592728ef853a432b427b8b3b037e13e))
+
 ## [0.14.0](https://github.com/Amsterdam/design-system/compare/design-system-css-v0.13.1...design-system-css-v0.14.0) (2025-01-10)
 
 ### ⚠ BREAKING CHANGES
