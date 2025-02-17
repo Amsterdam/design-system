@@ -70,6 +70,8 @@
   background-color: var(--ams-dialog-backdrop-background-color);
   block-size: 100%;
   inline-size: 100%;
+  padding-block: 1rem;
+  padding-inline: 1rem;
   position: absolute;
 }
 
