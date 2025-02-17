@@ -5,7 +5,7 @@
       "cursor": { "value": "{ams.cursor.interactive}" },
       "outline-offset": { "value": "{ams.focus.outline-offset}" },
       "hover": {
-        "background-color": { "value": "rgba(0, 70, 153, 0.125)" },
+        "background-color": { "value": "rgb(0 70 153 / 12.5%)" },
         "color": { "value": "{ams.color.interactive.hover}" }
       },
       "disabled": {
@@ -15,7 +15,7 @@
       "contrast": {
         "color": { "value": "{ams.color.interactive.contrast}" },
         "hover": {
-          "background-color": { "value": "rgba(0, 0, 0, 0.125)" },
+          "background-color": { "value": "rgb(0 0 0 / 12.5%)" },
           "color": { "value": "{ams.color.interactive.contrast}" }
         },
         "disabled": {
