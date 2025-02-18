@@ -3,9 +3,9 @@
     "footer": {
       "menu": {
         "column-gap": { "value": "{ams.space.lg}" },
-        "row-gap": { "value": "{ams.space.xs}" },
         "padding-block": { "value": "{ams.space.grid.sm}" },
         "padding-inline": { "value": "{ams.grid.padding-inline}" },
+        "row-gap": { "value": "{ams.space.xs}" },
         "link": {
           "color": { "value": "{ams.links.color}" },
           "font-family": { "value": "{ams.text.font-family}" },
