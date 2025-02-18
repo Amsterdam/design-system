@@ -3,8 +3,9 @@
  * Copyright Gemeente Amsterdam
  */
 
-import { Column } from '@amsterdam/design-system-react'
+import { Column, Icon, Row } from '@amsterdam/design-system-react'
 import { Heading } from '@amsterdam/design-system-react/src'
+import { EmailIcon } from '@amsterdam/design-system-react-icons'
 import { Meta, StoryObj } from '@storybook/react'
 import { exampleHeading } from '../shared/exampleContent'
 
@@ -21,6 +22,13 @@ const meta = {
     children: {
       description: 'The heading text.',
       table: { disable: false },
+    },
+    color: {
+      control: {
+        labels: { undefined: 'default' },
+        type: 'radio',
+      },
+      options: [undefined, 'inverse'],
     },
   },
 } satisfies Meta<typeof Heading>
@@ -69,4 +77,22 @@ export const InverseColour: Story = {
     color: 'inverse',
     level: 2,
   },
+}
+
+export const WithIcon: Story = {
+  args: {
+    children: 'Heading text',
+    level: 4,
+  },
+  argTypes: {
+    level: {
+      table: { disable: true },
+    },
+  },
+  render: ({ children, ...args }) => (
+    <Row gap="small">
+      <Icon color={args.color} size="heading-4" svg={EmailIcon} />
+      <Heading {...args}>{children}</Heading>
+    </Row>
+  ),
 }
