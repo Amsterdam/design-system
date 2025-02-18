@@ -4,12 +4,13 @@
       "menu": {
         "column-gap": { "value": "{ams.space.lg}" },
         "row-gap": { "value": "{ams.space.xs}" },
+        "padding-block": { "value": "{ams.space.grid.sm}" },
+        "padding-inline": { "value": "{ams.grid.padding-inline}" },
         "link": {
           "color": { "value": "{ams.links.color}" },
           "font-family": { "value": "{ams.text.font-family}" },
           "font-size": { "value": "{ams.text.level.6.font-size}" },
           "font-weight": { "value": "{ams.text.font-weight.normal}" },
-          "gap": { "value": "{ams.space.sm}" },
           "line-height": { "value": "{ams.text.level.6.line-height}" },
           "outline-offset": { "value": "{ams.focus.outline-offset}" },
           "text-decoration-line": { "value": "{ams.links.subtle.text-decoration-line}" },
@@ -19,9 +20,7 @@
             "color": { "value": "{ams.links.hover.color}" },
             "text-decoration-line": { "value": "{ams.links.subtle.hover.text-decoration-line}" }
           }
-        },
-        "padding-block": { "value": "{ams.space.grid.sm}" },
-        "padding-inline": { "value": "{ams.grid.padding-inline}" }
+        }
       },
       "spotlight": {
         "background-color": { "value": "#004699" }
