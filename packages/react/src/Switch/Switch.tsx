@@ -15,7 +15,7 @@ export const Switch = forwardRef(
 
     return (
       <div className={clsx('ams-switch', className)}>
-        <input {...restProps} className="ams-switch__input" id={inputId} ref={ref} type="checkbox" role="switch" />
+        <input {...restProps} className="ams-switch__input" id={inputId} ref={ref} role="switch" type="checkbox" />
         <label className="ams-switch__label" htmlFor={inputId}></label>
       </div>
     )

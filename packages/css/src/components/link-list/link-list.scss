@@ -17,6 +17,7 @@
   display: grid;
   gap: var(--ams-link-list-gap);
 
+  @include hyphenation;
   @include text-rendering;
   @include reset-ul;
 }
@@ -49,22 +50,20 @@
 .ams-link-list__link--large {
   font-size: var(--ams-link-list-link-large-font-size);
   line-height: var(--ams-link-list-link-large-line-height);
-
-  @include hyphenation;
 }
 
-.ams-link-list__link--contrast-color {
-  color: var(--ams-link-list-link-contrast-color-color);
+.ams-link-list__link--contrast {
+  color: var(--ams-link-list-link-contrast-color);
 
   &:hover {
-    color: var(--ams-link-list-link-contrast-color-hover-color);
+    color: var(--ams-link-list-link-contrast-hover-color);
   }
 }
 
-.ams-link-list__link--inverse-color {
-  color: var(--ams-link-list-link-inverse-color-color);
+.ams-link-list__link--inverse {
+  color: var(--ams-link-list-link-inverse-color);
 
   &:hover {
-    color: var(--ams-link-list-link-inverse-color-hover-color);
+    color: var(--ams-link-list-link-inverse-hover-color);
   }
 }

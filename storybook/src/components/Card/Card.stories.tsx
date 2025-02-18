@@ -36,7 +36,7 @@ type Story = StoryObj<typeof meta>
 export const Default: Story = {
   args: {
     children: [
-      <Heading key={1} className="ams-mb--sm" size="level-4">
+      <Heading className="ams-mb--sm" key={1} level={1} size="level-4">
         <Card.Link href="/">{topTask.heading}</Card.Link>
       </Heading>,
       <Paragraph key={2}>{topTask.description}</Paragraph>,
@@ -47,8 +47,8 @@ export const Default: Story = {
 export const WithTagline: Story = {
   args: {
     children: [
-      <Card.HeadingGroup key={1} className="ams-mb--sm" tagline="Dossier">
-        <Heading size="level-4">
+      <Card.HeadingGroup className="ams-mb--sm" key={1} tagline="Dossier">
+        <Heading level={1} size="level-4">
           <Card.Link href="/">Monitor Attracties MRA</Card.Link>
         </Heading>
       </Card.HeadingGroup>,
@@ -62,9 +62,9 @@ export const WithTagline: Story = {
 export const WithImage: Story = {
   args: {
     children: [
-      <Image key={1} alt="" aspectRatio="wide" className="ams-mb--sm" src="https://picsum.photos/480/360" />,
-      <Card.HeadingGroup key={2} className="ams-mb--sm" tagline="Nieuws">
-        <Heading size="level-4">
+      <Image alt="" aspectRatio="wide" className="ams-mb--sm" key={1} src="https://picsum.photos/480/360" />,
+      <Card.HeadingGroup className="ams-mb--sm" key={2} tagline="Nieuws">
+        <Heading level={1} size="level-4">
           <Card.Link href="/">Nederlands eerste houten woonwijk komt in Zuidoost</Card.Link>
         </Heading>
       </Card.HeadingGroup>,

@@ -1,6 +1,6 @@
 {
   "extends": ["stylelint-config-standard-scss"],
-  "plugins": ["stylelint-order", "stylelint-use-logical"],
+  "plugins": ["stylelint-order", "stylelint-use-logical", "stylelint-value-no-unknown-custom-properties"],
   "rules": {
     "alpha-value-notation": ["percentage"],
     "at-rule-empty-line-before": null,
@@ -10,10 +10,21 @@
     "color-no-invalid-hex": true,
     "comment-no-empty": true,
     "csstools/use-logical": true,
+    "csstools/value-no-unknown-custom-properties": [
+      true,
+      {
+        "importFrom": ["proprietary/tokens/dist/index.css"]
+      }
+    ],
     "custom-property-pattern": "^_?(ams|nl|utrecht)-[a-z0-9-]+$",
     "declaration-block-no-duplicate-properties": true,
     "declaration-block-no-redundant-longhand-properties": null,
     "declaration-block-no-shorthand-property-overrides": true,
+    "declaration-property-value-allowed-list": [
+      {
+        "cursor": "/var\\(--ams-.*-cursor\\)/"
+      }
+    ],
     "declaration-property-value-disallowed-list": [
       {
         "text-align": ["left", "right"]

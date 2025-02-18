@@ -18,6 +18,7 @@ import README from "../../../../packages/css/src/components/avatar/README.md?raw
 
 The Avatar can also display a photo or other image for the person.
 Make sure to scale the image down to around 100 pixels to prevent unnecessary data transfers.
+The center of the image will be visible; provide a square image if possible.
 
 <Canvas of={AvatarStories.WithImage} />
 
@@ -26,7 +27,3 @@ Make sure to scale the image down to around 100 pixels to prevent unnecessary da
 A user icon displays if no label and image are provided.
 
 <Canvas of={AvatarStories.FallbackIcon} />
-
-### In a Header
-
-<Canvas of={AvatarStories.InAHeader} />

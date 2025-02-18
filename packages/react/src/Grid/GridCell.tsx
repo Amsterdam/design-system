@@ -33,7 +33,7 @@ export type GridCellProps = {
 
 export const GridCell = forwardRef(
   ({ as: Tag = 'div', children, className, span, start, ...restProps }: GridCellProps, ref: any) => (
-    <Tag {...restProps} ref={ref} className={clsx('ams-grid__cell', gridCellClasses(span, start), className)}>
+    <Tag {...restProps} className={clsx('ams-grid__cell', gridCellClasses(span, start), className)} ref={ref}>
       {children}
     </Tag>
   ),

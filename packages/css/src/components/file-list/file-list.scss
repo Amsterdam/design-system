@@ -3,6 +3,7 @@
  * Copyright Gemeente Amsterdam
  */
 
+@use "../../common/hyphenation" as *;
 @use "../../common/text-rendering" as *;
 
 @mixin reset-ul {
@@ -17,13 +18,13 @@
   gap: var(--ams-file-list-gap);
   padding-block: var(--ams-file-list-padding-block);
 
+  @include hyphenation;
   @include text-rendering;
   @include reset-ul;
 }
 
 .ams-file-list__item {
   display: flex;
-  flex-direction: row;
   font-family: var(--ams-file-list-file-font-family);
   font-size: var(--ams-file-list-file-font-size);
   font-weight: var(--ams-file-list-file-font-weight);

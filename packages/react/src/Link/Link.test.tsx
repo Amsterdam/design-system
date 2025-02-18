@@ -25,7 +25,7 @@ describe('Link', () => {
 
   it('renders inline variant', () => {
     const { container } = render(
-      <Link variant="inline" href="#">
+      <Link href="#" variant="inline">
         {linktext}
       </Link>,
     )
@@ -46,33 +46,33 @@ describe('Link', () => {
 
   it('renders the class name for contrast color', () => {
     const { container } = render(
-      <Link contrastColor href="#">
+      <Link color="contrast" href="#">
         {linktext}
       </Link>,
     )
 
     const link = container.querySelector('a:only-child')
 
-    expect(link).toHaveClass('ams-link ams-link--contrast-color')
+    expect(link).toHaveClass('ams-link ams-link--contrast')
   })
 
   it('renders the class name for inverse color', () => {
     const { container } = render(
-      <Link inverseColor href="#">
+      <Link color="inverse" href="#">
         {linktext}
       </Link>,
     )
 
     const link = container.querySelector('a:only-child')
 
-    expect(link).toHaveClass('ams-link ams-link--inverse-color')
+    expect(link).toHaveClass('ams-link ams-link--inverse')
   })
 
   it('supports ForwardRef in React', () => {
     const ref = createRef<HTMLAnchorElement>()
 
     const { container } = render(
-      <Link ref={ref} href="https://example.com/">
+      <Link href="https://example.com/" ref={ref}>
         {'https://example.com/'}
       </Link>,
     )

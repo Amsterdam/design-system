@@ -47,7 +47,7 @@ describe('Label', () => {
     render(
       <>
         <Label htmlFor="email">Email</Label>
-        <input type="email" id="email" />
+        <input id="email" type="email" />
       </>,
     )
 
@@ -89,7 +89,7 @@ describe('Label', () => {
 
   it('renders the provided hint text after the label', () => {
     const { container } = render(
-      <Label htmlFor="form-control" hint="hint text">
+      <Label hint="hint text" htmlFor="form-control">
         Label
       </Label>,
     )
@@ -113,7 +113,7 @@ describe('Label', () => {
 
   it('renders the provided hint text after the label when `optional` is set to `false`', () => {
     const { container } = render(
-      <Label htmlFor="form-control" optional={true} hint="not required">
+      <Label hint="not required" htmlFor="form-control" optional={true}>
         Label
       </Label>,
     )
@@ -125,7 +125,7 @@ describe('Label', () => {
 
   it('renders the provided hint text after the label while `optional` is set to `false`', () => {
     const { container } = render(
-      <Label htmlFor="form-control" optional={false} hint="required">
+      <Label hint="required" htmlFor="form-control" optional={false}>
         Label
       </Label>,
     )

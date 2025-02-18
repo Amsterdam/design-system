@@ -14,14 +14,14 @@
         "margin-inline": { "value": "{ams.space.xs}" }
       },
       "link": {
-        "color": { "value": "{ams.link-appearance.color}" },
+        "color": { "value": "{ams.links.color}" },
         "outline-offset": { "value": "{ams.focus.outline-offset}" },
-        "text-decoration-line": { "value": "{ams.link-appearance.subtle.text-decoration-line}" },
-        "text-decoration-thickness": { "value": "{ams.link-appearance.text-decoration-thickness}" },
-        "text-underline-offset": { "value": "{ams.link-appearance.text-underline-offset}" },
+        "text-decoration-line": { "value": "{ams.links.subtle.text-decoration-line}" },
+        "text-decoration-thickness": { "value": "{ams.links.text-decoration-thickness}" },
+        "text-underline-offset": { "value": "{ams.links.text-underline-offset}" },
         "hover": {
-          "color": { "value": "{ams.brand.color.blue.80}" },
-          "text-decoration-line": { "value": "{ams.link-appearance.subtle.hover.text-decoration-line}" }
+          "color": { "value": "{ams.links.hover.color}" },
+          "text-decoration-line": { "value": "{ams.links.subtle.hover.text-decoration-line}" }
         }
       }
     }

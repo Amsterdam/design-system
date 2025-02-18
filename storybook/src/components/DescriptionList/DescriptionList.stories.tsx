@@ -23,13 +23,19 @@ const meta = {
       <DescriptionList.Term key={9}>Opleidingsniveau</DescriptionList.Term>,
       <DescriptionList.Description key={10}>Onderwijsrichting</DescriptionList.Description>,
     ],
-    inverseColor: false,
   },
   argTypes: {
+    color: {
+      control: {
+        labels: { undefined: 'default' },
+        type: 'radio',
+      },
+      options: [undefined, 'inverse'],
+    },
     termsWidth: {
       control: {
+        labels: { lg: 'large', md: 'medium', sm: 'small', undefined: 'auto' },
         type: 'radio',
-        labels: { undefined: 'auto', sm: 'small', md: 'medium', lg: 'large' },
       },
       options: [undefined, 'sm', 'md', 'lg'],
     },
@@ -56,7 +62,6 @@ export const MultipleDescriptions: Story = {
 
 export const MultipleTerms: Story = {
   args: {
-    termsWidth: 'md',
     children: [
       <DescriptionList.Term key={1}>Achternaam</DescriptionList.Term>,
       <DescriptionList.Description key={2}>
@@ -71,6 +76,7 @@ export const MultipleTerms: Story = {
       <DescriptionList.Term key={4}>Geboortedatum</DescriptionList.Term>,
       <DescriptionList.Description key={5}>De datum waarop een persoon is geboren</DescriptionList.Description>,
     ],
+    termsWidth: 'md',
   },
 }
 
@@ -79,17 +85,17 @@ export const RichDescription: Story = {
     <DescriptionList {...args}>
       <DescriptionList.Term key={1}>Amsterdam Light Festival</DescriptionList.Term>
       <DescriptionList.Description key={2}>
-        <Paragraph className="ams-mb--sm" inverseColor={args.inverseColor}>
+        <Paragraph className="ams-mb--sm" color={args.color}>
           Een jaarlijks evenement waarbij kunstenaars van over de hele wereld hun{' '}
           <strong>creatieve lichtinstallaties</strong> tonen. De kunstwerken zijn verspreid over de stad en zijn zowel
           vanaf het water als vanaf de kant te bewonderen.
         </Paragraph>
-        <UnorderedList inverseColor={args.inverseColor}>
+        <UnorderedList color={args.color}>
           <UnorderedList.Item>Kleed je warm aan, want de meeste exposities zijn buiten.</UnorderedList.Item>
           <UnorderedList.Item>Er zijn begeleide boottochten en wandelroutes beschikbaar.</UnorderedList.Item>
           <UnorderedList.Item>
             Voor de volledige lijst met exposities kun je{' '}
-            <Link href="#" inverseColor={args.inverseColor}>
+            <Link color={args.color} href="#">
               de festivalbrochure downloaden
             </Link>
             .
@@ -102,6 +108,6 @@ export const RichDescription: Story = {
 
 export const InverseColour: Story = {
   args: {
-    inverseColor: true,
+    color: 'inverse',
   },
 }

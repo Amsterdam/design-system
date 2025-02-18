@@ -5,6 +5,8 @@
 
 const pickRandomContent = <T>(list: Array<T>): T => list[Math.floor(Math.random() * list.length)]
 
+export const cityParts = ['Centrum', 'Nieuw-West', 'Noord', 'Weesp', 'West', 'Westpoort', 'Zuid', 'Zuidoost']
+
 export const exampleAccordionHeading = () =>
   pickRandomContent([
     'Dit grof afval halen we niet op',
@@ -15,6 +17,19 @@ export const exampleAccordionHeading = () =>
     'Verhuizing doorgeven bij stadsloket',
     'Verhuizing doorgeven per post',
     'Voorgaande versies van ramingen',
+  ])
+
+export const exampleCaption = () =>
+  pickRandomContent<string>([
+    'Een rustige Amsterdamse gracht met eeuwenoude gevels die weerspiegelen in het water, terwijl fietsen nonchalant tegen de brugleuning rusten – een alledaags tafereel vol historie en charme. Foto: Liam Dekker.',
+    'Een rij geparkeerde fietsen langs een smalle gracht met klassieke Amsterdamse gevels op de achtergrond.',
+    'Een klein houten bootje dobbert rustig op het water, omringd door bomen en bakstenen panden met grote ramen. Foto: Sophie van der Brugge.',
+    'Een typische Amsterdamse brug met smeedijzeren leuningen, vol met fietsen en uitzicht op een grachtenpand met een klokgevel.',
+    'Een stille gracht met weerspiegelende gevels, terwijl een tram in de verte over een brug rijdt. Foto: Isabel Groeneveld.',
+    'Een zonovergoten terras aan de gracht, met stoelen op de kade en uitzicht op een sierlijke ophaalbrug.',
+    'Een grachtenpand met vrolijke bloemenbakken op de vensterbanken en een smalle trap naar de voordeur. Foto: Joris Zandvoort.',
+    'Een schuin geplaatste fiets tegen een lantaarnpaal, met op de achtergrond een karakteristiek houten bruggetje.',
+    'Een groep Ajax-supporters in rood-witte sjaals verzamelt zich op een plein, klaar voor een wedstrijd in de Johan Cruijff ArenA. Foto: Louis Flitskamp.',
   ])
 
 export const exampleHeading = () =>
@@ -122,45 +137,45 @@ export const exampleQuote = () =>
   ])
 
 type TopTask = {
-  heading: string
   description: string
+  heading: string
 }
 
 export const exampleTopTask = () =>
   pickRandomContent<TopTask>([
     {
-      heading: 'Gemeentebelastingen',
       description: 'Bekijk welke belastingen en heffingen er zijn, hoe u bezwaar maakt of een betalingsregeling treft.',
+      heading: 'Gemeentebelastingen',
     },
     {
-      heading: 'Parkeren + Reizen (P+R)',
       description: 'U kunt met uw auto goedkoop parkeren bij een P+R-locatie aan de rand van de stad.',
+      heading: 'Parkeren + Reizen (P+R)',
     },
     {
-      heading: 'Paspoort',
       description: 'Vraag deze bewijzen aan of verleng ze. Geef een vermissing aan.',
+      heading: 'Paspoort',
     },
     {
-      heading: 'Onderwijs',
       description:
         'Meld een kind aan voor basisschool, middelbare school of kinderopvang. Bekijk het kindtegoed op uw Stadspas.',
+      heading: 'Onderwijs',
     },
     {
-      heading: 'Meldingen openbare ruimte en overlast',
       description:
         'Ziet u op straat of in een park iets waarvan u wilt dat het gemaakt of opgeruimd wordt, dan kunt u dat bij de gemeente melden.',
+      heading: 'Meldingen openbare ruimte en overlast',
     },
     {
-      heading: 'Verhuizing doorgeven',
       description: 'Geef uw nieuwe adres door als u binnen Amsterdam of naar Amsterdam verhuist.',
+      heading: 'Verhuizing doorgeven',
     },
     {
-      heading: 'Grof afval',
       description: 'Grof afval zijn spullen die niet in een vuilniszak passen.',
+      heading: 'Grof afval',
     },
     {
-      heading: 'Kennisgevingen en bekendmakingen',
       description: 'Kennisgevingen en bekendmakingen van de gemeente Amsterdam van de laatste 8 weken.',
+      heading: 'Kennisgevingen en bekendmakingen',
     },
   ])
 

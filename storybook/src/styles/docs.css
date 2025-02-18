@@ -73,6 +73,10 @@
   position: absolute;
 }
 
+.ams-screen:has(.ams-docs-backdrop) {
+  display: contents;
+}
+
 .ams-docs-column,
 .ams-docs-grid,
 .ams-docs-row {
@@ -165,9 +169,17 @@
   border-inline-start-style: solid;
 }
 
+[class*="ams-docs-token-example--color"] {
+  forced-color-adjust: none;
+  inline-size: 1rem;
+}
+
+.ams-docs-token-example--color-border {
+  box-shadow: inset 0 0 0 0.0625rem rgb(0 0 0 / 12.5%);
+}
+
 [class*="ams-docs-token-example--space"] {
-  background-color: var(--ams-brand-color-neutral-0);
-  outline: 1px dashed var(--ams-brand-color-neutral-40);
+  background-color: var(--ams-docs-pink);
 }
 
 .ams-resize-horizontal {

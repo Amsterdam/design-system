@@ -10,7 +10,7 @@ import { OrderedListItem } from './OrderedListItem'
 
 export type OrderedListProps = {
   /** Changes the text colour for readability on a dark background. */
-  inverseColor?: boolean
+  color?: 'inverse'
   /** Whether the list items show a marker. */
   markers?: boolean
   /** The size of the text. */
@@ -19,18 +19,18 @@ export type OrderedListProps = {
 
 const OrderedListRoot = forwardRef(
   (
-    { children, className, inverseColor, markers = true, size, ...restProps }: OrderedListProps,
+    { children, className, color, markers = true, size, ...restProps }: OrderedListProps,
     ref: ForwardedRef<HTMLOListElement>,
   ) => (
     <ol
-      ref={ref}
       className={clsx(
         'ams-ordered-list',
-        inverseColor && 'ams-ordered-list--inverse-color',
+        color && `ams-ordered-list--${color}`,
         !markers && 'ams-ordered-list--no-markers',
         size && `ams-ordered-list--${size}`,
         className,
       )}
+      ref={ref}
       {...restProps}
     >
       {children}

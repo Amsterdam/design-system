@@ -3,16 +3,16 @@
     "link-list": {
       "gap": { "value": "{ams.space.sm}" },
       "link": {
-        "color": { "value": "{ams.link-appearance.color}" },
+        "color": { "value": "{ams.links.color}" },
         "font-family": { "value": "{ams.text.font-family}" },
         "font-size": { "value": "{ams.text.level.5.font-size}" },
         "font-weight": { "value": "{ams.text.font-weight.normal}" },
         "gap": { "value": "{ams.space.sm}" },
         "line-height": { "value": "{ams.text.level.5.line-height}" },
         "outline-offset": { "value": "{ams.focus.outline-offset}" },
-        "text-decoration-line": { "value": "{ams.link-appearance.subtle.text-decoration-line}" },
-        "text-decoration-thickness": { "value": "{ams.link-appearance.text-decoration-thickness}" },
-        "text-underline-offset": { "value": "{ams.link-appearance.text-underline-offset}" },
+        "text-decoration-line": { "value": "{ams.links.subtle.text-decoration-line}" },
+        "text-decoration-thickness": { "value": "{ams.links.text-decoration-thickness}" },
+        "text-underline-offset": { "value": "{ams.links.text-underline-offset}" },
         "small": {
           "font-size": { "value": "{ams.text.level.6.font-size}" },
           "line-height": { "value": "{ams.text.level.6.line-height}" }
@@ -22,19 +22,19 @@
           "line-height": { "value": "{ams.text.level.4.line-height}" }
         },
         "hover": {
-          "color": { "value": "{ams.link-appearance.hover.color}" },
-          "text-decoration-line": { "value": "{ams.link-appearance.subtle.hover.text-decoration-line}" }
+          "color": { "value": "{ams.links.hover.color}" },
+          "text-decoration-line": { "value": "{ams.links.subtle.hover.text-decoration-line}" }
         },
-        "contrast-color": {
-          "color": { "value": "{ams.link-appearance.contrast.color}" },
+        "contrast": {
+          "color": { "value": "{ams.links.contrast.color}" },
           "hover": {
-            "color": { "value": "{ams.link-appearance.contrast.hover.color}" }
+            "color": { "value": "{ams.links.contrast.hover.color}" }
           }
         },
-        "inverse-color": {
-          "color": { "value": "{ams.link-appearance.inverse.color}" },
+        "inverse": {
+          "color": { "value": "{ams.links.inverse.color}" },
           "hover": {
-            "color": { "value": "{ams.link-appearance.inverse.hover.color}" }
+            "color": { "value": "{ams.links.inverse.hover.color}" }
           }
         }
       }

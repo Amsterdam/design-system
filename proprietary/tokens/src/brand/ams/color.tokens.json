@@ -1,44 +1,39 @@
 {
   "ams": {
-    "brand": {
-      "color": {
-        "azure": {
-          "60": { "value": "#009DE6" }
+    "color": {
+      "background": { "value": "#ffffff" },
+      "feedback": {
+        "error": { "value": "#ec0000" },
+        "info": { "value": "#009de6" },
+        "success": { "value": "#00a03c" },
+        "warning": { "value": "#ff9100" }
+      },
+      "highlight": {
+        "azure": { "value": "#009de6" },
+        "green": { "value": "#00a03c" },
+        "lime": { "value": "#bed200" },
+        "magenta": { "value": "#e50082" },
+        "orange": { "value": "#ff9100" },
+        "purple": { "value": "#a00078" },
+        "yellow": { "value": "#ffe600" }
+      },
+      "interactive": {
+        "contrast": { "value": "#000000" },
+        "default": { "value": "#004699" },
+        "disabled": { "value": "#767676" },
+        "hover": { "value": "#003677" },
+        "invalid": {
+          "default": { "value": "#ec0000" },
+          "hover": { "value": "#b70000" }
         },
-        "blue": {
-          "60": { "value": "#004699" },
-          "80": { "value": "#003677" }
-        },
-        "green": {
-          "60": { "value": "#00A03C" }
-        },
-        "lime": {
-          "60": { "value": "#BED200" }
-        },
-        "magenta": {
-          "60": { "value": "#E50082" }
-        },
-        "neutral": {
-          "0": { "value": "#FFFFFF" },
-          "20": { "value": "#D1D1D1" },
-          "40": { "value": "#A4A4A4" },
-          "60": { "value": "#767676" },
-          "80": { "value": "#474747" },
-          "100": { "value": "#181818" }
-        },
-        "orange": {
-          "60": { "value": "#FF9100" }
-        },
-        "purple": {
-          "60": { "value": "#A00078" }
-        },
-        "red": {
-          "60": { "value": "#EC0000" },
-          "80": { "value": "#B70000" }
-        },
-        "yellow": {
-          "60": { "value": "#FFE600" }
-        }
+        "inverse": { "value": "#ffffff" },
+        "secondary": { "value": "#181818" }
+      },
+      "separator": { "value": "#d1d1d1" },
+      "text": {
+        "default": { "value": "#181818" },
+        "inverse": { "value": "#ffffff" },
+        "secondary": { "value": "#767676" }
       }
     }
   }

@@ -9,15 +9,15 @@ import type { BlockquoteHTMLAttributes, ForwardedRef, PropsWithChildren } from '
 
 export type BlockquoteProps = {
   /** Changes the text colour for readability on a dark background. */
-  inverseColor?: boolean
+  color?: 'inverse'
 } & PropsWithChildren<BlockquoteHTMLAttributes<HTMLQuoteElement>>
 
 export const Blockquote = forwardRef(
-  ({ children, className, inverseColor, ...restProps }: BlockquoteProps, ref: ForwardedRef<HTMLQuoteElement>) => (
+  ({ children, className, color, ...restProps }: BlockquoteProps, ref: ForwardedRef<HTMLQuoteElement>) => (
     <blockquote
       {...restProps}
+      className={clsx('ams-blockquote', color && `ams-blockquote--${color}`, className)}
       ref={ref}
-      className={clsx('ams-blockquote', inverseColor && 'ams-blockquote--inverse-color', className)}
     >
       {children}
     </blockquote>

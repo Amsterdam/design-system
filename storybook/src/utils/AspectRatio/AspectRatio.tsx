@@ -8,8 +8,8 @@ import { HTMLAttributes, PropsWithChildren } from 'react'
 
 /** Renders examples in Storybook. Not for reuse. */
 export const AspectRatio = ({
-  children,
   aspectRatio,
+  children,
 }: AspectRatioProps & PropsWithChildren<HTMLAttributes<HTMLSpanElement>>) => (
   <span className={`ams-aspect-ratio--${aspectRatio}`}>{children}</span>
 )

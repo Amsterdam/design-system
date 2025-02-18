@@ -21,7 +21,7 @@ describe('Tabs button', () => {
   })
 
   it('renders an additional class name', () => {
-    render(<TabsButton tab={0} className="extra" />)
+    render(<TabsButton className="extra" tab={0} />)
 
     const component = screen.getByRole('tab')
 
@@ -55,7 +55,7 @@ describe('Tabs button', () => {
   it('supports ForwardRef in React', () => {
     const ref = createRef<HTMLButtonElement>()
 
-    render(<TabsButton tab={0} ref={ref} />)
+    render(<TabsButton ref={ref} tab={0} />)
 
     const component = screen.getByRole('tab')
 

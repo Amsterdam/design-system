@@ -11,7 +11,6 @@ const meta = {
   component: PageHeading,
   args: {
     children: 'Gemeente Amsterdam',
-    inverseColor: false,
   },
   argTypes: {
     children: {
@@ -29,6 +28,6 @@ export const Default: Story = {}
 
 export const InverseColour: Story = {
   args: {
-    inverseColor: true,
+    color: 'inverse',
   },
 }

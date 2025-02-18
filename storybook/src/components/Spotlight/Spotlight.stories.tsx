@@ -5,6 +5,7 @@
 
 import { Blockquote, Grid } from '@amsterdam/design-system-react'
 import { Spotlight } from '@amsterdam/design-system-react/src'
+import { spotlightColors } from '@amsterdam/design-system-react/src/Spotlight/Spotlight'
 import { Meta, StoryObj } from '@storybook/react'
 import { exampleQuote } from '../shared/exampleContent'
 
@@ -13,11 +14,21 @@ const quote = exampleQuote()
 const meta = {
   title: 'Components/Containers/Spotlight',
   component: Spotlight,
+  argTypes: {
+    color: {
+      control: {
+        labels: { undefined: 'purple (default)' },
+      },
+      options: [undefined, ...spotlightColors],
+    },
+  },
   render: ({ as, color }) => (
     <Spotlight as={as} color={color}>
       <Grid paddingVertical="medium">
         <Grid.Cell span="all">
-          <Blockquote inverseColor={!color || !['lime', 'yellow'].includes(color)}>{quote}</Blockquote>
+          <Blockquote color={!color || ['green', 'magenta'].includes(color) ? 'inverse' : undefined}>
+            {quote}
+          </Blockquote>
         </Grid.Cell>
       </Grid>
     </Spotlight>
@@ -33,12 +44,6 @@ export const Default: Story = {}
 export const Azure: Story = {
   args: {
     color: 'azure',
-  },
-}
-
-export const Blue: Story = {
-  args: {
-    color: 'blue',
   },
 }
 
@@ -63,12 +68,6 @@ export const Magenta: Story = {
 export const Orange: Story = {
   args: {
     color: 'orange',
-  },
-}
-
-export const Purple: Story = {
-  args: {
-    color: 'purple',
   },
 }
 

@@ -17,6 +17,7 @@ const meta = {
 
 export default meta
 
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 const linkMeta = {
   component: LinkList.Link,
 } satisfies Meta<typeof LinkList.Link>
@@ -37,24 +38,29 @@ const StoryTemplate: Story = {
 const LinkStoryTemplate: LinkStory = {
   args: {
     children: linkList[0],
-    contrastColor: false,
     href: '#',
     icon: Icons.ChevronRightIcon,
-    inverseColor: false,
   },
   argTypes: {
+    color: {
+      control: {
+        labels: { undefined: 'default' },
+        type: 'radio',
+      },
+      options: [undefined, 'contrast', 'inverse'],
+    },
     icon: {
       control: {
-        type: 'select',
         labels: { undefined: 'none' },
+        type: 'select',
       },
-      options: [undefined, ...Object.keys(Icons)],
       mapping: Icons,
+      options: [undefined, ...Object.keys(Icons)],
     },
     size: {
       control: {
-        type: 'radio',
         labels: { undefined: 'medium' },
+        type: 'radio',
       },
       options: ['small', undefined, 'large'],
     },
@@ -77,13 +83,13 @@ export const CustomIcons: Story = {
   ...StoryTemplate,
   args: {
     children: [
-      <LinkList.Link key="form" href="#" icon={Icons.ChattingIcon}>
+      <LinkList.Link href="#" icon={Icons.ChattingIcon} key="form">
         Contactformulier
       </LinkList.Link>,
-      <LinkList.Link key="address" href="#" icon={Icons.HousingIcon}>
+      <LinkList.Link href="#" icon={Icons.HousingIcon} key="address">
         Adressen en openingstijden
       </LinkList.Link>,
-      <LinkList.Link key="phone" href="#" icon={Icons.PhoneIcon}>
+      <LinkList.Link href="#" icon={Icons.PhoneIcon} key="phone">
         Bel 14 020
       </LinkList.Link>,
     ],
@@ -94,13 +100,13 @@ export const SmallText: Story = {
   ...StoryTemplate,
   args: {
     children: [
-      <LinkList.Link key="about" href="#" size="small">
+      <LinkList.Link href="#" key="about" size="small">
         Over deze website
       </LinkList.Link>,
-      <LinkList.Link key="newsletter" href="#" size="small">
+      <LinkList.Link href="#" key="newsletter" size="small">
         Abonneer u op de nieuwsbrief
       </LinkList.Link>,
-      <LinkList.Link key="jobs" href="#" size="small">
+      <LinkList.Link href="#" key="jobs" size="small">
         Werken bij de gemeente Amsterdam
       </LinkList.Link>,
     ],
@@ -115,7 +121,7 @@ export const ContrastColour: LinkStory = {
   ...LinkStoryTemplate,
   args: {
     ...LinkStoryTemplate.args,
-    contrastColor: true,
+    color: 'contrast',
   },
 }
 
@@ -123,6 +129,6 @@ export const InverseColour: LinkStory = {
   ...LinkStoryTemplate,
   args: {
     ...LinkStoryTemplate.args,
-    inverseColor: true,
+    color: 'inverse',
   },
 }

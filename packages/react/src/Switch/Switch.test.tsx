@@ -51,10 +51,10 @@ describe('Switch', () => {
     const MockImpl = () => {
       return (
         <>
-          <label htmlFor="switch-label" data-testid="switch-label">
+          <label data-testid="switch-label" htmlFor="switch-label">
             Label
           </label>
-          <Switch onChange={handleChange} id="switch-label" />
+          <Switch id="switch-label" onChange={handleChange} />
         </>
       )
     }

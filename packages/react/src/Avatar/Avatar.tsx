@@ -8,25 +8,8 @@ import clsx from 'clsx'
 import { forwardRef } from 'react'
 import type { ForwardedRef, HTMLAttributes } from 'react'
 import { Icon } from '../Icon'
-import { Image } from '../Image'
 
-export const avatarColors = [
-  'azure',
-  'black',
-  'blue',
-  'green',
-  'lime',
-  'magenta',
-  'neutral-20',
-  'neutral-40',
-  'neutral-60',
-  'neutral-80',
-  'orange',
-  'purple',
-  'red',
-  'white',
-  'yellow',
-] as const
+export const avatarColors = ['azure', 'green', 'lime', 'magenta', 'orange', 'yellow'] as const
 
 type AvatarColor = (typeof avatarColors)[number]
 
@@ -37,14 +20,14 @@ type AvatarContentProps = {
 
 const AvatarContent = ({ imageSrc, initials }: AvatarContentProps) => {
   if (imageSrc) {
-    return <Image alt="" src={imageSrc} />
+    return <img alt="" src={imageSrc} />
   }
 
   if (initials.length) {
     return <span aria-hidden={true}>{initials}</span>
   }
 
-  return <Icon svg={PersonalLoginIcon} size="level-6" />
+  return <Icon size="level-6" svg={PersonalLoginIcon} />
 }
 
 export type AvatarProps = {
@@ -57,7 +40,7 @@ export type AvatarProps = {
 } & HTMLAttributes<HTMLSpanElement>
 
 export const Avatar = forwardRef(
-  ({ label, imageSrc, className, color = 'blue', ...restProps }: AvatarProps, ref: ForwardedRef<HTMLSpanElement>) => {
+  ({ className, color, imageSrc, label, ...restProps }: AvatarProps, ref: ForwardedRef<HTMLSpanElement>) => {
     const initials = label.slice(0, 2).toUpperCase()
 
     const a11yLabel = initials.length === 0 ? 'Gebruiker' : `Initialen gebruiker: ${initials}`
@@ -65,8 +48,8 @@ export const Avatar = forwardRef(
     return (
       <span
         {...restProps}
+        className={clsx('ams-avatar', color && `ams-avatar--${color}`, imageSrc && 'ams-avatar--has-image', className)}
         ref={ref}
-        className={clsx('ams-avatar', `ams-avatar--${color}`, imageSrc && 'ams-avatar--has-image', className)}
       >
         <span className="ams-visually-hidden">{a11yLabel}</span>
         <AvatarContent imageSrc={imageSrc} initials={initials} />

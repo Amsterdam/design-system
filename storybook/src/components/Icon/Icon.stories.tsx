@@ -11,13 +11,23 @@ import { Meta, StoryObj } from '@storybook/react'
 const meta = {
   title: 'Components/Media/Icon',
   component: Icon,
+  args: {
+    svg: Icons.EmailIcon,
+  },
   argTypes: {
+    color: {
+      control: {
+        labels: { undefined: 'default' },
+        type: 'radio',
+      },
+      options: [undefined, 'inverse'],
+    },
     svg: {
       control: {
         type: 'select',
       },
-      options: Object.keys(Icons),
       mapping: Icons,
+      options: Object.keys(Icons),
     },
   },
 } satisfies Meta<typeof Icon>
@@ -26,11 +36,7 @@ export default meta
 
 type Story = StoryObj<typeof meta>
 
-export const Default: Story = {
-  args: {
-    svg: Icons.EmailIcon,
-  },
-}
+export const Default: Story = {}
 
 export const WithText: Story = {
   decorators: [
@@ -43,45 +49,45 @@ export const WithText: Story = {
   render: (args) => (
     <>
       <Icon {...args} size="level-3" />
-      <Heading size="level-3">Inline text</Heading>
+      <Heading level={1} size="level-3">
+        Inline text
+      </Heading>
     </>
   ),
-  args: {
-    svg: Icons.EmailIcon,
-  },
 }
 
 export const Square: Story = {
   args: {
-    svg: Icons.EmailIcon,
     square: true,
   },
 }
 
 export const Level3: Story = {
   args: {
-    svg: Icons.EmailIcon,
     size: 'level-3',
   },
 }
 
 export const Level4: Story = {
   args: {
-    svg: Icons.EmailIcon,
     size: 'level-4',
   },
 }
 
 export const Level5: Story = {
   args: {
-    svg: Icons.EmailIcon,
     size: 'level-5',
   },
 }
 
 export const Level6: Story = {
   args: {
-    svg: Icons.EmailIcon,
     size: 'level-6',
+  },
+}
+
+export const InverseColour: Story = {
+  args: {
+    color: 'inverse',
   },
 }

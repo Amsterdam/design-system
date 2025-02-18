@@ -3,33 +3,26 @@
  * Copyright Gemeente Amsterdam
  */
 
+@use "../../common/hyphenation" as *;
+@use "../../common/text-rendering" as *;
+
 .ams-badge {
+  background-color: var(--ams-badge-background-color);
+  color: var(--ams-badge-color);
   display: inline-block;
   font-family: var(--ams-badge-font-family);
   font-size: var(--ams-badge-font-size);
   font-weight: var(--ams-badge-font-weight);
   line-height: var(--ams-badge-line-height);
   padding-inline: var(--ams-badge-padding-inline);
+
+  @include hyphenation;
+  @include text-rendering;
 }
 
 .ams-badge--azure {
   background-color: var(--ams-badge-azure-background-color);
   color: var(--ams-badge-azure-color);
-}
-
-.ams-badge--black {
-  background-color: var(--ams-badge-black-background-color);
-  color: var(--ams-badge-black-color);
-}
-
-.ams-badge--blue {
-  background-color: var(--ams-badge-blue-background-color);
-  color: var(--ams-badge-blue-color);
-}
-
-.ams-badge--green {
-  background-color: var(--ams-badge-green-background-color);
-  color: var(--ams-badge-green-color);
 }
 
 .ams-badge--lime {
@@ -40,26 +33,6 @@
 .ams-badge--magenta {
   background-color: var(--ams-badge-magenta-background-color);
   color: var(--ams-badge-magenta-color);
-}
-
-.ams-badge--neutral-20 {
-  background-color: var(--ams-badge-neutral-20-background-color);
-  color: var(--ams-badge-neutral-20-color);
-}
-
-.ams-badge--neutral-40 {
-  background-color: var(--ams-badge-neutral-40-background-color);
-  color: var(--ams-badge-neutral-40-color);
-}
-
-.ams-badge--neutral-60 {
-  background-color: var(--ams-badge-neutral-60-background-color);
-  color: var(--ams-badge-neutral-60-color);
-}
-
-.ams-badge--neutral-80 {
-  background-color: var(--ams-badge-neutral-80-background-color);
-  color: var(--ams-badge-neutral-80-color);
 }
 
 .ams-badge--orange {
@@ -75,11 +48,6 @@
 .ams-badge--red {
   background-color: var(--ams-badge-red-background-color);
   color: var(--ams-badge-red-color);
-}
-
-.ams-badge--white {
-  background-color: var(--ams-badge-white-background-color);
-  color: var(--ams-badge-white-color);
 }
 
 .ams-badge--yellow {

@@ -12,7 +12,7 @@ export type TableOfContentsListProps = PropsWithChildren<HTMLAttributes<HTMLULis
 export const TableOfContentsList = forwardRef(
   ({ children, className, ...restProps }: TableOfContentsListProps, ref: ForwardedRef<HTMLUListElement>) => {
     return (
-      <ul {...restProps} ref={ref} className={clsx('ams-table-of-contents__list', className)}>
+      <ul {...restProps} className={clsx('ams-table-of-contents__list', className)} ref={ref}>
         {children}
       </ul>
     )

@@ -4,6 +4,7 @@
  */
 
 import { Badge } from '@amsterdam/design-system-react/src'
+import { badgeColors } from '@amsterdam/design-system-react/src/Badge/Badge'
 import { Meta, StoryObj } from '@storybook/react'
 
 const meta = {
@@ -11,6 +12,14 @@ const meta = {
   component: Badge,
   args: {
     label: 'Tip',
+  },
+  argTypes: {
+    color: {
+      control: {
+        labels: { undefined: 'green (default)' },
+      },
+      options: [undefined, ...badgeColors],
+    },
   },
 } satisfies Meta<typeof Badge>
 

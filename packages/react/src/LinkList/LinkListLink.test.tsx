@@ -28,7 +28,7 @@ describe('Link list link', () => {
   })
 
   it('renders an additional class name', () => {
-    render(<LinkList.Link href="#" className="extra" />)
+    render(<LinkList.Link className="extra" href="#" />)
 
     const component = screen.getByRole('link')
 
@@ -44,19 +44,19 @@ describe('Link list link', () => {
   })
 
   it('renders the class name for contrast color', () => {
-    render(<LinkList.Link href="#" contrastColor />)
+    render(<LinkList.Link color="contrast" href="#" />)
 
     const component = screen.getByRole('link')
 
-    expect(component).toHaveClass('ams-link-list__link--contrast-color')
+    expect(component).toHaveClass('ams-link-list__link--contrast')
   })
 
   it('renders the class name for inverse color', () => {
-    render(<LinkList.Link href="#" inverseColor />)
+    render(<LinkList.Link color="inverse" href="#" />)
 
     const component = screen.getByRole('link')
 
-    expect(component).toHaveClass('ams-link-list__link--inverse-color')
+    expect(component).toHaveClass('ams-link-list__link--inverse')
   })
 
   it('supports ForwardRef in React', () => {

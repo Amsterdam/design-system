@@ -10,7 +10,7 @@ Barrel files allow a consumer to do this:
 Instead of a separate import for each component, while even reaching into the `dist` directory:
 
 <!-- prettier-ignore -->
-```js
+```ts
 import Heading from "@amsterdam/design-system-react/dist/Heading/Heading"
 import Link from "@amsterdam/design-system-react/dist/Link/Link"
 import Paragraph from "@amsterdam/design-system-react/dist/Paragraph/Paragraph"

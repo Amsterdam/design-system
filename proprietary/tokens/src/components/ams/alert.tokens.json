@@ -1,26 +1,38 @@
 {
   "ams": {
     "alert": {
-      "background-color": { "value": "{ams.brand.color.neutral.0}" },
-      "border-width": { "value": "{ams.border.width.xl}" },
-      "border-style": { "value": "solid" },
-      "gap": { "value": "{ams.space.sm}" },
-      "padding-block": { "value": "{ams.space.md}" },
-      "padding-inline": { "value": "{ams.space.lg}" },
-      "error": {
-        "border-color": { "value": "{ams.brand.color.red.60}" }
+      "background-color": { "value": "{ams.color.background}" },
+      "box-shadow": { "value": "inset 0 0 0 {ams.border.width.xl} {ams.color.feedback.info}" },
+      "forced-colors": {
+        "border-width": { "value": "{ams.border.width.xl}" }
       },
-      "info": {
-        "border-color": { "value": "{ams.brand.color.azure.60}" }
-      },
-      "success": {
-        "border-color": { "value": "{ams.brand.color.green.60}" }
-      },
-      "warning": {
-        "border-color": { "value": "{ams.brand.color.orange.60}" }
+      "severity-indicator": {
+        "background-color": { "value": "{ams.color.feedback.info}" },
+        "padding-block": { "value": "{ams.space.md}" },
+        "padding-inline": { "value": "{ams.space.xs}" }
       },
       "content": {
-        "gap": { "value": "{ams.space.sm}" }
+        "gap": { "value": "{ams.space.sm}" },
+        "padding-block": { "value": "{ams.space.md}" },
+        "padding-inline": { "value": "{ams.space.md}" }
+      },
+      "error": {
+        "box-shadow": { "value": "inset 0 0 0 {ams.border.width.xl} {ams.color.feedback.error}" },
+        "severity-indicator": {
+          "background-color": { "value": "{ams.color.feedback.error}" }
+        }
+      },
+      "success": {
+        "box-shadow": { "value": "inset 0 0 0 {ams.border.width.xl} {ams.color.feedback.success}" },
+        "severity-indicator": {
+          "background-color": { "value": "{ams.color.feedback.success}" }
+        }
+      },
+      "warning": {
+        "box-shadow": { "value": "inset 0 0 0 {ams.border.width.xl} {ams.color.feedback.warning}" },
+        "severity-indicator": {
+          "background-color": { "value": "{ams.color.feedback.warning}" }
+        }
       }
     }
   }

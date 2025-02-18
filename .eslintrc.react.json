@@ -1,8 +1,0 @@
-{
-  "rules": {
-    "react/no-unknown-property": "off",
-    "react/prop-types": "off",
-    "react/jsx-key": "off",
-    "react/react-in-jsx-scope": "off"
-  }
-}

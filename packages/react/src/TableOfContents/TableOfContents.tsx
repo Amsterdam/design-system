@@ -27,7 +27,7 @@ const TableOfContentsRoot = forwardRef(
     ref: ForwardedRef<HTMLElement>,
   ) => {
     return (
-      <nav {...restProps} ref={ref} className={clsx('ams-table-of-contents', className)}>
+      <nav {...restProps} className={clsx('ams-table-of-contents', className)} ref={ref}>
         {heading && (
           <Heading className="ams-table-of-contents__heading" level={headingLevel} size="level-4">
             {heading}

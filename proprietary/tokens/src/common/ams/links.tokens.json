@@ -1,0 +1,32 @@
+{
+  "ams": {
+    "links": {
+      "color": { "value": "{ams.color.interactive.default}" },
+      "text-decoration-thickness": { "value": "{ams.border.width.md}" },
+      "text-underline-offset": { "value": "0.3333em" },
+      "hover": {
+        "color": { "value": "{ams.color.interactive.hover}" },
+        "text-decoration-thickness": { "value": "{ams.border.width.lg}" },
+        "text-underline-offset": { "value": "0.2778em" }
+      },
+      "subtle": {
+        "text-decoration-line": { "value": "none" },
+        "hover": {
+          "text-decoration-line": { "value": "underline" }
+        }
+      },
+      "contrast": {
+        "color": { "value": "{ams.color.interactive.contrast}" },
+        "hover": {
+          "color": { "value": "{ams.color.interactive.contrast}" }
+        }
+      },
+      "inverse": {
+        "color": { "value": "{ams.color.interactive.inverse}" },
+        "hover": {
+          "color": { "value": "{ams.color.interactive.inverse}" }
+        }
+      }
+    }
+  }
+}

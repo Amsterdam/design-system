@@ -1,24 +1,26 @@
 {
   "ams": {
     "switch": {
-      "background-color": { "value": "{ams.brand.color.neutral.60}" },
+      "background-color": { "value": "#767676" },
+      "cursor": { "value": "{ams.cursor.interactive}" },
       "font-family": { "value": "{ams.text.font-family}" },
       "outline-offset": { "value": "{ams.focus.outline-offset}" },
       "inline-size": { "value": "3.5rem" },
       "thumb": {
-        "background-color": { "value": "{ams.brand.color.neutral.0}" },
+        "background-color": { "value": "{ams.color.background}" },
         "inline-size": { "value": "1.75rem" },
         "block-size": { "value": "1.75rem" },
         "hover": {
           "box-shadow": { "value": "0 0 0 0.125rem {ams.switch.thumb.hover.color}" },
-          "color": { "value": "{ams.brand.color.blue.80}" }
+          "color": { "value": "{ams.color.interactive.hover}" }
         }
       },
       "checked": {
-        "background-color": { "value": "{ams.brand.color.blue.60}" }
+        "background-color": { "value": "{ams.color.interactive.default}" }
       },
       "disabled": {
-        "background-color": { "value": "{ams.brand.color.neutral.60}" }
+        "background-color": { "value": "{ams.color.interactive.disabled}" },
+        "cursor": { "value": "{ams.cursor.disabled}" }
       }
     }
   }

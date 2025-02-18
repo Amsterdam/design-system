@@ -133,7 +133,6 @@ You can use any editor you like, but if you use [Visual Studio Code](https://cod
 
 - [EditorConfig](https://marketplace.visualstudio.com/items?itemName=EditorConfig.EditorConfig)
 - [ESLint](https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint)
-- [markdownlint](https://marketplace.visualstudio.com/items?itemName=DavidAnson.vscode-markdownlint)
 - [MDX](https://marketplace.visualstudio.com/items?itemName=silvenon.mdx)
 - [Prettier - Code formatter](https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode)
 - [stylelint](https://marketplace.visualstudio.com/items?itemName=stylelint.vscode-stylelint)
@@ -141,16 +140,18 @@ You can use any editor you like, but if you use [Visual Studio Code](https://cod
 To enable correct validation and to fix lint/style errors on save, add this to your VSCode `settings.json`:
 
 ```json
+{
+  "eslint.useFlatConfig": true,
   "css.validate": false,
   "scss.validate": false,
   "stylelint.validate": ["css", "scss"],
   "editor.codeActionsOnSave": {
     "source.fixAll.eslint": true,
-    "source.fixAll.stylelint": true,
-    "source.fixAll.markdownlint": true
+    "source.fixAll.stylelint": true
   },
   "editor.defaultFormatter": "esbenp.prettier-vscode",
-  "editor.formatOnSave": true,
+  "editor.formatOnSave": true
+}
 ```
 
 </details>
@@ -196,7 +197,7 @@ The copyright holder for all files created by people working for the City of Ams
 If you use code from other EUPL-1.2 or higher licensed files that have a copyright notice, don’t forget to add this copyright notice as well.
 So, for a file with code written by someone working for the City of Amsterdam in 2023, but also containing code from another EUPL-1.2 or higher licensed file written by John Doe in 2021, the header would look like this:
 
-```javascript
+```ts
 /**
  * @license EUPL-1.2+
  * Copyright (c) 2021 John Doe
@@ -208,7 +209,7 @@ All documentation files should also start with a license header.
 We use the Creative Commons Zero (CC0) license for this.
 The license header looks like this:
 
-```md
+```html
 <!-- @license CC0-1.0 -->
 ```
 

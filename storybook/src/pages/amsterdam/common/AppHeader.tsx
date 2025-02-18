@@ -1,13 +1,41 @@
-import { Grid, Header, PageMenu } from '@amsterdam/design-system-react'
-import { Alignment as PageMenuStory } from '../../../components/PageMenu/PageMenu.stories'
+import { Grid, Header, Heading, LinkList } from '@amsterdam/design-system-react'
+import { headerMenuLinks, megaMenuLinks } from './menu'
 
 export const AppHeader = () => (
-  <Grid>
-    <Grid.Cell span="all">
-      <Header
-        links={<PageMenu alignEnd>{PageMenuStory.args?.children}</PageMenu>}
-        menu={<button className="ams-header__menu-button">Menu</button>}
-      />
-    </Grid.Cell>
-  </Grid>
+  <Header
+    menuButtonText="Alle onderwerpen"
+    menuItems={headerMenuLinks.map(({ fixed, href, label, lang }) => (
+      <Header.MenuLink fixed={fixed} href={href ?? '#'} key={label} lang={lang} rel={href ? 'external' : undefined}>
+        {label}
+      </Header.MenuLink>
+    ))}
+  >
+    <Grid paddingBottom="large" paddingTop="small">
+      <Header.GridCellNarrowWindowOnly span="all">
+        <LinkList>
+          {headerMenuLinks
+            .filter((link) => !link.fixed)
+            .map(({ href, label, lang }) => (
+              <LinkList.Link href={href ?? '#'} key={label} lang={lang} rel={href ? 'external' : undefined}>
+                {label}
+              </LinkList.Link>
+            ))}
+        </LinkList>
+      </Header.GridCellNarrowWindowOnly>
+      <Grid.Cell span="all">
+        <Heading className="ams-mb--sm" level={2} size="level-3">
+          Alle onderwerpen
+        </Heading>
+        <div className="ams-mega-menu__columns">
+          <LinkList>
+            {megaMenuLinks.map((label) => (
+              <LinkList.Link href="#" key={label}>
+                {label}
+              </LinkList.Link>
+            ))}
+          </LinkList>
+        </div>
+      </Grid.Cell>
+    </Grid>
+  </Header>
 )

@@ -49,11 +49,11 @@ describe('Description List', () => {
     expect(ref.current).toBe(component)
   })
 
-  it('renders the right inverse color class', () => {
-    const { container } = render(<DescriptionList inverseColor />)
+  it('renders the class name for inverse color', () => {
+    const { container } = render(<DescriptionList color="inverse" />)
 
     const component = container.querySelector(':only-child')
 
-    expect(component).toHaveClass('ams-description-list--inverse-color')
+    expect(component).toHaveClass('ams-description-list--inverse')
   })
 })

@@ -12,15 +12,15 @@ import { getHeadingTag } from '../Heading/getHeadingTag'
 import { Icon } from '../Icon/Icon'
 
 export type AccordionSectionProps = {
-  /** The heading text. */
-  label: string
   /** Whether the content is displayed initially. */
   expanded?: boolean
+  /** The heading text. */
+  label: string
 } & PropsWithChildren<HTMLAttributes<HTMLElement>>
 
 export const AccordionSection = forwardRef(
   (
-    { label, expanded = false, children, className, ...restProps }: AccordionSectionProps,
+    { children, className, expanded = false, label, ...restProps }: AccordionSectionProps,
     ref: ForwardedRef<HTMLDivElement>,
   ) => {
     const { headingLevel, sectionAs } = useContext(AccordionContext)
@@ -43,7 +43,7 @@ export const AccordionSection = forwardRef(
             onClick={() => setIsExpanded(!isExpanded)}
             type="button"
           >
-            <Icon svg={ChevronDownIcon} size="level-5" className="ams-accordion__icon" />
+            <Icon className="ams-accordion__icon" size="level-4" svg={ChevronDownIcon} />
             {label}
           </button>
         </HeadingTag>

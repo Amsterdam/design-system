@@ -19,7 +19,7 @@ export type TableProps = PropsWithChildren<TableHTMLAttributes<HTMLTableElement>
 const TableRoot = forwardRef(
   ({ children, className, ...restProps }: TableProps, ref: ForwardedRef<HTMLTableElement>) => (
     <div className="ams-table">
-      <table {...restProps} ref={ref} className={clsx('ams-table__table', className)}>
+      <table {...restProps} className={clsx('ams-table__table', className)} ref={ref}>
         {children}
       </table>
     </div>

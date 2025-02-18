@@ -26,7 +26,7 @@ describe('Breadcrumb link', () => {
   })
 
   it('renders an additional class name', () => {
-    render(<BreadcrumbLink href="/" className="extra" />)
+    render(<BreadcrumbLink className="extra" href="/" />)
 
     const component = screen.getByRole('link')
 

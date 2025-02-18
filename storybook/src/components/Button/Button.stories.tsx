@@ -15,7 +15,7 @@ const meta = {
     disabled: false,
     icon: undefined,
     iconBefore: false,
-    iconOnly: false,
+    iconOnly: undefined,
     variant: 'primary',
   },
   argTypes: {
@@ -24,11 +24,11 @@ const meta = {
     },
     icon: {
       control: {
-        type: 'select',
         labels: { undefined: 'none' },
+        type: 'select',
       },
-      options: [undefined, ...Object.keys(Icons)],
       mapping: Icons,
+      options: [undefined, ...Object.keys(Icons)],
     },
     iconBefore: {
       control: {

@@ -11,7 +11,6 @@ export type TabsContextValue = {
   /** The identifier of the tab set. */
   tabsId: string
   /** A function to update the active tab. */
-  // eslint-disable-next-line no-unused-vars
   updateTab: (tab: number) => void
 }
 

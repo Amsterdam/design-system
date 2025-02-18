@@ -30,10 +30,10 @@ describe('Icon', () => {
   })
 
   it('renders the right size classes', () => {
-    const { container: level3 } = render(<Icon svg={AlertIcon} size="level-3" />)
-    const { container: level4 } = render(<Icon svg={AlertIcon} size="level-4" />)
-    const { container: level5 } = render(<Icon svg={AlertIcon} size="level-5" />)
-    const { container: level6 } = render(<Icon svg={AlertIcon} size="level-6" />)
+    const { container: level3 } = render(<Icon size="level-3" svg={AlertIcon} />)
+    const { container: level4 } = render(<Icon size="level-4" svg={AlertIcon} />)
+    const { container: level5 } = render(<Icon size="level-5" svg={AlertIcon} />)
+    const { container: level6 } = render(<Icon size="level-6" svg={AlertIcon} />)
 
     expect(level3.firstChild).toHaveClass('ams-icon--size-3')
     expect(level4.firstChild).toHaveClass('ams-icon--size-4')
@@ -42,15 +42,23 @@ describe('Icon', () => {
   })
 
   it('renders the right square class', () => {
-    const { container } = render(<Icon svg={AlertIcon} square />)
+    const { container } = render(<Icon square svg={AlertIcon} />)
 
     const icon = container.querySelector('span:only-child')
 
     expect(icon).toHaveClass('ams-icon--square')
   })
 
+  it('renders the class name for inverse color', () => {
+    const { container } = render(<Icon color="inverse" svg={AlertIcon} />)
+
+    const icon = container.querySelector('span:only-child')
+
+    expect(icon).toHaveClass('ams-icon--inverse')
+  })
+
   it('renders an additional class name', () => {
-    const { container } = render(<Icon svg={AlertIcon} className="large" />)
+    const { container } = render(<Icon className="large" svg={AlertIcon} />)
 
     const icon = container.querySelector(':only-child')
 
@@ -61,7 +69,7 @@ describe('Icon', () => {
   it('supports ForwardRef in React', () => {
     const ref = createRef<HTMLSpanElement>()
 
-    const { container } = render(<Icon svg={AlertIcon} ref={ref} />)
+    const { container } = render(<Icon ref={ref} svg={AlertIcon} />)
 
     const icon = container.querySelector(':only-child')
 

@@ -10,30 +10,27 @@ import type { AnchorHTMLAttributes, ForwardedRef } from 'react'
 type LinkVariant = 'standalone' | 'inline'
 
 export type LinkProps = {
-  /** Changes the text colour for readability on a light background. */
-  contrastColor?: boolean
-  /** Changes the text colour for readability on a dark background. */
-  inverseColor?: boolean
+  /** Changes the text colour for readability on a light or dark background. */
+  color?: 'contrast' | 'inverse'
   /** Whether the link is inline or stands alone. */
   variant?: LinkVariant
 } & Omit<AnchorHTMLAttributes<HTMLAnchorElement>, 'placeholder'>
 
 export const Link = forwardRef(
   (
-    { children, className, contrastColor, inverseColor, variant = 'standalone', ...restProps }: LinkProps,
+    { children, className, color, variant = 'standalone', ...restProps }: LinkProps,
     ref: ForwardedRef<HTMLAnchorElement>,
   ) => (
     <a
       {...restProps}
-      ref={ref}
       className={clsx(
         'ams-link',
-        contrastColor && 'ams-link--contrast-color',
-        inverseColor && 'ams-link--inverse-color',
+        color && `ams-link--${color}`,
         variant === 'inline' && 'ams-link--inline',
         variant === 'standalone' && 'ams-link--standalone',
         className,
       )}
+      ref={ref}
     >
       {children}
     </a>

@@ -3,9 +3,8 @@
  * Copyright Gemeente Amsterdam
  */
 
-import { PageMenu } from '@amsterdam/design-system-react'
+import { Grid, Heading, LinkList } from '@amsterdam/design-system-react'
 import { Header } from '@amsterdam/design-system-react/src'
-import { SearchIcon } from '@amsterdam/design-system-react-icons'
 import { Meta, StoryObj } from '@storybook/react'
 
 const meta = {
@@ -17,9 +16,160 @@ export default meta
 
 type Story = StoryObj<typeof meta>
 
-export const Default: Story = {}
+const defaultStoryLinks = [
+  [
+    { href: '#', label: 'Kaart' },
+    { href: '#', label: 'Panoramabeelden' },
+    { href: '#', label: 'Tabellen' },
+    { href: '#', label: 'Catalogus (Beta)' },
+    { href: '#', label: 'Kaarten' },
+    { href: '#', label: 'Datacatalogus' },
+  ],
+  [
+    { href: '#', label: 'Over de organisatie' },
+    { href: '#', label: 'Over het dataplatform' },
+  ],
+  [
+    { href: '#', label: 'Help' },
+    { href: '#', label: 'Contact' },
+  ],
+]
 
-export const ForSubBrand: Story = {
+export const Default: Story = {
+  args: {
+    brandName: 'Data Amsterdam',
+    children: (
+      <Grid paddingBottom="large">
+        <Header.GridCellNarrowWindowOnly span="all">
+          <LinkList>
+            <LinkList.Link href="#" lang="en">
+              English
+            </LinkList.Link>
+          </LinkList>
+        </Header.GridCellNarrowWindowOnly>
+        <Grid.Cell span={4}>
+          <Heading className="ams-mb--sm" level={2} size="level-3">
+            Onderdelen
+          </Heading>
+          <LinkList>
+            {defaultStoryLinks[0].map(({ href, label }) => (
+              <LinkList.Link href={href} key={label}>
+                {label}
+              </LinkList.Link>
+            ))}
+          </LinkList>
+        </Grid.Cell>
+        <Grid.Cell span={4}>
+          <Heading className="ams-mb--sm" level={2} size="level-3">
+            Over ons
+          </Heading>
+          <LinkList>
+            {defaultStoryLinks[1].map(({ href, label }) => (
+              <LinkList.Link href={href} key={label}>
+                {label}
+              </LinkList.Link>
+            ))}
+          </LinkList>
+        </Grid.Cell>
+        <Grid.Cell span={4}>
+          <Heading className="ams-mb--sm" level={2} size="level-3">
+            Help
+          </Heading>
+          <LinkList>
+            {defaultStoryLinks[2].map(({ href, label }) => (
+              <LinkList.Link href={href} key={label}>
+                {label}
+              </LinkList.Link>
+            ))}
+          </LinkList>
+        </Grid.Cell>
+      </Grid>
+    ),
+    menuItems: [
+      <Header.MenuLink href="#" key={1} lang="en">
+        English
+      </Header.MenuLink>,
+      <Header.MenuLink fixed href="#" key={2}>
+        Zoeken
+      </Header.MenuLink>,
+    ],
+  },
+}
+
+export const WithMovingLinks: Story = {
+  args: {
+    children: (
+      <Grid gapVertical="small" paddingBottom="large">
+        <Header.GridCellNarrowWindowOnly span="all">
+          <LinkList>
+            <LinkList.Link href="#" lang="en">
+              English
+            </LinkList.Link>
+          </LinkList>
+        </Header.GridCellNarrowWindowOnly>
+        <Grid.Cell span="all">
+          <LinkList>
+            <LinkList.Link href="#">Regular collapsible menu link</LinkList.Link>
+          </LinkList>
+        </Grid.Cell>
+      </Grid>
+    ),
+    menuItems: [
+      <Header.MenuLink href="#" key={1} lang="en">
+        English
+      </Header.MenuLink>,
+      <Header.MenuLink fixed href="#" key={2}>
+        Zoeken
+      </Header.MenuLink>,
+    ],
+  },
+}
+
+const WithoutMenuButtonOnWideWindowStoryLinks = [
+  { href: '#', label: 'Stad' },
+  { href: '#', label: 'Techniek' },
+  { href: '#', label: 'Historie' },
+  { href: '#', label: 'Duurzaamheid' },
+]
+
+export const WithoutMenuButtonOnWideWindow: Story = {
+  args: {
+    brandName: 'Aan de Amsterdamse grachten',
+    children: (
+      <LinkList className="ams-mb--lg">
+        {WithoutMenuButtonOnWideWindowStoryLinks.map(({ href, label }) => (
+          <LinkList.Link href={href} key={label}>
+            {label}
+          </LinkList.Link>
+        ))}
+      </LinkList>
+    ),
+    menuItems: [
+      ...WithoutMenuButtonOnWideWindowStoryLinks.map(({ href, label }) => (
+        <Header.MenuLink href={href} key={label}>
+          {label}
+        </Header.MenuLink>
+      )),
+      <Header.MenuLink fixed href="#" key="Zoeken">
+        Zoeken
+      </Header.MenuLink>,
+    ],
+    noMenuButtonOnWideWindow: true,
+  },
+}
+
+export const WithoutMenuButton: Story = {
+  args: {
+    brandName: 'Mijn Amsterdam',
+    menuItems: (
+      <Header.MenuLink fixed href="#">
+        Inloggen
+      </Header.MenuLink>
+    ),
+  },
+}
+
+export const WithCustomLogoLink: Story = {
   args: {
     logoBrand: 'ggd-amsterdam',
     logoLink: 'https://www.ggd.amsterdam.nl/',
@@ -27,66 +177,20 @@ export const ForSubBrand: Story = {
   },
 }
 
-export const WithAppName: Story = {
+export const WithCustomTexts: Story = {
   args: {
-    appName: 'Aan de Amsterdamse grachten',
-  },
-}
-
-export const WithLinks: Story = {
-  args: {
-    links: (
-      <PageMenu alignEnd wrap={false}>
-        <PageMenu.Link href="#">Contact</PageMenu.Link>
-        <PageMenu.Link href="#">Mijn Amsterdam</PageMenu.Link>
-        <PageMenu.Link href="#" icon={SearchIcon}>
-          Zoeken
-        </PageMenu.Link>
-      </PageMenu>
+    children: (
+      <Grid>
+        <Grid.Cell span="all">
+          <LinkList>
+            <LinkList.Link href="#" lang="en">
+              English
+            </LinkList.Link>
+          </LinkList>
+        </Grid.Cell>
+      </Grid>
     ),
-  },
-}
-
-export const WithMenuButton: Story = {
-  args: {
-    menu: <button className="ams-header__menu-button">Menu</button>,
-  },
-}
-
-export const WithLinksAndMenuButton: Story = {
-  args: {
-    links: (
-      <PageMenu alignEnd wrap={false}>
-        <PageMenu.Link href="#">Contact</PageMenu.Link>
-        <PageMenu.Link href="#">Mijn Amsterdam</PageMenu.Link>
-        <PageMenu.Link href="#" icon={SearchIcon}>
-          Zoeken
-        </PageMenu.Link>
-      </PageMenu>
-    ),
-    menu: <button className="ams-header__menu-button">Menu</button>,
-  },
-}
-
-export const WithAppNameAndMenuButton: Story = {
-  args: {
-    appName: 'Aan de Amsterdamse grachten',
-    menu: <button className="ams-header__menu-button">Menu</button>,
-  },
-}
-
-export const WithAppNameLinksAndMenuButton: Story = {
-  args: {
-    appName: 'Aan de Amsterdamse grachten',
-    links: (
-      <PageMenu alignEnd wrap={false}>
-        <PageMenu.Link href="#">Contact</PageMenu.Link>
-        <PageMenu.Link href="#">Mijn Amsterdam</PageMenu.Link>
-        <PageMenu.Link href="#" icon={SearchIcon}>
-          Zoeken
-        </PageMenu.Link>
-      </PageMenu>
-    ),
-    menu: <button className="ams-header__menu-button">Menu</button>,
+    menuButtonText: 'Hoofdmenu',
+    navigationLabel: 'Navigatie',
   },
 }

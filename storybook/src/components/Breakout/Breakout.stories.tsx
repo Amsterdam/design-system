@@ -26,22 +26,24 @@ type Story = StoryObj<typeof meta>
 export const Default: Story = {
   args: {
     children: [
-      <Breakout.Cell colSpan="all" has="spotlight" rowSpan={{ medium: 2, narrow: 2, wide: 1 }} rowStart={2}>
-        <Spotlight />
+      <Breakout.Cell colSpan="all" has="spotlight" key={1} rowSpan={{ narrow: 2, medium: 2, wide: 1 }} rowStart={2}>
+        <Spotlight color="green" />
       </Breakout.Cell>,
       <Breakout.Cell
-        colSpan={{ medium: 8, narrow: 4, wide: 6 }}
+        colSpan={{ narrow: 4, medium: 8, wide: 6 }}
         colStart={1}
-        rowStart={{ medium: 3, narrow: 3, wide: 2 }}
+        key={2}
+        rowStart={{ narrow: 3, medium: 3, wide: 2 }}
       >
-        <Paragraph inverseColor>
+        <Paragraph color="inverse">
           Het doel van deze club is om ervoor te zorgen dat de Zuidas steeds duurzamer wordt.
         </Paragraph>
       </Breakout.Cell>,
       <Breakout.Cell
-        colSpan={{ medium: 8, narrow: 4, wide: 6 }}
-        colStart={{ medium: 1, narrow: 1, wide: 7 }}
+        colSpan={{ narrow: 4, medium: 8, wide: 6 }}
+        colStart={{ narrow: 1, medium: 1, wide: 7 }}
         has="figure"
+        key={3}
         rowSpan={2}
         rowStart={1}
       >
@@ -54,21 +56,22 @@ export const Default: Story = {
 export const VerticalLayout: Story = {
   args: {
     children: [
-      <Breakout.Cell colSpan="all" has="figure" rowSpan={2} rowStart={1}>
+      <Breakout.Cell colSpan="all" has="spotlight" key={1} rowSpan={2} rowStart={2}>
+        <Spotlight color="orange" />
+      </Breakout.Cell>,
+      <Breakout.Cell colSpan="all" has="figure" key={2} rowSpan={2} rowStart={1}>
         <Image alt="" src="https://picsum.photos/1600/900" />
       </Breakout.Cell>,
-      <Breakout.Cell colSpan="all" has="spotlight" rowSpan={2} rowStart={2}>
-        <Spotlight />
-      </Breakout.Cell>,
       <Breakout.Cell
-        colSpan={{ medium: 6, narrow: 4, wide: 8 }}
-        colStart={{ medium: 2, narrow: 1, wide: 3 }}
+        colSpan={{ narrow: 4, medium: 6, wide: 8 }}
+        colStart={{ narrow: 1, medium: 2, wide: 3 }}
+        key={3}
         rowStart={3}
       >
-        <Paragraph className="ams-mb--sm" inverseColor>
+        <Paragraph className="ams-mb--sm" color="inverse">
           Vertel ons in het evenementenformulier wat u wilt gaan doen. U checkt daarmee of u een vergunning nodig hebt.
         </Paragraph>
-        <Paragraph inverseColor>
+        <Paragraph color="inverse">
           Daarna vraagt u de vergunning aan in hetzelfde formulier. Of doet u een gratis melding of vooraankondiging.
         </Paragraph>
       </Breakout.Cell>,

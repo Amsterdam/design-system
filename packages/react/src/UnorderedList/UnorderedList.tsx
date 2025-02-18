@@ -10,7 +10,7 @@ import { UnorderedListItem } from './UnorderedListItem'
 
 export type UnorderedListProps = {
   /** Changes the text colour for readability on a dark background. */
-  inverseColor?: boolean
+  color?: 'inverse'
   /** Whether the list items show a marker. */
   markers?: boolean
   /** The size of the text. */
@@ -19,19 +19,19 @@ export type UnorderedListProps = {
 
 const UnorderedListRoot = forwardRef(
   (
-    { children, className, inverseColor, markers = true, size, ...restProps }: UnorderedListProps,
+    { children, className, color, markers = true, size, ...restProps }: UnorderedListProps,
     ref: ForwardedRef<HTMLUListElement>,
   ) => {
     return (
       <ul
-        ref={ref}
         className={clsx(
           'ams-unordered-list',
-          inverseColor && 'ams-unordered-list--inverse-color',
+          color && `ams-unordered-list--${color}`,
           !markers && 'ams-unordered-list--no-markers',
           size && `ams-unordered-list--${size}`,
           className,
         )}
+        ref={ref}
         {...restProps}
       >
         {children}

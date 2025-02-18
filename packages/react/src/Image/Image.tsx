@@ -20,8 +20,8 @@ export const Image = forwardRef(
   ({ aspectRatio, className, ...restProps }: ImageProps, ref: ForwardedRef<HTMLImageElement>) => (
     <img
       {...restProps}
-      ref={ref}
       className={clsx('ams-image', aspectRatio && `ams-aspect-ratio--${aspectRatio}`, className)}
+      ref={ref}
     />
   ),
 )

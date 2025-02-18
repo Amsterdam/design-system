@@ -11,7 +11,7 @@ export type DescriptionListTermProps = PropsWithChildren<HTMLAttributes<HTMLElem
 
 export const DescriptionListTerm = forwardRef(
   ({ children, className, ...restProps }: DescriptionListTermProps, ref: ForwardedRef<HTMLElement>) => (
-    <dt {...restProps} ref={ref} className={clsx('ams-description-list__term', className)}>
+    <dt {...restProps} className={clsx('ams-description-list__term', className)} ref={ref}>
       {children}
     </dt>
   ),

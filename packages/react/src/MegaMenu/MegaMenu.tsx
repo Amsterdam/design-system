@@ -12,7 +12,7 @@ export type MegaMenuProps = PropsWithChildren<HTMLAttributes<HTMLDivElement>>
 
 const MegaMenuRoot = forwardRef(
   ({ children, className, ...restProps }: MegaMenuProps, ref: ForwardedRef<HTMLDivElement>) => (
-    <div {...restProps} ref={ref} className={clsx('ams-mega-menu', className)}>
+    <div {...restProps} className={clsx('ams-mega-menu', className)} ref={ref}>
       {children}
     </div>
   ),
@@ -20,4 +20,5 @@ const MegaMenuRoot = forwardRef(
 
 MegaMenuRoot.displayName = 'MegaMenu'
 
+/** @deprecated Use child components in Header instead. */
 export const MegaMenu = Object.assign(MegaMenuRoot, { ListCategory: MegaMenuListCategory })

@@ -11,20 +11,25 @@ const meta = {
   title: 'Components/Buttons/Icon Button',
   component: IconButton,
   args: {
-    contrastColor: false,
     disabled: false,
-    inverseColor: false,
     label: 'Sluiten',
     size: undefined,
   },
   argTypes: {
+    color: {
+      control: {
+        labels: { undefined: 'default' },
+        type: 'radio',
+      },
+      options: [undefined, 'contrast', 'inverse'],
+    },
     disabled: {
       description: 'Prevents interaction. Avoid if possible.',
     },
     size: {
       control: {
-        type: 'radio',
         labels: { undefined: 'level-5' },
+        type: 'radio',
       },
       options: ['level-3', 'level-4', undefined, 'level-6'],
     },
@@ -32,8 +37,8 @@ const meta = {
       control: {
         type: 'select',
       },
-      options: Object.keys(Icons),
       mapping: Icons,
+      options: Object.keys(Icons),
     },
   },
 } satisfies Meta<typeof IconButton>
@@ -70,12 +75,12 @@ export const Level6: Story = {
 
 export const ContrastColour: Story = {
   args: {
-    contrastColor: true,
+    color: 'contrast',
   },
 }
 
 export const InverseColour: Story = {
   args: {
-    inverseColor: true,
+    color: 'inverse',
   },
 }
