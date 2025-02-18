@@ -3,6 +3,7 @@
  * Copyright Gemeente Amsterdam
  */
 
+@use "../../common/hyphenation" as *;
 @use "../../common/text-rendering" as *;
 
 .ams-character-count {
@@ -12,6 +13,7 @@
   font-weight: var(--ams-character-count-font-weight);
   line-height: var(--ams-character-count-line-height);
 
+  @include hyphenation;
   @include text-rendering;
 }
 

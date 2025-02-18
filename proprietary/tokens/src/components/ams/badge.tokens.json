@@ -1,19 +1,19 @@
 {
   "ams": {
     "badge": {
-      "background-color": { "value": "{ams.color.highlight.green}" },
+      "background-color": { "value": "{ams.color.feedback.success}" },
       "color": { "value": "{ams.color.text.inverse}" },
       "font-family": { "value": "{ams.typography.font-family}" },
       "font-size": { "value": "{ams.typography.body-text.font-size}" },
       "font-weight": { "value": "{ams.typography.body-text.bold.font-weight}" },
       "line-height": { "value": "{ams.typography.body-text.line-height}" },
       "padding-inline": { "value": "{ams.space.xs}" },
-      "green": {
-        "background-color": { "value": "{ams.color.highlight.lime}" },
+      "azure": {
+        "background-color": { "value": "{ams.color.feedback.info}" },
         "color": { "value": "{ams.color.text.default}" }
       },
-      "light-blue": {
-        "background-color": { "value": "{ams.color.highlight.azure}" },
+      "lime": {
+        "background-color": { "value": "{ams.color.highlight.lime}" },
         "color": { "value": "{ams.color.text.default}" }
       },
       "magenta": {
@@ -21,7 +21,7 @@
         "color": { "value": "{ams.color.text.inverse}" }
       },
       "orange": {
-        "background-color": { "value": "{ams.color.highlight.orange}" },
+        "background-color": { "value": "{ams.color.feedback.warning}" },
         "color": { "value": "{ams.color.text.default}" }
       },
       "purple": {

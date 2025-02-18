@@ -3,6 +3,9 @@
  * Copyright Gemeente Amsterdam
  */
 
+@use "../../common/hyphenation" as *;
+@use "../../common/text-rendering" as *;
+
 .ams-badge {
   background-color: var(--ams-badge-background-color);
   color: var(--ams-badge-color);
@@ -12,16 +15,19 @@
   font-weight: var(--ams-badge-font-weight);
   line-height: var(--ams-badge-line-height);
   padding-inline: var(--ams-badge-padding-inline);
+
+  @include hyphenation;
+  @include text-rendering;
 }
 
-.ams-badge--green {
-  background-color: var(--ams-badge-green-background-color);
-  color: var(--ams-badge-green-color);
+.ams-badge--azure {
+  background-color: var(--ams-badge-azure-background-color);
+  color: var(--ams-badge-azure-color);
 }
 
-.ams-badge--light-blue {
-  background-color: var(--ams-badge-light-blue-background-color);
-  color: var(--ams-badge-light-blue-color);
+.ams-badge--lime {
+  background-color: var(--ams-badge-lime-background-color);
+  color: var(--ams-badge-lime-color);
 }
 
 .ams-badge--magenta {

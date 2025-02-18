@@ -3,6 +3,7 @@
  * Copyright Gemeente Amsterdam
  */
 
+@use "../../common/hyphenation" as *;
 @use "../../common/text-rendering" as *;
 
 @mixin reset-button {
@@ -27,6 +28,7 @@
   padding-inline: var(--ams-button-padding-inline);
   touch-action: manipulation;
 
+  @include hyphenation;
   @include text-rendering;
   @include reset-button;
 

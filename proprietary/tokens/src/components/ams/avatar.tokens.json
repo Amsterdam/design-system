@@ -10,19 +10,19 @@
       "line-height": { "value": "{ams.typography.body-text.small.line-height}" },
       "padding-block": { "value": "{ams.space.xs}" },
       "padding-inline": { "value": "{ams.space.xs}" },
-      "dark-green": {
-        "background-color": { "value": "{ams.color.highlight.green}" },
-        "color": { "value": "{ams.color.text.inverse}" }
-      },
       "forced-colors": {
         "border-width": { "value": "{ams.border.width.md}" }
       },
-      "green": {
-        "background-color": { "value": "{ams.color.highlight.lime}" },
+      "azure": {
+        "background-color": { "value": "{ams.color.highlight.azure}" },
         "color": { "value": "{ams.color.text.default}" }
       },
-      "light-blue": {
-        "background-color": { "value": "{ams.color.highlight.azure}" },
+      "green": {
+        "background-color": { "value": "{ams.color.highlight.green}" },
+        "color": { "value": "{ams.color.text.inverse}" }
+      },
+      "lime": {
+        "background-color": { "value": "{ams.color.highlight.lime}" },
         "color": { "value": "{ams.color.text.default}" }
       },
       "magenta": {

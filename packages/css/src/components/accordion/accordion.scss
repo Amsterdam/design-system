@@ -3,6 +3,7 @@
  * Copyright Gemeente Amsterdam
  */
 
+@use "../../common/hyphenation" as *;
 @use "../../common/text-rendering" as *;
 
 .ams-accordion {
@@ -10,6 +11,7 @@
   flex-direction: column;
   gap: var(--ams-accordion-gap);
 
+  @include hyphenation;
   @include text-rendering;
 }
 
