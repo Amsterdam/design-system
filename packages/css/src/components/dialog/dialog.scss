@@ -19,8 +19,8 @@ so do not apply these styles without an `open` attribute. */
   inline-size: var(--ams-dialog-inline-size);
   max-block-size: var(--ams-dialog-max-block-size);
   max-inline-size: var(--ams-dialog-max-inline-size);
-  padding-block: var(--ams-dialog-padding-block);
-  padding-inline: var(--ams-dialog-padding-inline);
+  padding-block: 0;
+  padding-inline: 0;
 
   @include reset-dialog;
 
@@ -35,9 +35,18 @@ so do not apply these styles without an `open` attribute. */
   display: flex;
   gap: var(--ams-dialog-header-gap);
   justify-content: space-between;
+  padding-block: var(--ams-dialog-header-padding-block);
+  padding-inline: var(--ams-dialog-header-padding-inline);
 }
 
 .ams-dialog__body {
   overflow-y: auto;
   overscroll-behavior-y: contain;
+  padding-block: var(--ams-dialog-body-padding-block);
+  padding-inline: var(--ams-dialog-body-padding-inline);
+}
+
+.ams-dialog__footer {
+  padding-block: var(--ams-dialog-footer-padding-block);
+  padding-inline: var(--ams-dialog-footer-padding-inline);
 }
