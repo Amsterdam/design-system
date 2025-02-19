@@ -1,6 +1,6 @@
 {/* @license CC0-1.0 */}
 
-import { Canvas, Markdown, Meta, Primary } from "@storybook/blocks";
+import { Canvas, Controls, Markdown, Meta, Primary } from "@storybook/blocks";
 import * as TabsStories from "./Tabs.stories.tsx";
 import README from "../../../../packages/css/src/components/tabs/README.md?raw";
 
@@ -10,6 +10,8 @@ import README from "../../../../packages/css/src/components/tabs/README.md?raw";
 
 <Primary />
 
+<Controls />
+
 ## Examples
 
 ### With initial tab
@@ -18,3 +20,9 @@ The first tab is active by default.
 Another tab’s panel can be displayed initially as well.
 
 <Canvas of={TabsStories.WithInitialTab} />
+
+### With wide content
+
+The Tab Buttons list and the content within the active Tab Panel will scroll horizontally when their width exceeds the available space.
+
+<Canvas of={TabsStories.WithWideContent} />
