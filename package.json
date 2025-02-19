@@ -76,6 +76,7 @@
     "lint-fix:js": "eslint . --fix",
     "lint-workspaces": "pnpm -r --no-bail lint",
     "plop": "plop",
+    "postinstall": "pnpm --filter=!storybook -r build",
     "prepare": "husky",
     "prettier": "prettier --write .",
     "start": "npm-run-all --parallel watch:**",
