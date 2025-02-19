@@ -3,6 +3,45 @@
  * Copyright Gemeente Amsterdam
  */
 
-.ams-footer__top {
-  background-color: var(--ams-footer-top-background-color);
+@use "../../common/hyphenation" as *;
+@use "../../common/text-rendering" as *;
+
+@mixin reset-ul {
+  list-style: none;
+  margin-block: 0;
+}
+
+.ams-footer__spotlight {
+  background-color: var(--ams-footer-spotlight-background-color);
+}
+
+.ams-footer__menu {
+  column-gap: var(--ams-footer-menu-column-gap);
+  display: flex;
+  flex-wrap: wrap;
+  padding-block: var(--ams-footer-menu-padding-block);
+  padding-inline: var(--ams-footer-menu-padding-inline);
+  row-gap: var(--ams-footer-menu-row-gap);
+
+  @include reset-ul;
+}
+
+.ams-footer__menu-link {
+  color: var(--ams-footer-menu-link-color);
+  font-family: var(--ams-footer-menu-link-font-family);
+  font-size: var(--ams-footer-menu-link-font-size);
+  font-weight: var(--ams-footer-menu-link-font-weight);
+  line-height: var(--ams-footer-menu-link-line-height);
+  outline-offset: var(--ams-footer-menu-link-outline-offset);
+  text-decoration-line: var(--ams-footer-menu-link-text-decoration-line);
+  text-decoration-thickness: var(--ams-footer-menu-link-text-decoration-thickness);
+  text-underline-offset: var(--ams-footer-menu-link-text-underline-offset);
+
+  @include hyphenation;
+  @include text-rendering;
+
+  &:hover {
+    color: var(--ams-footer-menu-link-hover-color);
+    text-decoration-line: var(--ams-footer-menu-link-hover-text-decoration-line);
+  }
 }
