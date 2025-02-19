@@ -68,7 +68,7 @@ export const WithImage: Story = {
           <Card.Link href="/">Nederlands eerste houten woonwijk komt in Zuidoost</Card.Link>
         </Heading>
       </Card.HeadingGroup>,
-      <Paragraph key={3} className="ams-mb--sm">
+      <Paragraph className="ams-mb--sm" key={3}>
         We bouwen een levendige, groene en duurzame woonbuurt tussen de Gooiseweg en het Nelson Mandelapark.
       </Paragraph>,
       <Paragraph key={4} size="small">
