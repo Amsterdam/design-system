@@ -1,7 +1,28 @@
 {
   "ams": {
     "footer": {
-      "top": {
+      "menu": {
+        "column-gap": { "value": "{ams.space.lg}" },
+        "padding-block": { "value": "{ams.space.grid.sm}" },
+        "padding-inline": { "value": "{ams.grid.padding-inline}" },
+        "row-gap": { "value": "{ams.space.xs}" },
+        "link": {
+          "color": { "value": "{ams.links.color}" },
+          "font-family": { "value": "{ams.text.font-family}" },
+          "font-size": { "value": "{ams.text.level.6.font-size}" },
+          "font-weight": { "value": "{ams.text.font-weight.normal}" },
+          "line-height": { "value": "{ams.text.level.6.line-height}" },
+          "outline-offset": { "value": "{ams.focus.outline-offset}" },
+          "text-decoration-line": { "value": "{ams.links.subtle.text-decoration-line}" },
+          "text-decoration-thickness": { "value": "{ams.links.text-decoration-thickness}" },
+          "text-underline-offset": { "value": "{ams.links.text-underline-offset}" },
+          "hover": {
+            "color": { "value": "{ams.links.hover.color}" },
+            "text-decoration-line": { "value": "{ams.links.subtle.hover.text-decoration-line}" }
+          }
+        }
+      },
+      "spotlight": {
         "background-color": { "value": "#004699" }
       }
     }
