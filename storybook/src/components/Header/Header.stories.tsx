@@ -194,3 +194,16 @@ export const WithCustomTexts: Story = {
     navigationLabel: 'Navigatie',
   },
 }
+
+export const WithoutResponsiveAmsterdamLogo: Story = {
+  args: {
+    responsiveLogo: false,
+  },
+  parameters: {
+    docs: {
+      source: {
+        code: '<Header responsiveLogo={false} />', // Storybook removes boolean props set to `false`, which it should not here.
+      },
+    },
+  },
+}
