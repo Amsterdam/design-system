@@ -39,8 +39,8 @@
   }
 }
 
-// Increase the specificity to override the default logo styles
-.ams-header__logo--emblem-only.ams-header__logo--emblem-only {
+// Increase the specificity to override the default Logo styles
+.ams-logo.ams-header__logo--emblem-only {
   @media screen and (min-width: $ams-breakpoint-medium) {
     display: none;
   }
