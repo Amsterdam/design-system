@@ -29,7 +29,7 @@ so do not apply these styles without an `open` attribute. */
    * @see https://caniuse.com/mdn-css_selectors_backdrop_inherit_from_originating_element
    */
   &::backdrop {
-    background: var(--ams-dialog-backdrop-background-color, rgb(24 24 24 / 60%));
+    background: var(--ams-dialog-backdrop-background-color, rgb(24 24 24 / 62.5%));
   }
 }
 
