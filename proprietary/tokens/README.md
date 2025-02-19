@@ -111,8 +111,8 @@ The same goes for custom components that you may create in your application.
 
 ```css
 .my-input {
-  color: var(--ams-link-appearance-color);
-  text-underline-offset: var(--ams-link-appearance-text-underline-offset);
+  color: var(--ams-links-color);
+  text-underline-offset: var(--ams-links-text-underline-offset);
 }
 ```
 

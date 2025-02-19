@@ -20,6 +20,11 @@
     "declaration-block-no-duplicate-properties": true,
     "declaration-block-no-redundant-longhand-properties": null,
     "declaration-block-no-shorthand-property-overrides": true,
+    "declaration-property-value-allowed-list": [
+      {
+        "cursor": "/var\\(--ams-.*-cursor\\)/"
+      }
+    ],
     "declaration-property-value-disallowed-list": [
       {
         "text-align": ["left", "right"]

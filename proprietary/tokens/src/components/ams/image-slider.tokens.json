@@ -10,7 +10,7 @@
         "gap": { "value": "{ams.space.xs}" },
         "thumbnail": {
           "background-color": { "value": "transparent" },
-          "cursor": { "value": "{ams.action.activate.cursor}" },
+          "cursor": { "value": "{ams.cursor.interactive}" },
           "opacity": { "value": "40%" },
           "outline-offset": { "value": "{ams.focus.outline-offset}" },
           "in-view": {
