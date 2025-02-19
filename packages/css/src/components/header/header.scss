@@ -30,8 +30,8 @@
   user-select: none; // The hidden branding section should not be selectable
 }
 
-// Increase the specificity to override the default logo styles
-.ams-header__logo.ams-header__logo {
+// Increase the specificity to override the default Logo styles
+.ams-logo.ams-header__logo {
   display: none;
 
   @media screen and (min-width: $ams-breakpoint-medium) {
