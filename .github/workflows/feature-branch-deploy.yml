@@ -42,10 +42,10 @@ jobs:
       - name: Install dependencies
         run: pnpm install --frozen-lockfile
 
-      - name: Build
+      - name: Build Storybook
         env:
           STORYBOOK_BUILD_PATH: demo-${{ env.BRANCH_NAME }}
-        run: npm run build
+        run: pnpm --filter=storybook build
 
       - name: Create a version mark
         run: |

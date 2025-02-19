@@ -46,10 +46,6 @@ jobs:
         run: pnpm install --frozen-lockfile
         if: ${{ steps.release.outputs.releases_created == 'true' }}
 
-      - name: Build
-        run: pnpm run build
-        if: ${{ steps.release.outputs.releases_created == 'true' }}
-
       - name: Publish
         run: pnpm -r publish
         env:
@@ -57,12 +53,8 @@ jobs:
         if: ${{ steps.release.outputs.releases_created == 'true' }}
 
       # The logic below handles the Storybook deploy:
-      - name: "Restore build artifact: Storybook"
-        uses: dawidd6/action-download-artifact@20319c5641d495c8a52e688b7dc5fada6c3a9fbc # v8
-        with:
-          workflow: "lint-test.yml"
-          name: storybook
-          path: dist/storybook
+      - name: Build Storybook
+        run: pnpm --filter=storybook build
         if: ${{ steps.release.outputs.releases_created == 'true' }}
 
       - name: Deploy to GitHub Pages
