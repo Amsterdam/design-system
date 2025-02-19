@@ -15,6 +15,13 @@ import { HeaderMenuIcon } from './HeaderMenuIcon'
 import { HeaderMenuLink } from './HeaderMenuLink'
 import useIsAfterBreakpoint from '../common/useIsAfterBreakpoint'
 
+const LogoComponent = ({ logoBrand }: { logoBrand: LogoBrand }) => (
+  <>
+    <Logo brand={logoBrand} className="ams-header__logo" />
+    {logoBrand === 'amsterdam' && <Logo brand="amsterdam-emblem-only" className="ams-header__logo--emblem-only" />}
+  </>
+)
+
 export type HeaderProps = {
   /** The name of the application. */
   brandName?: string
@@ -67,7 +74,7 @@ const HeaderRoot = forwardRef(
         <div className="ams-header__branding">
           <a className="ams-header__logo-link" href={logoLink}>
             <span className="ams-visually-hidden">{logoLinkTitle}</span>
-            <Logo brand={logoBrand} />
+            <LogoComponent logoBrand={logoBrand} />
           </a>
           {brandName && (
             <Heading className="ams-header__brand-name" level={1} size="level-5">
@@ -84,7 +91,7 @@ const HeaderRoot = forwardRef(
             {/* The branding section is recreated here, to make sure the page menu breaks at the right spot */}
             <div aria-hidden className="ams-header__branding ams-header__branding--hidden">
               <div className="ams-header__logo-link">
-                <Logo brand={logoBrand} />
+                <LogoComponent logoBrand={logoBrand} />
               </div>
               {brandName && (
                 <span className="ams-heading ams-heading--level-5 ams-header__brand-name">{brandName}</span>

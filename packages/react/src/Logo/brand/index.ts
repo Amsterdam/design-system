@@ -1,4 +1,5 @@
 export { default as LogoAmsterdam } from './LogoAmsterdam'
+export { default as LogoAmsterdamEmblemOnly } from './LogoAmsterdamEmblemOnly'
 export { default as LogoGgdAmsterdam } from './LogoGgdAmsterdam'
 export { default as LogoMuseumWeesp } from './LogoMuseumWeesp'
 export { default as LogoStadsarchief } from './LogoStadsarchief'

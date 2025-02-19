@@ -8,6 +8,7 @@ import { forwardRef } from 'react'
 import type { ForwardedRef, ForwardRefExoticComponent, RefAttributes, SVGProps } from 'react'
 import {
   LogoAmsterdam,
+  LogoAmsterdamEmblemOnly,
   LogoGgdAmsterdam,
   LogoMuseumWeesp,
   LogoStadsarchief,
@@ -17,6 +18,7 @@ import {
 
 export type LogoBrand =
   | 'amsterdam'
+  | 'amsterdam-emblem-only'
   | 'ggd-amsterdam'
   | 'museum-weesp'
   | 'stadsarchief'
@@ -33,6 +35,7 @@ const logoConfig: Record<
   ForwardRefExoticComponent<SVGProps<SVGSVGElement> & RefAttributes<SVGSVGElement>>
 > = {
   amsterdam: LogoAmsterdam,
+  'amsterdam-emblem-only': LogoAmsterdamEmblemOnly,
   'ggd-amsterdam': LogoGgdAmsterdam,
   'museum-weesp': LogoMuseumWeesp,
   stadsarchief: LogoStadsarchief,
