@@ -15,10 +15,12 @@ import { HeaderMenuIcon } from './HeaderMenuIcon'
 import { HeaderMenuLink } from './HeaderMenuLink'
 import useIsAfterBreakpoint from '../common/useIsAfterBreakpoint'
 
-const LogoComponent = ({ logoBrand }: { logoBrand: LogoBrand }) => (
+const LogoComponent = ({ logoBrand, responsiveLogo }: { logoBrand: LogoBrand; responsiveLogo: boolean }) => (
   <>
-    <Logo brand={logoBrand} className="ams-header__logo" />
-    {logoBrand === 'amsterdam' && <Logo brand="amsterdam-emblem-only" className="ams-header__logo--emblem-only" />}
+    <Logo brand={logoBrand} className={clsx(logoBrand === 'amsterdam' && responsiveLogo && 'ams-header__logo')} />
+    {logoBrand === 'amsterdam' && responsiveLogo && (
+      <Logo brand="amsterdam-emblem-only" className="ams-header__logo--emblem-only" />
+    )}
   </>
 )
 
@@ -26,7 +28,7 @@ export type HeaderProps = {
   /** The name of the application. */
   brandName?: string
   /** The name of the brand for which to display the logo. */
-  logoBrand?: LogoBrand
+  logoBrand?: Exclude<LogoBrand, 'amsterdam-emblem-only'>
   /** The url for the link on the logo. */
   logoLink?: string
   /** The accessible text for the link on the logo. */
@@ -39,6 +41,8 @@ export type HeaderProps = {
   navigationLabel?: string
   /** Whether the menu button is visible on wide screens.  */
   noMenuButtonOnWideWindow?: boolean
+  /** Whether the Amsterdam logo should be responsive. */
+  responsiveLogo?: boolean
 } & HTMLAttributes<HTMLElement>
 
 const HeaderRoot = forwardRef(
@@ -54,6 +58,7 @@ const HeaderRoot = forwardRef(
       menuItems,
       navigationLabel = 'Hoofdnavigatie',
       noMenuButtonOnWideWindow,
+      responsiveLogo = true,
       ...restProps
     }: HeaderProps,
     ref: ForwardedRef<HTMLElement>,
@@ -74,7 +79,7 @@ const HeaderRoot = forwardRef(
         <div className="ams-header__branding">
           <a className="ams-header__logo-link" href={logoLink}>
             <span className="ams-visually-hidden">{logoLinkTitle}</span>
-            <LogoComponent logoBrand={logoBrand} />
+            <LogoComponent logoBrand={logoBrand} responsiveLogo={responsiveLogo} />
           </a>
           {brandName && (
             <Heading className="ams-header__brand-name" level={1} size="level-5">
@@ -91,7 +96,7 @@ const HeaderRoot = forwardRef(
             {/* The branding section is recreated here, to make sure the page menu breaks at the right spot */}
             <div aria-hidden className="ams-header__branding ams-header__branding--hidden">
               <div className="ams-header__logo-link">
-                <LogoComponent logoBrand={logoBrand} />
+                <LogoComponent logoBrand={logoBrand} responsiveLogo={responsiveLogo} />
               </div>
               {brandName && (
                 <span className="ams-heading ams-heading--level-5 ams-header__brand-name">{brandName}</span>
