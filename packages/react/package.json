@@ -77,7 +77,7 @@
   },
   "peerDependencies": {
     "@amsterdam/design-system-css": "workspace:*",
-    "react": "16 - 18",
-    "react-dom": "16 - 18"
+    "react": "16 - 19",
+    "react-dom": "16 - 19"
   }
 }
