@@ -28,7 +28,7 @@ Icons are aligned to the left of the text by default and vertically centred to t
 
 Icons use the same text levels as all typographic components to determine their size.
 This ensures easy alignment between icons and text.
-[Refer to the typography documentation for more information](/docs/brand-design-tokens-text--docs).
+[Refer to the typography documentation for more information](/docs/brand-design-tokens-typography--docs).
 
 ## Overview
 
