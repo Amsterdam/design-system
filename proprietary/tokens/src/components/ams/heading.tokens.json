@@ -2,7 +2,7 @@
   "ams": {
     "heading": {
       "color": { "value": "{ams.color.text.default}" },
-      "font-family": { "value": "{ams.font-family}" },
+      "font-family": { "value": "{ams.font-family.default}" },
       "font-weight": { "value": "{ams.font-weight.bold}" },
       "inverse": {
         "color": { "value": "{ams.color.text.inverse}" }

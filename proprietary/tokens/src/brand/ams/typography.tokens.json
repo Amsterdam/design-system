@@ -1,6 +1,8 @@
 {
   "ams": {
-    "font-family": { "value": "'Amsterdam Sans', Arial, sans-serif" },
+    "font-family": {
+      "default": { "value": "'Amsterdam Sans', Arial, sans-serif" }
+    },
     "font-size": {
       "small": { "value": "clamp(0.9643rem, calc(0.9054rem + 0.2946vw), 1.2rem)" },
       "default": { "value": "clamp(1.125rem, calc(1.0313rem + 0.4688vw), 1.5rem)" },

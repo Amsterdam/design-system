@@ -4,7 +4,7 @@
       "background-color": { "value": "{ams.color.background}" },
       "box-shadow": { "value": "inset 0 0 0 {ams.border.width.sm} {ams.color.interactive.secondary}" },
       "color": { "value": "{ams.color.text.default}" },
-      "font-family": { "value": "{ams.font-family}" },
+      "font-family": { "value": "{ams.font-family.default}" },
       "font-size": { "value": "{ams.font-size.default}" },
       "font-weight": { "value": "{ams.font-weight.default}" },
       "line-height": { "value": "{ams.line-height.default}" },

@@ -2,7 +2,7 @@
   "ams": {
     "error-message": {
       "color": { "value": "{ams.color.feedback.error}" },
-      "font-family": { "value": "{ams.font-family}" },
+      "font-family": { "value": "{ams.font-family.default}" },
       "font-size": { "value": "{ams.font-size.small}" },
       "font-weight": { "value": "{ams.font-weight.default}" },
       "gap": { "value": "{ams.space.xs}" },

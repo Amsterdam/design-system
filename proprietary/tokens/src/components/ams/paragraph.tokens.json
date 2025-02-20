@@ -2,7 +2,7 @@
   "ams": {
     "paragraph": {
       "color": { "value": "{ams.color.text.default}" },
-      "font-family": { "value": "{ams.font-family}" },
+      "font-family": { "value": "{ams.font-family.default}" },
       "font-size": { "value": "{ams.font-size.default}" },
       "font-weight": { "value": "{ams.font-weight.default}" },
       "line-height": { "value": "{ams.line-height.default}" },

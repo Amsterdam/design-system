@@ -5,7 +5,7 @@
       "row-gap": { "value": "{ams.space.grid.xs}" },
       "item": {
         "color": { "value": "{ams.links.color}" },
-        "font-family": { "value": "{ams.font-family}" },
+        "font-family": { "value": "{ams.font-family.default}" },
         "font-size": { "value": "{ams.font-size.small}" },
         "font-weight": { "value": "{ams.font-weight.default}" },
         "gap": { "value": "{ams.space.sm}" },

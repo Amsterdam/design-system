@@ -3,7 +3,7 @@
     "badge": {
       "background-color": { "value": "{ams.color.feedback.success}" },
       "color": { "value": "{ams.color.text.inverse}" },
-      "font-family": { "value": "{ams.font-family}" },
+      "font-family": { "value": "{ams.font-family.default}" },
       "font-size": { "value": "{ams.font-size.default}" },
       "font-weight": { "value": "{ams.font-weight.bold}" },
       "line-height": { "value": "{ams.line-height.default}" },

@@ -7,7 +7,7 @@
       },
       "legend": {
         "color": { "value": "{ams.color.text.default}" },
-        "font-family": { "value": "{ams.font-family}" },
+        "font-family": { "value": "{ams.font-family.default}" },
         "font-size": { "value": "{ams.font-size.heading-4}" },
         "font-weight": { "value": "{ams.font-weight.bold}" },
         "line-height": { "value": "{ams.line-height.heading-4}" },

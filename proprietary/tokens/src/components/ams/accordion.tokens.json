@@ -5,7 +5,7 @@
       "button": {
         "color": { "value": "{ams.color.interactive.default}" },
         "cursor": { "value": "{ams.cursor.interactive}" },
-        "font-family": { "value": "{ams.font-family}" },
+        "font-family": { "value": "{ams.font-family.default}" },
         "font-size": { "value": "{ams.font-size.heading-4}" },
         "font-weight": { "value": "{ams.font-weight.bold}" },
         "gap": { "value": "{ams.space.sm}" },

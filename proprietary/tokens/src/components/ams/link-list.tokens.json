@@ -4,7 +4,7 @@
       "gap": { "value": "{ams.space.sm}" },
       "link": {
         "color": { "value": "{ams.links.color}" },
-        "font-family": { "value": "{ams.font-family}" },
+        "font-family": { "value": "{ams.font-family.default}" },
         "font-size": { "value": "{ams.font-size.default}" },
         "font-weight": { "value": "{ams.font-weight.default}" },
         "gap": { "value": "{ams.space.sm}" },

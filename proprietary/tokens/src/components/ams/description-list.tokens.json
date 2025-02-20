@@ -3,7 +3,7 @@
     "description-list": {
       "color": { "value": "{ams.color.text.default}" },
       "column-gap": { "value": "{ams.space.lg}" },
-      "font-family": { "value": "{ams.font-family}" },
+      "font-family": { "value": "{ams.font-family.default}" },
       "font-size": { "value": "{ams.font-size.default}" },
       "line-height": { "value": "{ams.line-height.default}" },
       "row-gap": { "value": "{ams.space.sm}" },

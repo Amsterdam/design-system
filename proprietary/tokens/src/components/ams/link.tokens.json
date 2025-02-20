@@ -2,7 +2,7 @@
   "ams": {
     "link": {
       "color": { "value": "{ams.links.color}" },
-      "font-family": { "value": "{ams.font-family}" },
+      "font-family": { "value": "{ams.font-family.default}" },
       "font-weight": { "value": "{ams.font-weight.default}" },
       "outline-offset": { "value": "{ams.focus.outline-offset}" },
       "hover": {

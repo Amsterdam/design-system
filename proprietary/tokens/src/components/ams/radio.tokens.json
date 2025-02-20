@@ -3,7 +3,7 @@
     "radio": {
       "color": { "value": "{ams.color.text.default}" },
       "cursor": { "value": "{ams.cursor.interactive}" },
-      "font-family": { "value": "{ams.font-family}" },
+      "font-family": { "value": "{ams.font-family.default}" },
       "font-size": { "value": "{ams.font-size.default}" },
       "font-weight": { "value": "{ams.font-weight.default}" },
       "gap": { "value": "{ams.space.sm}" },
