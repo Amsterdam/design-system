@@ -9,9 +9,9 @@
         "color": { "value": "{ams.color.interactive.default}" },
         "cursor": { "value": "{ams.cursor.interactive}" },
         "font-family": { "value": "{ams.typography.font-family}" },
-        "font-size": { "value": "{ams.typography.body-text.font-size}" },
-        "font-weight": { "value": "{ams.typography.body-text.font-weight}" },
-        "line-height": { "value": "{ams.typography.body-text.line-height}" },
+        "font-size": { "value": "{ams.typography.font-size}" },
+        "font-weight": { "value": "{ams.typography.font-weight}" },
+        "line-height": { "value": "{ams.typography.line-height}" },
         "outline-offset": { "value": "-0.25rem" },
         "padding-block": { "value": "{ams.space.sm}" },
         "padding-inline": { "value": "{ams.space.md}" },
@@ -22,7 +22,7 @@
         "selected": {
           "box-shadow": { "value": "inset 0 calc({ams.border.width.xl} * -1) {ams.color.interactive.default}" },
           "color": { "value": "{ams.color.interactive.default}" },
-          "font-weight": { "value": "{ams.typography.body-text.bold.font-weight}" }
+          "font-weight": { "value": "{ams.typography.bold.font-weight}" }
         },
         "disabled": {
           "color": { "value": "{ams.color.interactive.disabled}" },

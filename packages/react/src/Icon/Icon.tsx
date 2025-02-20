@@ -9,7 +9,7 @@ import clsx from 'clsx'
 import { forwardRef } from 'react'
 import type { ForwardedRef, HTMLAttributes, ReactNode } from 'react'
 
-export const iconSizes = ['body-text-small', 'body-text-large', 'heading-3', 'heading-4', 'heading-5', 'heading-6']
+export const iconSizes = ['small', 'large', 'heading-3', 'heading-4', 'heading-5', 'heading-6']
 
 type IconSize = (typeof iconSizes)[number]
 

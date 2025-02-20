@@ -57,7 +57,7 @@ export const WithBodyText: Story = {
 
 export const WithSmallBodyText: Story = {
   args: {
-    size: 'body-text-small',
+    size: 'small',
   },
   render: (args) => (
     <Row gap="small">
@@ -71,7 +71,7 @@ export const WithSmallBodyText: Story = {
 
 export const WithLargeBodyText: Story = {
   args: {
-    size: 'body-text-large',
+    size: 'large',
   },
   render: (args) => (
     <Row gap="small">

@@ -3,9 +3,9 @@
     "button": {
       "cursor": { "value": "{ams.cursor.interactive}" },
       "font-family": { "value": "{ams.typography.font-family}" },
-      "font-size": { "value": "{ams.typography.body-text.font-size}" },
-      "font-weight": { "value": "{ams.typography.body-text.font-weight}" },
-      "line-height": { "value": "{ams.typography.body-text.line-height}" },
+      "font-size": { "value": "{ams.typography.font-size}" },
+      "font-weight": { "value": "{ams.typography.font-weight}" },
+      "line-height": { "value": "{ams.typography.line-height}" },
       "gap": { "value": "{ams.space.sm}" },
       "outline-offset": { "value": "{ams.focus.outline-offset}" },
       "padding-block": { "value": "{ams.space.sm}" },

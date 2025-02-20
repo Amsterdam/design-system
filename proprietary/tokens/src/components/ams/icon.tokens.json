@@ -1,15 +1,15 @@
 {
   "ams": {
     "icon": {
-      "font-size": { "value": "{ams.typography.body-text.font-size}" },
-      "line-height": { "value": "{ams.typography.body-text.line-height}" },
-      "body-text-small": {
-        "font-size": { "value": "{ams.typography.body-text.small.font-size}" },
-        "line-height": { "value": "{ams.typography.body-text.small.line-height}" }
+      "font-size": { "value": "{ams.typography.font-size}" },
+      "line-height": { "value": "{ams.typography.line-height}" },
+      "small": {
+        "font-size": { "value": "{ams.typography.small.font-size}" },
+        "line-height": { "value": "{ams.typography.small.line-height}" }
       },
-      "body-text-large": {
-        "font-size": { "value": "{ams.typography.body-text.large.font-size}" },
-        "line-height": { "value": "{ams.typography.body-text.large.line-height}" }
+      "large": {
+        "font-size": { "value": "{ams.typography.large.font-size}" },
+        "line-height": { "value": "{ams.typography.large.line-height}" }
       },
       "heading-3": {
         "font-size": { "value": "{ams.typography.heading.3.font-size}" },
