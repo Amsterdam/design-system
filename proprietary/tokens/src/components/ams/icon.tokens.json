@@ -1,31 +1,31 @@
 {
   "ams": {
     "icon": {
-      "font-size": { "value": "{ams.typography.font-size.default}" },
-      "line-height": { "value": "{ams.typography.line-height.default}" },
+      "font-size": { "value": "{ams.font-size.default}" },
+      "line-height": { "value": "{ams.line-height.default}" },
       "small": {
-        "font-size": { "value": "{ams.typography.font-size.small}" },
-        "line-height": { "value": "{ams.typography.line-height.small}" }
+        "font-size": { "value": "{ams.font-size.small}" },
+        "line-height": { "value": "{ams.line-height.small}" }
       },
       "large": {
-        "font-size": { "value": "{ams.typography.font-size.large}" },
-        "line-height": { "value": "{ams.typography.line-height.large}" }
+        "font-size": { "value": "{ams.font-size.large}" },
+        "line-height": { "value": "{ams.line-height.large}" }
       },
       "heading-3": {
-        "font-size": { "value": "{ams.typography.font-size.heading-3}" },
-        "line-height": { "value": "{ams.typography.line-height.heading-3}" }
+        "font-size": { "value": "{ams.font-size.heading-3}" },
+        "line-height": { "value": "{ams.line-height.heading-3}" }
       },
       "heading-4": {
-        "font-size": { "value": "{ams.typography.font-size.heading-4}" },
-        "line-height": { "value": "{ams.typography.line-height.heading-4}" }
+        "font-size": { "value": "{ams.font-size.heading-4}" },
+        "line-height": { "value": "{ams.line-height.heading-4}" }
       },
       "heading-5": {
-        "font-size": { "value": "{ams.typography.font-size.heading-5}" },
-        "line-height": { "value": "{ams.typography.line-height.heading-5}" }
+        "font-size": { "value": "{ams.font-size.heading-5}" },
+        "line-height": { "value": "{ams.line-height.heading-5}" }
       },
       "heading-6": {
-        "font-size": { "value": "{ams.typography.font-size.heading-6}" },
-        "line-height": { "value": "{ams.typography.line-height.heading-6}" }
+        "font-size": { "value": "{ams.font-size.heading-6}" },
+        "line-height": { "value": "{ams.line-height.heading-6}" }
       },
       "inverse": {
         "color": { "value": "{ams.color.text.inverse}" }

@@ -3,18 +3,18 @@
     "description-list": {
       "color": { "value": "{ams.color.text.default}" },
       "column-gap": { "value": "{ams.space.lg}" },
-      "font-family": { "value": "{ams.typography.font-family}" },
-      "font-size": { "value": "{ams.typography.font-size.default}" },
-      "line-height": { "value": "{ams.typography.line-height.default}" },
+      "font-family": { "value": "{ams.font-family}" },
+      "font-size": { "value": "{ams.font-size.default}" },
+      "line-height": { "value": "{ams.line-height.default}" },
       "row-gap": { "value": "{ams.space.sm}" },
       "inverse": {
         "color": { "value": "{ams.color.text.inverse}" }
       },
       "term": {
-        "font-weight": { "value": "{ams.typography.font-weight.bold}" }
+        "font-weight": { "value": "{ams.font-weight.bold}" }
       },
       "description": {
-        "font-weight": { "value": "{ams.typography.font-weight.default}" },
+        "font-weight": { "value": "{ams.font-weight.default}" },
         "padding-inline-start": { "value": "{ams.space.lg}" }
       }
     }
