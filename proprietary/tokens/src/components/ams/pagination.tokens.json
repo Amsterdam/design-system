@@ -3,7 +3,7 @@
     "pagination": {
       "font-family": { "value": "{ams.typography.font-family}" },
       "font-size": { "value": "{ams.typography.font-size.default}" },
-      "font-weight": { "value": "{ams.typography.font-weight}" },
+      "font-weight": { "value": "{ams.typography.font-weight.default}" },
       "line-height": { "value": "{ams.typography.line-height.default}" },
       "link": {
         "color": { "value": "{ams.links.color}" },
@@ -14,7 +14,7 @@
         "text-decoration-thickness": { "value": "{ams.links.text-decoration-thickness}" },
         "text-underline-offset": { "value": "{ams.links.text-underline-offset}" },
         "current": {
-          "font-weight": { "value": "{ams.typography.bold.font-weight}" }
+          "font-weight": { "value": "{ams.typography.font-weight.bold}" }
         },
         "hover": {
           "color": { "value": "{ams.links.hover.color}" },

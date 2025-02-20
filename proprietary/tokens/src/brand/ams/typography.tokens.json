@@ -15,7 +15,10 @@
         "heading-5": { "value": "{ams.typography.font-size.default}" },
         "heading-6": { "value": "{ams.typography.font-size.small}" }
       },
-      "font-weight": { "value": "400" },
+      "font-weight": {
+        "default": { "value": "400" },
+        "bold": { "value": "800" }
+      },
       "line-height": {
         "small": { "value": "{ams.typography.line-height.default}" },
         "default": { "value": "1.6" },
@@ -28,12 +31,6 @@
         "heading-4": { "value": "{ams.typography.line-height.large}" },
         "heading-5": { "value": "{ams.typography.line-height.default}" },
         "heading-6": { "value": "{ams.typography.line-height.default}" }
-      },
-      "bold": {
-        "font-weight": { "value": "800" }
-      },
-      "heading": {
-        "font-weight": { "value": "800" }
       }
     }
   }

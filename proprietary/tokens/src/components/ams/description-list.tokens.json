@@ -11,10 +11,10 @@
         "color": { "value": "{ams.color.text.inverse}" }
       },
       "term": {
-        "font-weight": { "value": "{ams.typography.bold.font-weight}" }
+        "font-weight": { "value": "{ams.typography.font-weight.bold}" }
       },
       "description": {
-        "font-weight": { "value": "{ams.typography.font-weight}" },
+        "font-weight": { "value": "{ams.typography.font-weight.default}" },
         "padding-inline-start": { "value": "{ams.space.lg}" }
       }
     }

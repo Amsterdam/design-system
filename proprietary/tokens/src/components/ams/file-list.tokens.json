@@ -6,7 +6,7 @@
       "file": {
         "font-family": { "value": "{ams.typography.font-family}" },
         "font-size": { "value": "{ams.typography.font-size.small}" },
-        "font-weight": { "value": "{ams.typography.font-weight}" },
+        "font-weight": { "value": "{ams.typography.font-weight.default}" },
         "gap": { "value": "{ams.space.sm}" },
         "line-height": { "value": "{ams.typography.line-height.small}" },
         "details": {

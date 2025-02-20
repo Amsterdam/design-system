@@ -4,7 +4,7 @@
       "color": { "value": "{ams.color.text.default}" },
       "font-family": { "value": "{ams.typography.font-family}" },
       "font-size": { "value": "{ams.typography.font-size.heading-0}" },
-      "font-weight": { "value": "{ams.typography.heading.font-weight}" },
+      "font-weight": { "value": "{ams.typography.font-weight.bold}" },
       "line-height": { "value": "{ams.typography.line-height.heading-0}" },
       "inverse": {
         "color": { "value": "{ams.color.text.inverse}" }

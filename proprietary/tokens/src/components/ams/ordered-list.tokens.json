@@ -4,7 +4,7 @@
       "color": { "value": "{ams.color.text.default}" },
       "font-family": { "value": "{ams.typography.font-family}" },
       "font-size": { "value": "{ams.typography.font-size.default}" },
-      "font-weight": { "value": "{ams.typography.font-weight}" },
+      "font-weight": { "value": "{ams.typography.font-weight.default}" },
       "gap": { "value": "{ams.space.md}" },
       "line-height": { "value": "{ams.typography.line-height.default}" },
       "list-style-type": { "value": "decimal" },

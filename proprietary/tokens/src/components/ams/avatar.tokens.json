@@ -6,7 +6,7 @@
       "color": { "value": "{ams.color.text.inverse}" },
       "font-family": { "value": "{ams.typography.font-family}" },
       "font-size": { "value": "{ams.typography.font-size.small}" },
-      "font-weight": { "value": "{ams.typography.font-weight}" },
+      "font-weight": { "value": "{ams.typography.font-weight.default}" },
       "line-height": { "value": "{ams.typography.line-height.small}" },
       "padding-block": { "value": "{ams.space.xs}" },
       "padding-inline": { "value": "{ams.space.xs}" },
