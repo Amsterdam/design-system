@@ -2,20 +2,18 @@
   "ams": {
     "typography": {
       "font-family": { "value": "'Amsterdam Sans', Arial, sans-serif" },
-      "font-size": { "value": "clamp(1.125rem, calc(1.0313rem + 0.4688vw), 1.5rem)" },
+      "font-size": {
+        "small": { "value": "clamp(0.9643rem, calc(0.9054rem + 0.2946vw), 1.2rem)" },
+        "default": { "value": "clamp(1.125rem, calc(1.0313rem + 0.4688vw), 1.5rem)" },
+        "large": { "value": "clamp(1.3125rem, calc(1.1719rem + 0.7031vw), 1.875rem)" },
+        "x-large": { "value": "clamp(1.5313rem, calc(1.3281rem + 1.0156vw), 2.3438rem)" }
+      },
       "font-weight": { "value": "400" },
-      "line-height": { "value": "1.6" },
-      "small": {
-        "font-size": { "value": "clamp(0.9643rem, calc(0.9054rem + 0.2946vw), 1.2rem)" },
-        "line-height": { "value": "1.6" }
-      },
-      "large": {
-        "font-size": { "value": "clamp(1.3125rem, calc(1.1719rem + 0.7031vw), 1.875rem)" },
-        "line-height": { "value": "1.5" }
-      },
-      "x-large": {
-        "font-size": { "value": "clamp(1.5313rem, calc(1.3281rem + 1.0156vw), 2.3438rem)" },
-        "line-height": { "value": "1.3" }
+      "line-height": {
+        "small": { "value": "1.6" },
+        "default": { "value": "1.6" },
+        "large": { "value": "1.5" },
+        "x-large": { "value": "1.3" }
       },
       "bold": {
         "font-weight": { "value": "800" }

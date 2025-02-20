@@ -22,8 +22,8 @@
         }
       },
       "standalone": {
-        "font-size": { "value": "{ams.typography.font-size}" },
-        "line-height": { "value": "{ams.typography.line-height}" },
+        "font-size": { "value": "{ams.typography.font-size.default}" },
+        "line-height": { "value": "{ams.typography.line-height.default}" },
         "text-decoration-thickness": { "value": "{ams.links.text-decoration-thickness}" },
         "text-underline-offset": { "value": "{ams.links.text-underline-offset}" },
         "hover": {

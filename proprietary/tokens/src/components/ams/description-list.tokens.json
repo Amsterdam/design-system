@@ -4,8 +4,8 @@
       "color": { "value": "{ams.color.text.default}" },
       "column-gap": { "value": "{ams.space.lg}" },
       "font-family": { "value": "{ams.typography.font-family}" },
-      "font-size": { "value": "{ams.typography.font-size}" },
-      "line-height": { "value": "{ams.typography.line-height}" },
+      "font-size": { "value": "{ams.typography.font-size.default}" },
+      "line-height": { "value": "{ams.typography.line-height.default}" },
       "row-gap": { "value": "{ams.space.sm}" },
       "inverse": {
         "color": { "value": "{ams.color.text.inverse}" }
