@@ -57,6 +57,7 @@ export const parameters = {
         'Docs',
         ['Introduction', 'Developer Guide', ['Getting Started']],
         'Brand',
+        ['*', ['*', 'Common']],
         'Components',
         ['Buttons', 'Containers', 'Feedback', 'Forms', 'Layout', 'Media', 'Navigation', 'Text'],
         'Utilities',

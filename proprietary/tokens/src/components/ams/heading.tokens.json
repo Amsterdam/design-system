@@ -8,27 +8,27 @@
         "color": { "value": "{ams.color.text.inverse}" }
       },
       "1": {
-        "font-size": { "value": "{ams.font-size.heading-1}" },
+        "font-size": { "value": "{ams.headings.level-1.font-size}" },
         "line-height": { "value": "{ams.line-height.heading-1}" }
       },
       "2": {
-        "font-size": { "value": "{ams.font-size.heading-2}" },
+        "font-size": { "value": "{ams.headings.level-2.font-size}" },
         "line-height": { "value": "{ams.line-height.heading-2}" }
       },
       "3": {
-        "font-size": { "value": "{ams.font-size.heading-3}" },
+        "font-size": { "value": "{ams.headings.level-3.font-size}" },
         "line-height": { "value": "{ams.line-height.heading-3}" }
       },
       "4": {
-        "font-size": { "value": "{ams.font-size.heading-4}" },
+        "font-size": { "value": "{ams.headings.level-4.font-size}" },
         "line-height": { "value": "{ams.line-height.heading-4}" }
       },
       "5": {
-        "font-size": { "value": "{ams.font-size.heading-5}" },
+        "font-size": { "value": "{ams.headings.level-5.font-size}" },
         "line-height": { "value": "{ams.line-height.heading-5}" }
       },
       "6": {
-        "font-size": { "value": "{ams.font-size.heading-6}" },
+        "font-size": { "value": "{ams.headings.level-6.font-size}" },
         "line-height": { "value": "{ams.line-height.heading-6}" }
       }
     }

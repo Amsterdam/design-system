@@ -8,7 +8,7 @@
       "legend": {
         "color": { "value": "{ams.color.text.default}" },
         "font-family": { "value": "{ams.font-family.default}" },
-        "font-size": { "value": "{ams.font-size.heading-4}" },
+        "font-size": { "value": "{ams.headings.level-4.font-size}" },
         "font-weight": { "value": "{ams.font-weight.bold}" },
         "line-height": { "value": "{ams.line-height.heading-4}" },
         "margin-block-end": { "value": "{ams.space.md}" }

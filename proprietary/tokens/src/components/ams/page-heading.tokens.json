@@ -3,7 +3,7 @@
     "page-heading": {
       "color": { "value": "{ams.color.text.default}" },
       "font-family": { "value": "{ams.font-family.default}" },
-      "font-size": { "value": "{ams.font-size.heading-0}" },
+      "font-size": { "value": "{ams.headings.level-0.font-size}" },
       "font-weight": { "value": "{ams.font-weight.bold}" },
       "line-height": { "value": "{ams.line-height.heading-0}" },
       "inverse": {

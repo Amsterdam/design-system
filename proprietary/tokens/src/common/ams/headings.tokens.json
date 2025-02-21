@@ -1,0 +1,27 @@
+{
+  "ams": {
+    "headings": {
+      "level-0": {
+        "font-size": { "value": "{ams.font-size.4x-large}" }
+      },
+      "level-1": {
+        "font-size": { "value": "{ams.font-size.3x-large}" }
+      },
+      "level-2": {
+        "font-size": { "value": "{ams.font-size.2x-large}" }
+      },
+      "level-3": {
+        "font-size": { "value": "{ams.font-size.x-large}" }
+      },
+      "level-4": {
+        "font-size": { "value": "{ams.font-size.large}" }
+      },
+      "level-5": {
+        "font-size": { "value": "{ams.font-size.default}" }
+      },
+      "level-6": {
+        "font-size": { "value": "{ams.font-size.small}" }
+      }
+    }
+  }
+}
