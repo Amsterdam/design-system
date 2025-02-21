@@ -3,6 +3,7 @@
  * Copyright Gemeente Amsterdam
  */
 
+import { aspectRatioOptions } from '@amsterdam/design-system-react/src/common/types'
 import { Meta, StoryObj } from '@storybook/react'
 import { AspectRatio } from './AspectRatio'
 
@@ -15,12 +16,12 @@ const meta = {
   argTypes: {
     aspectRatio: {
       control: 'radio',
-      options: ['2x-wide', 'x-wide', 'wide', 'square', 'tall', 'x-tall'],
+      options: aspectRatioOptions,
     },
   },
   render: ({ aspectRatio }) => (
     <div className="ams-docs-column ams-docs-aspect-ratio">
-      <div className={`ams-docs-item ams-aspect-ratio--${aspectRatio}`}></div>
+      <div className={`ams-docs-item ams-aspect-ratio--${aspectRatio}`} style={{ paddingBlock: 0 }}></div>
     </div>
   ),
 } satisfies Meta<typeof AspectRatio>
