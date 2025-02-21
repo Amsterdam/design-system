@@ -1,1 +1,0 @@
-const s=["x-tall","tall","square","wide","x-wide","2x-wide"],n=["start","center","baseline","end"],t=n.filter(e=>e!=="baseline"),a=["center","end","between","around","evenly"];export{t as a,s as b,n as c,a as m};
