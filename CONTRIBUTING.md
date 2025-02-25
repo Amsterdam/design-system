@@ -159,7 +159,6 @@ To enable correct validation and to fix lint/style errors on save, add this to y
 ### Run storybook
 
 - Install dependencies: `pnpm install`
-- Build the packages: `npm run build`
 - Run storybook: `npm start`
 
 ### Adding a new component
