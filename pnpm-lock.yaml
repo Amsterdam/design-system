@@ -57,8 +57,8 @@ importers:
         specifier: 7.37.4
         version: 7.37.4(eslint@9.21.0)
       globals:
-        specifier: 15.15.0
-        version: 15.15.0
+        specifier: 16.0.0
+        version: 16.0.0
       html-validate:
         specifier: 9.4.0
         version: 9.4.0(jest-diff@29.7.0)(jest-snapshot@29.7.0)(jest@29.7.0(@types/node@22.13.5))(vitest@3.0.2(@types/node@22.13.5)(jsdom@20.0.3)(sass@1.85.0)(terser@5.37.0)(yaml@2.7.0))
@@ -2712,8 +2712,8 @@ packages:
   '@vitest/pretty-format@3.0.2':
     resolution: {integrity: sha512-yBohcBw/T/p0/JRgYD+IYcjCmuHzjC3WLAKsVE4/LwiubzZkE8N49/xIQ/KGQwDRA8PaviF8IRO8JMWMngdVVQ==}
 
-  '@vitest/pretty-format@3.0.6':
-    resolution: {integrity: sha512-Zyctv3dbNL+67qtHfRnUE/k8qxduOamRfAL1BurEIQSyOEFffoMvx2pnDSSbKAAVxY0Ej2J/GH2dQKI0W2JyVg==}
+  '@vitest/pretty-format@3.0.7':
+    resolution: {integrity: sha512-CiRY0BViD/V8uwuEzz9Yapyao+M9M008/9oMOSQydwbwb+CMokEq3XVaF3XK/VWaOK0Jm9z7ENhybg70Gtxsmg==}
 
   '@vitest/runner@3.0.2':
     resolution: {integrity: sha512-GHEsWoncrGxWuW8s405fVoDfSLk6RF2LCXp6XhevbtDjdDme1WV/eNmUueDfpY1IX3MJaCRelVCEXsT9cArfEg==}
@@ -4180,8 +4180,8 @@ packages:
     resolution: {integrity: sha512-oahGvuMGQlPw/ivIYBjVSrWAfWLBeku5tpPE2fOPLi+WHffIWbuh2tCjhyQhTBPMf5E9jDEH4FOmTYgYwbKwtQ==}
     engines: {node: '>=18'}
 
-  globals@15.15.0:
-    resolution: {integrity: sha512-7ACyT3wmyp3I61S4fG682L0VA2RGD9otkqGJIwNUMF1SWUombIIk+af1unuDYgMm082aHYwD+mzJvv9Iu8dsgg==}
+  globals@16.0.0:
+    resolution: {integrity: sha512-iInW14XItCXET01CQFqudPOWP2jYMl7T+QRQT+UNcR/iQncN/F0UNpgd76iFkBPgNQb4+X3LV9tLJYzwh+Gl3A==}
     engines: {node: '>=18'}
 
   globalthis@1.0.4:
@@ -9984,7 +9984,7 @@ snapshots:
       tinyrainbow: 2.0.0
     optional: true
 
-  '@vitest/pretty-format@3.0.6':
+  '@vitest/pretty-format@3.0.7':
     dependencies:
       tinyrainbow: 2.0.0
     optional: true
@@ -11790,7 +11790,7 @@ snapshots:
 
   globals@14.0.0: {}
 
-  globals@15.15.0: {}
+  globals@16.0.0: {}
 
   globalthis@1.0.4:
     dependencies:
@@ -15693,7 +15693,7 @@ snapshots:
     dependencies:
       '@vitest/expect': 3.0.2
       '@vitest/mocker': 3.0.2(vite@6.1.1(@types/node@22.13.5)(sass@1.85.0)(terser@5.37.0)(yaml@2.7.0))
-      '@vitest/pretty-format': 3.0.6
+      '@vitest/pretty-format': 3.0.7
       '@vitest/runner': 3.0.2
       '@vitest/snapshot': 3.0.2
       '@vitest/spy': 3.0.2
