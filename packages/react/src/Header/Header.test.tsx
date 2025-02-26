@@ -66,16 +66,16 @@ describe('Header', () => {
     expect(component).toBeInTheDocument()
   })
 
-  it('renders two logo’s when brand is "amsterdam" and responsiveLogo is true', () => {
-    const { container } = render(<Header logoBrand="amsterdam" responsiveLogo={true} />)
+  it('renders two logo’s when brand is "amsterdam" and brandName is set', () => {
+    const { container } = render(<Header brandName="Brand name" logoBrand="amsterdam" />)
 
     const component = container.querySelectorAll('.ams-logo')
 
     expect(component).toHaveLength(2)
   })
 
-  it('renders one logo when brand is "amsterdam" and responsiveLogo is false', () => {
-    const { container } = render(<Header logoBrand="amsterdam" responsiveLogo={false} />)
+  it('renders one logo when brand is "amsterdam" and brandName is not set', () => {
+    const { container } = render(<Header logoBrand="amsterdam" />)
 
     const component = container.querySelectorAll('.ams-logo')
 
