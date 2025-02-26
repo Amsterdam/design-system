@@ -15,10 +15,10 @@ import { HeaderMenuIcon } from './HeaderMenuIcon'
 import { HeaderMenuLink } from './HeaderMenuLink'
 import useIsAfterBreakpoint from '../common/useIsAfterBreakpoint'
 
-const LogoComponent = ({ logoBrand, responsiveLogo }: { logoBrand: LogoBrand; responsiveLogo: boolean }) => (
+const LogoComponent = ({ hasBrandName, logoBrand }: { hasBrandName: boolean; logoBrand: LogoBrand }) => (
   <>
-    <Logo brand={logoBrand} className={clsx(logoBrand === 'amsterdam' && responsiveLogo && 'ams-header__logo')} />
-    {logoBrand === 'amsterdam' && responsiveLogo && (
+    <Logo brand={logoBrand} className={clsx(logoBrand === 'amsterdam' && hasBrandName && 'ams-header__logo')} />
+    {logoBrand === 'amsterdam' && hasBrandName && (
       <Logo brand="amsterdam-emblem-only" className="ams-header__logo--emblem-only" />
     )}
   </>
@@ -41,8 +41,6 @@ export type HeaderProps = {
   navigationLabel?: string
   /** Whether the menu button is visible on wide screens.  */
   noMenuButtonOnWideWindow?: boolean
-  /** Whether the Amsterdam logo should be responsive. */
-  responsiveLogo?: boolean
 } & HTMLAttributes<HTMLElement>
 
 const HeaderRoot = forwardRef(
@@ -58,7 +56,6 @@ const HeaderRoot = forwardRef(
       menuItems,
       navigationLabel = 'Hoofdnavigatie',
       noMenuButtonOnWideWindow,
-      responsiveLogo = true,
       ...restProps
     }: HeaderProps,
     ref: ForwardedRef<HTMLElement>,
@@ -79,7 +76,7 @@ const HeaderRoot = forwardRef(
         <div className="ams-header__branding">
           <a className="ams-header__logo-link" href={logoLink}>
             <span className="ams-visually-hidden">{logoLinkTitle}</span>
-            <LogoComponent logoBrand={logoBrand} responsiveLogo={responsiveLogo} />
+            <LogoComponent hasBrandName={Boolean(brandName)} logoBrand={logoBrand} />
           </a>
           {brandName && (
             <Heading className="ams-header__brand-name" level={1} size="level-5">
@@ -96,7 +93,7 @@ const HeaderRoot = forwardRef(
             {/* The branding section is recreated here, to make sure the page menu breaks at the right spot */}
             <div aria-hidden className="ams-header__branding ams-header__branding--hidden">
               <div className="ams-header__logo-link">
-                <LogoComponent logoBrand={logoBrand} responsiveLogo={responsiveLogo} />
+                <LogoComponent hasBrandName={Boolean(brandName)} logoBrand={logoBrand} />
               </div>
               {brandName && (
                 <span className="ams-heading ams-heading--level-5 ams-header__brand-name">{brandName}</span>
