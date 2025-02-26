@@ -6,13 +6,16 @@ import { Meta, Typeset } from "@storybook/blocks";
 
 # Typography
 
+Our choices for the font family, font size, font weight and line height of all texts are stored in tokens.
+We distinguish body text (like paragraphs, lists and input text) from headings.
+
 ## Body text
 
 All text components except headings use the ‘body text’ group of tokens.
-Four text sizes and corresponding line heights are available.
-The font weight can either be regular or bold.
 
 ### Font size
+
+We have regular body text, one smaller and two larger variations.
 
 | CSS variable                                        | Value                                                   | Example                                                                                                                                |
 | :-------------------------------------------------- | :------------------------------------------------------ | :------------------------------------------------------------------------------------------------------------------------------------- |
@@ -23,6 +26,9 @@ The font weight can either be regular or bold.
 
 ### Line height
 
+The line heights have been designed to match the corresponding font size.
+Do not mix tokens from different variations of body text.
+
 | CSS variable                                          | Value |
 | :---------------------------------------------------- | :---- |
 | `var(--ams-typography-body-text-small-line-height)`   | 1.6   |
@@ -32,6 +38,8 @@ The font weight can either be regular or bold.
 
 ### Font weight
 
+The font weight can either be regular or bold.
+
 | CSS variable                                       | Value |
 | :------------------------------------------------- | :---- |
 | `var(--ams-typography-body-text-font-weight)`      | 400   |
@@ -39,9 +47,7 @@ The font weight can either be regular or bold.
 
 ## Headings
 
-Headings have their own group of tokens.
-There are seven text sizes and corresponding line heights.
-The font weight is extra bold.
+Headings use a distinct group of tokens because they have distinct levels, and their line heights differ from those for body text.
 
 ### Font size
 
@@ -69,13 +75,16 @@ The font weight is extra bold.
 
 ### Font weight
 
+Headings only use the bold font weight.
+
 | CSS variable                                | Value |
 | :------------------------------------------ | :---- |
 | `var(--ams-typography-heading-font-weight)` | 800   |
 
 ## Font family
 
-All text uses the Amsterdam Sans font.
+All text appears in our Amsterdam Sans font.
+If it is not available, we use Arial or the generic sans-serif instead.
 
 | CSS variable                        | Value                               |
 | :---------------------------------- | :---------------------------------- |
