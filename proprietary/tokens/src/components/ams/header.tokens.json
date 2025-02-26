@@ -18,7 +18,7 @@
           "cursor": { "value": "{ams.cursor.interactive}" },
           "label": {
             "open": {
-              "font-weight": { "value": "{ams.typography.body-text.bold.font-weight}" }
+              "font-weight": { "value": "{ams.typography.body-text.font-weight.bold}" }
             }
           }
         }
