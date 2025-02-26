@@ -3,7 +3,7 @@
  * Copyright Gemeente Amsterdam
  */
 
-import { Grid, Heading, LinkList, PageMenu, Paragraph } from '@amsterdam/design-system-react'
+import { Grid, Heading, LinkList, Paragraph } from '@amsterdam/design-system-react'
 import { Footer } from '@amsterdam/design-system-react/src'
 import {
   CameraIcon,
@@ -15,7 +15,6 @@ import {
   TwitterIcon,
 } from '@amsterdam/design-system-react-icons'
 import { Meta, StoryObj } from '@storybook/react'
-import { Default as PageMenuStory } from '../../components/PageMenu/PageMenu.stories'
 
 const meta = {
   title: 'Components/Containers/Footer',
@@ -36,7 +35,7 @@ const socialPlatforms = [
 export const Default: Story = {
   args: {
     children: [
-      <Footer.Top key="footer-top">
+      <Footer.Spotlight key="footer-spotlight">
         <Heading className="ams-visually-hidden" color="inverse" level={1}>
           Colofon
         </Heading>
@@ -99,17 +98,15 @@ export const Default: Story = {
             </section>
           </Grid.Cell>
         </Grid>
-      </Footer.Top>,
-      <Footer.Bottom key="footer-bottom">
-        <Heading className="ams-visually-hidden" level={2}>
-          Over deze website
-        </Heading>
-        <Grid paddingVertical="small">
-          <Grid.Cell span="all">
-            <PageMenu>{PageMenuStory.args?.children}</PageMenu>
-          </Grid.Cell>
-        </Grid>
-      </Footer.Bottom>,
+      </Footer.Spotlight>,
+      <Heading className="ams-visually-hidden" key="footer-heading" level={2}>
+        Over deze website
+      </Heading>,
+      <Footer.Menu key="footer-menu">
+        <Footer.MenuLink href="#">Over deze site</Footer.MenuLink>
+        <Footer.MenuLink href="#">Privacy</Footer.MenuLink>
+        <Footer.MenuLink href="#">Cookies</Footer.MenuLink>
+      </Footer.Menu>,
     ],
   },
 }
@@ -117,7 +114,7 @@ export const Default: Story = {
 export const OnderzoekEnStatistiek: Story = {
   args: {
     children: [
-      <Footer.Top key="footer-top">
+      <Footer.Spotlight key="footer-spotlight">
         <Heading className="ams-visually-hidden" color="inverse" level={1}>
           Colofon
         </Heading>
@@ -177,17 +174,15 @@ export const OnderzoekEnStatistiek: Story = {
             </LinkList>
           </Grid.Cell>
         </Grid>
-      </Footer.Top>,
-      <Footer.Bottom key="footer-bottom">
-        <Heading className="ams-visually-hidden" level={2}>
-          Over deze website
-        </Heading>
-        <Grid paddingVertical="small">
-          <Grid.Cell span="all">
-            <PageMenu>{PageMenuStory.args?.children}</PageMenu>
-          </Grid.Cell>
-        </Grid>
-      </Footer.Bottom>,
+      </Footer.Spotlight>,
+      <Heading className="ams-visually-hidden" key="footer-heading" level={2}>
+        Over deze website
+      </Heading>,
+      <Footer.Menu key="footer-menu">
+        <Footer.MenuLink href="#">Over deze site</Footer.MenuLink>
+        <Footer.MenuLink href="#">Privacy</Footer.MenuLink>
+        <Footer.MenuLink href="#">Cookies</Footer.MenuLink>
+      </Footer.Menu>,
     ],
   },
 }
