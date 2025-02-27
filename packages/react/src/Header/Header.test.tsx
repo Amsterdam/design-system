@@ -192,4 +192,28 @@ describe('Header', () => {
   it.skip('it closes the mega menu when it is open and the screen width passes the breakpoint', () => {
     // TODO: Add this test
   })
+
+  it('renders with the mega menu open when the open prop is true', () => {
+    render(<Header open>Test</Header>)
+
+    const openMegaMenu = screen.getByRole('navigation').querySelector('.ams-header__mega-menu')
+    expect(openMegaMenu).toBeInTheDocument()
+    expect(openMegaMenu).not.toHaveClass('ams-header__mega-menu--closed')
+  })
+
+  it('calls onClose when the mega menu is closed', async () => {
+    const user = userEvent.setup()
+    const onClose = jest.fn()
+
+    render(
+      <Header onClose={onClose} open>
+        Test
+      </Header>,
+    )
+
+    const menuButton = screen.getByRole('button', { name: 'Menu' })
+    await user.click(menuButton)
+
+    expect(onClose).toHaveBeenCalled()
+  })
 })

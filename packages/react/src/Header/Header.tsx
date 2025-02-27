@@ -32,6 +32,10 @@ export type HeaderProps = {
   navigationLabel?: string
   /** Whether the menu button is visible on wide screens.  */
   noMenuButtonOnWideWindow?: boolean
+  /** Fires after the menu button closes the header. */
+  onClose?: () => void
+  /** Whether the header is open, showing the mega menu. */
+  open?: boolean
 } & HTMLAttributes<HTMLElement>
 
 const HeaderRoot = forwardRef(
@@ -47,18 +51,33 @@ const HeaderRoot = forwardRef(
       menuItems,
       navigationLabel = 'Hoofdnavigatie',
       noMenuButtonOnWideWindow,
+      onClose,
+      open,
       ...restProps
     }: HeaderProps,
     ref: ForwardedRef<HTMLElement>,
   ) => {
-    const [open, setOpen] = useState(false)
+    const [isOpen, setIsOpen] = useState(Boolean(open))
 
     const isWideWindow = useIsAfterBreakpoint('wide')
+
+    const toggleIsOpen = () => {
+      const willClose = isOpen
+      setIsOpen(willClose ? false : true)
+
+      if (willClose) {
+        onClose?.()
+      }
+    }
+
+    useEffect(() => {
+      setIsOpen(Boolean(open))
+    }, [open])
 
     useEffect(() => {
       // Close the menu when the menu button disappears
       if (noMenuButtonOnWideWindow && isWideWindow) {
-        setOpen(false)
+        setIsOpen(false)
       }
     }, [isWideWindow])
 
@@ -100,9 +119,9 @@ const HeaderRoot = forwardRef(
                   <button
                     {...restProps}
                     aria-controls="ams-mega-menu"
-                    aria-expanded={open}
+                    aria-expanded={isOpen}
                     className="ams-header__mega-menu-button"
-                    onClick={() => setOpen(!open)}
+                    onClick={toggleIsOpen}
                     type="button"
                   >
                     <span className="ams-header__mega-menu-button-label">{menuButtonText}</span>
@@ -113,7 +132,7 @@ const HeaderRoot = forwardRef(
                       size="level-5"
                       svg={
                         <HeaderMenuIcon
-                          className={clsx('ams-header__menu-icon', open && 'ams-header__menu-icon--open')}
+                          className={clsx('ams-header__menu-icon', isOpen && 'ams-header__menu-icon--open')}
                         />
                       }
                     />
@@ -124,7 +143,7 @@ const HeaderRoot = forwardRef(
 
             {children && (
               <div
-                className={clsx('ams-header__mega-menu', !open && 'ams-header__mega-menu--closed')}
+                className={clsx('ams-header__mega-menu', !isOpen && 'ams-header__mega-menu--closed')}
                 id="ams-mega-menu"
               >
                 {children}
