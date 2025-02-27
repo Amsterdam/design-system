@@ -4,7 +4,11 @@
       "font-family": { "value": "'Amsterdam Sans', Arial, sans-serif" },
       "body-text": {
         "font-size": { "value": "clamp(1.125rem, calc(1.0313rem + 0.4688vw), 1.5rem)" },
+        "font-weight": { "value": "400" },
         "line-height": { "value": "1.6" },
+        "bold": {
+          "font-weight": { "value": "800" }
+        },
         "small": {
           "font-size": { "value": "clamp(0.9643rem, calc(0.9054rem + 0.2946vw), 1.2rem)" },
           "line-height": { "value": "{ams.typography.body-text.line-height}" }
@@ -16,13 +20,10 @@
         "x-large": {
           "font-size": { "value": "clamp(1.5313rem, calc(1.3281rem + 1.0156vw), 2.3438rem)" },
           "line-height": { "value": "1.3" }
-        },
-        "font-weight": {
-          "default": { "value": "400" },
-          "bold": { "value": "800" }
         }
       },
       "heading": {
+        "font-weight": { "value": "800" },
         "0": {
           "font-size": { "value": "clamp(2.4316rem, calc(1.8951rem + 2.6826vw), 4.5776rem)" },
           "line-height": { "value": "1.15" }
@@ -50,8 +51,7 @@
         "6": {
           "font-size": { "value": "{ams.typography.body-text.small.font-size}" },
           "line-height": { "value": "{ams.typography.body-text.small.line-height}" }
-        },
-        "font-weight": { "value": "800" }
+        }
       }
     }
   }
