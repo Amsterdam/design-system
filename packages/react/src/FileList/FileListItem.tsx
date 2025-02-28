@@ -24,7 +24,7 @@ export const FileListItem = forwardRef(
         {file.type.startsWith('image/') ? (
           <img alt={file.name} src={URL.createObjectURL(file)} />
         ) : (
-          <Icon size="level-3" square svg={DocumentIcon} />
+          <Icon size="heading-3" square svg={DocumentIcon} />
         )}
       </div>
       <div className="ams-file-list__item-info">

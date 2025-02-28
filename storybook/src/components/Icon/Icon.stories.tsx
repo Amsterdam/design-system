@@ -4,7 +4,8 @@
  */
 
 import { Heading } from '@amsterdam/design-system-react'
-import { Icon } from '@amsterdam/design-system-react/src'
+import { Icon, Paragraph, Row } from '@amsterdam/design-system-react/src'
+import { iconSizes } from '@amsterdam/design-system-react/src/Icon/Icon'
 import * as Icons from '@amsterdam/design-system-react-icons'
 import { Meta, StoryObj } from '@storybook/react'
 
@@ -22,6 +23,13 @@ const meta = {
       },
       options: [undefined, 'inverse'],
     },
+    size: {
+      control: {
+        labels: { undefined: 'default' },
+        type: 'select',
+      },
+      options: [undefined, ...iconSizes],
+    },
     svg: {
       control: {
         type: 'select',
@@ -38,51 +46,102 @@ type Story = StoryObj<typeof meta>
 
 export const Default: Story = {}
 
-export const WithText: Story = {
-  decorators: [
-    (Story) => (
-      <span style={{ display: 'flex', gap: '1rem' }}>
-        <Story />
-      </span>
-    ),
-  ],
+export const WithBodyText: Story = {
   render: (args) => (
-    <>
-      <Icon {...args} size="level-3" />
-      <Heading level={1} size="level-3">
-        Inline text
+    <Row gap="small">
+      <Icon {...args} />
+      <Paragraph color={args.color}>Regular body text</Paragraph>
+    </Row>
+  ),
+}
+
+export const WithSmallBodyText: Story = {
+  args: {
+    size: 'small',
+  },
+  render: (args) => (
+    <Row gap="small">
+      <Icon {...args} />
+      <Paragraph color={args.color} size="small">
+        Small body text
+      </Paragraph>
+    </Row>
+  ),
+}
+
+export const WithLargeBodyText: Story = {
+  args: {
+    size: 'large',
+  },
+  render: (args) => (
+    <Row gap="small">
+      <Icon {...args} />
+      <Paragraph color={args.color} size="large">
+        Large body text
+      </Paragraph>
+    </Row>
+  ),
+}
+
+export const WithHeading3: Story = {
+  args: {
+    size: 'heading-3',
+  },
+  render: (args) => (
+    <Row gap="small">
+      <Icon {...args} />
+      <Heading color={args.color} level={3}>
+        Heading 3 text
       </Heading>
-    </>
+    </Row>
+  ),
+}
+
+export const WithHeading4: Story = {
+  args: {
+    size: 'heading-4',
+  },
+  render: (args) => (
+    <Row gap="small">
+      <Icon {...args} />
+      <Heading color={args.color} level={4}>
+        Heading 4 text
+      </Heading>
+    </Row>
+  ),
+}
+
+export const WithHeading5: Story = {
+  args: {
+    size: 'heading-5',
+  },
+  render: (args) => (
+    <Row gap="small">
+      <Icon {...args} />
+      <Heading color={args.color} level={4} size="level-5">
+        Heading 5 text
+      </Heading>
+    </Row>
+  ),
+}
+
+export const WithHeading6: Story = {
+  args: {
+    size: 'heading-6',
+  },
+  render: (args) => (
+    <Row gap="small">
+      <Icon {...args} />
+      <Heading color={args.color} level={4} size="level-6">
+        Heading 6 text
+      </Heading>
+    </Row>
   ),
 }
 
 export const Square: Story = {
   args: {
     square: true,
-  },
-}
-
-export const Level3: Story = {
-  args: {
-    size: 'level-3',
-  },
-}
-
-export const Level4: Story = {
-  args: {
-    size: 'level-4',
-  },
-}
-
-export const Level5: Story = {
-  args: {
-    size: 'level-5',
-  },
-}
-
-export const Level6: Story = {
-  args: {
-    size: 'level-6',
   },
 }
 

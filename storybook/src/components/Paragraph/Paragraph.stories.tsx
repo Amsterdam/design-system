@@ -3,7 +3,8 @@
  * Copyright Gemeente Amsterdam
  */
 
-import { Paragraph } from '@amsterdam/design-system-react/src'
+import { Icon, Paragraph, Row } from '@amsterdam/design-system-react/src'
+import { EmailIcon } from '@amsterdam/design-system-react-icons'
 import { Meta, StoryObj } from '@storybook/react'
 import { exampleParagraph } from '../shared/exampleContent'
 
@@ -59,4 +60,16 @@ export const InverseColour: Story = {
   args: {
     color: 'inverse',
   },
+}
+
+export const WithIcon: Story = {
+  args: {
+    children: 'Heading text',
+  },
+  render: ({ children, ...args }) => (
+    <Row gap="small">
+      <Icon color={args.color} size={args.size} svg={EmailIcon} />
+      <Paragraph {...args}>{children}</Paragraph>
+    </Row>
+  ),
 }
