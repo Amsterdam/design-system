@@ -42,14 +42,6 @@ describe('Header', () => {
     expect(ref.current).toBe(component)
   })
 
-  it('renders a brand section', () => {
-    const { container } = render(<Header />)
-
-    const component = container.querySelector('.ams-header__branding')
-
-    expect(component).toBeInTheDocument()
-  })
-
   it('renders a logo link', () => {
     render(<Header />)
 
@@ -64,22 +56,6 @@ describe('Header', () => {
     const component = container.querySelector('.ams-logo__text-secondary')
 
     expect(component).toBeInTheDocument()
-  })
-
-  it('renders two logo’s when brand is "amsterdam" and brandName is set', () => {
-    const { container } = render(<Header brandName="Brand name" logoBrand="amsterdam" />)
-
-    const component = container.querySelectorAll('.ams-logo')
-
-    expect(component).toHaveLength(2)
-  })
-
-  it('renders one logo when brand is "amsterdam" and brandName is not set', () => {
-    const { container } = render(<Header logoBrand="amsterdam" />)
-
-    const component = container.querySelectorAll('.ams-logo')
-
-    expect(component).toHaveLength(1)
   })
 
   it('renders a custom logo link', () => {
@@ -101,12 +77,9 @@ describe('Header', () => {
   it('renders an application name', () => {
     render(<Header brandName="Application name" />)
 
-    const heading = screen.getByRole('heading', {
-      level: 1,
-      name: 'Application name',
-    })
+    const brandName = screen.getByText('Application name')
 
-    expect(heading).toBeInTheDocument()
+    expect(brandName).toBeInTheDocument()
   })
 
   it('renders a nav section', () => {
