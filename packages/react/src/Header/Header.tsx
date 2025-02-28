@@ -31,7 +31,7 @@ export type HeaderProps = {
   /** The name of the application. */
   brandName?: string
   /** The name of the brand for which to display the logo. */
-  logoBrand?: Exclude<LogoBrand, 'amsterdam-emblem-only'>
+  logoBrand?: LogoBrand
   /** The url for the link on the logo. */
   logoLink?: string
   /** The accessible text for the link on the logo. */
