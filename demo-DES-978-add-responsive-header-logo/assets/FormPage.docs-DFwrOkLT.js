@@ -1,5 +1,0 @@
-import{j as o}from"./jsx-runtime-Cf8x2fCZ.js";import{useMDXComponents as e}from"./index-1Ha5aU2j.js";import{M as n}from"./index-DnUgM7IL.js";import{F as i}from"./FormPage.stories-cz2-ub06.js";import"./index-yBjzXJbu.js";import"./index-C0MU9AHG.js";import"./_commonjsHelpers-CqkleIqs.js";import"./iframe-2QnmdtWd.js";import"./index-IE9ObSwG.js";import"./index-Cu4lwwaE.js";import"./index-CXQShRbs.js";import"./index-DrFu-skq.js";import"./index.esm-B0dPwpzn.js";import"./clsx-B-dksMZM.js";import"./index.esm-DvoLfDtE.js";import"./config-ClV8J-T9.js";import"./Footer.stories-Ci9qet8v.js";/*@license CC0-1.0*/function m(t){const r={h1:"h1",p:"p",...e(),...t.components};return o.jsxs(o.Fragment,{children:[`
-`,`
-`,o.jsx(n,{of:i}),`
-`,o.jsx(r.h1,{id:"form-page",children:"Form page"}),`
-`,o.jsx(r.p,{children:"This simple example presents various types of fields."})]})}function y(t={}){const{wrapper:r}={...e(),...t.components};return r?o.jsx(r,{...t,children:o.jsx(m,{...t})}):m(t)}export{y as default};
