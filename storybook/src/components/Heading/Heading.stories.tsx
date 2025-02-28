@@ -4,7 +4,6 @@
  */
 
 import { Column, Icon, Row } from '@amsterdam/design-system-react'
-import type { IconProps } from '@amsterdam/design-system-react'
 import { Heading } from '@amsterdam/design-system-react/src'
 import { EmailIcon } from '@amsterdam/design-system-react-icons'
 import { Meta, StoryObj } from '@storybook/react'
@@ -97,11 +96,9 @@ export const WithIcon: Story = {
     },
   },
   render: ({ children, ...args }) => {
-    const iconSize: IconProps['size'] = args.size
-      ? args.size.replace('level', 'heading')
-      : args.level
-        ? `heading-${args.level}`
-        : undefined
+    let iconSize
+    if (args.level) iconSize = `heading-${args.level}`
+    if (args.size) iconSize = args.size.replace('level', 'heading')
 
     return (
       <Row gap="small">
