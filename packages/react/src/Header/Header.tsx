@@ -76,12 +76,10 @@ const HeaderRoot = forwardRef(
 
     return (
       <header {...restProps} className={clsx('ams-header', className)} ref={ref}>
-        <div className="ams-header__branding">
-          <a className="ams-header__logo-link" href={logoLink}>
-            <span className="ams-visually-hidden">{logoLinkTitle}</span>
-            <LogoLinkContent brandName={brandName} logoBrand={logoBrand} />
-          </a>
-        </div>
+        <a className="ams-header__logo-link" href={logoLink}>
+          <span className="ams-visually-hidden">{logoLinkTitle}</span>
+          <LogoLinkContent brandName={brandName} logoBrand={logoBrand} />
+        </a>
         {(children || menuItems) && (
           <nav aria-labelledby="primary-navigation" className="ams-header__navigation">
             <h2 className="ams-visually-hidden" id="primary-navigation">
@@ -89,10 +87,8 @@ const HeaderRoot = forwardRef(
             </h2>
 
             {/* The branding section is recreated here, to make sure the page menu breaks at the right spot */}
-            <div aria-hidden className="ams-header__branding ams-header__branding--hidden">
-              <div className="ams-header__logo-link">
-                <LogoLinkContent brandName={brandName} logoBrand={logoBrand} />
-              </div>
+            <div className="ams-header__logo-link ams-header__logo-link--hidden">
+              <LogoLinkContent brandName={brandName} logoBrand={logoBrand} />
             </div>
 
             <ul className="ams-header__menu">
