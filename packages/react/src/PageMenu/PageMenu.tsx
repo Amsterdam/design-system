@@ -15,7 +15,7 @@ export type PageMenuProps = {
   wrap?: boolean
 } & PropsWithChildren<HTMLAttributes<HTMLUListElement>>
 
-/** @deprecated Use Header.menuItems or Footer.Menu instead. */
+/** @deprecated Use the menuItems prop of Header or the Footer.Menu subcomponent instead. */
 const PageMenuRoot = forwardRef(
   (
     { alignEnd, children, className, wrap = true, ...restProps }: PageMenuProps,
