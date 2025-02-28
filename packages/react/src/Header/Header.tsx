@@ -6,7 +6,6 @@
 import clsx from 'clsx'
 import { forwardRef, useEffect, useState } from 'react'
 import type { ForwardedRef, HTMLAttributes, ReactNode } from 'react'
-import { Heading } from '../Heading'
 import { Icon } from '../Icon'
 import { Logo } from '../Logo'
 import type { LogoBrand } from '../Logo'
@@ -77,12 +76,8 @@ const HeaderRoot = forwardRef(
           <a className="ams-header__logo-link" href={logoLink}>
             <span className="ams-visually-hidden">{logoLinkTitle}</span>
             <LogoComponent hasBrandName={Boolean(brandName)} logoBrand={logoBrand} />
+            {brandName && <span className="ams-header__brand-name">{brandName}</span>}
           </a>
-          {brandName && (
-            <Heading className="ams-header__brand-name" level={1} size="level-5">
-              {brandName}
-            </Heading>
-          )}
         </div>
         {(children || menuItems) && (
           <nav aria-labelledby="primary-navigation" className="ams-header__navigation">
@@ -94,10 +89,8 @@ const HeaderRoot = forwardRef(
             <div aria-hidden className="ams-header__branding ams-header__branding--hidden">
               <div className="ams-header__logo-link">
                 <LogoComponent hasBrandName={Boolean(brandName)} logoBrand={logoBrand} />
+                {brandName && <span className="ams-header__brand-name">{brandName}</span>}
               </div>
-              {brandName && (
-                <span className="ams-heading ams-heading--level-5 ams-header__brand-name">{brandName}</span>
-              )}
             </div>
 
             <ul className="ams-header__menu">

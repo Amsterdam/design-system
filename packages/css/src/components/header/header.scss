@@ -13,15 +13,13 @@
   * Display grid is used to let both branding sections overlap.
   */
   display: grid;
+  font-family: var(--ams-header-font-family);
   padding-block: var(--ams-header-padding-block);
   padding-inline: var(--ams-header-padding-inline);
 }
 
 .ams-header__branding {
-  align-items: center;
   align-self: start; // To align the branding section to the top of the header when it wraps
-  column-gap: var(--ams-header-branding-column-gap);
-  display: flex;
   grid-area: 1 / 1; // To allow this section to overlap with the second branding section
 }
 
@@ -47,11 +45,21 @@
 }
 
 .ams-header__logo-link {
+  align-items: center;
+  column-gap: var(--ams-header-logo-link-column-gap);
+  display: inline-flex;
   outline-offset: var(--ams-header-logo-link-outline-offset);
+  text-decoration: none;
+
+  svg {
+    flex-shrink: 0;
+  }
 }
 
-/* TODO Remove after updating Heading line heights in DES-973. */
-.ams-heading.ams-header__brand-name {
+.ams-header__brand-name {
+  color: var(--ams-header-brand-name-color);
+  font-size: var(--ams-header-brand-name-font-size);
+  font-weight: var(--ams-header-brand-name-font-weight);
   line-height: 1.35;
 }
 
@@ -99,7 +107,6 @@
 
 @mixin header-menu-action {
   color: var(--ams-header-menu-item-color);
-  font-family: var(--ams-header-menu-item-font-family);
   font-size: var(--ams-header-menu-item-font-size);
   font-weight: var(--ams-header-menu-item-font-weight);
   line-height: var(--ams-header-menu-item-line-height);
