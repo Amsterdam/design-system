@@ -4,6 +4,7 @@
  */
 
 import { Column, Icon, Row } from '@amsterdam/design-system-react'
+import type { IconProps } from '@amsterdam/design-system-react'
 import { Heading } from '@amsterdam/design-system-react/src'
 import { EmailIcon } from '@amsterdam/design-system-react-icons'
 import { Meta, StoryObj } from '@storybook/react'
@@ -86,13 +87,27 @@ export const WithIcon: Story = {
   },
   argTypes: {
     level: {
-      table: { disable: true },
+      options: [3, 4],
+    },
+    size: {
+      control: {
+        labels: { undefined: 'not set' },
+      },
+      options: [undefined, 'level-3', 'level-4', 'level-5', 'level-6'],
     },
   },
-  render: ({ children, ...args }) => (
-    <Row gap="small">
-      <Icon color={args.color} size="heading-4" svg={EmailIcon} />
-      <Heading {...args}>{children}</Heading>
-    </Row>
-  ),
+  render: ({ children, ...args }) => {
+    const iconSize: IconProps['size'] = args.size
+      ? args.size.replace('level', 'heading')
+      : args.level
+        ? `heading-${args.level}`
+        : undefined
+
+    return (
+      <Row gap="small">
+        <Icon color={args.color} size={iconSize} svg={EmailIcon} />
+        <Heading {...args}>{children}</Heading>
+      </Row>
+    )
+  },
 }
