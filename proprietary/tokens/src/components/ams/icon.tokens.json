@@ -3,11 +3,11 @@
     "icon": {
       "font-size": { "value": "{ams.typography.body-text.font-size}" },
       "line-height": { "value": "{ams.typography.body-text.line-height}" },
-      "body-text-small": {
+      "small": {
         "font-size": { "value": "{ams.typography.body-text.small.font-size}" },
         "line-height": { "value": "{ams.typography.body-text.small.line-height}" }
       },
-      "body-text-large": {
+      "large": {
         "font-size": { "value": "{ams.typography.body-text.large.font-size}" },
         "line-height": { "value": "{ams.typography.body-text.large.line-height}" }
       },

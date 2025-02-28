@@ -68,7 +68,7 @@ export const WithIcon: Story = {
   },
   render: ({ children, ...args }) => (
     <Row gap="small">
-      <Icon color={args.color} size={args.size && `body-text-${args.size}`} svg={EmailIcon} />
+      <Icon color={args.color} size={args.size} svg={EmailIcon} />
       <Paragraph {...args}>{children}</Paragraph>
     </Row>
   ),

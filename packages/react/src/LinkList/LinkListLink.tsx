@@ -36,7 +36,7 @@ export const LinkListLink = forwardRef(
           ref={ref}
           {...restProps}
         >
-          <Icon size={size ? `body-text-${size}` : undefined} svg={icon ?? ChevronRightIcon} />
+          <Icon size={size} svg={icon ?? ChevronRightIcon} />
           {children}
         </a>
       </li>

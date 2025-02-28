@@ -29,7 +29,7 @@ const meta = {
     },
     size: {
       control: {
-        labels: { undefined: 'body text (default)' },
+        labels: { undefined: 'default' },
         type: 'select',
       },
       options: [undefined, ...iconSizes],
