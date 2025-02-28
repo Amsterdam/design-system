@@ -82,6 +82,14 @@ describe('Header', () => {
     expect(brandName).toBeInTheDocument()
   })
 
+  it('renders the correct class for the responsive logo', () => {
+    const { container } = render(<Header brandName="Application name" />)
+
+    const logoContainer = container.querySelector('.ams-header__logo-container')
+
+    expect(logoContainer).toBeInTheDocument()
+  })
+
   it('renders a nav section', () => {
     render(<Header>Test</Header>)
 
