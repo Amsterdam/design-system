@@ -15,7 +15,7 @@ export type IconButtonProps = {
   color?: 'contrast' | 'inverse'
   /** The accessible text for the button. Will be announced by screen readers. Should describe the button’s action. */
   label: string
-  /** The size of the icon. Choose the size of the corresponding body text or heading. */
+  /** The size of the icon. */
   size?: IconProps['size']
   /** The component rendering the icon’s markup. */
   svg?: IconProps['svg']
