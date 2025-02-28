@@ -1,7 +1,7 @@
 import { AlertIcon } from '@amsterdam/design-system-react-icons'
 import { render } from '@testing-library/react'
 import { createRef } from 'react'
-import { Icon } from './Icon'
+import { Icon, iconSizes } from './Icon'
 import '@testing-library/jest-dom'
 
 describe('Icon', () => {
@@ -29,16 +29,14 @@ describe('Icon', () => {
     expect(svg).toBeInTheDocument()
   })
 
-  it('renders the right size classes', () => {
-    const { container: level3 } = render(<Icon size="level-3" svg={AlertIcon} />)
-    const { container: level4 } = render(<Icon size="level-4" svg={AlertIcon} />)
-    const { container: level5 } = render(<Icon size="level-5" svg={AlertIcon} />)
-    const { container: level6 } = render(<Icon size="level-6" svg={AlertIcon} />)
+  iconSizes.forEach((size) => {
+    it(`renders the correct class name for a ‘${size}’ icon`, () => {
+      const { container } = render(<Icon size={size} svg={AlertIcon} />)
 
-    expect(level3.firstChild).toHaveClass('ams-icon--size-3')
-    expect(level4.firstChild).toHaveClass('ams-icon--size-4')
-    expect(level5.firstChild).toHaveClass('ams-icon--size-5')
-    expect(level6.firstChild).toHaveClass('ams-icon--size-6')
+      const icon = container.querySelector(':only-child')
+
+      expect(icon).toHaveClass(`ams-icon--${size}`)
+    })
   })
 
   it('renders the right square class', () => {

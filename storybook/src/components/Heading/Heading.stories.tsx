@@ -3,8 +3,9 @@
  * Copyright Gemeente Amsterdam
  */
 
-import { Column } from '@amsterdam/design-system-react'
+import { Column, Icon, Row } from '@amsterdam/design-system-react'
 import { Heading } from '@amsterdam/design-system-react/src'
+import { EmailIcon } from '@amsterdam/design-system-react-icons'
 import { Meta, StoryObj } from '@storybook/react'
 import { exampleHeading } from '../shared/exampleContent'
 
@@ -21,6 +22,13 @@ const meta = {
     children: {
       description: 'The heading text.',
       table: { disable: false },
+    },
+    color: {
+      control: {
+        labels: { undefined: 'default' },
+        type: 'radio',
+      },
+      options: [undefined, 'inverse'],
     },
   },
 } satisfies Meta<typeof Heading>
@@ -68,5 +76,35 @@ export const InverseColour: Story = {
   args: {
     color: 'inverse',
     level: 2,
+  },
+}
+
+export const WithIcon: Story = {
+  args: {
+    children: 'Heading text',
+    level: 4,
+  },
+  argTypes: {
+    level: {
+      options: [3, 4],
+    },
+    size: {
+      control: {
+        labels: { undefined: 'not set' },
+      },
+      options: [undefined, 'level-3', 'level-4', 'level-5', 'level-6'],
+    },
+  },
+  render: ({ children, ...args }) => {
+    let iconSize
+    if (args.level) iconSize = `heading-${args.level}`
+    if (args.size) iconSize = args.size.replace('level', 'heading')
+
+    return (
+      <Row gap="small">
+        <Icon color={args.color} size={iconSize} svg={EmailIcon} />
+        <Heading {...args}>{children}</Heading>
+      </Row>
+    )
   },
 }

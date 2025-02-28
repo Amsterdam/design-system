@@ -67,9 +67,12 @@
 }
 
 .ams-docs-backdrop {
-  background-color: #0006;
+  background-color: var(--ams-dialog-backdrop-background-color);
   block-size: 100%;
+  box-sizing: border-box;
   inline-size: 100%;
+  padding-block: 1rem;
+  padding-inline: 1rem;
   position: absolute;
 }
 
@@ -176,6 +179,10 @@
 
 .ams-docs-token-example--color-border {
   box-shadow: inset 0 0 0 0.0625rem rgb(0 0 0 / 12.5%);
+}
+
+[class*="ams-docs-token-example--font-size"] {
+  block-size: auto;
 }
 
 [class*="ams-docs-token-example--space"] {

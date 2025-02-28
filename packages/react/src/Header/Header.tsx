@@ -110,7 +110,6 @@ const HeaderRoot = forwardRef(
                       {menuButtonText}
                     </span>
                     <Icon
-                      size="level-5"
                       svg={
                         <HeaderMenuIcon
                           className={clsx('ams-header__menu-icon', open && 'ams-header__menu-icon--open')}
