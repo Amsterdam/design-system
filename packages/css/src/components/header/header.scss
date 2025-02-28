@@ -28,19 +28,13 @@
   user-select: none; // The hidden branding section should not be selectable
 }
 
-// Increase the specificity to override the default Logo styles
-.ams-logo.ams-header__logo {
-  display: none;
+.ams-header__logo-container {
+  flex-shrink: 0;
+  inline-size: 0.75rem;
+  overflow: hidden;
 
   @media screen and (min-width: $ams-breakpoint-medium) {
-    display: block;
-  }
-}
-
-// Increase the specificity to override the default Logo styles
-.ams-logo.ams-header__logo--emblem-only {
-  @media screen and (min-width: $ams-breakpoint-medium) {
-    display: none;
+    inline-size: auto;
   }
 }
 
@@ -50,10 +44,6 @@
   display: inline-flex;
   outline-offset: var(--ams-header-logo-link-outline-offset);
   text-decoration: none;
-
-  svg {
-    flex-shrink: 0;
-  }
 }
 
 .ams-header__brand-name {

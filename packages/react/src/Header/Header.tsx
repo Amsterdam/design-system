@@ -14,11 +14,15 @@ import { HeaderMenuIcon } from './HeaderMenuIcon'
 import { HeaderMenuLink } from './HeaderMenuLink'
 import useIsAfterBreakpoint from '../common/useIsAfterBreakpoint'
 
-const LogoComponent = ({ hasBrandName, logoBrand }: { hasBrandName: boolean; logoBrand: LogoBrand }) => (
+const LogoLinkContent = ({ brandName, logoBrand }: { brandName?: string; logoBrand: LogoBrand }) => (
   <>
-    <Logo brand={logoBrand} className={clsx(logoBrand === 'amsterdam' && hasBrandName && 'ams-header__logo')} />
-    {logoBrand === 'amsterdam' && hasBrandName && (
-      <Logo brand="amsterdam-emblem-only" className="ams-header__logo--emblem-only" />
+    <span className={clsx(logoBrand === 'amsterdam' && Boolean(brandName) && 'ams-header__logo-container')}>
+      <Logo brand={logoBrand} />
+    </span>
+    {brandName && (
+      <span aria-hidden="true" className="ams-header__brand-name">
+        {brandName}
+      </span>
     )}
   </>
 )
@@ -75,8 +79,7 @@ const HeaderRoot = forwardRef(
         <div className="ams-header__branding">
           <a className="ams-header__logo-link" href={logoLink}>
             <span className="ams-visually-hidden">{logoLinkTitle}</span>
-            <LogoComponent hasBrandName={Boolean(brandName)} logoBrand={logoBrand} />
-            {brandName && <span className="ams-header__brand-name">{brandName}</span>}
+            <LogoLinkContent brandName={brandName} logoBrand={logoBrand} />
           </a>
         </div>
         {(children || menuItems) && (
@@ -88,8 +91,7 @@ const HeaderRoot = forwardRef(
             {/* The branding section is recreated here, to make sure the page menu breaks at the right spot */}
             <div aria-hidden className="ams-header__branding ams-header__branding--hidden">
               <div className="ams-header__logo-link">
-                <LogoComponent hasBrandName={Boolean(brandName)} logoBrand={logoBrand} />
-                {brandName && <span className="ams-header__brand-name">{brandName}</span>}
+                <LogoLinkContent brandName={brandName} logoBrand={logoBrand} />
               </div>
             </div>
 
