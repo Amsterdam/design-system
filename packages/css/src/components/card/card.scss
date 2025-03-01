@@ -7,10 +7,10 @@
   display: grid;
   gap: var(--ams-card-gap);
   outline-offset: var(--ams-card-outline-offset);
-  position: relative;
+  position: relative; // Allows stretching the card link below.
   touch-action: manipulation;
 
-  /* Set native outline on card if card has focus visible within */
+  // Set native outline to Card if it has a visible focus inside.
   &:has(:focus-visible) {
     outline-color: -webkit-focus-ring-color;
     outline-style: auto;
@@ -30,10 +30,8 @@
   text-decoration-thickness: var(--ams-card-link-text-decoration-thickness);
   text-underline-offset: var(--ams-card-link-text-underline-offset);
 
-  /*
-    This trick, together with position: relative on the outer wrapper, makes the whole card clickable.
-    Taken from https://inclusive-components.design/cards/
-  */
+  // Make the whole Card clickable by making the link cover its entire area.
+  // Source: https://inclusive-components.design/cards/
   &::after {
     content: "";
     display: block;
@@ -47,10 +45,7 @@
     text-decoration-line: var(--ams-card-link-hover-text-decoration-line);
   }
 
-  /*
-    Remove link focus outline only if :has is supported,
-    which means the outline on the whole card is set
-  */
+  // Remove the outline from the link; it’s already on the Card.
   .ams-card:has(:focus-visible) &:focus {
     outline: none;
   }
