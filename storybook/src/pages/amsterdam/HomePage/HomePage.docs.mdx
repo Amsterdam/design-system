@@ -14,25 +14,25 @@ The starting page of an application generally provides a broad overview of subje
 A typical layout for a homepage:
 
 ```tsx
-<Screen>
+<Page>
   <SkipLink href="#main">Direct naar inhoud</SkipLink>
-  <Grid>
-    <Header />
-  </Grid>
-  <main id="main">
+  <PageGrid>
+    <PageHeader />
+  </PageGrid>
+  <PageBody as="main" id="main">
     <Overlap>
       <Search />
     </Overlap>
-    <Grid>
+    <PageGrid>
       <AppComponent1 />
       <AppComponent2 />
       <AppComponent3 />
-    </Grid>
-  </main>
-  <Footer>
-    <Grid />
-  </Footer>
-</Screen>
+    </PageGrid>
+  </PageBody>
+  <PageFooter>
+    <PageGrid />
+  </PageFooter>
+</Page>
 ```
 
 1. The Skip Link prevents users from having to pass all preceding navigation links.
