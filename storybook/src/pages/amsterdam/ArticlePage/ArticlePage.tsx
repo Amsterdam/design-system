@@ -21,7 +21,7 @@ export const ArticlePage = ({
 }: ArticlePageProps) => (
   <>
     <ArticleBreadcrumb />
-    <main id="main">
+    <main className="ams-page-body" id="main">
       <ArticleHeader heading={heading} imageSrc={imageSrc} />
       <ArticleBody
         lead={lead}

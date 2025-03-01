@@ -1,0 +1,39 @@
+/**
+ * @license EUPL-1.2+
+ * Copyright Gemeente Amsterdam
+ */
+
+// Add top and bottom padding to screen
+// Remove padding from header
+// Add more space below footer
+.ams-screen {
+  padding-block: var(--ams-space-grid-sm);
+}
+
+.ams-header,
+[class*="ams-grid--padding-"] {
+  padding-block: 0 !important;
+}
+
+// Add gap to Screen and Page Body
+// To replace all manual block paddings on Grid
+.ams-screen,
+.ams-page-body {
+  display: grid;
+  gap: var(--ams-space-grid-md);
+}
+
+.ams-grid,
+.ams-spotlight {
+  &[class*="ams-mb-"] {
+    margin-block-end: 0 !important;
+  }
+}
+
+// Add block padding to Spotlight and Breakout
+// To replace manual block paddings on child Grids
+.ams-breakout,
+.ams-spotlight,
+.ams-footer__spotlight {
+  padding-block: var(--ams-space-grid-md);
+}
