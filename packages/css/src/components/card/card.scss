@@ -16,26 +16,6 @@
     outline-style: auto;
     outline-width: 0.0625rem;
   }
-
-  /*
-    Remove link focus outline only if :has is supported,
-    which means the outline on the whole card is set
-  */
-  &:has(:focus-visible) .ams-card__link:focus {
-    outline: none;
-  }
-
-  /*
-    This trick, together with position: relative on the outer wrapper, makes the whole card clickable.
-    Taken from https://inclusive-components.design/cards/
-  */
-  .ams-card__link::after {
-    content: "";
-    display: block;
-    inset-block: 0;
-    inset-inline: 0;
-    position: absolute;
-  }
 }
 
 .ams-card__heading-group {
@@ -50,8 +30,28 @@
   text-decoration-thickness: var(--ams-card-link-text-decoration-thickness);
   text-underline-offset: var(--ams-card-link-text-underline-offset);
 
+  /*
+    This trick, together with position: relative on the outer wrapper, makes the whole card clickable.
+    Taken from https://inclusive-components.design/cards/
+  */
+  &::after {
+    content: "";
+    display: block;
+    inset-block: 0;
+    inset-inline: 0;
+    position: absolute;
+  }
+
   &:hover {
     color: var(--ams-card-link-hover-color);
     text-decoration-line: var(--ams-card-link-hover-text-decoration-line);
+  }
+
+  /*
+    Remove link focus outline only if :has is supported,
+    which means the outline on the whole card is set
+  */
+  .ams-card:has(:focus-visible) &:focus {
+    outline: none;
   }
 }
