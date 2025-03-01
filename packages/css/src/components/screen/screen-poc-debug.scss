@@ -1,0 +1,49 @@
+/**
+ * @license EUPL-1.2+
+ * Copyright Gemeente Amsterdam
+ */
+
+body {
+  background-image: repeating-linear-gradient(
+    45deg,
+    rgb(0 0 0 / 6.25%),
+    rgb(0 0 0 / 6.25%) var(--ams-space-grid-xs),
+    rgb(0 0 0 / 12.5%) var(--ams-space-grid-xs),
+    rgb(0 0 0 / 12.5%) var(--ams-space-grid-sm)
+  );
+}
+
+.ams-screen {
+  background: transparent;
+}
+
+.ams-header,
+.ams-page-body,
+.ams-footer,
+.ams-grid,
+.ams-grid > *,
+.ams-spotlight {
+  box-shadow: inset 0 0 0 0.5rem rgb(0 0 0 / 25%);
+}
+
+main {
+  .ams-grid {
+    background-color: var(--ams-color-highlight-yellow);
+
+    > * {
+      background-color: rgb(255 255 255 / 50%);
+    }
+  }
+
+  .ams-spotlight {
+    background-color: var(--ams-color-highlight-purple);
+
+    > .ams-grid {
+      background-color: transparent;
+
+      > * {
+        background-color: rgb(255 255 255 / 25%);
+      }
+    }
+  }
+}
