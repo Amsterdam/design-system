@@ -21,7 +21,7 @@
     Remove link focus outline only if :has is supported,
     which means the outline on the whole card is set
   */
-  &:has(:focus-visible) a:focus {
+  &:has(:focus-visible) .ams-card__link:focus {
     outline: none;
   }
 
@@ -29,7 +29,7 @@
     This trick, together with position: relative on the outer wrapper, makes the whole card clickable.
     Taken from https://inclusive-components.design/cards/
   */
-  a::after {
+  .ams-card__link::after {
     content: "";
     display: block;
     inset-block: 0;
