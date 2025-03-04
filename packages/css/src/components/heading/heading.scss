@@ -23,14 +23,17 @@
   @include text-rendering;
   @include reset-hx;
 
-  &:has(+ .ams-accordion),
-  &:has(+ .ams-button),
-  &:has(+ .ams-description-list),
   &:has(+ .ams-link--standalone),
-  &:has(+ .ams-link-list),
   &:has(+ .ams-ordered-list),
   &:has(+ .ams-paragraph),
   &:has(+ .ams-unordered-list) {
+    @extend %ams-mb--xs;
+  }
+
+  &:has(+ .ams-accordion),
+  &:has(+ .ams-button),
+  &:has(+ .ams-description-list),
+  &:has(+ .ams-link-list) {
     @extend %ams-mb--md;
   }
 
