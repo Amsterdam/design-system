@@ -1,9 +1,9 @@
 {
   "ams": {
     "card": {
-      "gap": { "value": "{ams.space.sm}" },
+      "gap": { "value": "0" },
       "heading-group": {
-        "gap": { "value": "{ams.space.sm}" }
+        "gap": { "value": "0" }
       },
       "link": {
         "color": { "value": "{ams.links.color}" },

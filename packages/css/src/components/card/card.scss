@@ -3,6 +3,8 @@
  * Copyright Gemeente Amsterdam
  */
 
+@use "../margin/mixins" as *;
+
 .ams-card {
   display: grid;
   gap: var(--ams-card-gap);
@@ -35,6 +37,10 @@
     inset-block: 0;
     inset-inline: 0;
     position: absolute;
+  }
+
+  > .ams-image {
+    @extend %ams-mb--md;
   }
 }
 
