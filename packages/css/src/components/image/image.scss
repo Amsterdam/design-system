@@ -3,6 +3,8 @@
  * Copyright Gemeente Amsterdam
  */
 
+@use "../margin/mixins" as *;
+
 .ams-image {
   aspect-ratio: var(--ams-image-aspect-ratio);
   block-size: auto; /* [1] */
@@ -11,6 +13,32 @@
   max-inline-size: 100%; /* [1] */
   object-fit: cover; /* [4] */
   vertical-align: middle; /* [2] */
+
+  &:has(+ .ams-image) {
+    @extend %ams-mb--md;
+  }
+
+  &:has(+ .ams-blockquote),
+  &:has(+ .ams-button),
+  &:has(+ .ams-description-list),
+  &:has(+ .ams-heading--level-5),
+  &:has(+ .ams-heading--level-6),
+  &:has(+ .ams-image-slider),
+  &:has(+ .ams-link--standalone),
+  &:has(+ .ams-link-list),
+  &:has(+ .ams-ordered-list),
+  &:has(+ .ams-paragraph),
+  &:has(+ .ams-table),
+  &:has(+ .ams-unordered-list) {
+    @extend %ams-mb--lg;
+  }
+
+  &:has(+ .ams-alert),
+  &:has(+ .ams-heading--level-2),
+  &:has(+ .ams-heading--level-3),
+  &:has(+ .ams-heading--level-4) {
+    @extend %ams-mb--xl;
+  }
 }
 
 // [1] Allow for fluid image sizing while maintaining aspect ratio governed by inline/block size attributes

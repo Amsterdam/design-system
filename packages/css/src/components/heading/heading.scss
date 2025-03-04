@@ -3,6 +3,7 @@
  * Copyright Gemeente Amsterdam
  */
 
+@use "../margin/mixins" as *;
 @use "../../common/hyphenation" as *;
 @use "../../common/text-rendering" as *;
 
@@ -21,31 +22,73 @@
   @include hyphenation;
   @include text-rendering;
   @include reset-hx;
+
+  &:has(+ .ams-accordion),
+  &:has(+ .ams-button),
+  &:has(+ .ams-description-list),
+  &:has(+ .ams-link--standalone),
+  &:has(+ .ams-link-list),
+  &:has(+ .ams-ordered-list),
+  &:has(+ .ams-paragraph),
+  &:has(+ .ams-unordered-list) {
+    @extend %ams-mb--md;
+  }
+
+  &:has(+ .ams-blockquote),
+  &:has(+ .ams-image),
+  &:has(+ .ams-image-slider),
+  &:has(+ .ams-table) {
+    @extend %ams-mb--lg;
+  }
+
+  &:has(+ .ams-alert) {
+    @extend %ams-mb--xl;
+  }
 }
 
 .ams-heading--level-1 {
   font-size: var(--ams-heading-1-font-size);
   line-height: var(--ams-heading-1-line-height);
+
+  &:has(+ .ams-heading--level-3) {
+    @extend %ams-mb--xxl;
+  }
 }
 
 .ams-heading--level-2 {
   font-size: var(--ams-heading-2-font-size);
   line-height: var(--ams-heading-2-line-height);
+
+  &:has(+ .ams-heading--level-3) {
+    @extend %ams-mb--lg;
+  }
 }
 
 .ams-heading--level-3 {
   font-size: var(--ams-heading-3-font-size);
   line-height: var(--ams-heading-3-line-height);
+
+  &:has(+ .ams-heading--level-4) {
+    @extend %ams-mb--lg;
+  }
 }
 
 .ams-heading--level-4 {
   font-size: var(--ams-heading-4-font-size);
   line-height: var(--ams-heading-4-line-height);
+
+  &:has(+ .ams-heading--level-5) {
+    @extend %ams-mb--lg;
+  }
 }
 
 .ams-heading--level-5 {
   font-size: var(--ams-heading-5-font-size);
   line-height: var(--ams-heading-5-line-height);
+
+  &:has(+ .ams-heading--level-6) {
+    @extend %ams-mb--lg;
+  }
 }
 
 .ams-heading--level-6 {
