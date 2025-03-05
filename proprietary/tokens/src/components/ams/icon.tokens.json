@@ -1,7 +1,6 @@
 {
   "ams": {
     "icon": {
-      "font-family": { "value": "{ams.typography.font-family}" },
       "font-size": { "value": "{ams.typography.body-text.font-size}" },
       "line-height": { "value": "{ams.typography.body-text.line-height}" },
       "small": {

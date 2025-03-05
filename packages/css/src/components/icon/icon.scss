@@ -6,7 +6,6 @@
 .ams-icon {
   align-self: baseline; // Aligns the icon with text in flex or grid context
   display: inline-flex; // Stretches the svg vertically (align-items: normal)
-  font-family: var(--ams-icon-font-family);
   font-size: var(--ams-icon-font-size);
   line-height: var(--ams-icon-line-height);
 
