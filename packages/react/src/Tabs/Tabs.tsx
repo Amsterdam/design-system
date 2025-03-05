@@ -16,11 +16,11 @@ export type TabsProps = {
   /** The number of the active tab. Corresponds to its `tab` value. */
   activeTab?: number
   /* Provides the id of the activated tab. */
-  onChange?: (tabId: number) => void
+  onTabChange?: (tabId: number) => void
 } & PropsWithChildren<HTMLAttributes<HTMLDivElement>>
 
 const TabsRoot = forwardRef(
-  ({ activeTab, children, className, onChange, ...restProps }: TabsProps, ref: ForwardedRef<HTMLDivElement>) => {
+  ({ activeTab, children, className, onTabChange, ...restProps }: TabsProps, ref: ForwardedRef<HTMLDivElement>) => {
     const tabsId = useId()
     const innerRef = useRef<HTMLDivElement>(null)
     const [activeTabId, setActiveTabId] = useState(0)
@@ -45,7 +45,7 @@ const TabsRoot = forwardRef(
 
     const updateTab = (tab: number) => {
       setActiveTabId(tab)
-      onChange?.(tab)
+      onTabChange?.(tab)
     }
 
     // Use a passed ref if it's there, otherwise use innerRef
