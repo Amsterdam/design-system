@@ -46,6 +46,8 @@
   }
 
   // Remove the outline from the link; it’s already on the Card.
+  // Reuses the `.ams-card:has(:focus-visible)` selector above, so that
+  // browsers that support it apply both styles, while those that don’t apply neither.
   .ams-card:has(:focus-visible) &:focus {
     outline: none;
   }
