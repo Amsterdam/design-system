@@ -22,7 +22,7 @@
   align-items: center;
   align-self: start; // To align the logo link section to the top of the header when it wraps
   column-gap: var(--ams-header-logo-link-column-gap);
-  display: inline-flex;
+  display: flex;
   grid-area: 1 / 1; // To allow this section to overlap with the second logo link section
   inline-size: fit-content;
   outline-offset: var(--ams-header-logo-link-outline-offset);
