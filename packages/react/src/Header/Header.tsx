@@ -86,9 +86,7 @@ const HeaderRoot = forwardRef(
               <div className="ams-header__logo-link">
                 <Logo brand={logoBrand} />
               </div>
-              {brandName && (
-                <span className="ams-heading ams-heading--level-5 ams-header__brand-name">{brandName}</span>
-              )}
+              {brandName && <span className="ams-heading ams-heading--5 ams-header__brand-name">{brandName}</span>}
             </div>
 
             <ul className="ams-header__menu">
