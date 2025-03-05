@@ -36,9 +36,6 @@ export const Default: Story = {
   args: {
     children: [
       <Footer.Spotlight key="footer-spotlight">
-        <Heading className="ams-visually-hidden" color="inverse" level={1}>
-          Colofon
-        </Heading>
         <Grid gapVertical="large" paddingVertical="medium">
           <Grid.Cell span={4}>
             <Heading className="ams-mb--xs" color="inverse" level={2} size="level-4">
@@ -115,9 +112,6 @@ export const OnderzoekEnStatistiek: Story = {
   args: {
     children: [
       <Footer.Spotlight key="footer-spotlight">
-        <Heading className="ams-visually-hidden" color="inverse" level={1}>
-          Colofon
-        </Heading>
         <Grid gapVertical="large" paddingVertical="medium">
           <Grid.Cell span={3}>
             <Heading className="ams-mb--xs" color="inverse" level={2} size="level-4">
