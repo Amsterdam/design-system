@@ -24,6 +24,7 @@
   column-gap: var(--ams-header-logo-link-column-gap);
   display: inline-flex;
   grid-area: 1 / 1; // To allow this section to overlap with the second branding section
+  inline-size: fit-content;
   outline-offset: var(--ams-header-logo-link-outline-offset);
   text-decoration: none;
 }
