@@ -21,11 +21,11 @@ export type HeadingProps = {
 export const Heading = forwardRef(
   ({ children, className, color, level, size, ...restProps }: HeadingProps, ref: ForwardedRef<HTMLHeadingElement>) => {
     const Tag = getHeadingTag(level)
-    const visualSize = size ? size.slice(-1) : level
+    const visualLevel = size ? size.slice(-1) : level
 
     return (
       <Tag
-        className={clsx('ams-heading', `ams-heading--${visualSize}`, color && `ams-heading--${color}`, className)}
+        className={clsx('ams-heading', `ams-heading--${visualLevel}`, color && `ams-heading--${color}`, className)}
         ref={ref}
         {...restProps}
       >
