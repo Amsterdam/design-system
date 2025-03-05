@@ -3,26 +3,26 @@
  * Copyright Gemeente Amsterdam
  */
 
-%ams-mb--xs {
+%ams-mb--x-small {
   margin-block-end: var(--ams-margin-xs) !important;
 }
 
-%ams-mb--sm {
+%ams-mb--small {
   margin-block-end: var(--ams-margin-sm) !important;
 }
 
-%ams-mb--md {
+%ams-mb--medium {
   margin-block-end: var(--ams-margin-md) !important;
 }
 
-%ams-mb--lg {
+%ams-mb--large {
   margin-block-end: var(--ams-margin-lg) !important;
 }
 
-%ams-mb--xl {
+%ams-mb--x-large {
   margin-block-end: var(--ams-space-xl) !important;
 }
 
-%ams-mb--xxl {
-  margin-block-end: var(--ams-space-xxl) !important;
+%ams-mb--2x-large {
+  margin-block-end: var(--ams-space-2xl) !important;
 }

@@ -31,7 +31,7 @@
   &:has(+ .ams-ordered-list),
   &:has(+ .ams-paragraph),
   &:has(+ .ams-unordered-list) {
-    @extend %ams-mb--md;
+    @extend %ams-mb--medium;
   }
 
   &:has(+ .ams-blockquote),
@@ -41,12 +41,12 @@
   &:has(+ .ams-heading--level-6),
   &:has(+ .ams-image),
   &:has(+ .ams-image-slider) {
-    @extend %ams-mb--lg;
+    @extend %ams-mb--large;
   }
 
   &:has(+ .ams-alert),
   &:has(+ .ams-heading--level-2) {
-    @extend %ams-mb--xl;
+    @extend %ams-mb--x-large;
   }
 }
 
@@ -60,7 +60,7 @@
   line-height: var(--ams-paragraph-large-line-height);
 
   &:has(+ .ams-heading--level-2) {
-    @extend %ams-mb--xxl;
+    @extend %ams-mb--2x-large;
   }
 }
 

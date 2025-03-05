@@ -15,7 +15,7 @@
   vertical-align: middle; /* [2] */
 
   &:has(+ .ams-image) {
-    @extend %ams-mb--md;
+    @extend %ams-mb--medium;
   }
 
   &:has(+ .ams-blockquote),
@@ -30,14 +30,14 @@
   &:has(+ .ams-paragraph),
   &:has(+ .ams-table),
   &:has(+ .ams-unordered-list) {
-    @extend %ams-mb--lg;
+    @extend %ams-mb--large;
   }
 
   &:has(+ .ams-alert),
   &:has(+ .ams-heading--level-2),
   &:has(+ .ams-heading--level-3),
   &:has(+ .ams-heading--level-4) {
-    @extend %ams-mb--xl;
+    @extend %ams-mb--x-large;
   }
 }
 

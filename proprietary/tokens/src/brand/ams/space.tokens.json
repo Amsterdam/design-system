@@ -6,7 +6,7 @@
       "md": { "value": "clamp(1.125rem, 1.0313rem + 0.4688vw, 1.5rem)" },
       "lg": { "value": "clamp(1.6875rem, 1.5469rem + 0.7031vw, 2.25rem)" },
       "xl": { "value": "clamp(2.625rem, 2.4063rem + 1.0938vw, 3.5rem)" },
-      "xxl": { "value": "clamp(3.9375rem, 3.6094rem + 1.6406vw, 5.25rem)" },
+      "2xl": { "value": "clamp(3.9375rem, 3.6094rem + 1.6406vw, 5.25rem)" },
       "grid": {
         "xs": { "value": "clamp(0.25rem, calc(0.09375rem + 0.78125vw), 0.875rem)" },
         "sm": { "value": "clamp(0.5rem, calc(0.1875rem + 1.5625vw), 1.75rem)" },

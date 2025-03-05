@@ -27,25 +27,25 @@
   &:has(+ .ams-ordered-list),
   &:has(+ .ams-paragraph),
   &:has(+ .ams-unordered-list) {
-    @extend %ams-mb--xs;
+    @extend %ams-mb--x-small;
   }
 
   &:has(+ .ams-accordion),
   &:has(+ .ams-button),
   &:has(+ .ams-description-list),
   &:has(+ .ams-link-list) {
-    @extend %ams-mb--md;
+    @extend %ams-mb--medium;
   }
 
   &:has(+ .ams-blockquote),
   &:has(+ .ams-image),
   &:has(+ .ams-image-slider),
   &:has(+ .ams-table) {
-    @extend %ams-mb--lg;
+    @extend %ams-mb--large;
   }
 
   &:has(+ .ams-alert) {
-    @extend %ams-mb--xl;
+    @extend %ams-mb--x-large;
   }
 }
 
@@ -54,7 +54,7 @@
   line-height: var(--ams-heading-1-line-height);
 
   &:has(+ .ams-heading--level-3) {
-    @extend %ams-mb--xxl;
+    @extend %ams-mb--2x-large;
   }
 }
 
@@ -63,7 +63,7 @@
   line-height: var(--ams-heading-2-line-height);
 
   &:has(+ .ams-heading--level-3) {
-    @extend %ams-mb--lg;
+    @extend %ams-mb--large;
   }
 }
 
@@ -72,7 +72,7 @@
   line-height: var(--ams-heading-3-line-height);
 
   &:has(+ .ams-heading--level-4) {
-    @extend %ams-mb--lg;
+    @extend %ams-mb--large;
   }
 }
 
@@ -81,7 +81,7 @@
   line-height: var(--ams-heading-4-line-height);
 
   &:has(+ .ams-heading--level-5) {
-    @extend %ams-mb--lg;
+    @extend %ams-mb--large;
   }
 }
 
@@ -90,7 +90,7 @@
   line-height: var(--ams-heading-5-line-height);
 
   &:has(+ .ams-heading--level-6) {
-    @extend %ams-mb--lg;
+    @extend %ams-mb--large;
   }
 }
 
