@@ -91,12 +91,12 @@ describe('Tabs', () => {
     expect(screen.getByRole('tabpanel')).toHaveTextContent('Content 2')
   })
 
-  it('calls onChange with the newly activated tab', async () => {
+  it('calls onTabChange with the newly activated tab', async () => {
     const user = userEvent.setup()
 
-    const onChange = jest.fn()
+    const onTabChange = jest.fn()
     render(
-      <Tabs onChange={onChange}>
+      <Tabs onTabChange={onTabChange}>
         <Tabs.List>
           <Tabs.Button tab={1}>Tab 1</Tabs.Button>
         </Tabs.List>
@@ -106,7 +106,7 @@ describe('Tabs', () => {
     const button = screen.getByRole('tab', { name: 'Tab 1' })
     await user.click(button)
 
-    expect(onChange).toHaveBeenCalledWith(1)
+    expect(onTabChange).toHaveBeenCalledWith(1)
   })
 
   it('should be able to set the initially active tab', () => {
