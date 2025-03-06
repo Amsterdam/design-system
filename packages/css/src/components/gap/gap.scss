@@ -14,7 +14,7 @@
   @if $size != "no" {
     .ams-gap--#{$size} {
       /* stylelint-disable-next-line csstools/value-no-unknown-custom-properties */
-      grid-gap: var(--ams-gap-#{$size}) !important;
+      grid-gap: var(--ams-space-#{$size}) !important;
     }
   }
 }
