@@ -2,17 +2,17 @@
   "ams": {
     "grid": {
       "column-count": { "value": "4" },
-      "column-gap": { "value": "{ams.space.grid.md}" },
+      "column-gap": { "value": "{ams.space.xl}" },
       "padding-block": {
-        "sm": { "value": "{ams.space.grid.sm}" },
-        "md": { "value": "{ams.space.grid.md}" },
-        "lg": { "value": "{ams.space.grid.lg}" }
+        "sm": { "value": "{ams.space.lg}" },
+        "md": { "value": "{ams.space.xl}" },
+        "lg": { "value": "{ams.space.2xl}" }
       },
-      "padding-inline": { "value": "{ams.space.grid.lg}" },
+      "padding-inline": { "value": "{ams.space.2xl}" },
       "row-gap": {
-        "sm": { "value": "{ams.space.grid.sm}" },
-        "md": { "value": "{ams.space.grid.md}" },
-        "lg": { "value": "{ams.space.grid.lg}" }
+        "sm": { "value": "{ams.space.lg}" },
+        "md": { "value": "{ams.space.xl}" },
+        "lg": { "value": "{ams.space.2xl}" }
       },
       "medium": {
         "column-count": { "value": "8" }
