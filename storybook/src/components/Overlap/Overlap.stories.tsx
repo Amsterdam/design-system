@@ -21,7 +21,7 @@ export const Default: Story = {
     children: [
       <Image
         alt=""
-        aspectRatio="2x-wide"
+        aspectRatio="16-5"
         key={1}
         sizes="(max-width: 36rem) 640px, (max-width: 68rem) 1280px, 1600px"
         src="https://picsum.photos/1600/500"
