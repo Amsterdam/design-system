@@ -3,7 +3,6 @@ import { headerMenuLinks, megaMenuLinks } from './menu'
 
 export const AppHeader = () => (
   <Header
-    menuButtonText="Alle onderwerpen"
     menuItems={headerMenuLinks.map(({ fixed, href, label, lang }) => (
       <Header.MenuLink fixed={fixed} href={href ?? '#'} key={label} lang={lang} rel={href ? 'external' : undefined}>
         {label}

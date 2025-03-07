@@ -190,7 +190,7 @@ export const WithCustomTexts: Story = {
         </Grid.Cell>
       </Grid>
     ),
-    menuButtonText: 'Hoofdmenu',
+    menuButtonText: 'Alle onderwerpen',
     navigationLabel: 'Navigatie',
   },
 }
