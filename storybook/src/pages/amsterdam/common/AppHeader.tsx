@@ -23,7 +23,7 @@ export const AppHeader = () => (
         </LinkList>
       </Header.GridCellNarrowWindowOnly>
       <Grid.Cell span="all">
-        <Heading className="ams-mb--sm" level={2} size="level-3">
+        <Heading className="ams-mb--sm" level={3}>
           Alle onderwerpen
         </Heading>
         <div className="ams-mega-menu__columns">
