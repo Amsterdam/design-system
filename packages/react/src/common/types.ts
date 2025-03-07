@@ -1,4 +1,4 @@
-export const aspectRatioOptions = ['x-tall', 'tall', 'square', 'wide', 'x-wide', '2x-wide'] as const
+export const aspectRatioOptions = ['9-16', '3-4', '1-1', '4-3', '16-9', '16-5'] as const
 export type AspectRatioProps = {
   /** The aspect ratio to display media content in. */
   aspectRatio?: (typeof aspectRatioOptions)[number]

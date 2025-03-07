@@ -3,6 +3,7 @@
  * Copyright Gemeente Amsterdam
  */
 
+import { aspectRatioOptions } from '@amsterdam/design-system-react/src/common/types'
 import { Meta, StoryObj } from '@storybook/react'
 import { AspectRatio } from './AspectRatio'
 
@@ -10,12 +11,12 @@ const meta = {
   title: 'Utilities/CSS/Aspect Ratio',
   component: AspectRatio,
   args: {
-    aspectRatio: 'x-wide',
+    aspectRatio: '16-9',
   },
   argTypes: {
     aspectRatio: {
       control: 'radio',
-      options: ['2x-wide', 'x-wide', 'wide', 'square', 'tall', 'x-tall'],
+      options: aspectRatioOptions,
     },
   },
   render: ({ aspectRatio }) => (
