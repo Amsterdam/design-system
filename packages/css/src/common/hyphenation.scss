@@ -5,6 +5,6 @@
 
 @mixin hyphenation {
   hyphenate-limit-chars: var(--ams-typography-hyphenate-limit-chars);
-  hyphens: var(--ams-hyphenation-hyphens);
-  overflow-wrap: var(--ams-hyphenation-overflow-wrap);
+  hyphens: auto;
+  overflow-wrap: break-word;
 }

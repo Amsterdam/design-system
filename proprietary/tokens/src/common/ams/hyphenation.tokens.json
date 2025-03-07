@@ -1,8 +1,0 @@
-{
-  "ams": {
-    "hyphenation": {
-      "hyphens": { "value": "auto" },
-      "overflow-wrap": { "value": "break-word" }
-    }
-  }
-}
