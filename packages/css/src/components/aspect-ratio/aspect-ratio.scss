@@ -4,7 +4,7 @@
  */
 
 .ams-aspect-ratio {
-  @each $name in ("x-tall", "tall", "square", "wide", "x-wide", "2x-wide") {
+  @each $name in ("9-16", "3-4", "1-1", "4-3", "16-9", "16-5") {
     &--#{$name} {
       /* stylelint-disable-next-line csstools/value-no-unknown-custom-properties */
       aspect-ratio: var(--ams-aspect-ratio-#{$name}) !important;
