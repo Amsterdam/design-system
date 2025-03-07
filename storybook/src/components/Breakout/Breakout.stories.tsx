@@ -47,7 +47,7 @@ export const Default: Story = {
         rowSpan={2}
         rowStart={1}
       >
-        <Image alt="" aspectRatio="square" src="https://picsum.photos/960/960" />
+        <Image alt="" aspectRatio="1-1" src="https://picsum.photos/960/960" />
       </Breakout.Cell>,
     ],
   },
