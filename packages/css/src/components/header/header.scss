@@ -143,6 +143,7 @@
   column-gap: var(--ams-header-menu-item-column-gap);
   cursor: var(--ams-header-mega-menu-button-cursor);
   display: grid;
+  font-family: inherit;
   grid-auto-flow: column;
 
   @include header-menu-action;
