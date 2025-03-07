@@ -76,7 +76,7 @@ const meta = {
         type: 'number',
       },
     },
-    onChange: {
+    onTabChange: {
       action: 'clicked',
       description: 'Provides the id of the activated tab.',
     },

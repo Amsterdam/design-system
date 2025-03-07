@@ -2,7 +2,7 @@
   "ams": {
     "dialog": {
       "background-color": { "value": "{ams.color.background}" },
-      "border": { "value": "0" },
+      "border": { "value": "{ams.border.width.md} solid {ams.dialog.background-color}" },
       "gap": { "value": "{ams.space.md}" },
       "inline-size": { "value": "calc(100% - 2 * {ams.space.grid.md})" },
       "max-block-size": { "value": "calc(100dvh - 2 * {ams.space.grid.md})" },
