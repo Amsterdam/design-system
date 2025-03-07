@@ -1,7 +1,6 @@
 {
   "ams": {
     "hyphenation": {
-      "hyphenate-limit-chars": { "value": "12 8 4" },
       "hyphens": { "value": "auto" },
       "overflow-wrap": { "value": "break-word" }
     }
