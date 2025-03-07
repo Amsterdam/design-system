@@ -86,7 +86,7 @@ const HeaderRoot = forwardRef(
               {navigationLabel}
             </h2>
 
-            {/* The branding section is recreated here, to make sure the page menu breaks at the right spot */}
+            {/* The logo link section is recreated here, to make sure the page menu breaks at the right spot */}
             <div className="ams-header__logo-link ams-header__logo-link--hidden">
               <LogoLinkContent brandName={brandName} logoBrand={logoBrand} />
             </div>
