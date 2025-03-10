@@ -10,11 +10,9 @@
         "font-weight": { "value": "{ams.typography.heading.font-weight}" },
         "gap": { "value": "{ams.space.sm}" },
         "line-height": { "value": "{ams.typography.heading.4.line-height}" },
+        "outline-offset": { "value": "{ams.focus.outline-offset}" },
         "padding-block": { "value": "{ams.space.sm}" },
         "padding-inline": { "value": "0" },
-        "focus": {
-          "outline-offset": { "value": "{ams.focus.outline-offset}" }
-        },
         "hover": {
           "color": { "value": "{ams.color.interactive.hover}" }
         }
