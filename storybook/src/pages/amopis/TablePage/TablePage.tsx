@@ -23,21 +23,23 @@ export const TablePage = () => (
         <Breadcrumb.Link href="#">Dashboard</Breadcrumb.Link>
         <Breadcrumb.Link href="#">Planning</Breadcrumb.Link>
       </Breadcrumb>
-      <Heading className="ams-mb--sm">Capaciteitsraming</Heading>
+      <Heading className="ams-mb--sm" level={1}>
+        Capaciteitsraming
+      </Heading>
       <Heading level={2}>Brug 423 opwaardering (Berlagebrug) – ams20192715</Heading>
     </Grid.Cell>
     <Grid.Cell span={{ narrow: 4, medium: 8, wide: 10 }} start={{ narrow: 1, medium: 1, wide: 3 }}>
       <Tabs>
         <Tabs.List>
           {menu.level3.map(({ label }, index) => (
-            <Tabs.Button tab={index} key={label}>
+            <Tabs.Button key={label} tab={index}>
               {label}
             </Tabs.Button>
           ))}
         </Tabs.List>
       </Tabs>
     </Grid.Cell>
-    <Grid.Cell start={1} span={{ narrow: 4, medium: 2, wide: 2 }}>
+    <Grid.Cell span={{ narrow: 4, medium: 2, wide: 2 }} start={1}>
       <div className="ams-application-white-background">
         <Submenu activeTab={3} />
       </div>
@@ -69,7 +71,7 @@ export const TablePage = () => (
                   <Table.Cell>2025</Table.Cell>
                   <Table.Cell>25-2</Table.Cell>
                   <Table.Cell>
-                    <Badge label="Voorgesteld" color="blue" />
+                    <Badge color="magenta" label="Voorgesteld" />
                   </Table.Cell>
                   <Table.Cell>Marise Ent</Table.Cell>
                   <Table.Cell>
@@ -83,7 +85,7 @@ export const TablePage = () => (
                   <Table.Cell>2024</Table.Cell>
                   <Table.Cell>24-7</Table.Cell>
                   <Table.Cell>
-                    <Badge label="Vastgesteld" color="dark-green" />
+                    <Badge label="Vastgesteld" />
                   </Table.Cell>
                   <Table.Cell>Klaas Helmers</Table.Cell>
                   <Table.Cell>
@@ -97,7 +99,7 @@ export const TablePage = () => (
                   <Table.Cell>2026</Table.Cell>
                   <Table.Cell>26-1</Table.Cell>
                   <Table.Cell>
-                    <Badge label="Concept" color="yellow" />
+                    <Badge color="yellow" label="Concept" />
                   </Table.Cell>
                   <Table.Cell>Klaas Helmers</Table.Cell>
                   <Table.Cell>
@@ -128,7 +130,7 @@ export const TablePage = () => (
                     <Table.Cell>2024</Table.Cell>
                     <Table.Cell>24-6</Table.Cell>
                     <Table.Cell>
-                      <Badge label="Voorgesteld" color="blue" />
+                      <Badge color="magenta" label="Voorgesteld" />
                     </Table.Cell>
                     <Table.Cell>Marjolein Boomer</Table.Cell>
                     <Table.Cell>
@@ -142,7 +144,7 @@ export const TablePage = () => (
                     <Table.Cell>2024</Table.Cell>
                     <Table.Cell>24-5</Table.Cell>
                     <Table.Cell>
-                      <Badge label="Voorgesteld" color="blue" />
+                      <Badge color="magenta" label="Voorgesteld" />
                     </Table.Cell>
                     <Table.Cell>Klaas Helmers</Table.Cell>
                     <Table.Cell>
@@ -156,7 +158,7 @@ export const TablePage = () => (
                     <Table.Cell>2024</Table.Cell>
                     <Table.Cell>24-4</Table.Cell>
                     <Table.Cell>
-                      <Badge label="Voorgesteld" color="blue" />
+                      <Badge color="magenta" label="Voorgesteld" />
                     </Table.Cell>
                     <Table.Cell>Marjolein Boomer</Table.Cell>
                     <Table.Cell>
@@ -170,7 +172,7 @@ export const TablePage = () => (
                     <Table.Cell>2024</Table.Cell>
                     <Table.Cell>24-3</Table.Cell>
                     <Table.Cell>
-                      <Badge label="Voorgesteld" color="blue" />
+                      <Badge color="magenta" label="Voorgesteld" />
                     </Table.Cell>
                     <Table.Cell>Marjolein Boomer</Table.Cell>
                     <Table.Cell>
@@ -184,7 +186,7 @@ export const TablePage = () => (
                     <Table.Cell>2024</Table.Cell>
                     <Table.Cell>24-2</Table.Cell>
                     <Table.Cell>
-                      <Badge label="Wijziging aangevraagd" color="magenta" />
+                      <Badge color="magenta" label="Wijziging aangevraagd" />
                     </Table.Cell>
                     <Table.Cell>Marise Ent</Table.Cell>
                     <Table.Cell>
@@ -198,7 +200,7 @@ export const TablePage = () => (
                     <Table.Cell>2025</Table.Cell>
                     <Table.Cell>24-1</Table.Cell>
                     <Table.Cell>
-                      <Badge label="Concept" color="yellow" />
+                      <Badge color="yellow" label="Concept" />
                     </Table.Cell>
                     <Table.Cell>Klaas Helmers</Table.Cell>
                     <Table.Cell>

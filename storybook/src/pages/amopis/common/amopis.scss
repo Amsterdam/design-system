@@ -22,17 +22,17 @@ $ams-breakpoint-wide: 68rem;
 }
 
 .ams-application-body {
-  background-color: var(--ams-color-neutral-grey1);
+  background-color: #e4effa;
   flex: auto;
 }
 
 .ams-application-white-background {
-  background-color: var(--ams-color-primary-white);
+  background-color: var(--ams-color-background);
 }
 
 .ams-application-sidebar {
   align-items: center;
-  background-color: var(--ams-color-primary-blue);
+  background-color: var(--ams-color-interactive);
   display: none;
   flex-direction: column;
   padding-block-start: calc(40px + 3 * var(--ams-grid-row-gap-md));
@@ -43,13 +43,13 @@ $ams-breakpoint-wide: 68rem;
 }
 
 .ams-application-tabs-vertical {
-  border-block-end: none;
+  box-shadow: none;
   flex-direction: column;
 }
 
 .ams-application-tabs-vertical .ams-tabs__button {
   align-items: center;
-  border-block-end: var(--ams-tabs-list-border-block-end);
+  box-shadow: var(--ams-tabs-list-box-shadow);
   display: flex;
   gap: var(--ams-space-xs);
   padding-inline: var(--ams-space-sm);

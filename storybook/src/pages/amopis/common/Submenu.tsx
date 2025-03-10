@@ -17,7 +17,7 @@ export const Submenu = ({ activeTab }: SubmenuProps) => (
       ))}
     </Tabs.List>
     {menu.level2.map(({ label }, index) => (
-      <Tabs.Panel key={label} tab={index} style={{ display: 'none' }} />
+      <Tabs.Panel key={label} style={{ display: 'none' }} tab={index} />
     ))}
   </Tabs>
 )

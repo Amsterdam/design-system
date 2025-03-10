@@ -14,7 +14,7 @@ export const Layout = ({ children }: LayoutProps) => (
         <Sidebar />
         <div className="ams-application-content">
           <SiteHeader />
-          <div id="main" className="ams-application-body">
+          <div className="ams-application-body" id="main">
             {children}
           </div>
           <Grid paddingVertical="small">

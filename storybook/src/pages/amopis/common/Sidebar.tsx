@@ -5,9 +5,9 @@ export const Sidebar = () => (
   <div className="ams-application-sidebar">
     <Column gap="large">
       {menu.level1.map(({ Icon, label }, index) => (
-        <Column key={index} className="ams-application-column--halign-center" gap="extra-small">
+        <Column className="ams-application-column--halign-center" gap="extra-small" key={index}>
           {Icon && <Icon fill="white" width={24} />}
-          <Paragraph inverseColor size="small">
+          <Paragraph color="inverse" size="small">
             {label}
           </Paragraph>
         </Column>
