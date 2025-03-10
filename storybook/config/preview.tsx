@@ -18,13 +18,15 @@ export const argTypes = {
 
 // Wrap in Screen, set language to Dutch for Canvas and Stories
 export const decorators = [
-  (Story: StoryFn, { args }: StoryContext) => (
+  (Story: StoryFn, { args, context }: StoryContext) => (
     <Screen
       className={clsx({
+        'ams-application-screen': context.tags?.includes('application'),
         'ams-docs-dark-background': args['color'] === 'inverse',
         'ams-docs-light-background': args['color'] === 'contrast',
       })}
       lang="nl"
+      maxWidth={context.tags?.includes('application') ? 'x-wide' : 'wide'}
     >
       <Story />
     </Screen>

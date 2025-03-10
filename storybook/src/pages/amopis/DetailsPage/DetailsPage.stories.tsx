@@ -11,6 +11,7 @@ const meta = {
   ...commonMeta,
   title: 'Pages/Amopis/Details Page',
   component: DetailsPage,
+  tags: ['application'],
 } satisfies Meta<typeof DetailsPage>
 
 export default meta

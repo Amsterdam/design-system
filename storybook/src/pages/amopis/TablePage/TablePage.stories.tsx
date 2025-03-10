@@ -11,6 +11,7 @@ const meta = {
   ...commonMeta,
   title: 'Pages/Amopis/Table Page',
   component: TablePage,
+  tags: ['application'],
 } satisfies Meta<typeof TablePage>
 
 export default meta
