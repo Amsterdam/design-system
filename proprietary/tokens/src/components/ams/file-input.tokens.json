@@ -9,7 +9,10 @@
       "font-size": { "value": "{ams.typography.body-text.font-size}" },
       "font-weight": { "value": "{ams.typography.body-text.font-weight}" },
       "line-height": { "value": "{ams.typography.body-text.line-height}" },
-      "outline-offset": { "value": "{ams.focus.outline-offset}" },
+      "outline-offset": {
+        "comment": "Compensate for the dashed border",
+        "value": "calc({ams.focus.outline-offset} * 2)"
+      },
       "padding-block": { "value": "{ams.space.md}" },
       "padding-inline": { "value": "{ams.space.md}" },
       "disabled": {
