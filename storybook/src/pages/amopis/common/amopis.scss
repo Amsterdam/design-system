@@ -10,6 +10,7 @@ $ams-breakpoint-wide: 68rem;
 .ams-application-container {
   display: grid;
   grid-template-columns: 1fr;
+  inline-size: 100vw;
 
   @media screen and (min-width: $ams-breakpoint-wide) {
     grid-template-columns: 112px 1fr;
@@ -24,6 +25,7 @@ $ams-breakpoint-wide: 68rem;
 .ams-application-body {
   background-color: #e4effa;
   flex: auto;
+  overflow: auto;
 }
 
 .ams-application-white-background {
@@ -35,7 +37,7 @@ $ams-breakpoint-wide: 68rem;
   background-color: var(--ams-color-interactive);
   display: none;
   flex-direction: column;
-  padding-block-start: calc(40px + 3 * var(--ams-grid-row-gap-md));
+  padding-block-start: calc(40px + 2 * var(--ams-header-padding-block) + var(--ams-space-md));
 
   @media screen and (min-width: $ams-breakpoint-wide) {
     display: flex;
@@ -48,22 +50,13 @@ $ams-breakpoint-wide: 68rem;
 }
 
 .ams-application-tabs-vertical .ams-tabs__button {
-  align-items: center;
   box-shadow: var(--ams-tabs-list-box-shadow);
-  display: flex;
   gap: var(--ams-space-xs);
   padding-inline: var(--ams-space-sm);
   text-align: start;
 }
 
-.ams-application-column--halign-center {
-  justify-items: center;
-}
-
-.ams-application-row--align-between {
-  justify-content: space-between;
-}
-
-.ams-application-row--valign-baseline {
-  align-items: baseline;
+.ams-application-tabs-vertical .ams-tabs__button-label {
+  display: flex;
+  gap: var(--ams-space-sm);
 }

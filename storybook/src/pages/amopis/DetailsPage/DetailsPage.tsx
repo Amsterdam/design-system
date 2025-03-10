@@ -47,7 +47,7 @@ export const DetailsPage = () => (
     <Grid.Cell span={{ narrow: 4, medium: 6, wide: 7 }}>
       <div className="ams-application-white-background" style={{ padding: '1rem' }}>
         <Column>
-          <Row className="ams-application-row--align-between amopis-row--valign-baseline">
+          <Row align="between" alignVertical="baseline">
             <Heading level={3}>Kerngegevens</Heading>
             <LinkList>
               <LinkList.Link href="#" icon={EditDocumentIcon}>
