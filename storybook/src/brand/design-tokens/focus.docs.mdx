@@ -1,0 +1,25 @@
+{/* @license CC0-1.0 */}
+
+import { Meta } from "@storybook/blocks";
+
+<Meta title="Brand/Design Tokens/Focus" />
+
+# Focus
+
+## Token
+
+Click on the table, then hit the Tab key two times to show the outline on the link and button.
+On a touch device, use a screen reader or keyboard to place focus.
+
+| CSS variable                      |  Value   | Example link                                            | Example button                                                     |
+| :-------------------------------- | :------: | :------------------------------------------------------ | ------------------------------------------------------------------ |
+| `var(--ams-focus-outline-offset)` | 0.125rem | <a href="#" className="ams-link">A random link text</a> | <button className="ams-button ams-button--primary">Button</button> |
+
+## Design
+
+We use the standard focus indicator of the web browsers.
+We only adjust the focus outline with an offset of 2 pixels to increase contrast with dark elements.
+
+## Guidelines
+
+When setting up a page, ensure that the interactive elements are in a logical order, usually from top to bottom and from left to right.
