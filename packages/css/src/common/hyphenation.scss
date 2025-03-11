@@ -6,5 +6,6 @@
 @mixin hyphenation {
   hyphenate-limit-chars: var(--ams-typography-hyphenate-limit-chars);
   hyphens: auto;
+  // Break overflowing words for browsers that don’t support CSS hyphens.
   overflow-wrap: break-word;
 }
