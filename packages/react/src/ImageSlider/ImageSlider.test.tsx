@@ -23,17 +23,17 @@ describe('Image Slider', () => {
   const images: ImageSliderImageProps[] = [
     {
       alt: 'Bridge',
-      aspectRatio: '16-9',
+      aspectRatio: '16 / 9',
       src: 'https://picsum.photos/id/122/320/180',
     },
     {
       alt: 'Bunker',
-      aspectRatio: '16-9',
+      aspectRatio: '16 / 9',
       src: 'https://picsum.photos/id/101/320/180',
     },
     {
       alt: 'Chairs',
-      aspectRatio: '16-9',
+      aspectRatio: '16 / 9',
       src: 'https://picsum.photos/id/153/320/180',
     },
   ]
