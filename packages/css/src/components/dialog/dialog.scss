@@ -3,6 +3,14 @@
  * Copyright Gemeente Amsterdam
  */
 
+@mixin reset-button {
+  border: 0;
+  margin-block: 0; // [1]
+  margin-inline: 0; // [1]
+
+  // [1] Remove the margin in older Safari.
+}
+
 @mixin reset-dialog {
   inset-block: 0;
   padding-block: 0;
@@ -52,4 +60,23 @@ so do not apply these styles without an `open` attribute. */
 .ams-dialog__footer {
   padding-block: var(--ams-dialog-footer-padding-block);
   padding-inline: var(--ams-dialog-footer-padding-inline);
+}
+
+.ams-dialog__close-button {
+  aspect-ratio: var(--ams-dialog-close-button-aspect-ratio); // TODO Find out why this doesn’t work – on Icon either
+  background-color: var(--ams-dialog-close-button-background-color);
+  color: var(--ams-dialog-close-button-color);
+  cursor: var(--ams-dialog-close-button-cursor);
+  display: inline-flex; // TODO find out why an `inline-block` button is 2px taller
+  outline-offset: var(--ams-dialog-close-button-outline-offset);
+  padding-block: var(--ams-dialog-close-button-padding-block);
+  padding-inline: var(--ams-dialog-close-button-padding-inline);
+  touch-action: manipulation;
+
+  @include reset-button;
+
+  &:hover {
+    box-shadow: var(--ams-dialog-close-button-hover-box-shadow);
+    color: var(--ams-dialog-close-button-hover-color);
+  }
 }

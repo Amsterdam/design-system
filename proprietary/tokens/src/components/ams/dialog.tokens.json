@@ -22,6 +22,19 @@
       "footer": {
         "padding-block": { "value": "0 {ams.space.grid.md}" },
         "padding-inline": { "value": "{ams.space.grid.lg}" }
+      },
+      "close-button": {
+        "aspect-ratio": { "value": "{ams.aspect-ratio.square}" },
+        "background-color": { "value": "transparent" },
+        "color": { "value": "{ams.color.interactive.default}" },
+        "cursor": { "value": "{ams.cursor.interactive}" },
+        "outline-offset": { "value": "{ams.focus.outline-offset}" },
+        "padding-block": { "value": "0" },
+        "padding-inline": { "value": "0" },
+        "hover": {
+          "box-shadow": { "value": "inset 0 0 0 {ams.border.width.md} {ams.color.interactive.hover}" },
+          "color": { "value": "{ams.color.interactive.hover}" }
+        }
       }
     }
   }

@@ -3,11 +3,12 @@
  * Copyright Gemeente Amsterdam
  */
 
+import { CloseIcon } from '@amsterdam/design-system-react-icons'
 import clsx from 'clsx'
 import { forwardRef, MouseEvent } from 'react'
 import type { DialogHTMLAttributes, ForwardedRef, PropsWithChildren, ReactNode } from 'react'
 import { Heading } from '../Heading'
-import { IconButton } from '../IconButton'
+import { Icon } from '../Icon'
 
 export type DialogProps = {
   /** The label for the button that dismisses the Dialog. */
@@ -31,7 +32,10 @@ const DialogRoot = forwardRef(
         <Heading level={1} size="level-4">
           {heading}
         </Heading>
-        <IconButton label={closeButtonLabel} onClick={closeDialog} size="heading-4" type="button" />
+        <button className="ams-dialog__close-button" onClick={closeDialog}>
+          <Icon size="heading-4" square svg={CloseIcon} />
+          <span className="ams-visually-hidden">{closeButtonLabel}</span>
+        </button>
       </header>
       <div className="ams-dialog__body">{children}</div>
       {footer && <footer className="ams-dialog__footer">{footer}</footer>}
