@@ -11,7 +11,7 @@ const meta = {
   title: 'Utilities/CSS/Aspect Ratio',
   component: AspectRatio,
   args: {
-    aspectRatio: '16-9',
+    aspectRatio: '16 / 9',
   },
   argTypes: {
     aspectRatio: {
@@ -21,7 +21,7 @@ const meta = {
   },
   render: ({ aspectRatio }) => (
     <div className="ams-docs-column ams-docs-aspect-ratio">
-      <div className={`ams-docs-item ams-aspect-ratio--${aspectRatio}`}></div>
+      <div className={`ams-docs-item ams-aspect-ratio--${aspectRatio?.replace(' / ', '-')}`}></div>
     </div>
   ),
 } satisfies Meta<typeof AspectRatio>
