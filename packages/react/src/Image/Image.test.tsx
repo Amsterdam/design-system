@@ -36,7 +36,7 @@ describe('Image', () => {
 
       const component = container.querySelector(':only-child')
 
-      expect(component).toHaveClass(`ams-aspect-ratio--${aspectRatio}`)
+      expect(component).toHaveClass(`ams-aspect-ratio--${aspectRatio.replace(' / ', '-')}`)
     })
   })
 
