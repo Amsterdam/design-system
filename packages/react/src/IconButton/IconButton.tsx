@@ -21,6 +21,7 @@ export type IconButtonProps = {
   svg?: IconProps['svg']
 } & ButtonHTMLAttributes<HTMLButtonElement>
 
+/** @deprecated Use a Button with the iconOnly prop instead. */
 export const IconButton = forwardRef(
   (
     { className, color, label, size, svg = CloseIcon, ...restProps }: IconButtonProps,
