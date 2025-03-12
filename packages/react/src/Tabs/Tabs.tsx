@@ -5,7 +5,7 @@
 
 import clsx from 'clsx'
 import { forwardRef, useEffect, useId, useImperativeHandle, useMemo, useRef, useState } from 'react'
-import type { ForwardedRef, HTMLAttributes, PropsWithChildren } from 'react'
+import type { ForwardedRef, HTMLAttributes, PropsWithChildren, ReactElement } from 'react'
 import { TabsButton } from './TabsButton'
 import { TabsContext } from './TabsContext'
 import { TabsList } from './TabsList'
@@ -13,37 +13,35 @@ import { TabsPanel } from './TabsPanel'
 import { useKeyboardFocus } from '../common/useKeyboardFocus'
 
 export type TabsProps = {
-  /** The number of the active tab. Corresponds to its `tab` value. */
-  activeTab?: number
+  /** The identifier of the initially active tab. Corresponds to its `tab` value. */
+  activeTab?: string
   /* Provides the id of the activated tab. */
-  onTabChange?: (tabId: number) => void
+  onTabChange?: (tabId: string) => void
 } & PropsWithChildren<HTMLAttributes<HTMLDivElement>>
 
 const TabsRoot = forwardRef(
   ({ activeTab, children, className, onTabChange, ...restProps }: TabsProps, ref: ForwardedRef<HTMLDivElement>) => {
     const tabsId = useId()
     const innerRef = useRef<HTMLDivElement>(null)
-    const [activeTabId, setActiveTabId] = useState(0)
+    const [activeTabId, setActiveTabId] = useState<string>()
 
-    const allTabs = useMemo(() => {
+    const allTabIds = useMemo(() => {
       if (!Array.isArray(children)) return []
-      return children[0].props.children
+      return (children[0].props.children as ReactElement[]).map((child) => child.props.tab)
     }, [children])
 
     useEffect(() => {
-      if (typeof activeTab !== 'number') return
-      if (!Number.isInteger(activeTab)) return
-
-      if (activeTab < 0) {
-        setActiveTabId(0)
-      } else if (activeTab > allTabs.length - 1) {
-        setActiveTabId(allTabs.length - 1)
+      if (!activeTab) {
+        setActiveTabId(allTabIds[0])
+      } else if (!allTabIds.includes(activeTab)) {
+        console.warn(`The active tab "${activeTab}" does not exist. Falling back to the first tab.`)
+        setActiveTabId(allTabIds[0])
       } else {
         setActiveTabId(activeTab)
       }
-    }, [activeTab, allTabs])
+    }, [activeTab, allTabIds])
 
-    const updateTab = (tab: number) => {
+    const updateTab = (tab: string) => {
       setActiveTabId(tab)
       onTabChange?.(tab)
     }
@@ -57,7 +55,7 @@ const TabsRoot = forwardRef(
     })
 
     return (
-      <TabsContext.Provider value={{ activeTab: activeTabId, tabsId, updateTab }}>
+      <TabsContext.Provider value={{ activeTabId, tabsId, updateTab }}>
         <div {...restProps} className={clsx('ams-tabs', className)} onKeyDown={keyDown} ref={innerRef}>
           {children}
         </div>

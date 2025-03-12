@@ -5,7 +5,7 @@ import '@testing-library/jest-dom'
 
 describe('Tabs button', () => {
   it('renders', () => {
-    render(<TabsButton tab={0} />)
+    render(<TabsButton tab="one" />)
 
     const component = screen.getByRole('tab')
 
@@ -13,7 +13,7 @@ describe('Tabs button', () => {
   })
 
   it('renders a design system BEM class name', () => {
-    render(<TabsButton tab={0} />)
+    render(<TabsButton tab="one" />)
 
     const component = screen.getByRole('tab')
 
@@ -21,7 +21,7 @@ describe('Tabs button', () => {
   })
 
   it('renders an additional class name', () => {
-    render(<TabsButton className="extra" tab={0} />)
+    render(<TabsButton className="extra" tab="one" />)
 
     const component = screen.getByRole('tab')
 
@@ -29,7 +29,7 @@ describe('Tabs button', () => {
   })
 
   it('renders a label', () => {
-    render(<TabsButton tab={0}>Label</TabsButton>)
+    render(<TabsButton tab="one">Label</TabsButton>)
 
     const component = screen.getByRole('tab', { name: 'Label' })
 
@@ -37,25 +37,25 @@ describe('Tabs button', () => {
   })
 
   it('renders the correct id based on the tabs prop', () => {
-    const { container } = render(<TabsButton tab={123} />)
+    const { container } = render(<TabsButton tab="one" />)
 
-    const component = container.querySelector('#-tab-123')
+    const component = container.querySelector('#-tab-one')
 
     expect(component).toBeInTheDocument()
   })
 
   it('should associate the button with the correct tab', () => {
-    render(<TabsButton tab={0} />)
+    render(<TabsButton tab="one" />)
 
     const component = screen.getByRole('tab')
 
-    expect(component).toHaveAttribute('aria-controls', '-panel-0')
+    expect(component).toHaveAttribute('aria-controls', '-panel-one')
   })
 
   it('supports ForwardRef in React', () => {
     const ref = createRef<HTMLButtonElement>()
 
-    render(<TabsButton ref={ref} tab={0} />)
+    render(<TabsButton ref={ref} tab="one" />)
 
     const component = screen.getByRole('tab')
 
