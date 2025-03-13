@@ -21,12 +21,16 @@ import './product-page.css'
 
 export const ProductPage = () => (
   <>
-    <Grid paddingBottom="medium" paddingTop="small">
+    <Grid paddingTop="small">
       <Grid.Cell span={{ narrow: 4, medium: 5, wide: 7 }} start={{ narrow: 1, medium: 2, wide: 3 }}>
         <Breadcrumb>
           <Breadcrumb.Link>Home</Breadcrumb.Link>
         </Breadcrumb>
+      </Grid.Cell>
+    </Grid>
 
+    <Grid paddingBottom="medium">
+      <Grid.Cell span={{ narrow: 4, medium: 5, wide: 7 }} start={{ narrow: 1, medium: 2, wide: 3 }}>
         <Heading className="ams-mb--md" level={1}>
           Gratis laptop of tablet basisschool
         </Heading>
