@@ -1,7 +1,8 @@
 {
   "ams": {
     "grid": {
-      "padding-inline": { "value": "{ams.space.xl}" }
+      "column-gap": { "value": "clamp(1rem, -0.0625rem + 1.5625vw, 2rem)" },
+      "padding-inline": { "value": "clamp(1rem, -0.0625rem + 1.5625vw, 2rem)" }
     }
   }
 }
