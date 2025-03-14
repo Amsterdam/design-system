@@ -6,15 +6,16 @@ Adds white space between a set of elements.
 
 ## Class names
 
-The five sizes of [Component Space](/docs/brand-design-tokens-space--docs) are available for the width or height of the gap.
+All six sizes of [Space](/docs/brand-design-tokens-space--docs) are available for the width or height of the gap.
 
-| Class name    | Example                                                                                   |
-| :------------ | :---------------------------------------------------------------------------------------- |
-| `ams-gap--xs` | <div className="ams-docs-token-example--space" style="inline-size: var(--ams-gap-xs);" /> |
-| `ams-gap--sm` | <div className="ams-docs-token-example--space" style="inline-size: var(--ams-gap-sm);" /> |
-| `ams-gap--md` | <div className="ams-docs-token-example--space" style="inline-size: var(--ams-gap-md);" /> |
-| `ams-gap--lg` | <div className="ams-docs-token-example--space" style="inline-size: var(--ams-gap-lg);" /> |
-| `ams-gap--xl` | <div className="ams-docs-token-example--space" style="inline-size: var(--ams-gap-xl);" /> |
+| Class name     | Example                                                                                    |
+| :------------- | :----------------------------------------------------------------------------------------- |
+| `ams-gap--xs`  | <div className="ams-docs-token-example--space" style="inline-size: var(--ams-gap-xs);" />  |
+| `ams-gap--sm`  | <div className="ams-docs-token-example--space" style="inline-size: var(--ams-gap-sm);" />  |
+| `ams-gap--md`  | <div className="ams-docs-token-example--space" style="inline-size: var(--ams-gap-md);" />  |
+| `ams-gap--lg`  | <div className="ams-docs-token-example--space" style="inline-size: var(--ams-gap-lg);" />  |
+| `ams-gap--xl`  | <div className="ams-docs-token-example--space" style="inline-size: var(--ams-gap-xl);" />  |
+| `ams-gap--2xl` | <div className="ams-docs-token-example--space" style="inline-size: var(--ams-gap-2xl);" /> |
 
 ## Guidelines
 
