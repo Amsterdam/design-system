@@ -67,13 +67,6 @@ const meta = {
     children: defaultTabs,
   },
   argTypes: {
-    // activeTab: {
-    //   control: {
-    //     max: tabsContent.length - 1,
-    //     min: 0,
-    //     type: 'number',
-    //   },
-    // },
     onTabChange: {
       action: 'clicked',
       description: 'Provides the id of the activated tab.',
