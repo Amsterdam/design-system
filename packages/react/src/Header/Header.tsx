@@ -65,7 +65,8 @@ const HeaderRoot = forwardRef(
   ) => {
     const [open, setOpen] = useState(false)
 
-    const isWideWindow = useIsAfterBreakpoint('wide')
+    const hasMegaMenu = Boolean(children)
+    const isWideWindow = hasMegaMenu && useIsAfterBreakpoint('wide')
 
     useEffect(() => {
       // Close the menu when the menu button disappears
@@ -80,7 +81,7 @@ const HeaderRoot = forwardRef(
           <span className="ams-visually-hidden">{logoLinkTitle}</span>
           <LogoLinkContent brandName={brandName} logoBrand={logoBrand} />
         </a>
-        {(children || menuItems) && (
+        {(hasMegaMenu || menuItems) && (
           <nav aria-labelledby="primary-navigation" className="ams-header__navigation">
             <h2 className="ams-visually-hidden" id="primary-navigation">
               {navigationLabel}
@@ -93,7 +94,7 @@ const HeaderRoot = forwardRef(
 
             <ul className="ams-header__menu">
               {menuItems}
-              {children && (
+              {hasMegaMenu && (
                 <li
                   className={clsx(noMenuButtonOnWideWindow && 'ams-header__mega-menu-button-item--hide-on-wide-window')}
                 >
@@ -121,7 +122,7 @@ const HeaderRoot = forwardRef(
               )}
             </ul>
 
-            {children && (
+            {hasMegaMenu && (
               <div
                 className={clsx('ams-header__mega-menu', !open && 'ams-header__mega-menu--closed')}
                 id="ams-mega-menu"
