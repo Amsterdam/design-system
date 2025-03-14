@@ -10,5 +10,5 @@ export type MarginProps = {
   size: 'xs' | 'sm' | 'md' | 'lg' | 'xl'
 } & PropsWithChildren<HTMLAttributes<HTMLSpanElement>>
 
-/** Renders examples in Storybook. Not for reuse. */
-export const Margin = ({ children, size }: MarginProps) => <span className={`ams-mb--${size}`}>{children}</span>
+/** Mock component to render examples in Storybook. Not for reuse. */
+export const Margin = (props: MarginProps) => <span {...props} />
