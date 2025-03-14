@@ -217,7 +217,7 @@ export const ProductPage = () => (
           Bellen
         </Heading>
         <Paragraph>
-          <Link href="+31612341234">06 1234 1234</Link>
+          <Link href="tel:+31612341234">06 1234 1234</Link>
         </Paragraph>
         <Paragraph className="ams-mb--xl">Maandag tot en met donderdag van 09.00 - 17.00 uur</Paragraph>
 
