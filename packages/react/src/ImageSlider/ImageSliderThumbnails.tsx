@@ -8,6 +8,7 @@ import { forwardRef, KeyboardEvent, useCallback, useContext, useMemo } from 'rea
 import type { ForwardedRef, HTMLAttributes } from 'react'
 import { ImageSliderImageProps } from './ImageSlider'
 import { ImageSliderContext } from './ImageSliderContext'
+import { generateAspectRatioClass } from '../Image/Image'
 
 export type ImageSliderThumbnailsProps = {
   imageLabel?: string
@@ -54,7 +55,7 @@ export const ImageSliderThumbnails = forwardRef(
             className={clsx(
               'ams-image-slider__thumbnail',
               currentSlideId === index && 'ams-image-slider__thumbnail--in-view',
-              aspectRatio && `ams-aspect-ratio--${aspectRatio}`,
+              generateAspectRatioClass(aspectRatio),
             )}
             key={index}
             onClick={() => goToSlideId(index)}

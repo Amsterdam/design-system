@@ -16,13 +16,12 @@ export type ImageProps = {
 } & AspectRatioProps &
   ImgHTMLAttributes<HTMLImageElement>
 
+export const generateAspectRatioClass = (aspectRatio?: string) =>
+  aspectRatio && `ams-aspect-ratio--${aspectRatio.replace(':', '-')}`
+
 export const Image = forwardRef(
   ({ aspectRatio, className, ...restProps }: ImageProps, ref: ForwardedRef<HTMLImageElement>) => (
-    <img
-      {...restProps}
-      className={clsx('ams-image', aspectRatio && `ams-aspect-ratio--${aspectRatio.replace(':', '-')}`, className)}
-      ref={ref}
-    />
+    <img {...restProps} className={clsx('ams-image', generateAspectRatioClass(aspectRatio), className)} ref={ref} />
   ),
 )
 
