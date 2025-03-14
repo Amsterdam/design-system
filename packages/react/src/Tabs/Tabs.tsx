@@ -5,7 +5,7 @@
 
 import clsx from 'clsx'
 import { forwardRef, useEffect, useId, useImperativeHandle, useMemo, useRef, useState } from 'react'
-import type { ForwardedRef, HTMLAttributes, PropsWithChildren, ReactElement } from 'react'
+import type { ForwardedRef, HTMLAttributes, PropsWithChildren } from 'react'
 import { TabsButton } from './TabsButton'
 import { TabsContext } from './TabsContext'
 import { TabsList } from './TabsList'
@@ -27,7 +27,25 @@ const TabsRoot = forwardRef(
 
     const allTabIds = useMemo(() => {
       if (!Array.isArray(children)) return []
-      return (children[0].props.children as ReactElement[]).map((child) => child.props.tab)
+
+      // The first child of Tabs should be TabsList
+      const tabsList = children[0]
+      // Get children of TabsList
+      const tabsListChildren = tabsList.props.children
+
+      // TabsList can have 0, 1, or more children
+      // If there is only 1 child, it will be an object
+      if (tabsListChildren.props) {
+        return [tabsListChildren.props.tab]
+      }
+
+      // If there is more than 1 child, it will be an array
+      if (Array.isArray(tabsListChildren)) {
+        return tabsListChildren.map((child) => child.props.tab)
+      }
+
+      // If there are no children, return an empty array
+      return []
     }, [children])
 
     useEffect(() => {

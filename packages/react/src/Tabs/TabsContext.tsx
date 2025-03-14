@@ -9,7 +9,7 @@ export type TabsContextValue = {
   /** The identifier of the active tab. */
   activeTabId?: string
   /**
-   * The identifier for the entire Tabs component.
+   * The generated identifier for the entire Tabs component.
    * This lets you have several Tabs components, possibly with the same tabs, on one page.
    */
   tabsId: string

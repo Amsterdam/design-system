@@ -136,6 +136,9 @@ describe('Tabs', () => {
   })
 
   it('should set the first tab as the initially active tab when the supplied active tab does not exist', async () => {
+    // Disable console.warn for this test, to prevent it from cluttering the test output
+    jest.spyOn(console, 'warn').mockImplementation(() => {})
+
     render(
       <Tabs activeTab="unknown">
         <Tabs.List>
