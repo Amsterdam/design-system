@@ -1,6 +1,7 @@
 import { render } from '@testing-library/react'
 import { createRef } from 'react'
-import { generateAspectRatioClass, Image } from './Image'
+import { Image } from './Image'
+import { generateAspectRatioClass } from './generateAspectRatioClass'
 import { aspectRatioOptions } from '../common/types'
 import '@testing-library/jest-dom'
 

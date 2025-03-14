@@ -8,7 +8,7 @@ import { forwardRef, KeyboardEvent, useCallback, useContext, useMemo } from 'rea
 import type { ForwardedRef, HTMLAttributes } from 'react'
 import { ImageSliderImageProps } from './ImageSlider'
 import { ImageSliderContext } from './ImageSliderContext'
-import { generateAspectRatioClass } from '../Image/Image'
+import { generateAspectRatioClass } from '../Image/generateAspectRatioClass'
 
 export type ImageSliderThumbnailsProps = {
   imageLabel?: string
