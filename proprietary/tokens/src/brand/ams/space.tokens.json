@@ -4,12 +4,8 @@
       "xs": { "value": "clamp(0.2813rem, 0.2578rem + 0.1172vw, 0.375rem)" },
       "sm": { "value": "clamp(0.5625rem, 0.5156rem + 0.2344vw, 0.75rem)" },
       "md": { "value": "clamp(1.125rem, 1.0313rem + 0.4688vw, 1.5rem)" },
-      "md-lg": { "value": "clamp(1.125rem, 0.8438rem + 1.4063vw, 2.25rem)" },
       "lg": { "value": "clamp(1.6875rem, 1.5469rem + 0.7031vw, 2.25rem)" },
-      "lg-xl": { "value": "clamp(1.6875rem, 1.2344rem + 2.2656vw, 3.5rem)" },
-      "lg-2xl": { "value": "clamp(1.6875rem, 0.7969rem + 4.4531vw, 5.25rem)" },
       "xl": { "value": "clamp(2.25rem, 1.9375rem + 1.5625vw, 3.5rem)" },
-      "xl-2xl": { "value": "clamp(2.25rem, 1.5rem + 3.75vw, 5.25rem)" },
       "2xl": { "value": "clamp(2.8125rem, 2.2031rem + 3.0469vw, 5.25rem)" }
     }
   }

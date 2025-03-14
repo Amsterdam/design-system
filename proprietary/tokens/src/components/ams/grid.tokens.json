@@ -4,11 +4,23 @@
       "column-count": { "value": "4" },
       "column-gap": { "value": "{ams.space.xl}" },
       "padding-block": {
-        "sm": { "value": "{ams.space.md-lg}" },
-        "md": { "value": "{ams.space.lg-xl}" },
-        "lg": { "value": "{ams.space.xl-2xl}" }
+        "sm": {
+          "comment": "Grows from ams.space.md to ams.space.lg.",
+          "value": "clamp(1.125rem, 0.8438rem + 1.4063vw, 2.25rem)"
+        },
+        "md": {
+          "comment": "Grows from ams.space.lg to ams.space.xl.",
+          "value": "clamp(1.6875rem, 1.2344rem + 2.2656vw, 3.5rem)"
+        },
+        "lg": {
+          "comment": "Grows from ams.space.xl to ams.space.2xl.",
+          "value": "clamp(2.25rem, 1.5rem + 3.75vw, 5.25rem)"
+        }
       },
-      "padding-inline": { "value": "{ams.space.lg-2xl}" },
+      "padding-inline": {
+        "comment": "Grows from ams.space.lg to ams.space.2xl.",
+        "value": "clamp(1.6875rem, 0.7969rem + 4.4531vw, 5.25rem)"
+      },
       "row-gap": {
         "sm": { "value": "{ams.space.lg}" },
         "md": { "value": "{ams.space.xl}" },
