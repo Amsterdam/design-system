@@ -67,6 +67,7 @@
 }
 
 .ams-image-slider__thumbnail {
+  aspect-ratio: var(--ams-image-aspect-ratio); // Use the same default aspect ratio as the Image component
   background-color: var(--ams-image-slider-thumbnails-thumbnail-background-color);
   background-position: center;
   background-size: cover;

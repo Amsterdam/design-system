@@ -6,6 +6,7 @@
 import clsx from 'clsx'
 import { forwardRef } from 'react'
 import type { ForwardedRef, ImgHTMLAttributes } from 'react'
+import { generateAspectRatioClass } from './generateAspectRatioClass'
 import { AspectRatioProps } from '../common/types'
 
 export type ImageProps = {
@@ -18,11 +19,7 @@ export type ImageProps = {
 
 export const Image = forwardRef(
   ({ aspectRatio, className, ...restProps }: ImageProps, ref: ForwardedRef<HTMLImageElement>) => (
-    <img
-      {...restProps}
-      className={clsx('ams-image', aspectRatio && `ams-aspect-ratio--${aspectRatio}`, className)}
-      ref={ref}
-    />
+    <img {...restProps} className={clsx('ams-image', generateAspectRatioClass(aspectRatio), className)} ref={ref} />
   ),
 )
 
