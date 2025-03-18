@@ -34,8 +34,7 @@
   "module": "./dist/index.esm.js",
   "types": "./dist/index.d.ts",
   "files": [
-    "dist/",
-    "src/"
+    "dist/"
   ],
   "dependencies": {
     "@amsterdam/design-system-react-icons": "workspace:*",
