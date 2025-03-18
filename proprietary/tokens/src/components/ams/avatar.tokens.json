@@ -1,7 +1,7 @@
 {
   "ams": {
     "avatar": {
-      "aspect-ratio": { "value": "{ams.aspect-ratio.square}" },
+      "aspect-ratio": { "value": "{ams.aspect-ratio.1-1}" },
       "background-color": { "value": "{ams.color.highlight.purple}" },
       "color": { "value": "{ams.color.text.inverse}" },
       "font-family": { "value": "{ams.typography.font-family}" },

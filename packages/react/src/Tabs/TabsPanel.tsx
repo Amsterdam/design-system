@@ -10,14 +10,14 @@ import { TabsContext } from './TabsContext'
 
 export type TabsPanelProps = {
   /** The identifier of the corresponding Tab. */
-  tab: number
+  tab: string
 } & PropsWithChildren<HTMLAttributes<HTMLDivElement>>
 
 export const TabsPanel = forwardRef(
   ({ children, className, tab, ...restProps }: TabsPanelProps, ref: ForwardedRef<HTMLDivElement>) => {
-    const { activeTab, tabsId } = useContext(TabsContext)
+    const { activeTabId, tabsId } = useContext(TabsContext)
 
-    if (tab !== activeTab) {
+    if (tab !== activeTabId) {
       return null
     }
 

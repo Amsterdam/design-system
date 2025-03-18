@@ -90,6 +90,17 @@ If it is not available, we use Arial or the generic sans-serif instead.
 | :---------------------------------- | :------------------------------------ |
 | `var(--ams-typography-font-family)` | `'Amsterdam Sans', Arial, sans-serif` |
 
+## Hyphenation
+
+Words that do not fit on a single line will be split with a hyphen and continue on the next line.
+This happens automatically, but only for words of 12 or more characters.
+There must be at least 8 characters before the hyphen and 4 characters after it.
+This rule helps keep the text readable and prevents strange hyphenations.
+
+| CSS variable                                  | Value    |
+| :-------------------------------------------- | :------- |
+| `var(--ams-typography-hyphenate-limit-chars)` | `12 8 4` |
+
 ## Design
 
 ### Responsive
@@ -272,21 +283,3 @@ Exceptions:
 Long lines of text are challenging to read.
 Around 80 characters per line is the maximum.
 In the 12-column [grid](/docs/components-layout-grid--docs), paragraphs meet this when they occupy 8 columns or fewer.
-
-### Word breaking
-
-The Dutch language has many long words, such as ‘gemeenteraadsverkiezingen’ (municipal elections).
-Ensure in your application that these words are hyphenated neatly and do not break out of their container or get hidden.
-One way to do this is with the following CSS snippet, combining `hyphens` and `word-break`:
-
-```css
-.class {
-  hyphens: auto;
-  /* only hyphenate words longer than 12 chars, for browsers that support it */
-  hyphenate-limit-chars: 12;
-  /* break overflowing words for browsers that don’t support CSS hyphens */
-  overflow-wrap: break-word;
-}
-```
-
-Further reading: [Wrapping and breaking text on MDN](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_text/Wrapping_breaking_text)

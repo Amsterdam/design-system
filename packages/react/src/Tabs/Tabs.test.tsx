@@ -44,11 +44,11 @@ describe('Tabs', () => {
     render(
       <Tabs>
         <Tabs.List>
-          <Tabs.Button tab={0}>Tab 1</Tabs.Button>
-          <Tabs.Button tab={1}>Tab 2</Tabs.Button>
+          <Tabs.Button tab="one">Tab 1</Tabs.Button>
+          <Tabs.Button tab="two">Tab 2</Tabs.Button>
         </Tabs.List>
-        <Tabs.Panel tab={0}>Content 1</Tabs.Panel>
-        <Tabs.Panel tab={1}>Content 2</Tabs.Panel>
+        <Tabs.Panel tab="one">Content 1</Tabs.Panel>
+        <Tabs.Panel tab="two">Content 2</Tabs.Panel>
       </Tabs>,
     )
 
@@ -63,11 +63,11 @@ describe('Tabs', () => {
     render(
       <Tabs>
         <Tabs.List>
-          <Tabs.Button tab={0}>Tab 1</Tabs.Button>
-          <Tabs.Button tab={1}>Tab 2</Tabs.Button>
+          <Tabs.Button tab="one">Tab 1</Tabs.Button>
+          <Tabs.Button tab="two">Tab 2</Tabs.Button>
         </Tabs.List>
-        <Tabs.Panel tab={0}>Content 1</Tabs.Panel>
-        <Tabs.Panel tab={1}>Content 2</Tabs.Panel>
+        <Tabs.Panel tab="one">Content 1</Tabs.Panel>
+        <Tabs.Panel tab="two">Content 2</Tabs.Panel>
       </Tabs>,
     )
 
@@ -98,7 +98,7 @@ describe('Tabs', () => {
     render(
       <Tabs onTabChange={onTabChange}>
         <Tabs.List>
-          <Tabs.Button tab={1}>Tab 1</Tabs.Button>
+          <Tabs.Button tab="one">Tab 1</Tabs.Button>
         </Tabs.List>
       </Tabs>,
     )
@@ -106,22 +106,22 @@ describe('Tabs', () => {
     const button = screen.getByRole('tab', { name: 'Tab 1' })
     await user.click(button)
 
-    expect(onTabChange).toHaveBeenCalledWith(1)
+    expect(onTabChange).toHaveBeenCalledWith('one')
   })
 
   it('should be able to set the initially active tab', () => {
     render(
-      <Tabs activeTab={2}>
+      <Tabs activeTab="three">
         <Tabs.List>
-          <Tabs.Button tab={0}>Tab 1</Tabs.Button>
-          <Tabs.Button tab={1}>Tab 2</Tabs.Button>
-          <Tabs.Button tab={2}>Tab 3</Tabs.Button>
-          <Tabs.Button tab={3}>Tab 4</Tabs.Button>
+          <Tabs.Button tab="one">Tab 1</Tabs.Button>
+          <Tabs.Button tab="two">Tab 2</Tabs.Button>
+          <Tabs.Button tab="three">Tab 3</Tabs.Button>
+          <Tabs.Button tab="four">Tab 4</Tabs.Button>
         </Tabs.List>
-        <Tabs.Panel tab={0}>Content 1</Tabs.Panel>
-        <Tabs.Panel tab={1}>Content 2</Tabs.Panel>
-        <Tabs.Panel tab={2}>Content 3</Tabs.Panel>
-        <Tabs.Panel tab={3}>Content 4</Tabs.Panel>
+        <Tabs.Panel tab="one">Content 1</Tabs.Panel>
+        <Tabs.Panel tab="two">Content 2</Tabs.Panel>
+        <Tabs.Panel tab="three">Content 3</Tabs.Panel>
+        <Tabs.Panel tab="four">Content 4</Tabs.Panel>
       </Tabs>,
     )
 
@@ -135,19 +135,22 @@ describe('Tabs', () => {
     expect(screen.getByRole('tabpanel')).toHaveTextContent('Content 3')
   })
 
-  it('should set the first tab as the initially active tab with a too small argument', async () => {
+  it('should set the first tab as the initially active tab when the supplied active tab does not exist', async () => {
+    // Disable console.warn for this test, to prevent it from cluttering the test output
+    jest.spyOn(console, 'warn').mockImplementation(() => {})
+
     render(
-      <Tabs activeTab={-3}>
+      <Tabs activeTab="unknown">
         <Tabs.List>
-          <Tabs.Button tab={0}>Tab 1</Tabs.Button>
-          <Tabs.Button tab={1}>Tab 2</Tabs.Button>
-          <Tabs.Button tab={2}>Tab 3</Tabs.Button>
-          <Tabs.Button tab={3}>Tab 4</Tabs.Button>
+          <Tabs.Button tab="one">Tab 1</Tabs.Button>
+          <Tabs.Button tab="two">Tab 2</Tabs.Button>
+          <Tabs.Button tab="three">Tab 3</Tabs.Button>
+          <Tabs.Button tab="four">Tab 4</Tabs.Button>
         </Tabs.List>
-        <Tabs.Panel tab={0}>Content 1</Tabs.Panel>
-        <Tabs.Panel tab={1}>Content 2</Tabs.Panel>
-        <Tabs.Panel tab={2}>Content 3</Tabs.Panel>
-        <Tabs.Panel tab={3}>Content 4</Tabs.Panel>
+        <Tabs.Panel tab="one">Content 1</Tabs.Panel>
+        <Tabs.Panel tab="two">Content 2</Tabs.Panel>
+        <Tabs.Panel tab="three">Content 3</Tabs.Panel>
+        <Tabs.Panel tab="four">Content 4</Tabs.Panel>
       </Tabs>,
     )
 
@@ -158,55 +161,6 @@ describe('Tabs', () => {
     expect(firstTab).toHaveAttribute('tabindex', '0')
     expect(lastTab).toHaveAttribute('aria-selected', 'false')
     expect(lastTab).toHaveAttribute('tabindex', '-1')
-    expect(screen.getByRole('tabpanel')).toHaveTextContent('Content 1')
-  })
-
-  it('should set the last tab as the initially active tab with a too large argument', async () => {
-    render(
-      <Tabs activeTab={Infinity}>
-        <Tabs.List>
-          <Tabs.Button tab={0}>Tab 1</Tabs.Button>
-          <Tabs.Button tab={1}>Tab 2</Tabs.Button>
-          <Tabs.Button tab={2}>Tab 3</Tabs.Button>
-          <Tabs.Button tab={3}>Tab 4</Tabs.Button>
-        </Tabs.List>
-        <Tabs.Panel tab={0}>Content 1</Tabs.Panel>
-        <Tabs.Panel tab={1}>Content 2</Tabs.Panel>
-        <Tabs.Panel tab={2}>Content 3</Tabs.Panel>
-        <Tabs.Panel tab={3}>Content 4</Tabs.Panel>
-      </Tabs>,
-    )
-
-    const firstTab = screen.getByRole('tab', { name: 'Tab 1' })
-    const lastTab = screen.getByRole('tab', { name: 'Tab 4' })
-
-    expect(firstTab).toHaveAttribute('aria-selected', 'true')
-    expect(firstTab).toHaveAttribute('tabindex', '0')
-    expect(lastTab).toHaveAttribute('aria-selected', 'false')
-    expect(lastTab).toHaveAttribute('tabindex', '-1')
-    expect(screen.getByRole('tabpanel')).toHaveTextContent('Content 1')
-  })
-
-  it('should set the first tab as the initially active tab with an invalid number', async () => {
-    render(
-      <Tabs activeTab={NaN}>
-        <Tabs.List>
-          <Tabs.Button tab={0}>Tab 1</Tabs.Button>
-          <Tabs.Button tab={1}>Tab 2</Tabs.Button>
-          <Tabs.Button tab={2}>Tab 3</Tabs.Button>
-          <Tabs.Button tab={3}>Tab 4</Tabs.Button>
-        </Tabs.List>
-        <Tabs.Panel tab={0}>Content 1</Tabs.Panel>
-        <Tabs.Panel tab={1}>Content 2</Tabs.Panel>
-        <Tabs.Panel tab={2}>Content 3</Tabs.Panel>
-        <Tabs.Panel tab={3}>Content 4</Tabs.Panel>
-      </Tabs>,
-    )
-
-    const firstTab = screen.getByRole('tab', { name: 'Tab 1' })
-
-    expect(firstTab).toHaveAttribute('aria-selected', 'true')
-    expect(firstTab).toHaveAttribute('tabindex', '0')
     expect(screen.getByRole('tabpanel')).toHaveTextContent('Content 1')
   })
 })
