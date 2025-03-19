@@ -1,12 +1,12 @@
 {
   "ams": {
     "aspect-ratio": {
-      "x-tall": { "value": "9 / 16" },
-      "tall": { "value": "3 / 4" },
-      "square": { "value": "1 / 1" },
-      "wide": { "value": "4 / 3" },
-      "x-wide": { "value": "16 / 9" },
-      "2x-wide": { "value": "16 / 5" }
+      "9-16": { "value": "9 / 16" },
+      "3-4": { "value": "3 / 4" },
+      "1-1": { "value": "1 / 1" },
+      "4-3": { "value": "4 / 3" },
+      "16-9": { "value": "16 / 9" },
+      "16-5": { "value": "16 / 5" }
     }
   }
 }

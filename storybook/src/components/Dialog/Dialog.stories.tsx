@@ -6,6 +6,10 @@
 import { ActionGroup, Button, Column, Heading, Paragraph } from '@amsterdam/design-system-react'
 import { Dialog } from '@amsterdam/design-system-react/src'
 import { Meta, StoryObj } from '@storybook/react'
+import { exampleHeading, exampleParagraph } from '../shared/exampleContent'
+
+const heading = exampleHeading()
+const paragraph = exampleParagraph()
 
 const defaultChildren = (formId: string) => (
   <form id={formId} method="dialog">
@@ -68,6 +72,8 @@ export const Default: Story = {
   decorators: [
     (Story) => (
       <div className="ams-docs-backdrop">
+        <Heading level={1}>{heading}</Heading>
+        <Paragraph>{paragraph}</Paragraph>
         <Story />
       </div>
     ),
@@ -86,10 +92,12 @@ export const OpenAndClose: Story = {
   },
   decorators: [
     (Story) => (
-      <div>
-        <Button onClick={() => Dialog.open('#ams-dialog')}>Open Dialog</Button>
+      <Column alignHorizontal="start">
+        <Heading level={1}>{heading}</Heading>
+        <Paragraph>{paragraph}</Paragraph>
+        <Button onClick={() => Dialog.open('#ams-dialog')}>Open dialoog</Button>
         <Story />
-      </div>
+      </Column>
     ),
   ],
 }

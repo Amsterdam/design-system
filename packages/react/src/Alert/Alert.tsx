@@ -60,14 +60,14 @@ export const Alert = forwardRef(
     return (
       <section {...restProps} className={clsx('ams-alert', severity && `ams-alert--${severity}`, className)} ref={ref}>
         <div className="ams-alert__severity-indicator">
-          <Icon color="inverse" size="level-4" svg={SeverityIcon} />
+          <Icon color="inverse" size="heading-4" svg={SeverityIcon} />
         </div>
         <div className="ams-alert__content">
           <Row align="between" alignVertical="start">
             <Heading level={headingLevel} size="level-4">
               {heading}
             </Heading>
-            {closeable && <IconButton label={closeButtonLabel} onClick={onClose} size="level-4" />}
+            {closeable && <IconButton label={closeButtonLabel} onClick={onClose} size="heading-4" />}
           </Row>
           {children}
         </div>

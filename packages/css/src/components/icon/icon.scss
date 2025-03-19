@@ -4,12 +4,19 @@
  */
 
 .ams-icon {
-  align-items: center;
-  display: inline-flex;
-}
+  align-self: baseline; // Aligns the icon with text in flex or grid context
+  display: inline-flex; // Stretches the svg in order to align the icon vertically
+  font-size: var(--ams-icon-font-size);
+  line-height: var(--ams-icon-line-height);
 
-.ams-icon svg {
-  fill: currentColor;
+  &::after {
+    content: "\00200B"; // This zero width space enables baseline alignment.
+  }
+
+  svg {
+    fill: currentColor;
+    inline-size: 1em;
+  }
 }
 
 .ams-icon--inverse {
@@ -21,38 +28,32 @@
   justify-content: center;
 }
 
-.ams-icon--size-3 {
-  block-size: calc(var(--ams-icon-size-3-font-size) * var(--ams-icon-size-3-line-height));
+.ams-icon--small {
+  font-size: var(--ams-icon-small-font-size);
+  line-height: var(--ams-icon-small-line-height);
 }
 
-.ams-icon--size-3 svg {
-  block-size: var(--ams-icon-size-3-font-size);
-  inline-size: var(--ams-icon-size-3-font-size);
+.ams-icon--large {
+  font-size: var(--ams-icon-large-font-size);
+  line-height: var(--ams-icon-large-line-height);
 }
 
-.ams-icon--size-4 {
-  block-size: calc(var(--ams-icon-size-4-font-size) * var(--ams-icon-size-4-line-height));
+.ams-icon--heading-3 {
+  font-size: var(--ams-icon-heading-3-font-size);
+  line-height: var(--ams-icon-heading-3-line-height);
 }
 
-.ams-icon--size-4 svg {
-  block-size: var(--ams-icon-size-4-font-size);
-  inline-size: var(--ams-icon-size-4-font-size);
+.ams-icon--heading-4 {
+  font-size: var(--ams-icon-heading-4-font-size);
+  line-height: var(--ams-icon-heading-4-line-height);
 }
 
-.ams-icon--size-5 {
-  block-size: calc(var(--ams-icon-size-5-font-size) * var(--ams-icon-size-5-line-height));
+.ams-icon--heading-5 {
+  font-size: var(--ams-icon-heading-5-font-size);
+  line-height: var(--ams-icon-heading-5-line-height);
 }
 
-.ams-icon--size-5 svg {
-  block-size: var(--ams-icon-size-5-font-size);
-  inline-size: var(--ams-icon-size-5-font-size);
-}
-
-.ams-icon--size-6 {
-  block-size: calc(var(--ams-icon-size-6-font-size) * var(--ams-icon-size-6-line-height));
-}
-
-.ams-icon--size-6 svg {
-  block-size: var(--ams-icon-size-6-font-size);
-  inline-size: var(--ams-icon-size-6-font-size);
+.ams-icon--heading-6 {
+  font-size: var(--ams-icon-heading-6-font-size);
+  line-height: var(--ams-icon-heading-6-line-height);
 }

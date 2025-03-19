@@ -1,0 +1,33 @@
+{/* @license CC0-1.0 */}
+
+import { Meta } from "@storybook/blocks";
+
+<Meta title="Brand/Design Tokens/Aspect Ratio" />
+
+# Aspect Ratio
+
+Constrains media content to a supported aspect ratio.
+
+## Design
+
+Media content like images, videos, and maps take up sizable portions of a screen.
+Displaying them in a limited set of aspect ratios keeps the visual impression of a page composed.
+The default aspect ratio is 16:9.
+Content with intrinsic dimensions that do not match an aspect ratio will be cropped.
+
+## Tokens
+
+| CSS variable                   | Value  | Example                                                                                                   |
+| :----------------------------- | :----: | :-------------------------------------------------------------------------------------------------------- |
+| `var(--ams-aspect-ratio-9-16)` | 9 / 16 | <div className="ams-docs-token-example--space" style={{ aspectRatio: 'var(--ams-aspect-ratio-9-16)' }} /> |
+| `var(--ams-aspect-ratio-3-4)`  | 3 / 4  | <div className="ams-docs-token-example--space" style={{ aspectRatio: 'var(--ams-aspect-ratio-3-4)' }} />  |
+| `var(--ams-aspect-ratio-1-1)`  | 1 / 1  | <div className="ams-docs-token-example--space" style={{ aspectRatio: 'var(--ams-aspect-ratio-1-1)' }} />  |
+| `var(--ams-aspect-ratio-4-3)`  | 4 / 3  | <div className="ams-docs-token-example--space" style={{ aspectRatio: 'var(--ams-aspect-ratio-4-3)' }} />  |
+| `var(--ams-aspect-ratio-16-9)` | 16 / 9 | <div className="ams-docs-token-example--space" style={{ aspectRatio: 'var(--ams-aspect-ratio-16-9)' }} /> |
+| `var(--ams-aspect-ratio-16-5)` | 16 / 5 | <div className="ams-docs-token-example--space" style={{ aspectRatio: 'var(--ams-aspect-ratio-16-5)' }} /> |
+
+## Related components
+
+- The [Image](/docs/components-media-image--docs) component has an `aspectRatio` prop that sets one of these values.
+- The [Breakout](/docs/components-layout-breakout--docs) layout positions an image with a certain aspect ratio in a Spotlight.
+- We provide these aspect ratios as [CSS utility classes](/docs/utilities-css-aspect-ratio--docs).

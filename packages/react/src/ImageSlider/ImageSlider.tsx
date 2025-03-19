@@ -162,13 +162,7 @@ export const ImageSliderRoot = forwardRef(
           <ImageSliderScroller aria-live="polite" ref={targetRef} role="group" tabIndex={0}>
             {images.map(({ alt, aspectRatio, sizes, src, srcSet }, index) => (
               <ImageSliderItem key={index} slideId={index}>
-                <Image
-                  alt={alt}
-                  className={`ams-aspect-ratio--${aspectRatio}`}
-                  sizes={sizes}
-                  src={src}
-                  srcSet={srcSet}
-                />
+                <Image alt={alt} aspectRatio={aspectRatio} sizes={sizes} src={src} srcSet={srcSet} />
               </ImageSliderItem>
             ))}
           </ImageSliderScroller>

@@ -64,12 +64,12 @@ describe('Heading', () => {
     const sizeLevel5 = screen.getByRole('heading', { level: 1, name: 'Size level 5' })
     const sizeLevel6 = screen.getByRole('heading', { level: 1, name: 'Size level 6' })
 
-    expect(sizeLevel1).toHaveClass('ams-heading--level-1')
-    expect(sizeLevel2).toHaveClass('ams-heading--level-2')
-    expect(sizeLevel3).toHaveClass('ams-heading--level-3')
-    expect(sizeLevel4).toHaveClass('ams-heading--level-4')
-    expect(sizeLevel5).toHaveClass('ams-heading--level-5')
-    expect(sizeLevel6).toHaveClass('ams-heading--level-6')
+    expect(sizeLevel1).toHaveClass('ams-heading--1')
+    expect(sizeLevel2).toHaveClass('ams-heading--2')
+    expect(sizeLevel3).toHaveClass('ams-heading--3')
+    expect(sizeLevel4).toHaveClass('ams-heading--4')
+    expect(sizeLevel5).toHaveClass('ams-heading--5')
+    expect(sizeLevel6).toHaveClass('ams-heading--6')
   })
 
   it('renders the class name for inverse color', () => {
