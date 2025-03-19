@@ -6,7 +6,7 @@
 @use "../../common/text-rendering" as *;
 
 @mixin reset-button {
-  border: 0;
+  border: none;
   border-radius: 0; // Reset rounded borders on iOS devices
 }
 
