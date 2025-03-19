@@ -23,13 +23,14 @@ export type IconButtonProps = {
 
 export const IconButton = forwardRef(
   (
-    { className, color, label, size, svg = CloseIcon, ...restProps }: IconButtonProps,
+    { className, color, label, size, svg = CloseIcon, type, ...restProps }: IconButtonProps,
     ref: ForwardedRef<HTMLButtonElement>,
   ) => (
     <button
       {...restProps}
       className={clsx('ams-icon-button', color && `ams-icon-button--${color}`, className)}
       ref={ref}
+      type={type || 'button'}
     >
       <span className="ams-visually-hidden">{label}</span>
       <Icon size={size} square svg={svg} />
