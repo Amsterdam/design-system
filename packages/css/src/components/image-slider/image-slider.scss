@@ -2,7 +2,15 @@
  * @license EUPL-1.2+
  * Copyright Gemeente Amsterdam
  */
+
 @use "../../common/breakpoint" as *;
+
+@mixin reset-button {
+  border: none;
+  border-radius: 0; // Reset rounded borders on iOS devices
+  padding-block: 0;
+  padding-inline: 0;
+}
 
 .ams-image-slider {
   display: grid;
@@ -71,14 +79,13 @@
   background-color: var(--ams-image-slider-thumbnails-thumbnail-background-color);
   background-position: center;
   background-size: cover;
-  border: none;
   cursor: var(--ams-image-slider-thumbnails-thumbnail-cursor);
   opacity: var(--ams-image-slider-thumbnails-thumbnail-opacity);
   outline-offset: var(--ams-button-outline-offset);
-  padding-block: 0;
-  padding-inline: 0;
   position: relative;
   scroll-snap-align: start;
+
+  @include reset-button;
 
   &:hover {
     opacity: var(--ams-image-slider-thumbnails-thumbnail-hover-opacity);
