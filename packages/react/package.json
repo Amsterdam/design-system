@@ -23,7 +23,7 @@
   },
   "sideEffects": false,
   "scripts": {
-    "build": "rollup -c",
+    "build": "tsc && rollup -c",
     "build:watch": "rollup -c --watch",
     "clean": "rimraf dist/",
     "lint": "tsc --noEmit --project ./tsconfig.json && tsc --noEmit --project ./tsconfig.test.json",
@@ -34,8 +34,7 @@
   "module": "./dist/index.esm.js",
   "types": "./dist/index.d.ts",
   "files": [
-    "dist/",
-    "src/"
+    "dist/"
   ],
   "dependencies": {
     "@amsterdam/design-system-react-icons": "workspace:*",
