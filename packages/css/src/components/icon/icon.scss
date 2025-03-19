@@ -4,10 +4,12 @@
  */
 
 .ams-icon {
+  --ams-line-height: var(--ams-icon-line-height);
+
   align-self: baseline; // Aligns the icon with text in flex or grid context
   display: inline-flex; // Stretches the svg in order to align the icon vertically
   font-size: var(--ams-icon-font-size);
-  line-height: var(--ams-icon-line-height);
+  line-height: var(--ams-line-height);
 
   &::after {
     content: "\00200B"; // This zero width space enables baseline alignment.
@@ -24,18 +26,20 @@
 }
 
 .ams-icon--square {
-  aspect-ratio: 1 / 1;
+  inline-size: calc(1em * var(--ams-line-height));
   justify-content: center;
 }
 
 .ams-icon--small {
+  --ams-line-height: var(--ams-icon-small-line-height);
+
   font-size: var(--ams-icon-small-font-size);
-  line-height: var(--ams-icon-small-line-height);
 }
 
 .ams-icon--large {
+  --ams-line-height: var(--ams-icon-large-line-height);
+
   font-size: var(--ams-icon-large-font-size);
-  line-height: var(--ams-icon-large-line-height);
 }
 
 .ams-icon--heading-3 {
