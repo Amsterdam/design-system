@@ -1,7 +1,7 @@
 {
   "ams": {
     "grid": {
-      "padding-inline": { "value": "{ams.space.grid.md}" }
+      "padding-inline": { "value": "{ams.space.xl}" }
     }
   }
 }

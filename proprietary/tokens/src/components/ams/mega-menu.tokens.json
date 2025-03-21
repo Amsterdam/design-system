@@ -3,13 +3,13 @@
     "mega-menu": {
       "list-category": {
         "column-gap": {
-          "value": "{ams.space.grid.md}",
+          "value": "{ams.space.xl}",
           "comment": "Must have the same value as `ams.grid.column-gap`."
         },
         "column-width": { "value": "20rem" },
         "padding-block-start": { "value": "{ams.space.md}" },
         "padding-block-end": {
-          "value": "{ams.space.grid.md}",
+          "value": "{ams.space.xl}",
           "comment": "Must have the same value as `ams.grid.row-gap.md`."
         }
       }

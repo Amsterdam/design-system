@@ -3,7 +3,7 @@
     "footer": {
       "menu": {
         "column-gap": { "value": "{ams.space.lg}" },
-        "padding-block": { "value": "{ams.space.grid.sm}" },
+        "padding-block": { "value": "{ams.space.lg}" },
         "padding-inline": { "value": "{ams.grid.padding-inline}" },
         "row-gap": { "value": "{ams.space.xs}" },
         "link": {
