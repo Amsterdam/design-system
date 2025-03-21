@@ -10,8 +10,10 @@ import type { CrossAlign, MainAlign } from '../common/types'
 
 export const rowGapSizes = ['none', 'extra-small', 'small', 'large', 'extra-large'] as const
 
+export const rowTags = ['article', 'div', 'section'] as const
+type RowTag = (typeof rowTags)[number]
+
 type RowGap = (typeof rowGapSizes)[number]
-type RowTag = 'article' | 'div' | 'section'
 
 export type RowProps = {
   /**
