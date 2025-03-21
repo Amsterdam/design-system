@@ -68,6 +68,7 @@ const TabsRoot = forwardRef(
     useImperativeHandle(ref, () => innerRef.current as HTMLDivElement)
 
     const { keyDown } = useKeyboardFocus(innerRef, {
+      focusableElements: ['button[role="tab"]', 'div[role="tabpanel"]'],
       horizontally: true,
       rotating: true,
     })

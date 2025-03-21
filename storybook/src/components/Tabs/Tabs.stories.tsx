@@ -148,75 +148,80 @@ export const WithForm: Story = {
   args: {
     children: [
       <Tabs.List key="tabsList">
-        <Tabs.Button key="form" tab={0}>
+        <Tabs.Button key="form" tab="form">
           Form
         </Tabs.Button>
+        <Tabs.Button key="tab" tab="tab">
+          Nog een tab
+        </Tabs.Button>
       </Tabs.List>,
-      <Tabs.Panel key="form" tab={0}>
-        <form>
-          <form className="ams-gap--md" id="main" onSubmit={(e) => e.preventDefault()}>
-            <Field>
-              <Label htmlFor="body">Wat wilt u aan de gemeente vragen?</Label>
-              <Paragraph id="bodyDescription" size="small">
-                Een duidelijke beschrijving van uw vraag helpt ons bij het behandelen.
+      <Tabs.Panel key="form" tab="form">
+        <form className="ams-gap--md" id="main" onSubmit={(e) => e.preventDefault()}>
+          <Field>
+            <Label htmlFor="body">Wat wilt u aan de gemeente vragen?</Label>
+            <Paragraph id="bodyDescription" size="small">
+              Een duidelijke beschrijving van uw vraag helpt ons bij het behandelen.
+            </Paragraph>
+            <TextArea aria-describedby="bodyDescription" id="body" rows={4} />
+          </Field>
+          <FieldSet aria-describedby="contactDetailsDescription" legend="Wat zijn uw gegevens?">
+            <Column gap="small">
+              <Paragraph id="contactDetailsDescription">
+                Wij hebben uw gegevens nodig om contact met u te kunnen opnemen.
               </Paragraph>
-              <TextArea aria-describedby="bodyDescription" id="body" rows={4} />
-            </Field>
-            <FieldSet aria-describedby="contactDetailsDescription" legend="Wat zijn uw gegevens?">
-              <Column gap="small">
-                <Paragraph id="contactDetailsDescription">
-                  Wij hebben uw gegevens nodig om contact met u te kunnen opnemen.
-                </Paragraph>
+              <Field>
+                <Label htmlFor="initials">Voorletters</Label>
+                <TextInput id="initials" name="initials" />
+              </Field>
+              <Field>
+                <Label htmlFor="familyName">Achternaam</Label>
+                <TextInput autoComplete="family-name" id="familyName" name="familyName" />
+              </Field>
+              <FieldSet legend="Woonplaats">
+                <Radio name="city" value="amsterdam">
+                  Amsterdam
+                </Radio>
+                <Radio name="city" value="weesp">
+                  Weesp
+                </Radio>
+                <Radio name="city" value="anders">
+                  Anders
+                </Radio>
+              </FieldSet>
+              <Field>
+                <Label htmlFor="email">E-mail</Label>
+                <TextInput autoComplete="email" id="email" name="email" />
+              </Field>
+              <Row wrap>
                 <Field>
-                  <Label htmlFor="initials">Voorletters</Label>
-                  <TextInput id="initials" name="initials" />
+                  <Label htmlFor="countryCode">Landnummer</Label>
+                  <Select id="countryCode" name="countryCode">
+                    <Select.Option value="+31">Nederland +31</Select.Option>
+                    <Select.Option value="+32">België +32</Select.Option>
+                    <Select.Option value="+33">Frankrijk +33</Select.Option>
+                  </Select>
                 </Field>
                 <Field>
-                  <Label htmlFor="familyName">Achternaam</Label>
-                  <TextInput autoComplete="family-name" id="familyName" name="familyName" />
+                  <Label htmlFor="phone">Telefoonnummer</Label>
+                  <TextInput autoComplete="tel" id="phone" name="phone" />
                 </Field>
-                <FieldSet legend="Woonplaats">
-                  <Radio name="city" value="amsterdam">
-                    Amsterdam
-                  </Radio>
-                  <Radio name="city" value="weesp">
-                    Weesp
-                  </Radio>
-                  <Radio name="city" value="anders">
-                    Anders
-                  </Radio>
-                </FieldSet>
-                <Field>
-                  <Label htmlFor="email">E-mail</Label>
-                  <TextInput autoComplete="email" id="email" name="email" />
-                </Field>
-                <Row wrap>
-                  <Field>
-                    <Label htmlFor="countryCode">Landnummer</Label>
-                    <Select id="countryCode" name="countryCode">
-                      <Select.Option value="+31">Nederland +31</Select.Option>
-                      <Select.Option value="+32">België +32</Select.Option>
-                      <Select.Option value="+33">Frankrijk +33</Select.Option>
-                    </Select>
-                  </Field>
-                  <Field>
-                    <Label htmlFor="phone">Telefoonnummer</Label>
-                    <TextInput autoComplete="tel" id="phone" name="phone" />
-                  </Field>
-                </Row>
-              </Column>
-            </FieldSet>
-            <Alert heading="Waarom vragen we om deze gegevens?" headingLevel={2}>
-              <Paragraph>
-                We bewaren uw contactgegevens voor het afhandelen van uw vraag of klacht en het verbeteren van onze
-                dienstverlening.
-              </Paragraph>
-            </Alert>
-            <div>
-              <Button type="submit">Versturen</Button>
-            </div>
-          </form>
+              </Row>
+            </Column>
+          </FieldSet>
+          <Alert heading="Waarom vragen we om deze gegevens?" headingLevel={2}>
+            <Paragraph>
+              We bewaren uw contactgegevens voor het afhandelen van uw vraag of klacht en het verbeteren van onze
+              dienstverlening.
+            </Paragraph>
+          </Alert>
+          <div>
+            <Button type="submit">Versturen</Button>
+          </div>
         </form>
+      </Tabs.Panel>,
+      <Tabs.Panel key="tab" tab="tab">
+        <Heading level={3}>Nog een tab</Heading>
+        <Paragraph>{exampleParagraph()}</Paragraph>
       </Tabs.Panel>,
     ],
   },

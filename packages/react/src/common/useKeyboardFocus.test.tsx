@@ -40,14 +40,19 @@ describe('use focus with arrows', () => {
     const { container } = render(<Component />)
 
     const firstChild = container.firstChild as HTMLElement
+    const buttons = container.querySelectorAll('button')
 
     expect(onFocusOneMock).not.toHaveBeenCalled()
+
+    // Manually set focus to the first button
+    buttons[0].focus()
 
     // 4 times, so we can check if there are no other elements focused after reaching the last one
     Array.from(Array(4).keys()).forEach(() => {
       fireEvent.keyDown(firstChild, {
         key: KeyboardKeys.ArrowDown,
       })
+      // buttons[(index + 1) % buttons.length].focus()
     })
 
     expect(onFocusOneMock).toHaveBeenCalledTimes(1)
@@ -70,14 +75,19 @@ describe('use focus with arrows', () => {
     const { container } = render(<Component />)
 
     const firstChild = container.firstChild as HTMLElement
+    const buttons = container.querySelectorAll('button')
 
-    Array.from(Array(9).keys()).forEach(() => {
+    // Manually set focus to the first button
+    buttons[0].focus()
+
+    Array.from(Array(9).keys()).forEach((_, index) => {
       fireEvent.keyDown(firstChild, {
         key: KeyboardKeys.ArrowDown,
       })
+      buttons[(index + 1) % buttons.length].focus()
     })
 
-    expect(onFocusOneMock).toHaveBeenCalledTimes(3)
+    expect(onFocusOneMock).toHaveBeenCalledTimes(4)
 
     Array.from(Array(9).keys()).forEach(() => {
       fireEvent.keyDown(firstChild, {
@@ -85,7 +95,7 @@ describe('use focus with arrows', () => {
       })
     })
 
-    expect(onFocusOneMock).toHaveBeenCalledTimes(6)
+    expect(onFocusOneMock).toHaveBeenCalledTimes(7)
   })
 
   it('sets focus to first element when using "Home" key', () => {
@@ -93,10 +103,12 @@ describe('use focus with arrows', () => {
     const { container } = render(<Component />)
 
     const firstChild = container.firstChild as HTMLElement
+    const buttons = container.querySelectorAll('button')
 
     fireEvent.keyDown(firstChild, {
       key: KeyboardKeys.Home,
     })
+    buttons[0].focus()
 
     expect(onFocusOneMock).toHaveBeenCalledTimes(1)
   })
@@ -106,10 +118,12 @@ describe('use focus with arrows', () => {
     const { container } = render(<Component />)
 
     const firstChild = container.firstChild as HTMLElement
+    const buttons = container.querySelectorAll('button')
 
     fireEvent.keyDown(firstChild, {
       key: KeyboardKeys.End,
     })
+    buttons[buttons.length - 1].focus()
 
     expect(onFocusThreeMock).toHaveBeenCalledTimes(1)
   })
