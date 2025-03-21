@@ -14,10 +14,12 @@
 
   @media screen and (min-width: $ams-breakpoint-medium) {
     grid-template-columns: repeat(var(--ams-grid-medium-column-count), 1fr);
+    padding-inline: var(--ams-grid-medium-padding-inline);
   }
 
   @media screen and (min-width: $ams-breakpoint-wide) {
     grid-template-columns: repeat(var(--ams-grid-wide-column-count), 1fr);
+    padding-inline: var(--ams-grid-wide-padding-inline);
   }
 }
 
