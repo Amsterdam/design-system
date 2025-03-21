@@ -6,10 +6,8 @@
 @use "../../common/size" as *;
 
 @each $size in $ams-sizes {
-  @if $size != "no" {
-    .ams-mb--#{$size} {
-      /* stylelint-disable-next-line csstools/value-no-unknown-custom-properties */
-      margin-block-end: var(--ams-space-#{$size}) !important;
-    }
+  .ams-mb-#{$size} {
+    /* stylelint-disable-next-line csstools/value-no-unknown-custom-properties */
+    margin-block-end: var(--ams-space-#{$size}) !important;
   }
 }
