@@ -10,6 +10,9 @@ import type { BreakoutRowNumber, BreakoutRowNumbers } from './Breakout'
 import { breakoutCellClasses } from './breakoutCellClasses'
 import type { GridColumnNumber, GridColumnNumbers } from '../Grid/Grid'
 
+export const breakoutCellTags = ['article', 'div', 'section'] as const
+type BreakoutCellTag = (typeof breakoutCellTags)[number]
+
 type BreakoutCellSpanAllProp = {
   /** Lets the cell span the full width of all grid variants. */
   colSpan: 'all'
@@ -37,7 +40,7 @@ type BreakoutCellRowSpanAndStartProps = {
 
 export type BreakoutCellProps = {
   /** The HTML element to use. */
-  as?: 'article' | 'div' | 'section'
+  as?: BreakoutCellTag
 } & (BreakoutCellSpanAllProp | BreakoutCellSpanAndStartProps) &
   BreakoutCellRowSpanAndStartProps &
   PropsWithChildren<HTMLAttributes<HTMLElement>>
