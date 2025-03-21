@@ -4,7 +4,6 @@
  */
 
 import {
-  Card,
   Grid,
   Heading,
   Image,
@@ -154,48 +153,40 @@ export const SubnavigationPage: StoryObj = {
             <NavigationColumn sections={burgerzakenLinks[1].slice(0, 2)} />
           </Grid.Cell>
           <Grid.Cell span={{ narrow: 4, medium: 4, wide: 5 }} start={{ narrow: 1, medium: 1, wide: 2 }}>
-            <Card>
-              <Heading className="ams-mb--sm" level={2} size="level-4">
-                {exampleHeading()}
-              </Heading>
-              <Paragraph>{exampleParagraph()}</Paragraph>
-              <Link href="#" variant="standalone">
-                Rijbewijs aanvragen
-              </Link>
-            </Card>
+            <Heading className="ams-mb--sm" level={2} size="level-4">
+              {exampleHeading()}
+            </Heading>
+            <Paragraph className="ams-mb--sm">{exampleParagraph()}</Paragraph>
+            <Link href="#" variant="standalone">
+              Rijbewijs aanvragen
+            </Link>
           </Grid.Cell>
           <Grid.Cell span={{ narrow: 4, medium: 4, wide: 5 }}>
-            <Card>
-              <Heading className="ams-mb--sm" level={2} size="level-4">
-                {exampleHeading()}
-              </Heading>
-              <Paragraph>{exampleParagraph()}</Paragraph>
-              <Link href="#" variant="standalone">
-                Rijbewijs aanvragen
-              </Link>
-            </Card>
+            <Heading className="ams-mb--sm" level={2} size="level-4">
+              {exampleHeading()}
+            </Heading>
+            <Paragraph className="ams-mb--sm">{exampleParagraph()}</Paragraph>
+            <Link href="#" variant="standalone">
+              Rijbewijs aanvragen
+            </Link>
           </Grid.Cell>
           <Grid.Cell span={{ narrow: 4, medium: 4, wide: 5 }} start={{ narrow: 1, medium: 1, wide: 2 }}>
-            <Card>
-              <Heading className="ams-mb--sm" level={2} size="level-4">
-                {exampleHeading()}
-              </Heading>
-              <Paragraph>{exampleParagraph()}</Paragraph>
-              <Link href="#" variant="standalone">
-                Rijbewijs aanvragen
-              </Link>
-            </Card>
+            <Heading className="ams-mb--sm" level={2} size="level-4">
+              {exampleHeading()}
+            </Heading>
+            <Paragraph className="ams-mb--sm">{exampleParagraph()}</Paragraph>
+            <Link href="#" variant="standalone">
+              Rijbewijs aanvragen
+            </Link>
           </Grid.Cell>
           <Grid.Cell span={{ narrow: 4, medium: 4, wide: 5 }}>
-            <Card>
-              <Heading className="ams-mb--sm" level={2} size="level-4">
-                {exampleHeading()}
-              </Heading>
-              <Paragraph>{exampleParagraph()}</Paragraph>
-              <Link href="#" variant="standalone">
-                Rijbewijs aanvragen
-              </Link>
-            </Card>
+            <Heading className="ams-mb--sm" level={2} size="level-4">
+              {exampleHeading()}
+            </Heading>
+            <Paragraph className="ams-mb--sm">{exampleParagraph()}</Paragraph>
+            <Link href="#" variant="standalone">
+              Rijbewijs aanvragen
+            </Link>
           </Grid.Cell>
         </Grid>
         <Spotlight color="magenta">
