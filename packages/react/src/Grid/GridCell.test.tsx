@@ -1,9 +1,9 @@
 import { render, screen } from '@testing-library/react'
 import { createRef } from 'react'
 import { Grid } from './Grid'
-import { gridCellTags } from './GridCell'
 import { AriaRoleForTag } from '../common/accessibility'
 import '@testing-library/jest-dom'
+import { layoutSectionTags } from '../common/types'
 
 describe('Grid cell', () => {
   it('renders', () => {
@@ -105,7 +105,7 @@ describe('Grid cell', () => {
     expect(component).toHaveClass('ams-grid__cell--span-all')
   })
 
-  gridCellTags.forEach((tag) => {
+  layoutSectionTags.forEach((tag) => {
     it(`renders with a custom ${tag} tag`, () => {
       const { container } = render(
         <Grid.Cell aria-label={tag === 'section' ? 'Accessible name' : undefined} as={tag} />,

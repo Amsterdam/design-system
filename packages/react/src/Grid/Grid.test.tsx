@@ -1,9 +1,10 @@
 import { render, screen } from '@testing-library/react'
 import { createRef } from 'react'
-import { Grid, gridTags } from './Grid'
+import { Grid } from './Grid'
 import type { GridPaddingSize } from './Grid'
 import { AriaRoleForTag } from '../common/accessibility'
 import '@testing-library/jest-dom'
+import { layoutSectionTags } from '../common/types'
 
 const paddingSizes = ['small', 'medium', 'large']
 
@@ -88,7 +89,7 @@ describe('Grid', () => {
     })
   })
 
-  gridTags.forEach((tag) => {
+  layoutSectionTags.forEach((tag) => {
     it(`renders with a custom ${tag} tag`, () => {
       const { container } = render(<Grid aria-label={tag === 'section' ? 'Accessible name' : undefined} as={tag} />)
 
