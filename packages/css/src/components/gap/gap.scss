@@ -10,8 +10,8 @@
 }
 
 @each $size in $ams-sizes {
-  @if $size != "no" {
-    .ams-gap--#{$size} {
+  @if $size != "2xl" {
+    .ams-gap-#{$size} {
       /* stylelint-disable-next-line csstools/value-no-unknown-custom-properties */
       gap: var(--ams-space-#{$size}) !important;
     }
