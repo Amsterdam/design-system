@@ -243,19 +243,19 @@ export const SubnavigationPage: StoryObj = {
                 Deel deze pagina
               </Heading>
               <LinkList>
-                <LinkList.Link color="inverse" icon={FacebookIcon}>
+                <LinkList.Link color="inverse" href="#" icon={FacebookIcon}>
                   Facebook
                 </LinkList.Link>
-                <LinkList.Link color="inverse" icon={CameraIcon}>
+                <LinkList.Link color="inverse" href="#" icon={CameraIcon}>
                   Instagram
                 </LinkList.Link>
-                <LinkList.Link color="inverse" icon={LinkedinIcon}>
+                <LinkList.Link color="inverse" href="#" icon={LinkedinIcon}>
                   LinkedIn
                 </LinkList.Link>
-                <LinkList.Link color="inverse" icon={ChatBubbleIcon}>
+                <LinkList.Link color="inverse" href="#" icon={ChatBubbleIcon}>
                   Whatsapp
                 </LinkList.Link>
-                <LinkList.Link color="inverse" icon={TwitterIcon}>
+                <LinkList.Link color="inverse" href="#" icon={TwitterIcon}>
                   X (Twitter)
                 </LinkList.Link>
               </LinkList>
