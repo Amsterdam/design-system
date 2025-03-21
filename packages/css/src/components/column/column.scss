@@ -3,21 +3,10 @@
  * Copyright Gemeente Amsterdam
  */
 
-@use "../../common/size" as *;
-
 .ams-column {
   display: flex;
   flex-direction: column;
-  gap: var(--ams-column-gap-md);
-}
-
-@each $size, $label in $ams-sizes {
-  @if $size != "md" {
-    .ams-column--gap-#{$label} {
-      /* stylelint-disable-next-line csstools/value-no-unknown-custom-properties */
-      gap: var(--ams-column-gap-#{$size});
-    }
-  }
+  gap: var(--ams-column-gap);
 }
 
 .ams-column--align-around {
