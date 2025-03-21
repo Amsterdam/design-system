@@ -9,7 +9,7 @@ import type { HTMLAttributes, PropsWithChildren } from 'react'
 import { sizes } from '../common/size'
 import type { CrossAlignForColumn, MainAlign } from '../common/types'
 
-export const columnGaps = ['none', 'extra-small', 'small', 'large', 'extra-large'] as const
+export const columnGaps = ['none', 'x-small', 'small', 'large', 'x-large'] as const
 
 type ColumnGap = (typeof columnGaps)[number]
 type ColumnTag = 'article' | 'div' | 'section'

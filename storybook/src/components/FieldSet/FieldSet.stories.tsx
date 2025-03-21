@@ -174,7 +174,7 @@ export const RadioGroup: Story = {
           Geef aan waar uw laatstgenoemde melding over gaat.
         </ErrorMessage>
       )}
-      <Column gap="extra-small">
+      <Column gap="x-small">
         <Radio aria-required="true" invalid={args.invalid} name="about" value="horeca">
           Horecabedrijf
         </Radio>
@@ -213,7 +213,7 @@ export const RadioGroupWithValidation: Story = {
           Geef aan waar uw laatstgenoemde melding over gaat.
         </ErrorMessage>
       )}
-      <Column gap="extra-small">
+      <Column gap="x-small">
         <Radio aria-required="true" invalid={args.invalid} name="about" value="horeca">
           Horecabedrijf
         </Radio>
@@ -250,7 +250,7 @@ export const CheckboxGroup: Story = {
           Geef aan waar uw melding over gaat.
         </ErrorMessage>
       )}
-      <Column gap="extra-small">
+      <Column gap="x-small">
         <Checkbox aria-required="true" invalid={args.invalid} name="about" value="horeca">
           Horecabedrijf
         </Checkbox>
@@ -288,7 +288,7 @@ export const CheckboxGroupWithValidation: Story = {
           Geef aan waar uw melding over gaat.
         </ErrorMessage>
       )}
-      <Column gap="extra-small">
+      <Column gap="x-small">
         <Checkbox aria-required="true" invalid={args.invalid} name="about" value="horeca">
           Horecabedrijf
         </Checkbox>

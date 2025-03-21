@@ -44,7 +44,7 @@ const meta = {
         labels: { undefined: 'medium' },
         type: 'radio',
       },
-      options: ['none', 'extra-small', 'small', undefined, 'large', 'extra-large'],
+      options: ['none', 'x-small', 'small', undefined, 'large', 'x-large'],
     },
   },
 } satisfies Meta<typeof Row>

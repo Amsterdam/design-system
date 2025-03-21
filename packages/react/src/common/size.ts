@@ -4,10 +4,10 @@
  */
 
 export const sizes = {
-  'extra-large': 'xl',
-  'extra-small': 'xs',
   large: 'l',
   medium: 'm',
   none: 'none',
   small: 's',
+  'x-large': 'xl',
+  'x-small': 'xs',
 }

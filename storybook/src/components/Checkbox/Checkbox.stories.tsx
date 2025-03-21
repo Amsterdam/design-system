@@ -88,7 +88,7 @@ export const InAFieldSet: Story = {
           Geef aan waar uw laatstgenoemde melding over gaat.
         </ErrorMessage>
       )}
-      <Column gap="extra-small">
+      <Column gap="x-small">
         <Checkbox invalid={invalid} name="about" value="horeca">
           Horecabedrijf
         </Checkbox>
@@ -139,7 +139,7 @@ export const InAFieldSetWithValidation: Story = {
           Geef aan waar uw laatstgenoemde melding over gaat.
         </ErrorMessage>
       )}
-      <Column gap="extra-small">
+      <Column gap="x-small">
         <Checkbox invalid={invalid} name="about" value="horeca">
           Horecabedrijf
         </Checkbox>
