@@ -42,14 +42,6 @@ describe('Header', () => {
     expect(ref.current).toBe(component)
   })
 
-  it('renders a brand section', () => {
-    const { container } = render(<Header />)
-
-    const component = container.querySelector('.ams-header__branding')
-
-    expect(component).toBeInTheDocument()
-  })
-
   it('renders a logo link', () => {
     render(<Header />)
 
@@ -85,12 +77,17 @@ describe('Header', () => {
   it('renders an application name', () => {
     render(<Header brandName="Application name" />)
 
-    const heading = screen.getByRole('heading', {
-      level: 1,
-      name: 'Application name',
-    })
+    const brandName = screen.getByText('Application name')
 
-    expect(heading).toBeInTheDocument()
+    expect(brandName).toBeInTheDocument()
+  })
+
+  it('renders the correct class for the responsive logo', () => {
+    const { container } = render(<Header brandName="Application name" />)
+
+    const logoContainer = container.querySelector('.ams-header__logo-container')
+
+    expect(logoContainer).toBeInTheDocument()
   })
 
   it('renders a nav section', () => {

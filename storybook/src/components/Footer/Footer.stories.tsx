@@ -36,9 +36,6 @@ export const Default: Story = {
   args: {
     children: [
       <Footer.Spotlight key="footer-spotlight">
-        <Heading className="ams-visually-hidden" color="inverse" level={1}>
-          Colofon
-        </Heading>
         <Grid gapVertical="large" paddingVertical="medium">
           <Grid.Cell span={4}>
             <Heading className="ams-mb--xs" color="inverse" level={2} size="level-4">
@@ -74,7 +71,7 @@ export const Default: Story = {
             </LinkList>
           </Grid.Cell>
           <Grid.Cell span={4} start={{ narrow: 1, medium: 1, wide: 9 }}>
-            <section className="ams-mb--md">
+            <div className="ams-mb--md">
               <Heading className="ams-mb--xs" color="inverse" level={2} size="level-4">
                 Nieuwsbrief
               </Heading>
@@ -83,8 +80,8 @@ export const Default: Story = {
                   Inschrijven
                 </LinkList.Link>
               </LinkList>
-            </section>
-            <section>
+            </div>
+            <div>
               <Heading className="ams-mb--xs" color="inverse" level={2} size="level-4">
                 Volg ons
               </Heading>
@@ -95,7 +92,7 @@ export const Default: Story = {
                   </LinkList.Link>
                 ))}
               </LinkList>
-            </section>
+            </div>
           </Grid.Cell>
         </Grid>
       </Footer.Spotlight>,
@@ -115,9 +112,6 @@ export const OnderzoekEnStatistiek: Story = {
   args: {
     children: [
       <Footer.Spotlight key="footer-spotlight">
-        <Heading className="ams-visually-hidden" color="inverse" level={1}>
-          Colofon
-        </Heading>
         <Grid gapVertical="large" paddingVertical="medium">
           <Grid.Cell span={3}>
             <Heading className="ams-mb--xs" color="inverse" level={2} size="level-4">

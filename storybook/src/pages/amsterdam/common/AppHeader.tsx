@@ -3,7 +3,6 @@ import { headerMenuLinks, megaMenuLinks } from './menu'
 
 export const AppHeader = () => (
   <Header
-    menuButtonText="Alle onderwerpen"
     menuItems={headerMenuLinks.map(({ fixed, href, label, lang }) => (
       <Header.MenuLink fixed={fixed} href={href ?? '#'} key={label} lang={lang} rel={href ? 'external' : undefined}>
         {label}
@@ -23,7 +22,7 @@ export const AppHeader = () => (
         </LinkList>
       </Header.GridCellNarrowWindowOnly>
       <Grid.Cell span="all">
-        <Heading className="ams-mb--sm" level={2} size="level-3">
+        <Heading className="ams-mb--sm" level={3}>
           Alle onderwerpen
         </Heading>
         <div className="ams-mega-menu__columns">

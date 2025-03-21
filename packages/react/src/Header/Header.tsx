@@ -6,7 +6,6 @@
 import clsx from 'clsx'
 import { forwardRef, useEffect, useState } from 'react'
 import type { ForwardedRef, HTMLAttributes, ReactNode } from 'react'
-import { Heading } from '../Heading'
 import { Icon } from '../Icon'
 import { Logo } from '../Logo'
 import type { LogoBrand } from '../Logo'
@@ -14,6 +13,19 @@ import { HeaderGridCellNarrowWindowOnly } from './HeaderGridCellNarrowWindowOnly
 import { HeaderMenuIcon } from './HeaderMenuIcon'
 import { HeaderMenuLink } from './HeaderMenuLink'
 import useIsAfterBreakpoint from '../common/useIsAfterBreakpoint'
+
+const LogoLinkContent = ({ brandName, logoBrand }: { brandName?: string; logoBrand: LogoBrand }) => (
+  <>
+    <span className={clsx(logoBrand === 'amsterdam' && Boolean(brandName) && 'ams-header__logo-container')}>
+      <Logo brand={logoBrand} />
+    </span>
+    {brandName && (
+      <span aria-hidden="true" className="ams-header__brand-name">
+        {brandName}
+      </span>
+    )}
+  </>
+)
 
 export type HeaderProps = {
   /** The name of the application. */
@@ -53,7 +65,8 @@ const HeaderRoot = forwardRef(
   ) => {
     const [open, setOpen] = useState(false)
 
-    const isWideWindow = useIsAfterBreakpoint('wide')
+    const hasMegaMenu = Boolean(children)
+    const isWideWindow = hasMegaMenu && useIsAfterBreakpoint('wide')
 
     useEffect(() => {
       // Close the menu when the menu button disappears
@@ -64,34 +77,24 @@ const HeaderRoot = forwardRef(
 
     return (
       <header {...restProps} className={clsx('ams-header', className)} ref={ref}>
-        <div className="ams-header__branding">
-          <a className="ams-header__logo-link" href={logoLink}>
-            <span className="ams-visually-hidden">{logoLinkTitle}</span>
-            <Logo brand={logoBrand} />
-          </a>
-          {brandName && (
-            <Heading className="ams-header__brand-name" level={1} size="level-5">
-              {brandName}
-            </Heading>
-          )}
-        </div>
-        {(children || menuItems) && (
+        <a className="ams-header__logo-link" href={logoLink}>
+          <span className="ams-visually-hidden">{logoLinkTitle}</span>
+          <LogoLinkContent brandName={brandName} logoBrand={logoBrand} />
+        </a>
+        {(hasMegaMenu || menuItems) && (
           <nav aria-labelledby="primary-navigation" className="ams-header__navigation">
             <h2 className="ams-visually-hidden" id="primary-navigation">
               {navigationLabel}
             </h2>
 
-            {/* The branding section is recreated here, to make sure the page menu breaks at the right spot */}
-            <div aria-hidden className="ams-header__branding ams-header__branding--hidden">
-              <div className="ams-header__logo-link">
-                <Logo brand={logoBrand} />
-              </div>
-              {brandName && <span className="ams-heading ams-heading--5 ams-header__brand-name">{brandName}</span>}
+            {/* The logo link section is recreated here, to make sure the header menu wraps at the right spot */}
+            <div className="ams-header__logo-link ams-header__logo-link--hidden">
+              <LogoLinkContent brandName={brandName} logoBrand={logoBrand} />
             </div>
 
             <ul className="ams-header__menu">
               {menuItems}
-              {children && (
+              {hasMegaMenu && (
                 <li
                   className={clsx(noMenuButtonOnWideWindow && 'ams-header__mega-menu-button-item--hide-on-wide-window')}
                 >
@@ -119,7 +122,7 @@ const HeaderRoot = forwardRef(
               )}
             </ul>
 
-            {children && (
+            {hasMegaMenu && (
               <div
                 className={clsx('ams-header__mega-menu', !open && 'ams-header__mega-menu--closed')}
                 id="ams-mega-menu"
