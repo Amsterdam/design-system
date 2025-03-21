@@ -10,7 +10,7 @@
   @if $size != "no" {
     .ams-mb--#{$size} {
       /* stylelint-disable-next-line csstools/value-no-unknown-custom-properties */
-      margin-block-end: var(--ams-margin-#{$size}) !important;
+      margin-block-end: var(--ams-space-#{$size}) !important;
     }
   }
 }

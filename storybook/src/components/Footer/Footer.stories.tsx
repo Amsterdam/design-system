@@ -36,9 +36,9 @@ export const Default: Story = {
   args: {
     children: [
       <Footer.Spotlight key="footer-spotlight">
-        <Grid gapVertical="large" paddingVertical="medium">
+        <Grid paddingVertical="medium">
           <Grid.Cell span={4}>
-            <Heading className="ams-mb--xs" color="inverse" level={2} size="level-4">
+            <Heading className="ams-mb--sm" color="inverse" level={2} size="level-4">
               Meer weten
             </Heading>
             <LinkList>
@@ -52,10 +52,10 @@ export const Default: Story = {
             </LinkList>
           </Grid.Cell>
           <Grid.Cell span={4} start={{ narrow: 1, medium: 5, wide: 5 }}>
-            <Heading className="ams-mb--xs" color="inverse" level={2} size="level-4">
+            <Heading className="ams-mb--sm" color="inverse" level={2} size="level-4">
               Contact
             </Heading>
-            <Paragraph className="ams-mb--xs" color="inverse" size="small">
+            <Paragraph className="ams-mb--md" color="inverse" size="small">
               Hebt u een vraag en kunt u het antwoord niet vinden op deze website? Neem dan contact met ons op.
             </Paragraph>
             <LinkList>
@@ -71,8 +71,8 @@ export const Default: Story = {
             </LinkList>
           </Grid.Cell>
           <Grid.Cell span={4} start={{ narrow: 1, medium: 1, wide: 9 }}>
-            <div className="ams-mb--md">
-              <Heading className="ams-mb--xs" color="inverse" level={2} size="level-4">
+            <div className="ams-mb--xl">
+              <Heading className="ams-mb--sm" color="inverse" level={2} size="level-4">
                 Nieuwsbrief
               </Heading>
               <LinkList>
@@ -82,7 +82,7 @@ export const Default: Story = {
               </LinkList>
             </div>
             <div>
-              <Heading className="ams-mb--xs" color="inverse" level={2} size="level-4">
+              <Heading className="ams-mb--sm" color="inverse" level={2} size="level-4">
                 Volg ons
               </Heading>
               <LinkList>
@@ -112,12 +112,12 @@ export const OnderzoekEnStatistiek: Story = {
   args: {
     children: [
       <Footer.Spotlight key="footer-spotlight">
-        <Grid gapVertical="large" paddingVertical="medium">
+        <Grid paddingVertical="medium">
           <Grid.Cell span={3}>
-            <Heading className="ams-mb--xs" color="inverse" level={2} size="level-4">
+            <Heading className="ams-mb--sm" color="inverse" level={2} size="level-4">
               Contact
             </Heading>
-            <Paragraph className="ams-mb--xs" color="inverse" size="small">
+            <Paragraph className="ams-mb--md" color="inverse" size="small">
               Heeft u een vraag en kunt u het antwoord niet vinden op deze site? Neem dan contact met ons op.
             </Paragraph>
             <LinkList>
@@ -130,10 +130,10 @@ export const OnderzoekEnStatistiek: Story = {
             </LinkList>
           </Grid.Cell>
           <Grid.Cell span={3} start={{ narrow: 1, medium: 5, wide: 5 }}>
-            <Heading className="ams-mb--xs" color="inverse" level={2} size="level-4">
+            <Heading className="ams-mb--sm" color="inverse" level={2} size="level-4">
               Panels en enquêtes
             </Heading>
-            <Paragraph className="ams-mb--xs" color="inverse" size="small">
+            <Paragraph className="ams-mb--md" color="inverse" size="small">
               Bent u uitgenodigd om mee te doen aan onderzoek of heeft u vragen over het panel of stadspaspanel?
             </Paragraph>
             <LinkList>
@@ -149,7 +149,7 @@ export const OnderzoekEnStatistiek: Story = {
             </LinkList>
           </Grid.Cell>
           <Grid.Cell span={3} start={{ narrow: 1, medium: 1, wide: 9 }}>
-            <Heading className="ams-mb--xs" color="inverse" level={2} size="level-4">
+            <Heading className="ams-mb--sm" color="inverse" level={2} size="level-4">
               Onderzoek en Statistiek
             </Heading>
             <LinkList>
