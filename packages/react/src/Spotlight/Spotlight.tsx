@@ -8,11 +8,14 @@ import { forwardRef, HTMLAttributes, PropsWithChildren } from 'react'
 
 export const spotlightColors = ['azure', 'green', 'lime', 'magenta', 'orange', 'yellow'] as const
 
+export const spotlightTags = ['article', 'aside', 'div', 'footer', 'section'] as const
+type SpotlightTag = (typeof spotlightTags)[number]
+
 type SpotlightColor = (typeof spotlightColors)[number]
 
 export type SpotlightProps = {
   /** The HTML element to use. */
-  as?: 'article' | 'aside' | 'div' | 'footer' | 'section'
+  as?: SpotlightTag
   /** The background colour. */
   color?: SpotlightColor
 } & PropsWithChildren<HTMLAttributes<HTMLElement>>
