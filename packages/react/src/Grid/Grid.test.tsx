@@ -2,7 +2,7 @@ import { render, screen } from '@testing-library/react'
 import { createRef } from 'react'
 import { Grid, gridTags } from './Grid'
 import type { GridPaddingSize } from './Grid'
-import { ariaRoleForTag } from '../common/accessibility'
+import { AriaRoleForTag } from '../common/accessibility'
 import '@testing-library/jest-dom'
 
 const paddingSizes = ['small', 'medium', 'large']
@@ -92,12 +92,7 @@ describe('Grid', () => {
     it(`renders with a custom ${tag} tag`, () => {
       const { container } = render(<Grid aria-label={tag === 'section' ? 'Accessible name' : undefined} as={tag} />)
 
-      let component: HTMLElement | null
-      if (tag === 'div') {
-        component = container.querySelector(tag)
-      } else {
-        component = screen.getByRole(ariaRoleForTag[tag])
-      }
+      const component = tag === 'div' ? container.querySelector(tag) : screen.getByRole(AriaRoleForTag[tag])
 
       expect(component).toBeInTheDocument()
     })
