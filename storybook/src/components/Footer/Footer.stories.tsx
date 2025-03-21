@@ -112,7 +112,7 @@ export const OnderzoekEnStatistiek: Story = {
   args: {
     children: [
       <Footer.Spotlight key="footer-spotlight">
-        <Grid>
+        <Grid paddingVertical="medium">
           <Grid.Cell span={3}>
             <Heading className="ams-mb--sm" color="inverse" level={2} size="level-4">
               Contact
