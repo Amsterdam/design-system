@@ -81,7 +81,7 @@ Examples:
 ```css
 :root {
   --ams-color-feedback-error: #ec0000;
-  --ams-space-md: 1rem;
+  --ams-space-m: 1rem;
   --ams-aspect-ratio-wide: 4/3;
   --ams-border-width-lg: 0.1875rem;
 }
@@ -167,7 +167,7 @@ Address these tokens through the `compact` namespace and do not use the spacious
 @use "@amsterdam/design-system-tokens/dist/compact.scss";
 
 .class {
-  padding-block: compact.$ams-space-md;
+  padding-block: compact.$ams-space-m;
 }
 ```
 
@@ -182,7 +182,7 @@ Use ‘dot notation’ or square brackets to access the tokens.
 import tokens from "@amsterdam/design-system-tokens/dist/index.json"
 
 const buttonBackgroundColor = tokens.ams.color["primary-blue"]
-const rowGap = tokens.ams.space.md
+const rowGap = tokens.ams.space.m
 ```
 
 Import and merge the compact tokens if you need them.

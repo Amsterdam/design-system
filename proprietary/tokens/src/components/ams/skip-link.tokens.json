@@ -8,8 +8,8 @@
       "font-weight": { "value": "{ams.typography.body-text.font-weight}" },
       "line-height": { "value": "{ams.typography.body-text.small.line-height}" },
       "outline-offset": { "value": "{ams.focus.outline-offset}" },
-      "padding-block": { "value": "{ams.space.sm}" },
-      "padding-inline": { "value": "{ams.space.md}" },
+      "padding-block": { "value": "{ams.space.s}" },
+      "padding-inline": { "value": "{ams.space.m}" },
       "hover": {
         "background-color": { "value": "{ams.color.interactive.hover}" }
       }

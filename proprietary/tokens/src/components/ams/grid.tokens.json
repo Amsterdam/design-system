@@ -4,13 +4,13 @@
       "column-count": { "value": "4" },
       "column-gap": { "value": "{ams.space.xl}" },
       "padding-block": {
-        "sm": { "value": "{ams.space.lg}" },
+        "sm": { "value": "{ams.space.l}" },
         "md": { "value": "{ams.space.xl}" },
         "lg": { "value": "{ams.space.2xl}" }
       },
-      "padding-inline": { "value": "{ams.space.lg}" },
+      "padding-inline": { "value": "{ams.space.l}" },
       "row-gap": {
-        "sm": { "value": "{ams.space.lg}" },
+        "sm": { "value": "{ams.space.l}" },
         "md": { "value": "{ams.space.xl}" },
         "lg": { "value": "{ams.space.2xl}" }
       },

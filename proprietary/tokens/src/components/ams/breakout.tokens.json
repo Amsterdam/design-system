@@ -2,7 +2,7 @@
   "ams": {
     "breakout": {
       "row-gap": {
-        "sm": { "value": "{ams.space.lg}" },
+        "sm": { "value": "{ams.space.l}" },
         "md": { "value": "{ams.space.xl}" },
         "lg": { "value": "{ams.space.2xl}" }
       }

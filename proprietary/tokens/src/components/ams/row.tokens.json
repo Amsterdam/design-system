@@ -4,9 +4,9 @@
       "gap": {
         "no": { "value": "0" },
         "xs": { "value": "{ams.space.xs}" },
-        "sm": { "value": "{ams.space.sm}" },
-        "md": { "value": "{ams.space.md}" },
-        "lg": { "value": "{ams.space.lg}" },
+        "sm": { "value": "{ams.space.s}" },
+        "md": { "value": "{ams.space.m}" },
+        "lg": { "value": "{ams.space.l}" },
         "xl": { "value": "{ams.space.xl}" }
       }
     }
