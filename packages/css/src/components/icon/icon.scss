@@ -43,21 +43,29 @@
 }
 
 .ams-icon--heading-3 {
+  --ams-line-height: var(--ams-icon-heading-3-line-height);
+
   font-size: var(--ams-icon-heading-3-font-size);
   line-height: var(--ams-icon-heading-3-line-height);
 }
 
 .ams-icon--heading-4 {
+  --ams-line-height: var(--ams-icon-heading-4-line-height);
+
   font-size: var(--ams-icon-heading-4-font-size);
   line-height: var(--ams-icon-heading-4-line-height);
 }
 
 .ams-icon--heading-5 {
+  --ams-line-height: var(--ams-icon-heading-5-line-height);
+
   font-size: var(--ams-icon-heading-5-font-size);
   line-height: var(--ams-icon-heading-5-line-height);
 }
 
 .ams-icon--heading-6 {
+  --ams-line-height: var(--ams-icon-heading-6-line-height);
+
   font-size: var(--ams-icon-heading-6-font-size);
   line-height: var(--ams-icon-heading-6-line-height);
 }
