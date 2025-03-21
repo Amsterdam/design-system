@@ -1,0 +1,6 @@
+import{j as e}from"./jsx-runtime-Cf8x2fCZ.js";import{H as i,P as l}from"./index.esm-DWv39Xqv.js";/**
+ * @license EUPL-1.2+
+ * Copyright Gemeente Amsterdam
+ */const t=r=>e.jsx("span",{...r});try{t.displayName="Margin",t.__docgenInfo={description:"Mock component to render examples in Storybook. Not for reuse.",displayName:"Margin",props:{size:{defaultValue:null,description:"The amount of space below the element.",name:"size",required:!0,type:{name:"enum",value:[{value:'"xs"'},{value:'"sm"'},{value:'"md"'},{value:'"lg"'},{value:'"xl"'}]}}}}}catch{}const c=({size:r})=>e.jsxs(e.Fragment,{children:[e.jsx(i,{className:`ams-mb--${r}`,level:2,children:"This heading has a bottom margin"}),e.jsx(l,{children:"It introduces white space between the heading and this paragraph below."})]}),m={title:"Utilities/CSS/Margin",component:t,args:{size:"xs"}},a={render:c};var s,o,n;a.parameters={...a.parameters,docs:{...(s=a.parameters)==null?void 0:s.docs,source:{originalSource:`{
+  render
+}`,...(n=(o=a.parameters)==null?void 0:o.docs)==null?void 0:n.source}}};const d=["Default"],g=Object.freeze(Object.defineProperty({__proto__:null,Default:a,__namedExportsOrder:d,default:m},Symbol.toStringTag,{value:"Module"}));export{g as M};
