@@ -10,8 +10,10 @@ import type { CrossAlignForColumn, MainAlign } from '../common/types'
 
 export const columnGapSizes = ['none', 'extra-small', 'small', 'large', 'extra-large'] as const
 
+export const columnTags = ['article', 'div', 'section'] as const
+type ColumnTag = (typeof columnTags)[number]
+
 type ColumnGap = (typeof columnGapSizes)[number]
-type ColumnTag = 'article' | 'div' | 'section'
 
 export type ColumnProps = {
   /**

@@ -1,6 +1,7 @@
 import { render, screen } from '@testing-library/react'
 import { createRef } from 'react'
-import { Column, columnGapSizes } from './Column'
+import { Column, columnGapSizes, columnTags } from './Column'
+import { AriaRoleForTag } from '../common/accessibility'
 import { crossAlignOptionsForColumn, mainAlignOptions } from '../common/types'
 import '@testing-library/jest-dom'
 
@@ -54,6 +55,16 @@ describe('Column', () => {
     const component = container.querySelector('section')
 
     expect(component).toBeInTheDocument()
+  })
+
+  columnTags.forEach((tag) => {
+    it(`renders with a custom ${tag} tag`, () => {
+      const { container } = render(<Column aria-label={tag === 'section' ? 'Accessible name' : undefined} as={tag} />)
+
+      const component = tag === 'div' ? container.querySelector(tag) : screen.getByRole(AriaRoleForTag[tag])
+
+      expect(component).toBeInTheDocument()
+    })
   })
 
   it('supports ForwardRef in React', () => {
