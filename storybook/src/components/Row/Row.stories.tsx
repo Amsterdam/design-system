@@ -5,6 +5,7 @@
 
 import { Avatar, Heading, Link } from '@amsterdam/design-system-react'
 import { Row } from '@amsterdam/design-system-react/src'
+import { rowGaps } from '@amsterdam/design-system-react/src/Row/Row'
 import { crossAlignOptions, mainAlignOptions } from '@amsterdam/design-system-react/src/common/types'
 import { Meta, StoryObj } from '@storybook/react'
 
@@ -44,7 +45,7 @@ const meta = {
         labels: { undefined: 'medium' },
         type: 'radio',
       },
-      options: ['none', 'x-small', 'small', undefined, 'large', 'x-large'],
+      options: [undefined, ...rowGaps],
     },
   },
 } satisfies Meta<typeof Row>

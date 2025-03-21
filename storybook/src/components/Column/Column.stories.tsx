@@ -5,6 +5,7 @@
 
 import { Card, Heading, Paragraph } from '@amsterdam/design-system-react'
 import { Column } from '@amsterdam/design-system-react/src'
+import { columnGaps } from '@amsterdam/design-system-react/src/Column/Column'
 import { crossAlignOptionsForColumn, mainAlignOptions } from '@amsterdam/design-system-react/src/common/types'
 import { Meta, StoryObj } from '@storybook/react'
 
@@ -44,7 +45,7 @@ const meta = {
         labels: { undefined: 'medium' },
         type: 'radio',
       },
-      options: ['none', 'x-small', 'small', undefined, 'large', 'x-large'],
+      options: [undefined, ...columnGaps],
     },
   },
 } satisfies Meta<typeof Column>
