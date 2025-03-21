@@ -1,8 +1,8 @@
 {
   "ams": {
     "page-menu": {
-      "column-gap": { "value": "{ams.space.grid.md}" },
-      "row-gap": { "value": "{ams.space.grid.xs}" },
+      "column-gap": { "value": "{ams.space.xl}" },
+      "row-gap": { "value": "{ams.space.md}" },
       "item": {
         "color": { "value": "{ams.links.color}" },
         "font-family": { "value": "{ams.typography.font-family}" },
