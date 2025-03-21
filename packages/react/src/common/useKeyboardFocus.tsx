@@ -72,7 +72,7 @@ export const useKeyboardFocus = (ref: RefObject<HTMLElement>, options: Options) 
         break
     }
 
-    if (targetElement instanceof HTMLElement && activeElement && focusableEls.includes(activeElement)) {
+    if (targetElement instanceof HTMLElement) {
       targetElement.focus()
       e.preventDefault()
     }

@@ -40,12 +40,8 @@ describe('use focus with arrows', () => {
     const { container } = render(<Component />)
 
     const firstChild = container.firstChild as HTMLElement
-    const buttons = container.querySelectorAll('button')
 
     expect(onFocusOneMock).not.toHaveBeenCalled()
-
-    // Manually set focus to the first button
-    buttons[0].focus()
 
     // 4 times, so we can check if there are no other elements focused after reaching the last one
     Array.from(Array(4).keys()).forEach(() => {
