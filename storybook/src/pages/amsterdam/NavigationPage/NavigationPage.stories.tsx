@@ -115,7 +115,7 @@ export const WithMap: StoryObj = {
         </Spotlight>
         <Image
           alt=""
-          aspectRatio="x-wide"
+          aspectRatio="16:9"
           className="ams-mb--xl"
           key={1}
           src="http://www.parkerenindestad.nl/images/amsterdam/parkeren-in-amsterdam.jpg"
