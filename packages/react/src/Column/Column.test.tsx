@@ -1,7 +1,7 @@
 import { render, screen } from '@testing-library/react'
 import { createRef } from 'react'
 import { Column, columnGaps } from './Column'
-import { sizes } from '../common/size'
+import { sizes } from '../common/sizes'
 import { crossAlignOptionsForColumn, mainAlignOptions } from '../common/types'
 import '@testing-library/jest-dom'
 
