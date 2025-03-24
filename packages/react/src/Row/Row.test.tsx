@@ -1,7 +1,7 @@
 import { render, screen } from '@testing-library/react'
 import { createRef } from 'react'
 import { Row, rowGaps } from './Row'
-import { sizes } from '../common/sizes'
+import { abbreviateSize } from '../common/abbreviateSize'
 import { crossAlignOptions, mainAlignOptions } from '../common/types'
 import '@testing-library/jest-dom'
 
@@ -29,7 +29,7 @@ describe('Row', () => {
 
       const component = container.querySelector(':only-child')
 
-      expect(component).toHaveClass(`ams-gap-${sizes[gap]}`)
+      expect(component).toHaveClass(`ams-gap-${abbreviateSize(gap)}`)
     }),
   )
 

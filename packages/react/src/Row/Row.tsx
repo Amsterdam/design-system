@@ -6,7 +6,7 @@
 import clsx from 'clsx'
 import { forwardRef } from 'react'
 import type { HTMLAttributes, PropsWithChildren } from 'react'
-import { sizes } from '../common/sizes'
+import { abbreviateSize } from '../common/abbreviateSize'
 import type { CrossAlign, MainAlign } from '../common/types'
 
 export const rowGaps = ['none', 'x-small', 'small', 'large', 'x-large'] as const
@@ -50,7 +50,7 @@ export const Row = forwardRef(
         'ams-row',
         align && `ams-row--align-${align}`,
         alignVertical && `ams-row--align-vertical-${alignVertical}`,
-        gap && `ams-gap-${sizes[gap]}`,
+        gap && `ams-gap-${abbreviateSize(gap)}`,
         wrap && 'ams-row--wrap',
         className,
       )}
