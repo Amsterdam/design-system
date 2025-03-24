@@ -3,7 +3,7 @@
     "search-field": {
       "input": {
         "background-color": { "value": "{ams.color.background}" },
-        "box-shadow": { "value": "inset 0 0 0 {ams.border.width.sm} {ams.color.interactive.secondary}" },
+        "box-shadow": { "value": "inset 0 0 0 {ams.border.width.s} {ams.color.interactive.secondary}" },
         "color": { "value": "{ams.color.text.default}" },
         "font-family": { "value": "{ams.typography.font-family}" },
         "font-size": { "value": "{ams.typography.body-text.font-size}" },
@@ -22,12 +22,12 @@
           "inline-size": { "value": "{ams.typography.body-text.font-size}" }
         },
         "hover": {
-          "box-shadow": { "value": "inset 0 0 0 {ams.border.width.md} {ams.color.interactive.secondary}" }
+          "box-shadow": { "value": "inset 0 0 0 {ams.border.width.m} {ams.color.interactive.secondary}" }
         },
         "invalid": {
-          "box-shadow": { "value": "inset 0 0 0 {ams.border.width.sm} {ams.color.interactive.invalid.default}" },
+          "box-shadow": { "value": "inset 0 0 0 {ams.border.width.s} {ams.color.interactive.invalid.default}" },
           "hover": {
-            "box-shadow": { "value": "inset 0 0 0 {ams.border.width.md} {ams.color.interactive.invalid.hover}" }
+            "box-shadow": { "value": "inset 0 0 0 {ams.border.width.m} {ams.color.interactive.invalid.hover}" }
           }
         },
         "placeholder": {
