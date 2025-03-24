@@ -1,5 +1,0 @@
-import{j as t}from"./jsx-runtime-Cf8x2fCZ.js";import{useMDXComponents as m}from"./index-1Ha5aU2j.js";import{M as n}from"./index-I3Oc7E_W.js";import{A as e}from"./ArticlePage.stories-BmFW1wSb.js";import"./index-yBjzXJbu.js";import"./index-C0MU9AHG.js";import"./_commonjsHelpers-CqkleIqs.js";import"./iframe-CkUMEkq-.js";import"./index-IE9ObSwG.js";import"./index-Cu4lwwaE.js";import"./index-CXQShRbs.js";import"./index-DrFu-skq.js";import"./index.esm-awCkh1IU.js";import"./clsx-B-dksMZM.js";import"./index.esm-DWIYEqKT.js";import"./Image.stories-1nLEKApt.js";import"./Image-n37fLCx2.js";import"./config-IrDrhhbN.js";import"./Footer.stories-9HdUw_6K.js";import"./PageMenu.stories-sWe2VPv3.js";import"./Icon-plsGHcLz.js";/*@license CC0-1.0*/function i(o){const r={h1:"h1",p:"p",...m(),...o.components};return t.jsxs(t.Fragment,{children:[`
-`,`
-`,t.jsx(n,{of:e}),`
-`,t.jsx(r.h1,{id:"article-page",children:"Article page"}),`
-`,t.jsx(r.p,{children:"This page type is for news or similar kinds of articles."})]})}function E(o={}){const{wrapper:r}={...m(),...o.components};return r?t.jsx(r,{...o,children:t.jsx(i,{...o})}):i(o)}export{E as default};
