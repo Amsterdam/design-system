@@ -12,10 +12,10 @@ Use an icon to support textual interactive elements like buttons and links.
 Always try to provide accompanying text for an icon.
 Only use icons without accompanying text if they adhere to international standards, such as menu (hamburger icon), search (magnifying glass), next, previous, play, pause, etc.
 
-## Color
+## Colour
 
 Icons are black or white.
-When used as part of an interactive element, they are dark blue.
+When used as part of an interactive element, they are blue.
 When disabled, they are grey.
 They must adhere to the same contrast ratio for accessibility as typography against a background colour.
 The icon defaults to the colour of the container it is in.
@@ -26,9 +26,9 @@ Icons are aligned to the left of the text by default and vertically centred to t
 
 ## Size
 
-Icons use the same text levels as all typographic components to determine their size.
-This ensures easy alignment between icons and text.
-[Refer to the typography documentation for more information](/docs/brand-design-tokens-text--docs).
+Icons have extra whitespace at their top and bottom to match the line height of text components.
+Specify the appropriate size to pair an icon with small or large body text or with a heading.
+[Read more in the typography documentation](/docs/brand-design-tokens-typography--docs).
 
 ## Overview
 

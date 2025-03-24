@@ -4,12 +4,21 @@
  */
 
 .ams-icon {
-  align-items: center;
-  display: inline-flex;
-}
+  --ams-line-height: var(--ams-icon-line-height);
 
-.ams-icon svg {
-  fill: currentColor;
+  align-self: baseline; // Aligns the icon with text in flex or grid context
+  display: inline-flex; // Stretches the svg in order to align the icon vertically
+  font-size: var(--ams-icon-font-size);
+  line-height: var(--ams-line-height);
+
+  &::after {
+    content: "\00200B"; // This zero width space enables baseline alignment.
+  }
+
+  svg {
+    fill: currentColor;
+    inline-size: 1em;
+  }
 }
 
 .ams-icon--inverse {
@@ -17,42 +26,46 @@
 }
 
 .ams-icon--square {
-  aspect-ratio: 1 / 1;
+  inline-size: calc(1em * var(--ams-line-height));
   justify-content: center;
 }
 
-.ams-icon--size-3 {
-  block-size: calc(var(--ams-icon-size-3-font-size) * var(--ams-icon-size-3-line-height));
+.ams-icon--small {
+  --ams-line-height: var(--ams-icon-small-line-height);
+
+  font-size: var(--ams-icon-small-font-size);
 }
 
-.ams-icon--size-3 svg {
-  block-size: var(--ams-icon-size-3-font-size);
-  inline-size: var(--ams-icon-size-3-font-size);
+.ams-icon--large {
+  --ams-line-height: var(--ams-icon-large-line-height);
+
+  font-size: var(--ams-icon-large-font-size);
 }
 
-.ams-icon--size-4 {
-  block-size: calc(var(--ams-icon-size-4-font-size) * var(--ams-icon-size-4-line-height));
+.ams-icon--heading-3 {
+  --ams-line-height: var(--ams-icon-heading-3-line-height);
+
+  font-size: var(--ams-icon-heading-3-font-size);
+  line-height: var(--ams-icon-heading-3-line-height);
 }
 
-.ams-icon--size-4 svg {
-  block-size: var(--ams-icon-size-4-font-size);
-  inline-size: var(--ams-icon-size-4-font-size);
+.ams-icon--heading-4 {
+  --ams-line-height: var(--ams-icon-heading-4-line-height);
+
+  font-size: var(--ams-icon-heading-4-font-size);
+  line-height: var(--ams-icon-heading-4-line-height);
 }
 
-.ams-icon--size-5 {
-  block-size: calc(var(--ams-icon-size-5-font-size) * var(--ams-icon-size-5-line-height));
+.ams-icon--heading-5 {
+  --ams-line-height: var(--ams-icon-heading-5-line-height);
+
+  font-size: var(--ams-icon-heading-5-font-size);
+  line-height: var(--ams-icon-heading-5-line-height);
 }
 
-.ams-icon--size-5 svg {
-  block-size: var(--ams-icon-size-5-font-size);
-  inline-size: var(--ams-icon-size-5-font-size);
-}
+.ams-icon--heading-6 {
+  --ams-line-height: var(--ams-icon-heading-6-line-height);
 
-.ams-icon--size-6 {
-  block-size: calc(var(--ams-icon-size-6-font-size) * var(--ams-icon-size-6-line-height));
-}
-
-.ams-icon--size-6 svg {
-  block-size: var(--ams-icon-size-6-font-size);
-  inline-size: var(--ams-icon-size-6-font-size);
+  font-size: var(--ams-icon-heading-6-font-size);
+  line-height: var(--ams-icon-heading-6-line-height);
 }

@@ -10,5 +10,5 @@ export type GapProps = {
   size: 'xs' | 'sm' | 'md' | 'lg' | 'xl'
 } & PropsWithChildren<HTMLAttributes<HTMLSpanElement>>
 
-/** Renders examples in Storybook. Not for reuse. */
-export const Gap = ({ children, size }: GapProps) => <span className={`ams-gap--${size}`}>{children}</span>
+/** Mock component to render examples in Storybook. Not for reuse. */
+export const Gap = (props: GapProps) => <span {...props} />

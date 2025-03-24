@@ -41,43 +41,17 @@ Not many options exist for background colour or borders.
 Typography and white space remain as tools to keep screens readable.
 For websites, the grid is quite spacious.
 
-The gap between columns is 16 pixels wide at a window width of 320 pixels or less.
-For every additional 256 pixels of width, it grows linearly by 8 pixels.
-(This amounts to 3 and 3/8 per cent of the screen width plus 6 pixels.)
-At a window width of 1600 pixels, it is 56 pixels.
-After that, the gap does not grow further.
-
-In wide windows, the gaps become almost as wide as the columns.
-This may seem unnatural, but it is not a problem.
-Elements often occupy multiple columns of the grid, including the gaps in between.
+The gap between columns uses our `xl` space token, which grows from 36 to 56 pixels in windows between 320 and 1600 pixels wide.
 
 #### Compact
 
 For applications, so much white space is unnecessary, even counterproductive.
-Therefore, there is also a compact theme for the grid.
-
-The minimum gap between columns is also 16 pixels here.
-But it only starts growing from a window width of 1088 pixels.
-The increase is also slower: 4 pixels per 256 pixels of additional width.
-(This amounts to 1 and 9/16 per cent of the screen width minus 1 pixel.)
-The maximum here is 40 pixels, only reached at a window width of 2624 pixels.
+Therefore, the grid adapts to Compact Mode, in which the `xl` space token grows from 16 to 24 pixels.
 
 ### Margins left and right
 
-On both sides, the grid reserves margins of white space.
-
-#### Spacious
-
-The margin is 1½ times as wide as the gap between columns.
-This provides enough space between the grid and the edges of the screen or window.
-
-Some elements, such as full-screen images and the page’s footer, can be positioned over these margins.
-These are, therefore, slightly wider than the rest of the content.
-
-#### Compact
-
-In the compact theme, the margins outside the grid are as wide as the gaps inside of it.
-No elements are placed over these margins.
+On both sides, the grid reserves white space at the edges of the screen or window.
+This uses the `lg` space token on the narrow grid, `xl` on medium, and `2xl` on the wide grid.
 
 ### Menu bar
 
@@ -115,17 +89,17 @@ Again, between these widths, the widths grow continuously.
 
 | Breakpoint | From window width | Number of columns | Column width | Gap width | Margin width | Grid width |
 | :--------- | ----------------: | ----------------: | -----------: | --------: | -----------: | ---------: |
-| narrow     |               320 |                 4 |           56 |        16 |           24 |        272 |
-| medium     |               576 |                 8 |           42 |        24 |           36 |        504 |
-| wide       |              1088 |                12 |           44 |        40 |           60 |        968 |
+| narrow     |               320 |                 4 |         39.5 |        36 |           27 |        266 |
+| medium     |               576 |                 8 |           27 |        40 |           40 |        496 |
+| wide       |              1088 |                12 |         35.3 |        48 |         68.4 |      951.2 |
 
 #### Compact
 
 | Breakpoint | From window width | Number of columns | Menu bar width | Column width | Gap width | Margin width | Grid width |
 | :--------- | ----------------: | ----------------: | -------------: | -----------: | --------: | -----------: | ---------: |
-| narrow     |               320 |                 4 |              0 |           60 |        16 |           16 |        288 |
-| medium     |               576 |                 8 |              0 |           54 |        16 |           16 |        544 |
-| wide       |              1088 |                12 |            112 |           64 |        16 |           16 |        944 |
+| narrow     |               320 |                 4 |              0 |           57 |        20 |           16 |        288 |
+| medium     |               576 |                 8 |              0 |         45.9 |      23.2 |         23.2 |      529.6 |
+| wide       |              1088 |                12 |            112 |         47.8 |      29.6 |         38.4 |      899.2 |
 
 ### Not tied to devices
 
@@ -162,17 +136,17 @@ In these 3 situations, the dimensions are as follows.
 
 | Device Class | Reference Width | Number of columns | Column width | Gap width | Margin width | Grid width |
 | :----------- | --------------: | ----------------: | -----------: | --------: | -----------: | ---------: |
-| phone        |             320 |                 4 |           56 |        16 |           24 |        272 |
-| tablet       |             832 |                 8 |           64 |        32 |           48 |        736 |
+| phone        |             320 |                 4 |         39.5 |        36 |           27 |        266 |
+| tablet       |             832 |                 8 |         54.5 |        44 |           44 |        744 |
 | desktop      |            1600 |                12 |           68 |        56 |           84 |       1432 |
 
 #### Compact
 
 | Device Class | Reference Width | Number of columns | Menu bar width | Column width | Gap width | Margin width | Grid width |
 | :----------- | --------------: | ----------------: | -------------: | -----------: | --------: | -----------: | ---------: |
-| phone        |             320 |                 4 |              0 |           60 |        16 |           16 |        288 |
-| tablet       |             832 |                 8 |              0 |           86 |        16 |           16 |        800 |
-| desktop      |            1600 |                12 |            112 |           98 |        24 |           24 |       1440 |
+| phone        |             320 |                 4 |              0 |           57 |        20 |           16 |        288 |
+| tablet       |             832 |                 8 |              0 |         74.3 |      26.4 |         26.4 |      779.2 |
+| desktop      |            1600 |                12 |            112 |           98 |        36 |           48 |       1392 |
 
 ### Windows or screens
 
@@ -192,7 +166,7 @@ Layout and text relate in various ways.
 
 ### Scaling typography
 
-Like the grid, the [text sizes](/docs/brand-design-tokens-text--docs) respond to the window width.
+Like the grid, the [text sizes](/docs/brand-design-tokens-typography--docs) respond to the window width.
 This ensures that content looks good on as many window widths and with various personal settings.
 
 ### Zooming or enlarged text

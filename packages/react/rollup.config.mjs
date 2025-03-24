@@ -8,7 +8,6 @@ import nodePolyfills from 'rollup-plugin-node-polyfills'
 import peerDepsExternal from 'rollup-plugin-peer-deps-external'
 import typescript from 'rollup-plugin-typescript2'
 import dts from 'rollup-plugin-dts'
-import del from 'rollup-plugin-delete'
 
 const packageJson = JSON.parse(readFileSync('./package.json', 'utf8'))
 
@@ -61,14 +60,8 @@ export default [
     ],
   },
   {
-    input: './dist/dts/index.d.ts',
+    input: './dist/index.d.ts',
     output: [{ file: 'dist/index.d.ts', format: 'es' }],
-    plugins: [
-      dts(),
-      del({
-        targets: 'dist/dts',
-        hook: 'buildEnd',
-      }),
-    ],
+    plugins: [dts()],
   },
 ]

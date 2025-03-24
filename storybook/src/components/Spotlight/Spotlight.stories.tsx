@@ -5,6 +5,7 @@
 
 import { Blockquote, Grid } from '@amsterdam/design-system-react'
 import { Spotlight } from '@amsterdam/design-system-react/src'
+import { spotlightColors } from '@amsterdam/design-system-react/src/Spotlight/Spotlight'
 import { Meta, StoryObj } from '@storybook/react'
 import { exampleQuote } from '../shared/exampleContent'
 
@@ -13,11 +14,19 @@ const quote = exampleQuote()
 const meta = {
   title: 'Components/Containers/Spotlight',
   component: Spotlight,
+  argTypes: {
+    color: {
+      control: {
+        labels: { undefined: 'purple (default)' },
+      },
+      options: [undefined, ...spotlightColors],
+    },
+  },
   render: ({ as, color }) => (
     <Spotlight as={as} color={color}>
       <Grid paddingVertical="medium">
         <Grid.Cell span="all">
-          <Blockquote color={!color || !['green', 'yellow'].includes(color) ? 'inverse' : undefined}>
+          <Blockquote color={!color || ['green', 'magenta'].includes(color) ? 'inverse' : undefined}>
             {quote}
           </Blockquote>
         </Grid.Cell>
@@ -32,21 +41,21 @@ type Story = StoryObj<typeof meta>
 
 export const Default: Story = {}
 
-export const Blue: Story = {
+export const Azure: Story = {
   args: {
-    color: 'blue',
-  },
-}
-
-export const DarkGreen: Story = {
-  args: {
-    color: 'dark-green',
+    color: 'azure',
   },
 }
 
 export const Green: Story = {
   args: {
     color: 'green',
+  },
+}
+
+export const Lime: Story = {
+  args: {
+    color: 'lime',
   },
 }
 

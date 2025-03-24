@@ -3,6 +3,7 @@
  * Copyright Gemeente Amsterdam
  */
 
+@use "../../common/hyphenation" as *;
 @use "../../common/text-rendering" as *;
 
 @mixin reset-button {
@@ -18,6 +19,7 @@
   display: inline-flex;
   font-family: var(--ams-button-font-family);
   font-size: var(--ams-button-font-size);
+  font-weight: var(--ams-button-font-weight);
   gap: var(--ams-button-gap);
   justify-content: center;
   line-height: var(--ams-button-line-height);
@@ -26,6 +28,7 @@
   padding-inline: var(--ams-button-padding-inline);
   touch-action: manipulation;
 
+  @include hyphenation;
   @include text-rendering;
   @include reset-button;
 

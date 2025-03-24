@@ -32,35 +32,38 @@ Then, you can use it in the component like this:
 
 ## Examples
 
-### With text
+### With body text
 
-Icons can be used alongside text.
-Using the same text levels for both the icon and text aligns them perfectly.
-[Consult the documentation on typography for more information](/docs/brand-design-tokens-text--docs).
+An icon is as large as regular body text, e.g. paragraphs and lists, including its line height.
 
-<Canvas of={IconStories.WithText} />
+<Canvas of={IconStories.WithBodyText} />
+
+Use the `size` prop to pair an icon with small or large body text.
+
+<Canvas of={IconStories.WithSmallBodyText} />
+
+<Canvas of={IconStories.WithLargeBodyText} />
+
+### With a heading
+
+Use a `size` of `heading-3` – `heading-6` to pair an icon with a [Heading](/docs/components-text-heading--docs).
+
+<Canvas of={IconStories.WithHeading3} />
+
+<Canvas of={IconStories.WithHeading4} />
+
+<Canvas of={IconStories.WithHeading5} />
+
+<Canvas of={IconStories.WithHeading6} />
 
 ### Square
 
-Sometimes it’s useful for the icon to take up square space, for example, with the [Icon Button](/docs/components-buttons-icon-button--docs).
+An icon is placed inside a container that has the same line height as text.
+This helps align the icon with the text.
+It also makes the container rectangular.
+Sometimes, it's better for the icon to be square, such as with the [Icon Button](/docs/components-buttons-icon-button--docs).
 
 <Canvas of={IconStories.Square} />
-
-### Level 3
-
-<Canvas of={IconStories.Level3} />
-
-### Level 4
-
-<Canvas of={IconStories.Level4} />
-
-### Level 5
-
-<Canvas of={IconStories.Level5} />
-
-### Level 6
-
-<Canvas of={IconStories.Level6} />
 
 ### Inverse colour
 

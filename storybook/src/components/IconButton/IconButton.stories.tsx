@@ -4,6 +4,7 @@
  */
 
 import { IconButton } from '@amsterdam/design-system-react/src'
+import { iconSizes } from '@amsterdam/design-system-react/src/Icon/Icon'
 import * as Icons from '@amsterdam/design-system-react-icons'
 import { Meta, StoryObj } from '@storybook/react'
 
@@ -28,10 +29,10 @@ const meta = {
     },
     size: {
       control: {
-        labels: { undefined: 'level-5' },
-        type: 'radio',
+        labels: { undefined: 'default' },
+        type: 'select',
       },
-      options: ['level-3', 'level-4', undefined, 'level-6'],
+      options: [undefined, ...iconSizes],
     },
     svg: {
       control: {
@@ -48,30 +49,6 @@ export default meta
 type Story = StoryObj<typeof meta>
 
 export const Default: Story = {}
-
-export const Level3: Story = {
-  args: {
-    size: 'level-3',
-  },
-}
-
-export const Level4: Story = {
-  args: {
-    size: 'level-4',
-  },
-}
-
-export const Level5: Story = {
-  args: {
-    size: 'level-5',
-  },
-}
-
-export const Level6: Story = {
-  args: {
-    size: 'level-6',
-  },
-}
 
 export const ContrastColour: Story = {
   args: {

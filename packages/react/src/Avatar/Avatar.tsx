@@ -9,7 +9,7 @@ import { forwardRef } from 'react'
 import type { ForwardedRef, HTMLAttributes } from 'react'
 import { Icon } from '../Icon'
 
-export const avatarColors = ['dark-green', 'green', 'light-blue', 'magenta', 'orange', 'yellow'] as const
+export const avatarColors = ['azure', 'green', 'lime', 'magenta', 'orange', 'yellow'] as const
 
 type AvatarColor = (typeof avatarColors)[number]
 
@@ -27,7 +27,7 @@ const AvatarContent = ({ imageSrc, initials }: AvatarContentProps) => {
     return <span aria-hidden={true}>{initials}</span>
   }
 
-  return <Icon size="level-6" svg={PersonalLoginIcon} />
+  return <Icon size="small" svg={PersonalLoginIcon} />
 }
 
 export type AvatarProps = {

@@ -1,6 +1,7 @@
 import { render } from '@testing-library/react'
 import { createRef } from 'react'
 import { Image } from './Image'
+import { generateAspectRatioClass } from './generateAspectRatioClass'
 import { aspectRatioOptions } from '../common/types'
 import '@testing-library/jest-dom'
 
@@ -36,7 +37,8 @@ describe('Image', () => {
 
       const component = container.querySelector(':only-child')
 
-      expect(component).toHaveClass(`ams-aspect-ratio--${aspectRatio}`)
+      const aspectRatioClass = generateAspectRatioClass(aspectRatio) || ''
+      expect(component).toHaveClass(aspectRatioClass)
     })
   })
 

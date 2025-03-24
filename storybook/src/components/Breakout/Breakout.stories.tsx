@@ -27,7 +27,7 @@ export const Default: Story = {
   args: {
     children: [
       <Breakout.Cell colSpan="all" has="spotlight" key={1} rowSpan={{ narrow: 2, medium: 2, wide: 1 }} rowStart={2}>
-        <Spotlight color="dark-green" />
+        <Spotlight color="green" />
       </Breakout.Cell>,
       <Breakout.Cell
         colSpan={{ narrow: 4, medium: 8, wide: 6 }}
@@ -47,7 +47,7 @@ export const Default: Story = {
         rowSpan={2}
         rowStart={1}
       >
-        <Image alt="" aspectRatio="square" src="https://picsum.photos/960/960" />
+        <Image alt="" aspectRatio="1:1" src="https://picsum.photos/960/960" />
       </Breakout.Cell>,
     ],
   },
@@ -68,7 +68,7 @@ export const VerticalLayout: Story = {
         key={3}
         rowStart={3}
       >
-        <Paragraph className="ams-mb--sm" color="inverse">
+        <Paragraph className="ams-mb-sm" color="inverse">
           Vertel ons in het evenementenformulier wat u wilt gaan doen. U checkt daarmee of u een vergunning nodig hebt.
         </Paragraph>
         <Paragraph color="inverse">

@@ -24,13 +24,12 @@ const SlowPanel = ({ children }: PropsWithChildren) => {
 
 type TabContent = {
   body: ReactNode
-  id: number
   label: string
 }
 
 const tabsContent: Array<TabContent> = [
-  { body: exampleParagraph(), id: 0, label: 'Gegevens' },
-  { body: exampleParagraph(), id: 1, label: 'Aanslagen' },
+  { body: exampleParagraph(), label: 'Gegevens' },
+  { body: exampleParagraph(), label: 'Aanslagen' },
   {
     body: (
       <>
@@ -38,23 +37,22 @@ const tabsContent: Array<TabContent> = [
         <SlowPanel />
       </>
     ),
-    id: 2,
     label: 'Documenten',
   },
-  { body: exampleParagraph(), id: 3, label: 'Acties' },
+  { body: exampleParagraph(), label: 'Acties' },
 ]
 
 const defaultTabs = [
   <Tabs.List key="tabsList">
-    {tabsContent.map(({ id, label }) => (
-      <Tabs.Button key={label} tab={id}>
+    {tabsContent.map(({ label }) => (
+      <Tabs.Button key={label} tab={label}>
         {label}
       </Tabs.Button>
     ))}
   </Tabs.List>,
-  tabsContent.map(({ body, id, label }) => (
-    <Tabs.Panel key={label} tab={id}>
-      <Heading className="ams-mb--xs" level={3}>
+  tabsContent.map(({ body, label }) => (
+    <Tabs.Panel key={label} tab={label}>
+      <Heading className="ams-mb-xs" level={3}>
         {label}
       </Heading>
       <Paragraph>{body}</Paragraph>
@@ -69,14 +67,7 @@ const meta = {
     children: defaultTabs,
   },
   argTypes: {
-    activeTab: {
-      control: {
-        max: tabsContent.length - 1,
-        min: 0,
-        type: 'number',
-      },
-    },
-    onChange: {
+    onTabChange: {
       action: 'clicked',
       description: 'Provides the id of the activated tab.',
     },
@@ -91,7 +82,7 @@ export const Default: Story = {}
 
 export const WithInitialTab: Story = {
   args: {
-    activeTab: 3,
+    activeTab: 'Acties',
   },
 }
 
@@ -99,14 +90,14 @@ export const WithWideContent: Story = {
   args: {
     children: [
       <Tabs.List key="tabsList">
-        {cityParts.map((name, index) => (
-          <Tabs.Button key={name} tab={index}>
+        {cityParts.map((name) => (
+          <Tabs.Button key={name} tab={name}>
             {name}
           </Tabs.Button>
         ))}
       </Tabs.List>,
-      cityParts.map((name, index) => (
-        <Tabs.Panel key={name} tab={index}>
+      cityParts.map((name) => (
+        <Tabs.Panel key={name} tab={name}>
           <Table>
             <Table.Caption>
               Voorbeeld van een tabel voor {name === 'Weesp' ? 'stadsgebied' : 'stadsdeel'} {name}

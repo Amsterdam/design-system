@@ -4,6 +4,7 @@
  */
 
 @use "../../common/breakpoint" as *;
+@use "../../common/hyphenation" as *;
 @use "../../common/text-rendering" as *;
 
 @mixin reset-dl {
@@ -25,6 +26,7 @@
   row-gap: var(--ams-description-list-row-gap);
 
   @include reset-dl;
+  @include hyphenation;
   @include text-rendering;
 }
 
@@ -50,7 +52,7 @@
   }
 }
 
-.ams-description-list--inverse-color {
+.ams-description-list--inverse {
   color: var(--ams-description-list-inverse-color);
 }
 

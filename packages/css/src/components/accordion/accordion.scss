@@ -3,6 +3,7 @@
  * Copyright Gemeente Amsterdam
  */
 
+@use "../../common/hyphenation" as *;
 @use "../../common/text-rendering" as *;
 
 .ams-accordion {
@@ -10,6 +11,7 @@
   flex-direction: column;
   gap: var(--ams-accordion-gap);
 
+  @include hyphenation;
   @include text-rendering;
 }
 
@@ -38,15 +40,12 @@
   gap: var(--ams-accordion-button-gap);
   inline-size: 100%;
   line-height: var(--ams-accordion-button-line-height);
+  outline-offset: var(--ams-accordion-button-outline-offset);
   padding-block: var(--ams-accordion-button-padding-block);
   padding-inline: var(--ams-accordion-button-padding-inline);
   text-align: start;
 
   @include reset-button;
-
-  &:focus {
-    outline-offset: var(--ams-accordion-button-focus-outline-offset);
-  }
 
   &:hover {
     color: var(--ams-accordion-button-hover-color);

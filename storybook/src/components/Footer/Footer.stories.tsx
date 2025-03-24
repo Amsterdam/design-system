@@ -3,7 +3,7 @@
  * Copyright Gemeente Amsterdam
  */
 
-import { Grid, Heading, LinkList, PageMenu, Paragraph } from '@amsterdam/design-system-react'
+import { Grid, Heading, LinkList, Paragraph } from '@amsterdam/design-system-react'
 import { Footer } from '@amsterdam/design-system-react/src'
 import {
   CameraIcon,
@@ -15,7 +15,6 @@ import {
   TwitterIcon,
 } from '@amsterdam/design-system-react-icons'
 import { Meta, StoryObj } from '@storybook/react'
-import { Default as PageMenuStory } from '../../components/PageMenu/PageMenu.stories'
 
 const meta = {
   title: 'Components/Containers/Footer',
@@ -36,13 +35,10 @@ const socialPlatforms = [
 export const Default: Story = {
   args: {
     children: [
-      <Footer.Top key="footer-top">
-        <Heading className="ams-visually-hidden" color="inverse" level={1}>
-          Colofon
-        </Heading>
-        <Grid gapVertical="large" paddingVertical="medium">
+      <Footer.Spotlight key="footer-spotlight">
+        <Grid paddingVertical="medium">
           <Grid.Cell span={4}>
-            <Heading className="ams-mb--xs" color="inverse" level={2} size="level-4">
+            <Heading className="ams-mb-sm" color="inverse" level={2} size="level-4">
               Meer weten
             </Heading>
             <LinkList>
@@ -56,10 +52,10 @@ export const Default: Story = {
             </LinkList>
           </Grid.Cell>
           <Grid.Cell span={4} start={{ narrow: 1, medium: 5, wide: 5 }}>
-            <Heading className="ams-mb--xs" color="inverse" level={2} size="level-4">
+            <Heading className="ams-mb-sm" color="inverse" level={2} size="level-4">
               Contact
             </Heading>
-            <Paragraph className="ams-mb--xs" color="inverse" size="small">
+            <Paragraph className="ams-mb-md" color="inverse" size="small">
               Hebt u een vraag en kunt u het antwoord niet vinden op deze website? Neem dan contact met ons op.
             </Paragraph>
             <LinkList>
@@ -75,8 +71,8 @@ export const Default: Story = {
             </LinkList>
           </Grid.Cell>
           <Grid.Cell span={4} start={{ narrow: 1, medium: 1, wide: 9 }}>
-            <section className="ams-mb--md">
-              <Heading className="ams-mb--xs" color="inverse" level={2} size="level-4">
+            <div className="ams-mb-xl">
+              <Heading className="ams-mb-sm" color="inverse" level={2} size="level-4">
                 Nieuwsbrief
               </Heading>
               <LinkList>
@@ -84,9 +80,9 @@ export const Default: Story = {
                   Inschrijven
                 </LinkList.Link>
               </LinkList>
-            </section>
-            <section>
-              <Heading className="ams-mb--xs" color="inverse" level={2} size="level-4">
+            </div>
+            <div>
+              <Heading className="ams-mb-sm" color="inverse" level={2} size="level-4">
                 Volg ons
               </Heading>
               <LinkList>
@@ -96,20 +92,18 @@ export const Default: Story = {
                   </LinkList.Link>
                 ))}
               </LinkList>
-            </section>
+            </div>
           </Grid.Cell>
         </Grid>
-      </Footer.Top>,
-      <Footer.Bottom key="footer-bottom">
-        <Heading className="ams-visually-hidden" level={2}>
-          Over deze website
-        </Heading>
-        <Grid paddingVertical="small">
-          <Grid.Cell span="all">
-            <PageMenu>{PageMenuStory.args?.children}</PageMenu>
-          </Grid.Cell>
-        </Grid>
-      </Footer.Bottom>,
+      </Footer.Spotlight>,
+      <Heading className="ams-visually-hidden" key="footer-heading" level={2}>
+        Over deze website
+      </Heading>,
+      <Footer.Menu key="footer-menu">
+        <Footer.MenuLink href="#">Over deze site</Footer.MenuLink>
+        <Footer.MenuLink href="#">Privacy</Footer.MenuLink>
+        <Footer.MenuLink href="#">Cookies</Footer.MenuLink>
+      </Footer.Menu>,
     ],
   },
 }
@@ -117,16 +111,13 @@ export const Default: Story = {
 export const OnderzoekEnStatistiek: Story = {
   args: {
     children: [
-      <Footer.Top key="footer-top">
-        <Heading className="ams-visually-hidden" color="inverse" level={1}>
-          Colofon
-        </Heading>
-        <Grid gapVertical="large" paddingVertical="medium">
+      <Footer.Spotlight key="footer-spotlight">
+        <Grid paddingVertical="medium">
           <Grid.Cell span={3}>
-            <Heading className="ams-mb--xs" color="inverse" level={2} size="level-4">
+            <Heading className="ams-mb-sm" color="inverse" level={2} size="level-4">
               Contact
             </Heading>
-            <Paragraph className="ams-mb--xs" color="inverse" size="small">
+            <Paragraph className="ams-mb-md" color="inverse" size="small">
               Heeft u een vraag en kunt u het antwoord niet vinden op deze site? Neem dan contact met ons op.
             </Paragraph>
             <LinkList>
@@ -139,10 +130,10 @@ export const OnderzoekEnStatistiek: Story = {
             </LinkList>
           </Grid.Cell>
           <Grid.Cell span={3} start={{ narrow: 1, medium: 5, wide: 5 }}>
-            <Heading className="ams-mb--xs" color="inverse" level={2} size="level-4">
+            <Heading className="ams-mb-sm" color="inverse" level={2} size="level-4">
               Panels en enquêtes
             </Heading>
-            <Paragraph className="ams-mb--xs" color="inverse" size="small">
+            <Paragraph className="ams-mb-md" color="inverse" size="small">
               Bent u uitgenodigd om mee te doen aan onderzoek of heeft u vragen over het panel of stadspaspanel?
             </Paragraph>
             <LinkList>
@@ -158,7 +149,7 @@ export const OnderzoekEnStatistiek: Story = {
             </LinkList>
           </Grid.Cell>
           <Grid.Cell span={3} start={{ narrow: 1, medium: 1, wide: 9 }}>
-            <Heading className="ams-mb--xs" color="inverse" level={2} size="level-4">
+            <Heading className="ams-mb-sm" color="inverse" level={2} size="level-4">
               Onderzoek en Statistiek
             </Heading>
             <LinkList>
@@ -177,17 +168,15 @@ export const OnderzoekEnStatistiek: Story = {
             </LinkList>
           </Grid.Cell>
         </Grid>
-      </Footer.Top>,
-      <Footer.Bottom key="footer-bottom">
-        <Heading className="ams-visually-hidden" level={2}>
-          Over deze website
-        </Heading>
-        <Grid paddingVertical="small">
-          <Grid.Cell span="all">
-            <PageMenu>{PageMenuStory.args?.children}</PageMenu>
-          </Grid.Cell>
-        </Grid>
-      </Footer.Bottom>,
+      </Footer.Spotlight>,
+      <Heading className="ams-visually-hidden" key="footer-heading" level={2}>
+        Over deze website
+      </Heading>,
+      <Footer.Menu key="footer-menu">
+        <Footer.MenuLink href="#">Over deze site</Footer.MenuLink>
+        <Footer.MenuLink href="#">Privacy</Footer.MenuLink>
+        <Footer.MenuLink href="#">Cookies</Footer.MenuLink>
+      </Footer.Menu>,
     ],
   },
 }

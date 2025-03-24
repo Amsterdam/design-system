@@ -27,10 +27,10 @@ export const FormPage = () => {
         <Breadcrumb>
           <Breadcrumb.Link>Home</Breadcrumb.Link>
         </Breadcrumb>
-        <Heading className="ams-mb--md" level={1}>
+        <Heading className="ams-mb-md" level={1}>
           Contact
         </Heading>
-        <form className="ams-gap--md" id="main" onSubmit={(e) => e.preventDefault()}>
+        <form className="ams-gap-md" id="main" onSubmit={(e) => e.preventDefault()}>
           <Field>
             <Label htmlFor="body">Wat wilt u aan de gemeente vragen?</Label>
             <Paragraph id="bodyDescription" size="small">

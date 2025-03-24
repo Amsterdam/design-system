@@ -4,12 +4,7 @@
  */
 
 import { AspectRatioProps } from '@amsterdam/design-system-react/src/common/types'
-import { HTMLAttributes, PropsWithChildren } from 'react'
+import { HTMLAttributes } from 'react'
 
-/** Renders examples in Storybook. Not for reuse. */
-export const AspectRatio = ({
-  aspectRatio,
-  children,
-}: AspectRatioProps & PropsWithChildren<HTMLAttributes<HTMLSpanElement>>) => (
-  <span className={`ams-aspect-ratio--${aspectRatio}`}>{children}</span>
-)
+/** Mock component to render examples in Storybook. Not for reuse. */
+export const AspectRatio = (props: AspectRatioProps & HTMLAttributes<HTMLSpanElement>) => <span {...props} />

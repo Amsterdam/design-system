@@ -6,15 +6,15 @@
 @use "sass:map";
 @use "../../common/size" as *;
 
-[class|="ams-gap-"] {
+[class|="ams-gap"] {
   display: grid !important;
 }
 
 @each $size in map.keys($ams-sizes) {
   @if $size != "no" {
-    .ams-gap--#{$size} {
+    .ams-gap-#{$size} {
       /* stylelint-disable-next-line csstools/value-no-unknown-custom-properties */
-      grid-gap: var(--ams-gap-#{$size}) !important;
+      gap: var(--ams-space-#{$size}) !important;
     }
   }
 }

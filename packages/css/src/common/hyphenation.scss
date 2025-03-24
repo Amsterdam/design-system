@@ -4,7 +4,7 @@
  */
 
 @mixin hyphenation {
-  hyphenate-limit-chars: var(--ams-hyphenation-hyphenate-limit-chars);
-  hyphens: var(--ams-hyphenation-hyphens);
-  overflow-wrap: var(--ams-hyphenation-overflow-wrap);
+  hyphenate-limit-chars: var(--ams-typography-hyphenate-limit-chars);
+  hyphens: auto;
+  overflow-wrap: break-word; // Break overflowing words for browsers that don’t support CSS hyphens.
 }
