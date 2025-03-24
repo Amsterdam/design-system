@@ -35,7 +35,7 @@ const meta = {
     },
     termsWidth: {
       control: {
-        labels: { lg: 'large', md: 'medium', sm: 'small', undefined: 'auto' },
+        labels: { undefined: 'auto' },
         type: 'radio',
       },
       options: [undefined, ...descriptionListTermsWidths],

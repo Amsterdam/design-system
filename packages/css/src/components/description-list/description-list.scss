@@ -36,8 +36,8 @@
     grid-template-columns: auto 1fr;
   }
 
-  .ams-description-list--terms-width-small,
-  .ams-description-list--terms-width-small .ams-description-list__section {
+  .ams-description-list--terms-width-narrow,
+  .ams-description-list--terms-width-narrow .ams-description-list__section {
     grid-template-columns: 1fr 4fr;
   }
 
@@ -46,8 +46,8 @@
     grid-template-columns: 1fr 2fr;
   }
 
-  .ams-description-list--terms-width-large,
-  .ams-description-list--terms-width-large .ams-description-list__section {
+  .ams-description-list--terms-width-wide,
+  .ams-description-list--terms-width-wide .ams-description-list__section {
     grid-template-columns: 1fr 1fr;
   }
 }

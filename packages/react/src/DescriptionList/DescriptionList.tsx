@@ -10,7 +10,7 @@ import { DescriptionListDescription } from './DescriptionListDescription'
 import { DescriptionListSection } from './DescriptionListSection'
 import { DescriptionListTerm } from './DescriptionListTerm'
 
-export const descriptionListTermsWidths = ['small', 'medium', 'large'] as const
+export const descriptionListTermsWidths = ['narrow', 'medium', 'wide'] as const
 type DescriptionListTermsWidth = (typeof descriptionListTermsWidths)[number]
 
 export type DescriptionListProps = {
