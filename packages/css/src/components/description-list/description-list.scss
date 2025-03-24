@@ -38,17 +38,17 @@
 
   .ams-description-list--narrow,
   .ams-description-list--narrow .ams-description-list__section {
-    grid-template-columns: 1fr 4fr;
+    grid-template-columns: var(--ams-description-list-narrow-grid-template-columns);
   }
 
   .ams-description-list--medium,
   .ams-description-list--medium .ams-description-list__section {
-    grid-template-columns: 1fr 2fr;
+    grid-template-columns: var(--ams-description-list-medium-grid-template-columns);
   }
 
   .ams-description-list--wide,
   .ams-description-list--wide .ams-description-list__section {
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: var(--ams-description-list-wide-grid-template-columns);
   }
 }
 
