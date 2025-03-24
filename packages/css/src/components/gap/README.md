@@ -6,7 +6,7 @@ Adds white space between a set of elements.
 
 ## Class names
 
-All six sizes of [Space](/docs/brand-design-tokens-space--docs) are available for the width or height of the gap.
+These five sizes of [Space](/docs/brand-design-tokens-space--docs) are available for the width or height of the gap.
 
 | Class name   | Example                                                                                     |
 | :----------- | :------------------------------------------------------------------------------------------ |
