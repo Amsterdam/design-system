@@ -6,15 +6,19 @@ Adds white space between a set of elements.
 
 ## Class names
 
-These five sizes of [Space](/docs/brand-design-tokens-space--docs) are available for the width or height of the gap.
+Five options are available for the width or height of the gap:
 
-| Class name   | Example                                                                                     |
-| :----------- | :------------------------------------------------------------------------------------------ |
-| `ams-gap-xs` | <div className="ams-docs-token-example--space" style="inline-size: var(--ams-space-xs);" /> |
-| `ams-gap-s`  | <div className="ams-docs-token-example--space" style="inline-size: var(--ams-space-s);" />  |
-| `ams-gap-m`  | <div className="ams-docs-token-example--space" style="inline-size: var(--ams-space-m);" />  |
-| `ams-gap-l`  | <div className="ams-docs-token-example--space" style="inline-size: var(--ams-space-l);" />  |
-| `ams-gap-xl` | <div className="ams-docs-token-example--space" style="inline-size: var(--ams-space-xl);" /> |
+- `ams-gap-xs`
+- `ams-gap-s`
+- `ams-gap-m`
+- `ams-gap-l`
+- `ams-gap-xl`
+
+Because spacing is responsive, the gaps are as well.
+They are also smaller in Compact Mode.
+Consult the [Space](/docs/brand-design-tokens-space--docs) docs for an indication of their sizes.
+
+The `2xl` space is intended for whitespace around a [Grid](/docs/components-layout-grid--docs) only, which can be produced through a `padding*` of `large`.
 
 ## Guidelines
 

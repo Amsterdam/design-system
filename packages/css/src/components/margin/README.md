@@ -6,16 +6,18 @@ Adds white space below a single element.
 
 ## Class names
 
-All six sizes of [Space](/docs/brand-design-tokens-space--docs) are available for the height of the bottom margin.
+Six options are available for the width or height of the bottom margin:
 
-| Class name   | Example                                                                                      |
-| :----------- | :------------------------------------------------------------------------------------------- |
-| `ams-mb-xs`  | <div className="ams-docs-token-example--space" style="inline-size: var(--ams-space-xs);" />  |
-| `ams-mb-s`   | <div className="ams-docs-token-example--space" style="inline-size: var(--ams-space-s);" />   |
-| `ams-mb-m`   | <div className="ams-docs-token-example--space" style="inline-size: var(--ams-space-m);" />   |
-| `ams-mb-l`   | <div className="ams-docs-token-example--space" style="inline-size: var(--ams-space-l);" />   |
-| `ams-mb-xl`  | <div className="ams-docs-token-example--space" style="inline-size: var(--ams-space-xl);" />  |
-| `ams-mb-2xl` | <div className="ams-docs-token-example--space" style="inline-size: var(--ams-space-2xl);" /> |
+- `ams-mb-xs`
+- `ams-mb-s`
+- `ams-mb-m`
+- `ams-mb-l`
+- `ams-mb-xl`
+- `ams-mb-2xl`
+
+Because spacing is responsive, the margins are as well.
+They are also smaller in Compact Mode.
+Consult the [Space](/docs/brand-design-tokens-space--docs) docs for an indication of their sizes.
 
 ## Guidelines
 
