@@ -1,8 +1,8 @@
 .ams-storybook-icon-gallery {
-  column-gap: var(--ams-space-grid-sm);
+  column-gap: var(--ams-space-sm);
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(10rem, 1fr));
-  row-gap: var(--ams-space-grid-md);
+  row-gap: var(--ams-space-md);
 }
 .ams-storybook-icon-gallery__item {
   align-items: baseline;
@@ -11,8 +11,8 @@
   gap: var(--ams-space-sm);
 
   span {
-    font-family: var(--ams-text-font-family);
-    font-size: var(--ams-text-level-6-font-size);
-    line-height: var(--ams-text-level-6-line-height);
+    font-family: var(--ams-typography-font-family);
+    font-size: var(--ams-typography-body-text-small-font-size);
+    line-height: var(--ams-typography-body-text-small-line-height);
   }
 }
