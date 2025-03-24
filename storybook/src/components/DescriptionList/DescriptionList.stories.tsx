@@ -4,6 +4,7 @@
  */
 
 import { Link, Paragraph, UnorderedList } from '@amsterdam/design-system-react'
+import { descriptionListTermsWidths } from '@amsterdam/design-system-react/dist/DescriptionList/DescriptionList'
 import { DescriptionList } from '@amsterdam/design-system-react/src'
 import { Meta, StoryObj } from '@storybook/react'
 
@@ -37,7 +38,7 @@ const meta = {
         labels: { lg: 'large', md: 'medium', sm: 'small', undefined: 'auto' },
         type: 'radio',
       },
-      options: [undefined, 'sm', 'md', 'lg'],
+      options: [undefined, ...descriptionListTermsWidths],
     },
   },
 } satisfies Meta<typeof DescriptionList>
@@ -76,7 +77,7 @@ export const MultipleTerms: Story = {
       <DescriptionList.Term key={4}>Geboortedatum</DescriptionList.Term>,
       <DescriptionList.Description key={5}>De datum waarop een persoon is geboren</DescriptionList.Description>,
     ],
-    termsWidth: 'md',
+    termsWidth: 'medium',
   },
 }
 
