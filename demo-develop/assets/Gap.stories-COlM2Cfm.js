@@ -1,0 +1,6 @@
+import{j as e}from"./jsx-runtime-Cf8x2fCZ.js";import{P as s}from"./index.esm-CQRAfVlW.js";/**
+ * @license EUPL-1.2+
+ * Copyright Gemeente Amsterdam
+ */const t=r=>e.jsx("span",{...r});try{t.displayName="Gap",t.__docgenInfo={description:"Mock component to render examples in Storybook. Not for reuse.",displayName:"Gap",props:{size:{defaultValue:null,description:"The amount of space between the element’s children.",name:"size",required:!0,type:{name:"enum",value:[{value:'"xs"'},{value:'"sm"'},{value:'"md"'},{value:'"lg"'},{value:'"xl"'}]}}}}}catch{}const l=({size:r})=>e.jsxs("div",{className:`ams-gap-${r}`,children:[e.jsx(s,{children:"These paragraphs are separated by a gap."}),e.jsx(s,{children:"These paragraphs are separated by a gap."}),e.jsx(s,{children:"These paragraphs are separated by a gap."})]}),c={title:"Utilities/CSS/Gap",component:t,args:{size:"xs"}},a={render:l};var o,p,n;a.parameters={...a.parameters,docs:{...(o=a.parameters)==null?void 0:o.docs,source:{originalSource:`{
+  render
+}`,...(n=(p=a.parameters)==null?void 0:p.docs)==null?void 0:n.source}}};const d=["Default"],u=Object.freeze(Object.defineProperty({__proto__:null,Default:a,__namedExportsOrder:d,default:c},Symbol.toStringTag,{value:"Module"}));export{u as G};
