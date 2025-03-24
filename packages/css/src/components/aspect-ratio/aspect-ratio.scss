@@ -4,7 +4,7 @@
  */
 
 .ams-aspect-ratio {
-  // If you modify this array, you also need to update the
+  // If you modify this list, you must also update the
   // aspectRatioOptions in packages/react/src/common/types.ts
   @each $value in ("9-16", "3-4", "1-1", "4-3", "16-9", "16-5") {
     &--#{$value} {

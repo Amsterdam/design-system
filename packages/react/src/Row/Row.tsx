@@ -50,7 +50,8 @@ export const Row = forwardRef(
         'ams-row',
         align && `ams-row--align-${align}`,
         alignVertical && `ams-row--align-vertical-${alignVertical}`,
-        gap && `ams-gap-${abbreviateSize(gap)}`,
+        gap === 'none' && 'ams-row--gap-none',
+        gap && gap !== 'none' && `ams-gap-${abbreviateSize(gap)}`,
         wrap && 'ams-row--wrap',
         className,
       )}

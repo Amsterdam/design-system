@@ -29,7 +29,11 @@ describe('Column', () => {
 
       const component = container.querySelector(':only-child')
 
-      expect(component).toHaveClass(`ams-gap-${abbreviateSize(gap)}`)
+      if (gap === 'none') {
+        expect(component).toHaveClass(`ams-column--gap-none`)
+      } else {
+        expect(component).toHaveClass(`ams-gap-${abbreviateSize(gap)}`)
+      }
     }),
   )
 

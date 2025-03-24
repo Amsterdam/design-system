@@ -3,6 +3,9 @@
  * Copyright Gemeente Amsterdam
  */
 
+// If you modify this list, you must also update the
+// Sass list in packages/css/src/common/size.scss
+/** Abbreviations for the size labels in our React API */
 const sizeAbbreviations = {
   large: 'l',
   medium: 'm',
@@ -14,4 +17,4 @@ const sizeAbbreviations = {
 
 type SizeLabel = keyof typeof sizeAbbreviations
 
-export const abbreviateSize = (key: SizeLabel): string => sizeAbbreviations[key]
+export const abbreviateSize = (label: SizeLabel): string => sizeAbbreviations[label]

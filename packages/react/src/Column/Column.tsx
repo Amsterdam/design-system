@@ -45,7 +45,8 @@ export const Column = forwardRef(
         'ams-column',
         align && `ams-column--align-${align}`,
         alignHorizontal && `ams-column--align-horizontal-${alignHorizontal}`,
-        gap && `ams-gap-${abbreviateSize(gap)}`,
+        gap === 'none' && 'ams-column--gap-none',
+        gap && gap !== 'none' && `ams-gap-${abbreviateSize(gap)}`,
         className,
       )}
       ref={ref}
