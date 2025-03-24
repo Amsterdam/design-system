@@ -36,18 +36,18 @@
     grid-template-columns: auto 1fr;
   }
 
-  .ams-description-list--terms-width-narrow,
-  .ams-description-list--terms-width-narrow .ams-description-list__section {
+  .ams-description-list--narrow,
+  .ams-description-list--narrow .ams-description-list__section {
     grid-template-columns: 1fr 4fr;
   }
 
-  .ams-description-list--terms-width-medium,
-  .ams-description-list--terms-width-medium .ams-description-list__section {
+  .ams-description-list--medium,
+  .ams-description-list--medium .ams-description-list__section {
     grid-template-columns: 1fr 2fr;
   }
 
-  .ams-description-list--terms-width-wide,
-  .ams-description-list--terms-width-wide .ams-description-list__section {
+  .ams-description-list--wide,
+  .ams-description-list--wide .ams-description-list__section {
     grid-template-columns: 1fr 1fr;
   }
 }
