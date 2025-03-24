@@ -9,14 +9,14 @@ Constrains media content to a supported aspect ratio.
 Each available aspect ratio has an associated class name.
 The class can be applied to any component or element.
 
-| Class name               | Example                                                                  |
-| :----------------------- | :----------------------------------------------------------------------- |
-| `ams-aspect-ratio--9-16` | <div className="ams-docs-token-example--space ams-aspect-ratio--9-16" /> |
-| `ams-aspect-ratio--3-4`  | <div className="ams-docs-token-example--space ams-aspect-ratio--3-4" />  |
-| `ams-aspect-ratio--1-1`  | <div className="ams-docs-token-example--space ams-aspect-ratio--1-1" />  |
-| `ams-aspect-ratio--4-3`  | <div className="ams-docs-token-example--space ams-aspect-ratio--4-3" />  |
-| `ams-aspect-ratio--16-9` | <div className="ams-docs-token-example--space ams-aspect-ratio--16-9" /> |
-| `ams-aspect-ratio--16-5` | <div className="ams-docs-token-example--space ams-aspect-ratio--16-5" /> |
+| Class name              | Example                                                                 |
+| :---------------------- | :---------------------------------------------------------------------- |
+| `ams-aspect-ratio-9-16` | <div className="ams-docs-token-example--space ams-aspect-ratio-9-16" /> |
+| `ams-aspect-ratio-3-4`  | <div className="ams-docs-token-example--space ams-aspect-ratio-3-4" />  |
+| `ams-aspect-ratio-1-1`  | <div className="ams-docs-token-example--space ams-aspect-ratio-1-1" />  |
+| `ams-aspect-ratio-4-3`  | <div className="ams-docs-token-example--space ams-aspect-ratio-4-3" />  |
+| `ams-aspect-ratio-16-9` | <div className="ams-docs-token-example--space ams-aspect-ratio-16-9" /> |
+| `ams-aspect-ratio-16-5` | <div className="ams-docs-token-example--space ams-aspect-ratio-16-5" /> |
 
 ## Guidelines
 

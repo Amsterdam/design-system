@@ -7,7 +7,7 @@
   // If you modify this array, you also need to update the
   // aspectRatioOptions in packages/react/src/common/types.ts
   @each $value in ("9-16", "3-4", "1-1", "4-3", "16-9", "16-5") {
-    &--#{$value} {
+    &-#{$value} {
       /* stylelint-disable-next-line csstools/value-no-unknown-custom-properties */
       aspect-ratio: var(--ams-aspect-ratio-#{$value}) !important;
     }
