@@ -22,6 +22,14 @@ const meta = {
   args: {
     size: 'xs',
   },
+  argTypes: {
+    size: {
+      control: {
+        labels: { l: 'large', m: 'medium', s: 'small', xl: 'x-large', xs: 'x-small' },
+        type: 'radio',
+      },
+    },
+  },
 } satisfies Meta<typeof Gap>
 
 export default meta
