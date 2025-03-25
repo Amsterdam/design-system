@@ -13,7 +13,7 @@ export const LinkGroupGridCells = ({ linkGroups }: LinkGroupGridCellsProps) =>
       start={{ narrow: 1, medium: index % 2 === 0 ? 1 : 5, wide: index % 2 === 0 ? 2 : 7 }}
     >
       <Column gap="extra-small" key={heading}>
-        <Heading className="ams-mb--sm" level={2} size="level-3">
+        <Heading className="ams-mb-sm" level={2} size="level-3">
           {heading}
         </Heading>
         <LinkList>
