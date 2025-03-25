@@ -22,6 +22,7 @@ const deprecatedIcons = [
   'TableIcon',
   'TrashBinIcon',
   'TwitterIcon',
+  'VolumeIcon',
 ]
 
 const groupIcons = (icons: Array<keyof typeof Icons>) => {
