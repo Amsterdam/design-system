@@ -8,7 +8,12 @@
   align-items: baseline;
   display: flex;
   flex-direction: column;
-  gap: var(--ams-space-sm);
+  gap: var(--ams-space-xs);
+
+  > div:first-child {
+    display: flex;
+    gap: var(--ams-space-sm);
+  }
 
   span {
     font-family: var(--ams-typography-font-family);

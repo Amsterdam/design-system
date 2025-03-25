@@ -4,133 +4,27 @@ import * as Icons from '@amsterdam/design-system-react-icons/src'
 
 import './icon-gallery.css'
 
-// const deprecatedIcons = [
-//   'AlertIcon',
-//   'ChatBubbleIcon',
-//   'CloseIcon',
-//   'DocumentEuroSignIcon',
-//   'DocumentTextIcon',
-//   'EditDocumentIcon',
-//   'EnlargeIcon',
-//   'FavouriteIcon',
-//   'HandicapIcon',
-//   'HousingIcon',
-//   'IndeterminateIcon',
-//   'PersonalLoginIcon',
-//   'PictureIcon',
-//   'SearchIcon',
-//   'TableIcon',
-//   'TrashBinIcon',
-//   'TwitterIcon',
-// ]
+const groupIcons = (icons: Array<keyof typeof Icons>) => {
+  const groupedIcons: { [key: string]: { filled?: keyof typeof Icons; outline?: keyof typeof Icons } } = {}
 
-// const newIcons = [
-//   'AccountIcon',
-//   'BikeIcon',
-//   'BinIcon',
-//   'BuildingIcon',
-//   'BuildingsIcon',
-//   'CalendarIcon',
-//   'CameraIcon',
-//   'CarIcon',
-//   'CheckmarkAlertIcon',
-//   'CheckmarkIcon',
-//   'ChevronDownIcon',
-//   'ChevronLeftIcon',
-//   'ChevronRightIcon',
-//   'ChevronUpIcon',
-//   'ClockIcon',
-//   'CogwheelIcon',
-//   'ConstructionIcon',
-//   'CopyIcon',
-//   'CrossAlertIcon',
-//   'CrossIcon',
-//   'DocumentEditIcon',
-//   'DocumentEuroIcon',
-//   'DocumentIcon',
-//   'DocumentsIcon',
-//   'DownloadIcon',
-//   'DuplicateIcon',
-//   'EditIcon',
-//   'EmailIcon',
-//   'EuroIcon',
-//   'ExternalLinkIcon',
-//   'EyeIcon',
-//   'EyeOffIcon',
-//   'FacebookIcon',
-//   'FolderIcon',
-//   'HeartIcon',
-//   'HelpIcon',
-//   'HouseIcon',
-//   'ImageIcon',
-//   'InfoIcon',
-//   'InstagramIcon',
-//   'LinkedInIcon',
-//   'LinkIcon',
-//   'ListIcon',
-//   'MagnifyingGlassIcon',
-//   'MapIcon',
-//   'MastadonIcon',
-//   'MenuIcon',
-//   'MinusIcon',
-//   'NotificationIcon',
-//   'PersonIcon',
-//   'PhoneIcon',
-//   'PlaceholderIcon',
-//   'PlusIcon',
-//   'SpeechBalloonIcon',
-//   'WarningIcon',
-//   'WhatsappIcon',
-//   'Wheelchair1Icon',
-//   'Wheelchair2Icon',
-//   'XTwitterIcon',
-// ]
+  icons.forEach((key) => {
+    const baseName = key.replace('Fill', '')
+    if (!groupedIcons[baseName]) {
+      groupedIcons[baseName] = {}
+    }
+    if (key.includes('Fill')) {
+      groupedIcons[baseName].filled = key
+    } else {
+      groupedIcons[baseName].outline = key
+    }
+  })
 
-// const fillIcons = [
-//   'AccountFillIcon',
-//   'BinFillIcon',
-//   'BuildingFillIcon',
-//   'BuildingsFillIcon',
-//   'CalendarFillIcon',
-//   'CameraFillIcon',
-//   'CarFillIcon',
-//   'CheckmarkAlertFillIcon',
-//   'ClockFillIcon',
-//   'CogwheelFillIcon',
-//   'CopyFillIcon',
-//   'CrossAlertFillIcon',
-//   'DocumentEditFillIcon',
-//   'DocumentEuroFillIcon',
-//   'DocumentFillIcon',
-//   'DocumentsFillIcon',
-//   'DuplicateFillIcon',
-//   'EditFillIcon',
-//   'EmailFillIcon',
-//   'ExternalLinkFillIcon',
-//   'EyeFillIcon',
-//   'EyeOffFillIcon',
-//   'FolderFillIcon',
-//   'HeartFillIcon',
-//   'HelpFillIcon',
-//   'HouseFillIcon',
-//   'ImageFillIcon',
-//   'InfoFillIcon',
-//   'MapFillIcon',
-//   'NotificationFillIcon',
-//   'PersonFillIcon',
-//   'PhoneFillIcon',
-//   'SpeechBalloonFillIcon',
-//   'WarningFillIcon',
-// ]
+  return groupedIcons
+}
 
 export const IconGallery = () => {
   const icons = Object.keys(Icons) as Array<keyof typeof Icons>
-  // const updatedIcons = icons.filter((icon) => newIcons.includes(icon))
-  // const filledIcons = icons.filter((icon) => fillIcons.includes(icon))
-  // const depIcons = icons.filter((icon) => deprecatedIcons.includes(icon))
-  // const oldIcons = icons.filter(
-  //   (icon) => !updatedIcons.includes(icon) && !depIcons.includes(icon) && !fillIcons.includes(icon),
-  // )
+  const groupedIcons = groupIcons(icons)
 
   return (
     <>
@@ -138,46 +32,16 @@ export const IconGallery = () => {
         Icons
       </Heading>
       <div className="ams-storybook-icon-gallery">
-        {icons.map((key) => (
-          <div className="ams-storybook-icon-gallery__item" key={key}>
-            <Icon svg={Icons[key]} />
-            <span>{key.substring(0, key.length - 4)}</span>
+        {Object.keys(groupedIcons).map((baseName) => (
+          <div className="ams-storybook-icon-gallery__item" key={baseName}>
+            <div>
+              {groupedIcons[baseName].outline && <Icon size="heading-3" svg={Icons[groupedIcons[baseName].outline!]} />}
+              {groupedIcons[baseName].filled && <Icon size="heading-3" svg={Icons[groupedIcons[baseName].filled!]} />}
+            </div>
+            <p className="ams-paragraph ams-paragraph--small">{baseName.substring(0, baseName.length - 4)}</p>
           </div>
         ))}
       </div>
-      {/* <Heading className="ams-mb--sm" level={2}>
-        Fill icons
-      </Heading>
-      <div className="ams-storybook-icon-gallery">
-        {filledIcons.map((key) => (
-          <div className="ams-storybook-icon-gallery__item" key={key}>
-            <Icon svg={Icons[key]} />
-            <span>{key.substring(0, key.length - 4)}</span>
-          </div>
-        ))}
-      </div>
-      <Heading className="ams-mb--sm" level={2}>
-        Old icons
-      </Heading>
-      <div className="ams-storybook-icon-gallery">
-        {oldIcons.map((key) => (
-          <div className="ams-storybook-icon-gallery__item" key={key}>
-            <Icon svg={Icons[key]} />
-            <span>{key.substring(0, key.length - 4)}</span>
-          </div>
-        ))}
-      </div>
-      <Heading className="ams-mb--sm" level={2}>
-        Deprecated icons
-      </Heading>
-      <div className="ams-storybook-icon-gallery">
-        {depIcons.map((key) => (
-          <div className="ams-storybook-icon-gallery__item" key={key}>
-            <Icon svg={Icons[key]} />
-            <span>{key.substring(0, key.length - 4)}</span>
-          </div>
-        ))}
-      </div> */}
     </>
   )
 }
