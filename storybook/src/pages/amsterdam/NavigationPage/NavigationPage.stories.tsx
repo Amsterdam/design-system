@@ -73,7 +73,7 @@ export const WithMap: StoryObj = {
           <LinkGroupGridCells linkGroups={parkerenLinks}></LinkGroupGridCells>
         </Grid>
         <Spotlight>
-          <Grid paddingVertical="medium">
+          <Grid paddingVertical="large">
             <Grid.Cell span={{ narrow: 4, medium: 4, wide: 5 }} start={{ narrow: 1, medium: 1, wide: 2 }}>
               <Heading className="ams-mb-md" color="inverse" level={2}>
                 Parkeertarieven
@@ -119,7 +119,7 @@ export const SubnavigationPage: StoryObj = {
   args: {
     children: (
       <>
-        <Grid paddingBottom="medium">
+        <Grid gapVertical="large" paddingBottom="large">
           <Grid.Cell span={{ narrow: 4, medium: 6, wide: 7 }}>
             <PageHeading className="ams-mb-md">Overzichtspagina content / Subnavigatiepagina</PageHeading>
             <Paragraph size="large">
@@ -129,7 +129,7 @@ export const SubnavigationPage: StoryObj = {
           </Grid.Cell>
         </Grid>
         <Image alt="" aspectRatio="16:5" src="https://picsum.photos/1600/500" />
-        <Grid paddingVertical="medium">
+        <Grid paddingVertical="large">
           <Grid.Cell span={{ narrow: 4, medium: 6, wide: 7 }} start={{ narrow: 1, medium: 1, wide: 2 }}>
             <Heading className="ams-mb-sm" level={2}>
               L2 Paragraaf titel
@@ -175,7 +175,7 @@ export const SubnavigationPage: StoryObj = {
           </Grid.Cell>
         </Grid>
         <Spotlight color="magenta">
-          <Grid paddingVertical="medium">
+          <Grid paddingVertical="large">
             <Grid.Cell span={{ narrow: 4, medium: 8, wide: 10 }} start={{ narrow: 1, medium: 1, wide: 2 }}>
               <Heading color="inverse" level={3}>
                 {exampleHeading()}
@@ -195,7 +195,7 @@ export const SubnavigationPage: StoryObj = {
             </Grid.Cell>
           </Grid>
         </Spotlight>
-        <Grid paddingVertical="medium">
+        <Grid paddingVertical="large">
           <Grid.Cell span={{ narrow: 4, medium: 6, wide: 7 }} start={{ narrow: 1, medium: 1, wide: 2 }}>
             <Heading className="ams-mb-sm" level={2}>
               L2 Paragraaf titel
@@ -205,7 +205,7 @@ export const SubnavigationPage: StoryObj = {
           <LinkGroupGridCells linkGroups={burgerzakenLinks.slice(4, 8)} />
         </Grid>
         <Spotlight className="ams-mb-xl" color="green">
-          <Grid paddingVertical="medium">
+          <Grid paddingVertical="large">
             <Grid.Cell span={{ narrow: 4, medium: 5, wide: 7 }} start={{ narrow: 1, medium: 1, wide: 2 }}>
               <Heading className="ams-mb-sm" color="inverse" level={4}>
                 Blijf op de hoogte

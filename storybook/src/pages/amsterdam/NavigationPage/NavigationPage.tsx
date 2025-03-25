@@ -10,7 +10,7 @@ type NavigationPageProps = PropsWithChildren<{}>
 
 export const NavigationPage = ({ children }: NavigationPageProps) => (
   <>
-    <Grid paddingTop="small">
+    <Grid>
       <Grid.Cell span={{ narrow: 4, medium: 6, wide: 7 }}>
         <Breadcrumb>
           <Breadcrumb.Link href="#">Home</Breadcrumb.Link>
