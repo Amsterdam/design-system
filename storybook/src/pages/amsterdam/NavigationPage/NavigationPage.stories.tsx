@@ -23,7 +23,7 @@ import {
   TwitterIcon,
 } from '@amsterdam/design-system-react-icons'
 import { Meta, StoryObj } from '@storybook/react'
-import { NavigationColumn } from './NavigationColumn'
+import { LinkGroupGridCells } from './LinkGroupGridCells'
 import { NavigationPage } from './NavigationPage'
 import { burgerzakenLinks, parkerenLinks } from './links'
 import { exampleHeading, exampleParagraph } from '../../../components/shared/exampleContent'
@@ -48,12 +48,7 @@ export const Default: StoryObj = {
             aangeven? Op deze pagina vindt u alle informatie en regelzaken rondom Burgerzaken.
           </Paragraph>
         </Grid.Cell>
-        <Grid.Cell span={{ narrow: 4, medium: 4, wide: 5 }} start={{ narrow: 1, medium: 1, wide: 2 }}>
-          <NavigationColumn sections={burgerzakenLinks[0]} />
-        </Grid.Cell>
-        <Grid.Cell span={{ narrow: 4, medium: 4, wide: 5 }}>
-          <NavigationColumn sections={burgerzakenLinks[1]} />
-        </Grid.Cell>
+        <LinkGroupGridCells linkGroups={burgerzakenLinks} />
       </Grid>
     ),
   },
@@ -75,12 +70,7 @@ export const WithMap: StoryObj = {
             <Paragraph className="ams-mb--md">{parkerenLorem}</Paragraph>
             <Paragraph>{parkerenLorem}</Paragraph>
           </Grid.Cell>
-          <Grid.Cell span={{ narrow: 4, medium: 4, wide: 5 }} start={{ narrow: 1, medium: 1, wide: 2 }}>
-            <NavigationColumn sections={parkerenLinks[0]} />
-          </Grid.Cell>
-          <Grid.Cell span={{ narrow: 4, medium: 4, wide: 5 }}>
-            <NavigationColumn sections={parkerenLinks[1]} />
-          </Grid.Cell>
+          <LinkGroupGridCells linkGroups={parkerenLinks}></LinkGroupGridCells>
         </Grid>
         <Spotlight>
           <Grid paddingVertical="medium">
@@ -146,12 +136,7 @@ export const SubnavigationPage: StoryObj = {
             </Heading>
             <Paragraph>{exampleParagraph()}</Paragraph>
           </Grid.Cell>
-          <Grid.Cell span={{ narrow: 4, medium: 4, wide: 5 }} start={{ narrow: 1, medium: 1, wide: 2 }}>
-            <NavigationColumn sections={burgerzakenLinks[0].slice(0, 2)} />
-          </Grid.Cell>
-          <Grid.Cell span={{ narrow: 4, medium: 4, wide: 5 }}>
-            <NavigationColumn sections={burgerzakenLinks[1].slice(0, 2)} />
-          </Grid.Cell>
+          <LinkGroupGridCells linkGroups={burgerzakenLinks.slice(0, 6)} />
           <Grid.Cell span={{ narrow: 4, medium: 4, wide: 5 }} start={{ narrow: 1, medium: 1, wide: 2 }}>
             <Heading className="ams-mb--sm" level={2} size="level-4">
               {exampleHeading()}
@@ -217,12 +202,7 @@ export const SubnavigationPage: StoryObj = {
             </Heading>
             <Paragraph>{exampleParagraph()}</Paragraph>
           </Grid.Cell>
-          <Grid.Cell span={{ narrow: 4, medium: 4, wide: 5 }} start={{ narrow: 1, medium: 1, wide: 2 }}>
-            <NavigationColumn sections={burgerzakenLinks[0].slice(3)} />
-          </Grid.Cell>
-          <Grid.Cell span={{ narrow: 4, medium: 4, wide: 5 }}>
-            <NavigationColumn sections={burgerzakenLinks[1].slice(3)} />
-          </Grid.Cell>
+          <LinkGroupGridCells linkGroups={burgerzakenLinks.slice(4, 8)} />
         </Grid>
         <Spotlight className="ams-mb--xl" color="green">
           <Grid paddingVertical="medium">
