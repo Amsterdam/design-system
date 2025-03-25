@@ -128,7 +128,7 @@ export const SubnavigationPage: StoryObj = {
             </Paragraph>
           </Grid.Cell>
         </Grid>
-        <Image alt="" src="https://picsum.photos/1600/900" />
+        <Image alt="" aspectRatio="16:5" src="https://picsum.photos/1600/500" />
         <Grid paddingVertical="medium">
           <Grid.Cell span={{ narrow: 4, medium: 6, wide: 7 }} start={{ narrow: 1, medium: 1, wide: 2 }}>
             <Heading className="ams-mb-sm" level={2}>
