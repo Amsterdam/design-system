@@ -15,9 +15,9 @@
     gap: var(--ams-space-sm);
   }
 
-  span {
+  .ams-icon {
     font-family: var(--ams-typography-font-family);
-    font-size: var(--ams-typography-body-text-small-font-size);
-    line-height: var(--ams-typography-body-text-small-line-height);
+    font-size: var(--ams-typography-body-text-large-font-size);
+    line-height: var(--ams-typography-body-text-large-line-height);
   }
 }
