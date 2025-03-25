@@ -14,6 +14,7 @@ const deprecatedIcons = [
   'FavouriteIcon',
   'HandicapIcon',
   'HousingIcon',
+  'IdentityCardIcon',
   'IndeterminateIcon',
   'PersonalLoginIcon',
   'PictureIcon',
