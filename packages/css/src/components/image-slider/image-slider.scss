@@ -5,13 +5,6 @@
 
 @use "../../common/breakpoint" as *;
 
-@mixin reset-button {
-  border: none;
-  border-radius: 0; // Reset rounded borders on iOS devices
-  padding-block: 0;
-  padding-inline: 0;
-}
-
 .ams-image-slider {
   display: grid;
   gap: var(--ams-image-slider-gap);
@@ -72,6 +65,13 @@
   gap: var(--ams-image-slider-thumbnails-gap);
   grid-template-columns: repeat(5, 1fr);
   max-inline-size: 100%;
+}
+
+@mixin reset-button {
+  border: none;
+  border-radius: 0; // Reset rounded borders on iOS devices
+  padding-block: 0;
+  padding-inline: 0;
 }
 
 .ams-image-slider__thumbnail {
