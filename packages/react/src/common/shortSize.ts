@@ -3,9 +3,9 @@
  * Copyright Gemeente Amsterdam
  */
 
-// If you modify this list, you must also update the
-// Sass list in packages/css/src/common/size.scss
-/** Abbreviations for the size labels in our React API */
+// If you modify this list, you must also update the ones in
+// packages/css/src/components/gap/gap.scss and
+// packages/css/src/components/margin/margin.scss
 export const shortSize = {
   large: 'l',
   medium: 'm',

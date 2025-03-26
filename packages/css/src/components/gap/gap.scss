@@ -3,17 +3,16 @@
  * Copyright Gemeente Amsterdam
  */
 
-@use "../../common/size" as *;
-
 [class|="ams-gap"] {
   display: grid !important;
 }
 
-@each $size in $ams-sizes {
-  @if $size != "2xl" {
-    .ams-gap-#{$size} {
-      /* stylelint-disable-next-line csstools/value-no-unknown-custom-properties */
-      gap: var(--ams-space-#{$size}) !important;
-    }
+// If you modify this list, you must also update the object in
+// packages/react/src/common/shortSize.ts
+// Note that we don’t offer a 2xl gap on purpose.
+@each $size in ("xs", "s", "m", "l", "xl") {
+  .ams-gap-#{$size} {
+    /* stylelint-disable-next-line csstools/value-no-unknown-custom-properties */
+    gap: var(--ams-space-#{$size}) !important;
   }
 }
