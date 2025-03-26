@@ -11,7 +11,7 @@
       "outline-offset": { "value": "{ams.focus.outline-offset}" },
       "checkmark": {
         "border-color": { "value": "{ams.color.interactive.default}" },
-        "border-width": { "value": "{ams.border.width.md}" },
+        "border-width": { "value": "{ams.border.width.m}" },
         "checked": {
           "background-color": { "value": "{ams.color.interactive.default}" },
           "background-image": {
@@ -23,7 +23,7 @@
         },
         "disabled": {
           "border-color": { "value": "{ams.color.interactive.disabled}" },
-          "border-width": { "value": "{ams.border.width.md}" },
+          "border-width": { "value": "{ams.border.width.m}" },
           "checked": {
             "background-color": { "value": "{ams.color.interactive.disabled}" },
             "hover": {
@@ -39,7 +39,7 @@
         },
         "hover": {
           "border-color": { "value": "{ams.color.interactive.hover}" },
-          "border-width": { "value": "{ams.border.width.lg}" }
+          "border-width": { "value": "{ams.border.width.l}" }
         },
         "invalid": {
           "border-color": { "value": "{ams.color.interactive.invalid.default}" },
@@ -75,7 +75,7 @@
       },
       "hover": {
         "color": { "value": "{ams.color.interactive.hover}" },
-        "text-decoration-thickness": { "value": "{ams.border.width.md}" }
+        "text-decoration-thickness": { "value": "{ams.border.width.m}" }
       }
     }
   }
