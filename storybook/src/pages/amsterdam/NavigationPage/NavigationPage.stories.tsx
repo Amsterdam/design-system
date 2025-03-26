@@ -13,7 +13,6 @@ import {
   Paragraph,
   SearchField,
   Spotlight,
-  UnorderedList,
 } from '@amsterdam/design-system-react'
 import {
   CameraIcon,
@@ -78,27 +77,18 @@ export const WithMap: StoryObj = {
               <Heading className="ams-mb-m" color="inverse" level={2}>
                 Parkeertarieven
               </Heading>
-              <Paragraph className="ams-mb-m" color="inverse">
-                Voor Weesp kijkt u op{' '}
-                <Link color="inverse" href="#" variant="inline">
-                  Parkeertarieven stadsgebied Weesp
-                </Link>
-                .
-              </Paragraph>
-              <UnorderedList className="ams-mb-l" color="inverse">
-                <UnorderedList.Item>Vul een adres in om de mogelijkheden te bekijken</UnorderedList.Item>
-                <UnorderedList.Item>
-                  Als u op een feestdag wilt parkeren, bekijk dan ook{' '}
-                  <Link color="inverse" href="#" variant="inline">
-                    Parkeren op feestdagen
-                  </Link>
-                  .
-                </UnorderedList.Item>
-              </UnorderedList>
-              <SearchField>
-                <SearchField.Input />
+              <SearchField className="ams-mb-m">
+                <SearchField.Input placeholder="Zoek op adres" />
                 <SearchField.Button />
               </SearchField>
+              <LinkList>
+                <LinkList.Link color="inverse" href="#">
+                  Tarieven stadsgebied Weesp
+                </LinkList.Link>
+                <LinkList.Link color="inverse" href="#">
+                  Parkeren op feestdagen
+                </LinkList.Link>
+              </LinkList>
             </Grid.Cell>
           </Grid>
         </Spotlight>
