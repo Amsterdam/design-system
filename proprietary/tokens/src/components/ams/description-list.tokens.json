@@ -16,6 +16,15 @@
       "description": {
         "font-weight": { "value": "{ams.typography.body-text.font-weight}" },
         "padding-inline-start": { "value": "{ams.space.l}" }
+      },
+      "narrow": {
+        "grid-template-columns": { "value": "1fr 4fr" }
+      },
+      "medium": {
+        "grid-template-columns": { "value": "1fr 2fr" }
+      },
+      "wide": {
+        "grid-template-columns": { "value": "1fr 1fr" }
       }
     }
   }
