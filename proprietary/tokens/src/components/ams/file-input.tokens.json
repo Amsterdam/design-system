@@ -13,8 +13,8 @@
         "comment": "Compensate for the dashed border",
         "value": "calc({ams.focus.outline-offset} * 2)"
       },
-      "padding-block": { "value": "{ams.space.md}" },
-      "padding-inline": { "value": "{ams.space.md}" },
+      "padding-block": { "value": "{ams.space.m}" },
+      "padding-inline": { "value": "{ams.space.m}" },
       "disabled": {
         "color": { "value": "{ams.color.interactive.disabled}" },
         "cursor": { "value": "{ams.cursor.disabled}" }
@@ -24,9 +24,9 @@
         "box-shadow": { "value": "inset 0 0 0 {ams.border.width.m} {ams.color.interactive.default}" },
         "color": { "value": "{ams.color.interactive.default}" },
         "cursor": { "value": "{ams.cursor.interactive}" },
-        "margin-inline-end": { "value": "{ams.space.md}" },
-        "padding-block": { "value": "{ams.space.sm}" },
-        "padding-inline": { "value": "{ams.space.md}" },
+        "margin-inline-end": { "value": "{ams.space.m}" },
+        "padding-block": { "value": "{ams.space.s}" },
+        "padding-inline": { "value": "{ams.space.m}" },
         "hover": {
           "box-shadow": { "value": "inset 0 0 0 {ams.border.width.l} {ams.color.interactive.hover}" },
           "color": { "value": "{ams.color.interactive.hover}" }

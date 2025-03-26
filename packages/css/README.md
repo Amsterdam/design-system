@@ -13,6 +13,8 @@ The classes are a contract between the component’s definition and its implemen
 Our [React components](https://www.npmjs.com/package/@amsterdam/design-system-react) use these classes in the HTML they render.
 You should use that package if your application uses React.
 
+A couple of utility classes are included for general use: aspect ratio, bottom margin, gap, and visually hidden.
+
 ## Installation
 
 The stylesheets reference our [design tokens](https://www.npmjs.com/package/@amsterdam/design-system-tokens).
