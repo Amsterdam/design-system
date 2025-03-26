@@ -6,7 +6,7 @@
 // If you modify this list, you must also update the
 // Sass list in packages/css/src/common/size.scss
 /** Abbreviations for the size labels in our React API */
-const sizeAbbreviations = {
+export const shortSize = {
   large: 'l',
   medium: 'm',
   none: 'none',
@@ -14,7 +14,3 @@ const sizeAbbreviations = {
   'x-large': 'xl',
   'x-small': 'xs',
 } as const
-
-type SizeLabel = keyof typeof sizeAbbreviations
-
-export const abbreviateSize = (label: SizeLabel): string => sizeAbbreviations[label]

@@ -1,7 +1,7 @@
 import { render, screen } from '@testing-library/react'
 import { createRef } from 'react'
 import { Row, rowGaps } from './Row'
-import { abbreviateSize } from '../common/abbreviateSize'
+import { shortSize } from '../common/shortSize'
 import { crossAlignOptions, mainAlignOptions } from '../common/types'
 import '@testing-library/jest-dom'
 
@@ -32,7 +32,7 @@ describe('Row', () => {
       if (gap === 'none') {
         expect(component).toHaveClass(`ams-row--gap-none`)
       } else {
-        expect(component).toHaveClass(`ams-gap-${abbreviateSize(gap)}`)
+        expect(component).toHaveClass(`ams-gap-${shortSize[gap]}`)
       }
     }),
   )
