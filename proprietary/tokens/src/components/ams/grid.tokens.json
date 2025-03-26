@@ -4,15 +4,15 @@
       "column-count": { "value": "4" },
       "column-gap": { "value": "{ams.space.xl}" },
       "padding-block": {
-        "sm": { "value": "{ams.space.l}" },
-        "md": { "value": "{ams.space.xl}" },
-        "lg": { "value": "{ams.space.2xl}" }
+        "s": { "value": "{ams.space.l}" },
+        "m": { "value": "{ams.space.xl}" },
+        "l": { "value": "{ams.space.2xl}" }
       },
       "padding-inline": { "value": "{ams.space.l}" },
       "row-gap": {
-        "sm": { "value": "{ams.space.l}" },
-        "md": { "value": "{ams.space.xl}" },
-        "lg": { "value": "{ams.space.2xl}" }
+        "s": { "value": "{ams.space.l}" },
+        "m": { "value": "{ams.space.xl}" },
+        "l": { "value": "{ams.space.2xl}" }
       },
       "medium": {
         "column-count": { "value": "8" },
