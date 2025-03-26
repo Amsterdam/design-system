@@ -1,6 +1,7 @@
 import { render, screen } from '@testing-library/react'
 import { createRef } from 'react'
-import { Column, columnGapSizes } from './Column'
+import { Column, columnGaps } from './Column'
+import { shortSize } from '../common/shortSize'
 import { crossAlignOptionsForColumn, mainAlignOptions } from '../common/types'
 import '@testing-library/jest-dom'
 
@@ -22,13 +23,17 @@ describe('Column', () => {
     expect(component).toHaveClass('ams-column')
   })
 
-  columnGapSizes.map((size) =>
-    it('renders with ${size} gap', () => {
-      const { container } = render(<Column gap={size} />)
+  columnGaps.map((gap) =>
+    it('renders with ‘${gap}’ gap', () => {
+      const { container } = render(<Column gap={gap} />)
 
       const component = container.querySelector(':only-child')
 
-      expect(component).toHaveClass(`ams-column--gap-${size}`)
+      if (gap === 'none') {
+        expect(component).toHaveClass(`ams-column--gap-none`)
+      } else {
+        expect(component).toHaveClass(`ams-gap-${shortSize[gap]}`)
+      }
     }),
   )
 

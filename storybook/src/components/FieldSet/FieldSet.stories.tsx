@@ -41,7 +41,7 @@ type Story = StoryObj<typeof meta>
 export const Default: Story = {
   render: ({ hint, invalid, legend, optional }) => (
     <FieldSet hint={hint} invalid={invalid} legend={legend} optional={optional}>
-      <Field className="ams-mb-sm">
+      <Field className="ams-mb-s">
         <Label htmlFor="input-a1">Voornaam</Label>
         {invalid && <ErrorMessage id="error-a1">Vul uw voornaam in.</ErrorMessage>}
         <TextInput
@@ -68,10 +68,10 @@ export const Default: Story = {
 export const WithDescription: Story = {
   render: (args) => (
     <FieldSet aria-describedby="description-b" invalid={args.invalid} legend={args.legend}>
-      <Paragraph className="ams-mb-sm" id="description-b" size="small">
+      <Paragraph className="ams-mb-s" id="description-b" size="small">
         Vul uw naam in zoals in uw paspoort staat.
       </Paragraph>
-      <Field className="ams-mb-sm">
+      <Field className="ams-mb-s">
         <Label htmlFor="input-b1">Voornaam</Label>
         {args.invalid && <ErrorMessage id="error-b1">Vul uw voornaam in.</ErrorMessage>}
         <TextInput
@@ -99,7 +99,7 @@ export const WithHint: Story = {
   args: { hint: 'verplicht', optional: false },
   render: ({ hint, invalid, legend, optional }) => (
     <FieldSet hint={hint} invalid={invalid} legend={legend} optional={optional}>
-      <Field className="ams-mb-sm">
+      <Field className="ams-mb-s">
         <Label htmlFor="input-b3">Voornaam</Label>
         {invalid && <ErrorMessage id="error-b3">Vul uw voornaam in.</ErrorMessage>}
         <TextInput
@@ -127,10 +127,10 @@ export const WithValidation: Story = {
   args: { invalid: true },
   render: (args) => (
     <FieldSet aria-describedby="description-c" invalid={args.invalid} legend={args.legend}>
-      <Paragraph className="ams-mb-sm" id="description-c" size="small">
+      <Paragraph className="ams-mb-s" id="description-c" size="small">
         Vul uw naam in zoals in uw paspoort staat.
       </Paragraph>
-      <Field className="ams-mb-sm">
+      <Field className="ams-mb-s">
         <Label htmlFor="input-c1">Voornaam</Label>
         {args.invalid && <ErrorMessage id="error-c1">Vul uw voornaam in.</ErrorMessage>}
         <TextInput
@@ -166,15 +166,15 @@ export const RadioGroup: Story = {
       legend={args.legend}
       role="radiogroup"
     >
-      <Paragraph className="ams-mb-sm" id="description-d" size="small">
+      <Paragraph className="ams-mb-s" id="description-d" size="small">
         De laatstgenoemde melding.
       </Paragraph>
       {args.invalid && (
-        <ErrorMessage className="ams-mb-sm" id="error-d">
+        <ErrorMessage className="ams-mb-s" id="error-d">
           Geef aan waar uw laatstgenoemde melding over gaat.
         </ErrorMessage>
       )}
-      <Column gap="extra-small">
+      <Column gap="x-small">
         <Radio aria-required="true" invalid={args.invalid} name="about" value="horeca">
           Horecabedrijf
         </Radio>
@@ -205,15 +205,15 @@ export const RadioGroupWithValidation: Story = {
       legend={args.legend}
       role="radiogroup"
     >
-      <Paragraph className="ams-mb-sm" id="description-e" size="small">
+      <Paragraph className="ams-mb-s" id="description-e" size="small">
         De laatstgenoemde melding.
       </Paragraph>
       {args.invalid && (
-        <ErrorMessage className="ams-mb-sm" id="error-e">
+        <ErrorMessage className="ams-mb-s" id="error-e">
           Geef aan waar uw laatstgenoemde melding over gaat.
         </ErrorMessage>
       )}
-      <Column gap="extra-small">
+      <Column gap="x-small">
         <Radio aria-required="true" invalid={args.invalid} name="about" value="horeca">
           Horecabedrijf
         </Radio>
@@ -242,15 +242,15 @@ export const CheckboxGroup: Story = {
       invalid={args.invalid}
       legend={args.legend}
     >
-      <Paragraph className="ams-mb-sm" id="description-f" size="small">
+      <Paragraph className="ams-mb-s" id="description-f" size="small">
         De laatstgenoemde melding.
       </Paragraph>
       {args.invalid && (
-        <ErrorMessage className="ams-mb-sm" id="error-f">
+        <ErrorMessage className="ams-mb-s" id="error-f">
           Geef aan waar uw melding over gaat.
         </ErrorMessage>
       )}
-      <Column gap="extra-small">
+      <Column gap="x-small">
         <Checkbox aria-required="true" invalid={args.invalid} name="about" value="horeca">
           Horecabedrijf
         </Checkbox>
@@ -280,15 +280,15 @@ export const CheckboxGroupWithValidation: Story = {
       invalid={args.invalid}
       legend={args.legend}
     >
-      <Paragraph className="ams-mb-sm" id="description-g" size="small">
+      <Paragraph className="ams-mb-s" id="description-g" size="small">
         De laatstgenoemde melding.
       </Paragraph>
       {args.invalid && (
-        <ErrorMessage className="ams-mb-sm" id="error-g">
+        <ErrorMessage className="ams-mb-s" id="error-g">
           Geef aan waar uw melding over gaat.
         </ErrorMessage>
       )}
-      <Column gap="extra-small">
+      <Column gap="x-small">
         <Checkbox aria-required="true" invalid={args.invalid} name="about" value="horeca">
           Horecabedrijf
         </Checkbox>

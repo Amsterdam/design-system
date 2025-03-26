@@ -118,7 +118,7 @@ $ams-breakout-row-span-max: 4;
   margin-inline: calc(var(--ams-space-2xl) * -1);
 
   .ams-breakout--gap-vertical--small > & {
-    margin-block: calc(var(--ams-space-lg) * -1);
+    margin-block: calc(var(--ams-space-l) * -1);
   }
 
   .ams-breakout--gap-vertical--large > & {
