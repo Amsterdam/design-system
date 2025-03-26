@@ -13,4 +13,4 @@ export const shortSize = {
   small: 's',
   'x-large': 'xl',
   'x-small': 'xs',
-} as const
+}
