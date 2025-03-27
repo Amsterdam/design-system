@@ -53,9 +53,6 @@ export const Default: StoryObj = {
   },
 }
 
-const parkerenLorem =
-  'Aenean lorem elit, commodo eget elit sit amet, auctor venenatis ligula. Phasellus faucibus fringilla viverra. Aliquam vestibulum vehicula enim, ac consequat nisl mattis id.'
-
 export const WithMap: StoryObj = {
   args: {
     children: (
@@ -64,10 +61,10 @@ export const WithMap: StoryObj = {
           <Grid.Cell span={{ narrow: 4, medium: 6, wide: 7 }}>
             <PageHeading className="ams-mb-m">Parkeren</PageHeading>
             <Paragraph className="ams-mb-m" size="large">
-              {parkerenLorem}
+              {exampleParagraph()}
             </Paragraph>
-            <Paragraph className="ams-mb-m">{parkerenLorem}</Paragraph>
-            <Paragraph>{parkerenLorem}</Paragraph>
+            <Paragraph className="ams-mb-m">{exampleParagraph()}</Paragraph>
+            <Paragraph>{exampleParagraph()}</Paragraph>
           </Grid.Cell>
           <LinkGroupGridCells linkGroups={parkerenLinks}></LinkGroupGridCells>
         </Grid>
