@@ -53,7 +53,7 @@ export const Default: StoryObj = {
   },
 }
 
-export const WithMap: StoryObj = {
+export const WithInteractiveElement: StoryObj = {
   args: {
     children: (
       <main id="main">
