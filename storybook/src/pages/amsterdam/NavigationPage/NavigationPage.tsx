@@ -17,6 +17,6 @@ export const NavigationPage = ({ children }: NavigationPageProps) => (
         </Breadcrumb>
       </Grid.Cell>
     </Grid>
-    <main id="main">{children}</main>
+    {children}
   </>
 )

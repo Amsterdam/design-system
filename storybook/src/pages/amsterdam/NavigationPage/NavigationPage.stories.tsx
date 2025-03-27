@@ -39,7 +39,7 @@ export default meta
 export const Default: StoryObj = {
   args: {
     children: (
-      <Grid gapVertical="large" paddingBottom="large">
+      <Grid as="main" gapVertical="large" id="main" paddingBottom="large">
         <Grid.Cell span={{ narrow: 4, medium: 6, wide: 7 }}>
           <PageHeading className="ams-mb-m">Burgerzaken</PageHeading>
           <Paragraph size="large">
@@ -56,7 +56,7 @@ export const Default: StoryObj = {
 export const WithMap: StoryObj = {
   args: {
     children: (
-      <>
+      <main id="main">
         <Grid gapVertical="large" paddingBottom="large">
           <Grid.Cell span={{ narrow: 4, medium: 6, wide: 7 }}>
             <PageHeading className="ams-mb-m">Parkeren</PageHeading>
@@ -90,7 +90,7 @@ export const WithMap: StoryObj = {
           </Grid>
         </Spotlight>
         <Image alt="" aspectRatio="16:9" className="ams-mb-2xl" src="https://picsum.photos/id/133/1600/900" />
-      </>
+      </main>
     ),
   },
 }
@@ -98,7 +98,7 @@ export const WithMap: StoryObj = {
 export const SubnavigationPage: StoryObj = {
   args: {
     children: (
-      <>
+      <main id="main">
         <Grid gapVertical="large" paddingBottom="large">
           <Grid.Cell span={{ narrow: 4, medium: 6, wide: 7 }}>
             <PageHeading className="ams-mb-m">Overzichtspagina content / Subnavigatiepagina</PageHeading>
@@ -222,7 +222,7 @@ export const SubnavigationPage: StoryObj = {
             </Grid.Cell>
           </Grid>
         </Spotlight>
-      </>
+      </main>
     ),
   },
 }
