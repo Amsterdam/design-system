@@ -3,7 +3,7 @@
  * Copyright Gemeente Amsterdam
  */
 
-import { KeyboardEvent, RefObject } from 'react'
+import type { KeyboardEvent, RefObject } from 'react'
 
 export const KeyboardKeys = {
   ArrowDown: 'ArrowDown',

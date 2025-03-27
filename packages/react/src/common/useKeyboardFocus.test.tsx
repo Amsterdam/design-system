@@ -48,7 +48,6 @@ describe('use focus with arrows', () => {
       fireEvent.keyDown(firstChild, {
         key: KeyboardKeys.ArrowDown,
       })
-      // buttons[(index + 1) % buttons.length].focus()
     })
 
     expect(onFocusOneMock).toHaveBeenCalledTimes(1)
@@ -76,11 +75,10 @@ describe('use focus with arrows', () => {
     // Manually set focus to the first button
     buttons[0].focus()
 
-    Array.from(Array(9).keys()).forEach((_, index) => {
+    Array.from(Array(9).keys()).forEach(() => {
       fireEvent.keyDown(firstChild, {
         key: KeyboardKeys.ArrowDown,
       })
-      buttons[(index + 1) % buttons.length].focus()
     })
 
     expect(onFocusOneMock).toHaveBeenCalledTimes(4)
@@ -99,12 +97,10 @@ describe('use focus with arrows', () => {
     const { container } = render(<Component />)
 
     const firstChild = container.firstChild as HTMLElement
-    const buttons = container.querySelectorAll('button')
 
     fireEvent.keyDown(firstChild, {
       key: KeyboardKeys.Home,
     })
-    buttons[0].focus()
 
     expect(onFocusOneMock).toHaveBeenCalledTimes(1)
   })
@@ -114,12 +110,10 @@ describe('use focus with arrows', () => {
     const { container } = render(<Component />)
 
     const firstChild = container.firstChild as HTMLElement
-    const buttons = container.querySelectorAll('button')
 
     fireEvent.keyDown(firstChild, {
       key: KeyboardKeys.End,
     })
-    buttons[buttons.length - 1].focus()
 
     expect(onFocusThreeMock).toHaveBeenCalledTimes(1)
   })
