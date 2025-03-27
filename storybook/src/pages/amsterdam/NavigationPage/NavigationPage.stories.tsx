@@ -63,7 +63,6 @@ export const WithMap: StoryObj = {
             <Paragraph className="ams-mb-m" size="large">
               {exampleParagraph()}
             </Paragraph>
-            <Paragraph className="ams-mb-m">{exampleParagraph()}</Paragraph>
             <Paragraph>{exampleParagraph()}</Paragraph>
           </Grid.Cell>
           <LinkGroupGridCells linkGroups={parkerenLinks}></LinkGroupGridCells>
