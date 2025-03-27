@@ -89,14 +89,7 @@ export const WithMap: StoryObj = {
             </Grid.Cell>
           </Grid>
         </Spotlight>
-        <Image
-          alt=""
-          aspectRatio="16:9"
-          className="ams-mb-xl"
-          key={1}
-          src="http://www.parkerenindestad.nl/images/amsterdam/parkeren-in-amsterdam.jpg"
-          style={{ inlineSize: '100%' }}
-        />
+        <Image alt="" aspectRatio="16:9" className="ams-mb-2xl" src="https://picsum.photos/id/133/1600/900" />
       </>
     ),
   },
