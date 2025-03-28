@@ -28,11 +28,11 @@ jobs:
           ref: "main"
         # these if statements ensure that a publication only occurs when
         # a new release is created:
-        if: ${{ steps.release.outputs.releases_created == 'true' }}
+        # if: ${{ steps.release.outputs.releases_created == 'true' }}
 
       - name: Install pnpm
         uses: pnpm/action-setup@a7487c7e89a18df4991f7f222e4898a00d66ddda # v4.1.0
-        if: ${{ steps.release.outputs.releases_created == 'true' }}
+        # if: ${{ steps.release.outputs.releases_created == 'true' }}
 
       - name: Set up Node.js version
         uses: actions/setup-node@cdca7365b2dadb8aad0a33bc7601856ffabcc48e # v4.3.0
@@ -40,11 +40,11 @@ jobs:
           cache: pnpm
           node-version-file: .nvmrc
           registry-url: "https://registry.npmjs.org"
-        if: ${{ steps.release.outputs.releases_created == 'true' }}
+        # if: ${{ steps.release.outputs.releases_created == 'true' }}
 
       - name: Install dependencies
         run: pnpm install --frozen-lockfile
-        if: ${{ steps.release.outputs.releases_created == 'true' }}
+        # if: ${{ steps.release.outputs.releases_created == 'true' }}
 
       - name: Publish
         run: pnpm -r publish
@@ -55,7 +55,7 @@ jobs:
       # The logic below handles the Storybook deploy:
       - name: Build Storybook
         run: pnpm --filter=storybook build
-        if: ${{ steps.release.outputs.releases_created == 'true' }}
+        # if: ${{ steps.release.outputs.releases_created == 'true' }}
 
       - name: Deploy to GitHub Pages
         uses: JamesIves/github-pages-deploy-action@6c2d9db40f9296374acc17b90404b6e8864128c8 # v4.7.3
@@ -66,5 +66,5 @@ jobs:
           # these are excluded from this action's default clean
           clean-exclude: demo-*
         # Temporarily deploy Storybook to GitHub Pages on all pushes to main
-        # Uncomment the following line after the Storybook deploy is done
+        # Uncomment all the commented 'if' statements after the Storybook deploy is done
         # if: ${{ steps.release.outputs.releases_created == 'true' }}
