@@ -38,10 +38,10 @@ Do not combine tokens of different sizes.
 
 The font weight can either be regular or bold.
 
-| CSS variable                                       | Value | Example                                                 |
-| :------------------------------------------------- | :---: | :------------------------------------------------------ |
-| `var(--ams-typography-body-text-font-weight)`      |  400  | Default font weight                                     |
-| `var(--ams-typography-body-text-bold-font-weight)` |  800  | <div style={{ fontWeight: 800 }}>Bold font weight</div> |
+| CSS variable                                       | Value | Example                                                                              |
+| :------------------------------------------------- | :---: | :----------------------------------------------------------------------------------- |
+| `var(--ams-typography-body-text-font-weight)`      |  400  | <span class="ams-docs-token-example--font-weight-regular">Default font weight</span> |
+| `var(--ams-typography-body-text-bold-font-weight)` |  800  | <span class="ams-docs-token-example--font-weight-bold">Bold font weight</span>       |
 
 ## Headings
 
@@ -49,15 +49,15 @@ The font weight can either be regular or bold.
 
 We support seven sizes for headings, although levels 1 to 4 are most commonly used.
 
-| CSS variable                                | ≤&nbsp;320 | Example                                                                                                         | ≥&nbsp;1600 | Example                                                                                                         |
-| :------------------------------------------ | :--------: | :-------------------------------------------------------------------------------------------------------------- | :---------: | :-------------------------------------------------------------------------------------------------------------- |
-| `var(--ams-typography-heading-0-font-size)` |    38.9    | <div className="ams-docs-token-example--font-size" style={{ fontSize: '2.4316rem', fontWeight: 800 }}>Abc</div> |    73.2     | <div className="ams-docs-token-example--font-size" style={{ fontSize: '4.5776rem', fontWeight: 800 }}>Abc</div> |
-| `var(--ams-typography-heading-1-font-size)` |    33.3    | <div className="ams-docs-token-example--font-size" style={{ fontSize: '2.0842rem', fontWeight: 800 }}>Abc</div> |    58.6     | <div className="ams-docs-token-example--font-size" style={{ fontSize: '3.6621rem', fontWeight: 800 }}>Abc</div> |
-| `var(--ams-typography-heading-2-font-size)` |    28.6    | <div className="ams-docs-token-example--font-size" style={{ fontSize: '1.7865rem', fontWeight: 800 }}>Abc</div> |    46.9     | <div className="ams-docs-token-example--font-size" style={{ fontSize: '2.9297rem', fontWeight: 800 }}>Abc</div> |
-| `var(--ams-typography-heading-3-font-size)` |    24.5    | <div className="ams-docs-token-example--font-size" style={{ fontSize: '1.5313rem', fontWeight: 800 }}>Abc</div> |    37.5     | <div className="ams-docs-token-example--font-size" style={{ fontSize: '2.3438rem', fontWeight: 800 }}>Abc</div> |
-| `var(--ams-typography-heading-4-font-size)` |     21     | <div className="ams-docs-token-example--font-size" style={{ fontSize: '1.3125rem', fontWeight: 800 }}>Abc</div> |     30      | <div className="ams-docs-token-example--font-size" style={{ fontSize: '1.875rem', fontWeight: 800 }}>Abc</div>  |
-| `var(--ams-typography-heading-5-font-size)` |     18     | <div className="ams-docs-token-example--font-size" style={{ fontSize: '1.125rem', fontWeight: 800 }}>Abc</div>  |     24      | <div className="ams-docs-token-example--font-size" style={{ fontSize: '1.5rem', fontWeight: 800 }}>Abc</div>    |
-| `var(--ams-typography-heading-6-font-size)` |    15.4    | <div className="ams-docs-token-example--font-size" style={{ fontSize: '0.9643rem', fontWeight: 800 }}>Abc</div> |    19.2     | <div className="ams-docs-token-example--font-size" style={{ fontSize: '1.2rem', fontWeight: 800 }}>Abc</div>    |
+| CSS variable                                | ≤&nbsp;320 | Example                                                                                                                                 | ≥&nbsp;1600 | Example                                                                                                                                 |
+| :------------------------------------------ | :--------: | :-------------------------------------------------------------------------------------------------------------------------------------- | :---------: | :-------------------------------------------------------------------------------------------------------------------------------------- |
+| `var(--ams-typography-heading-0-font-size)` |    38.9    | <div className="ams-docs-token-example--font-size ams-docs-token-example--font-weight-bold" style={{ fontSize: '2.4316rem' }}>Abc</div> |    73.2     | <div className="ams-docs-token-example--font-size ams-docs-token-example--font-weight-bold" style={{ fontSize: '4.5776rem' }}>Abc</div> |
+| `var(--ams-typography-heading-1-font-size)` |    33.3    | <div className="ams-docs-token-example--font-size ams-docs-token-example--font-weight-bold" style={{ fontSize: '2.0842rem' }}>Abc</div> |    58.6     | <div className="ams-docs-token-example--font-size ams-docs-token-example--font-weight-bold" style={{ fontSize: '3.6621rem' }}>Abc</div> |
+| `var(--ams-typography-heading-2-font-size)` |    28.6    | <div className="ams-docs-token-example--font-size ams-docs-token-example--font-weight-bold" style={{ fontSize: '1.7865rem' }}>Abc</div> |    46.9     | <div className="ams-docs-token-example--font-size ams-docs-token-example--font-weight-bold" style={{ fontSize: '2.9297rem' }}>Abc</div> |
+| `var(--ams-typography-heading-3-font-size)` |    24.5    | <div className="ams-docs-token-example--font-size ams-docs-token-example--font-weight-bold" style={{ fontSize: '1.5313rem' }}>Abc</div> |    37.5     | <div className="ams-docs-token-example--font-size ams-docs-token-example--font-weight-bold" style={{ fontSize: '2.3438rem' }}>Abc</div> |
+| `var(--ams-typography-heading-4-font-size)` |     21     | <div className="ams-docs-token-example--font-size ams-docs-token-example--font-weight-bold" style={{ fontSize: '1.3125rem' }}>Abc</div> |     30      | <div className="ams-docs-token-example--font-size ams-docs-token-example--font-weight-bold" style={{ fontSize: '1.875rem' }}>Abc</div>  |
+| `var(--ams-typography-heading-5-font-size)` |     18     | <div className="ams-docs-token-example--font-size ams-docs-token-example--font-weight-bold" style={{ fontSize: '1.125rem' }}>Abc</div>  |     24      | <div className="ams-docs-token-example--font-size ams-docs-token-example--font-weight-bold" style={{ fontSize: '1.5rem' }}>Abc</div>    |
+| `var(--ams-typography-heading-6-font-size)` |    15.4    | <div className="ams-docs-token-example--font-size ams-docs-token-example--font-weight-bold" style={{ fontSize: '0.9643rem' }}>Abc</div> |    19.2     | <div className="ams-docs-token-example--font-size ams-docs-token-example--font-weight-bold" style={{ fontSize: '1.2rem' }}>Abc</div>    |
 
 ### Line height
 
@@ -77,9 +77,9 @@ Headings use smaller line heights than body text.
 
 Headings only use the bold font weight.
 
-| CSS variable | Value | Example                                                    |
-| :----------- | :---: | :--------------------------------------------------------- |
-| 800          |  800  | <div style={{ fontWeight: 800 }}>Default font weight</div> |
+| CSS variable                                | Value | Example                                                                         |
+| :------------------------------------------ | :---: | :------------------------------------------------------------------------------ |
+| `var(--ams-typography-heading-font-weight)` |  800  | <div class="ams-docs-token-example--font-weight-bold">Default font weight</div> |
 
 ## Other aspects
 
@@ -128,12 +128,12 @@ They use the compact theme, where both body text and headings are considerably s
 
 ### Headings
 
-| CSS variable                                | ≤&nbsp;320 | Example                                                                                                                            | ≥&nbsp;1600 | Example                                                                                                                            |
-| :------------------------------------------ | :--------: | :--------------------------------------------------------------------------------------------------------------------------------- | :---------: | :--------------------------------------------------------------------------------------------------------------------------------- |
-| `var(--ams-typography-heading-0-font-size)` |    25.8    | <div className="ams-theme--compact ams-docs-token-example--font-size" style={{ fontSize: '1.6105rem', fontWeight: 800 }}>Abc</div> |    28.8     | <div className="ams-theme--compact ams-docs-token-example--font-size" style={{ fontSize: '1.802rem', fontWeight: 800 }}>Abc</div>  |
-| `var(--ams-typography-heading-1-font-size)` |    23.4    | <div className="ams-theme--compact ams-docs-token-example--font-size" style={{ fontSize: '1.4641rem', fontWeight: 800 }}>Abc</div> |    25.6     | <div className="ams-theme--compact ams-docs-token-example--font-size" style={{ fontSize: '1.6018rem', fontWeight: 800 }}>Abc</div> |
-| `var(--ams-typography-heading-2-font-size)` |    21.3    | <div className="ams-theme--compact ams-docs-token-example--font-size" style={{ fontSize: '1.331rem', fontWeight: 800 }}>Abc</div>  |    22.8     | <div className="ams-theme--compact ams-docs-token-example--font-size" style={{ fontSize: '1.4238rem', fontWeight: 800 }}>Abc</div> |
-| `var(--ams-typography-heading-3-font-size)` |    19.4    | <div className="ams-theme--compact ams-docs-token-example--font-size" style={{ fontSize: '1.21rem', fontWeight: 800 }}>Abc</div>   |    20.3     | <div className="ams-theme--compact ams-docs-token-example--font-size" style={{ fontSize: '1.2656rem', fontWeight: 800 }}>Abc</div> |
-| `var(--ams-typography-heading-4-font-size)` |    17.6    | <div className="ams-theme--compact ams-docs-token-example--font-size" style={{ fontSize: '1.1rem', fontWeight: 800 }}>Abc</div>    |     18      | <div className="ams-theme--compact ams-docs-token-example--font-size" style={{ fontSize: '1.125rem', fontWeight: 800 }}>Abc</div>  |
-| `var(--ams-typography-heading-5-font-size)` |     16     | <div className="ams-theme--compact ams-docs-token-example--font-size" style={{ fontSize: '1rem', fontWeight: 800 }}>Abc</div>      |     16      | <div className="ams-theme--compact ams-docs-token-example--font-size" style={{ fontSize: '1rem', fontWeight: 800 }}>Abc</div>      |
-| `var(--ams-typography-heading-6-font-size)` |    14.6    | <div className="ams-theme--compact ams-docs-token-example--font-size" style={{ fontSize: '0.8889rem', fontWeight: 800 }}>Abc</div> |    14.2     | <div className="ams-theme--compact ams-docs-token-example--font-size" style={{ fontSize: '0.9091rem', fontWeight: 800 }}>Abc</div> |
+| CSS variable                                | ≤&nbsp;320 | Example                                                                                                                                                    | ≥&nbsp;1600 | Example                                                                                                                                                    |
+| :------------------------------------------ | :--------: | :--------------------------------------------------------------------------------------------------------------------------------------------------------- | :---------: | :--------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `var(--ams-typography-heading-0-font-size)` |    25.8    | <div className="ams-theme--compact ams-docs-token-example--font-size ams-docs-token-example--font-weight-bold" style={{ fontSize: '1.6105rem' }}>Abc</div> |    28.8     | <div className="ams-theme--compact ams-docs-token-example--font-size ams-docs-token-example--font-weight-bold" style={{ fontSize: '1.802rem' }}>Abc</div>  |
+| `var(--ams-typography-heading-1-font-size)` |    23.4    | <div className="ams-theme--compact ams-docs-token-example--font-size ams-docs-token-example--font-weight-bold" style={{ fontSize: '1.4641rem' }}>Abc</div> |    25.6     | <div className="ams-theme--compact ams-docs-token-example--font-size ams-docs-token-example--font-weight-bold" style={{ fontSize: '1.6018rem' }}>Abc</div> |
+| `var(--ams-typography-heading-2-font-size)` |    21.3    | <div className="ams-theme--compact ams-docs-token-example--font-size ams-docs-token-example--font-weight-bold" style={{ fontSize: '1.331rem' }}>Abc</div>  |    22.8     | <div className="ams-theme--compact ams-docs-token-example--font-size ams-docs-token-example--font-weight-bold" style={{ fontSize: '1.4238rem' }}>Abc</div> |
+| `var(--ams-typography-heading-3-font-size)` |    19.4    | <div className="ams-theme--compact ams-docs-token-example--font-size ams-docs-token-example--font-weight-bold" style={{ fontSize: '1.21rem' }}>Abc</div>   |    20.3     | <div className="ams-theme--compact ams-docs-token-example--font-size ams-docs-token-example--font-weight-bold" style={{ fontSize: '1.2656rem' }}>Abc</div> |
+| `var(--ams-typography-heading-4-font-size)` |    17.6    | <div className="ams-theme--compact ams-docs-token-example--font-size ams-docs-token-example--font-weight-bold" style={{ fontSize: '1.1rem' }}>Abc</div>    |     18      | <div className="ams-theme--compact ams-docs-token-example--font-size ams-docs-token-example--font-weight-bold" style={{ fontSize: '1.125rem' }}>Abc</div>  |
+| `var(--ams-typography-heading-5-font-size)` |     16     | <div className="ams-theme--compact ams-docs-token-example--font-size ams-docs-token-example--font-weight-bold" style={{ fontSize: '1rem' }}>Abc</div>      |     16      | <div className="ams-theme--compact ams-docs-token-example--font-size ams-docs-token-example--font-weight-bold" style={{ fontSize: '1rem' }}>Abc</div>      |
+| `var(--ams-typography-heading-6-font-size)` |    14.6    | <div className="ams-theme--compact ams-docs-token-example--font-size ams-docs-token-example--font-weight-bold" style={{ fontSize: '0.8889rem' }}>Abc</div> |    14.2     | <div className="ams-theme--compact ams-docs-token-example--font-size ams-docs-token-example--font-weight-bold" style={{ fontSize: '0.9091rem' }}>Abc</div> |

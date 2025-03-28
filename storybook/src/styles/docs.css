@@ -181,8 +181,13 @@
   box-shadow: inset 0 0 0 0.0625rem rgb(0 0 0 / 12.5%);
 }
 
-[class*="ams-docs-token-example--font-size"] {
+[class*="ams-docs-token-example--font-"] {
   block-size: auto;
+  font-family: var(--ams-typography-font-family) !important;
+}
+
+.ams-docs-token-example--font-weight-bold {
+  font-weight: var(--ams-typography-body-text-bold-font-weight);
 }
 
 [class*="ams-docs-token-example--space"] {
