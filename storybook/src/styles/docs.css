@@ -81,12 +81,6 @@
 }
 
 .ams-docs-column,
-.ams-docs-grid,
-.ams-docs-row {
-  border-inline: thin solid var(--ams-docs-grey);
-}
-
-.ams-docs-column,
 .ams-docs-row {
   background: repeating-linear-gradient(
     135deg,
@@ -95,6 +89,7 @@
     white 0.5rem,
     white 1rem
   );
+  border: thin solid var(--ams-docs-grey);
 }
 
 .ams-docs-column {
@@ -108,6 +103,7 @@
 
 .ams-docs-grid {
   block-size: 100vh;
+  border-inline: thin solid var(--ams-docs-grey);
   inset-block: 0;
   inset-inline: 0;
   position: absolute;
