@@ -99,6 +99,10 @@
       "esbuild",
       "sharp",
       "style-dictionary"
-    ]
+    ],
+    "overrides": {
+      "vitest@>=3.0.0 <3.0.5": ">=3.0.5",
+      "prismjs@<1.30.0": ">=1.30.0"
+    }
   }
 }
