@@ -157,6 +157,10 @@
     inline-size: 8rem;
     min-block-size: 3rem;
   }
+
+  .ams-docs-grid + .ams-grid > & {
+    min-block-size: 3rem;
+  }
 }
 
 .ams-docs-item--highlight {
