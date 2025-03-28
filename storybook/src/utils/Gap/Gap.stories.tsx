@@ -9,7 +9,7 @@ import { Gap } from './Gap'
 import type { GapProps } from './Gap'
 
 const render = ({ size }: GapProps) => (
-  <div className={`ams-gap--${size}`}>
+  <div className={`ams-gap-${size}`}>
     <Paragraph>These paragraphs are separated by a gap.</Paragraph>
     <Paragraph>These paragraphs are separated by a gap.</Paragraph>
     <Paragraph>These paragraphs are separated by a gap.</Paragraph>
@@ -21,6 +21,14 @@ const meta = {
   component: Gap,
   args: {
     size: 'xs',
+  },
+  argTypes: {
+    size: {
+      control: {
+        labels: { xs: 'x-small', s: 'small', m: 'medium', l: 'large', xl: 'x-large' },
+        type: 'radio',
+      },
+    },
   },
 } satisfies Meta<typeof Gap>
 

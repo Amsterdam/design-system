@@ -28,24 +28,40 @@ const perfectionistCommonConfig = {
   customSizesGroups: {
     customGroups: [
       {
+        groupName: 'x-small',
+        selector: 'property',
+        elementNamePattern: '^(x-small|xs)$',
+      },
+      {
         groupName: 'small',
         selector: 'property',
-        elementNamePattern: '^(small|sm|narrow|phone|min|start)$',
+        elementNamePattern: '^(small|s|narrow|phone|min|start)$',
       },
       {
         groupName: 'medium',
         selector: 'property',
-        elementNamePattern: '^(medium|md|tablet)$',
+        elementNamePattern: '^(medium|m|tablet)$',
       },
       {
         groupName: 'large',
         selector: 'property',
-        elementNamePattern: '^(large|lg|wide|desktop|max|end)$',
+        elementNamePattern: '^(large|l|wide|desktop|max|end)$',
+      },
+      {
+        groupName: 'x-large',
+        selector: 'property',
+        elementNamePattern: '^(x-large|xl)$',
+      },
+      {
+        groupName: '2x-large',
+        selector: 'property',
+        elementNamePattern: '^(2x-large|2xl)$',
       },
     ],
-    groups: ['small', 'medium', 'large'],
+    groups: ['x-small', 'small', 'medium', 'large', 'x-large', '2x-large'],
     useConfigurationIf: {
-      allNamesMatchPattern: '^(small|sm|narrow|phone|min|start|medium|md|tablet|large|lg|wide|desktop|max|end)$',
+      allNamesMatchPattern:
+        '^(x-small|xs|small|s|narrow|phone|min|start|medium|m|tablet|large|l|wide|desktop|max|x-large|xl|2x-large|2xl|end)$',
     },
   },
   partition: {

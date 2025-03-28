@@ -6,11 +6,12 @@
 import clsx from 'clsx'
 import { forwardRef } from 'react'
 import type { HTMLAttributes, PropsWithChildren } from 'react'
+import { shortSize } from '../common/shortSize'
 import type { CrossAlign, MainAlign } from '../common/types'
 
-export const rowGapSizes = ['none', 'extra-small', 'small', 'large', 'extra-large'] as const
+export const rowGaps = ['none', 'x-small', 'small', 'large', 'x-large'] as const
 
-type RowGap = (typeof rowGapSizes)[number]
+type RowGap = (typeof rowGaps)[number]
 type RowTag = 'article' | 'div' | 'section'
 
 export type RowProps = {
@@ -49,7 +50,8 @@ export const Row = forwardRef(
         'ams-row',
         align && `ams-row--align-${align}`,
         alignVertical && `ams-row--align-vertical-${alignVertical}`,
-        gap && `ams-row--gap-${gap}`,
+        gap === 'none' && 'ams-row--gap-none',
+        gap && gap !== 'none' && `ams-gap-${shortSize[gap]}`,
         wrap && 'ams-row--wrap',
         className,
       )}

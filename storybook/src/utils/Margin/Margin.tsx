@@ -7,7 +7,7 @@ import type { HTMLAttributes, PropsWithChildren } from 'react'
 
 export type MarginProps = {
   /** The amount of space below the element. */
-  size: 'xs' | 'sm' | 'md' | 'lg' | 'xl'
+  size: 'xs' | 's' | 'm' | 'l' | 'xl'
 } & PropsWithChildren<HTMLAttributes<HTMLSpanElement>>
 
 /** Mock component to render examples in Storybook. Not for reuse. */
