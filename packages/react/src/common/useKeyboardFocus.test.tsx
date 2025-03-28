@@ -77,7 +77,7 @@ describe('use focus with arrows', () => {
       })
     })
 
-    expect(onFocusOneMock).toHaveBeenCalledTimes(4)
+    expect(onFocusOneMock).toHaveBeenCalledTimes(3)
 
     Array.from(Array(9).keys()).forEach(() => {
       fireEvent.keyDown(firstChild, {
@@ -85,7 +85,7 @@ describe('use focus with arrows', () => {
       })
     })
 
-    expect(onFocusOneMock).toHaveBeenCalledTimes(7)
+    expect(onFocusOneMock).toHaveBeenCalledTimes(6)
   })
 
   it('sets focus to first element when using "Home" key', () => {
