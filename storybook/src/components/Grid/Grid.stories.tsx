@@ -10,6 +10,14 @@ import { Meta, StoryObj } from '@storybook/react'
 const meta = {
   title: 'Components/Layout/Grid',
   component: Grid,
+  args: {
+    style: { minBlockSize: '7rem' },
+  },
+  argTypes: {
+    style: {
+      table: { display: false },
+    },
+  },
   parameters: {
     layout: 'fullscreen',
   },
