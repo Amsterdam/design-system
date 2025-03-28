@@ -1,7 +1,13 @@
 {
   "ams": {
     "column": {
-      "gap": { "value": "{ams.space.m}" }
+      "gap": {
+        "x-small": { "value": "{ams.space.xs}" },
+        "small": { "value": "{ams.space.s}" },
+        "medium": { "value": "{ams.space.m}" },
+        "large": { "value": "{ams.space.l}" },
+        "x-large": { "value": "{ams.space.xl}" }
+      }
     }
   }
 }

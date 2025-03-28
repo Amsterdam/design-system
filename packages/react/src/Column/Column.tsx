@@ -6,7 +6,6 @@
 import clsx from 'clsx'
 import { forwardRef } from 'react'
 import type { HTMLAttributes, PropsWithChildren } from 'react'
-import { shortSize } from '../common/shortSize'
 import type { CrossAlignForColumn, MainAlign } from '../common/types'
 
 export const columnGaps = ['none', 'x-small', 'small', 'large', 'x-large'] as const
@@ -45,8 +44,7 @@ export const Column = forwardRef(
         'ams-column',
         align && `ams-column--align-${align}`,
         alignHorizontal && `ams-column--align-horizontal-${alignHorizontal}`,
-        gap === 'none' && 'ams-column--gap-none',
-        gap && gap !== 'none' && `ams-gap-${shortSize[gap]}`,
+        gap && `ams-column--gap-${gap}`,
         className,
       )}
       ref={ref}
