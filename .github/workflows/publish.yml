@@ -61,8 +61,10 @@ jobs:
         uses: JamesIves/github-pages-deploy-action@6c2d9db40f9296374acc17b90404b6e8864128c8 # v4.7.3
         with:
           branch: gh-pages
-          folder: dist/storybook
+          folder: storybook/dist
           # feature branch directories are prefixed with demo-*
           # these are excluded from this action's default clean
           clean-exclude: demo-*
-        if: ${{ steps.release.outputs.releases_created == 'true' }}
+        # Temporarily deploy Storybook to GitHub Pages on all pushes to main
+        # Uncomment the following line after the Storybook deploy is done
+        # if: ${{ steps.release.outputs.releases_created == 'true' }}
