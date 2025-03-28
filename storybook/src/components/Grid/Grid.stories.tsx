@@ -11,12 +11,8 @@ const meta = {
   title: 'Components/Layout/Grid',
   component: Grid,
   args: {
-    style: { minBlockSize: '7rem' },
-  },
-  argTypes: {
-    style: {
-      table: { display: false },
-    },
+    gapVertical: undefined /* Keeps this prop at the top of the Controls table. */,
+    paddingVertical: 'medium',
   },
   parameters: {
     layout: 'fullscreen',
@@ -27,10 +23,6 @@ export default meta
 
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 const gridMeta = {
-  args: {
-    gapVertical: undefined /* Keeps this prop at the top of the Controls table. */,
-    paddingVertical: 'medium',
-  },
   argTypes: {
     className: {
       table: { disable: true },
