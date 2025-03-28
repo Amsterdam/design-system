@@ -21,10 +21,3 @@ type Story = StoryObj<typeof meta>
 export const Default: Story = {
   args: { children: <div className="ams-docs-item" /> },
 }
-
-export const ExtraWide: Story = {
-  args: {
-    children: <div className="ams-docs-item" />,
-    maxWidth: 'x-wide',
-  },
-}
