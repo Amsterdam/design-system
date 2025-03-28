@@ -9,6 +9,14 @@ import { Meta, StoryObj } from '@storybook/react'
 const meta = {
   title: 'Components/Layout/Screen',
   component: Screen,
+  args: {
+    className: 'ams-docs-screen',
+  },
+  argTypes: {
+    className: {
+      table: { disable: true },
+    },
+  },
   parameters: {
     layout: 'fullscreen',
   },

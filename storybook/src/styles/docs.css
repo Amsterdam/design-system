@@ -158,6 +158,10 @@
     min-block-size: 3rem;
   }
 
+  .ams-docs-screen > & {
+    block-size: 3rem;
+  }
+
   .ams-docs-grid + .ams-grid > & {
     min-block-size: 3rem;
   }
