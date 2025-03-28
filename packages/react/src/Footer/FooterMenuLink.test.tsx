@@ -3,7 +3,7 @@ import { createRef } from 'react'
 import { Footer } from './Footer'
 import '@testing-library/jest-dom'
 
-describe('Page menu link', () => {
+describe('Footer Menu Link', () => {
   it('renders with href attribute', () => {
     render(<Footer.MenuLink href="#">Link</Footer.MenuLink>)
 
