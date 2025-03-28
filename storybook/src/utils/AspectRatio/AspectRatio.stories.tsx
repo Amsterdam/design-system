@@ -22,7 +22,7 @@ const meta = {
     },
   },
   render: ({ aspectRatio }) => (
-    <div className="ams-docs-column ams-docs-aspect-ratio">
+    <div className="ams-docs-container" style={{ maxInlineSize: '24rem' }}>
       <div className={clsx('ams-docs-item', generateAspectRatioClass(aspectRatio))} />
     </div>
   ),
