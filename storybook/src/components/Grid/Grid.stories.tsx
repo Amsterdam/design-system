@@ -14,15 +14,6 @@ const meta = {
     gapVertical: undefined /* Keeps this prop at the top of the Controls table. */,
     paddingVertical: 'medium',
   },
-  parameters: {
-    layout: 'fullscreen',
-  },
-} satisfies Meta<typeof Grid>
-
-export default meta
-
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
-const gridMeta = {
   argTypes: {
     className: {
       table: { disable: true },
@@ -56,7 +47,12 @@ const gridMeta = {
       options: [undefined, 'small', 'medium', 'large'],
     },
   },
-}
+  parameters: {
+    layout: 'fullscreen',
+  },
+} satisfies Meta<typeof Grid>
+
+export default meta
 
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 const cellMeta = {
@@ -71,7 +67,7 @@ const cellMeta = {
   },
 } satisfies Meta<typeof Grid.Cell>
 
-type Story = StoryObj<typeof gridMeta>
+type Story = StoryObj<typeof meta>
 type CellStory = StoryObj<typeof cellMeta>
 
 const BackgroundGrid = () => (
