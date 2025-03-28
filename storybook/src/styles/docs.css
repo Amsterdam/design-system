@@ -97,10 +97,6 @@
   min-block-size: 16rem;
 }
 
-.ams-docs-row {
-  min-block-size: 6rem;
-}
-
 .ams-docs-grid {
   block-size: 100vh;
   border-inline: thin solid var(--ams-docs-grey);
@@ -139,16 +135,12 @@
 
 .ams-docs-item {
   background-color: var(--ams-docs-pink);
+  block-size: 3rem;
   border: thin dashed var(--ams-docs-grey);
-  font-family: "Amsterdam Sans", sans-serif;
-  font-size: var(--ams-paragraph-small-font-size);
-  line-height: var(--ams-paragraph-small-line-height);
-  padding-block: 1.5rem;
-  text-align: center;
 
   .ams-docs-row > & {
-    flex-basis: 8rem;
-    padding-inline: 1.5rem;
+    inline-size: 8rem;
+    min-block-size: 3rem;
   }
 
   .ams-docs-column > & {

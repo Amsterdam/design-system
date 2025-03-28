@@ -23,7 +23,7 @@ const meta = {
   },
   render: ({ aspectRatio }) => (
     <div className="ams-docs-column ams-docs-aspect-ratio">
-      <div className={clsx('ams-docs-item', generateAspectRatioClass(aspectRatio))}></div>
+      <div className={clsx('ams-docs-item', generateAspectRatioClass(aspectRatio))} />
     </div>
   ),
 } satisfies Meta<typeof AspectRatio>
