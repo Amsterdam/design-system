@@ -1,7 +1,6 @@
 import { render, screen } from '@testing-library/react'
 import { createRef } from 'react'
 import { Row, rowGaps } from './Row'
-import { shortSize } from '../common/shortSize'
 import { crossAlignOptions, mainAlignOptions } from '../common/types'
 import '@testing-library/jest-dom'
 
@@ -24,16 +23,12 @@ describe('Row', () => {
   })
 
   rowGaps.map((gap) =>
-    it('renders with ‘${gap}’ gap', () => {
+    it(`renders with ‘${gap}’ gap`, () => {
       const { container } = render(<Row gap={gap} />)
 
       const component = container.querySelector(':only-child')
 
-      if (gap === 'none') {
-        expect(component).toHaveClass(`ams-row--gap-none`)
-      } else {
-        expect(component).toHaveClass(`ams-gap-${shortSize[gap]}`)
-      }
+      expect(component).toHaveClass(`ams-row--gap-${gap}`)
     }),
   )
 
