@@ -8,10 +8,8 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 ### ⚠ BREAKING CHANGES
 
-* **Column, Row:** Do not use utility classes ([#1951](https://github.com/Amsterdam/design-system/issues/1951))
-* Shorten size labels in prop values for Row and Column, space tokens and utility classes ([#1940](https://github.com/Amsterdam/design-system/issues/1940))
+* Shorten size labels in prop values for Row and Column, tokens and utility classes ([#1940](https://github.com/Amsterdam/design-system/issues/1940), [#1951](https://github.com/Amsterdam/design-system/issues/1951))
 * Shorten size labels in border tokens ([#1941](https://github.com/Amsterdam/design-system/issues/1941))
-* **Description List:** Rename values for terms column widths ([#1942](https://github.com/Amsterdam/design-system/issues/1942))
 * Consolidate Grid Space and Component Space into one set of spacing tokens ([#1910](https://github.com/Amsterdam/design-system/issues/1910))
 * **Tabs:** Remove unnecessary token, reuse color value ([#1932](https://github.com/Amsterdam/design-system/issues/1932))
 * Update aspect ratio tokens and CSS utility classes ([#1913](https://github.com/Amsterdam/design-system/issues/1913))
