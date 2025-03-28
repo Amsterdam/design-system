@@ -70,10 +70,6 @@ describe('use focus with arrows', () => {
     const { container } = render(<Component />)
 
     const firstChild = container.firstChild as HTMLElement
-    const buttons = container.querySelectorAll('button')
-
-    // Manually set focus to the first button
-    buttons[0].focus()
 
     Array.from(Array(9).keys()).forEach(() => {
       fireEvent.keyDown(firstChild, {
