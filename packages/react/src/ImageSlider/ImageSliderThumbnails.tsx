@@ -46,7 +46,7 @@ export const ImageSliderThumbnails = forwardRef(
 
     const renderThumbnails = useMemo(
       () =>
-        thumbnails.map(({ alt, aspectRatio, src }, index) => (
+        thumbnails.map(({ alt, aspectRatio, src, type }, index) => (
           <button
             aria-label={`${imageLabel} ${index + 1}: ${alt}`}
             aria-posinset={index + 1}
@@ -62,6 +62,7 @@ export const ImageSliderThumbnails = forwardRef(
             role="tab"
             style={{ backgroundImage: `url(${src})` }}
             tabIndex={currentSlideId === index ? 0 : -1}
+            type={type || 'button'}
           />
         )),
       [currentSlideId, goToSlideId, imageLabel, thumbnails],

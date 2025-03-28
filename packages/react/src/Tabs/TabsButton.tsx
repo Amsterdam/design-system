@@ -14,7 +14,10 @@ export type TabsButtonProps = {
 } & PropsWithChildren<ButtonHTMLAttributes<HTMLButtonElement>>
 
 export const TabsButton = forwardRef(
-  ({ children, className, onClick, tab, ...restProps }: TabsButtonProps, ref: ForwardedRef<HTMLButtonElement>) => {
+  (
+    { children, className, onClick, tab, type, ...restProps }: TabsButtonProps,
+    ref: ForwardedRef<HTMLButtonElement>,
+  ) => {
     const { activeTabId, tabsId, updateTab } = useContext(TabsContext)
 
     const handleClick = (event: MouseEvent<HTMLButtonElement>) => {
@@ -35,6 +38,7 @@ export const TabsButton = forwardRef(
         ref={ref}
         role="tab"
         tabIndex={activeTabId === tab ? 0 : -1}
+        type={type || 'button'}
       >
         <span aria-hidden="true" className="ams-tabs__button-label-hidden">
           {children}
