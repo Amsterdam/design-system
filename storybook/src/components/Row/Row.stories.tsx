@@ -84,7 +84,14 @@ export const AlignOpposingTexts: Story = {
   args: {
     align: 'between',
     alignVertical: 'baseline',
-    children: [<Heading level={3}>An example heading</Heading>, <Link href="#">An example link</Link>],
+    children: [
+      <Heading key={1} level={3}>
+        An example heading
+      </Heading>,
+      <Link href="#" key={2}>
+        An example link
+      </Link>,
+    ],
     className: undefined,
     wrap: true,
   },

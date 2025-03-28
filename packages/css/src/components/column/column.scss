@@ -6,7 +6,18 @@
 .ams-column {
   display: flex;
   flex-direction: column;
-  gap: var(--ams-column-gap);
+  gap: var(--ams-column-gap-medium);
+}
+
+@each $size in ("x-small", "small", "large", "x-large") {
+  .ams-column--gap-#{$size} {
+    /* stylelint-disable-next-line csstools/value-no-unknown-custom-properties */
+    gap: var(--ams-column-gap-#{$size});
+  }
+}
+
+.ams-column--gap-none {
+  gap: 0;
 }
 
 .ams-column--align-around {
@@ -39,8 +50,4 @@
 
 .ams-column--align-horizontal-start {
   align-items: flex-start;
-}
-
-.ams-column--gap-none {
-  gap: 0;
 }
