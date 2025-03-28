@@ -8,16 +8,12 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 ### ⚠ BREAKING CHANGES
 
-* **Column, Row:** Do not use utility classes ([#1951](https://github.com/Amsterdam/design-system/issues/1951))
 * Shorten size labels in prop values for Row and Column, space tokens and utility classes ([#1940](https://github.com/Amsterdam/design-system/issues/1940))
 * **Description List:** Rename values for terms column widths ([#1942](https://github.com/Amsterdam/design-system/issues/1942))
-* **Aspect Ratio, Gap, Margin:** Use single dash in utility classes ([#1938](https://github.com/Amsterdam/design-system/issues/1938))
 * **Tabs:** Convert `tab` prop to string ([#1923](https://github.com/Amsterdam/design-system/issues/1923))
 * Update aspect ratio tokens and CSS utility classes ([#1913](https://github.com/Amsterdam/design-system/issues/1913))
-* **Header:** Add responsive version of Amsterdam Logo, remove Heading level 1 ([#1880](https://github.com/Amsterdam/design-system/issues/1880))
 * **Tabs:** Rename onChange to onTabChange ([#1908](https://github.com/Amsterdam/design-system/issues/1908))
-* **Heading:** Remove ‘level’ from class name ([#1904](https://github.com/Amsterdam/design-system/issues/1904))
-* Split typography tokens into ‘body text’ and ‘heading’ groups ([#1890](https://github.com/Amsterdam/design-system/issues/1890))
+* **Icon:** Rename values for size prop ([#1890](https://github.com/Amsterdam/design-system/issues/1890))
 * **Footer:** add FooterMenu component to replace PageMenu in Footer ([#1871](https://github.com/Amsterdam/design-system/issues/1871))
 * **Avatar:** Use updated color names for azure, lime and green  ([#1867](https://github.com/Amsterdam/design-system/issues/1867))
 * **Badge:** Use updated color names for azure and lime ([#1866](https://github.com/Amsterdam/design-system/issues/1866))
