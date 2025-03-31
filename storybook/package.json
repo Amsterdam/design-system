@@ -53,6 +53,6 @@
     "remark-gfm": "4.0.1",
     "require-from-string": "2.0.2",
     "storybook": "8.6.8",
-    "vite": "6.2.3"
+    "vite": "6.2.4"
   }
 }
