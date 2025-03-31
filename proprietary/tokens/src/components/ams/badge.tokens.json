@@ -10,7 +10,7 @@
       "padding-inline": { "value": "{ams.space.xs}" },
       "azure": {
         "background-color": { "value": "{ams.color.feedback.info}" },
-        "color": { "value": "{ams.color.text.default}" }
+        "color": { "value": "{ams.color.text.inverse}" }
       },
       "lime": {
         "background-color": { "value": "{ams.color.highlight.lime}" },
