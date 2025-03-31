@@ -3,6 +3,7 @@
 import tokens from "@amsterdam/design-system-tokens/dist/index.json";
 import { Meta } from "@storybook/blocks";
 import { ColorPalette } from "../../docs/components/ColorPalette";
+import { InlineColorSample } from "../../styles/InlineColorSample";
 
 <Meta title="Brand/Design Tokens/Colour" />
 
@@ -145,7 +146,7 @@ Obviously, these colours are not always effective on other backgrounds.
 
 ### Light background
 
-We consider **lime**, **orange** and **yellow** to be ‘light’ backgrounds.
+We consider <InlineColorSample color="lime" /> **lime**, <InlineColorSample color="orange" /> **orange** and <InlineColorSample color="yellow" /> **yellow** to be ‘light’ backgrounds.
 Black text still provides enough contrast here.
 Links on these backgrounds are black as well – this is the **‘contrast’** interactive colour.
 The underline and cursor still distinguish links from static text.
@@ -155,7 +156,7 @@ The underline and cursor still distinguish links from static text.
 
 ### Dark background
 
-**Azure**, **blue**, **green**, **magenta**, **purple** and **red** backgrounds are ‘dark’.
+An <InlineColorSample color="azure" /> **azure**, <InlineColorSample color="blue" /> **blue**, <InlineColorSample color="green" /> **green**, <InlineColorSample color="magenta" /> **magenta**, <InlineColorSample color="purple" /> **purple** or <InlineColorSample color="red" /> **red** background is ‘dark’.
 On these, both text and links are white – the **‘inverse’** text and interactive colour.
 
 - Text: `var(--ams-color-text-inverse)`
