@@ -131,3 +131,32 @@ This colour is used to separate components or space.
 | CSS variable                 | Colour     | Example                                                                                                     |
 | :--------------------------- | :--------- | :---------------------------------------------------------------------------------------------------------- |
 | `var(--ams-color-separator)` | neutral-20 | <div className="ams-docs-token-example--color" style={{ backgroundColor: 'var(--ams-color-separator)' }} /> |
+
+## Pairing foreground with background colours
+
+### White background
+
+Most of the background of our pages is white.
+All text is black here, and all kinds of links are blue.
+Obviously, these colours are not always effective on other backgrounds.
+
+- Text: `var(--ams-color-text)`
+- Links: `var(--ams-color-interactive)`
+
+### Light background
+
+We consider **lime**, **orange** and **yellow** to be ‘light’ backgrounds.
+Black text still provides enough contrast here.
+Links on these backgrounds are black as well – this is the **‘contrast’** interactive colour.
+The underline and cursor still distinguish links from static text.
+
+- Text: `var(--ams-color-text)`
+- Links: `var(--ams-color-interactive-contrast)`
+
+### Dark background
+
+**Azure**, **blue**, **green**, **magenta**, **purple** and **red** backgrounds are ‘dark’.
+On these, both text and links are white – the **‘inverse’** text and interactive colour.
+
+- Text: `var(--ams-color-text-inverse)`
+- Links: `var(--ams-color-interactive-inverse)`
