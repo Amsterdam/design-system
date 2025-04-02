@@ -14,7 +14,7 @@ export type PageFooterProps = PropsWithChildren<HTMLAttributes<HTMLElement>>
 
 const PageFooterRoot = forwardRef(
   ({ children, className, ...restProps }: PageFooterProps, ref: ForwardedRef<HTMLElement>) => (
-    <footer {...restProps} className={clsx('ams-footer', className)} ref={ref}>
+    <footer {...restProps} className={clsx('ams-page-footer', className)} ref={ref}>
       {children}
     </footer>
   ),

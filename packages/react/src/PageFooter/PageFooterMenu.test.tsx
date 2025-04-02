@@ -28,7 +28,7 @@ describe('Page Footer Menu', () => {
 
     const component = screen.getByRole('list')
 
-    expect(component).toHaveClass('ams-footer__menu')
+    expect(component).toHaveClass('ams-page-footer__menu')
   })
 
   it('is able to pass a React ref', () => {
@@ -52,6 +52,6 @@ describe('Page Footer Menu', () => {
 
     const component = screen.getByRole('list')
 
-    expect(component).toHaveClass('ams-footer__menu intro')
+    expect(component).toHaveClass('ams-page-footer__menu intro')
   })
 })

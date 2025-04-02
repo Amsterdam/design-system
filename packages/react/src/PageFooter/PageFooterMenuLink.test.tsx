@@ -18,7 +18,7 @@ describe('Page Footer Menu Link', () => {
 
     const component = screen.getByRole('link')
 
-    expect(component).toHaveClass('ams-footer__menu-link')
+    expect(component).toHaveClass('ams-page-footer__menu-link')
   })
 
   it('renders an additional class name', () => {
@@ -30,7 +30,7 @@ describe('Page Footer Menu Link', () => {
 
     const component = screen.getByRole('link')
 
-    expect(component).toHaveClass('ams-footer__menu-link extra')
+    expect(component).toHaveClass('ams-page-footer__menu-link extra')
   })
 
   it('supports ForwardRef in React', () => {

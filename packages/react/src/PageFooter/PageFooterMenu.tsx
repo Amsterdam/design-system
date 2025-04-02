@@ -11,7 +11,7 @@ export type PageFooterMenuProps = PropsWithChildren<HTMLAttributes<HTMLUListElem
 
 export const PageFooterMenu = forwardRef(
   ({ children, className, ...restProps }: PageFooterMenuProps, ref: ForwardedRef<HTMLUListElement>) => (
-    <ul {...restProps} className={clsx('ams-footer__menu', className)} ref={ref}>
+    <ul {...restProps} className={clsx('ams-page-footer__menu', className)} ref={ref}>
       {children}
     </ul>
   ),

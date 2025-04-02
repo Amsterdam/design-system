@@ -11,7 +11,7 @@ export type PageFooterSpotlightProps = PropsWithChildren<HTMLAttributes<HTMLDivE
 
 export const PageFooterSpotlight = forwardRef(
   ({ children, className, ...restProps }: PageFooterSpotlightProps, ref: ForwardedRef<HTMLDivElement>) => (
-    <div {...restProps} className={clsx('ams-footer__spotlight', className)} ref={ref}>
+    <div {...restProps} className={clsx('ams-page-footer__spotlight', className)} ref={ref}>
       {children}
     </div>
   ),

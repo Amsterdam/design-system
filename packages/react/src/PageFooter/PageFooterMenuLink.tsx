@@ -11,8 +11,8 @@ export type PageFooterMenuLinkProps = PropsWithChildren<AnchorHTMLAttributes<HTM
 
 export const PageFooterMenuLink = forwardRef(
   ({ children, className, ...restProps }: PageFooterMenuLinkProps, ref: ForwardedRef<HTMLAnchorElement>) => (
-    <li className="ams-footer__menu-item">
-      <a {...restProps} className={clsx('ams-footer__menu-link', className)} ref={ref}>
+    <li className="ams-page-footer__menu-item">
+      <a {...restProps} className={clsx('ams-page-footer__menu-link', className)} ref={ref}>
         {children}
       </a>
     </li>

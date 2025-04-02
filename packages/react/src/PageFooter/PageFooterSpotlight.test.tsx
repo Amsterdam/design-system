@@ -18,7 +18,7 @@ describe('Page Footer Spotlight', () => {
 
     const component = container.querySelector(':only-child')
 
-    expect(component).toHaveClass('ams-footer__spotlight')
+    expect(component).toHaveClass('ams-page-footer__spotlight')
   })
 
   it('renders an additional class name', () => {
@@ -26,7 +26,7 @@ describe('Page Footer Spotlight', () => {
 
     const component = container.querySelector(':only-child')
 
-    expect(component).toHaveClass('ams-footer__spotlight extra')
+    expect(component).toHaveClass('ams-page-footer__spotlight extra')
   })
 
   it('supports ForwardRef in React', () => {
