@@ -3,7 +3,7 @@
  * Copyright Gemeente Amsterdam
  */
 
-export const ariaRoleForTag: Record<string, string> = {
+export const ariaRoleForTag = {
   article: 'article',
   aside: 'complementary',
   footer: 'contentinfo',
