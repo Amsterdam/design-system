@@ -1,17 +1,17 @@
 import { render, screen } from '@testing-library/react'
 import { createRef } from 'react'
-import { Footer } from './Footer'
+import { PageFooter } from './PageFooter'
 import '@testing-library/jest-dom'
 
-describe('Footer menu', () => {
+describe('Page Footer Menu', () => {
   it('renders a footer menu with children', () => {
     render(
-      <Footer.Menu>
-        <Footer.MenuLink href="#" lang="en">
+      <PageFooter.Menu>
+        <PageFooter.MenuLink href="#" lang="en">
           English
-        </Footer.MenuLink>
-        <Footer.MenuLink href="#">Mijn Amsterdam</Footer.MenuLink>
-      </Footer.Menu>,
+        </PageFooter.MenuLink>
+        <PageFooter.MenuLink href="#">Mijn Amsterdam</PageFooter.MenuLink>
+      </PageFooter.Menu>,
     )
 
     const component = screen.getByRole('list')
@@ -24,7 +24,7 @@ describe('Footer menu', () => {
   })
 
   it('renders a design system BEM class name', () => {
-    render(<Footer.Menu />)
+    render(<PageFooter.Menu />)
 
     const component = screen.getByRole('list')
 
@@ -35,11 +35,11 @@ describe('Footer menu', () => {
     const ref = createRef<HTMLUListElement>()
 
     render(
-      <Footer.Menu ref={ref}>
-        <Footer.MenuLink href="#" lang="en">
+      <PageFooter.Menu ref={ref}>
+        <PageFooter.MenuLink href="#" lang="en">
           English
-        </Footer.MenuLink>
-      </Footer.Menu>,
+        </PageFooter.MenuLink>
+      </PageFooter.Menu>,
     )
 
     const component = screen.getByRole('list')
@@ -48,7 +48,7 @@ describe('Footer menu', () => {
   })
 
   it('renders an additional class name', () => {
-    render(<Footer.Menu className="intro" />)
+    render(<PageFooter.Menu className="intro" />)
 
     const component = screen.getByRole('list')
 

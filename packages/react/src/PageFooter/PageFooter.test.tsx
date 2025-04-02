@@ -1,11 +1,11 @@
 import { render, screen } from '@testing-library/react'
 import { createRef } from 'react'
-import { Footer } from './Footer'
+import { PageFooter } from './PageFooter'
 import '@testing-library/jest-dom'
 
-describe('Footer', () => {
+describe('Page Footer', () => {
   it('renders an HTML footer element', () => {
-    render(<Footer />)
+    render(<PageFooter />)
 
     const component = screen.getByRole('contentinfo')
 
@@ -14,7 +14,7 @@ describe('Footer', () => {
   })
 
   it('renders a design system BEM class name', () => {
-    render(<Footer />)
+    render(<PageFooter />)
 
     const component = screen.getByRole('contentinfo')
 
@@ -22,7 +22,7 @@ describe('Footer', () => {
   })
 
   it('renders an additional class name', () => {
-    render(<Footer className="extra" />)
+    render(<PageFooter className="extra" />)
 
     const component = screen.getByRole('contentinfo')
 
@@ -32,7 +32,7 @@ describe('Footer', () => {
   it('supports ForwardRef in React', () => {
     const ref = createRef<HTMLElement>()
 
-    render(<Footer ref={ref} />)
+    render(<PageFooter ref={ref} />)
 
     const component = screen.getByRole('contentinfo')
 

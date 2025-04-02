@@ -7,10 +7,10 @@ import clsx from 'clsx'
 import { forwardRef } from 'react'
 import type { AnchorHTMLAttributes, ForwardedRef, PropsWithChildren } from 'react'
 
-export type FooterMenuLinkProps = PropsWithChildren<AnchorHTMLAttributes<HTMLAnchorElement>>
+export type PageFooterMenuLinkProps = PropsWithChildren<AnchorHTMLAttributes<HTMLAnchorElement>>
 
-export const FooterMenuLink = forwardRef(
-  ({ children, className, ...restProps }: FooterMenuLinkProps, ref: ForwardedRef<HTMLAnchorElement>) => (
+export const PageFooterMenuLink = forwardRef(
+  ({ children, className, ...restProps }: PageFooterMenuLinkProps, ref: ForwardedRef<HTMLAnchorElement>) => (
     <li className="ams-footer__menu-item">
       <a {...restProps} className={clsx('ams-footer__menu-link', className)} ref={ref}>
         {children}
@@ -19,4 +19,4 @@ export const FooterMenuLink = forwardRef(
   ),
 )
 
-FooterMenuLink.displayName = 'Footer.MenuLink'
+PageFooterMenuLink.displayName = 'PageFooter.MenuLink'
