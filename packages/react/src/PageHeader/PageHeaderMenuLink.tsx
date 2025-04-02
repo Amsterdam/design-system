@@ -7,8 +7,8 @@ export type PageHeaderMenuLinkProps = {
 
 export const PageHeaderMenuLink = forwardRef(
   ({ children, className, fixed, ...restProps }: PageHeaderMenuLinkProps, ref: ForwardedRef<HTMLAnchorElement>) => (
-    <li className={clsx('ams-header__menu-item', fixed && 'ams-header__menu-item--fixed')}>
-      <a {...restProps} className={clsx('ams-header__menu-link', className)} ref={ref}>
+    <li className={clsx('ams-page-header__menu-item', fixed && 'ams-page-header__menu-item--fixed')}>
+      <a {...restProps} className={clsx('ams-page-header__menu-link', className)} ref={ref}>
         {children}
       </a>
     </li>

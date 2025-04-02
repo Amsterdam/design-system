@@ -16,11 +16,11 @@ import useIsAfterBreakpoint from '../common/useIsAfterBreakpoint'
 
 const LogoLinkContent = ({ brandName, logoBrand }: { brandName?: string; logoBrand: LogoBrand }) => (
   <>
-    <span className={clsx(logoBrand === 'amsterdam' && Boolean(brandName) && 'ams-header__logo-container')}>
+    <span className={clsx(logoBrand === 'amsterdam' && Boolean(brandName) && 'ams-page-header__logo-container')}>
       <Logo brand={logoBrand} />
     </span>
     {brandName && (
-      <span aria-hidden="true" className="ams-header__brand-name">
+      <span aria-hidden="true" className="ams-page-header__brand-name">
         {brandName}
       </span>
     )}
@@ -76,44 +76,46 @@ const PageHeaderRoot = forwardRef(
     }, [isWideWindow])
 
     return (
-      <header {...restProps} className={clsx('ams-header', className)} ref={ref}>
-        <a className="ams-header__logo-link" href={logoLink}>
+      <header {...restProps} className={clsx('ams-page-header', className)} ref={ref}>
+        <a className="ams-page-header__logo-link" href={logoLink}>
           <span className="ams-visually-hidden">{logoLinkTitle}</span>
           <LogoLinkContent brandName={brandName} logoBrand={logoBrand} />
         </a>
         {(hasMegaMenu || menuItems) && (
-          <nav aria-labelledby="primary-navigation" className="ams-header__navigation">
+          <nav aria-labelledby="primary-navigation" className="ams-page-header__navigation">
             <h2 className="ams-visually-hidden" id="primary-navigation">
               {navigationLabel}
             </h2>
 
             {/* The logo link section is recreated here, to make sure the header menu wraps at the right spot */}
-            <div className="ams-header__logo-link ams-header__logo-link--hidden">
+            <div className="ams-page-header__logo-link ams-page-header__logo-link--hidden">
               <LogoLinkContent brandName={brandName} logoBrand={logoBrand} />
             </div>
 
-            <ul className="ams-header__menu">
+            <ul className="ams-page-header__menu">
               {menuItems}
               {hasMegaMenu && (
                 <li
-                  className={clsx(noMenuButtonOnWideWindow && 'ams-header__mega-menu-button-item--hide-on-wide-window')}
+                  className={clsx(
+                    noMenuButtonOnWideWindow && 'ams-page-header__mega-menu-button-item--hide-on-wide-window',
+                  )}
                 >
                   <button
                     {...restProps}
                     aria-controls="ams-mega-menu"
                     aria-expanded={open}
-                    className="ams-header__mega-menu-button"
+                    className="ams-page-header__mega-menu-button"
                     onClick={() => setOpen(!open)}
                     type="button"
                   >
-                    <span className="ams-header__mega-menu-button-label">{menuButtonText}</span>
-                    <span aria-hidden="true" className="ams-header__mega-menu-button-hidden-label">
+                    <span className="ams-page-header__mega-menu-button-label">{menuButtonText}</span>
+                    <span aria-hidden="true" className="ams-page-header__mega-menu-button-hidden-label">
                       {menuButtonText}
                     </span>
                     <Icon
                       svg={
                         <PageHeaderMenuIcon
-                          className={clsx('ams-header__menu-icon', open && 'ams-header__menu-icon--open')}
+                          className={clsx('ams-page-header__menu-icon', open && 'ams-page-header__menu-icon--open')}
                         />
                       }
                     />
@@ -124,7 +126,7 @@ const PageHeaderRoot = forwardRef(
 
             {hasMegaMenu && (
               <div
-                className={clsx('ams-header__mega-menu', !open && 'ams-header__mega-menu--closed')}
+                className={clsx('ams-page-header__mega-menu', !open && 'ams-page-header__mega-menu--closed')}
                 id="ams-mega-menu"
               >
                 {children}

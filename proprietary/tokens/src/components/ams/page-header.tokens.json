@@ -1,6 +1,6 @@
 {
   "ams": {
-    "header": {
+    "page-header": {
       "font-family": { "value": "{ams.typography.font-family}" },
       "padding-block": { "value": "{ams.space.l}" },
       "padding-inline": {

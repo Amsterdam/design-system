@@ -26,7 +26,7 @@ describe('Page Header Grid Cell Narrow Window Only', () => {
 
     const component = container.querySelector(':only-child')
 
-    expect(component).toHaveClass('ams-header__grid-cell-narrow-window-only')
+    expect(component).toHaveClass('ams-page-header__grid-cell-narrow-window-only')
   })
 
   it('renders an additional class name', () => {
@@ -34,7 +34,7 @@ describe('Page Header Grid Cell Narrow Window Only', () => {
 
     const component = container.querySelector(':only-child')
 
-    expect(component).toHaveClass('ams-header__grid-cell-narrow-window-only extra')
+    expect(component).toHaveClass('ams-page-header__grid-cell-narrow-window-only extra')
   })
 
   it('supports ForwardRef in React', () => {

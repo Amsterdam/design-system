@@ -20,7 +20,7 @@ describe('Page Header', () => {
 
     const component = screen.getByRole('banner')
 
-    expect(component).toHaveClass('ams-header')
+    expect(component).toHaveClass('ams-page-header')
   })
 
   it('renders an additional class name', () => {
@@ -29,7 +29,7 @@ describe('Page Header', () => {
     const component = screen.getByRole('banner')
 
     expect(component).toHaveClass('extra')
-    expect(component).toHaveClass('ams-header')
+    expect(component).toHaveClass('ams-page-header')
   })
 
   it('supports ForwardRef in React', () => {
@@ -47,7 +47,7 @@ describe('Page Header', () => {
 
     const component = screen.getByRole('link')
 
-    expect(component).toHaveClass('ams-header__logo-link')
+    expect(component).toHaveClass('ams-page-header__logo-link')
   })
 
   it('renders a different brand logo', () => {
@@ -85,7 +85,7 @@ describe('Page Header', () => {
   it('renders the correct class for the responsive logo', () => {
     const { container } = render(<PageHeader brandName="Application name" />)
 
-    const logoContainer = container.querySelector('.ams-header__logo-container')
+    const logoContainer = container.querySelector('.ams-page-header__logo-container')
 
     expect(logoContainer).toBeInTheDocument()
   })
@@ -95,7 +95,7 @@ describe('Page Header', () => {
 
     const component = screen.getByRole('navigation')
 
-    expect(component).toHaveClass('ams-header__navigation')
+    expect(component).toHaveClass('ams-page-header__navigation')
   })
 
   it('renders a nav section with a custom label', () => {
@@ -111,7 +111,7 @@ describe('Page Header', () => {
 
     const component = screen.getByRole('list')
 
-    expect(component).toHaveClass('ams-header__menu')
+    expect(component).toHaveClass('ams-page-header__menu')
   })
 
   it('renders menu items', () => {
@@ -140,13 +140,13 @@ describe('Page Header', () => {
 
     const component = screen.getByRole('button', { name: 'Menu' })
 
-    expect(component).toHaveClass('ams-header__mega-menu-button')
+    expect(component).toHaveClass('ams-page-header__mega-menu-button')
   })
 
   it('renders a menu button icon', () => {
     const { container } = render(<PageHeader>Test</PageHeader>)
 
-    const component = container.querySelector('.ams-header__menu-icon')
+    const component = container.querySelector('.ams-page-header__menu-icon')
 
     expect(component).toBeInTheDocument()
   })
@@ -164,7 +164,7 @@ describe('Page Header', () => {
 
     const component = screen.getByRole('listitem')
 
-    expect(component).toHaveClass('ams-header__mega-menu-button-item--hide-on-wide-window')
+    expect(component).toHaveClass('ams-page-header__mega-menu-button-item--hide-on-wide-window')
   })
 
   it('opens and closes the mega menu', async () => {
@@ -172,7 +172,7 @@ describe('Page Header', () => {
 
     const { container } = render(<PageHeader>Test</PageHeader>)
 
-    const closedMegaMenu = container.querySelector('.ams-header__mega-menu--closed')
+    const closedMegaMenu = container.querySelector('.ams-page-header__mega-menu--closed')
 
     expect(closedMegaMenu).toBeInTheDocument()
 
@@ -180,10 +180,10 @@ describe('Page Header', () => {
 
     await user.click(menuButton)
 
-    const openMegaMenu = container.querySelector('.ams-header__mega-menu')
+    const openMegaMenu = container.querySelector('.ams-page-header__mega-menu')
 
     expect(openMegaMenu).toBeInTheDocument()
-    expect(openMegaMenu).not.toHaveClass('ams-header__mega-menu--closed')
+    expect(openMegaMenu).not.toHaveClass('ams-page-header__mega-menu--closed')
   })
 
   it.skip('it closes the mega menu when it is open and the screen width passes the breakpoint', () => {

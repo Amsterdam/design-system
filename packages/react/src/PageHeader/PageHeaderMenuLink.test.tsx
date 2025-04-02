@@ -18,11 +18,11 @@ describe('Page Header Menu Link', () => {
 
     const item = screen.getByRole('listitem')
 
-    expect(item).toHaveClass('ams-header__menu-item')
+    expect(item).toHaveClass('ams-page-header__menu-item')
 
     const link = screen.getByRole('link')
 
-    expect(link).toHaveClass('ams-header__menu-link')
+    expect(link).toHaveClass('ams-page-header__menu-link')
   })
 
   it('renders an additional class name', () => {
@@ -30,7 +30,7 @@ describe('Page Header Menu Link', () => {
 
     const component = screen.getByRole('link')
 
-    expect(component).toHaveClass('ams-header__menu-link extra')
+    expect(component).toHaveClass('ams-page-header__menu-link extra')
   })
 
   it('renders the href attribute', () => {
@@ -46,7 +46,7 @@ describe('Page Header Menu Link', () => {
 
     const component = screen.getByRole('listitem')
 
-    expect(component).toHaveClass('ams-header__menu-item--fixed')
+    expect(component).toHaveClass('ams-page-header__menu-item--fixed')
   })
 
   it('supports ForwardRef in React', () => {
