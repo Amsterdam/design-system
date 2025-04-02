@@ -13,7 +13,7 @@ import { ImageSliderScroller } from './ImageSliderScroller'
 import { ImageSliderThumbnails } from './ImageSliderThumbnails'
 import { Image, ImageProps } from '../Image/Image'
 
-export type ImageSliderImageProps = ImageProps & Partial<HTMLButtonElement>
+export type ImageSliderImageProps = ImageProps
 
 export type ImageSliderProps = {
   /** Display buttons to navigate to the previous or next image. */
