@@ -5,6 +5,7 @@
 
 import { Card, Heading, Paragraph } from '@amsterdam/design-system-react'
 import { Column } from '@amsterdam/design-system-react/src'
+import { columnGaps } from '@amsterdam/design-system-react/src/Column/Column'
 import { crossAlignOptionsForColumn, mainAlignOptions } from '@amsterdam/design-system-react/src/common/types'
 import { Meta, StoryObj } from '@storybook/react'
 
@@ -44,7 +45,7 @@ const meta = {
         labels: { undefined: 'medium' },
         type: 'radio',
       },
-      options: ['none', 'extra-small', 'small', undefined, 'large', 'extra-large'],
+      options: [undefined, ...columnGaps],
     },
   },
 } satisfies Meta<typeof Column>
@@ -71,8 +72,10 @@ export const ImproveSemantics: Story = {
   args: {
     as: 'section',
     children: [
-      <Heading level={3}>Zoekresultaten</Heading>,
-      <Card key={1}>
+      <Heading key={1} level={3}>
+        Zoekresultaten
+      </Heading>,
+      <Card key={2}>
         <Heading level={4}>
           <Card.Link href="#">Nieuwe manieren om afval op te halen</Card.Link>
         </Heading>
@@ -81,7 +84,7 @@ export const ImproveSemantics: Story = {
           in het centrum.
         </Paragraph>
       </Card>,
-      <Card key={2}>
+      <Card key={3}>
         <Heading level={4}>
           <Card.Link href="#">Verlenging proef ophalen afval per boot</Card.Link>
         </Heading>

@@ -2,8 +2,8 @@
   "ams": {
     "dialog": {
       "background-color": { "value": "{ams.color.background}" },
-      "border": { "value": "{ams.border.width.md} solid {ams.dialog.background-color}" },
-      "gap": { "value": "{ams.space.md}" },
+      "border": { "value": "{ams.border.width.m} solid {ams.dialog.background-color}" },
+      "gap": { "value": "{ams.space.m}" },
       "inline-size": { "value": "calc(100% - 2 * {ams.space.xl})" },
       "max-block-size": { "value": "calc(100dvh - 2 * {ams.space.xl})" },
       "max-inline-size": { "value": "48rem" },
@@ -11,7 +11,7 @@
         "background-color": { "value": "rgb(24 24 24 / 62.5%)" }
       },
       "header": {
-        "gap": { "value": "{ams.space.md}" },
+        "gap": { "value": "{ams.space.m}" },
         "padding-block": { "value": "{ams.space.xl} 0" },
         "padding-inline": { "value": "{ams.space.2xl}" }
       },

@@ -8,12 +8,26 @@ import README from "../../../../packages/css/src/components/screen/README.md?raw
 
 <Markdown>{README}</Markdown>
 
+## Example
+
+There’s not much to see in the example.
+On a wide screen, or when zooming out, you’ll notice that the width of the pink box gets limited by the maximum width of the Screen component.
+
 <Primary />
 
 <Controls />
 
-## Examples
+## Structure
 
-### Extra wide
+The outer containers of your website will look like this:
 
-<Canvas of={ScreenStories.ExtraWide} />
+```jsx
+<Screen>
+  <Header />
+  <Grid />
+  <Spotlight />
+  <Grid />
+  <Figure />
+  <Footer />
+</Screen>
+```

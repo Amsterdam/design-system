@@ -68,7 +68,7 @@ export const VerticalLayout: Story = {
         key={3}
         rowStart={3}
       >
-        <Paragraph className="ams-mb-sm" color="inverse">
+        <Paragraph className="ams-mb-s" color="inverse">
           Vertel ons in het evenementenformulier wat u wilt gaan doen. U checkt daarmee of u een vergunning nodig hebt.
         </Paragraph>
         <Paragraph color="inverse">

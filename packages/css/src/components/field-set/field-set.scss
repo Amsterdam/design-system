@@ -7,7 +7,7 @@
 @use "../../common/text-rendering" as *;
 
 @mixin reset-fieldset {
-  border: 0;
+  border: none;
   margin-inline: 0;
   padding-block: 0;
   padding-inline: 0;

@@ -27,6 +27,7 @@
     ],
     "declaration-property-value-disallowed-list": [
       {
+        "border": "0",
         "text-align": ["left", "right"]
       }
     ],

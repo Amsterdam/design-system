@@ -3,6 +3,71 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.15.0](https://github.com/Amsterdam/design-system/compare/design-system-tokens-v0.14.0...design-system-tokens-v0.15.0) (2025-03-28)
+
+
+### ⚠ BREAKING CHANGES
+
+* Shorten size labels in prop values for Row and Column, tokens and utility classes ([#1940](https://github.com/Amsterdam/design-system/issues/1940), [#1951](https://github.com/Amsterdam/design-system/issues/1951))
+* Shorten size labels in border tokens ([#1941](https://github.com/Amsterdam/design-system/issues/1941))
+* Consolidate Grid Space and Component Space into one set of spacing tokens ([#1910](https://github.com/Amsterdam/design-system/issues/1910))
+* **Tabs:** Remove unnecessary token, reuse color value ([#1932](https://github.com/Amsterdam/design-system/issues/1932))
+* Update aspect ratio tokens and CSS utility classes ([#1913](https://github.com/Amsterdam/design-system/issues/1913))
+* Update and document focus tokens ([#1919](https://github.com/Amsterdam/design-system/issues/1919))
+* Update hyphenation tokens ([#1914](https://github.com/Amsterdam/design-system/issues/1914))
+* **Header:** Add responsive version of Amsterdam Logo, remove Heading level 1 ([#1880](https://github.com/Amsterdam/design-system/issues/1880))
+* Split typography tokens into ‘body text’ and ‘heading’ groups ([#1890](https://github.com/Amsterdam/design-system/issues/1890))
+* **Dialog:** Prevent a focus indicator from being cut off ([#1879](https://github.com/Amsterdam/design-system/issues/1879))
+* **Footer:** add FooterMenu component to replace PageMenu in Footer ([#1871](https://github.com/Amsterdam/design-system/issues/1871))
+* Rename and document common tokens for links ([#1870](https://github.com/Amsterdam/design-system/issues/1870))
+* **Avatar:** Use updated color names for azure, lime and green  ([#1867](https://github.com/Amsterdam/design-system/issues/1867))
+* **Badge:** Use updated color names for azure and lime ([#1866](https://github.com/Amsterdam/design-system/issues/1866))
+* **Spotlight:** Use updated color names for lime and green and remove purple as an explicit option ([#1865](https://github.com/Amsterdam/design-system/issues/1865))
+* Remove action tokens, add and implement cursor tokens ([#1860](https://github.com/Amsterdam/design-system/issues/1860))
+* Combine contrast and inverse color options into a single prop ([#1822](https://github.com/Amsterdam/design-system/issues/1822))
+* Change all brand colour tokens to use semantic names ([#1820](https://github.com/Amsterdam/design-system/issues/1820))
+* Rename Form Error List to Invalid Form Alert ([#1835](https://github.com/Amsterdam/design-system/issues/1835))
+* **Pagination:** Use links instead of buttons ([#1821](https://github.com/Amsterdam/design-system/issues/1821))
+* **Badge:** Remove some colour options ([#1826](https://github.com/Amsterdam/design-system/issues/1826))
+* **Avatar:** Remove some colour options and make purple the default ([#1825](https://github.com/Amsterdam/design-system/issues/1825))
+* Move alert icon into thick left border ([#1792](https://github.com/Amsterdam/design-system/issues/1792))
+
+### Features
+
+* **Accordion:** Increase text size for Heading to level 4 ([#1837](https://github.com/Amsterdam/design-system/issues/1837)) ([1e914c9](https://github.com/Amsterdam/design-system/commit/1e914c9efd9087a0855e3f03661b46f6b228740a))
+* **Avatar:** Remove some colour options and make purple the default ([#1825](https://github.com/Amsterdam/design-system/issues/1825)) ([52d8c64](https://github.com/Amsterdam/design-system/commit/52d8c64f653309cce34e222d250f56c7265078e0))
+* **Avatar:** Use updated color names for azure, lime and green  ([#1867](https://github.com/Amsterdam/design-system/issues/1867)) ([e8a2638](https://github.com/Amsterdam/design-system/commit/e8a2638882b95141c5e5e345bb7656f1f9968253))
+* **Badge:** Remove some colour options ([#1826](https://github.com/Amsterdam/design-system/issues/1826)) ([1325e1b](https://github.com/Amsterdam/design-system/commit/1325e1b213e4704fd738dada1a92b5362a1a5174))
+* **Badge:** Use updated color names for azure and lime ([#1866](https://github.com/Amsterdam/design-system/issues/1866)) ([fd25778](https://github.com/Amsterdam/design-system/commit/fd25778db56eeeecf2e716a72d25b91c49193fa1))
+* Change all brand colour tokens to use semantic names ([#1820](https://github.com/Amsterdam/design-system/issues/1820)) ([778222b](https://github.com/Amsterdam/design-system/commit/778222b5f7176648c647315287f2e2ceff3de491))
+* Combine contrast and inverse color options into a single prop ([#1822](https://github.com/Amsterdam/design-system/issues/1822)) ([51640be](https://github.com/Amsterdam/design-system/commit/51640bed21deee54d5dddcbaa22e2213155cd08a))
+* Consolidate Grid Space and Component Space into one set of spacing tokens ([#1910](https://github.com/Amsterdam/design-system/issues/1910)) ([f36e985](https://github.com/Amsterdam/design-system/commit/f36e9855c78f582df95fa0906f0849c2832c25a3))
+* **Description List:** Rename values for terms column widths ([#1942](https://github.com/Amsterdam/design-system/issues/1942)) ([e1a9669](https://github.com/Amsterdam/design-system/commit/e1a9669925927f1608433a4ae68676b925ba8bd2))
+* **Dialog:** Change background colour of backdrop and add token for it ([#1876](https://github.com/Amsterdam/design-system/issues/1876)) ([d071bb4](https://github.com/Amsterdam/design-system/commit/d071bb4149d2789d967abcdb84ccdfa4d5b7aecc))
+* **Footer:** add FooterMenu component to replace PageMenu in Footer ([#1871](https://github.com/Amsterdam/design-system/issues/1871)) ([85e0f0f](https://github.com/Amsterdam/design-system/commit/85e0f0f8c7fd9c281ba68155999e835921e4443d))
+* **Header:** Add responsive version of Amsterdam Logo, remove Heading level 1 ([#1880](https://github.com/Amsterdam/design-system/issues/1880)) ([7de8138](https://github.com/Amsterdam/design-system/commit/7de813861a565da89fee246731dc1525bc5d2643))
+* Move alert icon into thick left border ([#1792](https://github.com/Amsterdam/design-system/issues/1792)) ([ec53af7](https://github.com/Amsterdam/design-system/commit/ec53af73d05f22f5e077efdf3ce9a73ed4d7e235))
+* **Pagination:** Use links instead of buttons ([#1821](https://github.com/Amsterdam/design-system/issues/1821)) ([6980251](https://github.com/Amsterdam/design-system/commit/698025132af2c0b944e9cc99f9754b065127fb68))
+* Remove action tokens, add and implement cursor tokens ([#1860](https://github.com/Amsterdam/design-system/issues/1860)) ([40a04a8](https://github.com/Amsterdam/design-system/commit/40a04a88e8c5829df54eb3a6ca338557249aec5d))
+* Rename and document common tokens for links ([#1870](https://github.com/Amsterdam/design-system/issues/1870)) ([551743d](https://github.com/Amsterdam/design-system/commit/551743d11436ff2363f8dd1187afe166e6c4a02b))
+* Rename Form Error List to Invalid Form Alert ([#1835](https://github.com/Amsterdam/design-system/issues/1835)) ([e8d015a](https://github.com/Amsterdam/design-system/commit/e8d015ae6a1e785a29505c033f29cd67aaab3d66))
+* Shorten size labels in border tokens ([#1941](https://github.com/Amsterdam/design-system/issues/1941)) ([fa154a6](https://github.com/Amsterdam/design-system/commit/fa154a6c96a11a43623f959a51f782abae27449e))
+* Shorten size labels in prop values for Row and Column, space tokens and utility classes ([#1940](https://github.com/Amsterdam/design-system/issues/1940)) ([694987c](https://github.com/Amsterdam/design-system/commit/694987c88773983e4cd12d518cc957d34ec29d7e))
+* Split typography tokens into ‘body text’ and ‘heading’ groups ([#1890](https://github.com/Amsterdam/design-system/issues/1890)) ([3126aa2](https://github.com/Amsterdam/design-system/commit/3126aa29d5aebccfca272892d55f140783a94d43))
+* **Spotlight:** Use updated color names for lime and green and remove purple as an explicit option ([#1865](https://github.com/Amsterdam/design-system/issues/1865)) ([387ae45](https://github.com/Amsterdam/design-system/commit/387ae45ce263ae3b6a12fc9a3b22a37dc0aed997))
+* **typography:** Improve line heights for all body text and headings ([#1894](https://github.com/Amsterdam/design-system/issues/1894)) ([8a57198](https://github.com/Amsterdam/design-system/commit/8a571988a8f11fb5aa1dfe550ca8b74e9d8b3e55))
+* Update and document focus tokens ([#1919](https://github.com/Amsterdam/design-system/issues/1919)) ([4c85170](https://github.com/Amsterdam/design-system/commit/4c85170f2b8eec5ce956cecdbb41430ce2c37639))
+* Update aspect ratio tokens and CSS utility classes ([#1913](https://github.com/Amsterdam/design-system/issues/1913)) ([968ef2b](https://github.com/Amsterdam/design-system/commit/968ef2bf053803c356e36424836fd9934da123fd))
+* Update hyphenation tokens ([#1914](https://github.com/Amsterdam/design-system/issues/1914)) ([0c7f359](https://github.com/Amsterdam/design-system/commit/0c7f359ff094e281022441d171bd617047c660b2))
+
+
+### Bug Fixes
+
+* **Column, Row:** Do not use utility classes ([#1951](https://github.com/Amsterdam/design-system/issues/1951)) ([a5a74f8](https://github.com/Amsterdam/design-system/commit/a5a74f8bbb55ab54c7b179be29d4a804b088044a))
+* **Dialog:** Prevent a focus indicator from being cut off ([#1879](https://github.com/Amsterdam/design-system/issues/1879)) ([336ff55](https://github.com/Amsterdam/design-system/commit/336ff554d2a4a213c1f62bd32b02219ca41a802c))
+* **Dialog:** Update Dialog border to fix forced color mode ([#1893](https://github.com/Amsterdam/design-system/issues/1893)) ([8b83271](https://github.com/Amsterdam/design-system/commit/8b83271a06dbdef42600d82e92cd56f1ec7d5509))
+* **Tabs:** Remove unnecessary token, reuse color value ([#1932](https://github.com/Amsterdam/design-system/issues/1932)) ([cabfd59](https://github.com/Amsterdam/design-system/commit/cabfd5967a9c0cb17ab0bac627f19261f29bcf2e))
+
 ## [0.14.0](https://github.com/Amsterdam/design-system/compare/design-system-tokens-v0.13.0...design-system-tokens-v0.14.0) (2025-01-10)
 
 ### ⚠ BREAKING CHANGES

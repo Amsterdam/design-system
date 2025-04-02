@@ -1,5 +1,5 @@
 // This array is not used to create the aspect ratio CSS classes.
-// If you modify this array, you also need to update the
+// If you modify this array, you must also update the
 // aspect ratio CSS classes in /packages/css/src/components/aspect-ratio/aspect-ratio.scss.
 export const aspectRatioOptions = ['9:16', '3:4', '1:1', '4:3', '16:9', '16:5'] as const
 export type AspectRatioProps = {

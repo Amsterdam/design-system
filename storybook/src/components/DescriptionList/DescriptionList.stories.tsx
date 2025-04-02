@@ -4,6 +4,7 @@
  */
 
 import { Link, Paragraph, UnorderedList } from '@amsterdam/design-system-react'
+import { descriptionListTermsWidths } from '@amsterdam/design-system-react/dist/DescriptionList/DescriptionList'
 import { DescriptionList } from '@amsterdam/design-system-react/src'
 import { Meta, StoryObj } from '@storybook/react'
 
@@ -34,10 +35,10 @@ const meta = {
     },
     termsWidth: {
       control: {
-        labels: { lg: 'large', md: 'medium', sm: 'small', undefined: 'auto' },
+        labels: { undefined: 'auto' },
         type: 'radio',
       },
-      options: [undefined, 'sm', 'md', 'lg'],
+      options: [undefined, ...descriptionListTermsWidths],
     },
   },
 } satisfies Meta<typeof DescriptionList>
@@ -76,7 +77,7 @@ export const MultipleTerms: Story = {
       <DescriptionList.Term key={4}>Geboortedatum</DescriptionList.Term>,
       <DescriptionList.Description key={5}>De datum waarop een persoon is geboren</DescriptionList.Description>,
     ],
-    termsWidth: 'md',
+    termsWidth: 'medium',
   },
 }
 
@@ -85,7 +86,7 @@ export const RichDescription: Story = {
     <DescriptionList {...args}>
       <DescriptionList.Term key={1}>Amsterdam Light Festival</DescriptionList.Term>
       <DescriptionList.Description key={2}>
-        <Paragraph className="ams-mb-sm" color={args.color}>
+        <Paragraph className="ams-mb-s" color={args.color}>
           Een jaarlijks evenement waarbij kunstenaars van over de hele wereld hun{' '}
           <strong>creatieve lichtinstallaties</strong> tonen. De kunstwerken zijn verspreid over de stad en zijn zowel
           vanaf het water als vanaf de kant te bewonderen.

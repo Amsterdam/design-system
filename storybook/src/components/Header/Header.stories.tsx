@@ -48,7 +48,7 @@ export const Default: Story = {
           </LinkList>
         </Header.GridCellNarrowWindowOnly>
         <Grid.Cell span={4}>
-          <Heading className="ams-mb-sm" level={3}>
+          <Heading className="ams-mb-s" level={3}>
             Onderdelen
           </Heading>
           <LinkList>
@@ -60,7 +60,7 @@ export const Default: Story = {
           </LinkList>
         </Grid.Cell>
         <Grid.Cell span={4}>
-          <Heading className="ams-mb-sm" level={3}>
+          <Heading className="ams-mb-s" level={3}>
             Over ons
           </Heading>
           <LinkList>
@@ -72,7 +72,7 @@ export const Default: Story = {
           </LinkList>
         </Grid.Cell>
         <Grid.Cell span={4}>
-          <Heading className="ams-mb-sm" level={3}>
+          <Heading className="ams-mb-s" level={3}>
             Help
           </Heading>
           <LinkList>
@@ -136,7 +136,7 @@ export const WithoutMenuButtonOnWideWindow: Story = {
   args: {
     brandName: 'Aan de Amsterdamse grachten',
     children: (
-      <LinkList className="ams-mb-lg">
+      <LinkList className="ams-mb-l">
         {WithoutMenuButtonOnWideWindowStoryLinks.map(({ href, label }) => (
           <LinkList.Link href={href} key={label}>
             {label}

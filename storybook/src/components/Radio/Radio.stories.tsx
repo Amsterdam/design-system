@@ -76,15 +76,15 @@ export const InAFieldSet: Story = {
       legend="Waar gaat uw melding over?"
       role="radiogroup"
     >
-      <Paragraph className="ams-mb-sm" id="description1" size="small">
+      <Paragraph className="ams-mb-s" id="description1" size="small">
         De laatstgenoemde melding.
       </Paragraph>
       {invalid && (
-        <ErrorMessage className="ams-mb-sm" id="error1">
+        <ErrorMessage className="ams-mb-s" id="error1">
           Geef aan waar uw laatstgenoemde melding over gaat.
         </ErrorMessage>
       )}
-      <Column gap="extra-small">
+      <Column gap="x-small">
         <Radio invalid={invalid} name="about" value="horeca">
           Horecabedrijf
         </Radio>
@@ -124,15 +124,15 @@ export const InAFieldSetWithValidation: Story = {
       legend="Waar gaat uw melding over?"
       role="radiogroup"
     >
-      <Paragraph className="ams-mb-sm" id="description2" size="small">
+      <Paragraph className="ams-mb-s" id="description2" size="small">
         De laatstgenoemde melding.
       </Paragraph>
       {invalid && (
-        <ErrorMessage className="ams-mb-sm" id="error2">
+        <ErrorMessage className="ams-mb-s" id="error2">
           Geef aan waar uw laatstgenoemde melding over gaat.
         </ErrorMessage>
       )}
-      <Column gap="extra-small">
+      <Column gap="x-small">
         <Radio invalid={invalid} name="about" value="horeca">
           Horecabedrijf
         </Radio>

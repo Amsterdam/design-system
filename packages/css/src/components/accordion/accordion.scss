@@ -22,7 +22,7 @@
 }
 
 @mixin reset-button {
-  border: 0;
+  border: none;
   margin-block: 0; // [1]
   margin-inline: 0; // [1]
 

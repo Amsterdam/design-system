@@ -16,7 +16,7 @@ export const ArticleBody = ({ lead, paragraph1, spotlightHeading, spotlightLinkL
   <>
     <Grid paddingVertical="medium">
       <Grid.Cell span={{ narrow: 4, medium: 8, wide: 10 }} start={{ narrow: 1, medium: 1, wide: 2 }}>
-        <Paragraph className="ams-mb-md" size="large">
+        <Paragraph className="ams-mb-m" size="large">
           {lead}
         </Paragraph>
         <Paragraph>{paragraph1}</Paragraph>

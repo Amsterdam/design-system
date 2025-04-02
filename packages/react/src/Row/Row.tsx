@@ -8,9 +8,9 @@ import { forwardRef } from 'react'
 import type { HTMLAttributes, PropsWithChildren } from 'react'
 import type { CrossAlign, MainAlign } from '../common/types'
 
-export const rowGapSizes = ['none', 'extra-small', 'small', 'large', 'extra-large'] as const
+export const rowGaps = ['none', 'x-small', 'small', 'large', 'x-large'] as const
 
-type RowGap = (typeof rowGapSizes)[number]
+type RowGap = (typeof rowGaps)[number]
 type RowTag = 'article' | 'div' | 'section'
 
 export type RowProps = {
