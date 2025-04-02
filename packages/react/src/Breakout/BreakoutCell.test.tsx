@@ -3,7 +3,7 @@ import { createRef } from 'react'
 import { Breakout } from './Breakout'
 import '@testing-library/jest-dom'
 import { breakoutCellTags } from './BreakoutCell'
-import { AriaRoleForTag } from '../common/accessibility'
+import { ariaRoleForTag } from '../common/accessibility'
 
 describe('Breakout cell', () => {
   it('renders', () => {
@@ -37,7 +37,7 @@ describe('Breakout cell', () => {
         <Breakout.Cell aria-label={tag === 'section' ? 'Accessible name' : undefined} as={tag} />,
       )
 
-      const component = tag === 'div' ? container.querySelector(tag) : screen.getByRole(AriaRoleForTag[tag])
+      const component = tag === 'div' ? container.querySelector(tag) : screen.getByRole(ariaRoleForTag[tag])
 
       expect(component).toBeInTheDocument()
     })

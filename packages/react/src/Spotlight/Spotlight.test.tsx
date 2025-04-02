@@ -1,7 +1,7 @@
 import { render, screen } from '@testing-library/react'
 import { createRef } from 'react'
 import { Spotlight, spotlightColors, spotlightTags } from './Spotlight'
-import { AriaRoleForTag } from '../common/accessibility'
+import { ariaRoleForTag } from '../common/accessibility'
 import '@testing-library/jest-dom'
 
 describe('Spotlight', () => {
@@ -38,7 +38,7 @@ describe('Spotlight', () => {
         <Spotlight aria-label={tag === 'section' ? 'Accessible name' : undefined} as={tag} />,
       )
 
-      const component = tag === 'div' ? container.querySelector(tag) : screen.getByRole(AriaRoleForTag[tag])
+      const component = tag === 'div' ? container.querySelector(tag) : screen.getByRole(ariaRoleForTag[tag])
 
       expect(component).toBeInTheDocument()
     })

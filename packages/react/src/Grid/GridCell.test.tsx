@@ -2,7 +2,7 @@ import { render, screen } from '@testing-library/react'
 import { createRef } from 'react'
 import { Grid } from './Grid'
 import { gridCellTags } from './GridCell'
-import { AriaRoleForTag } from '../common/accessibility'
+import { ariaRoleForTag } from '../common/accessibility'
 import '@testing-library/jest-dom'
 
 describe('Grid cell', () => {
@@ -111,7 +111,7 @@ describe('Grid cell', () => {
         <Grid.Cell aria-label={tag === 'section' ? 'Accessible name' : undefined} as={tag} />,
       )
 
-      const component = tag === 'div' ? container.querySelector(tag) : screen.getByRole(AriaRoleForTag[tag])
+      const component = tag === 'div' ? container.querySelector(tag) : screen.getByRole(ariaRoleForTag[tag])
 
       expect(component).toBeInTheDocument()
     })
