@@ -3,6 +3,9 @@
  * Copyright Gemeente Amsterdam
  */
 
+@use "../../common/breakpoint" as *;
+@use "../grid/mixins" as *;
+
 .ams-card {
   display: grid;
   outline-offset: var(--ams-card-outline-offset);
@@ -59,4 +62,10 @@
   .ams-card:has(:focus-visible) &:focus {
     outline: none;
   }
+}
+
+.ams-card--horizontal {
+  @include ams-grid;
+
+  padding-inline: 0 !important;
 }
