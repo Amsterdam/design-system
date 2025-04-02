@@ -1,5 +1,5 @@
 <!-- @license CC0-1.0 -->
 
-# React Header component
+# React Page Header component
 
-[Header documentation](../../../css/src/components/header/README.md)
+[Page HHeader documentation](../../../css/src/components/page-header/README.md)

@@ -8,7 +8,7 @@ import { PageHeader } from '@amsterdam/design-system-react/src'
 import { Meta, StoryObj } from '@storybook/react'
 
 const meta = {
-  title: 'Components/Containers/Header',
+  title: 'Components/Containers/Page Header',
   component: PageHeader,
 } satisfies Meta<typeof PageHeader>
 

@@ -5,7 +5,7 @@
       "padding-block": { "value": "{ams.space.l}" },
       "padding-inline": {
         "value": "{ams.grid.padding-inline}",
-        "comment": "Must be the Grid inline padding, to make sure Header and Grid line up"
+        "comment": "Must be the Grid inline padding, to make sure Page Header and Grid line up"
       },
       "logo-link": {
         "column-gap": { "value": "{ams.space.m}" },
