@@ -17,6 +17,3 @@ export type CrossAlignForColumn = (typeof crossAlignOptionsForColumn)[number]
 
 export const mainAlignOptions = ['center', 'end', 'between', 'around', 'evenly'] as const
 export type MainAlign = (typeof mainAlignOptions)[number]
-
-export const layoutSectionTags = ['article', 'aside', 'div', 'footer', 'header', 'main', 'nav', 'section'] as const
-export type LayoutSectionTag = (typeof layoutSectionTags)[number]

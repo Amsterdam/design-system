@@ -8,7 +8,9 @@ import { forwardRef } from 'react'
 import type { HTMLAttributes, PropsWithChildren } from 'react'
 import type { GridColumnNumber, GridColumnNumbers } from './Grid'
 import { gridCellClasses } from './gridCellClasses'
-import { LayoutSectionTag } from '../common/types'
+
+export const gridCellTags = ['article', 'aside', 'div', 'footer', 'header', 'main', 'nav', 'section'] as const
+export type GridCellTag = (typeof gridCellTags)[number]
 
 type GridCellSpanAllProp = {
   /** Lets the cell span the full width of all grid variants. */
@@ -25,7 +27,7 @@ type GridCellSpanAndStartProps = {
 
 export type GridCellProps = {
   /** The HTML tag to use. */
-  as?: LayoutSectionTag
+  as?: GridCellTag
 } & (GridCellSpanAllProp | GridCellSpanAndStartProps) &
   PropsWithChildren<HTMLAttributes<HTMLElement>>
 

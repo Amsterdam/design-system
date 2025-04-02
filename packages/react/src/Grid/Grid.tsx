@@ -8,7 +8,9 @@ import { forwardRef } from 'react'
 import type { ForwardedRef, HTMLAttributes, PropsWithChildren } from 'react'
 import { GridCell } from './GridCell'
 import { paddingClasses } from './paddingClasses'
-import { LayoutSectionTag } from '../common/types'
+
+export const gridTags = ['article', 'aside', 'div', 'footer', 'header', 'main', 'nav', 'section'] as const
+export type GridTag = (typeof gridTags)[number]
 
 export type GridColumnNumber = 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11 | 12
 export type GridColumnNumbers = {
@@ -35,7 +37,7 @@ type GridPaddingTopAndBottomProps = {
 
 export type GridProps = {
   /** The HTML tag to use. */
-  as?: LayoutSectionTag
+  as?: GridTag
   /** The amount of space between rows. */
   gapVertical?: 'none' | 'small' | 'large'
 } & (GridPaddingVerticalProp | GridPaddingTopAndBottomProps) &
