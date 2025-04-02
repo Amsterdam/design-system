@@ -25,15 +25,13 @@ export const AppHeader = () => (
         <Heading className="ams-mb-s" level={3}>
           Alle onderwerpen
         </Heading>
-        <div className="ams-mega-menu__columns">
-          <LinkList>
-            {megaMenuLinks.map((label) => (
-              <LinkList.Link href="#" key={label}>
-                {label}
-              </LinkList.Link>
-            ))}
-          </LinkList>
-        </div>
+        <LinkList>
+          {megaMenuLinks.map((label) => (
+            <LinkList.Link href="#" key={label}>
+              {label}
+            </LinkList.Link>
+          ))}
+        </LinkList>
       </Grid.Cell>
     </Grid>
   </Header>
