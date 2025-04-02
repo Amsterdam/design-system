@@ -100,7 +100,7 @@ const HeaderRoot = forwardRef(
                 >
                   <button
                     {...restProps}
-                    aria-controls="ams-mega-menu"
+                    aria-controls="ams-header-mega-menu"
                     aria-expanded={open}
                     className="ams-header__mega-menu-button"
                     onClick={() => setOpen(!open)}
@@ -125,7 +125,7 @@ const HeaderRoot = forwardRef(
             {hasMegaMenu && (
               <div
                 className={clsx('ams-header__mega-menu', !open && 'ams-header__mega-menu--closed')}
-                id="ams-mega-menu"
+                id="ams-header-mega-menu"
               >
                 {children}
               </div>
