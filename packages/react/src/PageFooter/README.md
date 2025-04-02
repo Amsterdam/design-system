@@ -2,4 +2,4 @@
 
 # React Page Footer component
 
-[Page Footer documentation](../../../css/src/components/footer/README.md)
+[Page Footer documentation](../../../css/src/components/page-footer/README.md)

@@ -17,7 +17,7 @@ import {
 import { Meta, StoryObj } from '@storybook/react'
 
 const meta = {
-  title: 'Components/Containers/Footer',
+  title: 'Components/Containers/Page Footer',
   component: PageFooter,
 } satisfies Meta<typeof PageFooter>
 
@@ -35,7 +35,7 @@ const socialPlatforms = [
 export const Default: Story = {
   args: {
     children: [
-      <PageFooter.Spotlight key="footer-spotlight">
+      <PageFooter.Spotlight key={1}>
         <Grid paddingVertical="medium">
           <Grid.Cell span={4}>
             <Heading className="ams-mb-s" color="inverse" level={2} size="level-4">
@@ -96,10 +96,10 @@ export const Default: Story = {
           </Grid.Cell>
         </Grid>
       </PageFooter.Spotlight>,
-      <Heading className="ams-visually-hidden" key="footer-heading" level={2}>
+      <Heading className="ams-visually-hidden" key={2} level={2}>
         Over deze website
       </Heading>,
-      <PageFooter.Menu key="footer-menu">
+      <PageFooter.Menu key={3}>
         <PageFooter.MenuLink href="#">Over deze site</PageFooter.MenuLink>
         <PageFooter.MenuLink href="#">Privacy</PageFooter.MenuLink>
         <PageFooter.MenuLink href="#">Cookies</PageFooter.MenuLink>
@@ -111,7 +111,7 @@ export const Default: Story = {
 export const OnderzoekEnStatistiek: Story = {
   args: {
     children: [
-      <PageFooter.Spotlight key="footer-spotlight">
+      <PageFooter.Spotlight key={1}>
         <Grid paddingVertical="medium">
           <Grid.Cell span={3}>
             <Heading className="ams-mb-s" color="inverse" level={2} size="level-4">
@@ -169,10 +169,10 @@ export const OnderzoekEnStatistiek: Story = {
           </Grid.Cell>
         </Grid>
       </PageFooter.Spotlight>,
-      <Heading className="ams-visually-hidden" key="footer-heading" level={2}>
+      <Heading className="ams-visually-hidden" key={2} level={2}>
         Over deze website
       </Heading>,
-      <PageFooter.Menu key="footer-menu">
+      <PageFooter.Menu key={3}>
         <PageFooter.MenuLink href="#">Over deze site</PageFooter.MenuLink>
         <PageFooter.MenuLink href="#">Privacy</PageFooter.MenuLink>
         <PageFooter.MenuLink href="#">Cookies</PageFooter.MenuLink>
