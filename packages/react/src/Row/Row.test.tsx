@@ -49,22 +49,6 @@ describe('Row', () => {
     expect(component).toHaveClass('ams-row--wrap')
   })
 
-  it('renders with an article tag', () => {
-    render(<Row as="article" />)
-
-    const component = screen.getByRole('article')
-
-    expect(component).toBeInTheDocument()
-  })
-
-  it('renders with a section tag', () => {
-    const { container } = render(<Row as="section" />)
-
-    const component = container.querySelector('section')
-
-    expect(component).toBeInTheDocument()
-  })
-
   rowTags.forEach((tag) => {
     it(`renders with a custom ${tag} tag`, () => {
       const { container } = render(<Row aria-label={tag === 'section' ? 'Accessible name' : undefined} as={tag} />)

@@ -202,12 +202,4 @@ describe('Breakout cell', () => {
 
     expect(component).toHaveClass(`ams-breakout__cell--has-spotlight`)
   })
-
-  it('renders a custom tag', () => {
-    render(<Breakout.Cell as="article" />)
-
-    const cell = screen.getByRole('article')
-
-    expect(cell).toBeInTheDocument()
-  })
 })

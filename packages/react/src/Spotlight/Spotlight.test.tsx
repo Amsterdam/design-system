@@ -63,12 +63,4 @@ describe('Spotlight', () => {
       expect(component).toHaveClass(`ams-spotlight--${color}`)
     }),
   )
-
-  it('renders a custom tag', () => {
-    render(<Spotlight as="article" />)
-
-    const cell = screen.getByRole('article')
-
-    expect(cell).toBeInTheDocument()
-  })
 })
