@@ -8,11 +8,10 @@ import { forwardRef } from 'react'
 import type { HTMLAttributes, PropsWithChildren } from 'react'
 import type { CrossAlign, MainAlign } from '../common/types'
 
-export const rowGapSizes = ['none', 'extra-small', 'small', 'large', 'extra-large'] as const
-
 export const rowTags = ['article', 'div', 'section'] as const
 type RowTag = (typeof rowTags)[number]
 
+export const rowGapSizes = ['none', 'x-small', 'small', 'large', 'x-large'] as const
 type RowGap = (typeof rowGapSizes)[number]
 
 export type RowProps = {

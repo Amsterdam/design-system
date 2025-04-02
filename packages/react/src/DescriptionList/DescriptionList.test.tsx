@@ -35,7 +35,7 @@ describe('Description List', () => {
 
       const component = container.querySelector(':only-child')
 
-      expect(component).toHaveClass(`ams-description-list--terms-width-${width}`)
+      expect(component).toHaveClass(`ams-description-list--${width}`)
     }),
   )
 

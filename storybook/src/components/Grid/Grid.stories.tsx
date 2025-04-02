@@ -128,7 +128,7 @@ export const VerticalGap: Story = {
 export const SpanColumns: CellStory = {
   ...CellStoryTemplate,
   args: {
-    children: <div className="ams-docs-item" />,
+    className: 'ams-docs-item',
     span: 4,
   },
 }
@@ -136,7 +136,7 @@ export const SpanColumns: CellStory = {
 export const SpanResponsively: CellStory = {
   ...CellStoryTemplate,
   args: {
-    children: <div className="ams-docs-item" />,
+    className: 'ams-docs-item',
     span: { narrow: 4, medium: 6, wide: 8 },
   },
 }
@@ -144,7 +144,7 @@ export const SpanResponsively: CellStory = {
 export const SpanAllColumns: CellStory = {
   ...CellStoryTemplate,
   args: {
-    children: <div className="ams-docs-item" />,
+    className: 'ams-docs-item',
     span: 'all',
   },
 }
@@ -152,7 +152,7 @@ export const SpanAllColumns: CellStory = {
 export const StartPosition: CellStory = {
   ...CellStoryTemplate,
   args: {
-    children: <div className="ams-docs-item" />,
+    className: 'ams-docs-item',
     span: 3,
     start: { narrow: 2, medium: 4, wide: 6 },
   },
@@ -163,9 +163,5 @@ export const ImproveSemantics: CellStory = {
   args: {
     as: 'section',
   },
-  render: ({ as }: GridCellProps) => (
-    <Grid.Cell as={as} span="all">
-      <div className="ams-docs-item" />
-    </Grid.Cell>
-  ),
+  render: ({ as }: GridCellProps) => <Grid.Cell as={as} className="ams-docs-item" span="all" />,
 }

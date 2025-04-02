@@ -3,20 +3,20 @@
  * Copyright Gemeente Amsterdam
  */
 
-@use "../../common/size" as *;
-
 .ams-row {
   display: flex;
-  gap: var(--ams-row-gap-md);
+  gap: var(--ams-row-gap-medium);
 }
 
-@each $size, $label in $ams-sizes {
-  @if $size != "md" {
-    .ams-row--gap-#{$label} {
-      /* stylelint-disable-next-line csstools/value-no-unknown-custom-properties */
-      gap: var(--ams-row-gap-#{$size});
-    }
+@each $size in ("x-small", "small", "large", "x-large") {
+  .ams-row--gap-#{$size} {
+    /* stylelint-disable-next-line csstools/value-no-unknown-custom-properties */
+    gap: var(--ams-row-gap-#{$size});
   }
+}
+
+.ams-row--gap-none {
+  gap: 0;
 }
 
 .ams-row--wrap {

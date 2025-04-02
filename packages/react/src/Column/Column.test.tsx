@@ -23,13 +23,13 @@ describe('Column', () => {
     expect(component).toHaveClass('ams-column')
   })
 
-  columnGapSizes.map((size) =>
-    it('renders with ${size} gap', () => {
-      const { container } = render(<Column gap={size} />)
+  columnGapSizes.map((gap) =>
+    it(`renders with ‘${gap}’ gap`, () => {
+      const { container } = render(<Column gap={gap} />)
 
       const component = container.querySelector(':only-child')
 
-      expect(component).toHaveClass(`ams-column--gap-${size}`)
+      expect(component).toHaveClass(`ams-column--gap-${gap}`)
     }),
   )
 

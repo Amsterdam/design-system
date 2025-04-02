@@ -11,7 +11,7 @@
       "padding-block": { "value": "{ams.space.xs}" },
       "padding-inline": { "value": "{ams.space.xs}" },
       "forced-colors": {
-        "border-width": { "value": "{ams.border.width.md}" }
+        "border-width": { "value": "{ams.border.width.m}" }
       },
       "azure": {
         "background-color": { "value": "{ams.color.highlight.azure}" },

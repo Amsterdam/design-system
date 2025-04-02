@@ -23,13 +23,13 @@ describe('Row', () => {
     expect(component).toHaveClass('ams-row')
   })
 
-  rowGapSizes.map((size) =>
-    it('renders with ${size} gap', () => {
-      const { container } = render(<Row gap={size} />)
+  rowGapSizes.map((gap) =>
+    it(`renders with ‘${gap}’ gap`, () => {
+      const { container } = render(<Row gap={gap} />)
 
       const component = container.querySelector(':only-child')
 
-      expect(component).toHaveClass(`ams-row--gap-${size}`)
+      expect(component).toHaveClass(`ams-row--gap-${gap}`)
     }),
   )
 
