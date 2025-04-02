@@ -111,12 +111,7 @@ describe('Grid cell', () => {
         <Grid.Cell aria-label={tag === 'section' ? 'Accessible name' : undefined} as={tag} />,
       )
 
-      let component: HTMLElement | null
-      if (tag === 'div') {
-        component = container.querySelector(tag)
-      } else {
-        component = screen.getByRole(ariaRoleForTag[tag])
-      }
+      const component = tag === 'div' ? container.querySelector(tag) : screen.getByRole(ariaRoleForTag[tag])
 
       expect(component).toBeInTheDocument()
     })
