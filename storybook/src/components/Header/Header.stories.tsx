@@ -4,13 +4,13 @@
  */
 
 import { Grid, Heading, LinkList } from '@amsterdam/design-system-react'
-import { Header } from '@amsterdam/design-system-react/src'
+import { PageHeader } from '@amsterdam/design-system-react/src'
 import { Meta, StoryObj } from '@storybook/react'
 
 const meta = {
   title: 'Components/Containers/Header',
-  component: Header,
-} satisfies Meta<typeof Header>
+  component: PageHeader,
+} satisfies Meta<typeof PageHeader>
 
 export default meta
 
@@ -40,13 +40,13 @@ export const Default: Story = {
     brandName: 'Data Amsterdam',
     children: (
       <Grid paddingBottom="large">
-        <Header.GridCellNarrowWindowOnly span="all">
+        <PageHeader.GridCellNarrowWindowOnly span="all">
           <LinkList>
             <LinkList.Link href="#" lang="en">
               English
             </LinkList.Link>
           </LinkList>
-        </Header.GridCellNarrowWindowOnly>
+        </PageHeader.GridCellNarrowWindowOnly>
         <Grid.Cell span={4}>
           <Heading className="ams-mb-s" level={3}>
             Onderdelen
@@ -86,12 +86,12 @@ export const Default: Story = {
       </Grid>
     ),
     menuItems: [
-      <Header.MenuLink href="#" key={1} lang="en">
+      <PageHeader.MenuLink href="#" key={1} lang="en">
         English
-      </Header.MenuLink>,
-      <Header.MenuLink fixed href="#" key={2}>
+      </PageHeader.MenuLink>,
+      <PageHeader.MenuLink fixed href="#" key={2}>
         Zoeken
-      </Header.MenuLink>,
+      </PageHeader.MenuLink>,
     ],
   },
 }
@@ -100,13 +100,13 @@ export const WithMovingLinks: Story = {
   args: {
     children: (
       <Grid gapVertical="small" paddingBottom="large">
-        <Header.GridCellNarrowWindowOnly span="all">
+        <PageHeader.GridCellNarrowWindowOnly span="all">
           <LinkList>
             <LinkList.Link href="#" lang="en">
               English
             </LinkList.Link>
           </LinkList>
-        </Header.GridCellNarrowWindowOnly>
+        </PageHeader.GridCellNarrowWindowOnly>
         <Grid.Cell span="all">
           <LinkList>
             <LinkList.Link href="#">Regular collapsible menu link</LinkList.Link>
@@ -115,12 +115,12 @@ export const WithMovingLinks: Story = {
       </Grid>
     ),
     menuItems: [
-      <Header.MenuLink href="#" key={1} lang="en">
+      <PageHeader.MenuLink href="#" key={1} lang="en">
         English
-      </Header.MenuLink>,
-      <Header.MenuLink fixed href="#" key={2}>
+      </PageHeader.MenuLink>,
+      <PageHeader.MenuLink fixed href="#" key={2}>
         Zoeken
-      </Header.MenuLink>,
+      </PageHeader.MenuLink>,
     ],
   },
 }
@@ -146,13 +146,13 @@ export const WithoutMenuButtonOnWideWindow: Story = {
     ),
     menuItems: [
       ...WithoutMenuButtonOnWideWindowStoryLinks.map(({ href, label }) => (
-        <Header.MenuLink href={href} key={label}>
+        <PageHeader.MenuLink href={href} key={label}>
           {label}
-        </Header.MenuLink>
+        </PageHeader.MenuLink>
       )),
-      <Header.MenuLink fixed href="#" key="Zoeken">
+      <PageHeader.MenuLink fixed href="#" key="Zoeken">
         Zoeken
-      </Header.MenuLink>,
+      </PageHeader.MenuLink>,
     ],
     noMenuButtonOnWideWindow: true,
   },
@@ -162,9 +162,9 @@ export const WithoutMenuButton: Story = {
   args: {
     brandName: 'Mijn Amsterdam',
     menuItems: (
-      <Header.MenuLink fixed href="#">
+      <PageHeader.MenuLink fixed href="#">
         Inloggen
-      </Header.MenuLink>
+      </PageHeader.MenuLink>
     ),
   },
 }

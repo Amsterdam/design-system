@@ -9,9 +9,9 @@ import type { ForwardedRef, HTMLAttributes, ReactNode } from 'react'
 import { Icon } from '../Icon'
 import { Logo } from '../Logo'
 import type { LogoBrand } from '../Logo'
-import { HeaderGridCellNarrowWindowOnly } from './HeaderGridCellNarrowWindowOnly'
-import { HeaderMenuIcon } from './HeaderMenuIcon'
-import { HeaderMenuLink } from './HeaderMenuLink'
+import { PageHeaderGridCellNarrowWindowOnly } from './PageHeaderGridCellNarrowWindowOnly'
+import { PageHeaderMenuIcon } from './PageHeaderMenuIcon'
+import { PageHeaderMenuLink } from './PageHeaderMenuLink'
 import useIsAfterBreakpoint from '../common/useIsAfterBreakpoint'
 
 const LogoLinkContent = ({ brandName, logoBrand }: { brandName?: string; logoBrand: LogoBrand }) => (
@@ -27,7 +27,7 @@ const LogoLinkContent = ({ brandName, logoBrand }: { brandName?: string; logoBra
   </>
 )
 
-export type HeaderProps = {
+export type PageHeaderProps = {
   /** The name of the application. */
   brandName?: string
   /** The name of the brand for which to display the logo. */
@@ -38,7 +38,7 @@ export type HeaderProps = {
   logoLinkTitle?: string
   /** The text for the menu button. */
   menuButtonText?: string
-  /** A slot for the menu items. Use Header.MenuLink here. */
+  /** A slot for the menu items. Use PageHeader.MenuLink here. */
   menuItems?: ReactNode
   /** The accessible label for the navigation section. */
   navigationLabel?: string
@@ -46,7 +46,7 @@ export type HeaderProps = {
   noMenuButtonOnWideWindow?: boolean
 } & HTMLAttributes<HTMLElement>
 
-const HeaderRoot = forwardRef(
+const PageHeaderRoot = forwardRef(
   (
     {
       brandName,
@@ -60,7 +60,7 @@ const HeaderRoot = forwardRef(
       navigationLabel = 'Hoofdnavigatie',
       noMenuButtonOnWideWindow,
       ...restProps
-    }: HeaderProps,
+    }: PageHeaderProps,
     ref: ForwardedRef<HTMLElement>,
   ) => {
     const [open, setOpen] = useState(false)
@@ -112,7 +112,7 @@ const HeaderRoot = forwardRef(
                     </span>
                     <Icon
                       svg={
-                        <HeaderMenuIcon
+                        <PageHeaderMenuIcon
                           className={clsx('ams-header__menu-icon', open && 'ams-header__menu-icon--open')}
                         />
                       }
@@ -137,9 +137,9 @@ const HeaderRoot = forwardRef(
   },
 )
 
-HeaderRoot.displayName = 'Header'
+PageHeaderRoot.displayName = 'PageHeader'
 
-export const Header = Object.assign(HeaderRoot, {
-  GridCellNarrowWindowOnly: HeaderGridCellNarrowWindowOnly,
-  MenuLink: HeaderMenuLink,
+export const PageHeader = Object.assign(PageHeaderRoot, {
+  GridCellNarrowWindowOnly: PageHeaderGridCellNarrowWindowOnly,
+  MenuLink: PageHeaderMenuLink,
 })

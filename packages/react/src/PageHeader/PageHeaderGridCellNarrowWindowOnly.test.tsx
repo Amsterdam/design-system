@@ -1,11 +1,11 @@
 import { render } from '@testing-library/react'
 import { createRef } from 'react'
-import { HeaderGridCellNarrowWindowOnly } from './HeaderGridCellNarrowWindowOnly'
+import { PageHeaderGridCellNarrowWindowOnly } from './PageHeaderGridCellNarrowWindowOnly'
 import '@testing-library/jest-dom'
 
-describe('Header narrow screen only grid cell', () => {
+describe('Page Header Grid Cell Narrow Window Only', () => {
   it('renders', () => {
-    const { container } = render(<HeaderGridCellNarrowWindowOnly />)
+    const { container } = render(<PageHeaderGridCellNarrowWindowOnly />)
 
     const component = container.querySelector(':only-child')
 
@@ -14,7 +14,7 @@ describe('Header narrow screen only grid cell', () => {
   })
 
   it('renders a Grid.Cell', () => {
-    const { container } = render(<HeaderGridCellNarrowWindowOnly />)
+    const { container } = render(<PageHeaderGridCellNarrowWindowOnly />)
 
     const component = container.querySelector(':only-child')
 
@@ -22,7 +22,7 @@ describe('Header narrow screen only grid cell', () => {
   })
 
   it('renders a design system BEM class name', () => {
-    const { container } = render(<HeaderGridCellNarrowWindowOnly />)
+    const { container } = render(<PageHeaderGridCellNarrowWindowOnly />)
 
     const component = container.querySelector(':only-child')
 
@@ -30,7 +30,7 @@ describe('Header narrow screen only grid cell', () => {
   })
 
   it('renders an additional class name', () => {
-    const { container } = render(<HeaderGridCellNarrowWindowOnly className="extra" />)
+    const { container } = render(<PageHeaderGridCellNarrowWindowOnly className="extra" />)
 
     const component = container.querySelector(':only-child')
 
@@ -40,7 +40,7 @@ describe('Header narrow screen only grid cell', () => {
   it('supports ForwardRef in React', () => {
     const ref = createRef<HTMLDivElement>()
 
-    const { container } = render(<HeaderGridCellNarrowWindowOnly ref={ref} />)
+    const { container } = render(<PageHeaderGridCellNarrowWindowOnly ref={ref} />)
 
     const component = container.querySelector(':only-child')
 

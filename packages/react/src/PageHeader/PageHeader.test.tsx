@@ -1,13 +1,13 @@
 import { render, screen } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
 import { createRef } from 'react'
-import './matchMedia.mock' // Must be imported before Header
-import { Header } from './Header'
+import './matchMedia.mock' // Must be imported before PageHeader
+import { PageHeader } from './PageHeader'
 import '@testing-library/jest-dom'
 
-describe('Header', () => {
+describe('Page Header', () => {
   it('renders', () => {
-    render(<Header />)
+    render(<PageHeader />)
 
     const component = screen.getByRole('banner')
 
@@ -16,7 +16,7 @@ describe('Header', () => {
   })
 
   it('renders a design system BEM class name', () => {
-    render(<Header />)
+    render(<PageHeader />)
 
     const component = screen.getByRole('banner')
 
@@ -24,7 +24,7 @@ describe('Header', () => {
   })
 
   it('renders an additional class name', () => {
-    render(<Header className="extra" />)
+    render(<PageHeader className="extra" />)
 
     const component = screen.getByRole('banner')
 
@@ -35,7 +35,7 @@ describe('Header', () => {
   it('supports ForwardRef in React', () => {
     const ref = createRef<HTMLElement>()
 
-    render(<Header ref={ref} />)
+    render(<PageHeader ref={ref} />)
 
     const component = screen.getByRole('banner')
 
@@ -43,7 +43,7 @@ describe('Header', () => {
   })
 
   it('renders a logo link', () => {
-    render(<Header />)
+    render(<PageHeader />)
 
     const component = screen.getByRole('link')
 
@@ -51,7 +51,7 @@ describe('Header', () => {
   })
 
   it('renders a different brand logo', () => {
-    const { container } = render(<Header logoBrand="ggd-amsterdam" />)
+    const { container } = render(<PageHeader logoBrand="ggd-amsterdam" />)
 
     const component = container.querySelector('.ams-logo__text-secondary')
 
@@ -59,7 +59,7 @@ describe('Header', () => {
   })
 
   it('renders a custom logo link', () => {
-    render(<Header logoLink="/home" />)
+    render(<PageHeader logoLink="/home" />)
 
     const logoLink = screen.getByRole('link')
 
@@ -67,7 +67,7 @@ describe('Header', () => {
   })
 
   it('renders a custom logo link title', () => {
-    render(<Header logoLinkTitle="Go to homepage" />)
+    render(<PageHeader logoLinkTitle="Go to homepage" />)
 
     const logoLinkTitle = screen.getByRole('link', { name: 'Go to homepage' })
 
@@ -75,7 +75,7 @@ describe('Header', () => {
   })
 
   it('renders an application name', () => {
-    render(<Header brandName="Application name" />)
+    render(<PageHeader brandName="Application name" />)
 
     const brandName = screen.getByText('Application name')
 
@@ -83,7 +83,7 @@ describe('Header', () => {
   })
 
   it('renders the correct class for the responsive logo', () => {
-    const { container } = render(<Header brandName="Application name" />)
+    const { container } = render(<PageHeader brandName="Application name" />)
 
     const logoContainer = container.querySelector('.ams-header__logo-container')
 
@@ -91,7 +91,7 @@ describe('Header', () => {
   })
 
   it('renders a nav section', () => {
-    render(<Header>Test</Header>)
+    render(<PageHeader>Test</PageHeader>)
 
     const component = screen.getByRole('navigation')
 
@@ -99,7 +99,7 @@ describe('Header', () => {
   })
 
   it('renders a nav section with a custom label', () => {
-    render(<Header navigationLabel="Custom Navigation">Test</Header>)
+    render(<PageHeader navigationLabel="Custom Navigation">Test</PageHeader>)
 
     const component = screen.getByRole('navigation', { name: 'Custom Navigation' })
 
@@ -107,7 +107,7 @@ describe('Header', () => {
   })
 
   it('renders a menu', () => {
-    render(<Header menuItems={<Header.MenuLink>Menu Item</Header.MenuLink>} />)
+    render(<PageHeader menuItems={<PageHeader.MenuLink>Menu Item</PageHeader.MenuLink>} />)
 
     const component = screen.getByRole('list')
 
@@ -116,14 +116,14 @@ describe('Header', () => {
 
   it('renders menu items', () => {
     render(
-      <Header
+      <PageHeader
         menuItems={[
-          <Header.MenuLink href="/" key={1}>
+          <PageHeader.MenuLink href="/" key={1}>
             Menu Item 1
-          </Header.MenuLink>,
-          <Header.MenuLink href="/" key={2}>
+          </PageHeader.MenuLink>,
+          <PageHeader.MenuLink href="/" key={2}>
             Menu Item 2
-          </Header.MenuLink>,
+          </PageHeader.MenuLink>,
         ]}
       />,
     )
@@ -136,7 +136,7 @@ describe('Header', () => {
   })
 
   it('renders a menu button', () => {
-    render(<Header>Test</Header>)
+    render(<PageHeader>Test</PageHeader>)
 
     const component = screen.getByRole('button', { name: 'Menu' })
 
@@ -144,7 +144,7 @@ describe('Header', () => {
   })
 
   it('renders a menu button icon', () => {
-    const { container } = render(<Header>Test</Header>)
+    const { container } = render(<PageHeader>Test</PageHeader>)
 
     const component = container.querySelector('.ams-header__menu-icon')
 
@@ -152,7 +152,7 @@ describe('Header', () => {
   })
 
   it('renders a custom menu button text', () => {
-    render(<Header menuButtonText="Custom button text">Test</Header>)
+    render(<PageHeader menuButtonText="Custom button text">Test</PageHeader>)
 
     const component = screen.getByRole('button', { name: 'Custom button text' })
 
@@ -160,7 +160,7 @@ describe('Header', () => {
   })
 
   it('renders the correct class when noMenuButtonOnWideWindow is true', () => {
-    render(<Header noMenuButtonOnWideWindow>Test</Header>)
+    render(<PageHeader noMenuButtonOnWideWindow>Test</PageHeader>)
 
     const component = screen.getByRole('listitem')
 
@@ -170,7 +170,7 @@ describe('Header', () => {
   it('opens and closes the mega menu', async () => {
     const user = userEvent.setup()
 
-    const { container } = render(<Header>Test</Header>)
+    const { container } = render(<PageHeader>Test</PageHeader>)
 
     const closedMegaMenu = container.querySelector('.ams-header__mega-menu--closed')
 
