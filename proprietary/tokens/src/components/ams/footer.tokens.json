@@ -2,8 +2,8 @@
   "ams": {
     "footer": {
       "menu": {
-        "column-gap": { "value": "{ams.space.lg}" },
-        "padding-block": { "value": "{ams.space.grid.sm}" },
+        "column-gap": { "value": "{ams.space.l}" },
+        "padding-block": { "value": "{ams.space.l}" },
         "padding-inline": { "value": "{ams.grid.padding-inline}" },
         "row-gap": { "value": "{ams.space.xs}" },
         "link": {

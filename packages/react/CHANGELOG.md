@@ -3,6 +3,51 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.15.0](https://github.com/Amsterdam/design-system/compare/design-system-react-v0.14.1...design-system-react-v0.15.0) (2025-03-28)
+
+
+### ⚠ BREAKING CHANGES
+
+* Shorten size labels in prop values for Row and Column, space tokens and utility classes ([#1940](https://github.com/Amsterdam/design-system/issues/1940))
+* **Description List:** Rename values for terms column widths ([#1942](https://github.com/Amsterdam/design-system/issues/1942))
+* **Tabs:** Convert `tab` prop to string ([#1923](https://github.com/Amsterdam/design-system/issues/1923))
+* Update aspect ratio tokens and CSS utility classes ([#1913](https://github.com/Amsterdam/design-system/issues/1913))
+* **Tabs:** Rename onChange to onTabChange ([#1908](https://github.com/Amsterdam/design-system/issues/1908))
+* **Icon:** Rename values for size prop ([#1890](https://github.com/Amsterdam/design-system/issues/1890))
+* **Footer:** add FooterMenu component to replace PageMenu in Footer ([#1871](https://github.com/Amsterdam/design-system/issues/1871))
+* **Avatar:** Use updated color names for azure, lime and green  ([#1867](https://github.com/Amsterdam/design-system/issues/1867))
+* **Badge:** Use updated color names for azure and lime ([#1866](https://github.com/Amsterdam/design-system/issues/1866))
+* **Spotlight:** Use updated color names for lime and green and remove purple as an explicit option ([#1865](https://github.com/Amsterdam/design-system/issues/1865))
+
+### Features
+
+* **Aspect Ratio, Gap, Margin:** Use single dash in utility classes ([#1938](https://github.com/Amsterdam/design-system/issues/1938)) ([4762cdb](https://github.com/Amsterdam/design-system/commit/4762cdb05aa66b0afa89da264e84987e1d4b3e16))
+* **Avatar:** Use updated color names for azure, lime and green  ([#1867](https://github.com/Amsterdam/design-system/issues/1867)) ([e8a2638](https://github.com/Amsterdam/design-system/commit/e8a2638882b95141c5e5e345bb7656f1f9968253))
+* **Badge:** Use updated color names for azure and lime ([#1866](https://github.com/Amsterdam/design-system/issues/1866)) ([fd25778](https://github.com/Amsterdam/design-system/commit/fd25778db56eeeecf2e716a72d25b91c49193fa1))
+* Build separate React components alongside barrel file ([#1930](https://github.com/Amsterdam/design-system/issues/1930)) ([ca865f2](https://github.com/Amsterdam/design-system/commit/ca865f2168db8160bfe7df36cb5accdf637f25aa))
+* **deps:** Indicate support for React 19 applications ([#1857](https://github.com/Amsterdam/design-system/issues/1857)) ([b5aa659](https://github.com/Amsterdam/design-system/commit/b5aa659c4fdcdf24006d0b53400b04c6bebbe66e))
+* **Description List:** Rename values for terms column widths ([#1942](https://github.com/Amsterdam/design-system/issues/1942)) ([e1a9669](https://github.com/Amsterdam/design-system/commit/e1a9669925927f1608433a4ae68676b925ba8bd2))
+* **Footer:** add FooterMenu component to replace PageMenu in Footer ([#1871](https://github.com/Amsterdam/design-system/issues/1871)) ([85e0f0f](https://github.com/Amsterdam/design-system/commit/85e0f0f8c7fd9c281ba68155999e835921e4443d))
+* **Header:** Add responsive version of Amsterdam Logo, remove Heading level 1 ([#1880](https://github.com/Amsterdam/design-system/issues/1880)) ([7de8138](https://github.com/Amsterdam/design-system/commit/7de813861a565da89fee246731dc1525bc5d2643))
+* **Page Menu:** Deprecate Page Menu component ([#1891](https://github.com/Amsterdam/design-system/issues/1891)) ([71ce759](https://github.com/Amsterdam/design-system/commit/71ce759f3b32d2c7d80ae2f63f01ed74ae0744d6))
+* Publish React source code ([#1925](https://github.com/Amsterdam/design-system/issues/1925)) ([9cf1a4a](https://github.com/Amsterdam/design-system/commit/9cf1a4a5c55061bd6670b416d35a1bbc5c9cc8ce))
+* Shorten size labels in prop values for Row and Column, space tokens and utility classes ([#1940](https://github.com/Amsterdam/design-system/issues/1940)) ([694987c](https://github.com/Amsterdam/design-system/commit/694987c88773983e4cd12d518cc957d34ec29d7e))
+* Split typography tokens into ‘body text’ and ‘heading’ groups ([#1890](https://github.com/Amsterdam/design-system/issues/1890)) ([3126aa2](https://github.com/Amsterdam/design-system/commit/3126aa29d5aebccfca272892d55f140783a94d43))
+* **Spotlight:** Use updated color names for lime and green and remove purple as an explicit option ([#1865](https://github.com/Amsterdam/design-system/issues/1865)) ([387ae45](https://github.com/Amsterdam/design-system/commit/387ae45ce263ae3b6a12fc9a3b22a37dc0aed997))
+* **Tabs:** Convert `tab` prop to string ([#1923](https://github.com/Amsterdam/design-system/issues/1923)) ([83823ed](https://github.com/Amsterdam/design-system/commit/83823edd9cba1fe95afa47eb3b1b1c6fbd1176a1))
+* Update aspect ratio tokens and CSS utility classes ([#1913](https://github.com/Amsterdam/design-system/issues/1913)) ([968ef2b](https://github.com/Amsterdam/design-system/commit/968ef2bf053803c356e36424836fd9934da123fd))
+
+
+### Bug Fixes
+
+* **Column, Row:** Do not use utility classes ([#1951](https://github.com/Amsterdam/design-system/issues/1951)) ([a5a74f8](https://github.com/Amsterdam/design-system/commit/a5a74f8bbb55ab54c7b179be29d4a804b088044a))
+* **deps:** bump @babel/runtime from 7.26.7 to 7.26.9 in the patch-and-minor-dependencies group ([#1874](https://github.com/Amsterdam/design-system/issues/1874)) ([7401046](https://github.com/Amsterdam/design-system/commit/740104693186797e6e0fd79e3ad14fe47eaef972))
+* **deps:** bump @babel/runtime from 7.26.9 to 7.26.10 in the patch-and-minor-dependencies group ([#1926](https://github.com/Amsterdam/design-system/issues/1926)) ([0830455](https://github.com/Amsterdam/design-system/commit/08304556ff41bd2413d562972c7617cb5860b8b6))
+* **Header:** Only use matchMedia when there is a mega menu ([#1924](https://github.com/Amsterdam/design-system/issues/1924)) ([7905641](https://github.com/Amsterdam/design-system/commit/790564156813b0e844d19c39eab91346241ba658))
+* **Heading:** Remove ‘level’ from class name ([#1904](https://github.com/Amsterdam/design-system/issues/1904)) ([71ef1db](https://github.com/Amsterdam/design-system/commit/71ef1db68405455087065e73dadf90581173398d))
+* **Tabs:** Do not change active tab when using arrow keys in panel ([#1936](https://github.com/Amsterdam/design-system/issues/1936)) ([82bed7a](https://github.com/Amsterdam/design-system/commit/82bed7a3c14bb7f7f7654782c41e3a96a8e7c828))
+* **Tabs:** Rename onChange to onTabChange ([#1908](https://github.com/Amsterdam/design-system/issues/1908)) ([2deb358](https://github.com/Amsterdam/design-system/commit/2deb358b2becf858fe02d6e34a5721fe4184f8a2))
+
 ## [0.14.1](https://github.com/Amsterdam/design-system/compare/design-system-react-v0.14.0...design-system-react-v0.14.1) (2025-02-12)
 
 

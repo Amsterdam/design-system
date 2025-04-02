@@ -3,6 +3,57 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.15.0](https://github.com/Amsterdam/design-system/compare/design-system-css-v0.14.1...design-system-css-v0.15.0) (2025-03-28)
+
+
+### ⚠ BREAKING CHANGES
+
+* Shorten size labels in prop values for Row and Column, space tokens and classes ([#1940](https://github.com/Amsterdam/design-system/issues/1940), [#1951](https://github.com/Amsterdam/design-system/issues/1951))
+* **Description List:** Rename values for terms column widths ([#1942](https://github.com/Amsterdam/design-system/issues/1942))
+* **Aspect Ratio, Gap, Margin:** Use single dash in utility classes ([#1938](https://github.com/Amsterdam/design-system/issues/1938))
+* Update aspect ratio tokens and CSS utility classes ([#1913](https://github.com/Amsterdam/design-system/issues/1913))
+* **Header:** Add responsive version of Amsterdam Logo, remove Heading level 1 ([#1880](https://github.com/Amsterdam/design-system/issues/1880))
+* **Heading:** Remove ‘level’ from class name ([#1904](https://github.com/Amsterdam/design-system/issues/1904))
+* **Icon:** Rename size classes ([#1890](https://github.com/Amsterdam/design-system/issues/1890))
+* **Footer:** add FooterMenu component to replace PageMenu in Footer ([#1871](https://github.com/Amsterdam/design-system/issues/1871))
+* **Avatar:** Use updated color names for azure, lime and green  ([#1867](https://github.com/Amsterdam/design-system/issues/1867))
+* **Badge:** Use updated color names for azure and lime ([#1866](https://github.com/Amsterdam/design-system/issues/1866))
+* **Spotlight:** Use updated color names for lime and green and remove purple as an explicit option ([#1865](https://github.com/Amsterdam/design-system/issues/1865))
+
+### Features
+
+* Add missing hyphenation behaviour to all text components ([#1864](https://github.com/Amsterdam/design-system/issues/1864)) ([6e933a6](https://github.com/Amsterdam/design-system/commit/6e933a6b9610ab76c187ae1d42c3e8817b9b7e66))
+* **Aspect Ratio, Gap, Margin:** Use single dash in utility classes ([#1938](https://github.com/Amsterdam/design-system/issues/1938)) ([4762cdb](https://github.com/Amsterdam/design-system/commit/4762cdb05aa66b0afa89da264e84987e1d4b3e16))
+* **Avatar:** Use updated color names for azure, lime and green  ([#1867](https://github.com/Amsterdam/design-system/issues/1867)) ([e8a2638](https://github.com/Amsterdam/design-system/commit/e8a2638882b95141c5e5e345bb7656f1f9968253))
+* **Badge:** Use updated color names for azure and lime ([#1866](https://github.com/Amsterdam/design-system/issues/1866)) ([fd25778](https://github.com/Amsterdam/design-system/commit/fd25778db56eeeecf2e716a72d25b91c49193fa1))
+* Consolidate Grid Space and Component Space into one set of spacing tokens ([#1910](https://github.com/Amsterdam/design-system/issues/1910)) ([f36e985](https://github.com/Amsterdam/design-system/commit/f36e9855c78f582df95fa0906f0849c2832c25a3))
+* **Description List:** Rename values for terms column widths ([#1942](https://github.com/Amsterdam/design-system/issues/1942)) ([e1a9669](https://github.com/Amsterdam/design-system/commit/e1a9669925927f1608433a4ae68676b925ba8bd2))
+* **Dialog:** Change background colour of backdrop and add token for it ([#1876](https://github.com/Amsterdam/design-system/issues/1876)) ([d071bb4](https://github.com/Amsterdam/design-system/commit/d071bb4149d2789d967abcdb84ccdfa4d5b7aecc))
+* **Footer:** add FooterMenu component to replace PageMenu in Footer ([#1871](https://github.com/Amsterdam/design-system/issues/1871)) ([85e0f0f](https://github.com/Amsterdam/design-system/commit/85e0f0f8c7fd9c281ba68155999e835921e4443d))
+* **Header:** Add responsive version of Amsterdam Logo, remove Heading level 1 ([#1880](https://github.com/Amsterdam/design-system/issues/1880)) ([7de8138](https://github.com/Amsterdam/design-system/commit/7de813861a565da89fee246731dc1525bc5d2643))
+* **Icon:** Add invisble text content to simplify baseline alignment ([#1905](https://github.com/Amsterdam/design-system/issues/1905)) ([190b588](https://github.com/Amsterdam/design-system/commit/190b58865dee4552cf2c304cbc4d193cf7e14036))
+* Remove action tokens, add and implement cursor tokens ([#1860](https://github.com/Amsterdam/design-system/issues/1860)) ([40a04a8](https://github.com/Amsterdam/design-system/commit/40a04a88e8c5829df54eb3a6ca338557249aec5d))
+* Rename and document common tokens for links ([#1870](https://github.com/Amsterdam/design-system/issues/1870)) ([551743d](https://github.com/Amsterdam/design-system/commit/551743d11436ff2363f8dd1187afe166e6c4a02b))
+* Shorten size labels in border tokens ([#1941](https://github.com/Amsterdam/design-system/issues/1941)) ([fa154a6](https://github.com/Amsterdam/design-system/commit/fa154a6c96a11a43623f959a51f782abae27449e))
+* Shorten size labels in prop values for Row and Column, space tokens and utility classes ([#1940](https://github.com/Amsterdam/design-system/issues/1940)) ([694987c](https://github.com/Amsterdam/design-system/commit/694987c88773983e4cd12d518cc957d34ec29d7e))
+* **Icon:** Rename size classes ([#1890](https://github.com/Amsterdam/design-system/issues/1890)) ([3126aa2](https://github.com/Amsterdam/design-system/commit/3126aa29d5aebccfca272892d55f140783a94d43))
+* **Spotlight:** Use updated color names for lime and green and remove purple as an explicit option ([#1865](https://github.com/Amsterdam/design-system/issues/1865)) ([387ae45](https://github.com/Amsterdam/design-system/commit/387ae45ce263ae3b6a12fc9a3b22a37dc0aed997))
+* Update and document focus tokens ([#1919](https://github.com/Amsterdam/design-system/issues/1919)) ([4c85170](https://github.com/Amsterdam/design-system/commit/4c85170f2b8eec5ce956cecdbb41430ce2c37639))
+* Update aspect ratio tokens and CSS utility classes ([#1913](https://github.com/Amsterdam/design-system/issues/1913)) ([968ef2b](https://github.com/Amsterdam/design-system/commit/968ef2bf053803c356e36424836fd9934da123fd))
+* Update hyphenation tokens ([#1914](https://github.com/Amsterdam/design-system/issues/1914)) ([0c7f359](https://github.com/Amsterdam/design-system/commit/0c7f359ff094e281022441d171bd617047c660b2))
+
+
+### Bug Fixes
+
+* **Action Group:** Align content to center instead of baseline ([#1931](https://github.com/Amsterdam/design-system/issues/1931)) ([2ad1739](https://github.com/Amsterdam/design-system/commit/2ad17397009438d0d39a03a6fda5271e12e65e28))
+* **Card:** Prevent other links than the Card Link from stretching ([#1898](https://github.com/Amsterdam/design-system/issues/1898)) ([a6d79b0](https://github.com/Amsterdam/design-system/commit/a6d79b01e50792c0c8a38629d4b403c1c63e1757))
+* **Column, Row:** Do not use utility classes ([#1951](https://github.com/Amsterdam/design-system/issues/1951)) ([a5a74f8](https://github.com/Amsterdam/design-system/commit/a5a74f8bbb55ab54c7b179be29d4a804b088044a))
+* **Dialog:** Prevent a focus indicator from being cut off ([#1879](https://github.com/Amsterdam/design-system/issues/1879)) ([336ff55](https://github.com/Amsterdam/design-system/commit/336ff554d2a4a213c1f62bd32b02219ca41a802c))
+* **Gap:** Make sure grid display is always set ([#1945](https://github.com/Amsterdam/design-system/issues/1945)) ([cec37ae](https://github.com/Amsterdam/design-system/commit/cec37ae5482a3bace3afb59e903285aeb587396a))
+* **Heading:** Remove ‘level’ from class name ([#1904](https://github.com/Amsterdam/design-system/issues/1904)) ([71ef1db](https://github.com/Amsterdam/design-system/commit/71ef1db68405455087065e73dadf90581173398d))
+* **Icon:** Restore square appearance ([#1933](https://github.com/Amsterdam/design-system/issues/1933)) ([3237e9d](https://github.com/Amsterdam/design-system/commit/3237e9dda1536756d4202fb1e95489a39683ab13))
+* **Tabs:** Remove unnecessary token, reuse color value ([#1932](https://github.com/Amsterdam/design-system/issues/1932)) ([cabfd59](https://github.com/Amsterdam/design-system/commit/cabfd5967a9c0cb17ab0bac627f19261f29bcf2e))
+
 ## [0.14.1](https://github.com/Amsterdam/design-system/compare/design-system-css-v0.14.0...design-system-css-v0.14.1) (2025-02-12)
 
 

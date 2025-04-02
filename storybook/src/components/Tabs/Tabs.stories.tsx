@@ -52,7 +52,7 @@ const defaultTabs = [
   </Tabs.List>,
   tabsContent.map(({ body, label }) => (
     <Tabs.Panel key={label} tab={label}>
-      <Heading className="ams-mb--xs" level={3}>
+      <Heading className="ams-mb-xs" level={3}>
         {label}
       </Heading>
       <Paragraph>{body}</Paragraph>

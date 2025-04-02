@@ -6,7 +6,7 @@
       "font-family": { "value": "{ams.typography.font-family}" },
       "font-size": { "value": "{ams.typography.body-text.font-size}" },
       "font-weight": { "value": "{ams.typography.body-text.font-weight}" },
-      "gap": { "value": "{ams.space.sm}" },
+      "gap": { "value": "{ams.space.s}" },
       "line-height": { "value": "{ams.typography.body-text.line-height}" },
       "outline-offset": { "value": "{ams.focus.outline-offset}" },
       "text-decoration-thickness": { "value": "{ams.links.text-decoration-thickness}" },

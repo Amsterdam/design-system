@@ -16,7 +16,7 @@ export const ArticleBody = ({ lead, paragraph1, spotlightHeading, spotlightLinkL
   <>
     <Grid paddingVertical="medium">
       <Grid.Cell span={{ narrow: 4, medium: 8, wide: 10 }} start={{ narrow: 1, medium: 1, wide: 2 }}>
-        <Paragraph className="ams-mb--md" size="large">
+        <Paragraph className="ams-mb-m" size="large">
           {lead}
         </Paragraph>
         <Paragraph>{paragraph1}</Paragraph>
@@ -58,7 +58,7 @@ export const ArticleBody = ({ lead, paragraph1, spotlightHeading, spotlightLinkL
       <Grid.Cell span={{ narrow: 4, medium: 8, wide: 10 }} start={{ narrow: 1, medium: 1, wide: 2 }}>
         <Column>
           <section>
-            <Heading className="ams-mb--xs" level={2}>
+            <Heading className="ams-mb-xs" level={2}>
               Wanneer bezorgen we
             </Heading>
             <Paragraph>
@@ -67,7 +67,7 @@ export const ArticleBody = ({ lead, paragraph1, spotlightHeading, spotlightLinkL
             </Paragraph>
           </section>
           <section>
-            <Heading className="ams-mb--xs" level={2}>
+            <Heading className="ams-mb-xs" level={2}>
               Tekenen voor ontvangst
             </Heading>
             <Paragraph>
@@ -77,7 +77,7 @@ export const ArticleBody = ({ lead, paragraph1, spotlightHeading, spotlightLinkL
             </Paragraph>
           </section>
           <section>
-            <Heading className="ams-mb--xs" level={2}>
+            <Heading className="ams-mb-xs" level={2}>
               Bezorgen met waarde-transport
             </Heading>
             <Paragraph>
@@ -89,7 +89,7 @@ export const ArticleBody = ({ lead, paragraph1, spotlightHeading, spotlightLinkL
             </Paragraph>
           </section>
           <section>
-            <Heading className="ams-mb--xs" level={2}>
+            <Heading className="ams-mb-xs" level={2}>
               Wanneer kan bezorgen niet?
             </Heading>
             <UnorderedList>
@@ -102,7 +102,7 @@ export const ArticleBody = ({ lead, paragraph1, spotlightHeading, spotlightLinkL
             </UnorderedList>
           </section>
           <section>
-            <Heading className="ams-mb--xs" level={2}>
+            <Heading className="ams-mb-xs" level={2}>
               Meer weten
             </Heading>
             <LinkList>

@@ -7,7 +7,7 @@
 
 @mixin reset-button {
   background-color: transparent;
-  border: 0;
+  border: none;
   margin-block: 0; // [1]
   margin-inline: 0; // [1]
 
@@ -49,14 +49,16 @@
     }
   }
 
+  &:hover:not([disabled]) {
+    color: var(--ams-tabs-button-hover-color);
+  }
+
   &:hover:not([aria-selected="true"], [disabled]) {
     box-shadow: var(--ams-tabs-button-hover-box-shadow);
-    color: var(--ams-tabs-button-hover-color);
   }
 
   &[aria-selected="true"] {
     box-shadow: var(--ams-tabs-button-selected-box-shadow);
-    color: var(--ams-tabs-button-selected-color);
     font-weight: var(--ams-tabs-button-selected-font-weight);
 
     @media (forced-colors: active) {

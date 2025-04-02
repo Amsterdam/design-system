@@ -10,9 +10,9 @@
         "font-weight": { "value": "{ams.typography.body-text.bold.font-weight}" }
       },
       "cell": {
-        "border-block-end": { "value": "{ams.border.width.sm} solid {ams.color.separator}" },
-        "padding-block": { "value": "{ams.space.sm}" },
-        "padding-inline": { "value": "{ams.space.md}" }
+        "border-block-end": { "value": "{ams.border.width.s} solid {ams.color.separator}" },
+        "padding-block": { "value": "{ams.space.s}" },
+        "padding-inline": { "value": "{ams.space.m}" }
       },
       "header-cell": {
         "font-weight": { "value": "{ams.typography.body-text.bold.font-weight}" }

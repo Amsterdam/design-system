@@ -4,7 +4,7 @@
  */
 
 @mixin reset-button {
-  border: 0;
+  border: none;
   margin-block: 0; // [1]
   margin-inline: 0; // [1]
   padding-block: 0;
@@ -17,6 +17,7 @@
   background-color: transparent;
   color: var(--ams-icon-button-color);
   cursor: var(--ams-icon-button-cursor);
+  display: inline-flex;
   outline-offset: var(--ams-icon-button-outline-offset);
   touch-action: manipulation;
 

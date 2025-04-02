@@ -10,7 +10,7 @@ import { DescriptionListDescription } from './DescriptionListDescription'
 import { DescriptionListSection } from './DescriptionListSection'
 import { DescriptionListTerm } from './DescriptionListTerm'
 
-export const descriptionListTermsWidths = ['sm', 'md', 'lg'] as const
+export const descriptionListTermsWidths = ['narrow', 'medium', 'wide'] as const
 type DescriptionListTermsWidth = (typeof descriptionListTermsWidths)[number]
 
 export type DescriptionListProps = {
@@ -30,7 +30,7 @@ const DescriptionListRoot = forwardRef(
       className={clsx(
         'ams-description-list',
         color && `ams-description-list--${color}`,
-        termsWidth && `ams-description-list--terms-width-${termsWidth}`,
+        termsWidth && `ams-description-list--${termsWidth}`,
         className,
       )}
       ref={ref}
