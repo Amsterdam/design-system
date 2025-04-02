@@ -6,11 +6,10 @@
 import clsx from 'clsx'
 import { forwardRef, HTMLAttributes, PropsWithChildren } from 'react'
 
-export const spotlightColors = ['azure', 'green', 'lime', 'magenta', 'orange', 'yellow'] as const
-
 export const spotlightTags = ['article', 'aside', 'div', 'footer', 'section'] as const
 type SpotlightTag = (typeof spotlightTags)[number]
 
+export const spotlightColors = ['azure', 'green', 'lime', 'magenta', 'orange', 'yellow'] as const
 type SpotlightColor = (typeof spotlightColors)[number]
 
 export type SpotlightProps = {
