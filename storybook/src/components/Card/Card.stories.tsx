@@ -3,7 +3,7 @@
  * Copyright Gemeente Amsterdam
  */
 
-import { Heading, Image, Paragraph } from '@amsterdam/design-system-react'
+import { Column, Heading, Image, Paragraph } from '@amsterdam/design-system-react'
 import { Card } from '@amsterdam/design-system-react/src'
 import { Meta, StoryObj } from '@storybook/react'
 import { exampleTopTask } from '../shared/exampleContent'
@@ -68,12 +68,12 @@ export const WithImage: Story = {
           <Card.Link href="/">Nederlands eerste houten woonwijk komt in Zuidoost</Card.Link>
         </Heading>
       </Card.HeadingGroup>,
-      <Paragraph key={3}>
-        We bouwen een levendige, groene en duurzame woonbuurt tussen de Gooiseweg en het Nelson Mandelapark.
-      </Paragraph>,
-      <Paragraph key={4} size="small">
-        {today}
-      </Paragraph>,
+      <Column gap="small" key={3}>
+        <Paragraph>
+          We bouwen een levendige, groene en duurzame woonbuurt tussen de Gooiseweg en het Nelson Mandelapark.
+        </Paragraph>
+        <Paragraph size="small">{today}</Paragraph>
+      </Column>,
     ],
   },
 }
