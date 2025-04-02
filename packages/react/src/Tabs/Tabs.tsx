@@ -4,13 +4,12 @@
  */
 
 import clsx from 'clsx'
-import { forwardRef, useEffect, useId, useImperativeHandle, useMemo, useRef, useState } from 'react'
+import { forwardRef, useEffect, useId, useMemo, useState } from 'react'
 import type { ForwardedRef, HTMLAttributes, PropsWithChildren } from 'react'
 import { TabsButton } from './TabsButton'
 import { TabsContext } from './TabsContext'
 import { TabsList } from './TabsList'
 import { TabsPanel } from './TabsPanel'
-import { useKeyboardFocus } from '../common/useKeyboardFocus'
 
 export type TabsProps = {
   /** The identifier of the initially active tab. Corresponds to its `tab` value. */
@@ -22,7 +21,6 @@ export type TabsProps = {
 const TabsRoot = forwardRef(
   ({ activeTab, children, className, onTabChange, ...restProps }: TabsProps, ref: ForwardedRef<HTMLDivElement>) => {
     const tabsId = useId()
-    const innerRef = useRef<HTMLDivElement>(null)
     const [activeTabId, setActiveTabId] = useState<string>()
 
     const allTabIds = useMemo(() => {
@@ -64,17 +62,9 @@ const TabsRoot = forwardRef(
       onTabChange?.(tab)
     }
 
-    // Use a passed ref if it's there, otherwise use innerRef
-    useImperativeHandle(ref, () => innerRef.current as HTMLDivElement)
-
-    const { keyDown } = useKeyboardFocus(innerRef, {
-      horizontally: true,
-      rotating: true,
-    })
-
     return (
       <TabsContext.Provider value={{ activeTabId, tabsId, updateTab }}>
-        <div {...restProps} className={clsx('ams-tabs', className)} onKeyDown={keyDown} ref={innerRef}>
+        <div {...restProps} className={clsx('ams-tabs', className)} ref={ref}>
           {children}
         </div>
       </TabsContext.Provider>

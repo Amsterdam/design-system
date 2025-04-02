@@ -2,13 +2,13 @@
   "ams": {
     "header": {
       "font-family": { "value": "{ams.typography.font-family}" },
-      "padding-block": { "value": "{ams.space.grid.sm}" },
+      "padding-block": { "value": "{ams.space.l}" },
       "padding-inline": {
         "value": "{ams.grid.padding-inline}",
         "comment": "Must be the Grid inline padding, to make sure Header and Grid line up"
       },
       "logo-link": {
-        "column-gap": { "value": "{ams.space.md}" },
+        "column-gap": { "value": "{ams.space.m}" },
         "outline-offset": { "value": "{ams.focus.outline-offset}" }
       },
       "brand-name": {
@@ -27,7 +27,7 @@
         }
       },
       "menu": {
-        "column-gap": { "value": "{ams.space.lg}" },
+        "column-gap": { "value": "{ams.space.l}" },
         "row-gap": { "value": "{ams.space.xs}" },
         "item": {
           "color": { "value": "{ams.links.color}" },
@@ -52,8 +52,8 @@
         }
       },
       "navigation": {
-        "column-gap": { "value": "{ams.space.lg}" },
-        "row-gap": { "value": "{ams.space.grid.md}" }
+        "column-gap": { "value": "{ams.space.l}" },
+        "row-gap": { "value": "{ams.space.s}" }
       }
     }
   }

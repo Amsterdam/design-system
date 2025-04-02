@@ -2,15 +2,15 @@
   "ams": {
     "date-input": {
       "background-color": { "value": "{ams.color.background}" },
-      "box-shadow": { "value": "inset 0 0 0 {ams.border.width.sm} {ams.color.interactive.secondary}" },
+      "box-shadow": { "value": "inset 0 0 0 {ams.border.width.s} {ams.color.interactive.secondary}" },
       "color": { "value": "{ams.color.text.default}" },
       "font-family": { "value": "{ams.typography.font-family}" },
       "font-size": { "value": "{ams.typography.body-text.font-size}" },
       "font-weight": { "value": "{ams.typography.body-text.font-weight}" },
       "line-height": { "value": "{ams.typography.body-text.line-height}" },
       "outline-offset": { "value": "{ams.focus.outline-offset}" },
-      "padding-block": { "value": "{ams.space.sm}" },
-      "padding-inline": { "value": "{ams.space.md}" },
+      "padding-block": { "value": "{ams.space.s}" },
+      "padding-inline": { "value": "{ams.space.m}" },
       "calender-picker-indicator": {
         "background-image": {
           "value": "url(\"data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 36 36' fill='%23004699'><path d='M28 6V2h-4v4H12V2H8v4H2v28h32V6zm2 24H6V14h24z'/><path d='M10 17h4v4h-4zm6 0h4v4h-4zm6 0h4v4h-4zm-12 6h4v4h-4zm6 0h4v4h-4z'/></svg>\")"
@@ -19,7 +19,7 @@
       },
       "disabled": {
         "background-color": { "value": "{ams.color.background}" },
-        "box-shadow": { "value": "inset 0 0 0 {ams.border.width.sm} {ams.color.interactive.disabled}" },
+        "box-shadow": { "value": "inset 0 0 0 {ams.border.width.s} {ams.color.interactive.disabled}" },
         "color": { "value": "{ams.color.interactive.disabled}" },
         "cursor": { "value": "{ams.cursor.disabled}" },
         "calender-picker-indicator": {
@@ -29,7 +29,7 @@
         }
       },
       "hover": {
-        "box-shadow": { "value": "inset 0 0 0 {ams.border.width.md} {ams.color.interactive.secondary}" },
+        "box-shadow": { "value": "inset 0 0 0 {ams.border.width.m} {ams.color.interactive.secondary}" },
         "calender-picker-indicator": {
           "background-image": {
             "value": "url(\"data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 36 36' fill='%23102E62'><path d='M28 6V2h-4v4H12V2H8v4H2v28h32V6zm2 24H6V14h24z'/><path d='M10 17h4v4h-4zm6 0h4v4h-4zm6 0h4v4h-4zm-12 6h4v4h-4zm6 0h4v4h-4z'/></svg>\")"
@@ -37,9 +37,9 @@
         }
       },
       "invalid": {
-        "box-shadow": { "value": "inset 0 0 0 {ams.border.width.sm} {ams.color.interactive.invalid.default}" },
+        "box-shadow": { "value": "inset 0 0 0 {ams.border.width.s} {ams.color.interactive.invalid.default}" },
         "hover": {
-          "box-shadow": { "value": "inset 0 0 0 {ams.border.width.md} {ams.color.interactive.invalid.hover}" }
+          "box-shadow": { "value": "inset 0 0 0 {ams.border.width.m} {ams.color.interactive.invalid.hover}" }
         }
       }
     }
