@@ -44,10 +44,12 @@ so do not apply these styles without an `open` attribute. */
   padding-inline: var(--ams-dialog-header-padding-inline);
 
   @media screen and (min-width: $ams-breakpoint-medium) {
+    padding-block: var(--ams-dialog-header-medium-padding-block);
     padding-inline: var(--ams-dialog-header-medium-padding-inline);
   }
 
   @media screen and (min-width: $ams-breakpoint-wide) {
+    padding-block: var(--ams-dialog-header-wide-padding-block);
     padding-inline: var(--ams-dialog-header-wide-padding-inline);
   }
 }
@@ -72,10 +74,12 @@ so do not apply these styles without an `open` attribute. */
   padding-inline: var(--ams-dialog-footer-padding-inline);
 
   @media screen and (min-width: $ams-breakpoint-medium) {
+    padding-block: var(--ams-dialog-footer-medium-padding-block);
     padding-inline: var(--ams-dialog-footer-medium-padding-inline);
   }
 
   @media screen and (min-width: $ams-breakpoint-wide) {
+    padding-block: var(--ams-dialog-footer-wide-padding-block);
     padding-inline: var(--ams-dialog-footer-wide-padding-inline);
   }
 }
