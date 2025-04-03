@@ -13,15 +13,32 @@
       "header": {
         "gap": { "value": "{ams.space.m}" },
         "padding-block": { "value": "{ams.space.xl} 0" },
-        "padding-inline": { "value": "{ams.space.2xl}" }
+        "padding-inline": { "value": "{ams.space.l}" },
+        "medium": {
+          "padding-inline": { "value": "{ams.space.xl}" }
+        },
+        "wide": {
+          "padding-inline": { "value": "{ams.space.xl}" }
+        }
       },
       "body": {
         "padding-block": { "value": "0" },
-        "padding-inline": { "value": "{ams.space.2xl}" }
+        "padding-inline": { "value": "{ams.space.l}" },
+        "medium": {
+          "padding-inline": { "value": "{ams.space.xl}" }
+        },
+        "wide": {
+          "padding-inline": { "value": "{ams.space.xl}" }
+        }
       },
       "footer": {
-        "padding-block": { "value": "0 {ams.space.xl}" },
-        "padding-inline": { "value": "{ams.space.2xl}" }
+        "padding-inline": { "value": "{ams.space.l}" },
+        "medium": {
+          "padding-inline": { "value": "{ams.space.xl}" }
+        },
+        "wide": {
+          "padding-inline": { "value": "{ams.space.xl}" }
+        }
       }
     }
   }

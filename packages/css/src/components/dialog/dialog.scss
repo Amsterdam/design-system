@@ -3,6 +3,8 @@
  * Copyright Gemeente Amsterdam
  */
 
+@use "../../common/breakpoint" as *;
+
 @mixin reset-dialog {
   inset-block: 0;
   padding-block: 0;
@@ -40,6 +42,14 @@ so do not apply these styles without an `open` attribute. */
   justify-content: space-between;
   padding-block: var(--ams-dialog-header-padding-block);
   padding-inline: var(--ams-dialog-header-padding-inline);
+
+  @media screen and (min-width: $ams-breakpoint-medium) {
+    padding-inline: var(--ams-dialog-header-medium-padding-inline);
+  }
+
+  @media screen and (min-width: $ams-breakpoint-wide) {
+    padding-inline: var(--ams-dialog-header-wide-padding-inline);
+  }
 }
 
 .ams-dialog__body {
@@ -47,9 +57,25 @@ so do not apply these styles without an `open` attribute. */
   overscroll-behavior-y: contain;
   padding-block: var(--ams-dialog-body-padding-block);
   padding-inline: var(--ams-dialog-body-padding-inline);
+
+  @media screen and (min-width: $ams-breakpoint-medium) {
+    padding-inline: var(--ams-dialog-body-medium-padding-inline);
+  }
+
+  @media screen and (min-width: $ams-breakpoint-wide) {
+    padding-inline: var(--ams-dialog-body-wide-padding-inline);
+  }
 }
 
 .ams-dialog__footer {
   padding-block: var(--ams-dialog-footer-padding-block);
   padding-inline: var(--ams-dialog-footer-padding-inline);
+
+  @media screen and (min-width: $ams-breakpoint-medium) {
+    padding-inline: var(--ams-dialog-footer-medium-padding-inline);
+  }
+
+  @media screen and (min-width: $ams-breakpoint-wide) {
+    padding-inline: var(--ams-dialog-footer-wide-padding-inline);
+  }
 }
