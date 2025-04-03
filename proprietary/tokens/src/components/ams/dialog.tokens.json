@@ -4,9 +4,17 @@
       "background-color": { "value": "{ams.color.background}" },
       "border": { "value": "{ams.border.width.m} solid {ams.dialog.background-color}" },
       "gap": { "value": "{ams.space.m}" },
-      "inline-size": { "value": "calc(100% - 2 * {ams.space.xl})" },
-      "max-block-size": { "value": "calc(100dvh - 2 * {ams.space.xl})" },
+      "inline-size": { "value": "calc(100% - 2 * {ams.space.l})" },
+      "max-block-size": { "value": "calc(100dvh - 2 * {ams.space.l})" },
       "max-inline-size": { "value": "48rem" },
+      "medium": {
+        "inline-size": { "value": "calc(100% - 2 * {ams.space.xl})" },
+        "max-block-size": { "value": "calc(100dvh - 2 * {ams.space.xl})" }
+      },
+      "wide": {
+        "inline-size": { "value": "calc(100% - 2 * {ams.space.xl})" },
+        "max-block-size": { "value": "calc(100dvh - 2 * {ams.space.xl})" }
+      },
       "backdrop": {
         "background-color": { "value": "rgb(24 24 24 / 62.5%)" }
       },
