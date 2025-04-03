@@ -7,6 +7,12 @@
         "value": "{ams.grid.padding-inline}",
         "comment": "Must be the Grid inline padding, to make sure Header and Grid line up"
       },
+      "medium": {
+        "padding-inline": { "value": "{ams.grid.medium.padding-inline}" }
+      },
+      "wide": {
+        "padding-inline": { "value": "{ams.grid.wide.padding-inline}" }
+      },
       "logo-link": {
         "column-gap": { "value": "{ams.space.m}" },
         "outline-offset": { "value": "{ams.focus.outline-offset}" }
