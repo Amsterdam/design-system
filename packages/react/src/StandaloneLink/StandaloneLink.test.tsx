@@ -3,7 +3,7 @@ import { createRef } from 'react'
 import { StandaloneLink } from './StandaloneLink'
 import '@testing-library/jest-dom'
 
-describe('StandaloneLink', () => {
+describe('Standalone Link', () => {
   it('renders with href attribute', () => {
     render(<StandaloneLink href="#" />)
 

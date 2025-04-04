@@ -1,5 +1,5 @@
 <!-- @license CC0-1.0 -->
 
-# React StandaloneLink component
+# React Standalone Link component
 
-[StandaloneLink documentation](../../../css/src/components/standalone-link/README.md)
+[Standalone Link documentation](../../../css/src/components/standalone-link/README.md)
