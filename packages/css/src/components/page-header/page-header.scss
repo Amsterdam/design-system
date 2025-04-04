@@ -16,6 +16,14 @@
   font-family: var(--ams-page-header-font-family);
   padding-block: var(--ams-page-header-padding-block);
   padding-inline: var(--ams-page-header-padding-inline);
+
+  @media screen and (min-width: $ams-breakpoint-medium) {
+    padding-inline: var(--ams-page-header-medium-padding-inline);
+  }
+
+  @media screen and (min-width: $ams-breakpoint-wide) {
+    padding-inline: var(--ams-page-header-wide-padding-inline);
+  }
 }
 
 .ams-page-header__logo-link {
