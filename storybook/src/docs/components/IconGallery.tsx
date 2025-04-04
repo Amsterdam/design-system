@@ -25,7 +25,6 @@ const deprecatedIcons = [
   'FontEnlargeIcon',
   'HandicapIcon',
   'HousingIcon',
-  'IdentityCardIcon',
   'IndeterminateIcon',
   'LampIcon',
   'LocationFieldsIcon',
