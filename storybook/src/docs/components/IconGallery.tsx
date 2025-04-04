@@ -40,7 +40,6 @@ const deprecatedIcons = [
   'SwimmingIcon',
   'TableIcon',
   'ThumbnailResultsIcon',
-  'TrashBinIcon',
   'TwitterIcon',
   'UmbrellaChairsIcon',
   'VolumeIcon',
