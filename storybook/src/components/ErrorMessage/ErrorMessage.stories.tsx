@@ -4,7 +4,7 @@
  */
 
 import { ErrorMessage } from '@amsterdam/design-system-react/src'
-import { QuestionIcon } from '@amsterdam/design-system-react-icons'
+import { AnnouncementIcon } from '@amsterdam/design-system-react-icons'
 import { Meta, StoryObj } from '@storybook/react'
 
 const meta = {
@@ -35,6 +35,6 @@ export const CustomPrefix: Story = {
 
 export const WithCustomIcon: Story = {
   args: {
-    icon: QuestionIcon,
+    icon: AnnouncementIcon,
   },
 }

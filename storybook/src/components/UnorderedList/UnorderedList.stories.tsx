@@ -6,12 +6,12 @@
 import { Icon, Paragraph } from '@amsterdam/design-system-react'
 import { UnorderedList } from '@amsterdam/design-system-react/src'
 import {
+  AnnouncementIcon,
   CarIcon,
   DocumentEuroSignIcon,
   HousingIcon,
   LocationIcon,
   PassportIcon,
-  QuestionIcon,
   TrashBinIcon,
   WarningIcon,
 } from '@amsterdam/design-system-react-icons'
@@ -117,7 +117,7 @@ export const WithoutMarkers: Story = {
       </UnorderedList.Item>,
       <UnorderedList.Item key={8}>
         <div className="ams-docs-card">
-          <Icon svg={QuestionIcon} />
+          <Icon svg={AnnouncementIcon} />
           <Paragraph>Kennisgevingen en bekendmakingen</Paragraph>
         </div>
       </UnorderedList.Item>,
