@@ -16,18 +16,19 @@ import README from "../../../../packages/css/src/components/icon-button/README.m
 
 ### On a coloured background
 
-An Icon Button on a coloured background must adjust its foreground colour to provide enough contrast.
-We have lighter and darker background colours, and Icon Buttons behave differently on each.
-
-- Set the `color` prop to `contrast` on a azure, lime, orange or yellow background.
-  It will make the Icon Button black.
-- Set the `color` prop to `inverse` on a blue, green, magenta or purple background.
-  It will make the Icon Button white.
+An Icon Button on a coloured background must set [the correct text colour](?path=/docs/brand-design-tokens-colour--docs#pairing-foreground-with-background-colours) to provide enough contrast.
+We have light and dark background colours, and Icon Buttons behave differently on each.
 
 #### Contrast colour
+
+Use the contrast colour on a lime, orange or yellow background.
+It will make the icon black.
 
 <Canvas of={IconButtonStories.ContrastColour} />
 
 #### Inverse colour
+
+Use the inverse colour on an azure, blue, green, magenta or purple background.
+It will make the icon white.
 
 <Canvas of={IconButtonStories.InverseColour} />

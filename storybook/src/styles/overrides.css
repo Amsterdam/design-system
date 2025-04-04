@@ -11,7 +11,7 @@
 .sbdocs-content.sbdocs-content > table:not(.sb-unstyled) :is(td, th),
 .sbdocs-content.sbdocs-content > div:not(.sb-unstyled) > table:not(.sb-unstyled) :is(td, th),
 .sbdocs-content.sbdocs-content > div:not(.sb-unstyled) > figure > figcaption {
-  color: #000;
+  color: var(--ams-color-text);
   font-family: "Amsterdam Sans", "Arial", sans-serif;
 }
 
@@ -38,7 +38,7 @@
 }
 
 .sbdocs-content.sbdocs-content > .ams-storybook-status-badge > span:nth-child(2) {
-  color: #000;
+  color: var(--ams-color-text);
   font-family: "Amsterdam Sans", "Arial", sans-serif;
   font-size: var(--ams-typography-body-text-small-font-size);
 }

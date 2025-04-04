@@ -2,7 +2,7 @@
 
 # Page Heading
 
-The page heading component is a prominent text at the beginning of a page, immediately after the header.
+The page heading component is a prominent text at the beginning of a page, immediately after the Page Header.
 Use this component for a name, title, or motto.
 
 ## Guidelines

@@ -1,18 +1,18 @@
-import { Grid, Header, Heading, LinkList } from '@amsterdam/design-system-react'
-import { headerMenuLinks, megaMenuLinks } from './menu'
+import { Grid, Heading, LinkList, PageHeader } from '@amsterdam/design-system-react'
+import { megaMenuLinks, pageHeaderMenuLinks } from './menu'
 
 export const AppHeader = () => (
-  <Header
-    menuItems={headerMenuLinks.map(({ fixed, href, label, lang }) => (
-      <Header.MenuLink fixed={fixed} href={href ?? '#'} key={label} lang={lang} rel={href ? 'external' : undefined}>
+  <PageHeader
+    menuItems={pageHeaderMenuLinks.map(({ fixed, href, label, lang }) => (
+      <PageHeader.MenuLink fixed={fixed} href={href ?? '#'} key={label} lang={lang} rel={href ? 'external' : undefined}>
         {label}
-      </Header.MenuLink>
+      </PageHeader.MenuLink>
     ))}
   >
     <Grid paddingBottom="large" paddingTop="small">
-      <Header.GridCellNarrowWindowOnly span="all">
+      <PageHeader.GridCellNarrowWindowOnly span="all">
         <LinkList>
-          {headerMenuLinks
+          {pageHeaderMenuLinks
             .filter((link) => !link.fixed)
             .map(({ href, label, lang }) => (
               <LinkList.Link href={href ?? '#'} key={label} lang={lang} rel={href ? 'external' : undefined}>
@@ -20,7 +20,7 @@ export const AppHeader = () => (
               </LinkList.Link>
             ))}
         </LinkList>
-      </Header.GridCellNarrowWindowOnly>
+      </PageHeader.GridCellNarrowWindowOnly>
       <Grid.Cell span="all">
         <Heading className="ams-mb-s" level={3}>
           Alle onderwerpen
@@ -34,5 +34,5 @@ export const AppHeader = () => (
         </LinkList>
       </Grid.Cell>
     </Grid>
-  </Header>
+  </PageHeader>
 )
