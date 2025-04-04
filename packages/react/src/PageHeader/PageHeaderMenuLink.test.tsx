@@ -1,11 +1,11 @@
 import { render, screen } from '@testing-library/react'
 import { createRef } from 'react'
-import { HeaderMenuLink } from './HeaderMenuLink'
+import { PageHeaderMenuLink } from './PageHeaderMenuLink'
 import '@testing-library/jest-dom'
 
-describe('Header menu link', () => {
+describe('Page Header Menu Link', () => {
   it('renders', () => {
-    render(<HeaderMenuLink href="/" />)
+    render(<PageHeaderMenuLink href="/" />)
 
     const component = screen.getByRole('listitem')
 
@@ -14,27 +14,27 @@ describe('Header menu link', () => {
   })
 
   it('renders a design system BEM class name', () => {
-    render(<HeaderMenuLink href="/" />)
+    render(<PageHeaderMenuLink href="/" />)
 
     const item = screen.getByRole('listitem')
 
-    expect(item).toHaveClass('ams-header__menu-item')
+    expect(item).toHaveClass('ams-page-header__menu-item')
 
     const link = screen.getByRole('link')
 
-    expect(link).toHaveClass('ams-header__menu-link')
+    expect(link).toHaveClass('ams-page-header__menu-link')
   })
 
   it('renders an additional class name', () => {
-    render(<HeaderMenuLink className="extra" href="/" />)
+    render(<PageHeaderMenuLink className="extra" href="/" />)
 
     const component = screen.getByRole('link')
 
-    expect(component).toHaveClass('ams-header__menu-link extra')
+    expect(component).toHaveClass('ams-page-header__menu-link extra')
   })
 
   it('renders the href attribute', () => {
-    render(<HeaderMenuLink href="/" />)
+    render(<PageHeaderMenuLink href="/" />)
 
     const component = screen.getByRole('link')
 
@@ -42,17 +42,17 @@ describe('Header menu link', () => {
   })
 
   it('renders the ‘fixed’ prop classname', () => {
-    render(<HeaderMenuLink fixed href="/" />)
+    render(<PageHeaderMenuLink fixed href="/" />)
 
     const component = screen.getByRole('listitem')
 
-    expect(component).toHaveClass('ams-header__menu-item--fixed')
+    expect(component).toHaveClass('ams-page-header__menu-item--fixed')
   })
 
   it('supports ForwardRef in React', () => {
     const ref = createRef<HTMLAnchorElement>()
 
-    render(<HeaderMenuLink href="/" ref={ref} />)
+    render(<PageHeaderMenuLink href="/" ref={ref} />)
 
     const component = screen.getByRole('link')
 
