@@ -1,10 +1,10 @@
 {/* @license CC0-1.0 */}
 
 import { Canvas, Controls, Markdown, Meta, Primary } from "@storybook/blocks";
-import * as HeaderStories from "./Header.stories.tsx";
-import README from "../../../../packages/css/src/components/header/README.md?raw";
+import * as PageHeaderStories from "./PageHeader.stories.tsx";
+import README from "../../../../packages/css/src/components/page-header/README.md?raw";
 
-<Meta of={HeaderStories} />
+<Meta of={PageHeaderStories} />
 
 <Markdown>{README}</Markdown>
 
@@ -24,7 +24,7 @@ If you do not want the `MenuLink` to be hidden, use the `fixed` prop.
 
 In this example, ‘English’ moves to the collapsible menu, while ‘Zoeken’ does not.
 
-<Canvas of={HeaderStories.WithMovingLinks} />
+<Canvas of={PageHeaderStories.WithMovingLinks} />
 
 ### Without menu button on wide windows
 
@@ -33,25 +33,25 @@ Use `noMenuButtonOnWideWindow` to hide the menu button on wide windows.
 On narrow windows, the menu button will still be visible,
 so do not forget to add the links to the collapsible menu.
 
-<Canvas of={HeaderStories.WithoutMenuButtonOnWideWindow} />
+<Canvas of={PageHeaderStories.WithoutMenuButtonOnWideWindow} />
 
 ### Without menu button
 
 In some cases, a collapsible menu might not be necessary.
-If the Header has no `children`, the menu button will not appear.
+If the Page Header has no `children`, the menu button will not appear.
 Remember to use the `fixed` prop if you want the inline menu links to stay in place.
 
-<Canvas of={HeaderStories.WithoutMenuButton} />
+<Canvas of={PageHeaderStories.WithoutMenuButton} />
 
 ### With custom logo link
 
 The destination and accessible text of the logo link can be customized,
 as well as the logo itself.
 
-<Canvas of={HeaderStories.WithCustomLogoLink} />
+<Canvas of={PageHeaderStories.WithCustomLogoLink} />
 
 ### With custom texts
 
 The text of the menu button and the accessible navigation description can be customized.
 
-<Canvas of={HeaderStories.WithCustomTexts} />
+<Canvas of={PageHeaderStories.WithCustomTexts} />

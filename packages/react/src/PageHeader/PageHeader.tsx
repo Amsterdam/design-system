@@ -9,25 +9,25 @@ import type { ForwardedRef, HTMLAttributes, ReactNode } from 'react'
 import { Icon } from '../Icon'
 import { Logo } from '../Logo'
 import type { LogoBrand } from '../Logo'
-import { HeaderGridCellNarrowWindowOnly } from './HeaderGridCellNarrowWindowOnly'
-import { HeaderMenuIcon } from './HeaderMenuIcon'
-import { HeaderMenuLink } from './HeaderMenuLink'
+import { PageHeaderGridCellNarrowWindowOnly } from './PageHeaderGridCellNarrowWindowOnly'
+import { PageHeaderMenuIcon } from './PageHeaderMenuIcon'
+import { PageHeaderMenuLink } from './PageHeaderMenuLink'
 import useIsAfterBreakpoint from '../common/useIsAfterBreakpoint'
 
 const LogoLinkContent = ({ brandName, logoBrand }: { brandName?: string; logoBrand: LogoBrand }) => (
   <>
-    <span className={clsx(logoBrand === 'amsterdam' && Boolean(brandName) && 'ams-header__logo-container')}>
+    <span className={clsx(logoBrand === 'amsterdam' && Boolean(brandName) && 'ams-page-header__logo-container')}>
       <Logo brand={logoBrand} />
     </span>
     {brandName && (
-      <span aria-hidden="true" className="ams-header__brand-name">
+      <span aria-hidden="true" className="ams-page-header__brand-name">
         {brandName}
       </span>
     )}
   </>
 )
 
-export type HeaderProps = {
+export type PageHeaderProps = {
   /** The name of the application. */
   brandName?: string
   /** The name of the brand for which to display the logo. */
@@ -38,7 +38,7 @@ export type HeaderProps = {
   logoLinkTitle?: string
   /** The text for the menu button. */
   menuButtonText?: string
-  /** A slot for the menu items. Use Header.MenuLink here. */
+  /** A slot for the menu items. Use PageHeader.MenuLink here. */
   menuItems?: ReactNode
   /** The accessible label for the navigation section. */
   navigationLabel?: string
@@ -46,7 +46,7 @@ export type HeaderProps = {
   noMenuButtonOnWideWindow?: boolean
 } & HTMLAttributes<HTMLElement>
 
-const HeaderRoot = forwardRef(
+const PageHeaderRoot = forwardRef(
   (
     {
       brandName,
@@ -60,7 +60,7 @@ const HeaderRoot = forwardRef(
       navigationLabel = 'Hoofdnavigatie',
       noMenuButtonOnWideWindow,
       ...restProps
-    }: HeaderProps,
+    }: PageHeaderProps,
     ref: ForwardedRef<HTMLElement>,
   ) => {
     const [open, setOpen] = useState(false)
@@ -76,44 +76,46 @@ const HeaderRoot = forwardRef(
     }, [isWideWindow])
 
     return (
-      <header {...restProps} className={clsx('ams-header', className)} ref={ref}>
-        <a className="ams-header__logo-link" href={logoLink}>
+      <header {...restProps} className={clsx('ams-page-header', className)} ref={ref}>
+        <a className="ams-page-header__logo-link" href={logoLink}>
           <span className="ams-visually-hidden">{logoLinkTitle}</span>
           <LogoLinkContent brandName={brandName} logoBrand={logoBrand} />
         </a>
         {(hasMegaMenu || menuItems) && (
-          <nav aria-labelledby="primary-navigation" className="ams-header__navigation">
+          <nav aria-labelledby="primary-navigation" className="ams-page-header__navigation">
             <h2 className="ams-visually-hidden" id="primary-navigation">
               {navigationLabel}
             </h2>
 
             {/* The logo link section is recreated here, to make sure the header menu wraps at the right spot */}
-            <div className="ams-header__logo-link ams-header__logo-link--hidden">
+            <div className="ams-page-header__logo-link ams-page-header__logo-link--hidden">
               <LogoLinkContent brandName={brandName} logoBrand={logoBrand} />
             </div>
 
-            <ul className="ams-header__menu">
+            <ul className="ams-page-header__menu">
               {menuItems}
               {hasMegaMenu && (
                 <li
-                  className={clsx(noMenuButtonOnWideWindow && 'ams-header__mega-menu-button-item--hide-on-wide-window')}
+                  className={clsx(
+                    noMenuButtonOnWideWindow && 'ams-page-header__mega-menu-button-item--hide-on-wide-window',
+                  )}
                 >
                   <button
                     {...restProps}
-                    aria-controls="ams-mega-menu"
+                    aria-controls="ams-page-header-mega-menu"
                     aria-expanded={open}
-                    className="ams-header__mega-menu-button"
+                    className="ams-page-header__mega-menu-button"
                     onClick={() => setOpen(!open)}
                     type="button"
                   >
-                    <span className="ams-header__mega-menu-button-label">{menuButtonText}</span>
-                    <span aria-hidden="true" className="ams-header__mega-menu-button-hidden-label">
+                    <span className="ams-page-header__mega-menu-button-label">{menuButtonText}</span>
+                    <span aria-hidden="true" className="ams-page-header__mega-menu-button-hidden-label">
                       {menuButtonText}
                     </span>
                     <Icon
                       svg={
-                        <HeaderMenuIcon
-                          className={clsx('ams-header__menu-icon', open && 'ams-header__menu-icon--open')}
+                        <PageHeaderMenuIcon
+                          className={clsx('ams-page-header__menu-icon', open && 'ams-page-header__menu-icon--open')}
                         />
                       }
                     />
@@ -124,8 +126,8 @@ const HeaderRoot = forwardRef(
 
             {hasMegaMenu && (
               <div
-                className={clsx('ams-header__mega-menu', !open && 'ams-header__mega-menu--closed')}
-                id="ams-mega-menu"
+                className={clsx('ams-page-header__mega-menu', !open && 'ams-page-header__mega-menu--closed')}
+                id="ams-page-header-mega-menu"
               >
                 {children}
               </div>
@@ -137,9 +139,9 @@ const HeaderRoot = forwardRef(
   },
 )
 
-HeaderRoot.displayName = 'Header'
+PageHeaderRoot.displayName = 'PageHeader'
 
-export const Header = Object.assign(HeaderRoot, {
-  GridCellNarrowWindowOnly: HeaderGridCellNarrowWindowOnly,
-  MenuLink: HeaderMenuLink,
+export const PageHeader = Object.assign(PageHeaderRoot, {
+  GridCellNarrowWindowOnly: PageHeaderGridCellNarrowWindowOnly,
+  MenuLink: PageHeaderMenuLink,
 })
