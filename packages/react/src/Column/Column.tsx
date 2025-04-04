@@ -8,10 +8,11 @@ import { forwardRef } from 'react'
 import type { HTMLAttributes, PropsWithChildren } from 'react'
 import type { CrossAlignForColumn, MainAlign } from '../common/types'
 
-export const columnGaps = ['none', 'x-small', 'small', 'large', 'x-large'] as const
+export const columnTags = ['article', 'div', 'section'] as const
+type ColumnTag = (typeof columnTags)[number]
 
-type ColumnGap = (typeof columnGaps)[number]
-type ColumnTag = 'article' | 'div' | 'section'
+export const columnGapSizes = ['none', 'x-small', 'small', 'large', 'x-large'] as const
+type ColumnGap = (typeof columnGapSizes)[number]
 
 export type ColumnProps = {
   /**

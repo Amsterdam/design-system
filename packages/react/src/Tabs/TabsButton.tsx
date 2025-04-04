@@ -35,6 +35,7 @@ export const TabsButton = forwardRef(
         ref={ref}
         role="tab"
         tabIndex={activeTabId === tab ? 0 : -1}
+        type="button"
       >
         <span aria-hidden="true" className="ams-tabs__button-label-hidden">
           {children}
