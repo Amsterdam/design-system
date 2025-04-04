@@ -4,6 +4,7 @@
  */
 
 /* Append here */
+export * from './StandaloneLink'
 export * from './Accordion'
 export * from './ActionGroup'
 export * from './Alert'
