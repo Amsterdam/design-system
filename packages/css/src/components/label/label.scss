@@ -12,6 +12,7 @@
   font-size: var(--ams-label-font-size);
   font-weight: var(--ams-label-font-weight);
   line-height: var(--ams-label-line-height);
+  text-wrap: var(--ams-label-text-wrap);
 
   @include hyphenation;
   @include text-rendering;

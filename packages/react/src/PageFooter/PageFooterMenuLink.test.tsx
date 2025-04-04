@@ -1,11 +1,11 @@
 import { render, screen } from '@testing-library/react'
 import { createRef } from 'react'
-import { Footer } from './Footer'
+import { PageFooter } from './PageFooter'
 import '@testing-library/jest-dom'
 
-describe('Footer Menu Link', () => {
+describe('Page Footer Menu Link', () => {
   it('renders with href attribute', () => {
-    render(<Footer.MenuLink href="#">Link</Footer.MenuLink>)
+    render(<PageFooter.MenuLink href="#">Link</PageFooter.MenuLink>)
 
     const component = screen.getByRole('link')
 
@@ -14,32 +14,32 @@ describe('Footer Menu Link', () => {
   })
 
   it('renders a design system BEM class name', () => {
-    render(<Footer.MenuLink href="#">Link</Footer.MenuLink>)
+    render(<PageFooter.MenuLink href="#">Link</PageFooter.MenuLink>)
 
     const component = screen.getByRole('link')
 
-    expect(component).toHaveClass('ams-footer__menu-link')
+    expect(component).toHaveClass('ams-page-footer__menu-link')
   })
 
   it('renders an additional class name', () => {
     render(
-      <Footer.MenuLink className="extra" href="#">
+      <PageFooter.MenuLink className="extra" href="#">
         Link
-      </Footer.MenuLink>,
+      </PageFooter.MenuLink>,
     )
 
     const component = screen.getByRole('link')
 
-    expect(component).toHaveClass('ams-footer__menu-link extra')
+    expect(component).toHaveClass('ams-page-footer__menu-link extra')
   })
 
   it('supports ForwardRef in React', () => {
     const ref = createRef<HTMLAnchorElement>()
 
     render(
-      <Footer.MenuLink className="extra" href="#" ref={ref}>
+      <PageFooter.MenuLink className="extra" href="#" ref={ref}>
         Link
-      </Footer.MenuLink>,
+      </PageFooter.MenuLink>,
     )
 
     const component = screen.getByRole('link')

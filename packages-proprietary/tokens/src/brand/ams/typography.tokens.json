@@ -25,6 +25,7 @@
       },
       "heading": {
         "font-weight": { "value": "800" },
+        "text-wrap": { "value": "balance" },
         "0": {
           "font-size": { "value": "clamp(2.4316rem, calc(1.8951rem + 2.6826vw), 4.5776rem)" },
           "line-height": { "value": "1.1386" }
