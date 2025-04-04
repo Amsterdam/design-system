@@ -1,0 +1,13 @@
+{/* @license CC0-1.0 */}
+
+import { Controls, Markdown, Meta, Primary } from "@storybook/blocks";
+import * as PageStories from "./Page.stories.tsx";
+import README from "../../../../packages/css/src/components/page/README.md?raw";
+
+<Meta of={PageStories} />
+
+<Markdown>{README}</Markdown>
+
+<Primary />
+
+<Controls />
