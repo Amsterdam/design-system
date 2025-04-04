@@ -13,6 +13,7 @@
         "outline-offset": { "value": "{ams.focus.outline-offset}" },
         "padding-block": { "value": "{ams.space.s}" },
         "padding-inline": { "value": "0" },
+        "text-wrap": { "value": "{ams.typography.heading.text-wrap}" },
         "hover": {
           "color": { "value": "{ams.color.interactive.hover}" }
         }

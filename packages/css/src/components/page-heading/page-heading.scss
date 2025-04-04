@@ -19,6 +19,7 @@
   font-size: var(--ams-page-heading-font-size);
   font-weight: var(--ams-page-heading-font-weight);
   line-height: var(--ams-page-heading-line-height);
+  text-wrap: var(--ams-page-heading-text-wrap);
 
   @include hyphenation;
   @include text-rendering;
