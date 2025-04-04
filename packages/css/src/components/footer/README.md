@@ -11,6 +11,7 @@ Provides service information at the bottom of every page.
 - A Footer containing only a `Footer.Menu` can be sufficient for applications.
 - The Footer must be used on all websites for the City of Amsterdam.
 - It must be the same on every page.
+- Set [the inverse colour](?path=/docs/brand-design-tokens-colour--docs#pairing-foreground-with-background-colours) on all text and links in this area.
 
 The top section offers space for various practical links:
 
