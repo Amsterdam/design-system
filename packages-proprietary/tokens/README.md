@@ -87,7 +87,7 @@ Examples:
 }
 ```
 
-Find the [list of brand tokens](https://github.com/Amsterdam/design-system/tree/main/proprietary/tokens/src/brand/ams) on GitHub.
+Find the [list of brand tokens](https://github.com/Amsterdam/design-system/tree/main/packages-proprietary/tokens/src/brand/ams) on GitHub.
 
 ##### Removing ‘default’ keys
 
@@ -116,7 +116,7 @@ The same goes for custom components that you may create in your application.
 }
 ```
 
-Find the [list of common tokens](https://github.com/Amsterdam/design-system/tree/main/proprietary/tokens/src/common/ams) on GitHub.
+Find the [list of common tokens](https://github.com/Amsterdam/design-system/tree/main/packages-proprietary/tokens/src/common/ams) on GitHub.
 
 #### Component tokens
 
@@ -136,7 +136,7 @@ Do not apply these tokens to other components – components must be independent
 }
 ```
 
-Find the [list of component tokens](https://github.com/Amsterdam/design-system/tree/main/proprietary/tokens/src/component/ams) on GitHub.
+Find the [list of component tokens](https://github.com/Amsterdam/design-system/tree/main/packages-proprietary/tokens/src/component/ams) on GitHub.
 
 ### Overriding tokens
 
@@ -202,7 +202,7 @@ The tokens are used in our [Figma Library](https://www.figma.com/file/9IGm6IdPUY
 
 ## Updating
 
-We follow semantic versioning and publish a [change log](https://github.com/Amsterdam/design-system/blob/main/proprietary/tokens/CHANGELOG.md) to guide you through updates.
+We follow semantic versioning and publish a [change log](https://github.com/Amsterdam/design-system/blob/main/packages-proprietary/tokens/CHANGELOG.md) to guide you through updates.
 The tokens are a public API of the design system.
 Note that detecting changed or deleted tokens is still a manual process.
 

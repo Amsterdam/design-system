@@ -53,7 +53,7 @@ In a React project, use the [Logo component](https://designsystem.amsterdam/?pat
 
 ## Updating
 
-We follow semantic versioning and publish a [change log](https://github.com/Amsterdam/design-system/blob/main/proprietary/assets/CHANGELOG.md) to guide you through updates.
+We follow semantic versioning and publish a [change log](https://github.com/Amsterdam/design-system/blob/main/packages-proprietary/assets/CHANGELOG.md) to guide you through updates.
 The assets are a public API of the design system.
 Note that detecting changed or deleted assets is still a manual process.
 
