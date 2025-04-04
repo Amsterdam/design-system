@@ -29,7 +29,7 @@ export const App = () => <Icon svg={SearchIcon} />
 
 ## Updating
 
-When updating to a new release of this package, check the [change log](https://github.com/Amsterdam/design-system/blob/develop/proprietary/react-icons/CHANGELOG.md) for breaking changes.
+When updating to a new release of this package, check the [change log](https://github.com/Amsterdam/design-system/blob/develop/packages-proprietary/react-icons/CHANGELOG.md) for breaking changes.
 If there are any, update your application accordingly.
 
 ## Support
