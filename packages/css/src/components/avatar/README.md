@@ -14,4 +14,3 @@ A circular badge representing a person.
 - To personalize the Avatar, the user can be allowed to choose one of the [highlight colours](/docs/brand-design-tokens-colour--docs).
   The default is purple.
   The design system does not define a meaning to any of these background colours.
-- [The correct text colour](?path=/docs/brand-design-tokens-colour--docs#pairing-foreground-with-background-colours) against the chosen background is set automatically.
