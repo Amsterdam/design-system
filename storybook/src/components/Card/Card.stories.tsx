@@ -3,7 +3,7 @@
  * Copyright Gemeente Amsterdam
  */
 
-import { Column, Heading, Image, Paragraph } from '@amsterdam/design-system-react'
+import { Column, Paragraph } from '@amsterdam/design-system-react'
 import { Card } from '@amsterdam/design-system-react/src'
 import { Meta, StoryObj } from '@storybook/react'
 import { exampleTopTask } from '../shared/exampleContent'
@@ -36,9 +36,9 @@ type Story = StoryObj<typeof meta>
 export const Default: Story = {
   args: {
     children: [
-      <Heading key={1} level={1} size="level-4">
+      <Card.Heading key={1} level={1} size="level-4">
         <Card.Link href="/">{topTask.heading}</Card.Link>
-      </Heading>,
+      </Card.Heading>,
       <Paragraph key={2}>{topTask.description}</Paragraph>,
     ],
   },
@@ -48,9 +48,9 @@ export const WithTagline: Story = {
   args: {
     children: [
       <Card.HeadingGroup key={1} tagline="Dossier">
-        <Heading level={1} size="level-4">
+        <Card.Heading level={1} size="level-4">
           <Card.Link href="/">Monitor Attracties MRA</Card.Link>
-        </Heading>
+        </Card.Heading>
       </Card.HeadingGroup>,
       <Paragraph key={2}>
         Ontwikkeling van het aantal attracties en bezoekers in de metropoolregio Amsterdam.
@@ -62,11 +62,11 @@ export const WithTagline: Story = {
 export const WithImage: Story = {
   args: {
     children: [
-      <Image alt="" aspectRatio="4:3" key={1} src="https://picsum.photos/480/360" />,
+      <Card.Image alt="" aspectRatio="4:3" key={1} src="https://picsum.photos/480/360" />,
       <Card.HeadingGroup key={2} tagline="Nieuws">
-        <Heading level={1} size="level-4">
+        <Card.Heading level={1} size="level-4">
           <Card.Link href="/">Nederlands eerste houten woonwijk komt in Zuidoost</Card.Link>
-        </Heading>
+        </Card.Heading>
       </Card.HeadingGroup>,
       <Column gap="small" key={3}>
         <Paragraph>
