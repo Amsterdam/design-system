@@ -1,8 +1,8 @@
 .ams-storybook-icon-gallery {
-  column-gap: var(--ams-space-sm);
+  column-gap: var(--ams-space-s);
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(10rem, 1fr));
-  row-gap: var(--ams-space-md);
+  row-gap: var(--ams-space-m);
 }
 .ams-storybook-icon-gallery__item {
   align-items: baseline;
@@ -12,7 +12,7 @@
 
   > div:first-child {
     display: flex;
-    gap: var(--ams-space-sm);
+    gap: var(--ams-space-s);
   }
 
   .ams-icon {
