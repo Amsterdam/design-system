@@ -24,7 +24,7 @@ npm install @amsterdam/design-system-assets @amsterdam/design-system-css @amster
 ```
 
 The React components themselves are unstyled.
-[Override the design tokens](https://github.com/Amsterdam/design-system/blob/main/proprietary/tokens/README.md) to use them with a different branding.
+[Override the design tokens](https://github.com/Amsterdam/design-system/blob/main/packages-proprietary/tokens/README.md) to use them with a different branding.
 
 ## Usage
 

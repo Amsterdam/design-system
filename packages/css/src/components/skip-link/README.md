@@ -6,7 +6,7 @@ Allows skipping past recurring navigation blocks at the top of a page.
 
 ## Design
 
-The Skip Link sits above the header and is as wide as the Screen container.
+The Skip Link sits above the Page Header and is as wide as the Screen container.
 It remains hidden until activated with the ‘Tab’ key.
 After appearing, it pushes the entire page down.
 
