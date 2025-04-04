@@ -207,3 +207,7 @@
   padding-block-end: 1rem;
   resize: horizontal;
 }
+
+strong {
+  font-weight: var(--ams-typography-body-text-bold-font-weight);
+}

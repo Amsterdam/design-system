@@ -1,7 +1,7 @@
 {
   "packages/css": "0.15.0",
   "packages/react": "0.15.0",
-  "proprietary/assets": "0.3.0",
-  "proprietary/react-icons": "0.1.14",
-  "proprietary/tokens": "0.15.0"
+  "packages-proprietary/assets": "0.3.0",
+  "packages-proprietary/react-icons": "0.1.14",
+  "packages-proprietary/tokens": "0.15.0"
 }

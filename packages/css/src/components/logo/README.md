@@ -30,7 +30,7 @@ The sub-brands are:
 ## Requirements for all logos
 
 - The logo is always displayed.
-- The logo is left-aligned in the header.
+- The logo is left-aligned in the Page Header.
 - The logo links to the homepage of the website or application.
 - If the application is a form, application, or tool without a homepage, the logo links to the page where the form, application, or tool is referred to.
 

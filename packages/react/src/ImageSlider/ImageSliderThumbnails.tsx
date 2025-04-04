@@ -62,6 +62,7 @@ export const ImageSliderThumbnails = forwardRef(
             role="tab"
             style={{ backgroundImage: `url(${src})` }}
             tabIndex={currentSlideId === index ? 0 : -1}
+            type="button"
           />
         )),
       [currentSlideId, goToSlideId, imageLabel, thumbnails],

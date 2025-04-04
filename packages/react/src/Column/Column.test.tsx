@@ -1,6 +1,7 @@
 import { render, screen } from '@testing-library/react'
 import { createRef } from 'react'
-import { Column, columnGaps } from './Column'
+import { Column, columnGapSizes, columnTags } from './Column'
+import { ariaRoleForTag } from '../common/accessibility'
 import { crossAlignOptionsForColumn, mainAlignOptions } from '../common/types'
 import '@testing-library/jest-dom'
 
@@ -22,7 +23,7 @@ describe('Column', () => {
     expect(component).toHaveClass('ams-column')
   })
 
-  columnGaps.map((gap) =>
+  columnGapSizes.map((gap) =>
     it(`renders with ‘${gap}’ gap`, () => {
       const { container } = render(<Column gap={gap} />)
 
@@ -40,20 +41,14 @@ describe('Column', () => {
     expect(component).toHaveClass('ams-column extra')
   })
 
-  it('renders with an article tag', () => {
-    render(<Column as="article" />)
+  columnTags.forEach((tag) => {
+    it(`renders with a custom ${tag} tag`, () => {
+      const { container } = render(<Column aria-label={tag === 'section' ? 'Accessible name' : undefined} as={tag} />)
 
-    const component = screen.getByRole('article')
+      const component = tag === 'div' ? container.querySelector(tag) : screen.getByRole(ariaRoleForTag[tag])
 
-    expect(component).toBeInTheDocument()
-  })
-
-  it('renders with a section tag', () => {
-    const { container } = render(<Column as="section" />)
-
-    const component = container.querySelector('section')
-
-    expect(component).toBeInTheDocument()
+      expect(component).toBeInTheDocument()
+    })
   })
 
   it('supports ForwardRef in React', () => {
