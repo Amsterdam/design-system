@@ -8,7 +8,7 @@ import * as Icons from '@amsterdam/design-system-react-icons'
 import { Meta, StoryObj } from '@storybook/react'
 
 const meta = {
-  title: 'StandaloneLink',
+  title: 'Components/Navigation/Standalone Link',
   component: StandaloneLink,
   args: {
     children: 'Link label',
