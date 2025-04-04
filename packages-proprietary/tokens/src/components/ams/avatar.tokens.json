@@ -15,7 +15,7 @@
       },
       "azure": {
         "background-color": { "value": "{ams.color.highlight.azure}" },
-        "color": { "value": "{ams.color.text.default}" }
+        "color": { "value": "{ams.color.text.inverse}" }
       },
       "green": {
         "background-color": { "value": "{ams.color.highlight.green}" },
