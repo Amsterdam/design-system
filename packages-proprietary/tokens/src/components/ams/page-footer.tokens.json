@@ -1,6 +1,6 @@
 {
   "ams": {
-    "footer": {
+    "page-footer": {
       "menu": {
         "column-gap": { "value": "{ams.space.l}" },
         "padding-block": { "value": "{ams.space.l}" },

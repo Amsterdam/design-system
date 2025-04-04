@@ -4,7 +4,7 @@
  */
 
 import { Grid, Heading, LinkList, Paragraph } from '@amsterdam/design-system-react'
-import { Footer } from '@amsterdam/design-system-react/src'
+import { PageFooter } from '@amsterdam/design-system-react/src'
 import {
   CameraIcon,
   ClockIcon,
@@ -17,9 +17,9 @@ import {
 import { Meta, StoryObj } from '@storybook/react'
 
 const meta = {
-  title: 'Components/Containers/Footer',
-  component: Footer,
-} satisfies Meta<typeof Footer>
+  title: 'Components/Containers/Page Footer',
+  component: PageFooter,
+} satisfies Meta<typeof PageFooter>
 
 export default meta
 
@@ -35,7 +35,7 @@ const socialPlatforms = [
 export const Default: Story = {
   args: {
     children: [
-      <Footer.Spotlight key="footer-spotlight">
+      <PageFooter.Spotlight key={1}>
         <Grid paddingVertical="medium">
           <Grid.Cell span={4}>
             <Heading className="ams-mb-s" color="inverse" level={2} size="level-4">
@@ -95,15 +95,15 @@ export const Default: Story = {
             </div>
           </Grid.Cell>
         </Grid>
-      </Footer.Spotlight>,
-      <Heading className="ams-visually-hidden" key="footer-heading" level={2}>
+      </PageFooter.Spotlight>,
+      <Heading className="ams-visually-hidden" key={2} level={2}>
         Over deze website
       </Heading>,
-      <Footer.Menu key="footer-menu">
-        <Footer.MenuLink href="#">Over deze site</Footer.MenuLink>
-        <Footer.MenuLink href="#">Privacy</Footer.MenuLink>
-        <Footer.MenuLink href="#">Cookies</Footer.MenuLink>
-      </Footer.Menu>,
+      <PageFooter.Menu key={3}>
+        <PageFooter.MenuLink href="#">Over deze site</PageFooter.MenuLink>
+        <PageFooter.MenuLink href="#">Privacy</PageFooter.MenuLink>
+        <PageFooter.MenuLink href="#">Cookies</PageFooter.MenuLink>
+      </PageFooter.Menu>,
     ],
   },
 }
@@ -111,7 +111,7 @@ export const Default: Story = {
 export const OnderzoekEnStatistiek: Story = {
   args: {
     children: [
-      <Footer.Spotlight key="footer-spotlight">
+      <PageFooter.Spotlight key={1}>
         <Grid paddingVertical="medium">
           <Grid.Cell span={3}>
             <Heading className="ams-mb-s" color="inverse" level={2} size="level-4">
@@ -168,15 +168,15 @@ export const OnderzoekEnStatistiek: Story = {
             </LinkList>
           </Grid.Cell>
         </Grid>
-      </Footer.Spotlight>,
-      <Heading className="ams-visually-hidden" key="footer-heading" level={2}>
+      </PageFooter.Spotlight>,
+      <Heading className="ams-visually-hidden" key={2} level={2}>
         Over deze website
       </Heading>,
-      <Footer.Menu key="footer-menu">
-        <Footer.MenuLink href="#">Over deze site</Footer.MenuLink>
-        <Footer.MenuLink href="#">Privacy</Footer.MenuLink>
-        <Footer.MenuLink href="#">Cookies</Footer.MenuLink>
-      </Footer.Menu>,
+      <PageFooter.Menu key={3}>
+        <PageFooter.MenuLink href="#">Over deze site</PageFooter.MenuLink>
+        <PageFooter.MenuLink href="#">Privacy</PageFooter.MenuLink>
+        <PageFooter.MenuLink href="#">Cookies</PageFooter.MenuLink>
+      </PageFooter.Menu>,
     ],
   },
 }
