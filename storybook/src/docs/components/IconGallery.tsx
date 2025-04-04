@@ -4,7 +4,7 @@ import * as Icons from '@amsterdam/design-system-react-icons/src'
 import './icon-gallery.css'
 
 const deprecatedIcons = [
-  'WarningIcon',
+  'AlertIcon',
   'BallIcon',
   'CardIcon',
   'ChargingPointIcon',
