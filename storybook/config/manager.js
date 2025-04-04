@@ -1,6 +1,6 @@
 import { addons } from '@storybook/manager-api'
 import { create } from '@storybook/theming/create'
-import Logo from '../../proprietary/assets/logo/amsterdam.svg'
+import Logo from '../../packages-proprietary/assets/logo/amsterdam.svg'
 
 import '@amsterdam/design-system-assets/font/index.css'
 
