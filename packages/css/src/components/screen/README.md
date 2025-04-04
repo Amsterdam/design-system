@@ -10,7 +10,7 @@ Manages the maximum width and alignment of the entire website or application.
 - Within it, combine components such as
   [Grid](https://designsystem.amsterdam/?path=/docs/components-layout-grid--docs),
   [Header](https://designsystem.amsterdam/?path=/docs/components-containers-header--docs),
-  [Footer](https://designsystem.amsterdam/?path=/docs/components-containers-footer--docs),
+  [Page Footer](https://designsystem.amsterdam/?path=/docs/components-containers-page-footer--docs),
   [Spotlight](https://designsystem.amsterdam/?path=/docs/components-containers-spotlight--docs),
   [Image Slider](https://designsystem.amsterdam/?path=/docs/components-media-image-slider--docs),
   and [Figure](https://designsystem.amsterdam/?path=/docs/components-media-figure--docs).
