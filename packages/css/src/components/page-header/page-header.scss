@@ -18,11 +18,11 @@
   padding-inline: var(--ams-page-header-padding-inline);
 
   @media screen and (min-width: $ams-breakpoint-medium) {
-    padding-inline: var(--ams-header-medium-padding-inline);
+    padding-inline: var(--ams-page-header-medium-padding-inline);
   }
 
   @media screen and (min-width: $ams-breakpoint-wide) {
-    padding-inline: var(--ams-header-wide-padding-inline);
+    padding-inline: var(--ams-page-header-wide-padding-inline);
   }
 }
 
