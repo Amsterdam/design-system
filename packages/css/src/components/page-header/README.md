@@ -22,6 +22,10 @@ Includes the name of the application if it is not the general website.
   The last two will often be ‘Search’ and ‘Menu’.
 - Labels should be short to help the inline menu fit on a single line whenever possible.
 - An icon can be added to the end of a link to make its destination easier to guess.
+- Wrap the collapsible menu in a [Grid](/docs/components-layout-grid--docs).
+  Don’t set its padding props – Page Header adds the correct space above and below.
+- If the collapsible menu contains a list that spans multiple columns, make sure not to split the items over multiple Link Lists.
+  This will confuse users of assistive software.
 
 ## References
 
