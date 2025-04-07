@@ -1,6 +1,6 @@
 {/* @license CC0-1.0 */}
 
-import { Controls, Markdown, Meta, Primary } from "@storybook/blocks";
+import { Canvas, Controls, Markdown, Meta, Primary } from "@storybook/blocks";
 import * as PageStories from "./Page.stories.tsx";
 import README from "../../../../packages/css/src/components/page/README.md?raw";
 
@@ -8,6 +8,26 @@ import README from "../../../../packages/css/src/components/page/README.md?raw";
 
 <Markdown>{README}</Markdown>
 
+## Example
+
+There’s not much to see in the example.
+In a wide window, or when zooming out, you’ll notice that the width of the pink box gets limited by the maximum width of the Page container.
+
 <Primary />
 
 <Controls />
+
+## Structure
+
+The outer containers of your website will look like this:
+
+```jsx
+<Page>
+  <Header />
+  <Grid />
+  <Spotlight />
+  <Grid />
+  <Figure />
+  <Footer />
+</Page>
+```

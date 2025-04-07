@@ -7,10 +7,18 @@ import { Page } from '@amsterdam/design-system-react/src'
 import { Meta, StoryObj } from '@storybook/react'
 
 const meta = {
-  title: 'Page',
+  title: 'Components/Containers/Page',
   component: Page,
   args: {
-    children: 'Nieuw component',
+    className: 'ams-docs-page',
+  },
+  argTypes: {
+    className: {
+      table: { disable: true },
+    },
+  },
+  parameters: {
+    layout: 'fullscreen',
   },
 } satisfies Meta<typeof Page>
 
@@ -18,4 +26,6 @@ export default meta
 
 type Story = StoryObj<typeof meta>
 
-export const Default: Story = {}
+export const Default: Story = {
+  args: { children: <div className="ams-docs-item" /> },
+}
