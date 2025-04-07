@@ -9,7 +9,7 @@ export const AppHeader = () => (
       </PageHeader.MenuLink>
     ))}
   >
-    <Grid paddingBottom="large" paddingTop="small">
+    <Grid>
       <PageHeader.GridCellNarrowWindowOnly span="all">
         <LinkList>
           {pageHeaderMenuLinks
