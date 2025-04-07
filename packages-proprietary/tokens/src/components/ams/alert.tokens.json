@@ -9,7 +9,7 @@
       "severity-indicator": {
         "background-color": { "value": "{ams.color.feedback.info}" },
         "padding-block": { "value": "{ams.space.m}" },
-        "padding-inline": { "value": "{ams.space.xs}" }
+        "padding-inline": { "value": "{ams.space.s}" }
       },
       "content": {
         "gap": { "value": "{ams.space.s}" },

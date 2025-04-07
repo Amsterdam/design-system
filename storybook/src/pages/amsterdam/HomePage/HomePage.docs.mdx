@@ -29,9 +29,9 @@ A typical layout for a homepage:
       <AppComponent3 />
     </Grid>
   </main>
-  <Footer>
+  <PageFooter>
     <Grid />
-  </Footer>
+  </PageFooter>
 </Screen>
 ```
 
@@ -39,10 +39,10 @@ A typical layout for a homepage:
 2. The Screen component sets a maximum width for the entire page.
 3. The Grid divides the available width into 4, 8, or 12 columns.
 4. The Page Header shows the logo and menus for the application.
-5. The main element wraps everything between Page Header and Footer.
+5. The main element wraps everything between Page Header and Page Footer.
    It carries an id for the skip link to target.
 6. An Overlap stacks a Search Field on a background Image.
    It is as wide as the Grid, hence it is a sibling of it.
 7. Other components in the main area are laid out on a Grid again.
-8. The Footer contains its own Grid.
+8. The Page Footer contains its own Grid.
    This allows its background colour to stretch to the Screen’s width.

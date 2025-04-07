@@ -4,6 +4,7 @@
       "color": { "value": "{ams.color.text.default}" },
       "font-family": { "value": "{ams.typography.font-family}" },
       "font-weight": { "value": "{ams.typography.heading.font-weight}" },
+      "text-wrap": { "value": "{ams.typography.heading.text-wrap}" },
       "inverse": {
         "color": { "value": "{ams.color.text.inverse}" }
       },
