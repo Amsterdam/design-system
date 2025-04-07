@@ -3,7 +3,7 @@ import { createRef } from 'react'
 import { CardImage } from './CardImage'
 import '@testing-library/jest-dom'
 
-describe('Card Heading', () => {
+describe('Card Image', () => {
   it('renders', () => {
     const { container } = render(<CardImage alt="" />)
 
@@ -18,7 +18,7 @@ describe('Card Heading', () => {
 
     const component = container.querySelector(':only-child')
 
-    expect(component).toHaveClass('ams-card__heading')
+    expect(component).toHaveClass('ams-card__image')
   })
 
   it('renders an additional class name', () => {
@@ -26,7 +26,7 @@ describe('Card Heading', () => {
 
     const component = container.querySelector(':only-child')
 
-    expect(component).toHaveClass('ams-card__heading extra')
+    expect(component).toHaveClass('ams-card__image extra')
   })
 
   it('supports ForwardRef in React', () => {
