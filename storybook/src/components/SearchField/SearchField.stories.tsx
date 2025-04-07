@@ -52,7 +52,7 @@ export const Default: Story = {}
 
 export const WithPlaceholder: Story = {
   args: {
-    placeholder: 'Wat kunnen we voor u vinden?',
+    placeholder: 'Zoeken…',
   },
 }
 

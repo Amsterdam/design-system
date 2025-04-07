@@ -30,7 +30,7 @@ export const Default: Story = {
       <Grid key={2} style={{ alignSelf: 'center' }}>
         <Grid.Cell span={{ narrow: 4, medium: 6, wide: 8 }} start={{ narrow: 1, medium: 2, wide: 3 }}>
           <SearchField onSubmit={(e) => e.preventDefault()}>
-            <SearchField.Input label="Zoeken" placeholder="Wat kunnen we voor u vinden?" />
+            <SearchField.Input label="Zoeken" placeholder="Zoeken…" />
             <SearchField.Button />
           </SearchField>
         </Grid.Cell>
