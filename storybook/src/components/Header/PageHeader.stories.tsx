@@ -10,6 +10,9 @@ import { Meta, StoryObj } from '@storybook/react'
 const meta = {
   title: 'Components/Containers/Page Header',
   component: PageHeader,
+  parameters: {
+    layout: 'fullscreen',
+  },
 } satisfies Meta<typeof PageHeader>
 
 export default meta
