@@ -8,16 +8,16 @@ Includes the name of the application if it is not the general website.
 ## Design
 
 - The Page Header includes the logo of the City or the organization, the site title (except for the general website), and a menu with links to commonly used pages.
-- An optional 'Menu' button opens a collapsible menu, which has room for more links.
+- An optional ‘Menu’ button opens a collapsible menu, which has room for more links.
 - On narrow windows, links can move from the inline menu to the collapsible one.
 - For websites with a brand name that feature the standard Amsterdam logo, only the emblem is shown on narrow screens.
 
 ## Guidelines
 
 - The Page Header must be used on all websites and applications for the City of Amsterdam.
-- The Page Header is important because it conveys our corporate identity and is the first thing people see.
-  Using it consistently helps users recognize and trust the website.
-- The Page Header is the same on every page of the application, although full-screen pages may hide it, e.g. a video or a map.
+  It’s often the first thing people perceive.
+  As it conveys our corporate identity, using it consistently helps users recognize and trust the website.
+- The Page Header should be the same on every page, although full-screen pages may hide it, e.g. a video or a map.
 - The inline menu can contain a maximum of 5 items.
   The last two will often be ‘Search’ and ‘Menu’.
 - Labels should be short to help the inline menu fit on a single line whenever possible.
