@@ -4,17 +4,9 @@
  */
 
 .ams-page {
+  background-color: var(--ams-page-background-color);
   margin-inline: auto;
   max-inline-size: var(--ams-page-max-inline-size);
   min-block-size: 100dvh;
   position: relative;
-
-  &::before {
-    background-color: var(--ams-page-background-color);
-    content: "";
-    inset-block: 0;
-    inset-inline: -100rem; // Supports windows up to 4800 pixels wide
-    position: absolute;
-    z-index: -1;
-  }
 }
