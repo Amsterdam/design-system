@@ -3,9 +3,11 @@
  * Copyright Gemeente Amsterdam
  */
 
+@use "../../common/breakpoint" as *;
+@use "../grid/mixins" as *;
+
 .ams-card {
   display: grid;
-  gap: var(--ams-card-gap);
   outline-offset: var(--ams-card-outline-offset);
   position: relative; // Allows stretching the card link below.
   touch-action: manipulation;
@@ -16,12 +18,24 @@
     outline-style: auto;
     outline-width: 0.0625rem;
   }
+
+  & > .ams-heading:has(+ *) {
+    margin-block-end: var(--ams-space-xs);
+  }
+
+  & > .ams-image:has(+ *) {
+    margin-block-end: var(--ams-space-m);
+  }
 }
 
 .ams-card__heading-group {
   display: flex;
   flex-direction: column-reverse;
   gap: var(--ams-card-heading-group-gap);
+
+  &:has(+ *) {
+    margin-block-end: var(--ams-space-xs);
+  }
 }
 
 .ams-card__link {
@@ -51,4 +65,10 @@
   .ams-card:has(:focus-visible) &:focus {
     outline: none;
   }
+}
+
+.ams-card--horizontal {
+  @include ams-grid;
+
+  padding-inline: 0 !important;
 }
