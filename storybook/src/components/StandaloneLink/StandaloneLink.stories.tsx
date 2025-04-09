@@ -3,6 +3,7 @@
  * Copyright Gemeente Amsterdam
  */
 
+import { Grid, Heading, Paragraph } from '@amsterdam/design-system-react'
 import { StandaloneLink } from '@amsterdam/design-system-react/src'
 import * as Icons from '@amsterdam/design-system-react-icons'
 import { Meta, StoryObj } from '@storybook/react'
@@ -58,4 +59,28 @@ export const InverseColour: Story = {
   args: {
     color: 'inverse',
   },
+}
+
+export const InAnArticle: Story = {
+  args: {
+    children: 'Alle bouw- en verkeerswerkzaamheden',
+  },
+  decorators: [
+    (Story) => (
+      <Grid>
+        <Grid.Cell span={{ narrow: 4, medium: 5, wide: 6 }}>
+          <article>
+            <Heading className="ams-mb-xs" level={2}>
+              Werkzaamheden
+            </Heading>
+            <Paragraph className="ams-mb-s">
+              Lees waar en wanneer we werken aan nieuwbouw, groot onderhoud, herinrichting van straten en wegen, aanpak
+              van parken of ontwikkeling van hele gebieden.
+            </Paragraph>
+            <Story />
+          </article>
+        </Grid.Cell>
+      </Grid>
+    ),
+  ],
 }
