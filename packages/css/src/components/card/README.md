@@ -16,7 +16,7 @@ The link is mandatory.
 - Place the text in a regular paragraph.
   Only use the smallest text size for a tagline or date.
 - This component may not be the best option if the content does not represent a detailed page.
-  You can also use a [regular link](/docs/components-navigation-link--docs).
+  You can also use a [Standalone Link](/docs/components-navigation-standalone-link--docs).
 
 ### Screen readers
 
