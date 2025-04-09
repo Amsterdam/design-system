@@ -3,7 +3,7 @@
  * Copyright Gemeente Amsterdam
  */
 
-import { Heading, Image, Paragraph } from '@amsterdam/design-system-react'
+import { Grid, Heading, Image, Paragraph } from '@amsterdam/design-system-react'
 import { Card } from '@amsterdam/design-system-react/src'
 import { Meta, StoryObj } from '@storybook/react'
 import { exampleTopTask } from '../shared/exampleContent'
@@ -20,13 +20,14 @@ const topTask = exampleTopTask()
 const meta = {
   title: 'Components/Navigation/Card',
   component: Card,
-  decorators: [
-    (Story) => (
-      <div style={{ maxWidth: '24rem' }}>
-        <Story />
-      </div>
-    ),
-  ],
+  args: {
+    style: { maxWidth: '24rem' },
+  },
+  argTypes: {
+    style: {
+      table: { disable: true },
+    },
+  },
 } satisfies Meta<typeof Card>
 
 export default meta
@@ -76,4 +77,55 @@ export const WithImage: Story = {
       </Paragraph>,
     ],
   },
+}
+
+export const TopTasks: Story = {
+  args: {
+    style: undefined,
+  },
+  parameters: {
+    layout: 'fullscreen',
+  },
+  render: () => (
+    <Grid paddingVertical="medium">
+      <Grid.Cell span={{ narrow: 4, medium: 4, wide: 3 }}>
+        <Card>
+          <Heading level={2} size="level-4">
+            <Card.Link href="#">Gemeentebelastingen</Card.Link>
+          </Heading>
+          <Paragraph size="small">
+            Bekijk welke belastingen en heffingen er zijn, hoe u bezwaar maakt of een betalingsregeling treft.
+          </Paragraph>
+        </Card>
+      </Grid.Cell>
+      <Grid.Cell span={{ narrow: 4, medium: 4, wide: 3 }}>
+        <Card>
+          <Heading level={3} size="level-4">
+            <Card.Link href="#">Parkeren + Reizen (P+R)</Card.Link>
+          </Heading>
+          <Paragraph size="small">
+            U kunt met uw auto goedkoop parkeren bij een P+R-locatie aan de rand van de stad.
+          </Paragraph>
+        </Card>
+      </Grid.Cell>
+      <Grid.Cell span={{ narrow: 4, medium: 4, wide: 3 }}>
+        <Card>
+          <Heading level={3} size="level-4">
+            <Card.Link href="#">Paspoort, ID-kaart en rijbewijs</Card.Link>
+          </Heading>
+          <Paragraph size="small">Vraag deze bewijzen aan of verleng ze. Geef een vermissing aan.</Paragraph>
+        </Card>
+      </Grid.Cell>
+      <Grid.Cell span={{ narrow: 4, medium: 4, wide: 3 }}>
+        <Card>
+          <Heading level={3} size="level-4">
+            <Card.Link href="#">Onderwijs</Card.Link>
+          </Heading>
+          <Paragraph size="small">
+            Meld een kind aan voor basisschool, middelbare school of kinderopvang. Bekijk het kindtegoed op uw Stadspas.
+          </Paragraph>
+        </Card>
+      </Grid.Cell>
+    </Grid>
+  ),
 }
