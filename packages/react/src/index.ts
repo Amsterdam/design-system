@@ -4,7 +4,6 @@
  */
 
 /* Append here */
-export * from './StandaloneLink'
 export * from './Accordion'
 export * from './ActionGroup'
 export * from './Alert'
@@ -55,6 +54,7 @@ export * from './SearchField'
 export * from './Select'
 export * from './SkipLink'
 export * from './Spotlight'
+export * from './StandaloneLink'
 export * from './Switch'
 export * from './Table'
 export * from './TableOfContents'
