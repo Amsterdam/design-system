@@ -3,7 +3,7 @@
  * Copyright Gemeente Amsterdam
  */
 
-import { Button, Link } from '@amsterdam/design-system-react'
+import { Button, StandaloneLink } from '@amsterdam/design-system-react'
 import { ActionGroup } from '@amsterdam/design-system-react/src'
 import { Meta, StoryObj } from '@storybook/react'
 
@@ -35,9 +35,9 @@ export const WithLink: Story = {
   args: {
     children: [
       <Button key={1}>Bewerken</Button>,
-      <Link download href="#" key={2} variant="standalone">
+      <StandaloneLink download href="#" key={2}>
         Downloaden
-      </Link>,
+      </StandaloneLink>,
     ],
   },
 }
