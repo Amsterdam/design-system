@@ -38,18 +38,13 @@ const meta = {
 
 export default meta
 
-export const Default: Story = {}
-
-export const Standalone: Story = {}
-
-export const Inline: Story = {
+export const Default: Story = {
   args: {
     children: 'typograaf',
-    variant: 'inline',
   },
   decorators: [
-    (Story) => (
-      <Paragraph>
+    (Story, { args }) => (
+      <Paragraph color={args.color === 'inverse' ? 'inverse' : undefined}>
         Jouw <Story /> biedt mij zulke exquise schreven!
       </Paragraph>
     ),

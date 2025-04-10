@@ -15,26 +15,6 @@ describe('Link', () => {
     expect(link).toHaveAttribute('href', '#')
   })
 
-  it('renders standalone variant', () => {
-    const { container } = render(<Link href="#">{linktext}</Link>)
-
-    const link = container.querySelector('a:only-child')
-
-    expect(link).toHaveClass('ams-link')
-  })
-
-  it('renders inline variant', () => {
-    const { container } = render(
-      <Link href="#" variant="inline">
-        {linktext}
-      </Link>,
-    )
-
-    const link = container.querySelector('a:only-child')
-
-    expect(link).toHaveClass('ams-link ams-link--inline')
-  })
-
   it('renders an additional class name', () => {
     const { container } = render(<Link className="large" />)
 
