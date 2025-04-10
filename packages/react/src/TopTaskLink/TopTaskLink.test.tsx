@@ -29,7 +29,7 @@ describe('Top task link', () => {
     expect(description).toHaveClass('ams-top-task-link__description')
   })
 
-  it('renders an extra class through the className prop', () => {
+  it('renders an extra class name', () => {
     render(<TopTaskLink className="extra" description="Description" href="/" label="Label" />)
 
     const link = screen.getByRole('link', {

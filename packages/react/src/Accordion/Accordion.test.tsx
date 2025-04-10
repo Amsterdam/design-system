@@ -13,7 +13,7 @@ describe('Accordion', () => {
     expect(accordion).toBeVisible()
   })
 
-  it('renders an extra class through the className prop', () => {
+  it('renders an extra class name', () => {
     const { container } = render(<Accordion className="test" headingLevel={1} />)
 
     const accordion = container.querySelector('.ams-accordion')

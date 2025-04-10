@@ -21,7 +21,7 @@ describe('Card link', () => {
     expect(component).toHaveClass('ams-card__link')
   })
 
-  it('renders an extra class through the className prop', () => {
+  it('renders an extra class name', () => {
     render(<CardLink className="extra" href="/" />)
 
     const component = screen.getByRole('link')

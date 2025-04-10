@@ -45,7 +45,7 @@ describe('Image Slider Thumbnails', () => {
     expect(component).toHaveClass('ams-image-slider__thumbnails')
   })
 
-  it('renders an extra class through the className prop', () => {
+  it('renders an extra class name', () => {
     const { container } = render(<ImageSliderThumbnails className="extra" thumbnails={thumbnails} />)
 
     const component = container.querySelector(':only-child')

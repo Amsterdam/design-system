@@ -22,7 +22,7 @@ describe('Search field input', () => {
     expect(component).toHaveClass('ams-search-field__input')
   })
 
-  it('renders an extra class through the className prop', () => {
+  it('renders an extra class name', () => {
     render(<SearchFieldInput className="extra" />)
 
     const component = screen.getByRole('searchbox', { name: 'Zoeken' })

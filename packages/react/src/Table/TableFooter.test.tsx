@@ -30,7 +30,7 @@ describe('Table footer', () => {
     expect(component).toHaveClass('ams-table__footer')
   })
 
-  it('renders an extra class through the className prop', () => {
+  it('renders an extra class name', () => {
     render(
       <Table>
         <TableFooter className="extra" />

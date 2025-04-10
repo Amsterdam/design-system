@@ -21,7 +21,7 @@ describe('Table', () => {
     expect(component).toHaveClass('ams-table__table')
   })
 
-  it('renders an extra class through the className prop', () => {
+  it('renders an extra class name', () => {
     render(<Table className="extra" />)
 
     const component = screen.getByRole('table')

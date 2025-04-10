@@ -30,7 +30,7 @@ describe('Table body', () => {
     expect(component).toHaveClass('ams-table__body')
   })
 
-  it('renders an extra class through the className prop', () => {
+  it('renders an extra class name', () => {
     render(
       <Table>
         <TableBody className="extra" />

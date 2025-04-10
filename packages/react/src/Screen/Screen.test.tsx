@@ -37,7 +37,7 @@ describe('Screen', () => {
     expect(component).toHaveClass('ams-screen--full-height')
   })
 
-  it('renders an extra class through the className prop', () => {
+  it('renders an extra class name', () => {
     const { container } = render(<Screen className="extra" />)
 
     const component = container.querySelector(':only-child')

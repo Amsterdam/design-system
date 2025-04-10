@@ -35,7 +35,7 @@ describe('Link', () => {
     expect(link).toHaveClass('ams-link ams-link--inline')
   })
 
-  it('renders an extra class through the className prop', () => {
+  it('renders an extra class name', () => {
     const { container } = render(<Link className="extra" />)
 
     const link = container.querySelector(':only-child')

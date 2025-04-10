@@ -31,7 +31,7 @@ describe('Checkbox', () => {
     expect(label).toHaveClass('ams-checkbox__label')
   })
 
-  it('renders an extra class through the className prop', () => {
+  it('renders an extra class name', () => {
     const { container } = render(<Checkbox className="extra" />)
 
     const wrapper = container.querySelector(':only-child')

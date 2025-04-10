@@ -21,7 +21,7 @@ describe('Page Footer Menu Link', () => {
     expect(component).toHaveClass('ams-page-footer__menu-link')
   })
 
-  it('renders an extra class through the className prop', () => {
+  it('renders an extra class name', () => {
     render(
       <PageFooter.MenuLink className="extra" href="#">
         Link

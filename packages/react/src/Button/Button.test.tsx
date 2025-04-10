@@ -26,7 +26,7 @@ describe('Button', () => {
     expect(button).toHaveClass('ams-button')
   })
 
-  it('renders an extra class through the className prop', () => {
+  it('renders an extra class name', () => {
     render(<Button className="extra">Click me!</Button>)
 
     const button = screen.getByRole('button', {

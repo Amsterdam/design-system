@@ -55,7 +55,7 @@ describe('Icon', () => {
     expect(icon).toHaveClass('ams-icon--inverse')
   })
 
-  it('renders an extra class through the className prop', () => {
+  it('renders an extra class name', () => {
     const { container } = render(<Icon className="extra" svg={AlertIcon} />)
 
     const icon = container.querySelector(':only-child')

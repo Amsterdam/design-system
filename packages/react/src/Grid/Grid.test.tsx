@@ -25,7 +25,7 @@ describe('Grid', () => {
     expect(component).toHaveClass('ams-grid')
   })
 
-  it('renders an extra class through the className prop', () => {
+  it('renders an extra class name', () => {
     const { container } = render(<Grid className="extra" />)
 
     const component = container.querySelector(':only-child')

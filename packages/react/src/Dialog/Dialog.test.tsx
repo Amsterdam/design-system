@@ -21,7 +21,7 @@ describe('Dialog', () => {
     expect(component).toHaveClass('ams-dialog')
   })
 
-  it('renders an extra class through the className prop', () => {
+  it('renders an extra class name', () => {
     render(<Dialog className="extra" heading="Test heading" />)
 
     const component = screen.getByRole('dialog', { hidden: true })

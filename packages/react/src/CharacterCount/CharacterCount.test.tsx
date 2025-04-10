@@ -21,7 +21,7 @@ describe('Character count', () => {
     expect(component).toHaveClass('ams-character-count')
   })
 
-  it('renders an extra class through the className prop', () => {
+  it('renders an extra class name', () => {
     render(<CharacterCount className="extra" length={10} maxLength={100} />)
 
     const component = screen.getByRole('status')

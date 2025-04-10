@@ -35,7 +35,7 @@ describe('Table caption', () => {
     expect(caption).toHaveClass('ams-table__caption')
   })
 
-  it('renders an extra class through the className prop', () => {
+  it('renders an extra class name', () => {
     render(
       <Table>
         <TableCaption className="extra">Caption</TableCaption>

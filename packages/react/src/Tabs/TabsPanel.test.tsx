@@ -34,7 +34,7 @@ describe('Tabs Panel', () => {
     expect(component).toHaveClass('ams-tabs__panel')
   })
 
-  it('renders an extra class through the className prop', () => {
+  it('renders an extra class name', () => {
     render(
       <Tabs>
         <Tabs.List>

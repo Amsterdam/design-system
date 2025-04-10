@@ -20,7 +20,7 @@ describe('Tabs list', () => {
     expect(component).toHaveClass('ams-tabs__list')
   })
 
-  it('renders an extra class through the className prop', () => {
+  it('renders an extra class name', () => {
     render(<TabsList className="extra" />)
 
     const component = screen.getByRole('tablist')

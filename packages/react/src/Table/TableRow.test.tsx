@@ -35,7 +35,7 @@ describe('Table row', () => {
     expect(component).toHaveClass('ams-table__row')
   })
 
-  it('renders an extra class through the className prop', () => {
+  it('renders an extra class name', () => {
     render(
       <Table>
         <TableBody>

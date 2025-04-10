@@ -21,7 +21,7 @@ describe('Mark', () => {
     expect(component).toHaveClass('ams-mark')
   })
 
-  it('renders an extra class through the className prop', () => {
+  it('renders an extra class name', () => {
     const { container } = render(<Mark className="extra" />)
 
     const component = container.querySelector(':only-child')

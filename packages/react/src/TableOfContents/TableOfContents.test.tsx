@@ -42,7 +42,7 @@ describe('Table of contents', () => {
     expect(component).toHaveClass('ams-table-of-contents')
   })
 
-  it('renders an extra class through the className prop', () => {
+  it('renders an extra class name', () => {
     const { container } = render(<TableOfContents className="extra" />)
 
     const component = container.querySelector(':only-child')

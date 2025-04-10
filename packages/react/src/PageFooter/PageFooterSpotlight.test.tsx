@@ -21,7 +21,7 @@ describe('Page Footer Spotlight', () => {
     expect(component).toHaveClass('ams-page-footer__spotlight')
   })
 
-  it('renders an extra class through the className prop', () => {
+  it('renders an extra class name', () => {
     const { container } = render(<PageFooter.Spotlight className="extra" />)
 
     const component = container.querySelector(':only-child')

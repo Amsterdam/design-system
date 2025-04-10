@@ -22,7 +22,7 @@ describe('Text input', () => {
     expect(component).toHaveClass('ams-text-input')
   })
 
-  it('renders an extra class through the className prop', () => {
+  it('renders an extra class name', () => {
     render(<TextInput className="extra" />)
 
     const component = screen.getByRole('textbox')

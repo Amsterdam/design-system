@@ -21,7 +21,7 @@ describe('Description List', () => {
     expect(component).toHaveClass('ams-description-list')
   })
 
-  it('renders an extra class through the className prop', () => {
+  it('renders an extra class name', () => {
     const { container } = render(<DescriptionList className="extra" />)
 
     const component = container.querySelector(':only-child')

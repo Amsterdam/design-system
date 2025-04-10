@@ -21,7 +21,7 @@ describe('Hint', () => {
     expect(component).toHaveClass('ams-hint')
   })
 
-  it('renders an extra class through the className prop', () => {
+  it('renders an extra class name', () => {
     const { container } = render(<Hint className="extra" optional />)
 
     const component = container.querySelector(':only-child')

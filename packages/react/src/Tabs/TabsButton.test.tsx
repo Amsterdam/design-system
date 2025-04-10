@@ -20,7 +20,7 @@ describe('Tabs button', () => {
     expect(component).toHaveClass('ams-tabs__button')
   })
 
-  it('renders an extra class through the className prop', () => {
+  it('renders an extra class name', () => {
     render(<TabsButton className="extra" tab="one" />)
 
     const component = screen.getByRole('tab')

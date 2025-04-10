@@ -22,7 +22,7 @@ describe('Table of Contents link', () => {
     expect(component).toHaveClass('ams-table-of-contents__link')
   })
 
-  it('renders an extra class through the className prop', () => {
+  it('renders an extra class name', () => {
     render(<TableOfContents.Link className="extra" href="#" label="Test" />)
 
     const component = screen.getByRole('link')

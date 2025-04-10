@@ -22,7 +22,7 @@ describe('Standalone Link', () => {
     expect(component).toHaveClass('ams-standalone-link')
   })
 
-  it('renders an extra class through the className prop', () => {
+  it('renders an extra class name', () => {
     render(<StandaloneLink className="extra" href="#" />)
 
     const component = screen.getByRole('link')

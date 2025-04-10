@@ -67,7 +67,7 @@ describe('Label', () => {
     expect(label).not.toBeVisible()
   })
 
-  it('renders an extra class through the className prop', () => {
+  it('renders an extra class name', () => {
     const { container } = render(<Label className="extra" htmlFor="form-control" />)
 
     const label = container.querySelector(':only-child')

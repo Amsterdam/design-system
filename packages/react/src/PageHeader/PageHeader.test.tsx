@@ -23,7 +23,7 @@ describe('Page Header', () => {
     expect(component).toHaveClass('ams-page-header')
   })
 
-  it('renders an extra class through the className prop', () => {
+  it('renders an extra class name', () => {
     render(<PageHeader className="extra" />)
 
     const component = screen.getByRole('banner')

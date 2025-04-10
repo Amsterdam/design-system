@@ -21,7 +21,7 @@ describe('Overlap', () => {
     expect(component).toHaveClass('ams-overlap')
   })
 
-  it('renders an extra class through the className prop', () => {
+  it('renders an extra class name', () => {
     const { container } = render(<Overlap className="extra" />)
 
     const component = container.querySelector(':only-child')

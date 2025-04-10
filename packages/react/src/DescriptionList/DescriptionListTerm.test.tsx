@@ -21,7 +21,7 @@ describe('Description List Term', () => {
     expect(component).toHaveClass('ams-description-list__term')
   })
 
-  it('renders an extra class through the className prop', () => {
+  it('renders an extra class name', () => {
     render(<DescriptionList.Term className="extra">Test</DescriptionList.Term>)
 
     const component = screen.getByRole('term')

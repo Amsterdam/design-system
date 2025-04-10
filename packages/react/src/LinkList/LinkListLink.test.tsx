@@ -27,7 +27,7 @@ describe('Link list link', () => {
     expect(component).toHaveClass('ams-link-list__link')
   })
 
-  it('renders an extra class through the className prop', () => {
+  it('renders an extra class name', () => {
     render(<LinkList.Link className="extra" href="#" />)
 
     const component = screen.getByRole('link')

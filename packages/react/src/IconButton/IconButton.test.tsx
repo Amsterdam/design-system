@@ -21,7 +21,7 @@ describe('Icon button', () => {
     expect(component).toHaveClass('ams-icon-button')
   })
 
-  it('renders an extra class through the className prop', () => {
+  it('renders an extra class name', () => {
     render(<IconButton className="extra" label="Test" />)
 
     const component = screen.getByRole('button')

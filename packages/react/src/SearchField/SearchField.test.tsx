@@ -47,7 +47,7 @@ describe('Search field', () => {
     expect(component).toHaveClass('ams-search-field')
   })
 
-  it('renders an extra class through the className prop', () => {
+  it('renders an extra class name', () => {
     render(<SearchField className="extra" />)
 
     const component = screen.getByRole('search')
