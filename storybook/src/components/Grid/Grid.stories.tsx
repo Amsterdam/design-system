@@ -6,6 +6,7 @@
 import { Grid } from '@amsterdam/design-system-react/src'
 import type { GridCellProps } from '@amsterdam/design-system-react/src'
 import { Meta, StoryObj } from '@storybook/react'
+import { gridGapAndPaddingArgTypes } from '../../common'
 
 const meta = {
   title: 'Components/Layout/Grid',
@@ -18,34 +19,7 @@ const meta = {
     className: {
       table: { disable: true },
     },
-    gapVertical: {
-      control: {
-        labels: { undefined: 'x-large (default)' },
-        type: 'radio',
-      },
-      options: ['none', 'large', undefined, '2x-large'],
-    },
-    paddingBottom: {
-      control: {
-        labels: { undefined: 'none (default)' },
-        type: 'radio',
-      },
-      options: [undefined, 'large', 'x-large', '2x-large'],
-    },
-    paddingTop: {
-      control: {
-        labels: { undefined: 'none (default)' },
-        type: 'radio',
-      },
-      options: [undefined, 'large', 'x-large', '2x-large'],
-    },
-    paddingVertical: {
-      control: {
-        labels: { undefined: 'none (default)' },
-        type: 'radio',
-      },
-      options: [undefined, 'large', 'x-large', '2x-large'],
-    },
+    ...gridGapAndPaddingArgTypes,
   },
   parameters: {
     layout: 'fullscreen',
