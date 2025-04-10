@@ -1,6 +1,6 @@
 import { render, screen } from '@testing-library/react'
 import { createRef } from 'react'
-import { Grid, gridPaddingSizes, gridTags } from './Grid'
+import { Grid, gridGapSizes, gridPaddingSizes, gridTags } from './Grid'
 import { ariaRoleForTag } from '../common/accessibility'
 import '@testing-library/jest-dom'
 
@@ -31,28 +31,14 @@ describe('Grid', () => {
     expect(component).toHaveClass('ams-grid')
   })
 
-  it('renders the correct class name for a zero gap', () => {
-    const { container } = render(<Grid gapVertical="none" />)
+  gridGapSizes.forEach((size) => {
+    it(`renders the correct class name for a ${size} vertical gap`, () => {
+      const { container } = render(<Grid gapVertical={size} />)
 
-    const component = container.querySelector(':only-child')
+      const component = container.querySelector(':only-child')
 
-    expect(component).toHaveClass('ams-grid--gap-vertical--none')
-  })
-
-  it(`renders the correct class name for a small gap`, () => {
-    const { container } = render(<Grid gapVertical="small" />)
-
-    const component = container.querySelector(':only-child')
-
-    expect(component).toHaveClass('ams-grid--gap-vertical--small')
-  })
-
-  it(`renders the correct class name for a large gap`, () => {
-    const { container } = render(<Grid gapVertical="large" />)
-
-    const component = container.querySelector(':only-child')
-
-    expect(component).toHaveClass('ams-grid--gap-vertical--large')
+      expect(component).toHaveClass(`ams-grid--gap-vertical--${size}`)
+    })
   })
 
   gridPaddingSizes.forEach((size) => {

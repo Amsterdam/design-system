@@ -16,6 +16,9 @@ export type GridColumnNumbers = {
   wide: GridColumnNumber
 }
 
+export const gridGapSizes = ['none', 'large', '2x-large'] as const
+export type GridGapSize = (typeof gridGapSizes)[number]
+
 export const gridPaddingSizes = ['large', 'x-large', '2x-large'] as const
 export type GridPaddingSize = (typeof gridPaddingSizes)[number]
 
@@ -41,7 +44,7 @@ export type GridProps = {
   /** The HTML tag to use. */
   as?: GridTag
   /** The amount of space between rows. */
-  gapVertical?: 'none' | 'small' | 'large'
+  gapVertical?: GridGapSize
 } & (GridPaddingVerticalProp | GridPaddingTopAndBottomProps) &
   PropsWithChildren<HTMLAttributes<HTMLDivElement>>
 

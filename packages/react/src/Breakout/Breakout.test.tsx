@@ -1,7 +1,7 @@
 import { render } from '@testing-library/react'
 import { createRef } from 'react'
 import { Breakout } from './Breakout'
-import { gridPaddingSizes } from '../Grid/Grid'
+import { gridGapSizes, gridPaddingSizes } from '../Grid/Grid'
 import '@testing-library/jest-dom'
 
 describe('Breakout', () => {
@@ -30,28 +30,14 @@ describe('Breakout', () => {
     expect(component).toHaveClass('ams-breakout extra')
   })
 
-  it('renders the correct class name for a zero gap', () => {
-    const { container } = render(<Breakout gapVertical="none" />)
+  gridGapSizes.forEach((size) => {
+    it(`renders the correct class name for a ${size} vertical gap`, () => {
+      const { container } = render(<Breakout gapVertical={size} />)
 
-    const component = container.querySelector(':only-child')
+      const component = container.querySelector(':only-child')
 
-    expect(component).toHaveClass('ams-breakout--gap-vertical--none')
-  })
-
-  it(`renders the correct class name for a small gap`, () => {
-    const { container } = render(<Breakout gapVertical="small" />)
-
-    const component = container.querySelector(':only-child')
-
-    expect(component).toHaveClass('ams-breakout--gap-vertical--small')
-  })
-
-  it(`renders the correct class name for a large gap`, () => {
-    const { container } = render(<Breakout gapVertical="large" />)
-
-    const component = container.querySelector(':only-child')
-
-    expect(component).toHaveClass('ams-breakout--gap-vertical--large')
+      expect(component).toHaveClass(`ams-breakout--gap-vertical--${size}`)
+    })
   })
 
   gridPaddingSizes.forEach((size) => {
