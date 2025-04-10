@@ -4,6 +4,7 @@
  */
 
 import { Column, Icon, Row } from '@amsterdam/design-system-react'
+import type { IconSize } from '@amsterdam/design-system-react'
 import { Heading } from '@amsterdam/design-system-react/src'
 import { EmailIcon } from '@amsterdam/design-system-react-icons'
 import { Meta, StoryObj } from '@storybook/react'
@@ -102,7 +103,7 @@ export const WithIcon: Story = {
 
     return (
       <Row gap="small">
-        <Icon color={args.color} size={iconSize} svg={EmailIcon} />
+        <Icon color={args.color} size={iconSize as IconSize} svg={EmailIcon} />
         <Heading {...args}>{children}</Heading>
       </Row>
     )
