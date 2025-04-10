@@ -39,40 +39,40 @@
 
 // Grid padding
 
-@mixin ams-grid--padding-bottom--small {
-  padding-block-end: var(--ams-grid-padding-block-s);
-}
-
-@mixin ams-grid--padding-bottom--medium {
-  padding-block-end: var(--ams-grid-padding-block-m);
-}
-
 @mixin ams-grid--padding-bottom--large {
   padding-block-end: var(--ams-grid-padding-block-l);
 }
 
-@mixin ams-grid--padding-top--small {
-  padding-block-start: var(--ams-grid-padding-block-s);
+@mixin ams-grid--padding-bottom--x-large {
+  padding-block-end: var(--ams-grid-padding-block-xl);
 }
 
-@mixin ams-grid--padding-top--medium {
-  padding-block-start: var(--ams-grid-padding-block-m);
+@mixin ams-grid--padding-bottom--2x-large {
+  padding-block-end: var(--ams-grid-padding-block-2xl);
 }
 
 @mixin ams-grid--padding-top--large {
   padding-block-start: var(--ams-grid-padding-block-l);
 }
 
-@mixin ams-grid--padding-vertical--small {
-  padding-block: var(--ams-grid-padding-block-s);
+@mixin ams-grid--padding-top--x-large {
+  padding-block-start: var(--ams-grid-padding-block-xl);
 }
 
-@mixin ams-grid--padding-vertical--medium {
-  padding-block: var(--ams-grid-padding-block-m);
+@mixin ams-grid--padding-top--2x-large {
+  padding-block-start: var(--ams-grid-padding-block-2xl);
 }
 
 @mixin ams-grid--padding-vertical--large {
   padding-block: var(--ams-grid-padding-block-l);
+}
+
+@mixin ams-grid--padding-vertical--x-large {
+  padding-block: var(--ams-grid-padding-block-xl);
+}
+
+@mixin ams-grid--padding-vertical--2x-large {
+  padding-block: var(--ams-grid-padding-block-2xl);
 }
 
 @mixin ams-grid__cell--span-all {

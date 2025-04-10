@@ -16,7 +16,7 @@ export type GridColumnNumbers = {
   wide: GridColumnNumber
 }
 
-export const gridPaddingSizes = ['small', 'medium', 'large'] as const
+export const gridPaddingSizes = ['large', 'x-large', '2x-large'] as const
 export type GridPaddingSize = (typeof gridPaddingSizes)[number]
 
 export const gridTags = ['article', 'aside', 'div', 'footer', 'header', 'main', 'nav', 'section'] as const

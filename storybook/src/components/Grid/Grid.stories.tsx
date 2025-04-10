@@ -12,7 +12,7 @@ const meta = {
   component: Grid,
   args: {
     gapVertical: undefined /* Keeps this prop at the top of the Controls table. */,
-    paddingVertical: 'medium',
+    paddingVertical: 'x-large',
   },
   argTypes: {
     className: {
@@ -27,24 +27,24 @@ const meta = {
     },
     paddingBottom: {
       control: {
-        labels: { large: 'large', medium: 'medium', small: 'small', undefined: 'none' },
+        labels: { undefined: 'none' },
         type: 'radio',
       },
-      options: [undefined, 'small', 'medium', 'large'],
+      options: [undefined, 'large', 'x-large', '2x-large'],
     },
     paddingTop: {
       control: {
-        labels: { large: 'large', medium: 'medium', small: 'small', undefined: 'none' },
+        labels: { undefined: 'none' },
         type: 'radio',
       },
-      options: [undefined, 'small', 'medium', 'large'],
+      options: [undefined, 'large', 'x-large', '2x-large'],
     },
     paddingVertical: {
       control: {
-        labels: { large: 'large', medium: 'medium', small: 'small', undefined: 'none' },
+        labels: { undefined: 'none' },
         type: 'radio',
       },
-      options: [undefined, 'small', 'medium', 'large'],
+      options: [undefined, 'large', 'x-large', '2x-large'],
     },
   },
   parameters: {
@@ -94,7 +94,7 @@ const CellStoryTemplate: CellStory = {
     (Story) => (
       <>
         <BackgroundGrid />
-        <Grid paddingVertical="medium">
+        <Grid paddingVertical="x-large">
           <Story />
         </Grid>
       </>
