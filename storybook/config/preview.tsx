@@ -43,7 +43,12 @@ export const parameters = {
     disable: true,
   },
   controls: {
-    sort: 'alpha',
+    sort: 'alpha', // Sorts controls in the Controls addon
+  },
+  docs: {
+    controls: {
+      sort: 'alpha', // Sorts controls in the Controls doc block – https://github.com/storybookjs/storybook/issues/25386#issuecomment-1905468177
+    },
   },
   grid: {
     disable: true,
