@@ -1,11 +1,8 @@
 import { render, screen } from '@testing-library/react'
 import { createRef } from 'react'
-import { Grid, gridTags } from './Grid'
-import type { GridPaddingSize } from './Grid'
+import { Grid, gridPaddingSizes, gridTags } from './Grid'
 import { ariaRoleForTag } from '../common/accessibility'
 import '@testing-library/jest-dom'
-
-const paddingSizes = ['small', 'medium', 'large']
 
 describe('Grid', () => {
   it('renders', () => {
@@ -58,9 +55,9 @@ describe('Grid', () => {
     expect(component).toHaveClass('ams-grid--gap-vertical--large')
   })
 
-  paddingSizes.forEach((size) => {
+  gridPaddingSizes.forEach((size) => {
     it(`renders the correct class name for a ${size} bottom padding`, () => {
-      const { container } = render(<Grid paddingBottom={size as GridPaddingSize} />)
+      const { container } = render(<Grid paddingBottom={size} />)
 
       const component = container.querySelector(':only-child')
 
@@ -68,9 +65,9 @@ describe('Grid', () => {
     })
   })
 
-  paddingSizes.forEach((size) => {
+  gridPaddingSizes.forEach((size) => {
     it(`renders the correct class name for a ${size} top padding`, () => {
-      const { container } = render(<Grid paddingTop={size as GridPaddingSize} />)
+      const { container } = render(<Grid paddingTop={size} />)
 
       const component = container.querySelector(':only-child')
 
@@ -78,9 +75,9 @@ describe('Grid', () => {
     })
   })
 
-  paddingSizes.forEach((size) => {
+  gridPaddingSizes.forEach((size) => {
     it(`renders the correct class name for a ${size} vertical padding`, () => {
-      const { container } = render(<Grid paddingVertical={size as GridPaddingSize} />)
+      const { container } = render(<Grid paddingVertical={size} />)
 
       const component = container.querySelector(':only-child')
 
