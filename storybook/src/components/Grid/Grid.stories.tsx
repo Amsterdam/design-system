@@ -20,28 +20,28 @@ const meta = {
     },
     gapVertical: {
       control: {
-        labels: { undefined: 'x-large' },
+        labels: { undefined: 'x-large (default)' },
         type: 'radio',
       },
       options: ['none', 'large', undefined, '2x-large'],
     },
     paddingBottom: {
       control: {
-        labels: { undefined: 'none' },
+        labels: { undefined: 'none (default)' },
         type: 'radio',
       },
       options: [undefined, 'large', 'x-large', '2x-large'],
     },
     paddingTop: {
       control: {
-        labels: { undefined: 'none' },
+        labels: { undefined: 'none (default)' },
         type: 'radio',
       },
       options: [undefined, 'large', 'x-large', '2x-large'],
     },
     paddingVertical: {
       control: {
-        labels: { undefined: 'none' },
+        labels: { undefined: 'none (default)' },
         type: 'radio',
       },
       options: [undefined, 'large', 'x-large', '2x-large'],
