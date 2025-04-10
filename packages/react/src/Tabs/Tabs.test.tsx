@@ -22,7 +22,7 @@ describe('Tabs', () => {
     expect(component).toHaveClass('ams-tabs')
   })
 
-  it('renders an additional class name', () => {
+  it('renders an extra class through the className prop', () => {
     const { container } = render(<Tabs className="extra" />)
 
     const component = container.querySelector(':only-child')

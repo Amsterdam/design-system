@@ -22,14 +22,12 @@ describe('Spotlight', () => {
     expect(component).toHaveClass('ams-spotlight')
   })
 
-  it('renders an additional class name', () => {
+  it('renders an extra class through the className prop', () => {
     const { container } = render(<Spotlight className="extra" />)
 
     const component = container.querySelector(':only-child')
 
-    expect(component).toHaveClass('extra')
-
-    expect(component).toHaveClass('ams-spotlight')
+    expect(component).toHaveClass('ams-spotlight extra')
   })
 
   spotlightTags.forEach((tag) => {

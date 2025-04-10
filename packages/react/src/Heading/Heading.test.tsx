@@ -4,6 +4,14 @@ import { Heading } from './Heading'
 import '@testing-library/jest-dom'
 
 describe('Heading', () => {
+  it('renders a design system BEM class name', () => {
+    const { container } = render(<Heading level={1} />)
+
+    const heading = container.querySelector(':only-child')
+
+    expect(heading).toHaveClass('ams-heading')
+  })
+
   it('renders an element with role heading', () => {
     render(<Heading level={1}>Breaking news</Heading>)
 
@@ -97,13 +105,12 @@ describe('Heading', () => {
     expect(inlineMarkup).toBeInTheDocument()
   })
 
-  it('renders an additional class name', () => {
-    const { container } = render(<Heading className="large" level={1} />)
+  it('renders an extra class through the className prop', () => {
+    const { container } = render(<Heading className="extra" level={1} />)
 
     const heading = container.querySelector(':only-child')
 
-    expect(heading).toHaveClass('large')
-    expect(heading).toHaveClass('ams-heading')
+    expect(heading).toHaveClass('ams-heading extra')
   })
 
   it('is able to pass a React ref', () => {

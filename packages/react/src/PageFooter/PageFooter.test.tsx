@@ -21,7 +21,7 @@ describe('Page Footer', () => {
     expect(component).toHaveClass('ams-page-footer')
   })
 
-  it('renders an additional class name', () => {
+  it('renders an extra class through the className prop', () => {
     render(<PageFooter className="extra" />)
 
     const component = screen.getByRole('contentinfo')

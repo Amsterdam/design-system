@@ -29,15 +29,14 @@ describe('Top task link', () => {
     expect(description).toHaveClass('ams-top-task-link__description')
   })
 
-  it('renders an additional class name', () => {
+  it('renders an extra class through the className prop', () => {
     render(<TopTaskLink className="extra" description="Description" href="/" label="Label" />)
 
     const link = screen.getByRole('link', {
       name: 'Label , Description',
     })
 
-    expect(link).toHaveClass('extra')
-    expect(link).toHaveClass('ams-top-task-link')
+    expect(link).toHaveClass('ams-top-task-link extra')
   })
 
   it('supports ForwardRef in React', () => {

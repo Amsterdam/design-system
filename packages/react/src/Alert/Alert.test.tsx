@@ -24,7 +24,7 @@ describe('Alert', () => {
     expect(component).toHaveClass('ams-alert')
   })
 
-  it('renders an additional class name', () => {
+  it('renders an extra class through the className prop', () => {
     const { container } = render(<Alert className="extra" heading="Let op!" headingLevel={2} />)
 
     const component = container.querySelector(':only-child')

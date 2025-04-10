@@ -34,7 +34,7 @@ describe('Invalid Form Alert', () => {
     expect(component).toHaveClass('ams-invalid-form-alert')
   })
 
-  it('renders an additional class name', () => {
+  it('renders an extra class through the className prop', () => {
     const { container } = render(<InvalidFormAlert className="extra" errors={testErrors} headingLevel={2} />)
 
     const component = container.querySelector(':only-child')

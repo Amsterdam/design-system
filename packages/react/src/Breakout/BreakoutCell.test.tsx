@@ -23,7 +23,7 @@ describe('Breakout cell', () => {
     expect(component).toHaveClass('ams-breakout__cell')
   })
 
-  it('renders an additional class name', () => {
+  it('renders an extra class through the className prop', () => {
     const { container } = render(<Breakout.Cell className="extra" />)
 
     const component = container.querySelector(':only-child')

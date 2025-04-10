@@ -37,14 +37,12 @@ describe('Screen', () => {
     expect(component).toHaveClass('ams-screen--full-height')
   })
 
-  it('renders an additional class name', () => {
+  it('renders an extra class through the className prop', () => {
     const { container } = render(<Screen className="extra" />)
 
     const component = container.querySelector(':only-child')
 
-    expect(component).toHaveClass('extra')
-
-    expect(component).toHaveClass('ams-screen')
+    expect(component).toHaveClass('ams-screen extra')
   })
 
   it('supports ForwardRef in React', () => {

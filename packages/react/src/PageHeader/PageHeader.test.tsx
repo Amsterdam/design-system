@@ -23,13 +23,12 @@ describe('Page Header', () => {
     expect(component).toHaveClass('ams-page-header')
   })
 
-  it('renders an additional class name', () => {
+  it('renders an extra class through the className prop', () => {
     render(<PageHeader className="extra" />)
 
     const component = screen.getByRole('banner')
 
-    expect(component).toHaveClass('extra')
-    expect(component).toHaveClass('ams-page-header')
+    expect(component).toHaveClass('ams-page-header extra')
   })
 
   it('supports ForwardRef in React', () => {

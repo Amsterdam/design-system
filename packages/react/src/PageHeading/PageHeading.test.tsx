@@ -23,14 +23,12 @@ describe('Page heading', () => {
     expect(component).toHaveClass('ams-page-heading')
   })
 
-  it('renders an additional class name', () => {
+  it('renders an extra class through the className prop', () => {
     const { container } = render(<PageHeading className="extra" />)
 
     const component = container.querySelector(':only-child')
 
-    expect(component).toHaveClass('extra')
-
-    expect(component).toHaveClass('ams-page-heading')
+    expect(component).toHaveClass('ams-page-heading extra')
   })
 
   it('renders the class name for inverse color', () => {

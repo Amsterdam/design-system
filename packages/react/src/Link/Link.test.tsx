@@ -35,13 +35,12 @@ describe('Link', () => {
     expect(link).toHaveClass('ams-link ams-link--inline')
   })
 
-  it('renders an additional class name', () => {
-    const { container } = render(<Link className="large" />)
+  it('renders an extra class through the className prop', () => {
+    const { container } = render(<Link className="extra" />)
 
     const link = container.querySelector(':only-child')
 
-    expect(link).toHaveClass('large')
-    expect(link).toHaveClass('ams-link')
+    expect(link).toHaveClass('ams-link extra')
   })
 
   it('renders the class name for contrast color', () => {

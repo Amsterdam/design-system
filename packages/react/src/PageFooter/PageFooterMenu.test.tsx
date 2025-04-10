@@ -47,7 +47,7 @@ describe('Page Footer Menu', () => {
     expect(ref.current).toBe(component)
   })
 
-  it('renders an additional class name', () => {
+  it('renders an extra class through the className prop', () => {
     render(<PageFooter.Menu className="intro" />)
 
     const component = screen.getByRole('list')

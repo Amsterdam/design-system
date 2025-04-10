@@ -24,7 +24,7 @@ describe('Pagination', () => {
     expect(component).toHaveClass('ams-pagination')
   })
 
-  it('can have a additional class name', () => {
+  it('renders an extra class through the className prop', () => {
     render(<Pagination className="extra" linkTemplate={linkTemplate} totalPages={10} />)
 
     const component = screen.getByRole('navigation', { name: 'Paginering' })

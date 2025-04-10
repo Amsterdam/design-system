@@ -55,13 +55,12 @@ describe('Icon', () => {
     expect(icon).toHaveClass('ams-icon--inverse')
   })
 
-  it('renders an additional class name', () => {
-    const { container } = render(<Icon className="large" svg={AlertIcon} />)
+  it('renders an extra class through the className prop', () => {
+    const { container } = render(<Icon className="extra" svg={AlertIcon} />)
 
     const icon = container.querySelector(':only-child')
 
-    expect(icon).toHaveClass('large')
-    expect(icon).toHaveClass('ams-icon')
+    expect(icon).toHaveClass('ams-icon extra')
   })
 
   it('supports ForwardRef in React', () => {

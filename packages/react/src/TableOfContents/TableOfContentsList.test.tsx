@@ -19,7 +19,7 @@ describe('Table of Contents list', () => {
     expect(component).toHaveClass('ams-table-of-contents__list')
   })
 
-  it('renders an additional class name', () => {
+  it('renders an extra class through the className prop', () => {
     render(<TableOfContents.List className="extra" />)
 
     const component = screen.getByRole('list')

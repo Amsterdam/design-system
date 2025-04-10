@@ -25,13 +25,12 @@ describe('Grid', () => {
     expect(component).toHaveClass('ams-grid')
   })
 
-  it('renders an additional class name', () => {
+  it('renders an extra class through the className prop', () => {
     const { container } = render(<Grid className="extra" />)
 
     const component = container.querySelector(':only-child')
 
-    expect(component).toHaveClass('extra')
-    expect(component).toHaveClass('ams-grid')
+    expect(component).toHaveClass('ams-grid extra')
   })
 
   it('renders the correct class name for a zero gap', () => {

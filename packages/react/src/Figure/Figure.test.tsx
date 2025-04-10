@@ -21,7 +21,7 @@ describe('Figure', () => {
     expect(component).toHaveClass('ams-figure')
   })
 
-  it('renders an additional class name', () => {
+  it('renders an extra class through the className prop', () => {
     render(<Figure className="extra" />)
 
     const component = screen.getByRole('figure')

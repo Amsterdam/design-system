@@ -37,7 +37,7 @@ describe('{{pascalCase name}}', () => {
     expect(component).toHaveClass('ams-{{kebabCase name}}')
   })
 
-  it('renders an additional class name', () => {
+  it('renders an extra class through the className prop', () => {
     {{#if role}}
     render(<{{pascalCase name}} className="extra" />)
 

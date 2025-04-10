@@ -20,7 +20,7 @@ describe('Ordered list item', () => {
     expect(component).toHaveClass('ams-ordered-list__item')
   })
 
-  it('renders an additional class name', () => {
+  it('renders an extra class through the className prop', () => {
     render(<OrderedListItem className="extra" />)
 
     const component = screen.getByRole('listitem')

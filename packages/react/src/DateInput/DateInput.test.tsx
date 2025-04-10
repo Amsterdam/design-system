@@ -21,7 +21,7 @@ describe('Date input', () => {
     expect(component).toHaveClass('ams-date-input')
   })
 
-  it('renders an additional class name', () => {
+  it('renders an extra class through the className prop', () => {
     const { container } = render(<DateInput className="extra" />)
 
     const component = container.querySelector(':only-child')

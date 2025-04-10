@@ -27,7 +27,7 @@ describe('Image Slider Item', () => {
     expect(component).toHaveClass('ams-image-slider__item')
   })
 
-  it('renders an additional class name', () => {
+  it('renders an extra class through the className prop', () => {
     const { container } = render(<ImageSliderItem className="extra" slideId={0} />)
 
     const component = container.querySelector(':only-child')

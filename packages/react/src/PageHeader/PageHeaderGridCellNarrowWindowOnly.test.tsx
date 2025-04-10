@@ -29,7 +29,7 @@ describe('Page Header Grid Cell Narrow Window Only', () => {
     expect(component).toHaveClass('ams-page-header__grid-cell-narrow-window-only')
   })
 
-  it('renders an additional class name', () => {
+  it('renders an extra class through the className prop', () => {
     const { container } = render(<PageHeaderGridCellNarrowWindowOnly className="extra" />)
 
     const component = container.querySelector(':only-child')

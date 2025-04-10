@@ -21,7 +21,7 @@ describe('Skip link', () => {
     expect(component).toHaveClass('ams-skip-link')
   })
 
-  it('renders an additional class name', () => {
+  it('renders an extra class through the className prop', () => {
     render(<SkipLink className="extra" href="/" />)
 
     const component = screen.getByRole('link')

@@ -21,7 +21,7 @@ describe('Breadcrumb', () => {
     expect(component).toHaveClass('ams-breadcrumb')
   })
 
-  it('renders an additional class name', () => {
+  it('renders an extra class through the className prop', () => {
     render(<Breadcrumb className="extra" />)
 
     const component = screen.getByRole('navigation')

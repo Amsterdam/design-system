@@ -21,7 +21,7 @@ describe('Action Group', () => {
     expect(component).toHaveClass('ams-action-group')
   })
 
-  it('renders an additional class name', () => {
+  it('renders an extra class through the className prop', () => {
     render(<ActionGroup className="extra" />)
 
     const component = screen.getByRole('group')

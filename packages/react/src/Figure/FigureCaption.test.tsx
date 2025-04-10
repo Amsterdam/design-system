@@ -29,7 +29,7 @@ describe('Figure Caption', () => {
     expect(component).toHaveClass('ams-figure__caption--inverse')
   })
 
-  it('renders an additional class name', () => {
+  it('renders an extra class through the className prop', () => {
     const { container } = render(<FigureCaption className="extra" />)
 
     const component = container.querySelector(':only-child')

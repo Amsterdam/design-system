@@ -21,7 +21,7 @@ describe('Select', () => {
     expect(component).toHaveClass('ams-select')
   })
 
-  it('renders an additional class name', () => {
+  it('renders an extra class through the className prop', () => {
     render(<Select className="extra" />)
 
     const component = screen.getByRole('combobox')

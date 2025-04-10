@@ -25,7 +25,7 @@ describe('Breadcrumb link', () => {
     expect(link).toHaveClass('ams-breadcrumb__link')
   })
 
-  it('renders an additional class name', () => {
+  it('renders an extra class through the className prop', () => {
     render(<BreadcrumbLink className="extra" href="/" />)
 
     const component = screen.getByRole('link')

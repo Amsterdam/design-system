@@ -16,7 +16,17 @@ describe('Button', () => {
     expect(button).toBeVisible()
   })
 
-  it('renders an additional class name', () => {
+  it('renders a design system BEM class name', () => {
+    render(<Button>Click me!</Button>)
+
+    const button = screen.getByRole('button', {
+      name: 'Click me!',
+    })
+
+    expect(button).toHaveClass('ams-button')
+  })
+
+  it('renders an extra class through the className prop', () => {
     render(<Button className="extra">Click me!</Button>)
 
     const button = screen.getByRole('button', {
