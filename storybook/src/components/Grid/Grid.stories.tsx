@@ -95,7 +95,6 @@ export const VerticalGap: Story = {
       <Grid.Cell className="ams-docs-item" key={1} span="all" />,
       <Grid.Cell className="ams-docs-item" key={2} span="all" />,
     ],
-    gapVertical: 'x-large',
   },
 }
 
