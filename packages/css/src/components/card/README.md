@@ -6,15 +6,17 @@ A brief section of a heading, some text, and usually an image, that leads to a r
 
 ## Guidelines
 
-- Each Card must have a Card Link.
-  It only wraps the text of the Heading in markup, but it’s made to stretch the entire Card.
-  The guidelines as for regular [links](/docs/components-navigation-link--docs) and [headings](/docs/components-text-heading--docs) apply.
-- A Card needs more content than just a heading.
-  Add a short paragraph and/or visual content.
+- The title of a card is a link within a Heading.
+  The guidelines for regular [links](/docs/components-navigation-link--docs) and [headings](/docs/components-text-heading--docs) apply.
+  The link is made active across the entire area of the card.
+- A card needs more content than just a title.
+  Add a short text and optionally an image and metadata.
 - Use the Card Heading, Card Heading Group and Card Image subcomponents.
-  They introduce the correct spacing.
+  They apply the correct spacing.
 - Place the text in a regular [Paragraph](/docs/components-text-paragraph--docs).
-  Use a small Paragraph for a date.
+  Use a small Paragraph for a publication date.
+- This component is not the best option if the target content does not represent an article-like page.
+  In that case, use a Heading, a Paragraph and a [Standalone Link](/docs/components-navigation-standalone-link--docs) instead.
 
 ### Screen readers
 

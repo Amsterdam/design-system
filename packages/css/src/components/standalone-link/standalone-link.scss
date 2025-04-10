@@ -1,0 +1,53 @@
+/**
+ * @license EUPL-1.2+
+ * Copyright Gemeente Amsterdam
+ */
+
+@use "../../common/hyphenation" as *;
+@use "../../common/text-rendering" as *;
+
+.ams-standalone-link {
+  color: var(--ams-standalone-link-color);
+  column-gap: var(--ams-standalone-link-column-gap);
+  display: inline-flex;
+  font-family: var(--ams-standalone-link-font-family);
+  font-size: var(--ams-standalone-link-font-size);
+  font-weight: var(--ams-standalone-link-font-weight);
+  line-height: var(--ams-standalone-link-line-height);
+  outline-offset: var(--ams-standalone-link-outline-offset);
+  text-decoration-thickness: var(--ams-standalone-link-text-decoration-thickness);
+  text-underline-offset: var(--ams-standalone-link-text-underline-offset);
+
+  @include hyphenation;
+  @include text-rendering;
+
+  &:hover {
+    color: var(--ams-standalone-link-hover-color);
+    text-decoration-thickness: var(--ams-standalone-link-hover-text-decoration-thickness);
+    text-underline-offset: var(--ams-standalone-link-hover-text-underline-offset);
+  }
+}
+
+.ams-standalone-link--contrast {
+  color: var(--ams-standalone-link-contrast-color);
+
+  &:hover {
+    color: var(--ams-standalone-link-contrast-hover-color);
+  }
+}
+
+.ams-standalone-link--inverse {
+  color: var(--ams-standalone-link-inverse-color);
+
+  &:hover {
+    color: var(--ams-standalone-link-inverse-hover-color);
+  }
+}
+
+.ams-standalone-link--with-icon {
+  text-decoration-line: var(--ams-standalone-link-with-icon-text-decoration-line);
+
+  &:hover {
+    text-decoration-line: var(--ams-standalone-link-with-icon-hover-text-decoration-line);
+  }
+}
