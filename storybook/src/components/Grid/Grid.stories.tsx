@@ -20,10 +20,10 @@ const meta = {
     },
     gapVertical: {
       control: {
-        labels: { large: 'large', none: 'none', small: 'small', undefined: 'medium' },
+        labels: { undefined: 'x-large' },
         type: 'radio',
       },
-      options: ['none', 'small', undefined, 'large'],
+      options: ['none', 'large', undefined, '2x-large'],
     },
     paddingBottom: {
       control: {
@@ -121,7 +121,7 @@ export const VerticalGap: Story = {
       <Grid.Cell className="ams-docs-item" key={1} span="all" />,
       <Grid.Cell className="ams-docs-item" key={2} span="all" />,
     ],
-    gapVertical: 'small',
+    gapVertical: 'x-large',
   },
 }
 

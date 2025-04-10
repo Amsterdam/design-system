@@ -18,12 +18,12 @@ $ams-grid-column-count: 12;
   @include ams-grid--gap-vertical--none;
 }
 
-.ams-grid--gap-vertical--small {
-  @include ams-grid--gap-vertical--small;
-}
-
 .ams-grid--gap-vertical--large {
   @include ams-grid--gap-vertical--large;
+}
+
+.ams-grid--gap-vertical--2x-large {
+  @include ams-grid--gap-vertical--2x-large;
 }
 
 // Grid padding

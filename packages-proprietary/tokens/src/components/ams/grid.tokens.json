@@ -10,9 +10,9 @@
       },
       "padding-inline": { "value": "{ams.space.l}" },
       "row-gap": {
-        "s": { "value": "{ams.space.l}" },
-        "m": { "value": "{ams.space.xl}" },
-        "l": { "value": "{ams.space.2xl}" }
+        "l": { "value": "{ams.space.l}" },
+        "xl": { "value": "{ams.space.xl}" },
+        "2xl": { "value": "{ams.space.2xl}" }
       },
       "medium": {
         "column-count": { "value": "8" },

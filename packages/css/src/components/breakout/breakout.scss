@@ -19,12 +19,12 @@ $ams-breakout-row-span-max: 4;
   @include ams-grid--gap-vertical--none;
 }
 
-.ams-breakout--gap-vertical--small {
-  @include ams-grid--gap-vertical--small;
-}
-
 .ams-breakout--gap-vertical--large {
   @include ams-grid--gap-vertical--large;
+}
+
+.ams-breakout--gap-vertical--2x-large {
+  @include ams-grid--gap-vertical--2x-large;
 }
 
 // Grid padding

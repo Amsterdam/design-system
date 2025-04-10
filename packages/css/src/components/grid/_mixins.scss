@@ -10,7 +10,7 @@
   display: grid;
   grid-template-columns: repeat(var(--ams-grid-column-count), 1fr);
   padding-inline: var(--ams-grid-padding-inline);
-  row-gap: var(--ams-grid-row-gap-m);
+  row-gap: var(--ams-grid-row-gap-xl);
 
   @media screen and (min-width: $ams-breakpoint-medium) {
     grid-template-columns: repeat(var(--ams-grid-medium-column-count), 1fr);
@@ -29,12 +29,12 @@
   row-gap: initial;
 }
 
-@mixin ams-grid--gap-vertical--small {
-  row-gap: var(--ams-grid-row-gap-s);
-}
-
 @mixin ams-grid--gap-vertical--large {
   row-gap: var(--ams-grid-row-gap-l);
+}
+
+@mixin ams-grid--gap-vertical--2x-large {
+  row-gap: var(--ams-grid-row-gap-2xl);
 }
 
 // Grid padding
