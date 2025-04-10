@@ -16,11 +16,11 @@
     outline-width: 0.0625rem;
   }
 
-  & > .ams-card__heading:has(+ *) {
+  > .ams-card__heading:has(+ *) {
     margin-block-end: var(--ams-card-heading-margin-block-end);
   }
 
-  & > .ams-card__image:has(+ *) {
+  > .ams-card__image:has(+ *) {
     margin-block-end: var(--ams-card-image-margin-block-end);
   }
 }
