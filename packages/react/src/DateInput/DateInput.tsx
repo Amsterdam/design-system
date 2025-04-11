@@ -8,7 +8,6 @@ import { forwardRef } from 'react'
 import type { ForwardedRef, InputHTMLAttributes } from 'react'
 
 export const dateInputTypes = ['date', 'datetime-local'] as const
-
 type DateInputType = (typeof dateInputTypes)[number]
 
 export type DateInputProps = {
