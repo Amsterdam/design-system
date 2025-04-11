@@ -10,12 +10,10 @@ import { generateAspectRatioClass } from './generateAspectRatioClass'
 import { AspectRatioProps } from '../common/types'
 
 export type ImageProps = {
-  /**
-   * A textual description of the content of the image.
-   */
+  /** A textual description of the content of the image. */
   alt: string
 } & AspectRatioProps &
-  ImgHTMLAttributes<HTMLImageElement>
+  Omit<ImgHTMLAttributes<HTMLImageElement>, 'children'>
 
 export const Image = forwardRef(
   ({ aspectRatio, className, ...restProps }: ImageProps, ref: ForwardedRef<HTMLImageElement>) => (
