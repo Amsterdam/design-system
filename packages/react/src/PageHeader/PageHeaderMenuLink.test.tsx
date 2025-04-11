@@ -25,7 +25,7 @@ describe('Page Header Menu Link', () => {
     expect(link).toHaveClass('ams-page-header__menu-link')
   })
 
-  it('renders an additional class name', () => {
+  it('renders an extra class name', () => {
     render(<PageHeaderMenuLink className="extra" href="/" />)
 
     const component = screen.getByRole('link')

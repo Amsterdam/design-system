@@ -21,7 +21,7 @@ describe('FileList', () => {
     expect(component).toHaveClass('ams-file-list')
   })
 
-  it('renders an additional class name', () => {
+  it('renders an extra class name', () => {
     render(<FileList className="extra" />)
 
     const component = screen.getByRole('list')

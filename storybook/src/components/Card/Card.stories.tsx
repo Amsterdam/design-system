@@ -3,7 +3,7 @@
  * Copyright Gemeente Amsterdam
  */
 
-import { Grid, Heading, Image, Paragraph } from '@amsterdam/design-system-react'
+import { Column, Grid, Paragraph } from '@amsterdam/design-system-react'
 import { Card } from '@amsterdam/design-system-react/src'
 import { Meta, StoryObj } from '@storybook/react'
 import { exampleTopTask } from '../shared/exampleContent'
@@ -37,9 +37,9 @@ type Story = StoryObj<typeof meta>
 export const Default: Story = {
   args: {
     children: [
-      <Heading key={1} level={1} size="level-4">
+      <Card.Heading key={1} level={2}>
         <Card.Link href="/">{topTask.heading}</Card.Link>
-      </Heading>,
+      </Card.Heading>,
       <Paragraph key={2}>{topTask.description}</Paragraph>,
     ],
   },
@@ -49,9 +49,9 @@ export const WithTagline: Story = {
   args: {
     children: [
       <Card.HeadingGroup key={1} tagline="Dossier">
-        <Heading level={1} size="level-4">
+        <Card.Heading level={2}>
           <Card.Link href="/">Monitor Attracties MRA</Card.Link>
-        </Heading>
+        </Card.Heading>
       </Card.HeadingGroup>,
       <Paragraph key={2}>
         Ontwikkeling van het aantal attracties en bezoekers in de metropoolregio Amsterdam.
@@ -63,18 +63,18 @@ export const WithTagline: Story = {
 export const WithImage: Story = {
   args: {
     children: [
-      <Image alt="" aspectRatio="4:3" key={1} src="https://picsum.photos/480/360" />,
+      <Card.Image alt="" aspectRatio="4:3" key={1} src="https://picsum.photos/480/360" />,
       <Card.HeadingGroup key={2} tagline="Nieuws">
-        <Heading level={1} size="level-4">
+        <Card.Heading level={3}>
           <Card.Link href="/">Nederlands eerste houten woonwijk komt in Zuidoost</Card.Link>
-        </Heading>
+        </Card.Heading>
       </Card.HeadingGroup>,
-      <Paragraph key={3}>
-        We bouwen een levendige, groene en duurzame woonbuurt tussen de Gooiseweg en het Nelson Mandelapark.
-      </Paragraph>,
-      <Paragraph key={4} size="small">
-        {today}
-      </Paragraph>,
+      <Column gap="small" key={3}>
+        <Paragraph>
+          We bouwen een levendige, groene en duurzame woonbuurt tussen de Gooiseweg en het Nelson Mandelapark.
+        </Paragraph>
+        <Paragraph size="small">{today}</Paragraph>
+      </Column>,
     ],
   },
 }
@@ -90,9 +90,9 @@ export const TopTasks: Story = {
     <Grid paddingVertical="medium">
       <Grid.Cell span={{ narrow: 4, medium: 4, wide: 3 }}>
         <Card>
-          <Heading level={2} size="level-4">
+          <Card.Heading level={2}>
             <Card.Link href="#">Gemeentebelastingen</Card.Link>
-          </Heading>
+          </Card.Heading>
           <Paragraph size="small">
             Bekijk welke belastingen en heffingen er zijn, hoe u bezwaar maakt of een betalingsregeling treft.
           </Paragraph>
@@ -100,9 +100,9 @@ export const TopTasks: Story = {
       </Grid.Cell>
       <Grid.Cell span={{ narrow: 4, medium: 4, wide: 3 }}>
         <Card>
-          <Heading level={3} size="level-4">
+          <Card.Heading level={2}>
             <Card.Link href="#">Parkeren + Reizen (P+R)</Card.Link>
-          </Heading>
+          </Card.Heading>
           <Paragraph size="small">
             U kunt met uw auto goedkoop parkeren bij een P+R-locatie aan de rand van de stad.
           </Paragraph>
@@ -110,17 +110,17 @@ export const TopTasks: Story = {
       </Grid.Cell>
       <Grid.Cell span={{ narrow: 4, medium: 4, wide: 3 }}>
         <Card>
-          <Heading level={3} size="level-4">
+          <Card.Heading level={2}>
             <Card.Link href="#">Paspoort, ID-kaart en rijbewijs</Card.Link>
-          </Heading>
+          </Card.Heading>
           <Paragraph size="small">Vraag deze bewijzen aan of verleng ze. Geef een vermissing aan.</Paragraph>
         </Card>
       </Grid.Cell>
       <Grid.Cell span={{ narrow: 4, medium: 4, wide: 3 }}>
         <Card>
-          <Heading level={3} size="level-4">
+          <Card.Heading level={2}>
             <Card.Link href="#">Onderwijs</Card.Link>
-          </Heading>
+          </Card.Heading>
           <Paragraph size="small">
             Meld een kind aan voor basisschool, middelbare school of kinderopvang. Bekijk het kindtegoed op uw Stadspas.
           </Paragraph>
