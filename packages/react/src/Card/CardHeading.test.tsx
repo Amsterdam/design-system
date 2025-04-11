@@ -31,11 +31,9 @@ describe('Card Heading', () => {
 
   it('renders the correct size level class', () => {
     render(
-      <>
-        <CardHeading level={4} size="level-1">
-          Size level 2
-        </CardHeading>
-      </>,
+      <CardHeading level={4} size="level-1">
+        Size level 1
+      </CardHeading>,
     )
 
     const component = screen.getByRole('heading')
