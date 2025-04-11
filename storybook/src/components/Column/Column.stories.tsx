@@ -72,22 +72,22 @@ export const ImproveSemantics: Story = {
   args: {
     as: 'section',
     children: [
-      <Heading key={1} level={3}>
+      <Heading key={1} level={1}>
         Zoekresultaten
       </Heading>,
       <Card key={2}>
-        <Heading level={4}>
+        <Card.Heading level={2}>
           <Card.Link href="#">Nieuwe manieren om afval op te halen</Card.Link>
-        </Heading>
+        </Card.Heading>
         <Paragraph>
           Afvalboten, bakfietsen en ondergrondse containers. We experimenteren met nieuwe manieren om afval op te halen
           in het centrum.
         </Paragraph>
       </Card>,
       <Card key={3}>
-        <Heading level={4}>
+        <Card.Heading level={2}>
           <Card.Link href="#">Verlenging proef ophalen afval per boot</Card.Link>
-        </Heading>
+        </Card.Heading>
         <Paragraph>
           Een proef met het anders ophalen van afval. We halen vuilniszakken hier op met kleine wagentjes, kleine
           vuilniswagens en een afvalboot.

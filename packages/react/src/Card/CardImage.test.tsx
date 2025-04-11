@@ -1,11 +1,11 @@
 import { render } from '@testing-library/react'
 import { createRef } from 'react'
-import { PageFooter } from './PageFooter'
+import { CardImage } from './CardImage'
 import '@testing-library/jest-dom'
 
-describe('Page Footer Spotlight', () => {
+describe('Card Image', () => {
   it('renders', () => {
-    const { container } = render(<PageFooter.Spotlight />)
+    const { container } = render(<CardImage alt="" />)
 
     const component = container.querySelector(':only-child')
 
@@ -14,25 +14,25 @@ describe('Page Footer Spotlight', () => {
   })
 
   it('renders a design system BEM class name', () => {
-    const { container } = render(<PageFooter.Spotlight />)
+    const { container } = render(<CardImage alt="" />)
 
     const component = container.querySelector(':only-child')
 
-    expect(component).toHaveClass('ams-page-footer__spotlight')
+    expect(component).toHaveClass('ams-card__image')
   })
 
   it('renders an extra class name', () => {
-    const { container } = render(<PageFooter.Spotlight className="extra" />)
+    const { container } = render(<CardImage alt="" className="extra" />)
 
     const component = container.querySelector(':only-child')
 
-    expect(component).toHaveClass('ams-page-footer__spotlight extra')
+    expect(component).toHaveClass('ams-card__image extra')
   })
 
   it('supports ForwardRef in React', () => {
-    const ref = createRef<HTMLDivElement>()
+    const ref = createRef<HTMLImageElement>()
 
-    const { container } = render(<PageFooter.Spotlight ref={ref} />)
+    const { container } = render(<CardImage alt="" ref={ref} />)
 
     const component = container.querySelector(':only-child')
 
