@@ -11,8 +11,8 @@ Sets the background colour and its maximum width, and is horizontally centered.
   Applications can use it as well, although a specific layout for them is in development.
 - It is the outermost container. Within it, combine components such as
   [Grid](https://designsystem.amsterdam/?path=/docs/components-layout-grid--docs),
-  [Header](https://designsystem.amsterdam/?path=/docs/components-containers-header--docs),
-  [Footer](https://designsystem.amsterdam/?path=/docs/components-containers-footer--docs),
+  [Page Header](https://designsystem.amsterdam/?path=/docs/components-containers-page-header--docs),
+  [Page Footer](https://designsystem.amsterdam/?path=/docs/components-containers-page-footer--docs),
   [Spotlight](https://designsystem.amsterdam/?path=/docs/components-containers-spotlight--docs),
   [Image Slider](https://designsystem.amsterdam/?path=/docs/components-media-image-slider--docs),
   and [Figure](https://designsystem.amsterdam/?path=/docs/components-media-figure--docs).
