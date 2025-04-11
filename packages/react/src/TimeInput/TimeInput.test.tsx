@@ -21,7 +21,7 @@ describe('Time input', () => {
     expect(component).toHaveClass('ams-time-input')
   })
 
-  it('renders an additional class name', () => {
+  it('renders an extra class name', () => {
     const { container } = render(<TimeInput className="extra" />)
 
     const component = container.querySelector(':only-child')

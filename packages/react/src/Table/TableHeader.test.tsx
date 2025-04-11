@@ -30,7 +30,7 @@ describe('Table header', () => {
     expect(component).toHaveClass('ams-table__header')
   })
 
-  it('renders an additional class name', () => {
+  it('renders an extra class name', () => {
     render(
       <Table>
         <TableHeader className="extra" />

@@ -21,7 +21,7 @@ describe('Field', () => {
     expect(component).toHaveClass('ams-field')
   })
 
-  it('renders an additional class name', () => {
+  it('renders an extra class name', () => {
     const { container } = render(<Field className="extra" />)
 
     const component = container.querySelector(':only-child')

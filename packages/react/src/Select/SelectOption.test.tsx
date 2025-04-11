@@ -31,7 +31,7 @@ describe('Select option', () => {
     expect(component).toHaveClass('ams-select__option')
   })
 
-  it('renders an additional class name', () => {
+  it('renders an extra class name', () => {
     render(<Select.Option className="extra" />)
 
     const component = screen.getByRole('option')
