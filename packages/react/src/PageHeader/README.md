@@ -2,4 +2,4 @@
 
 # React Page Header component
 
-[Page HHeader documentation](../../../css/src/components/page-header/README.md)
+[Page Header documentation](../../../css/src/components/page-header/README.md)

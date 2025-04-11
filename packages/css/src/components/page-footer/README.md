@@ -6,7 +6,8 @@ Provides service information at the bottom of every page.
 
 ## Guidelines
 
-- The Page Footer usually consists of two sections: a full-width blue `PageFooter.Spotlight` and a `PageFooter.Menu` below it.
+- The Page Footer must be used on all websites and applications for the City of Amsterdam.
+- It usually consists of two sections: a full-width blue `PageFooter.Spotlight` and a `PageFooter.Menu` below it.
 - `Footer.Menu` is preceded by a visually hidden `Heading` for accessibility.
 - A Page Footer containing only a `PageFooter.Menu` can be sufficient for applications.
 - The Page Footer must be used on all websites for the City of Amsterdam.

@@ -1,13 +1,15 @@
 <!-- @license CC0-1.0 -->
 
-# Screen
+# Page
 
-Manages the maximum width and alignment of the entire website or application.
+Contains the entire website.
+Sets the background colour and its maximum width, and is horizontally centered.
 
 ## Guidelines
 
-- This should be the outermost component of your website or application.
-- Within it, combine components such as
+- The Page component must be used on all websites for the City of Amsterdam.
+  Applications can use it as well, although a specific layout for them is in development.
+- It is the outermost container. Within it, combine components such as
   [Grid](https://designsystem.amsterdam/?path=/docs/components-layout-grid--docs),
   [Page Header](https://designsystem.amsterdam/?path=/docs/components-containers-page-header--docs),
   [Page Footer](https://designsystem.amsterdam/?path=/docs/components-containers-page-footer--docs),
@@ -17,7 +19,5 @@ Manages the maximum width and alignment of the entire website or application.
 
 ## Design
 
-By default, this component expands to a width of 1600 pixels.
-This is the maximum width for a website of the City of Amsterdam.
-For applications, you can choose a larger maximum width of 2112 pixels.
-The component horizontally centres both itself and its content.
+The Page container sets the maximum width for a website of the City of Amsterdam, which is 1600 pixels.
+It horizontally centres both itself and its content and sets a white background.
