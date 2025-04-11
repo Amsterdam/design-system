@@ -15,7 +15,7 @@ export type ImageProps = {
    */
   alt: string
 } & AspectRatioProps &
-  ImgHTMLAttributes<HTMLImageElement>
+  Omit<ImgHTMLAttributes<HTMLImageElement>, 'children'>
 
 export const Image = forwardRef(
   ({ aspectRatio, className, ...restProps }: ImageProps, ref: ForwardedRef<HTMLImageElement>) => (
