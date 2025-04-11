@@ -10,7 +10,7 @@ import { forwardRef } from 'react'
 import type { ForwardedRef, HTMLAttributes, ReactNode } from 'react'
 
 export const iconSizes = ['small', 'large', 'heading-3', 'heading-4', 'heading-5', 'heading-6'] as const
-export type IconSize = (typeof iconSizes)[number]
+type IconSize = (typeof iconSizes)[number]
 
 export type IconProps = {
   /** Changes the icon colour for readability on a dark background. */
