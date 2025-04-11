@@ -74,7 +74,7 @@ describe('Paragraph', () => {
     expect(paragraph).toHaveClass('ams-paragraph--inverse')
   })
 
-  it('renders an additional class name', () => {
+  it('renders an extra class name', () => {
     const { container } = render(<Paragraph className="intro" />)
 
     const paragraph = container.querySelector(':only-child')

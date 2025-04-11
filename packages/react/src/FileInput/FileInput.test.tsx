@@ -21,7 +21,7 @@ describe('File input', () => {
     expect(component).toHaveClass('ams-file-input')
   })
 
-  it('renders an additional class name', () => {
+  it('renders an extra class name', () => {
     const { container } = render(<FileInput className="extra" />)
 
     const component = container.querySelector('input[type="file"]')
