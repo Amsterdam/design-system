@@ -21,7 +21,7 @@ describe('Page', () => {
     expect(component).toHaveClass('ams-page')
   })
 
-  it('renders an additional class name', () => {
+  it('renders an extra class name', () => {
     const { container } = render(<Page className="extra" />)
 
     const component = container.querySelector(':only-child')
