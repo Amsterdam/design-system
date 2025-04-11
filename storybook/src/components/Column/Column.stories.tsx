@@ -72,11 +72,11 @@ export const ImproveSemantics: Story = {
   args: {
     as: 'section',
     children: [
-      <Heading key={1} level={3}>
+      <Heading key={1} level={1}>
         Zoekresultaten
       </Heading>,
       <Card key={2}>
-        <Card.Heading level={4}>
+        <Card.Heading level={2}>
           <Card.Link href="#">Nieuwe manieren om afval op te halen</Card.Link>
         </Card.Heading>
         <Paragraph>
@@ -85,7 +85,7 @@ export const ImproveSemantics: Story = {
         </Paragraph>
       </Card>,
       <Card key={3}>
-        <Card.Heading level={4}>
+        <Card.Heading level={2}>
           <Card.Link href="#">Verlenging proef ophalen afval per boot</Card.Link>
         </Card.Heading>
         <Paragraph>

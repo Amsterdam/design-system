@@ -9,7 +9,7 @@ export const HomeNews = () => (
       <Card>
         <Card.Image alt="" src="https://picsum.photos/640/360?random=1" />
         <Card.HeadingGroup tagline="Nieuws">
-          <Card.Heading level={3} size="level-4">
+          <Card.Heading level={3}>
             <Card.Link href="#">Nederlands eerste houten woonwijk komt in Zuidoost</Card.Link>
           </Card.Heading>
         </Card.HeadingGroup>
@@ -19,7 +19,7 @@ export const HomeNews = () => (
       <Card>
         <Card.Image alt="" src="https://picsum.photos/640/360?random=2" />
         <Card.HeadingGroup tagline="Nieuws">
-          <Card.Heading level={3} size="level-4">
+          <Card.Heading level={3}>
             <Card.Link href="#">Gratis openbaar vervoer voor kinderen</Card.Link>
           </Card.Heading>
         </Card.HeadingGroup>
@@ -29,7 +29,7 @@ export const HomeNews = () => (
       <Card>
         <Card.Image alt="" src="https://picsum.photos/640/360?random=3" />
         <Card.HeadingGroup tagline="Nieuws">
-          <Card.Heading level={3} size="level-4">
+          <Card.Heading level={3}>
             <Card.Link href="#">Zonnepanelen op uw dak? Zo houdt u uw huis veilig</Card.Link>
           </Card.Heading>
         </Card.HeadingGroup>
