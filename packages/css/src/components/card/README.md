@@ -21,7 +21,7 @@ A brief section of a heading, some text, and usually an image, that leads to a r
 ### Screen readers
 
 Screen reader users may navigate a page using headings and links.
-A Card works well in both approaches as its titel carries a link.
+A Card works well in both approaches as its title carries a link.
 A screen reader reads the title first, followed by the rest of the content.
 
 ### Using links with routing libraries
