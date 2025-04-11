@@ -9,12 +9,8 @@ import type { ForwardedRef } from 'react'
 import { Image } from '../Image'
 import type { ImageProps } from '../Image'
 
-export const CardImage = forwardRef(
-  ({ children, className, ...restProps }: ImageProps, ref: ForwardedRef<HTMLImageElement>) => (
-    <Image {...restProps} className={clsx('ams-card__image', className)} ref={ref}>
-      {children}
-    </Image>
-  ),
-)
+export const CardImage = forwardRef(({ className, ...restProps }: ImageProps, ref: ForwardedRef<HTMLImageElement>) => (
+  <Image {...restProps} className={clsx('ams-card__image', className)} ref={ref} />
+))
 
 CardImage.displayName = 'Card.Image'
