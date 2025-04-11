@@ -2,11 +2,11 @@
 
 # Card
 
-A brief section of a heading, some text, and usually an image, that leads to a related page.
+A brief section of a heading, some text, and optionally an image, that leads to a related page.
 
 ## Guidelines
 
-- The title of a card is a link within a Heading.
+- The mandatory title of a card is a link within a Heading.
   The guidelines for regular [links](/docs/components-navigation-link--docs) and [headings](/docs/components-text-heading--docs) apply.
   The link is made active across the entire area of the card.
 - A card needs more content than just a title.

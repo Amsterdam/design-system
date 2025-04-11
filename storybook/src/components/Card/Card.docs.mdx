@@ -24,7 +24,7 @@ This ensures screen readers read out the heading before the metadata.
 
 A Card often displays the image of the article it links to.
 The Card Image subcomponent renders an [Image](/docs/components-media-image--docs) component and accepts its properties, e.g. to set an aspect ratio or provide a set of image sources.
-An `alt` text is almost never necessary for the image of a card.
+Only use decorative images with `alt=""` here. Screen readers will not read the `alt` text of non-decorative images when navigating to a Card. 
 
 <Canvas of={CardStories.WithImage} />
 
