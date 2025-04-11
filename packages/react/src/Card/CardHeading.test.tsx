@@ -1,30 +1,30 @@
-import { render } from '@testing-library/react'
+import { render, screen } from '@testing-library/react'
 import { createRef } from 'react'
 import { CardHeading } from './CardHeading'
 import '@testing-library/jest-dom'
 
 describe('Card Heading', () => {
   it('renders', () => {
-    const { container } = render(<CardHeading />)
+    render(<CardHeading />)
 
-    const component = container.querySelector(':only-child')
+    const component = screen.getByRole('heading')
 
     expect(component).toBeInTheDocument()
     expect(component).toBeVisible()
   })
 
   it('renders a design system BEM class name', () => {
-    const { container } = render(<CardHeading />)
+    render(<CardHeading />)
 
-    const component = container.querySelector(':only-child')
+    const component = screen.getByRole('heading')
 
     expect(component).toHaveClass('ams-card__heading')
   })
 
   it('renders an additional class name', () => {
-    const { container } = render(<CardHeading className="extra" />)
+    render(<CardHeading className="extra" />)
 
-    const component = container.querySelector(':only-child')
+    const component = screen.getByRole('heading')
 
     expect(component).toHaveClass('ams-card__heading extra')
   })
@@ -32,9 +32,9 @@ describe('Card Heading', () => {
   it('supports ForwardRef in React', () => {
     const ref = createRef<HTMLHeadingElement>()
 
-    const { container } = render(<CardHeading ref={ref} />)
+    render(<CardHeading ref={ref} />)
 
-    const component = container.querySelector(':only-child')
+    const component = screen.getByRole('heading')
 
     expect(ref.current).toBe(component)
   })
