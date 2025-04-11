@@ -52,7 +52,7 @@ describe('Heading', () => {
     expect(h4).toBeInTheDocument()
   })
 
-  it('renders the correct style level class', () => {
+  it('renders the correct size level class', () => {
     render(
       <>
         <Heading level={1} size="level-1">
