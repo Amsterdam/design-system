@@ -21,7 +21,7 @@ describe('Avatar', () => {
     expect(component).toHaveClass('ams-avatar')
   })
 
-  it('renders an additional class name', () => {
+  it('renders an extra class name', () => {
     const { container } = render(<Avatar className="extra" label="VS" />)
 
     const component = container.querySelector(':only-child')

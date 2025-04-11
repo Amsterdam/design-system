@@ -36,7 +36,7 @@ describe('Radio', () => {
     expect(indicator).toBeInTheDocument()
   })
 
-  it('renders an additional class name', () => {
+  it('renders an extra class name', () => {
     const { container } = render(<Radio className="extra" />)
 
     const wrapper = container.querySelector(':only-child')
