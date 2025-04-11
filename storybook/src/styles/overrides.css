@@ -119,6 +119,10 @@
   cursor: not-allowed;
 }
 
+.sb-story .ams-page {
+  min-block-size: initial;
+}
+
 /* Override to make sure the default transparent border isn't shown in forced colors mode. */
 .innerZoomElementWrapper.innerZoomElementWrapper > div {
   @media (forced-colors: active) {
