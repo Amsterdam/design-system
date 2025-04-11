@@ -9,41 +9,19 @@
 .ams-link {
   color: var(--ams-link-color);
   font-family: var(--ams-link-font-family);
+  font-size: var(--ams-link-font-size);
   font-weight: var(--ams-link-font-weight);
+  line-height: var(--ams-link-line-height);
   outline-offset: var(--ams-link-outline-offset);
+  text-decoration-thickness: var(--ams-link-text-decoration-thickness);
+  text-underline-offset: var(--ams-link-text-underline-offset);
 
   @include text-rendering;
 
   &:hover {
     color: var(--ams-link-hover-color);
-  }
-}
-
-.ams-link--standalone {
-  display: inline-block;
-  font-size: var(--ams-link-standalone-font-size);
-  line-height: var(--ams-link-standalone-line-height);
-  text-decoration-thickness: var(--ams-link-standalone-text-decoration-thickness);
-  text-underline-offset: var(--ams-link-standalone-text-underline-offset);
-
-  @include hyphenation;
-
-  &:hover {
-    text-decoration-thickness: var(--ams-link-standalone-hover-text-decoration-thickness);
-    text-underline-offset: var(--ams-link-standalone-hover-text-underline-offset);
-  }
-}
-
-.ams-link--inline {
-  font-family: var(--ams-link-inline-font-family);
-  font-size: var(--ams-link-inline-font-size);
-  line-height: var(--ams-link-inline-line-height);
-  text-decoration-thickness: var(--ams-link-inline-text-decoration-thickness);
-  text-underline-offset: var(--ams-link-inline-text-underline-offset);
-
-  &:hover {
-    text-decoration-thickness: var(--ams-link-inline-hover-text-decoration-thickness);
-    text-underline-offset: var(--ams-link-inline-hover-text-underline-offset);
+    text-decoration-thickness: var(--ams-link-hover-text-decoration-thickness);
+    text-underline-offset: var(--ams-link-hover-text-underline-offset);
   }
 }
 
