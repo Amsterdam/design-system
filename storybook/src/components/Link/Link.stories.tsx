@@ -13,7 +13,7 @@ const meta = {
   title: 'Components/Navigation/Link',
   component: Link,
   args: {
-    children: 'Link label',
+    children: 'typograaf',
     href: '#',
   },
   argTypes: {
@@ -34,14 +34,6 @@ const meta = {
       type: { name: 'string', required: false },
     },
   },
-} satisfies Meta<typeof Link>
-
-export default meta
-
-export const Default: Story = {
-  args: {
-    children: 'typograaf',
-  },
   decorators: [
     (Story, { args }) => (
       <Paragraph color={args.color === 'inverse' ? 'inverse' : undefined}>
@@ -49,7 +41,11 @@ export const Default: Story = {
       </Paragraph>
     ),
   ],
-}
+} satisfies Meta<typeof Link>
+
+export default meta
+
+export const Default: Story = {}
 
 export const ContrastColour: Story = {
   args: {
