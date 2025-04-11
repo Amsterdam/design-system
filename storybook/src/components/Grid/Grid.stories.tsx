@@ -6,45 +6,19 @@
 import { Grid } from '@amsterdam/design-system-react/src'
 import type { GridCellProps } from '@amsterdam/design-system-react/src'
 import { Meta, StoryObj } from '@storybook/react'
+import { gridGapAndPaddingArgTypes } from '../../common'
 
 const meta = {
   title: 'Components/Layout/Grid',
   component: Grid,
   args: {
-    paddingVertical: 'medium',
+    paddingVertical: 'x-large',
   },
   argTypes: {
     className: {
       table: { disable: true },
     },
-    gapVertical: {
-      control: {
-        labels: { large: 'large', none: 'none', small: 'small', undefined: 'medium' },
-        type: 'radio',
-      },
-      options: ['none', 'small', undefined, 'large'],
-    },
-    paddingBottom: {
-      control: {
-        labels: { large: 'large', medium: 'medium', small: 'small', undefined: 'none' },
-        type: 'radio',
-      },
-      options: [undefined, 'small', 'medium', 'large'],
-    },
-    paddingTop: {
-      control: {
-        labels: { large: 'large', medium: 'medium', small: 'small', undefined: 'none' },
-        type: 'radio',
-      },
-      options: [undefined, 'small', 'medium', 'large'],
-    },
-    paddingVertical: {
-      control: {
-        labels: { large: 'large', medium: 'medium', small: 'small', undefined: 'none' },
-        type: 'radio',
-      },
-      options: [undefined, 'small', 'medium', 'large'],
-    },
+    ...gridGapAndPaddingArgTypes,
   },
   parameters: {
     layout: 'fullscreen',
@@ -93,7 +67,7 @@ const CellStoryTemplate: CellStory = {
     (Story) => (
       <>
         <BackgroundGrid />
-        <Grid paddingVertical="medium">
+        <Grid paddingVertical="x-large">
           <Story />
         </Grid>
       </>
@@ -120,7 +94,6 @@ export const VerticalGap: Story = {
       <Grid.Cell className="ams-docs-item" key={1} span="all" />,
       <Grid.Cell className="ams-docs-item" key={2} span="all" />,
     ],
-    gapVertical: 'small',
   },
 }
 

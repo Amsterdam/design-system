@@ -21,17 +21,19 @@ Pink boxes represent cells on the grid.
 ### Vertical padding
 
 Add white space above and below the grid through the `padding…` props.
-This is useful on a coloured background, like [Page Footer](/docs/components-containers-page-footer--docs) or [Spotlight](/docs/components-containers-spotlight--docs), or between two consecutive grids.
-Specify a value of `medium` to get horizontal white space that is as wide as the vertical gap between columns.
-This padding is responsive as well.
+Their options match the design tokens for [Space](/docs/brand-design-tokens-space--docs).
+This is useful in a container with a coloured background, like [Page Footer](/docs/components-containers-page-footer--docs) or [Spotlight](/docs/components-containers-spotlight--docs), or between two consecutive grids.
+Specify a value of `x-large` to get the same size as the vertical gap between columns.
+Like the other features of the grid, this padding is responsive.
 
 <Canvas of={GridStories.VerticalPadding} />
 
 ### Vertical gap
 
 A grid automatically creates a new row if the next cell doesn’t fit the current one.
-White space between rows is as wide as that between columns.
-Use the `verticalGap` prop to make it larger, smaller, or even remove it.
+White space between rows is as wide as that between columns, which is `x-large`.
+Use the `verticalGap` prop to adjust to remove it.
+Its options match the design tokens for [Space](/docs/brand-design-tokens-space--docs).
 
 <Canvas of={GridStories.VerticalGap} />
 
@@ -75,7 +77,7 @@ Use the `as` prop on either to make your markup more semantic.
 
 <Canvas of={GridStories.ImproveSemantics} />
 
-## Guidelines
+## Caution
 
 - Ensure that the number of columns you assign to a cell matches the amount of columns in the grid for the respective window width.
 - The same applies to starting a cell in a later column.
