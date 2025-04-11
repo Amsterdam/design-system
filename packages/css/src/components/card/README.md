@@ -13,6 +13,8 @@ A brief section of a heading, some text, and optionally an image, that leads to 
   Add a short text and optionally an image and metadata.
 - Use the Card Heading, Card Heading Group and Card Image subcomponents.
   They apply the correct spacing.
+- Card Heading requires a `level`, because there is no sensible default.
+  Its visual size of `heading-4` can be overridden.
 - Place the text in a regular [Paragraph](/docs/components-text-paragraph--docs).
   Use a small Paragraph for a publication date.
 - This component is not the best option if the target content does not represent an article-like page.

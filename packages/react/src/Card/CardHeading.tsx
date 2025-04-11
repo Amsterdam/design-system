@@ -5,17 +5,13 @@
 
 import clsx from 'clsx'
 import { forwardRef } from 'react'
-import type { ForwardedRef, HTMLAttributes, PropsWithChildren } from 'react'
-import { Heading, HeadingProps } from '../Heading'
-
-export type CardHeadingProps = Partial<HeadingProps> & PropsWithChildren<HTMLAttributes<HTMLHeadingElement>>
+import type { ForwardedRef } from 'react'
+import { Heading } from '../Heading'
+import type { HeadingProps } from '../Heading'
 
 export const CardHeading = forwardRef(
-  (
-    { children, className, level = 1, size = 'level-4', ...restProps }: CardHeadingProps,
-    ref: ForwardedRef<HTMLHeadingElement>,
-  ) => (
-    <Heading {...restProps} className={clsx('ams-card__heading', className)} level={level} ref={ref} size={size}>
+  ({ children, className, size = 'level-4', ...restProps }: HeadingProps, ref: ForwardedRef<HTMLHeadingElement>) => (
+    <Heading {...restProps} className={clsx('ams-card__heading', className)} ref={ref} size={size}>
       {children}
     </Heading>
   ),

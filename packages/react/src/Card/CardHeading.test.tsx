@@ -5,7 +5,7 @@ import '@testing-library/jest-dom'
 
 describe('Card Heading', () => {
   it('renders', () => {
-    render(<CardHeading />)
+    render(<CardHeading level={1} />)
 
     const component = screen.getByRole('heading')
 
@@ -14,7 +14,7 @@ describe('Card Heading', () => {
   })
 
   it('renders a design system BEM class name', () => {
-    render(<CardHeading />)
+    render(<CardHeading level={2} />)
 
     const component = screen.getByRole('heading')
 
@@ -22,7 +22,7 @@ describe('Card Heading', () => {
   })
 
   it('renders an additional class name', () => {
-    render(<CardHeading className="extra" />)
+    render(<CardHeading className="extra" level={3} />)
 
     const component = screen.getByRole('heading')
 
@@ -32,7 +32,7 @@ describe('Card Heading', () => {
   it('supports ForwardRef in React', () => {
     const ref = createRef<HTMLHeadingElement>()
 
-    render(<CardHeading ref={ref} />)
+    render(<CardHeading level={4} ref={ref} />)
 
     const component = screen.getByRole('heading')
 
