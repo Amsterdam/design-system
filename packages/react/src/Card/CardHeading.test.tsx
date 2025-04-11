@@ -21,12 +21,26 @@ describe('Card Heading', () => {
     expect(component).toHaveClass('ams-card__heading')
   })
 
-  it('renders an additional class name', () => {
+  it('renders an extra class name', () => {
     render(<CardHeading className="extra" level={3} />)
 
     const component = screen.getByRole('heading')
 
     expect(component).toHaveClass('ams-card__heading extra')
+  })
+
+  it('renders the correct size level class', () => {
+    render(
+      <>
+        <CardHeading level={4} size="level-1">
+          Size level 2
+        </CardHeading>
+      </>,
+    )
+
+    const component = screen.getByRole('heading')
+
+    expect(component).toHaveClass('ams-heading--1')
   })
 
   it('supports ForwardRef in React', () => {

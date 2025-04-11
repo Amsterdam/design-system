@@ -21,7 +21,7 @@ describe('Card Image', () => {
     expect(component).toHaveClass('ams-card__image')
   })
 
-  it('renders an additional class name', () => {
+  it('renders an extra class name', () => {
     const { container } = render(<CardImage alt="" className="extra" />)
 
     const component = container.querySelector(':only-child')
