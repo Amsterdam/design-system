@@ -9,5 +9,4 @@
   max-inline-size: var(--ams-page-max-inline-size);
   min-block-size: 100vh; /* Fallback for browsers that do not support dvh */
   min-block-size: 100dvh;
-  position: relative;
 }
