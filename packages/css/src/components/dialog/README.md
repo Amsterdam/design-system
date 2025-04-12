@@ -10,6 +10,25 @@ A Dialog allows the user to focus on one task or a piece of information by poppi
 - Use a dialog for short and non-frequent tasks.
   Consider using the main flow for regular tasks.
 - Wrap multiple buttons in an [Action Group](https://designsystem.amsterdam/?path=/docs/components-layout-action-group--docs).
+- To open the Dialog, use `Dialog.open(dialogId)` from the React package.
+  To close it, use either `Dialog.close`, or a `<form>` as in the following example.
+
+## Asking to confirm
+
+Use a `<form>` when asking to confirm an action, e.g. through ‘OK’ and ‘Cancel’ buttons.
+Add `method="dialog"` to let the browser close the Dialog automatically when the form is submitted.
+
+Wrap the buttons in an [Action Group](/docs/components-layout-action-group--docs) and place it in the `footer`.
+This ensures correct whitespace and scrolling behaviour.
+At the same time, this will position the buttons outside the `form` element.
+Create an `id` for the form and add it to the submit Button’s `form` attribute to connect the two.
+
+If the Action Group must be in the `form`, implement the whitespace and scrolling behaviour as well.
+Add a medium bottom margin (`ams-mb-m`) to the element before it.
+Make sure the content of the form scrolls if necessary, while the Action Group is visible at the bottom at all times.
+
+The form returns the `value` of the submit Button, which allows inferring which Button the user clicked.
+For more information, see [Handling the return value from the dialog (MDN)](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/dialog#handling_the_return_value_from_the_dialog).
 
 ## Keyboard support
 
