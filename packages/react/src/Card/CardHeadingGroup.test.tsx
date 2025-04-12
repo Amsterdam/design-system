@@ -21,7 +21,7 @@ describe('Card heading group', () => {
     expect(component).toHaveClass('ams-card__heading-group')
   })
 
-  it('renders an additional class name', () => {
+  it('renders an extra class name', () => {
     const { container } = render(<CardHeadingGroup className="extra" tagline="test" />)
 
     const component = container.querySelector(':only-child')

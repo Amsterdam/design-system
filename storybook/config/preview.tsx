@@ -41,12 +41,17 @@ export const decorators = [
 export const parameters = {
   backgrounds: {
     disable: true,
+    grid: {
+      disable: true,
+    },
   },
   controls: {
-    sort: 'alpha',
+    sort: 'alpha', // Sorts controls in the Controls addon
   },
-  grid: {
-    disable: true,
+  docs: {
+    controls: {
+      sort: 'alpha', // Sorts controls in the Controls doc block – https://github.com/storybookjs/storybook/issues/25386#issuecomment-1905468177
+    },
   },
   html: {
     root: '.ams-screen',
