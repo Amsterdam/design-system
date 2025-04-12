@@ -3,13 +3,9 @@
  * Copyright Gemeente Amsterdam
  */
 
-import { ActionGroup, Button, Column, Heading, Paragraph } from '@amsterdam/design-system-react'
+import { ActionGroup, Button, Paragraph } from '@amsterdam/design-system-react'
 import { Dialog } from '@amsterdam/design-system-react/src'
 import { Meta, StoryObj } from '@storybook/react'
-import { exampleHeading, exampleParagraph } from '../shared/exampleContent'
-
-const heading = exampleHeading()
-const paragraph = exampleParagraph()
 
 const meta = {
   title: 'Components/Containers/Dialog',
@@ -58,12 +54,10 @@ export const Default: Story = {
   },
   decorators: [
     (Story) => (
-      <Column alignHorizontal="start">
-        <Heading level={1}>{heading}</Heading>
-        <Paragraph>{paragraph}</Paragraph>
+      <>
         <Button onClick={() => Dialog.open('#ams-dialog')}>Open dialoog</Button>
         <Story />
-      </Column>
+      </>
     ),
   ],
 }
