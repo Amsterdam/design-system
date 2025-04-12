@@ -66,20 +66,6 @@
   background-color: #004699; /* Dark blue */
 }
 
-.ams-docs-backdrop {
-  background-color: var(--ams-dialog-backdrop-background-color);
-  block-size: 100%;
-  box-sizing: border-box;
-  inline-size: 100%;
-  padding-block: 1rem;
-  padding-inline: 1rem;
-  position: absolute;
-}
-
-.ams-screen:has(.ams-docs-backdrop) {
-  display: contents;
-}
-
 .ams-docs-column,
 .ams-docs-container,
 .ams-docs-item,
