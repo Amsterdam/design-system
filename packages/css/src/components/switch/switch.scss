@@ -57,5 +57,5 @@
 }
 
 .ams-switch:hover .ams-switch__input:enabled + .ams-switch__label::before {
-  box-shadow: var(--ams-switch-thumb-hover-box-shadow);
+  border: var(--ams-switch-thumb-hover-border);
 }

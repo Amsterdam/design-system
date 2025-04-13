@@ -38,7 +38,7 @@
   -webkit-appearance: none; // Reset appearance for Safari < 15.4
   appearance: none; // Reset native appearance, this causes issues on iOS and Android devices
   background-color: var(--ams-file-input-file-selector-button-background-color);
-  box-shadow: var(--ams-file-input-file-selector-button-box-shadow);
+  border: var(--ams-file-input-file-selector-button-border);
   box-sizing: border-box;
   color: var(--ams-file-input-file-selector-button-color);
   cursor: var(--ams-file-input-file-selector-button-cursor);
@@ -59,12 +59,12 @@
 }
 
 .ams-file-input:disabled::file-selector-button {
-  box-shadow: var(--ams-file-input-file-selector-button-disabled-box-shadow);
+  border: var(--ams-file-input-file-selector-button-disabled-border);
   color: var(--ams-file-input-disabled-color);
   cursor: var(--ams-file-input-file-selector-button-disabled-cursor);
 }
 
 .ams-file-input:not(:disabled):hover::file-selector-button {
-  box-shadow: var(--ams-file-input-file-selector-button-hover-box-shadow);
+  border: var(--ams-file-input-file-selector-button-hover-border);
   color: var(--ams-file-input-file-selector-button-hover-color);
 }

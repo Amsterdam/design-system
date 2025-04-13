@@ -2,7 +2,7 @@
   "ams": {
     "alert": {
       "background-color": { "value": "{ams.color.background}" },
-      "box-shadow": { "value": "inset 0 0 0 {ams.border.width.xl} {ams.color.feedback.info}" },
+      "border": { "value": "{ams.border.width.xl} solid {ams.color.feedback.info}" },
       "forced-colors": {
         "border-width": { "value": "{ams.border.width.xl}" }
       },
@@ -17,19 +17,19 @@
         "padding-inline": { "value": "{ams.space.m}" }
       },
       "error": {
-        "box-shadow": { "value": "inset 0 0 0 {ams.border.width.xl} {ams.color.feedback.error}" },
+        "border": { "value": "{ams.border.width.xl} solid {ams.color.feedback.error}" },
         "severity-indicator": {
           "background-color": { "value": "{ams.color.feedback.error}" }
         }
       },
       "success": {
-        "box-shadow": { "value": "inset 0 0 0 {ams.border.width.xl} {ams.color.feedback.success}" },
+        "border": { "value": "{ams.border.width.xl} solid {ams.color.feedback.success}" },
         "severity-indicator": {
           "background-color": { "value": "{ams.color.feedback.success}" }
         }
       },
       "warning": {
-        "box-shadow": { "value": "inset 0 0 0 {ams.border.width.xl} {ams.color.feedback.warning}" },
+        "border": { "value": "{ams.border.width.xl} solid {ams.color.feedback.warning}" },
         "severity-indicator": {
           "background-color": { "value": "{ams.color.feedback.warning}" }
         }
