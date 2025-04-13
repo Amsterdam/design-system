@@ -12,7 +12,7 @@
         "font-size": { "value": "{ams.typography.body-text.font-size}" },
         "font-weight": { "value": "{ams.typography.body-text.font-weight}" },
         "line-height": { "value": "{ams.typography.body-text.line-height}" },
-        "outline-offset": { "value": "-0.25rem" },
+        "outline-offset": { "value": "calc({ams.focus.outline-offset} * -1)" },
         "padding-block": { "value": "{ams.space.s}" },
         "padding-inline": { "value": "{ams.space.m}" },
         "hover": {
