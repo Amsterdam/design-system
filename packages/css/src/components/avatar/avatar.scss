@@ -6,6 +6,7 @@
 .ams-avatar {
   aspect-ratio: var(--ams-avatar-aspect-ratio);
   background-color: var(--ams-avatar-background-color);
+  border: var(--ams-avatar-border);
   border-radius: 50%;
   color: var(--ams-avatar-color);
   display: inline-flex;
@@ -22,17 +23,12 @@
   }
 }
 
-.ams-avatar:not(.ams-avatar--has-image) {
-  @media (forced-colors: active) {
-    border-style: solid;
-    border-width: var(--ams-avatar-forced-colors-border-width);
-    padding-block: calc(var(--ams-avatar-padding-block) - var(--ams-avatar-forced-colors-border-width));
-    padding-inline: calc(var(--ams-avatar-padding-inline) - var(--ams-avatar-forced-colors-border-width));
-  }
-}
-
 .ams-avatar--has-image {
-  inline-size: calc(var(--ams-avatar-line-height) * var(--ams-avatar-font-size) + 2 * var(--ams-avatar-padding-inline));
+  border: none;
+  inline-size: calc(
+    var(--ams-avatar-line-height) * var(--ams-avatar-font-size) + 2 * var(--ams-avatar-padding-inline) + 2 *
+      var(--ams-border-width-m)
+  );
   overflow: hidden;
   padding-block: 0;
   padding-inline: 0;
@@ -41,30 +37,36 @@
 
 .ams-avatar--azure {
   background-color: var(--ams-avatar-azure-background-color);
+  border: var(--ams-avatar-azure-border);
   color: var(--ams-avatar-azure-color);
 }
 
 .ams-avatar--green {
   background-color: var(--ams-avatar-green-background-color);
+  border: var(--ams-avatar-green-border);
   color: var(--ams-avatar-green-color);
 }
 
 .ams-avatar--lime {
   background-color: var(--ams-avatar-lime-background-color);
+  border: var(--ams-avatar-lime-border);
   color: var(--ams-avatar-lime-color);
 }
 
 .ams-avatar--magenta {
   background-color: var(--ams-avatar-magenta-background-color);
+  border: var(--ams-avatar-magenta-border);
   color: var(--ams-avatar-magenta-color);
 }
 
 .ams-avatar--orange {
   background-color: var(--ams-avatar-orange-background-color);
+  border: var(--ams-avatar-orange-border);
   color: var(--ams-avatar-orange-color);
 }
 
 .ams-avatar--yellow {
   background-color: var(--ams-avatar-yellow-background-color);
+  border: var(--ams-avatar-yellow-border);
   color: var(--ams-avatar-yellow-color);
 }
