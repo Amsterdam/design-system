@@ -49,12 +49,6 @@
   padding-inline: var(--ams-file-input-file-selector-button-padding-inline);
 
   @include reset-button;
-
-  @media screen and (-ms-high-contrast: active), screen and (forced-colors: active) {
-    border: var(
-      --ams-file-input-file-selector-button-forced-color-mode-border
-    ); // add border because forced colors changes box-shadow to none
-  }
 }
 
 .ams-file-input:disabled::file-selector-button {

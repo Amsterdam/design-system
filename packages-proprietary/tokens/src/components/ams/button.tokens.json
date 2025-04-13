@@ -13,9 +13,6 @@
       "disabled": {
         "cursor": { "value": "{ams.cursor.disabled}" }
       },
-      "forced-color-mode": {
-        "border": { "value": "{ams.border.width.m} solid" }
-      },
       "primary": {
         "background-color": { "value": "{ams.color.interactive.default}" },
         "border": { "value": "{ams.border.width.m} solid {ams.color.interactive.default}" },

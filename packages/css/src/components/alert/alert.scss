@@ -7,11 +7,6 @@
   background-color: var(--ams-alert-background-color);
   border: var(--ams-alert-border);
   display: flex;
-
-  @media (forced-colors: active) {
-    border-style: solid;
-    border-width: var(--ams-alert-forced-colors-border-width);
-  }
 }
 
 .ams-alert__severity-indicator {

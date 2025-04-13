@@ -33,9 +33,6 @@
           "border": { "value": "{ams.border.width.m} solid {ams.color.interactive.disabled}" },
           "color": { "value": "{ams.color.interactive.disabled}" },
           "cursor": { "value": "{ams.cursor.disabled}" }
-        },
-        "forced-color-mode": {
-          "border": { "value": "{ams.border.width.m} solid" }
         }
       }
     }

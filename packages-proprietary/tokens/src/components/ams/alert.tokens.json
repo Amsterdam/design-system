@@ -3,9 +3,6 @@
     "alert": {
       "background-color": { "value": "{ams.color.background}" },
       "border": { "value": "{ams.border.width.xl} solid {ams.color.feedback.info}" },
-      "forced-colors": {
-        "border-width": { "value": "{ams.border.width.xl}" }
-      },
       "severity-indicator": {
         "background-color": { "value": "{ams.color.feedback.info}" },
         "padding-block": { "value": "{ams.space.m}" },

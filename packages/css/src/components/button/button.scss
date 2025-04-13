@@ -38,18 +38,10 @@
   }
 }
 
-@mixin ams-button-forced-color-mode {
-  @media screen and (-ms-high-contrast: active), screen and (forced-colors: active) {
-    border: var(--ams-button-forced-color-mode-border); // add border because forced colors changes box-shadow to none
-  }
-}
-
 .ams-button--primary {
   background-color: var(--ams-button-primary-background-color);
   border: var(--ams-button-primary-border);
   color: var(--ams-button-primary-color);
-
-  @include ams-button-forced-color-mode;
 
   &:disabled,
   [aria-disabled="true"] {
@@ -68,8 +60,6 @@
   background-color: var(--ams-button-secondary-background-color);
   border: var(--ams-button-secondary-border);
   color: var(--ams-button-secondary-color);
-
-  @include ams-button-forced-color-mode;
 
   &:disabled,
   [aria-disabled="true"] {
