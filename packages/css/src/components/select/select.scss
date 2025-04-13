@@ -5,7 +5,6 @@
 
 @mixin reset-select {
   appearance: none; // Reset native appearance to hide default chevron
-  border: none;
   border-radius: 0; // Reset rounded borders for Safari on MacOS
 }
 

@@ -8,7 +8,6 @@
 @mixin reset-input {
   -webkit-appearance: none; // Reset appearance for Safari < 15.4
   appearance: none; // Reset native appearance, this causes issues on iOS and Android devices
-  border: none;
   border-radius: 0; // Reset rounded borders on iOS devices
   inline-size: auto; // Reset inline size of 10em set by Android devices
   margin-block: 0;
