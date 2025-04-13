@@ -30,7 +30,9 @@
 .ams-switch__label::before {
   background-color: var(--ams-switch-thumb-background-color);
   block-size: var(--ams-switch-thumb-block-size);
+  border: var(--ams-switch-thumb-border);
   border-radius: 50%;
+  box-sizing: border-box;
   content: "";
   display: block;
   inline-size: var(--ams-switch-thumb-inline-size);
@@ -58,4 +60,5 @@
 
 .ams-switch:hover .ams-switch__input:enabled + .ams-switch__label::before {
   border: var(--ams-switch-thumb-hover-border);
+  box-shadow: var(--ams-switch-thumb-hover-box-shadow);
 }

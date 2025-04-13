@@ -33,6 +33,7 @@
 
   &:hover {
     border: var(--ams-select-hover-border);
+    box-shadow: var(--ams-select-hover-box-shadow);
   }
 }
 
@@ -54,6 +55,7 @@
 .ams-select:invalid:hover,
 .ams-select[aria-invalid="true"]:hover {
   border: var(--ams-select-invalid-hover-border);
+  box-shadow: var(--ams-select-invalid-hover-box-shadow);
 }
 
 .ams-select__option:disabled {

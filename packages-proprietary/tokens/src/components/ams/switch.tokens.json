@@ -7,10 +7,12 @@
       "inline-size": { "value": "3.5rem" },
       "thumb": {
         "background-color": { "value": "{ams.color.background}" },
-        "inline-size": { "value": "1.75rem" },
         "block-size": { "value": "1.75rem" },
+        "border": { "value": "{ams.border.width.s} solid transparent" },
+        "inline-size": { "value": "1.75rem" },
         "hover": {
-          "border": { "value": "0.125rem solid {ams.switch.thumb.hover.color}" },
+          "border": { "value": "{ams.border.width.s} solid {ams.switch.thumb.hover.color}" },
+          "box-shadow": { "value": "0 0 0 {ams.border.width.s} {ams.switch.thumb.hover.color}" },
           "color": { "value": "{ams.color.interactive.hover}" }
         }
       },

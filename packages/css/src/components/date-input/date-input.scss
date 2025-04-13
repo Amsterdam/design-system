@@ -38,7 +38,7 @@
   @include reset-input;
 
   &:hover {
-    border: var(--ams-date-input-hover-border);
+    box-shadow: var(--ams-date-input-hover-box-shadow);
   }
 }
 
@@ -71,5 +71,6 @@
 
   &:hover {
     border: var(--ams-date-input-invalid-hover-border);
+    box-shadow: var(--ams-date-input-invalid-hover-box-shadow);
   }
 }

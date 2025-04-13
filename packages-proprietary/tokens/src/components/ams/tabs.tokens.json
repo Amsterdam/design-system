@@ -16,11 +16,12 @@
         "padding-block": { "value": "{ams.space.s}" },
         "padding-inline": { "value": "{ams.space.m}" },
         "hover": {
-          "color": { "value": "{ams.color.interactive.hover}" },
-          "border": { "value": "calc({ams.border.width.m} * -1) solid" }
+          "border": { "value": "calc({ams.border.width.m} * -1) solid" },
+          "box-shadow": { "value": "inset 0 calc({ams.border.width.m} * -1)" },
+          "color": { "value": "{ams.color.interactive.hover}" }
         },
         "selected": {
-          "border": { "value": "calc({ams.border.width.xl} * -1) solid" },
+          "box-shadow": { "value": "inset 0 calc({ams.border.width.xl} * -1)" },
           "font-weight": { "value": "{ams.typography.body-text.bold.font-weight}" }
         },
         "disabled": {

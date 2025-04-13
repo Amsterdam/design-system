@@ -26,7 +26,8 @@
         },
         "hover": {
           "background-color": { "value": "{ams.color.interactive.hover}" },
-          "border": { "value": "{ams.border.width.m} solid {ams.color.interactive.hover}" }
+          "border": { "value": "{ams.border.width.m} solid {ams.color.interactive.hover}" },
+          "box-shadow": { "value": "inset 0 0 0 {ams.border.width.s} {ams.color.interactive.hover}" }
         }
       },
       "secondary": {
@@ -34,7 +35,8 @@
         "color": { "value": "{ams.color.interactive.default}" },
         "border": { "value": "{ams.border.width.m} solid {ams.color.interactive.default}" },
         "hover": {
-          "border": { "value": "{ams.border.width.l} solid {ams.color.interactive.hover}" },
+          "border": { "value": "{ams.border.width.m} solid {ams.color.interactive.hover}" },
+          "box-shadow": { "value": "inset 0 0 0 {ams.border.width.s} {ams.color.interactive.hover}" },
           "color": { "value": "{ams.color.interactive.hover}" }
         },
         "disabled": {
@@ -45,9 +47,11 @@
       },
       "tertiary": {
         "background-color": { "value": "transparent" },
+        "border": { "value": "{ams.border.width.m} solid transparent" },
         "color": { "value": "{ams.color.interactive.default}" },
         "hover": {
           "border": { "value": "{ams.border.width.m} solid {ams.color.interactive.hover}" },
+          "box-shadow": { "value": "inset 0 0 0 {ams.border.width.s} {ams.color.interactive.hover}" },
           "color": { "value": "{ams.color.interactive.hover}" }
         },
         "disabled": {

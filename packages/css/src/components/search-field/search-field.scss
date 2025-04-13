@@ -37,6 +37,7 @@
 
   &:hover {
     border: var(--ams-search-field-input-hover-border);
+    box-shadow: var(--ams-search-field-input-hover-box-shadow);
   }
 
   &:focus {
@@ -50,6 +51,7 @@
 
   &:hover {
     border: var(--ams-search-field-input-invalid-hover-border);
+    box-shadow: var(--ams-search-field-input-invalid-hover-box-shadow);
   }
 }
 

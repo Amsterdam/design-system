@@ -32,6 +32,7 @@
 
   &:hover {
     border: var(--ams-text-input-hover-border);
+    box-shadow: var(--ams-text-input-hover-box-shadow);
   }
 }
 
@@ -53,5 +54,6 @@
 
   &:hover {
     border: var(--ams-text-input-invalid-hover-border);
+    box-shadow: var(--ams-text-input-invalid-hover-box-shadow);
   }
 }

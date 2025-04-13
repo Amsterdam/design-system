@@ -60,6 +60,7 @@
   &:hover:not(:disabled, [aria-disabled="true"]) {
     background-color: var(--ams-button-primary-hover-background-color);
     border: var(--ams-button-primary-hover-border);
+    box-shadow: var(--ams-button-primary-hover-box-shadow);
   }
 }
 
@@ -79,12 +80,14 @@
 
   &:hover:not(:disabled, [aria-disabled="true"]) {
     border: var(--ams-button-secondary-hover-border);
+    box-shadow: var(--ams-button-secondary-hover-box-shadow);
     color: var(--ams-button-secondary-hover-color);
   }
 }
 
 .ams-button--tertiary {
   background-color: var(--ams-button-tertiary-background-color);
+  border: var(--ams-button-tertiary-border);
   color: var(--ams-button-tertiary-color);
 
   &:disabled,
@@ -95,6 +98,7 @@
 
   &:hover:not(:disabled, [aria-disabled="true"]) {
     border: var(--ams-button-tertiary-hover-border);
+    box-shadow: var(--ams-button-tertiary-hover-box-shadow);
     color: var(--ams-button-tertiary-hover-color);
   }
 }

@@ -40,6 +40,7 @@
 
   &:hover {
     border: var(--ams-time-input-hover-border);
+    box-shadow: var(--ams-time-input-hover-box-shadow);
   }
 }
 
@@ -72,5 +73,6 @@
 
   &:hover {
     border: var(--ams-time-input-invalid-hover-border);
+    box-shadow: var(--ams-time-input-invalid-hover-box-shadow);
   }
 }

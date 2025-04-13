@@ -54,11 +54,11 @@
   }
 
   &:hover:not([aria-selected="true"], [disabled]) {
-    border: var(--ams-tabs-button-hover-border);
+    box-shadow: var(--ams-tabs-button-hover-box-shadow);
   }
 
   &[aria-selected="true"] {
-    border: var(--ams-tabs-button-selected-border);
+    box-shadow: var(--ams-tabs-button-selected-box-shadow);
     font-weight: var(--ams-tabs-button-selected-font-weight);
 
     @media (forced-colors: active) {

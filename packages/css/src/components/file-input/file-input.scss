@@ -65,5 +65,6 @@
 
 .ams-file-input:not(:disabled):hover::file-selector-button {
   border: var(--ams-file-input-file-selector-button-hover-border);
+  box-shadow: var(--ams-file-input-file-selector-button-hover-box-shadow);
   color: var(--ams-file-input-file-selector-button-hover-color);
 }
