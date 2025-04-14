@@ -14,7 +14,7 @@ The starting page of an application generally provides a broad overview of subje
 A typical layout for a homepage:
 
 ```tsx
-<Screen>
+<Page>
   <SkipLink href="#main">Direct naar inhoud</SkipLink>
   <Grid>
     <PageHeader />
@@ -32,11 +32,11 @@ A typical layout for a homepage:
   <PageFooter>
     <Grid />
   </PageFooter>
-</Screen>
+</Page>
 ```
 
 1. The Skip Link prevents users from having to pass all preceding navigation links.
-2. The Screen component sets a maximum width for the entire page.
+2. The Page container sets a maximum width for the entire page.
 3. The Grid divides the available width into 4, 8, or 12 columns.
 4. The Page Header shows the logo and menus for the application.
 5. The main element wraps everything between Page Header and Page Footer.
@@ -45,4 +45,4 @@ A typical layout for a homepage:
    It is as wide as the Grid, hence it is a sibling of it.
 7. Other components in the main area are laid out on a Grid again.
 8. The Page Footer contains its own Grid.
-   This allows its background colour to stretch to the Screen’s width.
+   This allows its background colour to stretch to the Page’s width.
