@@ -19,7 +19,7 @@ The images do not slide automatically.
 - Feature the most essential image first.
 - Assume that some or many users will not navigate between the slides and only see the first image.
   Display all images separately if you want each of them to receive attention.
-- A full-width Image Slider should run from one edge of the Screen to the other;
+- A full-width Image Slider should run from one edge of the [Page](/docs/components-containers-page--docs) container to the other;
   position it next to a Grid, not in a Cell spanning all columns.
   Smaller sliders are fine in a Grid Cell.
 - Consult the [Image](/docs/components-media-image--docs) docs for guidelines on the individual images.

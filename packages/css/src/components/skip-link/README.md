@@ -6,13 +6,13 @@ Allows skipping past recurring navigation blocks at the top of a page.
 
 ## Design
 
-The Skip Link sits above the Page Header and is as wide as the Screen container.
+The Skip Link sits above the Page Header and is as wide as the Page container.
 It remains hidden until activated with the ‘Tab’ key.
-After appearing, it pushes the entire page down.
+After appearing, it pushes the rest of the page down.
 
 ## Guidelines
 
-- Place the Skip Link as the first element in the Screen.
+- Place the Skip Link as the first element in the [Page](/docs/components-containers-page--docs) container.
 - Target the Skip Link to the main content.
   On an article page, for example, it could be the title of the article.
   On a search page, it could be the search field.

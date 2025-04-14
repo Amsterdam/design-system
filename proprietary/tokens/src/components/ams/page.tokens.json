@@ -1,0 +1,8 @@
+{
+  "ams": {
+    "page": {
+      "background-color": { "value": "{ams.color.background}" },
+      "max-inline-size": { "value": "100rem" }
+    }
+  }
+}

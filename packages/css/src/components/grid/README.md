@@ -7,7 +7,7 @@ Divides the screen into columns to align the elements of a page.
 ## Guidelines
 
 - Every page uses the Grid component as the foundation for its layout.
-  It is a direct child of [Screen](/docs/components-layout-screen--docs).
+  It is a direct child of the [Page](/docs/components-containers-page--docs) container.
 - The Grid provides 4, 8, or 12 columns, depending on the width of the window.
 - Its children are `Grid.Cell` components that define how many columns they span, and optionally where they start.
   Both its `span` and `start` properties accept a single value, or separate values for the narrow, medium and wide variations of the Grid.
