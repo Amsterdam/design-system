@@ -2,36 +2,17 @@
   "ams": {
     "link": {
       "color": { "value": "{ams.links.color}" },
-      "font-family": { "value": "{ams.typography.font-family}" },
+      "font-family": { "value": "inherit" },
+      "font-size": { "value": "inherit" },
       "font-weight": { "value": "{ams.typography.body-text.font-weight}" },
+      "line-height": { "value": "inherit" },
       "outline-offset": { "value": "{ams.focus.outline-offset}" },
+      "text-decoration-thickness": { "value": "{ams.links.text-decoration-thickness}" },
+      "text-underline-offset": { "value": "{ams.links.text-underline-offset}" },
       "hover": {
-        "color": { "value": "{ams.links.hover.color}" }
-      },
-      "inline": {
-        "text-decoration-thickness": { "value": "{ams.links.text-decoration-thickness}" },
-        "text-underline-offset": { "value": "{ams.links.text-underline-offset}" },
-        "font-family": { "value": "inherit" },
-        "font-size": { "value": "inherit" },
-        "line-height": { "value": "inherit" },
-        "hover": {
-          "text-decoration-thickness": {
-            "value": "{ams.links.hover.text-decoration-thickness}"
-          },
-          "text-underline-offset": { "value": "{ams.links.hover.text-underline-offset}" }
-        }
-      },
-      "standalone": {
-        "font-size": { "value": "{ams.typography.body-text.font-size}" },
-        "line-height": { "value": "{ams.typography.body-text.line-height}" },
-        "text-decoration-thickness": { "value": "{ams.links.text-decoration-thickness}" },
-        "text-underline-offset": { "value": "{ams.links.text-underline-offset}" },
-        "hover": {
-          "text-decoration-thickness": {
-            "value": "{ams.links.hover.text-decoration-thickness}"
-          },
-          "text-underline-offset": { "value": "{ams.links.hover.text-underline-offset}" }
-        }
+        "color": { "value": "{ams.links.hover.color}" },
+        "text-decoration-thickness": { "value": "{ams.links.hover.text-decoration-thickness}" },
+        "text-underline-offset": { "value": "{ams.links.hover.text-underline-offset}" }
       },
       "contrast": {
         "color": { "value": "{ams.links.contrast.color}" },
