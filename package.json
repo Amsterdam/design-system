@@ -24,7 +24,7 @@
   "packageManager": "pnpm@10.4.1+sha512.c753b6c3ad7afa13af388fa6d808035a008e30ea9993f58c6663e2bc5ff21679aa834db094987129aa4d488b86df57f7b634981b2f827cdcacc698cc0cfb88af",
   "workspaces": [
     "./packages/*",
-    "./proprietary/*",
+    "./packages-proprietary/*",
     "./storybook"
   ],
   "scripts": {
@@ -53,25 +53,25 @@
     "watch:css": "npm run --workspace packages/css build:watch",
     "watch:react": "npm run --workspace packages/react build:watch",
     "watch:storybook": "npm run --workspace storybook start",
-    "watch:tokens": "npm run --workspace proprietary/tokens watch"
+    "watch:tokens": "npm run --workspace packages-proprietary/tokens watch"
   },
   "devDependencies": {
-    "@eslint/compat": "1.2.7",
+    "@eslint/compat": "1.2.8",
     "@eslint/eslintrc": "3.3.1",
-    "@eslint/js": "9.23.0",
+    "@eslint/js": "9.24.0",
     "@eslint/json": "0.11.0",
     "@eslint/markdown": "6.3.0",
-    "@types/node": "22.13.13",
-    "@typescript-eslint/eslint-plugin": "8.27.0",
-    "@typescript-eslint/parser": "8.27.0",
+    "@types/node": "22.14.0",
+    "@typescript-eslint/eslint-plugin": "8.29.0",
+    "@typescript-eslint/parser": "8.29.0",
     "conventional-changelog-conventionalcommits": "8.0.0",
-    "eslint": "9.23.0",
+    "eslint": "9.24.0",
     "eslint-config-prettier": "10.1.1",
     "eslint-plugin-import": "2.31.0",
     "eslint-plugin-jest": "28.11.0",
-    "eslint-plugin-mdx": "3.2.0",
-    "eslint-plugin-perfectionist": "4.10.1",
-    "eslint-plugin-react": "7.37.4",
+    "eslint-plugin-mdx": "3.4.0",
+    "eslint-plugin-perfectionist": "4.11.0",
+    "eslint-plugin-react": "7.37.5",
     "globals": "16.0.0",
     "html-validate": "9.5.2",
     "husky": "9.1.7",
@@ -83,13 +83,13 @@
     "postcss": "8.5.3",
     "prettier": "3.5.3",
     "rimraf": "6.0.1",
-    "stylelint": "16.16.0",
+    "stylelint": "16.18.0",
     "stylelint-config-standard-scss": "14.0.0",
     "stylelint-order": "6.0.4",
     "stylelint-use-logical": "2.1.2",
     "stylelint-value-no-unknown-custom-properties": "6.0.1",
-    "typescript": "5.8.2",
-    "typescript-eslint": "8.27.0",
+    "typescript": "5.8.3",
+    "typescript-eslint": "8.29.0",
     "wait-on": "8.0.3"
   },
   "pnpm": {
@@ -99,6 +99,10 @@
       "esbuild",
       "sharp",
       "style-dictionary"
-    ]
+    ],
+    "overrides": {
+      "vitest@>=3.0.0 <3.0.5": ">=3.0.5",
+      "prismjs@<1.30.0": ">=1.30.0"
+    }
   }
 }

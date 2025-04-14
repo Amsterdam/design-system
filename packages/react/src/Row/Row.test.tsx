@@ -1,7 +1,7 @@
 import { render, screen } from '@testing-library/react'
 import { createRef } from 'react'
-import { Row, rowGaps } from './Row'
-import { shortSize } from '../common/shortSize'
+import { Row, rowGapSizes, rowTags } from './Row'
+import { ariaRoleForTag } from '../common/accessibility'
 import { crossAlignOptions, mainAlignOptions } from '../common/types'
 import '@testing-library/jest-dom'
 
@@ -23,21 +23,17 @@ describe('Row', () => {
     expect(component).toHaveClass('ams-row')
   })
 
-  rowGaps.map((gap) =>
-    it('renders with ‘${gap}’ gap', () => {
+  rowGapSizes.map((gap) =>
+    it(`renders with ‘${gap}’ gap`, () => {
       const { container } = render(<Row gap={gap} />)
 
       const component = container.querySelector(':only-child')
 
-      if (gap === 'none') {
-        expect(component).toHaveClass(`ams-row--gap-none`)
-      } else {
-        expect(component).toHaveClass(`ams-gap-${shortSize[gap]}`)
-      }
+      expect(component).toHaveClass(`ams-row--gap-${gap}`)
     }),
   )
 
-  it('renders an additional class name', () => {
+  it('renders an extra class name', () => {
     const { container } = render(<Row className="extra" />)
 
     const component = container.querySelector(':only-child')
@@ -53,20 +49,14 @@ describe('Row', () => {
     expect(component).toHaveClass('ams-row--wrap')
   })
 
-  it('renders with an article tag', () => {
-    render(<Row as="article" />)
+  rowTags.forEach((tag) => {
+    it(`renders with a custom ${tag} tag`, () => {
+      const { container } = render(<Row aria-label={tag === 'section' ? 'Accessible name' : undefined} as={tag} />)
 
-    const component = screen.getByRole('article')
+      const component = tag === 'div' ? container.querySelector(tag) : screen.getByRole(ariaRoleForTag[tag])
 
-    expect(component).toBeInTheDocument()
-  })
-
-  it('renders with a section tag', () => {
-    const { container } = render(<Row as="section" />)
-
-    const component = container.querySelector('section')
-
-    expect(component).toBeInTheDocument()
+      expect(component).toBeInTheDocument()
+    })
   })
 
   it('supports ForwardRef in React', () => {

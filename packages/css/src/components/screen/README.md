@@ -8,12 +8,12 @@ Manages the maximum width and alignment of the entire website or application.
 
 - This should be the outermost component of your website or application.
 - Within it, combine components such as
-  [Grid](/docs/components-layout-grid--docs),
-  [Header](/docs/components-containers-header--docs),
-  [Footer](/docs/components-containers-footer--docs),
-  [Spotlight](/docs/components-containers-spotlight--docs),
-  [Image Slider](/docs/components-media-image-slider--docs),
-  and Figure.
+  [Grid](https://designsystem.amsterdam/?path=/docs/components-layout-grid--docs),
+  [Header](https://designsystem.amsterdam/?path=/docs/components-containers-header--docs),
+  [Page Footer](https://designsystem.amsterdam/?path=/docs/components-containers-page-footer--docs),
+  [Spotlight](https://designsystem.amsterdam/?path=/docs/components-containers-spotlight--docs),
+  [Image Slider](https://designsystem.amsterdam/?path=/docs/components-media-image-slider--docs),
+  and [Figure](https://designsystem.amsterdam/?path=/docs/components-media-figure--docs).
 
 ## Design
 

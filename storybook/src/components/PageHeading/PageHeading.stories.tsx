@@ -17,6 +17,13 @@ const meta = {
       description: 'The heading text.',
       table: { disable: false },
     },
+    color: {
+      control: {
+        labels: { undefined: 'default' },
+        type: 'radio',
+      },
+      options: [undefined, 'inverse'],
+    },
   },
 } satisfies Meta<typeof PageHeading>
 

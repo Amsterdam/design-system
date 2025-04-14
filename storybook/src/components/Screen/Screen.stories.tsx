@@ -9,6 +9,14 @@ import { Meta, StoryObj } from '@storybook/react'
 const meta = {
   title: 'Components/Layout/Screen',
   component: Screen,
+  args: {
+    className: 'ams-docs-screen',
+  },
+  argTypes: {
+    className: {
+      table: { disable: true },
+    },
+  },
   parameters: {
     layout: 'fullscreen',
   },
@@ -19,12 +27,5 @@ export default meta
 type Story = StoryObj<typeof meta>
 
 export const Default: Story = {
-  args: { children: <div className="ams-docs-item">Ik pas in het scherm.</div> },
-}
-
-export const ExtraWide: Story = {
-  args: {
-    children: <div className="ams-docs-item">Ik pas in een extra breed scherm.</div>,
-    maxWidth: 'x-wide',
-  },
+  args: { children: <div className="ams-docs-item" /> },
 }

@@ -1,0 +1,27 @@
+{
+  "ams": {
+    "card": {
+      "heading": {
+        "margin-block-end": { "value": "{ams.space.s}" }
+      },
+      "heading-group": {
+        "gap": { "value": "{ams.space.s}" },
+        "margin-block-end": { "value": "{ams.space.s}" }
+      },
+      "image": {
+        "margin-block-end": { "value": "{ams.space.s}" }
+      },
+      "link": {
+        "color": { "value": "{ams.links.color}" },
+        "text-decoration-line": { "value": "{ams.links.subtle.text-decoration-line}" },
+        "text-decoration-thickness": { "value": "{ams.links.text-decoration-thickness}" },
+        "text-underline-offset": { "value": "{ams.links.text-underline-offset}" },
+        "hover": {
+          "color": { "value": "{ams.links.hover.color}" },
+          "text-decoration-line": { "value": "{ams.links.subtle.hover.text-decoration-line}" }
+        }
+      },
+      "outline-offset": { "value": "{ams.focus.outline-offset}" }
+    }
+  }
+}

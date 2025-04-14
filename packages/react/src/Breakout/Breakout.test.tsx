@@ -24,7 +24,7 @@ describe('Breakout', () => {
     expect(component).toHaveClass('ams-breakout')
   })
 
-  it('renders an additional class name', () => {
+  it('renders an extra class name', () => {
     const { container } = render(<Breakout className="extra" />)
 
     const component = container.querySelector(':only-child')

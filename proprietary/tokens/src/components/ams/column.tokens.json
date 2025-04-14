@@ -1,7 +1,0 @@
-{
-  "ams": {
-    "column": {
-      "gap": { "value": "{ams.space.m}" }
-    }
-  }
-}

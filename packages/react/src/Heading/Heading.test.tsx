@@ -15,25 +15,44 @@ describe('Heading', () => {
     expect(heading).toBeVisible()
   })
 
-  it('renders the other allowed levels correctly', () => {
+  it('renders a design system BEM class name', () => {
+    render(<Heading level={1} />)
+
+    const heading = screen.getByRole('heading')
+
+    expect(heading).toHaveClass('ams-heading')
+  })
+
+  it('renders an extra class name', () => {
+    render(<Heading className="extra" level={1} />)
+
+    const heading = screen.getByRole('heading')
+
+    expect(heading).toHaveClass('ams-heading extra')
+  })
+
+  it('renders the allowed levels correctly', () => {
     render(
       <>
+        <Heading level={1}>Heading 1</Heading>
         <Heading level={2}>Heading 2</Heading>
         <Heading level={3}>Heading 3</Heading>
         <Heading level={4}>Heading 4</Heading>
       </>,
     )
 
+    const h1 = screen.getByRole('heading', { level: 1, name: 'Heading 1' })
     const h2 = screen.getByRole('heading', { level: 2, name: 'Heading 2' })
     const h3 = screen.getByRole('heading', { level: 3, name: 'Heading 3' })
     const h4 = screen.getByRole('heading', { level: 4, name: 'Heading 4' })
 
+    expect(h1).toBeInTheDocument()
     expect(h2).toBeInTheDocument()
     expect(h3).toBeInTheDocument()
     expect(h4).toBeInTheDocument()
   })
 
-  it('renders the correct style level class', () => {
+  it('renders the correct size level class', () => {
     render(
       <>
         <Heading level={1} size="level-1">
@@ -97,20 +116,12 @@ describe('Heading', () => {
     expect(inlineMarkup).toBeInTheDocument()
   })
 
-  it('renders an additional class name', () => {
-    const { container } = render(<Heading className="large" level={1} />)
-
-    const heading = container.querySelector(':only-child')
-
-    expect(heading).toHaveClass('large')
-    expect(heading).toHaveClass('ams-heading')
-  })
-
   it('is able to pass a React ref', () => {
     const ref = createRef<HTMLHeadingElement>()
 
-    const { container } = render(<Heading level={1} ref={ref} />)
-    const heading = container.querySelector(':only-child')
+    render(<Heading level={1} ref={ref} />)
+
+    const heading = screen.getByRole('heading')
 
     expect(ref.current).toBe(heading)
   })

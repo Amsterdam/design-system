@@ -7,7 +7,7 @@ import globals from 'globals'
 import jest from 'eslint-plugin-jest'
 import json from '@eslint/json'
 import markdown from '@eslint/markdown'
-import mdx from 'eslint-plugin-mdx'
+import * as mdx from 'eslint-plugin-mdx'
 import path from 'node:path'
 import react from 'eslint-plugin-react'
 import tseslint from 'typescript-eslint'
@@ -74,7 +74,7 @@ export default tseslint.config(
   // Global
   {
     name: 'amsterdam-design-system/global-ignores',
-    ignores: ['**/vendor/', '**/build/', '**/coverage/', '**/dist/', '**/tmp/', 'proprietary/react-icons'],
+    ignores: ['**/vendor/', '**/build/', '**/coverage/', '**/dist/', '**/tmp/', 'packages-proprietary/react-icons'],
   },
   {
     name: 'amsterdam-design-system/language-options',

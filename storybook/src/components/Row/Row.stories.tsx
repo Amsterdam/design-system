@@ -5,7 +5,7 @@
 
 import { Avatar, Heading, Link } from '@amsterdam/design-system-react'
 import { Row } from '@amsterdam/design-system-react/src'
-import { rowGaps } from '@amsterdam/design-system-react/src/Row/Row'
+import { rowGapSizes } from '@amsterdam/design-system-react/src/Row/Row'
 import { crossAlignOptions, mainAlignOptions } from '@amsterdam/design-system-react/src/common/types'
 import { Meta, StoryObj } from '@storybook/react'
 
@@ -45,7 +45,7 @@ const meta = {
         labels: { undefined: 'medium' },
         type: 'radio',
       },
-      options: [undefined, ...rowGaps],
+      options: [undefined, ...rowGapSizes],
     },
   },
 } satisfies Meta<typeof Row>
@@ -84,7 +84,14 @@ export const AlignOpposingTexts: Story = {
   args: {
     align: 'between',
     alignVertical: 'baseline',
-    children: [<Heading level={3}>An example heading</Heading>, <Link href="#">An example link</Link>],
+    children: [
+      <Heading key={1} level={3}>
+        An example heading
+      </Heading>,
+      <Link href="#" key={2}>
+        An example link
+      </Link>,
+    ],
     className: undefined,
     wrap: true,
   },

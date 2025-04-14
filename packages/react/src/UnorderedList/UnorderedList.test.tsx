@@ -35,7 +35,7 @@ describe('Unordered list', () => {
     expect(component).toHaveClass('ams-unordered-list--inverse')
   })
 
-  it('renders an additional class name', () => {
+  it('renders an extra class name', () => {
     render(<UnorderedList className="extra" />)
 
     const component = screen.getByRole('list')

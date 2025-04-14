@@ -25,13 +25,12 @@ describe('Grid', () => {
     expect(component).toHaveClass('ams-grid')
   })
 
-  it('renders an additional class name', () => {
+  it('renders an extra class name', () => {
     const { container } = render(<Grid className="extra" />)
 
     const component = container.querySelector(':only-child')
 
-    expect(component).toHaveClass('extra')
-    expect(component).toHaveClass('ams-grid')
+    expect(component).toHaveClass('ams-grid extra')
   })
 
   it('renders the correct class name for a zero gap', () => {
@@ -92,12 +91,7 @@ describe('Grid', () => {
     it(`renders with a custom ${tag} tag`, () => {
       const { container } = render(<Grid aria-label={tag === 'section' ? 'Accessible name' : undefined} as={tag} />)
 
-      let component: HTMLElement | null
-      if (tag === 'div') {
-        component = container.querySelector(tag)
-      } else {
-        component = screen.getByRole(ariaRoleForTag[tag])
-      }
+      const component = tag === 'div' ? container.querySelector(tag) : screen.getByRole(ariaRoleForTag[tag])
 
       expect(component).toBeInTheDocument()
     })

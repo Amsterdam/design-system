@@ -81,12 +81,14 @@
 }
 
 .ams-docs-column,
-.ams-docs-grid,
+.ams-docs-container,
+.ams-docs-item,
 .ams-docs-row {
-  border-inline: thin solid var(--ams-docs-grey);
+  box-sizing: border-box;
 }
 
 .ams-docs-column,
+.ams-docs-container,
 .ams-docs-row {
   background: repeating-linear-gradient(
     135deg,
@@ -95,11 +97,17 @@
     white 0.5rem,
     white 1rem
   );
+  border: thin solid var(--ams-docs-grey);
 }
 
 .ams-docs-column {
   max-inline-size: 16rem;
   min-block-size: 16rem;
+}
+
+.ams-docs-container {
+  padding-block: var(--ams-space-m);
+  padding-inline: var(--ams-space-m);
 }
 
 .ams-docs-row {
@@ -108,6 +116,7 @@
 
 .ams-docs-grid {
   block-size: 100vh;
+  border-inline: thin solid var(--ams-docs-grey);
   inset-block: 0;
   inset-inline: 0;
   position: absolute;
@@ -135,28 +144,26 @@
   }
 }
 
-.ams-docs-aspect-ratio {
-  min-block-size: initial;
-  padding-block: var(--ams-space-m);
-  padding-inline: var(--ams-space-m);
-}
-
 .ams-docs-item {
   background-color: var(--ams-docs-pink);
   border: thin dashed var(--ams-docs-grey);
-  font-family: "Amsterdam Sans", sans-serif;
-  font-size: var(--ams-paragraph-small-font-size);
-  line-height: var(--ams-paragraph-small-line-height);
-  padding-block: 1.5rem;
-  text-align: center;
-
-  .ams-docs-row > & {
-    flex-basis: 8rem;
-    padding-inline: 1.5rem;
-  }
 
   .ams-docs-column > & {
+    block-size: 3rem;
     min-inline-size: 3rem;
+  }
+
+  .ams-docs-row > & {
+    inline-size: 8rem;
+    min-block-size: 3rem;
+  }
+
+  .ams-docs-screen > & {
+    block-size: 3rem;
+  }
+
+  .ams-docs-grid + .ams-grid > & {
+    min-block-size: 3rem;
   }
 }
 
@@ -181,8 +188,13 @@
   box-shadow: inset 0 0 0 0.0625rem rgb(0 0 0 / 12.5%);
 }
 
-[class*="ams-docs-token-example--font-size"] {
+[class*="ams-docs-token-example--font-"] {
   block-size: auto;
+  font-family: var(--ams-typography-font-family) !important;
+}
+
+.ams-docs-token-example--font-weight-bold {
+  font-weight: var(--ams-typography-body-text-bold-font-weight);
 }
 
 [class*="ams-docs-token-example--space"] {
@@ -194,4 +206,8 @@
   overflow: auto;
   padding-block-end: 1rem;
   resize: horizontal;
+}
+
+strong {
+  font-weight: var(--ams-typography-body-text-bold-font-weight);
 }

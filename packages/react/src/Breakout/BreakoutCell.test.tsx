@@ -2,6 +2,8 @@ import { render, screen } from '@testing-library/react'
 import { createRef } from 'react'
 import { Breakout } from './Breakout'
 import '@testing-library/jest-dom'
+import { breakoutCellTags } from './BreakoutCell'
+import { ariaRoleForTag } from '../common/accessibility'
 
 describe('Breakout cell', () => {
   it('renders', () => {
@@ -21,12 +23,24 @@ describe('Breakout cell', () => {
     expect(component).toHaveClass('ams-breakout__cell')
   })
 
-  it('renders an additional class name', () => {
+  it('renders an extra class name', () => {
     const { container } = render(<Breakout.Cell className="extra" />)
 
     const component = container.querySelector(':only-child')
 
     expect(component).toHaveClass('ams-breakout__cell extra')
+  })
+
+  breakoutCellTags.forEach((tag) => {
+    it(`renders with a custom ${tag} tag`, () => {
+      const { container } = render(
+        <Breakout.Cell aria-label={tag === 'section' ? 'Accessible name' : undefined} as={tag} />,
+      )
+
+      const component = tag === 'div' ? container.querySelector(tag) : screen.getByRole(ariaRoleForTag[tag])
+
+      expect(component).toBeInTheDocument()
+    })
   })
 
   it('supports ForwardRef in React', () => {
@@ -172,28 +186,20 @@ describe('Breakout cell', () => {
       'ams-breakout__cell--row-span-2 ams-breakout__cell--row-span-3-medium ams-breakout__cell--row-span-4-wide ams-breakout__cell--row-start-1 ams-breakout__cell--row-start-2-medium ams-breakout__cell--row-start-3-wide',
     )
   })
-})
 
-it(`renders the correct class if it has a Figure`, () => {
-  const { container } = render(<Breakout.Cell has="figure" />)
+  it(`renders the correct class if it has a Figure`, () => {
+    const { container } = render(<Breakout.Cell has="figure" />)
 
-  const component = container.querySelector(':only-child')
+    const component = container.querySelector(':only-child')
 
-  expect(component).toHaveClass(`ams-breakout__cell--has-figure`)
-})
+    expect(component).toHaveClass(`ams-breakout__cell--has-figure`)
+  })
 
-it(`renders the correct class if it has a Spotlight`, () => {
-  const { container } = render(<Breakout.Cell colSpan="all" has="spotlight" />)
+  it(`renders the correct class if it has a Spotlight`, () => {
+    const { container } = render(<Breakout.Cell colSpan="all" has="spotlight" />)
 
-  const component = container.querySelector(':only-child')
+    const component = container.querySelector(':only-child')
 
-  expect(component).toHaveClass(`ams-breakout__cell--has-spotlight`)
-})
-
-it('renders a custom tag', () => {
-  render(<Breakout.Cell as="article" />)
-
-  const cell = screen.getByRole('article')
-
-  expect(cell).toBeInTheDocument()
+    expect(component).toHaveClass(`ams-breakout__cell--has-spotlight`)
+  })
 })
