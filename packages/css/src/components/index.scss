@@ -45,8 +45,9 @@
 @use "mark/mark";
 @use "ordered-list/ordered-list";
 @use "overlap/overlap";
-@use "page-header/page-header";
+@use "page/page";
 @use "page-footer/page-footer";
+@use "page-header/page-header";
 @use "page-heading/page-heading";
 @use "pagination/pagination";
 @use "paragraph/paragraph";
@@ -58,6 +59,7 @@
 @use "select/select";
 @use "skip-link/skip-link";
 @use "spotlight/spotlight";
+@use "standalone-link/standalone-link";
 @use "switch/switch";
 @use "table-of-contents/table-of-contents";
 @use "table/table";
@@ -65,6 +67,5 @@
 @use "text-area/text-area";
 @use "text-input/text-input";
 @use "time-input/time-input";
-@use "top-task-link/top-task-link";
 @use "unordered-list/unordered-list";
 @use "visually-hidden/visually-hidden";

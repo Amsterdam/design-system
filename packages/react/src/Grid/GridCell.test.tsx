@@ -23,7 +23,7 @@ describe('Grid cell', () => {
     expect(component).toHaveClass('ams-grid__cell')
   })
 
-  it('renders an additional class name', () => {
+  it('renders an extra class name', () => {
     const { container } = render(<Grid.Cell className="extra" />)
 
     const component = container.querySelector(':only-child')

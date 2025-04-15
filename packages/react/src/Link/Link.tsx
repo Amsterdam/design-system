@@ -7,31 +7,14 @@ import clsx from 'clsx'
 import { forwardRef } from 'react'
 import type { AnchorHTMLAttributes, ForwardedRef } from 'react'
 
-type LinkVariant = 'standalone' | 'inline'
-
 export type LinkProps = {
   /** Changes the text colour for readability on a light or dark background. */
   color?: 'contrast' | 'inverse'
-  /** Whether the link is inline or stands alone. */
-  variant?: LinkVariant
 } & Omit<AnchorHTMLAttributes<HTMLAnchorElement>, 'placeholder'>
 
 export const Link = forwardRef(
-  (
-    { children, className, color, variant = 'standalone', ...restProps }: LinkProps,
-    ref: ForwardedRef<HTMLAnchorElement>,
-  ) => (
-    <a
-      {...restProps}
-      className={clsx(
-        'ams-link',
-        color && `ams-link--${color}`,
-        variant === 'inline' && 'ams-link--inline',
-        variant === 'standalone' && 'ams-link--standalone',
-        className,
-      )}
-      ref={ref}
-    >
+  ({ children, className, color, ...restProps }: LinkProps, ref: ForwardedRef<HTMLAnchorElement>) => (
+    <a {...restProps} className={clsx('ams-link', color && `ams-link--${color}`, className)} ref={ref}>
       {children}
     </a>
   ),

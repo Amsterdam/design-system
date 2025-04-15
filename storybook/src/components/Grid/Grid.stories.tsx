@@ -11,7 +11,6 @@ const meta = {
   title: 'Components/Layout/Grid',
   component: Grid,
   args: {
-    gapVertical: undefined /* Keeps this prop at the top of the Controls table. */,
     paddingVertical: 'medium',
   },
   argTypes: {
