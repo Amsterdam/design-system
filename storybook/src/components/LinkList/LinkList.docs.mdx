@@ -21,7 +21,7 @@ Avoid using both semantic and list icons in the same list.
 
 ### Small text
 
-In the [Footer](/docs/components-containers-footer--docs), we use small text, also for lists.
+In the [Page Footer](/docs/components-containers-page-footer--docs), we use small text, also for lists.
 Specify this for each item in the list.
 
 <Canvas of={LinkListStories.SmallText} />
@@ -38,18 +38,18 @@ Any attributes and the `ref` are passed on to the `<a>` element.
 
 ### On a coloured background
 
-A link on a coloured background must adjust its text colour to provide enough contrast.
-We have lighter and darker background colours, and links behave differently on each.
-
-- Set the `color` prop to `contrast` on a azure, lime, orange or yellow background.
-  It will make the Link black.
-- Set the `color` prop to `inverse` on a blue, green, magenta or purple background.
-  It will make the Link white.
+A Link on a coloured background must set [the correct text colour](?path=/docs/brand-design-tokens-colour--docs#pairing-foreground-with-background-colours) to provide enough contrast.We have lighter and darker background colours, and links behave differently on each.
 
 #### Contrast colour
+
+Use the contrast colour on a lime, orange or yellow background.
+It will make the Link black.
 
 <Canvas of={LinkListStories.ContrastColour} />
 
 #### Inverse colour
+
+Use the inverse colour on an azure, blue, green, magenta or purple background.
+It will make the Link white.
 
 <Canvas of={LinkListStories.InverseColour} />

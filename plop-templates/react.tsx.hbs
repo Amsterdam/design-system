@@ -11,7 +11,7 @@ export type {{pascalCase name}}Props = PropsWithChildren<{{ attributes }}<{{ typ
 
 export const {{pascalCase name}} = forwardRef(
   ({ children, className, ...restProps }: {{pascalCase name}}Props, ref: ForwardedRef<{{ type }}>) => (
-    <{{ tag }} {...restProps} ref={ref} className={clsx('ams-{{kebabCase name}}', className)}>
+    <{{ tag }} {...restProps} className={clsx('ams-{{kebabCase name}}', className)} ref={ref}>
       {children}
     </{{ tag }}>
   ),

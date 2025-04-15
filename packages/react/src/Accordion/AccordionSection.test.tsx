@@ -114,7 +114,7 @@ describe('Accordion section', () => {
     expect(icon).toBeInTheDocument()
   })
 
-  it('renders an additional class name', () => {
+  it('renders an extra class name', () => {
     const { container } = render(
       <Accordion.Section className="test" label={testLabel}>
         {testContent}

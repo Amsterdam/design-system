@@ -1,4 +1,4 @@
 packages:
   - "packages/*"
-  - "proprietary/*"
+  - "packages-proprietary/*"
   - "storybook"

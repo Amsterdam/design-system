@@ -31,7 +31,7 @@ describe('Select option group', () => {
     expect(component).toHaveClass('ams-select__group')
   })
 
-  it('renders an additional class name', () => {
+  it('renders an extra class name', () => {
     render(<Select.Group className="extra" />)
 
     const component = screen.getByRole('group')

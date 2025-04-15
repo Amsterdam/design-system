@@ -74,7 +74,7 @@ export default tseslint.config(
   // Global
   {
     name: 'amsterdam-design-system/global-ignores',
-    ignores: ['**/vendor/', '**/build/', '**/coverage/', '**/dist/', '**/tmp/', 'proprietary/react-icons'],
+    ignores: ['**/vendor/', '**/build/', '**/coverage/', '**/dist/', '**/tmp/', 'packages-proprietary/react-icons'],
   },
   {
     name: 'amsterdam-design-system/language-options',

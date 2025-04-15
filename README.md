@@ -41,6 +41,6 @@ Join the `#nl-design-system` Slack via [praatmee.codefor.nl](https://praatmee.co
 This project is free and open-source software licensed under the [European Union Public License (EUPL) v1.2](LICENSE.md) or higher.
 Documentation is licensed as [Creative Commons Zero 1.0 Universal (`CC0-1.0`)](https://creativecommons.org/publicdomain/zero/1.0/legalcode).
 
-The open-source licenses do not cover the assets in the `proprietary` directory.
-Each directory in the `proprietary` directory specifies the applicable license for that directory.
+The open-source licenses do not cover the assets in the `packages-proprietary` directory.
+Each directory in the `packages-proprietary` directory specifies the applicable license for that directory.
 Please read the [notice](NOTICE.md) for more information about proprietary assets.

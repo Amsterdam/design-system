@@ -10,7 +10,6 @@ import type { ForwardedRef, HTMLAttributes } from 'react'
 import { Icon } from '../Icon'
 
 export const avatarColors = ['azure', 'green', 'lime', 'magenta', 'orange', 'yellow'] as const
-
 type AvatarColor = (typeof avatarColors)[number]
 
 type AvatarContentProps = {

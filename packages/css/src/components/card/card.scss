@@ -19,12 +19,12 @@
     outline-width: 0.0625rem;
   }
 
-  & > .ams-heading:has(+ *) {
-    margin-block-end: var(--ams-space-xs);
+  > .ams-card__heading:has(+ *) {
+    margin-block-end: var(--ams-card-heading-margin-block-end);
   }
 
-  & > .ams-image:has(+ *) {
-    margin-block-end: var(--ams-space-m);
+  > .ams-card__image:has(+ *) {
+    margin-block-end: var(--ams-card-image-margin-block-end);
   }
 }
 
@@ -34,7 +34,7 @@
   gap: var(--ams-card-heading-group-gap);
 
   &:has(+ *) {
-    margin-block-end: var(--ams-space-xs);
+    margin-block-end: var(--ams-card-heading-group-margin-block-end);
   }
 }
 

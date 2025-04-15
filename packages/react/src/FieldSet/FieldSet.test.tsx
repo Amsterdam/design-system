@@ -21,7 +21,7 @@ describe('FieldSet', () => {
     expect(component).toHaveClass('ams-field-set')
   })
 
-  it('renders an additional class name', () => {
+  it('renders an extra class name', () => {
     render(<FieldSet className="extra" legend="Test" />)
 
     const component = screen.getByRole('group', { name: 'Test' })

@@ -1,11 +1,11 @@
-type HeaderMenuLink = {
+type PageHeaderMenuLink = {
   fixed?: boolean
   href?: string
   label: string
   lang?: 'en'
 }
 
-export const headerMenuLinks: HeaderMenuLink[] = [
+export const pageHeaderMenuLinks: PageHeaderMenuLink[] = [
   {
     label: 'English',
     lang: 'en',

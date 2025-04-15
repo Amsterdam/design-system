@@ -1,4 +1,4 @@
-import { Grid, Heading, Link, Paragraph, Spotlight } from '@amsterdam/design-system-react'
+import { Grid, Heading, Paragraph, Spotlight, StandaloneLink } from '@amsterdam/design-system-react'
 
 export const HomeSpotlight = () => (
   <Spotlight>
@@ -11,9 +11,9 @@ export const HomeSpotlight = () => (
           Check welke ontheffing of vergunning u nodig heeft. Bijvoorbeeld een RVV, TVM, objectvergunning,{' '}
           nachtwerkontheffing, e-RVV, e-TVM of filmmelding. Dat regult u allemaal met 1 formulier.
         </Paragraph>
-        <Link color="inverse" href="#" variant="standalone">
+        <StandaloneLink color="inverse" href="#">
           Eenvoudig regelen
-        </Link>
+        </StandaloneLink>
       </Grid.Cell>
       <Grid.Cell span={{ narrow: 4, medium: 4, wide: 6 }}>
         <Heading className="ams-mb-xs" color="inverse" level={1} size="level-2">
@@ -23,9 +23,9 @@ export const HomeSpotlight = () => (
           Lees waar en wanneer we werken aan nieuwbouw, groot onderhoud, herinrichting van straten en wegen, aanpak van
           parken of ontwikkeling van hele gebieden.
         </Paragraph>
-        <Link color="inverse" href="#" variant="standalone">
+        <StandaloneLink color="inverse" href="#">
           Alle bouw- en verkeerswerkzaamheden
-        </Link>
+        </StandaloneLink>
       </Grid.Cell>
     </Grid>
   </Spotlight>

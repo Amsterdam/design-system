@@ -1,0 +1,20 @@
+{/* @license CC0-1.0 */}
+
+import { Canvas, Markdown, Meta, Primary } from "@storybook/blocks";
+import * as PageFooterStories from "./PageFooter.stories.tsx";
+import README from "../../../../packages/css/src/components/page-footer/README.md?raw";
+
+<Meta of={PageFooterStories} />
+
+<Markdown>{README}</Markdown>
+
+<Primary />
+
+## Examples
+
+### Onderzoek en Statistiek
+
+The Page Footer for a specific website can be a bit different.
+Here’s an example for the ‘Onderzoek en Statistiek’ department.
+
+<Canvas of={PageFooterStories.OnderzoekEnStatistiek} />

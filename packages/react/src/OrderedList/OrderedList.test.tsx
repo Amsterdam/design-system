@@ -36,7 +36,7 @@ describe('Ordered list', () => {
     expect(component).toHaveClass('ams-ordered-list--inverse')
   })
 
-  it('renders an additional class name', () => {
+  it('renders an extra class name', () => {
     render(<OrderedList className="extra" />)
 
     const component = screen.getByRole('list')

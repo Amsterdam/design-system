@@ -13,11 +13,14 @@
     "csstools/value-no-unknown-custom-properties": [
       true,
       {
-        "importFrom": ["proprietary/tokens/dist/index.css"]
+        "importFrom": ["packages-proprietary/tokens/dist/index.css"]
       }
     ],
     "custom-property-pattern": "^_?(ams|nl|utrecht)-[a-z0-9-]+$",
-    "declaration-block-no-duplicate-properties": true,
+    "declaration-block-no-duplicate-properties": [
+      true,
+      { "ignore": ["consecutive-duplicates-with-different-syntaxes"] }
+    ],
     "declaration-block-no-redundant-longhand-properties": null,
     "declaration-block-no-shorthand-property-overrides": true,
     "declaration-property-value-allowed-list": [

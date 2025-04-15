@@ -11,7 +11,7 @@
 .sbdocs-content.sbdocs-content > table:not(.sb-unstyled) :is(td, th),
 .sbdocs-content.sbdocs-content > div:not(.sb-unstyled) > table:not(.sb-unstyled) :is(td, th),
 .sbdocs-content.sbdocs-content > div:not(.sb-unstyled) > figure > figcaption {
-  color: #000;
+  color: var(--ams-color-text);
   font-family: "Amsterdam Sans", "Arial", sans-serif;
 }
 
@@ -38,7 +38,7 @@
 }
 
 .sbdocs-content.sbdocs-content > .ams-storybook-status-badge > span:nth-child(2) {
-  color: #000;
+  color: var(--ams-color-text);
   font-family: "Amsterdam Sans", "Arial", sans-serif;
   font-size: var(--ams-typography-body-text-small-font-size);
 }
@@ -117,6 +117,16 @@
 :is(#storybook-root, .sbdocs-content) a[href="#"] {
   /* stylelint-disable-next-line declaration-property-value-allowed-list */
   cursor: not-allowed;
+}
+
+/* Create positioning context, e.g. for grid background. */
+#storybook-root .ams-page,
+.sb-story .ams-page {
+  position: relative;
+}
+
+.sb-story .ams-page {
+  min-block-size: initial;
 }
 
 /* Override to make sure the default transparent border isn't shown in forced colors mode. */

@@ -1,9 +1,9 @@
-@use "../../common/breakpoint" as *;
-
 /**
  * @license EUPL-1.2+
  * Copyright Gemeente Amsterdam
  */
+
+@use "../../common/breakpoint" as *;
 
 @mixin ams-grid {
   column-gap: var(--ams-grid-column-gap);

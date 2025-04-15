@@ -1,0 +1,38 @@
+{/* @license CC0-1.0 */}
+
+import { Canvas, Controls, Markdown, Meta, Primary } from "@storybook/blocks";
+import * as StandaloneLinkStories from "./StandaloneLink.stories.tsx";
+import README from "../../../../packages/css/src/components/standalone-link/README.md?raw";
+
+<Meta of={StandaloneLinkStories} />
+
+<Markdown>{README}</Markdown>
+
+<Primary />
+
+<Controls />
+
+## Examples
+
+### On a coloured background
+
+A Standalone Link on a coloured background must set [the correct text colour](?path=/docs/brand-design-tokens-colour--docs#pairing-foreground-with-background-colours) to provide enough contrast.
+We have lighter and darker background colours, and links behave differently on each.
+
+#### Contrast colour
+
+Use the contrast colour on a lime, orange or yellow background.
+It will make the Standalone Link black.
+
+<Canvas of={StandaloneLinkStories.ContrastColour} />
+
+#### Inverse colour
+
+Use the inverse colour on an azure, blue, green, magenta or purple background.
+It will make the Standalone Link white.
+
+<Canvas of={StandaloneLinkStories.InverseColour} />
+
+### In an article
+
+<Canvas of={StandaloneLinkStories.InAnArticle} />

@@ -67,14 +67,12 @@ describe('Label', () => {
     expect(label).not.toBeVisible()
   })
 
-  it('renders an additional class name', () => {
-    const { container } = render(<Label className="large" htmlFor="form-control" />)
+  it('renders an extra class name', () => {
+    const { container } = render(<Label className="extra" htmlFor="form-control" />)
 
     const label = container.querySelector(':only-child')
 
-    expect(label).toHaveClass('large')
-
-    expect(label).toHaveClass('ams-label')
+    expect(label).toHaveClass('ams-label extra')
   })
 
   it('supports ForwardRef in React', () => {

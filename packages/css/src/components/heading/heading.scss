@@ -17,6 +17,7 @@
   color: var(--ams-heading-color);
   font-family: var(--ams-heading-font-family);
   font-weight: var(--ams-heading-font-weight);
+  text-wrap: var(--ams-heading-text-wrap);
 
   @include hyphenation;
   @include text-rendering;

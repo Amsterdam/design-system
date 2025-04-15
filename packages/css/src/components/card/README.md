@@ -2,27 +2,28 @@
 
 # Card
 
-Use a card on an overview page to link to an article page, such as a news article, a job vacancy, or a search result.
-The card typically includes the title, introduction, and an image of the content.
-The link is mandatory.
+A brief section of a heading, some text, and optionally an image, that leads to a related page.
 
 ## Guidelines
 
-- The title of a card is a link within a heading.
-  The same guidelines as for regular [links](/docs/components-navigation-link--docs) and [headings](/docs/components-text-heading--docs) apply here.
-  The link is active across the entire area of the card.
+- The mandatory title of a card is a link within a Heading.
+  The guidelines for regular [links](/docs/components-navigation-link--docs) and [headings](/docs/components-text-heading--docs) apply.
+  The link is made active across the entire area of the card.
 - A card needs more content than just a title.
-  Supplement this with textual and/or visual content.
-- Place the text in a regular paragraph.
-  Only use the smallest text size for a tagline or date.
-- This component may not be the best option if the content does not represent a detailed page.
-  For referencing a thematic page, use a [top task link](/docs/components-navigation-top-task-link--docs).
-  You can also use a [regular link](/docs/components-navigation-link--docs).
+  Add a short text and optionally an image and metadata.
+- Use the Card Heading, Card Heading Group and Card Image subcomponents.
+  They apply the correct spacing.
+- Card Heading requires a `level`, because there is no sensible default.
+  Its visual size of `heading-4` can be overridden.
+- Place the text in a regular [Paragraph](/docs/components-text-paragraph--docs).
+  Use a small Paragraph for a publication date.
+- This component is not the best option if the target content does not represent an article-like page.
+  In that case, use a Heading, a Paragraph and a [Standalone Link](/docs/components-navigation-standalone-link--docs) instead.
 
 ### Screen readers
 
-With a screen reader, you can navigate using headings and links in a document.
-The title of a card is a link within a heading, allowing you to utilize both navigation methods.
+Screen reader users may navigate a page using headings and links.
+A Card works well in both approaches as its title carries a link.
 A screen reader reads the title first, followed by the rest of the content.
 
 ### Using links with routing libraries

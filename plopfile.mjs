@@ -35,7 +35,7 @@ export default function (plop) {
     actions: [
       {
         type: 'add',
-        path: 'proprietary/tokens/src/components/ams/{{kebabCase name}}.tokens.json',
+        path: 'packages-proprietary/tokens/src/components/ams/{{kebabCase name}}.tokens.json',
         templateFile: 'plop-templates/tokens.json.hbs',
       },
       {
@@ -52,7 +52,7 @@ export default function (plop) {
         type: 'append',
         path: 'packages/css/src/components/index.scss',
         pattern: `/* Append here */`,
-        template: `@use "./{{kebabCase name}}/{{kebabCase name}}";`,
+        template: `@use "{{kebabCase name}}/{{kebabCase name}}";`,
       },
       {
         type: 'add',

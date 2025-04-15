@@ -3,6 +3,8 @@
  * Copyright Gemeente Amsterdam
  */
 
+@use "../../common/breakpoint" as *;
+
 @mixin reset-dialog {
   inset-block: 0;
   padding-block: 0;
@@ -24,6 +26,11 @@ so do not apply these styles without an `open` attribute. */
 
   @include reset-dialog;
 
+  @media screen and (min-width: $ams-breakpoint-medium) {
+    inline-size: var(--ams-dialog-medium-inline-size);
+    max-block-size: var(--ams-dialog-medium-max-block-size);
+  }
+
   /*
    * The fallback value is for browsers where ::backdrop does not inherit from its originating element.
    * @see https://caniuse.com/mdn-css_selectors_backdrop_inherit_from_originating_element
@@ -40,6 +47,11 @@ so do not apply these styles without an `open` attribute. */
   justify-content: space-between;
   padding-block: var(--ams-dialog-header-padding-block);
   padding-inline: var(--ams-dialog-header-padding-inline);
+
+  @media screen and (min-width: $ams-breakpoint-medium) {
+    padding-block: var(--ams-dialog-header-medium-padding-block);
+    padding-inline: var(--ams-dialog-header-medium-padding-inline);
+  }
 }
 
 .ams-dialog__body {
@@ -47,9 +59,18 @@ so do not apply these styles without an `open` attribute. */
   overscroll-behavior-y: contain;
   padding-block: var(--ams-dialog-body-padding-block);
   padding-inline: var(--ams-dialog-body-padding-inline);
+
+  @media screen and (min-width: $ams-breakpoint-medium) {
+    padding-inline: var(--ams-dialog-body-medium-padding-inline);
+  }
 }
 
 .ams-dialog__footer {
   padding-block: var(--ams-dialog-footer-padding-block);
   padding-inline: var(--ams-dialog-footer-padding-inline);
+
+  @media screen and (min-width: $ams-breakpoint-medium) {
+    padding-block: var(--ams-dialog-footer-medium-padding-block);
+    padding-inline: var(--ams-dialog-footer-medium-padding-inline);
+  }
 }

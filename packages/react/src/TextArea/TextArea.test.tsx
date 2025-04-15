@@ -22,7 +22,7 @@ describe('Text area', () => {
     expect(component).toHaveClass('ams-text-area')
   })
 
-  it('renders an additional class name', () => {
+  it('renders an extra class name', () => {
     render(<TextArea className="extra" />)
 
     const component = screen.getByRole('textbox')

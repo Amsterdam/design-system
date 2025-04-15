@@ -5,8 +5,8 @@
   "packages": {
     "packages/css": {},
     "packages/react": {},
-    "proprietary/assets": {},
-    "proprietary/react-icons": {},
-    "proprietary/tokens": {}
+    "packages-proprietary/assets": {},
+    "packages-proprietary/react-icons": {},
+    "packages-proprietary/tokens": {}
   }
 }

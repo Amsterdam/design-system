@@ -21,7 +21,7 @@ describe('Error message', () => {
     expect(component).toHaveClass('ams-error-message')
   })
 
-  it('renders an additional class name', () => {
+  it('renders an extra class name', () => {
     render(<ErrorMessage className="extra" />)
 
     const component = screen.getByRole('paragraph')

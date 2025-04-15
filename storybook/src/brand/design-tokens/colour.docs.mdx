@@ -3,6 +3,7 @@
 import tokens from "@amsterdam/design-system-tokens/dist/index.json";
 import { Meta } from "@storybook/blocks";
 import { ColorPalette } from "../../docs/components/ColorPalette";
+import { InlineColorSample } from "../../styles/InlineColorSample";
 
 <Meta title="Brand/Design Tokens/Colour" />
 
@@ -131,3 +132,33 @@ This colour is used to separate components or space.
 | CSS variable                 | Colour     | Example                                                                                                     |
 | :--------------------------- | :--------- | :---------------------------------------------------------------------------------------------------------- |
 | `var(--ams-color-separator)` | neutral-20 | <div className="ams-docs-token-example--color" style={{ backgroundColor: 'var(--ams-color-separator)' }} /> |
+
+## Pairing foreground with background colours
+
+### White background
+
+Most of the background of our pages is white.
+Both body text and headers are black here, and all kinds of links are blue.
+
+- Text: `var(--ams-color-text)`
+- Links: `var(--ams-color-interactive)`
+
+Obviously, these colours are not always effective on other backgrounds.
+
+### Light background
+
+We consider <InlineColorSample color="lime" /> **lime**, <InlineColorSample color="orange" /> **orange** and <InlineColorSample color="yellow" /> **yellow** to be ‘light’ backgrounds.
+Black text still provides enough contrast here.
+Links on these backgrounds are black as well – this is the **‘contrast’** interactive colour.
+The underline and cursor still distinguish links from static text.
+
+- Text: `var(--ams-color-text)`
+- Links: `var(--ams-color-interactive-contrast)`
+
+### Dark background
+
+An <InlineColorSample color="azure" /> **azure**, <InlineColorSample color="blue" /> **blue**, <InlineColorSample color="green" /> **green**, <InlineColorSample color="magenta" /> **magenta**, <InlineColorSample color="purple" /> **purple** or <InlineColorSample color="red" /> **red** background is ‘dark’.
+On these, both text and links are white – the **‘inverse’** text and interactive colour.
+
+- Text: `var(--ams-color-text-inverse)`
+- Links: `var(--ams-color-interactive-inverse)`

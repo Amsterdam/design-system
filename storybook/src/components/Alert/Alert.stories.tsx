@@ -88,10 +88,7 @@ export const WithInlineLink: Story = {
     children: (
       <Paragraph>
         Aangepast op 30 april: de werkzaamheden lopen uit tot ten met 31 juli 2025.{' '}
-        <Link href="#" variant="inline">
-          Lees het nieuwsbericht
-        </Link>{' '}
-        voor meer informatie.
+        <Link href="#">Lees het nieuwsbericht</Link> voor meer informatie.
       </Paragraph>
     ),
     heading: 'De werkzaamheden duren langer',

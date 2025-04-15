@@ -33,20 +33,18 @@ describe('Blockquote', () => {
     expect(quote).toHaveClass('ams-blockquote')
   })
 
-  it('renders an additional class name', () => {
+  it('renders an extra class name', () => {
     const { container } = render(<Blockquote className="extra" />)
 
     const quote = container.querySelector(':only-child')
 
-    expect(quote).toHaveClass('extra')
-
-    expect(quote).toHaveClass('ams-blockquote')
+    expect(quote).toHaveClass('ams-blockquote extra')
   })
 
   it('renders the class name for inverse color', () => {
     const { container } = render(<Blockquote color="inverse" />)
 
-    const quote = container.querySelector('blockquote:only-child')
+    const quote = container.querySelector(':only-child')
 
     expect(quote).toHaveClass('ams-blockquote--inverse')
   })

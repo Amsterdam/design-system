@@ -33,7 +33,7 @@ describe('Column', () => {
     }),
   )
 
-  it('renders an additional class name', () => {
+  it('renders an extra class name', () => {
     const { container } = render(<Column className="extra" />)
 
     const component = container.querySelector(':only-child')

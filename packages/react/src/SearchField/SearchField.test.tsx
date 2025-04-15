@@ -47,14 +47,12 @@ describe('Search field', () => {
     expect(component).toHaveClass('ams-search-field')
   })
 
-  it('renders an additional class name', () => {
+  it('renders an extra class name', () => {
     render(<SearchField className="extra" />)
 
     const component = screen.getByRole('search')
 
-    expect(component).toHaveClass('extra')
-
-    expect(component).toHaveClass('ams-search-field')
+    expect(component).toHaveClass('ams-search-field extra')
   })
 
   it('supports ForwardRef in React', () => {
