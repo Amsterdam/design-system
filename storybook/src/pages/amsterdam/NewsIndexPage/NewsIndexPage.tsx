@@ -6,12 +6,12 @@ import {
   Grid,
   Heading,
   Image,
-  Link,
   PageHeading,
   Paragraph,
   Row,
   SearchField,
   Spotlight,
+  StandaloneLink,
 } from '@amsterdam/design-system-react'
 import { articles, formatDate, randomCategories, topArticles } from './content'
 
@@ -97,9 +97,9 @@ export const NewsIndexPage = () => [
           Schrijf u nu in voor de Nieuwsbrief Amsterdam en ontvang wekelijks nieuws, tips en mooie verhalen over de stad
           en uw stadsdeel.
         </Paragraph>
-        <Link color="inverse" href="#" variant="standalone">
+        <StandaloneLink color="inverse" href="#">
           Ik wil de nieuwsbrief
-        </Link>
+        </StandaloneLink>
       </Grid.Cell>
     </Grid>
   </Spotlight>,
