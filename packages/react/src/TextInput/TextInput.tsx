@@ -8,7 +8,6 @@ import { forwardRef } from 'react'
 import type { ForwardedRef, InputHTMLAttributes } from 'react'
 
 export const textInputTypes = ['email', 'tel', 'text', 'url'] as const
-
 type TextInputType = (typeof textInputTypes)[number]
 
 export type TextInputProps = {

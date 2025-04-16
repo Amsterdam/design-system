@@ -3,7 +3,7 @@
  * Copyright Gemeente Amsterdam
  */
 
-import { Image, Paragraph, Screen, Spotlight } from '@amsterdam/design-system-react'
+import { Image, Page, Paragraph, Spotlight } from '@amsterdam/design-system-react'
 import { Breakout } from '@amsterdam/design-system-react/src'
 import { Meta, StoryObj } from '@storybook/react'
 import { gridGapAndPaddingArgTypes } from '../../common'
@@ -14,9 +14,9 @@ const meta = {
   argTypes: gridGapAndPaddingArgTypes,
   decorators: [
     (Story) => (
-      <Screen>
+      <Page>
         <Story />
-      </Screen>
+      </Page>
     ),
   ],
 } satisfies Meta<typeof Breakout>
