@@ -11,9 +11,7 @@ import { gridGapAndPaddingArgTypes } from '../../common'
 const meta = {
   title: 'Components/Layout/Breakout',
   component: Breakout,
-  argTypes: {
-    ...gridGapAndPaddingArgTypes,
-  },
+  argTypes: gridGapAndPaddingArgTypes,
   decorators: [
     (Story) => (
       <Screen>
