@@ -1,7 +1,7 @@
 import { render } from '@testing-library/react'
 import { createRef } from 'react'
 import { Breakout } from './Breakout'
-import { gridGapSizes, gridPaddingSizes } from '../Grid/Grid'
+import { gridGaps, gridPaddings } from '../Grid/Grid'
 import '@testing-library/jest-dom'
 
 describe('Breakout', () => {
@@ -30,7 +30,7 @@ describe('Breakout', () => {
     expect(component).toHaveClass('ams-breakout extra')
   })
 
-  gridGapSizes.forEach((size) => {
+  gridGaps.forEach((size) => {
     it(`renders the correct class name for a ${size} vertical gap`, () => {
       const { container } = render(<Breakout gapVertical={size} />)
 
@@ -40,7 +40,7 @@ describe('Breakout', () => {
     })
   })
 
-  gridPaddingSizes.forEach((size) => {
+  gridPaddings.forEach((size) => {
     it(`renders the correct class name for a ${size} bottom padding`, () => {
       const { container } = render(<Breakout paddingBottom={size} />)
 
@@ -50,7 +50,7 @@ describe('Breakout', () => {
     })
   })
 
-  gridPaddingSizes.forEach((size) => {
+  gridPaddings.forEach((size) => {
     it(`renders the correct class name for a ${size} top padding`, () => {
       const { container } = render(<Breakout paddingTop={size} />)
 
@@ -60,7 +60,7 @@ describe('Breakout', () => {
     })
   })
 
-  gridPaddingSizes.forEach((size) => {
+  gridPaddings.forEach((size) => {
     it(`renders the correct class name for a ${size} vertical padding`, () => {
       const { container } = render(<Breakout paddingVertical={size} />)
 

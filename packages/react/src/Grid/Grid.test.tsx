@@ -1,6 +1,6 @@
 import { render, screen } from '@testing-library/react'
 import { createRef } from 'react'
-import { Grid, gridGapSizes, gridPaddingSizes, gridTags } from './Grid'
+import { Grid, gridGaps, gridPaddings, gridTags } from './Grid'
 import { ariaRoleForTag } from '../common/accessibility'
 import '@testing-library/jest-dom'
 
@@ -30,7 +30,7 @@ describe('Grid', () => {
     expect(component).toHaveClass('ams-grid extra')
   })
 
-  gridGapSizes.forEach((size) => {
+  gridGaps.forEach((size) => {
     it(`renders the correct class name for a ${size} vertical gap`, () => {
       const { container } = render(<Grid gapVertical={size} />)
 
@@ -40,7 +40,7 @@ describe('Grid', () => {
     })
   })
 
-  gridPaddingSizes.forEach((size) => {
+  gridPaddings.forEach((size) => {
     it(`renders the correct class name for a ${size} bottom padding`, () => {
       const { container } = render(<Grid paddingBottom={size} />)
 
@@ -50,7 +50,7 @@ describe('Grid', () => {
     })
   })
 
-  gridPaddingSizes.forEach((size) => {
+  gridPaddings.forEach((size) => {
     it(`renders the correct class name for a ${size} top padding`, () => {
       const { container } = render(<Grid paddingTop={size} />)
 
@@ -60,7 +60,7 @@ describe('Grid', () => {
     })
   })
 
-  gridPaddingSizes.forEach((size) => {
+  gridPaddings.forEach((size) => {
     it(`renders the correct class name for a ${size} vertical padding`, () => {
       const { container } = render(<Grid paddingVertical={size} />)
 
