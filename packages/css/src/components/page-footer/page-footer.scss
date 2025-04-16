@@ -3,6 +3,7 @@
  * Copyright Gemeente Amsterdam
  */
 
+@use "../../common/breakpoint" as *;
 @use "../../common/hyphenation" as *;
 @use "../../common/text-rendering" as *;
 
@@ -24,6 +25,14 @@
   row-gap: var(--ams-page-footer-menu-row-gap);
 
   @include reset-ul;
+
+  @media screen and (min-width: $ams-breakpoint-medium) {
+    padding-inline: var(--ams-page-footer-menu-medium-padding-inline);
+  }
+
+  @media screen and (min-width: $ams-breakpoint-wide) {
+    padding-inline: var(--ams-page-footer-menu-wide-padding-inline);
+  }
 }
 
 .ams-page-footer__menu-link {
