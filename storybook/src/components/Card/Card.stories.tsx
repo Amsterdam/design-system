@@ -87,7 +87,7 @@ export const TopTasks: Story = {
     layout: 'fullscreen',
   },
   render: () => (
-    <Grid paddingVertical="medium">
+    <Grid paddingVertical="x-large">
       <Grid.Cell span={{ narrow: 4, medium: 4, wide: 3 }}>
         <Card>
           <Card.Heading level={2}>

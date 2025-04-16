@@ -1,10 +1,8 @@
 import { render } from '@testing-library/react'
 import { createRef } from 'react'
 import { Breakout } from './Breakout'
-import type { GridPaddingSize } from '../Grid/Grid'
+import { gridGaps, gridPaddings } from '../Grid/Grid'
 import '@testing-library/jest-dom'
-
-const paddingSizes = ['small', 'medium', 'large']
 
 describe('Breakout', () => {
   it('renders', () => {
@@ -32,33 +30,19 @@ describe('Breakout', () => {
     expect(component).toHaveClass('ams-breakout extra')
   })
 
-  it('renders the correct class name for a zero gap', () => {
-    const { container } = render(<Breakout gapVertical="none" />)
+  gridGaps.forEach((size) => {
+    it(`renders the correct class name for a ${size} vertical gap`, () => {
+      const { container } = render(<Breakout gapVertical={size} />)
 
-    const component = container.querySelector(':only-child')
+      const component = container.querySelector(':only-child')
 
-    expect(component).toHaveClass('ams-breakout--gap-vertical--none')
+      expect(component).toHaveClass(`ams-breakout--gap-vertical--${size}`)
+    })
   })
 
-  it(`renders the correct class name for a small gap`, () => {
-    const { container } = render(<Breakout gapVertical="small" />)
-
-    const component = container.querySelector(':only-child')
-
-    expect(component).toHaveClass('ams-breakout--gap-vertical--small')
-  })
-
-  it(`renders the correct class name for a large gap`, () => {
-    const { container } = render(<Breakout gapVertical="large" />)
-
-    const component = container.querySelector(':only-child')
-
-    expect(component).toHaveClass('ams-breakout--gap-vertical--large')
-  })
-
-  paddingSizes.forEach((size) => {
+  gridPaddings.forEach((size) => {
     it(`renders the correct class name for a ${size} bottom padding`, () => {
-      const { container } = render(<Breakout paddingBottom={size as GridPaddingSize} />)
+      const { container } = render(<Breakout paddingBottom={size} />)
 
       const component = container.querySelector(':only-child')
 
@@ -66,9 +50,9 @@ describe('Breakout', () => {
     })
   })
 
-  paddingSizes.forEach((size) => {
+  gridPaddings.forEach((size) => {
     it(`renders the correct class name for a ${size} top padding`, () => {
-      const { container } = render(<Breakout paddingTop={size as GridPaddingSize} />)
+      const { container } = render(<Breakout paddingTop={size} />)
 
       const component = container.querySelector(':only-child')
 
@@ -76,9 +60,9 @@ describe('Breakout', () => {
     })
   })
 
-  paddingSizes.forEach((size) => {
+  gridPaddings.forEach((size) => {
     it(`renders the correct class name for a ${size} vertical padding`, () => {
-      const { container } = render(<Breakout paddingVertical={size as GridPaddingSize} />)
+      const { container } = render(<Breakout paddingVertical={size} />)
 
       const component = container.querySelector(':only-child')
 
