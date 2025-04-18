@@ -29,7 +29,10 @@ const AccordionRoot = forwardRef(
     // use a passed ref if it's there, otherwise use innerRef
     useImperativeHandle(ref, () => innerRef.current as HTMLDivElement)
 
-    const { keyDown } = useKeyboardFocus(innerRef, { rotating: true })
+    const { keyDown } = useKeyboardFocus(innerRef, {
+      focusableElements: ['.ams-accordion__button:not([disabled])'],
+      rotating: true,
+    })
 
     return (
       <AccordionContext.Provider value={{ headingLevel: headingLevel, sectionAs: sectionAs }}>

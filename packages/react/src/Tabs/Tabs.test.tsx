@@ -163,4 +163,39 @@ describe('Tabs', () => {
     expect(lastTab).toHaveAttribute('tabindex', '-1')
     expect(screen.getByRole('tabpanel')).toHaveTextContent('Content 1')
   })
+
+  it('sets focus on Tabs buttons when using arrow keys', async () => {
+    const user = userEvent.setup()
+
+    render(
+      <Tabs>
+        <Tabs.List>
+          <Tabs.Button tab="one">Tab 1</Tabs.Button>
+          <Tabs.Button tab="two">Tab 2</Tabs.Button>
+          <Tabs.Button tab="three">Tab 3</Tabs.Button>
+        </Tabs.List>
+        <Tabs.Panel tab="one" />
+        <Tabs.Panel tab="two" />
+        <Tabs.Panel tab="three" />
+      </Tabs>,
+    )
+
+    const firstButton = screen.getByRole('tab', { name: 'Tab 1' })
+    const thirdButton = screen.getByRole('tab', { name: 'Tab 3' })
+
+    await user.click(firstButton)
+
+    expect(firstButton).toHaveFocus()
+
+    // Click the right arrow key twice
+    await user.keyboard('{ArrowRight}')
+    await user.keyboard('{ArrowRight}')
+
+    expect(thirdButton).toHaveFocus()
+    expect(firstButton).not.toHaveFocus()
+
+    await user.keyboard('{ArrowRight}')
+
+    expect(firstButton).toHaveFocus()
+  })
 })
