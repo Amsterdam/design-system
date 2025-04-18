@@ -7,12 +7,12 @@ import {
   Grid,
   Heading,
   Image,
-  Link,
   LinkList,
   PageHeading,
   Paragraph,
   SearchField,
   Spotlight,
+  StandaloneLink,
 } from '@amsterdam/design-system-react'
 import {
   CameraIcon,
@@ -25,7 +25,7 @@ import { Meta, StoryObj } from '@storybook/react'
 import { LinkGroupGridCells } from './LinkGroupGridCells'
 import { NavigationPage } from './NavigationPage'
 import { burgerzakenLinks, parkerenLinks } from './links'
-import { exampleHeading, exampleParagraph } from '../../../components/shared/exampleContent'
+import { exampleHeading, exampleParagraph, exampleStandaloneLine } from '../../../components/shared/exampleContent'
 import { commonMeta } from '../common/config'
 
 const meta = {
@@ -121,36 +121,28 @@ export const SubnavigationPage: StoryObj = {
               {exampleHeading()}
             </Heading>
             <Paragraph className="ams-mb-s">{exampleParagraph()}</Paragraph>
-            <Link href="#" variant="standalone">
-              Rijbewijs aanvragen
-            </Link>
+            <StandaloneLink href="#">{exampleStandaloneLine()}</StandaloneLink>
           </Grid.Cell>
           <Grid.Cell span={{ narrow: 4, medium: 4, wide: 5 }}>
             <Heading className="ams-mb-s" level={2} size="level-4">
               {exampleHeading()}
             </Heading>
             <Paragraph className="ams-mb-s">{exampleParagraph()}</Paragraph>
-            <Link href="#" variant="standalone">
-              Rijbewijs aanvragen
-            </Link>
+            <StandaloneLink href="#">{exampleStandaloneLine()}</StandaloneLink>
           </Grid.Cell>
           <Grid.Cell span={{ narrow: 4, medium: 4, wide: 5 }} start={{ narrow: 1, medium: 1, wide: 2 }}>
             <Heading className="ams-mb-s" level={2} size="level-4">
               {exampleHeading()}
             </Heading>
             <Paragraph className="ams-mb-s">{exampleParagraph()}</Paragraph>
-            <Link href="#" variant="standalone">
-              Rijbewijs aanvragen
-            </Link>
+            <StandaloneLink href="#">{exampleStandaloneLine()}</StandaloneLink>
           </Grid.Cell>
           <Grid.Cell span={{ narrow: 4, medium: 4, wide: 5 }}>
             <Heading className="ams-mb-s" level={2} size="level-4">
               {exampleHeading()}
             </Heading>
             <Paragraph className="ams-mb-s">{exampleParagraph()}</Paragraph>
-            <Link href="#" variant="standalone">
-              Rijbewijs aanvragen
-            </Link>
+            <StandaloneLink href="#">{exampleStandaloneLine()}</StandaloneLink>
           </Grid.Cell>
         </Grid>
         <Spotlight color="magenta">
@@ -193,9 +185,9 @@ export const SubnavigationPage: StoryObj = {
                 Schrijf u nu in voor de Nieuwsbrief Amsterdam en ontvang wekelijks nieuws, tips en mooie verhalen over
                 de stad en uw stadsdeel.
               </Paragraph>
-              <Link color="inverse" href="#" variant="standalone">
+              <StandaloneLink color="inverse" href="#">
                 Ik wil de nieuwsbrief
-              </Link>
+              </StandaloneLink>
             </Grid.Cell>
             <Grid.Cell span={{ narrow: 4, medium: 3, wide: 4 }}>
               <Heading className="ams-mb-s" color="inverse" level={4}>
