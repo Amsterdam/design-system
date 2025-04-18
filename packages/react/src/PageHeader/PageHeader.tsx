@@ -101,7 +101,6 @@ const PageHeaderRoot = forwardRef(
                   )}
                 >
                   <button
-                    {...restProps}
                     aria-controls="ams-page-header-mega-menu"
                     aria-expanded={open}
                     className="ams-page-header__mega-menu-button"

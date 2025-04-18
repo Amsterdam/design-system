@@ -18,7 +18,7 @@ export const TabsList = forwardRef(
     useImperativeHandle(ref, () => innerRef.current as HTMLDivElement)
 
     const { keyDown } = useKeyboardFocus(innerRef, {
-      focusableElements: ['button[role="tab"]'],
+      focusableElements: ['.ams-tabs__button:not([disabled])'],
       horizontally: true,
       rotating: true,
     })
