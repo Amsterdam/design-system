@@ -6,10 +6,12 @@
 import { Image, Page, Paragraph, Spotlight } from '@amsterdam/design-system-react'
 import { Breakout } from '@amsterdam/design-system-react/src'
 import { Meta, StoryObj } from '@storybook/react'
+import { gridGapAndPaddingArgTypes } from '../../common'
 
 const meta = {
   title: 'Components/Layout/Breakout',
   component: Breakout,
+  argTypes: gridGapAndPaddingArgTypes,
   decorators: [
     (Story) => (
       <Page>
