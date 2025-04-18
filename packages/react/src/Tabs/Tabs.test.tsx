@@ -170,13 +170,13 @@ describe('Tabs', () => {
     render(
       <Tabs>
         <Tabs.List>
-          <Tabs.Button tab="one">Tab 1</Tabs.Button>
-          <Tabs.Button tab="two">Tab 2</Tabs.Button>
-          <Tabs.Button tab="three">Tab 3</Tabs.Button>
+          <Tabs.Button aria-controls="one">Tab 1</Tabs.Button>
+          <Tabs.Button aria-controls="two">Tab 2</Tabs.Button>
+          <Tabs.Button aria-controls="three">Tab 3</Tabs.Button>
         </Tabs.List>
-        <Tabs.Panel tab="one" />
-        <Tabs.Panel tab="two" />
-        <Tabs.Panel tab="three" />
+        <Tabs.Panel id="one" />
+        <Tabs.Panel id="two" />
+        <Tabs.Panel id="three" />
       </Tabs>,
     )
 
