@@ -1,8 +1,8 @@
-import { fireEvent, render, screen } from '@testing-library/react'
+import { render, screen } from '@testing-library/react'
+import userEvent from '@testing-library/user-event'
 import { createRef } from 'react'
 import { Accordion } from './Accordion'
 import '@testing-library/jest-dom'
-import { KeyboardKeys } from '../common/useKeyboardFocus'
 
 describe('Accordion', () => {
   it('renders an accordion', () => {
@@ -22,8 +22,10 @@ describe('Accordion', () => {
     expect(accordion).toHaveClass('test')
   })
 
-  it('sets focus on Accordion buttons when using arrow keys', () => {
-    const { container } = render(
+  it('sets focus on Accordion buttons when using arrow keys', async () => {
+    const user = userEvent.setup()
+
+    render(
       <Accordion headingLevel={1}>
         <Accordion.Section label="one" />
         <Accordion.Section label="two" />
@@ -31,24 +33,23 @@ describe('Accordion', () => {
       </Accordion>,
     )
 
-    const firstChild = container.firstChild as HTMLElement
     const firstButton = screen.getByRole('button', { name: 'one' })
     const thirdButton = screen.getByRole('button', { name: 'three' })
 
-    fireEvent.keyDown(firstChild, {
-      key: KeyboardKeys.ArrowDown,
-    })
+    await user.click(firstButton)
 
     expect(firstButton).toHaveFocus()
 
-    Array.from(Array(2).keys()).forEach(() => {
-      fireEvent.keyDown(firstChild, {
-        key: KeyboardKeys.ArrowDown,
-      })
-    })
+    // Click the down arrow key twice
+    await user.keyboard('{ArrowDown}')
+    await user.keyboard('{ArrowDown}')
 
     expect(thirdButton).toHaveFocus()
     expect(firstButton).not.toHaveFocus()
+
+    await user.keyboard('{ArrowDown}')
+
+    expect(firstButton).toHaveFocus()
   })
 
   it('supports ForwardRef in React', () => {
