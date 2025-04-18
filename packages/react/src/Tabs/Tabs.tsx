@@ -40,7 +40,7 @@ const TabsRoot = forwardRef(
           updateTab(activeTab)
         }
       }
-    }, [innerRef])
+    }, [activeTab, innerRef])
 
     const updateTab = (tab: string) => {
       setActiveTabId(tab)
