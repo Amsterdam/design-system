@@ -91,6 +91,45 @@ describe('Tabs', () => {
     expect(screen.getByRole('tabpanel')).toHaveTextContent('Content 2')
   })
 
+  it('should remember tab after rerender', async () => {
+    const user = userEvent.setup()
+
+    const { rerender } = render(
+      <Tabs>
+        <Tabs.List>
+          <Tabs.Button tab="one">Tab 1</Tabs.Button>
+          <Tabs.Button tab="two">Tab 2</Tabs.Button>
+        </Tabs.List>
+        <Tabs.Panel tab="one">Content 1</Tabs.Panel>
+        <Tabs.Panel tab="two">Content 2</Tabs.Panel>
+      </Tabs>,
+    )
+
+    const tabOne = screen.getByRole('tab', { name: 'Tab 1' })
+    const tabTwo = screen.getByRole('tab', { name: 'Tab 2' })
+
+    if (tabTwo) {
+      await user.click(tabTwo)
+    }
+
+    rerender(
+      <Tabs>
+        <Tabs.List>
+          <Tabs.Button tab="one">Tab 1</Tabs.Button>
+          <Tabs.Button tab="two">Tab 2</Tabs.Button>
+        </Tabs.List>
+        <Tabs.Panel tab="one">Content 1</Tabs.Panel>
+        <Tabs.Panel tab="two">Content 2</Tabs.Panel>
+      </Tabs>,
+    )
+
+    expect(tabOne).toHaveAttribute('aria-selected', 'false')
+    expect(tabOne).toHaveAttribute('tabindex', '-1')
+    expect(tabTwo).toHaveAttribute('aria-selected', 'true')
+    expect(tabTwo).toHaveAttribute('tabindex', '0')
+    expect(screen.getByRole('tabpanel')).toHaveTextContent('Content 2')
+  })
+
   it('calls onTabChange with the newly activated tab', async () => {
     const user = userEvent.setup()
 
