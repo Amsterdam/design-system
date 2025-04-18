@@ -6,6 +6,12 @@
         "padding-block": { "value": "{ams.space.l}" },
         "padding-inline": { "value": "{ams.grid.padding-inline}" },
         "row-gap": { "value": "{ams.space.xs}" },
+        "medium": {
+          "padding-inline": { "value": "{ams.grid.medium.padding-inline}" }
+        },
+        "wide": {
+          "padding-inline": { "value": "{ams.grid.wide.padding-inline}" }
+        },
         "link": {
           "color": { "value": "{ams.links.color}" },
           "font-family": { "value": "{ams.typography.font-family}" },

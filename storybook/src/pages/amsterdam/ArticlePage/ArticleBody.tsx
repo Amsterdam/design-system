@@ -14,7 +14,7 @@ type ArticleBodyProps = Pick<ArticlePageProps, 'lead' | 'paragraph1' | 'spotligh
 
 export const ArticleBody = ({ lead, paragraph1, spotlightHeading, spotlightLinkLabel }: ArticleBodyProps) => (
   <>
-    <Grid paddingVertical="medium">
+    <Grid paddingVertical="x-large">
       <Grid.Cell span={{ narrow: 4, medium: 8, wide: 10 }} start={{ narrow: 1, medium: 1, wide: 2 }}>
         <Paragraph className="ams-mb-m" size="large">
           {lead}
@@ -23,7 +23,7 @@ export const ArticleBody = ({ lead, paragraph1, spotlightHeading, spotlightLinkL
       </Grid.Cell>
     </Grid>
     <Spotlight as="section">
-      <Grid paddingBottom="large" paddingTop="medium">
+      <Grid paddingBottom="2x-large" paddingTop="x-large">
         <Grid.Cell span={{ narrow: 4, medium: 6, wide: 8 }} start={{ narrow: 1, medium: 2, wide: 3 }}>
           <Column gap="small">
             <Heading color="inverse" level={2}>
@@ -54,7 +54,7 @@ export const ArticleBody = ({ lead, paragraph1, spotlightHeading, spotlightLinkL
         </Grid.Cell>
       </Grid>
     </Spotlight>
-    <Grid paddingVertical="medium">
+    <Grid paddingVertical="x-large">
       <Grid.Cell span={{ narrow: 4, medium: 8, wide: 10 }} start={{ narrow: 1, medium: 1, wide: 2 }}>
         <Column>
           <section>
