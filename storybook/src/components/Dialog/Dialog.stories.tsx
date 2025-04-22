@@ -10,6 +10,41 @@ import { Meta, StoryObj } from '@storybook/react'
 const meta = {
   title: 'Components/Containers/Dialog',
   component: Dialog,
+  argTypes: {
+    footer: {
+      table: { disable: true },
+    },
+    heading: {
+      description: 'The text for the heading.',
+    },
+    open: {
+      description: 'Whether the dialog box is active and available for interaction.',
+    },
+  },
+  decorators: [
+    (Story, { args }) => (
+      <>
+        <Button onClick={() => Dialog.open(`#${args.id}`)}>Open</Button>
+        <Story />
+      </>
+    ),
+  ],
+} satisfies Meta<typeof Dialog>
+
+export default meta
+
+type Story = StoryObj<typeof meta>
+
+export const Default: Story = {
+  args: {
+    children: <Paragraph>U ontvangt een bevestiging per e-mail.</Paragraph>,
+    footer: <Button onClick={Dialog.close}>Sluiten</Button>,
+    heading: 'De gegevens zijn opgeslagen',
+    id: 'ams-dialog-default',
+  },
+}
+
+export const Confirmation: Story = {
   args: {
     children: (
       <form id="ams-dialog-form" method="dialog">
@@ -30,34 +65,6 @@ const meta = {
       </ActionGroup>
     ),
     heading: 'Niet alle gegevens zijn opgeslagen',
+    id: 'ams-dialog-asking-to-confirm',
   },
-  argTypes: {
-    footer: {
-      table: { disable: true },
-    },
-    heading: {
-      description: 'The text for the heading.',
-    },
-    open: {
-      description: 'Whether the dialog box is active and available for interaction.',
-    },
-  },
-} satisfies Meta<typeof Dialog>
-
-export default meta
-
-type Story = StoryObj<typeof meta>
-
-export const Default: Story = {
-  args: {
-    id: 'ams-dialog',
-  },
-  decorators: [
-    (Story) => (
-      <>
-        <Button onClick={() => Dialog.open('#ams-dialog')}>Open dialoog</Button>
-        <Story />
-      </>
-    ),
-  ],
 }
