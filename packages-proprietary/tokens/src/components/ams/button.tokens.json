@@ -32,17 +32,14 @@
       "secondary": {
         "background-color": { "value": "{ams.color.background}" },
         "color": { "value": "{ams.color.interactive.default}" },
-        "border-color": { "value": "{ams.color.interactive.default}" },
         "border-style": { "value": "solid" },
         "border-width": { "value": "{ams.border.width.m}" },
         "hover": {
-          "border-color": { "value": "{ams.color.interactive.hover}" },
           "box-shadow": { "value": "inset 0 0 0 {ams.border.width.s} {ams.color.interactive.hover}" },
           "color": { "value": "{ams.color.interactive.hover}" }
         },
         "disabled": {
           "background-color": { "value": "{ams.color.background}" },
-          "border-color": { "value": "{ams.color.interactive.disabled}" },
           "color": { "value": "{ams.color.interactive.disabled}" }
         }
       },
@@ -53,7 +50,6 @@
         "border-width": { "value": "{ams.border.width.m}" },
         "color": { "value": "{ams.color.interactive.default}" },
         "hover": {
-          "border-color": { "value": "{ams.color.interactive.hover}" },
           "box-shadow": { "value": "inset 0 0 0 {ams.border.width.s} {ams.color.interactive.hover}" },
           "color": { "value": "{ams.color.interactive.hover}" }
         },
