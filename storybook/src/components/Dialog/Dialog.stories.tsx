@@ -5,6 +5,7 @@
 
 import { ActionGroup, Button, Paragraph } from '@amsterdam/design-system-react'
 import { Dialog } from '@amsterdam/design-system-react/src'
+import { action } from '@storybook/addon-actions'
 import { Meta, StoryObj } from '@storybook/react'
 
 const meta = {
@@ -24,7 +25,14 @@ const meta = {
   decorators: [
     (Story, { args }) => (
       <>
-        <Button onClick={() => Dialog.open(`#${args.id}`)}>Open</Button>
+        <Button
+          onClick={() => {
+            action('open')()
+            Dialog.open(`#${args.id}`)
+          }}
+        >
+          Open
+        </Button>
         <Story />
       </>
     ),
@@ -38,7 +46,16 @@ type Story = StoryObj<typeof meta>
 export const Default: Story = {
   args: {
     children: <Paragraph>U ontvangt een bevestiging per e-mail.</Paragraph>,
-    footer: <Button onClick={Dialog.close}>Sluiten</Button>,
+    footer: (
+      <Button
+        onClick={(event) => {
+          action('close')()
+          return Dialog.close(event)
+        }}
+      >
+        Sluiten
+      </Button>
+    ),
     heading: 'De gegevens zijn opgeslagen',
     id: 'ams-dialog-default',
   },
@@ -56,10 +73,16 @@ export const Confirmation: Story = {
     ),
     footer: (
       <ActionGroup>
-        <Button form="ams-dialog-form" type="submit" value="submit">
+        <Button form="ams-dialog-form" onClick={action('continue')} type="submit" value="submit">
           Doorgaan
         </Button>
-        <Button onClick={Dialog.close} variant="tertiary">
+        <Button
+          onClick={(event) => {
+            action('cancel')()
+            return Dialog.close(event)
+          }}
+          variant="tertiary"
+        >
           Stoppen
         </Button>
       </ActionGroup>
