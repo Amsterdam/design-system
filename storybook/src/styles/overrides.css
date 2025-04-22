@@ -119,6 +119,16 @@
   cursor: not-allowed;
 }
 
+/* Create positioning context, e.g. for grid background. */
+#storybook-root .ams-page,
+.sb-story .ams-page {
+  position: relative;
+}
+
+.sb-story .ams-page {
+  min-block-size: initial;
+}
+
 /* Override to make sure the default transparent border isn't shown in forced colors mode. */
 .innerZoomElementWrapper.innerZoomElementWrapper > div {
   @media (forced-colors: active) {

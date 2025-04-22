@@ -1,10 +1,10 @@
-import type { GridPaddingSize } from './Grid'
+import type { GridPadding } from './Grid'
 
 export const paddingClasses = (
   componentName: string,
-  paddingBottom?: GridPaddingSize,
-  paddingTop?: GridPaddingSize,
-  paddingVertical?: GridPaddingSize,
+  paddingBottom?: GridPadding,
+  paddingTop?: GridPadding,
+  paddingVertical?: GridPadding,
 ): string[] => {
   const classes: string[] = []
 

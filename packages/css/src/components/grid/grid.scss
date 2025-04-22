@@ -18,50 +18,50 @@ $ams-grid-column-count: 12;
   @include ams-grid--gap-vertical--none;
 }
 
-.ams-grid--gap-vertical--small {
-  @include ams-grid--gap-vertical--small;
-}
-
 .ams-grid--gap-vertical--large {
   @include ams-grid--gap-vertical--large;
 }
 
+.ams-grid--gap-vertical--2x-large {
+  @include ams-grid--gap-vertical--2x-large;
+}
+
 // Grid padding
-
-.ams-grid--padding-bottom--small {
-  @include ams-grid--padding-bottom--small;
-}
-
-.ams-grid--padding-bottom--medium {
-  @include ams-grid--padding-bottom--medium;
-}
 
 .ams-grid--padding-bottom--large {
   @include ams-grid--padding-bottom--large;
 }
 
-.ams-grid--padding-top--small {
-  @include ams-grid--padding-top--small;
+.ams-grid--padding-bottom--x-large {
+  @include ams-grid--padding-bottom--x-large;
 }
 
-.ams-grid--padding-top--medium {
-  @include ams-grid--padding-top--medium;
+.ams-grid--padding-bottom--2x-large {
+  @include ams-grid--padding-bottom--2x-large;
 }
 
 .ams-grid--padding-top--large {
   @include ams-grid--padding-top--large;
 }
 
-.ams-grid--padding-vertical--small {
-  @include ams-grid--padding-vertical--small;
+.ams-grid--padding-top--x-large {
+  @include ams-grid--padding-top--x-large;
 }
 
-.ams-grid--padding-vertical--medium {
-  @include ams-grid--padding-vertical--medium;
+.ams-grid--padding-top--2x-large {
+  @include ams-grid--padding-top--2x-large;
 }
 
 .ams-grid--padding-vertical--large {
   @include ams-grid--padding-vertical--large;
+}
+
+.ams-grid--padding-vertical--x-large {
+  @include ams-grid--padding-vertical--x-large;
+}
+
+.ams-grid--padding-vertical--2x-large {
+  @include ams-grid--padding-vertical--2x-large;
 }
 
 // Column span
