@@ -1,7 +1,7 @@
 import { Card, Grid, Heading, Paragraph } from '@amsterdam/design-system-react'
 
 export const HomeTopTasks = () => (
-  <Grid paddingVertical="medium">
+  <Grid paddingVertical="x-large">
     <Grid.Cell span="all">
       <Heading level={1}>Belangrijkste onderwerpen</Heading>
     </Grid.Cell>

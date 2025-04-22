@@ -46,13 +46,13 @@
     "@storybook/react-vite": "8.6.12",
     "@storybook/theming": "8.6.12",
     "@types/react": "18.3.20",
-    "@vitejs/plugin-react": "4.3.4",
+    "@vitejs/plugin-react": "4.4.1",
     "@whitespace/storybook-addon-html": "6.1.1",
     "react": "18.3.1",
     "react-dom": "18.3.1",
     "remark-gfm": "4.0.1",
     "require-from-string": "2.0.2",
     "storybook": "8.6.12",
-    "vite": "6.2.5"
+    "vite": "6.3.2"
   }
 }
