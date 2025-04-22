@@ -30,11 +30,7 @@
 .ams-switch__label::before {
   background-color: var(--ams-switch-thumb-background-color);
   block-size: var(--ams-switch-thumb-block-size);
-  border-color: var(--ams-switch-thumb-border-color);
   border-radius: 50%;
-  border-style: var(--ams-switch-thumb-border-style);
-  border-width: var(--ams-switch-thumb-border-width);
-  box-sizing: border-box;
   content: "";
   display: block;
   inline-size: var(--ams-switch-thumb-inline-size);
@@ -61,6 +57,5 @@
 }
 
 .ams-switch:hover .ams-switch__input:enabled + .ams-switch__label::before {
-  border-color: var(--ams-switch-thumb-hover-border-color);
   box-shadow: var(--ams-switch-thumb-hover-box-shadow);
 }

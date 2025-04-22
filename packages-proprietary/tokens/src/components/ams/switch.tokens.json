@@ -8,13 +8,9 @@
       "thumb": {
         "background-color": { "value": "{ams.color.background}" },
         "block-size": { "value": "1.75rem" },
-        "border-color": { "value": "transparent" },
-        "border-style": { "value": "solid" },
-        "border-width": { "value": "{ams.border.width.s}" },
         "inline-size": { "value": "1.75rem" },
         "hover": {
-          "border-color": { "value": "{ams.switch.thumb.hover.color}" },
-          "box-shadow": { "value": "0 0 0 {ams.border.width.s} {ams.switch.thumb.hover.color}" },
+          "box-shadow": { "value": "0 0 0 {ams.border.width.m} {ams.switch.thumb.hover.color}" },
           "color": { "value": "{ams.color.interactive.hover}" }
         }
       },
