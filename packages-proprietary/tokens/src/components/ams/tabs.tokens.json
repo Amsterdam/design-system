@@ -16,7 +16,6 @@
         "padding-block": { "value": "{ams.space.s}" },
         "padding-inline": { "value": "{ams.space.m}" },
         "hover": {
-          "border": { "value": "calc({ams.border.width.m} * -1) solid" },
           "box-shadow": { "value": "inset 0 calc({ams.border.width.m} * -1)" },
           "color": { "value": "{ams.color.interactive.hover}" }
         },
