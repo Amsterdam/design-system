@@ -3,7 +3,9 @@
     "avatar": {
       "aspect-ratio": { "value": "{ams.aspect-ratio.1-1}" },
       "background-color": { "value": "{ams.color.highlight.purple}" },
-      "border": { "value": "{ams.border.width.m} solid {ams.color.highlight.purple}" },
+      "border-color": { "value": "{ams.color.highlight.purple}" },
+      "border-style": { "value": "solid" },
+      "border-width": { "value": "{ams.border.width.m}" },
       "color": { "value": "{ams.color.text.inverse}" },
       "font-family": { "value": "{ams.typography.font-family}" },
       "font-size": { "value": "{ams.typography.body-text.small.font-size}" },
@@ -16,32 +18,32 @@
       },
       "azure": {
         "background-color": { "value": "{ams.color.highlight.azure}" },
-        "border": { "value": "{ams.border.width.m} solid {ams.color.highlight.azure}" },
+        "border-color": { "value": "{ams.color.highlight.azure}" },
         "color": { "value": "{ams.color.text.inverse}" }
       },
       "green": {
         "background-color": { "value": "{ams.color.highlight.green}" },
-        "border": { "value": "{ams.border.width.m} solid {ams.color.highlight.green}" },
+        "border-color": { "value": "{ams.color.highlight.green}" },
         "color": { "value": "{ams.color.text.inverse}" }
       },
       "lime": {
         "background-color": { "value": "{ams.color.highlight.lime}" },
-        "border": { "value": "{ams.border.width.m} solid {ams.color.highlight.lime}" },
+        "border-color": { "value": "{ams.color.highlight.lime}" },
         "color": { "value": "{ams.color.text.default}" }
       },
       "magenta": {
         "background-color": { "value": "{ams.color.highlight.magenta}" },
-        "border": { "value": "{ams.border.width.m} solid {ams.color.highlight.magenta}" },
+        "border-color": { "value": "{ams.color.highlight.magenta}" },
         "color": { "value": "{ams.color.text.inverse}" }
       },
       "orange": {
         "background-color": { "value": "{ams.color.highlight.orange}" },
-        "border": { "value": "{ams.border.width.m} solid {ams.color.highlight.orange}" },
+        "border-color": { "value": "{ams.color.highlight.orange}" },
         "color": { "value": "{ams.color.text.default}" }
       },
       "yellow": {
         "background-color": { "value": "{ams.color.highlight.yellow}" },
-        "border": { "value": "{ams.border.width.m} solid {ams.color.highlight.yellow}" },
+        "border-color": { "value": "{ams.color.highlight.yellow}" },
         "color": { "value": "{ams.color.text.default}" }
       }
     }

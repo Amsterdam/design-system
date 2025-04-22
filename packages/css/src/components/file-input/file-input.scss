@@ -11,7 +11,9 @@
 
 .ams-file-input {
   background-color: var(--ams-file-input-background-color);
-  border: var(--ams-file-input-border);
+  border-color: var(--ams-file-input-border-color);
+  border-style: var(--ams-file-input-border-style);
+  border-width: var(--ams-file-input-border-width);
   box-sizing: border-box;
   color: var(--ams-file-input-color);
   cursor: var(--ams-file-input-cursor);
@@ -37,7 +39,9 @@
   -webkit-appearance: none; // Reset appearance for Safari < 15.4
   appearance: none; // Reset native appearance, this causes issues on iOS and Android devices
   background-color: var(--ams-file-input-file-selector-button-background-color);
-  border: var(--ams-file-input-file-selector-button-border);
+  border-color: var(--ams-file-input-file-selector-button-border-color);
+  border-style: var(--ams-file-input-file-selector-button-border-style);
+  border-width: var(--ams-file-input-file-selector-button-border-width);
   box-sizing: border-box;
   color: var(--ams-file-input-file-selector-button-color);
   cursor: var(--ams-file-input-file-selector-button-cursor);
@@ -52,13 +56,13 @@
 }
 
 .ams-file-input:disabled::file-selector-button {
-  border: var(--ams-file-input-file-selector-button-disabled-border);
+  border-color: var(--ams-file-input-file-selector-button-disabled-border-color);
   color: var(--ams-file-input-disabled-color);
   cursor: var(--ams-file-input-file-selector-button-disabled-cursor);
 }
 
 .ams-file-input:not(:disabled):hover::file-selector-button {
-  border: var(--ams-file-input-file-selector-button-hover-border);
+  border-color: var(--ams-file-input-file-selector-button-hover-border-color);
   box-shadow: var(--ams-file-input-file-selector-button-hover-box-shadow);
   color: var(--ams-file-input-file-selector-button-hover-color);
 }

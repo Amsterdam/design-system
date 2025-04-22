@@ -14,7 +14,9 @@
 
 .ams-text-input {
   background-color: var(--ams-text-input-background-color);
-  border: var(--ams-text-input-border);
+  border-color: var(--ams-text-input-border-color);
+  border-style: var(--ams-text-input-border-style);
+  border-width: var(--ams-text-input-border-width);
   box-sizing: border-box;
   color: var(--ams-text-input-color);
   font-family: var(--ams-text-input-font-family);
@@ -31,7 +33,7 @@
   @include reset-input;
 
   &:hover {
-    border: var(--ams-text-input-hover-border);
+    border-color: var(--ams-text-input-hover-border-color);
     box-shadow: var(--ams-text-input-hover-box-shadow);
   }
 }
@@ -43,17 +45,17 @@
 
 .ams-text-input:disabled {
   background-color: var(--ams-text-input-disabled-background-color);
-  border: var(--ams-text-input-disabled-border);
+  border-color: var(--ams-text-input-disabled-border-color);
   color: var(--ams-text-input-disabled-color);
   cursor: var(--ams-text-input-disabled-cursor);
 }
 
 .ams-text-input:invalid,
 .ams-text-input[aria-invalid="true"] {
-  border: var(--ams-text-input-invalid-border);
+  border-color: var(--ams-text-input-invalid-border-color);
 
   &:hover {
-    border: var(--ams-text-input-invalid-hover-border);
+    border-color: var(--ams-text-input-invalid-hover-border-color);
     box-shadow: var(--ams-text-input-invalid-hover-box-shadow);
   }
 }

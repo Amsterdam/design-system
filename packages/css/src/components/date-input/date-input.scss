@@ -14,7 +14,9 @@
 
 .ams-date-input {
   background-color: var(--ams-date-input-background-color);
-  border: var(--ams-date-input-border);
+  border-color: var(--ams-date-input-border-color);
+  border-style: var(--ams-date-input-border-style);
+  border-width: var(--ams-date-input-border-width);
   box-sizing: border-box;
   color: var(--ams-date-input-color);
   font-family: var(--ams-date-input-font-family);
@@ -55,7 +57,7 @@
 
 .ams-date-input:disabled {
   background-color: var(--ams-date-input-disabled-background-color);
-  border: var(--ams-date-input-disabled-border);
+  border-color: var(--ams-date-input-disabled-border-color);
   color: var(--ams-date-input-disabled-color);
   cursor: var(--ams-date-input-disabled-cursor);
 }
@@ -67,10 +69,10 @@
 
 .ams-date-input:invalid,
 .ams-date-input[aria-invalid="true"] {
-  border: var(--ams-date-input-invalid-border);
+  border-color: var(--ams-date-input-invalid-border-color);
 
   &:hover {
-    border: var(--ams-date-input-invalid-hover-border);
+    border-color: var(--ams-date-input-invalid-hover-border-color);
     box-shadow: var(--ams-date-input-invalid-hover-box-shadow);
   }
 }

@@ -19,7 +19,9 @@
 
 .ams-search-field__input {
   background-color: var(--ams-search-field-input-background-color);
-  border: var(--ams-search-field-input-border);
+  border-color: var(--ams-search-field-input-border-color);
+  border-style: var(--ams-search-field-input-border-style);
+  border-width: var(--ams-search-field-input-border-width);
   box-sizing: border-box;
   color: var(--ams-search-field-input-color);
   font-family: var(--ams-search-field-input-font-family);
@@ -36,7 +38,7 @@
   @include reset-input;
 
   &:hover {
-    border: var(--ams-search-field-input-hover-border);
+    border-color: var(--ams-search-field-input-hover-border-color);
     box-shadow: var(--ams-search-field-input-hover-box-shadow);
   }
 
@@ -47,10 +49,10 @@
 
 .ams-search-field__input:invalid,
 .ams-search-field__input[aria-invalid="true"] {
-  border: var(--ams-search-field-input-invalid-border);
+  border-color: var(--ams-search-field-input-invalid-border-color);
 
   &:hover {
-    border: var(--ams-search-field-input-invalid-hover-border);
+    border-color: var(--ams-search-field-input-invalid-hover-border-color);
     box-shadow: var(--ams-search-field-input-invalid-hover-box-shadow);
   }
 }

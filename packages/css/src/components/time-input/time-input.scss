@@ -15,7 +15,9 @@
 
 .ams-time-input {
   background-color: var(--ams-time-input-background-color);
-  border: var(--ams-time-input-border);
+  border-color: var(--ams-time-input-border-color);
+  border-style: var(--ams-time-input-border-style);
+  border-width: var(--ams-time-input-border-width);
   box-sizing: border-box;
   color: var(--ams-time-input-color);
   font-family: var(--ams-time-input-font-family);
@@ -39,7 +41,7 @@
   @include reset-input;
 
   &:hover {
-    border: var(--ams-time-input-hover-border);
+    border-color: var(--ams-time-input-hover-border-color);
     box-shadow: var(--ams-time-input-hover-box-shadow);
   }
 }
@@ -57,7 +59,7 @@
 
 .ams-time-input:disabled {
   background-color: var(--ams-time-input-disabled-background-color);
-  border: var(--ams-time-input-disabled-border);
+  border-color: var(--ams-time-input-disabled-border-color);
   color: var(--ams-time-input-disabled-color);
   cursor: var(--ams-time-input-disabled-cursor);
 }
@@ -69,10 +71,10 @@
 
 .ams-time-input:invalid,
 .ams-time-input[aria-invalid="true"] {
-  border: var(--ams-time-input-invalid-border);
+  border-color: var(--ams-time-input-invalid-border-color);
 
   &:hover {
-    border: var(--ams-time-input-invalid-hover-border);
+    border-color: var(--ams-time-input-invalid-hover-border-color);
     box-shadow: var(--ams-time-input-invalid-hover-box-shadow);
   }
 }

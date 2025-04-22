@@ -2,7 +2,9 @@
   "ams": {
     "alert": {
       "background-color": { "value": "{ams.color.background}" },
-      "border": { "value": "{ams.border.width.xl} solid {ams.color.feedback.info}" },
+      "border-color": { "value": "{ams.color.feedback.info}" },
+      "border-style": { "value": "solid" },
+      "border-width": { "value": "{ams.border.width.xl}" },
       "severity-indicator": {
         "background-color": { "value": "{ams.color.feedback.info}" },
         "padding-block": { "value": "{ams.space.m}" },
@@ -14,19 +16,19 @@
         "padding-inline": { "value": "{ams.space.m}" }
       },
       "error": {
-        "border": { "value": "{ams.border.width.xl} solid {ams.color.feedback.error}" },
+        "border-color": { "value": "{ams.color.feedback.error}" },
         "severity-indicator": {
           "background-color": { "value": "{ams.color.feedback.error}" }
         }
       },
       "success": {
-        "border": { "value": "{ams.border.width.xl} solid {ams.color.feedback.success}" },
+        "border-color": { "value": "{ams.color.feedback.success}" },
         "severity-indicator": {
           "background-color": { "value": "{ams.color.feedback.success}" }
         }
       },
       "warning": {
-        "border": { "value": "{ams.border.width.xl} solid {ams.color.feedback.warning}" },
+        "border-color": { "value": "{ams.color.feedback.warning}" },
         "severity-indicator": {
           "background-color": { "value": "{ams.color.feedback.warning}" }
         }

@@ -10,7 +10,9 @@
 
 .ams-select {
   background-color: var(--ams-select-background-color);
-  border: var(--ams-select-border);
+  border-color: var(--ams-select-border-color);
+  border-style: var(--ams-select-border-style);
+  border-width: var(--ams-select-border-width);
   color: var(--ams-select-color);
   font-family: var(--ams-select-font-family);
   font-size: var(--ams-select-font-size);
@@ -32,18 +34,18 @@
   }
 
   &:hover {
-    border: var(--ams-select-hover-border);
+    border-color: var(--ams-select-hover-border-color);
     box-shadow: var(--ams-select-hover-box-shadow);
   }
 }
 
 .ams-select:invalid,
 .ams-select[aria-invalid="true"] {
-  border: var(--ams-select-invalid-border);
+  border-color: var(--ams-select-invalid-border-color);
 }
 
 .ams-select:disabled {
-  border: var(--ams-select-disabled-border);
+  border-color: var(--ams-select-disabled-border-color);
   color: var(--ams-select-disabled-color);
   cursor: var(--ams-select-disabled-cursor);
 
@@ -54,7 +56,7 @@
 
 .ams-select:invalid:hover,
 .ams-select[aria-invalid="true"]:hover {
-  border: var(--ams-select-invalid-hover-border);
+  border-color: var(--ams-select-invalid-hover-border-color);
   box-shadow: var(--ams-select-invalid-hover-box-shadow);
 }
 

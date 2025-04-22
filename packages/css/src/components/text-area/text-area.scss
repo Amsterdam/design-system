@@ -14,7 +14,9 @@
 
 .ams-text-area {
   background-color: var(--ams-text-area-background-color);
-  border: var(--ams-text-area-border);
+  border-color: var(--ams-text-area-border-color);
+  border-style: var(--ams-text-area-border-style);
+  border-width: var(--ams-text-area-border-width);
   box-sizing: border-box;
   color: var(--ams-text-area-color);
   font-family: var(--ams-text-area-font-family);
@@ -33,7 +35,7 @@
   @include reset-textarea;
 
   &:hover {
-    border: var(--ams-text-area-hover-border);
+    border-color: var(--ams-text-area-hover-border-color);
     box-shadow: var(--ams-text-area-hover-box-shadow);
   }
 }
@@ -45,17 +47,17 @@
 
 .ams-text-area:disabled {
   background-color: var(--ams-text-area-disabled-background-color);
-  border: var(--ams-text-area-disabled-border);
+  border-color: var(--ams-text-area-disabled-border-color);
   color: var(--ams-text-area-disabled-color);
   cursor: var(--ams-text-area-disabled-cursor);
 }
 
 .ams-text-area:invalid,
 .ams-text-area[aria-invalid="true"] {
-  border: var(--ams-text-area-invalid-border);
+  border-color: var(--ams-text-area-invalid-border-color);
 
   &:hover {
-    border: var(--ams-text-area-invalid-hover-border);
+    border-color: var(--ams-text-area-invalid-hover-border-color);
     box-shadow: var(--ams-text-area-invalid-hover-box-shadow);
   }
 }
