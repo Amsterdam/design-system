@@ -12,7 +12,7 @@ import { TabsList } from './TabsList'
 import { TabsPanel } from './TabsPanel'
 
 export type TabsProps = {
-  /** The identifier of the initially active tab. Corresponds to its panel `id` value. */
+  /** The identifier of the initially active Tab. Corresponds to its Panel `id` value. */
   activeTab?: string
   /* Provides the id of the activated panel. */
   onTabChange?: (tabId: string) => void
