@@ -6,9 +6,9 @@
 import { createContext } from 'react'
 
 export type TabsContextValue = {
-  /** The identifier of the active tab. */
+  /** The identifier of the active Tab. */
   activeTabId?: string
-  /** A function to update the active tab. */
+  /** A function to update the active Tab. */
   updateTab: (tab: string) => void
 }
 
