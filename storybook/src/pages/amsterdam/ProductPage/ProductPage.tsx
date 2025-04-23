@@ -28,7 +28,7 @@ export const ProductPage = () => (
         </Breadcrumb>
       </Grid.Cell>
     </Grid>
-    <Grid paddingBottom="x-large">
+    <Grid as="main" id="main" paddingBottom="x-large">
       <Grid.Cell span={{ narrow: 4, medium: 5, wide: 7 }} start={{ narrow: 1, medium: 2, wide: 3 }}>
         <Heading className="ams-mb-m" level={1}>
           Gratis laptop of tablet basisschool
