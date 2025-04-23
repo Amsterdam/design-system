@@ -70,22 +70,6 @@ Use the `start` prop with 3 values, e.g. `start={{ narrow: 2, medium: 4, wide: 6
 
 <Canvas of={GridStories.StartPosition} />
 
-### Common configurations
-
-Some typical page sections always use the same amount of responsive `span` and `start` values:
-
-- For the header of a content page – the part that contains the Heading, date, and lead Paragraph:
-  `span={{ narrow: 4, medium: 6, wide: 8 }} start={{ narrow: 1, medium: 1, wide: 2 }}`.
-- Breadcrumbs have their own Grid above this section, with the same Cell configuration.
-- For the body of a content page – the part that contains the main text:
-  `span={{ narrow: 4, medium: 5, wide: 7 }} start={{ narrow: 1, medium: 2, wide: 3 }}`.
-- A two-column layout for sections consisting of a Header, a Paragraph and a Standalone Link:
-  `span={{ narrow: 4, medium: 4, wide: 6 }}`.
-- A three-column layout for Cards:
-  `span={4}`.
-- A four-column layout for Cards:
-  `span={{ narrow: 4, medium: 4, wide: 3 }}`.
-
 ### Improve semantics
 
 By default, both Grid and Grid Cell render a `<div>` element in HTML.

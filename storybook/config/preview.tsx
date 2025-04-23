@@ -66,7 +66,7 @@ export const parameters = {
         ['Buttons', 'Containers', 'Feedback', 'Forms', 'Layout', 'Media', 'Navigation', 'Text'],
         'Utilities',
         'Pages',
-        ['Introduction', 'Amsterdam.nl', ['Home Page']],
+        ['Introduction', 'Guidelines', 'Amsterdam.nl', ['Home Page']],
       ],
     },
   },
