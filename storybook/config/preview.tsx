@@ -16,7 +16,7 @@ export const argTypes = {
   },
 }
 
-// Wrap in Screen, set language to Dutch for Canvas and Stories
+// Wrap in Page, set language to Dutch for Canvas and Stories
 export const decorators = [
   (Story: StoryFn, { args }: StoryContext) => (
     <Page
