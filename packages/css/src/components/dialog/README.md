@@ -2,7 +2,7 @@
 
 # Dialog
 
-A Dialog allows the user to focus on one task or a piece of information by popping up and blocking the page content until the modal task is completed or until the user dismisses the action.
+A popup window in which the user must perform an action to proceed.
 
 ## Guidelines
 
@@ -10,6 +10,8 @@ A Dialog allows the user to focus on one task or a piece of information by poppi
 - Use a dialog for short and non-frequent tasks.
   Consider using the main flow for regular tasks.
 - Wrap multiple buttons in an [Action Group](https://designsystem.amsterdam/?path=/docs/components-layout-action-group--docs).
+- To open the Dialog, use `Dialog.open(dialogId)` from the React package.
+- To close it, either call the `Dialog.close` function or add a `<form>` as in the ‘confirmation’ example.
 
 ## Keyboard support
 
@@ -18,10 +20,6 @@ A Dialog allows the user to focus on one task or a piece of information by poppi
 | Tab         | Moves focus to the next focusable element inside the dialog.     |
 | Shift + Tab | Moves focus to the previous focusable element inside the dialog. |
 | Escape      | Closes the dialog.                                               |
-
-## Closing Dialog without submit
-
-You can close a Dialog without submitting by using `<button type="button" onClick={Dialog.close}>`.
 
 ## References
 
