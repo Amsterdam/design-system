@@ -4,7 +4,7 @@
  */
 
 import clsx from 'clsx'
-import { forwardRef, useEffect, useId, useMemo, useState } from 'react'
+import { forwardRef, useEffect, useMemo, useState } from 'react'
 import type { ForwardedRef, HTMLAttributes, PropsWithChildren } from 'react'
 import { TabsButton } from './TabsButton'
 import { TabsContext } from './TabsContext'
@@ -12,15 +12,14 @@ import { TabsList } from './TabsList'
 import { TabsPanel } from './TabsPanel'
 
 export type TabsProps = {
-  /** The identifier of the initially active tab. Corresponds to its `tab` value. */
+  /** The identifier of the initially active Tab. Corresponds to its Panel `id` value. */
   activeTab?: string
-  /* Provides the id of the activated tab. */
-  onTabChange?: (tabId: string) => void
+  /* Provides the id of the activated Panel. */
+  onTabChange?: (panelId: string) => void
 } & PropsWithChildren<HTMLAttributes<HTMLDivElement>>
 
 const TabsRoot = forwardRef(
   ({ activeTab, children, className, onTabChange, ...restProps }: TabsProps, ref: ForwardedRef<HTMLDivElement>) => {
-    const tabsId = useId()
     const [activeTabId, setActiveTabId] = useState<string>()
 
     const allTabIds = useMemo(() => {
@@ -34,12 +33,12 @@ const TabsRoot = forwardRef(
       // TabsList can have 0, 1, or more children
       // If there is only 1 child, it will be an object
       if (tabsListChildren.props) {
-        return [tabsListChildren.props.tab]
+        return [tabsListChildren.props['aria-controls']]
       }
 
       // If there is more than 1 child, it will be an array
       if (Array.isArray(tabsListChildren)) {
-        return tabsListChildren.map((child) => child.props.tab)
+        return tabsListChildren.map((child) => child.props['aria-controls'])
       }
 
       // If there are no children, return an empty array
@@ -63,7 +62,7 @@ const TabsRoot = forwardRef(
     }
 
     return (
-      <TabsContext.Provider value={{ activeTabId, tabsId, updateTab }}>
+      <TabsContext.Provider value={{ activeTabId, updateTab }}>
         <div {...restProps} className={clsx('ams-tabs', className)} ref={ref}>
           {children}
         </div>

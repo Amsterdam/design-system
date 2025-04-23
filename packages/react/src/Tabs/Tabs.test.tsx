@@ -44,11 +44,11 @@ describe('Tabs', () => {
     render(
       <Tabs>
         <Tabs.List>
-          <Tabs.Button tab="one">Tab 1</Tabs.Button>
-          <Tabs.Button tab="two">Tab 2</Tabs.Button>
+          <Tabs.Button aria-controls="one">Tab 1</Tabs.Button>
+          <Tabs.Button aria-controls="two">Tab 2</Tabs.Button>
         </Tabs.List>
-        <Tabs.Panel tab="one">Content 1</Tabs.Panel>
-        <Tabs.Panel tab="two">Content 2</Tabs.Panel>
+        <Tabs.Panel id="one">Content 1</Tabs.Panel>
+        <Tabs.Panel id="two">Content 2</Tabs.Panel>
       </Tabs>,
     )
 
@@ -63,11 +63,11 @@ describe('Tabs', () => {
     render(
       <Tabs>
         <Tabs.List>
-          <Tabs.Button tab="one">Tab 1</Tabs.Button>
-          <Tabs.Button tab="two">Tab 2</Tabs.Button>
+          <Tabs.Button aria-controls="one">Tab 1</Tabs.Button>
+          <Tabs.Button aria-controls="two">Tab 2</Tabs.Button>
         </Tabs.List>
-        <Tabs.Panel tab="one">Content 1</Tabs.Panel>
-        <Tabs.Panel tab="two">Content 2</Tabs.Panel>
+        <Tabs.Panel id="one">Content 1</Tabs.Panel>
+        <Tabs.Panel id="two">Content 2</Tabs.Panel>
       </Tabs>,
     )
 
@@ -98,7 +98,7 @@ describe('Tabs', () => {
     render(
       <Tabs onTabChange={onTabChange}>
         <Tabs.List>
-          <Tabs.Button tab="one">Tab 1</Tabs.Button>
+          <Tabs.Button aria-controls="one">Tab 1</Tabs.Button>
         </Tabs.List>
       </Tabs>,
     )
@@ -113,15 +113,15 @@ describe('Tabs', () => {
     render(
       <Tabs activeTab="three">
         <Tabs.List>
-          <Tabs.Button tab="one">Tab 1</Tabs.Button>
-          <Tabs.Button tab="two">Tab 2</Tabs.Button>
-          <Tabs.Button tab="three">Tab 3</Tabs.Button>
-          <Tabs.Button tab="four">Tab 4</Tabs.Button>
+          <Tabs.Button aria-controls="one">Tab 1</Tabs.Button>
+          <Tabs.Button aria-controls="two">Tab 2</Tabs.Button>
+          <Tabs.Button aria-controls="three">Tab 3</Tabs.Button>
+          <Tabs.Button aria-controls="four">Tab 4</Tabs.Button>
         </Tabs.List>
-        <Tabs.Panel tab="one">Content 1</Tabs.Panel>
-        <Tabs.Panel tab="two">Content 2</Tabs.Panel>
-        <Tabs.Panel tab="three">Content 3</Tabs.Panel>
-        <Tabs.Panel tab="four">Content 4</Tabs.Panel>
+        <Tabs.Panel id="one">Content 1</Tabs.Panel>
+        <Tabs.Panel id="two">Content 2</Tabs.Panel>
+        <Tabs.Panel id="three">Content 3</Tabs.Panel>
+        <Tabs.Panel id="four">Content 4</Tabs.Panel>
       </Tabs>,
     )
 
@@ -142,15 +142,15 @@ describe('Tabs', () => {
     render(
       <Tabs activeTab="unknown">
         <Tabs.List>
-          <Tabs.Button tab="one">Tab 1</Tabs.Button>
-          <Tabs.Button tab="two">Tab 2</Tabs.Button>
-          <Tabs.Button tab="three">Tab 3</Tabs.Button>
-          <Tabs.Button tab="four">Tab 4</Tabs.Button>
+          <Tabs.Button aria-controls="one">Tab 1</Tabs.Button>
+          <Tabs.Button aria-controls="two">Tab 2</Tabs.Button>
+          <Tabs.Button aria-controls="three">Tab 3</Tabs.Button>
+          <Tabs.Button aria-controls="four">Tab 4</Tabs.Button>
         </Tabs.List>
-        <Tabs.Panel tab="one">Content 1</Tabs.Panel>
-        <Tabs.Panel tab="two">Content 2</Tabs.Panel>
-        <Tabs.Panel tab="three">Content 3</Tabs.Panel>
-        <Tabs.Panel tab="four">Content 4</Tabs.Panel>
+        <Tabs.Panel id="one">Content 1</Tabs.Panel>
+        <Tabs.Panel id="two">Content 2</Tabs.Panel>
+        <Tabs.Panel id="three">Content 3</Tabs.Panel>
+        <Tabs.Panel id="four">Content 4</Tabs.Panel>
       </Tabs>,
     )
 
@@ -162,5 +162,40 @@ describe('Tabs', () => {
     expect(lastTab).toHaveAttribute('aria-selected', 'false')
     expect(lastTab).toHaveAttribute('tabindex', '-1')
     expect(screen.getByRole('tabpanel')).toHaveTextContent('Content 1')
+  })
+
+  it('sets focus on Tabs buttons when using arrow keys', async () => {
+    const user = userEvent.setup()
+
+    render(
+      <Tabs>
+        <Tabs.List>
+          <Tabs.Button aria-controls="one">Tab 1</Tabs.Button>
+          <Tabs.Button aria-controls="two">Tab 2</Tabs.Button>
+          <Tabs.Button aria-controls="three">Tab 3</Tabs.Button>
+        </Tabs.List>
+        <Tabs.Panel id="one" />
+        <Tabs.Panel id="two" />
+        <Tabs.Panel id="three" />
+      </Tabs>,
+    )
+
+    const firstButton = screen.getByRole('tab', { name: 'Tab 1' })
+    const thirdButton = screen.getByRole('tab', { name: 'Tab 3' })
+
+    await user.click(firstButton)
+
+    expect(firstButton).toHaveFocus()
+
+    // Click the right arrow key twice
+    await user.keyboard('{ArrowRight}')
+    await user.keyboard('{ArrowRight}')
+
+    expect(thirdButton).toHaveFocus()
+    expect(firstButton).not.toHaveFocus()
+
+    await user.keyboard('{ArrowRight}')
+
+    expect(firstButton).toHaveFocus()
   })
 })
