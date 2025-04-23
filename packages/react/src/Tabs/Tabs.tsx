@@ -14,7 +14,7 @@ import { TabsPanel } from './TabsPanel'
 export type TabsProps = {
   /** The identifier of the initially active Tab. Corresponds to its Panel `id` value. */
   activeTab?: string
-  /* Provides the id of the activated panel. */
+  /* Provides the id of the activated Panel. */
   onTabChange?: (tabId: string) => void
 } & PropsWithChildren<HTMLAttributes<HTMLDivElement>>
 
