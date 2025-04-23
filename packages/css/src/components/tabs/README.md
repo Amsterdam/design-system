@@ -10,7 +10,7 @@ Tabs are used to bundle related content in a compact overview within a page. Eac
 - The content within each tab should have a similar structure.
 - Use when there is limited visual space and content needs to be divided into sections.
 - Each tab consists of a button and a panel.
-  A `tab` prop with a corresponding value connects them.
+  The button has an `aria-controls` attribute that matches the `id` of the associated panel.
 
 You can navigate tabs with your keyboard:
 
