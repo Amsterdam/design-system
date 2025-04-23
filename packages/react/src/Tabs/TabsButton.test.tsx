@@ -5,7 +5,7 @@ import '@testing-library/jest-dom'
 
 describe('Tabs button', () => {
   it('renders', () => {
-    render(<TabsButton tab="one" />)
+    render(<TabsButton aria-controls="one" />)
 
     const component = screen.getByRole('tab')
 
@@ -13,7 +13,7 @@ describe('Tabs button', () => {
   })
 
   it('renders a design system BEM class name', () => {
-    render(<TabsButton tab="one" />)
+    render(<TabsButton aria-controls="one" />)
 
     const component = screen.getByRole('tab')
 
@@ -21,7 +21,7 @@ describe('Tabs button', () => {
   })
 
   it('renders an extra class name', () => {
-    render(<TabsButton className="extra" tab="one" />)
+    render(<TabsButton aria-controls="one" className="extra" />)
 
     const component = screen.getByRole('tab')
 
@@ -29,7 +29,7 @@ describe('Tabs button', () => {
   })
 
   it('renders a label', () => {
-    render(<TabsButton tab="one">Label</TabsButton>)
+    render(<TabsButton aria-controls="one">Label</TabsButton>)
 
     const component = screen.getByRole('tab', { name: 'Label' })
 
@@ -37,25 +37,25 @@ describe('Tabs button', () => {
   })
 
   it('renders the correct id based on the tabs prop', () => {
-    const { container } = render(<TabsButton tab="one" />)
+    const { container } = render(<TabsButton aria-controls="one" />)
 
-    const component = container.querySelector('#-tab-one')
+    const component = container.querySelector('#button-one')
 
     expect(component).toBeInTheDocument()
   })
 
   it('should associate the button with the correct tab', () => {
-    render(<TabsButton tab="one" />)
+    render(<TabsButton aria-controls="one" />)
 
     const component = screen.getByRole('tab')
 
-    expect(component).toHaveAttribute('aria-controls', '-panel-one')
+    expect(component).toHaveAttribute('aria-controls', 'one')
   })
 
   it('supports ForwardRef in React', () => {
     const ref = createRef<HTMLButtonElement>()
 
-    render(<TabsButton ref={ref} tab="one" />)
+    render(<TabsButton aria-controls="one" ref={ref} />)
 
     const component = screen.getByRole('tab')
 
