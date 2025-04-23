@@ -9,32 +9,35 @@ import type { ButtonHTMLAttributes, ForwardedRef, MouseEvent, PropsWithChildren 
 import { TabsContext } from './TabsContext'
 
 export type TabsButtonProps = {
-  /** An identifier. */
-  tab: string
+  /** The identifier of the corresponding tab panel. */
+  'aria-controls': string
 } & PropsWithChildren<ButtonHTMLAttributes<HTMLButtonElement>>
 
 export const TabsButton = forwardRef(
-  ({ children, className, onClick, tab, ...restProps }: TabsButtonProps, ref: ForwardedRef<HTMLButtonElement>) => {
-    const { activeTabId, tabsId, updateTab } = useContext(TabsContext)
+  (
+    { 'aria-controls': ariaControls, children, className, onClick, ...restProps }: TabsButtonProps,
+    ref: ForwardedRef<HTMLButtonElement>,
+  ) => {
+    const { activeTabId, updateTab } = useContext(TabsContext)
 
     const handleClick = (event: MouseEvent<HTMLButtonElement>) => {
       onClick?.(event)
       startTransition(() => {
-        updateTab(tab)
+        updateTab(ariaControls)
       })
     }
 
     return (
       <button
         {...restProps}
-        aria-controls={`${tabsId}-panel-${tab}`}
-        aria-selected={activeTabId === tab}
+        aria-controls={ariaControls}
+        aria-selected={activeTabId === ariaControls}
         className={clsx('ams-tabs__button', className)}
-        id={`${tabsId}-tab-${tab}`}
+        id={`button-${ariaControls}`}
         onClick={handleClick}
         ref={ref}
         role="tab"
-        tabIndex={activeTabId === tab ? 0 : -1}
+        tabIndex={activeTabId === ariaControls ? 0 : -1}
         type="button"
       >
         <span aria-hidden="true" className="ams-tabs__button-label-hidden">
