@@ -54,7 +54,7 @@ export const parameters = {
     },
   },
   html: {
-    root: '.ams-screen',
+    root: '.ams-page',
   },
   options: {
     storySort: {
