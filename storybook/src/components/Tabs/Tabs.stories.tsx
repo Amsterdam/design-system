@@ -45,13 +45,13 @@ const tabsContent: Array<TabContent> = [
 const defaultTabs = [
   <Tabs.List key="tabsList">
     {tabsContent.map(({ label }) => (
-      <Tabs.Button key={label} tab={label}>
+      <Tabs.Button aria-controls={label} key={label}>
         {label}
       </Tabs.Button>
     ))}
   </Tabs.List>,
   tabsContent.map(({ body, label }) => (
-    <Tabs.Panel key={label} tab={label}>
+    <Tabs.Panel id={label} key={label}>
       <Heading className="ams-mb-xs" level={3}>
         {label}
       </Heading>
@@ -91,13 +91,13 @@ export const WithWideContent: Story = {
     children: [
       <Tabs.List key="tabsList">
         {cityParts.map((name) => (
-          <Tabs.Button key={name} tab={name}>
+          <Tabs.Button aria-controls={name} key={name}>
             {name}
           </Tabs.Button>
         ))}
       </Tabs.List>,
       cityParts.map((name) => (
-        <Tabs.Panel key={name} tab={name}>
+        <Tabs.Panel id={name} key={name}>
           <Table>
             <Table.Caption>
               Voorbeeld van een tabel voor {name === 'Weesp' ? 'stadsgebied' : 'stadsdeel'} {name}

@@ -228,3 +228,12 @@ export const exampleUnorderedList = () =>
       'Als u wilt, kunt u buren die hun afval verkeerd weggooien uitleggen hoe het wel moet.',
     ],
   ])
+
+export const exampleStandaloneLine = () =>
+  pickRandomContent<string>([
+    'Vraag nu aan',
+    'Doe een donatie',
+    'Laat het ons weten',
+    'Bekijk de voorwaarden',
+    'Vraag een vergunning aan',
+  ])
