@@ -54,7 +54,6 @@
   &:hover:not(:disabled, [aria-disabled="true"]) {
     background-color: var(--ams-button-primary-hover-background-color);
     border-color: var(--ams-button-primary-hover-border-color);
-    box-shadow: var(--ams-button-primary-hover-box-shadow);
   }
 }
 
@@ -66,7 +65,6 @@
 
   &:disabled,
   [aria-disabled="true"] {
-    background-color: var(--ams-button-secondary-disabled-background-color);
     color: var(--ams-button-secondary-disabled-color);
   }
 
@@ -85,7 +83,6 @@
 
   &:disabled,
   [aria-disabled="true"] {
-    background-color: var(--ams-button-tertiary-disabled-background-color);
     color: var(--ams-button-tertiary-disabled-color);
   }
 
