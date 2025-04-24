@@ -1,3 +1,8 @@
+/**
+ * @license EUPL-1.2+
+ * Copyright Gemeente Amsterdam
+ */
+
 import './color-palette.css'
 import clsx from 'clsx'
 import { forwardRef } from 'react'

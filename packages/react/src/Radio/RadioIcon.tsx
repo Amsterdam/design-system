@@ -1,3 +1,8 @@
+/**
+ * @license EUPL-1.2+
+ * Copyright Gemeente Amsterdam
+ */
+
 import type { SVGProps } from 'react'
 
 const SvgRadio = (props: SVGProps<SVGSVGElement>) => (

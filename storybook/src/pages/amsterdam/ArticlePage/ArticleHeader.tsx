@@ -1,3 +1,8 @@
+/**
+ * @license EUPL-1.2+
+ * Copyright Gemeente Amsterdam
+ */
+
 import { Grid, Heading, Image, Overlap, Paragraph } from '@amsterdam/design-system-react'
 import type { ArticlePageProps } from './ArticlePage'
 
