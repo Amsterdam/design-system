@@ -56,13 +56,11 @@
 }
 
 .ams-file-input:disabled::file-selector-button {
-  border-color: var(--ams-file-input-file-selector-button-disabled-border-color);
   color: var(--ams-file-input-disabled-color);
   cursor: var(--ams-file-input-file-selector-button-disabled-cursor);
 }
 
 .ams-file-input:not(:disabled):hover::file-selector-button {
-  border-color: var(--ams-file-input-file-selector-button-hover-border-color);
   box-shadow: var(--ams-file-input-file-selector-button-hover-box-shadow);
   color: var(--ams-file-input-file-selector-button-hover-color);
 }

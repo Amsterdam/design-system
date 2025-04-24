@@ -33,7 +33,6 @@
   @include reset-input;
 
   &:hover {
-    border-color: var(--ams-text-input-hover-border-color);
     box-shadow: var(--ams-text-input-hover-box-shadow);
   }
 }

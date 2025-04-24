@@ -6,7 +6,7 @@
         "value": "url(\"data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><path fill='%23004699' fill-rule='evenodd' d='m16 25.757-16-16 2.91-2.9L16 19.937l13.09-13.08 2.91 2.9z'/></svg>\")"
       },
       "background-position": { "value": "right {ams.space.m} center" },
-      "border-color": { "value": "{ams.color.interactive.secondary}" },
+      "border-color": { "value": "currentColor" },
       "border-style": { "value": "solid" },
       "border-width": { "value": "{ams.border.width.s}" },
       "color": { "value": "{ams.color.text.default}" },
@@ -26,8 +26,7 @@
         "cursor": { "value": "{ams.cursor.disabled}" }
       },
       "hover": {
-        "border-color": { "value": "{ams.color.interactive.secondary}" },
-        "box-shadow": { "value": "inset 0 0 0 {ams.border.width.s} {ams.color.interactive.secondary}" }
+        "box-shadow": { "value": "inset 0 0 0 {ams.border.width.s}" }
       },
       "invalid": {
         "border-color": { "value": "{ams.color.interactive.invalid.default}" },

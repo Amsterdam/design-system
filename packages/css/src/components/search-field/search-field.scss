@@ -38,7 +38,6 @@
   @include reset-input;
 
   &:hover {
-    border-color: var(--ams-search-field-input-hover-border-color);
     box-shadow: var(--ams-search-field-input-hover-box-shadow);
   }
 

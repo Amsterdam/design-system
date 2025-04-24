@@ -41,7 +41,6 @@
   @include reset-input;
 
   &:hover {
-    border-color: var(--ams-time-input-hover-border-color);
     box-shadow: var(--ams-time-input-hover-box-shadow);
   }
 }
@@ -59,7 +58,6 @@
 
 .ams-time-input:disabled {
   background-color: var(--ams-time-input-disabled-background-color);
-  border-color: var(--ams-time-input-disabled-border-color);
   color: var(--ams-time-input-disabled-color);
   cursor: var(--ams-time-input-disabled-cursor);
 }

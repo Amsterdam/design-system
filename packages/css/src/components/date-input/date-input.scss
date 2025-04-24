@@ -14,6 +14,7 @@
 
 .ams-date-input {
   background-color: var(--ams-date-input-background-color);
+  border-color: var(--ams-date-input-border-color);
   border-style: var(--ams-date-input-border-style);
   border-width: var(--ams-date-input-border-width);
   box-sizing: border-box;
@@ -56,7 +57,6 @@
 
 .ams-date-input:disabled {
   background-color: var(--ams-date-input-disabled-background-color);
-  border-color: var(--ams-date-input-disabled-border-color);
   color: var(--ams-date-input-disabled-color);
   cursor: var(--ams-date-input-disabled-cursor);
 }

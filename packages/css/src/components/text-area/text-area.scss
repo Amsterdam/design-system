@@ -35,7 +35,6 @@
   @include reset-textarea;
 
   &:hover {
-    border-color: var(--ams-text-area-hover-border-color);
     box-shadow: var(--ams-text-area-hover-box-shadow);
   }
 }
