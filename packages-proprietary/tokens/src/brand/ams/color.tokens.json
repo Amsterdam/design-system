@@ -20,8 +20,8 @@
       "interactive": {
         "contrast": { "value": "#000000" },
         "default": { "value": "#004699" },
-        "disabled": { "value": "hotpink" },
-        "hover": { "value": "orange" },
+        "disabled": { "value": "#767676" },
+        "hover": { "value": "#003677" },
         "invalid": {
           "default": { "value": "#ec0000" },
           "hover": { "value": "#b70000" }
