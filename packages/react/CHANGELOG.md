@@ -3,6 +3,47 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.16.0](https://github.com/Amsterdam/design-system/compare/design-system-react-v0.15.0...design-system-react-v0.16.0) (2025-04-25)
+
+
+### ⚠ BREAKING CHANGES
+
+* **Screen:** Delete component (use Page instead) ([#2018](https://github.com/Amsterdam/design-system/issues/2018))
+* **Tabs:** Change `tab` prop to `id` and `aria-controls` attributes ([#2011](https://github.com/Amsterdam/design-system/issues/2011))
+* **Grid:** Match values for padding and gap with Space sizes ([#1993](https://github.com/Amsterdam/design-system/issues/1993))
+* **Link:** Remove ‘variant’ prop, make inline the default ([#1994](https://github.com/Amsterdam/design-system/issues/1994))
+* **Card:** Replace gap with margins and introduce subcomponents ([#1972](https://github.com/Amsterdam/design-system/issues/1972))
+* **Image:** Remove children prop ([#1996](https://github.com/Amsterdam/design-system/issues/1996))
+* **Top Task Link:** Remove component ([#1988](https://github.com/Amsterdam/design-system/issues/1988))
+* **Footer:** Rename component to Page Footer ([#1971](https://github.com/Amsterdam/design-system/issues/1971))
+* **Header:** Rename component to Page Header ([#1970](https://github.com/Amsterdam/design-system/issues/1970))
+* **MegaMenu:** Remove deprecated component ([#1963](https://github.com/Amsterdam/design-system/issues/1963))
+* **PageMenu:** Remove deprecated component ([#1964](https://github.com/Amsterdam/design-system/issues/1964))
+
+### Features
+
+* Add Standalone Link ([#1979](https://github.com/Amsterdam/design-system/issues/1979)) ([b5d57bb](https://github.com/Amsterdam/design-system/commit/b5d57bbd34c7817e436f7b28d5dc675213394bfb))
+* **Card:** Replace gap with margins and introduce subcomponents ([#1972](https://github.com/Amsterdam/design-system/issues/1972)) ([85e34d4](https://github.com/Amsterdam/design-system/commit/85e34d4ec3da1589c95925a677e5800fb071dc32))
+* **Footer:** Rename component to Page Footer ([#1971](https://github.com/Amsterdam/design-system/issues/1971)) ([d0f7edc](https://github.com/Amsterdam/design-system/commit/d0f7edc1bd3dcbba0973d4494fd6c9e90a158cd2))
+* **Grid:** Match values for padding and gap with Space sizes ([#1993](https://github.com/Amsterdam/design-system/issues/1993)) ([f161152](https://github.com/Amsterdam/design-system/commit/f161152292f86770ffda0d60c3448f8d20b7b775))
+* **Header:** Rename component to Page Header ([#1970](https://github.com/Amsterdam/design-system/issues/1970)) ([17172e4](https://github.com/Amsterdam/design-system/commit/17172e4fd89c630be6eb604d12058214a075a82b))
+* **Link:** Remove ‘variant’ prop, make inline the default ([#1994](https://github.com/Amsterdam/design-system/issues/1994)) ([75b07b8](https://github.com/Amsterdam/design-system/commit/75b07b8bbdc758da26ce0319e2b989d079744065))
+* **MegaMenu:** Remove deprecated component ([#1963](https://github.com/Amsterdam/design-system/issues/1963)) ([d385c83](https://github.com/Amsterdam/design-system/commit/d385c83d3b6e0a7b7d7c70b5729f33ace19832cf))
+* **Page:** Add Page component ([#1982](https://github.com/Amsterdam/design-system/issues/1982)) ([813033c](https://github.com/Amsterdam/design-system/commit/813033c93be66dabccae3ff5f32484487dffc1aa))
+* **PageMenu:** Remove deprecated component ([#1964](https://github.com/Amsterdam/design-system/issues/1964)) ([0149640](https://github.com/Amsterdam/design-system/commit/0149640ca9d88b45af0223b26cd22680d65b601f))
+* **Screen:** Delete component (use Page instead) ([#2018](https://github.com/Amsterdam/design-system/issues/2018)) ([0c59f6d](https://github.com/Amsterdam/design-system/commit/0c59f6dccffa7eda745a3b34554c86b646d514ba))
+* **Tabs:** Change `tab` prop to `id` and `aria-controls` attributes ([#2011](https://github.com/Amsterdam/design-system/issues/2011)) ([5079ad2](https://github.com/Amsterdam/design-system/commit/5079ad20b72b75d50bbc3d09c052a27935e6f4cf))
+* **Top Task Link:** Remove component ([#1988](https://github.com/Amsterdam/design-system/issues/1988)) ([6da8a9b](https://github.com/Amsterdam/design-system/commit/6da8a9bdf47648a3ff0e18f89ed722092d0dad18))
+
+
+### Bug Fixes
+
+* **Accordion, Tabs:** Only allow keyboard focus on relevant buttons ([#2002](https://github.com/Amsterdam/design-system/issues/2002)) ([4c7d56a](https://github.com/Amsterdam/design-system/commit/4c7d56a599ed6def87037403e9fad43f0e5f2693))
+* **deps:** bump @babel/runtime from 7.26.10 to 7.27.0 in the patch-and-minor-dependencies group ([#1959](https://github.com/Amsterdam/design-system/issues/1959)) ([0e12184](https://github.com/Amsterdam/design-system/commit/0e12184afb91bfbbf45a3eae2969a3a6209c69c7))
+* **IconButton, ImageSlider, Tabs:** Add missing type attribute to HTML buttons ([#1934](https://github.com/Amsterdam/design-system/issues/1934)) ([645415c](https://github.com/Amsterdam/design-system/commit/645415c5682142d3e372d663bc65e0881a96ebb0))
+* **Image:** Remove children prop ([#1996](https://github.com/Amsterdam/design-system/issues/1996)) ([840dadb](https://github.com/Amsterdam/design-system/commit/840dadb8c93d157f23bca8a1e3683aa94f98db96))
+* **PageHeader:** Remove restprops from menu button ([#2003](https://github.com/Amsterdam/design-system/issues/2003)) ([ec28ace](https://github.com/Amsterdam/design-system/commit/ec28acef4663f7cbe722217cb297e8d1c541a722))
+
 ## [0.15.0](https://github.com/Amsterdam/design-system/compare/design-system-react-v0.14.1...design-system-react-v0.15.0) (2025-03-28)
 
 

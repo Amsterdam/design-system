@@ -3,6 +3,48 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.16.0](https://github.com/Amsterdam/design-system/compare/design-system-css-v0.15.0...design-system-css-v0.16.0) (2025-04-25)
+
+
+### ⚠ BREAKING CHANGES
+
+* **Screen:** Delete component (use Page instead) ([#2018](https://github.com/Amsterdam/design-system/issues/2018))
+* **Tabs:** Change `tab` prop to `id` and `aria-controls` attributes ([#2011](https://github.com/Amsterdam/design-system/issues/2011))
+* **Grid:** Match values for padding and gap with Space sizes ([#1993](https://github.com/Amsterdam/design-system/issues/1993))
+* **Link:** Remove ‘variant’ prop, make inline the default ([#1994](https://github.com/Amsterdam/design-system/issues/1994))
+* **Card:** Replace gap with margins and introduce subcomponents ([#1972](https://github.com/Amsterdam/design-system/issues/1972))
+* **Top Task Link:** Remove component ([#1988](https://github.com/Amsterdam/design-system/issues/1988))
+* **Footer:** Rename component to Page Footer ([#1971](https://github.com/Amsterdam/design-system/issues/1971))
+* **Header:** Rename component to Page Header ([#1970](https://github.com/Amsterdam/design-system/issues/1970))
+* **MegaMenu:** Remove deprecated component ([#1963](https://github.com/Amsterdam/design-system/issues/1963))
+* **PageMenu:** Remove deprecated component ([#1964](https://github.com/Amsterdam/design-system/issues/1964))
+
+### Features
+
+* Add Standalone Link ([#1979](https://github.com/Amsterdam/design-system/issues/1979)) ([b5d57bb](https://github.com/Amsterdam/design-system/commit/b5d57bbd34c7817e436f7b28d5dc675213394bfb))
+* **Avatar, Badge, Spotlight:** Use inverse text on azure background, add guidelines to pair colours ([#1965](https://github.com/Amsterdam/design-system/issues/1965)) ([772b0dd](https://github.com/Amsterdam/design-system/commit/772b0dd0828fc492108bd19ab9726da1d42b67d9))
+* Balance text wrapping in all kinds of Headings ([#1968](https://github.com/Amsterdam/design-system/issues/1968)) ([ecc87a0](https://github.com/Amsterdam/design-system/commit/ecc87a091b356aaffaa8d0a11f1e7014c4f48f41))
+* **Card:** Replace gap with margins and introduce subcomponents ([#1972](https://github.com/Amsterdam/design-system/issues/1972)) ([85e34d4](https://github.com/Amsterdam/design-system/commit/85e34d4ec3da1589c95925a677e5800fb071dc32))
+* **Dialog:** Decrease amounts of inner and outer whitespace ([#1975](https://github.com/Amsterdam/design-system/issues/1975)) ([b47526f](https://github.com/Amsterdam/design-system/commit/b47526f24e5c6c9ce94f8280f93e6273d16a8640))
+* Do not copy visually hidden text ([#1956](https://github.com/Amsterdam/design-system/issues/1956)) ([6488bc3](https://github.com/Amsterdam/design-system/commit/6488bc3ba271166a3fa0a973df85b8641f8b5227))
+* **Footer:** Rename component to Page Footer ([#1971](https://github.com/Amsterdam/design-system/issues/1971)) ([d0f7edc](https://github.com/Amsterdam/design-system/commit/d0f7edc1bd3dcbba0973d4494fd6c9e90a158cd2))
+* **Grid:** Match values for padding and gap with Space sizes ([#1993](https://github.com/Amsterdam/design-system/issues/1993)) ([f161152](https://github.com/Amsterdam/design-system/commit/f161152292f86770ffda0d60c3448f8d20b7b775))
+* **Header:** Rename component to Page Header ([#1970](https://github.com/Amsterdam/design-system/issues/1970)) ([17172e4](https://github.com/Amsterdam/design-system/commit/17172e4fd89c630be6eb604d12058214a075a82b))
+* **Link:** Remove ‘variant’ prop, make inline the default ([#1994](https://github.com/Amsterdam/design-system/issues/1994)) ([75b07b8](https://github.com/Amsterdam/design-system/commit/75b07b8bbdc758da26ce0319e2b989d079744065))
+* **MegaMenu:** Remove deprecated component ([#1963](https://github.com/Amsterdam/design-system/issues/1963)) ([d385c83](https://github.com/Amsterdam/design-system/commit/d385c83d3b6e0a7b7d7c70b5729f33ace19832cf))
+* **Page:** Add Page component ([#1982](https://github.com/Amsterdam/design-system/issues/1982)) ([813033c](https://github.com/Amsterdam/design-system/commit/813033c93be66dabccae3ff5f32484487dffc1aa))
+* **PageMenu:** Remove deprecated component ([#1964](https://github.com/Amsterdam/design-system/issues/1964)) ([0149640](https://github.com/Amsterdam/design-system/commit/0149640ca9d88b45af0223b26cd22680d65b601f))
+* **Screen:** Delete component (use Page instead) ([#2018](https://github.com/Amsterdam/design-system/issues/2018)) ([0c59f6d](https://github.com/Amsterdam/design-system/commit/0c59f6dccffa7eda745a3b34554c86b646d514ba))
+* **Tabs:** Change `tab` prop to `id` and `aria-controls` attributes ([#2011](https://github.com/Amsterdam/design-system/issues/2011)) ([5079ad2](https://github.com/Amsterdam/design-system/commit/5079ad20b72b75d50bbc3d09c052a27935e6f4cf))
+* **Top Task Link:** Remove component ([#1988](https://github.com/Amsterdam/design-system/issues/1988)) ([6da8a9b](https://github.com/Amsterdam/design-system/commit/6da8a9bdf47648a3ff0e18f89ed722092d0dad18))
+
+
+### Bug Fixes
+
+* **Icon:** Center align SVG ([#1978](https://github.com/Amsterdam/design-system/issues/1978)) ([0340149](https://github.com/Amsterdam/design-system/commit/0340149d99f488a9581c5928e724f0126e0b0695))
+* **Page Footer:** Set correct inline padding ([#2004](https://github.com/Amsterdam/design-system/issues/2004)) ([cb2e70c](https://github.com/Amsterdam/design-system/commit/cb2e70ce04e05aed64299e1df8c40b9d8873ca83))
+* **Page Header:** Restore alignment with edges of Grid ([#1976](https://github.com/Amsterdam/design-system/issues/1976)) ([723a757](https://github.com/Amsterdam/design-system/commit/723a757511c921e8e5a4181c348ebd2077527a44))
+
 ## [0.15.0](https://github.com/Amsterdam/design-system/compare/design-system-css-v0.14.1...design-system-css-v0.15.0) (2025-03-28)
 
 
