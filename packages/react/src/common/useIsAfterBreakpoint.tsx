@@ -1,3 +1,8 @@
+/**
+ * @license EUPL-1.2+
+ * Copyright Gemeente Amsterdam
+ */
+
 import { useLayoutEffect, useState } from 'react'
 
 // TODO: we should set the breakpoint in JS somewhere and render this and the sass variables from that

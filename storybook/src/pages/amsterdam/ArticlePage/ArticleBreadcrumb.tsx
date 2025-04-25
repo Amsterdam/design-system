@@ -1,3 +1,8 @@
+/**
+ * @license EUPL-1.2+
+ * Copyright Gemeente Amsterdam
+ */
+
 import { Breadcrumb, Grid } from '@amsterdam/design-system-react'
 
 export const ArticleBreadcrumb = () => (

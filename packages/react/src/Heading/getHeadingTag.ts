@@ -1,3 +1,8 @@
+/**
+ * @license EUPL-1.2+
+ * Copyright Gemeente Amsterdam
+ */
+
 import type { HeadingProps } from './Heading'
 
 export function getHeadingTag(level: HeadingProps['level'] | null) {
