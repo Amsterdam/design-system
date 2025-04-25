@@ -12,7 +12,6 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 * **Tabs:** Change `tab` prop to `id` and `aria-controls` attributes ([#2011](https://github.com/Amsterdam/design-system/issues/2011))
 * **Grid:** Match values for padding and gap with Space sizes ([#1993](https://github.com/Amsterdam/design-system/issues/1993))
 * **Link:** Remove ‘variant’ prop, make inline the default ([#1994](https://github.com/Amsterdam/design-system/issues/1994))
-* **Card:** Replace gap with margins and introduce subcomponents ([#1972](https://github.com/Amsterdam/design-system/issues/1972))
 * **Image:** Remove children prop ([#1996](https://github.com/Amsterdam/design-system/issues/1996))
 * **Top Task Link:** Remove component ([#1988](https://github.com/Amsterdam/design-system/issues/1988))
 * **Footer:** Rename component to Page Footer ([#1971](https://github.com/Amsterdam/design-system/issues/1971))
