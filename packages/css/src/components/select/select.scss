@@ -52,6 +52,10 @@
   }
 }
 
+.ams-select:hover:not([multiple]) {
+  background-image: var(--ams-select-hover-background-image);
+}
+
 .ams-select:invalid:hover,
 .ams-select[aria-invalid="true"]:hover {
   box-shadow: var(--ams-select-invalid-hover-box-shadow);
