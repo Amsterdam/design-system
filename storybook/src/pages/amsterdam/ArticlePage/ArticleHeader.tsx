@@ -6,7 +6,7 @@ type ArticleHeaderProps = Pick<ArticlePageProps, 'heading' | 'imageSrc'>
 export const ArticleHeader = ({ heading, imageSrc }: ArticleHeaderProps) => (
   <header>
     <Grid paddingBottom="x-large">
-      <Grid.Cell span={{ narrow: 4, medium: 8, wide: 10 }} start={{ narrow: 1, medium: 1, wide: 2 }}>
+      <Grid.Cell span={{ narrow: 4, medium: 6, wide: 8 }} start={{ narrow: 1, medium: 1, wide: 2 }}>
         <Heading className="ams-mb-s" level={1}>
           {heading}
         </Heading>
