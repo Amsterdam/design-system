@@ -1,0 +1,86 @@
+{/* @license CC0-1.0 */}
+
+import { Meta } from "@storybook/blocks";
+
+<Meta title="Pages/Guidelines" />
+
+# Guidelines
+
+This page highlights notable patterns and best practices for creating pages with the Design System.
+
+It’s a living document that we’ll update as we go.
+Please share your experiences, and we’ll add them here to help others.
+
+## Page structure
+
+The most general structure for a page is:
+
+```tsx
+<Page>
+  <SkipLink href="#main">Direct naar inhoud</SkipLink>
+  <PageHeader>
+    <Grid />
+  </PageHeader>
+  <Grid>
+    <Breadcrumb />
+  </Grid>
+  <Grid as="main" id="main">
+    …
+  </Grid>
+  <PageFooter />
+</Page>
+```
+
+## Common Grid configurations
+
+Everything on the page is wrapped in a Grid Cell.
+Its `span` and `start` props let you define where all sections go on the page; in all three variants of the Grid (4, 8, and 12 columns).
+
+Some typical page sections always use the same values:
+
+### Content page header
+
+The header of a content page contains the Heading, date, and lead paragraph.
+It has 8 columns in the wide Grid.
+
+Breadcrumbs have their own Grid above this section, with the same Cell configuration.
+
+- `span={{ narrow: 4, medium: 6, wide: 8 }}`
+- `start={{ narrow: 1, medium: 1, wide: 2 }}`
+
+### Content page body
+
+The body of a content page contains the main text.
+It has 7 columns in the wide Grid to limit the length of running text.
+
+- `span={{ narrow: 4, medium: 5, wide: 7 }}`
+- `start={{ narrow: 1, medium: 2, wide: 3 }}`
+
+### Two-column layout
+
+Two sections, each with a Header, a Paragraph, and a Standalone Link, can be placed side by side, e.g. in a Spotlight.
+
+- `span={{ narrow: 4, medium: 4, wide: 6 }}`
+
+On a navigation page, these sections contain Link Lists and are a bit narrower.
+In a loop, this requires some extra calculations to get the `start` value right.
+
+- `span={{ narrow: 4, medium: 4, wide: 5 }}`
+- `start={{ narrow: 1, medium: index % 2 === 0 ? 1 : 5, wide: index % 2 === 0 ? 2 : 7 }}`
+
+### Card grids
+
+A set of cards can be displayed in a grid, in either three or four columns.
+As the `spans` fit all variants of the Grid, a `start` value can be omitted.
+
+- `span={4}`
+- `span={{ narrow: 4, medium: 4, wide: 3 }}`
+
+## Related components
+
+- [Page](/docs/components-containers-page--docs)
+- [Page Header](/docs/components-containers-page-header--docs)
+- [Page Footer](/docs/components-containers-page-footer--docs)
+- [Skip Link](/docs/components-navigation-skip-link--docs)
+- [Breadcrumb](/docs/components-navigation-breadcrumb--docs)
+- [Grid](/docs/components-layout-grid--docs)

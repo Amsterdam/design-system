@@ -1,3 +1,8 @@
+/**
+ * @license EUPL-1.2+
+ * Copyright Gemeente Amsterdam
+ */
+
 import './status-badge.css'
 import { Badge } from '@amsterdam/design-system-react/src'
 

@@ -1,3 +1,8 @@
+/**
+ * @license EUPL-1.2+
+ * Copyright Gemeente Amsterdam
+ */
+
 import { Card, Grid, Heading, Paragraph } from '@amsterdam/design-system-react'
 
 export const HomeTopTasks = () => (

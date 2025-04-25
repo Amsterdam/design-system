@@ -1,3 +1,8 @@
+/**
+ * @license EUPL-1.2+
+ * Copyright Gemeente Amsterdam
+ */
+
 import { render, screen, waitFor } from '@testing-library/react'
 import { createRef } from 'react'
 import { InvalidFormAlert } from './InvalidFormAlert'

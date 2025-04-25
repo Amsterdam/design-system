@@ -1,3 +1,8 @@
+/**
+ * @license EUPL-1.2+
+ * Copyright Gemeente Amsterdam
+ */
+
 // This array is not used to create the aspect ratio CSS classes.
 // If you modify this array, you must also update the
 // aspect ratio CSS classes in /packages/css/src/components/aspect-ratio/aspect-ratio.scss.

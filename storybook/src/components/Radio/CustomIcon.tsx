@@ -1,3 +1,8 @@
+/**
+ * @license EUPL-1.2+
+ * Copyright Gemeente Amsterdam
+ */
+
 import type { SVGProps } from 'react'
 const CustomIcon = (props: SVGProps<SVGSVGElement>) => (
   <svg aria-hidden="true" focusable="false" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" {...props}>
