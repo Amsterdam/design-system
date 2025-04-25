@@ -20,7 +20,6 @@
         "cursor": { "value": "{ams.cursor.interactive}" }
       },
       "disabled": {
-        "background-color": { "value": "{ams.color.background}" },
         "color": { "value": "{ams.color.interactive.disabled}" },
         "cursor": { "value": "{ams.cursor.disabled}" },
         "calender-picker-indicator": {

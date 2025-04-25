@@ -17,8 +17,6 @@
       "padding-block": { "value": "{ams.space.s}" },
       "padding-inline": { "value": "{ams.space.m}" },
       "disabled": {
-        "background-color": { "value": "{ams.color.background}" },
-        "border-color": { "value": "{ams.color.interactive.disabled}" },
         "color": { "value": "{ams.color.interactive.disabled}" },
         "cursor": { "value": "{ams.cursor.disabled}" }
       },
