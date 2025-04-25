@@ -87,7 +87,7 @@
   }
 
   &:hover:not(:disabled, [aria-disabled="true"]) {
-    box-shadow: var(--ams-button-tertiary-hover-box-shadow);
+    border-color: var(--ams-button-tertiary-hover-border-color);
     color: var(--ams-button-tertiary-hover-color);
   }
 }
