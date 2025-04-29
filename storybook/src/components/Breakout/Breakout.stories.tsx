@@ -6,10 +6,12 @@
 import { Image, Page, Paragraph, Spotlight } from '@amsterdam/design-system-react'
 import { Breakout } from '@amsterdam/design-system-react/src'
 import { Meta, StoryObj } from '@storybook/react'
+import { gridGapAndPaddingArgTypes } from '../../common'
 
 const meta = {
   title: 'Components/Layout/Breakout',
   component: Breakout,
+  argTypes: gridGapAndPaddingArgTypes,
   decorators: [
     (Story) => (
       <Page>
@@ -63,15 +65,15 @@ export const VerticalLayout: Story = {
         <Image alt="" src="https://picsum.photos/1600/900" />
       </Breakout.Cell>,
       <Breakout.Cell
-        colSpan={{ narrow: 4, medium: 6, wide: 8 }}
+        colSpan={{ narrow: 4, medium: 5, wide: 7 }}
         colStart={{ narrow: 1, medium: 2, wide: 3 }}
         key={3}
         rowStart={3}
       >
-        <Paragraph className="ams-mb-s" color="inverse">
+        <Paragraph className="ams-mb-s">
           Vertel ons in het evenementenformulier wat u wilt gaan doen. U checkt daarmee of u een vergunning nodig hebt.
         </Paragraph>
-        <Paragraph color="inverse">
+        <Paragraph>
           Daarna vraagt u de vergunning aan in hetzelfde formulier. Of doet u een gratis melding of vooraankondiging.
         </Paragraph>
       </Breakout.Cell>,

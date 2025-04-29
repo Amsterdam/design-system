@@ -16,7 +16,7 @@ export const argTypes = {
   },
 }
 
-// Wrap in Screen, set language to Dutch for Canvas and Stories
+// Wrap in Page, set language to Dutch for Canvas and Stories
 export const decorators = [
   (Story: StoryFn, { args }: StoryContext) => (
     <Page
@@ -54,7 +54,7 @@ export const parameters = {
     },
   },
   html: {
-    root: '.ams-screen',
+    root: '.ams-page',
   },
   options: {
     storySort: {
@@ -66,7 +66,7 @@ export const parameters = {
         ['Buttons', 'Containers', 'Feedback', 'Forms', 'Layout', 'Media', 'Navigation', 'Text'],
         'Utilities',
         'Pages',
-        ['Introduction', 'Amsterdam.nl', ['Home Page']],
+        ['Introduction', 'Guidelines', 'Amsterdam.nl', ['Home Page']],
       ],
     },
   },

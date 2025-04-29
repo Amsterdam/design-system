@@ -2,11 +2,11 @@
   "ams": {
     "card": {
       "heading": {
-        "margin-block-end": { "value": "{ams.space.s}" }
+        "margin-block-end": { "value": "{ams.space.xs}" }
       },
       "heading-group": {
-        "gap": { "value": "{ams.space.s}" },
-        "margin-block-end": { "value": "{ams.space.s}" }
+        "gap": { "value": "{ams.space.xs}" },
+        "margin-block-end": { "value": "{ams.space.xs}" }
       },
       "image": {
         "margin-block-end": { "value": "{ams.space.s}" }

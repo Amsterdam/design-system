@@ -1,3 +1,8 @@
+/**
+ * @license EUPL-1.2+
+ * Copyright Gemeente Amsterdam
+ */
+
 import {
   Alert,
   Breadcrumb,
@@ -22,8 +27,8 @@ export const FormPage = () => {
   const [textareaLength, setTextareaLength] = useState(0)
 
   return (
-    <Grid paddingBottom="medium" paddingTop="small">
-      <Grid.Cell span={{ narrow: 4, medium: 6, wide: 8 }} start={{ narrow: 1, medium: 2, wide: 3 }}>
+    <Grid paddingBottom="x-large" paddingTop="large">
+      <Grid.Cell span={{ narrow: 4, medium: 5, wide: 7 }} start={{ narrow: 1, medium: 2, wide: 3 }}>
         <Breadcrumb>
           <Breadcrumb.Link>Home</Breadcrumb.Link>
         </Breadcrumb>

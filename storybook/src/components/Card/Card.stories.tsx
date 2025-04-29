@@ -87,13 +87,13 @@ export const TopTasks: Story = {
     layout: 'fullscreen',
   },
   render: () => (
-    <Grid paddingVertical="medium">
+    <Grid paddingVertical="x-large">
       <Grid.Cell span={{ narrow: 4, medium: 4, wide: 3 }}>
         <Card>
           <Card.Heading level={2}>
             <Card.Link href="#">Gemeentebelastingen</Card.Link>
           </Card.Heading>
-          <Paragraph size="small">
+          <Paragraph>
             Bekijk welke belastingen en heffingen er zijn, hoe u bezwaar maakt of een betalingsregeling treft.
           </Paragraph>
         </Card>
@@ -103,9 +103,7 @@ export const TopTasks: Story = {
           <Card.Heading level={2}>
             <Card.Link href="#">Parkeren + Reizen (P+R)</Card.Link>
           </Card.Heading>
-          <Paragraph size="small">
-            U kunt met uw auto goedkoop parkeren bij een P+R-locatie aan de rand van de stad.
-          </Paragraph>
+          <Paragraph>U kunt met uw auto goedkoop parkeren bij een P+R-locatie aan de rand van de stad.</Paragraph>
         </Card>
       </Grid.Cell>
       <Grid.Cell span={{ narrow: 4, medium: 4, wide: 3 }}>
@@ -113,7 +111,7 @@ export const TopTasks: Story = {
           <Card.Heading level={2}>
             <Card.Link href="#">Paspoort, ID-kaart en rijbewijs</Card.Link>
           </Card.Heading>
-          <Paragraph size="small">Vraag deze bewijzen aan of verleng ze. Geef een vermissing aan.</Paragraph>
+          <Paragraph>Vraag deze bewijzen aan of verleng ze. Geef een vermissing aan.</Paragraph>
         </Card>
       </Grid.Cell>
       <Grid.Cell span={{ narrow: 4, medium: 4, wide: 3 }}>
@@ -121,7 +119,7 @@ export const TopTasks: Story = {
           <Card.Heading level={2}>
             <Card.Link href="#">Onderwijs</Card.Link>
           </Card.Heading>
-          <Paragraph size="small">
+          <Paragraph>
             Meld een kind aan voor basisschool, middelbare school of kinderopvang. Bekijk het kindtegoed op uw Stadspas.
           </Paragraph>
         </Card>

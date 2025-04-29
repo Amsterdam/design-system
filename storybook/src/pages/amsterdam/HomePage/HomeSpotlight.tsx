@@ -1,8 +1,13 @@
+/**
+ * @license EUPL-1.2+
+ * Copyright Gemeente Amsterdam
+ */
+
 import { Grid, Heading, Paragraph, Spotlight, StandaloneLink } from '@amsterdam/design-system-react'
 
 export const HomeSpotlight = () => (
   <Spotlight>
-    <Grid paddingVertical="medium">
+    <Grid paddingVertical="x-large">
       <Grid.Cell span={{ narrow: 4, medium: 4, wide: 6 }}>
         <Heading className="ams-mb-xs" color="inverse" level={1} size="level-2">
           Ontheffing of vergunning

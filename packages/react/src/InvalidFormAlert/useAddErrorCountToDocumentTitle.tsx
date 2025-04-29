@@ -1,3 +1,8 @@
+/**
+ * @license EUPL-1.2+
+ * Copyright Gemeente Amsterdam
+ */
+
 import { useEffect, useState } from 'react'
 
 export const useAddErrorCountToDocumentTitle = (

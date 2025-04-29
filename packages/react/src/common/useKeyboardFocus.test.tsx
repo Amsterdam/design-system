@@ -1,3 +1,8 @@
+/**
+ * @license EUPL-1.2+
+ * Copyright Gemeente Amsterdam
+ */
+
 import { fireEvent, render } from '@testing-library/react'
 import { useRef } from 'react'
 import { KeyboardKeys, useKeyboardFocus } from './useKeyboardFocus'

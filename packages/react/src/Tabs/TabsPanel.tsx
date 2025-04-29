@@ -9,24 +9,24 @@ import type { ForwardedRef, HTMLAttributes, PropsWithChildren } from 'react'
 import { TabsContext } from './TabsContext'
 
 export type TabsPanelProps = {
-  /** The identifier of the corresponding Tab. */
-  tab: string
+  /** The identifier of the Tab Panel. */
+  id: string
 } & PropsWithChildren<HTMLAttributes<HTMLDivElement>>
 
 export const TabsPanel = forwardRef(
-  ({ children, className, tab, ...restProps }: TabsPanelProps, ref: ForwardedRef<HTMLDivElement>) => {
-    const { activeTabId, tabsId } = useContext(TabsContext)
+  ({ children, className, id, ...restProps }: TabsPanelProps, ref: ForwardedRef<HTMLDivElement>) => {
+    const { activeTabId } = useContext(TabsContext)
 
-    if (tab !== activeTabId) {
+    if (id !== activeTabId) {
       return null
     }
 
     return (
       <div
         {...restProps}
-        aria-labelledby={`${tabsId}-tab-${tab}`}
+        aria-labelledby={`button-${id}`}
         className={clsx('ams-tabs__panel', className)}
-        id={`${tabsId}-panel-${tab}`}
+        id={id}
         ref={ref}
         role="tabpanel"
         tabIndex={0}

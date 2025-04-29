@@ -1,3 +1,8 @@
+/**
+ * @license EUPL-1.2+
+ * Copyright Gemeente Amsterdam
+ */
+
 import { Grid, Heading, LinkList, PageHeader } from '@amsterdam/design-system-react'
 import { megaMenuLinks, pageHeaderMenuLinks } from './menu'
 
@@ -9,7 +14,7 @@ export const AppHeader = () => (
       </PageHeader.MenuLink>
     ))}
   >
-    <Grid paddingBottom="large" paddingTop="small">
+    <Grid paddingBottom="2x-large" paddingTop="large">
       <PageHeader.GridCellNarrowWindowOnly span="all">
         <LinkList>
           {pageHeaderMenuLinks

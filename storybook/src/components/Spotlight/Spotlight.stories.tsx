@@ -24,7 +24,7 @@ const meta = {
   },
   render: ({ as, color }) => (
     <Spotlight as={as} color={color}>
-      <Grid paddingVertical="medium">
+      <Grid paddingVertical="x-large">
         <Grid.Cell span="all">
           <Blockquote color={!color || ['azure', 'green', 'magenta'].includes(color) ? 'inverse' : undefined}>
             {quote}

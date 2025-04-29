@@ -36,7 +36,7 @@ export const Default: Story = {
   args: {
     children: [
       <PageFooter.Spotlight key={1}>
-        <Grid paddingVertical="medium">
+        <Grid paddingVertical="x-large">
           <Grid.Cell span={4}>
             <Heading className="ams-mb-s" color="inverse" level={2} size="level-4">
               Meer weten
@@ -112,7 +112,7 @@ export const OnderzoekEnStatistiek: Story = {
   args: {
     children: [
       <PageFooter.Spotlight key={1}>
-        <Grid paddingVertical="medium">
+        <Grid paddingVertical="x-large">
           <Grid.Cell span={3}>
             <Heading className="ams-mb-s" color="inverse" level={2} size="level-4">
               Contact

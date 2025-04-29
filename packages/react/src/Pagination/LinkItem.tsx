@@ -1,3 +1,8 @@
+/**
+ * @license EUPL-1.2+
+ * Copyright Gemeente Amsterdam
+ */
+
 import { PaginationProps } from './Pagination'
 
 type LinkItemProps = Pick<PaginationProps, 'linkComponent' | 'linkTemplate'> & {
