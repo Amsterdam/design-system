@@ -3,7 +3,7 @@
  * Copyright Gemeente Amsterdam
  */
 
-import { CheckmarkIcon, CrossAlertIcon, InfoIcon, WarningIcon } from '@amsterdam/design-system-react-icons'
+import { CheckmarkIcon, ErrorCircleIcon, InfoIcon, WarningIcon } from '@amsterdam/design-system-react-icons'
 import clsx from 'clsx'
 import { forwardRef } from 'react'
 import type { ForwardedRef, HTMLAttributes, PropsWithChildren } from 'react'
@@ -35,7 +35,7 @@ export type AlertProps = {
 } & PropsWithChildren<HTMLAttributes<HTMLDivElement>>
 
 const iconSvgBySeverity: Record<Severity, Function> = {
-  error: CrossAlertIcon,
+  error: ErrorCircleIcon,
   success: CheckmarkIcon,
   warning: WarningIcon,
 }
