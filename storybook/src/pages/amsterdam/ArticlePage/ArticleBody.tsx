@@ -19,7 +19,7 @@ type ArticleBodyProps = Pick<ArticlePageProps, 'lead' | 'paragraph1' | 'spotligh
 
 export const ArticleBody = ({ lead, paragraph1, spotlightHeading, spotlightLinkLabel }: ArticleBodyProps) => (
   <>
-    <Grid paddingVertical="large">
+    <Grid paddingVertical="x-large">
       <Grid.Cell span={{ narrow: 4, medium: 6, wide: 8 }} start={{ narrow: 1, medium: 1, wide: 2 }}>
         <Paragraph className="ams-mb-m" size="large">
           {lead}
