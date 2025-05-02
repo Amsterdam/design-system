@@ -27,7 +27,7 @@ const meta = {
     },
     size: {
       control: { min: 0, type: 'number' },
-      description: 'The size of the input.',
+      description: 'The width, expressed in the average number of characters.',
     },
   },
 } satisfies Meta<typeof TextInput>
