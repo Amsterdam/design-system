@@ -13,10 +13,15 @@ const meta = {
   args: {
     disabled: false,
     invalid: false,
+    size: 0,
   },
   argTypes: {
     disabled: {
       description: 'Prevents interaction. Avoid if possible.',
+    },
+    size: {
+      control: { min: 0, type: 'number' },
+      description: 'The size of the input.',
     },
   },
 } satisfies Meta<typeof PasswordInput>
@@ -26,6 +31,12 @@ export default meta
 type Story = StoryObj<typeof meta>
 
 export const Default: Story = {}
+
+export const Size: Story = {
+  args: {
+    size: 10,
+  },
+}
 
 export const InAField: Story = {
   render: (args) => (
