@@ -13,6 +13,7 @@ const meta = {
   args: {
     disabled: false,
     invalid: false,
+    size: 0,
   },
   argTypes: {
     defaultValue: {
@@ -23,6 +24,10 @@ const meta = {
     },
     invalid: {
       description: 'Whether the value fails a validation rule.',
+    },
+    size: {
+      control: { min: 0, type: 'number' },
+      description: 'The size of the input.',
     },
   },
 } satisfies Meta<typeof TextInput>
@@ -51,6 +56,12 @@ export const PhoneNumber: Story = {
   args: {
     defaultValue: '14020',
     type: 'tel',
+  },
+}
+
+export const Size: Story = {
+  args: {
+    size: 10,
   },
 }
 
