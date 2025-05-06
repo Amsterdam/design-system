@@ -15,6 +15,8 @@
 }
 
 .ams-button {
+  border-style: var(--ams-button-border-style);
+  border-width: var(--ams-button-border-width);
   cursor: var(--ams-button-cursor);
   display: inline-flex;
   font-family: var(--ams-button-font-family);
@@ -41,8 +43,6 @@
 .ams-button--primary {
   background-color: var(--ams-button-primary-background-color);
   border-color: var(--ams-button-primary-border-color);
-  border-style: var(--ams-button-border-style);
-  border-width: var(--ams-button-border-width);
   color: var(--ams-button-primary-color);
 
   &:disabled,
@@ -59,8 +59,6 @@
 
 .ams-button--secondary {
   background-color: var(--ams-button-secondary-background-color);
-  border-style: var(--ams-button-border-style);
-  border-width: var(--ams-button-border-width);
   color: var(--ams-button-secondary-color);
 
   &:disabled,
@@ -77,8 +75,6 @@
 .ams-button--tertiary {
   background-color: var(--ams-button-tertiary-background-color);
   border-color: var(--ams-button-tertiary-border-color);
-  border-style: var(--ams-button-border-style);
-  border-width: var(--ams-button-border-width);
   color: var(--ams-button-tertiary-color);
 
   &:disabled,
