@@ -32,10 +32,6 @@
     background-repeat: no-repeat;
     background-size: 1em 1em;
   }
-
-  &:hover {
-    box-shadow: var(--ams-select-hover-box-shadow);
-  }
 }
 
 .ams-select:invalid,
@@ -56,6 +52,10 @@
 .ams-select[aria-invalid="true"]:hover {
   border-color: var(--ams-select-invalid-hover-border-color);
   box-shadow: var(--ams-select-invalid-hover-box-shadow);
+}
+
+.ams-select:not(:disabled):hover {
+  box-shadow: var(--ams-select-hover-box-shadow);
 }
 
 .ams-select__option:disabled {

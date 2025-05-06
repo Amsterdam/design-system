@@ -31,10 +31,6 @@
 
   @include text-rendering;
   @include reset-input;
-
-  &:hover {
-    box-shadow: var(--ams-text-input-hover-box-shadow);
-  }
 }
 
 .ams-text-input::placeholder {
@@ -55,4 +51,8 @@
     border-color: var(--ams-text-input-invalid-hover-border-color);
     box-shadow: var(--ams-text-input-invalid-hover-box-shadow);
   }
+}
+
+.ams-text-input:not(:disabled):hover {
+  box-shadow: var(--ams-text-input-hover-box-shadow);
 }

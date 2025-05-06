@@ -38,10 +38,6 @@
 
   @include text-rendering;
   @include reset-input;
-
-  &:hover {
-    box-shadow: var(--ams-date-input-hover-box-shadow);
-  }
 }
 
 // This changes the default calendar icon on Chromium browsers only
@@ -73,4 +69,8 @@
     border-color: var(--ams-date-input-invalid-hover-border-color);
     box-shadow: var(--ams-date-input-invalid-hover-box-shadow);
   }
+}
+
+.ams-date-input:not(:disabled):hover {
+  box-shadow: var(--ams-date-input-hover-box-shadow);
 }
