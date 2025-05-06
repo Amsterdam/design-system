@@ -110,35 +110,35 @@ export const SubnavigationPage: StoryObj = {
         <Image alt="" aspectRatio="16:5" src="https://picsum.photos/1600/500" />
         <Grid paddingVertical="large">
           <Grid.Cell span={{ narrow: 4, medium: 6, wide: 7 }} start={{ narrow: 1, medium: 1, wide: 2 }}>
-            <Heading className="ams-mb-l" level={2}>
+            <Heading className="ams-mb-s" level={2}>
               L2 Paragraaf titel
             </Heading>
             <Paragraph>{exampleParagraph()}</Paragraph>
           </Grid.Cell>
           <LinkGroupGridCells linkGroups={burgerzakenLinks.slice(0, 6)} />
           <Grid.Cell span={{ narrow: 4, medium: 4, wide: 5 }} start={{ narrow: 1, medium: 1, wide: 2 }}>
-            <Heading className="ams-mb-m" level={2} size="level-4">
+            <Heading className="ams-mb-xs" level={2} size="level-4">
               {exampleHeading()}
             </Heading>
             <Paragraph className="ams-mb-m">{exampleParagraph()}</Paragraph>
             <StandaloneLink href="#">{exampleStandaloneLine()}</StandaloneLink>
           </Grid.Cell>
           <Grid.Cell span={{ narrow: 4, medium: 4, wide: 5 }}>
-            <Heading className="ams-mb-m" level={2} size="level-4">
+            <Heading className="ams-mb-xs" level={2} size="level-4">
               {exampleHeading()}
             </Heading>
             <Paragraph className="ams-mb-m">{exampleParagraph()}</Paragraph>
             <StandaloneLink href="#">{exampleStandaloneLine()}</StandaloneLink>
           </Grid.Cell>
           <Grid.Cell span={{ narrow: 4, medium: 4, wide: 5 }} start={{ narrow: 1, medium: 1, wide: 2 }}>
-            <Heading className="ams-mb-m" level={2} size="level-4">
+            <Heading className="ams-mb-xs" level={2} size="level-4">
               {exampleHeading()}
             </Heading>
             <Paragraph className="ams-mb-m">{exampleParagraph()}</Paragraph>
             <StandaloneLink href="#">{exampleStandaloneLine()}</StandaloneLink>
           </Grid.Cell>
           <Grid.Cell span={{ narrow: 4, medium: 4, wide: 5 }}>
-            <Heading className="ams-mb-m" level={2} size="level-4">
+            <Heading className="ams-mb-xs" level={2} size="level-4">
               {exampleHeading()}
             </Heading>
             <Paragraph className="ams-mb-m">{exampleParagraph()}</Paragraph>
@@ -153,13 +153,13 @@ export const SubnavigationPage: StoryObj = {
               </Heading>
             </Grid.Cell>
             <Grid.Cell span={{ narrow: 4, medium: 4, wide: 5 }} start={{ narrow: 1, medium: 1, wide: 2 }}>
-              <Heading className="ams-mb-m" color="inverse" level={4}>
+              <Heading className="ams-mb-xs" color="inverse" level={4}>
                 {exampleHeading()}
               </Heading>
               <Paragraph color="inverse">{exampleParagraph()}</Paragraph>
             </Grid.Cell>
             <Grid.Cell span={{ narrow: 4, medium: 4, wide: 5 }}>
-              <Heading className="ams-mb-m" color="inverse" level={4}>
+              <Heading className="ams-mb-xs" color="inverse" level={4}>
                 {exampleHeading()}
               </Heading>
               <Paragraph color="inverse">{exampleParagraph()}</Paragraph>
@@ -168,7 +168,7 @@ export const SubnavigationPage: StoryObj = {
         </Spotlight>
         <Grid paddingVertical="large">
           <Grid.Cell span={{ narrow: 4, medium: 6, wide: 7 }} start={{ narrow: 1, medium: 1, wide: 2 }}>
-            <Heading className="ams-mb-m" level={2}>
+            <Heading className="ams-mb-s" level={2}>
               L2 Paragraaf titel
             </Heading>
             <Paragraph>{exampleParagraph()}</Paragraph>

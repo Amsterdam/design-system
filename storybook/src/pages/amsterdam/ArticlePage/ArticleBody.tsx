@@ -63,7 +63,7 @@ export const ArticleBody = ({ lead, paragraph1, spotlightHeading, spotlightLinkL
       <Grid.Cell span={{ narrow: 4, medium: 5, wide: 7 }} start={{ narrow: 1, medium: 2, wide: 3 }}>
         <Column>
           <section>
-            <Heading className="ams-mb-m" level={2}>
+            <Heading className="ams-mb-s" level={2}>
               Wanneer bezorgen we
             </Heading>
             <Paragraph>
@@ -72,7 +72,7 @@ export const ArticleBody = ({ lead, paragraph1, spotlightHeading, spotlightLinkL
             </Paragraph>
           </section>
           <section>
-            <Heading className="ams-mb-m" level={2}>
+            <Heading className="ams-mb-s" level={2}>
               Tekenen voor ontvangst
             </Heading>
             <Paragraph>
@@ -82,7 +82,7 @@ export const ArticleBody = ({ lead, paragraph1, spotlightHeading, spotlightLinkL
             </Paragraph>
           </section>
           <section>
-            <Heading className="ams-mb-m" level={2}>
+            <Heading className="ams-mb-s" level={2}>
               Bezorgen met waarde-transport
             </Heading>
             <Paragraph>
