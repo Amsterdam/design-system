@@ -9,8 +9,8 @@ on:
     types: [reopened]
     branches-ignore: [main]
 
-permissions:
-  contents: write
+# permissions:
+#   contents: write
 
 jobs:
   build-and-deploy:
