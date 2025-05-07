@@ -3,7 +3,7 @@
  * Copyright Gemeente Amsterdam
  */
 
-import { FavouriteIcon } from '@amsterdam/design-system-react-icons'
+import { FavouriteIcon } from '@aram-limpens/design-system-react-icons'
 import { render, screen } from '@testing-library/react'
 import { createRef } from 'react'
 import { Radio } from './Radio'

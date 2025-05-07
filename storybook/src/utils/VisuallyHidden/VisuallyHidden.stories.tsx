@@ -3,7 +3,7 @@
  * Copyright Gemeente Amsterdam
  */
 
-import { Paragraph } from '@amsterdam/design-system-react'
+import { Paragraph } from '@aram-limpens/design-system-react'
 import { Meta, StoryObj } from '@storybook/react'
 import type { VisuallyHiddenProps } from './VisuallyHidden'
 import { VisuallyHidden } from './VisuallyHidden'

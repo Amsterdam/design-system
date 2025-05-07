@@ -3,8 +3,8 @@
  * Copyright Gemeente Amsterdam
  */
 
-import { ErrorMessage, Field, Label, Paragraph } from '@amsterdam/design-system-react'
-import { TextArea } from '@amsterdam/design-system-react/src'
+import { ErrorMessage, Field, Label, Paragraph } from '@aram-limpens/design-system-react'
+import { TextArea } from '@aram-limpens/design-system-react/src'
 import { Meta, StoryObj } from '@storybook/react'
 import { exampleParagraph } from '../shared/exampleContent'
 

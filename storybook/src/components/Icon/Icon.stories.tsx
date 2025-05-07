@@ -3,10 +3,10 @@
  * Copyright Gemeente Amsterdam
  */
 
-import { Heading } from '@amsterdam/design-system-react'
-import { Icon, Paragraph, Row } from '@amsterdam/design-system-react/src'
-import { iconSizes } from '@amsterdam/design-system-react/src/Icon/Icon'
-import * as Icons from '@amsterdam/design-system-react-icons'
+import { Heading } from '@aram-limpens/design-system-react'
+import { Icon, Paragraph, Row } from '@aram-limpens/design-system-react/src'
+import { iconSizes } from '@aram-limpens/design-system-react/src/Icon/Icon'
+import * as Icons from '@aram-limpens/design-system-react-icons'
 import { Meta, StoryObj } from '@storybook/react'
 
 const meta = {

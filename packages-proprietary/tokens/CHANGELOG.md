@@ -318,7 +318,7 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 * Create unique token classes ([#1071](https://github.com/Amsterdam/design-system/issues/1071)) ([d53d0a9](https://github.com/Amsterdam/design-system/commit/d53d0a93f18238759d85bd897a7b6ee537cc78b0))
 
-## [0.5.0](https://github.com/Amsterdam/design-system/compare/@amsterdam/design-system-tokens@0.4.0...design-system-tokens-v0.5.0) (2024-02-09)
+## [0.5.0](https://github.com/Amsterdam/design-system/compare/@aram-limpens/design-system-tokens@0.4.0...design-system-tokens-v0.5.0) (2024-02-09)
 
 ### ⚠ BREAKING CHANGES
 
@@ -333,7 +333,7 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 * Hyphenate headings and other large text components ([#1056](https://github.com/Amsterdam/design-system/issues/1056)) ([f875171](https://github.com/Amsterdam/design-system/commit/f8751716018d4ed269a086e1764741ad29714fa0))
 * Remove deprecated `inList` variant of Link ([#1064](https://github.com/Amsterdam/design-system/issues/1064)) ([b30784b](https://github.com/Amsterdam/design-system/commit/b30784b352b4a057069ceb397951b79a6e2547f2))
 
-## [0.4.0](https://github.com/Amsterdam/design-system/compare/@amsterdam/design-system-tokens@0.3.0...@amsterdam/design-system-tokens@0.4.0) (2024-01-31)
+## [0.4.0](https://github.com/Amsterdam/design-system/compare/@aram-limpens/design-system-tokens@0.3.0...@aram-limpens/design-system-tokens@0.4.0) (2024-01-31)
 
 ### ⚠ BREAKING CHANGES
 
@@ -356,7 +356,7 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 * Remove unused grey-4 color token ([#1059](https://github.com/Amsterdam/design-system/issues/1059)) ([379560e](https://github.com/Amsterdam/design-system/commit/379560eafc48d3301439c4e40268b65beae59a56))
 * Update alert appearance, make ‘warning’ the default and icon non-optional ([#993](https://github.com/Amsterdam/design-system/issues/993)) ([df15253](https://github.com/Amsterdam/design-system/commit/df152538278a73c4aceb094fece70025ff35dc5f))
 
-## [0.3.0](https://github.com/Amsterdam/design-system/compare/@amsterdam/design-system-tokens@0.2.0...@amsterdam/design-system-tokens@0.3.0) (2023-12-22)
+## [0.3.0](https://github.com/Amsterdam/design-system/compare/@aram-limpens/design-system-tokens@0.2.0...@aram-limpens/design-system-tokens@0.3.0) (2023-12-22)
 
 ### ⚠ BREAKING CHANGES
 
@@ -378,7 +378,7 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 * Adjust size of breadcrumb separator and allow natural text wrapping ([#913](https://github.com/Amsterdam/design-system/issues/913)) ([caba940](https://github.com/Amsterdam/design-system/commit/caba94024c5aedf9092a5afbbf625d921fd124b5))
 * Change tertiary button hover border color ([#989](https://github.com/Amsterdam/design-system/issues/989)) ([f4ec6e7](https://github.com/Amsterdam/design-system/commit/f4ec6e7461420c7606441a35caacc9ee10d146eb))
 
-## [0.2.0](https://github.com/Amsterdam/design-system/compare/@amsterdam/design-system-tokens@0.1.8...@amsterdam/design-system-tokens@0.2.0) (2023-12-01)
+## [0.2.0](https://github.com/Amsterdam/design-system/compare/@aram-limpens/design-system-tokens@0.1.8...@aram-limpens/design-system-tokens@0.2.0) (2023-12-01)
 
 ### ⚠ BREAKING CHANGES
 
@@ -393,6 +393,6 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 * Apply regular font size to lists of links ([#875](https://github.com/Amsterdam/design-system/issues/875)) ([4908a42](https://github.com/Amsterdam/design-system/commit/4908a42c6e78deaf8ce42aaf0e91dc5e156b0779))
 
-## [0.1.8](https://github.com/Amsterdam/design-system/compare/@amsterdam/design-system-tokens@0.1.7...@amsterdam/design-system-tokens@0.1.8) (2023-11-27)
+## [0.1.8](https://github.com/Amsterdam/design-system/compare/@aram-limpens/design-system-tokens@0.1.7...@aram-limpens/design-system-tokens@0.1.8) (2023-11-27)
 
-**Note:** Version bump only for package @amsterdam/design-system-tokens
+**Note:** Version bump only for package @aram-limpens/design-system-tokens

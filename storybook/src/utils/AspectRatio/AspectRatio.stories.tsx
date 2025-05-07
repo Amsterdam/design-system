@@ -3,8 +3,8 @@
  * Copyright Gemeente Amsterdam
  */
 
-import { generateAspectRatioClass } from '@amsterdam/design-system-react/src'
-import { aspectRatioOptions } from '@amsterdam/design-system-react/src/common/types'
+import { generateAspectRatioClass } from '@aram-limpens/design-system-react/src'
+import { aspectRatioOptions } from '@aram-limpens/design-system-react/src/common/types'
 import { Meta, StoryObj } from '@storybook/react'
 import clsx from 'clsx'
 import { AspectRatio } from './AspectRatio'

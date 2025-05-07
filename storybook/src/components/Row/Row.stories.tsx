@@ -3,10 +3,10 @@
  * Copyright Gemeente Amsterdam
  */
 
-import { Avatar, Heading, Link } from '@amsterdam/design-system-react'
-import { Row } from '@amsterdam/design-system-react/src'
-import { rowGapSizes } from '@amsterdam/design-system-react/src/Row/Row'
-import { crossAlignOptions, mainAlignOptions } from '@amsterdam/design-system-react/src/common/types'
+import { Avatar, Heading, Link } from '@aram-limpens/design-system-react'
+import { Row } from '@aram-limpens/design-system-react/src'
+import { rowGapSizes } from '@aram-limpens/design-system-react/src/Row/Row'
+import { crossAlignOptions, mainAlignOptions } from '@aram-limpens/design-system-react/src/common/types'
 import { Meta, StoryObj } from '@storybook/react'
 
 const ThreeItems = [

@@ -20,7 +20,7 @@ import {
   Select,
   TextArea,
   TextInput,
-} from '@amsterdam/design-system-react'
+} from '@aram-limpens/design-system-react'
 import { useState } from 'react'
 
 export const FormPage = () => {

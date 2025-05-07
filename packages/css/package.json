@@ -1,10 +1,10 @@
 {
   "version": "0.16.0",
-  "author": "Design System Team, City of Amsterdam <designsystem@amsterdam.nl>",
+  "author": "Design System Team, City of Amsterdam <designsystem@aram-limpens.nl>",
   "description": "Stylesheets for all components from the Amsterdam Design System and some general utilities. Use it to apply the visual design of the City of Amsterdam to your HTML elements or non-React components.",
   "homepage": "https://designsystem.amsterdam",
   "license": "EUPL-1.2",
-  "name": "@amsterdam/design-system-css",
+  "name": "@aram-limpens/design-system-css",
   "keywords": [
     "amsterdam",
     "amsterdam-design-system",
@@ -27,7 +27,7 @@
     "sass": "1.87.0"
   },
   "peerDependencies": {
-    "@amsterdam/design-system-tokens": "workspace:*",
-    "@amsterdam/design-system-assets": "workspace:*"
+    "@aram-limpens/design-system-tokens": "workspace:*",
+    "@aram-limpens/design-system-assets": "workspace:*"
   }
 }

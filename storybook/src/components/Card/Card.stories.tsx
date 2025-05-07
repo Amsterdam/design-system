@@ -3,8 +3,8 @@
  * Copyright Gemeente Amsterdam
  */
 
-import { Column, Grid, Paragraph } from '@amsterdam/design-system-react'
-import { Card } from '@amsterdam/design-system-react/src'
+import { Column, Grid, Paragraph } from '@aram-limpens/design-system-react'
+import { Card } from '@aram-limpens/design-system-react/src'
 import { Meta, StoryObj } from '@storybook/react'
 import { exampleTopTask } from '../shared/exampleContent'
 

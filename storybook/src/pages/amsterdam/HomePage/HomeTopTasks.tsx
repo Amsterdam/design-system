@@ -3,7 +3,7 @@
  * Copyright Gemeente Amsterdam
  */
 
-import { Card, Grid, Heading, Paragraph } from '@amsterdam/design-system-react'
+import { Card, Grid, Heading, Paragraph } from '@aram-limpens/design-system-react'
 
 export const HomeTopTasks = () => (
   <Grid paddingVertical="x-large">

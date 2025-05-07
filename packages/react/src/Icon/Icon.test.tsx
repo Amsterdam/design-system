@@ -3,7 +3,7 @@
  * Copyright Gemeente Amsterdam
  */
 
-import { AlertIcon } from '@amsterdam/design-system-react-icons'
+import { AlertIcon } from '@aram-limpens/design-system-react-icons'
 import { render } from '@testing-library/react'
 import { createRef } from 'react'
 import { Icon, iconSizes } from './Icon'

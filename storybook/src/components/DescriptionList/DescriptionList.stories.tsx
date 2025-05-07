@@ -3,9 +3,9 @@
  * Copyright Gemeente Amsterdam
  */
 
-import { Link, Paragraph, UnorderedList } from '@amsterdam/design-system-react'
-import { descriptionListTermsWidths } from '@amsterdam/design-system-react/dist/DescriptionList/DescriptionList'
-import { DescriptionList } from '@amsterdam/design-system-react/src'
+import { Link, Paragraph, UnorderedList } from '@aram-limpens/design-system-react'
+import { descriptionListTermsWidths } from '@aram-limpens/design-system-react/dist/DescriptionList/DescriptionList'
+import { DescriptionList } from '@aram-limpens/design-system-react/src'
 import { Meta, StoryObj } from '@storybook/react'
 
 const meta = {

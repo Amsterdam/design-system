@@ -3,8 +3,8 @@
  * Copyright Gemeente Amsterdam
  */
 
-import { Badge } from '@amsterdam/design-system-react/src'
-import { badgeColors } from '@amsterdam/design-system-react/src/Badge/Badge'
+import { Badge } from '@aram-limpens/design-system-react/src'
+import { badgeColors } from '@aram-limpens/design-system-react/src/Badge/Badge'
 import { Meta, StoryObj } from '@storybook/react'
 
 const meta = {

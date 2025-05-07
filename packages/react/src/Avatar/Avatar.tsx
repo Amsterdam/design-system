@@ -3,7 +3,7 @@
  * Copyright Gemeente Amsterdam
  */
 
-import { PersonalLoginIcon } from '@amsterdam/design-system-react-icons'
+import { PersonalLoginIcon } from '@aram-limpens/design-system-react-icons'
 import clsx from 'clsx'
 import { forwardRef } from 'react'
 import type { ForwardedRef, HTMLAttributes } from 'react'

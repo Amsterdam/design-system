@@ -29,7 +29,7 @@ From the directory that holds the repository:
 ```sh
 git config user.name Your Name
 
-git config user.email your.email@amsterdam.nl
+git config user.email your.email@aram-limpens.nl
 ```
 
 ## Keep branches small

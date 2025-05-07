@@ -3,7 +3,7 @@
  * Copyright Gemeente Amsterdam
  */
 
-import { Grid, Heading, LinkList } from '@amsterdam/design-system-react'
+import { Grid, Heading, LinkList } from '@aram-limpens/design-system-react'
 import type { LinkGroup } from './links'
 
 type LinkGroupGridCellsProps = {

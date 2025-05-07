@@ -1,10 +1,10 @@
 {
   "version": "0.16.0",
-  "author": "Design System Team, City of Amsterdam <designsystem@amsterdam.nl>",
+  "author": "Design System Team, City of Amsterdam <designsystem@aram-limpens.nl>",
   "description": "All design tokens from the Amsterdam Design System. Use it to apply its visual design to your website or application.",
   "homepage": "https://designsystem.amsterdam",
   "license": "SEE LICENSE IN LICENSE.md",
-  "name": "@amsterdam/design-system-tokens",
+  "name": "@aram-limpens/design-system-tokens",
   "type": "module",
   "keywords": [
     "amsterdam",

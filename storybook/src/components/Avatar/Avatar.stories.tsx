@@ -3,8 +3,8 @@
  * Copyright Gemeente Amsterdam
  */
 
-import { Avatar } from '@amsterdam/design-system-react/src'
-import { avatarColors } from '@amsterdam/design-system-react/src/Avatar/Avatar'
+import { Avatar } from '@aram-limpens/design-system-react/src'
+import { avatarColors } from '@aram-limpens/design-system-react/src/Avatar/Avatar'
 import { Meta, StoryObj } from '@storybook/react'
 
 const meta = {

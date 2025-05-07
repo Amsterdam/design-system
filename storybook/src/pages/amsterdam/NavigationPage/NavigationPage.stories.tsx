@@ -13,14 +13,14 @@ import {
   SearchField,
   Spotlight,
   StandaloneLink,
-} from '@amsterdam/design-system-react'
+} from '@aram-limpens/design-system-react'
 import {
   CameraIcon,
   ChatBubbleIcon,
   FacebookIcon,
   LinkedinIcon,
   TwitterIcon,
-} from '@amsterdam/design-system-react-icons'
+} from '@aram-limpens/design-system-react-icons'
 import { Meta, StoryObj } from '@storybook/react'
 import { LinkGroupGridCells } from './LinkGroupGridCells'
 import { NavigationPage } from './NavigationPage'

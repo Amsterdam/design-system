@@ -3,8 +3,8 @@
  * Copyright Gemeente Amsterdam
  */
 
-import { ErrorMessage, Field, Label, Paragraph } from '@amsterdam/design-system-react'
-import { TextInput } from '@amsterdam/design-system-react/src'
+import { ErrorMessage, Field, Label, Paragraph } from '@aram-limpens/design-system-react'
+import { TextInput } from '@aram-limpens/design-system-react/src'
 import { Meta, StoryObj } from '@storybook/react'
 
 const meta = {
@@ -35,7 +35,7 @@ export const Default: Story = {}
 
 export const EmailAddress: Story = {
   args: {
-    defaultValue: 'designsystem@amsterdam.nl',
+    defaultValue: 'designsystem@aram-limpens.nl',
     type: 'email',
   },
 }

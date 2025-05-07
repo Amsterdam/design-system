@@ -10,18 +10,18 @@ Use it to apply the visual design of the City of Amsterdam to your HTML elements
 We publish our components’ stylesheets as a separate package to help replicating them in other libraries, platforms, or Saas-applications.
 The classes are a contract between the component’s definition and its implementations and they facilitate ongoing upgrades.
 
-Our [React components](https://www.npmjs.com/package/@amsterdam/design-system-react) use these classes in the HTML they render.
+Our [React components](https://www.npmjs.com/package/@aram-limpens/design-system-react) use these classes in the HTML they render.
 You should use that package if your application uses React.
 
 A couple of utility classes are included for general use: aspect ratio, bottom margin, gap, and visually hidden.
 
 ## Installation
 
-The stylesheets reference our [design tokens](https://www.npmjs.com/package/@amsterdam/design-system-tokens).
+The stylesheets reference our [design tokens](https://www.npmjs.com/package/@aram-limpens/design-system-tokens).
 Both packages need to be installed.
 
 ```sh
-npm install @amsterdam/design-system-css @amsterdam/design-system-tokens
+npm install @aram-limpens/design-system-css @aram-limpens/design-system-tokens
 ```
 
 ## Usage
@@ -38,9 +38,9 @@ Import the main stylesheet and use the class names in your markup.
 
 <!-- prettier-ignore -->
 ```tsx
-import "@amsterdam/design-system-assets/font/index.css"
-import "@amsterdam/design-system-css/dist/index.css"
-import "@amsterdam/design-system-tokens/dist/index.css"
+import "@aram-limpens/design-system-assets/font/index.css"
+import "@aram-limpens/design-system-css/dist/index.css"
+import "@aram-limpens/design-system-tokens/dist/index.css"
 
 export const App = () => (
   <p className="ams-paragraph">Hello, world!</p>
@@ -55,9 +55,9 @@ Although it is not a typical use case, the stylesheet can be included in an HTML
 <!doctype html>
 <html lang="en">
   <head>
-    <link rel="stylesheet" href="node_modules/@amsterdam/design-system-assets/font/index.css" />
-    <link rel="stylesheet" href="node_modules/@amsterdam/design-system-css/dist/index.css" />
-    <link rel="stylesheet" href="node_modules/@amsterdam/design-system-tokens/dist/index.css" />
+    <link rel="stylesheet" href="node_modules/@aram-limpens/design-system-assets/font/index.css" />
+    <link rel="stylesheet" href="node_modules/@aram-limpens/design-system-css/dist/index.css" />
+    <link rel="stylesheet" href="node_modules/@aram-limpens/design-system-tokens/dist/index.css" />
   </head>
   <body class="ams-body">
     <p class="ams-paragraph">Hello, world!</p>

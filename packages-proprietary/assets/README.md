@@ -9,11 +9,11 @@ Use it to include the correct fonts, icons or logos in your website or applicati
 
 Install this package by itself if you want or need to reference assets directly in your project.
 
-Note that our [React components](https://www.npmjs.com/package/@amsterdam/design-system-react) provide more functionality for some of the assets and use them automatically.
+Note that our [React components](https://www.npmjs.com/package/@aram-limpens/design-system-react) provide more functionality for some of the assets and use them automatically.
 You should use that package if your application uses React.
 
 ```sh
-npm install @amsterdam/design-system-assets
+npm install @aram-limpens/design-system-assets
 ```
 
 ## Usage
@@ -29,7 +29,7 @@ Import our stylesheet to make all of them available to your project.
 
 <!-- prettier-ignore -->
 ```ts
-import "@amsterdam/design-system-assets/font/index.css"
+import "@aram-limpens/design-system-assets/font/index.css"
 ```
 
 The Design System Handbook offers [more guidance in using the font](https://designsystem.amsterdam/?path=/docs/brand-assets-font--docs).

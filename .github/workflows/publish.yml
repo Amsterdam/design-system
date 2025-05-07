@@ -46,11 +46,11 @@ jobs:
         run: pnpm install --frozen-lockfile
         if: ${{ steps.release.outputs.releases_created == 'true' }}
 
-      - name: Publish
-        run: pnpm -r publish
-        env:
-          NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN}}
-        if: ${{ steps.release.outputs.releases_created == 'true' }}
+      # - name: Publish
+      #   run: pnpm -r publish
+      #   env:
+      #     NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN}}
+      #   if: ${{ steps.release.outputs.releases_created == 'true' }}
 
       # The logic below handles the Storybook deploy:
       - name: Build Storybook

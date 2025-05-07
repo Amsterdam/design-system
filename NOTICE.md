@@ -19,4 +19,4 @@ Amsterdam Sans is licensed exclusively to the City of Amsterdam and amsterdam&pa
 
 ## Permission
 
-For permission to use the logo or branding, please contact <designsystem@amsterdam.nl>.
+For permission to use the logo or branding, please contact <designsystem@aram-limpens.nl>.

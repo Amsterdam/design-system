@@ -3,7 +3,7 @@
  * Copyright Gemeente Amsterdam
  */
 
-import { Image } from '@amsterdam/design-system-react'
+import { Image } from '@aram-limpens/design-system-react'
 
 export const AppleTouchIcon = () => (
   <div className="ams-docs-gallery">

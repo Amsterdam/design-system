@@ -113,7 +113,7 @@ However, issues arise if a release only updates Tokens and Assets without change
 The latest version of CSS then depends on an older version of Tokens.
 
 To resolve this, we can manually let CSS depend on the latest version of Tokens.
-We replace `"@amsterdam/design-system-tokens": "workspace:*"` with `"@amsterdam/design-system-tokens": "x.y.z"` and run `pnpm i` to update the lockfile.
+We replace `"@aram-limpens/design-system-tokens": "workspace:*"` with `"@aram-limpens/design-system-tokens": "x.y.z"` and run `pnpm i` to update the lockfile.
 We then release a new version of our CSS package, with the correct peer dependency.
 
 After that, consider restoring the dynamic dependency (`workspace:*`) and updating the lockfile (`pnpm i`) accordingly.

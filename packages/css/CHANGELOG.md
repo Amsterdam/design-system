@@ -354,7 +354,7 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 * Remove whitespace at the right end of dialog content ([#1091](https://github.com/Amsterdam/design-system/issues/1091)) ([23e1253](https://github.com/Amsterdam/design-system/commit/23e1253e38bba8ac85ebbd696af37742d1c1a02d))
 
-## [0.5.0](https://github.com/Amsterdam/design-system/compare/@amsterdam/design-system-css@0.4.0...design-system-css-v0.5.0) (2024-02-09)
+## [0.5.0](https://github.com/Amsterdam/design-system/compare/@aram-limpens/design-system-css@0.4.0...design-system-css-v0.5.0) (2024-02-09)
 
 ### ⚠ BREAKING CHANGES
 
@@ -369,7 +369,7 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 * Hyphenate headings and other large text components ([#1056](https://github.com/Amsterdam/design-system/issues/1056)) ([f875171](https://github.com/Amsterdam/design-system/commit/f8751716018d4ed269a086e1764741ad29714fa0))
 * Remove deprecated `inList` variant of Link ([#1064](https://github.com/Amsterdam/design-system/issues/1064)) ([b30784b](https://github.com/Amsterdam/design-system/commit/b30784b352b4a057069ceb397951b79a6e2547f2))
 
-## [0.4.0](https://github.com/Amsterdam/design-system/compare/@amsterdam/design-system-css@0.3.0...@amsterdam/design-system-css@0.4.0) (2024-01-31)
+## [0.4.0](https://github.com/Amsterdam/design-system/compare/@aram-limpens/design-system-css@0.3.0...@aram-limpens/design-system-css@0.4.0) (2024-01-31)
 
 ### ⚠ BREAKING CHANGES
 
@@ -392,7 +392,7 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 * Update alert appearance, make ‘warning’ the default and icon non-optional ([#993](https://github.com/Amsterdam/design-system/issues/993)) ([df15253](https://github.com/Amsterdam/design-system/commit/df152538278a73c4aceb094fece70025ff35dc5f))
 
-## [0.3.0](https://github.com/Amsterdam/design-system/compare/@amsterdam/design-system-css@0.2.0...@amsterdam/design-system-css@0.3.0) (2023-12-22)
+## [0.3.0](https://github.com/Amsterdam/design-system/compare/@aram-limpens/design-system-css@0.2.0...@aram-limpens/design-system-css@0.3.0) (2023-12-22)
 
 ### ⚠ BREAKING CHANGES
 
@@ -420,7 +420,7 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 * Resolve malformed outline and remove excessive white space on dialog ([#937](https://github.com/Amsterdam/design-system/issues/937)) ([1fc264a](https://github.com/Amsterdam/design-system/commit/1fc264ac577edaa92e37d4c7e81427dd75b6dbe7))
 * Use rems for checkbox underline ([#944](https://github.com/Amsterdam/design-system/issues/944)) ([8622326](https://github.com/Amsterdam/design-system/commit/8622326b8686856c44ad03856bac886ee4e5632b))
 
-## [0.2.0](https://github.com/Amsterdam/design-system/compare/@amsterdam/design-system-css@0.1.9...@amsterdam/design-system-css@0.2.0) (2023-12-01)
+## [0.2.0](https://github.com/Amsterdam/design-system/compare/@aram-limpens/design-system-css@0.1.9...@aram-limpens/design-system-css@0.2.0) (2023-12-01)
 
 ### ⚠ BREAKING CHANGES
 
@@ -433,6 +433,6 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 * Allow small and large vertical white space on grids ([#821](https://github.com/Amsterdam/design-system/issues/821)) ([aa54eb9](https://github.com/Amsterdam/design-system/commit/aa54eb911bfed633856a74e0be4e11d4ad8f3ebc))
 * Update typography system and values, implement compact theme ([#803](https://github.com/Amsterdam/design-system/issues/803)) ([9b087ec](https://github.com/Amsterdam/design-system/commit/9b087ec5c6e75dfafadcdcde710747ef63951917))
 
-## [0.1.9](https://github.com/Amsterdam/design-system/compare/@amsterdam/design-system-css@0.1.8...@amsterdam/design-system-css@0.1.9) (2023-11-27)
+## [0.1.9](https://github.com/Amsterdam/design-system/compare/@aram-limpens/design-system-css@0.1.8...@aram-limpens/design-system-css@0.1.9) (2023-11-27)
 
-**Note:** Version bump only for package @amsterdam/design-system-css
+**Note:** Version bump only for package @aram-limpens/design-system-css

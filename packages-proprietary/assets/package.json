@@ -1,10 +1,10 @@
 {
   "version": "0.3.0",
-  "author": "Design System Team, City of Amsterdam <designsystem@amsterdam.nl>",
+  "author": "Design System Team, City of Amsterdam <designsystem@aram-limpens.nl>",
   "description": "All assets from the Amsterdam Design System. Use it to include the correct fonts, icons or logos in your website or application.",
   "homepage": "https://designsystem.amsterdam",
   "license": "SEE LICENSE IN LICENSE.md",
-  "name": "@amsterdam/design-system-assets",
+  "name": "@aram-limpens/design-system-assets",
   "keywords": [
     "amsterdam",
     "amsterdam-design-system",

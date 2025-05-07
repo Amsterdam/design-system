@@ -13,14 +13,14 @@ We’ve adopted the architecture of [NL Design System](https://nldesignsystem.nl
 ## Installation
 
 The components reference our
-[stylesheets](https://www.npmjs.com/package/@amsterdam/design-system-css),
-[design tokens](https://www.npmjs.com/package/@amsterdam/design-system-tokens)
-[assets](https://www.npmjs.com/package/@amsterdam/design-system-assets),
-and [React icons](https://www.npmjs.com/package/@amsterdam/design-system-react-icons).
+[stylesheets](https://www.npmjs.com/package/@aram-limpens/design-system-css),
+[design tokens](https://www.npmjs.com/package/@aram-limpens/design-system-tokens)
+[assets](https://www.npmjs.com/package/@aram-limpens/design-system-assets),
+and [React icons](https://www.npmjs.com/package/@aram-limpens/design-system-react-icons).
 Install all packages.
 
 ```sh
-npm install @amsterdam/design-system-assets @amsterdam/design-system-css @amsterdam/design-system-react @amsterdam/design-system-react-icons @amsterdam/design-system-tokens
+npm install @aram-limpens/design-system-assets @aram-limpens/design-system-css @aram-limpens/design-system-react @aram-limpens/design-system-react-icons @aram-limpens/design-system-tokens
 ```
 
 The React components themselves are unstyled.
@@ -33,10 +33,10 @@ Then import and use the components in your JSX.
 
 <!-- prettier-ignore -->
 ```tsx
-import "@amsterdam/design-system-assets/font/index.css"
-import "@amsterdam/design-system-css/dist/index.css"
-import "@amsterdam/design-system-tokens/dist/index.css"
-import { Paragraph } from "@amsterdam/design-system-react"
+import "@aram-limpens/design-system-assets/font/index.css"
+import "@aram-limpens/design-system-css/dist/index.css"
+import "@aram-limpens/design-system-tokens/dist/index.css"
+import { Paragraph } from "@aram-limpens/design-system-react"
 
 const App = () => (
   <Paragraph>Hello, world!</Paragraph>

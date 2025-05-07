@@ -343,7 +343,7 @@ Amsterdam/design-system/commit/715f4d6241353b9b9f1f68dad7b7773b9c618492))
 * Use span instead of div for VisuallyHidden ([#1080](https://github.com/Amsterdam/design-system/issues/1080)) ([b839763](https://github.com/Amsterdam/design-system/commit/b839763066c7debe082fbe9ec2530c363a17b166))
 * Use VisuallyHidden instead of aria-label for screen reader only text in Top task link ([#1115](https://github.com/Amsterdam/design-system/issues/1115)) ([4281fa1](https://github.com/Amsterdam/design-system/commit/4281fa188a0b61bd59611fa0d65fa7657c54c361))
 
-## [0.5.0](https://github.com/Amsterdam/design-system/compare/@amsterdam/design-system-react@0.4.0...design-system-react-v0.5.0) (2024-02-09)
+## [0.5.0](https://github.com/Amsterdam/design-system/compare/@aram-limpens/design-system-react@0.4.0...design-system-react-v0.5.0) (2024-02-09)
 
 ### ⚠ BREAKING CHANGES
 
@@ -357,7 +357,7 @@ Amsterdam/design-system/commit/715f4d6241353b9b9f1f68dad7b7773b9c618492))
 * Remove `compact` prop of Grid component ([#1067](https://github.com/Amsterdam/design-system/issues/1067)) ([e773434](https://github.com/Amsterdam/design-system/commit/e7734347a9e7205d510a16a543294bde69b9c6f0))
 * Remove deprecated `inList` variant of Link ([#1064](https://github.com/Amsterdam/design-system/issues/1064)) ([b30784b](https://github.com/Amsterdam/design-system/commit/b30784b352b4a057069ceb397951b79a6e2547f2))
 
-## [0.4.0](https://github.com/Amsterdam/design-system/compare/@amsterdam/design-system-react@0.3.0...@amsterdam/design-system-react@0.4.0) (2024-01-31)
+## [0.4.0](https://github.com/Amsterdam/design-system/compare/@aram-limpens/design-system-react@0.3.0...@aram-limpens/design-system-react@0.4.0) (2024-01-31)
 
 ### ⚠ BREAKING CHANGES
 
@@ -383,7 +383,7 @@ Amsterdam/design-system/commit/715f4d6241353b9b9f1f68dad7b7773b9c618492))
 * Refactor subcomponents ([#1050](https://github.com/Amsterdam/design-system/issues/1050)) ([9e48aec](https://github.com/Amsterdam/design-system/commit/9e48aec0444fe5c378614b9ffb2efc3b847f6b7a))
 * Update alert appearance, make ‘warning’ the default and icon non-optional ([#993](https://github.com/Amsterdam/design-system/issues/993)) ([df15253](https://github.com/Amsterdam/design-system/commit/df152538278a73c4aceb094fece70025ff35dc5f))
 
-## [0.3.0](https://github.com/Amsterdam/design-system/compare/@amsterdam/design-system-react@0.2.0...@amsterdam/design-system-react@0.3.0) (2023-12-22)
+## [0.3.0](https://github.com/Amsterdam/design-system/compare/@aram-limpens/design-system-react@0.2.0...@aram-limpens/design-system-react@0.3.0) (2023-12-22)
 
 ### ⚠ BREAKING CHANGES
 
@@ -410,7 +410,7 @@ Amsterdam/design-system/commit/715f4d6241353b9b9f1f68dad7b7773b9c618492))
 * Merge grid cell files into grid files and directories ([#815](https://github.com/Amsterdam/design-system/issues/815)) ([f4b4ec5](https://github.com/Amsterdam/design-system/commit/f4b4ec5de92d283ee2ef083075297a64b3dfd1cb))
 * Remove unused prop type in TextInput ([#990](https://github.com/Amsterdam/design-system/issues/990)) ([f150e16](https://github.com/Amsterdam/design-system/commit/f150e16c1953791ec7c6d6891e2cd5cb43c26ffa))
 
-## [0.2.0](https://github.com/Amsterdam/design-system/compare/@amsterdam/design-system-react@0.1.9...@amsterdam/design-system-react@0.2.0) (2023-12-01)
+## [0.2.0](https://github.com/Amsterdam/design-system/compare/@aram-limpens/design-system-react@0.1.9...@aram-limpens/design-system-react@0.2.0) (2023-12-01)
 
 ### ⚠ BREAKING CHANGES
 
@@ -427,6 +427,6 @@ Amsterdam/design-system/commit/715f4d6241353b9b9f1f68dad7b7773b9c618492))
 
 * Apply regular font size to lists of links ([#875](https://github.com/Amsterdam/design-system/issues/875)) ([4908a42](https://github.com/Amsterdam/design-system/commit/4908a42c6e78deaf8ce42aaf0e91dc5e156b0779))
 
-## [0.1.9](https://github.com/Amsterdam/design-system/compare/@amsterdam/design-system-react@0.1.8...@amsterdam/design-system-react@0.1.9) (2023-11-27)
+## [0.1.9](https://github.com/Amsterdam/design-system/compare/@aram-limpens/design-system-react@0.1.8...@aram-limpens/design-system-react@0.1.9) (2023-11-27)
 
-**Note:** Version bump only for package @amsterdam/design-system-react
+**Note:** Version bump only for package @aram-limpens/design-system-react

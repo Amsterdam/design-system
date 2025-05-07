@@ -5,15 +5,15 @@
 We use barrel files (`index.ts` in both the package root and each component directory) to make it easier for consuming applications to import components from our React library.
 Barrel files allow a consumer to do this:
 
-`import { Heading, Link, Paragraph } from '@amsterdam/design-system-react'`
+`import { Heading, Link, Paragraph } from '@aram-limpens/design-system-react'`
 
 Instead of a separate import for each component, while even reaching into the `dist` directory:
 
 <!-- prettier-ignore -->
 ```ts
-import Heading from "@amsterdam/design-system-react/dist/Heading/Heading"
-import Link from "@amsterdam/design-system-react/dist/Link/Link"
-import Paragraph from "@amsterdam/design-system-react/dist/Paragraph/Paragraph"
+import Heading from "@aram-limpens/design-system-react/dist/Heading/Heading"
+import Link from "@aram-limpens/design-system-react/dist/Link/Link"
+import Paragraph from "@aram-limpens/design-system-react/dist/Paragraph/Paragraph"
 ```
 
 However, barrel files have 2 potential pitfalls:

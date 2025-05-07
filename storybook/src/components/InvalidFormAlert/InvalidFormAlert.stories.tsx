@@ -3,7 +3,7 @@
  * Copyright Gemeente Amsterdam
  */
 
-import { InvalidFormAlert } from '@amsterdam/design-system-react/src'
+import { InvalidFormAlert } from '@aram-limpens/design-system-react/src'
 import { Meta, StoryObj } from '@storybook/react'
 
 const meta = {

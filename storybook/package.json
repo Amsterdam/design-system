@@ -1,10 +1,10 @@
 {
   "version": "0.0.0",
-  "author": "Design System Team, City of Amsterdam <designsystem@amsterdam.nl>",
+  "author": "Design System Team, City of Amsterdam <designsystem@aram-limpens.nl>",
   "description": "The handbook for the Amsterdam Design System, created with Storybook.",
   "homepage": "https://designsystem.amsterdam",
   "license": "EUPL-1.2",
-  "name": "@amsterdam/storybook",
+  "name": "@aram-limpens/storybook",
   "keywords": [],
   "private": true,
   "repository": {
@@ -22,11 +22,11 @@
     "clsx": "2.1.1"
   },
   "devDependencies": {
-    "@amsterdam/design-system-assets": "workspace:*",
-    "@amsterdam/design-system-css": "workspace:*",
-    "@amsterdam/design-system-react": "workspace:*",
-    "@amsterdam/design-system-react-icons": "workspace:*",
-    "@amsterdam/design-system-tokens": "workspace:*",
+    "@aram-limpens/design-system-assets": "workspace:*",
+    "@aram-limpens/design-system-css": "workspace:*",
+    "@aram-limpens/design-system-react": "workspace:*",
+    "@aram-limpens/design-system-react-icons": "workspace:*",
+    "@aram-limpens/design-system-tokens": "workspace:*",
     "@babel/core": "7.27.1",
     "@mdx-js/react": "3.1.0",
     "@storybook/addon-a11y": "8.6.12",

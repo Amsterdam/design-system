@@ -3,8 +3,8 @@
  * Copyright Gemeente Amsterdam
  */
 
-import { Grid, Heading, LinkList, Paragraph } from '@amsterdam/design-system-react'
-import { PageFooter } from '@amsterdam/design-system-react/src'
+import { Grid, Heading, LinkList, Paragraph } from '@aram-limpens/design-system-react'
+import { PageFooter } from '@aram-limpens/design-system-react/src'
 import {
   CameraIcon,
   ClockIcon,
@@ -13,7 +13,7 @@ import {
   LinkedinIcon,
   PhoneIcon,
   TwitterIcon,
-} from '@amsterdam/design-system-react-icons'
+} from '@aram-limpens/design-system-react-icons'
 import { Meta, StoryObj } from '@storybook/react'
 
 const meta = {
@@ -59,7 +59,7 @@ export const Default: Story = {
               Hebt u een vraag en kunt u het antwoord niet vinden op deze website? Neem dan contact met ons op.
             </Paragraph>
             <LinkList>
-              <LinkList.Link color="inverse" href="mailto:redactie@amsterdam.nl" icon={EmailIcon} size="small">
+              <LinkList.Link color="inverse" href="mailto:redactie@aram-limpens.nl" icon={EmailIcon} size="small">
                 E-mail
               </LinkList.Link>
               <LinkList.Link color="inverse" href="tel:+3114020" icon={PhoneIcon} size="small">
@@ -121,7 +121,7 @@ export const OnderzoekEnStatistiek: Story = {
               Heeft u een vraag en kunt u het antwoord niet vinden op deze site? Neem dan contact met ons op.
             </Paragraph>
             <LinkList>
-              <LinkList.Link color="inverse" href="mailto:redactie.os@amsterdam.nl" icon={EmailIcon} size="small">
+              <LinkList.Link color="inverse" href="mailto:redactie.os@aram-limpens.nl" icon={EmailIcon} size="small">
                 E-mail
               </LinkList.Link>
               <LinkList.Link color="inverse" href="tel:+31202510333" icon={PhoneIcon} size="small">

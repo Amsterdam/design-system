@@ -3,8 +3,8 @@
  * Copyright Gemeente Amsterdam
  */
 
-import { ActionGroup, Button, Paragraph } from '@amsterdam/design-system-react'
-import { Dialog } from '@amsterdam/design-system-react/src'
+import { ActionGroup, Button, Paragraph } from '@aram-limpens/design-system-react'
+import { Dialog } from '@aram-limpens/design-system-react/src'
 import { action } from '@storybook/addon-actions'
 import { Meta, StoryObj } from '@storybook/react'
 

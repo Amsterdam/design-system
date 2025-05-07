@@ -3,7 +3,7 @@
  * Copyright Gemeente Amsterdam
  */
 
-import { PageFooter, SkipLink } from '@amsterdam/design-system-react'
+import { PageFooter, SkipLink } from '@aram-limpens/design-system-react'
 import type { HTMLAttributes, PropsWithChildren } from 'react'
 import { AppHeader } from './AppHeader'
 import { Default as PageFooterStory } from '../../../components/PageFooter/PageFooter.stories'

@@ -3,7 +3,7 @@
  * Copyright Gemeente Amsterdam
  */
 
-import { Overlap } from '@amsterdam/design-system-react'
+import { Overlap } from '@aram-limpens/design-system-react'
 import { HomeNews } from './HomeNews'
 import { HomeSpotlight } from './HomeSpotlight'
 import { HomeTopTasks } from './HomeTopTasks'

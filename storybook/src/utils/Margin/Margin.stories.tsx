@@ -3,7 +3,7 @@
  * Copyright Gemeente Amsterdam
  */
 
-import { Heading, Paragraph } from '@amsterdam/design-system-react'
+import { Heading, Paragraph } from '@aram-limpens/design-system-react'
 import { Meta, StoryObj } from '@storybook/react'
 import type { MarginProps } from './Margin'
 import { Margin } from './Margin'
