@@ -2,6 +2,8 @@
 
 # Amsterdam Design System: CSS components
 
+TEST RELEASE 1
+
 This package provides stylesheets for all components in the [Amsterdam Design System](https://designsystem.amsterdam) and some general utilities.
 Use it to apply the visual design of the City of Amsterdam to your HTML elements or non-React components.
 
