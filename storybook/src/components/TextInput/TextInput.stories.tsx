@@ -13,7 +13,6 @@ const meta = {
   args: {
     disabled: false,
     invalid: false,
-    size: 0,
   },
   argTypes: {
     defaultValue: {
