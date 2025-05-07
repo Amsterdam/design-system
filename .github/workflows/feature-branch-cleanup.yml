@@ -1,10 +1,15 @@
 # Based on https://evilmartians.com/chronicles/super-github-pages-budget-frontend-staging-with-storybook-and-more
 
 name: Feature branch cleanup
+
 on:
   pull_request:
     types: [closed]
     branches-ignore: [main]
+
+permissions:
+  contents: read
+  deployments: write
 
 env:
   BRANCH_NAME: ${{ github.head_ref || github.ref_name }}
