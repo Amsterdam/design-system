@@ -22,4 +22,4 @@ The class can be applied to any component or element.
 
 - Apply one of these classes to an image, video or other media content to constrain its dimensions to one of the available aspect ratios.
 - The default aspect ratio is 16:9.
-- When dealing with `width` and `height` attributes on an image, the aspect ratio will be calculated based on the values of these attributes and overrule the class. Apply `width: 100%` and `height: auto` to the image to fix this.
+- When dealing with `width` and `height` attributes on an image, the aspect ratio will be calculated based on the values of these attributes and overrule the class. To fix this apply the className `ams-image`.
