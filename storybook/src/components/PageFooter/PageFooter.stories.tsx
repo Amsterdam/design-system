@@ -12,7 +12,7 @@ import {
   FacebookIcon,
   LinkedinIcon,
   PhoneIcon,
-  TwitterIcon,
+  XIcon,
 } from '@amsterdam/design-system-react-icons'
 import { Meta, StoryObj } from '@storybook/react'
 
@@ -26,7 +26,7 @@ export default meta
 type Story = StoryObj<typeof meta>
 
 const socialPlatforms = [
-  { icon: TwitterIcon, name: 'Twitter' },
+  { icon: XIcon, name: 'X' },
   { icon: FacebookIcon, name: 'Facebook' },
   { icon: LinkedinIcon, name: 'Linkedin' },
   { icon: CameraIcon, name: 'Instagram' },
