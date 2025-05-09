@@ -37,7 +37,10 @@
             }
           },
           "hover": {
-            "fill": { "value": "{ams.color.interactive.hover}" }
+            "fill": { "value": "{ams.color.interactive.hover}" },
+            "disabled-invalid": {
+              "fill": { "value": "{ams.color.interactive.disabled}" }
+            }
           },
           "invalid": {
             "fill": { "value": "{ams.color.interactive.invalid.default}" },
@@ -47,7 +50,10 @@
           }
         },
         "hover": {
-          "stroke": { "value": "{ams.color.interactive.hover}" }
+          "stroke": { "value": "{ams.color.interactive.hover}" },
+          "disabled-invalid": {
+            "stroke": { "value": "{ams.color.interactive.disabled}" }
+          }
         },
         "invalid": {
           "stroke": { "value": "{ams.color.interactive.invalid.default}" },

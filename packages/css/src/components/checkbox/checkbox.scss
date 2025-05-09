@@ -74,6 +74,13 @@
   }
 }
 
+// Invalid
+.ams-checkbox__input[aria-invalid="true"] + .ams-checkbox__label {
+  .ams-checkbox__rectangle {
+    stroke: var(--ams-checkbox-rectangle-invalid-stroke);
+  }
+}
+
 // Checked
 .ams-checkbox__input:checked + .ams-checkbox__label {
   .ams-checkbox__rectangle {
@@ -93,13 +100,6 @@
 
   .ams-checkbox__indeterminate-indicator {
     display: block;
-  }
-}
-
-// Invalid
-.ams-checkbox__input[aria-invalid="true"] + .ams-checkbox__label {
-  .ams-checkbox__rectangle {
-    stroke: var(--ams-checkbox-rectangle-invalid-stroke);
   }
 }
 
@@ -172,6 +172,13 @@
   }
 }
 
+// Disabled invalid hover
+.ams-checkbox__input[aria-invalid="true"]:disabled + .ams-checkbox__label:hover {
+  .ams-checkbox__rectangle {
+    stroke: var(--ams-checkbox-rectangle-hover-disabled-invalid-stroke);
+  }
+}
+
 // Disabled checked hover
 .ams-checkbox__input:disabled:checked + .ams-checkbox__label:hover {
   .ams-checkbox__rectangle {
@@ -209,173 +216,16 @@
   }
 }
 
-// .ams-checkbox__checkmark {
-//   align-items: center;
-//   block-size: calc(var(--ams-checkbox-font-size) * var(--ams-checkbox-line-height));
-//   display: flex;
-//   flex-shrink: 0;
-//   inline-size: 1.5rem;
+// Disabled invalid checked hover
+.ams-checkbox__input[aria-invalid="true"]:disabled:checked + .ams-checkbox__label:hover {
+  .ams-checkbox__rectangle {
+    fill: var(--ams-checkbox-rectangle-checked-hover-disabled-invalid-fill);
+  }
+}
 
-//   &::after {
-//     background-position: center;
-//     background-repeat: no-repeat;
-//     background-size: 1rem;
-//     block-size: 1.5rem;
-//     border-color: var(--ams-checkbox-checkmark-border-color);
-//     border-style: solid;
-//     border-width: var(--ams-checkbox-checkmark-border-width);
-//     box-sizing: border-box;
-//     content: "";
-//     inline-size: 100%;
-//   }
-// }
-
-// // Default checked
-// .ams-checkbox__input:checked {
-//   + .ams-checkbox__label .ams-checkbox__checkmark::after {
-//     background-color: var(--ams-checkbox-checkmark-checked-background-color);
-//     background-image: var(--ams-checkbox-checkmark-checked-background-image);
-//     border: none;
-//   }
-// }
-
-// // Default indeterminate
-// .ams-checkbox__input:indeterminate {
-//   + .ams-checkbox__label .ams-checkbox__checkmark::after {
-//     background-color: var(--ams-checkbox-checkmark-indeterminate-background-color);
-//     background-image: var(--ams-checkbox-checkmark-indeterminate-background-image);
-//     background-position: center;
-//     background-repeat: no-repeat;
-//     background-size: 1rem;
-//     border: none;
-//   }
-// }
-
-// // Invalid unchecked
-// .ams-checkbox__input:invalid,
-// .ams-checkbox__input[aria-invalid="true"] {
-//   + .ams-checkbox__label .ams-checkbox__checkmark::after {
-//     border-color: var(--ams-checkbox-checkmark-invalid-border-color);
-//   }
-// }
-
-// // Disabled unchecked
-// .ams-checkbox__input:disabled {
-//   + .ams-checkbox__label {
-//     color: var(--ams-checkbox-disabled-color);
-//     cursor: var(--ams-checkbox-disabled-cursor);
-
-//     .ams-checkbox__checkmark::after {
-//       border-color: var(--ams-checkbox-checkmark-disabled-border-color);
-//       border-width: var(--ams-checkbox-checkmark-disabled-border-width);
-//     }
-//   }
-// }
-
-// // Invalid checked
-// .ams-checkbox__input:invalid:checked,
-// .ams-checkbox__input[aria-invalid="true"]:checked {
-//   + .ams-checkbox__label .ams-checkbox__checkmark::after {
-//     background-color: var(--ams-checkbox-checkmark-invalid-checked-background-color);
-//   }
-// }
-
-// // Invalid indeterminate
-// .ams-checkbox__input:invalid:indeterminate,
-// .ams-checkbox__input[aria-invalid="true"]:indeterminate {
-//   + .ams-checkbox__label .ams-checkbox__checkmark::after {
-//     background-color: var(--ams-checkbox-checkmark-invalid-indeterminate-background-color);
-//   }
-// }
-
-// Disabled label
-// .ams-checkbox__input:disabled + .ams-checkbox__label:hover {
-//   text-decoration: none;
-// }
-
-// // Disabled checked
-// .ams-checkbox__input:disabled:checked {
-//   + .ams-checkbox__label .ams-checkbox__checkmark::after {
-//     background-color: var(--ams-checkbox-checkmark-disabled-checked-background-color);
-//   }
-// }
-
-// // Disabled indeterminate
-// .ams-checkbox__input:disabled:indeterminate {
-//   + .ams-checkbox__label .ams-checkbox__checkmark::after {
-//     background-color: var(--ams-checkbox-checkmark-disabled-indeterminate-background-color);
-//   }
-// }
-
-// // Disabled invalid unchecked
-// .ams-checkbox__input:invalid:disabled,
-// .ams-checkbox__input[aria-invalid="true"]:disabled {
-//   + .ams-checkbox__label .ams-checkbox__checkmark::after {
-//     // TODO: currently disabled invalid gets the same styling as disabled. This should get its own styling.
-//     border-color: var(--ams-checkbox-checkmark-disabled-border-color);
-//   }
-// }
-
-// // HOVER STATES
-
-// // Invalid unchecked hover
-// :is(.ams-checkbox__input:invalid, .ams-checkbox__input[aria-invalid="true"])
-//   + .ams-checkbox__label:hover
-//   .ams-checkbox__checkmark::after {
-//   border-color: var(--ams-checkbox-checkmark-invalid-hover-border-color);
-// }
-
-// // Default checked hover
-// .ams-checkbox__input:checked + .ams-checkbox__label:hover .ams-checkbox__checkmark::after {
-//   background-color: var(--ams-checkbox-checkmark-checked-hover-background-color);
-// }
-
-// // Default indeterminate hover
-// .ams-checkbox__input:indeterminate + .ams-checkbox__label:hover .ams-checkbox__checkmark::after {
-//   background-color: var(--ams-checkbox-checkmark-indeterminate-hover-background-color);
-// }
-
-// // Invalid checked hover
-// :is(.ams-checkbox__input:invalid:checked, .ams-checkbox__input[aria-invalid="true"]:checked)
-//   + .ams-checkbox__label:hover
-//   .ams-checkbox__checkmark::after {
-//   background-color: var(--ams-checkbox-checkmark-invalid-checked-hover-background-color);
-// }
-
-// // Invalid indeterminate hover
-// :is(.ams-checkbox__input:invalid:indeterminate, .ams-checkbox__input[aria-invalid="true"]:indeterminate)
-//   + .ams-checkbox__label:hover
-//   .ams-checkbox__checkmark::after {
-//   background-color: var(--ams-checkbox-checkmark-invalid-indeterminate-hover-background-color);
-// }
-
-// // Disabled checked hover
-// .ams-checkbox__input:disabled:checked + .ams-checkbox__label:hover .ams-checkbox__checkmark::after {
-//   background-color: var(--ams-checkbox-checkmark-disabled-checked-hover-background-color);
-// }
-
-// // Disabled indeterminate hover
-// .ams-checkbox__input:disabled:indeterminate + .ams-checkbox__label:hover .ams-checkbox__checkmark::after {
-//   background-color: var(--ams-checkbox-checkmark-disabled-indeterminate-hover-background-color);
-// }
-
-// // Disabled invalid unchecked hover
-// :is(.ams-checkbox__input:invalid:disabled, .ams-checkbox__input[aria-invalid="true"]:disabled)
-//   + .ams-checkbox__label:hover
-//   .ams-checkbox__checkmark::after {
-//   // TODO: currently disabled invalid gets the same styling as disabled. This should get its own styling.
-//   border-color: var(--ams-checkbox-checkmark-disabled-border-color);
-// }
-
-// // DISABLED INVALID STATES
-
-// // Disabled invalid checked & indeterminate
-// .ams-checkbox__input:invalid:disabled:checked,
-// .ams-checkbox__input:invalid:disabled:indeterminate,
-// .ams-checkbox__input[aria-invalid="true"]:disabled:checked,
-// .ams-checkbox__input[aria-invalid="true"]:disabled:indeterminate {
-//   + .ams-checkbox__label .ams-checkbox__checkmark::after {
-//     // TODO: currently disabled invalid gets the same styling as disabled. This should get its own styling.
-//     background-color: var(--ams-checkbox-checkmark-disabled-checked-background-color);
-//   }
-// }
+// Disabled invalid indeterminate hover
+.ams-checkbox__input[aria-invalid="true"]:disabled:indeterminate + .ams-checkbox__label:hover {
+  .ams-checkbox__rectangle {
+    fill: var(--ams-checkbox-rectangle-checked-hover-disabled-invalid-fill);
+  }
+}
