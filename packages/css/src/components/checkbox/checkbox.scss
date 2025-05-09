@@ -229,3 +229,90 @@
     fill: var(--ams-checkbox-rectangle-indeterminate-hover-disabled-invalid-fill);
   }
 }
+
+// FORCED COLORS
+
+// Default
+@media (forced-colors: active) {
+  .ams-checkbox__label,
+  .ams-checkbox__label:hover,
+  .ams-checkbox__input[aria-invalid="true"] + .ams-checkbox__label,
+  .ams-checkbox__input[aria-invalid="true"] + .ams-checkbox__label:hover {
+    .ams-checkbox__rectangle {
+      fill: Canvas;
+      stroke: FieldText;
+    }
+
+    .ams-checkbox__hover-indicator {
+      stroke: none;
+    }
+  }
+}
+
+// Checked
+@media (forced-colors: active) {
+  .ams-checkbox__input:checked + .ams-checkbox__label,
+  .ams-checkbox__input:checked + .ams-checkbox__label:hover,
+  .ams-checkbox__input[aria-invalid="true"]:checked + .ams-checkbox__label,
+  .ams-checkbox__input[aria-invalid="true"]:checked + .ams-checkbox__label:hover {
+    .ams-checkbox__rectangle {
+      fill: ActiveText;
+      stroke: ActiveText;
+    }
+
+    .ams-checkbox__checked-indicator {
+      stroke: Canvas;
+    }
+  }
+}
+
+// Indeterminate
+@media (forced-colors: active) {
+  .ams-checkbox__input:indeterminate + .ams-checkbox__label,
+  .ams-checkbox__input:indeterminate + .ams-checkbox__label:hover,
+  .ams-checkbox__input[aria-invalid="true"]:indeterminate + .ams-checkbox__label,
+  .ams-checkbox__input[aria-invalid="true"]:indeterminate + .ams-checkbox__label:hover {
+    .ams-checkbox__rectangle {
+      fill: ActiveText;
+      stroke: ActiveText;
+    }
+
+    .ams-checkbox__indeterminate-indicator {
+      stroke: Canvas;
+    }
+  }
+}
+
+// Disabled
+@media (forced-colors: active) {
+  .ams-checkbox__input:disabled + .ams-checkbox__label,
+  .ams-checkbox__input:disabled + .ams-checkbox__label:hover,
+  .ams-checkbox__input[aria-invalid="true"]:disabled + .ams-checkbox__label,
+  .ams-checkbox__input[aria-invalid="true"]:disabled + .ams-checkbox__label:hover {
+    .ams-checkbox__rectangle {
+      stroke: GrayText;
+    }
+  }
+}
+
+// Disabled checked
+@media (forced-colors: active) {
+  .ams-checkbox__input:disabled:checked + .ams-checkbox__label,
+  .ams-checkbox__input:disabled:checked + .ams-checkbox__label:hover,
+  .ams-checkbox__input[aria-invalid="true"]:disabled:checked + .ams-checkbox__label:hover {
+    .ams-checkbox__rectangle {
+      fill: GrayText;
+    }
+  }
+}
+
+// Disabled indeterminate
+@media (forced-colors: active) {
+  .ams-checkbox__input:disabled:indeterminate + .ams-checkbox__label,
+  .ams-checkbox__input:disabled:indeterminate + .ams-checkbox__label:hover,
+  .ams-checkbox__input[aria-invalid="true"]:disabled:indeterminate + .ams-checkbox__label:hover {
+    .ams-checkbox__rectangle {
+      fill: GrayText;
+    }
+  }
+}
