@@ -40,4 +40,7 @@ const OrderedListRoot = forwardRef(
 
 OrderedListRoot.displayName = 'OrderedList'
 
+/**
+ * @see {@link https://designsystem.amsterdam/?path=/docs/components-text-ordered-list--docs|OrderedList docs at Amsterdam Design System}
+ */
 export const OrderedList = Object.assign(OrderedListRoot, { Item: OrderedListItem })

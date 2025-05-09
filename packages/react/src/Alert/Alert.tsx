@@ -40,6 +40,9 @@ const iconSvgBySeverity: Record<Severity, Function> = {
   warning: AlertIcon,
 }
 
+/**
+ * @see {@link https://designsystem.amsterdam/?path=/docs/components-feedback-alert--docs|Alert docs at Amsterdam Design System}
+ */
 export const Alert = forwardRef(
   (
     {

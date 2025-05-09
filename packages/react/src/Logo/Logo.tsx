@@ -40,6 +40,9 @@ const logoConfig: Record<
   'vga-verzekeringen': LogoVgaVerzekeringen,
 }
 
+/**
+ * @see {@link https://designsystem.amsterdam/?path=/docs/components-media-logo--docs|Logo docs at Amsterdam Design System}
+ */
 export const Logo = forwardRef(
   ({ brand = 'amsterdam', className, ...restProps }: LogoProps, ref: ForwardedRef<SVGSVGElement>) => {
     const LogoComponent = logoConfig[brand]

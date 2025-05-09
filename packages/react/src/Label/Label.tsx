@@ -16,6 +16,9 @@ import { Hint, HintProps } from '../Hint'
 
 export type LabelProps = PropsWithChildren<LabelHTMLAttributes<HTMLLabelElement>> & HintProps
 
+/**
+ * @see {@link https://designsystem.amsterdam/?path=/docs/components-forms-label--docs|Label docs at Amsterdam Design System}
+ */
 export const Label = forwardRef(
   ({ children, className, hint, optional, ...restProps }: LabelProps, ref: ForwardedRef<HTMLLabelElement>) => {
     return (
