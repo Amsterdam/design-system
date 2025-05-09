@@ -169,7 +169,12 @@
   .ams-radio__input[aria-invalid="true"] + .ams-radio__label,
   .ams-radio__input[aria-invalid="true"] + .ams-radio__label:hover {
     .ams-radio__circle {
+      fill: Canvas;
       stroke: FieldText;
+    }
+
+    .ams-radio__hover-indicator {
+      stroke: none;
     }
 
     .ams-radio__checked-indicator {
