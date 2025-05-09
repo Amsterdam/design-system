@@ -49,10 +49,34 @@
             }
           }
         },
+        "disabled": {
+          "stroke": { "value": "{ams.color.interactive.disabled}" }
+        },
         "hover": {
           "stroke": { "value": "{ams.color.interactive.hover}" },
           "disabled-invalid": {
             "stroke": { "value": "{ams.color.interactive.disabled}" }
+          }
+        },
+        "indeterminate": {
+          "fill": { "value": "{ams.color.interactive.default}" },
+          "disabled": {
+            "fill": { "value": "{ams.color.interactive.disabled}" },
+            "hover": {
+              "fill": { "value": "{ams.color.interactive.disabled}" }
+            }
+          },
+          "hover": {
+            "fill": { "value": "{ams.color.interactive.hover}" },
+            "disabled-invalid": {
+              "fill": { "value": "{ams.color.interactive.disabled}" }
+            }
+          },
+          "invalid": {
+            "fill": { "value": "{ams.color.interactive.invalid.default}" },
+            "hover": {
+              "fill": { "value": "{ams.color.interactive.invalid.hover}" }
+            }
           }
         },
         "invalid": {

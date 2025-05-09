@@ -95,7 +95,7 @@
 // Indeterminate
 .ams-checkbox__input:indeterminate + .ams-checkbox__label {
   .ams-checkbox__rectangle {
-    fill: var(--ams-checkbox-rectangle-checked-fill);
+    fill: var(--ams-checkbox-rectangle-indeterminate-fill);
   }
 
   .ams-checkbox__indeterminate-indicator {
@@ -109,7 +109,7 @@
   cursor: var(--ams-checkbox-disabled-cursor);
 
   .ams-checkbox__rectangle {
-    stroke: var(--ams-radio-circle-disabled-stroke);
+    stroke: var(--ams-checkbox-rectangle-disabled-stroke);
   }
 
   .ams-checkbox__hover-indicator {
@@ -127,7 +127,7 @@
 // Invalid indeterminate
 .ams-checkbox__input[aria-invalid="true"]:indeterminate + .ams-checkbox__label {
   .ams-checkbox__rectangle {
-    fill: var(--ams-checkbox-rectangle-checked-invalid-fill);
+    fill: var(--ams-checkbox-rectangle-indeterminate-invalid-fill);
   }
 }
 
@@ -141,7 +141,7 @@
 // Disabled indeterminate
 .ams-checkbox__input:disabled:indeterminate + .ams-checkbox__label {
   .ams-checkbox__rectangle {
-    fill: var(--ams-checkbox-rectangle-checked-disabled-fill);
+    fill: var(--ams-checkbox-rectangle-indeterminate-disabled-fill);
   }
 }
 
@@ -157,7 +157,7 @@
 // Indeterminate hover
 .ams-checkbox__input:indeterminate + .ams-checkbox__label:hover {
   .ams-checkbox__rectangle {
-    fill: var(--ams-checkbox-rectangle-checked-hover-fill);
+    fill: var(--ams-checkbox-rectangle-indeterminate-hover-fill);
   }
 }
 
@@ -189,7 +189,7 @@
 // Disabled indeterminate hover
 .ams-checkbox__input:disabled:indeterminate + .ams-checkbox__label:hover {
   .ams-checkbox__rectangle {
-    fill: var(--ams-checkbox-rectangle-checked-disabled-hover-fill);
+    fill: var(--ams-checkbox-rectangle-indeterminate-disabled-hover-fill);
   }
 }
 
@@ -212,7 +212,7 @@
 // Invalid indeterminate hover
 .ams-checkbox__input[aria-invalid="true"]:indeterminate + .ams-checkbox__label:hover {
   .ams-checkbox__rectangle {
-    fill: var(--ams-checkbox-rectangle-checked-invalid-hover-fill);
+    fill: var(--ams-checkbox-rectangle-indeterminate-invalid-hover-fill);
   }
 }
 
@@ -226,6 +226,6 @@
 // Disabled invalid indeterminate hover
 .ams-checkbox__input[aria-invalid="true"]:disabled:indeterminate + .ams-checkbox__label:hover {
   .ams-checkbox__rectangle {
-    fill: var(--ams-checkbox-rectangle-checked-hover-disabled-invalid-fill);
+    fill: var(--ams-checkbox-rectangle-indeterminate-hover-disabled-invalid-fill);
   }
 }
