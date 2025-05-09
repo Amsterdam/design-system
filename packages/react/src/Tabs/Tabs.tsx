@@ -74,6 +74,9 @@ const TabsRoot = forwardRef(
 
 TabsRoot.displayName = 'Tabs'
 
+/**
+ * @see {@link https://designsystem.amsterdam/?path=/docs/components-containers-tabs--docs|Tabs docs at Amsterdam Design System}
+ */
 export const Tabs = Object.assign(TabsRoot, {
   Button: TabsButton,
   List: TabsList,

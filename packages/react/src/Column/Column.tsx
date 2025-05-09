@@ -37,6 +37,9 @@ export type ColumnProps = {
   gap?: ColumnGap
 } & PropsWithChildren<HTMLAttributes<HTMLElement>>
 
+/**
+ * @see {@link https://designsystem.amsterdam/?path=/docs/components-layout-column--docs|Column docs at Amsterdam Design System}
+ */
 export const Column = forwardRef(
   ({ align, alignHorizontal, as: Tag = 'div', children, className, gap, ...restProps }: ColumnProps, ref: any) => (
     <Tag

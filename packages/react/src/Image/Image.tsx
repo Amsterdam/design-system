@@ -15,6 +15,9 @@ export type ImageProps = {
 } & AspectRatioProps &
   Omit<ImgHTMLAttributes<HTMLImageElement>, 'children'>
 
+/**
+ * @see {@link https://designsystem.amsterdam/?path=/docs/components-media-image--docs|Image docs at Amsterdam Design System}
+ */
 export const Image = forwardRef(
   ({ aspectRatio, className, ...restProps }: ImageProps, ref: ForwardedRef<HTMLImageElement>) => (
     <img {...restProps} className={clsx('ams-image', generateAspectRatioClass(aspectRatio), className)} ref={ref} />

@@ -17,6 +17,9 @@ export type DateInputProps = {
   type?: DateInputType
 } & Omit<InputHTMLAttributes<HTMLInputElement>, 'aria-invalid' | 'type'>
 
+/**
+ * @see {@link https://designsystem.amsterdam/?path=/docs/components-forms-date-input--docs|DateInput docs at Amsterdam Design System}
+ */
 export const DateInput = forwardRef(
   ({ className, invalid, type = 'date', ...restProps }: DateInputProps, ref: ForwardedRef<HTMLInputElement>) => (
     <input

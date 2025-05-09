@@ -41,6 +41,9 @@ export type InvalidFormAlertProps = {
   headingLevel: HeadingProps['level']
 } & HTMLAttributes<HTMLDivElement>
 
+/**
+ * @see {@link https://designsystem.amsterdam/?path=/docs/components-forms-invalid-form-alert--docs|InvalidFormAlert docs at Amsterdam Design System}
+ */
 export const InvalidFormAlert = forwardRef(
   ({ errorCountLabel, errors, ...restProps }: InvalidFormAlertProps, ref: ForwardedRef<HTMLDivElement>) => {
     // An Invalid Form Alert without errors only resets the document title.

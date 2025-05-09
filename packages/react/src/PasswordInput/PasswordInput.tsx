@@ -15,6 +15,9 @@ export type PasswordInputProps = {
   'aria-invalid' | 'autoCapitalize' | 'autoCorrect' | 'spellCheck' | 'type'
 >
 
+/**
+ * @see {@link https://designsystem.amsterdam/?path=/docs/components-forms-password-input--docs|PasswordInput docs at Amsterdam Design System}
+ */
 export const PasswordInput = forwardRef(
   ({ className, dir, invalid, ...restProps }: PasswordInputProps, ref: ForwardedRef<HTMLInputElement>) => (
     <input

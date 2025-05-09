@@ -12,6 +12,9 @@ export type BlockquoteProps = {
   color?: 'inverse'
 } & PropsWithChildren<BlockquoteHTMLAttributes<HTMLQuoteElement>>
 
+/**
+ * @see {@link https://designsystem.amsterdam/?path=/docs/components-text-blockquote--docs|Blockquote docs at Amsterdam Design System}
+ */
 export const Blockquote = forwardRef(
   ({ children, className, color, ...restProps }: BlockquoteProps, ref: ForwardedRef<HTMLQuoteElement>) => (
     <blockquote

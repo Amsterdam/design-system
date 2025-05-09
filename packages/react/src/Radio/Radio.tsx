@@ -15,6 +15,9 @@ export type RadioProps = {
   invalid?: boolean
 } & PropsWithChildren<Omit<InputHTMLAttributes<HTMLInputElement>, 'aria-invalid' | 'type'>>
 
+/**
+ * @see {@link https://designsystem.amsterdam/?path=/docs/components-forms-radio--docs|Radio docs at Amsterdam Design System}
+ */
 export const Radio = forwardRef(
   ({ children, className, icon, invalid, ...restProps }: RadioProps, ref: ForwardedRef<HTMLInputElement>) => {
     const id = useId()

@@ -22,6 +22,9 @@ const PageFooterRoot = forwardRef(
 
 PageFooterRoot.displayName = 'PageFooter'
 
+/**
+ * @see {@link https://designsystem.amsterdam/?path=/docs/components-containers-page-footer--docs|PageFooter docs at Amsterdam Design System}
+ */
 export const PageFooter = Object.assign(PageFooterRoot, {
   Menu: PageFooterMenu,
   MenuLink: PageFooterMenuLink,

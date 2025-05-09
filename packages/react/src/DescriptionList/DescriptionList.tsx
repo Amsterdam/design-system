@@ -42,6 +42,9 @@ const DescriptionListRoot = forwardRef(
 
 DescriptionListRoot.displayName = 'DescriptionList'
 
+/**
+ * @see {@link https://designsystem.amsterdam/?path=/docs/components-text-description-list--docs|DescriptionList docs at Amsterdam Design System}
+ */
 export const DescriptionList = Object.assign(DescriptionListRoot, {
   Description: DescriptionListDescription,
   Section: DescriptionListSection,
