@@ -87,7 +87,7 @@
         }
       },
       "icon-container": {
-        "block-size": { "value": "calc({ams.radio.font-size} * {ams.radio.line-height})" },
+        "block-size": { "value": "calc({ams.checkbox.font-size} * {ams.checkbox.line-height})" },
         "inline-size": { "value": "1.5rem" }
       },
       "disabled": {
