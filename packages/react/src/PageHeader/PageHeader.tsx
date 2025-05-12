@@ -141,7 +141,7 @@ const PageHeaderRoot = forwardRef(
 PageHeaderRoot.displayName = 'PageHeader'
 
 /**
- * @see {@link https://designsystem.amsterdam/?path=/docs/components-containers-page-header--docs PageHeader docs at Amsterdam Design System}
+ * @see {@link https://designsystem.amsterdam/?path=/docs/components-containers-page-header--docs Page Header docs at Amsterdam Design System}
  */
 export const PageHeader = Object.assign(PageHeaderRoot, {
   GridCellNarrowWindowOnly: PageHeaderGridCellNarrowWindowOnly,

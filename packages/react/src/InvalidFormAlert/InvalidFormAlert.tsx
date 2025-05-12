@@ -42,7 +42,7 @@ export type InvalidFormAlertProps = {
 } & HTMLAttributes<HTMLDivElement>
 
 /**
- * @see {@link https://designsystem.amsterdam/?path=/docs/components-forms-invalid-form-alert--docs InvalidFormAlert docs at Amsterdam Design System}
+ * @see {@link https://designsystem.amsterdam/?path=/docs/components-forms-invalid-form-alert--docs Invalid Form Alert docs at Amsterdam Design System}
  */
 export const InvalidFormAlert = forwardRef(
   ({ errorCountLabel, errors, ...restProps }: InvalidFormAlertProps, ref: ForwardedRef<HTMLDivElement>) => {

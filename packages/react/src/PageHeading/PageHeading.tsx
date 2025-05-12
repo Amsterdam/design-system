@@ -13,7 +13,7 @@ export type PageHeadingProps = {
 } & PropsWithChildren<HTMLAttributes<HTMLHeadingElement>>
 
 /**
- * @see {@link https://designsystem.amsterdam/?path=/docs/components-text-page-heading--docs PageHeading docs at Amsterdam Design System}
+ * @see {@link https://designsystem.amsterdam/?path=/docs/components-text-page-heading--docs Page Heading docs at Amsterdam Design System}
  */
 export const PageHeading = forwardRef(
   ({ children, className, color, ...restProps }: PageHeadingProps, ref: ForwardedRef<HTMLHeadingElement>) => (

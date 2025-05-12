@@ -43,6 +43,6 @@ const UnorderedListRoot = forwardRef(
 UnorderedListRoot.displayName = 'UnorderedList'
 
 /**
- * @see {@link https://designsystem.amsterdam/?path=/docs/components-text-unordered-list--docs UnorderedList docs at Amsterdam Design System}
+ * @see {@link https://designsystem.amsterdam/?path=/docs/components-text-unordered-list--docs Unordered List docs at Amsterdam Design System}
  */
 export const UnorderedList = Object.assign(UnorderedListRoot, { Item: UnorderedListItem })
