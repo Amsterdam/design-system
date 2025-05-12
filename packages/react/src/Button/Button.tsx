@@ -39,7 +39,7 @@ export type ButtonProps = {
   PropsWithChildren<ButtonHTMLAttributes<HTMLButtonElement>>
 
 /**
- * @see {@link https://designsystem.amsterdam/?path=/docs/components-buttons-button--docs|Button docs at Amsterdam Design System}
+ * @see {@link https://designsystem.amsterdam/?path=/docs/components-buttons-button--docs Button docs at Amsterdam Design System}
  */
 export const Button = forwardRef(
   (

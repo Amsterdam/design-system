@@ -24,7 +24,7 @@ export type HeadingProps = {
 } & PropsWithChildren<HTMLAttributes<HTMLHeadingElement>>
 
 /**
- * @see {@link https://designsystem.amsterdam/?path=/docs/components-text-heading--docs|Heading docs at Amsterdam Design System}
+ * @see {@link https://designsystem.amsterdam/?path=/docs/components-text-heading--docs Heading docs at Amsterdam Design System}
  */
 export const Heading = forwardRef(
   ({ children, className, color, level, size, ...restProps }: HeadingProps, ref: ForwardedRef<HTMLHeadingElement>) => {

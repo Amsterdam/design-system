@@ -47,6 +47,6 @@ const AccordionRoot = forwardRef(
 AccordionRoot.displayName = 'Accordion'
 
 /**
- * @see {@link https://designsystem.amsterdam/?path=/docs/components-containers-accordion--docs|Accordion docs at Amsterdam Design System}
+ * @see {@link https://designsystem.amsterdam/?path=/docs/components-containers-accordion--docs Accordion docs at Amsterdam Design System}
  */
 export const Accordion = Object.assign(AccordionRoot, { Section: AccordionSection })

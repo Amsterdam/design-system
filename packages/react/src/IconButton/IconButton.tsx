@@ -22,7 +22,7 @@ export type IconButtonProps = {
 } & ButtonHTMLAttributes<HTMLButtonElement>
 
 /**
- * @see {@link https://designsystem.amsterdam/?path=/docs/components-buttons-icon-button--docs|IconButton docs at Amsterdam Design System}
+ * @see {@link https://designsystem.amsterdam/?path=/docs/components-buttons-icon-button--docs IconButton docs at Amsterdam Design System}
  */
 export const IconButton = forwardRef(
   (

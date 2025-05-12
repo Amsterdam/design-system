@@ -17,7 +17,7 @@ export type ErrorMessageProps = {
 } & PropsWithChildren<HTMLAttributes<HTMLParagraphElement>>
 
 /**
- * @see {@link https://designsystem.amsterdam/?path=/docs/components-forms-error-message--docs|ErrorMessage docs at Amsterdam Design System}
+ * @see {@link https://designsystem.amsterdam/?path=/docs/components-forms-error-message--docs ErrorMessage docs at Amsterdam Design System}
  */
 export const ErrorMessage = forwardRef(
   (

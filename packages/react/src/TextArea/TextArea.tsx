@@ -15,7 +15,7 @@ export type TextAreaProps = {
 } & Omit<TextareaHTMLAttributes<HTMLTextAreaElement>, 'aria-invalid'>
 
 /**
- * @see {@link https://designsystem.amsterdam/?path=/docs/components-forms-text-area--docs|TextArea docs at Amsterdam Design System}
+ * @see {@link https://designsystem.amsterdam/?path=/docs/components-forms-text-area--docs TextArea docs at Amsterdam Design System}
  */
 export const TextArea = forwardRef(
   ({ className, dir, invalid, resize, ...restProps }: TextAreaProps, ref: ForwardedRef<HTMLTextAreaElement>) => (

@@ -80,6 +80,6 @@ const GridRoot = forwardRef(
 GridRoot.displayName = 'Grid'
 
 /**
- * @see {@link https://designsystem.amsterdam/?path=/docs/components-layout-grid--docs|Grid docs at Amsterdam Design System}
+ * @see {@link https://designsystem.amsterdam/?path=/docs/components-layout-grid--docs Grid docs at Amsterdam Design System}
  */
 export const Grid = Object.assign(GridRoot, { Cell: GridCell })

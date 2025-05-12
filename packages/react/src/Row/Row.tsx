@@ -43,7 +43,7 @@ export type RowProps = {
 } & PropsWithChildren<HTMLAttributes<HTMLElement>>
 
 /**
- * @see {@link https://designsystem.amsterdam/?path=/docs/components-layout-row--docs|Row docs at Amsterdam Design System}
+ * @see {@link https://designsystem.amsterdam/?path=/docs/components-layout-row--docs Row docs at Amsterdam Design System}
  */
 export const Row = forwardRef(
   ({ align, alignVertical, as: Tag = 'div', children, className, gap, wrap, ...restProps }: RowProps, ref: any) => (

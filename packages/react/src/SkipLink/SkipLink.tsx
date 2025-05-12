@@ -10,7 +10,7 @@ import type { AnchorHTMLAttributes, ForwardedRef, PropsWithChildren } from 'reac
 export type SkipLinkProps = PropsWithChildren<AnchorHTMLAttributes<HTMLAnchorElement>>
 
 /**
- * @see {@link https://designsystem.amsterdam/?path=/docs/components-navigation-skip-link--docs|SkipLink docs at Amsterdam Design System}
+ * @see {@link https://designsystem.amsterdam/?path=/docs/components-navigation-skip-link--docs SkipLink docs at Amsterdam Design System}
  */
 export const SkipLink = forwardRef(
   ({ children, className, ...restProps }: SkipLinkProps, ref: ForwardedRef<HTMLAnchorElement>) => (

@@ -10,7 +10,7 @@ import type { ForwardedRef, InputHTMLAttributes, PropsWithChildren } from 'react
 export type SwitchProps = PropsWithChildren<InputHTMLAttributes<HTMLInputElement>>
 
 /**
- * @see {@link https://designsystem.amsterdam/?path=/docs/components-forms-switch--docs|Switch docs at Amsterdam Design System}
+ * @see {@link https://designsystem.amsterdam/?path=/docs/components-forms-switch--docs Switch docs at Amsterdam Design System}
  */
 export const Switch = forwardRef(
   ({ className, id, ...restProps }: SwitchProps, ref: ForwardedRef<HTMLInputElement>) => {

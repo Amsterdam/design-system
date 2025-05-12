@@ -41,7 +41,7 @@ export type PaginationProps = {
 } & HTMLAttributes<HTMLElement>
 
 /**
- * @see {@link https://designsystem.amsterdam/?path=/docs/components-navigation-pagination--docs|Pagination docs at Amsterdam Design System}
+ * @see {@link https://designsystem.amsterdam/?path=/docs/components-navigation-pagination--docs Pagination docs at Amsterdam Design System}
  */
 export const Pagination = forwardRef(
   (

@@ -10,7 +10,7 @@ import type { ForwardedRef, HTMLAttributes, PropsWithChildren } from 'react'
 export type OverlapProps = PropsWithChildren<HTMLAttributes<HTMLDivElement>>
 
 /**
- * @see {@link https://designsystem.amsterdam/?path=/docs/components-layout-overlap--docs|Overlap docs at Amsterdam Design System}
+ * @see {@link https://designsystem.amsterdam/?path=/docs/components-layout-overlap--docs Overlap docs at Amsterdam Design System}
  */
 export const Overlap = forwardRef(
   ({ children, className, ...restProps }: OverlapProps, ref: ForwardedRef<HTMLDivElement>) => (

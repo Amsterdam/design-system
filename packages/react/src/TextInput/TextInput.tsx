@@ -18,7 +18,7 @@ export type TextInputProps = {
 } & Omit<InputHTMLAttributes<HTMLInputElement>, 'aria-invalid'>
 
 /**
- * @see {@link https://designsystem.amsterdam/?path=/docs/components-forms-text-input--docs|TextInput docs at Amsterdam Design System}
+ * @see {@link https://designsystem.amsterdam/?path=/docs/components-forms-text-input--docs TextInput docs at Amsterdam Design System}
  */
 export const TextInput = forwardRef(
   ({ className, dir, invalid, type = 'text', ...restProps }: TextInputProps, ref: ForwardedRef<HTMLInputElement>) => (

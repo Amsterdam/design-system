@@ -42,7 +42,7 @@ const TableOfContentsRoot = forwardRef(
 TableOfContentsRoot.displayName = 'TableOfContents'
 
 /**
- * @see {@link https://designsystem.amsterdam/?path=/docs/components-navigation-table-of-contents--docs|TableOfContents docs at Amsterdam Design System}
+ * @see {@link https://designsystem.amsterdam/?path=/docs/components-navigation-table-of-contents--docs TableOfContents docs at Amsterdam Design System}
  */
 export const TableOfContents = Object.assign(TableOfContentsRoot, {
   Link: TableOfContentsLink,

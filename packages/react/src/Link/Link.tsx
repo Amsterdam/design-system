@@ -13,7 +13,7 @@ export type LinkProps = {
 } & Omit<AnchorHTMLAttributes<HTMLAnchorElement>, 'placeholder'>
 
 /**
- * @see {@link https://designsystem.amsterdam/?path=/docs/components-navigation-link--docs|Link docs at Amsterdam Design System}
+ * @see {@link https://designsystem.amsterdam/?path=/docs/components-navigation-link--docs Link docs at Amsterdam Design System}
  */
 export const Link = forwardRef(
   ({ children, className, color, ...restProps }: LinkProps, ref: ForwardedRef<HTMLAnchorElement>) => (

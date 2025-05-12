@@ -42,7 +42,7 @@ const DialogRoot = forwardRef(
 DialogRoot.displayName = 'Dialog'
 
 /**
- * @see {@link https://designsystem.amsterdam/?path=/docs/components-containers-dialog--docs|Dialog docs at Amsterdam Design System}
+ * @see {@link https://designsystem.amsterdam/?path=/docs/components-containers-dialog--docs Dialog docs at Amsterdam Design System}
  */
 export const Dialog = Object.assign(DialogRoot, {
   close: closeDialog,

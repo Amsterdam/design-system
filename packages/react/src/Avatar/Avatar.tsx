@@ -39,7 +39,7 @@ export type AvatarProps = {
 } & HTMLAttributes<HTMLSpanElement>
 
 /**
- * @see {@link https://designsystem.amsterdam/?path=/docs/components-feedback-avatar--docs|Avatar docs at Amsterdam Design System}
+ * @see {@link https://designsystem.amsterdam/?path=/docs/components-feedback-avatar--docs Avatar docs at Amsterdam Design System}
  */
 export const Avatar = forwardRef(
   ({ className, color, imageSrc, label, ...restProps }: AvatarProps, ref: ForwardedRef<HTMLSpanElement>) => {

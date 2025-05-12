@@ -29,8 +29,8 @@ export type IconProps = {
 } & HTMLAttributes<HTMLSpanElement>
 
 /**
- * @see {@link https://designsystem.amsterdam/?path=/docs/components-media-icon--docs|Icon docs at Amsterdam Design System}
- * @see {@link https://designsystem.amsterdam/?path=/docs/brand-assets-icons--docs|Assets for icon at Amsterdam Design System}
+ * @see {@link https://designsystem.amsterdam/?path=/docs/components-media-icon--docs Icon docs at Amsterdam Design System}
+ * @see {@link https://designsystem.amsterdam/?path=/docs/brand-assets-icons--docs Icons overview at Amsterdam Design System}
  */
 export const Icon = forwardRef(
   ({ className, color, size, square, svg, ...restProps }: IconProps, ref: ForwardedRef<HTMLElement>) => (

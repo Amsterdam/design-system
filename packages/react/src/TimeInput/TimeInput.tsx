@@ -13,7 +13,7 @@ export type TimeInputProps = {
 } & Omit<InputHTMLAttributes<HTMLInputElement>, 'aria-invalid' | 'type'>
 
 /**
- * @see {@link https://designsystem.amsterdam/?path=/docs/components-forms-time-input--docs|TimeInput docs at Amsterdam Design System}
+ * @see {@link https://designsystem.amsterdam/?path=/docs/components-forms-time-input--docs TimeInput docs at Amsterdam Design System}
  */
 export const TimeInput = forwardRef(
   ({ className, invalid, ...restProps }: TimeInputProps, ref: ForwardedRef<HTMLInputElement>) => (

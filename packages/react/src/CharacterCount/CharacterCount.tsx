@@ -15,7 +15,7 @@ export type CharacterCountProps = HTMLAttributes<HTMLDivElement> & {
 }
 
 /**
- * @see {@link https://designsystem.amsterdam/?path=/docs/components-forms-character-count--docs|CharacterCount docs at Amsterdam Design System}
+ * @see {@link https://designsystem.amsterdam/?path=/docs/components-forms-character-count--docs CharacterCount docs at Amsterdam Design System}
  */
 export const CharacterCount = forwardRef(
   ({ className, length, maxLength, ...restProps }: CharacterCountProps, ref: ForwardedRef<HTMLDivElement>) => (

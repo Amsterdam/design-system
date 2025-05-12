@@ -16,7 +16,7 @@ export type ImageProps = {
   Omit<ImgHTMLAttributes<HTMLImageElement>, 'children'>
 
 /**
- * @see {@link https://designsystem.amsterdam/?path=/docs/components-media-image--docs|Image docs at Amsterdam Design System}
+ * @see {@link https://designsystem.amsterdam/?path=/docs/components-media-image--docs Image docs at Amsterdam Design System}
  */
 export const Image = forwardRef(
   ({ aspectRatio, className, ...restProps }: ImageProps, ref: ForwardedRef<HTMLImageElement>) => (

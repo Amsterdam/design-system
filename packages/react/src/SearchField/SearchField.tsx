@@ -24,6 +24,6 @@ const SearchFieldRoot = forwardRef(
 SearchFieldRoot.displayName = 'SearchField'
 
 /**
- * @see {@link https://designsystem.amsterdam/?path=/docs/components-forms-search-field--docs|SearchField docs at Amsterdam Design System}
+ * @see {@link https://designsystem.amsterdam/?path=/docs/components-forms-search-field--docs SearchField docs at Amsterdam Design System}
  */
 export const SearchField = Object.assign(SearchFieldRoot, { Button: SearchFieldButton, Input: SearchFieldInput })

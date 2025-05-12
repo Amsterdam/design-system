@@ -10,7 +10,7 @@ import type { ForwardedRef, HTMLAttributes, PropsWithChildren } from 'react'
 export type PageProps = PropsWithChildren<HTMLAttributes<HTMLDivElement>>
 
 /**
- * @see {@link https://designsystem.amsterdam/?path=/docs/components-containers-page--docs|Page docs at Amsterdam Design System}
+ * @see {@link https://designsystem.amsterdam/?path=/docs/components-containers-page--docs Page docs at Amsterdam Design System}
  */
 export const Page = forwardRef(
   ({ children, className, ...restProps }: PageProps, ref: ForwardedRef<HTMLDivElement>) => (
