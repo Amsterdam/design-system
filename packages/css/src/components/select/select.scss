@@ -25,6 +25,10 @@
 
   @include reset-select;
 
+  &:hover {
+    box-shadow: var(--ams-select-hover-box-shadow);
+  }
+
   &:disabled {
     box-shadow: var(--ams-select-disabled-box-shadow);
     color: var(--ams-select-disabled-color);
@@ -34,13 +38,12 @@
   &:invalid,
   &[aria-invalid="true"] {
     box-shadow: var(--ams-select-invalid-box-shadow);
-  }
 
-  &:hover {
-    box-shadow: var(--ams-select-hover-box-shadow);
+    /* stylelint-disable no-descending-specificity */
+    &:hover {
+      box-shadow: var(--ams-select-invalid-hover-box-shadow);
+    }
   }
-
-  // The declaration block for ‘invalid + hover’ is below to prevent descending specificity.
 }
 
 /* Single-select chevron icon */
@@ -50,19 +53,13 @@
   background-repeat: no-repeat;
   background-size: 1em 1em;
 
-  &:disabled {
-    background-image: var(--ams-select-disabled-background-image);
-  }
-
   &:hover {
     background-image: var(--ams-select-hover-background-image);
   }
-}
 
-/* Invalid + hover */
-.ams-select:invalid:hover,
-.ams-select[aria-invalid="true"]:hover {
-  box-shadow: var(--ams-select-invalid-hover-box-shadow);
+  &:disabled {
+    background-image: var(--ams-select-disabled-background-image);
+  }
 }
 
 /* Disabled option */
