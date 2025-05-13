@@ -4,9 +4,11 @@
  */
 
 import { render, screen } from '@testing-library/react'
+import userEvent from '@testing-library/user-event'
 import { createRef } from 'react'
 import { TabsButton } from './TabsButton'
 import '@testing-library/jest-dom'
+import { TabsContext } from './TabsContext'
 
 describe('Tabs button', () => {
   it('renders', () => {
@@ -55,6 +57,24 @@ describe('Tabs button', () => {
     const component = screen.getByRole('tab')
 
     expect(component).toHaveAttribute('aria-controls', 'one')
+  })
+
+  it('does not call updateTab if event.preventDefault is invoked', async () => {
+    const user = userEvent.setup()
+    const mockUpdateTab = jest.fn()
+
+    render(
+      <TabsContext.Provider value={{ updateTab: mockUpdateTab }}>
+        <TabsButton aria-controls="one" onClick={(event) => event.preventDefault()}>
+          Label
+        </TabsButton>
+      </TabsContext.Provider>,
+    )
+
+    const button = screen.getByRole('tab', { name: 'Label' })
+    await user.click(button)
+
+    expect(mockUpdateTab).not.toHaveBeenCalled()
   })
 
   it('supports ForwardRef in React', () => {

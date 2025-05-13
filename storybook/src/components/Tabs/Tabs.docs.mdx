@@ -26,3 +26,22 @@ Another tab’s panel can be displayed initially as well.
 The Tab Buttons list and the content within the active Tab Panel will scroll horizontally when their width exceeds the available space.
 
 <Canvas of={TabsStories.WithWideContent} />
+
+### Prevent tabs from changing
+
+The Tab Button `onChange` prop can be used with `event.preventDefault` to stop tabs from changing when clicked.
+This is helpful to keep users from switching tabs until specific conditions are met.
+
+You can use this click handler for example:
+
+```jsx
+const handleClick = (event) => {
+  // eslint-disable-next-line no-alert
+  const confirmLeave = window.confirm("You have unsaved changes. Do you want to leave?");
+  if (!confirmLeave) {
+    event.preventDefault();
+  }
+};
+```
+
+<Canvas of={TabsStories.PreventTabsFromChanging} />
