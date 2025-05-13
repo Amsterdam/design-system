@@ -38,6 +38,9 @@ export type AvatarProps = {
   label: string
 } & HTMLAttributes<HTMLSpanElement>
 
+/**
+ * @see {@link https://designsystem.amsterdam/?path=/docs/components-feedback-avatar--docs Avatar docs at Amsterdam Design System}
+ */
 export const Avatar = forwardRef(
   ({ className, color, imageSrc, label, ...restProps }: AvatarProps, ref: ForwardedRef<HTMLSpanElement>) => {
     const initials = label.slice(0, 2).toUpperCase()

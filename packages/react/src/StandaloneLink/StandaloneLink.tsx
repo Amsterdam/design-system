@@ -15,6 +15,9 @@ export type StandaloneLinkProps = {
   icon?: Function
 } & Omit<AnchorHTMLAttributes<HTMLAnchorElement>, 'placeholder'>
 
+/**
+ * @see {@link https://designsystem.amsterdam/?path=/docs/components-navigation-standalone-link--docs Standalone Link docs at Amsterdam Design System}
+ */
 export const StandaloneLink = forwardRef(
   ({ children, className, color, icon, ...restProps }: StandaloneLinkProps, ref: ForwardedRef<HTMLAnchorElement>) => (
     <a

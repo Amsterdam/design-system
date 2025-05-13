@@ -15,6 +15,9 @@ export type FieldSetProps = PropsWithChildren<HTMLAttributes<HTMLFieldSetElement
   legend: string
 } & HintProps
 
+/**
+ * @see {@link https://designsystem.amsterdam/?path=/docs/components-forms-field-set--docs Field Set docs at Amsterdam Design System}
+ */
 export const FieldSet = forwardRef(
   (
     { children, className, hint, invalid, legend, optional, ...restProps }: FieldSetProps,

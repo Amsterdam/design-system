@@ -40,6 +40,9 @@ export type PaginationProps = {
   visuallyHiddenLabelId?: string
 } & HTMLAttributes<HTMLElement>
 
+/**
+ * @see {@link https://designsystem.amsterdam/?path=/docs/components-navigation-pagination--docs Pagination docs at Amsterdam Design System}
+ */
 export const Pagination = forwardRef(
   (
     {

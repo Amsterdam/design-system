@@ -23,4 +23,7 @@ const LinkListRoot = forwardRef(
 
 LinkListRoot.displayName = 'LinkList'
 
+/**
+ * @see {@link https://designsystem.amsterdam/?path=/docs/components-navigation-link-list--docs Link List docs at Amsterdam Design System}
+ */
 export const LinkList = Object.assign(LinkListRoot, { Link: LinkListLink })

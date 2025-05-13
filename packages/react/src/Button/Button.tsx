@@ -38,6 +38,9 @@ export type ButtonProps = {
 } & (IconButtonProps | TextButtonProps) &
   PropsWithChildren<ButtonHTMLAttributes<HTMLButtonElement>>
 
+/**
+ * @see {@link https://designsystem.amsterdam/?path=/docs/components-buttons-button--docs Button docs at Amsterdam Design System}
+ */
 export const Button = forwardRef(
   (
     { children, className, disabled, icon, iconBefore, iconOnly, type, variant = 'primary', ...restProps }: ButtonProps,

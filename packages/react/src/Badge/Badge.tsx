@@ -17,6 +17,9 @@ export type BadgeProps = {
   label: string | number
 } & HTMLAttributes<HTMLElement>
 
+/**
+ * @see {@link https://designsystem.amsterdam/?path=/docs/components-feedback-badge--docs Badge docs at Amsterdam Design System}
+ */
 export const Badge = forwardRef(
   ({ className, color, label, ...restProps }: BadgeProps, ref: ForwardedRef<HTMLElement>) => (
     <span {...restProps} className={clsx('ams-badge', color && `ams-badge--${color}`, className)} ref={ref}>

@@ -16,6 +16,9 @@ export type ErrorMessageProps = {
   prefix?: string
 } & PropsWithChildren<HTMLAttributes<HTMLParagraphElement>>
 
+/**
+ * @see {@link https://designsystem.amsterdam/?path=/docs/components-forms-error-message--docs Error Message docs at Amsterdam Design System}
+ */
 export const ErrorMessage = forwardRef(
   (
     { children, className, icon, prefix = 'Invoerfout', ...restProps }: ErrorMessageProps,

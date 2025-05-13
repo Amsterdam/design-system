@@ -21,6 +21,9 @@ const CardRoot = forwardRef(({ children, className, ...restProps }: CardProps, r
 
 CardRoot.displayName = 'Card'
 
+/**
+ * @see {@link https://designsystem.amsterdam/?path=/docs/components-navigation-card--docs Card docs at Amsterdam Design System}
+ */
 export const Card = Object.assign(CardRoot, {
   Heading: CardHeading,
   HeadingGroup: CardHeadingGroup,

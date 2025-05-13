@@ -12,6 +12,9 @@ export type PageHeadingProps = {
   color?: 'inverse'
 } & PropsWithChildren<HTMLAttributes<HTMLHeadingElement>>
 
+/**
+ * @see {@link https://designsystem.amsterdam/?path=/docs/components-text-page-heading--docs Page Heading docs at Amsterdam Design System}
+ */
 export const PageHeading = forwardRef(
   ({ children, className, color, ...restProps }: PageHeadingProps, ref: ForwardedRef<HTMLHeadingElement>) => (
     <h1 {...restProps} className={clsx('ams-page-heading', color && `ams-page-heading--${color}`, className)} ref={ref}>

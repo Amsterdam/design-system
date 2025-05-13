@@ -24,4 +24,7 @@ const SelectRoot = forwardRef(
 
 SelectRoot.displayName = 'Select'
 
+/**
+ * @see {@link https://designsystem.amsterdam/?path=/docs/components-forms-select--docs Select docs at Amsterdam Design System}
+ */
 export const Select = Object.assign(SelectRoot, { Group: SelectOptionGroup, Option: SelectOption })

@@ -20,6 +20,9 @@ export const FileListRoot = forwardRef(
 
 FileListRoot.displayName = 'FileList'
 
+/**
+ * @see {@link https://designsystem.amsterdam/?path=/docs/components-forms-file-list--docs File List docs at Amsterdam Design System}
+ */
 export const FileList = Object.assign(FileListRoot, {
   Item: FileListItem,
 })
