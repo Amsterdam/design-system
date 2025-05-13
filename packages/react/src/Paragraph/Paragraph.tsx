@@ -1,5 +1,10 @@
 /**
  * @license EUPL-1.2+
+ * Copyright Gemeente Amsterdam
+ */
+
+/**
+ * @license EUPL-1.2+
  * Copyright (c) 2021 Robbert Broersma
  * Copyright Gemeente Amsterdam
  */
@@ -15,6 +20,9 @@ export type ParagraphProps = {
   size?: 'small' | 'large'
 } & PropsWithChildren<HTMLAttributes<HTMLParagraphElement>>
 
+/**
+ * @see {@link https://designsystem.amsterdam/?path=/docs/components-text-paragraph--docs Paragraph docs at Amsterdam Design System}
+ */
 export const Paragraph = forwardRef(
   ({ children, className, color, size, ...restProps }: ParagraphProps, ref: ForwardedRef<HTMLParagraphElement>) => (
     <p

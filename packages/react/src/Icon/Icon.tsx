@@ -1,5 +1,10 @@
 /**
  * @license EUPL-1.2+
+ * Copyright Gemeente Amsterdam
+ */
+
+/**
+ * @license EUPL-1.2+
  * Copyright (c) 2021 Gemeente Utrecht
  * Copyright (c) 2021 Robbert Broersma
  * Copyright Gemeente Amsterdam
@@ -23,6 +28,10 @@ export type IconProps = {
   svg: Function | ReactNode
 } & HTMLAttributes<HTMLSpanElement>
 
+/**
+ * @see {@link https://designsystem.amsterdam/?path=/docs/components-media-icon--docs Icon docs at Amsterdam Design System}
+ * @see {@link https://designsystem.amsterdam/?path=/docs/brand-assets-icons--docs Icons overview at Amsterdam Design System}
+ */
 export const Icon = forwardRef(
   ({ className, color, size, square, svg, ...restProps }: IconProps, ref: ForwardedRef<HTMLElement>) => (
     <span

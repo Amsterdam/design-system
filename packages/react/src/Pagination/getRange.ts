@@ -1,4 +1,9 @@
 /**
+ * @license EUPL-1.2+
+ * Copyright Gemeente Amsterdam
+ */
+
+/**
  * This returns an array of the range, including spacers
  *
  * @example

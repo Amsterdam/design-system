@@ -1,5 +1,10 @@
 /**
  * @license EUPL-1.2+
+ * Copyright Gemeente Amsterdam
+ */
+
+/**
+ * @license EUPL-1.2+
  * Copyright (c) 2021 Robbert Broersma
  * Copyright Gemeente Amsterdam
  */
@@ -18,6 +23,9 @@ export type HeadingProps = {
   size?: 'level-1' | 'level-2' | 'level-3' | 'level-4' | 'level-5' | 'level-6'
 } & PropsWithChildren<HTMLAttributes<HTMLHeadingElement>>
 
+/**
+ * @see {@link https://designsystem.amsterdam/?path=/docs/components-text-heading--docs Heading docs at Amsterdam Design System}
+ */
 export const Heading = forwardRef(
   ({ children, className, color, level, size, ...restProps }: HeadingProps, ref: ForwardedRef<HTMLHeadingElement>) => {
     const Tag = getHeadingTag(level)

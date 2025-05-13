@@ -1,5 +1,10 @@
 /**
  * @license EUPL-1.2+
+ * Copyright Gemeente Amsterdam
+ */
+
+/**
+ * @license EUPL-1.2+
  * Copyright (c) 2021 Robbert Broersma
  * Copyright Gemeente Amsterdam
  */
@@ -11,6 +16,9 @@ import { Hint, HintProps } from '../Hint'
 
 export type LabelProps = PropsWithChildren<LabelHTMLAttributes<HTMLLabelElement>> & HintProps
 
+/**
+ * @see {@link https://designsystem.amsterdam/?path=/docs/components-forms-label--docs Label docs at Amsterdam Design System}
+ */
 export const Label = forwardRef(
   ({ children, className, hint, optional, ...restProps }: LabelProps, ref: ForwardedRef<HTMLLabelElement>) => {
     return (

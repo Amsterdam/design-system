@@ -28,6 +28,9 @@ const TableRoot = forwardRef(
 
 TableRoot.displayName = 'Table'
 
+/**
+ * @see {@link https://designsystem.amsterdam/?path=/docs/components-containers-table--docs Table docs at Amsterdam Design System}
+ */
 export const Table = Object.assign(TableRoot, {
   Body: TableBody,
   Caption: TableCaption,

@@ -1,3 +1,8 @@
+/**
+ * @license EUPL-1.2+
+ * Copyright Gemeente Amsterdam
+ */
+
 import { PageFooter, SkipLink } from '@amsterdam/design-system-react'
 import type { HTMLAttributes, PropsWithChildren } from 'react'
 import { AppHeader } from './AppHeader'
