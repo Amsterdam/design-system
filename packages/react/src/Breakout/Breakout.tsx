@@ -37,4 +37,7 @@ const BreakoutRoot = forwardRef(
 
 BreakoutRoot.displayName = 'Breakout'
 
+/**
+ * @see {@link https://designsystem.amsterdam/?path=/docs/components-layout-breakout--docs Breakout docs at Amsterdam Design System}
+ */
 export const Breakout = Object.assign(BreakoutRoot, { Cell: BreakoutCell })
