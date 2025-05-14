@@ -33,10 +33,6 @@
 
   @include text-rendering;
   @include reset-textarea;
-
-  &:hover {
-    box-shadow: var(--ams-text-area-hover-box-shadow);
-  }
 }
 
 .ams-text-area::placeholder {
@@ -47,6 +43,10 @@
 .ams-text-area:disabled {
   color: var(--ams-text-area-disabled-color);
   cursor: var(--ams-text-area-disabled-cursor);
+}
+
+.ams-textarea:not(:disabled):hover {
+  box-shadow: var(--ams-text-area-hover-box-shadow);
 }
 
 .ams-text-area:invalid,
