@@ -35,6 +35,14 @@
   inline-size: fit-content;
   outline-offset: var(--ams-page-header-logo-link-outline-offset);
   text-decoration: none;
+
+  @media (forced-colors: active) {
+    .ams-logo__emblem,
+    .ams-logo__text-primary,
+    .ams-logo__text-secondary {
+      fill: LinkText;
+    }
+  }
 }
 
 .ams-page-header__logo-link--hidden {
