@@ -2,7 +2,9 @@
   "ams": {
     "dialog": {
       "background-color": { "value": "{ams.color.background}" },
-      "border": { "value": "{ams.border.width.m} solid {ams.dialog.background-color}" },
+      "border-color": { "value": "{ams.dialog.background-color}" },
+      "border-style": { "value": "solid" },
+      "border-width": { "value": "{ams.border.width.m}" },
       "gap": { "value": "{ams.space.m}" },
       "inline-size": { "value": "calc(100% - 2 * {ams.space.l})" },
       "max-block-size": { "value": "calc(100dvh - 2 * {ams.space.l})" },
