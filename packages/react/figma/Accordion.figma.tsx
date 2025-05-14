@@ -1,7 +1,7 @@
 import figma from '@figma/code-connect'
 import React from 'react'
 import { Accordion } from '../src/Accordion/Accordion'
-import { AccordionSection } from '../src/Accordion/AccordionSection'
+import { AccordionSection as _AccordionSection } from '../src/Accordion/AccordionSection'
 
 figma.connect(
   Accordion,
@@ -15,7 +15,7 @@ figma.connect(
 )
 
 figma.connect(
-  AccordionSection,
+  _AccordionSection,
   'https://www.figma.com/design/9IGm6IdPUYizBNGsUnueBd/Amsterdam-Design-System?node-id=14668-75916&m=dev',
   {
     example: ({ children, expanded, label }) => (
