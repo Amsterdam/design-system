@@ -20,6 +20,9 @@ export type ParagraphProps = {
   size?: 'small' | 'large'
 } & PropsWithChildren<HTMLAttributes<HTMLParagraphElement>>
 
+/**
+ * @see {@link https://designsystem.amsterdam/?path=/docs/components-text-paragraph--docs Paragraph docs at Amsterdam Design System}
+ */
 export const Paragraph = forwardRef(
   ({ children, className, color, size, ...restProps }: ParagraphProps, ref: ForwardedRef<HTMLParagraphElement>) => (
     <p

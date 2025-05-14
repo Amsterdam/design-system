@@ -21,6 +21,9 @@ export type IconButtonProps = {
   svg?: IconProps['svg']
 } & ButtonHTMLAttributes<HTMLButtonElement>
 
+/**
+ * @see {@link https://designsystem.amsterdam/?path=/docs/components-buttons-icon-button--docs Icon Button docs at Amsterdam Design System}
+ */
 export const IconButton = forwardRef(
   (
     { className, color, label, size, svg = CloseIcon, type, ...restProps }: IconButtonProps,
