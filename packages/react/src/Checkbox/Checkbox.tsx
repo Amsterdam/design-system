@@ -14,6 +14,9 @@ export type CheckboxProps = {
   invalid?: boolean
 } & PropsWithChildren<Omit<InputHTMLAttributes<HTMLInputElement>, 'aria-invalid' | 'type'>>
 
+/**
+ * @see {@link https://designsystem.amsterdam/?path=/docs/components-forms-checkbox--docs Checkbox docs at Amsterdam Design System}
+ */
 export const Checkbox = forwardRef(
   (
     { children, className, indeterminate, invalid, ...restProps }: CheckboxProps,
