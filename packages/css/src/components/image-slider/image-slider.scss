@@ -45,13 +45,13 @@
 }
 
 .ams-image-slider__controls {
-  display: none;
+  display: flex;
   grid-column: 1/-1;
   grid-row: 1;
   justify-content: space-between;
 
-  @media (min-width: $ams-breakpoint-medium) {
-    display: flex;
+  @media (pointer: coarse) and (max-width: $ams-breakpoint-medium) {
+    display: none;
   }
 }
 
