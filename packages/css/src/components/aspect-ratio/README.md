@@ -22,4 +22,4 @@ The class can be applied to any component or element.
 
 - Apply one of these classes to an image, video or other media content to constrain its dimensions to one of the available aspect ratios.
 - The default aspect ratio is 16:9.
-- When dealing with `width` and `height` attributes on an image, the aspect ratio will be calculated based on the values of these attributes and overrule the class. To fix this apply the className `ams-image`.
+- When using `width` and `height` attributes on an image (for example, when using the [Next Image component](https://nextjs.org/docs/app/api-reference/components/image)), the aspect ratio is determined by these values and will take precedence over the class. To correct this, use the class `ams-image`.
