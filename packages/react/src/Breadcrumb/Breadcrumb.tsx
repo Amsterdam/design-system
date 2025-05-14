@@ -20,4 +20,7 @@ const BreadcrumbRoot = forwardRef(
 
 BreadcrumbRoot.displayName = 'Breadcrumb'
 
+/**
+ * @see {@link https://designsystem.amsterdam/?path=/docs/components-navigation-breadcrumb--docs Breadcrumb docs at Amsterdam Design System}
+ */
 export const Breadcrumb = Object.assign(BreadcrumbRoot, { Link: BreadcrumbLink })
