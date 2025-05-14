@@ -45,6 +45,11 @@
 
   &:not([multiple]) {
     background-image: var(--ams-select-disabled-background-image);
+
+    /* stylelint-disable no-descending-specificity */
+    &:hover {
+      background-image: var(--ams-select-hover-background-image);
+    }
   }
 }
 
