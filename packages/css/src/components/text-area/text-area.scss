@@ -45,10 +45,6 @@
   cursor: var(--ams-text-area-disabled-cursor);
 }
 
-.ams-textarea:not(:disabled):hover {
-  box-shadow: var(--ams-text-area-hover-box-shadow);
-}
-
 .ams-text-area:invalid,
 .ams-text-area[aria-invalid="true"] {
   border-color: var(--ams-text-area-invalid-border-color);
@@ -57,6 +53,10 @@
     border-color: var(--ams-text-area-invalid-hover-border-color);
     box-shadow: var(--ams-text-area-invalid-hover-box-shadow);
   }
+}
+
+.ams-text-area:not(:disabled):hover {
+  box-shadow: var(--ams-text-area-hover-box-shadow);
 }
 
 .ams-text-area--resize-none {
