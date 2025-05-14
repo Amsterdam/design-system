@@ -8,14 +8,15 @@
 @mixin reset-input {
   -webkit-appearance: none; // Reset appearance for Safari < 15.4
   appearance: none; // Reset native appearance, this causes issues on iOS and Android devices
-  border: none;
   border-radius: 0; // Reset rounded borders on iOS devices
   margin-block: 0;
 }
 
 .ams-text-input {
   background-color: var(--ams-text-input-background-color);
-  box-shadow: var(--ams-text-input-box-shadow);
+  border-color: var(--ams-text-input-border-color);
+  border-style: var(--ams-text-input-border-style);
+  border-width: var(--ams-text-input-border-width);
   box-sizing: border-box;
   color: var(--ams-text-input-color);
   font-family: var(--ams-text-input-font-family);
@@ -30,10 +31,6 @@
 
   @include text-rendering;
   @include reset-input;
-
-  &:hover {
-    box-shadow: var(--ams-text-input-hover-box-shadow);
-  }
 }
 
 .ams-text-input:not([size]) {
@@ -46,17 +43,20 @@
 }
 
 .ams-text-input:disabled {
-  background-color: var(--ams-text-input-disabled-background-color);
-  box-shadow: var(--ams-text-input-disabled-box-shadow);
   color: var(--ams-text-input-disabled-color);
   cursor: var(--ams-text-input-disabled-cursor);
 }
 
 .ams-text-input:invalid,
 .ams-text-input[aria-invalid="true"] {
-  box-shadow: var(--ams-text-input-invalid-box-shadow);
+  border-color: var(--ams-text-input-invalid-border-color);
 
   &:hover {
+    border-color: var(--ams-text-input-invalid-hover-border-color);
     box-shadow: var(--ams-text-input-invalid-hover-box-shadow);
   }
+}
+
+.ams-text-input:not(:disabled):hover {
+  box-shadow: var(--ams-text-input-hover-box-shadow);
 }
