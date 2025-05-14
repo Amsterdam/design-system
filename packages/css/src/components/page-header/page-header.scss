@@ -56,7 +56,7 @@
   color: var(--ams-page-header-brand-name-color);
   font-size: var(--ams-page-header-brand-name-font-size);
   font-weight: var(--ams-page-header-brand-name-font-weight);
-  line-height: 1.35;
+  line-height: var(--ams-page-header-brand-name-line-height);
   text-wrap: var(--ams-page-header-brand-name-text-wrap);
 }
 
