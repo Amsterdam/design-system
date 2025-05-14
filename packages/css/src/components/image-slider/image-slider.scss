@@ -50,7 +50,7 @@
   grid-row: 1;
   justify-content: space-between;
 
-  @media (pointer: coarse) and (min-width: $ams-breakpoint-medium) {
+  @media (min-width: $ams-breakpoint-medium) {
     display: flex;
   }
 }
