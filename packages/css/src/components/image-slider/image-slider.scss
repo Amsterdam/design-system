@@ -45,13 +45,15 @@
 }
 
 .ams-image-slider__controls {
-  display: flex;
+  display: none;
   grid-column: 1/-1;
   grid-row: 1;
   justify-content: space-between;
 
-  @media (pointer: coarse) and (max-width: $ams-breakpoint-medium) {
-    display: none;
+  // We show controls on non-touch devices, where people can’t swipe the slides,
+  // but not in narrow windows, where they obscure too much of an image.
+  @media (min-width: $ams-breakpoint-medium) and (pointer: fine) {
+    display: flex;
   }
 }
 
