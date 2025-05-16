@@ -9,65 +9,86 @@
       "gap": { "value": "{ams.space.s}" },
       "line-height": { "value": "{ams.typography.body-text.line-height}" },
       "outline-offset": { "value": "{ams.focus.outline-offset}" },
-      "checkmark": {
-        "border-color": { "value": "{ams.color.interactive.default}" },
-        "border-width": { "value": "{ams.border.width.m}" },
+      "checked-indicator": {
+        "stroke": { "value": "{ams.color.interactive.inverse}" }
+      },
+      "indeterminate-indicator": {
+        "stroke": { "value": "{ams.color.interactive.inverse}" }
+      },
+      "hover-indicator": {
+        "hover": {
+          "stroke": { "value": "{ams.color.interactive.hover}" }
+        },
+        "invalid": {
+          "hover": {
+            "stroke": { "value": "{ams.color.interactive.invalid.hover}" }
+          }
+        }
+      },
+      "rectangle": {
+        "fill": { "value": "{ams.color.background}" },
+        "stroke": { "value": "{ams.color.interactive.default}" },
         "checked": {
-          "background-color": { "value": "{ams.color.interactive.default}" },
-          "background-image": {
-            "value": "url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32' fill='%23ffffff'%3E%3Cpath fill-rule='evenodd' d='M12.216 27.016 0 14.168l2.91-2.77 9.346 9.837L29.129 4 32 6.8z'/%3E%3C/svg%3E\")"
+          "fill": { "value": "{ams.color.interactive.default}" },
+          "disabled": {
+            "fill": { "value": "{ams.color.interactive.disabled}" },
+            "hover": {
+              "fill": { "value": "{ams.color.interactive.disabled}" }
+            }
           },
           "hover": {
-            "background-color": { "value": "{ams.color.interactive.hover}" }
+            "fill": { "value": "{ams.color.interactive.hover}" },
+            "disabled-invalid": {
+              "fill": { "value": "{ams.color.interactive.disabled}" }
+            }
+          },
+          "invalid": {
+            "fill": { "value": "{ams.color.interactive.invalid.default}" },
+            "hover": {
+              "fill": { "value": "{ams.color.interactive.invalid.hover}" }
+            }
           }
         },
         "disabled": {
-          "border-color": { "value": "{ams.color.interactive.disabled}" },
-          "border-width": { "value": "{ams.border.width.m}" },
-          "checked": {
-            "background-color": { "value": "{ams.color.interactive.disabled}" },
-            "hover": {
-              "background-color": { "value": "{ams.color.interactive.disabled}" }
-            }
-          },
-          "indeterminate": {
-            "background-color": { "value": "{ams.color.interactive.disabled}" },
-            "hover": {
-              "background-color": { "value": "{ams.color.interactive.disabled}" }
-            }
-          }
+          "stroke": { "value": "{ams.color.interactive.disabled}" }
         },
         "hover": {
-          "border-color": { "value": "{ams.color.interactive.hover}" },
-          "border-width": { "value": "{ams.border.width.l}" }
-        },
-        "invalid": {
-          "border-color": { "value": "{ams.color.interactive.invalid.default}" },
-          "checked": {
-            "background-color": { "value": "{ams.color.interactive.invalid.default}" },
-            "hover": {
-              "background-color": { "value": "{ams.color.interactive.invalid.hover}" }
-            }
-          },
-          "hover": {
-            "border-color": { "value": "{ams.color.interactive.invalid.hover}" }
-          },
-          "indeterminate": {
-            "background-color": { "value": "{ams.color.interactive.invalid.default}" },
-            "hover": {
-              "background-color": { "value": "{ams.color.interactive.invalid.hover}" }
-            }
+          "stroke": { "value": "{ams.color.interactive.hover}" },
+          "disabled-invalid": {
+            "stroke": { "value": "{ams.color.interactive.disabled}" }
           }
         },
         "indeterminate": {
-          "background-color": { "value": "{ams.color.interactive.default}" },
-          "background-image": {
-            "value": "url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32' fill='white'%3E%3Cpath fill-rule='evenodd' d='M0 13.714h32v4H0z'/%3E%3C/svg%3E\")"
+          "fill": { "value": "{ams.color.interactive.default}" },
+          "disabled": {
+            "fill": { "value": "{ams.color.interactive.disabled}" },
+            "hover": {
+              "fill": { "value": "{ams.color.interactive.disabled}" }
+            }
           },
           "hover": {
-            "background-color": { "value": "{ams.color.interactive.hover}" }
+            "fill": { "value": "{ams.color.interactive.hover}" },
+            "disabled-invalid": {
+              "fill": { "value": "{ams.color.interactive.disabled}" }
+            }
+          },
+          "invalid": {
+            "fill": { "value": "{ams.color.interactive.invalid.default}" },
+            "hover": {
+              "fill": { "value": "{ams.color.interactive.invalid.hover}" }
+            }
+          }
+        },
+        "invalid": {
+          "stroke": { "value": "{ams.color.interactive.invalid.default}" },
+          "hover": {
+            "stroke": { "value": "{ams.color.interactive.invalid.hover}" }
           }
         }
+      },
+      "icon-container": {
+        "block-size": { "value": "calc({ams.checkbox.font-size} * {ams.checkbox.line-height})" },
+        "inline-size": { "value": "1.5rem" }
       },
       "disabled": {
         "cursor": { "value": "{ams.cursor.disabled}" },
