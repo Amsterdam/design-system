@@ -123,6 +123,11 @@ export const ContrastColour: LinkStory = {
     ...LinkStoryTemplate.args,
     color: 'contrast',
   },
+  globals: {
+    backgrounds: {
+      value: 'yellow',
+    },
+  },
 }
 
 export const InverseColour: LinkStory = {
@@ -130,5 +135,10 @@ export const InverseColour: LinkStory = {
   args: {
     ...LinkStoryTemplate.args,
     color: 'inverse',
+  },
+  globals: {
+    backgrounds: {
+      value: 'blue',
+    },
   },
 }
