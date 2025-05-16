@@ -5,7 +5,7 @@
 
 import clsx from 'clsx'
 import { forwardRef, useEffect, useState } from 'react'
-import type { ForwardedRef, HTMLAttributes, ReactNode } from 'react'
+import type { AnchorHTMLAttributes, ComponentType, ForwardedRef, HTMLAttributes, ReactNode } from 'react'
 import { Icon } from '../Icon'
 import { Logo } from '../Logo'
 import type { LogoBrand } from '../Logo'
@@ -34,6 +34,8 @@ export type PageHeaderProps = {
   logoBrand?: LogoBrand
   /** The url for the link on the logo. */
   logoLink?: string
+  /** The React component to use for the logo link. */
+  logoLinkComponent?: ComponentType<AnchorHTMLAttributes<HTMLAnchorElement>>
   /** The accessible text for the link on the logo. */
   logoLinkTitle?: string
   /** The text for the menu button. */
@@ -54,6 +56,7 @@ const PageHeaderRoot = forwardRef(
       className,
       logoBrand = 'amsterdam',
       logoLink = '/',
+      logoLinkComponent = (props: AnchorHTMLAttributes<HTMLAnchorElement>) => <a {...props} />,
       logoLinkTitle = 'Ga naar de homepage',
       menuButtonText = 'Menu',
       menuItems,
@@ -65,6 +68,7 @@ const PageHeaderRoot = forwardRef(
   ) => {
     const [open, setOpen] = useState(false)
 
+    const Link = logoLinkComponent
     const hasMegaMenu = Boolean(children)
     const isWideWindow = hasMegaMenu && useIsAfterBreakpoint('wide')
 
@@ -77,10 +81,10 @@ const PageHeaderRoot = forwardRef(
 
     return (
       <header {...restProps} className={clsx('ams-page-header', className)} ref={ref}>
-        <a className="ams-page-header__logo-link" href={logoLink}>
+        <Link className="ams-page-header__logo-link" href={logoLink}>
           <span className="ams-visually-hidden">{logoLinkTitle}</span>
           <LogoLinkContent brandName={brandName} logoBrand={logoBrand} />
-        </a>
+        </Link>
         {(hasMegaMenu || menuItems) && (
           <nav aria-labelledby="primary-navigation" className="ams-page-header__navigation">
             <h2 className="ams-visually-hidden" id="primary-navigation">
