@@ -66,11 +66,7 @@ Here’s an example with the Link component of Next.js:
 import { PageHeader } from "@amsterdam/design-system-react"
 import NextLink from "next/link"
 
-const LinkComponent = (props) => (
-  <NextLink href={props.href} legacyBehavior passHref>
-    <a {...props} />
-  </NextLink>
-)
+const LinkComponent = (props) => <NextLink {...props} />
 
 return <PageHeader logoLinkComponent={LinkComponent} />
 ```
