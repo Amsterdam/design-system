@@ -7,8 +7,8 @@ import '../src/styles/overrides.css'
 import { Page } from '@amsterdam/design-system-react'
 import { withThemeByClassName } from '@storybook/addon-themes'
 import type { StoryContext, StoryFn } from '@storybook/react'
-import clsx from 'clsx'
 import { viewports } from './viewports'
+import clsx from 'clsx'
 
 export const argTypes = {
   children: {
@@ -40,9 +40,19 @@ export const decorators = [
 
 export const parameters = {
   backgrounds: {
-    disable: true,
     grid: {
       disable: true,
+    },
+    options: {
+      white: { name: 'white', value: '#FFFFFF' },
+      azure: { name: 'azure', value: '#009DE6' },
+      blue: { name: 'blue', value: '#004699' },
+      green: { name: 'green', value: '#00A03C' },
+      lime: { name: 'lime', value: '#BED200' },
+      magenta: { name: 'magenta', value: '#E50082' },
+      orange: { name: 'orange', value: '#FF9100' },
+      purple: { name: 'purple', value: '#A00078' },
+      yellow: { name: 'yellow', value: '#FFE600' },
     },
   },
   controls: {
@@ -74,4 +84,8 @@ export const parameters = {
   viewport: {
     viewports,
   },
+}
+
+export const initialGlobals = {
+  backgrounds: { value: 'light' },
 }
