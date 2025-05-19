@@ -3,6 +3,10 @@ import * as Icons from '@amsterdam/design-system-react-icons/src'
 
 import './icon-gallery.css'
 
+// List of deprecated icons, these icons are from the old icon set and are symlinked to there new icons
+// in the new icon set. This is to prevent breaking changes in the old icon set
+// To remove all symlinks in a dir you can use the following command:
+// find . -type l -exec rm {} \;
 const deprecatedIcons = [
   'AlertIcon',
   'BallIcon',
