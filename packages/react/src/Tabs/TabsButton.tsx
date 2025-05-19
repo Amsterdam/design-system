@@ -22,6 +22,10 @@ export const TabsButton = forwardRef(
 
     const handleClick = (event: MouseEvent<HTMLButtonElement>) => {
       onClick?.(event)
+
+      // Allow preventDefault to stop the tab from updating
+      if (event.defaultPrevented) return
+
       startTransition(() => {
         updateTab(ariaControls)
       })

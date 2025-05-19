@@ -7,8 +7,7 @@
   aspect-ratio: var(--ams-image-aspect-ratio);
   block-size: auto; /* [1] */
   font-style: italic; /* [3] */
-  inline-size: fit-content;
-  max-inline-size: 100%; /* [1] */
+  inline-size: 100%; /* [1] */
   object-fit: cover; /* [4] */
   vertical-align: middle; /* [2] */
 }

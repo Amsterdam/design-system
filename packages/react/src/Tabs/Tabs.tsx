@@ -22,6 +22,7 @@ const TabsRoot = forwardRef(
   ({ activeTab, children, className, onTabChange, ...restProps }: TabsProps, ref: ForwardedRef<HTMLDivElement>) => {
     const [activeTabId, setActiveTabId] = useState<string>()
 
+    // Get all tab ids from TabsButtons on first render
     const allTabIds = useMemo(() => {
       if (!Array.isArray(children)) return []
 
@@ -43,7 +44,7 @@ const TabsRoot = forwardRef(
 
       // If there are no children, return an empty array
       return []
-    }, [children])
+    }, [])
 
     useEffect(() => {
       if (!activeTab) {
@@ -73,6 +74,9 @@ const TabsRoot = forwardRef(
 
 TabsRoot.displayName = 'Tabs'
 
+/**
+ * @see {@link https://designsystem.amsterdam/?path=/docs/components-containers-tabs--docs Tabs docs at Amsterdam Design System}
+ */
 export const Tabs = Object.assign(TabsRoot, {
   Button: TabsButton,
   List: TabsList,

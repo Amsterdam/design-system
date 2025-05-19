@@ -128,3 +128,37 @@ export const WithWideContent: Story = {
     ],
   },
 }
+
+const tabsContentWithoutSlowPanel = tabsContent.filter(({ label }) => label !== 'Documenten')
+
+export const PreventTabsFromChanging: Story = {
+  args: {
+    children: [
+      <Tabs.List key="tabsList">
+        {tabsContentWithoutSlowPanel.map(({ label }) => (
+          <Tabs.Button
+            aria-controls={label}
+            key={label}
+            onClick={(e) => {
+              // eslint-disable-next-line no-alert
+              const confirmLeave = window.confirm('You have unsaved changes. Do you want to leave?')
+              if (!confirmLeave) {
+                e.preventDefault()
+              }
+            }}
+          >
+            {label}
+          </Tabs.Button>
+        ))}
+      </Tabs.List>,
+      tabsContentWithoutSlowPanel.map(({ body, label }) => (
+        <Tabs.Panel id={label} key={label}>
+          <Heading className="ams-mb-xs" level={3}>
+            {label}
+          </Heading>
+          <Paragraph>{body}</Paragraph>
+        </Tabs.Panel>
+      )),
+    ],
+  },
+}
