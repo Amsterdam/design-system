@@ -39,7 +39,7 @@ const LinkStoryTemplate: LinkStory = {
   args: {
     children: linkList[0],
     href: '#',
-    icon: Icons.ChevronRightIcon,
+    icon: Icons.ChevronForwardIcon,
   },
   argTypes: {
     color: {
