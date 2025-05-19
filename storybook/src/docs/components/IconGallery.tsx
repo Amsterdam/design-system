@@ -40,6 +40,7 @@ const deprecatedIcons = [
   'TwitterIcon',
   'UmbrellaChairsIcon',
   'VolumeIcon',
+  'PlaneIcon',
 ]
 
 const groupIcons = (icons: Array<keyof typeof Icons>) => {
