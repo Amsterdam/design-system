@@ -1,7 +1,7 @@
 {
   "ams": {
     "hint": {
-      "color": { "value": "{ams.color.text.secondary}" }
+      "font-weight": { "value": "{ams.typography.body-text.font-weight}" }
     }
   }
 }
