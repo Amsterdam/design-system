@@ -37,7 +37,7 @@ const LogoLinkContent = ({
 export type PageHeaderProps = {
   /** The name of the application. */
   brandName?: string
-
+  /** The accessible label of the logo. */
   logoA11yLabel?: string
   /** The name of the brand for which to display the logo. */
   logoBrand?: LogoBrand
