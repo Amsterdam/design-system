@@ -73,7 +73,15 @@ describe('Page Header', () => {
   it('renders a custom logo link title', () => {
     render(<PageHeader logoLinkTitle="Go to homepage" />)
 
-    const logoLinkTitle = screen.getByRole('link', { name: 'Go to homepage' })
+    const logoLinkTitle = screen.getByRole('link', { name: 'Gemeente Amsterdam logo Go to homepage' })
+
+    expect(logoLinkTitle).toBeInTheDocument()
+  })
+
+  it('renders a custom accessible label for the logo', () => {
+    render(<PageHeader logoA11yLabel="Custom accessible label" />)
+
+    const logoLinkTitle = screen.getByRole('link', { name: 'Custom accessible label Ga naar de homepage' })
 
     expect(logoLinkTitle).toBeInTheDocument()
   })
@@ -199,7 +207,7 @@ describe('Page Header', () => {
 
     render(<PageHeader logoLinkComponent={CustomLink} />)
 
-    const customLink = screen.getByRole('link', { name: 'Ga naar de homepage' })
+    const customLink = screen.getByRole('link', { name: 'Gemeente Amsterdam logo Ga naar de homepage' })
 
     expect(customLink).toHaveAttribute('data-test')
   })
