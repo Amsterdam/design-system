@@ -14,10 +14,18 @@ import { PageHeaderMenuIcon } from './PageHeaderMenuIcon'
 import { PageHeaderMenuLink } from './PageHeaderMenuLink'
 import useIsAfterBreakpoint from '../common/useIsAfterBreakpoint'
 
-const LogoLinkContent = ({ brandName, logoBrand }: { brandName?: string; logoBrand: LogoBrand }) => (
+const LogoLinkContent = ({
+  brandName,
+  logoA11yLabel,
+  logoBrand,
+}: {
+  brandName?: string
+  logoA11yLabel?: string
+  logoBrand: LogoBrand
+}) => (
   <>
     <span className={clsx(logoBrand === 'amsterdam' && Boolean(brandName) && 'ams-page-header__logo-container')}>
-      <Logo brand={logoBrand} />
+      <Logo aria-label={logoA11yLabel} brand={logoBrand} />
     </span>
     {brandName && (
       <span aria-hidden="true" className="ams-page-header__brand-name">
@@ -30,6 +38,8 @@ const LogoLinkContent = ({ brandName, logoBrand }: { brandName?: string; logoBra
 export type PageHeaderProps = {
   /** The name of the application. */
   brandName?: string
+
+  logoA11yLabel?: string
   /** The name of the brand for which to display the logo. */
   logoBrand?: LogoBrand
   /** The url for the link on the logo. */
@@ -54,6 +64,7 @@ const PageHeaderRoot = forwardRef(
       brandName,
       children,
       className,
+      logoA11yLabel = 'Gemeente Amsterdam logo',
       logoBrand = 'amsterdam',
       logoLink = '/',
       logoLinkComponent = (props: AnchorHTMLAttributes<HTMLAnchorElement>) => <a {...props} />,
@@ -82,8 +93,8 @@ const PageHeaderRoot = forwardRef(
     return (
       <header {...restProps} className={clsx('ams-page-header', className)} ref={ref}>
         <Link className="ams-page-header__logo-link" href={logoLink}>
+          <LogoLinkContent brandName={brandName} logoA11yLabel={logoA11yLabel} logoBrand={logoBrand} />
           <span className="ams-visually-hidden">{logoLinkTitle}</span>
-          <LogoLinkContent brandName={brandName} logoBrand={logoBrand} />
         </Link>
         {(hasMegaMenu || menuItems) && (
           <nav aria-labelledby="primary-navigation" className="ams-page-header__navigation">
@@ -93,7 +104,7 @@ const PageHeaderRoot = forwardRef(
 
             {/* The logo link section is recreated here, to make sure the header menu wraps at the right spot */}
             <div className="ams-page-header__logo-link ams-page-header__logo-link--hidden">
-              <LogoLinkContent brandName={brandName} logoBrand={logoBrand} />
+              <LogoLinkContent brandName={brandName} logoA11yLabel={logoA11yLabel} logoBrand={logoBrand} />
             </div>
 
             <ul className="ams-page-header__menu">
