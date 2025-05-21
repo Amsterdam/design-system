@@ -18,20 +18,19 @@ const LogoLinkContent = ({
   brandName,
   logoA11yLabel,
   logoBrand,
+  logoLinkTitle,
 }: {
   brandName?: string
   logoA11yLabel?: string
   logoBrand: LogoBrand
+  logoLinkTitle?: string
 }) => (
   <>
     <span className={clsx(logoBrand === 'amsterdam' && Boolean(brandName) && 'ams-page-header__logo-container')}>
       <Logo aria-label={logoA11yLabel} brand={logoBrand} />
     </span>
-    {brandName && (
-      <span aria-hidden="true" className="ams-page-header__brand-name">
-        {brandName}
-      </span>
-    )}
+    {logoLinkTitle && <span className="ams-visually-hidden">{logoLinkTitle}</span>}
+    {brandName && <span className="ams-page-header__brand-name">{brandName}</span>}
   </>
 )
 
@@ -93,8 +92,12 @@ const PageHeaderRoot = forwardRef(
     return (
       <header {...restProps} className={clsx('ams-page-header', className)} ref={ref}>
         <Link className="ams-page-header__logo-link" href={logoLink}>
-          <LogoLinkContent brandName={brandName} logoA11yLabel={logoA11yLabel} logoBrand={logoBrand} />
-          <span className="ams-visually-hidden">{logoLinkTitle}</span>
+          <LogoLinkContent
+            brandName={brandName}
+            logoA11yLabel={logoA11yLabel}
+            logoBrand={logoBrand}
+            logoLinkTitle={logoLinkTitle}
+          />
         </Link>
         {(hasMegaMenu || menuItems) && (
           <nav aria-labelledby="primary-navigation" className="ams-page-header__navigation">
@@ -104,7 +107,7 @@ const PageHeaderRoot = forwardRef(
 
             {/* The logo link section is recreated here, to make sure the header menu wraps at the right spot */}
             <div className="ams-page-header__logo-link ams-page-header__logo-link--hidden">
-              <LogoLinkContent brandName={brandName} logoA11yLabel={logoA11yLabel} logoBrand={logoBrand} />
+              <LogoLinkContent brandName={brandName} logoBrand={logoBrand} />
             </div>
 
             <ul className="ams-page-header__menu">
