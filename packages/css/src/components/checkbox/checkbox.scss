@@ -78,17 +78,6 @@
   }
 }
 
-// Checked
-.ams-checkbox__input:checked + .ams-checkbox__label {
-  .ams-checkbox__rectangle {
-    fill: var(--ams-checkbox-rectangle-checked-fill);
-  }
-
-  .ams-checkbox__checked-indicator {
-    display: block;
-  }
-}
-
 // Indeterminate
 .ams-checkbox__input:indeterminate + .ams-checkbox__label {
   .ams-checkbox__rectangle {
@@ -111,6 +100,17 @@
 
   .ams-checkbox__hover-indicator {
     stroke: none;
+  }
+}
+
+// Checked
+.ams-checkbox__input:checked:not(:indeterminate) + .ams-checkbox__label {
+  .ams-checkbox__rectangle {
+    fill: var(--ams-checkbox-rectangle-checked-fill);
+  }
+
+  .ams-checkbox__checked-indicator {
+    display: block;
   }
 }
 
