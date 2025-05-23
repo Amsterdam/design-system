@@ -8,9 +8,9 @@ import { PageFooter } from '@amsterdam/design-system-react/src'
 import {
   CameraIcon,
   ClockIcon,
-  EmailIcon,
   FacebookIcon,
   LinkedinIcon,
+  MailIcon,
   PhoneIcon,
   XIcon,
 } from '@amsterdam/design-system-react-icons'
@@ -59,7 +59,7 @@ export const Default: Story = {
               Hebt u een vraag en kunt u het antwoord niet vinden op deze website? Neem dan contact met ons op.
             </Paragraph>
             <LinkList>
-              <LinkList.Link color="inverse" href="mailto:redactie@amsterdam.nl" icon={EmailIcon} size="small">
+              <LinkList.Link color="inverse" href="mailto:redactie@amsterdam.nl" icon={MailIcon} size="small">
                 E-mail
               </LinkList.Link>
               <LinkList.Link color="inverse" href="tel:+3114020" icon={PhoneIcon} size="small">
@@ -121,7 +121,7 @@ export const OnderzoekEnStatistiek: Story = {
               Heeft u een vraag en kunt u het antwoord niet vinden op deze site? Neem dan contact met ons op.
             </Paragraph>
             <LinkList>
-              <LinkList.Link color="inverse" href="mailto:redactie.os@amsterdam.nl" icon={EmailIcon} size="small">
+              <LinkList.Link color="inverse" href="mailto:redactie.os@amsterdam.nl" icon={MailIcon} size="small">
                 E-mail
               </LinkList.Link>
               <LinkList.Link color="inverse" href="tel:+31202510333" icon={PhoneIcon} size="small">

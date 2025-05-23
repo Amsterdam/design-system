@@ -83,10 +83,10 @@ export const CustomIcons: Story = {
   ...StoryTemplate,
   args: {
     children: [
-      <LinkList.Link href="#" icon={Icons.ChattingIcon} key="form">
+      <LinkList.Link href="#" icon={Icons.SpeechBalloonEllipsisIcon} key="form">
         Contactformulier
       </LinkList.Link>,
-      <LinkList.Link href="#" icon={Icons.HousingIcon} key="address">
+      <LinkList.Link href="#" icon={Icons.HouseIcon} key="address">
         Adressen en openingstijden
       </LinkList.Link>,
       <LinkList.Link href="#" icon={Icons.PhoneIcon} key="phone">
