@@ -15,6 +15,8 @@
 }
 
 .ams-button {
+  border-style: var(--ams-button-border-style);
+  border-width: var(--ams-button-border-width);
   cursor: var(--ams-button-cursor);
   display: inline-flex;
   font-family: var(--ams-button-font-family);
@@ -38,42 +40,29 @@
   }
 }
 
-@mixin ams-button-forced-color-mode {
-  @media screen and (-ms-high-contrast: active), screen and (forced-colors: active) {
-    border: var(--ams-button-forced-color-mode-border); // add border because forced colors changes box-shadow to none
-  }
-}
-
 .ams-button--primary {
   background-color: var(--ams-button-primary-background-color);
-  box-shadow: var(--ams-button-primary-box-shadow);
+  border-color: var(--ams-button-primary-border-color);
   color: var(--ams-button-primary-color);
-
-  @include ams-button-forced-color-mode;
 
   &:disabled,
   [aria-disabled="true"] {
     background-color: var(--ams-button-primary-disabled-background-color);
-    box-shadow: var(--ams-button-primary-disabled-box-shadow);
+    border-color: var(--ams-button-primary-disabled-border-color);
   }
 
   &:hover:not(:disabled, [aria-disabled="true"]) {
     background-color: var(--ams-button-primary-hover-background-color);
-    box-shadow: var(--ams-button-primary-hover-box-shadow);
+    border-color: var(--ams-button-primary-hover-border-color);
   }
 }
 
 .ams-button--secondary {
   background-color: var(--ams-button-secondary-background-color);
-  box-shadow: var(--ams-button-secondary-box-shadow);
   color: var(--ams-button-secondary-color);
-
-  @include ams-button-forced-color-mode;
 
   &:disabled,
   [aria-disabled="true"] {
-    background-color: var(--ams-button-secondary-disabled-background-color);
-    box-shadow: var(--ams-button-secondary-disabled-box-shadow);
     color: var(--ams-button-secondary-disabled-color);
   }
 
@@ -85,16 +74,16 @@
 
 .ams-button--tertiary {
   background-color: var(--ams-button-tertiary-background-color);
+  border-color: var(--ams-button-tertiary-border-color);
   color: var(--ams-button-tertiary-color);
 
   &:disabled,
   [aria-disabled="true"] {
-    background-color: var(--ams-button-tertiary-disabled-background-color);
     color: var(--ams-button-tertiary-disabled-color);
   }
 
   &:hover:not(:disabled, [aria-disabled="true"]) {
-    box-shadow: var(--ams-button-tertiary-hover-box-shadow);
+    border-color: var(--ams-button-tertiary-hover-border-color);
     color: var(--ams-button-tertiary-hover-color);
   }
 }
