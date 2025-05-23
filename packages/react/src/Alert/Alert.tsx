@@ -3,7 +3,7 @@
  * Copyright Gemeente Amsterdam
  */
 
-import { ErrorIcon, InfoIcon, SuccessIcon, WarningIcon } from '@amsterdam/design-system-react-icons'
+import { ErrorFillIcon, InfoFillIcon, SuccessFillIcon, WarningFillIcon } from '@amsterdam/design-system-react-icons'
 import clsx from 'clsx'
 import { forwardRef } from 'react'
 import type { ForwardedRef, HTMLAttributes, PropsWithChildren } from 'react'
@@ -35,9 +35,9 @@ export type AlertProps = {
 } & PropsWithChildren<HTMLAttributes<HTMLDivElement>>
 
 const iconSvgBySeverity: Record<Severity, Function> = {
-  error: ErrorIcon,
-  success: SuccessIcon,
-  warning: WarningIcon,
+  error: ErrorFillIcon,
+  success: SuccessFillIcon,
+  warning: WarningFillIcon,
 }
 
 /**
@@ -58,7 +58,7 @@ export const Alert = forwardRef(
     }: AlertProps,
     ref: ForwardedRef<HTMLDivElement>,
   ) => {
-    const SeverityIcon = severity ? iconSvgBySeverity[severity] : InfoIcon
+    const SeverityIcon = severity ? iconSvgBySeverity[severity] : InfoFillIcon
 
     return (
       <section {...restProps} className={clsx('ams-alert', severity && `ams-alert--${severity}`, className)} ref={ref}>

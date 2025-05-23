@@ -3,50 +3,6 @@ import * as Icons from '@amsterdam/design-system-react-icons/src'
 
 import './icon-gallery.css'
 
-// List of deprecated icons, these icons are from the old icon set and are symlinked to there new icons
-// in the new icon set. This is to prevent breaking changes in the old icon set
-// To remove all symlinks in a dir you can use the following command:
-// find . -type l -exec rm {} \;
-const deprecatedIcons = [
-  'AlertIcon',
-  'BallIcon',
-  'CardIcon',
-  'ChargingPointIcon',
-  'ChatBubbleIcon',
-  'ChattingIcon',
-  'CollaborateIcon',
-  'DocumentEuroSignIcon',
-  'DocumentTextIcon',
-  'EclipseIcon',
-  'EditDocumentIcon',
-  'EllipsisIcon',
-  'EnergyIcon',
-  'EnlargeIcon',
-  'FacebookPaddedIcon',
-  'FavouriteIcon',
-  'FontEnlargeIcon',
-  'HandicapIcon',
-  'HousingIcon',
-  'IndeterminateIcon',
-  'LampIcon',
-  'LocationFieldsIcon',
-  'MapLayersIcon',
-  'OpeningHoursIcon',
-  'PersonalLoginIcon',
-  'PictureIcon',
-  'PublicParksIcon',
-  'PurseIcon',
-  'QuoteIcon',
-  'StopIcon',
-  'SpinnerIcon',
-  'TableIcon',
-  'ThumbnailResultsIcon',
-  'TwitterIcon',
-  'UmbrellaChairsIcon',
-  'VolumeIcon',
-  'PlaneIcon',
-]
-
 const groupIcons = (icons: Array<keyof typeof Icons>) => {
   const groupedIcons: { [key: string]: { filled?: keyof typeof Icons; outline?: keyof typeof Icons } } = {}
 
@@ -67,8 +23,7 @@ const groupIcons = (icons: Array<keyof typeof Icons>) => {
 
 export const IconGallery = () => {
   const icons = Object.keys(Icons) as Array<keyof typeof Icons>
-  const filteredIcons = icons.filter((icon) => !deprecatedIcons.includes(icon))
-  const groupedIcons = groupIcons(filteredIcons)
+  const groupedIcons = groupIcons(icons)
 
   return (
     <div className="ams-storybook-icon-gallery">
