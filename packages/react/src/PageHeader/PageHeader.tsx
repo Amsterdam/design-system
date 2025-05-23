@@ -30,7 +30,11 @@ const LogoLinkContent = ({
       <Logo aria-label={logoA11yLabel} brand={logoBrand} />
     </span>
     {logoLinkTitle && <span className="ams-visually-hidden">{logoLinkTitle}</span>}
-    {brandName && <span className="ams-page-header__brand-name">{brandName}</span>}
+    {brandName && (
+      <span aria-hidden="true" className="ams-page-header__brand-name">
+        {brandName}
+      </span>
+    )}
   </>
 )
 
@@ -67,7 +71,7 @@ const PageHeaderRoot = forwardRef(
       logoBrand = 'amsterdam',
       logoLink = '/',
       logoLinkComponent = (props: AnchorHTMLAttributes<HTMLAnchorElement>) => <a {...props} />,
-      logoLinkTitle = 'Ga naar de homepage',
+      logoLinkTitle = `Ga naar de homepage${brandName ? ` van ${brandName}` : ''}`,
       menuButtonText = 'Menu',
       menuItems,
       navigationLabel = 'Hoofdnavigatie',
