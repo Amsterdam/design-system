@@ -94,7 +94,7 @@ const PageHeaderRoot = forwardRef(
       <header {...restProps} className={clsx('ams-page-header', className)} ref={ref}>
         <Link className="ams-page-header__logo-link" href={logoLink}>
           <LogoLinkContent brandName={brandName} logoA11yLabel={logoA11yLabel} logoBrand={logoBrand} />
-          {logoLinkTitle && <span className="ams-visually-hidden">{logoLinkTitle}</span>}
+          <span className="ams-visually-hidden">{logoLinkTitle}</span>
         </Link>
         {(hasMegaMenu || menuItems) && (
           <nav aria-labelledby="primary-navigation" className="ams-page-header__navigation">
