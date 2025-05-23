@@ -18,18 +18,15 @@ const LogoLinkContent = ({
   brandName,
   logoA11yLabel,
   logoBrand,
-  logoLinkTitle,
 }: {
   brandName?: string
   logoA11yLabel?: string
   logoBrand: LogoBrand
-  logoLinkTitle?: string
 }) => (
   <>
     <span className={clsx(logoBrand === 'amsterdam' && Boolean(brandName) && 'ams-page-header__logo-container')}>
       <Logo aria-label={logoA11yLabel} brand={logoBrand} />
     </span>
-    {logoLinkTitle && <span className="ams-visually-hidden">{logoLinkTitle}</span>}
     {brandName && (
       <span aria-hidden="true" className="ams-page-header__brand-name">
         {brandName}
@@ -96,12 +93,8 @@ const PageHeaderRoot = forwardRef(
     return (
       <header {...restProps} className={clsx('ams-page-header', className)} ref={ref}>
         <Link className="ams-page-header__logo-link" href={logoLink}>
-          <LogoLinkContent
-            brandName={brandName}
-            logoA11yLabel={logoA11yLabel}
-            logoBrand={logoBrand}
-            logoLinkTitle={logoLinkTitle}
-          />
+          <LogoLinkContent brandName={brandName} logoA11yLabel={logoA11yLabel} logoBrand={logoBrand} />
+          {logoLinkTitle && <span className="ams-visually-hidden">{logoLinkTitle}</span>}
         </Link>
         {(hasMegaMenu || menuItems) && (
           <nav aria-labelledby="primary-navigation" className="ams-page-header__navigation">
