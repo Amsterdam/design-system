@@ -42,19 +42,16 @@
 }
 
 .ams-checkbox__hover-indicator {
-  fill: none;
   stroke: none;
 }
 
 .ams-checkbox__checked-indicator {
   display: none;
-  fill: none;
   stroke: var(--ams-checkbox-checked-indicator-stroke);
 }
 
 .ams-checkbox__indeterminate-indicator {
   display: none;
-  fill: none;
   stroke: var(--ams-checkbox-indeterminate-indicator-stroke);
 }
 
