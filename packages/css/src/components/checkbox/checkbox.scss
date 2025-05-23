@@ -248,7 +248,7 @@
 
 // Checked
 @media (forced-colors: active) {
-  .ams-checkbox__input:checked + .ams-checkbox__label,
+  .ams-checkbox__input:checked:not(:indeterminate) + .ams-checkbox__label,
   .ams-checkbox__input:checked + .ams-checkbox__label:hover,
   .ams-checkbox__input[aria-invalid="true"]:checked + .ams-checkbox__label,
   .ams-checkbox__input[aria-invalid="true"]:checked + .ams-checkbox__label:hover {
@@ -299,6 +299,7 @@
   .ams-checkbox__input[aria-invalid="true"]:disabled:checked + .ams-checkbox__label:hover {
     .ams-checkbox__rectangle {
       fill: GrayText;
+      stroke: GrayText;
     }
   }
 }
