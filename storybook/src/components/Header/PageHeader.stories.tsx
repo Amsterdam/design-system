@@ -173,7 +173,7 @@ export const WithCustomLogoLink: Story = {
   args: {
     logoBrand: 'ggd-amsterdam',
     logoLink: 'https://www.ggd.amsterdam.nl/',
-    logoLinkTitle: 'Naar de homepage van de GGD Amsterdam',
+    logoLinkTitle: 'Naar de voorpagina van de GGD Amsterdam',
   },
 }
 

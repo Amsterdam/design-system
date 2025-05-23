@@ -71,7 +71,7 @@ const PageHeaderRoot = forwardRef(
       logoBrand = 'amsterdam',
       logoLink = '/',
       logoLinkComponent = (props: AnchorHTMLAttributes<HTMLAnchorElement>) => <a {...props} />,
-      logoLinkTitle = `Ga naar de homepage${brandName ? ` van ${brandName}` : ''}`,
+      logoLinkTitle = `Ga naar de voorpagina${brandName ? ` van ${brandName}` : ''}`,
       menuButtonText = 'Menu',
       menuItems,
       navigationLabel = 'Hoofdnavigatie',
