@@ -171,6 +171,7 @@ export const WithoutMenuButton: Story = {
 
 export const WithCustomLogoLink: Story = {
   args: {
+    logoA11yLabel: 'Gemeentelijke Gezondheidsdienst Amsterdam logo',
     logoBrand: 'ggd-amsterdam',
     logoLink: 'https://www.ggd.amsterdam.nl/',
     logoLinkTitle: 'Naar de voorpagina van de GGD Amsterdam',

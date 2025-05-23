@@ -67,7 +67,7 @@ const PageHeaderRoot = forwardRef(
       brandName,
       children,
       className,
-      logoA11yLabel = 'Gemeente Amsterdam logo',
+      logoA11yLabel,
       logoBrand = 'amsterdam',
       logoLink = '/',
       logoLinkComponent = (props: AnchorHTMLAttributes<HTMLAnchorElement>) => <a {...props} />,
