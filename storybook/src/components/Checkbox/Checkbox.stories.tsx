@@ -7,6 +7,7 @@ import { Column, ErrorMessage, FieldSet, Paragraph } from '@amsterdam/design-sys
 import { Checkbox } from '@amsterdam/design-system-react/src'
 import { useArgs } from '@storybook/preview-api'
 import { Meta, StoryObj } from '@storybook/react'
+import CustomIcon from './CustomIcon'
 
 const meta = {
   title: 'Components/Forms/Checkbox',
@@ -155,4 +156,10 @@ export const InAFieldSetWithValidation: Story = {
       </Column>
     </FieldSet>
   ),
+}
+
+export const WithCustomIcon: Story = {
+  args: {
+    icon: <CustomIcon />,
+  },
 }

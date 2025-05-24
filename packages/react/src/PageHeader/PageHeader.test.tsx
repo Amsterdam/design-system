@@ -5,7 +5,7 @@
 
 import { render, screen } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
-import { createRef } from 'react'
+import { AnchorHTMLAttributes, createRef } from 'react'
 import './matchMedia.mock' // Must be imported before PageHeader
 import { PageHeader } from './PageHeader'
 import '@testing-library/jest-dom'
@@ -192,5 +192,15 @@ describe('Page Header', () => {
 
   it.skip('it closes the mega menu when it is open and the screen width passes the breakpoint', () => {
     // TODO: Add this test
+  })
+
+  it('renders a custom logo link component', () => {
+    const CustomLink = (props: AnchorHTMLAttributes<HTMLAnchorElement>) => <a data-test {...props} />
+
+    render(<PageHeader logoLinkComponent={CustomLink} />)
+
+    const customLink = screen.getByRole('link', { name: 'Ga naar de homepage' })
+
+    expect(customLink).toHaveAttribute('data-test')
   })
 })
