@@ -32,7 +32,7 @@ export const FormPage = () => {
         <Breadcrumb>
           <Breadcrumb.Link>Home</Breadcrumb.Link>
         </Breadcrumb>
-        <Heading className="ams-mb-m" level={1}>
+        <Heading className="ams-mb-xl" level={1}>
           Contact
         </Heading>
         <form className="ams-gap-m" id="main" onSubmit={(e) => e.preventDefault()}>
@@ -49,18 +49,18 @@ export const FormPage = () => {
             />
             <CharacterCount length={textareaLength} maxLength={1000} />
           </Field>
-          <FieldSet aria-describedby="contactDetailsDescription" legend="Wat zijn uw gegevens?">
-            <Column gap="small">
+          <FieldSet aria-describedby="contactDetailsDescription" className="ams-mb-xl" legend="Wat zijn uw gegevens?">
+            <Column gap="large">
               <Paragraph id="contactDetailsDescription">
                 Wij hebben uw gegevens nodig om contact met u te kunnen opnemen.
               </Paragraph>
               <Field>
                 <Label htmlFor="initials">Voorletters</Label>
-                <TextInput id="initials" name="initials" />
+                <TextInput id="initials" name="initials" size={8} />
               </Field>
               <Field>
                 <Label htmlFor="familyName">Achternaam</Label>
-                <TextInput autoComplete="family-name" id="familyName" name="familyName" />
+                <TextInput autoComplete="family-name" id="familyName" name="familyName" size={32} />
               </Field>
               <FieldSet legend="Woonplaats">
                 <Radio name="city" value="amsterdam">
@@ -75,7 +75,7 @@ export const FormPage = () => {
               </FieldSet>
               <Field>
                 <Label htmlFor="email">E-mail</Label>
-                <TextInput autoComplete="email" id="email" name="email" />
+                <TextInput autoComplete="email" id="email" name="email" size={32} />
               </Field>
               <Row wrap>
                 <Field>
@@ -88,12 +88,12 @@ export const FormPage = () => {
                 </Field>
                 <Field>
                   <Label htmlFor="phone">Telefoonnummer</Label>
-                  <TextInput autoComplete="tel" id="phone" name="phone" />
+                  <TextInput autoComplete="tel" id="phone" name="phone" size={12} />
                 </Field>
               </Row>
             </Column>
           </FieldSet>
-          <Alert heading="Waarom vragen we om deze gegevens?" headingLevel={2}>
+          <Alert className="ams-mb-xl" heading="Waarom vragen we om deze gegevens?" headingLevel={2}>
             <Paragraph>
               We bewaren uw contactgegevens voor het afhandelen van uw vraag of klacht en het verbeteren van onze
               dienstverlening.
