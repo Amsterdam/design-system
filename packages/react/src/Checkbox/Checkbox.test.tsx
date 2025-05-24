@@ -3,6 +3,7 @@
  * Copyright Gemeente Amsterdam
  */
 
+import { FavouriteIcon } from '@amsterdam/design-system-react-icons'
 import { render, screen } from '@testing-library/react'
 import { createRef } from 'react'
 import { Checkbox } from './Checkbox'
@@ -171,6 +172,14 @@ describe('Checkbox', () => {
     label?.click()
 
     expect(handleChange).toHaveBeenCalled()
+  })
+
+  it('shows a custom icon', () => {
+    const { container } = render(<Checkbox icon={<FavouriteIcon className="test-class" />} />)
+
+    const icon = container.querySelector('svg')
+
+    expect(icon).toHaveClass('test-class')
   })
 
   it('supports ForwardRef in React', () => {
