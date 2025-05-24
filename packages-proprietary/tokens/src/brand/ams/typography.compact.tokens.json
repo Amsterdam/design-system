@@ -3,37 +3,48 @@
     "typography": {
       "body-text": {
         "font-size": { "value": "1rem" },
+        "line-height": { "value": "1.6667" },
         "small": {
-          "font-size": { "value": "clamp(0.8889rem, calc(0.9141rem + -0.0253vw), 0.9091rem)" }
+          "font-size": { "value": "clamp(0.8889rem, calc(0.9141rem + -0.0253vw), 0.9091rem)" },
+          "line-height": { "value": "1.5152" }
         },
         "large": {
-          "font-size": { "value": "clamp(1.1rem, calc(1.0938rem + 0.0313vw), 1.125rem)" }
+          "font-size": { "value": "clamp(1.1rem, calc(1.0938rem + 0.0313vw), 1.125rem)" },
+          "line-height": { "value": "1.5152" }
         },
         "x-large": {
-          "font-size": { "value": "clamp(1.21rem, calc(1.1961rem + 0.0695vw), 1.2656rem)" }
+          "font-size": { "value": "clamp(1.21rem, calc(1.1961rem + 0.0695vw), 1.2656rem)" },
+          "line-height": { "value": "1.3776" }
         }
       },
       "heading": {
         "0": {
-          "font-size": { "value": "clamp(1.6105rem, calc(1.5626rem + 0.2394vw), 1.802rem)" }
+          "font-size": { "value": "clamp(1.6105rem, calc(1.5626rem + 0.2394vw), 1.802rem)" },
+          "line-height": { "value": "1.1386" }
         },
         "1": {
-          "font-size": { "value": "clamp(1.4641rem, calc(1.4297rem + 0.1721vw), 1.6018rem)" }
+          "font-size": { "value": "clamp(1.4641rem, calc(1.4297rem + 0.1721vw), 1.6018rem)" },
+          "line-height": { "value": "1.1754" }
         },
         "2": {
-          "font-size": { "value": "clamp(1.331rem, calc(1.3078rem + 0.116vw), 1.4238rem)" }
+          "font-size": { "value": "clamp(1.331rem, calc(1.3078rem + 0.116vw), 1.4238rem)" },
+          "line-height": { "value": "1.2133" }
         },
         "3": {
-          "font-size": { "value": "clamp(1.21rem, calc(1.1961rem + 0.0695vw), 1.2656rem)" }
+          "font-size": { "value": "clamp(1.21rem, calc(1.1961rem + 0.0695vw), 1.2656rem)" },
+          "line-height": { "value": "1.2524" }
         },
         "4": {
-          "font-size": { "value": "clamp(1.1rem, calc(1.0938rem + 0.0313vw), 1.125rem)" }
+          "font-size": { "value": "clamp(1.1rem, calc(1.0938rem + 0.0313vw), 1.125rem)" },
+          "line-height": { "value": "1.2928" }
         },
         "5": {
-          "font-size": { "value": "1rem" }
+          "font-size": { "value": "1rem" },
+          "line-height": { "value": "1.3345" }
         },
         "6": {
-          "font-size": { "value": "clamp(0.8889rem, calc(0.9141rem + -0.0253vw), 0.9091rem)" }
+          "font-size": { "value": "clamp(0.8889rem, calc(0.9141rem + -0.0253vw), 0.9091rem)" },
+          "line-height": { "value": "1.3776" }
         }
       }
     }
