@@ -13,7 +13,7 @@ const meta = {
   title: 'Components/Media/Icon',
   component: Icon,
   args: {
-    svg: Icons.EmailIcon,
+    svg: Icons.MailIcon,
   },
   argTypes: {
     color: {
