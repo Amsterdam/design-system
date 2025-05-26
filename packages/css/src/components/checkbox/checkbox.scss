@@ -95,19 +95,6 @@
     }
   }
 
-  // Checked
-  &:checked + * {
-    .ams-checkbox__rectangle {
-      fill: var(--ams-checkbox-rectangle-checked-fill);
-
-      @include forced-colors-selected;
-    }
-
-    .ams-checkbox__checked-indicator {
-      display: block;
-    }
-  }
-
   // Indeterminate
   &:indeterminate + * {
     .ams-checkbox__rectangle {
@@ -117,6 +104,19 @@
     }
 
     .ams-checkbox__indeterminate-indicator {
+      display: block;
+    }
+  }
+
+  // Checked
+  &:checked:not(:indeterminate) + * {
+    .ams-checkbox__rectangle {
+      fill: var(--ams-checkbox-rectangle-checked-fill);
+
+      @include forced-colors-selected;
+    }
+
+    .ams-checkbox__checked-indicator {
       display: block;
     }
   }
@@ -188,19 +188,19 @@
 
   // HOVER
 
-  // Checked hover
-  &:checked:not(:disabled) + *:hover {
+  // Indeterminate hover
+  &:indeterminate:not(:disabled) + *:hover {
     .ams-checkbox__rectangle {
-      fill: var(--ams-checkbox-rectangle-checked-hover-fill);
+      fill: var(--ams-checkbox-rectangle-indeterminate-hover-fill);
 
       @include forced-colors-selected;
     }
   }
 
-  // Indeterminate hover
-  &:indeterminate:not(:disabled) + *:hover {
+  // Checked hover
+  &:checked:not(:disabled, :indeterminate) + *:hover {
     .ams-checkbox__rectangle {
-      fill: var(--ams-checkbox-rectangle-indeterminate-hover-fill);
+      fill: var(--ams-checkbox-rectangle-checked-hover-fill);
 
       @include forced-colors-selected;
     }
