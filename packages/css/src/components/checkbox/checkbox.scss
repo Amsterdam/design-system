@@ -121,34 +121,6 @@
     }
   }
 
-  // Disabled checked
-  &:disabled:checked + * {
-    .ams-checkbox__rectangle {
-      fill: var(--ams-checkbox-rectangle-checked-disabled-fill);
-
-      @include forced-colors-disabled;
-    }
-  }
-
-  // Disabled indeterminate
-  &:disabled:indeterminate + * {
-    .ams-checkbox__rectangle {
-      fill: var(--ams-checkbox-rectangle-indeterminate-disabled-fill);
-
-      @include forced-colors-disabled;
-    }
-  }
-
-  // Invalid
-  &:invalid:not(:disabled) + *,
-  &[aria-invalid="true"]:not(:disabled) + * {
-    .ams-checkbox__rectangle {
-      stroke: var(--ams-checkbox-rectangle-invalid-stroke);
-
-      @include forced-colors-selected;
-    }
-  }
-
   // Default hover
   &:hover:not(:disabled) + * {
     color: var(--ams-checkbox-hover-color);
@@ -169,23 +141,35 @@
     }
   }
 
-  // Invalid hover
-  &:invalid:not(:disabled) + *:hover,
-  &[aria-invalid="true"]:not(:disabled) + *:hover {
+  // Disabled checked
+  &:disabled:checked + * {
     .ams-checkbox__rectangle {
-      stroke: var(--ams-checkbox-rectangle-invalid-hover-stroke);
-    }
+      fill: var(--ams-checkbox-rectangle-checked-disabled-fill);
 
-    .ams-checkbox__hover-indicator {
-      @media (forced-colors: none) {
-        stroke: var(--ams-checkbox-hover-indicator-invalid-hover-stroke);
-      }
+      @include forced-colors-disabled;
+    }
+  }
+
+  // Disabled indeterminate
+  &:disabled:indeterminate + * {
+    .ams-checkbox__rectangle {
+      fill: var(--ams-checkbox-rectangle-indeterminate-disabled-fill);
+
+      @include forced-colors-disabled;
+    }
+  }
+
+  // Invalid
+  :is(&:invalid, &[aria-invalid="true"]):not(:disabled) + * {
+    .ams-checkbox__rectangle {
+      stroke: var(--ams-checkbox-rectangle-invalid-stroke);
+
+      @include forced-colors-selected;
     }
   }
 
   // Invalid checked
-  &:invalid:checked:not(:disabled) + *,
-  &[aria-invalid="true"]:checked:not(:disabled) + * {
+  :is(&:invalid, &[aria-invalid="true"]):checked:not(:disabled) + * {
     .ams-checkbox__rectangle {
       fill: var(--ams-checkbox-rectangle-checked-invalid-fill);
 
@@ -194,14 +178,15 @@
   }
 
   // Invalid indeterminate
-  &:invalid:indeterminate:not(:disabled) + *,
-  &[aria-invalid="true"]:indeterminate:not(:disabled) + * {
+  :is(&:invalid, &[aria-invalid="true"]):indeterminate:not(:disabled) + * {
     .ams-checkbox__rectangle {
       fill: var(--ams-checkbox-rectangle-indeterminate-invalid-fill);
 
       @include forced-colors-selected;
     }
   }
+
+  // HOVER
 
   // Checked hover
   &:checked:not(:disabled) + *:hover {
@@ -221,9 +206,21 @@
     }
   }
 
+  // Invalid hover
+  :is(&:invalid, &[aria-invalid="true"]):not(:disabled) + *:hover {
+    .ams-checkbox__rectangle {
+      stroke: var(--ams-checkbox-rectangle-invalid-hover-stroke);
+    }
+
+    .ams-checkbox__hover-indicator {
+      @media (forced-colors: none) {
+        stroke: var(--ams-checkbox-hover-indicator-invalid-hover-stroke);
+      }
+    }
+  }
+
   // Invalid checked hover
-  &:invalid:checked:not(:disabled) + *:hover,
-  &[aria-invalid="true"]:checked:not(:disabled) + *:hover {
+  :is(&:invalid, &[aria-invalid="true"]):checked:not(:disabled) + *:hover {
     .ams-checkbox__rectangle {
       fill: var(--ams-checkbox-rectangle-checked-invalid-hover-fill);
 
@@ -232,8 +229,7 @@
   }
 
   // Invalid indeterminate hover
-  &:invalid:indeterminate:not(:disabled) + *:hover,
-  &[aria-invalid="true"]:indeterminate:not(:disabled) + *:hover {
+  :is(&:invalid, &[aria-invalid="true"]):indeterminate:not(:disabled) + *:hover {
     .ams-checkbox__rectangle {
       fill: var(--ams-checkbox-rectangle-indeterminate-invalid-hover-fill);
 
