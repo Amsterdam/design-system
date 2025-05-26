@@ -3,7 +3,7 @@
  * Copyright Gemeente Amsterdam
  */
 
-import { AlertIcon } from '@amsterdam/design-system-react-icons'
+import { WarningFillIcon } from '@amsterdam/design-system-react-icons'
 import clsx from 'clsx'
 import { forwardRef } from 'react'
 import type { ForwardedRef, HTMLAttributes, PropsWithChildren } from 'react'
@@ -16,13 +16,16 @@ export type ErrorMessageProps = {
   prefix?: string
 } & PropsWithChildren<HTMLAttributes<HTMLParagraphElement>>
 
+/**
+ * @see {@link https://designsystem.amsterdam/?path=/docs/components-forms-error-message--docs Error Message docs at Amsterdam Design System}
+ */
 export const ErrorMessage = forwardRef(
   (
     { children, className, icon, prefix = 'Invoerfout', ...restProps }: ErrorMessageProps,
     ref: ForwardedRef<HTMLParagraphElement>,
   ) => (
     <p {...restProps} className={clsx('ams-error-message', className)} ref={ref}>
-      <Icon size="small" svg={icon ? icon : AlertIcon} />
+      <Icon size="small" svg={icon ? icon : WarningFillIcon} />
       <span className="ams-visually-hidden">
         {prefix}
         {': '}

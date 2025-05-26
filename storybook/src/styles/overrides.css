@@ -44,14 +44,14 @@
 }
 
 .sbdocs-content.sbdocs-content .sbdocs-a {
-  color: #004699;
+  color: var(--ams-color-interactive);
   text-decoration: underline;
   text-decoration-thickness: 0.125rem;
   text-underline-offset: 0.3333em;
 }
 
 .sbdocs-content.sbdocs-content .sbdocs-a:hover {
-  color: #102e62;
+  color: var(--ams-color-interactive-hover);
   text-decoration-thickness: 0.1875rem;
   text-underline-offset: 0.2778em;
 }

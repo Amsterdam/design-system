@@ -1,12 +1,17 @@
 # Based on https://evilmartians.com/chronicles/super-github-pages-budget-frontend-staging-with-storybook-and-more
 
 name: Feature branch build and deploy
+
 on:
   push:
     branches-ignore: [main]
   pull_request:
     types: [reopened]
     branches-ignore: [main]
+
+permissions:
+  contents: write
+  deployments: write
 
 jobs:
   build-and-deploy:

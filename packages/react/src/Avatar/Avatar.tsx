@@ -3,7 +3,7 @@
  * Copyright Gemeente Amsterdam
  */
 
-import { PersonalLoginIcon } from '@amsterdam/design-system-react-icons'
+import { PersonFillIcon } from '@amsterdam/design-system-react-icons'
 import clsx from 'clsx'
 import { forwardRef } from 'react'
 import type { ForwardedRef, HTMLAttributes } from 'react'
@@ -26,7 +26,7 @@ const AvatarContent = ({ imageSrc, initials }: AvatarContentProps) => {
     return <span aria-hidden={true}>{initials}</span>
   }
 
-  return <Icon size="small" svg={PersonalLoginIcon} />
+  return <Icon size="small" svg={PersonFillIcon} />
 }
 
 export type AvatarProps = {
@@ -38,6 +38,9 @@ export type AvatarProps = {
   label: string
 } & HTMLAttributes<HTMLSpanElement>
 
+/**
+ * @see {@link https://designsystem.amsterdam/?path=/docs/components-feedback-avatar--docs Avatar docs at Amsterdam Design System}
+ */
 export const Avatar = forwardRef(
   ({ className, color, imageSrc, label, ...restProps }: AvatarProps, ref: ForwardedRef<HTMLSpanElement>) => {
     const initials = label.slice(0, 2).toUpperCase()

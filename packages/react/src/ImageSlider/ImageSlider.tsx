@@ -175,4 +175,7 @@ export const ImageSliderRoot = forwardRef(
 
 ImageSliderRoot.displayName = 'ImageSlider'
 
+/**
+ * @see {@link https://designsystem.amsterdam/?path=/docs/components-media-image-slider--docs Image Slider docs at Amsterdam Design System}
+ */
 export const ImageSlider = Object.assign(ImageSliderRoot, { Item: ImageSliderItem })

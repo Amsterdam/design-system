@@ -3,7 +3,7 @@
  * Copyright Gemeente Amsterdam
  */
 
-import { ChevronLeftIcon, ChevronRightIcon } from '@amsterdam/design-system-react-icons'
+import { ChevronBackwardIcon, ChevronForwardIcon } from '@amsterdam/design-system-react-icons'
 import clsx from 'clsx'
 import { forwardRef } from 'react'
 import type { AnchorHTMLAttributes, ComponentType, ForwardedRef, HTMLAttributes } from 'react'
@@ -40,6 +40,9 @@ export type PaginationProps = {
   visuallyHiddenLabelId?: string
 } & HTMLAttributes<HTMLElement>
 
+/**
+ * @see {@link https://designsystem.amsterdam/?path=/docs/components-navigation-pagination--docs Pagination docs at Amsterdam Design System}
+ */
 export const Pagination = forwardRef(
   (
     {
@@ -81,7 +84,7 @@ export const Pagination = forwardRef(
         </span>
         {page !== 1 && (
           <Link className="ams-pagination__link" href={linkTemplate(page - 1)} rel="prev">
-            <Icon svg={ChevronLeftIcon} />
+            <Icon svg={ChevronBackwardIcon} />
             <span className="ams-visually-hidden">{previousVisuallyHiddenLabel}</span>
             <span aria-hidden>{previousLabel}</span>
           </Link>
@@ -105,7 +108,7 @@ export const Pagination = forwardRef(
           <Link className="ams-pagination__link" href={linkTemplate(page + 1)} rel="next">
             <span className="ams-visually-hidden">{nextVisuallyHiddenLabel}</span>
             <span aria-hidden>{nextLabel}</span>
-            <Icon svg={ChevronRightIcon} />
+            <Icon svg={ChevronForwardIcon} />
           </Link>
         )}
       </nav>
