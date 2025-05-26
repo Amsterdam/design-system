@@ -3,7 +3,7 @@
  * Copyright Gemeente Amsterdam
  */
 
-import { FavouriteIcon } from '@amsterdam/design-system-react-icons'
+import { StarIcon } from '@amsterdam/design-system-react-icons'
 import { render, screen } from '@testing-library/react'
 import { createRef } from 'react'
 import { Checkbox } from './Checkbox'
@@ -175,7 +175,7 @@ describe('Checkbox', () => {
   })
 
   it('shows a custom icon', () => {
-    const { container } = render(<Checkbox icon={<FavouriteIcon className="test-class" />} />)
+    const { container } = render(<Checkbox icon={<StarIcon className="test-class" />} />)
 
     const icon = container.querySelector('svg')
 
