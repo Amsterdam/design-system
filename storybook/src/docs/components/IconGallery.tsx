@@ -1,4 +1,4 @@
-import { Icon, Paragraph } from '@amsterdam/design-system-react'
+import { Icon } from '@amsterdam/design-system-react'
 import * as Icons from '@amsterdam/design-system-react-icons/src'
 
 import './icon-gallery.css'
@@ -33,7 +33,7 @@ export const IconGallery = () => {
             {groupedIcons[baseName].outline && <Icon size="large" svg={Icons[groupedIcons[baseName].outline!]} />}
             {groupedIcons[baseName].filled && <Icon size="large" svg={Icons[groupedIcons[baseName].filled!]} />}
           </div>
-          <Paragraph size="small">{baseName.substring(0, baseName.length - 4)}</Paragraph>
+          <p>{baseName.substring(0, baseName.length - 4)}</p>
         </div>
       ))}
     </div>
