@@ -9,7 +9,7 @@
   align-items: center;
   display: flex;
   flex-direction: column;
-  gap: var(--ams-space-xs);
+  gap: var(--ams-space-s);
 
   .ams-icon {
     font-size: var(--ams-typography-body-text-large-font-size);
@@ -23,8 +23,8 @@
 
 .ams-storybook-icon-gallery__name {
   font-family: var(--ams-paragraph-font-family);
-  font-size: var(--ams-paragraph-small-font-size);
-  line-height: var(--ams-paragraph-small-line-height);
+  font-size: 1.125rem;
+  line-height: 1.25;
   margin-block: 0;
   text-align: center;
 }
