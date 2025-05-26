@@ -3,14 +3,6 @@
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(10rem, 1fr));
   row-gap: var(--ams-space-xl);
-
-  p {
-    font-family: var(--ams-paragraph-font-family);
-    font-size: var(--ams-paragraph-small-font-size);
-    line-height: var(--ams-paragraph-small-line-height);
-    margin-block: 0;
-    text-align: center;
-  }
 }
 
 .ams-storybook-icon-gallery__item {
@@ -19,12 +11,20 @@
   flex-direction: column;
   gap: var(--ams-space-xs);
 
-  > div:first-child {
-    display: flex;
-    gap: var(--ams-space-s);
-  }
-
   .ams-icon {
     font-size: var(--ams-typography-body-text-large-font-size);
   }
+}
+
+.ams-storybook-icon-gallery__icons {
+  display: flex;
+  gap: var(--ams-space-s);
+}
+
+.ams-storybook-icon-gallery__name {
+  font-family: var(--ams-paragraph-font-family);
+  font-size: var(--ams-paragraph-small-font-size);
+  line-height: var(--ams-paragraph-small-line-height);
+  margin-block: 0;
+  text-align: center;
 }
