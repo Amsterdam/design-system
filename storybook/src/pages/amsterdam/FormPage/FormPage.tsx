@@ -93,16 +93,14 @@ export const FormPage = () => {
               </Row>
             </Column>
           </FieldSet>
+          <Alert heading="Waarom vragen we om deze gegevens?" headingLevel={2}>
+            <Paragraph>
+              We bewaren uw contactgegevens voor het afhandelen van uw vraag of klacht en het verbeteren van onze
+              dienstverlening.
+            </Paragraph>
+          </Alert>
           <div>
-            <Alert className="ams-mb-xl" heading="Waarom vragen we om deze gegevens?" headingLevel={2}>
-              <Paragraph>
-                We bewaren uw contactgegevens voor het afhandelen van uw vraag of klacht en het verbeteren van onze
-                dienstverlening.
-              </Paragraph>
-            </Alert>
-            <div>
-              <Button type="submit">Versturen</Button>
-            </div>
+            <Button type="submit">Versturen</Button>
           </div>
         </form>
       </Grid.Cell>

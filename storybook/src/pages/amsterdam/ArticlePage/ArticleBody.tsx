@@ -61,7 +61,7 @@ export const ArticleBody = ({ lead, paragraph1, spotlightHeading, spotlightLinkL
     </Spotlight>
     <Grid paddingVertical="x-large">
       <Grid.Cell span={{ narrow: 4, medium: 5, wide: 7 }} start={{ narrow: 1, medium: 2, wide: 3 }}>
-        <Column>
+        <Column gap="x-large">
           <section>
             <Heading className="ams-mb-s" level={2}>
               Wanneer bezorgen we
@@ -94,7 +94,7 @@ export const ArticleBody = ({ lead, paragraph1, spotlightHeading, spotlightLinkL
             </Paragraph>
           </section>
           <section>
-            <Heading className="ams-mb-m" level={2}>
+            <Heading className="ams-mb-s" level={2}>
               Wanneer kan bezorgen niet?
             </Heading>
             <UnorderedList>
@@ -107,7 +107,7 @@ export const ArticleBody = ({ lead, paragraph1, spotlightHeading, spotlightLinkL
             </UnorderedList>
           </section>
           <section>
-            <Heading className="ams-mb-m" level={2}>
+            <Heading className="ams-mb-s" level={2}>
               Meer weten
             </Heading>
             <LinkList>
