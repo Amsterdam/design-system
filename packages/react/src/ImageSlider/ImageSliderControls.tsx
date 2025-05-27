@@ -3,7 +3,7 @@
  * Copyright Gemeente Amsterdam
  */
 
-import { ChevronLeftIcon, ChevronRightIcon } from '@amsterdam/design-system-react-icons'
+import { ChevronBackwardIcon, ChevronForwardIcon } from '@amsterdam/design-system-react-icons'
 import clsx from 'clsx'
 import { forwardRef, useCallback, useContext } from 'react'
 import type { ForwardedRef, HTMLAttributes } from 'react'
@@ -33,7 +33,7 @@ export const ImageSliderControls = forwardRef(
           className="ams-image-slider__control ams-image-slider__control--previous"
           color="inverse"
           disabled={isAtStart}
-          icon={ChevronLeftIcon}
+          icon={ChevronBackwardIcon}
           iconOnly
           onClick={handleClickPrevious}
         >
@@ -43,7 +43,7 @@ export const ImageSliderControls = forwardRef(
           className="ams-image-slider__control ams-image-slider__control--next"
           color="inverse"
           disabled={isAtEnd}
-          icon={ChevronRightIcon}
+          icon={ChevronForwardIcon}
           iconOnly
           onClick={handleClickNext}
         >
