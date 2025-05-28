@@ -3,6 +3,32 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.0](https://github.com/Amsterdam/design-system/compare/design-system-react-v0.16.0...design-system-react-v1.0.0) (2025-05-28)
+
+
+### ⚠ BREAKING CHANGES
+
+* **Checkbox:** Use SVG for icon ([#2039](https://github.com/Amsterdam/design-system/issues/2039))
+
+### Features
+
+* **Checkbox:** Use SVG for icon ([#2039](https://github.com/Amsterdam/design-system/issues/2039)) ([713ec04](https://github.com/Amsterdam/design-system/commit/713ec04575e9bbcc59aedad1f93e2ea25c2996ed))
+* **Icon:** Update icon library with many redesigned and new icons ([#1809](https://github.com/Amsterdam/design-system/issues/1809)) ([40cc19b](https://github.com/Amsterdam/design-system/commit/40cc19b41021e257c0fe1d4aa741480b2484156d))
+* **Page Header:** Allow a custom link component for the logo link ([#2047](https://github.com/Amsterdam/design-system/issues/2047)) ([9da239b](https://github.com/Amsterdam/design-system/commit/9da239b590139d8b610ab2bb113b33462dea7902))
+* **Tabs:** Allow preventing Tabs from switching to different panel ([#2027](https://github.com/Amsterdam/design-system/issues/2027)) ([a7f5313](https://github.com/Amsterdam/design-system/commit/a7f5313353b23d386be458c39071f3d15182ed59))
+
+
+### Bug Fixes
+
+* **deps:** Bump @babel/runtime from 7.27.0 to 7.27.1 in the patch-and-minor-dependencies group ([#2030](https://github.com/Amsterdam/design-system/issues/2030)) ([31370d4](https://github.com/Amsterdam/design-system/commit/31370d4206ce5e878eba1cf7daf5a41bdec9e809))
+* **Image Slider:** Use regular buttons for navigation controls ([#2046](https://github.com/Amsterdam/design-system/issues/2046)) ([0b3b7da](https://github.com/Amsterdam/design-system/commit/0b3b7da525f1a383ba62d0f3c7250d7df65a0bc2))
+* **Tabs:** Do not lose active tab state after rerender ([#2025](https://github.com/Amsterdam/design-system/issues/2025)) ([01fbaf6](https://github.com/Amsterdam/design-system/commit/01fbaf6876771d5606669b432540446b0033e15c))
+
+
+### Miscellaneous Chores
+
+* Release 1.0.0 ([247375d](https://github.com/Amsterdam/design-system/commit/247375df3a0dfd5109726aaf2bb71b56ef62fdd1))
+
 ## [0.16.0](https://github.com/Amsterdam/design-system/compare/design-system-react-v0.15.0...design-system-react-v0.16.0) (2025-04-25)
 
 
