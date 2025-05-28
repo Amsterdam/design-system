@@ -3,6 +3,54 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.0](https://github.com/Amsterdam/design-system/compare/design-system-tokens-v1.0.0...design-system-tokens-v1.0.0) (2025-05-28)
+
+
+### ⚠ BREAKING CHANGES
+
+* **Checkbox:** Use SVG for icon ([#2039](https://github.com/Amsterdam/design-system/issues/2039))
+* Use border property for borders and box shadows only for hovers ([#1998](https://github.com/Amsterdam/design-system/issues/1998))
+* **Screen:** Delete component (use Page instead) ([#2018](https://github.com/Amsterdam/design-system/issues/2018))
+* **Grid:** Match values for padding and gap with Space sizes ([#1993](https://github.com/Amsterdam/design-system/issues/1993))
+* **Link:** Remove ‘variant’ prop, make inline the default ([#1994](https://github.com/Amsterdam/design-system/issues/1994))
+* **Card:** Replace gap with margins and introduce subcomponents ([#1972](https://github.com/Amsterdam/design-system/issues/1972))
+* **Top Task Link:** Remove component ([#1988](https://github.com/Amsterdam/design-system/issues/1988))
+* **Footer:** Rename component to Page Footer ([#1971](https://github.com/Amsterdam/design-system/issues/1971))
+* **Header:** Rename component to Page Header ([#1970](https://github.com/Amsterdam/design-system/issues/1970))
+
+### Features
+
+* Add Standalone Link ([#1979](https://github.com/Amsterdam/design-system/issues/1979)) ([b5d57bb](https://github.com/Amsterdam/design-system/commit/b5d57bbd34c7817e436f7b28d5dc675213394bfb))
+* **Alert:** Increase horizontal spacing around icon ([#1974](https://github.com/Amsterdam/design-system/issues/1974)) ([a71e1ba](https://github.com/Amsterdam/design-system/commit/a71e1ba779590fb7d7c8bd6c60e69309f268824c))
+* **Avatar, Badge, Spotlight:** Use inverse text on azure background, add guidelines to pair colours ([#1965](https://github.com/Amsterdam/design-system/issues/1965)) ([772b0dd](https://github.com/Amsterdam/design-system/commit/772b0dd0828fc492108bd19ab9726da1d42b67d9))
+* Balance text wrapping in all kinds of Headings ([#1968](https://github.com/Amsterdam/design-system/issues/1968)) ([ecc87a0](https://github.com/Amsterdam/design-system/commit/ecc87a091b356aaffaa8d0a11f1e7014c4f48f41))
+* **Card:** Replace gap with margins and introduce subcomponents ([#1972](https://github.com/Amsterdam/design-system/issues/1972)) ([85e34d4](https://github.com/Amsterdam/design-system/commit/85e34d4ec3da1589c95925a677e5800fb071dc32))
+* **Checkbox:** Use SVG for icon ([#2039](https://github.com/Amsterdam/design-system/issues/2039)) ([713ec04](https://github.com/Amsterdam/design-system/commit/713ec04575e9bbcc59aedad1f93e2ea25c2996ed))
+* **Dialog:** Decrease amounts of inner and outer whitespace ([#1975](https://github.com/Amsterdam/design-system/issues/1975)) ([b47526f](https://github.com/Amsterdam/design-system/commit/b47526f24e5c6c9ce94f8280f93e6273d16a8640))
+* **Footer:** Rename component to Page Footer ([#1971](https://github.com/Amsterdam/design-system/issues/1971)) ([d0f7edc](https://github.com/Amsterdam/design-system/commit/d0f7edc1bd3dcbba0973d4494fd6c9e90a158cd2))
+* **Grid:** Match values for padding and gap with Space sizes ([#1993](https://github.com/Amsterdam/design-system/issues/1993)) ([f161152](https://github.com/Amsterdam/design-system/commit/f161152292f86770ffda0d60c3448f8d20b7b775))
+* **Header:** Rename component to Page Header ([#1970](https://github.com/Amsterdam/design-system/issues/1970)) ([17172e4](https://github.com/Amsterdam/design-system/commit/17172e4fd89c630be6eb604d12058214a075a82b))
+* **Label:** Change design for (optional) hint ([#2048](https://github.com/Amsterdam/design-system/issues/2048)) ([971757c](https://github.com/Amsterdam/design-system/commit/971757c1ba3f5aef401c0f589ea40815907ab7ac))
+* **Link:** Remove ‘variant’ prop, make inline the default ([#1994](https://github.com/Amsterdam/design-system/issues/1994)) ([75b07b8](https://github.com/Amsterdam/design-system/commit/75b07b8bbdc758da26ce0319e2b989d079744065))
+* **Page Header:** Use heading level 2 for brandname in compact theme ([#2044](https://github.com/Amsterdam/design-system/issues/2044)) ([c5530df](https://github.com/Amsterdam/design-system/commit/c5530df647c84578aba9b8f258f84cd36d1b81e6))
+* **Page:** Add Page component ([#1982](https://github.com/Amsterdam/design-system/issues/1982)) ([813033c](https://github.com/Amsterdam/design-system/commit/813033c93be66dabccae3ff5f32484487dffc1aa))
+* **Screen:** Delete component (use Page instead) ([#2018](https://github.com/Amsterdam/design-system/issues/2018)) ([0c59f6d](https://github.com/Amsterdam/design-system/commit/0c59f6dccffa7eda745a3b34554c86b646d514ba))
+* **Top Task Link:** Remove component ([#1988](https://github.com/Amsterdam/design-system/issues/1988)) ([6da8a9b](https://github.com/Amsterdam/design-system/commit/6da8a9bdf47648a3ff0e18f89ed722092d0dad18))
+* Use border property for borders and box shadows only for hovers ([#1998](https://github.com/Amsterdam/design-system/issues/1998)) ([f91c2e3](https://github.com/Amsterdam/design-system/commit/f91c2e39294c4b1e48f443ccbba5605c5d2dcfa2))
+* Use medium border width for Inputs, Select and Switch thumb ([#2054](https://github.com/Amsterdam/design-system/issues/2054)) ([8cedce5](https://github.com/Amsterdam/design-system/commit/8cedce5728cbfc47df01d000f7a349ad946cee17))
+
+
+### Bug Fixes
+
+* **Date Input, Select, Time Input:** Use correct colors for icons ([#2020](https://github.com/Amsterdam/design-system/issues/2020)) ([a49c3d2](https://github.com/Amsterdam/design-system/commit/a49c3d2b5d4337fab812a274dceff1ce926b34ea))
+* **Page Footer:** Set correct inline padding ([#2004](https://github.com/Amsterdam/design-system/issues/2004)) ([cb2e70c](https://github.com/Amsterdam/design-system/commit/cb2e70ce04e05aed64299e1df8c40b9d8873ca83))
+* **Page Header:** Restore alignment with edges of Grid ([#1976](https://github.com/Amsterdam/design-system/issues/1976)) ([723a757](https://github.com/Amsterdam/design-system/commit/723a757511c921e8e5a4181c348ebd2077527a44))
+
+
+### Miscellaneous Chores
+
+* Release 1.0.0 ([247375d](https://github.com/Amsterdam/design-system/commit/247375df3a0dfd5109726aaf2bb71b56ef62fdd1))
+
 ## [1.0.0](https://github.com/Amsterdam/design-system/compare/design-system-tokens-v0.16.0...design-system-tokens-v1.0.0) (2025-05-28)
 
 
