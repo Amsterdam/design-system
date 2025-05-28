@@ -6,10 +6,6 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 ## [1.0.0](https://github.com/Amsterdam/design-system/compare/design-system-react-v0.16.0...design-system-react-v1.0.0) (2025-05-28)
 
 
-### ⚠ BREAKING CHANGES
-
-* **Checkbox:** Use SVG for icon ([#2039](https://github.com/Amsterdam/design-system/issues/2039))
-
 ### Features
 
 * **Checkbox:** Use SVG for icon ([#2039](https://github.com/Amsterdam/design-system/issues/2039)) ([713ec04](https://github.com/Amsterdam/design-system/commit/713ec04575e9bbcc59aedad1f93e2ea25c2996ed))
