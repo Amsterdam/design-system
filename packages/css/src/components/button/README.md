@@ -6,7 +6,7 @@ Allows the user to perform an action or operate the interface.
 
 ## Guidelines
 
-- Describe the Button’s function through a short label in the infinitive form.
+- Describe the Button’s function through a short label.
 - Use only 1 primary Button per screen.
 - Wrap 2 or more consecutive buttons and/or links in an [Action Group](https://designsystem.amsterdam/?path=/docs/components-layout-action-group--docs).
 - Add `type="submit"` to make the Button submit a form.
