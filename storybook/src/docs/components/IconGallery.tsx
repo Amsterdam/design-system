@@ -26,14 +26,14 @@ export const IconGallery = () => {
   const groupedIcons = groupIcons(icons)
 
   return (
-    <div className="ams-storybook-icon-gallery">
+    <div className="sb-unstyled ams-storybook-icon-gallery">
       {Object.keys(groupedIcons).map((baseName) => (
         <div className="ams-storybook-icon-gallery__item" key={baseName}>
-          <div>
+          <div className="ams-storybook-icon-gallery__icons">
             {groupedIcons[baseName].outline && <Icon size="large" svg={Icons[groupedIcons[baseName].outline!]} />}
             {groupedIcons[baseName].filled && <Icon size="large" svg={Icons[groupedIcons[baseName].filled!]} />}
           </div>
-          <p>{baseName.substring(0, baseName.length - 4)}</p>
+          <p className="ams-storybook-icon-gallery__name">{baseName.substring(0, baseName.length - 4)}</p>
         </div>
       ))}
     </div>
