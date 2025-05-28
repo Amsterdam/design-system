@@ -3,7 +3,7 @@
  * Copyright Gemeente Amsterdam
  */
 
-import { WarningFillIcon } from '@amsterdam/design-system-react-icons'
+import { WarningIcon } from '@amsterdam/design-system-react-icons'
 import clsx from 'clsx'
 import { forwardRef } from 'react'
 import type { ForwardedRef, HTMLAttributes, PropsWithChildren } from 'react'
@@ -25,7 +25,7 @@ export const ErrorMessage = forwardRef(
     ref: ForwardedRef<HTMLParagraphElement>,
   ) => (
     <p {...restProps} className={clsx('ams-error-message', className)} ref={ref}>
-      <Icon size="small" svg={icon ? icon : WarningFillIcon} />
+      <Icon size="small" svg={icon ? icon : WarningIcon} />
       <span className="ams-visually-hidden">
         {prefix}
         {': '}
