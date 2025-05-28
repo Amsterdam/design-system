@@ -9,7 +9,6 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 ### ⚠ BREAKING CHANGES
 
 * **Checkbox:** Use SVG for icon ([#2039](https://github.com/Amsterdam/design-system/issues/2039))
-* Use border property for borders and box shadows only for hovers ([#1998](https://github.com/Amsterdam/design-system/issues/1998))
 
 ### Features
 
