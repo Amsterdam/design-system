@@ -31,7 +31,7 @@ export const ArticleBody = ({ lead, paragraph1, spotlightHeading, spotlightLinkL
       <Grid paddingBottom="2x-large" paddingTop="x-large">
         <Grid.Cell span={{ narrow: 4, medium: 5, wide: 7 }} start={{ narrow: 1, medium: 2, wide: 3 }}>
           <Column gap="small">
-            <Heading color="inverse" level={2}>
+            <Heading className="ams-mb-m" color="inverse" level={2}>
               {spotlightHeading}
             </Heading>
             <UnorderedList color="inverse">
@@ -61,9 +61,9 @@ export const ArticleBody = ({ lead, paragraph1, spotlightHeading, spotlightLinkL
     </Spotlight>
     <Grid paddingVertical="x-large">
       <Grid.Cell span={{ narrow: 4, medium: 5, wide: 7 }} start={{ narrow: 1, medium: 2, wide: 3 }}>
-        <Column>
+        <Column gap="x-large">
           <section>
-            <Heading className="ams-mb-xs" level={2}>
+            <Heading className="ams-mb-s" level={2}>
               Wanneer bezorgen we
             </Heading>
             <Paragraph>
@@ -72,7 +72,7 @@ export const ArticleBody = ({ lead, paragraph1, spotlightHeading, spotlightLinkL
             </Paragraph>
           </section>
           <section>
-            <Heading className="ams-mb-xs" level={2}>
+            <Heading className="ams-mb-s" level={2}>
               Tekenen voor ontvangst
             </Heading>
             <Paragraph>
@@ -82,7 +82,7 @@ export const ArticleBody = ({ lead, paragraph1, spotlightHeading, spotlightLinkL
             </Paragraph>
           </section>
           <section>
-            <Heading className="ams-mb-xs" level={2}>
+            <Heading className="ams-mb-s" level={2}>
               Bezorgen met waarde-transport
             </Heading>
             <Paragraph>
@@ -94,7 +94,7 @@ export const ArticleBody = ({ lead, paragraph1, spotlightHeading, spotlightLinkL
             </Paragraph>
           </section>
           <section>
-            <Heading className="ams-mb-xs" level={2}>
+            <Heading className="ams-mb-s" level={2}>
               Wanneer kan bezorgen niet?
             </Heading>
             <UnorderedList>
@@ -107,7 +107,7 @@ export const ArticleBody = ({ lead, paragraph1, spotlightHeading, spotlightLinkL
             </UnorderedList>
           </section>
           <section>
-            <Heading className="ams-mb-xs" level={2}>
+            <Heading className="ams-mb-s" level={2}>
               Meer weten
             </Heading>
             <LinkList>
