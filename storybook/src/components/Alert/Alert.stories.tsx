@@ -5,7 +5,7 @@
 
 import { Link, Paragraph } from '@amsterdam/design-system-react'
 import { Alert } from '@amsterdam/design-system-react/src'
-import { Meta, StoryObj } from '@storybook/react'
+import { Meta, StoryObj } from '@storybook/react-vite'
 
 const meta = {
   title: 'Components/Feedback/Alert',

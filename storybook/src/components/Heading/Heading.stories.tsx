@@ -7,7 +7,7 @@ import { Column, Icon, Row } from '@amsterdam/design-system-react'
 import type { IconProps } from '@amsterdam/design-system-react'
 import { Heading } from '@amsterdam/design-system-react/src'
 import { MailIcon } from '@amsterdam/design-system-react-icons'
-import { Meta, StoryObj } from '@storybook/react'
+import { Meta, StoryObj } from '@storybook/react-vite'
 import { exampleHeading } from '../shared/exampleContent'
 
 const heading = exampleHeading()
