@@ -4,22 +4,22 @@
       "font-family": { "value": "'Amsterdam Sans', Arial, sans-serif" },
       "hyphenate-limit-chars": { "value": "12 8 4" },
       "body-text": {
-        "font-size": { "value": "clamp(1.125rem, 0.875rem + 0.5vw, 1.375rem)" },
+        "font-size": { "value": "clamp(1rem, 0.9286rem + 0.3571vw, 1.25rem)" },
         "font-weight": { "value": "400" },
         "line-height": { "value": "1.6667" },
         "bold": {
           "font-weight": { "value": "800" }
         },
         "small": {
-          "font-size": { "value": "clamp(1rem, 0.8542rem + 0.2917vw, 1.1458rem)" },
+          "font-size": { "value": "clamp(0.8889rem, 0.8571rem + 0.1587vw, 1rem)" },
           "line-height": { "value": "1.5152" }
         },
         "large": {
-          "font-size": { "value": "clamp(1.2656rem, 0.8813rem + 0.7688vw, 1.65rem)" },
+          "font-size": { "value": "clamp(1.125rem, 1rem + 0.625vw, 1.5625rem)" },
           "line-height": { "value": "1.5152" }
         },
         "x-large": {
-          "font-size": { "value": "clamp(1.4238rem, 0.8677rem + 1.1123vw, 1.98rem)" },
+          "font-size": { "value": "clamp(1.2656rem, 1.0692rem + 0.9821vw, 1.9531rem)" },
           "line-height": { "value": "1.3776" }
         }
       },
@@ -27,15 +27,15 @@
         "font-weight": { "value": "800" },
         "text-wrap": { "value": "balance" },
         "0": {
-          "font-size": { "value": "clamp(2.0273rem, 0.6331rem + 2.7883vw, 3.4214rem)" },
+          "font-size": { "value": "clamp(1.802rem, 1.227rem + 2.8752vw, 3.8147rem)" },
           "line-height": { "value": "1.1386" }
         },
         "1": {
-          "font-size": { "value": "clamp(1.802rem, 0.7529rem + 2.0983vw, 2.8512rem)" },
+          "font-size": { "value": "clamp(1.6018rem, 1.1875rem + 2.0714vw, 3.0518rem)" },
           "line-height": { "value": "1.1754" }
         },
         "2": {
-          "font-size": { "value": "clamp(1.6018rem, 0.8276rem + 1.5484vw, 2.376rem)" },
+          "font-size": { "value": "clamp(1.4238rem, 1.1331rem + 1.4537vw, 2.4414rem)" },
           "line-height": { "value": "1.2133" }
         },
         "3": {
