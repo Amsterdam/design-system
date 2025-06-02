@@ -5,7 +5,7 @@
 
 import { Paragraph } from '@amsterdam/design-system-react'
 import { Mark } from '@amsterdam/design-system-react/src'
-import { Meta, StoryObj } from '@storybook/react'
+import { Meta, StoryObj } from '@storybook/react-vite'
 
 const meta = {
   title: 'Components/Text/Mark',

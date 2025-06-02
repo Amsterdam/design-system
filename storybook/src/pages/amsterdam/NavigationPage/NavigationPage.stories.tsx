@@ -21,7 +21,7 @@ import {
   SpeechBalloonEllipsisIcon,
   XIcon,
 } from '@amsterdam/design-system-react-icons'
-import { Meta, StoryObj } from '@storybook/react'
+import { Meta, StoryObj } from '@storybook/react-vite'
 import { LinkGroupGridCells } from './LinkGroupGridCells'
 import { NavigationPage } from './NavigationPage'
 import { burgerzakenLinks, parkerenLinks } from './links'

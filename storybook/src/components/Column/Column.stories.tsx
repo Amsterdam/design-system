@@ -7,7 +7,7 @@ import { Card, Heading, Paragraph } from '@amsterdam/design-system-react'
 import { Column } from '@amsterdam/design-system-react/src'
 import { columnGapSizes } from '@amsterdam/design-system-react/src/Column/Column'
 import { crossAlignOptionsForColumn, mainAlignOptions } from '@amsterdam/design-system-react/src/common/types'
-import { Meta, StoryObj } from '@storybook/react'
+import { Meta, StoryObj } from '@storybook/react-vite'
 
 const ThreeItems = [
   <div className="ams-docs-item" key={0} />,

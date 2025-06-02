@@ -5,7 +5,7 @@
 
 import { Grid, Heading, LinkList } from '@amsterdam/design-system-react'
 import { PageHeader } from '@amsterdam/design-system-react/src'
-import { Meta, StoryObj } from '@storybook/react'
+import { Meta, StoryObj } from '@storybook/react-vite'
 
 const meta = {
   title: 'Components/Containers/Page Header',

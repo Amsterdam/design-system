@@ -37,6 +37,7 @@
     "dist/"
   ],
   "dependencies": {
+    "@amsterdam/design-system-css": "workspace:*",
     "@amsterdam/design-system-react-icons": "workspace:*",
     "@babel/runtime": "7.27.1",
     "clsx": "2.1.1"

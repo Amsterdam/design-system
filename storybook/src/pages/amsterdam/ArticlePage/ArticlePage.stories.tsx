@@ -3,7 +3,7 @@
  * Copyright Gemeente Amsterdam
  */
 
-import { Meta, StoryObj } from '@storybook/react'
+import { Meta, StoryObj } from '@storybook/react-vite'
 import { ArticlePage } from './ArticlePage'
 import * as ImageStories from '../../../components/Image/Image.stories'
 import { commonMeta } from '../common/config'

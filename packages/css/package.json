@@ -27,7 +27,11 @@
     "sass": "1.89.0"
   },
   "peerDependencies": {
-    "@amsterdam/design-system-tokens": "workspace:*",
-    "@amsterdam/design-system-assets": "workspace:*"
+    "@amsterdam/design-system-assets": "workspace:*",
+    "@amsterdam/design-system-tokens": "workspace:*"
+  },
+  "dependencies": {
+    "@amsterdam/design-system-assets": "workspace:*",
+    "@amsterdam/design-system-tokens": "workspace:*"
   }
 }

@@ -5,8 +5,8 @@
 
 import { ActionGroup, Button, Paragraph } from '@amsterdam/design-system-react'
 import { Dialog } from '@amsterdam/design-system-react/src'
-import { action } from '@storybook/addon-actions'
-import { Meta, StoryObj } from '@storybook/react'
+import { Meta, StoryObj } from '@storybook/react-vite'
+import { action } from 'storybook/actions'
 
 const meta = {
   title: 'Components/Containers/Dialog',

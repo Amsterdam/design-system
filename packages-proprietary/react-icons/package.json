@@ -46,5 +46,8 @@
   "peerDependencies": {
     "react": "16 - 19",
     "react-dom": "16 - 19"
+  },
+  "dependencies": {
+    "react-dom": "16 - 19"
   }
 }

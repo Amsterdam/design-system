@@ -4,7 +4,7 @@
  */
 
 import type { GridProps } from '@amsterdam/design-system-react'
-import type { ArgTypes } from '@storybook/react'
+import type { ArgTypes } from '@storybook/react-vite'
 
 export const gridGapAndPaddingArgTypes: ArgTypes<GridProps> = {
   gapVertical: {

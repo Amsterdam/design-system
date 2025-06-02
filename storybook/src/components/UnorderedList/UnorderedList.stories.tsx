@@ -15,7 +15,7 @@ import {
   TrashBinIcon,
   WarningIcon,
 } from '@amsterdam/design-system-react-icons'
-import type { Meta, StoryObj } from '@storybook/react'
+import type { Meta, StoryObj } from '@storybook/react-vite'
 import { exampleUnorderedList } from '../shared/exampleContent'
 
 const unorderedListItems = exampleUnorderedList().map((text, index) => (

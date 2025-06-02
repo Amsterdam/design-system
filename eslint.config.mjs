@@ -1,4 +1,5 @@
 import _import from 'eslint-plugin-import'
+import storybook from 'eslint-plugin-storybook'
 import { fileURLToPath } from 'node:url'
 import { fixupPluginRules } from '@eslint/compat'
 import { FlatCompat } from '@eslint/eslintrc'
@@ -348,4 +349,5 @@ export default tseslint.config(
       '@typescript-eslint/no-unused-vars': 'off',
     },
   },
+  storybook.configs['flat/recommended'],
 )

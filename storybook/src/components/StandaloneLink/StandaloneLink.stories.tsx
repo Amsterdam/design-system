@@ -6,7 +6,7 @@
 import { Grid, Heading, Paragraph } from '@amsterdam/design-system-react'
 import { StandaloneLink } from '@amsterdam/design-system-react/src'
 import * as Icons from '@amsterdam/design-system-react-icons'
-import { Meta, StoryObj } from '@storybook/react'
+import { Meta, StoryObj } from '@storybook/react-vite'
 
 const meta = {
   title: 'Components/Navigation/Standalone Link',

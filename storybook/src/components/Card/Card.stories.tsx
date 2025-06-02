@@ -5,7 +5,7 @@
 
 import { Column, Grid, Paragraph } from '@amsterdam/design-system-react'
 import { Card } from '@amsterdam/design-system-react/src'
-import { Meta, StoryObj } from '@storybook/react'
+import { Meta, StoryObj } from '@storybook/react-vite'
 import { exampleTopTask } from '../shared/exampleContent'
 
 const dateFormat = new Intl.DateTimeFormat('nl', {

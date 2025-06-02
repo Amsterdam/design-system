@@ -4,7 +4,7 @@
  */
 
 import { Paragraph } from '@amsterdam/design-system-react'
-import { Meta, StoryObj } from '@storybook/react'
+import { Meta, StoryObj } from '@storybook/react-vite'
 import { Gap } from './Gap'
 import type { GapProps } from './Gap'
 

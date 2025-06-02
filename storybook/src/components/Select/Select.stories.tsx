@@ -5,7 +5,7 @@
 
 import { ErrorMessage, Field, Label, Paragraph } from '@amsterdam/design-system-react'
 import { Select } from '@amsterdam/design-system-react/src'
-import { Meta, StoryObj } from '@storybook/react'
+import { Meta, StoryObj } from '@storybook/react-vite'
 
 const optionList = [
   <Select.Option key="1" value="1">
