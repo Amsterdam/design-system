@@ -129,7 +129,7 @@ Every design system component defines a token for every property that expresses 
 Use these tokens when recreating an existing component to receive the correct values for them – now and in the future.
 Do not apply these tokens to other components – components must be independent.
 
-The name of a component token ends with the CSS rule that uses it, e.g. `-font-size`.
+The name of a component token ends with the CSS property that uses it, e.g. `-font-size`.
 We follow [the NL Design System token naming guidelines](https://nldesignsystem.nl/handboek/design-tokens/#naamgeving) here.
 
 ```html
