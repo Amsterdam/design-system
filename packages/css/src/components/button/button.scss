@@ -59,10 +59,12 @@
 
 .ams-button--secondary {
   background-color: var(--ams-button-secondary-background-color);
+  border-color: var(--ams-button-secondary-border-color);
   color: var(--ams-button-secondary-color);
 
   &:disabled,
   [aria-disabled="true"] {
+    border-color: var(--ams-button-secondary-disabled-border-color);
     color: var(--ams-button-secondary-disabled-color);
   }
 
