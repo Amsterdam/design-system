@@ -7,7 +7,6 @@
 @use "../../common/text-rendering" as *;
 
 @mixin reset-button {
-  border: none;
   margin-block: 0; // [1]
   margin-inline: 0; // [1]
 
