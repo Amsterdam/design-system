@@ -82,7 +82,7 @@ Examples:
 :root {
   --ams-color-feedback-error: #ec0000;
   --ams-space-m: 1rem;
-  --ams-aspect-ratio-wide: 4/3;
+  --ams-aspect-ratio-4-3: 4 / 3;
   --ams-border-width-l: 0.1875rem;
 }
 ```
@@ -181,7 +181,7 @@ Use ‘dot notation’ or square brackets to access the tokens.
 ```tsx
 import tokens from "@amsterdam/design-system-tokens/dist/index.json"
 
-const buttonBackgroundColor = tokens.ams.color["primary-blue"]
+const buttonBackgroundColor = tokens.ams.color.interactive.default
 const rowGap = tokens.ams.space.m
 ```
 
