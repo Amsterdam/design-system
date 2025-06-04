@@ -74,10 +74,10 @@ The tokens are organised in three layers: brand, common and component.
 
 #### Brand tokens
 
-<!-- naam begint met de naam van een design aspect, zoals typo, kleur etc. -->
-
 These express the corporate identity of the City of Amsterdam.
 They are our fundamental selection from all possible colours, text characteristics, spacing lengths, border widths, etc.
+Their names begin with our prefix, followed by a design category such as color, typography, and space.
+
 Examples:
 
 ```css
@@ -100,11 +100,11 @@ For instance, `--ams-color-interactive` and `--ams-color-interactive-disabled`.
 
 #### Common tokens
 
-<!-- Meervoud om aan te geven dat ze worden gebruikt door meerdere componenten -->
-
 Related components share visual design characteristics.
 For example, all links have the same colour, and the borders of various form inputs are equally thick.
 Common tokens express these relations and streamline future changes.
+Their names begin with our prefix, followed by the name of the group that uses them.
+This group name is plural, indicating that these are tokens utilized by a group of components.
 
 Design system components use common tokens where possible.
 The same goes for custom components that you may create in your application.
@@ -130,8 +130,7 @@ Use these tokens when recreating an existing component to receive the correct va
 Do not apply these tokens to other components – components must be independent.
 
 The name of a component token ends with the CSS rule that uses it, e.g. `-font-size`.
-
-<!-- NLDS naamgeving richtlijnen -->
+We follow [the NL Design System token naming guidelines](https://nldesignsystem.nl/handboek/design-tokens/#naamgeving) here.
 
 ```html
 <button class="my-button" type="button">Button label</button>
