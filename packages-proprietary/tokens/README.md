@@ -27,7 +27,7 @@ npm install @amsterdam/design-system-tokens
 ## Usage in CSS
 
 Tokens are typically used as custom properties in CSS.
-Their name starts with a prefix of `--ams-`; that of a component token (see below) with the property that uses it, e.g. `-font-size`.
+Their name starts with a prefix of `--ams-`.
 
 ### Main stylesheet
 
@@ -74,6 +74,8 @@ The tokens are organised in three layers: brand, common and component.
 
 #### Brand tokens
 
+<!-- naam begint met de naam van een design aspect, zoals typo, kleur etc. -->
+
 These express the corporate identity of the City of Amsterdam.
 They are our fundamental selection from all possible colours, text characteristics, spacing lengths, border widths, etc.
 Examples:
@@ -97,6 +99,8 @@ Therefore, we remove this key in non-nested variables.
 For instance, `--ams-color-interactive` and `--ams-color-interactive-disabled`.
 
 #### Common tokens
+
+<!-- Meervoud om aan te geven dat ze worden gebruikt door meerdere componenten -->
 
 Related components share visual design characteristics.
 For example, all links have the same colour, and the borders of various form inputs are equally thick.
@@ -124,6 +128,10 @@ Every design system component defines a token for every property that expresses 
 
 Use these tokens when recreating an existing component to receive the correct values for them – now and in the future.
 Do not apply these tokens to other components – components must be independent.
+
+The name of a component token ends with the CSS rule that uses it, e.g. `-font-size`.
+
+<!-- NLDS naamgeving richtlijnen -->
 
 ```html
 <button class="my-button" type="button">Button label</button>
