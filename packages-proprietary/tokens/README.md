@@ -76,7 +76,7 @@ The tokens are organised in three layers: brand, common and component.
 
 These express the corporate identity of the City of Amsterdam.
 They are our fundamental selection from all possible colours, text characteristics, spacing lengths, border widths, etc.
-Their names begin with our prefix, followed by a design category such as color, typography, and space.
+Their names begin with our prefix, followed by a design category such as ‘color’, ‘typography’, or ‘space’.
 
 Examples:
 
