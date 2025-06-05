@@ -27,7 +27,7 @@ npm install @amsterdam/design-system-tokens
 ## Usage in CSS
 
 Tokens are typically used as custom properties in CSS.
-Their name starts with a prefix of `--ams-`.
+Their names start with a prefix of `--ams-`.
 
 ### Main stylesheet
 
