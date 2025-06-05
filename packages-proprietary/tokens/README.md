@@ -104,7 +104,7 @@ Related components share visual design characteristics.
 For example, all links have the same colour, and the borders of various form inputs are equally thick.
 Common tokens express these relations and streamline future changes.
 Their names begin with our prefix, followed by the name of the group that uses them.
-This group name is plural, indicating that these are tokens utilized by a group of components.
+This group name is plural to indicate that several components apply these tokens.
 
 Design system components use common tokens where possible.
 The same goes for custom components that you may create in your application.
