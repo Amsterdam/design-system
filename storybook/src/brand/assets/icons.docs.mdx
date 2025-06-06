@@ -5,6 +5,7 @@ import { IconGallery } from "../../docs/components/IconGallery";
 import {
   ApplicationIcons,
   BrandIcons,
+  DirectionIcons,
   MediaIcons,
   SeverityIcons,
   UniversalIcons,
@@ -23,7 +24,23 @@ We name most of our icons after the objects they picture, like ‘car’, ‘hou
 This allows using them in various contexts or with slightly different meanings.
 All these names are nouns.
 
-<IconGallery excludeIcons={[...UniversalIcons, ...ApplicationIcons, ...MediaIcons, ...SeverityIcons, ...BrandIcons]} />
+<IconGallery
+  excludeIcons={[
+    ...UniversalIcons,
+    ...ApplicationIcons,
+    ...MediaIcons,
+    ...SeverityIcons,
+    ...BrandIcons,
+    ...DirectionIcons,
+  ]}
+/>
+
+### Direction
+
+Arrows and chevrons indicate direction or movement.
+We use ‘forward’ and ‘backward’ instead of ‘left’ and ‘right’ to make then easier to use in languages that read from right to left.
+
+<IconGallery icons={DirectionIcons} />
 
 ### Severity
 

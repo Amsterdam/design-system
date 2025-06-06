@@ -56,3 +56,14 @@ export const SeverityIcons = [
 ]
 
 export const BrandIcons = ['FacebookIcon', 'InstagramIcon', 'LinkedInIcon', 'MastodonIcon', 'WhatsappIcon', 'XIcon']
+
+export const DirectionIcons = [
+  'ArrowBackwardIcon',
+  'ArrowDownIcon',
+  'ArrowForwardIcon',
+  'ArrowUpIcon',
+  'ChevronBackwardIcon',
+  'ChevronDownIcon',
+  'ChevronForwardIcon',
+  'ChevronUpIcon',
+]
