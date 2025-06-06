@@ -22,17 +22,29 @@ const groupIcons = (icons: Array<keyof typeof Icons>) => {
 }
 
 type IconGalleryProps = {
+  excludeIcons?: string[]
   icons?: string[]
 }
 
-export const IconGallery = ({ icons }: IconGalleryProps) => {
+export const IconGallery = ({ excludeIcons, icons }: IconGalleryProps) => {
   const allIcons = Object.keys(Icons) as Array<keyof typeof Icons>
-  const filteredIcons = icons ? allIcons.filter((icon) => icons.includes(icon)) : allIcons
+
+  // If 'icons' is provided, start with only those; otherwise, use all
+  let filteredIcons = icons ? allIcons.filter((icon) => icons.includes(icon)) : allIcons
+
+  // If 'excludeIcons' is provided, remove those from the list
+  if (excludeIcons) {
+    filteredIcons = filteredIcons.filter((icon) => !excludeIcons.includes(icon))
+  }
+
   const groupedIcons = groupIcons(filteredIcons)
+
+  // Sort baseNames alphabetically for consistent order
+  const sortedBaseNames = Object.keys(groupedIcons).sort((a, b) => a.localeCompare(b))
 
   return (
     <div className="sb-unstyled ams-storybook-icon-gallery">
-      {Object.keys(groupedIcons).map((baseName) => (
+      {sortedBaseNames.map((baseName) => (
         <div className="ams-storybook-icon-gallery__item" key={baseName}>
           <div className="ams-storybook-icon-gallery__icons">
             {groupedIcons[baseName].outline && <Icon size="large" svg={Icons[groupedIcons[baseName].outline!]} />}

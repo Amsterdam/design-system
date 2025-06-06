@@ -1,0 +1,56 @@
+export const ApplicationIcons = [
+  'CopyIcon',
+  'CopyFillIcon',
+  'DownloadIcon',
+  'DuplicateIcon',
+  'DuplicateFillIcon',
+  'EmbedIcon',
+  'FilterIcon',
+  'FilterFillIcon',
+  'FontSizeIcon',
+  'FullScreenCloseIcon',
+  'FullScreenOpenIcon',
+  'LayersIcon',
+  'LayersFillIcon',
+  'LinkIcon',
+  'LinkExternalIcon',
+  'LinkExternalFillIcon',
+  'LogInIcon',
+  'LogOutIcon',
+  'MailIcon',
+  'MailFillIcon',
+  'MenuIcon',
+  'PrintIcon',
+  'RedoIcon',
+  'ShareIcon',
+  'StandByIcon',
+  'UndoIcon',
+  'UploadIcon',
+]
+
+export const UniversalIcons = ['CloseIcon', 'MaximizeIcon', 'SaveIcon', 'SaveFillIcon', 'SearchIcon']
+
+export const MediaIcons = [
+  'FastForwardIcon',
+  'NextIcon',
+  'PauseIcon',
+  'PlayIcon',
+  'PreviousIcon',
+  'ReplayIcon',
+  'RewindIcon',
+  'VolumeOffIcon',
+  'VolumeOffFilIcon',
+  'VolumeOnIcon',
+  'VolumeOnFillIcon',
+]
+
+export const SeverityIcons = [
+  'ErrorIcon',
+  'ErrorFillIcon',
+  'InfoIcon',
+  'InfoFillIcon',
+  'SuccessIcon',
+  'SuccessFillIcon',
+  'WarningIcon',
+  'WarningFillIcon',
+]
