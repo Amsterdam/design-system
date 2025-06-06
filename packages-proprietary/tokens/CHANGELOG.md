@@ -3,6 +3,13 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.1](https://github.com/Amsterdam/design-system/compare/design-system-tokens-v1.0.0...design-system-tokens-v1.0.1) (2025-06-06)
+
+
+### Bug Fixes
+
+* **Button:** Restore missing border for secondary button ([#2087](https://github.com/Amsterdam/design-system/issues/2087)) ([18b7a70](https://github.com/Amsterdam/design-system/commit/18b7a70bebe368bba83ce492862ffca70cff11a0))
+
 ## [1.0.0](https://github.com/Amsterdam/design-system/compare/design-system-tokens-v0.16.0...design-system-tokens-v1.0.0) (2025-05-28)
 
 
