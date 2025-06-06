@@ -2,91 +2,88 @@
 
 import { Meta } from "@storybook/blocks";
 import { IconGallery } from "../../docs/components/IconGallery";
-import { Icon } from "@amsterdam/design-system-react/src";
+import {
+  ApplicationIcons,
+  BrandIcons,
+  DirectionIcons,
+  MediaIcons,
+  SeverityIcons,
+  UniversalIcons,
+} from "../../docs/components/IconGalleryCategories";
 
 <Meta title="Brand/Assets/Icons" />
 
 # Icons
 
-An overview of all currently available icons.
+We have designed our own set of icons.
 
-<IconGallery />
+We distinguish functional icons, which have a specific meaning and can be used without labels, from general ones.
 
-## Usage
+## General icons
 
-### General icons
-
-We name our icons after the objects they picture, like ‘car’, ‘house’, or ‘light bulb’.
-This gives some freedom to use them in various contexts and to convey slightly different meanings.
+We name most of our icons after the objects they picture, like ‘car’, ‘house’, or ‘light bulb’.
+This allows using them in various contexts or with slightly different meanings.
 All these names are nouns.
 
-### Functional icons
+<IconGallery
+  excludeIcons={[
+    ...ApplicationIcons,
+    ...BrandIcons,
+    ...DirectionIcons,
+    ...MediaIcons,
+    ...SeverityIcons,
+    ...UniversalIcons,
+  ]}
+/>
+
+### Direction
+
+Arrows and chevrons indicate direction or movement.
+We use ‘forward’ and ‘backward’ to make them easier to use in languages that read from right to left.
+
+<IconGallery icons={DirectionIcons} />
+
+### Severity
+
+The following icons indicate the tone of an Alert or Error Message.
+These components use them without a label.
+
+<IconGallery icons={SeverityIcons} />
+
+### Brands
+
+These icons can accompany links to external products or services:
+
+<IconGallery icons={BrandIcons} />
+
+## Functional icons
 
 Some icons have become so familiar that most users know their meaning.
 These can be used without a label, e.g. in an Icon Button.
 Their names are verbs that represent their function, and they must not be used for other purposes.
 
-#### Universal icons
+### Universal
 
 The only icons that are widely recognized enough to be used anywhere without a label:
 
-- Close
-- Maximize
-- Minimize
-- Save
-- Search
+<IconGallery icons={UniversalIcons} />
 
-#### Application icons
+### Media
+
+The following icons can be used without labels in audio or video players:
+
+<IconGallery icons={MediaIcons} />
+
+### Learnable
 
 In applications that users use so regularly that they can learn the meaning of icons, these can go without labels as well:
 
-- Copy
-- Download
-- Duplicate
-- Embed
-- Filter
-- FontSize
-- FullScreenClose
-- FullScreenOpen
-- Layers
-- Link
-- LinkExternal
-- LogIn
-- LogOut
-- Mail
-- Menu
-- Print
-- Redo
-- Share
-- StandBy
-- Undo
-- Upload
-
-#### Media icons
-
-The following icons are for audio or video players.
-They can be used without labels in these contexts.
-
-- FastForward
-- Next
-- Pause
-- Play
-- Previous
-- Replay
-- Rewind
-- VolumeOff
-- VolumeOn
-
-#### Severity icons
-
-The following icons indicate the tone of an alert or message.
-They can be used without labels in these contexts.
-
-- Error
-- Info
-- Success
-- Warning
+<IconGallery icons={ApplicationIcons} />
 
 ## Related components
 
 - [Icon](/docs/components-media-icon--docs)
+
+## Requests
+
+If you need an icon that is not in our set, [check this Figma library](https://www.figma.com/design/SZa5JuGk9AkvAcVKJ9qu6B/Icon-Guidelines?node-id=2006-933) to contact our icon designers.
