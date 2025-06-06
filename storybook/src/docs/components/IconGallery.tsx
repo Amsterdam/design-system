@@ -21,9 +21,14 @@ const groupIcons = (icons: Array<keyof typeof Icons>) => {
   return groupedIcons
 }
 
-export const IconGallery = () => {
-  const icons = Object.keys(Icons) as Array<keyof typeof Icons>
-  const groupedIcons = groupIcons(icons)
+type IconGalleryProps = {
+  icons?: string[]
+}
+
+export const IconGallery = ({ icons }: IconGalleryProps) => {
+  const allIcons = Object.keys(Icons) as Array<keyof typeof Icons>
+  const filteredIcons = icons ? allIcons.filter((icon) => icons.includes(icon)) : allIcons
+  const groupedIcons = groupIcons(filteredIcons)
 
   return (
     <div className="sb-unstyled ams-storybook-icon-gallery">
