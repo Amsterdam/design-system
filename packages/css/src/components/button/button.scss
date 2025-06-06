@@ -68,6 +68,7 @@
   }
 
   &:hover:not(:disabled, [aria-disabled="true"]) {
+    border-color: var(--ams-button-secondary-hover-border-color);
     box-shadow: var(--ams-button-secondary-hover-box-shadow);
     color: var(--ams-button-secondary-hover-color);
   }
