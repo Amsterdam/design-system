@@ -28,7 +28,7 @@ export const ApplicationIcons = [
   'UploadIcon',
 ]
 
-export const UniversalIcons = ['CloseIcon', 'MaximizeIcon', 'SaveIcon', 'SaveFillIcon', 'SearchIcon']
+export const UniversalIcons = ['CloseIcon', 'MaximizeIcon', 'MinimizeIcon', 'SaveIcon', 'SaveFillIcon', 'SearchIcon']
 
 export const MediaIcons = [
   'FastForwardIcon',
