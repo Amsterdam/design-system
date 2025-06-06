@@ -78,10 +78,10 @@ describe('Page Header', () => {
     expect(logoLinkTitle).toBeInTheDocument()
   })
 
-  it('renders a custom accessible label for the logo', () => {
-    render(<PageHeader logoA11yLabel="Custom accessible label" />)
+  it('renders a custom accessible name for the logo', () => {
+    render(<PageHeader logoAccessibleName="Custom accessible name" />)
 
-    const logoLinkTitle = screen.getByRole('link', { name: 'Custom accessible label Ga naar de homepage' })
+    const logoLinkTitle = screen.getByRole('link', { name: 'Custom accessible name Ga naar de homepage' })
 
     expect(logoLinkTitle).toBeInTheDocument()
   })

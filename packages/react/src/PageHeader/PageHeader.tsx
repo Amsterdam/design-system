@@ -16,16 +16,16 @@ import useIsAfterBreakpoint from '../common/useIsAfterBreakpoint'
 
 const LogoLinkContent = ({
   brandName,
-  logoA11yLabel,
+  logoAccessibleName,
   logoBrand,
 }: {
   brandName?: string
-  logoA11yLabel?: string
+  logoAccessibleName?: string
   logoBrand: LogoBrand
 }) => (
   <>
     <span className={clsx(logoBrand === 'amsterdam' && Boolean(brandName) && 'ams-page-header__logo-container')}>
-      <Logo aria-label={logoA11yLabel} brand={logoBrand} />
+      <Logo aria-label={logoAccessibleName} brand={logoBrand} />
     </span>
     {brandName && (
       <span aria-hidden="true" className="ams-page-header__brand-name">
@@ -38,8 +38,8 @@ const LogoLinkContent = ({
 export type PageHeaderProps = {
   /** The name of the application. */
   brandName?: string
-  /** The accessible label of the logo. */
-  logoA11yLabel?: string
+  /** The accessible name of the logo. */
+  logoAccessibleName?: string
   /** The name of the brand for which to display the logo. */
   logoBrand?: LogoBrand
   /** The url for the link on the logo. */
@@ -64,7 +64,7 @@ const PageHeaderRoot = forwardRef(
       brandName,
       children,
       className,
-      logoA11yLabel,
+      logoAccessibleName,
       logoBrand = 'amsterdam',
       logoLink = '/',
       logoLinkComponent = (props: AnchorHTMLAttributes<HTMLAnchorElement>) => <a {...props} />,
@@ -93,7 +93,7 @@ const PageHeaderRoot = forwardRef(
     return (
       <header {...restProps} className={clsx('ams-page-header', className)} ref={ref}>
         <Link className="ams-page-header__logo-link" href={logoLink}>
-          <LogoLinkContent brandName={brandName} logoA11yLabel={logoA11yLabel} logoBrand={logoBrand} />
+          <LogoLinkContent brandName={brandName} logoAccessibleName={logoAccessibleName} logoBrand={logoBrand} />
           <span className="ams-visually-hidden">{logoLinkTitle}</span>
         </Link>
         {(hasMegaMenu || menuItems) && (
