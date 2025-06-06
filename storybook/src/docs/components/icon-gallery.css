@@ -1,0 +1,32 @@
+.ams-storybook-icon-gallery {
+  column-gap: var(--ams-space-l);
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(20ch, 1fr));
+  row-gap: var(--ams-space-xl);
+}
+
+.ams-storybook-icon-gallery__item {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  gap: var(--ams-space-s);
+
+  .ams-icon {
+    font-size: var(--ams-typography-body-text-large-font-size);
+  }
+}
+
+.ams-storybook-icon-gallery__icons {
+  display: flex;
+  gap: var(--ams-space-s);
+}
+
+.ams-storybook-icon-gallery__name {
+  font-family: var(--ams-paragraph-font-family);
+  font-size: 1rem;
+  hyphens: auto;
+  line-height: 1.5;
+  margin-block: 0;
+  overflow-wrap: anywhere;
+  text-align: center;
+}

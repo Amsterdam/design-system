@@ -3,7 +3,7 @@
  * Copyright Gemeente Amsterdam
  */
 
-import { AlertIcon } from '@amsterdam/design-system-react-icons'
+import { WarningIcon } from '@amsterdam/design-system-react-icons'
 import { render } from '@testing-library/react'
 import { createRef } from 'react'
 import { Icon, iconSizes } from './Icon'
@@ -11,7 +11,7 @@ import '@testing-library/jest-dom'
 
 describe('Icon', () => {
   it('renders a span element', () => {
-    const { container } = render(<Icon svg={AlertIcon} />)
+    const { container } = render(<Icon svg={WarningIcon} />)
 
     const icon = container.querySelector('span:only-child')
 
@@ -19,7 +19,7 @@ describe('Icon', () => {
   })
 
   it('renders a design system BEM class name', () => {
-    const { container } = render(<Icon svg={AlertIcon} />)
+    const { container } = render(<Icon svg={WarningIcon} />)
 
     const icon = container.querySelector(':only-child')
 
@@ -27,7 +27,7 @@ describe('Icon', () => {
   })
 
   it('renders an svg child', () => {
-    const { container } = render(<Icon svg={AlertIcon} />)
+    const { container } = render(<Icon svg={WarningIcon} />)
 
     const svg = container.querySelector(':only-child svg')
 
@@ -36,7 +36,7 @@ describe('Icon', () => {
 
   iconSizes.forEach((size) => {
     it(`renders the correct class name for a ‘${size}’ icon`, () => {
-      const { container } = render(<Icon size={size} svg={AlertIcon} />)
+      const { container } = render(<Icon size={size} svg={WarningIcon} />)
 
       const icon = container.querySelector(':only-child')
 
@@ -45,7 +45,7 @@ describe('Icon', () => {
   })
 
   it('renders the right square class', () => {
-    const { container } = render(<Icon square svg={AlertIcon} />)
+    const { container } = render(<Icon square svg={WarningIcon} />)
 
     const icon = container.querySelector('span:only-child')
 
@@ -53,7 +53,7 @@ describe('Icon', () => {
   })
 
   it('renders the class name for inverse color', () => {
-    const { container } = render(<Icon color="inverse" svg={AlertIcon} />)
+    const { container } = render(<Icon color="inverse" svg={WarningIcon} />)
 
     const icon = container.querySelector('span:only-child')
 
@@ -61,7 +61,7 @@ describe('Icon', () => {
   })
 
   it('renders an extra class name', () => {
-    const { container } = render(<Icon className="extra" svg={AlertIcon} />)
+    const { container } = render(<Icon className="extra" svg={WarningIcon} />)
 
     const icon = container.querySelector(':only-child')
 
@@ -71,7 +71,7 @@ describe('Icon', () => {
   it('supports ForwardRef in React', () => {
     const ref = createRef<HTMLSpanElement>()
 
-    const { container } = render(<Icon ref={ref} svg={AlertIcon} />)
+    const { container } = render(<Icon ref={ref} svg={WarningIcon} />)
 
     const icon = container.querySelector(':only-child')
 
