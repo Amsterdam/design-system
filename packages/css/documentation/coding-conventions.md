@@ -51,3 +51,38 @@ The declarations in the mixin must override default user agent styling; otherwis
 We style both the native invalid state (`:invalid`) as the invalid state you can set manually, using `aria-invalid`.
 We’re currently not sure how our users will implement forms, which is why both options are supported.
 [Native form validation isn’t without its issues](https://adrianroselli.com/2019/02/avoid-default-field-validation.html) though, so we might only support manual validation in the future.
+
+## Input state precedence order
+
+Inputs can have multiple states that can be combined.
+The states we use can be divided into two lists based on their precedence order.
+States from both lists can be combined freely (for example, a disabled input can be checked, indeterminate, or unchecked),
+but there is a precedence order within each list.
+
+Control states:
+
+1. Disabled
+   - Always takes priority. If an input is disabled, it should not respond to hover, focus, or invalid states.
+2. Hover
+   - Hover should always be visible, except when an input is disabled.
+3. Invalid
+   - Indicates a validation error. Should not override disabled. Should be paired with a hover state, so each input should have an invalid hover state defined.
+4. Default
+   - The base state.
+
+Selection states:
+
+1. Indeterminate
+   - Takes precedence over the checked state. If an input (typically a checkbox) has both checked and indeterminate states, we show it as indeterminate.
+2. Checked
+   - Shows the checked state, has lower precedence than indeterminate.
+3. Default
+   - The base, unchecked state.
+
+In CSS, defining the rules in the order mentioned above can be challenging due to specificity issues.
+We prefer to create clear and simple CSS using the smallest selectors possible instead.
+This approach may make the order harder to follow.
+However, it should always adhere to the precedence order stated above.
+
+Checkbox has the most states, so refer to [that CSS](https://github.com/Amsterdam/design-system/blob/develop/packages/css/src/components/checkbox/checkbox.scss) when adding a new input.
+Use the same order and remove any irrelevant states for your input.
