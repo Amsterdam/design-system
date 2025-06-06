@@ -28,7 +28,18 @@ export const ApplicationIcons = [
   'UploadIcon',
 ]
 
-export const UniversalIcons = ['CloseIcon', 'MaximizeIcon', 'MinimizeIcon', 'SaveIcon', 'SaveFillIcon', 'SearchIcon']
+export const BrandIcons = ['FacebookIcon', 'InstagramIcon', 'LinkedInIcon', 'MastodonIcon', 'WhatsappIcon', 'XIcon']
+
+export const DirectionIcons = [
+  'ArrowBackwardIcon',
+  'ArrowDownIcon',
+  'ArrowForwardIcon',
+  'ArrowUpIcon',
+  'ChevronBackwardIcon',
+  'ChevronDownIcon',
+  'ChevronForwardIcon',
+  'ChevronUpIcon',
+]
 
 export const MediaIcons = [
   'FastForwardIcon',
@@ -55,15 +66,4 @@ export const SeverityIcons = [
   'WarningFillIcon',
 ]
 
-export const BrandIcons = ['FacebookIcon', 'InstagramIcon', 'LinkedInIcon', 'MastodonIcon', 'WhatsappIcon', 'XIcon']
-
-export const DirectionIcons = [
-  'ArrowBackwardIcon',
-  'ArrowDownIcon',
-  'ArrowForwardIcon',
-  'ArrowUpIcon',
-  'ChevronBackwardIcon',
-  'ChevronDownIcon',
-  'ChevronForwardIcon',
-  'ChevronUpIcon',
-]
+export const UniversalIcons = ['CloseIcon', 'MaximizeIcon', 'MinimizeIcon', 'SaveIcon', 'SaveFillIcon', 'SearchIcon']
