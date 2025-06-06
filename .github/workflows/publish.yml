@@ -59,7 +59,6 @@ jobs:
       # The logic below handles the Storybook deploy:
       - name: Build Storybook
         run: pnpm --filter=storybook build
-        if: ${{ steps.release.outputs.releases_created == 'true' }}
 
       - name: Deploy to GitHub Pages
         uses: JamesIves/github-pages-deploy-action@6c2d9db40f9296374acc17b90404b6e8864128c8 # v4.7.3
@@ -69,4 +68,3 @@ jobs:
           # feature branch directories are prefixed with demo-*
           # these are excluded from this action's default clean
           clean-exclude: demo-*
-        if: ${{ steps.release.outputs.releases_created == 'true' }}
