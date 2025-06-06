@@ -51,19 +51,6 @@ We follow semantic versioning and publish a [change log](https://github.com/Amst
 The React components are a public API of the design system.
 TypeScript helps to detect changed or deleted components, props, or prop values.
 
-### Stability
-
-Despite being on ‘major version zero’, most components are stable enough to be used in production.
-Various of our public-facing websites and applications already do.
-
-Make sure you specify the exact version as dependency and test for regressions when upgrading to the latest version.
-
-We’re finalizing the design and modelling of foundational concepts like typography, spacing, and colour.
-After that, and a final review of the API of all current components, we’ll release version 1.0 of the entire design system.
-Then, we’ll consider publishing all components separately to allow for more granular updates.
-
-Components for which we anticipate API changes show a ‘beta’ badge at the top of their page in the [Design System handbook](https://designsystem.amsterdam/).
-
 ## Support
 
 Contact us if you have a question, find an issue, or want to contribute.

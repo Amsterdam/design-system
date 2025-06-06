@@ -21,7 +21,8 @@
           "font-size": { "value": "clamp(1.4641rem, calc(1.4297rem + 0.1721vw), 1.6018rem)" }
         },
         "2": {
-          "font-size": { "value": "clamp(1.331rem, calc(1.3078rem + 0.116vw), 1.4238rem)" }
+          "font-size": { "value": "clamp(1.331rem, calc(1.3078rem + 0.116vw), 1.4238rem)" },
+          "line-height": { "value": "1.2133" }
         },
         "3": {
           "font-size": { "value": "clamp(1.21rem, calc(1.1961rem + 0.0695vw), 1.2656rem)" }
