@@ -24,7 +24,7 @@ The Design System handbook helps using [a favicon](https://designsystem.amsterda
 
 ### Font files
 
-The package contains our Amsterdam Sans font in OpenType format (.otf) and Web Open Format Font (.woff).
+The package contains our Amsterdam Sans font in Embedded OpenType format (.eot) and Web Open Format Font (.woff and .woff2).
 Import our stylesheet to make all of them available to your project.
 
 <!-- prettier-ignore -->
