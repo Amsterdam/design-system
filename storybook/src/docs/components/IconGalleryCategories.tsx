@@ -54,3 +54,5 @@ export const SeverityIcons = [
   'WarningIcon',
   'WarningFillIcon',
 ]
+
+export const BrandIcons = ['FacebookIcon', 'InstagramIcon', 'LinkedInIcon', 'MastodonIcon', 'WhatsappIcon', 'XIcon']
