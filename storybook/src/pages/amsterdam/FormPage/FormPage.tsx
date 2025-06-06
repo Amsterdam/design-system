@@ -35,7 +35,7 @@ export const FormPage = () => {
         <Heading className="ams-mb-m" level={1}>
           Contact
         </Heading>
-        <form className="ams-gap-m" id="main" onSubmit={(e) => e.preventDefault()}>
+        <form className="ams-gap-xl" id="main" onSubmit={(e) => e.preventDefault()}>
           <Field>
             <Label htmlFor="body">Wat wilt u aan de gemeente vragen?</Label>
             <Paragraph id="bodyDescription" size="small">
@@ -50,7 +50,7 @@ export const FormPage = () => {
             <CharacterCount length={textareaLength} maxLength={1000} />
           </Field>
           <FieldSet aria-describedby="contactDetailsDescription" legend="Wat zijn uw gegevens?">
-            <Column gap="small">
+            <Column gap="x-large">
               <Paragraph id="contactDetailsDescription">
                 Wij hebben uw gegevens nodig om contact met u te kunnen opnemen.
               </Paragraph>
@@ -77,7 +77,7 @@ export const FormPage = () => {
                 <Label htmlFor="email">E-mail</Label>
                 <TextInput autoComplete="email" id="email" name="email" />
               </Field>
-              <Row wrap>
+              <Row gap="x-large" wrap>
                 <Field>
                   <Label htmlFor="countryCode">Landnummer</Label>
                   <Select id="countryCode" name="countryCode">
