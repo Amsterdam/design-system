@@ -61,23 +61,16 @@ but there is a precedence order within each list.
 
 Control states:
 
-1. Disabled
-   - Always takes priority. If an input is disabled, it should not respond to hover, focus, or invalid states.
-2. Hover
-   - Hover should always be visible, except when an input is disabled.
-3. Invalid
-   - Indicates a validation error. Should not override disabled. Should be paired with a hover state, so each input should have an invalid hover state defined.
-4. Default
-   - The base state.
+1. **Disabled** always takes priority. If an input is disabled, it should not respond to hover, focus, or invalid states.
+2. **Hover** should always be visible, except when an input is disabled.
+3. **Invalid** indicates a validation error. Should not override disabled. Should be paired with a hover state, so each input should have an invalid hover state defined.
+4. **Default** is the base state.
 
 Selection states:
 
-1. Indeterminate
-   - Takes precedence over the checked state. If an input (typically a checkbox) has both checked and indeterminate states, we show it as indeterminate.
-2. Checked
-   - Shows the checked state, has lower precedence than indeterminate.
-3. Default
-   - The base, unchecked state.
+1. **Indeterminate** takes precedence over the checked state. If an input (typically a checkbox) has both checked and indeterminate states, we show it as indeterminate.
+2. **Checked** shows the checked state, has lower precedence than indeterminate.
+3. **Default** is the base, unchecked state.
 
 In CSS, defining the rules in the order mentioned above can be challenging due to specificity issues.
 We prefer to create clear and simple CSS using the smallest selectors possible instead.
