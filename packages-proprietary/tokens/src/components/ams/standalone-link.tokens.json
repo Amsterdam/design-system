@@ -31,9 +31,9 @@
       },
       "with-icon": {
         "text-decoration-line": { "value": "{ams.links.subtle.text-decoration-line}" },
+        "text-decoration-thickness": { "value": "{ams.links.subtle.text-decoration-thickness}" },
         "hover": {
-          "text-decoration-line": { "value": "{ams.links.subtle.hover.text-decoration-line}" },
-          "text-decoration-thickness": { "value": "{ams.links.subtle.hover.text-decoration-thickness}" }
+          "text-decoration-line": { "value": "{ams.links.subtle.hover.text-decoration-line}" }
         }
       }
     }

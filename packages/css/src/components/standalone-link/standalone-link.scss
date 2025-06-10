@@ -46,9 +46,9 @@
 
 .ams-standalone-link--with-icon {
   text-decoration-line: var(--ams-standalone-link-with-icon-text-decoration-line);
+  text-decoration-thickness: var(--ams-standalone-link-with-icon-text-decoration-thickness);
 
   &:hover {
     text-decoration-line: var(--ams-standalone-link-with-icon-hover-text-decoration-line);
-    text-decoration-thickness: var(--ams-standalone-link-with-icon-hover-text-decoration-thickness);
   }
 }

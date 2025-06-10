@@ -12,8 +12,7 @@
       "subtle": {
         "text-decoration-line": { "value": "none" },
         "hover": {
-          "text-decoration-line": { "value": "underline" },
-          "text-decoration-thickness": { "value": "{ams.border.width.m}" }
+          "text-decoration-line": { "value": "underline" }
         }
       },
       "contrast": {
