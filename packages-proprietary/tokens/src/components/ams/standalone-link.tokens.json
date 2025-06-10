@@ -33,7 +33,7 @@
         "text-decoration-line": { "value": "{ams.links.subtle.text-decoration-line}" },
         "hover": {
           "text-decoration-line": { "value": "{ams.links.subtle.hover.text-decoration-line}" },
-          "text-decoration-thickness": { "value": "{ams.links.text-decoration-thickness}" }
+          "text-decoration-thickness": { "value": "{ams.links.subtle.hover.text-decoration-thickness}" }
         }
       }
     }
