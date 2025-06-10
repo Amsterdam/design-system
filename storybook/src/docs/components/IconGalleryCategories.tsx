@@ -50,7 +50,7 @@ export const MediaIcons = [
   'ReplayIcon',
   'RewindIcon',
   'VolumeOffIcon',
-  'VolumeOffFilIcon',
+  'VolumeOffFillIcon',
   'VolumeOnIcon',
   'VolumeOnFillIcon',
 ]
