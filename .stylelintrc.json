@@ -123,14 +123,16 @@
     "plugin/use-baseline": [
       true,
       {
-        "available": 2024,
+        "available": 2023,
         "ignoreProperties": [
           "clip",
-          "resize",
-          "rect",
           "forced-color-adjust",
           "hyphenate-limit-chars",
+          "rect",
+          "resize",
+          "scrollbar-width",
           "text-size-adjust",
+          "text-wrap",
           "user-select"
         ]
       }
