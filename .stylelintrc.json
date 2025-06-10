@@ -1,6 +1,11 @@
 {
   "extends": ["stylelint-config-standard-scss"],
-  "plugins": ["stylelint-order", "stylelint-use-logical", "stylelint-value-no-unknown-custom-properties"],
+  "plugins": [
+    "stylelint-order",
+    "stylelint-use-logical",
+    "stylelint-value-no-unknown-custom-properties",
+    "stylelint-plugin-use-baseline"
+  ],
   "rules": {
     "alpha-value-notation": ["percentage"],
     "at-rule-empty-line-before": null,
@@ -113,6 +118,21 @@
       "lower",
       {
         "camelCaseSvgKeywords": true
+      }
+    ],
+    "plugin/use-baseline": [
+      true,
+      {
+        "available": 2024,
+        "ignoreProperties": [
+          "clip",
+          "resize",
+          "rect",
+          "forced-color-adjust",
+          "hyphenate-limit-chars",
+          "text-size-adjust",
+          "user-select"
+        ]
       }
     ]
   }
