@@ -77,8 +77,11 @@
 .ams-tabs__button-label-hidden {
   font-weight: var(--ams-tabs-button-selected-font-weight);
   pointer-events: none;
-  user-select: none;
   visibility: hidden;
+
+  @supports (user-select: none) {
+    user-select: none;
+  }
 }
 
 .ams-tabs__panel {

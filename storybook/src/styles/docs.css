@@ -167,8 +167,11 @@
 }
 
 [class*="ams-docs-token-example--color"] {
-  forced-color-adjust: none;
   inline-size: 1rem;
+
+  @supports (forced-color-adjust: none) {
+    forced-color-adjust: none;
+  }
 }
 
 .ams-docs-token-example--color-border {

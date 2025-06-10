@@ -47,7 +47,10 @@
 
 .ams-page-header__logo-link--hidden {
   opacity: 0%;
-  user-select: none; // The hidden logo link section should not be selectable
+
+  @supports (user-select: none) {
+    user-select: none; // The hidden logo link section should not be selectable
+  }
 }
 
 .ams-page-header__logo-container {
@@ -181,8 +184,11 @@
 .ams-page-header__mega-menu-button-hidden-label {
   font-weight: var(--ams-page-header-mega-menu-button-label-open-font-weight);
   pointer-events: none;
-  user-select: none;
   visibility: hidden;
+
+  @supports (user-select: none) {
+    user-select: none;
+  }
 }
 
 .ams-page-header__menu-icon {

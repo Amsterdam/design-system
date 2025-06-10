@@ -63,12 +63,16 @@
   resize: none;
 }
 
-.ams-text-area--resize-horizontal {
-  resize: inline;
+@supports (resize: inline) {
+  .ams-text-area--resize-horizontal {
+    resize: inline;
+  }
 }
 
-.ams-text-area--resize-vertical {
-  resize: block;
+@supports (resize: block) {
+  .ams-text-area--resize-vertical {
+    resize: block;
+  }
 }
 
 .ams-text-area--cols {
