@@ -3,6 +3,42 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.1](https://github.com/Amsterdam/design-system/compare/design-system-css-v1.0.0...design-system-css-v1.0.1) (2025-06-06)
+
+
+### Bug Fixes
+
+* **Button:** Restore missing border for secondary button ([#2087](https://github.com/Amsterdam/design-system/issues/2087)) ([18b7a70](https://github.com/Amsterdam/design-system/commit/18b7a70bebe368bba83ce492862ffca70cff11a0))
+
+## [1.0.0](https://github.com/Amsterdam/design-system/compare/design-system-css-v0.16.0...design-system-css-v1.0.0) (2025-05-28)
+
+
+### ⚠ BREAKING CHANGES
+
+* **Checkbox:** Use SVG for icon ([#2039](https://github.com/Amsterdam/design-system/issues/2039))
+
+### Features
+
+* **Checkbox:** Use SVG for icon ([#2039](https://github.com/Amsterdam/design-system/issues/2039)) ([713ec04](https://github.com/Amsterdam/design-system/commit/713ec04575e9bbcc59aedad1f93e2ea25c2996ed))
+* **Label:** Change design for (optional) hint ([#2048](https://github.com/Amsterdam/design-system/issues/2048)) ([971757c](https://github.com/Amsterdam/design-system/commit/971757c1ba3f5aef401c0f589ea40815907ab7ac))
+* **Page Header:** Show logo link in `LinkText` system color in forced colors mode ([#2024](https://github.com/Amsterdam/design-system/issues/2024)) ([b03f899](https://github.com/Amsterdam/design-system/commit/b03f89911578ffba55214fb6b8409c79a21c6e80))
+* **Page Header:** Use heading level 2 for brandname in compact theme ([#2044](https://github.com/Amsterdam/design-system/issues/2044)) ([c5530df](https://github.com/Amsterdam/design-system/commit/c5530df647c84578aba9b8f258f84cd36d1b81e6))
+* Use border property for borders and box shadows only for hovers ([#1998](https://github.com/Amsterdam/design-system/issues/1998)) ([f91c2e3](https://github.com/Amsterdam/design-system/commit/f91c2e39294c4b1e48f443ccbba5605c5d2dcfa2))
+* Use medium border width for Inputs, Select and Switch thumb ([#2054](https://github.com/Amsterdam/design-system/issues/2054)) ([8cedce5](https://github.com/Amsterdam/design-system/commit/8cedce5728cbfc47df01d000f7a349ad946cee17))
+
+
+### Bug Fixes
+
+* **Date Input, Select, Time Input:** Use correct colors for icons ([#2020](https://github.com/Amsterdam/design-system/issues/2020)) ([a49c3d2](https://github.com/Amsterdam/design-system/commit/a49c3d2b5d4337fab812a274dceff1ce926b34ea))
+* **Image:** Set inline size to 100% ([#2045](https://github.com/Amsterdam/design-system/issues/2045)) ([7b1a29d](https://github.com/Amsterdam/design-system/commit/7b1a29d2556df8885084f1db41afb877e18e9c80))
+* **Radio:** Add missing forced colors styling ([#2036](https://github.com/Amsterdam/design-system/issues/2036)) ([c60dae6](https://github.com/Amsterdam/design-system/commit/c60dae6897ae4cc40fae3672fdfcbeceb6ccb9f0))
+* **TextInput, PasswordInput:** Restore `size` attribute functionality ([#2028](https://github.com/Amsterdam/design-system/issues/2028)) ([c885e2f](https://github.com/Amsterdam/design-system/commit/c885e2fb4cf989549ac1718c337ee858f27734a4))
+
+
+### Miscellaneous Chores
+
+* Release 1.0.0 ([247375d](https://github.com/Amsterdam/design-system/commit/247375df3a0dfd5109726aaf2bb71b56ef62fdd1))
+
 ## [0.16.0](https://github.com/Amsterdam/design-system/compare/design-system-css-v0.15.0...design-system-css-v0.16.0) (2025-04-25)
 
 
