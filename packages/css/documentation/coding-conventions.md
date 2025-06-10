@@ -56,9 +56,10 @@ We’re currently not sure how our users will implement forms, which is why both
 
 Inputs can be in various states, such as disabled, hovered, invalid, or even a combination of those.
 Some can have multiple values as well: checkboxes can be checked, unchecked, or indeterminate.
-Visual cues help users identify the state and value of an input.
 
+Visual cues must help users recognize each possible state and value.
 This results in a complex set of states to apply styles to, and specificity issues lurk.
+
 We aim for clear and simple CSS with the smallest selectors possible, even if this makes the entire stylesheet more difficult to follow.
 To maintain consistent styling across all input components, we follow these precedence orders:
 
