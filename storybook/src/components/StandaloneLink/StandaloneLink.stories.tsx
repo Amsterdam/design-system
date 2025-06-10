@@ -62,7 +62,7 @@ export const InverseColour: Story = {
   },
 }
 
-export const InAnArticle: Story = {
+export const WithChevronIcon: Story = {
   args: {
     children: 'Bekijk alle werkzaamheden',
     icon: ChevronForwardIcon,
