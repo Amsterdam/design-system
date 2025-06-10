@@ -55,12 +55,12 @@ We’re currently not sure how our users will implement forms, which is why both
 ## Follow this precedence order for input states
 
 Inputs can be in various states, such as disabled, hovered, invalid, or even a combination of those.
-Some can have multiple values as well: checkboxes can be checked, unchecked, or indeterminate.
+Some have defined values: checkboxes can be either checked, unchecked, or indeterminate.
 
 Visual cues must help users recognize each possible state and value.
 This results in a complex set of states to apply styles to, and specificity issues lurk.
 
-We aim for clear and simple CSS with the smallest selectors possible, even if this makes the entire stylesheet more difficult to follow.
+We aim for clear and simple CSS with the smallest selectors possible, even if this makes the order of states and values more difficult to follow.
 To maintain consistent styling across all input components, we follow these precedence orders:
 
 States:
