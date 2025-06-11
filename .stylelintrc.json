@@ -2,9 +2,9 @@
   "extends": ["stylelint-config-standard-scss"],
   "plugins": [
     "stylelint-order",
+    "stylelint-plugin-use-baseline",
     "stylelint-use-logical",
-    "stylelint-value-no-unknown-custom-properties",
-    "stylelint-plugin-use-baseline"
+    "stylelint-value-no-unknown-custom-properties"
   ],
   "rules": {
     "alpha-value-notation": ["percentage"],
