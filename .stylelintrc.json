@@ -125,7 +125,6 @@
       {
         "available": 2023,
         "ignoreProperties": [
-          "clip",
           "forced-color-adjust",
           "hyphenate-limit-chars",
           "rect",
