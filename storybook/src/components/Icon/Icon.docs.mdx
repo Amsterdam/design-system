@@ -3,11 +3,8 @@
 import { Canvas, Controls, Markdown, Meta, Primary } from "@storybook/blocks";
 import * as IconStories from "./Icon.stories.tsx";
 import README from "../../../../packages/css/src/components/icon/README.md?raw";
-import { StatusBadge } from "../../docs/components/StatusBadge";
 
 <Meta of={IconStories} />
-
-<StatusBadge description="The set of available icon names and the component API will change." />
 
 <Markdown>{README}</Markdown>
 
@@ -17,13 +14,13 @@ Use the React Icon component together with a React SVG component from `@amsterda
 Import this SVG as follows:
 
 ```tsx
-import { EmailIcon } from "@amsterdam/design-system-react-icons";
+import { MailIcon } from "@amsterdam/design-system-react-icons";
 ```
 
 Then, you can use it in the component like this:
 
 ```tsx
-<Icon svg={EmailIcon} />
+<Icon svg={MailIcon} />
 ```
 
 <Primary />

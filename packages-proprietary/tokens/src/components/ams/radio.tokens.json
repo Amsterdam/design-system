@@ -33,7 +33,6 @@
         }
       },
       "hover-indicator": {
-        "stroke-width": { "value": "3px" },
         "hover": {
           "stroke": { "value": "{ams.color.interactive.hover}" }
         },
@@ -46,7 +45,6 @@
       "circle": {
         "fill": { "value": "{ams.color.background}" },
         "stroke": { "value": "{ams.color.interactive.default}" },
-        "stroke-width": { "value": "2px" },
         "disabled": {
           "stroke": { "value": "{ams.color.interactive.disabled}" }
         },

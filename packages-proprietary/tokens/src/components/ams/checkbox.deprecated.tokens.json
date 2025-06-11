@@ -1,0 +1,37 @@
+{
+  "ams": {
+    "checkbox": {
+      "rectangle": {
+        "checked": {
+          "disabled": {
+            "hover": {
+              "fill": { "value": "{ams.color.interactive.disabled}" }
+            }
+          },
+          "hover": {
+            "disabled-invalid": {
+              "fill": { "value": "{ams.color.interactive.disabled}" }
+            }
+          }
+        },
+        "hover": {
+          "disabled-invalid": {
+            "stroke": { "value": "{ams.color.interactive.disabled}" }
+          }
+        },
+        "indeterminate": {
+          "disabled": {
+            "hover": {
+              "fill": { "value": "{ams.color.interactive.disabled}" }
+            }
+          },
+          "hover": {
+            "disabled-invalid": {
+              "fill": { "value": "{ams.color.interactive.disabled}" }
+            }
+          }
+        }
+      }
+    }
+  }
+}

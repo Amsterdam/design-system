@@ -16,10 +16,10 @@ import {
 } from '@amsterdam/design-system-react'
 import {
   CameraIcon,
-  ChatBubbleIcon,
   FacebookIcon,
   LinkedinIcon,
-  TwitterIcon,
+  SpeechBalloonEllipsisIcon,
+  XIcon,
 } from '@amsterdam/design-system-react-icons'
 import { Meta, StoryObj } from '@storybook/react'
 import { LinkGroupGridCells } from './LinkGroupGridCells'
@@ -203,10 +203,10 @@ export const SubnavigationPage: StoryObj = {
                 <LinkList.Link color="inverse" href="#" icon={LinkedinIcon}>
                   LinkedIn
                 </LinkList.Link>
-                <LinkList.Link color="inverse" href="#" icon={ChatBubbleIcon}>
+                <LinkList.Link color="inverse" href="#" icon={SpeechBalloonEllipsisIcon}>
                   Whatsapp
                 </LinkList.Link>
-                <LinkList.Link color="inverse" href="#" icon={TwitterIcon}>
+                <LinkList.Link color="inverse" href="#" icon={XIcon}>
                   X (Twitter)
                 </LinkList.Link>
               </LinkList>

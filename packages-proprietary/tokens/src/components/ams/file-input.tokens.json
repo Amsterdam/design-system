@@ -4,7 +4,7 @@
       "background-color": { "value": "{ams.color.background}" },
       "border-color": { "value": "currentColor" },
       "border-style": { "value": "dashed" },
-      "border-width": { "value": "{ams.border.width.s}" },
+      "border-width": { "value": "{ams.border.width.m}" },
       "color": { "value": "{ams.color.text.default}" },
       "cursor": { "value": "{ams.cursor.interactive}" },
       "font-family": { "value": "{ams.typography.font-family}" },

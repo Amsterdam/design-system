@@ -12,7 +12,7 @@
 }
 
 .ams-switch__label {
-  --ams-switch-track-border-width: 0.0625rem;
+  --ams-switch-track-border-width: var(--ams-border-width-m);
 
   background-color: var(--ams-switch-background-color);
 

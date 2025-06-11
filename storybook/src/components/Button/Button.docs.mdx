@@ -17,7 +17,6 @@ import README from "../../../../packages/css/src/components/button/README.md?raw
 ### Primary
 
 A primary button draws attention to the most important call to action.
-Only one primary Button should be used per screen.
 
 <Canvas of={ButtonStories.Primary} />
 
@@ -49,18 +48,15 @@ The icon can also appear before the label.
 
 ### With icon only
 
-A button can even consist of an icon only.
-Do this only for icons that are universally recognized.
-You must still provide a label – it will be used to make the button accessible.
+A button can even consist of just an icon, but only one of our [functional icons](/docs/brand-assets-icons--docs#functional-icons).
+You must still provide a label to describe the button to users of screen readers.
+If the icon-only button must align with text, use an [Icon Button](/docs/components-buttons-icon-button--docs) instead.
 
 <Canvas of={ButtonStories.WithIconOnly} />
 
 ### Text wrapping
 
-Keep in mind that the label may occasionally wrap over multiple lines:
-a shorter text might be unavailable,
-two buttons could sit next to each other on a narrow screen,
-or the user has configured a large font on their device.
-This is fine.
+The label may occasionally wrap over multiple lines.
+This can happen if no shorter text is available, two buttons sit next to each other on a narrow screen, or the user has configured a large font on their device.
 
 <Canvas of={ButtonStories.TextWrapping} />

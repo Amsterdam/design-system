@@ -5,7 +5,7 @@
 
 import { render, screen } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
-import { createRef } from 'react'
+import { AnchorHTMLAttributes, createRef } from 'react'
 import './matchMedia.mock' // Must be imported before PageHeader
 import { PageHeader } from './PageHeader'
 import '@testing-library/jest-dom'
@@ -73,7 +73,15 @@ describe('Page Header', () => {
   it('renders a custom logo link title', () => {
     render(<PageHeader logoLinkTitle="Go to homepage" />)
 
-    const logoLinkTitle = screen.getByRole('link', { name: 'Go to homepage' })
+    const logoLinkTitle = screen.getByRole('link', { name: 'Gemeente Amsterdam logo Go to homepage' })
+
+    expect(logoLinkTitle).toBeInTheDocument()
+  })
+
+  it('renders a custom accessible name for the logo', () => {
+    render(<PageHeader logoAccessibleName="Custom accessible name" />)
+
+    const logoLinkTitle = screen.getByRole('link', { name: 'Custom accessible name Ga naar de homepage' })
 
     expect(logoLinkTitle).toBeInTheDocument()
   })
@@ -192,5 +200,15 @@ describe('Page Header', () => {
 
   it.skip('it closes the mega menu when it is open and the screen width passes the breakpoint', () => {
     // TODO: Add this test
+  })
+
+  it('renders a custom logo link component', () => {
+    const CustomLink = (props: AnchorHTMLAttributes<HTMLAnchorElement>) => <a data-test {...props} />
+
+    render(<PageHeader logoLinkComponent={CustomLink} />)
+
+    const customLink = screen.getByRole('link', { name: 'Gemeente Amsterdam logo Ga naar de homepage' })
+
+    expect(customLink).toHaveAttribute('data-test')
   })
 })

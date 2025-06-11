@@ -2,11 +2,11 @@
 
 # Publishing
 
-We use a [Release Please GitHub Action](https://github.com/googleapis/release-please-action) to create changelog and release PRs for all our packages.
+We use a [Release Please GitHub Action](https://github.com/googleapis/release-please-action) to create changelogs and release PRs for all our packages.
 When the release PR is merged, that same action publishes the new release to npm, creates a release on GitHub, and deploys it to our main Storybook environment.
 
-The [maintainers](./documentation/maintainers.md) can release new versions of our packages.
-If you want to have rights to publish as well, contact one of the [maintainers](./maintainers.md).
+The [maintainers](./maintainers.md) can release new versions of our packages.
+If you want to have rights to publish as well, contact one of the maintainers.
 
 ## Conventional commits
 
@@ -79,6 +79,10 @@ Other scopes, like `docs`, are allowed, as is omitting it.
    ```
 
 ### Gotchas
+
+The Release Please Action generates a release PR with a specific title (currently: `chore: release main`).
+This PR title is verified on the second run of the Action.
+Changing this title can cause the Action to fail.
 
 Release Please uses labels to determine the status of a release.
 A release PR gets the label `autorelease: pending` or `autorelease: triggered`.

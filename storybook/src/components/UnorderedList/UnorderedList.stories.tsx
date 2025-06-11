@@ -6,14 +6,14 @@
 import { Icon, Paragraph } from '@amsterdam/design-system-react'
 import { UnorderedList } from '@amsterdam/design-system-react/src'
 import {
-  AlertIcon,
-  AnnouncementIcon,
   CarIcon,
-  DocumentEuroSignIcon,
-  HousingIcon,
-  LocationIcon,
+  DocumentEuroIcon,
+  HouseIcon,
+  MapMarkerOnMapIcon,
+  MegaphoneIcon,
   PassportIcon,
   TrashBinIcon,
+  WarningIcon,
 } from '@amsterdam/design-system-react-icons'
 import type { Meta, StoryObj } from '@storybook/react'
 import { exampleUnorderedList } from '../shared/exampleContent'
@@ -75,7 +75,7 @@ export const WithoutMarkers: Story = {
     children: [
       <UnorderedList.Item key={1}>
         <div className="ams-docs-card">
-          <Icon svg={LocationIcon} />
+          <Icon svg={MapMarkerOnMapIcon} />
           <Paragraph>Stadsloket: locaties en openingstijden</Paragraph>
         </div>
       </UnorderedList.Item>,
@@ -93,19 +93,19 @@ export const WithoutMarkers: Story = {
       </UnorderedList.Item>,
       <UnorderedList.Item key={4}>
         <div className="ams-docs-card">
-          <Icon svg={DocumentEuroSignIcon} />
+          <Icon svg={DocumentEuroIcon} />
           <Paragraph>Gemeentebelastingen</Paragraph>
         </div>
       </UnorderedList.Item>,
       <UnorderedList.Item key={5}>
         <div className="ams-docs-card">
-          <Icon svg={AlertIcon} />
+          <Icon svg={WarningIcon} />
           <Paragraph>Melding openbare ruimte en overlast</Paragraph>
         </div>
       </UnorderedList.Item>,
       <UnorderedList.Item key={6}>
         <div className="ams-docs-card">
-          <Icon svg={HousingIcon} />
+          <Icon svg={HouseIcon} />
           <Paragraph>Verhuizing doorgeven</Paragraph>
         </div>
       </UnorderedList.Item>,
@@ -117,7 +117,7 @@ export const WithoutMarkers: Story = {
       </UnorderedList.Item>,
       <UnorderedList.Item key={8}>
         <div className="ams-docs-card">
-          <Icon svg={AnnouncementIcon} />
+          <Icon svg={MegaphoneIcon} />
           <Paragraph>Kennisgevingen en bekendmakingen</Paragraph>
         </div>
       </UnorderedList.Item>,
