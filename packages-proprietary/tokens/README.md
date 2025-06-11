@@ -27,7 +27,7 @@ npm install @amsterdam/design-system-tokens
 ## Usage in CSS
 
 Tokens are typically used as custom properties in CSS.
-Their name starts with a prefix of `--ams-`; that of a component token (see below) with the property that uses it, e.g. `-font-size`.
+Their names start with a prefix of `--ams-`.
 
 ### Main stylesheet
 
@@ -76,13 +76,15 @@ The tokens are organised in three layers: brand, common and component.
 
 These express the corporate identity of the City of Amsterdam.
 They are our fundamental selection from all possible colours, text characteristics, spacing lengths, border widths, etc.
+Their names begin with our prefix, followed by a design category such as ‘color’, ‘typography’, or ‘space’.
+
 Examples:
 
 ```css
 :root {
   --ams-color-feedback-error: #ec0000;
   --ams-space-m: 1rem;
-  --ams-aspect-ratio-wide: 4/3;
+  --ams-aspect-ratio-4-3: 4 / 3;
   --ams-border-width-l: 0.1875rem;
 }
 ```
@@ -101,6 +103,8 @@ For instance, `--ams-color-interactive` and `--ams-color-interactive-disabled`.
 Related components share visual design characteristics.
 For example, all links have the same colour, and the borders of various form inputs are equally thick.
 Common tokens express these relations and streamline future changes.
+Their names begin with our prefix, followed by the name of the group that uses them.
+This group name is plural to indicate that several components apply these tokens.
 
 Design system components use common tokens where possible.
 The same goes for custom components that you may create in your application.
@@ -124,6 +128,9 @@ Every design system component defines a token for every property that expresses 
 
 Use these tokens when recreating an existing component to receive the correct values for them – now and in the future.
 Do not apply these tokens to other components – components must be independent.
+
+The name of a component token ends with the CSS property that uses it, e.g. `-font-size`.
+We follow [the NL Design System token naming guidelines](https://nldesignsystem.nl/handboek/design-tokens/#naamgeving) here.
 
 ```html
 <button class="my-button" type="button">Button label</button>
@@ -181,7 +188,7 @@ Use ‘dot notation’ or square brackets to access the tokens.
 ```tsx
 import tokens from "@amsterdam/design-system-tokens/dist/index.json"
 
-const buttonBackgroundColor = tokens.ams.color["primary-blue"]
+const buttonBackgroundColor = tokens.ams.color.interactive.default
 const rowGap = tokens.ams.space.m
 ```
 
