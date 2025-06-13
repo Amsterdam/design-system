@@ -21,7 +21,7 @@ export type TextInputProps = {
  * @see {@link https://designsystem.amsterdam/?path=/docs/components-forms-text-input--docs Text Input docs at Amsterdam Design System}
  */
 export const TextInput = forwardRef(
-  ({ className, dir, invalid, type = 'text', ...restProps }: TextInputProps, ref: ForwardedRef<HTMLInputElement>) => (
+  ({ className, dir, invalid, type = 'number', ...restProps }: TextInputProps, ref: ForwardedRef<HTMLInputElement>) => (
     <input
       {...restProps}
       aria-invalid={invalid || undefined}
