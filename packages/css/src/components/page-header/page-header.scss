@@ -225,6 +225,7 @@
 
 .ams-page-header__mega-menu {
   inline-size: 100%;
+  padding-block: var(--ams-page-header-mega-menu-padding-block);
   pointer-events: auto; // Set pointer events back to auto to allow the mega menu to be activated
 
   // Remove inline padding from Grids that are used in the mega menu.
