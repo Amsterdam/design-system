@@ -25,6 +25,7 @@
         "text-wrap": { "value": "{ams.typography.heading.text-wrap}" }
       },
       "mega-menu": {
+        "padding-block": { "value": "{ams.space.m}" },
         "button": {
           "cursor": { "value": "{ams.cursor.interactive}" },
           "label": {
