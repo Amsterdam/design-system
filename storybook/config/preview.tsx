@@ -85,7 +85,6 @@ export const parameters = {
     grid: {
       disable: true,
     },
-    options: {},
   },
   controls: {
     sort: 'alpha', // Sorts controls in the Controls addon
