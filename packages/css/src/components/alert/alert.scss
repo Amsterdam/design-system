@@ -13,9 +13,9 @@
 
 .ams-alert__severity-indicator {
   background-color: var(--ams-alert-severity-indicator-background-color);
-  border-color: var(--ams-alert-border-color);
-  border-inline-end-style: var(--ams-alert-border-style);
-  border-inline-end-width: var(--ams-alert-border-width);
+  border-color: inherit;
+  border-inline-end-style: inherit;
+  border-inline-end-width: inherit;
   flex: none;
   padding-block: var(--ams-alert-severity-indicator-padding-block);
   padding-inline: var(--ams-alert-severity-indicator-padding-inline);
@@ -35,7 +35,6 @@
 
   > .ams-alert__severity-indicator {
     background-color: var(--ams-alert-error-severity-indicator-background-color);
-    border-color: var(--ams-alert-error-border-color);
   }
 }
 
@@ -44,7 +43,6 @@
 
   > .ams-alert__severity-indicator {
     background-color: var(--ams-alert-success-severity-indicator-background-color);
-    border-color: var(--ams-alert-success-border-color);
   }
 }
 
@@ -53,6 +51,5 @@
 
   > .ams-alert__severity-indicator {
     background-color: var(--ams-alert-warning-severity-indicator-background-color);
-    border-color: var(--ams-alert-warning-border-color);
   }
 }
