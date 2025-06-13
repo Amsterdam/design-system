@@ -3,9 +3,15 @@
  * Copyright Gemeente Amsterdam
  */
 
-import { LinkList } from '@amsterdam/design-system-react/src'
+import { LinkList, LinkListLinkProps } from '@amsterdam/design-system-react/src'
 import * as Icons from '@amsterdam/design-system-react-icons'
 import { Meta, StoryObj } from '@storybook/react'
+import {
+  backgroundColourOptions,
+  backgroundColourOptionsDark,
+  backgroundColourOptionsLight,
+  getForegroundColor,
+} from '../../../config/preview'
 import { exampleLinkList } from '../shared/exampleContent'
 
 const linkList = exampleLinkList()
@@ -66,17 +72,42 @@ const LinkStoryTemplate: LinkStory = {
     },
   },
   decorators: [
-    (Story) => (
-      <LinkList>
-        <Story />
-      </LinkList>
-    ),
+    (Story, StoryContext) => {
+      console.log(StoryContext)
+
+      return (
+        <LinkList>
+          <Story />
+        </LinkList>
+      )
+    },
   ],
   render: ({ children, ...args }) => <LinkList.Link {...args}>{children}</LinkList.Link>,
 }
 
 export const Default: Story = {
   ...StoryTemplate,
+  parameters: {
+    backgrounds: {
+      options: backgroundColourOptions,
+    },
+  },
+  render: (args, { globals: { backgrounds } }) => {
+    return (
+      <LinkList {...args}>
+        {Array.isArray(args.children) &&
+          args.children.map((link, index) => {
+            const color = getForegroundColor(backgrounds.value) as LinkListLinkProps['color']
+
+            return (
+              <LinkList.Link {...link.props} color={color} key={index}>
+                {link.props.children}
+              </LinkList.Link>
+            )
+          })}
+      </LinkList>
+    )
+  },
 }
 
 export const CustomIcons: Story = {
@@ -124,8 +155,11 @@ export const ContrastColour: LinkStory = {
     color: 'contrast',
   },
   globals: {
+    backgrounds: { value: 'yellow' },
+  },
+  parameters: {
     backgrounds: {
-      value: 'yellow',
+      options: { yellow: backgroundColourOptionsLight.yellow },
     },
   },
 }
@@ -137,8 +171,11 @@ export const InverseColour: LinkStory = {
     color: 'inverse',
   },
   globals: {
+    backgrounds: { value: 'blue' },
+  },
+  parameters: {
     backgrounds: {
-      value: 'blue',
+      options: { blue: backgroundColourOptionsDark.blue },
     },
   },
 }

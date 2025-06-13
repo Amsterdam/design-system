@@ -51,27 +51,11 @@
 
 .ams-docs-dark-background,
 .ams-docs-light-background {
+  background-color: transparent;
   margin-block: -1rem;
   margin-inline: -1rem;
   padding-block: 1rem;
   padding-inline: 1rem;
-}
-
-/* Do not change the order of these two selectors. They ensure the dark background wins if both are set, which is in line with the implementation of the React-component. */
-.ams-docs-light-background {
-  background-color: #ffe600; /* Yellow */
-}
-
-.ams-docs-light-background .ams-page {
-  background-color: #ffe600; /* Yellow */
-}
-
-.ams-docs-dark-background {
-  background-color: #004699; /* Dark blue */
-}
-
-.ams-docs-dark-background .ams-page {
-  background-color: #004699; /* Dark blue */
 }
 
 .ams-docs-column,

@@ -7,8 +7,8 @@ import '../src/styles/overrides.css'
 import { Page } from '@amsterdam/design-system-react'
 import { withThemeByClassName } from '@storybook/addon-themes'
 import type { StoryContext, StoryFn } from '@storybook/react'
-import { viewports } from './viewports'
 import clsx from 'clsx'
+import { viewports } from './viewports'
 
 export const argTypes = {
   children: {
@@ -16,19 +16,61 @@ export const argTypes = {
   },
 }
 
+export const backgroundColourOptionsLight = {
+  lime: { name: 'lime', value: '#BED200' },
+  orange: { name: 'orange', value: '#FF9100' },
+  white: { name: 'white', value: '#FFFFFF' },
+  yellow: { name: 'yellow', value: '#FFE600' },
+}
+export const backgroundColourOptionsDark = {
+  azure: { name: 'azure', value: '#009DE6' },
+  blue: { name: 'blue', value: '#004699' },
+  green: { name: 'green', value: '#00A03C' },
+  magenta: { name: 'magenta', value: '#E50082' },
+  purple: { name: 'purple', value: '#A00078' },
+}
+export const backgroundColourOptions = {
+  ...backgroundColourOptionsLight,
+  ...backgroundColourOptionsDark,
+}
+
+export const backgroundToForeground = {
+  azure: 'inverse',
+  blue: 'inverse',
+  green: 'inverse',
+  lime: 'contrast',
+  magenta: 'inverse',
+  orange: 'contrast',
+  purple: 'inverse',
+  white: 'contrast',
+  yellow: 'contrast',
+}
+export type backgroundToForegroundKey = keyof typeof backgroundToForeground
+export const getForegroundColor = (backgroundColor: backgroundToForegroundKey) => {
+  return backgroundToForeground[backgroundColor] || 'contrast'
+}
+
 // Wrap in Page, set language to Dutch for Canvas and Stories
 export const decorators = [
-  (Story: StoryFn, { args }: StoryContext) => (
-    <Page
-      className={clsx({
-        'ams-docs-dark-background': args['color'] === 'inverse',
-        'ams-docs-light-background': args['color'] === 'contrast',
-      })}
-      lang="nl"
-    >
-      <Story />
-    </Page>
-  ),
+  (Story: StoryFn, storyContext: StoryContext) => {
+    const {
+      globals: { backgrounds },
+    } = storyContext
+
+    const color = backgroundToForeground[backgrounds.value as backgroundToForegroundKey]
+
+    return (
+      <Page
+        className={clsx({
+          'ams-docs-dark-background': color === 'inverse',
+          'ams-docs-light-background': color === 'contrast',
+        })}
+        lang="nl"
+      >
+        <Story />
+      </Page>
+    )
+  },
   withThemeByClassName({
     defaultTheme: 'Spacious',
     themes: {
@@ -43,17 +85,7 @@ export const parameters = {
     grid: {
       disable: true,
     },
-    options: {
-      white: { name: 'white', value: '#FFFFFF' },
-      azure: { name: 'azure', value: '#009DE6' },
-      blue: { name: 'blue', value: '#004699' },
-      green: { name: 'green', value: '#00A03C' },
-      lime: { name: 'lime', value: '#BED200' },
-      magenta: { name: 'magenta', value: '#E50082' },
-      orange: { name: 'orange', value: '#FF9100' },
-      purple: { name: 'purple', value: '#A00078' },
-      yellow: { name: 'yellow', value: '#FFE600' },
-    },
+    options: {},
   },
   controls: {
     sort: 'alpha', // Sorts controls in the Controls addon
@@ -87,5 +119,5 @@ export const parameters = {
 }
 
 export const initialGlobals = {
-  backgrounds: { value: 'light' },
+  backgrounds: { value: 'white' },
 }
