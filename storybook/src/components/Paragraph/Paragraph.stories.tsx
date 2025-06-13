@@ -47,7 +47,6 @@ export const Default: Story = {
   parameters: {
     backgrounds: {
       options: backgroundColourOptions,
-      value: 'blue',
     },
   },
   render: (args, { globals: { backgrounds } }) => {
@@ -73,16 +72,13 @@ export const InverseColour: Story = {
   args: {
     color: 'inverse',
   },
+  globals: {
+    backgrounds: { value: 'blue' },
+  },
   parameters: {
     backgrounds: {
-      options: backgroundColourOptionsDark,
-      value: 'blue',
+      options: { blue: backgroundColourOptionsDark.blue },
     },
-  },
-  render: (args, { globals: { backgrounds } }) => {
-    args['color'] = getForegroundColor(backgrounds.value) as ParagraphProps['color']
-
-    return <Paragraph {...args}>{args.children}</Paragraph>
   },
 }
 
