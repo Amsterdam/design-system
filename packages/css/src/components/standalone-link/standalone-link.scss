@@ -46,9 +46,14 @@
 
 .ams-standalone-link--with-icon {
   text-decoration-line: var(--ams-standalone-link-with-icon-text-decoration-line);
-  text-decoration-thickness: var(--ams-standalone-link-with-icon-text-decoration-thickness);
 
   &:hover {
     text-decoration-line: var(--ams-standalone-link-with-icon-hover-text-decoration-line);
+    text-decoration-thickness: var(--ams-standalone-link-with-icon-text-decoration-thickness); /* [1] */
   }
 }
+
+/**
+  * [1] We must go against our convention and declare this in the hover selector instead of the initial one,
+  * because the initial selector for the Standalone Link without an icon will override it (to 3px) otherwise.
+ */
