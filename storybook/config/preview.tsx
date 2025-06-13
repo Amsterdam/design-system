@@ -116,7 +116,3 @@ export const parameters = {
     viewports,
   },
 }
-
-export const initialGlobals = {
-  backgrounds: { value: 'white' },
-}
