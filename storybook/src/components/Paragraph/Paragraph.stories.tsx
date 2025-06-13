@@ -3,9 +3,10 @@
  * Copyright Gemeente Amsterdam
  */
 
-import { Icon, Paragraph, Row } from '@amsterdam/design-system-react/src'
+import { Icon, Paragraph, ParagraphProps, Row } from '@amsterdam/design-system-react/src'
 import { MailIcon } from '@amsterdam/design-system-react-icons'
 import { Meta, StoryObj } from '@storybook/react'
+import { backgroundColourOptions, backgroundColourOptionsDark, getForegroundColor } from '../../../config/preview'
 import { exampleParagraph } from '../shared/exampleContent'
 
 const paragraph = exampleParagraph()
@@ -42,7 +43,19 @@ export default meta
 
 type Story = StoryObj<typeof meta>
 
-export const Default: Story = {}
+export const Default: Story = {
+  parameters: {
+    backgrounds: {
+      options: backgroundColourOptions,
+      value: 'blue',
+    },
+  },
+  render: (args, { globals: { backgrounds } }) => {
+    args['color'] = getForegroundColor(backgrounds.value) as ParagraphProps['color']
+
+    return <Paragraph {...args}>{args.children}</Paragraph>
+  },
+}
 
 export const LargeText: Story = {
   args: {
@@ -59,6 +72,17 @@ export const SmallText: Story = {
 export const InverseColour: Story = {
   args: {
     color: 'inverse',
+  },
+  parameters: {
+    backgrounds: {
+      options: backgroundColourOptionsDark,
+      value: 'blue',
+    },
+  },
+  render: (args, { globals: { backgrounds } }) => {
+    args['color'] = getForegroundColor(backgrounds.value) as ParagraphProps['color']
+
+    return <Paragraph {...args}>{args.children}</Paragraph>
   },
 }
 
