@@ -13,6 +13,9 @@
 
 .ams-alert__severity-indicator {
   background-color: var(--ams-alert-severity-indicator-background-color);
+  border-color: inherit;
+  border-inline-end-style: inherit;
+  border-inline-end-width: inherit;
   flex: none;
   padding-block: var(--ams-alert-severity-indicator-padding-block);
   padding-inline: var(--ams-alert-severity-indicator-padding-inline);
