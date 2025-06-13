@@ -57,7 +57,7 @@ export const decorators = [
       globals: { backgrounds },
     } = storyContext
 
-    const color = backgroundToForeground[backgrounds.value as backgroundToForegroundKey]
+    const color = getForegroundColor(backgrounds.value)
 
     return (
       <Page
