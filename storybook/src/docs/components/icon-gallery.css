@@ -2,6 +2,7 @@
   column-gap: var(--ams-space-l);
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(20ch, 1fr));
+  margin-block: var(--ams-space-l) var(--ams-space-2xl);
   row-gap: var(--ams-space-xl);
 }
 
