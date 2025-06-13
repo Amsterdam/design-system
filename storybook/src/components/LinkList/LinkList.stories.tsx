@@ -72,15 +72,11 @@ const LinkStoryTemplate: LinkStory = {
     },
   },
   decorators: [
-    (Story, StoryContext) => {
-      console.log(StoryContext)
-
-      return (
-        <LinkList>
-          <Story />
-        </LinkList>
-      )
-    },
+    (Story) => (
+      <LinkList>
+        <Story />
+      </LinkList>
+    ),
   ],
   render: ({ children, ...args }) => <LinkList.Link {...args}>{children}</LinkList.Link>,
 }
