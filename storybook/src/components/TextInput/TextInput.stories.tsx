@@ -58,6 +58,17 @@ export const PhoneNumber: Story = {
   },
 }
 
+export const Number: Story = {
+  args: {
+    defaultValue: '0',
+    inputMode: 'numeric',
+    pattern: '[0-9]*',
+    size: 5,
+    spellCheck: false,
+    type: 'text',
+  },
+}
+
 export const Size: Story = {
   args: {
     size: 10,
