@@ -117,31 +117,31 @@ export const SubnavigationPage: StoryObj = {
           </Grid.Cell>
           <LinkGroupGridCells linkGroups={burgerzakenLinks.slice(0, 6)} />
           <Grid.Cell span={{ narrow: 4, medium: 4, wide: 5 }} start={{ narrow: 1, medium: 1, wide: 2 }}>
-            <Heading className="ams-mb-s" level={2} size="level-4">
+            <Heading className="ams-mb-xs" level={2} size="level-4">
               {exampleHeading()}
             </Heading>
-            <Paragraph className="ams-mb-s">{exampleParagraph()}</Paragraph>
+            <Paragraph className="ams-mb-m">{exampleParagraph()}</Paragraph>
             <StandaloneLink href="#">{exampleStandaloneLine()}</StandaloneLink>
           </Grid.Cell>
           <Grid.Cell span={{ narrow: 4, medium: 4, wide: 5 }}>
-            <Heading className="ams-mb-s" level={2} size="level-4">
+            <Heading className="ams-mb-xs" level={2} size="level-4">
               {exampleHeading()}
             </Heading>
-            <Paragraph className="ams-mb-s">{exampleParagraph()}</Paragraph>
+            <Paragraph className="ams-mb-m">{exampleParagraph()}</Paragraph>
             <StandaloneLink href="#">{exampleStandaloneLine()}</StandaloneLink>
           </Grid.Cell>
           <Grid.Cell span={{ narrow: 4, medium: 4, wide: 5 }} start={{ narrow: 1, medium: 1, wide: 2 }}>
-            <Heading className="ams-mb-s" level={2} size="level-4">
+            <Heading className="ams-mb-xs" level={2} size="level-4">
               {exampleHeading()}
             </Heading>
-            <Paragraph className="ams-mb-s">{exampleParagraph()}</Paragraph>
+            <Paragraph className="ams-mb-m">{exampleParagraph()}</Paragraph>
             <StandaloneLink href="#">{exampleStandaloneLine()}</StandaloneLink>
           </Grid.Cell>
           <Grid.Cell span={{ narrow: 4, medium: 4, wide: 5 }}>
-            <Heading className="ams-mb-s" level={2} size="level-4">
+            <Heading className="ams-mb-xs" level={2} size="level-4">
               {exampleHeading()}
             </Heading>
-            <Paragraph className="ams-mb-s">{exampleParagraph()}</Paragraph>
+            <Paragraph className="ams-mb-m">{exampleParagraph()}</Paragraph>
             <StandaloneLink href="#">{exampleStandaloneLine()}</StandaloneLink>
           </Grid.Cell>
         </Grid>
@@ -153,13 +153,13 @@ export const SubnavigationPage: StoryObj = {
               </Heading>
             </Grid.Cell>
             <Grid.Cell span={{ narrow: 4, medium: 4, wide: 5 }} start={{ narrow: 1, medium: 1, wide: 2 }}>
-              <Heading className="ams-mb-s" color="inverse" level={4}>
+              <Heading className="ams-mb-xs" color="inverse" level={4}>
                 {exampleHeading()}
               </Heading>
               <Paragraph color="inverse">{exampleParagraph()}</Paragraph>
             </Grid.Cell>
             <Grid.Cell span={{ narrow: 4, medium: 4, wide: 5 }}>
-              <Heading className="ams-mb-s" color="inverse" level={4}>
+              <Heading className="ams-mb-xs" color="inverse" level={4}>
                 {exampleHeading()}
               </Heading>
               <Paragraph color="inverse">{exampleParagraph()}</Paragraph>
