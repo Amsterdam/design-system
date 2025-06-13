@@ -51,3 +51,30 @@ The declarations in the mixin must override default user agent styling; otherwis
 We style both the native invalid state (`:invalid`) as the invalid state you can set manually, using `aria-invalid`.
 We’re currently not sure how our users will implement forms, which is why both options are supported.
 [Native form validation isn’t without its issues](https://adrianroselli.com/2019/02/avoid-default-field-validation.html) though, so we might only support manual validation in the future.
+
+## Follow this precedence order for input states
+
+Inputs can be in various states, such as disabled, hovered, invalid, or even a combination of those.
+Some have defined values: checkboxes can be either checked, unchecked, or indeterminate.
+
+Visual cues must help users recognize each possible state and value.
+This results in a complex set of states to apply styles to, and specificity issues lurk.
+
+We aim for clear and simple CSS with the smallest selectors possible, even if this makes the order of states and values more difficult to follow.
+To maintain consistent styling across all input components, we follow these precedence orders:
+
+States:
+
+1. **Disabled** always takes priority. A disabled input should not react to hover, focus, or invalid states.
+2. **Hover** should always be visible unless the input is disabled.
+3. **Invalid** shows a validation error. It should not override disabled and must be paired with a hover state, meaning each input should have an invalid hover state defined.
+4. **Default** is the basic state.
+
+Values for Checkbox, Radio, and Switch inputs:
+
+1. **Indeterminate** takes precedence over the checked state. If an input (typically a checkbox) has both checked and indeterminate states, we show it as indeterminate.
+2. **Checked** indicates the checked state. Has lower precedence than indeterminate.
+3. **Default** is the basic unchecked state.
+
+Checkboxes have the most states, so [check its stylesheet](https://github.com/Amsterdam/design-system/blob/develop/packages/css/src/components/checkbox/checkbox.scss) when adding a new input component.
+Follow the same order and remove any irrelevant states for your input.
