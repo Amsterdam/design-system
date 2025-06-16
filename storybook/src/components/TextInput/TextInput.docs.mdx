@@ -69,6 +69,23 @@ Follow the [guidelines for asking for telephone numbers](https://design-system.s
 
 <Canvas of={TextInputStories.PhoneNumber} />
 
+### Type: Whole number
+
+This field helps the user enter a whole number, we recommend using the `text` type for whole numbers.
+You then need to add the `inputMode="numeric"` attribute and a pattern to validate the input.
+Do not rely only on the browser’s validation. The `text` input field looks like a standard text input.
+On some devices, it may show a numeric keypad to aid in entering whole numbers.
+
+<Canvas of={TextInputStories.WholeNumber} />
+
+### Type: Decimal number
+
+This field helps the user enter a decimal number. Use the `text` type for decimal numbers. We do not recommend
+using `inputMode="decimal"` as it may not work consistently across all browsers and devices. The language
+settings of the user’s browser or device may affect the decimal separator used.
+
+<Canvas of={TextInputStories.DecimalNumber} />
+
 ### Size
 
 The size of the input should be appropriate for the information to be entered.
