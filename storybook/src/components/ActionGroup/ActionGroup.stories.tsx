@@ -11,7 +11,7 @@ const meta = {
   title: 'Components/Layout/Action Group',
   component: ActionGroup,
   args: {
-    children: [<Button>Doorgaan</Button>, <Button variant="tertiary">Stoppen</Button>],
+    children: [<Button>Doorgaan</Button>, <Button variant="secondary">Stoppen</Button>],
   },
 } satisfies Meta<typeof ActionGroup>
 
