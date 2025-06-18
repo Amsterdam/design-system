@@ -1,0 +1,57 @@
+/* stylelint-disable selector-class-pattern */
+
+.menu-link {
+  align-items: center;
+  display: flex;
+  gap: var(--ams-space-s);
+}
+
+.select {
+  field-sizing: content;
+  inline-size: initial;
+}
+
+.search_field {
+  min-inline-size: 20ch;
+}
+
+.filters {
+  display: none;
+
+  @media (width >= 36rem) {
+    display: block;
+  }
+}
+
+.toggle_filters {
+  @media (width >= 36rem) {
+    display: none;
+  }
+}
+
+.filters_menu:popover-open {
+  block-size: 80dvh;
+  border: none;
+  box-sizing: border-box;
+  inline-size: 100dvw;
+  inset-block-start: 20dvh;
+  overflow-y: scroll;
+  padding-block: var(--ams-grid-padding-block-l);
+  padding-inline: var(--ams-grid-padding-inline);
+
+  &::backdrop {
+    backdrop-filter: blur(3px);
+    background-color: rgb(0 0 0 / 60%);
+  }
+}
+
+.filters_menu_actions {
+  background: white;
+  box-sizing: border-box;
+  inline-size: 100dvw;
+  inset-block-end: 0;
+  inset-inline-start: 0;
+  padding-block: var(--ams-grid-padding-block-l);
+  padding-inline: var(--ams-grid-padding-inline);
+  position: fixed;
+}
