@@ -21,17 +21,24 @@ export const argTypes = {
 
 // Wrap in Page, set language to Dutch for Canvas and Stories
 export const decorators = [
-  (Story: StoryFn, { args }: StoryContext) => (
-    <Page
-      className={clsx({
-        'ams-docs-dark-background': args['color'] === 'inverse',
-        'ams-docs-light-background': args['color'] === 'contrast',
-      })}
-      lang="nl"
-    >
-      <Story />
-    </Page>
-  ),
+  (Story: StoryFn, context: StoryContext) => {
+    const { component, args } = context
+    if (component?.displayName === 'Page') {
+      return <Story />
+    }
+
+    return (
+      <Page
+        className={clsx({
+          'ams-docs-dark-background': args['color'] === 'inverse',
+          'ams-docs-light-background': args['color'] === 'contrast',
+        })}
+        lang="nl"
+      >
+        <Story />
+      </Page>
+    )
+  },
   withThemeByClassName({
     defaultTheme: 'Spacious',
     themes: {
