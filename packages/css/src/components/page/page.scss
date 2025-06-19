@@ -3,10 +3,44 @@
  * Copyright Gemeente Amsterdam
  */
 
+@use "../../common/breakpoint" as *;
+
 .ams-page {
   background-color: var(--ams-page-background-color);
-  margin-inline: auto;
-  max-inline-size: var(--ams-page-max-inline-size);
   min-block-size: 100vh; /* Fallback for browsers that do not support dvh */
   min-block-size: 100dvh;
+}
+
+.ams-page:not(.ams-page--application) {
+  margin-inline: auto;
+  max-inline-size: var(--ams-page-max-inline-size);
+}
+
+.ams-page--application {
+  display: grid;
+  grid-template-areas: "header" "navigation" "body" "footer";
+  grid-template-rows: auto auto 1fr auto;
+  max-inline-size: var(--ams-page-application-max-inline-size);
+
+  @media screen and (min-width: $ams-breakpoint-medium) {
+    grid-template-areas: "navigation header" "navigation body" "navigation footer";
+    grid-template-columns: auto 1fr;
+    grid-template-rows: auto 1fr auto;
+  }
+
+  > .ams-page-footer {
+    grid-area: footer;
+  }
+
+  > .ams-page-header {
+    grid-area: header;
+  }
+
+  > .ams-mock-page-body {
+    grid-area: body;
+  }
+
+  > .ams-mock-page-navigation {
+    grid-area: navigation;
+  }
 }
