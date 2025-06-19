@@ -4,4 +4,5 @@
  */
 
 export { Page } from './Page'
+export { MockPageNavigation } from './MockPageNavigation'
 export type { PageProps } from './Page'
