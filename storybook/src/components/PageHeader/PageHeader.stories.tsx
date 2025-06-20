@@ -136,13 +136,17 @@ export const WithoutMenuButtonOnWideWindow: Story = {
   args: {
     brandName: 'Aan de Amsterdamse grachten',
     children: (
-      <LinkList className="ams-mb-l">
-        {WithoutMenuButtonOnWideWindowStoryLinks.map(({ href, label }) => (
-          <LinkList.Link href={href} key={label}>
-            {label}
-          </LinkList.Link>
-        ))}
-      </LinkList>
+      <Grid paddingVertical="large">
+        <Grid.Cell span="all">
+          <LinkList>
+            {WithoutMenuButtonOnWideWindowStoryLinks.map(({ href, label }) => (
+              <LinkList.Link href={href} key={label}>
+                {label}
+              </LinkList.Link>
+            ))}
+          </LinkList>
+        </Grid.Cell>
+      </Grid>
     ),
     menuItems: [
       ...WithoutMenuButtonOnWideWindowStoryLinks.map(({ href, label }) => (
@@ -181,7 +185,7 @@ export const WithCustomLogoLink: Story = {
 export const WithCustomTexts: Story = {
   args: {
     children: (
-      <Grid>
+      <Grid paddingVertical="large">
         <Grid.Cell span="all">
           <LinkList>
             <LinkList.Link href="#" lang="en">
