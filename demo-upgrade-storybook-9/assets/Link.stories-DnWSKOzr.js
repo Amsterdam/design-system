@@ -1,9 +1,0 @@
-import{r as k,j as n,c as y,P as x}from"./iframe-De3IwJlC.js";const s=k.forwardRef(({children:a,className:t,color:c,...h},_)=>n.jsx("a",{...h,className:y("ams-link",c&&`ams-link--${c}`,t),ref:_,children:a}));s.displayName="Link";try{s.displayName="Link",s.__docgenInfo={description:"",displayName:"Link",props:{color:{defaultValue:null,description:"Changes the text colour for readability on a light or dark background.",name:"color",required:!1,type:{name:"enum",value:[{value:'"inverse"'},{value:'"contrast"'}]}}}}}catch{}const b={title:"Components/Navigation/Link",component:s,args:{children:"typograaf",href:"#"},argTypes:{children:{description:"The link text.",table:{disable:!1}},color:{control:{labels:{undefined:"default"},type:"radio"},options:[void 0,"contrast","inverse"]},href:{description:"The url for the link.",name:"href",type:{name:"string",required:!1}}},decorators:[(a,{args:t})=>n.jsxs(x,{color:t.color==="inverse"?"inverse":void 0,children:["Jouw ",n.jsx(a,{})," biedt mij zulke exquise schreven!"]})]},e={},r={args:{color:"contrast"}},o={args:{color:"inverse"}};var i,l,d;e.parameters={...e.parameters,docs:{...(i=e.parameters)==null?void 0:i.docs,source:{originalSource:"{}",...(d=(l=e.parameters)==null?void 0:l.docs)==null?void 0:d.source}}};var p,u,m;r.parameters={...r.parameters,docs:{...(p=r.parameters)==null?void 0:p.docs,source:{originalSource:`{
-  args: {
-    color: 'contrast'
-  }
-}`,...(m=(u=r.parameters)==null?void 0:u.docs)==null?void 0:m.source}}};var f,g,v;o.parameters={...o.parameters,docs:{...(f=o.parameters)==null?void 0:f.docs,source:{originalSource:`{
-  args: {
-    color: 'inverse'
-  }
-}`,...(v=(g=o.parameters)==null?void 0:g.docs)==null?void 0:v.source}}};const C=["Default","ContrastColour","InverseColour"],L=Object.freeze(Object.defineProperty({__proto__:null,ContrastColour:r,Default:e,InverseColour:o,__namedExportsOrder:C,default:b},Symbol.toStringTag,{value:"Module"}));export{r as C,o as I,L};
