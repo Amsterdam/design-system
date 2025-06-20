@@ -39,7 +39,7 @@ export const Default: Story = {
   args: {
     brandName: 'Data Amsterdam',
     children: (
-      <Grid paddingBottom="2x-large">
+      <Grid paddingVertical="large">
         <PageHeader.GridCellNarrowWindowOnly span="all">
           <LinkList>
             <LinkList.Link href="#" lang="en">
@@ -99,7 +99,7 @@ export const Default: Story = {
 export const WithMovingLinks: Story = {
   args: {
     children: (
-      <Grid gapVertical="large" paddingBottom="2x-large">
+      <Grid gapVertical="large" paddingVertical="large">
         <PageHeader.GridCellNarrowWindowOnly span="all">
           <LinkList>
             <LinkList.Link href="#" lang="en">
