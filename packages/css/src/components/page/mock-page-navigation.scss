@@ -1,0 +1,57 @@
+/**
+ * @license EUPL-1.2+
+ * Copyright Gemeente Amsterdam
+ */
+
+@use "../../common/breakpoint" as *;
+@use "../../common/hyphenation" as *;
+@use "../../common/text-rendering" as *;
+
+.ams-mock-page-navigation {
+  align-items: center;
+  background-color: var(--ams-color-interactive);
+  display: flex;
+  overflow: auto;
+  padding-block: 0;
+  padding-inline: var(--ams-grid-padding-inline);
+
+  @media screen and (min-width: $ams-breakpoint-medium) {
+    flex-direction: column;
+    overflow: initial;
+    padding-block-start: calc(var(--ams-logo-block-size) + 2 * var(--ams-page-header-padding-block));
+    padding-inline: 0;
+  }
+
+  > * {
+    color: var(--ams-color-text-inverse);
+  }
+}
+
+.ams-mock-page-navigation-link {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  font-family: var(--ams-typography-font-family);
+  font-size: var(--ams-typography-body-text-small-font-size);
+  font-weight: var(--ams-typography-body-text-font-weight);
+  gap: var(--ams-space-s);
+  inline-size: 6rem;
+  line-height: var(--ams-typography-body-text-small-line-height);
+  padding-block: var(--ams-space-m);
+  padding-inline: var(--ams-space-s);
+  text-align: center;
+  text-decoration-line: var(--ams-links-subtle-text-decoration-line);
+  text-decoration-thickness: var(--ams-links-text-decoration-thickness);
+  text-underline-offset: var(--ams-links-text-underline-offset);
+
+  @include hyphenation;
+  @include text-rendering;
+
+  &:hover {
+    text-decoration-line: var(--ams-links-subtle-hover-text-decoration-line);
+  }
+
+  .ams-icon {
+    fill: var(--ams-color-text-inverse);
+  }
+}
