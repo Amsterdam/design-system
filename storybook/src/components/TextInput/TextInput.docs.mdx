@@ -71,10 +71,14 @@ Follow the [guidelines for asking for telephone numbers](https://design-system.s
 
 ### Type: Whole number
 
-This field helps the user enter a whole number, we recommend using the `text` type for whole numbers.
-You then need to add the `inputMode="numeric"` attribute and a pattern to validate the input.
-Do not rely only on the browser’s validation. The `text` input field looks like a standard text input.
-On some devices, it may show a numeric keypad to aid in entering whole numbers.
+This field helps the user enter a whole number.
+Avoid using `type="number"` as it has several usability and accessibility issues.
+Instead, we use `inputMode="numeric"`, which enables the browser to display a numeric keypad.
+Include `pattern="[0-9]*"` to allow only decimal numbers.
+However, do not rely only on the browser’s validation.
+Add `spellcheck="false"` to prevent browsers from automatically changing user input.
+
+This follows guidelines of [NL Design System](https://www.nldesignsystem.nl/richtlijnen/formulieren/wanneer-welk-form-element/iedereen-kan-invullen#input-typenumber-versus-inputmodenumeric) and the [GOV.UK Design System](https://technology.blog.gov.uk/2020/02/24/why-the-gov-uk-design-system-team-changed-the-input-type-for-numbers/).
 
 <Canvas of={TextInputStories.WholeNumber} />
 
