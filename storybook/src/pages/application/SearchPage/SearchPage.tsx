@@ -64,7 +64,7 @@ export const SearchPage = () => {
   const uniqueAanvragers = Array.from(new Set(Subsidies.map((subsidy) => subsidy.aanvrager)))
 
   return (
-    <>
+    <main className="ams-app-content" id="main">
       <Grid paddingBottom="x-large" paddingTop="large">
         <Grid.Cell as="aside" className={styles.filters} span={{ narrow: 4, medium: 3, wide: 3 }}>
           <Column gap="large">
@@ -207,6 +207,6 @@ export const SearchPage = () => {
           <Button>Opslaan</Button>
         </ActionGroup>
       </div>
-    </>
+    </main>
   )
 }

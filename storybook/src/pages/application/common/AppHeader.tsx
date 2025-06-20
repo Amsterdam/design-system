@@ -3,7 +3,7 @@
  * Copyright Gemeente Amsterdam
  */
 
-import { Grid, LinkList, PageHeader } from '@amsterdam/design-system-react'
+import { PageHeader } from '@amsterdam/design-system-react'
 
 export const AppHeader = () => {
   return (
@@ -13,28 +13,11 @@ export const AppHeader = () => {
         <PageHeader.MenuLink href="#" key="1">
           Dashboard
         </PageHeader.MenuLink>,
-        <PageHeader.MenuLink href="#" key="2">
-          Category 1
-        </PageHeader.MenuLink>,
-        <PageHeader.MenuLink href="#" key="3">
-          Category 2
-        </PageHeader.MenuLink>,
-        <PageHeader.MenuLink href="#" key="5">
-          Settings
+        <PageHeader.MenuLink fixed href="#" key="2">
+          Inloggen
         </PageHeader.MenuLink>,
       ]}
       noMenuButtonOnWideWindow
-    >
-      <Grid paddingVertical="large">
-        <PageHeader.GridCellNarrowWindowOnly span="all">
-          <LinkList>
-            <LinkList.Link href="#">Dashboard</LinkList.Link>
-            <LinkList.Link href="#">Category 1</LinkList.Link>
-            <LinkList.Link href="#">Category 2</LinkList.Link>
-            <LinkList.Link href="#">Settings</LinkList.Link>
-          </LinkList>
-        </PageHeader.GridCellNarrowWindowOnly>
-      </Grid>
-    </PageHeader>
+    ></PageHeader>
   )
 }

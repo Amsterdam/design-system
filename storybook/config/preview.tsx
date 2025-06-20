@@ -5,6 +5,7 @@ import '@amsterdam/design-system-css/dist/index.css'
 import '../src/styles/docs.css'
 import '../src/styles/overrides.css'
 import { Page } from '@amsterdam/design-system-react'
+import { App } from '@amsterdam/design-system-react/src'
 import { withThemeByClassName } from '@storybook/addon-themes'
 import type { StoryContext, StoryFn } from '@storybook/react'
 import clsx from 'clsx'
@@ -18,17 +19,27 @@ export const argTypes = {
 
 // Wrap in Page, set language to Dutch for Canvas and Stories
 export const decorators = [
-  (Story: StoryFn, { args }: StoryContext) => (
-    <Page
-      className={clsx({
-        'ams-docs-dark-background': args['color'] === 'inverse',
-        'ams-docs-light-background': args['color'] === 'contrast',
-      })}
-      lang="nl"
-    >
-      <Story />
-    </Page>
-  ),
+  (Story: StoryFn, { args, context }: StoryContext) => {
+    if (context?.componentId.startsWith('pages-application')) {
+      return (
+        <App>
+          <Story />
+        </App>
+      )
+    }
+
+    return (
+      <Page
+        className={clsx({
+          'ams-docs-dark-background': args['color'] === 'inverse',
+          'ams-docs-light-background': args['color'] === 'contrast',
+        })}
+        lang="nl"
+      >
+        <Story />
+      </Page>
+    )
+  },
   withThemeByClassName({
     defaultTheme: 'Spacious',
     themes: {

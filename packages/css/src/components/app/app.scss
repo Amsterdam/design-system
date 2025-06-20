@@ -1,0 +1,41 @@
+/**
+ * @license EUPL-1.2+
+ * Copyright Gemeente Amsterdam
+ */
+
+@use "../../common/breakpoint" as *;
+
+.ams-app {
+  display: grid;
+  grid-template-areas:
+    "header"
+    "content"
+    "navigation"
+    "footer";
+
+  .ams-app-navigation {
+    grid-area: navigation;
+  }
+
+  // TODO App-header zonder mega menu maar met avatar/settings/zoeken?
+  .ams-page-header {
+    grid-area: header;
+  }
+
+  .ams-app-content {
+    grid-area: content;
+  }
+
+  .ams-page-footer {
+    grid-area: footer;
+  }
+
+  @media screen and (min-width: $ams-breakpoint-medium) {
+    grid-template-areas:
+      "navigation header"
+      "navigation content"
+      "navigation footer";
+    grid-template-columns: auto 1fr;
+    grid-template-rows: auto 1fr auto;
+  }
+}
