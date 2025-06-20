@@ -1,0 +1,1 @@
+import{j as e}from"./jsx-runtime-Cf8x2fCZ.js";import{c as t}from"./clsx-B-dksMZM.js";import{r as c}from"./index-G8LIXM5I.js";const p=c.forwardRef(({children:r,className:a,...s},o)=>e.jsx("div",{...s,className:t("ams-app",a),ref:o,children:r}));p.displayName="App";try{p.displayName="App",p.__docgenInfo={description:"",displayName:"App",props:{}}}catch{}export{p as A};
