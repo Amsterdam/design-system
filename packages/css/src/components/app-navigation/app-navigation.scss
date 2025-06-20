@@ -3,41 +3,99 @@
  * Copyright Gemeente Amsterdam
  */
 
+@use "../../common/breakpoint" as *;
+
 .ams-app-navigation {
-  background: var(--ams-color-interactive);
+  align-items: flex-start;
+  background: var(--ams-app-navigation-background-color);
   display: grid;
-  grid-template-rows: subgrid;
-  min-inline-size: 114px;
+  grid-template-rows: 88px 1fr;
+  max-block-size: 0;
+  min-inline-size: var(--ams-app-navigation-inline-size);
+  overflow: hidden;
+
+  &--expanded {
+    min-inline-size: var(--ams-app-navigation-expanded-inline-size);
+  }
+
+  &--open {
+    max-block-size: 1000px;
+  }
+
+  @media screen and (min-width: $ams-breakpoint-wide) {
+    max-block-size: initial;
+    overflow: initial;
+  }
+
+  @supports (grid-template-rows: subgrid) {
+    grid-template-rows: subgrid;
+  }
 }
 
 .ams-app-navigation__menu {
+  block-size: 0;
+  container-name: appnavigation;
+  container-type: inline-size;
   display: flex;
   flex-direction: column;
   gap: var(--ams-space-m);
-  grid-row-start: content-start;
+  grid-row-start: 2;
+  inset-block-start: var(--ams-space-m);
   list-style: none;
   margin-block: 0;
+  padding-block: 0;
   padding-inline: 0;
+  position: sticky;
+
+  @media screen and (max-width: $ams-breakpoint-wide) {
+    .ams-app-navigation--open & {
+      block-size: auto;
+      padding-block: var(--ams-space-m);
+    }
+  }
+
+  @media screen and (min-width: $ams-breakpoint-wide) {
+    block-size: initial;
+    padding-block: 0;
+    padding-inline: 0;
+
+    .ams-app-navigation--open & {
+      block-size: initial;
+      padding-block: 0;
+    }
+  }
+
+  @supports (grid-template-rows: subgrid) {
+    grid-row-start: content-start;
+  }
 }
 
 .ams-app-navigation__menu-link {
   align-items: center;
-  background-color: var(--ams-color-interactive);
-  color: var(--ams-color-interactive-inverse);
+  color: var(--ams-app-navigation-menu-link-color);
+  column-gap: var(--ams-space-m);
   display: flex;
   flex-direction: column;
-  font-family: var(--ams-typography-font-family);
-  font-size: var(--ams-typography-body-text-small-font-size);
-  font-weight: var(--ams-typography-body-text-bold-font-weight);
-  line-height: var(--ams-typography-body-text-small-line-height);
-  padding-block: var(--ams-space-s);
-  text-decoration: none;
+  font-family: var(--ams-app-navigation-menu-link-font-family);
+  font-size: var(--ams-app-navigation-menu-link-font-size);
+  font-weight: var(--ams-app-navigation-menu-link-font-weight);
+  line-height: var(--ams-app-navigation-menu-link-line-height);
+  outline-offset: var(--ams-app-navigation-menu-link-outline-offset);
+  text-decoration-line: var(--ams-app-navigation-menu-link-text-decoration-line);
+  text-decoration-thickness: var(--ams-app-navigation-menu-link-text-decoration-thickness);
+  text-underline-offset: var(--ams-app-navigation-menu-link-text-underline-offset);
 
   .ams-icon {
-    align-self: initial;
+    align-self: initial; /* Workaround to center the icon */
+  }
+
+  @container appnavigation (min-width: 120px) {
+    flex-direction: row;
+    justify-content: flex-start;
+    padding-inline: var(--ams-space-l);
   }
 
   &:hover {
-    background-color: var(--ams-color-interactive-hover);
+    background-color: var(--ams-app-navigation-menu-link-hover-background-color);
   }
 }

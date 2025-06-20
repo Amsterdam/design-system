@@ -8,14 +8,20 @@ import { forwardRef } from 'react'
 import type { ForwardedRef, HTMLAttributes, PropsWithChildren } from 'react'
 import { AppNavigationMenuLink } from './AppNavigationLink'
 
-export type AppNavigationProps = PropsWithChildren<HTMLAttributes<HTMLElement>>
+export type AppNavigationProps = {
+  expanded?: boolean
+} & PropsWithChildren<HTMLAttributes<HTMLElement>>
 
 /**
  * @see {@link https://designsystem.amsterdam/?path=/docs/components-TODO-ADD-GROUP-app-navigation--docs AppNavigation docs at Amsterdam Design System}
  */
 export const AppNavigationRoot = forwardRef(
-  ({ children, className, ...restProps }: AppNavigationProps, ref: ForwardedRef<HTMLElement>) => (
-    <nav {...restProps} className={clsx('ams-app-navigation', className)} ref={ref}>
+  ({ children, className, expanded, ...restProps }: AppNavigationProps, ref: ForwardedRef<HTMLElement>) => (
+    <nav
+      {...restProps}
+      className={clsx('ams-app-navigation', expanded && 'ams-app-navigation--expanded', className)}
+      ref={ref}
+    >
       <ul className="ams-app-navigation__menu">{children}</ul>
     </nav>
   ),
