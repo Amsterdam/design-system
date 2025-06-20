@@ -5,7 +5,6 @@ import '@amsterdam/design-system-css/dist/index.css'
 import '../src/styles/docs.css'
 import '../src/styles/overrides.css'
 import { Page } from '@amsterdam/design-system-react'
-import { App } from '@amsterdam/design-system-react/src'
 import { withThemeByClassName } from '@storybook/addon-themes'
 import type { StoryContext, StoryFn } from '@storybook/react'
 import clsx from 'clsx'
@@ -21,11 +20,7 @@ export const argTypes = {
 export const decorators = [
   (Story: StoryFn, { args, context }: StoryContext) => {
     if (context?.componentId.startsWith('pages-application')) {
-      return (
-        <App>
-          <Story />
-        </App>
-      )
+      return <Story />
     }
 
     return (

@@ -3,17 +3,15 @@
  * Copyright Gemeente Amsterdam
  */
 
-import { PageHeader } from '@amsterdam/design-system-react'
+import { PageHeader } from '@amsterdam/design-system-react/src'
 
 export const AppHeader = () => {
   return (
     <PageHeader
+      appnavigation
       brandName="Application"
       menuItems={[
         <PageHeader.MenuLink href="#" key="1">
-          Dashboard
-        </PageHeader.MenuLink>,
-        <PageHeader.MenuLink fixed href="#" key="2">
           Inloggen
         </PageHeader.MenuLink>,
       ]}
