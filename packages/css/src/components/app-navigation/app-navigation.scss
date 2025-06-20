@@ -1,0 +1,43 @@
+/**
+ * @license EUPL-1.2+
+ * Copyright Gemeente Amsterdam
+ */
+
+.ams-app-navigation {
+  background: var(--ams-color-interactive);
+  display: grid;
+  grid-template-rows: subgrid;
+  min-inline-size: 114px;
+}
+
+.ams-app-navigation__menu {
+  display: flex;
+  flex-direction: column;
+  gap: var(--ams-space-m);
+  grid-row-start: content-start;
+  list-style: none;
+  margin-block: 0;
+  padding-inline: 0;
+}
+
+.ams-app-navigation__menu-link {
+  align-items: center;
+  background-color: var(--ams-color-interactive);
+  color: var(--ams-color-interactive-inverse);
+  display: flex;
+  flex-direction: column;
+  font-family: var(--ams-typography-font-family);
+  font-size: var(--ams-typography-body-text-small-font-size);
+  font-weight: var(--ams-typography-body-text-bold-font-weight);
+  line-height: var(--ams-typography-body-text-small-line-height);
+  padding-block: var(--ams-space-s);
+  text-decoration: none;
+
+  .ams-icon {
+    align-self: initial;
+  }
+
+  &:hover {
+    background-color: var(--ams-color-interactive-hover);
+  }
+}
