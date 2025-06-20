@@ -3,6 +3,13 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.1.0](https://github.com/Amsterdam/design-system/compare/design-system-react-v1.0.0...design-system-react-v1.1.0) (2025-06-06)
+
+
+### Features
+
+* **Logo, Page Header:** Improve accessibility of Logo SVG ([#2053](https://github.com/Amsterdam/design-system/issues/2053)) ([64cd70d](https://github.com/Amsterdam/design-system/commit/64cd70d157f3abf5c608b2af1469815c3966aa55))
+
 ## [1.0.0](https://github.com/Amsterdam/design-system/compare/design-system-react-v0.16.0...design-system-react-v1.0.0) (2025-05-28)
 
 

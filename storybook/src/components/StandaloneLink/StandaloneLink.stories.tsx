@@ -3,8 +3,9 @@
  * Copyright Gemeente Amsterdam
  */
 
-import { Grid, Heading, Paragraph } from '@amsterdam/design-system-react'
+import { Heading, Paragraph } from '@amsterdam/design-system-react'
 import { StandaloneLink } from '@amsterdam/design-system-react/src'
+import { ChevronForwardIcon } from '@amsterdam/design-system-react-icons'
 import * as Icons from '@amsterdam/design-system-react-icons'
 import { Meta, StoryObj } from '@storybook/react-vite'
 
@@ -61,26 +62,23 @@ export const InverseColour: Story = {
   },
 }
 
-export const InAnArticle: Story = {
+export const WithChevronIcon: Story = {
   args: {
-    children: 'Alle bouw- en verkeerswerkzaamheden',
+    children: 'Bekijk alle werkzaamheden',
+    icon: ChevronForwardIcon,
   },
   decorators: [
     (Story) => (
-      <Grid>
-        <Grid.Cell span={{ narrow: 4, medium: 5, wide: 6 }}>
-          <article>
-            <Heading className="ams-mb-xs" level={2}>
-              Werkzaamheden
-            </Heading>
-            <Paragraph className="ams-mb-s">
-              Lees waar en wanneer we werken aan nieuwbouw, groot onderhoud, herinrichting van straten en wegen, aanpak
-              van parken of ontwikkeling van hele gebieden.
-            </Paragraph>
-            <Story />
-          </article>
-        </Grid.Cell>
-      </Grid>
+      <article style={{ maxWidth: '32rem' }}>
+        <Heading className="ams-mb-xs" level={2}>
+          Werkzaamheden
+        </Heading>
+        <Paragraph className="ams-mb-s">
+          Lees waar en wanneer we werken aan nieuwbouw, groot onderhoud, herinrichting van straten en wegen, aanpak van
+          parken of ontwikkeling van hele gebieden.
+        </Paragraph>
+        <Story />
+      </article>
     ),
   ],
 }

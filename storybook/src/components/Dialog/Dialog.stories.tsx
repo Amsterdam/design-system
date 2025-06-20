@@ -81,7 +81,7 @@ export const Confirmation: Story = {
             action('cancel')()
             return Dialog.close(event)
           }}
-          variant="tertiary"
+          variant="secondary"
         >
           Stoppen
         </Button>
