@@ -13,12 +13,15 @@ import {
   HouseCanalFillIcon,
 } from '@amsterdam/design-system-react-icons'
 import clsx from 'clsx'
-import type { HTMLAttributes, PropsWithChildren } from 'react'
+import type { HTMLAttributes, PropsWithChildren, ReactNode } from 'react'
 import { LayoutProvider, useLayoutContext } from './LayoutContext'
 
-type LayoutProps = PropsWithChildren<HTMLAttributes<HTMLElement>>
+type LayoutProps = {
+  navExpanded?: boolean
+  navItems?: ReactNode
+} & PropsWithChildren<HTMLAttributes<HTMLElement>>
 
-const LayoutContent = ({ children }: LayoutProps) => {
+const LayoutContent = ({ children, navExpanded, navItems }: LayoutProps) => {
   const { appNavigationOpen, setAppNavigationOpen } = useLayoutContext()
 
   return (
@@ -38,22 +41,21 @@ const LayoutContent = ({ children }: LayoutProps) => {
         noMenuButtonOnWideWindow
       ></PageHeader>
 
-      <AppNavigation aria-label="Main" className={clsx(appNavigationOpen && 'ams-app-navigation--open')}>
-        <AppNavigation.Link href="#dashboard" icon={HouseCanalFillIcon} key={1}>
-          Dashboard
-        </AppNavigation.Link>
-        <AppNavigation.Link href="#projecten" icon={FolderFillIcon} key={2}>
-          Projecten
-        </AppNavigation.Link>
-        <AppNavigation.Link href="#rapportages" icon={DocumentsFillIcon} key={3}>
-          Rapportages
-        </AppNavigation.Link>
-        <AppNavigation.Link href="#analyses" icon={BarChartFillIcon} key={4}>
-          Analyses
-        </AppNavigation.Link>
-        <AppNavigation.Link href="#instellingen" icon={CogwheelFillIcon} key={5}>
-          Instellingen
-        </AppNavigation.Link>
+      <AppNavigation
+        aria-label="Main"
+        className={clsx(appNavigationOpen && 'ams-app-navigation--open')}
+        expanded={navExpanded}
+      >
+        {navItems ??
+          (navItems || (
+            <>
+              <AppNavigation.Link href="#dashboard" icon={HouseCanalFillIcon} key={1} label="Dashboard" />
+              <AppNavigation.Link href="#projecten" icon={FolderFillIcon} key={2} label="Projecten" />
+              <AppNavigation.Link href="#rapportages" icon={DocumentsFillIcon} key={3} label="Rapportages" />
+              <AppNavigation.Link href="#analyses" icon={BarChartFillIcon} key={4} label="Analyses" />
+              <AppNavigation.Link href="#instellingen" icon={CogwheelFillIcon} key={5} label="Instellingen" />
+            </>
+          ))}
       </AppNavigation>
 
       <main className="ams-app-content" id="main">

@@ -19,15 +19,15 @@ import {
   SearchIcon,
 } from '@amsterdam/design-system-react-icons'
 import { Meta, StoryObj } from '@storybook/react'
-import { SearchPage } from './SearchPage'
+import { DetailsPage } from './DetailsPage'
 import { Layout } from '../common/Layout'
 import { commonMeta } from '../common/config'
 
 const meta = {
   ...commonMeta,
-  title: 'Pages/Application/Search',
-  component: SearchPage,
-} satisfies Meta<typeof SearchPage>
+  title: 'Pages/Application/Details',
+  component: DetailsPage,
+} satisfies Meta<typeof DetailsPage>
 
 export default meta
 
@@ -65,7 +65,18 @@ export const WithSubNavigation: StoryObj = {
                 <AppNavigation.Link href="#projecten/beheer" icon={CogwheelIcon} key="7" label="Beheer" />
               </AppNavigation.Menu>
             </AppNavigation.Link>
-            <AppNavigation.Link href="#rapportages" icon={DocumentsFillIcon} key={3} label="Rapportages" />
+            <AppNavigation.Link href="#rapportages" icon={DocumentsFillIcon} key={3} label="Rapportages">
+              <AppNavigation.Menu>
+                <AppNavigation.Link href="#projecten/objecten" icon={BuildingIcon} key="1" label="Objecten" />
+                <AppNavigation.Link href="#projecten/inspecties" icon={SearchIcon} key="2" label="Inspecties" />
+                <AppNavigation.Link
+                  href="#projecten/nader-onderzoek"
+                  icon={DocumentCheckMarkIcon}
+                  key="3"
+                  label="Nader onderzoek"
+                />
+              </AppNavigation.Menu>
+            </AppNavigation.Link>
             <AppNavigation.Link href="#analyses" icon={BarChartFillIcon} key={4} label="Analyses" />
             <AppNavigation.Link href="#instellingen" icon={CogwheelFillIcon} key={5} label="Instellingen" />
           </>
