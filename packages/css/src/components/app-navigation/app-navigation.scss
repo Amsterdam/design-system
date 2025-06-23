@@ -72,6 +72,7 @@
 
 .ams-app-navigation__menu-link {
   align-items: center;
+  border-inline-end: 4px solid var(--ams-app-navigation-background-color);
   color: var(--ams-app-navigation-menu-link-color);
   column-gap: var(--ams-space-m);
   display: flex;
@@ -85,17 +86,63 @@
   text-decoration-thickness: var(--ams-app-navigation-menu-link-text-decoration-thickness);
   text-underline-offset: var(--ams-app-navigation-menu-link-text-underline-offset);
 
+  .ams-app-navigation_menu-link-label {
+    flex-grow: 1;
+  }
+
   .ams-icon {
     align-self: initial; /* Workaround to center the icon */
+
+    .ams-app-navigation__menu-item--open & {
+      rotate: 180deg;
+    }
   }
 
   @container appnavigation (min-width: 120px) {
     flex-direction: row;
     justify-content: flex-start;
-    padding-inline: var(--ams-space-l);
+    padding-inline: var(--ams-space-l) var(--ams-space-m);
   }
 
-  &:hover {
+  &:hover:not(&--active) {
     background-color: var(--ams-app-navigation-menu-link-hover-background-color);
+    border-inline-end-color: var(--ams-color-interactive-hover);
+  }
+
+  &--active {
+    border-inline-end-color: var(--ams-color-interactive-inverse);
+  }
+}
+
+.ams-app-navigation__menu-item {
+  overflow: hidden;
+
+  .ams-app-navigation__menu {
+    background-color: white;
+    block-size: 0;
+    gap: 0;
+    padding-block: 0;
+
+    .ams-app-navigation__menu-link {
+      border-inline-end-color: var(--ams-color-interactive-inverse);
+      color: (var(--ams-color-interactive));
+      padding-block: var(--ams-space-xs);
+
+      .ams-icon {
+        rotate: 0deg;
+      }
+
+      &:hover {
+        background-color: white;
+        color: var(--ams-color-interactive-hover);
+        text-decoration-line: var(--ams-app-navigation-menu-link-hover-text-decoration-line);
+      }
+    }
+  }
+
+  &--open {
+    .ams-app-navigation__menu {
+      block-size: auto;
+    }
   }
 }

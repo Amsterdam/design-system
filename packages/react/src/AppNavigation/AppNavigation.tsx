@@ -7,6 +7,7 @@ import clsx from 'clsx'
 import { forwardRef } from 'react'
 import type { ForwardedRef, HTMLAttributes, PropsWithChildren } from 'react'
 import { AppNavigationMenuLink } from './AppNavigationLink'
+import { AppNavigationMenu } from './AppNavigationMenu'
 
 export type AppNavigationProps = {
   expanded?: boolean
@@ -22,7 +23,7 @@ export const AppNavigationRoot = forwardRef(
       className={clsx('ams-app-navigation', expanded && 'ams-app-navigation--expanded', className)}
       ref={ref}
     >
-      <ul className="ams-app-navigation__menu">{children}</ul>
+      <ol className="ams-app-navigation__menu">{children}</ol>
     </nav>
   ),
 )
@@ -31,4 +32,5 @@ AppNavigationRoot.displayName = 'AppNavigation'
 
 export const AppNavigation = Object.assign(AppNavigationRoot, {
   Link: AppNavigationMenuLink,
+  Menu: AppNavigationMenu,
 })
