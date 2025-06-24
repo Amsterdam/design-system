@@ -25,6 +25,6 @@
     "optimize-icons": "svgo -f icons"
   },
   "devDependencies": {
-    "svgo": "3.3.2"
+    "svgo": "4.0.0"
   }
 }
