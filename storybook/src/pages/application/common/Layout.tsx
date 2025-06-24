@@ -17,11 +17,12 @@ import type { HTMLAttributes, PropsWithChildren, ReactNode } from 'react'
 import { LayoutProvider, useLayoutContext } from './LayoutContext'
 
 type LayoutProps = {
+  expandable?: boolean
   navExpanded?: boolean
   navItems?: ReactNode
 } & PropsWithChildren<HTMLAttributes<HTMLElement>>
 
-const LayoutContent = ({ children, navExpanded, navItems }: LayoutProps) => {
+const LayoutContent = ({ children, expandable, navExpanded, navItems }: LayoutProps) => {
   const { appNavigationOpen, setAppNavigationOpen } = useLayoutContext()
 
   return (
@@ -43,8 +44,10 @@ const LayoutContent = ({ children, navExpanded, navItems }: LayoutProps) => {
 
       <AppNavigation
         aria-label="Main"
-        className={clsx(appNavigationOpen && 'ams-app-navigation--open')}
+        className={clsx(appNavigationOpen && 'ams-app-navigation--expanded')}
+        expandable={expandable}
         expanded={navExpanded}
+        onToggle={() => setAppNavigationOpen(!appNavigationOpen)}
       >
         {navItems ??
           (navItems || (

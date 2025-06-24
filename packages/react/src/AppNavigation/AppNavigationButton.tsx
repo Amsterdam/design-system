@@ -5,56 +5,49 @@
 
 import { ChevronDownIcon } from '@amsterdam/design-system-react-icons'
 import clsx from 'clsx'
-import React, { Children, isValidElement, useState } from 'react'
-import { AnchorHTMLAttributes, ForwardedRef, forwardRef, PropsWithChildren } from 'react'
+import { Children, isValidElement } from 'react'
+import { ForwardedRef, forwardRef, HTMLAttributes, PropsWithChildren } from 'react'
 import { Icon, IconProps } from '../Icon'
 
-export type AppNavigationMenuLinkProps = {
+export type AppNavigationMenuButtonProps = {
   active?: boolean
   icon?: IconProps['svg']
   label: string
-} & PropsWithChildren<AnchorHTMLAttributes<HTMLAnchorElement>>
+} & PropsWithChildren<HTMLAttributes<HTMLButtonElement>>
 
-export const AppNavigationMenuLink = forwardRef(
+export const AppNavigationMenuButton = forwardRef(
   (
-    { active, children, className, icon, label, ...restProps }: AppNavigationMenuLinkProps,
-    ref: ForwardedRef<HTMLAnchorElement>,
+    { active, children, className, icon, label, ...restProps }: AppNavigationMenuButtonProps,
+    ref: ForwardedRef<HTMLButtonElement>,
   ) => {
-    const [submenuOpen, setSubmenuOpen] = useState(false)
+    // const [submenuOpen, setSubmenuOpen] = useState(false)
 
     // Check if children contain an element with type 'AppNavigation.Menu'
     const hasSubMenu = Children.toArray(children).some(
       (child) => isValidElement(child) && (child.type as any)?.displayName === 'AppNavigation.Menu',
     )
 
-    const handleClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
-      if (hasSubMenu) {
-        e.preventDefault()
-        setSubmenuOpen((open) => !open)
-      }
-    }
-
     return (
-      <li className={clsx('ams-app-navigation__menu-item', submenuOpen && 'ams-app-navigation__menu-item--open')}>
-        <a
+      <li className={clsx('ams-app-navigation__menu-item')}>
+        <button
           {...restProps}
-          aria-expanded={hasSubMenu ? submenuOpen : undefined}
+          //   aria-expanded={hasSubMenu ? submenuOpen : undefined}
           className={clsx(
             'ams-app-navigation__menu-link',
             active && 'ams-app-navigation__menu-link--active',
             className,
           )}
-          onClick={handleClick}
+          //   onClick={handleClick}
           ref={ref}
         >
           {icon && <Icon size="large" svg={icon} />}
           <span className="ams-app-navigation__menu-link-label">{label}</span>
           {hasSubMenu && <Icon className="ams-app-navigation__menu-link-chevron" size="small" svg={ChevronDownIcon} />}
-        </a>
+        </button>
         {children}
       </li>
     )
   },
 )
 
-AppNavigationMenuLink.displayName = 'AppNavigation.MenuLink'
+AppNavigationMenuButton.displayName = 'AppNavigation.MenuButton'

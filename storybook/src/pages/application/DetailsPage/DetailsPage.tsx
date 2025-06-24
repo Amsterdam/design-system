@@ -159,17 +159,19 @@ export const DetailsPage = () => {
             <Tabs.Panel id="Acties">
               <Column gap="large">
                 <Heading level={2}>Object Acties</Heading>
-                <ActionGroup>
-                  <Button onClick={action('Actie 1 uitgevoerd')} variant="primary">
-                    Actie 1
-                  </Button>
-                  <Button onClick={action('Actie 1 uitgevoerd')} variant="secondary">
-                    Actie 2
-                  </Button>
-                  <Button disabled onClick={action('Actie 1 uitgevoerd')} variant="secondary">
-                    Actie 3
-                  </Button>
-                </ActionGroup>
+                <div>
+                  <ActionGroup>
+                    <Button onClick={action('Actie 1 uitgevoerd')} variant="primary">
+                      Actie 1
+                    </Button>
+                    <Button onClick={action('Actie 1 uitgevoerd')} variant="secondary">
+                      Actie 2
+                    </Button>
+                    <Button disabled onClick={action('Actie 1 uitgevoerd')} variant="secondary">
+                      Actie 3
+                    </Button>
+                  </ActionGroup>
+                </div>
                 <Heading level={2}>Upload</Heading>
                 <FileInputWithFileList />
               </Column>
