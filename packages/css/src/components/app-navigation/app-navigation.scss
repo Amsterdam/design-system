@@ -43,6 +43,10 @@
   }
 }
 
+.ams-app-navigation--expanded .ams-app-navigation__toggle {
+  rotate: 180deg;
+}
+
 .ams-app-navigation__menu {
   block-size: 0;
   container-name: appnavigation;
