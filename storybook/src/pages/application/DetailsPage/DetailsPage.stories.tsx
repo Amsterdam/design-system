@@ -108,52 +108,52 @@ export const Expandable: StoryObj = {
   ],
 }
 
-export const ExpandableWithSubNavigation: StoryObj = {
-  decorators: [
-    (Story) => (
-      <Layout
-        expandable
-        navItems={
-          <>
-            <AppNavigation.Link href="#dashboard" icon={HouseCanalFillIcon} key={1} label="Dashboard" />
-            <AppNavigation.Link href="#projecten" icon={FolderFillIcon} key={2} label="Projecten">
-              <AppNavigation.Menu>
-                <AppNavigation.Link href="#projecten/objecten" icon={BuildingIcon} key="1" label="Objecten" />
-                <AppNavigation.Link href="#projecten/inspecties" icon={SearchIcon} key="2" label="Inspecties" />
-                <AppNavigation.Link
-                  href="#projecten/nader-onderzoek"
-                  icon={DocumentCheckMarkIcon}
-                  key="3"
-                  label="Nader onderzoek"
-                />
-                <AppNavigation.Link href="#projecten/maatregelen" icon={RulerIcon} key="4" label="Maatregelen" />
-                <AppNavigation.Link href="#projecten/batches" icon={HandshakeIcon} key="5" label="Batches" />
-                <AppNavigation.Link href="#projecten/hulp" icon={QuestionMarkCircleIcon} key="6" label="Hulp" />
-                <AppNavigation.Link href="#projecten/beheer" icon={CogwheelIcon} key="7" label="Beheer" />
-              </AppNavigation.Menu>
-            </AppNavigation.Link>
-            <AppNavigation.Link href="#rapportages" icon={DocumentsFillIcon} key={3} label="Rapportages">
-              <AppNavigation.Menu>
-                <AppNavigation.Link href="#projecten/objecten" icon={BuildingIcon} key="1" label="Objecten" />
-                <AppNavigation.Link href="#projecten/inspecties" icon={SearchIcon} key="2" label="Inspecties" />
-                <AppNavigation.Link
-                  href="#projecten/nader-onderzoek"
-                  icon={DocumentCheckMarkIcon}
-                  key="3"
-                  label="Nader onderzoek"
-                />
-              </AppNavigation.Menu>
-            </AppNavigation.Link>
-            <AppNavigation.Link href="#analyses" icon={BarChartFillIcon} key={4} label="Analyses" />
-            <AppNavigation.Link active href="#instellingen" icon={CogwheelFillIcon} key={5} label="Instellingen" />
-          </>
-        }
-      >
-        <Story />
-      </Layout>
-    ),
-  ],
-}
+// export const ExpandableWithSubNavigation: StoryObj = {
+//   decorators: [
+//     (Story) => (
+//       <Layout
+//         expandable
+//         navItems={
+//           <>
+//             <AppNavigation.Link href="#dashboard" icon={HouseCanalFillIcon} key={1} label="Dashboard" />
+//             <AppNavigation.Button icon={FolderFillIcon} key={2} label="Projecten">
+//               <AppNavigation.Menu>
+//                 <AppNavigation.Link href="#projecten/objecten" icon={BuildingIcon} key="1" label="Objecten" />
+//                 <AppNavigation.Link href="#projecten/inspecties" icon={SearchIcon} key="2" label="Inspecties" />
+//                 <AppNavigation.Link
+//                   href="#projecten/nader-onderzoek"
+//                   icon={DocumentCheckMarkIcon}
+//                   key="3"
+//                   label="Nader onderzoek"
+//                 />
+//                 <AppNavigation.Link href="#projecten/maatregelen" icon={RulerIcon} key="4" label="Maatregelen" />
+//                 <AppNavigation.Link href="#projecten/batches" icon={HandshakeIcon} key="5" label="Batches" />
+//                 <AppNavigation.Link href="#projecten/hulp" icon={QuestionMarkCircleIcon} key="6" label="Hulp" />
+//                 <AppNavigation.Link href="#projecten/beheer" icon={CogwheelIcon} key="7" label="Beheer" />
+//               </AppNavigation.Menu>
+//             </AppNavigation.Button>
+//             <AppNavigation.Button icon={DocumentsFillIcon} key={3} label="Rapportages">
+//               <AppNavigation.Menu>
+//                 <AppNavigation.Link href="#projecten/objecten" icon={BuildingIcon} key="1" label="Objecten" />
+//                 <AppNavigation.Link href="#projecten/inspecties" icon={SearchIcon} key="2" label="Inspecties" />
+//                 <AppNavigation.Link
+//                   href="#projecten/nader-onderzoek"
+//                   icon={DocumentCheckMarkIcon}
+//                   key="3"
+//                   label="Nader onderzoek"
+//                 />
+//               </AppNavigation.Menu>
+//             </AppNavigation.Button>
+//             <AppNavigation.Link href="#analyses" icon={BarChartFillIcon} key={4} label="Analyses" />
+//             <AppNavigation.Link active href="#instellingen" icon={CogwheelFillIcon} key={5} label="Instellingen" />
+//           </>
+//         }
+//       >
+//         <Story />
+//       </Layout>
+//     ),
+//   ],
+// }
 
 export const ExpandedWithSubNavigation: StoryObj = {
   decorators: [

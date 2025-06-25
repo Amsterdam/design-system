@@ -75,6 +75,7 @@
 
   @media screen and (min-width: $ams-breakpoint-wide) {
     block-size: initial;
+    gap: 0;
     padding-block: 0;
     padding-inline: 0;
 
@@ -106,6 +107,7 @@
   margin-block: 0; // [1]
   margin-inline: 0; // [1]
   outline-offset: var(--ams-app-navigation-menu-link-outline-offset);
+  padding-block: var(--ams-space-m);
   text-decoration-line: var(--ams-app-navigation-menu-link-text-decoration-line);
   text-decoration-thickness: var(--ams-app-navigation-menu-link-text-decoration-thickness);
   text-underline-offset: var(--ams-app-navigation-menu-link-text-underline-offset);
@@ -135,6 +137,7 @@
   @container appnavigation (min-width: 120px) {
     flex-direction: row;
     justify-content: flex-start;
+    padding-block: var(--ams-space-s);
     padding-inline: var(--ams-space-l) var(--ams-space-m);
   }
 
@@ -157,17 +160,33 @@
 }
 
 .ams-app-navigation__menu[popover] {
+  background: var(--ams-app-navigation-background-color);
   block-size: auto;
+  border: none;
+  display: none;
   inline-size: auto;
   /* stylelint-disable-next-line property-disallowed-list */
   inset: auto;
   inset-block-start: anchor(top);
   inset-inline-start: anchor(right);
   margin-inline-start: 2px;
+  opacity: 0%;
   position: absolute;
+  transition:
+    opacity 0.4s,
+    display 0.4s,
+    overlay 0.4s;
+  transition-behavior: allow-discrete;
 
   .ams-app-navigation__menu-link {
+    flex-direction: row;
+    justify-content: flex-start;
     padding-inline: var(--ams-space-s);
+
+    &:hover {
+      background-color: var(--ams-app-navigation-menu-link-hover-background-color);
+      border-inline-end-color: var(--ams-color-interactive-hover);
+    }
   }
 
   &[id="projecten-menu"] {
@@ -182,25 +201,16 @@
 }
 
 .ams-app-navigation__menu:popover-open {
-  background: var(--ams-app-navigation-background-color);
   border: none;
   box-sizing: border-box;
   display: flex;
   gap: var(--ams-space-xs);
   inline-size: 240px;
-  padding-block: var(--ams-space-xs);
-  padding-inline: var(--ams-space-xs);
+  opacity: 100%;
 
-  .ams-app-navigation__menu-link {
-    flex-direction: row;
-    justify-content: flex-start;
-
-    // padding-inline: var(--ams-space-l) var(--ams-space-m);
-
-    &:hover {
-      background-color: var(--ams-app-navigation-menu-link-hover-background-color);
-      border-inline-end-color: var(--ams-color-interactive-hover);
-    }
+  @starting-style {
+    display: flex;
+    opacity: 0%;
   }
 }
 
