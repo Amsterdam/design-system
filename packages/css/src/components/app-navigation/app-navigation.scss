@@ -190,13 +190,21 @@
   }
 
   &[id="projecten-menu"] {
+    /* stylelint-disable-next-line csstools/use-logical */
+    left: anchor(--projecten-menu right);
     position-anchor: --projecten-menu;
     position-try-fallbacks: --bottom;
+    /* stylelint-disable-next-line csstools/use-logical */
+    top: anchor(--projecten-menu top);
   }
 
   &[id="rapportages-menu"] {
+    /* stylelint-disable-next-line csstools/use-logical */
+    left: anchor(--rapportages-menu right);
     position-anchor: --rapportages-menu;
     position-try-fallbacks: --bottom;
+    /* stylelint-disable-next-line csstools/use-logical */
+    top: anchor(--rapportages-menu top);
   }
 }
 

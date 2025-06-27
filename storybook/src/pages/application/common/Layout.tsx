@@ -12,6 +12,7 @@ import {
   FolderFillIcon,
   HouseCanalFillIcon,
 } from '@amsterdam/design-system-react-icons'
+import polyfill from '@oddbird/css-anchor-positioning/fn'
 import clsx from 'clsx'
 import type { HTMLAttributes, PropsWithChildren, ReactNode } from 'react'
 import { LayoutProvider, useLayoutContext } from './LayoutContext'
@@ -24,6 +25,10 @@ type LayoutProps = {
 
 const LayoutContent = ({ children, expandable, navExpanded, navItems }: LayoutProps) => {
   const { appNavigationOpen, setAppNavigationOpen } = useLayoutContext()
+
+  if (!('anchorName' in document.documentElement.style)) {
+    polyfill()
+  }
 
   return (
     <App>

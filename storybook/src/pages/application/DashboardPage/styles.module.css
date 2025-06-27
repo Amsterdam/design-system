@@ -1,0 +1,27 @@
+/* stylelint-disable selector-class-pattern */
+
+.tile {
+  aspect-ratio: 1;
+  border: 2px solid var(--ams-color-interactive);
+  display: grid;
+  place-items: center;
+}
+
+.tiles {
+  display: grid;
+  gap: 16px;
+  grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+}
+
+.icon {
+  align-self: center;
+  font-size: 60px;
+  line-height: 1.2;
+}
+
+.link {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}

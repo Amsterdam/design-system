@@ -47,7 +47,6 @@ export const DetailsPage = () => {
         const response = await fetch(`https://api.data.amsterdam.nl/v1/subsidies/openbaar_subsidieregister/${randomId}`)
         const data = await response.json()
         const item = data
-        console.log('Fetched Subsidy:', item)
         const formattedSubsidy: SubsidyProps = {
           aanvrager: item.aanvrager || '-',
           bedragAangevraagd:
