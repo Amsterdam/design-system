@@ -1,7 +1,0 @@
-import{j as t}from"./jsx-runtime-Cf8x2fCZ.js";import{useMDXComponents as i}from"./index-CxbY7dAs.js";import{M as s}from"./index-B-6Vub_v.js";import{D as m}from"./DashboardPage.stories-BNvjO70s.js";import{S as n}from"./StatusBadge-DIRNee3V.js";import"./index-yBjzXJbu.js";import"./index-G8LIXM5I.js";import"./_commonjsHelpers-CqkleIqs.js";import"./iframe-DAXeeAMA.js";import"./index-fNjTmf9T.js";import"./index-CXQShRbs.js";import"./index-DrFu-skq.js";import"./index.esm-CN1rmi5g.js";import"./index.esm-BGLgu2rm.js";import"./clsx-B-dksMZM.js";import"./config-gtXCoBve.js";import"./App-DofgP5JU.js";import"./PageHeader-CihQ526n.js";import"./Grid-BHIDbP7U.js";import"./paddingClasses-BhwbQ8nP.js";import"./Icon-BBW_x4VP.js";import"./Logo-BXVw7-MZ.js";import"./AppNavigation-CZ469oYI.js";import"./IconButton-B1cgMLyf.js";import"./Badge-nq-uHbpZ.js";/*@license CC0-1.0*/function e(r){const o={h1:"h1",p:"p",...i(),...r.components};return t.jsxs(t.Fragment,{children:[`
-`,`
-`,`
-`,t.jsx(n,{description:"This page is a work in progress and may change in future releases",status:"beta"}),`
-`,t.jsx(s,{of:m}),`
-`,t.jsx(o.h1,{id:"search-page",children:"Search page"}),`
-`,t.jsx(o.p,{children:"This simple example presents various types of fields to filter, search and sort data."})]})}function F(r={}){const{wrapper:o}={...i(),...r.components};return o?t.jsx(o,{...r,children:t.jsx(e,{...r})}):e(r)}export{F as default};
