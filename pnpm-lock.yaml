@@ -76,8 +76,8 @@ importers:
         specifier: 18.0.1
         version: 18.0.1
       npm-package-json-lint:
-        specifier: 8.0.0
-        version: 8.0.0(typescript@5.8.3)
+        specifier: 9.0.0
+        version: 9.0.0(typescript@5.8.3)
       npm-run-all:
         specifier: 4.1.5
         version: 4.1.5
@@ -5835,9 +5835,9 @@ packages:
     resolution: {integrity: sha512-sHGJy8sOC1YraBywpzQlIKBE4pBbGbiF95U6Auspzyem956E0+FtDtsx1ZxlOJkQCZ1AFXAY/yuvtFYrOxF+Bw==}
     engines: {node: ^16.14.0 || >=18.0.0}
 
-  npm-package-json-lint@8.0.0:
-    resolution: {integrity: sha512-44xqAKoV0nXnBYYLGUhMItGZb5tW3cLoW3UZxcsaCOX/YAkECrzOQA5F48oAA51vVE5CqAnsJB2CFvtolzMA3Q==}
-    engines: {node: '>=18.0.0', npm: '>=9.0.0'}
+  npm-package-json-lint@9.0.0:
+    resolution: {integrity: sha512-bmyraQyO9wAyFwyr+ouMrbv3mFY/UZY8nlBorgqfTw735QtVfAUBKs7GrO/rvJByoKnnwzQIlIFq9WXdfkSL0g==}
+    engines: {node: '>=20.0.0', npm: '>=10.0.0'}
     hasBin: true
 
   npm-packlist@7.0.4:
@@ -6562,11 +6562,6 @@ packages:
     resolution: {integrity: sha512-BR7VvDCVHO+q2xBEWskxS6DJE1qRnb7DxzUrogb71CWoSficBxYsiAGd+Kl0mmq/MprG9yArRkyrQxTO6XjMzA==}
     hasBin: true
 
-  semver@7.6.3:
-    resolution: {integrity: sha512-oVekP1cKtI+CTDvHWYFUcMtsK/00wmAEfyqKfNdARm8u1wNVhSgaX7A8d4UuIlUI5e84iEwOhs7ZPYRmzU9U6A==}
-    engines: {node: '>=10'}
-    hasBin: true
-
   semver@7.7.1:
     resolution: {integrity: sha512-hlq8tAfn0m/61p4BVRcPzIGr6LKiMwo4VM6dGi6pt4qcRkmNzTcWq6eCEjEh+qXjkMDvPlOFFSGwQjoEa6gyMA==}
     engines: {node: '>=10'}
@@ -7122,8 +7117,8 @@ packages:
     resolution: {integrity: sha512-tLq3bSNx+xSpwvAJnzrK0Ep5CLNWjvFTOp71URMaAEWBfRb9nnJiBoUe0tF8bI4ZFO3omgBR6NvnbzVUT3Ly4g==}
     engines: {node: '>=14.16'}
 
-  type-fest@4.31.0:
-    resolution: {integrity: sha512-yCxltHW07Nkhv/1F6wWBr8kz+5BGMfP+RbRSYFnegVb0qV/UMT0G0ElBloPVerqn4M2ZV80Ir1FtCcYv1cT6vQ==}
+  type-fest@4.41.0:
+    resolution: {integrity: sha512-TeTSQ6H5YHvpqVwBRcnLDCBnDOHWYu7IvGbHT6N8AOymcr9PJGjc1GTtiWZTYg0NCgYwvnYWEkVChQAr9bjfwA==}
     engines: {node: '>=16'}
 
   typed-array-buffer@1.0.3:
@@ -7294,6 +7289,10 @@ packages:
   validate-npm-package-name@5.0.1:
     resolution: {integrity: sha512-OljLrQ9SQdOUqTaQxqL5dEfZWrXExyyWsozYlAWFawPVNuD83igl7uJD2RTkNMbniIYgt8l81eCJGIdQF7avLQ==}
     engines: {node: ^14.17.0 || ^16.13.0 || >=18.0.0}
+
+  validate-npm-package-name@6.0.1:
+    resolution: {integrity: sha512-OaI//3H0J7ZkR1OqlhGA8cA+Cbk/2xFOQpJOt5+s27/ta9eZwpeervh4Mxh4w0im/kdgktowaqVNR7QOrUd7Yg==}
+    engines: {node: ^18.17.0 || >=20.5.0}
 
   vfile-message@4.0.2:
     resolution: {integrity: sha512-jRDZ1IMLttGj41KcZvlrYAaI3CfqpLpfpf+Mfig13viT6NKvRzWZ+lXz0Y5D60w6uJIBAOGq9mSHf0gktF0duw==}
@@ -14086,13 +14085,13 @@ snapshots:
       semver: 7.7.2
       validate-npm-package-name: 5.0.1
 
-  npm-package-json-lint@8.0.0(typescript@5.8.3):
+  npm-package-json-lint@9.0.0(typescript@5.8.3):
     dependencies:
       ajv: 6.12.6
       ajv-errors: 1.0.1(ajv@6.12.6)
       chalk: 4.1.2
       cosmiconfig: 8.3.6(typescript@5.8.3)
-      debug: 4.4.0
+      debug: 4.4.1
       globby: 11.1.0
       ignore: 5.3.2
       is-plain-obj: 3.0.0
@@ -14100,11 +14099,11 @@ snapshots:
       log-symbols: 4.1.0
       meow: 9.0.0
       plur: 4.0.0
-      semver: 7.6.3
+      semver: 7.7.2
       slash: 3.0.0
       strip-json-comments: 3.1.1
-      type-fest: 4.31.0
-      validate-npm-package-name: 5.0.1
+      type-fest: 4.41.0
+      validate-npm-package-name: 6.0.1
     transitivePeerDependencies:
       - supports-color
       - typescript
@@ -14985,8 +14984,6 @@ snapshots:
 
   semver@6.3.1: {}
 
-  semver@7.6.3: {}
-
   semver@7.7.1: {}
 
   semver@7.7.2: {}
@@ -15651,7 +15648,7 @@ snapshots:
 
   type-fest@3.13.1: {}
 
-  type-fest@4.31.0: {}
+  type-fest@4.41.0: {}
 
   typed-array-buffer@1.0.3:
     dependencies:
@@ -15904,6 +15901,8 @@ snapshots:
       spdx-expression-parse: 3.0.1
 
   validate-npm-package-name@5.0.1: {}
+
+  validate-npm-package-name@6.0.1: {}
 
   vfile-message@4.0.2:
     dependencies:
