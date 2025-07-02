@@ -25,16 +25,16 @@
           "line-height": { "value": "1.2133" }
         },
         "3": {
-          "font-size": { "value": "clamp(1.21rem, calc(1.1961rem + 0.0695vw), 1.2656rem)" }
+          "font-size": { "value": "{ams.typography.body-text.x-large.font-size}" }
         },
         "4": {
-          "font-size": { "value": "clamp(1.1rem, calc(1.0938rem + 0.0313vw), 1.125rem)" }
+          "font-size": { "value": "{ams.typography.body-text.large.font-size}" }
         },
         "5": {
-          "font-size": { "value": "1rem" }
+          "font-size": { "value": "{ams.typography.body-text.font-size}" }
         },
         "6": {
-          "font-size": { "value": "clamp(0.8889rem, calc(0.9141rem + -0.0253vw), 0.9091rem)" }
+          "font-size": { "value": "{ams.typography.body-text.small.font-size}" }
         }
       }
     }
