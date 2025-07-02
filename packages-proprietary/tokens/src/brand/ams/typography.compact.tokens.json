@@ -22,7 +22,7 @@
         },
         "2": {
           "font-size": { "value": "clamp(1.5893rem, 1.5497rem + 0.1981vw, 1.728rem)" },
-          "line-height": { "value": "1.2133" }
+          "line-height": { "value": "1.2" }
         },
         "3": {
           "font-size": { "value": "{ams.typography.body-text.x-large.font-size}" }
