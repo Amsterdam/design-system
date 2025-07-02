@@ -3,13 +3,13 @@
  * Copyright Gemeente Amsterdam
  */
 
-/*
- * CSS Custom properties cannot be used inside media queries.
- * We to resort to Sass variables for our breakpoint values.
+/**
+ * CSS Custom properties cannot be used in media queries.
+ * We resort to Sass variables for our breakpoint values.
  */
 
 /** The breakpoint at which medium screens start. */
-$ams-breakpoint-medium: 36rem;
+$ams-breakpoint-medium: 37.5rem;
 
 /** The breakpoint at which wide screens start. */
-$ams-breakpoint-wide: 68rem;
+$ams-breakpoint-wide: 72.5rem;
