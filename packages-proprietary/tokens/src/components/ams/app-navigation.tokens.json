@@ -2,12 +2,13 @@
   "ams": {
     "app-navigation": {
       "background-color": { "value": "#004699" },
-      "inline-size": { "value": "114px" },
+      "inline-size": { "value": "7rem" },
       "expanded": {
-        "inline-size": { "value": "240px" }
+        "inline-size": { "value": "15rem" }
       },
       "menu": {
         "gap": { "value": "{ams.space.m}" },
+        "inline-block-start": { "value": "{ams.space.m}" },
         "link": {
           "background-color": { "value": "{ams.color.interactive.default}" },
           "color": { "value": "{ams.links.inverse.color}" },
@@ -22,6 +23,27 @@
           "hover": {
             "background-color": { "value": "{ams.color.interactive.hover}" },
             "text-decoration-line": { "value": "{ams.links.subtle.hover.text-decoration-line}" }
+          }
+        },
+        "item": {
+          "menu": {
+            "link": {
+              "background-color": { "value": "{ams.color.background}" },
+              "color": { "value": "{ams.color.interactive.default}" },
+              "text-decoration-line": { "value": "{ams.links.subtle.text-decoration-line}" },
+              "text-decoration-thickness": { "value": "{ams.links.text-decoration-thickness}" },
+              "padding-block": { "value": "{ams.space.xs}" },
+              "hover": {
+                "text-decoration-line": { "value": "{ams.links.subtle.hover.text-decoration-line}" },
+                "color": { "value": "{ams.color.interactive.hover}" }
+              },
+              "current-page": {
+                "border-inline-end-color": { "value": "{ams.color.interactive}" },
+                "hover": {
+                  "border-inline-end-color": { "value": "{ams.color.interactive.hover}" }
+                }
+              }
+            }
           }
         }
       }

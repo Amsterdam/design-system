@@ -14,11 +14,11 @@
   min-inline-size: var(--ams-app-navigation-inline-size);
   overflow: hidden;
 
-  &--expanded {
+  &.ams-app-navigation--expanded {
     min-inline-size: var(--ams-app-navigation-expanded-inline-size);
   }
 
-  &--open {
+  &.ams-app-navigation--open {
     max-block-size: 1000px;
   }
 
@@ -34,35 +34,26 @@
 
 .ams-app-navigation__menu {
   block-size: 0;
-  container-name: appnavigation;
+  container-name: navigation;
   container-type: inline-size;
   display: flex;
   flex-direction: column;
-  gap: var(--ams-space-m);
   grid-row-start: 2;
-  inset-block-start: var(--ams-space-m);
+  inset-block-start: var(--ams-app-navigation-menu-inline-block-start);
   list-style: none;
   margin-block: 0;
   padding-block: 0;
   padding-inline: 0;
   position: sticky;
 
-  @media screen and (max-width: $ams-breakpoint-wide) {
-    .ams-app-navigation--open & {
-      block-size: auto;
-      padding-block: var(--ams-space-m);
-    }
+  .ams-app-navigation--open & {
+    block-size: auto;
   }
 
   @media screen and (min-width: $ams-breakpoint-wide) {
     block-size: initial;
     padding-block: 0;
     padding-inline: 0;
-
-    .ams-app-navigation--open & {
-      block-size: initial;
-      padding-block: 0;
-    }
   }
 
   @supports (grid-template-rows: subgrid) {
@@ -70,7 +61,24 @@
   }
 }
 
-.ams-app-navigation__menu-link {
+.ams-app-navigation__menu-button {
+  margin-block: 0;
+  margin-inline: 0;
+
+  .ams-app-navigation__menu-link-chevron {
+    .ams-app-navigation__menu-item--open & {
+      rotate: 180deg;
+    }
+  }
+}
+
+.ams-app-navigation_menu-link-label,
+.ams-app-navigation_menu-button-label {
+  flex-grow: 1;
+}
+
+.ams-app-navigation__menu-link,
+.ams-app-navigation__menu-button {
   align-items: center;
   border-inline-end: 4px solid var(--ams-app-navigation-background-color);
   color: var(--ams-app-navigation-menu-link-color);
@@ -82,35 +90,28 @@
   font-weight: var(--ams-app-navigation-menu-link-font-weight);
   line-height: var(--ams-app-navigation-menu-link-line-height);
   outline-offset: var(--ams-app-navigation-menu-link-outline-offset);
+  padding-block: var(--ams-space-s);
   text-decoration-line: var(--ams-app-navigation-menu-link-text-decoration-line);
   text-decoration-thickness: var(--ams-app-navigation-menu-link-text-decoration-thickness);
   text-underline-offset: var(--ams-app-navigation-menu-link-text-underline-offset);
 
-  .ams-app-navigation_menu-link-label {
-    flex-grow: 1;
-  }
-
   .ams-icon {
     align-self: initial; /* Workaround to center the icon */
-
-    .ams-app-navigation__menu-item--open & {
-      rotate: 180deg;
-    }
   }
 
-  @container appnavigation (min-width: 120px) {
+  @container navigation (min-width: 120px) {
     flex-direction: row;
     justify-content: flex-start;
-    padding-inline: var(--ams-space-l) var(--ams-space-m);
+    padding-inline: var(--ams-space-m);
   }
 
-  &:hover:not(&--active) {
+  &[aria-current="page"] {
+    border-inline-end-color: var(--ams-color-interactive-inverse);
+  }
+
+  &:hover {
     background-color: var(--ams-app-navigation-menu-link-hover-background-color);
     border-inline-end-color: var(--ams-color-interactive-hover);
-  }
-
-  &--active {
-    border-inline-end-color: var(--ams-color-interactive-inverse);
   }
 }
 
@@ -118,29 +119,34 @@
   overflow: hidden;
 
   .ams-app-navigation__menu {
-    background-color: white;
     block-size: 0;
     gap: 0;
     padding-block: 0;
 
     .ams-app-navigation__menu-link {
+      background-color: var(--ams-app-navigation-menu-item-menu-link-background-color);
       border-inline-end-color: var(--ams-color-interactive-inverse);
-      color: (var(--ams-color-interactive));
-      padding-block: var(--ams-space-xs);
+      color: var(--ams-app-navigation-menu-item-menu-link-color);
+      padding-block: var(--ams-app-navigation-menu-item-menu-link-padding-block);
+      text-decoration-line: var(--ams-app-navigation-menu-item-menu-link-text-decoration-line);
 
-      .ams-icon {
-        rotate: 0deg;
+      &[aria-current="page"] {
+        border-inline-end-color: var(--ams-app-navigation-menu-item-menu-link-current-page-border-inline-end-color);
+        &:hover {
+          border-inline-end-color: var(
+            --ams-app-navigation-menu-item-menu-link-current-page-hover-border-inline-end-color
+          );
+        }
       }
 
       &:hover {
-        background-color: white;
-        color: var(--ams-color-interactive-hover);
-        text-decoration-line: var(--ams-app-navigation-menu-link-hover-text-decoration-line);
+        color: var(--ams-app-navigation-menu-item-menu-link-hover-color);
+        text-decoration-line: var(--ams-app-navigation-menu-item-menu-link-hover-text-decoration-line);
       }
     }
   }
 
-  &--open {
+  &.ams-app-navigation__menu-item--open {
     .ams-app-navigation__menu {
       block-size: auto;
     }

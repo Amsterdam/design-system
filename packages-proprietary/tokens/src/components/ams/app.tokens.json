@@ -1,5 +1,7 @@
 {
   "ams": {
-    "app": {}
+    "app": {
+      "max-inline-size": { "value": "120rem" }
+    }
   }
 }

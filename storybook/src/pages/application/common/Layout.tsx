@@ -26,7 +26,6 @@ const LayoutContent = ({ children, navExpanded, navItems }: LayoutProps) => {
 
   return (
     <App>
-      {/* Skiplink is stuk, grid positie maken? */}
       <SkipLink href="#main">Direct naar inhoud</SkipLink>
 
       <PageHeader

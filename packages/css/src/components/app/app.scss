@@ -8,10 +8,17 @@
 .ams-app {
   display: grid;
   grid-template-areas:
+    "skiplink"
     "header"
     "navigation"
     "content"
     "footer";
+  margin-inline: 0;
+  max-inline-size: var(--ams-app-max-inline-size);
+
+  .ams-app-skiplink {
+    grid-area: skiplink;
+  }
 
   .ams-app-navigation {
     grid-area: navigation;
@@ -30,13 +37,18 @@
     grid-area: footer;
   }
 
+  &ams-app--fullscreen {
+    max-inline-size: initial;
+  }
+
   @media screen and (min-width: $ams-breakpoint-wide) {
     grid-template-areas:
+      "navigation skiplink"
       "navigation header"
       "navigation content"
       "navigation footer";
     grid-template-columns: auto 1fr;
-    grid-template-rows: auto 1fr auto;
+    grid-template-rows: auto auto 1fr auto;
     min-block-size: 100dvh;
   }
 }

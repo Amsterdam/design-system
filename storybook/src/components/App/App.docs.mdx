@@ -4,6 +4,10 @@ import { Controls, Markdown, Meta, Primary } from "@storybook/blocks";
 import * as AppStories from "./App.stories.tsx";
 import README from "../../../../packages/css/src/components/app/README.md?raw";
 
+import { StatusBadge } from "../../docs/components/StatusBadge.tsx";
+
+<StatusBadge description="This page is a work in progress and may change in future releases" status="beta" />
+
 <Meta of={AppStories} />
 
 <Markdown>{README}</Markdown>
@@ -11,3 +15,62 @@ import README from "../../../../packages/css/src/components/app/README.md?raw";
 <Primary />
 
 <Controls />
+
+## Using the App component
+
+The App component provides styling for the children, which are strucured as follows:
+
+```tsx
+<App>
+  <SkipLink />
+  <PageHeader />
+  <AppNavigation />
+  <main className="ams-app-content">This is where the main content of your application goes.</main>
+  <PageFooter />
+</App>
+```
+
+You will also need to keep track of the open state of the AppNavigation component, which can be done using a state management library or React's built-in state management.
+
+```tsx
+const LayoutContent = ({ children, navExpanded, navItems }: LayoutProps) => {
+  const { appNavigationOpen, setAppNavigationOpen } = useLayoutContext();
+
+  return (
+    <App>
+      <SkipLink href="#main">Direct naar inhoud</SkipLink>
+
+      <PageHeader appnavigation appNavigationExpanded={setAppNavigationOpen}></PageHeader>
+
+      <AppNavigation aria-label="Main" className={clsx(appNavigationOpen && "ams-app-navigation--open")} />
+    </App>
+  );
+};
+
+export const Layout = (props: LayoutProps) => (
+  <LayoutProvider>
+    <LayoutContent {...props} />
+  </LayoutProvider>
+);
+```
+
+The LayoutContext can be set up like this:
+
+```tsx
+import { createContext, ReactNode, useContext, useState } from "react";
+
+type LayoutContextType = {
+  appNavigationOpen: boolean;
+  setAppNavigationOpen: (open: boolean) => void;
+};
+
+const LayoutContext = createContext<LayoutContextType | undefined>(undefined);
+
+export const LayoutProvider = ({ children }: { children: ReactNode }) => {
+  const [appNavigationOpen, setAppNavigationOpen] = useState(false);
+
+  return (
+    <LayoutContext.Provider value={{ appNavigationOpen, setAppNavigationOpen }}>{children}</LayoutContext.Provider>
+  );
+};
+```

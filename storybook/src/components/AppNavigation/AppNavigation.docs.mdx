@@ -1,13 +1,13 @@
 {/* @license CC0-1.0 */}
 
-import { Controls, Markdown, Meta, Primary } from "@storybook/blocks";
+import { Markdown, Meta } from "@storybook/blocks";
 import * as AppNavigationStories from "./AppNavigation.stories.tsx";
 import README from "../../../../packages/css/src/components/app-navigation/README.md?raw";
+
+import { StatusBadge } from "../../docs/components/StatusBadge.tsx";
+
+<StatusBadge description="This page is a work in progress and may change in future releases" status="beta" />
 
 <Meta of={AppNavigationStories} />
 
 <Markdown>{README}</Markdown>
-
-<Primary />
-
-<Controls />
