@@ -36,9 +36,8 @@ const LogoLinkContent = ({
 )
 
 export type PageHeaderProps = {
-  /** When using an AppNavigation component */
-  appnavigation?: boolean
-  appNavigationExpanded?: (open: boolean) => void
+  /** When using the App component instead of Page */
+  appNavigation?: ReactNode
   /** The name of the application. */
   brandName?: string
   /** The accessible name of the logo. */
@@ -64,8 +63,7 @@ export type PageHeaderProps = {
 const PageHeaderRoot = forwardRef(
   (
     {
-      appnavigation = false,
-      appNavigationExpanded,
+      appNavigation,
       brandName,
       children,
       className,
@@ -101,43 +99,7 @@ const PageHeaderRoot = forwardRef(
           <LogoLinkContent brandName={brandName} logoAccessibleName={logoAccessibleName} logoBrand={logoBrand} />
           <span className="ams-visually-hidden">{logoLinkTitle}</span>
         </Link>
-        {appnavigation && (
-          <div className="ams-page-header__navigation">
-            <ul className="ams-page-header__menu">
-              {menuItems && menuItems}
-              <li
-                className={clsx(
-                  noMenuButtonOnWideWindow && 'ams-page-header__mega-menu-button-item--hide-on-wide-window',
-                  'ams-page-header__app-navigation-menu-button-item',
-                )}
-              >
-                <button
-                  aria-controls="ams-app-navigation-menu"
-                  aria-expanded={open}
-                  className="ams-page-header__mega-menu-button"
-                  onClick={() => {
-                    setOpen(!open)
-                    appNavigationExpanded?.(!open)
-                  }}
-                  type="button"
-                >
-                  <span className="ams-page-header__mega-menu-button-label">{menuButtonText}</span>
-                  <span aria-hidden="true" className="ams-page-header__mega-menu-button-hidden-label">
-                    {menuButtonText}
-                  </span>
-                  <Icon
-                    svg={
-                      <PageHeaderMenuIcon
-                        className={clsx('ams-page-header__menu-icon', open && 'ams-page-header__menu-icon--open')}
-                      />
-                    }
-                  />
-                </button>
-              </li>
-            </ul>
-          </div>
-        )}
-        {(hasMegaMenu || menuItems) && !appnavigation && (
+        {(hasMegaMenu || menuItems) && !appNavigation && (
           <nav aria-labelledby="primary-navigation" className="ams-page-header__navigation">
             <h2 className="ams-visually-hidden" id="primary-navigation">
               {navigationLabel}
@@ -179,7 +141,7 @@ const PageHeaderRoot = forwardRef(
               )}
             </ul>
 
-            {hasMegaMenu && !appnavigation && (
+            {hasMegaMenu && !appNavigation && (
               <div
                 className={clsx('ams-page-header__mega-menu', !open && 'ams-page-header__mega-menu--closed')}
                 id="ams-page-header-mega-menu"
@@ -188,6 +150,11 @@ const PageHeaderRoot = forwardRef(
               </div>
             )}
           </nav>
+        )}
+        {appNavigation && (
+          <div className="ams-page-header__navigation">
+            <ul className="ams-page-header__menu">{appNavigation}</ul>
+          </div>
         )}
       </header>
     )

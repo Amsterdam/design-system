@@ -23,54 +23,19 @@ The App component provides styling for the children, which are strucured as foll
 ```tsx
 <App>
   <SkipLink />
-  <PageHeader />
+  <App.Header />
   <AppNavigation />
   <main className="ams-app-content">This is where the main content of your application goes.</main>
   <PageFooter />
 </App>
 ```
 
-You will also need to keep track of the open state of the AppNavigation component, which can be done using a state management library or React's built-in state management.
+## App.Header
+
+The App component uses a wrapper of the PageHeader component, it displays a custom menu button to
+toggle the AppNavigation component which is controlled via the `AppContext` provider.
+For navigation links you can pass an array of `PageHeader.MenuLink` components to the `appNavigation` prop.
 
 ```tsx
-const LayoutContent = ({ children, navExpanded, navItems }: LayoutProps) => {
-  const { appNavigationOpen, setAppNavigationOpen } = useLayoutContext();
-
-  return (
-    <App>
-      <SkipLink href="#main">Direct naar inhoud</SkipLink>
-
-      <PageHeader appnavigation appNavigationExpanded={setAppNavigationOpen}></PageHeader>
-
-      <AppNavigation aria-label="Main" className={clsx(appNavigationOpen && "ams-app-navigation--open")} />
-    </App>
-  );
-};
-
-export const Layout = (props: LayoutProps) => (
-  <LayoutProvider>
-    <LayoutContent {...props} />
-  </LayoutProvider>
-);
-```
-
-The LayoutContext can be set up like this:
-
-```tsx
-import { createContext, ReactNode, useContext, useState } from "react";
-
-type LayoutContextType = {
-  appNavigationOpen: boolean;
-  setAppNavigationOpen: (open: boolean) => void;
-};
-
-const LayoutContext = createContext<LayoutContextType | undefined>(undefined);
-
-export const LayoutProvider = ({ children }: { children: ReactNode }) => {
-  const [appNavigationOpen, setAppNavigationOpen] = useState(false);
-
-  return (
-    <LayoutContext.Provider value={{ appNavigationOpen, setAppNavigationOpen }}>{children}</LayoutContext.Provider>
-  );
-};
+<App.Header appName="Application" appNavigation={[<PageHeader.MenuLink href="/login">Inloggen</PageHeader.MenuLink>]} />
 ```

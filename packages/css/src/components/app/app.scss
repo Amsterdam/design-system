@@ -24,8 +24,7 @@
     grid-area: navigation;
   }
 
-  // TODO App-header zonder mega menu maar met avatar/settings/zoeken?
-  .ams-page-header {
+  .ams-app-header {
     grid-area: header;
   }
 
@@ -50,5 +49,11 @@
     grid-template-columns: auto 1fr;
     grid-template-rows: auto auto 1fr auto;
     min-block-size: 100dvh;
+  }
+}
+
+.ams-app-header__menu-toggle {
+  @media screen and (min-width: $ams-breakpoint-wide) {
+    display: none;
   }
 }
