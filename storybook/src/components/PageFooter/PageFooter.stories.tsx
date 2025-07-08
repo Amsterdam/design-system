@@ -44,7 +44,7 @@ export const Default: Story = {
             <LinkList>
               {['Veel gestelde vragen', 'Over ons', 'Werken bij', 'Kalender', 'Uit in Amsterdam', 'Bronnen'].map(
                 (label, index) => (
-                  <LinkList.Link color="inverse" href="#" key={index} size="small">
+                  <LinkList.Link color="inverse" href="#" key={index}>
                     {label}
                   </LinkList.Link>
                 ),
@@ -55,17 +55,17 @@ export const Default: Story = {
             <Heading className="ams-mb-s" color="inverse" level={2} size="level-4">
               Contact
             </Heading>
-            <Paragraph className="ams-mb-m" color="inverse" size="small">
+            <Paragraph className="ams-mb-m" color="inverse">
               Hebt u een vraag en kunt u het antwoord niet vinden op deze website? Neem dan contact met ons op.
             </Paragraph>
             <LinkList>
-              <LinkList.Link color="inverse" href="mailto:redactie@amsterdam.nl" icon={MailIcon} size="small">
+              <LinkList.Link color="inverse" href="mailto:redactie@amsterdam.nl" icon={MailIcon}>
                 E-mail
               </LinkList.Link>
-              <LinkList.Link color="inverse" href="tel:+3114020" icon={PhoneIcon} size="small">
+              <LinkList.Link color="inverse" href="tel:+3114020" icon={PhoneIcon}>
                 14 020
               </LinkList.Link>
-              <LinkList.Link color="inverse" href="#" icon={ClockIcon} size="small">
+              <LinkList.Link color="inverse" href="#" icon={ClockIcon}>
                 Contactgegevens en openingstijden
               </LinkList.Link>
             </LinkList>
@@ -76,7 +76,7 @@ export const Default: Story = {
                 Nieuwsbrief
               </Heading>
               <LinkList>
-                <LinkList.Link color="inverse" href="#" size="small">
+                <LinkList.Link color="inverse" href="#">
                   Inschrijven
                 </LinkList.Link>
               </LinkList>
@@ -87,7 +87,7 @@ export const Default: Story = {
               </Heading>
               <LinkList>
                 {socialPlatforms.map(({ icon, name }) => (
-                  <LinkList.Link color="inverse" href="#" icon={icon} key={name} size="small">
+                  <LinkList.Link color="inverse" href="#" icon={icon} key={name}>
                     {name}
                   </LinkList.Link>
                 ))}
@@ -117,14 +117,14 @@ export const OnderzoekEnStatistiek: Story = {
             <Heading className="ams-mb-s" color="inverse" level={2} size="level-4">
               Contact
             </Heading>
-            <Paragraph className="ams-mb-m" color="inverse" size="small">
+            <Paragraph className="ams-mb-m" color="inverse">
               Heeft u een vraag en kunt u het antwoord niet vinden op deze site? Neem dan contact met ons op.
             </Paragraph>
             <LinkList>
-              <LinkList.Link color="inverse" href="mailto:redactie.os@amsterdam.nl" icon={MailIcon} size="small">
+              <LinkList.Link color="inverse" href="mailto:redactie.os@amsterdam.nl" icon={MailIcon}>
                 E-mail
               </LinkList.Link>
-              <LinkList.Link color="inverse" href="tel:+31202510333" icon={PhoneIcon} size="small">
+              <LinkList.Link color="inverse" href="tel:+31202510333" icon={PhoneIcon}>
                 020 251 0333
               </LinkList.Link>
             </LinkList>
@@ -133,17 +133,17 @@ export const OnderzoekEnStatistiek: Story = {
             <Heading className="ams-mb-s" color="inverse" level={2} size="level-4">
               Panels en enquêtes
             </Heading>
-            <Paragraph className="ams-mb-m" color="inverse" size="small">
+            <Paragraph className="ams-mb-m" color="inverse">
               Bent u uitgenodigd om mee te doen aan onderzoek of heeft u vragen over het panel of stadspaspanel?
             </Paragraph>
             <LinkList>
-              <LinkList.Link color="inverse" href="#" rel="external" size="small">
+              <LinkList.Link color="inverse" href="#" rel="external">
                 Meedoen aan onderzoek
               </LinkList.Link>
-              <LinkList.Link color="inverse" href="#" rel="external" size="small">
+              <LinkList.Link color="inverse" href="#" rel="external">
                 Panel Amsterdam
               </LinkList.Link>
-              <LinkList.Link color="inverse" href="#" rel="external" size="small">
+              <LinkList.Link color="inverse" href="#" rel="external">
                 Stadspaspanel Amsterdam
               </LinkList.Link>
             </LinkList>
@@ -153,16 +153,16 @@ export const OnderzoekEnStatistiek: Story = {
               Onderzoek en Statistiek
             </Heading>
             <LinkList>
-              <LinkList.Link color="inverse" href="#" size="small">
+              <LinkList.Link color="inverse" href="#">
                 Over Onderzoek en Statistiek
               </LinkList.Link>
-              <LinkList.Link color="inverse" href="#" size="small">
+              <LinkList.Link color="inverse" href="#">
                 Veelgestelde vragen
               </LinkList.Link>
-              <LinkList.Link color="inverse" href="#" rel="external" size="small">
+              <LinkList.Link color="inverse" href="#" rel="external">
                 Nieuwsbrief
               </LinkList.Link>
-              <LinkList.Link color="inverse" href="#" size="small">
+              <LinkList.Link color="inverse" href="#">
                 Vacatures
               </LinkList.Link>
             </LinkList>
