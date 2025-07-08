@@ -18,13 +18,13 @@
 .filters {
   display: none;
 
-  @media (width >= 36rem) {
+  @media (width >= 68rem) {
     display: block;
   }
 }
 
 .toggle_filters {
-  @media (width >= 36rem) {
+  @media (width >= 68rem) {
     display: none;
   }
 }

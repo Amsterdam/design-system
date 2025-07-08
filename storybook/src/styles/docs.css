@@ -198,3 +198,9 @@
 strong {
   font-weight: var(--ams-typography-body-text-bold-font-weight);
 }
+
+.ams-docs-map-container {
+  block-size: 100%;
+  inline-size: 100%;
+  position: relative;
+}

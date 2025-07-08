@@ -3,7 +3,7 @@
  * Copyright Gemeente Amsterdam
  */
 
-import { Blockquote, Grid } from '@amsterdam/design-system-react'
+import { Blockquote, Grid, Page } from '@amsterdam/design-system-react'
 import { Spotlight } from '@amsterdam/design-system-react/src'
 import { spotlightColors } from '@amsterdam/design-system-react/src/Spotlight/Spotlight'
 import { Meta, StoryObj } from '@storybook/react'
@@ -22,6 +22,13 @@ const meta = {
       options: [undefined, ...spotlightColors],
     },
   },
+  decorators: [
+    (Story) => (
+      <Page>
+        <Story />
+      </Page>
+    ),
+  ],
   render: ({ as, color }) => (
     <Spotlight as={as} color={color}>
       <Grid paddingVertical="x-large">

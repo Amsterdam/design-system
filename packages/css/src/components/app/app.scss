@@ -13,8 +13,10 @@
     "navigation"
     "content"
     "footer";
+  grid-template-rows: auto auto auto 1fr auto;
   margin-inline: 0;
   max-inline-size: var(--ams-app-max-inline-size);
+  min-block-size: 100dvh;
 
   .ams-app-skiplink {
     grid-area: skiplink;
@@ -36,7 +38,7 @@
     grid-area: footer;
   }
 
-  &ams-app--fullscreen {
+  &.ams-app--fullscreen {
     max-inline-size: initial;
   }
 
@@ -48,7 +50,6 @@
       "navigation footer";
     grid-template-columns: auto 1fr;
     grid-template-rows: auto auto 1fr auto;
-    min-block-size: 100dvh;
   }
 }
 

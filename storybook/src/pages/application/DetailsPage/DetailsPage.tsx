@@ -115,7 +115,7 @@ export const DetailsPage = () => {
               <Tabs.Button aria-controls="Acties">Acties</Tabs.Button>
             </Tabs.List>
             <Tabs.Panel id="Gegevens">
-              <DescriptionList termsWidth="medium">
+              <DescriptionList key={1} termsWidth="medium">
                 {subsidy &&
                   Object.entries(subsidy).map(([key, value]) => {
                     // Convert camelCase to "Camel Case"
@@ -123,10 +123,10 @@ export const DetailsPage = () => {
                       .replace(/([A-Z])/g, ' $1') // insert space before capital letters
                       .replace(/^./, (str) => str.toUpperCase()) // capitalize first letter
                     return (
-                      <div key={key}>
+                      <>
                         <DescriptionList.Term>{formattedKey}</DescriptionList.Term>
                         <DescriptionList.Description>{value}</DescriptionList.Description>
-                      </div>
+                      </>
                     )
                   })}
               </DescriptionList>
@@ -158,17 +158,19 @@ export const DetailsPage = () => {
             <Tabs.Panel id="Acties">
               <Column gap="large">
                 <Heading level={2}>Object Acties</Heading>
-                <ActionGroup>
-                  <Button onClick={action('Actie 1 uitgevoerd')} variant="primary">
-                    Actie 1
-                  </Button>
-                  <Button onClick={action('Actie 1 uitgevoerd')} variant="secondary">
-                    Actie 2
-                  </Button>
-                  <Button disabled onClick={action('Actie 1 uitgevoerd')} variant="secondary">
-                    Actie 3
-                  </Button>
-                </ActionGroup>
+                <div>
+                  <ActionGroup>
+                    <Button onClick={action('Actie 1 uitgevoerd')} variant="primary">
+                      Actie 1
+                    </Button>
+                    <Button onClick={action('Actie 1 uitgevoerd')} variant="secondary">
+                      Actie 2
+                    </Button>
+                    <Button disabled onClick={action('Actie 1 uitgevoerd')} variant="secondary">
+                      Actie 3
+                    </Button>
+                  </ActionGroup>
+                </div>
                 <Heading level={2}>Upload</Heading>
                 <FileInputWithFileList />
               </Column>

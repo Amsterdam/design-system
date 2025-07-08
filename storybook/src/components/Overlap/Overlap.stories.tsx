@@ -3,13 +3,20 @@
  * Copyright Gemeente Amsterdam
  */
 
-import { Grid, Image, SearchField } from '@amsterdam/design-system-react'
+import { Grid, Image, Page, SearchField } from '@amsterdam/design-system-react'
 import { Overlap } from '@amsterdam/design-system-react/src'
 import { Meta, StoryObj } from '@storybook/react'
 
 const meta = {
   title: 'Components/Layout/Overlap',
   component: Overlap,
+  decorators: [
+    (Story) => (
+      <Page>
+        <Story />
+      </Page>
+    ),
+  ],
 } satisfies Meta<typeof Overlap>
 
 export default meta

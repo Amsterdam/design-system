@@ -3,15 +3,18 @@
  * Copyright Gemeente Amsterdam
  */
 
+import { Page } from '@amsterdam/design-system-react'
 import type { Meta } from '@storybook/react'
 import { Layout } from './Layout'
 
 export const commonMeta = {
   decorators: [
     (Story) => (
-      <Layout>
-        <Story />
-      </Layout>
+      <Page>
+        <Layout>
+          <Story />
+        </Layout>
+      </Page>
     ),
   ],
   parameters: {

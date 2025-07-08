@@ -4,7 +4,6 @@ import '@amsterdam/design-system-assets/font/index.css'
 import '@amsterdam/design-system-css/dist/index.css'
 import '../src/styles/docs.css'
 import '../src/styles/overrides.css'
-import { Page } from '@amsterdam/design-system-react'
 import { withThemeByClassName } from '@storybook/addon-themes'
 import type { StoryContext, StoryFn } from '@storybook/react'
 import clsx from 'clsx'
@@ -16,7 +15,7 @@ export const argTypes = {
   },
 }
 
-// Wrap in Page, set language to Dutch for Canvas and Stories
+// Wrap in div, set language to Dutch for Canvas and Stories
 export const decorators = [
   (Story: StoryFn, { args, context }: StoryContext) => {
     if (context?.componentId.startsWith('pages-application')) {
@@ -24,7 +23,7 @@ export const decorators = [
     }
 
     return (
-      <Page
+      <div
         className={clsx({
           'ams-docs-dark-background': args['color'] === 'inverse',
           'ams-docs-light-background': args['color'] === 'contrast',
@@ -32,7 +31,7 @@ export const decorators = [
         lang="nl"
       >
         <Story />
-      </Page>
+      </div>
     )
   },
   withThemeByClassName({

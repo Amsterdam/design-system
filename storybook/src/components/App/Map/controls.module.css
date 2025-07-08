@@ -1,0 +1,12 @@
+/* stylelint-disable selector-class-pattern */
+.buttons {
+  display: inline-flex;
+  flex-direction: column;
+  gap: var(--ams-space-s, 8px);
+  inset-block-end: var(--ams-space-m, 24px);
+  inset-inline-end: var(--ams-space-m, 24px);
+  position: absolute;
+
+  /* This z-index value should ideally come from an application constant that is greater than the Leaflet top z-index */
+  z-index: 400;
+}

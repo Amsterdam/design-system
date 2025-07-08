@@ -50,7 +50,7 @@ export const Layout = ({ children, navExpanded, navItems }: LayoutProps) => (
     </main>
 
     <PageFooter>
-      <PageFooter.Menu key={3}>
+      <PageFooter.Menu>
         <PageFooter.MenuLink href="#">Over deze site</PageFooter.MenuLink>
         <PageFooter.MenuLink href="#">Privacy</PageFooter.MenuLink>
         <PageFooter.MenuLink href="#">Cookies</PageFooter.MenuLink>

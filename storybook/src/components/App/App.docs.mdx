@@ -25,7 +25,11 @@ The App component provides styling for the children, which are strucured as foll
   <SkipLink />
   <App.Header />
   <AppNavigation />
-  <main className="ams-app-content">This is where the main content of your application goes.</main>
+  <main className="ams-app-content">
+    <Grid paddingVertical="x-large">
+      <Grid.Cell span="all">This is where the main content of your application goes.</Grid.Cell>
+    </Grid>
+  </main>
   <PageFooter />
 </App>
 ```

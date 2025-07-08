@@ -3,7 +3,7 @@
  * Copyright Gemeente Amsterdam
  */
 
-import { Grid } from '@amsterdam/design-system-react/src'
+import { Grid, Page } from '@amsterdam/design-system-react/src'
 import type { GridCellProps } from '@amsterdam/design-system-react/src'
 import { Meta, StoryObj } from '@storybook/react'
 import { gridGapAndPaddingArgTypes } from '../../common'
@@ -20,6 +20,13 @@ const meta = {
     },
     ...gridGapAndPaddingArgTypes,
   },
+  decorators: [
+    (Story) => (
+      <Page>
+        <Story />
+      </Page>
+    ),
+  ],
   parameters: {
     layout: 'fullscreen',
   },

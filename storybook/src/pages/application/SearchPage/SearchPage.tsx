@@ -66,7 +66,7 @@ export const SearchPage = () => {
   return (
     <>
       <Grid paddingBottom="x-large" paddingTop="large">
-        <Grid.Cell as="aside" className={styles.filters} span={{ narrow: 4, medium: 3, wide: 3 }}>
+        <Grid.Cell as="aside" className={styles.filters} span={{ narrow: 4, medium: 8, wide: 3 }}>
           <Column gap="large">
             <FieldSet legend="Filters">
               <Column gap="small">
@@ -110,7 +110,7 @@ export const SearchPage = () => {
             </FieldSet>
           </Column>
         </Grid.Cell>
-        <Grid.Cell span={{ narrow: 4, medium: 5, wide: 9 }}>
+        <Grid.Cell span={{ narrow: 4, medium: 8, wide: 9 }}>
           <Column gap="large">
             <Heading level={2}>Zoeken</Heading>
             <Row align="between" className="ams-mb-m" wrap>

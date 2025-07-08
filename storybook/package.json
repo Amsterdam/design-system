@@ -19,7 +19,9 @@
     "start": "storybook dev --config-dir config/ --port 6006"
   },
   "dependencies": {
-    "clsx": "2.1.1"
+    "clsx": "2.1.1",
+    "leaflet": "1.9.4",
+    "proj4": "2.19.5"
   },
   "devDependencies": {
     "@amsterdam/design-system-assets": "workspace:*",
@@ -45,6 +47,7 @@
     "@storybook/react": "8.6.14",
     "@storybook/react-vite": "8.6.14",
     "@storybook/theming": "8.6.14",
+    "@types/leaflet": "1.9.19",
     "@types/react": "18.3.20",
     "@vitejs/plugin-react": "4.6.0",
     "@whitespace/storybook-addon-html": "7.0.0",

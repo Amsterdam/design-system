@@ -41,6 +41,7 @@ const meta = {
     themes: { themeOverride: 'Compact' },
     viewport: {
       defaultViewport: 'desktop',
+      themes: { themeOverride: 'Compact' },
     },
   },
 } satisfies Meta<typeof AppNavigation>

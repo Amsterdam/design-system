@@ -24,7 +24,7 @@ export const AppHeader = ({ appName, appNavigation, menuButtonText = 'Menu' }: A
       <li className="ams-app-header__menu-toggle">
         <button
           aria-controls="ams-app-navigation-menu"
-          aria-expanded={appNavigationOpen}
+          aria-expanded={appNavigationOpen ? 'true' : 'false'}
           className="ams-page-header__mega-menu-button"
           onClick={() => {
             setAppNavigationOpen(!appNavigationOpen)
