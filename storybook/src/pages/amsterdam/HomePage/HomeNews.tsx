@@ -3,7 +3,8 @@
  * Copyright Gemeente Amsterdam
  */
 
-import { Card, Grid, Heading } from '@amsterdam/design-system-react'
+import { Card, Grid, Heading, Paragraph, StandaloneLink } from '@amsterdam/design-system-react'
+import { ChevronForwardIcon } from '@amsterdam/design-system-react-icons'
 
 export const HomeNews = () => (
   <Grid paddingVertical="x-large">
@@ -18,6 +19,10 @@ export const HomeNews = () => (
             <Card.Link href="#">Nederlands eerste houten woonwijk komt in Zuidoost</Card.Link>
           </Card.Heading>
         </Card.HeadingGroup>
+        <Paragraph>
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit. A aliquam dignissimos esse facere inventore maxime
+          nostrum placeat qui, tenetur voluptas. Ex repellat tempore ullam.
+        </Paragraph>
       </Card>
     </Grid.Cell>
     <Grid.Cell span={4}>
@@ -29,6 +34,9 @@ export const HomeNews = () => (
           </Card.Heading>
         </Card.HeadingGroup>
       </Card>
+      <Paragraph>
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dignissimos neque recusandae repellendus.
+      </Paragraph>
     </Grid.Cell>
     <Grid.Cell span={4}>
       <Card>
@@ -39,6 +47,15 @@ export const HomeNews = () => (
           </Card.Heading>
         </Card.HeadingGroup>
       </Card>
+      <Paragraph>
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus, accusantium commodi earum harum impedit
+        placeat voluptate.
+      </Paragraph>
+    </Grid.Cell>
+    <Grid.Cell span="all">
+      <StandaloneLink href="#" icon={ChevronForwardIcon}>
+        Naar het nieuwsoverzicht
+      </StandaloneLink>
     </Grid.Cell>
   </Grid>
 )

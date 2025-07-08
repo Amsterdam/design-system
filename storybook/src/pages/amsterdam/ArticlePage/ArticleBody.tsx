@@ -61,60 +61,46 @@ export const ArticleBody = ({ lead, paragraph1, spotlightHeading, spotlightLinkL
     </Spotlight>
     <Grid paddingVertical="x-large">
       <Grid.Cell span={{ narrow: 4, medium: 5, wide: 7 }} start={{ narrow: 1, medium: 2, wide: 3 }}>
-        <Column gap="x-large">
-          <section>
-            <Heading className="ams-mb-s" level={2}>
-              Wanneer bezorgen we
-            </Heading>
-            <Paragraph>
-              We bezorgen op werkdagen en zaterdag tussen 8.00 en 18.00 uur. De ene week bezorgen wij op dinsdag en
-              donderdag ook tot 21.00 uur en de andere week op woensdag tot 21.00 uur.
-            </Paragraph>
-          </section>
-          <section>
-            <Heading className="ams-mb-s" level={2}>
-              Tekenen voor ontvangst
-            </Heading>
-            <Paragraph>
-              Zorg dat u thuis bent om uw paspoort of ID-kaart te ontvangen. Bij bezorging voor meerdere personen moeten
-              alle personen aanwezig zijn. Ook kinderen vanaf 12 jaar moeten tekenen voor ontvangst. Tot 12 jaar tekent
-              de ouder of wettelijk vertegenwoordiger van het kind.
-            </Paragraph>
-          </section>
-          <section>
-            <Heading className="ams-mb-s" level={2}>
-              Bezorgen met waarde-transport
-            </Heading>
-            <Paragraph>
-              De gemeente laat uw paspoort of ID-kaart bezorgen met een waarde-transport. Op{' '}
-              <Link href="https://mijnafspraak.nl/">mijnafspraak.nl</Link> ziet u wie er langskomt. De pasfoto van de
-              medewerker is vanaf 8.00 uur zichtbaar. De bezorger controleert bij aankomst uw identiteit en geeft u het
-              nieuwe reisdocument. U geeft uw oude reisdocument aan de bezorger. De bezorger maakt uw oude reisdocument
-              ongeldig waar u bij bent. Daarna mag u het zelf houden of meegeven aan de bezorger, die het vernietigt.
-            </Paragraph>
-          </section>
-          <section>
-            <Heading className="ams-mb-s" level={2}>
-              Wanneer kan bezorgen niet?
-            </Heading>
-            <UnorderedList>
-              <UnorderedList.Item>Bij een spoedaanvraag.</UnorderedList.Item>
-              <UnorderedList.Item>
-                Als u een geldig visum in uw paspoort hebt dat u nog wilt gebruiken.
-              </UnorderedList.Item>
-              <UnorderedList.Item>Als u het oude reisdocument kwijt bent.</UnorderedList.Item>
-              <UnorderedList.Item>Als u op een van de Waddeneilanden woont. Daar bezorgen we niet.</UnorderedList.Item>
-            </UnorderedList>
-          </section>
-          <section>
-            <Heading className="ams-mb-s" level={2}>
-              Meer weten
-            </Heading>
-            <LinkList>
-              <LinkList.Link href="https://amsterdam.nl/paspoort/">amsterdam.nl/paspoort</LinkList.Link>
-            </LinkList>
-          </section>
-        </Column>
+        <Heading className="ams-mb-s" level={2}>
+          Wanneer bezorgen we
+        </Heading>
+        <Paragraph className="ams-mb-l">
+          We bezorgen op werkdagen en zaterdag tussen 8.00 en 18.00 uur. De ene week bezorgen wij op dinsdag en
+          donderdag ook tot 21.00 uur en de andere week op woensdag tot 21.00 uur.
+        </Paragraph>
+        <Heading className="ams-mb-s" level={2}>
+          Tekenen voor ontvangst
+        </Heading>
+        <Paragraph className="ams-mb-l">
+          Zorg dat u thuis bent om uw paspoort of ID-kaart te ontvangen. Bij bezorging voor meerdere personen moeten
+          alle personen aanwezig zijn. Ook kinderen vanaf 12 jaar moeten tekenen voor ontvangst. Tot 12 jaar tekent de
+          ouder of wettelijk vertegenwoordiger van het kind.
+        </Paragraph>
+        <Heading className="ams-mb-s" level={2}>
+          Bezorgen met waarde-transport
+        </Heading>
+        <Paragraph className="ams-mb-l">
+          De gemeente laat uw paspoort of ID-kaart bezorgen met een waarde-transport. Op{' '}
+          <Link href="https://mijnafspraak.nl/">mijnafspraak.nl</Link> ziet u wie er langskomt. De pasfoto van de
+          medewerker is vanaf 8.00 uur zichtbaar. De bezorger controleert bij aankomst uw identiteit en geeft u het
+          nieuwe reisdocument. U geeft uw oude reisdocument aan de bezorger. De bezorger maakt uw oude reisdocument
+          ongeldig waar u bij bent. Daarna mag u het zelf houden of meegeven aan de bezorger, die het vernietigt.
+        </Paragraph>
+        <Heading className="ams-mb-s" level={2}>
+          Wanneer kan bezorgen niet?
+        </Heading>
+        <UnorderedList className="ams-mb-l">
+          <UnorderedList.Item>Bij een spoedaanvraag.</UnorderedList.Item>
+          <UnorderedList.Item>Als u een geldig visum in uw paspoort hebt dat u nog wilt gebruiken.</UnorderedList.Item>
+          <UnorderedList.Item>Als u het oude reisdocument kwijt bent.</UnorderedList.Item>
+          <UnorderedList.Item>Als u op een van de Waddeneilanden woont. Daar bezorgen we niet.</UnorderedList.Item>
+        </UnorderedList>
+        <Heading className="ams-mb-s" level={2}>
+          Meer weten
+        </Heading>
+        <LinkList>
+          <LinkList.Link href="https://amsterdam.nl/paspoort/">amsterdam.nl/paspoort</LinkList.Link>
+        </LinkList>
       </Grid.Cell>
     </Grid>
   </>

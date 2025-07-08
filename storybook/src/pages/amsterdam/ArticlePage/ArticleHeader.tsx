@@ -10,12 +10,17 @@ type ArticleHeaderProps = Pick<ArticlePageProps, 'heading' | 'imageSrc'>
 
 export const ArticleHeader = ({ heading, imageSrc }: ArticleHeaderProps) => (
   <header>
-    <Grid paddingBottom="x-large">
+    <Grid paddingBottom="2x-large">
       <Grid.Cell span={{ narrow: 4, medium: 6, wide: 8 }} start={{ narrow: 1, medium: 1, wide: 2 }}>
-        <Heading className="ams-mb-s" level={1}>
+        <Heading className="ams-mb-m" level={1}>
           {heading}
         </Heading>
-        <Paragraph size="small">7 juni 2024</Paragraph>
+        <Paragraph className="ams-mb-m">7 juni 2024</Paragraph>
+        <Paragraph size="large">
+          Niet meer naar het Stadsloket, maar thuis of op het werk uw nieuwe paspoort ontvangen. In juni en juli kan
+          dat. Deze zomer bezorgt de gemeente reisdocumenten gratis aan huis. We doen dat om de drukte in de
+          Stadsloketten te verminderen. En u hoeft maar 1 keer naar het Stadsloket.
+        </Paragraph>
       </Grid.Cell>
     </Grid>
     <Overlap>

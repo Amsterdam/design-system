@@ -4,6 +4,7 @@
  */
 
 import {
+  Card,
   Grid,
   Heading,
   Image,
@@ -39,13 +40,35 @@ export default meta
 export const Default: StoryObj = {
   args: {
     children: (
-      <Grid as="main" gapVertical="large" id="main" paddingBottom="large">
+      <Grid as="main" id="main" paddingBottom="2x-large">
         <Grid.Cell span={{ narrow: 4, medium: 6, wide: 7 }}>
-          <PageHeading className="ams-mb-m">Burgerzaken</PageHeading>
+          <Heading className="ams-mb-m" level={1}>
+            Verkeer en Vervoer
+          </Heading>
           <Paragraph size="large">
             Heeft u een paspoort, rijbewijs of uittreksel nodig? Of wilt u een verhuizing doorgeven of een geboorte
             aangeven? Op deze pagina vindt u alle informatie en regelzaken rondom Burgerzaken.
           </Paragraph>
+        </Grid.Cell>
+        <Grid.Cell span={{ narrow: 4, medium: 4, wide: 5 }} start={{ narrow: 1, medium: 1, wide: 2 }}>
+          <Card>
+            <Card.Heading level={2} size="level-3">
+              <Card.Link href="#">Milieuzone voor personenauto’s</Card.Link>
+            </Card.Heading>
+            <Paragraph>
+              Met benzine, LPG of CNG mag u de zone in. Niet met een diesel emissieklasse 0 tot en met 4.
+            </Paragraph>
+          </Card>
+        </Grid.Cell>
+        <Grid.Cell span={{ narrow: 4, medium: 4, wide: 5 }} start={{ narrow: 1, medium: 5, wide: 7 }}>
+          <Card>
+            <Card.Heading level={2} size="level-3">
+              <Card.Link href="#">Fiets weg?</Card.Link>
+            </Card.Heading>
+            <Paragraph>
+              Verwijderde fietsen gaan naar het Fietsdepot. U kunt online zoeken of uw fiets daar staat.
+            </Paragraph>
+          </Card>
         </Grid.Cell>
         <LinkGroupGridCells linkGroups={burgerzakenLinks} />
       </Grid>
@@ -57,18 +80,17 @@ export const WithInteractiveElement: StoryObj = {
   args: {
     children: (
       <main id="main">
-        <Grid gapVertical="large" paddingBottom="large">
+        <Grid paddingBottom="2x-large">
           <Grid.Cell span={{ narrow: 4, medium: 6, wide: 7 }}>
             <PageHeading className="ams-mb-m">Parkeren</PageHeading>
             <Paragraph className="ams-mb-m" size="large">
               {exampleParagraph()}
             </Paragraph>
-            <Paragraph>{exampleParagraph()}</Paragraph>
           </Grid.Cell>
           <LinkGroupGridCells linkGroups={parkerenLinks}></LinkGroupGridCells>
         </Grid>
         <Spotlight>
-          <Grid paddingVertical="large">
+          <Grid paddingVertical="x-large">
             <Grid.Cell span={{ narrow: 4, medium: 4, wide: 5 }} start={{ narrow: 1, medium: 1, wide: 2 }}>
               <Heading className="ams-mb-m" color="inverse" level={2}>
                 Parkeertarieven
@@ -98,7 +120,7 @@ export const SubnavigationPage: StoryObj = {
   args: {
     children: (
       <main id="main">
-        <Grid gapVertical="large" paddingBottom="large">
+        <Grid paddingBottom="2x-large">
           <Grid.Cell span={{ narrow: 4, medium: 6, wide: 7 }}>
             <PageHeading className="ams-mb-m">Overzichtspagina content / Subnavigatiepagina</PageHeading>
             <Paragraph size="large">
@@ -108,7 +130,7 @@ export const SubnavigationPage: StoryObj = {
           </Grid.Cell>
         </Grid>
         <Image alt="" aspectRatio="16:5" src="https://picsum.photos/1440/450" />
-        <Grid paddingVertical="large">
+        <Grid paddingVertical="x-large">
           <Grid.Cell span={{ narrow: 4, medium: 6, wide: 7 }} start={{ narrow: 1, medium: 1, wide: 2 }}>
             <Heading className="ams-mb-s" level={2}>
               L2 Paragraaf titel
@@ -146,7 +168,7 @@ export const SubnavigationPage: StoryObj = {
           </Grid.Cell>
         </Grid>
         <Spotlight color="magenta">
-          <Grid paddingVertical="large">
+          <Grid paddingVertical="x-large">
             <Grid.Cell span={{ narrow: 4, medium: 8, wide: 10 }} start={{ narrow: 1, medium: 1, wide: 2 }}>
               <Heading color="inverse" level={3}>
                 {exampleHeading()}
@@ -166,7 +188,7 @@ export const SubnavigationPage: StoryObj = {
             </Grid.Cell>
           </Grid>
         </Spotlight>
-        <Grid paddingVertical="large">
+        <Grid paddingVertical="x-large">
           <Grid.Cell span={{ narrow: 4, medium: 6, wide: 7 }} start={{ narrow: 1, medium: 1, wide: 2 }}>
             <Heading className="ams-mb-s" level={2}>
               L2 Paragraaf titel
@@ -176,7 +198,7 @@ export const SubnavigationPage: StoryObj = {
           <LinkGroupGridCells linkGroups={burgerzakenLinks.slice(4, 8)} />
         </Grid>
         <Spotlight className="ams-mb-xl" color="green">
-          <Grid paddingVertical="large">
+          <Grid paddingVertical="x-large">
             <Grid.Cell span={{ narrow: 4, medium: 5, wide: 7 }} start={{ narrow: 1, medium: 1, wide: 2 }}>
               <Heading className="ams-mb-s" color="inverse" level={4}>
                 Blijf op de hoogte
