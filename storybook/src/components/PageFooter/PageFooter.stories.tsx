@@ -3,16 +3,17 @@
  * Copyright Gemeente Amsterdam
  */
 
-import { Grid, Heading, LinkList, Paragraph } from '@amsterdam/design-system-react'
+import { Grid, Heading, LinkList, Paragraph, StandaloneLink } from '@amsterdam/design-system-react'
 import { PageFooter } from '@amsterdam/design-system-react/src'
 import {
-  CameraIcon,
+  ChevronForwardIcon,
   ClockIcon,
   FacebookIcon,
+  InstagramIcon,
   LinkedinIcon,
   MailIcon,
+  MastodonIcon,
   PhoneIcon,
-  XIcon,
 } from '@amsterdam/design-system-react-icons'
 import { Meta, StoryObj } from '@storybook/react'
 
@@ -25,11 +26,18 @@ export default meta
 
 type Story = StoryObj<typeof meta>
 
-const socialPlatforms = [
-  { icon: XIcon, name: 'X' },
-  { icon: FacebookIcon, name: 'Facebook' },
-  { icon: LinkedinIcon, name: 'Linkedin' },
-  { icon: CameraIcon, name: 'Instagram' },
+type FollowLink = {
+  icon?: Function
+  text: string
+}
+
+const followLinks: FollowLink[] = [
+  { text: 'De Amsterdam App' },
+  { text: 'Nieuwsbrieven' },
+  { icon: FacebookIcon, text: 'Facebook' },
+  { icon: InstagramIcon, text: 'Instagram' },
+  { icon: LinkedinIcon, text: 'LinkedIn' },
+  { icon: MastodonIcon, text: 'Mastodon' },
 ]
 
 export const Default: Story = {
@@ -39,60 +47,53 @@ export const Default: Story = {
         <Grid paddingVertical="x-large">
           <Grid.Cell span={4}>
             <Heading className="ams-mb-s" color="inverse" level={2} size="level-4">
-              Meer weten
-            </Heading>
-            <LinkList>
-              {['Veel gestelde vragen', 'Over ons', 'Werken bij', 'Kalender', 'Uit in Amsterdam', 'Bronnen'].map(
-                (label, index) => (
-                  <LinkList.Link color="inverse" href="#" key={index}>
-                    {label}
-                  </LinkList.Link>
-                ),
-              )}
-            </LinkList>
-          </Grid.Cell>
-          <Grid.Cell span={4} start={{ narrow: 1, medium: 5, wide: 5 }}>
-            <Heading className="ams-mb-s" color="inverse" level={2} size="level-4">
               Contact
             </Heading>
-            <Paragraph className="ams-mb-m" color="inverse">
-              Hebt u een vraag en kunt u het antwoord niet vinden op deze website? Neem dan contact met ons op.
-            </Paragraph>
-            <LinkList>
-              <LinkList.Link color="inverse" href="mailto:redactie@amsterdam.nl" icon={MailIcon}>
-                E-mail
+            <LinkList className="ams-mb-xl">
+              <LinkList.Link color="inverse" href="#" icon={MailIcon}>
+                Contactformulier
               </LinkList.Link>
-              <LinkList.Link color="inverse" href="tel:+3114020" icon={PhoneIcon}>
+              <LinkList.Link color="inverse" href="#" icon={PhoneIcon}>
                 14 020
               </LinkList.Link>
               <LinkList.Link color="inverse" href="#" icon={ClockIcon}>
-                Contactgegevens en openingstijden
+                Adressen en openingstijden
               </LinkList.Link>
+            </LinkList>
+            <Heading className="ams-mb-s" color="inverse" level={2} size="level-4">
+              Vacatures
+            </Heading>
+            <StandaloneLink color="inverse" href="#" icon={ChevronForwardIcon}>
+              Werken bij Amsterdam
+            </StandaloneLink>
+          </Grid.Cell>
+          <Grid.Cell span={4} start={{ narrow: 1, medium: 5, wide: 5 }}>
+            <Heading className="ams-mb-s" color="inverse" level={2} size="level-4">
+              Volg ons
+            </Heading>
+            <LinkList>
+              {followLinks.map(({ icon, text }) => (
+                <LinkList.Link color="inverse" href="#" icon={icon} key={text}>
+                  {text}
+                </LinkList.Link>
+              ))}
             </LinkList>
           </Grid.Cell>
           <Grid.Cell span={4} start={{ narrow: 1, medium: 1, wide: 9 }}>
-            <div className="ams-mb-xl">
-              <Heading className="ams-mb-s" color="inverse" level={2} size="level-4">
-                Nieuwsbrief
-              </Heading>
-              <LinkList>
-                <LinkList.Link color="inverse" href="#">
-                  Inschrijven
-                </LinkList.Link>
-              </LinkList>
-            </div>
-            <div>
-              <Heading className="ams-mb-s" color="inverse" level={2} size="level-4">
-                Volg ons
-              </Heading>
-              <LinkList>
-                {socialPlatforms.map(({ icon, name }) => (
-                  <LinkList.Link color="inverse" href="#" icon={icon} key={name}>
-                    {name}
-                  </LinkList.Link>
-                ))}
-              </LinkList>
-            </div>
+            <Heading className="ams-mb-s" color="inverse" level={2} size="level-4">
+              Doen in de stad
+            </Heading>
+            <LinkList>
+              <LinkList.Link color="inverse" href="#">
+                Bijeenkomsten en activiteiten
+              </LinkList.Link>
+              <LinkList.Link color="inverse" href="#">
+                Uit in Amsterdam
+              </LinkList.Link>
+              <LinkList.Link color="inverse" href="#">
+                Amsterdam 750 jaar
+              </LinkList.Link>
+            </LinkList>
           </Grid.Cell>
         </Grid>
       </PageFooter.Spotlight>,
@@ -102,7 +103,8 @@ export const Default: Story = {
       <PageFooter.Menu key={3}>
         <PageFooter.MenuLink href="#">Over deze site</PageFooter.MenuLink>
         <PageFooter.MenuLink href="#">Privacy</PageFooter.MenuLink>
-        <PageFooter.MenuLink href="#">Cookies</PageFooter.MenuLink>
+        <PageFooter.MenuLink href="#">Cookies op deze site</PageFooter.MenuLink>
+        <PageFooter.MenuLink href="#">Webarchief</PageFooter.MenuLink>
       </PageFooter.Menu>,
     ],
   },
@@ -159,6 +161,9 @@ export const OnderzoekEnStatistiek: Story = {
               <LinkList.Link color="inverse" href="#">
                 Veelgestelde vragen
               </LinkList.Link>
+              <LinkList.Link color="inverse" href="#">
+                Termen en categorieën
+              </LinkList.Link>
               <LinkList.Link color="inverse" href="#" rel="external">
                 Nieuwsbrief
               </LinkList.Link>
@@ -173,9 +178,8 @@ export const OnderzoekEnStatistiek: Story = {
         Over deze website
       </Heading>,
       <PageFooter.Menu key={3}>
-        <PageFooter.MenuLink href="#">Over deze site</PageFooter.MenuLink>
         <PageFooter.MenuLink href="#">Privacy</PageFooter.MenuLink>
-        <PageFooter.MenuLink href="#">Cookies</PageFooter.MenuLink>
+        <PageFooter.MenuLink href="#">Toegankelijkheid</PageFooter.MenuLink>
       </PageFooter.Menu>,
     ],
   },
