@@ -21,7 +21,7 @@ export const AppHeader = ({ appName, appNavigation, menuButtonText = 'Menu' }: A
 
   const NavigationToggle = () => {
     return (
-      <li className="ams-app-header__menu-toggle">
+      <li className=".ams-app__menu-toggle">
         <button
           aria-controls="ams-app-navigation-menu"
           aria-expanded={appNavigationOpen ? 'true' : 'false'}

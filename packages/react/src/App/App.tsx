@@ -10,11 +10,15 @@ import { AppContext } from './AppContext'
 import { AppHeader } from './AppHeader'
 
 export type AppProps = {
+  centered?: boolean
   fullscreen?: boolean
 } & PropsWithChildren<HTMLAttributes<HTMLDivElement>>
 
 export const AppRoot = forwardRef(
-  ({ children, className, fullscreen = false, ...restProps }: AppProps, ref: ForwardedRef<HTMLDivElement>) => {
+  (
+    { centered = true, children, className, fullscreen = false, ...restProps }: AppProps,
+    ref: ForwardedRef<HTMLDivElement>,
+  ) => {
     const innerRef = useRef<HTMLDivElement>(null)
     const [appNavigationOpen, setAppNavigationOpen] = useState(false)
 
@@ -23,7 +27,11 @@ export const AppRoot = forwardRef(
 
     return (
       <AppContext.Provider value={{ appNavigationOpen, setAppNavigationOpen }}>
-        <div {...restProps} className={clsx('ams-app', fullscreen && 'ams-app--fullscreen', className)} ref={innerRef}>
+        <div
+          {...restProps}
+          className={clsx('ams-app', centered && 'ams-app--centered', fullscreen && 'ams-app--fullscreen', className)}
+          ref={innerRef}
+        >
           {children}
         </div>
       </AppContext.Provider>

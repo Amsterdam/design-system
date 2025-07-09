@@ -6,8 +6,8 @@
 import clsx from 'clsx'
 import { forwardRef } from 'react'
 import type { ForwardedRef, HTMLAttributes, PropsWithChildren } from 'react'
-import { AppNavigationMenuButton } from './AppNavigationButton'
-import { AppNavigationMenuLink } from './AppNavigationLink'
+import { AppNavigationButton } from './AppNavigationButton'
+import { AppNavigationLink } from './AppNavigationLink'
 import { AppNavigationMenu } from './AppNavigationMenu'
 import { useAppContext } from '../App/AppContext'
 
@@ -42,7 +42,7 @@ export const AppNavigationRoot = forwardRef(
 AppNavigationRoot.displayName = 'AppNavigation'
 
 export const AppNavigation = Object.assign(AppNavigationRoot, {
-  Button: AppNavigationMenuButton,
-  Link: AppNavigationMenuLink,
+  Button: AppNavigationButton,
+  Link: AppNavigationLink,
   Menu: AppNavigationMenu,
 })

@@ -20,7 +20,7 @@ type LayoutProps = {
 } & PropsWithChildren<HTMLAttributes<HTMLElement>>
 
 export const Layout = ({ children, navExpanded, navItems }: LayoutProps) => (
-  <App>
+  <App centered={false}>
     <SkipLink href="#main">Direct naar inhoud</SkipLink>
 
     <App.Header

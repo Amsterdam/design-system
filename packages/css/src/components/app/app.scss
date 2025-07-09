@@ -5,7 +5,13 @@
 
 @use "../../common/breakpoint" as *;
 
+// @TODO This is a test to see the effects of the centered property.
+body {
+  background-color: lightgray;
+}
+
 .ams-app {
+  background-color: var(--ams-app-background-color);
   display: grid;
   grid-template-areas:
     "skiplink"
@@ -14,7 +20,6 @@
     "content"
     "footer";
   grid-template-rows: auto auto auto 1fr auto;
-  margin-inline: 0;
   max-inline-size: var(--ams-app-max-inline-size);
   min-block-size: 100dvh;
 
@@ -38,6 +43,10 @@
     grid-area: footer;
   }
 
+  &.ams-app--centered {
+    margin-inline: auto;
+  }
+
   &.ams-app--fullscreen {
     max-inline-size: initial;
   }
@@ -53,7 +62,7 @@
   }
 }
 
-.ams-app-header__menu-toggle {
+.ams-app__menu-toggle {
   @media screen and (min-width: $ams-breakpoint-wide) {
     display: none;
   }

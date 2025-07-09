@@ -7,19 +7,19 @@ import clsx from 'clsx'
 import { AnchorHTMLAttributes, ForwardedRef, forwardRef, PropsWithChildren } from 'react'
 import { Icon, IconProps } from '../Icon'
 
-export type AppNavigationMenuLinkProps = {
+export type AppNavigationLinkProps = {
   active?: boolean
   icon?: IconProps['svg']
   label: string
 } & PropsWithChildren<AnchorHTMLAttributes<HTMLAnchorElement>>
 
-export const AppNavigationMenuLink = forwardRef(
+export const AppNavigationLink = forwardRef(
   (
-    { active, children, className, icon, label, ...restProps }: AppNavigationMenuLinkProps,
+    { active, children, className, icon, label, ...restProps }: AppNavigationLinkProps,
     ref: ForwardedRef<HTMLAnchorElement>,
   ) => {
     return (
-      <li className={'ams-app-navigation__menu-item'}>
+      <li className="ams-app-navigation__menu-item">
         <a
           {...restProps}
           aria-current={active ? 'page' : undefined}
@@ -35,4 +35,4 @@ export const AppNavigationMenuLink = forwardRef(
   },
 )
 
-AppNavigationMenuLink.displayName = 'AppNavigation.MenuLink'
+AppNavigationLink.displayName = 'AppNavigation.Link'

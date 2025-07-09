@@ -18,6 +18,7 @@ const meta = {
   title: 'Components/Containers/App',
   component: App,
   args: {
+    centered: true,
     fullscreen: false,
   },
   parameters: {
@@ -71,6 +72,7 @@ export const Default: Story = {
 
 export const Fullscreen: Story = {
   args: {
+    centered: false,
     children: (
       <>
         <SkipLink href="#main">Direct naar inhoud</SkipLink>

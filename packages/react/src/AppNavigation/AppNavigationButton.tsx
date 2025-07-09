@@ -16,16 +16,16 @@ import {
 } from 'react'
 import { Icon, IconProps } from '../Icon'
 
-export type AppNavigationMenuButtonProps = {
+export type AppNavigationButtonProps = {
   active?: boolean
   icon?: IconProps['svg']
   label: string
   open?: boolean
 } & PropsWithChildren<ButtonHTMLAttributes<HTMLButtonElement>>
 
-export const AppNavigationMenuButton = forwardRef(
+export const AppNavigationButton = forwardRef(
   (
-    { active, children, className, icon, label, open = false, ...restProps }: AppNavigationMenuButtonProps,
+    { active, children, className, icon, label, open = false, ...restProps }: AppNavigationButtonProps,
     ref: ForwardedRef<HTMLButtonElement>,
   ) => {
     const [submenuOpen, setSubmenuOpen] = useState(open)
@@ -39,7 +39,7 @@ export const AppNavigationMenuButton = forwardRef(
       <li className={clsx('ams-app-navigation__menu-item', submenuOpen && 'ams-app-navigation__menu-item--open')}>
         <button
           {...restProps}
-          aria-expanded={submenuOpen}
+          aria-expanded={submenuOpen ? 'true' : 'false'}
           className={clsx('ams-app-navigation__button', active && 'ams-app-navigation__button--active', className)}
           onClick={() => setSubmenuOpen(!submenuOpen)}
           ref={ref}
@@ -54,4 +54,4 @@ export const AppNavigationMenuButton = forwardRef(
   },
 )
 
-AppNavigationMenuButton.displayName = 'AppNavigation.MenuButton'
+AppNavigationButton.displayName = 'AppNavigation.Button'

@@ -1,6 +1,7 @@
 {
   "ams": {
     "app": {
+      "background-color": { "value": "{ams.color.background}" },
       "max-inline-size": { "value": "120rem" }
     }
   }
