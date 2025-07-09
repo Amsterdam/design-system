@@ -74,7 +74,7 @@ Follow the [guidelines for asking for telephone numbers](https://design-system.s
 This field helps the user enter a whole number.
 Avoid using `type="number"` as it has several usability and accessibility issues.
 Instead, we use `inputMode="numeric"`, which enables the browser to display a numeric keypad.
-Include `pattern="[0-9]*"` to allow only decimal numbers.
+Include `pattern="[0-9]*"` to allow only whole numbers.
 However, do not rely only on the browser’s validation.
 Add `spellcheck="false"` to prevent browsers from automatically changing user input.
 
