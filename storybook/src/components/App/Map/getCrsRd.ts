@@ -1,5 +1,5 @@
 import L, { CRS, LatLng, PointExpression } from 'leaflet'
-import proj4, { InterfaceCoordinates } from 'proj4'
+import proj4 from 'proj4'
 
 export const CRS_CONFIG = {
   EARTH_RADIUS: 6378137,
@@ -51,7 +51,7 @@ const getCrsRd = (maxZoom = 16, zeroScale = 3440.64, scales: number[] = []): CRS
           const [x, y] = proj4RD.forward([latlng.lng, latlng.lat])
           return new L.Point(x, y)
         },
-        unproject: (point: InterfaceCoordinates) => {
+        unproject: (point: L.Point) => {
           const [lng, lat] = proj4RD.inverse([point.x, point.y])
           return L.latLng(lat, lng)
         },
