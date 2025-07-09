@@ -1,6 +1,0 @@
-import{j as t}from"./jsx-runtime-Cf8x2fCZ.js";import{useMDXComponents as e}from"./index-CxbY7dAs.js";import{M as m}from"./index-UfvCR-Cl.js";import{S as n}from"./SearchPage.stories-BQkqp57O.js";import{S as p}from"./StatusBadge-DIRNee3V.js";import"./index-yBjzXJbu.js";import"./index-G8LIXM5I.js";import"./_commonjsHelpers-CqkleIqs.js";import"./iframe-DKYmto03.js";import"./index-CJ88nXQk.js";import"./index-Cf9b6H0j.js";import"./index-DrFu-skq.js";import"./index.esm-CGkKzGPY.js";import"./index.esm-DeL3Eep_.js";import"./clsx-B-dksMZM.js";import"./config-BZ3145ml.js";import"./App-C4Zo3nNo.js";import"./Icon-BBW_x4VP.js";import"./PageHeader-Cjx9ZPCH.js";import"./Grid-BHIDbP7U.js";import"./paddingClasses-BhwbQ8nP.js";import"./Logo-BXVw7-MZ.js";import"./Badge-nq-uHbpZ.js";/*@license CC0-1.0*/function i(r){const o={h1:"h1",...e(),...r.components};return t.jsxs(t.Fragment,{children:[`
-`,`
-`,`
-`,t.jsx(p,{description:"This page is a work in progress and may change in future releases",status:"beta"}),`
-`,t.jsx(m,{of:n}),`
-`,t.jsx(o.h1,{id:"search-page",children:"Search page"})]})}function F(r={}){const{wrapper:o}={...e(),...r.components};return o?t.jsx(o,{...r,children:t.jsx(i,{...r})}):i(r)}export{F as default};
