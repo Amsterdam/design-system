@@ -88,7 +88,7 @@ describe('Alert', () => {
     expect(onClose).toHaveBeenCalled()
   })
 
-  it('uses a custom headingId', () => {
+  it('uses a custom headingId to label the Alert', () => {
     render(<Alert heading="Let op!" headingId="custom-heading-id" headingLevel={2} />)
 
     const component = screen.getByRole('region', { name: 'Let op!' })
@@ -97,7 +97,7 @@ describe('Alert', () => {
     expect(component).toHaveAttribute('aria-labelledby', 'custom-heading-id')
   })
 
-  it('does not use a headingId when set to null', () => {
+  it('does not label the Alert when headingId is set to null', () => {
     const { container } = render(<Alert heading="Let op!" headingId={null} headingLevel={2} />)
 
     const component = container.querySelector(':only-child')
