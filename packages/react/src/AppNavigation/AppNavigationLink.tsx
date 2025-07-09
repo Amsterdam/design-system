@@ -23,11 +23,11 @@ export const AppNavigationMenuLink = forwardRef(
         <a
           {...restProps}
           aria-current={active ? 'page' : undefined}
-          className={clsx('ams-app-navigation__menu-link', className)}
+          className={clsx('ams-app-navigation__link', className)}
           ref={ref}
         >
           {icon && <Icon size="large" svg={icon} />}
-          <span className="ams-app-navigation_menu-link-label">{label}</span>
+          <span className="ams-app-navigation__label">{label}</span>
         </a>
         {children}
       </li>

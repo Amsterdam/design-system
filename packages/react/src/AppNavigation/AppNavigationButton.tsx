@@ -5,8 +5,15 @@
 
 import { ChevronDownIcon } from '@amsterdam/design-system-react-icons'
 import clsx from 'clsx'
-import { Children, isValidElement, useState } from 'react'
-import { AnchorHTMLAttributes, ForwardedRef, forwardRef, PropsWithChildren } from 'react'
+import {
+  ButtonHTMLAttributes,
+  Children,
+  ForwardedRef,
+  forwardRef,
+  isValidElement,
+  PropsWithChildren,
+  useState,
+} from 'react'
 import { Icon, IconProps } from '../Icon'
 
 export type AppNavigationMenuButtonProps = {
@@ -14,12 +21,12 @@ export type AppNavigationMenuButtonProps = {
   icon?: IconProps['svg']
   label: string
   open?: boolean
-} & PropsWithChildren<AnchorHTMLAttributes<HTMLAnchorElement>>
+} & PropsWithChildren<ButtonHTMLAttributes<HTMLButtonElement>>
 
 export const AppNavigationMenuButton = forwardRef(
   (
     { active, children, className, icon, label, open = false, ...restProps }: AppNavigationMenuButtonProps,
-    ref: ForwardedRef<HTMLAnchorElement>,
+    ref: ForwardedRef<HTMLButtonElement>,
   ) => {
     const [submenuOpen, setSubmenuOpen] = useState(open)
 
@@ -30,21 +37,17 @@ export const AppNavigationMenuButton = forwardRef(
 
     return (
       <li className={clsx('ams-app-navigation__menu-item', submenuOpen && 'ams-app-navigation__menu-item--open')}>
-        <a
+        <button
           {...restProps}
-          aria-expanded={hasSubMenu ? submenuOpen : undefined}
-          className={clsx(
-            'ams-app-navigation__menu-button',
-            active && 'ams-app-navigation__menu-button--active',
-            className,
-          )}
+          aria-expanded={submenuOpen}
+          className={clsx('ams-app-navigation__button', active && 'ams-app-navigation__button--active', className)}
           onClick={() => setSubmenuOpen(!submenuOpen)}
           ref={ref}
         >
           {icon && <Icon size="large" svg={icon} />}
-          <span className="ams-app-navigation_menu-button-label">{label}</span>
-          {hasSubMenu && <Icon className="ams-app-navigation__menu-link-chevron" size="small" svg={ChevronDownIcon} />}
-        </a>
+          <span className="ams-app-navigation__label">{label}</span>
+          {hasSubMenu && <Icon className="ams-app-navigation__chevron" size="small" svg={ChevronDownIcon} />}
+        </button>
         {children}
       </li>
     )
