@@ -28,7 +28,6 @@ export const AppHeader = ({ appName, appNavigation, menuButtonText = 'Menu' }: A
           className="ams-page-header__mega-menu-button"
           onClick={() => {
             setAppNavigationOpen(!appNavigationOpen)
-            console.log('Navigation toggle clicked', appNavigationOpen)
           }}
           type="button"
         >
