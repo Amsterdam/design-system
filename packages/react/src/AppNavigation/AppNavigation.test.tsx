@@ -1,16 +1,22 @@
 /**
-* @license EUPL-1.2+
-* Copyright Gemeente Amsterdam
-*/
+ * @license EUPL-1.2+
+ * Copyright Gemeente Amsterdam
+ */
 
 import { render } from '@testing-library/react'
-import { createRef } from 'react'
+import { createRef, ReactNode } from 'react'
 import { AppNavigation } from './AppNavigation'
 import '@testing-library/jest-dom'
+import { AppContext } from '../App/AppContext'
 
 describe('AppNavigation', () => {
+  const mockContext = { appNavigationOpen: false, setAppNavigationOpen: jest.fn() }
+
+  const renderWithContext = (ui: ReactNode) =>
+    render(<AppContext.Provider value={mockContext}>{ui}</AppContext.Provider>)
+
   it('renders', () => {
-    const { container } = render(<AppNavigation />)
+    const { container } = renderWithContext(<AppNavigation />)
 
     const component = container.querySelector(':only-child')
 
@@ -19,7 +25,7 @@ describe('AppNavigation', () => {
   })
 
   it('renders a design system BEM class name', () => {
-    const { container } = render(<AppNavigation />)
+    const { container } = renderWithContext(<AppNavigation />)
 
     const component = container.querySelector(':only-child')
 
@@ -27,7 +33,7 @@ describe('AppNavigation', () => {
   })
 
   it('renders an extra class name', () => {
-    const { container } = render(<AppNavigation className="extra" />)
+    const { container } = renderWithContext(<AppNavigation className="extra" />)
 
     const component = container.querySelector(':only-child')
 
@@ -37,7 +43,7 @@ describe('AppNavigation', () => {
   it('supports ForwardRef in React', () => {
     const ref = createRef<HTMLElement>()
 
-    const { container } = render(<AppNavigation ref={ref} />)
+    const { container } = renderWithContext(<AppNavigation ref={ref} />)
 
     const component = container.querySelector(':only-child')
 
