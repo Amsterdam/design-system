@@ -4,6 +4,7 @@
  */
 
 /* Append here */
+export * from './Menu'
 export * from './Accordion'
 export * from './ActionGroup'
 export * from './Alert'

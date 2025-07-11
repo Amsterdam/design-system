@@ -1,0 +1,33 @@
+/**
+ * @license EUPL-1.2+
+ * Copyright Gemeente Amsterdam
+ */
+
+import { DocumentIcon } from '@amsterdam/design-system-react-icons'
+import clsx from 'clsx'
+import { forwardRef } from 'react'
+import type { AnchorHTMLAttributes, ForwardedRef, PropsWithChildren } from 'react'
+import { Icon } from '../Icon'
+
+export type MenuLinkProps = {
+  /** Changes the text colour for readability on a light or dark background. */
+  color?: 'contrast' | 'inverse'
+  /** An icon to display instead of the default chevron. Don’t mix custom icons with chevrons in one list. */
+  icon?: Function
+} & PropsWithChildren<AnchorHTMLAttributes<HTMLAnchorElement>>
+
+/** One link with a Link List. */
+export const MenuLink = forwardRef(
+  ({ children, className, color, icon, ...restProps }: MenuLinkProps, ref: ForwardedRef<HTMLAnchorElement>) => {
+    return (
+      <li>
+        <a className={clsx('ams-menu__link', color && `ams-menu__link--${color}`, className)} ref={ref} {...restProps}>
+          <Icon className="ams-menu__icon" svg={icon ?? DocumentIcon} />
+          {children}
+        </a>
+      </li>
+    )
+  },
+)
+
+MenuLink.displayName = 'Menu.Link'

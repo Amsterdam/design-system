@@ -1,0 +1,45 @@
+{/* @license CC0-1.0 */}
+
+import { Canvas, Controls, Markdown, Meta, Primary } from "@storybook/blocks";
+import * as MenuStories from "./Menu.stories.tsx";
+import README from "../../../../packages/css/src/components/menu/README.md?raw";
+
+import { StatusBadge } from "../../docs/components/StatusBadge.tsx";
+
+<StatusBadge description="This page is a work in progress and may change in future releases" status="beta" />
+
+<Meta of={MenuStories} />
+
+<Markdown>{README}</Markdown>
+
+<Primary />
+
+## Examples
+
+The Menu component is designed to be used in the sidebar of interal applications.
+Usually with a blue background. This first iteration is a simple vertical menu with 1 level of navigation.
+
+### Link
+
+<Canvas of={MenuStories.Link} />
+
+<Controls of={MenuStories.Link} />
+
+### On a coloured background
+
+A Link on a coloured background must set [the correct text colour](?path=/docs/brand-design-tokens-colour--docs#pairing-foreground-with-background-colours) to provide enough contrast.
+We have lighter and darker background colours, and links behave differently on each.
+
+#### Contrast colour
+
+Use the contrast colour on a lime, orange or yellow background.
+It will make the Link black.
+
+<Canvas of={MenuStories.ContrastColour} />
+
+#### Inverse colour
+
+Use the inverse colour on an azure, blue, green, magenta or purple background.
+It will make the Link white.
+
+<Canvas of={MenuStories.InverseColour} />

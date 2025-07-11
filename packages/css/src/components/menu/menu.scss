@@ -1,0 +1,76 @@
+/**
+ * @license EUPL-1.2+
+ * Copyright Gemeente Amsterdam
+ */
+
+@use "../../common/hyphenation" as *;
+@use "../../common/text-rendering" as *;
+@use "../../common/breakpoint" as *;
+
+@mixin reset-ul {
+  list-style: none;
+  margin-block: 0;
+  padding-inline-start: 0;
+}
+
+.ams-menu__list {
+  box-sizing: border-box;
+  display: grid;
+
+  @include hyphenation;
+  @include text-rendering;
+  @include reset-ul;
+}
+
+.ams-menu__link {
+  align-items: flex-start;
+  color: var(--ams-menu-link-color);
+  display: flex;
+  font-family: var(--ams-menu-link-font-family);
+  font-size: var(--ams-menu-link-font-size);
+  font-weight: var(--ams-menu-link-font-weight);
+  gap: var(--ams-menu-link-gap);
+  line-height: var(--ams-menu-link-line-height);
+  outline-offset: var(--ams-menu-link-outline-offset);
+  padding-block: var(--ams-menu-link-padding-block);
+  text-decoration-line: var(--ams-menu-link-text-decoration-line);
+  text-decoration-thickness: var(--ams-menu-link-text-decoration-thickness);
+  text-underline-offset: var(--ams-menu-link-text-underline-offset);
+
+  &:hover {
+    color: var(--ams-menu-link-hover-color);
+    text-decoration-line: var(--ams-menu-link-hover-text-decoration-line);
+  }
+
+  // TODO: Discuss className specificity in child components
+  .ams-menu__icon {
+    align-self: initial;
+  }
+
+  @media screen and (min-width: $ams-breakpoint-wide) {
+    align-items: center;
+    flex-direction: column;
+    max-inline-size: 112px;
+
+    // TODO: Discuss font size changes in breakpoint (scales to 24x24 on desktop)
+    .ams-menu__icon {
+      transform: scale(1.5);
+    }
+  }
+}
+
+.ams-menu__link--contrast {
+  color: var(--ams-menu-link-contrast-color);
+
+  &:hover {
+    color: var(--ams-menu-link-contrast-hover-color);
+  }
+}
+
+.ams-menu__link--inverse {
+  color: var(--ams-menu-link-inverse-color);
+
+  &:hover {
+    color: var(--ams-menu-link-inverse-hover-color);
+  }
+}
