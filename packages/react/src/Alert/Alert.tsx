@@ -25,6 +25,7 @@ export type AlertProps = {
   /**
    * The id of the Heading element, which is used to label the Alert.
    * Can be set to `null` to explicitly remove the label.
+   * Note: must be unique for the page.
    **/
   headingId?: string | null
   /**
