@@ -88,7 +88,7 @@ export const WithInteractiveElement: StoryObj = {
             </Grid.Cell>
           </Grid>
         </Spotlight>
-        <Image alt="" aspectRatio="16:9" className="ams-mb-2xl" src="https://picsum.photos/id/133/1600/900" />
+        <Image alt="" aspectRatio="16:9" className="ams-mb-2xl" src="https://picsum.photos/id/133/1440/810" />
       </main>
     ),
   },
@@ -107,7 +107,7 @@ export const SubnavigationPage: StoryObj = {
             </Paragraph>
           </Grid.Cell>
         </Grid>
-        <Image alt="" aspectRatio="16:5" src="https://picsum.photos/1600/500" />
+        <Image alt="" aspectRatio="16:5" src="https://picsum.photos/1440/450" />
         <Grid paddingVertical="large">
           <Grid.Cell span={{ narrow: 4, medium: 6, wide: 7 }} start={{ narrow: 1, medium: 1, wide: 2 }}>
             <Heading className="ams-mb-s" level={2}>
