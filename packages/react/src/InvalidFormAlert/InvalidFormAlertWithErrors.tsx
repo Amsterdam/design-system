@@ -48,6 +48,9 @@ export const InvalidFormAlertWithErrors = forwardRef(
         {...restProps}
         className={clsx('ams-invalid-form-alert', className)}
         heading={heading}
+        // Remove the default label for the Alert.
+        // Otherwise, focusing on the Alert causes NVDA to read the label twice.
+        headingId={null}
         headingLevel={headingLevel}
         ref={innerRef}
         severity="error"

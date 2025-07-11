@@ -19,5 +19,5 @@ Sets the background colour and its maximum width, and is horizontally centered.
 
 ## Design
 
-The Page container sets the maximum width for a website of the City of Amsterdam, which is 1600 pixels.
+The Page container sets the maximum width for a website of the City of Amsterdam, which is 1440 pixels.
 It horizontally centres both itself and its content and sets a white background.
