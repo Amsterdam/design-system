@@ -13,7 +13,7 @@ export const viewports: ViewportMap = {
     name: 'Tablet',
     styles: {
       height: '1080px',
-      width: '832px',
+      width: '880px',
     },
     type: 'tablet',
   },
@@ -21,7 +21,7 @@ export const viewports: ViewportMap = {
     name: 'Desktop',
     styles: {
       height: '1080px',
-      width: '1600px',
+      width: '1440px',
     },
     type: 'desktop',
   },

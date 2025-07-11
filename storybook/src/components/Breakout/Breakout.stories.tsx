@@ -62,7 +62,7 @@ export const VerticalLayout: Story = {
         <Spotlight color="orange" />
       </Breakout.Cell>,
       <Breakout.Cell colSpan="all" has="figure" key={2} rowSpan={2} rowStart={1}>
-        <Image alt="" src="https://picsum.photos/1600/900" />
+        <Image alt="" src="https://picsum.photos/1440/810" />
       </Breakout.Cell>,
       <Breakout.Cell
         colSpan={{ narrow: 4, medium: 5, wide: 7 }}
