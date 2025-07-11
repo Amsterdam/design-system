@@ -3,6 +3,34 @@
  * Copyright Gemeente Amsterdam
  */
 
+@use "../../common/hyphenation" as *;
+@use "../../common/text-rendering" as *;
+
 .ams-call-to-action-link {
-  /* Add styles here */
+  background-color: var(--ams-call-to-action-link-background-color);
+  border-color: var(--ams-call-to-action-link-background-color);
+  border-style: var(--ams-call-to-action-link-border-style);
+  border-width: var(--ams-call-to-action-link-border-width);
+  color: var(--ams-call-to-action-link-color);
+  display: inline-flex;
+  font-family: var(--ams-call-to-action-link-font-family);
+  font-size: var(--ams-call-to-action-link-font-size);
+  font-weight: var(--ams-call-to-action-link-font-weight);
+  line-height: var(--ams-call-to-action-link-line-height);
+  outline-offset: var(--ams-call-to-action-link-outline-offset);
+  padding-block: var(--ams-call-to-action-link-padding-block);
+  padding-inline: var(--ams-call-to-action-link-padding-inline);
+  text-decoration-thickness: var(--ams-call-to-action-link-text-decoration-thickness);
+  text-underline-offset: var(--ams-call-to-action-link-text-underline-offset);
+  touch-action: manipulation;
+
+  @include hyphenation;
+  @include text-rendering;
+
+  &:hover {
+    background-color: var(--ams-call-to-action-link-hover-background-color);
+    border-color: var(--ams-call-to-action-link-hover-border-color);
+    text-decoration-thickness: var(--ams-call-to-action-link-hover-text-decoration-thickness);
+    text-underline-offset: var(--ams-call-to-action-link-hover-text-underline-offset);
+  }
 }

@@ -4,7 +4,6 @@
  */
 
 /* Append here */
-export * from './CallToActionLink'
 export * from './Accordion'
 export * from './ActionGroup'
 export * from './Alert'
@@ -14,6 +13,7 @@ export * from './Blockquote'
 export * from './Breadcrumb'
 export * from './Breakout'
 export * from './Button'
+export * from './CallToActionLink'
 export * from './Card'
 export * from './CharacterCount'
 export * from './Checkbox'

@@ -3,33 +3,33 @@
  * Copyright Gemeente Amsterdam
  */
 
-import { render } from '@testing-library/react'
+import { render, screen } from '@testing-library/react'
 import { createRef } from 'react'
 import { CallToActionLink } from './CallToActionLink'
 import '@testing-library/jest-dom'
 
-describe('CallToActionLink', () => {
-  it('renders', () => {
-    const { container } = render(<CallToActionLink />)
+describe('Call to Action Link', () => {
+  it('renders with href attribute', () => {
+    render(<CallToActionLink href="#" />)
 
-    const component = container.querySelector(':only-child')
+    const component = screen.getByRole('link')
 
     expect(component).toBeInTheDocument()
-    expect(component).toBeVisible()
+    expect(component).toHaveAttribute('href', '#')
   })
 
   it('renders a design system BEM class name', () => {
-    const { container } = render(<CallToActionLink />)
+    render(<CallToActionLink href="#" />)
 
-    const component = container.querySelector(':only-child')
+    const component = screen.getByRole('link')
 
     expect(component).toHaveClass('ams-call-to-action-link')
   })
 
   it('renders an extra class name', () => {
-    const { container } = render(<CallToActionLink className="extra" />)
+    render(<CallToActionLink className="extra" href="#" />)
 
-    const component = container.querySelector(':only-child')
+    const component = screen.getByRole('link')
 
     expect(component).toHaveClass('ams-call-to-action-link extra')
   })
@@ -37,9 +37,9 @@ describe('CallToActionLink', () => {
   it('supports ForwardRef in React', () => {
     const ref = createRef<HTMLAnchorElement>()
 
-    const { container } = render(<CallToActionLink ref={ref} />)
+    render(<CallToActionLink href="#" ref={ref} />)
 
-    const component = container.querySelector(':only-child')
+    const component = screen.getByRole('link')
 
     expect(ref.current).toBe(component)
   })

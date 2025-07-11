@@ -7,10 +7,22 @@ import { CallToActionLink } from '@amsterdam/design-system-react/src'
 import { Meta, StoryObj } from '@storybook/react'
 
 const meta = {
-  title: 'Call-to-Action-Link',
+  title: 'Components/Navigation/Call to Action Link',
   component: CallToActionLink,
   args: {
-    children: 'Nieuw component',
+    children: 'Rijbewijs aanvragen',
+    href: '#',
+  },
+  argTypes: {
+    children: {
+      description: 'The link text.',
+      table: { disable: false },
+    },
+    href: {
+      description: 'The url for the link.',
+      name: 'href',
+      type: { name: 'string', required: false },
+    },
   },
 } satisfies Meta<typeof CallToActionLink>
 
