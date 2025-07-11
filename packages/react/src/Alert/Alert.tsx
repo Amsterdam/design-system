@@ -23,6 +23,12 @@ export type AlertProps = {
   /** The text for the Heading. */
   heading: string
   /**
+   * The id of the Heading element, which is used to label the Alert.
+   * Can be set to `null` to explicitly remove the label.
+   * Note: must be unique for the page.
+   **/
+  headingId?: string | null
+  /**
    * The hierarchical level of the Alert’s Heading within the document.
    * There is no default value; determine the correct level for each instance.
    * Note: this intentionally does not change the font size.
@@ -51,6 +57,7 @@ export const Alert = forwardRef(
       closeable,
       closeButtonLabel = 'Sluiten',
       heading,
+      headingId = 'ams-alert-heading',
       headingLevel,
       onClose,
       severity,
@@ -61,13 +68,18 @@ export const Alert = forwardRef(
     const SeverityIcon = severity ? iconSvgBySeverity[severity] : InfoFillIcon
 
     return (
-      <section {...restProps} className={clsx('ams-alert', severity && `ams-alert--${severity}`, className)} ref={ref}>
+      <section
+        {...restProps}
+        aria-labelledby={headingId || undefined} // NVDA on Chrome does not read the heading when it is not used as the label for the section.
+        className={clsx('ams-alert', severity && `ams-alert--${severity}`, className)}
+        ref={ref}
+      >
         <div className="ams-alert__severity-indicator">
           <Icon color="inverse" size="heading-4" svg={SeverityIcon} />
         </div>
         <div className="ams-alert__content">
           <Row align="between" alignVertical="start">
-            <Heading level={headingLevel} size="level-4">
+            <Heading id={headingId || undefined} level={headingLevel} size="level-4">
               {heading}
             </Heading>
             {closeable && <IconButton label={closeButtonLabel} onClick={onClose} size="heading-4" />}
