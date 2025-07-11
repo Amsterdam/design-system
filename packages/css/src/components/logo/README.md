@@ -34,7 +34,7 @@ The sub-brands are:
 - The logo links to the homepage of the website or application.
 - If the application is a form, application, or tool without a homepage, the logo links to the page where the form, application, or tool is referred to.
 
-The logo is 40 pixels tall at its minimum, growing to 56 pixels in wider windows.
+The logo is 40 pixels tall at its minimum, growing to 60 pixels in wider windows.
 This also applies to sub-brand logos.
 
 ## Download

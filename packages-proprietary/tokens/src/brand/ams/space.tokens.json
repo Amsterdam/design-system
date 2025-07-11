@@ -1,12 +1,12 @@
 {
   "ams": {
     "space": {
-      "xs": { "value": "clamp(0.2813rem, 0.2578rem + 0.1172vw, 0.375rem)" },
-      "s": { "value": "clamp(0.5625rem, 0.5156rem + 0.2344vw, 0.75rem)" },
-      "m": { "value": "clamp(1.125rem, 1.0313rem + 0.4688vw, 1.5rem)" },
-      "l": { "value": "clamp(1.6875rem, 1.5469rem + 0.7031vw, 2.25rem)" },
-      "xl": { "value": "clamp(2.25rem, 1.9375rem + 1.5625vw, 3.5rem)" },
-      "2xl": { "value": "clamp(2.8125rem, 2.2031rem + 3.0469vw, 5.25rem)" }
+      "xs": { "value": "clamp(0.25rem, 0.2143rem + 0.1786vw, 0.375rem)" },
+      "s": { "value": "clamp(0.5rem, 0.4286rem + 0.3571vw, 0.75rem)" },
+      "m": { "value": "clamp(1rem, 0.8571rem + 0.7143vw, 1.5rem)" },
+      "l": { "value": "clamp(1.5rem, 1.2857rem + 1.0714vw, 2.25rem)" },
+      "xl": { "value": "clamp(2.25rem, 1.8214rem + 2.1429vw, 3.75rem)" },
+      "2xl": { "value": "clamp(3rem, 2.25rem + 3.75vw, 5.625rem)" }
     }
   }
 }
