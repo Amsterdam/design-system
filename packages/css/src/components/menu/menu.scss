@@ -42,7 +42,6 @@
     text-decoration-line: var(--ams-menu-link-hover-text-decoration-line);
   }
 
-  // TODO: Discuss className specificity in child components
   .ams-menu__icon {
     align-self: initial;
   }
@@ -52,7 +51,6 @@
     flex-direction: column;
     max-inline-size: 112px;
 
-    // TODO: Discuss font size changes in breakpoint (scales to 24x24 on desktop)
     .ams-menu__icon {
       transform: scale(1.5);
     }
