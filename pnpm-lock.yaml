@@ -9719,6 +9719,8 @@ snapshots:
     dependencies:
       '@types/node': 22.16.0
 
+  '@types/css-tree@2.3.10': {}
+
   '@types/debug@4.1.12':
     dependencies:
       '@types/ms': 2.1.0
@@ -13772,6 +13774,8 @@ snapshots:
   nano-spawn@1.0.2: {}
 
   nanoid@3.3.11: {}
+
+  nanoid@5.1.5: {}
 
   napi-postinstall@0.3.0: {}
 

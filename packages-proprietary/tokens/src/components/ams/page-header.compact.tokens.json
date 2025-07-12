@@ -2,8 +2,8 @@
   "ams": {
     "page-header": {
       "brand-name": {
-        "font-size": { "value": "{ams.typography.heading.2.font-size}" },
-        "line-height": { "value": "{ams.typography.heading.2.line-height}" }
+        "font-size": { "value": "{ams.typography.heading.3.font-size}" },
+        "line-height": { "value": "{ams.typography.heading.3.line-height}" }
       }
     }
   }
