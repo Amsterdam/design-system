@@ -1,0 +1,7 @@
+import{j as t}from"./jsx-runtime-Cf8x2fCZ.js";import{useMDXComponents as i}from"./index-CxbY7dAs.js";import{M as s}from"./index-CtNgrBp3.js";import{S as m}from"./SearchPage.stories-hUvlKeEc.js";import{S as n}from"./StatusBadge-DIRNee3V.js";import"./index-yBjzXJbu.js";import"./index-G8LIXM5I.js";import"./_commonjsHelpers-CqkleIqs.js";import"./iframe-CEpnxfrb.js";import"./index-CJ88nXQk.js";import"./index-Cf9b6H0j.js";import"./index-DrFu-skq.js";import"./index.esm-DHL1Y5zj.js";import"./index.esm-ZQaGvWOv.js";import"./clsx-B-dksMZM.js";import"./config-CuNgh5Zm.js";import"./App-DofgP5JU.js";import"./PageHeader-Dt-cCvxI.js";import"./Grid-BHIDbP7U.js";import"./paddingClasses-BhwbQ8nP.js";import"./Icon-BBW_x4VP.js";import"./Logo-BXVw7-MZ.js";import"./AppNavigation-j3_fSvwj.js";import"./IconButton-C_jGsPjB.js";import"./Badge-nq-uHbpZ.js";/*@license CC0-1.0*/function e(r){const o={h1:"h1",p:"p",...i(),...r.components};return t.jsxs(t.Fragment,{children:[`
+`,`
+`,`
+`,t.jsx(n,{description:"This page is a work in progress and may change in future releases",status:"beta"}),`
+`,t.jsx(s,{of:m}),`
+`,t.jsx(o.h1,{id:"search-page",children:"Search page"}),`
+`,t.jsx(o.p,{children:"This simple example presents various types of fields to filter, search and sort data."})]})}function F(r={}){const{wrapper:o}={...i(),...r.components};return o?t.jsx(o,{...r,children:t.jsx(e,{...r})}):e(r)}export{F as default};
