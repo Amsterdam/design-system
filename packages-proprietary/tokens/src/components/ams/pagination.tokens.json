@@ -11,8 +11,8 @@
         "outline-offset": { "value": "{ams.focus.outline-offset}" },
         "padding-inline": { "value": "{ams.space.s}" },
         "text-decoration-line": { "value": "{ams.links.subtle.text-decoration-line}" },
-        "text-decoration-thickness": { "value": "{ams.links.subtle.text-decoration-thickness}" },
-        "text-underline-offset": { "value": "{ams.links.subtle.text-underline-offset}" },
+        "text-decoration-thickness": { "value": "{ams.links.text-decoration-thickness}" },
+        "text-underline-offset": { "value": "{ams.links.text-underline-offset}" },
         "current": {
           "font-weight": { "value": "{ams.typography.body-text.bold.font-weight}" }
         },

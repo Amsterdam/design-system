@@ -11,8 +11,6 @@
       },
       "subtle": {
         "text-decoration-line": { "value": "none" },
-        "text-decoration-thickness": { "value": "{ams.links.text-decoration-thickness}" },
-        "text-underline-offset": { "value": "4.75px" },
         "hover": {
           "text-decoration-line": { "value": "underline" }
         }

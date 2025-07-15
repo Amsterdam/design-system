@@ -52,8 +52,8 @@
         },
         "link": {
           "text-decoration-line": { "value": "{ams.links.subtle.text-decoration-line}" },
-          "text-decoration-thickness": { "value": "{ams.links.subtle.text-decoration-thickness}" },
-          "text-underline-offset": { "value": "{ams.links.subtle.text-underline-offset}" },
+          "text-decoration-thickness": { "value": "{ams.links.text-decoration-thickness}" },
+          "text-underline-offset": { "value": "{ams.links.text-underline-offset}" },
           "hover": {
             "text-decoration-line": { "value": "{ams.links.subtle.hover.text-decoration-line}" }
           }
