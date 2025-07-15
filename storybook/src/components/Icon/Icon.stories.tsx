@@ -3,7 +3,7 @@
  * Copyright Gemeente Amsterdam
  */
 
-import { Heading } from '@amsterdam/design-system-react'
+import { Heading, PageHeading } from '@amsterdam/design-system-react'
 import { Icon, Paragraph, Row } from '@amsterdam/design-system-react/src'
 import { iconSizes } from '@amsterdam/design-system-react/src/Icon/Icon'
 import * as Icons from '@amsterdam/design-system-react-icons'
@@ -73,14 +73,27 @@ export const WithAHeading: Story = {
   args: {
     size: 'heading-3',
   },
-  render: (args) => (
-    <Row gap="small">
-      <Icon {...args} />
-      <Heading color={args.color} level={3}>
-        Heading 3 text
-      </Heading>
-    </Row>
-  ),
+  argTypes: {
+    size: {
+      options: [...iconSizes.filter((size) => size.startsWith('heading-'))],
+    },
+  },
+  render: (args) => {
+    const headingSize = args.size ? (args.size.slice(-1) as '0' | '1' | '2' | '3' | '4' | '5' | '6') : '3'
+
+    return (
+      <Row gap="small">
+        <Icon {...args} />
+        {headingSize === '0' ? (
+          <PageHeading color={args.color}>Heading {headingSize} text</PageHeading>
+        ) : (
+          <Heading color={args.color} level={1} size={`level-${headingSize}`}>
+            Heading {headingSize} text
+          </Heading>
+        )}
+      </Row>
+    )
+  },
 }
 
 export const Square: Story = {
