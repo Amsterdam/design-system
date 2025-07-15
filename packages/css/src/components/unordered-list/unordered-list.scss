@@ -45,14 +45,19 @@
   line-height: var(--ams-unordered-list-small-line-height);
 }
 
-:is(.ams-ordered-list, .ams-unordered-list) .ams-unordered-list {
-  gap: var(--ams-unordered-list-unordered-list-gap);
-  list-style-type: var(--ams-unordered-list-unordered-list-list-style-type);
-  padding-block-end: var(--ams-unordered-list-unordered-list-padding-block-end);
-  padding-block-start: var(--ams-unordered-list-unordered-list-padding-block-start);
+:is(.ams-ordered-list, .ams-unordered-list) {
+  .ams-unordered-list {
+    gap: var(--ams-unordered-list-unordered-list-gap);
+    list-style-type: var(--ams-unordered-list-unordered-list-list-style-type);
+    padding-block-start: var(--ams-unordered-list-unordered-list-padding-block-start);
 
-  .ams-unordered-list__item {
-    margin-inline-start: var(--ams-unordered-list-unordered-list-item-margin-inline-start);
-    padding-inline-start: var(--ams-unordered-list-unordered-list-item-padding-inline-start);
+    .ams-unordered-list__item {
+      margin-inline-start: var(--ams-unordered-list-unordered-list-item-margin-inline-start);
+      padding-inline-start: var(--ams-unordered-list-unordered-list-item-padding-inline-start);
+    }
+  }
+
+  > :not(:last-child) > .ams-unordered-list {
+    padding-block-end: var(--ams-unordered-list-unordered-list-padding-block-end);
   }
 }
