@@ -10,7 +10,7 @@ import type { AnchorHTMLAttributes, ForwardedRef, PropsWithChildren } from 'reac
 export type CallToActionLinkProps = PropsWithChildren<AnchorHTMLAttributes<HTMLAnchorElement>>
 
 /**
- * @see {@link https://designsystem.amsterdam/?path=/docs/components-TODO-ADD-GROUP-call-to-action-link--docs CallToActionLink docs at Amsterdam Design System}
+ * @see {@link https://designsystem.amsterdam/?path=/docs/components-navigation-call-to-action-link--docs CallToActionLink docs at Amsterdam Design System}
  */
 export const CallToActionLink = forwardRef(
   ({ children, className, ...restProps }: CallToActionLinkProps, ref: ForwardedRef<HTMLAnchorElement>) => (
