@@ -55,20 +55,6 @@ export const WithBodyText: Story = {
   ),
 }
 
-export const WithSmallBodyText: Story = {
-  args: {
-    size: 'small',
-  },
-  render: (args) => (
-    <Row gap="small">
-      <Icon {...args} />
-      <Paragraph color={args.color} size="small">
-        Small body text
-      </Paragraph>
-    </Row>
-  ),
-}
-
 export const WithLargeBodyText: Story = {
   args: {
     size: 'large',
