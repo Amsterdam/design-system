@@ -2,12 +2,12 @@
   "ams": {
     "links": {
       "color": { "value": "{ams.color.interactive.default}" },
-      "text-decoration-thickness": { "value": "{ams.border.width.m}" },
-      "text-underline-offset": { "value": "0.3333em" },
+      "text-decoration-thickness": { "value": "0.075em" },
+      "text-underline-offset": { "value": "5.5px" },
       "hover": {
         "color": { "value": "{ams.color.interactive.hover}" },
-        "text-decoration-thickness": { "value": "{ams.border.width.l}" },
-        "text-underline-offset": { "value": "0.2778em" }
+        "text-decoration-thickness": { "value": "0.1125em" },
+        "text-underline-offset": { "value": "calc(5.5px - 0.0375em)" }
       },
       "subtle": {
         "text-decoration-line": { "value": "none" },
