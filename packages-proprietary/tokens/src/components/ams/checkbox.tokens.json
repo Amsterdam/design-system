@@ -16,8 +16,14 @@
       "hover": {
         "color": { "value": "{ams.color.interactive.hover}" },
         "text-decoration-line": { "value": "{ams.links.subtle.hover.text-decoration-line}" },
-        "text-decoration-thickness": { "value": "{ams.links.text-decoration-thickness}" },
-        "text-underline-offset": { "value": "{ams.links.text-underline-offset}" }
+        "text-decoration-thickness": {
+          "comment": "@todo Rename to `ams.checkbox.text-decoration-thickness`",
+          "value": "{ams.links.text-decoration-thickness}"
+        },
+        "text-underline-offset": {
+          "comment": "@todo Rename to `ams.checkbox.text-underline-offset`",
+          "value": "{ams.links.text-underline-offset}"
+        }
       },
       "checked-indicator": {
         "stroke": { "value": "{ams.color.interactive.inverse}" }
