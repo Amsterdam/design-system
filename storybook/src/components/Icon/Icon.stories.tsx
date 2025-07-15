@@ -83,7 +83,7 @@ export const WithLargeBodyText: Story = {
   ),
 }
 
-export const WithHeading3: Story = {
+export const WithAHeading: Story = {
   args: {
     size: 'heading-3',
   },
@@ -92,48 +92,6 @@ export const WithHeading3: Story = {
       <Icon {...args} />
       <Heading color={args.color} level={3}>
         Heading 3 text
-      </Heading>
-    </Row>
-  ),
-}
-
-export const WithHeading4: Story = {
-  args: {
-    size: 'heading-4',
-  },
-  render: (args) => (
-    <Row gap="small">
-      <Icon {...args} />
-      <Heading color={args.color} level={4}>
-        Heading 4 text
-      </Heading>
-    </Row>
-  ),
-}
-
-export const WithHeading5: Story = {
-  args: {
-    size: 'heading-5',
-  },
-  render: (args) => (
-    <Row gap="small">
-      <Icon {...args} />
-      <Heading color={args.color} level={4} size="level-5">
-        Heading 5 text
-      </Heading>
-    </Row>
-  ),
-}
-
-export const WithHeading6: Story = {
-  args: {
-    size: 'heading-6',
-  },
-  render: (args) => (
-    <Row gap="small">
-      <Icon {...args} />
-      <Heading color={args.color} level={4} size="level-6">
-        Heading 6 text
       </Heading>
     </Row>
   ),
