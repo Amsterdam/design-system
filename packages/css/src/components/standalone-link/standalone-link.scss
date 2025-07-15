@@ -50,6 +50,7 @@
   &:hover {
     text-decoration-line: var(--ams-standalone-link-with-icon-hover-text-decoration-line);
     text-decoration-thickness: var(--ams-standalone-link-with-icon-text-decoration-thickness); /* [1] */
+    text-underline-offset: var(--ams-standalone-link-with-icon-text-underline-offset); /* [1] */
   }
 }
 
