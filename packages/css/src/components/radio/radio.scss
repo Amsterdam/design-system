@@ -56,6 +56,8 @@
 .ams-radio__label:hover {
   color: var(--ams-radio-hover-color);
   text-decoration-line: var(--ams-radio-hover-text-decoration-line);
+  text-decoration-thickness: var(--ams-radio-hover-text-decoration-thickness);
+  text-underline-offset: var(--ams-radio-hover-text-underline-offset);
 
   .ams-radio__circle {
     stroke: var(--ams-radio-circle-hover-stroke);

@@ -124,9 +124,9 @@
   // Default hover
   &:hover:not(:disabled) + * {
     color: var(--ams-checkbox-hover-color);
-    text-decoration-line: underline;
+    text-decoration-line: var(--ams-checkbox-hover-text-decoration-line);
     text-decoration-thickness: var(--ams-checkbox-hover-text-decoration-thickness);
-    text-underline-offset: 0.375rem;
+    text-underline-offset: var(--ams-checkbox-hover-text-underline-offset);
 
     .ams-checkbox__rectangle {
       @media (forced-colors: none) {

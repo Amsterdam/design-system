@@ -70,7 +70,9 @@
       },
       "hover": {
         "color": { "value": "{ams.color.interactive.hover}" },
-        "text-decoration-line": { "value": "{ams.links.subtle.hover.text-decoration-line}" }
+        "text-decoration-line": { "value": "{ams.links.subtle.hover.text-decoration-line}" },
+        "text-decoration-thickness": { "value": "{ams.links.text-decoration-thickness}" },
+        "text-underline-offset": { "value": "{ams.links.text-underline-offset}" }
       },
       "icon-container": {
         "block-size": { "value": "calc({ams.radio.font-size} * {ams.radio.line-height})" },
