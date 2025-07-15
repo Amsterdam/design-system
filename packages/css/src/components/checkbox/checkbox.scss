@@ -19,6 +19,8 @@
   gap: var(--ams-checkbox-gap);
   line-height: var(--ams-checkbox-line-height);
   outline-offset: var(--ams-checkbox-outline-offset);
+  text-decoration-thickness: var(--ams-checkbox-hover-text-decoration-thickness);
+  text-underline-offset: var(--ams-checkbox-hover-text-underline-offset);
 
   @include hyphenation;
   @include text-rendering;
@@ -125,8 +127,6 @@
   &:hover:not(:disabled) + * {
     color: var(--ams-checkbox-hover-color);
     text-decoration-line: var(--ams-checkbox-hover-text-decoration-line);
-    text-decoration-thickness: var(--ams-checkbox-hover-text-decoration-thickness);
-    text-underline-offset: var(--ams-checkbox-hover-text-underline-offset);
 
     .ams-checkbox__rectangle {
       @media (forced-colors: none) {
