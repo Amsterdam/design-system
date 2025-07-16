@@ -18,10 +18,6 @@
         "yellow": { "value": "#ffe600" }
       },
       "interactive": {
-        "call-to-action": {
-          "default": { "value": "#00a03c" },
-          "hover": { "value": "#007c2e" }
-        },
         "contrast": { "value": "#000000" },
         "default": { "value": "#004699" },
         "disabled": { "value": "#767676" },
