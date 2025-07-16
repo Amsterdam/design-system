@@ -21,10 +21,6 @@
         "text-decoration-thickness": {
           "comment": "@deprecated Use `ams.checkbox.text-decoration-thickness` instead",
           "value": "{ams.links.text-decoration-thickness}"
-        },
-        "text-underline-offset": {
-          "comment": "@deprecated Use `ams.checkbox.text-underline-offset` instead",
-          "value": "{ams.links.text-underline-offset}"
         }
       },
       "checked-indicator": {
