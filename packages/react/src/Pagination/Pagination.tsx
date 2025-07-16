@@ -67,21 +67,21 @@ export type PaginationProps = {
 export const Pagination = forwardRef(
   (
     {
-      accessibleName = 'Paginering',
-      accessibleNameId = 'ams-pagination-a11y-label',
+      accessibleName,
+      accessibleNameId,
       className,
       linkComponent = (props: AnchorHTMLAttributes<HTMLAnchorElement>) => <a {...props} />,
       linkTemplate,
       maxVisiblePages = 7,
-      nextAccessibleName = 'Volgende pagina',
+      nextAccessibleName,
       nextLabel = 'volgende',
-      nextVisuallyHiddenLabel = 'Volgende pagina',
+      nextVisuallyHiddenLabel,
       page = 1,
-      previousAccessibleName = 'Vorige pagina',
+      previousAccessibleName,
       previousLabel = 'vorige',
-      previousVisuallyHiddenLabel = 'Vorige pagina',
+      previousVisuallyHiddenLabel,
       totalPages,
-      visuallyHiddenLabel = 'Paginering',
+      visuallyHiddenLabel,
       visuallyHiddenLabelId = 'ams-pagination-a11y-label',
       ...restProps
     }: PaginationProps,
@@ -100,17 +100,22 @@ export const Pagination = forwardRef(
     return (
       <nav
         {...restProps}
-        aria-labelledby={accessibleNameId || visuallyHiddenLabelId}
+        aria-labelledby={accessibleNameId || visuallyHiddenLabelId || 'ams-pagination-a11y-label'}
         className={clsx('ams-pagination', className)}
         ref={ref}
       >
-        <span className="ams-visually-hidden" id={accessibleNameId || visuallyHiddenLabelId}>
-          {accessibleName || visuallyHiddenLabel}
+        <span
+          className="ams-visually-hidden"
+          id={accessibleNameId || visuallyHiddenLabelId || 'ams-pagination-a11y-label'}
+        >
+          {accessibleName || visuallyHiddenLabel || 'Paginering'}
         </span>
         {page !== 1 && (
           <Link className="ams-pagination__link" href={linkTemplate(page - 1)} rel="prev">
             <Icon svg={ChevronBackwardIcon} />
-            <span className="ams-visually-hidden">{previousAccessibleName || previousVisuallyHiddenLabel}</span>
+            <span className="ams-visually-hidden">
+              {previousAccessibleName || previousVisuallyHiddenLabel || 'Vorige pagina'}
+            </span>
             <span aria-hidden>{previousLabel}</span>
           </Link>
         )}
@@ -131,7 +136,9 @@ export const Pagination = forwardRef(
         </ol>
         {page !== totalPages && (
           <Link className="ams-pagination__link" href={linkTemplate(page + 1)} rel="next">
-            <span className="ams-visually-hidden">{nextAccessibleName || nextVisuallyHiddenLabel}</span>
+            <span className="ams-visually-hidden">
+              {nextAccessibleName || nextVisuallyHiddenLabel || 'Volgende pagina'}
+            </span>
             <span aria-hidden>{nextLabel}</span>
             <Icon svg={ChevronForwardIcon} />
           </Link>
