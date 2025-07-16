@@ -18,7 +18,7 @@
         "yellow": { "value": "#ffe600" }
       },
       "interactive": {
-        "contrast": { "value": "#000000" },
+        "contrast": { "value": "#181818" },
         "default": { "value": "#004699" },
         "disabled": { "value": "#767676" },
         "hover": { "value": "#003677" },

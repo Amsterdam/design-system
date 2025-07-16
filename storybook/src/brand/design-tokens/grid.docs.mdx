@@ -18,16 +18,13 @@ The wider the window, the more columns.
 
 In windows up to 576 pixels wide, the grid has 4 columns.
 Up to a width of 1088 pixels, it has 8 columns.
-At that point and beyond, it has 12 columns.
+From that point and beyond, it has 12 columns.
 
 We refer to these 3 variants as the narrow, medium, and wide grid.
 
-The breakpoints are based on steps of 256 pixels, starting with a base of 64 pixels.
-So, 576 = 64 + 2 × 256 and 1088 = 64 + 4 × 256.
-
-At these breakpoints, only the amount of columns changes.
-They become narrower or wider, affecting the elements placed on them.
-The white spaces between and beside the columns grow at the same rate across the entire spectrum.
+The columns get narrower or wider around these breakpoints.
+This affects the size of the elements placed on them.
+The width and height of rows and columns, as well as white space around them, change linearly.
 
 ### Two themes for white space
 
@@ -41,7 +38,7 @@ Not many options exist for background colour or borders.
 Typography and white space remain as tools to keep screens readable.
 For websites, the grid is quite spacious.
 
-The gap between columns uses our `xl` space token, which grows from 36 to 56 pixels in windows between 320 and 1600 pixels wide.
+The gap between columns uses our `xl` space token, which grows from 36 to 60 pixels in windows between 320 and 1440 pixels wide.
 
 #### Compact
 
@@ -66,8 +63,8 @@ In this context, the grid takes up the entire width of the window.
 A maximum width for the grid ensures that white space and typography do not grow indefinitely.
 This prevents page elements from getting too far apart, keeping text comfortably readable.
 
-For websites, the maximum width of the grid is 1432 pixels.
-The grid has this width in windows of at least 1600 pixels wide – the margins are 84 pixels here.
+For websites, the maximum width of the grid is 1260 pixels.
+The grid has this width in windows of at least 1440 pixels wide – the margins are 90 pixels here.
 
 Applications often use the entire width of the window.
 
@@ -89,17 +86,17 @@ Again, between these widths, the widths grow continuously.
 
 | Breakpoint | From window width | Number of columns | Column width | Gap width | Margin width | Grid width |
 | :--------- | ----------------: | ----------------: | -----------: | --------: | -----------: | ---------: |
-| narrow     |               320 |                 4 |         39.5 |        36 |           27 |        266 |
-| medium     |               576 |                 8 |           27 |        40 |           40 |        496 |
-| wide       |              1088 |                12 |         35.3 |        48 |         68.4 |      951.2 |
+| narrow     |               320 |                 4 |           41 |        36 |           24 |        272 |
+| medium     |               600 |                 8 |         27.8 |        42 |           42 |        516 |
+| wide       |              1160 |                12 |         33.9 |        54 |         79.5 |       1001 |
 
 #### Compact
 
 | Breakpoint | From window width | Number of columns | Menu bar width | Column width | Gap width | Margin width | Grid width |
 | :--------- | ----------------: | ----------------: | -------------: | -----------: | --------: | -----------: | ---------: |
-| narrow     |               320 |                 4 |              0 |           57 |        20 |           16 |        288 |
-| medium     |               576 |                 8 |              0 |         45.9 |      23.2 |         23.2 |      529.6 |
-| wide       |              1088 |                12 |            112 |         47.8 |      29.6 |         38.4 |      899.2 |
+| narrow     |               320 |                 4 |              0 |           54 |        24 |           16 |        288 |
+| medium     |               600 |                 8 |              0 |         44.6 |        27 |           27 |        548 |
+| wide       |              1160 |                12 |            108 |         50.1 |        33 |           44 |        964 |
 
 ### Not tied to devices
 
@@ -136,17 +133,17 @@ In these 3 situations, the dimensions are as follows.
 
 | Device Class | Reference Width | Number of columns | Column width | Gap width | Margin width | Grid width |
 | :----------- | --------------: | ----------------: | -----------: | --------: | -----------: | ---------: |
-| phone        |             320 |                 4 |         39.5 |        36 |           27 |        266 |
-| tablet       |             832 |                 8 |         54.5 |        44 |           44 |        744 |
-| desktop      |            1600 |                12 |           68 |        56 |           84 |       1432 |
+| phone        |             320 |                 4 |           41 |        36 |           24 |        272 |
+| tablet       |             880 |                 8 |           56 |        48 |           48 |        784 |
+| desktop      |            1440 |                12 |           50 |        60 |           90 |       1260 |
 
 #### Compact
 
 | Device Class | Reference Width | Number of columns | Menu bar width | Column width | Gap width | Margin width | Grid width |
 | :----------- | --------------: | ----------------: | -------------: | -----------: | --------: | -----------: | ---------: |
-| phone        |             320 |                 4 |              0 |           57 |        20 |           16 |        288 |
-| tablet       |             832 |                 8 |              0 |         74.3 |      26.4 |         26.4 |      779.2 |
-| desktop      |            1600 |                12 |            112 |           98 |        36 |           48 |       1392 |
+| phone        |             320 |                 4 |              0 |           54 |        24 |           16 |        288 |
+| tablet       |             880 |                 8 |              0 |         76.3 |        30 |           30 |        820 |
+| desktop      |            1920 |                12 |            108 |          110 |        36 |           48 |       1716 |
 
 ### Windows or screens
 
