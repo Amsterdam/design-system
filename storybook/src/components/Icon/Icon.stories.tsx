@@ -7,6 +7,7 @@ import { Heading, PageHeading } from '@amsterdam/design-system-react'
 import { Icon, Paragraph, Row } from '@amsterdam/design-system-react/src'
 import { iconSizes } from '@amsterdam/design-system-react/src/Icon/Icon'
 import * as Icons from '@amsterdam/design-system-react-icons'
+import type { IconsProps } from '@storybook/components'
 import { Meta, StoryObj } from '@storybook/react'
 
 const meta = {
@@ -47,26 +48,30 @@ type Story = StoryObj<typeof meta>
 export const Default: Story = {}
 
 export const WithBodyText: Story = {
-  render: (args) => (
-    <Row gap="small">
-      <Icon {...args} />
-      <Paragraph color={args.color}>Regular body text</Paragraph>
-    </Row>
-  ),
-}
-
-export const WithLargeBodyText: Story = {
-  args: {
-    size: 'large',
+  argTypes: {
+    size: {
+      control: {
+        labels: { undefined: 'medium (default)' },
+      },
+      options: ['small', undefined, 'large'],
+    },
   },
-  render: (args) => (
-    <Row gap="small">
-      <Icon {...args} />
-      <Paragraph color={args.color} size="large">
-        Large body text
-      </Paragraph>
-    </Row>
-  ),
+  render: (args) => {
+    const paragraphSize = args.size as IconsProps['size']
+    const getSizeLabel = (size: string | undefined) => {
+      if (size === undefined) return 'Regular'
+      return size.charAt(0).toUpperCase() + size.slice(1)
+    }
+
+    return (
+      <Row gap="small">
+        <Icon {...args} />
+        <Paragraph color={args.color} size={paragraphSize}>
+          {getSizeLabel(paragraphSize)} body text
+        </Paragraph>
+      </Row>
+    )
+  },
 }
 
 export const WithAHeading: Story = {
