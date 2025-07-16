@@ -8,6 +8,7 @@ Allows the user to perform an action or operate the interface.
 
 - Describe the Button’s function through a short label.
 - Use only 1 primary Button per screen.
+- Use the verb’s infinitive form, such as “Verwijderen” or “Opslaan”, not “Verwijder” or “Sla op”.
 - Wrap 2 or more consecutive buttons and/or links in an [Action Group](https://designsystem.amsterdam/?path=/docs/components-layout-action-group--docs).
 - Add `type="submit"` to make the Button submit a form.
 - Do not use a Button to link to another page.

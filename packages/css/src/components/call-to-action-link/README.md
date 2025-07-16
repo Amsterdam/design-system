@@ -14,5 +14,5 @@ This informs users that a new page will open and that they can either copy the l
 
 - Only use a Call to Action Link to direct the user to an action.
   More than one of it on a page should be an exception.
-- Use the verb’s infinitive form, such as "Kapotte parkeerautomaat melden", not "Meld kapotte parkeerautomaat".
+- Use the verb’s infinitive form, such as “Kapotte parkeerautomaat melden”, not “Meld kapotte parkeerautomaat”.
 - For additional guidelines, refer to the [Link](/docs/components-navigation-link--docs) component.
