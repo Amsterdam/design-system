@@ -11,7 +11,7 @@
         },
         "block-size": { "value": "1ex" },
         "inline-size": { "value": "1ex" },
-        "margin-inline": { "value": "{ams.space.xs}" }
+        "margin-inline": { "value": "{ams.space.s}" }
       },
       "link": {
         "color": { "value": "{ams.links.color}" },
