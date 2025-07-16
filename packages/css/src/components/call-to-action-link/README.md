@@ -12,7 +12,8 @@ This informs users that a new page will open and that they can either copy the l
 
 ## Guidelines
 
-- Only use a Call to Action Link to direct the user to an action.
-  More than one of it on a page should be an exception.
+- Use a Call to Action Link to guide the user to a page where they can perform an action.
+- A single page must not have more than one Call to Action Link.
+  Ensure the emphasis is on one product, and divide the content into several pages if needed.
 - Use the verb’s infinitive form, such as “Kapotte parkeerautomaat melden”, not “Meld kapotte parkeerautomaat”.
 - For additional guidelines, refer to the [Link](/docs/components-navigation-link--docs) component.
