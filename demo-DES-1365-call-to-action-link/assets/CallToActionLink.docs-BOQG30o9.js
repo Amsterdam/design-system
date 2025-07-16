@@ -1,0 +1,24 @@
+import{j as n}from"./jsx-runtime-Cf8x2fCZ.js";import{useMDXComponents as i}from"./index-CxbY7dAs.js";import{M as a,e as r,P as s,f as l}from"./index-C5UEAjyF.js";import{C as c}from"./CallToActionLink.stories-BFPoc3LM.js";import"./index-yBjzXJbu.js";import"./index-G8LIXM5I.js";import"./_commonjsHelpers-CqkleIqs.js";import"./iframe-zKRM7Ywa.js";import"./index-CJ88nXQk.js";import"./index-Cf9b6H0j.js";import"./index-DrFu-skq.js";import"./clsx-B-dksMZM.js";const m=`<!-- @license CC0-1.0 -->
+
+# Call to Action Link
+
+A link that stands out and encourages the user to take action, such as starting to fill in a form.
+
+## Design
+
+The Call to Action Link features a green background to ensure it stands out.
+To clarify that it is not a button, which is not suitable for navigation, its text is underlined like links typically are.
+This informs users that a new page will open and that they can either copy the link or open it in a new window.
+
+## Guidelines
+
+- Only use a Call to Action Link to direct the user to an action.
+  More than one of it on a page should be an exception.
+- Use the verb’s infinitive form, such as “Kapotte parkeerautomaat melden”, not “Meld kapotte parkeerautomaat”.
+- For additional guidelines, refer to the [Link](/docs/components-navigation-link--docs) component.
+`;/*@license CC0-1.0*/function e(t){return n.jsxs(n.Fragment,{children:[`
+`,`
+`,n.jsx(a,{of:c}),`
+`,n.jsx(r,{children:m}),`
+`,n.jsx(s,{}),`
+`,n.jsx(l,{})]})}function y(t={}){const{wrapper:o}={...i(),...t.components};return o?n.jsx(o,{...t,children:n.jsx(e,{...t})}):e()}export{y as default};
