@@ -19,8 +19,8 @@
   gap: var(--ams-checkbox-gap);
   line-height: var(--ams-checkbox-line-height);
   outline-offset: var(--ams-checkbox-outline-offset);
-  text-decoration-thickness: var(--ams-checkbox-hover-text-decoration-thickness);
-  text-underline-offset: var(--ams-checkbox-hover-text-underline-offset);
+  text-decoration-thickness: var(--ams-checkbox-text-decoration-thickness);
+  text-underline-offset: var(--ams-checkbox-text-underline-offset);
 
   @include hyphenation;
   @include text-rendering;
