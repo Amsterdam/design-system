@@ -8,9 +8,6 @@
 
 .ams-call-to-action-link {
   background-color: var(--ams-call-to-action-link-background-color);
-  border-color: var(--ams-call-to-action-link-background-color);
-  border-style: var(--ams-call-to-action-link-border-style);
-  border-width: var(--ams-call-to-action-link-border-width);
   color: var(--ams-call-to-action-link-color);
   display: inline-flex;
   font-family: var(--ams-call-to-action-link-font-family);
@@ -29,7 +26,6 @@
 
   &:hover {
     background-color: var(--ams-call-to-action-link-hover-background-color);
-    border-color: var(--ams-call-to-action-link-hover-border-color);
     text-decoration-thickness: var(--ams-call-to-action-link-hover-text-decoration-thickness);
     text-underline-offset: var(--ams-call-to-action-link-hover-text-underline-offset);
   }
