@@ -7,7 +7,6 @@ import { Heading, PageHeading } from '@amsterdam/design-system-react'
 import { Icon, Paragraph, Row } from '@amsterdam/design-system-react/src'
 import { iconSizes } from '@amsterdam/design-system-react/src/Icon/Icon'
 import * as Icons from '@amsterdam/design-system-react-icons'
-import type { IconsProps } from '@storybook/components'
 import { Meta, StoryObj } from '@storybook/react'
 
 const meta = {
@@ -57,8 +56,8 @@ export const WithBodyText: Story = {
     },
   },
   render: (args) => {
-    const paragraphSize = args.size as IconsProps['size']
-    const getSizeLabel = (size: string | undefined) => {
+    const paragraphSize = args.size as 'small' | 'large'
+    const getSizeLabel = (size: 'small' | 'large' | undefined) => {
       if (size === undefined) return 'Regular'
       return size.charAt(0).toUpperCase() + size.slice(1)
     }
