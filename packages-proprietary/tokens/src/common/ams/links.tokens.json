@@ -2,11 +2,17 @@
   "ams": {
     "links": {
       "color": { "value": "{ams.color.interactive.default}" },
-      "text-decoration-thickness": { "value": "0.075em" },
+      "text-decoration-thickness": {
+        "comment": "1.5px at 20px font size",
+        "value": "0.075em"
+      },
       "text-underline-offset": { "value": "2.5px" },
       "hover": {
         "color": { "value": "{ams.color.interactive.hover}" },
-        "text-decoration-thickness": { "value": "0.1125em" },
+        "text-decoration-thickness": {
+          "comment": "2.25px (150%) at 20px font size",
+          "value": "0.1125em"
+        },
         "text-underline-offset": { "value": "calc(2.5px - 0.0375em)" }
       },
       "subtle": {
