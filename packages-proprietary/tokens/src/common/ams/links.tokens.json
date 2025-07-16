@@ -3,11 +3,11 @@
     "links": {
       "color": { "value": "{ams.color.interactive.default}" },
       "text-decoration-thickness": { "value": "0.075em" },
-      "text-underline-offset": { "value": "5.5px" },
+      "text-underline-offset": { "value": "2.5px" },
       "hover": {
         "color": { "value": "{ams.color.interactive.hover}" },
         "text-decoration-thickness": { "value": "0.1125em" },
-        "text-underline-offset": { "value": "calc(5.5px - 0.0375em)" }
+        "text-underline-offset": { "value": "calc(2.5px - 0.0375em)" }
       },
       "subtle": {
         "text-decoration-line": { "value": "none" },
