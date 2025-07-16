@@ -82,7 +82,7 @@ export const Pagination = forwardRef(
       previousVisuallyHiddenLabel,
       totalPages,
       visuallyHiddenLabel,
-      visuallyHiddenLabelId = 'ams-pagination-a11y-label',
+      visuallyHiddenLabelId,
       ...restProps
     }: PaginationProps,
     ref: ForwardedRef<HTMLElement>,
