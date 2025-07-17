@@ -3,11 +3,13 @@
  * Copyright Gemeente Amsterdam
  */
 
-import { DownloadIcon } from '@amsterdam/design-system-react-icons'
 import { render, screen } from '@testing-library/react'
 import { createRef } from 'react'
+import type { SVGProps } from 'react'
 import { StandaloneLink } from './StandaloneLink'
 import '@testing-library/jest-dom'
+
+const TestIcon = (props: SVGProps<SVGSVGElement>) => <svg {...props} className="test-class" />
 
 describe('Standalone Link', () => {
   it('renders with href attribute', () => {
@@ -37,12 +39,11 @@ describe('Standalone Link', () => {
   })
 
   it('renders a custom icon', () => {
-    const { container } = render(<StandaloneLink icon={DownloadIcon} />)
+    const { container } = render(<StandaloneLink icon={TestIcon} />)
 
-    const iconPath = container.querySelector('path:first-child')
-    const dAttribute = iconPath?.getAttribute('d')
+    const icon = container.querySelector('svg')
 
-    expect(dAttribute).toBe('m15.797 9.293-2.793 2.793V2.5h-2v9.586L8.212 9.293l-1.415 1.414 5.208 5.207 5.207-5.207z')
+    expect(icon).toHaveClass('test-class')
   })
 
   it('renders the class name for contrast color', () => {
