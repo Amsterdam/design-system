@@ -3,6 +3,7 @@
  * Copyright Gemeente Amsterdam
  */
 
+import { DownloadIcon } from '@amsterdam/design-system-react-icons'
 import { render, screen } from '@testing-library/react'
 import { createRef } from 'react'
 import { StandaloneLink } from './StandaloneLink'
@@ -33,6 +34,15 @@ describe('Standalone Link', () => {
     const component = screen.getByRole('link')
 
     expect(component).toHaveClass('ams-standalone-link extra')
+  })
+
+  it('renders a custom icon', () => {
+    const { container } = render(<StandaloneLink icon={DownloadIcon} />)
+
+    const iconPath = container.querySelector('path:first-child')
+    const dAttribute = iconPath?.getAttribute('d')
+
+    expect(dAttribute).toBe('m15.797 9.293-2.793 2.793V2.5h-2v9.586L8.212 9.293l-1.415 1.414 5.208 5.207 5.207-5.207z')
   })
 
   it('renders the class name for contrast color', () => {
