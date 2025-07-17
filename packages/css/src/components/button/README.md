@@ -6,13 +6,15 @@ Allows the user to perform an action or operate the interface.
 
 ## Guidelines
 
+- Do not use a Button to link to another page.
+  Use a [Standalone Link](https://designsystem.amsterdam/?path=/docs/components-navigation-standalone-link--docs)
+  or a [Call to Action Link](https://designsystem.amsterdam/?path=/docs/components-navigation-call-to-action-link--docs) instead,
+  or an inline [Link](https://designsystem.amsterdam/?path=/docs/components-navigation-link--docs) in the running text.
 - Describe the Button’s function through a short label.
-- Use only 1 primary Button per screen.
 - Use the verb’s infinitive form, such as “Verwijderen” or “Opslaan”, not “Verwijder” or “Sla op”.
+- Use only 1 primary Button per screen.
 - Wrap 2 or more consecutive buttons and/or links in an [Action Group](https://designsystem.amsterdam/?path=/docs/components-layout-action-group--docs).
 - Add `type="submit"` to make the Button submit a form.
-- Do not use a Button to link to another page.
-  Use a [Standalone Link](https://designsystem.amsterdam/?path=/docs/components-navigation-standalone-link--docs) instead, or an inline [Link](https://designsystem.amsterdam/?path=/docs/components-navigation-link--docs) in the running text.
 
 ## Relevant WCAG requirements
 
