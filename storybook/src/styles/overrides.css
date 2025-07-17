@@ -46,14 +46,14 @@
 .sbdocs-content.sbdocs-content .sbdocs-a {
   color: var(--ams-color-interactive);
   text-decoration: underline;
-  text-decoration-thickness: var(--ams-link-text-decoration-thickness);
-  text-underline-offset: var(--ams-link-text-underline-offset);
+  text-decoration-thickness: 1px;
+  text-underline-offset: 3px;
 }
 
 .sbdocs-content.sbdocs-content .sbdocs-a:hover {
   color: var(--ams-color-interactive-hover);
-  text-decoration-thickness: var(--ams-link-hover-text-decoration-thickness);
-  text-underline-offset: var(--ams-link-hover-text-underline-offset);
+  text-decoration-thickness: 2px;
+  text-underline-offset: 2px;
 }
 
 .sbdocs-content.sbdocs-content > :is(h1, h2, h3, h4, h5, h6),
