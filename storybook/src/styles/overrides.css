@@ -47,13 +47,13 @@
   color: var(--ams-color-interactive);
   text-decoration: underline;
   text-decoration-thickness: 1px;
-  text-underline-offset: 3px;
+  text-underline-offset: 2px;
 }
 
 .sbdocs-content.sbdocs-content .sbdocs-a:hover {
   color: var(--ams-color-interactive-hover);
   text-decoration-thickness: 2px;
-  text-underline-offset: 2px;
+  text-underline-offset: 1px;
 }
 
 .sbdocs-content.sbdocs-content > :is(h1, h2, h3, h4, h5, h6),
