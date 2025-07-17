@@ -3,10 +3,10 @@
     "links": {
       "color": { "value": "{ams.color.interactive.default}" },
       "text-decoration-thickness": { "value": "0.125rem" },
-      "text-underline-offset": { "value": "0.1875rem" },
+      "text-underline-offset": { "value": "0.15625rem" },
       "hover": {
         "color": { "value": "{ams.color.interactive.hover}" },
-        "text-decoration-thickness": { "value": "0.1875rem" },
+        "text-decoration-thickness": { "value": "0.15625rem" },
         "text-underline-offset": { "value": "0.125rem" }
       },
       "subtle": {
