@@ -8,20 +8,18 @@
       "font-weight": { "value": "{ams.typography.body-text.font-weight}" },
       "line-height": { "value": "{ams.typography.body-text.line-height}" },
       "outline-offset": { "value": "{ams.focus.outline-offset}" },
+      "text-decoration-line": { "value": "{ams.links.subtle.text-decoration-line}" },
       "text-decoration-thickness": { "value": "{ams.links.text-decoration-thickness}" },
       "text-underline-offset": { "value": "{ams.links.text-underline-offset}" },
+      "hover": {
+        "color": { "value": "{ams.links.hover.color}" },
+        "text-decoration-line": { "value": "{ams.links.subtle.hover.text-decoration-line}" }
+      },
       "contrast": {
         "color": { "value": "{ams.links.contrast.color}" },
         "hover": {
           "color": { "value": "{ams.links.contrast.hover.color}" }
         }
-      },
-      "hover": {
-        "color": { "value": "{ams.links.hover.color}" },
-        "text-decoration-thickness": {
-          "value": "{ams.links.hover.text-decoration-thickness}"
-        },
-        "text-underline-offset": { "value": "{ams.links.hover.text-underline-offset}" }
       },
       "inverse": {
         "color": { "value": "{ams.links.inverse.color}" },
@@ -30,10 +28,19 @@
         }
       },
       "with-icon": {
-        "text-decoration-line": { "value": "{ams.links.subtle.text-decoration-line}" },
-        "text-decoration-thickness": { "value": "{ams.links.text-decoration-thickness}" },
+        "text-decoration-line": {
+          "comment": "@deprecated Use `ams.standalone-link.text-decoration-line` instead",
+          "value": "{ams.links.subtle.text-decoration-line}"
+        },
+        "text-decoration-thickness": {
+          "comment": "@deprecated Use `ams.standalone-link.text-decoration-thickness` instead",
+          "value": "{ams.links.text-decoration-thickness}"
+        },
         "hover": {
-          "text-decoration-line": { "value": "{ams.links.subtle.hover.text-decoration-line}" }
+          "text-decoration-line": {
+            "comment": "@deprecated Use `ams.standalone-link.hover.text-decoration-line` instead",
+            "value": "{ams.links.subtle.hover.text-decoration-line}"
+          }
         }
       }
     }
