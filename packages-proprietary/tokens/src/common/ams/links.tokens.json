@@ -3,20 +3,20 @@
     "links": {
       "color": { "value": "{ams.color.interactive.default}" },
       "text-decoration-thickness": {
-        "comment": "1.5px at 20px font size",
-        "value": "0.075em"
+        "comment": "2px at 20px font size",
+        "value": "0.1em"
       },
       "text-underline-offset": {
-        "comment": "1.5px",
-        "value": "0.15625rem"
+        "comment": "2px",
+        "value": "0.125rem"
       },
       "hover": {
         "color": { "value": "{ams.color.interactive.hover}" },
         "text-decoration-thickness": {
-          "comment": "2.25px (150%) at 20px font size",
-          "value": "0.1125em"
+          "comment": "3px (150%) at 20px font size",
+          "value": "0.15em"
         },
-        "text-underline-offset": { "value": "calc(0.15625rem - 0.0375em)" }
+        "text-underline-offset": { "value": "calc(0.125rem - 0.05em)" }
       },
       "subtle": {
         "text-decoration-line": { "value": "none" },
