@@ -9,17 +9,17 @@ import type { ForwardedRef, HTMLAttributes, PropsWithChildren } from 'react'
 import { MenuLink } from './MenuLink'
 
 export type MenuProps = {
-  navigationLabel?: string
+  accessibleName?: string
 } & PropsWithChildren<HTMLAttributes<HTMLElement>>
 
 export const MenuRoot = forwardRef(
   (
-    { children, className, navigationLabel = 'Hoofdnavigatie', ...restProps }: MenuProps,
+    { accessibleName = 'Hoofdnavigatie', children, className, ...restProps }: MenuProps,
     ref: ForwardedRef<HTMLElement>,
   ) => (
     <nav aria-labelledby="primary-navigation" {...restProps} className={clsx('ams-menu', className)} ref={ref}>
       <h2 className="ams-visually-hidden" id="primary-navigation">
-        {navigationLabel}
+        {accessibleName}
       </h2>
       <ul className="ams-menu__list">{children}</ul>
     </nav>

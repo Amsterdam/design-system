@@ -3,9 +3,9 @@
  * Copyright Gemeente Amsterdam
  */
 
+@use "../../common/breakpoint" as *;
 @use "../../common/hyphenation" as *;
 @use "../../common/text-rendering" as *;
-@use "../../common/breakpoint" as *;
 
 @mixin reset-ul {
   list-style: none;
@@ -13,8 +13,14 @@
   padding-inline-start: 0;
 }
 
+.ams-menu {
+  font-family: var(--ams-menu-font-family);
+  font-size: var(--ams-menu-font-size);
+  font-weight: var(--ams-menu-font-weight);
+  line-height: var(--ams-menu-line-height);
+}
+
 .ams-menu__list {
-  box-sizing: border-box;
   display: grid;
 
   @include hyphenation;
@@ -26,13 +32,10 @@
   align-items: flex-start;
   color: var(--ams-menu-link-color);
   display: flex;
-  font-family: var(--ams-menu-link-font-family);
-  font-size: var(--ams-menu-link-font-size);
-  font-weight: var(--ams-menu-link-font-weight);
   gap: var(--ams-menu-link-gap);
-  line-height: var(--ams-menu-link-line-height);
   outline-offset: var(--ams-menu-link-outline-offset);
   padding-block: var(--ams-menu-link-padding-block);
+  padding-inline: var(--ams-menu-link-padding-inline);
   text-decoration-line: var(--ams-menu-link-text-decoration-line);
   text-decoration-thickness: var(--ams-menu-link-text-decoration-thickness);
   text-underline-offset: var(--ams-menu-link-text-underline-offset);

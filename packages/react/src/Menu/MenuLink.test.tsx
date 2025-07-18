@@ -8,7 +8,7 @@ import { render, screen } from '@testing-library/react'
 import { createRef } from 'react'
 import { Menu } from './Menu'
 
-describe('Link list link', () => {
+describe('Menu link', () => {
   it('renders', () => {
     const { container } = render(<Menu.Link href="#" />)
 

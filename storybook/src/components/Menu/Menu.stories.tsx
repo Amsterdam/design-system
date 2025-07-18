@@ -10,7 +10,7 @@ import { Meta, StoryObj } from '@storybook/react'
 const menuItems = [
   {
     href: '#',
-    icon: Icons.BuildingIcon,
+    icon: Icons.PieChartIcon,
     text: 'Dashboard',
   },
   {
@@ -31,7 +31,7 @@ const menuItems = [
   {
     href: '#',
     icon: Icons.CogwheelIcon,
-    text: 'Settings',
+    text: 'Instellingen',
   },
 ]
 
@@ -67,7 +67,7 @@ const LinkStoryTemplate: LinkStory = {
   args: {
     children: menuItems[0].text,
     href: '#',
-    icon: Icons.BuildingIcon,
+    icon: Icons.PieChartIcon,
   },
   argTypes: {
     color: {
@@ -108,7 +108,7 @@ export const ContrastColour: LinkStory = {
   args: {
     ...LinkStoryTemplate.args,
     color: 'contrast',
-    icon: Icons.BuildingFillIcon,
+    icon: Icons.PieChartFillIcon,
   },
 }
 
@@ -117,6 +117,6 @@ export const InverseColour: LinkStory = {
   args: {
     ...LinkStoryTemplate.args,
     color: 'inverse',
-    icon: Icons.BuildingFillIcon,
+    icon: Icons.PieChartFillIcon,
   },
 }
