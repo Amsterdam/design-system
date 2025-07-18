@@ -12,7 +12,31 @@ import README from "../../../../packages/css/src/components/date-input/README.md
 
 <Controls />
 
-## Examples
+## Asking for memorable or easy to find dates
+
+When asking for a date that is easy to remember or find, like a birthday or passport expiration date,
+use a Field Set with separate Text Inputs for day, month, and year.
+This approach is easier to use than using a Date Input component.
+
+For more information on this pattern, see the [gov.uk](https://design-system.service.gov.uk/components/date-input/) and [NL Design System](https://nldesignsystem.nl/richtlijnen/formulieren/wanneer-welk-form-element/iedereen-kan-invullen) documentation.
+
+### Memorable date
+
+<Canvas of={DateInputStories.MemorableDate} />
+
+### Memorable date with validation
+
+To show validation errors, add `invalid` and an [Error Message](/docs/components-forms-error-message--docs) to the Field Set.
+Make sure to connect the Error Message to the Field Set, otherwise this won’t be read by a screen reader.
+Additionally, apply the `invalid` prop to the Text Inputs to visually indicate the error.
+Only use the `invalid` prop on Text Inputs that have errors.
+For example, only mark the 'year' input as invalid if the year is not provided.
+
+See the [gov.uk](https://design-system.service.gov.uk/components/date-input/#error-messages) documentation on validation for this pattern.
+
+<Canvas of={DateInputStories.MemorableDateWithValidation} />
+
+## Examples of the Date Input
 
 ### Date and time
 
@@ -73,7 +97,3 @@ If the Date Input can become invalid, add an Error Message and its `id` to the `
 Check [the Field docs](/docs/components-forms-field--docs) for more information on configuring it.
 
 <Canvas of={DateInputStories.InAFieldWithValidation} />
-
-<Canvas of={DateInputStories.MemorableDate} />
-
-<Canvas of={DateInputStories.MemorableDateWithValidation} />
