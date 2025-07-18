@@ -1,0 +1,6 @@
+import{j as e}from"./jsx-runtime-Cf8x2fCZ.js";import{P as t}from"./index.esm-CPiEuJuq.js";/**
+ * @license EUPL-1.2+
+ * Copyright Gemeente Amsterdam
+ */const s=a=>e.jsx("span",{...a});try{s.displayName="VisuallyHidden",s.__docgenInfo={description:"Mock component to render examples in Storybook. Not for reuse.",displayName:"VisuallyHidden",props:{}}}catch{}const i=({children:a})=>e.jsxs(e.Fragment,{children:[e.jsx(t,{children:"This paragraph is available for everyone. Below this is a second paragraph, but it is aimed at non-visual user agents only. It is not perceivable on a screen."}),e.jsx(t,{className:"ams-visually-hidden",children:a})]}),o={title:"Utilities/CSS/Visually Hidden",component:s,args:{children:"Here is the paragraph that is visually hidden. A screen reader will pick it up and read it to its user."},argTypes:{children:{description:"The content to hide visually.",table:{disable:!1}}}},r={render:i};r.parameters={...r.parameters,docs:{...r.parameters?.docs,source:{originalSource:`{
+  render
+}`,...r.parameters?.docs?.source}}};const n=["Default"],c=Object.freeze(Object.defineProperty({__proto__:null,Default:r,__namedExportsOrder:n,default:o},Symbol.toStringTag,{value:"Module"}));export{c as V};
