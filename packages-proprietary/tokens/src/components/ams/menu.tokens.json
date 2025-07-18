@@ -30,6 +30,9 @@
             "color": { "value": "{ams.links.inverse.hover.color}" }
           }
         }
+      },
+      "list": {
+        "gap": { "value": "{ams.space.xs}" }
       }
     }
   }
