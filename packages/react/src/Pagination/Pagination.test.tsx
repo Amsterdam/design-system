@@ -161,7 +161,7 @@ describe('Pagination', () => {
     expect(component).toBeInTheDocument()
   })
 
-  it('renders an accessible label for the navigation', () => {
+  it('renders an accessible name for the navigation', () => {
     render(<Pagination accessibleName="Pagination" linkTemplate={linkTemplate} totalPages={10} />)
 
     const component = screen.getByRole('navigation', { name: 'Pagination' })
