@@ -113,7 +113,7 @@ describe('Pagination', () => {
     expect(component).toHaveAttribute('aria-labelledby', 'custom-id')
   })
 
-  it('sets a custom id for the accessible label', () => {
+  it('sets a custom id for the accessible name', () => {
     render(<Pagination accessibleNameId="custom-id" linkTemplate={linkTemplate} totalPages={10} />)
 
     const component = screen.getByRole('navigation', { name: 'Paginering' })
