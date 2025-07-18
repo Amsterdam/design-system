@@ -26,22 +26,6 @@
         "hover": {
           "color": { "value": "{ams.links.inverse.hover.color}" }
         }
-      },
-      "with-icon": {
-        "text-decoration-line": {
-          "comment": "@deprecated Use `ams.standalone-link.text-decoration-line` instead",
-          "value": "{ams.links.subtle.text-decoration-line}"
-        },
-        "text-decoration-thickness": {
-          "comment": "@deprecated Use `ams.standalone-link.text-decoration-thickness` instead",
-          "value": "{ams.links.text-decoration-thickness}"
-        },
-        "hover": {
-          "text-decoration-line": {
-            "comment": "@deprecated Use `ams.standalone-link.hover.text-decoration-line` instead",
-            "value": "{ams.links.subtle.hover.text-decoration-line}"
-          }
-        }
       }
     }
   }
