@@ -74,7 +74,7 @@
       },
       "icon-container": {
         "block-size": { "value": "calc({ams.radio.font-size} * {ams.radio.line-height})" },
-        "inline-size": { "value": "1.5rem" }
+        "inline-size": { "value": "{ams.radio.font-size}" }
       }
     }
   }
