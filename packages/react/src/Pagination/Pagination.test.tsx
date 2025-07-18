@@ -187,7 +187,7 @@ describe('Pagination', () => {
     expect(nextLink).toBeInTheDocument()
   })
 
-  it('renders accessible labels for the ‘previous’ and ‘next’ links', () => {
+  it('renders accessible names for the ‘previous’ and ‘next’ links', () => {
     render(
       <Pagination
         linkTemplate={linkTemplate}
