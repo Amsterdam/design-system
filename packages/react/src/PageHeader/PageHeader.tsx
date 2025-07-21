@@ -15,19 +15,17 @@ import { PageHeaderMenuLink } from './PageHeaderMenuLink'
 import useIsAfterBreakpoint from '../common/useIsAfterBreakpoint'
 
 const LogoLinkContent = ({
-  ariaHidden,
   brandName,
   logoAccessibleName,
   logoBrand,
 }: {
-  ariaHidden?: boolean
   brandName?: string
   logoAccessibleName?: string
   logoBrand: LogoBrand
 }) => (
   <>
     <span className={clsx(logoBrand === 'amsterdam' && Boolean(brandName) && 'ams-page-header__logo-container')}>
-      <Logo aria-hidden={ariaHidden} aria-label={logoAccessibleName} brand={logoBrand} />
+      <Logo aria-label={logoAccessibleName} brand={logoBrand} />
     </span>
     {brandName && (
       <span aria-hidden="true" className="ams-page-header__brand-name">
@@ -105,8 +103,8 @@ const PageHeaderRoot = forwardRef(
             </h2>
 
             {/* The logo link section is recreated here, to make sure the header menu wraps at the right spot */}
-            <div className="ams-page-header__logo-link ams-page-header__logo-link--hidden" hidden>
-              <LogoLinkContent ariaHidden brandName={brandName} logoBrand={logoBrand} />
+            <div aria-hidden className="ams-page-header__logo-link ams-page-header__logo-link--hidden" hidden>
+              <LogoLinkContent brandName={brandName} logoBrand={logoBrand} />
             </div>
 
             <ul className="ams-page-header__menu">
