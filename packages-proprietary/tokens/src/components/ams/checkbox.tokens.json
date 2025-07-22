@@ -17,11 +17,7 @@
       },
       "hover": {
         "color": { "value": "{ams.color.interactive.hover}" },
-        "text-decoration-line": { "value": "{ams.links.subtle.hover.text-decoration-line}" },
-        "text-decoration-thickness": {
-          "comment": "@deprecated Use `ams.checkbox.text-decoration-thickness` instead",
-          "value": "{ams.links.text-decoration-thickness}"
-        }
+        "text-decoration-line": { "value": "{ams.links.subtle.hover.text-decoration-line}" }
       },
       "checked-indicator": {
         "stroke": { "value": "{ams.color.interactive.inverse}" }

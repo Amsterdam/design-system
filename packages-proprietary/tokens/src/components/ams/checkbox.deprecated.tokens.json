@@ -1,6 +1,12 @@
 {
   "ams": {
     "checkbox": {
+      "hover": {
+        "text-decoration-thickness": {
+          "comment": "Use `ams.checkbox.text-decoration-thickness` instead",
+          "value": "{ams.links.text-decoration-thickness}"
+        }
+      },
       "rectangle": {
         "checked": {
           "disabled": {
