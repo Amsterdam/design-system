@@ -17,6 +17,10 @@ Alternatively, adjust the configuration to use fewer or different typefaces.
 
 Amsterdam Sans is licenced exclusively to the City of Amsterdam and amsterdam&partners.
 
+## Icons
+
+Our icons can only be used on websites and applications where the City of Amsterdam is the main communicator.
+
 ## Permission
 
 For permission to use the logo or branding, please contact <designsystem@amsterdam.nl>.
