@@ -27,8 +27,8 @@ type LinkStory = StoryObj<typeof linkMeta>
 
 const StoryTemplate: Story = {
   args: {
-    children: linkList.map((text, index) => (
-      <LinkList.Link href="#" key={index}>
+    children: linkList.map((text) => (
+      <LinkList.Link href="#" key={text}>
         {text}
       </LinkList.Link>
     )),

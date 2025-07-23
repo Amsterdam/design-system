@@ -55,8 +55,8 @@ type LinkStory = StoryObj<typeof linkMeta>
 
 const StoryTemplate: Story = {
   args: {
-    children: menuItems.map(({ href, icon, text }, index) => (
-      <Menu.Link href={href} icon={icon} key={index}>
+    children: menuItems.map(({ href, icon, text }) => (
+      <Menu.Link href={href} icon={icon} key={text}>
         {text}
       </Menu.Link>
     )),

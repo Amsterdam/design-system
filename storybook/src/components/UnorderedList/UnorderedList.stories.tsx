@@ -18,8 +18,8 @@ import {
 import type { Meta, StoryObj } from '@storybook/react'
 import { exampleUnorderedList } from '../shared/exampleContent'
 
-const unorderedListItems = exampleUnorderedList().map((text, index) => (
-  <UnorderedList.Item key={index}>{text}</UnorderedList.Item>
+const unorderedListItems = exampleUnorderedList().map((text) => (
+  <UnorderedList.Item key={text}>{text}</UnorderedList.Item>
 ))
 
 const meta = {

@@ -106,7 +106,7 @@ export const WithWideContent: Story = {
               <Table.Row>
                 <Table.HeaderCell></Table.HeaderCell>
                 {Array.from({ length: 12 }, (_, index) => (
-                  <Table.HeaderCell key={index}>Kolom</Table.HeaderCell>
+                  <Table.HeaderCell key={`headercell-${index}`}>Kolom</Table.HeaderCell>
                 ))}
               </Table.Row>
             </Table.Header>
