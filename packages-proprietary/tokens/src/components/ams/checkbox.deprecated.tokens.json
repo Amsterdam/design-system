@@ -4,7 +4,7 @@
       "hover": {
         "text-decoration-thickness": {
           "comment": "Use `ams.checkbox.text-decoration-thickness` instead",
-          "value": "{ams.links.text-decoration-thickness}"
+          "value": "{ams.border.width.m}"
         }
       },
       "rectangle": {
