@@ -105,8 +105,16 @@ describe('Pagination', () => {
     expect(nextPageLink).toHaveAttribute('href', '#?pagina=5')
   })
 
-  it('sets a custom id for the accessible label', () => {
+  it('sets a custom id for the accessible label - deprecated', () => {
     render(<Pagination linkTemplate={linkTemplate} totalPages={10} visuallyHiddenLabelId="custom-id" />)
+
+    const component = screen.getByRole('navigation', { name: 'Paginering' })
+
+    expect(component).toHaveAttribute('aria-labelledby', 'custom-id')
+  })
+
+  it('sets a custom id for the accessible name', () => {
+    render(<Pagination accessibleNameId="custom-id" linkTemplate={linkTemplate} totalPages={10} />)
 
     const component = screen.getByRole('navigation', { name: 'Paginering' })
 
@@ -145,7 +153,7 @@ describe('Pagination', () => {
     expect(nextLink).toHaveAttribute('rel', 'next')
   })
 
-  it('renders an accessible label for the navigation', () => {
+  it('renders an accessible label for the navigation - deprecated', () => {
     render(<Pagination linkTemplate={linkTemplate} totalPages={10} visuallyHiddenLabel="Pagination" />)
 
     const component = screen.getByRole('navigation', { name: 'Pagination' })
@@ -153,13 +161,39 @@ describe('Pagination', () => {
     expect(component).toBeInTheDocument()
   })
 
-  it('renders accessible labels for the ‘previous’ and ‘next’ links', () => {
+  it('renders an accessible name for the navigation', () => {
+    render(<Pagination accessibleName="Pagination" linkTemplate={linkTemplate} totalPages={10} />)
+
+    const component = screen.getByRole('navigation', { name: 'Pagination' })
+
+    expect(component).toBeInTheDocument()
+  })
+
+  it('renders accessible labels for the ‘previous’ and ‘next’ links - deprecated', () => {
     render(
       <Pagination
         linkTemplate={linkTemplate}
         nextVisuallyHiddenLabel="Next page"
         page={4}
         previousVisuallyHiddenLabel="Previous page"
+        totalPages={10}
+      />,
+    )
+
+    const previousLink = screen.getByRole('link', { name: 'Previous page' })
+    const nextLink = screen.getByRole('link', { name: 'Next page' })
+
+    expect(previousLink).toBeInTheDocument()
+    expect(nextLink).toBeInTheDocument()
+  })
+
+  it('renders accessible names for the ‘previous’ and ‘next’ links', () => {
+    render(
+      <Pagination
+        linkTemplate={linkTemplate}
+        nextAccessibleName="Next page"
+        page={4}
+        previousAccessibleName="Previous page"
         totalPages={10}
       />,
     )
