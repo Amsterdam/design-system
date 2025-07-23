@@ -47,8 +47,8 @@ export const IconGallery = ({ excludeIcons, icons }: IconGalleryProps) => {
       {sortedBaseNames.map((baseName) => (
         <div className="ams-storybook-icon-gallery__item" key={baseName}>
           <div className="ams-storybook-icon-gallery__icons">
-            {groupedIcons[baseName].outline && <Icon size="large" svg={Icons[groupedIcons[baseName].outline!]} />}
-            {groupedIcons[baseName].filled && <Icon size="large" svg={Icons[groupedIcons[baseName].filled!]} />}
+            {groupedIcons[baseName].outline && <Icon size="heading-3" svg={Icons[groupedIcons[baseName].outline!]} />}
+            {groupedIcons[baseName].filled && <Icon size="heading-3" svg={Icons[groupedIcons[baseName].filled!]} />}
           </div>
           <p className="ams-storybook-icon-gallery__name">{baseName.substring(0, baseName.length - 4)}</p>
         </div>
