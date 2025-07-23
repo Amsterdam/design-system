@@ -32,7 +32,7 @@
         }
       },
       "list": {
-        "gap": { "value": "{ams.space.xs}" }
+        "gap": { "value": "{ams.space.m}" }
       }
     }
   }
