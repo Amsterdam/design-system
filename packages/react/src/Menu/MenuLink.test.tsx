@@ -4,13 +4,14 @@
  */
 
 import '@testing-library/jest-dom'
+import { DocumentIcon } from '@amsterdam/design-system-react-icons'
 import { render, screen } from '@testing-library/react'
 import { createRef } from 'react'
 import { Menu } from './Menu'
 
 describe('Menu link', () => {
   it('renders', () => {
-    const { container } = render(<Menu.Link href="#" />)
+    const { container } = render(<Menu.Link href="#" icon={DocumentIcon} />)
 
     const listItem = screen.getByRole('listitem')
     const link = screen.getByRole('link')
@@ -25,7 +26,7 @@ describe('Menu link', () => {
   })
 
   it('renders a design system BEM class name', () => {
-    render(<Menu.Link href="#" />)
+    render(<Menu.Link href="#" icon={DocumentIcon} />)
 
     const component = screen.getByRole('link')
 
@@ -33,7 +34,7 @@ describe('Menu link', () => {
   })
 
   it('renders an extra class name', () => {
-    render(<Menu.Link className="extra" href="#" />)
+    render(<Menu.Link className="extra" href="#" icon={DocumentIcon} />)
 
     const component = screen.getByRole('link')
 
@@ -41,7 +42,7 @@ describe('Menu link', () => {
   })
 
   it('renders the class name for contrast color', () => {
-    render(<Menu.Link color="contrast" href="#" />)
+    render(<Menu.Link color="contrast" href="#" icon={DocumentIcon} />)
 
     const component = screen.getByRole('link')
 
@@ -49,7 +50,7 @@ describe('Menu link', () => {
   })
 
   it('renders the class name for inverse color', () => {
-    render(<Menu.Link color="inverse" href="#" />)
+    render(<Menu.Link color="inverse" href="#" icon={DocumentIcon} />)
 
     const component = screen.getByRole('link')
 
@@ -59,7 +60,7 @@ describe('Menu link', () => {
   it('supports ForwardRef in React', () => {
     const ref = createRef<HTMLAnchorElement>()
 
-    render(<Menu.Link href="#" ref={ref} />)
+    render(<Menu.Link href="#" icon={DocumentIcon} ref={ref} />)
 
     const component = screen.getByRole('link')
 
