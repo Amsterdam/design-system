@@ -38,9 +38,6 @@ const menuItems = [
 const meta = {
   title: 'Components/Navigation/Menu',
   component: Menu,
-  parameters: {
-    themes: { themeOverride: 'Compact' },
-  },
 } satisfies Meta<typeof Menu>
 
 export default meta
