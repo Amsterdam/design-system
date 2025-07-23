@@ -2,12 +2,12 @@
   "ams": {
     "links": {
       "color": { "value": "{ams.color.interactive.default}" },
-      "text-decoration-thickness": { "value": "{ams.border.width.m}" },
-      "text-underline-offset": { "value": "0.3333em" },
+      "text-decoration-thickness": { "comment": "2px", "value": "0.125rem" },
+      "text-underline-offset": { "comment": "2.5px", "value": "0.15625rem" },
       "hover": {
         "color": { "value": "{ams.color.interactive.hover}" },
-        "text-decoration-thickness": { "value": "{ams.border.width.l}" },
-        "text-underline-offset": { "value": "0.2778em" }
+        "text-decoration-thickness": { "comment": "3px", "value": "0.1875rem" },
+        "text-underline-offset": { "comment": "1.5px", "value": "0.09375rem" }
       },
       "subtle": {
         "text-decoration-line": { "value": "none" },
