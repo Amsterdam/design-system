@@ -6,7 +6,6 @@
 import { Grid, Heading, LinkList, Paragraph, StandaloneLink } from '@amsterdam/design-system-react'
 import { PageFooter } from '@amsterdam/design-system-react/src'
 import {
-  ChevronForwardIcon,
   ClockIcon,
   FacebookIcon,
   InstagramIcon,
@@ -63,7 +62,7 @@ export const Default: Story = {
             <Heading className="ams-mb-s" color="inverse" level={2} size="level-4">
               Vacatures
             </Heading>
-            <StandaloneLink color="inverse" href="#" icon={ChevronForwardIcon}>
+            <StandaloneLink color="inverse" href="#">
               Werken bij Amsterdam
             </StandaloneLink>
           </Grid.Cell>
