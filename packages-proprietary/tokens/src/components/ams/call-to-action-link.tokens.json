@@ -1,0 +1,24 @@
+{
+  "ams": {
+    "call-to-action-link": {
+      "background-color": { "value": "#00a03c" },
+      "color": { "value": "{ams.color.text.inverse}" },
+      "font-family": { "value": "{ams.typography.font-family}" },
+      "font-size": { "value": "{ams.typography.body-text.font-size}" },
+      "font-weight": { "value": "{ams.typography.body-text.font-weight}" },
+      "line-height": { "value": "{ams.typography.body-text.line-height}" },
+      "outline-offset": { "value": "{ams.focus.outline-offset}" },
+      "padding-block": { "value": "{ams.space.xs}" },
+      "padding-inline": { "value": "{ams.space.m}" },
+      "text-decoration-thickness": { "value": "{ams.links.text-decoration-thickness}" },
+      "text-underline-offset": { "value": "{ams.links.text-underline-offset}" },
+      "hover": {
+        "background-color": { "value": "#007c2e" },
+        "text-decoration-thickness": {
+          "value": "{ams.links.hover.text-decoration-thickness}"
+        },
+        "text-underline-offset": { "value": "{ams.links.hover.text-underline-offset}" }
+      }
+    }
+  }
+}
