@@ -9,13 +9,15 @@
       "gap": { "value": "{ams.space.s}" },
       "line-height": { "value": "{ams.typography.body-text.line-height}" },
       "outline-offset": { "value": "{ams.focus.outline-offset}" },
+      "text-decoration-thickness": { "value": "{ams.links.text-decoration-thickness}" },
+      "text-underline-offset": { "value": "{ams.links.text-underline-offset}" },
       "disabled": {
         "cursor": { "value": "{ams.cursor.disabled}" },
         "color": { "value": "{ams.color.interactive.disabled}" }
       },
       "hover": {
         "color": { "value": "{ams.color.interactive.hover}" },
-        "text-decoration-thickness": { "value": "{ams.border.width.m}" }
+        "text-decoration-line": { "value": "{ams.links.subtle.hover.text-decoration-line}" }
       },
       "checked-indicator": {
         "stroke": { "value": "{ams.color.interactive.inverse}" }
@@ -32,7 +34,7 @@
       },
       "icon-container": {
         "block-size": { "value": "calc({ams.checkbox.font-size} * {ams.checkbox.line-height})" },
-        "inline-size": { "value": "1.5rem" }
+        "inline-size": { "value": "{ams.checkbox.font-size}" }
       },
       "indeterminate-indicator": {
         "stroke": { "value": "{ams.color.interactive.inverse}" }

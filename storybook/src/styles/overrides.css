@@ -46,14 +46,14 @@
 .sbdocs-content.sbdocs-content .sbdocs-a {
   color: var(--ams-color-interactive);
   text-decoration: underline;
-  text-decoration-thickness: 0.125rem;
-  text-underline-offset: 0.3333em;
+  text-decoration-thickness: 0.0625rem;
+  text-underline-offset: 0.125rem;
 }
 
 .sbdocs-content.sbdocs-content .sbdocs-a:hover {
   color: var(--ams-color-interactive-hover);
-  text-decoration-thickness: 0.1875rem;
-  text-underline-offset: 0.2778em;
+  text-decoration-thickness: 0.125rem;
+  text-underline-offset: 0.0625rem;
 }
 
 .sbdocs-content.sbdocs-content > :is(h1, h2, h3, h4, h5, h6),
