@@ -167,8 +167,8 @@ importers:
         specifier: 4.1.5
         version: 4.1.5
       style-dictionary:
-        specifier: 4.4.0
-        version: 4.4.0
+        specifier: 5.0.1
+        version: 5.0.1
 
   packages/css:
     dependencies:
@@ -6698,9 +6698,9 @@ packages:
     resolution: {integrity: sha512-6fPc+R4ihwqP6N/aIv2f1gMH8lOVtWQHoqC4yK6oSDVVocumAsfCqjkXnqiYMhmMwS/mEHLp7Vehlt3ql6lEig==}
     engines: {node: '>=8'}
 
-  style-dictionary@4.4.0:
-    resolution: {integrity: sha512-+xU0IA1StzqAqFs/QtXkK+XJa7wpS4X5H+JQccRKsRCElgeLGocFU1U/UMvMUylKFw6vwGV+Y/a2wb2pm5rFFQ==}
-    engines: {node: '>=18.0.0'}
+  style-dictionary@5.0.1:
+    resolution: {integrity: sha512-j+yQ4hM7a52iUQg5LVC8bnRkem4sU+unIY2qsyjoikPVzaxjkHd4ER7bnK+znW/Rhha69t4Fi5O46UHg6w8jFQ==}
+    engines: {node: '>=22.0.0'}
     hasBin: true
 
   styled-jsx@5.1.6:
@@ -15067,11 +15067,12 @@ snapshots:
 
   strip-json-comments@3.1.1: {}
 
-  style-dictionary@4.4.0:
+  style-dictionary@5.0.1:
     dependencies:
       '@bundled-es-modules/deepmerge': 4.3.1
       '@bundled-es-modules/glob': 10.4.2
       '@bundled-es-modules/memfs': 4.17.0
+      '@types/node': 22.16.5
       '@zip.js/zip.js': 2.7.60
       chalk: 5.4.1
       change-case: 5.4.4
