@@ -17,7 +17,7 @@ export const MenuRoot = forwardRef(
     { accessibleName = 'Hoofdnavigatie', children, className, ...restProps }: MenuProps,
     ref: ForwardedRef<HTMLElement>,
   ) => (
-    <nav aria-labelledby="primary-navigation" {...restProps} className={clsx('ams-menu', className)} ref={ref}>
+    <nav {...restProps} aria-labelledby="primary-navigation" className={clsx('ams-menu', className)} ref={ref}>
       <h2 className="ams-visually-hidden" id="primary-navigation">
         {accessibleName}
       </h2>

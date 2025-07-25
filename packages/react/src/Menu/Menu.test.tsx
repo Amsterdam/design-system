@@ -3,33 +3,32 @@
  * Copyright Gemeente Amsterdam
  */
 
-import { render } from '@testing-library/react'
+import { render, screen } from '@testing-library/react'
 import { createRef } from 'react'
 import { Menu } from './Menu'
 import '@testing-library/jest-dom'
 
 describe('Menu', () => {
   it('renders', () => {
-    const { container } = render(<Menu />)
-
-    const component = container.querySelector(':only-child')
+    render(<Menu />)
+    const component = screen.getByRole('navigation')
 
     expect(component).toBeInTheDocument()
     expect(component).toBeVisible()
   })
 
   it('renders a design system BEM class name', () => {
-    const { container } = render(<Menu />)
+    render(<Menu />)
 
-    const component = container.querySelector(':only-child')
+    const component = screen.getByRole('navigation')
 
     expect(component).toHaveClass('ams-menu')
   })
 
   it('renders an extra class name', () => {
-    const { container } = render(<Menu className="extra" />)
+    render(<Menu className="extra" />)
 
-    const component = container.querySelector(':only-child')
+    const component = screen.getByRole('navigation')
 
     expect(component).toHaveClass('ams-menu extra')
   })
@@ -37,10 +36,18 @@ describe('Menu', () => {
   it('supports ForwardRef in React', () => {
     const ref = createRef<HTMLElement>()
 
-    const { container } = render(<Menu ref={ref} />)
+    render(<Menu ref={ref} />)
 
-    const component = container.querySelector(':only-child')
+    const component = screen.getByRole('navigation')
 
     expect(ref.current).toBe(component)
+  })
+
+  it('renders a custom accessible name for the logo', () => {
+    render(<Menu accessibleName="Custom accessible name" />)
+
+    const component = screen.getByRole('heading', { name: 'Custom accessible name' })
+
+    expect(component).toBeInTheDocument()
   })
 })

@@ -4,7 +4,7 @@
  */
 
 import '@testing-library/jest-dom'
-import { DocumentIcon } from '@amsterdam/design-system-react-icons'
+import { DocumentIcon, StarIcon } from '@amsterdam/design-system-react-icons'
 import { render, screen } from '@testing-library/react'
 import { createRef } from 'react'
 import { Menu } from './Menu'
@@ -65,5 +65,14 @@ describe('Menu link', () => {
     const component = screen.getByRole('link')
 
     expect(ref.current).toBe(component)
+  })
+
+  it('shows a custom icon', () => {
+    render(<Menu.Link href="#" icon={StarIcon} />)
+
+    const component = screen.getByRole('link')
+    const icon = component.querySelector('svg')
+
+    expect(icon).toBeInTheDocument()
   })
 })

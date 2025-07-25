@@ -4,7 +4,6 @@
  */
 
 /* Append here */
-export * from './Menu'
 export * from './Accordion'
 export * from './ActionGroup'
 export * from './Alert'
@@ -40,6 +39,7 @@ export * from './Link'
 export * from './LinkList'
 export * from './Logo'
 export * from './Mark'
+export * from './Menu'
 export * from './OrderedList'
 export * from './Overlap'
 export * from './Page'

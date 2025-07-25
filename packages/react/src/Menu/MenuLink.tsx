@@ -15,12 +15,11 @@ export type MenuLinkProps = {
   icon: Function
 } & PropsWithChildren<AnchorHTMLAttributes<HTMLAnchorElement>>
 
-/** One link with a Link List. */
 export const MenuLink = forwardRef(
   ({ children, className, color, icon, ...restProps }: MenuLinkProps, ref: ForwardedRef<HTMLAnchorElement>) => {
     return (
       <li>
-        <a className={clsx('ams-menu__link', color && `ams-menu__link--${color}`, className)} ref={ref} {...restProps}>
+        <a {...restProps} className={clsx('ams-menu__link', color && `ams-menu__link--${color}`, className)} ref={ref}>
           <Icon className="ams-menu__icon" svg={icon} />
           {children}
         </a>
