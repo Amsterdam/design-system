@@ -5,14 +5,14 @@
 
 import clsx from 'clsx'
 import { forwardRef } from 'react'
-import type { AnchorHTMLAttributes, ForwardedRef, PropsWithChildren } from 'react'
+import type { AnchorHTMLAttributes, ForwardedRef, PropsWithChildren, ReactNode } from 'react'
 import { Icon } from '../Icon'
 
 export type MenuLinkProps = {
   /** Changes the text colour for readability on a light or dark background. */
   color?: 'contrast' | 'inverse'
   /** An icon to display instead of the default chevron. Don’t mix custom icons with chevrons in one list. */
-  icon: Function
+  icon: Function | ReactNode
 } & PropsWithChildren<AnchorHTMLAttributes<HTMLAnchorElement>>
 
 export const MenuLink = forwardRef(
