@@ -22,11 +22,14 @@
 
 .ams-menu__list {
   display: grid;
-  gap: var(--ams-menu-list-gap);
 
   @include hyphenation;
   @include text-rendering;
   @include reset-ul;
+  
+  @media screen and (min-width: $ams-breakpoint-wide) {
+    gap: var(--ams-menu-list-gap);
+  }
 }
 
 .ams-menu__link {
