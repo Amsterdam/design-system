@@ -1,15 +1,17 @@
 import type { StorybookConfig } from '@storybook/react-vite'
+import { createRequire } from 'node:module'
+import { dirname, join } from 'node:path'
 import remarkGfm from 'remark-gfm'
+
+const require = createRequire(import.meta.url)
 
 const config: StorybookConfig = {
   addons: [
-    '@storybook/addon-links',
-    '@storybook/addon-essentials',
-    '@storybook/addon-interactions',
-    '@storybook/addon-a11y',
-    '@storybook/addon-themes',
+    getAbsolutePath('@storybook/addon-links'),
+    getAbsolutePath('@storybook/addon-a11y'),
+    getAbsolutePath('@storybook/addon-themes'),
     {
-      name: '@storybook/addon-docs',
+      name: getAbsolutePath('@storybook/addon-docs'),
       options: {
         mdxPluginOptions: {
           mdxCompileOptions: {
@@ -18,23 +20,28 @@ const config: StorybookConfig = {
         },
       },
     },
-    '@whitespace/storybook-addon-html',
+    getAbsolutePath('@whitespace/storybook-addon-html'),
   ],
+
   core: {
     disableTelemetry: true,
   },
-  docs: {
-    autodocs: true,
-  },
+
   framework: {
-    name: '@storybook/react-vite',
+    name: getAbsolutePath('@storybook/react-vite'),
     options: {},
   },
+
   staticDirs: ['../../packages-proprietary/assets'],
   stories: ['../src/**/*.docs.mdx', '../src/**/*.stories.@(js|jsx|ts|tsx)'],
+
   typescript: {
     reactDocgen: 'react-docgen-typescript',
   },
 }
 
 export default config
+
+function getAbsolutePath(value: string): any {
+  return dirname(require.resolve(join(value, 'package.json')))
+}

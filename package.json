@@ -71,6 +71,7 @@
     "eslint-plugin-mdx": "3.6.2",
     "eslint-plugin-perfectionist": "4.15.0",
     "eslint-plugin-react": "7.37.5",
+    "eslint-plugin-storybook": "9.0.18",
     "globals": "16.3.0",
     "html-validate": "9.7.1",
     "husky": "9.1.7",
