@@ -2,6 +2,8 @@
 
 # Amsterdam Design System: React icons
 
+TEST BREAKING CHANGE VAN REACT ICONS PACKAGE
+
 This package provides all icons from the [Amsterdam Design System](https://designsystem.amsterdam) as React components.
 Use it to use the correct icons in your React project.
 

@@ -2,6 +2,8 @@
 
 # Amsterdam Design System: Assets
 
+TEST BREAKING CHANGE VAN ASSETS PACKAGE
+
 This package provides all assets from the [Amsterdam Design System](https://designsystem.amsterdam).
 Use it to include the correct fonts, icons or logos in your website or application.
 

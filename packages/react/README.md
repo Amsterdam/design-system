@@ -2,6 +2,8 @@
 
 # Amsterdam Design System: React components
 
+TEST BREAKING CHANGE VAN REACT PACKAGE
+
 This package provides all React components from the [Amsterdam Design System](https://designsystem.amsterdam).
 Use it to compose pages in your website or application.
 
