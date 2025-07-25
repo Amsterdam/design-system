@@ -28,23 +28,57 @@ export type LogoProps = {
   brand?: LogoBrand
 } & SVGProps<SVGSVGElement>
 
-const logoConfig: Record<
-  LogoBrand,
-  ForwardRefExoticComponent<SVGProps<SVGSVGElement> & RefAttributes<SVGSVGElement>>
-> = {
-  amsterdam: LogoAmsterdam,
-  'ggd-amsterdam': LogoGgdAmsterdam,
-  'museum-weesp': LogoMuseumWeesp,
-  stadsarchief: LogoStadsarchief,
-  'stadsbank-van-lening': LogoStadsbankVanLening,
-  'vga-verzekeringen': LogoVgaVerzekeringen,
+type LogoConfigItem = {
+  label: string
+  logo: ForwardRefExoticComponent<SVGProps<SVGSVGElement> & RefAttributes<SVGSVGElement>>
 }
 
-export const Logo = forwardRef(
-  ({ brand = 'amsterdam', className, ...restProps }: LogoProps, ref: ForwardedRef<SVGSVGElement>) => {
-    const LogoComponent = logoConfig[brand]
+const logoConfig: Record<LogoBrand, LogoConfigItem> = {
+  amsterdam: {
+    label: 'Gemeente Amsterdam logo',
+    logo: LogoAmsterdam,
+  },
+  'ggd-amsterdam': {
+    label: 'GGD Amsterdam logo',
+    logo: LogoGgdAmsterdam,
+  },
+  'museum-weesp': {
+    label: 'Gemeente Amsterdam Museum Weesp logo',
+    logo: LogoMuseumWeesp,
+  },
+  stadsarchief: {
+    label: 'Gemeente Amsterdam Stadsarchief logo',
+    logo: LogoStadsarchief,
+  },
+  'stadsbank-van-lening': {
+    label: 'Gemeente Amsterdam Stadsbank van Lening logo',
+    logo: LogoStadsbankVanLening,
+  },
+  'vga-verzekeringen': {
+    label: 'Gemeente Amsterdam VGA Verzekeringen logo',
+    logo: LogoVgaVerzekeringen,
+  },
+}
 
-    return <LogoComponent {...restProps} className={clsx('ams-logo', className)} ref={ref} />
+/**
+ * @see {@link https://designsystem.amsterdam/?path=/docs/components-media-logo--docs Logo docs at Amsterdam Design System}
+ */
+export const Logo = forwardRef(
+  (
+    { 'aria-label': ariaLabel, brand = 'amsterdam', className, ...restProps }: LogoProps,
+    ref: ForwardedRef<SVGSVGElement>,
+  ) => {
+    const LogoComponent = logoConfig[brand].logo
+    const logoLabel = logoConfig[brand].label
+
+    return (
+      <LogoComponent
+        {...restProps}
+        aria-label={ariaLabel || logoLabel}
+        className={clsx('ams-logo', className)}
+        ref={ref}
+      />
+    )
   },
 )
 

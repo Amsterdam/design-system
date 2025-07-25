@@ -3,7 +3,16 @@
  * Copyright Gemeente Amsterdam
  */
 
-import { ErrorMessage, Field, Label, Paragraph } from '@aram-limpens/design-system-react'
+import {
+  Column,
+  ErrorMessage,
+  Field,
+  FieldSet,
+  Label,
+  Paragraph,
+  Row,
+  TextInput,
+} from '@aram-limpens/design-system-react'
 import { DateInput } from '@aram-limpens/design-system-react/src'
 import { Meta, StoryObj } from '@storybook/react'
 
@@ -71,5 +80,57 @@ export const InAFieldWithValidation: Story = {
       {args.invalid && <ErrorMessage id="error2">Foutmelding.</ErrorMessage>}
       <DateInput aria-describedby={`description2${args.invalid ? ' error2' : ''}`} id="input2" {...args} />
     </Field>
+  ),
+}
+
+// TODO: we should probably use an h1 here, when that's possible.
+export const MemorableDate: Story = {
+  render: () => (
+    <FieldSet aria-describedby="description-a" legend="Wanneer ben je geboren?">
+      <Paragraph className="ams-mb-s" id="description-a" size="small">
+        Bijvoorbeeld 1 1 2000.
+      </Paragraph>
+      <Row>
+        <Column gap="small">
+          <Label htmlFor="input-a1">Dag</Label>
+          <TextInput autoComplete="bday-day" id="input-a1" inputMode="numeric" name="dag" size={2} />
+        </Column>
+        <Column gap="small">
+          <Label htmlFor="input-a2">Maand</Label>
+          <TextInput autoComplete="bday-month" id="input-a2" inputMode="numeric" name="maand" size={2} />
+        </Column>
+        <Column gap="small">
+          <Label htmlFor="input-a3">Jaar</Label>
+          <TextInput autoComplete="bday-year" id="input-a3" inputMode="numeric" name="jaar" size={4} />
+        </Column>
+      </Row>
+    </FieldSet>
+  ),
+}
+
+export const MemorableDateWithValidation: Story = {
+  render: () => (
+    <FieldSet aria-describedby="description-b error-b" invalid legend="Wanneer ben je geboren?">
+      <Paragraph className="ams-mb-s" id="description-b" size="small">
+        Bijvoorbeeld 1 1 2000.
+      </Paragraph>
+      <ErrorMessage className="ams-mb-s" id="error-b">
+        De datum moet in het verleden liggen.
+      </ErrorMessage>
+      <Row>
+        <Column gap="small">
+          <Label htmlFor="input-b1">Dag</Label>
+          <TextInput autoComplete="bday-day" id="input-b1" inputMode="numeric" invalid name="dag" size={2} />
+        </Column>
+        <Column gap="small">
+          <Label htmlFor="input-b2">Maand</Label>
+          <TextInput autoComplete="bday-month" id="input-b2" inputMode="numeric" invalid name="maand" size={2} />
+        </Column>
+        <Column gap="small">
+          <Label htmlFor="input-b3">Jaar</Label>
+          <TextInput autoComplete="bday-year" id="input-b3" inputMode="numeric" invalid name="jaar" size={4} />
+        </Column>
+      </Row>
+    </FieldSet>
   ),
 }

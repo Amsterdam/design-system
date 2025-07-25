@@ -5,7 +5,7 @@
 
 import clsx from 'clsx'
 import { forwardRef, useEffect, useState } from 'react'
-import type { ForwardedRef, HTMLAttributes, ReactNode } from 'react'
+import type { AnchorHTMLAttributes, ComponentType, ForwardedRef, HTMLAttributes, ReactNode } from 'react'
 import { Icon } from '../Icon'
 import { Logo } from '../Logo'
 import type { LogoBrand } from '../Logo'
@@ -14,10 +14,18 @@ import { PageHeaderMenuIcon } from './PageHeaderMenuIcon'
 import { PageHeaderMenuLink } from './PageHeaderMenuLink'
 import useIsAfterBreakpoint from '../common/useIsAfterBreakpoint'
 
-const LogoLinkContent = ({ brandName, logoBrand }: { brandName?: string; logoBrand: LogoBrand }) => (
+const LogoLinkContent = ({
+  brandName,
+  logoAccessibleName,
+  logoBrand,
+}: {
+  brandName?: string
+  logoAccessibleName?: string
+  logoBrand: LogoBrand
+}) => (
   <>
     <span className={clsx(logoBrand === 'amsterdam' && Boolean(brandName) && 'ams-page-header__logo-container')}>
-      <Logo brand={logoBrand} />
+      <Logo aria-label={logoAccessibleName} brand={logoBrand} />
     </span>
     {brandName && (
       <span aria-hidden="true" className="ams-page-header__brand-name">
@@ -30,10 +38,14 @@ const LogoLinkContent = ({ brandName, logoBrand }: { brandName?: string; logoBra
 export type PageHeaderProps = {
   /** The name of the application. */
   brandName?: string
+  /** The accessible name of the logo. */
+  logoAccessibleName?: string
   /** The name of the brand for which to display the logo. */
   logoBrand?: LogoBrand
   /** The url for the link on the logo. */
   logoLink?: string
+  /** The React component to use for the logo link. */
+  logoLinkComponent?: ComponentType<AnchorHTMLAttributes<HTMLAnchorElement>>
   /** The accessible text for the link on the logo. */
   logoLinkTitle?: string
   /** The text for the menu button. */
@@ -52,9 +64,11 @@ const PageHeaderRoot = forwardRef(
       brandName,
       children,
       className,
+      logoAccessibleName,
       logoBrand = 'amsterdam',
       logoLink = '/',
-      logoLinkTitle = 'Ga naar de homepage',
+      logoLinkComponent = (props: AnchorHTMLAttributes<HTMLAnchorElement>) => <a {...props} />,
+      logoLinkTitle = `Ga naar de homepage${brandName ? ` van ${brandName}` : ''}`,
       menuButtonText = 'Menu',
       menuItems,
       navigationLabel = 'Hoofdnavigatie',
@@ -65,6 +79,7 @@ const PageHeaderRoot = forwardRef(
   ) => {
     const [open, setOpen] = useState(false)
 
+    const Link = logoLinkComponent
     const hasMegaMenu = Boolean(children)
     const isWideWindow = hasMegaMenu && useIsAfterBreakpoint('wide')
 
@@ -77,18 +92,18 @@ const PageHeaderRoot = forwardRef(
 
     return (
       <header {...restProps} className={clsx('ams-page-header', className)} ref={ref}>
-        <a className="ams-page-header__logo-link" href={logoLink}>
+        <Link className="ams-page-header__logo-link" href={logoLink}>
+          <LogoLinkContent brandName={brandName} logoAccessibleName={logoAccessibleName} logoBrand={logoBrand} />
           <span className="ams-visually-hidden">{logoLinkTitle}</span>
-          <LogoLinkContent brandName={brandName} logoBrand={logoBrand} />
-        </a>
+        </Link>
         {(hasMegaMenu || menuItems) && (
           <nav aria-labelledby="primary-navigation" className="ams-page-header__navigation">
-            <h2 className="ams-visually-hidden" id="primary-navigation">
+            <h2 aria-hidden className="ams-visually-hidden" id="primary-navigation">
               {navigationLabel}
             </h2>
 
             {/* The logo link section is recreated here, to make sure the header menu wraps at the right spot */}
-            <div className="ams-page-header__logo-link ams-page-header__logo-link--hidden">
+            <div aria-hidden className="ams-page-header__logo-link ams-page-header__logo-link--hidden" hidden>
               <LogoLinkContent brandName={brandName} logoBrand={logoBrand} />
             </div>
 
@@ -140,6 +155,9 @@ const PageHeaderRoot = forwardRef(
 
 PageHeaderRoot.displayName = 'PageHeader'
 
+/**
+ * @see {@link https://designsystem.amsterdam/?path=/docs/components-containers-page-header--docs Page Header docs at Amsterdam Design System}
+ */
 export const PageHeader = Object.assign(PageHeaderRoot, {
   GridCellNarrowWindowOnly: PageHeaderGridCellNarrowWindowOnly,
   MenuLink: PageHeaderMenuLink,

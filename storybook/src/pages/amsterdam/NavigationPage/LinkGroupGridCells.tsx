@@ -3,7 +3,7 @@
  * Copyright Gemeente Amsterdam
  */
 
-import { Grid, Heading, LinkList } from '@aram-limpens/design-system-react'
+import { Grid, Heading, LinkList, StandaloneLink } from '@aram-limpens/design-system-react'
 import type { LinkGroup } from './links'
 
 type LinkGroupGridCellsProps = {
@@ -20,12 +20,16 @@ export const LinkGroupGridCells = ({ linkGroups }: LinkGroupGridCellsProps) =>
       <Heading className="ams-mb-m" level={2} size="level-3">
         {heading}
       </Heading>
-      <LinkList>
-        {links.map((link) => (
-          <LinkList.Link href="#" key={link}>
-            {link}
-          </LinkList.Link>
-        ))}
-      </LinkList>
+      {links.length === 1 ? (
+        <StandaloneLink href="#">{links[0]}</StandaloneLink>
+      ) : (
+        <LinkList>
+          {links.map((link) => (
+            <LinkList.Link href="#" key={link}>
+              {link}
+            </LinkList.Link>
+          ))}
+        </LinkList>
+      )}
     </Grid.Cell>
   ))

@@ -53,8 +53,8 @@ describe('Unordered list', () => {
 
     const { container } = render(
       <UnorderedList>
-        {listItems.map((item, index) => (
-          <UnorderedList.Item key={index}>{item}</UnorderedList.Item>
+        {listItems.map((item) => (
+          <UnorderedList.Item key={item}>{item}</UnorderedList.Item>
         ))}
       </UnorderedList>,
     )

@@ -37,11 +37,7 @@ Here’s an example with the Link component of Next.js:
 import { Pagination } from "@aram-limpens/design-system-react"
 import NextLink from "next/link"
 
-const LinkComponent = (props) => (
-  <NextLink href={props.href} legacyBehavior passHref>
-    <a {...props} />
-  </NextLink>
-)
+const LinkComponent = (props) => <NextLink {...props} />
 
 return <Pagination linkComponent={LinkComponent} />
 ```

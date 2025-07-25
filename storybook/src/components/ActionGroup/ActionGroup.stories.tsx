@@ -5,13 +5,14 @@
 
 import { Button, StandaloneLink } from '@aram-limpens/design-system-react'
 import { ActionGroup } from '@aram-limpens/design-system-react/src'
+import { DownloadIcon } from '@aram-limpens/design-system-react-icons'
 import { Meta, StoryObj } from '@storybook/react'
 
 const meta = {
   title: 'Components/Layout/Action Group',
   component: ActionGroup,
   args: {
-    children: [<Button>Doorgaan</Button>, <Button variant="tertiary">Stoppen</Button>],
+    children: [<Button>Doorgaan</Button>, <Button variant="secondary">Stoppen</Button>],
   },
 } satisfies Meta<typeof ActionGroup>
 
@@ -35,7 +36,7 @@ export const WithLink: Story = {
   args: {
     children: [
       <Button key={1}>Bewerken</Button>,
-      <StandaloneLink download href="#" key={2}>
+      <StandaloneLink download href="#" icon={DownloadIcon} key={2}>
         Downloaden
       </StandaloneLink>,
     ],

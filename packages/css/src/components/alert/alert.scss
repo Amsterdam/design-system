@@ -5,17 +5,15 @@
 
 .ams-alert {
   background-color: var(--ams-alert-background-color);
-  box-shadow: var(--ams-alert-box-shadow);
+  border-color: var(--ams-alert-border-color);
+  border-style: var(--ams-alert-border-style);
+  border-width: var(--ams-alert-border-width);
   display: flex;
-
-  @media (forced-colors: active) {
-    border-style: solid;
-    border-width: var(--ams-alert-forced-colors-border-width);
-  }
 }
 
 .ams-alert__severity-indicator {
   background-color: var(--ams-alert-severity-indicator-background-color);
+  border-inline-end: inherit;
   flex: none;
   padding-block: var(--ams-alert-severity-indicator-padding-block);
   padding-inline: var(--ams-alert-severity-indicator-padding-inline);
@@ -31,7 +29,7 @@
 }
 
 .ams-alert--error {
-  box-shadow: var(--ams-alert-error-box-shadow);
+  border-color: var(--ams-alert-error-border-color);
 
   > .ams-alert__severity-indicator {
     background-color: var(--ams-alert-error-severity-indicator-background-color);
@@ -39,7 +37,7 @@
 }
 
 .ams-alert--success {
-  box-shadow: var(--ams-alert-success-box-shadow);
+  border-color: var(--ams-alert-success-border-color);
 
   > .ams-alert__severity-indicator {
     background-color: var(--ams-alert-success-severity-indicator-background-color);
@@ -47,7 +45,7 @@
 }
 
 .ams-alert--warning {
-  box-shadow: var(--ams-alert-warning-box-shadow);
+  border-color: var(--ams-alert-warning-border-color);
 
   > .ams-alert__severity-indicator {
     background-color: var(--ams-alert-warning-severity-indicator-background-color);

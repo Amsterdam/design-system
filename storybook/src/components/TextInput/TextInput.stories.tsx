@@ -58,6 +58,25 @@ export const PhoneNumber: Story = {
   },
 }
 
+export const WholeNumber: Story = {
+  args: {
+    defaultValue: '1',
+    inputMode: 'numeric',
+    pattern: '[0-9]*',
+    size: 5,
+    spellCheck: false,
+  },
+}
+
+export const DecimalNumber: Story = {
+  args: {
+    defaultValue: '1.99',
+    pattern: '[0-9.,]*',
+    size: 5,
+    spellCheck: false,
+  },
+}
+
 export const Size: Story = {
   args: {
     size: 10,

@@ -3,8 +3,9 @@
  * Copyright Gemeente Amsterdam
  */
 
-import { Grid, Heading, Paragraph } from '@aram-limpens/design-system-react'
+import { Heading, Paragraph } from '@aram-limpens/design-system-react'
 import { StandaloneLink } from '@aram-limpens/design-system-react/src'
+import { ChevronForwardIcon, DownloadIcon } from '@aram-limpens/design-system-react-icons'
 import * as Icons from '@aram-limpens/design-system-react-icons'
 import { Meta, StoryObj } from '@storybook/react'
 
@@ -12,7 +13,7 @@ const meta = {
   title: 'Components/Navigation/Standalone Link',
   component: StandaloneLink,
   args: {
-    children: 'Link label',
+    children: 'Bekijk alle onderwerpen',
     href: '#',
   },
   argTypes: {
@@ -39,6 +40,11 @@ const meta = {
       },
       mapping: Icons,
       options: [undefined, ...Object.keys(Icons)],
+      table: {
+        defaultValue: {
+          summary: 'ChevronForwardIcon',
+        },
+      },
     },
   },
 } satisfies Meta<typeof StandaloneLink>
@@ -61,26 +67,30 @@ export const InverseColour: Story = {
   },
 }
 
-export const InAnArticle: Story = {
+export const WithHeadingAndParagraph: Story = {
   args: {
-    children: 'Alle bouw- en verkeerswerkzaamheden',
+    children: 'Bekijk alle werkzaamheden',
+    icon: ChevronForwardIcon,
   },
   decorators: [
     (Story) => (
-      <Grid>
-        <Grid.Cell span={{ narrow: 4, medium: 5, wide: 6 }}>
-          <article>
-            <Heading className="ams-mb-xs" level={2}>
-              Werkzaamheden
-            </Heading>
-            <Paragraph className="ams-mb-s">
-              Lees waar en wanneer we werken aan nieuwbouw, groot onderhoud, herinrichting van straten en wegen, aanpak
-              van parken of ontwikkeling van hele gebieden.
-            </Paragraph>
-            <Story />
-          </article>
-        </Grid.Cell>
-      </Grid>
+      <article style={{ maxWidth: '32rem' }}>
+        <Heading className="ams-mb-xs" level={2}>
+          Werkzaamheden
+        </Heading>
+        <Paragraph className="ams-mb-s">
+          Lees waar en wanneer we werken aan nieuwbouw, groot onderhoud, herinrichting van straten en wegen, aanpak van
+          parken of ontwikkeling van hele gebieden.
+        </Paragraph>
+        <Story />
+      </article>
     ),
   ],
+}
+
+export const WithCustomIcon: Story = {
+  args: {
+    children: 'Downloaden',
+    icon: DownloadIcon,
+  },
 }

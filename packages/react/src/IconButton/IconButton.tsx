@@ -15,12 +15,15 @@ export type IconButtonProps = {
   color?: 'contrast' | 'inverse'
   /** The accessible text for the button. Will be announced by screen readers. Should describe the button’s action. */
   label: string
-  /** The size of the icon. */
+  /** The size of the icon. Match it to the text that the Icon Buttons aligns with. */
   size?: IconProps['size']
   /** The component rendering the icon’s markup. */
   svg?: IconProps['svg']
 } & ButtonHTMLAttributes<HTMLButtonElement>
 
+/**
+ * @see {@link https://designsystem.amsterdam/?path=/docs/components-buttons-icon-button--docs Icon Button docs at Amsterdam Design System}
+ */
 export const IconButton = forwardRef(
   (
     { className, color, label, size, svg = CloseIcon, type, ...restProps }: IconButtonProps,

@@ -3,12 +3,12 @@
  * Copyright Gemeente Amsterdam
  */
 
-import { ChevronLeftIcon, ChevronRightIcon } from '@aram-limpens/design-system-react-icons'
+import { ChevronBackwardIcon, ChevronForwardIcon } from '@aram-limpens/design-system-react-icons'
 import clsx from 'clsx'
 import { forwardRef, useCallback, useContext } from 'react'
 import type { ForwardedRef, HTMLAttributes } from 'react'
 import { ImageSliderContext } from './ImageSliderContext'
-import { IconButton } from '../IconButton'
+import { Button } from '../Button'
 
 export type ImageSliderControlsProps = {
   /** The label for the ‘next’ button */
@@ -29,22 +29,26 @@ export const ImageSliderControls = forwardRef(
 
     return (
       <div {...restProps} className={clsx('ams-image-slider__controls', className)} ref={ref}>
-        <IconButton
+        <Button
           className="ams-image-slider__control ams-image-slider__control--previous"
           color="inverse"
           disabled={isAtStart}
-          label={previousLabel}
+          icon={ChevronBackwardIcon}
+          iconOnly
           onClick={handleClickPrevious}
-          svg={ChevronLeftIcon}
-        />
-        <IconButton
+        >
+          {previousLabel}
+        </Button>
+        <Button
           className="ams-image-slider__control ams-image-slider__control--next"
           color="inverse"
           disabled={isAtEnd}
-          label={nextLabel}
+          icon={ChevronForwardIcon}
+          iconOnly
           onClick={handleClickNext}
-          svg={ChevronRightIcon}
-        />
+        >
+          {nextLabel}
+        </Button>
       </div>
     )
   },

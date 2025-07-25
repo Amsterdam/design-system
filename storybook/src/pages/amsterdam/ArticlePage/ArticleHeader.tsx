@@ -15,7 +15,7 @@ export const ArticleHeader = ({ heading, imageSrc }: ArticleHeaderProps) => (
         <Heading className="ams-mb-s" level={1}>
           {heading}
         </Heading>
-        <Paragraph size="small">7 juni 2024</Paragraph>
+        <Paragraph>7 juni 2024</Paragraph>
       </Grid.Cell>
     </Grid>
     <Overlap>

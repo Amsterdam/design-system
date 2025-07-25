@@ -36,11 +36,11 @@ This project is part of a community initiative to use NL Design System component
 
 Join the `#nl-design-system` Slack via [praatmee.codefor.nl](https://praatmee.codefor.nl) for more information and to learn about things happening in our open-source community.
 
-## License
+## Licence
 
-This project is free and open-source software licensed under the [European Union Public License (EUPL) v1.2](LICENSE.md) or higher.
-Documentation is licensed as [Creative Commons Zero 1.0 Universal (`CC0-1.0`)](https://creativecommons.org/publicdomain/zero/1.0/legalcode).
+This project is free and open-source software licenced under the [European Union Public License (EUPL) v1.2](LICENSE.md) or higher.
+Documentation is licenced as [Creative Commons Zero 1.0 Universal (`CC0-1.0`)](https://creativecommons.org/publicdomain/zero/1.0/legalcode).
 
-The open-source licenses do not cover the assets in the `packages-proprietary` directory.
-Each directory in the `packages-proprietary` directory specifies the applicable license for that directory.
+The open-source licences do not cover the assets in the `packages-proprietary` directory.
+Each directory in the `packages-proprietary` directory specifies the applicable licence for that directory.
 Please read the [notice](NOTICE.md) for more information about proprietary assets.

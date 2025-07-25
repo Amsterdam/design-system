@@ -4,7 +4,7 @@
  */
 
 import { ErrorMessage } from '@aram-limpens/design-system-react/src'
-import { AnnouncementIcon } from '@aram-limpens/design-system-react-icons'
+import { MegaphoneIcon } from '@aram-limpens/design-system-react-icons'
 import { Meta, StoryObj } from '@storybook/react'
 
 const meta = {
@@ -35,6 +35,6 @@ export const CustomPrefix: Story = {
 
 export const WithCustomIcon: Story = {
   args: {
-    icon: AnnouncementIcon,
+    icon: MegaphoneIcon,
   },
 }

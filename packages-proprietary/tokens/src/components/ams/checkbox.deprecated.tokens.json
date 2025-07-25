@@ -1,0 +1,43 @@
+{
+  "ams": {
+    "checkbox": {
+      "hover": {
+        "text-decoration-thickness": {
+          "comment": "Use `ams.checkbox.text-decoration-thickness` instead",
+          "value": "{ams.border.width.m}"
+        }
+      },
+      "rectangle": {
+        "checked": {
+          "disabled": {
+            "hover": {
+              "fill": { "value": "{ams.color.interactive.disabled}" }
+            }
+          },
+          "hover": {
+            "disabled-invalid": {
+              "fill": { "value": "{ams.color.interactive.disabled}" }
+            }
+          }
+        },
+        "hover": {
+          "disabled-invalid": {
+            "stroke": { "value": "{ams.color.interactive.disabled}" }
+          }
+        },
+        "indeterminate": {
+          "disabled": {
+            "hover": {
+              "fill": { "value": "{ams.color.interactive.disabled}" }
+            }
+          },
+          "hover": {
+            "disabled-invalid": {
+              "fill": { "value": "{ams.color.interactive.disabled}" }
+            }
+          }
+        }
+      }
+    }
+  }
+}

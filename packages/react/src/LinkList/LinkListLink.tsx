@@ -3,7 +3,7 @@
  * Copyright Gemeente Amsterdam
  */
 
-import { ChevronRightIcon } from '@aram-limpens/design-system-react-icons'
+import { ChevronForwardIcon } from '@aram-limpens/design-system-react-icons'
 import clsx from 'clsx'
 import { forwardRef } from 'react'
 import type { AnchorHTMLAttributes, ForwardedRef, PropsWithChildren } from 'react'
@@ -36,7 +36,7 @@ export const LinkListLink = forwardRef(
           ref={ref}
           {...restProps}
         >
-          <Icon size={size} svg={icon ?? ChevronRightIcon} />
+          <Icon size={size} svg={icon ?? ChevronForwardIcon} />
           {children}
         </a>
       </li>

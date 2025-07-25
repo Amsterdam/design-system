@@ -23,9 +23,9 @@ export const Default: Story = {
         alt=""
         aspectRatio="16:5"
         key={1}
-        sizes="(max-width: 36rem) 640px, (max-width: 68rem) 1280px, 1600px"
-        src="https://picsum.photos/1600/500"
-        srcSet="https://picsum.photos/640/200 640w, https://picsum.photos/1280/400 1280w, https://picsum.photos/1600/500 1600w"
+        sizes="(max-width: 36rem) 640px, (max-width: 68rem) 1280px, 1440px"
+        src="https://picsum.photos/1440/450"
+        srcSet="https://picsum.photos/640/200 640w, https://picsum.photos/1280/400 1280w, https://picsum.photos/1440/450 1440w"
       />,
       <Grid key={2} style={{ alignSelf: 'center' }}>
         <Grid.Cell span={{ narrow: 4, medium: 6, wide: 8 }} start={{ narrow: 1, medium: 2, wide: 3 }}>

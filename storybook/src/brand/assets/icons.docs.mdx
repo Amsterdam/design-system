@@ -1,19 +1,91 @@
 {/* @license CC0-1.0 */}
 
 import { Meta } from "@storybook/blocks";
-import { AmsterdamIconGallery } from "../../docs/components/AmsterdamIconGallery";
-import { StatusBadge } from "../../docs/components/StatusBadge";
+import { IconGallery } from "../../docs/components/IconGallery";
+import {
+  ApplicationIcons,
+  BrandIcons,
+  DirectionIcons,
+  MediaIcons,
+  SeverityIcons,
+  UniversalIcons,
+} from "../../docs/components/IconGalleryCategories";
 
 <Meta title="Brand/Assets/Icons" />
 
-<StatusBadge description="The set of available icons will change." />
-
 # Icons
 
-An overview of all currently available icons.
+We have designed our own set of icons.
 
-<AmsterdamIconGallery />
+They can only be used on websites and applications where the City of Amsterdam is the main communicator.
+
+We distinguish functional icons, which have a specific meaning and can be used without labels, from general ones.
+
+## General icons
+
+We name most of our icons after the objects they picture, like ‘car’, ‘house’, or ‘light bulb’.
+This allows using them in various contexts or with slightly different meanings.
+All these names are nouns.
+
+<IconGallery
+  excludeIcons={[
+    ...ApplicationIcons,
+    ...BrandIcons,
+    ...DirectionIcons,
+    ...MediaIcons,
+    ...SeverityIcons,
+    ...UniversalIcons,
+  ]}
+/>
+
+### Direction
+
+Arrows and chevrons indicate direction or movement.
+We use ‘forward’ and ‘backward’ to make them easier to use in languages that read from right to left.
+
+<IconGallery icons={DirectionIcons} />
+
+### Severity
+
+The following icons indicate the tone of an Alert or Error Message.
+These components use them without a label.
+
+<IconGallery icons={SeverityIcons} />
+
+### Brands
+
+These icons can accompany links to external products or services:
+
+<IconGallery icons={BrandIcons} />
+
+## Functional icons
+
+Some icons have become so familiar that most users know their meaning.
+These can be used without a label, e.g. in an Icon Button.
+Their names are verbs that represent their function, and they must not be used for other purposes.
+
+### Universal
+
+The only icons that are widely recognized enough to be used anywhere without a label:
+
+<IconGallery icons={UniversalIcons} />
+
+### Media
+
+The following icons can be used without labels in audio or video players:
+
+<IconGallery icons={MediaIcons} />
+
+### Learnable
+
+In applications that users use so regularly that they can learn the meaning of icons, these can go without labels as well:
+
+<IconGallery icons={ApplicationIcons} />
 
 ## Related components
 
 - [Icon](/docs/components-media-icon--docs)
+
+## Requests
+
+If you need an icon that is not in our set, [check this Figma library](https://www.figma.com/design/SZa5JuGk9AkvAcVKJ9qu6B/Icon-Guidelines?node-id=2006-933) to contact our icon designers.

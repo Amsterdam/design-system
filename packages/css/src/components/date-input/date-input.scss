@@ -8,14 +8,29 @@
 @mixin reset-input {
   -webkit-appearance: none; // Reset appearance for Safari < 15.4
   appearance: none; // Reset native appearance, this causes issues on iOS and Android devices
-  border: none;
   border-radius: 0; // Reset rounded borders on iOS devices
   margin-block: 0;
+
+  &::-webkit-datetime-edit,
+  &::-webkit-datetime-edit-ampm-field,
+  &::-webkit-datetime-edit-day-field,
+  &::-webkit-datetime-edit-fields-wrapper,
+  &::-webkit-datetime-edit-hour-field,
+  &::-webkit-datetime-edit-millisecond-field,
+  &::-webkit-datetime-edit-minute-field,
+  &::-webkit-datetime-edit-month-field,
+  &::-webkit-datetime-edit-second-field,
+  &::-webkit-datetime-edit-week-field,
+  &::-webkit-datetime-edit-year-field {
+    padding-block: 0; // Override value of 1px in UA stylesheet
+  }
 }
 
 .ams-date-input {
   background-color: var(--ams-date-input-background-color);
-  box-shadow: var(--ams-date-input-box-shadow);
+  border-color: var(--ams-date-input-border-color);
+  border-style: var(--ams-date-input-border-style);
+  border-width: var(--ams-date-input-border-width);
   box-sizing: border-box;
   color: var(--ams-date-input-color);
   font-family: var(--ams-date-input-font-family);
@@ -37,10 +52,6 @@
 
   @include text-rendering;
   @include reset-input;
-
-  &:hover {
-    box-shadow: var(--ams-date-input-hover-box-shadow);
-  }
 }
 
 // This changes the default calendar icon on Chromium browsers only
@@ -55,8 +66,6 @@
 }
 
 .ams-date-input:disabled {
-  background-color: var(--ams-date-input-disabled-background-color);
-  box-shadow: var(--ams-date-input-disabled-box-shadow);
   color: var(--ams-date-input-disabled-color);
   cursor: var(--ams-date-input-disabled-cursor);
 }
@@ -68,9 +77,14 @@
 
 .ams-date-input:invalid,
 .ams-date-input[aria-invalid="true"] {
-  box-shadow: var(--ams-date-input-invalid-box-shadow);
+  border-color: var(--ams-date-input-invalid-border-color);
 
   &:hover {
+    border-color: var(--ams-date-input-invalid-hover-border-color);
     box-shadow: var(--ams-date-input-invalid-hover-box-shadow);
   }
+}
+
+.ams-date-input:not(:disabled):hover {
+  box-shadow: var(--ams-date-input-hover-box-shadow);
 }

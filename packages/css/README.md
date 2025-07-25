@@ -2,7 +2,7 @@
 
 # Amsterdam Design System: CSS components
 
-TEST RELEASE 1
+TEST BREAKING CHANGE VAN CSS PACKAGE
 
 This package provides stylesheets for all components in the [Amsterdam Design System](https://designsystem.amsterdam) and some general utilities.
 Use it to apply the visual design of the City of Amsterdam to your HTML elements or non-React components.
@@ -34,7 +34,7 @@ An `.ams-component` root selector applies the essential styles of the component 
 The classes employ the [naming convention of NL Design System](https://nldesignsystem.nl/handboek/developer/architectuur#bem-class-names-voor-css).
 Other communities only need to overwrite design tokens to use our components with their branding.
 
-### In JavaScript
+### In JSX
 
 Import the main stylesheet and use the class names in your markup.
 
@@ -91,7 +91,7 @@ If you haven’t removed the margin on the `<body>` element that browsers set by
 #### Use extra bold text
 
 We only use the regular and extra bold weights of our font, Amsterdam Sans.
-Apply `font-weight: var(--ams-text-font-weight-bold)` to elements that display bold text like `b`, `strong`, and `dt`.
+Apply `font-weight: var(--ams-typography-body-text-bold-font-weight)` to elements that display bold text like `b`, `strong`, and `dt`.
 
 ## Updating
 

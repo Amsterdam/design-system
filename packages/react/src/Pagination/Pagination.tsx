@@ -3,7 +3,7 @@
  * Copyright Gemeente Amsterdam
  */
 
-import { ChevronLeftIcon, ChevronRightIcon } from '@aram-limpens/design-system-react-icons'
+import { ChevronBackwardIcon, ChevronForwardIcon } from '@aram-limpens/design-system-react-icons'
 import clsx from 'clsx'
 import { forwardRef } from 'react'
 import type { AnchorHTMLAttributes, ComponentType, ForwardedRef, HTMLAttributes } from 'react'
@@ -13,48 +13,76 @@ import { getRange } from './getRange'
 import { Icon } from '../Icon/Icon'
 
 export type PaginationProps = {
+  /** The accessible name for the Pagination component. */
+  accessibleName?: string
+  /**
+   * Connects the component with an internal element that defines its accessible name.
+   * Note: must be unique for the page.
+   */
+  accessibleNameId?: string
   /** The React component to use for the links. */
   linkComponent?: ComponentType<AnchorHTMLAttributes<HTMLAnchorElement>>
   /** The template used to construct the link hrefs. */
   linkTemplate: (page: number) => string
   /** The maximum amount of pages shown. Minimum value: 5. */
   maxVisiblePages?: number
+  /** The accessible name for the link to the next page. */
+  nextAccessibleName?: string
   /** The visible label for the link to the next page. */
   nextLabel?: string
-  /** The accessible name for the link to the next page. */
+  /**
+   * @deprecated Use `nextAccessibleName` instead.
+   * The accessible name for the link to the next page.
+   */
   nextVisuallyHiddenLabel?: string
   /** The current page number. */
   page?: number
+  /** The accessible name for the link to the previous page. */
+  previousAccessibleName?: string
   /** The visible label for the link to the previous page. */
   previousLabel?: string
-  /** The accessible name for the link to the previous page. */
+  /**
+   * @deprecated Use `previousAccessibleName` instead.
+   * The accessible name for the link to the previous page.
+   */
   previousVisuallyHiddenLabel?: string
   /** The total amount of pages. */
   totalPages: number
-  /** The accessible name for the Pagination component. */
+  /**
+   * @deprecated Use `accessibleName` instead.
+   * The accessible name for the Pagination component.
+   */
   visuallyHiddenLabel?: string
   /**
+   * @deprecated Use `accessibleNameId` instead.
    * Connects the component with an internal element that defines its accessible name.
    * Note: must be unique for the page.
    */
   visuallyHiddenLabelId?: string
 } & HTMLAttributes<HTMLElement>
 
+/**
+ * @see {@link https://designsystem.amsterdam/?path=/docs/components-navigation-pagination--docs Pagination docs at Amsterdam Design System}
+ */
 export const Pagination = forwardRef(
   (
     {
+      accessibleName,
+      accessibleNameId,
       className,
       linkComponent = (props: AnchorHTMLAttributes<HTMLAnchorElement>) => <a {...props} />,
       linkTemplate,
       maxVisiblePages = 7,
+      nextAccessibleName,
       nextLabel = 'volgende',
-      nextVisuallyHiddenLabel = 'Volgende pagina',
+      nextVisuallyHiddenLabel,
       page = 1,
+      previousAccessibleName,
       previousLabel = 'vorige',
-      previousVisuallyHiddenLabel = 'Vorige pagina',
+      previousVisuallyHiddenLabel,
       totalPages,
-      visuallyHiddenLabel = 'Paginering',
-      visuallyHiddenLabelId = 'ams-pagination-a11y-label',
+      visuallyHiddenLabel,
+      visuallyHiddenLabelId,
       ...restProps
     }: PaginationProps,
     ref: ForwardedRef<HTMLElement>,
@@ -72,17 +100,22 @@ export const Pagination = forwardRef(
     return (
       <nav
         {...restProps}
-        aria-labelledby={visuallyHiddenLabelId}
+        aria-labelledby={accessibleNameId || visuallyHiddenLabelId || 'ams-pagination-a11y-label'}
         className={clsx('ams-pagination', className)}
         ref={ref}
       >
-        <span className="ams-visually-hidden" id={visuallyHiddenLabelId}>
-          {visuallyHiddenLabel}
+        <span
+          className="ams-visually-hidden"
+          id={accessibleNameId || visuallyHiddenLabelId || 'ams-pagination-a11y-label'}
+        >
+          {accessibleName || visuallyHiddenLabel || 'Paginering'}
         </span>
         {page !== 1 && (
           <Link className="ams-pagination__link" href={linkTemplate(page - 1)} rel="prev">
-            <Icon svg={ChevronLeftIcon} />
-            <span className="ams-visually-hidden">{previousVisuallyHiddenLabel}</span>
+            <Icon svg={ChevronBackwardIcon} />
+            <span className="ams-visually-hidden">
+              {previousAccessibleName || previousVisuallyHiddenLabel || 'Vorige pagina'}
+            </span>
             <span aria-hidden>{previousLabel}</span>
           </Link>
         )}
@@ -103,9 +136,11 @@ export const Pagination = forwardRef(
         </ol>
         {page !== totalPages && (
           <Link className="ams-pagination__link" href={linkTemplate(page + 1)} rel="next">
-            <span className="ams-visually-hidden">{nextVisuallyHiddenLabel}</span>
+            <span className="ams-visually-hidden">
+              {nextAccessibleName || nextVisuallyHiddenLabel || 'Volgende pagina'}
+            </span>
             <span aria-hidden>{nextLabel}</span>
-            <Icon svg={ChevronRightIcon} />
+            <Icon svg={ChevronForwardIcon} />
           </Link>
         )}
       </nav>

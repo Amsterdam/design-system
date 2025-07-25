@@ -4,7 +4,7 @@
  */
 
 import { Icon, Paragraph, Row } from '@aram-limpens/design-system-react/src'
-import { EmailIcon } from '@aram-limpens/design-system-react-icons'
+import { MailIcon } from '@aram-limpens/design-system-react-icons'
 import { Meta, StoryObj } from '@storybook/react'
 import { exampleParagraph } from '../shared/exampleContent'
 
@@ -68,7 +68,7 @@ export const WithIcon: Story = {
   },
   render: ({ children, ...args }) => (
     <Row gap="small">
-      <Icon color={args.color} size={args.size} svg={EmailIcon} />
+      <Icon color={args.color} size={args.size} svg={MailIcon} />
       <Paragraph {...args}>{children}</Paragraph>
     </Row>
   ),

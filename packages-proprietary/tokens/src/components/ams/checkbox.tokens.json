@@ -9,73 +9,81 @@
       "gap": { "value": "{ams.space.s}" },
       "line-height": { "value": "{ams.typography.body-text.line-height}" },
       "outline-offset": { "value": "{ams.focus.outline-offset}" },
-      "checkmark": {
-        "border-color": { "value": "{ams.color.interactive.default}" },
-        "border-width": { "value": "{ams.border.width.m}" },
-        "checked": {
-          "background-color": { "value": "{ams.color.interactive.default}" },
-          "background-image": {
-            "value": "url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32' fill='%23ffffff'%3E%3Cpath fill-rule='evenodd' d='M12.216 27.016 0 14.168l2.91-2.77 9.346 9.837L29.129 4 32 6.8z'/%3E%3C/svg%3E\")"
-          },
-          "hover": {
-            "background-color": { "value": "{ams.color.interactive.hover}" }
-          }
-        },
-        "disabled": {
-          "border-color": { "value": "{ams.color.interactive.disabled}" },
-          "border-width": { "value": "{ams.border.width.m}" },
-          "checked": {
-            "background-color": { "value": "{ams.color.interactive.disabled}" },
-            "hover": {
-              "background-color": { "value": "{ams.color.interactive.disabled}" }
-            }
-          },
-          "indeterminate": {
-            "background-color": { "value": "{ams.color.interactive.disabled}" },
-            "hover": {
-              "background-color": { "value": "{ams.color.interactive.disabled}" }
-            }
-          }
-        },
-        "hover": {
-          "border-color": { "value": "{ams.color.interactive.hover}" },
-          "border-width": { "value": "{ams.border.width.l}" }
-        },
-        "invalid": {
-          "border-color": { "value": "{ams.color.interactive.invalid.default}" },
-          "checked": {
-            "background-color": { "value": "{ams.color.interactive.invalid.default}" },
-            "hover": {
-              "background-color": { "value": "{ams.color.interactive.invalid.hover}" }
-            }
-          },
-          "hover": {
-            "border-color": { "value": "{ams.color.interactive.invalid.hover}" }
-          },
-          "indeterminate": {
-            "background-color": { "value": "{ams.color.interactive.invalid.default}" },
-            "hover": {
-              "background-color": { "value": "{ams.color.interactive.invalid.hover}" }
-            }
-          }
-        },
-        "indeterminate": {
-          "background-color": { "value": "{ams.color.interactive.default}" },
-          "background-image": {
-            "value": "url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32' fill='white'%3E%3Cpath fill-rule='evenodd' d='M0 13.714h32v4H0z'/%3E%3C/svg%3E\")"
-          },
-          "hover": {
-            "background-color": { "value": "{ams.color.interactive.hover}" }
-          }
-        }
-      },
+      "text-decoration-thickness": { "value": "{ams.links.text-decoration-thickness}" },
+      "text-underline-offset": { "value": "{ams.links.text-underline-offset}" },
       "disabled": {
         "cursor": { "value": "{ams.cursor.disabled}" },
         "color": { "value": "{ams.color.interactive.disabled}" }
       },
       "hover": {
         "color": { "value": "{ams.color.interactive.hover}" },
-        "text-decoration-thickness": { "value": "{ams.border.width.m}" }
+        "text-decoration-line": { "value": "{ams.links.subtle.hover.text-decoration-line}" }
+      },
+      "checked-indicator": {
+        "stroke": { "value": "{ams.color.interactive.inverse}" }
+      },
+      "hover-indicator": {
+        "hover": {
+          "stroke": { "value": "{ams.color.interactive.hover}" }
+        },
+        "invalid": {
+          "hover": {
+            "stroke": { "value": "{ams.color.interactive.invalid.hover}" }
+          }
+        }
+      },
+      "icon-container": {
+        "block-size": { "value": "calc({ams.checkbox.font-size} * {ams.checkbox.line-height})" },
+        "inline-size": { "value": "{ams.checkbox.font-size}" }
+      },
+      "indeterminate-indicator": {
+        "stroke": { "value": "{ams.color.interactive.inverse}" }
+      },
+      "rectangle": {
+        "fill": { "value": "{ams.color.background}" },
+        "stroke": { "value": "{ams.color.interactive.default}" },
+        "checked": {
+          "fill": { "value": "{ams.color.interactive.default}" },
+          "disabled": {
+            "fill": { "value": "{ams.color.interactive.disabled}" }
+          },
+          "hover": {
+            "fill": { "value": "{ams.color.interactive.hover}" }
+          },
+          "invalid": {
+            "fill": { "value": "{ams.color.interactive.invalid.default}" },
+            "hover": {
+              "fill": { "value": "{ams.color.interactive.invalid.hover}" }
+            }
+          }
+        },
+        "disabled": {
+          "stroke": { "value": "{ams.color.interactive.disabled}" }
+        },
+        "hover": {
+          "stroke": { "value": "{ams.color.interactive.hover}" }
+        },
+        "indeterminate": {
+          "fill": { "value": "{ams.color.interactive.default}" },
+          "disabled": {
+            "fill": { "value": "{ams.color.interactive.disabled}" }
+          },
+          "hover": {
+            "fill": { "value": "{ams.color.interactive.hover}" }
+          },
+          "invalid": {
+            "fill": { "value": "{ams.color.interactive.invalid.default}" },
+            "hover": {
+              "fill": { "value": "{ams.color.interactive.invalid.hover}" }
+            }
+          }
+        },
+        "invalid": {
+          "stroke": { "value": "{ams.color.interactive.invalid.default}" },
+          "hover": {
+            "stroke": { "value": "{ams.color.interactive.invalid.hover}" }
+          }
+        }
       }
     }
   }

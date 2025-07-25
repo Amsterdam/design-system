@@ -2,16 +2,19 @@
 
 # Button
 
-Allows the user to perform actions and operate the user interface.
+Allows the user to perform an action or operate the interface.
 
 ## Guidelines
 
-- Choose a short label that describes the function of the button.
-- Use the correct type of button for the corresponding application, e.g. `type="submit"` for the primary form button.
-- Make sure one can operate a button through a keyboard.
+- Do not use a Button to link to another page.
+  Use a [Standalone Link](https://designsystem.amsterdam/?path=/docs/components-navigation-standalone-link--docs)
+  or a [Call to Action Link](https://designsystem.amsterdam/?path=/docs/components-navigation-call-to-action-link--docs) instead,
+  or an inline [Link](https://designsystem.amsterdam/?path=/docs/components-navigation-link--docs) in the running text.
+- Describe the Button’s function through a short label.
+- Use the verb’s infinitive form, such as “Verwijderen” or “Opslaan”, not “Verwijder” or “Sla op”.
+- Use only 1 primary Button per screen.
 - Wrap 2 or more consecutive buttons and/or links in an [Action Group](https://designsystem.amsterdam/?path=/docs/components-layout-action-group--docs).
-- Primary, secondary and tertiary buttons can be used side by side.
-  Skipping levels is allowed.
+- Add `type="submit"` to make the Button submit a form.
 
 ## Relevant WCAG requirements
 

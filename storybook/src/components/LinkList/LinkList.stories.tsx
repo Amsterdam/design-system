@@ -27,8 +27,8 @@ type LinkStory = StoryObj<typeof linkMeta>
 
 const StoryTemplate: Story = {
   args: {
-    children: linkList.map((text, index) => (
-      <LinkList.Link href="#" key={index}>
+    children: linkList.map((text) => (
+      <LinkList.Link href="#" key={text}>
         {text}
       </LinkList.Link>
     )),
@@ -39,7 +39,7 @@ const LinkStoryTemplate: LinkStory = {
   args: {
     children: linkList[0],
     href: '#',
-    icon: Icons.ChevronRightIcon,
+    icon: Icons.ChevronForwardIcon,
   },
   argTypes: {
     color: {
@@ -83,10 +83,10 @@ export const CustomIcons: Story = {
   ...StoryTemplate,
   args: {
     children: [
-      <LinkList.Link href="#" icon={Icons.ChattingIcon} key="form">
+      <LinkList.Link href="#" icon={Icons.SpeechBalloonEllipsisIcon} key="form">
         Contactformulier
       </LinkList.Link>,
-      <LinkList.Link href="#" icon={Icons.HousingIcon} key="address">
+      <LinkList.Link href="#" icon={Icons.HouseIcon} key="address">
         Adressen en openingstijden
       </LinkList.Link>,
       <LinkList.Link href="#" icon={Icons.PhoneIcon} key="phone">

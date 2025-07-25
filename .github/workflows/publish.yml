@@ -23,20 +23,16 @@ jobs:
           token: ${{ secrets.GITHUB_TOKEN }}
           target-branch: main
 
-      # The logic below handles the npm publication:
+      # The logic below handles the Storybook deploy:
       - name: Check out branch
         uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
         with:
           # This is necessary because on.workflow_run always runs on the
           # default branch, which is 'develop' in our case
           ref: "main"
-        # these if statements ensure that a publication only occurs when
-        # a new release is created:
-        if: ${{ steps.release.outputs.releases_created == 'true' }}
 
       - name: Install pnpm
         uses: pnpm/action-setup@a7487c7e89a18df4991f7f222e4898a00d66ddda # v4.1.0
-        if: ${{ steps.release.outputs.releases_created == 'true' }}
 
       - name: Set up Node.js version
         uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4.4.0
@@ -44,22 +40,12 @@ jobs:
           cache: pnpm
           node-version-file: .nvmrc
           registry-url: "https://registry.npmjs.org"
-        if: ${{ steps.release.outputs.releases_created == 'true' }}
 
       - name: Install dependencies
         run: pnpm install --frozen-lockfile
-        if: ${{ steps.release.outputs.releases_created == 'true' }}
 
-      # - name: Publish
-      #   run: pnpm -r publish
-      #   env:
-      #     NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN}}
-      #   if: ${{ steps.release.outputs.releases_created == 'true' }}
-
-      # The logic below handles the Storybook deploy:
       - name: Build Storybook
         run: pnpm --filter=storybook build
-        if: ${{ steps.release.outputs.releases_created == 'true' }}
 
       - name: Deploy to GitHub Pages
         uses: JamesIves/github-pages-deploy-action@6c2d9db40f9296374acc17b90404b6e8864128c8 # v4.7.3
@@ -69,4 +55,12 @@ jobs:
           # feature branch directories are prefixed with demo-*
           # these are excluded from this action's default clean
           clean-exclude: demo-*
+
+      # The logic below handles the npm publication:
+      - name: Publish
+        run: pnpm -r publish
+        env:
+          NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN}}
+        # this if statement ensures that a publication only occurs when
+        # a new release is created:
         if: ${{ steps.release.outputs.releases_created == 'true' }}

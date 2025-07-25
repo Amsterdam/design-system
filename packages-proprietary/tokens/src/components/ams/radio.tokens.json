@@ -33,7 +33,6 @@
         }
       },
       "hover-indicator": {
-        "stroke-width": { "value": "3px" },
         "hover": {
           "stroke": { "value": "{ams.color.interactive.hover}" }
         },
@@ -46,7 +45,6 @@
       "circle": {
         "fill": { "value": "{ams.color.background}" },
         "stroke": { "value": "{ams.color.interactive.default}" },
-        "stroke-width": { "value": "2px" },
         "disabled": {
           "stroke": { "value": "{ams.color.interactive.disabled}" }
         },
@@ -76,7 +74,7 @@
       },
       "icon-container": {
         "block-size": { "value": "calc({ams.radio.font-size} * {ams.radio.line-height})" },
-        "inline-size": { "value": "1.5rem" }
+        "inline-size": { "value": "{ams.radio.font-size}" }
       }
     }
   }

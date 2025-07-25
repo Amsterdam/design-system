@@ -5,19 +5,20 @@
 
 @mixin reset-select {
   appearance: none; // Reset native appearance to hide default chevron
-  border: none;
   border-radius: 0; // Reset rounded borders for Safari on MacOS
 }
 
 .ams-select {
   background-color: var(--ams-select-background-color);
-  box-shadow: var(--ams-select-box-shadow);
+  border-color: var(--ams-select-border-color);
+  border-style: var(--ams-select-border-style);
+  border-width: var(--ams-select-border-width);
   color: var(--ams-select-color);
   font-family: var(--ams-select-font-family);
   font-size: var(--ams-select-font-size);
   font-weight: var(--ams-select-font-weight);
-  inline-size: 100%;
   line-height: var(--ams-select-line-height);
+  max-inline-size: 100%;
   outline-offset: var(--ams-select-outline-offset);
   padding-block: var(--ams-select-padding-block);
   padding-inline: var(--ams-select-padding-inline);
@@ -31,30 +32,35 @@
     background-repeat: no-repeat;
     background-size: 1em 1em;
   }
-
-  &:hover {
-    box-shadow: var(--ams-select-hover-box-shadow);
-  }
 }
 
 .ams-select:invalid,
 .ams-select[aria-invalid="true"] {
-  box-shadow: var(--ams-select-invalid-box-shadow);
+  border-color: var(--ams-select-invalid-border-color);
 }
 
 .ams-select:disabled {
-  box-shadow: var(--ams-select-disabled-box-shadow);
   color: var(--ams-select-disabled-color);
   cursor: var(--ams-select-disabled-cursor);
 
   &:not([multiple]) {
     background-image: var(--ams-select-disabled-background-image);
+
+    /* stylelint-disable no-descending-specificity */
+    &:hover {
+      background-image: var(--ams-select-hover-background-image);
+    }
   }
 }
 
 .ams-select:invalid:hover,
 .ams-select[aria-invalid="true"]:hover {
+  border-color: var(--ams-select-invalid-hover-border-color);
   box-shadow: var(--ams-select-invalid-hover-box-shadow);
+}
+
+.ams-select:not(:disabled):hover {
+  box-shadow: var(--ams-select-hover-box-shadow);
 }
 
 .ams-select__option:disabled {

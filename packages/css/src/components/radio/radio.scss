@@ -41,13 +41,10 @@
 .ams-radio__circle {
   fill: var(--ams-radio-circle-fill);
   stroke: var(--ams-radio-circle-stroke);
-  stroke-width: var(--ams-radio-circle-stroke-width);
 }
 
 .ams-radio__hover-indicator {
-  fill: none;
-  stroke: transparent;
-  stroke-width: var(--ams-radio-hover-indicator-stroke-width);
+  stroke: none;
 }
 
 .ams-radio__checked-indicator {
@@ -169,7 +166,12 @@
   .ams-radio__input[aria-invalid="true"] + .ams-radio__label,
   .ams-radio__input[aria-invalid="true"] + .ams-radio__label:hover {
     .ams-radio__circle {
+      fill: Canvas;
       stroke: FieldText;
+    }
+
+    .ams-radio__hover-indicator {
+      stroke: none;
     }
 
     .ams-radio__checked-indicator {

@@ -3,6 +3,7 @@
  * Copyright Gemeente Amsterdam
  */
 
+import { ChevronForwardIcon } from '@aram-limpens/design-system-react-icons'
 import clsx from 'clsx'
 import { forwardRef } from 'react'
 import type { AnchorHTMLAttributes, ForwardedRef } from 'react'
@@ -11,23 +12,33 @@ import { Icon } from '../Icon'
 export type StandaloneLinkProps = {
   /** Changes the text colour for readability on a light or dark background. */
   color?: 'contrast' | 'inverse'
-  /** Adds an icon to the link, showing it before the link text. */
+  /**
+   * The icon to show before the link text.
+   * @default ChevronForwardIcon
+   */
   icon?: Function
 } & Omit<AnchorHTMLAttributes<HTMLAnchorElement>, 'placeholder'>
 
+// The `ams-standalone-link--with-icon` class is @deprecated and will be removed in a future release.
+
+/**
+ * @see {@link https://designsystem.amsterdam/?path=/docs/components-navigation-standalone-link--docs Standalone Link docs at Amsterdam Design System}
+ */
 export const StandaloneLink = forwardRef(
-  ({ children, className, color, icon, ...restProps }: StandaloneLinkProps, ref: ForwardedRef<HTMLAnchorElement>) => (
+  (
+    { children, className, color, icon = ChevronForwardIcon, ...restProps }: StandaloneLinkProps,
+    ref: ForwardedRef<HTMLAnchorElement>,
+  ) => (
     <a
       {...restProps}
       className={clsx(
-        'ams-standalone-link',
+        'ams-standalone-link ams-standalone-link--with-icon',
         color && `ams-standalone-link--${color}`,
-        icon && 'ams-standalone-link--with-icon',
         className,
       )}
       ref={ref}
     >
-      {icon && <Icon svg={icon} />}
+      <Icon svg={icon} />
       {children}
     </a>
   ),

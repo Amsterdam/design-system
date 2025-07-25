@@ -2,17 +2,16 @@
   "ams": {
     "file-input": {
       "background-color": { "value": "{ams.color.background}" },
-      "border": { "value": "{ams.border.width.s} dashed {ams.color.interactive.secondary}" },
+      "border-color": { "value": "currentColor" },
+      "border-style": { "value": "dashed" },
+      "border-width": { "value": "{ams.border.width.m}" },
       "color": { "value": "{ams.color.text.default}" },
       "cursor": { "value": "{ams.cursor.interactive}" },
       "font-family": { "value": "{ams.typography.font-family}" },
       "font-size": { "value": "{ams.typography.body-text.font-size}" },
       "font-weight": { "value": "{ams.typography.body-text.font-weight}" },
       "line-height": { "value": "{ams.typography.body-text.line-height}" },
-      "outline-offset": {
-        "comment": "Compensate for the dashed border",
-        "value": "calc({ams.focus.outline-offset} * 2)"
-      },
+      "outline-offset": { "value": "{ams.focus.outline-offset}" },
       "padding-block": { "value": "{ams.space.m}" },
       "padding-inline": { "value": "{ams.space.m}" },
       "disabled": {
@@ -21,23 +20,21 @@
       },
       "file-selector-button": {
         "background-color": { "value": "{ams.color.background}" },
-        "box-shadow": { "value": "inset 0 0 0 {ams.border.width.m} {ams.color.interactive.default}" },
+        "border-color": { "value": "currentColor" },
+        "border-style": { "value": "solid" },
+        "border-width": { "value": "{ams.border.width.m}" },
         "color": { "value": "{ams.color.interactive.default}" },
         "cursor": { "value": "{ams.cursor.interactive}" },
         "margin-inline-end": { "value": "{ams.space.m}" },
         "padding-block": { "value": "{ams.space.s}" },
         "padding-inline": { "value": "{ams.space.m}" },
         "hover": {
-          "box-shadow": { "value": "inset 0 0 0 {ams.border.width.l} {ams.color.interactive.hover}" },
+          "box-shadow": { "value": "inset 0 0 0 {ams.border.width.s}" },
           "color": { "value": "{ams.color.interactive.hover}" }
         },
         "disabled": {
-          "box-shadow": { "value": "inset 0 0 0 {ams.border.width.m} {ams.color.interactive.disabled}" },
           "color": { "value": "{ams.color.interactive.disabled}" },
           "cursor": { "value": "{ams.cursor.disabled}" }
-        },
-        "forced-color-mode": {
-          "border": { "value": "{ams.border.width.m} solid" }
         }
       }
     }

@@ -1,5 +1,5 @@
 {
-  "version": "0.3.0",
+  "version": "1.0.0",
   "author": "Design System Team, City of Amsterdam <designsystem@aram-limpens.nl>",
   "description": "All assets from the Amsterdam Design System. Use it to include the correct fonts, icons or logos in your website or application.",
   "homepage": "https://designsystem.amsterdam",
@@ -25,6 +25,6 @@
     "optimize-icons": "svgo -f icons"
   },
   "devDependencies": {
-    "svgo": "3.3.2"
+    "svgo": "4.0.0"
   }
 }

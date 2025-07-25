@@ -16,16 +16,16 @@ import {
 } from '@aram-limpens/design-system-react'
 import {
   CameraIcon,
-  ChatBubbleIcon,
   FacebookIcon,
   LinkedinIcon,
-  TwitterIcon,
+  SpeechBalloonEllipsisIcon,
+  XIcon,
 } from '@aram-limpens/design-system-react-icons'
 import { Meta, StoryObj } from '@storybook/react'
 import { LinkGroupGridCells } from './LinkGroupGridCells'
 import { NavigationPage } from './NavigationPage'
 import { burgerzakenLinks, parkerenLinks } from './links'
-import { exampleHeading, exampleParagraph, exampleStandaloneLine } from '../../../components/shared/exampleContent'
+import { exampleHeading, exampleParagraph, exampleStandaloneLink } from '../../../components/shared/exampleContent'
 import { commonMeta } from '../common/config'
 
 const meta = {
@@ -88,7 +88,7 @@ export const WithInteractiveElement: StoryObj = {
             </Grid.Cell>
           </Grid>
         </Spotlight>
-        <Image alt="" aspectRatio="16:9" className="ams-mb-2xl" src="https://picsum.photos/id/133/1600/900" />
+        <Image alt="" aspectRatio="16:9" className="ams-mb-2xl" src="https://picsum.photos/id/133/1440/810" />
       </main>
     ),
   },
@@ -107,7 +107,7 @@ export const SubnavigationPage: StoryObj = {
             </Paragraph>
           </Grid.Cell>
         </Grid>
-        <Image alt="" aspectRatio="16:5" src="https://picsum.photos/1600/500" />
+        <Image alt="" aspectRatio="16:5" src="https://picsum.photos/1440/450" />
         <Grid paddingVertical="large">
           <Grid.Cell span={{ narrow: 4, medium: 6, wide: 7 }} start={{ narrow: 1, medium: 1, wide: 2 }}>
             <Heading className="ams-mb-s" level={2}>
@@ -117,32 +117,32 @@ export const SubnavigationPage: StoryObj = {
           </Grid.Cell>
           <LinkGroupGridCells linkGroups={burgerzakenLinks.slice(0, 6)} />
           <Grid.Cell span={{ narrow: 4, medium: 4, wide: 5 }} start={{ narrow: 1, medium: 1, wide: 2 }}>
-            <Heading className="ams-mb-s" level={2} size="level-4">
+            <Heading className="ams-mb-xs" level={2} size="level-4">
               {exampleHeading()}
             </Heading>
-            <Paragraph className="ams-mb-s">{exampleParagraph()}</Paragraph>
-            <StandaloneLink href="#">{exampleStandaloneLine()}</StandaloneLink>
+            <Paragraph className="ams-mb-m">{exampleParagraph()}</Paragraph>
+            <StandaloneLink href="#">{exampleStandaloneLink()}</StandaloneLink>
           </Grid.Cell>
           <Grid.Cell span={{ narrow: 4, medium: 4, wide: 5 }}>
-            <Heading className="ams-mb-s" level={2} size="level-4">
+            <Heading className="ams-mb-xs" level={2} size="level-4">
               {exampleHeading()}
             </Heading>
-            <Paragraph className="ams-mb-s">{exampleParagraph()}</Paragraph>
-            <StandaloneLink href="#">{exampleStandaloneLine()}</StandaloneLink>
+            <Paragraph className="ams-mb-m">{exampleParagraph()}</Paragraph>
+            <StandaloneLink href="#">{exampleStandaloneLink()}</StandaloneLink>
           </Grid.Cell>
           <Grid.Cell span={{ narrow: 4, medium: 4, wide: 5 }} start={{ narrow: 1, medium: 1, wide: 2 }}>
-            <Heading className="ams-mb-s" level={2} size="level-4">
+            <Heading className="ams-mb-xs" level={2} size="level-4">
               {exampleHeading()}
             </Heading>
-            <Paragraph className="ams-mb-s">{exampleParagraph()}</Paragraph>
-            <StandaloneLink href="#">{exampleStandaloneLine()}</StandaloneLink>
+            <Paragraph className="ams-mb-m">{exampleParagraph()}</Paragraph>
+            <StandaloneLink href="#">{exampleStandaloneLink()}</StandaloneLink>
           </Grid.Cell>
           <Grid.Cell span={{ narrow: 4, medium: 4, wide: 5 }}>
-            <Heading className="ams-mb-s" level={2} size="level-4">
+            <Heading className="ams-mb-xs" level={2} size="level-4">
               {exampleHeading()}
             </Heading>
-            <Paragraph className="ams-mb-s">{exampleParagraph()}</Paragraph>
-            <StandaloneLink href="#">{exampleStandaloneLine()}</StandaloneLink>
+            <Paragraph className="ams-mb-m">{exampleParagraph()}</Paragraph>
+            <StandaloneLink href="#">{exampleStandaloneLink()}</StandaloneLink>
           </Grid.Cell>
         </Grid>
         <Spotlight color="magenta">
@@ -153,13 +153,13 @@ export const SubnavigationPage: StoryObj = {
               </Heading>
             </Grid.Cell>
             <Grid.Cell span={{ narrow: 4, medium: 4, wide: 5 }} start={{ narrow: 1, medium: 1, wide: 2 }}>
-              <Heading className="ams-mb-s" color="inverse" level={4}>
+              <Heading className="ams-mb-xs" color="inverse" level={4}>
                 {exampleHeading()}
               </Heading>
               <Paragraph color="inverse">{exampleParagraph()}</Paragraph>
             </Grid.Cell>
             <Grid.Cell span={{ narrow: 4, medium: 4, wide: 5 }}>
-              <Heading className="ams-mb-s" color="inverse" level={4}>
+              <Heading className="ams-mb-xs" color="inverse" level={4}>
                 {exampleHeading()}
               </Heading>
               <Paragraph color="inverse">{exampleParagraph()}</Paragraph>
@@ -203,10 +203,10 @@ export const SubnavigationPage: StoryObj = {
                 <LinkList.Link color="inverse" href="#" icon={LinkedinIcon}>
                   LinkedIn
                 </LinkList.Link>
-                <LinkList.Link color="inverse" href="#" icon={ChatBubbleIcon}>
+                <LinkList.Link color="inverse" href="#" icon={SpeechBalloonEllipsisIcon}>
                   Whatsapp
                 </LinkList.Link>
-                <LinkList.Link color="inverse" href="#" icon={TwitterIcon}>
+                <LinkList.Link color="inverse" href="#" icon={XIcon}>
                   X (Twitter)
                 </LinkList.Link>
               </LinkList>
