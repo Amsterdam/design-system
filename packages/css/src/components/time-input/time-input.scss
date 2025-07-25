@@ -11,6 +11,16 @@
   border-radius: 0; // Reset rounded borders on iOS devices
   inline-size: auto; // Reset inline size of 10em set by Android devices
   margin-block: 0;
+
+  &::-webkit-datetime-edit,
+  &::-webkit-datetime-edit-ampm-field,
+  &::-webkit-datetime-edit-fields-wrapper,
+  &::-webkit-datetime-edit-hour-field,
+  &::-webkit-datetime-edit-millisecond-field,
+  &::-webkit-datetime-edit-minute-field,
+  &::-webkit-datetime-edit-second-field {
+    padding-block: 0; // Override value of 1px in UA stylesheet
+  }
 }
 
 .ams-time-input {

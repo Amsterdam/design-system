@@ -16,6 +16,7 @@ It is the lightweight variant for navigation.
   Use a button instead of a link when an action is desired.
 - An icon can be added to links, positioned after the link.
 - Too many links on the same page may confuse the user.
+- For a link on its own line of text, use the [Standalone Link](/docs/components-navigation-standalone-link--docs).
 
 ### External links
 

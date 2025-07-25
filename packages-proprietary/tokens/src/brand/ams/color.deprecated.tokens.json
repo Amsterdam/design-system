@@ -1,0 +1,12 @@
+{
+  "ams": {
+    "color": {
+      "interactive": {
+        "secondary": {
+          "comment": "Use `currentColor` instead",
+          "value": "#181818"
+        }
+      }
+    }
+  }
+}
