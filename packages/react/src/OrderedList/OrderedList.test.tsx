@@ -54,8 +54,8 @@ describe('Ordered list', () => {
 
     const { container } = render(
       <OrderedList>
-        {listItems.map((item, index) => (
-          <OrderedList.Item key={index}>{item}</OrderedList.Item>
+        {listItems.map((item) => (
+          <OrderedList.Item key={item}>{item}</OrderedList.Item>
         ))}
       </OrderedList>,
     )
