@@ -3,6 +3,13 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.0](https://github.com/alimpens/design-system/compare/design-system-react-icons-v1.0.0...design-system-react-icons-v1.0.0) (2025-07-25)
+
+
+### Miscellaneous Chores
+
+* Release 1.0.0 ([247375d](https://github.com/alimpens/design-system/commit/247375df3a0dfd5109726aaf2bb71b56ef62fdd1))
+
 ## [1.0.0](https://github.com/Amsterdam/design-system/compare/design-system-react-icons-v0.1.14...design-system-react-icons-v1.0.0) (2025-05-28)
 
 

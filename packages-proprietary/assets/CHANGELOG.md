@@ -3,6 +3,23 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.0](https://github.com/alimpens/design-system/compare/design-system-assets-v1.0.0...design-system-assets-v1.0.0) (2025-07-25)
+
+
+### Features
+
+* **Icon:** Update icon library with many redesigned and new icons ([#1809](https://github.com/alimpens/design-system/issues/1809)) ([40cc19b](https://github.com/alimpens/design-system/commit/40cc19b41021e257c0fe1d4aa741480b2484156d))
+
+
+### Bug Fixes
+
+* **Icon:** Unswap icons for logging in and out ([#2115](https://github.com/alimpens/design-system/issues/2115)) ([9d5ae8a](https://github.com/alimpens/design-system/commit/9d5ae8a8e6a33d13ecfbaf91037c932bf6c37ec4))
+
+
+### Miscellaneous Chores
+
+* Release 1.0.0 ([247375d](https://github.com/alimpens/design-system/commit/247375df3a0dfd5109726aaf2bb71b56ef62fdd1))
+
 ## [1.0.0](https://github.com/Amsterdam/design-system/compare/design-system-assets-v0.3.0...design-system-assets-v1.0.0) (2025-05-28)
 
 
