@@ -68,10 +68,10 @@ describe('Menu link', () => {
   })
 
   it('shows a custom icon', () => {
-    render(<Menu.Link href="#" icon={<StarIcon className="ams-menu__icon" />} />)
+    render(<Menu.Link href="#" icon={<StarIcon className="test-class" />} />)
 
     const component = screen.getByRole('link')
-    const icon = component.querySelector('.ams-menu__icon')
+    const icon = component.querySelector('.test-class')
 
     expect(icon).toBeInTheDocument()
   })
