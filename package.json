@@ -17,11 +17,11 @@
   ],
   "private": true,
   "engines": {
-    "node": "^20",
+    "node": "^22",
     "npm": "^10",
     "pnpm": "^10"
   },
-  "packageManager": "pnpm@10.4.1+sha512.c753b6c3ad7afa13af388fa6d808035a008e30ea9993f58c6663e2bc5ff21679aa834db094987129aa4d488b86df57f7b634981b2f827cdcacc698cc0cfb88af",
+  "packageManager": "pnpm@10.13.1+sha512.37ebf1a5c7a30d5fabe0c5df44ee8da4c965ca0c5af3dbab28c3a1681b70a256218d05c81c9c0dcf767ef6b8551eb5b960042b9ed4300c59242336377e01cfad",
   "workspaces": [
     "./packages/*",
     "./packages-proprietary/*",

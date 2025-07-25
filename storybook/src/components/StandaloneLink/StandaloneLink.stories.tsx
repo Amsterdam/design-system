@@ -5,7 +5,7 @@
 
 import { Heading, Paragraph } from '@amsterdam/design-system-react'
 import { StandaloneLink } from '@amsterdam/design-system-react/src'
-import { ChevronForwardIcon } from '@amsterdam/design-system-react-icons'
+import { ChevronForwardIcon, DownloadIcon } from '@amsterdam/design-system-react-icons'
 import * as Icons from '@amsterdam/design-system-react-icons'
 import { Meta, StoryObj } from '@storybook/react'
 
@@ -13,7 +13,7 @@ const meta = {
   title: 'Components/Navigation/Standalone Link',
   component: StandaloneLink,
   args: {
-    children: 'Link label',
+    children: 'Bekijk alle onderwerpen',
     href: '#',
   },
   argTypes: {
@@ -40,6 +40,11 @@ const meta = {
       },
       mapping: Icons,
       options: [undefined, ...Object.keys(Icons)],
+      table: {
+        defaultValue: {
+          summary: 'ChevronForwardIcon',
+        },
+      },
     },
   },
 } satisfies Meta<typeof StandaloneLink>
@@ -62,7 +67,7 @@ export const InverseColour: Story = {
   },
 }
 
-export const WithChevronIcon: Story = {
+export const WithHeadingAndParagraph: Story = {
   args: {
     children: 'Bekijk alle werkzaamheden',
     icon: ChevronForwardIcon,
@@ -81,4 +86,11 @@ export const WithChevronIcon: Story = {
       </article>
     ),
   ],
+}
+
+export const WithCustomIcon: Story = {
+  args: {
+    children: 'Downloaden',
+    icon: DownloadIcon,
+  },
 }
