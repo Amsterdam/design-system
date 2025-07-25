@@ -5,8 +5,11 @@
 
 import { render, screen } from '@testing-library/react'
 import { createRef } from 'react'
+import type { SVGProps } from 'react'
 import { StandaloneLink } from './StandaloneLink'
 import '@testing-library/jest-dom'
+
+const TestIcon = (props: SVGProps<SVGSVGElement>) => <svg {...props} className="test-class" />
 
 describe('Standalone Link', () => {
   it('renders with href attribute', () => {
@@ -33,6 +36,14 @@ describe('Standalone Link', () => {
     const component = screen.getByRole('link')
 
     expect(component).toHaveClass('ams-standalone-link extra')
+  })
+
+  it('renders a custom icon', () => {
+    const { container } = render(<StandaloneLink icon={TestIcon} />)
+
+    const icon = container.querySelector('svg')
+
+    expect(icon).toHaveClass('test-class')
   })
 
   it('renders the class name for contrast color', () => {
