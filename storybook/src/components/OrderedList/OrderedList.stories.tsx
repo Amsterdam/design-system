@@ -3,8 +3,8 @@
  * Copyright Gemeente Amsterdam
  */
 
-import { Heading, Paragraph } from '@amsterdam/design-system-react'
-import { OrderedList } from '@amsterdam/design-system-react/src'
+import { Heading, Paragraph } from '@aram-limpens/design-system-react'
+import { OrderedList } from '@aram-limpens/design-system-react/src'
 import type { Meta, StoryObj } from '@storybook/react'
 import { exampleOrderedList } from '../shared/exampleContent'
 

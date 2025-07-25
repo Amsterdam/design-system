@@ -172,10 +172,10 @@ importers:
 
   packages/css:
     dependencies:
-      '@amsterdam/design-system-assets':
+      '@aram-limpens/design-system-assets':
         specifier: workspace:*
         version: link:../../packages-proprietary/assets
-      '@amsterdam/design-system-tokens':
+      '@aram-limpens/design-system-tokens':
         specifier: workspace:*
         version: link:../../packages-proprietary/tokens
     devDependencies:
@@ -185,10 +185,10 @@ importers:
 
   packages/react:
     dependencies:
-      '@amsterdam/design-system-css':
+      '@aram-limpens/design-system-css':
         specifier: workspace:*
         version: link:../css
-      '@amsterdam/design-system-react-icons':
+      '@aram-limpens/design-system-react-icons':
         specifier: workspace:*
         version: link:../../packages-proprietary/react-icons
       '@babel/runtime':
@@ -298,19 +298,19 @@ importers:
         specifier: 2.1.1
         version: 2.1.1
     devDependencies:
-      '@amsterdam/design-system-assets':
+      '@aram-limpens/design-system-assets':
         specifier: workspace:*
         version: link:../packages-proprietary/assets
-      '@amsterdam/design-system-css':
+      '@aram-limpens/design-system-css':
         specifier: workspace:*
         version: link:../packages/css
-      '@amsterdam/design-system-react':
+      '@aram-limpens/design-system-react':
         specifier: workspace:*
         version: link:../packages/react
-      '@amsterdam/design-system-react-icons':
+      '@aram-limpens/design-system-react-icons':
         specifier: workspace:*
         version: link:../packages-proprietary/react-icons
-      '@amsterdam/design-system-tokens':
+      '@aram-limpens/design-system-tokens':
         specifier: workspace:*
         version: link:../packages-proprietary/tokens
       '@babel/core':

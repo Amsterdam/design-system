@@ -12,8 +12,8 @@ import {
   Paragraph,
   Radio,
   TextInput,
-} from '@amsterdam/design-system-react'
-import { FieldSet } from '@amsterdam/design-system-react/src'
+} from '@aram-limpens/design-system-react'
+import { FieldSet } from '@aram-limpens/design-system-react/src'
 import { Meta, StoryObj } from '@storybook/react'
 
 const meta = {

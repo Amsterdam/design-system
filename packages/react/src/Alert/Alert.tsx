@@ -3,7 +3,7 @@
  * Copyright Gemeente Amsterdam
  */
 
-import { ErrorFillIcon, InfoFillIcon, SuccessFillIcon, WarningFillIcon } from '@amsterdam/design-system-react-icons'
+import { ErrorFillIcon, InfoFillIcon, SuccessFillIcon, WarningFillIcon } from '@aram-limpens/design-system-react-icons'
 import clsx from 'clsx'
 import { forwardRef } from 'react'
 import type { ForwardedRef, HTMLAttributes, PropsWithChildren } from 'react'

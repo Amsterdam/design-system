@@ -12,7 +12,7 @@ import {
   Paragraph,
   Spotlight,
   UnorderedList,
-} from '@amsterdam/design-system-react'
+} from '@aram-limpens/design-system-react'
 import type { ArticlePageProps } from './ArticlePage'
 
 type ArticleBodyProps = Pick<ArticlePageProps, 'lead' | 'paragraph1' | 'spotlightHeading' | 'spotlightLinkLabel'>

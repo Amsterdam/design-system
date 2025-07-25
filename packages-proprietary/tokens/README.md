@@ -21,11 +21,11 @@ All tokens together form a theme that encodes the entire branding of the City of
 
 Install this package by itself if you want or need to reference tokens directly in your stylesheets.
 
-Note that our [CSS components](https://www.npmjs.com/package/@amsterdam/design-system-css) and [React components](https://www.npmjs.com/package/@amsterdam/design-system-react) provide more functionality and apply the tokens automatically.
+Note that our [CSS components](https://www.npmjs.com/package/@aram-limpens/design-system-css) and [React components](https://www.npmjs.com/package/@aram-limpens/design-system-react) provide more functionality and apply the tokens automatically.
 You should use those packages if your application uses React or if it allows you to apply our HTML classes.
 
 ```sh
-npm install @amsterdam/design-system-tokens
+npm install @aram-limpens/design-system-tokens
 ```
 
 ## Usage in CSS
@@ -40,7 +40,7 @@ They are declared as global CSS variables through the `:root` selector.
 
 <!-- prettier-ignore -->
 ```ts
-import "@amsterdam/design-system-tokens/dist/index.css"
+import "@aram-limpens/design-system-tokens/dist/index.css"
 ```
 
 If that doesn’t work for your project, use `index.theme.css` instead, which uses an `.ams-theme` selector.
@@ -48,7 +48,7 @@ Add that class to a root element of your application.
 
 <!-- prettier-ignore -->
 ```ts
-import "@amsterdam/design-system-tokens/dist/index.theme.css"
+import "@aram-limpens/design-system-tokens/dist/index.theme.css"
 ```
 
 ```html
@@ -68,8 +68,8 @@ Import it after the main stylesheet for the correct result.
 
 <!-- prettier-ignore -->
 ```ts
-import "@amsterdam/design-system-tokens/dist/index.css"
-import "@amsterdam/design-system-tokens/dist/compact.css"
+import "@aram-limpens/design-system-tokens/dist/index.css"
+import "@aram-limpens/design-system-tokens/dist/compact.css"
 ```
 
 ### Three layers
@@ -167,7 +167,7 @@ The tokens can be imported as Sass variables as well.
 As they are already prefixed, the namespace that Sass would assign isn’t necessary.
 
 ```sass
-@use "@amsterdam/design-system-tokens/dist/index.scss" as *;
+@use "@aram-limpens/design-system-tokens/dist/index.scss" as *;
 ```
 
 Import the compact tokens if needed.
@@ -175,7 +175,7 @@ Note that Sass doesn't allow importing them alongside the default set due to nam
 Address these tokens through the `compact` namespace and do not use the spacious tokens they replace.
 
 ```sass
-@use "@amsterdam/design-system-tokens/dist/compact.scss";
+@use "@aram-limpens/design-system-tokens/dist/compact.scss";
 
 .class {
   padding-block: compact.$ams-space-m;
@@ -190,7 +190,7 @@ Use ‘dot notation’ or square brackets to access the tokens.
 
 <!-- prettier-ignore -->
 ```tsx
-import tokens from "@amsterdam/design-system-tokens/dist/index.json"
+import tokens from "@aram-limpens/design-system-tokens/dist/index.json"
 
 const buttonBackgroundColor = tokens.ams.color.interactive.default
 const rowGap = tokens.ams.space.m
@@ -201,8 +201,8 @@ Then you can use the tokens in scripting or css-in-js libraries.
 
 <!-- prettier-ignore -->
 ```tsx
-import compactTokens from "@amsterdam/design-system-tokens/dist/compact.json"
-import spaciousTokens from "@amsterdam/design-system-tokens/dist/index.json"
+import compactTokens from "@aram-limpens/design-system-tokens/dist/compact.json"
+import spaciousTokens from "@aram-limpens/design-system-tokens/dist/index.json"
 
 const tokens = { ...spaciousTokens, ...compactTokens }
 ```

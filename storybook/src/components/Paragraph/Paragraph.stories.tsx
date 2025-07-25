@@ -3,8 +3,8 @@
  * Copyright Gemeente Amsterdam
  */
 
-import { Icon, Paragraph, Row } from '@amsterdam/design-system-react/src'
-import { MailIcon } from '@amsterdam/design-system-react-icons'
+import { Icon, Paragraph, Row } from '@aram-limpens/design-system-react/src'
+import { MailIcon } from '@aram-limpens/design-system-react-icons'
 import { Meta, StoryObj } from '@storybook/react'
 import { exampleParagraph } from '../shared/exampleContent'
 

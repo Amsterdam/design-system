@@ -1,5 +1,5 @@
-import { Icon } from '@amsterdam/design-system-react'
-import * as Icons from '@amsterdam/design-system-react-icons/src'
+import { Icon } from '@aram-limpens/design-system-react'
+import * as Icons from '@aram-limpens/design-system-react-icons/src'
 
 import './icon-gallery.css'
 

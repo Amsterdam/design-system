@@ -1,10 +1,10 @@
 {
   "version": "1.1.0",
-  "author": "Design System Team, City of Amsterdam <designsystem@amsterdam.nl>",
+  "author": "Design System Team, City of Amsterdam <designsystem@aram-limpens.nl>",
   "description": "All React components from the Amsterdam Design System. Use it to compose pages in your website or application.",
   "homepage": "https://designsystem.amsterdam",
   "license": "EUPL-1.2",
-  "name": "@amsterdam/design-system-react",
+  "name": "@aram-limpens/design-system-react",
   "keywords": [
     "amsterdam",
     "amsterdam-design-system",
@@ -37,7 +37,7 @@
     "dist/"
   ],
   "dependencies": {
-    "@amsterdam/design-system-react-icons": "workspace:*",
+    "@aram-limpens/design-system-react-icons": "workspace:*",
     "@babel/runtime": "7.27.6",
     "clsx": "2.1.1"
   },
@@ -75,7 +75,7 @@
     "tslib": "2.8.1"
   },
   "peerDependencies": {
-    "@amsterdam/design-system-css": "workspace:*",
+    "@aram-limpens/design-system-css": "workspace:*",
     "react": "16 - 19",
     "react-dom": "16 - 19"
   }

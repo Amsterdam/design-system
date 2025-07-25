@@ -59,18 +59,18 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 * Logo Museum Weesp  ([#1088](https://github.com/Amsterdam/design-system/issues/1088)) ([da1b780](https://github.com/Amsterdam/design-system/commit/da1b7808b5bcf17acb93fe46531a9722814e9256))
 
-## [0.1.7](https://github.com/Amsterdam/design-system/compare/@amsterdam/design-system-assets@0.1.6...@amsterdam/design-system-assets@0.1.7) (2024-01-31)
+## [0.1.7](https://github.com/Amsterdam/design-system/compare/@aram-limpens/design-system-assets@0.1.6...@aram-limpens/design-system-assets@0.1.7) (2024-01-31)
 
-**Note:** Version bump only for package @amsterdam/design-system-assets
+**Note:** Version bump only for package @aram-limpens/design-system-assets
 
-## [0.1.6](https://github.com/Amsterdam/design-system/compare/@amsterdam/design-system-assets@0.1.5...@amsterdam/design-system-assets@0.1.6) (2023-12-22)
+## [0.1.6](https://github.com/Amsterdam/design-system/compare/@aram-limpens/design-system-assets@0.1.5...@aram-limpens/design-system-assets@0.1.6) (2023-12-22)
 
-**Note:** Version bump only for package @amsterdam/design-system-assets
+**Note:** Version bump only for package @aram-limpens/design-system-assets
 
-## [0.1.5](https://github.com/Amsterdam/design-system/compare/@amsterdam/design-system-assets@0.1.4...@amsterdam/design-system-assets@0.1.5) (2023-12-01)
+## [0.1.5](https://github.com/Amsterdam/design-system/compare/@aram-limpens/design-system-assets@0.1.4...@aram-limpens/design-system-assets@0.1.5) (2023-12-01)
 
-**Note:** Version bump only for package @amsterdam/design-system-assets
+**Note:** Version bump only for package @aram-limpens/design-system-assets
 
-## [0.1.4](https://github.com/Amsterdam/design-system/compare/@amsterdam/design-system-assets@0.1.3...@amsterdam/design-system-assets@0.1.4) (2023-11-27)
+## [0.1.4](https://github.com/Amsterdam/design-system/compare/@aram-limpens/design-system-assets@0.1.3...@aram-limpens/design-system-assets@0.1.4) (2023-11-27)
 
-**Note:** Version bump only for package @amsterdam/design-system-assets
+**Note:** Version bump only for package @aram-limpens/design-system-assets

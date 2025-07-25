@@ -3,7 +3,7 @@
  * Copyright Gemeente Amsterdam
  */
 
-import { FileInput, FileList } from '@amsterdam/design-system-react'
+import { FileInput, FileList } from '@aram-limpens/design-system-react'
 import { useRef, useState } from 'react'
 
 export const FileInputWithFileList = () => {

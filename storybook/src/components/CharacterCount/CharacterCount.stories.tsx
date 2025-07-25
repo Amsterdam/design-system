@@ -3,7 +3,7 @@
  * Copyright Gemeente Amsterdam
  */
 
-import { CharacterCount } from '@amsterdam/design-system-react/src'
+import { CharacterCount } from '@aram-limpens/design-system-react/src'
 import { Meta, StoryObj } from '@storybook/react'
 
 const meta = {

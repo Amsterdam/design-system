@@ -4,7 +4,7 @@
  */
 
 import './status-badge.css'
-import { Badge } from '@amsterdam/design-system-react/src'
+import { Badge } from '@aram-limpens/design-system-react/src'
 
 type StatusBadgeProps = {
   /* Describes the reason for the status or suggests an alternative for a deprecated component. */

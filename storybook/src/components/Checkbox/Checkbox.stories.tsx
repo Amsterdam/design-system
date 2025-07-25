@@ -3,8 +3,8 @@
  * Copyright Gemeente Amsterdam
  */
 
-import { Column, ErrorMessage, FieldSet, Paragraph } from '@amsterdam/design-system-react'
-import { Checkbox } from '@amsterdam/design-system-react/src'
+import { Column, ErrorMessage, FieldSet, Paragraph } from '@aram-limpens/design-system-react'
+import { Checkbox } from '@aram-limpens/design-system-react/src'
 import { useArgs } from '@storybook/preview-api'
 import { Meta, StoryObj } from '@storybook/react'
 import CustomIcon from './CustomIcon'

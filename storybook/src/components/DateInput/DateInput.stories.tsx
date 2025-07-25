@@ -3,8 +3,17 @@
  * Copyright Gemeente Amsterdam
  */
 
-import { Column, ErrorMessage, Field, FieldSet, Label, Paragraph, Row, TextInput } from '@amsterdam/design-system-react'
-import { DateInput } from '@amsterdam/design-system-react/src'
+import {
+  Column,
+  ErrorMessage,
+  Field,
+  FieldSet,
+  Label,
+  Paragraph,
+  Row,
+  TextInput,
+} from '@aram-limpens/design-system-react'
+import { DateInput } from '@aram-limpens/design-system-react/src'
 import { Meta, StoryObj } from '@storybook/react'
 
 const meta = {

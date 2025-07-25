@@ -3,7 +3,7 @@
  * Copyright Gemeente Amsterdam
  */
 
-import { WarningIcon } from '@amsterdam/design-system-react-icons'
+import { WarningIcon } from '@aram-limpens/design-system-react-icons'
 import clsx from 'clsx'
 import { forwardRef } from 'react'
 import type { ForwardedRef, HTMLAttributes, PropsWithChildren } from 'react'

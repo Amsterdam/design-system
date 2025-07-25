@@ -11,7 +11,7 @@ import {
   Link,
   Paragraph,
   UnorderedList,
-} from '@amsterdam/design-system-react'
+} from '@aram-limpens/design-system-react'
 
 export const ProductPage = () => (
   <Grid paddingBottom="x-large" paddingTop="large">

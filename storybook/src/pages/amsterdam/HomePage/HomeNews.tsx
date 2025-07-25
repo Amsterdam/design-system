@@ -3,7 +3,7 @@
  * Copyright Gemeente Amsterdam
  */
 
-import { Card, Grid, Heading } from '@amsterdam/design-system-react'
+import { Card, Grid, Heading } from '@aram-limpens/design-system-react'
 
 export const HomeNews = () => (
   <Grid paddingVertical="x-large">

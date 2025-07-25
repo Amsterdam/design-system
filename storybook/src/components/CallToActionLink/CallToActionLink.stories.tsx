@@ -3,7 +3,7 @@
  * Copyright Gemeente Amsterdam
  */
 
-import { CallToActionLink } from '@amsterdam/design-system-react/src'
+import { CallToActionLink } from '@aram-limpens/design-system-react/src'
 import { Meta, StoryObj } from '@storybook/react'
 
 const meta = {

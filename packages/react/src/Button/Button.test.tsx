@@ -3,7 +3,7 @@
  * Copyright Gemeente Amsterdam
  */
 
-import { CloseIcon } from '@amsterdam/design-system-react-icons'
+import { CloseIcon } from '@aram-limpens/design-system-react-icons'
 import { render, screen } from '@testing-library/react'
 import '@testing-library/jest-dom'
 import { createRef } from 'react'

@@ -3,9 +3,9 @@
  * Copyright Gemeente Amsterdam
  */
 
-import { Blockquote, Grid } from '@amsterdam/design-system-react'
-import { Spotlight } from '@amsterdam/design-system-react/src'
-import { spotlightColors } from '@amsterdam/design-system-react/src/Spotlight/Spotlight'
+import { Blockquote, Grid } from '@aram-limpens/design-system-react'
+import { Spotlight } from '@aram-limpens/design-system-react/src'
+import { spotlightColors } from '@aram-limpens/design-system-react/src/Spotlight/Spotlight'
 import { Meta, StoryObj } from '@storybook/react'
 import { exampleQuote } from '../shared/exampleContent'
 

@@ -3,8 +3,8 @@
  * Copyright Gemeente Amsterdam
  */
 
-import { ErrorMessage } from '@amsterdam/design-system-react/src'
-import { MegaphoneIcon } from '@amsterdam/design-system-react-icons'
+import { ErrorMessage } from '@aram-limpens/design-system-react/src'
+import { MegaphoneIcon } from '@aram-limpens/design-system-react-icons'
 import { Meta, StoryObj } from '@storybook/react'
 
 const meta = {

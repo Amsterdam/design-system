@@ -3,8 +3,8 @@
  * Copyright Gemeente Amsterdam
  */
 
-import { Grid, Heading, LinkList, Paragraph, StandaloneLink } from '@amsterdam/design-system-react'
-import { PageFooter } from '@amsterdam/design-system-react/src'
+import { Grid, Heading, LinkList, Paragraph, StandaloneLink } from '@aram-limpens/design-system-react'
+import { PageFooter } from '@aram-limpens/design-system-react/src'
 import {
   ClockIcon,
   FacebookIcon,
@@ -13,7 +13,7 @@ import {
   MailIcon,
   MastodonIcon,
   PhoneIcon,
-} from '@amsterdam/design-system-react-icons'
+} from '@aram-limpens/design-system-react-icons'
 import { Meta, StoryObj } from '@storybook/react'
 
 const meta = {
@@ -122,7 +122,7 @@ export const OnderzoekEnStatistiek: Story = {
               Heeft u een vraag en kunt u het antwoord niet vinden op deze site? Neem dan contact met ons op.
             </Paragraph>
             <LinkList>
-              <LinkList.Link color="inverse" href="mailto:redactie.os@amsterdam.nl" icon={MailIcon}>
+              <LinkList.Link color="inverse" href="mailto:redactie.os@aram-limpens.nl" icon={MailIcon}>
                 E-mail
               </LinkList.Link>
               <LinkList.Link color="inverse" href="tel:+31202510333" icon={PhoneIcon}>

@@ -3,7 +3,7 @@
  * Copyright Gemeente Amsterdam
  */
 
-import { Breadcrumb, Grid } from '@amsterdam/design-system-react'
+import { Breadcrumb, Grid } from '@aram-limpens/design-system-react'
 
 export const ArticleBreadcrumb = () => (
   <Grid paddingTop="large">

@@ -3,8 +3,8 @@
  * Copyright Gemeente Amsterdam
  */
 
-import { Button } from '@amsterdam/design-system-react/src'
-import * as Icons from '@amsterdam/design-system-react-icons'
+import { Button } from '@aram-limpens/design-system-react/src'
+import * as Icons from '@aram-limpens/design-system-react-icons'
 import { Meta, StoryObj } from '@storybook/react'
 
 const meta = {

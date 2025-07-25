@@ -3,7 +3,7 @@
  * Copyright Gemeente Amsterdam
  */
 
-import type { GridProps } from '@amsterdam/design-system-react'
+import type { GridProps } from '@aram-limpens/design-system-react'
 import type { ArgTypes } from '@storybook/react'
 
 export const gridGapAndPaddingArgTypes: ArgTypes<GridProps> = {

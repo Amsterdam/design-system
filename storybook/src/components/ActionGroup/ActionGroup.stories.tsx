@@ -3,9 +3,9 @@
  * Copyright Gemeente Amsterdam
  */
 
-import { Button, StandaloneLink } from '@amsterdam/design-system-react'
-import { ActionGroup } from '@amsterdam/design-system-react/src'
-import { DownloadIcon } from '@amsterdam/design-system-react-icons'
+import { Button, StandaloneLink } from '@aram-limpens/design-system-react'
+import { ActionGroup } from '@aram-limpens/design-system-react/src'
+import { DownloadIcon } from '@aram-limpens/design-system-react-icons'
 import { Meta, StoryObj } from '@storybook/react'
 
 const meta = {

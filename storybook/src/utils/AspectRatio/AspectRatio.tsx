@@ -3,7 +3,7 @@
  * Copyright Gemeente Amsterdam
  */
 
-import { AspectRatioProps } from '@amsterdam/design-system-react/src/common/types'
+import { AspectRatioProps } from '@aram-limpens/design-system-react/src/common/types'
 import { HTMLAttributes } from 'react'
 
 /** Mock component to render examples in Storybook. Not for reuse. */

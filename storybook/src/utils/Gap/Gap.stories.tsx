@@ -3,7 +3,7 @@
  * Copyright Gemeente Amsterdam
  */
 
-import { Paragraph } from '@amsterdam/design-system-react'
+import { Paragraph } from '@aram-limpens/design-system-react'
 import { Meta, StoryObj } from '@storybook/react'
 import { Gap } from './Gap'
 import type { GapProps } from './Gap'

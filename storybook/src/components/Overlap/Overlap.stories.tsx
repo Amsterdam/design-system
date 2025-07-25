@@ -3,8 +3,8 @@
  * Copyright Gemeente Amsterdam
  */
 
-import { Grid, Image, SearchField } from '@amsterdam/design-system-react'
-import { Overlap } from '@amsterdam/design-system-react/src'
+import { Grid, Image, SearchField } from '@aram-limpens/design-system-react'
+import { Overlap } from '@aram-limpens/design-system-react/src'
 import { Meta, StoryObj } from '@storybook/react'
 
 const meta = {

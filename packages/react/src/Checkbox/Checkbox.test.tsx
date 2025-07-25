@@ -3,7 +3,7 @@
  * Copyright Gemeente Amsterdam
  */
 
-import { StarIcon } from '@amsterdam/design-system-react-icons'
+import { StarIcon } from '@aram-limpens/design-system-react-icons'
 import { render, screen } from '@testing-library/react'
 import { createRef } from 'react'
 import { Checkbox } from './Checkbox'

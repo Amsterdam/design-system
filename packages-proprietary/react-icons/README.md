@@ -9,10 +9,10 @@ Use it to use the correct icons in your React project.
 
 Install this package by itself if you want or need to use icons directly in your React project.
 
-Note that our [React components](https://www.npmjs.com/package/@amsterdam/design-system-react) contain an [Icon component](https://designsystem.amsterdam/?path=/docs/components-media-icon--docs) that offers a convenient API for using the icons and streamlines alignment with text.
+Note that our [React components](https://www.npmjs.com/package/@aram-limpens/design-system-react) contain an [Icon component](https://designsystem.amsterdam/?path=/docs/components-media-icon--docs) that offers a convenient API for using the icons and streamlines alignment with text.
 
 ```sh
-npm install @amsterdam/design-system-react-icons
+npm install @aram-limpens/design-system-react-icons
 ```
 
 ## Usage
@@ -21,8 +21,8 @@ Import the component for the icon you need, as well as the generic Icon componen
 
 <!-- prettier-ignore -->
 ```tsx
-import { Icon } from "@amsterdam/design-system-react"
-import { SearchIcon } from "@amsterdam/design-system-react-icons"
+import { Icon } from "@aram-limpens/design-system-react"
+import { SearchIcon } from "@aram-limpens/design-system-react-icons"
 
 export const App = () => <Icon svg={SearchIcon} />
 ```

@@ -3,8 +3,8 @@
  * Copyright Gemeente Amsterdam
  */
 
-import { Image, Page, Paragraph, Spotlight } from '@amsterdam/design-system-react'
-import { Breakout } from '@amsterdam/design-system-react/src'
+import { Image, Page, Paragraph, Spotlight } from '@aram-limpens/design-system-react'
+import { Breakout } from '@aram-limpens/design-system-react/src'
 import { Meta, StoryObj } from '@storybook/react'
 import { gridGapAndPaddingArgTypes } from '../../common'
 

@@ -3,7 +3,7 @@
  * Copyright Gemeente Amsterdam
  */
 
-import { SearchIcon } from '@amsterdam/design-system-react-icons'
+import { SearchIcon } from '@aram-limpens/design-system-react-icons'
 import { forwardRef } from 'react'
 import type { ForwardedRef } from 'react'
 import { Button } from '../Button'

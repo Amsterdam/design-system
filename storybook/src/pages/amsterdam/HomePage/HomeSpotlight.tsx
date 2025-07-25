@@ -3,7 +3,7 @@
  * Copyright Gemeente Amsterdam
  */
 
-import { Grid, Heading, Paragraph, Spotlight, StandaloneLink } from '@amsterdam/design-system-react'
+import { Grid, Heading, Paragraph, Spotlight, StandaloneLink } from '@aram-limpens/design-system-react'
 
 export const HomeSpotlight = () => (
   <Spotlight>
