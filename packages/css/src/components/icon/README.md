@@ -6,6 +6,8 @@ Icons are visual symbols used to represent ideas, themes, or actions.
 They communicate the message at a glance and draw attention to important (interactive) information.
 Always use an `Icon` component to encapsulate an SVG icon for proper styling and sizing.
 
+Our icons can only be used on websites and applications where the City of Amsterdam is the main communicator.
+
 ## Interactive elements
 
 Use an icon to support textual interactive elements like buttons and links.
