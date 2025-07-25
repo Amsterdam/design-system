@@ -20,7 +20,7 @@ const config: StorybookConfig = {
         },
       },
     },
-    getAbsolutePath('@whitespace/storybook-addon-html'),
+    getAbsolutePath('@linus_janns/storybook-addon-html'),
   ],
 
   core: {
