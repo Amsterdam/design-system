@@ -1,6 +1,6 @@
 {/* @license CC0-1.0 */}
 
-import { Controls, Markdown, Meta, Primary } from "@storybook/blocks";
+import { Canvas, Controls, Markdown, Meta, Primary } from "@storybook/blocks";
 import * as MarkStories from "./Mark.stories.tsx";
 import README from "../../../../packages/css/src/components/mark/README.md?raw";
 
@@ -11,3 +11,12 @@ import README from "../../../../packages/css/src/components/mark/README.md?raw";
 <Primary />
 
 <Controls />
+
+## Examples
+
+### Search results
+
+For a basic search, mark all appearances of every keyword.
+Ignore capitalization and include partial matches.
+
+<Canvas of={MarkStories.SearchResults} />
