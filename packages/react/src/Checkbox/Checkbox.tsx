@@ -22,10 +22,10 @@ export type CheckboxProps = {
  */
 export const Checkbox = forwardRef(
   (
-    { children, className, icon, indeterminate, invalid, ...restProps }: CheckboxProps,
+    { children, className, icon, id, indeterminate, invalid, ...restProps }: CheckboxProps,
     ref: ForwardedRef<HTMLInputElement>,
   ) => {
-    const id = useId()
+    const inputId = id || useId()
     const innerRef = useRef<HTMLInputElement>(null)
 
     // use a passed ref if it's there, otherwise use innerRef
@@ -46,11 +46,11 @@ export const Checkbox = forwardRef(
           {...restProps}
           aria-invalid={invalid || undefined}
           className="ams-checkbox__input"
-          id={id}
+          id={inputId}
           ref={innerRef}
           type="checkbox"
         />
-        <label className="ams-checkbox__label" htmlFor={id}>
+        <label className="ams-checkbox__label" htmlFor={inputId}>
           <span className="ams-checkbox__icon-container">{icon ?? <CheckboxIcon />}</span>
           {children}
         </label>

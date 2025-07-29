@@ -160,6 +160,22 @@ describe('Radio', () => {
     expect(handleChange).toHaveBeenCalled()
   })
 
+  it('can use a custom id', () => {
+    const handleChange = jest.fn()
+
+    const { container } = render(<Radio id="test-id" onChange={handleChange} />)
+
+    const input = screen.getByRole('radio')
+
+    expect(input).toHaveAttribute('id', 'test-id')
+
+    const label = container.querySelector('label')
+
+    label?.click()
+
+    expect(handleChange).toHaveBeenCalled()
+  })
+
   it('shows a custom icon', () => {
     const { container } = render(<Radio icon={<StarIcon className="test-class" />} />)
 

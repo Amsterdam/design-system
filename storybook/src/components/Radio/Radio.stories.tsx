@@ -16,6 +16,7 @@ const meta = {
     checked: false,
     children: 'Radio label',
     disabled: false,
+    id: '',
     invalid: false,
   },
   argTypes: {
@@ -31,6 +32,9 @@ const meta = {
     },
     icon: {
       table: { disable: true },
+    },
+    id: {
+      description: 'The id of the input element. If not provided, a unique id will be generated.',
     },
     invalid: {
       description: 'Whether the value fails a validation rule.',
