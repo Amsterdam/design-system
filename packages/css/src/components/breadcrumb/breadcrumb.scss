@@ -44,7 +44,11 @@
 
 .ams-breadcrumb__link {
   color: var(--ams-breadcrumb-link-color);
+  margin-block: var(--ams-breadcrumb-link-margin-block);
+  margin-inline: var(--ams-breadcrumb-link-margin-inline);
   outline-offset: var(--ams-breadcrumb-link-outline-offset);
+  padding-block: var(--ams-breadcrumb-link-padding-block);
+  padding-inline: var(--ams-breadcrumb-link-padding-inline);
   text-decoration-line: var(--ams-breadcrumb-link-text-decoration-line);
   text-decoration-thickness: var(--ams-breadcrumb-link-text-decoration-thickness);
   text-underline-offset: var(--ams-breadcrumb-link-text-underline-offset);

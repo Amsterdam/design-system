@@ -15,7 +15,11 @@
       },
       "link": {
         "color": { "value": "{ams.links.color}" },
+        "margin-block": { "value": "calc(var(--ams-space-xs) * -1)" },
+        "margin-inline": { "value": "calc(var(--ams-space-xs) * -1)" },
         "outline-offset": { "value": "{ams.focus.outline-offset}" },
+        "padding-block": { "value": "var(--ams-space-xs)" },
+        "padding-inline": { "value": "var(--ams-space-xs)" },
         "text-decoration-line": { "value": "{ams.links.subtle.text-decoration-line}" },
         "text-decoration-thickness": { "value": "{ams.links.text-decoration-thickness}" },
         "text-underline-offset": { "value": "{ams.links.text-underline-offset}" },
