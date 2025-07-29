@@ -16,6 +16,7 @@ const meta = {
     checked: false,
     children: 'Checkbox label',
     disabled: false,
+    id: '',
     indeterminate: false,
     invalid: false,
   },
@@ -29,6 +30,9 @@ const meta = {
     },
     disabled: {
       description: 'Prevents interaction. Avoid if possible.',
+    },
+    id: {
+      description: 'The id of the input element. If not provided, a unique id will be generated.',
     },
     onChange: {
       action: 'clicked',

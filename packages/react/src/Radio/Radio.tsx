@@ -19,8 +19,8 @@ export type RadioProps = {
  * @see {@link https://designsystem.amsterdam/?path=/docs/components-forms-radio--docs Radio docs at Amsterdam Design System}
  */
 export const Radio = forwardRef(
-  ({ children, className, icon, invalid, ...restProps }: RadioProps, ref: ForwardedRef<HTMLInputElement>) => {
-    const id = useId()
+  ({ children, className, icon, id, invalid, ...restProps }: RadioProps, ref: ForwardedRef<HTMLInputElement>) => {
+    const inputId = id || useId()
 
     return (
       // This div is here because NVDA doesn't match the input to the label
@@ -30,11 +30,11 @@ export const Radio = forwardRef(
           {...restProps}
           aria-invalid={invalid || undefined}
           className="ams-radio__input"
-          id={id}
+          id={inputId}
           ref={ref}
           type="radio"
         />
-        <label className="ams-radio__label" htmlFor={id}>
+        <label className="ams-radio__label" htmlFor={inputId}>
           <span className="ams-radio__icon-container">{icon ?? <RadioIcon />}</span>
           {children}
         </label>

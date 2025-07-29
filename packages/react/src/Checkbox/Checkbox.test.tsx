@@ -174,6 +174,22 @@ describe('Checkbox', () => {
     expect(handleChange).toHaveBeenCalled()
   })
 
+  it('can use a custom id', () => {
+    const handleChange = jest.fn()
+
+    const { container } = render(<Checkbox id="test-id" onChange={handleChange} />)
+
+    const input = screen.getByRole('checkbox')
+
+    expect(input).toHaveAttribute('id', 'test-id')
+
+    const label = container.querySelector('label')
+
+    label?.click()
+
+    expect(handleChange).toHaveBeenCalled()
+  })
+
   it('shows a custom icon', () => {
     const { container } = render(<Checkbox icon={<StarIcon className="test-class" />} />)
 
