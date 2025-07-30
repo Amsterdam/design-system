@@ -8,6 +8,7 @@ import { textInputTypes } from '@amsterdam/design-system-react/dist/TextInput/Te
 import { TextInput } from '@amsterdam/design-system-react/src'
 import { useArgs } from '@storybook/preview-api'
 import { Meta, StoryObj } from '@storybook/react'
+import { ChangeEvent } from 'react'
 
 const meta = {
   title: 'Components/Forms/Text Input',
@@ -38,7 +39,7 @@ const meta = {
   render: (args) => {
     const [, setArgs] = useArgs()
 
-    const handleChange = (event: any) => {
+    const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
       setArgs({ value: event.target.value })
     }
 
