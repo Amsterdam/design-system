@@ -117,7 +117,7 @@ export const SearchResults = {
       <Grid>
         <Grid.Cell span={{ narrow: 4, medium: 6, wide: 8 }}>
           <SearchField className="ams-mb-m">
-            <SearchField.Input label="Zoeken" onChange={handleChange} />
+            <SearchField.Input label="Zoeken" value={query} onChange={handleChange} />
             <SearchField.Button />
           </SearchField>
           <Paragraph className="ams-mb-xl">
