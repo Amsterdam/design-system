@@ -4,7 +4,9 @@
  */
 
 import { ErrorMessage, Field, Label, Paragraph } from '@amsterdam/design-system-react'
+import { textInputTypes } from '@amsterdam/design-system-react/dist/TextInput/TextInput'
 import { TextInput } from '@amsterdam/design-system-react/src'
+import { useArgs } from '@storybook/preview-api'
 import { Meta, StoryObj } from '@storybook/react'
 
 const meta = {
@@ -13,11 +15,9 @@ const meta = {
   args: {
     disabled: false,
     invalid: false,
+    value: 'Amsterdam',
   },
   argTypes: {
-    defaultValue: {
-      table: { disable: true },
-    },
     disabled: {
       description: 'Prevents interaction. Avoid if possible.',
     },
@@ -28,6 +28,21 @@ const meta = {
       control: { min: 0, type: 'number' },
       description: 'The width, expressed in the average number of characters.',
     },
+    type: {
+      control: {
+        labels: { undefined: 'text (default)' },
+      },
+      options: [undefined, ...textInputTypes.filter((type) => type !== 'text')],
+    },
+  },
+  render: (args) => {
+    const [, setArgs] = useArgs()
+
+    const handleChange = (event: any) => {
+      setArgs({ value: event.target.value })
+    }
+
+    return <TextInput onChange={handleChange} {...args} />
   },
 } satisfies Meta<typeof TextInput>
 
@@ -39,41 +54,41 @@ export const Default: Story = {}
 
 export const EmailAddress: Story = {
   args: {
-    defaultValue: 'designsystem@amsterdam.nl',
     type: 'email',
+    value: 'designsystem@amsterdam.nl',
   },
 }
 
 export const WebAddress: Story = {
   args: {
-    defaultValue: 'https://designsystem.amsterdam/',
     type: 'url',
+    value: 'https://designsystem.amsterdam/',
   },
 }
 
 export const PhoneNumber: Story = {
   args: {
-    defaultValue: '14020',
     type: 'tel',
+    value: '14020',
   },
 }
 
 export const WholeNumber: Story = {
   args: {
-    defaultValue: '1',
     inputMode: 'numeric',
     pattern: '[0-9]*',
     size: 5,
     spellCheck: false,
+    value: '1',
   },
 }
 
 export const DecimalNumber: Story = {
   args: {
-    defaultValue: '1.99',
     pattern: '[0-9.,]*',
     size: 5,
     spellCheck: false,
+    value: '1.99',
   },
 }
 
@@ -91,15 +106,15 @@ export const Placeholder: Story = {
 
 export const Invalid: Story = {
   args: {
-    defaultValue: 'Invalid value',
     invalid: true,
+    value: 'Invalid value',
   },
 }
 
 export const Disabled: Story = {
   args: {
-    defaultValue: 'Disabled input',
     disabled: true,
+    value: 'Disabled input',
   },
 }
 
