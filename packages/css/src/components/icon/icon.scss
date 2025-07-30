@@ -17,6 +17,7 @@
   }
 
   svg {
+    block-size: auto; // Icons only get shown when CSS loads, this overrides the default inline size of 0.
     fill: currentColor;
     inline-size: 1em;
   }

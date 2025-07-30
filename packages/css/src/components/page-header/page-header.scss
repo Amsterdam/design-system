@@ -186,7 +186,7 @@
 }
 
 .ams-page-header__menu-icon {
-  block-size: 100%; // Icons only get shown when CSS loads, this overrides the default inline size of 0.
+  block-size: auto; // Icons only get shown when CSS loads, this overrides the default inline size of 0.
 
   line {
     stroke: currentColor;
