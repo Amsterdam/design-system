@@ -77,12 +77,20 @@ const dateFormat = new Intl.DateTimeFormat('nl', {
   year: 'numeric',
 })
 
-const mark = (text: string, query: string = '') => {
-  const regex = new RegExp(query.replace(' ', '|'), 'gi')
+const mark = (text: string, query: string) => {
+  if (!query) return text
 
-  return text
-    .split(regex)
-    .map((part, index) => (query.split(' ').includes(part.toLowerCase()) ? <Mark key={index}>{part}</Mark> : part))
+  const words = query
+    .split(/\s+/)
+    .filter(Boolean)
+    .map((w) => w.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'))
+
+  if (words.length === 0) return text
+
+  const regex = new RegExp(`(${words.join('|')})`, 'gi')
+  const parts = text.split(regex)
+
+  return parts.map((part, i) => (regex.test(part) ? <Mark key={i}>{part}</Mark> : part))
 }
 
 export const SearchResults = {
