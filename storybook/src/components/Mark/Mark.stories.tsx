@@ -5,18 +5,18 @@
 
 import { Card, Column, Grid, Heading, Paragraph, SearchField } from '@amsterdam/design-system-react'
 import { Mark } from '@amsterdam/design-system-react/src'
+import { useArgs } from '@storybook/preview-api'
 import { Meta, StoryObj } from '@storybook/react'
+import type { ChangeEvent, ComponentProps } from 'react'
+
+type MarkPropsAndQueryArg = ComponentProps<typeof Mark> & {
+  query: string
+}
 
 const meta = {
   title: 'Components/Text/Mark',
   component: Mark,
-  argTypes: {
-    children: {
-      description: 'The text to mark.',
-      table: { disable: false },
-    },
-  },
-} satisfies Meta<typeof Mark>
+} satisfies Meta<MarkPropsAndQueryArg>
 
 export default meta
 
@@ -25,6 +25,12 @@ type Story = StoryObj<typeof meta>
 export const Default: Story = {
   args: {
     children: 'Wat vinden Amsterdammers belangrijk?',
+  },
+  argTypes: {
+    children: {
+      description: 'The text to mark.',
+      table: { disable: false },
+    },
   },
   render: ({ children }) => (
     <Paragraph>
@@ -71,47 +77,60 @@ const dateFormat = new Intl.DateTimeFormat('nl', {
   year: 'numeric',
 })
 
-const query = 'horeca vergunning'
+const mark = (text: string, query: string = '') => {
+  const regex = new RegExp(query.replace(' ', '|'), 'gi')
 
-const mark = (text: string, terms: string) => {
-  const regex = new RegExp(`(${terms.replace(' ', '|')})`, 'gi')
   return text
     .split(regex)
-    .map((part, index) => (terms.split(' ').includes(part.toLowerCase()) ? <Mark key={index}>{part}</Mark> : part))
+    .map((part, index) => (query.split(' ').includes(part.toLowerCase()) ? <Mark key={index}>{part}</Mark> : part))
 }
 
-export const SearchResults: Story = {
+export const SearchResults = {
+  args: {
+    query: 'horeca vergunning',
+  },
   argTypes: {
-    children: {
-      table: { disable: true },
+    query: {
+      control: {
+        type: 'text',
+      },
+      description: 'The search query to highlight in results.',
     },
   },
-  render: () => (
-    <Grid>
-      <Grid.Cell span={{ narrow: 4, medium: 6, wide: 8 }}>
-        <SearchField className="ams-mb-m">
-          <SearchField.Input label="Zoeken" value={query} />
-          <SearchField.Button />
-        </SearchField>
-        <Paragraph className="ams-mb-xl">
-          <strong>{searchResults.length}</strong> artikelen gaan over ‘{query}’.
-        </Paragraph>
-        <Column gap="x-large">
-          {searchResults.map(({ category, date, fragment, heading }) => (
-            <Card key={heading}>
-              <Card.HeadingGroup tagline={category}>
-                <Heading level={2} size="level-4">
-                  <Card.Link href="#">{mark(heading, query)}</Card.Link>
-                </Heading>
-              </Card.HeadingGroup>
-              <Paragraph className="ams-mb-xs">{mark(fragment, query)}</Paragraph>
-              <Paragraph size="small">
-                <time dateTime={date.toISOString()}>{dateFormat.format(date)}</time>
-              </Paragraph>
-            </Card>
-          ))}
-        </Column>
-      </Grid.Cell>
-    </Grid>
-  ),
+  render: (query: MarkPropsAndQueryArg['query']) => {
+    const [, setArgs] = useArgs()
+
+    const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
+      setArgs({ value: event.target.value })
+    }
+
+    return (
+      <Grid>
+        <Grid.Cell span={{ narrow: 4, medium: 6, wide: 8 }}>
+          <SearchField className="ams-mb-m">
+            <SearchField.Input label="Zoeken" onChange={handleChange} />
+            <SearchField.Button />
+          </SearchField>
+          <Paragraph className="ams-mb-xl">
+            <strong>{searchResults.length}</strong> artikelen gaan over ‘{query}’.
+          </Paragraph>
+          <Column gap="x-large">
+            {searchResults.map(({ category, date, fragment, heading }) => (
+              <Card key={heading}>
+                <Card.HeadingGroup tagline={category}>
+                  <Heading level={2} size="level-4">
+                    <Card.Link href="#">{mark(heading, query)}</Card.Link>
+                  </Heading>
+                </Card.HeadingGroup>
+                <Paragraph className="ams-mb-xs">{mark(fragment, query)}</Paragraph>
+                <Paragraph size="small">
+                  <time dateTime={date.toISOString()}>{dateFormat.format(date)}</time>
+                </Paragraph>
+              </Card>
+            ))}
+          </Column>
+        </Grid.Cell>
+      </Grid>
+    )
+  },
 }
