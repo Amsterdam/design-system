@@ -79,7 +79,7 @@ export const WholeNumber: Story = {
     pattern: '[0-9]*',
     size: 5,
     spellCheck: false,
-    value: '1',
+    value: '20',
   },
 }
 
@@ -88,37 +88,42 @@ export const DecimalNumber: Story = {
     pattern: '[0-9.,]*',
     size: 5,
     spellCheck: false,
-    value: '1.99',
+    value: '12.75',
   },
 }
 
 export const Size: Story = {
   args: {
     size: 10,
+    value: '1011 PN',
   },
 }
 
 export const Placeholder: Story = {
   args: {
-    placeholder: 'Placeholder text',
+    placeholder: 'Bijvoorbeeld 06-12345678',
+    value: '',
   },
 }
 
 export const Invalid: Story = {
   args: {
     invalid: true,
-    value: 'Invalid value',
+    value: 'Deze waarde is ongeldig',
   },
 }
 
 export const Disabled: Story = {
   args: {
     disabled: true,
-    value: 'Disabled input',
+    value: 'Deze waarde kan niet veranderd worden',
   },
 }
 
 export const InAField: Story = {
+  args: {
+    value: '',
+  },
   render: (args) => (
     <Field invalid={args.invalid}>
       <Label htmlFor="input1">Label</Label>
@@ -134,6 +139,7 @@ export const InAField: Story = {
 export const InAFieldWithValidation: Story = {
   args: {
     invalid: true,
+    value: '',
   },
   render: (args) => (
     <Field invalid={args.invalid}>
