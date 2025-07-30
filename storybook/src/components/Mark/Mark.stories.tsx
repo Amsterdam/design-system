@@ -90,7 +90,7 @@ const mark = (text: string, query: string) => {
   const regex = new RegExp(`(${words.join('|')})`, 'gi')
   const parts = text.split(regex)
 
-  return parts.map((part, i) => (regex.test(part) ? <Mark key={i}>{part}</Mark> : part))
+  return parts.map((part, i) => (part.match(regex) ? <Mark key={i}>{part}</Mark> : part))
 }
 
 export const SearchResults = {
