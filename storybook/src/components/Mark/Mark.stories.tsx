@@ -97,11 +97,12 @@ export const SearchResults = {
       description: 'The search query to highlight in results.',
     },
   },
-  render: (query: MarkPropsAndQueryArg['query']) => {
+  render: (args: MarkPropsAndQueryArg) => {
+    const { query } = args
     const [, setArgs] = useArgs()
 
     const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
-      setArgs({ value: event.target.value })
+      setArgs({ query: event.target.value })
     }
 
     return (
