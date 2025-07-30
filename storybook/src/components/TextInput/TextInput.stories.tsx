@@ -129,16 +129,29 @@ export const InAField: Story = {
   args: {
     value: '',
   },
-  render: (args) => (
-    <Field invalid={args.invalid}>
-      <Label htmlFor="input1">Label</Label>
-      <Paragraph id="description1" size="small">
-        Omschrijving.
-      </Paragraph>
-      {args.invalid && <ErrorMessage id="error1">Foutmelding.</ErrorMessage>}
-      <TextInput aria-describedby={`description1${args.invalid ? ' error1' : ''}`} id="input1" {...args} />
-    </Field>
-  ),
+  render: (args) => {
+    const [, setArgs] = useArgs()
+
+    const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
+      setArgs({ value: event.target.value })
+    }
+
+    return (
+      <Field invalid={args.invalid}>
+        <Label htmlFor="input1">Label</Label>
+        <Paragraph id="description1" size="small">
+          Omschrijving.
+        </Paragraph>
+        {args.invalid && <ErrorMessage id="error1">Foutmelding.</ErrorMessage>}
+        <TextInput
+          aria-describedby={`description1${args.invalid ? ' error1' : ''}`}
+          id="input1"
+          onChange={handleChange}
+          {...args}
+        />
+      </Field>
+    )
+  },
 }
 
 export const InAFieldWithValidation: Story = {
@@ -146,14 +159,27 @@ export const InAFieldWithValidation: Story = {
     invalid: true,
     value: '',
   },
-  render: (args) => (
-    <Field invalid={args.invalid}>
-      <Label htmlFor="input2">Label</Label>
-      <Paragraph id="description2" size="small">
-        Omschrijving.
-      </Paragraph>
-      {args.invalid && <ErrorMessage id="error2">Foutmelding.</ErrorMessage>}
-      <TextInput aria-describedby={`description2${args.invalid ? ' error2' : ''}`} id="input2" {...args} />
-    </Field>
-  ),
+  render: (args) => {
+    const [, setArgs] = useArgs()
+
+    const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
+      setArgs({ value: event.target.value })
+    }
+
+    return (
+      <Field invalid={args.invalid}>
+        <Label htmlFor="input2">Label</Label>
+        <Paragraph id="description2" size="small">
+          Omschrijving.
+        </Paragraph>
+        {args.invalid && <ErrorMessage id="error2">Foutmelding.</ErrorMessage>}
+        <TextInput
+          aria-describedby={`description2${args.invalid ? ' error2' : ''}`}
+          id="input2"
+          onChange={handleChange}
+          {...args}
+        />
+      </Field>
+    )
+  },
 }
