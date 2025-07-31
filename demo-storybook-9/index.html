@@ -59,7 +59,18 @@
     <link href="./sb-addons/linus_janns-html-5/manager-bundle.js" rel="modulepreload" />
     
     <link href="./sb-addons/config-6/manager-bundle.js" rel="modulepreload" />
-       
+      <style>
+  /**
+   * Looks like we can’t configure our custom theme to keep the radio background light in dark mode.
+   * Includes the currently generated class name to which Storybook applies the color scheme, and checkboxes, just in case.
+   */
+  .css-kfv4sw,
+  input[type="checkbox" i],
+  input[type="radio" i] {
+    color-scheme: only light;
+  }
+</style>
+ 
 
     <style>
       #storybook-root[hidden] {
