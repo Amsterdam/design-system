@@ -25,6 +25,7 @@
   inline-size: var(--ams-switch-inline-size);
   outline-offset: var(--ams-switch-outline-offset);
   transition: background-color 0.2s ease-in-out;
+  vertical-align: middle;
 }
 
 .ams-switch__label::before {
