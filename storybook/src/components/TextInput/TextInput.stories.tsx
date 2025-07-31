@@ -6,9 +6,29 @@
 import { ErrorMessage, Field, Label, Paragraph } from '@amsterdam/design-system-react'
 import { textInputTypes } from '@amsterdam/design-system-react/dist/TextInput/TextInput'
 import { TextInput } from '@amsterdam/design-system-react/src'
-import { useArgs } from '@storybook/preview-api'
-import { Meta, StoryObj } from '@storybook/react'
-import { ChangeEvent } from 'react'
+import { Decorator, Meta, StoryObj } from '@storybook/react'
+import { useEffect, useState } from 'react'
+import type { ChangeEvent } from 'react'
+
+const withControlledInput: Decorator = (Story, args: any) => {
+  const [argsValue, setArgsValue] = useState(args.value)
+
+  useEffect(() => {
+    if (args.value !== argsValue) {
+      setArgsValue(args.value)
+    }
+  }, [args.value])
+
+  const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
+    console.log('handleChange', event.target.value)
+    setArgsValue(event.target.value)
+    if (args.onChange) {
+      args.onChange(event)
+    }
+  }
+
+  return <Story {...args} onChange={handleChange} value={argsValue} />
+}
 
 const meta = {
   title: 'Components/Forms/Text Input',
@@ -36,15 +56,7 @@ const meta = {
       options: [undefined, ...textInputTypes.filter((type) => type !== 'text')],
     },
   },
-  render: (args) => {
-    const [, setArgs] = useArgs()
-
-    const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
-      setArgs({ value: event.target.value })
-    }
-
-    return <TextInput onChange={handleChange} {...args} />
-  },
+  decorators: [withControlledInput],
 } satisfies Meta<typeof TextInput>
 
 export default meta
@@ -129,29 +141,16 @@ export const InAField: Story = {
   args: {
     value: '',
   },
-  render: (args) => {
-    const [, setArgs] = useArgs()
-
-    const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
-      setArgs({ value: event.target.value })
-    }
-
-    return (
-      <Field invalid={args.invalid}>
-        <Label htmlFor="input1">Label</Label>
-        <Paragraph id="description1" size="small">
-          Omschrijving.
-        </Paragraph>
-        {args.invalid && <ErrorMessage id="error1">Foutmelding.</ErrorMessage>}
-        <TextInput
-          aria-describedby={`description1${args.invalid ? ' error1' : ''}`}
-          id="input1"
-          onChange={handleChange}
-          {...args}
-        />
-      </Field>
-    )
-  },
+  render: (args) => (
+    <Field invalid={args.invalid}>
+      <Label htmlFor="input1">Label</Label>
+      <Paragraph id="description1" size="small">
+        Omschrijving.
+      </Paragraph>
+      {args.invalid && <ErrorMessage id="error1">Foutmelding.</ErrorMessage>}
+      <TextInput aria-describedby={`description1${args.invalid ? ' error1' : ''}`} id="input1" {...args} />
+    </Field>
+  ),
 }
 
 export const InAFieldWithValidation: Story = {
@@ -159,27 +158,14 @@ export const InAFieldWithValidation: Story = {
     invalid: true,
     value: '',
   },
-  render: (args) => {
-    const [, setArgs] = useArgs()
-
-    const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
-      setArgs({ value: event.target.value })
-    }
-
-    return (
-      <Field invalid={args.invalid}>
-        <Label htmlFor="input2">Label</Label>
-        <Paragraph id="description2" size="small">
-          Omschrijving.
-        </Paragraph>
-        {args.invalid && <ErrorMessage id="error2">Foutmelding.</ErrorMessage>}
-        <TextInput
-          aria-describedby={`description2${args.invalid ? ' error2' : ''}`}
-          id="input2"
-          onChange={handleChange}
-          {...args}
-        />
-      </Field>
-    )
-  },
+  render: (args) => (
+    <Field invalid={args.invalid}>
+      <Label htmlFor="input2">Label</Label>
+      <Paragraph id="description2" size="small">
+        Omschrijving.
+      </Paragraph>
+      {args.invalid && <ErrorMessage id="error2">Foutmelding.</ErrorMessage>}
+      <TextInput aria-describedby={`description2${args.invalid ? ' error2' : ''}`} id="input2" {...args} />
+    </Field>
+  ),
 }
