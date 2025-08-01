@@ -76,7 +76,7 @@ export const ArticlePage = ({
         </Grid.Cell>
       </Grid>
     </main>
-    <Spotlight color="green">
+    <Spotlight as="aside" color="green">
       <Grid paddingVertical="x-large">
         <Grid.Cell span={{ narrow: 4, medium: 6, wide: 7 }} start={{ narrow: 1, medium: 2, wide: 3 }}>
           <Heading className="ams-mb-s" color="inverse" level={2}>
@@ -92,6 +92,8 @@ export const ArticlePage = ({
         </Grid.Cell>
       </Grid>
     </Spotlight>
-    <HomeNews heading="Meer nieuws" />
+    <aside>
+      <HomeNews heading="Meer nieuws" />
+    </aside>
   </>
 )
