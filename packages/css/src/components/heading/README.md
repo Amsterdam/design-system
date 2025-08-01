@@ -6,12 +6,18 @@ Introduces a page section and describes the following content.
 
 ## Guidelines
 
-- Use Headings to allow the user to quickly grasp the structure of the page.
-- All headings together represent the document’s structure. Users of screen readers may use headings to navigate the page – an incorrect hierarchy will confuse them.
-- Every page should contain one heading with level 1.
-  Do not skip heading levels, e.g. a level 2 Heading should be followed by one with level 3, not level 4.
-  The `level` prop doesn’t have a default value; the correct level should be determined for each instance.
-- Don’t use a Heading just for its visual appearance.
+- Headings help the user scan the structure of a page.
+  They also introduce the content that follows them.
+- Users of screen readers often use headings to navigate the page.
+  That’s why it’s important to nest Headings correctly.
+  An incorrect hierarchy will confuse them.
+- The `level` prop doesn’t have a default value; determine the correct level for each instance.
+- Use the `size` prop to make a Heading visually larger or smaller, but sparingly and consistently:
+  - Headings in large sections have size 3 Headings by default – e.g. Accordion, Alert, Dialog and the caption of a Table.
+    Most of them can be given a different size if appropriate.
+  - Smaller boxes get size 4 Headings, e.g. Card, Table of Content, and ‘Link blocks’:
+    a Heading followed by one or more links and maybe some text.
+    This is consistent and it fits their narrower width.
 
 ## Relevant WCAG requirements
 
