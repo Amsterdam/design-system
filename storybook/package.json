@@ -19,7 +19,8 @@
     "start": "storybook dev --config-dir config/ --port 6006"
   },
   "dependencies": {
-    "clsx": "2.1.1"
+    "clsx": "2.1.1",
+    "html-react-parser": "5.2.6"
   },
   "devDependencies": {
     "@amsterdam/design-system-assets": "workspace:*",
