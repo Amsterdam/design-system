@@ -3,7 +3,7 @@
  * Copyright Gemeente Amsterdam
  */
 
-import { Heading, Paragraph } from '@amsterdam/design-system-react'
+import { Card, Paragraph } from '@amsterdam/design-system-react'
 import { OrderedList } from '@amsterdam/design-system-react/src'
 import type { Meta, StoryObj } from '@storybook/react-vite'
 import { exampleOrderedList } from '../shared/exampleContent'
@@ -102,37 +102,44 @@ export const WithoutMarkers: Story = {
   args: {
     children: [
       <OrderedList.Item key={1}>
-        <Heading level={1} size="level-4">
-          Weg met steen, hallo extra groen en koelte
-        </Heading>
-        <Paragraph>
-          Sinds 2021 kwamen er maar liefst 60 nieuwe groene plekken bij in de stad. Groen is fijn en het verkoelt de
-          stad in de zomer. Een paar voorbeelden.
-        </Paragraph>
-        <Paragraph size="small">16 augustus 2023</Paragraph>
+        <Card>
+          <Card.Heading level={2}>Weg met steen, hallo extra groen en koelte</Card.Heading>
+          <Paragraph>
+            Sinds 2021 kwamen er maar liefst 60 nieuwe groene plekken bij in de stad. Groen is fijn en het verkoelt de
+            stad in de zomer. Een paar voorbeelden.
+          </Paragraph>
+          <Paragraph size="small">16 augustus 2023</Paragraph>
+        </Card>
       </OrderedList.Item>,
       <OrderedList.Item key={2}>
-        <Heading level={1} size="level-4">
-          Amsterdam bindt de strijd aan met lawaaierige voertuigen
-        </Heading>
-        <Paragraph>
-          Deze zomer testen we of digitale borden langs de weg kunnen helpen om geluidsoverlast van voertuigen zoals
-          motoren en auto’s tegen te gaan.
-        </Paragraph>
-        <Paragraph size="small">10 augustus 2023</Paragraph>
+        <Card>
+          <Card.Heading level={1}>Amsterdam bindt de strijd aan met lawaaierige voertuigen</Card.Heading>
+          <Paragraph>
+            Deze zomer testen we of digitale borden langs de weg kunnen helpen om geluidsoverlast van voertuigen zoals
+            motoren en auto’s tegen te gaan.
+          </Paragraph>
+          <Paragraph size="small">10 augustus 2023</Paragraph>
+        </Card>
       </OrderedList.Item>,
       <OrderedList.Item key={3}>
-        <Heading level={1} size="level-4">
-          Een prachtroute door de wonderlijke Baarsjes
-        </Heading>
-        <Paragraph>
-          In de Baarsjes zijn kunst en cultuur met elkaar vervlochten. We zetten een prachtige wandelroute voor u uit en
-          laten zien hoe het was en hoe het nu is.
-        </Paragraph>
-        <Paragraph size="small">8 augustus 2023</Paragraph>
+        <Card>
+          <Card.Heading level={1}>Een prachtroute door de wonderlijke Baarsjes</Card.Heading>
+          <Paragraph>
+            In de Baarsjes zijn kunst en cultuur met elkaar vervlochten. We zetten een prachtige wandelroute voor u uit
+            en laten zien hoe het was en hoe het nu is.
+          </Paragraph>
+          <Paragraph size="small">8 augustus 2023</Paragraph>
+        </Card>
       </OrderedList.Item>,
     ],
+    className: 'ams-gap-xl',
     markers: false,
+    style: { maxInlineSize: '32rem' },
+  },
+  argTypes: {
+    style: {
+      table: { disable: true },
+    },
   },
 }
 
