@@ -43,7 +43,7 @@ export const AccordionSection = forwardRef(
             onClick={() => setIsExpanded(!isExpanded)}
             type="button"
           >
-            <Icon className="ams-accordion__icon" size="heading-4" svg={ChevronDownIcon} />
+            <Icon className="ams-accordion__icon" size="heading-3" svg={ChevronDownIcon} />
             {label}
           </button>
         </HeadingTag>

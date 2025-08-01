@@ -31,7 +31,7 @@ export type AlertProps = {
   /**
    * The hierarchical level of the Alert’s Heading within the document.
    * There is no default value; determine the correct level for each instance.
-   * Note: this intentionally does not change the font size.
+   * The size of the heading is fixed at level 3.
    **/
   headingLevel: HeadingProps['level']
   /** A function to run when dismissing. */
@@ -75,14 +75,14 @@ export const Alert = forwardRef(
         ref={ref}
       >
         <div className="ams-alert__severity-indicator">
-          <Icon color="inverse" size="heading-4" svg={SeverityIcon} />
+          <Icon color="inverse" size="heading-3" svg={SeverityIcon} />
         </div>
         <div className="ams-alert__content">
           <Row align="between" alignVertical="start">
-            <Heading id={headingId || undefined} level={headingLevel} size="level-4">
+            <Heading id={headingId || undefined} level={headingLevel} size="level-3">
               {heading}
             </Heading>
-            {closeable && <IconButton label={closeButtonLabel} onClick={onClose} size="heading-4" />}
+            {closeable && <IconButton label={closeButtonLabel} onClick={onClose} size="heading-3" />}
           </Row>
           {children}
         </div>
