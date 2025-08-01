@@ -1,0 +1,25 @@
+import { attributesToProps, DOMNode, domToReact, Element, type HTMLReactParserOptions } from 'html-react-parser'
+import { createElement } from 'react'
+
+const classLookup: Record<string, string> = {
+  a: 'ams-link',
+  p: 'ams-paragraph ams-mb-xl',
+}
+
+export const parserOptions: HTMLReactParserOptions = {
+  replace(node) {
+    if (node instanceof Element && node.attribs) {
+      const className = classLookup[node.name]
+
+      if (className) {
+        return createElement(
+          node.name,
+          { ...attributesToProps(node.attribs), className },
+          domToReact(node.children as DOMNode[], parserOptions),
+        )
+      }
+    }
+
+    return undefined
+  },
+}

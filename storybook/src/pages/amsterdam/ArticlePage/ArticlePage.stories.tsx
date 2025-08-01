@@ -5,24 +5,22 @@
 
 import { Meta, StoryObj } from '@storybook/react-vite'
 import { ArticlePage } from './ArticlePage'
-import * as ImageStories from '../../../components/Image/Image.stories'
+import { newsArticles } from './news-articles'
+import type { NewsArticle } from './news-articles'
 import { commonMeta } from '../common/config'
 
 const meta = {
   ...commonMeta,
   title: 'Pages/Amsterdam.nl/Article Page',
   component: ArticlePage,
-  args: {
-    heading: 'Ontvang uw paspoort of ID-kaart in de zomer gratis thuis',
-    imageSrc: ImageStories.LazyLoading.args?.src,
-    lead: 'Niet meer naar het Stadsloket, maar thuis of op het werk uw nieuwe paspoort ontvangen. In juni en juli kan dat. Deze zomer bezorgt de gemeente reisdocumenten gratis aan huis. We doen dat om de drukte in de Stadsloketten te verminderen. En u hoeft maar 1 keer naar het Stadsloket.',
-    paragraph1:
-      'Van maandag 10 juni tot en met zaterdag 27 juli bezorgt de gemeente Amsterdam uw paspoort of ID-kaart gratis bij u thuis of op het werk. U moet wel naar het Stadsloket om uw reisdocument aan te vragen. Lees hier hoe het werkt.',
-    spotlightHeading: 'Vraag een paspoort of ID-kaart aan',
-    spotlightLinkLabel: 'Vraag nu een paspoort of ID-kaart aan',
-  },
 } satisfies Meta<typeof ArticlePage>
 
 export default meta
 
-export const Default: StoryObj = {}
+const getArgsFromNewsArticle = (id: number): NewsArticle | undefined => {
+  return newsArticles.find((article) => article.id === id)
+}
+
+export const Default: StoryObj = {
+  args: getArgsFromNewsArticle(1),
+}

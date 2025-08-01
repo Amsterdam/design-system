@@ -6,14 +6,8 @@
 import { Column, Grid, Paragraph } from '@amsterdam/design-system-react'
 import { Card } from '@amsterdam/design-system-react/src'
 import { Meta, StoryObj } from '@storybook/react-vite'
+import { formatDate } from '../../common'
 import { exampleTopTask } from '../shared/exampleContent'
-
-const dateFormat = new Intl.DateTimeFormat('nl', {
-  day: 'numeric',
-  month: 'long',
-  year: 'numeric',
-})
-const today = dateFormat.format(Date.now())
 
 const topTask = exampleTopTask()
 
@@ -73,7 +67,7 @@ export const WithImage: Story = {
         <Paragraph>
           We bouwen een levendige, groene en duurzame woonbuurt tussen de Gooiseweg en het Nelson Mandelapark.
         </Paragraph>
-        <Paragraph size="small">{today}</Paragraph>
+        <Paragraph size="small">{formatDate(Date.now())}</Paragraph>
       </Column>,
     ],
   },
