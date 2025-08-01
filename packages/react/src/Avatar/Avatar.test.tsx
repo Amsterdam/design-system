@@ -49,7 +49,8 @@ describe('Avatar', () => {
     const svg = container.querySelector('svg')
 
     expect(component).toBeVisible()
-    expect(svg).toBeVisible()
+    expect(svg).toBeInTheDocument()
+    expect(svg).not.toBeVisible() // The icon is hidden by default, and only shown when the CSS loads.
   })
 
   it('renders with a profile picture', () => {
