@@ -23,7 +23,7 @@ export type ArticlePageProps = NewsArticle
 
 const Section = ({ body, heading }: NewsArticleSection) => (
   <>
-    <Heading className="ams-mb-s" level={2}>
+    <Heading className="ams-mb-s" level={2} size="level-3">
       {heading}
     </Heading>
     {parse(body, parserOptions)}
@@ -63,7 +63,7 @@ export const ArticlePage = ({
           {sections.map((props) => (
             <Section key={props.id} {...props} />
           ))}
-          <Heading className="ams-mb-s" level={2}>
+          <Heading className="ams-mb-s" level={2} size="level-3">
             Lees ook
           </Heading>
           <LinkList>
@@ -79,7 +79,7 @@ export const ArticlePage = ({
     <Spotlight as="aside" color="green">
       <Grid paddingVertical="x-large">
         <Grid.Cell span={{ narrow: 4, medium: 6, wide: 7 }} start={{ narrow: 1, medium: 2, wide: 3 }}>
-          <Heading className="ams-mb-s" color="inverse" level={2}>
+          <Heading className="ams-mb-s" color="inverse" level={2} size="level-3">
             Blijf op de hoogte!
           </Heading>
           <Paragraph className="ams-mb-m" color="inverse">
