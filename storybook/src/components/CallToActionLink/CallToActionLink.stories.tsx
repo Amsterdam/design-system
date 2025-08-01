@@ -4,7 +4,7 @@
  */
 
 import { CallToActionLink } from '@amsterdam/design-system-react/src'
-import { Meta, StoryObj } from '@storybook/react'
+import { Meta, StoryObj } from '@storybook/react-vite'
 
 const meta = {
   title: 'Components/Navigation/Call to Action Link',

@@ -5,7 +5,7 @@
 
 import { Icon, Paragraph, Row } from '@amsterdam/design-system-react/src'
 import { MailIcon } from '@amsterdam/design-system-react-icons'
-import { Meta, StoryObj } from '@storybook/react'
+import { Meta, StoryObj } from '@storybook/react-vite'
 import { exampleParagraph } from '../shared/exampleContent'
 
 const paragraph = exampleParagraph()

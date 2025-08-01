@@ -4,8 +4,9 @@
  */
 
 import type { GridProps } from '@amsterdam/design-system-react'
-import type { ArgTypes } from '@storybook/react'
+import type { ArgTypes } from '@storybook/react-vite'
 
+// Shared padding args
 export const gridGapAndPaddingArgTypes: ArgTypes<GridProps> = {
   gapVertical: {
     control: {
@@ -36,3 +37,13 @@ export const gridGapAndPaddingArgTypes: ArgTypes<GridProps> = {
     options: [undefined, 'large', 'x-large', '2x-large'],
   },
 }
+
+// Date formatter
+const locale = 'nl'
+const options: Intl.DateTimeFormatOptions = {
+  day: 'numeric',
+  month: 'long',
+  year: 'numeric',
+}
+const formatter = new Intl.DateTimeFormat(locale, options)
+export const formatDate = (date: Date | number): string => formatter.format(date)

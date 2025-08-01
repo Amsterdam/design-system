@@ -6,7 +6,7 @@
 import { Link, Paragraph, UnorderedList } from '@amsterdam/design-system-react'
 import { descriptionListTermsWidths } from '@amsterdam/design-system-react/dist/DescriptionList/DescriptionList'
 import { DescriptionList } from '@amsterdam/design-system-react/src'
-import { Meta, StoryObj } from '@storybook/react'
+import { Meta, StoryObj } from '@storybook/react-vite'
 
 const meta = {
   title: 'Components/Text/Description List',

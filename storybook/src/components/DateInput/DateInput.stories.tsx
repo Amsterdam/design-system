@@ -5,7 +5,7 @@
 
 import { Column, ErrorMessage, Field, FieldSet, Label, Paragraph, Row, TextInput } from '@amsterdam/design-system-react'
 import { DateInput } from '@amsterdam/design-system-react/src'
-import { Meta, StoryObj } from '@storybook/react'
+import { Meta, StoryObj } from '@storybook/react-vite'
 
 const meta = {
   title: 'Components/Forms/Date Input',

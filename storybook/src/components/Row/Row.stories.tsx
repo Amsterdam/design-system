@@ -7,7 +7,7 @@ import { Avatar, Heading, Link } from '@amsterdam/design-system-react'
 import { Row } from '@amsterdam/design-system-react/src'
 import { rowGapSizes } from '@amsterdam/design-system-react/src/Row/Row'
 import { crossAlignOptions, mainAlignOptions } from '@amsterdam/design-system-react/src/common/types'
-import { Meta, StoryObj } from '@storybook/react'
+import { Meta, StoryObj } from '@storybook/react-vite'
 
 const ThreeItems = [
   <div className="ams-docs-item" key={0} />,

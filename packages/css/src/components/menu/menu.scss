@@ -26,7 +26,7 @@
   @include hyphenation;
   @include text-rendering;
   @include reset-ul;
-  
+
   @media screen and (min-width: $ams-breakpoint-wide) {
     gap: var(--ams-menu-list-gap);
   }
