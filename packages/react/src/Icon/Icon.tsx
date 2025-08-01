@@ -52,6 +52,7 @@ export const Icon = forwardRef(
         square && 'ams-icon--square',
         className,
       )}
+      hidden // The icon is only shown when the CSS loads, so we hide it by default.
       ref={ref}
       {...restProps}
     >
