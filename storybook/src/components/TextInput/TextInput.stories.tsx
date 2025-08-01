@@ -6,9 +6,9 @@
 import { ErrorMessage, Field, Label, Paragraph } from '@amsterdam/design-system-react'
 import { textInputTypes } from '@amsterdam/design-system-react/dist/TextInput/TextInput'
 import { TextInput } from '@amsterdam/design-system-react/src'
-import { useArgs } from '@storybook/preview-api'
-import { Decorator, Meta, StoryObj } from '@storybook/react'
+import { Decorator, Meta, StoryObj } from '@storybook/react-vite'
 import type { ChangeEvent, ComponentProps } from 'react'
+import { useArgs } from 'storybook/preview-api'
 
 const withControlledInput: Decorator = (Story, { args }: { args: any }) => {
   const [, setArgs] = useArgs()

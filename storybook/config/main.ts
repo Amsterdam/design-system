@@ -4,8 +4,6 @@ import remarkGfm from 'remark-gfm'
 const config: StorybookConfig = {
   addons: [
     '@storybook/addon-links',
-    '@storybook/addon-essentials',
-    '@storybook/addon-interactions',
     '@storybook/addon-a11y',
     '@storybook/addon-themes',
     {
@@ -18,20 +16,21 @@ const config: StorybookConfig = {
         },
       },
     },
-    '@whitespace/storybook-addon-html',
+    '@linus_janns/storybook-addon-html',
   ],
+
   core: {
     disableTelemetry: true,
   },
-  docs: {
-    autodocs: true,
-  },
+
   framework: {
     name: '@storybook/react-vite',
     options: {},
   },
+
   staticDirs: ['../../packages-proprietary/assets'],
   stories: ['../src/**/*.docs.mdx', '../src/**/*.stories.@(js|jsx|ts|tsx)'],
+
   typescript: {
     reactDocgen: 'react-docgen-typescript',
   },

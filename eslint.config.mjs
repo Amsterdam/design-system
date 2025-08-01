@@ -1,20 +1,21 @@
-import _import from 'eslint-plugin-import'
-import { fileURLToPath } from 'node:url'
 import { fixupPluginRules } from '@eslint/compat'
 import { FlatCompat } from '@eslint/eslintrc'
 import eslint from '@eslint/js'
-import globals from 'globals'
-import jest from 'eslint-plugin-jest'
 import json from '@eslint/json'
 import markdown from '@eslint/markdown'
-import * as mdx from 'eslint-plugin-mdx'
-import path from 'node:path'
-import react from 'eslint-plugin-react'
-import tseslint from 'typescript-eslint'
 import tsParser from '@typescript-eslint/parser'
 import tsPlugin from '@typescript-eslint/eslint-plugin'
-import perfectionist from 'eslint-plugin-perfectionist'
 import eslintConfigPrettier from 'eslint-config-prettier'
+import _import from 'eslint-plugin-import'
+import jest from 'eslint-plugin-jest'
+import * as mdx from 'eslint-plugin-mdx'
+import perfectionist from 'eslint-plugin-perfectionist'
+import react from 'eslint-plugin-react'
+import storybook from 'eslint-plugin-storybook'
+import globals from 'globals'
+import path from 'node:path'
+import { fileURLToPath } from 'node:url'
+import tseslint from 'typescript-eslint'
 
 const __filename = fileURLToPath(import.meta.url)
 const __dirname = path.dirname(__filename)
@@ -348,4 +349,5 @@ export default tseslint.config(
       '@typescript-eslint/no-unused-vars': 'off',
     },
   },
+  storybook.configs['flat/recommended'],
 )

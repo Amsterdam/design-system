@@ -5,7 +5,7 @@
 
 import { Image } from '@amsterdam/design-system-react'
 import { Figure } from '@amsterdam/design-system-react/src'
-import { Meta, StoryObj } from '@storybook/react'
+import { Meta, StoryObj } from '@storybook/react-vite'
 import { exampleCaption } from '../shared/exampleContent'
 
 const caption = exampleCaption()
