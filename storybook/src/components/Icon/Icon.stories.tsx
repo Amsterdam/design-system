@@ -7,7 +7,7 @@ import { Heading, PageHeading } from '@amsterdam/design-system-react'
 import { Icon, Paragraph, Row } from '@amsterdam/design-system-react/src'
 import { iconSizes } from '@amsterdam/design-system-react/src/Icon/Icon'
 import * as Icons from '@amsterdam/design-system-react-icons'
-import { Meta, StoryObj } from '@storybook/react'
+import { Meta, StoryObj } from '@storybook/react-vite'
 
 const meta = {
   title: 'Components/Media/Icon',
