@@ -1,0 +1,5 @@
+import{j as t}from"./jsx-runtime-Cf8x2fCZ.js";import{useMDXComponents as n}from"./index-CxbY7dAs.js";import{M as e}from"./index-hHPg4KYD.js";import{A as m}from"./ArticlePage.stories-D5kzqup5.js";import"./index-yBjzXJbu.js";import"./index-G8LIXM5I.js";import"./_commonjsHelpers-CqkleIqs.js";import"./iframe-BIZh_doQ.js";import"./index-CJ88nXQk.js";import"./index-Cf9b6H0j.js";import"./index-DrFu-skq.js";import"./index.esm-8xdw4Di5.js";import"./clsx-B-dksMZM.js";import"./index.esm-D3RaMjqb.js";import"./Image.stories-DFFo7pOU.js";import"./Image-BRTu851g.js";import"./generateAspectRatioClass-CefTNpDa.js";import"./config-BWh5yUNt.js";import"./PageFooter.stories-Z6J6eEjC.js";/*@license CC0-1.0*/function i(o){const r={h1:"h1",p:"p",...n(),...o.components};return t.jsxs(t.Fragment,{children:[`
+`,`
+`,t.jsx(e,{of:m}),`
+`,t.jsx(r.h1,{id:"article-page",children:"Article page"}),`
+`,t.jsx(r.p,{children:"This page type is for news or similar kinds of articles."})]})}function _(o={}){const{wrapper:r}={...n(),...o.components};return r?t.jsx(r,{...o,children:t.jsx(i,{...o})}):i(o)}export{_ as default};
