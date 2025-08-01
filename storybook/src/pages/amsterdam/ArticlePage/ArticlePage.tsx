@@ -16,7 +16,7 @@ import {
 import parse from 'html-react-parser'
 import type { NewsArticle, NewsArticleSection } from './news-articles'
 import { parserOptions } from './parser.config'
-import { formatDate } from '../../../utils/formatDate'
+import { formatDate } from '../../../common'
 import { HomeNews } from '../HomePage/HomeNews'
 
 export type ArticlePageProps = NewsArticle
