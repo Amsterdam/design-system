@@ -75,7 +75,7 @@ export const WithoutMarkers: Story = {
       </UnorderedList.Item>,
       <UnorderedList.Item key={2}>
         <Card>
-          <Card.Heading level={1}>Amsterdam bindt de strijd aan met lawaaierige voertuigen</Card.Heading>
+          <Card.Heading level={2}>Amsterdam bindt de strijd aan met lawaaierige voertuigen</Card.Heading>
           <Paragraph>
             Deze zomer testen we of digitale borden langs de weg kunnen helpen om geluidsoverlast van voertuigen zoals
             motoren en auto’s tegen te gaan.
@@ -85,7 +85,7 @@ export const WithoutMarkers: Story = {
       </UnorderedList.Item>,
       <UnorderedList.Item key={3}>
         <Card>
-          <Card.Heading level={1}>Een prachtroute door de wonderlijke Baarsjes</Card.Heading>
+          <Card.Heading level={2}>Een prachtroute door de wonderlijke Baarsjes</Card.Heading>
           <Paragraph>
             In de Baarsjes zijn kunst en cultuur met elkaar vervlochten. We zetten een prachtige wandelroute voor u uit
             en laten zien hoe het was en hoe het nu is.
