@@ -22,5 +22,5 @@ const getArgsFromNewsArticle = (id: number): NewsArticle | undefined => {
 }
 
 export const Default: StoryObj = {
-  args: getArgsFromNewsArticle(1328467),
+  args: getArgsFromNewsArticle(1),
 }

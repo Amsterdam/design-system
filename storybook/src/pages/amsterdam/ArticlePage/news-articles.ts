@@ -27,7 +27,7 @@ export type NewsArticleLink = {
 export const newsArticles: NewsArticle[] = [
   {
     heading: 'Met korting van A naar B op de deelscooter of -bakfiets',
-    id: 1328467,
+    id: 1,
     image: {
       alt: '',
       src: 'https://picsum.photos/1440/450',
