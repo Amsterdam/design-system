@@ -52,7 +52,7 @@ const defaultTabs = [
   </Tabs.List>,
   tabsContent.map(({ body, label }) => (
     <Tabs.Panel id={label} key={label}>
-      <Heading className="ams-mb-xs" level={3}>
+      <Heading className="ams-mb-s" level={3}>
         {label}
       </Heading>
       <Paragraph>{body}</Paragraph>
@@ -153,7 +153,7 @@ export const PreventTabsFromChanging: Story = {
       </Tabs.List>,
       tabsContentWithoutSlowPanel.map(({ body, label }) => (
         <Tabs.Panel id={label} key={label}>
-          <Heading className="ams-mb-xs" level={3}>
+          <Heading className="ams-mb-s" level={3}>
             {label}
           </Heading>
           <Paragraph>{body}</Paragraph>
