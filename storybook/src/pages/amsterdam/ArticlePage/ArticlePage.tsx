@@ -16,15 +16,10 @@ import {
 import parse from 'html-react-parser'
 import type { NewsArticle, NewsArticleSection } from './news-articles'
 import { parserOptions } from './parser.config'
+import { formatDate } from '../../../utils/formatDate'
 import { HomeNews } from '../HomePage/HomeNews'
 
 export type ArticlePageProps = NewsArticle
-
-const dateFormat = new Intl.DateTimeFormat('nl', {
-  day: 'numeric',
-  month: 'long',
-  year: 'numeric',
-})
 
 const Section = ({ body, heading }: NewsArticleSection) => (
   <>
@@ -58,7 +53,7 @@ export const ArticlePage = ({
           <Heading className="ams-mb-s" level={1}>
             {heading}
           </Heading>
-          <Paragraph className="ams-mb-xl">{dateFormat.format(published)}</Paragraph>
+          <Paragraph className="ams-mb-xl">{formatDate(published)}</Paragraph>
           <Paragraph size="large">{lead}</Paragraph>
         </Grid.Cell>
       </Grid>
