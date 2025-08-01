@@ -1,0 +1,4 @@
+import{r as s,j as i,c as l}from"./iframe-BxCEuR-T.js";const a=s.forwardRef(({children:o,className:t,...r},n)=>i.jsx("a",{...r,className:l("ams-call-to-action-link",t),ref:n,children:o}));a.displayName="CallToActionLink";try{a.displayName="CallToActionLink",a.__docgenInfo={description:"",displayName:"CallToActionLink",props:{}}}catch{}/**
+ * @license EUPL-1.2+
+ * Copyright Gemeente Amsterdam
+ */const c={title:"Components/Navigation/Call to Action Link",component:a,args:{children:"Rijbewijs aanvragen",href:"#"},argTypes:{children:{description:"The link text.",table:{disable:!1}},href:{description:"The url for the link.",name:"href",type:{name:"string",required:!1}}}},e={};e.parameters={...e.parameters,docs:{...e.parameters?.docs,source:{originalSource:"{}",...e.parameters?.docs?.source}}};const p=["Default"],m=Object.freeze(Object.defineProperty({__proto__:null,Default:e,__namedExportsOrder:p,default:c},Symbol.toStringTag,{value:"Module"}));export{m as C};
