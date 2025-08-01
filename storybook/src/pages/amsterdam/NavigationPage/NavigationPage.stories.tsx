@@ -39,7 +39,7 @@ export default meta
 export const Default: StoryObj = {
   args: {
     children: (
-      <Grid as="main" gapVertical="large" id="main" paddingBottom="large">
+      <Grid as="main" id="main" paddingBottom="x-large">
         <Grid.Cell span={{ narrow: 4, medium: 6, wide: 7 }}>
           <PageHeading className="ams-mb-m">Burgerzaken</PageHeading>
           <Paragraph size="large">
@@ -57,7 +57,7 @@ export const WithInteractiveElement: StoryObj = {
   args: {
     children: (
       <main id="main">
-        <Grid gapVertical="large" paddingBottom="large">
+        <Grid paddingBottom="x-large">
           <Grid.Cell span={{ narrow: 4, medium: 6, wide: 7 }}>
             <PageHeading className="ams-mb-m">Parkeren</PageHeading>
             <Paragraph className="ams-mb-m" size="large">
@@ -98,7 +98,7 @@ export const SubnavigationPage: StoryObj = {
   args: {
     children: (
       <main id="main">
-        <Grid gapVertical="large" paddingBottom="large">
+        <Grid paddingBottom="x-large">
           <Grid.Cell span={{ narrow: 4, medium: 6, wide: 7 }}>
             <PageHeading className="ams-mb-m">Overzichtspagina content / Subnavigatiepagina</PageHeading>
             <Paragraph size="large">
