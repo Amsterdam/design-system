@@ -35,7 +35,10 @@ export const Radio = forwardRef(
           type="radio"
         />
         <label className="ams-radio__label" htmlFor={inputId}>
-          <span className="ams-radio__icon-container">{icon ?? <RadioIcon />}</span>
+          {/* The icon is only shown when the CSS loads, so we hide it by default. */}
+          <span className="ams-radio__icon-container" hidden>
+            {icon ?? <RadioIcon />}
+          </span>
           {children}
         </label>
       </div>

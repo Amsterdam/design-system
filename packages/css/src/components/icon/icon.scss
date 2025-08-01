@@ -8,7 +8,7 @@
 
   align-items: center;
   align-self: baseline; // Aligns the icon with text in flex or grid context
-  display: inline-flex;
+  display: inline-flex; // Center align the icon vertically, and override the default 'hidden' attribute
   font-size: var(--ams-icon-font-size);
   line-height: var(--ams-line-height);
 
@@ -17,7 +17,6 @@
   }
 
   svg {
-    block-size: auto; // Icons only get shown when CSS loads, this overrides the default inline size of 0.
     fill: currentColor;
     inline-size: 1em;
   }

@@ -51,7 +51,10 @@ export const Checkbox = forwardRef(
           type="checkbox"
         />
         <label className="ams-checkbox__label" htmlFor={inputId}>
-          <span className="ams-checkbox__icon-container">{icon ?? <CheckboxIcon />}</span>
+          {/* The icon is only shown when the CSS loads, so we hide it by default. */}
+          <span className="ams-checkbox__icon-container" hidden>
+            {icon ?? <CheckboxIcon />}
+          </span>
           {children}
         </label>
       </div>
