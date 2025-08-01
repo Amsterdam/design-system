@@ -9,7 +9,6 @@ import {
   Heading,
   Image,
   LinkList,
-  Overlap,
   Paragraph,
   Spotlight,
   StandaloneLink,
@@ -63,9 +62,7 @@ export const ArticlePage = ({
           <Paragraph size="large">{lead}</Paragraph>
         </Grid.Cell>
       </Grid>
-      <Overlap>
-        <Image alt={alt} aspectRatio="16:5" loading="lazy" src={src} srcSet={srcSet} />
-      </Overlap>
+      <Image alt={alt} aspectRatio="16:5" loading="lazy" src={src} srcSet={srcSet} />
       <Grid paddingVertical="x-large">
         <Grid.Cell span={{ narrow: 4, medium: 6, wide: 7 }} start={{ narrow: 1, medium: 2, wide: 3 }}>
           {sections.map((props) => (
