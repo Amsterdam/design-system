@@ -15,6 +15,10 @@ import {
 } from '@amsterdam/design-system-react'
 import { FieldSet } from '@amsterdam/design-system-react/src'
 import { Meta, StoryObj } from '@storybook/react-vite'
+import { exampleFamilyName, exampleGivenName } from '../shared/exampleContent'
+
+const familyName = exampleFamilyName()
+const givenName = exampleGivenName()
 
 const meta = {
   title: 'Components/Forms/Field Set',
@@ -49,6 +53,7 @@ export const Default: Story = {
           aria-required="true"
           id="input-a1"
           invalid={invalid}
+          value={givenName}
         />
       </Field>
       <Field>
@@ -59,6 +64,7 @@ export const Default: Story = {
           aria-required="true"
           id="input-a2"
           invalid={invalid}
+          value={familyName}
         />
       </Field>
     </FieldSet>
@@ -79,6 +85,7 @@ export const WithDescription: Story = {
           aria-required="true"
           id="input-b1"
           invalid={args.invalid}
+          value={givenName}
         />
       </Field>
       <Field>
@@ -89,6 +96,7 @@ export const WithDescription: Story = {
           aria-required="true"
           id="input-b2"
           invalid={args.invalid}
+          value={familyName}
         />
       </Field>
     </FieldSet>
@@ -107,6 +115,7 @@ export const WithHint: Story = {
           aria-required="true"
           id="input-b3"
           invalid={invalid}
+          value={givenName}
         />
       </Field>
       <Field>
@@ -117,6 +126,7 @@ export const WithHint: Story = {
           aria-required="true"
           id="input-b4"
           invalid={invalid}
+          value={familyName}
         />
       </Field>
     </FieldSet>
@@ -138,6 +148,7 @@ export const WithValidation: Story = {
           aria-required="true"
           id="input-c1"
           invalid={args.invalid}
+          value=""
         />
       </Field>
       <Field>
@@ -148,6 +159,7 @@ export const WithValidation: Story = {
           aria-required="true"
           id="input-c2"
           invalid={args.invalid}
+          value=""
         />
       </Field>
     </FieldSet>
@@ -181,7 +193,7 @@ export const RadioGroup: Story = {
         <Radio aria-required="true" invalid={args.invalid} name="about" value="ander_bedrijf">
           Ander soort bedrijf
         </Radio>
-        <Radio aria-required="true" invalid={args.invalid} name="about" value="evenement">
+        <Radio aria-required="true" checked invalid={args.invalid} name="about" value="evenement">
           Evenement
         </Radio>
         <Radio aria-required="true" invalid={args.invalid} name="about" value="anders">

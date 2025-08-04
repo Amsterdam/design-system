@@ -22,6 +22,7 @@ import {
   TextInput,
 } from '@amsterdam/design-system-react'
 import { useState } from 'react'
+import { exampleFamilyName } from '../../../components/shared/exampleContent'
 
 export const FormPage = () => {
   const [textareaLength, setTextareaLength] = useState(0)
@@ -60,7 +61,7 @@ export const FormPage = () => {
               </Field>
               <Field>
                 <Label htmlFor="familyName">Achternaam</Label>
-                <TextInput autoComplete="family-name" id="familyName" name="familyName" />
+                <TextInput autoComplete="family-name" id="familyName" name="familyName" value={exampleFamilyName()} />
               </Field>
               <FieldSet legend="Woonplaats">
                 <Radio name="city" value="amsterdam">
