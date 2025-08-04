@@ -32,7 +32,7 @@ export const WithDescription: Story = {
   render: (args) => (
     <Field invalid={args.invalid}>
       <Label htmlFor="input2">Waar gaat het om?</Label>
-      <Paragraph id="description1" size="small">
+      <Paragraph id="description1">
         Typ geen persoonsgegevens in deze omschrijving. We vragen dit later in dit formulier aan u.
       </Paragraph>
       <TextInput aria-describedby="description1" id="input2" invalid={args.invalid} />
@@ -45,7 +45,7 @@ export const WithValidation: Story = {
   render: (args) => (
     <Field invalid={args.invalid}>
       <Label htmlFor="input3">Waar gaat het om?</Label>
-      <Paragraph id="description2" size="small">
+      <Paragraph id="description2">
         Typ geen persoonsgegevens in deze omschrijving. We vragen dit later in dit formulier aan u.
       </Paragraph>
       <ErrorMessage id="error">Geef aan waar het om gaat.</ErrorMessage>

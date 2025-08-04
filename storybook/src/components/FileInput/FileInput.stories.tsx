@@ -56,9 +56,7 @@ export const InAField: Story = {
   render: (args) => (
     <Field>
       <Label htmlFor="input1">Label</Label>
-      <Paragraph id="description1" size="small">
-        Omschrijving.
-      </Paragraph>
+      <Paragraph id="description1">Omschrijving.</Paragraph>
       <FileInput aria-describedby="description1" id="input1" {...args} />
     </Field>
   ),

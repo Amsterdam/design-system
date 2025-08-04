@@ -80,7 +80,7 @@ export const InAFieldSet: Story = {
       legend="Waar gaat uw melding over?"
       role="radiogroup"
     >
-      <Paragraph className="ams-mb-s" id="description1" size="small">
+      <Paragraph className="ams-mb-s" id="description1">
         De laatstgenoemde melding.
       </Paragraph>
       {invalid && (
@@ -128,7 +128,7 @@ export const InAFieldSetWithValidation: Story = {
       legend="Waar gaat uw melding over?"
       role="radiogroup"
     >
-      <Paragraph className="ams-mb-s" id="description2" size="small">
+      <Paragraph className="ams-mb-s" id="description2">
         De laatstgenoemde melding.
       </Paragraph>
       {invalid && (

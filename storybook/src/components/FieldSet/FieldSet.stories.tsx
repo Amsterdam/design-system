@@ -68,7 +68,7 @@ export const Default: Story = {
 export const WithDescription: Story = {
   render: (args) => (
     <FieldSet aria-describedby="description-b" invalid={args.invalid} legend={args.legend}>
-      <Paragraph className="ams-mb-s" id="description-b" size="small">
+      <Paragraph className="ams-mb-s" id="description-b">
         Vul uw naam in zoals in uw paspoort staat.
       </Paragraph>
       <Field className="ams-mb-s">
@@ -127,7 +127,7 @@ export const WithValidation: Story = {
   args: { invalid: true },
   render: (args) => (
     <FieldSet aria-describedby="description-c" invalid={args.invalid} legend={args.legend}>
-      <Paragraph className="ams-mb-s" id="description-c" size="small">
+      <Paragraph className="ams-mb-s" id="description-c">
         Vul uw naam in zoals in uw paspoort staat.
       </Paragraph>
       <Field className="ams-mb-s">
@@ -166,7 +166,7 @@ export const RadioGroup: Story = {
       legend={args.legend}
       role="radiogroup"
     >
-      <Paragraph className="ams-mb-s" id="description-d" size="small">
+      <Paragraph className="ams-mb-s" id="description-d">
         De laatstgenoemde melding.
       </Paragraph>
       {args.invalid && (
@@ -205,7 +205,7 @@ export const RadioGroupWithValidation: Story = {
       legend={args.legend}
       role="radiogroup"
     >
-      <Paragraph className="ams-mb-s" id="description-e" size="small">
+      <Paragraph className="ams-mb-s" id="description-e">
         De laatstgenoemde melding.
       </Paragraph>
       {args.invalid && (
@@ -242,7 +242,7 @@ export const CheckboxGroup: Story = {
       invalid={args.invalid}
       legend={args.legend}
     >
-      <Paragraph className="ams-mb-s" id="description-f" size="small">
+      <Paragraph className="ams-mb-s" id="description-f">
         De laatstgenoemde melding.
       </Paragraph>
       {args.invalid && (
@@ -280,7 +280,7 @@ export const CheckboxGroupWithValidation: Story = {
       invalid={args.invalid}
       legend={args.legend}
     >
-      <Paragraph className="ams-mb-s" id="description-g" size="small">
+      <Paragraph className="ams-mb-s" id="description-g">
         De laatstgenoemde melding.
       </Paragraph>
       {args.invalid && (
