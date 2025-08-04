@@ -104,7 +104,10 @@ export const WithDescription: Story = {
 }
 
 export const WithHint: Story = {
-  args: { hint: 'verplicht', optional: false },
+  args: {
+    hint: 'verplicht',
+    optional: false,
+  },
   render: ({ hint, invalid, legend, optional }) => (
     <FieldSet hint={hint} invalid={invalid} legend={legend} optional={optional}>
       <Field className="ams-mb-s">
@@ -134,7 +137,9 @@ export const WithHint: Story = {
 }
 
 export const WithValidation: Story = {
-  args: { invalid: true },
+  args: {
+    invalid: true,
+  },
   render: (args) => (
     <FieldSet aria-describedby="description-c" invalid={args.invalid} legend={args.legend}>
       <Paragraph className="ams-mb-s" id="description-c">

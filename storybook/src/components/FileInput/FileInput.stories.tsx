@@ -41,15 +41,21 @@ type Story = StoryObj<typeof meta>
 export const Default: Story = {}
 
 export const MultipleFiles: Story = {
-  args: { multiple: true },
+  args: {
+    multiple: true,
+  },
 }
 
 export const RestrictFileTypes: Story = {
-  args: { accept: 'application/pdf' },
+  args: {
+    accept: 'application/pdf',
+  },
 }
 
 export const Disabled: Story = {
-  args: { disabled: true },
+  args: {
+    disabled: true,
+  },
 }
 
 export const InAField: Story = {

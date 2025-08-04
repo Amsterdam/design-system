@@ -27,5 +27,7 @@ export default meta
 type Story = StoryObj<typeof meta>
 
 export const Default: Story = {
-  args: { children: <div className="ams-docs-item" /> },
+  args: {
+    children: <div className="ams-docs-item" />,
+  },
 }

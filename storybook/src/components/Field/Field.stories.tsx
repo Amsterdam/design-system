@@ -44,7 +44,9 @@ export const WithDescription: Story = {
 }
 
 export const WithValidation: Story = {
-  args: { invalid: true },
+  args: {
+    invalid: true,
+  },
   render: (args) => (
     <Field invalid={args.invalid}>
       <Label htmlFor="input3">Wat is uw achternaam?</Label>
