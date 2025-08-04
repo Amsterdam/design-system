@@ -57,11 +57,17 @@ export const FormPage = () => {
               </Paragraph>
               <Field>
                 <Label htmlFor="initials">Voorletters</Label>
-                <TextInput id="initials" name="initials" value="M.K." />
+                <TextInput id="initials" name="initials" size={8} value="M.K." />
               </Field>
               <Field>
                 <Label htmlFor="familyName">Achternaam</Label>
-                <TextInput autoComplete="family-name" id="familyName" name="familyName" value="van der Linden" />
+                <TextInput
+                  autoComplete="family-name"
+                  id="familyName"
+                  name="familyName"
+                  size={32}
+                  value="van der Linden"
+                />
               </Field>
               <FieldSet legend="Woonplaats">
                 <Radio checked name="city" value="amsterdam">
@@ -76,7 +82,7 @@ export const FormPage = () => {
               </FieldSet>
               <Field>
                 <Label htmlFor="email">E-mail</Label>
-                <TextInput autoComplete="email" id="email" name="email" value="marijn.vanderlinden@amsterdam.nl" />
+                <TextInput autoComplete="email" id="email" name="email" size={32} value="marijn@vanderlinden.nl" />
               </Field>
               <Row gap="x-large" wrap>
                 <Field>
