@@ -26,7 +26,7 @@ const AvatarContent = ({ imageSrc, initials }: AvatarContentProps) => {
     return <span aria-hidden={true}>{initials}</span>
   }
 
-  return <Icon size="small" svg={PersonFillIcon} />
+  return <Icon size="small" svg={<PersonFillIcon />} />
 }
 
 export type AvatarProps = {
