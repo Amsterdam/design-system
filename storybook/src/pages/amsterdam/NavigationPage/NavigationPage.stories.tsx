@@ -153,7 +153,7 @@ export const WithImageGallery: StoryObj = {
         </Grid>
         <Image alt="" aspectRatio="16:5" src="https://picsum.photos/1440/450" />
         <Grid paddingVertical="x-large">
-          <Grid.Cell span="all">
+          <Grid.Cell span={{ narrow: 4, medium: 5, wide: 7 }}>
             <Heading className="ams-mb-s" level={2}>
               Burgemeester en wethouders
             </Heading>
