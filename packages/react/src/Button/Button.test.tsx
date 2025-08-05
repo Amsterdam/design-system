@@ -129,7 +129,7 @@ describe('Button', () => {
 
   it('renders a button with an icon at the end', () => {
     render(
-      <Button icon={CloseIcon}>
+      <Button icon={<CloseIcon />}>
         <span>Sluiten</span>
       </Button>,
     )
@@ -145,7 +145,7 @@ describe('Button', () => {
 
   it('renders a button with an icon before the label', () => {
     render(
-      <Button icon={CloseIcon} iconBefore>
+      <Button icon={<CloseIcon />} iconBefore>
         <span>Sluiten</span>
       </Button>,
     )
@@ -161,7 +161,7 @@ describe('Button', () => {
 
   it('renders a button with an icon only', () => {
     render(
-      <Button icon={CloseIcon} iconOnly variant="tertiary">
+      <Button icon={<CloseIcon />} iconOnly variant="tertiary">
         Sluiten
       </Button>,
     )
