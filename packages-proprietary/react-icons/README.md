@@ -24,7 +24,7 @@ Import the component for the icon you need, as well as the generic Icon componen
 import { Icon } from "@amsterdam/design-system-react"
 import { SearchIcon } from "@amsterdam/design-system-react-icons"
 
-export const App = () => <Icon svg={SearchIcon} />
+export const App = () => <Icon svg={<SearchIcon />} />
 ```
 
 ## Updating
