@@ -4,6 +4,7 @@
  */
 
 import {
+  Breadcrumb,
   Card,
   Grid,
   Heading,
@@ -59,7 +60,14 @@ const LinkBlock = ({ body, heading, linkText }: LinkBlockProps) => (
 
 export const Default: StoryObj = {
   args: {
-    children: (
+    children: [
+      <Grid key={1} paddingTop="large">
+        <Grid.Cell span={{ narrow: 4, medium: 6, wide: 7 }}>
+          <Breadcrumb>
+            <Breadcrumb.Link href="#">Home</Breadcrumb.Link>
+          </Breadcrumb>
+        </Grid.Cell>
+      </Grid>,
       <Grid as="main" gapVertical="large" id="main" paddingBottom="large">
         <Grid.Cell span={{ narrow: 4, medium: 6, wide: 7 }}>
           <PageHeading className="ams-mb-m">Burgerzaken</PageHeading>
@@ -69,15 +77,22 @@ export const Default: StoryObj = {
           </Paragraph>
         </Grid.Cell>
         <LinkGroupGridCells linkGroups={burgerzakenLinks} />
-      </Grid>
-    ),
+      </Grid>,
+    ],
   },
 }
 
 export const WithInteractiveElement: StoryObj = {
   args: {
-    children: (
-      <main id="main">
+    children: [
+      <Grid key={1} paddingTop="large">
+        <Grid.Cell span={{ narrow: 4, medium: 6, wide: 7 }}>
+          <Breadcrumb>
+            <Breadcrumb.Link href="#">Home</Breadcrumb.Link>
+          </Breadcrumb>
+        </Grid.Cell>
+      </Grid>,
+      <main id="main" key={2}>
         <Grid gapVertical="large" paddingBottom="large">
           <Grid.Cell span={{ narrow: 4, medium: 6, wide: 7 }}>
             <PageHeading className="ams-mb-m">Parkeren</PageHeading>
@@ -110,14 +125,22 @@ export const WithInteractiveElement: StoryObj = {
           </Grid>
         </Spotlight>
         <Image alt="" aspectRatio="16:9" className="ams-mb-2xl" src="https://picsum.photos/id/133/1440/810" />
-      </main>
-    ),
+      </main>,
+    ],
   },
 }
 
 export const WithImageGallery: StoryObj = {
   args: {
     children: [
+      <Grid paddingTop="large">
+        <Grid.Cell span={{ narrow: 4, medium: 6, wide: 8 }}>
+          <Breadcrumb>
+            <Breadcrumb.Link href="#">Home</Breadcrumb.Link>
+            <Breadcrumb.Link href="#">Bestuur en Organisatie</Breadcrumb.Link>
+          </Breadcrumb>
+        </Grid.Cell>
+      </Grid>,
       <main id="main" key={2}>
         <Grid paddingBottom="x-large">
           <Grid.Cell span={{ narrow: 4, medium: 6, wide: 8 }}>
@@ -263,8 +286,16 @@ export const WithImageGallery: StoryObj = {
 
 export const SubnavigationPage: StoryObj = {
   args: {
-    children: (
-      <main id="main">
+    children: [
+      <Grid key={1} paddingTop="large">
+        <Grid.Cell span={{ narrow: 4, medium: 6, wide: 7 }}>
+          <Breadcrumb>
+            <Breadcrumb.Link href="#">Home</Breadcrumb.Link>
+            <Breadcrumb.Link href="#">Onderwerp</Breadcrumb.Link>
+          </Breadcrumb>
+        </Grid.Cell>
+      </Grid>,
+      <main id="main" key={2}>
         <Grid gapVertical="large" paddingBottom="large">
           <Grid.Cell span={{ narrow: 4, medium: 6, wide: 7 }}>
             <PageHeading className="ams-mb-m">Overzichtspagina content / Subnavigatiepagina</PageHeading>
@@ -380,7 +411,7 @@ export const SubnavigationPage: StoryObj = {
             </Grid.Cell>
           </Grid>
         </Spotlight>
-      </main>
-    ),
+      </main>,
+    ],
   },
 }
