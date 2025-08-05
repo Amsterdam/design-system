@@ -37,7 +37,7 @@ export type InvalidFormAlertProps = {
    * The hierarchical level of the Invalid Form Alert’s Heading within the document.
    * There is no default value; determine the correct level for each instance.
    * Note: this intentionally does not change the font size.
-   **/
+   */
   headingLevel: HeadingProps['level']
 } & HTMLAttributes<HTMLDivElement>
 

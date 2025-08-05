@@ -18,6 +18,14 @@ describe('Icon', () => {
     expect(icon).toBeInTheDocument()
   })
 
+  it('renders with a ReactNode prop', () => {
+    const { container } = render(<Icon svg={<WarningIcon />} />)
+
+    const icon = container.querySelector('span:only-child')
+
+    expect(icon).toBeInTheDocument()
+  })
+
   it('renders a design system BEM class name', () => {
     const { container } = render(<Icon svg={WarningIcon} />)
 
