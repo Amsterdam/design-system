@@ -164,6 +164,6 @@ export const InAFieldSetWithValidation: Story = {
 
 export const WithCustomIcon: Story = {
   args: {
-    icon: CustomIcon,
+    icon: <CustomIcon />,
   },
 }

@@ -70,7 +70,7 @@ export const InverseColour: Story = {
 export const WithHeadingAndParagraph: Story = {
   args: {
     children: 'Bekijk alle werkzaamheden',
-    icon: ChevronForwardIcon,
+    icon: <ChevronForwardIcon />,
   },
   decorators: [
     (Story) => (
@@ -91,6 +91,6 @@ export const WithHeadingAndParagraph: Story = {
 export const WithCustomIcon: Story = {
   args: {
     children: 'Downloaden',
-    icon: DownloadIcon,
+    icon: <DownloadIcon />,
   },
 }

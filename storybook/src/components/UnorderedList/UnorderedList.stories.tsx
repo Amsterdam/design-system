@@ -75,49 +75,49 @@ export const WithoutMarkers: Story = {
     children: [
       <UnorderedList.Item key={1}>
         <div className="ams-docs-card">
-          <Icon svg={MapMarkerOnMapIcon} />
+          <Icon svg={<MapMarkerOnMapIcon />} />
           <Paragraph>Stadsloket: locaties en openingstijden</Paragraph>
         </div>
       </UnorderedList.Item>,
       <UnorderedList.Item key={2}>
         <div className="ams-docs-card">
-          <Icon svg={CarIcon} />
+          <Icon svg={<CarIcon />} />
           <Paragraph>Parkeren + Reizen (P+R)</Paragraph>
         </div>
       </UnorderedList.Item>,
       <UnorderedList.Item key={3}>
         <div className="ams-docs-card">
-          <Icon svg={PassportIcon} />
+          <Icon svg={<PassportIcon />} />
           <Paragraph>Paspoort, ID-kaart en Rijbewijs</Paragraph>
         </div>
       </UnorderedList.Item>,
       <UnorderedList.Item key={4}>
         <div className="ams-docs-card">
-          <Icon svg={DocumentEuroIcon} />
+          <Icon svg={<DocumentEuroIcon />} />
           <Paragraph>Gemeentebelastingen</Paragraph>
         </div>
       </UnorderedList.Item>,
       <UnorderedList.Item key={5}>
         <div className="ams-docs-card">
-          <Icon svg={WarningIcon} />
+          <Icon svg={<WarningIcon />} />
           <Paragraph>Melding openbare ruimte en overlast</Paragraph>
         </div>
       </UnorderedList.Item>,
       <UnorderedList.Item key={6}>
         <div className="ams-docs-card">
-          <Icon svg={HouseIcon} />
+          <Icon svg={<HouseIcon />} />
           <Paragraph>Verhuizing doorgeven</Paragraph>
         </div>
       </UnorderedList.Item>,
       <UnorderedList.Item key={7}>
         <div className="ams-docs-card">
-          <Icon svg={TrashBinIcon} />
+          <Icon svg={<TrashBinIcon />} />
           <Paragraph>Grof afval</Paragraph>
         </div>
       </UnorderedList.Item>,
       <UnorderedList.Item key={8}>
         <div className="ams-docs-card">
-          <Icon svg={MegaphoneIcon} />
+          <Icon svg={<MegaphoneIcon />} />
           <Paragraph>Kennisgevingen en bekendmakingen</Paragraph>
         </div>
       </UnorderedList.Item>,
