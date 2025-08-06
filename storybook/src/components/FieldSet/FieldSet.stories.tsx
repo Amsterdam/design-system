@@ -198,7 +198,7 @@ export const RadioGroup: Story = {
         <Radio aria-required="true" invalid={args.invalid} name="about" value="ander_bedrijf">
           Ander soort bedrijf
         </Radio>
-        <Radio aria-required="true" checked invalid={args.invalid} name="about" value="evenement">
+        <Radio aria-required="true" invalid={args.invalid} name="about" value="evenement">
           Evenement
         </Radio>
         <Radio aria-required="true" invalid={args.invalid} name="about" value="anders">
