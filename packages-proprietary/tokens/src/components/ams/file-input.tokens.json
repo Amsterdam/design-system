@@ -25,6 +25,7 @@
         "border-width": { "value": "{ams.border.width.m}" },
         "color": { "value": "{ams.color.interactive.default}" },
         "cursor": { "value": "{ams.cursor.interactive}" },
+        "line-height": { "value": "{ams.inputs.line-height}" },
         "margin-inline-end": { "value": "{ams.space.m}" },
         "padding-block": { "value": "{ams.space.s}" },
         "padding-inline": { "value": "{ams.space.m}" },
