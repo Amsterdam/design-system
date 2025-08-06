@@ -1,5 +1,5 @@
 import { Button } from '@amsterdam/design-system-react'
-import { EnlargeIcon, MinimiseIcon } from '@amsterdam/design-system-react-icons'
+import { MinusIcon, PlusIcon } from '@amsterdam/design-system-react-icons'
 import { useMapInstance } from './MapContext'
 import styles from './controls.module.css'
 
@@ -19,10 +19,10 @@ const Controls = () => {
 
   return (
     <div className={styles.buttons}>
-      <Button variant="secondary" iconOnly icon={EnlargeIcon} onClick={handleZoomInClick}>
+      <Button icon={PlusIcon} iconOnly onClick={handleZoomInClick} variant="secondary">
         Zoom in
       </Button>
-      <Button variant="secondary" iconOnly icon={MinimiseIcon} onClick={handleZoomOutClick}>
+      <Button icon={MinusIcon} iconOnly onClick={handleZoomOutClick} variant="secondary">
         Zoom out
       </Button>
     </div>

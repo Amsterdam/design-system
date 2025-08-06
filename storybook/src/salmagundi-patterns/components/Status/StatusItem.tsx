@@ -1,21 +1,18 @@
-import React, { FC, ReactNode, useContext, useState } from 'react'
-
-import clsx from 'clsx'
-
 import './styles.css'
 import { Icon } from '@amsterdam/design-system-react'
 import { ChevronDownIcon } from '@amsterdam/design-system-react-icons'
-
+import clsx from 'clsx'
+import { FC, ReactNode, useContext, useState } from 'react'
 import StatusContext from './StatusContext'
 
 type StatusItemProps = {
-  title: string
-  status?: 'active' | 'todo' | 'done'
-  expanded?: boolean
   children?: ReactNode
+  expanded?: boolean
+  status?: 'active' | 'todo' | 'done'
+  title: string
 }
 
-export const StatusItem: FC<StatusItemProps> = ({ children, title, status = 'todo', expanded = false }) => {
+export const StatusItem: FC<StatusItemProps> = ({ title, children, expanded = false, status = 'todo' }) => {
   const { collapsible } = useContext(StatusContext)
   const [isExpanded, setIsExpanded] = useState(expanded)
 
@@ -24,7 +21,7 @@ export const StatusItem: FC<StatusItemProps> = ({ children, title, status = 'tod
       {children && collapsible ? (
         <button className="ams-status__button" onClick={() => setIsExpanded(!isExpanded)}>
           {title}
-          <Icon svg={ChevronDownIcon} className="ams-status__icon" size="large" />
+          <Icon className="ams-status__icon" size="large" svg={ChevronDownIcon} />
         </button>
       ) : (
         <div className="ams-status__title">{title}</div>

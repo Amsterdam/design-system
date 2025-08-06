@@ -1,9 +1,12 @@
+/* stylelint-disable */
+
 .badge {
   --ams-badge-font-weight: normal;
-  border-radius: 5px;
-  white-space: nowrap;
+
   background-color: color-mix(var(--ams-color-background), var(--ams-color-background-yellow), 0.1);
+  border-radius: 5px;
   color: var(--ams-color-text-secondary);
+  white-space: nowrap;
 }
 
 .active {

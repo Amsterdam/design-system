@@ -1,12 +1,9 @@
-import { FC } from 'react'
-
 import { Breadcrumb, Column, Grid, Pagination, Row, StandaloneLink, Table } from '@amsterdam/design-system-react'
-
+import { FC } from 'react'
 import { Persons } from '../common/Personen'
 import { OverviewFilter } from '../components/OverviewFilter/OverviewFilter'
-import { StatusBadge } from '../components/StatusBadge/StatusBadge'
-
 import * as OverviewFilterStories from '../components/OverviewFilter/OverviewFilter.stories'
+import { StatusBadge } from '../components/StatusBadge/StatusBadge'
 
 export const TableView: FC = () => {
   return (
@@ -24,14 +21,14 @@ export const TableView: FC = () => {
         <Grid paddingVertical="large">
           <Grid.Cell span="all">
             <OverviewFilter
-              filters={OverviewFilterStories?.Default.args?.filters}
               actions={OverviewFilterStories?.Default.args?.actions}
+              filters={OverviewFilterStories?.Default.args?.filters}
             />
           </Grid.Cell>
           <Grid.Cell span="all">
             <article>
               <Column>
-                <Table width={'100%'} className="ams-mb-m">
+                <Table className="ams-mb-m" width={'100%'}>
                   <Table.Header>
                     <Table.Row>
                       <Table.HeaderCell>Naam</Table.HeaderCell>
@@ -59,7 +56,7 @@ export const TableView: FC = () => {
                     ))}
                   </Table.Body>
                 </Table>
-                <Pagination maxVisiblePages={7} linkTemplate={(page: number) => `#${page}`} page={1} totalPages={10} />
+                <Pagination linkTemplate={(page: number) => `#${page}`} maxVisiblePages={7} page={1} totalPages={10} />
               </Column>
             </article>
           </Grid.Cell>

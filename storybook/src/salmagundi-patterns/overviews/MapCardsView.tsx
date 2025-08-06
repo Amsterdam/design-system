@@ -1,13 +1,10 @@
-import { FC } from 'react'
-
 import { Breadcrumb, Card, Grid, Pagination, Paragraph } from '@amsterdam/design-system-react'
-
-import { OverviewFilter } from '../components/OverviewFilter/OverviewFilter'
+import { FC } from 'react'
+import styles from './styles.module.css'
 import { Meldingen } from '../common/Meldingen'
 import Map from '../components/Map/Map'
+import { OverviewFilter } from '../components/OverviewFilter/OverviewFilter'
 import * as OverviewFilterStories from '../components/OverviewFilter/OverviewFilter.stories'
-
-import styles from './styles.module.css'
 
 export const MapCardsView: FC = () => {
   return (
@@ -25,8 +22,8 @@ export const MapCardsView: FC = () => {
         <Grid paddingVertical="large">
           <Grid.Cell span="all">
             <OverviewFilter
-              filters={OverviewFilterStories?.Autocomplete.args?.filters}
               actions={OverviewFilterStories?.Autocomplete.args?.actions}
+              filters={OverviewFilterStories?.Autocomplete.args?.filters}
             />
           </Grid.Cell>
           <Grid.Cell span="all">
@@ -34,9 +31,9 @@ export const MapCardsView: FC = () => {
               <Map />
             </div>
           </Grid.Cell>
-          <Grid.Cell span="all" className={styles.cards}>
+          <Grid.Cell className={styles.cards} span="all">
             {Meldingen.map((melding) => (
-              <Card key={melding.id} className={styles.card}>
+              <Card className={styles.card} key={melding.id}>
                 <Card.HeadingGroup tagline={melding.type}>
                   <Card.Heading level={4}>
                     <Card.Link href="#">{melding.title}</Card.Link>
@@ -52,7 +49,7 @@ export const MapCardsView: FC = () => {
             ))}
           </Grid.Cell>
           <Grid.Cell span="all">
-            <Pagination maxVisiblePages={7} linkTemplate={(page: number) => `#${page}`} page={1} totalPages={10} />
+            <Pagination linkTemplate={(page: number) => `#${page}`} maxVisiblePages={7} page={1} totalPages={10} />
           </Grid.Cell>
         </Grid>
       </main>

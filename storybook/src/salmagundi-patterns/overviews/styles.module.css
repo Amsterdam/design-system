@@ -1,3 +1,5 @@
+/* stylelint-disable */
+
 .cards {
   display: grid;
   grid-template-columns: subgrid;
@@ -5,10 +7,10 @@
 }
 
 .card {
-  grid-column: span 4;
   box-shadow: inset 0 0 0 var(--ams-border-width-m) var(--ams-color-text-secondary);
-  padding-inline: var(--ams-space-m);
+  grid-column: span 4;
   padding-block: var(--ams-space-m);
+  padding-inline: var(--ams-space-m);
 }
 
 .relative {

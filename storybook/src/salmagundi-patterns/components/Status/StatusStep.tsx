@@ -1,6 +1,5 @@
-import React, { FC, ReactNode } from 'react'
-
 import clsx from 'clsx'
+import React, { FC, ReactNode } from 'react'
 
 import './styles.css'
 

@@ -1,11 +1,9 @@
+import { Meta, StoryObj } from '@storybook/react-vite'
 import React from 'react'
-
-import { Meta, StoryObj } from '@storybook/react'
-
 import { Status } from './Status'
+import { StatusCaption } from './StatusCaption'
 import { StatusItem } from './StatusItem'
 import { StatusStep } from './StatusStep'
-import { StatusCaption } from './StatusCaption'
 
 const meta = {
   title: 'Components/Status',
@@ -18,14 +16,13 @@ type Story = StoryObj<typeof meta>
 
 export const Default: Story = {
   args: {
-    collapsible: true,
     children: (
       <>
-        <StatusItem title="Aanmelding gezinsbezoek" status="done">
+        <StatusItem status="done" title="Aanmelding gezinsbezoek">
           <StatusStep>Gezinsbezoek aangemeld door Justin van der Meij (Noord) op 3 januari 2025</StatusStep>
           <StatusStep>notificatiebrief bijgesloten</StatusStep>
         </StatusItem>
-        <StatusItem title="Plan een gezinsbezoek in" status="active" expanded>
+        <StatusItem expanded status="active" title="Plan een gezinsbezoek in">
           <StatusStep>Afspraak gemaakt met Politie of wijkagent</StatusStep>
           <StatusStep>Gezinsbezoeker plant een gezinsbezoek in met alle partijen</StatusStep>
         </StatusItem>
@@ -35,5 +32,6 @@ export const Default: Story = {
         </StatusItem>
       </>
     ),
+    collapsible: true,
   },
 }

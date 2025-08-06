@@ -1,13 +1,10 @@
-import { FC } from 'react'
-
 import { Breadcrumb, Button, Grid, Heading, Paragraph } from '@amsterdam/design-system-react'
-
+import { DocumentWithPencilIcon } from '@amsterdam/design-system-react-icons'
+import { FC } from 'react'
+import styles from './styles.module.css'
 import Map from '../components/Map/Map'
-import { EditDocumentIcon } from '@amsterdam/design-system-react-icons'
 import { Timeline } from '../components/Timeline'
 import * as TimelineStories from '../components/Timeline/Timeline.stories'
-
-import styles from './styles.module.css'
 
 export const MapPage: FC = () => {
   return (
@@ -25,14 +22,14 @@ export const MapPage: FC = () => {
       <main id="main">
         <article>
           <Grid>
-            <Grid.Cell as="header" span={'all'} className={styles.hotspot_header}>
+            <Grid.Cell as="header" className={styles.hotspot_header} span={'all'}>
               <div>
-                <Heading>Lepenplein</Heading>
+                <Heading level={1}>Lepenplein</Heading>
                 <Paragraph>Overlast bij de gemeente</Paragraph>
                 <Paragraph>Vanaf: 15-4-2023</Paragraph>
               </div>
               <div>
-                <Button variant="secondary" icon={EditDocumentIcon} key="new">
+                <Button icon={DocumentWithPencilIcon} key="new" variant="secondary">
                   Bewerken
                 </Button>
               </div>
@@ -40,7 +37,7 @@ export const MapPage: FC = () => {
           </Grid>
 
           <Grid paddingVertical="large">
-            <Grid.Cell span={{ narrow: 4, medium: 4, wide: 7 }} as="main">
+            <Grid.Cell as="main" span={{ narrow: 4, medium: 4, wide: 7 }}>
               <Timeline
                 collapsible={TimelineStories?.Default?.args?.collapsible}
                 editable={TimelineStories?.Default?.args?.editable}
@@ -48,7 +45,7 @@ export const MapPage: FC = () => {
                 {TimelineStories?.Default?.args?.children ?? 'No content available'}
               </Timeline>
             </Grid.Cell>
-            <Grid.Cell span={{ narrow: 4, medium: 4, wide: 5 }} as="aside">
+            <Grid.Cell as="aside" span={{ narrow: 4, medium: 4, wide: 5 }}>
               <div className={styles.map_container}>
                 <Map />
               </div>

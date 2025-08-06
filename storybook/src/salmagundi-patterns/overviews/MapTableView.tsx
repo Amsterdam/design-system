@@ -1,13 +1,10 @@
-import { FC } from 'react'
-
 import { Breadcrumb, Grid, Link, Pagination, Table } from '@amsterdam/design-system-react'
-
-import { OverviewFilter } from '../components/OverviewFilter/OverviewFilter'
+import { FC } from 'react'
+import styles from './styles.module.css'
 import { Hotspots } from '../common/Hotspots'
 import Map from '../components/Map/Map'
+import { OverviewFilter } from '../components/OverviewFilter/OverviewFilter'
 import * as OverviewFilterStories from '../components/OverviewFilter/OverviewFilter.stories'
-
-import styles from './styles.module.css'
 
 export const MapTableView: FC = () => {
   return (
@@ -25,8 +22,8 @@ export const MapTableView: FC = () => {
         <Grid paddingVertical="large">
           <Grid.Cell span="all">
             <OverviewFilter
-              filters={OverviewFilterStories?.Autocomplete.args?.filters}
               actions={OverviewFilterStories?.Autocomplete.args?.actions}
+              filters={OverviewFilterStories?.Autocomplete.args?.filters}
             />
           </Grid.Cell>
           <Grid.Cell span="all">
@@ -35,7 +32,7 @@ export const MapTableView: FC = () => {
             </div>
           </Grid.Cell>
           <Grid.Cell span="all">
-            <Table width={'100%'} className="ams-mb-m">
+            <Table className="ams-mb-m" width={'100%'}>
               <Table.Header>
                 <Table.Row>
                   <Table.HeaderCell>Hotspot</Table.HeaderCell>
@@ -55,7 +52,7 @@ export const MapTableView: FC = () => {
                 ))}
               </Table.Body>
             </Table>
-            <Pagination maxVisiblePages={7} linkTemplate={(page: number) => `#${page}`} page={1} totalPages={10} />
+            <Pagination linkTemplate={(page: number) => `#${page}`} maxVisiblePages={7} page={1} totalPages={10} />
           </Grid.Cell>
         </Grid>
       </main>

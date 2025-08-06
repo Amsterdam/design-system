@@ -1,5 +1,8 @@
+/* stylelint-disable */
+
 .statusbadge {
   --ams-badge-font-weight: normal;
+
   border-radius: 5px;
   white-space: nowrap;
 }

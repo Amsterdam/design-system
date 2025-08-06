@@ -1,51 +1,49 @@
-import { Table, Column, Link } from '@amsterdam/design-system-react'
-import { OverviewFilter } from '../components/OverviewFilter/OverviewFilter'
+import { Column, Link, Table } from '@amsterdam/design-system-react'
 import clsx from 'clsx'
-
 import styles from './styles.module.css'
-
+import { OverviewFilter } from '../components/OverviewFilter/OverviewFilter'
 import * as OverviewFilterStories from '../components/OverviewFilter/OverviewFilter.stories'
 
 const Trajecten = [
   {
-    id: 1,
-    trajectSoort: 'Monitortraject',
-    reason: 'Aanvraag',
-    managedBy: 'J&V Nieuw-West',
-    notificationLetter: 'Notificatiebrief.docx',
-    notificationLetterPath: '#',
-    startDate: '11-01-2024',
     endDate: '',
-  },
-  {
     id: 1,
-    trajectSoort: 'Monitortraject',
-    reason: 'Aanvraag',
     managedBy: 'J&V Nieuw-West',
     notificationLetter: 'Notificatiebrief.docx',
     notificationLetterPath: '#',
+    reason: 'Aanvraag',
     startDate: '11-01-2024',
-    endDate: '24-11-2024',
+    trajectSoort: 'Monitortraject',
   },
   {
+    endDate: '24-11-2024',
     id: 1,
-    trajectSoort: 'Monitortraject',
-    reason: 'Aanvraag',
     managedBy: 'J&V Nieuw-West',
     notificationLetter: 'Notificatiebrief.docx',
     notificationLetterPath: '#',
+    reason: 'Aanvraag',
     startDate: '11-01-2024',
-    endDate: '24-11-2024',
+    trajectSoort: 'Monitortraject',
   },
   {
+    endDate: '24-11-2024',
     id: 1,
-    trajectSoort: 'Monitortraject',
-    reason: 'Aanvraag',
     managedBy: 'J&V Nieuw-West',
     notificationLetter: 'Notificatiebrief.docx',
     notificationLetterPath: '#',
+    reason: 'Aanvraag',
     startDate: '11-01-2024',
+    trajectSoort: 'Monitortraject',
+  },
+  {
     endDate: '24-11-2024',
+    id: 1,
+    managedBy: 'J&V Nieuw-West',
+    notificationLetter: 'Notificatiebrief.docx',
+    notificationLetterPath: '#',
+    reason: 'Aanvraag',
+    startDate: '11-01-2024',
+    trajectSoort: 'Monitortraject',
   },
 ]
 
@@ -54,8 +52,8 @@ export default function TableTab() {
     <>
       <Column className="ams-mb-m">
         <OverviewFilter
-          filters={OverviewFilterStories?.Default.args?.filters}
           actions={OverviewFilterStories?.Default.args?.actions}
+          filters={OverviewFilterStories?.Default.args?.filters}
         />
         <Table className={clsx(styles.table, 'ams-mb-m')}>
           <Table.Header>
@@ -75,9 +73,7 @@ export default function TableTab() {
                 <Table.Cell className={styles.tableCellNoWrap}>{Traject.endDate}</Table.Cell>
                 <Table.Cell className={styles.tableCellNoWrap}>{Traject.managedBy}</Table.Cell>
                 <Table.Cell>
-                  <Link variant="inline" href={Traject.notificationLetterPath}>
-                    {Traject.notificationLetter}
-                  </Link>
+                  <Link href={Traject.notificationLetterPath}>{Traject.notificationLetter}</Link>
                 </Table.Cell>
               </Table.Row>
             ))}

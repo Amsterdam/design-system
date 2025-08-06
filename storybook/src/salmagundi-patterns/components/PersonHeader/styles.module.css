@@ -1,3 +1,5 @@
+/* stylelint-disable */
+
 .gegevens {
   dt {
     min-inline-size: 220px;
@@ -9,17 +11,17 @@
 }
 
 .avatar {
-  inline-size: 134px;
   block-size: 134px;
+  inline-size: 134px;
 }
 
 .meta {
+  align-items: center;
+  display: flex;
   font-family: var(--ams-typography-font-family);
   font-size: var(--ams-typography-body-text-font-size);
-  line-height: var(--ams-typography-body-text-line-height);
-  display: flex;
   gap: 1ex;
-  align-items: center;
+  line-height: var(--ams-typography-body-text-line-height);
   text-wrap: balance;
 }
 

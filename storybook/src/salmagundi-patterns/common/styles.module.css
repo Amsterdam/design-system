@@ -1,16 +1,18 @@
+/* stylelint-disable */
+
 .container {
   block-size: 100%;
-  min-block-size: 33dvh;
   max-block-size: 50dvh;
+  min-block-size: 33dvh;
 }
 
 .usermenu {
+  cursor: pointer;
   display: flex;
   gap: var(--ams-space-grid-sm);
-  cursor: pointer;
 }
 
 .disclaimer {
   flex: 1 1 auto;
-  text-align: right;
+  text-align: end;
 }

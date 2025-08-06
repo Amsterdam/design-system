@@ -1,3 +1,5 @@
+/* stylelint-disable */
+
 .quill {
   align-self: stretch;
 
@@ -6,7 +8,7 @@
   }
 
   .ql-editor {
-    min-height: 5em;
+    min-block-size: 5em;
   }
 }
 

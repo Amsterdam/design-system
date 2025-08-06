@@ -4,9 +4,9 @@
  */
 
 import { Icon } from '@amsterdam/design-system-react'
-import { Meta, StoryObj } from '@storybook/react'
-import MaleIcon from './Male'
+import { Meta, StoryObj } from '@storybook/react-vite'
 import FemaleIcon from './Female'
+import MaleIcon from './Male'
 import NeutralIcon from './Neutral'
 
 const meta = {

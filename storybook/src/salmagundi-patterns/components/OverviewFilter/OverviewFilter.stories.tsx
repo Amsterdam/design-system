@@ -1,18 +1,16 @@
-import React from 'react'
-
 import { Button, Label, SearchField, Select } from '@amsterdam/design-system-react'
-import { EnlargeIcon } from '@amsterdam/design-system-react-icons'
-import { Meta, StoryObj } from '@storybook/react'
-
+import { PlusIcon } from '@amsterdam/design-system-react-icons'
+import { Meta, StoryObj } from '@storybook/react-vite'
+import React from 'react'
 import { OverviewFilter } from './OverviewFilter'
 import { buurten } from '../../common/utils/buurten'
 
 const defaultFilters = [
-  <SearchField onSubmit={() => {}} key="search">
+  <SearchField key="search" onSubmit={() => {}}>
     <SearchField.Input />
     <SearchField.Button />
   </SearchField>,
-  <Select onChange={() => {}} key="select">
+  <Select key="select" onChange={() => {}}>
     <Select.Option value="1">Optie 1</Select.Option>
     <Select.Option value="2">Optie 2</Select.Option>
     <Select.Option value="3">Optie 3</Select.Option>
@@ -21,13 +19,13 @@ const defaultFilters = [
 ]
 
 const defaultActions = [
-  <Button variant="secondary" icon={EnlargeIcon} key="new">
+  <Button icon={PlusIcon} key="new" variant="secondary">
     Nieuw item
   </Button>,
 ]
 
 const autocompleteActions = [
-  <Button variant="secondary" icon={EnlargeIcon} key="new">
+  <Button icon={PlusIcon} key="new" variant="secondary">
     Melding toevoegen
   </Button>,
 ]
@@ -35,11 +33,11 @@ const autocompleteActions = [
 const meta = {
   title: 'Components/OverviewFilter',
   component: OverviewFilter,
-  tags: ['autodocs'],
   args: {
-    filters: defaultFilters,
     actions: defaultActions,
+    filters: defaultFilters,
   },
+  tags: ['autodocs'],
 } satisfies Meta<typeof OverviewFilter>
 
 export default meta
@@ -47,15 +45,16 @@ type Story = StoryObj<typeof meta>
 
 export const Default: Story = {
   args: {
-    filters: defaultFilters,
     actions: defaultActions,
+    filters: defaultFilters,
   },
 }
 
 export const Autocomplete: Story = {
   args: {
+    actions: autocompleteActions,
     filters: [
-      <SearchField onSubmit={() => {}} key="search">
+      <SearchField key="search" onSubmit={() => {}}>
         <SearchField.Input list="places" placeholder="Zoek op straat, postcode, bericht of SIA nummer" />
         <SearchField.Button />
       </SearchField>,
@@ -64,17 +63,16 @@ export const Autocomplete: Story = {
           <option key={buurt}>{buurt}</option>
         ))}
       </datalist>,
-      <Label htmlFor="sorting" key="label" className="ams-visually-hidden">
+      <Label className="ams-visually-hidden" htmlFor="sorting" key="label">
         Sorteer op
       </Label>,
-      <Select id="sorting" onChange={() => {}} key="select">
-        <Select.Option value="1" selected>
+      <Select id="sorting" key="select" onChange={() => {}}>
+        <Select.Option selected value="1">
           Melding
         </Select.Option>
         <Select.Option value="2">Datum toegevoegd</Select.Option>
         <Select.Option value="3">Melder</Select.Option>
       </Select>,
     ],
-    actions: autocompleteActions,
   },
 }

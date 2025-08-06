@@ -1,5 +1,4 @@
-import type { Meta, StoryObj } from '@storybook/react'
-
+import type { Meta, StoryObj } from '@storybook/react-vite'
 import { MapTableView } from './MapTableView'
 import { pageMeta } from '../common/config'
 

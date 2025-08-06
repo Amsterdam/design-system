@@ -1,4 +1,4 @@
-import { Meta, StoryObj } from '@storybook/react'
+import { Meta, StoryObj } from '@storybook/react-vite'
 import { TrajectBadge } from './TrajectBadge'
 
 const meta = {
@@ -18,7 +18,7 @@ export const Default: Story = {
 
 export const Active: Story = {
   args: {
-    label: 'Traject 1',
     active: true,
+    label: 'Traject 1',
   },
 }

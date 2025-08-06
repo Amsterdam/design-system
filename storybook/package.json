@@ -20,7 +20,9 @@
   },
   "dependencies": {
     "clsx": "2.1.1",
-    "html-react-parser": "5.2.6"
+    "html-react-parser": "5.2.6",
+    "leaflet": "1.9.4",
+    "proj4": "2.17.0"
   },
   "devDependencies": {
     "@amsterdam/design-system-assets": "workspace:*",
@@ -37,6 +39,7 @@
     "@storybook/addon-themes": "9.0.18",
     "@storybook/mdx2-csf": "1.1.0",
     "@storybook/react-vite": "9.0.18",
+    "@types/leaflet": "1.9.20",
     "@types/react": "18.3.23",
     "@vitejs/plugin-react": "4.7.0",
     "react": "18.3.1",

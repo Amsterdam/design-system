@@ -1,25 +1,18 @@
-import React from 'react'
-
 import {
-  Heading,
-  Field,
-  Label,
-  TextInput,
-  DateInput,
-  Select,
   ActionGroup,
-  Button,
-  Grid,
   Breadcrumb,
+  Button,
+  DateInput,
+  Field,
+  Grid,
+  Heading,
+  Label,
+  Select,
   TextArea,
+  TextInput,
 } from '@amsterdam/design-system-react'
-// import 'react-quill/dist/quill.snow.css'
-// import 'react-toastify/dist/ReactToastify.css'
-
+import React from 'react'
 import styles from './styles.module.css'
-
-// import './quill.css'
-// import RichTextEditor from '../components/RichTextEditor/RichTextEditor'
 
 export default function FormPage() {
   return (
@@ -36,10 +29,10 @@ export default function FormPage() {
       </Grid>
 
       <main id="main">
-        <Grid paddingVertical="large" as="article">
+        <Grid as="article" paddingVertical="large">
           <Grid.Cell span={{ narrow: 4, medium: 7, wide: 8 }}>
             <header>
-              <Heading level={1} className="ams-mb-m">
+              <Heading className="ams-mb-m" level={1}>
                 Aanmeldformulier Gezinsdossier
               </Heading>
             </header>
@@ -173,7 +166,7 @@ export default function FormPage() {
               <Label htmlFor="input2" optional>
                 Wie is meegegaan?
               </Label>
-              <TextInput id="input2" className={styles.name} />
+              <TextInput className={styles.name} id="input2" />
             </Field>
 
             <Field className="ams-mb-l">
@@ -205,7 +198,7 @@ export default function FormPage() {
               </Field>
 
               <Field className="ams-mb-l">
-                <Label htmlFor="input5" className="ams-mb-s">
+                <Label className="ams-mb-s" htmlFor="input5">
                   Leefgebied Justitie
                 </Label>
                 {/* <RichTextEditor id="input5" data-testid="" value="" onChange={() => {}} onBlur={() => {}} /> */}

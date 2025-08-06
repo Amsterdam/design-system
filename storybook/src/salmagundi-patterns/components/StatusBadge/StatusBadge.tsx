@@ -1,45 +1,43 @@
-import { FC } from 'react'
-
 import { Badge, BadgeProps } from '@amsterdam/design-system-react'
-
+import { FC } from 'react'
 import styles from './styles.module.css'
 
-interface Status {
-  label: string
+type Status = {
   color: BadgeProps['color']
+  label: string
 }
 
 const Statuses: { [key: number]: Status } = {
   0: {
-    label: 'Concept',
     color: 'yellow',
+    label: 'Concept',
   },
   1: {
-    label: 'Aanmelding',
     color: 'orange',
+    label: 'Aanmelding',
   },
   2: {
-    label: 'Afgerond',
     color: 'azure',
+    label: 'Afgerond',
   },
   3: {
-    label: 'Verlopen',
     color: 'red',
+    label: 'Verlopen',
   },
   4: {
-    label: 'Verslag verstuurd',
     color: 'purple',
+    label: 'Verslag verstuurd',
   },
   5: {
-    label: 'Geen notificatiebrief',
     color: 'orange',
+    label: 'Geen notificatiebrief',
   },
 }
 
-interface StatusBadgeProps {
+type StatusBadgeProps = {
   status: number
 }
 
 export const StatusBadge: FC<StatusBadgeProps> = ({ status = 0 }) => {
-  return <Badge color={Statuses[status].color} label={Statuses[status].label} className={styles.statusbadge} />
+  return <Badge className={styles.statusbadge} color={Statuses[status].color} label={Statuses[status].label} />
 }

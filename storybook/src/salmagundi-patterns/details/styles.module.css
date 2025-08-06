@@ -1,7 +1,9 @@
+/* stylelint-disable */
+
 .tabslist {
   &::-webkit-scrollbar {
+    block-size: 0;
     display: none;
-    height: 0;
   }
 }
 
@@ -30,26 +32,26 @@
 .summaryTab {
   align-items: start;
   display: grid;
-  inline-size: 100%;
   gap: var(--ams-space-xl);
-  grid-template-columns: 1fr;
   grid-template-areas:
     "toc"
     "data";
+  grid-template-columns: 1fr;
+  inline-size: 100%;
 
-  @media (min-width: 80ch) {
-    grid-template-columns: 3fr 1fr;
+  @media (width >= 80ch) {
     grid-template-areas: "data toc";
+    grid-template-columns: 3fr 1fr;
   }
 }
 
 .summaryTabToc {
   grid-area: toc;
 
-  @media (min-width: 80ch) {
+  @media (width >= 80ch) {
     align-self: start;
+    inset-block-start: var(--ams-space-m);
     position: sticky;
-    top: var(--ams-space-m);
   }
 }
 
@@ -62,8 +64,8 @@
   flex-direction: column;
   gap: var(--ams-space-m);
   margin-block-end: var(--ams-space-xl);
-  padding-block: var(--ams-space-m);
   overflow: auto;
+  padding-block: var(--ams-space-m);
 }
 
 .table {
@@ -81,11 +83,11 @@
 }
 
 .hotspot_header {
-  display: flex;
-  justify-content: space-between;
   align-items: center;
+  display: flex;
   flex-wrap: wrap;
   gap: var(--ams-space-m);
+  justify-content: space-between;
 }
 
 .map_container {
@@ -94,6 +96,7 @@
 }
 
 /* .panel, */
+
 /* .dd {
   overflow-x: auto;
 } */

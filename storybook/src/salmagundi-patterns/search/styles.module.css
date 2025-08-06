@@ -1,3 +1,5 @@
+/* stylelint-disable */
+
 .menu-link {
   align-items: center;
   display: flex;
@@ -16,13 +18,13 @@
 .filters {
   display: none;
 
-  @media (min-width: 36rem) {
+  @media (width >= 36rem) {
     display: block;
   }
 }
 
 .toggle_filters {
-  @media (min-width: 36rem) {
+  @media (width >= 36rem) {
     display: none;
   }
 }
@@ -32,24 +34,24 @@
   border: 0;
   box-sizing: border-box;
   inline-size: 100dvw;
+  inset-block-start: 20dvh;
   overflow-y: scroll;
   padding-block: var(--ams-grid-padding-block-l);
   padding-inline: var(--ams-grid-padding-inline);
-  top: 20dvh;
 
   &::backdrop {
     backdrop-filter: blur(3px);
-    background-color: rgba(0, 0, 0, 0.6);
+    background-color: rgb(0 0 0 / 60%);
   }
 
   div[role="group"] {
     background: white;
-    bottom: 0;
     box-sizing: border-box;
-    left: 0;
+    inline-size: 100dvw;
+    inset-block-end: 0;
+    inset-inline-start: 0;
     padding-block: var(--ams-grid-padding-block-l);
     padding-inline: var(--ams-grid-padding-inline);
     position: fixed;
-    width: 100dvw;
   }
 }

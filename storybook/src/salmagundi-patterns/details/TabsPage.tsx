@@ -1,13 +1,10 @@
 import { Breadcrumb, Grid, Tabs } from '@amsterdam/design-system-react'
-
-import { PersonHeader } from '../components/PersonHeader/PersonHeader'
-
+import DocumentsTab from './DocumentsTab'
 import SummaryTab from './SummaryTab'
 import TableTab from './TableTab'
-import DocumentsTab from './DocumentsTab'
 import TimelineTab from './TimelineTab'
-
 import styles from './styles.module.css'
+import { PersonHeader } from '../components/PersonHeader/PersonHeader'
 
 type PersonProps = {
   activetab: string

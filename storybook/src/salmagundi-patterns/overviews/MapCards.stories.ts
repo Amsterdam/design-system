@@ -1,5 +1,4 @@
-import type { Meta, StoryObj } from '@storybook/react'
-
+import type { Meta, StoryObj } from '@storybook/react-vite'
 import { MapCardsView } from './MapCardsView'
 import { pageMeta } from '../common/config'
 

@@ -1,22 +1,22 @@
-import { Grid, PageHeader, LinkList } from '@amsterdam/design-system-react'
+import { Grid, LinkList, PageHeader } from '@amsterdam/design-system-react'
 import styles from './styles.module.css'
 
 export const AppHeader = () => {
   return (
     <PageHeader
-      className={styles.Pageheader}
       brandName="Application"
+      className={styles.Pageheader}
       menuItems={[
-        <PageHeader.MenuLink key="1" href="#">
+        <PageHeader.MenuLink href="#" key="1">
           Dashboard
         </PageHeader.MenuLink>,
-        <PageHeader.MenuLink key="2" href="#">
+        <PageHeader.MenuLink href="#" key="2">
           Category 1
         </PageHeader.MenuLink>,
-        <PageHeader.MenuLink key="3" href="#">
+        <PageHeader.MenuLink href="#" key="3">
           Category 1
         </PageHeader.MenuLink>,
-        <PageHeader.MenuLink key="5" href="#">
+        <PageHeader.MenuLink href="#" key="5">
           Settings
         </PageHeader.MenuLink>,
       ]}

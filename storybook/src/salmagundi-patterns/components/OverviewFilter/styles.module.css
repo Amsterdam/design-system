@@ -1,11 +1,13 @@
+/* stylelint-disable */
+
 .filter {
   display: flex;
   flex-direction: column;
   flex-wrap: wrap;
 
-  @media screen and (min-width: 36em) {
-    justify-content: space-between;
+  @media screen and (width >= 36em) {
     flex-direction: row;
+    justify-content: space-between;
   }
 }
 
@@ -16,7 +18,7 @@
   gap: var(--ams-space-m);
   margin-block-end: var(--ams-space-m);
 
-  input[type='search'] {
+  input[type="search"] {
     inline-size: initial;
   }
 
@@ -24,12 +26,12 @@
     inline-size: 100%;
   }
 
-  @media screen and (min-width: 36em) {
+  @media screen and (width >= 36em) {
     align-items: center;
     flex-direction: row;
     flex-wrap: nowrap;
 
-    input[type='search'] {
+    input[type="search"] {
       inline-size: initial;
     }
 
@@ -45,11 +47,11 @@
 }
 
 .actions {
-  flex: 1;
-  justify-content: flex-end;
-  display: flex;
-  gap: var(--ams-space-m);
   align-items: center;
-  white-space: nowrap;
+  display: flex;
+  flex: 1;
+  gap: var(--ams-space-m);
+  justify-content: flex-end;
   justify-self: flex-end;
+  white-space: nowrap;
 }

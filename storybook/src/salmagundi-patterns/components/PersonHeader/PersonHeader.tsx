@@ -1,25 +1,30 @@
-import { FC, HTMLAttributes } from 'react'
 import { Column, Heading, Icon, IconButton, Row } from '@amsterdam/design-system-react'
-
+import { BuildingsIcon, LinkExternalIcon } from '@amsterdam/design-system-react-icons'
+import { FC, HTMLAttributes } from 'react'
 import styles from './styles.module.css'
-import { BuildingsIcon, ExternalLinkIcon } from '@amsterdam/design-system-react-icons'
 import { StatusBadge } from '../StatusBadge/StatusBadge'
 import { TrajectBadge } from '../TrajectBadge/TrajectBadge'
 
 type PersonHeaderProps = {
-  profileUrl?: string
   address?: string
+  profileUrl?: string
   status?: 1 | 2 | 3 | 4 | 5
-  trajectories?: { label: string; active: boolean }[]
+  trajectories?: { active: boolean; label: string }[]
 } & HTMLAttributes<HTMLElement>
 
-export const PersonHeader: FC<PersonHeaderProps> = ({ profileUrl, address, status, trajectories }) => {
+export const PersonHeader: FC<PersonHeaderProps> = ({ address, profileUrl, status, trajectories }) => {
   return (
     <Column gap="small">
-      <Row wrap align="between" alignVertical="center">
+      <Row align="between" alignVertical="center" wrap>
         <div className={styles.person_name}>
           <Heading level={1}>Bart Bartsen</Heading>
-          {profileUrl && <IconButton label="Ga naar profiel" svg={ExternalLinkIcon} onClick={() => window.open(profileUrl, '_top')} />}
+          {profileUrl && (
+            <IconButton
+              label="Ga naar profiel"
+              onClick={() => window.open(profileUrl, '_top')}
+              svg={LinkExternalIcon}
+            />
+          )}
         </div>
         {status && <StatusBadge status={status} />}
       </Row>
@@ -34,7 +39,7 @@ export const PersonHeader: FC<PersonHeaderProps> = ({ profileUrl, address, statu
       {trajectories && (
         <Row wrap>
           {trajectories.map((traject, index) => (
-            <TrajectBadge key={index} label={traject.label} active={traject.active} />
+            <TrajectBadge active={traject.active} key={index} label={traject.label} />
           ))}
         </Row>
       )}

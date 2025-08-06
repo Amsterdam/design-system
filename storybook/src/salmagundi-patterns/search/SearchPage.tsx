@@ -22,7 +22,6 @@ import {
 } from '@amsterdam/design-system-react'
 import { CloseIcon, FilterIcon } from '@amsterdam/design-system-react-icons'
 import React, { useEffect, useState } from 'react'
-
 import styles from './styles.module.css'
 
 type SubsidyProps = {
@@ -66,7 +65,7 @@ export const SearchPage = () => {
   return (
     <>
       <Grid paddingBottom="x-large" paddingTop="large">
-        <Grid.Cell span={{ narrow: 4, medium: 3, wide: 3 }} as="aside" className={styles.filters}>
+        <Grid.Cell as="aside" className={styles.filters} span={{ narrow: 4, medium: 3, wide: 3 }}>
           <Column gap="large">
             <FieldSet legend="Filters">
               <Column gap="small">
@@ -118,7 +117,7 @@ export const SearchPage = () => {
         <Grid.Cell span={{ narrow: 4, medium: 5, wide: 9 }}>
           <Column gap="large">
             <Heading level={2}>Zoeken</Heading>
-            <Row align="between" wrap className="ams-mb-m">
+            <Row align="between" className="ams-mb-m" wrap>
               <SearchField className={styles.search_field}>
                 <SearchField.Input name="search-box" onChange={function () {}} size={42} value="" />
                 <SearchField.Button />
@@ -131,10 +130,10 @@ export const SearchPage = () => {
               </Select>
               <Button
                 className={styles.toggle_filters}
-                type="button"
-                variant="secondary"
                 icon={FilterIcon}
                 popoverTarget="filters"
+                type="button"
+                variant="secondary"
               >
                 Filters
               </Button>
@@ -165,7 +164,7 @@ export const SearchPage = () => {
           </Column>
         </Grid.Cell>
       </Grid>
-      <div popover="auto" id="filters" className={styles.filters_menu}>
+      <div className={styles.filters_menu} id="filters" popover="auto">
         <Column gap="large">
           <FieldSet legend="Filters">
             <Column gap="small">

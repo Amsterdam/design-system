@@ -2,6 +2,7 @@ import L, { CRS, LatLng, PointExpression } from 'leaflet'
 import proj4, { InterfaceCoordinates } from 'proj4'
 
 export const CRS_CONFIG = {
+  EARTH_RADIUS: 6378137,
   RD: {
     code: 'EPSG:28992',
     projection:
@@ -10,8 +11,8 @@ export const CRS_CONFIG = {
       '76542563,-1.8703473836068,4.0812 +no_defs',
     transformation: {
       bounds: {
-        topLeft: [-285401, 903401] as PointExpression,
         bottomRight: [595401.92, 22598.08] as PointExpression,
+        topLeft: [-285401, 903401] as PointExpression,
       },
     },
   },
@@ -19,7 +20,6 @@ export const CRS_CONFIG = {
     code: 'EPSG:4326',
     projection: '+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs',
   },
-  EARTH_RADIUS: 6378137,
 }
 
 export const proj4RD = proj4(CRS_CONFIG.WGS84.code, CRS_CONFIG.RD.projection)
@@ -42,8 +42,11 @@ const getCrsRd = (maxZoom = 16, zeroScale = 3440.64, scales: number[] = []): CRS
     ...L.CRS.Simple,
     ...{
       code: CRS_CONFIG.RD.code,
+
+      distance: L.CRS.Earth.distance,
       infinite: false,
       projection: {
+        bounds: L.bounds(CRS_CONFIG.RD.transformation.bounds.topLeft, CRS_CONFIG.RD.transformation.bounds.bottomRight),
         project: (latlng: LatLng) => {
           const [x, y] = proj4RD.forward([latlng.lng, latlng.lat])
           return new L.Point(x, y)
@@ -52,13 +55,9 @@ const getCrsRd = (maxZoom = 16, zeroScale = 3440.64, scales: number[] = []): CRS
           const [lng, lat] = proj4RD.inverse([point.x, point.y])
           return L.latLng(lat, lng)
         },
-        bounds: L.bounds(CRS_CONFIG.RD.transformation.bounds.topLeft, CRS_CONFIG.RD.transformation.bounds.bottomRight),
 
         proj4def: CRS_CONFIG.RD.projection,
       },
-      transformation: new L.Transformation(1, 285401.92, -1, 903401.92),
-      // eslint-disable-next-line @typescript-eslint/unbound-method
-      distance: L.CRS.Earth.distance,
       R: CRS_CONFIG.EARTH_RADIUS,
       scale: (zoom: number) => {
         if (scales[zoom]) {
@@ -66,6 +65,7 @@ const getCrsRd = (maxZoom = 16, zeroScale = 3440.64, scales: number[] = []): CRS
         }
         return 1 / (zeroScale * 0.5 ** zoom)
       },
+      transformation: new L.Transformation(1, 285401.92, -1, 903401.92),
 
       zoom: (scale: number) => Math.log(1 / scale / zeroScale) / Math.log(0.5),
     },

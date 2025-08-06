@@ -1,5 +1,5 @@
-import React, { FC, HTMLAttributes, ReactNode } from 'react'
 import clsx from 'clsx'
+import React, { FC, HTMLAttributes, ReactNode } from 'react'
 import './styles.css'
 import StatusContext from './StatusContext'
 
@@ -8,7 +8,7 @@ type StatusProps = {
   collapsible?: boolean
 } & HTMLAttributes<HTMLElement>
 
-export const Status: FC<StatusProps> = ({ className, children, collapsible = false, ...restProps }) => {
+export const Status: FC<StatusProps> = ({ children, className, collapsible = false, ...restProps }) => {
   return (
     <StatusContext.Provider value={{ collapsible: collapsible }}>
       <ol {...restProps} className={clsx('ams-status', collapsible && 'ams-status--collapsible', className)}>

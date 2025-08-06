@@ -1,45 +1,43 @@
+import { Button, Column, Link, SearchField, Table } from '@amsterdam/design-system-react'
+import { PlusIcon } from '@amsterdam/design-system-react-icons'
 import React from 'react'
-
-import { Button, Table, Column, Link, SearchField } from '@amsterdam/design-system-react'
-import { EnlargeIcon } from '@amsterdam/design-system-react-icons'
+import styles from './styles.module.css'
 import { OverviewFilter } from '../components/OverviewFilter/OverviewFilter'
 
-import styles from './styles.module.css'
-
 const overviewFilters = [
-  <SearchField onSubmit={() => {}} key="search">
-    <SearchField.Input size={20} className={styles.search} />
+  <SearchField key="search" onSubmit={() => {}}>
+    <SearchField.Input className={styles.search} size={20} />
     <SearchField.Button />
   </SearchField>,
 ]
 
 const overviewActions = [
-  <Button variant="secondary" icon={EnlargeIcon} key="new">
+  <Button icon={PlusIcon} key="new" variant="secondary">
     Nieuw document
   </Button>,
 ]
 
 const Files = [
   {
-    id: 1,
+    date: '11-01-2024',
+    downloadURL: '#',
     filename: 'Notificatiebrief.docx',
+    id: 1,
     kind: 'Document',
-    downloadURL: '#',
-    date: '11-01-2024',
   },
   {
-    id: 2,
+    date: '11-01-2024',
+    downloadURL: '#',
     filename: 'Aanmeldingsformulier.docx',
+    id: 2,
     kind: 'Document',
-    downloadURL: '#',
-    date: '11-01-2024',
   },
   {
-    id: 3,
-    filename: 'Overzicht.xlsx',
-    kind: 'Spreadsheet',
-    downloadURL: '#',
     date: '11-01-2024',
+    downloadURL: '#',
+    filename: 'Overzicht.xlsx',
+    id: 3,
+    kind: 'Spreadsheet',
   },
 ]
 
@@ -47,8 +45,8 @@ export default function DocumentsTab() {
   return (
     <>
       <Column className="ams-mb-m">
-        <OverviewFilter filters={overviewFilters} actions={overviewActions} />
-        <Table width={'100%'} className="ams-mb-m">
+        <OverviewFilter actions={overviewActions} filters={overviewFilters} />
+        <Table className="ams-mb-m" width={'100%'}>
           <Table.Header>
             <Table.Row>
               <Table.HeaderCell>Bestandsnaam</Table.HeaderCell>
@@ -64,9 +62,7 @@ export default function DocumentsTab() {
                 <Table.Cell>{File.date}</Table.Cell>
                 <Table.Cell>{File.kind}</Table.Cell>
                 <Table.Cell>
-                  <Link variant="inline" href={File.downloadURL}>
-                    Download
-                  </Link>
+                  <Link href={File.downloadURL}>Download</Link>
                 </Table.Cell>
               </Table.Row>
             ))}

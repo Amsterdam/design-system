@@ -135,3 +135,7 @@
     border-color: Canvas !important;
   }
 }
+
+.sidebar-container [data-radix-scroll-area-viewport] {
+  padding-block-end: 8rem;
+}

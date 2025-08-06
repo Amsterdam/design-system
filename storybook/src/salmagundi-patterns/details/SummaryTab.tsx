@@ -1,5 +1,3 @@
-import React, { useState } from 'react'
-
 import {
   Alert,
   Column,
@@ -10,7 +8,7 @@ import {
   TableOfContents,
 } from '@amsterdam/design-system-react'
 import clsx from 'clsx'
-
+import React, { useState } from 'react'
 import styles from './styles.module.css'
 
 export default function SummaryTab() {
@@ -21,11 +19,11 @@ export default function SummaryTab() {
       {alertVisible && (
         <Alert
           className="ams-mb-xl"
-          severity="warning"
+          closeable
           heading="Let op"
           headingLevel={2}
-          closeable
           onClose={() => setAlertVisible(false)}
+          severity="warning"
         >
           <Paragraph>Dit is hoe je een alert toont</Paragraph>
         </Alert>
@@ -49,10 +47,10 @@ export default function SummaryTab() {
         <div className={styles.summaryTabData}>
           <Column gap="x-large">
             <div id="section-1">
-              <Heading level={2} className="ams-mb-m">
+              <Heading className="ams-mb-m" level={2}>
                 Gegevens betrokkene
               </Heading>
-              <DescriptionList termsWidth="medium" className={clsx(styles.gegevens)}>
+              <DescriptionList className={clsx(styles.gegevens)} termsWidth="medium">
                 <DescriptionList.Term>Naam</DescriptionList.Term>
                 <DescriptionList.Description className={styles.dd}>Bart Bartsen ♂</DescriptionList.Description>
                 <DescriptionList.Term>Woonstadsdeel</DescriptionList.Term>
@@ -69,10 +67,10 @@ export default function SummaryTab() {
               </DescriptionList>
             </div>
             <div id="section-2">
-              <Heading level={2} className="ams-mb-m">
+              <Heading className="ams-mb-m" level={2}>
                 Aanmelding
               </Heading>
-              <DescriptionList termsWidth="medium" className={clsx(styles.gegevens)}>
+              <DescriptionList className={clsx(styles.gegevens)} termsWidth="medium">
                 <DescriptionList.Term>Datum indienen</DescriptionList.Term>
                 <DescriptionList.Description className={styles.dd}>03-12-2024 11:07</DescriptionList.Description>
                 <DescriptionList.Term>Projectleider</DescriptionList.Term>
@@ -92,10 +90,10 @@ export default function SummaryTab() {
               </DescriptionList>
             </div>
             <div id="section-3">
-              <Heading level={2} className="ams-mb-m">
+              <Heading className="ams-mb-m" level={2}>
                 Veiligheid & politie
               </Heading>
-              <DescriptionList termsWidth="medium" className={clsx(styles.gegevens)}>
+              <DescriptionList className={clsx(styles.gegevens)} termsWidth="medium">
                 <DescriptionList.Term>Is de betrokkene bekend bij de politie?</DescriptionList.Term>
                 <DescriptionList.Description className={styles.dd}>Ja</DescriptionList.Description>
                 <DescriptionList.Term>Agressief gedrag?</DescriptionList.Term>
@@ -123,7 +121,7 @@ export default function SummaryTab() {
             </div>
 
             <div id="section-4">
-              <Heading level={2} className="ams-mb-m">
+              <Heading className="ams-mb-m" level={2}>
                 Hulpverlening
               </Heading>
               <div className={styles.hulpverlening} id="section-4-1">

@@ -1,7 +1,7 @@
 import { SkipLink } from '@amsterdam/design-system-react'
 import type { HTMLAttributes, PropsWithChildren } from 'react'
-import { AppHeader } from './AppHeader'
 import { AppFooter } from './AppFooter'
+import { AppHeader } from './AppHeader'
 
 type LayoutProps = PropsWithChildren<HTMLAttributes<HTMLElement>>
 
