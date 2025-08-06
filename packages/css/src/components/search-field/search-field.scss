@@ -37,28 +37,29 @@
   @include text-rendering;
   @include reset-input;
 
-  &:hover {
-    box-shadow: var(--ams-search-field-input-hover-box-shadow);
-  }
-
   &:focus {
     z-index: 1; // Make sure the focus outline isn’t cut off by the adjacent button
-  }
-}
-
-.ams-search-field__input:invalid,
-.ams-search-field__input[aria-invalid="true"] {
-  border-color: var(--ams-search-field-input-invalid-border-color);
-
-  &:hover {
-    border-color: var(--ams-search-field-input-invalid-hover-border-color);
-    box-shadow: var(--ams-search-field-input-invalid-hover-box-shadow);
   }
 }
 
 .ams-search-field__input::placeholder {
   color: var(--ams-search-field-input-placeholder-color);
   opacity: 100%; // This resets the lower opacity set by Firefox
+}
+
+.ams-search-field__input:not(:disabled):invalid,
+.ams-search-field__input[aria-invalid="true"]:not(:disabled) {
+  border-color: var(--ams-search-field-input-invalid-border-color);
+}
+
+.ams-search-field__input:not(:disabled):hover {
+  box-shadow: var(--ams-search-field-input-hover-box-shadow);
+}
+
+.ams-search-field__input:not(:disabled):invalid:hover,
+.ams-search-field__input[aria-invalid="true"]:not(:disabled):hover {
+  border-color: var(--ams-search-field-input-invalid-hover-border-color);
+  box-shadow: var(--ams-search-field-input-invalid-hover-box-shadow);
 }
 
 .ams-search-field__input::-webkit-search-cancel-button {

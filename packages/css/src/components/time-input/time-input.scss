@@ -72,16 +72,17 @@
   visibility: visible;
 }
 
-.ams-time-input:invalid,
-.ams-time-input[aria-invalid="true"] {
+.ams-time-input:not(:disabled):invalid,
+.ams-time-input[aria-invalid="true"]:not(:disabled) {
   border-color: var(--ams-time-input-invalid-border-color);
-
-  &:hover {
-    border-color: var(--ams-time-input-invalid-hover-border-color);
-    box-shadow: var(--ams-time-input-invalid-hover-box-shadow);
-  }
 }
 
 .ams-time-input:not(:disabled):hover {
   box-shadow: var(--ams-time-input-hover-box-shadow);
+}
+
+.ams-time-input:not(:disabled):invalid:hover,
+.ams-time-input[aria-invalid="true"]:not(:disabled):hover {
+  border-color: var(--ams-time-input-invalid-hover-border-color);
+  box-shadow: var(--ams-time-input-invalid-hover-box-shadow);
 }
