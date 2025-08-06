@@ -70,7 +70,7 @@ export const FormPage = () => {
                 />
               </Field>
               <FieldSet legend="Woonplaats">
-                <Radio checked name="city" value="amsterdam">
+                <Radio name="city" value="amsterdam">
                   Amsterdam
                 </Radio>
                 <Radio name="city" value="weesp">
