@@ -8,10 +8,12 @@ Introduces a page section and describes the following content.
 
 - Headings help the user scan the structure of a page.
   They also introduce the content that follows them.
-- Users of screen readers often use headings to navigate the page.
-  That’s why it’s important to nest Headings correctly.
-  An incorrect hierarchy will confuse them.
+- Users of screen readers often depend on headings to navigate a page.
+  If the hierarchy is wrong, it can confuse them.
+  That’s why it’s crucial to arrange headings properly.
 - The `level` prop doesn’t have a default value; determine the correct level for each instance.
+  - Every page should contain one heading with level 1.
+  - Do not skip levels. For example, a level 2 Heading must be followed by one with level 3.
 - Use the `size` prop to make a Heading visually larger or smaller, but sparingly and consistently:
   - Headings in large sections have size 3 Headings by default – e.g. Accordion, Alert, Dialog and the caption of a Table.
     Most of them can be given a different size if appropriate.

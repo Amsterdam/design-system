@@ -9,7 +9,8 @@ Provides service information at the bottom of every page.
 - The Page Footer must be used on all websites and applications for the City of Amsterdam.
 - It must be the same on every page.
 - It usually consists of two sections: a full-width blue `PageFooter.Spotlight` and a `PageFooter.Menu` below it.
-- Use level 2 and size 4 for the [Heading](https://designsystem.amsterdam/?path=/docs/components-text-heading--docs) in the Spotlight area.
+- Set [the inverse colour](?path=/docs/brand-design-tokens-colour--docs#pairing-foreground-with-background-colours) on all text and links in the Spotlight area.
+- Use level 2 and size 4 for the [Headings](https://designsystem.amsterdam/?path=/docs/components-text-heading--docs).
   The Footer Menu has a visually hidden Heading at level 2.
 - A Page Footer containing only a `PageFooter.Menu` can be sufficient for applications.
 
