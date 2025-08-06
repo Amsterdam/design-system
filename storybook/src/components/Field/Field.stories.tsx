@@ -53,7 +53,7 @@ export const WithValidation: Story = {
       <Paragraph id="description2">
         Heeft uw naam een tussenvoegsel, zoals ‘van der’, schrijf die dan aan het begin.
       </Paragraph>
-      <ErrorMessage id="error">Dit veld is verplicht</ErrorMessage>
+      <ErrorMessage id="error">Vul uw achternaam in</ErrorMessage>
       <TextInput aria-describedby="description2 error" aria-required id="input3" invalid={args.invalid} value="" />
     </Field>
   ),
