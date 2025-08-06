@@ -1,0 +1,11 @@
+.badge {
+  --ams-badge-font-weight: normal;
+  border-radius: 5px;
+  white-space: nowrap;
+  background-color: color-mix(var(--ams-color-background), var(--ams-color-background-yellow), 0.1);
+  color: var(--ams-color-text-secondary);
+}
+
+.active {
+  background-color: var(--ams-color-background-yellow);
+}

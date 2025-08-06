@@ -1,0 +1,27 @@
+/* .ql {
+  align-self: stretch;
+
+  > * {
+    border-color: black !important;
+  }
+} */
+
+.formlayout {
+  max-inline-size: 80ch;
+}
+
+.select {
+  field-sizing: content;
+  inline-size: initial;
+}
+
+.name {
+  inline-size: 30ch;
+  max-inline-size: 100%;
+}
+
+.hr {
+  border-style: solid;
+  color: var(--ams-color-neutral-grey1);
+  margin-block-end: var(--ams-space-xl);
+}

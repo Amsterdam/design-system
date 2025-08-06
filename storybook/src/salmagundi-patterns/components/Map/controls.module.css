@@ -1,0 +1,10 @@
+.buttons {
+  bottom: var(--ams-space-m, 24px);
+  display: inline-flex;
+  flex-direction: column;
+  gap: var(--ams-space-s, 8px);
+  position: absolute;
+  right: var(--ams-space-m, 24px);
+  /* This z-index value should ideally come from an application constant that is greater than the Leaflet top z-index */
+  z-index: 400;
+}

@@ -1,0 +1,50 @@
+.quill {
+  align-self: stretch;
+
+  > * {
+    border-color: black !important;
+  }
+
+  .ql-editor {
+    min-height: 5em;
+  }
+}
+
+.ql-container,
+.rich-text p {
+  font-family: var(--ams-paragraph-font-family);
+  font-size: var(--ams-paragraph-font-size);
+  line-height: var(--ams-paragraph-line-height);
+}
+
+.ql-snow .ql-editor h1,
+.rich-text h1 {
+  font-size: var(--ams-heading-level-1-font-size);
+  line-height: var(--ams-heading-level-1-line-height);
+}
+
+.ql-snow .ql-editor h2,
+.rich-text h2 {
+  font-size: var(--ams-heading-level-2-font-size);
+  line-height: var(--ams-heading-level-2-line-height);
+}
+
+.ql-snow .ql-editor h3,
+.rich-text h3 {
+  font-size: var(--ams-heading-level-3-font-size);
+  line-height: var(--ams-heading-level-3-line-height);
+}
+
+.rich-text ul {
+  font-family: var(--ams-unordered-list-font-family);
+  font-size: var(--ams-unordered-list-font-size);
+  font-weight: var(--ams-unordered-list-font-weight);
+  line-height: var(--ams-unordered-list-line-height);
+}
+
+.rich-text ol {
+  font-family: var(--ams-ordered-list-font-family);
+  font-size: var(--ams-ordered-list-font-size);
+  font-weight: var(--ams-ordered-list-font-weight);
+  line-height: var(--ams-ordered-list-line-height);
+}

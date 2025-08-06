@@ -1,0 +1,55 @@
+.filter {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+
+  @media screen and (min-width: 36em) {
+    justify-content: space-between;
+    flex-direction: row;
+  }
+}
+
+.filters {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  gap: var(--ams-space-m);
+  margin-block-end: var(--ams-space-m);
+
+  input[type='search'] {
+    inline-size: initial;
+  }
+
+  select {
+    inline-size: 100%;
+  }
+
+  @media screen and (min-width: 36em) {
+    align-items: center;
+    flex-direction: row;
+    flex-wrap: nowrap;
+
+    input[type='search'] {
+      inline-size: initial;
+    }
+
+    select {
+      field-sizing: content;
+      inline-size: initial;
+    }
+
+    > *:not(.ams-checkbox) {
+      flex: 0 1 250px;
+    }
+  }
+}
+
+.actions {
+  flex: 1;
+  justify-content: flex-end;
+  display: flex;
+  gap: var(--ams-space-m);
+  align-items: center;
+  white-space: nowrap;
+  justify-self: flex-end;
+}

@@ -1,0 +1,80 @@
+export const Persons = [
+  {
+    id: 1,
+    name: 'Jan Jansen',
+    lastUpdate: '24-11-2024',
+    status: 1,
+  },
+  {
+    id: 2,
+    name: 'Piet Pietersen',
+    lastUpdate: '24-11-2024',
+    status: 3,
+  },
+  {
+    id: 3,
+    name: 'Klaas Klaassen',
+    lastUpdate: '24-11-2024',
+    status: 3,
+  },
+  {
+    id: 4,
+    name: 'Henk Hendriksen',
+    lastUpdate: '24-11-2024',
+    status: 0,
+  },
+  {
+    id: 5,
+    name: 'Gert Gertsen',
+    lastUpdate: '24-11-2024',
+    status: 0,
+  },
+  {
+    id: 6,
+    name: 'Kees Keesen',
+    lastUpdate: '24-11-2024',
+    status: 0,
+  },
+  {
+    id: 7,
+    name: 'Bert Bertsen',
+    lastUpdate: '24-11-2024',
+    status: 2,
+  },
+  {
+    id: 8,
+    name: 'Joris Jorissen',
+    lastUpdate: '24-11-2024',
+    status: 0,
+  },
+  {
+    id: 9,
+    name: 'Hans Hansen',
+    lastUpdate: '24-11-2024',
+    status: 0,
+  },
+  {
+    id: 10,
+    name: 'Bart Bartsen',
+    lastUpdate: '24-11-2024',
+    status: 0,
+  },
+  {
+    id: 11,
+    name: 'Pim Pimsen',
+    lastUpdate: '24-11-2024',
+    status: 0,
+  },
+  {
+    id: 12,
+    name: 'Jop Jopsen',
+    lastUpdate: '24-11-2024',
+    status: 0,
+  },
+  {
+    id: 13,
+    name: 'Jip Jipsen',
+    lastUpdate: '24-11-2024',
+    status: 0,
+  },
+]

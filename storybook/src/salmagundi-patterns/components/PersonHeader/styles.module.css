@@ -1,0 +1,29 @@
+.gegevens {
+  dt {
+    min-inline-size: 220px;
+  }
+
+  .wide {
+    grid-column: span 2;
+  }
+}
+
+.avatar {
+  inline-size: 134px;
+  block-size: 134px;
+}
+
+.meta {
+  font-family: var(--ams-typography-font-family);
+  font-size: var(--ams-typography-body-text-font-size);
+  line-height: var(--ams-typography-body-text-line-height);
+  display: flex;
+  gap: 1ex;
+  align-items: center;
+  text-wrap: balance;
+}
+
+.person_name {
+  display: flex;
+  gap: var(--ams-space-s);
+}
