@@ -44,17 +44,20 @@
 }
 
 .ams-select:not(:disabled):invalid,
-.ams-select[aria-invalid="true"]:not(:disabled) {
+.ams-select:not(:disabled)[aria-invalid="true"] {
   border-color: var(--ams-select-invalid-border-color);
 }
 
 .ams-select:not(:disabled):hover {
-  background-image: var(--ams-select-hover-background-image);
   box-shadow: var(--ams-select-hover-box-shadow);
+
+  &:not([multiple]) {
+    background-image: var(--ams-select-hover-background-image);
+  }
 }
 
 .ams-select:not(:disabled):invalid:hover,
-.ams-select[aria-invalid="true"]:not(:disabled):hover {
+.ams-select:not(:disabled)[aria-invalid="true"]:hover {
   border-color: var(--ams-select-invalid-hover-border-color);
   box-shadow: var(--ams-select-invalid-hover-box-shadow);
 }

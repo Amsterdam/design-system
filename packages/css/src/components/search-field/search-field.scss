@@ -48,7 +48,7 @@
 }
 
 .ams-search-field__input:not(:disabled):invalid,
-.ams-search-field__input[aria-invalid="true"]:not(:disabled) {
+.ams-search-field__input:not(:disabled)[aria-invalid="true"] {
   border-color: var(--ams-search-field-input-invalid-border-color);
 }
 
@@ -57,7 +57,7 @@
 }
 
 .ams-search-field__input:not(:disabled):invalid:hover,
-.ams-search-field__input[aria-invalid="true"]:not(:disabled):hover {
+.ams-search-field__input:not(:disabled)[aria-invalid="true"]:hover {
   border-color: var(--ams-search-field-input-invalid-hover-border-color);
   box-shadow: var(--ams-search-field-input-invalid-hover-box-shadow);
 }

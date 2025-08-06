@@ -46,7 +46,7 @@
 }
 
 .ams-text-area:not(:disabled):invalid,
-.ams-text-area[aria-invalid="true"]:not(:disabled) {
+.ams-text-area:not(:disabled)[aria-invalid="true"] {
   border-color: var(--ams-text-area-invalid-border-color);
 }
 
@@ -55,7 +55,7 @@
 }
 
 .ams-text-area:not(:disabled):invalid:hover,
-.ams-text-area[aria-invalid="true"]:not(:disabled):hover {
+.ams-text-area:not(:disabled)[aria-invalid="true"]:hover {
   border-color: var(--ams-text-area-invalid-hover-border-color);
   box-shadow: var(--ams-text-area-invalid-hover-box-shadow);
 }

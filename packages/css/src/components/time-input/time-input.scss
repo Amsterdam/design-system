@@ -73,7 +73,7 @@
 }
 
 .ams-time-input:not(:disabled):invalid,
-.ams-time-input[aria-invalid="true"]:not(:disabled) {
+.ams-time-input:not(:disabled)[aria-invalid="true"] {
   border-color: var(--ams-time-input-invalid-border-color);
 }
 
@@ -82,7 +82,7 @@
 }
 
 .ams-time-input:not(:disabled):invalid:hover,
-.ams-time-input[aria-invalid="true"]:not(:disabled):hover {
+.ams-time-input:not(:disabled)[aria-invalid="true"]:hover {
   border-color: var(--ams-time-input-invalid-hover-border-color);
   box-shadow: var(--ams-time-input-invalid-hover-box-shadow);
 }
