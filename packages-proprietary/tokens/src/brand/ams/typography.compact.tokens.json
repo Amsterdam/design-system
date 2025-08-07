@@ -4,37 +4,37 @@
       "body-text": {
         "font-size": { "value": "1rem" },
         "small": {
-          "font-size": { "value": "0.875rem" }
+          "font-size": { "value": "clamp(0.8889rem, calc(0.9141rem + -0.0253vw), 0.9091rem)" }
         },
         "large": {
-          "font-size": { "value": "clamp(1.167rem, 1.1576rem + 0.0471vw, 1.2rem)" }
+          "font-size": { "value": "clamp(1.1rem, calc(1.0938rem + 0.0313vw), 1.125rem)" }
         },
         "x-large": {
-          "font-size": { "value": "clamp(1.3619rem, 1.3396rem + 0.1116vw, 1.44rem)" }
+          "font-size": { "value": "clamp(1.21rem, calc(1.1961rem + 0.0695vw), 1.2656rem)" }
         }
       },
       "heading": {
         "0": {
-          "font-size": { "value": "clamp(2.1645rem, 2.072rem + 0.4626vw, 2.4883rem)" }
+          "font-size": { "value": "clamp(1.6105rem, calc(1.5626rem + 0.2394vw), 1.802rem)" }
         },
         "1": {
-          "font-size": { "value": "clamp(1.8547rem, 1.7922rem + 0.3127vw, 2.0736rem)" }
+          "font-size": { "value": "clamp(1.4641rem, calc(1.4297rem + 0.1721vw), 1.6018rem)" }
         },
         "2": {
-          "font-size": { "value": "clamp(1.5893rem, 1.5497rem + 0.1981vw, 1.728rem)" },
-          "line-height": { "value": "1.2" }
+          "font-size": { "value": "clamp(1.331rem, calc(1.3078rem + 0.116vw), 1.4238rem)" },
+          "line-height": { "value": "1.2133" }
         },
         "3": {
-          "font-size": { "value": "{ams.typography.body-text.x-large.font-size}" }
+          "font-size": { "value": "clamp(1.21rem, calc(1.1961rem + 0.0695vw), 1.2656rem)" }
         },
         "4": {
-          "font-size": { "value": "{ams.typography.body-text.large.font-size}" }
+          "font-size": { "value": "clamp(1.1rem, calc(1.0938rem + 0.0313vw), 1.125rem)" }
         },
         "5": {
-          "font-size": { "value": "{ams.typography.body-text.font-size}" }
+          "font-size": { "value": "1rem" }
         },
         "6": {
-          "font-size": { "value": "{ams.typography.body-text.small.font-size}" }
+          "font-size": { "value": "clamp(0.8889rem, calc(0.9141rem + -0.0253vw), 0.9091rem)" }
         }
       }
     }
