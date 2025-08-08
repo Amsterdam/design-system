@@ -1,0 +1,6 @@
+import{j as e,P as s}from"./iframe-OipBFy8q.js";/**
+ * @license EUPL-1.2+
+ * Copyright Gemeente Amsterdam
+ */const t=r=>e.jsx("span",{...r});try{t.displayName="Gap",t.__docgenInfo={description:"Mock component to render examples in Storybook. Not for reuse.",displayName:"Gap",props:{size:{defaultValue:null,description:"The amount of space between the element’s children.",name:"size",required:!0,type:{name:"enum",value:[{value:'"xs"'},{value:'"s"'},{value:'"m"'},{value:'"l"'},{value:'"xl"'}]}}}}}catch{}const o=({size:r})=>e.jsxs("div",{className:`ams-gap-${r}`,children:[e.jsx(s,{children:"These paragraphs are separated by a gap."}),e.jsx(s,{children:"These paragraphs are separated by a gap."}),e.jsx(s,{children:"These paragraphs are separated by a gap."})]}),l={title:"Utilities/CSS/Gap",component:t,args:{size:"xs"},argTypes:{size:{control:{labels:{xs:"x-small",s:"small",m:"medium",l:"large",xl:"x-large"},type:"radio"}}}},a={render:o};a.parameters={...a.parameters,docs:{...a.parameters?.docs,source:{originalSource:`{
+  render
+}`,...a.parameters?.docs?.source}}};const p=["Default"],c=Object.freeze(Object.defineProperty({__proto__:null,Default:a,__namedExportsOrder:p,default:l},Symbol.toStringTag,{value:"Module"}));export{c as G};
