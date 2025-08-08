@@ -4,15 +4,22 @@
  */
 
 import { Meta, StoryObj } from '@storybook/react-vite'
-import { FormPage } from './FormPage'
-import { commonMeta } from '../common/config'
+import { LandingPage } from './LandingPage'
+import { WithOneQuestion } from './WithOneQuestion'
 
 const meta = {
-  ...commonMeta,
   title: 'Pages/Amsterdam.nl/Form Page',
-  component: FormPage,
-} satisfies Meta<typeof FormPage>
+  component: LandingPage,
+  parameters: {
+    layout: 'fullscreen',
+    themes: { themeOverride: 'Spacious' },
+  },
+} satisfies Meta<typeof LandingPage>
 
 export default meta
 
 export const Default: StoryObj = {}
+
+export const WithOneQuestionPage: StoryObj = {
+  render: () => <WithOneQuestion />,
+}
