@@ -1,1 +1,0 @@
-import{j as e}from"./iframe-OipBFy8q.js";import{L as r}from"./Layout-2v8r2cH8.js";const a={decorators:[o=>e.jsx(r,{children:e.jsx(o,{})})],parameters:{layout:"fullscreen",themes:{themeOverride:"Spacious"}}};export{a as c};
