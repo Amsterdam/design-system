@@ -37,7 +37,7 @@ export const WithMultipleQuestions = () => {
             </Heading>
             <Paragraph>Stap 2 van 3: Uw gegevens</Paragraph>
           </header>
-          <Heading className="ams-mb-l" level={1}>
+          <Heading className="ams-mb-m" level={1} size="level-3">
             Contactgegevens
           </Heading>
           <form noValidate onSubmit={(e) => e.preventDefault()}>
