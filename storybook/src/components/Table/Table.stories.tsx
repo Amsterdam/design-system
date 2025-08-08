@@ -3,6 +3,7 @@
  * Copyright Gemeente Amsterdam
  */
 
+import { Heading } from '@amsterdam/design-system-react'
 import { Table } from '@amsterdam/design-system-react/src'
 import { Meta, StoryObj } from '@storybook/react-vite'
 
@@ -18,7 +19,9 @@ type Story = StoryObj<typeof meta>
 export const Default: Story = {
   args: {
     children: [
-      <Table.Caption key="caption">Kosten en levertijd</Table.Caption>,
+      <Table.Caption key="caption">
+        <Heading level={4}>Kosten voor de aanvraag</Heading>
+      </Table.Caption>,
       <Table.Header key="header">
         <Table.Row>
           <Table.HeaderCell>Type</Table.HeaderCell>
@@ -51,7 +54,9 @@ export const Default: Story = {
 export const WithFooterAndRowHeaders: Story = {
   args: {
     children: [
-      <Table.Caption key="caption">Kosten en tijd</Table.Caption>,
+      <Table.Caption key="caption">
+        <Heading level={4}>Verwachte kosten per week</Heading>
+      </Table.Caption>,
       <Table.Header key="header">
         <Table.Row>
           <Table.HeaderCell>Tijd</Table.HeaderCell>

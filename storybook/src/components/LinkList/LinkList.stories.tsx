@@ -3,6 +3,7 @@
  * Copyright Gemeente Amsterdam
  */
 
+import { Heading } from '@amsterdam/design-system-react'
 import { LinkList } from '@amsterdam/design-system-react/src'
 import { HouseIcon, PhoneIcon, SpeechBalloonEllipsisIcon } from '@amsterdam/design-system-react-icons'
 import * as Icons from '@amsterdam/design-system-react-icons'
@@ -79,6 +80,17 @@ export const Default: Story = {
   ...StoryTemplate,
 }
 
+export const WithHeading: Story = {
+  ...StoryTemplate,
+  render: ({ children, ...args }) => (
+    <>
+      <Heading className="ams-mb-s" level={3} size="level-4">
+        Adres en inschrijving
+      </Heading>
+      <LinkList {...args}>{children}</LinkList>
+    </>
+  ),
+}
 export const CustomIcons: Story = {
   ...StoryTemplate,
   args: {
