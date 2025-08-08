@@ -2,7 +2,7 @@
   "ams": {
     "border": {
       "width": {
-        "s": { "value": "0.03125rem" },
+        "s": { "value": "0.0625rem" },
         "m": { "value": "0.0625rem" },
         "l": { "value": "0.125rem" },
         "xl": { "value": "0.1875rem" }
