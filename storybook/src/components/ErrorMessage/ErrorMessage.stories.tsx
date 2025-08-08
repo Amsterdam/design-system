@@ -35,6 +35,6 @@ export const CustomPrefix: Story = {
 
 export const WithCustomIcon: Story = {
   args: {
-    icon: MegaphoneIcon,
+    icon: <MegaphoneIcon />,
   },
 }

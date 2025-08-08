@@ -9,8 +9,11 @@ import type { ForwardedRef, InputHTMLAttributes, PropsWithChildren, ReactNode } 
 import CheckboxIcon from './CheckboxIcon'
 
 export type CheckboxProps = {
-  /** An icon to display instead of the default icon. */
-  icon?: ReactNode
+  /**
+   * An icon to display instead of the default icon.
+   * @default CheckboxIcon
+   */
+  icon?: Function | ReactNode
   /** Allows being neither checked nor unchecked. */
   indeterminate?: boolean
   /** Whether the value fails a validation rule. */
@@ -22,7 +25,7 @@ export type CheckboxProps = {
  */
 export const Checkbox = forwardRef(
   (
-    { children, className, icon, id, indeterminate, invalid, ...restProps }: CheckboxProps,
+    { children, className, icon = CheckboxIcon, id, indeterminate, invalid, ...restProps }: CheckboxProps,
     ref: ForwardedRef<HTMLInputElement>,
   ) => {
     const inputId = id || useId()
@@ -53,7 +56,7 @@ export const Checkbox = forwardRef(
         <label className="ams-checkbox__label" htmlFor={inputId}>
           {/* The icon is only shown when the CSS loads, so we hide it by default. */}
           <span className="ams-checkbox__icon-container" hidden>
-            {icon ?? <CheckboxIcon />}
+            {typeof icon === 'function' ? icon() : icon}
           </span>
           {children}
         </label>

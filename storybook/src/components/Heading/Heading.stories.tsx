@@ -103,7 +103,7 @@ export const WithIcon: Story = {
 
     return (
       <Row gap="small">
-        <Icon color={args.color} size={iconSize as IconProps['size']} svg={MailIcon} />
+        <Icon color={args.color} size={iconSize as IconProps['size']} svg={<MailIcon />} />
         <Heading {...args}>{children}</Heading>
       </Row>
     )
