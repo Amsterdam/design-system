@@ -39,7 +39,7 @@ describe('Standalone Link', () => {
   })
 
   it('renders a custom icon', () => {
-    const { container } = render(<StandaloneLink icon={<TestIcon />} />)
+    const { container } = render(<StandaloneLink icon={TestIcon} />)
 
     const icon = container.querySelector('svg')
 

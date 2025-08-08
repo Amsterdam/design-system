@@ -33,7 +33,7 @@ export const ImageSliderControls = forwardRef(
           className="ams-image-slider__control ams-image-slider__control--previous"
           color="inverse"
           disabled={isAtStart}
-          icon={<ChevronBackwardIcon />}
+          icon={ChevronBackwardIcon}
           iconOnly
           onClick={handleClickPrevious}
         >
@@ -43,7 +43,7 @@ export const ImageSliderControls = forwardRef(
           className="ams-image-slider__control ams-image-slider__control--next"
           color="inverse"
           disabled={isAtEnd}
-          icon={<ChevronForwardIcon />}
+          icon={ChevronForwardIcon}
           iconOnly
           onClick={handleClickNext}
         >

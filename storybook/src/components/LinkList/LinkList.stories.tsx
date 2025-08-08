@@ -4,12 +4,7 @@
  */
 
 import { LinkList } from '@amsterdam/design-system-react/src'
-import {
-  ChevronForwardIcon,
-  HouseIcon,
-  PhoneIcon,
-  SpeechBalloonEllipsisIcon,
-} from '@amsterdam/design-system-react-icons'
+import { HouseIcon, PhoneIcon, SpeechBalloonEllipsisIcon } from '@amsterdam/design-system-react-icons'
 import * as Icons from '@amsterdam/design-system-react-icons'
 import { Meta, StoryObj } from '@storybook/react-vite'
 import { exampleLinkList } from '../shared/exampleContent'
@@ -45,7 +40,6 @@ const LinkStoryTemplate: LinkStory = {
   args: {
     children: linkList[0],
     href: '#',
-    icon: <ChevronForwardIcon />,
   },
   argTypes: {
     color: {

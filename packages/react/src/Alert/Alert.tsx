@@ -6,7 +6,7 @@
 import { ErrorFillIcon, InfoFillIcon, SuccessFillIcon, WarningFillIcon } from '@amsterdam/design-system-react-icons'
 import clsx from 'clsx'
 import { forwardRef } from 'react'
-import type { ForwardedRef, HTMLAttributes, PropsWithChildren, ReactNode, SVGProps } from 'react'
+import type { ForwardedRef, HTMLAttributes, PropsWithChildren } from 'react'
 import { Heading } from '../Heading'
 import type { HeadingProps } from '../Heading'
 import { Icon } from '../Icon'
@@ -14,7 +14,6 @@ import { IconButton } from '../IconButton'
 import { Row } from '../Row'
 
 type Severity = 'error' | 'success' | 'warning'
-type SVGComponent = (props: SVGProps<SVGSVGElement>) => ReactNode
 
 export type AlertProps = {
   /** Whether the user can dismiss the Alert. Adds a button to its top right. */
@@ -41,7 +40,7 @@ export type AlertProps = {
   severity?: Severity
 } & PropsWithChildren<HTMLAttributes<HTMLDivElement>>
 
-const iconSvgBySeverity: Record<Severity, SVGComponent> = {
+const iconSvgBySeverity: Record<Severity, Function> = {
   error: ErrorFillIcon,
   success: SuccessFillIcon,
   warning: WarningFillIcon,
@@ -66,7 +65,7 @@ export const Alert = forwardRef(
     }: AlertProps,
     ref: ForwardedRef<HTMLDivElement>,
   ) => {
-    const SeverityIcon: SVGComponent = severity ? iconSvgBySeverity[severity] : InfoFillIcon
+    const SeverityIcon = severity ? iconSvgBySeverity[severity] : InfoFillIcon
 
     return (
       <section
@@ -76,7 +75,7 @@ export const Alert = forwardRef(
         ref={ref}
       >
         <div className="ams-alert__severity-indicator">
-          <Icon color="inverse" size="heading-4" svg={<SeverityIcon />} />
+          <Icon color="inverse" size="heading-4" svg={SeverityIcon} />
         </div>
         <div className="ams-alert__content">
           <Row align="between" alignVertical="start">

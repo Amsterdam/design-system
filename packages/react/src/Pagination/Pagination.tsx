@@ -112,7 +112,7 @@ export const Pagination = forwardRef(
         </span>
         {page !== 1 && (
           <Link className="ams-pagination__link" href={linkTemplate(page - 1)} rel="prev">
-            <Icon svg={<ChevronBackwardIcon />} />
+            <Icon svg={ChevronBackwardIcon} />
             <span className="ams-visually-hidden">
               {previousAccessibleName || previousVisuallyHiddenLabel || 'Vorige pagina'}
             </span>
@@ -140,7 +140,7 @@ export const Pagination = forwardRef(
               {nextAccessibleName || nextVisuallyHiddenLabel || 'Volgende pagina'}
             </span>
             <span aria-hidden>{nextLabel}</span>
-            <Icon svg={<ChevronForwardIcon />} />
+            <Icon svg={ChevronForwardIcon} />
           </Link>
         )}
       </nav>
