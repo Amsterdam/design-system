@@ -14,9 +14,25 @@ We use a limited set of border widths for consistency.
 
 ## Tokens
 
-| CSS variable                 |     Value | Value (px) | Example                                                                                                             |
-| :--------------------------- | --------: | :--------: | :------------------------------------------------------------------------------------------------------------------ |
-| `var(--ams-border-width-s)`  | 0.0625rem |     1      | <div className="ams-docs-token-example--border" style={{ borderInlineStartWidth: 'var(--ams-border-width-s)' }} />  |
-| `var(--ams-border-width-m)`  |  0.125rem |     2      | <div className="ams-docs-token-example--border" style={{ borderInlineStartWidth: 'var(--ams-border-width-m)' }} />  |
-| `var(--ams-border-width-l)`  | 0.1875rem |     3      | <div className="ams-docs-token-example--border" style={{ borderInlineStartWidth: 'var(--ams-border-width-l)' }} />  |
-| `var(--ams-border-width-xl)` |   0.25rem |     4      | <div className="ams-docs-token-example--border" style={{ borderInlineStartWidth: 'var(--ams-border-width-xl)' }} /> |
+### Spacious mode
+
+The default border is 2 pixels thick.
+One thinner and two thicker options are available.
+
+| CSS variable                 |     Value | Value (px) | Example                                                                                      |
+| :--------------------------- | --------: | :--------: | :------------------------------------------------------------------------------------------- |
+| `var(--ams-border-width-s)`  | 0.0625rem |     1      | <div className="ams-docs-token-example--border" style={{ borderInlineStartWidth: '1px' }} /> |
+| `var(--ams-border-width-m)`  |  0.125rem |     2      | <div className="ams-docs-token-example--border" style={{ borderInlineStartWidth: '2px' }} /> |
+| `var(--ams-border-width-l)`  | 0.1875rem |     3      | <div className="ams-docs-token-example--border" style={{ borderInlineStartWidth: '3px' }} /> |
+| `var(--ams-border-width-xl)` |   0.25rem |     4      | <div className="ams-docs-token-example--border" style={{ borderInlineStartWidth: '4px' }} /> |
+
+### Compact mode
+
+All borders are a pixel thinner in Compact Mode, except for the small width.
+
+| CSS variable                 |     Value | Value (px) | Example                                                                                      |
+| :--------------------------- | --------: | :--------: | :------------------------------------------------------------------------------------------- |
+| `var(--ams-border-width-s)`  | 0.0625rem |     1      | <div className="ams-docs-token-example--border" style={{ borderInlineStartWidth: '1px' }} /> |
+| `var(--ams-border-width-m)`  | 0.0625rem |     1      | <div className="ams-docs-token-example--border" style={{ borderInlineStartWidth: '1px' }} /> |
+| `var(--ams-border-width-l)`  |  0.125rem |     2      | <div className="ams-docs-token-example--border" style={{ borderInlineStartWidth: '2px' }} /> |
+| `var(--ams-border-width-xl)` | 0.1875rem |     3      | <div className="ams-docs-token-example--border" style={{ borderInlineStartWidth: '3px' }} /> |
