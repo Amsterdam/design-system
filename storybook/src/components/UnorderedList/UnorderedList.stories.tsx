@@ -65,7 +65,9 @@ export const WithoutMarkers: Story = {
     children: [
       <UnorderedList.Item key={1}>
         <Card>
-          <Card.Heading level={2}>Weg met steen, hallo extra groen en koelte</Card.Heading>
+          <Card.Heading level={2}>
+            <Card.Link href="#">Weg met steen, hallo extra groen en koelte</Card.Link>
+          </Card.Heading>
           <Paragraph>
             Sinds 2021 kwamen er maar liefst 60 nieuwe groene plekken bij in de stad. Groen is fijn en het verkoelt de
             stad in de zomer. Een paar voorbeelden.
@@ -75,7 +77,9 @@ export const WithoutMarkers: Story = {
       </UnorderedList.Item>,
       <UnorderedList.Item key={2}>
         <Card>
-          <Card.Heading level={2}>Amsterdam bindt de strijd aan met lawaaierige voertuigen</Card.Heading>
+          <Card.Heading level={2}>
+            <Card.Link href="#">Amsterdam bindt de strijd aan met lawaaierige voertuigen</Card.Link>
+          </Card.Heading>
           <Paragraph>
             Deze zomer testen we of digitale borden langs de weg kunnen helpen om geluidsoverlast van voertuigen zoals
             motoren en auto’s tegen te gaan.
@@ -85,7 +89,9 @@ export const WithoutMarkers: Story = {
       </UnorderedList.Item>,
       <UnorderedList.Item key={3}>
         <Card>
-          <Card.Heading level={2}>Een prachtroute door de wonderlijke Baarsjes</Card.Heading>
+          <Card.Heading level={2}>
+            <Card.Link href="#">Een prachtroute door de wonderlijke Baarsjes</Card.Link>
+          </Card.Heading>
           <Paragraph>
             In de Baarsjes zijn kunst en cultuur met elkaar vervlochten. We zetten een prachtige wandelroute voor u uit
             en laten zien hoe het was en hoe het nu is.
