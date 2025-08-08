@@ -10,17 +10,18 @@ export const LandingPage = () => {
   return (
     <Layout>
       <Grid as="main" className="ams-mb-2xl" paddingTop="large">
-        <Grid.Cell span={{ narrow: 4, medium: 6, wide: 6 }} start={{ narrow: 1, medium: 2, wide: 3 }}>
-          <Heading className="ams-mb-s" level={1}>
+        <Grid.Cell span={{ narrow: 4, medium: 5, wide: 7 }} start={{ narrow: 1, medium: 2, wide: 3 }}>
+          <Heading className="ams-mb-xl" level={1}>
             Waar u dit formulier voor gebruikt
           </Heading>
-          <Paragraph className="ams-mb-l">
+          <Paragraph className="ams-mb-xl" size="large">
             Met dit formulier maakt u een afspraak bij een Stadsloket in Amsterdam of Weesp.
           </Paragraph>
-          <Heading className="ams-mb-s" level={2}>
+
+          <Heading className="ams-mb-s" level={2} size="level-3">
             De stappen in dit formulier
           </Heading>
-          <OrderedList className="ams-mb-l">
+          <OrderedList className="ams-mb-xl">
             <OrderedList.Item>
               <strong>Afspraak</strong> - Kies waarvoor u een afspraak wilt maken. Kies ook waar u de afspraak wilt
               hebben. En wanneer.
