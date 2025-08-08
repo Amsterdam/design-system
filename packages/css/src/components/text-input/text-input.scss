@@ -37,9 +37,14 @@
   inline-size: 100%;
 }
 
+@mixin reset-placeholder {
+  opacity: 100%; // Reset lower opacity set by Firefox
+}
+
 .ams-text-input::placeholder {
   color: var(--ams-text-input-placeholder-color);
-  opacity: 100%; // This resets the lower opacity set by Firefox
+
+  @include reset-placeholder;
 }
 
 .ams-text-input:disabled {
@@ -47,16 +52,17 @@
   cursor: var(--ams-text-input-disabled-cursor);
 }
 
-.ams-text-input:invalid,
-.ams-text-input[aria-invalid="true"] {
+.ams-text-input:not(:disabled):invalid,
+.ams-text-input:not(:disabled)[aria-invalid="true"] {
   border-color: var(--ams-text-input-invalid-border-color);
-
-  &:hover {
-    border-color: var(--ams-text-input-invalid-hover-border-color);
-    box-shadow: var(--ams-text-input-invalid-hover-box-shadow);
-  }
 }
 
 .ams-text-input:not(:disabled):hover {
   box-shadow: var(--ams-text-input-hover-box-shadow);
+}
+
+.ams-text-input:not(:disabled):invalid:hover,
+.ams-text-input:not(:disabled)[aria-invalid="true"]:hover {
+  border-color: var(--ams-text-input-invalid-hover-border-color);
+  box-shadow: var(--ams-text-input-invalid-hover-box-shadow);
 }
