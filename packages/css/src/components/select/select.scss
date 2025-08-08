@@ -37,10 +37,10 @@
 .ams-select:disabled {
   color: var(--ams-select-disabled-color);
   cursor: var(--ams-select-disabled-cursor);
-}
 
-.ams-select:disabled:not([multiple]) {
-  background-image: var(--ams-select-disabled-background-image);
+  &:not([multiple]) {
+    background-image: var(--ams-select-disabled-background-image);
+  }
 }
 
 .ams-select:not(:disabled):invalid,
