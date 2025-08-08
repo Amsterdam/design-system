@@ -26,13 +26,13 @@ export type AlertProps = {
    * The id of the Heading element, which is used to label the Alert.
    * Can be set to `null` to explicitly remove the label.
    * Note: must be unique for the page.
-   **/
+   */
   headingId?: string | null
   /**
    * The hierarchical level of the Alert’s Heading within the document.
    * There is no default value; determine the correct level for each instance.
    * The size of the heading is fixed at level 3.
-   **/
+   */
   headingLevel: HeadingProps['level']
   /** A function to run when dismissing. */
   onClose?: () => void
