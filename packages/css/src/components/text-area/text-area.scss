@@ -35,9 +35,14 @@
   @include reset-textarea;
 }
 
+@mixin reset-placeholder {
+  opacity: 100%; // Reset lower opacity set by Firefox
+}
+
 .ams-text-area::placeholder {
   color: var(--ams-text-area-placeholder-color);
-  opacity: 100%; // This resets the lower opacity set by Firefox
+
+  @include reset-placeholder;
 }
 
 .ams-text-area:disabled {

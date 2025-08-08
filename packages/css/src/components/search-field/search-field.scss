@@ -42,9 +42,12 @@
   }
 }
 
+@mixin reset-placeholder {
+  opacity: 100%; // Reset lower opacity set by Firefox
+}
+
 .ams-search-field__input::placeholder {
   color: var(--ams-search-field-input-placeholder-color);
-  opacity: 100%; // This resets the lower opacity set by Firefox
 }
 
 .ams-search-field__input:not(:disabled):invalid,
