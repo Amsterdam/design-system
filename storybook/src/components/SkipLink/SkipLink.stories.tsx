@@ -52,8 +52,8 @@ export const OnFocus: Story = {
   decorators: [
     (Story) => (
       <>
-        <Paragraph size="small" style={{ marginBottom: '2rem' }}>
-          Klik op deze tekst en druk vervolgens op tab om de Skip Link te tonen.
+        <Paragraph style={{ marginBottom: '2rem' }}>
+          (Click this text, then press the ‘Tab’ key to make the Skip Link appear.)
         </Paragraph>
         <Story />
       </>
@@ -64,8 +64,8 @@ export const OnFocus: Story = {
 export const MultipleLinks: Story = {
   render: () => (
     <>
-      <Paragraph size="small" style={{ marginBottom: '2rem' }}>
-        Klik op deze tekst en druk vervolgens twee keer op tab om de Skip Links te tonen.
+      <Paragraph style={{ marginBottom: '2rem' }}>
+        (Click this text, then press the ‘Tab’ key twice to make the Skip Links appear.)
       </Paragraph>
       <SkipLink href="#">Direct naar inhoud</SkipLink>
       <SkipLink href="#">Direct naar contactgegevens</SkipLink>

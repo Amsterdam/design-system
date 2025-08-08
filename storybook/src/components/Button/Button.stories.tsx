@@ -4,6 +4,7 @@
  */
 
 import { Button } from '@amsterdam/design-system-react/src'
+import { CloseIcon } from '@amsterdam/design-system-react-icons'
 import * as Icons from '@amsterdam/design-system-react-icons'
 import { Meta, StoryObj } from '@storybook/react-vite'
 
@@ -72,14 +73,14 @@ export const Tertiary: Story = {
 export const WithIcon: Story = {
   args: {
     children: 'Sluiten',
-    icon: Icons.CloseIcon,
+    icon: <CloseIcon />,
   },
 }
 
 export const WithIconBefore: Story = {
   args: {
     children: 'Sluiten',
-    icon: Icons.CloseIcon,
+    icon: <CloseIcon />,
     iconBefore: true,
   },
 }
@@ -87,7 +88,7 @@ export const WithIconBefore: Story = {
 export const WithIconOnly: Story = {
   args: {
     children: 'Sluiten',
-    icon: Icons.CloseIcon,
+    icon: <CloseIcon />,
     iconOnly: true,
     variant: 'tertiary',
   },

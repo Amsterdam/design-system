@@ -5,7 +5,7 @@
 
 import { Heading, Paragraph } from '@amsterdam/design-system-react'
 import { StandaloneLink } from '@amsterdam/design-system-react/src'
-import { ChevronForwardIcon, DownloadIcon } from '@amsterdam/design-system-react-icons'
+import { DownloadIcon } from '@amsterdam/design-system-react-icons'
 import * as Icons from '@amsterdam/design-system-react-icons'
 import { Meta, StoryObj } from '@storybook/react-vite'
 
@@ -70,7 +70,6 @@ export const InverseColour: Story = {
 export const WithHeadingAndParagraph: Story = {
   args: {
     children: 'Bekijk alle werkzaamheden',
-    icon: ChevronForwardIcon,
   },
   decorators: [
     (Story) => (
@@ -91,6 +90,6 @@ export const WithHeadingAndParagraph: Story = {
 export const WithCustomIcon: Story = {
   args: {
     children: 'Downloaden',
-    icon: DownloadIcon,
+    icon: <DownloadIcon />,
   },
 }
