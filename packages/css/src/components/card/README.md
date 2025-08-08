@@ -14,7 +14,7 @@ A brief section of a heading, some text, and optionally an image, that leads to 
 - Use the Card Heading, Card Heading Group and Card Image subcomponents.
   They apply the correct spacing.
 - Card Heading requires a `level`, because there is no sensible default.
-  The size of the heading is fixed at level 4.
+  Visually, it always has the size of a level 3 Heading.
 - Place the text in a regular [Paragraph](/docs/components-text-paragraph--docs).
   Use a small Paragraph for a publication date.
 - This component is not the best option if the target content does not represent an article-like page.
