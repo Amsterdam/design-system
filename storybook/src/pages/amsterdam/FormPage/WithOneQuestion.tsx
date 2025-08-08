@@ -3,19 +3,9 @@
  * Copyright Gemeente Amsterdam
  */
 
-import {
-  Button,
-  Column,
-  Grid,
-  Heading,
-  Link,
-  Page,
-  PageFooter,
-  PageHeader,
-  Paragraph,
-  Radio,
-} from '@amsterdam/design-system-react'
+import { Button, Column, Grid, Heading, Page, PageHeader, Paragraph, Radio } from '@amsterdam/design-system-react'
 import { FieldSetWithHeading } from './components/FieldSetWithHeading'
+import { FormFooter } from './components/FormFooter'
 
 export const WithOneQuestion = () => {
   return (
@@ -29,7 +19,7 @@ export const WithOneQuestion = () => {
             </Heading>
             <Paragraph>Stap 1 van 3: Afspraak</Paragraph>
           </header>
-          <form className="ams-mb-l" onSubmit={(e) => e.preventDefault()}>
+          <form noValidate onSubmit={(e) => e.preventDefault()}>
             <FieldSetWithHeading
               aria-required="true"
               className="ams-mb-l"
@@ -52,36 +42,7 @@ export const WithOneQuestion = () => {
           </form>
         </Grid.Cell>
       </Grid>
-      <PageFooter>
-        <PageFooter.Spotlight>
-          <Grid paddingVertical="x-large">
-            <Grid.Cell span={4}>
-              <Column gap="small">
-                <Heading color="inverse" level={2} size="level-4">
-                  Contact
-                </Heading>
-                <Paragraph color="inverse">Lukt het niet om een afspraak te maken?</Paragraph>
-                <Paragraph color="inverse">
-                  Bel het telefoonnummer{' '}
-                  <Link color="inverse" href="tel:14020">
-                    14 020
-                  </Link>
-                  .
-                </Paragraph>
-                <Paragraph color="inverse">Maandag tot en met vrijdag van 08.00 tot 18.00 uur.</Paragraph>
-              </Column>
-            </Grid.Cell>
-          </Grid>
-        </PageFooter.Spotlight>
-        <Heading className="ams-visually-hidden" level={2}>
-          Over deze website
-        </Heading>
-        <PageFooter.Menu>
-          <PageFooter.MenuLink href="#">Over deze site</PageFooter.MenuLink>
-          <PageFooter.MenuLink href="#">Privacy</PageFooter.MenuLink>
-          <PageFooter.MenuLink href="#">Cookies op deze site</PageFooter.MenuLink>
-        </PageFooter.Menu>
-      </PageFooter>
+      <FormFooter />
     </Page>
   )
 }

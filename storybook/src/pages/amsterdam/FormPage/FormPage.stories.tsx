@@ -5,6 +5,7 @@
 
 import { Meta, StoryObj } from '@storybook/react-vite'
 import { LandingPage } from './LandingPage'
+import { WithMultipleQuestions } from './WithMultipleQuestions'
 import { WithOneQuestion } from './WithOneQuestion'
 
 const meta = {
@@ -22,4 +23,8 @@ export const Default: StoryObj = {}
 
 export const WithOneQuestionPage: StoryObj = {
   render: () => <WithOneQuestion />,
+}
+
+export const WithMultipleQuestionsPage: StoryObj = {
+  render: () => <WithMultipleQuestions />,
 }
