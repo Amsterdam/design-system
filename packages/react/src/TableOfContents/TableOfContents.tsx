@@ -16,7 +16,7 @@ export type TableOfContentsProps = {
   heading?: string
   /**
    * The hierarchical level of the Heading within the document.
-   * Visually, it always has the size of a level 3 Heading.
+   * Visually, it always has the size of a level 4 Heading.
    */
   headingLevel?: HeadingProps['level']
 } & PropsWithChildren<HTMLAttributes<HTMLElement>>
