@@ -68,7 +68,7 @@ export const Default: StoryObj = {
           </Breadcrumb>
         </Grid.Cell>
       </Grid>,
-      <Grid as="main" gapVertical="large" id="main" paddingBottom="large">
+      <Grid as="main" id="main" paddingBottom="x-large">
         <Grid.Cell span={{ narrow: 4, medium: 6, wide: 7 }}>
           <PageHeading className="ams-mb-m">Burgerzaken</PageHeading>
           <Paragraph size="large">
@@ -93,7 +93,7 @@ export const WithInteractiveElement: StoryObj = {
         </Grid.Cell>
       </Grid>,
       <main id="main" key={2}>
-        <Grid gapVertical="large" paddingBottom="large">
+        <Grid paddingBottom="x-large">
           <Grid.Cell span={{ narrow: 4, medium: 6, wide: 7 }}>
             <PageHeading className="ams-mb-m">Parkeren</PageHeading>
             <Paragraph className="ams-mb-m" size="large">
@@ -296,9 +296,9 @@ export const SubnavigationPage: StoryObj = {
         </Grid.Cell>
       </Grid>,
       <main id="main" key={2}>
-        <Grid gapVertical="large" paddingBottom="large">
+        <Grid paddingBottom="x-large">
           <Grid.Cell span={{ narrow: 4, medium: 6, wide: 7 }}>
-            <PageHeading className="ams-mb-m">Overzichtspagina content / Subnavigatiepagina</PageHeading>
+            <PageHeading className="ams-mb-m">{exampleHeading()}</PageHeading>
             <Paragraph size="large">
               Amsterdam wil een nieuwe traditie starten om met oud en nieuw naar een centrale nieuwjaarsviering te gaan
               in plaats van zelf vuurwerk af te steken.
@@ -315,28 +315,28 @@ export const SubnavigationPage: StoryObj = {
           </Grid.Cell>
           <LinkGroupGridCells linkGroups={burgerzakenLinks.slice(0, 6)} />
           <Grid.Cell span={{ narrow: 4, medium: 4, wide: 5 }} start={{ narrow: 1, medium: 1, wide: 2 }}>
-            <Heading className="ams-mb-xs" level={2} size="level-4">
+            <Heading className="ams-mb-s" level={2} size="level-4">
               {exampleHeading()}
             </Heading>
             <Paragraph className="ams-mb-m">{exampleParagraph()}</Paragraph>
             <StandaloneLink href="#">{exampleStandaloneLink()}</StandaloneLink>
           </Grid.Cell>
           <Grid.Cell span={{ narrow: 4, medium: 4, wide: 5 }}>
-            <Heading className="ams-mb-xs" level={2} size="level-4">
+            <Heading className="ams-mb-s" level={2} size="level-4">
               {exampleHeading()}
             </Heading>
             <Paragraph className="ams-mb-m">{exampleParagraph()}</Paragraph>
             <StandaloneLink href="#">{exampleStandaloneLink()}</StandaloneLink>
           </Grid.Cell>
           <Grid.Cell span={{ narrow: 4, medium: 4, wide: 5 }} start={{ narrow: 1, medium: 1, wide: 2 }}>
-            <Heading className="ams-mb-xs" level={2} size="level-4">
+            <Heading className="ams-mb-s" level={2} size="level-4">
               {exampleHeading()}
             </Heading>
             <Paragraph className="ams-mb-m">{exampleParagraph()}</Paragraph>
             <StandaloneLink href="#">{exampleStandaloneLink()}</StandaloneLink>
           </Grid.Cell>
           <Grid.Cell span={{ narrow: 4, medium: 4, wide: 5 }}>
-            <Heading className="ams-mb-xs" level={2} size="level-4">
+            <Heading className="ams-mb-s" level={2} size="level-4">
               {exampleHeading()}
             </Heading>
             <Paragraph className="ams-mb-m">{exampleParagraph()}</Paragraph>
@@ -345,19 +345,14 @@ export const SubnavigationPage: StoryObj = {
         </Grid>
         <Spotlight color="magenta">
           <Grid paddingVertical="large">
-            <Grid.Cell span={{ narrow: 4, medium: 8, wide: 10 }} start={{ narrow: 1, medium: 1, wide: 2 }}>
-              <Heading color="inverse" level={3}>
-                {exampleHeading()}
-              </Heading>
-            </Grid.Cell>
             <Grid.Cell span={{ narrow: 4, medium: 4, wide: 5 }} start={{ narrow: 1, medium: 1, wide: 2 }}>
-              <Heading className="ams-mb-xs" color="inverse" level={4}>
+              <Heading className="ams-mb-s" color="inverse" level={4}>
                 {exampleHeading()}
               </Heading>
               <Paragraph color="inverse">{exampleParagraph()}</Paragraph>
             </Grid.Cell>
             <Grid.Cell span={{ narrow: 4, medium: 4, wide: 5 }}>
-              <Heading className="ams-mb-xs" color="inverse" level={4}>
+              <Heading className="ams-mb-s" color="inverse" level={4}>
                 {exampleHeading()}
               </Heading>
               <Paragraph color="inverse">{exampleParagraph()}</Paragraph>

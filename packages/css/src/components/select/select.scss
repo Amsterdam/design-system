@@ -34,33 +34,32 @@
   }
 }
 
-.ams-select:invalid,
-.ams-select[aria-invalid="true"] {
-  border-color: var(--ams-select-invalid-border-color);
-}
-
 .ams-select:disabled {
   color: var(--ams-select-disabled-color);
   cursor: var(--ams-select-disabled-cursor);
 
   &:not([multiple]) {
     background-image: var(--ams-select-disabled-background-image);
-
-    /* stylelint-disable no-descending-specificity */
-    &:hover {
-      background-image: var(--ams-select-hover-background-image);
-    }
   }
 }
 
-.ams-select:invalid:hover,
-.ams-select[aria-invalid="true"]:hover {
-  border-color: var(--ams-select-invalid-hover-border-color);
-  box-shadow: var(--ams-select-invalid-hover-box-shadow);
+.ams-select:not(:disabled):invalid,
+.ams-select:not(:disabled)[aria-invalid="true"] {
+  border-color: var(--ams-select-invalid-border-color);
 }
 
 .ams-select:not(:disabled):hover {
   box-shadow: var(--ams-select-hover-box-shadow);
+
+  &:not([multiple]) {
+    background-image: var(--ams-select-hover-background-image);
+  }
+}
+
+.ams-select:not(:disabled):invalid:hover,
+.ams-select:not(:disabled)[aria-invalid="true"]:hover {
+  border-color: var(--ams-select-invalid-hover-border-color);
+  box-shadow: var(--ams-select-invalid-hover-box-shadow);
 }
 
 .ams-select__option:disabled {
