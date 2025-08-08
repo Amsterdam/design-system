@@ -49,9 +49,7 @@ export const InAField: Story = {
   render: (args) => (
     <Field invalid={args.invalid}>
       <Label htmlFor="input1">Label</Label>
-      <Paragraph id="description1" size="small">
-        Omschrijving.
-      </Paragraph>
+      <Paragraph id="description1">Omschrijving.</Paragraph>
       {args.invalid && <ErrorMessage id="error1">Foutmelding.</ErrorMessage>}
       <DateInput aria-describedby={`description1${args.invalid ? ' error1' : ''}`} id="input1" {...args} />
     </Field>
@@ -65,9 +63,7 @@ export const InAFieldWithValidation: Story = {
   render: (args) => (
     <Field invalid={args.invalid}>
       <Label htmlFor="input2">Label</Label>
-      <Paragraph id="description2" size="small">
-        Omschrijving.
-      </Paragraph>
+      <Paragraph id="description2">Omschrijving.</Paragraph>
       {args.invalid && <ErrorMessage id="error2">Foutmelding.</ErrorMessage>}
       <DateInput aria-describedby={`description2${args.invalid ? ' error2' : ''}`} id="input2" {...args} />
     </Field>
@@ -78,7 +74,7 @@ export const InAFieldWithValidation: Story = {
 export const MemorableDate: Story = {
   render: () => (
     <FieldSet aria-describedby="description-a" legend="Wanneer ben je geboren?">
-      <Paragraph className="ams-mb-s" id="description-a" size="small">
+      <Paragraph className="ams-mb-s" id="description-a">
         Bijvoorbeeld 1 1 2000.
       </Paragraph>
       <Row>
@@ -102,7 +98,7 @@ export const MemorableDate: Story = {
 export const MemorableDateWithValidation: Story = {
   render: () => (
     <FieldSet aria-describedby="description-b error-b" invalid legend="Wanneer ben je geboren?">
-      <Paragraph className="ams-mb-s" id="description-b" size="small">
+      <Paragraph className="ams-mb-s" id="description-b">
         Bijvoorbeeld 1 1 2000.
       </Paragraph>
       <ErrorMessage className="ams-mb-s" id="error-b">

@@ -29,7 +29,7 @@ export const ErrorMessage = forwardRef(
     ref: ForwardedRef<HTMLParagraphElement>,
   ) => (
     <p {...restProps} className={clsx('ams-error-message', className)} ref={ref}>
-      <Icon size="small" svg={icon} />
+      <Icon svg={icon} />
       <span className="ams-visually-hidden">{`${prefix}: `}</span>
       {children}
     </p>

@@ -14,5 +14,7 @@ Allows users to select one option from a list.
   However you should do this with extreme caution as it can reinforce bias.
   If in doubt, order alphabetically.
 - Labels should be concise. Try to keep labels shorter than 4 words.
-
-Use a [Checkbox](/docs/components-forms-checkbox--docs) when a user can select more than 1 option from a list.
+- Do not check a radio button initially.
+  This prevents users from leaving the question unanswered.
+  It also increases the chance of submitting a wrong answer.
+- Use a [Checkbox](/docs/components-forms-checkbox--docs) when a user can select more than 1 option from a list.
