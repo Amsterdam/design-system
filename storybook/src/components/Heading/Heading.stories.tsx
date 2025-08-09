@@ -61,6 +61,9 @@ export const Level4: Story = {
 }
 
 export const Sizes: Story = {
+  args: {
+    level: 2,
+  },
   render: (args) => (
     <Column gap="small">
       <Heading {...args} key="level-1" size="level-1" />
