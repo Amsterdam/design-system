@@ -27,7 +27,7 @@ export const ProductPage = () => (
         U krijgt per huishouden 1 keer per 5 schooljaren een gratis laptop of tablet op de basisschool.
       </Paragraph>
 
-      <Heading className="ams-mb-s" level={2} size="level-3">
+      <Heading className="ams-mb-s" level={2}>
         Voorwaarden
       </Heading>
       <UnorderedList className="ams-mb-xl">
@@ -46,7 +46,7 @@ export const ProductPage = () => (
         <UnorderedList.Item>Uw kind doet eerst een computercursus.</UnorderedList.Item>
       </UnorderedList>
 
-      <Heading className="ams-mb-s" level={2} size="level-3">
+      <Heading className="ams-mb-s" level={2}>
         Aanvragen
       </Heading>
       <Paragraph className="ams-mb-m">
@@ -61,7 +61,7 @@ export const ProductPage = () => (
         Start de check en vraag aan
       </CallToActionLink>
 
-      <Heading className="ams-mb-s" level={2} size="level-3">
+      <Heading className="ams-mb-s" level={2}>
         Geen DigiD?
       </Heading>
       <UnorderedList className="ams-mb-xl">
@@ -84,7 +84,7 @@ export const ProductPage = () => (
         </UnorderedList.Item>
       </UnorderedList>
 
-      <Heading className="ams-mb-s" level={2} size="level-3">
+      <Heading className="ams-mb-s" level={2}>
         Vragen?
       </Heading>
       <UnorderedList className="ams-mb-xl">
@@ -92,7 +92,7 @@ export const ProductPage = () => (
         <UnorderedList.Item>Hulp nodig bij het aanvragen? Ga naar Buurtteam Amsterdam.</UnorderedList.Item>
       </UnorderedList>
 
-      <Heading className="ams-mb-s" level={2} size="level-3">
+      <Heading className="ams-mb-s" level={2}>
         Zo lang duurt het
       </Heading>
       <Paragraph className="ams-mb-xl">
@@ -100,7 +100,7 @@ export const ProductPage = () => (
         Het kan dus even duren voor u van ons hoort.
       </Paragraph>
 
-      <Heading className="ams-mb-s" level={2} size="level-3">
+      <Heading className="ams-mb-s" level={2}>
         Zonder computerles geen laptop
       </Heading>
       <Paragraph className="ams-mb-xl">
@@ -108,7 +108,7 @@ export const ProductPage = () => (
         het verleden al zo'n les heeft gedaan.
       </Paragraph>
 
-      <Heading className="ams-mb-s" level={2} size="level-3">
+      <Heading className="ams-mb-s" level={2}>
         Maak binnen 2 weken een afspraak
       </Heading>
       <Paragraph className="ams-mb-m">
@@ -121,7 +121,7 @@ export const ProductPage = () => (
         een code om in de webshop een laptop of tablet uit te kiezen.
       </Paragraph>
 
-      <Heading className="ams-mb-s" level={2} size="level-3">
+      <Heading className="ams-mb-s" level={2}>
         Afspraak aanpassen
       </Heading>
       <Paragraph>

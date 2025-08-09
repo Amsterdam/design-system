@@ -17,7 +17,7 @@ export const LinkGroupGridCells = ({ linkGroups }: LinkGroupGridCellsProps) =>
       span={{ narrow: 4, medium: 4, wide: 5 }}
       start={{ narrow: 1, medium: index % 2 === 0 ? 1 : 5, wide: index % 2 === 0 ? 2 : 7 }}
     >
-      <Heading className="ams-mb-s" level={2} size="level-4">
+      <Heading className="ams-mb-s" level={2} size="level-3">
         {heading}
       </Heading>
       {links.length === 1 ? (

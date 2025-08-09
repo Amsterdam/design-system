@@ -8,6 +8,7 @@ import {
   Card,
   Grid,
   Heading,
+  type HeadingProps,
   Image,
   Link,
   LinkList,
@@ -44,12 +45,13 @@ export default meta
 type LinkBlockProps = {
   body: string
   heading: string
+  headingLevel: HeadingProps['level']
   linkText?: string
 }
 
-const LinkBlock = ({ body, heading, linkText }: LinkBlockProps) => (
+const LinkBlock = ({ body, heading, headingLevel, linkText }: LinkBlockProps) => (
   <>
-    <Heading className="ams-mb-s" level={2} size="level-4">
+    <Heading className="ams-mb-s" level={headingLevel} size="level-4">
       {heading}
     </Heading>
     <Paragraph className="ams-mb-s">{body}</Paragraph>
@@ -187,12 +189,14 @@ export const WithImageGallery: StoryObj = {
             <LinkBlock
               body="Een alfabetisch overzicht van de portefeuilles van burgemeester en wethouders."
               heading="Portefeuilleverdeling"
+              headingLevel={3}
             />
           </Grid.Cell>
           <Grid.Cell span={{ narrow: 4, medium: 4, wide: 5 }} start={{ narrow: 1, medium: 5, wide: 7 }}>
             <LinkBlock
               body="In dit akkoord staan de plannen en visie van de coalitie Pvda, GroenLinks en D66 voor 2022-2026."
               heading="Coalitieakkoord"
+              headingLevel={3}
               linkText="Coalitieakkoord en Uitvoeringsagenda"
             />
           </Grid.Cell>
@@ -246,6 +250,7 @@ export const WithImageGallery: StoryObj = {
             <LinkBlock
               body="Voor vragen van journalisten aan de afdeling Bestuursvoorlichting."
               heading="Pers en woordvoering"
+              headingLevel={3}
               linkText="Pers"
             />
           </Grid.Cell>
