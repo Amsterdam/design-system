@@ -68,7 +68,6 @@ export const Sizes: Story = {
       <Heading {...args} key="level-3" size="level-3" />
       <Heading {...args} key="level-4" size="level-4" />
       <Heading {...args} key="level-5" size="level-5" />
-      <Heading {...args} key="level-6" size="level-6" />
     </Column>
   ),
 }
@@ -93,7 +92,7 @@ export const WithIcon: Story = {
       control: {
         labels: { undefined: 'not set' },
       },
-      options: [undefined, 'level-3', 'level-4', 'level-5', 'level-6'],
+      options: [undefined, 'level-3', 'level-4', 'level-5'],
     },
   },
   render: ({ children, ...args }) => {

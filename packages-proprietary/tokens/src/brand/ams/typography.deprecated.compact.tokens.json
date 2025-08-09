@@ -1,0 +1,16 @@
+{
+  "ams": {
+    "typography": {
+      "heading": {
+        "0": {
+          "comment": "Use Heading size 1 instead.",
+          "font-size": { "value": "clamp(2.1645rem, 2.072rem + 0.4626vw, 2.4883rem)" }
+        },
+        "6": {
+          "comment": "Use Heading size 5 instead.",
+          "font-size": { "value": "{ams.typography.body-text.small.font-size}" }
+        }
+      }
+    }
+  }
+}

@@ -17,7 +17,7 @@ import type { ForwardedRef, HTMLAttributes, ReactNode } from 'react'
 export const iconSizes = [
   'small',
   'large',
-  'heading-0',
+  'heading-0', // Deprecated
   'heading-1',
   'heading-2',
   'heading-3',
@@ -30,7 +30,10 @@ type IconSize = (typeof iconSizes)[number]
 export type IconProps = {
   /** Changes the icon colour for readability on a dark background. */
   color?: 'inverse'
-  /** The size of the icon. Choose the size of the corresponding body text or heading. */
+  /**
+   * The size of the icon. Choose the size of the corresponding body text or heading.
+   * The value of ‘heading-0’ is deprecated.
+   */
   size?: IconSize
   /** Whether the icon container should be made square. */
   square?: boolean

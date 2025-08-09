@@ -14,9 +14,6 @@
         }
       },
       "heading": {
-        "0": {
-          "font-size": { "value": "clamp(2.1645rem, 2.072rem + 0.4626vw, 2.4883rem)" }
-        },
         "1": {
           "font-size": { "value": "clamp(1.8547rem, 1.7922rem + 0.3127vw, 2.0736rem)" }
         },
@@ -32,9 +29,6 @@
         },
         "5": {
           "font-size": { "value": "{ams.typography.body-text.font-size}" }
-        },
-        "6": {
-          "font-size": { "value": "{ams.typography.body-text.small.font-size}" }
         }
       }
     }

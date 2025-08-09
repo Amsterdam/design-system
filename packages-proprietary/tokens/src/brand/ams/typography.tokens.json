@@ -26,10 +26,6 @@
       "heading": {
         "font-weight": { "value": "800" },
         "text-wrap": { "value": "balance" },
-        "0": {
-          "font-size": { "value": "clamp(2.435rem, 2.0409rem + 1.9709vw, 3.8147rem)" },
-          "line-height": { "value": "1.1" }
-        },
         "1": {
           "font-size": { "value": "clamp(2.0866rem, 1.8108rem + 1.3788vw, 3.0518rem)" },
           "line-height": { "value": "1.15" }
@@ -49,10 +45,6 @@
         "5": {
           "font-size": { "value": "{ams.typography.body-text.font-size}" },
           "line-height": { "value": "1.35" }
-        },
-        "6": {
-          "font-size": { "value": "{ams.typography.body-text.small.font-size}" },
-          "line-height": { "value": "1.4" }
         }
       }
     }
