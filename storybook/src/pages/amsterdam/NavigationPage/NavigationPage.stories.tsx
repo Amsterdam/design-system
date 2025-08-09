@@ -11,7 +11,6 @@ import {
   Image,
   Link,
   LinkList,
-  PageHeading,
   Paragraph,
   SearchField,
   Spotlight,
@@ -70,7 +69,9 @@ export const Default: StoryObj = {
       </Grid>,
       <Grid as="main" id="main" paddingBottom="x-large">
         <Grid.Cell span={{ narrow: 4, medium: 6, wide: 7 }}>
-          <PageHeading className="ams-mb-m">Burgerzaken</PageHeading>
+          <Heading className="ams-mb-m" level={1}>
+            Burgerzaken
+          </Heading>
           <Paragraph size="large">
             Heeft u een paspoort, rijbewijs of uittreksel nodig? Of wilt u een verhuizing doorgeven of een geboorte
             aangeven? Op deze pagina vindt u alle informatie en regelzaken rondom Burgerzaken.
@@ -95,7 +96,9 @@ export const WithInteractiveElement: StoryObj = {
       <main id="main" key={2}>
         <Grid paddingBottom="x-large">
           <Grid.Cell span={{ narrow: 4, medium: 6, wide: 7 }}>
-            <PageHeading className="ams-mb-m">Parkeren</PageHeading>
+            <Heading className="ams-mb-m" level={1}>
+              Parkeren
+            </Heading>
             <Paragraph className="ams-mb-m" size="large">
               {exampleParagraph()}
             </Paragraph>
@@ -144,7 +147,9 @@ export const WithImageGallery: StoryObj = {
       <main id="main" key={2}>
         <Grid paddingBottom="x-large">
           <Grid.Cell span={{ narrow: 4, medium: 6, wide: 8 }}>
-            <PageHeading className="ams-mb-m">College van burgemeester en wethouders</PageHeading>
+            <Heading className="ams-mb-m" level={1}>
+              College van burgemeester en wethouders
+            </Heading>
             <Paragraph size="large">
               Het college van burgemeester en wethouders is verantwoordelijk voor het dagelijks bestuur van de gemeente
               Amsterdam.
@@ -298,7 +303,9 @@ export const SubnavigationPage: StoryObj = {
       <main id="main" key={2}>
         <Grid paddingBottom="x-large">
           <Grid.Cell span={{ narrow: 4, medium: 6, wide: 7 }}>
-            <PageHeading className="ams-mb-m">{exampleHeading()}</PageHeading>
+            <Heading className="ams-mb-m" level={1}>
+              {exampleHeading()}
+            </Heading>
             <Paragraph size="large">
               Amsterdam wil een nieuwe traditie starten om met oud en nieuw naar een centrale nieuwjaarsviering te gaan
               in plaats van zelf vuurwerk af te steken.
