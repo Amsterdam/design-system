@@ -3,32 +3,40 @@
     "typography": {
       "body-text": {
         "font-size": { "value": "1rem" },
+        "line-height": { "value": "1.5" },
         "small": {
-          "font-size": { "value": "0.875rem" }
+          "font-size": { "value": "0.875rem" },
+          "line-height": { "value": "1.4286" }
         },
         "large": {
-          "font-size": { "value": "clamp(1.167rem, 1.1576rem + 0.0471vw, 1.2rem)" }
+          "font-size": { "value": "clamp(1.125rem, 1.1071rem + 0.0893vw, 1.1875rem)" },
+          "line-height": { "value": "1.4737" }
         },
         "x-large": {
-          "font-size": { "value": "clamp(1.3619rem, 1.3396rem + 0.1116vw, 1.44rem)" }
+          "font-size": { "value": "clamp(1.25rem, 1.1964rem + 0.2679vw, 1.4375rem)" },
+          "line-height": { "value": "1.3913" }
         }
       },
       "heading": {
         "1": {
-          "font-size": { "value": "clamp(1.8547rem, 1.7922rem + 0.3127vw, 2.0736rem)" }
+          "font-size": { "value": "clamp(1.5rem, 1.4286rem + 0.3571vw, 1.75rem)" },
+          "line-height": { "value": "1.1429" }
         },
         "2": {
-          "font-size": { "value": "clamp(1.5893rem, 1.5497rem + 0.1981vw, 1.728rem)" },
-          "line-height": { "value": "1.2" }
+          "font-size": { "value": "{ams.typography.body-text.x-large.font-size}" },
+          "line-height": { "value": "1.2174" }
         },
         "3": {
-          "font-size": { "value": "{ams.typography.body-text.x-large.font-size}" }
+          "font-size": { "value": "{ams.typography.body-text.large.font-size}" },
+          "line-height": { "value": "1.2632" }
         },
         "4": {
-          "font-size": { "value": "{ams.typography.body-text.large.font-size}" }
+          "font-size": { "value": "{ams.typography.body-text.font-size}" },
+          "line-height": { "value": "1.25" }
         },
         "5": {
-          "font-size": { "value": "{ams.typography.body-text.font-size}" }
+          "font-size": { "value": "{ams.typography.body-text.small.font-size}" },
+          "line-height": { "value": "1.2857" }
         }
       }
     }
