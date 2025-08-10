@@ -17,9 +17,9 @@ type FontDesignTokenProps = {
    * No fluidity here: we want to display the given size on any viewport.
    */
   fontSize: number
-  /* The font weight to use in the example. Provide the distinctive part of its design token’s name. */
+  /** The font weight to use in the example. Provide the distinctive part of its design token’s name. */
   fontWeight?: string
-  /* The line height to use in the example. Provide the distinctive part of its design token’s name. */
+  /** The line height to use in the example. Provide the distinctive part of its design token’s name. */
   lineHeight: string
 }
 
