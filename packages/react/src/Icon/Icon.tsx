@@ -23,7 +23,7 @@ export const iconSizes = [
   'heading-3',
   'heading-4',
   'heading-5',
-  'heading-6',
+  'heading-6', // Deprecated
 ] as const
 type IconSize = (typeof iconSizes)[number]
 
@@ -32,7 +32,7 @@ export type IconProps = {
   color?: 'inverse'
   /**
    * The size of the icon. Choose the size of the corresponding body text or heading.
-   * The value of ‘heading-0’ is deprecated.
+   * The values ‘heading-0’ and ‘heading-6’ are deprecated.
    */
   size?: IconSize
   /** Whether the icon container should be made square. */
