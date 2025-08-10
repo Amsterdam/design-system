@@ -9,6 +9,8 @@ import { iconSizes } from '@amsterdam/design-system-react/src/Icon/Icon'
 import * as Icons from '@amsterdam/design-system-react-icons'
 import { Meta, StoryObj } from '@storybook/react-vite'
 
+const DEPRECATED_HEADING_SIZES = ['heading-0', 'heading-6']
+
 const meta = {
   title: 'Components/Media/Icon',
   component: Icon,
@@ -79,9 +81,7 @@ export const WithAHeading: Story = {
   },
   argTypes: {
     size: {
-      options: [
-        ...iconSizes.filter((size) => size.startsWith('heading-') && !['heading-0', 'heading-6'].includes(size)),
-      ],
+      options: [...iconSizes.filter((size) => size.startsWith('heading-') && !DEPRECATED_HEADING_SIZES.includes(size))],
     },
   },
   render: (args) => {
