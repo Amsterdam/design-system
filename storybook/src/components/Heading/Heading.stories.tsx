@@ -85,17 +85,17 @@ export const InverseColour: Story = {
 export const WithIcon: Story = {
   args: {
     children: 'Heading text',
-    level: 4,
+    level: 3,
   },
   argTypes: {
     level: {
-      options: [3, 4],
+      options: [1, 2, 3, 4],
     },
     size: {
       control: {
         labels: { undefined: 'not set' },
       },
-      options: [undefined, 'level-3', 'level-4', 'level-5'],
+      options: [undefined, 'level-1', 'level-2', 'level-3', 'level-4', 'level-5'],
     },
   },
   render: ({ children, ...args }) => {
