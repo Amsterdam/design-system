@@ -59,7 +59,7 @@
     "@types/react": "18.3.23",
     "jest": "30.0.5",
     "jest-environment-jsdom": "30.0.5",
-    "next": "15.4.5",
+    "next": "15.4.6",
     "npm-run-all": "4.1.5",
     "postcss": "8.5.6",
     "react": "18.3.1",
@@ -71,7 +71,7 @@
     "rollup-plugin-node-polyfills": "0.2.1",
     "rollup-plugin-peer-deps-external": "2.2.4",
     "rollup-plugin-typescript2": "0.36.0",
-    "sass": "1.89.2",
+    "sass": "1.90.0",
     "tslib": "2.8.1"
   },
   "peerDependencies": {
