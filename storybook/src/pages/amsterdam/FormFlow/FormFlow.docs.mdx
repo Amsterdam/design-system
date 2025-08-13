@@ -31,6 +31,23 @@ which describes the question group.
 
 For more information, see [Question pages - Asking complex questions without using hint text](https://design-system.service.gov.uk/patterns/question-pages/#asking-complex-questions-without-using-hint-text)
 
+## With Validation Error
+
+If the user’s answers fail validation:
+
+- show them the page again, with the form fields as the user filled them in
+- show an [Invalid Form Alert](/docs/components-forms-invalid-form-alert--docs) at the top of the `main` container, and move keyboard focus to it
+- add ‘(X invoerfouten) ’ to the beginning of the page `<title>` so screen readers read it out as soon as possible (Invalid Form Alert does this automatically)
+- show [Error message](/docs/components-forms-error-message--docs) components next to fields with errors
+
+Validate the user’s answers when they click on the submit button.
+Generally speaking, avoid validating the information in a field before the user has finished entering it or when they move away from the field.
+
+For more information:
+
+- [Recover from validation errors](https://design-system.service.gov.uk/patterns/validation/)
+- [Error summary](https://design-system.service.gov.uk/components/error-summary/)
+
 ## References
 
 - [Gov.uk on question pages](https://design-system.service.gov.uk/patterns/question-pages/)

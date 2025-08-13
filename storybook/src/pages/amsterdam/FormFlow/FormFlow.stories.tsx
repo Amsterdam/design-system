@@ -7,6 +7,7 @@ import { Meta, StoryObj } from '@storybook/react-vite'
 import { LandingPage as LandingPageComponent } from './LandingPage'
 import { WithMultipleQuestions as WithMultipleQuestionsComponent } from './WithMultipleQuestions'
 import { WithOneQuestion as WithOneQuesionComponent } from './WithOneQuestion'
+import { WithValidationError as WithValidationErrorComponent } from './WithValidationError'
 
 const meta = {
   title: 'Pages/Amsterdam.nl/Form Flow',
@@ -27,4 +28,8 @@ export const WithOneQuestion: StoryObj = {
 
 export const WithMultipleQuestions: StoryObj = {
   render: () => <WithMultipleQuestionsComponent />,
+}
+
+export const WithValidationError: StoryObj = {
+  render: () => <WithValidationErrorComponent />,
 }
