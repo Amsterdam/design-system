@@ -14,7 +14,9 @@ import {
   PageHeader,
   Paragraph,
   Radio,
+  StandaloneLink,
 } from '@amsterdam/design-system-react'
+import { ChevronBackwardIcon } from '@amsterdam/design-system-react-icons'
 import { FieldSetWithHeading } from './components/FieldSetWithHeading'
 import { FormFooter } from './components/FormFooter'
 
@@ -22,6 +24,13 @@ export const WithValidationError = () => {
   return (
     <Page>
       <PageHeader className="ams-mb-xl" />
+      <Grid className="ams-mb-s">
+        <Grid.Cell span={{ narrow: 4, medium: 6, wide: 6 }} start={{ narrow: 1, medium: 2, wide: 3 }}>
+          <StandaloneLink href="#" icon={ChevronBackwardIcon}>
+            Vorige vraag
+          </StandaloneLink>
+        </Grid.Cell>
+      </Grid>
       <Grid as="main" className="ams-mb-2xl">
         <Grid.Cell span={{ narrow: 4, medium: 6, wide: 6 }} start={{ narrow: 1, medium: 2, wide: 3 }}>
           <InvalidFormAlert
