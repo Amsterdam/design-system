@@ -1,0 +1,37 @@
+{/* @license CC0-1.0 */}
+
+import { Meta } from "@storybook/addon-docs/blocks";
+import * as FormStories from "./FormFlow.stories.tsx";
+
+<Meta of={FormStories} />
+
+# Form Flow
+
+These examples describe a user-friendly form flow.
+Form pages have a minimal header and footer in order to remove distractions.
+Start with asking [one thing per page](https://www.gov.uk/service-manual/design/form-structure#start-with-one-thing-per-page).
+This can be a single question, or a group of related questions.
+
+## Landing Page
+
+Most form flows start with a landing page that explains the process and provides a call to action to start the form flow.
+
+## With One Question
+
+On a form page with one question, the questions label or legend is the level 1 heading of the page.
+For labels, wrap the `h1` around it.
+For legends, wrap it around the `h1`.
+
+For more information, see [Making labels and legends headings](https://design-system.service.gov.uk/get-started/labels-legends-headings/).
+
+## With Multiple Questions
+
+When a form page has multiple questions, define an `h1` outside the `form`-tag,
+which describes the question group.
+
+For more information, see [Question pages - Asking complex questions without using hint text](https://design-system.service.gov.uk/patterns/question-pages/#asking-complex-questions-without-using-hint-text)
+
+## References
+
+- [Gov.uk on question pages](https://design-system.service.gov.uk/patterns/question-pages/)
+- [NL Design System on forms](https://nldesignsystem.nl/richtlijnen/formulieren/)
