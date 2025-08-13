@@ -38,7 +38,7 @@
     "@storybook/mdx2-csf": "1.1.0",
     "@storybook/react-vite": "9.0.18",
     "@types/react": "18.3.23",
-    "@vitejs/plugin-react": "4.7.0",
+    "@vitejs/plugin-react": "5.0.0",
     "react": "18.3.1",
     "react-dom": "18.3.1",
     "remark-gfm": "4.0.1",
