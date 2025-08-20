@@ -116,6 +116,7 @@ export default tseslint.config(
     rules: {
       ...jest.configs.recommended.rules,
       ...perfectionist['recommended-natural'],
+      ...react.configs.recommended.rules,
       ...tsPlugin.configs.recommended.rules,
 
       '@typescript-eslint/consistent-type-definitions': ['error', 'type'],
@@ -345,6 +346,7 @@ export default tseslint.config(
     rules: {
       ...mdx.flatCodeBlocks.rules,
       '@typescript-eslint/no-unused-vars': 'off',
+      'react/jsx-no-undef': 'off',
     },
   },
   storybook.configs['flat/recommended'],

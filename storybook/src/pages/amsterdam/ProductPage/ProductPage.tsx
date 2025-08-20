@@ -105,7 +105,7 @@ export const ProductPage = () => (
       </Heading>
       <Paragraph className="ams-mb-xl">
         Als uw kind recht heeft op een laptop, moet het een computerles volgen. De les is verplicht, ook als uw kind in
-        het verleden al zo'n les heeft gedaan.
+        het verleden al zo’n les heeft gedaan.
       </Paragraph>
 
       <Heading className="ams-mb-s" level={2} size="level-3">
