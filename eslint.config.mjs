@@ -115,8 +115,15 @@ export default tseslint.config(
     },
     rules: {
       ...perfectionist['recommended-natural'],
+      ...tsPlugin.configs.recommended.rules,
+
       '@typescript-eslint/consistent-type-definitions': ['error', 'type'],
+      '@typescript-eslint/no-explicit-any': 'warn',
+      '@typescript-eslint/no-unsafe-function-type': 'warn',
       '@typescript-eslint/no-unused-vars': 'error',
+
+      'no-unused-vars': 'off',
+
       'array-callback-return': [
         'error',
         {
