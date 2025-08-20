@@ -192,8 +192,8 @@ importers:
         specifier: workspace:*
         version: link:../../packages-proprietary/react-icons
       '@babel/runtime':
-        specifier: 7.28.2
-        version: 7.28.2
+        specifier: 7.28.3
+        version: 7.28.3
       clsx:
         specifier: 2.1.1
         version: 2.1.1
@@ -992,8 +992,8 @@ packages:
     peerDependencies:
       '@babel/core': ^7.0.0-0
 
-  '@babel/runtime@7.28.2':
-    resolution: {integrity: sha512-KHp2IflsnGywDjBWDkR9iEqiWSpc8GIi0lgTT3mOElT0PP1tG26P4tmFI2YvAdzgq9RGyoHZQEIEdZy6Ec5xCA==}
+  '@babel/runtime@7.28.3':
+    resolution: {integrity: sha512-9uIQ10o0WGdpP6GDhXcdOJPJuDgFtIDtN/9+ArJQ2NAfAmiuhTQdzkaTGR33v43GYS2UrSA0eX2pPPHoFVvpxA==}
     engines: {node: '>=6.9.0'}
 
   '@babel/template@7.27.2':
@@ -7938,7 +7938,7 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
-  '@babel/runtime@7.28.2': {}
+  '@babel/runtime@7.28.3': {}
 
   '@babel/template@7.27.2':
     dependencies:
@@ -9160,7 +9160,7 @@ snapshots:
   '@testing-library/dom@10.4.1':
     dependencies:
       '@babel/code-frame': 7.27.1
-      '@babel/runtime': 7.28.2
+      '@babel/runtime': 7.28.3
       '@types/aria-query': 5.0.4
       aria-query: 5.3.0
       dom-accessibility-api: 0.5.16
@@ -9179,7 +9179,7 @@ snapshots:
 
   '@testing-library/react@16.3.0(@testing-library/dom@10.4.1)(@types/react@18.3.23)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)':
     dependencies:
-      '@babel/runtime': 7.28.2
+      '@babel/runtime': 7.28.3
       '@testing-library/dom': 10.4.1
       react: 18.3.1
       react-dom: 18.3.1(react@18.3.1)
@@ -14053,7 +14053,7 @@ snapshots:
 
   rollup-plugin-filesize@10.0.0:
     dependencies:
-      '@babel/runtime': 7.28.2
+      '@babel/runtime': 7.28.3
       boxen: 5.1.2
       brotli-size: 4.0.0
       colors: 1.4.0
