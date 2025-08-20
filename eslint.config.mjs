@@ -87,19 +87,6 @@ export default tseslint.config(
     name: 'eslint-config-prettier',
     ...eslintConfigPrettier,
   },
-  {
-    name: 'amsterdam-design-system/plugins-settings',
-    plugins: { perfectionist, react },
-    settings: {
-      react: {
-        version: 'detect',
-      },
-    },
-  },
-  {
-    name: 'eslint-plugin-perfectionist/recommended-natural',
-    ...perfectionist['recommended-natural'],
-  },
 
   // JavaScript, TypeScript and React
   ...compat.extends('plugin:react/recommended').map(() => ({
@@ -109,6 +96,7 @@ export default tseslint.config(
       '@typescript-eslint': tsPlugin,
       import: fixupPluginRules(_import),
       jest,
+      perfectionist,
       react,
     },
     languageOptions: {
@@ -123,8 +111,10 @@ export default tseslint.config(
           extensions: ['js', 'mjs', 'jsx', 'ts', 'tsx'],
         },
       },
+      react: { version: 'detect' },
     },
     rules: {
+      ...perfectionist['recommended-natural'],
       '@typescript-eslint/consistent-type-definitions': ['error', 'type'],
       '@typescript-eslint/no-unused-vars': 'error',
       'array-callback-return': [
