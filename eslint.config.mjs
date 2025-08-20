@@ -114,6 +114,7 @@ export default tseslint.config(
       react: { version: 'detect' },
     },
     rules: {
+      ...jest.configs.recommended.rules,
       ...perfectionist['recommended-natural'],
       ...tsPlugin.configs.recommended.rules,
 
@@ -122,7 +123,7 @@ export default tseslint.config(
       '@typescript-eslint/no-unsafe-function-type': 'warn',
       '@typescript-eslint/no-unused-vars': 'error',
 
-      'no-unused-vars': 'off',
+      'no-unused-vars': 'off', // This is handled by @typescript-eslint/no-unused-vars
 
       'array-callback-return': [
         'error',

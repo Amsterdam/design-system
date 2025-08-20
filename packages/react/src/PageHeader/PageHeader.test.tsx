@@ -198,7 +198,7 @@ describe('Page Header', () => {
     expect(openMegaMenu).not.toHaveClass('ams-page-header__mega-menu--closed')
   })
 
-  it.skip('it closes the mega menu when it is open and the screen width passes the breakpoint', () => {
+  it.skip('closes the mega menu when it is open and the screen width passes the breakpoint', () => {
     // TODO: Add this test
   })
 
