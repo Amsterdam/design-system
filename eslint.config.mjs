@@ -203,7 +203,7 @@ export default tseslint.config(
       ],
       'perfectionist/sort-modules': 'off', // TODO: do we want this? In some cases, this means you use a type before it's defined (see Grid for example). That makes it harder to read imo.
       'perfectionist/sort-switch-case': 'off', // TODO: do we want this?
-      'perfectionist/sort-union-types': 'off', // TODO: we probably do want this, but we have to find a fix for the t-shirt sizing order
+      'perfectionist/sort-union-types': 'off', // This causes more issues than it solves
 
       // React
       'react/react-in-jsx-scope': 'off',
