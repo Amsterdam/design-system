@@ -11,12 +11,12 @@ import AccordionContext from './AccordionContext'
 import { getHeadingTag } from '../Heading/getHeadingTag'
 import { Icon } from '../Icon/Icon'
 
-export type AccordionSectionProps = {
+export type AccordionSectionProps = PropsWithChildren<HTMLAttributes<HTMLElement>> & {
   /** Whether the content is displayed initially. */
   expanded?: boolean
   /** The heading text. */
   label: string
-} & PropsWithChildren<HTMLAttributes<HTMLElement>>
+}
 
 export const AccordionSection = forwardRef(
   (

@@ -8,7 +8,7 @@ import { forwardRef, useEffect, useId, useImperativeHandle, useRef } from 'react
 import type { ForwardedRef, InputHTMLAttributes, PropsWithChildren, ReactNode } from 'react'
 import CheckboxIcon from './CheckboxIcon'
 
-export type CheckboxProps = {
+export type CheckboxProps = PropsWithChildren<Omit<InputHTMLAttributes<HTMLInputElement>, 'aria-invalid' | 'type'>> & {
   /**
    * An icon to display instead of the default icon.
    * @default CheckboxIcon
@@ -18,7 +18,7 @@ export type CheckboxProps = {
   indeterminate?: boolean
   /** Whether the value fails a validation rule. */
   invalid?: boolean
-} & PropsWithChildren<Omit<InputHTMLAttributes<HTMLInputElement>, 'aria-invalid' | 'type'>>
+}
 
 /**
  * @see {@link https://designsystem.amsterdam/?path=/docs/components-forms-checkbox--docs Checkbox docs at Amsterdam Design System}

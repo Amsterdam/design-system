@@ -24,7 +24,7 @@ const getHintText = ({ hint, optional }: HintAndOptionalProps) => {
   return null
 }
 
-export type HintProps = PropsWithChildren<HTMLAttributes<HTMLElement>> & HintAndOptionalProps
+export type HintProps = HintAndOptionalProps & PropsWithChildren<HTMLAttributes<HTMLElement>>
 
 export const Hint = forwardRef(
   ({ className, hint, optional, ...restProps }: HintProps, ref: ForwardedRef<HTMLElement>) => {

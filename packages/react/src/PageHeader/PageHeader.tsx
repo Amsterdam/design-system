@@ -35,7 +35,7 @@ const LogoLinkContent = ({
   </>
 )
 
-export type PageHeaderProps = {
+export type PageHeaderProps = HTMLAttributes<HTMLElement> & {
   /** The name of the application. */
   brandName?: string
   /** The accessible name of the logo. */
@@ -56,7 +56,7 @@ export type PageHeaderProps = {
   navigationLabel?: string
   /** Whether the menu button is visible on wide screens.  */
   noMenuButtonOnWideWindow?: boolean
-} & HTMLAttributes<HTMLElement>
+}
 
 const PageHeaderRoot = forwardRef(
   (

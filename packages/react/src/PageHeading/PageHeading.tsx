@@ -7,10 +7,10 @@ import clsx from 'clsx'
 import { forwardRef } from 'react'
 import type { ForwardedRef, HTMLAttributes, PropsWithChildren } from 'react'
 
-export type PageHeadingProps = {
+export type PageHeadingProps = PropsWithChildren<HTMLAttributes<HTMLHeadingElement>> & {
   /** Changes the text colour for readability on a dark background. */
   color?: 'inverse'
-} & PropsWithChildren<HTMLAttributes<HTMLHeadingElement>>
+}
 
 /**
  * @see {@link https://designsystem.amsterdam/?path=/docs/components-text-page-heading--docs Page Heading docs at Amsterdam Design System}

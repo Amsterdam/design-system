@@ -12,10 +12,10 @@ import { Icon } from '../Icon'
 import { formatFileSize } from '../common/formatFileSize'
 import { formatFileType } from '../common/formatFileType'
 
-export type FileListItemProps = {
+export type FileListItemProps = HTMLAttributes<HTMLLIElement> & {
   file: File
   onDelete?: () => void
-} & HTMLAttributes<HTMLLIElement>
+}
 
 export const FileListItem = forwardRef(
   ({ className, file, onDelete, ...restProps }: FileListItemProps, ref: ForwardedRef<HTMLLIElement>) => (

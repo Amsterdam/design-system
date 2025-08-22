@@ -14,7 +14,7 @@ type InputProps = {
   placeholder?: string
 }
 
-type StoryProps = SearchFieldProps & InputProps
+type StoryProps = InputProps & SearchFieldProps
 
 const meta = {
   title: 'Components/Forms/Search Field',

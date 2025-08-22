@@ -12,7 +12,7 @@ import { Spacer } from './Spacer'
 import { getRange } from './getRange'
 import { Icon } from '../Icon/Icon'
 
-export type PaginationProps = {
+export type PaginationProps = HTMLAttributes<HTMLElement> & {
   /** The accessible name for the Pagination component. */
   accessibleName?: string
   /**
@@ -59,7 +59,7 @@ export type PaginationProps = {
    * Note: must be unique for the page.
    */
   visuallyHiddenLabelId?: string
-} & HTMLAttributes<HTMLElement>
+}
 
 /**
  * @see {@link https://designsystem.amsterdam/?path=/docs/components-navigation-pagination--docs Pagination docs at Amsterdam Design System}

@@ -7,13 +7,13 @@ import clsx from 'clsx'
 import { forwardRef } from 'react'
 import type { ForwardedRef, InputHTMLAttributes } from 'react'
 
-export type PasswordInputProps = {
-  /** Whether the value fails a validation rule. */
-  invalid?: boolean
-} & Omit<
+export type PasswordInputProps = Omit<
   InputHTMLAttributes<HTMLInputElement>,
   'aria-invalid' | 'autoCapitalize' | 'autoCorrect' | 'spellCheck' | 'type'
->
+> & {
+  /** Whether the value fails a validation rule. */
+  invalid?: boolean
+}
 
 /**
  * @see {@link https://designsystem.amsterdam/?path=/docs/components-forms-password-input--docs Password Input docs at Amsterdam Design System}

@@ -10,12 +10,12 @@ import type { ForwardedRef, InputHTMLAttributes } from 'react'
 export const textInputTypes = ['email', 'tel', 'text', 'url'] as const
 type TextInputType = (typeof textInputTypes)[number]
 
-export type TextInputProps = {
+export type TextInputProps = Omit<InputHTMLAttributes<HTMLInputElement>, 'aria-invalid'> & {
   /** Whether the value fails a validation rule. */
   invalid?: boolean
   /** The kind of data that the user should provide. */
   type?: TextInputType
-} & Omit<InputHTMLAttributes<HTMLInputElement>, 'aria-invalid'>
+}
 
 /**
  * @see {@link https://designsystem.amsterdam/?path=/docs/components-forms-text-input--docs Text Input docs at Amsterdam Design System}

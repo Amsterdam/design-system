@@ -6,9 +6,9 @@
 import clsx from 'clsx'
 import { AnchorHTMLAttributes, ForwardedRef, forwardRef, PropsWithChildren } from 'react'
 
-export type PageHeaderMenuLinkProps = {
+export type PageHeaderMenuLinkProps = PropsWithChildren<AnchorHTMLAttributes<HTMLAnchorElement>> & {
   fixed?: boolean
-} & PropsWithChildren<AnchorHTMLAttributes<HTMLAnchorElement>>
+}
 
 export const PageHeaderMenuLink = forwardRef(
   ({ children, className, fixed, ...restProps }: PageHeaderMenuLinkProps, ref: ForwardedRef<HTMLAnchorElement>) => (

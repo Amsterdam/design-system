@@ -9,11 +9,11 @@ import type { ForwardedRef, ImgHTMLAttributes } from 'react'
 import { generateAspectRatioClass } from './generateAspectRatioClass'
 import { AspectRatioProps } from '../common/types'
 
-export type ImageProps = {
-  /** A textual description of the content of the image. */
-  alt: string
-} & AspectRatioProps &
-  Omit<ImgHTMLAttributes<HTMLImageElement>, 'children'>
+export type ImageProps = AspectRatioProps &
+  Omit<ImgHTMLAttributes<HTMLImageElement>, 'children'> & {
+    /** A textual description of the content of the image. */
+    alt: string
+  }
 
 /**
  * @see {@link https://designsystem.amsterdam/?path=/docs/components-media-image--docs Image docs at Amsterdam Design System}

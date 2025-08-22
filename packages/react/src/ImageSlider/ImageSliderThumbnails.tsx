@@ -10,10 +10,10 @@ import { ImageSliderImageProps } from './ImageSlider'
 import { ImageSliderContext } from './ImageSliderContext'
 import { generateAspectRatioClass } from '../Image/generateAspectRatioClass'
 
-export type ImageSliderThumbnailsProps = {
+export type ImageSliderThumbnailsProps = HTMLAttributes<HTMLElement> & {
   imageLabel?: string
   thumbnails: ImageSliderImageProps[]
-} & HTMLAttributes<HTMLElement>
+}
 
 export const ImageSliderThumbnails = forwardRef(
   ({ className, imageLabel, thumbnails, ...restProps }: ImageSliderThumbnailsProps, ref: ForwardedRef<HTMLElement>) => {

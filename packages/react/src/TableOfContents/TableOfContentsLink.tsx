@@ -7,10 +7,10 @@ import { clsx } from 'clsx'
 import { forwardRef } from 'react'
 import type { AnchorHTMLAttributes, ForwardedRef } from 'react'
 
-export type TableOfContentsLinkProps = {
+export type TableOfContentsLinkProps = AnchorHTMLAttributes<HTMLAnchorElement> & {
   /** The text for the link. */
   label: string
-} & AnchorHTMLAttributes<HTMLAnchorElement>
+}
 
 export const TableOfContentsLink = forwardRef(
   ({ children, className, label, ...restProps }: TableOfContentsLinkProps, ref: ForwardedRef<HTMLAnchorElement>) => (

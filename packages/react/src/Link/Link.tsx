@@ -7,10 +7,10 @@ import clsx from 'clsx'
 import { forwardRef } from 'react'
 import type { AnchorHTMLAttributes, ForwardedRef } from 'react'
 
-export type LinkProps = {
+export type LinkProps = Omit<AnchorHTMLAttributes<HTMLAnchorElement>, 'placeholder'> & {
   /** Changes the text colour for readability on a light or dark background. */
   color?: 'contrast' | 'inverse'
-} & Omit<AnchorHTMLAttributes<HTMLAnchorElement>, 'placeholder'>
+}
 
 /**
  * @see {@link https://designsystem.amsterdam/?path=/docs/components-navigation-link--docs Link docs at Amsterdam Design System}

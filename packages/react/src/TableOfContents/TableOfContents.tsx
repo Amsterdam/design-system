@@ -11,7 +11,7 @@ import { TableOfContentsList } from './TableOfContentsList'
 import { Heading } from '../Heading'
 import type { HeadingProps } from '../Heading'
 
-export type TableOfContentsProps = {
+export type TableOfContentsProps = PropsWithChildren<HTMLAttributes<HTMLElement>> & {
   /** The text for the Heading. */
   heading?: string
   /**
@@ -19,7 +19,7 @@ export type TableOfContentsProps = {
    * Visually, it always has the size of a level 4 Heading.
    */
   headingLevel?: HeadingProps['level']
-} & PropsWithChildren<HTMLAttributes<HTMLElement>>
+}
 
 const TableOfContentsRoot = forwardRef(
   (
