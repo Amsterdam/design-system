@@ -12,7 +12,12 @@ const meta = {
   title: 'Components/Layout/Action Group',
   component: ActionGroup,
   args: {
-    children: [<Button>Doorgaan</Button>, <Button variant="secondary">Stoppen</Button>],
+    children: [
+      <Button key={1}>Doorgaan</Button>,
+      <Button key={2} variant="secondary">
+        Stoppen
+      </Button>,
+    ],
   },
 } satisfies Meta<typeof ActionGroup>
 
@@ -24,7 +29,12 @@ export const Default: Story = {}
 
 export const Stacked: Story = {
   args: {
-    children: [<Button>Adres wijzigen</Button>, <Button variant="secondary">Adres verwijderen</Button>],
+    children: [
+      <Button key={1}>Adres wijzigen</Button>,
+      <Button key={2} variant="secondary">
+        Adres verwijderen
+      </Button>,
+    ],
     className: 'ams-resize-horizontal',
     style: {
       inlineSize: '16rem',

@@ -242,9 +242,6 @@ export default tseslint.config(
       ],
 
       // React
-      'react/jsx-key': 'off',
-      'react/no-unknown-property': 'off',
-      'react/prop-types': 'off',
       'react/react-in-jsx-scope': 'off',
     },
   },
@@ -288,6 +285,7 @@ export default tseslint.config(
       ...mdx.flatCodeBlocks.rules,
       '@typescript-eslint/no-unused-vars': 'off',
       'react/jsx-no-undef': 'off', // TODO: we probably do want this, but this currently triggers for code blocks as well
+      'react/prop-types': 'off', // TODO
     },
   },
   storybook.configs['flat/recommended'],
