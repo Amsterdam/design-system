@@ -180,7 +180,6 @@ export default tseslint.config(
       ],
 
       // Perfectionist
-      'perfectionist/sort-named-exports': 'off',
       'perfectionist/sort-union-types': 'off',
       'perfectionist/sort-switch-case': 'off',
       'perfectionist/sort-modules': 'off',
