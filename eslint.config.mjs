@@ -14,49 +14,43 @@ import storybook from 'eslint-plugin-storybook'
 import globals from 'globals'
 import tseslint from 'typescript-eslint'
 
-const perfectionistCommonConfig = {
-  customSizesGroups: {
-    customGroups: [
-      {
-        groupName: 'x-small',
-        selector: 'property',
-        elementNamePattern: '^(x-small|xs)$',
-      },
-      {
-        groupName: 'small',
-        selector: 'property',
-        elementNamePattern: '^(small|s|narrow|phone|min|start)$',
-      },
-      {
-        groupName: 'medium',
-        selector: 'property',
-        elementNamePattern: '^(medium|m|tablet)$',
-      },
-      {
-        groupName: 'large',
-        selector: 'property',
-        elementNamePattern: '^(large|l|wide|desktop|max|end)$',
-      },
-      {
-        groupName: 'x-large',
-        selector: 'property',
-        elementNamePattern: '^(x-large|xl)$',
-      },
-      {
-        groupName: '2x-large',
-        selector: 'property',
-        elementNamePattern: '^(2x-large|2xl)$',
-      },
-    ],
-    groups: ['x-small', 'small', 'medium', 'large', 'x-large', '2x-large'],
-    useConfigurationIf: {
-      allNamesMatchPattern:
-        '^(x-small|xs|small|s|narrow|phone|min|start|medium|m|tablet|large|l|wide|desktop|max|x-large|xl|2x-large|2xl|end)$',
+const perfectionistCustomSizesGroups = {
+  customGroups: [
+    {
+      groupName: 'x-small',
+      selector: 'property',
+      elementNamePattern: '^(x-small|xs)$',
     },
-  },
-  partition: {
-    partitionByComment: true,
-    partitionByNewLine: true,
+    {
+      groupName: 'small',
+      selector: 'property',
+      elementNamePattern: '^(small|s|narrow|phone|min|start)$',
+    },
+    {
+      groupName: 'medium',
+      selector: 'property',
+      elementNamePattern: '^(medium|m|tablet)$',
+    },
+    {
+      groupName: 'large',
+      selector: 'property',
+      elementNamePattern: '^(large|l|wide|desktop|max|end)$',
+    },
+    {
+      groupName: 'x-large',
+      selector: 'property',
+      elementNamePattern: '^(x-large|xl)$',
+    },
+    {
+      groupName: '2x-large',
+      selector: 'property',
+      elementNamePattern: '^(2x-large|2xl)$',
+    },
+  ],
+  groups: ['x-small', 'small', 'medium', 'large', 'x-large', '2x-large'],
+  useConfigurationIf: {
+    allNamesMatchPattern:
+      '^(x-small|xs|small|s|narrow|phone|min|start|medium|m|tablet|large|l|wide|desktop|max|x-large|xl|2x-large|2xl|end)$',
   },
 }
 
@@ -105,7 +99,7 @@ export default tseslint.config(
     rules: {
       ...eslint.configs.recommended.rules,
       ...jest.configs.recommended.rules,
-      ...perfectionist['recommended-natural'],
+      ...perfectionist.configs['recommended-natural'].rules,
       ...react.configs.recommended.rules,
       ...tsPlugin.configs.recommended.rules,
 
@@ -186,43 +180,18 @@ export default tseslint.config(
       ],
 
       // Perfectionist
-      'perfectionist/sort-enums': [
-        'error',
-        {
-          ...perfectionistCommonConfig.partition,
-        },
-      ],
-      'perfectionist/sort-interfaces': [
-        'error',
-        {
-          ...perfectionistCommonConfig.partition,
-        },
-      ],
-      'perfectionist/sort-jsx-props': [
-        'error',
-        {
-          ...perfectionistCommonConfig.partition.partitionByNewLine,
-        },
-      ],
-      'perfectionist/sort-maps': [
-        'error',
-        {
-          ...perfectionistCommonConfig.partition,
-        },
-      ],
-      'perfectionist/sort-object-types': [
-        'error',
-        {
-          ...perfectionistCommonConfig.customSizesGroups,
-          ...perfectionistCommonConfig.partition,
-        },
-      ],
+      'perfectionist/sort-intersection-types': 'off',
+      'perfectionist/sort-named-exports': 'off',
+      'perfectionist/sort-union-types': 'off',
+      'perfectionist/sort-switch-case': 'off',
+      'perfectionist/sort-modules': 'off',
+      'perfectionist/sort-exports': 'off',
+
+      'perfectionist/sort-imports': 'off', // TODO: this actually works well, but conflicts with eslint-plugin-import. Do we want to go for the perfectionist format?
+      'perfectionist/sort-object-types': ['error', perfectionistCustomSizesGroups],
       'perfectionist/sort-objects': [
         'error',
-        {
-          ...perfectionistCommonConfig.customSizesGroups,
-          ...perfectionistCommonConfig.partition,
-        },
+        perfectionistCustomSizesGroups,
         {
           customGroups: [
             {
@@ -237,7 +206,6 @@ export default tseslint.config(
             },
           ],
           groups: ['title', 'component'],
-          ...perfectionistCommonConfig.partition,
         },
       ],
 
