@@ -180,7 +180,6 @@ export default tseslint.config(
       ],
 
       // Perfectionist
-
       'perfectionist/sort-imports': 'off', // TODO: this actually works well, but conflicts with eslint-plugin-import. Do we want to go for the perfectionist format?
       'perfectionist/sort-object-types': ['error', perfectionistCustomSizesGroups],
       'perfectionist/sort-objects': [
@@ -238,7 +237,6 @@ export default tseslint.config(
   {
     name: 'amsterdam-design-system/mdx',
     ...mdx.flat,
-    files: ['**/*.mdx'],
     processor: mdx.createRemarkProcessor({
       lintCodeBlocks: true,
     }),
@@ -248,9 +246,8 @@ export default tseslint.config(
     ...mdx.flatCodeBlocks,
     rules: {
       ...mdx.flatCodeBlocks.rules,
-      '@typescript-eslint/no-unused-vars': 'off',
-      'react/jsx-no-undef': 'off', // TODO: we probably do want this, but this currently triggers for code blocks as well
-      'react/prop-types': 'off', // TODO
+      'react/jsx-no-undef': 'off',
+      'react/prop-types': 'off',
     },
   },
   storybook.configs['flat/recommended'],
