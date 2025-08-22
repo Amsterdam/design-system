@@ -1,5 +1,4 @@
 import { fixupPluginRules } from '@eslint/compat'
-import { FlatCompat } from '@eslint/eslintrc'
 import eslint from '@eslint/js'
 import json from '@eslint/json'
 import markdown from '@eslint/markdown'
@@ -13,17 +12,7 @@ import perfectionist from 'eslint-plugin-perfectionist'
 import react from 'eslint-plugin-react'
 import storybook from 'eslint-plugin-storybook'
 import globals from 'globals'
-import path from 'node:path'
-import { fileURLToPath } from 'node:url'
 import tseslint from 'typescript-eslint'
-
-const __filename = fileURLToPath(import.meta.url)
-const __dirname = path.dirname(__filename)
-const compat = new FlatCompat({
-  baseDirectory: __dirname,
-  recommendedConfig: eslint.configs.recommended,
-  allConfig: eslint.configs.all,
-})
 
 const perfectionistCommonConfig = {
   customSizesGroups: {
@@ -89,7 +78,7 @@ export default tseslint.config(
   },
 
   // JavaScript, TypeScript and React
-  ...compat.extends('plugin:react/recommended').map(() => ({
+  {
     name: 'amsterdam-design-system/javascript-typescript-react',
     files: ['**/*.js', '**/*.jsx', '**/*.ts', '**/*.tsx'],
     plugins: {
@@ -258,7 +247,7 @@ export default tseslint.config(
       'react/prop-types': 'off',
       'react/react-in-jsx-scope': 'off',
     },
-  })),
+  },
 
   // JSON
   {
