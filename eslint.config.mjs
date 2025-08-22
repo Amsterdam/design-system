@@ -180,10 +180,6 @@ export default tseslint.config(
       ],
 
       // Perfectionist
-      'perfectionist/sort-union-types': 'off',
-      'perfectionist/sort-switch-case': 'off',
-      'perfectionist/sort-modules': 'off',
-      'perfectionist/sort-exports': 'off',
 
       'perfectionist/sort-imports': 'off', // TODO: this actually works well, but conflicts with eslint-plugin-import. Do we want to go for the perfectionist format?
       'perfectionist/sort-object-types': ['error', perfectionistCustomSizesGroups],
@@ -206,6 +202,9 @@ export default tseslint.config(
           groups: ['title', 'component'],
         },
       ],
+      'perfectionist/sort-modules': 'off', // TODO: do we want this? In some cases, this means you use a type before it's defined (see Grid for example). That makes it harder to read imo.
+      'perfectionist/sort-switch-case': 'off', // TODO: do we want this?
+      'perfectionist/sort-union-types': 'off', // TODO: we probably do want this, but we have to find a fix for the t-shirt sizing order
 
       // React
       'react/react-in-jsx-scope': 'off',
