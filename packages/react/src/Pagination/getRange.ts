@@ -38,11 +38,16 @@ export function getRange(currentPage: number, totalPages: number, maxVisiblePage
         return [1, 'firstSpacer']
       }
 
-      if (totalPages > visiblePages && index === visiblePages - 2 && currentPage < totalPages - 2) {
+      if (
+        totalPages > visiblePages &&
+        index === visiblePages - 2 &&
+        currentPage < totalPages - Math.floor(visiblePages / 2)
+      ) {
         return [...acc, 'lastSpacer', totalPages]
       }
+
       // Skip a number when spacer is already added
-      if ((acc.includes('firstSpacer') && index === 1) || (acc.includes('lastSpacer') && index === visiblePages - 1)) {
+      if (acc[index] === 'firstSpacer' || acc[index - 1] === 'lastSpacer') {
         return acc
       }
       return [...acc, pageNr]
