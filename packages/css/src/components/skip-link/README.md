@@ -13,9 +13,9 @@ After appearing, it pushes the rest of the page down.
 ## Guidelines
 
 - Place the Skip Link as the first element in the [Page](/docs/components-containers-page--docs) container.
-- Target the Skip Link to the main content.
-  On an article page, for example, it could be the title of the article.
-  On a search page, it could be the search field.
-- Set `id="example-id"` on the container of that element and then use `href="#example-id"` on the Skip Link.
+- Direct the Skip Link to the main content area on the Page.
+  Typically, this is the `main` HTML element.
+  Repeated navigation blocks such as Breadcrumbs and back Links do not belong to the main content area.
+- Set `id="main"` on the `main` HTML element and then use `href="#main"` on the Skip Link.
 - Complex pages with multiple sections may benefit from more than one Skip Link.
 - Skip Links are unnecessary on a simple page with only text and minimal navigation.
