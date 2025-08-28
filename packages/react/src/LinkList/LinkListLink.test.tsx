@@ -21,7 +21,7 @@ describe('Link list link', () => {
     expect(link).toBeInTheDocument()
     expect(link).toBeVisible()
     expect(icon).toBeInTheDocument()
-    expect(icon).toBeVisible()
+    expect(icon).not.toBeVisible() // The icon is hidden by default, and only shown when the CSS loads.
   })
 
   it('renders a design system BEM class name', () => {

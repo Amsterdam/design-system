@@ -37,8 +37,8 @@ describe('Table of Contents list', () => {
 
     const { container } = render(
       <TableOfContents.List>
-        {listItems.map((item, index) => (
-          <TableOfContents.Link key={index} label={`Link ${item}`} />
+        {listItems.map((item) => (
+          <TableOfContents.Link key={item} label={`Link ${item}`} />
         ))}
       </TableOfContents.List>,
     )

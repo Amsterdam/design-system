@@ -49,6 +49,34 @@ export const exampleHeading = () =>
     'Richtlijnen vergunningverlening Koningsdag 2024',
   ])
 
+export const exampleFamilyName = () =>
+  pickRandomContent<string>([
+    'Bayraktar',
+    'Dijkstra',
+    'El Idrissi',
+    'Farooq',
+    'Janssen',
+    'Laghmani',
+    'Moussaoui',
+    'Pieterse',
+    'op den Akker',
+    'van Harinxma thoe Slooten',
+  ])
+
+export const exampleGivenName = () =>
+  pickRandomContent<string>([
+    'Abdulaziz',
+    'Aicha',
+    'Angelique',
+    'Laurens',
+    'Lisette',
+    'Meryam',
+    'Ruben',
+    'Sebastiaan',
+    'William',
+    'Yassine',
+  ])
+
 export const exampleLinkList = () =>
   pickRandomContent<Array<string>>([
     ['Contactformulier', 'Adressen en openingstijden', 'Bel 14 020'],
@@ -141,6 +169,15 @@ type TopTask = {
   heading: string
 }
 
+export const exampleStandaloneLink = () =>
+  pickRandomContent<string>([
+    'Vraag nu aan',
+    'Doe een donatie',
+    'Laat het ons weten',
+    'Bekijk de voorwaarden',
+    'Vraag een vergunning aan',
+  ])
+
 export const exampleTopTask = () =>
   pickRandomContent<TopTask>([
     {
@@ -227,13 +264,4 @@ export const exampleUnorderedList = () =>
       'Afval dat klem zit in de container duwt u erin via de klep of via de zijkant. U krijgt een sleutel waarmee u de zijkant van de container kunt openen. Lukt dit niet, dan meldt u dat bij de gemeente.',
       'Als u wilt, kunt u buren die hun afval verkeerd weggooien uitleggen hoe het wel moet.',
     ],
-  ])
-
-export const exampleStandaloneLine = () =>
-  pickRandomContent<string>([
-    'Vraag nu aan',
-    'Doe een donatie',
-    'Laat het ons weten',
-    'Bekijk de voorwaarden',
-    'Vraag een vergunning aan',
   ])

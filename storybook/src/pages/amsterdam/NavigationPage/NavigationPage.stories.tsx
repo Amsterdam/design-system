@@ -4,16 +4,21 @@
  */
 
 import {
+  Breadcrumb,
+  Card,
   Grid,
   Heading,
   Image,
+  Link,
   LinkList,
   PageHeading,
   Paragraph,
   SearchField,
   Spotlight,
   StandaloneLink,
+  UnorderedList,
 } from '@amsterdam/design-system-react'
+import type { GridColumnNumbers } from '@amsterdam/design-system-react'
 import {
   CameraIcon,
   FacebookIcon,
@@ -21,11 +26,12 @@ import {
   SpeechBalloonEllipsisIcon,
   XIcon,
 } from '@amsterdam/design-system-react-icons'
-import { Meta, StoryObj } from '@storybook/react'
+import { Meta, StoryObj } from '@storybook/react-vite'
 import { LinkGroupGridCells } from './LinkGroupGridCells'
 import { NavigationPage } from './NavigationPage'
 import { burgerzakenLinks, parkerenLinks } from './links'
-import { exampleHeading, exampleParagraph, exampleStandaloneLine } from '../../../components/shared/exampleContent'
+import { persons } from './persons'
+import { exampleHeading, exampleParagraph, exampleStandaloneLink } from '../../../components/shared/exampleContent'
 import { commonMeta } from '../common/config'
 
 const meta = {
@@ -36,10 +42,33 @@ const meta = {
 
 export default meta
 
+type LinkBlockProps = {
+  body: string
+  heading: string
+  linkText?: string
+}
+
+const LinkBlock = ({ body, heading, linkText }: LinkBlockProps) => (
+  <>
+    <Heading className="ams-mb-s" level={2} size="level-4">
+      {heading}
+    </Heading>
+    <Paragraph className="ams-mb-s">{body}</Paragraph>
+    <StandaloneLink href="#">{linkText ?? heading}</StandaloneLink>
+  </>
+)
+
 export const Default: StoryObj = {
   args: {
-    children: (
-      <Grid as="main" gapVertical="large" id="main" paddingBottom="large">
+    children: [
+      <Grid key={1} paddingTop="large">
+        <Grid.Cell span={{ narrow: 4, medium: 6, wide: 7 }}>
+          <Breadcrumb>
+            <Breadcrumb.Link href="#">Home</Breadcrumb.Link>
+          </Breadcrumb>
+        </Grid.Cell>
+      </Grid>,
+      <Grid as="main" id="main" paddingBottom="x-large">
         <Grid.Cell span={{ narrow: 4, medium: 6, wide: 7 }}>
           <PageHeading className="ams-mb-m">Burgerzaken</PageHeading>
           <Paragraph size="large">
@@ -48,16 +77,23 @@ export const Default: StoryObj = {
           </Paragraph>
         </Grid.Cell>
         <LinkGroupGridCells linkGroups={burgerzakenLinks} />
-      </Grid>
-    ),
+      </Grid>,
+    ],
   },
 }
 
 export const WithInteractiveElement: StoryObj = {
   args: {
-    children: (
-      <main id="main">
-        <Grid gapVertical="large" paddingBottom="large">
+    children: [
+      <Grid key={1} paddingTop="large">
+        <Grid.Cell span={{ narrow: 4, medium: 6, wide: 7 }}>
+          <Breadcrumb>
+            <Breadcrumb.Link href="#">Home</Breadcrumb.Link>
+          </Breadcrumb>
+        </Grid.Cell>
+      </Grid>,
+      <main id="main" key={2}>
+        <Grid paddingBottom="x-large">
           <Grid.Cell span={{ narrow: 4, medium: 6, wide: 7 }}>
             <PageHeading className="ams-mb-m">Parkeren</PageHeading>
             <Paragraph className="ams-mb-m" size="large">
@@ -89,18 +125,180 @@ export const WithInteractiveElement: StoryObj = {
           </Grid>
         </Spotlight>
         <Image alt="" aspectRatio="16:9" className="ams-mb-2xl" src="https://picsum.photos/id/133/1440/810" />
-      </main>
-    ),
+      </main>,
+    ],
+  },
+}
+
+export const WithImageGallery: StoryObj = {
+  args: {
+    children: [
+      <Grid paddingTop="large">
+        <Grid.Cell span={{ narrow: 4, medium: 6, wide: 8 }}>
+          <Breadcrumb>
+            <Breadcrumb.Link href="#">Home</Breadcrumb.Link>
+            <Breadcrumb.Link href="#">Bestuur en Organisatie</Breadcrumb.Link>
+          </Breadcrumb>
+        </Grid.Cell>
+      </Grid>,
+      <main id="main" key={2}>
+        <Grid paddingBottom="x-large">
+          <Grid.Cell span={{ narrow: 4, medium: 6, wide: 8 }}>
+            <PageHeading className="ams-mb-m">College van burgemeester en wethouders</PageHeading>
+            <Paragraph size="large">
+              Het college van burgemeester en wethouders is verantwoordelijk voor het dagelijks bestuur van de gemeente
+              Amsterdam.
+            </Paragraph>
+          </Grid.Cell>
+        </Grid>
+        <Image alt="" aspectRatio="16:5" src="https://picsum.photos/1440/450" />
+        <Grid paddingVertical="x-large">
+          <Grid.Cell span={{ narrow: 4, medium: 5, wide: 7 }}>
+            <Heading className="ams-mb-s" level={2}>
+              Burgemeester en wethouders
+            </Heading>
+            <Paragraph>
+              Het college bestaat uit de burgemeester en 9 wethouders en wordt ambtelijk ondersteund door de
+              gemeentesecretaris.
+            </Paragraph>
+          </Grid.Cell>
+          {persons.map(({ imageSource, name, role }, index) => (
+            <Grid.Cell
+              key={name}
+              span={4}
+              start={{ narrow: 1, medium: [1, 5][index % 2], wide: [1, 5, 9][index % 3] } as GridColumnNumbers}
+            >
+              <Card>
+                <Card.Image alt="" src={imageSource} />
+                <Card.Heading level={3}>
+                  <Card.Link href="#">
+                    {role} {name}
+                  </Card.Link>
+                </Card.Heading>
+              </Card>
+            </Grid.Cell>
+          ))}
+          <Grid.Cell span={{ narrow: 4, medium: 4, wide: 5 }} start={{ narrow: 1, medium: 1, wide: 2 }}>
+            <LinkBlock
+              body="Een alfabetisch overzicht van de portefeuilles van burgemeester en wethouders."
+              heading="Portefeuilleverdeling"
+            />
+          </Grid.Cell>
+          <Grid.Cell span={{ narrow: 4, medium: 4, wide: 5 }} start={{ narrow: 1, medium: 5, wide: 7 }}>
+            <LinkBlock
+              body="In dit akkoord staan de plannen en visie van de coalitie Pvda, GroenLinks en D66 voor 2022-2026."
+              heading="Coalitieakkoord"
+              linkText="Coalitieakkoord en Uitvoeringsagenda"
+            />
+          </Grid.Cell>
+        </Grid>
+        <Spotlight>
+          <Grid paddingVertical="x-large">
+            <Grid.Cell span={{ narrow: 4, medium: 4, wide: 5 }} start={{ narrow: 1, medium: 1, wide: 2 }}>
+              <Heading className="ams-mb-s" color="inverse" level={2} size="level-4">
+                Persberichten en nieuws
+              </Heading>
+              <LinkList className="ams-mb-m">
+                <LinkList.Link color="inverse" href="#">
+                  Proef elektrische fietsen voor sociale huurders op Strandeiland en Centrumeiland
+                </LinkList.Link>
+                <LinkList.Link color="inverse" href="#">
+                  Definitief ontwerp voor nieuwe Jaap Eden IJshal
+                </LinkList.Link>
+              </LinkList>
+              <LinkList>
+                <StandaloneLink color="inverse" href="#">
+                  Meer persberichten
+                </StandaloneLink>
+                <StandaloneLink color="inverse" href="#">
+                  Persberichten over sluiten van panden
+                </StandaloneLink>
+              </LinkList>
+            </Grid.Cell>
+            <Grid.Cell span={{ narrow: 4, medium: 4, wide: 5 }} start={{ narrow: 1, medium: 5, wide: 7 }}>
+              <Heading className="ams-mb-s" color="inverse" level={2} size="level-4">
+                Besluiten B en W
+              </Heading>
+              <LinkList className="ams-mb-m">
+                <LinkList.Link color="inverse" href="#">
+                  Nieuws uit B en W 9 juli 2025
+                </LinkList.Link>
+                <LinkList.Link color="inverse" href="#">
+                  Nieuws uit B en W 2 juli 2025
+                </LinkList.Link>
+                <LinkList.Link color="inverse" href="#">
+                  Nieuws uit B en W 25 juni 2025
+                </LinkList.Link>
+              </LinkList>
+              <StandaloneLink color="inverse" href="#">
+                Meer besluiten B en W
+              </StandaloneLink>
+            </Grid.Cell>
+          </Grid>
+        </Spotlight>
+        <Grid paddingVertical="x-large">
+          <Grid.Cell span={{ narrow: 4, medium: 4, wide: 5 }} start={{ narrow: 1, medium: 1, wide: 2 }}>
+            <LinkBlock
+              body="Voor vragen van journalisten aan de afdeling Bestuursvoorlichting."
+              heading="Pers en woordvoering"
+              linkText="Pers"
+            />
+          </Grid.Cell>
+          <Grid.Cell span={{ narrow: 4, medium: 4, wide: 5 }} start={{ narrow: 1, medium: 5, wide: 7 }}>
+            <Heading className="ams-mb-s" level={2} size="level-4">
+              Meer over het college
+            </Heading>
+            <LinkList className="ams-mb-m">
+              <LinkList.Link href="#">Vervangingsregeling en locoburgemeesters</LinkList.Link>
+              <LinkList.Link href="#">Gedragscode</LinkList.Link>
+              <LinkList.Link href="#">Declaraties en dienstreizen</LinkList.Link>
+              <LinkList.Link href="#">Geschenkenregister college van B&W</LinkList.Link>
+            </LinkList>
+          </Grid.Cell>
+          <Grid.Cell span={{ narrow: 4, medium: 4, wide: 5 }} start={{ narrow: 1, medium: 1, wide: 2 }}>
+            <Heading className="ams-mb-s" level={2} size="level-4">
+              Contact
+            </Heading>
+            <Paragraph className="ams-mb-s">
+              Een bericht voor het college van burgemeester en wethouders kunt u:
+            </Paragraph>
+            <UnorderedList>
+              <UnorderedList.Item>sturen naar Postbus 202, 1000 AE Amsterdam</UnorderedList.Item>
+              <UnorderedList.Item>
+                afgeven bij 1 van de <Link href="#">stadsloketten</Link>
+              </UnorderedList.Item>
+              <UnorderedList.Item>
+                mailen met het <Link href="#">contactformulier</Link>
+              </UnorderedList.Item>
+            </UnorderedList>
+          </Grid.Cell>
+          <Grid.Cell span={{ narrow: 4, medium: 4, wide: 5 }} start={{ narrow: 1, medium: 5, wide: 7 }}>
+            <Heading className="ams-mb-s" level={2} size="level-4">
+              Rechtenvrije foto’s
+            </Heading>
+            <Image alt="" src="https://picsum.photos/640/360" />
+          </Grid.Cell>
+        </Grid>
+      </main>,
+    ],
   },
 }
 
 export const SubnavigationPage: StoryObj = {
   args: {
-    children: (
-      <main id="main">
-        <Grid gapVertical="large" paddingBottom="large">
+    children: [
+      <Grid key={1} paddingTop="large">
+        <Grid.Cell span={{ narrow: 4, medium: 6, wide: 7 }}>
+          <Breadcrumb>
+            <Breadcrumb.Link href="#">Home</Breadcrumb.Link>
+            <Breadcrumb.Link href="#">Onderwerp</Breadcrumb.Link>
+          </Breadcrumb>
+        </Grid.Cell>
+      </Grid>,
+      <main id="main" key={2}>
+        <Grid paddingBottom="x-large">
           <Grid.Cell span={{ narrow: 4, medium: 6, wide: 7 }}>
-            <PageHeading className="ams-mb-m">Overzichtspagina content / Subnavigatiepagina</PageHeading>
+            <PageHeading className="ams-mb-m">{exampleHeading()}</PageHeading>
             <Paragraph size="large">
               Amsterdam wil een nieuwe traditie starten om met oud en nieuw naar een centrale nieuwjaarsviering te gaan
               in plaats van zelf vuurwerk af te steken.
@@ -117,49 +315,44 @@ export const SubnavigationPage: StoryObj = {
           </Grid.Cell>
           <LinkGroupGridCells linkGroups={burgerzakenLinks.slice(0, 6)} />
           <Grid.Cell span={{ narrow: 4, medium: 4, wide: 5 }} start={{ narrow: 1, medium: 1, wide: 2 }}>
-            <Heading className="ams-mb-xs" level={2} size="level-4">
+            <Heading className="ams-mb-s" level={2} size="level-4">
               {exampleHeading()}
             </Heading>
             <Paragraph className="ams-mb-m">{exampleParagraph()}</Paragraph>
-            <StandaloneLink href="#">{exampleStandaloneLine()}</StandaloneLink>
+            <StandaloneLink href="#">{exampleStandaloneLink()}</StandaloneLink>
           </Grid.Cell>
           <Grid.Cell span={{ narrow: 4, medium: 4, wide: 5 }}>
-            <Heading className="ams-mb-xs" level={2} size="level-4">
+            <Heading className="ams-mb-s" level={2} size="level-4">
               {exampleHeading()}
             </Heading>
             <Paragraph className="ams-mb-m">{exampleParagraph()}</Paragraph>
-            <StandaloneLink href="#">{exampleStandaloneLine()}</StandaloneLink>
+            <StandaloneLink href="#">{exampleStandaloneLink()}</StandaloneLink>
           </Grid.Cell>
           <Grid.Cell span={{ narrow: 4, medium: 4, wide: 5 }} start={{ narrow: 1, medium: 1, wide: 2 }}>
-            <Heading className="ams-mb-xs" level={2} size="level-4">
+            <Heading className="ams-mb-s" level={2} size="level-4">
               {exampleHeading()}
             </Heading>
             <Paragraph className="ams-mb-m">{exampleParagraph()}</Paragraph>
-            <StandaloneLink href="#">{exampleStandaloneLine()}</StandaloneLink>
+            <StandaloneLink href="#">{exampleStandaloneLink()}</StandaloneLink>
           </Grid.Cell>
           <Grid.Cell span={{ narrow: 4, medium: 4, wide: 5 }}>
-            <Heading className="ams-mb-xs" level={2} size="level-4">
+            <Heading className="ams-mb-s" level={2} size="level-4">
               {exampleHeading()}
             </Heading>
             <Paragraph className="ams-mb-m">{exampleParagraph()}</Paragraph>
-            <StandaloneLink href="#">{exampleStandaloneLine()}</StandaloneLink>
+            <StandaloneLink href="#">{exampleStandaloneLink()}</StandaloneLink>
           </Grid.Cell>
         </Grid>
         <Spotlight color="magenta">
           <Grid paddingVertical="large">
-            <Grid.Cell span={{ narrow: 4, medium: 8, wide: 10 }} start={{ narrow: 1, medium: 1, wide: 2 }}>
-              <Heading color="inverse" level={3}>
-                {exampleHeading()}
-              </Heading>
-            </Grid.Cell>
             <Grid.Cell span={{ narrow: 4, medium: 4, wide: 5 }} start={{ narrow: 1, medium: 1, wide: 2 }}>
-              <Heading className="ams-mb-xs" color="inverse" level={4}>
+              <Heading className="ams-mb-s" color="inverse" level={4}>
                 {exampleHeading()}
               </Heading>
               <Paragraph color="inverse">{exampleParagraph()}</Paragraph>
             </Grid.Cell>
             <Grid.Cell span={{ narrow: 4, medium: 4, wide: 5 }}>
-              <Heading className="ams-mb-xs" color="inverse" level={4}>
+              <Heading className="ams-mb-s" color="inverse" level={4}>
                 {exampleHeading()}
               </Heading>
               <Paragraph color="inverse">{exampleParagraph()}</Paragraph>
@@ -213,7 +406,7 @@ export const SubnavigationPage: StoryObj = {
             </Grid.Cell>
           </Grid>
         </Spotlight>
-      </main>
-    ),
+      </main>,
+    ],
   },
 }

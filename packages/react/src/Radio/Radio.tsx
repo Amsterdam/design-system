@@ -9,8 +9,11 @@ import type { ForwardedRef, InputHTMLAttributes, PropsWithChildren, ReactNode } 
 import RadioIcon from './RadioIcon'
 
 export type RadioProps = {
-  /** An icon to display instead of the default icon. */
-  icon?: ReactNode
+  /**
+   * An icon to display instead of the default icon.
+   * @default RadioIcon
+   */
+  icon?: Function | ReactNode
   /** Whether the value fails a validation rule. */
   invalid?: boolean
 } & PropsWithChildren<Omit<InputHTMLAttributes<HTMLInputElement>, 'aria-invalid' | 'type'>>
@@ -19,8 +22,11 @@ export type RadioProps = {
  * @see {@link https://designsystem.amsterdam/?path=/docs/components-forms-radio--docs Radio docs at Amsterdam Design System}
  */
 export const Radio = forwardRef(
-  ({ children, className, icon, invalid, ...restProps }: RadioProps, ref: ForwardedRef<HTMLInputElement>) => {
-    const id = useId()
+  (
+    { children, className, icon = RadioIcon, id, invalid, ...restProps }: RadioProps,
+    ref: ForwardedRef<HTMLInputElement>,
+  ) => {
+    const inputId = id || useId()
 
     return (
       // This div is here because NVDA doesn't match the input to the label
@@ -30,12 +36,15 @@ export const Radio = forwardRef(
           {...restProps}
           aria-invalid={invalid || undefined}
           className="ams-radio__input"
-          id={id}
+          id={inputId}
           ref={ref}
           type="radio"
         />
-        <label className="ams-radio__label" htmlFor={id}>
-          <span className="ams-radio__icon-container">{icon ?? <RadioIcon />}</span>
+        <label className="ams-radio__label" htmlFor={inputId}>
+          {/* The icon is only shown when the CSS loads, so we hide it by default. */}
+          <span className="ams-radio__icon-container" hidden>
+            {typeof icon === 'function' ? icon() : icon}
+          </span>
           {children}
         </label>
       </div>

@@ -9,8 +9,11 @@ import type { ForwardedRef, InputHTMLAttributes, PropsWithChildren, ReactNode } 
 import CheckboxIcon from './CheckboxIcon'
 
 export type CheckboxProps = {
-  /** An icon to display instead of the default icon. */
-  icon?: ReactNode
+  /**
+   * An icon to display instead of the default icon.
+   * @default CheckboxIcon
+   */
+  icon?: Function | ReactNode
   /** Allows being neither checked nor unchecked. */
   indeterminate?: boolean
   /** Whether the value fails a validation rule. */
@@ -22,10 +25,10 @@ export type CheckboxProps = {
  */
 export const Checkbox = forwardRef(
   (
-    { children, className, icon, indeterminate, invalid, ...restProps }: CheckboxProps,
+    { children, className, icon = CheckboxIcon, id, indeterminate, invalid, ...restProps }: CheckboxProps,
     ref: ForwardedRef<HTMLInputElement>,
   ) => {
-    const id = useId()
+    const inputId = id || useId()
     const innerRef = useRef<HTMLInputElement>(null)
 
     // use a passed ref if it's there, otherwise use innerRef
@@ -46,12 +49,15 @@ export const Checkbox = forwardRef(
           {...restProps}
           aria-invalid={invalid || undefined}
           className="ams-checkbox__input"
-          id={id}
+          id={inputId}
           ref={innerRef}
           type="checkbox"
         />
-        <label className="ams-checkbox__label" htmlFor={id}>
-          <span className="ams-checkbox__icon-container">{icon ?? <CheckboxIcon />}</span>
+        <label className="ams-checkbox__label" htmlFor={inputId}>
+          {/* The icon is only shown when the CSS loads, so we hide it by default. */}
+          <span className="ams-checkbox__icon-container" hidden>
+            {typeof icon === 'function' ? icon() : icon}
+          </span>
           {children}
         </label>
       </div>

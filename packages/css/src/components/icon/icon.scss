@@ -8,7 +8,7 @@
 
   align-items: center;
   align-self: baseline; // Aligns the icon with text in flex or grid context
-  display: inline-flex;
+  display: inline-flex; // Center align the icon vertically, and override the default 'hidden' attribute
   font-size: var(--ams-icon-font-size);
   line-height: var(--ams-line-height);
 
@@ -41,6 +41,27 @@
   --ams-line-height: var(--ams-icon-large-line-height);
 
   font-size: var(--ams-icon-large-font-size);
+}
+
+.ams-icon--heading-0 {
+  --ams-line-height: var(--ams-icon-heading-0-line-height);
+
+  font-size: var(--ams-icon-heading-0-font-size);
+  line-height: var(--ams-icon-heading-0-line-height);
+}
+
+.ams-icon--heading-1 {
+  --ams-line-height: var(--ams-icon-heading-1-line-height);
+
+  font-size: var(--ams-icon-heading-1-font-size);
+  line-height: var(--ams-icon-heading-1-line-height);
+}
+
+.ams-icon--heading-2 {
+  --ams-line-height: var(--ams-icon-heading-2-line-height);
+
+  font-size: var(--ams-icon-heading-2-font-size);
+  line-height: var(--ams-icon-heading-2-line-height);
 }
 
 .ams-icon--heading-3 {

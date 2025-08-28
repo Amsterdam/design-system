@@ -6,6 +6,10 @@ This package provides all design tokens from the [Amsterdam Design System](https
 Use it to apply its visual design to your website or application.
 The tokens are exported in multiple formats, including CSS custom properties and JSON, making them compatible with most, if not all, technology stacks.
 
+**Note** that the values of the tokens in this package implement the branding of the City of Amsterdam.
+If your project is not affiliated with the City of Amsterdam, you should not use this package.
+You are allowed to copy the token files if you change the values to your own branding.
+
 ## Introduction
 
 Every design token is a variable representing a single visual design choice.

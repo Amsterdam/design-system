@@ -5,7 +5,7 @@
 
 import { Grid, Page } from '@amsterdam/design-system-react/src'
 import type { GridCellProps } from '@amsterdam/design-system-react/src'
-import { Meta, StoryObj } from '@storybook/react'
+import { Meta, StoryObj } from '@storybook/react-vite'
 import { gridGapAndPaddingArgTypes } from '../../common'
 
 const meta = {

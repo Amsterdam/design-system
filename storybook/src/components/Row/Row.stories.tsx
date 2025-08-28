@@ -3,11 +3,12 @@
  * Copyright Gemeente Amsterdam
  */
 
-import { Avatar, Heading, Link } from '@amsterdam/design-system-react'
+import { Avatar, Heading, StandaloneLink } from '@amsterdam/design-system-react'
 import { Row } from '@amsterdam/design-system-react/src'
 import { rowGapSizes } from '@amsterdam/design-system-react/src/Row/Row'
 import { crossAlignOptions, mainAlignOptions } from '@amsterdam/design-system-react/src/common/types'
-import { Meta, StoryObj } from '@storybook/react'
+import { PencilIcon } from '@amsterdam/design-system-react-icons'
+import { Meta, StoryObj } from '@storybook/react-vite'
 
 const ThreeItems = [
   <div className="ams-docs-item" key={0} />,
@@ -86,11 +87,11 @@ export const AlignOpposingTexts: Story = {
     alignVertical: 'baseline',
     children: [
       <Heading key={1} level={3}>
-        An example heading
+        Kerngegevens
       </Heading>,
-      <Link href="#" key={2}>
-        An example link
-      </Link>,
+      <StandaloneLink href="#" icon={PencilIcon} key={2}>
+        Gegevens wijzigen
+      </StandaloneLink>,
     ],
     className: undefined,
     wrap: true,

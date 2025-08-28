@@ -5,7 +5,7 @@
 
 import { Image, Page, Paragraph, Spotlight } from '@amsterdam/design-system-react'
 import { Breakout } from '@amsterdam/design-system-react/src'
-import { Meta, StoryObj } from '@storybook/react'
+import { Meta, StoryObj } from '@storybook/react-vite'
 import { gridGapAndPaddingArgTypes } from '../../common'
 
 const meta = {

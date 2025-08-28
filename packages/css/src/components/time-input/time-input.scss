@@ -11,6 +11,16 @@
   border-radius: 0; // Reset rounded borders on iOS devices
   inline-size: auto; // Reset inline size of 10em set by Android devices
   margin-block: 0;
+
+  &::-webkit-datetime-edit,
+  &::-webkit-datetime-edit-ampm-field,
+  &::-webkit-datetime-edit-fields-wrapper,
+  &::-webkit-datetime-edit-hour-field,
+  &::-webkit-datetime-edit-millisecond-field,
+  &::-webkit-datetime-edit-minute-field,
+  &::-webkit-datetime-edit-second-field {
+    padding-block: 0; // Override value of 1px in UA stylesheet
+  }
 }
 
 .ams-time-input {
@@ -62,16 +72,17 @@
   visibility: visible;
 }
 
-.ams-time-input:invalid,
-.ams-time-input[aria-invalid="true"] {
+.ams-time-input:not(:disabled):invalid,
+.ams-time-input:not(:disabled)[aria-invalid="true"] {
   border-color: var(--ams-time-input-invalid-border-color);
-
-  &:hover {
-    border-color: var(--ams-time-input-invalid-hover-border-color);
-    box-shadow: var(--ams-time-input-invalid-hover-box-shadow);
-  }
 }
 
 .ams-time-input:not(:disabled):hover {
   box-shadow: var(--ams-time-input-hover-box-shadow);
+}
+
+.ams-time-input:not(:disabled):invalid:hover,
+.ams-time-input:not(:disabled)[aria-invalid="true"]:hover {
+  border-color: var(--ams-time-input-invalid-hover-border-color);
+  box-shadow: var(--ams-time-input-invalid-hover-box-shadow);
 }

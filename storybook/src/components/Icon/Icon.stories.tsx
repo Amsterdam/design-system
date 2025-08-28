@@ -3,11 +3,11 @@
  * Copyright Gemeente Amsterdam
  */
 
-import { Heading } from '@amsterdam/design-system-react'
+import { Heading, PageHeading } from '@amsterdam/design-system-react'
 import { Icon, Paragraph, Row } from '@amsterdam/design-system-react/src'
 import { iconSizes } from '@amsterdam/design-system-react/src/Icon/Icon'
 import * as Icons from '@amsterdam/design-system-react-icons'
-import { Meta, StoryObj } from '@storybook/react'
+import { Meta, StoryObj } from '@storybook/react-vite'
 
 const meta = {
   title: 'Components/Media/Icon',
@@ -47,96 +47,57 @@ type Story = StoryObj<typeof meta>
 export const Default: Story = {}
 
 export const WithBodyText: Story = {
-  render: (args) => (
-    <Row gap="small">
-      <Icon {...args} />
-      <Paragraph color={args.color}>Regular body text</Paragraph>
-    </Row>
-  ),
-}
-
-export const WithSmallBodyText: Story = {
-  args: {
-    size: 'small',
+  argTypes: {
+    size: {
+      control: {
+        labels: { undefined: 'medium (default)' },
+      },
+      options: ['small', undefined, 'large'],
+    },
   },
-  render: (args) => (
-    <Row gap="small">
-      <Icon {...args} />
-      <Paragraph color={args.color} size="small">
-        Small body text
-      </Paragraph>
-    </Row>
-  ),
-}
+  render: (args) => {
+    const paragraphSize = args.size as 'small' | 'large'
+    const getSizeLabel = (size: 'small' | 'large' | undefined) => {
+      if (size === undefined) return 'Regular'
+      return size.charAt(0).toUpperCase() + size.slice(1)
+    }
 
-export const WithLargeBodyText: Story = {
-  args: {
-    size: 'large',
+    return (
+      <Row gap="small">
+        <Icon {...args} />
+        <Paragraph color={args.color} size={paragraphSize}>
+          {getSizeLabel(paragraphSize)} body text
+        </Paragraph>
+      </Row>
+    )
   },
-  render: (args) => (
-    <Row gap="small">
-      <Icon {...args} />
-      <Paragraph color={args.color} size="large">
-        Large body text
-      </Paragraph>
-    </Row>
-  ),
 }
 
-export const WithHeading3: Story = {
+export const WithAHeading: Story = {
   args: {
     size: 'heading-3',
   },
-  render: (args) => (
-    <Row gap="small">
-      <Icon {...args} />
-      <Heading color={args.color} level={3}>
-        Heading 3 text
-      </Heading>
-    </Row>
-  ),
-}
-
-export const WithHeading4: Story = {
-  args: {
-    size: 'heading-4',
+  argTypes: {
+    size: {
+      options: [...iconSizes.filter((size) => size.startsWith('heading-'))],
+    },
   },
-  render: (args) => (
-    <Row gap="small">
-      <Icon {...args} />
-      <Heading color={args.color} level={4}>
-        Heading 4 text
-      </Heading>
-    </Row>
-  ),
-}
+  render: (args) => {
+    const headingSize = args.size ? (args.size.slice(-1) as '0' | '1' | '2' | '3' | '4' | '5' | '6') : '3'
 
-export const WithHeading5: Story = {
-  args: {
-    size: 'heading-5',
+    return (
+      <Row gap="small">
+        <Icon {...args} />
+        {headingSize === '0' ? (
+          <PageHeading color={args.color}>Heading {headingSize} text</PageHeading>
+        ) : (
+          <Heading color={args.color} level={1} size={`level-${headingSize}`}>
+            Heading {headingSize} text
+          </Heading>
+        )}
+      </Row>
+    )
   },
-  render: (args) => (
-    <Row gap="small">
-      <Icon {...args} />
-      <Heading color={args.color} level={4} size="level-5">
-        Heading 5 text
-      </Heading>
-    </Row>
-  ),
-}
-
-export const WithHeading6: Story = {
-  args: {
-    size: 'heading-6',
-  },
-  render: (args) => (
-    <Row gap="small">
-      <Icon {...args} />
-      <Heading color={args.color} level={4} size="level-6">
-        Heading 6 text
-      </Heading>
-    </Row>
-  ),
 }
 
 export const Square: Story = {

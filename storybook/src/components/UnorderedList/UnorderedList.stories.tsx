@@ -3,23 +3,13 @@
  * Copyright Gemeente Amsterdam
  */
 
-import { Icon, Paragraph } from '@amsterdam/design-system-react'
+import { Card, Paragraph } from '@amsterdam/design-system-react'
 import { UnorderedList } from '@amsterdam/design-system-react/src'
-import {
-  CarIcon,
-  DocumentEuroIcon,
-  HouseIcon,
-  MapMarkerOnMapIcon,
-  MegaphoneIcon,
-  PassportIcon,
-  TrashBinIcon,
-  WarningIcon,
-} from '@amsterdam/design-system-react-icons'
-import type { Meta, StoryObj } from '@storybook/react'
+import type { Meta, StoryObj } from '@storybook/react-vite'
 import { exampleUnorderedList } from '../shared/exampleContent'
 
-const unorderedListItems = exampleUnorderedList().map((text, index) => (
-  <UnorderedList.Item key={index}>{text}</UnorderedList.Item>
+const unorderedListItems = exampleUnorderedList().map((text) => (
+  <UnorderedList.Item key={text}>{text}</UnorderedList.Item>
 ))
 
 const meta = {
@@ -74,55 +64,50 @@ export const WithoutMarkers: Story = {
   args: {
     children: [
       <UnorderedList.Item key={1}>
-        <div className="ams-docs-card">
-          <Icon svg={MapMarkerOnMapIcon} />
-          <Paragraph>Stadsloket: locaties en openingstijden</Paragraph>
-        </div>
+        <Card>
+          <Card.Heading level={2}>
+            <Card.Link href="#">Weg met steen, hallo extra groen en koelte</Card.Link>
+          </Card.Heading>
+          <Paragraph>
+            Sinds 2021 kwamen er maar liefst 60 nieuwe groene plekken bij in de stad. Groen is fijn en het verkoelt de
+            stad in de zomer. Een paar voorbeelden.
+          </Paragraph>
+          <Paragraph size="small">16 augustus 2023</Paragraph>
+        </Card>
       </UnorderedList.Item>,
       <UnorderedList.Item key={2}>
-        <div className="ams-docs-card">
-          <Icon svg={CarIcon} />
-          <Paragraph>Parkeren + Reizen (P+R)</Paragraph>
-        </div>
+        <Card>
+          <Card.Heading level={2}>
+            <Card.Link href="#">Amsterdam bindt de strijd aan met lawaaierige voertuigen</Card.Link>
+          </Card.Heading>
+          <Paragraph>
+            Deze zomer testen we of digitale borden langs de weg kunnen helpen om geluidsoverlast van voertuigen zoals
+            motoren en auto’s tegen te gaan.
+          </Paragraph>
+          <Paragraph size="small">10 augustus 2023</Paragraph>
+        </Card>
       </UnorderedList.Item>,
       <UnorderedList.Item key={3}>
-        <div className="ams-docs-card">
-          <Icon svg={PassportIcon} />
-          <Paragraph>Paspoort, ID-kaart en Rijbewijs</Paragraph>
-        </div>
-      </UnorderedList.Item>,
-      <UnorderedList.Item key={4}>
-        <div className="ams-docs-card">
-          <Icon svg={DocumentEuroIcon} />
-          <Paragraph>Gemeentebelastingen</Paragraph>
-        </div>
-      </UnorderedList.Item>,
-      <UnorderedList.Item key={5}>
-        <div className="ams-docs-card">
-          <Icon svg={WarningIcon} />
-          <Paragraph>Melding openbare ruimte en overlast</Paragraph>
-        </div>
-      </UnorderedList.Item>,
-      <UnorderedList.Item key={6}>
-        <div className="ams-docs-card">
-          <Icon svg={HouseIcon} />
-          <Paragraph>Verhuizing doorgeven</Paragraph>
-        </div>
-      </UnorderedList.Item>,
-      <UnorderedList.Item key={7}>
-        <div className="ams-docs-card">
-          <Icon svg={TrashBinIcon} />
-          <Paragraph>Grof afval</Paragraph>
-        </div>
-      </UnorderedList.Item>,
-      <UnorderedList.Item key={8}>
-        <div className="ams-docs-card">
-          <Icon svg={MegaphoneIcon} />
-          <Paragraph>Kennisgevingen en bekendmakingen</Paragraph>
-        </div>
+        <Card>
+          <Card.Heading level={2}>
+            <Card.Link href="#">Een prachtroute door de wonderlijke Baarsjes</Card.Link>
+          </Card.Heading>
+          <Paragraph>
+            In de Baarsjes zijn kunst en cultuur met elkaar vervlochten. We zetten een prachtige wandelroute voor u uit
+            en laten zien hoe het was en hoe het nu is.
+          </Paragraph>
+          <Paragraph size="small">8 augustus 2023</Paragraph>
+        </Card>
       </UnorderedList.Item>,
     ],
+    className: 'ams-gap-xl',
     markers: false,
+    style: { maxInlineSize: '32rem' },
+  },
+  argTypes: {
+    style: {
+      table: { disable: true },
+    },
   },
 }
 

@@ -10,6 +10,7 @@ const LogoVgaVerzekeringen = forwardRef((props: SVGProps<SVGSVGElement>, ref: Fo
   <svg
     className="ams-logo"
     focusable="false"
+    height="2.5rem" // Height for when CSS does not load, gets overridden when it does
     ref={ref}
     role="img"
     viewBox="0 0 145 43"

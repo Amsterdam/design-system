@@ -14,7 +14,17 @@ import clsx from 'clsx'
 import { forwardRef } from 'react'
 import type { ForwardedRef, HTMLAttributes, ReactNode } from 'react'
 
-export const iconSizes = ['small', 'large', 'heading-3', 'heading-4', 'heading-5', 'heading-6'] as const
+export const iconSizes = [
+  'small',
+  'large',
+  'heading-0',
+  'heading-1',
+  'heading-2',
+  'heading-3',
+  'heading-4',
+  'heading-5',
+  'heading-6',
+] as const
 type IconSize = (typeof iconSizes)[number]
 
 export type IconProps = {
@@ -42,6 +52,7 @@ export const Icon = forwardRef(
         square && 'ams-icon--square',
         className,
       )}
+      hidden // The icon is only shown when the CSS loads, so we hide it by default.
       ref={ref}
       {...restProps}
     >

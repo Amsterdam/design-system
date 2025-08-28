@@ -1,6 +1,6 @@
 {/* @license CC0-1.0 */}
 
-import { Canvas, Controls, Markdown, Meta, Primary } from "@storybook/blocks";
+import { Canvas, Controls, Markdown, Meta, Primary } from "@storybook/addon-docs/blocks";
 import * as ParagraphStories from "./Paragraph.stories.tsx";
 import README from "../../../../packages/css/src/components/paragraph/README.md?raw";
 
@@ -26,8 +26,7 @@ Use this text to entice the reader to continue reading.
 
 ### Small text
 
-Use this size for auxiliary texts, captions, metadata, etc.
-Keep these texts short.
+We use a smaller font size for text in a Figure Caption and for metadata like dates or categories.
 
 <Canvas of={ParagraphStories.SmallText} />
 

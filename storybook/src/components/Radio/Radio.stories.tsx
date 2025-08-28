@@ -5,8 +5,8 @@
 
 import { Column, ErrorMessage, FieldSet, Paragraph } from '@amsterdam/design-system-react'
 import { Radio } from '@amsterdam/design-system-react/src'
-import { useArgs } from '@storybook/preview-api'
-import { Meta, StoryObj } from '@storybook/react'
+import { Meta, StoryObj } from '@storybook/react-vite'
+import { useArgs } from 'storybook/preview-api'
 import CustomIcon from './CustomIcon'
 
 const meta = {
@@ -16,6 +16,7 @@ const meta = {
     checked: false,
     children: 'Radio label',
     disabled: false,
+    id: '',
     invalid: false,
   },
   argTypes: {
@@ -31,6 +32,9 @@ const meta = {
     },
     icon: {
       table: { disable: true },
+    },
+    id: {
+      description: 'The id of the input element. If not provided, a unique id will be generated.',
     },
     invalid: {
       description: 'Whether the value fails a validation rule.',
@@ -76,7 +80,7 @@ export const InAFieldSet: Story = {
       legend="Waar gaat uw melding over?"
       role="radiogroup"
     >
-      <Paragraph className="ams-mb-s" id="description1" size="small">
+      <Paragraph className="ams-mb-s" id="description1">
         De laatstgenoemde melding.
       </Paragraph>
       {invalid && (
@@ -124,7 +128,7 @@ export const InAFieldSetWithValidation: Story = {
       legend="Waar gaat uw melding over?"
       role="radiogroup"
     >
-      <Paragraph className="ams-mb-s" id="description2" size="small">
+      <Paragraph className="ams-mb-s" id="description2">
         De laatstgenoemde melding.
       </Paragraph>
       {invalid && (

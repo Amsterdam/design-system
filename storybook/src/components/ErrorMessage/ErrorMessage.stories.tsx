@@ -5,7 +5,7 @@
 
 import { ErrorMessage } from '@amsterdam/design-system-react/src'
 import { MegaphoneIcon } from '@amsterdam/design-system-react-icons'
-import { Meta, StoryObj } from '@storybook/react'
+import { Meta, StoryObj } from '@storybook/react-vite'
 
 const meta = {
   title: 'Components/Forms/Error Message',
@@ -35,6 +35,6 @@ export const CustomPrefix: Story = {
 
 export const WithCustomIcon: Story = {
   args: {
-    icon: MegaphoneIcon,
+    icon: <MegaphoneIcon />,
   },
 }

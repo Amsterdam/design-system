@@ -5,15 +5,15 @@
 
 import { Heading, Paragraph } from '@amsterdam/design-system-react'
 import { StandaloneLink } from '@amsterdam/design-system-react/src'
-import { ChevronForwardIcon } from '@amsterdam/design-system-react-icons'
+import { DownloadIcon } from '@amsterdam/design-system-react-icons'
 import * as Icons from '@amsterdam/design-system-react-icons'
-import { Meta, StoryObj } from '@storybook/react'
+import { Meta, StoryObj } from '@storybook/react-vite'
 
 const meta = {
   title: 'Components/Navigation/Standalone Link',
   component: StandaloneLink,
   args: {
-    children: 'Link label',
+    children: 'Bekijk alle onderwerpen',
     href: '#',
   },
   argTypes: {
@@ -40,6 +40,11 @@ const meta = {
       },
       mapping: Icons,
       options: [undefined, ...Object.keys(Icons)],
+      table: {
+        defaultValue: {
+          summary: 'ChevronForwardIcon',
+        },
+      },
     },
   },
 } satisfies Meta<typeof StandaloneLink>
@@ -62,23 +67,34 @@ export const InverseColour: Story = {
   },
 }
 
-export const WithChevronIcon: Story = {
+export const WithHeadingAndParagraph: Story = {
   args: {
     children: 'Bekijk alle werkzaamheden',
-    icon: ChevronForwardIcon,
   },
   decorators: [
     (Story) => (
       <article style={{ maxWidth: '32rem' }}>
-        <Heading className="ams-mb-xs" level={2}>
-          Werkzaamheden
-        </Heading>
-        <Paragraph className="ams-mb-s">
-          Lees waar en wanneer we werken aan nieuwbouw, groot onderhoud, herinrichting van straten en wegen, aanpak van
-          parken of ontwikkeling van hele gebieden.
-        </Paragraph>
         <Story />
       </article>
     ),
   ],
+  render: ({ children, ...args }) => (
+    <article>
+      <Heading className="ams-mb-s" level={2} size="level-4">
+        Werkzaamheden
+      </Heading>
+      <Paragraph className="ams-mb-m">
+        Lees waar en wanneer we werken aan nieuwbouw, groot onderhoud, herinrichting van straten en wegen, aanpak van
+        parken of ontwikkeling van hele gebieden.
+      </Paragraph>
+      <StandaloneLink {...args}>{children}</StandaloneLink>
+    </article>
+  ),
+}
+
+export const WithCustomIcon: Story = {
+  args: {
+    children: 'Downloaden',
+    icon: <DownloadIcon />,
+  },
 }

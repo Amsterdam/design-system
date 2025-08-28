@@ -1,6 +1,6 @@
 {/* @license CC0-1.0 */}
 
-import { Canvas, Controls, Markdown, Meta, Primary } from "@storybook/blocks";
+import { Canvas, Controls, Markdown, Meta, Primary } from "@storybook/addon-docs/blocks";
 import * as IconStories from "./Icon.stories.tsx";
 import README from "../../../../packages/css/src/components/icon/README.md?raw";
 
@@ -11,16 +11,12 @@ import README from "../../../../packages/css/src/components/icon/README.md?raw";
 ## How to use
 
 Use the React Icon component together with a React SVG component from `@amsterdam/design-system-react-icons`.
-Import this SVG as follows:
+Import this SVG component and use it like this:
 
 ```tsx
 import { MailIcon } from "@amsterdam/design-system-react-icons";
-```
 
-Then, you can use it in the component like this:
-
-```tsx
-<Icon svg={MailIcon} />
+<Icon svg={MailIcon} />;
 ```
 
 <Primary />
@@ -29,29 +25,15 @@ Then, you can use it in the component like this:
 
 ## Examples
 
-### With body text
+### Aligning with text
 
-An icon is as large as regular body text, e.g. paragraphs and lists, including its line height.
+While the icon itself is square, the wrapping Icon component adds a line height for easy alignment with text.
+An icon aligns with regular body text by default.
+Use the `size` prop to pair an icon with small or large body text or with a heading.
 
 <Canvas of={IconStories.WithBodyText} />
 
-Use the `size` prop to pair an icon with small or large body text.
-
-<Canvas of={IconStories.WithSmallBodyText} />
-
-<Canvas of={IconStories.WithLargeBodyText} />
-
-### With a heading
-
-Use a `size` of `heading-3` – `heading-6` to pair an icon with a [Heading](/docs/components-text-heading--docs).
-
-<Canvas of={IconStories.WithHeading3} />
-
-<Canvas of={IconStories.WithHeading4} />
-
-<Canvas of={IconStories.WithHeading5} />
-
-<Canvas of={IconStories.WithHeading6} />
+<Canvas of={IconStories.WithAHeading} />
 
 ### Square
 

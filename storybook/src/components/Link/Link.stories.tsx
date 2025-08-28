@@ -5,7 +5,7 @@
 
 import { Paragraph } from '@amsterdam/design-system-react'
 import { Link } from '@amsterdam/design-system-react/src'
-import type { Meta, StoryObj } from '@storybook/react'
+import type { Meta, StoryObj } from '@storybook/react-vite'
 
 type Story = StoryObj<typeof Link>
 

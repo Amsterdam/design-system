@@ -97,16 +97,16 @@ const PageHeaderRoot = forwardRef(
       <header {...restProps} className={clsx('ams-page-header', className)} ref={ref}>
         <Link className="ams-page-header__logo-link" href={logoLink}>
           <LogoLinkContent brandName={brandName} logoAccessibleName={logoAccessibleName} logoBrand={logoBrand} />
-          <span className="ams-visually-hidden">{logoLinkTitle}</span>
+          <span className="ams-visually-hidden">{` ${logoLinkTitle}`}</span>
         </Link>
         {(hasMegaMenu || menuItems) && !appNavigation && (
           <nav aria-labelledby="primary-navigation" className="ams-page-header__navigation">
-            <h2 className="ams-visually-hidden" id="primary-navigation">
+            <h2 aria-hidden className="ams-visually-hidden" id="primary-navigation">
               {navigationLabel}
             </h2>
 
             {/* The logo link section is recreated here, to make sure the header menu wraps at the right spot */}
-            <div className="ams-page-header__logo-link ams-page-header__logo-link--hidden">
+            <div aria-hidden className="ams-page-header__logo-link ams-page-header__logo-link--hidden" hidden>
               <LogoLinkContent brandName={brandName} logoBrand={logoBrand} />
             </div>
 

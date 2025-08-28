@@ -38,14 +38,15 @@ export const FormPage = () => {
         <form className="ams-gap-xl" id="main" onSubmit={(e) => e.preventDefault()}>
           <Field>
             <Label htmlFor="body">Wat wilt u aan de gemeente vragen?</Label>
-            <Paragraph id="bodyDescription" size="small">
+            <Paragraph id="bodyDescription">
               Een duidelijke beschrijving van uw vraag helpt ons bij het behandelen.
             </Paragraph>
             <TextArea
               aria-describedby="bodyDescription"
               id="body"
               onChange={(e) => setTextareaLength(e.target.value.length)}
-              rows={4}
+              rows={6}
+              value="Mijn woning voldoet nu aan de voorwaarden voor energiebesparing, en ik wil graag weten of er subsidies of financiële steun beschikbaar zijn voor het installeren van zonnepanelen of isolatiemaatregelen. Kunt u uitleggen welke stappen ik moet volgen om hiervoor in aanmerking te komen?"
             />
             <CharacterCount length={textareaLength} maxLength={1000} />
           </Field>
@@ -56,11 +57,17 @@ export const FormPage = () => {
               </Paragraph>
               <Field>
                 <Label htmlFor="initials">Voorletters</Label>
-                <TextInput id="initials" name="initials" />
+                <TextInput id="initials" name="initials" size={8} value="M.K." />
               </Field>
               <Field>
                 <Label htmlFor="familyName">Achternaam</Label>
-                <TextInput autoComplete="family-name" id="familyName" name="familyName" />
+                <TextInput
+                  autoComplete="family-name"
+                  id="familyName"
+                  name="familyName"
+                  size={32}
+                  value="van der Linden"
+                />
               </Field>
               <FieldSet legend="Woonplaats">
                 <Radio name="city" value="amsterdam">
@@ -75,20 +82,22 @@ export const FormPage = () => {
               </FieldSet>
               <Field>
                 <Label htmlFor="email">E-mail</Label>
-                <TextInput autoComplete="email" id="email" name="email" />
+                <TextInput autoComplete="email" id="email" name="email" size={32} value="marijn@vanderlinden.nl" />
               </Field>
               <Row gap="x-large" wrap>
                 <Field>
                   <Label htmlFor="countryCode">Landnummer</Label>
                   <Select id="countryCode" name="countryCode">
-                    <Select.Option value="+31">Nederland +31</Select.Option>
+                    <Select.Option selected value="+31">
+                      Nederland +31
+                    </Select.Option>
                     <Select.Option value="+32">België +32</Select.Option>
                     <Select.Option value="+33">Frankrijk +33</Select.Option>
                   </Select>
                 </Field>
                 <Field>
                   <Label htmlFor="phone">Telefoonnummer</Label>
-                  <TextInput autoComplete="tel" id="phone" name="phone" />
+                  <TextInput autoComplete="tel" id="phone" name="phone" value="06-12345678" />
                 </Field>
               </Row>
             </Column>

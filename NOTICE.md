@@ -12,10 +12,14 @@ Instead, you should design your own branding.
 ## Typefaces
 
 Not all typefaces used in the branding are free and open source.
-Please note that you must arrange a (paid) license if you use the provided typefaces.
+Please note that you must arrange a (paid) licence if you use the provided typefaces.
 Alternatively, adjust the configuration to use fewer or different typefaces.
 
-Amsterdam Sans is licensed exclusively to the City of Amsterdam and amsterdam&partners.
+Amsterdam Sans is licenced exclusively to the City of Amsterdam and amsterdam&partners.
+
+## Icons
+
+Our icons can only be used on websites and applications where the City of Amsterdam is the main communicator.
 
 ## Permission
 

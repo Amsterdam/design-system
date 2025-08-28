@@ -4,7 +4,7 @@
  */
 
 import { Page } from '@amsterdam/design-system-react'
-import type { Meta } from '@storybook/react'
+import type { Meta } from '@storybook/react-vite'
 import { Layout } from './Layout'
 
 export const commonMeta = {

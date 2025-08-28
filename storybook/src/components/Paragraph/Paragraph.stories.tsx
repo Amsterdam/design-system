@@ -5,7 +5,7 @@
 
 import { Icon, Paragraph, Row } from '@amsterdam/design-system-react/src'
 import { MailIcon } from '@amsterdam/design-system-react-icons'
-import { Meta, StoryObj } from '@storybook/react'
+import { Meta, StoryObj } from '@storybook/react-vite'
 import { exampleParagraph } from '../shared/exampleContent'
 
 const paragraph = exampleParagraph()
@@ -68,7 +68,7 @@ export const WithIcon: Story = {
   },
   render: ({ children, ...args }) => (
     <Row gap="small">
-      <Icon color={args.color} size={args.size} svg={MailIcon} />
+      <Icon color={args.color} size={args.size} svg={<MailIcon />} />
       <Paragraph {...args}>{children}</Paragraph>
     </Row>
   ),

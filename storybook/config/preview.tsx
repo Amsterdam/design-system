@@ -5,7 +5,7 @@ import '@amsterdam/design-system-css/dist/index.css'
 import '../src/styles/docs.css'
 import '../src/styles/overrides.css'
 import { withThemeByClassName } from '@storybook/addon-themes'
-import type { StoryContext, StoryFn } from '@storybook/react'
+import type { StoryContext, StoryFn } from '@storybook/react-vite'
 import clsx from 'clsx'
 import { viewports } from './viewports'
 
@@ -80,3 +80,5 @@ export const parameters = {
     viewports,
   },
 }
+
+export const tags = ['autodocs']

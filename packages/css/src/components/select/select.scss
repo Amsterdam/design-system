@@ -17,8 +17,8 @@
   font-family: var(--ams-select-font-family);
   font-size: var(--ams-select-font-size);
   font-weight: var(--ams-select-font-weight);
-  inline-size: 100%;
   line-height: var(--ams-select-line-height);
+  max-inline-size: 100%;
   outline-offset: var(--ams-select-outline-offset);
   padding-block: var(--ams-select-padding-block);
   padding-inline: var(--ams-select-padding-inline);
@@ -34,33 +34,32 @@
   }
 }
 
-.ams-select:invalid,
-.ams-select[aria-invalid="true"] {
-  border-color: var(--ams-select-invalid-border-color);
-}
-
 .ams-select:disabled {
   color: var(--ams-select-disabled-color);
   cursor: var(--ams-select-disabled-cursor);
 
   &:not([multiple]) {
     background-image: var(--ams-select-disabled-background-image);
-
-    /* stylelint-disable no-descending-specificity */
-    &:hover {
-      background-image: var(--ams-select-hover-background-image);
-    }
   }
 }
 
-.ams-select:invalid:hover,
-.ams-select[aria-invalid="true"]:hover {
-  border-color: var(--ams-select-invalid-hover-border-color);
-  box-shadow: var(--ams-select-invalid-hover-box-shadow);
+.ams-select:not(:disabled):invalid,
+.ams-select:not(:disabled)[aria-invalid="true"] {
+  border-color: var(--ams-select-invalid-border-color);
 }
 
 .ams-select:not(:disabled):hover {
   box-shadow: var(--ams-select-hover-box-shadow);
+
+  &:not([multiple]) {
+    background-image: var(--ams-select-hover-background-image);
+  }
+}
+
+.ams-select:not(:disabled):invalid:hover,
+.ams-select:not(:disabled)[aria-invalid="true"]:hover {
+  border-color: var(--ams-select-invalid-hover-border-color);
+  box-shadow: var(--ams-select-invalid-hover-box-shadow);
 }
 
 .ams-select__option:disabled {
