@@ -43,6 +43,55 @@ export const Default: Story = {
   },
 }
 
+export const Levels: Story = {
+  render: (args) => (
+    <>
+      <Accordion {...args} headingLevel={2}>
+        <Accordion.Section label="Heading level 2">
+          <Paragraph>{paragraph1}</Paragraph>
+        </Accordion.Section>
+      </Accordion>
+      <Accordion {...args} headingLevel={3}>
+        <Accordion.Section label="Heading level 3">
+          <Paragraph>{paragraph1}</Paragraph>
+        </Accordion.Section>
+      </Accordion>
+      <Accordion {...args} headingLevel={4}>
+        <Accordion.Section label="Heading level 4">
+          <Paragraph>{paragraph1}</Paragraph>
+        </Accordion.Section>
+      </Accordion>
+    </>
+  ),
+}
+
+export const Sizes: Story = {
+  render: (args) => (
+    <>
+      <Accordion {...args} headingSize="level-2">
+        <Accordion.Section label="Heading size 2">
+          <Paragraph>{paragraph1}</Paragraph>
+        </Accordion.Section>
+      </Accordion>
+      <Accordion {...args} headingSize="level-3">
+        <Accordion.Section label="Heading size 3">
+          <Paragraph>{paragraph1}</Paragraph>
+        </Accordion.Section>
+      </Accordion>
+      <Accordion {...args} headingSize="level-4">
+        <Accordion.Section label="Heading size 4">
+          <Paragraph>{paragraph1}</Paragraph>
+        </Accordion.Section>
+      </Accordion>
+      <Accordion {...args} headingSize="level-5">
+        <Accordion.Section label="Heading size 5">
+          <Paragraph>{paragraph1}</Paragraph>
+        </Accordion.Section>
+      </Accordion>
+    </>
+  ),
+}
+
 export const ExpandedByDefault: Story = {
   args: {
     children: [
