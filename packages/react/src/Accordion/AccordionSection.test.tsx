@@ -68,9 +68,9 @@ describe('Accordion section', () => {
     expect(sectionContent).toHaveClass('ams-accordion__panel--expanded')
   })
 
-  it('renders a section HTML tag by defaultt', () => {
+  it('renders a section HTML tag by default', () => {
     render(
-      <Accordion headingLevel={1}>
+      <Accordion headingLevel={2}>
         <Accordion.Section label={testLabel}>{testContent}</Accordion.Section>
       </Accordion>,
     )
@@ -82,7 +82,7 @@ describe('Accordion section', () => {
 
   it('does not render a section HTML tag when the sectionAs is "div"', () => {
     render(
-      <Accordion headingLevel={1} sectionAs="div">
+      <Accordion headingLevel={2} sectionAs="div">
         <Accordion.Section label={testLabel}>{testContent}</Accordion.Section>
       </Accordion>,
     )

@@ -9,7 +9,7 @@ import { forwardRef, useContext, useId, useState } from 'react'
 import type { ForwardedRef, HTMLAttributes, PropsWithChildren } from 'react'
 import AccordionContext from './AccordionContext'
 import { Heading } from '../Heading'
-import { Icon } from '../Icon/Icon'
+import { Icon, IconProps } from '../Icon/Icon'
 
 export type AccordionSectionProps = {
   /** Whether the content is displayed initially. */
@@ -23,17 +23,18 @@ export const AccordionSection = forwardRef(
     { children, className, expanded = false, label, ...restProps }: AccordionSectionProps,
     ref: ForwardedRef<HTMLDivElement>,
   ) => {
-    const { headingLevel, sectionAs } = useContext(AccordionContext)
+    const { headingLevel, headingSize, sectionAs } = useContext(AccordionContext)
     const [isExpanded, setIsExpanded] = useState(expanded)
 
     const SectionTag = sectionAs || 'section'
     const id = useId()
+    const iconSize = `heading-${headingSize ? headingSize.slice(-1) : 3}` as IconProps['size']
     const buttonId = `button-${id}`
     const panelId = `panel-${id}`
 
     return (
       <div className={clsx('ams-accordion__section', className)} ref={ref} {...restProps}>
-        <Heading level={headingLevel}>
+        <Heading level={headingLevel} size={headingSize}>
           <button
             aria-controls={panelId}
             aria-expanded={isExpanded}
@@ -42,7 +43,7 @@ export const AccordionSection = forwardRef(
             onClick={() => setIsExpanded(!isExpanded)}
             type="button"
           >
-            <Icon className="ams-accordion__icon" size="heading-3" svg={ChevronDownIcon} />
+            <Icon className="ams-accordion__icon" size={iconSize} svg={ChevronDownIcon} />
             {label}
           </button>
         </Heading>

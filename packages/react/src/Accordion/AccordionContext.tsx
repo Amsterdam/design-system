@@ -5,18 +5,17 @@
 
 import { createContext } from 'react'
 import type { AccordionProps } from './Accordion'
-import type { HeadingProps } from '../Heading/Heading'
 
 export type AccordionContextValue = {
-  headingLevel: HeadingProps['level']
+  headingLevel: AccordionProps['headingLevel']
+  headingSize?: AccordionProps['headingSize']
   sectionAs?: AccordionProps['sectionAs']
 }
 
 const defaultValues: AccordionContextValue = {
-  // Level 1 is set here, but it is never used.
+  // Level 2 is set here, but it is never used.
   // headingLevel is a required prop in Accordion, which always overwrites it.
-  headingLevel: 1,
-  sectionAs: 'section',
+  headingLevel: 2,
 }
 
 const AccordionContext = createContext(defaultValues)
