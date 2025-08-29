@@ -8,7 +8,7 @@ import clsx from 'clsx'
 import { forwardRef, useContext, useId, useState } from 'react'
 import type { ForwardedRef, HTMLAttributes, PropsWithChildren } from 'react'
 import AccordionContext from './AccordionContext'
-import { getHeadingTag } from '../Heading/getHeadingTag'
+import { Heading } from '../Heading'
 import { Icon } from '../Icon/Icon'
 
 export type AccordionSectionProps = {
@@ -26,7 +26,6 @@ export const AccordionSection = forwardRef(
     const { headingLevel, sectionAs } = useContext(AccordionContext)
     const [isExpanded, setIsExpanded] = useState(expanded)
 
-    const HeadingTag = getHeadingTag(headingLevel)
     const SectionTag = sectionAs || 'section'
     const id = useId()
     const buttonId = `button-${id}`
@@ -34,7 +33,7 @@ export const AccordionSection = forwardRef(
 
     return (
       <div className={clsx('ams-accordion__section', className)} ref={ref} {...restProps}>
-        <HeadingTag className="ams-accordion__header">
+        <Heading level={headingLevel}>
           <button
             aria-controls={panelId}
             aria-expanded={isExpanded}
@@ -46,7 +45,7 @@ export const AccordionSection = forwardRef(
             <Icon className="ams-accordion__icon" size="heading-3" svg={ChevronDownIcon} />
             {label}
           </button>
-        </HeadingTag>
+        </Heading>
         <SectionTag
           aria-labelledby={buttonId}
           className={clsx('ams-accordion__panel', { 'ams-accordion__panel--expanded': isExpanded })}
