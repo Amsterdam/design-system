@@ -1,11 +1,10 @@
-import { fixupPluginRules } from '@eslint/compat'
 import eslint from '@eslint/js'
 import json from '@eslint/json'
 import markdown from '@eslint/markdown'
 import tsParser from '@typescript-eslint/parser'
 import tsPlugin from '@typescript-eslint/eslint-plugin'
 import eslintConfigPrettier from 'eslint-config-prettier'
-import _import from 'eslint-plugin-import'
+import importPlugin from 'eslint-plugin-import'
 import jest from 'eslint-plugin-jest'
 import * as mdx from 'eslint-plugin-mdx'
 import perfectionist from 'eslint-plugin-perfectionist'
@@ -77,7 +76,7 @@ export default tseslint.config(
     files: ['**/*.js', '**/*.jsx', '**/*.ts', '**/*.tsx'],
     plugins: {
       '@typescript-eslint': tsPlugin,
-      import: fixupPluginRules(_import),
+      import: importPlugin,
       jest,
       perfectionist,
       react,
