@@ -51,7 +51,7 @@
 @use "page/page";
 @use "page-footer/page-footer";
 @use "page-header/page-header";
-@use "page-heading/page-heading";
+@use "page-heading/page-heading.deprecated" as *;
 @use "pagination/pagination";
 @use "paragraph/paragraph";
 @use "password-input/password-input";
