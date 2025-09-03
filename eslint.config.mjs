@@ -161,6 +161,10 @@ export default tseslint.config(
       ],
       yoda: 'error',
 
+      // Import
+      'import/no-named-as-default': 'warn',
+      'import/no-cycle': 'warn',
+
       // Perfectionist
       'perfectionist/sort-object-types': ['error', perfectionistCustomSizesGroups],
       'perfectionist/sort-objects': [
