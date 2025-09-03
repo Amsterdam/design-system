@@ -162,6 +162,7 @@ export default tseslint.config(
       yoda: 'error',
 
       // Import
+      'import/newline-after-import': 'error',
       'import/no-named-as-default': 'warn',
       'import/no-cycle': 'warn',
 
