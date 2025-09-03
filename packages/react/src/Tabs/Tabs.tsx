@@ -3,9 +3,11 @@
  * Copyright Gemeente Amsterdam
  */
 
+import type { ForwardedRef, HTMLAttributes, PropsWithChildren } from 'react'
+
 import clsx from 'clsx'
 import { forwardRef, useEffect, useMemo, useState } from 'react'
-import type { ForwardedRef, HTMLAttributes, PropsWithChildren } from 'react'
+
 import { TabsButton } from './TabsButton'
 import { TabsContext } from './TabsContext'
 import { TabsList } from './TabsList'

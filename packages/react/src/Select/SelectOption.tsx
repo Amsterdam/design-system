@@ -3,9 +3,10 @@
  * Copyright Gemeente Amsterdam
  */
 
+import type { ForwardedRef, OptionHTMLAttributes, PropsWithChildren } from 'react'
+
 import clsx from 'clsx'
 import { forwardRef } from 'react'
-import type { ForwardedRef, OptionHTMLAttributes, PropsWithChildren } from 'react'
 
 export type SelectOptionProps = OptionHTMLAttributes<HTMLOptionElement>
 

@@ -3,9 +3,11 @@
  * Copyright Gemeente Amsterdam
  */
 
+import type { ForwardedRef, HTMLAttributes, PropsWithChildren } from 'react'
+
 import clsx from 'clsx'
 import { forwardRef } from 'react'
-import type { ForwardedRef, HTMLAttributes, PropsWithChildren } from 'react'
+
 import { MenuLink } from './MenuLink'
 
 export type MenuProps = PropsWithChildren<HTMLAttributes<HTMLElement>> & {

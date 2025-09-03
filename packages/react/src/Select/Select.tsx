@@ -3,9 +3,11 @@
  * Copyright Gemeente Amsterdam
  */
 
+import type { ForwardedRef, PropsWithChildren, SelectHTMLAttributes } from 'react'
+
 import clsx from 'clsx'
 import { forwardRef } from 'react'
-import type { ForwardedRef, PropsWithChildren, SelectHTMLAttributes } from 'react'
+
 import { SelectOption } from './SelectOption'
 import { SelectOptionGroup } from './SelectOptionGroup'
 

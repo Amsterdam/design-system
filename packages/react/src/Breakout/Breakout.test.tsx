@@ -5,8 +5,9 @@
 
 import { render } from '@testing-library/react'
 import { createRef } from 'react'
-import { Breakout } from './Breakout'
+
 import { gridGaps, gridPaddings } from '../Grid/Grid'
+import { Breakout } from './Breakout'
 import '@testing-library/jest-dom'
 
 describe('Breakout', () => {

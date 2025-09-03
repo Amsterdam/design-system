@@ -5,6 +5,7 @@
 
 import { FileList } from '@amsterdam/design-system-react/src'
 import { Meta, StoryObj } from '@storybook/react-vite'
+
 import { FileInputWithFileList } from './FileInputWithFileList'
 
 const meta = {

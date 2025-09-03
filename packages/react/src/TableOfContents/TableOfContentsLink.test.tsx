@@ -6,6 +6,7 @@
 import '@testing-library/jest-dom'
 import { render, screen } from '@testing-library/react'
 import { createRef } from 'react'
+
 import { TableOfContents } from './TableOfContents'
 
 describe('Table of Contents link', () => {

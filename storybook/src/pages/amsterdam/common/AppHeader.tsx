@@ -4,6 +4,7 @@
  */
 
 import { Grid, Heading, LinkList, PageHeader } from '@amsterdam/design-system-react'
+
 import { megaMenuLinks, pageHeaderMenuLinks } from './menu'
 
 export const AppHeader = () => (

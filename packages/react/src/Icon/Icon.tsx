@@ -10,9 +10,10 @@
  * Copyright Gemeente Amsterdam
  */
 
+import type { ForwardedRef, HTMLAttributes, ReactNode } from 'react'
+
 import clsx from 'clsx'
 import { forwardRef } from 'react'
-import type { ForwardedRef, HTMLAttributes, ReactNode } from 'react'
 
 export const iconSizes = [
   'small',

@@ -3,9 +3,10 @@
  * Copyright Gemeente Amsterdam
  */
 
+import type { ForwardedRef, TextareaHTMLAttributes } from 'react'
+
 import clsx from 'clsx'
 import { forwardRef } from 'react'
-import type { ForwardedRef, TextareaHTMLAttributes } from 'react'
 
 export type TextAreaProps = Omit<TextareaHTMLAttributes<HTMLTextAreaElement>, 'aria-invalid'> & {
   /** Whether the value fails a validation rule. */

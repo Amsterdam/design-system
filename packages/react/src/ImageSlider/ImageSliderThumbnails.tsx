@@ -3,12 +3,14 @@
  * Copyright Gemeente Amsterdam
  */
 
+import type { ForwardedRef, HTMLAttributes } from 'react'
+
 import clsx from 'clsx'
 import { forwardRef, KeyboardEvent, useCallback, useContext, useMemo } from 'react'
-import type { ForwardedRef, HTMLAttributes } from 'react'
+
+import { generateAspectRatioClass } from '../Image/generateAspectRatioClass'
 import { ImageSliderImageProps } from './ImageSlider'
 import { ImageSliderContext } from './ImageSliderContext'
-import { generateAspectRatioClass } from '../Image/generateAspectRatioClass'
 
 export type ImageSliderThumbnailsProps = HTMLAttributes<HTMLElement> & {
   imageLabel?: string

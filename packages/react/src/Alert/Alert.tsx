@@ -3,12 +3,15 @@
  * Copyright Gemeente Amsterdam
  */
 
+import type { ForwardedRef, HTMLAttributes, PropsWithChildren } from 'react'
+
 import { ErrorFillIcon, InfoFillIcon, SuccessFillIcon, WarningFillIcon } from '@amsterdam/design-system-react-icons'
 import clsx from 'clsx'
 import { forwardRef } from 'react'
-import type { ForwardedRef, HTMLAttributes, PropsWithChildren } from 'react'
-import { Heading } from '../Heading'
+
 import type { HeadingProps } from '../Heading'
+
+import { Heading } from '../Heading'
 import { Icon } from '../Icon'
 import { IconButton } from '../IconButton'
 import { Row } from '../Row'

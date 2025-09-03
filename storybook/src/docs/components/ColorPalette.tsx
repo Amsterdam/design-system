@@ -4,9 +4,10 @@
  */
 
 import './color-palette.css'
+import type { ForwardedRef, HTMLAttributes, PropsWithChildren } from 'react'
+
 import clsx from 'clsx'
 import { forwardRef } from 'react'
-import type { ForwardedRef, HTMLAttributes, PropsWithChildren } from 'react'
 
 export type DivProps = PropsWithChildren<HTMLAttributes<HTMLDivElement>>
 

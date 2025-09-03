@@ -3,9 +3,11 @@
  * Copyright Gemeente Amsterdam
  */
 
+import type { ForwardedRef, HTMLAttributes, PropsWithChildren } from 'react'
+
 import clsx from 'clsx'
 import { forwardRef, useContext } from 'react'
-import type { ForwardedRef, HTMLAttributes, PropsWithChildren } from 'react'
+
 import { TabsContext } from './TabsContext'
 
 export type TabsPanelProps = PropsWithChildren<HTMLAttributes<HTMLDivElement>> & {

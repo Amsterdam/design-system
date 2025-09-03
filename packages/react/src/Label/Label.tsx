@@ -9,9 +9,11 @@
  * Copyright Gemeente Amsterdam
  */
 
+import type { ForwardedRef, LabelHTMLAttributes, PropsWithChildren } from 'react'
+
 import clsx from 'clsx'
 import { forwardRef } from 'react'
-import type { ForwardedRef, LabelHTMLAttributes, PropsWithChildren } from 'react'
+
 import { Hint, HintProps } from '../Hint'
 
 export type LabelProps = HintProps & PropsWithChildren<LabelHTMLAttributes<HTMLLabelElement>>

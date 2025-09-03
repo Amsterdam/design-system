@@ -4,8 +4,9 @@
  */
 
 import { createContext } from 'react'
-import type { AccordionProps } from './Accordion'
+
 import type { HeadingProps } from '../Heading/Heading'
+import type { AccordionProps } from './Accordion'
 
 export type AccordionContextValue = {
   headingLevel: HeadingProps['level'] | null

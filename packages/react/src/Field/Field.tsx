@@ -3,9 +3,10 @@
  * Copyright Gemeente Amsterdam
  */
 
+import type { ForwardedRef, HTMLAttributes, PropsWithChildren } from 'react'
+
 import clsx from 'clsx'
 import { forwardRef } from 'react'
-import type { ForwardedRef, HTMLAttributes, PropsWithChildren } from 'react'
 
 export type FieldProps = PropsWithChildren<HTMLAttributes<HTMLDivElement>> & {
   /** Whether the field has an input with a validation error */

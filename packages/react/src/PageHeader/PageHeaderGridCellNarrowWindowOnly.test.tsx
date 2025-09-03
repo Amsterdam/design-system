@@ -5,6 +5,7 @@
 
 import { render } from '@testing-library/react'
 import { createRef } from 'react'
+
 import { PageHeaderGridCellNarrowWindowOnly } from './PageHeaderGridCellNarrowWindowOnly'
 import '@testing-library/jest-dom'
 

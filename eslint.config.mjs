@@ -161,26 +161,7 @@ export default tseslint.config(
       ],
       yoda: 'error',
 
-      // Import
-      'import/order': [
-        'error',
-        {
-          alphabetize: {
-            caseInsensitive: false,
-            order: 'asc',
-          },
-          groups: [
-            ['builtin', 'external'],
-            ['internal', 'unknown'],
-            ['parent', 'sibling', 'index'],
-          ],
-          'newlines-between': 'never',
-          warnOnUnassignedImports: false,
-        },
-      ],
-
       // Perfectionist
-      'perfectionist/sort-imports': 'off', // TODO: this actually works well, but conflicts with eslint-plugin-import. Do we want to go for the perfectionist format?
       'perfectionist/sort-object-types': ['error', perfectionistCustomSizesGroups],
       'perfectionist/sort-objects': [
         'error',

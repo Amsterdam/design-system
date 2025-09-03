@@ -3,11 +3,14 @@
  * Copyright Gemeente Amsterdam
  */
 
+import type { ForwardedRef } from 'react'
+
 import clsx from 'clsx'
 import { forwardRef } from 'react'
-import type { ForwardedRef } from 'react'
-import { Heading } from '../Heading'
+
 import type { HeadingProps } from '../Heading'
+
+import { Heading } from '../Heading'
 
 export const CardHeading = forwardRef(
   ({ children, className, size = 'level-4', ...restProps }: HeadingProps, ref: ForwardedRef<HTMLHeadingElement>) => (

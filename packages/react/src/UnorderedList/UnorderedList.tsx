@@ -3,9 +3,11 @@
  * Copyright Gemeente Amsterdam
  */
 
+import type { ForwardedRef, HTMLAttributes, PropsWithChildren } from 'react'
+
 import clsx from 'clsx'
 import { forwardRef } from 'react'
-import type { ForwardedRef, HTMLAttributes, PropsWithChildren } from 'react'
+
 import { UnorderedListItem } from './UnorderedListItem'
 
 export type UnorderedListProps = PropsWithChildren<HTMLAttributes<HTMLUListElement>> & {

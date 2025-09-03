@@ -3,9 +3,11 @@
  * Copyright Gemeente Amsterdam
  */
 
+import type { ForwardedRef, InputHTMLAttributes, PropsWithChildren, ReactNode } from 'react'
+
 import clsx from 'clsx'
 import { forwardRef, useEffect, useId, useImperativeHandle, useRef } from 'react'
-import type { ForwardedRef, InputHTMLAttributes, PropsWithChildren, ReactNode } from 'react'
+
 import CheckboxIcon from './CheckboxIcon'
 
 export type CheckboxProps = PropsWithChildren<Omit<InputHTMLAttributes<HTMLInputElement>, 'aria-invalid' | 'type'>> & {

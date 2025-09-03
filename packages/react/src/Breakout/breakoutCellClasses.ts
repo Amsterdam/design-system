@@ -4,6 +4,7 @@
  */
 
 import type { BreakoutCellProps } from './BreakoutCell'
+
 import { addGridClass } from '../Grid/gridCellClasses'
 
 export const breakoutCellClasses = (

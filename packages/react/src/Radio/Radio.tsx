@@ -3,9 +3,11 @@
  * Copyright Gemeente Amsterdam
  */
 
+import type { ForwardedRef, InputHTMLAttributes, PropsWithChildren, ReactNode } from 'react'
+
 import clsx from 'clsx'
 import { forwardRef, useId } from 'react'
-import type { ForwardedRef, InputHTMLAttributes, PropsWithChildren, ReactNode } from 'react'
+
 import RadioIcon from './RadioIcon'
 
 export type RadioProps = PropsWithChildren<Omit<InputHTMLAttributes<HTMLInputElement>, 'aria-invalid' | 'type'>> & {

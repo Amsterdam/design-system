@@ -3,9 +3,11 @@
  * Copyright Gemeente Amsterdam
  */
 
+import type { ButtonHTMLAttributes, ForwardedRef, MouseEvent, PropsWithChildren } from 'react'
+
 import clsx from 'clsx'
 import { forwardRef, startTransition, useContext } from 'react'
-import type { ButtonHTMLAttributes, ForwardedRef, MouseEvent, PropsWithChildren } from 'react'
+
 import { TabsContext } from './TabsContext'
 
 export type TabsButtonProps = PropsWithChildren<ButtonHTMLAttributes<HTMLButtonElement>> & {

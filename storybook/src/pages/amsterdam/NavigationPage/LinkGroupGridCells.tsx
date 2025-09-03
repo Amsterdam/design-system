@@ -4,6 +4,7 @@
  */
 
 import { Grid, Heading, LinkList, StandaloneLink } from '@amsterdam/design-system-react'
+
 import type { LinkGroup } from './links'
 
 type LinkGroupGridCellsProps = {

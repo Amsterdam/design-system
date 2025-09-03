@@ -3,9 +3,10 @@
  * Copyright Gemeente Amsterdam
  */
 
+import type { BlockquoteHTMLAttributes, ForwardedRef, PropsWithChildren } from 'react'
+
 import clsx from 'clsx'
 import { forwardRef } from 'react'
-import type { BlockquoteHTMLAttributes, ForwardedRef, PropsWithChildren } from 'react'
 
 export type BlockquoteProps = PropsWithChildren<BlockquoteHTMLAttributes<HTMLQuoteElement>> & {
   /** Changes the text colour for readability on a dark background. */

@@ -4,8 +4,8 @@
  */
 
 import { Button, StandaloneLink } from '@amsterdam/design-system-react'
-import { ActionGroup } from '@amsterdam/design-system-react/src'
 import { DownloadIcon } from '@amsterdam/design-system-react-icons'
+import { ActionGroup } from '@amsterdam/design-system-react/src'
 import { Meta, StoryObj } from '@storybook/react-vite'
 
 const meta = {

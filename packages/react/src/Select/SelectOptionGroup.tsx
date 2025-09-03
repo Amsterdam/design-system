@@ -3,9 +3,10 @@
  * Copyright Gemeente Amsterdam
  */
 
+import type { ForwardedRef, OptgroupHTMLAttributes, PropsWithChildren } from 'react'
+
 import clsx from 'clsx'
 import { forwardRef } from 'react'
-import type { ForwardedRef, OptgroupHTMLAttributes, PropsWithChildren } from 'react'
 
 export type SelectOptionGroupProps = OptgroupHTMLAttributes<HTMLOptGroupElement>
 

@@ -3,11 +3,14 @@
  * Copyright Gemeente Amsterdam
  */
 
+import type { AnchorHTMLAttributes, ForwardedRef, PropsWithChildren } from 'react'
+
 import clsx from 'clsx'
 import { forwardRef } from 'react'
-import type { AnchorHTMLAttributes, ForwardedRef, PropsWithChildren } from 'react'
-import { Icon } from '../Icon'
+
 import type { IconProps } from '../Icon'
+
+import { Icon } from '../Icon'
 
 export type MenuLinkProps = {
   /** Changes the text colour for readability on a light or dark background. */

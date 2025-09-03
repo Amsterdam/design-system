@@ -3,9 +3,11 @@
  * Copyright Gemeente Amsterdam
  */
 
+import type { HTMLAttributes, PropsWithChildren } from 'react'
+
 import clsx from 'clsx'
 import { forwardRef } from 'react'
-import type { HTMLAttributes, PropsWithChildren } from 'react'
+
 import type { CrossAlign, MainAlign } from '../common/types'
 
 export const rowTags = ['article', 'div', 'section'] as const

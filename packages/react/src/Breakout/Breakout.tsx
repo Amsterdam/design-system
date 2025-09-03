@@ -3,12 +3,15 @@
  * Copyright Gemeente Amsterdam
  */
 
+import type { ForwardedRef } from 'react'
+
 import clsx from 'clsx'
 import { forwardRef } from 'react'
-import type { ForwardedRef } from 'react'
-import { BreakoutCell } from './BreakoutCell'
+
 import type { GridProps } from '../Grid'
+
 import { paddingClasses } from '../Grid/paddingClasses'
+import { BreakoutCell } from './BreakoutCell'
 
 export type BreakoutRowNumber = 1 | 2 | 3 | 4
 export type BreakoutRowNumbers = { narrow: BreakoutRowNumber; medium: BreakoutRowNumber; wide: BreakoutRowNumber }

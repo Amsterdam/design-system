@@ -3,9 +3,11 @@
  * Copyright Gemeente Amsterdam
  */
 
+import type { ForwardedRef, OlHTMLAttributes, PropsWithChildren } from 'react'
+
 import clsx from 'clsx'
 import { forwardRef } from 'react'
-import type { ForwardedRef, OlHTMLAttributes, PropsWithChildren } from 'react'
+
 import { OrderedListItem } from './OrderedListItem'
 
 export type OrderedListProps = PropsWithChildren<OlHTMLAttributes<HTMLOListElement>> & {

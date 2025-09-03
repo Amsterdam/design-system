@@ -5,6 +5,7 @@
 
 import { fireEvent, render } from '@testing-library/react'
 import { useRef } from 'react'
+
 import { KeyboardKeys, useKeyboardFocus } from './useKeyboardFocus'
 
 describe('use focus with arrows', () => {

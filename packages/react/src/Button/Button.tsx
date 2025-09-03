@@ -3,11 +3,14 @@
  * Copyright Gemeente Amsterdam
  */
 
+import type { ButtonHTMLAttributes, ForwardedRef, PropsWithChildren } from 'react'
+
 import clsx from 'clsx'
 import { forwardRef } from 'react'
-import type { ButtonHTMLAttributes, ForwardedRef, PropsWithChildren } from 'react'
-import { Icon } from '../Icon'
+
 import type { IconProps } from '../Icon'
+
+import { Icon } from '../Icon'
 
 type IconBeforeProp = {
   /** Shows the icon before the label. Requires a value for `icon`. Cannot be used together with `iconOnly`. */

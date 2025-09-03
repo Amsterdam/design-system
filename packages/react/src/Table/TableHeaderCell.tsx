@@ -3,9 +3,10 @@
  * Copyright Gemeente Amsterdam
  */
 
+import type { ForwardedRef, PropsWithChildren, ThHTMLAttributes } from 'react'
+
 import clsx from 'clsx'
 import { forwardRef } from 'react'
-import type { ForwardedRef, PropsWithChildren, ThHTMLAttributes } from 'react'
 
 export type TableHeaderCellProps = PropsWithChildren<ThHTMLAttributes<HTMLTableCellElement>>
 

@@ -4,9 +4,9 @@
  */
 
 import { Heading, Paragraph } from '@amsterdam/design-system-react'
-import { StandaloneLink } from '@amsterdam/design-system-react/src'
 import { DownloadIcon } from '@amsterdam/design-system-react-icons'
 import * as Icons from '@amsterdam/design-system-react-icons'
+import { StandaloneLink } from '@amsterdam/design-system-react/src'
 import { Meta, StoryObj } from '@storybook/react-vite'
 
 const meta = {

@@ -5,7 +5,9 @@
 
 import { Paragraph } from '@amsterdam/design-system-react'
 import { Meta, StoryObj } from '@storybook/react-vite'
+
 import type { VisuallyHiddenProps } from './VisuallyHidden'
+
 import { VisuallyHidden } from './VisuallyHidden'
 
 const render = ({ children }: VisuallyHiddenProps) => (

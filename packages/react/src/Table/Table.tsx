@@ -3,9 +3,11 @@
  * Copyright Gemeente Amsterdam
  */
 
+import type { ForwardedRef, PropsWithChildren, TableHTMLAttributes } from 'react'
+
 import clsx from 'clsx'
 import { forwardRef } from 'react'
-import type { ForwardedRef, PropsWithChildren, TableHTMLAttributes } from 'react'
+
 import { TableBody } from './TableBody'
 import { TableCaption } from './TableCaption'
 import { TableCell } from './TableCell'

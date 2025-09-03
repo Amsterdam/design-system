@@ -3,9 +3,10 @@
  * Copyright Gemeente Amsterdam
  */
 
+import type { ForwardedRef, InputHTMLAttributes } from 'react'
+
 import clsx from 'clsx'
 import { forwardRef } from 'react'
-import type { ForwardedRef, InputHTMLAttributes } from 'react'
 
 export const dateInputTypes = ['date', 'datetime-local'] as const
 type DateInputType = (typeof dateInputTypes)[number]

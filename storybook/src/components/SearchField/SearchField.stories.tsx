@@ -3,8 +3,9 @@
  * Copyright Gemeente Amsterdam
  */
 
-import { SearchField } from '@amsterdam/design-system-react/src'
 import type { SearchFieldProps } from '@amsterdam/design-system-react/src'
+
+import { SearchField } from '@amsterdam/design-system-react/src'
 import { Meta, StoryObj } from '@storybook/react-vite'
 import { useArgs } from 'storybook/preview-api'
 

@@ -3,13 +3,15 @@
  * Copyright Gemeente Amsterdam
  */
 
+import type { ForwardedRef, HTMLAttributes, PropsWithChildren } from 'react'
+
 import { ChevronDownIcon } from '@amsterdam/design-system-react-icons'
 import clsx from 'clsx'
 import { forwardRef, useContext, useId, useState } from 'react'
-import type { ForwardedRef, HTMLAttributes, PropsWithChildren } from 'react'
-import AccordionContext from './AccordionContext'
+
 import { getHeadingTag } from '../Heading/getHeadingTag'
 import { Icon } from '../Icon/Icon'
+import AccordionContext from './AccordionContext'
 
 export type AccordionSectionProps = PropsWithChildren<HTMLAttributes<HTMLElement>> & {
   /** Whether the content is displayed initially. */

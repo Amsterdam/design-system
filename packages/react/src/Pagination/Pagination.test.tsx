@@ -3,9 +3,11 @@
  * Copyright Gemeente Amsterdam
  */
 
+import type { AnchorHTMLAttributes } from 'react'
+
 import { render, screen } from '@testing-library/react'
 import { createRef } from 'react'
-import type { AnchorHTMLAttributes } from 'react'
+
 import { Pagination } from './Pagination'
 import '@testing-library/jest-dom'
 

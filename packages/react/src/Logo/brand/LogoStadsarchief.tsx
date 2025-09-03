@@ -3,8 +3,9 @@
  * Copyright Gemeente Amsterdam
  */
 
-import { forwardRef } from 'react'
 import type { ForwardedRef, SVGProps } from 'react'
+
+import { forwardRef } from 'react'
 
 const LogoStadsarchief = forwardRef((props: SVGProps<SVGSVGElement>, ref: ForwardedRef<SVGSVGElement>) => (
   <svg

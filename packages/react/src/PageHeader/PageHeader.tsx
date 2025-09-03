@@ -3,16 +3,19 @@
  * Copyright Gemeente Amsterdam
  */
 
+import type { AnchorHTMLAttributes, ComponentType, ForwardedRef, HTMLAttributes, ReactNode } from 'react'
+
 import clsx from 'clsx'
 import { forwardRef, useEffect, useState } from 'react'
-import type { AnchorHTMLAttributes, ComponentType, ForwardedRef, HTMLAttributes, ReactNode } from 'react'
+
+import type { LogoBrand } from '../Logo'
+
+import useIsAfterBreakpoint from '../common/useIsAfterBreakpoint'
 import { Icon } from '../Icon'
 import { Logo } from '../Logo'
-import type { LogoBrand } from '../Logo'
 import { PageHeaderGridCellNarrowWindowOnly } from './PageHeaderGridCellNarrowWindowOnly'
 import { PageHeaderMenuIcon } from './PageHeaderMenuIcon'
 import { PageHeaderMenuLink } from './PageHeaderMenuLink'
-import useIsAfterBreakpoint from '../common/useIsAfterBreakpoint'
 
 const LogoLinkContent = ({
   brandName,

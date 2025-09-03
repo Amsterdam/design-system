@@ -3,14 +3,16 @@
  * Copyright Gemeente Amsterdam
  */
 
+import type { ForwardedRef, HTMLAttributes } from 'react'
+
 import { DocumentIcon } from '@amsterdam/design-system-react-icons'
 import clsx from 'clsx'
 import { forwardRef } from 'react'
-import type { ForwardedRef, HTMLAttributes } from 'react'
+
 import { Button } from '../Button'
-import { Icon } from '../Icon'
 import { formatFileSize } from '../common/formatFileSize'
 import { formatFileType } from '../common/formatFileType'
+import { Icon } from '../Icon'
 
 export type FileListItemProps = HTMLAttributes<HTMLLIElement> & {
   file: File

@@ -3,9 +3,10 @@
  * Copyright Gemeente Amsterdam
  */
 
+import type { ForwardedRef, PropsWithChildren, TdHTMLAttributes } from 'react'
+
 import clsx from 'clsx'
 import { forwardRef } from 'react'
-import type { ForwardedRef, PropsWithChildren, TdHTMLAttributes } from 'react'
 
 export type TableCellProps = PropsWithChildren<TdHTMLAttributes<HTMLTableCellElement>>
 

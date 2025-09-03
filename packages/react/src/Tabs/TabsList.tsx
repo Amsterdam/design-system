@@ -3,9 +3,11 @@
  * Copyright Gemeente Amsterdam
  */
 
+import type { ForwardedRef, HTMLAttributes, PropsWithChildren } from 'react'
+
 import clsx from 'clsx'
 import { forwardRef, useImperativeHandle, useRef } from 'react'
-import type { ForwardedRef, HTMLAttributes, PropsWithChildren } from 'react'
+
 import { useKeyboardFocus } from '../common/useKeyboardFocus'
 
 export type TabsListProps = PropsWithChildren<HTMLAttributes<HTMLDivElement>>

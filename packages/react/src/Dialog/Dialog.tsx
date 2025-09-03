@@ -3,9 +3,11 @@
  * Copyright Gemeente Amsterdam
  */
 
+import type { DialogHTMLAttributes, ForwardedRef, PropsWithChildren, ReactNode } from 'react'
+
 import clsx from 'clsx'
 import { forwardRef, MouseEvent } from 'react'
-import type { DialogHTMLAttributes, ForwardedRef, PropsWithChildren, ReactNode } from 'react'
+
 import { Heading } from '../Heading'
 import { IconButton } from '../IconButton'
 

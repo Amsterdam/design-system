@@ -4,6 +4,7 @@
  */
 
 import type { Meta } from '@storybook/react-vite'
+
 import { Layout } from './Layout'
 
 export const commonMeta = {

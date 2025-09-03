@@ -3,13 +3,16 @@
  * Copyright Gemeente Amsterdam
  */
 
+import type { ForwardedRef, HTMLAttributes, PropsWithChildren } from 'react'
+
 import clsx from 'clsx'
 import { forwardRef } from 'react'
-import type { ForwardedRef, HTMLAttributes, PropsWithChildren } from 'react'
+
+import type { HeadingProps } from '../Heading'
+
+import { Heading } from '../Heading'
 import { TableOfContentsLink } from './TableOfContentsLink'
 import { TableOfContentsList } from './TableOfContentsList'
-import { Heading } from '../Heading'
-import type { HeadingProps } from '../Heading'
 
 export type TableOfContentsProps = PropsWithChildren<HTMLAttributes<HTMLElement>> & {
   /** The text for the Heading. */

@@ -3,12 +3,15 @@
  * Copyright Gemeente Amsterdam
  */
 
+import type { ForwardedRef, HTMLAttributes, PropsWithChildren } from 'react'
+
 import clsx from 'clsx'
 import { forwardRef } from 'react'
-import type { ForwardedRef, HTMLAttributes, PropsWithChildren } from 'react'
-import type { BreakoutRowNumber, BreakoutRowNumbers } from './Breakout'
-import { breakoutCellClasses } from './breakoutCellClasses'
+
 import type { GridColumnNumber, GridColumnNumbers } from '../Grid/Grid'
+import type { BreakoutRowNumber, BreakoutRowNumbers } from './Breakout'
+
+import { breakoutCellClasses } from './breakoutCellClasses'
 
 export const breakoutCellTags = ['article', 'div', 'section'] as const
 type BreakoutCellTag = (typeof breakoutCellTags)[number]

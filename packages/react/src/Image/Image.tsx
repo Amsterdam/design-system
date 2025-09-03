@@ -3,11 +3,13 @@
  * Copyright Gemeente Amsterdam
  */
 
+import type { ForwardedRef, ImgHTMLAttributes } from 'react'
+
 import clsx from 'clsx'
 import { forwardRef } from 'react'
-import type { ForwardedRef, ImgHTMLAttributes } from 'react'
-import { generateAspectRatioClass } from './generateAspectRatioClass'
+
 import { AspectRatioProps } from '../common/types'
+import { generateAspectRatioClass } from './generateAspectRatioClass'
 
 export type ImageProps = AspectRatioProps &
   Omit<ImgHTMLAttributes<HTMLImageElement>, 'children'> & {
