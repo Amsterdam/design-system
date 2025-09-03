@@ -37,8 +37,8 @@ describe('Pagination', () => {
     expect(component).toHaveClass('ams-pagination extra')
   })
 
-  it('should render all the pages when totalPages < maxVisiblePages', () => {
-    render(<Pagination linkTemplate={linkTemplate} maxVisiblePages={7} totalPages={6} />)
+  it('should render all the pages when totalPages <= maxVisiblePages', () => {
+    render(<Pagination linkTemplate={linkTemplate} maxVisiblePages={6} totalPages={6} />)
 
     const listItem = screen.getAllByRole('listitem', { hidden: true })
 
@@ -74,7 +74,7 @@ describe('Pagination', () => {
   })
 
   it('should render the pages including one (first) spacer in the correct location when totalPages > maxVisiblePages and page > maxVisiblePages', () => {
-    render(<Pagination linkTemplate={linkTemplate} maxVisiblePages={7} page={8} totalPages={10} />)
+    render(<Pagination linkTemplate={linkTemplate} maxVisiblePages={7} page={7} totalPages={10} />)
 
     const listItem = screen.getAllByRole('listitem', { hidden: true })
 
