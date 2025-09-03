@@ -7,8 +7,6 @@ import clsx from 'clsx'
 import './font-design-token.css'
 
 type FontDesignTokenProps = {
-  /** The HTML tag to use. */
-  as?: 'p' | 'h1' | 'h2' | 'h3' | 'h4'
   /** Whether to use the tokens for Compact Mode. */
   compact?: boolean
   /**
@@ -23,14 +21,8 @@ type FontDesignTokenProps = {
   lineHeight: string
 }
 
-export const FontDesignToken = ({
-  as: Tag = 'p',
-  compact,
-  fontSize,
-  fontWeight = 'body-text',
-  lineHeight,
-}: FontDesignTokenProps) => (
-  <Tag
+export const FontDesignToken = ({ compact, fontSize, fontWeight = 'body-text', lineHeight }: FontDesignTokenProps) => (
+  <span
     className={clsx('ams-docs-font-design-token', compact && 'ams-theme--compact', 'sb-unstyled')}
     style={{
       fontSize: `${fontSize / 16}rem`,
@@ -39,5 +31,5 @@ export const FontDesignToken = ({
     }}
   >
     Abc
-  </Tag>
+  </span>
 )
