@@ -8,7 +8,6 @@ import {
   Card,
   Grid,
   Heading,
-  type HeadingProps,
   Image,
   Link,
   LinkList,
@@ -18,7 +17,7 @@ import {
   StandaloneLink,
   UnorderedList,
 } from '@amsterdam/design-system-react'
-import type { GridColumnNumbers } from '@amsterdam/design-system-react'
+import type { GridColumnNumbers, HeadingProps } from '@amsterdam/design-system-react'
 import {
   CameraIcon,
   FacebookIcon,
