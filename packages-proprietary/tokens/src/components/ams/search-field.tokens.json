@@ -14,15 +14,6 @@
         "outline-offset": { "value": "{ams.inputs.outline-offset}" },
         "padding-block": { "value": "{ams.inputs.padding-block}" },
         "padding-inline": { "value": "{ams.inputs.padding-inline}" },
-        "cancel-button": {
-          "background-image": {
-            "value": "url(\"data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><path fill='%23004699' fill-rule='evenodd' d='M29.333 5.47 26.53 2.668 16 13.187 5.47 2.666 2.668 5.47 13.187 16 2.666 26.53l2.804 2.803L16 18.813l10.53 10.52 2.803-2.804L18.813 16z'/></svg>\")"
-          },
-          "block-size": { "value": "{ams.typography.body-text.font-size}" },
-          "color": { "value": "{ams.color.interactive.default}" },
-          "cursor": { "value": "{ams.cursor.interactive}" },
-          "inline-size": { "value": "{ams.typography.body-text.font-size}" }
-        },
         "hover": {
           "box-shadow": { "value": "{ams.inputs.hover.box-shadow}" }
         },
@@ -32,6 +23,15 @@
             "border-color": { "value": "{ams.inputs.invalid.hover.border-color}" },
             "box-shadow": { "value": "{ams.inputs.invalid.hover.box-shadow}" }
           }
+        },
+        "cancel-button": {
+          "background-image": {
+            "value": "url(\"data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><path fill='%23004699' fill-rule='evenodd' d='M29.333 5.47 26.53 2.668 16 13.187 5.47 2.666 2.668 5.47 13.187 16 2.666 26.53l2.804 2.803L16 18.813l10.53 10.52 2.803-2.804L18.813 16z'/></svg>\")"
+          },
+          "block-size": { "value": "{ams.typography.body-text.font-size}" },
+          "color": { "value": "{ams.color.interactive.default}" },
+          "cursor": { "value": "{ams.cursor.interactive}" },
+          "inline-size": { "value": "{ams.typography.body-text.font-size}" }
         },
         "placeholder": {
           "color": { "value": "{ams.inputs.placeholder.color}" }
