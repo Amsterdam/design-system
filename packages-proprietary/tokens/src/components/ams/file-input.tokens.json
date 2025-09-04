@@ -12,8 +12,8 @@
       "font-weight": { "value": "{ams.inputs.font-weight}" },
       "line-height": { "value": "{ams.inputs.line-height}" },
       "outline-offset": { "value": "{ams.inputs.outline-offset}" },
-      "padding-block": { "value": "{ams.inputs.padding-block}" },
-      "padding-inline": { "value": "{ams.inputs.padding-inline}" },
+      "padding-block": { "value": "{ams.space.s}" },
+      "padding-inline": { "value": "{ams.space.m}" },
       "disabled": {
         "color": { "value": "{ams.inputs.disabled.color}" },
         "cursor": { "value": "{ams.inputs.disabled.cursor}" }
