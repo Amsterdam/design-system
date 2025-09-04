@@ -12,7 +12,7 @@
       "font-weight": { "value": "{ams.inputs.font-weight}" },
       "line-height": { "value": "{ams.inputs.line-height}" },
       "outline-offset": { "value": "{ams.inputs.outline-offset}" },
-      "padding-block": { "value": "{ams.space.s}" },
+      "padding-block": { "value": "{ams.space.m}" },
       "padding-inline": { "value": "{ams.space.m}" },
       "disabled": {
         "color": { "value": "{ams.inputs.disabled.color}" },
