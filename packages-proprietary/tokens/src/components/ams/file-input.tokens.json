@@ -3,7 +3,7 @@
     "file-input": {
       "background-color": { "value": "{ams.inputs.background-color}" },
       "border-color": { "value": "{ams.inputs.border-color}" },
-      "border-style": { "value": "{ams.inputs.border-style}" },
+      "border-style": { "value": "dashed" },
       "border-width": { "value": "{ams.inputs.border-width}" },
       "color": { "value": "{ams.inputs.color}" },
       "cursor": { "value": "{ams.cursor.interactive}" },
