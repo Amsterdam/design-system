@@ -1,22 +1,22 @@
 {
   "ams": {
     "file-input": {
-      "background-color": { "value": "{ams.color.background}" },
-      "border-color": { "value": "currentColor" },
-      "border-style": { "value": "dashed" },
-      "border-width": { "value": "{ams.border.width.m}" },
-      "color": { "value": "{ams.color.text.default}" },
+      "background-color": { "value": "{ams.inputs.background-color}" },
+      "border-color": { "value": "{ams.inputs.border-color}" },
+      "border-style": { "value": "{ams.inputs.border-style}" },
+      "border-width": { "value": "{ams.inputs.border-width}" },
+      "color": { "value": "{ams.inputs.color}" },
       "cursor": { "value": "{ams.cursor.interactive}" },
-      "font-family": { "value": "{ams.typography.font-family}" },
-      "font-size": { "value": "{ams.typography.body-text.font-size}" },
-      "font-weight": { "value": "{ams.typography.body-text.font-weight}" },
+      "font-family": { "value": "{ams.inputs.font-family}" },
+      "font-size": { "value": "{ams.inputs.font-size}" },
+      "font-weight": { "value": "{ams.inputs.font-weight}" },
       "line-height": { "value": "{ams.inputs.line-height}" },
-      "outline-offset": { "value": "{ams.focus.outline-offset}" },
-      "padding-block": { "value": "{ams.space.m}" },
-      "padding-inline": { "value": "{ams.space.m}" },
+      "outline-offset": { "value": "{ams.inputs.outline-offset}" },
+      "padding-block": { "value": "{ams.inputs.padding-block}" },
+      "padding-inline": { "value": "{ams.inputs.padding-inline}" },
       "disabled": {
-        "color": { "value": "{ams.color.interactive.disabled}" },
-        "cursor": { "value": "{ams.cursor.disabled}" }
+        "color": { "value": "{ams.inputs.disabled.color}" },
+        "cursor": { "value": "{ams.inputs.disabled.cursor}" }
       },
       "file-selector-button": {
         "background-color": { "value": "{ams.color.background}" },
