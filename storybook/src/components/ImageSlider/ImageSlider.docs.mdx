@@ -21,3 +21,12 @@ A mobile device can often download a smaller file, saving the user’s bandwidth
 Don’t forget to still include the required `src` attribute.
 
 <Canvas of={ImageSliderStories.ResponsiveImages} />
+
+### Various aspect ratios
+
+The images can have different aspect ratios.
+The selected image gets centered, while the thumbnails stretch vertically.
+Note that portrait images can become very tall.
+In this case, wrap the slider in a sufficiently narrow Grid Cell.
+
+<Canvas of={ImageSliderStories.VariousAspectRatios} />
