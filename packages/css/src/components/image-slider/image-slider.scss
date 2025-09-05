@@ -65,6 +65,7 @@
   gap: var(--ams-image-slider-thumbnails-gap);
   grid-template-columns: repeat(5, 1fr);
   max-inline-size: 100%;
+  overflow-x: auto;
 }
 
 @mixin reset-button {

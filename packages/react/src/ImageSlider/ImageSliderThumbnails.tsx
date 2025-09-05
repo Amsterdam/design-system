@@ -4,7 +4,7 @@
  */
 
 import clsx from 'clsx'
-import { forwardRef, KeyboardEvent, useCallback, useContext, useMemo } from 'react'
+import { forwardRef, KeyboardEvent, useCallback, useContext, useEffect, useMemo, useRef } from 'react'
 import type { ForwardedRef, HTMLAttributes } from 'react'
 import { ImageSliderImageProps } from './ImageSlider'
 import { ImageSliderContext } from './ImageSliderContext'
@@ -18,6 +18,18 @@ export type ImageSliderThumbnailsProps = {
 export const ImageSliderThumbnails = forwardRef(
   ({ className, imageLabel, thumbnails, ...restProps }: ImageSliderThumbnailsProps, ref: ForwardedRef<HTMLElement>) => {
     const { currentSlideId, goToNextSlide, goToPreviousSlide, goToSlideId } = useContext(ImageSliderContext)
+
+    // Create refs for each thumbnail
+    const thumbnailRefs = useRef<(HTMLButtonElement | null)[]>([])
+
+    // Scroll the image’s thumbnail into view after sliding
+    useEffect(() => {
+      const currentThumbnail = thumbnailRefs.current[currentSlideId]
+
+      if (currentThumbnail) {
+        currentThumbnail.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'nearest' })
+      }
+    }, [currentSlideId])
 
     const handleKeyDown = useCallback(
       (event: KeyboardEvent<HTMLElement>) => {
@@ -59,6 +71,7 @@ export const ImageSliderThumbnails = forwardRef(
             )}
             key={index}
             onClick={() => goToSlideId(index)}
+            ref={(el) => (thumbnailRefs.current[index] = el)}
             role="tab"
             style={{ backgroundImage: `url(${src})` }}
             tabIndex={currentSlideId === index ? 0 : -1}
