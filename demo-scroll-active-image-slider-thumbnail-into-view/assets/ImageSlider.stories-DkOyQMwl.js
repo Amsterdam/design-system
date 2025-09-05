@@ -1,0 +1,52 @@
+import{r as e,j as o,c as _,ai as F,J}from"./iframe-QaqaIjEY.js";import{B as P}from"./Button-DXx-8hQz.js";import{g as G}from"./generateAspectRatioClass-CefTNpDa.js";import{I as H}from"./Image-DpnIYaxJ.js";/**
+ * @license EUPL-1.2+
+ * Copyright Gemeente Amsterdam
+ */const Q={currentSlideId:0,goToNextSlide:()=>{},goToPreviousSlide:()=>{},goToSlideId:()=>{},isAtEnd:!1,isAtStart:!0},T=e.createContext(Q),R=e.forwardRef(({className:a,nextLabel:c,previousLabel:d,...u},S)=>{const{goToNextSlide:i,goToPreviousSlide:m,isAtEnd:g,isAtStart:n}=e.useContext(T),b=e.useCallback(()=>m(),[m]),v=e.useCallback(()=>i(),[i]);return o.jsxs("div",{...u,className:_("ams-image-slider__controls",a),ref:S,children:[o.jsx(P,{className:"ams-image-slider__control ams-image-slider__control--previous",color:"inverse",disabled:n,icon:F,iconOnly:!0,onClick:b,children:d}),o.jsx(P,{className:"ams-image-slider__control ams-image-slider__control--next",color:"inverse",disabled:g,icon:J,iconOnly:!0,onClick:v,children:c})]})});R.displayName="ImageSliderControls";try{R.displayName="ImageSliderControls",R.__docgenInfo={description:"",displayName:"ImageSliderControls",props:{nextLabel:{defaultValue:null,description:"The label for the ‘next’ button",name:"nextLabel",required:!0,type:{name:"string"}},previousLabel:{defaultValue:null,description:"The label for the ‘previous’ button",name:"previousLabel",required:!0,type:{name:"string"}}}}}catch{}const j=e.forwardRef(({children:a,className:c,slideId:d,...u},S)=>{const{currentSlideId:i}=e.useContext(T),m=e.useMemo(()=>i===d,[i,d]),g=e.useMemo(()=>_("ams-image-slider__item",m&&"ams-image-slider__item--in-view",c),[m,c]);return o.jsx("div",{...u,className:g,ref:S,...!m&&{inert:""},children:a})});j.displayName="ImageSlider.Item";try{ImageSlider.Item.displayName="ImageSlider.Item",ImageSlider.Item.__docgenInfo={description:"",displayName:"ImageSlider.Item",props:{slideId:{defaultValue:null,description:"The identifier of the item. Must match the key or order of the slides (starting at 0).",name:"slideId",required:!0,type:{name:"number"}}}}}catch{}const q=e.forwardRef(({children:a,className:c,...d},u)=>o.jsx("div",{...d,className:_("ams-image-slider__scroller",c),ref:u,children:a}));q.displayName="ImageSlider.Scroller";try{ImageSlider.Scroller.displayName="ImageSlider.Scroller",ImageSlider.Scroller.__docgenInfo={description:"",displayName:"ImageSlider.Scroller",props:{}}}catch{}const B=e.forwardRef(({className:a,imageLabel:c,thumbnails:d,...u},S)=>{const{currentSlideId:i,goToNextSlide:m,goToPreviousSlide:g,goToSlideId:n}=e.useContext(T),b=e.useRef([]);e.useEffect(()=>{const h=b.current[i];h&&h.scrollIntoView({behavior:"smooth",block:"nearest",inline:"nearest"})},[i]);const v=e.useCallback(h=>{const I=h.currentTarget.children[i];if(h.key==="ArrowRight"){const s=I?.nextElementSibling;s&&(s.focus(),m())}if(h.key==="ArrowLeft"){const s=I?.previousElementSibling;s&&(s.focus(),g())}},[i,m,g]),N=e.useMemo(()=>d.map(({alt:h,aspectRatio:I,src:s},p)=>o.jsx("button",{"aria-label":`${c} ${p+1}: ${h}`,"aria-posinset":p+1,"aria-selected":i===p?"true":"false","aria-setsize":d.length,className:_("ams-image-slider__thumbnail",i===p&&"ams-image-slider__thumbnail--in-view",G(I)),onClick:()=>n(p),ref:C=>b.current[p]=C,role:"tab",style:{backgroundImage:`url(${s})`},tabIndex:i===p?0:-1,type:"button"},p)),[i,n,c,d]);return o.jsx("nav",{...u,className:_("ams-image-slider__thumbnails",a),onKeyDown:v,ref:S,role:"tablist",children:N})});B.displayName="ImageSlider.Thumbnails";try{ImageSlider.Thumbnails.displayName="ImageSlider.Thumbnails",ImageSlider.Thumbnails.__docgenInfo={description:"",displayName:"ImageSlider.Thumbnails",props:{imageLabel:{defaultValue:null,description:"",name:"imageLabel",required:!1,type:{name:"string"}},thumbnails:{defaultValue:null,description:"",name:"thumbnails",required:!0,type:{name:"ImageProps[]"}}}}}catch{}const O=e.forwardRef(({className:a,controls:c,imageLabel:d="Afbeelding",images:u,nextLabel:S="Volgende",previousLabel:i="Vorige",...m},g)=>{const[n,b]=e.useState(0),[v,N]=e.useState(!0),[h,I]=e.useState(!1),s=e.useRef(null),p=e.useRef(null),C=e.useCallback(r=>{const t=Array.from(s.current?.children||[]);r.forEach(l=>{l.isIntersecting&&b(t.indexOf(l.target))})},[]),V=e.useMemo(()=>({root:s.current,threshold:.6}),[]),E=e.useCallback(()=>{const r=s.current;if(!r)return;const{firstElementChild:t,lastElementChild:l}=r;N(t===r?.children[n]),I(l===r?.children[n])},[n]);e.useEffect(()=>{if(s.current){p.current=new IntersectionObserver(C,V);const r=p.current,t=Array.from(s.current.children);return t.forEach(l=>r.observe(l)),s.current.addEventListener("scrollend",A),E(),()=>{t.forEach(l=>r.unobserve(l)),s.current?.removeEventListener("scrollend",A)}}},[C,V,E]);const A=e.useCallback(()=>E(),[E]),f=e.useCallback(r=>{const t=s.current;!t||!r||t.scrollTo({left:t.scrollLeft+r.offsetLeft-t.scrollLeft})},[]),M=e.useCallback(r=>{const t=s.current?.children[r];t&&f(t)},[f]),D=e.useCallback(()=>{const t=s.current?.children[n]?.nextElementSibling;t&&f(t)},[n,f]),$=e.useCallback(()=>{const t=s.current?.children[n]?.previousElementSibling;t&&f(t)},[n,f]);return e.useEffect(()=>{const r=()=>{const t=s.current,l=s.current?.children[n];if(!t||!l)return;const L=l.offsetLeft;Math.abs(t.scrollLeft-L)<1||f(l)};return window.addEventListener("resize",r),()=>window.removeEventListener("resize",r)},[n,f]),o.jsx(T.Provider,{value:{currentSlideId:n,goToNextSlide:D,goToPreviousSlide:$,goToSlideId:M,isAtEnd:h,isAtStart:v},children:o.jsxs("div",{...m,"aria-roledescription":"carousel",className:_("ams-image-slider",c&&"ams-image-slider--controls",a),ref:g,tabIndex:-1,children:[c&&o.jsx(R,{nextLabel:S,previousLabel:i}),o.jsx(q,{"aria-live":"polite",ref:s,role:"group",tabIndex:0,children:u.map(({alt:r,aspectRatio:t,sizes:l,src:L,srcSet:K},z)=>o.jsx(j,{slideId:z,children:o.jsx(H,{alt:r,aspectRatio:t,sizes:l,src:L,srcSet:K})},z))}),o.jsx(B,{imageLabel:d,thumbnails:u})]})})});O.displayName="ImageSlider";const k=Object.assign(O,{Item:j});try{k.displayName="ImageSlider",k.__docgenInfo={description:"",displayName:"ImageSlider",props:{controls:{defaultValue:null,description:"Display buttons to navigate to the previous or next image.",name:"controls",required:!1,type:{name:"boolean"}},imageLabel:{defaultValue:{value:"Afbeelding"},description:"Label for the image if you need to translate the alt text.",name:"imageLabel",required:!1,type:{name:"string"}},images:{defaultValue:null,description:"The set of images to display.",name:"images",required:!0,type:{name:"ImageProps[]"}},nextLabel:{defaultValue:{value:"Volgende"},description:"The label for the ‘next’ button",name:"nextLabel",required:!1,type:{name:"string"}},previousLabel:{defaultValue:{value:"Vorige"},description:"The label for the ‘previous’ button",name:"previousLabel",required:!1,type:{name:"string"}}}}}catch{}const U={title:"Components/Media/Image Slider",component:k,args:{controls:!0,images:[{alt:"Bridge",src:"https://picsum.photos/id/122/1280/720"},{alt:"Bunker",src:"https://picsum.photos/id/101/1280/720"},{alt:"Chairs",src:"https://picsum.photos/id/153/1280/720"},{alt:"Droplet",src:"https://picsum.photos/id/159/1280/720"},{alt:"Dew",src:"https://picsum.photos/id/123/1280/720"}]}},x={},y={args:{images:[{alt:"Bridge",sizes:"(max-width: 36rem) 640px, 50vw",src:"https://picsum.photos/id/122/640/360",srcSet:"https://picsum.photos/id/122/640/360 640w, https://picsum.photos/id/122/1280/720 1280w"},{alt:"Bunker",sizes:"(max-width: 36rem) 640px, 50vw",src:"https://picsum.photos/id/101/640/360",srcSet:"https://picsum.photos/id/101/640/360 640w, https://picsum.photos/id/101/1280/720 1280w"},{alt:"Chairs",sizes:"(max-width: 36rem) 640px, 50vw",src:"https://picsum.photos/id/153/640/360",srcSet:"https://picsum.photos/id/153/640/360 640w, https://picsum.photos/id/153/1280/720 1280w"}]}},w={args:{images:[{alt:"Landscape 16:9",aspectRatio:"16:9",src:"https://picsum.photos/id/870/768/432"},{alt:"Landscape 4:3",aspectRatio:"4:3",src:"https://picsum.photos/id/870/576/432"},{alt:"Square 1:1",aspectRatio:"1:1",src:"https://picsum.photos/id/870/432/432"},{alt:"Portrait 3:4",aspectRatio:"3:4",src:"https://picsum.photos/id/870/324/432"},{alt:"Portrait 9:16",aspectRatio:"9:16",src:"https://picsum.photos/id/870/243/432"}]},decorators:[a=>o.jsx("div",{style:{maxInlineSize:"15.1875rem"},children:o.jsx(a,{})})]};x.parameters={...x.parameters,docs:{...x.parameters?.docs,source:{originalSource:"{}",...x.parameters?.docs?.source}}};y.parameters={...y.parameters,docs:{...y.parameters?.docs,source:{originalSource:`{
+  args: {
+    images: [{
+      alt: 'Bridge',
+      sizes: '(max-width: 36rem) 640px, 50vw',
+      src: 'https://picsum.photos/id/122/640/360',
+      srcSet: 'https://picsum.photos/id/122/640/360 640w, https://picsum.photos/id/122/1280/720 1280w'
+    }, {
+      alt: 'Bunker',
+      sizes: '(max-width: 36rem) 640px, 50vw',
+      src: 'https://picsum.photos/id/101/640/360',
+      srcSet: 'https://picsum.photos/id/101/640/360 640w, https://picsum.photos/id/101/1280/720 1280w'
+    }, {
+      alt: 'Chairs',
+      sizes: '(max-width: 36rem) 640px, 50vw',
+      src: 'https://picsum.photos/id/153/640/360',
+      srcSet: 'https://picsum.photos/id/153/640/360 640w, https://picsum.photos/id/153/1280/720 1280w'
+    }]
+  }
+}`,...y.parameters?.docs?.source}}};w.parameters={...w.parameters,docs:{...w.parameters?.docs,source:{originalSource:`{
+  args: {
+    images: [{
+      alt: 'Landscape 16:9',
+      aspectRatio: '16:9',
+      src: 'https://picsum.photos/id/870/768/432'
+    }, {
+      alt: 'Landscape 4:3',
+      aspectRatio: '4:3',
+      src: 'https://picsum.photos/id/870/576/432'
+    }, {
+      alt: 'Square 1:1',
+      aspectRatio: '1:1',
+      src: 'https://picsum.photos/id/870/432/432'
+    }, {
+      alt: 'Portrait 3:4',
+      aspectRatio: '3:4',
+      src: 'https://picsum.photos/id/870/324/432'
+    }, {
+      alt: 'Portrait 9:16',
+      aspectRatio: '9:16',
+      src: 'https://picsum.photos/id/870/243/432'
+    }]
+  },
+  decorators: [Story => <div style={{
+    maxInlineSize: '15.1875rem'
+  }}>
+        <Story />
+      </div>]
+}`,...w.parameters?.docs?.source}}};const W=["Default","ResponsiveImages","VariousAspectRatios"],te=Object.freeze(Object.defineProperty({__proto__:null,Default:x,ResponsiveImages:y,VariousAspectRatios:w,__namedExportsOrder:W,default:U},Symbol.toStringTag,{value:"Module"}));export{te as I,y as R,w as V};
