@@ -30,10 +30,10 @@ Do not combine tokens of different sizes.
 
 | CSS variable                                          | Value |
 | :---------------------------------------------------- | :---: |
-| `var(--ams-typography-body-text-small-line-height)`   | 1.625 |
+| `var(--ams-typography-body-text-small-line-height)`   |  1.6  |
 | `var(--ams-typography-body-text-line-height)`         |  1.8  |
 | `var(--ams-typography-body-text-large-line-height)`   |  1.6  |
-| `var(--ams-typography-body-text-x-large-line-height)` |  1.5  |
+| `var(--ams-typography-body-text-x-large-line-height)` |  1.4  |
 
 ### Font weight
 
@@ -62,13 +62,13 @@ We support five sizes for headings, although levels 1 to 4 are most commonly use
 
 Headings use smaller line heights than body text.
 
-| CSS variable                                  | Value  |
-| :-------------------------------------------- | :----: |
-| `var(--ams-typography-heading-1-line-height)` | 1.1667 |
-| `var(--ams-typography-heading-2-line-height)` | 1.1875 |
-| `var(--ams-typography-heading-3-line-height)` |  1.28  |
-| `var(--ams-typography-heading-4-line-height)` |  1.3   |
-| `var(--ams-typography-heading-5-line-height)` | 1.375  |
+| CSS variable                                  | Value |
+| :-------------------------------------------- | :---: |
+| `var(--ams-typography-heading-1-line-height)` |  1.2  |
+| `var(--ams-typography-heading-2-line-height)` |  1.3  |
+| `var(--ams-typography-heading-3-line-height)` |  1.3  |
+| `var(--ams-typography-heading-4-line-height)` |  1.4  |
+| `var(--ams-typography-heading-5-line-height)` |  1.4  |
 
 ### Font weight
 
@@ -117,6 +117,8 @@ They use the compact theme, where both body text and headings are considerably s
 
 ### Body text
 
+#### Font size
+
 | CSS variable                                        | ≤&nbsp;320 | Example                                                                  | ≥&nbsp;1440 | Example                                                                  |
 | :-------------------------------------------------- | :--------: | :----------------------------------------------------------------------- | :---------: | :----------------------------------------------------------------------- |
 | `var(--ams-typography-body-text-small-font-size)`   |     14     | <FontDesignToken compact fontSize={14} lineHeight="body-text-small" />   |     14      | <FontDesignToken compact fontSize={14} lineHeight="body-text-small" />   |
@@ -124,7 +126,18 @@ They use the compact theme, where both body text and headings are considerably s
 | `var(--ams-typography-body-text-large-font-size)`   |     18     | <FontDesignToken compact fontSize={18} lineHeight="body-text-large" />   |     19      | <FontDesignToken compact fontSize={19} lineHeight="body-text-large" />   |
 | `var(--ams-typography-body-text-x-large-font-size)` |     20     | <FontDesignToken compact fontSize={20} lineHeight="body-text-x-large" /> |     23      | <FontDesignToken compact fontSize={23} lineHeight="body-text-x-large" /> |
 
+### Line height
+
+| CSS variable                                          | Value |
+| :---------------------------------------------------- | :---: |
+| `var(--ams-typography-body-text-small-line-height)`   |  1.4  |
+| `var(--ams-typography-body-text-line-height)`         |  1.5  |
+| `var(--ams-typography-body-text-large-line-height)`   |  1.4  |
+| `var(--ams-typography-body-text-x-large-line-height)` |  1.3  |
+
 ### Headings
+
+#### Font size
 
 | CSS variable                                | ≤&nbsp;320 | Example                                                                               | ≥&nbsp;1440 | Example                                                                               |
 | :------------------------------------------ | :--------: | :------------------------------------------------------------------------------------ | :---------: | :------------------------------------------------------------------------------------ |
@@ -133,3 +146,13 @@ They use the compact theme, where both body text and headings are considerably s
 | `var(--ams-typography-heading-3-font-size)` |     18     | <FontDesignToken compact fontSize={18} fontWeight="heading" lineHeight="heading-3" /> |     19      | <FontDesignToken compact fontSize={19} fontWeight="heading" lineHeight="heading-3" /> |
 | `var(--ams-typography-heading-4-font-size)` |     16     | <FontDesignToken compact fontSize={16} fontWeight="heading" lineHeight="heading-4" /> |     16      | <FontDesignToken compact fontSize={16} fontWeight="heading" lineHeight="heading-4" /> |
 | `var(--ams-typography-heading-5-font-size)` |     14     | <FontDesignToken compact fontSize={14} fontWeight="heading" lineHeight="heading-5" /> |     14      | <FontDesignToken compact fontSize={14} fontWeight="heading" lineHeight="heading-5" /> |
+
+### Line height
+
+| CSS variable                                  | Value |
+| :-------------------------------------------- | :---: |
+| `var(--ams-typography-heading-1-line-height)` |  1.2  |
+| `var(--ams-typography-heading-2-line-height)` |  1.3  |
+| `var(--ams-typography-heading-3-line-height)` |  1.3  |
+| `var(--ams-typography-heading-4-line-height)` |  1.4  |
+| `var(--ams-typography-heading-5-line-height)` |  1.4  |

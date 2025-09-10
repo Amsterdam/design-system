@@ -6,37 +6,37 @@
         "line-height": { "value": "1.5" },
         "small": {
           "font-size": { "value": "0.875rem" },
-          "line-height": { "value": "1.4286" }
+          "line-height": { "value": "1.4" }
         },
         "large": {
           "font-size": { "value": "clamp(1.125rem, 1.1071rem + 0.0893vw, 1.1875rem)" },
-          "line-height": { "value": "1.4737" }
+          "line-height": { "value": "1.4" }
         },
         "x-large": {
           "font-size": { "value": "clamp(1.25rem, 1.1964rem + 0.2679vw, 1.4375rem)" },
-          "line-height": { "value": "1.3913" }
+          "line-height": { "value": "1.3" }
         }
       },
       "heading": {
         "1": {
           "font-size": { "value": "clamp(1.5rem, 1.4286rem + 0.3571vw, 1.75rem)" },
-          "line-height": { "value": "1.1429" }
+          "line-height": { "value": "1.2" }
         },
         "2": {
           "font-size": { "value": "{ams.typography.body-text.x-large.font-size}" },
-          "line-height": { "value": "1.2174" }
+          "line-height": { "value": "1.3" }
         },
         "3": {
           "font-size": { "value": "{ams.typography.body-text.large.font-size}" },
-          "line-height": { "value": "1.2632" }
+          "line-height": { "value": "1.3" }
         },
         "4": {
           "font-size": { "value": "{ams.typography.body-text.font-size}" },
-          "line-height": { "value": "1.25" }
+          "line-height": { "value": "1.4" }
         },
         "5": {
           "font-size": { "value": "{ams.typography.body-text.small.font-size}" },
-          "line-height": { "value": "1.2857" }
+          "line-height": { "value": "1.4" }
         }
       }
     }
