@@ -66,11 +66,11 @@ export const Sizes: Story = {
   },
   render: (args) => (
     <Column gap="small">
-      <Heading {...args} key="level-1" size="level-1" />
-      <Heading {...args} key="level-2" size="level-2" />
-      <Heading {...args} key="level-3" size="level-3" />
-      <Heading {...args} key="level-4" size="level-4" />
-      <Heading {...args} key="level-5" size="level-5" />
+      <Heading {...args} size="level-1" />
+      <Heading {...args} size="level-2" />
+      <Heading {...args} size="level-3" />
+      <Heading {...args} size="level-4" />
+      <Heading {...args} size="level-5" />
     </Column>
   ),
 }
