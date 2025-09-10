@@ -35,7 +35,7 @@ export const FormPage = () => {
         <Heading className="ams-mb-m" level={1}>
           Contact
         </Heading>
-        <form className="ams-gap-xl" id="main" onSubmit={(e) => e.preventDefault()}>
+        <form className="ams-gap-xl" id="inhoud" onSubmit={(e) => e.preventDefault()}>
           <Field>
             <Label htmlFor="body">Wat wilt u aan de gemeente vragen?</Label>
             <Paragraph id="bodyDescription">
