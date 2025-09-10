@@ -152,7 +152,7 @@ export const WithImageGallery: StoryObj = {
               gemeentesecretaris.
             </Paragraph>
           </Grid.Cell>
-          {persons.map(({ imageSource, name, role }, index) => (
+          {persons.map(({ imageSource, name, role, suffix }, index) => (
             <Grid.Cell
               key={name}
               span={4}
@@ -163,6 +163,7 @@ export const WithImageGallery: StoryObj = {
                 <Card.Heading level={3}>
                   <Card.Link href="#">
                     {role} {name}
+                    {suffix && `(${suffix})`}
                   </Card.Link>
                 </Card.Heading>
               </Card>
@@ -198,12 +199,16 @@ export const WithImageGallery: StoryObj = {
                 </LinkList.Link>
               </LinkList>
               <LinkList>
-                <StandaloneLink color="inverse" href="#">
-                  Meer persberichten
-                </StandaloneLink>
-                <StandaloneLink color="inverse" href="#">
-                  Persberichten over sluiten van panden
-                </StandaloneLink>
+                <li>
+                  <StandaloneLink color="inverse" href="#">
+                    Meer persberichten
+                  </StandaloneLink>
+                </li>
+                <li>
+                  <StandaloneLink color="inverse" href="#">
+                    Persberichten over sluiten van panden
+                  </StandaloneLink>
+                </li>
               </LinkList>
             </Grid.Cell>
             <Grid.Cell span={{ narrow: 4, medium: 4, wide: 5 }} start={{ narrow: 1, medium: 5, wide: 7 }}>
