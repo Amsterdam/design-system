@@ -17,7 +17,7 @@ import {
   StandaloneLink,
   UnorderedList,
 } from '@amsterdam/design-system-react'
-import type { GridColumnNumbers, HeadingProps } from '@amsterdam/design-system-react'
+import type { GridColumnNumbers } from '@amsterdam/design-system-react'
 import {
   CameraIcon,
   FacebookIcon,
@@ -26,7 +26,8 @@ import {
   XIcon,
 } from '@amsterdam/design-system-react-icons'
 import { Meta, StoryObj } from '@storybook/react-vite'
-import { LinkGroupGridCells } from './LinkGroupGridCells'
+import { LinkBlock } from './LinkBlock'
+import { LinkBlockGridCells } from './LinkBlockGridCells'
 import { NavigationPage } from './NavigationPage'
 import { burgerzakenLinks, parkerenLinks } from './links'
 import { persons } from './persons'
@@ -40,23 +41,6 @@ const meta = {
 } satisfies Meta<typeof NavigationPage>
 
 export default meta
-
-type LinkBlockProps = {
-  body: string
-  heading: string
-  headingLevel: HeadingProps['level']
-  linkText?: string
-}
-
-const LinkBlock = ({ body, heading, headingLevel, linkText }: LinkBlockProps) => (
-  <>
-    <Heading className="ams-mb-s" level={headingLevel} size="level-3">
-      {heading}
-    </Heading>
-    <Paragraph className="ams-mb-s">{body}</Paragraph>
-    <StandaloneLink href="#">{linkText ?? heading}</StandaloneLink>
-  </>
-)
 
 export const Default: StoryObj = {
   args: {
@@ -78,7 +62,7 @@ export const Default: StoryObj = {
             aangeven? Op deze pagina vindt u alle informatie en regelzaken rondom Burgerzaken.
           </Paragraph>
         </Grid.Cell>
-        <LinkGroupGridCells linkGroups={burgerzakenLinks} />
+        <LinkBlockGridCells headingLevel={2} linkGroups={burgerzakenLinks} />
       </Grid>,
     ],
   },
@@ -105,7 +89,7 @@ export const WithInteractiveElement: StoryObj = {
             </Paragraph>
             <Paragraph>{exampleParagraph()}</Paragraph>
           </Grid.Cell>
-          <LinkGroupGridCells linkGroups={parkerenLinks}></LinkGroupGridCells>
+          <LinkBlockGridCells headingLevel={2} linkGroups={parkerenLinks} />
         </Grid>
         <Spotlight>
           <Grid paddingVertical="large">
@@ -186,17 +170,16 @@ export const WithImageGallery: StoryObj = {
           ))}
           <Grid.Cell span={{ narrow: 4, medium: 4, wide: 5 }} start={{ narrow: 1, medium: 1, wide: 2 }}>
             <LinkBlock
-              body="Een alfabetisch overzicht van de portefeuilles van burgemeester en wethouders."
               heading="Portefeuilleverdeling"
-              headingLevel={3}
+              introduction="Een alfabetisch overzicht van de portefeuilles van burgemeester en wethouders."
+              links={['Portefeuilleverdeling']}
             />
           </Grid.Cell>
           <Grid.Cell span={{ narrow: 4, medium: 4, wide: 5 }} start={{ narrow: 1, medium: 5, wide: 7 }}>
             <LinkBlock
-              body="In dit akkoord staan de plannen en visie van de coalitie Pvda, GroenLinks en D66 voor 2022-2026."
               heading="Coalitieakkoord"
-              headingLevel={3}
-              linkText="Coalitieakkoord en Uitvoeringsagenda"
+              introduction="In dit akkoord staan de plannen en visie van de coalitie Pvda, GroenLinks en D66 voor 2022-2026."
+              links={['Coalitieakkoord en Uitvoeringsagenda']}
             />
           </Grid.Cell>
         </Grid>
@@ -247,10 +230,9 @@ export const WithImageGallery: StoryObj = {
         <Grid paddingVertical="x-large">
           <Grid.Cell span={{ narrow: 4, medium: 4, wide: 5 }} start={{ narrow: 1, medium: 1, wide: 2 }}>
             <LinkBlock
-              body="Voor vragen van journalisten aan de afdeling Bestuursvoorlichting."
               heading="Pers en woordvoering"
-              headingLevel={3}
-              linkText="Pers"
+              introduction="Voor vragen van journalisten aan de afdeling Bestuursvoorlichting."
+              links={['Pers']}
             />
           </Grid.Cell>
           <Grid.Cell span={{ narrow: 4, medium: 4, wide: 5 }} start={{ narrow: 1, medium: 5, wide: 7 }}>
@@ -324,7 +306,7 @@ export const SubnavigationPage: StoryObj = {
             </Heading>
             <Paragraph>{exampleParagraph()}</Paragraph>
           </Grid.Cell>
-          <LinkGroupGridCells linkGroups={burgerzakenLinks.slice(0, 6)} />
+          <LinkBlockGridCells linkGroups={burgerzakenLinks.slice(0, 6)} />
           <Grid.Cell span={{ narrow: 4, medium: 4, wide: 5 }} start={{ narrow: 1, medium: 1, wide: 2 }}>
             <Heading className="ams-mb-s" level={3}>
               {exampleHeading()}
@@ -377,7 +359,7 @@ export const SubnavigationPage: StoryObj = {
             </Heading>
             <Paragraph>{exampleParagraph()}</Paragraph>
           </Grid.Cell>
-          <LinkGroupGridCells linkGroups={burgerzakenLinks.slice(4, 8)} />
+          <LinkBlockGridCells linkGroups={burgerzakenLinks.slice(4, 8)} />
         </Grid>
         <Spotlight className="ams-mb-xl" color="green">
           <Grid paddingVertical="large">
