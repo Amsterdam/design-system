@@ -364,7 +364,7 @@ export const SubnavigationPage: StoryObj = {
         <Spotlight className="ams-mb-xl" color="green">
           <Grid paddingVertical="large">
             <Grid.Cell span={{ narrow: 4, medium: 5, wide: 7 }} start={{ narrow: 1, medium: 1, wide: 2 }}>
-              <Heading className="ams-mb-s" color="inverse" level={3}>
+              <Heading className="ams-mb-s" color="inverse" level={2} size="level-3">
                 Blijf op de hoogte
               </Heading>
               <Paragraph className="ams-mb-m" color="inverse">
@@ -376,7 +376,7 @@ export const SubnavigationPage: StoryObj = {
               </StandaloneLink>
             </Grid.Cell>
             <Grid.Cell span={{ narrow: 4, medium: 3, wide: 4 }}>
-              <Heading className="ams-mb-s" color="inverse" level={3}>
+              <Heading className="ams-mb-s" color="inverse" level={2} size="level-3">
                 Deel deze pagina
               </Heading>
               <LinkList>
