@@ -52,7 +52,7 @@ export const Default: StoryObj = {
           </Breadcrumb>
         </Grid.Cell>
       </Grid>,
-      <Grid as="main" id="main" paddingBottom="x-large">
+      <Grid as="main" id="main" key={2} paddingBottom="x-large">
         <Grid.Cell span={{ narrow: 4, medium: 6, wide: 7 }}>
           <Heading className="ams-mb-m" level={1}>
             Burgerzaken
@@ -121,7 +121,7 @@ export const WithInteractiveElement: StoryObj = {
 export const WithImageGallery: StoryObj = {
   args: {
     children: [
-      <Grid paddingTop="large">
+      <Grid key={1} paddingTop="large">
         <Grid.Cell span={{ narrow: 4, medium: 6, wide: 8 }}>
           <Breadcrumb>
             <Breadcrumb.Link href="#">Home</Breadcrumb.Link>
