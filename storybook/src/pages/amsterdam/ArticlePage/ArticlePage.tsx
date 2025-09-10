@@ -47,7 +47,7 @@ export const ArticlePage = ({
         </Breadcrumb>
       </Grid.Cell>
     </Grid>
-    <main id="main">
+    <main id="inhoud">
       <Grid paddingBottom="x-large">
         <Grid.Cell span={{ narrow: 4, medium: 6, wide: 7 }} start={{ narrow: 1, medium: 1, wide: 2 }}>
           <Heading className="ams-mb-s" level={1}>

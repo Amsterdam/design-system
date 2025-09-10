@@ -68,7 +68,7 @@ export const Default: StoryObj = {
           </Breadcrumb>
         </Grid.Cell>
       </Grid>,
-      <Grid as="main" id="main" paddingBottom="x-large">
+      <Grid as="main" id="inhoud" paddingBottom="x-large">
         <Grid.Cell span={{ narrow: 4, medium: 6, wide: 7 }}>
           <PageHeading className="ams-mb-m">Burgerzaken</PageHeading>
           <Paragraph size="large">
@@ -92,7 +92,7 @@ export const WithInteractiveElement: StoryObj = {
           </Breadcrumb>
         </Grid.Cell>
       </Grid>,
-      <main id="main" key={2}>
+      <main id="inhoud" key={2}>
         <Grid paddingBottom="x-large">
           <Grid.Cell span={{ narrow: 4, medium: 6, wide: 7 }}>
             <PageHeading className="ams-mb-m">Parkeren</PageHeading>
@@ -141,7 +141,7 @@ export const WithImageGallery: StoryObj = {
           </Breadcrumb>
         </Grid.Cell>
       </Grid>,
-      <main id="main" key={2}>
+      <main id="inhoud" key={2}>
         <Grid paddingBottom="x-large">
           <Grid.Cell span={{ narrow: 4, medium: 6, wide: 8 }}>
             <PageHeading className="ams-mb-m">College van burgemeester en wethouders</PageHeading>
@@ -295,7 +295,7 @@ export const SubnavigationPage: StoryObj = {
           </Breadcrumb>
         </Grid.Cell>
       </Grid>,
-      <main id="main" key={2}>
+      <main id="inhoud" key={2}>
         <Grid paddingBottom="x-large">
           <Grid.Cell span={{ narrow: 4, medium: 6, wide: 7 }}>
             <PageHeading className="ams-mb-m">{exampleHeading()}</PageHeading>
