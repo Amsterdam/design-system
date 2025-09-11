@@ -6,6 +6,7 @@
 import { Card, Column, Grid, Heading, Paragraph, SearchField } from '@amsterdam/design-system-react'
 import { Mark } from '@amsterdam/design-system-react/src'
 import { Meta, StoryObj } from '@storybook/react-vite'
+import { useState } from 'react'
 
 const meta = {
   title: 'Components/Text/Mark',
@@ -35,14 +36,14 @@ export const Default: Story = {
   ),
 }
 
-type SearchResult = {
+type Article = {
   category: string
   date: Date
   fragment: string
   heading: string
 }
 
-const searchResults: SearchResult[] = [
+const articles: Article[] = [
   {
     category: 'Kansspelen',
     date: new Date('2025-10-27'),
@@ -89,13 +90,22 @@ const mark = (text: string, query: string) => {
 
 export const SearchResults = {
   render: () => {
-    const query = 'horeca vergunning'
+    const [query, setQuery] = useState('horeca vergunning')
+
+    const searchResults = articles.filter(({ fragment, heading }) =>
+      [fragment, heading].some((text) =>
+        query
+          .split(/\s+/)
+          .filter(Boolean)
+          .some((word) => text.toLowerCase().includes(word.toLowerCase())),
+      ),
+    )
 
     return (
       <Grid>
         <Grid.Cell span={{ narrow: 4, medium: 6, wide: 8 }}>
           <SearchField className="ams-mb-m">
-            <SearchField.Input label="Zoeken" value={query} />
+            <SearchField.Input label="Zoeken" onChange={(e) => setQuery(e.target.value)} value={query} />
             <SearchField.Button />
           </SearchField>
           <Paragraph className="ams-mb-xl">
