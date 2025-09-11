@@ -1,0 +1,73 @@
+{/* @license CC0-1.0 */}
+
+import { Meta } from "@storybook/addon-docs/blocks";
+
+<Meta title="Docs/Developer Guide/Release Policy" />
+
+# Release Policy
+
+We aim to publish new releases on a monthly basis.
+Breaking changes will occur at most once every 3 months.
+Change logs, release notes, and our sprint reviews help you with upgrades.
+
+## Packages
+
+We publish the code libraries of our design system as **5 separate npm packages**:
+
+1. [Assets](https://www.npmjs.com/package/@amsterdam/design-system-assets): our fonts, icons, logos and application icons.
+2. [CSS](https://www.npmjs.com/package/@amsterdam/design-system-css): CSS classes used by our components and utilities.
+3. [React](https://www.npmjs.com/package/@amsterdam/design-system-react): all components in React and their unit tests.
+4. [React Icons](https://www.npmjs.com/package/@amsterdam/design-system-react-icons): every icon in the library as a React component.
+5. [Tokens](https://www.npmjs.com/package/@amsterdam/design-system-tokens): reusable CSS variables that express our design choices.
+
+## Version numbering
+
+Each package has its **own version number**.
+The design system as a whole **does not have** a single overarching version.
+Because of cross-dependencies, the 3 CSS and React packages will often move to a new major version together.
+
+We follow [semantic versioning](https://semver.org) to indicate the impact of changes:
+
+- Patch (x.y.z): fixes and technical improvements, safe to upgrade.
+- Minor (x.y): offers new features, check whether you can use them.
+- Major (x): breaking changes that may require updates to your code.
+
+## Release cadence
+
+Breaking changes are grouped into major releases, which we limit to **once every 3 months**.
+Non-breaking changes get **released as needed**, usually at the end our 4-week sprints, but our setup allows us to publish anytime.
+
+We currently don’t define how long we **support older versions** and backport fixes to them.
+We recommend staying up to date with at least each major release.
+
+## Deprecation approach
+
+We deprecate features before removing them, so you have enough time to migrate.
+
+Note that not all changes are equally visible:
+
+- TypeScript will highlight errors resulting from changes to names, props and prop values of **React components**.
+- Manually check all **CSS classes** that you attached styles to, and let us know what you’re apparently missing.
+- Inspect the **CSS custom properties** in Dev Tools to verify if any of our design tokens no longer have a value.
+
+We keep features available until the **second major release** after their deprecation.
+All deprecations and removals are noted in the changelogs.
+Find migration guidance in release notes, on this website, in JSDoc annotations, or comments in code.
+
+## Communication channels
+
+- Packages are published to [npm](https://www.npmjs.com/).
+- Use a tool like [Dependabot](https://docs.github.com/en/code-security/getting-started/dependabot-quickstart-guide) to get notified of new versions.
+- Each package has its own **changelog file** in [the repository](https://github.com/Amsterdam/design-system).
+- **Release notes** are also shared in [Teams](https://teams.microsoft.com/l/team/19%3afYKS_RD2n1q4UhguA9jwEJk0A_VjYPO4TiLQjYlG_bo1%40thread.tacv2/conversations?groupId=381b5f11-b342-4a3a-8a78-8b371a90457d&tenantId=72fca1b1-2c2e-4376-a445-294d80196804) and [Slack](https://datalab-amsterdam.slack.com/archives/CV54XSMSA).
+- Ask questions and hear about updates in our **sprint reviews**.
+- Any **issues or requests** are welcome on [GitHub](https://github.com/Amsterdam/design-system/issues) or in [Teams](https://teams.microsoft.com/l/team/19%3afYKS_RD2n1q4UhguA9jwEJk0A_VjYPO4TiLQjYlG_bo1%40thread.tacv2/conversations?groupId=381b5f11-b342-4a3a-8a78-8b371a90457d&tenantId=72fca1b1-2c2e-4376-a445-294d80196804).
+
+## Consumer responsibilities
+
+To make the most of the design system and avoid surprises:
+
+- **Review changelogs** before upgrading.
+- **Plan for major releases** roughly once every three months.
+- **Stay up to date** and upgrade to at least each major release.
+- **Join sprint reviews** for early insights or to raise questions.
