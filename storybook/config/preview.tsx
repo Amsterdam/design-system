@@ -11,9 +11,6 @@ import clsx from 'clsx'
 import { viewports } from './viewports'
 
 export const argTypes = {
-  _value: {
-    name: 'value',
-  },
   children: {
     table: { disable: true },
   },
