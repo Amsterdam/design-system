@@ -43,9 +43,7 @@ export const InAField: Story = {
   render: (args) => (
     <Field invalid={args.invalid}>
       <Label htmlFor="input1">Label</Label>
-      <Paragraph id="description1" size="small">
-        Omschrijving.
-      </Paragraph>
+      <Paragraph id="description1">Omschrijving.</Paragraph>
       {args.invalid && <ErrorMessage id="error1">Foutmelding.</ErrorMessage>}
       <TimeInput aria-describedby={`description1${args.invalid ? ' error1' : ''}`} id="input1" {...args} />
     </Field>
@@ -59,9 +57,7 @@ export const InAFieldWithValidation: Story = {
   render: (args) => (
     <Field invalid={args.invalid}>
       <Label htmlFor="input2">Label</Label>
-      <Paragraph id="description2" size="small">
-        Omschrijving.
-      </Paragraph>
+      <Paragraph id="description2">Omschrijving.</Paragraph>
       {args.invalid && <ErrorMessage id="error2">Foutmelding.</ErrorMessage>}
       <TimeInput aria-describedby={`description2${args.invalid ? ' error2' : ''}`} id="input2" {...args} />
     </Field>

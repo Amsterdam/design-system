@@ -15,6 +15,10 @@ import {
 } from '@amsterdam/design-system-react'
 import { FieldSet } from '@amsterdam/design-system-react/src'
 import { Meta, StoryObj } from '@storybook/react-vite'
+import { exampleFamilyName, exampleGivenName } from '../shared/exampleContent'
+
+const familyName = exampleFamilyName()
+const givenName = exampleGivenName()
 
 const meta = {
   title: 'Components/Forms/Field Set',
@@ -49,6 +53,7 @@ export const Default: Story = {
           aria-required="true"
           id="input-a1"
           invalid={invalid}
+          value={givenName}
         />
       </Field>
       <Field>
@@ -59,6 +64,7 @@ export const Default: Story = {
           aria-required="true"
           id="input-a2"
           invalid={invalid}
+          value={familyName}
         />
       </Field>
     </FieldSet>
@@ -68,7 +74,7 @@ export const Default: Story = {
 export const WithDescription: Story = {
   render: (args) => (
     <FieldSet aria-describedby="description-b" invalid={args.invalid} legend={args.legend}>
-      <Paragraph className="ams-mb-s" id="description-b" size="small">
+      <Paragraph className="ams-mb-s" id="description-b">
         Vul uw naam in zoals in uw paspoort staat.
       </Paragraph>
       <Field className="ams-mb-s">
@@ -79,6 +85,7 @@ export const WithDescription: Story = {
           aria-required="true"
           id="input-b1"
           invalid={args.invalid}
+          value={givenName}
         />
       </Field>
       <Field>
@@ -89,6 +96,7 @@ export const WithDescription: Story = {
           aria-required="true"
           id="input-b2"
           invalid={args.invalid}
+          value={familyName}
         />
       </Field>
     </FieldSet>
@@ -96,7 +104,10 @@ export const WithDescription: Story = {
 }
 
 export const WithHint: Story = {
-  args: { hint: 'verplicht', optional: false },
+  args: {
+    hint: 'verplicht',
+    optional: false,
+  },
   render: ({ hint, invalid, legend, optional }) => (
     <FieldSet hint={hint} invalid={invalid} legend={legend} optional={optional}>
       <Field className="ams-mb-s">
@@ -107,6 +118,7 @@ export const WithHint: Story = {
           aria-required="true"
           id="input-b3"
           invalid={invalid}
+          value={givenName}
         />
       </Field>
       <Field>
@@ -117,6 +129,7 @@ export const WithHint: Story = {
           aria-required="true"
           id="input-b4"
           invalid={invalid}
+          value={familyName}
         />
       </Field>
     </FieldSet>
@@ -124,10 +137,12 @@ export const WithHint: Story = {
 }
 
 export const WithValidation: Story = {
-  args: { invalid: true },
+  args: {
+    invalid: true,
+  },
   render: (args) => (
     <FieldSet aria-describedby="description-c" invalid={args.invalid} legend={args.legend}>
-      <Paragraph className="ams-mb-s" id="description-c" size="small">
+      <Paragraph className="ams-mb-s" id="description-c">
         Vul uw naam in zoals in uw paspoort staat.
       </Paragraph>
       <Field className="ams-mb-s">
@@ -138,6 +153,7 @@ export const WithValidation: Story = {
           aria-required="true"
           id="input-c1"
           invalid={args.invalid}
+          value=""
         />
       </Field>
       <Field>
@@ -148,6 +164,7 @@ export const WithValidation: Story = {
           aria-required="true"
           id="input-c2"
           invalid={args.invalid}
+          value=""
         />
       </Field>
     </FieldSet>
@@ -166,7 +183,7 @@ export const RadioGroup: Story = {
       legend={args.legend}
       role="radiogroup"
     >
-      <Paragraph className="ams-mb-s" id="description-d" size="small">
+      <Paragraph className="ams-mb-s" id="description-d">
         De laatstgenoemde melding.
       </Paragraph>
       {args.invalid && (
@@ -205,7 +222,7 @@ export const RadioGroupWithValidation: Story = {
       legend={args.legend}
       role="radiogroup"
     >
-      <Paragraph className="ams-mb-s" id="description-e" size="small">
+      <Paragraph className="ams-mb-s" id="description-e">
         De laatstgenoemde melding.
       </Paragraph>
       {args.invalid && (
@@ -242,7 +259,7 @@ export const CheckboxGroup: Story = {
       invalid={args.invalid}
       legend={args.legend}
     >
-      <Paragraph className="ams-mb-s" id="description-f" size="small">
+      <Paragraph className="ams-mb-s" id="description-f">
         De laatstgenoemde melding.
       </Paragraph>
       {args.invalid && (
@@ -280,7 +297,7 @@ export const CheckboxGroupWithValidation: Story = {
       invalid={args.invalid}
       legend={args.legend}
     >
-      <Paragraph className="ams-mb-s" id="description-g" size="small">
+      <Paragraph className="ams-mb-s" id="description-g">
         De laatstgenoemde melding.
       </Paragraph>
       {args.invalid && (

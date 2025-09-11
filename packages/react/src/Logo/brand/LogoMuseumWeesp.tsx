@@ -11,6 +11,7 @@ const LogoMuseumWeesp = forwardRef((props: SVGProps<SVGSVGElement>, ref: Forward
     className="ams-logo"
     fill="none"
     focusable="false"
+    height="2.5rem" // Height for when CSS does not load, gets overridden when it does
     ref={ref}
     role="img"
     viewBox="0 0 121 42"

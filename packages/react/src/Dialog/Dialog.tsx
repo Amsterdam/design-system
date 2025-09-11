@@ -28,10 +28,10 @@ const DialogRoot = forwardRef(
   ) => (
     <dialog {...restProps} className={clsx('ams-dialog', className)} ref={ref}>
       <header className="ams-dialog__header">
-        <Heading level={1} size="level-4">
+        <Heading level={1} size="level-3">
           {heading}
         </Heading>
-        <IconButton label={closeButtonLabel} onClick={closeDialog} size="heading-4" type="button" />
+        <IconButton label={closeButtonLabel} onClick={closeDialog} size="heading-3" type="button" />
       </header>
       <div className="ams-dialog__body">{children}</div>
       {footer && <footer className="ams-dialog__footer">{footer}</footer>}

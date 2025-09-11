@@ -35,9 +35,14 @@
   @include reset-textarea;
 }
 
+@mixin reset-placeholder {
+  opacity: 100%; // Reset lower opacity set by Firefox
+}
+
 .ams-text-area::placeholder {
   color: var(--ams-text-area-placeholder-color);
-  opacity: 100%; // This resets the lower opacity set by Firefox
+
+  @include reset-placeholder;
 }
 
 .ams-text-area:disabled {
@@ -45,18 +50,19 @@
   cursor: var(--ams-text-area-disabled-cursor);
 }
 
-.ams-text-area:invalid,
-.ams-text-area[aria-invalid="true"] {
+.ams-text-area:not(:disabled):invalid,
+.ams-text-area:not(:disabled)[aria-invalid="true"] {
   border-color: var(--ams-text-area-invalid-border-color);
-
-  &:hover {
-    border-color: var(--ams-text-area-invalid-hover-border-color);
-    box-shadow: var(--ams-text-area-invalid-hover-box-shadow);
-  }
 }
 
 .ams-text-area:not(:disabled):hover {
   box-shadow: var(--ams-text-area-hover-box-shadow);
+}
+
+.ams-text-area:not(:disabled):invalid:hover,
+.ams-text-area:not(:disabled)[aria-invalid="true"]:hover {
+  border-color: var(--ams-text-area-invalid-hover-border-color);
+  box-shadow: var(--ams-text-area-invalid-hover-box-shadow);
 }
 
 .ams-text-area--resize-none {

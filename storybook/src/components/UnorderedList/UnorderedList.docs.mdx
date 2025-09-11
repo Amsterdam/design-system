@@ -24,14 +24,14 @@ It is left-aligned with the text of the higher-level item.
 
 ### Without markers
 
-An overview of equivalent elements is also an unordered list.
+An overview of articles can be seen as an unordered list.
 In such cases, apply the list semantics while hiding markers.
 This helps screen readers understand and navigate the list.
 
-Note: In this variant, each item typically contains a container with headings and other text components.
-Therefore, this variant does not define typography for the items and the `color` prop has no effect.
+Note: each item typically contains a container with headings and other text components in this variant.
+Therefore, it does not define typography for the items and the `color` prop has no effect.
 
-This example is based on the top tasks on the homepage of the website:
+For example, here are three news articles:
 
 <Canvas of={UnorderedListStories.WithoutMarkers} />
 
@@ -45,6 +45,7 @@ When nesting lists, set the prop on all lists.
 
 ### Small text
 
-Use a list with a smaller font size in form descriptions and captions and the like.
+We use a smaller font size for text in a Figure Caption and for metadata like dates or categories.
+When using a list in small text, set the prop for each item in the list.
 
 <Canvas of={UnorderedListStories.SmallText} />

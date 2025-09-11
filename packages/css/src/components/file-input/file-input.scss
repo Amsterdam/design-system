@@ -48,6 +48,7 @@
   font-family: inherit;
   font-size: inherit; // iOS specific fix
   font-weight: inherit;
+  line-height: var(--ams-file-input-file-selector-button-line-height);
   margin-inline-end: var(--ams-file-input-file-selector-button-margin-inline-end);
   padding-block: var(--ams-file-input-file-selector-button-padding-block);
   padding-inline: var(--ams-file-input-file-selector-button-padding-inline);
