@@ -1,6 +1,6 @@
 {/* @license CC0-1.0 */}
 
-import { Meta } from "@storybook/blocks";
+import { Meta } from "@storybook/addon-docs/blocks";
 
 <Meta title="Pages/Guidelines" />
 
@@ -17,14 +17,14 @@ The most general structure for a page is:
 
 ```tsx
 <Page>
-  <SkipLink href="#main">Direct naar inhoud</SkipLink>
+  <SkipLink href="#inhoud">Direct naar inhoud</SkipLink>
   <PageHeader>
     <Grid />
   </PageHeader>
   <Grid>
     <Breadcrumb />
   </Grid>
-  <Grid as="main" id="main">
+  <Grid as="main" id="inhoud">
     …
   </Grid>
   <PageFooter />

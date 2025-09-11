@@ -4,7 +4,7 @@
       "font-family": { "value": "{ams.typography.font-family}" },
       "font-size": { "value": "{ams.typography.body-text.font-size}" },
       "font-weight": { "value": "{ams.typography.body-text.font-weight}" },
-      "gap": { "value": "{ams.space.m}" },
+      "gap": { "value": "{ams.space.s}" },
       "line-height": { "value": "{ams.typography.body-text.line-height}" },
       "link": {
         "color": { "value": "{ams.links.color}" },
@@ -23,11 +23,6 @@
           "padding-block-start": { "value": "{ams.space.s}" },
           "padding-inline-start": { "value": "{ams.space.l}" }
         }
-      },
-      "heading": {
-        "font-weight": { "value": "{ams.typography.heading.font-weight}" },
-        "font-size": { "value": "{ams.typography.heading.4.font-size}" },
-        "line-height": { "value": "{ams.typography.heading.4.line-height}" }
       }
     }
   }

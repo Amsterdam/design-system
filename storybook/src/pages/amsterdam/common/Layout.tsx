@@ -12,7 +12,7 @@ type LayoutProps = PropsWithChildren<HTMLAttributes<HTMLElement>>
 
 export const Layout = ({ children }: LayoutProps) => (
   <>
-    <SkipLink href="#main">Direct naar inhoud</SkipLink>
+    <SkipLink href="#inhoud">Direct naar inhoud</SkipLink>
     <AppHeader />
     {children}
     <PageFooter>{PageFooterStory.args?.children}</PageFooter>

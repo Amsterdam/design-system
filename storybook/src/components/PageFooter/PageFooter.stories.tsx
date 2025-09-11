@@ -14,7 +14,8 @@ import {
   MastodonIcon,
   PhoneIcon,
 } from '@amsterdam/design-system-react-icons'
-import { Meta, StoryObj } from '@storybook/react'
+import { Meta, StoryObj } from '@storybook/react-vite'
+import type { ReactNode } from 'react'
 
 const meta = {
   title: 'Components/Containers/Page Footer',
@@ -26,17 +27,17 @@ export default meta
 type Story = StoryObj<typeof meta>
 
 type FollowLink = {
-  icon?: Function
+  icon?: ReactNode
   text: string
 }
 
 const followLinks: FollowLink[] = [
   { text: 'De Amsterdam App' },
   { text: 'Nieuwsbrieven' },
-  { icon: FacebookIcon, text: 'Facebook' },
-  { icon: InstagramIcon, text: 'Instagram' },
-  { icon: LinkedinIcon, text: 'LinkedIn' },
-  { icon: MastodonIcon, text: 'Mastodon' },
+  { icon: <FacebookIcon />, text: 'Facebook' },
+  { icon: <InstagramIcon />, text: 'Instagram' },
+  { icon: <LinkedinIcon />, text: 'LinkedIn' },
+  { icon: <MastodonIcon />, text: 'Mastodon' },
 ]
 
 export const Default: Story = {
@@ -49,13 +50,13 @@ export const Default: Story = {
               Contact
             </Heading>
             <LinkList className="ams-mb-xl">
-              <LinkList.Link color="inverse" href="#" icon={MailIcon}>
+              <LinkList.Link color="inverse" href="#" icon={<MailIcon />}>
                 Contactformulier
               </LinkList.Link>
-              <LinkList.Link color="inverse" href="#" icon={PhoneIcon}>
+              <LinkList.Link color="inverse" href="#" icon={<PhoneIcon />}>
                 14 020
               </LinkList.Link>
-              <LinkList.Link color="inverse" href="#" icon={ClockIcon}>
+              <LinkList.Link color="inverse" href="#" icon={<ClockIcon />}>
                 Adressen en openingstijden
               </LinkList.Link>
             </LinkList>
@@ -122,10 +123,10 @@ export const OnderzoekEnStatistiek: Story = {
               Heeft u een vraag en kunt u het antwoord niet vinden op deze site? Neem dan contact met ons op.
             </Paragraph>
             <LinkList>
-              <LinkList.Link color="inverse" href="mailto:redactie.os@amsterdam.nl" icon={MailIcon}>
+              <LinkList.Link color="inverse" href="mailto:redactie.os@amsterdam.nl" icon={<MailIcon />}>
                 E-mail
               </LinkList.Link>
-              <LinkList.Link color="inverse" href="tel:+31202510333" icon={PhoneIcon}>
+              <LinkList.Link color="inverse" href="tel:+31202510333" icon={<PhoneIcon />}>
                 020 251 0333
               </LinkList.Link>
             </LinkList>

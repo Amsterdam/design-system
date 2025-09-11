@@ -9,8 +9,11 @@ import type { ForwardedRef, InputHTMLAttributes, PropsWithChildren, ReactNode } 
 import RadioIcon from './RadioIcon'
 
 export type RadioProps = {
-  /** An icon to display instead of the default icon. */
-  icon?: ReactNode
+  /**
+   * An icon to display instead of the default icon.
+   * @default RadioIcon
+   */
+  icon?: Function | ReactNode
   /** Whether the value fails a validation rule. */
   invalid?: boolean
 } & PropsWithChildren<Omit<InputHTMLAttributes<HTMLInputElement>, 'aria-invalid' | 'type'>>
@@ -19,7 +22,10 @@ export type RadioProps = {
  * @see {@link https://designsystem.amsterdam/?path=/docs/components-forms-radio--docs Radio docs at Amsterdam Design System}
  */
 export const Radio = forwardRef(
-  ({ children, className, icon, id, invalid, ...restProps }: RadioProps, ref: ForwardedRef<HTMLInputElement>) => {
+  (
+    { children, className, icon = RadioIcon, id, invalid, ...restProps }: RadioProps,
+    ref: ForwardedRef<HTMLInputElement>,
+  ) => {
     const inputId = id || useId()
 
     return (
@@ -35,7 +41,10 @@ export const Radio = forwardRef(
           type="radio"
         />
         <label className="ams-radio__label" htmlFor={inputId}>
-          <span className="ams-radio__icon-container">{icon ?? <RadioIcon />}</span>
+          {/* The icon is only shown when the CSS loads, so we hide it by default. */}
+          <span className="ams-radio__icon-container" hidden>
+            {typeof icon === 'function' ? icon() : icon}
+          </span>
           {children}
         </label>
       </div>

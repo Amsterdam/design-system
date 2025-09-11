@@ -3,9 +3,11 @@
  * Copyright Gemeente Amsterdam
  */
 
+import { Heading } from '@amsterdam/design-system-react'
 import { LinkList } from '@amsterdam/design-system-react/src'
+import { HouseIcon, PhoneIcon, SpeechBalloonEllipsisIcon } from '@amsterdam/design-system-react-icons'
 import * as Icons from '@amsterdam/design-system-react-icons'
-import { Meta, StoryObj } from '@storybook/react'
+import { Meta, StoryObj } from '@storybook/react-vite'
 import { exampleLinkList } from '../shared/exampleContent'
 
 const linkList = exampleLinkList()
@@ -39,7 +41,6 @@ const LinkStoryTemplate: LinkStory = {
   args: {
     children: linkList[0],
     href: '#',
-    icon: Icons.ChevronForwardIcon,
   },
   argTypes: {
     color: {
@@ -79,17 +80,28 @@ export const Default: Story = {
   ...StoryTemplate,
 }
 
+export const WithHeading: Story = {
+  ...StoryTemplate,
+  render: ({ children, ...args }) => (
+    <>
+      <Heading className="ams-mb-s" level={3} size="level-4">
+        Adres en inschrijving
+      </Heading>
+      <LinkList {...args}>{children}</LinkList>
+    </>
+  ),
+}
 export const CustomIcons: Story = {
   ...StoryTemplate,
   args: {
     children: [
-      <LinkList.Link href="#" icon={Icons.SpeechBalloonEllipsisIcon} key="form">
+      <LinkList.Link href="#" icon={<SpeechBalloonEllipsisIcon />} key="form">
         Contactformulier
       </LinkList.Link>,
-      <LinkList.Link href="#" icon={Icons.HouseIcon} key="address">
+      <LinkList.Link href="#" icon={<HouseIcon />} key="address">
         Adressen en openingstijden
       </LinkList.Link>,
-      <LinkList.Link href="#" icon={Icons.PhoneIcon} key="phone">
+      <LinkList.Link href="#" icon={<PhoneIcon />} key="phone">
         Bel 14 020
       </LinkList.Link>,
     ],

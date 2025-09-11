@@ -5,8 +5,8 @@
 
 import { Column, ErrorMessage, FieldSet, Paragraph } from '@amsterdam/design-system-react'
 import { Checkbox } from '@amsterdam/design-system-react/src'
-import { useArgs } from '@storybook/preview-api'
-import { Meta, StoryObj } from '@storybook/react'
+import { Meta, StoryObj } from '@storybook/react-vite'
+import { useArgs } from 'storybook/preview-api'
 import CustomIcon from './CustomIcon'
 
 const meta = {
@@ -85,7 +85,7 @@ export const InAFieldSet: Story = {
       invalid={invalid}
       legend="Waar gaat uw melding over?"
     >
-      <Paragraph className="ams-mb-s" id="description1" size="small">
+      <Paragraph className="ams-mb-s" id="description1">
         De laatstgenoemde melding.
       </Paragraph>
       {invalid && (
@@ -136,7 +136,7 @@ export const InAFieldSetWithValidation: Story = {
       invalid={invalid}
       legend="Waar gaat uw melding over?"
     >
-      <Paragraph className="ams-mb-s" id="description2" size="small">
+      <Paragraph className="ams-mb-s" id="description2">
         De laatstgenoemde melding.
       </Paragraph>
       {invalid && (

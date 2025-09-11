@@ -5,9 +5,9 @@
 
 import { Card, Column, Grid, Heading, Paragraph, SearchField } from '@amsterdam/design-system-react'
 import { Mark } from '@amsterdam/design-system-react/src'
-import { useArgs } from '@storybook/preview-api'
-import { Meta, StoryObj } from '@storybook/react'
+import { Meta, StoryObj } from '@storybook/react-vite'
 import type { ChangeEvent, ComponentProps } from 'react'
+import { useArgs } from 'storybook/preview-api'
 
 type MarkPropsAndQueryArg = ComponentProps<typeof Mark> & {
   query: string

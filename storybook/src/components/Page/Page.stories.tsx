@@ -4,7 +4,7 @@
  */
 
 import { Page } from '@amsterdam/design-system-react/src'
-import { Meta, StoryObj } from '@storybook/react'
+import { Meta, StoryObj } from '@storybook/react-vite'
 
 const meta = {
   title: 'Components/Containers/Page',
@@ -27,5 +27,7 @@ export default meta
 type Story = StoryObj<typeof meta>
 
 export const Default: Story = {
-  args: { children: <div className="ams-docs-item" /> },
+  args: {
+    children: <div className="ams-docs-item" />,
+  },
 }

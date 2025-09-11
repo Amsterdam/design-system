@@ -5,10 +5,16 @@
 
 import { Card, Grid, Heading } from '@amsterdam/design-system-react'
 
-export const HomeNews = () => (
+type HomeNewsProps = {
+  heading?: string
+}
+
+export const HomeNews = ({ heading = 'Nieuws' }: HomeNewsProps) => (
   <Grid paddingVertical="x-large">
     <Grid.Cell span="all">
-      <Heading level={2}>Nieuws</Heading>
+      <Heading level={2} size="level-1">
+        {heading}
+      </Heading>
     </Grid.Cell>
     <Grid.Cell span={4}>
       <Card>

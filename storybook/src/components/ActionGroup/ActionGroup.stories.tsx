@@ -6,7 +6,7 @@
 import { Button, StandaloneLink } from '@amsterdam/design-system-react'
 import { ActionGroup } from '@amsterdam/design-system-react/src'
 import { DownloadIcon } from '@amsterdam/design-system-react-icons'
-import { Meta, StoryObj } from '@storybook/react'
+import { Meta, StoryObj } from '@storybook/react-vite'
 
 const meta = {
   title: 'Components/Layout/Action Group',
@@ -36,7 +36,7 @@ export const WithLink: Story = {
   args: {
     children: [
       <Button key={1}>Bewerken</Button>,
-      <StandaloneLink download href="#" icon={DownloadIcon} key={2}>
+      <StandaloneLink download href="#" icon={<DownloadIcon />} key={2}>
         Downloaden
       </StandaloneLink>,
     ],

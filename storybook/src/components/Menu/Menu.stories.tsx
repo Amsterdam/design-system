@@ -4,33 +4,41 @@
  */
 
 import { Menu } from '@amsterdam/design-system-react/src'
+import {
+  BarChartIcon,
+  CogwheelIcon,
+  DocumentsIcon,
+  FolderIcon,
+  PieChartFillIcon,
+  PieChartIcon,
+} from '@amsterdam/design-system-react-icons'
 import * as Icons from '@amsterdam/design-system-react-icons'
-import { Meta, StoryObj } from '@storybook/react'
+import { Meta, StoryObj } from '@storybook/react-vite'
 
 const menuItems = [
   {
     href: '#',
-    icon: Icons.PieChartIcon,
+    icon: <PieChartIcon />,
     text: 'Dashboard',
   },
   {
     href: '#',
-    icon: Icons.FolderIcon,
+    icon: <FolderIcon />,
     text: 'Projecten',
   },
   {
     href: '#',
-    icon: Icons.DocumentsIcon,
+    icon: <DocumentsIcon />,
     text: 'Rapportages',
   },
   {
     href: '#',
-    icon: Icons.BarChartIcon,
+    icon: <BarChartIcon />,
     text: 'Analyses',
   },
   {
     href: '#',
-    icon: Icons.CogwheelIcon,
+    icon: <CogwheelIcon />,
     text: 'Instellingen',
   },
 ]
@@ -64,7 +72,7 @@ const LinkStoryTemplate: LinkStory = {
   args: {
     children: menuItems[0].text,
     href: '#',
-    icon: Icons.PieChartIcon,
+    icon: <PieChartIcon />,
   },
   argTypes: {
     color: {
@@ -105,7 +113,7 @@ export const ContrastColour: LinkStory = {
   args: {
     ...LinkStoryTemplate.args,
     color: 'contrast',
-    icon: Icons.PieChartFillIcon,
+    icon: <PieChartFillIcon />,
   },
 }
 
@@ -114,6 +122,6 @@ export const InverseColour: LinkStory = {
   args: {
     ...LinkStoryTemplate.args,
     color: 'inverse',
-    icon: Icons.PieChartFillIcon,
+    icon: <PieChartFillIcon />,
   },
 }

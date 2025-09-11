@@ -1,6 +1,6 @@
 {/* @license CC0-1.0 */}
 
-import { Canvas, Controls, Markdown, Meta, Primary } from "@storybook/blocks";
+import { Canvas, Controls, Markdown, Meta, Primary } from "@storybook/addon-docs/blocks";
 import * as OrderedListStories from "./OrderedList.stories.tsx";
 import README from "../../../../packages/css/src/components/ordered-list/README.md?raw";
 
@@ -37,7 +37,7 @@ Use the HTML attribute `reversed`.
 
 ### Without markers
 
-An overview of articles or search results can be presented as an ordered can be seen as an unordered list.
+An overview of search results can be seen as an ordered list.
 In such cases, apply the list semantics while hiding markers.
 This helps screen readers understand and navigate the list.
 
@@ -58,6 +58,7 @@ When nesting lists, set the prop on all lists.
 
 ### Small text
 
-Use a list with a smaller font size in form descriptions and captions and the like.
+We use a smaller font size for text in a Figure Caption and for metadata like dates or categories.
+When using a list in small text, set the prop for each item in the list.
 
 <Canvas of={OrderedListStories.SmallText} />

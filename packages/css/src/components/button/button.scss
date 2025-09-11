@@ -14,6 +14,9 @@
 }
 
 .ams-button {
+  // Override line height for Icon in Button.
+  --ams-icon-line-height: var(--ams-button-line-height);
+
   border-style: var(--ams-button-border-style);
   border-width: var(--ams-button-border-width);
   cursor: var(--ams-button-cursor);

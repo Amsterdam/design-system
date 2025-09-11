@@ -8,6 +8,7 @@ import clsx from 'clsx'
 import { forwardRef } from 'react'
 import type { AnchorHTMLAttributes, ForwardedRef } from 'react'
 import { Icon } from '../Icon'
+import type { IconProps } from '../Icon'
 
 export type StandaloneLinkProps = {
   /** Changes the text colour for readability on a light or dark background. */
@@ -16,7 +17,7 @@ export type StandaloneLinkProps = {
    * The icon to show before the link text.
    * @default ChevronForwardIcon
    */
-  icon?: Function
+  icon?: IconProps['svg']
 } & Omit<AnchorHTMLAttributes<HTMLAnchorElement>, 'placeholder'>
 
 // The `ams-standalone-link--with-icon` class is @deprecated and will be removed in a future release.

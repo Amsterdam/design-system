@@ -16,10 +16,12 @@ export type TableOfContentsProps = {
   heading?: string
   /**
    * The hierarchical level of the Heading within the document.
-   * Note: this intentionally does not change the font size.
+   * Visually, it always has the size of a level 4 Heading.
    */
   headingLevel?: HeadingProps['level']
 } & PropsWithChildren<HTMLAttributes<HTMLElement>>
+
+// The 'ams-table-of-contents__heading' class is @deprecated and will be removed in a future release.
 
 const TableOfContentsRoot = forwardRef(
   (

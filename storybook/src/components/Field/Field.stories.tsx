@@ -5,7 +5,10 @@
 
 import { ErrorMessage, Label, Paragraph, TextInput } from '@amsterdam/design-system-react'
 import { Field } from '@amsterdam/design-system-react/src'
-import { Meta, StoryObj } from '@storybook/react'
+import { Meta, StoryObj } from '@storybook/react-vite'
+import { exampleFamilyName } from '../shared/exampleContent'
+
+const familyName = exampleFamilyName()
 
 const meta = {
   title: 'Components/Forms/Field',
@@ -22,8 +25,8 @@ type Story = StoryObj<typeof meta>
 export const Default: Story = {
   render: (args) => (
     <Field invalid={args.invalid}>
-      <Label htmlFor="input1">Waar gaat het om?</Label>
-      <TextInput id="input1" invalid={args.invalid} />
+      <Label htmlFor="input1">Wat is uw achternaam?</Label>
+      <TextInput id="input1" invalid={args.invalid} value={familyName} />
     </Field>
   ),
 }
@@ -31,25 +34,27 @@ export const Default: Story = {
 export const WithDescription: Story = {
   render: (args) => (
     <Field invalid={args.invalid}>
-      <Label htmlFor="input2">Waar gaat het om?</Label>
-      <Paragraph id="description1" size="small">
-        Typ geen persoonsgegevens in deze omschrijving. We vragen dit later in dit formulier aan u.
+      <Label htmlFor="input2">Wat is uw achternaam?</Label>
+      <Paragraph id="description1">
+        Heeft uw naam een tussenvoegsel, zoals ‘van der’, schrijf die dan aan het begin.
       </Paragraph>
-      <TextInput aria-describedby="description1" id="input2" invalid={args.invalid} />
+      <TextInput aria-describedby="description1" id="input2" invalid={args.invalid} value="van den Heuvel" />
     </Field>
   ),
 }
 
 export const WithValidation: Story = {
-  args: { invalid: true },
+  args: {
+    invalid: true,
+  },
   render: (args) => (
     <Field invalid={args.invalid}>
-      <Label htmlFor="input3">Waar gaat het om?</Label>
-      <Paragraph id="description2" size="small">
-        Typ geen persoonsgegevens in deze omschrijving. We vragen dit later in dit formulier aan u.
+      <Label htmlFor="input3">Wat is uw achternaam?</Label>
+      <Paragraph id="description2">
+        Heeft uw naam een tussenvoegsel, zoals ‘van der’, schrijf die dan aan het begin.
       </Paragraph>
-      <ErrorMessage id="error">Geef aan waar het om gaat.</ErrorMessage>
-      <TextInput aria-describedby="description2 error" aria-required id="input3" invalid={args.invalid} />
+      <ErrorMessage id="error">Vul uw achternaam in</ErrorMessage>
+      <TextInput aria-describedby="description2 error" aria-required id="input3" invalid={args.invalid} value="" />
     </Field>
   ),
 }

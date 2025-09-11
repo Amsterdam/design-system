@@ -8,12 +8,17 @@ import clsx from 'clsx'
 import { forwardRef } from 'react'
 import type { AnchorHTMLAttributes, ForwardedRef, PropsWithChildren } from 'react'
 import { Icon } from '../Icon'
+import type { IconProps } from '../Icon'
 
 export type LinkListLinkProps = {
   /** Changes the text colour for readability on a light or dark background. */
   color?: 'contrast' | 'inverse'
-  /** An icon to display instead of the default chevron. Don’t mix custom icons with chevrons in one list. */
-  icon?: Function
+  /**
+   * An icon to display instead of the default chevron.
+   * Don’t mix custom icons with chevrons in one list.
+   * @default ChevronForwardIcon
+   */
+  icon?: IconProps['svg']
   /** The size of the text. Use the same size for all items in the list. */
   size?: 'small' | 'large'
 } & PropsWithChildren<AnchorHTMLAttributes<HTMLAnchorElement>>
@@ -21,7 +26,7 @@ export type LinkListLinkProps = {
 /** One link with a Link List. */
 export const LinkListLink = forwardRef(
   (
-    { children, className, color, icon, size, ...restProps }: LinkListLinkProps,
+    { children, className, color, icon = ChevronForwardIcon, size, ...restProps }: LinkListLinkProps,
     ref: ForwardedRef<HTMLAnchorElement>,
   ) => {
     return (
@@ -36,7 +41,7 @@ export const LinkListLink = forwardRef(
           ref={ref}
           {...restProps}
         >
-          <Icon size={size} svg={icon ?? ChevronForwardIcon} />
+          <Icon size={size} svg={icon} />
           {children}
         </a>
       </li>

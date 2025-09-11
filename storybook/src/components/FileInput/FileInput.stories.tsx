@@ -5,7 +5,7 @@
 
 import { Field, Label, Paragraph } from '@amsterdam/design-system-react'
 import { FileInput } from '@amsterdam/design-system-react/src'
-import { Meta, StoryObj } from '@storybook/react'
+import { Meta, StoryObj } from '@storybook/react-vite'
 
 const meta = {
   title: 'Components/Forms/File Input',
@@ -41,24 +41,28 @@ type Story = StoryObj<typeof meta>
 export const Default: Story = {}
 
 export const MultipleFiles: Story = {
-  args: { multiple: true },
+  args: {
+    multiple: true,
+  },
 }
 
 export const RestrictFileTypes: Story = {
-  args: { accept: 'application/pdf' },
+  args: {
+    accept: 'application/pdf',
+  },
 }
 
 export const Disabled: Story = {
-  args: { disabled: true },
+  args: {
+    disabled: true,
+  },
 }
 
 export const InAField: Story = {
   render: (args) => (
     <Field>
       <Label htmlFor="input1">Label</Label>
-      <Paragraph id="description1" size="small">
-        Omschrijving.
-      </Paragraph>
+      <Paragraph id="description1">Omschrijving.</Paragraph>
       <FileInput aria-describedby="description1" id="input1" {...args} />
     </Field>
   ),

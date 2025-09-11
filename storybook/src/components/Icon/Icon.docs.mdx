@@ -1,6 +1,6 @@
 {/* @license CC0-1.0 */}
 
-import { Canvas, Controls, Markdown, Meta, Primary } from "@storybook/blocks";
+import { Canvas, Controls, Markdown, Meta, Primary } from "@storybook/addon-docs/blocks";
 import * as IconStories from "./Icon.stories.tsx";
 import README from "../../../../packages/css/src/components/icon/README.md?raw";
 
@@ -11,16 +11,12 @@ import README from "../../../../packages/css/src/components/icon/README.md?raw";
 ## How to use
 
 Use the React Icon component together with a React SVG component from `@amsterdam/design-system-react-icons`.
-Import this SVG as follows:
+Import this SVG component and use it like this:
 
 ```tsx
 import { MailIcon } from "@amsterdam/design-system-react-icons";
-```
 
-Then, you can use it in the component like this:
-
-```tsx
-<Icon svg={MailIcon} />
+<Icon svg={MailIcon} />;
 ```
 
 <Primary />

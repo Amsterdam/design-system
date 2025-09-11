@@ -49,6 +49,34 @@ export const exampleHeading = () =>
     'Richtlijnen vergunningverlening Koningsdag 2024',
   ])
 
+export const exampleFamilyName = () =>
+  pickRandomContent<string>([
+    'Bayraktar',
+    'Dijkstra',
+    'El Idrissi',
+    'Farooq',
+    'Janssen',
+    'Laghmani',
+    'Moussaoui',
+    'Pieterse',
+    'op den Akker',
+    'van Harinxma thoe Slooten',
+  ])
+
+export const exampleGivenName = () =>
+  pickRandomContent<string>([
+    'Abdulaziz',
+    'Aicha',
+    'Angelique',
+    'Laurens',
+    'Lisette',
+    'Meryam',
+    'Ruben',
+    'Sebastiaan',
+    'William',
+    'Yassine',
+  ])
+
 export const exampleLinkList = () =>
   pickRandomContent<Array<string>>([
     ['Contactformulier', 'Adressen en openingstijden', 'Bel 14 020'],

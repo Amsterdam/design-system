@@ -1,6 +1,6 @@
 {/* @license CC0-1.0 */}
 
-import { Canvas, Controls, Markdown, Meta, Primary } from "@storybook/blocks";
+import { Canvas, Controls, Markdown, Meta, Primary } from "@storybook/addon-docs/blocks";
 import * as LinkListStories from "./LinkList.stories.tsx";
 import README from "../../../../packages/css/src/components/link-list/README.md?raw";
 
@@ -12,6 +12,13 @@ import README from "../../../../packages/css/src/components/link-list/README.md?
 
 ## Examples
 
+### With heading
+
+A list of links often appears in a block with a [Heading](/docs/components-text-heading--docs).
+Use a size of ‘level-4’ for the Heading and add a small bottom margin.
+
+<Canvas of={LinkListStories.WithHeading} />
+
 ### Custom icons
 
 Replace the list icon with a more meaningful one to help understand a link more quickly or easily.
@@ -21,8 +28,8 @@ Avoid using both semantic and list icons in the same list.
 
 ### Small text
 
-In the [Page Footer](/docs/components-containers-page-footer--docs), we use small text, also for lists.
-Specify this for each item in the list.
+We use a smaller font size for text in a Figure Caption and for metadata like dates or categories.
+When using a list in small text, set the prop for each item in the list.
 
 <Canvas of={LinkListStories.SmallText} />
 
