@@ -6,17 +6,11 @@
 import { Card, Column, Grid, Heading, Paragraph, SearchField } from '@amsterdam/design-system-react'
 import { Mark } from '@amsterdam/design-system-react/src'
 import { Meta, StoryObj } from '@storybook/react-vite'
-import type { ChangeEvent, ComponentProps } from 'react'
-import { useArgs } from 'storybook/preview-api'
-
-type MarkPropsAndQueryArg = ComponentProps<typeof Mark> & {
-  query: string
-}
 
 const meta = {
   title: 'Components/Text/Mark',
   component: Mark,
-} satisfies Meta<MarkPropsAndQueryArg>
+} satisfies Meta<typeof Mark>
 
 export default meta
 
@@ -94,30 +88,14 @@ const mark = (text: string, query: string) => {
 }
 
 export const SearchResults = {
-  args: {
-    query: 'horeca vergunning',
-  },
-  argTypes: {
-    query: {
-      control: {
-        type: 'text',
-      },
-      description: 'The search query to highlight in results.',
-    },
-  },
-  render: (args: MarkPropsAndQueryArg) => {
-    const { query } = args
-    const [, setArgs] = useArgs()
-
-    const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
-      setArgs({ query: event.target.value })
-    }
+  render: () => {
+    const query = 'horeca vergunning'
 
     return (
       <Grid>
         <Grid.Cell span={{ narrow: 4, medium: 6, wide: 8 }}>
           <SearchField className="ams-mb-m">
-            <SearchField.Input label="Zoeken" onChange={handleChange} value={query} />
+            <SearchField.Input label="Zoeken" value={query} />
             <SearchField.Button />
           </SearchField>
           <Paragraph className="ams-mb-xl">
