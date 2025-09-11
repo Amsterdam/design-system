@@ -52,7 +52,7 @@ export const Default: StoryObj = {
           </Breadcrumb>
         </Grid.Cell>
       </Grid>,
-      <Grid as="main" id="main" key={2} paddingBottom="x-large">
+      <Grid as="main" id="inhoud" key={2} paddingBottom="x-large">
         <Grid.Cell span={{ narrow: 4, medium: 6, wide: 7 }}>
           <Heading className="ams-mb-m" level={1}>
             Burgerzaken
@@ -78,7 +78,7 @@ export const WithInteractiveElement: StoryObj = {
           </Breadcrumb>
         </Grid.Cell>
       </Grid>,
-      <main id="main" key={2}>
+      <main id="inhoud" key={2}>
         <Grid paddingBottom="x-large">
           <Grid.Cell span={{ narrow: 4, medium: 6, wide: 7 }}>
             <Heading className="ams-mb-m" level={1}>
@@ -129,7 +129,7 @@ export const WithImageGallery: StoryObj = {
           </Breadcrumb>
         </Grid.Cell>
       </Grid>,
-      <main id="main" key={2}>
+      <main id="inhoud" key={2}>
         <Grid paddingBottom="x-large">
           <Grid.Cell span={{ narrow: 4, medium: 6, wide: 8 }}>
             <Heading className="ams-mb-m" level={1}>
@@ -291,7 +291,7 @@ export const SubnavigationPage: StoryObj = {
           </Breadcrumb>
         </Grid.Cell>
       </Grid>,
-      <main id="main" key={2}>
+      <main id="inhoud" key={2}>
         <Grid paddingBottom="x-large">
           <Grid.Cell span={{ narrow: 4, medium: 6, wide: 7 }}>
             <Heading className="ams-mb-m" level={1}>
