@@ -6,33 +6,20 @@
 import { ErrorMessage, Field, Label, Paragraph } from '@amsterdam/design-system-react'
 import { textInputTypes } from '@amsterdam/design-system-react/dist/TextInput/TextInput'
 import { TextInput } from '@amsterdam/design-system-react/src'
-import { Decorator, Meta, StoryObj } from '@storybook/react-vite'
-import type { ChangeEvent, ComponentProps } from 'react'
-import { useArgs } from 'storybook/preview-api'
-
-const withControlledInput: Decorator = (Story, { args }: { args: any }) => {
-  const [, setArgs] = useArgs()
-
-  const value = args._value || ''
-
-  const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
-    setArgs({ _value: event.target.value })
-  }
-
-  return <Story args={{ ...args, _value: value, defaultValue: value, onChange: handleChange }} />
-}
-
-type MetaWithUnderscoreValue = ComponentProps<typeof TextInput> & { _value?: string }
+import { Meta, StoryObj } from '@storybook/react-vite'
 
 const meta = {
   title: 'Components/Forms/Text Input',
   component: TextInput,
   args: {
-    _value: 'Amsterdam',
+    defaultValue: 'Amsterdam',
     disabled: false,
     invalid: false,
   },
   argTypes: {
+    defaultValue: {
+      table: { disable: true },
+    },
     disabled: {
       description: 'Prevents interaction. Avoid if possible.',
     },
@@ -50,18 +37,17 @@ const meta = {
       options: [undefined, ...textInputTypes.filter((type) => type !== 'text')],
     },
   },
-  decorators: [withControlledInput],
-} satisfies Meta<MetaWithUnderscoreValue>
+} satisfies Meta<typeof TextInput>
 
 export default meta
 
-type Story = StoryObj<Meta<MetaWithUnderscoreValue>>
+type Story = StoryObj<typeof meta>
 
 export const Default: Story = {}
 
 export const EmailAddress: Story = {
   args: {
-    _value: 'designsystem@amsterdam.nl',
+    defaultValue: 'designsystem@amsterdam.nl',
     size: 32,
     type: 'email',
   },
@@ -69,7 +55,7 @@ export const EmailAddress: Story = {
 
 export const WebAddress: Story = {
   args: {
-    _value: 'https://designsystem.amsterdam/',
+    defaultValue: 'https://designsystem.amsterdam/',
     size: 48,
     type: 'url',
   },
@@ -77,7 +63,7 @@ export const WebAddress: Story = {
 
 export const PhoneNumber: Story = {
   args: {
-    _value: '14020',
+    defaultValue: '14020',
     size: 16,
     type: 'tel',
   },
@@ -85,7 +71,7 @@ export const PhoneNumber: Story = {
 
 export const WholeNumber: Story = {
   args: {
-    _value: '20',
+    defaultValue: '20',
     inputMode: 'numeric',
     pattern: '[0-9]*',
     size: 4,
@@ -95,7 +81,7 @@ export const WholeNumber: Story = {
 
 export const DecimalNumber: Story = {
   args: {
-    _value: '12.75',
+    defaultValue: '12.75',
     pattern: '[0-9.,]*',
     size: 4,
     spellCheck: false,
@@ -104,14 +90,14 @@ export const DecimalNumber: Story = {
 
 export const Size: Story = {
   args: {
-    _value: '1011 PN',
+    defaultValue: '1011 PN',
     size: 8,
   },
 }
 
 export const Placeholder: Story = {
   args: {
-    _value: '',
+    defaultValue: '',
     placeholder: 'bijv. 06-12345678',
     size: 16,
   },
@@ -119,21 +105,21 @@ export const Placeholder: Story = {
 
 export const Invalid: Story = {
   args: {
-    _value: 'Deze waarde is ongeldig',
+    defaultValue: 'Deze waarde is ongeldig',
     invalid: true,
   },
 }
 
 export const Disabled: Story = {
   args: {
-    _value: 'Deze waarde kan niet veranderd worden',
+    defaultValue: 'Deze waarde kan niet veranderd worden',
     disabled: true,
   },
 }
 
 export const InAField: Story = {
   args: {
-    _value: '',
+    defaultValue: '',
   },
   render: (args) => (
     <Field invalid={args['invalid']}>
@@ -147,7 +133,7 @@ export const InAField: Story = {
 
 export const InAFieldWithValidation: Story = {
   args: {
-    _value: '',
+    defaultValue: '',
     invalid: true,
   },
   render: (args) => (
