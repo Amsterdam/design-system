@@ -10,6 +10,7 @@
   margin-block: 0;
 }
 
+/* @deprecated We no longer use this size of headings. Use `.ams-heading.ams-heading--1` instead. */
 .ams-page-heading {
   box-sizing: border-box;
   break-after: avoid;

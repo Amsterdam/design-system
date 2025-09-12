@@ -1,0 +1,16 @@
+{
+  "ams": {
+    "icon": {
+      "heading-0": {
+        "font-size": {
+          "comment": "Deprecated. Use ‘heading 1’ instead.",
+          "value": "{ams.typography.heading.0.font-size}"
+        },
+        "line-height": {
+          "comment": "Deprecated. Use ‘heading 1’ instead.",
+          "value": "{ams.typography.heading.0.line-height}"
+        }
+      }
+    }
+  }
+}

@@ -13,6 +13,7 @@ export type PageHeadingProps = {
 } & PropsWithChildren<HTMLAttributes<HTMLHeadingElement>>
 
 /**
+ * @deprecated We no longer use this size of headings. Use `Heading` with level 1 instead.
  * @see {@link https://designsystem.amsterdam/?path=/docs/components-text-page-heading--docs Page Heading docs at Amsterdam Design System}
  */
 export const PageHeading = forwardRef(
