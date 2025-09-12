@@ -14,10 +14,12 @@ import {
   StandaloneLink,
 } from '@amsterdam/design-system-react'
 import parse from 'html-react-parser'
+
 import type { NewsArticle, NewsArticleSection } from './news-articles'
-import { parserOptions } from './parser.config'
+
 import { formatDate } from '../../../common'
 import { HomeNews } from '../HomePage/HomeNews'
+import { parserOptions } from './parser.config'
 
 export type ArticlePageProps = NewsArticle
 

@@ -3,13 +3,16 @@
  * Copyright Gemeente Amsterdam
  */
 
-import clsx from 'clsx'
-import { forwardRef, useImperativeHandle, useRef } from 'react'
 import type { ForwardedRef, HTMLAttributes, PropsWithChildren } from 'react'
+
+import { clsx } from 'clsx'
+import { forwardRef, useImperativeHandle, useRef } from 'react'
+
+import type { HeadingProps } from '../Heading/Heading'
+
+import { useKeyboardFocus } from '../common/useKeyboardFocus'
 import AccordionContext from './AccordionContext'
 import { AccordionSection } from './AccordionSection'
-import type { HeadingProps } from '../Heading/Heading'
-import { useKeyboardFocus } from '../common/useKeyboardFocus'
 
 export type AccordionProps = {
   /**

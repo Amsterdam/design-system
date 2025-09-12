@@ -3,10 +3,13 @@
  * Copyright Gemeente Amsterdam
  */
 
-import clsx from 'clsx'
-import { forwardRef, useEffect, useImperativeHandle, useRef } from 'react'
 import type { Dispatch, ForwardedRef, SetStateAction } from 'react'
+
+import { clsx } from 'clsx'
+import { forwardRef, useEffect, useImperativeHandle, useRef } from 'react'
+
 import type { InvalidFormAlertProps } from './InvalidFormAlert'
+
 import { Alert } from '../Alert'
 import { LinkList } from '../LinkList'
 

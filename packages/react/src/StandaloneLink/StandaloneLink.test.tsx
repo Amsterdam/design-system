@@ -3,9 +3,11 @@
  * Copyright Gemeente Amsterdam
  */
 
+import type { SVGProps } from 'react'
+
 import { render, screen } from '@testing-library/react'
 import { createRef } from 'react'
-import type { SVGProps } from 'react'
+
 import { StandaloneLink } from './StandaloneLink'
 import '@testing-library/jest-dom'
 

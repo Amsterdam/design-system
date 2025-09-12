@@ -3,14 +3,17 @@
  * Copyright Gemeente Amsterdam
  */
 
-import { ChevronForwardIcon } from '@amsterdam/design-system-react-icons'
-import clsx from 'clsx'
-import { forwardRef } from 'react'
 import type { AnchorHTMLAttributes, ForwardedRef } from 'react'
-import { Icon } from '../Icon'
+
+import { ChevronForwardIcon } from '@amsterdam/design-system-react-icons'
+import { clsx } from 'clsx'
+import { forwardRef } from 'react'
+
 import type { IconProps } from '../Icon'
 
-export type StandaloneLinkProps = {
+import { Icon } from '../Icon'
+
+export type StandaloneLinkProps = Omit<AnchorHTMLAttributes<HTMLAnchorElement>, 'placeholder'> & {
   /** Changes the text colour for readability on a light or dark background. */
   color?: 'contrast' | 'inverse'
   /**
@@ -18,7 +21,7 @@ export type StandaloneLinkProps = {
    * @default ChevronForwardIcon
    */
   icon?: IconProps['svg']
-} & Omit<AnchorHTMLAttributes<HTMLAnchorElement>, 'placeholder'>
+}
 
 // The `ams-standalone-link--with-icon` class is @deprecated and will be removed in a future release.
 

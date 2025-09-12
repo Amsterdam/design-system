@@ -3,7 +3,7 @@
  * Copyright Gemeente Amsterdam
  */
 
-import clsx from 'clsx'
+import { clsx } from 'clsx'
 import { forwardRef, HTMLAttributes, PropsWithChildren } from 'react'
 
 export const spotlightTags = ['article', 'aside', 'div', 'footer', 'section'] as const
@@ -12,12 +12,12 @@ type SpotlightTag = (typeof spotlightTags)[number]
 export const spotlightColors = ['azure', 'green', 'lime', 'magenta', 'orange', 'yellow'] as const
 type SpotlightColor = (typeof spotlightColors)[number]
 
-export type SpotlightProps = {
+export type SpotlightProps = PropsWithChildren<HTMLAttributes<HTMLElement>> & {
   /** The HTML element to use. */
   as?: SpotlightTag
   /** The background colour. */
   color?: SpotlightColor
-} & PropsWithChildren<HTMLAttributes<HTMLElement>>
+}
 
 /**
  * @see {@link https://designsystem.amsterdam/?path=/docs/components-containers-spotlight--docs Spotlight docs at Amsterdam Design System}

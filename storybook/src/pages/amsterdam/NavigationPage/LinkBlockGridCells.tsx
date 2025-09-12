@@ -4,8 +4,10 @@
  */
 
 import { Grid, type HeadingProps } from '@amsterdam/design-system-react'
-import { LinkBlock } from './LinkBlock'
+
 import type { LinkGroup } from './links'
+
+import { LinkBlock } from './LinkBlock'
 
 type LinkBlockGridCellsProps = {
   headingLevel?: HeadingProps['level']

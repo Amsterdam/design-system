@@ -3,9 +3,10 @@
  * Copyright Gemeente Amsterdam
  */
 
+import type { Meta, StoryObj } from '@storybook/react-vite'
+
 import { Paragraph } from '@amsterdam/design-system-react'
 import { Link } from '@amsterdam/design-system-react/src'
-import type { Meta, StoryObj } from '@storybook/react-vite'
 
 type Story = StoryObj<typeof Link>
 

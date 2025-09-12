@@ -1,5 +1,6 @@
-import { Heading, LinkList, Paragraph, StandaloneLink } from '@amsterdam/design-system-react'
 import type { HeadingProps } from '@amsterdam/design-system-react'
+
+import { Heading, LinkList, Paragraph, StandaloneLink } from '@amsterdam/design-system-react'
 
 type LinkBlockProps = {
   heading: string

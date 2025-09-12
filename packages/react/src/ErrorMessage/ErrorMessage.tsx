@@ -3,12 +3,15 @@
  * Copyright Gemeente Amsterdam
  */
 
-import { WarningIcon } from '@amsterdam/design-system-react-icons'
-import clsx from 'clsx'
-import { forwardRef } from 'react'
 import type { ForwardedRef, HTMLAttributes, PropsWithChildren } from 'react'
-import { Icon } from '../Icon'
+
+import { WarningIcon } from '@amsterdam/design-system-react-icons'
+import { clsx } from 'clsx'
+import { forwardRef } from 'react'
+
 import type { IconProps } from '../Icon'
+
+import { Icon } from '../Icon'
 
 export type ErrorMessageProps = {
   /**

@@ -3,9 +3,11 @@
  * Copyright Gemeente Amsterdam
  */
 
+import type { Meta, StoryObj } from '@storybook/react-vite'
+
 import { Card, Paragraph } from '@amsterdam/design-system-react'
 import { UnorderedList } from '@amsterdam/design-system-react/src'
-import type { Meta, StoryObj } from '@storybook/react-vite'
+
 import { exampleUnorderedList } from '../shared/exampleContent'
 
 const unorderedListItems = exampleUnorderedList().map((text) => (
