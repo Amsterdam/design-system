@@ -3,14 +3,14 @@
  * Copyright Gemeente Amsterdam
  */
 
-import { Card, Grid, Heading } from '@amsterdam/design-system-react'
+import { Card, Grid, Heading, Paragraph } from '@amsterdam/design-system-react'
 
 type HomeNewsProps = {
   heading?: string
 }
 
 export const HomeNews = ({ heading = 'Nieuws' }: HomeNewsProps) => (
-  <Grid paddingVertical="x-large">
+  <Grid gapVertical="large" paddingVertical="x-large">
     <Grid.Cell span="all">
       <Heading level={2} size="level-1">
         {heading}
@@ -21,9 +21,13 @@ export const HomeNews = ({ heading = 'Nieuws' }: HomeNewsProps) => (
         <Card.Image alt="" src="https://picsum.photos/640/360?random=1" />
         <Card.HeadingGroup tagline="Nieuws">
           <Card.Heading level={3}>
-            <Card.Link href="#">Nederlands eerste houten woonwijk komt in Zuidoost</Card.Link>
+            <Card.Link href="#">Waarom we op zoek zijn naar vleermuizen</Card.Link>
           </Card.Heading>
         </Card.HeadingGroup>
+        <Paragraph>
+          U kunt ’s avonds ecologen in oranje hesjes tegenkomen. Zij zijn op zoek naar vleermuizen. Dat heeft te maken
+          met het verduurzamen van woningen.
+        </Paragraph>
       </Card>
     </Grid.Cell>
     <Grid.Cell span={4}>
@@ -31,9 +35,12 @@ export const HomeNews = ({ heading = 'Nieuws' }: HomeNewsProps) => (
         <Card.Image alt="" src="https://picsum.photos/640/360?random=2" />
         <Card.HeadingGroup tagline="Nieuws">
           <Card.Heading level={3}>
-            <Card.Link href="#">Gratis openbaar vervoer voor kinderen</Card.Link>
+            <Card.Link href="#">Meer aandacht voor voetgangers, een jaar lang</Card.Link>
           </Card.Heading>
         </Card.HeadingGroup>
+        <Paragraph>
+          We gaan de veiligheid voor voetgangers verbeteren, meer ruimte maken, en lopen en wandelen stimuleren.
+        </Paragraph>
       </Card>
     </Grid.Cell>
     <Grid.Cell span={4}>
@@ -41,9 +48,13 @@ export const HomeNews = ({ heading = 'Nieuws' }: HomeNewsProps) => (
         <Card.Image alt="" src="https://picsum.photos/640/360?random=3" />
         <Card.HeadingGroup tagline="Nieuws">
           <Card.Heading level={3}>
-            <Card.Link href="#">Zonnepanelen op uw dak? Zo houdt u uw huis veilig</Card.Link>
+            <Card.Link href="#">Nieuwe manieren om afval op te halen</Card.Link>
           </Card.Heading>
         </Card.HeadingGroup>
+        <Paragraph>
+          Afvalboten, bakfietsen en ondergrondse containers. We experimenteren met nieuwe manieren om afval op te halen
+          in het centrum.
+        </Paragraph>
       </Card>
     </Grid.Cell>
   </Grid>

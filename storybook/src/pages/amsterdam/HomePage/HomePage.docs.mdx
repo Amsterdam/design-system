@@ -15,9 +15,9 @@ A typical layout for a homepage:
 
 ```tsx
 <Page>
-  <SkipLink href="#main">Direct naar inhoud</SkipLink>
+  <SkipLink href="#inhoud">Direct naar inhoud</SkipLink>
   <PageHeader />
-  <main id="main">
+  <main id="inhoud">
     <Overlap>
       <Search />
     </Overlap>
@@ -44,3 +44,14 @@ A typical layout for a homepage:
 7. Other components in the main area are laid out on a Grid again.
 8. The Page Footer contains its own Grid.
    This allows its background colour to stretch to the Page’s width.
+
+## Headings
+
+- If there is no single, most prominent heading for the home page, add a visually hidden level 1 heading with a text like ‘Homepage van (name of the organisation)’.
+  Assign level 2 and a size of ‘level-1’ to the visible headings.
+- Use the default size of ‘level-3’ headings in Cards and set their appropriate levels.
+- Do the same for blocks consisting of Heading, Paragraph, Standalone Link and Link List.
+
+## Spacing
+
+- In Grids of Cards, use a large vertical gap.

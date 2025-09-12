@@ -52,7 +52,7 @@ const defaultTabs = [
   </Tabs.List>,
   tabsContent.map(({ body, label }) => (
     <Tabs.Panel id={label} key={label}>
-      <Heading className="ams-mb-s" level={3}>
+      <Heading className="ams-mb-xs" level={3}>
         {label}
       </Heading>
       <Paragraph>{body}</Paragraph>
@@ -100,7 +100,9 @@ export const WithWideContent: Story = {
         <Tabs.Panel id={name} key={name}>
           <Table>
             <Table.Caption>
-              Voorbeeld van een tabel voor {name === 'Weesp' ? 'stadsgebied' : 'stadsdeel'} {name}
+              <Heading level={3}>
+                Voorbeeld van een tabel voor {name === 'Weesp' ? 'stadsgebied' : 'stadsdeel'} {name}
+              </Heading>
             </Table.Caption>
             <Table.Header>
               <Table.Row>
@@ -153,7 +155,7 @@ export const PreventTabsFromChanging: Story = {
       </Tabs.List>,
       tabsContentWithoutSlowPanel.map(({ body, label }) => (
         <Tabs.Panel id={label} key={label}>
-          <Heading className="ams-mb-s" level={3}>
+          <Heading className="ams-mb-xs" level={3}>
             {label}
           </Heading>
           <Paragraph>{body}</Paragraph>

@@ -16,10 +16,12 @@ export type TableOfContentsProps = {
   heading?: string
   /**
    * The hierarchical level of the Heading within the document.
-   * Visually, it always has the size of a level 4 Heading.
+   * Visually, it always has the size of a level 3 Heading.
    */
   headingLevel?: HeadingProps['level']
 } & PropsWithChildren<HTMLAttributes<HTMLElement>>
+
+// The 'ams-table-of-contents__heading' class is @deprecated and will be removed in a future release.
 
 const TableOfContentsRoot = forwardRef(
   (
@@ -29,7 +31,7 @@ const TableOfContentsRoot = forwardRef(
     return (
       <nav {...restProps} className={clsx('ams-table-of-contents', className)} ref={ref}>
         {heading && (
-          <Heading className="ams-table-of-contents__heading" level={headingLevel} size="level-4">
+          <Heading className="ams-table-of-contents__heading" level={headingLevel} size="level-3">
             {heading}
           </Heading>
         )}

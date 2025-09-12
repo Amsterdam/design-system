@@ -1,0 +1,11 @@
+{
+  "ams": {
+    "table-of-contents": {
+      "heading": {
+        "font-weight": { "value": "{ams.typography.heading.font-weight}" },
+        "font-size": { "value": "{ams.typography.heading.4.font-size}" },
+        "line-height": { "value": "{ams.typography.heading.4.line-height}" }
+      }
+    }
+  }
+}
