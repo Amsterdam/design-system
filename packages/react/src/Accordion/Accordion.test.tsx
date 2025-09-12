@@ -11,7 +11,7 @@ import '@testing-library/jest-dom'
 
 describe('Accordion', () => {
   it('renders an accordion', () => {
-    const { container } = render(<Accordion headingLevel={1} />)
+    const { container } = render(<Accordion headingLevel={2} />)
 
     const accordion = container.querySelector('.ams-accordion')
 
@@ -20,7 +20,7 @@ describe('Accordion', () => {
   })
 
   it('renders an extra class name', () => {
-    const { container } = render(<Accordion className="test" headingLevel={1} />)
+    const { container } = render(<Accordion className="test" headingLevel={2} />)
 
     const accordion = container.querySelector('.ams-accordion')
 
@@ -31,7 +31,7 @@ describe('Accordion', () => {
     const user = userEvent.setup()
 
     render(
-      <Accordion headingLevel={1}>
+      <Accordion headingLevel={2}>
         <Accordion.Section label="one" />
         <Accordion.Section label="two" />
         <Accordion.Section label="three" />
@@ -60,7 +60,7 @@ describe('Accordion', () => {
   it('supports ForwardRef in React', () => {
     const ref = createRef<HTMLDivElement>()
 
-    const { container } = render(<Accordion headingLevel={1} ref={ref} />)
+    const { container } = render(<Accordion headingLevel={2} ref={ref} />)
 
     const accordion = container.querySelector('.ams-accordion')
 

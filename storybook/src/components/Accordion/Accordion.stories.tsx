@@ -21,6 +21,12 @@ const meta = {
   args: {
     headingLevel: 3,
   },
+  argTypes: {
+    headingLevel: {
+      control: 'radio',
+      options: [2, 3, 4], // Level 1 is deprecated, the argTypes object can be removed when Level 1 is removed
+    },
+  },
 } satisfies Meta<typeof Accordion>
 
 export default meta
@@ -40,6 +46,17 @@ export const Default: Story = {
         <Paragraph>{paragraph3}</Paragraph>
       </Accordion.Section>,
     ],
+  },
+}
+
+export const Level: Story = {
+  args: {
+    children: (
+      <Accordion.Section label="Heading level 4">
+        <Paragraph>{paragraph1}</Paragraph>
+      </Accordion.Section>
+    ),
+    headingLevel: 4,
   },
 }
 
