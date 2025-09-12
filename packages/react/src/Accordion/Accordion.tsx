@@ -15,8 +15,9 @@ export type AccordionProps = {
   /**
    * The hierarchical level of this Accordion’s Section Headings within the document.
    * There is no default value; determine the correct level for each instance.
+   * The value ‘1’ is deprecated.
    */
-  headingLevel: Exclude<HeadingProps['level'], 1>
+  headingLevel: HeadingProps['level']
   /** Uses larger or smaller text without changing its position in the heading hierarchy. */
   headingSize?: Exclude<HeadingProps['size'], 'level-1' | 'level-6'>
   /** The HTML element to use for each Accordion Section. */
