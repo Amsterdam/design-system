@@ -15,10 +15,10 @@ Change logs, release notes, and our sprint reviews help you with upgrades.
 We publish the code libraries of our design system as **5 separate npm packages**:
 
 1. [Assets](https://www.npmjs.com/package/@amsterdam/design-system-assets): our fonts, icons, logos and application icons.
-2. [CSS](https://www.npmjs.com/package/@amsterdam/design-system-css): CSS classes used by our components and utilities.
-3. [React](https://www.npmjs.com/package/@amsterdam/design-system-react): all components in React and their unit tests.
-4. [React Icons](https://www.npmjs.com/package/@amsterdam/design-system-react-icons): every icon in the library as a React component.
-5. [Tokens](https://www.npmjs.com/package/@amsterdam/design-system-tokens): reusable CSS variables that express our design choices.
+2. [CSS](https://www.npmjs.com/package/@amsterdam/design-system-css): applies our design to all components and utilities.
+3. [React](https://www.npmjs.com/package/@amsterdam/design-system-react): implements our component library in React.
+4. [React Icons](https://www.npmjs.com/package/@amsterdam/design-system-react-icons): all of our icons as React components.
+5. [Tokens](https://www.npmjs.com/package/@amsterdam/design-system-tokens): CSS variables that express our design choices.
 
 ## Version numbering
 
@@ -40,19 +40,19 @@ Non-breaking changes get **released as needed**, usually at the end of our 4-wee
 We currently don’t define how long we **support older versions** and backport fixes to them.
 We recommend staying up to date with at least each major release.
 
-## Deprecation approach
+## Deprecated API
 
-We deprecate features before removing them, so you have enough time to migrate.
-
-Note that not all changes are equally visible:
-
-- TypeScript will highlight errors resulting from changes to names, props and prop values of **React components**.
-- Manually check all **CSS classes** that you attached styles to, and let us know what you’re apparently missing.
-- Inspect the **CSS custom properties** in Dev Tools to verify if any of our design tokens no longer have a value.
+We deprecate public features – React components, CSS classes and design tokens – before removing them, so you have enough time to migrate.
 
 We keep features available until the **second major release** after their deprecation.
 All deprecations and removals are noted in the changelogs.
 Find migration guidance in release notes, on this website, in JSDoc annotations, or comments in code.
+
+## Deleted API
+
+- Address TypeScript errors that result from changes to names, props and prop values of **React components**.
+- Read the changelog to find whether **CSS classes** that you may hook into were changed or removed.
+- Do the same for our **CSS custom properties** that you use in your components.
 
 ## Communication channels
 
