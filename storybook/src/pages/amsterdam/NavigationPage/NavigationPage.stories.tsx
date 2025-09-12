@@ -198,18 +198,9 @@ export const WithImageGallery: StoryObj = {
                 <LinkList.Link color="inverse" href="#">
                   Definitief ontwerp voor nieuwe Jaap Eden IJshal
                 </LinkList.Link>
-              </LinkList>
-              <LinkList>
-                <li>
-                  <StandaloneLink color="inverse" href="#">
-                    Meer persberichten
-                  </StandaloneLink>
-                </li>
-                <li>
-                  <StandaloneLink color="inverse" href="#">
-                    Persberichten over sluiten van panden
-                  </StandaloneLink>
-                </li>
+                <LinkList.Link color="inverse" href="#">
+                  Meer persberichten
+                </LinkList.Link>
               </LinkList>
             </Grid.Cell>
             <Grid.Cell span={{ narrow: 4, medium: 4, wide: 5 }} start={{ narrow: 1, medium: 5, wide: 7 }}>
@@ -226,10 +217,10 @@ export const WithImageGallery: StoryObj = {
                 <LinkList.Link color="inverse" href="#">
                   Nieuws uit B en W 25 juni 2025
                 </LinkList.Link>
+                <LinkList.Link color="inverse" href="#">
+                  Meer besluiten B en W
+                </LinkList.Link>
               </LinkList>
-              <StandaloneLink color="inverse" href="#">
-                Meer besluiten B en W
-              </StandaloneLink>
             </Grid.Cell>
           </Grid>
         </Spotlight>
