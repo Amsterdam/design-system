@@ -11,6 +11,7 @@ import { Default as OverlapStory } from '../../../components/Overlap/Overlap.sto
 
 export const HomePage = () => (
   <main id="inhoud">
+    <h1 className="ams-visually-hidden">Homepage van de gemeente Amsterdam</h1>
     <Overlap>{OverlapStory.args?.children}</Overlap>
     <HomeTopTasks />
     <HomeSpotlight />
