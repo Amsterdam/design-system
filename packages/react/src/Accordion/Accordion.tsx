@@ -18,17 +18,12 @@ export type AccordionProps = {
    * The value ‘1’ is deprecated.
    */
   headingLevel: HeadingProps['level']
-  /** Uses larger or smaller text without changing its position in the heading hierarchy. */
-  headingSize?: Exclude<HeadingProps['size'], 'level-1' | 'level-6'>
   /** The HTML element to use for each Accordion Section. */
   sectionAs?: 'div' | 'section'
 } & PropsWithChildren<HTMLAttributes<HTMLDivElement>>
 
 const AccordionRoot = forwardRef(
-  (
-    { children, className, headingLevel, headingSize = 'level-3', sectionAs = 'section' }: AccordionProps,
-    ref: ForwardedRef<HTMLDivElement>,
-  ) => {
+  ({ children, className, headingLevel, sectionAs = 'section' }: AccordionProps, ref: ForwardedRef<HTMLDivElement>) => {
     const innerRef = useRef<HTMLDivElement>(null)
 
     // use a passed ref if it's there, otherwise use innerRef
@@ -40,7 +35,7 @@ const AccordionRoot = forwardRef(
     })
 
     return (
-      <AccordionContext.Provider value={{ headingLevel: headingLevel, headingSize: headingSize, sectionAs: sectionAs }}>
+      <AccordionContext.Provider value={{ headingLevel: headingLevel, sectionAs: sectionAs }}>
         <div className={clsx('ams-accordion', className)} onKeyDown={keyDown} ref={innerRef}>
           {children}
         </div>

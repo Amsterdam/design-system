@@ -8,7 +8,6 @@ import type { AccordionProps } from './Accordion'
 
 export type AccordionContextValue = {
   headingLevel: AccordionProps['headingLevel']
-  headingSize?: AccordionProps['headingSize']
   sectionAs?: AccordionProps['sectionAs']
 }
 

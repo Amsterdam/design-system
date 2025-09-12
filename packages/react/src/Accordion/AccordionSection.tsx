@@ -24,18 +24,18 @@ export const AccordionSection = forwardRef(
     { children, className, expanded = false, label, ...restProps }: AccordionSectionProps,
     ref: ForwardedRef<HTMLDivElement>,
   ) => {
-    const { headingLevel, headingSize, sectionAs } = useContext(AccordionContext)
+    const { headingLevel, sectionAs } = useContext(AccordionContext)
     const [isExpanded, setIsExpanded] = useState(expanded)
 
     const SectionTag = sectionAs || 'section'
     const id = useId()
-    const iconSize = `heading-${headingSize ? headingSize.slice(-1) : 3}` as IconProps['size']
+    const iconSize = `heading-${headingLevel}` as IconProps['size']
     const buttonId = `button-${id}`
     const panelId = `panel-${id}`
 
     return (
       <div className={clsx('ams-accordion__section', className)} ref={ref} {...restProps}>
-        <Heading level={headingLevel} size={headingSize}>
+        <Heading level={headingLevel}>
           <button
             aria-controls={panelId}
             aria-expanded={isExpanded}

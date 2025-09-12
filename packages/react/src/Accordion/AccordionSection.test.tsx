@@ -134,50 +134,6 @@ describe('Accordion section', () => {
     expect(headingLevel4).toBeInTheDocument()
   })
 
-  it('renders the correct size level class', () => {
-    render(
-      <>
-        <Accordion headingLevel={2}>
-          <Accordion.Section label="Default">{testContent}</Accordion.Section>
-        </Accordion>
-        <Accordion headingLevel={2} headingSize="level-2">
-          <Accordion.Section label="Level 2">{testContent}</Accordion.Section>
-        </Accordion>
-        <Accordion headingLevel={2} headingSize="level-3">
-          <Accordion.Section label="Level 3">{testContent}</Accordion.Section>
-        </Accordion>
-        <Accordion headingLevel={2} headingSize="level-4">
-          <Accordion.Section label="Level 4">{testContent}</Accordion.Section>
-        </Accordion>
-        <Accordion headingLevel={2} headingSize="level-5">
-          <Accordion.Section label="Level 5">{testContent}</Accordion.Section>
-        </Accordion>
-      </>,
-    )
-
-    const defaultHeading = screen.getByRole('heading', { level: 2, name: 'Default' })
-    const defaultIcon = defaultHeading.querySelector('.ams-icon--heading-3')
-    const sizeLevel2 = screen.getByRole('heading', { level: 2, name: 'Level 2' })
-    const sizeLevel2Icon = sizeLevel2.querySelector('.ams-icon--heading-2')
-    const sizeLevel3 = screen.getByRole('heading', { level: 2, name: 'Level 3' })
-    const sizeLevel3Icon = sizeLevel3.querySelector('.ams-icon--heading-3')
-    const sizeLevel4 = screen.getByRole('heading', { level: 2, name: 'Level 4' })
-    const sizeLevel4Icon = sizeLevel4.querySelector('.ams-icon--heading-4')
-    const sizeLevel5 = screen.getByRole('heading', { level: 2, name: 'Level 5' })
-    const sizeLevel5Icon = sizeLevel5.querySelector('.ams-icon--heading-5')
-
-    expect(defaultHeading).toBeInTheDocument()
-    expect(defaultIcon).toBeInTheDocument()
-    expect(sizeLevel2).toBeInTheDocument()
-    expect(sizeLevel2Icon).toBeInTheDocument()
-    expect(sizeLevel3).toBeInTheDocument()
-    expect(sizeLevel3Icon).toBeInTheDocument()
-    expect(sizeLevel4).toBeInTheDocument()
-    expect(sizeLevel4Icon).toBeInTheDocument()
-    expect(sizeLevel5).toBeInTheDocument()
-    expect(sizeLevel5Icon).toBeInTheDocument()
-  })
-
   it('renders an icon', () => {
     render(<Accordion.Section label={testLabel}>{testContent}</Accordion.Section>)
 
