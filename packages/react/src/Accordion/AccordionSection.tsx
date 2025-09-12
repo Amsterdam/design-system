@@ -9,7 +9,8 @@ import { forwardRef, useContext, useId, useState } from 'react'
 import type { ForwardedRef, HTMLAttributes, PropsWithChildren } from 'react'
 import AccordionContext from './AccordionContext'
 import { Heading } from '../Heading'
-import { Icon, IconProps } from '../Icon/Icon'
+import { Icon } from '../Icon/Icon'
+import type { IconProps } from '../Icon/Icon'
 
 export type AccordionSectionProps = {
   /** Whether the content is displayed initially. */
