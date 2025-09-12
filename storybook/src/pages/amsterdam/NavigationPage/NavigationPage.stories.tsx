@@ -3,6 +3,8 @@
  * Copyright Gemeente Amsterdam
  */
 
+import type { GridColumnNumbers } from '@amsterdam/design-system-react'
+
 import {
   Breadcrumb,
   Card,
@@ -17,7 +19,6 @@ import {
   StandaloneLink,
   UnorderedList,
 } from '@amsterdam/design-system-react'
-import type { GridColumnNumbers } from '@amsterdam/design-system-react'
 import {
   CameraIcon,
   FacebookIcon,
@@ -26,13 +27,14 @@ import {
   XIcon,
 } from '@amsterdam/design-system-react-icons'
 import { Meta, StoryObj } from '@storybook/react-vite'
-import { LinkBlock } from './LinkBlock'
-import { LinkBlockGridCells } from './LinkBlockGridCells'
-import { NavigationPage } from './NavigationPage'
-import { burgerzakenLinks, parkerenLinks } from './links'
-import { persons } from './persons'
+
 import { exampleHeading, exampleParagraph, exampleStandaloneLink } from '../../../components/shared/exampleContent'
 import { commonMeta } from '../common/config'
+import { LinkBlock } from './LinkBlock'
+import { LinkBlockGridCells } from './LinkBlockGridCells'
+import { burgerzakenLinks, parkerenLinks } from './links'
+import { NavigationPage } from './NavigationPage'
+import { persons } from './persons'
 
 const meta = {
   ...commonMeta,

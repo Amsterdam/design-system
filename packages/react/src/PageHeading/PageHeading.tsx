@@ -3,14 +3,15 @@
  * Copyright Gemeente Amsterdam
  */
 
-import clsx from 'clsx'
-import { forwardRef } from 'react'
 import type { ForwardedRef, HTMLAttributes, PropsWithChildren } from 'react'
 
-export type PageHeadingProps = {
+import { clsx } from 'clsx'
+import { forwardRef } from 'react'
+
+export type PageHeadingProps = PropsWithChildren<HTMLAttributes<HTMLHeadingElement>> & {
   /** Changes the text colour for readability on a dark background. */
   color?: 'inverse'
-} & PropsWithChildren<HTMLAttributes<HTMLHeadingElement>>
+}
 
 /**
  * @deprecated We no longer use this size of headings. Use `Heading` with level 1 instead.

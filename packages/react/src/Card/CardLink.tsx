@@ -3,9 +3,10 @@
  * Copyright Gemeente Amsterdam
  */
 
-import clsx from 'clsx'
-import { forwardRef } from 'react'
 import type { AnchorHTMLAttributes, ForwardedRef, PropsWithChildren } from 'react'
+
+import { clsx } from 'clsx'
+import { forwardRef } from 'react'
 
 export type CardLinkProps = PropsWithChildren<AnchorHTMLAttributes<HTMLAnchorElement>>
 

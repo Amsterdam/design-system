@@ -4,6 +4,7 @@
  */
 
 import { clsx } from 'clsx'
+
 import './font-design-token.css'
 
 type FontDesignTokenProps = {

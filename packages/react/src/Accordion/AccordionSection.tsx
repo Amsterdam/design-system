@@ -3,21 +3,24 @@
  * Copyright Gemeente Amsterdam
  */
 
-import { ChevronDownIcon } from '@amsterdam/design-system-react-icons'
-import clsx from 'clsx'
-import { forwardRef, useContext, useId, useState } from 'react'
 import type { ForwardedRef, HTMLAttributes, PropsWithChildren } from 'react'
-import AccordionContext from './AccordionContext'
-import { Heading } from '../Heading'
-import { Icon } from '../Icon/Icon'
+
+import { ChevronDownIcon } from '@amsterdam/design-system-react-icons'
+import { clsx } from 'clsx'
+import { forwardRef, useContext, useId, useState } from 'react'
+
 import type { IconProps } from '../Icon/Icon'
 
-export type AccordionSectionProps = {
+import { Heading } from '../Heading'
+import { Icon } from '../Icon/Icon'
+import AccordionContext from './AccordionContext'
+
+export type AccordionSectionProps = PropsWithChildren<HTMLAttributes<HTMLElement>> & {
   /** Whether the content is displayed initially. */
   expanded?: boolean
   /** The heading text. */
   label: string
-} & PropsWithChildren<HTMLAttributes<HTMLElement>>
+}
 
 // The 'ams-accordion__header' class is @deprecated and will be removed in a future release.
 

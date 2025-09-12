@@ -6,6 +6,7 @@
 import { Paragraph } from '@amsterdam/design-system-react'
 import { Accordion } from '@amsterdam/design-system-react/src'
 import { Meta, StoryObj } from '@storybook/react-vite'
+
 import { exampleAccordionHeading, exampleParagraph } from '../shared/exampleContent'
 
 const heading1 = exampleAccordionHeading()

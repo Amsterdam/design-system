@@ -3,15 +3,18 @@
  * Copyright Gemeente Amsterdam
  */
 
-import clsx from 'clsx'
-import { forwardRef } from 'react'
 import type { ForwardedRef, HTMLAttributes, PropsWithChildren } from 'react'
-import { TableOfContentsLink } from './TableOfContentsLink'
-import { TableOfContentsList } from './TableOfContentsList'
-import { Heading } from '../Heading'
+
+import { clsx } from 'clsx'
+import { forwardRef } from 'react'
+
 import type { HeadingProps } from '../Heading'
 
-export type TableOfContentsProps = {
+import { Heading } from '../Heading'
+import { TableOfContentsLink } from './TableOfContentsLink'
+import { TableOfContentsList } from './TableOfContentsList'
+
+export type TableOfContentsProps = PropsWithChildren<HTMLAttributes<HTMLElement>> & {
   /** The text for the Heading. */
   heading?: string
   /**
@@ -19,7 +22,7 @@ export type TableOfContentsProps = {
    * Visually, it always has the size of a level 3 Heading.
    */
   headingLevel?: HeadingProps['level']
-} & PropsWithChildren<HTMLAttributes<HTMLElement>>
+}
 
 // The 'ams-table-of-contents__heading' class is @deprecated and will be removed in a future release.
 

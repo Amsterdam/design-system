@@ -5,6 +5,7 @@
 
 import { Blockquote } from '@amsterdam/design-system-react/src'
 import { Meta, StoryObj } from '@storybook/react-vite'
+
 import { exampleQuote } from '../shared/exampleContent'
 
 const quote = exampleQuote()

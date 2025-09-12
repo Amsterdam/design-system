@@ -4,6 +4,7 @@
  */
 
 import { createContext } from 'react'
+
 import type { AccordionProps } from './Accordion'
 
 export type AccordionContextValue = {

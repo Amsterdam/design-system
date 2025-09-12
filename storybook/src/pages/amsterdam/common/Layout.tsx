@@ -3,10 +3,12 @@
  * Copyright Gemeente Amsterdam
  */
 
-import { PageFooter, SkipLink } from '@amsterdam/design-system-react'
 import type { HTMLAttributes, PropsWithChildren } from 'react'
-import { AppHeader } from './AppHeader'
+
+import { PageFooter, SkipLink } from '@amsterdam/design-system-react'
+
 import { Default as PageFooterStory } from '../../../components/PageFooter/PageFooter.stories'
+import { AppHeader } from './AppHeader'
 
 type LayoutProps = PropsWithChildren<HTMLAttributes<HTMLElement>>
 

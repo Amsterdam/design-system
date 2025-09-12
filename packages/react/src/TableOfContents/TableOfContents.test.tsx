@@ -5,6 +5,7 @@
 
 import { render, screen } from '@testing-library/react'
 import { createRef } from 'react'
+
 import { TableOfContents } from './TableOfContents'
 import '@testing-library/jest-dom'
 

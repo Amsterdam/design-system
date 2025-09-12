@@ -3,9 +3,10 @@
  * Copyright Gemeente Amsterdam
  */
 
-import clsx from 'clsx'
-import { forwardRef, useId } from 'react'
 import type { ForwardedRef, InputHTMLAttributes, PropsWithChildren } from 'react'
+
+import { clsx } from 'clsx'
+import { forwardRef, useId } from 'react'
 
 export type SwitchProps = PropsWithChildren<InputHTMLAttributes<HTMLInputElement>>
 

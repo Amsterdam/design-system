@@ -5,9 +5,10 @@
 
 import { render, screen } from '@testing-library/react'
 import { createRef } from 'react'
+
+import { ariaRoleForTag } from '../common/accessibility'
 import { Grid } from './Grid'
 import { gridCellTags } from './GridCell'
-import { ariaRoleForTag } from '../common/accessibility'
 import '@testing-library/jest-dom'
 
 describe('Grid cell', () => {
