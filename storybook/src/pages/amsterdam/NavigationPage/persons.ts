@@ -2,63 +2,64 @@ type Person = {
   imageSource: string
   name: string
   role: string
+  suffix?: string
 }
 
 export const persons: Person[] = [
   {
-    imageSource:
-      'https://www.amsterdam.nl/publish/pages/1065122/uitsnede77418-040724-burgermeester-femke-halsema-ftf1854-redo.jpg',
+    imageSource: 'https://picsum.photos/480/270',
     name: 'Femke Halsema',
     role: 'Burgemeester',
   },
   {
-    imageSource: 'https://www.amsterdam.nl/publish/pages/1065122/39430-020818-stopera-mw-moorman-16-9-tff9148_1_.jpg',
+    imageSource: 'https://picsum.photos/480/270',
     name: 'Marjolein Moorman',
     role: 'Wethouder',
   },
   {
-    imageSource: 'https://www.amsterdam.nl/publish/pages/1065122/39755-100818-stopera-r_groot-wassink-tff9321.jpg',
+    imageSource: 'https://picsum.photos/480/270',
     name: 'Rutger Groot Wassink',
     role: 'Wethouder',
   },
   {
-    imageSource: 'https://www.amsterdam.nl/publish/pages/1065122/041022-hester_van_buren-ftf6750.jpg',
+    imageSource: 'https://picsum.photos/480/270',
     name: 'Hester van Buren',
     role: 'Wethouder',
   },
   {
-    imageSource: 'https://www.amsterdam.nl/publish/pages/1065122/070622-sofyan_mbarki-ftf9411.jpg',
+    imageSource: 'https://picsum.photos/480/270',
     name: 'Sofyan Mbarki',
     role: 'Wethouder',
   },
   {
-    imageSource: 'https://www.amsterdam.nl/publish/pages/1065122/39177-130718-stopera-touria-meliani-tff7470.jpg',
+    imageSource: 'https://picsum.photos/480/270',
     name: 'Touria Meliani',
     role: 'Wethouder',
   },
   {
-    imageSource: 'https://www.amsterdam.nl/publish/pages/1065122/070622-melanie_van_der_horst-ftf9432.jpg',
+    imageSource: 'https://picsum.photos/480/270',
     name: 'Melanie van der Horst',
     role: 'Wethouder',
   },
   {
-    imageSource: 'https://www.amsterdam.nl/publish/pages/1065122/alexander_scholtes-ftf4755-redo.jpg',
+    imageSource: 'https://picsum.photos/480/270',
     name: 'Alexander Scholtes',
     role: 'Wethouder',
   },
   {
-    imageSource: 'https://www.amsterdam.nl/publish/pages/1065122/070622-zita_pels-ftf9440.jpg',
+    imageSource: 'https://picsum.photos/480/270',
     name: 'Zita Pels',
     role: 'Wethouder',
   },
   {
-    imageSource: 'https://www.amsterdam.nl/publish/pages/1065122/120525-b_w-steven_van_weyenberg-ftf4300.jpg',
+    imageSource: 'https://picsum.photos/480/270',
     name: 'Steven van Weyenberg',
     role: 'Wethouder',
   },
   {
-    imageSource: 'https://www.amsterdam.nl/publish/pages/1065122/68421-d4a2593_1_.jpg',
-    name: 'Peter Teesink',
+    imageSource: 'https://picsum.photos/480/270',
+    name: 'Thea de Vries',
     role: 'Gemeentesecretaris',
+    suffix: 'waarnemend',
   },
 ]

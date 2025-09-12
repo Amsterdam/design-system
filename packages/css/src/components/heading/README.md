@@ -14,12 +14,11 @@ Introduces a page section and describes the following content.
 - The `level` prop doesn’t have a default value; determine the correct level for each instance.
   - Every page should contain one heading with level 1.
   - Do not skip levels. For example, a level 2 Heading must be followed by one with level 3.
-- Use the `size` prop to make a Heading visually larger or smaller, but sparingly and consistently:
-  - Headings in large sections have size 3 Headings by default – e.g. Accordion, Alert, Dialog and the caption of a Table.
+- Use the `size` prop to make a Heading visually larger or smaller, but sparingly and consistently.
+  - Content pages, e.g. for articles, products, events etc. must not use the size prop on their Headings.
+  - Most Headings on overview pages, e.g. Card, Table of Content, and ‘Link Blocks’, use a size of ‘level-3’.
+  - The same applies to large sections – e.g. Accordion, Alert, Dialog and the caption of a Table.
     Most of them can be given a different size if appropriate.
-  - Smaller boxes get size 4 Headings, e.g. Card, Table of Content, and ‘Link blocks’:
-    a Heading followed by one or more links and maybe some text.
-    This is consistent and it fits their narrower width.
 
 ## Relevant WCAG requirements
 

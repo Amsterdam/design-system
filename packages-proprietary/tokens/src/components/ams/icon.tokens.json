@@ -11,10 +11,6 @@
         "font-size": { "value": "{ams.typography.body-text.large.font-size}" },
         "line-height": { "value": "{ams.typography.body-text.large.line-height}" }
       },
-      "heading-0": {
-        "font-size": { "value": "{ams.typography.heading.0.font-size}" },
-        "line-height": { "value": "{ams.typography.heading.0.line-height}" }
-      },
       "heading-1": {
         "font-size": { "value": "{ams.typography.heading.1.font-size}" },
         "line-height": { "value": "{ams.typography.heading.1.line-height}" }

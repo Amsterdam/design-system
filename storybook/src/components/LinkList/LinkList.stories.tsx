@@ -84,7 +84,7 @@ export const WithHeading: Story = {
   ...StoryTemplate,
   render: ({ children, ...args }) => (
     <>
-      <Heading className="ams-mb-s" level={3} size="level-4">
+      <Heading className="ams-mb-s" level={3}>
         Adres en inschrijving
       </Heading>
       <LinkList {...args}>{children}</LinkList>

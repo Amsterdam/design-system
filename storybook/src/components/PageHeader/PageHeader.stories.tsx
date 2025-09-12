@@ -48,7 +48,7 @@ export const Default: Story = {
           </LinkList>
         </PageHeader.GridCellNarrowWindowOnly>
         <Grid.Cell span={4}>
-          <Heading className="ams-mb-s" level={3}>
+          <Heading className="ams-mb-s" level={2} size="level-3">
             Onderdelen
           </Heading>
           <LinkList>
@@ -60,7 +60,7 @@ export const Default: Story = {
           </LinkList>
         </Grid.Cell>
         <Grid.Cell span={4}>
-          <Heading className="ams-mb-s" level={3}>
+          <Heading className="ams-mb-s" level={2} size="level-3">
             Over ons
           </Heading>
           <LinkList>
@@ -72,7 +72,7 @@ export const Default: Story = {
           </LinkList>
         </Grid.Cell>
         <Grid.Cell span={4}>
-          <Heading className="ams-mb-s" level={3}>
+          <Heading className="ams-mb-s" level={2} size="level-3">
             Help
           </Heading>
           <LinkList>
