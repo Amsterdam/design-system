@@ -32,7 +32,7 @@ describe('Accordion section', () => {
     })
     const section = container.querySelector('.ams-accordion__panel')
 
-    expect(heading).toHaveClass('ams-heading')
+    expect(heading).toHaveClass('ams-heading ams-accordion__header')
     expect(button).toHaveClass('ams-accordion__button')
     expect(section).toBeInTheDocument()
   })
