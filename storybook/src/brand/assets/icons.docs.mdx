@@ -9,6 +9,8 @@ import {
   MediaIcons,
   SeverityIcons,
   UniversalIcons,
+  FormattingIcons,
+  KeyboardKeyIcons,
 } from "../../docs/components/IconGalleryCategories";
 
 <Meta title="Brand/Assets/Icons" />
@@ -35,6 +37,8 @@ All these names are nouns.
     ...MediaIcons,
     ...SeverityIcons,
     ...UniversalIcons,
+    ...FormattingIcons,
+    ...KeyboardKeyIcons,
   ]}
 />
 
@@ -81,6 +85,18 @@ The following icons can be used without labels in audio or video players:
 In applications that users use so regularly that they can learn the meaning of icons, these can go without labels as well:
 
 <IconGallery icons={ApplicationIcons} />
+
+### Formatting
+
+These icons are used in text editors to indicate formatting options:
+
+<IconGallery icons={FormattingIcons} />
+
+### Keyboard keys
+
+These icons represent common keyboard keys and can be used without labels:
+
+<IconGallery icons={KeyboardKeyIcons} />
 
 ## Related components
 

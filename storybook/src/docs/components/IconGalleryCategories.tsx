@@ -67,3 +67,12 @@ export const SeverityIcons = [
 ]
 
 export const UniversalIcons = ['CloseIcon', 'MaximizeIcon', 'MinimizeIcon', 'SaveIcon', 'SaveFillIcon', 'SearchIcon']
+
+export const FormattingIcons = ['FormattingBoldIcon', 'FormattingItalicIcon', 'FormattingUnderlineIcon']
+
+export const KeyboardKeyIcons = [
+  'KeyboardKeyEnterIcon',
+  'KeyboardKeyShiftIcon',
+  'KeyboardKeyControlIcon',
+  'KeyboardKeyCmdIcon',
+]
