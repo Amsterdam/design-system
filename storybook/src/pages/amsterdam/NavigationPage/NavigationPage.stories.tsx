@@ -172,6 +172,7 @@ export const WithImageGallery: StoryObj = {
           <Grid.Cell span={{ narrow: 4, medium: 4, wide: 5 }} start={{ narrow: 1, medium: 1, wide: 2 }}>
             <LinkBlock
               heading="Portefeuilleverdeling"
+              headingLevel={2}
               introduction="Een alfabetisch overzicht van de portefeuilles van burgemeester en wethouders."
               links={['Portefeuilleverdeling']}
             />
@@ -179,6 +180,7 @@ export const WithImageGallery: StoryObj = {
           <Grid.Cell span={{ narrow: 4, medium: 4, wide: 5 }} start={{ narrow: 1, medium: 5, wide: 7 }}>
             <LinkBlock
               heading="Coalitieakkoord"
+              headingLevel={2}
               introduction="In dit akkoord staan de plannen en visie van de coalitie Pvda, GroenLinks en D66 voor 2022-2026."
               links={['Coalitieakkoord en Uitvoeringsagenda']}
             />
@@ -236,6 +238,7 @@ export const WithImageGallery: StoryObj = {
           <Grid.Cell span={{ narrow: 4, medium: 4, wide: 5 }} start={{ narrow: 1, medium: 1, wide: 2 }}>
             <LinkBlock
               heading="Pers en woordvoering"
+              headingLevel={2}
               introduction="Voor vragen van journalisten aan de afdeling Bestuursvoorlichting."
               links={['Pers']}
             />
