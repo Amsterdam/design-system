@@ -11,7 +11,7 @@ Provides service information at the bottom of every page.
 - It usually consists of two sections: a full-width blue `PageFooter.Spotlight` and a `PageFooter.Menu` below it.
 - A Page Footer containing only a `PageFooter.Menu` can be sufficient for applications.
 - Set [the inverse colour](?path=/docs/brand-design-tokens-colour--docs#pairing-foreground-with-background-colours) on all text and links in the Spotlight area.
-- If the Page Footer contains [Headings](https://designsystem.amsterdam/?path=/docs/components-text-heading--docs), give them level 2 and size ‘level-3’.
+- If the Page Footer contains [Headings](https://designsystem.amsterdam/?path=/docs/components-text-heading--docs), give them level 2 and a size of ‘level-3’.
   A visually hidden heading to group them is not necessary – the footer’s landmark provides enough guidance.
 
 ## Content

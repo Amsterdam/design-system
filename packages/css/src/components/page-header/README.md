@@ -19,7 +19,7 @@ Includes the name of the application if it is not the general website.
 - Labels should be short to help the inline menu fit on a single line whenever possible.
 - An icon can be added to the end of a link to make its destination easier to guess.
 - For websites with a brand name that feature the standard Amsterdam logo, only the emblem is shown on narrow screens.
-- If the collapsible menu contains [Headings](https://designsystem.amsterdam/?path=/docs/components-text-heading--docs), give them level 2 and size ‘level-3’.
+- If the collapsible menu contains [Headings](https://designsystem.amsterdam/?path=/docs/components-text-heading--docs), give them level 2 and a size of ‘level-3’.
 
 ## References
 
