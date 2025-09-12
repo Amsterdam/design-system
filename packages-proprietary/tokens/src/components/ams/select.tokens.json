@@ -22,7 +22,7 @@
           "value": "url(\"data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><path fill='%23767676' fill-rule='evenodd' d='m16 25.757-16-16 2.91-2.9L16 19.937l13.09-13.08 2.91 2.9z'/></svg>\")"
         },
         "color": { "value": "{ams.inputs.disabled.color}" },
-        "cursor": { "value": "{ams.inputs.disabled.cursor}" }
+        "cursor": { "value": "{ams.cursor.disabled}" }
       },
       "hover": {
         "box-shadow": { "value": "{ams.inputs.hover.box-shadow}" },

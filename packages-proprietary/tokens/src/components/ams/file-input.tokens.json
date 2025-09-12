@@ -16,7 +16,7 @@
       "padding-inline": { "value": "{ams.space.m}" },
       "disabled": {
         "color": { "value": "{ams.inputs.disabled.color}" },
-        "cursor": { "value": "{ams.inputs.disabled.cursor}" }
+        "cursor": { "value": "{ams.cursor.disabled}" }
       },
       "file-selector-button": {
         "background-color": { "value": "{ams.button.secondary.background-color}" },
