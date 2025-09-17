@@ -3,7 +3,7 @@
  * Copyright Gemeente Amsterdam
  */
 
-import { Card, Column, Grid, Heading, Paragraph, SearchField } from '@amsterdam/design-system-react'
+import { Card, Grid, Heading, Paragraph, SearchField, UnorderedList } from '@amsterdam/design-system-react'
 import { Mark } from '@amsterdam/design-system-react/src'
 import { Meta, StoryObj } from '@storybook/react-vite'
 import { useState } from 'react'
@@ -111,21 +111,23 @@ export const SearchResults = {
           <Paragraph className="ams-mb-xl">
             <strong>{searchResults.length}</strong> artikelen gaan over ‘{query}’.
           </Paragraph>
-          <Column gap="x-large">
+          <UnorderedList className="ams-gap-xl" markers={false}>
             {searchResults.map(({ category, date, fragment, heading }) => (
-              <Card key={heading}>
-                <Card.HeadingGroup tagline={category}>
-                  <Heading level={2} size="level-4">
-                    <Card.Link href="#">{mark(heading, query)}</Card.Link>
-                  </Heading>
-                </Card.HeadingGroup>
-                <Paragraph className="ams-mb-xs">{mark(fragment, query)}</Paragraph>
-                <Paragraph size="small">
-                  <time dateTime={date.toISOString()}>{dateFormat.format(date)}</time>
-                </Paragraph>
-              </Card>
+              <UnorderedList.Item key={heading}>
+                <Card key={heading}>
+                  <Card.HeadingGroup tagline={category}>
+                    <Heading level={2} size="level-4">
+                      <Card.Link href="#">{mark(heading, query)}</Card.Link>
+                    </Heading>
+                  </Card.HeadingGroup>
+                  <Paragraph className="ams-mb-xs">{mark(fragment, query)}</Paragraph>
+                  <Paragraph size="small">
+                    <time dateTime={date.toISOString()}>{dateFormat.format(date)}</time>
+                  </Paragraph>
+                </Card>
+              </UnorderedList.Item>
             ))}
-          </Column>
+          </UnorderedList>
         </Grid.Cell>
       </Grid>
     )
