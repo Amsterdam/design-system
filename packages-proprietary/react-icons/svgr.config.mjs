@@ -1,4 +1,4 @@
-import { indexTemplate } from './indexTemplate.js'
+import { indexTemplate } from './indexTemplate.mjs'
 
 export default {
   indexTemplate,
