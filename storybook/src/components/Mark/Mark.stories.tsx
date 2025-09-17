@@ -114,7 +114,7 @@ export const SearchResults = {
           <UnorderedList className="ams-gap-xl" markers={false}>
             {searchResults.map(({ category, date, fragment, heading }) => (
               <UnorderedList.Item key={heading}>
-                <Card key={heading}>
+                <Card>
                   <Card.HeadingGroup tagline={category}>
                     <Heading level={2} size="level-4">
                       <Card.Link href="#">{mark(heading, query)}</Card.Link>
