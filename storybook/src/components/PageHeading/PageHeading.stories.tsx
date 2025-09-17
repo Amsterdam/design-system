@@ -12,19 +12,6 @@ const meta = {
   args: {
     children: 'Gemeente Amsterdam',
   },
-  argTypes: {
-    children: {
-      description: 'The heading text.',
-      table: { disable: false },
-    },
-    color: {
-      control: {
-        labels: { undefined: 'default' },
-        type: 'radio',
-      },
-      options: [undefined, 'inverse'],
-    },
-  },
 } satisfies Meta<typeof PageHeading>
 
 export default meta
@@ -32,9 +19,3 @@ export default meta
 type Story = StoryObj<typeof meta>
 
 export const Default: Story = {}
-
-export const InverseColour: Story = {
-  args: {
-    color: 'inverse',
-  },
-}

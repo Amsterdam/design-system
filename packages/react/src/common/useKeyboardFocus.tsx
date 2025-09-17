@@ -57,18 +57,18 @@ export const useKeyboardFocus = (ref: RefObject<HTMLElement>, options: Options) 
     let targetElement: Element | undefined
 
     switch (e.key) {
+      case KeyboardKeys.End:
+        targetElement = focusableEls[focusableEls.length - 1]
+        break
+      case KeyboardKeys.Home:
+        targetElement = focusableEls[0]
+        break
       case nextKey:
         targetElement = focusableEls[getIndex(activeElement) + 1] || (rotating ? focusableEls[0] : undefined)
         break
       case prevKey:
         targetElement =
           focusableEls[getIndex(activeElement) - 1] || (rotating ? focusableEls[focusableEls.length - 1] : undefined)
-        break
-      case KeyboardKeys.Home:
-        targetElement = focusableEls[0]
-        break
-      case KeyboardKeys.End:
-        targetElement = focusableEls[focusableEls.length - 1]
         break
     }
 

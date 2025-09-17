@@ -5,10 +5,12 @@
 
 import { render, screen } from '@testing-library/react'
 import { createRef } from 'react'
-import { Breakout } from './Breakout'
-import '@testing-library/jest-dom'
-import { breakoutCellTags } from './BreakoutCell'
+
 import { ariaRoleForTag } from '../common/accessibility'
+import '@testing-library/jest-dom'
+
+import { Breakout } from './Breakout'
+import { breakoutCellTags } from './BreakoutCell'
 
 describe('Breakout cell', () => {
   it('renders', () => {

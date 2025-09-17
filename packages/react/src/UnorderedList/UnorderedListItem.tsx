@@ -3,9 +3,10 @@
  * Copyright Gemeente Amsterdam
  */
 
-import clsx from 'clsx'
-import { forwardRef } from 'react'
 import type { ForwardedRef, LiHTMLAttributes, PropsWithChildren } from 'react'
+
+import { clsx } from 'clsx'
+import { forwardRef } from 'react'
 
 export type UnorderedListItemProps = PropsWithChildren<LiHTMLAttributes<HTMLLIElement>>
 

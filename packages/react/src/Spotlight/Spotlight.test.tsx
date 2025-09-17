@@ -5,8 +5,9 @@
 
 import { render, screen } from '@testing-library/react'
 import { createRef } from 'react'
-import { Spotlight, spotlightColors, spotlightTags } from './Spotlight'
+
 import { ariaRoleForTag } from '../common/accessibility'
+import { Spotlight, spotlightColors, spotlightTags } from './Spotlight'
 import '@testing-library/jest-dom'
 
 describe('Spotlight', () => {

@@ -3,9 +3,11 @@
  * Copyright Gemeente Amsterdam
  */
 
-import clsx from 'clsx'
-import { forwardRef } from 'react'
 import type { ForwardedRef, ForwardRefExoticComponent, RefAttributes, SVGProps } from 'react'
+
+import { clsx } from 'clsx'
+import { forwardRef } from 'react'
+
 import {
   LogoAmsterdam,
   LogoGgdAmsterdam,
@@ -23,14 +25,14 @@ export type LogoBrand =
   | 'stadsbank-van-lening'
   | 'vga-verzekeringen'
 
-export type LogoProps = {
+export type LogoProps = SVGProps<SVGSVGElement> & {
   /** The name of the brand for which to display the logo. */
   brand?: LogoBrand
-} & SVGProps<SVGSVGElement>
+}
 
 type LogoConfigItem = {
   label: string
-  logo: ForwardRefExoticComponent<SVGProps<SVGSVGElement> & RefAttributes<SVGSVGElement>>
+  logo: ForwardRefExoticComponent<RefAttributes<SVGSVGElement> & SVGProps<SVGSVGElement>>
 }
 
 const logoConfig: Record<LogoBrand, LogoConfigItem> = {

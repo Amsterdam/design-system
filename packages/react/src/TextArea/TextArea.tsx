@@ -3,16 +3,17 @@
  * Copyright Gemeente Amsterdam
  */
 
-import clsx from 'clsx'
-import { forwardRef } from 'react'
 import type { ForwardedRef, TextareaHTMLAttributes } from 'react'
 
-export type TextAreaProps = {
+import { clsx } from 'clsx'
+import { forwardRef } from 'react'
+
+export type TextAreaProps = Omit<TextareaHTMLAttributes<HTMLTextAreaElement>, 'aria-invalid'> & {
   /** Whether the value fails a validation rule. */
   invalid?: boolean
   /** Allows the user to resize the text box. The default is resizing in both directions. */
   resize?: 'none' | 'horizontal' | 'vertical'
-} & Omit<TextareaHTMLAttributes<HTMLTextAreaElement>, 'aria-invalid'>
+}
 
 /**
  * @see {@link https://designsystem.amsterdam/?path=/docs/components-forms-text-area--docs Text Area docs at Amsterdam Design System}

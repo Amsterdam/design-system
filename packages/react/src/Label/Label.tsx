@@ -9,12 +9,14 @@
  * Copyright Gemeente Amsterdam
  */
 
-import clsx from 'clsx'
-import { forwardRef } from 'react'
 import type { ForwardedRef, LabelHTMLAttributes, PropsWithChildren } from 'react'
+
+import { clsx } from 'clsx'
+import { forwardRef } from 'react'
+
 import { Hint, HintProps } from '../Hint'
 
-export type LabelProps = PropsWithChildren<LabelHTMLAttributes<HTMLLabelElement>> & HintProps
+export type LabelProps = HintProps & PropsWithChildren<LabelHTMLAttributes<HTMLLabelElement>>
 
 /**
  * @see {@link https://designsystem.amsterdam/?path=/docs/components-forms-label--docs Label docs at Amsterdam Design System}

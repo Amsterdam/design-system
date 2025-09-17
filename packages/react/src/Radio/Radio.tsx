@@ -3,12 +3,14 @@
  * Copyright Gemeente Amsterdam
  */
 
-import clsx from 'clsx'
-import { forwardRef, useId } from 'react'
 import type { ForwardedRef, InputHTMLAttributes, PropsWithChildren, ReactNode } from 'react'
+
+import { clsx } from 'clsx'
+import { forwardRef, useId } from 'react'
+
 import RadioIcon from './RadioIcon'
 
-export type RadioProps = {
+export type RadioProps = PropsWithChildren<Omit<InputHTMLAttributes<HTMLInputElement>, 'aria-invalid' | 'type'>> & {
   /**
    * An icon to display instead of the default icon.
    * @default RadioIcon
@@ -16,7 +18,7 @@ export type RadioProps = {
   icon?: Function | ReactNode
   /** Whether the value fails a validation rule. */
   invalid?: boolean
-} & PropsWithChildren<Omit<InputHTMLAttributes<HTMLInputElement>, 'aria-invalid' | 'type'>>
+}
 
 /**
  * @see {@link https://designsystem.amsterdam/?path=/docs/components-forms-radio--docs Radio docs at Amsterdam Design System}

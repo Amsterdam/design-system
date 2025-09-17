@@ -3,6 +3,8 @@
  * Copyright Gemeente Amsterdam
  */
 
+import type { GridColumnNumbers } from '@amsterdam/design-system-react'
+
 import {
   Breadcrumb,
   Card,
@@ -11,14 +13,12 @@ import {
   Image,
   Link,
   LinkList,
-  PageHeading,
   Paragraph,
   SearchField,
   Spotlight,
   StandaloneLink,
   UnorderedList,
 } from '@amsterdam/design-system-react'
-import type { GridColumnNumbers } from '@amsterdam/design-system-react'
 import {
   CameraIcon,
   FacebookIcon,
@@ -27,12 +27,14 @@ import {
   XIcon,
 } from '@amsterdam/design-system-react-icons'
 import { Meta, StoryObj } from '@storybook/react-vite'
-import { LinkGroupGridCells } from './LinkGroupGridCells'
-import { NavigationPage } from './NavigationPage'
-import { burgerzakenLinks, parkerenLinks } from './links'
-import { persons } from './persons'
+
 import { exampleHeading, exampleParagraph, exampleStandaloneLink } from '../../../components/shared/exampleContent'
 import { commonMeta } from '../common/config'
+import { LinkBlock } from './LinkBlock'
+import { LinkBlockGridCells } from './LinkBlockGridCells'
+import { burgerzakenLinks, parkerenLinks } from './links'
+import { NavigationPage } from './NavigationPage'
+import { persons } from './persons'
 
 const meta = {
   ...commonMeta,
@@ -41,22 +43,6 @@ const meta = {
 } satisfies Meta<typeof NavigationPage>
 
 export default meta
-
-type LinkBlockProps = {
-  body: string
-  heading: string
-  linkText?: string
-}
-
-const LinkBlock = ({ body, heading, linkText }: LinkBlockProps) => (
-  <>
-    <Heading className="ams-mb-s" level={2} size="level-4">
-      {heading}
-    </Heading>
-    <Paragraph className="ams-mb-s">{body}</Paragraph>
-    <StandaloneLink href="#">{linkText ?? heading}</StandaloneLink>
-  </>
-)
 
 export const Default: StoryObj = {
   args: {
@@ -68,15 +54,17 @@ export const Default: StoryObj = {
           </Breadcrumb>
         </Grid.Cell>
       </Grid>,
-      <Grid as="main" id="inhoud" paddingBottom="x-large">
+      <Grid as="main" id="inhoud" key={2} paddingBottom="x-large">
         <Grid.Cell span={{ narrow: 4, medium: 6, wide: 7 }}>
-          <PageHeading className="ams-mb-m">Burgerzaken</PageHeading>
+          <Heading className="ams-mb-m" level={1}>
+            Burgerzaken
+          </Heading>
           <Paragraph size="large">
             Heeft u een paspoort, rijbewijs of uittreksel nodig? Of wilt u een verhuizing doorgeven of een geboorte
             aangeven? Op deze pagina vindt u alle informatie en regelzaken rondom Burgerzaken.
           </Paragraph>
         </Grid.Cell>
-        <LinkGroupGridCells linkGroups={burgerzakenLinks} />
+        <LinkBlockGridCells headingLevel={2} linkGroups={burgerzakenLinks} />
       </Grid>,
     ],
   },
@@ -95,18 +83,20 @@ export const WithInteractiveElement: StoryObj = {
       <main id="inhoud" key={2}>
         <Grid paddingBottom="x-large">
           <Grid.Cell span={{ narrow: 4, medium: 6, wide: 7 }}>
-            <PageHeading className="ams-mb-m">Parkeren</PageHeading>
+            <Heading className="ams-mb-m" level={1}>
+              Parkeren
+            </Heading>
             <Paragraph className="ams-mb-m" size="large">
               {exampleParagraph()}
             </Paragraph>
             <Paragraph>{exampleParagraph()}</Paragraph>
           </Grid.Cell>
-          <LinkGroupGridCells linkGroups={parkerenLinks}></LinkGroupGridCells>
+          <LinkBlockGridCells headingLevel={2} linkGroups={parkerenLinks} />
         </Grid>
         <Spotlight>
           <Grid paddingVertical="large">
             <Grid.Cell span={{ narrow: 4, medium: 4, wide: 5 }} start={{ narrow: 1, medium: 1, wide: 2 }}>
-              <Heading className="ams-mb-m" color="inverse" level={2}>
+              <Heading className="ams-mb-m" color="inverse" level={2} size="level-3">
                 Parkeertarieven
               </Heading>
               <SearchField className="ams-mb-m">
@@ -133,7 +123,7 @@ export const WithInteractiveElement: StoryObj = {
 export const WithImageGallery: StoryObj = {
   args: {
     children: [
-      <Grid paddingTop="large">
+      <Grid key={1} paddingTop="large">
         <Grid.Cell span={{ narrow: 4, medium: 6, wide: 8 }}>
           <Breadcrumb>
             <Breadcrumb.Link href="#">Home</Breadcrumb.Link>
@@ -144,7 +134,9 @@ export const WithImageGallery: StoryObj = {
       <main id="inhoud" key={2}>
         <Grid paddingBottom="x-large">
           <Grid.Cell span={{ narrow: 4, medium: 6, wide: 8 }}>
-            <PageHeading className="ams-mb-m">College van burgemeester en wethouders</PageHeading>
+            <Heading className="ams-mb-m" level={1}>
+              College van burgemeester en wethouders
+            </Heading>
             <Paragraph size="large">
               Het college van burgemeester en wethouders is verantwoordelijk voor het dagelijks bestuur van de gemeente
               Amsterdam.
@@ -162,7 +154,7 @@ export const WithImageGallery: StoryObj = {
               gemeentesecretaris.
             </Paragraph>
           </Grid.Cell>
-          {persons.map(({ imageSource, name, role }, index) => (
+          {persons.map(({ imageSource, name, role, suffix }, index) => (
             <Grid.Cell
               key={name}
               span={4}
@@ -172,7 +164,7 @@ export const WithImageGallery: StoryObj = {
                 <Card.Image alt="" src={imageSource} />
                 <Card.Heading level={3}>
                   <Card.Link href="#">
-                    {role} {name}
+                    {role} {name} {suffix && ` (${suffix})`}
                   </Card.Link>
                 </Card.Heading>
               </Card>
@@ -180,22 +172,25 @@ export const WithImageGallery: StoryObj = {
           ))}
           <Grid.Cell span={{ narrow: 4, medium: 4, wide: 5 }} start={{ narrow: 1, medium: 1, wide: 2 }}>
             <LinkBlock
-              body="Een alfabetisch overzicht van de portefeuilles van burgemeester en wethouders."
               heading="Portefeuilleverdeling"
+              headingLevel={2}
+              introduction="Een alfabetisch overzicht van de portefeuilles van burgemeester en wethouders."
+              links={['Portefeuilleverdeling']}
             />
           </Grid.Cell>
           <Grid.Cell span={{ narrow: 4, medium: 4, wide: 5 }} start={{ narrow: 1, medium: 5, wide: 7 }}>
             <LinkBlock
-              body="In dit akkoord staan de plannen en visie van de coalitie Pvda, GroenLinks en D66 voor 2022-2026."
               heading="Coalitieakkoord"
-              linkText="Coalitieakkoord en Uitvoeringsagenda"
+              headingLevel={2}
+              introduction="In dit akkoord staan de plannen en visie van de coalitie Pvda, GroenLinks en D66 voor 2022-2026."
+              links={['Coalitieakkoord en Uitvoeringsagenda']}
             />
           </Grid.Cell>
         </Grid>
         <Spotlight>
           <Grid paddingVertical="x-large">
             <Grid.Cell span={{ narrow: 4, medium: 4, wide: 5 }} start={{ narrow: 1, medium: 1, wide: 2 }}>
-              <Heading className="ams-mb-s" color="inverse" level={2} size="level-4">
+              <Heading className="ams-mb-s" color="inverse" level={2} size="level-3">
                 Persberichten en nieuws
               </Heading>
               <LinkList className="ams-mb-m">
@@ -205,18 +200,13 @@ export const WithImageGallery: StoryObj = {
                 <LinkList.Link color="inverse" href="#">
                   Definitief ontwerp voor nieuwe Jaap Eden IJshal
                 </LinkList.Link>
-              </LinkList>
-              <LinkList>
-                <StandaloneLink color="inverse" href="#">
+                <LinkList.Link color="inverse" href="#">
                   Meer persberichten
-                </StandaloneLink>
-                <StandaloneLink color="inverse" href="#">
-                  Persberichten over sluiten van panden
-                </StandaloneLink>
+                </LinkList.Link>
               </LinkList>
             </Grid.Cell>
             <Grid.Cell span={{ narrow: 4, medium: 4, wide: 5 }} start={{ narrow: 1, medium: 5, wide: 7 }}>
-              <Heading className="ams-mb-s" color="inverse" level={2} size="level-4">
+              <Heading className="ams-mb-s" color="inverse" level={2} size="level-3">
                 Besluiten B en W
               </Heading>
               <LinkList className="ams-mb-m">
@@ -229,23 +219,24 @@ export const WithImageGallery: StoryObj = {
                 <LinkList.Link color="inverse" href="#">
                   Nieuws uit B en W 25 juni 2025
                 </LinkList.Link>
+                <LinkList.Link color="inverse" href="#">
+                  Meer besluiten B en W
+                </LinkList.Link>
               </LinkList>
-              <StandaloneLink color="inverse" href="#">
-                Meer besluiten B en W
-              </StandaloneLink>
             </Grid.Cell>
           </Grid>
         </Spotlight>
         <Grid paddingVertical="x-large">
           <Grid.Cell span={{ narrow: 4, medium: 4, wide: 5 }} start={{ narrow: 1, medium: 1, wide: 2 }}>
             <LinkBlock
-              body="Voor vragen van journalisten aan de afdeling Bestuursvoorlichting."
               heading="Pers en woordvoering"
-              linkText="Pers"
+              headingLevel={2}
+              introduction="Voor vragen van journalisten aan de afdeling Bestuursvoorlichting."
+              links={['Pers']}
             />
           </Grid.Cell>
           <Grid.Cell span={{ narrow: 4, medium: 4, wide: 5 }} start={{ narrow: 1, medium: 5, wide: 7 }}>
-            <Heading className="ams-mb-s" level={2} size="level-4">
+            <Heading className="ams-mb-s" level={2} size="level-3">
               Meer over het college
             </Heading>
             <LinkList className="ams-mb-m">
@@ -256,7 +247,7 @@ export const WithImageGallery: StoryObj = {
             </LinkList>
           </Grid.Cell>
           <Grid.Cell span={{ narrow: 4, medium: 4, wide: 5 }} start={{ narrow: 1, medium: 1, wide: 2 }}>
-            <Heading className="ams-mb-s" level={2} size="level-4">
+            <Heading className="ams-mb-s" level={2} size="level-3">
               Contact
             </Heading>
             <Paragraph className="ams-mb-s">
@@ -273,7 +264,7 @@ export const WithImageGallery: StoryObj = {
             </UnorderedList>
           </Grid.Cell>
           <Grid.Cell span={{ narrow: 4, medium: 4, wide: 5 }} start={{ narrow: 1, medium: 5, wide: 7 }}>
-            <Heading className="ams-mb-s" level={2} size="level-4">
+            <Heading className="ams-mb-s" level={2} size="level-3">
               Rechtenvrije foto’s
             </Heading>
             <Image alt="" src="https://picsum.photos/640/360" />
@@ -298,7 +289,9 @@ export const SubnavigationPage: StoryObj = {
       <main id="inhoud" key={2}>
         <Grid paddingBottom="x-large">
           <Grid.Cell span={{ narrow: 4, medium: 6, wide: 7 }}>
-            <PageHeading className="ams-mb-m">{exampleHeading()}</PageHeading>
+            <Heading className="ams-mb-m" level={1}>
+              {exampleHeading()}
+            </Heading>
             <Paragraph size="large">
               Amsterdam wil een nieuwe traditie starten om met oud en nieuw naar een centrale nieuwjaarsviering te gaan
               in plaats van zelf vuurwerk af te steken.
@@ -313,30 +306,30 @@ export const SubnavigationPage: StoryObj = {
             </Heading>
             <Paragraph>{exampleParagraph()}</Paragraph>
           </Grid.Cell>
-          <LinkGroupGridCells linkGroups={burgerzakenLinks.slice(0, 6)} />
+          <LinkBlockGridCells linkGroups={burgerzakenLinks.slice(0, 6)} />
           <Grid.Cell span={{ narrow: 4, medium: 4, wide: 5 }} start={{ narrow: 1, medium: 1, wide: 2 }}>
-            <Heading className="ams-mb-s" level={2} size="level-4">
+            <Heading className="ams-mb-s" level={3}>
               {exampleHeading()}
             </Heading>
             <Paragraph className="ams-mb-m">{exampleParagraph()}</Paragraph>
             <StandaloneLink href="#">{exampleStandaloneLink()}</StandaloneLink>
           </Grid.Cell>
           <Grid.Cell span={{ narrow: 4, medium: 4, wide: 5 }}>
-            <Heading className="ams-mb-s" level={2} size="level-4">
+            <Heading className="ams-mb-s" level={3}>
               {exampleHeading()}
             </Heading>
             <Paragraph className="ams-mb-m">{exampleParagraph()}</Paragraph>
             <StandaloneLink href="#">{exampleStandaloneLink()}</StandaloneLink>
           </Grid.Cell>
           <Grid.Cell span={{ narrow: 4, medium: 4, wide: 5 }} start={{ narrow: 1, medium: 1, wide: 2 }}>
-            <Heading className="ams-mb-s" level={2} size="level-4">
+            <Heading className="ams-mb-s" level={3}>
               {exampleHeading()}
             </Heading>
             <Paragraph className="ams-mb-m">{exampleParagraph()}</Paragraph>
             <StandaloneLink href="#">{exampleStandaloneLink()}</StandaloneLink>
           </Grid.Cell>
           <Grid.Cell span={{ narrow: 4, medium: 4, wide: 5 }}>
-            <Heading className="ams-mb-s" level={2} size="level-4">
+            <Heading className="ams-mb-s" level={3}>
               {exampleHeading()}
             </Heading>
             <Paragraph className="ams-mb-m">{exampleParagraph()}</Paragraph>
@@ -346,13 +339,13 @@ export const SubnavigationPage: StoryObj = {
         <Spotlight color="magenta">
           <Grid paddingVertical="large">
             <Grid.Cell span={{ narrow: 4, medium: 4, wide: 5 }} start={{ narrow: 1, medium: 1, wide: 2 }}>
-              <Heading className="ams-mb-s" color="inverse" level={4}>
+              <Heading className="ams-mb-s" color="inverse" level={2} size="level-3">
                 {exampleHeading()}
               </Heading>
               <Paragraph color="inverse">{exampleParagraph()}</Paragraph>
             </Grid.Cell>
             <Grid.Cell span={{ narrow: 4, medium: 4, wide: 5 }}>
-              <Heading className="ams-mb-s" color="inverse" level={4}>
+              <Heading className="ams-mb-s" color="inverse" level={2} size="level-3">
                 {exampleHeading()}
               </Heading>
               <Paragraph color="inverse">{exampleParagraph()}</Paragraph>
@@ -366,12 +359,12 @@ export const SubnavigationPage: StoryObj = {
             </Heading>
             <Paragraph>{exampleParagraph()}</Paragraph>
           </Grid.Cell>
-          <LinkGroupGridCells linkGroups={burgerzakenLinks.slice(4, 8)} />
+          <LinkBlockGridCells linkGroups={burgerzakenLinks.slice(4, 8)} />
         </Grid>
         <Spotlight className="ams-mb-xl" color="green">
           <Grid paddingVertical="large">
             <Grid.Cell span={{ narrow: 4, medium: 5, wide: 7 }} start={{ narrow: 1, medium: 1, wide: 2 }}>
-              <Heading className="ams-mb-s" color="inverse" level={4}>
+              <Heading className="ams-mb-s" color="inverse" level={2} size="level-3">
                 Blijf op de hoogte
               </Heading>
               <Paragraph className="ams-mb-m" color="inverse">
@@ -383,7 +376,7 @@ export const SubnavigationPage: StoryObj = {
               </StandaloneLink>
             </Grid.Cell>
             <Grid.Cell span={{ narrow: 4, medium: 3, wide: 4 }}>
-              <Heading className="ams-mb-s" color="inverse" level={4}>
+              <Heading className="ams-mb-s" color="inverse" level={2} size="level-3">
                 Deel deze pagina
               </Heading>
               <LinkList>
