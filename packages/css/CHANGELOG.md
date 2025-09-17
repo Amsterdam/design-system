@@ -8,8 +8,17 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 ### ⚠ BREAKING CHANGES
 
-* Update breakpoint widths in Sass ([#2205](https://github.com/Amsterdam/design-system/issues/2205))
-* Decrease font sizes and line heights of Headings ([#2173](https://github.com/Amsterdam/design-system/issues/2173))
+* Changed breakpoint widths from `36rem` to `37.5rem` and `68rem` to `72.5rem`. If you use these, be sure to update them in your application. ([#2205](https://github.com/Amsterdam/design-system/issues/2205))
+* Decreased font sizes and line heights of Headings. If you use the `size` prop, be sure to visually check if the sizes are still ok. See the [example pages in Storybook](https://designsystem.amsterdam/?path=/docs/pages-introduction--docs) for the recommended sizes. In most cases, you should not need the `size` prop. ([#2173](https://github.com/Amsterdam/design-system/issues/2173))
+
+### Deprecations
+
+The following class names will be removed in the next major release. If you use them in your code, please delete them.
+
+* `ams-accordion__header`
+* `ams-icon--heading-0`
+* `ams-page-heading` and related classes
+* `ams-standalone-link--with-icon`
 
 ### Features
 
