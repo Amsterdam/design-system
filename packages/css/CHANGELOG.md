@@ -8,8 +8,8 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 ### ⚠ BREAKING CHANGES
 
-* Changed breakpoint widths from `36rem` to `37.5rem` and `68rem` to `72.5rem`. If you use these, be sure to update them in your application. ([#2205](https://github.com/Amsterdam/design-system/issues/2205))
-* Decreased font sizes and line heights of Headings. If you use the `size` prop, be sure to visually check if the sizes are still ok. See the [example pages in Storybook](https://designsystem.amsterdam/?path=/docs/pages-introduction--docs) for the recommended sizes. In most cases, you should not need the `size` prop. ([#2173](https://github.com/Amsterdam/design-system/issues/2173))
+* Changed breakpoint widths from `36rem` to `37.5rem` and `68rem` to `72.5rem`. Update to these values if your application uses breakpoints. ([#2205](https://github.com/Amsterdam/design-system/issues/2205))
+* Decreased font sizes and line heights of Headings. You should not need the `size` prop very often anymore. Try removing instances, but verify the visual result. See the [example pages in Storybook](https://designsystem.amsterdam/?path=/docs/pages-introduction--docs) for the approach we recommend. ([#2173](https://github.com/Amsterdam/design-system/issues/2173))
 
 ### Deprecations
 
