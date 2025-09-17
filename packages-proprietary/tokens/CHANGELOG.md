@@ -8,7 +8,20 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 ### ⚠ BREAKING CHANGES
 
-* Decrease font sizes and line heights of Headings ([#2173](https://github.com/Amsterdam/design-system/issues/2173))
+* Decreased font sizes and line heights of Headings. You should not need the `size` prop very often anymore. Try removing instances, but verify the visual result. See the [example pages in Storybook](https://designsystem.amsterdam/?path=/docs/pages-introduction--docs) for the approach we recommend. ([#2173](https://github.com/Amsterdam/design-system/issues/2173))
+
+### Deprecations
+
+The following tokens will be removed in the next major release. If you use them in your code, please delete them.
+
+* `ams.accordion.panel.*` and some tokens in `ams.accordion.button`
+* `ams.checkbox.hover.text-decoration-thickness` and `ams.checkbox.rectangle.*`
+* `ams.color.interactive.secondary`
+* `ams.icon.heading-0.*`
+* `ams.page-heading.*`
+* `ams.standalone-link.with-icon.*`, `ams.standalone-link.hover.text-decoration-thickness`  and `ams.standalone-link.hover.text-underline-offset` 
+* `ams.table-of-contents.*`
+* `ams.typography.heading.0.*` and `ams.typography.heading.6.*`
 
 ### Features
 
