@@ -3,6 +3,40 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.0.0](https://github.com/Amsterdam/design-system/compare/design-system-react-v1.1.0...design-system-react-v2.0.0) (2025-09-17)
+
+
+### ⚠ BREAKING CHANGES
+
+* Decrease font sizes and line heights of Headings ([#2173](https://github.com/Amsterdam/design-system/issues/2173))
+
+### Features
+
+* **Accordion:** Display Headings in the size that matches their levels ([#2193](https://github.com/Amsterdam/design-system/issues/2193)) ([a3e373f](https://github.com/Amsterdam/design-system/commit/a3e373f5351fcd3a45227506a438d3a4d9ba2d54))
+* Add Call to Action Link component ([#2132](https://github.com/Amsterdam/design-system/issues/2132)) ([908fc5d](https://github.com/Amsterdam/design-system/commit/908fc5d107ded55c344d9d8c40feeb8c2071a1c7))
+* Add Menu component for applications ([#2129](https://github.com/Amsterdam/design-system/issues/2129)) ([886c052](https://github.com/Amsterdam/design-system/commit/886c052164be28a6cea9ed029465a81604841aec))
+* Allow pairing an Icon with Headings 0–2 ([#2131](https://github.com/Amsterdam/design-system/issues/2131)) ([922ded9](https://github.com/Amsterdam/design-system/commit/922ded95c5e18ffeff4cee48e1d27b9bde4b1bf1))
+* **Checkbox, Error Message, Link List Link, Radio, Standalone Link:** Accept both functions and React nodes for icons ([#2166](https://github.com/Amsterdam/design-system/issues/2166)) ([a4b4609](https://github.com/Amsterdam/design-system/commit/a4b460908da7163a35d941ede46dba925017aa04))
+* **Checkbox, Radio:** Allow passing a custom ID ([#2153](https://github.com/Amsterdam/design-system/issues/2153)) ([3d0d6f2](https://github.com/Amsterdam/design-system/commit/3d0d6f2ef1945687e7bef2f31596d04171c4895e))
+* Decrease font sizes and line heights of Headings ([#2173](https://github.com/Amsterdam/design-system/issues/2173)) ([a70e945](https://github.com/Amsterdam/design-system/commit/a70e94503a524e97493ecffd4d3b005308307d3e))
+* Ensure that Checkbox, Icon, Image, Logo, and Radio still look acceptable if CSS fails to load ([#2159](https://github.com/Amsterdam/design-system/issues/2159)) ([95e4d1a](https://github.com/Amsterdam/design-system/commit/95e4d1a975b5798b63fa8fb8f96bea95db7f1252))
+* **Error Message:** Use regular text size instead of small ([#2163](https://github.com/Amsterdam/design-system/issues/2163)) ([c5045a0](https://github.com/Amsterdam/design-system/commit/c5045a068980a1e4614ba5bc627b05e1fa4e7813))
+* **Heading:** Make sizing consistent in various components and examples ([#2160](https://github.com/Amsterdam/design-system/issues/2160)) ([82184bf](https://github.com/Amsterdam/design-system/commit/82184bfc4b317cb2f219ba5975250b23c7dc8fa9))
+* **Pagination:** Rename `*visuallyHidden*` props to `*accessibleName*` to align with conventions ([#2135](https://github.com/Amsterdam/design-system/issues/2135)) ([468c050](https://github.com/Amsterdam/design-system/commit/468c05055dedd8e19f4c2956b931154715650bf8))
+* **Standalone Link:** Deprecate the variation with only an underline ([#2136](https://github.com/Amsterdam/design-system/issues/2136)) ([d5059da](https://github.com/Amsterdam/design-system/commit/d5059da21009d608346e68526d7b468e693fbc60))
+
+
+### Bug Fixes
+
+* Add label to Alert, and remove it from InvalidFormAlert ([#2126](https://github.com/Amsterdam/design-system/issues/2126)) ([572966d](https://github.com/Amsterdam/design-system/commit/572966dd4404719e808566099620b356138e9252))
+* **deps:** Bump @babel/runtime from 7.27.4 to 7.27.6 in the patch-and-minor-dependencies group ([#2092](https://github.com/Amsterdam/design-system/issues/2092)) ([586b8a5](https://github.com/Amsterdam/design-system/commit/586b8a580efc1ba424360c9821f60b6d0a07bf24))
+* **deps:** Bump @babel/runtime from 7.27.6 to 7.28.2 in the patch-and-minor-dependencies group ([#2151](https://github.com/Amsterdam/design-system/issues/2151)) ([c66ac92](https://github.com/Amsterdam/design-system/commit/c66ac92d3503528351569bd3d21daffa6e565f29))
+* **deps:** bump @babel/runtime from 7.28.2 to 7.28.3 in the patch-and-minor-dependencies group ([#2180](https://github.com/Amsterdam/design-system/issues/2180)) ([3acf5a5](https://github.com/Amsterdam/design-system/commit/3acf5a5ae53aacd7e0edff19d26adad0f98717d3))
+* **deps:** bump @babel/runtime from 7.28.3 to 7.28.4 in the patch-and-minor-dependencies group ([#2196](https://github.com/Amsterdam/design-system/issues/2196)) ([4a7839f](https://github.com/Amsterdam/design-system/commit/4a7839fabc0303e4b53f582745c4d2718f2612ce))
+* **Page Header:** Remove heading and image from navigation section ([#2139](https://github.com/Amsterdam/design-system/issues/2139)) ([cc90a55](https://github.com/Amsterdam/design-system/commit/cc90a553c1509e97954ee999bf91d6395d8bbf89))
+* **Pagination:** Show page number instead of ellipsis if it fits ([#2191](https://github.com/Amsterdam/design-system/issues/2191)) ([296c4ef](https://github.com/Amsterdam/design-system/commit/296c4efd6421de9c3c128d34f2f6b92d5ff56b84))
+* **Table of Contents:** Deprecate unused tokens and class name ([#2190](https://github.com/Amsterdam/design-system/issues/2190)) ([4bb9977](https://github.com/Amsterdam/design-system/commit/4bb997779112f48ca88b6bb9c501f4913a49c501))
+
 ## [1.1.0](https://github.com/Amsterdam/design-system/compare/design-system-react-v1.0.0...design-system-react-v1.1.0) (2025-06-06)
 
 
