@@ -1,0 +1,4 @@
+import{r as d,j as c,c as i}from"./iframe-BmGlNoEc.js";const a=d.forwardRef(({children:r,className:s,color:t,...o},n)=>c.jsx("h1",{...o,className:i("ams-page-heading",t&&`ams-page-heading--${t}`,s),ref:n,children:r}));a.displayName="PageHeading";try{a.displayName="PageHeading",a.__docgenInfo={description:"",displayName:"PageHeading",props:{}}}catch{}/**
+ * @license EUPL-1.2+
+ * Copyright Gemeente Amsterdam
+ */const p={title:"Components/Text/Page Heading",component:a,args:{children:"Gemeente Amsterdam"}},e={};e.parameters={...e.parameters,docs:{...e.parameters?.docs,source:{originalSource:"{}",...e.parameters?.docs?.source}}};const g=["Default"],l=Object.freeze(Object.defineProperty({__proto__:null,Default:e,__namedExportsOrder:g,default:p},Symbol.toStringTag,{value:"Module"}));export{l as P};
