@@ -1,0 +1,7 @@
+import type { SVGProps } from 'react'
+const SvgChevronBackward = (props: SVGProps<SVGSVGElement>) => (
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true" focusable="false" {...props}>
+    <path fillRule="evenodd" d="M16.089 2.5 6.5 12l9.589 9.5 1.411-1.398L9.323 12 17.5 3.898z" clipRule="evenodd" />
+  </svg>
+)
+export default SvgChevronBackward
