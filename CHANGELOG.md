@@ -3,6 +3,13 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.1](https://github.com/Amsterdam/design-system/compare/design-system-assets-v1.0.0...design-system-assets-v1.0.1) (2025-09-17)
+
+
+### Bug Fixes
+
+* **Icon:** Unswap icons for logging in and out ([#2115](https://github.com/Amsterdam/design-system/issues/2115)) ([9d5ae8a](https://github.com/Amsterdam/design-system/commit/9d5ae8a8e6a33d13ecfbaf91037c932bf6c37ec4))
+
 ## [1.0.0](https://github.com/Amsterdam/design-system/compare/design-system-assets-v0.3.0...design-system-assets-v1.0.0) (2025-05-28)
 
 
