@@ -19,6 +19,7 @@ The following class names will be removed in the next major release. If you use 
 * `ams-icon--heading-0`
 * `ams-page-heading` and related classes
 * `ams-standalone-link--with-icon`
+* `ams-table-of-contents__heading`
 
 ### Features
 
