@@ -3,20 +3,22 @@
  * Copyright Gemeente Amsterdam
  */
 
-import clsx from 'clsx'
-import { forwardRef, useEffect, useMemo, useState } from 'react'
 import type { ForwardedRef, HTMLAttributes, PropsWithChildren } from 'react'
+
+import { clsx } from 'clsx'
+import { forwardRef, useEffect, useMemo, useState } from 'react'
+
 import { TabsButton } from './TabsButton'
 import { TabsContext } from './TabsContext'
 import { TabsList } from './TabsList'
 import { TabsPanel } from './TabsPanel'
 
-export type TabsProps = {
+export type TabsProps = PropsWithChildren<HTMLAttributes<HTMLDivElement>> & {
   /** The identifier of the initially active Tab. Corresponds to its Panel `id` value. */
   activeTab?: string
   /* Provides the id of the activated Panel. */
   onTabChange?: (panelId: string) => void
-} & PropsWithChildren<HTMLAttributes<HTMLDivElement>>
+}
 
 const TabsRoot = forwardRef(
   ({ activeTab, children, className, onTabChange, ...restProps }: TabsProps, ref: ForwardedRef<HTMLDivElement>) => {

@@ -3,9 +3,11 @@
  * Copyright Gemeente Amsterdam
  */
 
-import clsx from 'clsx'
-import { forwardRef } from 'react'
 import type { ForwardedRef, HTMLAttributes, PropsWithChildren } from 'react'
+
+import { clsx } from 'clsx'
+import { forwardRef } from 'react'
+
 import { GridCell } from './GridCell'
 import { paddingClasses } from './paddingClasses'
 
@@ -40,13 +42,13 @@ type GridPaddingTopAndBottomProps = {
   paddingVertical?: never
 }
 
-export type GridProps = {
-  /** The HTML tag to use. */
-  as?: GridTag
-  /** The amount of space between rows. */
-  gapVertical?: GridGap
-} & (GridPaddingVerticalProp | GridPaddingTopAndBottomProps) &
-  PropsWithChildren<HTMLAttributes<HTMLDivElement>>
+export type GridProps = (GridPaddingVerticalProp | GridPaddingTopAndBottomProps) &
+  PropsWithChildren<HTMLAttributes<HTMLDivElement>> & {
+    /** The HTML tag to use. */
+    as?: GridTag
+    /** The amount of space between rows. */
+    gapVertical?: GridGap
+  }
 
 const GridRoot = forwardRef(
   (

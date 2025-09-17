@@ -3,12 +3,15 @@
  * Copyright Gemeente Amsterdam
  */
 
-import clsx from 'clsx'
-import { forwardRef } from 'react'
 import type { ForwardedRef, HTMLAttributes, PropsWithChildren } from 'react'
-import type { BreakoutRowNumber, BreakoutRowNumbers } from './Breakout'
-import { breakoutCellClasses } from './breakoutCellClasses'
+
+import { clsx } from 'clsx'
+import { forwardRef } from 'react'
+
 import type { GridColumnNumber, GridColumnNumbers } from '../Grid/Grid'
+import type { BreakoutRowNumber, BreakoutRowNumbers } from './Breakout'
+
+import { breakoutCellClasses } from './breakoutCellClasses'
 
 export const breakoutCellTags = ['article', 'div', 'section'] as const
 type BreakoutCellTag = (typeof breakoutCellTags)[number]
@@ -38,12 +41,12 @@ type BreakoutCellRowSpanAndStartProps = {
   rowStart?: BreakoutRowNumber | BreakoutRowNumbers
 }
 
-export type BreakoutCellProps = {
-  /** The HTML element to use. */
-  as?: BreakoutCellTag
-} & (BreakoutCellSpanAllProp | BreakoutCellSpanAndStartProps) &
-  BreakoutCellRowSpanAndStartProps &
-  PropsWithChildren<HTMLAttributes<HTMLElement>>
+export type BreakoutCellProps = BreakoutCellRowSpanAndStartProps &
+  (BreakoutCellSpanAllProp | BreakoutCellSpanAndStartProps) &
+  PropsWithChildren<HTMLAttributes<HTMLElement>> & {
+    /** The HTML element to use. */
+    as?: BreakoutCellTag
+  }
 
 export const BreakoutCell = forwardRef(
   (

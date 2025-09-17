@@ -3,19 +3,21 @@
  * Copyright Gemeente Amsterdam
  */
 
-import clsx from 'clsx'
-import { forwardRef } from 'react'
 import type { ForwardedRef, OlHTMLAttributes, PropsWithChildren } from 'react'
+
+import { clsx } from 'clsx'
+import { forwardRef } from 'react'
+
 import { OrderedListItem } from './OrderedListItem'
 
-export type OrderedListProps = {
+export type OrderedListProps = PropsWithChildren<OlHTMLAttributes<HTMLOListElement>> & {
   /** Changes the text colour for readability on a dark background. */
   color?: 'inverse'
   /** Whether the list items show a marker. */
   markers?: boolean
   /** The size of the text. */
   size?: 'small'
-} & PropsWithChildren<OlHTMLAttributes<HTMLOListElement>>
+}
 
 const OrderedListRoot = forwardRef(
   (

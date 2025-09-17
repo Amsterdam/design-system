@@ -16,9 +16,7 @@
 }
 
 .ams-accordion__header {
-  display: flex;
-  margin-block: 0;
-  margin-inline: 0;
+  /* This class name is deprecated. */
 }
 
 @mixin reset-button {
@@ -34,17 +32,16 @@
   color: var(--ams-accordion-button-color);
   cursor: var(--ams-accordion-button-cursor);
   display: flex;
-  font-family: var(--ams-accordion-button-font-family);
-  font-size: var(--ams-accordion-button-font-size);
-  font-weight: var(--ams-accordion-button-font-weight);
+  font-family: inherit;
+  font-size: inherit;
+  font-weight: inherit;
   gap: var(--ams-accordion-button-gap);
   inline-size: 100%;
-  line-height: var(--ams-accordion-button-line-height);
+  line-height: inherit;
   outline-offset: var(--ams-accordion-button-outline-offset);
   padding-block: var(--ams-accordion-button-padding-block);
   padding-inline: var(--ams-accordion-button-padding-inline);
   text-align: start;
-  text-wrap: var(--ams-accordion-button-text-wrap);
 
   @include reset-button;
 
@@ -72,8 +69,6 @@
 
 .ams-accordion__panel {
   display: none;
-  padding-block: var(--ams-accordion-panel-padding-block);
-  padding-inline: var(--ams-accordion-panel-padding-inline);
 }
 
 .ams-accordion__panel--expanded {

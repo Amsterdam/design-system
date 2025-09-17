@@ -9,16 +9,17 @@
  * Copyright Gemeente Amsterdam
  */
 
-import clsx from 'clsx'
-import { forwardRef } from 'react'
 import type { ForwardedRef, HTMLAttributes, PropsWithChildren } from 'react'
 
-export type ParagraphProps = {
+import { clsx } from 'clsx'
+import { forwardRef } from 'react'
+
+export type ParagraphProps = PropsWithChildren<HTMLAttributes<HTMLParagraphElement>> & {
   /** Changes the text colour for readability on a dark background. */
   color?: 'inverse'
   /** The size of the text. */
   size?: 'small' | 'large'
-} & PropsWithChildren<HTMLAttributes<HTMLParagraphElement>>
+}
 
 /**
  * @see {@link https://designsystem.amsterdam/?path=/docs/components-text-paragraph--docs Paragraph docs at Amsterdam Design System}

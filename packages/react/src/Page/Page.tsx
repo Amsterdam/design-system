@@ -3,9 +3,10 @@
  * Copyright Gemeente Amsterdam
  */
 
-import clsx from 'clsx'
-import { forwardRef } from 'react'
 import type { ForwardedRef, HTMLAttributes, PropsWithChildren } from 'react'
+
+import { clsx } from 'clsx'
+import { forwardRef } from 'react'
 
 export type PageProps = PropsWithChildren<HTMLAttributes<HTMLDivElement>>
 

@@ -3,11 +3,14 @@
  * Copyright Gemeente Amsterdam
  */
 
-import { forwardRef, useState } from 'react'
 import type { ForwardedRef, HTMLAttributes } from 'react'
+
+import { forwardRef, useState } from 'react'
+
+import type { HeadingProps } from '../Heading'
+
 import { InvalidFormAlertWithErrors } from './InvalidFormAlertWithErrors'
 import { useAddErrorCountToDocumentTitle } from './useAddErrorCountToDocumentTitle'
-import type { HeadingProps } from '../Heading'
 
 export type ErrorLink = {
   id: string

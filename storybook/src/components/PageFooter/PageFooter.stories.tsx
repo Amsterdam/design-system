@@ -3,8 +3,9 @@
  * Copyright Gemeente Amsterdam
  */
 
+import type { ReactNode } from 'react'
+
 import { Grid, Heading, LinkList, Paragraph, StandaloneLink } from '@amsterdam/design-system-react'
-import { PageFooter } from '@amsterdam/design-system-react/src'
 import {
   ClockIcon,
   FacebookIcon,
@@ -14,8 +15,8 @@ import {
   MastodonIcon,
   PhoneIcon,
 } from '@amsterdam/design-system-react-icons'
+import { PageFooter } from '@amsterdam/design-system-react/src'
 import { Meta, StoryObj } from '@storybook/react-vite'
-import type { ReactNode } from 'react'
 
 const meta = {
   title: 'Components/Containers/Page Footer',
@@ -46,7 +47,7 @@ export const Default: Story = {
       <PageFooter.Spotlight key={1}>
         <Grid paddingVertical="x-large">
           <Grid.Cell span={4}>
-            <Heading className="ams-mb-s" color="inverse" level={2} size="level-4">
+            <Heading className="ams-mb-s" color="inverse" level={2} size="level-3">
               Contact
             </Heading>
             <LinkList className="ams-mb-xl">
@@ -60,7 +61,7 @@ export const Default: Story = {
                 Adressen en openingstijden
               </LinkList.Link>
             </LinkList>
-            <Heading className="ams-mb-s" color="inverse" level={2} size="level-4">
+            <Heading className="ams-mb-s" color="inverse" level={2} size="level-3">
               Vacatures
             </Heading>
             <StandaloneLink color="inverse" href="#">
@@ -68,7 +69,7 @@ export const Default: Story = {
             </StandaloneLink>
           </Grid.Cell>
           <Grid.Cell span={4} start={{ narrow: 1, medium: 5, wide: 5 }}>
-            <Heading className="ams-mb-s" color="inverse" level={2} size="level-4">
+            <Heading className="ams-mb-s" color="inverse" level={2} size="level-3">
               Volg ons
             </Heading>
             <LinkList>
@@ -80,7 +81,7 @@ export const Default: Story = {
             </LinkList>
           </Grid.Cell>
           <Grid.Cell span={4} start={{ narrow: 1, medium: 1, wide: 9 }}>
-            <Heading className="ams-mb-s" color="inverse" level={2} size="level-4">
+            <Heading className="ams-mb-s" color="inverse" level={2} size="level-3">
               Doen in de stad
             </Heading>
             <LinkList>
@@ -116,7 +117,7 @@ export const OnderzoekEnStatistiek: Story = {
       <PageFooter.Spotlight key={1}>
         <Grid paddingVertical="x-large">
           <Grid.Cell span={3}>
-            <Heading className="ams-mb-s" color="inverse" level={2} size="level-4">
+            <Heading className="ams-mb-s" color="inverse" level={2} size="level-3">
               Contact
             </Heading>
             <Paragraph className="ams-mb-m" color="inverse">
@@ -132,7 +133,7 @@ export const OnderzoekEnStatistiek: Story = {
             </LinkList>
           </Grid.Cell>
           <Grid.Cell span={3} start={{ narrow: 1, medium: 5, wide: 5 }}>
-            <Heading className="ams-mb-s" color="inverse" level={2} size="level-4">
+            <Heading className="ams-mb-s" color="inverse" level={2} size="level-3">
               Panels en enquêtes
             </Heading>
             <Paragraph className="ams-mb-m" color="inverse">
@@ -151,7 +152,7 @@ export const OnderzoekEnStatistiek: Story = {
             </LinkList>
           </Grid.Cell>
           <Grid.Cell span={3} start={{ narrow: 1, medium: 1, wide: 9 }}>
-            <Heading className="ams-mb-s" color="inverse" level={2} size="level-4">
+            <Heading className="ams-mb-s" color="inverse" level={2} size="level-3">
               Onderzoek en Statistiek
             </Heading>
             <LinkList>

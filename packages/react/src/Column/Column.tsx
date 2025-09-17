@@ -3,9 +3,11 @@
  * Copyright Gemeente Amsterdam
  */
 
-import clsx from 'clsx'
-import { forwardRef } from 'react'
 import type { HTMLAttributes, PropsWithChildren } from 'react'
+
+import { clsx } from 'clsx'
+import { forwardRef } from 'react'
+
 import type { CrossAlignForColumn, MainAlign } from '../common/types'
 
 export const columnTags = ['article', 'div', 'section'] as const
@@ -14,7 +16,7 @@ type ColumnTag = (typeof columnTags)[number]
 export const columnGapSizes = ['none', 'x-small', 'small', 'large', 'x-large'] as const
 type ColumnGap = (typeof columnGapSizes)[number]
 
-export type ColumnProps = {
+export type ColumnProps = PropsWithChildren<HTMLAttributes<HTMLElement>> & {
   /**
    * The vertical alignment of the items in the column.
    * @default start
@@ -35,7 +37,7 @@ export type ColumnProps = {
    * @default medium
    */
   gap?: ColumnGap
-} & PropsWithChildren<HTMLAttributes<HTMLElement>>
+}
 
 /**
  * @see {@link https://designsystem.amsterdam/?path=/docs/components-layout-column--docs Column docs at Amsterdam Design System}

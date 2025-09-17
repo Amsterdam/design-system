@@ -37,9 +37,11 @@ More detailed content should probably be split into multiple pages or have some 
 
 ### Sizes
 
-It may be visually more suitable to display a heading in a smaller font size.
-Six sizes from the set of [Text Levels](/docs/brand-design-tokens-typography--docs) can be used for this purpose.
+Sometimes, it may be visually more suitable to make a heading appear a bit smaller.
+The `size` prop can be used for this.
+Do so sparingly; the sizes have been designed to match their semantic level.
 Ensure that you still select a level that accurately represents the section’s hierarchy.
+These, for example, are all Headings at level 2, but with sizes 1 to 5:
 
 <Canvas of={HeadingStories.Sizes} />
 
@@ -52,7 +54,7 @@ This ensures the colour of the text provides enough contrast.
 
 ### With an icon
 
-Headings with level 3 to 6 can be paired with an icon.
+Headings can be paired with an icon.
 Use a [Row](/docs/components-layout-row--docs) and the `size` prop of [Icon](/docs/components-media-icon--docs) to align them.
 
 <Canvas of={HeadingStories.WithIcon} />

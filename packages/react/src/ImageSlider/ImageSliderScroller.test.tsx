@@ -5,6 +5,7 @@
 
 import { render } from '@testing-library/react'
 import { createRef } from 'react'
+
 import { ImageSliderScroller } from './ImageSliderScroller'
 import '@testing-library/jest-dom'
 
