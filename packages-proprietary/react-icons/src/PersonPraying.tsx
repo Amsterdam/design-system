@@ -1,9 +1,10 @@
 import type { SVGProps } from 'react'
+
 const SvgPersonPraying = (props: SVGProps<SVGSVGElement>) => (
-  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" aria-hidden="true" focusable="false" {...props}>
+  <svg aria-hidden="true" focusable="false" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" {...props}>
     <path
-      fillRule="evenodd"
       d="M15 22v-6.157L12 19l-8.005-9H9l2.972 3.215L15 10h3c1.015 0 2 1 2 2.027v10.978L16.999 26H22v2h10v2H0v-2h9zm1-14a3 3 0 1 1 0-6 3 3 0 0 1 0 6"
+      fillRule="evenodd"
     />
   </svg>
 )
