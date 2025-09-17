@@ -3,6 +3,52 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.0.0](https://github.com/Amsterdam/design-system/compare/design-system-css-v1.0.1...design-system-css-v2.0.0) (2025-09-17)
+
+
+### ⚠ BREAKING CHANGES
+
+* Changed breakpoint widths from `36rem` to `37.5rem` and `68rem` to `72.5rem`. Update to these values if your application uses breakpoints. ([#2205](https://github.com/Amsterdam/design-system/issues/2205))
+* Decreased font sizes and line heights of Headings. You should not need the `size` prop very often anymore. Try removing instances, but verify the visual result. See the [example pages in Storybook](https://designsystem.amsterdam/?path=/docs/pages-introduction--docs) for the approach we recommend. ([#2173](https://github.com/Amsterdam/design-system/issues/2173))
+
+### Deprecations
+
+The following class names will be removed in the next major release. If you use them in your code, please delete them.
+
+* `ams-accordion__header`
+* `ams-icon--heading-0`
+* `ams-page-heading` and related classes
+* `ams-standalone-link--with-icon`
+* `ams-table-of-contents__heading`
+
+### Features
+
+* **Accordion:** Display Headings in the size that matches their levels ([#2193](https://github.com/Amsterdam/design-system/issues/2193)) ([a3e373f](https://github.com/Amsterdam/design-system/commit/a3e373f5351fcd3a45227506a438d3a4d9ba2d54))
+* Add Call to Action Link component ([#2132](https://github.com/Amsterdam/design-system/issues/2132)) ([908fc5d](https://github.com/Amsterdam/design-system/commit/908fc5d107ded55c344d9d8c40feeb8c2071a1c7))
+* Add Menu component for applications ([#2129](https://github.com/Amsterdam/design-system/issues/2129)) ([886c052](https://github.com/Amsterdam/design-system/commit/886c052164be28a6cea9ed029465a81604841aec))
+* Allow pairing an Icon with Headings 0–2 ([#2131](https://github.com/Amsterdam/design-system/issues/2131)) ([922ded9](https://github.com/Amsterdam/design-system/commit/922ded95c5e18ffeff4cee48e1d27b9bde4b1bf1))
+* Decrease font sizes and grid width in Spacious Mode, and increase Heading sizes in Compact Mode ([#2119](https://github.com/Amsterdam/design-system/issues/2119)) ([d60f487](https://github.com/Amsterdam/design-system/commit/d60f4873e7b2e198a8abae14c67fbc13cc98f7a0))
+* Decrease font sizes and line heights of Headings ([#2173](https://github.com/Amsterdam/design-system/issues/2173)) ([a70e945](https://github.com/Amsterdam/design-system/commit/a70e94503a524e97493ecffd4d3b005308307d3e))
+* Decrease offset between link underlines and text baseline ([#2134](https://github.com/Amsterdam/design-system/issues/2134)) ([bf5a69c](https://github.com/Amsterdam/design-system/commit/bf5a69cd9f6a8fe01c651edab73029a43f37999c))
+* Ensure that Checkbox, Icon, Image, Logo, and Radio still look acceptable if CSS fails to load ([#2159](https://github.com/Amsterdam/design-system/issues/2159)) ([95e4d1a](https://github.com/Amsterdam/design-system/commit/95e4d1a975b5798b63fa8fb8f96bea95db7f1252))
+* **Heading:** Make sizing consistent in various components and examples ([#2160](https://github.com/Amsterdam/design-system/issues/2160)) ([82184bf](https://github.com/Amsterdam/design-system/commit/82184bfc4b317cb2f219ba5975250b23c7dc8fa9))
+* **Inputs, Text Area, Select, Button:** Improve line height of entered text ([#2161](https://github.com/Amsterdam/design-system/issues/2161)) ([18d9a7d](https://github.com/Amsterdam/design-system/commit/18d9a7d5010a54a6e08893dfbf72f1e7b9434e69))
+* **Ordered List, Unordered List:** Visually group nested list with parent item ([#2133](https://github.com/Amsterdam/design-system/issues/2133)) ([cf6a28f](https://github.com/Amsterdam/design-system/commit/cf6a28f1e9a340e4cf3b3e9a442d470c7f9e4f61))
+* **Standalone Link:** Deprecate the variation with only an underline ([#2136](https://github.com/Amsterdam/design-system/issues/2136)) ([d5059da](https://github.com/Amsterdam/design-system/commit/d5059da21009d608346e68526d7b468e693fbc60))
+* Update breakpoint widths in Sass ([#2205](https://github.com/Amsterdam/design-system/issues/2205)) ([1034679](https://github.com/Amsterdam/design-system/commit/10346793f0c5891cc080ade4433939937a08edfb))
+
+
+### Bug Fixes
+
+* **Alert:** Restore horizontal centering of icon ([#2098](https://github.com/Amsterdam/design-system/issues/2098)) ([df87c0b](https://github.com/Amsterdam/design-system/commit/df87c0b08e3fbbee0ae255f6b8e2d4ecc00899ad))
+* **Checkbox:** Refactor CSS, reorder tokens, add input state documentation ([#2058](https://github.com/Amsterdam/design-system/issues/2058)) ([a13ea6d](https://github.com/Amsterdam/design-system/commit/a13ea6d65a54b06120ce4d43ea4b1dd67d562496))
+* **Date Input, Time Input:** Equalise height to that of other Inputs and Select ([#2143](https://github.com/Amsterdam/design-system/issues/2143)) ([3593bd8](https://github.com/Amsterdam/design-system/commit/3593bd88363e2e5a2d8a69e9b2df31a813c60e92))
+* **Invalid Form Alert:** Remove outline offset hack ([#2189](https://github.com/Amsterdam/design-system/issues/2189)) ([660e0a1](https://github.com/Amsterdam/design-system/commit/660e0a1e946c82cc32b03ad0a5a589e333f9716d))
+* **Select:** Use intrisic size instead of 100% ([#2142](https://github.com/Amsterdam/design-system/issues/2142)) ([e71f40e](https://github.com/Amsterdam/design-system/commit/e71f40ef60a404d072e78e3ab7505da752fb5f7b))
+* **Switch:** Remove phantom whitespace below ([#2155](https://github.com/Amsterdam/design-system/issues/2155)) ([ad0108e](https://github.com/Amsterdam/design-system/commit/ad0108efa5a9421b425eabfc73dbeadde624e5a6))
+* Use correct styling for disabled and / or invalid inputs ([#2168](https://github.com/Amsterdam/design-system/issues/2168)) ([af42723](https://github.com/Amsterdam/design-system/commit/af427237eb54cf805eead4925b2e98a49d21c652))
+* Use correct underline width for Standalone Link with icon ([#2096](https://github.com/Amsterdam/design-system/issues/2096)) ([a87b5a8](https://github.com/Amsterdam/design-system/commit/a87b5a82636bed3c4e20fa0a7113f7cfca20efe0))
+
 ## [1.0.1](https://github.com/Amsterdam/design-system/compare/design-system-css-v1.0.0...design-system-css-v1.0.1) (2025-06-06)
 
 
