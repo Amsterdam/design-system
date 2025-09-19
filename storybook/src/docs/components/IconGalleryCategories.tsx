@@ -66,15 +66,7 @@ export const SeverityIcons = [
   'WarningIcon',
 ]
 
-export const UniversalIcons = [
-  'CloseIcon',
-  'MaximizeIcon',
-  'MinimizeIcon',
-  'SaveFillIcon',
-  'SaveIcon',
-  'SearchIcon',
-  'VotingBallotIcon',
-]
+export const UniversalIcons = ['CloseIcon', 'MaximizeIcon', 'MinimizeIcon', 'SaveFillIcon', 'SaveIcon', 'SearchIcon']
 
 export const FormattingIcons = [
   'FormattingBoldIcon',
