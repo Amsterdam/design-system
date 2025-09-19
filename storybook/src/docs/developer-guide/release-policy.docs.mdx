@@ -24,7 +24,7 @@ We publish the code libraries of our design system as **5 separate npm packages*
 
 Each package has its **own version number**.
 The design system as a whole **does not have** a single overarching version.
-Because of cross-dependencies, the 3 CSS and React packages will often move to a new major version together.
+Because of cross-dependencies, the CSS, React and tokens packages will often move to a new major version together.
 
 We follow [semantic versioning](https://semver.org) to indicate the impact of changes:
 
@@ -40,7 +40,7 @@ Non-breaking changes get **released as needed**, usually at the end of our 4-wee
 We currently don’t define how long we **support older versions** and backport fixes to them.
 We recommend staying up to date with at least each major release.
 
-## Deprecated API
+## Deprecation process
 
 We deprecate public features – React components, CSS classes, assets and design tokens – before removing them, so you have enough time to migrate.
 
@@ -48,11 +48,12 @@ We keep features available until the **second major release** after their deprec
 All deprecations and removals are noted in the changelogs.
 Find migration guidance in release notes, on this website, in JSDoc annotations, or comments in code.
 
-## Deleted API
+## Deletion process
 
 - Address TypeScript errors that result from changes to names, props and prop values of **React components**.
 - Read the changelog to find whether **CSS classes** that you may hook into were changed or removed.
 - Do the same for our **CSS custom properties** that you use in your components.
+  The Stylelint plugin `stylelint-value-no-unknown-custom-properties` could help here.
 
 ## Communication channels
 
