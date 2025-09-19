@@ -95,14 +95,6 @@ export const Size: Story = {
   },
 }
 
-export const Placeholder: Story = {
-  args: {
-    defaultValue: '',
-    placeholder: 'bijv. 06-12345678',
-    size: 16,
-  },
-}
-
 export const Invalid: Story = {
   args: {
     defaultValue: 'Deze waarde is ongeldig',

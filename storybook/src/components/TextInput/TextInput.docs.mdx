@@ -106,15 +106,18 @@ This also gives browsers or extensions an opportunity to add an icon or button a
 
 ### Placeholder
 
-This text appears in the field when it is empty. It can give a brief hint about the kind of data to enter.
+We advise against placing a placeholder in an input field.
 
-Don’t try too hard to find a suitable text for a placeholder.
-Inputs without placeholder text are just fine – the label and a description should be clear enough.
-Do not use a placeholder instead of a [Label](/docs/components-forms-label--docs).
+This text would only appear in the field when it is empty, which instead may make it appear filled in.
+Even more so, the text disappears immediately after the user starts typing, which means they are no longer able to check whether their input matches the suggestions.
+Thirdly, their usual grey colour is often difficult to read.
 
-Follow the [guidelines for placeholder text](https://www.nldesignsystem.nl/richtlijnen/formulieren/placeholders) by NL Design System.
+Inputs without placeholder text are just fine.
+Any text that you consider for a placeholder can be included in the description.
 
-<Canvas of={TextInputStories.Placeholder} />
+See also the [guidelines for placeholder text](https://www.nldesignsystem.nl/richtlijnen/formulieren/placeholders) by NL Design System, and [the advice to avoid them](https://design-system.service.gov.uk/components/text-input/#avoid-placeholder-text) by GOV UK.
+
+In case third party applications does use placeholders, the component does apply the correct font and colour to them.
 
 ### Invalid
 
