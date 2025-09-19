@@ -189,8 +189,8 @@ importers:
         specifier: workspace:*
         version: link:../css
       '@amsterdam/design-system-react-icons':
-        specifier: workspace:*
-        version: link:../../packages-proprietary/react-icons
+        specifier: 1.0.1
+        version: 1.0.1(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       '@babel/runtime':
         specifier: 7.28.4
         version: 7.28.4
@@ -372,6 +372,12 @@ packages:
 
   '@adobe/css-tools@4.4.4':
     resolution: {integrity: sha512-Elp+iwUx5rN5+Y8xLt5/GRoG20WGoDCQ/1Fb+1LiGtvwbDavuSk0jhD/eZdckHAuzcDzccnkv+rEjyWfRx18gg==}
+
+  '@amsterdam/design-system-react-icons@1.0.1':
+    resolution: {integrity: sha512-fL7OupnEiZ5yySwlpSjJNUmrFf2JTuDGQEOIQKFDpCgYW/EQN/AZ03MeIPA1OtWGFrZaQfHRcFBh5Ckd71SnIA==}
+    peerDependencies:
+      react: 16 - 19
+      react-dom: 16 - 19
 
   '@asamuzakjp/css-color@3.2.0':
     resolution: {integrity: sha512-K1A6z8tS3XsmCMM86xoWdn7Fkdn9m6RSVtocUrJYIwZnFVkng/PvkEoWtOWmP+Scc6saYWHWZYbndEEXxl24jw==}
@@ -7095,6 +7101,11 @@ packages:
 snapshots:
 
   '@adobe/css-tools@4.4.4': {}
+
+  '@amsterdam/design-system-react-icons@1.0.1(react-dom@18.3.1(react@18.3.1))(react@18.3.1)':
+    dependencies:
+      react: 18.3.1
+      react-dom: 18.3.1(react@18.3.1)
 
   '@asamuzakjp/css-color@3.2.0':
     dependencies:
