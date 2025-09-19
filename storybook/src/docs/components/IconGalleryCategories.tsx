@@ -1,24 +1,24 @@
 export const ApplicationIcons = [
-  'CopyIcon',
   'CopyFillIcon',
+  'CopyIcon',
   'DownloadIcon',
-  'DuplicateIcon',
   'DuplicateFillIcon',
+  'DuplicateIcon',
   'EmbedIcon',
-  'FilterIcon',
   'FilterFillIcon',
+  'FilterIcon',
   'FontSizeIcon',
   'FullScreenCloseIcon',
   'FullScreenOpenIcon',
-  'LayersIcon',
   'LayersFillIcon',
-  'LinkIcon',
-  'LinkExternalIcon',
+  'LayersIcon',
   'LinkExternalFillIcon',
+  'LinkExternalIcon',
+  'LinkIcon',
   'LogInIcon',
   'LogOutIcon',
-  'MailIcon',
   'MailFillIcon',
+  'MailIcon',
   'MenuIcon',
   'PrintIcon',
   'RedoIcon',
@@ -49,21 +49,43 @@ export const MediaIcons = [
   'PreviousIcon',
   'ReplayIcon',
   'RewindIcon',
-  'VolumeOffIcon',
   'VolumeOffFillIcon',
-  'VolumeOnIcon',
+  'VolumeOffIcon',
   'VolumeOnFillIcon',
+  'VolumeOnIcon',
 ]
 
 export const SeverityIcons = [
-  'ErrorIcon',
   'ErrorFillIcon',
-  'InfoIcon',
+  'ErrorIcon',
   'InfoFillIcon',
-  'SuccessIcon',
+  'InfoIcon',
   'SuccessFillIcon',
-  'WarningIcon',
+  'SuccessIcon',
   'WarningFillIcon',
+  'WarningIcon',
 ]
 
-export const UniversalIcons = ['CloseIcon', 'MaximizeIcon', 'MinimizeIcon', 'SaveIcon', 'SaveFillIcon', 'SearchIcon']
+export const UniversalIcons = ['CloseIcon', 'MaximizeIcon', 'MinimizeIcon', 'SaveFillIcon', 'SaveIcon', 'SearchIcon']
+
+export const FormattingIcons = [
+  'FormattingBoldIcon',
+  'FormattingItalicIcon',
+  'FormattingStrikethroughIcon',
+  'FormattingUnderlineIcon',
+]
+
+export const KeyboardKeyIcons = [
+  'KeyboardKeyCommandIcon',
+  'KeyboardKeyControlIcon',
+  'KeyboardKeyEnterIcon',
+  'KeyboardKeyShiftIcon',
+]
+
+export const DeprecatedIcons = [
+  'HandWithEuroCoinIcon',
+  'CogwheelIcon',
+  'CogwheelFillIcon',
+  'CheckMarkCircleIcon',
+  'CheckMarkCircleFillIcon',
+]
