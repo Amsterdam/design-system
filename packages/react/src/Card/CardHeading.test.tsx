@@ -5,6 +5,7 @@
 
 import { render, screen } from '@testing-library/react'
 import { createRef } from 'react'
+
 import { CardHeading } from './CardHeading'
 import '@testing-library/jest-dom'
 
@@ -36,7 +37,7 @@ describe('Card Heading', () => {
 
   it('renders the correct size level class', () => {
     render(
-      <CardHeading level={4} size="level-1">
+      <CardHeading level={3} size="level-1">
         Size level 1
       </CardHeading>,
     )

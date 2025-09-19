@@ -3,10 +3,12 @@
  * Copyright Gemeente Amsterdam
  */
 
-import { PersonFillIcon } from '@amsterdam/design-system-react-icons'
-import clsx from 'clsx'
-import { forwardRef } from 'react'
 import type { ForwardedRef, HTMLAttributes } from 'react'
+
+import { PersonFillIcon } from '@amsterdam/design-system-react-icons'
+import { clsx } from 'clsx'
+import { forwardRef } from 'react'
+
 import { Icon } from '../Icon'
 
 export const avatarColors = ['azure', 'green', 'lime', 'magenta', 'orange', 'yellow'] as const

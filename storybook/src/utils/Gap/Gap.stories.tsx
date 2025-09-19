@@ -5,8 +5,10 @@
 
 import { Paragraph } from '@amsterdam/design-system-react'
 import { Meta, StoryObj } from '@storybook/react-vite'
-import { Gap } from './Gap'
+
 import type { GapProps } from './Gap'
+
+import { Gap } from './Gap'
 
 const render = ({ size }: GapProps) => (
   <div className={`ams-gap-${size}`}>

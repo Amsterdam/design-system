@@ -2,12 +2,15 @@ import '@amsterdam/design-system-tokens/dist/index.css'
 import '@amsterdam/design-system-tokens/dist/compact.theme.css'
 import '@amsterdam/design-system-assets/font/index.css'
 import '@amsterdam/design-system-css/dist/index.css'
+
 import '../src/styles/docs.css'
 import '../src/styles/overrides.css'
+import type { StoryContext, StoryFn } from '@storybook/react-vite'
+
 import { Page } from '@amsterdam/design-system-react'
 import { withThemeByClassName } from '@storybook/addon-themes'
-import type { StoryContext, StoryFn } from '@storybook/react-vite'
-import clsx from 'clsx'
+import { clsx } from 'clsx'
+
 import { viewports } from './viewports'
 
 export const argTypes = {

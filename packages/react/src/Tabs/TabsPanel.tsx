@@ -3,15 +3,17 @@
  * Copyright Gemeente Amsterdam
  */
 
-import clsx from 'clsx'
-import { forwardRef, useContext } from 'react'
 import type { ForwardedRef, HTMLAttributes, PropsWithChildren } from 'react'
+
+import { clsx } from 'clsx'
+import { forwardRef, useContext } from 'react'
+
 import { TabsContext } from './TabsContext'
 
-export type TabsPanelProps = {
+export type TabsPanelProps = PropsWithChildren<HTMLAttributes<HTMLDivElement>> & {
   /** The identifier of the Tab Panel. */
   id: string
-} & PropsWithChildren<HTMLAttributes<HTMLDivElement>>
+}
 
 export const TabsPanel = forwardRef(
   ({ children, className, id, ...restProps }: TabsPanelProps, ref: ForwardedRef<HTMLDivElement>) => {

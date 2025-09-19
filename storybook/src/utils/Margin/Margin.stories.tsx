@@ -5,7 +5,9 @@
 
 import { Heading, Paragraph } from '@amsterdam/design-system-react'
 import { Meta, StoryObj } from '@storybook/react-vite'
+
 import type { MarginProps } from './Margin'
+
 import { Margin } from './Margin'
 
 const render = ({ size }: MarginProps) => (

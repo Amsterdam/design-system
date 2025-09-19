@@ -20,7 +20,7 @@ export const Default: Story = {
   args: {
     children: [
       <Table.Caption key="caption">
-        <Heading level={4}>Kosten voor de aanvraag</Heading>
+        <Heading level={3}>Kosten voor de aanvraag</Heading>
       </Table.Caption>,
       <Table.Header key="header">
         <Table.Row>
@@ -55,7 +55,7 @@ export const WithFooterAndRowHeaders: Story = {
   args: {
     children: [
       <Table.Caption key="caption">
-        <Heading level={4}>Verwachte kosten per week</Heading>
+        <Heading level={3}>Verwachte kosten per week</Heading>
       </Table.Caption>,
       <Table.Header key="header">
         <Table.Row>

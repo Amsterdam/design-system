@@ -5,6 +5,7 @@
 
 import { fireEvent, render } from '@testing-library/react'
 import { useRef } from 'react'
+
 import { KeyboardKeys, useKeyboardFocus } from './useKeyboardFocus'
 
 describe('use focus with arrows', () => {
@@ -12,27 +13,26 @@ describe('use focus with arrows', () => {
   const onFocusTwoMock = jest.fn()
   const onFocusThreeMock = jest.fn()
 
-  const getComponent = (rotate: boolean | undefined = undefined) =>
-    function () {
-      const ref = useRef<HTMLDivElement>(null)
-      const { keyDown } = useKeyboardFocus(ref, {
-        rotating: rotate,
-      })
+  const Component = ({ rotate = undefined }: { rotate?: boolean }) => {
+    const ref = useRef<HTMLDivElement>(null)
+    const { keyDown } = useKeyboardFocus(ref, {
+      rotating: rotate,
+    })
 
-      return (
-        <div onKeyDown={keyDown} ref={ref} role="menu" tabIndex={0}>
-          <button onFocus={onFocusOneMock} type="button">
-            One
-          </button>
-          <button onFocus={onFocusTwoMock} type="button">
-            Two
-          </button>
-          <button onFocus={onFocusThreeMock} type="button">
-            Three
-          </button>
-        </div>
-      )
-    }
+    return (
+      <div onKeyDown={keyDown} ref={ref} role="menu" tabIndex={0}>
+        <button onFocus={onFocusOneMock} type="button">
+          One
+        </button>
+        <button onFocus={onFocusTwoMock} type="button">
+          Two
+        </button>
+        <button onFocus={onFocusThreeMock} type="button">
+          Three
+        </button>
+      </div>
+    )
+  }
 
   afterEach(() => {
     onFocusOneMock.mockReset()
@@ -41,7 +41,6 @@ describe('use focus with arrows', () => {
   })
 
   it('sets focus when using arrow keys', () => {
-    const Component = getComponent()
     const { container } = render(<Component />)
 
     const firstChild = container.firstChild as HTMLElement
@@ -71,8 +70,7 @@ describe('use focus with arrows', () => {
   })
 
   it('rotates focused elements', () => {
-    const Component = getComponent(true)
-    const { container } = render(<Component />)
+    const { container } = render(<Component rotate />)
 
     const firstChild = container.firstChild as HTMLElement
 
@@ -94,7 +92,6 @@ describe('use focus with arrows', () => {
   })
 
   it('sets focus to first element when using "Home" key', () => {
-    const Component = getComponent()
     const { container } = render(<Component />)
 
     const firstChild = container.firstChild as HTMLElement
@@ -107,7 +104,6 @@ describe('use focus with arrows', () => {
   })
 
   it('sets focus to last element when using "End" key', () => {
-    const Component = getComponent()
     const { container } = render(<Component />)
 
     const firstChild = container.firstChild as HTMLElement

@@ -3,19 +3,22 @@
  * Copyright Gemeente Amsterdam
  */
 
-import clsx from 'clsx'
-import { forwardRef, useImperativeHandle, useRef } from 'react'
 import type { ForwardedRef, HTMLAttributes, PropsWithChildren } from 'react'
+
+import { clsx } from 'clsx'
+import { forwardRef, useImperativeHandle, useRef } from 'react'
+
+import type { HeadingProps } from '../Heading/Heading'
+
+import { useKeyboardFocus } from '../common/useKeyboardFocus'
 import AccordionContext from './AccordionContext'
 import { AccordionSection } from './AccordionSection'
-import type { HeadingProps } from '../Heading/Heading'
-import { useKeyboardFocus } from '../common/useKeyboardFocus'
 
 export type AccordionProps = {
   /**
    * The hierarchical level of this Accordion’s Section Headings within the document.
    * There is no default value; determine the correct level for each instance.
-   * The size of the heading is fixed at level 3.
+   * The value ‘1’ is deprecated.
    */
   headingLevel: HeadingProps['level']
   /** The HTML element to use for each Accordion Section. */

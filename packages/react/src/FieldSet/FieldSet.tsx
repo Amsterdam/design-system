@@ -3,17 +3,20 @@
  * Copyright Gemeente Amsterdam
  */
 
-import clsx from 'clsx'
-import { forwardRef } from 'react'
 import type { ForwardedRef, HTMLAttributes, PropsWithChildren } from 'react'
+
+import { clsx } from 'clsx'
+import { forwardRef } from 'react'
+
 import { Hint, HintProps } from '../Hint'
 
-export type FieldSetProps = PropsWithChildren<HTMLAttributes<HTMLFieldSetElement>> & {
-  /** Whether the field set has an input with a validation error */
-  invalid?: boolean
-  /** The text for the caption. */
-  legend: string
-} & HintProps
+export type FieldSetProps = HintProps &
+  PropsWithChildren<HTMLAttributes<HTMLFieldSetElement>> & {
+    /** Whether the field set has an input with a validation error */
+    invalid?: boolean
+    /** The text for the caption. */
+    legend: string
+  }
 
 /**
  * @see {@link https://designsystem.amsterdam/?path=/docs/components-forms-field-set--docs Field Set docs at Amsterdam Design System}

@@ -6,6 +6,7 @@
 import { render, screen } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
 import { AnchorHTMLAttributes, createRef } from 'react'
+
 import './matchMedia.mock' // Must be imported before PageHeader
 import { PageHeader } from './PageHeader'
 import '@testing-library/jest-dom'
@@ -198,7 +199,7 @@ describe('Page Header', () => {
     expect(openMegaMenu).not.toHaveClass('ams-page-header__mega-menu--closed')
   })
 
-  it.skip('it closes the mega menu when it is open and the screen width passes the breakpoint', () => {
+  it.skip('closes the mega menu when it is open and the screen width passes the breakpoint', () => {
     // TODO: Add this test
   })
 

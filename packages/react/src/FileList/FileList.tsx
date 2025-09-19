@@ -3,12 +3,14 @@
  * Copyright Gemeente Amsterdam
  */
 
-import clsx from 'clsx'
-import { forwardRef } from 'react'
 import type { ForwardedRef, HTMLAttributes, PropsWithChildren } from 'react'
+
+import { clsx } from 'clsx'
+import { forwardRef } from 'react'
+
 import { FileListItem } from './FileListItem'
 
-export type FileListProps = {} & PropsWithChildren<HTMLAttributes<HTMLUListElement>>
+export type FileListProps = PropsWithChildren<HTMLAttributes<HTMLUListElement>>
 
 export const FileListRoot = forwardRef(
   ({ children, className, ...restProps }: FileListProps, ref: ForwardedRef<HTMLOListElement>) => (

@@ -3,9 +3,11 @@
  * Copyright Gemeente Amsterdam
  */
 
-import clsx from 'clsx'
-import { forwardRef } from 'react'
 import type { HTMLAttributes, PropsWithChildren } from 'react'
+
+import { clsx } from 'clsx'
+import { forwardRef } from 'react'
+
 import type { CrossAlign, MainAlign } from '../common/types'
 
 export const rowTags = ['article', 'div', 'section'] as const
@@ -14,7 +16,7 @@ type RowTag = (typeof rowTags)[number]
 export const rowGapSizes = ['none', 'x-small', 'small', 'large', 'x-large'] as const
 type RowGap = (typeof rowGapSizes)[number]
 
-export type RowProps = {
+export type RowProps = PropsWithChildren<HTMLAttributes<HTMLElement>> & {
   /**
    * The horizontal alignment of the items in the row.
    * @default start
@@ -40,7 +42,7 @@ export type RowProps = {
    * @default false
    */
   wrap?: boolean
-} & PropsWithChildren<HTMLAttributes<HTMLElement>>
+}
 
 /**
  * @see {@link https://designsystem.amsterdam/?path=/docs/components-layout-row--docs Row docs at Amsterdam Design System}
