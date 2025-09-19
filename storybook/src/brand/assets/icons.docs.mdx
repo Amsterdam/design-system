@@ -11,6 +11,7 @@ import {
   UniversalIcons,
   FormattingIcons,
   KeyboardKeyIcons,
+  DeprecatedIcons,
 } from "../../docs/components/IconGalleryCategories";
 
 <Meta title="Brand/Assets/Icons" />
@@ -39,6 +40,7 @@ All these names are nouns.
     ...UniversalIcons,
     ...FormattingIcons,
     ...KeyboardKeyIcons,
+    ...DeprecatedIcons,
   ]}
 />
 
@@ -97,6 +99,12 @@ These icons are used in text editors to indicate formatting options:
 These icons represent common keyboard keys and can be used without labels:
 
 <IconGallery icons={KeyboardKeyIcons} />
+
+### Deprecated
+
+The icons will be removed in the near future.
+
+<IconGallery icons={DeprecatedIcons} />
 
 ## Related components
 

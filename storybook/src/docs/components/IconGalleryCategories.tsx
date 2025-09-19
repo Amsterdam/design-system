@@ -66,9 +66,22 @@ export const SeverityIcons = [
   'WarningFillIcon',
 ]
 
-export const UniversalIcons = ['CloseIcon', 'MaximizeIcon', 'MinimizeIcon', 'SaveIcon', 'SaveFillIcon', 'SearchIcon']
+export const UniversalIcons = [
+  'CloseIcon',
+  'MaximizeIcon',
+  'MinimizeIcon',
+  'SaveIcon',
+  'SaveFillIcon',
+  'SearchIcon',
+  'VotingBallotIcon',
+]
 
-export const FormattingIcons = ['FormattingBoldIcon', 'FormattingItalicIcon', 'FormattingUnderlineIcon']
+export const FormattingIcons = [
+  'FormattingBoldIcon',
+  'FormattingItalicIcon',
+  'FormattingUnderlineIcon',
+  'FormattingStrikeTroughIcon',
+]
 
 export const KeyboardKeyIcons = [
   'KeyboardKeyEnterIcon',
@@ -76,3 +89,5 @@ export const KeyboardKeyIcons = [
   'KeyboardKeyControlIcon',
   'KeyboardKeyCmdIcon',
 ]
+
+export const DeprecatedIcons = ['HandWithEuroCoin']
