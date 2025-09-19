@@ -9,6 +9,7 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 ### Bug Fixes
 
 * Apply changes in icons to React icon components ([#2210](https://github.com/Amsterdam/design-system/issues/2210)) ([6e12b72](https://github.com/Amsterdam/design-system/commit/6e12b7238b621a5c8ff39ef9819f09c91e4a9339))
+* Unswap icons for logging in and out ([#2115](https://github.com/Amsterdam/design-system/issues/2115)) ([9d5ae8a](https://github.com/Amsterdam/design-system/commit/9d5ae8a8e6a33d13ecfbaf91037c932bf6c37ec4))
 
 ## [1.0.0](https://github.com/Amsterdam/design-system/compare/design-system-react-icons-v0.1.14...design-system-react-icons-v1.0.0) (2025-05-28)
 
