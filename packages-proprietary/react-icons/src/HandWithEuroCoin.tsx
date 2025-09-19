@@ -7,5 +7,5 @@ const SvgHandWithEuroCoin = (props: SVGProps<SVGSVGElement>) => (
 )
 /**
  * @deprecated This icon is deprecated and will be removed in the next major release. You can use the "PersonsWithEuroCoin" icon instead.
- */
+ * */
 export default SvgHandWithEuroCoin
