@@ -84,7 +84,7 @@ export const FormattingIcons = [
 ]
 
 export const KeyboardKeyIcons = [
-  'KeyboardKeyCmdIcon',
+  'KeyboardKeyCommandIcon',
   'KeyboardKeyControlIcon',
   'KeyboardKeyEnterIcon',
   'KeyboardKeyShiftIcon',
