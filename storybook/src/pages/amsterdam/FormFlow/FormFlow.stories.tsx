@@ -4,6 +4,7 @@
  */
 
 import { Meta, StoryObj } from '@storybook/react-vite'
+
 import { LandingPage as LandingPageComponent } from './LandingPage'
 import { WithMultipleQuestions as WithMultipleQuestionsComponent } from './WithMultipleQuestions'
 import { WithOneQuestion as WithOneQuesionComponent } from './WithOneQuestion'

@@ -4,6 +4,7 @@
  */
 
 import { CallToActionLink, Grid, Heading, OrderedList, Paragraph } from '@amsterdam/design-system-react'
+
 import { Layout } from '../common/Layout'
 
 export const LandingPage = () => {

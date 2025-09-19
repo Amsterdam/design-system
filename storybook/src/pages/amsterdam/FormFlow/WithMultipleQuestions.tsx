@@ -16,6 +16,7 @@ import {
   TextInput,
 } from '@amsterdam/design-system-react'
 import { ChevronBackwardIcon } from '@amsterdam/design-system-react-icons'
+
 import { FormFooter } from './components/FormFooter'
 
 export const WithMultipleQuestions = () => {
