@@ -3,6 +3,13 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.0.1](https://github.com/Amsterdam/design-system/compare/design-system-react-v2.0.0...design-system-react-v2.0.1) (2025-09-19)
+
+
+### Bug Fixes
+
+* Update react-icons dependency ([#2216](https://github.com/Amsterdam/design-system/issues/2216)) ([acdd7d5](https://github.com/Amsterdam/design-system/commit/acdd7d5dddad8aefb3943b25a2b4a855449a8d71))
+
 ## [2.0.0](https://github.com/Amsterdam/design-system/compare/design-system-react-v1.1.0...design-system-react-v2.0.0) (2025-09-17)
 
 
