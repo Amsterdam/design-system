@@ -1,6 +1,6 @@
-const path = require('path')
+import path from 'path'
 
-function indexTemplate(filePaths) {
+export function indexTemplate(filePaths) {
   const exportEntries = filePaths.map(({ path: filePath }) => {
     const basename = path.basename(filePath, path.extname(filePath))
     const exportName = /^\d/.test(basename) ? `Svg${basename}` : basename
@@ -10,5 +10,3 @@ function indexTemplate(filePaths) {
   })
   return exportEntries.join('\n')
 }
-
-module.exports = indexTemplate
