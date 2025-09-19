@@ -5,9 +5,10 @@
 
 import { render, screen } from '@testing-library/react'
 import { createRef } from 'react'
-import { Row, rowGapSizes, rowTags } from './Row'
+
 import { ariaRoleForTag } from '../common/accessibility'
 import { crossAlignOptions, mainAlignOptions } from '../common/types'
+import { Row, rowGapSizes, rowTags } from './Row'
 import '@testing-library/jest-dom'
 
 describe('Row', () => {

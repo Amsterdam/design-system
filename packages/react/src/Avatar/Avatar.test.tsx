@@ -5,6 +5,7 @@
 
 import { render, screen } from '@testing-library/react'
 import { createRef } from 'react'
+
 import { Avatar, avatarColors } from './Avatar'
 import '@testing-library/jest-dom'
 

@@ -4,10 +4,11 @@
  */
 
 import { Heading } from '@amsterdam/design-system-react'
-import { LinkList } from '@amsterdam/design-system-react/src'
 import { HouseIcon, PhoneIcon, SpeechBalloonEllipsisIcon } from '@amsterdam/design-system-react-icons'
 import * as Icons from '@amsterdam/design-system-react-icons'
+import { LinkList } from '@amsterdam/design-system-react/src'
 import { Meta, StoryObj } from '@storybook/react-vite'
+
 import { exampleLinkList } from '../shared/exampleContent'
 
 const linkList = exampleLinkList()
@@ -84,7 +85,7 @@ export const WithHeading: Story = {
   ...StoryTemplate,
   render: ({ children, ...args }) => (
     <>
-      <Heading className="ams-mb-s" level={3} size="level-4">
+      <Heading className="ams-mb-s" level={3}>
         Adres en inschrijving
       </Heading>
       <LinkList {...args}>{children}</LinkList>

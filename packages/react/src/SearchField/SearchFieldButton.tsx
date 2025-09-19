@@ -3,11 +3,14 @@
  * Copyright Gemeente Amsterdam
  */
 
+import type { ForwardedRef } from 'react'
+
 import { SearchIcon } from '@amsterdam/design-system-react-icons'
 import { forwardRef } from 'react'
-import type { ForwardedRef } from 'react'
-import { Button } from '../Button'
+
 import type { ButtonProps } from '../Button'
+
+import { Button } from '../Button'
 
 type SearchFieldButtonProps = Omit<ButtonProps, 'icon' | 'iconBefore' | 'iconOnly' | 'variant'>
 

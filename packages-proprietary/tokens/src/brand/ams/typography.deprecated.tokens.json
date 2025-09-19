@@ -1,0 +1,28 @@
+{
+  "ams": {
+    "typography": {
+      "heading": {
+        "0": {
+          "font-size": {
+            "comment": "Use Heading size 1 instead.",
+            "value": "clamp(2.435rem, 2.0409rem + 1.9709vw, 3.8147rem)"
+          },
+          "line-height": {
+            "comment": "Use Heading size 1 instead.",
+            "value": "1.1"
+          }
+        },
+        "6": {
+          "font-size": {
+            "comment": "Use Heading size 5 instead.",
+            "value": "{ams.typography.body-text.small.font-size}"
+          },
+          "line-height": {
+            "comment": "Use Heading size 5 instead.",
+            "value": "1.4"
+          }
+        }
+      }
+    }
+  }
+}

@@ -19,4 +19,4 @@ Divides the screen into columns to align the elements of a page.
 
 ## Design
 
-The [design choices](/docs/brand-design-tokens-grid--docs) are described in the general documentation.
+The [design choices](/docs/docs-developer-guide-grid--docs) are described in the Developer Guide.

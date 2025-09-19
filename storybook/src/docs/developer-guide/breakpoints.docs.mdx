@@ -6,21 +6,74 @@ import { Meta } from "@storybook/addon-docs/blocks";
 
 # Breakpoints
 
-We use 2 breakpoints where the design of a website changes to ensure a good user experience: at screen widths of 576px and 1088px.
+Components can change their layout at two viewport widths.
 
-We follow a mobile-first approach: first, we create the design below the breakpoint, and then we use a media query to create the design above the breakpoint.
+## Values
 
-For example:
+Variables for them are available in Sass.
+Not as CSS custom properties, since those cannot be used in media queries.
+They are defined in ‘rem’ units to respect changes that users may make to their default font size.
+
+- `$ams-breakpoint-medium: 37.5rem;`
+- `$ams-breakpoint-wide: 72.5rem;`
+
+They compute to 600 and 1.160 pixels if the root font size is 16.
+The values are based on steps of 280 pixels, starting with a base of 40 pixels.
+So, 600 = 40 + 2 × 280 and 1160 = 40 + 4 × 280.
+To complement, the [Page](/docs/components-containers-page--docs) container component sets a maximum width of 90rem, which is 1.140 pixels = 40 + 5 × 280.
+
+## Where they work
+
+Our design system uses a mobile-first approach.
+Components are styled for the smallest viewports and adapt fluidly to use more space if available.
+
+Most importantly, our [Grid](/docs/components-layout-grid--docs) uses these breakpoints to change its number of columns from 4 to 8 and then to 12.
+This already goes a long way to make our pages usable on all kinds of devices.
+It keeps the widths of the columns within a range and allows positioning content below or next to each other.
+
+Some other components still use the breakpoints themselves to adapt their appearance further, like
+[Description List](/docs/components-text-description-list--docs),
+[Dialog](/docs/components-containers-dialog--docs),
+[Menu](/docs/components-navigation-menu--docs), and
+[Page Header](/docs/components-containers-page-header--docs) and
+[Page Footer](/docs/components-containers-page-footer--docs).
+
+## How to use
+
+Reuse our breakpoints in your custom components, so that layout changes only occur on these two window widths.
+
+### With Sass
+
+Import the variables from [src/common/breakpoint.scss](https://github.com/Amsterdam/design-system/blob/main/packages/css/src/common/breakpoint.scss) in the CSS package.
 
 ```css
 .class {
-  /* Your narrow styling */
+  /* General declarations and those for narrow viewports */
+
+  @media screen and (min-width: $ams-breakpoint-medium) {
+    /* Overrides for medium viewports */
+  }
 
   @media screen and (min-width: $ams-breakpoint-wide) {
-    /* Your wide styling */
+    /* Overrides for wide viewports */
   }
 }
 ```
 
-Within this repository, you can import the breakpoint as a Sass variable.
-You can find this variable in [packages/css/src/common/breakpoint.scss](https://github.com/Amsterdam/design-system/blob/main/packages/css/src/common/breakpoint.scss).
+### Without Sass
+
+You’ll have to copy the values into your codebase and update all instances if we change them.
+
+```css
+.class {
+  /* General declarations and those for narrow viewports */
+
+  @media screen and (min-width: 37.5rem) {
+    /* Overrides for medium viewports */
+  }
+
+  @media screen and (min-width: 72.5rem) {
+    /* Overrides for wide viewports */
+  }
+}
+```

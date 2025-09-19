@@ -3,19 +3,20 @@
  * Copyright Gemeente Amsterdam
  */
 
-import clsx from 'clsx'
-import { forwardRef } from 'react'
 import type { ForwardedRef, InputHTMLAttributes } from 'react'
+
+import { clsx } from 'clsx'
+import { forwardRef } from 'react'
 
 export const dateInputTypes = ['date', 'datetime-local'] as const
 type DateInputType = (typeof dateInputTypes)[number]
 
-export type DateInputProps = {
+export type DateInputProps = Omit<InputHTMLAttributes<HTMLInputElement>, 'aria-invalid' | 'type'> & {
   /** Whether the value fails a validation rule. */
   invalid?: boolean
   /** The kind of data that the user should provide. */
   type?: DateInputType
-} & Omit<InputHTMLAttributes<HTMLInputElement>, 'aria-invalid' | 'type'>
+}
 
 /**
  * @see {@link https://designsystem.amsterdam/?path=/docs/components-forms-date-input--docs Date Input docs at Amsterdam Design System}

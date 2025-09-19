@@ -3,19 +3,14 @@
  * Copyright Gemeente Amsterdam
  */
 
-import { Paragraph } from '@amsterdam/design-system-react'
+import { Card, Grid, Heading, Paragraph, SearchField, UnorderedList } from '@amsterdam/design-system-react'
 import { Mark } from '@amsterdam/design-system-react/src'
 import { Meta, StoryObj } from '@storybook/react-vite'
+import { useState } from 'react'
 
 const meta = {
   title: 'Components/Text/Mark',
   component: Mark,
-  argTypes: {
-    children: {
-      description: 'The text to mark.',
-      table: { disable: false },
-    },
-  },
 } satisfies Meta<typeof Mark>
 
 export default meta
@@ -26,6 +21,12 @@ export const Default: Story = {
   args: {
     children: 'Wat vinden Amsterdammers belangrijk?',
   },
+  argTypes: {
+    children: {
+      description: 'The text to mark.',
+      table: { disable: false },
+    },
+  },
   render: ({ children }) => (
     <Paragraph>
       Daarom organiseren we in 2024 het burgerberaad schone stad, waarin 150 Amsterdammers in gesprek gaan over hoe we
@@ -33,4 +34,102 @@ export const Default: Story = {
       elke Amsterdammer heeft afval en moet het kwijt. Wij kunnen als gemeente veel van deze afvalexperts leren.
     </Paragraph>
   ),
+}
+
+type Article = {
+  category: string
+  date: Date
+  fragment: string
+  heading: string
+}
+
+const articles: Article[] = [
+  {
+    category: 'Kansspelen',
+    date: new Date('2025-10-27'),
+    fragment:
+      'Op dit moment zijn alle vergunning voor speelautomatenhallen verleend. Als u kansspelautomaten wilt plaatsen in uw horecabedrijf dan heeft u de …',
+    heading: 'Vergunning speelautomatenhal of kansspelautomaten aanvragen',
+  },
+  {
+    category: 'Veelgevraagd',
+    date: new Date('2024-09-15'),
+    fragment:
+      'U heeft een ontheffing nodig als u de geldende geluidsgrenzen van uw horecagelegenheid wil overschrijden. Kijk hier hoe het werkt en hoe u de …',
+    heading: 'Ontheffing geluidsvoorschriften',
+  },
+  {
+    category: 'Vergunningen',
+    date: new Date('2023-08-03'),
+    fragment: `Voor de organisatie van grootschalige vechtsportgala’s in Amsterdam moet u een vergunning aanvragen bij de gemeente. Vooraf moet u een Bibobformulier …`,
+    heading: 'Vergunning vechtsportevenementen',
+  },
+]
+
+const dateFormat = new Intl.DateTimeFormat('nl', {
+  day: 'numeric',
+  month: 'long',
+  year: 'numeric',
+})
+
+const mark = (text: string, query: string) => {
+  if (!query) return text
+
+  const words = query
+    .split(/\s+/)
+    .filter(Boolean)
+    .map((w) => w.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'))
+
+  if (words.length === 0) return text
+
+  const regex = new RegExp(`(${words.join('|')})`, 'gi')
+  const parts = text.split(regex)
+
+  return parts.map((part) => (part.match(regex) ? <Mark key={part}>{part}</Mark> : part))
+}
+
+export const SearchResults = {
+  render: () => {
+    const [query, setQuery] = useState('horeca vergunning')
+
+    const searchResults = articles.filter(({ fragment, heading }) =>
+      [fragment, heading].some((text) =>
+        query
+          .split(/\s+/)
+          .filter(Boolean)
+          .some((word) => text.toLowerCase().includes(word.toLowerCase())),
+      ),
+    )
+
+    return (
+      <Grid>
+        <Grid.Cell span={{ narrow: 4, medium: 6, wide: 8 }}>
+          <SearchField className="ams-mb-m">
+            <SearchField.Input label="Zoeken" onChange={(e) => setQuery(e.target.value)} value={query} />
+            <SearchField.Button />
+          </SearchField>
+          <Paragraph className="ams-mb-xl">
+            <strong>{searchResults.length}</strong> artikelen gaan over ‘{query}’.
+          </Paragraph>
+          <UnorderedList className="ams-gap-xl" markers={false}>
+            {searchResults.map(({ category, date, fragment, heading }) => (
+              <UnorderedList.Item key={heading}>
+                <Card>
+                  <Card.HeadingGroup tagline={category}>
+                    <Heading level={2} size="level-4">
+                      <Card.Link href="#">{mark(heading, query)}</Card.Link>
+                    </Heading>
+                  </Card.HeadingGroup>
+                  <Paragraph className="ams-mb-xs">{mark(fragment, query)}</Paragraph>
+                  <Paragraph size="small">
+                    <time dateTime={date.toISOString()}>{dateFormat.format(date)}</time>
+                  </Paragraph>
+                </Card>
+              </UnorderedList.Item>
+            ))}
+          </UnorderedList>
+        </Grid.Cell>
+      </Grid>
+    )
+  },
 }

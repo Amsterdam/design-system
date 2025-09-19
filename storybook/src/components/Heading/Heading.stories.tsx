@@ -3,11 +3,13 @@
  * Copyright Gemeente Amsterdam
  */
 
-import { Column, Icon, Row } from '@amsterdam/design-system-react'
 import type { IconProps } from '@amsterdam/design-system-react'
-import { Heading } from '@amsterdam/design-system-react/src'
+
+import { Column, Icon, Row } from '@amsterdam/design-system-react'
 import { MailIcon } from '@amsterdam/design-system-react-icons'
+import { Heading } from '@amsterdam/design-system-react/src'
 import { Meta, StoryObj } from '@storybook/react-vite'
+
 import { exampleHeading } from '../shared/exampleContent'
 
 const heading = exampleHeading()
@@ -61,14 +63,16 @@ export const Level4: Story = {
 }
 
 export const Sizes: Story = {
+  args: {
+    level: 2,
+  },
   render: (args) => (
     <Column gap="small">
-      <Heading {...args} key="level-1" size="level-1" />
-      <Heading {...args} key="level-2" size="level-2" />
-      <Heading {...args} key="level-3" size="level-3" />
-      <Heading {...args} key="level-4" size="level-4" />
-      <Heading {...args} key="level-5" size="level-5" />
-      <Heading {...args} key="level-6" size="level-6" />
+      <Heading {...args} size="level-1" />
+      <Heading {...args} size="level-2" />
+      <Heading {...args} size="level-3" />
+      <Heading {...args} size="level-4" />
+      <Heading {...args} size="level-5" />
     </Column>
   ),
 }
@@ -83,17 +87,17 @@ export const InverseColour: Story = {
 export const WithIcon: Story = {
   args: {
     children: 'Heading text',
-    level: 4,
+    level: 3,
   },
   argTypes: {
     level: {
-      options: [3, 4],
+      options: [1, 2, 3, 4],
     },
     size: {
       control: {
         labels: { undefined: 'not set' },
       },
-      options: [undefined, 'level-3', 'level-4', 'level-5', 'level-6'],
+      options: [undefined, 'level-1', 'level-2', 'level-3', 'level-4', 'level-5'],
     },
   },
   render: ({ children, ...args }) => {

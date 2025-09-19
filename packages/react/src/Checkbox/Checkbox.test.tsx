@@ -6,6 +6,7 @@
 import { StarIcon } from '@amsterdam/design-system-react-icons'
 import { render, screen } from '@testing-library/react'
 import { createRef } from 'react'
+
 import { Checkbox } from './Checkbox'
 import '@testing-library/jest-dom'
 

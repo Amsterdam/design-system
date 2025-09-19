@@ -5,6 +5,7 @@
 
 import { fireEvent, render, screen } from '@testing-library/react'
 import { createRef } from 'react'
+
 import { Accordion } from './Accordion'
 import '@testing-library/jest-dom'
 
@@ -32,7 +33,7 @@ describe('Accordion section', () => {
     })
     const section = container.querySelector('.ams-accordion__panel')
 
-    expect(heading).toHaveClass('ams-accordion__header')
+    expect(heading).toHaveClass('ams-heading ams-accordion__header')
     expect(button).toHaveClass('ams-accordion__button')
     expect(section).toBeInTheDocument()
   })
@@ -68,9 +69,9 @@ describe('Accordion section', () => {
     expect(sectionContent).toHaveClass('ams-accordion__panel--expanded')
   })
 
-  it('renders a section HTML tag by defaultt', () => {
+  it('renders a section HTML tag by default', () => {
     render(
-      <Accordion headingLevel={1}>
+      <Accordion headingLevel={2}>
         <Accordion.Section label={testLabel}>{testContent}</Accordion.Section>
       </Accordion>,
     )
@@ -82,7 +83,7 @@ describe('Accordion section', () => {
 
   it('does not render a section HTML tag when the sectionAs is "div"', () => {
     render(
-      <Accordion headingLevel={1} sectionAs="div">
+      <Accordion headingLevel={2} sectionAs="div">
         <Accordion.Section label={testLabel}>{testContent}</Accordion.Section>
       </Accordion>,
     )
@@ -106,6 +107,32 @@ describe('Accordion section', () => {
 
     expect(heading).toBeInTheDocument()
     expect(heading).toBeVisible()
+  })
+
+  it('renders the allowed levels correctly', () => {
+    render(
+      <>
+        <Accordion headingLevel={2}>
+          <Accordion.Section label="Level 2">{testContent}</Accordion.Section>
+        </Accordion>
+        <Accordion headingLevel={4}>
+          <Accordion.Section label="Level 4">{testContent}</Accordion.Section>
+        </Accordion>
+      </>,
+    )
+
+    const headingLevel2 = screen.getByRole('heading', {
+      level: 2,
+      name: 'Level 2',
+    })
+
+    const headingLevel4 = screen.getByRole('heading', {
+      level: 4,
+      name: 'Level 4',
+    })
+
+    expect(headingLevel2).toBeInTheDocument()
+    expect(headingLevel4).toBeInTheDocument()
   })
 
   it('renders an icon', () => {

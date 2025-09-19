@@ -1,0 +1,17 @@
+{
+  "ams": {
+    "accordion": {
+      "button": {
+        "font-family": { "value": "{ams.typography.font-family}" },
+        "font-size": { "value": "{ams.typography.heading.3.font-size}" },
+        "font-weight": { "value": "{ams.typography.heading.font-weight}" },
+        "line-height": { "value": "{ams.typography.heading.3.line-height}" },
+        "text-wrap": { "value": "{ams.typography.heading.text-wrap}" }
+      },
+      "panel": {
+        "padding-block": { "value": "0" },
+        "padding-inline": { "value": "0" }
+      }
+    }
+  }
+}

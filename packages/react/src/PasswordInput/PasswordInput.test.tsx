@@ -6,8 +6,9 @@
 import { render, screen } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
 import { createRef, useState } from 'react'
-import { PasswordInput } from './PasswordInput'
+
 import { Label } from '../Label'
+import { PasswordInput } from './PasswordInput'
 import '@testing-library/jest-dom'
 
 describe('Password input', () => {

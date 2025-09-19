@@ -3,9 +3,10 @@
  * Copyright Gemeente Amsterdam
  */
 
-import clsx from 'clsx'
-import { forwardRef } from 'react'
 import type { ForwardedRef, HTMLAttributes, PropsWithChildren } from 'react'
+
+import { clsx } from 'clsx'
+import { forwardRef } from 'react'
 
 type HintAndOptionalProps = {
   /** Show a custom hint text. */
@@ -24,7 +25,7 @@ const getHintText = ({ hint, optional }: HintAndOptionalProps) => {
   return null
 }
 
-export type HintProps = PropsWithChildren<HTMLAttributes<HTMLElement>> & HintAndOptionalProps
+export type HintProps = HintAndOptionalProps & PropsWithChildren<HTMLAttributes<HTMLElement>>
 
 export const Hint = forwardRef(
   ({ className, hint, optional, ...restProps }: HintProps, ref: ForwardedRef<HTMLElement>) => {

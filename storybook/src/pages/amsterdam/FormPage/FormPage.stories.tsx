@@ -4,8 +4,9 @@
  */
 
 import { Meta, StoryObj } from '@storybook/react-vite'
-import { FormPage } from './FormPage'
+
 import { commonMeta } from '../common/config'
+import { FormPage } from './FormPage'
 
 const meta = {
   ...commonMeta,

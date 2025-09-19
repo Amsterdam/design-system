@@ -3,9 +3,11 @@
  * Copyright Gemeente Amsterdam
  */
 
-import { Grid } from '@amsterdam/design-system-react/src'
 import type { GridCellProps } from '@amsterdam/design-system-react/src'
+
+import { Grid } from '@amsterdam/design-system-react/src'
 import { Meta, StoryObj } from '@storybook/react-vite'
+
 import { gridGapAndPaddingArgTypes } from '../../common'
 
 const meta = {

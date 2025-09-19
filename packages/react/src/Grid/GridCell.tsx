@@ -3,10 +3,13 @@
  * Copyright Gemeente Amsterdam
  */
 
-import clsx from 'clsx'
-import { forwardRef } from 'react'
 import type { HTMLAttributes, PropsWithChildren } from 'react'
+
+import { clsx } from 'clsx'
+import { forwardRef } from 'react'
+
 import type { GridColumnNumber, GridColumnNumbers } from './Grid'
+
 import { gridCellClasses } from './gridCellClasses'
 
 export const gridCellTags = ['article', 'aside', 'div', 'footer', 'header', 'main', 'nav', 'section'] as const
@@ -25,11 +28,11 @@ type GridCellSpanAndStartProps = {
   start?: GridColumnNumber | GridColumnNumbers
 }
 
-export type GridCellProps = {
-  /** The HTML tag to use. */
-  as?: GridCellTag
-} & (GridCellSpanAllProp | GridCellSpanAndStartProps) &
-  PropsWithChildren<HTMLAttributes<HTMLElement>>
+export type GridCellProps = (GridCellSpanAllProp | GridCellSpanAndStartProps) &
+  PropsWithChildren<HTMLAttributes<HTMLElement>> & {
+    /** The HTML tag to use. */
+    as?: GridCellTag
+  }
 
 export const GridCell = forwardRef(
   ({ as: Tag = 'div', children, className, span, start, ...restProps }: GridCellProps, ref: any) => (

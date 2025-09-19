@@ -14,16 +14,18 @@ import {
   StandaloneLink,
 } from '@amsterdam/design-system-react'
 import parse from 'html-react-parser'
+
 import type { NewsArticle, NewsArticleSection } from './news-articles'
-import { parserOptions } from './parser.config'
+
 import { formatDate } from '../../../common'
 import { HomeNews } from '../HomePage/HomeNews'
+import { parserOptions } from './parser.config'
 
 export type ArticlePageProps = NewsArticle
 
 const Section = ({ body, heading }: NewsArticleSection) => (
   <>
-    <Heading className="ams-mb-s" level={2} size="level-3">
+    <Heading className="ams-mb-s" level={2}>
       {heading}
     </Heading>
     {parse(body, parserOptions)}
@@ -63,7 +65,7 @@ export const ArticlePage = ({
           {sections.map((props) => (
             <Section key={props.id} {...props} />
           ))}
-          <Heading className="ams-mb-s" level={2} size="level-3">
+          <Heading className="ams-mb-s" level={2}>
             Lees ook
           </Heading>
           <LinkList>

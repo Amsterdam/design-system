@@ -5,8 +5,9 @@
 
 import { render, screen } from '@testing-library/react'
 import { createRef } from 'react'
-import { Grid, gridGaps, gridPaddings, gridTags } from './Grid'
+
 import { ariaRoleForTag } from '../common/accessibility'
+import { Grid, gridGaps, gridPaddings, gridTags } from './Grid'
 import '@testing-library/jest-dom'
 
 describe('Grid', () => {
