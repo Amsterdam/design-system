@@ -3,6 +3,56 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.0.0](https://github.com/Amsterdam/design-system/compare/design-system-tokens-v1.0.1...design-system-tokens-v2.0.0) (2025-09-17)
+
+
+### ⚠ BREAKING CHANGES
+
+* Decreased font sizes and line heights of Headings. You should not need the `size` prop very often anymore. Try removing instances, but verify the visual result. See the [example pages in Storybook](https://designsystem.amsterdam/?path=/docs/pages-introduction--docs) for the approach we recommend. ([#2173](https://github.com/Amsterdam/design-system/issues/2173))
+
+### Deprecations
+
+The following tokens will be removed in the next major release. If you use them in your code, please delete them.
+
+* `ams.accordion.panel.*` and some tokens in `ams.accordion.button`
+* `ams.checkbox.hover.text-decoration-thickness` and `ams.checkbox.rectangle.*`
+* `ams.color.interactive.secondary`
+* `ams.icon.heading-0.*`
+* `ams.page-heading.*`
+* `ams.standalone-link.with-icon.*`, `ams.standalone-link.hover.text-decoration-thickness`  and `ams.standalone-link.hover.text-underline-offset` 
+* `ams.table-of-contents.*`
+* `ams.typography.heading.0.*` and `ams.typography.heading.6.*`
+
+### Features
+
+* **Accordion:** Display Headings in the size that matches their levels ([#2193](https://github.com/Amsterdam/design-system/issues/2193)) ([a3e373f](https://github.com/Amsterdam/design-system/commit/a3e373f5351fcd3a45227506a438d3a4d9ba2d54))
+* Add Call to Action Link component ([#2132](https://github.com/Amsterdam/design-system/issues/2132)) ([908fc5d](https://github.com/Amsterdam/design-system/commit/908fc5d107ded55c344d9d8c40feeb8c2071a1c7))
+* Add Menu component for applications ([#2129](https://github.com/Amsterdam/design-system/issues/2129)) ([886c052](https://github.com/Amsterdam/design-system/commit/886c052164be28a6cea9ed029465a81604841aec))
+* Allow pairing an Icon with Headings 0–2 ([#2131](https://github.com/Amsterdam/design-system/issues/2131)) ([922ded9](https://github.com/Amsterdam/design-system/commit/922ded95c5e18ffeff4cee48e1d27b9bde4b1bf1))
+* **Breadcrumb:** Use regular text size instead of small ([#2121](https://github.com/Amsterdam/design-system/issues/2121)) ([e25a5ea](https://github.com/Amsterdam/design-system/commit/e25a5ea76d4d7a88097dfeb95e1aa51caa550e4e))
+* **Checkbox, Radio:** Make the size of controls fluid like text ([#2128](https://github.com/Amsterdam/design-system/issues/2128)) ([8f176a9](https://github.com/Amsterdam/design-system/commit/8f176a9f1b7310c4955ad7f2f5cfde82593a168a))
+* Decrease font sizes and grid width in Spacious Mode, and increase Heading sizes in Compact Mode ([#2119](https://github.com/Amsterdam/design-system/issues/2119)) ([d60f487](https://github.com/Amsterdam/design-system/commit/d60f4873e7b2e198a8abae14c67fbc13cc98f7a0))
+* Decrease font sizes and line heights of Headings ([#2173](https://github.com/Amsterdam/design-system/issues/2173)) ([a70e945](https://github.com/Amsterdam/design-system/commit/a70e94503a524e97493ecffd4d3b005308307d3e))
+* Decrease offset between link underlines and text baseline ([#2134](https://github.com/Amsterdam/design-system/issues/2134)) ([bf5a69c](https://github.com/Amsterdam/design-system/commit/bf5a69cd9f6a8fe01c651edab73029a43f37999c))
+* **Error Message:** Use regular text size instead of small ([#2163](https://github.com/Amsterdam/design-system/issues/2163)) ([c5045a0](https://github.com/Amsterdam/design-system/commit/c5045a068980a1e4614ba5bc627b05e1fa4e7813))
+* **Field Set:** Make space below legend smaller ([#2171](https://github.com/Amsterdam/design-system/issues/2171)) ([9287e4c](https://github.com/Amsterdam/design-system/commit/9287e4c9c6f5a07d5a3f4853537ab1735c742330))
+* **Heading:** Make sizing consistent in various components and examples ([#2160](https://github.com/Amsterdam/design-system/issues/2160)) ([82184bf](https://github.com/Amsterdam/design-system/commit/82184bfc4b317cb2f219ba5975250b23c7dc8fa9))
+* **Inputs, Text Area, Select, Button:** Improve line height of entered text ([#2161](https://github.com/Amsterdam/design-system/issues/2161)) ([18d9a7d](https://github.com/Amsterdam/design-system/commit/18d9a7d5010a54a6e08893dfbf72f1e7b9434e69))
+* **Ordered List, Unordered List:** Use small gap between items instead of medium ([#2123](https://github.com/Amsterdam/design-system/issues/2123)) ([b11f77b](https://github.com/Amsterdam/design-system/commit/b11f77b20c6c03c3c0be999d70a03debcac01519))
+* **Ordered List, Unordered List:** Visually group nested list with parent item ([#2133](https://github.com/Amsterdam/design-system/issues/2133)) ([cf6a28f](https://github.com/Amsterdam/design-system/commit/cf6a28f1e9a340e4cf3b3e9a442d470c7f9e4f61))
+* **Page Footer:** Use regular text size instead of small ([#2122](https://github.com/Amsterdam/design-system/issues/2122)) ([4130f5a](https://github.com/Amsterdam/design-system/commit/4130f5a1ecce406b2230e8cc67900e06df03a601))
+* **Skip Link:** Use regular text size instead of small ([#2164](https://github.com/Amsterdam/design-system/issues/2164)) ([5580571](https://github.com/Amsterdam/design-system/commit/5580571090a64550b379ed8bbfa1a04b01953a5f))
+* **Standalone Link:** Deprecate the variation with only an underline ([#2136](https://github.com/Amsterdam/design-system/issues/2136)) ([d5059da](https://github.com/Amsterdam/design-system/commit/d5059da21009d608346e68526d7b468e693fbc60))
+* Use thinner borders in Compact Mode ([#2170](https://github.com/Amsterdam/design-system/issues/2170)) ([d6d30e0](https://github.com/Amsterdam/design-system/commit/d6d30e0892e1f19fa1d72db59ae34b882158e92f))
+
+
+### Bug Fixes
+
+* **Checkbox:** Refactor CSS, reorder tokens, add input state documentation ([#2058](https://github.com/Amsterdam/design-system/issues/2058)) ([a13ea6d](https://github.com/Amsterdam/design-system/commit/a13ea6d65a54b06120ce4d43ea4b1dd67d562496))
+* Correct shade of black for interactive contrast colour ([#2130](https://github.com/Amsterdam/design-system/issues/2130)) ([c87214d](https://github.com/Amsterdam/design-system/commit/c87214d650c77bc9f841be82c556e32fc716434c))
+* **Table of Contents:** Deprecate unused tokens and class name ([#2190](https://github.com/Amsterdam/design-system/issues/2190)) ([4bb9977](https://github.com/Amsterdam/design-system/commit/4bb997779112f48ca88b6bb9c501f4913a49c501))
+* Use correct underline width for Standalone Link with icon ([#2096](https://github.com/Amsterdam/design-system/issues/2096)) ([a87b5a8](https://github.com/Amsterdam/design-system/commit/a87b5a82636bed3c4e20fa0a7113f7cfca20efe0))
+
 ## [1.0.1](https://github.com/Amsterdam/design-system/compare/design-system-tokens-v1.0.0...design-system-tokens-v1.0.1) (2025-06-06)
 
 

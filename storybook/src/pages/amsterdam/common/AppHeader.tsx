@@ -4,6 +4,7 @@
  */
 
 import { Grid, Heading, LinkList, PageHeader } from '@amsterdam/design-system-react'
+
 import { megaMenuLinks, pageHeaderMenuLinks } from './menu'
 
 export const AppHeader = () => (
@@ -27,7 +28,7 @@ export const AppHeader = () => (
         </LinkList>
       </PageHeader.GridCellNarrowWindowOnly>
       <Grid.Cell span="all">
-        <Heading className="ams-mb-s" level={3}>
+        <Heading className="ams-mb-s" level={2}>
           Alle onderwerpen
         </Heading>
         <LinkList>

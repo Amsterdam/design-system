@@ -5,9 +5,10 @@
 
 import { render } from '@testing-library/react'
 import { createRef } from 'react'
-import { Image } from './Image'
-import { generateAspectRatioClass } from './generateAspectRatioClass'
+
 import { aspectRatioOptions } from '../common/types'
+import { generateAspectRatioClass } from './generateAspectRatioClass'
+import { Image } from './Image'
 import '@testing-library/jest-dom'
 
 describe('Image', () => {

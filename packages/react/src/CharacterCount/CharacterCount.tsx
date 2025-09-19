@@ -3,16 +3,17 @@
  * Copyright Gemeente Amsterdam
  */
 
-import clsx from 'clsx'
-import { forwardRef } from 'react'
 import type { ForwardedRef, HTMLAttributes } from 'react'
 
-export type CharacterCountProps = HTMLAttributes<HTMLDivElement> & {
+import { clsx } from 'clsx'
+import { forwardRef } from 'react'
+
+export type CharacterCountProps = {
   /** The current length of the field’s value. */
   length: number
   /** The maximum length of the field’s value. */
   maxLength: number
-}
+} & HTMLAttributes<HTMLDivElement>
 
 /**
  * @see {@link https://designsystem.amsterdam/?path=/docs/components-forms-character-count--docs Character Count docs at Amsterdam Design System}

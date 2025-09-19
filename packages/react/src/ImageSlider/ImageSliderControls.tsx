@@ -3,12 +3,14 @@
  * Copyright Gemeente Amsterdam
  */
 
-import { ChevronBackwardIcon, ChevronForwardIcon } from '@amsterdam/design-system-react-icons'
-import clsx from 'clsx'
-import { forwardRef, useCallback, useContext } from 'react'
 import type { ForwardedRef, HTMLAttributes } from 'react'
-import { ImageSliderContext } from './ImageSliderContext'
+
+import { ChevronBackwardIcon, ChevronForwardIcon } from '@amsterdam/design-system-react-icons'
+import { clsx } from 'clsx'
+import { forwardRef, useCallback, useContext } from 'react'
+
 import { Button } from '../Button'
+import { ImageSliderContext } from './ImageSliderContext'
 
 export type ImageSliderControlsProps = {
   /** The label for the ‘next’ button */

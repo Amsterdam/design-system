@@ -4,10 +4,12 @@
  */
 
 import { Meta, StoryObj } from '@storybook/react-vite'
+
+import type { NewsArticle } from './news-articles'
+
+import { commonMeta } from '../common/config'
 import { ArticlePage } from './ArticlePage'
 import { newsArticles } from './news-articles'
-import type { NewsArticle } from './news-articles'
-import { commonMeta } from '../common/config'
 
 const meta = {
   ...commonMeta,

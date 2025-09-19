@@ -3,6 +3,6 @@
  * Copyright Gemeente Amsterdam
  */
 
-export { Image } from './Image'
 export { generateAspectRatioClass } from './generateAspectRatioClass'
+export { Image } from './Image'
 export type { ImageProps } from './Image'
