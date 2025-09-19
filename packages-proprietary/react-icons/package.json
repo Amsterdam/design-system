@@ -29,9 +29,9 @@
     "directory": "packages-proprietary/react-icons"
   },
   "scripts": {
-    "clean": "rimraf src && rimraf dist",
-    "svgr": "svgr ../assets/icons",
-    "build": "npm run clean && npm run svgr && rollup -c"
+    "clean": "rimraf dist",
+    "build": "npm run clean && rollup -c",
+    "generate": "svgr ../assets/icons && prettier --write src && eslint src --fix"
   },
   "devDependencies": {
     "@rollup/plugin-node-resolve": "16.0.1",
