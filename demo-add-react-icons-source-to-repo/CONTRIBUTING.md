@@ -20,7 +20,7 @@ npm run optimize-icons
 Then, go to the `react-icons` package and run:
 
 ```sh
-npm run generate-icons
+npm run generate
 ```
 
 This will generate React icon components from all the SVGs in `/icons`.
