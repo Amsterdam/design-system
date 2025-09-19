@@ -31,7 +31,7 @@
   "scripts": {
     "clean": "rimraf dist",
     "build": "npm run clean && rollup -c",
-    "generate-icons": "svgr ../assets/icons && prettier --write src && eslint src --fix"
+    "generate": "svgr ../assets/icons && prettier --write src && eslint src --fix"
   },
   "devDependencies": {
     "@rollup/plugin-node-resolve": "16.0.1",
