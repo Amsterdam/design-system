@@ -90,4 +90,10 @@ export const KeyboardKeyIcons = [
   'KeyboardKeyShiftIcon',
 ]
 
-export const DeprecatedIcons = ['HandWithEuroCoinIcon']
+export const DeprecatedIcons = [
+  'HandWithEuroCoinIcon',
+  'CogwheelIcon',
+  'CogwheelFillIcon',
+  'CheckMarkCircleIcon',
+  'CheckMarkCircleFillIcon',
+]
