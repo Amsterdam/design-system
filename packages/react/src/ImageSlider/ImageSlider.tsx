@@ -104,13 +104,8 @@ export const ImageSliderRoot = forwardRef(
       const sliderScrollerElement = targetRef.current
       if (!sliderScrollerElement || !element) return
 
-      const slideRect = element.getBoundingClientRect()
-      const scrollerRect = sliderScrollerElement.getBoundingClientRect()
-      const scrollLeft = sliderScrollerElement.scrollLeft
-      const offset = slideRect.left - scrollerRect.left
-
       sliderScrollerElement.scrollTo({
-        left: scrollLeft + offset,
+        left: element.offsetLeft,
       })
     }, [])
 
