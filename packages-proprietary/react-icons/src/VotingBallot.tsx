@@ -4,10 +4,10 @@ const SvgVotingBallot = (props: SVGProps<SVGSVGElement>) => (
   <svg aria-hidden="true" focusable="false" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" {...props}>
     <path
       clipRule="evenodd"
-      d="M14.071 1.999 9.598 9.747l.325 2.476 2.564 1.48 2.307-.956L19.267 5l1.732 1L18 11.193v11.264H3v-14h4.288q.47-.233.974-.397L12.339 1zm-6.424 8.256a5.5 5.5 0 1 0 8.325 4.167l-.099.042-7.275 3.016z"
+      d="M14.322 1.988 9.848 9.736l.325 2.476 2.565 1.48 2.306-.956 4.473-7.748L21.25 5.99l-3.5 6.062v10.418h-15v-15h6.098L12.59.989zm-6.454 8.023a5.5 5.5 0 1 0 7.868 4.603l-6.888 2.855z"
       fillRule="evenodd"
     />
-    <path d="m17.535 4-3.625 6.278-1.732-1L15.803 3z" />
+    <path d="m17.786 3.99-3.625 6.278-1.733-1 3.625-6.28z" />
   </svg>
 )
 export default SvgVotingBallot
