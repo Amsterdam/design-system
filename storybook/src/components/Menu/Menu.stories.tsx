@@ -5,11 +5,11 @@
 
 import {
   BarChartIcon,
-  CogwheelIcon,
   DocumentsIcon,
   FolderIcon,
   PieChartFillIcon,
   PieChartIcon,
+  SettingsIcon,
 } from '@amsterdam/design-system-react-icons'
 import * as Icons from '@amsterdam/design-system-react-icons'
 import { Menu } from '@amsterdam/design-system-react/src'
@@ -38,7 +38,7 @@ const menuItems = [
   },
   {
     href: '#',
-    icon: <CogwheelIcon />,
+    icon: <SettingsIcon />,
     text: 'Instellingen',
   },
 ]
