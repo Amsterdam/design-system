@@ -32,6 +32,12 @@
   outline-offset: var(--ams-image-slider-scroller-outline-offset);
   overflow-x: auto;
   overscroll-behavior-x: contain;
+
+  /**
+    Required for the goToSlide function to work properly.
+    Ensures that the offset of the slides is calculated relative to the scroller container.
+  */
+  position: relative;
   scroll-snap-type: x mandatory;
   scrollbar-width: none;
 
