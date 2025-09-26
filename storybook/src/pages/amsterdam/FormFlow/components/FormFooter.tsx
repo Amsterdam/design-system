@@ -7,7 +7,7 @@ export const FormFooter = () => {
         <Grid paddingVertical="x-large">
           <Grid.Cell span={4}>
             <Column gap="small">
-              <Heading color="inverse" level={2} size="level-4">
+              <Heading color="inverse" level={2} size="level-3">
                 Contact
               </Heading>
               <Paragraph color="inverse">Lukt het niet om een afspraak te maken?</Paragraph>
