@@ -9,7 +9,7 @@ import { Hint, HintProps } from '@amsterdam/design-system-react/src/Hint'
 import { clsx } from 'clsx'
 import { forwardRef } from 'react'
 
-export type FieldSetProps = HintProps &
+export type FieldSetWithHeadingProps = HintProps &
   PropsWithChildren<HTMLAttributes<HTMLFieldSetElement>> & {
     /** Whether the field set has an input with a validation error */
     invalid?: boolean
@@ -19,7 +19,7 @@ export type FieldSetProps = HintProps &
 
 export const FieldSetWithHeading = forwardRef(
   (
-    { children, className, hint, invalid, legend, optional, ...restProps }: FieldSetProps,
+    { children, className, hint, invalid, legend, optional, ...restProps }: FieldSetWithHeadingProps,
     ref: ForwardedRef<HTMLFieldSetElement>,
   ) => {
     return (
