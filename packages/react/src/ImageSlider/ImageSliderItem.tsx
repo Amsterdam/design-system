@@ -26,7 +26,7 @@ export const ImageSliderItem = forwardRef(
     )
 
     return (
-      <div {...restProps} className={itemClassName} ref={ref} {...(!isInView && { inert: '' })}>
+      <div {...restProps} aria-hidden={!isInView ? true : undefined} className={itemClassName} ref={ref}>
         {children}
       </div>
     )
