@@ -11,7 +11,7 @@ export const LandingPage = () => (
   <Layout>
     <Grid as="main" id="main" paddingBottom="2x-large" paddingTop="large">
       <Grid.Cell span={{ narrow: 4, medium: 5, wide: 7 }} start={{ narrow: 1, medium: 2, wide: 3 }}>
-        <Heading className="ams-mb-xl" level={1}>
+        <Heading className="ams-mb-m" level={1}>
           Waar u dit formulier voor gebruikt
         </Heading>
         <Paragraph className="ams-mb-xl" size="large">
@@ -21,7 +21,7 @@ export const LandingPage = () => (
         <Heading className="ams-mb-s" level={2}>
           De stappen in dit formulier
         </Heading>
-        <OrderedList className="ams-mb-xl">
+        <OrderedList className="ams-mb-l">
           <OrderedList.Item>
             <strong>Afspraak</strong> - Kies waarvoor u een afspraak wilt maken. Kies ook waar u de afspraak wilt
             hebben. En wanneer.
