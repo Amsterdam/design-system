@@ -36,7 +36,7 @@ export const FieldSet = forwardRef(
       >
         <legend className="ams-field-set__legend">
           {withHeading ? (
-            <h1>
+            <h1 className="ams-field-set__heading">
               {legend} <Hint hint={hint} optional={optional} />
             </h1>
           ) : (

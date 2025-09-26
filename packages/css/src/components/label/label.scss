@@ -19,10 +19,8 @@
   @include text-rendering;
 }
 
-.ams-label h1 {
-  font-family: inherit;
+.ams-label__heading {
   font-size: inherit;
   font-weight: inherit;
-  line-height: inherit;
   margin-block: 0;
 }

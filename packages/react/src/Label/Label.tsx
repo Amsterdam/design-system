@@ -33,7 +33,7 @@ export const Label = forwardRef(
     return (
       <label {...restProps} className={clsx('ams-label', className)} ref={ref}>
         {withHeading ? (
-          <h1>
+          <h1 className="ams-label__heading">
             {children} <Hint hint={hint} optional={optional} />
           </h1>
         ) : (
