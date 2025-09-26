@@ -39,7 +39,7 @@ export const WithValidationError = () => (
           headingLevel={2}
         />
         <header aria-labelledby="form-header" className="ams-mb-m ams-gap-xs">
-          <Heading aria-hidden id="form-header" level={2} size="level-5">
+          <Heading aria-hidden id="form-header" level={2} size="level-4">
             Afspraak maken
           </Heading>
           <Paragraph>Stap 1 van 3: Afspraak</Paragraph>
