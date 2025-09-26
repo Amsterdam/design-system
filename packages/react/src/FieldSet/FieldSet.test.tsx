@@ -7,7 +7,6 @@ import { render, screen } from '@testing-library/react'
 import { createRef } from 'react'
 import '@testing-library/jest-dom'
 
-import { Heading } from '../Heading'
 import { FieldSet } from './FieldSet'
 
 describe('FieldSet', () => {
@@ -95,7 +94,7 @@ describe('FieldSet', () => {
   })
 
   it('renders a Heading component in the legend', () => {
-    render(<FieldSet legend={<Heading level={1}>Legend</Heading>} />)
+    render(<FieldSet legend="Legend" withHeading />)
 
     const heading = screen.getByRole('heading', {
       name: 'Legend',

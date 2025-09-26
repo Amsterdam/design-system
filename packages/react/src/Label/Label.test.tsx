@@ -7,7 +7,6 @@ import { render, screen } from '@testing-library/react'
 import { createRef } from 'react'
 import '@testing-library/jest-dom'
 
-import { Heading } from '../Heading'
 import { Label } from './Label'
 
 describe('Label', () => {
@@ -142,8 +141,8 @@ describe('Label', () => {
 
   it('renders a Heading component', () => {
     render(
-      <Label htmlFor="form-control">
-        <Heading level={1}>Label</Heading>
+      <Label htmlFor="form-control" withHeading>
+        Label
       </Label>,
     )
 
