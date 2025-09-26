@@ -31,7 +31,7 @@ export const WithValidationError = () => (
         </StandaloneLink>
       </Grid.Cell>
     </Grid>
-    <Grid as="main" className="ams-mb-2xl">
+    <Grid as="main" paddingBottom="2x-large">
       <Grid.Cell span={{ narrow: 4, medium: 6, wide: 6 }} start={{ narrow: 1, medium: 2, wide: 3 }}>
         <InvalidFormAlert
           className="ams-mb-m"
