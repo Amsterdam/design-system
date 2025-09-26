@@ -9,7 +9,7 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 ### Bug Fixes
 
 * **Image Slider:** Improve compatibility across different React versions ([#2221](https://github.com/Amsterdam/design-system/issues/2221)) ([0e16f55](https://github.com/Amsterdam/design-system/commit/0e16f554d3a58acce4d8b8617b7de7ce60cd8a0f))
-* **ImageSlider:** Slide scrolling behaviour across different layouts ([#2212](https://github.com/Amsterdam/design-system/issues/2212)) ([88f7d2b](https://github.com/Amsterdam/design-system/commit/88f7d2b857263ee171e9f487db815a3ead0f88a4))
+* **Image Slider:** Slide scrolling behaviour across different layouts ([#2212](https://github.com/Amsterdam/design-system/issues/2212)) ([88f7d2b](https://github.com/Amsterdam/design-system/commit/88f7d2b857263ee171e9f487db815a3ead0f88a4))
 
 ## [2.0.1](https://github.com/Amsterdam/design-system/compare/design-system-react-v2.0.0...design-system-react-v2.0.1) (2025-09-19)
 
