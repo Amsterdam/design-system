@@ -13,7 +13,7 @@ import {
   Radio,
   TextInput,
 } from '@amsterdam/design-system-react'
-import { FieldSet } from '@amsterdam/design-system-react/src'
+import { FieldSet, Heading } from '@amsterdam/design-system-react/src'
 import { Meta, StoryObj } from '@storybook/react-vite'
 
 import { exampleFamilyName, exampleGivenName } from '../shared/exampleContent'
@@ -320,6 +320,35 @@ export const CheckboxGroupWithValidation: Story = {
           Iets anders
         </Checkbox>
       </Column>
+    </FieldSet>
+  ),
+}
+
+export const WithHeadingInLegend: Story = {
+  render: ({ hint, invalid, legend, optional }) => (
+    <FieldSet hint={hint} invalid={invalid} legend={<Heading level={1}>{legend}</Heading>} optional={optional}>
+      <Field className="ams-mb-s">
+        <Label htmlFor="input-a1">Voornaam</Label>
+        {invalid && <ErrorMessage id="error-a1">Vul uw voornaam in.</ErrorMessage>}
+        <TextInput
+          aria-describedby={invalid ? 'error-a1' : undefined}
+          aria-required="true"
+          id="input-a1"
+          invalid={invalid}
+          value={givenName}
+        />
+      </Field>
+      <Field>
+        <Label htmlFor="input-a2">Achternaam</Label>
+        {invalid && <ErrorMessage id="error-a2">Vul uw achternaam in.</ErrorMessage>}
+        <TextInput
+          aria-describedby={invalid ? 'error-a2' : undefined}
+          aria-required="true"
+          id="input-a2"
+          invalid={invalid}
+          value={familyName}
+        />
+      </Field>
     </FieldSet>
   ),
 }

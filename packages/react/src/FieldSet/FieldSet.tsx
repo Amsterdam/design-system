@@ -3,7 +3,7 @@
  * Copyright Gemeente Amsterdam
  */
 
-import type { ForwardedRef, HTMLAttributes, PropsWithChildren } from 'react'
+import type { ForwardedRef, HTMLAttributes, PropsWithChildren, ReactNode } from 'react'
 
 import { clsx } from 'clsx'
 import { forwardRef } from 'react'
@@ -15,7 +15,7 @@ export type FieldSetProps = HintProps &
     /** Whether the field set has an input with a validation error */
     invalid?: boolean
     /** The text for the caption. */
-    legend: string
+    legend: string | ReactNode
   }
 
 /**

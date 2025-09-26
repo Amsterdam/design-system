@@ -5,9 +5,10 @@
 
 import { render, screen } from '@testing-library/react'
 import { createRef } from 'react'
-
-import { Label } from './Label'
 import '@testing-library/jest-dom'
+
+import { Heading } from '../Heading'
+import { Label } from './Label'
 
 describe('Label', () => {
   it('renders an HTML label element', () => {
@@ -137,5 +138,17 @@ describe('Label', () => {
     const label = container.querySelector('label:only-child')
 
     expect(label).toHaveTextContent('Label (required)')
+  })
+
+  it('renders a Heading component', () => {
+    render(
+      <Label htmlFor="form-control">
+        <Heading level={1}>Label</Heading>
+      </Label>,
+    )
+
+    const heading = screen.getByRole('heading', { name: 'Label' })
+
+    expect(heading).toBeInTheDocument()
   })
 })
