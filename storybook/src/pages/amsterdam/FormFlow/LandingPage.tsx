@@ -9,7 +9,7 @@ import { Layout } from '../common/Layout'
 
 export const LandingPage = () => (
   <Layout>
-    <Grid as="main" id="main" paddingBottom="2x-large" paddingTop="large">
+    <Grid as="main" id="inhoud" paddingBottom="2x-large" paddingTop="large">
       <Grid.Cell span={{ narrow: 4, medium: 5, wide: 7 }} start={{ narrow: 1, medium: 2, wide: 3 }}>
         <Heading className="ams-mb-m" level={1}>
           Waar u dit formulier voor gebruikt
