@@ -323,3 +323,35 @@ export const CheckboxGroupWithValidation: Story = {
     </FieldSet>
   ),
 }
+
+export const WithHeadingInLegend: Story = {
+  args: {
+    withHeading: true,
+  },
+  render: ({ hint, invalid, legend, optional, withHeading }) => (
+    <FieldSet hint={hint} invalid={invalid} legend={legend} optional={optional} withHeading={withHeading}>
+      <Field className="ams-mb-s">
+        <Label htmlFor="input-a1">Voornaam</Label>
+        {invalid && <ErrorMessage id="error-a1">Vul uw voornaam in.</ErrorMessage>}
+        <TextInput
+          aria-describedby={invalid ? 'error-a1' : undefined}
+          aria-required="true"
+          id="input-a1"
+          invalid={invalid}
+          value={givenName}
+        />
+      </Field>
+      <Field>
+        <Label htmlFor="input-a2">Achternaam</Label>
+        {invalid && <ErrorMessage id="error-a2">Vul uw achternaam in.</ErrorMessage>}
+        <TextInput
+          aria-describedby={invalid ? 'error-a2' : undefined}
+          aria-required="true"
+          id="input-a2"
+          invalid={invalid}
+          value={familyName}
+        />
+      </Field>
+    </FieldSet>
+  ),
+}

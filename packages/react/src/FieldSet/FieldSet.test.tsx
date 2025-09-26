@@ -5,9 +5,9 @@
 
 import { render, screen } from '@testing-library/react'
 import { createRef } from 'react'
+import '@testing-library/jest-dom'
 
 import { FieldSet } from './FieldSet'
-import '@testing-library/jest-dom'
 
 describe('FieldSet', () => {
   it('renders', () => {
@@ -91,5 +91,15 @@ describe('FieldSet', () => {
     const component = screen.getByRole('group', { name: 'Legend (required)' })
 
     expect(component).toBeInTheDocument()
+  })
+
+  it('renders a Heading component in the legend', () => {
+    render(<FieldSet legend="Legend" withHeading />)
+
+    const heading = screen.getByRole('heading', {
+      name: 'Legend',
+    })
+
+    expect(heading).toBeInTheDocument()
   })
 })
