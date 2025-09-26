@@ -64,12 +64,13 @@ jobs:
           target-folder: demo-${{ env.BRANCH_NAME }}
 
       - name: Wait for GitHub Pages to be deployed
-        uses: mydea/action-wait-for-api@45d9c58e690337a05eb5ae14a1478f29eacbf9db # v2.0.0
+        uses: nick-fields/retry@ce71cc2ab81d554ebbe88c79ab5975992d79ba08 # v3.0.2
         with:
-          url: https://${{ github.repository_owner }}.github.io/${{ github.event.repository.name }}/demo-${{ env.BRANCH_NAME }}/${{ github.sha }}.txt
-          expected-status: 200
-          timeout: 600
-          interval: 15
+          timeout_minutes: 10
+          max_attempts: 40
+          retry_wait_seconds: 15
+          command: |
+            curl -sf https://${{ github.repository_owner }}.github.io/${{ github.event.repository.name }}/demo-${{ env.BRANCH_NAME }}/${{ github.sha }}.txt
 
       - name: Update deployment status
         uses: bobheadxi/deployments@648679e8e4915b27893bd7dbc35cb504dc915bc8 # v1.5.0
