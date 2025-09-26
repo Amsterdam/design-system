@@ -16,16 +16,31 @@ import { forwardRef } from 'react'
 
 import { Hint, HintProps } from '../Hint'
 
-export type LabelProps = HintProps & PropsWithChildren<LabelHTMLAttributes<HTMLLabelElement>>
+export type LabelProps = HintProps &
+  PropsWithChildren<LabelHTMLAttributes<HTMLLabelElement>> & {
+    /** Use a heading (h1) in the label */
+    withHeading?: boolean
+  }
 
 /**
  * @see {@link https://designsystem.amsterdam/?path=/docs/components-forms-label--docs Label docs at Amsterdam Design System}
  */
 export const Label = forwardRef(
-  ({ children, className, hint, optional, ...restProps }: LabelProps, ref: ForwardedRef<HTMLLabelElement>) => {
+  (
+    { children, className, hint, optional, withHeading, ...restProps }: LabelProps,
+    ref: ForwardedRef<HTMLLabelElement>,
+  ) => {
     return (
       <label {...restProps} className={clsx('ams-label', className)} ref={ref}>
-        {children} <Hint hint={hint} optional={optional} />
+        {withHeading ? (
+          <h1>
+            {children} <Hint hint={hint} optional={optional} />
+          </h1>
+        ) : (
+          <>
+            {children} <Hint hint={hint} optional={optional} />
+          </>
+        )}
       </label>
     )
   },

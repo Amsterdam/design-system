@@ -3,7 +3,6 @@
  * Copyright Gemeente Amsterdam
  */
 
-import { Heading } from '@amsterdam/design-system-react'
 import { Label } from '@amsterdam/design-system-react/src'
 import { Meta, StoryObj } from '@storybook/react-vite'
 
@@ -43,6 +42,6 @@ export const WithHint: Story = {
 
 export const WithHeading: Story = {
   args: {
-    children: <Heading level={1}>Label</Heading>,
+    withHeading: true,
   },
 }

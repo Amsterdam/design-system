@@ -13,7 +13,7 @@ import {
   Radio,
   TextInput,
 } from '@amsterdam/design-system-react'
-import { FieldSet, Heading } from '@amsterdam/design-system-react/src'
+import { FieldSet } from '@amsterdam/design-system-react/src'
 import { Meta, StoryObj } from '@storybook/react-vite'
 
 import { exampleFamilyName, exampleGivenName } from '../shared/exampleContent'
@@ -325,8 +325,11 @@ export const CheckboxGroupWithValidation: Story = {
 }
 
 export const WithHeadingInLegend: Story = {
-  render: ({ hint, invalid, legend, optional }) => (
-    <FieldSet hint={hint} invalid={invalid} legend={<Heading level={1}>{legend}</Heading>} optional={optional}>
+  args: {
+    withHeading: true,
+  },
+  render: ({ hint, invalid, legend, optional, withHeading }) => (
+    <FieldSet hint={hint} invalid={invalid} legend={legend} optional={optional} withHeading={withHeading}>
       <Field className="ams-mb-s">
         <Label htmlFor="input-a1">Voornaam</Label>
         {invalid && <ErrorMessage id="error-a1">Vul uw voornaam in.</ErrorMessage>}
