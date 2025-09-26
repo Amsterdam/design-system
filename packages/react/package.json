@@ -23,10 +23,10 @@
   },
   "sideEffects": false,
   "scripts": {
-    "build": "tsc && rollup -c",
+    "build": "tsc --project ./tsconfig.build.json && rollup -c",
     "build:watch": "rollup -c --watch",
     "clean": "rimraf dist/",
-    "lint": "tsc --noEmit --project ./tsconfig.json && tsc --noEmit --project ./tsconfig.test.json",
+    "lint": "tsc --noEmit --project ./tsconfig.json",
     "test": "jest --verbose --coverage",
     "watch:test": "jest --verbose --watch"
   },
