@@ -3,6 +3,13 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.1.0](https://github.com/Amsterdam/design-system/compare/design-system-react-icons-v1.0.1...design-system-react-icons-v1.1.0) (2025-09-26)
+
+
+### Features
+
+* Add 26 new icons, update 5, and deprecate 3 ([#2201](https://github.com/Amsterdam/design-system/issues/2201)) ([1a47b0d](https://github.com/Amsterdam/design-system/commit/1a47b0d6e6ea26f9ac9cc3f6fc98b6cf731f0163))
+
 ## [1.0.1](https://github.com/Amsterdam/design-system/compare/design-system-react-icons-v1.0.0...design-system-react-icons-v1.0.1) (2025-09-19)
 
 
