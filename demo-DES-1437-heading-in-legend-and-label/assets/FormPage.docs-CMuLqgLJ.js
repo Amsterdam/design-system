@@ -1,0 +1,5 @@
+import{j as o}from"./iframe-Cpqq6kav.js";import{useMDXComponents as r}from"./index-DqXkizN1.js";import{M as s}from"./blocks-CHF7LEr7.js";import{F as m}from"./FormPage.stories-OjaD4jIN.js";import"./index-DHwpLLoo.js";import"./config-QiV6FuPD.js";import"./PageFooter.stories-C_spjdrI.js";/*@license CC0-1.0*/function n(t){const e={h1:"h1",p:"p",...r(),...t.components};return o.jsxs(o.Fragment,{children:[`
+`,`
+`,o.jsx(s,{of:m}),`
+`,o.jsx(e.h1,{id:"form-page",children:"Form page"}),`
+`,o.jsx(e.p,{children:"This simple example presents various types of fields."})]})}function d(t={}){const{wrapper:e}={...r(),...t.components};return e?o.jsx(e,{...t,children:o.jsx(n,{...t})}):n(t)}export{d as default};
