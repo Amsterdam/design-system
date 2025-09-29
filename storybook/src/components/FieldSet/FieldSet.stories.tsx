@@ -44,27 +44,27 @@ export default meta
 type Story = StoryObj<typeof meta>
 
 export const Default: Story = {
-  render: ({ hint, invalid, legend, optional }) => (
-    <FieldSet hint={hint} invalid={invalid} legend={legend} optional={optional}>
+  render: (args) => (
+    <FieldSet {...args}>
       <Field className="ams-mb-s">
         <Label htmlFor="input-a1">Voornaam</Label>
-        {invalid && <ErrorMessage id="error-a1">Vul uw voornaam in.</ErrorMessage>}
+        {args.invalid && <ErrorMessage id="error-a1">Vul uw voornaam in.</ErrorMessage>}
         <TextInput
-          aria-describedby={invalid ? 'error-a1' : undefined}
+          aria-describedby={args.invalid ? 'error-a1' : undefined}
           aria-required="true"
           id="input-a1"
-          invalid={invalid}
+          invalid={args.invalid}
           value={givenName}
         />
       </Field>
       <Field>
         <Label htmlFor="input-a2">Achternaam</Label>
-        {invalid && <ErrorMessage id="error-a2">Vul uw achternaam in.</ErrorMessage>}
+        {args.invalid && <ErrorMessage id="error-a2">Vul uw achternaam in.</ErrorMessage>}
         <TextInput
-          aria-describedby={invalid ? 'error-a2' : undefined}
+          aria-describedby={args.invalid ? 'error-a2' : undefined}
           aria-required="true"
           id="input-a2"
-          invalid={invalid}
+          invalid={args.invalid}
           value={familyName}
         />
       </Field>
@@ -74,7 +74,7 @@ export const Default: Story = {
 
 export const WithDescription: Story = {
   render: (args) => (
-    <FieldSet aria-describedby="description-b" invalid={args.invalid} legend={args.legend}>
+    <FieldSet aria-describedby="description-b" {...args}>
       <Paragraph className="ams-mb-s" id="description-b">
         Vul uw naam in zoals in uw paspoort staat.
       </Paragraph>
@@ -109,27 +109,27 @@ export const WithHint: Story = {
     hint: 'verplicht',
     optional: false,
   },
-  render: ({ hint, invalid, legend, optional }) => (
-    <FieldSet hint={hint} invalid={invalid} legend={legend} optional={optional}>
+  render: (args) => (
+    <FieldSet {...args}>
       <Field className="ams-mb-s">
         <Label htmlFor="input-b3">Voornaam</Label>
-        {invalid && <ErrorMessage id="error-b3">Vul uw voornaam in.</ErrorMessage>}
+        {args.invalid && <ErrorMessage id="error-b3">Vul uw voornaam in.</ErrorMessage>}
         <TextInput
-          aria-describedby={invalid ? 'error-b3' : undefined}
+          aria-describedby={args.invalid ? 'error-b3' : undefined}
           aria-required="true"
           id="input-b3"
-          invalid={invalid}
+          invalid={args.invalid}
           value={givenName}
         />
       </Field>
       <Field>
         <Label htmlFor="input-b4">Achternaam</Label>
-        {invalid && <ErrorMessage id="error-b4">Vul uw achternaam in.</ErrorMessage>}
+        {args.invalid && <ErrorMessage id="error-b4">Vul uw achternaam in.</ErrorMessage>}
         <TextInput
-          aria-describedby={invalid ? 'error-b4' : undefined}
+          aria-describedby={args.invalid ? 'error-b4' : undefined}
           aria-required="true"
           id="input-b4"
-          invalid={invalid}
+          invalid={args.invalid}
           value={familyName}
         />
       </Field>
