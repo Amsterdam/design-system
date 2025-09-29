@@ -42,6 +42,6 @@ export const WithHint: Story = {
 
 export const WithHeading: Story = {
   args: {
-    withHeading: true,
+    isPageHeading: true,
   },
 }

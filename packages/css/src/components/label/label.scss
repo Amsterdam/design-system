@@ -12,7 +12,6 @@
   font-size: var(--ams-label-font-size);
   font-weight: var(--ams-label-font-weight);
   line-height: var(--ams-label-line-height);
-  margin-block: 0;
   text-wrap: var(--ams-label-text-wrap);
 
   @include hyphenation;
@@ -20,7 +19,7 @@
 }
 
 .ams-label__heading {
-  font-size: inherit;
-  font-weight: inherit;
+  font-size: initial;
+  font-weight: initial;
   margin-block: 0;
 }

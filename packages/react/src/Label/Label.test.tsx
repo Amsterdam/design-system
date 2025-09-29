@@ -140,11 +140,7 @@ describe('Label', () => {
   })
 
   it('renders a Heading component', () => {
-    render(
-      <Label htmlFor="form-control" withHeading>
-        Label
-      </Label>,
-    )
+    render(<Label isPageHeading>Label</Label>)
 
     const heading = screen.getByRole('heading', { name: 'Label' })
 

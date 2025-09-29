@@ -18,8 +18,8 @@ import { Hint, HintProps } from '../Hint'
 
 export type LabelProps = HintProps &
   PropsWithChildren<LabelHTMLAttributes<HTMLLabelElement>> & {
-    /** Use a heading (h1) in the label */
-    withHeading?: boolean
+    /** Render a level 1 heading around the label */
+    isPageHeading?: boolean
   }
 
 /**
@@ -27,20 +27,21 @@ export type LabelProps = HintProps &
  */
 export const Label = forwardRef(
   (
-    { children, className, hint, optional, withHeading, ...restProps }: LabelProps,
+    { children, className, hint, isPageHeading, optional, ...restProps }: LabelProps,
     ref: ForwardedRef<HTMLLabelElement>,
   ) => {
+    if (isPageHeading) {
+      return (
+        <h1 className="ams-label__heading">
+          <label {...restProps} className={clsx('ams-label', className)} ref={ref}>
+            {children} <Hint hint={hint} optional={optional} />
+          </label>
+        </h1>
+      )
+    }
     return (
       <label {...restProps} className={clsx('ams-label', className)} ref={ref}>
-        {withHeading ? (
-          <h1 className="ams-label__heading">
-            {children} <Hint hint={hint} optional={optional} />
-          </h1>
-        ) : (
-          <>
-            {children} <Hint hint={hint} optional={optional} />
-          </>
-        )}
+        {children} <Hint hint={hint} optional={optional} />
       </label>
     )
   },

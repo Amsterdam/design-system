@@ -16,8 +16,8 @@ export type FieldSetProps = HintProps &
     invalid?: boolean
     /** The text for the caption. */
     legend: string
-    /** Use a heading (h1) in the legend */
-    withHeading?: boolean
+    /** Use a level 1 heading in the legend */
+    legendIsPageHeading?: boolean
   }
 
 /**
@@ -25,7 +25,7 @@ export type FieldSetProps = HintProps &
  */
 export const FieldSet = forwardRef(
   (
-    { children, className, hint, invalid, legend, optional, withHeading, ...restProps }: FieldSetProps,
+    { children, className, hint, invalid, legend, legendIsPageHeading, optional, ...restProps }: FieldSetProps,
     ref: ForwardedRef<HTMLFieldSetElement>,
   ) => {
     return (
@@ -35,7 +35,7 @@ export const FieldSet = forwardRef(
         ref={ref}
       >
         <legend className="ams-field-set__legend">
-          {withHeading ? (
+          {legendIsPageHeading ? (
             <h1 className="ams-field-set__heading">
               {legend} <Hint hint={hint} optional={optional} />
             </h1>
