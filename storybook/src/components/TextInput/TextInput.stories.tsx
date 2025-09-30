@@ -49,7 +49,7 @@ export const Default: Story = {}
 export const EmailAddress: Story = {
   args: {
     defaultValue: 'designsystem@amsterdam.nl',
-    size: 32,
+    size: 30,
     type: 'email',
   },
 }
@@ -57,7 +57,7 @@ export const EmailAddress: Story = {
 export const WebAddress: Story = {
   args: {
     defaultValue: 'https://designsystem.amsterdam/',
-    size: 48,
+    size: 40,
     type: 'url',
   },
 }
@@ -65,7 +65,7 @@ export const WebAddress: Story = {
 export const PhoneNumber: Story = {
   args: {
     defaultValue: '14020',
-    size: 16,
+    size: 15,
     type: 'tel',
   },
 }
@@ -75,7 +75,7 @@ export const WholeNumber: Story = {
     defaultValue: '20',
     inputMode: 'numeric',
     pattern: '[0-9]*',
-    size: 4,
+    size: 5,
     spellCheck: false,
   },
 }
@@ -84,7 +84,7 @@ export const DecimalNumber: Story = {
   args: {
     defaultValue: '12.75',
     pattern: '[0-9.,]*',
-    size: 4,
+    size: 5,
     spellCheck: false,
   },
 }
@@ -92,7 +92,7 @@ export const DecimalNumber: Story = {
 export const Size: Story = {
   args: {
     defaultValue: '1011 PN',
-    size: 8,
+    size: 7,
   },
 }
 
