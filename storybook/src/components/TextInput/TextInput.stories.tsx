@@ -33,6 +33,7 @@ const meta = {
     type: {
       control: {
         labels: { undefined: 'text (default)' },
+        type: 'radio',
       },
       options: [undefined, ...textInputTypes.filter((type) => type !== 'text')],
     },
