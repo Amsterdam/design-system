@@ -21,22 +21,20 @@ export const FieldSetWithHeading = forwardRef(
   (
     { children, className, hint, invalid, legend, optional, ...restProps }: FieldSetWithHeadingProps,
     ref: ForwardedRef<HTMLFieldSetElement>,
-  ) => {
-    return (
-      <fieldset
-        {...restProps}
-        className={clsx('ams-field-set', invalid && 'ams-field-set--invalid', className)}
-        ref={ref}
-      >
-        <legend className="ams-field-set__legend">
-          <h1 style={{ fontSize: 'inherit', fontWeight: 'inherit', marginBlock: 0 }}>
-            {legend} <Hint hint={hint} optional={optional} />
-          </h1>
-        </legend>
-        {children}
-      </fieldset>
-    )
-  },
+  ) => (
+    <fieldset
+      {...restProps}
+      className={clsx('ams-field-set', invalid && 'ams-field-set--invalid', className)}
+      ref={ref}
+    >
+      <legend className="ams-field-set__legend">
+        <h1 style={{ fontSize: 'inherit', fontWeight: 'inherit', marginBlock: 0 }}>
+          {legend} <Hint hint={hint} optional={optional} />
+        </h1>
+      </legend>
+      {children}
+    </fieldset>
+  ),
 )
 
 FieldSetWithHeading.displayName = 'FieldSetWithHeading'
