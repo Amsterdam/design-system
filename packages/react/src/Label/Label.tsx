@@ -18,7 +18,10 @@ import { Hint, HintProps } from '../Hint'
 
 export type LabelProps = HintProps &
   PropsWithChildren<LabelHTMLAttributes<HTMLLabelElement>> & {
-    /** Render a level 1 heading around the label */
+    /**
+     * Render a level 1 heading around the label.
+     * Set this if the Field is the only content of the page.
+     */
     isPageHeading?: boolean
   }
 

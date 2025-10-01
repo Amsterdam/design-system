@@ -12,11 +12,14 @@ import { Hint, HintProps } from '../Hint'
 
 export type FieldSetProps = HintProps &
   PropsWithChildren<HTMLAttributes<HTMLFieldSetElement>> & {
-    /** Whether the field set has an input with a validation error */
+    /** Whether the field set has an input with a validation error. */
     invalid?: boolean
     /** The text for the caption. */
     legend: string
-    /** Use a level 1 heading in the legend */
+    /**
+     * Render a level 1 heading in the legend.
+     * Set this if the Field Set is the only content of the page.
+     */
     legendIsPageHeading?: boolean
   }
 
