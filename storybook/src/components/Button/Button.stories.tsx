@@ -58,6 +58,7 @@ export const Primary: Story = {
   play: async ({ canvas, userEvent }) => {
     await userEvent.click(canvas.getByText('Versturen'))
   },
+  tags: ['!dev'],
 }
 
 export const Secondary: Story = {
