@@ -31,6 +31,12 @@ export const FieldSet = forwardRef(
     { children, className, hint, invalid, legend, legendIsPageHeading, optional, ...restProps }: FieldSetProps,
     ref: ForwardedRef<HTMLFieldSetElement>,
   ) => {
+    const legendContent = (
+      <>
+        {legend} <Hint hint={hint} optional={optional} />
+      </>
+    )
+
     return (
       <fieldset
         {...restProps}
@@ -38,15 +44,7 @@ export const FieldSet = forwardRef(
         ref={ref}
       >
         <legend className="ams-field-set__legend">
-          {legendIsPageHeading ? (
-            <h1 className="ams-field-set__heading">
-              {legend} <Hint hint={hint} optional={optional} />
-            </h1>
-          ) : (
-            <>
-              {legend} <Hint hint={hint} optional={optional} />
-            </>
-          )}
+          {legendIsPageHeading ? <h1 className="ams-field-set__heading">{legendContent}</h1> : legendContent}
         </legend>
         {children}
       </fieldset>
