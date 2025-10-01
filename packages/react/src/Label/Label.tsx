@@ -28,20 +28,13 @@ export const Label = forwardRef(
     { children, className, hint, isPageHeading, optional, ...restProps }: LabelProps,
     ref: ForwardedRef<HTMLLabelElement>,
   ) => {
-    if (isPageHeading) {
-      return (
-        <h1 className="ams-label__heading">
-          <label {...restProps} className={clsx('ams-label', className)} ref={ref}>
-            {children} <Hint hint={hint} optional={optional} />
-          </label>
-        </h1>
-      )
-    }
-    return (
+    const labelElement = (
       <label {...restProps} className={clsx('ams-label', className)} ref={ref}>
         {children} <Hint hint={hint} optional={optional} />
       </label>
     )
+
+    return isPageHeading ? <h1 className="ams-label__heading">{labelElement}</h1> : labelElement
   },
 )
 
