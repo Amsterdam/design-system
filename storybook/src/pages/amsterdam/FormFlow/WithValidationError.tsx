@@ -109,6 +109,9 @@ export const WithValidationError = () => (
               <Radio aria-required="true" invalid name="reasonForVisit" value="social-counter">
                 Sociaal loket
               </Radio>
+              <Radio aria-required="true" invalid name="reasonForVisit" value="other">
+                Overig
+              </Radio>
             </Column>
           </FieldSetWithHeading>
           <Button type="submit">Volgende vraag</Button>

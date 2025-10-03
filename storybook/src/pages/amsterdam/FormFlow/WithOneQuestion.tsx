@@ -82,6 +82,9 @@ export const WithOneQuestion = () => (
               <Radio aria-required="true" name="reasonForVisit" value="social-counter">
                 Sociaal loket
               </Radio>
+              <Radio aria-required="true" name="reasonForVisit" value="other">
+                Overig
+              </Radio>
             </Column>
           </FieldSetWithHeading>
           <Button type="submit">Volgende vraag</Button>
