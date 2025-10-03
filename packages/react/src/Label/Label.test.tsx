@@ -138,4 +138,12 @@ describe('Label', () => {
 
     expect(label).toHaveTextContent('Label (required)')
   })
+
+  it('renders a Heading component', () => {
+    render(<Label isPageHeading>Label</Label>)
+
+    const heading = screen.getByRole('heading', { name: 'Label' })
+
+    expect(heading).toBeInTheDocument()
+  })
 })

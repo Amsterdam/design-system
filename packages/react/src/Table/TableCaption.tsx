@@ -1,9 +1,4 @@
 /**
- * @license EUPL-1.2+
- * Copyright Gemeente Amsterdam
- */
-
-/**
  * @license EUPL-1.2
  * Copyright (c) 2022 Robbert Broersma
  * Copyright Gemeente Amsterdam
