@@ -3,7 +3,7 @@
  * Copyright Gemeente Amsterdam
  */
 
-import { Column, Grid } from '@amsterdam/design-system-react'
+import { ButtonProps } from '@amsterdam/design-system-react'
 import { CloseIcon } from '@amsterdam/design-system-react-icons'
 import * as Icons from '@amsterdam/design-system-react-icons'
 import { Button } from '@amsterdam/design-system-react/src'
@@ -19,6 +19,7 @@ const meta = {
     icon: undefined,
     iconBefore: false,
     iconOnly: undefined,
+    onClick: fn(),
     variant: 'primary',
   },
   argTypes: {
@@ -50,17 +51,18 @@ const meta = {
       },
     },
   },
+  play: async ({ args, canvas }) => {
+    const button = canvas.queryByRole('button')
+    button?.click()
+    expect(args.onClick).toBeCalled()
+  },
 } satisfies Meta<typeof Button>
 
 export default meta
 
 type Story = StoryObj<typeof meta>
 
-export const Primary: Story = {
-  play: async ({ canvas, userEvent }) => {
-    await userEvent.click(canvas.getByText('Versturen'))
-  },
-}
+export const Primary: Story = {}
 
 export const Secondary: Story = {
   args: {
@@ -113,6 +115,9 @@ export const TextWrapping: Story = {
   ],
 }
 
+const variants = ['primary', 'secondary', 'tertiary', 'icon']
+const rowsToTest = ['default', 'disabled']
+
 export const TestCases: Story = {
   args: {
     onClick: fn(),
@@ -125,62 +130,59 @@ export const TestCases: Story = {
   play: async ({ args, canvas, userEvent }) => {
     expect(args.onClick).not.toHaveBeenCalled()
 
-    for (let idx = 0; idx <= 7; idx++) {
-      await userEvent.click(canvas.getByTestId(`test-button-${idx}`))
-      expect(args.onClick).toHaveReturnedTimes(idx < 4 ? idx + 1 : 4)
+    for (const row of rowsToTest) {
+      for (let idx = 0; idx < variants.length; idx++) {
+        const variant = variants[idx]
+        await userEvent.click(canvas.getByTestId(row === 'default' ? variant : `${row}-${variant}`))
+        expect(args.onClick).toHaveReturnedTimes(variant === 'disabled' ? 4 : idx + 1)
+      }
     }
   },
   render: (args) => (
-    <Grid>
-      <Grid.Cell span={4}>
-        <Column>
-          <Button data-testid="test-button-0" onClick={args.onClick} variant="primary">
-            Primary
-          </Button>
-          <Button data-testid="test-button-1" onClick={args.onClick} variant="secondary">
-            Secondary
-          </Button>
-          <Button data-testid="test-button-2" onClick={args.onClick} variant="tertiary">
-            Tertiary
-          </Button>
-          <Button data-testid="test-button-3" icon={<CloseIcon />} onClick={args.onClick} variant="primary">
-            Close
-          </Button>
-        </Column>
-      </Grid.Cell>
-      <Grid.Cell span={4}>
-        <Column>
-          <Button data-testid="test-button-4" disabled onClick={args.onClick} variant="primary">
-            Primary Disabled
-          </Button>
-          <Button data-testid="test-button-5" disabled onClick={args.onClick} variant="secondary">
-            Secondary Disabled
-          </Button>
-          <Button data-testid="test-button-6" disabled onClick={args.onClick} variant="tertiary">
-            Tertiary Disabled
-          </Button>
-          <Button data-testid="test-button-7" disabled icon={<CloseIcon />} onClick={args.onClick} variant="primary">
-            Close Disabled
-          </Button>
-        </Column>
-      </Grid.Cell>
-      <Grid.Cell span={4}>
-        <Column>
-          <Button className="hover" variant="primary">
-            Primary hover
-          </Button>
-          <Button className="hover" variant="secondary">
-            Secondary hover
-          </Button>
-          <Button className="hover" variant="tertiary">
-            Tertiary hover
-          </Button>
-          <Button className="hover" icon={<CloseIcon />} variant="primary">
-            Close hover
-          </Button>
-        </Column>
-      </Grid.Cell>
-    </Grid>
+    <table>
+      <tbody>
+        {variants.map((variant) => (
+          <tr key={variant}>
+            <td>
+              <Button
+                data-testid={variant}
+                onClick={args.onClick}
+                {...(variant === 'icon' ? { icon: <CloseIcon /> } : {})}
+                variant={variant === 'icon' ? 'primary' : (variant as ButtonProps['variant'])}
+              >
+                {variant === 'icon' ? 'With Icon' : variant.charAt(0).toUpperCase() + variant.slice(1)}
+              </Button>
+            </td>
+            <td>
+              <Button
+                data-testid={`disabled-${variant}`}
+                disabled
+                key={`disabled-${variant}`}
+                onClick={args.onClick}
+                {...(variant === 'icon' ? { icon: <CloseIcon /> } : {})}
+                variant={variant === 'icon' ? 'primary' : (variant as ButtonProps['variant'])}
+              >
+                {variant === 'icon'
+                  ? 'With Icon disabled'
+                  : `${variant.charAt(0).toUpperCase() + variant.slice(1)} disabled`}
+              </Button>
+            </td>
+            <td>
+              <Button
+                className="hover"
+                key={`hovered-${variant}`}
+                {...(variant === 'icon' ? { icon: <CloseIcon /> } : {})}
+                variant={variant === 'icon' ? 'primary' : (variant as ButtonProps['variant'])}
+              >
+                {variant === 'icon'
+                  ? 'With Icon hovered'
+                  : `${variant.charAt(0).toUpperCase() + variant.slice(1)} hovered`}
+              </Button>
+            </td>
+          </tr>
+        ))}
+      </tbody>
+    </table>
   ),
   tags: ['!dev', '!autodocs'],
 }
