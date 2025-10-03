@@ -85,6 +85,7 @@ export const InAFieldSet: Story = {
       id="fieldset1"
       invalid={invalid}
       legend="Waar gaat uw melding over?"
+      optional
     >
       <Paragraph className="ams-mb-s" id="description1">
         De laatstgenoemde melding.
@@ -146,16 +147,16 @@ export const InAFieldSetWithValidation: Story = {
         </ErrorMessage>
       )}
       <Column gap="x-small">
-        <Checkbox invalid={invalid} name="about" value="horeca">
+        <Checkbox aria-required="true" invalid={invalid} name="about" value="horeca">
           Horecabedrijf
         </Checkbox>
-        <Checkbox invalid={invalid} name="about" value="ander_bedrijf">
+        <Checkbox aria-required="true" invalid={invalid} name="about" value="ander_bedrijf">
           Ander soort bedrijf
         </Checkbox>
-        <Checkbox invalid={invalid} name="about" value="evenement">
+        <Checkbox aria-required="true" invalid={invalid} name="about" value="evenement">
           Evenement
         </Checkbox>
-        <Checkbox invalid={invalid} name="about" value="anders">
+        <Checkbox aria-required="true" invalid={invalid} name="about" value="anders">
           Iets anders
         </Checkbox>
       </Column>
