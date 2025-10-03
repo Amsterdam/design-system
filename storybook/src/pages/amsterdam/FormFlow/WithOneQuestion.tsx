@@ -6,6 +6,7 @@
 import {
   Button,
   Column,
+  FieldSet,
   Grid,
   Heading,
   Page,
@@ -16,7 +17,6 @@ import {
 } from '@amsterdam/design-system-react'
 import { ChevronBackwardIcon } from '@amsterdam/design-system-react-icons'
 
-import { FieldSetWithHeading } from './components/FieldSetWithHeading'
 import { FormFooter } from './components/FormFooter'
 
 export const WithOneQuestion = () => (
@@ -66,10 +66,11 @@ export const WithOneQuestion = () => (
          */}
         <form noValidate onSubmit={(e) => e.preventDefault()}>
           {/* See the docs on specific form components on https://designsystem.amsterdam for more information on how to use them */}
-          <FieldSetWithHeading
+          <FieldSet
             aria-required="true"
             className="ams-mb-l"
             legend="Kies waar u voor wilt langskomen op het Stadsloket"
+            legendIsPageHeading
             role="radiogroup"
           >
             <Column gap="x-small">
@@ -86,7 +87,7 @@ export const WithOneQuestion = () => (
                 Overig
               </Radio>
             </Column>
-          </FieldSetWithHeading>
+          </FieldSet>
           <Button type="submit">Volgende vraag</Button>
         </form>
       </Grid.Cell>

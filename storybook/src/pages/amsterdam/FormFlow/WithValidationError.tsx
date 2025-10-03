@@ -7,6 +7,7 @@ import {
   Button,
   Column,
   ErrorMessage,
+  FieldSet,
   Grid,
   Heading,
   InvalidFormAlert,
@@ -18,7 +19,6 @@ import {
 } from '@amsterdam/design-system-react'
 import { ChevronBackwardIcon } from '@amsterdam/design-system-react-icons'
 
-import { FieldSetWithHeading } from './components/FieldSetWithHeading'
 import { FormFooter } from './components/FormFooter'
 
 export const WithValidationError = () => (
@@ -80,7 +80,7 @@ export const WithValidationError = () => (
          */}
         <form noValidate onSubmit={(e) => e.preventDefault()}>
           {/* See the docs on specific form components on https://designsystem.amsterdam for more information on how to use them */}
-          <FieldSetWithHeading
+          <FieldSet
             // Make sure you only link the error message to the field set when the error message is in the DOM.
             // Referencing a non-existent element can cause errors in accessibility evaluation tools.
             aria-describedby="error"
@@ -88,6 +88,7 @@ export const WithValidationError = () => (
             className="ams-mb-l"
             invalid
             legend="Kies waar u voor wilt langskomen op het Stadsloket"
+            legendIsPageHeading
             role="radiogroup"
           >
             <ErrorMessage className="ams-mb-s" id="error">
@@ -113,7 +114,7 @@ export const WithValidationError = () => (
                 Overig
               </Radio>
             </Column>
-          </FieldSetWithHeading>
+          </FieldSet>
           <Button type="submit">Volgende vraag</Button>
         </form>
       </Grid.Cell>
