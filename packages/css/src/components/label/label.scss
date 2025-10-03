@@ -17,3 +17,9 @@
   @include hyphenation;
   @include text-rendering;
 }
+
+.ams-label__heading {
+  font-size: var(--ams-label-font-size);
+  font-weight: var(--ams-label-font-weight);
+  margin-block: 0;
+}
