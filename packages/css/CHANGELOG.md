@@ -3,6 +3,13 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.0.1](https://github.com/Amsterdam/design-system/compare/design-system-css-v2.0.0...design-system-css-v2.0.1) (2025-09-26)
+
+
+### Bug Fixes
+
+* **Image Slider:** Slide scrolling behaviour across different layouts ([#2212](https://github.com/Amsterdam/design-system/issues/2212)) ([88f7d2b](https://github.com/Amsterdam/design-system/commit/88f7d2b857263ee171e9f487db815a3ead0f88a4))
+
 ## [2.0.0](https://github.com/Amsterdam/design-system/compare/design-system-css-v1.0.1...design-system-css-v2.0.0) (2025-09-17)
 
 
