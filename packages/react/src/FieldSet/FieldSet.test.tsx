@@ -92,4 +92,14 @@ describe('FieldSet', () => {
 
     expect(component).toBeInTheDocument()
   })
+
+  it('renders a heading in the legend', () => {
+    render(<FieldSet legend="Legend" legendIsPageHeading />)
+
+    const heading = screen.getByRole('heading', {
+      name: 'Legend',
+    })
+
+    expect(heading).toBeInTheDocument()
+  })
 })
