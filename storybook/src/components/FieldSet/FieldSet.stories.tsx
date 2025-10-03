@@ -44,28 +44,30 @@ export default meta
 type Story = StoryObj<typeof meta>
 
 export const Default: Story = {
-  render: (args) => (
-    <FieldSet {...args}>
+  play: async ({ canvas, userEvent }) => {
+    await userEvent.type(canvas.getByLabelText('Voornaam'), givenName)
+    await userEvent.type(canvas.getByLabelText('Achternaam'), familyName)
+  },
+  render: ({ hint, invalid, legend, optional }) => (
+    <FieldSet hint={hint} invalid={invalid} legend={legend} optional={optional}>
       <Field className="ams-mb-s">
         <Label htmlFor="input-a1">Voornaam</Label>
-        {args.invalid && <ErrorMessage id="error-a1">Vul uw voornaam in.</ErrorMessage>}
+        {invalid && <ErrorMessage id="error-a1">Vul uw voornaam in.</ErrorMessage>}
         <TextInput
-          aria-describedby={args.invalid ? 'error-a1' : undefined}
+          aria-describedby={invalid ? 'error-a1' : undefined}
           aria-required="true"
           id="input-a1"
-          invalid={args.invalid}
-          value={givenName}
+          invalid={invalid}
         />
       </Field>
       <Field>
         <Label htmlFor="input-a2">Achternaam</Label>
-        {args.invalid && <ErrorMessage id="error-a2">Vul uw achternaam in.</ErrorMessage>}
+        {invalid && <ErrorMessage id="error-a2">Vul uw achternaam in.</ErrorMessage>}
         <TextInput
-          aria-describedby={args.invalid ? 'error-a2' : undefined}
+          aria-describedby={invalid ? 'error-a2' : undefined}
           aria-required="true"
           id="input-a2"
-          invalid={args.invalid}
-          value={familyName}
+          invalid={invalid}
         />
       </Field>
     </FieldSet>
