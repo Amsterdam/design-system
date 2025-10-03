@@ -98,3 +98,10 @@ Add an `id` to the Field Set and the Error Message, and add both to the `aria-la
 The order of the `id`s is the order in which they are read by screen readers.
 
 <Canvas of={FieldSetStories.CheckboxGroupWithValidation} />
+
+### With Heading in Legend
+
+If the Field Set is the only content on the page, its Legend serves as the main heading as well.
+Set `legendIsPageHeading` to include an `h1` element to reflect this.
+
+<Canvas of={FieldSetStories.WithHeadingInLegend} />

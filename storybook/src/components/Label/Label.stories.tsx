@@ -39,3 +39,9 @@ export const WithHint: Story = {
     hint: 'not required',
   },
 }
+
+export const WithHeading: Story = {
+  args: {
+    isPageHeading: true,
+  },
+}
