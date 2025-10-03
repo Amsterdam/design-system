@@ -1,0 +1,7 @@
+{
+  "buildCommand": "pnpm run build",
+  "outputDir": "dist/",
+  "projectId": "68db9df886b46f139748c074",
+  "onlyStoryNames": ["Components/**/**/Test Case"],
+  "storybookConfigDir": "./config"
+}
