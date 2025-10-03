@@ -18,4 +18,5 @@ jobs:
         run: npm ci
       - name: Run Chromatic
         uses: chromaui/action@latest
+        with:
           projectToken: ${{ secrets.CHROMATIC_PROJECT_TOKEN }}
