@@ -10,7 +10,7 @@ import {
   ClockIcon,
   FacebookIcon,
   InstagramIcon,
-  LinkedinIcon,
+  LinkedInIcon,
   MailIcon,
   MastodonIcon,
   PhoneIcon,
@@ -37,7 +37,7 @@ const followLinks: FollowLink[] = [
   { text: 'Nieuwsbrieven' },
   { icon: <FacebookIcon />, text: 'Facebook' },
   { icon: <InstagramIcon />, text: 'Instagram' },
-  { icon: <LinkedinIcon />, text: 'LinkedIn' },
+  { icon: <LinkedInIcon />, text: 'LinkedIn' },
   { icon: <MastodonIcon />, text: 'Mastodon' },
 ]
 
