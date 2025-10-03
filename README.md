@@ -36,6 +36,12 @@ This project is part of a community initiative to use NL Design System component
 
 Join the `#nl-design-system` Slack via [praatmee.codefor.nl](https://praatmee.codefor.nl) for more information and to learn about things happening in our open-source community.
 
+## Thanks
+
+<a href="https://www.chromatic.com/"><img src="https://user-images.githubusercontent.com/321738/84662277-e3db4f80-af1b-11ea-88f5-91d67a5e59f6.png" width="153" height="30" alt="Chromatic" /></a>
+
+Thanks to [Chromatic](https://www.chromatic.com/) for providing the visual testing platform that helps us review UI changes and catch visual regressions.
+
 ## Licence
 
 This project is free and open-source software licenced under the [European Union Public License (EUPL) v1.2](LICENSE.md) or higher.
