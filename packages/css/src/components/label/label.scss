@@ -19,7 +19,7 @@
 }
 
 .ams-label__heading {
-  font-size: initial;
-  font-weight: initial;
+  font-size: var(--ams-label-font-size);
+  font-weight: var(--ams-label-font-weight);
   margin-block: 0;
 }
