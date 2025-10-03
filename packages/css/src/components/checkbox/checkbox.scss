@@ -65,6 +65,7 @@
   }
 }
 
+/* stylelint-disable no-invalid-position-declaration */
 @mixin forced-colors-selected {
   @media (forced-colors: active) {
     fill: ActiveText;
@@ -78,6 +79,7 @@
     stroke: GrayText;
   }
 }
+/* stylelint-enable no-invalid-position-declaration */
 
 .ams-checkbox__input {
   @include hide-input;
