@@ -96,22 +96,30 @@ We follow the advice against using `type="number"` by [NL Design System](https:/
 
 ### Size
 
-The size of the input should be appropriate for the information to be entered.
-Use the `size` attribute to set the right size.
+Make the width of the input appropriate for the information to be entered.
+Use the `size` attribute for this.
+
+Avoid making it too narrow – ensure the user has enough space to operate comfortably.
+This also gives browsers or extensions an opportunity to add an icon or button at the end.
+
+We suggest a size of 15 for a phone number, 30 for an e-mail address, 40 for a web address, and 7 for a postal code.
 
 <Canvas of={TextInputStories.Size} />
 
 ### Placeholder
 
-This text appears in the field when it is empty. It can give a brief hint about the kind of data to enter.
+We advise against placing a placeholder in an input field.
 
-Don’t try too hard to find a suitable text for a placeholder.
-Inputs without placeholder text are just fine – the label and a description should be clear enough.
-Do not use a placeholder instead of a [Label](/docs/components-forms-label--docs).
+This text would only appear in the field when it is empty, which instead may make it appear filled in.
+Even more so, the text disappears immediately after the user starts typing, which means they are no longer able to check whether their input matches the suggestions.
+Thirdly, their usual grey colour is often difficult to read.
 
-Follow the [guidelines for placeholder text](https://www.nldesignsystem.nl/richtlijnen/formulieren/placeholders) by NL Design System.
+Inputs without placeholder text are just fine.
+Any text that you consider for a placeholder can be included in the description.
 
-<Canvas of={TextInputStories.Placeholder} />
+See also the [guidelines for placeholder text](https://www.nldesignsystem.nl/richtlijnen/formulieren/placeholders) by NL Design System, and [the advice to avoid them](https://design-system.service.gov.uk/components/text-input/#avoid-placeholder-text) by GOV UK.
+
+In case third party applications does use placeholders, the component does apply the correct font and colour to them.
 
 ### Invalid
 
@@ -166,4 +174,4 @@ Check [the Field docs](/docs/components-forms-field--docs) for more information 
 ## Further reading
 
 - Extensive [guidelines for all types of input](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/text) on Mozilla Developer Network.
-- An overview of [suitable metadata for various kinds of content](https://nl-design-system.github.io/utrecht/storybook/?path=/docs/react_react-textbox--docs) to be entered by Gemeente Utrecht.
+- At the same site, an overview of [autocompletion values](https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Attributes/autocomplete#token_list_tokens) which help enter personal details faster.
