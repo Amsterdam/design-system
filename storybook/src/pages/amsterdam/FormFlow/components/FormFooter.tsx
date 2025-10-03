@@ -5,7 +5,7 @@ export const FormFooter = () => (
     {/* Keep the Page Footer as simple as possible, to avoid distractions and to prevent users from accidentally navigating away from the form flow. */}
     <PageFooter.Spotlight>
       <Grid paddingVertical="x-large">
-        <Grid.Cell span={4}>
+        <Grid.Cell span={{ narrow: 4, medium: 7, wide: 7 }}>
           <Column gap="small">
             {/* Add contact information to the footer in a form, so users will know who to contact when they have trouble filling out the form.   */}
             <Heading color="inverse" level={2} size="level-3">
