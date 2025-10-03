@@ -6,8 +6,4 @@ const SvgLinkedIn = (props: SVGProps<SVGSVGElement>) => (
   </svg>
 )
 
-/**
- * @name This icon was previously spelled als ‘Linkedin’, with a lowercase ‘i’.
- * Use ‘LinkedIn’ instead.
- */
 export default SvgLinkedIn

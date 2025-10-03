@@ -177,6 +177,10 @@ export { default as LightningFillIcon } from './LightningFill'
 export { default as LineChartDownIcon } from './LineChartDown'
 export { default as LineChartUpIcon } from './LineChartUp'
 export { default as LinkIcon } from './Link'
+export {
+  /** @deprecated This icon misspells the brand als ‘Linkedin’, with a lowercase ‘i’. Use ‘LinkedInIcon’ instead.*/
+  default as LinkedinIcon,
+} from './LinkedIn'
 export { default as LinkedInIcon } from './LinkedIn'
 export { default as LinkExternalIcon } from './LinkExternal'
 export { default as LinkExternalFillIcon } from './LinkExternalFill'
