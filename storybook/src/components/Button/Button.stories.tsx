@@ -113,7 +113,7 @@ export const TextWrapping: Story = {
   ],
 }
 
-export const TestCase: Story = {
+export const TestCases: Story = {
   args: {
     onClick: fn(),
   },

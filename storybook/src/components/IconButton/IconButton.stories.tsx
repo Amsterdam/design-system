@@ -75,7 +75,7 @@ const sizes: IconProps['size'][] = [
   'heading-6',
 ]
 
-export const TestCase: Story = {
+export const TestCases: Story = {
   args: {
     label: 'Sluiten',
     onClick: fn(),
