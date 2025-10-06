@@ -4,13 +4,65 @@ import { Meta } from "@storybook/addon-docs/blocks";
 
 <Meta title="Brand/Design Tokens/Inputs" />
 
-# Links
+# Inputs
 
-Several input components share the same styles.
-This set of common tokens shows that connection.
+Several input components share the same appearance in various aspects.
+This set of common tokens maintains their visual consistency.
 
-For now, only one shared token exists.
+These tokens are used by
+[Date Input](/docs/components-forms-date-input--docs),
+[File Input](/docs/components-forms-file-input--docs),
+[Password Input](/docs/components-forms-password-input--docs),
+[Search Field](/docs/components-forms-search-field--docs),
+[Select](/docs/components-forms-select--docs),
+[Text Area](/docs/components-forms-text-area--docs),
+[Text Input](/docs/components-forms-text-input--docs),
+[Time Input](/docs/components-forms-time-input--docs) and
+(one of them) by [Button](/docs/components-buttons-button--docs).
 
-| CSS variable                    | Value | Description                                                                                                                                 |
-| :------------------------------ | :---- | :------------------------------------------------------------------------------------------------------------------------------------------ |
-| `var(--ams-inputs-line-height)` | `1.4` | Inputs and Text Area have a smaller line height than body text. Buttons also use this, to match the height of Inputs and align them easily. |
+## Default
+
+| CSS variable                         | Value                                         | Description                                                                                                         |
+| :----------------------------------- | :-------------------------------------------- | :------------------------------------------------------------------------------------------------------------------ |
+| `var(--ams-inputs-background-color)` | `var(--ams-color-background)`                 | The background colour is set explicitly to our general background colour – white.                                   |
+| `var(--ams-inputs-border-color)`     | `currentColor`                                | The border always follows the text colour. Using `currentColor` makes this easy.                                    |
+| `var(--ams-inputs-border-style)`     | `solid`                                       | Borders are continuous.                                                                                             |
+| `var(--ams-inputs-border-width)`     | `var(--ams-border-width-m)`                   | The borders have a medium thickness.                                                                                |
+| `var(--ams-inputs-color)`            | `var(--ams-color-text)`                       | Inputs use the default text colour.                                                                                 |
+| `var(--ams-inputs-font-family)`      | `var(--ams-typography-font-family)`           | Inputs use our single font family.                                                                                  |
+| `var(--ams-inputs-font-size)`        | `var(--ams-typography-body-text-font-size)`   | Inputs use the same font size as body text.                                                                         |
+| `var(--ams-inputs-font-weight)`      | `var(--ams-typography-body-text-font-weight)` | Inputs use the same font weight as body text.                                                                       |
+| `var(--ams-inputs-line-height)`      | `1.4`                                         | Inputs have their own line height, smaller than that of body text. Buttons also use this to make them equally tall. |
+| `var(--ams-inputs-outline-offset)`   | `var(--ams-focus-outline-offset)`             | The offset for the focus outline reuses the general token for it.                                                   |
+| `var(--ams-inputs-padding-block)`    | `var(--ams-space-s)`                          | Inputs have small vertical whitespace between their borders and content.                                            |
+| `var(--ams-inputs-padding-inline)`   | `var(--ams-space-m)`                          | Inputs have medium horizontal whitespace between their borders and content.                                         |
+
+## Disabled
+
+| CSS variable                       | Value                                   | Description                                                                 |
+| :--------------------------------- | :-------------------------------------- | :-------------------------------------------------------------------------- |
+| `var(--ams-inputs-disabled-color)` | `var(--ams-color-interactive-disabled)` | The text colour of a disabled input uses our general colour for this state. |
+
+## Hover
+
+| CSS variable                         | Value                                   | Description                                                                            |
+| :----------------------------------- | :-------------------------------------- | :------------------------------------------------------------------------------------- |
+| `var(--ams-inputs-hover-box-shadow)` | `inset 0 0 0 var(--ams-border-width-s)` | When hovering, the border slightly grows to the inside, also following `currentColor`. |
+
+## Invalid
+
+| CSS variable                                   | Value                                                                                | Description                                                                                                          |
+| :--------------------------------------------- | :----------------------------------------------------------------------------------- | :------------------------------------------------------------------------------------------------------------------- |
+| `var(--ams-inputs-invalid-border-color)`       | `var(--ams-color-interactive-invalid)`                                               | The border of a Text Input with an invalid value uses the invalid interactive colour.                                |
+| `var(--ams-inputs-invalid-hover-border-color)` | `var(--ams-color-interactive-hover)`                                                 | When hovering, it uses the hover variant of the invalid interactive colour.                                          |
+| `var(--ams-inputs-invalid-hover-box-shadow)`   | `inset 0 0 0 var(--ams-border-width-s)` `var(--ams-color-interactive-invalid-hover)` | When hovering, the border slightly grows to the inside, using the hover variation of the invalid interactive colour. |
+
+## Placeholder
+
+| CSS variable                          | Value                             | Description                                        |
+| :------------------------------------ | :-------------------------------- | :------------------------------------------------- |
+| `var(--ams-inputs-placeholder-color)` | `var(--ams-color-text-secondary)` | A placeholder text uses the secondary text colour. |
+
+## How to use
+
+Use these tokens if you recreate our React components with different technology, or if you create a new input component.
