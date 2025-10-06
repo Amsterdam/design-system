@@ -3,7 +3,7 @@
  * Copyright Gemeente Amsterdam
  */
 
-import { Column, Grid, IconProps } from '@amsterdam/design-system-react'
+import { IconButtonProps, IconProps } from '@amsterdam/design-system-react'
 import * as Icons from '@amsterdam/design-system-react-icons'
 import { IconButton } from '@amsterdam/design-system-react/src'
 import { iconSizes } from '@amsterdam/design-system-react/src/Icon/Icon'
@@ -64,8 +64,6 @@ export const InverseColour: Story = {
 }
 
 const sizes: IconProps['size'][] = [
-  'small',
-  'large',
   'heading-0',
   'heading-1',
   'heading-2',
@@ -73,12 +71,22 @@ const sizes: IconProps['size'][] = [
   'heading-4',
   'heading-5',
   'heading-6',
+  'large',
+  'small',
 ]
+
+const variants = ['default', 'disabled', 'hovered', 'contrast', 'inverse']
+const colorVariants = ['contrast', 'inverse']
 
 export const TestCases: Story = {
   args: {
     label: 'Sluiten',
     onClick: fn(),
+  },
+  argTypes: {
+    onClick: {
+      action: 'clicked',
+    },
   },
   parameters: {
     pseudo: {
@@ -88,45 +96,46 @@ export const TestCases: Story = {
   play: async ({ args, canvas, userEvent }) => {
     expect(args.onClick).not.toHaveBeenCalled()
 
-    for (let idx = 0; idx <= 19; idx++) {
-      await userEvent.click(canvas.getByTestId(`icon-button-${idx}`))
-      expect(args.onClick).toHaveBeenCalledTimes(idx < 10 ? idx + 1 : 10)
+    for (const size of sizes) {
+      for (const variant of variants) {
+        const variantSize = `${variant}-${size}`
+
+        if (variant === 'disabled') {
+          const element = await canvas.findByTestId(variantSize)
+          await expect(element).toBeDisabled()
+        } else {
+          await userEvent.click(await canvas.findByTestId(variantSize))
+          await expect(args.onClick).toHaveBeenCalledWith({ variantSize })
+        }
+      }
     }
   },
   render: (args) => (
-    <Grid>
-      <Grid.Cell span={1}>
-        <Column alignHorizontal="center">
-          {sizes.map((size, idx) => (
-            <IconButton {...args} data-testid={`icon-button-${idx}`} key={size} size={size} svg={Icons.CloseIcon} />
-          ))}
-          <IconButton {...args} data-testid="icon-button-9" svg={Icons.CloseIcon} />
-        </Column>
-      </Grid.Cell>
-      <Grid.Cell span={1}>
-        <Column alignHorizontal="center">
-          {sizes.map((size, idx) => (
-            <IconButton
-              {...args}
-              data-testid={`icon-button-${idx + 10}`}
-              disabled
-              key={`${size}-disabled`}
-              size={size}
-              svg={Icons.CloseIcon}
-            />
-          ))}
-          <IconButton {...args} data-testid="icon-button-19" disabled svg={Icons.CloseIcon} />
-        </Column>
-      </Grid.Cell>
-      <Grid.Cell span={1}>
-        <Column alignHorizontal="center">
-          {sizes.map((size) => (
-            <IconButton className="hover" {...args} key={`${size}-hover`} size={size} svg={Icons.CloseIcon} />
-          ))}
-          <IconButton className="hover" {...args} svg={Icons.CloseIcon} />
-        </Column>
-      </Grid.Cell>
-    </Grid>
+    <table>
+      <tbody>
+        {sizes.map((size) => (
+          <tr key={size}>
+            <td>
+              {variants.map((variant) => (
+                <IconButton
+                  {...args}
+                  className={variant === 'hovered' ? 'hover' : undefined}
+                  color={colorVariants.includes(variant) ? (variant as IconButtonProps['color']) : undefined}
+                  data-testid={`${variant}-${size}`}
+                  disabled={variant === 'disabled'}
+                  key={`${variant}-${size}`}
+                  // @ts-expect-error: We can pass arguments to the fn function from storybook/test. Only the typing gets wrong as we need to pass it via the args of the story.
+                  // The component onClick only accepts a MouseEventHandler without arguments.
+                  onClick={() => args.onClick?.({ variantSize: `${variant}-${size}` })}
+                  size={size}
+                  svg={Icons.CloseIcon}
+                />
+              ))}
+            </td>
+          </tr>
+        ))}
+      </tbody>
+    </table>
   ),
   tags: ['!dev', '!autodocs'],
 }
