@@ -80,7 +80,6 @@ const colorVariants = ['contrast', 'inverse']
 
 export const TestCases: Story = {
   args: {
-    label: 'Sluiten',
     onClick: fn(),
   },
   argTypes: {
