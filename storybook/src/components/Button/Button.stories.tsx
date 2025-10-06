@@ -51,11 +51,6 @@ const meta = {
       },
     },
   },
-  play: async ({ args, canvas }) => {
-    const button = canvas.queryByRole('button')
-    button?.click()
-    expect(args.onClick).toBeCalled()
-  },
 } satisfies Meta<typeof Button>
 
 export default meta
@@ -115,8 +110,8 @@ export const TextWrapping: Story = {
   ],
 }
 
-const variants = ['primary', 'secondary', 'tertiary', 'icon']
-const rowsToTest = ['default', 'disabled']
+const variants = ['primary', 'secondary', 'tertiary']
+const states = ['default', 'disabled', 'hover', 'icon']
 
 export const TestCases: Story = {
   args: {
@@ -130,11 +125,17 @@ export const TestCases: Story = {
   play: async ({ args, canvas, userEvent }) => {
     expect(args.onClick).not.toHaveBeenCalled()
 
-    for (const row of rowsToTest) {
-      for (let idx = 0; idx < variants.length; idx++) {
-        const variant = variants[idx]
-        await userEvent.click(canvas.getByTestId(row === 'default' ? variant : `${row}-${variant}`))
-        expect(args.onClick).toHaveReturnedTimes(variant === 'disabled' ? 4 : idx + 1)
+    for (const variant of variants) {
+      for (const state of states) {
+        const variantState = `${variant}-${state}`
+
+        if (state === 'disabled') {
+          const element = await canvas.findByTestId(variantState)
+          await expect(element).toBeDisabled()
+        } else {
+          await userEvent.click(await canvas.findByTestId(variantState))
+          await expect(args.onClick).toHaveBeenCalledWith({ variantState })
+        }
       }
     }
   },
@@ -143,42 +144,26 @@ export const TestCases: Story = {
       <tbody>
         {variants.map((variant) => (
           <tr key={variant}>
-            <td>
-              <Button
-                data-testid={variant}
-                onClick={args.onClick}
-                {...(variant === 'icon' ? { icon: <CloseIcon /> } : {})}
-                variant={variant === 'icon' ? 'primary' : (variant as ButtonProps['variant'])}
-              >
-                {variant === 'icon' ? 'With Icon' : variant.charAt(0).toUpperCase() + variant.slice(1)}
-              </Button>
-            </td>
-            <td>
-              <Button
-                data-testid={`disabled-${variant}`}
-                disabled
-                key={`disabled-${variant}`}
-                onClick={args.onClick}
-                {...(variant === 'icon' ? { icon: <CloseIcon /> } : {})}
-                variant={variant === 'icon' ? 'primary' : (variant as ButtonProps['variant'])}
-              >
-                {variant === 'icon'
-                  ? 'With Icon disabled'
-                  : `${variant.charAt(0).toUpperCase() + variant.slice(1)} disabled`}
-              </Button>
-            </td>
-            <td>
-              <Button
-                className="hover"
-                key={`hovered-${variant}`}
-                {...(variant === 'icon' ? { icon: <CloseIcon /> } : {})}
-                variant={variant === 'icon' ? 'primary' : (variant as ButtonProps['variant'])}
-              >
-                {variant === 'icon'
-                  ? 'With Icon hovered'
-                  : `${variant.charAt(0).toUpperCase() + variant.slice(1)} hovered`}
-              </Button>
-            </td>
+            {states.map((state) => {
+              const variantState = `${variant}-${state}`
+
+              return (
+                <td key={variantState}>
+                  <Button
+                    className={state === 'hover' ? 'hover' : undefined}
+                    data-testid={variantState}
+                    disabled={state === 'disabled'}
+                    icon={state === 'icon' ? <CloseIcon /> : undefined}
+                    // @ts-expect-error: We can pass arguments to the fn function from storybook/test. Only the typing gets wrong as we need to pass it via the args of the story.
+                    // The component onClick only accepts a MouseEventHandler without arguments.
+                    onClick={() => args.onClick({ variantState })}
+                    variant={variant as ButtonProps['variant']}
+                  >
+                    {variantState}
+                  </Button>
+                </td>
+              )
+            })}
           </tr>
         ))}
       </tbody>

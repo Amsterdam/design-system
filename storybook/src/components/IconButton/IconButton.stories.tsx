@@ -115,23 +115,26 @@ export const TestCases: Story = {
       <tbody>
         {sizes.map((size) => (
           <tr key={size}>
-            <td>
-              {variants.map((variant) => (
-                <IconButton
-                  {...args}
-                  className={variant === 'hovered' ? 'hover' : undefined}
-                  color={colorVariants.includes(variant) ? (variant as IconButtonProps['color']) : undefined}
-                  data-testid={`${variant}-${size}`}
-                  disabled={variant === 'disabled'}
-                  key={`${variant}-${size}`}
-                  // @ts-expect-error: We can pass arguments to the fn function from storybook/test. Only the typing gets wrong as we need to pass it via the args of the story.
-                  // The component onClick only accepts a MouseEventHandler without arguments.
-                  onClick={() => args.onClick?.({ variantSize: `${variant}-${size}` })}
-                  size={size}
-                  svg={Icons.CloseIcon}
-                />
-              ))}
-            </td>
+            {variants.map((variant) => {
+              const variantSize = `${variant}-${size}`
+
+              return (
+                <td key={`${variant}-${size}`}>
+                  <IconButton
+                    {...args}
+                    className={variant === 'hovered' ? 'hover' : undefined}
+                    color={colorVariants.includes(variant) ? (variant as IconButtonProps['color']) : undefined}
+                    data-testid={variantSize}
+                    disabled={variant === 'disabled'}
+                    // @ts-expect-error: We can pass arguments to the fn function from storybook/test. Only the typing gets wrong as we need to pass it via the args of the story.
+                    // The component onClick only accepts a MouseEventHandler without arguments.
+                    onClick={() => args.onClick?.({ variantSize })}
+                    size={size}
+                    svg={Icons.CloseIcon}
+                  />
+                </td>
+              )
+            })}
           </tr>
         ))}
       </tbody>
