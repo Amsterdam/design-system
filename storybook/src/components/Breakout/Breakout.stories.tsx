@@ -3,7 +3,7 @@
  * Copyright Gemeente Amsterdam
  */
 
-import { Image, Page, Paragraph, Spotlight } from '@amsterdam/design-system-react'
+import { Image, Paragraph, Spotlight } from '@amsterdam/design-system-react'
 import { Breakout } from '@amsterdam/design-system-react/src'
 import { Meta, StoryObj } from '@storybook/react-vite'
 
@@ -13,13 +13,6 @@ const meta = {
   title: 'Components/Layout/Breakout',
   component: Breakout,
   argTypes: gridGapAndPaddingArgTypes,
-  decorators: [
-    (Story) => (
-      <Page>
-        <Story />
-      </Page>
-    ),
-  ],
 } satisfies Meta<typeof Breakout>
 
 export default meta
