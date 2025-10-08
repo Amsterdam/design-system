@@ -115,7 +115,15 @@ $ams-breakout-row-span-max: 4;
 .ams-breakout__cell--has-spotlight {
   display: grid; /* Stretches the empty Spotlight vertically. */
   margin-block: calc(var(--ams-space-xl) * -1);
-  margin-inline: calc(var(--ams-space-2xl) * -1);
+  margin-inline: calc(var(--ams-grid-padding-inline) * -1);
+
+  @media screen and (min-width: $ams-breakpoint-medium) {
+    margin-inline: calc(var(--ams-grid-medium-padding-inline) * -1);
+  }
+
+  @media screen and (min-width: $ams-breakpoint-wide) {
+    margin-inline: calc(var(--ams-grid-wide-padding-inline) * -1);
+  }
 
   .ams-breakout--gap-vertical--small > & {
     margin-block: calc(var(--ams-space-l) * -1);
