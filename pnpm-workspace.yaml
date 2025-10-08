@@ -1,3 +1,4 @@
+minimumReleaseAge: 1440 # Delay installing a newly published version of a package for 1440 minutes (1 day)
 packages:
   - "packages/*"
   - "packages-proprietary/*"
