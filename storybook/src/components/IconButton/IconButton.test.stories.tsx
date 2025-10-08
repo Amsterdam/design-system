@@ -35,7 +35,7 @@ const sizes: IconProps['size'][] = [
 const variants = ['default', 'disabled', 'hovered', 'contrast', 'inverse']
 const colorVariants = ['contrast', 'inverse']
 
-export const TestCases: Story = {
+export const Test: Story = {
   parameters: {
     pseudo: {
       hover: '.hover',
@@ -46,23 +46,18 @@ export const TestCases: Story = {
       <tbody>
         {sizes.map((size) => (
           <tr key={size}>
-            {variants.map((variant) => {
-              const variantSize = `${variant}-${size}`
-
-              return (
-                <td key={`${variant}-${size}`}>
-                  <IconButton
-                    {...args}
-                    className={variant === 'hovered' ? 'hover' : undefined}
-                    color={colorVariants.includes(variant) ? (variant as IconButtonProps['color']) : undefined}
-                    data-testid={variantSize}
-                    disabled={variant === 'disabled'}
-                    size={size}
-                    svg={Icons.CloseIcon}
-                  />
-                </td>
-              )
-            })}
+            {variants.map((variant) => (
+              <td key={`${variant}-${size}`}>
+                <IconButton
+                  {...args}
+                  className={variant === 'hovered' ? 'hover' : undefined}
+                  color={colorVariants.includes(variant) ? (variant as IconButtonProps['color']) : undefined}
+                  disabled={variant === 'disabled'}
+                  size={size}
+                  svg={Icons.CloseIcon}
+                />
+              </td>
+            ))}
           </tr>
         ))}
       </tbody>

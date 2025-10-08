@@ -38,7 +38,6 @@ export const Test: Story = {
                 <td key={variantState}>
                   <Button
                     className={state === 'hover' ? 'hover' : undefined}
-                    data-testid={variantState}
                     disabled={state === 'disabled'}
                     icon={state === 'icon' ? <CloseIcon /> : undefined}
                     variant={variant as ButtonProps['variant']}
