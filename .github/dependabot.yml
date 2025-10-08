@@ -7,6 +7,8 @@ updates:
     directory: "/"
     schedule:
       interval: "weekly"
+    cooldown:
+      default-days: 1 # Wait for one day after release before updating a dependency
     commit-message:
       prefix: chore
       include: scope
@@ -14,6 +16,8 @@ updates:
     directory: "/"
     schedule:
       interval: "weekly"
+    cooldown:
+      default-days: 1 # Wait for one day after release before updating a dependency
     # Prod and dev dependencies are split in two groups,
     # because their PRs get a different prefix ('fix' for prod, 'chore' for dev)
     groups:
