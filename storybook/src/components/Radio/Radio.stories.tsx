@@ -79,6 +79,7 @@ export const InAFieldSet: Story = {
       aria-describedby={`description1${invalid ? ' error1' : ''}`}
       invalid={invalid}
       legend="Waar gaat uw melding over?"
+      optional
       role="radiogroup"
     >
       <Paragraph className="ams-mb-s" id="description1">
@@ -125,6 +126,7 @@ export const InAFieldSetWithValidation: Story = {
   render: ({ invalid }) => (
     <FieldSet
       aria-describedby={`description2${invalid ? ' error2' : ''}`}
+      aria-required="true"
       invalid={invalid}
       legend="Waar gaat uw melding over?"
       role="radiogroup"
@@ -138,16 +140,16 @@ export const InAFieldSetWithValidation: Story = {
         </ErrorMessage>
       )}
       <Column gap="x-small">
-        <Radio invalid={invalid} name="about" value="horeca">
+        <Radio aria-required="true" invalid={invalid} name="about" value="horeca">
           Horecabedrijf
         </Radio>
-        <Radio invalid={invalid} name="about" value="ander_bedrijf">
+        <Radio aria-required="true" invalid={invalid} name="about" value="ander_bedrijf">
           Ander soort bedrijf
         </Radio>
-        <Radio invalid={invalid} name="about" value="evenement">
+        <Radio aria-required="true" invalid={invalid} name="about" value="evenement">
           Evenement
         </Radio>
-        <Radio invalid={invalid} name="about" value="anders">
+        <Radio aria-required="true" invalid={invalid} name="about" value="anders">
           Iets anders
         </Radio>
       </Column>
