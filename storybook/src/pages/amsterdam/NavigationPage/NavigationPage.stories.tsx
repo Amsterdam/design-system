@@ -22,7 +22,7 @@ import {
 import {
   CameraIcon,
   FacebookIcon,
-  LinkedinIcon,
+  LinkedInIcon,
   SpeechBalloonEllipsisIcon,
   XIcon,
 } from '@amsterdam/design-system-react-icons'
@@ -386,7 +386,7 @@ export const SubnavigationPage: StoryObj = {
                 <LinkList.Link color="inverse" href="#" icon={CameraIcon}>
                   Instagram
                 </LinkList.Link>
-                <LinkList.Link color="inverse" href="#" icon={LinkedinIcon}>
+                <LinkList.Link color="inverse" href="#" icon={LinkedInIcon}>
                   LinkedIn
                 </LinkList.Link>
                 <LinkList.Link color="inverse" href="#" icon={SpeechBalloonEllipsisIcon}>

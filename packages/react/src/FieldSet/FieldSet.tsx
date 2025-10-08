@@ -12,10 +12,15 @@ import { Hint, HintProps } from '../Hint'
 
 export type FieldSetProps = HintProps &
   PropsWithChildren<HTMLAttributes<HTMLFieldSetElement>> & {
-    /** Whether the field set has an input with a validation error */
+    /** Whether the field set has an input with a validation error. */
     invalid?: boolean
     /** The text for the caption. */
     legend: string
+    /**
+     * Render a level 1 heading in the legend.
+     * Set this if the Field Set is the only content of the page.
+     */
+    legendIsPageHeading?: boolean
   }
 
 /**
@@ -23,9 +28,15 @@ export type FieldSetProps = HintProps &
  */
 export const FieldSet = forwardRef(
   (
-    { children, className, hint, invalid, legend, optional, ...restProps }: FieldSetProps,
+    { children, className, hint, invalid, legend, legendIsPageHeading, optional, ...restProps }: FieldSetProps,
     ref: ForwardedRef<HTMLFieldSetElement>,
   ) => {
+    const legendContent = (
+      <>
+        {legend} <Hint hint={hint} optional={optional} />
+      </>
+    )
+
     return (
       <fieldset
         {...restProps}
@@ -33,7 +44,7 @@ export const FieldSet = forwardRef(
         ref={ref}
       >
         <legend className="ams-field-set__legend">
-          {legend} <Hint hint={hint} optional={optional} />
+          {legendIsPageHeading ? <h1 className="ams-field-set__heading">{legendContent}</h1> : legendContent}
         </legend>
         {children}
       </fieldset>
