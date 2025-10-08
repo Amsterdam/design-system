@@ -12,7 +12,7 @@ const meta = {
   title: 'Components/Buttons/Icon Button',
   component: IconButton,
   args: {
-    label: 'Sluiten',
+    label: 'Test button',
   },
 } satisfies Meta<typeof IconButton>
 
@@ -36,11 +36,6 @@ const variants = ['default', 'disabled', 'hovered', 'contrast', 'inverse']
 const colorVariants = ['contrast', 'inverse']
 
 export const TestCases: Story = {
-  argTypes: {
-    onClick: {
-      action: 'clicked',
-    },
-  },
   parameters: {
     pseudo: {
       hover: '.hover',
