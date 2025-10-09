@@ -11,7 +11,7 @@ import { WithOneQuestion as WithOneQuesionComponent } from './WithOneQuestion'
 import { WithValidationError as WithValidationErrorComponent } from './WithValidationError'
 
 const meta = {
-  title: 'Pages/Amsterdam.nl/Form Flow',
+  title: 'Pages/Websites/Form Flow',
   component: LandingPageComponent,
   parameters: {
     layout: 'fullscreen',

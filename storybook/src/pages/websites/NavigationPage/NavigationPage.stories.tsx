@@ -38,7 +38,7 @@ import { persons } from './persons'
 
 const meta = {
   ...commonMeta,
-  title: 'Pages/Amsterdam.nl/Navigation Page',
+  title: 'Pages/Websites/Navigation Page',
   component: NavigationPage,
 } satisfies Meta<typeof NavigationPage>
 

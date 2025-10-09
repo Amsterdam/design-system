@@ -10,7 +10,7 @@ import { ProductPage } from './ProductPage'
 
 const meta = {
   ...commonMeta,
-  title: 'Pages/Amsterdam.nl/Product Page',
+  title: 'Pages/Websites/Product Page',
   component: ProductPage,
 } satisfies Meta<typeof ProductPage>
 
