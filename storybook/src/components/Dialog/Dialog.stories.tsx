@@ -3,9 +3,10 @@
  * Copyright Gemeente Amsterdam
  */
 
+import type { Meta, StoryObj } from '@storybook/react-vite'
+
 import { ActionGroup, Button, Paragraph } from '@amsterdam/design-system-react'
 import { Dialog } from '@amsterdam/design-system-react/src'
-import { Meta, StoryObj } from '@storybook/react-vite'
 import { action } from 'storybook/actions'
 
 const meta = {

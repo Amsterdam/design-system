@@ -8,7 +8,8 @@ import type { ForwardedRef, ImgHTMLAttributes } from 'react'
 import { clsx } from 'clsx'
 import { forwardRef } from 'react'
 
-import { AspectRatioProps } from '../common/types'
+import type { AspectRatioProps } from '../common/types'
+
 import { generateAspectRatioClass } from './generateAspectRatioClass'
 
 export type ImageProps = AspectRatioProps &

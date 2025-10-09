@@ -8,7 +8,9 @@ import type { ForwardedRef, HTMLAttributes } from 'react'
 import { clsx } from 'clsx'
 import { forwardRef, useCallback, useEffect, useMemo, useRef, useState } from 'react'
 
-import { Image, ImageProps } from '../Image/Image'
+import type { ImageProps } from '../Image/Image'
+
+import { Image } from '../Image/Image'
 import { ImageSliderContext } from './ImageSliderContext'
 import { ImageSliderControls } from './ImageSliderControls'
 import { ImageSliderItem } from './ImageSliderItem'

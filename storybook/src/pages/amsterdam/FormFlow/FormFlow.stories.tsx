@@ -3,7 +3,7 @@
  * Copyright Gemeente Amsterdam
  */
 
-import { Meta, StoryObj } from '@storybook/react-vite'
+import type { Meta, StoryObj } from '@storybook/react-vite'
 
 import { LandingPage as LandingPageComponent } from './LandingPage'
 import { WithMultipleQuestions as WithMultipleQuestionsComponent } from './WithMultipleQuestions'

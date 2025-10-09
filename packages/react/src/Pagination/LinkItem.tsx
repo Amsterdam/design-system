@@ -3,7 +3,7 @@
  * Copyright Gemeente Amsterdam
  */
 
-import { PaginationProps } from './Pagination'
+import type { PaginationProps } from './Pagination'
 
 type LinkItemProps = Pick<PaginationProps, 'linkComponent' | 'linkTemplate'> & {
   currentPage: PaginationProps['page']

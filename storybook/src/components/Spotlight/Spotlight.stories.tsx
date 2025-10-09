@@ -3,10 +3,11 @@
  * Copyright Gemeente Amsterdam
  */
 
+import type { Meta, StoryObj } from '@storybook/react-vite'
+
 import { Blockquote, Grid } from '@amsterdam/design-system-react'
 import { Spotlight } from '@amsterdam/design-system-react/src'
 import { spotlightColors } from '@amsterdam/design-system-react/src/Spotlight/Spotlight'
-import { Meta, StoryObj } from '@storybook/react-vite'
 
 import { exampleQuote } from '../shared/exampleContent'
 

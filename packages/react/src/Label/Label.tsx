@@ -9,7 +9,9 @@ import type { ForwardedRef, LabelHTMLAttributes, PropsWithChildren } from 'react
 import { clsx } from 'clsx'
 import { forwardRef } from 'react'
 
-import { Hint, HintProps } from '../Hint'
+import type { HintProps } from '../Hint'
+
+import { Hint } from '../Hint'
 
 export type LabelProps = HintProps &
   PropsWithChildren<LabelHTMLAttributes<HTMLLabelElement>> & {

@@ -4,6 +4,7 @@
  */
 
 import type { GridColumnNumbers } from '@amsterdam/design-system-react'
+import type { Meta, StoryObj } from '@storybook/react-vite'
 
 import {
   Breadcrumb,
@@ -26,7 +27,6 @@ import {
   SpeechBalloonEllipsisIcon,
   XIcon,
 } from '@amsterdam/design-system-react-icons'
-import { Meta, StoryObj } from '@storybook/react-vite'
 
 import { exampleHeading, exampleParagraph, exampleStandaloneLink } from '../../../components/shared/exampleContent'
 import { commonMeta } from '../common/config'
