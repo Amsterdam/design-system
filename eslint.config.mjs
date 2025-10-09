@@ -107,6 +107,7 @@ export default tseslint.config(
       '@typescript-eslint/no-explicit-any': 'warn',
       '@typescript-eslint/no-unsafe-function-type': 'warn',
       '@typescript-eslint/no-unused-vars': 'error',
+      '@typescript-eslint/consistent-type-imports': 'error',
 
       // ESLint
       'array-callback-return': [
