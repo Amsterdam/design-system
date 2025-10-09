@@ -1,0 +1,26 @@
+/**
+ * @license EUPL-1.2+
+ * Copyright Gemeente Amsterdam
+ */
+
+import type { Meta, StoryObj } from '@storybook/react-vite'
+
+import { {{pascalCase name}} } from '@amsterdam/design-system-react/src'
+
+type Story = StoryObj<typeof meta>
+
+const meta = {
+  title: '{{titleCase name}}',
+  component: {{pascalCase name}},
+  args: {
+    children: 'Nieuw component',
+  },
+} satisfies Meta<typeof {{pascalCase name}}>
+
+export default meta
+
+export const Test: Story = {
+  render: () => <{{titleCase name}}/>,
+  tags: ['!dev', '!autodocs'],
+}
+
