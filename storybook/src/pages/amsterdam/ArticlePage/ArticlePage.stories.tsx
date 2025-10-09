@@ -13,7 +13,7 @@ import { newsArticles } from './news-articles'
 
 const meta = {
   ...commonMeta,
-  title: 'Pages/Amsterdam.nl/Article Page',
+  title: 'Pages/Websites/Article Page',
   component: ArticlePage,
 } satisfies Meta<typeof ArticlePage>
 
