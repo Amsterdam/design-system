@@ -14,10 +14,13 @@
 }
 
 .ams-menu {
+  background-color: var(--ams-menu-background-color);
   font-family: var(--ams-menu-font-family);
   font-size: var(--ams-menu-font-size);
   font-weight: var(--ams-menu-font-weight);
   line-height: var(--ams-menu-line-height);
+  padding-block: var(--ams-space-m);
+  padding-inline: var(--ams-space-m);
 }
 
 .ams-menu__list {
