@@ -14,10 +14,36 @@
 }
 
 .ams-menu {
+  background-color: var(--ams-color-interactive);
+  display: none;
   font-family: var(--ams-menu-font-family);
   font-size: var(--ams-menu-font-size);
   font-weight: var(--ams-menu-font-weight);
   line-height: var(--ams-menu-line-height);
+  padding-block: var(--ams-space-m);
+  padding-inline: var(--ams-space-m);
+
+  @media screen and (min-width: $ams-breakpoint-wide) {
+    display: block;
+    max-inline-size: 8rem; // TODO Check
+    padding-block: calc(var(--ams-logo-block-size) + 2 * var(--ams-page-header-padding-block)) var(--ams-space-s);
+    padding-inline: var(--ams-space-s);
+  }
+}
+
+.ams-menu--narrow {
+  display: block;
+  margin-inline: calc(var(--ams-grid-padding-inline) * -1);
+  padding-inline: var(--ams-grid-padding-inline);
+
+  @media screen and (min-width: $ams-breakpoint-medium) {
+    margin-inline: calc(var(--ams-grid-medium-padding-inline) * -1);
+    padding-inline: var(--ams-grid-medium-padding-inline);
+  }
+
+  @media screen and (min-width: $ams-breakpoint-wide) {
+    display: none;
+  }
 }
 
 .ams-menu__list {
@@ -40,12 +66,12 @@
   outline-offset: var(--ams-menu-link-outline-offset);
   padding-block: var(--ams-menu-link-padding-block);
   padding-inline: var(--ams-menu-link-padding-inline);
+  text-align: center;
   text-decoration-line: var(--ams-menu-link-text-decoration-line);
   text-decoration-thickness: var(--ams-menu-link-text-decoration-thickness);
   text-underline-offset: var(--ams-menu-link-text-underline-offset);
 
   &:hover {
-    color: var(--ams-menu-link-hover-color);
     text-decoration-line: var(--ams-menu-link-hover-text-decoration-line);
   }
 
@@ -65,6 +91,7 @@
   }
 }
 
+/** @deprecated The menu has a dark background now, so this is no longer needed. */
 .ams-menu__link--contrast {
   color: var(--ams-menu-link-contrast-color);
 
@@ -73,6 +100,7 @@
   }
 }
 
+/** @deprecated The menu has a dark background now, so this is no longer needed. */
 .ams-menu__link--inverse {
   color: var(--ams-menu-link-inverse-color);
 

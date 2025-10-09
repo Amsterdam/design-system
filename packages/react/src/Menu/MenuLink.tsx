@@ -13,7 +13,10 @@ import type { IconProps } from '../Icon'
 import { Icon } from '../Icon'
 
 export type MenuLinkProps = {
-  /** Changes the text colour for readability on a light or dark background. */
+  /**
+   * Changes the text colour for readability on a light or dark background.
+   * @deprecated The menu has a dark background now, so this is no longer needed.
+   */
   color?: 'contrast' | 'inverse'
   /** An icon to display instead of the default chevron. Don’t mix custom icons with chevrons in one list. */
   icon: IconProps['svg']

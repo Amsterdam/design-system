@@ -8,14 +8,26 @@ import README from "../../../../packages/css/src/components/page/README.md?raw";
 
 <Markdown>{README}</Markdown>
 
-## Example
+## Examples
 
-There’s not much to see in the example.
+There’s not much to see in the examples.
 In a wide window, or when zooming out, you’ll notice that the width of the pink box gets limited by the maximum width of the Page container.
+
+### For websites
+
+The Page container sets the maximum width for a website of the City of Amsterdam, which is 1440 pixels.
+It horizontally centres both itself and its content and sets a white background.
+Within this outermost container, combine layout and container components such as
+[Grid](https://designsystem.amsterdam/?path=/docs/components-layout-grid--docs),
+[Page Header](https://designsystem.amsterdam/?path=/docs/components-containers-page-header--docs),
+[Page Footer](https://designsystem.amsterdam/?path=/docs/components-containers-page-footer--docs),
+[Spotlight](https://designsystem.amsterdam/?path=/docs/components-containers-spotlight--docs),
+[Image Slider](https://designsystem.amsterdam/?path=/docs/components-media-image-slider--docs),
+and [Figure](https://designsystem.amsterdam/?path=/docs/components-media-figure--docs).
 
 <Primary />
 
-## Structure
+### Structure
 
 The outer containers of your website will look like this:
 
@@ -25,7 +37,12 @@ The outer containers of your website will look like this:
   <Grid />
   <Spotlight />
   <Grid />
-  <Figure />
   <PageFooter />
 </Page>
 ```
+
+### For applications
+
+TODO
+
+<Canvas of={PageStories.ForApplications} />

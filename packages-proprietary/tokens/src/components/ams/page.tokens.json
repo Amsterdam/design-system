@@ -2,7 +2,10 @@
   "ams": {
     "page": {
       "background-color": { "value": "{ams.color.background}" },
-      "max-inline-size": { "value": "90rem" }
+      "max-inline-size": { "value": "90rem" },
+      "application": {
+        "max-inline-size": { "value": "120rem" }
+      }
     }
   }
 }

@@ -7,7 +7,6 @@ import {
   BarChartIcon,
   DocumentsIcon,
   FolderIcon,
-  PieChartFillIcon,
   PieChartIcon,
   SettingsIcon,
 } from '@amsterdam/design-system-react-icons'
@@ -65,6 +64,9 @@ const StoryTemplate: Story = {
         {text}
       </Menu.Link>
     )),
+    style: {
+      display: 'block',
+    },
   },
 }
 
@@ -107,21 +109,4 @@ export const Default: Story = {
 
 export const Link: LinkStory = {
   ...LinkStoryTemplate,
-}
-export const ContrastColour: LinkStory = {
-  ...LinkStoryTemplate,
-  args: {
-    ...LinkStoryTemplate.args,
-    color: 'contrast',
-    icon: <PieChartFillIcon />,
-  },
-}
-
-export const InverseColour: LinkStory = {
-  ...LinkStoryTemplate,
-  args: {
-    ...LinkStoryTemplate.args,
-    color: 'inverse',
-    icon: <PieChartFillIcon />,
-  },
 }
