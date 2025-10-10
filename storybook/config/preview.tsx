@@ -75,7 +75,7 @@ export const parameters = {
   },
   viewMode: 'docs',
   viewport: {
-    viewports,
+    options: viewports,
   },
 }
 
