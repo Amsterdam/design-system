@@ -104,10 +104,10 @@ export default tseslint.config(
 
       // TypeScript
       '@typescript-eslint/consistent-type-definitions': ['error', 'type'],
+      '@typescript-eslint/consistent-type-imports': 'error',
       '@typescript-eslint/no-explicit-any': 'warn',
       '@typescript-eslint/no-unsafe-function-type': 'warn',
       '@typescript-eslint/no-unused-vars': 'error',
-      '@typescript-eslint/consistent-type-imports': 'error',
 
       // ESLint
       'array-callback-return': [
