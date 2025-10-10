@@ -12,6 +12,12 @@
   font-size: var(--ams-label-font-size);
   font-weight: var(--ams-label-font-weight);
   line-height: var(--ams-label-line-height);
+
+  /*
+   * If text-wrap is not supported, it is ignored.
+   * This means the wrapped text will look less balanced, which is fine.
+   */
+  /* stylelint-disable-next-line plugin/use-baseline */
   text-wrap: var(--ams-label-text-wrap);
 
   @include hyphenation;

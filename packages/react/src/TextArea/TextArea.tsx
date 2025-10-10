@@ -11,7 +11,10 @@ import { forwardRef } from 'react'
 export type TextAreaProps = Omit<TextareaHTMLAttributes<HTMLTextAreaElement>, 'aria-invalid'> & {
   /** Whether the value fails a validation rule. */
   invalid?: boolean
-  /** Allows the user to resize the text box. The default is resizing in both directions. */
+  /**
+   * Allows the user to resize the text box. The default is resizing in both directions.
+   * Note: this feature is not fully supported in Safari on iOS.
+   */
   resize?: 'none' | 'horizontal' | 'vertical'
 }
 

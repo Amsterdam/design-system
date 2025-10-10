@@ -12,11 +12,23 @@
 
 .ams-heading {
   box-sizing: border-box;
+
+  /*
+   * If break-after is supported, use it to avoid a Heading from being the last item on a page when printed.
+   * If it is not supported, it is ignored.
+   */
+  /* stylelint-disable-next-line plugin/use-baseline */
   break-after: avoid;
   break-inside: avoid;
   color: var(--ams-heading-color);
   font-family: var(--ams-heading-font-family);
   font-weight: var(--ams-heading-font-weight);
+
+  /*
+   * If text-wrap is not supported, it is ignored.
+   * This means the wrapped text will look less balanced, which is fine.
+   */
+  /* stylelint-disable-next-line plugin/use-baseline */
   text-wrap: var(--ams-heading-text-wrap);
 
   @include hyphenation;

@@ -13,7 +13,7 @@
 
 .ams-breadcrumb {
   /*
-   * If break-after is supported, use it to avoid Breadcrumbs from being smeared over 2 pages when printed.
+   * If break-after is supported, use it to avoid Breadcrumbs from being the last item on a page when printed.
    * If it is not supported, it is ignored.
    */
   /* stylelint-disable-next-line plugin/use-baseline */

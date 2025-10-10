@@ -25,7 +25,8 @@
 }
 
 @mixin reset-legend {
-  float: inline-start; // [1]
+  /* stylelint-disable-next-line csstools/use-logical */
+  float: left; // [1]
   inline-size: 100%; // [1]
   padding-inline: 0;
 
@@ -41,6 +42,12 @@
   font-weight: var(--ams-field-set-legend-font-weight);
   line-height: var(--ams-field-set-legend-line-height);
   margin-block-end: var(--ams-field-set-legend-margin-block-end); // [3]
+
+  /*
+   * If text-wrap is not supported, it is ignored.
+   * This means the wrapped text will look less balanced, which is fine.
+   */
+  /* stylelint-disable-next-line plugin/use-baseline */
   text-wrap: var(--ams-field-set-legend-text-wrap);
 
   @include hyphenation;
@@ -55,5 +62,6 @@
 }
 
 // [1] This combination allows the fieldset border to go around the legend, instead of through it.
+// The actual value for float is not important, a legend should never have elements that wrap around it.
 // [2] Reset the applied float for the legend’s first sibling.
 // [3] We can’t use grid or flex display and a gap because of a bug in Chrome.
