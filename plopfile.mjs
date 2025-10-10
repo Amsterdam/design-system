@@ -94,7 +94,7 @@ export default function (plop) {
       {
         type: 'add',
         path: 'storybook/src/components/{{pascalCase name}}/{{pascalCase name}}.test.stories.tsx',
-        templateFile: 'plop-templates/test.stories.tsx.hbs',
+        templateFile: 'plop-templates/storybook.test.stories.tsx.hbs',
       },
     ],
   })
