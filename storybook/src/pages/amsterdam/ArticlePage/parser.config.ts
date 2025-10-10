@@ -1,6 +1,7 @@
 import type { DOMNode } from 'html-react-parser'
+import type { HTMLReactParserOptions } from 'html-react-parser'
 
-import { attributesToProps, domToReact, Element, type HTMLReactParserOptions } from 'html-react-parser'
+import { attributesToProps, domToReact, Element } from 'html-react-parser'
 import { createElement } from 'react'
 
 const classLookup: Record<string, string> = {
