@@ -3,8 +3,9 @@
  * Copyright Gemeente Amsterdam
  */
 
+import type { Meta, StoryObj } from '@storybook/react-vite'
+
 import { Paragraph } from '@amsterdam/design-system-react'
-import { Meta, StoryObj } from '@storybook/react-vite'
 
 import type { GapProps } from './Gap'
 

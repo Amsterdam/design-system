@@ -4,9 +4,9 @@
  */
 
 import type { GridCellProps } from '@amsterdam/design-system-react/src'
+import type { Meta, StoryObj } from '@storybook/react-vite'
 
 import { Grid } from '@amsterdam/design-system-react/src'
-import { Meta, StoryObj } from '@storybook/react-vite'
 
 import { gridGapAndPaddingArgTypes } from '../../common'
 

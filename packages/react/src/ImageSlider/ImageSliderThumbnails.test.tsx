@@ -6,7 +6,8 @@
 import { render } from '@testing-library/react'
 import { createRef } from 'react'
 
-import { ImageSliderImageProps } from './ImageSlider'
+import type { ImageSliderImageProps } from './ImageSlider'
+
 import { ImageSliderThumbnails } from './ImageSliderThumbnails'
 import '@testing-library/jest-dom'
 

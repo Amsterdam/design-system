@@ -4,11 +4,11 @@
  */
 
 import type { IconProps } from '@amsterdam/design-system-react'
+import type { Meta, StoryObj } from '@storybook/react-vite'
 
 import { Column, Icon, Row } from '@amsterdam/design-system-react'
 import { MailIcon } from '@amsterdam/design-system-react-icons'
 import { Heading } from '@amsterdam/design-system-react/src'
-import { Meta, StoryObj } from '@storybook/react-vite'
 
 import { exampleHeading } from '../shared/exampleContent'
 

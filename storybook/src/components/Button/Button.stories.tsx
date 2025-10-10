@@ -3,10 +3,11 @@
  * Copyright Gemeente Amsterdam
  */
 
+import type { Meta, StoryObj } from '@storybook/react-vite'
+
 import { CloseIcon } from '@amsterdam/design-system-react-icons'
 import * as Icons from '@amsterdam/design-system-react-icons'
 import { Button } from '@amsterdam/design-system-react/src'
-import { Meta, StoryObj } from '@storybook/react-vite'
 
 const meta = {
   title: 'Components/Buttons/Button',

@@ -3,7 +3,7 @@
  * Copyright Gemeente Amsterdam
  */
 
-import { HTMLAttributes, PropsWithChildren } from 'react'
+import type { HTMLAttributes, PropsWithChildren } from 'react'
 
 export type GapProps = {
   /** The amount of space between the element’s children. */
