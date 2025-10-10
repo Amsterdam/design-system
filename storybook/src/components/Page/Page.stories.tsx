@@ -12,6 +12,7 @@ const meta = {
   component: Page,
   args: {
     className: 'ams-docs-page',
+    lang: 'nl',
   },
   argTypes: {
     className: {
