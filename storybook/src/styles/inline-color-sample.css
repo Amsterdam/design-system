@@ -1,6 +1,9 @@
 .ams-inline-color-sample {
   block-size: 1rem;
   display: inline-block;
+
+  /* We allow non-baseline CSS in Storybook. */
+  /* stylelint-disable-next-line plugin/use-baseline */
   forced-color-adjust: none;
   inline-size: 1rem;
   inset-block-start: 0.125rem;

@@ -11,5 +11,8 @@
   text-rendering: optimizeLegibility;
   -moz-text-size-adjust: none;
   -webkit-text-size-adjust: none;
+
+  /* The prefixed declarations increase the support somewhat, and if the property is not supported it is ignored. */
+  /* stylelint-disable-next-line plugin/use-baseline */
   text-size-adjust: none;
 }

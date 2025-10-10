@@ -77,6 +77,10 @@
 .ams-tabs__button-label-hidden {
   font-weight: var(--ams-tabs-button-selected-font-weight);
   pointer-events: none;
+  -webkit-user-select: none;
+
+  /* Safari support is added with the prefixed property. */
+  /* stylelint-disable-next-line plugin/use-baseline */
   user-select: none;
   visibility: hidden;
 }

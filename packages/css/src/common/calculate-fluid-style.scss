@@ -5,6 +5,8 @@
 
 @use "sass:math";
 
+/* This is a SCSS function, not a CSS function. This gets converted to vanilla CSS when built. */
+/* stylelint-disable-next-line plugin/use-baseline */
 @function calculate-fluid-style($minSizePx, $maxSizePx, $minScreenWidthPx: 320, $maxScreenWidthPx: 1440) {
   $defaultBaseSize: 16;
   $minSize: math.div($minSizePx, $defaultBaseSize) * 1rem;

@@ -65,15 +65,22 @@
   box-shadow: var(--ams-text-area-invalid-hover-box-shadow);
 }
 
+/*
+ * Resizing is not fully supported in Safari on iOS.
+ * This is acceptable, it is not crucial functionality.
+ */
 .ams-text-area--resize-none {
+  /* stylelint-disable-next-line plugin/use-baseline */
   resize: none;
 }
 
 .ams-text-area--resize-horizontal {
+  /* stylelint-disable-next-line plugin/use-baseline */
   resize: inline;
 }
 
 .ams-text-area--resize-vertical {
+  /* stylelint-disable-next-line plugin/use-baseline */
   resize: block;
 }
 

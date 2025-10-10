@@ -47,6 +47,10 @@
 
 .ams-page-header__logo-link--hidden {
   opacity: 0%;
+  -webkit-user-select: none;
+
+  /* Safari support is added with the prefixed property. */
+  /* stylelint-disable-next-line plugin/use-baseline */
   user-select: none; // The hidden logo link section should not be selectable
 }
 
@@ -65,6 +69,12 @@
   font-size: var(--ams-page-header-brand-name-font-size);
   font-weight: var(--ams-page-header-brand-name-font-weight);
   line-height: var(--ams-page-header-brand-name-line-height);
+
+  /*
+   * If text-wrap is not supported, it is ignored.
+   * This means the wrapped text will look less balanced, which is fine.
+   */
+  /* stylelint-disable-next-line plugin/use-baseline */
   text-wrap: var(--ams-page-header-brand-name-text-wrap);
 }
 
@@ -181,6 +191,10 @@
 .ams-page-header__mega-menu-button-hidden-label {
   font-weight: var(--ams-page-header-mega-menu-button-label-open-font-weight);
   pointer-events: none;
+  -webkit-user-select: none;
+
+  /* Safari support is added with the prefixed property. */
+  /* stylelint-disable-next-line plugin/use-baseline */
   user-select: none;
   visibility: hidden;
 }
