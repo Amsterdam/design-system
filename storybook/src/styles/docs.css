@@ -144,7 +144,6 @@
     min-block-size: 3rem;
   }
 
-  .ams-docs-page > &,
   .ams-docs-screen > & {
     block-size: 3rem;
   }

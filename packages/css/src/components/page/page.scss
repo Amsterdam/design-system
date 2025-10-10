@@ -10,3 +10,32 @@
   min-block-size: 100vh; /* Fallback for browsers that do not support dvh */
   min-block-size: 100dvh;
 }
+
+.ams-page--application {
+  display: grid;
+  grid-auto-rows: auto auto 1fr auto;
+  grid-template-areas: "skip-link skip-link" "menu header" "menu body" "menu footer";
+  grid-template-columns: auto 1fr;
+  max-inline-size: var(--ams-page-application-max-inline-size);
+
+  // TODO Find a better way to target the Grid that contains the Skip Link.
+  > :first-child {
+    grid-area: skip-link;
+  }
+
+  > .ams-menu {
+    grid-area: menu;
+  }
+
+  > .ams-page-header {
+    grid-area: header;
+  }
+
+  > main {
+    grid-area: body;
+  }
+
+  > .ams-page-footer {
+    grid-area: footer;
+  }
+}
