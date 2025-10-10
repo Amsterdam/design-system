@@ -3,38 +3,18 @@
  * Copyright Gemeente Amsterdam
  */
 
-import type { IconButtonProps, IconProps } from '@amsterdam/design-system-react'
-import type { Meta, StoryObj } from '@storybook/react-vite'
+import type { StoryObj } from '@storybook/react-vite'
 
 import * as Icons from '@amsterdam/design-system-react-icons'
 import { IconButton } from '@amsterdam/design-system-react/src'
+import { iconSizes } from '@amsterdam/design-system-react/src/Icon/Icon'
+import { IconButtonColor, iconButtonColors } from '@amsterdam/design-system-react/src/IconButton/IconButton'
 
-const meta = {
-  title: 'Components/Buttons/Icon Button',
-  component: IconButton,
-  args: {
-    label: 'Test button',
-  },
-} satisfies Meta<typeof IconButton>
-
-export default meta
+import meta from './IconButton.stories'
 
 type Story = StoryObj<typeof meta>
 
-const sizes: IconProps['size'][] = [
-  'heading-0',
-  'heading-1',
-  'heading-2',
-  'heading-3',
-  'heading-4',
-  'heading-5',
-  'heading-6',
-  'large',
-  'small',
-]
-
-const variants = ['default', 'disabled', 'hovered', 'contrast', 'inverse']
-const colorVariants = ['contrast', 'inverse']
+const variants = ['default', 'disabled', 'hovered', ...iconButtonColors]
 
 export const Test: Story = {
   parameters: {
@@ -42,27 +22,36 @@ export const Test: Story = {
       hover: '.hover',
     },
   },
-  render: (args) => (
-    <table>
-      <tbody>
-        {sizes.map((size) => (
-          <tr key={size}>
-            {variants.map((variant) => (
-              <td key={`${variant}-${size}`}>
-                <IconButton
-                  {...args}
-                  className={variant === 'hovered' ? 'hover' : undefined}
-                  color={colorVariants.includes(variant) ? (variant as IconButtonProps['color']) : undefined}
-                  disabled={variant === 'disabled'}
-                  size={size}
-                  svg={Icons.CloseIcon}
-                />
-              </td>
-            ))}
-          </tr>
-        ))}
-      </tbody>
-    </table>
-  ),
+  render: (args) => {
+    return (
+      <table>
+        <tbody>
+          {iconSizes.map((size) => (
+            <tr key={size}>
+              {variants.map((variant) => {
+                const isIconButtonColor = (variant: string): variant is IconButtonColor =>
+                  iconButtonColors.includes(variant as IconButtonColor)
+
+                return (
+                  <td key={`${variant}-${size}`}>
+                    <IconButton
+                      {...args}
+                      className={variant === 'hovered' ? 'hover' : undefined}
+                      color={isIconButtonColor(variant) ? variant : undefined}
+                      disabled={variant === 'disabled'}
+                      size={size}
+                      svg={Icons.CloseIcon}
+                    />
+                  </td>
+                )
+              })}
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    )
+  },
   tags: ['!dev', '!autodocs'],
 }
+
+export default Test

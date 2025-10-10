@@ -4,21 +4,16 @@
  */
 
 import type { ButtonProps } from '@amsterdam/design-system-react'
-import type { Meta, StoryObj } from '@storybook/react-vite'
+import type { StoryObj } from '@storybook/react-vite'
 
 import { CloseIcon } from '@amsterdam/design-system-react-icons'
 import { Button } from '@amsterdam/design-system-react/src'
+import { buttonVariants } from '@amsterdam/design-system-react/src/Button/Button'
 
-const meta = {
-  title: 'Components/Buttons/Button',
-  component: Button,
-} satisfies Meta<typeof Button>
-
-export default meta
+import meta from './Button.stories'
 
 type Story = StoryObj<typeof meta>
 
-const variants = ['primary', 'secondary', 'tertiary']
 const states = ['default', 'disabled', 'hover', 'icon']
 
 export const Test: Story = {
@@ -30,7 +25,7 @@ export const Test: Story = {
   render: () => (
     <table>
       <tbody>
-        {variants.map((variant) => (
+        {buttonVariants.map((variant) => (
           <tr key={variant}>
             {states.map((state) => {
               const variantState = `${variant}-${state}`
@@ -55,3 +50,5 @@ export const Test: Story = {
   ),
   tags: ['!dev', '!autodocs'],
 }
+
+export default Test

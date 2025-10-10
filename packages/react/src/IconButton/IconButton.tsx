@@ -13,9 +13,12 @@ import type { IconProps } from '../Icon'
 
 import { Icon } from '../Icon'
 
+export const iconButtonColors = ['contrast', 'inverse'] as const
+export type IconButtonColor = (typeof iconButtonColors)[number]
+
 export type IconButtonProps = {
   /** Changes the text colour for readability on a light or dark background. */
-  color?: 'contrast' | 'inverse'
+  color?: IconButtonColor
   /** The accessible text for the button. Will be announced by screen readers. Should describe the button’s action. */
   label: string
   /** The size of the icon. Match it to the text that the Icon Buttons aligns with. */
