@@ -10,7 +10,7 @@ import { CloseIcon } from '@amsterdam/design-system-react-icons'
 import { Button } from '@amsterdam/design-system-react/src'
 import { buttonVariants } from '@amsterdam/design-system-react/src/Button/Button'
 
-import meta from './Button.stories'
+import type meta from './Button.stories'
 
 type Story = StoryObj<typeof meta>
 

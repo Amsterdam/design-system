@@ -3,14 +3,15 @@
  * Copyright Gemeente Amsterdam
  */
 
+import type { IconButtonColor } from '@amsterdam/design-system-react/src/IconButton/IconButton'
 import type { StoryObj } from '@storybook/react-vite'
 
 import * as Icons from '@amsterdam/design-system-react-icons'
 import { IconButton } from '@amsterdam/design-system-react/src'
 import { iconSizes } from '@amsterdam/design-system-react/src/Icon/Icon'
-import { IconButtonColor, iconButtonColors } from '@amsterdam/design-system-react/src/IconButton/IconButton'
+import { iconButtonColors } from '@amsterdam/design-system-react/src/IconButton/IconButton'
 
-import meta from './IconButton.stories'
+import type meta from './IconButton.stories'
 
 type Story = StoryObj<typeof meta>
 
