@@ -167,6 +167,8 @@
 }
 
 [class*="ams-docs-token-example--color"] {
+  /* We allow non-baseline CSS in Storybook. */
+  /* stylelint-disable-next-line plugin/use-baseline */
   forced-color-adjust: none;
   inline-size: 1rem;
 }
@@ -183,6 +185,9 @@
   outline: 1px dashed var(--ams-docs-pink);
   overflow: auto;
   padding-block-end: 1rem;
+
+  /* We allow non-baseline CSS in Storybook. */
+  /* stylelint-disable-next-line plugin/use-baseline */
   resize: horizontal;
 }
 

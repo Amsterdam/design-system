@@ -38,6 +38,9 @@
 
 .ams-docs-color-sample {
   block-size: 4rem;
+
+  /* We allow non-baseline CSS in Storybook. */
+  /* stylelint-disable-next-line plugin/use-baseline */
   forced-color-adjust: none;
 
   .ams-docs-color-swatch--neutral .ams-docs-color-tile--0 & {

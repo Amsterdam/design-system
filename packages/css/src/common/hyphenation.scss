@@ -4,7 +4,10 @@
  */
 
 @mixin hyphenation {
+  /* These CSS declarations have a fallback, so it's safe to use them. */
+  /* stylelint-disable-next-line plugin/use-baseline */
   hyphenate-limit-chars: var(--ams-typography-hyphenate-limit-chars);
+  /* stylelint-disable-next-line plugin/use-baseline */
   hyphens: auto;
   overflow-wrap: break-word; // Break overflowing words for browsers that don’t support CSS hyphens.
 }
