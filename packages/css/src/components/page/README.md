@@ -2,22 +2,8 @@
 
 # Page
 
-Contains the entire website.
-Sets the background colour and its maximum width, and is horizontally centered.
+Contains the entire website or application.
 
-## Guidelines
-
-- The Page component must be used on all websites for the City of Amsterdam.
-  Applications can use it as well, although a specific layout for them is in development.
-- It is the outermost container. Within it, combine components such as
-  [Grid](https://designsystem.amsterdam/?path=/docs/components-layout-grid--docs),
-  [Page Header](https://designsystem.amsterdam/?path=/docs/components-containers-page-header--docs),
-  [Page Footer](https://designsystem.amsterdam/?path=/docs/components-containers-page-footer--docs),
-  [Spotlight](https://designsystem.amsterdam/?path=/docs/components-containers-spotlight--docs),
-  [Image Slider](https://designsystem.amsterdam/?path=/docs/components-media-image-slider--docs),
-  and [Figure](https://designsystem.amsterdam/?path=/docs/components-media-figure--docs).
-
-## Design
-
-The Page container sets the maximum width for a website of the City of Amsterdam, which is 1440 pixels.
-It horizontally centres both itself and its content and sets a white background.
+Page is the outermost container for the Page Header, Page Body and the content in between.
+It sets a maximum width and centres itself horizontally.
+It must be used for all websites and applications for the City of Amsterdam.
