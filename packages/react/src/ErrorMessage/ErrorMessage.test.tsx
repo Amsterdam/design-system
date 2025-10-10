@@ -71,7 +71,7 @@ describe('Error message', () => {
     expect(icon).toBeInTheDocument()
   })
 
-  // TODO: we can't currently test this, because we can't pass a class or anything to the SVG
+  // TODO: we can’t currently test this, because we can’t pass a class or anything to the SVG
   // We plan on changing this, so we can test this in the future
-  it.skip('shows a custom icon', () => {})
+  // it('shows a custom icon', () => {})
 })

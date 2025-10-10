@@ -3,7 +3,7 @@
  * Copyright Gemeente Amsterdam
  */
 
-import type { HTMLAttributes, PropsWithChildren } from 'react'
+import type { ForwardedRef, HTMLAttributes, PropsWithChildren } from 'react'
 
 import { clsx } from 'clsx'
 import { forwardRef } from 'react'
@@ -48,7 +48,10 @@ export type RowProps = PropsWithChildren<HTMLAttributes<HTMLElement>> & {
  * @see {@link https://designsystem.amsterdam/?path=/docs/components-layout-row--docs Row docs at Amsterdam Design System}
  */
 export const Row = forwardRef(
-  ({ align, alignVertical, as: Tag = 'div', children, className, gap, wrap, ...restProps }: RowProps, ref: any) => (
+  (
+    { align, alignVertical, as: Tag = 'div', children, className, gap, wrap, ...restProps }: RowProps,
+    ref: ForwardedRef<any>,
+  ) => (
     <Tag
       {...restProps}
       className={clsx(

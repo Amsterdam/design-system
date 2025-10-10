@@ -3,7 +3,7 @@
  * Copyright Gemeente Amsterdam
  */
 
-import type { HTMLAttributes, PropsWithChildren } from 'react'
+import type { ForwardedRef, HTMLAttributes, PropsWithChildren } from 'react'
 
 import { clsx } from 'clsx'
 import { forwardRef } from 'react'
@@ -25,7 +25,7 @@ export type SpotlightProps = PropsWithChildren<HTMLAttributes<HTMLElement>> & {
  * @see {@link https://designsystem.amsterdam/?path=/docs/components-containers-spotlight--docs Spotlight docs at Amsterdam Design System}
  */
 export const Spotlight = forwardRef(
-  ({ as: Tag = 'div', children, className, color, ...restProps }: SpotlightProps, ref: any) => (
+  ({ as: Tag = 'div', children, className, color, ...restProps }: SpotlightProps, ref: ForwardedRef<any>) => (
     <Tag {...restProps} className={clsx('ams-spotlight', color && `ams-spotlight--${color}`, className)} ref={ref}>
       {children}
     </Tag>

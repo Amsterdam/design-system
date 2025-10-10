@@ -3,7 +3,7 @@
  * Copyright Gemeente Amsterdam
  */
 
-import type { HTMLAttributes, PropsWithChildren } from 'react'
+import type { ForwardedRef, HTMLAttributes, PropsWithChildren } from 'react'
 
 import { clsx } from 'clsx'
 import { forwardRef } from 'react'
@@ -35,7 +35,7 @@ export type GridCellProps = (GridCellSpanAllProp | GridCellSpanAndStartProps) &
   }
 
 export const GridCell = forwardRef(
-  ({ as: Tag = 'div', children, className, span, start, ...restProps }: GridCellProps, ref: any) => (
+  ({ as: Tag = 'div', children, className, span, start, ...restProps }: GridCellProps, ref: ForwardedRef<any>) => (
     <Tag {...restProps} className={clsx('ams-grid__cell', gridCellClasses(span, start), className)} ref={ref}>
       {children}
     </Tag>

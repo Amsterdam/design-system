@@ -3,7 +3,7 @@
  * Copyright Gemeente Amsterdam
  */
 
-import type { HTMLAttributes, PropsWithChildren } from 'react'
+import type { ForwardedRef, HTMLAttributes, PropsWithChildren } from 'react'
 
 import { clsx } from 'clsx'
 import { forwardRef } from 'react'
@@ -43,7 +43,10 @@ export type ColumnProps = PropsWithChildren<HTMLAttributes<HTMLElement>> & {
  * @see {@link https://designsystem.amsterdam/?path=/docs/components-layout-column--docs Column docs at Amsterdam Design System}
  */
 export const Column = forwardRef(
-  ({ align, alignHorizontal, as: Tag = 'div', children, className, gap, ...restProps }: ColumnProps, ref: any) => (
+  (
+    { align, alignHorizontal, as: Tag = 'div', children, className, gap, ...restProps }: ColumnProps,
+    ref: ForwardedRef<any>,
+  ) => (
     <Tag
       {...restProps}
       className={clsx(
