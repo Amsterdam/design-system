@@ -6,7 +6,9 @@
 import { render } from '@testing-library/react'
 import { createRef } from 'react'
 
-import { ImageSlider, ImageSliderImageProps } from './ImageSlider'
+import type { ImageSliderImageProps } from './ImageSlider'
+
+import { ImageSlider } from './ImageSlider'
 import '@testing-library/jest-dom'
 
 const observe = jest.fn()

@@ -3,6 +3,7 @@
  * Copyright Gemeente Amsterdam
  */
 
+import type { Meta, StoryObj } from '@storybook/react-vite'
 import type { ReactNode } from 'react'
 
 import { Grid, Heading, LinkList, Paragraph, StandaloneLink } from '@amsterdam/design-system-react'
@@ -16,7 +17,6 @@ import {
   PhoneIcon,
 } from '@amsterdam/design-system-react-icons'
 import { PageFooter } from '@amsterdam/design-system-react/src'
-import { Meta, StoryObj } from '@storybook/react-vite'
 
 const meta = {
   title: 'Components/Containers/Page Footer',

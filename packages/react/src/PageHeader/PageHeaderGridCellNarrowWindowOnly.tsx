@@ -3,10 +3,14 @@
  * Copyright Gemeente Amsterdam
  */
 
-import { clsx } from 'clsx'
-import { ForwardedRef, forwardRef } from 'react'
+import type { ForwardedRef } from 'react'
 
-import { Grid, GridCellProps } from '../Grid'
+import { clsx } from 'clsx'
+import { forwardRef } from 'react'
+
+import type { GridCellProps } from '../Grid'
+
+import { Grid } from '../Grid'
 
 export const PageHeaderGridCellNarrowWindowOnly = forwardRef(
   ({ children, className, ...restProps }: GridCellProps, ref: ForwardedRef<HTMLElement>) => (

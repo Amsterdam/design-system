@@ -3,8 +3,10 @@
  * Copyright Gemeente Amsterdam
  */
 
+import type { AnchorHTMLAttributes, ForwardedRef, PropsWithChildren } from 'react'
+
 import { clsx } from 'clsx'
-import { AnchorHTMLAttributes, ForwardedRef, forwardRef, PropsWithChildren } from 'react'
+import { forwardRef } from 'react'
 
 export type PageHeaderMenuLinkProps = PropsWithChildren<AnchorHTMLAttributes<HTMLAnchorElement>> & {
   fixed?: boolean

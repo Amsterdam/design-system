@@ -3,10 +3,11 @@
  * Copyright Gemeente Amsterdam
  */
 
+import type { Meta, StoryObj } from '@storybook/react-vite'
+import type { PropsWithChildren, ReactNode } from 'react'
+
 import { Heading, Paragraph, Table } from '@amsterdam/design-system-react'
 import { Tabs } from '@amsterdam/design-system-react/src'
-import { Meta, StoryObj } from '@storybook/react-vite'
-import { PropsWithChildren, ReactNode } from 'react'
 
 import { cityParts, exampleParagraph } from '../shared/exampleContent'
 
