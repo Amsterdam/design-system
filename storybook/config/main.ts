@@ -18,6 +18,7 @@ const config: StorybookConfig = {
       },
     },
     '@linus_janns/storybook-addon-html',
+    'storybook-addon-pseudo-states',
   ],
 
   core: {
