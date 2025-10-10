@@ -4,6 +4,7 @@ import markdown from '@eslint/markdown'
 import tsParser from '@typescript-eslint/parser'
 import tsPlugin from '@typescript-eslint/eslint-plugin'
 import eslintConfigPrettier from 'eslint-config-prettier'
+import baselineJs from 'eslint-plugin-baseline-js'
 import importPlugin from 'eslint-plugin-import'
 import jest from 'eslint-plugin-jest'
 import * as mdx from 'eslint-plugin-mdx'
@@ -76,6 +77,7 @@ export default tseslint.config(
     files: ['**/*.js', '**/*.jsx', '**/*.ts', '**/*.tsx'],
     plugins: {
       '@typescript-eslint': tsPlugin,
+      'baseline-js': baselineJs,
       import: importPlugin,
       jest,
       perfectionist,
@@ -160,6 +162,12 @@ export default tseslint.config(
         },
       ],
       yoda: 'error',
+
+      // Baseline JS
+      'baseline-js/use-baseline': [
+        'error',
+        { available: 'widely', includeWebApis: { preset: 'type-aware' }, includeJsBuiltins: { preset: 'type-aware' } },
+      ],
 
       // Import
       'import/consistent-type-specifier-style': ['error', 'prefer-top-level'],
