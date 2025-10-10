@@ -68,11 +68,16 @@ const StoryTemplate: Story = {
         {text}
       </Menu.Link>
     )),
-    inWideWindow: true,
     // Ensure visibility despite the media queries in this component.
     style: {
       display: 'block',
       marginInline: 'initial',
+    },
+  },
+  argTypes: {
+    inWideWindow: {
+      // Changing this property can result in an invalid appearance.
+      table: { readonly: true },
     },
   },
 }
@@ -82,8 +87,6 @@ const LinkStoryTemplate: LinkStory = {
     children: menuItems[0].text,
     href: '#',
     icon: 'PieChartFillIcon',
-    // Ensure visibility despite the media queries in this component.
-    style: { display: 'block' },
   },
   argTypes: {
     // @ts-expect-error Storybook displays this prop of Menu for Link – not sure why.
@@ -109,7 +112,7 @@ const LinkStoryTemplate: LinkStory = {
   },
   decorators: [
     (Story) => (
-      <Menu>
+      <Menu inWideWindow style={{ display: 'block', marginInline: 'initial', paddingBlockStart: 'var(--ams-space-m)' }}>
         <Story />
       </Menu>
     ),
@@ -119,6 +122,24 @@ const LinkStoryTemplate: LinkStory = {
 
 export const Default: Story = {
   ...StoryTemplate,
+  args: {
+    ...StoryTemplate.args,
+    inWideWindow: false,
+  },
+  globals: {
+    viewport: { value: 'phone' },
+  },
+}
+
+export const InWideWindow: Story = {
+  ...StoryTemplate,
+  args: {
+    ...StoryTemplate.args,
+    inWideWindow: true,
+  },
+  globals: {
+    viewport: { value: 'desktop' },
+  },
 }
 
 export const Link: LinkStory = {

@@ -4,5 +4,22 @@
 
 A primary navigation leading to key areas of an application or website.
 
-The Menu component works well in the sidebar of applications, usually on a blue background.
-This first iteration is a simple vertical menu with 1 level of navigation.
+## Design
+
+- The menu has a blue background.
+  Links have a white icon and a label.
+- In a narrow window, the menu occupies the full width.
+  The icon and label of the link sit next to each other.
+- In a wide window, the menu has a maximum width of 8rem.
+  It adds whitespace at the top to align with the baseline of Page Header.
+  The icon is larger and positioned above the label.
+
+## Guidelines
+
+- Include this component twice: one in the Page Header and one to the side of the Page.
+  Do not use it anywhere else.
+- Set the `inWideWindow` prop to the latter to ensure only one of them is visible, and to get the correct appearance.
+- Use filled icons for the links.
+
+Note that the appearance of these examples in Storybook are affected by the width of your screen.
+Some invisible inline styles ensures they are visible and (mostly) correct.
