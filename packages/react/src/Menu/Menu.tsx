@@ -11,21 +11,38 @@ import { forwardRef } from 'react'
 import { MenuLink } from './MenuLink'
 
 export type MenuProps = PropsWithChildren<HTMLAttributes<HTMLElement>> & {
+  /** A name for this menu, which screen readers will announce. */
   accessibleName?: string
+  /** Hides the component on narrow windows. */
+  inWideWindow?: boolean
 }
 
 export const MenuRoot = forwardRef(
   (
-    { accessibleName = 'Hoofdnavigatie', children, className, ...restProps }: MenuProps,
-    ref: ForwardedRef<HTMLElement>,
-  ) => (
-    <nav {...restProps} aria-labelledby="primary-navigation" className={clsx('ams-menu', className)} ref={ref}>
-      <h2 className="ams-visually-hidden" id="primary-navigation">
-        {accessibleName}
-      </h2>
-      <ul className="ams-menu__list">{children}</ul>
-    </nav>
-  ),
+    { accessibleName = 'Hoofdnavigatie', children, className, inWideWindow, ...restProps }: MenuProps,
+    ref: ForwardedRef<any>,
+  ) => {
+    // In a large window, the Menu appears outside the `nav` of the Page Header.
+    // We render a `div` instead to avoid having 2 navigation landmarks
+    // and hide the related accessibility features.
+    const Tag = inWideWindow ? 'div' : 'nav'
+
+    return (
+      <Tag
+        {...restProps}
+        aria-labelledby={inWideWindow ? 'primary-navigation' : undefined}
+        className={clsx('ams-menu', inWideWindow && `ams-menu--in-wide-window`, className)}
+        ref={ref}
+      >
+        {inWideWindow && (
+          <h2 className="ams-visually-hidden" id="primary-navigation">
+            {accessibleName}
+          </h2>
+        )}
+        <ul className="ams-menu__list">{children}</ul>
+      </Tag>
+    )
+  },
 )
 
 MenuRoot.displayName = 'Menu'

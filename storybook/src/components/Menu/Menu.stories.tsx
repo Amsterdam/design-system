@@ -6,12 +6,11 @@
 import type { Meta, StoryObj } from '@storybook/react-vite'
 
 import {
-  BarChartIcon,
-  DocumentsIcon,
-  FolderIcon,
+  BarChartFillIcon,
+  DocumentsFillIcon,
+  FolderFillIcon,
   PieChartFillIcon,
-  PieChartIcon,
-  SettingsIcon,
+  SettingsFillIcon,
 } from '@amsterdam/design-system-react-icons'
 import * as Icons from '@amsterdam/design-system-react-icons'
 import { Menu } from '@amsterdam/design-system-react/src'
@@ -19,27 +18,27 @@ import { Menu } from '@amsterdam/design-system-react/src'
 const menuItems = [
   {
     href: '#',
-    icon: <PieChartIcon />,
+    icon: <PieChartFillIcon />,
     text: 'Dashboard',
   },
   {
     href: '#',
-    icon: <FolderIcon />,
+    icon: <FolderFillIcon />,
     text: 'Projecten',
   },
   {
     href: '#',
-    icon: <DocumentsIcon />,
+    icon: <DocumentsFillIcon />,
     text: 'Rapportages',
   },
   {
     href: '#',
-    icon: <BarChartIcon />,
+    icon: <BarChartFillIcon />,
     text: 'Analyses',
   },
   {
     href: '#',
-    icon: <SettingsIcon />,
+    icon: <SettingsFillIcon />,
     text: 'Instellingen',
   },
 ]
@@ -47,6 +46,9 @@ const menuItems = [
 const meta = {
   title: 'Components/Navigation/Menu',
   component: Menu,
+  globals: {
+    theme: 'Compact',
+  },
 } satisfies Meta<typeof Menu>
 
 export default meta
@@ -66,6 +68,17 @@ const StoryTemplate: Story = {
         {text}
       </Menu.Link>
     )),
+    // Ensure visibility despite the media queries in this component.
+    style: {
+      display: 'block',
+      marginInline: 'initial',
+    },
+  },
+  argTypes: {
+    inWideWindow: {
+      // Changing this property can result in an invalid appearance.
+      table: { readonly: true },
+    },
   },
 }
 
@@ -73,15 +86,16 @@ const LinkStoryTemplate: LinkStory = {
   args: {
     children: menuItems[0].text,
     href: '#',
-    icon: <PieChartIcon />,
+    icon: 'PieChartFillIcon',
   },
   argTypes: {
-    color: {
-      control: {
-        labels: { undefined: 'default' },
-        type: 'radio',
-      },
-      options: [undefined, 'contrast', 'inverse'],
+    // @ts-expect-error Storybook displays this prop of Menu for Link – not sure why.
+    accessibleName: {
+      table: { disable: true },
+    },
+    children: {
+      control: 'text',
+      table: { disable: false },
     },
     icon: {
       control: {
@@ -91,10 +105,14 @@ const LinkStoryTemplate: LinkStory = {
       mapping: Icons,
       options: [undefined, ...Object.keys(Icons)],
     },
+    // Storybook displays this prop of Menu for Link – not sure why.
+    inWideWindow: {
+      table: { disable: true },
+    },
   },
   decorators: [
     (Story) => (
-      <Menu>
+      <Menu inWideWindow style={{ display: 'block', marginInline: 'initial', paddingBlockStart: 'var(--ams-space-m)' }}>
         <Story />
       </Menu>
     ),
@@ -104,25 +122,26 @@ const LinkStoryTemplate: LinkStory = {
 
 export const Default: Story = {
   ...StoryTemplate,
+  args: {
+    ...StoryTemplate.args,
+    inWideWindow: false,
+  },
+  globals: {
+    viewport: { value: 'phone' },
+  },
+}
+
+export const InWideWindow: Story = {
+  ...StoryTemplate,
+  args: {
+    ...StoryTemplate.args,
+    inWideWindow: true,
+  },
+  globals: {
+    viewport: { value: 'desktop' },
+  },
 }
 
 export const Link: LinkStory = {
   ...LinkStoryTemplate,
-}
-export const ContrastColour: LinkStory = {
-  ...LinkStoryTemplate,
-  args: {
-    ...LinkStoryTemplate.args,
-    color: 'contrast',
-    icon: <PieChartFillIcon />,
-  },
-}
-
-export const InverseColour: LinkStory = {
-  ...LinkStoryTemplate,
-  args: {
-    ...LinkStoryTemplate.args,
-    color: 'inverse',
-    icon: <PieChartFillIcon />,
-  },
 }
