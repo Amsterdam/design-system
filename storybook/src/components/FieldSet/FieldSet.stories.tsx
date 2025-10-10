@@ -3,6 +3,8 @@
  * Copyright Gemeente Amsterdam
  */
 
+import type { Meta, StoryObj } from '@storybook/react-vite'
+
 import {
   Checkbox,
   Column,
@@ -14,7 +16,6 @@ import {
   TextInput,
 } from '@amsterdam/design-system-react'
 import { FieldSet } from '@amsterdam/design-system-react/src'
-import { Meta, StoryObj } from '@storybook/react-vite'
 
 import { exampleFamilyName, exampleGivenName } from '../shared/exampleContent'
 

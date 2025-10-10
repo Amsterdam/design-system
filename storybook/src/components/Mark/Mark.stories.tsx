@@ -3,9 +3,10 @@
  * Copyright Gemeente Amsterdam
  */
 
+import type { Meta, StoryObj } from '@storybook/react-vite'
+
 import { Card, Grid, Heading, Paragraph, SearchField, UnorderedList } from '@amsterdam/design-system-react'
 import { Mark } from '@amsterdam/design-system-react/src'
-import { Meta, StoryObj } from '@storybook/react-vite'
 import { useState } from 'react'
 
 const meta = {

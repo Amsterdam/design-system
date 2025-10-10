@@ -3,9 +3,10 @@
  * Copyright Gemeente Amsterdam
  */
 
+import type { Meta, StoryObj } from '@storybook/react-vite'
+
 import { Badge } from '@amsterdam/design-system-react/src'
 import { badgeColors } from '@amsterdam/design-system-react/src/Badge/Badge'
-import { Meta, StoryObj } from '@storybook/react-vite'
 
 const meta = {
   title: 'Components/Feedback/Badge',

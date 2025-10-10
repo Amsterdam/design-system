@@ -3,9 +3,10 @@
  * Copyright Gemeente Amsterdam
  */
 
+import type { Meta, StoryObj } from '@storybook/react-vite'
+
 import { ErrorMessage, Field, Label, Paragraph } from '@amsterdam/design-system-react'
 import { TimeInput } from '@amsterdam/design-system-react/src'
-import { Meta, StoryObj } from '@storybook/react-vite'
 
 const meta = {
   title: 'Components/Forms/Time Input',

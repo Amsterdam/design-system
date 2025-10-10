@@ -3,7 +3,9 @@
  * Copyright Gemeente Amsterdam
  */
 
-import { Grid, type HeadingProps } from '@amsterdam/design-system-react'
+import type { HeadingProps } from '@amsterdam/design-system-react'
+
+import { Grid } from '@amsterdam/design-system-react'
 
 import type { LinkGroup } from './links'
 

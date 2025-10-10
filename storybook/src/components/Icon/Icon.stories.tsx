@@ -3,11 +3,12 @@
  * Copyright Gemeente Amsterdam
  */
 
+import type { Meta, StoryObj } from '@storybook/react-vite'
+
 import { Heading } from '@amsterdam/design-system-react'
 import * as Icons from '@amsterdam/design-system-react-icons'
 import { Icon, Paragraph, Row } from '@amsterdam/design-system-react/src'
 import { iconSizes } from '@amsterdam/design-system-react/src/Icon/Icon'
-import { Meta, StoryObj } from '@storybook/react-vite'
 
 const DEPRECATED_HEADING_SIZES = ['heading-0', 'heading-6']
 

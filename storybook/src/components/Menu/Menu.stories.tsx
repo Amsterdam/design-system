@@ -3,6 +3,8 @@
  * Copyright Gemeente Amsterdam
  */
 
+import type { Meta, StoryObj } from '@storybook/react-vite'
+
 import {
   BarChartIcon,
   DocumentsIcon,
@@ -13,7 +15,6 @@ import {
 } from '@amsterdam/design-system-react-icons'
 import * as Icons from '@amsterdam/design-system-react-icons'
 import { Menu } from '@amsterdam/design-system-react/src'
-import { Meta, StoryObj } from '@storybook/react-vite'
 
 const menuItems = [
   {

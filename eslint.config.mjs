@@ -104,6 +104,7 @@ export default tseslint.config(
 
       // TypeScript
       '@typescript-eslint/consistent-type-definitions': ['error', 'type'],
+      '@typescript-eslint/consistent-type-imports': 'error',
       '@typescript-eslint/no-explicit-any': 'warn',
       '@typescript-eslint/no-unsafe-function-type': 'warn',
       '@typescript-eslint/no-unused-vars': 'error',
@@ -161,6 +162,7 @@ export default tseslint.config(
       yoda: 'error',
 
       // Import
+      'import/consistent-type-specifier-style': ['error', 'prefer-top-level'],
       'import/newline-after-import': 'error',
       'import/no-named-as-default': 'warn',
       'import/no-cycle': 'warn',

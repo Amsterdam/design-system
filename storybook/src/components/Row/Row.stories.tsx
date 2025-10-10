@@ -3,12 +3,13 @@
  * Copyright Gemeente Amsterdam
  */
 
+import type { Meta, StoryObj } from '@storybook/react-vite'
+
 import { Avatar, Heading, StandaloneLink } from '@amsterdam/design-system-react'
 import { PencilIcon } from '@amsterdam/design-system-react-icons'
 import { Row } from '@amsterdam/design-system-react/src'
 import { crossAlignOptions, mainAlignOptions } from '@amsterdam/design-system-react/src/common/types'
 import { rowGapSizes } from '@amsterdam/design-system-react/src/Row/Row'
-import { Meta, StoryObj } from '@storybook/react-vite'
 
 const ThreeItems = [
   <div className="ams-docs-item" key={0} />,

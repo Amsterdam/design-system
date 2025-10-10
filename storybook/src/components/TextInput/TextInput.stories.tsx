@@ -3,10 +3,11 @@
  * Copyright Gemeente Amsterdam
  */
 
+import type { Meta, StoryObj } from '@storybook/react-vite'
+
 import { ErrorMessage, Field, Label, Paragraph } from '@amsterdam/design-system-react'
 import { textInputTypes } from '@amsterdam/design-system-react/dist/TextInput/TextInput'
 import { TextInput } from '@amsterdam/design-system-react/src'
-import { Meta, StoryObj } from '@storybook/react-vite'
 
 const meta = {
   title: 'Components/Forms/Text Input',
