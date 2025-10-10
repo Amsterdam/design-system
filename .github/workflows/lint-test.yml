@@ -55,5 +55,5 @@ jobs:
       - name: "Continuous Integration: test"
         run: |
           pnpm run --if-present test
-          env:
-    CHROMATIC_PROJECT_TOKEN: ${{ secrets.CHROMATIC_PROJECT_TOKEN }}
+        env:
+          CHROMATIC_PROJECT_TOKEN: ${{ secrets.CHROMATIC_PROJECT_TOKEN }}
