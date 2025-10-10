@@ -22,7 +22,7 @@
   font-family: var(--ams-paragraph-font-family);
   font-size: 1rem;
 
-  /* This CSS declaration has a fallback, so it's safe to use it. */
+  /* This CSS declaration has a fallback, so it is safe to use it. */
   /* stylelint-disable-next-line plugin/use-baseline */
   hyphens: auto;
   line-height: 1.5;
