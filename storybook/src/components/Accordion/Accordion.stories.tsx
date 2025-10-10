@@ -3,9 +3,10 @@
  * Copyright Gemeente Amsterdam
  */
 
+import type { Meta, StoryObj } from '@storybook/react-vite'
+
 import { Paragraph } from '@amsterdam/design-system-react'
 import { Accordion } from '@amsterdam/design-system-react/src'
-import { Meta, StoryObj } from '@storybook/react-vite'
 
 import { exampleAccordionHeading, exampleParagraph } from '../shared/exampleContent'
 

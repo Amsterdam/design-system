@@ -3,8 +3,10 @@
  * Copyright Gemeente Amsterdam
  */
 
+import type { HTMLAttributes, PropsWithChildren } from 'react'
+
 import { clsx } from 'clsx'
-import { forwardRef, HTMLAttributes, PropsWithChildren } from 'react'
+import { forwardRef } from 'react'
 
 export const spotlightTags = ['article', 'aside', 'div', 'footer', 'section'] as const
 type SpotlightTag = (typeof spotlightTags)[number]

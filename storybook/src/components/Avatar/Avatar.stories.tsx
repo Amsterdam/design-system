@@ -3,9 +3,10 @@
  * Copyright Gemeente Amsterdam
  */
 
+import type { Meta, StoryObj } from '@storybook/react-vite'
+
 import { Avatar } from '@amsterdam/design-system-react/src'
 import { avatarColors } from '@amsterdam/design-system-react/src/Avatar/Avatar'
-import { Meta, StoryObj } from '@storybook/react-vite'
 
 const meta = {
   title: 'Components/Feedback/Avatar',

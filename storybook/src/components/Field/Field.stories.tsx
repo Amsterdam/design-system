@@ -3,9 +3,10 @@
  * Copyright Gemeente Amsterdam
  */
 
+import type { Meta, StoryObj } from '@storybook/react-vite'
+
 import { ErrorMessage, Label, Paragraph, TextInput } from '@amsterdam/design-system-react'
 import { Field } from '@amsterdam/design-system-react/src'
-import { Meta, StoryObj } from '@storybook/react-vite'
 
 import { exampleFamilyName } from '../shared/exampleContent'
 

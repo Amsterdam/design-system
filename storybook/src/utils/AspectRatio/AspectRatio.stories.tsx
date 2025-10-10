@@ -3,9 +3,10 @@
  * Copyright Gemeente Amsterdam
  */
 
+import type { Meta, StoryObj } from '@storybook/react-vite'
+
 import { generateAspectRatioClass } from '@amsterdam/design-system-react/src'
 import { aspectRatioOptions } from '@amsterdam/design-system-react/src/common/types'
-import { Meta, StoryObj } from '@storybook/react-vite'
 import { clsx } from 'clsx'
 
 import { AspectRatio } from './AspectRatio'

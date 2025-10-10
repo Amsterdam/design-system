@@ -1,4 +1,4 @@
-import { ViewportMap } from './types'
+import type { ViewportMap } from './types'
 
 export const viewports: ViewportMap = {
   phone: {
