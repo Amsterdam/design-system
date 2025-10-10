@@ -1,0 +1,5 @@
+import{r as c,j as v,c as o}from"./iframe-B0SLsM8S.js";/**
+ * @license EUPL-1.2+
+ * Copyright Gemeente Amsterdam
+ */function h(e){switch(e){case 2:return"h2";case 3:return"h3";case 4:return"h4";default:return"h1"}}const a=c.forwardRef(({children:e,className:n,color:l,level:r,size:t,...i},s)=>{const u=h(r),d=t?t.slice(-1):r;return v.jsx(u,{className:o("ams-heading",`ams-heading--${d}`,l&&`ams-heading--${l}`,n),ref:s,...i,children:e})});a.displayName="Heading";try{a.displayName="Heading",a.__docgenInfo={description:"",displayName:"Heading",props:{level:{defaultValue:null,description:"The hierarchical level within the document.",name:"level",required:!0,type:{name:"enum",value:[{value:"1"},{value:"2"},{value:"3"},{value:"4"}]}},size:{defaultValue:null,description:`Uses larger or smaller text without changing its position in the heading hierarchy.
+The value ‘level-6’ is deprecated. Use level 5 instead.`,name:"size",required:!1,type:{name:"enum",value:[{value:'"level-1"'},{value:'"level-2"'},{value:'"level-3"'},{value:'"level-4"'},{value:'"level-5"'},{value:'"level-6"'}]}}}}}catch{}export{a as H};
