@@ -46,6 +46,9 @@ const menuItems = [
 const meta = {
   title: 'Components/Navigation/Menu',
   component: Menu,
+  globals: {
+    theme: 'Compact',
+  },
 } satisfies Meta<typeof Menu>
 
 export default meta
@@ -65,6 +68,12 @@ const StoryTemplate: Story = {
         {text}
       </Menu.Link>
     )),
+    inWideWindow: true,
+    // Ensure visibility despite the media queries in this component.
+    style: {
+      display: 'block',
+      marginInline: 'initial',
+    },
   },
 }
 
@@ -73,14 +82,17 @@ const LinkStoryTemplate: LinkStory = {
     children: menuItems[0].text,
     href: '#',
     icon: 'PieChartFillIcon',
+    // Ensure visibility despite the media queries in this component.
+    style: { display: 'block' },
   },
   argTypes: {
-    color: {
-      control: {
-        labels: { undefined: 'default' },
-        type: 'radio',
-      },
-      options: [undefined, 'contrast', 'inverse'],
+    // @ts-expect-error Storybook displays this prop of Menu for Link – not sure why.
+    accessibleName: {
+      table: { disable: true },
+    },
+    children: {
+      control: 'text',
+      table: { disable: false },
     },
     icon: {
       control: {
@@ -89,6 +101,10 @@ const LinkStoryTemplate: LinkStory = {
       },
       mapping: Icons,
       options: [undefined, ...Object.keys(Icons)],
+    },
+    // Storybook displays this prop of Menu for Link – not sure why.
+    inWideWindow: {
+      table: { disable: true },
     },
   },
   decorators: [

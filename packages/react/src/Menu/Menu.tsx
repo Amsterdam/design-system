@@ -11,15 +11,23 @@ import { forwardRef } from 'react'
 import { MenuLink } from './MenuLink'
 
 export type MenuProps = PropsWithChildren<HTMLAttributes<HTMLElement>> & {
+  /** A name for this menu, which screen readers will announce. */
   accessibleName?: string
+  /** Changes the appearance to stretch to the side of the page in a wide window. */
+  inWideWindow?: boolean
 }
 
 export const MenuRoot = forwardRef(
   (
-    { accessibleName = 'Hoofdnavigatie', children, className, ...restProps }: MenuProps,
+    { accessibleName = 'Hoofdnavigatie', children, className, inWideWindow, ...restProps }: MenuProps,
     ref: ForwardedRef<HTMLElement>,
   ) => (
-    <nav {...restProps} aria-labelledby="primary-navigation" className={clsx('ams-menu', className)} ref={ref}>
+    <nav
+      {...restProps}
+      aria-labelledby="primary-navigation"
+      className={clsx('ams-menu', inWideWindow && `ams-menu--in-wide-window`, className)}
+      ref={ref}
+    >
       <h2 className="ams-visually-hidden" id="primary-navigation">
         {accessibleName}
       </h2>

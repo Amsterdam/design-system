@@ -15,12 +15,37 @@
 
 .ams-menu {
   background-color: var(--ams-menu-background-color);
+  display: block;
   font-family: var(--ams-menu-font-family);
   font-size: var(--ams-menu-font-size);
   font-weight: var(--ams-menu-font-weight);
   line-height: var(--ams-menu-line-height);
-  padding-block: var(--ams-space-m);
-  padding-inline: var(--ams-space-m);
+
+  // Menu must overlap the horizontal padding of Page Header to span the entire window.
+  // We accept that this approach for inline spacing makes the component only usable in that context.
+  margin-inline: calc(var(--ams-grid-padding-inline) * -1);
+  padding-block: var(--ams-menu-padding-block);
+  padding-inline: var(--ams-grid-padding-inline);
+
+  @media screen and (min-width: $ams-breakpoint-medium) {
+    margin-inline: calc(var(--ams-grid-medium-padding-inline) * -1);
+    padding-inline: var(--ams-grid-medium-padding-inline);
+  }
+
+  @media screen and (min-width: $ams-breakpoint-wide) {
+    display: none;
+  }
+}
+
+.ams-menu--in-wide-window {
+  display: none;
+  max-inline-size: var(--ams-menu-in-wide-window-max-inline-size);
+  padding-block: var(--ams-menu-in-wide-window-padding-block);
+  padding-inline: var(--ams-menu-in-wide-window-padding-inline);
+
+  @media screen and (min-width: $ams-breakpoint-wide) {
+    display: block;
+  }
 }
 
 .ams-menu__list {
@@ -69,6 +94,7 @@
   }
 }
 
+/** @deprecated The menu has a dark background now, so this is no longer needed. */
 .ams-menu__link--contrast {
   color: var(--ams-menu-link-contrast-color);
 
@@ -77,6 +103,7 @@
   }
 }
 
+/** @deprecated The menu has a dark background now, so this is no longer needed. */
 .ams-menu__link--inverse {
   color: var(--ams-menu-link-inverse-color);
 
