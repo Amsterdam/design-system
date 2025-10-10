@@ -6,11 +6,11 @@
 import type { Meta, StoryObj } from '@storybook/react-vite'
 
 import {
-  BarChartIcon,
-  DocumentsIcon,
-  FolderIcon,
-  PieChartIcon,
-  SettingsIcon,
+  BarChartFillIcon,
+  DocumentsFillIcon,
+  FolderFillIcon,
+  PieChartFillIcon,
+  SettingsFillIcon,
 } from '@amsterdam/design-system-react-icons'
 import * as Icons from '@amsterdam/design-system-react-icons'
 import { Menu } from '@amsterdam/design-system-react/src'
@@ -18,27 +18,27 @@ import { Menu } from '@amsterdam/design-system-react/src'
 const menuItems = [
   {
     href: '#',
-    icon: <PieChartIcon />,
+    icon: <PieChartFillIcon />,
     text: 'Dashboard',
   },
   {
     href: '#',
-    icon: <FolderIcon />,
+    icon: <FolderFillIcon />,
     text: 'Projecten',
   },
   {
     href: '#',
-    icon: <DocumentsIcon />,
+    icon: <DocumentsFillIcon />,
     text: 'Rapportages',
   },
   {
     href: '#',
-    icon: <BarChartIcon />,
+    icon: <BarChartFillIcon />,
     text: 'Analyses',
   },
   {
     href: '#',
-    icon: <SettingsIcon />,
+    icon: <SettingsFillIcon />,
     text: 'Instellingen',
   },
 ]
@@ -72,7 +72,7 @@ const LinkStoryTemplate: LinkStory = {
   args: {
     children: menuItems[0].text,
     href: '#',
-    icon: <PieChartIcon />,
+    icon: 'PieChartFillIcon',
   },
   argTypes: {
     color: {
