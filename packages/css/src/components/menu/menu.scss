@@ -38,6 +38,7 @@
 
 .ams-menu--in-wide-window {
   display: none;
+  margin-inline: 0;
   max-inline-size: var(--ams-menu-in-wide-window-max-inline-size);
   padding-block: var(--ams-menu-in-wide-window-padding-block);
   padding-inline: var(--ams-menu-in-wide-window-padding-inline);
