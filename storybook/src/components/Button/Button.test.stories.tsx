@@ -4,13 +4,26 @@
  */
 
 import type { ButtonProps } from '@amsterdam/design-system-react'
-import type { StoryObj } from '@storybook/react-vite'
+import type { Meta, StoryObj } from '@storybook/react-vite'
 
 import { CloseIcon } from '@amsterdam/design-system-react-icons'
 import { Button } from '@amsterdam/design-system-react/src'
 import { buttonVariants } from '@amsterdam/design-system-react/src/Button/Button'
 
-import type meta from './Button.stories'
+const meta = {
+  title: 'Components/Buttons/Button',
+  component: Button,
+  args: {
+    children: 'Versturen',
+    disabled: false,
+    icon: undefined,
+    iconBefore: false,
+    iconOnly: undefined,
+    variant: 'primary',
+  },
+} satisfies Meta<typeof Button>
+
+export default meta
 
 type Story = StoryObj<typeof meta>
 
@@ -50,5 +63,3 @@ export const Test: Story = {
   ),
   tags: ['!dev', '!autodocs'],
 }
-
-export default Test
