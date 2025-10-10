@@ -13,7 +13,7 @@ import { MenuLink } from './MenuLink'
 export type MenuProps = PropsWithChildren<HTMLAttributes<HTMLElement>> & {
   /** A name for this menu, which screen readers will announce. */
   accessibleName?: string
-  /** Changes the appearance to stretch to the side of the page in a wide window. */
+  /** Hides the component on narrow windows. */
   inWideWindow?: boolean
 }
 
