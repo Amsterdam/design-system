@@ -10,6 +10,10 @@
   inline-size: 1px;
   overflow: hidden;
   position: absolute;
+  -webkit-user-select: none;
+
+  /* Safari support is added with the prefixed property. */
+  /* stylelint-disable-next-line plugin/use-baseline */
   user-select: none;
   white-space: nowrap;
 }

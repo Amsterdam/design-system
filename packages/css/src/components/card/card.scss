@@ -9,18 +9,22 @@
   position: relative; // Allows stretching the card link below.
   touch-action: manipulation;
 
-  // Set native outline to Card if it has a visible focus inside.
+  /*
+   * Set native outline to Card if it has a visible focus inside.
+   * It is okay to use the :has() pseudo-class here, because we have a fallback for browsers that do not support it.
+   */
+  /* stylelint-disable-next-line plugin/use-baseline */
   &:has(:focus-visible) {
     outline-color: -webkit-focus-ring-color;
     outline-style: auto;
     outline-width: 0.0625rem;
   }
 
-  > .ams-card__heading:has(+ *) {
+  > .ams-card__heading:not(:last-child) {
     margin-block-end: var(--ams-card-heading-margin-block-end);
   }
 
-  > .ams-card__image:has(+ *) {
+  > .ams-card__image:not(:last-child) {
     margin-block-end: var(--ams-card-image-margin-block-end);
   }
 }
@@ -38,8 +42,10 @@
   text-decoration-thickness: var(--ams-card-link-text-decoration-thickness);
   text-underline-offset: var(--ams-card-link-text-underline-offset);
 
-  // Make the whole Card clickable by making the link cover its entire area.
-  // Source: https://inclusive-components.design/cards/
+  /*
+   * Make the whole Card clickable by making the link cover its entire area.
+   * Source: https://inclusive-components.design/cards/
+   */
   &::after {
     content: "";
     display: block;
@@ -53,9 +59,12 @@
     text-decoration-line: var(--ams-card-link-hover-text-decoration-line);
   }
 
-  // Remove the outline from the link; it’s already on the Card.
-  // Reuses the `.ams-card:has(:focus-visible)` selector above, so that
-  // browsers that support it apply both styles, while those that don’t apply neither.
+  /*
+   * Remove the outline from the link; it’s already on the Card.
+   * Reuses the `.ams-card:has(:focus-visible)` selector above, so that
+   * browsers that support it apply both styles, while those that don’t apply neither.
+   */
+  /* stylelint-disable-next-line plugin/use-baseline */
   .ams-card:has(:focus-visible) &:focus {
     outline: none;
   }

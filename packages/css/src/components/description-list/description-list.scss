@@ -76,12 +76,6 @@
   }
 }
 
-// Aligns terms and descriptions in a section to the grid of the list.
-// The extra class selector increases specificity to match earlier declarations.
-.ams-description-list .ams-description-list__section {
-  grid-template-columns: subgrid;
-}
-
 .ams-description-list__description {
   font-weight: var(--ams-description-list-description-font-weight);
   padding-inline-start: var(--ams-description-list-description-padding-inline-start);
