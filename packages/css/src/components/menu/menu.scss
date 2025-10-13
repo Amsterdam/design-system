@@ -21,10 +21,12 @@
   line-height: var(--ams-menu-line-height);
 
   // Menu must overlap the horizontal padding of Page Header to span the entire window.
-  // We accept that this approach for inline spacing makes the component only usable in that context.
+  // We accept that this approach with a negative margin tightly couples the component to that context.
   margin-inline: calc(var(--ams-grid-padding-inline) * -1);
   padding-block: var(--ams-menu-padding-block);
-  padding-inline: var(--ams-grid-padding-inline);
+
+  // We subtract the menu link padding to align the items with surrounding content.
+  padding-inline: calc(var(--ams-grid-padding-inline) - var(--ams-menu-link-padding-inline));
 
   @media screen and (min-width: $ams-breakpoint-medium) {
     margin-inline: calc(var(--ams-grid-medium-padding-inline) * -1);
