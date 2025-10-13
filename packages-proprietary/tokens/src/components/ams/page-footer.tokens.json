@@ -5,7 +5,7 @@
         "column-gap": { "value": "{ams.space.l}" },
         "padding-block": { "value": "{ams.space.l}" },
         "padding-inline": { "value": "{ams.grid.padding-inline}" },
-        "row-gap": { "value": "{ams.space.xs}" },
+        "row-gap": { "value": "{ams.space.s}" },
         "medium": {
           "padding-inline": { "value": "{ams.grid.medium.padding-inline}" }
         },
