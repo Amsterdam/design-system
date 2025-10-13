@@ -13,9 +13,11 @@ describe('Menu', () => {
   it('renders', () => {
     render(<Menu />)
     const component = screen.getByRole('navigation')
+    const list = screen.getByRole('list')
 
     expect(component).toBeInTheDocument()
     expect(component).toBeVisible()
+    expect(component).toContainElement(list)
   })
 
   it('renders a design system BEM class name', () => {
@@ -34,6 +36,14 @@ describe('Menu', () => {
     expect(component).toHaveClass('ams-menu extra')
   })
 
+  it('renders the class name for the `inWideWindow` prop', () => {
+    const { container } = render(<Menu inWideWindow />)
+
+    const component = container.querySelector(':only-child')
+
+    expect(component).toHaveClass('ams-menu--in-wide-window')
+  })
+
   it('supports ForwardRef in React', () => {
     const ref = createRef<HTMLElement>()
 
@@ -44,11 +54,23 @@ describe('Menu', () => {
     expect(ref.current).toBe(component)
   })
 
-  it('renders a custom accessible name for the logo', () => {
-    render(<Menu accessibleName="Custom accessible name" />)
+  it('renders a custom accessible name', () => {
+    const { container } = render(<Menu accessibleName="Custom accessible name" inWideWindow />)
 
-    const component = screen.getByRole('heading', { name: 'Custom accessible name' })
+    const component = container.querySelector(':only-child')
+    const heading = screen.getByRole('heading', { name: 'Custom accessible name' })
 
-    expect(component).toBeInTheDocument()
+    expect(component).toHaveAttribute('aria-labelledby')
+    expect(component).toContainElement(heading)
+  })
+
+  it('doesn’t render a custom accessible name if not in a wide window', () => {
+    const { container } = render(<Menu accessibleName="Custom accessible name" />)
+
+    const component = container.querySelector(':only-child')
+    const heading = screen.queryByRole('heading', { name: 'Custom accessible name' })
+
+    expect(component).not.toHaveAttribute('aria-labelledby')
+    expect(component).not.toContainElement(heading)
   })
 })
