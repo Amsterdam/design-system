@@ -1,5 +1,3 @@
-<!-- @license CC0-1.0 -->
-
 # Copyright
 
 ## Branding, logo and authors’ rights

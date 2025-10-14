@@ -1,5 +1,3 @@
-<!-- @license CC0-1.0 -->
-
 # Change Log
 
 All notable changes to this project will be documented in this file.
@@ -21,7 +19,7 @@ The following tokens will be removed in the next major release. If you use them 
 * `ams.color.interactive.secondary`
 * `ams.icon.heading-0.*`
 * `ams.page-heading.*`
-* `ams.standalone-link.with-icon.*`, `ams.standalone-link.hover.text-decoration-thickness`  and `ams.standalone-link.hover.text-underline-offset` 
+* `ams.standalone-link.with-icon.*`, `ams.standalone-link.hover.text-decoration-thickness`  and `ams.standalone-link.hover.text-underline-offset`
 * `ams.table-of-contents.*`
 * `ams.typography.heading.0.*` and `ams.typography.heading.6.*`
 
