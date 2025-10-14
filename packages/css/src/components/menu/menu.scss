@@ -86,7 +86,7 @@
   @media screen and (min-width: $ams-breakpoint-wide) {
     align-items: center;
     flex-direction: column;
-    gap: 0;
+    gap: var(--ams-menu-link-in-wide-window-gap);
     text-align: center;
 
     .ams-menu__icon {

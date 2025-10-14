@@ -24,6 +24,9 @@
         "hover": {
           "color": { "value": "{ams.links.inverse.hover.color}" },
           "text-decoration-line": { "value": "{ams.links.subtle.hover.text-decoration-line}" }
+        },
+        "in-wide-window": {
+          "gap": { "value": "{ams.space.xs}" }
         }
       },
       "list": {
