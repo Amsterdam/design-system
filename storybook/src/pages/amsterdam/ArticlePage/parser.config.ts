@@ -1,3 +1,8 @@
+/**
+ * @license EUPL-1.2+
+ * Copyright Gemeente Amsterdam
+ */
+
 import type { DOMNode } from 'html-react-parser'
 import type { HTMLReactParserOptions } from 'html-react-parser'
 

@@ -1,3 +1,5 @@
+<!-- @license CC0-1.0 -->
+
 # EUROPEAN UNION PUBLIC LICENCE v. 1.2
 
 EUPL © the European Union 2007, 2016
