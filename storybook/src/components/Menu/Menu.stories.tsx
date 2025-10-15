@@ -146,7 +146,7 @@ export const Link: LinkStory = {
   },
   decorators: [
     (Story) => (
-      <Menu inWideWindow>
+      <Menu inWideWindow style={{ paddingBlockStart: 'var(--ams-menu-padding-block)' }}>
         <Story />
       </Menu>
     ),
