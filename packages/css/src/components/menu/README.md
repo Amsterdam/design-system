@@ -20,6 +20,3 @@ A primary navigation leading to key areas of an application or website.
   Do not use it anywhere else.
 - Set the `inWideWindow` prop to the latter to ensure only one of them is visible, and to get the correct appearance.
 - Use filled icons for the links.
-
-Note that the appearance of these examples in Storybook are affected by the width of your screen.
-Some invisible inline styles ensures they are visible and (mostly) correct.

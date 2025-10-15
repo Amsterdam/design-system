@@ -14,6 +14,8 @@ import {
 } from '@amsterdam/design-system-react-icons'
 import * as Icons from '@amsterdam/design-system-react-icons'
 import { Menu } from '@amsterdam/design-system-react/src'
+import { useEffect, useRef } from 'react'
+import { useArgs } from 'storybook/preview-api'
 
 const menuItems = [
   {
@@ -43,12 +45,53 @@ const menuItems = [
   },
 ]
 
+const MIN_WIDTH_REM = 72.5
+
+const withInWideWindowArg = (StoryFn: any) => {
+  const [, updateArgs] = useArgs()
+  const lastValueRef = useRef<boolean | null>(null)
+
+  useEffect(() => {
+    if (typeof window === 'undefined' || !window.matchMedia) return
+
+    const mq = window.matchMedia(`(min-width: ${MIN_WIDTH_REM}rem)`)
+    const setIfChanged = (next: boolean) => {
+      if (lastValueRef.current !== next) {
+        lastValueRef.current = next
+        updateArgs({ inWideWindow: next })
+      }
+    }
+
+    // Initial set from media query
+    setIfChanged(mq.matches)
+
+    // Listen for threshold crossings
+    const onChange = (e: MediaQueryListEvent) => setIfChanged(e.matches)
+    mq.addEventListener('change', onChange)
+
+    // Hide warning against calling a method that might not exist (older Safari only has .removeListener)
+    // because the MediaQueryList type in TypeScript still exposes both the old and the new API.
+    // eslint-disable-next-line consistent-return
+    return () => mq.removeEventListener('change', onChange)
+  }, [updateArgs])
+
+  return <StoryFn />
+}
+
 const meta = {
   title: 'Components/Navigation/Menu',
   component: Menu,
-  globals: {
-    theme: 'Compact',
+  args: {
+    inWideWindow: false, // Seed value; will be overwritten when matchMedia runs.
   },
+  argTypes: {
+    inWideWindow: {
+      control: { disable: true },
+      description: `This props gets automatically updated. Is \`true\` when thw viewport is wider than ${MIN_WIDTH_REM}rem.`,
+      table: { category: 'Derived' },
+    },
+  },
+  decorators: [withInWideWindowArg],
 } satisfies Meta<typeof Menu>
 
 export default meta
@@ -61,28 +104,19 @@ const linkMeta = {
 type Story = StoryObj<typeof meta>
 type LinkStory = StoryObj<typeof linkMeta>
 
-const StoryTemplate: Story = {
-  args: {
-    children: menuItems.map(({ href, icon, text }) => (
-      <Menu.Link href={href} icon={icon} key={text}>
-        {text}
-      </Menu.Link>
-    )),
-    // Ensure visibility despite the media queries in this component.
-    style: {
-      display: 'block',
-      marginInline: 'initial',
-    },
-  },
-  argTypes: {
-    inWideWindow: {
-      // Changing this property can result in an invalid appearance.
-      table: { readonly: true },
-    },
-  },
+export const Default: Story = {
+  render: (args) => (
+    <Menu {...args}>
+      {menuItems.map(({ text, ...restProps }) => (
+        <Menu.Link {...restProps} key={text}>
+          {text}
+        </Menu.Link>
+      ))}
+    </Menu>
+  ),
 }
 
-const LinkStoryTemplate: LinkStory = {
+export const Link: LinkStory = {
   args: {
     children: menuItems[0].text,
     href: '#',
@@ -112,36 +146,10 @@ const LinkStoryTemplate: LinkStory = {
   },
   decorators: [
     (Story) => (
-      <Menu inWideWindow style={{ display: 'block', marginInline: 'initial', paddingBlockStart: 'var(--ams-space-m)' }}>
+      <Menu inWideWindow>
         <Story />
       </Menu>
     ),
   ],
   render: ({ children, ...args }) => <Menu.Link {...args}>{children}</Menu.Link>,
-}
-
-export const Default: Story = {
-  ...StoryTemplate,
-  args: {
-    ...StoryTemplate.args,
-    inWideWindow: false,
-  },
-  globals: {
-    viewport: { value: 'phone' },
-  },
-}
-
-export const InWideWindow: Story = {
-  ...StoryTemplate,
-  args: {
-    ...StoryTemplate.args,
-    inWideWindow: true,
-  },
-  globals: {
-    viewport: { value: 'desktop' },
-  },
-}
-
-export const Link: LinkStory = {
-  ...LinkStoryTemplate,
 }
