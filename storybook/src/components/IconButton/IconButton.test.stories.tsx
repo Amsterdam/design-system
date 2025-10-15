@@ -11,41 +11,9 @@ import { IconButton } from '@amsterdam/design-system-react/src'
 import { iconSizes } from '@amsterdam/design-system-react/src/Icon/Icon'
 import { iconButtonColors } from '@amsterdam/design-system-react/src/IconButton/IconButton'
 
-const meta = {
-  title: 'Components/Buttons/Icon Button',
-  component: IconButton,
-  args: {
-    disabled: false,
-    label: 'Sluiten',
-    size: undefined,
-  },
-  argTypes: {
-    color: {
-      control: {
-        labels: { undefined: 'default' },
-        type: 'radio',
-      },
-      options: [undefined, 'contrast', 'inverse'],
-    },
-    disabled: {
-      description: 'Prevents interaction. Avoid if possible.',
-    },
-    size: {
-      control: {
-        labels: { undefined: 'default' },
-        type: 'select',
-      },
-      options: [undefined, ...iconSizes],
-    },
-    svg: {
-      control: {
-        type: 'select',
-      },
-      mapping: Icons,
-      options: Object.keys(Icons),
-    },
-  },
-} satisfies Meta<typeof IconButton>
+import { default as iconButtonMeta } from './IconButton.stories'
+
+const meta = { ...iconButtonMeta } satisfies Meta<typeof IconButton>
 
 export default meta
 

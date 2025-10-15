@@ -10,17 +10,10 @@ import { CloseIcon } from '@amsterdam/design-system-react-icons'
 import { Button } from '@amsterdam/design-system-react/src'
 import { buttonVariants } from '@amsterdam/design-system-react/src/Button/Button'
 
+import { default as buttonMeta } from './Button.stories'
+
 const meta = {
-  title: 'Components/Buttons/Button',
-  component: Button,
-  args: {
-    children: 'Versturen',
-    disabled: false,
-    icon: undefined,
-    iconBefore: false,
-    iconOnly: undefined,
-    variant: 'primary',
-  },
+  ...buttonMeta,
 } satisfies Meta<typeof Button>
 
 export default meta
