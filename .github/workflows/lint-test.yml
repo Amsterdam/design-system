@@ -54,4 +54,4 @@ jobs:
 
       - name: "Continuous Integration: test"
         run: |
-          pnpm run --if-present --filter='!./storybook' test # Storybook is excluded as we have a separate action for the Storybook tests
+          pnpm run --if-present test
