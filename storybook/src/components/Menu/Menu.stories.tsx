@@ -105,15 +105,13 @@ type Story = StoryObj<typeof meta>
 type LinkStory = StoryObj<typeof linkMeta>
 
 export const Default: Story = {
-  render: (args) => (
-    <Menu {...args}>
-      {menuItems.map(({ text, ...restProps }) => (
-        <Menu.Link {...restProps} key={text}>
-          {text}
-        </Menu.Link>
-      ))}
-    </Menu>
-  ),
+  args: {
+    children: menuItems.map(({ text, ...restProps }) => (
+      <Menu.Link {...restProps} key={text}>
+        {text}
+      </Menu.Link>
+    )),
+  },
 }
 
 export const Link: LinkStory = {
