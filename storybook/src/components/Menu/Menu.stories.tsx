@@ -121,7 +121,7 @@ export const Link: LinkStory = {
     icon: 'PieChartFillIcon',
   },
   argTypes: {
-    // @ts-expect-error Storybook displays this prop of Menu for Link – not sure why.
+    // @ts-expect-error Storybook displays this prop of Menu for Link because the meta for Menu is the default export.
     accessibleName: {
       table: { disable: true },
     },
