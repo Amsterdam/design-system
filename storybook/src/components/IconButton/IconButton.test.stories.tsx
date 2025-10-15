@@ -13,7 +13,7 @@ import { iconButtonColors } from '@amsterdam/design-system-react/src/IconButton/
 
 import { default as iconButtonMeta } from './IconButton.stories'
 
-const meta = { ...iconButtonMeta } satisfies Meta<typeof IconButton>
+const meta = { ...iconButtonMeta, title: 'Components/Buttons/Icon Button' } satisfies Meta<typeof IconButton>
 
 export default meta
 

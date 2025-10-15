@@ -14,6 +14,7 @@ import { default as buttonMeta } from './Button.stories'
 
 const meta = {
   ...buttonMeta,
+  title: 'Components/Buttons/Button',
 } satisfies Meta<typeof Button>
 
 export default meta
@@ -28,7 +29,7 @@ export const Test: Story = {
       hover: ['.hover'],
     },
   },
-  render: () => (
+  render: (args) => (
     <table>
       <tbody>
         {buttonVariants.map((variant) => (
@@ -39,6 +40,7 @@ export const Test: Story = {
               return (
                 <td key={variantState}>
                   <Button
+                    {...args}
                     className={state === 'hover' ? 'hover' : undefined}
                     disabled={state === 'disabled'}
                     icon={state === 'icon' ? <CloseIcon /> : undefined}
