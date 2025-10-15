@@ -64,22 +64,18 @@ describe('Menu', () => {
   })
 
   it('renders a custom accessible name', () => {
-    const { container } = render(<Menu accessibleName="Custom accessible name" inWideWindow />)
+    render(<Menu accessibleName="Custom accessible name" inWideWindow />)
 
-    const component = container.querySelector(':only-child')
-    const heading = screen.getByRole('heading', { name: 'Custom accessible name' })
+    const component = screen.getByRole('navigation', { name: 'Custom accessible name' })
 
-    expect(component).toHaveAttribute('aria-labelledby')
-    expect(component).toContainElement(heading)
+    expect(component).toBeInTheDocument()
   })
 
   it('doesn’t render a custom accessible name if not in a wide window', () => {
-    const { container } = render(<Menu accessibleName="Custom accessible name" />)
+    render(<Menu accessibleName="Custom accessible name" />)
 
-    const component = container.querySelector(':only-child')
-    const heading = screen.queryByRole('heading', { name: 'Custom accessible name' })
+    const component = screen.getByRole('navigation', { name: 'Custom accessible name' })
 
-    expect(component).not.toHaveAttribute('aria-labelledby')
-    expect(component).not.toContainElement(heading)
+    expect(component).not.toBeInTheDocument()
   })
 })
