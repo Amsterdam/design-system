@@ -65,7 +65,7 @@
 .ams-menu__link {
   align-items: flex-start;
   color: var(--ams-menu-link-color);
-  display: flex;
+  display: inline-flex;
   gap: var(--ams-menu-link-gap);
   outline-offset: var(--ams-menu-link-outline-offset);
   padding-block: var(--ams-menu-link-padding-block);
