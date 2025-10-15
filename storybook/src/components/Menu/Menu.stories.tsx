@@ -87,7 +87,7 @@ const meta = {
   argTypes: {
     inWideWindow: {
       control: { disable: true },
-      description: `This props gets automatically updated. Is \`true\` when thw viewport is wider than ${MIN_WIDTH_REM}rem.`,
+      description: `This props gets automatically updated. Is \`true\` when the viewport is wider than ${MIN_WIDTH_REM}rem.`,
       table: { category: 'Derived' },
     },
   },
