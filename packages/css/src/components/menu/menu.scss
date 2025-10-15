@@ -35,15 +35,15 @@
 
   @media screen and (min-width: $ams-breakpoint-wide) {
     display: none;
+    margin-inline: 0; // Override negative margin above.
+    max-inline-size: var(--ams-menu-wide-max-inline-size);
+    padding-block: var(--ams-menu-wide-padding-block);
+    padding-inline: var(--ams-menu-wide-padding-inline);
   }
 }
 
 .ams-menu--in-wide-window {
   display: none;
-  margin-inline: 0;
-  max-inline-size: var(--ams-menu-in-wide-window-max-inline-size);
-  padding-block: var(--ams-menu-in-wide-window-padding-block);
-  padding-inline: var(--ams-menu-in-wide-window-padding-inline);
 
   @media screen and (min-width: $ams-breakpoint-wide) {
     display: block;
@@ -86,7 +86,7 @@
   @media screen and (min-width: $ams-breakpoint-wide) {
     align-items: center;
     flex-direction: column;
-    gap: var(--ams-menu-link-in-wide-window-gap);
+    gap: var(--ams-menu-link-wide-gap);
     text-align: center;
 
     .ams-menu__icon {
