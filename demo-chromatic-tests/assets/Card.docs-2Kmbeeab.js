@@ -1,0 +1,53 @@
+import{j as e}from"./iframe-C5R9FLkm.js";import{useMDXComponents as s}from"./index-V4KTLmLm.js";import{M as o,c as r,P as d,f as t}from"./blocks-ByvB9bHh.js";import{C as c,W as l,a as h,T as p}from"./Card.stories-DHC-bWiE.js";import"./preload-helper-PPVm8Dsz.js";import"./index-DHz1Cn8S.js";import"./common-DrnyCu3t.js";import"./exampleContent-DRope23M.js";import"./Heading-CzkTVKpn.js";import"./Paragraph-C3SNzhru.js";import"./Image-DJ9Sqz96.js";import"./generateAspectRatioClass-CefTNpDa.js";const g=`<!-- @license CC0-1.0 -->
+
+# Card
+
+A brief section of a heading, some text, and optionally an image, that leads to a related page.
+
+## Guidelines
+
+- The mandatory title of a card is a link within a Heading.
+  The guidelines for regular [links](/docs/components-navigation-link--docs) and [headings](/docs/components-text-heading--docs) apply.
+  The link is made active across the entire area of the card.
+- A card needs more content than just a title.
+  Add a short text and optionally an image and metadata.
+- Use the Card Heading, Card Heading Group and Card Image subcomponents.
+  They apply the correct spacing.
+- Card Heading requires a \`level\`, because there is no sensible default.
+  Visually, it has the size of a level 3 Heading by default.
+- Place the text in a regular [Paragraph](/docs/components-text-paragraph--docs).
+  Use a small Paragraph for a publication date.
+- This component is not the best option if the target content does not represent an article-like page.
+  In that case, use a Heading, a Paragraph and a [Standalone Link](/docs/components-navigation-standalone-link--docs) instead.
+
+### Screen readers
+
+Screen reader users may navigate a page using headings and links.
+A Card works well in both approaches as its title carries a link.
+A screen reader reads the title first, followed by the rest of the content.
+
+### Using links with routing libraries
+
+Check out the [developer guide](/docs/docs-developer-guide-routing-libraries--docs) on how to integrate links with external routing libraries.
+`;/*@license CC0-1.0*/function i(a){const n={a:"a",code:"code",h2:"h2",h3:"h3",p:"p",...s(),...a.components};return e.jsxs(e.Fragment,{children:[`
+`,`
+`,e.jsx(o,{of:c}),`
+`,e.jsx(r,{children:g}),`
+`,e.jsx(d,{}),`
+`,e.jsx(n.h2,{id:"examples",children:"Examples"}),`
+`,e.jsx(n.h3,{id:"with-tagline",children:"With tagline"}),`
+`,e.jsxs(n.p,{children:[`A Card can display metadata in a tagline above the heading, like a category or content type.
+Wrap the Heading in a Heading Group and set its `,e.jsx(n.code,{children:"tagline"}),` property.
+This ensures screen readers read out the heading before the metadata.`]}),`
+`,e.jsx(t,{of:l}),`
+`,e.jsx(n.h3,{id:"with-image",children:"With image"}),`
+`,e.jsxs(n.p,{children:[`A Card often displays the image of the article it links to.
+The Card Image subcomponent renders an `,e.jsx(n.a,{href:"/docs/components-media-image--docs",children:"Image"}),` component and accepts its properties, e.g. to set an aspect ratio or provide a set of image sources.
+Only use decorative images with `,e.jsx(n.code,{children:'alt=""'})," here. Screen readers will not read the ",e.jsx(n.code,{children:"alt"})," text of non-decorative images when navigating to a Card."]}),`
+`,e.jsx(t,{of:h}),`
+`,e.jsx(n.h3,{id:"top-tasks",children:"Top tasks"}),`
+`,e.jsxs(n.p,{children:[`A set of cards can be used to present links to frequently accessed interactions.
+A short title and description are enough to guide the user to the page they need.
+Position 4 to 8 tasks on a `,e.jsx(n.a,{href:"/docs/components-layout-grid--docs",children:"Grid"}),`; left-align them and do not skip cells.
+For a group of links without a description, use a `,e.jsx(n.a,{href:"/docs/components-navigation-link--docs",children:"Link List"})," instead."]}),`
+`,e.jsx(t,{of:p})]})}function A(a={}){const{wrapper:n}={...s(),...a.components};return n?e.jsx(n,{...a,children:e.jsx(i,{...a})}):i(a)}export{A as default};
