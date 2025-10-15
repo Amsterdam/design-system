@@ -1,3 +1,8 @@
+/**
+ * @license EUPL-1.2+
+ * Copyright Gemeente Amsterdam
+ */
+
 :root {
   --ams-docs-grey: rgb(0 0 0 / 6.25%);
   --ams-docs-pink: rgb(229 0 130 / 25%);
@@ -167,6 +172,8 @@
 }
 
 [class*="ams-docs-token-example--color"] {
+  /* We allow non-baseline CSS in Storybook. */
+  /* stylelint-disable-next-line plugin/use-baseline */
   forced-color-adjust: none;
   inline-size: 1rem;
 }
@@ -183,6 +190,9 @@
   outline: 1px dashed var(--ams-docs-pink);
   overflow: auto;
   padding-block-end: 1rem;
+
+  /* We allow non-baseline CSS in Storybook. */
+  /* stylelint-disable-next-line plugin/use-baseline */
   resize: horizontal;
 }
 

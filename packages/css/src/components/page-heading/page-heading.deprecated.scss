@@ -13,6 +13,7 @@
 /* @deprecated We no longer use this size of headings. Use `.ams-heading.ams-heading--1` instead. */
 .ams-page-heading {
   box-sizing: border-box;
+  /* stylelint-disable-next-line plugin/use-baseline */
   break-after: avoid;
   break-inside: avoid;
   color: var(--ams-page-heading-color);
@@ -20,6 +21,7 @@
   font-size: var(--ams-page-heading-font-size);
   font-weight: var(--ams-page-heading-font-weight);
   line-height: var(--ams-page-heading-line-height);
+  /* stylelint-disable-next-line plugin/use-baseline */
   text-wrap: var(--ams-page-heading-text-wrap);
 
   @include hyphenation;

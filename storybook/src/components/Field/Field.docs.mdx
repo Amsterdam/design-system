@@ -21,6 +21,12 @@ Make sure to connect this description to the input in the Field,
 otherwise it won’t be read by a screen reader.
 Add an `aria-describedby` attribute to the input and provide the `id` of the describing element as its value.
 
+#### No rich text
+
+Do not use rich text (such as links or lists) in descriptions.
+Some screen readers, like VoiceOver, skip over rich text when reading out descriptions.
+For more information, see [NL Design System](https://nldesignsystem.nl/richtlijnen/formulieren/descriptions/inhoud/).
+
 <Canvas of={FieldStories.WithDescription} />
 
 ### With validation
@@ -30,5 +36,7 @@ Use an [Error Message](/docs/components-forms-error-message--docs) to describe t
 Make sure to connect the Error Message to the input in the Field,
 otherwise it won’t be read by a screen reader.
 Add an `aria-describedby` attribute to the input and provide the `id` of Error Message as its value.
+
+Do not use rich text (such as links or lists) in an Error Message. [Find out why](/docs/components-forms-error-message--docs#no-rich-text).
 
 <Canvas of={FieldStories.WithValidation} />

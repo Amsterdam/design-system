@@ -1,3 +1,5 @@
+<!-- @license CC0-1.0 -->
+
 # Describe the issue
 
 Thank you for contributing to the project!
