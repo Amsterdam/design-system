@@ -82,7 +82,7 @@ const meta = {
   title: 'Components/Navigation/Menu',
   component: Menu,
   args: {
-    inWideWindow: false, // Seed value; will be overwritten when matchMedia runs.
+    inWideWindow: false, // Initial value; will be overwritten when matchMedia runs.
   },
   argTypes: {
     inWideWindow: {
