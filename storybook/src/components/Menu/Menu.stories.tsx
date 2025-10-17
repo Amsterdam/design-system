@@ -137,7 +137,7 @@ export const Link: LinkStory = {
       mapping: Icons,
       options: [undefined, ...Object.keys(Icons)],
     },
-    // Storybook displays this prop of Menu for Link – not sure why.
+    // Storybook displays this prop of Menu for Link because the meta for Menu is the default export.
     inWideWindow: {
       table: { disable: true },
     },
