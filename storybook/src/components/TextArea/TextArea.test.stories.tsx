@@ -23,7 +23,6 @@ export const Test: Story = {
   parameters: {
     pseudo: { hover: ['.hover'] },
   },
-  render: (args) =>
-    getVariants({ component: TextArea, args, variants: ['default', 'disabled', 'hovered'] }).renderVariants(),
+  render: (args) => getVariants({ component: TextArea, args, variants: ['default', 'disabled', 'hovered'] }),
   tags: ['!dev', '!autodocs'],
 }
