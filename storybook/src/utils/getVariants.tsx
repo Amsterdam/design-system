@@ -128,13 +128,14 @@ export const getVariants = ({ component, args, variants = ['default', 'hovered']
               (values ?? []).flatMap((variant) => {
                 const key = `${size}${name}${variant}${state}`
                 return (
-                  <div key={key} style={variant === 'inverse' ? { backgroundColor: '#014699' } : {}}>
+                  <div key={key}>
                     {React.createElement(component, {
                       ...args,
                       ...((state === 'disabled' && { [state]: true }) || {}),
                       ...(hasIcon ?? {}),
                       ...((typeof sizes.sizeName === 'string' && { [sizes.sizeName]: size }) || {}),
                       className: state === 'hovered' ? 'hover' : undefined,
+                      style: variant === 'inverse' ? { backgroundColor: 'var(--ams-color-highlight-azure)' } : {},
                       ...((name !== sizes.sizeName && { [name]: variant }) || {}),
                     })}
                   </div>
