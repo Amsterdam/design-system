@@ -43,7 +43,6 @@ function getDocgenInfo(component: React.ElementType): DocgenInfo | null {
 
 export const getVariants = ({ component, args, variants = ['default', 'hovered'] }: GetVariantsParams) => {
   const docInfo = getDocgenInfo(component)
-
   const props = docInfo?.props ?? {}
 
   function getValues(prop: PropType) {
@@ -68,6 +67,7 @@ export const getVariants = ({ component, args, variants = ['default', 'hovered']
   const completePropsWithValues = propsAndValues.map(({ name, propType, values }) => {
     const hasIcon = { icon: ChevronDownIcon }
     const propDefaults = new Map([
+      ['color', { hasIcon: null, name: 'color', values: [...(values ?? []), 'default'] }],
       ['icon', { hasIcon: null, name: 'icon', values: [ChevronDownIcon] }],
       ['iconBefore', { hasIcon, name: 'iconBefore', values: [true] }],
       ['iconOnly', { hasIcon, name: 'iconOnly', values: [true] }],
@@ -102,13 +102,27 @@ export const getVariants = ({ component, args, variants = ['default', 'hovered']
     sizes: completePropsWithValues.find((prop) => prop.name === 'size')?.values || [],
   }
 
+  const sizeArray = sizes.sizes && sizes.sizes.length > 0 ? sizes.sizes : [undefined]
+
+  if (completePropsWithValues.length === 0) {
+    const elements = variants.map((state) => (
+      <div key={state}>
+        {React.createElement(component, {
+          ...args,
+          ...(state === 'disabled' ? { [state]: true } : {}),
+          className: state === 'hovered' ? 'hover' : undefined,
+        })}
+      </div>
+    ))
+
+    return <div>{elements}</div>
+  }
+
   return (
     <div style={{ display: 'flex', flexWrap: 'wrap', gap: '16px' }}>
       {completePropsWithValues
         .filter(({ name }) => name !== sizes.sizeName)
         .flatMap(({ hasIcon, name, values }) => {
-          const sizeArray = sizes.sizes && sizes.sizes.length > 0 ? sizes.sizes : [undefined]
-
           return sizeArray.flatMap((size) =>
             variants.flatMap((state) =>
               (values ?? []).flatMap((variant) => {
