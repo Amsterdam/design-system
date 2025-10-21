@@ -176,6 +176,14 @@ export default tseslint.config(
       'import/no-cycle': 'warn',
 
       // Perfectionist
+      'perfectionist/sort-intersection-types': [
+        'error',
+        {
+          groups: ['object', 'named'],
+          order: 'asc',
+          type: 'natural',
+        },
+      ],
       'perfectionist/sort-object-types': ['error', perfectionistCustomSizesGroups],
       'perfectionist/sort-objects': [
         'error',
