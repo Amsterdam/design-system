@@ -53,7 +53,7 @@ export const getVariants = ({ component, args, variants = ['default', 'hovered']
       case 'boolean':
         return [true, false]
       case 'heading':
-        return ['Dit is een heading']
+        return ['Kapers aan de poort, kanonskogels op de Dam: de aanval op Amsterdam']
       default:
         return prop.type.value?.map((variant) => variant.value.replace(/"/g, ''))
     }
