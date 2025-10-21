@@ -10,9 +10,9 @@ import { forwardRef } from 'react'
 
 import { MenuLink } from './MenuLink'
 
-export type MenuProps = PropsWithChildren<HTMLAttributes<HTMLElement>> & {
+export type MenuProps = {
   accessibleName?: string
-}
+} & PropsWithChildren<HTMLAttributes<HTMLElement>>
 
 export const MenuRoot = forwardRef(
   (
