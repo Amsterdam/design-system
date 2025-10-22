@@ -26,7 +26,7 @@ export const MenuRoot = forwardRef(
     { accessibleName = 'Hoofdnavigatie', children, className, inWideWindow, ...restProps }: MenuProps,
     ref: ForwardedRef<any>,
   ) => {
-    // In a narrow window, the Menu is a child of the `nav` of Page Header.
+    // In a medium or narrow window, the Menu is a child of the `nav` of Page Header.
     // In a wide window, we render a `nav` element and the related accessibility features.
     const Tag = inWideWindow ? 'nav' : 'div'
 
