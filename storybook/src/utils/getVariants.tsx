@@ -6,7 +6,7 @@ import React from 'react'
 type GetVariantsParams = {
   args: Meta['args']
   component: React.ElementType
-  variants: string[]
+  variants?: string[]
 }
 
 type PropType = {
@@ -41,7 +41,7 @@ function getDocgenInfo(component: React.ElementType): DocgenInfo | null {
   return null
 }
 
-export const getVariants = ({ component, args, variants }: GetVariantsParams) => {
+export const getVariants = ({ component, args, variants = [] }: GetVariantsParams) => {
   const docInfo = getDocgenInfo(component)
   const props = docInfo?.props ?? {}
   variants.push('default')

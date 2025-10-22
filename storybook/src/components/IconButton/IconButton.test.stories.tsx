@@ -20,6 +20,6 @@ export default meta
 type Story = StoryObj<typeof meta>
 
 export const Test: Story = {
-  render: (args) => getVariants({ component: IconButton, args, variants: ['default', 'hovered', 'disabled'] }),
+  render: (args) => getVariants({ component: IconButton, args, variants: ['hovered', 'disabled'] }),
   tags: ['!dev', '!autodocs'],
 }
