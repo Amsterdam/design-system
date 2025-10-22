@@ -41,9 +41,10 @@ function getDocgenInfo(component: React.ElementType): DocgenInfo | null {
   return null
 }
 
-export const getVariants = ({ component, args, variants = ['default', 'hovered'] }: GetVariantsParams) => {
+export const getVariants = ({ component, args, variants }: GetVariantsParams) => {
   const docInfo = getDocgenInfo(component)
   const props = docInfo?.props ?? {}
+  variants.push('default')
 
   function getValues(prop: PropType) {
     if (!prop.type) return undefined
