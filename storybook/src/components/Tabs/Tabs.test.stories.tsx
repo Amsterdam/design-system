@@ -7,10 +7,10 @@ import type { Meta, StoryObj } from '@storybook/react-vite'
 
 import { Tabs } from '@amsterdam/design-system-react/src'
 
-import { default as buttonMeta } from './Tabs.stories'
+import { default as tabsMeta } from './Tabs.stories'
 
 const meta = {
-  ...buttonMeta,
+  ...tabsMeta,
   title: 'Components/Containers/Tabs',
 } satisfies Meta<typeof Tabs>
 

@@ -8,10 +8,10 @@ import type { Meta, StoryObj } from '@storybook/react-vite'
 import { Accordion } from '@amsterdam/design-system-react/src'
 import { headingSizes } from '@amsterdam/design-system-react/src/Heading/Heading'
 
-import { default as buttonMeta } from './Accordion.stories'
+import { default as accordionMeta } from './Accordion.stories'
 
 const meta = {
-  ...buttonMeta,
+  ...accordionMeta,
   title: 'Components/Containers/Accordion',
 } satisfies Meta<typeof Accordion>
 

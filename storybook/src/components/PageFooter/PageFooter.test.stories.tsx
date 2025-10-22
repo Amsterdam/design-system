@@ -6,10 +6,10 @@
 import type { PageFooter } from '@amsterdam/design-system-react/src'
 import type { Meta, StoryObj } from '@storybook/react-vite'
 
-import { default as buttonMeta } from './PageFooter.stories'
+import { default as pageFooterMeta } from './PageFooter.stories'
 
 const meta = {
-  ...buttonMeta,
+  ...pageFooterMeta,
   title: 'Components/Containers/Page Footer',
 } satisfies Meta<typeof PageFooter>
 

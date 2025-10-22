@@ -8,10 +8,10 @@ import type { Meta, StoryObj } from '@storybook/react-vite'
 import { Spotlight } from '@amsterdam/design-system-react/src'
 import { spotlightColors } from '@amsterdam/design-system-react/src/Spotlight/Spotlight'
 
-import { default as buttonMeta } from './Spotlight.stories'
+import { default as spotlightMeta } from './Spotlight.stories'
 
 const meta = {
-  ...buttonMeta,
+  ...spotlightMeta,
   title: 'Components/Containers/Spotlight',
 } satisfies Meta<typeof Spotlight>
 

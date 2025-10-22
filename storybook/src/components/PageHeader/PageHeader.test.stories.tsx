@@ -7,10 +7,10 @@ import type { Meta, StoryObj } from '@storybook/react-vite'
 
 import { PageHeader } from '@amsterdam/design-system-react/src'
 
-import { default as buttonMeta } from './PageHeader.stories'
+import { default as pageHeaderMeta } from './PageHeader.stories'
 
 const meta = {
-  ...buttonMeta,
+  ...pageHeaderMeta,
   title: 'Components/Containers/Page Header',
 } satisfies Meta<typeof PageHeader>
 

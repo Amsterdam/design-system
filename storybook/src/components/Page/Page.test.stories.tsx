@@ -6,10 +6,10 @@
 import type { Page } from '@amsterdam/design-system-react/src'
 import type { Meta, StoryObj } from '@storybook/react-vite'
 
-import { default as buttonMeta } from './Page.stories'
+import { default as pageMeta } from './Page.stories'
 
 const meta = {
-  ...buttonMeta,
+  ...pageMeta,
   title: 'Components/Containers/Page',
 } satisfies Meta<typeof Page>
 
