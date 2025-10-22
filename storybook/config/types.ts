@@ -1,3 +1,8 @@
+/**
+ * @license EUPL-1.2+
+ * Copyright Gemeente Amsterdam
+ */
+
 // Some viewport types that Storybook doesn’t seem to export
 // Copied from https://github.com/storybookjs/storybook/blob/next/code/addons/viewport/src/models/Viewport.ts
 

@@ -1,3 +1,5 @@
+<!-- @license CC0-1.0 -->
+
 # Coding Conventions
 
 ## Where to put properties for various states
