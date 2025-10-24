@@ -65,7 +65,7 @@
 .ams-menu__link {
   align-items: flex-start;
   color: var(--ams-menu-link-color);
-  display: inline-flex;
+  display: inline-flex; // Inline display prevents an excessive hit area next to the link text.
   gap: var(--ams-menu-link-gap);
   outline-offset: var(--ams-menu-link-outline-offset);
   padding-block: var(--ams-menu-link-padding-block);
@@ -85,6 +85,7 @@
 
   @media screen and (min-width: $ams-breakpoint-wide) {
     align-items: center;
+    display: flex; // The links do stretch in the vertical layout of Menu.
     flex-direction: column;
     gap: var(--ams-menu-link-wide-gap);
     text-align: center;
