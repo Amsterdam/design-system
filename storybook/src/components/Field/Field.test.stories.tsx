@@ -20,7 +20,7 @@ type Story = StoryObj<typeof meta>
 
 export const Test: Story = {
   render: (args) => (
-    <div style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
+    <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--ams-space-s)' }}>
       <Field {...args}>
         <label htmlFor="input1">Wat is uw achternaam?</label>
         <input id="input1" value="Dijkstra" />
