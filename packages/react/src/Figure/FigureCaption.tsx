@@ -8,10 +8,10 @@ import type { ForwardedRef, HTMLAttributes, PropsWithChildren } from 'react'
 import { clsx } from 'clsx'
 import { forwardRef } from 'react'
 
-export type FigureCaptionProps = PropsWithChildren<HTMLAttributes<HTMLElement>> & {
+export type FigureCaptionProps = {
   /** Changes the text colour for readability on a dark background. */
   color?: 'inverse'
-}
+} & PropsWithChildren<HTMLAttributes<HTMLElement>>
 
 export const FigureCaption = forwardRef(
   ({ children, className, color, ...restProps }: FigureCaptionProps, ref: ForwardedRef<HTMLElement>) => (

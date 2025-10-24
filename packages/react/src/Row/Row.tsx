@@ -16,7 +16,7 @@ type RowTag = (typeof rowTags)[number]
 export const rowGapSizes = ['none', 'x-small', 'small', 'large', 'x-large'] as const
 type RowGap = (typeof rowGapSizes)[number]
 
-export type RowProps = PropsWithChildren<HTMLAttributes<HTMLElement>> & {
+export type RowProps = {
   /**
    * The horizontal alignment of the items in the row.
    * @default start
@@ -42,7 +42,7 @@ export type RowProps = PropsWithChildren<HTMLAttributes<HTMLElement>> & {
    * @default false
    */
   wrap?: boolean
-}
+} & PropsWithChildren<HTMLAttributes<HTMLElement>>
 
 /**
  * @see {@link https://designsystem.amsterdam/?path=/docs/components-layout-row--docs Row docs at Amsterdam Design System}
