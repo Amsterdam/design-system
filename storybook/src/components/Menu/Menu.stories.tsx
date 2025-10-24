@@ -14,6 +14,7 @@ import {
 } from '@amsterdam/design-system-react-icons'
 import * as Icons from '@amsterdam/design-system-react-icons'
 import { Menu } from '@amsterdam/design-system-react/src'
+import { BREAKPOINTS } from '@amsterdam/design-system-react/src/common/useIsAfterBreakpoint'
 import { useEffect } from 'react'
 import { useArgs } from 'storybook/preview-api'
 
@@ -45,15 +46,13 @@ const menuItems = [
   },
 ]
 
-const MIN_WIDTH_REM = 72.5
-
 const withInWideWindowArg = (StoryFn: any) => {
   const [, updateArgs] = useArgs()
 
   useEffect(() => {
     if (typeof window === 'undefined' || !window.matchMedia) return undefined
 
-    const mq = window.matchMedia(`(min-width: ${MIN_WIDTH_REM}rem)`)
+    const mq = window.matchMedia(`(min-width: ${BREAKPOINTS.medium})`)
 
     // Initial set from media query
     updateArgs({ inWideWindow: mq.matches })
@@ -77,7 +76,7 @@ const meta = {
   argTypes: {
     inWideWindow: {
       control: { disable: true },
-      description: `This props gets automatically updated in Storybook. Is \`true\` when the viewport is wider than ${MIN_WIDTH_REM}rem.`,
+      description: `This props gets automatically updated in Storybook. Is \`true\` when the viewport is wider than ${BREAKPOINTS.medium}.`,
       table: { category: 'Derived' },
     },
   },
