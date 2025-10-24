@@ -74,7 +74,7 @@ describe('Menu', () => {
   it('doesn’t render a custom accessible name if not in a wide window', () => {
     render(<Menu accessibleName="Custom accessible name" />)
 
-    const component = screen.getByRole('navigation', { name: 'Custom accessible name' })
+    const component = screen.queryByRole('navigation', { name: 'Custom accessible name' })
 
     expect(component).not.toBeInTheDocument()
   })
