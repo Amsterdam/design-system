@@ -157,5 +157,11 @@ export const Link: LinkStory = {
       </Menu>
     ),
   ],
-  render: ({ children, ...args }) => <Menu.Link {...args}>{children}</Menu.Link>,
+  render: ({ children, ...args }) => {
+    /* eslint-disable @typescript-eslint/no-unused-vars */
+    // @ts-expect-error Typescript does not infer the correct type here
+    const { accessibleName, inWideWindow, ...linkArgs } = args
+    return <Menu.Link {...linkArgs}>{children}</Menu.Link>
+    /* eslint-enable @typescript-eslint/no-unused-vars */
+  },
 }
