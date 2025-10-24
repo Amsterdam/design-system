@@ -15,7 +15,7 @@ export const Layout = ({ children }: LayoutProps) => (
   <>
     <Grid>
       <Grid.Cell span="all">
-        <SkipLink href="#main">Direct naar inhoud</SkipLink>
+        <SkipLink href="#inhoud">Direct naar inhoud</SkipLink>
       </Grid.Cell>
     </Grid>
     <MenuWithItems inWideWindow />
