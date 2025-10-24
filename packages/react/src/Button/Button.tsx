@@ -35,9 +35,12 @@ type TextButtonProps = {
   iconOnly?: never
 }
 
+export const buttonVariants = ['primary', 'secondary', 'tertiary'] as const
+type ButtonVariant = (typeof buttonVariants)[number]
+
 export type ButtonProps = {
   /** The level of prominence. Use a primary button only once per page or section. */
-  variant?: 'primary' | 'secondary' | 'tertiary'
+  variant?: ButtonVariant
 } & PropsWithChildren<ButtonHTMLAttributes<HTMLButtonElement>> &
   (IconButtonProps | TextButtonProps)
 

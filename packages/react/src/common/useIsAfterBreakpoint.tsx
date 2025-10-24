@@ -6,7 +6,7 @@
 import { useLayoutEffect, useState } from 'react'
 
 // TODO: we should set the breakpoint in JS somewhere and render this and the sass variables from that
-const breakpoints = {
+export const BREAKPOINTS = {
   medium: '36rem',
   wide: '68rem',
 }
@@ -19,7 +19,7 @@ const useIsAfterBreakpoint = (breakpoint: useIsAfterBreakpointProps) => {
   useLayoutEffect(() => {
     // Check for window object to avoid SSR issues
     if (breakpoint && typeof window !== 'undefined') {
-      const media = window.matchMedia(`(min-width: ${breakpoints[breakpoint]})`)
+      const media = window.matchMedia(`(min-width: ${BREAKPOINTS[breakpoint]})`)
 
       if (media.matches !== matches) {
         setMatches(media.matches)

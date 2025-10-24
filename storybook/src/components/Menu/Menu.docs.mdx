@@ -15,7 +15,13 @@ import { StatusBadge } from "../../docs/components/StatusBadge.tsx";
 
 <Markdown>{README}</Markdown>
 
+**Note**: This component is responsive.
+The appearance of the examples depends on the width of your screen.
+On the page for the Story, you can change the size of the preview with the related button in the toolbar.
+
 <Primary />
+
+<Controls />
 
 ## Examples
 
@@ -24,22 +30,3 @@ import { StatusBadge } from "../../docs/components/StatusBadge.tsx";
 <Canvas of={MenuStories.Link} />
 
 <Controls of={MenuStories.Link} />
-
-### On a coloured background
-
-A Link on a coloured background must set [the correct text colour](?path=/docs/brand-design-tokens-colour--docs#pairing-foreground-with-background-colours) to provide enough contrast.
-We have lighter and darker background colours, and links behave differently on each.
-
-#### Contrast colour
-
-Use the contrast colour on a lime, orange or yellow background.
-It will make the Link black.
-
-<Canvas of={MenuStories.ContrastColour} />
-
-#### Inverse colour
-
-Use the inverse colour on an azure, blue, green, magenta or purple background.
-It will make the Link white.
-
-<Canvas of={MenuStories.InverseColour} />

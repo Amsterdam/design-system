@@ -6,47 +6,81 @@
 import type { Meta, StoryObj } from '@storybook/react-vite'
 
 import {
-  BarChartIcon,
-  DocumentsIcon,
-  FolderIcon,
+  BarChartFillIcon,
+  DocumentsFillIcon,
+  FolderFillIcon,
   PieChartFillIcon,
-  PieChartIcon,
-  SettingsIcon,
+  SettingsFillIcon,
 } from '@amsterdam/design-system-react-icons'
 import * as Icons from '@amsterdam/design-system-react-icons'
 import { Menu } from '@amsterdam/design-system-react/src'
+import { BREAKPOINTS } from '@amsterdam/design-system-react/src/common/useIsAfterBreakpoint'
+import { useEffect } from 'react'
+import { useArgs } from 'storybook/preview-api'
 
 const menuItems = [
   {
     href: '#',
-    icon: <PieChartIcon />,
+    icon: <PieChartFillIcon />,
     text: 'Dashboard',
   },
   {
     href: '#',
-    icon: <FolderIcon />,
+    icon: <FolderFillIcon />,
     text: 'Projecten',
   },
   {
     href: '#',
-    icon: <DocumentsIcon />,
+    icon: <DocumentsFillIcon />,
     text: 'Rapportages',
   },
   {
     href: '#',
-    icon: <BarChartIcon />,
+    icon: <BarChartFillIcon />,
     text: 'Analyses',
   },
   {
     href: '#',
-    icon: <SettingsIcon />,
+    icon: <SettingsFillIcon />,
     text: 'Instellingen',
   },
 ]
 
+const withInWideWindowArg = (StoryFn: any) => {
+  const [, updateArgs] = useArgs()
+
+  useEffect(() => {
+    if (typeof window === 'undefined' || !window.matchMedia) return undefined
+
+    const mq = window.matchMedia(`(min-width: ${BREAKPOINTS.wide})`)
+
+    // Initial set from media query
+    updateArgs({ inWideWindow: mq.matches })
+
+    // Listen for threshold crossings
+    const onChange = (e: MediaQueryListEvent) => updateArgs({ inWideWindow: e.matches })
+    mq.addEventListener('change', onChange)
+
+    return () => mq.removeEventListener('change', onChange)
+  }, [updateArgs])
+
+  return <StoryFn />
+}
+
 const meta = {
   title: 'Components/Navigation/Menu',
   component: Menu,
+  args: {
+    inWideWindow: false, // Initial value; will be overwritten when matchMedia runs.
+  },
+  argTypes: {
+    inWideWindow: {
+      control: { disable: true },
+      description: `This props gets automatically updated in Storybook. Is \`true\` when the viewport is wider than ${BREAKPOINTS.wide}.`,
+      table: { category: 'Derived' },
+    },
+  },
+  decorators: [withInWideWindowArg],
 } satisfies Meta<typeof Menu>
 
 export default meta
@@ -59,29 +93,30 @@ const linkMeta = {
 type Story = StoryObj<typeof meta>
 type LinkStory = StoryObj<typeof linkMeta>
 
-const StoryTemplate: Story = {
+export const Default: Story = {
   args: {
-    children: menuItems.map(({ href, icon, text }) => (
-      <Menu.Link href={href} icon={icon} key={text}>
+    children: menuItems.map(({ text, ...restProps }) => (
+      <Menu.Link {...restProps} key={text}>
         {text}
       </Menu.Link>
     )),
   },
 }
 
-const LinkStoryTemplate: LinkStory = {
+export const Link: LinkStory = {
   args: {
     children: menuItems[0].text,
     href: '#',
-    icon: <PieChartIcon />,
+    icon: 'PieChartFillIcon',
   },
   argTypes: {
-    color: {
-      control: {
-        labels: { undefined: 'default' },
-        type: 'radio',
-      },
-      options: [undefined, 'contrast', 'inverse'],
+    // @ts-expect-error Storybook displays this prop of Menu for Link because the meta for Menu is the default export.
+    accessibleName: {
+      table: { disable: true },
+    },
+    children: {
+      control: 'text',
+      table: { disable: false },
     },
     icon: {
       control: {
@@ -91,38 +126,31 @@ const LinkStoryTemplate: LinkStory = {
       mapping: Icons,
       options: [undefined, ...Object.keys(Icons)],
     },
+    // Storybook displays this prop of Menu for Link because the meta for Menu is the default export.
+    inWideWindow: {
+      table: { disable: true },
+    },
   },
   decorators: [
     (Story) => (
-      <Menu>
+      <Menu
+        inWideWindow
+        style={{
+          display: 'inline-flex',
+          margin: 0,
+          paddingBlock: 'var(--ams-menu-padding-block)',
+          paddingInline: 'var(--ams-menu-padding-block)',
+        }}
+      >
         <Story />
       </Menu>
     ),
   ],
-  render: ({ children, ...args }) => <Menu.Link {...args}>{children}</Menu.Link>,
-}
-
-export const Default: Story = {
-  ...StoryTemplate,
-}
-
-export const Link: LinkStory = {
-  ...LinkStoryTemplate,
-}
-export const ContrastColour: LinkStory = {
-  ...LinkStoryTemplate,
-  args: {
-    ...LinkStoryTemplate.args,
-    color: 'contrast',
-    icon: <PieChartFillIcon />,
-  },
-}
-
-export const InverseColour: LinkStory = {
-  ...LinkStoryTemplate,
-  args: {
-    ...LinkStoryTemplate.args,
-    color: 'inverse',
-    icon: <PieChartFillIcon />,
+  render: ({ children, ...args }) => {
+    /* eslint-disable @typescript-eslint/no-unused-vars */
+    // @ts-expect-error Typescript does not infer the correct type here
+    const { accessibleName, inWideWindow, ...linkArgs } = args
+    return <Menu.Link {...linkArgs}>{children}</Menu.Link>
+    /* eslint-enable @typescript-eslint/no-unused-vars */
   },
 }
