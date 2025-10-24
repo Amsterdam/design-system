@@ -52,7 +52,7 @@ const withInWideWindowArg = (StoryFn: any) => {
   useEffect(() => {
     if (typeof window === 'undefined' || !window.matchMedia) return undefined
 
-    const mq = window.matchMedia(`(min-width: ${BREAKPOINTS.medium})`)
+    const mq = window.matchMedia(`(min-width: ${BREAKPOINTS.wide})`)
 
     // Initial set from media query
     updateArgs({ inWideWindow: mq.matches })
@@ -76,7 +76,7 @@ const meta = {
   argTypes: {
     inWideWindow: {
       control: { disable: true },
-      description: `This props gets automatically updated in Storybook. Is \`true\` when the viewport is wider than ${BREAKPOINTS.medium}.`,
+      description: `This props gets automatically updated in Storybook. Is \`true\` when the viewport is wider than ${BREAKPOINTS.wide}.`,
       table: { category: 'Derived' },
     },
   },
