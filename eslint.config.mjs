@@ -179,6 +179,10 @@ export default tseslint.config(
       'perfectionist/sort-intersection-types': [
         'error',
         {
+          /* Storybook uses the first type definition it finds to generate controls.
+           * For example, if it finds the native HTML attribute `color` before a custom `color` prop, it will use that.
+           * This results in incorrect controls.
+           * Because we usually define our props in a type object, this rule will often prevent that issue. */
           groups: ['object', 'named'],
           order: 'asc',
           type: 'natural',
