@@ -13,14 +13,14 @@ import type { HintProps } from '../Hint'
 
 import { Hint } from '../Hint'
 
-export type LabelProps = HintProps &
-  PropsWithChildren<LabelHTMLAttributes<HTMLLabelElement>> & {
-    /**
-     * Render a level 1 heading around the label.
-     * Set this if the Field is the only content of the page.
-     */
-    isPageHeading?: boolean
-  }
+export type LabelProps = {
+  /**
+   * Render a level 1 heading around the label.
+   * Set this if the Field is the only content of the page.
+   */
+  isPageHeading?: boolean
+} & HintProps &
+  PropsWithChildren<LabelHTMLAttributes<HTMLLabelElement>>
 
 /**
  * @see {@link https://designsystem.amsterdam/?path=/docs/components-forms-label--docs Label docs at Amsterdam Design System}

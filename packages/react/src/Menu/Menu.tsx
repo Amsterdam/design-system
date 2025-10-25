@@ -10,7 +10,7 @@ import { forwardRef } from 'react'
 
 import { MenuLink } from './MenuLink'
 
-export type MenuProps = PropsWithChildren<HTMLAttributes<HTMLElement>> & {
+export type MenuProps = {
   /**
    * A name for this menu, which screen readers will announce.
    * Only applies to the `inWideWindow` appearance: otherwise, the menu is in the Page Header, which ensures accessibility itself.
@@ -19,7 +19,7 @@ export type MenuProps = PropsWithChildren<HTMLAttributes<HTMLElement>> & {
   accessibleName?: string
   /** Hides the component on narrow windows. */
   inWideWindow?: boolean
-}
+} & PropsWithChildren<HTMLAttributes<HTMLElement>>
 
 export const MenuRoot = forwardRef(
   (

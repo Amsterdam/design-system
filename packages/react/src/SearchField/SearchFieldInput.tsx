@@ -8,12 +8,12 @@ import type { ForwardedRef, InputHTMLAttributes } from 'react'
 import { clsx } from 'clsx'
 import { forwardRef, useId } from 'react'
 
-type SearchFieldInputProps = InputHTMLAttributes<HTMLInputElement> & {
+type SearchFieldInputProps = {
   /** Whether the value fails a validation rule. */
   invalid?: boolean
   /** Describes the field for screen readers. */
   label?: string
-}
+} & InputHTMLAttributes<HTMLInputElement>
 
 export const SearchFieldInput = forwardRef(
   (
