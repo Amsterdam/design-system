@@ -33,8 +33,16 @@ export const Test: Story = {
         <SearchField.Input invalid />
         <SearchField.Button />
       </SearchField>
+      <SearchField>
+        <SearchField.Input className="hover" invalid />
+        <SearchField.Button className="hover" />
+      </SearchField>
       <SearchField {...args}>
-        <SearchField.Input />
+        <SearchField.Input className="hover" />
+        <SearchField.Button className="hover" />
+      </SearchField>
+      <SearchField {...args}>
+        <SearchField.Input disabled />
         <SearchField.Button disabled />
       </SearchField>
     </div>
