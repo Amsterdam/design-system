@@ -22,7 +22,9 @@ export const Test: Story = {
   render: (args) => (
     <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--ams-space-s)' }}>
       <Select {...args} />
+      <Select {...args} className="hover" />
       <Select {...args} invalid />
+      <Select {...args} className="hover" invalid />
       <Select {...args} disabled />
     </div>
   ),
