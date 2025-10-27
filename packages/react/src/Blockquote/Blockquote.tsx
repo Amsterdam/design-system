@@ -8,10 +8,10 @@ import type { BlockquoteHTMLAttributes, ForwardedRef, PropsWithChildren } from '
 import { clsx } from 'clsx'
 import { forwardRef } from 'react'
 
-export type BlockquoteProps = PropsWithChildren<BlockquoteHTMLAttributes<HTMLQuoteElement>> & {
+export type BlockquoteProps = {
   /** Changes the text colour for readability on a dark background. */
   color?: 'inverse'
-}
+} & PropsWithChildren<BlockquoteHTMLAttributes<HTMLQuoteElement>>
 
 /**
  * @see {@link https://designsystem.amsterdam/?path=/docs/components-text-blockquote--docs Blockquote docs at Amsterdam Design System}

@@ -10,7 +10,7 @@ import { createRef } from 'react'
 
 import { Menu } from './Menu'
 
-describe('Menu link', () => {
+describe('Menu Link', () => {
   it('renders', () => {
     const { container } = render(<Menu.Link href="#" icon={DocumentIcon} />)
 

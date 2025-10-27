@@ -1,0 +1,32 @@
+{
+  "ams": {
+    "menu": {
+      "link": {
+        "contrast": {
+          "color": {
+            "comment": "The menu has a dark background now, so this is no longer needed.",
+            "value": "{ams.links.contrast.color}"
+          },
+          "hover": {
+            "color": {
+              "comment": "The menu has a dark background now, so this is no longer needed.",
+              "value": "{ams.links.contrast.hover.color}"
+            }
+          }
+        },
+        "inverse": {
+          "color": {
+            "comment": "The menu has a dark background now, so this is no longer needed.",
+            "value": "{ams.links.inverse.color}"
+          },
+          "hover": {
+            "color": {
+              "comment": "The menu has a dark background now, so this is no longer needed.",
+              "value": "{ams.links.inverse.hover.color}"
+            }
+          }
+        }
+      }
+    }
+  }
+}

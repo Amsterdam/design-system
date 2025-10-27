@@ -14,6 +14,7 @@
   },
   "scripts": {
     "build": "storybook build --output-dir dist/ --config-dir config/ --quiet && touch dist/.nojekyll",
+    "chromatic": "chromatic",
     "clean": "rimraf dist/",
     "lint": "tsc --noEmit --project ./tsconfig.json",
     "start": "storybook dev --config-dir config/ --port 6006"
@@ -39,6 +40,7 @@
     "@storybook/react-vite": "9.1.10",
     "@types/react": "18.3.23",
     "@vitejs/plugin-react": "5.0.4",
+    "chromatic": "13.3.0",
     "react": "18.3.1",
     "react-dom": "18.3.1",
     "remark-gfm": "4.0.1",

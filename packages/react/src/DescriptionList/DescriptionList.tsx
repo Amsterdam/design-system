@@ -15,12 +15,12 @@ import { DescriptionListTerm } from './DescriptionListTerm'
 export const descriptionListTermsWidths = ['narrow', 'medium', 'wide'] as const
 type DescriptionListTermsWidth = (typeof descriptionListTermsWidths)[number]
 
-export type DescriptionListProps = PropsWithChildren<HTMLAttributes<HTMLDListElement>> & {
+export type DescriptionListProps = {
   /** Changes the text colour for readability on a dark background. */
   color?: 'inverse'
   /* The width of the column containing the terms. */
   termsWidth?: DescriptionListTermsWidth
-}
+} & PropsWithChildren<HTMLAttributes<HTMLDListElement>>
 
 const DescriptionListRoot = forwardRef(
   (
