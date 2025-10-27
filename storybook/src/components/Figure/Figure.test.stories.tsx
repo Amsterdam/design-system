@@ -25,7 +25,7 @@ export const Test: Story = {
         <img
           alt=""
           sizes="(max-width: 36rem) 640px, (max-width: 68rem) 1280px, 1440px"
-          src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/36/Concertgebouw3x2.jpg/330px-Concertgebouw3x2.jpg"
+          src="https://picsum.photos/id/122/1280/720"
         />
         <Figure.Caption>
           Een schuin geplaatste fiets tegen een lantaarnpaal, met op de achtergrond een karakteristiek houten bruggetje.
@@ -35,7 +35,7 @@ export const Test: Story = {
         <img
           alt=""
           sizes="(max-width: 36rem) 640px, (max-width: 68rem) 1280px, 1440px"
-          src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/36/Concertgebouw3x2.jpg/330px-Concertgebouw3x2.jpg"
+          src="https://picsum.photos/id/122/1280/720"
         />
         <Figure.Caption color="inverse">
           Een schuin geplaatste fiets tegen een lantaarnpaal, met op de achtergrond een karakteristiek houten bruggetje.
