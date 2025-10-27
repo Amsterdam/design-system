@@ -48,19 +48,19 @@ export const ResponsiveImages: Story = {
     images: [
       {
         alt: 'Bridge',
-        sizes: '(max-width: 36rem) 640px, 50vw',
+        sizes: '(max-width: 37.5rem) 640px, 50vw',
         src: 'https://picsum.photos/id/122/640/360',
         srcSet: 'https://picsum.photos/id/122/640/360 640w, https://picsum.photos/id/122/1280/720 1280w',
       },
       {
         alt: 'Bunker',
-        sizes: '(max-width: 36rem) 640px, 50vw',
+        sizes: '(max-width: 37.5rem) 640px, 50vw',
         src: 'https://picsum.photos/id/101/640/360',
         srcSet: 'https://picsum.photos/id/101/640/360 640w, https://picsum.photos/id/101/1280/720 1280w',
       },
       {
         alt: 'Chairs',
-        sizes: '(max-width: 36rem) 640px, 50vw',
+        sizes: '(max-width: 37.5rem) 640px, 50vw',
         src: 'https://picsum.photos/id/153/640/360',
         srcSet: 'https://picsum.photos/id/153/640/360 640w, https://picsum.photos/id/153/1280/720 1280w',
       },

@@ -13,12 +13,12 @@ import type { InvalidFormAlertProps } from './InvalidFormAlert'
 import { Alert } from '../Alert'
 import { LinkList } from '../LinkList'
 
-type InvalidFormAlertWithErrorsProps = Omit<InvalidFormAlertProps, 'errorCountLabel'> & {
+type InvalidFormAlertWithErrorsProps = {
   /** Whether the component has set focus once. */
   hasFocusedOnce: boolean
   /** Callback to let parent component know whether focus has been set once. */
   setHasFocusedOnce: Dispatch<SetStateAction<boolean>>
-}
+} & Omit<InvalidFormAlertProps, 'errorCountLabel'>
 
 export const InvalidFormAlertWithErrors = forwardRef(
   (

@@ -14,7 +14,7 @@ import { getRange } from './getRange'
 import { LinkItem } from './LinkItem'
 import { Spacer } from './Spacer'
 
-export type PaginationProps = HTMLAttributes<HTMLElement> & {
+export type PaginationProps = {
   /** The accessible name for the Pagination component. */
   accessibleName?: string
   /**
@@ -61,7 +61,7 @@ export type PaginationProps = HTMLAttributes<HTMLElement> & {
    * Note: must be unique for the page.
    */
   visuallyHiddenLabelId?: string
-}
+} & HTMLAttributes<HTMLElement>
 
 /**
  * @see {@link https://designsystem.amsterdam/?path=/docs/components-navigation-pagination--docs Pagination docs at Amsterdam Design System}

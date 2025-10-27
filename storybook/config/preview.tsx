@@ -83,7 +83,7 @@ export const parameters = {
   pseudo: { hover: ['.hover'] },
   viewMode: 'docs',
   viewport: {
-    viewports,
+    options: viewports,
   },
 }
 
