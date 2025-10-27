@@ -80,9 +80,6 @@ export const parameters = {
       ],
     },
   },
-  parameters: {
-    hover: ['.hover'],
-  },
   viewMode: 'docs',
   viewport: {
     options: viewports,
