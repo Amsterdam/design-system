@@ -1,0 +1,35 @@
+/**
+ * @license EUPL-1.2+
+ * Copyright Gemeente Amsterdam
+ */
+
+import type { Meta, StoryObj } from '@storybook/react-vite'
+
+import { Grid } from '@amsterdam/design-system-react/src'
+
+import { getVariants } from '../../utils/getVariants'
+import { default as gridMeta } from './Grid.stories'
+
+const meta = {
+  ...gridMeta,
+  title: 'Components/Layout/Grid',
+} satisfies Meta<typeof Grid>
+
+export default meta
+
+type Story = StoryObj<typeof meta>
+
+export const Test: Story = {
+  render: (args) =>
+    getVariants({
+      component: Grid,
+      args,
+      children: (
+        <>
+          <Grid.Cell span="all" />
+          <Grid.Cell span="all" />
+        </>
+      ),
+    }),
+  tags: ['!dev', '!autodocs'],
+}
