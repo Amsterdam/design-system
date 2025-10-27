@@ -26,11 +26,7 @@ export const Test: Story = {
         maxWidth: '24rem',
       }}
     >
-      <Card.Image
-        alt=""
-        aspectRatio="4:3"
-        src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/36/Concertgebouw3x2.jpg/330px-Concertgebouw3x2.jpg"
-      />
+      <Card.Image alt="" aspectRatio="4:3" src="https://picsum.photos/id/122/1280/720" />
       <Card.HeadingGroup tagline="Nieuws">
         <Card.Heading level={3}>
           <Card.Link href="/">Nederlands eerste houten woonwijk komt in Zuidoost</Card.Link>
