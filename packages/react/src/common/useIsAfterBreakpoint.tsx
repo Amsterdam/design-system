@@ -7,8 +7,8 @@ import { useLayoutEffect, useState } from 'react'
 
 // TODO: we should set the breakpoint in JS somewhere and render this and the sass variables from that
 export const BREAKPOINTS = {
-  medium: '36rem',
-  wide: '68rem',
+  medium: '37.5rem',
+  wide: '72.5rem',
 }
 
 type useIsAfterBreakpointProps = 'medium' | 'wide'
