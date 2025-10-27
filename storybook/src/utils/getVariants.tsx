@@ -144,19 +144,16 @@ export const getVariants = ({ component, args, children, variants = [], wrapperT
                           }
                     }
                   >
-                    {React.createElement(
-                      component,
-                      {
-                        ...args,
-                        ...((state === 'disabled' && { [state]: true }) || {}),
-                        ...(hasIcon ?? {}),
-                        ...((typeof sizes.sizeName === 'string' && { [sizes.sizeName]: size }) || {}),
-                        className: state === 'hovered' ? 'hover' : undefined,
-                        style: variant === 'inverse' ? { backgroundColor: 'var(--ams-color-highlight-azure)' } : {},
-                        ...((name !== sizes.sizeName && { [name]: variant }) || {}),
-                      },
-                      children,
-                    )}
+                    {React.createElement(component, {
+                      ...args,
+                      ...(children ? { children } : {}),
+                      ...((state === 'disabled' && { [state]: true }) || {}),
+                      ...(hasIcon ?? {}),
+                      ...((typeof sizes.sizeName === 'string' && { [sizes.sizeName]: size }) || {}),
+                      className: state === 'hovered' ? 'hover' : undefined,
+                      style: variant === 'inverse' ? { backgroundColor: 'var(--ams-color-highlight-azure)' } : {},
+                      ...((name !== sizes.sizeName && { [name]: variant }) || {}),
+                    })}
                   </div>
                 )
               }),
