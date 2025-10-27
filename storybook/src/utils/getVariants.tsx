@@ -8,6 +8,7 @@ type GetVariantsParams = {
   children?: React.ReactNode
   component: React.ElementType
   variants?: string[]
+  wrapperType?: 'flex' | 'grid'
 }
 
 type PropType = {
@@ -42,7 +43,7 @@ function getDocgenInfo(component: React.ElementType): DocgenInfo | null {
   return null
 }
 
-export const getVariants = ({ component, args, children, variants = [] }: GetVariantsParams) => {
+export const getVariants = ({ component, args, children, variants = [], wrapperType = 'flex' }: GetVariantsParams) => {
   const docInfo = getDocgenInfo(component)
   const props = docInfo?.props ?? {}
   variants.push('default')
@@ -121,7 +122,7 @@ export const getVariants = ({ component, args, children, variants = [] }: GetVar
   }
 
   return (
-    <div style={{ display: 'flex', flexWrap: 'wrap', gap: '16px' }}>
+    <div style={{ display: 'flex', flexWrap: 'wrap', gap: 'var(--ams-space-s)' }}>
       {completePropsWithValues
         .filter(({ name }) => name !== sizes.sizeName)
         .flatMap(({ hasIcon, name, values }) => {
@@ -129,8 +130,20 @@ export const getVariants = ({ component, args, children, variants = [] }: GetVar
             variants.flatMap((state) =>
               (values ?? []).flatMap((variant) => {
                 const key = `${size}${name}${variant}${state}`
+
                 return (
-                  <div key={key}>
+                  <div
+                    key={key}
+                    style={
+                      wrapperType === 'flex'
+                        ? undefined
+                        : {
+                            display: 'grid',
+                            gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 1fr))',
+                            minHeight: '100px',
+                          }
+                    }
+                  >
                     {React.createElement(
                       component,
                       {
