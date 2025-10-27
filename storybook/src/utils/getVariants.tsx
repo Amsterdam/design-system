@@ -5,6 +5,7 @@ import React from 'react'
 
 type GetVariantsParams = {
   args: Meta['args']
+  children?: React.ReactNode
   component: React.ElementType
   variants?: string[]
 }
@@ -41,7 +42,7 @@ function getDocgenInfo(component: React.ElementType): DocgenInfo | null {
   return null
 }
 
-export const getVariants = ({ component, args, variants = [] }: GetVariantsParams) => {
+export const getVariants = ({ component, args, children, variants = [] }: GetVariantsParams) => {
   const docInfo = getDocgenInfo(component)
   const props = docInfo?.props ?? {}
   variants.push('default')
@@ -130,15 +131,19 @@ export const getVariants = ({ component, args, variants = [] }: GetVariantsParam
                 const key = `${size}${name}${variant}${state}`
                 return (
                   <div key={key}>
-                    {React.createElement(component, {
-                      ...args,
-                      ...((state === 'disabled' && { [state]: true }) || {}),
-                      ...(hasIcon ?? {}),
-                      ...((typeof sizes.sizeName === 'string' && { [sizes.sizeName]: size }) || {}),
-                      className: state === 'hovered' ? 'hover' : undefined,
-                      style: variant === 'inverse' ? { backgroundColor: 'var(--ams-color-highlight-azure)' } : {},
-                      ...((name !== sizes.sizeName && { [name]: variant }) || {}),
-                    })}
+                    {React.createElement(
+                      component,
+                      {
+                        ...args,
+                        ...((state === 'disabled' && { [state]: true }) || {}),
+                        ...(hasIcon ?? {}),
+                        ...((typeof sizes.sizeName === 'string' && { [sizes.sizeName]: size }) || {}),
+                        className: state === 'hovered' ? 'hover' : undefined,
+                        style: variant === 'inverse' ? { backgroundColor: 'var(--ams-color-highlight-azure)' } : {},
+                        ...((name !== sizes.sizeName && { [name]: variant }) || {}),
+                      },
+                      children,
+                    )}
                   </div>
                 )
               }),
