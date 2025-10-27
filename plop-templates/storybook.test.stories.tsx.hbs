@@ -6,18 +6,19 @@
 import type { {{pascalCase name}} } from '@amsterdam/design-system-react/src'
 import type { Meta, StoryObj } from '@storybook/react-vite'
 
+import { getVariants } from '../../utils/getVariants'
 import { default as {{camelCase name}}Meta } from './{{pascalCase name}}.stories'
 
 const meta = {
   ...{{camelCase name}}Meta,
   title: '{{titleCase name}}',
-} satisfies Meta<typeof {{pascalCase name}}>
+} satisfies Meta<typeof {{pascalcase name}}>
 
 export default meta
 
 type Story = StoryObj<typeof meta>
 
 export const Test: Story = {
-  // NOTE: Add all variants of the component to this story for visual regression testing.
+  render: (args) => getVariants({ component: {{pascalCase name}}, args }),
   tags: ['!dev', '!autodocs'],
 }
