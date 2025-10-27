@@ -20,13 +20,14 @@ export default meta
 type Story = StoryObj<typeof meta>
 
 export const Test: Story = {
-  render: () =>
+  args: {
+    alt: '',
+    src: 'https://upload.wikimedia.org/wikipedia/commons/thumb/3/36/Concertgebouw3x2.jpg/330px-Concertgebouw3x2.jpg',
+  },
+  render: (args) =>
     getVariants({
       component: Image,
-      args: {
-        alt: '',
-        src: 'https://upload.wikimedia.org/wikipedia/commons/thumb/3/36/Concertgebouw3x2.jpg/330px-Concertgebouw3x2.jpg',
-      },
+      args,
     }),
   tags: ['!dev', '!autodocs'],
 }
