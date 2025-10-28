@@ -53,7 +53,7 @@ describe('Search Field Button', () => {
   it('is able to pass a React ref', () => {
     const ref = createRef<HTMLButtonElement>()
 
-    const { container } = render(<SearchField.Button ref={ref}>Click me!</SearchField.Button>)
+    render(<SearchField.Button ref={ref}>Click me!</SearchField.Button>)
 
     const button = screen.getByRole('button', {
       name: 'Click me!',
