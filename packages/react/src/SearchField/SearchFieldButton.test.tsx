@@ -22,6 +22,14 @@ describe('Search Field Button', () => {
     expect(button).toHaveAttribute('type', 'submit')
   })
 
+  it('renders a default label', () => {
+    render(<SearchField.Button />)
+
+    const button = screen.getByRole('button')
+
+    expect(button).toHaveTextContent('Zoeken')
+  })
+
   it('renders the primary variant of the Button component', () => {
     render(<SearchField.Button>Click me!</SearchField.Button>)
 
