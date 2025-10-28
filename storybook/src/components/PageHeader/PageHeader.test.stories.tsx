@@ -26,6 +26,7 @@ export const Test: Story = {
   play: async ({ canvas, userEvent }) => {
     const menuButton = canvas.getByRole('button')
     const exampleChildren = await canvas.findByTestId('children')
+
     await userEvent.click(menuButton)
     expect(exampleChildren).toBeVisible()
     await userEvent.click(menuButton)

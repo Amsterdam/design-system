@@ -23,6 +23,7 @@ export const Test: Story = {
   play: async ({ canvas, userEvent }) => {
     const gegevensParagraph = canvas.getByTestId('gegevens-panel')
     const aanslagenTab = canvas.getByTestId('aanslagen')
+
     await expect(gegevensParagraph).toBeVisible()
     await userEvent.click(aanslagenTab)
     await expect(canvas.getByTestId('aanslagen-panel')).toBeVisible()

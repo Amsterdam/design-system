@@ -42,7 +42,9 @@ export const Test: Story = {
     const accordionLabel = canvas.getByTestId('test-label')
     const accordionParagraph = canvas.getByTestId('test-paragraph')
     const accordionButton = accordionLabel.querySelector('button')
+
     if (!accordionButton) return
+
     await expect(canvas.getByTestId('expanded-paragraph')).toBeVisible()
     await expect(accordionParagraph).not.toBeVisible()
     await userEvent.click(accordionButton)
