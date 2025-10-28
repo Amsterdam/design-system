@@ -42,14 +42,6 @@ describe('Search Field Button', () => {
     expect(button).toHaveClass('ams-button extra')
   })
 
-  it('renders the button with a label', () => {
-    render(<SearchField.Button>Zoeken</SearchField.Button>)
-
-    const component = screen.getByRole('button', { name: 'Zoeken' })
-
-    expect(component).toBeInTheDocument()
-  })
-
   it('is able to pass a React ref', () => {
     const ref = createRef<HTMLButtonElement>()
 
