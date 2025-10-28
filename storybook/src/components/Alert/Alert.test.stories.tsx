@@ -8,10 +8,10 @@ import type { Meta, StoryObj } from '@storybook/react-vite'
 
 import { expect, fn } from 'storybook/test'
 
-import { default as tabsMeta } from './Alert.stories'
+import { default as alertMeta } from './Alert.stories'
 
 const meta = {
-  ...tabsMeta,
+  ...alertMeta,
   title: 'Components/Feedback/Alert',
 } satisfies Meta<typeof Alert>
 
