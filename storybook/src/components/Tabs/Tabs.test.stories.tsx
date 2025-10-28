@@ -21,6 +21,7 @@ type Story = StoryObj<typeof meta>
 
 export const Test: Story = {
   play: async ({ canvas, userEvent }) => {
+    await new Promise((resolve) => setTimeout(resolve, 500)) // This delay is required to finish the first tab opening
     const gegevensParagraph = canvas.getByTestId('gegevens-panel')
     const aanslagenTab = canvas.getByTestId('aanslagen')
 

@@ -36,7 +36,7 @@ export const Test: Story = {
         expect(imageSlide).not.toHaveAttribute('aria-hidden')
       } else {
         await userEvent.click(nextButton)
-        await new Promise((resolve) => setTimeout(resolve, 200))
+        await new Promise((resolve) => setTimeout(resolve, 500))
         expect(imageSlide).not.toHaveAttribute('aria-hidden')
       }
     }
@@ -46,7 +46,7 @@ export const Test: Story = {
         expect(imageSlide).not.toHaveAttribute('aria-hidden')
       } else {
         await userEvent.click(previousButton)
-        await new Promise((resolve) => setTimeout(resolve, 200))
+        await new Promise((resolve) => setTimeout(resolve, 500))
         expect(imageSlide).not.toHaveAttribute('aria-hidden')
       }
     }
