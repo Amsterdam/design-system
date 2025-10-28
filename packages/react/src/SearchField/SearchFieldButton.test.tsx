@@ -55,7 +55,9 @@ describe('Search Field Button', () => {
 
     const { container } = render(<SearchField.Button ref={ref}>Click me!</SearchField.Button>)
 
-    const button = container.querySelector(':only-child')
+    const button = screen.getByRole('button', {
+      name: 'Click me!',
+    })
 
     expect(ref.current).toBe(button)
   })
