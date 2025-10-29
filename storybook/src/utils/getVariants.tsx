@@ -79,9 +79,7 @@ export const getVariants = ({ component, args, children, variants = [], wrapperT
         {
           hasIcon: null,
           name: 'imageSrc',
-          values: [
-            'https://upload.wikimedia.org/wikipedia/commons/thumb/c/c6/Okonjima_Lioness.jpg/500px-Okonjima_Lioness.jpg',
-          ],
+          values: ['https://picsum.photos/id/122/1280/720'],
         },
       ],
     ])
