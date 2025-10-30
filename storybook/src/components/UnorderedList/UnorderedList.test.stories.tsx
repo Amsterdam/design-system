@@ -26,7 +26,7 @@ export const Test: Story = {
       children: [
         <UnorderedList.Item key={1}>Ervaring is niet noodzakelijk.</UnorderedList.Item>,
         <UnorderedList.Item key={2}>
-          , Er is veel werk in diverse functies, zoals monteur of timmerman. Er zijn ook banen op kantoor, zoals
+          Er is veel werk in diverse functies, zoals monteur of timmerman. Er zijn ook banen op kantoor, zoals
           werkvoorbereider of engineer.
         </UnorderedList.Item>,
         <UnorderedList.Item key={3}>Deze banen bieden stabiliteit en zekerheid.</UnorderedList.Item>,

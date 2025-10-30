@@ -20,6 +20,9 @@ export default meta
 type Story = StoryObj<typeof meta>
 
 export const Test: Story = {
+  args: {
+    children: 'Amsterdam Light Festival maakt de stad ook deze winter een beetje mooier',
+  },
   render: (args) => renderComponentVariants(Heading, { args }),
   tags: ['!dev', '!autodocs'],
 }
