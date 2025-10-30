@@ -5,21 +5,21 @@
 
 import type { Meta, StoryObj } from '@storybook/react-vite'
 
-import { IconButton } from '@amsterdam/design-system-react/src'
+import { FileList } from '@amsterdam/design-system-react/src'
 
 import { renderComponentVariants } from '../../utils/renderComponentVariants'
-import { default as iconButtonMeta } from './IconButton.stories'
+import { default as fileListMeta } from './FileList.stories'
 
 const meta = {
-  ...iconButtonMeta,
-  title: 'Components/Buttons/Icon Button',
-} satisfies Meta<typeof IconButton>
+  ...fileListMeta,
+  title: 'Components/Forms/File List',
+} satisfies Meta<typeof FileList>
 
 export default meta
 
 type Story = StoryObj<typeof meta>
 
 export const Test: Story = {
-  render: (args) => renderComponentVariants(IconButton, { args, variants: ['hovered', 'disabled'] }),
+  render: (args) => renderComponentVariants(FileList, { args }),
   tags: ['!dev', '!autodocs'],
 }

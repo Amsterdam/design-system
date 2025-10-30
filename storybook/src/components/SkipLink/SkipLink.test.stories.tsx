@@ -5,21 +5,21 @@
 
 import type { Meta, StoryObj } from '@storybook/react-vite'
 
-import { IconButton } from '@amsterdam/design-system-react/src'
+import { SkipLink } from '@amsterdam/design-system-react/src'
 
 import { renderComponentVariants } from '../../utils/renderComponentVariants'
-import { default as iconButtonMeta } from './IconButton.stories'
+import { default as skipLinkMeta } from './SkipLink.stories'
 
 const meta = {
-  ...iconButtonMeta,
-  title: 'Components/Buttons/Icon Button',
-} satisfies Meta<typeof IconButton>
+  ...skipLinkMeta,
+  title: 'Components/Navigation/Skip Link',
+} satisfies Meta<typeof SkipLink>
 
 export default meta
 
 type Story = StoryObj<typeof meta>
 
 export const Test: Story = {
-  render: (args) => renderComponentVariants(IconButton, { args, variants: ['hovered', 'disabled'] }),
+  render: (args) => renderComponentVariants(SkipLink, { args }),
   tags: ['!dev', '!autodocs'],
 }
