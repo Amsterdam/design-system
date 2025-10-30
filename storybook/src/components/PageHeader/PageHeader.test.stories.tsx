@@ -38,10 +38,6 @@ export const Test: Story = {
       </PageHeader.MenuLink>,
     ],
   },
-  render: (args) =>
-    renderComponentVariants({
-      component: PageHeader,
-      args,
-    }),
+  render: (args) => renderComponentVariants({ component: PageHeader, args }),
   tags: ['!dev', '!autodocs'],
 }

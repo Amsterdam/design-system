@@ -36,10 +36,6 @@ export const Test: Story = {
       </PageFooter.Menu>,
     ],
   },
-  render: (args) =>
-    renderComponentVariants({
-      component: PageFooter,
-      args,
-    }),
+  render: (args) => renderComponentVariants({ component: PageFooter, args }),
   tags: ['!dev', '!autodocs'],
 }
