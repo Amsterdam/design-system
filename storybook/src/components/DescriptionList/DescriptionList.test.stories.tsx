@@ -24,20 +24,18 @@ export const Test: Story = {
     getVariants({
       component: DescriptionList,
       args,
-      children: (
-        <>
-          <DescriptionList.Term>Het hoger onderwijs</DescriptionList.Term>
-          <DescriptionList.Description>Het hbo en wo</DescriptionList.Description>
-          <DescriptionList.Term>Het mbo en hoger onderwijs</DescriptionList.Term>
-          <DescriptionList.Description>Het vervolgonderwijs</DescriptionList.Description>
-          <DescriptionList.Term>Laagopgeleid</DescriptionList.Term>
-          <DescriptionList.Description>Praktisch opgeleid</DescriptionList.Description>
-          <DescriptionList.Term>Hoogopgeleid</DescriptionList.Term>
-          <DescriptionList.Description>Theoretisch opgeleid</DescriptionList.Description>
-          <DescriptionList.Term>Opleidingsniveau</DescriptionList.Term>
-          <DescriptionList.Description>Onderwijsrichting</DescriptionList.Description>
-        </>
-      ),
+      children: [
+        <DescriptionList.Term key={1}>Het hoger onderwijs</DescriptionList.Term>,
+        <DescriptionList.Description key={2}>Het hbo en wo</DescriptionList.Description>,
+        <DescriptionList.Term key={3}>Het mbo en hoger onderwijs</DescriptionList.Term>,
+        <DescriptionList.Description key={4}>Het vervolgonderwijs</DescriptionList.Description>,
+        <DescriptionList.Term key={5}>Laagopgeleid</DescriptionList.Term>,
+        <DescriptionList.Description key={6}>Praktisch opgeleid</DescriptionList.Description>,
+        <DescriptionList.Term key={7}>Hoogopgeleid</DescriptionList.Term>,
+        <DescriptionList.Description key={8}>Theoretisch opgeleid</DescriptionList.Description>,
+        <DescriptionList.Term key={9}>Opleidingsniveau</DescriptionList.Term>,
+        <DescriptionList.Description key={10}>Onderwijsrichting</DescriptionList.Description>,
+      ],
     }),
   tags: ['!dev', '!autodocs'],
 }

@@ -24,12 +24,7 @@ export const Test: Story = {
     getVariants({
       component: Grid,
       args,
-      children: (
-        <>
-          <Grid.Cell span="all" />
-          <Grid.Cell span="all" />
-        </>
-      ),
+      children: [<Grid.Cell key={1} span="all" />, <Grid.Cell key={2} span="all" />],
     }),
   tags: ['!dev', '!autodocs'],
 }

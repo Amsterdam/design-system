@@ -24,20 +24,18 @@ export const Test: Story = {
     getVariants({
       component: UnorderedList,
       args,
-      children: (
-        <>
-          <UnorderedList.Item>Ervaring is niet noodzakelijk.</UnorderedList.Item>
-          <UnorderedList.Item>
-            Er is veel werk in diverse functies, zoals monteur of timmerman. Er zijn ook banen op kantoor, zoals
-            werkvoorbereider of engineer.
-          </UnorderedList.Item>
-          <UnorderedList.Item>Deze banen bieden stabiliteit en zekerheid.</UnorderedList.Item>
-          <UnorderedList.Item>Er blijft altijd vraag naar werknemers in de bouw en techniek.</UnorderedList.Item>
-          <UnorderedList.Item>
-            Er zijn veel mogelijkheden in de bouw, infrastructuur, haven en groenvoorziening.
-          </UnorderedList.Item>
-        </>
-      ),
+      children: [
+        <UnorderedList.Item key={1}>Ervaring is niet noodzakelijk.</UnorderedList.Item>,
+        <UnorderedList.Item key={2}>
+          , Er is veel werk in diverse functies, zoals monteur of timmerman. Er zijn ook banen op kantoor, zoals
+          werkvoorbereider of engineer.
+        </UnorderedList.Item>,
+        <UnorderedList.Item key={3}>Deze banen bieden stabiliteit en zekerheid.</UnorderedList.Item>,
+        <UnorderedList.Item key={4}>Er blijft altijd vraag naar werknemers in de bouw en techniek.</UnorderedList.Item>,
+        <UnorderedList.Item key={5}>
+          Er zijn veel mogelijkheden in de bouw, infrastructuur, haven en groenvoorziening.
+        </UnorderedList.Item>,
+      ],
     }),
   tags: ['!dev', '!autodocs'],
 }

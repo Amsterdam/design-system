@@ -24,12 +24,7 @@ export const Test: Story = {
     getVariants({
       component: Overlap,
       args,
-      children: (
-        <>
-          <img alt="" src="https://picsum.photos/id/122/1280/720" />
-          <p>Overlap test</p>
-        </>
-      ),
+      children: [<img alt="" key={1} src="https://picsum.photos/id/122/1280/720" />, <p key={2}>Overlap test</p>],
     }),
   tags: ['!dev', '!autodocs'],
 }

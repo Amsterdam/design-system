@@ -24,12 +24,7 @@ export const Test: Story = {
     getVariants({
       component: ActionGroup,
       args,
-      children: (
-        <>
-          <button>Stoppen</button>
-          <button>Verder</button>
-        </>
-      ),
+      children: [<button key={1}>Stoppen</button>, <button key={2}>Verder</button>],
     }),
   tags: ['!dev', '!autodocs'],
 }

@@ -24,13 +24,11 @@ export const Test: Story = {
     getVariants({
       component: Row,
       args,
-      children: (
-        <>
-          <div className="ams-docs-item" />
-          <div className="ams-docs-item" />
-          <div className="ams-docs-item" />
-        </>
-      ),
+      children: [
+        <div className="ams-docs-item" key={1} />,
+        <div className="ams-docs-item" key={2} />,
+        <div className="ams-docs-item" key={3} />,
+      ],
     }),
   tags: ['!dev', '!autodocs'],
 }

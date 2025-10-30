@@ -21,22 +21,20 @@ type Story = StoryObj<typeof meta>
 
 export const Test: Story = {
   args: {
-    children: (
-      <>
-        <PageFooter.Spotlight>
-          <ul>
-            <li>Contactformulier</li>
-            <li>Adressen en openingstijden</li>
-          </ul>
-        </PageFooter.Spotlight>
-        <PageFooter.Menu>
-          <PageFooter.MenuLink href="#">Over deze site</PageFooter.MenuLink>
-          <PageFooter.MenuLink href="#">Privacy</PageFooter.MenuLink>
-          <PageFooter.MenuLink href="#">Cookies op deze site</PageFooter.MenuLink>
-          <PageFooter.MenuLink href="#">Webarchief</PageFooter.MenuLink>
-        </PageFooter.Menu>
-      </>
-    ),
+    children: [
+      <PageFooter.Spotlight key={1}>
+        <ul>
+          <li>Contactformulier</li>
+          <li>Adressen en openingstijden</li>
+        </ul>
+      </PageFooter.Spotlight>,
+      <PageFooter.Menu key={2}>
+        <PageFooter.MenuLink href="#">Over deze site</PageFooter.MenuLink>
+        <PageFooter.MenuLink href="#">Privacy</PageFooter.MenuLink>
+        <PageFooter.MenuLink href="#">Cookies op deze site</PageFooter.MenuLink>
+        <PageFooter.MenuLink href="#">Webarchief</PageFooter.MenuLink>
+      </PageFooter.Menu>,
+    ],
   },
   render: (args) =>
     getVariants({

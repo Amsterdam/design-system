@@ -22,7 +22,7 @@ type Story = StoryObj<typeof meta>
 export const Test: Story = {
   args: {
     alt: '',
-    src: 'https://upload.wikimedia.org/wikipedia/commons/thumb/3/36/Concertgebouw3x2.jpg/330px-Concertgebouw3x2.jpg',
+    src: 'https://picsum.photos/id/122/1280/720',
   },
   render: (args) =>
     getVariants({

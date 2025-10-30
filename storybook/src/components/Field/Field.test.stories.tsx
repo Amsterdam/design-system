@@ -24,12 +24,12 @@ export const Test: Story = {
     getVariants({
       component: Field,
       args,
-      children: (
-        <>
-          <label htmlFor="input2">Wat is uw achternaam?</label>
-          <input id="input2" value="Dijkstra" />
-        </>
-      ),
+      children: [
+        <label htmlFor="input2" key={1}>
+          Wat is uw achternaam?
+        </label>,
+        <input id="input2" key={2} value="Dijkstra" />,
+      ],
     }),
   tags: ['!dev', '!autodocs'],
 }

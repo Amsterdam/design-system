@@ -27,7 +27,7 @@ export const Test: Story = {
       children: (
         <div>
           <label htmlFor="input-a1">Voornaam</label>
-          <input aria-required="true" id="input-a1" value="Yassine" />
+          <input id="input-a1" value="Yassine" />
         </div>
       ),
     }),
