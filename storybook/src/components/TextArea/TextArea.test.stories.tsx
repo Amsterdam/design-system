@@ -7,7 +7,7 @@ import type { Meta, StoryObj } from '@storybook/react-vite'
 
 import { TextArea } from '@amsterdam/design-system-react/src'
 
-import { getVariants } from '../../utils/getVariants'
+import { renderComponentVariants } from '../../utils/renderComponentVariants'
 import { default as textAreaMeta } from './TextArea.stories'
 
 const meta = {
@@ -24,6 +24,6 @@ export const Test: Story = {
     defaultValue:
       'Het waterrijke achterland van de provincie Holland was een paradijs voor vissers. Maar terwijl de visserij floreerde in Holland, was Amsterdam eigenlijk helemaal geen visserijstad. Toch maakten Amsterdammers naam in de vishandel. Zij speelden namelijk een cruciale rol bij het klaarmaken en vervoeren van haring.',
   },
-  render: (args) => getVariants({ component: TextArea, args, variants: ['disabled', 'hovered'] }),
+  render: (args) => renderComponentVariants({ component: TextArea, args, variants: ['disabled', 'hovered'] }),
   tags: ['!dev', '!autodocs'],
 }

@@ -7,7 +7,7 @@ import type { Meta, StoryObj } from '@storybook/react-vite'
 
 import { Alert } from '@amsterdam/design-system-react/src'
 
-import { getVariants } from '../../utils/getVariants'
+import { renderComponentVariants } from '../../utils/renderComponentVariants'
 import { default as alertMeta } from './Alert.stories'
 
 const meta = {
@@ -20,6 +20,6 @@ export default meta
 type Story = StoryObj<typeof meta>
 
 export const Test: Story = {
-  render: (args) => getVariants({ component: Alert, args }),
+  render: (args) => renderComponentVariants({ component: Alert, args }),
   tags: ['!dev', '!autodocs'],
 }

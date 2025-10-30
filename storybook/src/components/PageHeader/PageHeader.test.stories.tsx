@@ -7,7 +7,7 @@ import type { Meta, StoryObj } from '@storybook/react-vite'
 
 import { PageHeader } from '@amsterdam/design-system-react/src'
 
-import { getVariants } from '../../utils/getVariants'
+import { renderComponentVariants } from '../../utils/renderComponentVariants'
 import { default as pageHeaderMeta } from './PageHeader.stories'
 
 const meta = {
@@ -39,7 +39,7 @@ export const Test: Story = {
     ],
   },
   render: (args) =>
-    getVariants({
+    renderComponentVariants({
       component: PageHeader,
       args,
     }),

@@ -7,7 +7,7 @@ import type { Meta, StoryObj } from '@storybook/react-vite'
 
 import { Page } from '@amsterdam/design-system-react/src'
 
-import { getVariants } from '../../utils/getVariants'
+import { renderComponentVariants } from '../../utils/renderComponentVariants'
 import { default as pageMeta } from './Page.stories'
 
 const meta = {
@@ -21,7 +21,7 @@ type Story = StoryObj<typeof meta>
 
 export const Test: Story = {
   render: (args) =>
-    getVariants({
+    renderComponentVariants({
       component: Page,
       args,
     }),

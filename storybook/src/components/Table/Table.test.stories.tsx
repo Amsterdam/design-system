@@ -7,7 +7,7 @@ import type { Meta, StoryObj } from '@storybook/react-vite'
 
 import { Table } from '@amsterdam/design-system-react/src'
 
-import { getVariants } from '../../utils/getVariants'
+import { renderComponentVariants } from '../../utils/renderComponentVariants'
 import { default as tableMeta } from './Table.stories'
 
 const meta = {
@@ -53,7 +53,7 @@ export const Test: Story = {
     ],
   },
   render: (args) =>
-    getVariants({
+    renderComponentVariants({
       component: Table,
       args,
     }),

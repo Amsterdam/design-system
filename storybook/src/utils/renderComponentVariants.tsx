@@ -3,7 +3,7 @@ import type { Meta } from '@storybook/react-vite'
 import { ChevronDownIcon } from '@amsterdam/design-system-react-icons/src'
 import React from 'react'
 
-type GetVariantsParams = {
+type renderComponentVariantsParams = {
   args: Meta['args']
   children?: React.ReactNode
   component: React.ElementType
@@ -43,7 +43,13 @@ function getDocgenInfo(component: React.ElementType): DocgenInfo | null {
   return null
 }
 
-export const getVariants = ({ component, args, children, variants = [], wrapperType = 'flex' }: GetVariantsParams) => {
+export const renderComponentVariants = ({
+  component,
+  args,
+  children,
+  variants = [],
+  wrapperType = 'flex',
+}: renderComponentVariantsParams) => {
   const docInfo = getDocgenInfo(component)
   const props = docInfo?.props ?? {}
   variants.push('default')

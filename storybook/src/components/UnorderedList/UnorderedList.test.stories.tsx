@@ -7,7 +7,7 @@ import type { Meta, StoryObj } from '@storybook/react-vite'
 
 import { UnorderedList } from '@amsterdam/design-system-react/src'
 
-import { getVariants } from '../../utils/getVariants'
+import { renderComponentVariants } from '../../utils/renderComponentVariants'
 import { default as unorderedListMeta } from './UnorderedList.stories'
 
 const meta = {
@@ -21,7 +21,7 @@ type Story = StoryObj<typeof meta>
 
 export const Test: Story = {
   render: (args) =>
-    getVariants({
+    renderComponentVariants({
       component: UnorderedList,
       args,
       children: [

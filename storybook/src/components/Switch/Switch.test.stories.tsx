@@ -7,7 +7,7 @@ import type { Meta, StoryObj } from '@storybook/react-vite'
 
 import { Switch } from '@amsterdam/design-system-react/src'
 
-import { getVariants } from '../../utils/getVariants'
+import { renderComponentVariants } from '../../utils/renderComponentVariants'
 import { default as switchMeta } from './Switch.stories'
 
 const meta = {
@@ -20,6 +20,6 @@ export default meta
 type Story = StoryObj<typeof meta>
 
 export const Test: Story = {
-  render: (args) => getVariants({ component: Switch, args }),
+  render: (args) => renderComponentVariants({ component: Switch, args }),
   tags: ['!dev', '!autodocs'],
 }

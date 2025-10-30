@@ -7,7 +7,7 @@ import type { Meta, StoryObj } from '@storybook/react-vite'
 
 import { SkipLink } from '@amsterdam/design-system-react/src'
 
-import { getVariants } from '../../utils/getVariants'
+import { renderComponentVariants } from '../../utils/renderComponentVariants'
 import { default as skipLinkMeta } from './SkipLink.stories'
 
 const meta = {
@@ -20,6 +20,6 @@ export default meta
 type Story = StoryObj<typeof meta>
 
 export const Test: Story = {
-  render: (args) => getVariants({ component: SkipLink, args }),
+  render: (args) => renderComponentVariants({ component: SkipLink, args }),
   tags: ['!dev', '!autodocs'],
 }

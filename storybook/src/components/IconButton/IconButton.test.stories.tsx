@@ -7,7 +7,7 @@ import type { Meta, StoryObj } from '@storybook/react-vite'
 
 import { IconButton } from '@amsterdam/design-system-react/src'
 
-import { getVariants } from '../../utils/getVariants'
+import { renderComponentVariants } from '../../utils/renderComponentVariants'
 import { default as iconButtonMeta } from './IconButton.stories'
 
 const meta = {
@@ -20,6 +20,6 @@ export default meta
 type Story = StoryObj<typeof meta>
 
 export const Test: Story = {
-  render: (args) => getVariants({ component: IconButton, args, variants: ['hovered', 'disabled'] }),
+  render: (args) => renderComponentVariants({ component: IconButton, args, variants: ['hovered', 'disabled'] }),
   tags: ['!dev', '!autodocs'],
 }

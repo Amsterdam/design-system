@@ -7,7 +7,7 @@ import type { Meta, StoryObj } from '@storybook/react-vite'
 
 import { Button } from '@amsterdam/design-system-react/src'
 
-import { getVariants } from '../../utils/getVariants'
+import { renderComponentVariants } from '../../utils/renderComponentVariants'
 import { default as buttonMeta } from './Button.stories'
 
 const meta = {
@@ -20,6 +20,6 @@ export default meta
 type Story = StoryObj<typeof meta>
 
 export const Test: Story = {
-  render: (args) => getVariants({ component: Button, args, variants: ['disabled', 'hovered'] }),
+  render: (args) => renderComponentVariants({ component: Button, args, variants: ['disabled', 'hovered'] }),
   tags: ['!dev', '!autodocs'],
 }
