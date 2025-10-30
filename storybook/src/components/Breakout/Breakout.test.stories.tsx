@@ -43,7 +43,7 @@ export const Test: Story = {
           rowSpan={2}
           rowStart={1}
         >
-          <img alt="" src="https://picsum.photos/id/122/1280/720" />
+          <img alt="" src="https://picsum.photos/id/122/200/300" />
         </Breakout.Cell>,
       ],
     }),
