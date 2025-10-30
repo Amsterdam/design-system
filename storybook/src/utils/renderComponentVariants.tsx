@@ -1,14 +1,15 @@
 import type { Meta } from '@storybook/react-vite'
+import type { ElementType, ReactNode } from 'react'
 
 import { ChevronDownIcon } from '@amsterdam/design-system-react-icons/src'
-import React from 'react'
+import { createElement } from 'react'
 
 type renderComponentVariantsParams = {
   args: Meta['args']
-  children?: React.ReactNode
-  component: React.ElementType
+  children?: ReactNode
+  component: ElementType
+  layout?: 'flex' | 'grid'
   variants?: string[]
-  wrapperType?: 'flex' | 'grid'
 }
 
 type PropType = {
@@ -33,7 +34,7 @@ type DocgenInfo = {
   >
 }
 
-function getDocgenInfo(component: React.ElementType): DocgenInfo | null {
+function getDocgenInfo(component: ElementType): DocgenInfo | null {
   for (const [key, value] of Object.entries(component)) {
     if (key === '__docgenInfo') {
       return value
@@ -47,8 +48,8 @@ export const renderComponentVariants = ({
   component,
   args,
   children,
+  layout = 'flex',
   variants = [],
-  wrapperType = 'flex',
 }: renderComponentVariantsParams) => {
   const docInfo = getDocgenInfo(component)
   const props = docInfo?.props ?? {}
@@ -114,7 +115,7 @@ export const renderComponentVariants = ({
   if (completePropsWithValues.length === 0) {
     const elements = variants.map((state) => (
       <div key={state}>
-        {React.createElement(component, {
+        {createElement(component, {
           ...args,
           ...(state === 'disabled' ? { [state]: true } : {}),
           className: state === 'hovered' ? 'hover' : undefined,
@@ -139,7 +140,7 @@ export const renderComponentVariants = ({
                   <div
                     key={key}
                     style={
-                      wrapperType === 'flex'
+                      layout === 'flex'
                         ? undefined
                         : {
                             display: 'grid',
@@ -148,7 +149,7 @@ export const renderComponentVariants = ({
                           }
                     }
                   >
-                    {React.createElement(component, {
+                    {createElement(component, {
                       ...args,
                       ...(children ? { children } : {}),
                       ...((state === 'disabled' && { [state]: true }) || {}),
