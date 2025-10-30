@@ -6,6 +6,7 @@
 import type { Meta, StoryObj } from '@storybook/react-vite'
 
 import { Tabs } from '@amsterdam/design-system-react/src'
+import { expect } from 'storybook/test'
 
 import { renderComponentVariants } from '../../utils/renderComponentVariants'
 import { default as tabsMeta } from './Tabs.stories'
@@ -53,6 +54,17 @@ export const Test: Story = {
         </p>
       </Tabs.Panel>,
     ],
+  },
+  play: async ({ canvas, userEvent }) => {
+    await new Promise((resolve) => setTimeout(resolve, 500)) // This delay is required to finish the first tab opening
+
+    const gegevensParagraph = canvas.getByTestId('gegevens-panel')
+    const aanslagenTab = canvas.getByTestId('aanslagen')
+
+    await expect(gegevensParagraph).toBeVisible()
+    await userEvent.click(aanslagenTab)
+    await expect(canvas.getByTestId('aanslagen-panel')).toBeVisible()
+    await expect(gegevensParagraph).not.toBeVisible()
   },
   render: (args) => renderComponentVariants(Tabs, { args }),
   tags: ['!dev', '!autodocs'],

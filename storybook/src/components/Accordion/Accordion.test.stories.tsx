@@ -6,6 +6,7 @@
 import type { Meta, StoryObj } from '@storybook/react-vite'
 
 import { Accordion } from '@amsterdam/design-system-react/src'
+import { expect } from 'storybook/test'
 
 import { renderComponentVariants } from '../../utils/renderComponentVariants'
 import { default as accordionMeta } from './Accordion.stories'
@@ -20,6 +21,20 @@ export default meta
 type Story = StoryObj<typeof meta>
 
 export const Test: Story = {
+  play: async ({ canvas, userEvent }) => {
+    const accordionLabel = canvas.getByTestId('test-label')
+    const accordionParagraph = canvas.getByTestId('test-paragraph')
+    const accordionButton = accordionLabel.querySelector('button')
+
+    if (!accordionButton) return
+
+    await expect(canvas.getByTestId('expanded-paragraph')).toBeVisible()
+    await expect(accordionParagraph).not.toBeVisible()
+    await userEvent.click(accordionButton)
+    await expect(accordionParagraph).toBeVisible()
+    await userEvent.click(accordionButton)
+    await expect(accordionParagraph).not.toBeVisible()
+  },
   render: (args) =>
     renderComponentVariants(Accordion, {
       args,
