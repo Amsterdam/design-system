@@ -1,5 +1,5 @@
 /**
- * @license EUPL0.2+
+ * @license EUPL-1.2+
  * Copyright Gemeente Amsterdam
  */
 
