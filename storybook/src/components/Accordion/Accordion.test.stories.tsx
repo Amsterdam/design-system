@@ -21,8 +21,7 @@ type Story = StoryObj<typeof meta>
 
 export const Test: Story = {
   render: (args) =>
-    renderComponentVariants({
-      component: Accordion,
+    renderComponentVariants(Accordion, {
       args,
       children: [
         <Accordion.Section key={1} label="Verhuizing doorgeven bij stadsloket">

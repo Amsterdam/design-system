@@ -52,6 +52,6 @@ export const Test: Story = {
       </Table.Body>,
     ],
   },
-  render: (args) => renderComponentVariants({ component: Table, args }),
+  render: (args) => renderComponentVariants(Table, { args }),
   tags: ['!dev', '!autodocs'],
 }

@@ -54,6 +54,6 @@ export const Test: Story = {
       </Tabs.Panel>,
     ],
   },
-  render: (args) => renderComponentVariants({ component: Tabs, args }),
+  render: (args) => renderComponentVariants(Tabs, { args }),
   tags: ['!dev', '!autodocs'],
 }

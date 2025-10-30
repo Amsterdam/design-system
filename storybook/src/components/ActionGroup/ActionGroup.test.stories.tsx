@@ -21,8 +21,7 @@ type Story = StoryObj<typeof meta>
 
 export const Test: Story = {
   render: (args) =>
-    renderComponentVariants({
-      component: ActionGroup,
+    renderComponentVariants(ActionGroup, {
       args,
       children: [<button key={1}>Stoppen</button>, <button key={2}>Verder</button>],
     }),

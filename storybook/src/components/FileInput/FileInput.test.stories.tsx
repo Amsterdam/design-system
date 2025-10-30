@@ -20,6 +20,6 @@ export default meta
 type Story = StoryObj<typeof meta>
 
 export const Test: Story = {
-  render: (args) => renderComponentVariants({ component: FileInput, args, variants: ['disabled', 'multiple'] }),
+  render: (args) => renderComponentVariants(FileInput, { args, variants: ['disabled', 'multiple'] }),
   tags: ['!dev', '!autodocs'],
 }

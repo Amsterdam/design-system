@@ -22,8 +22,7 @@ type Story = StoryObj<typeof meta>
 
 export const Test: Story = {
   render: (args) =>
-    renderComponentVariants({
-      component: Breakout,
+    renderComponentVariants(Breakout, {
       args,
       children: [
         <Breakout.Cell colSpan="all" has="spotlight" key={1} rowSpan={{ narrow: 2, medium: 2, wide: 1 }} rowStart={2}>

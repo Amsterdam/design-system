@@ -21,8 +21,7 @@ type Story = StoryObj<typeof meta>
 
 export const Test: Story = {
   render: (args) =>
-    renderComponentVariants({
-      component: OrderedList,
+    renderComponentVariants(OrderedList, {
       args,
       children: [
         <OrderedList.Item key={1}>Ervaring is niet noodzakelijk.</OrderedList.Item>,

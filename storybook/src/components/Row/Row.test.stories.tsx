@@ -21,8 +21,7 @@ type Story = StoryObj<typeof meta>
 
 export const Test: Story = {
   render: (args) =>
-    renderComponentVariants({
-      component: Row,
+    renderComponentVariants(Row, {
       args,
       children: [
         <div className="ams-docs-item" key={1} />,

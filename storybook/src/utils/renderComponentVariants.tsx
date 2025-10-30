@@ -7,7 +7,6 @@ import { createElement } from 'react'
 type renderComponentVariantsParams = {
   args: Meta['args']
   children?: ReactNode
-  component: ElementType
   layout?: 'flex' | 'grid'
   variants?: string[]
 }
@@ -44,16 +43,13 @@ function getDocgenInfo(component: ElementType): DocgenInfo | null {
   return null
 }
 
-export const renderComponentVariants = ({
-  component,
-  args,
-  children,
-  layout = 'flex',
-  variants = [],
-}: renderComponentVariantsParams) => {
+export const renderComponentVariants = (
+  component: ElementType,
+  { args, children, layout = 'flex', variants = [] }: renderComponentVariantsParams,
+) => {
   const docInfo = getDocgenInfo(component)
   const props = docInfo?.props ?? {}
-  variants.push('default')
+  variants?.push('default')
 
   function getValues(prop: PropType) {
     if (!prop.type) return undefined

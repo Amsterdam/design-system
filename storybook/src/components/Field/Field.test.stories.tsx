@@ -21,8 +21,7 @@ type Story = StoryObj<typeof meta>
 
 export const Test: Story = {
   render: (args) =>
-    renderComponentVariants({
-      component: Field,
+    renderComponentVariants(Field, {
       args,
       children: [
         <label htmlFor="input2" key={1}>

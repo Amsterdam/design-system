@@ -24,6 +24,6 @@ export const Test: Story = {
     alt: '',
     src: 'https://picsum.photos/id/122/1280/720',
   },
-  render: (args) => renderComponentVariants({ component: Image, args }),
+  render: (args) => renderComponentVariants(Image, { args }),
   tags: ['!dev', '!autodocs'],
 }

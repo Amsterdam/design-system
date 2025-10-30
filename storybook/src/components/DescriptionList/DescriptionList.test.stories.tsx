@@ -21,8 +21,7 @@ type Story = StoryObj<typeof meta>
 
 export const Test: Story = {
   render: (args) =>
-    renderComponentVariants({
-      component: DescriptionList,
+    renderComponentVariants(DescriptionList, {
       args,
       children: [
         <DescriptionList.Term key={1}>Het hoger onderwijs</DescriptionList.Term>,

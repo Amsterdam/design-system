@@ -21,8 +21,7 @@ type Story = StoryObj<typeof meta>
 
 export const Test: Story = {
   render: () =>
-    renderComponentVariants({
-      component: ImageSlider,
+    renderComponentVariants(ImageSlider, {
       args: {
         alt: '',
         images: [

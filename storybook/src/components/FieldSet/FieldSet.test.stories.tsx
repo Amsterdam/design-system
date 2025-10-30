@@ -21,8 +21,7 @@ type Story = StoryObj<typeof meta>
 
 export const Test: Story = {
   render: (args) =>
-    renderComponentVariants({
-      component: FieldSet,
+    renderComponentVariants(FieldSet, {
       args,
       children: (
         <div>

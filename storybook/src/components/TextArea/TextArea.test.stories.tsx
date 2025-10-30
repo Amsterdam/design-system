@@ -24,6 +24,6 @@ export const Test: Story = {
     defaultValue:
       'Het waterrijke achterland van de provincie Holland was een paradijs voor vissers. Maar terwijl de visserij floreerde in Holland, was Amsterdam eigenlijk helemaal geen visserijstad. Toch maakten Amsterdammers naam in de vishandel. Zij speelden namelijk een cruciale rol bij het klaarmaken en vervoeren van haring.',
   },
-  render: (args) => renderComponentVariants({ component: TextArea, args, variants: ['disabled', 'hovered'] }),
+  render: (args) => renderComponentVariants(TextArea, { args, variants: ['disabled', 'hovered'] }),
   tags: ['!dev', '!autodocs'],
 }

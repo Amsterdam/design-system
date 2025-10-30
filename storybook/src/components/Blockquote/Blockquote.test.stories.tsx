@@ -20,6 +20,6 @@ export default meta
 type Story = StoryObj<typeof meta>
 
 export const Test: Story = {
-  render: (args) => renderComponentVariants({ component: Blockquote, args }),
+  render: (args) => renderComponentVariants(Blockquote, { args }),
   tags: ['!dev', '!autodocs'],
 }
