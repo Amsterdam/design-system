@@ -40,7 +40,7 @@ export const Test: Story = {
       args,
       children: [
         <Accordion.Section key={1} label="Verhuizing doorgeven bij stadsloket">
-          <p>
+          <p data-testid="expanded-paragraph">
             Veel Amsterdammers in de bijstand zijn huiverig om te gaan werken. Ze denken dat ze dan minder geld krijgen,
             bijvoorbeeld omdat ze hun toeslagen verliezen. Voor deze mensen ontwikkelen we de ‘garantieknop’. Als mensen
             in de bijstand beginnen met werken en binnen 7 maanden hun baan verliezen, kunnen zij met de ‘garantieknop’
@@ -48,8 +48,8 @@ export const Test: Story = {
             makkelijker om weer een nieuwe baan te zoeken.
           </p>
         </Accordion.Section>,
-        <Accordion.Section key={2} label="Dit grof afval halen we niet op">
-          <p>
+        <Accordion.Section data-testid="test-label" key={2} label="Dit grof afval halen we niet op">
+          <p data-testid="test-paragraph">
             Veel Amsterdammers in de bijstand zijn huiverig om te gaan werken. Ze denken dat ze dan minder geld krijgen,
             bijvoorbeeld omdat ze hun toeslagen verliezen. Voor deze mensen ontwikkelen we de ‘garantieknop’. Als mensen
             in de bijstand beginnen met werken en binnen 7 maanden hun baan verliezen, kunnen zij met de ‘garantieknop’
