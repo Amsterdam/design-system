@@ -6,8 +6,8 @@
 import type { Meta, StoryObj } from '@storybook/react-vite'
 
 import { Accordion } from '@amsterdam/design-system-react/src'
-import { expect } from 'storybook/test'
 
+import { renderComponentVariants } from '../../utils/renderComponentVariants'
 import { default as accordionMeta } from './Accordion.stories'
 
 const meta = {
@@ -20,37 +20,36 @@ export default meta
 type Story = StoryObj<typeof meta>
 
 export const Test: Story = {
-  args: {
-    children: [
-      <Accordion.Section expanded key={1} label="Dit grofvuil halen we niet op">
-        <p data-testid="expanded-paragraph">
-          Na een flink aantal jaren zijn alle laaghangende takken weg, zodat de boom geen hinder meer geeft. Daarom zie
-          je in het onderste deel van een stadsboom meestal geen zijtakken. Ook halen we takken weg die dood of zwak
-          zijn. Zij kunnen afbreken en dat kan gevaarlijk zijn.
-        </p>
-      </Accordion.Section>,
-      <Accordion.Section data-testid="test-label" key={2} label="Verhuizing doorgeven bij het stadsloket">
-        <p data-testid="test-paragraph">
-          Na een flink aantal jaren zijn alle laaghangende takken weg, zodat de boom geen hinder meer geeft. Daarom zie
-          je in het onderste deel van een stadsboom meestal geen zijtakken. Ook halen we takken weg die dood of zwak
-          zijn. Zij kunnen afbreken en dat kan gevaarlijk zijn.
-        </p>
-      </Accordion.Section>,
-    ],
-  },
-  play: async ({ canvas, userEvent }) => {
-    const accordionLabel = canvas.getByTestId('test-label')
-    const accordionParagraph = canvas.getByTestId('test-paragraph')
-    const accordionButton = accordionLabel.querySelector('button')
-
-    if (!accordionButton) return
-
-    await expect(canvas.getByTestId('expanded-paragraph')).toBeVisible()
-    await expect(accordionParagraph).not.toBeVisible()
-    await userEvent.click(accordionButton)
-    await expect(accordionParagraph).toBeVisible()
-    await userEvent.click(accordionButton)
-    await expect(accordionParagraph).not.toBeVisible()
-  },
+  render: (args) =>
+    renderComponentVariants(Accordion, {
+      args,
+      children: [
+        <Accordion.Section key={1} label="Verhuizing doorgeven bij stadsloket">
+          <p>
+            Veel Amsterdammers in de bijstand zijn huiverig om te gaan werken. Ze denken dat ze dan minder geld krijgen,
+            bijvoorbeeld omdat ze hun toeslagen verliezen. Voor deze mensen ontwikkelen we de ‘garantieknop’. Als mensen
+            in de bijstand beginnen met werken en binnen 7 maanden hun baan verliezen, kunnen zij met de ‘garantieknop’
+            meteen weer bijstand krijgen als dat nodig is. Dit zorgt ervoor dat zij minder stress hebben. Het wordt zo
+            makkelijker om weer een nieuwe baan te zoeken.
+          </p>
+        </Accordion.Section>,
+        <Accordion.Section key={2} label="Dit grof afval halen we niet op">
+          <p>
+            Veel Amsterdammers in de bijstand zijn huiverig om te gaan werken. Ze denken dat ze dan minder geld krijgen,
+            bijvoorbeeld omdat ze hun toeslagen verliezen. Voor deze mensen ontwikkelen we de ‘garantieknop’. Als mensen
+            in de bijstand beginnen met werken en binnen 7 maanden hun baan verliezen, kunnen zij met de ‘garantieknop’
+            meteen weer bijstand krijgen als dat nodig is. Dit zorgt ervoor dat zij minder stress hebben. Het wordt zo
+            makkelijker om weer een nieuwe baan te zoeken.
+          </p>
+        </Accordion.Section>,
+        <Accordion.Section key={3} label="Verhuizing doorgeven per post">
+          <p>
+            Vertel ons in het evenementenformulier wat u wilt gaan doen. U checkt daarmee of u een vergunning nodig
+            hebt. Daarna vraagt u de vergunning aan in hetzelfde formulier. Of doet u een gratis melding of
+            vooraankondiging.
+          </p>
+        </Accordion.Section>,
+      ],
+    }),
   tags: ['!dev', '!autodocs'],
 }

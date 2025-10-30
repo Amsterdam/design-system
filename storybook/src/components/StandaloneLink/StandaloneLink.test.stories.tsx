@@ -5,21 +5,21 @@
 
 import type { Meta, StoryObj } from '@storybook/react-vite'
 
-import { IconButton } from '@amsterdam/design-system-react/src'
+import { StandaloneLink } from '@amsterdam/design-system-react/src'
 
 import { renderComponentVariants } from '../../utils/renderComponentVariants'
-import { default as iconButtonMeta } from './IconButton.stories'
+import { default as standaloneLinkMeta } from './StandaloneLink.stories'
 
 const meta = {
-  ...iconButtonMeta,
-  title: 'Components/Buttons/Icon Button',
-} satisfies Meta<typeof IconButton>
+  ...standaloneLinkMeta,
+  title: 'Components/StandaloneLink',
+} satisfies Meta<typeof StandaloneLink>
 
 export default meta
 
 type Story = StoryObj<typeof meta>
 
 export const Test: Story = {
-  render: (args) => renderComponentVariants(IconButton, { args, variants: ['hovered', 'disabled'] }),
+  render: (args) => renderComponentVariants(StandaloneLink, { args }),
   tags: ['!dev', '!autodocs'],
 }

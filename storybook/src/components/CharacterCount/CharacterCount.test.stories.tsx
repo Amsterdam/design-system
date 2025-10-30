@@ -5,21 +5,21 @@
 
 import type { Meta, StoryObj } from '@storybook/react-vite'
 
-import { IconButton } from '@amsterdam/design-system-react/src'
+import { CharacterCount } from '@amsterdam/design-system-react/src'
 
 import { renderComponentVariants } from '../../utils/renderComponentVariants'
-import { default as iconButtonMeta } from './IconButton.stories'
+import { default as characterCountMeta } from './CharacterCount.stories'
 
 const meta = {
-  ...iconButtonMeta,
-  title: 'Components/Buttons/Icon Button',
-} satisfies Meta<typeof IconButton>
+  ...characterCountMeta,
+  title: 'Components/Forms/Character Count',
+} satisfies Meta<typeof CharacterCount>
 
 export default meta
 
 type Story = StoryObj<typeof meta>
 
 export const Test: Story = {
-  render: (args) => renderComponentVariants(IconButton, { args, variants: ['hovered', 'disabled'] }),
+  render: (args) => renderComponentVariants(CharacterCount, { args }),
   tags: ['!dev', '!autodocs'],
 }

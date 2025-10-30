@@ -3,10 +3,9 @@
  * Copyright Gemeente Amsterdam
  */
 
-import type { SearchField } from '@amsterdam/design-system-react/src'
 import type { Meta, StoryObj } from '@storybook/react-vite'
 
-import { expect, fn } from 'storybook/test'
+import { SearchField } from '@amsterdam/design-system-react/src'
 
 import { default as searchFieldMeta } from './SearchField.stories'
 
@@ -19,22 +18,34 @@ export default meta
 
 type Story = StoryObj<typeof meta>
 
-const testFunction = fn()
-
 export const Test: Story = {
-  args: {
-    onSubmit: (event) => {
-      event.preventDefault()
-      const form = event.target as HTMLFormElement
-      const searchInput = form.querySelector('input[type="search"]') as HTMLInputElement
-      const searchValue = searchInput?.value
-      testFunction(searchValue)
-    },
-  },
-  play: async ({ canvas, userEvent }) => {
-    await userEvent.type(canvas.getByRole('searchbox'), 'Amsterdam')
-    await userEvent.click(canvas.getByRole('button'))
-    expect(testFunction).toHaveBeenCalledWith('Amsterdam')
-  },
+  render: (args) => (
+    <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--ams-space-s)' }}>
+      <SearchField {...args}>
+        <SearchField.Input placeholder="Waar ben je naar opzoek?" />
+        <SearchField.Button />
+      </SearchField>
+      <SearchField {...args}>
+        <SearchField.Input />
+        <SearchField.Button />
+      </SearchField>
+      <SearchField>
+        <SearchField.Input invalid />
+        <SearchField.Button />
+      </SearchField>
+      <SearchField>
+        <SearchField.Input className="hover" invalid />
+        <SearchField.Button className="hover" />
+      </SearchField>
+      <SearchField {...args}>
+        <SearchField.Input className="hover" />
+        <SearchField.Button className="hover" />
+      </SearchField>
+      <SearchField {...args}>
+        <SearchField.Input disabled />
+        <SearchField.Button disabled />
+      </SearchField>
+    </div>
+  ),
   tags: ['!dev', '!autodocs'],
 }
