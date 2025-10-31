@@ -17,7 +17,7 @@
   ],
   "private": true,
   "engines": {
-    "node": "^22",
+    "node": "^24",
     "npm": "^10",
     "pnpm": "^10"
   },
@@ -61,7 +61,7 @@
     "@eslint/js": "9.38.0",
     "@eslint/json": "0.13.2",
     "@eslint/markdown": "7.5.0",
-    "@types/node": "22.18.12",
+    "@types/node": "24.9.2",
     "@typescript-eslint/eslint-plugin": "8.46.2",
     "@typescript-eslint/parser": "8.46.2",
     "eslint": "9.38.0",
