@@ -39,6 +39,9 @@ export const Test: Story = {
       </Menu.Link>,
     ],
   },
+  parameters: {
+    delay: 500,
+  },
   render: (args) => <Menu {...args} />,
   tags: ['!dev', '!autodocs'],
 }
