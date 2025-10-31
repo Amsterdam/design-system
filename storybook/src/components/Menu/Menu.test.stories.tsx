@@ -20,24 +20,25 @@ export default meta
 type Story = StoryObj<typeof meta>
 
 export const Test: Story = {
-  render: (args) => (
-    <Menu {...args}>
-      <Menu.Link href="#" icon={<SvgPieChartFill />}>
-        Dashboard
-      </Menu.Link>
-      <Menu.Link href="#" icon={<SvgPieChartFill />}>
-        Projecten
-      </Menu.Link>
-      <Menu.Link href="#" icon={<SvgPieChartFill />}>
-        Rapportages
-      </Menu.Link>
-      <Menu.Link href="#" icon={<SvgPieChartFill />}>
-        Analyses
-      </Menu.Link>
-      <Menu.Link className="hover" href="#" icon={<SvgPieChartFill />}>
+  args: {
+    children: [
+      <Menu.Link className="hover" href="#" icon={<SvgPieChartFill />} key={1}>
         Instellingen
-      </Menu.Link>
-    </Menu>
-  ),
+      </Menu.Link>,
+      <Menu.Link href="#" icon={<SvgPieChartFill />} key={2}>
+        Dashboard
+      </Menu.Link>,
+      <Menu.Link href="#" icon={<SvgPieChartFill />} key={3}>
+        Projecten
+      </Menu.Link>,
+      <Menu.Link href="#" icon={<SvgPieChartFill />} key={4}>
+        Rapportages
+      </Menu.Link>,
+      <Menu.Link href="#" icon={<SvgPieChartFill />} key={5}>
+        Analyses
+      </Menu.Link>,
+    ],
+  },
+  render: (args) => <Menu {...args} />,
   tags: ['!dev', '!autodocs'],
 }
