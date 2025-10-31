@@ -6,7 +6,6 @@ on:
       - "**.md"
       - "**.mdx"
       - "**.txt"
-      - "**.yml"
 
 permissions:
   contents: read
