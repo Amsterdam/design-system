@@ -65,7 +65,7 @@ export const renderComponentVariants = (
   const props = docInfo?.props ?? {}
 
   // Always include a "default" variant
-  variants?.push('default')
+  const allVariants = [...(variants || []), 'default']
 
   /**
    * Maps prop types to possible values.
@@ -81,16 +81,18 @@ export const renderComponentVariants = (
         return ['Kapers aan de poort, kanonskogels op de Dam: de aanval op Amsterdam']
       default:
         // Handles union types (e.g. "color" | "inverse")
-        return prop.type.value?.map((variant) => variant.value.replace(/"/g, ''))
+        return prop.type.value?.map((variant) => variant.value.replace(/"/g, '')).sort()
     }
   }
 
   // Build a list of props and their possible values
-  const propsAndValues = Object.values(props as Record<string, PropType>).map((prop) => ({
-    name: prop.name,
-    propType: prop.type?.name,
-    values: getValues(prop),
-  }))
+  const propsAndValues = Object.values(props as Record<string, PropType>)
+    .sort((a, b) => a.name.localeCompare(b.name))
+    .map((prop) => ({
+      name: prop.name,
+      propType: prop.type?.name,
+      values: getValues(prop),
+    }))
 
   /**
    * Add special handling for some props that need specific defaults.
@@ -101,7 +103,14 @@ export const renderComponentVariants = (
 
     // Central mapping of special-case props → default test values
     const propDefaults = new Map([
-      ['color', { hasIcon: null, name: 'color', values: [...(values ?? []), 'default'] }],
+      [
+        'color',
+        {
+          hasIcon: null,
+          name: 'color',
+          values: [...(values ?? []), 'default'].sort(),
+        },
+      ],
       ['icon', { hasIcon: null, name: 'icon', values: [ChevronDownIcon] }],
       ['iconBefore', { hasIcon, name: 'iconBefore', values: [true] }],
       ['iconOnly', { hasIcon, name: 'iconOnly', values: [true] }],
@@ -146,7 +155,7 @@ export const renderComponentVariants = (
    * Just render one version for each variant (default, hovered, disabled, etc.).
    */
   if (completePropsWithValues.length === 0) {
-    const elements = variants.map((state) => (
+    const elements = allVariants.map((state) => (
       <div key={state}>
         {createElement(component, {
           ...args,
@@ -173,9 +182,9 @@ export const renderComponentVariants = (
         .filter(({ name }) => name !== sizes.sizeName)
         .flatMap(({ hasIcon, name, values }) => {
           return sizeArray.flatMap((size) =>
-            variants.flatMap((state) =>
+            allVariants.flatMap((state) =>
               (values ?? []).flatMap((variant) => {
-                const key = `${size}${name}${variant}${state}`
+                const key = `${size ?? 'none'}-${name}-${String(variant)}-${state}`
 
                 return (
                   <div
