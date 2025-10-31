@@ -8,6 +8,10 @@ on:
   pull_request:
     types: [reopened]
     branches-ignore: [main]
+    paths-ignore:
+      - "**.md"
+      - "**.mdx"
+      - "**.txt"
 
 permissions:
   contents: write
