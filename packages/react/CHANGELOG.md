@@ -8,7 +8,7 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 ### Deprecations
 
-The following prop should not be used anymore:
+The following prop will be removed in release 4.0.0:
 
 * **Menu.Link**: `color`
 
