@@ -6,6 +6,14 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 ## [2.1.0](https://github.com/Amsterdam/design-system/compare/design-system-css-v2.0.1...design-system-css-v2.1.0) (2025-10-31)
 
 
+### Deprecations
+
+The following class names will be removed in the next major release. If you use them in your code, please delete them.
+
+- `ams-menu__link--contrast`
+- `ams-menu__link--inverse`
+
+
 ### Features
 
 * **Fieldset, Label:** Allow Heading in Fieldset Legend and Label ([#2223](https://github.com/Amsterdam/design-system/issues/2223)) ([e1eabd2](https://github.com/Amsterdam/design-system/commit/e1eabd2d00f1e7412edae6affd8423c13630fdf2))
