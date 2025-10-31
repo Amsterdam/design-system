@@ -75,7 +75,7 @@ Also follow our [CSS](./packages/css/documentation/coding-conventions.md) and [R
 
 You can find the most up-to-date documentation on design and UX in the Storybook in this repository.
 
-If you want to add a component, first check if it’s already included in our [Figma Library](https://www.figma.com/design/9IGm6IdPUYizBNGsUnueBd).
+If you want to add a component, first check if it’s already included in our [Figma Library](https://www.figma.com/community/file/1530535540611888495/amsterdam-design-system-community-edition).
 
 If there is no design, or if you have questions about an existing design, please contact <designsystem@amsterdam.nl>.
 
