@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.1.0](https://github.com/Amsterdam/design-system/compare/design-system-tokens-v2.0.0...design-system-tokens-v2.1.0) (2025-10-31)
+
+
+### Features
+
+* **Menu:** Make background blue and add prop to toggle appearance ([#2244](https://github.com/Amsterdam/design-system/issues/2244)) ([f1cf29b](https://github.com/Amsterdam/design-system/commit/f1cf29b8db185d7bea50a63f287dd736d848eafe))
+
+
+### Bug Fixes
+
+* **Date Input, Time Input:** Add and use tokens that spell ‘calendar’ correctly ([#2229](https://github.com/Amsterdam/design-system/issues/2229)) ([9a1d432](https://github.com/Amsterdam/design-system/commit/9a1d432a0f2e726093a3cafabbf525f4734cc403))
+
 ## [2.0.0](https://github.com/Amsterdam/design-system/compare/design-system-tokens-v1.0.1...design-system-tokens-v2.0.0) (2025-09-17)
 
 
