@@ -15,7 +15,7 @@ We aim to create libraries for, or support otherwise, Figma, CSS, React, React N
 
 [A Storybook portal](https://designsystem.amsterdam/) demonstrates our components and documentation.
 
-Our [Figma Library](https://www.figma.com/file/9IGm6IdPUYizBNGsUnueBd/Amsterdam-Design-System?type=design&node-id=741-19633&mode=design&t=N8P3h3W67O0KNdga-0) contains the design of our components and patterns.
+Our [Figma Library](https://www.figma.com/community/file/1530535540611888495/amsterdam-design-system-community-edition) contains the design of our components and patterns.
 
 ## Getting started
 
