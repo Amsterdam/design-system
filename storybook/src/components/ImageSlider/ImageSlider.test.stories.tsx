@@ -22,7 +22,6 @@ type Story = StoryObj<typeof meta>
 
 export const Test: Story = {
   args: {
-    alt: '',
     images: [
       {
         alt: 'Bridge',
