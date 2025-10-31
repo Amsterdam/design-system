@@ -13,21 +13,26 @@ type LayoutProps = PropsWithChildren<HTMLAttributes<HTMLElement>>
 
 export const Layout = ({ children }: LayoutProps) => (
   <>
-    <Grid>
-      <Grid.Cell span="all">
-        <SkipLink href="#inhoud">Direct naar inhoud</SkipLink>
-      </Grid.Cell>
-    </Grid>
-    <MenuWithItems inWideWindow />
-    <PageHeader logoLink="/" logoLinkTitle="Naar de homepage van Applicatie" noMenuButtonOnWideWindow>
+    <SkipLink className="ams-page__area--skip-link" href="#inhoud">
+      Direct naar inhoud
+    </SkipLink>
+    <PageHeader
+      className="ams-page__area--header"
+      logoLink="/"
+      logoLinkTitle="Naar de homepage van Applicatie"
+      noMenuButtonOnWideWindow
+    >
       <Grid>
         <PageHeader.GridCellNarrowWindowOnly span="all">
           <MenuWithItems />
         </PageHeader.GridCellNarrowWindowOnly>
       </Grid>
     </PageHeader>
-    <main id="inhoud">{children}</main>
-    <PageFooter>
+    <MenuWithItems className="ams-page__area--menu" inWideWindow />
+    <main className="ams-page__area--body" id="inhoud">
+      {children}
+    </main>
+    <PageFooter className="ams-page__area--footer">
       <Heading className="ams-visually-hidden" level={2}>
         Over deze website
       </Heading>

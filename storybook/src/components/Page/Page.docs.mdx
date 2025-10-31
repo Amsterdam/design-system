@@ -17,8 +17,9 @@ import README from "../../../../packages/css/src/components/page/README.md?raw";
 ### With side menu
 
 Add `layout="application"` if your page uses a [Menu](/docs/components-navigation-menu--docs).
-Add the Menu as a direct child, next to the [Page Header](/docs/components-containers-page-header--docs), main content and [Page Footer](/docs/components-containers-page-footer--docs), and give it the `inWideWindow` prop.
+Add the Menu as a direct child, immediately after the [Page Header](/docs/components-containers-page-header--docs), and give it the `inWideWindow` prop.
 Include a copy of the Menu, without that prop, in the Page Header.
+Add `ams-page__area--*` classes to the direct children of the Page to place them in the correct grid areas.
 
 > **_TODO_** We should consolidate the `layout="application"` and `inWideWindow` props into one concept.
 
