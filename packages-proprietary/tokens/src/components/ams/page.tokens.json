@@ -4,7 +4,13 @@
       "background-color": { "value": "{ams.color.background}" },
       "max-inline-size": { "value": "90rem" },
       "application": {
-        "max-inline-size": { "value": "120rem" }
+        "max-inline-size": { "value": "120rem" },
+        "area-skip-link": {
+          "margin-inline-end": {
+            "value": "{ams.grid.padding-inline}",
+            "comment": "Must be the Grid inline padding, to make sure Skip Link and Grid line up"
+          }
+        }
       }
     }
   }
