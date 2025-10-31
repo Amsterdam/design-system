@@ -8,24 +8,19 @@ import README from "../../../../packages/css/src/components/page/README.md?raw";
 
 <Markdown>{README}</Markdown>
 
-## Example
-
-There’s not much to see in the example.
-In a wide window, or when zooming out, you’ll notice that the width of the pink box gets limited by the maximum width of the Page container.
-
 <Primary />
 
-## Structure
+<Controls />
 
-The outer containers of your website will look like this:
+## Examples
 
-```jsx
-<Page>
-  <PageHeader />
-  <Grid />
-  <Spotlight />
-  <Grid />
-  <Figure />
-  <PageFooter />
-</Page>
-```
+### With side menu
+
+Add `layout="application"` if your page uses a [Menu](/docs/components-navigation-menu--docs).
+Add the Menu as a direct child, immediately after the [Page Header](/docs/components-containers-page-header--docs), and give it the `inWideWindow` prop.
+Include a copy of the Menu, without that prop, in the Page Header.
+Add `ams-page__area--*` classes to the direct children of the Page to place them in the correct grid areas.
+
+> **_TODO_** We should consolidate the `layout="application"` and `inWideWindow` props into one concept.
+
+<Canvas of={PageStories.WithSideMenu} />

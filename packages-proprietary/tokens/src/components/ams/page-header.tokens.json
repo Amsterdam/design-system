@@ -61,7 +61,7 @@
       },
       "navigation": {
         "column-gap": { "value": "{ams.space.l}" },
-        "row-gap": { "value": "{ams.space.s}" }
+        "row-gap": { "value": "{ams.space.l}" }
       }
     }
   }
