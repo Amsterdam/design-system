@@ -8,6 +8,8 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 ### Deprecations
 
+The following icon will be removed in release 3.0.0:
+
 - `LinkedinIcon`, use `LinkedInIcon` instead.
 
 
