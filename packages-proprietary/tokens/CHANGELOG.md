@@ -6,6 +6,14 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 ## [2.1.0](https://github.com/Amsterdam/design-system/compare/design-system-tokens-v2.0.0...design-system-tokens-v2.1.0) (2025-10-31)
 
 
+### Deprecations
+
+The following tokens will be removed in the next major release. If you use them in your code, please delete them.
+
+- `ams.menu.link.contrast.color`, `ams.menu.link.contrast.hover.color`, `ams.menu.link.inverse.color`, `ams.menu.link.inverse.hover.color`.
+- `ams.date-input.disabled.calender-picker-indicator.background-image`, `ams.date-input.hover.calender-picker-indicator.background-image`, `ams.date-input.calender-picker-indicator.background-image`, `ams.date-input.calender-picker-indicator.cursor`.
+
+
 ### Features
 
 * **Menu:** Make background blue and add prop to toggle appearance ([#2244](https://github.com/Amsterdam/design-system/issues/2244)) ([f1cf29b](https://github.com/Amsterdam/design-system/commit/f1cf29b8db185d7bea50a63f287dd736d848eafe))
