@@ -51,7 +51,7 @@ const menuItems: MenuItem[] = [
 export const MenuWithItems = (props: MenuProps) => (
   <Menu {...props}>
     {menuItems.map(({ href, icon, text }) => (
-      <Menu.Link color="inverse" href={href} icon={icon} key={text}>
+      <Menu.Link href={href} icon={icon} key={text}>
         {text}
       </Menu.Link>
     ))}

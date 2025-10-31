@@ -73,13 +73,13 @@ export const WithSideMenu: Story = {
   render: ({ children, ...args }) => (
     <Page {...args}>
       <Menu inWideWindow>
-        <Menu.Link color="inverse" href="#" icon={<SettingsFillIcon />}>
+        <Menu.Link href="#" icon={<SettingsFillIcon />}>
           Menu item
         </Menu.Link>
       </Menu>
       <PageHeader brandName="Page Header" noMenuButtonOnWideWindow>
         <Menu>
-          <Menu.Link color="inverse" href="#" icon={<SettingsFillIcon />}>
+          <Menu.Link href="#" icon={<SettingsFillIcon />}>
             Menu item
           </Menu.Link>
         </Menu>
