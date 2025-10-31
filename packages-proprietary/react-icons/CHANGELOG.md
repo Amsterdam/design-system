@@ -6,6 +6,11 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 ## [1.1.1](https://github.com/Amsterdam/design-system/compare/design-system-react-icons-v1.1.0...design-system-react-icons-v1.1.1) (2025-10-31)
 
 
+### Deprecations
+
+- `LinkedinIcon`, use `LinkedInIcon` instead.
+
+
 ### Bug Fixes
 
 * **Icon:** Use capital letter ‘I’ in name of icon for LinkedIn ([#2230](https://github.com/Amsterdam/design-system/issues/2230)) ([fd6b10e](https://github.com/Amsterdam/design-system/commit/fd6b10e9885f4682047879baf16a99af30bc0225))
