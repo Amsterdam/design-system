@@ -6,6 +6,13 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 ## [2.1.0](https://github.com/Amsterdam/design-system/compare/design-system-react-v2.0.2...design-system-react-v2.1.0) (2025-10-31)
 
 
+### Deprecations
+
+The following prop should not be used anymore:
+
+* **Menu.Link**: `color`
+
+
 ### Features
 
 * **Fieldset, Label:** Allow Heading in Fieldset Legend and Label ([#2223](https://github.com/Amsterdam/design-system/issues/2223)) ([e1eabd2](https://github.com/Amsterdam/design-system/commit/e1eabd2d00f1e7412edae6affd8423c13630fdf2))
