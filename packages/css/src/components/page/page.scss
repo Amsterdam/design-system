@@ -20,6 +20,7 @@
 
   > .ams-page__area--skip-link {
     grid-area: skip-link;
+    margin-inline-end: var(--ams-page-application-area-skip-link-margin-inline-end);
   }
 
   > .ams-page__area--menu {
