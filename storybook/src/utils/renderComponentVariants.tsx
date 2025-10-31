@@ -168,6 +168,8 @@ export const renderComponentVariants = (
     return <div>{elements}</div>
   }
 
+  // NOTE: This line will be removed, just a test.
+
   /**
    * Case 2: Component has props with multiple values.
    * Render a grid/flex layout containing all combinations of:
