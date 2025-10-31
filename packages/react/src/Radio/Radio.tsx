@@ -10,7 +10,7 @@ import { forwardRef, useId } from 'react'
 
 import RadioIcon from './RadioIcon'
 
-export type RadioProps = PropsWithChildren<Omit<InputHTMLAttributes<HTMLInputElement>, 'aria-invalid' | 'type'>> & {
+export type RadioProps = {
   /**
    * An icon to display instead of the default icon.
    * @default RadioIcon
@@ -18,7 +18,7 @@ export type RadioProps = PropsWithChildren<Omit<InputHTMLAttributes<HTMLInputEle
   icon?: Function | ReactNode
   /** Whether the value fails a validation rule. */
   invalid?: boolean
-}
+} & PropsWithChildren<Omit<InputHTMLAttributes<HTMLInputElement>, 'aria-invalid' | 'type'>>
 
 /**
  * @see {@link https://designsystem.amsterdam/?path=/docs/components-forms-radio--docs Radio docs at Amsterdam Design System}

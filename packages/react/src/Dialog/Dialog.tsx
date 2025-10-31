@@ -11,14 +11,14 @@ import { forwardRef } from 'react'
 import { Heading } from '../Heading'
 import { IconButton } from '../IconButton'
 
-export type DialogProps = PropsWithChildren<DialogHTMLAttributes<HTMLDialogElement>> & {
+export type DialogProps = {
   /** The label for the button that dismisses the Dialog. */
   closeButtonLabel?: string
   /** Content for the footer, often one Button or an Action Group containing more of them. */
   footer?: ReactNode
   /** The text for the Heading. */
   heading: string
-}
+} & PropsWithChildren<DialogHTMLAttributes<HTMLDialogElement>>
 
 const closeDialog = (event: MouseEvent<HTMLButtonElement>) => event.currentTarget.closest('dialog')?.close()
 const openDialog = (id: string) => (document.querySelector(id) as HTMLDialogElement)?.showModal()

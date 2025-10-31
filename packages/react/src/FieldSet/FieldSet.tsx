@@ -12,18 +12,18 @@ import type { HintProps } from '../Hint'
 
 import { Hint } from '../Hint'
 
-export type FieldSetProps = HintProps &
-  PropsWithChildren<HTMLAttributes<HTMLFieldSetElement>> & {
-    /** Whether the field set has an input with a validation error. */
-    invalid?: boolean
-    /** The text for the caption. */
-    legend: string
-    /**
-     * Render a level 1 heading in the legend.
-     * Set this if the Field Set is the only content of the page.
-     */
-    legendIsPageHeading?: boolean
-  }
+export type FieldSetProps = {
+  /** Whether the field set has an input with a validation error. */
+  invalid?: boolean
+  /** The text for the caption. */
+  legend: string
+  /**
+   * Render a level 1 heading in the legend.
+   * Set this if the Field Set is the only content of the page.
+   */
+  legendIsPageHeading?: boolean
+} & HintProps &
+  PropsWithChildren<HTMLAttributes<HTMLFieldSetElement>>
 
 /**
  * @see {@link https://designsystem.amsterdam/?path=/docs/components-forms-field-set--docs Field Set docs at Amsterdam Design System}

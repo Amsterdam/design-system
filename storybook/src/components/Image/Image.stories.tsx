@@ -37,7 +37,7 @@ export const Default: Story = {
 export const ResponsiveImages: Story = {
   args: {
     alt: '',
-    sizes: '(max-width: 36rem) 640px, 50vw',
+    sizes: '(max-width: 37.5rem) 640px, 50vw',
     src: 'https://picsum.photos/1280/720',
     srcSet: 'https://picsum.photos/640/360 640w, https://picsum.photos/1280/720 1280w',
   },

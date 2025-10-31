@@ -11,12 +11,12 @@ import { forwardRef } from 'react'
 export const badgeColors = ['azure', 'lime', 'magenta', 'orange', 'purple', 'red', 'yellow'] as const
 type BadgeColor = (typeof badgeColors)[number]
 
-export type BadgeProps = HTMLAttributes<HTMLElement> & {
+export type BadgeProps = {
   /** The background colour. */
   color?: BadgeColor
   /** The text content. */
   label: string | number
-}
+} & HTMLAttributes<HTMLElement>
 
 /**
  * @see {@link https://designsystem.amsterdam/?path=/docs/components-feedback-badge--docs Badge docs at Amsterdam Design System}

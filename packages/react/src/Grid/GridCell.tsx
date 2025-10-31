@@ -28,11 +28,11 @@ type GridCellSpanAndStartProps = {
   start?: GridColumnNumber | GridColumnNumbers
 }
 
-export type GridCellProps = (GridCellSpanAllProp | GridCellSpanAndStartProps) &
-  PropsWithChildren<HTMLAttributes<HTMLElement>> & {
-    /** The HTML tag to use. */
-    as?: GridCellTag
-  }
+export type GridCellProps = {
+  /** The HTML tag to use. */
+  as?: GridCellTag
+} & PropsWithChildren<HTMLAttributes<HTMLElement>> &
+  (GridCellSpanAllProp | GridCellSpanAndStartProps)
 
 export const GridCell = forwardRef(
   ({ as: Tag = 'div', children, className, span, start, ...restProps }: GridCellProps, ref: any) => (

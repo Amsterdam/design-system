@@ -5,10 +5,10 @@
 
 import type { PaginationProps } from './Pagination'
 
-type LinkItemProps = Pick<PaginationProps, 'linkComponent' | 'linkTemplate'> & {
+type LinkItemProps = {
   currentPage: PaginationProps['page']
   pageNumber: number
-}
+} & Pick<PaginationProps, 'linkComponent' | 'linkTemplate'>
 
 export const LinkItem = ({ currentPage, linkComponent, linkTemplate, pageNumber }: LinkItemProps) => {
   if (!linkComponent) return null

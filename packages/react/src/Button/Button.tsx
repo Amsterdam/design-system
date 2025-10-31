@@ -24,10 +24,10 @@ type IconOnlyProp = {
   iconOnly?: boolean
 }
 
-type IconButtonProps = (IconBeforeProp | IconOnlyProp) & {
+type IconButtonProps = {
   /** Adds an icon to the button, showing it after the label. */
   icon: IconProps['svg']
-}
+} & (IconBeforeProp | IconOnlyProp)
 
 type TextButtonProps = {
   icon?: never
@@ -38,11 +38,11 @@ type TextButtonProps = {
 export const buttonVariants = ['primary', 'secondary', 'tertiary'] as const
 type ButtonVariant = (typeof buttonVariants)[number]
 
-export type ButtonProps = (IconButtonProps | TextButtonProps) &
-  PropsWithChildren<ButtonHTMLAttributes<HTMLButtonElement>> & {
-    /** The level of prominence. Use a primary button only once per page or section. */
-    variant?: ButtonVariant
-  }
+export type ButtonProps = {
+  /** The level of prominence. Use a primary button only once per page or section. */
+  variant?: ButtonVariant
+} & PropsWithChildren<ButtonHTMLAttributes<HTMLButtonElement>> &
+  (IconButtonProps | TextButtonProps)
 
 /**
  * @see {@link https://designsystem.amsterdam/?path=/docs/components-buttons-button--docs Button docs at Amsterdam Design System}

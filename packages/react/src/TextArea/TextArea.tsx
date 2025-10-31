@@ -8,7 +8,7 @@ import type { ForwardedRef, TextareaHTMLAttributes } from 'react'
 import { clsx } from 'clsx'
 import { forwardRef } from 'react'
 
-export type TextAreaProps = Omit<TextareaHTMLAttributes<HTMLTextAreaElement>, 'aria-invalid'> & {
+export type TextAreaProps = {
   /** Whether the value fails a validation rule. */
   invalid?: boolean
   /**
@@ -16,7 +16,7 @@ export type TextAreaProps = Omit<TextareaHTMLAttributes<HTMLTextAreaElement>, 'a
    * Note: this feature is not fully supported in Safari on iOS.
    */
   resize?: 'none' | 'horizontal' | 'vertical'
-}
+} & Omit<TextareaHTMLAttributes<HTMLTextAreaElement>, 'aria-invalid'>
 
 /**
  * @see {@link https://designsystem.amsterdam/?path=/docs/components-forms-text-area--docs Text Area docs at Amsterdam Design System}

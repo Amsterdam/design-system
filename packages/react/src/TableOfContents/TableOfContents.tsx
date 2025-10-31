@@ -14,7 +14,7 @@ import { Heading } from '../Heading'
 import { TableOfContentsLink } from './TableOfContentsLink'
 import { TableOfContentsList } from './TableOfContentsList'
 
-export type TableOfContentsProps = PropsWithChildren<HTMLAttributes<HTMLElement>> & {
+export type TableOfContentsProps = {
   /** The text for the Heading. */
   heading?: string
   /**
@@ -22,7 +22,7 @@ export type TableOfContentsProps = PropsWithChildren<HTMLAttributes<HTMLElement>
    * Visually, it always has the size of a level 3 Heading.
    */
   headingLevel?: HeadingProps['level']
-}
+} & PropsWithChildren<HTMLAttributes<HTMLElement>>
 
 // The 'ams-table-of-contents__heading' class is @deprecated and will be removed in a future release.
 

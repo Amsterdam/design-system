@@ -1,5 +1,5 @@
 {
-  "version": "1.1.0",
+  "version": "1.1.1",
   "author": "Design System Team, City of Amsterdam <designsystem@amsterdam.nl>",
   "description": "All icons from the Amsterdam Design System as React components. Use it to use the correct icons in your React project.",
   "homepage": "https://designsystem.amsterdam",
@@ -34,12 +34,12 @@
     "generate": "svgr ../assets/icons && prettier --write src && eslint src --fix"
   },
   "devDependencies": {
-    "@rollup/plugin-node-resolve": "16.0.2",
+    "@rollup/plugin-node-resolve": "16.0.3",
     "@rollup/pluginutils": "5.3.0",
     "@svgr/cli": "8.1.0",
-    "@types/react": "18.3.23",
+    "@types/react": "18.3.26",
     "react": "18.3.1",
-    "rollup": "4.52.4",
+    "rollup": "4.52.5",
     "rollup-plugin-peer-deps-external": "2.2.4",
     "rollup-plugin-typescript2": "0.36.0"
   },

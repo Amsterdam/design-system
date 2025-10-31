@@ -11,10 +11,10 @@ import { forwardRef } from 'react'
 import { SelectOption } from './SelectOption'
 import { SelectOptionGroup } from './SelectOptionGroup'
 
-export type SelectProps = PropsWithChildren<Omit<SelectHTMLAttributes<HTMLSelectElement>, 'aria-invalid'>> & {
+export type SelectProps = {
   /** Whether the value fails a validation rule. */
   invalid?: boolean
-}
+} & PropsWithChildren<Omit<SelectHTMLAttributes<HTMLSelectElement>, 'aria-invalid'>>
 
 const SelectRoot = forwardRef(
   ({ children, className, invalid, ...restProps }: SelectProps, ref: ForwardedRef<HTMLSelectElement>) => (

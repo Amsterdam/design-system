@@ -15,12 +15,12 @@ import { Heading } from '../Heading'
 import { Icon } from '../Icon/Icon'
 import AccordionContext from './AccordionContext'
 
-export type AccordionSectionProps = PropsWithChildren<HTMLAttributes<HTMLElement>> & {
+export type AccordionSectionProps = {
   /** Whether the content is displayed initially. */
   expanded?: boolean
   /** The heading text. */
   label: string
-}
+} & PropsWithChildren<HTMLAttributes<HTMLElement>>
 
 // The 'ams-accordion__header' class is @deprecated and will be removed in a future release.
 

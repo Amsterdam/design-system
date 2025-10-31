@@ -11,12 +11,12 @@ import { forwardRef } from 'react'
 export const dateInputTypes = ['date', 'datetime-local'] as const
 type DateInputType = (typeof dateInputTypes)[number]
 
-export type DateInputProps = Omit<InputHTMLAttributes<HTMLInputElement>, 'aria-invalid' | 'type'> & {
+export type DateInputProps = {
   /** Whether the value fails a validation rule. */
   invalid?: boolean
   /** The kind of data that the user should provide. */
   type?: DateInputType
-}
+} & Omit<InputHTMLAttributes<HTMLInputElement>, 'aria-invalid' | 'type'>
 
 /**
  * @see {@link https://designsystem.amsterdam/?path=/docs/components-forms-date-input--docs Date Input docs at Amsterdam Design System}

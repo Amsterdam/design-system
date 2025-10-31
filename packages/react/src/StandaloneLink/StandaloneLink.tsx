@@ -13,7 +13,7 @@ import type { IconProps } from '../Icon'
 
 import { Icon } from '../Icon'
 
-export type StandaloneLinkProps = Omit<AnchorHTMLAttributes<HTMLAnchorElement>, 'placeholder'> & {
+export type StandaloneLinkProps = {
   /** Changes the text colour for readability on a light or dark background. */
   color?: 'contrast' | 'inverse'
   /**
@@ -21,7 +21,7 @@ export type StandaloneLinkProps = Omit<AnchorHTMLAttributes<HTMLAnchorElement>, 
    * @default ChevronForwardIcon
    */
   icon?: IconProps['svg']
-}
+} & Omit<AnchorHTMLAttributes<HTMLAnchorElement>, 'placeholder'>
 
 // The `ams-standalone-link--with-icon` class is @deprecated and will be removed in a future release.
 

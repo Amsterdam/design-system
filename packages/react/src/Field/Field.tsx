@@ -8,10 +8,10 @@ import type { ForwardedRef, HTMLAttributes, PropsWithChildren } from 'react'
 import { clsx } from 'clsx'
 import { forwardRef } from 'react'
 
-export type FieldProps = PropsWithChildren<HTMLAttributes<HTMLDivElement>> & {
+export type FieldProps = {
   /** Whether the field has an input with a validation error */
   invalid?: boolean
-}
+} & PropsWithChildren<HTMLAttributes<HTMLDivElement>>
 
 /**
  * @see {@link https://designsystem.amsterdam/?path=/docs/components-forms-field--docs Field docs at Amsterdam Design System}

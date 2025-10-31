@@ -24,7 +24,7 @@ export const Default: Story = {
         alt=""
         aspectRatio="16:5"
         key={1}
-        sizes="(max-width: 36rem) 640px, (max-width: 68rem) 1280px, 1440px"
+        sizes="(max-width: 37.5rem) 640px, (max-width: 72.5rem) 1280px, 1440px"
         src="https://picsum.photos/1440/450"
         srcSet="https://picsum.photos/640/200 640w, https://picsum.photos/1280/400 1280w, https://picsum.photos/1440/450 1440w"
       />,

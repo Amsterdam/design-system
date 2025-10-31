@@ -25,10 +25,10 @@ export type LogoBrand =
   | 'stadsbank-van-lening'
   | 'vga-verzekeringen'
 
-export type LogoProps = SVGProps<SVGSVGElement> & {
+export type LogoProps = {
   /** The name of the brand for which to display the logo. */
   brand?: LogoBrand
-}
+} & SVGProps<SVGSVGElement>
 
 type LogoConfigItem = {
   label: string

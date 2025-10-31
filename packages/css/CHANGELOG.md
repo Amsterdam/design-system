@@ -3,6 +3,28 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.1.0](https://github.com/Amsterdam/design-system/compare/design-system-css-v2.0.1...design-system-css-v2.1.0) (2025-10-31)
+
+
+### Deprecations
+
+The following class names will be removed in release 4.0.0. If you use them in your code, please delete them.
+
+- `ams-menu__link--contrast`
+- `ams-menu__link--inverse`
+
+
+### Features
+
+* **Fieldset, Label:** Allow Heading in Fieldset Legend and Label ([#2223](https://github.com/Amsterdam/design-system/issues/2223)) ([e1eabd2](https://github.com/Amsterdam/design-system/commit/e1eabd2d00f1e7412edae6affd8423c13630fdf2))
+* **Menu:** Make background blue and add prop to toggle appearance ([#2244](https://github.com/Amsterdam/design-system/issues/2244)) ([f1cf29b](https://github.com/Amsterdam/design-system/commit/f1cf29b8db185d7bea50a63f287dd736d848eafe))
+
+
+### Bug Fixes
+
+* **Breakout:** Prevent horizontal overflow in narrow and medium-wide windows ([#2235](https://github.com/Amsterdam/design-system/issues/2235)) ([7703bd8](https://github.com/Amsterdam/design-system/commit/7703bd845f55e6056cd38a5d6b0ceef74bb5e4b1))
+* **Date Input, Time Input:** Add and use tokens that spell ‘calendar’ correctly ([#2229](https://github.com/Amsterdam/design-system/issues/2229)) ([9a1d432](https://github.com/Amsterdam/design-system/commit/9a1d432a0f2e726093a3cafabbf525f4734cc403))
+
 ## [2.0.1](https://github.com/Amsterdam/design-system/compare/design-system-css-v2.0.0...design-system-css-v2.0.1) (2025-09-26)
 
 
@@ -20,7 +42,7 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 ### Deprecations
 
-The following class names will be removed in the next major release. If you use them in your code, please delete them.
+The following class names will be removed in release 4.0.0. If you use them in your code, please delete them.
 
 * `ams-accordion__header`
 * `ams-icon--heading-0`
