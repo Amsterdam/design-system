@@ -8,14 +8,14 @@ import type { ForwardedRef, HTMLAttributes, PropsWithChildren } from 'react'
 import { clsx } from 'clsx'
 import { forwardRef } from 'react'
 
-export type PageProps = PropsWithChildren<HTMLAttributes<HTMLDivElement>> & {
+export type PageProps = {
   /*
    * The layout to apply to the page.
    * The default just stacks its children vertically and centers itself in the window.
    * The application layout requires specific child components.
    */
   layout?: 'application'
-}
+} & PropsWithChildren<HTMLAttributes<HTMLDivElement>>
 
 /**
  * @see {@link https://designsystem.amsterdam/?path=/docs/components-containers-page--docs Page docs at Amsterdam Design System}
