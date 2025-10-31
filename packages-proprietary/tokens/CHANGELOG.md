@@ -8,7 +8,7 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 ### Deprecations
 
-The following tokens will be removed in the next major release. If you use them in your code, please delete them.
+The following tokens will be removed in release 4.0.0. If you use them in your code, please delete them.
 
 - `ams.menu.link.contrast.color`, `ams.menu.link.contrast.hover.color`, `ams.menu.link.inverse.color`, `ams.menu.link.inverse.hover.color`.
 - `ams.date-input.disabled.calender-picker-indicator.background-image`, `ams.date-input.hover.calender-picker-indicator.background-image`, `ams.date-input.calender-picker-indicator.background-image`, `ams.date-input.calender-picker-indicator.cursor`.
