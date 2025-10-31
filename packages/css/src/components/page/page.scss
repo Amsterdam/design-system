@@ -18,24 +18,23 @@
   grid-template-columns: auto 1fr;
   max-inline-size: var(--ams-page-application-max-inline-size);
 
-  // TODO Find a better way to target the Grid that contains the Skip Link.
-  > :first-child {
+  > .ams-page__area--skip-link {
     grid-area: skip-link;
   }
 
-  > .ams-menu {
+  > .ams-page__area--menu {
     grid-area: menu;
   }
 
-  > .ams-page-header {
+  > .ams-page__area--header {
     grid-area: header;
   }
 
-  > main {
+  > .ams-page__area--body {
     grid-area: body;
   }
 
-  > .ams-page-footer {
+  > .ams-page__area--footer {
     grid-area: footer;
   }
 }

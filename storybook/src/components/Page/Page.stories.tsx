@@ -5,7 +5,7 @@
 
 import type { Meta, StoryObj } from '@storybook/react-vite'
 
-import { Grid, Heading, Menu, PageFooter, PageHeader } from '@amsterdam/design-system-react'
+import { Grid, Heading, Menu, PageFooter, PageHeader, SkipLink } from '@amsterdam/design-system-react'
 import { SettingsFillIcon } from '@amsterdam/design-system-react-icons'
 import { Page } from '@amsterdam/design-system-react/src'
 
@@ -72,20 +72,25 @@ export const WithSideMenu: Story = {
   },
   render: ({ children, ...args }) => (
     <Page {...args}>
-      <Menu inWideWindow>
-        <Menu.Link href="#" icon={<SettingsFillIcon />}>
-          Menu item
-        </Menu.Link>
-      </Menu>
-      <PageHeader brandName="Page Header" noMenuButtonOnWideWindow>
+      <SkipLink className="ams-page__area--skip-link" href="#inhoud">
+        Direct naar inhoud
+      </SkipLink>
+      <PageHeader brandName="Page Header" className="ams-page__area--header" noMenuButtonOnWideWindow>
         <Menu>
           <Menu.Link href="#" icon={<SettingsFillIcon />}>
             Menu item
           </Menu.Link>
         </Menu>
       </PageHeader>
-      <main id="inhoud">{children}</main>
-      <PageFooter>
+      <Menu className="ams-page__area--menu" inWideWindow>
+        <Menu.Link href="#" icon={<SettingsFillIcon />}>
+          Menu item
+        </Menu.Link>
+      </Menu>
+      <main className="ams-page__area--body" id="inhoud">
+        {children}
+      </main>
+      <PageFooter className="ams-page__area--footer">
         <Heading className="ams-visually-hidden" level={2}>
           Over deze website
         </Heading>
