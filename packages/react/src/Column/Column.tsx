@@ -16,7 +16,7 @@ type ColumnTag = (typeof columnTags)[number]
 export const columnGapSizes = ['none', 'x-small', 'small', 'large', 'x-large'] as const
 type ColumnGap = (typeof columnGapSizes)[number]
 
-export type ColumnProps = PropsWithChildren<HTMLAttributes<HTMLElement>> & {
+export type ColumnProps = {
   /**
    * The vertical alignment of the items in the column.
    * @default start
@@ -37,7 +37,7 @@ export type ColumnProps = PropsWithChildren<HTMLAttributes<HTMLElement>> & {
    * @default medium
    */
   gap?: ColumnGap
-}
+} & PropsWithChildren<HTMLAttributes<HTMLElement>>
 
 /**
  * @see {@link https://designsystem.amsterdam/?path=/docs/components-layout-column--docs Column docs at Amsterdam Design System}

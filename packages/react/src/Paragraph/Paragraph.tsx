@@ -9,12 +9,12 @@ import type { ForwardedRef, HTMLAttributes, PropsWithChildren } from 'react'
 import { clsx } from 'clsx'
 import { forwardRef } from 'react'
 
-export type ParagraphProps = PropsWithChildren<HTMLAttributes<HTMLParagraphElement>> & {
+export type ParagraphProps = {
   /** Changes the text colour for readability on a dark background. */
   color?: 'inverse'
   /** The size of the text. */
   size?: 'small' | 'large'
-}
+} & PropsWithChildren<HTMLAttributes<HTMLParagraphElement>>
 
 /**
  * @see {@link https://designsystem.amsterdam/?path=/docs/components-text-paragraph--docs Paragraph docs at Amsterdam Design System}
