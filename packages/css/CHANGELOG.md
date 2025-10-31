@@ -8,7 +8,7 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 ### Deprecations
 
-The following class names will be removed in the next major release. If you use them in your code, please delete them.
+The following class names will be removed in release 4.0.0. If you use them in your code, please delete them.
 
 - `ams-menu__link--contrast`
 - `ams-menu__link--inverse`
