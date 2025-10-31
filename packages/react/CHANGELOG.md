@@ -49,7 +49,7 @@ The following prop will be removed in release 4.0.0:
 
 ### Deprecations
 
-The following props and prop values should not be used anymore:
+The following props and prop values will be removed in release 4.0.0:
 
 * **Accordion**: `headingLevel` 1
 * **Heading**: `size` 'level-6'

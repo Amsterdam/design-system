@@ -42,7 +42,7 @@ The following class names will be removed in release 4.0.0. If you use them in y
 
 ### Deprecations
 
-The following class names will be removed in the next major release. If you use them in your code, please delete them.
+The following class names will be removed in release 4.0.0. If you use them in your code, please delete them.
 
 * `ams-accordion__header`
 * `ams-icon--heading-0`

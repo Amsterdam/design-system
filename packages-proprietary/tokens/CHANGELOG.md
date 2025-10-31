@@ -32,7 +32,7 @@ The following tokens will be removed in release 4.0.0. If you use them in your c
 
 ### Deprecations
 
-The following tokens will be removed in the next major release. If you use them in your code, please delete them.
+The following tokens will be removed in release 4.0.0. If you use them in your code, please delete them.
 
 * `ams.accordion.panel.*` and some tokens in `ams.accordion.button`
 * `ams.checkbox.hover.text-decoration-thickness` and `ams.checkbox.rectangle.*`

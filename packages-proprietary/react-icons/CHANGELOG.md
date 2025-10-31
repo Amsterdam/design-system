@@ -8,8 +8,11 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 ### Deprecations
 
-The following icon will be removed in release 3.0.0:
+The following icons will be removed in release 3.0.0:
 
+- `CheckMarkCircle` and `CheckMarkCircleFill`, use `Success` and `SuccessFill` instead.
+- `Cogwheel` and `CogwheelFill`, use `Settings` and `SettingsFill` instead.
+- `HandWithEuroCoin`, use `PersonsWithEuroCoin` instead.
 - `LinkedinIcon`, use `LinkedInIcon` instead.
 
 
