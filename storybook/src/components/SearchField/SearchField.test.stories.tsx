@@ -22,16 +22,25 @@ type Story = StoryObj<typeof meta>
 const testFn = fn()
 
 export const Test: Story = {
+  args: {
+    onSubmit: (event) => {
+      event.preventDefault()
+      const form = event.target as HTMLFormElement
+      const searchInput = form.querySelector('input[type="search"]') as HTMLInputElement
+      const searchValue = searchInput?.value
+      testFn(searchValue)
+    },
+  },
   play: async ({ canvas, userEvent }) => {
-    await userEvent.type(canvas.getByRole('searchbox'), 'Amsterdam')
-    await userEvent.click(canvas.getByRole('button'))
+    await userEvent.type(canvas.getByTestId('searchbox'), 'Amsterdam')
+    await userEvent.click(canvas.getByTestId('button'))
     expect(testFn).toHaveBeenCalledWith('Amsterdam')
   },
   render: (args) => (
     <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--ams-space-s)' }}>
       <SearchField {...args}>
-        <SearchField.Input placeholder="Waar ben je naar opzoek?" />
-        <SearchField.Button />
+        <SearchField.Input data-testid="searchbox" placeholder="Waar ben je naar opzoek?" />
+        <SearchField.Button data-testid="button" onClick={testFn} />
       </SearchField>
       <SearchField {...args}>
         <SearchField.Input />

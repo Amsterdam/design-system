@@ -67,6 +67,7 @@ export const Test: Story = {
 
     await expect(gegevensParagraph).toBeVisible()
     await userEvent.click(aanslagenTab)
+    await new Promise((resolve) => setTimeout(resolve, 500)) // This delay is required to finish the first tab opening
     await expect(canvas.getByTestId('aanslagen-panel')).toBeVisible()
     await expect(gegevensParagraph).not.toBeVisible()
   },

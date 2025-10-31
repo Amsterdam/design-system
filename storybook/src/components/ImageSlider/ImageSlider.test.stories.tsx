@@ -21,6 +21,31 @@ export default meta
 type Story = StoryObj<typeof meta>
 
 export const Test: Story = {
+  args: {
+    alt: '',
+    images: [
+      {
+        alt: 'Bridge',
+        src: 'https://picsum.photos/id/122/1280/720',
+      },
+      {
+        alt: 'Bunker',
+        src: 'https://picsum.photos/id/101/1280/720',
+      },
+      {
+        alt: 'Chairs',
+        src: 'https://picsum.photos/id/153/1280/720',
+      },
+      {
+        alt: 'Droplet',
+        src: 'https://picsum.photos/id/159/1280/720',
+      },
+      {
+        alt: 'Dew',
+        src: 'https://picsum.photos/id/123/1280/720',
+      },
+    ],
+  },
   play: async ({ canvas, userEvent }) => {
     const imageSlidesContainer = canvas.queryAllByRole('group')?.at(0)?.children
     const imageSlides = Array.from(imageSlidesContainer ?? [])
@@ -52,33 +77,11 @@ export const Test: Story = {
       }
     }
   },
-  render: () =>
-    renderComponentVariants(ImageSlider, {
-      args: {
-        alt: '',
-        images: [
-          {
-            alt: 'Bridge',
-            src: 'https://picsum.photos/id/122/1280/720',
-          },
-          {
-            alt: 'Bunker',
-            src: 'https://picsum.photos/id/101/1280/720',
-          },
-          {
-            alt: 'Chairs',
-            src: 'https://picsum.photos/id/153/1280/720',
-          },
-          {
-            alt: 'Droplet',
-            src: 'https://picsum.photos/id/159/1280/720',
-          },
-          {
-            alt: 'Dew',
-            src: 'https://picsum.photos/id/123/1280/720',
-          },
-        ],
-      },
-    }),
+  render: (args) => (
+    <>
+      <ImageSlider {...args} data-testid="interaction-test" />
+      {renderComponentVariants(ImageSlider, { args })}
+    </>
+  ),
   tags: ['!dev', '!autodocs'],
 }

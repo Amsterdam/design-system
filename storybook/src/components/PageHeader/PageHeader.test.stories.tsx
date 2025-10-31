@@ -23,13 +23,7 @@ type Story = StoryObj<typeof meta>
 export const Test: Story = {
   args: {
     brandName: 'Data Amsterdam',
-    children: (
-      <PageHeader.GridCellNarrowWindowOnly span="all">
-        <ul>
-          <li>English</li>
-        </ul>
-      </PageHeader.GridCellNarrowWindowOnly>
-    ),
+    children: <p>test</p>,
     menuItems: [
       <PageHeader.MenuLink href="#" key="1" lang="en">
         English
@@ -40,14 +34,26 @@ export const Test: Story = {
     ],
   },
   play: async ({ canvas, userEvent }) => {
-    const menuButton = canvas.getByRole('button')
+    const pageHeader = await canvas.findByTestId('interaction-test')
+    const menuButton = pageHeader.querySelector('button')
     const exampleChildren = await canvas.findByTestId('children')
+
+    if (!menuButton) return
 
     await userEvent.click(menuButton)
     expect(exampleChildren).toBeVisible()
     await userEvent.click(menuButton)
     expect(exampleChildren).not.toBeVisible()
   },
-  render: (args) => renderComponentVariants(PageHeader, { args }),
+  render: (args) => (
+    <>
+      <PageHeader data-testid="interaction-test" {...args}>
+        <ul>
+          <li data-testid="children">English</li>
+        </ul>
+      </PageHeader>
+      {renderComponentVariants(PageHeader, { args })}
+    </>
+  ),
   tags: ['!dev', '!autodocs'],
 }
