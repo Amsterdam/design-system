@@ -3,6 +3,27 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.1.0](https://github.com/Amsterdam/design-system/compare/design-system-react-v2.0.2...design-system-react-v2.1.0) (2025-10-31)
+
+
+### Deprecations
+
+The following prop will be removed in release 4.0.0:
+
+* **Menu.Link**: `color`
+
+
+### Features
+
+* **Fieldset, Label:** Allow Heading in Fieldset Legend and Label ([#2223](https://github.com/Amsterdam/design-system/issues/2223)) ([e1eabd2](https://github.com/Amsterdam/design-system/commit/e1eabd2d00f1e7412edae6affd8423c13630fdf2))
+* **Menu:** Make background blue and add prop to toggle appearance ([#2244](https://github.com/Amsterdam/design-system/issues/2244)) ([f1cf29b](https://github.com/Amsterdam/design-system/commit/f1cf29b8db185d7bea50a63f287dd736d848eafe))
+
+
+### Bug Fixes
+
+* **Search Field:** Make Button submit the input ([#2273](https://github.com/Amsterdam/design-system/issues/2273)) ([d3473bc](https://github.com/Amsterdam/design-system/commit/d3473bccaf35fabced341d276a9168e949a9dc59))
+* Use correct breakpoint values ([#2264](https://github.com/Amsterdam/design-system/issues/2264)) ([530fb83](https://github.com/Amsterdam/design-system/commit/530fb833b29a6f542c4a1344032094c0822bc078))
+
 ## [2.0.2](https://github.com/Amsterdam/design-system/compare/design-system-react-v2.0.1...design-system-react-v2.0.2) (2025-09-26)
 
 
@@ -28,7 +49,7 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 ### Deprecations
 
-The following props and prop values should not be used anymore:
+The following props and prop values will be removed in release 4.0.0:
 
 * **Accordion**: `headingLevel` 1
 * **Heading**: `size` 'level-6'
