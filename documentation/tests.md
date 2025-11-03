@@ -31,6 +31,16 @@ Within `component.test.stories.tsx`, the tests can be set up with [`@storybook/t
 
 The test stories are hidden from the component documentation within Storybook.
 
+## How is Chromatic integrated?
+
+Chromatic uses two tokens to run: a project ID and a [secret token](https://www.chromatic.com/manage?appId=68db9df886b46f139748c074&view=configure). The project ID is public within the [repo](https://github.com/Amsterdam/design-system/blob/develop/storybook/chromatic.config.json), while the secret token is used in the [workflow](https://github.com/Amsterdam/design-system/blob/develop/.github/workflows/chromatic.yml).
+
+The secret is configured in two places: [within the repo secrets](https://github.com/Amsterdam/design-system/settings/secrets/actions) and the Dependabot secrets. Since Dependabot does not have default access to repo secrets, separate secrets for Dependabot are configured on the [Dependabot secrets configuration page](https://github.com/Amsterdam/design-system/settings/secrets/dependabot).
+
+Chromatic also uses a [GitHub App](https://github.com/apps/chromatic-com) to integrate with the repository. This app was installed by the enablement team, which is also part of our team within Chromatic. Occasionally, the enablement team may need to refresh the connection.
+
+On every pull request, the [workflow](https://github.com/Amsterdam/design-system/blob/develop/.github/workflows/chromatic.yml) builds Storybook and publishes it to Chromatic, where the tests are run. The test status is displayed in the pull request through the app integration.
+
 ## How to get access
 
 Ask a team member to [add you to the Chromatic Team](https://www.chromatic.com/docs/collaborators/).
