@@ -1,3 +1,8 @@
+/**
+ * @license EUPL-1.2+
+ * Copyright Gemeente Amsterdam
+ */
+
 import react from '@vitejs/plugin-react'
 import { defineConfig } from 'vite'
 

@@ -1,3 +1,8 @@
+/**
+ * @license EUPL-1.2+
+ * Copyright Gemeente Amsterdam
+ */
+
 import type { StorybookConfig } from '@storybook/react-vite'
 
 import remarkGfm from 'remark-gfm'
@@ -18,6 +23,7 @@ const config: StorybookConfig = {
       },
     },
     '@linus_janns/storybook-addon-html',
+    'storybook-addon-pseudo-states',
   ],
 
   core: {

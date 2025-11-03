@@ -10,10 +10,10 @@ import { forwardRef, useContext, useMemo } from 'react'
 
 import { ImageSliderContext } from './ImageSliderContext'
 
-export type ImageSliderItemProps = PropsWithChildren<HTMLAttributes<HTMLDivElement>> & {
+export type ImageSliderItemProps = {
   /** The identifier of the item. Must match the key or order of the slides (starting at 0). */
   slideId: number
-}
+} & PropsWithChildren<HTMLAttributes<HTMLDivElement>>
 
 export const ImageSliderItem = forwardRef(
   ({ children, className, slideId, ...restProps }: ImageSliderItemProps, ref: ForwardedRef<HTMLDivElement>) => {

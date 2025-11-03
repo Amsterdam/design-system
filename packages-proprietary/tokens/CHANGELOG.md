@@ -3,6 +3,26 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.1.0](https://github.com/Amsterdam/design-system/compare/design-system-tokens-v2.0.0...design-system-tokens-v2.1.0) (2025-10-31)
+
+
+### Deprecations
+
+The following tokens will be removed in release 4.0.0. If you use them in your code, please delete them.
+
+- `ams.menu.link.contrast.color`, `ams.menu.link.contrast.hover.color`, `ams.menu.link.inverse.color`, `ams.menu.link.inverse.hover.color`.
+- `ams.date-input.disabled.calender-picker-indicator.background-image`, `ams.date-input.hover.calender-picker-indicator.background-image`, `ams.date-input.calender-picker-indicator.background-image`, `ams.date-input.calender-picker-indicator.cursor`.
+
+
+### Features
+
+* **Menu:** Make background blue and add prop to toggle appearance ([#2244](https://github.com/Amsterdam/design-system/issues/2244)) ([f1cf29b](https://github.com/Amsterdam/design-system/commit/f1cf29b8db185d7bea50a63f287dd736d848eafe))
+
+
+### Bug Fixes
+
+* **Date Input, Time Input:** Add and use tokens that spell ‘calendar’ correctly ([#2229](https://github.com/Amsterdam/design-system/issues/2229)) ([9a1d432](https://github.com/Amsterdam/design-system/commit/9a1d432a0f2e726093a3cafabbf525f4734cc403))
+
 ## [2.0.0](https://github.com/Amsterdam/design-system/compare/design-system-tokens-v1.0.1...design-system-tokens-v2.0.0) (2025-09-17)
 
 
@@ -12,14 +32,14 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 ### Deprecations
 
-The following tokens will be removed in the next major release. If you use them in your code, please delete them.
+The following tokens will be removed in release 4.0.0. If you use them in your code, please delete them.
 
 * `ams.accordion.panel.*` and some tokens in `ams.accordion.button`
 * `ams.checkbox.hover.text-decoration-thickness` and `ams.checkbox.rectangle.*`
 * `ams.color.interactive.secondary`
 * `ams.icon.heading-0.*`
 * `ams.page-heading.*`
-* `ams.standalone-link.with-icon.*`, `ams.standalone-link.hover.text-decoration-thickness`  and `ams.standalone-link.hover.text-underline-offset` 
+* `ams.standalone-link.with-icon.*`, `ams.standalone-link.hover.text-decoration-thickness`  and `ams.standalone-link.hover.text-underline-offset`
 * `ams.table-of-contents.*`
 * `ams.typography.heading.0.*` and `ams.typography.heading.6.*`
 

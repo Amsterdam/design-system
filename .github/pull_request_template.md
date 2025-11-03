@@ -1,3 +1,5 @@
+<!-- @license CC0-1.0 -->
+
 # Describe the pull request
 
 Thank you for contributing to the project!

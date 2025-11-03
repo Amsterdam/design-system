@@ -13,9 +13,15 @@ import type { IconProps } from '../Icon'
 
 import { Icon } from '../Icon'
 
+export const linkListLinkColors = ['contrast', 'inverse'] as const
+type LinkListLinkColor = (typeof linkListLinkColors)[number]
+
+export const linkListLinkSizes = ['small', 'large'] as const
+type LinkListLinkSize = (typeof linkListLinkSizes)[number]
+
 export type LinkListLinkProps = {
   /** Changes the text colour for readability on a light or dark background. */
-  color?: 'contrast' | 'inverse'
+  color?: LinkListLinkColor
   /**
    * An icon to display instead of the default chevron.
    * Don’t mix custom icons with chevrons in one list.
@@ -23,7 +29,7 @@ export type LinkListLinkProps = {
    */
   icon?: IconProps['svg']
   /** The size of the text. Use the same size for all items in the list. */
-  size?: 'small' | 'large'
+  size?: LinkListLinkSize
 } & PropsWithChildren<AnchorHTMLAttributes<HTMLAnchorElement>>
 
 /** One link with a Link List. */

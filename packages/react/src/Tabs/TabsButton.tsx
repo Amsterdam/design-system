@@ -10,10 +10,10 @@ import { forwardRef, startTransition, useContext } from 'react'
 
 import { TabsContext } from './TabsContext'
 
-export type TabsButtonProps = PropsWithChildren<ButtonHTMLAttributes<HTMLButtonElement>> & {
+export type TabsButtonProps = {
   /** The identifier of the corresponding tab panel. */
   'aria-controls': string
-}
+} & PropsWithChildren<ButtonHTMLAttributes<HTMLButtonElement>>
 
 export const TabsButton = forwardRef(
   (

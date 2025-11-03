@@ -13,12 +13,12 @@ import { TabsContext } from './TabsContext'
 import { TabsList } from './TabsList'
 import { TabsPanel } from './TabsPanel'
 
-export type TabsProps = PropsWithChildren<HTMLAttributes<HTMLDivElement>> & {
+export type TabsProps = {
   /** The identifier of the initially active Tab. Corresponds to its Panel `id` value. */
   activeTab?: string
   /* Provides the id of the activated Panel. */
   onTabChange?: (panelId: string) => void
-}
+} & PropsWithChildren<HTMLAttributes<HTMLDivElement>>
 
 const TabsRoot = forwardRef(
   ({ activeTab, children, className, onTabChange, ...restProps }: TabsProps, ref: ForwardedRef<HTMLDivElement>) => {

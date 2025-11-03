@@ -1,3 +1,8 @@
+/**
+ * @license EUPL-1.2+
+ * Copyright Gemeente Amsterdam
+ */
+
 :root {
   --ams-docs-grey: rgb(0 0 0 / 6.25%);
   --ams-docs-pink: rgb(229 0 130 / 25%);
@@ -118,13 +123,13 @@
   background-color: var(--ams-docs-grey);
 }
 
-@media screen and (width < 36rem) {
+@media screen and (width < 37.5rem) {
   .ams-docs-grid__cell:nth-child(n + 5) {
     display: none;
   }
 }
 
-@media screen and (width < 68rem) {
+@media screen and (width < 72.5rem) {
   .ams-docs-grid__cell:nth-child(n + 9) {
     display: none;
   }

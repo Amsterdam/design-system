@@ -15,7 +15,7 @@ We aim to create libraries for, or support otherwise, Figma, CSS, React, React N
 
 [A Storybook portal](https://designsystem.amsterdam/) demonstrates our components and documentation.
 
-[Our Figma file](https://www.figma.com/file/9IGm6IdPUYizBNGsUnueBd/Amsterdam-Design-System?type=design&node-id=741-19633&mode=design&t=N8P3h3W67O0KNdga-0) contains the design of our components and patterns.
+Our [Figma Library](https://www.figma.com/community/file/1530535540611888495/amsterdam-design-system-community-edition) contains the design of our components and patterns.
 
 ## Getting started
 
@@ -35,6 +35,10 @@ Read [our Code of Conduct](https://github.com/Amsterdam/.github/blob/main/CODE_O
 This project is part of a community initiative to use NL Design System components for websites and applications that comply with the Amsterdam Design System.
 
 Join the `#nl-design-system` Slack via [praatmee.codefor.nl](https://praatmee.codefor.nl) for more information and to learn about things happening in our open-source community.
+
+## Thanks
+
+Thanks to [Chromatic](https://www.chromatic.com/) for providing the visual testing platform that helps us review UI changes and catch visual regressions.
 
 ## Licence
 

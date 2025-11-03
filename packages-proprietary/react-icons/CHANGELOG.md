@@ -3,6 +3,23 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.1.1](https://github.com/Amsterdam/design-system/compare/design-system-react-icons-v1.1.0...design-system-react-icons-v1.1.1) (2025-10-31)
+
+
+### Deprecations
+
+The following icons will be removed in release 3.0.0:
+
+- `CheckMarkCircle` and `CheckMarkCircleFill`, use `Success` and `SuccessFill` instead.
+- `Cogwheel` and `CogwheelFill`, use `Settings` and `SettingsFill` instead.
+- `HandWithEuroCoin`, use `PersonsWithEuroCoin` instead.
+- `LinkedinIcon`, use `LinkedInIcon` instead.
+
+
+### Bug Fixes
+
+* **Icon:** Use capital letter ‘I’ in name of icon for LinkedIn ([#2230](https://github.com/Amsterdam/design-system/issues/2230)) ([fd6b10e](https://github.com/Amsterdam/design-system/commit/fd6b10e9885f4682047879baf16a99af30bc0225))
+
 ## [1.1.0](https://github.com/Amsterdam/design-system/compare/design-system-react-icons-v1.0.1...design-system-react-icons-v1.1.0) (2025-09-26)
 
 
