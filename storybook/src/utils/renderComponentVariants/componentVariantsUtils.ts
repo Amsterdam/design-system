@@ -1,3 +1,8 @@
+/**
+ * @license EUPL-1.2+
+ * Copyright Gemeente Amsterdam
+ */
+
 import type { ElementType, JSX, SVGProps } from 'react'
 
 import { ChevronDownIcon } from '@amsterdam/design-system-react-icons'

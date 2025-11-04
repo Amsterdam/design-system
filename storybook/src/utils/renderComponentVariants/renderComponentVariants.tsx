@@ -1,3 +1,8 @@
+/**
+ * @license EUPL-1.2+
+ * Copyright Gemeente Amsterdam
+ */
+
 import type { ElementType } from 'react'
 
 import { createElement } from 'react'

@@ -1,3 +1,8 @@
+/**
+ * @license EUPL-1.2+
+ * Copyright Gemeente Amsterdam
+ */
+
 import type { Meta } from '@storybook/react-vite'
 import type { JSX, SVGProps } from 'react'
 
