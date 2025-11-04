@@ -97,7 +97,7 @@ export const renderComponentVariants = (
                         size: typeof size === 'string' ? size : undefined,
                         sizePropName: sizes.propName,
                         state,
-                        variant: typeof variant === 'string' ? variant : undefined,
+                        variant,
                       }),
                     )}
                   </div>

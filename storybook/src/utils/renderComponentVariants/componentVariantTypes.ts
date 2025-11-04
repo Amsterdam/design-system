@@ -59,5 +59,6 @@ export type BuildComponentPropsParams = {
   size?: string | undefined
   sizePropName: string | string[]
   state: string
-  variant?: string
+  values?: boolean[]
+  variant: PropWithValues['values']
 }

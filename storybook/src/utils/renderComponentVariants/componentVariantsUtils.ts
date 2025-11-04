@@ -142,7 +142,10 @@ export function buildComponentProps({
     ...(hasIcon ?? {}),
     ...(typeof sizePropName === 'string' && { [sizePropName]: size }),
     className: state === 'hovered' ? 'hover' : undefined,
-    style: variant === 'inverse' ? { backgroundColor: 'var(--ams-color-highlight-azure)' } : {},
+    style:
+      typeof variant === 'string' && variant === 'inverse'
+        ? { backgroundColor: 'var(--ams-color-highlight-azure)' }
+        : {},
     ...(propName !== sizePropName && { [propName]: variant }),
   }
 }
