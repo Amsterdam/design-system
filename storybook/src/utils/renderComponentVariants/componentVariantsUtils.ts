@@ -67,7 +67,7 @@ export function completePropsWithDefaults(propsAndValues: PropWithValues[]) {
 
     // Central mapping of special-case props → default test values
     const propDefaults = new Map([
-      ['color', { hasIcon: null, name: 'color', values }],
+      ['color', { hasIcon: null, name: 'color', values: [...values, 'default'] }],
       ['icon', { hasIcon: null, name: 'icon', values: [ChevronDownIcon] }],
       ['iconBefore', { hasIcon, name: 'iconBefore', values: [true] }],
       ['iconOnly', { hasIcon, name: 'iconOnly', values: [true] }],
@@ -143,7 +143,7 @@ export function buildComponentProps({
     ...(typeof sizePropName === 'string' && { [sizePropName]: size }),
     className: state === 'hovered' ? 'hover' : undefined,
     style:
-      typeof variant === 'string' && variant === 'inverse'
+      typeof variant === 'string' && variant === 'inverse' && state !== 'disabled'
         ? { backgroundColor: 'var(--ams-color-highlight-azure)' }
         : {},
     ...(propName !== sizePropName && { [propName]: variant }),
