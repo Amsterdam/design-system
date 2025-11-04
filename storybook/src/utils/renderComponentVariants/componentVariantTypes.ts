@@ -4,7 +4,7 @@ import type { JSX, ReactNode, SVGProps } from 'react'
 export type renderComponentVariantsParams = {
   args: Meta['args'] // Storybook args applied to every instance
   children?: ReactNode // Optional children passed into the component
-  layout?: 'flex' | 'grid' // The component to generate variants for
+  layout?: 'flex' | 'grid' // The layout were the variants will be rendered
   variants?: string[] // Extra "states" (e.g. disabled, hovered)
 }
 
@@ -28,24 +28,36 @@ export type DocgenInfo = {
 export type PropWithValues = {
   name: string
   propType: string | undefined
-  values: any
+  values: string[] | boolean[] | ((props: SVGProps<SVGSVGElement>) => JSX.Element)[]
 }
 
-export type PropsWithValues = {
-  hasIcon?: {
-    icon: (props: SVGProps<SVGSVGElement>) => JSX.Element
-  } | null
-  name: string
-  values: boolean[] | any
-}
+export type CompletePropsWithValues = (
+  | {
+      hasIcon: null
+      name: string
+      values: (string | boolean | ((props: SVGProps<SVGSVGElement>) => JSX.Element))[]
+    }
+  | {
+      hasIcon: {
+        icon: (props: SVGProps<SVGSVGElement>) => JSX.Element
+      }
+      name: string
+      values: boolean[]
+    }
+  | {
+      hasIcon: null
+      name: string
+      values: number[]
+    }
+)[]
 
 export type BuildComponentPropsParams = {
-  args: Record<string, any> | undefined
+  args: Meta['args']
   children?: ReactNode
-  hasIcon?: { icon: any } | null
+  hasIcon?: { icon: (props: SVGProps<SVGSVGElement>) => JSX.Element } | null
   propName: string
-  size: string | undefined
+  size?: string | undefined
   sizePropName: string | string[]
   state: string
-  variant: string
+  variant?: string
 }

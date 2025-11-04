@@ -1,11 +1,11 @@
-import type { ElementType } from 'react'
+import type { ElementType, JSX, SVGProps } from 'react'
 
 import { ChevronDownIcon } from '@amsterdam/design-system-react-icons'
 
 import type {
   BuildComponentPropsParams,
+  CompletePropsWithValues,
   DocgenInfo,
-  PropsWithValues,
   PropType,
   PropWithValues,
 } from './componentVariantTypes'
@@ -51,7 +51,7 @@ export function extractPropsWithValues(props: DocgenInfo['props']): PropWithValu
   return Object.values(props).map((prop) => ({
     name: prop.name,
     propType: prop.type?.name,
-    values: getValues(prop),
+    values: getValues(prop) ?? [],
   }))
 }
 
@@ -107,12 +107,17 @@ export function completePropsWithDefaults(propsAndValues: PropWithValues[]) {
  * @param propName - Name of the prop to extract
  * @returns Object with propName and values array
  */
-export function extractPropValues(completePropsWithValues: PropsWithValues[], propName: string) {
+export function extractPropValues(completePropsWithValues: CompletePropsWithValues, propName: string) {
   const prop = completePropsWithValues.find((p) => p.name === propName)
 
   return {
     propName: prop?.name || propName,
-    values: prop?.values && prop.values.length > 0 ? prop.values : [undefined],
+    values: (prop?.values && prop.values.length > 0 ? prop.values : [undefined]) as (
+      | string
+      | boolean
+      | ((props: SVGProps<SVGSVGElement>) => JSX.Element)
+      | undefined
+    )[],
   }
 }
 

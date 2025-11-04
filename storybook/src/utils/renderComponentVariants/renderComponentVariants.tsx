@@ -69,9 +69,9 @@ export const renderComponentVariants = (
         // Skip the "size" prop here, we handle it separately via sizeArray
         .filter(({ name }) => name !== sizes.propName)
         .flatMap(({ hasIcon, name, values }) => {
-          return sizes.values.map((size: string) =>
-            variants.flatMap((state) =>
-              (values ?? []).flatMap((variant: string) => {
+          return sizes.values.map((size) =>
+            allVariants.flatMap((state) =>
+              (values ?? []).flatMap((variant) => {
                 const key = `${size}${name}${variant}${state}`
 
                 return (
@@ -94,10 +94,10 @@ export const renderComponentVariants = (
                         children,
                         hasIcon,
                         propName: name,
-                        size,
+                        size: typeof size === 'string' ? size : undefined,
                         sizePropName: sizes.propName,
                         state,
-                        variant,
+                        variant: typeof variant === 'string' ? variant : undefined,
                       }),
                     )}
                   </div>
