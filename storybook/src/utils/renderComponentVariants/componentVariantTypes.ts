@@ -44,11 +44,6 @@ export type CompletePropsWithValues = (
       name: string
       values: PropWithValues['values']
     }
-  | {
-      hasIcon: null
-      name: string
-      values: PropWithValues['values']
-    }
 )[]
 
 export type BuildComponentPropsParams = {
