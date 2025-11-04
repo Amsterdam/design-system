@@ -14,7 +14,11 @@
 .ams-page--application {
   display: grid;
   grid-auto-rows: min-content auto 1fr auto;
-  grid-template-areas: "skip-link skip-link" "menu header" "menu body" "menu footer";
+  grid-template-areas:
+    "skip-link skip-link"
+    "menu header"
+    "menu body"
+    "menu footer";
   grid-template-columns: auto 1fr;
   max-inline-size: var(--ams-page-application-max-inline-size);
 
