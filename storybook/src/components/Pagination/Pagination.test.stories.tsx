@@ -7,7 +7,7 @@ import type { Meta, StoryObj } from '@storybook/react-vite'
 
 import { Pagination } from '@amsterdam/design-system-react/src'
 
-import { renderComponentVariants } from '../../utils/renderComponentVariants'
+import { renderComponentVariants } from '../../utils/renderComponentVariants/renderComponentVariants'
 import { default as paginationMeta } from './Pagination.stories'
 
 const meta = {

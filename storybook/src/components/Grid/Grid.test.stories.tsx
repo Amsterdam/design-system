@@ -7,7 +7,7 @@ import type { Meta, StoryObj } from '@storybook/react-vite'
 
 import { Grid } from '@amsterdam/design-system-react/src'
 
-import { renderComponentVariants } from '../../utils/renderComponentVariants'
+import { renderComponentVariants } from '../../utils/renderComponentVariants/renderComponentVariants'
 import { default as gridMeta } from './Grid.stories'
 
 const meta = {

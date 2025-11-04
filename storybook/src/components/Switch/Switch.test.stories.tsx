@@ -7,7 +7,7 @@ import type { Meta, StoryObj } from '@storybook/react-vite'
 
 import { Switch } from '@amsterdam/design-system-react/src'
 
-import { renderComponentVariants } from '../../utils/renderComponentVariants'
+import { renderComponentVariants } from '../../utils/renderComponentVariants/renderComponentVariants'
 import { default as switchMeta } from './Switch.stories'
 
 const meta = {

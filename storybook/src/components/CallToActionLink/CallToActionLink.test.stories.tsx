@@ -7,7 +7,7 @@ import type { Meta, StoryObj } from '@storybook/react-vite'
 
 import { CallToActionLink } from '@amsterdam/design-system-react/src'
 
-import { renderComponentVariants } from '../../utils/renderComponentVariants'
+import { renderComponentVariants } from '../../utils/renderComponentVariants/renderComponentVariants'
 import { default as callToActionLinkMeta } from './CallToActionLink.stories'
 
 const meta = {
