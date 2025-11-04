@@ -20,14 +20,16 @@ export default meta
 type Story = StoryObj<typeof meta>
 
 export const Test: Story = {
+  args: {
+    children: [
+      <div className="ams-docs-item" key={1} />,
+      <div className="ams-docs-item" key={2} />,
+      <div className="ams-docs-item" key={3} />,
+    ],
+  },
   render: (args) =>
     renderComponentVariants(Row, {
       args,
-      children: [
-        <div className="ams-docs-item" key={1} />,
-        <div className="ams-docs-item" key={2} />,
-        <div className="ams-docs-item" key={3} />,
-      ],
     }),
   tags: ['!dev', '!autodocs'],
 }
