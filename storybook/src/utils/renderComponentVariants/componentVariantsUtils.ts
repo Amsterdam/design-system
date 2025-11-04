@@ -67,7 +67,7 @@ export function completePropsWithDefaults(propsAndValues: PropWithValues[]) {
 
     // Central mapping of special-case props → default test values
     const propDefaults = new Map([
-      ['color', { hasIcon: null, name: 'color', values: [...(values ?? []), 'default'] }],
+      ['color', { hasIcon: null, name: 'color', values }],
       ['icon', { hasIcon: null, name: 'icon', values: [ChevronDownIcon] }],
       ['iconBefore', { hasIcon, name: 'iconBefore', values: [true] }],
       ['iconOnly', { hasIcon, name: 'iconOnly', values: [true] }],

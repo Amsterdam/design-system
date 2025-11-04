@@ -28,26 +28,26 @@ export type DocgenInfo = {
 export type PropWithValues = {
   name: string
   propType: string | undefined
-  values: string[] | boolean[] | ((props: SVGProps<SVGSVGElement>) => JSX.Element)[]
+  values: string[] | number[] | boolean[] | ((props: SVGProps<SVGSVGElement>) => JSX.Element)[]
 }
 
 export type CompletePropsWithValues = (
   | {
       hasIcon: null
       name: string
-      values: (string | boolean | ((props: SVGProps<SVGSVGElement>) => JSX.Element))[]
+      values: PropWithValues['values']
     }
   | {
       hasIcon: {
         icon: (props: SVGProps<SVGSVGElement>) => JSX.Element
       }
       name: string
-      values: boolean[]
+      values: PropWithValues['values']
     }
   | {
       hasIcon: null
       name: string
-      values: number[]
+      values: PropWithValues['values']
     }
 )[]
 
@@ -59,6 +59,6 @@ export type BuildComponentPropsParams = {
   size?: string | undefined
   sizePropName: string | string[]
   state: string
-  values?: boolean[]
-  variant: PropWithValues['values']
+  values?: PropWithValues['values']
+  variant: string | number | boolean | ((props: SVGProps<SVGSVGElement>) => JSX.Element)
 }
