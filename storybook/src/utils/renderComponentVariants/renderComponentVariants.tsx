@@ -21,7 +21,7 @@ import {
  */
 export const renderComponentVariants = (
   component: ElementType,
-  { args, children, layout = 'flex', variants = [] }: renderComponentVariantsParams,
+  { args, layout = 'flex', variants = [] }: renderComponentVariantsParams,
 ) => {
   // Extract props from docgen metadata
   const props = getDocgenInfo(component)?.props
@@ -91,7 +91,6 @@ export const renderComponentVariants = (
                       component,
                       buildComponentProps({
                         args,
-                        children,
                         hasIcon,
                         propName: name,
                         size: typeof size === 'string' ? size : undefined,

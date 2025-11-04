@@ -20,10 +20,12 @@ export default meta
 type Story = StoryObj<typeof meta>
 
 export const Test: Story = {
+  args: {
+    children: [<img alt="" key={1} src="https://picsum.photos/id/122/1280/720" />, <p key={2}>Overlap test</p>],
+  },
   render: (args) =>
     renderComponentVariants(Overlap, {
       args,
-      children: [<img alt="" key={1} src="https://picsum.photos/id/122/1280/720" />, <p key={2}>Overlap test</p>],
     }),
   tags: ['!dev', '!autodocs'],
 }

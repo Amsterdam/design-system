@@ -20,21 +20,23 @@ export default meta
 type Story = StoryObj<typeof meta>
 
 export const Test: Story = {
+  args: {
+    children: [
+      <UnorderedList.Item key={1}>Ervaring is niet noodzakelijk.</UnorderedList.Item>,
+      <UnorderedList.Item key={2}>
+        Er is veel werk in diverse functies, zoals monteur of timmerman. Er zijn ook banen op kantoor, zoals
+        werkvoorbereider of engineer.
+      </UnorderedList.Item>,
+      <UnorderedList.Item key={3}>Deze banen bieden stabiliteit en zekerheid.</UnorderedList.Item>,
+      <UnorderedList.Item key={4}>Er blijft altijd vraag naar werknemers in de bouw en techniek.</UnorderedList.Item>,
+      <UnorderedList.Item key={5}>
+        Er zijn veel mogelijkheden in de bouw, infrastructuur, haven en groenvoorziening.
+      </UnorderedList.Item>,
+    ],
+  },
   render: (args) =>
     renderComponentVariants(UnorderedList, {
       args,
-      children: [
-        <UnorderedList.Item key={1}>Ervaring is niet noodzakelijk.</UnorderedList.Item>,
-        <UnorderedList.Item key={2}>
-          Er is veel werk in diverse functies, zoals monteur of timmerman. Er zijn ook banen op kantoor, zoals
-          werkvoorbereider of engineer.
-        </UnorderedList.Item>,
-        <UnorderedList.Item key={3}>Deze banen bieden stabiliteit en zekerheid.</UnorderedList.Item>,
-        <UnorderedList.Item key={4}>Er blijft altijd vraag naar werknemers in de bouw en techniek.</UnorderedList.Item>,
-        <UnorderedList.Item key={5}>
-          Er zijn veel mogelijkheden in de bouw, infrastructuur, haven en groenvoorziening.
-        </UnorderedList.Item>,
-      ],
     }),
   tags: ['!dev', '!autodocs'],
 }

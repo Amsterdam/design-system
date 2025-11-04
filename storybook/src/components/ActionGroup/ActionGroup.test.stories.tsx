@@ -20,10 +20,12 @@ export default meta
 type Story = StoryObj<typeof meta>
 
 export const Test: Story = {
+  args: {
+    children: [<button key={1}>Stoppen</button>, <button key={2}>Verder</button>],
+  },
   render: (args) =>
     renderComponentVariants(ActionGroup, {
       args,
-      children: [<button key={1}>Stoppen</button>, <button key={2}>Verder</button>],
     }),
   tags: ['!dev', '!autodocs'],
 }

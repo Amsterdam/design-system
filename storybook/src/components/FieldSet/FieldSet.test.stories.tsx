@@ -20,15 +20,17 @@ export default meta
 type Story = StoryObj<typeof meta>
 
 export const Test: Story = {
+  args: {
+    children: (
+      <div>
+        <label htmlFor="input-a1">Voornaam</label>
+        <input id="input-a1" value="Yassine" />
+      </div>
+    ),
+  },
   render: (args) =>
     renderComponentVariants(FieldSet, {
       args,
-      children: (
-        <div>
-          <label htmlFor="input-a1">Voornaam</label>
-          <input id="input-a1" value="Yassine" />
-        </div>
-      ),
     }),
   tags: ['!dev', '!autodocs'],
 }

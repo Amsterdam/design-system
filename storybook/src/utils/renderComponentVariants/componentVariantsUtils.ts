@@ -127,7 +127,6 @@ export function extractPropValues(completePropsWithValues: CompletePropsWithValu
  */
 export function buildComponentProps({
   args,
-  children,
   hasIcon,
   propName,
   size,
@@ -137,7 +136,6 @@ export function buildComponentProps({
 }: BuildComponentPropsParams) {
   return {
     ...args,
-    ...(children ? { children } : {}),
     ...(state === 'disabled' && { [state]: true }),
     ...(hasIcon ?? {}),
     ...(typeof sizePropName === 'string' && { [sizePropName]: size }),

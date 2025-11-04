@@ -20,10 +20,12 @@ export default meta
 type Story = StoryObj<typeof meta>
 
 export const Test: Story = {
+  args: {
+    children: [<Grid.Cell key={1} span="all" />, <Grid.Cell key={2} span="all" />],
+  },
   render: (args) =>
     renderComponentVariants(Grid, {
       args,
-      children: [<Grid.Cell key={1} span="all" />, <Grid.Cell key={2} span="all" />],
     }),
   tags: ['!dev', '!autodocs'],
 }

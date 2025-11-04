@@ -1,9 +1,8 @@
 import type { Meta } from '@storybook/react-vite'
-import type { JSX, ReactNode, SVGProps } from 'react'
+import type { JSX, SVGProps } from 'react'
 
 export type renderComponentVariantsParams = {
   args: Meta['args'] // Storybook args applied to every instance
-  children?: ReactNode // Optional children passed into the component
   layout?: 'flex' | 'grid' // The layout were the variants will be rendered
   variants?: string[] // Extra "states" (e.g. disabled, hovered)
 }
@@ -48,7 +47,6 @@ export type CompletePropsWithValues = (
 
 export type BuildComponentPropsParams = {
   args: Meta['args']
-  children?: ReactNode
   hasIcon?: { icon: (props: SVGProps<SVGSVGElement>) => JSX.Element } | null
   propName: string
   size?: string | undefined
