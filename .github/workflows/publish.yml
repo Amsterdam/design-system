@@ -8,6 +8,7 @@ on:
 
 permissions:
   contents: write
+  id-token: write # Required for trusted publishing to npm
   pull-requests: write
 
 jobs:
@@ -59,8 +60,6 @@ jobs:
       # The logic below handles the npm publication:
       - name: Publish
         run: pnpm -r publish
-        env:
-          NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN}}
         # this if statement ensures that a publication only occurs when
         # a new release is created:
         if: ${{ steps.release.outputs.releases_created == 'true' }}
