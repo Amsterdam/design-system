@@ -46,11 +46,11 @@ export const Test: Story = {
     ],
   },
   play: async ({ canvas, userEvent }) => {
-    const imageSlidesContainer = canvas.queryAllByRole('group')?.at(0)?.children
+    const imageSlidesContainer = canvas.queryAllByRole('group')[0]?.children
     const imageSlides = Array.from(imageSlidesContainer ?? [])
     const buttons = canvas.queryAllByRole('button')
-    const previousButton = buttons?.at(0)
-    const nextButton = buttons?.at(1)
+    const previousButton = buttons[0]
+    const nextButton = buttons[1]
 
     if (!nextButton || !previousButton) {
       return
