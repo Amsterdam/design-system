@@ -6,6 +6,7 @@
 import type { ElementType, JSX, SVGProps } from 'react'
 
 import { ChevronDownIcon } from '@amsterdam/design-system-react-icons'
+import clsx from 'clsx'
 
 import type {
   BuildComponentPropsParams,
@@ -146,11 +147,12 @@ export function buildComponentProps({
     ...(state === 'disabled' && { [state]: true }),
     ...(hasIcon ?? {}),
     ...(typeof sizePropName === 'string' && { [sizePropName]: size }),
-    className: state === 'hovered' ? 'hover' : undefined,
-    style:
+    className: clsx(
+      state === 'hovered' ? 'hover' : undefined,
       typeof variant === 'string' && variant === 'inverse' && state !== 'disabled'
-        ? { backgroundColor: 'var(--ams-color-highlight-azure)' }
-        : {},
+        ? 'ams-docs-dark-background'
+        : undefined,
+    ),
     ...(propName !== sizePropName && { [propName]: variant }),
   }
 }

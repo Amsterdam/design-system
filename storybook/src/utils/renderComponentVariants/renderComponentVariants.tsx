@@ -69,7 +69,7 @@ export const renderComponentVariants = (
    * - state (hovered, disabled, etc.)
    */
   return (
-    <div style={{ display: 'flex', flexWrap: 'wrap', gap: 'var(--ams-space-s)' }}>
+    <div style={{ display: 'flex', flexWrap: 'wrap', gap: 'var(--ams-space-l)' }}>
       {completePropsWithValues
         // Skip the "size" prop here, we handle it separately via sizeArray
         .filter(({ name }) => name !== sizes.propName)
