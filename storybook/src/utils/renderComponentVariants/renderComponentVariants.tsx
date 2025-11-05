@@ -77,7 +77,7 @@ export const renderComponentVariants = (
           return sizes.values.map((size) =>
             allVariants.flatMap((state) =>
               (values ?? []).flatMap((variant) => {
-                const key = `${size}${name}${variant}${state}`
+                const key = `${size ?? 'none'}-${name}-${String(variant)}-${state}`
 
                 return (
                   <div

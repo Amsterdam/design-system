@@ -45,7 +45,7 @@ function getValues(prop: PropType) {
       return ['Kapers aan de poort, kanonskogels op de Dam: de aanval op Amsterdam']
     default:
       // Handles union types (e.g. "color" | "inverse")
-      return prop.type.value?.map((variant) => variant.value.replace(/"/g, ''))
+      return prop.type.value?.map((variant) => variant.value.replace(/"/g, '')).sort()
   }
 }
 
@@ -53,11 +53,13 @@ function getValues(prop: PropType) {
 export function extractPropsWithValues(props: DocgenInfo['props']): PropWithValues[] {
   if (!props) return []
 
-  return Object.values(props).map((prop) => ({
-    name: prop.name,
-    propType: prop.type?.name,
-    values: getValues(prop) ?? [],
-  }))
+  return Object.values(props as Record<string, PropType>)
+    .sort((a, b) => a.name.localeCompare(b.name))
+    .map((prop) => ({
+      name: prop.name,
+      propType: prop.type?.name,
+      values: getValues(prop) ?? [],
+    }))
 }
 
 /**
@@ -72,7 +74,7 @@ export function completePropsWithDefaults(propsAndValues: PropWithValues[]) {
 
     // Central mapping of special-case props → default test values
     const propDefaults = new Map([
-      ['color', { hasIcon: null, name: 'color', values: [...(values as string[]), 'default'] }],
+      ['color', { hasIcon: null, name: 'color', values: [...(values as string[]), 'default'].sort() }],
       ['icon', { hasIcon: null, name: 'icon', values: [ChevronDownIcon] }],
       ['iconBefore', { hasIcon, name: 'iconBefore', values: [true] }],
       ['iconOnly', { hasIcon, name: 'iconOnly', values: [true] }],
