@@ -70,6 +70,80 @@ export const Default: StoryObj = {
   },
 }
 
+export const WithTopTasks: StoryObj = {
+  args: {
+    children: [
+      <Grid key={1} paddingTop="large">
+        <Grid.Cell span={{ narrow: 4, medium: 6, wide: 7 }}>
+          <Breadcrumb>
+            <Breadcrumb.Link href="#">Home</Breadcrumb.Link>
+          </Breadcrumb>
+        </Grid.Cell>
+      </Grid>,
+      <Grid as="main" id="inhoud" key={2} paddingBottom="x-large">
+        <Grid.Cell span={{ narrow: 4, medium: 6, wide: 7 }}>
+          <Heading className="ams-mb-m" level={1}>
+            Leefomgeving
+          </Heading>
+        </Grid.Cell>
+        <Grid.Cell span={{ narrow: 4, medium: 4, wide: 5 }} start={{ narrow: 1, medium: 1, wide: 2 }}>
+          <Card>
+            <Card.Heading level={2}>
+              <Card.Link href="/">Doe een melding</Card.Link>
+            </Card.Heading>
+            <Paragraph>
+              Meld overlast van geluid of afval op straat. U kunt ook kapotte dingen melden of iets dat we moeten
+              opruimen.
+            </Paragraph>
+          </Card>
+        </Grid.Cell>
+        <Grid.Cell span={{ narrow: 4, medium: 4, wide: 5 }} start={{ narrow: 1, medium: 5, wide: 7 }}>
+          <Card>
+            <Card.Heading level={2}>
+              <Card.Link href="/">Kondig een demonstratie of manifestatie aan</Card.Link>
+            </Card.Heading>
+            <Paragraph>Een demonstratie of manifestatie meldt u vooraf bij de gemeente.</Paragraph>
+          </Card>
+        </Grid.Cell>
+        <Grid.Cell span={{ narrow: 4, medium: 4, wide: 5 }} start={{ narrow: 1, medium: 1, wide: 2 }}>
+          <LinkBlock
+            heading="Schoon en opgeruimd"
+            links={[
+              'Leen een afvalgrijper en afvalring',
+              'Afval op straat melden',
+              'Fietsnietje aanvragen',
+              'Openbare toiletten op de kaart',
+              'Rookvrije zone aanvragen',
+            ]}
+          />
+        </Grid.Cell>
+        <Grid.Cell span={{ narrow: 4, medium: 4, wide: 5 }} start={{ narrow: 1, medium: 5, wide: 7 }}>
+          <LinkBlock
+            heading="Spelen en bewegen"
+            links={[
+              'Peuterbadjes en zwemwater op de kaart',
+              'Speeltuinen op de kaart',
+              'Kinderboerderijen en stadsboerderijen op de kaart',
+              'Openbare sportplekken op de kaart',
+              'Denk mee over speelplekken',
+            ]}
+          />
+        </Grid.Cell>
+        <Grid.Cell span={{ narrow: 4, medium: 4, wide: 5 }} start={{ narrow: 1, medium: 1, wide: 2 }}>
+          <LinkBlock
+            heading="Dieren en groen"
+            introduction="Uw tuin vergroenen of het groen in uw buurt verzorgen. Opvang van dieren en overlast melden."
+            links={['Dieren en groen']}
+          />
+        </Grid.Cell>
+        <Grid.Cell span={{ narrow: 4, medium: 4, wide: 5 }} start={{ narrow: 1, medium: 5, wide: 7 }}>
+          <LinkBlock heading="Parken en volkstuinen" links={['Parken en recreatiegebieden', 'Volkstuinparken']} />
+        </Grid.Cell>
+      </Grid>,
+    ],
+  },
+}
+
 export const WithInteractiveElement: StoryObj = {
   args: {
     children: [
