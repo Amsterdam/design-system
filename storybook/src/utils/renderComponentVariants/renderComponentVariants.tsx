@@ -15,7 +15,7 @@ import {
   extractPropsWithValues,
   extractPropValues,
   getDocgenInfo,
-} from './componentVariantsUtils'
+} from './componentVariantUtils'
 
 /**
  * Main function: generates all possible combinations ("variants")
