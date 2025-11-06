@@ -60,7 +60,7 @@ export const Default: Story = {
 export const WithMenu: Story = {
   args: {
     children: <PageBody />,
-    hasMenu: 'application',
+    hasMenu: true,
     lang: 'nl',
   },
   globals: {
