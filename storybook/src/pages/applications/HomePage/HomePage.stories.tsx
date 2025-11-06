@@ -10,7 +10,7 @@ import { HomePage } from './HomePage'
 
 const meta = {
   ...commonMeta,
-  title: 'Pages/Applications/Home Page',
+  title: 'Pages/Internal/Home Page',
   component: HomePage,
 } satisfies Meta<typeof HomePage>
 

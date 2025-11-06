@@ -28,7 +28,7 @@ export const decorators = [
       return <Story />
     }
 
-    const layout: PageProps['layout'] = context.title.startsWith('Pages/Applications') ? 'application' : undefined
+    const layout: PageProps['layout'] = context.title.startsWith('Pages/Internal') ? 'application' : undefined
 
     return (
       <Page
