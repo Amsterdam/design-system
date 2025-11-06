@@ -3,6 +3,7 @@
  * Copyright Gemeente Amsterdam
  */
 
+import { SearchIcon } from '@amsterdam/design-system-react-icons'
 import { render, screen } from '@testing-library/react'
 import { createRef } from 'react'
 
@@ -53,6 +54,15 @@ describe('Page Header Menu Link', () => {
     const component = screen.getByRole('listitem')
 
     expect(component).toHaveClass('ams-page-header__menu-item--fixed')
+  })
+
+  it('renders an icon', () => {
+    render(<PageHeaderMenuLink icon={SearchIcon} />)
+
+    const component = screen.getByRole('listitem')
+    const icon = component.querySelector('svg')
+
+    expect(icon).toBeInTheDocument()
   })
 
   it('supports ForwardRef in React', () => {
