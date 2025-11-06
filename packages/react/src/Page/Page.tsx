@@ -12,7 +12,13 @@ export type PageProps = {
   /*
    * The layout to apply to the page.
    * The default just stacks its children vertically and centers itself in the window.
-   * The application layout requires specific child components.
+   * When `hasMenu` is true, the application layout requires specific child components.
+   * Required children (by class name):
+   *   - ams-page__area--skip-link
+   *   - ams-page__area--menu
+   *   - ams-page__area--header
+   *   - ams-page__area--body
+   *   - ams-page__area--footer
    */
   hasMenu?: boolean
 } & PropsWithChildren<HTMLAttributes<HTMLDivElement>>
