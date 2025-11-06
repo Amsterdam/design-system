@@ -7,8 +7,8 @@ import type { SVGProps } from 'react'
 
 export const PageHeaderMenuIcon = (props: SVGProps<SVGSVGElement>) => (
   <svg aria-hidden="true" focusable="false" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" {...props}>
-    <line className="ams-page-header__menu-icon-top" x1="0" x2="100%" y1="50%" y2="50%" />
-    <line className="ams-page-header__menu-icon-middle" x1="0" x2="100%" y1="50%" y2="50%" />
-    <line className="ams-page-header__menu-icon-bottom" x1="0" x2="100%" y1="50%" y2="50%" />
+    <path className="ams-page-header__menu-icon-top" d="M23 5H1v2h22z" />
+    <path className="ams-page-header__menu-icon-middle" d="M23 11H1v2h22z" />
+    <path className="ams-page-header__menu-icon-bottom" d="M1 17h22v2H1z" />
   </svg>
 )
