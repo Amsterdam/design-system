@@ -1,37 +1,70 @@
-# How we test
+# Tests
 
-With each pull request, a [GitHub Action](https://github.com/Amsterdam/design-system/actions/workflows/chromatic.yml) generates a new build of Storybook, which is then published to [Chromatic](https://chromatic.com). Chromatic runs, visual, interaction and accessibility tests on each story labeled "Test" If any changes are detected, they must be approved before merging the pull request. You can accept changes directly through the Chromatic dashboard. Once the changes are accepted, the pull request can be merged.
+We test our components to ensure their quality and prevent unintended changes.
 
-Unit tests are run within a separate [GitHub Action](https://github.com/Amsterdam/design-system/actions/workflows/lint-test.yml).
+## Unit test
 
-## Why we test our components
+| Method    | Description                                                         |
+| :-------- | :------------------------------------------------------------------ |
+| Input     | Test instructions.                                                  |
+| Output    | Pass/fail on the HTML-output of the test.                           |
+| Principle | Check specific properties of a component.                           |
+| Example   | Does the button still have className `.button-primary` as expected? |
 
-We test our components to prevent unintended changes that were not the focus of the original change.
+Unit tests are written using [Jest DOM](https://github.com/testing-library/jest-dom). These tests are run on every [pull request](https://github.com/Amsterdam/design-system/blob/develop/.github/workflows/lint-test.yml).
+All components should have its own unit tests, and they are in a separate file `component.test.tsx`.
 
-## What kind of tests do we use?
+## Interaction test
 
-The tests we use depend on the specific component, and we only test the functionality that we've written ourselves.
+| Method    | Description                                                |
+| :-------- | :--------------------------------------------------------- |
+| Input     | User interactions.                                         |
+| Output    | Functional behaviour.                                      |
+| Principle | Custom functionality produces the same expected behaviour. |
+| Example   | When opening a accordion section, is the content visible.  |
 
-| Test                                                               | When to use                                                               |
-| :----------------------------------------------------------------- | :------------------------------------------------------------------------ |
-| [Unit test](https://testing-library.com/docs/guiding-principles)   | Is the HTML output as expected? Did the output change with each property? |
-| [Interaction test](https://www.chromatic.com/docs/interactions/)   | When using Javascript for custom interactivity, does it still work?       |
-| [Visual test](https://www.chromatic.com/docs/visual/)              | Is the visual output the same as before?                                  |
-| [Accessibility test](https://www.chromatic.com/docs/interactions/) | Did anything change to the accessibility of the component?                |
+Not all components have interactions tests, if a component has custom functionality it should have an interaction test.
+Interaction tests are located within the test story, `component.test.stories.tsx`, within the [play](https://storybook.js.org/docs/writing-stories/play-function) option of the story.
 
-## How are the tests configured?
+## Visual test
 
-Each component has two story files:
+| Method    | Description                                   |
+| :-------- | :-------------------------------------------- |
+| Input     | Variant of a component.                       |
+| Output    | Visual appearance of the component.           |
+| Principle | Find unintended changes to the visual output. |
+| Example   | Does the button still has a border?           |
 
-1. `component.stories.tsx` - The default component story, visible within Storybook.
-2. `component.test.stories.tsx` - This file only contains story's we test. This story should contain all variations of the component.
+All components should have their own visual tests.
+Visual tests are located within the test story, `component.test.stories.tsx`, which should render all variants of the component.
 
-This means we are not testing every story, to prevent going over the snapshot limit within Chromatic.
-Within `component.test.stories.tsx`, the tests can be set up with [`@storybook/test`](https://storybook.js.org/docs/writing-tests/interaction-testing). We use the [Pseudo States](https://storybook.js.org/addons/storybook-addon-pseudo-states) integration to test the different states.
+## Accessibility test
 
-The test stories are hidden from the component documentation within Storybook.
+| Method    | Description                                                                          |
+| :-------- | :----------------------------------------------------------------------------------- |
+| Input     | WCAG Rules.                                                                          |
+| Output    | Visual render of the component where the rules are checked on.                       |
+| Principle | Make sure that there are no changes which worsen the accessibility of the component. |
+| Example   | Is the contrast still high enough?                                                   |
 
-## How is Chromatic integrated?
+Accessibility tests are not configured on component-basis. The accessibility rules where the component should be tested on are configured Storybook wide. These are configured in `.storybook/preview.ts`.
+
+## How we test
+
+With each pull request there are two actions:
+
+1. [Unit Tests](https://github.com/Amsterdam/design-system/actions/workflows/lint-test.yml)
+2. [Interaction, Visual, Accessibility tests](https://github.com/Amsterdam/design-system/actions/workflows/chromatic.yml)
+
+The interaction, visual, and accessibility tests are run by [Chromatic](https://chromatic.com). Chromatic runs, visual, interaction and accessibility tests on each story labeled "Test" If any changes are detected, they must be approved before merging the pull request. You can accept changes directly through the Chromatic dashboard. Once the changes are accepted, the pull request can be merged.
+
+These actions are required to succeed before merging a pull-request.
+
+## How do we run the tests?
+
+Unit tests are run by the [lint-test workflow](https://github.com/Amsterdam/design-system/blob/develop/.github/workflows/lint-test.yml). Interaction, visual, and accessibility tests are tested by [Chromatic](https://www.chromatic.com/docs/).
+
+### Chromatic configuration
 
 Chromatic uses two tokens to run: a project ID and a [secret token](https://www.chromatic.com/manage?appId=68db9df886b46f139748c074&view=configure). The project ID is public within the [repo](https://github.com/Amsterdam/design-system/blob/develop/storybook/chromatic.config.json), while the secret token is used in the [workflow](https://github.com/Amsterdam/design-system/blob/develop/.github/workflows/chromatic.yml).
 
@@ -41,6 +74,6 @@ Chromatic also uses a [GitHub App](https://github.com/apps/chromatic-com) to i
 
 On every pull request, the [workflow](https://github.com/Amsterdam/design-system/blob/develop/.github/workflows/chromatic.yml) builds Storybook and publishes it to Chromatic, where the tests are run. The test status is displayed in the pull request through the app integration.
 
-## How to get access
+#### How to get access
 
 Ask a team member to [add you to the Chromatic Team](https://www.chromatic.com/docs/collaborators/).
