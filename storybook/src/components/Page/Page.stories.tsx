@@ -19,11 +19,7 @@ const meta = {
     className: {
       table: { disable: true },
     },
-    layout: {
-      control: {
-        labels: { undefined: 'website (default)' },
-      },
-      options: [undefined, 'application'],
+    hasMenu: {
       // Changing this property can result in an invalid appearance.
       table: { readonly: true },
     },
@@ -61,11 +57,11 @@ export const Default: Story = {
   },
 }
 
-export const WithSideMenu: Story = {
+export const WithMenu: Story = {
   args: {
     children: <PageBody />,
+    hasMenu: 'application',
     lang: 'nl',
-    layout: 'application',
   },
   globals: {
     theme: 'Compact',

@@ -11,7 +11,7 @@
   min-block-size: 100dvh;
 }
 
-.ams-page--application {
+.ams-page--has-menu {
   display: grid;
   grid-auto-rows: min-content auto 1fr auto;
   grid-template-areas:
@@ -20,11 +20,11 @@
     "menu body"
     "menu footer";
   grid-template-columns: auto 1fr;
-  max-inline-size: var(--ams-page-application-max-inline-size);
+  max-inline-size: var(--ams-page-has-menu-max-inline-size);
 
   > .ams-page__area--skip-link {
     grid-area: skip-link;
-    margin-inline-end: var(--ams-page-application-area-skip-link-margin-inline-end);
+    margin-inline-end: var(--ams-page-has-menu-area-skip-link-margin-inline-end);
   }
 
   > .ams-page__area--menu {

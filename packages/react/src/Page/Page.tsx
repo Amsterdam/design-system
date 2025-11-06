@@ -14,15 +14,15 @@ export type PageProps = {
    * The default just stacks its children vertically and centers itself in the window.
    * The application layout requires specific child components.
    */
-  layout?: 'application'
+  hasMenu?: boolean
 } & PropsWithChildren<HTMLAttributes<HTMLDivElement>>
 
 /**
  * @see {@link https://designsystem.amsterdam/?path=/docs/components-containers-page--docs Page docs at Amsterdam Design System}
  */
 export const Page = forwardRef(
-  ({ children, className, layout, ...restProps }: PageProps, ref: ForwardedRef<HTMLDivElement>) => (
-    <div {...restProps} className={clsx('ams-page', layout && `ams-page--${layout}`, className)} ref={ref}>
+  ({ children, className, hasMenu, ...restProps }: PageProps, ref: ForwardedRef<HTMLDivElement>) => (
+    <div {...restProps} className={clsx('ams-page', hasMenu && 'ams-page--has-menu', className)} ref={ref}>
       {children}
     </div>
   ),
