@@ -28,7 +28,7 @@ export const decorators = [
       return <Story />
     }
 
-    const hasMenu: PageProps['hasMenu'] = context.title.startsWith('Pages/Internal')
+    const withMenu: PageProps['withMenu'] = context.title.startsWith('Pages/Internal')
 
     return (
       <Page
@@ -36,8 +36,8 @@ export const decorators = [
           'ams-docs-dark-background': args['color'] === 'inverse',
           'ams-docs-light-background': args['color'] === 'contrast',
         })}
-        hasMenu={hasMenu}
         lang="nl"
+        withMenu={withMenu}
       >
         <Story />
       </Page>

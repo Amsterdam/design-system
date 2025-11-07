@@ -3,7 +3,7 @@
     "page": {
       "background-color": { "value": "{ams.color.background}" },
       "max-inline-size": { "value": "90rem" },
-      "has-menu": {
+      "with-menu": {
         "max-inline-size": { "value": "120rem" },
         "area-skip-link": {
           "margin-inline-end": {

@@ -18,15 +18,15 @@ export type PageProps = {
    *   - `ams-page__area--body`
    *   - `ams-page__area--footer`
    */
-  hasMenu?: boolean
+  withMenu?: boolean
 } & PropsWithChildren<HTMLAttributes<HTMLDivElement>>
 
 /**
  * @see {@link https://designsystem.amsterdam/?path=/docs/components-containers-page--docs Page docs at Amsterdam Design System}
  */
 export const Page = forwardRef(
-  ({ children, className, hasMenu, ...restProps }: PageProps, ref: ForwardedRef<HTMLDivElement>) => (
-    <div {...restProps} className={clsx('ams-page', hasMenu && 'ams-page--has-menu', className)} ref={ref}>
+  ({ children, className, withMenu, ...restProps }: PageProps, ref: ForwardedRef<HTMLDivElement>) => (
+    <div {...restProps} className={clsx('ams-page', withMenu && 'ams-page--with-menu', className)} ref={ref}>
       {children}
     </div>
   ),

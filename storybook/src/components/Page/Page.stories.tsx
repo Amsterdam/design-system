@@ -19,13 +19,13 @@ const meta = {
     className: {
       table: { disable: true },
     },
-    hasMenu: {
+    lang: {
+      table: { disable: true }, // It’s best practice to set this attribute on the `html` element, so let’s not highlight it here.
+    },
+    withMenu: {
       description:
         'This prop updates automatically to prevent an invalid appearance: a Menu can only be used in Compact Mode.',
       table: { readonly: true },
-    },
-    lang: {
-      table: { disable: true }, // It’s best practice to set this attribute on the `html` element, so let’s not highlight it here.
     },
   },
   parameters: {
@@ -64,8 +64,8 @@ export const Default: Story = {
 export const WithMenu: Story = {
   args: {
     children: <PageBody />,
-    hasMenu: true,
     lang: 'nl',
+    withMenu: true,
   },
   globals: {
     theme: 'Compact',
