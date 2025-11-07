@@ -7,7 +7,7 @@ import type { Meta, StoryObj } from '@storybook/react-vite'
 
 import { Overlap } from '@amsterdam/design-system-react/src'
 
-import { renderComponentVariants } from '../../utils/renderComponentVariants'
+import { renderComponentVariants } from '../../_common/renderComponentVariants'
 import { default as buttonMeta } from './Overlap.stories'
 
 const meta = {
@@ -20,10 +20,12 @@ export default meta
 type Story = StoryObj<typeof meta>
 
 export const Test: Story = {
+  args: {
+    children: [<img alt="" key={1} src="https://picsum.photos/id/122/1280/720" />, <p key={2}>Overlap test</p>],
+  },
   render: (args) =>
     renderComponentVariants(Overlap, {
       args,
-      children: [<img alt="" key={1} src="https://picsum.photos/id/122/1280/720" />, <p key={2}>Overlap test</p>],
     }),
   tags: ['!dev', '!autodocs'],
 }
