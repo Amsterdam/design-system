@@ -53,6 +53,9 @@ export const Default: Story = {
         <PageBody />
       </main>,
       <PageFooter key="footer">
+        <Heading className="ams-visually-hidden" level={2}>
+          Over deze website
+        </Heading>
         <PageFooter.Menu>
           <PageFooter.MenuLink href="/">Page Footer</PageFooter.MenuLink>
         </PageFooter.Menu>
