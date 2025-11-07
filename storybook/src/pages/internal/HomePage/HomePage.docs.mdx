@@ -42,12 +42,11 @@ All children of `Page` have a class name starting with `ams-page__area--` to lay
 
 The [Menu](/docs/components-navigation-menu--docs) component must be rendered twice.
 
-One instance, for narrow and medium windows, sits in the Page Header.
-The user can access it through the menu button.
-Hide the menu button on wide windows through the `GridCellNarrowWindowOnly` subcomponent.
-
-A second Menu should go between the Page Header and the main content.
-This is for wide windows, where the menu is positioned to the side.
-The `inWideWindow` prop ensures that only one of both components is present at all times.
+1. One instance, for narrow and medium windows, sits in the Page Header.
+   The user can access it through the menu button.
+   Hide the menu button on wide windows through the `GridCellNarrowWindowOnly` subcomponent.
+2. A second Menu should go between the Page Header and the main content.
+   This is for wide windows, where the menu is positioned to the side.
+   The `inWideWindow` prop ensures that only one of both components is present at all times.
 
 Make sure that both menus have the same items.

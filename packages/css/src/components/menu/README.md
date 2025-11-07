@@ -16,6 +16,8 @@ A primary navigation leading to key areas of an application or website.
 
 ## Guidelines
 
+- This component must not be used on public websites or applications.
+  They should offer navigation through Link Lists in the collapsible area of the Page Header.
 - Include this component twice: one in the Page Header and one to the side of the Page.
   Do not use it anywhere else.
 - Set the `inWideWindow` prop to the latter to ensure only one of them is visible, and to get the correct appearance.

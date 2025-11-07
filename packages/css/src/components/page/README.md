@@ -4,6 +4,7 @@
 
 Contains the entire website or application.
 
-Page is the outermost container for the Page Header, Page Body and the content in between.
-It sets a maximum width and centres itself horizontally.
-It must be used for all websites and applications for the City of Amsterdam.
+The Page component wraps the Page Header, Page Footer. and the main content in between.
+As a root layout component, it must be used for all websites and applications for the City of Amsterdam.
+It is centered horizontally and sets a maximum width of 90 rems (usually 1.440 pixels).
+With a Menu, that becomes 120 rems (1.920 pixels).

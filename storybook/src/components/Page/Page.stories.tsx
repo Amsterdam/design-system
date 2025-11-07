@@ -13,15 +13,19 @@ const meta = {
   title: 'Components/Containers/Page',
   component: Page,
   args: {
-    lang: 'nl',
+    lang: 'nl', // Mimic what we do in preview.tsx, where the decorator doesn’t render a Page for stories of Page.
   },
   argTypes: {
     className: {
       table: { disable: true },
     },
     hasMenu: {
-      // Changing this property can result in an invalid appearance.
+      description:
+        'This prop updates automatically to prevent an invalid appearance: a Menu can only be used in Compact Mode.',
       table: { readonly: true },
+    },
+    lang: {
+      table: { disable: true }, // It’s best practice to set this attribute on the `html` element, so let’s not highlight it here.
     },
   },
   parameters: {

@@ -18,7 +18,7 @@ export type MenuLinkProps = {
    * @deprecated The menu has a dark background now, so this is no longer needed.
    */
   color?: 'contrast' | 'inverse'
-  /** An icon to display instead of the default chevron. Don’t mix custom icons with chevrons in one list. */
+  /** The icon to display for the menu icon. Use the filled variant. */
   icon: IconProps['svg']
 } & PropsWithChildren<AnchorHTMLAttributes<HTMLAnchorElement>>
 
