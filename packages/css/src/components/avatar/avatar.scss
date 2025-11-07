@@ -11,7 +11,7 @@
   border-style: var(--ams-avatar-border-style);
   border-width: var(--ams-avatar-border-width);
   color: var(--ams-avatar-color);
-  display: inline-flex;
+  display: inline-grid;
   font-family: var(--ams-avatar-font-family);
   font-size: var(--ams-avatar-font-size);
   inline-size: calc(var(--ams-avatar-line-height) * var(--ams-avatar-font-size));
@@ -36,8 +36,11 @@
   padding-inline: 0;
   vertical-align: middle; /* Remove ‘phantom’ white space when image doesn’t load */
 
+  /* Ensure Safari ignores intrinsic image sizing inside flex/grid containers, preventing incorrect scaling and distortion. */
   img {
-    max-inline-size: 100%; /* For Safari */
+    block-size: 100%;
+    inline-size: 100%;
+    object-fit: cover;
   }
 }
 
