@@ -25,10 +25,10 @@ export const Test: Story = {
     activeTab: 'Gegevens',
     children: [
       <Tabs.List key={1}>
-        <Tabs.Button aria-controls="Gegevens" data-testid="gegevens" onClick={() => {}}>
+        <Tabs.Button aria-controls="Gegevens" data-testid="gegevens">
           Gegevens
         </Tabs.Button>
-        <Tabs.Button aria-controls="Aanslagen" data-testid="aanslagen" onClick={() => {}}>
+        <Tabs.Button aria-controls="Aanslagen" data-testid="aanslagen">
           Aanslagen
         </Tabs.Button>
         <Tabs.Button aria-controls="Acties">Acties</Tabs.Button>
@@ -67,7 +67,7 @@ export const Test: Story = {
 
     await expect(gegevensParagraph).toBeVisible()
     await userEvent.click(aanslagenTab)
-    await new Promise((resolve) => setTimeout(resolve, 500)) // This delay is required to finish the first tab opening
+    await new Promise((resolve) => setTimeout(resolve, 500)) // This delay is required to finish the second tab opening
     await expect(canvas.getByTestId('aanslagen-panel')).toBeVisible()
     await expect(gegevensParagraph).not.toBeVisible()
   },
