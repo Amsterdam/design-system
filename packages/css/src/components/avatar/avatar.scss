@@ -35,6 +35,10 @@
   padding-block: 0;
   padding-inline: 0;
   vertical-align: middle; /* Remove ‘phantom’ white space when image doesn’t load */
+
+  img {
+    max-inline-size: 100%; /* For Safari */
+  }
 }
 
 .ams-avatar--azure {
