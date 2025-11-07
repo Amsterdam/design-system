@@ -23,9 +23,9 @@ export const Layout = ({ children }: LayoutProps) => (
       noMenuButtonOnWideWindow
     >
       <Grid>
-        <PageHeader.GridCellNarrowWindowOnly span="all">
+        <Grid.Cell span="all">
           <MenuWithItems />
-        </PageHeader.GridCellNarrowWindowOnly>
+        </Grid.Cell>
       </Grid>
     </PageHeader>
     <MenuWithItems className="ams-page__area--menu" inWideWindow />
