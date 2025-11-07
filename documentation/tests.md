@@ -2,7 +2,7 @@
 
 We test our components to ensure their quality and prevent unintended changes.
 
-## Unit test
+## Unit tests
 
 | Method    | Description                                                         |
 | :-------- | :------------------------------------------------------------------ |
@@ -11,43 +11,44 @@ We test our components to ensure their quality and prevent unintended changes.
 | Principle | Check specific properties of a component.                           |
 | Example   | Does the button still have className `.button-primary` as expected? |
 
-Unit tests are written using [Jest DOM](https://github.com/testing-library/jest-dom). These tests are run on every [pull request](https://github.com/Amsterdam/design-system/blob/develop/.github/workflows/lint-test.yml).
-All components should have its own unit tests, and they are in a separate file `component.test.tsx`.
+Unit tests are written using [Jest](https://github.com/jestjs/jest) and [React Testing Library](https://github.com/testing-library/react-testing-library). These tests run on every [pull request](https://github.com/Amsterdam/design-system/blob/develop/.github/workflows/lint-test.yml).
+All components must have their own unit tests, which are located in a separate file named `component.test.tsx`.
 
-## Interaction test
+## Interaction tests
 
 | Method    | Description                                                |
 | :-------- | :--------------------------------------------------------- |
 | Input     | User interactions.                                         |
 | Output    | Functional behaviour.                                      |
 | Principle | Custom functionality produces the same expected behaviour. |
-| Example   | When opening a accordion section, is the content visible.  |
+| Example   | Is the content visible when opening a accordion section?   |
 
-Not all components have interactions tests, if a component has custom functionality it should have an interaction test.
-Interaction tests are located within the test story, `component.test.stories.tsx`, within the [play](https://storybook.js.org/docs/writing-stories/play-function) option of the story.
+Not every component has interaction tests.
+If a component includes custom interactive functionality, it must have an interaction test.
+Interaction tests are located in the test story `component.test.stories.tsx`, within the [play](https://storybook.js.org/docs/writing-stories/play-function) function of the story.
 
-## Visual test
+## Visual tests
 
 | Method    | Description                                   |
 | :-------- | :-------------------------------------------- |
 | Input     | Variant of a component.                       |
 | Output    | Visual appearance of the component.           |
 | Principle | Find unintended changes to the visual output. |
-| Example   | Does the button still has a border?           |
+| Example   | Does the button still have a border?          |
 
-All components should have their own visual tests.
-Visual tests are located within the test story, `component.test.stories.tsx`, which should render all variants of the component.
+Each component must have its own visual tests.
+The visual tests can be found in the test story `component.test.stories.tsx`, which should render all variants of the component.
 
-## Accessibility test
+## Accessibility tests
 
 | Method    | Description                                                                          |
 | :-------- | :----------------------------------------------------------------------------------- |
 | Input     | WCAG Rules.                                                                          |
-| Output    | Visual render of the component where the rules are checked on.                       |
+| Output    | Visual render of the component on which the rules are checked.                       |
 | Principle | Make sure that there are no changes which worsen the accessibility of the component. |
 | Example   | Is the contrast still high enough?                                                   |
 
-Accessibility tests are not configured on component-basis. The accessibility rules where the component should be tested on are configured Storybook wide. These are configured in `.storybook/preview.ts`.
+Accessibility tests are not configured on a component basis. The accessibility rules that the component should follow are the default ones from Storybook.
 
 ## How we test
 
@@ -56,7 +57,7 @@ With each pull request there are two actions:
 1. [Unit Tests](https://github.com/Amsterdam/design-system/actions/workflows/lint-test.yml)
 2. [Interaction, Visual, Accessibility tests](https://github.com/Amsterdam/design-system/actions/workflows/chromatic.yml)
 
-The interaction, visual, and accessibility tests are run by [Chromatic](https://chromatic.com). Chromatic runs, visual, interaction and accessibility tests on each story labeled "Test" If any changes are detected, they must be approved before merging the pull request. You can accept changes directly through the Chromatic dashboard. Once the changes are accepted, the pull request can be merged.
+The interaction, visual, and accessibility tests are run by [Chromatic](https://chromatic.com). Chromatic runs these tests on each story labeled ‘Test’. If any changes are detected, they must be approved before merging the pull request. You can accept changes directly through the Chromatic dashboard. Once the changes are accepted, the pull request can be merged.
 
 These actions are required to succeed before merging a pull-request.
 
