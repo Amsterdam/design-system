@@ -61,10 +61,6 @@ The interaction, visual, and accessibility tests are run by [Chromatic](https://
 
 These actions are required to succeed before merging a pull-request.
 
-## How do we run the tests?
-
-Unit tests are run by the [lint-test workflow](https://github.com/Amsterdam/design-system/blob/develop/.github/workflows/lint-test.yml). Interaction, visual, and accessibility tests are tested by [Chromatic](https://www.chromatic.com/docs/).
-
 ### Chromatic configuration
 
 Chromatic uses two tokens to run: a project ID and a [secret token](https://www.chromatic.com/manage?appId=68db9df886b46f139748c074&view=configure). The project ID is public within the [repo](https://github.com/Amsterdam/design-system/blob/develop/storybook/chromatic.config.json), while the secret token is used in the [workflow](https://github.com/Amsterdam/design-system/blob/develop/.github/workflows/chromatic.yml).
