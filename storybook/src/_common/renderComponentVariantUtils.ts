@@ -6,7 +6,7 @@
 import type { ElementType, JSX, SVGProps } from 'react'
 
 import { ChevronDownIcon } from '@amsterdam/design-system-react-icons'
-import clsx from 'clsx'
+import { clsx } from 'clsx'
 
 import type {
   BuildComponentPropsParams,
@@ -14,7 +14,7 @@ import type {
   DocgenInfo,
   PropType,
   PropWithValues,
-} from './componentVariantTypes'
+} from './renderComponentVariantTypes'
 
 /**
  * Reads React Docgen info from the component.

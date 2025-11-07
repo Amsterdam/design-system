@@ -7,7 +7,7 @@ import type { ElementType } from 'react'
 
 import { createElement } from 'react'
 
-import type { renderComponentVariantsParams } from './componentVariantTypes'
+import type { renderComponentVariantsParams } from './renderComponentVariantTypes'
 
 import {
   buildComponentProps,
@@ -15,7 +15,7 @@ import {
   extractPropsWithValues,
   extractPropValues,
   getDocgenInfo,
-} from './componentVariantUtils'
+} from './renderComponentVariantUtils'
 
 /**
  * Main function: generates all possible combinations ("variants")
