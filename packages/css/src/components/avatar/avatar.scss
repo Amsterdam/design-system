@@ -34,7 +34,8 @@
   overflow: hidden;
   padding-block: 0;
   padding-inline: 0;
-  vertical-align: middle; /* Remove ‘phantom’ white space when image doesn’t load */
+  place-content: stretch; /* Make the image occupy the full avatar area, even when its intrinsic size is smaller. */
+  vertical-align: middle; /* Remove ‘phantom’ white space when image doesn’t load. */
 
   /* Ensure Safari ignores intrinsic image sizing inside flex/grid containers, preventing incorrect scaling and distortion. */
   img {
