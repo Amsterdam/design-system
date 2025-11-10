@@ -1,9 +1,0 @@
-import{r as t}from"./renderComponentVariants-Bkf7_I4H.js";import{m as a,S as o}from"./StandaloneLink.stories-YAhSts95.js";import"./iframe-DUEA43bp.js";import"./preload-helper-PPVm8Dsz.js";import"./ChevronDown-B2ELH251.js";import"./Icon-9ee5fdDj.js";/**
- * @license EUPL-1.2+
- * Copyright Gemeente Amsterdam
- */const c={...a,title:"Components/StandaloneLink"},r={render:e=>t(o,{args:e}),tags:["!dev","!autodocs"]};r.parameters={...r.parameters,docs:{...r.parameters?.docs,source:{originalSource:`{
-  render: args => renderComponentVariants(StandaloneLink, {
-    args
-  }),
-  tags: ['!dev', '!autodocs']
-}`,...r.parameters?.docs?.source}}};const l=["Test"];export{r as Test,l as __namedExportsOrder,c as default};
