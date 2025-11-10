@@ -110,7 +110,17 @@ export const renderComponentVariants = (
         {
           hasIcon: null,
           name: 'imageSrc',
-          values: ['https://picsum.photos/id/122/1280/720'],
+          values: ['https://picsum.photos/id/64/128/128'],
+        },
+        {
+          hasIcon: null,
+          name: 'imageSrc',
+          values: ['https://picsum.photos/id/64/128/64'],
+        },
+        {
+          hasIcon: null,
+          name: 'imageSrc',
+          values: ['https://picsum.photos/id/64/16/16'],
         },
       ],
     ])
