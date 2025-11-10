@@ -79,24 +79,9 @@ export function completePropsWithDefaults(propsAndValues: PropWithValues[]) {
       ['icon', { hasIcon: null, name: 'icon', values: [ChevronDownIcon] }],
       ['iconBefore', { hasIcon, name: 'iconBefore', values: [true] }],
       ['iconOnly', { hasIcon, name: 'iconOnly', values: [true] }],
-      [
-        'imageSrc',
-        {
-          hasIcon: null,
-          name: 'imageSrc',
-          values: ['https://picsum.photos/id/64/128/128'],
-        },
-        {
-          hasIcon: null,
-          name: 'imageSrc',
-          values: ['https://picsum.photos/id/64/128/64'],
-        },
-        {
-          hasIcon: null,
-          name: 'imageSrc',
-          values: ['https://picsum.photos/id/64/16/16'],
-        },
-      ],
+      ['imageSrc', { hasIcon: null, name: 'imageSrc', values: ['https://picsum.photos/id/64/128/128'] }],
+      ['imageSrc', { hasIcon: null, name: 'imageSrc', values: ['https://picsum.photos/id/64/128/64'] }],
+      ['imageSrc', { hasIcon: null, name: 'imageSrc', values: ['https://picsum.photos/id/64/16/16'] }],
     ])
 
     // If prop has a static default defined above, use it
