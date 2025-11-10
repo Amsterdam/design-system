@@ -21,6 +21,7 @@ Includes the name of the website if it is not the general one.
 - An icon can be added to the end of a link to make its destination easier to guess.
 - For websites with a brand name that feature the standard Amsterdam logo, only the emblem is shown on narrow screens.
 - If the collapsible menu contains [Headings](https://designsystem.amsterdam/?path=/docs/components-text-heading--docs), give them level 2 and a size of ‘level-3’.
+- Do not add whitespace to the Grid in the collapsible menu.
 
 ## References
 
