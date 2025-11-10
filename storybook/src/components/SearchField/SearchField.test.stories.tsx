@@ -39,8 +39,8 @@ export const Test: Story = {
   render: (args) => (
     <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--ams-space-s)' }}>
       <SearchField {...args}>
-        <SearchField.Input data-testid="searchbox" placeholder="Waar ben je naar opzoek?" />
-        <SearchField.Button data-testid="button" onClick={testFn} />
+        <SearchField.Input data-testid="searchbox" name="search" placeholder="Waar ben je naar opzoek?" />
+        <SearchField.Button data-testid="button" />
       </SearchField>
       <SearchField {...args}>
         <SearchField.Input />
