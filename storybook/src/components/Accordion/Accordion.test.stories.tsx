@@ -8,7 +8,7 @@ import type { Meta, StoryObj } from '@storybook/react-vite'
 import { Accordion } from '@amsterdam/design-system-react/src'
 import { expect } from 'storybook/test'
 
-import { renderComponentVariants } from '../../utils/renderComponentVariants'
+import { renderComponentVariants } from '../../_common/renderComponentVariants'
 import { default as accordionMeta } from './Accordion.stories'
 
 const meta = {
