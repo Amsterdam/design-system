@@ -5,7 +5,7 @@
 
 import type { Meta, StoryObj } from '@storybook/react-vite'
 
-import { Grid, Heading, Menu, PageFooter, PageHeader, SkipLink } from '@amsterdam/design-system-react'
+import { Grid, Heading, Menu, PageFooter, PageHeader, Paragraph, SkipLink } from '@amsterdam/design-system-react'
 import { SettingsFillIcon } from '@amsterdam/design-system-react-icons'
 import { Page } from '@amsterdam/design-system-react/src'
 
@@ -56,8 +56,15 @@ export const Default: Story = {
         <Heading className="ams-visually-hidden" level={2}>
           Over deze website
         </Heading>
+        <PageFooter.Spotlight>
+          <Grid paddingVertical="x-large">
+            <Grid.Cell span="all">
+              <Paragraph color="inverse">Page Footer</Paragraph>
+            </Grid.Cell>
+          </Grid>
+        </PageFooter.Spotlight>
         <PageFooter.Menu>
-          <PageFooter.MenuLink href="/">Page Footer</PageFooter.MenuLink>
+          <PageFooter.MenuLink href="/">Page Footer Menu</PageFooter.MenuLink>
         </PageFooter.Menu>
       </PageFooter>,
     ],
@@ -98,7 +105,7 @@ export const WithMenu: Story = {
           Over deze website
         </Heading>
         <PageFooter.Menu>
-          <PageFooter.MenuLink href="/">Page Footer</PageFooter.MenuLink>
+          <PageFooter.MenuLink href="/">Page Footer Menu</PageFooter.MenuLink>
         </PageFooter.Menu>
       </PageFooter>
     </Page>
