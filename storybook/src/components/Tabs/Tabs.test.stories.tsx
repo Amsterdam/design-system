@@ -6,6 +6,7 @@
 import type { Meta, StoryObj } from '@storybook/react-vite'
 
 import { Tabs } from '@amsterdam/design-system-react/src'
+import { expect } from 'storybook/test'
 
 import { renderComponentVariants } from '../../_common/renderComponentVariants'
 import { default as tabsMeta } from './Tabs.stories'
@@ -24,12 +25,16 @@ export const Test: Story = {
     activeTab: 'Gegevens',
     children: [
       <Tabs.List key={1}>
-        <Tabs.Button aria-controls="Gegevens">Gegevens</Tabs.Button>
-        <Tabs.Button aria-controls="Aanslagen">Aanslagen</Tabs.Button>
+        <Tabs.Button aria-controls="Gegevens" data-testid="gegevens">
+          Gegevens
+        </Tabs.Button>
+        <Tabs.Button aria-controls="Aanslagen" data-testid="aanslagen">
+          Aanslagen
+        </Tabs.Button>
         <Tabs.Button aria-controls="Acties">Acties</Tabs.Button>
       </Tabs.List>,
       <Tabs.Panel id="Gegevens" key={2}>
-        <p>
+        <p data-testid="gegevens-panel">
           Veel Amsterdammers in de bijstand zijn huiverig om te gaan werken. Ze denken dat ze dan minder geld krijgen,
           bijvoorbeeld omdat ze hun toeslagen verliezen. Voor deze mensen ontwikkelen we de ‘garantieknop’. Als mensen
           in de bijstand beginnen met werken en binnen 6 maanden hun baan verliezen, kunnen zij met de ‘garantieknop’
@@ -38,7 +43,7 @@ export const Test: Story = {
         </p>
       </Tabs.Panel>,
       <Tabs.Panel id="Aanslagen" key={3}>
-        <p>
+        <p data-testid="aanslagen-panel">
           Daarom organiseren we in 2024 het burgerberaad schone stad, waarin 150 Amsterdammers in gesprek gaan over hoe
           we de stad beter schoonhouden. Wat vinden Amsterdammers belangrijk? Welke oplossingen zien zij? Hier zijn we
           benieuwd naar. Want elke Amsterdammer heeft afval en moet het kwijt. Wij kunnen als gemeente veel van deze
@@ -53,6 +58,18 @@ export const Test: Story = {
         </p>
       </Tabs.Panel>,
     ],
+  },
+  play: async ({ canvas, userEvent }) => {
+    await new Promise((resolve) => setTimeout(resolve, 500)) // This delay is required to finish the first tab opening
+
+    const gegevensParagraph = canvas.getByTestId('gegevens-panel')
+    const aanslagenTab = canvas.getByTestId('aanslagen')
+
+    await expect(gegevensParagraph).toBeVisible()
+    await userEvent.click(aanslagenTab)
+    await new Promise((resolve) => setTimeout(resolve, 500)) // This delay is required to finish the second tab opening
+    await expect(canvas.getByTestId('aanslagen-panel')).toBeVisible()
+    await expect(gegevensParagraph).not.toBeVisible()
   },
   render: (args) => renderComponentVariants(Tabs, { args }),
   tags: ['!dev', '!autodocs'],
