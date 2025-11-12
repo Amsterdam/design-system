@@ -1,0 +1,62 @@
+/**
+ * @license EUPL-1.2+
+ * Copyright Gemeente Amsterdam
+ */
+
+import type { Meta } from '@storybook/react-vite'
+import type { JSX, SVGProps } from 'react'
+
+export type renderComponentVariantsParams = {
+  args: Meta['args'] // Storybook args applied to every instance
+  layout?: 'flex' | 'grid' // The layout were the variants will be rendered
+  variants?: string[] // Extra "states" (e.g. disabled, hovered)
+}
+
+export type PropType = {
+  defaultValue?: { value: string }
+  description?: string
+  name: string
+  required?: boolean
+  type?: {
+    name: string
+    value: {
+      value: string
+    }[]
+  }
+}
+
+export type DocgenInfo = {
+  props?: Record<string, PropType>
+}
+
+export type PropWithValues = {
+  name: string
+  propType: string | undefined
+  values: string[] | number[] | boolean[] | ((props: SVGProps<SVGSVGElement>) => JSX.Element)[]
+}
+
+export type CompletePropsWithValues = (
+  | {
+      hasIcon: null
+      name: string
+      values: PropWithValues['values']
+    }
+  | {
+      hasIcon: {
+        icon: (props: SVGProps<SVGSVGElement>) => JSX.Element
+      }
+      name: string
+      values: PropWithValues['values']
+    }
+)[]
+
+export type BuildComponentPropsParams = {
+  args: Meta['args']
+  hasIcon?: { icon: (props: SVGProps<SVGSVGElement>) => JSX.Element } | null
+  propName: string
+  size?: string | undefined
+  sizePropName: string | string[]
+  state: string
+  values?: PropWithValues['values']
+  variant: string | number | boolean | ((props: SVGProps<SVGSVGElement>) => JSX.Element)
+}
