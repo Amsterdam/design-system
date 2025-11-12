@@ -5,7 +5,7 @@
 
 import type { HTMLAttributes, PropsWithChildren } from 'react'
 
-import { Grid, Heading, PageFooter, PageHeader, SkipLink } from '@amsterdam/design-system-react'
+import { Heading, PageFooter, PageHeader, SkipLink } from '@amsterdam/design-system-react'
 
 import { MenuWithItems } from './MenuWithItems'
 
@@ -22,11 +22,7 @@ export const Layout = ({ children }: LayoutProps) => (
       logoLinkTitle="Naar de homepage van Applicatie"
       noMenuButtonOnWideWindow
     >
-      <Grid>
-        <Grid.Cell span="all">
-          <MenuWithItems />
-        </Grid.Cell>
-      </Grid>
+      <MenuWithItems />
     </PageHeader>
     <MenuWithItems className="ams-page__area--menu" inWideWindow />
     <main className="ams-page__area--body" id="inhoud">
