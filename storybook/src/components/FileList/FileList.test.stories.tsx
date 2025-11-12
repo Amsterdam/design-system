@@ -21,12 +21,7 @@ type Story = StoryObj<typeof meta>
 
 export const Test: Story = {
   args: {
-    children: [
-      <FileList.Item
-        file={new File(['sample1'], 'sample1.txt', { lastModified: Date.now(), type: 'text/plain' })}
-        key="1"
-      />,
-    ],
+    children: <FileList.Item file={new File(['sample1'], 'sample1.txt', { type: 'text/plain' })} />,
   },
   render: (args) => renderComponentVariants(FileList, { args }),
   tags: ['!dev', '!autodocs'],
