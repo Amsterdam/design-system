@@ -1,4 +1,0 @@
-import{r as d,j as c,c as i}from"./iframe-FijalPYf.js";const a=d.forwardRef(({children:r,className:o,color:t,...s},n)=>c.jsx("h1",{...s,className:i("ams-page-heading",t&&`ams-page-heading--${t}`,o),ref:n,children:r}));a.displayName="PageHeading";try{a.displayName="PageHeading",a.__docgenInfo={description:"",displayName:"PageHeading",props:{color:{defaultValue:null,description:"Changes the text colour for readability on a dark background.",name:"color",required:!1,type:{name:"enum",value:[{value:'"inverse"'}]}}}}}catch{}/**
- * @license EUPL-1.2+
- * Copyright Gemeente Amsterdam
- */const l={title:"Components/Text/Page Heading",component:a,args:{children:"Gemeente Amsterdam"}},e={};e.parameters={...e.parameters,docs:{...e.parameters?.docs,source:{originalSource:"{}",...e.parameters?.docs?.source}}};const p=["Default"],m=Object.freeze(Object.defineProperty({__proto__:null,Default:e,__namedExportsOrder:p,default:l},Symbol.toStringTag,{value:"Module"}));export{m as P};
