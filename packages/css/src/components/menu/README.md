@@ -16,8 +16,9 @@ A primary navigation leading to key areas of an application or website.
 
 ## Guidelines
 
-- This component must not be used on public websites or applications.
+- This component must not be used for public websites or applications.
   They should offer navigation using the Page Header only.
+- This component must only be used in [Compact Mode](/docs/docs-developer-guide-modes--docs).
 - Include this component twice: one in the Page Header and one to the side of the Page.
   Do not use it anywhere else.
 - Set the `inWideWindow` prop to the latter to ensure only one of them is visible, and to get the correct appearance.
