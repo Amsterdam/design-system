@@ -21,6 +21,9 @@ export const argTypes = {
   className: {
     table: { disable: true },
   },
+  style: {
+    table: { disable: true },
+  },
 }
 
 // Wrap in Page, set language to Dutch for Canvas and Stories

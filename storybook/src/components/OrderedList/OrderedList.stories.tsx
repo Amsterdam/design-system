@@ -144,11 +144,6 @@ export const WithoutMarkers: Story = {
     markers: false,
     style: { maxInlineSize: '32rem' },
   },
-  argTypes: {
-    style: {
-      table: { disable: true },
-    },
-  },
 }
 
 export const InverseColor: Story = {
