@@ -23,9 +23,6 @@ const meta = {
     href: {
       description: 'The url for the link. References an anchor on the current page.',
     },
-    style: {
-      table: { disable: true },
-    },
   },
 } satisfies Meta<typeof SkipLink>
 
