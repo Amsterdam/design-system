@@ -80,7 +80,7 @@ export const parameters = {
         ['Buttons', 'Containers', 'Feedback', 'Forms', 'Layout', 'Media', 'Navigation', 'Text'],
         'Utilities',
         'Pages',
-        ['Introduction', 'Guidelines', 'Public', ['Home Page'], 'Internal', ['Introduction']],
+        ['Introduction', 'Guidelines', 'Public', ['Introduction'], ['Home Page'], 'Internal', ['Introduction']],
       ],
     },
   },
