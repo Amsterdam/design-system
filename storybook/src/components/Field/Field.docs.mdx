@@ -40,3 +40,10 @@ Add an `aria-describedby` attribute to the input and provide the `id` of Error M
 Do not use rich text (such as links or lists) in an Error Message. [Find out why](/docs/components-forms-error-message--docs#no-rich-text).
 
 <Canvas of={FieldStories.WithValidation} />
+
+### In a Field Set
+
+A Field can be nested inside a Field Set.
+Use the `inFieldSet` prop on the Label of the Field to show it in a lighter style.
+
+<Canvas of={FieldStories.InAFieldSet} />
