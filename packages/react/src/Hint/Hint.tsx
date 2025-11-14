@@ -11,6 +11,8 @@ import { forwardRef } from 'react'
 type HintAndOptionalProps = {
   /** Show a custom hint text. */
   hint?: string
+  /** Shows the hint in a lighter style.  */
+  inFieldSet?: boolean
   /** Appends the text '(niet verplicht)' to the label or legend if no hint is provided. Use when the associated inputs are optional. */
   optional?: boolean
 }
@@ -28,12 +30,12 @@ const getHintText = ({ hint, optional }: HintAndOptionalProps) => {
 export type HintProps = HintAndOptionalProps & PropsWithChildren<HTMLAttributes<HTMLElement>>
 
 export const Hint = forwardRef(
-  ({ className, hint, optional, ...restProps }: HintProps, ref: ForwardedRef<HTMLElement>) => {
+  ({ className, hint, inFieldSet, optional, ...restProps }: HintProps, ref: ForwardedRef<HTMLElement>) => {
     const hintText = getHintText({ hint, optional })
 
     return (
       hintText && (
-        <span {...restProps} className={clsx('ams-hint', className)} ref={ref}>
+        <span {...restProps} className={clsx('ams-hint', inFieldSet && 'ams-hint--in-fieldset', className)} ref={ref}>
           ({hintText})
         </span>
       )
