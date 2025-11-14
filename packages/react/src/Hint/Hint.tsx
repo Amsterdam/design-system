@@ -11,8 +11,7 @@ import { forwardRef } from 'react'
 type HintAndOptionalProps = {
   /** Show a custom hint text. */
   hint?: string
-  /** Shows the hint in a lighter style.  */
-  inFieldSet?: boolean
+  inFieldSet?: boolean // Setting a description here will show it for the Label and FieldSet components in Storybook, which we do not want.
   /** Appends the text '(niet verplicht)' to the label or legend if no hint is provided. Use when the associated inputs are optional. */
   optional?: boolean
 }
