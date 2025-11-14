@@ -146,4 +146,18 @@ describe('Label', () => {
 
     expect(heading).toBeInTheDocument()
   })
+
+  it('renders the correct class names when `inFieldSet` is true', () => {
+    const { container } = render(
+      <Label inFieldSet optional>
+        Label
+      </Label>,
+    )
+
+    const label = container.querySelector('label:only-child')
+    const hint = label?.querySelector('.ams-hint')
+
+    expect(label).toHaveClass('ams-label--in-fieldset')
+    expect(hint).toHaveClass('ams-hint--in-fieldset')
+  })
 })

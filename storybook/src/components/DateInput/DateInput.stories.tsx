@@ -71,7 +71,6 @@ export const InAFieldWithValidation: Story = {
   ),
 }
 
-// TODO: we should probably use an h1 here, when that's possible.
 export const MemorableDate: Story = {
   render: () => (
     <FieldSet aria-describedby="description-a" legend="Wanneer ben je geboren?">
@@ -80,15 +79,21 @@ export const MemorableDate: Story = {
       </Paragraph>
       <Row>
         <Column gap="small">
-          <Label htmlFor="input-a1">Dag</Label>
+          <Label htmlFor="input-a1" inFieldSet>
+            Dag
+          </Label>
           <TextInput autoComplete="bday-day" id="input-a1" inputMode="numeric" name="dag" size={2} />
         </Column>
         <Column gap="small">
-          <Label htmlFor="input-a2">Maand</Label>
+          <Label htmlFor="input-a2" inFieldSet>
+            Maand
+          </Label>
           <TextInput autoComplete="bday-month" id="input-a2" inputMode="numeric" name="maand" size={2} />
         </Column>
         <Column gap="small">
-          <Label htmlFor="input-a3">Jaar</Label>
+          <Label htmlFor="input-a3" inFieldSet>
+            Jaar
+          </Label>
           <TextInput autoComplete="bday-year" id="input-a3" inputMode="numeric" name="jaar" size={4} />
         </Column>
       </Row>
@@ -107,15 +112,21 @@ export const MemorableDateWithValidation: Story = {
       </ErrorMessage>
       <Row>
         <Column gap="small">
-          <Label htmlFor="input-b1">Dag</Label>
+          <Label htmlFor="input-b1" inFieldSet>
+            Dag
+          </Label>
           <TextInput autoComplete="bday-day" id="input-b1" inputMode="numeric" invalid name="dag" size={2} />
         </Column>
         <Column gap="small">
-          <Label htmlFor="input-b2">Maand</Label>
+          <Label htmlFor="input-b2" inFieldSet>
+            Maand
+          </Label>
           <TextInput autoComplete="bday-month" id="input-b2" inputMode="numeric" invalid name="maand" size={2} />
         </Column>
         <Column gap="small">
-          <Label htmlFor="input-b3">Jaar</Label>
+          <Label htmlFor="input-b3" inFieldSet>
+            Jaar
+          </Label>
           <TextInput autoComplete="bday-year" id="input-b3" inputMode="numeric" invalid name="jaar" size={4} />
         </Column>
       </Row>

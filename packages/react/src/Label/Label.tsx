@@ -15,6 +15,11 @@ import { Hint } from '../Hint'
 
 export type LabelProps = {
   /**
+   * Whether the label is nested inside a fieldset.
+   * This will show the label in a lighter style.
+   */
+  inFieldSet?: boolean
+  /**
    * Render a level 1 heading around the label.
    * Set this if the Field is the only content of the page.
    */
@@ -27,12 +32,12 @@ export type LabelProps = {
  */
 export const Label = forwardRef(
   (
-    { children, className, hint, isPageHeading, optional, ...restProps }: LabelProps,
+    { children, className, hint, inFieldSet, isPageHeading, optional, ...restProps }: LabelProps,
     ref: ForwardedRef<HTMLLabelElement>,
   ) => {
     const labelElement = (
-      <label {...restProps} className={clsx('ams-label', className)} ref={ref}>
-        {children} <Hint hint={hint} optional={optional} />
+      <label {...restProps} className={clsx('ams-label', inFieldSet && 'ams-label--in-fieldset', className)} ref={ref}>
+        {children} <Hint hint={hint} inFieldSet={inFieldSet} optional={optional} />
       </label>
     )
 
