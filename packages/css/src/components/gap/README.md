@@ -15,7 +15,7 @@ Five options are available for the width or height of the gap:
 - `ams-gap-xl`
 
 Because spacing is responsive, the gaps are as well.
-They are also smaller in Compact Mode.
+They are also smaller in [Compact Mode](https://designsystem.amsterdam/docs/docs-developer-guide-modes--docs).
 Consult the [Space](/docs/brand-design-tokens-space--docs) docs for an indication of their sizes.
 
 The `2xl` space is intended for whitespace around a [Grid](/docs/components-layout-grid--docs) only, which can be produced through a `padding*` of `large`.

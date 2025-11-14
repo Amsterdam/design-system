@@ -16,7 +16,7 @@ Six options are available for the width or height of the bottom margin:
 - `ams-mb-2xl`
 
 Because spacing is responsive, the margins are as well.
-They are also smaller in Compact Mode.
+They are also smaller in [Compact Mode](https://designsystem.amsterdam/docs/docs-developer-guide-modes--docs).
 Consult the [Space](/docs/brand-design-tokens-space--docs) docs for an indication of their sizes.
 
 ## Guidelines

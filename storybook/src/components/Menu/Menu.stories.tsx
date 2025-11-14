@@ -81,6 +81,11 @@ const meta = {
     },
   },
   decorators: [withInWideWindowArg],
+  parameters: {
+    themes: {
+      themeOverride: 'Compact',
+    },
+  },
 } satisfies Meta<typeof Menu>
 
 export default meta

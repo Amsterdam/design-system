@@ -57,11 +57,12 @@ import "@amsterdam/design-system-tokens/dist/index.theme.css"
 </body>
 ```
 
-### Compact mode
+### Compact overrides
 
-Our branding is rather spacious for websites.
-The main stylesheet implements this ‘spacious mode’ as the default.
-A compact stylesheet is available for applications that require less white space and smaller text.
+Our visual style is quite spacious.
+This works well for public websites.
+The main stylesheet implements this ‘Spacious Mode’ as the default.
+A compact stylesheet is available for internal applications that require less white space and smaller text.
 
 Note that the compact stylesheet is not independent – it only contains overrides.
 Import it after the main stylesheet for the correct result.
