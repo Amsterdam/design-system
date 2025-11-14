@@ -12,7 +12,10 @@
         "font-weight": { "value": "{ams.typography.heading.font-weight}" },
         "line-height": { "value": "{ams.typography.heading.3.line-height}" },
         "margin-block-end": { "value": "{ams.space.s}" },
-        "text-wrap": { "value": "{ams.typography.heading.text-wrap}" }
+        "text-wrap": { "value": "{ams.typography.heading.text-wrap}" },
+        "in-fieldset": {
+          "font-weight": { "value": "{ams.typography.body-text.font-weight}" }
+        }
       }
     }
   }

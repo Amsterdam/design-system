@@ -13,6 +13,11 @@ import type { HintProps } from '../Hint'
 import { Hint } from '../Hint'
 
 export type FieldSetProps = {
+  /**
+   * Whether the fieldset is nested inside another fieldset.
+   * This will show the legend in a lighter style.
+   */
+  inFieldSet?: boolean
   /** Whether the field set has an input with a validation error. */
   invalid?: boolean
   /** The text for the caption. */
@@ -30,12 +35,22 @@ export type FieldSetProps = {
  */
 export const FieldSet = forwardRef(
   (
-    { children, className, hint, invalid, legend, legendIsPageHeading, optional, ...restProps }: FieldSetProps,
+    {
+      children,
+      className,
+      hint,
+      inFieldSet,
+      invalid,
+      legend,
+      legendIsPageHeading,
+      optional,
+      ...restProps
+    }: FieldSetProps,
     ref: ForwardedRef<HTMLFieldSetElement>,
   ) => {
     const legendContent = (
       <>
-        {legend} <Hint hint={hint} optional={optional} />
+        {legend} <Hint hint={hint} inFieldSet={inFieldSet} optional={optional} />
       </>
     )
 
@@ -45,7 +60,7 @@ export const FieldSet = forwardRef(
         className={clsx('ams-field-set', invalid && 'ams-field-set--invalid', className)}
         ref={ref}
       >
-        <legend className="ams-field-set__legend">
+        <legend className={clsx('ams-field-set__legend', inFieldSet && 'ams-field-set__legend--in-fieldset')}>
           {legendIsPageHeading ? <h1 className="ams-field-set__heading">{legendContent}</h1> : legendContent}
         </legend>
         {children}

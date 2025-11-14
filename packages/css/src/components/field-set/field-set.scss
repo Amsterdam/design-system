@@ -55,6 +55,10 @@
   @include reset-legend;
 }
 
+.ams-field-set__legend--in-fieldset {
+  font-weight: var(--ams-field-set-legend-in-fieldset-font-weight);
+}
+
 .ams-field-set__heading {
   font-size: inherit;
   font-weight: inherit;
