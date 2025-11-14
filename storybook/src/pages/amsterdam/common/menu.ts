@@ -3,12 +3,13 @@
  * Copyright Gemeente Amsterdam
  */
 
+import type { PageHeaderMenuLinkProps } from '@amsterdam/design-system-react'
+
+import { SearchIcon } from '@amsterdam/design-system-react-icons'
+
 type PageHeaderMenuLink = {
-  fixed?: boolean
-  href?: string
   label: string
-  lang?: 'en'
-}
+} & PageHeaderMenuLinkProps
 
 export const pageHeaderMenuLinks: PageHeaderMenuLink[] = [
   {
@@ -21,6 +22,7 @@ export const pageHeaderMenuLinks: PageHeaderMenuLink[] = [
   },
   {
     fixed: true,
+    icon: SearchIcon,
     label: 'Zoeken',
   },
 ]

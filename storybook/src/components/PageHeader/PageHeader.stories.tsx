@@ -6,6 +6,7 @@
 import type { Meta, StoryObj } from '@storybook/react-vite'
 
 import { Grid, Heading, LinkList } from '@amsterdam/design-system-react'
+import { LogInIcon, SearchIcon } from '@amsterdam/design-system-react-icons'
 import { PageHeader } from '@amsterdam/design-system-react/src'
 
 const meta = {
@@ -90,7 +91,7 @@ export const Default: Story = {
       <PageHeader.MenuLink href="#" key={1} lang="en">
         English
       </PageHeader.MenuLink>,
-      <PageHeader.MenuLink fixed href="#" key={2}>
+      <PageHeader.MenuLink fixed href="#" icon={SearchIcon} key={2}>
         Zoeken
       </PageHeader.MenuLink>,
     ],
@@ -119,7 +120,7 @@ export const WithMovingLinks: Story = {
       <PageHeader.MenuLink href="#" key={1} lang="en">
         English
       </PageHeader.MenuLink>,
-      <PageHeader.MenuLink fixed href="#" key={2}>
+      <PageHeader.MenuLink fixed href="#" icon={SearchIcon} key={2}>
         Zoeken
       </PageHeader.MenuLink>,
     ],
@@ -155,7 +156,7 @@ export const WithoutMenuButtonOnWideWindow: Story = {
           {label}
         </PageHeader.MenuLink>
       )),
-      <PageHeader.MenuLink fixed href="#" key="Zoeken">
+      <PageHeader.MenuLink fixed href="#" icon={SearchIcon} key="Zoeken">
         Zoeken
       </PageHeader.MenuLink>,
     ],
@@ -167,7 +168,7 @@ export const WithoutMenuButton: Story = {
   args: {
     brandName: 'Mijn Amsterdam',
     menuItems: (
-      <PageHeader.MenuLink fixed href="#">
+      <PageHeader.MenuLink fixed href="#" icon={LogInIcon}>
         Inloggen
       </PageHeader.MenuLink>
     ),
