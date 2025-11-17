@@ -7,13 +7,13 @@ import { createContext } from 'react'
 
 import type { ProgressListProps } from './ProgressList'
 
-export type AccordionContextValue = {
+export type ProgressListContextValue = {
   headingLevel: ProgressListProps['headingLevel']
 }
 
-const defaultValues: AccordionContextValue = {
+const defaultValues: ProgressListContextValue = {
   // Level 2 is set here, but it is never used.
-  // headingLevel is a required prop in Accordion, which always overwrites it.
+  // headingLevel is a required prop in ProgressList, which always overwrites it.
   headingLevel: 2,
 }
 
