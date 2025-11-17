@@ -30,7 +30,7 @@ const meta = {
           <UnorderedList.Item>Oplevering lammetjesfontein.</UnorderedList.Item>
         </UnorderedList>
       </ProgressList.Item>,
-      <ProgressList.Item heading="2028 - Afronding" key={3}></ProgressList.Item>,
+      <ProgressList.Item heading="2028 - Afronding" key={3} />,
     ],
     headingLevel: 3,
   },
