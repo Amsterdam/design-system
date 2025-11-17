@@ -3,7 +3,6 @@
  * Copyright Gemeente Amsterdam
  */
 
-/* Append here */
 export * from './Accordion'
 export * from './ActionGroup'
 export * from './Alert'
@@ -50,6 +49,8 @@ export * from './PageHeading'
 export * from './Pagination'
 export * from './Paragraph'
 export * from './PasswordInput'
+/* Append here */
+export * from './ProgressList'
 export * from './Radio'
 export * from './Row'
 export * from './SearchField'

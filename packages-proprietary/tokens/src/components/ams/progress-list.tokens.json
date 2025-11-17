@@ -1,0 +1,23 @@
+{
+  "ams": {
+    "progress-list": {
+      "background-color": { "value": "{ams.color.feedback.success}" },
+      "item": {
+        "spacing": { "value": "{ams.space.l}" }
+      },
+      "status-indicator": {
+        "width": { "value": "20px" },
+        "height": { "value": "20px" }
+      },
+      "separator": {
+        "width": { "value": "2px" }
+      },
+      "content": {
+        "offset": { "value": "{ams.space.xl}" }
+      },
+      "heading": {
+        "spacing": { "value": "{ams.space.s}" }
+      }
+    }
+  }
+}

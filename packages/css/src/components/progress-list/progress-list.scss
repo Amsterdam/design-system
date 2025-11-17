@@ -1,0 +1,63 @@
+/**
+ * @license EUPL-1.2+
+ * Copyright Gemeente Amsterdam
+ */
+@use "../../common/hyphenation" as *;
+@use "../../common/text-rendering" as *;
+
+.ams-progress-list__separator {
+  background-color: var(--ams-progress-list-background-color);
+  block-size: 100%;
+  inline-size: var(--ams-progress-list-separator-width);
+
+  /*
+   * Centers the separator line with the status indicator:
+   * - Takes half the indicator width (center point)
+   * - Subtracts half the separator width (to align its center)
+   */
+  margin-inline-start: calc(
+    var(--ams-progress-list-status-indicator-width) / 2 - var(--ams-progress-list-separator-width) / 2
+  );
+  position: absolute;
+}
+
+.ams-progress-list {
+  display: grid;
+  list-style: none;
+
+  > li:not(:last-child) {
+    padding-block-end: var(--ams-progress-list-item-spacing);
+  }
+
+  > li:last-child .ams-progress-list__separator {
+    display: none;
+  }
+
+  @include hyphenation;
+  @include text-rendering;
+}
+
+.ams-progress-list__item {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+.ams-progress-list__status-indicator {
+  background-color: var(--ams-progress-list-background-color);
+  block-size: var(--ams-progress-list-status-indicator-height);
+  border-radius: 100%;
+  inline-size: var(--ams-progress-list-status-indicator-width);
+  inset-inline-start: 0;
+  position: absolute;
+}
+
+.ams-progress-list__content {
+  display: flex;
+  flex-direction: column;
+  margin-inline-start: var(--ams-progress-list-content-offset);
+
+  > :first-child {
+    padding-block-end: var(--ams-progress-list-heading-spacing);
+  }
+}
