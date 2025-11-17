@@ -46,3 +46,10 @@ export const WithHeading: Story = {
     isPageHeading: true,
   },
 }
+
+export const InAFieldSet: Story = {
+  args: {
+    inFieldSet: true,
+    optional: true,
+  },
+}

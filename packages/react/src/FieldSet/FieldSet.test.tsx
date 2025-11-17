@@ -102,4 +102,14 @@ describe('FieldSet', () => {
 
     expect(heading).toBeInTheDocument()
   })
+
+  it('renders the correct class names when `inFieldSet` is true', () => {
+    const { container } = render(<FieldSet inFieldSet legend="Test" optional />)
+
+    const legend = container.querySelector('legend')
+    const hint = legend?.querySelector('.ams-hint')
+
+    expect(legend).toHaveClass('ams-field-set__legend--in-fieldset')
+    expect(hint).toHaveClass('ams-hint--in-fieldset')
+  })
 })
