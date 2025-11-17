@@ -11,7 +11,7 @@
   border-style: var(--ams-avatar-border-style);
   border-width: var(--ams-avatar-border-width);
   color: var(--ams-avatar-color);
-  display: inline-grid;
+  display: inline-grid; /* Avoid Safari flexbox bug that distorts images by resolving intrinsic size incorrectly. */
   font-family: var(--ams-avatar-font-family);
   font-size: var(--ams-avatar-font-size);
   inline-size: calc(var(--ams-avatar-line-height) * var(--ams-avatar-font-size));
