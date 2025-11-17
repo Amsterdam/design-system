@@ -22,7 +22,6 @@
 }
 
 .ams-progress-list {
-  display: grid;
   list-style: none;
 
   > li:not(:last-child) {
@@ -52,12 +51,30 @@
   position: absolute;
 }
 
+.ams-progress-list__heading {
+  padding-block-end: var(--ams-progress-list-heading-spacing);
+}
+
 .ams-progress-list__content {
   display: flex;
   flex-direction: column;
   margin-inline-start: var(--ams-progress-list-content-offset);
 
-  > :first-child {
-    padding-block-end: var(--ams-progress-list-heading-spacing);
+  > .ams-progress-list__heading-2 {
+    margin-block-start: calc(
+      (var(--ams-progress-list-status-indicator-height) / 2) - (1em * var(--ams-typography-heading-2-line-height) / 2)
+    );
+  }
+
+  > .ams-progress-list__heading-3 {
+    margin-block-start: calc(
+      (var(--ams-progress-list-status-indicator-height) / 2) - (1em * var(--ams-typography-heading-3-line-height) / 2)
+    );
+  }
+
+  > .ams-progress-list__heading-4 {
+    margin-block-start: calc(
+      (var(--ams-progress-list-status-indicator-height) / 2) - (1em * var(--ams-typography-heading-4-line-height) / 2)
+    );
   }
 }

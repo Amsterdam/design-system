@@ -22,7 +22,10 @@ export const ProgressListItem = forwardRef(
       <li className={clsx('ams-progress-list__item', className)} {...restProps} ref={ref}>
         <span className="ams-progress-list__status-indicator" />
         <div className="ams-progress-list__content">
-          <Heading className="ams-progress-list__heading" level={headingLevel}>
+          <Heading
+            className={clsx('ams-progress-list__heading', `ams-progress-list__heading-${headingLevel}`)}
+            level={headingLevel}
+          >
             {heading}
           </Heading>
           {children}
