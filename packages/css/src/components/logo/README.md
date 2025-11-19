@@ -8,7 +8,7 @@ The logo has a fixed colour, size, and position and is present on all our websit
 ## Specifications
 
 The design system provides the correct logo for online use.
-Other logo variations exist, but they cannot be used on websites and in applications.
+Other logo variations exist, but they cannot be used on our websites.
 The Dutch logo is for websites in the Dutch language and any language other than English.
 The English logo is used for websites in the English language.
 (We will add this logo to the design system later.)
@@ -31,7 +31,7 @@ The sub-brands are:
 
 - The logo is always displayed.
 - The logo is left-aligned in the Page Header.
-- The logo links to the homepage of the website or application.
+- The logo links to the homepage of the websites.
 - If the application is a form, application, or tool without a homepage, the logo links to the page where the form, application, or tool is referred to.
 
 The logo is 40 pixels tall at its minimum, growing to 60 pixels in wider windows.
