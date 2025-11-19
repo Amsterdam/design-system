@@ -1,0 +1,64 @@
+/**
+ * @license EUPL-1.2+
+ * Copyright Gemeente Amsterdam
+ */
+
+.ams-tile-button {
+  --ams-icon-line-height: var(--ams-button-line-height);
+
+  background-color: var(--ams-color-background);
+  border-color: var(--ams-color-interactive);
+  border-style: var(--ams-button-border-style);
+  border-width: var(--ams-border-width-l);
+  color: var(--ams-color-interactive);
+  cursor: var(--ams-button-cursor);
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  font-family: var(--ams-button-font-family);
+  font-size: var(--ams-typography-body-text-large-font-size);
+  font-weight: var(--ams-button-font-weight);
+  gap: var(--ams-button-gap);
+  justify-content: start;
+  line-height: var(--ams-typography-body-text-large-line-height);
+  margin-block: 0;
+  margin-inline: 0;
+  outline-offset: var(--ams-button-outline-offset);
+  padding-block: var(--ams-button-padding-block);
+  padding-inline: var(--ams-button-padding-inline);
+  text-align: start;
+  touch-action: manipulation;
+
+  &:disabled,
+  &[aria-disabled="true"] {
+    cursor: var(--ams-button-disabled-cursor);
+  }
+
+  &:hover:not(:disabled, [aria-disabled="true"]) {
+    background-color: #e4effa;
+  }
+}
+
+.ams-row--tile-buttons {
+  flex-direction: column;
+
+  @media screen and (width >= 36.5rem) {
+    flex-direction: row;
+    flex-wrap: wrap;
+
+    > * {
+      min-inline-size: 13.4rem;
+    }
+  }
+
+  @media screen and (width >= 72.5rem) {
+    > * {
+      aspect-ratio: var(--ams-aspect-ratio-4-3);
+      min-inline-size: initial;
+    }
+  }
+}
+
+body {
+  background-color: #e4effa;
+}

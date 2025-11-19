@@ -12,11 +12,14 @@ import type { ButtonProps } from '../Button'
 
 import { Button } from '../Button'
 
-type SearchFieldButtonProps = Omit<ButtonProps, 'icon' | 'iconBefore' | 'iconOnly' | 'variant'>
+type SearchFieldButtonProps = Omit<ButtonProps, 'iconBefore' | 'iconOnly' | 'variant'>
 
 export const SearchFieldButton = forwardRef(
-  ({ children = 'Zoeken', ...restProps }: SearchFieldButtonProps, ref: ForwardedRef<HTMLButtonElement>) => (
-    <Button {...restProps} icon={SearchIcon} iconOnly ref={ref} type="submit">
+  (
+    { children = 'Zoeken', icon = SearchIcon, ...restProps }: SearchFieldButtonProps,
+    ref: ForwardedRef<HTMLButtonElement>,
+  ) => (
+    <Button {...restProps} icon={icon} iconOnly ref={ref} type="submit">
       {children}
     </Button>
   ),
