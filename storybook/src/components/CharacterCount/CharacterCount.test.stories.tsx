@@ -7,7 +7,7 @@ import type { Meta, StoryObj } from '@storybook/react-vite'
 
 import { CharacterCount } from '@amsterdam/design-system-react/src'
 
-import { renderComponentVariants } from '../../utils/renderComponentVariants'
+import { renderComponentVariants } from '../../_common/renderComponentVariants'
 import { default as characterCountMeta } from './CharacterCount.stories'
 
 const meta = {

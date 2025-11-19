@@ -1,0 +1,48 @@
+{/* @license CC0-1.0 */}
+
+import { Meta } from "@storybook/addon-docs/blocks";
+import * as HomeStories from "./HomePage.stories.tsx";
+
+<Meta of={HomeStories} />
+
+# Home page
+
+The content for the home page of an internal application depends very much on the application itself.
+Our example currently focuses on the overall layout.
+
+## Layout
+
+A typical layout for an application:
+
+```tsx
+<Page withMenu>
+  <SkipLink className="ams-page__area--skip-link" href="#inhoud">
+    Direct naar inhoud
+  </SkipLink>
+  <PageHeader className="ams-page__area--header" noMenuButtonOnWideWindow>
+    <Menu />
+  </PageHeader>
+  <Menu className="ams-page__area--menu" inWideWindow />
+  <main className="ams-page__area--body" id="inhoud">
+    <Grid />
+  </main>
+  <PageFooter className="ams-page__area--footer" />
+</Page>
+```
+
+### Positioning classes
+
+All children of `Page` have a class name starting with `ams-page__area--` to lay them out correctly on the underlying grid.
+
+### Two instances of Menu
+
+The [Menu](/docs/components-navigation-menu--docs) component must be rendered twice.
+
+1. One instance, for narrow and medium windows, sits in the Page Header.
+   The user can access it through the menu button.
+   Hide the menu button on wide windows.
+2. A second Menu goes between the Page Header and the main content.
+   This is for wide windows, where the menu is positioned to the side.
+   The `inWideWindow` prop ensures that only one of both components is present at all times.
+
+Make sure that both menus have the same items.

@@ -138,7 +138,8 @@
 }
 
 .ams-page-header__menu-link {
-  display: inline-block;
+  display: inline-flex;
+  gap: var(--ams-page-header-menu-link-gap);
   text-decoration-line: var(--ams-page-header-menu-link-text-decoration-line);
   text-decoration-thickness: var(--ams-page-header-menu-link-text-decoration-thickness);
   text-underline-offset: var(--ams-page-header-menu-link-text-underline-offset);

@@ -7,7 +7,7 @@ import type { Meta, StoryObj } from '@storybook/react-vite'
 
 import { Alert } from '@amsterdam/design-system-react/src'
 
-import { renderComponentVariants } from '../../utils/renderComponentVariants'
+import { renderComponentVariants } from '../../_common/renderComponentVariants'
 import { default as alertMeta } from './Alert.stories'
 
 const meta = {
