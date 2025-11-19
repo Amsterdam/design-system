@@ -108,6 +108,7 @@ export const WithTopTasks: StoryObj = {
         <Grid.Cell span={{ narrow: 4, medium: 4, wide: 5 }} start={{ narrow: 1, medium: 1, wide: 2 }}>
           <LinkBlock
             heading="Schoon en opgeruimd"
+            headingLevel={2}
             links={[
               'Leen een afvalgrijper en afvalring',
               'Afval op straat melden',
@@ -120,6 +121,7 @@ export const WithTopTasks: StoryObj = {
         <Grid.Cell span={{ narrow: 4, medium: 4, wide: 5 }} start={{ narrow: 1, medium: 5, wide: 7 }}>
           <LinkBlock
             heading="Spelen en bewegen"
+            headingLevel={2}
             links={[
               'Peuterbadjes en zwemwater op de kaart',
               'Speeltuinen op de kaart',
@@ -132,12 +134,17 @@ export const WithTopTasks: StoryObj = {
         <Grid.Cell span={{ narrow: 4, medium: 4, wide: 5 }} start={{ narrow: 1, medium: 1, wide: 2 }}>
           <LinkBlock
             heading="Dieren en groen"
+            headingLevel={2}
             introduction="Uw tuin vergroenen of het groen in uw buurt verzorgen. Opvang van dieren en overlast melden."
             links={['Dieren en groen']}
           />
         </Grid.Cell>
         <Grid.Cell span={{ narrow: 4, medium: 4, wide: 5 }} start={{ narrow: 1, medium: 5, wide: 7 }}>
-          <LinkBlock heading="Parken en volkstuinen" links={['Parken en recreatiegebieden', 'Volkstuinparken']} />
+          <LinkBlock
+            heading="Parken en volkstuinen"
+            headingLevel={2}
+            links={['Parken en recreatiegebieden', 'Volkstuinparken']}
+          />
         </Grid.Cell>
       </Grid>,
     ],
