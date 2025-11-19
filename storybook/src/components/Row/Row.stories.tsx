@@ -39,9 +39,6 @@ const meta = {
       },
       options: [undefined, ...crossAlignOptions],
     },
-    className: {
-      table: { disable: true },
-    },
     gap: {
       control: {
         labels: { undefined: 'medium' },
