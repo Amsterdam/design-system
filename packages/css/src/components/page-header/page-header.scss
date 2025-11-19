@@ -203,17 +203,13 @@
 .ams-page-header__menu-icon-middle,
 .ams-page-header__menu-icon-bottom {
   transform-origin: center;
-  transition-timing-function: ease-in-out;
-}
+  transition:
+    opacity 0.1s ease-in-out,
+    rotate 0.2s ease-in-out,
+    translate 0.1s ease-in-out;
 
-@media not (prefers-reduced-motion) {
-  .ams-page-header__menu-icon-top,
-  .ams-page-header__menu-icon-middle,
-  .ams-page-header__menu-icon-bottom {
-    transition:
-      opacity 0.1s ease-in-out,
-      rotate 0.2s ease-in-out,
-      translate 0.1s ease-in-out;
+  @media (prefers-reduced-motion) {
+    transition: none;
   }
 }
 
