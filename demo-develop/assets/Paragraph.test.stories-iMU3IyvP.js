@@ -1,0 +1,9 @@
+import{r}from"./renderComponentVariants-CYT4lri2.js";import{m as n}from"./Paragraph.stories-CX7OuXS-.js";import{P as s}from"./Paragraph-BqkstnSd.js";import"./iframe-Z57A2SV1.js";import"./preload-helper-PPVm8Dsz.js";import"./exampleContent-Du2yH2Fl.js";import"./Row-DAJScrMD.js";import"./Icon-E_ewGiUM.js";const v={...n,title:"Components/Text/Paragraph"},e={args:{children:"Het waterrijke achterland van de provincie Holland was een paradijs voor vissers. Maar terwijl de visserij floreerde in Holland, was Amsterdam eigenlijk helemaal geen visserijstad. Toch maakten Amsterdammers naam in de vishandel. Zij speelden namelijk een cruciale rol bij het klaarmaken en vervoeren van haring."},render:a=>r(s,{args:a}),tags:["!dev","!autodocs"]};e.parameters={...e.parameters,docs:{...e.parameters?.docs,source:{originalSource:`{
+  args: {
+    children: 'Het waterrijke achterland van de provincie Holland was een paradijs voor vissers. Maar terwijl de visserij floreerde in Holland, was Amsterdam eigenlijk helemaal geen visserijstad. Toch maakten Amsterdammers naam in de vishandel. Zij speelden namelijk een cruciale rol bij het klaarmaken en vervoeren van haring.'
+  },
+  render: args => renderComponentVariants(Paragraph, {
+    args
+  }),
+  tags: ['!dev', '!autodocs']
+}`,...e.parameters?.docs?.source}}};const j=["Test"];export{e as Test,j as __namedExportsOrder,v as default};
