@@ -217,18 +217,20 @@
   }
 }
 
-.ams-page-header__menu-icon--open .ams-page-header__menu-icon-top {
-  rotate: 45deg;
-  translate: -4px 4px;
-}
+.ams-page-header__menu-icon--open {
+  .ams-page-header__menu-icon-top {
+    rotate: 45deg;
+    translate: -4px 4px;
+  }
 
-.ams-page-header__menu-icon--open .ams-page-header__menu-icon-middle {
-  opacity: 0%;
-}
+  .ams-page-header__menu-icon-middle {
+    opacity: 0%;
+  }
 
-.ams-page-header__menu-icon--open .ams-page-header__menu-icon-bottom {
-  rotate: -45deg;
-  translate: -4px -4px;
+  .ams-page-header__menu-icon-bottom {
+    rotate: -45deg;
+    translate: -4px -4px;
+  }
 }
 
 .ams-page-header__mega-menu {
