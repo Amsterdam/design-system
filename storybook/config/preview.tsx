@@ -5,6 +5,7 @@ import '@amsterdam/design-system-css/dist/index.css'
 
 import '../src/styles/docs.css'
 import '../src/styles/overrides.css'
+import type { PageProps } from '@amsterdam/design-system-react'
 import type { StoryContext, StoryFn } from '@storybook/react-vite'
 
 import { Page } from '@amsterdam/design-system-react'
@@ -27,6 +28,8 @@ export const decorators = [
       return <Story />
     }
 
+    const withMenu: PageProps['withMenu'] = context.title.startsWith('Pages/Internal')
+
     return (
       <Page
         className={clsx({
@@ -34,6 +37,7 @@ export const decorators = [
           'ams-docs-light-background': args['color'] === 'contrast',
         })}
         lang="nl"
+        withMenu={withMenu}
       >
         <Story />
       </Page>
@@ -76,7 +80,7 @@ export const parameters = {
         ['Buttons', 'Containers', 'Feedback', 'Forms', 'Layout', 'Media', 'Navigation', 'Text'],
         'Utilities',
         'Pages',
-        ['Introduction', 'Guidelines', 'Amsterdam.nl', ['Home Page']],
+        ['Introduction', 'Guidelines', 'Amsterdam.nl', ['Home Page'], 'Internal', ['Introduction']],
       ],
     },
   },

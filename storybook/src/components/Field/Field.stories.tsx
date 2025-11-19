@@ -5,11 +5,12 @@
 
 import type { Meta, StoryObj } from '@storybook/react-vite'
 
-import { ErrorMessage, Label, Paragraph, TextInput } from '@amsterdam/design-system-react'
+import { ErrorMessage, FieldSet, Label, Paragraph, TextInput } from '@amsterdam/design-system-react'
 import { Field } from '@amsterdam/design-system-react/src'
 
-import { exampleFamilyName } from '../shared/exampleContent'
+import { exampleFamilyName, exampleGivenName } from '../shared/exampleContent'
 
+const givenName = exampleGivenName()
 const familyName = exampleFamilyName()
 
 const meta = {
@@ -58,5 +59,38 @@ export const WithValidation: Story = {
       <ErrorMessage id="error">Vul uw achternaam in</ErrorMessage>
       <TextInput aria-describedby="description2 error" aria-required id="input3" invalid={args.invalid} value="" />
     </Field>
+  ),
+}
+
+export const InAFieldSet: Story = {
+  render: (args) => (
+    <FieldSet legend="Wat is uw naam?">
+      <Field className="ams-mb-s" {...args}>
+        <Label htmlFor="input-a1" inFieldSet>
+          Voornaam
+        </Label>
+        {args.invalid && <ErrorMessage id="error-a1">Vul uw voornaam in.</ErrorMessage>}
+        <TextInput
+          aria-describedby={args.invalid ? 'error-a1' : undefined}
+          aria-required="true"
+          id="input-a1"
+          invalid={args.invalid}
+          value={givenName}
+        />
+      </Field>
+      <Field {...args}>
+        <Label htmlFor="input-a2" inFieldSet>
+          Achternaam
+        </Label>
+        {args.invalid && <ErrorMessage id="error-a2">Vul uw achternaam in.</ErrorMessage>}
+        <TextInput
+          aria-describedby={args.invalid ? 'error-a2' : undefined}
+          aria-required="true"
+          id="input-a2"
+          invalid={args.invalid}
+          value={familyName}
+        />
+      </Field>
+    </FieldSet>
   ),
 }

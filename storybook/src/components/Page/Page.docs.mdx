@@ -8,24 +8,19 @@ import README from "../../../../packages/css/src/components/page/README.md?raw";
 
 <Markdown>{README}</Markdown>
 
-## Example
-
-There’s not much to see in the example.
-In a wide window, or when zooming out, you’ll notice that the width of the pink box gets limited by the maximum width of the Page container.
+See the [Amsterdam.nl Home Page](/story/pages-amsterdam-nl-home-page--default) template for a full-page example.
 
 <Primary />
 
-## Structure
+<Controls />
 
-The outer containers of your website will look like this:
+## Examples
 
-```jsx
-<Page>
-  <PageHeader />
-  <Grid />
-  <Spotlight />
-  <Grid />
-  <Figure />
-  <PageFooter />
-</Page>
-```
+### With menu
+
+Internal applications can add a [Menu](/docs/components-navigation-menu--docs) for navigating between its modules and pages.
+This is an alternative to the approach using Link Lists, which is appropriate for content-oriented websites.
+
+<Canvas of={PageStories.WithMenu} />
+
+See the [Internal Home Page](/story/pages-internal-home-page--default) template for a full-page example.
