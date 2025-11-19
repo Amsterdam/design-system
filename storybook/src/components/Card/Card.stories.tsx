@@ -19,11 +19,6 @@ const meta = {
   args: {
     style: { maxWidth: '24rem' },
   },
-  argTypes: {
-    style: {
-      table: { disable: true },
-    },
-  },
 } satisfies Meta<typeof Card>
 
 export default meta

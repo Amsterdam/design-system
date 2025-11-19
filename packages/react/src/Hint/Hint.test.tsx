@@ -76,4 +76,12 @@ describe('Hint', () => {
 
     expect(component).toHaveTextContent('(required)')
   })
+
+  it('renders the correct class name when `inFieldSet` is true', () => {
+    const { container } = render(<Hint hint="hint text" inFieldSet />)
+
+    const component = container.querySelector(':only-child')
+
+    expect(component).toHaveClass('ams-hint--in-fieldset')
+  })
 })
