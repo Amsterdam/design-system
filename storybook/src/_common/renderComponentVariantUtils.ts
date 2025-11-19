@@ -84,7 +84,11 @@ export function completePropsWithDefaults(propsAndValues: PropWithValues[]) {
         {
           hasIcon: null,
           name: 'imageSrc',
-          values: ['https://picsum.photos/id/122/1280/720'],
+          values: [
+            'https://picsum.photos/id/64/128/128',
+            'https://picsum.photos/id/64/128/64',
+            'https://picsum.photos/id/64/16/16',
+          ],
         },
       ],
     ])
