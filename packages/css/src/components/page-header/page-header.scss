@@ -208,12 +208,12 @@
 
 @media not (prefers-reduced-motion) {
   .ams-page-header__menu-icon-top,
+  .ams-page-header__menu-icon-middle,
   .ams-page-header__menu-icon-bottom {
-    transition-duration: 0.2s;
-  }
-
-  .ams-page-header__menu-icon-middle {
-    transition-duration: 0.1s;
+    transition:
+      opacity 0.1s ease-in-out,
+      rotate 0.2s ease-in-out,
+      translate 0.1s ease-in-out;
   }
 }
 
@@ -224,7 +224,6 @@
 
 .ams-page-header__menu-icon--open .ams-page-header__menu-icon-middle {
   opacity: 0%;
-  scale: 0 1;
 }
 
 .ams-page-header__menu-icon--open .ams-page-header__menu-icon-bottom {
