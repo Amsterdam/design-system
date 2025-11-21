@@ -1,0 +1,7 @@
+{
+  "ams": {
+    "field": {
+      "gap": { "value": "{ams.space.s}" }
+    }
+  }
+}

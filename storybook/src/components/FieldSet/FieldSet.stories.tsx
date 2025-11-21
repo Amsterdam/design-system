@@ -47,7 +47,7 @@ type Story = StoryObj<typeof meta>
 export const Default: Story = {
   render: (args) => (
     <FieldSet {...args}>
-      <Field className="ams-mb-s">
+      <Field>
         <Label htmlFor="input-a1" inFieldSet>
           Voornaam
         </Label>
@@ -80,10 +80,8 @@ export const Default: Story = {
 export const WithDescription: Story = {
   render: (args) => (
     <FieldSet aria-describedby="description-b" {...args}>
-      <Paragraph className="ams-mb-s" id="description-b">
-        Vul uw naam in zoals in uw paspoort staat.
-      </Paragraph>
-      <Field className="ams-mb-s">
+      <Paragraph id="description-b">Vul uw naam in zoals in uw paspoort staat.</Paragraph>
+      <Field>
         <Label htmlFor="input-b1" inFieldSet>
           Voornaam
         </Label>
@@ -120,7 +118,7 @@ export const WithHint: Story = {
   },
   render: (args) => (
     <FieldSet {...args}>
-      <Field className="ams-mb-s">
+      <Field>
         <Label htmlFor="input-b3" inFieldSet>
           Voornaam
         </Label>
@@ -156,10 +154,8 @@ export const WithValidation: Story = {
   },
   render: (args) => (
     <FieldSet aria-describedby="description-c" invalid={args.invalid} legend={args.legend}>
-      <Paragraph className="ams-mb-s" id="description-c">
-        Vul uw naam in zoals in uw paspoort staat.
-      </Paragraph>
-      <Field className="ams-mb-s">
+      <Paragraph id="description-c">Vul uw naam in zoals in uw paspoort staat.</Paragraph>
+      <Field>
         <Label htmlFor="input-c1" inFieldSet>
           Voornaam
         </Label>
@@ -195,7 +191,7 @@ export const WithHeadingInLegend: Story = {
   },
   render: (args) => (
     <FieldSet {...args}>
-      <Field className="ams-mb-s">
+      <Field>
         <Label htmlFor="input-h1" inFieldSet>
           Voornaam
         </Label>
@@ -231,7 +227,7 @@ export const WithANestedFieldSet: Story = {
   },
   render: (args) => (
     <FieldSet {...args}>
-      <Field className="ams-mb-m">
+      <Field>
         <Label htmlFor="input-i1" inFieldSet>
           Waarover wilt u contact opnemen?
         </Label>

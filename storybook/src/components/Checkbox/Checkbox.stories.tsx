@@ -88,14 +88,8 @@ export const InAFieldSet: Story = {
       legend="Waar gaat uw melding over?"
       optional
     >
-      <Paragraph className="ams-mb-s" id="description1">
-        De laatstgenoemde melding.
-      </Paragraph>
-      {invalid && (
-        <ErrorMessage className="ams-mb-s" id="error1">
-          Geef aan waar uw laatstgenoemde melding over gaat.
-        </ErrorMessage>
-      )}
+      <Paragraph id="description1">De laatstgenoemde melding.</Paragraph>
+      {invalid && <ErrorMessage id="error1">Geef aan waar uw laatstgenoemde melding over gaat.</ErrorMessage>}
       <Column gap="x-small">
         <Checkbox invalid={invalid} name="about" value="horeca">
           Horecabedrijf
@@ -139,14 +133,8 @@ export const InAFieldSetWithValidation: Story = {
       invalid={invalid}
       legend="Waar gaat uw melding over?"
     >
-      <Paragraph className="ams-mb-s" id="description2">
-        De laatstgenoemde melding.
-      </Paragraph>
-      {invalid && (
-        <ErrorMessage className="ams-mb-s" id="error2">
-          Geef aan waar uw laatstgenoemde melding over gaat.
-        </ErrorMessage>
-      )}
+      <Paragraph id="description2">De laatstgenoemde melding.</Paragraph>
+      {invalid && <ErrorMessage id="error2">Geef aan waar uw laatstgenoemde melding over gaat.</ErrorMessage>}
       <Column gap="x-small">
         <Checkbox aria-required="true" invalid={invalid} name="about" value="horeca">
           Horecabedrijf
