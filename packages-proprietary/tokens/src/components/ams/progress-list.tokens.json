@@ -4,18 +4,31 @@
       "step": {
         "padding-block-end": { "value": "{ams.space.l}" }
       },
+      "progress": {
+        "padding-inline-start": { "value": "{ams.space.l}" },
+        "padding-inline-end": { "value": "{ams.space.l}" }
+      },
       "marker": {
         "background-color": { "value": "{ams.color.feedback.success}" },
         "margin-inline-start": { "value": "1.25rem" },
         "inline-size": { "value": "1.25rem" },
-        "block-size": { "value": "1.25rem" }
+        "block-size": { "value": "1.25rem" },
+        "heading-2": {
+          "font-size": { "value": "{ams.typography.heading.2.font-size}" },
+          "line-height": { "value": "{ams.typography.heading.2.line-height}" }
+        },
+        "heading-3": {
+          "font-size": { "value": "{ams.typography.heading.3.font-size}" },
+          "line-height": { "value": "{ams.typography.heading.3.line-height}" }
+        },
+        "heading-4": {
+          "font-size": { "value": "{ams.typography.heading.4.font-size}" },
+          "line-height": { "value": "{ams.typography.heading.4.line-height}" }
+        }
       },
       "connector": {
         "background-color": { "value": "{ams.color.feedback.success}" },
         "inline-size": { "value": "{ams.border.width.m}" }
-      },
-      "content": {
-        "margin-inline-start": { "value": "{ams.space.xl}" }
       },
       "heading": {
         "padding-block-end": { "value": "{ams.space.s}" }

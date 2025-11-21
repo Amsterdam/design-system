@@ -21,22 +21,15 @@ export const ProgressListStep = forwardRef(
     return (
       <li className={clsx('ams-progress-list__step', className)} {...restProps} ref={ref}>
         <div className="ams-progress-list__progress">
-          <div
-            className={clsx(
-              'ams-progress-list__marker-container',
-              `ams-progress-list__marker-container-heading-${headingLevel}`,
-            )}
-          >
-            <span className={clsx('ams-progress-list__marker', `ams-progress-list__marker-h${headingLevel}`)} />
+          <div className={clsx('ams-progress-list__marker', `ams-progress-list__marker-heading-${headingLevel}`)}>
+            <span className="ams-progress-list__marker-shape" />
           </div>
-          <span className={clsx('ams-progress-list__connector', `ams-progress-list__connector-h${headingLevel}`)} />
+          <span
+            className={clsx('ams-progress-list__connector', `ams-progress-list__connector-heading-${headingLevel}`)}
+          />
         </div>
-        <div className="ams-progress-list__core">
-          {/* TODO: Rename core */}
-          <Heading
-            className={clsx('ams-progress-list__heading', `ams-progress-list__heading-${headingLevel}`)}
-            level={headingLevel}
-          >
+        <div>
+          <Heading className="ams-progress-list__heading" level={headingLevel}>
             {heading}
           </Heading>
           <div className="ams-progress-list__content">{children}</div>

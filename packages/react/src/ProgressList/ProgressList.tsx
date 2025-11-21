@@ -15,7 +15,7 @@ import { ProgressListStep } from './ProgressListStep'
 
 export type ProgressListProps = {
   headingLevel: HeadingProps['level']
-} & PropsWithChildren<HTMLAttributes<HTMLElement>>
+} & PropsWithChildren<HTMLAttributes<HTMLOListElement>>
 
 /**
  * @see {@link https://designsystem.amsterdam/?path=/docs/components-TODO-ADD-GROUP-progress-list--docs ProgressList docs at Amsterdam Design System}
@@ -23,15 +23,7 @@ export type ProgressListProps = {
 const ProgressListRoot = forwardRef(
   ({ children, className, headingLevel, ...restProps }: ProgressListProps, ref: ForwardedRef<HTMLOListElement>) => (
     <ProgressListContext.Provider value={{ headingLevel: headingLevel }}>
-      <ol
-        {...restProps}
-        className={clsx(
-          'ams-progress-list',
-
-          className,
-        )}
-        ref={ref}
-      >
+      <ol {...restProps} className={clsx('ams-progress-list', className)} ref={ref}>
         {children}
       </ol>
     </ProgressListContext.Provider>
