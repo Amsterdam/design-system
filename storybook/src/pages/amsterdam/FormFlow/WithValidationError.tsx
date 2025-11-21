@@ -85,16 +85,14 @@ export const WithValidationError = () => (
             // Referencing a non-existent element can cause errors in accessibility evaluation tools.
             aria-describedby="error"
             aria-required="true"
-            className="ams-mb-l"
+            className="ams-mb-xl"
             invalid
             legend="Kies waar u voor wilt langskomen op het Stadsloket"
             // When a page consists of a single question, its label or legend should be treated as the main page heading (`h1`).
             legendIsPageHeading
             role="radiogroup"
           >
-            <ErrorMessage className="ams-mb-s" id="error">
-              Geef aan waar u voor wilt langskomen.
-            </ErrorMessage>
+            <ErrorMessage id="error">Geef aan waar u voor wilt langskomen.</ErrorMessage>
             <Column gap="x-small">
               <Radio
                 aria-required="true"

@@ -68,7 +68,7 @@ export const WithOneQuestion = () => (
           {/* See the docs on specific form components on https://designsystem.amsterdam for more information on how to use them */}
           <FieldSet
             aria-required="true"
-            className="ams-mb-l"
+            className="ams-mb-xl"
             legend="Kies waar u voor wilt langskomen op het Stadsloket"
             // When a page consists of a single question, its label or legend should be treated as the main page heading (`h1`).
             legendIsPageHeading
