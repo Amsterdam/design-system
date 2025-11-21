@@ -12,29 +12,28 @@ const meta = {
   component: ProgressList,
   args: {
     children: [
-      <ProgressList.Item heading="2025" key={0}>
+      <ProgressList.Step heading="2025" key={0}>
         <UnorderedList>
           <UnorderedList.Item>Start aanleg nieuwe openbare ruimte rondom HEROS (LEBO blok C).</UnorderedList.Item>
           <UnorderedList.Item>Oplevering lammetjesfontein.</UnorderedList.Item>
         </UnorderedList>
-      </ProgressList.Item>,
-      <ProgressList.Item heading="2026" key={1}>
+      </ProgressList.Step>,
+      <ProgressList.Step heading="2026" key={1}>
         <UnorderedList>
           <UnorderedList.Item>Start aanleg nieuwe openbare ruimte rondom HEROS (LEBO blok C).</UnorderedList.Item>
           <UnorderedList.Item>Oplevering lammetjesfontein.</UnorderedList.Item>
         </UnorderedList>
-      </ProgressList.Item>,
-      <ProgressList.Item heading="2027" key={2}>
+      </ProgressList.Step>,
+      <ProgressList.Step heading="2027" key={2}>
         <UnorderedList>
           <UnorderedList.Item>Start aanleg nieuwe openbare ruimte rondom HEROS (LEBO blok C).</UnorderedList.Item>
           <UnorderedList.Item>Oplevering lammetjesfontein.</UnorderedList.Item>
         </UnorderedList>
-      </ProgressList.Item>,
-      <ProgressList.Item heading="2028 - Afronding" key={3} />,
+      </ProgressList.Step>,
+      <ProgressList.Step heading="2028 - Afronding" key={3} />,
     ],
     headingLevel: 3,
   },
-
   argTypes: {
     headingLevel: {
       control: 'radio',

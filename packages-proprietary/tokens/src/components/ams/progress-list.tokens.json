@@ -1,22 +1,24 @@
 {
   "ams": {
     "progress-list": {
-      "background-color": { "value": "{ams.color.feedback.success}" },
-      "item": {
-        "spacing": { "value": "{ams.space.l}" }
+      "step": {
+        "padding-block-end": { "value": "{ams.space.l}" }
       },
-      "status-indicator": {
-        "width": { "value": "20px" },
-        "height": { "value": "20px" }
+      "marker": {
+        "background-color": { "value": "{ams.color.feedback.success}" },
+        "margin-inline-start": { "value": "1.25rem" },
+        "inline-size": { "value": "1.25rem" },
+        "block-size": { "value": "1.25rem" }
       },
-      "separator": {
-        "width": { "value": "2px" }
+      "connector": {
+        "background-color": { "value": "{ams.color.feedback.success}" },
+        "inline-size": { "value": "{ams.border.width.m}" }
       },
       "content": {
-        "offset": { "value": "{ams.space.xl}" }
+        "margin-inline-start": { "value": "{ams.space.xl}" }
       },
       "heading": {
-        "spacing": { "value": "{ams.space.s}" }
+        "padding-block-end": { "value": "{ams.space.s}" }
       }
     }
   }

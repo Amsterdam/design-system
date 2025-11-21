@@ -5,76 +5,79 @@
 @use "../../common/hyphenation" as *;
 @use "../../common/text-rendering" as *;
 
-.ams-progress-list__separator {
-  background-color: var(--ams-progress-list-background-color);
-  block-size: 100%;
-  inline-size: var(--ams-progress-list-separator-width);
+@mixin reset-ol {
+  list-style-type: none;
+  margin-block: 0;
+  padding-inline-start: 0;
+}
 
-  /*
-   * Centers the separator line with the status indicator:
-   * - Takes half the indicator width (center point)
-   * - Subtracts half the separator width (to align its center)
-   */
-  margin-inline-start: calc(
-    var(--ams-progress-list-status-indicator-width) / 2 - var(--ams-progress-list-separator-width) / 2
-  );
-  position: absolute;
+.ams-progress-list__connector {
+  background-color: var(--ams-progress-list-connector-background-color);
+  block-size: 100%;
+  display: flex;
+  inline-size: var(--ams-progress-list-connector-inline-size);
+  margin-block-end: -1rem;
+  margin-block-start: -1rem;
 }
 
 .ams-progress-list {
   list-style: none;
 
-  > li:not(:last-child) {
-    padding-block-end: var(--ams-progress-list-item-spacing);
+  > li:not(:last-child) > div:last-child {
+    padding-block-end: var(--ams-progress-list-step-padding-block-end);
   }
 
-  > li:last-child .ams-progress-list__separator {
+  > li:last-child .ams-progress-list__connector {
     display: none;
   }
 
   @include hyphenation;
   @include text-rendering;
+  @include reset-ol;
 }
 
-.ams-progress-list__item {
+.ams-progress-list__step {
+  display: flex;
+}
+
+.ams-progress-list__progress {
+  align-items: center;
   display: flex;
   flex-direction: column;
-  position: relative;
 }
 
-.ams-progress-list__status-indicator {
-  background-color: var(--ams-progress-list-background-color);
-  block-size: var(--ams-progress-list-status-indicator-height);
+.ams-progress-list__core {
+  margin-inline-start: var(--ams-progress-list-content-margin-inline-start);
+}
+
+.ams-progress-list__marker-container {
+  align-items: center;
+  align-self: stretch; // Aligns the marker with text in flex or grid context
+  display: flex; // Center align the marker vertically
+
+  &-heading-2 {
+    font-size: var(--ams-heading-2-font-size);
+    line-height: var(--ams-heading-2-line-height);
+  }
+
+  &-heading-3 {
+    font-size: var(--ams-heading-3-font-size);
+    line-height: var(--ams-heading-3-line-height);
+  }
+
+  &-heading-4 {
+    font-size: var(--ams-heading-4-font-size);
+    line-height: var(--ams-heading-4-line-height);
+  }
+
+  &::after {
+    content: "\00200B"; // This zero width space enables baseline alignment.
+  }
+}
+
+.ams-progress-list__marker {
+  aspect-ratio: 1 / 1;
+  background-color: var(--ams-progress-list-marker-background-color);
   border-radius: 100%;
-  inline-size: var(--ams-progress-list-status-indicator-width);
-  inset-inline-start: 0;
-  position: absolute;
-}
-
-.ams-progress-list__heading {
-  padding-block-end: var(--ams-progress-list-heading-spacing);
-}
-
-.ams-progress-list__content {
-  display: flex;
-  flex-direction: column;
-  margin-inline-start: var(--ams-progress-list-content-offset);
-
-  > .ams-progress-list__heading-2 {
-    margin-block-start: calc(
-      (var(--ams-progress-list-status-indicator-height) / 2) - (1em * var(--ams-typography-heading-2-line-height) / 2)
-    );
-  }
-
-  > .ams-progress-list__heading-3 {
-    margin-block-start: calc(
-      (var(--ams-progress-list-status-indicator-height) / 2) - (1em * var(--ams-typography-heading-3-line-height) / 2)
-    );
-  }
-
-  > .ams-progress-list__heading-4 {
-    margin-block-start: calc(
-      (var(--ams-progress-list-status-indicator-height) / 2) - (1em * var(--ams-typography-heading-4-line-height) / 2)
-    );
-  }
+  inline-size: 1em;
 }

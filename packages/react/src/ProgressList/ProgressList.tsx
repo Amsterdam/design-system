@@ -11,7 +11,7 @@ import { forwardRef } from 'react'
 import type { HeadingProps } from '../Heading'
 
 import ProgressListContext from './ProgressListContext'
-import { ProgressListItem } from './ProgressListItem'
+import { ProgressListStep } from './ProgressListStep'
 
 export type ProgressListProps = {
   headingLevel: HeadingProps['level']
@@ -38,5 +38,5 @@ const ProgressListRoot = forwardRef(
   ),
 )
 
-export const ProgressList = Object.assign(ProgressListRoot, { Item: ProgressListItem })
+export const ProgressList = Object.assign(ProgressListRoot, { Step: ProgressListStep })
 ProgressListRoot.displayName = 'ProgressList'
