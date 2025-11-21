@@ -3,6 +3,15 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.2.0](https://github.com/Amsterdam/design-system/compare/design-system-tokens-v2.1.0...design-system-tokens-v2.2.0) (2025-11-21)
+
+
+### Features
+
+* **Label, Field Set:** Add a lighter variant to Label and Legend to clarify form hierarchy in nested Field Sets ([#2291](https://github.com/Amsterdam/design-system/issues/2291)) ([3bcc039](https://github.com/Amsterdam/design-system/commit/3bcc03901cbe1b37183d774b26367a914e3bda79))
+* **Page Header:** Allow adding an icon to a menu item ([#2285](https://github.com/Amsterdam/design-system/issues/2285)) ([15a830b](https://github.com/Amsterdam/design-system/commit/15a830b6068bb98c405da0013e90ac6697b20f5b))
+* **Page:** Add support for an application layout ([#2263](https://github.com/Amsterdam/design-system/issues/2263)) ([51a289f](https://github.com/Amsterdam/design-system/commit/51a289fe3012981fff1bfc223a0689b9be3760a7))
+
 ## [2.1.0](https://github.com/Amsterdam/design-system/compare/design-system-tokens-v2.0.0...design-system-tokens-v2.1.0) (2025-10-31)
 
 
