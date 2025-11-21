@@ -40,7 +40,7 @@
 
 // If a FieldSet contains multiple Fields or FieldSets, increase the margin between them.
 /* stylelint-disable-next-line plugin/use-baseline */
-:is(.ams-field, .ams-field-set):has(+ :is(.ams-field, .ams-field-set)) {
+.ams-field-set > :is(.ams-field, .ams-field-set):has(+ :is(.ams-field, .ams-field-set)) {
   margin-block-end: var(--ams-field-set-between-fields-and-field-sets-margin-block-end);
 }
 
