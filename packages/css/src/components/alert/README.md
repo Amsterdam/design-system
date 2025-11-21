@@ -18,5 +18,5 @@ An Alert informs the user of a significant or time-sensitive message without int
 - Place the Alert in a Grid Cell to create enough white space around it.
 - Important and urgent information is to be placed directly below the Page Header.
   Examples: system outage or changes in the opening hours of a City Office.
-  This can be applied to the entire application or to a part of it.
+  This can be applied to the entire website or to a part of it.
 - Add a close button if the user should be able to dismiss the Alert.

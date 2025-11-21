@@ -3,7 +3,7 @@
 # Amsterdam Design System: React components
 
 This package provides all React components from the [Amsterdam Design System](https://designsystem.amsterdam).
-Use it to compose pages in your website or application.
+Use it to compose pages in your websites.
 
 ## Introduction
 

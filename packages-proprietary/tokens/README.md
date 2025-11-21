@@ -3,7 +3,7 @@
 # Amsterdam Design System: Tokens
 
 This package provides all design tokens from the [Amsterdam Design System](https://designsystem.amsterdam).
-Use it to apply its visual design to your website or application.
+Use it to apply its visual design to your websites.
 The tokens are exported in multiple formats, including CSS custom properties and JSON, making them compatible with most, if not all, technology stacks.
 
 **Note** that the values of the tokens in this package implement the branding of the City of Amsterdam.
@@ -57,11 +57,12 @@ import "@amsterdam/design-system-tokens/dist/index.theme.css"
 </body>
 ```
 
-### Compact mode
+### Compact overrides
 
-Our branding is rather spacious for websites.
-The main stylesheet implements this ‘spacious mode’ as the default.
-A compact stylesheet is available for applications that require less white space and smaller text.
+Our visual style is quite spacious.
+This works well for public websites.
+The main stylesheet implements this ‘Spacious Mode’ as the default.
+A compact stylesheet is available for internal websites that require a high-density layout with reduced white space and smaller text.
 
 Note that the compact stylesheet is not independent – it only contains overrides.
 Import it after the main stylesheet for the correct result.
@@ -154,8 +155,8 @@ Find the [list of component tokens](https://github.com/Amsterdam/design-system/t
 This package allows the creation of a theme to reuse our components for a different brand.
 This is a key feature of [NL Design System](https://nldesignsystem.nl/) of which we are part.
 
-However, websites and applications for the City of Amsterdam must follow the design system as closely as possible.
-We repeat: websites and applications for the City of Amsterdam must follow the design system as closely as possible.
+However, websites for the City of Amsterdam must follow the design system as closely as possible.
+We repeat: websites for the City of Amsterdam must follow the design system as closely as possible.
 
 At the same time, we are aware that adopting a design system can pose challenges in practice.
 If there is a good reason to (temporarily) adapt a component, do so by overriding the values of its appropriate tokens in a separate stylesheet.

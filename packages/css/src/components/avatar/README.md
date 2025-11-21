@@ -10,7 +10,7 @@ A circular badge representing a person.
 
 ## Guidelines
 
-- Show an avatar for the user of the application, or to associate a person with a content item.
+- Show an avatar for the user of the website, or to associate a person with a content item.
 - To personalize the Avatar, the user can be allowed to choose one of the [highlight colours](/docs/brand-design-tokens-colour--docs).
   The default is purple.
   The design system does not define a meaning to any of these background colours.

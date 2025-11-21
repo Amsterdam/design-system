@@ -4,7 +4,7 @@
 
 This is the guide for the user interfaces of all digital products and services provided by the City of Amsterdam.
 
-We offer reusable components, patterns and guides for teams that work on our websites and applications.
+We offer reusable components, patterns and guides for teams that work on our websites.
 This helps everyone work faster and better, with more time to create value.
 To our citizens and businesses, all our channels look the same and work similarly;
 they are broadly accessible and evoke trust.
@@ -32,7 +32,7 @@ Read [our Code of Conduct](https://github.com/Amsterdam/.github/blob/main/CODE_O
 
 ## NL Design System
 
-This project is part of a community initiative to use NL Design System components for websites and applications that comply with the Amsterdam Design System.
+This project is part of a community initiative to use NL Design System components for websites that comply with the Amsterdam Design System.
 
 Join the `#nl-design-system` Slack via [praatmee.codefor.nl](https://praatmee.codefor.nl) for more information and to learn about things happening in our open-source community.
 
