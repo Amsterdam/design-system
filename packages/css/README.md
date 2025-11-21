@@ -67,7 +67,7 @@ Although it is not a typical use case, the stylesheet can be included in an HTML
 
 ### Compact Mode
 
-[Load the compact tokens](https://github.com/Amsterdam/design-system/blob/main/packages-proprietary/tokens/README.md) to use the compact appearance of the design system, e.g. for internal, data-driven websites.
+[Load the compact tokens](https://github.com/Amsterdam/design-system/blob/main/packages-proprietary/tokens/README.md) to use the compact appearance of the design system, e.g. for internal websites with a high information density.
 They override the spacious ones; the stylesheets can remain unchanged.
 
 ### Global styles

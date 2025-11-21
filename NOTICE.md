@@ -19,7 +19,7 @@ Amsterdam Sans is licenced exclusively to the City of Amsterdam and amsterdam&pa
 
 ## Icons
 
-Our icons can only be used on websites where the City of Amsterdam is the main communicator.
+Our icons can only be used on websites and apps where the City of Amsterdam is the main communicator.
 
 ## Permission
 
