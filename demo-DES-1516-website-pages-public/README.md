@@ -3,7 +3,7 @@
 # Amsterdam Design System: Assets
 
 This package provides all assets from the [Amsterdam Design System](https://designsystem.amsterdam).
-Use it to include the correct fonts, icons or logos in your website or application.
+Use it to include the correct fonts, icons or logos in your website.
 
 ## Installation
 
@@ -20,7 +20,7 @@ npm install @amsterdam/design-system-assets
 
 ### Application icons
 
-The Design System handbook helps using [a favicon](https://designsystem.amsterdam/?path=/docs/brand-assets-favicon--docs) or [a web manifest and application icons](https://designsystem.amsterdam/?path=/docs/docs-developer-guide-web-app--docs) for home screens of devices in your website or application.
+The Design System handbook helps using [a favicon](https://designsystem.amsterdam/?path=/docs/brand-assets-favicon--docs) or [a web manifest and application icons](https://designsystem.amsterdam/?path=/docs/docs-developer-guide-web-app--docs) for home screens of devices in your websites.
 
 ### Font files
 
@@ -40,7 +40,7 @@ Note that the font is proprietary. Using it requires [a license](https://designs
 
 The Design System Handbook offers an [overview of our icon library](https://designsystem.amsterdam/?path=/docs/brand-assets-icons--docs).
 
-You can import the SVG files to use icons in your website or application.
+You can import the SVG files to use icons in your websites.
 
 In a React project, use the [Icon component](https://designsystem.amsterdam/?path=/docs/components-media-icon--docs) instead.
 It offers a convenient API for using the icons and streamlines alignment with text.
