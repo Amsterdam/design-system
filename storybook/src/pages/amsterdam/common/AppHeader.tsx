@@ -9,8 +9,15 @@ import { megaMenuLinks, pageHeaderMenuLinks } from './menu'
 
 export const AppHeader = () => (
   <PageHeader
-    menuItems={pageHeaderMenuLinks.map(({ fixed, href, label, lang }) => (
-      <PageHeader.MenuLink fixed={fixed} href={href ?? '#'} key={label} lang={lang} rel={href ? 'external' : undefined}>
+    menuItems={pageHeaderMenuLinks.map(({ fixed, href, icon, label, lang }) => (
+      <PageHeader.MenuLink
+        fixed={fixed}
+        href={href ?? '#'}
+        icon={icon}
+        key={label}
+        lang={lang}
+        rel={href ? 'external' : undefined}
+      >
         {label}
       </PageHeader.MenuLink>
     ))}
@@ -20,8 +27,8 @@ export const AppHeader = () => (
         <LinkList>
           {pageHeaderMenuLinks
             .filter((link) => !link.fixed)
-            .map(({ href, label, lang }) => (
-              <LinkList.Link href={href ?? '#'} key={label} lang={lang} rel={href ? 'external' : undefined}>
+            .map(({ href, icon, label, lang }) => (
+              <LinkList.Link href={href ?? '#'} icon={icon} key={label} lang={lang} rel={href ? 'external' : undefined}>
                 {label}
               </LinkList.Link>
             ))}

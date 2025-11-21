@@ -3,7 +3,7 @@
  * Copyright Gemeente Amsterdam
  */
 
-import { render } from '@testing-library/react'
+import { render, screen } from '@testing-library/react'
 import { createRef } from 'react'
 
 import { aspectRatioOptions } from '../common/types'
@@ -13,47 +13,63 @@ import '@testing-library/jest-dom'
 
 describe('Image', () => {
   it('renders', () => {
-    const { container } = render(<Image alt="" />)
+    render(<Image alt="" />)
 
-    const component = container.querySelector(':only-child')
+    const component = screen.getByRole('presentation')
 
     expect(component).toBeInTheDocument()
     expect(component).toBeVisible()
   })
 
   it('renders a design system BEM class name', () => {
-    const { container } = render(<Image alt="" />)
+    render(<Image alt="" />)
 
-    const component = container.querySelector(':only-child')
+    const component = screen.getByRole('presentation')
 
     expect(component).toHaveClass('ams-image')
   })
 
   it('renders an extra class name', () => {
-    const { container } = render(<Image alt="" className="extra" />)
+    render(<Image alt="" className="extra" />)
 
-    const component = container.querySelector(':only-child')
+    const component = screen.getByRole('presentation')
 
     expect(component).toHaveClass('ams-image extra')
   })
 
   aspectRatioOptions.forEach((aspectRatio) => {
     it(`renders class names to display the image in the ${aspectRatio} aspect ratio`, () => {
-      const { container } = render(<Image alt="" aspectRatio={aspectRatio} />)
+      render(<Image alt="" aspectRatio={aspectRatio} />)
 
-      const component = container.querySelector(':only-child')
+      const component = screen.getByRole('presentation')
 
       const aspectRatioClass = generateAspectRatioClass(aspectRatio) || ''
       expect(component).toHaveClass(aspectRatioClass)
     })
   })
 
+  it('sets a default width attribute', () => {
+    render(<Image alt="" />)
+
+    const component = screen.getByRole('presentation')
+
+    expect(component).toHaveAttribute('width', '600')
+  })
+
+  it('overrides the default width attribute', () => {
+    render(<Image alt="" width={300} />)
+
+    const component = screen.getByRole('presentation')
+
+    expect(component).toHaveAttribute('width', '300')
+  })
+
   it('supports ForwardRef in React', () => {
     const ref = createRef<HTMLImageElement>()
 
-    const { container } = render(<Image alt="" ref={ref} />)
+    render(<Image alt="" ref={ref} />)
 
-    const component = container.querySelector(':only-child')
+    const component = screen.getByRole('presentation')
 
     expect(ref.current).toBe(component)
   })

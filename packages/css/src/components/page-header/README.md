@@ -14,6 +14,7 @@ Includes the name of the website if it is not the general one.
 - The Page Header is the same on every page of the website, although full-screen pages may hide it, e.g. a video or a map.
 - The inline menu can contain a maximum of 5 items.
   The last two will often be ‘Search’ and ‘Menu’.
+- An icon can be added to such a menu item if it helps clarify it, e.g. for searching and for logging in and out.
 - The 'Menu' button opens a collapsible menu, which has room for more links.
 - On narrow windows, links can move from the inline menu to the collapsible one.
 - Labels should be short to help the inline menu fit on a single line whenever possible.

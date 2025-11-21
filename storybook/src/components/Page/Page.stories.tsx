@@ -16,9 +16,6 @@ const meta = {
     lang: 'nl', // Mimic what we do in preview.tsx, where the decorator doesn’t render a Page for stories of Page.
   },
   argTypes: {
-    className: {
-      table: { disable: true },
-    },
     lang: {
       table: { disable: true }, // It’s best practice to set this attribute on the `html` element, so let’s not highlight it here.
     },
