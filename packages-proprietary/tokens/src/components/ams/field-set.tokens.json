@@ -1,6 +1,16 @@
 {
   "ams": {
     "field-set": {
+      "margin-block-end": { "value": "{ams.space.xs}" },
+      "before-error-message": {
+        "margin-block-end": { "value": "{ams.space.s}" }
+      },
+      "before-field-or-field-set": {
+        "margin-block-end": { "value": "{ams.space.m}" }
+      },
+      "between-fields-and-field-sets": {
+        "margin-block-end": { "value": "{ams.space.l}" }
+      },
       "invalid": {
         "border-inline-start": { "value": "{ams.border.width.l} solid {ams.color.feedback.error}" },
         "padding-inline-start": { "value": "{ams.space.m}" }
@@ -11,7 +21,6 @@
         "font-size": { "value": "{ams.typography.heading.3.font-size}" },
         "font-weight": { "value": "{ams.typography.heading.font-weight}" },
         "line-height": { "value": "{ams.typography.heading.3.line-height}" },
-        "margin-block-end": { "value": "{ams.space.s}" },
         "text-wrap": { "value": "{ams.typography.heading.text-wrap}" },
         "in-fieldset": {
           "font-weight": { "value": "{ams.typography.body-text.font-weight}" }
