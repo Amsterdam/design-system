@@ -22,7 +22,7 @@ export const AppHeader = () => (
       </PageHeader.MenuLink>
     ))}
   >
-    <Grid paddingBottom="2x-large" paddingTop="large">
+    <Grid>
       <PageHeader.GridCellNarrowWindowOnly span="all">
         <LinkList>
           {pageHeaderMenuLinks
