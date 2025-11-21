@@ -48,6 +48,22 @@ describe('Image', () => {
     })
   })
 
+  it('sets a default width attribute', () => {
+    const { container } = render(<Image alt="" />)
+
+    const component = container.querySelector(':only-child')
+
+    expect(component).toHaveAttribute('width', '600')
+  })
+
+  it('overrides the default width attribute', () => {
+    const { container } = render(<Image alt="" width={300} />)
+
+    const component = container.querySelector(':only-child')
+
+    expect(component).toHaveAttribute('width', '300')
+  })
+
   it('supports ForwardRef in React', () => {
     const ref = createRef<HTMLImageElement>()
 
