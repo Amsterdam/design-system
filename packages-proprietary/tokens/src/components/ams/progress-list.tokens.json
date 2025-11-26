@@ -25,6 +25,22 @@
         "heading-4": {
           "font-size": { "value": "{ams.typography.heading.4.font-size}" },
           "line-height": { "value": "{ams.typography.heading.4.line-height}" }
+        },
+        "shape": {
+          "background-color": { "value": "{ams.color.feedback.success}" },
+          "border-radius": { "value": "50%" },
+          "current": {
+            "border-color": { "value": "{ams.color.background}" },
+            "border-style": { "value": "solid" },
+            "border-width": { "value": "{ams.border.width.xl}" },
+            "outline-color": { "value": "{ams.color.feedback.success}" },
+            "outline-style": { "value": "solid" },
+            "outline-width": { "value": "{ams.border.width.xl}" }
+          },
+          "inline-size": { "value": "1em" },
+          "upcoming": {
+            "background-color": { "value": "{ams.color.separator}" }
+          }
         }
       },
       "medium": {

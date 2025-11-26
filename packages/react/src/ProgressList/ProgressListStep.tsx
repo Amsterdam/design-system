@@ -12,10 +12,14 @@ import ProgressListContext from './ProgressListContext'
 
 export type ProgressListStepProps = {
   heading: string
+  status?: 'current' | 'upcoming' | 'ended'
 } & PropsWithChildren<HTMLAttributes<HTMLElement>>
 
 export const ProgressListStep = forwardRef(
-  ({ children, className, heading, ...restProps }: ProgressListStepProps, ref: ForwardedRef<HTMLLIElement>) => {
+  (
+    { children, className, heading, status = 'upcoming', ...restProps }: ProgressListStepProps,
+    ref: ForwardedRef<HTMLLIElement>,
+  ) => {
     const { headingLevel } = useContext(ProgressListContext)
 
     return (
