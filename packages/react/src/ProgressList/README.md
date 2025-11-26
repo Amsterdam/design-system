@@ -4,4 +4,4 @@
 
 [Progress List documentation](../../../css/src/components/progress-list/README.md)
 
-# TODO: Write documentation
+Shows the progress of a series of steps and provides additional details about a step if needed.

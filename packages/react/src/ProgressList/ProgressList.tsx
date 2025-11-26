@@ -14,11 +14,11 @@ import ProgressListContext from './ProgressListContext'
 import { ProgressListStep } from './ProgressListStep'
 
 export type ProgressListProps = {
-  headingLevel: HeadingProps['level']
+  headingLevel: Exclude<HeadingProps['level'], 1>
 } & PropsWithChildren<HTMLAttributes<HTMLOListElement>>
 
 /**
- * @see {@link https://designsystem.amsterdam/?path=/docs/components-TODO-ADD-GROUP-progress-list--docs ProgressList docs at Amsterdam Design System}
+ * @see {@link https://designsystem.amsterdam/?path=/docs/components-containers-progress-list--docs ProgressList docs at Amsterdam Design System}
  */
 const ProgressListRoot = forwardRef(
   ({ children, className, headingLevel, ...restProps }: ProgressListProps, ref: ForwardedRef<HTMLOListElement>) => (

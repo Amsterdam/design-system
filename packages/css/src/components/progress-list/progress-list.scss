@@ -2,99 +2,99 @@
  * @license EUPL-1.2+
  * Copyright Gemeente Amsterdam
  */
-
 @use "../../common/hyphenation" as *;
 @use "../../common/text-rendering" as *;
 
 @mixin reset-ol {
+  list-style: none;
   list-style-type: none;
   margin-block: 0;
   padding-inline-start: 0;
-}
-
-.ams-progress-list__connector {
-  background-color: var(--ams-progress-list-connector-background-color);
-  block-size: 100%;
-  grid-column: 1; // This is used to position the connector in the middle of the marker.
-  grid-row: 1; // This is used to position the connector in the middle of the marker.
-  inline-size: var(--ams-progress-list-connector-inline-size);
-
-  &-heading-2 {
-    margin-block-start: calc(
-      (var(--ams-progress-list-marker-heading-2-line-height) * var(--ams-progress-list-marker-heading-2-font-size)) / 2
-    );
-  }
-
-  &-heading-3 {
-    margin-block-start: calc(
-      (var(--ams-progress-list-marker-heading-3-line-height) * var(--ams-progress-list-marker-heading-3-font-size)) / 2
-    );
-  }
-
-  &-heading-4 {
-    margin-block-start: calc(
-      (var(--ams-progress-list-marker-heading-4-line-height) * var(--ams-progress-list-marker-heading-4-font-size)) / 2
-    );
-  }
 }
 
 .ams-progress-list {
   @include hyphenation;
   @include text-rendering;
   @include reset-ol;
-
-  list-style: none;
 }
 
-.ams-progress-list__step {
-  display: flex;
-
-  &:last-child .ams-progress-list__connector {
-    display: none;
-  }
-
-  &:not(:last-child) > div:last-child {
-    padding-block-end: var(--ams-progress-list-step-padding-block-end);
-  }
+.ams-progress-list__body {
+  padding-block-start: var(--ams-progress-list-body-padding-block-start);
 }
 
-.ams-progress-list__progress {
+.ams-progress-list__connector {
+  align-self: stretch;
+  background-color: var(--ams-progress-list-connector-background-color);
+  block-size: 100%;
+  grid-area: 1 / 1; // This is used to position the connector in the middle of the marker.
+  inline-size: var(--ams-progress-list-connector-inline-size);
+}
+
+.ams-progress-list__connector--heading-2 {
+  margin-block-start: calc(
+    (var(--ams-progress-list-marker-heading-2-line-height) * var(--ams-progress-list-marker-heading-2-font-size)) / 2
+  );
+}
+
+.ams-progress-list__connector--heading-3 {
+  margin-block-start: calc(
+    (var(--ams-progress-list-marker-heading-3-line-height) * var(--ams-progress-list-marker-heading-3-font-size)) / 2
+  );
+}
+
+.ams-progress-list__connector--heading-4 {
+  margin-block-start: calc(
+    (var(--ams-progress-list-marker-heading-4-line-height) * var(--ams-progress-list-marker-heading-4-font-size)) / 2
+  );
+}
+
+.ams-progress-list__indicator {
   align-items: start;
   display: grid;
   justify-items: center;
-  padding-inline-end: var(--ams-progress-list-progress-padding-inline-end);
-  padding-inline-start: var(--ams-progress-list-progress-padding-inline-start);
+  padding-inline: var(--ams-progress-list-indicator-padding-inline);
 }
 
 .ams-progress-list__marker {
   align-items: center;
   display: flex;
-  grid-column: 1; // This is used to position the marker in the middle of the connector.
-  grid-row: 1; // This is used to position the marker in the middle of the connector.
-
-  &-heading-2 {
-    font-size: var(--ams-progress-list-marker-heading-2-font-size);
-    line-height: var(--ams-progress-list-marker-heading-2-line-height);
-  }
-
-  &-heading-3 {
-    font-size: var(--ams-progress-list-marker-heading-3-font-size);
-    line-height: var(--ams-progress-list-marker-heading-3-line-height);
-  }
-
-  &-heading-4 {
-    font-size: var(--ams-progress-list-marker-heading-4-font-size);
-    line-height: var(--ams-progress-list-marker-heading-4-line-height);
-  }
+  grid-area: 1 / 1; // This is used to position the marker in the middle of the connector.
 
   &::after {
     content: "\00200B"; // This zero width space enables baseline alignment.
   }
 }
 
+.ams-progress-list__marker--heading-2 {
+  font-size: var(--ams-progress-list-marker-heading-2-font-size);
+  line-height: var(--ams-progress-list-marker-heading-2-line-height);
+}
+
+.ams-progress-list__marker--heading-3 {
+  font-size: var(--ams-progress-list-marker-heading-3-font-size);
+  line-height: var(--ams-progress-list-marker-heading-3-line-height);
+}
+
+.ams-progress-list__marker--heading-4 {
+  font-size: var(--ams-progress-list-marker-heading-4-font-size);
+  line-height: var(--ams-progress-list-marker-heading-4-line-height);
+}
+
 .ams-progress-list__marker-shape {
-  aspect-ratio: 1 / 1;
+  aspect-ratio: 1;
   background-color: var(--ams-progress-list-marker-background-color);
-  border-radius: 100%;
+  border-radius: 50%;
   inline-size: 1em;
+}
+
+.ams-progress-list__step {
+  display: flex;
+
+  &:not(:last-child) .ams-progress-list__body {
+    padding-block-end: var(--ams-progress-list-body-padding-block-end);
+  }
+
+  &:last-child .ams-progress-list__connector {
+    inline-size: 0;
+  }
 }

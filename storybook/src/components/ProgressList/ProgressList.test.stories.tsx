@@ -12,7 +12,7 @@ import { default as progressListMeta } from './ProgressList.stories'
 
 const meta = {
   ...progressListMeta,
-  title: 'Progress List',
+  title: 'Components/Containers/Progress List',
 } satisfies Meta<typeof ProgressList>
 
 export default meta
