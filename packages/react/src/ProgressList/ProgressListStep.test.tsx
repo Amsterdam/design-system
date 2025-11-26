@@ -9,7 +9,7 @@ import { ProgressList } from './ProgressList'
 import { ProgressListStep } from './ProgressListStep'
 import '@testing-library/jest-dom'
 
-describe('ProgressListStep', () => {
+describe('Progress List Step', () => {
   it('renders', () => {
     const { container } = render(
       <ProgressList headingLevel={3}>

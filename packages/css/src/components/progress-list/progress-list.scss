@@ -7,7 +7,6 @@
 
 @mixin reset-ol {
   list-style: none;
-  list-style-type: none;
   margin-block: 0;
   padding-inline-start: 0;
 }
@@ -18,35 +17,13 @@
   @include reset-ol;
 }
 
-.ams-progress-list__body {
-  padding-block-start: var(--ams-progress-list-body-padding-block-start);
+// Step
+
+.ams-progress-list__step {
+  display: flex;
 }
 
-.ams-progress-list__connector {
-  align-self: stretch;
-  background-color: var(--ams-progress-list-connector-background-color);
-  block-size: 100%;
-  grid-area: 1 / 1; // This is used to position the connector in the middle of the marker.
-  inline-size: var(--ams-progress-list-connector-inline-size);
-}
-
-.ams-progress-list__connector--heading-2 {
-  margin-block-start: calc(
-    (var(--ams-progress-list-marker-heading-2-line-height) * var(--ams-progress-list-marker-heading-2-font-size)) / 2
-  );
-}
-
-.ams-progress-list__connector--heading-3 {
-  margin-block-start: calc(
-    (var(--ams-progress-list-marker-heading-3-line-height) * var(--ams-progress-list-marker-heading-3-font-size)) / 2
-  );
-}
-
-.ams-progress-list__connector--heading-4 {
-  margin-block-start: calc(
-    (var(--ams-progress-list-marker-heading-4-line-height) * var(--ams-progress-list-marker-heading-4-font-size)) / 2
-  );
-}
+// Indicator
 
 .ams-progress-list__indicator {
   align-items: start;
@@ -55,10 +32,12 @@
   padding-inline: var(--ams-progress-list-indicator-padding-inline);
 }
 
+// Marker
+
 .ams-progress-list__marker {
   align-items: center;
   display: flex;
-  grid-area: 1 / 1; // This is used to position the marker in the middle of the connector.
+  grid-area: 1 / 1; // Overlaps the marker and connector.
 
   &::after {
     content: "\00200B"; // This zero width space enables baseline alignment.
@@ -87,14 +66,44 @@
   inline-size: 1em;
 }
 
-.ams-progress-list__step {
-  display: flex;
+// Connector
 
-  &:not(:last-child) .ams-progress-list__body {
-    padding-block-end: var(--ams-progress-list-body-padding-block-end);
-  }
+.ams-progress-list__connector {
+  align-self: stretch;
+  background-color: var(--ams-progress-list-connector-background-color);
+  block-size: 100%;
+  grid-area: 1 / 1; // Overlaps the marker and connector.
+  inline-size: var(--ams-progress-list-connector-inline-size);
 
-  &:last-child .ams-progress-list__connector {
+  .ams-progress-list__step:last-child & {
     inline-size: 0;
+  }
+}
+
+.ams-progress-list__connector--heading-2 {
+  margin-block-start: calc(
+    (var(--ams-progress-list-marker-heading-2-line-height) * var(--ams-progress-list-marker-heading-2-font-size)) / 2
+  );
+}
+
+.ams-progress-list__connector--heading-3 {
+  margin-block-start: calc(
+    (var(--ams-progress-list-marker-heading-3-line-height) * var(--ams-progress-list-marker-heading-3-font-size)) / 2
+  );
+}
+
+.ams-progress-list__connector--heading-4 {
+  margin-block-start: calc(
+    (var(--ams-progress-list-marker-heading-4-line-height) * var(--ams-progress-list-marker-heading-4-font-size)) / 2
+  );
+}
+
+// Body
+
+.ams-progress-list__body {
+  padding-block-start: var(--ams-progress-list-body-padding-block-start);
+
+  .ams-progress-list__step:not(:last-child) & {
+    padding-block-end: var(--ams-progress-list-body-padding-block-end);
   }
 }

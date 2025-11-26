@@ -5,10 +5,19 @@
 
 import type { Meta, StoryObj } from '@storybook/react-vite'
 
-import { Paragraph } from '@amsterdam/design-system-react'
-import { ProgressList, UnorderedList } from '@amsterdam/design-system-react/src'
+import { Paragraph, UnorderedList } from '@amsterdam/design-system-react'
+import { ProgressList } from '@amsterdam/design-system-react/src'
 
 import { exampleParagraph, exampleUnorderedList } from '../shared/exampleContent'
+
+const paragraph1 = exampleParagraph()
+const paragraph2 = exampleParagraph()
+const unorderedList1 = exampleUnorderedList()
+  .slice(0, 3)
+  .map((text) => <UnorderedList.Item key={text}>{text}</UnorderedList.Item>)
+const unorderedList2 = exampleUnorderedList()
+  .slice(0, 2)
+  .map((text) => <UnorderedList.Item key={text}>{text}</UnorderedList.Item>)
 
 const meta = {
   title: 'Components/Containers/Progress List',
@@ -16,22 +25,14 @@ const meta = {
   args: {
     children: [
       <ProgressList.Step heading="2025" key={0}>
-        <UnorderedList>
-          {exampleUnorderedList().map((text) => (
-            <UnorderedList.Item key={text}>{text}</UnorderedList.Item>
-          ))}
-        </UnorderedList>
+        <UnorderedList>{unorderedList1}</UnorderedList>
       </ProgressList.Step>,
       <ProgressList.Step heading="2026" key={1}>
-        <Paragraph>{exampleParagraph()}</Paragraph>
+        <Paragraph className="ams-mb-m">{paragraph1}</Paragraph>
+        <UnorderedList>{unorderedList2}</UnorderedList>
       </ProgressList.Step>,
       <ProgressList.Step heading="2027" key={2}>
-        <Paragraph>{exampleParagraph()}</Paragraph>
-        <UnorderedList>
-          {exampleUnorderedList().map((text) => (
-            <UnorderedList.Item key={text}>{text}</UnorderedList.Item>
-          ))}
-        </UnorderedList>
+        <Paragraph>{paragraph2}</Paragraph>
       </ProgressList.Step>,
     ],
     headingLevel: 3,
