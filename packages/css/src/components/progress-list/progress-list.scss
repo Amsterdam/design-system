@@ -131,3 +131,11 @@
     padding-block-end: var(--ams-progress-list-body-padding-block-end);
   }
 }
+
+.ams-progress-list__marker-icon {
+  svg {
+    box-sizing: border-box;
+
+    // padding: var(--ams-progress-list-marker-icon-padding);
+  }
+}

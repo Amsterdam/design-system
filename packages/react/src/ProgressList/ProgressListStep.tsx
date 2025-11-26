@@ -4,10 +4,12 @@
  */
 import type { ForwardedRef, HTMLAttributes, PropsWithChildren } from 'react'
 
+import { CheckMarkIcon } from '@amsterdam/design-system-react-icons'
 import { clsx } from 'clsx'
 import { forwardRef, useContext } from 'react'
 
 import { Heading } from '../Heading'
+import { Icon } from '../Icon'
 import ProgressListContext from './ProgressListContext'
 
 export type ProgressListStepProps = {

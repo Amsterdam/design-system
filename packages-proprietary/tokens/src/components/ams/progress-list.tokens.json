@@ -26,6 +26,10 @@
           "font-size": { "value": "{ams.typography.heading.4.font-size}" },
           "line-height": { "value": "{ams.typography.heading.4.line-height}" }
         },
+        "icon": {
+          "box-sizing": { "value": "border-box" },
+          "padding": { "value": "{ams.border.width.m}" }
+        },
         "shape": {
           "background-color": { "value": "{ams.color.feedback.success}" },
           "border-radius": { "value": "50%" },
