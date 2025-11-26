@@ -28,6 +28,7 @@
 .ams-progress-list__indicator {
   align-items: start;
   display: grid;
+  flex: none;
   justify-items: center;
   padding-inline: var(--ams-progress-list-indicator-padding-inline);
 }
@@ -96,6 +97,13 @@
   margin-block-start: calc(
     (var(--ams-progress-list-marker-heading-4-line-height) * var(--ams-progress-list-marker-heading-4-font-size)) / 2
   );
+}
+
+// Content
+
+.ams-progress-list__content {
+  flex: auto;
+  min-inline-size: 0;
 }
 
 // Body
