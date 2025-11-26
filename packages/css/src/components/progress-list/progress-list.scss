@@ -2,6 +2,8 @@
  * @license EUPL-1.2+
  * Copyright Gemeente Amsterdam
  */
+
+@use "../../common/breakpoint" as *;
 @use "../../common/hyphenation" as *;
 @use "../../common/text-rendering" as *;
 
@@ -31,6 +33,10 @@
   flex: none;
   justify-items: center;
   padding-inline: var(--ams-progress-list-indicator-padding-inline);
+
+  @media screen and (min-width: $ams-breakpoint-medium) {
+    padding-inline: var(--ams-progress-list-medium-indicator-padding-inline);
+  }
 }
 
 // Marker

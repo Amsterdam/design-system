@@ -10,7 +10,7 @@
         "inline-size": { "value": "{ams.border.width.m}" }
       },
       "indicator": {
-        "padding-inline": { "value": "{ams.space.l} {ams.space.l}" }
+        "padding-inline": { "value": "{ams.space.m}" }
       },
       "marker": {
         "background-color": { "value": "{ams.color.separator}" },
@@ -25,6 +25,11 @@
         "heading-4": {
           "font-size": { "value": "{ams.typography.heading.4.font-size}" },
           "line-height": { "value": "{ams.typography.heading.4.line-height}" }
+        }
+      },
+      "medium": {
+        "indicator": {
+          "padding-inline": { "value": "{ams.space.l}" }
         }
       }
     }
