@@ -23,7 +23,11 @@ export type ProgressListProps = {
 const ProgressListRoot = forwardRef(
   ({ children, className, headingLevel, ...restProps }: ProgressListProps, ref: ForwardedRef<HTMLOListElement>) => (
     <ProgressListContext.Provider value={{ headingLevel: headingLevel }}>
-      <ol {...restProps} className={clsx('ams-progress-list', className)} ref={ref}>
+      <ol
+        {...restProps}
+        className={clsx('ams-progress-list', `ams-progress-list--heading-${headingLevel}`, className)}
+        ref={ref}
+      >
         {children}
       </ol>
     </ProgressListContext.Provider>

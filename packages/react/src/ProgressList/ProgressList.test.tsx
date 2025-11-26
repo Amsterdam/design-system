@@ -27,6 +27,14 @@ describe('Progress List', () => {
     expect(component).toHaveClass('ams-progress-list')
   })
 
+  it('applies the correct heading level modifier class', () => {
+    const { container } = render(<ProgressList headingLevel={4} />)
+
+    const component = container.querySelector(':only-child')
+
+    expect(component).toHaveClass('ams-progress-list--heading-4')
+  })
+
   it('renders the allowed levels correctly', () => {
     render(
       <>
