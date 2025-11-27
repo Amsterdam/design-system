@@ -246,7 +246,7 @@
 }
 
 .ams-page-header__grid-cell-narrow-window-only {
-  display: block; // Override the `hidden` attribute; this cell duplicates the non-fixed links in the Page Header Menu.
+  display: initial; // Override the `hidden` attribute; this cell duplicates the non-fixed links in the Page Header Menu.
 
   @media screen and (min-width: $ams-breakpoint-wide) {
     display: none;
