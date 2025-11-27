@@ -1,53 +1,40 @@
+/**
+ * @license EUPL-1.2+
+ * Copyright Gemeente Amsterdam
+ */
+
 import { act, renderHook } from '@testing-library/react'
 
 import useIsAfterBreakpoint, { BREAKPOINTS } from './useIsAfterBreakpoint'
 
 describe('useIsAfterBreakpoint', () => {
-  let resizeListeners: Array<() => void> = []
   let currentMatches: string[] = []
-
-  let originalAddEventListener: typeof window.addEventListener
-  let originalRemoveEventListener: typeof window.removeEventListener
+  let changeListeners: Array<() => void> = []
 
   beforeEach(() => {
-    resizeListeners = []
     currentMatches = []
+    changeListeners = []
 
-    originalAddEventListener = window.addEventListener
-    originalRemoveEventListener = window.removeEventListener
-
-    // Capture resize listeners on window
-    jest.spyOn(window, 'addEventListener').mockImplementation((type, listener) => {
-      if (type === 'resize') {
-        if (typeof listener === 'function') {
-          resizeListeners.push(listener as () => void)
-        } else {
-          resizeListeners.push(() => listener.handleEvent(new Event('resize')))
-        }
-      } else {
-        originalAddEventListener(type, listener)
-      }
-    })
-
-    jest.spyOn(window, 'removeEventListener').mockImplementation((type, listener) => {
-      if (type === 'resize') {
-        resizeListeners = resizeListeners.filter((l) => l !== listener)
-      } else {
-        originalRemoveEventListener(type, listener)
-      }
-    })
-
-    // Mock matchMedia with a dynamic `matches` getter
+    // Mock matchMedia with a dynamic getter for `matches`
     window.matchMedia = jest.fn().mockImplementation((query: string): MediaQueryList => {
       return {
-        addEventListener: jest.fn(),
+        addEventListener: (type: string, listener: () => void) => {
+          if (type === 'change') changeListeners.push(listener)
+        },
         dispatchEvent: jest.fn(),
         get matches() {
           return currentMatches.includes(query)
         },
+
         media: query,
+
         onchange: null,
-        removeEventListener: jest.fn(),
+
+        removeEventListener: (type: string, listener: () => void) => {
+          if (type === 'change') {
+            changeListeners = changeListeners.filter((l) => l !== listener)
+          }
+        },
       } as unknown as MediaQueryList
     })
   })
@@ -56,61 +43,61 @@ describe('useIsAfterBreakpoint', () => {
     jest.restoreAllMocks()
   })
 
-  const triggerResize = (): void => {
-    resizeListeners.forEach((listener) => listener())
+  const triggerMediaChange = (): void => {
+    changeListeners.forEach((listener) => listener())
   }
 
-  test('returns false when matchMedia does not match initially', () => {
+  test('returns false when the breakpoint does not match initially', () => {
     const { result } = renderHook(() => useIsAfterBreakpoint('medium'))
     expect(result.current).toBe(false)
   })
 
-  test('returns true when matchMedia matches initially', () => {
+  test('returns true when the breakpoint matches initially', () => {
     currentMatches = [`(min-width: ${BREAKPOINTS.medium})`]
 
     const { result } = renderHook(() => useIsAfterBreakpoint('medium'))
     expect(result.current).toBe(true)
   })
 
-  test('updates from false to true when resizing into the breakpoint', () => {
-    currentMatches = [] // below wide
+  test('updates from false to true when the media query changes to match', () => {
+    currentMatches = []
 
     const { result } = renderHook(() => useIsAfterBreakpoint('wide'))
     expect(result.current).toBe(false)
 
     act(() => {
-      currentMatches = [`(min-width: ${BREAKPOINTS.wide})`] // now matches
-      triggerResize()
+      currentMatches = [`(min-width: ${BREAKPOINTS.wide})`]
+      triggerMediaChange()
     })
 
     expect(result.current).toBe(true)
   })
 
-  test('updates from true to false when resizing below the breakpoint', () => {
-    currentMatches = [`(min-width: ${BREAKPOINTS.medium})`] // initially matches
+  test('updates from true to false when the media query changes to not match', () => {
+    currentMatches = [`(min-width: ${BREAKPOINTS.medium})`]
 
     const { result } = renderHook(() => useIsAfterBreakpoint('medium'))
     expect(result.current).toBe(true)
 
     act(() => {
-      currentMatches = [] // now below
-      triggerResize()
+      currentMatches = []
+      triggerMediaChange()
     })
 
     expect(result.current).toBe(false)
   })
 
-  test('removes resize listener on unmount', () => {
+  test('removes the media query listener on unmount', () => {
     const { unmount } = renderHook(() => useIsAfterBreakpoint('medium'))
 
-    expect(resizeListeners.length).toBe(1)
+    expect(changeListeners.length).toBe(1)
 
     unmount()
 
-    expect(resizeListeners.length).toBe(0)
+    expect(changeListeners.length).toBe(0)
   })
 
-  test('is safe during SSR (no window)', () => {
+  test('is safe during SSR when window is undefined', () => {
     // eslint-disable-next-line no-undef
     const originalWindow = global.window
 
@@ -119,6 +106,7 @@ describe('useIsAfterBreakpoint', () => {
     delete (global as typeof globalThis).window
 
     const { result } = renderHook(() => useIsAfterBreakpoint('medium'))
+
     expect(result.current).toBe(false)
 
     // eslint-disable-next-line no-undef

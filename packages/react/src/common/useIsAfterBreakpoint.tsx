@@ -3,37 +3,39 @@
  * Copyright Gemeente Amsterdam
  */
 
-import { useLayoutEffect, useState } from 'react'
+import { useEffect, useState } from 'react'
 
 // TODO: we should set the breakpoint in JS somewhere and render this and the sass variables from that
 export const BREAKPOINTS = {
   medium: '37.5rem',
   wide: '72.5rem',
-}
+} as const
 
-type useIsAfterBreakpointProps = 'medium' | 'wide'
+type Breakpoint = keyof typeof BREAKPOINTS
 
-const useIsAfterBreakpoint = (breakpoint: useIsAfterBreakpointProps) => {
+const useIsAfterBreakpoint = (breakpoint: Breakpoint): boolean => {
   const [matches, setMatches] = useState(false)
 
-  useLayoutEffect(() => {
+  useEffect(() => {
     // Check for window object to avoid SSR issues
-    if (breakpoint && typeof window !== 'undefined') {
-      const media = window.matchMedia(`(min-width: ${BREAKPOINTS[breakpoint]})`)
-
-      if (media.matches !== matches) {
-        setMatches(media.matches)
-      }
-
-      const listener = () => setMatches(media.matches)
-
-      window.addEventListener('resize', listener)
-
-      return () => window.removeEventListener('resize', listener)
+    if (typeof window === 'undefined') {
+      // Return stable no-op cleanup to satisfy consistent-return
+      return () => {}
     }
 
-    return undefined
-  }, [matches, breakpoint])
+    const query = `(min-width: ${BREAKPOINTS[breakpoint]})`
+    const media = window.matchMedia(query)
+    const listener = () => setMatches(media.matches)
+
+    // Set initial state
+    setMatches(media.matches)
+
+    media.addEventListener('change', listener)
+
+    return () => {
+      media.removeEventListener('change', listener)
+    }
+  }, [breakpoint])
 
   return matches
 }
