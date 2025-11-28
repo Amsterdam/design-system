@@ -38,15 +38,15 @@
     "@storybook/addon-themes": "9.1.16",
     "@storybook/mdx2-csf": "1.1.0",
     "@storybook/react-vite": "9.1.16",
-    "@types/react": "18.3.26",
+    "@types/react": "18.3.27",
     "@vitejs/plugin-react": "5.1.1",
-    "chromatic": "13.3.3",
+    "chromatic": "13.3.4",
     "react": "18.3.1",
     "react-dom": "18.3.1",
     "remark-gfm": "4.0.1",
     "require-from-string": "2.0.2",
     "storybook": "9.1.16",
     "storybook-addon-pseudo-states": "9.1.16",
-    "vite": "7.2.2"
+    "vite": "7.2.4"
   }
 }
