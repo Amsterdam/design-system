@@ -31,6 +31,13 @@
 .ams-paragraph--large {
   font-size: var(--ams-paragraph-large-font-size);
   line-height: var(--ams-paragraph-large-line-height);
+
+  /*
+   * If text-wrap is not supported, it is ignored.
+   * This means the wrapped text will look less balanced, which is fine.
+   */
+  /* stylelint-disable-next-line plugin/use-baseline */
+  text-wrap: var(--ams-paragraph-large-text-wrap);
 }
 
 .ams-paragraph--inverse {
