@@ -20,13 +20,6 @@ import {
   StandaloneLink,
   UnorderedList,
 } from '@amsterdam/design-system-react'
-import {
-  CameraIcon,
-  FacebookIcon,
-  LinkedInIcon,
-  SpeechBalloonEllipsisIcon,
-  XIcon,
-} from '@amsterdam/design-system-react-icons'
 
 import { exampleHeading, exampleParagraph, exampleStandaloneLink } from '../../../components/shared/exampleContent'
 import { commonMeta } from '../common/config'
@@ -455,28 +448,6 @@ export const SubnavigationPage: StoryObj = {
               <StandaloneLink color="inverse" href="#">
                 Ik wil de nieuwsbrief
               </StandaloneLink>
-            </Grid.Cell>
-            <Grid.Cell span={{ narrow: 4, medium: 3, wide: 4 }}>
-              <Heading className="ams-mb-s" color="inverse" level={2} size="level-3">
-                Deel deze pagina
-              </Heading>
-              <LinkList>
-                <LinkList.Link color="inverse" href="#" icon={FacebookIcon}>
-                  Facebook
-                </LinkList.Link>
-                <LinkList.Link color="inverse" href="#" icon={CameraIcon}>
-                  Instagram
-                </LinkList.Link>
-                <LinkList.Link color="inverse" href="#" icon={LinkedInIcon}>
-                  LinkedIn
-                </LinkList.Link>
-                <LinkList.Link color="inverse" href="#" icon={SpeechBalloonEllipsisIcon}>
-                  Whatsapp
-                </LinkList.Link>
-                <LinkList.Link color="inverse" href="#" icon={XIcon}>
-                  X (Twitter)
-                </LinkList.Link>
-              </LinkList>
             </Grid.Cell>
           </Grid>
         </Spotlight>
