@@ -435,22 +435,6 @@ export const SubnavigationPage: StoryObj = {
           </Grid.Cell>
           <LinkBlockGridCells linkGroups={burgerzakenLinks.slice(4, 8)} />
         </Grid>
-        <Spotlight className="ams-mb-xl" color="green">
-          <Grid paddingVertical="large">
-            <Grid.Cell span={{ narrow: 4, medium: 5, wide: 7 }} start={{ narrow: 1, medium: 1, wide: 2 }}>
-              <Heading className="ams-mb-s" color="inverse" level={2} size="level-3">
-                Blijf op de hoogte
-              </Heading>
-              <Paragraph className="ams-mb-m" color="inverse">
-                Schrijf u nu in voor de Nieuwsbrief Amsterdam en ontvang wekelijks nieuws, tips en mooie verhalen over
-                de stad en uw stadsdeel.
-              </Paragraph>
-              <StandaloneLink color="inverse" href="#">
-                Ik wil de nieuwsbrief
-              </StandaloneLink>
-            </Grid.Cell>
-          </Grid>
-        </Spotlight>
       </main>,
     ],
   },
