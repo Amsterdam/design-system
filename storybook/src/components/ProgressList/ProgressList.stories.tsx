@@ -24,14 +24,14 @@ const meta = {
   component: ProgressList,
   args: {
     children: [
-      <ProgressList.Step heading="2025" key={0}>
+      <ProgressList.Step heading="2025" key={0} status="completed">
         <UnorderedList>{unorderedList1}</UnorderedList>
       </ProgressList.Step>,
-      <ProgressList.Step heading="2026" key={1}>
+      <ProgressList.Step heading="2026" key={1} status="current">
         <Paragraph className="ams-mb-m">{paragraph1}</Paragraph>
         <UnorderedList>{unorderedList2}</UnorderedList>
       </ProgressList.Step>,
-      <ProgressList.Step heading="2027" key={2}>
+      <ProgressList.Step heading="2027" key={2} status="upcoming">
         <Paragraph>{paragraph2}</Paragraph>
       </ProgressList.Step>,
     ],

@@ -25,14 +25,6 @@
 
 .ams-progress-list__step {
   display: flex;
-
-  &:last-child .ams-progress-list__connector {
-    display: none;
-  }
-
-  &:not(:last-child) > div:last-child {
-    padding-block-end: var(--ams-progress-list-step-padding-block-end);
-  }
 }
 
 // Indicator
@@ -47,6 +39,18 @@
   @media screen and (min-width: $ams-breakpoint-medium) {
     padding-inline: var(--ams-progress-list-medium-indicator-padding-inline);
   }
+
+  .ams-progress-list__step[aria-current] & {
+    padding-inline: calc(
+      var(--ams-progress-list-indicator-padding-inline) - var(--ams-progress-list-current-marker-border-width)
+    );
+
+    @media screen and (min-width: $ams-breakpoint-medium) {
+      padding-inline: calc(
+        var(--ams-progress-list-medium-indicator-padding-inline) - var(--ams-progress-list-current-marker-border-width)
+      );
+    }
+  }
 }
 
 // Marker
@@ -55,24 +59,24 @@
   align-items: center;
   display: flex;
   grid-area: 1 / 1; // Overlaps the marker and connector.
-
-  &::after {
-    content: "\00200B"; // This zero width space enables baseline alignment.
-  }
+  z-index: 1;
 
   .ams-progress-list--heading-2 & {
-    font-size: var(--ams-progress-list-marker-heading-2-font-size);
-    line-height: var(--ams-progress-list-marker-heading-2-line-height);
+    block-size: calc(
+      var(--ams-progress-list-marker-heading-2-font-size) * var(--ams-progress-list-marker-heading-2-line-height)
+    );
   }
 
   .ams-progress-list--heading-3 & {
-    font-size: var(--ams-progress-list-marker-heading-3-font-size);
-    line-height: var(--ams-progress-list-marker-heading-3-line-height);
+    block-size: calc(
+      var(--ams-progress-list-marker-heading-3-font-size) * var(--ams-progress-list-marker-heading-3-line-height)
+    );
   }
 
   .ams-progress-list--heading-4 & {
-    font-size: var(--ams-progress-list-marker-heading-4-font-size);
-    line-height: var(--ams-progress-list-marker-heading-4-line-height);
+    block-size: calc(
+      var(--ams-progress-list-marker-heading-4-font-size) * var(--ams-progress-list-marker-heading-4-line-height)
+    );
   }
 }
 
@@ -80,7 +84,30 @@
   aspect-ratio: 1;
   background-color: var(--ams-progress-list-marker-background-color);
   border-radius: 50%;
-  inline-size: 1em;
+
+  .ams-progress-list--heading-2 & {
+    inline-size: var(--ams-progress-list-shape-heading-2-inline-size);
+  }
+
+  .ams-progress-list--heading-3 & {
+    inline-size: var(--ams-progress-list-shape-heading-3-inline-size);
+  }
+
+  .ams-progress-list--heading-4 & {
+    inline-size: var(--ams-progress-list-shape-heading-4-inline-size);
+  }
+
+  .ams-progress-list__step--completed & {
+    background-color: var(--ams-progress-list-completed-marker-background-color);
+  }
+
+  .ams-progress-list__step[aria-current] & {
+    background-color: var(--ams-progress-list-current-marker-background-color);
+    border-color: var(--ams-progress-list-current-marker-border-color);
+    border-style: var(--ams-progress-list-current-marker-border-style);
+    border-width: var(--ams-progress-list-current-marker-border-width);
+    box-shadow: var(--ams-progress-list-current-marker-box-shadow);
+  }
 }
 
 // Connector
@@ -110,6 +137,14 @@
     );
   }
 
+  .ams-progress-list__step--completed & {
+    background-color: var(--ams-progress-list-completed-connector-background-color);
+  }
+
+  .ams-progress-list__step[aria-current] & {
+    background-color: var(--ams-progress-list-current-connector-background-color);
+  }
+
   .ams-progress-list__step:last-child & {
     inline-size: 0;
   }
@@ -129,13 +164,5 @@
 
   .ams-progress-list__step:not(:last-child) & {
     padding-block-end: var(--ams-progress-list-body-padding-block-end);
-  }
-}
-
-.ams-progress-list__marker-icon {
-  svg {
-    box-sizing: border-box;
-
-    // padding: var(--ams-progress-list-marker-icon-padding);
   }
 }
