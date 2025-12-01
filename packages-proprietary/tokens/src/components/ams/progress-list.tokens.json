@@ -56,13 +56,16 @@
       },
       "shape": {
         "heading-2": {
-          "inline-size": { "value": "calc(var(--ams-progress-list-marker-heading-2-font-size) * 0.8)" }
+          "inline-size": { "value": "calc(var(--ams-progress-list-marker-heading-2-font-size) * 0.8)" },
+          "block-size": { "value": "calc(var(--ams-progress-list-marker-heading-2-font-size) * 0.8)" }
         },
         "heading-3": {
-          "inline-size": { "value": "calc(var(--ams-progress-list-marker-heading-3-font-size) * 0.8)" }
+          "inline-size": { "value": "calc(var(--ams-progress-list-marker-heading-3-font-size) * 0.8)" },
+          "block-size": { "value": "calc(var(--ams-progress-list-marker-heading-3-font-size) * 0.8)" }
         },
         "heading-4": {
-          "inline-size": { "value": "calc(var(--ams-progress-list-marker-heading-4-font-size) * 0.8)" }
+          "inline-size": { "value": "calc(var(--ams-progress-list-marker-heading-4-font-size) * 0.9)" },
+          "block-size": { "value": "calc(var(--ams-progress-list-marker-heading-4-font-size) * 0.9)" }
         }
       },
       "upcoming": {
