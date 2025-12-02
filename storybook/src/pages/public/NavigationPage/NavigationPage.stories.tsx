@@ -90,7 +90,7 @@ export const WithTopTasks: StoryObj = {
             </Paragraph>
           </Card>
         </Grid.Cell>
-        <Grid.Cell span={{ narrow: 4, medium: 4, wide: 5 }} start={{ narrow: 1, medium: 5, wide: 7 }}>
+        <Grid.Cell span={{ narrow: 4, medium: 4, wide: 5 }}>
           <Card>
             <Card.Heading level={2}>
               <Card.Link href="/">Kondig een demonstratie of manifestatie aan</Card.Link>
@@ -111,7 +111,7 @@ export const WithTopTasks: StoryObj = {
             ]}
           />
         </Grid.Cell>
-        <Grid.Cell span={{ narrow: 4, medium: 4, wide: 5 }} start={{ narrow: 1, medium: 5, wide: 7 }}>
+        <Grid.Cell span={{ narrow: 4, medium: 4, wide: 5 }}>
           <LinkBlock
             heading="Spelen en bewegen"
             headingLevel={2}
@@ -132,7 +132,7 @@ export const WithTopTasks: StoryObj = {
             links={['Dieren en groen']}
           />
         </Grid.Cell>
-        <Grid.Cell span={{ narrow: 4, medium: 4, wide: 5 }} start={{ narrow: 1, medium: 5, wide: 7 }}>
+        <Grid.Cell span={{ narrow: 4, medium: 4, wide: 5 }}>
           <LinkBlock
             heading="Parken en volkstuinen"
             headingLevel={2}
@@ -252,7 +252,7 @@ export const WithImageGallery: StoryObj = {
               links={['Portefeuilleverdeling']}
             />
           </Grid.Cell>
-          <Grid.Cell span={{ narrow: 4, medium: 4, wide: 5 }} start={{ narrow: 1, medium: 5, wide: 7 }}>
+          <Grid.Cell span={{ narrow: 4, medium: 4, wide: 5 }}>
             <LinkBlock
               heading="Coalitieakkoord"
               headingLevel={2}
@@ -279,7 +279,7 @@ export const WithImageGallery: StoryObj = {
                 </LinkList.Link>
               </LinkList>
             </Grid.Cell>
-            <Grid.Cell span={{ narrow: 4, medium: 4, wide: 5 }} start={{ narrow: 1, medium: 5, wide: 7 }}>
+            <Grid.Cell span={{ narrow: 4, medium: 4, wide: 5 }}>
               <Heading className="ams-mb-s" color="inverse" level={2} size="level-3">
                 Besluiten B en W
               </Heading>
@@ -309,7 +309,7 @@ export const WithImageGallery: StoryObj = {
               links={['Pers']}
             />
           </Grid.Cell>
-          <Grid.Cell span={{ narrow: 4, medium: 4, wide: 5 }} start={{ narrow: 1, medium: 5, wide: 7 }}>
+          <Grid.Cell span={{ narrow: 4, medium: 4, wide: 5 }}>
             <Heading className="ams-mb-s" level={2} size="level-3">
               Meer over het college
             </Heading>
@@ -337,7 +337,7 @@ export const WithImageGallery: StoryObj = {
               </UnorderedList.Item>
             </UnorderedList>
           </Grid.Cell>
-          <Grid.Cell span={{ narrow: 4, medium: 4, wide: 5 }} start={{ narrow: 1, medium: 5, wide: 7 }}>
+          <Grid.Cell span={{ narrow: 4, medium: 4, wide: 5 }}>
             <Heading className="ams-mb-s" level={2} size="level-3">
               Rechtenvrije foto’s
             </Heading>

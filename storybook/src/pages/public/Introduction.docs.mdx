@@ -86,13 +86,10 @@ The `start` prop is not needed here.
 ```
 
 On navigation pages, similar sections use Link Lists and are 1 column **narrower**.
-When rendering them in a loop, the `start` position must be calculated to ensure correct placement in 2 columns:
+When rendering them in a loop, the `start` position is only necessary for the odd cells:
 
 ```tsx
-<Grid.Cell
-  span={{ narrow: 4, medium: 4, wide: 5 }}
-  start={{ narrow: 1, medium: index % 2 === 0 ? 1 : 5, wide: index % 2 === 0 ? 2 : 7 }}
-/>
+<Grid.Cell span={{ narrow: 4, medium: 4, wide: 5 }} start={index % 2 ? undefined : { narrow: 1, medium: 1, wide: 2 }} />
 ```
 
 ### Top tasks
