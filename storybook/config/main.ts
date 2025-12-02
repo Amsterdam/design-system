@@ -5,6 +5,8 @@
 
 import type { StorybookConfig } from '@storybook/react-vite'
 
+import isChromatic from 'chromatic/isChromatic'
+import process from 'process'
 import remarkGfm from 'remark-gfm'
 
 const config: StorybookConfig = {
@@ -23,7 +25,7 @@ const config: StorybookConfig = {
       },
     },
     '@linus_janns/storybook-addon-html',
-    'storybook-addon-pseudo-states',
+    ...(isChromatic() || process.env['NODE_ENV'] === 'development' ? ['storybook-addon-pseudo-states'] : []),
   ],
 
   core: {
