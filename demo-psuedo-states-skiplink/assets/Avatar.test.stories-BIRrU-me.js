@@ -1,0 +1,6 @@
+import{r as a}from"./renderComponentVariants-D6lU37zB.js";import{m as t,A as o}from"./Avatar.stories-BI9vgisF.js";import"./iframe-DesC3i-4.js";import"./preload-helper-PPVm8Dsz.js";import"./Icon-DZ3mrZUT.js";const c={...t,title:"Components/Feedback/Avatar"},r={render:e=>a(o,{args:e}),tags:["!dev","!autodocs"]};r.parameters={...r.parameters,docs:{...r.parameters?.docs,source:{originalSource:`{
+  render: args => renderComponentVariants(Avatar, {
+    args
+  }),
+  tags: ['!dev', '!autodocs']
+}`,...r.parameters?.docs?.source}}};const i=["Test"];export{r as Test,i as __namedExportsOrder,c as default};
