@@ -42,7 +42,7 @@ export const ArticlePage = ({
 }: ArticlePageProps) => (
   <>
     <Grid paddingTop="large">
-      <Grid.Cell span={{ narrow: 4, medium: 6, wide: 8 }} start={{ narrow: 1, medium: 1, wide: 2 }}>
+      <Grid.Cell span={{ narrow: 4, medium: 7, wide: 9 }} start={{ narrow: 1, medium: 1, wide: 2 }}>
         <Breadcrumb>
           <Breadcrumb.Link href="#">Home</Breadcrumb.Link>
           <Breadcrumb.Link href="#">Nieuws</Breadcrumb.Link>
@@ -51,7 +51,7 @@ export const ArticlePage = ({
     </Grid>
     <main id="inhoud">
       <Grid paddingBottom="x-large">
-        <Grid.Cell span={{ narrow: 4, medium: 6, wide: 7 }} start={{ narrow: 1, medium: 1, wide: 2 }}>
+        <Grid.Cell span={{ narrow: 4, medium: 7, wide: 9 }} start={{ narrow: 1, medium: 1, wide: 2 }}>
           <Heading className="ams-mb-s" level={1}>
             {heading}
           </Heading>
