@@ -14,7 +14,8 @@
   },
   "scripts": {
     "build": "storybook build --output-dir dist/ --config-dir config/ --quiet && touch dist/.nojekyll",
-    "chromatic": "IS_CHROMATIC=true chromatic",
+    "build:chromatic": "IS_CHROMATIC=true storybook build:chromatic --output-dir dist/ --config-dir config/ --quiet && touch dist/.nojekyll",
+    "chromatic": "chromatic",
     "clean": "rimraf dist/",
     "lint": "tsc --noEmit --project ./tsconfig.json",
     "start": "storybook dev --config-dir config/ --port 6006"
