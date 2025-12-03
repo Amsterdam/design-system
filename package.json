@@ -42,7 +42,7 @@
     "postinstall": "pnpm --filter=!storybook -r build",
     "prepare": "husky",
     "prettier": "prettier --write .",
-    "start": "npm-run-all --parallel watch:**",
+    "start": "pnpm run '/^watch:.+$/'",
     "test": "npm run test-workspaces",
     "test-update": "pnpm run clean && pnpm run build && pnpm run lint && pnpm run test",
     "test-workspaces": "pnpm -r --no-bail test",
