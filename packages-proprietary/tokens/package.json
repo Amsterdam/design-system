@@ -25,12 +25,11 @@
   "scripts": {
     "clean": "rimraf dist/",
     "build": "node build.js",
-    "watch": "chokidar --follow-symlinks --initial --command \"npm run build\" \"src/**/*.tokens.json\""
+    "build:watch": "chokidar --follow-symlinks --initial --command \"npm run build\" \"src/**/*.tokens.json\""
   },
   "devDependencies": {
     "change-case": "5.4.4",
     "chokidar-cli": "3.0.0",
-    "npm-run-all2": "8.0.4",
     "style-dictionary": "5.1.1"
   }
 }

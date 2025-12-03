@@ -30,15 +30,14 @@
   "scripts": {
     "build": "pnpm -r build",
     "clean": "pnpm -r clean",
-    "lint": "npm-run-all --continue-on-error lint:** lint-workspaces",
+    "lint": "pnpm run --aggregate-output '/^lint:.+$/' && pnpm -r --no-bail lint",
     "lint:css": "stylelint --allow-empty-input '**/*.{css,scss}'",
     "lint:js": "eslint .",
     "lint:package-json": "npmPkgJsonLint **/package.json",
     "lint:package-lock": "pnpm ls --recursive",
-    "lint-fix": "npm-run-all --continue-on-error lint-fix:** prettier",
+    "lint-fix": "pnpm run --aggregate-output '/^lint-fix:.+$/' && npm run prettier",
     "lint-fix:css": "stylelint --fix '**/*.{css,scss}'",
     "lint-fix:js": "eslint . --fix",
-    "lint-workspaces": "pnpm -r --no-bail lint",
     "plop": "plop",
     "postinstall": "pnpm --filter=!storybook -r build",
     "prepare": "husky",
@@ -53,7 +52,7 @@
     "watch:css": "npm run --workspace packages/css build:watch",
     "watch:react": "npm run --workspace packages/react build:watch",
     "watch:storybook": "npm run --workspace storybook start",
-    "watch:tokens": "npm run --workspace packages-proprietary/tokens watch"
+    "watch:tokens": "npm run --workspace packages-proprietary/tokens build:watch"
   },
   "devDependencies": {
     "@eslint/eslintrc": "3.3.1",
@@ -78,7 +77,6 @@
     "lint-staged": "16.2.7",
     "npm-check-updates": "19.1.2",
     "npm-package-json-lint": "9.0.0",
-    "npm-run-all2": "8.0.4",
     "plop": "4.0.4",
     "postcss": "8.5.6",
     "prettier": "3.7.0",
