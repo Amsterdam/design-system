@@ -23,9 +23,9 @@
           "border-color": { "value": "{ams.color.background}" },
           "border-style": { "value": "solid" },
           "border-width": { "value": "0.2em" },
-          "box-shadow": {
-            "value": " 0 0 0 var(--ams-progress-list-current-marker-border-width) {ams.color.feedback.success}"
-          }
+          "outline-color": { "value": "{ams.color.feedback.success}" },
+          "outline-style": { "value": "solid" },
+          "outline-width": { "value": "var(--ams-progress-list-current-marker-border-width)" }
         },
         "connector": {
           "background-color": { "value": "{ams.color.feedback.success}" }

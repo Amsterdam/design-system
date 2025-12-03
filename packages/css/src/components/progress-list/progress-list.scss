@@ -94,23 +94,32 @@
   // stylelint-disable plugin/use-baseline
   .ams-progress-list--heading-2 & {
     block-size: var(--ams-progress-list-shape-heading-2-block-size);
-    block-size: round(down, var(--ams-progress-list-shape-heading-2-block-size), 2px);
     inline-size: var(--ams-progress-list-shape-heading-2-inline-size);
-    inline-size: round(down, var(--ams-progress-list-shape-heading-2-inline-size), 2px);
+
+    @supports (block-size: round(down, 1px, 1px)) {
+      block-size: round(down, var(--ams-progress-list-shape-heading-2-block-size), 2px);
+      inline-size: round(down, var(--ams-progress-list-shape-heading-2-inline-size), 2px);
+    }
   }
 
   .ams-progress-list--heading-3 & {
     block-size: var(--ams-progress-list-shape-heading-3-block-size);
-    block-size: round(down, var(--ams-progress-list-shape-heading-3-block-size), 2px);
     inline-size: var(--ams-progress-list-shape-heading-3-inline-size);
-    inline-size: round(down, var(--ams-progress-list-shape-heading-3-inline-size), 2px);
+
+    @supports (block-size: round(down, 1px, 1px)) {
+      block-size: round(down, var(--ams-progress-list-shape-heading-3-block-size), 2px);
+      inline-size: round(down, var(--ams-progress-list-shape-heading-3-inline-size), 2px);
+    }
   }
 
   .ams-progress-list--heading-4 & {
     block-size: var(--ams-progress-list-shape-heading-4-block-size);
-    block-size: round(down, var(--ams-progress-list-shape-heading-4-block-size), 2px);
     inline-size: var(--ams-progress-list-shape-heading-4-inline-size);
-    inline-size: round(down, var(--ams-progress-list-shape-heading-4-inline-size), 2px);
+
+    @supports (block-size: round(down, 1px, 1px)) {
+      block-size: round(down, var(--ams-progress-list-shape-heading-4-block-size), 2px);
+      inline-size: round(down, var(--ams-progress-list-shape-heading-4-inline-size), 2px);
+    }
   }
   // stylelint-enable plugin/use-baseline
 
@@ -123,7 +132,9 @@
     border-color: var(--ams-progress-list-current-marker-border-color);
     border-style: var(--ams-progress-list-current-marker-border-style);
     border-width: var(--ams-progress-list-current-marker-border-width);
-    box-shadow: var(--ams-progress-list-current-marker-box-shadow);
+    outline-color: var(--ams-progress-list-current-marker-outline-color);
+    outline-style: var(--ams-progress-list-current-marker-outline-style);
+    outline-width: var(--ams-progress-list-current-marker-outline-width);
   }
 }
 
