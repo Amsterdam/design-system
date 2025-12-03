@@ -20,8 +20,7 @@ This reduces ambiguity and makes the interface more intuitive.
 - **Describe the pictogram** when the icon is generic or not tied to a specific interaction.
   These names are usually **nouns** and remain reusable across contexts.
   Broader concepts such as ‘justice’, ‘sustainability’, or ‘transport’ use generic pictograms for now, as no dedicated symbol has been defined for universal use.
-
-* **Start with the simplest name.**
+- **Start with the simplest name.**
   Only specialise when multiple variants appear (e.g., Ball becomes BallFootball once more types exist).
 
 ### Grouping and ordering
