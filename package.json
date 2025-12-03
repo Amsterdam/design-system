@@ -44,7 +44,7 @@
     "prettier": "prettier --write .",
     "start": "npm-run-all --parallel watch:**",
     "test": "npm run test-workspaces",
-    "test-update": "npm-run-all --sequential clean lint build test",
+    "test-update": "pnpm run clean && pnpm run build && pnpm run lint && pnpm run test",
     "test-workspaces": "pnpm -r --no-bail test",
     "update:major": "npm-check-updates --upgrade --workspaces --cooldown 1 && pnpm install",
     "update:minor": "npm-check-updates --target minor --upgrade --workspaces --cooldown 1 && pnpm install",
