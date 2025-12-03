@@ -56,7 +56,6 @@
     "watch:tokens": "npm run --workspace packages-proprietary/tokens watch"
   },
   "devDependencies": {
-    "@eslint/compat": "2.0.0",
     "@eslint/eslintrc": "3.3.1",
     "@eslint/js": "9.39.1",
     "@eslint/json": "0.14.0",
