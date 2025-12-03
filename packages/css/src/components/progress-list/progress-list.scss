@@ -41,14 +41,10 @@
   }
 
   .ams-progress-list__step[aria-current] & {
-    padding-inline: calc(
-      var(--ams-progress-list-indicator-padding-inline) - var(--ams-progress-list-current-marker-border-width)
-    );
+    padding-inline: var(--ams-progress-list-current-indicator-padding-inline);
 
     @media screen and (min-width: $ams-breakpoint-medium) {
-      padding-inline: calc(
-        var(--ams-progress-list-medium-indicator-padding-inline) - var(--ams-progress-list-current-marker-border-width)
-      );
+      padding-inline: var(--ams-progress-list-current-medium-indicator-padding-inline);
     }
   }
 }
@@ -140,15 +136,15 @@
 
 .ams-progress-list__marker-icon {
   .ams-progress-list--heading-2 & {
-    block-size: var(--ams-progress-list-shape-heading-2-inline-size);
+    block-size: var(--ams-progress-list-icon-heading-2-block-size);
   }
 
   .ams-progress-list--heading-3 & {
-    block-size: var(--ams-progress-list-shape-heading-3-inline-size);
+    block-size: var(--ams-progress-list-icon-heading-3-block-size);
   }
 
   .ams-progress-list--heading-4 & {
-    block-size: var(--ams-progress-list-shape-heading-4-inline-size);
+    block-size: var(--ams-progress-list-icon-heading-4-block-size);
   }
 }
 
@@ -162,21 +158,15 @@
   inline-size: var(--ams-progress-list-connector-inline-size);
 
   .ams-progress-list--heading-2 & {
-    margin-block-start: calc(
-      (var(--ams-progress-list-marker-heading-2-line-height) * var(--ams-progress-list-marker-heading-2-font-size)) / 2
-    );
+    margin-block-start: var(--ams-progress-list-marker-heading-2-margin-block-start);
   }
 
   .ams-progress-list--heading-3 & {
-    margin-block-start: calc(
-      (var(--ams-progress-list-marker-heading-3-line-height) * var(--ams-progress-list-marker-heading-3-font-size)) / 2
-    );
+    margin-block-start: var(--ams-progress-list-marker-heading-3-margin-block-start);
   }
 
   .ams-progress-list--heading-4 & {
-    margin-block-start: calc(
-      (var(--ams-progress-list-marker-heading-4-line-height) * var(--ams-progress-list-marker-heading-4-font-size)) / 2
-    );
+    margin-block-start: var(--ams-progress-list-marker-heading-4-margin-block-start);
   }
 
   .ams-progress-list__step--completed & {

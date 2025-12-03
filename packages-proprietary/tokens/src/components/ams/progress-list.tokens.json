@@ -18,6 +18,14 @@
         "inline-size": { "value": "{ams.border.width.m}" }
       },
       "current": {
+        "connector": {
+          "background-color": { "value": "{ams.color.feedback.success}" }
+        },
+        "indicator": {
+          "padding-inline": {
+            "value": "calc(var(--ams-progress-list-indicator-padding-inline) - var(--ams-progress-list-current-marker-border-width))"
+          }
+        },
         "marker": {
           "background-color": { "value": "{ams.color.feedback.success}" },
           "border-color": { "value": "{ams.color.background}" },
@@ -27,8 +35,23 @@
           "outline-style": { "value": "solid" },
           "outline-width": { "value": "var(--ams-progress-list-current-marker-border-width)" }
         },
-        "connector": {
-          "background-color": { "value": "{ams.color.feedback.success}" }
+        "medium": {
+          "indicator": {
+            "padding-inline": {
+              "value": "calc(var(--ams-progress-list-medium-indicator-padding-inline) - var(--ams-progress-list-current-marker-border-width))"
+            }
+          }
+        }
+      },
+      "icon": {
+        "heading-2": {
+          "block-size": { "value": "calc({ams.typography.heading.2.font-size} * 0.8)" }
+        },
+        "heading-3": {
+          "block-size": { "value": "calc({ams.typography.heading.3.font-size} * 0.8)" }
+        },
+        "heading-4": {
+          "block-size": { "value": "calc({ams.typography.heading.4.font-size} * 0.9)" }
         }
       },
       "indicator": {
@@ -38,15 +61,24 @@
         "background-color": { "value": "{ams.color.separator}" },
         "heading-2": {
           "font-size": { "value": "{ams.typography.heading.2.font-size}" },
-          "line-height": { "value": "{ams.typography.heading.2.line-height}" }
+          "line-height": { "value": "{ams.typography.heading.2.line-height}" },
+          "margin-block-start": {
+            "value": "calc(({ams.typography.heading.2.line-height} * {ams.typography.heading.2.font-size}) / 2)"
+          }
         },
         "heading-3": {
           "font-size": { "value": "{ams.typography.heading.3.font-size}" },
-          "line-height": { "value": "{ams.typography.heading.3.line-height}" }
+          "line-height": { "value": "{ams.typography.heading.3.line-height}" },
+          "margin-block-start": {
+            "value": "calc(({ams.typography.heading.3.line-height} * {ams.typography.heading.3.font-size}) / 2)"
+          }
         },
         "heading-4": {
           "font-size": { "value": "{ams.typography.heading.4.font-size}" },
-          "line-height": { "value": "{ams.typography.heading.4.line-height}" }
+          "line-height": { "value": "{ams.typography.heading.4.line-height}" },
+          "margin-block-start": {
+            "value": "calc(({ams.typography.heading.4.line-height} * {ams.typography.heading.4.font-size}) / 2)"
+          }
         }
       },
       "medium": {
@@ -56,16 +88,16 @@
       },
       "shape": {
         "heading-2": {
-          "inline-size": { "value": "calc(var(--ams-progress-list-marker-heading-2-font-size) * 0.8)" },
-          "block-size": { "value": "calc(var(--ams-progress-list-marker-heading-2-font-size) * 0.8)" }
+          "inline-size": { "value": "calc({ams.typography.heading.2.font-size} * 0.8)" },
+          "block-size": { "value": "calc({ams.typography.heading.2.font-size} * 0.8)" }
         },
         "heading-3": {
-          "inline-size": { "value": "calc(var(--ams-progress-list-marker-heading-3-font-size) * 0.8)" },
-          "block-size": { "value": "calc(var(--ams-progress-list-marker-heading-3-font-size) * 0.8)" }
+          "inline-size": { "value": "calc({ams.typography.heading.3.font-size} * 0.8)" },
+          "block-size": { "value": "calc({ams.typography.heading.3.font-size} * 0.8)" }
         },
         "heading-4": {
-          "inline-size": { "value": "calc(var(--ams-progress-list-marker-heading-4-font-size) * 0.9)" },
-          "block-size": { "value": "calc(var(--ams-progress-list-marker-heading-4-font-size) * 0.9)" }
+          "inline-size": { "value": "calc({ams.typography.heading.4.font-size} * 0.9)" },
+          "block-size": { "value": "calc({ams.typography.heading.4.font-size} * 0.9)" }
         }
       },
       "upcoming": {
