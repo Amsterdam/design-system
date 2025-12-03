@@ -72,6 +72,24 @@ describe('Paragraph', () => {
     expect(largeParagraph).toHaveClass('ams-paragraph--large')
   })
 
+  it('renders a <b> element for a large paragraph', () => {
+    const { container } = render(<Paragraph size="large">Large text</Paragraph>)
+
+    const paragraph = container.querySelector(':only-child')
+    const bold = paragraph?.querySelector('b')
+
+    expect(bold).toBeInTheDocument()
+  })
+
+  it('renders a <small> element for a small paragraph', () => {
+    const { container } = render(<Paragraph size="small">Small text</Paragraph>)
+
+    const paragraph = container.querySelector(':only-child')
+    const small = paragraph?.querySelector('small')
+
+    expect(small).toBeInTheDocument()
+  })
+
   it('renders the class name for inverse color', () => {
     render(<Paragraph color="inverse">Paragraph</Paragraph>)
 
