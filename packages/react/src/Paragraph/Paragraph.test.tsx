@@ -71,6 +71,7 @@ describe('Paragraph', () => {
     const bold = paragraph?.querySelector('b')
 
     expect(bold).toBeInTheDocument()
+    expect(bold).toHaveClass('ams-paragraph__b')
   })
 
   it('renders the small size class', () => {
@@ -88,6 +89,7 @@ describe('Paragraph', () => {
     const small = paragraph?.querySelector('small')
 
     expect(small).toBeInTheDocument()
+    expect(small).toHaveClass('ams-paragraph__small')
   })
 
   it('renders the class name for inverse color', () => {

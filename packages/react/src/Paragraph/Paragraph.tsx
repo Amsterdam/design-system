@@ -10,8 +10,8 @@ import { clsx } from 'clsx'
 import { forwardRef } from 'react'
 
 const wrapChildren = (size: ParagraphProps['size'], children: ReactNode) => {
-  if (size === 'large') return <b>{children}</b>
-  if (size === 'small') return <small>{children}</small>
+  if (size === 'large') return <b className="ams-paragraph__b">{children}</b>
+  if (size === 'small') return <small className="ams-paragraph__small">{children}</small>
   return children
 }
 

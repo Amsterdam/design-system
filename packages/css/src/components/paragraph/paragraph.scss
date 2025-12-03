@@ -27,7 +27,7 @@
   font-size: var(--ams-paragraph-large-font-size);
   line-height: var(--ams-paragraph-large-line-height);
 
-  > b {
+  > .ams-paragraph__b {
     font-weight: inherit;
   }
 }
@@ -36,7 +36,7 @@
   font-size: var(--ams-paragraph-small-font-size);
   line-height: var(--ams-paragraph-small-line-height);
 
-  > small {
+  > .ams-paragraph__small {
     font-size: inherit;
   }
 }
