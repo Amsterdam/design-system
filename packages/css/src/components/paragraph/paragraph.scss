@@ -23,21 +23,21 @@
   @include reset-p;
 }
 
-.ams-paragraph--small {
-  font-size: var(--ams-paragraph-small-font-size);
-  line-height: var(--ams-paragraph-small-line-height);
-
-  > small {
-    font-size: inherit;
-  }
-}
-
 .ams-paragraph--large {
   font-size: var(--ams-paragraph-large-font-size);
   line-height: var(--ams-paragraph-large-line-height);
 
   > b {
     font-weight: inherit;
+  }
+}
+
+.ams-paragraph--small {
+  font-size: var(--ams-paragraph-small-font-size);
+  line-height: var(--ams-paragraph-small-line-height);
+
+  > small {
+    font-size: inherit;
   }
 }
 
