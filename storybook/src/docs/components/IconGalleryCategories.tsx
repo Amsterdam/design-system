@@ -34,6 +34,8 @@ export const LearnableIcons: IconName[] = [
   'PrintIcon',
   'PrintFillIcon',
   'RedoIcon',
+  'SaveIcon',
+  'SaveFillIcon',
   'ShareIcon',
   'StandByIcon',
   'UndoIcon',
@@ -85,7 +87,7 @@ export const SeverityIcons: IconName[] = [
   'WarningIcon',
 ]
 
-export const UniversalIcons: IconName[] = ['CloseIcon', 'SaveFillIcon', 'SaveIcon', 'SearchIcon']
+export const UniversalIcons: IconName[] = ['CloseIcon', 'SearchIcon']
 
 export const FormattingIcons: IconName[] = [
   'FormattingBoldIcon',
