@@ -1,4 +1,8 @@
-export const LearnableIcons = [
+import type * as Icons from '@amsterdam/design-system-react-icons'
+
+type IconName = keyof typeof Icons
+
+export const LearnableIcons: IconName[] = [
   'CopyFillIcon',
   'CopyIcon',
   'DownloadIcon',
@@ -28,9 +32,16 @@ export const LearnableIcons = [
   'UploadIcon',
 ]
 
-export const BrandIcons = ['FacebookIcon', 'InstagramIcon', 'LinkedInIcon', 'MastodonIcon', 'WhatsappIcon', 'XIcon']
+export const BrandIcons: IconName[] = [
+  'FacebookIcon',
+  'InstagramIcon',
+  'LinkedInIcon',
+  'MastodonIcon',
+  'WhatsappIcon',
+  'XIcon',
+]
 
-export const DirectionIcons = [
+export const DirectionIcons: IconName[] = [
   'ArrowBackwardIcon',
   'ArrowDownIcon',
   'ArrowForwardIcon',
@@ -41,7 +52,7 @@ export const DirectionIcons = [
   'ChevronUpIcon',
 ]
 
-export const MediaIcons = [
+export const MediaIcons: IconName[] = [
   'FastForwardIcon',
   'NextIcon',
   'PauseIcon',
@@ -55,7 +66,7 @@ export const MediaIcons = [
   'VolumeOnIcon',
 ]
 
-export const SeverityIcons = [
+export const SeverityIcons: IconName[] = [
   'ErrorFillIcon',
   'ErrorIcon',
   'InfoFillIcon',
@@ -66,23 +77,23 @@ export const SeverityIcons = [
   'WarningIcon',
 ]
 
-export const UniversalIcons = ['CloseIcon', 'MaximizeIcon', 'MinimizeIcon', 'SaveFillIcon', 'SaveIcon', 'SearchIcon']
+export const UniversalIcons: IconName[] = ['CloseIcon', 'MaximizeIcon', 'MinimizeIcon', 'SaveFillIcon', 'SaveIcon', 'SearchIcon']
 
-export const FormattingIcons = [
+export const FormattingIcons: IconName[] = [
   'FormattingBoldIcon',
   'FormattingItalicIcon',
   'FormattingStrikethroughIcon',
   'FormattingUnderlineIcon',
 ]
 
-export const KeyboardKeyIcons = [
+export const KeyboardKeyIcons: IconName[] = [
   'KeyboardKeyCommandIcon',
   'KeyboardKeyControlIcon',
   'KeyboardKeyEnterIcon',
   'KeyboardKeyShiftIcon',
 ]
 
-export const DeprecatedIcons = [
+export const DeprecatedIcons: IconName[] = [
   'HandWithEuroCoinIcon',
   'CogwheelIcon',
   'CogwheelFillIcon',
