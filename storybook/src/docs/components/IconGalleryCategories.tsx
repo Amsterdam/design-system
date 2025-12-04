@@ -87,7 +87,7 @@ export const SeverityIcons: IconName[] = [
   'WarningIcon',
 ]
 
-export const UniversalIcons: IconName[] = ['CloseIcon', 'SearchIcon']
+export const UniversalIcons: IconName[] = ['CloseIcon', 'SearchIcon', 'SettingsIcon', 'SettingsFillIcon']
 
 export const FormattingIcons: IconName[] = [
   'FormattingBoldIcon',
