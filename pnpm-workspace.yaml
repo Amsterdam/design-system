@@ -1,4 +1,7 @@
 minimumReleaseAge: 1440 # Delay installing a newly published version of a package for 1440 minutes (1 day)
+minimumReleaseAgeExclude:
+  - "next"
+  - "@next/*"
 packages:
   - "packages/*"
   - "packages-proprietary/*"
