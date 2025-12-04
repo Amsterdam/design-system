@@ -1,4 +1,4 @@
-export const ApplicationIcons = [
+export const LearnableIcons = [
   'CopyFillIcon',
   'CopyIcon',
   'DownloadIcon',
