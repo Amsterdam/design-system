@@ -1,3 +1,8 @@
+/**
+ * @license EUPL-1.2+
+ * Copyright Gemeente Amsterdam
+ */
+
 import { Icon } from '@amsterdam/design-system-react'
 import * as Icons from '@amsterdam/design-system-react-icons/src'
 

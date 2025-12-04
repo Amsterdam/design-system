@@ -1,3 +1,8 @@
+/**
+ * @license EUPL-1.2+
+ * Copyright Gemeente Amsterdam
+ */
+
 import type * as Icons from '@amsterdam/design-system-react-icons'
 
 type IconName = keyof typeof Icons
