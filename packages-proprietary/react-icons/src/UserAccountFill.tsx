@@ -1,6 +1,6 @@
 import type { SVGProps } from 'react'
 
-const SvgPersonCircleFill = (props: SVGProps<SVGSVGElement>) => (
+const SvgUserAccountFill = (props: SVGProps<SVGSVGElement>) => (
   <svg aria-hidden="true" focusable="false" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" {...props}>
     <path d="M11.975 12.964c2.174 0 3.936-1.783 3.936-3.982S14.15 5 11.975 5 8.04 6.783 8.04 8.982s1.762 3.982 3.935 3.982" />
     <path
@@ -10,9 +10,4 @@ const SvgPersonCircleFill = (props: SVGProps<SVGSVGElement>) => (
     />
   </svg>
 )
-
-/**
- * @deprecated The ‘PersonCircleFill’ icon will be removed in release 5.0.0.
- * Use ‘UserAccountFill’ instead.
- */
-export default SvgPersonCircleFill
+export default SvgUserAccountFill

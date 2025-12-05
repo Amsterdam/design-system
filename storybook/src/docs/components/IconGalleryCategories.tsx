@@ -42,6 +42,8 @@ export const LearnableIcons: IconName[] = [
   'StandByIcon',
   'UndoIcon',
   'UploadIcon',
+  'UserAccountIcon',
+  'UserAccountFillIcon',
   'WiFiIcon',
 ]
 
@@ -114,4 +116,6 @@ export const DeprecatedIcons: IconName[] = [
   'CogwheelFillIcon',
   'CheckMarkCircleIcon',
   'CheckMarkCircleFillIcon',
+  'PersonCircleFillIcon',
+  'PersonCircleIcon',
 ]
