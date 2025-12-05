@@ -58,24 +58,15 @@
   z-index: 1;
 
   .ams-progress-list--heading-2 & {
-    block-size: calc(
-      var(--ams-progress-list-step-heading-2-marker-font-size) *
-        var(--ams-progress-list-step-heading-2-marker-line-height)
-    );
+    block-size: var(--ams-progress-list-step-heading-2-marker-block-size);
   }
 
   .ams-progress-list--heading-3 & {
-    block-size: calc(
-      var(--ams-progress-list-step-heading-3-marker-font-size) *
-        var(--ams-progress-list-step-heading-3-marker-line-height)
-    );
+    block-size: var(--ams-progress-list-step-heading-3-marker-block-size);
   }
 
   .ams-progress-list--heading-4 & {
-    block-size: calc(
-      var(--ams-progress-list-step-heading-4-marker-font-size) *
-        var(--ams-progress-list-step-heading-4-marker-line-height)
-    );
+    block-size: var(--ams-progress-list-step-heading-4-marker-block-size);
   }
 }
 
