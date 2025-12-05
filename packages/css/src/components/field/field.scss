@@ -12,14 +12,14 @@
 
 // Default margin between all direct children of Field
 .ams-field > :not(:last-child) {
-  margin-block-end: var(--ams-field-margin-block-end);
+  margin-block-end: var(--ams-field-child-margin-block-end);
 }
 
 // We use :has here to increase the margin before the error message.
 // If :has is not supported, all elements will have the default gap defined above, which is acceptable.
 /* stylelint-disable-next-line plugin/use-baseline */
 .ams-field > :has(+ .ams-error-message) {
-  margin-block-end: var(--ams-field-before-error-message-margin-block-end);
+  margin-block-end: var(--ams-field-child-before-error-message-margin-block-end);
 }
 
 .ams-field--invalid {
