@@ -31,7 +31,7 @@ const meta = {
         <Paragraph className="ams-mb-m">{paragraph1}</Paragraph>
         <UnorderedList>{unorderedList2}</UnorderedList>
       </ProgressList.Step>,
-      <ProgressList.Step heading="2027" key={2} status="upcoming">
+      <ProgressList.Step heading="2027" key={2}>
         <Paragraph>{paragraph2}</Paragraph>
       </ProgressList.Step>,
     ],
