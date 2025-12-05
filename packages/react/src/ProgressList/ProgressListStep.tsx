@@ -4,7 +4,7 @@
  */
 import type { ForwardedRef, HTMLAttributes, PropsWithChildren } from 'react'
 
-import { CheckMarkIcon } from '@amsterdam/design-system-react-icons'
+import { ArrowForwardIcon } from '@amsterdam/design-system-react-icons'
 import { clsx } from 'clsx'
 import { forwardRef, useContext } from 'react'
 
@@ -17,9 +17,11 @@ export type ProgressListStepProps = {
   status?: 'current' | 'completed'
 } & PropsWithChildren<HTMLAttributes<HTMLElement>>
 
-const getHeadingSize = (level: 2 | 3 | 4) => {
-  return `heading-${level + 2}` as 'heading-4' | 'heading-5' | 'heading-6'
-}
+const iconSizes = {
+  2: 'heading-3',
+  3: 'heading-5',
+  4: 'heading-5',
+} as const
 
 export const ProgressListStep = forwardRef(
   ({ children, className, heading, status, ...restProps }: ProgressListStepProps, ref: ForwardedRef<HTMLLIElement>) => {
@@ -35,13 +37,12 @@ export const ProgressListStep = forwardRef(
         <div className="ams-progress-list__indicator">
           <div className="ams-progress-list__marker">
             <span className="ams-progress-list__marker-shape">
-              {status === 'completed' ? (
+              {status === 'current' ? (
                 <Icon
                   className="ams-progress-list__marker-icon"
-                  color="inverse"
-                  size={getHeadingSize(headingLevel)}
+                  size={iconSizes[headingLevel]}
                   square
-                  svg={CheckMarkIcon}
+                  svg={ArrowForwardIcon}
                 />
               ) : null}
             </span>

@@ -11,7 +11,8 @@
             "background-color": { "value": "{ams.color.feedback.success}" }
           },
           "marker": {
-            "background-color": { "value": "{ams.color.feedback.success}" }
+            "background-color": { "value": "{ams.color.feedback.success}" },
+            "border": { "value": "none" }
           }
         },
         "connector": {
@@ -26,12 +27,18 @@
             "background-color": { "value": "{ams.color.feedback.success}" }
           },
           "marker": {
-            "background-color": { "value": "{ams.color.feedback.success}" }
+            "background-color": { "value": "{ams.color.background}" },
+            "border-color": { "value": "{ams.color.feedback.success}" }
           }
         },
         "heading-2": {
           "icon": {
-            "block-size": { "value": "calc({ams.typography.heading.2.font-size} * 0.8)" }
+            "block-size": {
+              "value": "round(down, calc({ams.typography.heading.2.font-size} / 1.25 - ({ams.border.width.m} * 2)), 2px)"
+            },
+            "inline-size": {
+              "value": "round(down, calc({ams.typography.heading.2.font-size} / 1.25 - ({ams.border.width.m} * 2)), 2px)"
+            }
           },
           "marker": {
             "block-size": {
@@ -42,13 +49,18 @@
             }
           },
           "shape": {
-            "block-size": { "value": "calc({ams.typography.heading.2.font-size} * 0.8)" },
-            "inline-size": { "value": "calc({ams.typography.heading.2.font-size} * 0.8)" }
+            "block-size": { "value": "calc({ams.typography.heading.2.font-size} / 1.25)" },
+            "inline-size": { "value": "calc({ams.typography.heading.2.font-size} / 1.25)" }
           }
         },
         "heading-3": {
           "icon": {
-            "block-size": { "value": "calc({ams.typography.heading.3.font-size} * 0.8)" }
+            "block-size": {
+              "value": "round(down, calc({ams.typography.heading.3.font-size} - ({ams.border.width.m} * 2)), 2px)"
+            },
+            "inline-size": {
+              "value": "round(down, calc({ams.typography.heading.3.font-size} - ({ams.border.width.m} * 2)), 2px)"
+            }
           },
           "marker": {
             "block-size": {
@@ -59,13 +71,18 @@
             }
           },
           "shape": {
-            "block-size": { "value": "calc({ams.typography.heading.3.font-size} * 0.8)" },
-            "inline-size": { "value": "calc({ams.typography.heading.3.font-size} * 0.8)" }
+            "block-size": { "value": "calc({ams.typography.heading.3.font-size} - ({ams.border.width.m} * 2))" },
+            "inline-size": { "value": "calc({ams.typography.heading.3.font-size} - ({ams.border.width.m} * 2))" }
           }
         },
         "heading-4": {
           "icon": {
-            "block-size": { "value": "calc({ams.typography.heading.4.font-size} * 0.9)" }
+            "block-size": {
+              "value": "round(down, calc({ams.typography.heading.4.font-size} * 1.25 - ({ams.border.width.m} * 2)), 2px)"
+            },
+            "inline-size": {
+              "value": "round(down, calc({ams.typography.heading.4.font-size} * 1.25 - ({ams.border.width.m} * 2)), 2px)"
+            }
           },
           "marker": {
             "block-size": {
@@ -76,8 +93,8 @@
             }
           },
           "shape": {
-            "block-size": { "value": "calc({ams.typography.heading.4.font-size} * 0.9)" },
-            "inline-size": { "value": "calc({ams.typography.heading.4.font-size} * 0.9)" }
+            "block-size": { "value": "calc({ams.typography.heading.4.font-size} * 1.25)" },
+            "inline-size": { "value": "calc({ams.typography.heading.4.font-size} * 1.25)" }
           }
         },
         "indicator": {
@@ -86,7 +103,10 @@
           }
         },
         "marker": {
-          "background-color": { "value": "{ams.color.separator}" }
+          "background-color": { "value": "{ams.color.background}" },
+          "border-color": { "value": "{ams.color.separator}" },
+          "border-style": { "value": "solid" },
+          "border-width": { "value": "{ams.border.width.m}" }
         },
         "medium": {
           "indicator": {
