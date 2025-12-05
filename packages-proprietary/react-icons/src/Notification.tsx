@@ -1,6 +1,6 @@
 import type { SVGProps } from 'react'
 
-const SvgBell = (props: SVGProps<SVGSVGElement>) => (
+const SvgNotification = (props: SVGProps<SVGSVGElement>) => (
   <svg aria-hidden="true" focusable="false" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" {...props}>
     <path
       clipRule="evenodd"
@@ -9,9 +9,4 @@ const SvgBell = (props: SVGProps<SVGSVGElement>) => (
     />
   </svg>
 )
-
-/**
- * @deprecated The ‘Bell’ icon will be removed in release 5.0.0.
- * Use ‘Notification’ instead.
- */
-export default SvgBell
+export default SvgNotification

@@ -31,6 +31,8 @@ export const LearnableIcons: IconName[] = [
   'MaximizeIcon',
   'MenuIcon',
   'MinimizeIcon',
+  'NotificationIcon',
+  'NotificationFillIcon',
   'PrintIcon',
   'PrintFillIcon',
   'RedoIcon',
@@ -105,6 +107,8 @@ export const KeyboardKeyIcons: IconName[] = [
 ]
 
 export const DeprecatedIcons: IconName[] = [
+  'BellFillIcon',
+  'BellIcon',
   'HandWithEuroCoinIcon',
   'CogwheelIcon',
   'CogwheelFillIcon',
