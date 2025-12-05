@@ -10,6 +10,8 @@ type IconName = keyof typeof Icons
 export const LearnableIcons: IconName[] = [
   'CopyFillIcon',
   'CopyIcon',
+  'DeleteFillIcon',
+  'DeleteIcon',
   'DownloadIcon',
   'DuplicateFillIcon',
   'DuplicateIcon',
@@ -118,4 +120,6 @@ export const DeprecatedIcons: IconName[] = [
   'CheckMarkCircleFillIcon',
   'PersonCircleFillIcon',
   'PersonCircleIcon',
+  'TrashBinFillIcon',
+  'TrashBinIcon',
 ]
