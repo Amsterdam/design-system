@@ -31,19 +31,27 @@ const groupIcons = (icons: IconName[]) => {
 }
 
 type IconGalleryProps = {
-  excludeIcons?: Set<IconName>
-  icons?: Set<IconName>
+  excludeIcons?: Set<IconName> | IconName[]
+  icons?: Set<IconName> | IconName[]
+}
+
+const toSet = (value?: Set<IconName> | IconName[]): Set<IconName> | undefined => {
+  if (!value) return undefined
+  return value instanceof Set ? value : new Set(value)
 }
 
 export const IconGallery = ({ excludeIcons, icons }: IconGalleryProps) => {
   const allIcons = Object.keys(Icons) as IconName[]
 
+  const iconsSet = toSet(icons)
+  const excludeIconsSet = toSet(excludeIcons)
+
   // If 'icons' is provided, start with only those; otherwise, use all
-  let filteredIcons = icons ? allIcons.filter((icon) => icons.has(icon)) : allIcons
+  let filteredIcons = iconsSet ? allIcons.filter((icon) => iconsSet.has(icon)) : allIcons
 
   // If 'excludeIcons' is provided, remove those from the list
-  if (excludeIcons) {
-    filteredIcons = filteredIcons.filter((icon) => !excludeIcons.has(icon))
+  if (excludeIconsSet) {
+    filteredIcons = filteredIcons.filter((icon) => !excludeIconsSet.has(icon))
   }
 
   const groupedIcons = groupIcons(filteredIcons)
