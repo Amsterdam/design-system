@@ -20,13 +20,6 @@ import {
   StandaloneLink,
   UnorderedList,
 } from '@amsterdam/design-system-react'
-import {
-  CameraIcon,
-  FacebookIcon,
-  LinkedInIcon,
-  SpeechBalloonEllipsisIcon,
-  XIcon,
-} from '@amsterdam/design-system-react-icons'
 
 import { exampleHeading, exampleParagraph, exampleStandaloneLink } from '../../../components/shared/exampleContent'
 import { commonMeta } from '../common/config'
@@ -442,44 +435,6 @@ export const SubnavigationPage: StoryObj = {
           </Grid.Cell>
           <LinkBlockGridCells linkGroups={burgerzakenLinks.slice(4, 8)} />
         </Grid>
-        <Spotlight className="ams-mb-xl" color="green">
-          <Grid paddingVertical="large">
-            <Grid.Cell span={{ narrow: 4, medium: 5, wide: 7 }} start={{ narrow: 1, medium: 1, wide: 2 }}>
-              <Heading className="ams-mb-s" color="inverse" level={2} size="level-3">
-                Blijf op de hoogte
-              </Heading>
-              <Paragraph className="ams-mb-m" color="inverse">
-                Schrijf u nu in voor de Nieuwsbrief Amsterdam en ontvang wekelijks nieuws, tips en mooie verhalen over
-                de stad en uw stadsdeel.
-              </Paragraph>
-              <StandaloneLink color="inverse" href="#">
-                Ik wil de nieuwsbrief
-              </StandaloneLink>
-            </Grid.Cell>
-            <Grid.Cell span={{ narrow: 4, medium: 3, wide: 4 }}>
-              <Heading className="ams-mb-s" color="inverse" level={2} size="level-3">
-                Deel deze pagina
-              </Heading>
-              <LinkList>
-                <LinkList.Link color="inverse" href="#" icon={FacebookIcon}>
-                  Facebook
-                </LinkList.Link>
-                <LinkList.Link color="inverse" href="#" icon={CameraIcon}>
-                  Instagram
-                </LinkList.Link>
-                <LinkList.Link color="inverse" href="#" icon={LinkedInIcon}>
-                  LinkedIn
-                </LinkList.Link>
-                <LinkList.Link color="inverse" href="#" icon={SpeechBalloonEllipsisIcon}>
-                  Whatsapp
-                </LinkList.Link>
-                <LinkList.Link color="inverse" href="#" icon={XIcon}>
-                  X (Twitter)
-                </LinkList.Link>
-              </LinkList>
-            </Grid.Cell>
-          </Grid>
-        </Spotlight>
       </main>,
     ],
   },
