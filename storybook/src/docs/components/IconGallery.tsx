@@ -8,8 +8,12 @@ import * as Icons from '@amsterdam/design-system-react-icons/src'
 
 import './icon-gallery.css'
 
-const groupIcons = (icons: Array<keyof typeof Icons>) => {
-  const groupedIcons: { [key: string]: { filled?: keyof typeof Icons; outline?: keyof typeof Icons } } = {}
+type IconName = keyof typeof Icons
+
+const groupIcons = (icons: IconName[]) => {
+  const groupedIcons: {
+    [key: string]: { filled?: IconName; outline?: IconName }
+  } = {}
 
   icons.forEach((key) => {
     const baseName = key.replace('Fill', '')
@@ -27,19 +31,19 @@ const groupIcons = (icons: Array<keyof typeof Icons>) => {
 }
 
 type IconGalleryProps = {
-  excludeIcons?: string[]
-  icons?: string[]
+  excludeIcons?: Set<IconName>
+  icons?: Set<IconName>
 }
 
 export const IconGallery = ({ excludeIcons, icons }: IconGalleryProps) => {
-  const allIcons = Object.keys(Icons) as Array<keyof typeof Icons>
+  const allIcons = Object.keys(Icons) as IconName[]
 
   // If 'icons' is provided, start with only those; otherwise, use all
-  let filteredIcons = icons ? allIcons.filter((icon) => icons.includes(icon)) : allIcons
+  let filteredIcons = icons ? allIcons.filter((icon) => icons.has(icon)) : allIcons
 
   // If 'excludeIcons' is provided, remove those from the list
   if (excludeIcons) {
-    filteredIcons = filteredIcons.filter((icon) => !excludeIcons.includes(icon))
+    filteredIcons = filteredIcons.filter((icon) => !excludeIcons.has(icon))
   }
 
   const groupedIcons = groupIcons(filteredIcons)

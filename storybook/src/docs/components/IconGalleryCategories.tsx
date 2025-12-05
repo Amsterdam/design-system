@@ -7,7 +7,7 @@ import type * as Icons from '@amsterdam/design-system-react-icons'
 
 type IconName = keyof typeof Icons
 
-export const LearnableIcons: IconName[] = [
+export const LearnableIcons: Set<IconName> = new Set([
   'CopyFillIcon',
   'CopyIcon',
   'DeleteFillIcon',
@@ -33,32 +33,32 @@ export const LearnableIcons: IconName[] = [
   'MaximizeIcon',
   'MenuIcon',
   'MinimizeIcon',
-  'NotificationIcon',
   'NotificationFillIcon',
-  'PrintIcon',
+  'NotificationIcon',
   'PrintFillIcon',
+  'PrintIcon',
   'RedoIcon',
-  'SaveIcon',
   'SaveFillIcon',
+  'SaveIcon',
   'ShareIcon',
   'StandByIcon',
   'UndoIcon',
   'UploadIcon',
-  'UserAccountIcon',
   'UserAccountFillIcon',
+  'UserAccountIcon',
   'WiFiIcon',
-]
+])
 
-export const BrandIcons: IconName[] = [
+export const BrandIcons: Set<IconName> = new Set([
   'FacebookIcon',
   'InstagramIcon',
   'LinkedInIcon',
   'MastodonIcon',
   'WhatsappIcon',
   'XIcon',
-]
+])
 
-export const DirectionIcons: IconName[] = [
+export const DirectionIcons: Set<IconName> = new Set([
   'ArrowBackwardIcon',
   'ArrowDownIcon',
   'ArrowForwardIcon',
@@ -67,9 +67,9 @@ export const DirectionIcons: IconName[] = [
   'ChevronDownIcon',
   'ChevronForwardIcon',
   'ChevronUpIcon',
-]
+])
 
-export const MediaIcons: IconName[] = [
+export const MediaIcons: Set<IconName> = new Set([
   'FastForwardIcon',
   'NextIcon',
   'PauseIcon',
@@ -81,9 +81,9 @@ export const MediaIcons: IconName[] = [
   'VolumeOffIcon',
   'VolumeOnFillIcon',
   'VolumeOnIcon',
-]
+])
 
-export const SeverityIcons: IconName[] = [
+export const SeverityIcons: Set<IconName> = new Set([
   'ErrorFillIcon',
   'ErrorIcon',
   'InfoFillIcon',
@@ -92,34 +92,34 @@ export const SeverityIcons: IconName[] = [
   'SuccessIcon',
   'WarningFillIcon',
   'WarningIcon',
-]
+])
 
-export const UniversalIcons: IconName[] = ['CloseIcon', 'SearchIcon', 'SettingsIcon', 'SettingsFillIcon']
+export const UniversalIcons: Set<IconName> = new Set(['CloseIcon', 'SearchIcon', 'SettingsFillIcon', 'SettingsIcon'])
 
-export const FormattingIcons: IconName[] = [
+export const FormattingIcons: Set<IconName> = new Set([
   'FormattingBoldIcon',
   'FormattingItalicIcon',
   'FormattingStrikethroughIcon',
   'FormattingUnderlineIcon',
-]
+])
 
-export const KeyboardKeyIcons: IconName[] = [
+export const KeyboardKeyIcons: Set<IconName> = new Set([
   'KeyboardKeyCommandIcon',
   'KeyboardKeyControlIcon',
   'KeyboardKeyEnterIcon',
   'KeyboardKeyShiftIcon',
-]
+])
 
-export const DeprecatedIcons: IconName[] = [
+export const DeprecatedIcons: Set<IconName> = new Set([
   'BellFillIcon',
   'BellIcon',
-  'HandWithEuroCoinIcon',
-  'CogwheelIcon',
-  'CogwheelFillIcon',
-  'CheckMarkCircleIcon',
   'CheckMarkCircleFillIcon',
+  'CheckMarkCircleIcon',
+  'CogwheelFillIcon',
+  'CogwheelIcon',
+  'HandWithEuroCoinIcon',
   'PersonCircleFillIcon',
   'PersonCircleIcon',
   'TrashBinFillIcon',
   'TrashBinIcon',
-]
+])
