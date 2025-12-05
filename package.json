@@ -70,7 +70,6 @@
     "eslint-plugin-react": "7.37.5",
     "eslint-plugin-storybook": "9.1.16",
     "globals": "16.5.0",
-    "html-validate": "10.4.0",
     "husky": "9.1.7",
     "lint-staged": "16.2.7",
     "npm-check-updates": "19.1.2",
