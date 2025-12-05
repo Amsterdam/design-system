@@ -40,6 +40,7 @@ export const LearnableIcons: IconName[] = [
   'StandByIcon',
   'UndoIcon',
   'UploadIcon',
+  'WiFiIcon',
 ]
 
 export const BrandIcons: IconName[] = [
