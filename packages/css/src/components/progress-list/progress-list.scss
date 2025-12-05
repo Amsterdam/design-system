@@ -34,17 +34,17 @@
   display: grid;
   flex: none;
   justify-items: center;
-  padding-inline: var(--ams-progress-list-indicator-padding-inline);
+  padding-inline: var(--ams-progress-list-step-indicator-padding-inline);
 
   @media screen and (min-width: $ams-breakpoint-medium) {
-    padding-inline: var(--ams-progress-list-medium-indicator-padding-inline);
+    padding-inline: var(--ams-progress-list-step-medium-indicator-padding-inline);
   }
 
   .ams-progress-list__step[aria-current] & {
-    padding-inline: var(--ams-progress-list-current-indicator-padding-inline);
+    padding-inline: var(--ams-progress-list-step-current-indicator-padding-inline);
 
     @media screen and (min-width: $ams-breakpoint-medium) {
-      padding-inline: var(--ams-progress-list-current-medium-indicator-padding-inline);
+      padding-inline: var(--ams-progress-list-step-current-medium-indicator-padding-inline);
     }
   }
 }
@@ -59,26 +59,29 @@
 
   .ams-progress-list--heading-2 & {
     block-size: calc(
-      var(--ams-progress-list-marker-heading-2-font-size) * var(--ams-progress-list-marker-heading-2-line-height)
+      var(--ams-progress-list-step-heading-2-marker-font-size) *
+        var(--ams-progress-list-step-heading-2-marker-line-height)
     );
   }
 
   .ams-progress-list--heading-3 & {
     block-size: calc(
-      var(--ams-progress-list-marker-heading-3-font-size) * var(--ams-progress-list-marker-heading-3-line-height)
+      var(--ams-progress-list-step-heading-3-marker-font-size) *
+        var(--ams-progress-list-step-heading-3-marker-line-height)
     );
   }
 
   .ams-progress-list--heading-4 & {
     block-size: calc(
-      var(--ams-progress-list-marker-heading-4-font-size) * var(--ams-progress-list-marker-heading-4-line-height)
+      var(--ams-progress-list-step-heading-4-marker-font-size) *
+        var(--ams-progress-list-step-heading-4-marker-line-height)
     );
   }
 }
 
 .ams-progress-list__marker-shape {
   aspect-ratio: 1;
-  background-color: var(--ams-progress-list-marker-background-color);
+  background-color: var(--ams-progress-list-step-marker-background-color);
   border-radius: 50%;
   display: flex;
   justify-content: center;
@@ -89,62 +92,62 @@
   */
   // stylelint-disable plugin/use-baseline
   .ams-progress-list--heading-2 & {
-    block-size: var(--ams-progress-list-shape-heading-2-block-size);
-    inline-size: var(--ams-progress-list-shape-heading-2-inline-size);
+    block-size: var(--ams-progress-list-step-heading-2-shape-block-size);
+    inline-size: var(--ams-progress-list-step-heading-2-shape-inline-size);
 
     @supports (block-size: round(down, 1px, 1px)) {
-      block-size: round(down, var(--ams-progress-list-shape-heading-2-block-size), 2px);
-      inline-size: round(down, var(--ams-progress-list-shape-heading-2-inline-size), 2px);
+      block-size: round(down, var(--ams-progress-list-step-heading-2-shape-block-size), 2px);
+      inline-size: round(down, var(--ams-progress-list-step-heading-2-shape-inline-size), 2px);
     }
   }
 
   .ams-progress-list--heading-3 & {
-    block-size: var(--ams-progress-list-shape-heading-3-block-size);
-    inline-size: var(--ams-progress-list-shape-heading-3-inline-size);
+    block-size: var(--ams-progress-list-step-heading-3-shape-block-size);
+    inline-size: var(--ams-progress-list-step-heading-3-shape-inline-size);
 
     @supports (block-size: round(down, 1px, 1px)) {
-      block-size: round(down, var(--ams-progress-list-shape-heading-3-block-size), 2px);
-      inline-size: round(down, var(--ams-progress-list-shape-heading-3-inline-size), 2px);
+      block-size: round(down, var(--ams-progress-list-step-heading-3-shape-block-size), 2px);
+      inline-size: round(down, var(--ams-progress-list-step-heading-3-shape-inline-size), 2px);
     }
   }
 
   .ams-progress-list--heading-4 & {
-    block-size: var(--ams-progress-list-shape-heading-4-block-size);
-    inline-size: var(--ams-progress-list-shape-heading-4-inline-size);
+    block-size: var(--ams-progress-list-step-heading-4-shape-block-size);
+    inline-size: var(--ams-progress-list-step-heading-4-shape-inline-size);
 
     @supports (block-size: round(down, 1px, 1px)) {
-      block-size: round(down, var(--ams-progress-list-shape-heading-4-block-size), 2px);
-      inline-size: round(down, var(--ams-progress-list-shape-heading-4-inline-size), 2px);
+      block-size: round(down, var(--ams-progress-list-step-heading-4-shape-block-size), 2px);
+      inline-size: round(down, var(--ams-progress-list-step-heading-4-shape-inline-size), 2px);
     }
   }
   // stylelint-enable plugin/use-baseline
 
   .ams-progress-list__step--completed & {
-    background-color: var(--ams-progress-list-completed-marker-background-color);
+    background-color: var(--ams-progress-list-step-completed-marker-background-color);
   }
 
   .ams-progress-list__step[aria-current] & {
-    background-color: var(--ams-progress-list-current-marker-background-color);
-    border-color: var(--ams-progress-list-current-marker-border-color);
-    border-style: var(--ams-progress-list-current-marker-border-style);
-    border-width: var(--ams-progress-list-current-marker-border-width);
-    outline-color: var(--ams-progress-list-current-marker-outline-color);
-    outline-style: var(--ams-progress-list-current-marker-outline-style);
-    outline-width: var(--ams-progress-list-current-marker-outline-width);
+    background-color: var(--ams-progress-list-step-current-marker-background-color);
+    border-color: var(--ams-progress-list-step-current-marker-border-color);
+    border-style: var(--ams-progress-list-step-current-marker-border-style);
+    border-width: var(--ams-progress-list-step-current-marker-border-width);
+    outline-color: var(--ams-progress-list-step-current-marker-outline-color);
+    outline-style: var(--ams-progress-list-step-current-marker-outline-style);
+    outline-width: var(--ams-progress-list-step-current-marker-outline-width);
   }
 }
 
 .ams-progress-list__marker-icon {
   .ams-progress-list--heading-2 & {
-    block-size: var(--ams-progress-list-icon-heading-2-block-size);
+    block-size: var(--ams-progress-list-step-heading-2-icon-block-size);
   }
 
   .ams-progress-list--heading-3 & {
-    block-size: var(--ams-progress-list-icon-heading-3-block-size);
+    block-size: var(--ams-progress-list-step-heading-3-icon-block-size);
   }
 
   .ams-progress-list--heading-4 & {
-    block-size: var(--ams-progress-list-icon-heading-4-block-size);
+    block-size: var(--ams-progress-list-step-heading-4-icon-block-size);
   }
 }
 
@@ -152,29 +155,29 @@
 
 .ams-progress-list__connector {
   align-self: stretch;
-  background-color: var(--ams-progress-list-connector-background-color);
+  background-color: var(--ams-progress-list-step-connector-background-color);
   block-size: 100%;
   grid-area: 1 / 1; // Overlaps the marker and connector.
-  inline-size: var(--ams-progress-list-connector-inline-size);
+  inline-size: var(--ams-progress-list-step-connector-inline-size);
 
   .ams-progress-list--heading-2 & {
-    margin-block-start: var(--ams-progress-list-marker-heading-2-margin-block-start);
+    margin-block-start: var(--ams-progress-list-step-heading-2-marker-margin-block-start);
   }
 
   .ams-progress-list--heading-3 & {
-    margin-block-start: var(--ams-progress-list-marker-heading-3-margin-block-start);
+    margin-block-start: var(--ams-progress-list-step-heading-3-marker-margin-block-start);
   }
 
   .ams-progress-list--heading-4 & {
-    margin-block-start: var(--ams-progress-list-marker-heading-4-margin-block-start);
+    margin-block-start: var(--ams-progress-list-step-heading-4-marker-margin-block-start);
   }
 
   .ams-progress-list__step--completed & {
-    background-color: var(--ams-progress-list-completed-connector-background-color);
+    background-color: var(--ams-progress-list-step-completed-connector-background-color);
   }
 
   .ams-progress-list__step[aria-current] & {
-    background-color: var(--ams-progress-list-current-connector-background-color);
+    background-color: var(--ams-progress-list-step-current-connector-background-color);
   }
 
   .ams-progress-list__step:last-child & {
@@ -192,9 +195,9 @@
 // Body
 
 .ams-progress-list__body {
-  padding-block-start: var(--ams-progress-list-body-padding-block-start);
+  padding-block-start: var(--ams-progress-list-step-body-padding-block-start);
 
   .ams-progress-list__step:not(:last-child) & {
-    padding-block-end: var(--ams-progress-list-body-padding-block-end);
+    padding-block-end: var(--ams-progress-list-step-body-padding-block-end);
   }
 }

@@ -1,108 +1,112 @@
 {
   "ams": {
     "progress-list": {
-      "body": {
-        "padding-block-start": { "value": "{ams.space.s}" },
-        "padding-block-end": { "value": "{ams.space.l}" }
-      },
-      "completed": {
-        "marker": {
-          "background-color": { "value": "{ams.color.feedback.success}" }
+      "step": {
+        "body": {
+          "padding-block-end": { "value": "{ams.space.l}" },
+          "padding-block-start": { "value": "{ams.space.s}" }
+        },
+        "completed": {
+          "connector": {
+            "background-color": { "value": "{ams.color.feedback.success}" }
+          },
+          "marker": {
+            "background-color": { "value": "{ams.color.feedback.success}" }
+          }
         },
         "connector": {
-          "background-color": { "value": "{ams.color.feedback.success}" }
-        }
-      },
-      "connector": {
-        "background-color": { "value": "{ams.color.separator}" },
-        "inline-size": { "value": "{ams.border.width.m}" }
-      },
-      "current": {
-        "connector": {
-          "background-color": { "value": "{ams.color.feedback.success}" }
+          "background-color": { "value": "{ams.color.separator}" },
+          "inline-size": { "value": "{ams.border.width.m}" }
+        },
+        "current": {
+          "connector": {
+            "background-color": { "value": "{ams.color.feedback.success}" }
+          },
+          "indicator": {
+            "background-color": { "value": "{ams.color.feedback.success}" },
+            "padding-inline": {
+              "value": "calc(var(--ams-progress-list-indicator-padding-inline) - var(--ams-progress-list-current-marker-border-width))"
+            }
+          },
+          "marker": {
+            "background-color": { "value": "{ams.color.feedback.success}" },
+            "border-color": { "value": "{ams.color.background}" },
+            "border-style": { "value": "solid" },
+            "border-width": { "value": "0.2em" },
+            "outline-color": { "value": "{ams.color.feedback.success}" },
+            "outline-style": { "value": "solid" },
+            "outline-width": { "value": "var(--ams-progress-list-current-marker-border-width)" }
+          },
+          "medium": {
+            "indicator": {
+              "padding-inline": {
+                "value": "calc(var(--ams-progress-list-step-medium-indicator-padding-inline) - var(--ams-progress-list-step-current-marker-border-width))"
+              }
+            }
+          }
+        },
+        "heading-2": {
+          "icon": {
+            "block-size": { "value": "calc({ams.typography.heading.2.font-size} * 0.8)" }
+          },
+          "marker": {
+            "font-size": { "value": "{ams.typography.heading.2.font-size}" },
+            "line-height": { "value": "{ams.typography.heading.2.line-height}" },
+            "margin-block-start": {
+              "value": "calc(({ams.typography.heading.2.line-height} * {ams.typography.heading.2.font-size}) / 2)"
+            }
+          },
+          "shape": {
+            "block-size": { "value": "calc({ams.typography.heading.2.font-size} * 0.8)" },
+            "inline-size": { "value": "calc({ams.typography.heading.2.font-size} * 0.8)" }
+          }
+        },
+        "heading-3": {
+          "icon": {
+            "block-size": { "value": "calc({ams.typography.heading.3.font-size} * 0.8)" }
+          },
+          "marker": {
+            "font-size": { "value": "{ams.typography.heading.3.font-size}" },
+            "line-height": { "value": "{ams.typography.heading.3.line-height}" },
+            "margin-block-start": {
+              "value": "calc(({ams.typography.heading.3.line-height} * {ams.typography.heading.3.font-size}) / 2)"
+            }
+          },
+          "shape": {
+            "block-size": { "value": "calc({ams.typography.heading.3.font-size} * 0.8)" },
+            "inline-size": { "value": "calc({ams.typography.heading.3.font-size} * 0.8)" }
+          }
+        },
+        "heading-4": {
+          "icon": {
+            "block-size": { "value": "calc({ams.typography.heading.4.font-size} * 0.9)" }
+          },
+          "marker": {
+            "font-size": { "value": "{ams.typography.heading.4.font-size}" },
+            "line-height": { "value": "{ams.typography.heading.4.line-height}" },
+            "margin-block-start": {
+              "value": "calc(({ams.typography.heading.4.line-height} * {ams.typography.heading.4.font-size}) / 2)"
+            }
+          },
+          "shape": {
+            "block-size": { "value": "calc({ams.typography.heading.4.font-size} * 0.9)" },
+            "inline-size": { "value": "calc({ams.typography.heading.4.font-size} * 0.9)" }
+          }
         },
         "indicator": {
           "padding-inline": {
-            "value": "calc(var(--ams-progress-list-indicator-padding-inline) - var(--ams-progress-list-current-marker-border-width))"
+            "value": "{ams.space.l}"
           }
         },
         "marker": {
-          "background-color": { "value": "{ams.color.feedback.success}" },
-          "border-color": { "value": "{ams.color.background}" },
-          "border-style": { "value": "solid" },
-          "border-width": { "value": "0.2em" },
-          "outline-color": { "value": "{ams.color.feedback.success}" },
-          "outline-style": { "value": "solid" },
-          "outline-width": { "value": "var(--ams-progress-list-current-marker-border-width)" }
+          "background-color": { "value": "{ams.color.separator}" }
         },
         "medium": {
           "indicator": {
             "padding-inline": {
-              "value": "calc(var(--ams-progress-list-medium-indicator-padding-inline) - var(--ams-progress-list-current-marker-border-width))"
+              "value": "{ams.space.m}"
             }
           }
-        }
-      },
-      "icon": {
-        "heading-2": {
-          "block-size": { "value": "calc({ams.typography.heading.2.font-size} * 0.8)" }
-        },
-        "heading-3": {
-          "block-size": { "value": "calc({ams.typography.heading.3.font-size} * 0.8)" }
-        },
-        "heading-4": {
-          "block-size": { "value": "calc({ams.typography.heading.4.font-size} * 0.9)" }
-        }
-      },
-      "indicator": {
-        "padding-inline": { "value": "{ams.space.m}" }
-      },
-      "marker": {
-        "background-color": { "value": "{ams.color.separator}" },
-        "heading-2": {
-          "font-size": { "value": "{ams.typography.heading.2.font-size}" },
-          "line-height": { "value": "{ams.typography.heading.2.line-height}" },
-          "margin-block-start": {
-            "value": "calc(({ams.typography.heading.2.line-height} * {ams.typography.heading.2.font-size}) / 2)"
-          }
-        },
-        "heading-3": {
-          "font-size": { "value": "{ams.typography.heading.3.font-size}" },
-          "line-height": { "value": "{ams.typography.heading.3.line-height}" },
-          "margin-block-start": {
-            "value": "calc(({ams.typography.heading.3.line-height} * {ams.typography.heading.3.font-size}) / 2)"
-          }
-        },
-        "heading-4": {
-          "font-size": { "value": "{ams.typography.heading.4.font-size}" },
-          "line-height": { "value": "{ams.typography.heading.4.line-height}" },
-          "margin-block-start": {
-            "value": "calc(({ams.typography.heading.4.line-height} * {ams.typography.heading.4.font-size}) / 2)"
-          }
-        }
-      },
-      "medium": {
-        "indicator": {
-          "padding-inline": { "value": "{ams.space.l}" }
-        }
-      },
-      "shape": {
-        "heading-2": {
-          "inline-size": { "value": "calc({ams.typography.heading.2.font-size} * 0.8)" },
-          "block-size": { "value": "calc({ams.typography.heading.2.font-size} * 0.8)" }
-        },
-        "heading-3": {
-          "inline-size": { "value": "calc({ams.typography.heading.3.font-size} * 0.8)" },
-          "block-size": { "value": "calc({ams.typography.heading.3.font-size} * 0.8)" }
-        },
-        "heading-4": {
-          "inline-size": { "value": "calc({ams.typography.heading.4.font-size} * 0.9)" },
-          "block-size": { "value": "calc({ams.typography.heading.4.font-size} * 0.9)" }
-        }
-      },
-      "upcoming": {
-        "shape": {
-          "background-color": { "value": "{ams.color.separator}" }
         }
       }
     }
