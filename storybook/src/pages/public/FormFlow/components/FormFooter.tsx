@@ -24,9 +24,6 @@ export const FormFooter = () => (
         </Grid.Cell>
       </Grid>
     </PageFooter.Spotlight>
-    <Heading className="ams-visually-hidden" level={2}>
-      Over deze website
-    </Heading>
     <PageFooter.Menu>
       <PageFooter.MenuLink href="#">Over deze site</PageFooter.MenuLink>
       <PageFooter.MenuLink href="#">Privacy</PageFooter.MenuLink>
