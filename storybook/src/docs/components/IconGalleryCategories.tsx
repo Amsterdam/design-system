@@ -25,6 +25,7 @@ export const LearnableIcons: IconName[] = [
   'MailIcon',
   'MenuIcon',
   'PrintIcon',
+  'PrintFillIcon',
   'RedoIcon',
   'ShareIcon',
   'StandByIcon',
