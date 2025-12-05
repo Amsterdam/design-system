@@ -32,7 +32,7 @@ The sub-brands are:
 - The logo is always displayed.
 - The logo is left-aligned in the Page Header.
 - The logo links to the homepage of the website.
-- If the application is a form, application, or tool without a homepage, the logo links to the page where the form, application, or tool is referred to.
+- If the website is a form, application, or tool without a homepage, the logo links to the page where the form, application, or tool is referred to.
 
 The logo is 40 pixels tall at its minimum, growing to 60 pixels in wider windows.
 This also applies to sub-brand logos.
