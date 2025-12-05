@@ -39,14 +39,6 @@
   @media screen and (min-width: $ams-breakpoint-medium) {
     padding-inline: var(--ams-progress-list-step-medium-indicator-padding-inline);
   }
-
-  .ams-progress-list__step[aria-current] & {
-    padding-inline: var(--ams-progress-list-step-current-indicator-padding-inline);
-
-    @media screen and (min-width: $ams-breakpoint-medium) {
-      padding-inline: var(--ams-progress-list-step-current-medium-indicator-padding-inline);
-    }
-  }
 }
 
 // Marker
@@ -119,12 +111,6 @@
 
   .ams-progress-list__step[aria-current] & {
     background-color: var(--ams-progress-list-step-current-marker-background-color);
-    border-color: var(--ams-progress-list-step-current-marker-border-color);
-    border-style: var(--ams-progress-list-step-current-marker-border-style);
-    border-width: var(--ams-progress-list-step-current-marker-border-width);
-    outline-color: var(--ams-progress-list-step-current-marker-outline-color);
-    outline-style: var(--ams-progress-list-step-current-marker-outline-style);
-    outline-width: var(--ams-progress-list-step-current-marker-outline-width);
   }
 }
 

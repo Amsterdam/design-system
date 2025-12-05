@@ -23,26 +23,10 @@
             "background-color": { "value": "{ams.color.feedback.success}" }
           },
           "indicator": {
-            "background-color": { "value": "{ams.color.feedback.success}" },
-            "padding-inline": {
-              "value": "calc(var(--ams-progress-list-step-indicator-padding-inline) - var(--ams-progress-list-step-current-marker-border-width))"
-            }
+            "background-color": { "value": "{ams.color.feedback.success}" }
           },
           "marker": {
-            "background-color": { "value": "{ams.color.feedback.success}" },
-            "border-color": { "value": "{ams.color.background}" },
-            "border-style": { "value": "solid" },
-            "border-width": { "value": "0.2em" },
-            "outline-color": { "value": "{ams.color.feedback.success}" },
-            "outline-style": { "value": "solid" },
-            "outline-width": { "value": "var(--ams-progress-list-current-marker-border-width)" }
-          },
-          "medium": {
-            "indicator": {
-              "padding-inline": {
-                "value": "calc(var(--ams-progress-list-step-medium-indicator-padding-inline) - var(--ams-progress-list-step-current-marker-border-width))"
-              }
-            }
+            "background-color": { "value": "{ams.color.feedback.success}" }
           }
         },
         "heading-2": {
