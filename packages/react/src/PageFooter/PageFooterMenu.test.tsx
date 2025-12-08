@@ -45,6 +45,30 @@ describe('Page Footer Menu', () => {
     expect(menu).toHaveClass('ams-page-footer__menu intro')
   })
 
+  it('renders a visually hidden heading with a default text', () => {
+    render(<PageFooter.Menu />)
+
+    const heading = screen.getByRole('heading', {
+      name: 'Over deze website',
+    })
+
+    expect(heading).toBeInTheDocument()
+    expect(heading.tagName).toBe('H2')
+    expect(heading).toHaveClass('ams-heading ams-heading--2')
+  })
+
+  it('renders a visually hidden heading with a custom text or heading level', () => {
+    render(<PageFooter.Menu heading="Meer informatie" headingLevel={4} />)
+
+    const heading = screen.getByRole('heading', {
+      name: 'Meer informatie',
+    })
+
+    expect(heading).toBeInTheDocument()
+    expect(heading.tagName).toBe('H4')
+    expect(heading).toHaveClass('ams-heading ams-heading--4')
+  })
+
   it('is able to pass a React ref', () => {
     const ref = createRef<HTMLUListElement>()
 
