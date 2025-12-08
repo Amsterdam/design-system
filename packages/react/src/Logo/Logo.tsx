@@ -26,16 +26,16 @@ export type LogoBrand =
   | 'vga-verzekeringen'
 
 export type LogoProps = {
-  /** The name of the brand for which to display the logo. */
-  brand?: LogoBrand
+  /** The name of the brand for which to display the logo, or configuration for a custom logo. */
+  brand?: LogoBrand | LogoConfig
 } & SVGProps<SVGSVGElement>
 
-type LogoConfigItem = {
+export type LogoConfig = {
   label: string
   logo: ForwardRefExoticComponent<RefAttributes<SVGSVGElement> & SVGProps<SVGSVGElement>>
 }
 
-const logoConfig: Record<LogoBrand, LogoConfigItem> = {
+const logoConfig: Record<LogoBrand, LogoConfig> = {
   amsterdam: {
     label: 'Gemeente Amsterdam logo',
     logo: LogoAmsterdam,
@@ -70,16 +70,12 @@ export const Logo = forwardRef(
     { 'aria-label': ariaLabel, brand = 'amsterdam', className, ...restProps }: LogoProps,
     ref: ForwardedRef<SVGSVGElement>,
   ) => {
-    const LogoComponent = logoConfig[brand].logo
-    const logoLabel = logoConfig[brand].label
+    const config: LogoConfig = typeof brand === 'string' ? logoConfig[brand] : brand
+
+    const { label, logo: LogoComponent } = config
 
     return (
-      <LogoComponent
-        {...restProps}
-        aria-label={ariaLabel || logoLabel}
-        className={clsx('ams-logo', className)}
-        ref={ref}
-      />
+      <LogoComponent {...restProps} aria-label={ariaLabel || label} className={clsx('ams-logo', className)} ref={ref} />
     )
   },
 )

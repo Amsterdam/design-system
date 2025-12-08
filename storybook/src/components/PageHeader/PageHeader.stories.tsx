@@ -4,9 +4,11 @@
  */
 
 import type { Meta, StoryObj } from '@storybook/react-vite'
+import type { CSSProperties } from 'react'
 
 import { Grid, Heading, LinkList } from '@amsterdam/design-system-react'
 import { LogInIcon, SearchIcon } from '@amsterdam/design-system-react-icons'
+import LogoCustom from '@amsterdam/design-system-react/dist/Logo/brand/LogoCustom'
 import { PageHeader } from '@amsterdam/design-system-react/src'
 
 const meta = {
@@ -181,6 +183,20 @@ export const WithCustomLogoLink: Story = {
     logoBrand: 'ggd-amsterdam',
     logoLink: 'https://www.ggd.amsterdam.nl/',
     logoLinkTitle: 'Naar de voorpagina van de GGD Amsterdam',
+  },
+}
+
+export const WithCustomLogo: Story = {
+  args: {
+    brandName: 'Voorbeeld',
+    logoBrand: {
+      label: 'Gemeente logo',
+      logo: LogoCustom,
+    },
+    style: {
+      '--ams-logo-block-size': 'clamp(1.125rem, 1.0536rem + 0.3571vw, 1.375rem)',
+      '--ams-logo-min-block-size': '1.125rem',
+    } as CSSProperties,
   },
 }
 
