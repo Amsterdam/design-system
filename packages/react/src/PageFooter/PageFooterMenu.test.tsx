@@ -20,21 +20,21 @@ describe('Page Footer Menu', () => {
       </PageFooter.Menu>,
     )
 
-    const component = screen.getByRole('list')
+    const menu = screen.getByRole('list')
 
-    const children = screen.getAllByRole('listitem')
+    const items = screen.getAllByRole('listitem')
 
-    expect(component).toBeInTheDocument()
-    expect(component).toBeVisible()
-    expect(children).toHaveLength(2)
+    expect(menu).toBeInTheDocument()
+    expect(menu).toBeVisible()
+    expect(items).toHaveLength(2)
   })
 
   it('renders a design system BEM class name', () => {
     render(<PageFooter.Menu />)
 
-    const component = screen.getByRole('list')
+    const menu = screen.getByRole('list')
 
-    expect(component).toHaveClass('ams-page-footer__menu')
+    expect(menu).toHaveClass('ams-page-footer__menu')
   })
 
   it('is able to pass a React ref', () => {
@@ -48,16 +48,16 @@ describe('Page Footer Menu', () => {
       </PageFooter.Menu>,
     )
 
-    const component = screen.getByRole('list')
+    const menu = screen.getByRole('list')
 
-    expect(ref.current).toBe(component)
+    expect(ref.current).toBe(menu)
   })
 
   it('renders an extra class name', () => {
     render(<PageFooter.Menu className="intro" />)
 
-    const component = screen.getByRole('list')
+    const menu = screen.getByRole('list')
 
-    expect(component).toHaveClass('ams-page-footer__menu intro')
+    expect(menu).toHaveClass('ams-page-footer__menu intro')
   })
 })
