@@ -10,7 +10,7 @@ import { forwardRef } from 'react'
 
 import type { HeadingProps } from '../Heading'
 
-import { Heading } from '../Heading'
+import { getHeadingTag } from '../Heading/getHeadingTag'
 
 export type PageFooterMenuProps = {
   /**
@@ -30,16 +30,18 @@ export const PageFooterMenu = forwardRef(
   (
     { children, className, heading = 'Over deze website', headingLevel = 2, ...restProps }: PageFooterMenuProps,
     ref: ForwardedRef<HTMLUListElement>,
-  ) => (
-    <>
-      <Heading className="ams-visually-hidden" level={headingLevel}>
-        {heading}
-      </Heading>
-      <ul {...restProps} className={clsx('ams-page-footer__menu', className)} ref={ref}>
-        {children}
-      </ul>
-    </>
-  ),
+  ) => {
+    const HeadingTag = getHeadingTag(headingLevel)
+
+    return (
+      <>
+        <HeadingTag className="ams-visually-hidden">{heading}</HeadingTag>
+        <ul {...restProps} className={clsx('ams-page-footer__menu', className)} ref={ref}>
+          {children}
+        </ul>
+      </>
+    )
+  },
 )
 
 PageFooterMenu.displayName = 'PageFooter.Menu'

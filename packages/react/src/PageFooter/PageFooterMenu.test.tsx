@@ -54,7 +54,6 @@ describe('Page Footer Menu', () => {
 
     expect(heading).toBeInTheDocument()
     expect(heading.tagName).toBe('H2')
-    expect(heading).toHaveClass('ams-heading ams-heading--2')
   })
 
   it('renders a visually hidden heading with a custom text or heading level', () => {
@@ -66,7 +65,6 @@ describe('Page Footer Menu', () => {
 
     expect(heading).toBeInTheDocument()
     expect(heading.tagName).toBe('H4')
-    expect(heading).toHaveClass('ams-heading ams-heading--4')
   })
 
   it('is able to pass a React ref', () => {
