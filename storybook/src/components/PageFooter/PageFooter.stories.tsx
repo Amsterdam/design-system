@@ -98,7 +98,7 @@ export const Default: Story = {
           </Grid.Cell>
         </Grid>
       </PageFooter.Spotlight>,
-      <PageFooter.Menu key={3}>
+      <PageFooter.Menu key={2}>
         <PageFooter.MenuLink href="#">Over deze site</PageFooter.MenuLink>
         <PageFooter.MenuLink href="#">Privacy</PageFooter.MenuLink>
         <PageFooter.MenuLink href="#">Cookies op deze site</PageFooter.MenuLink>
@@ -172,7 +172,7 @@ export const OnderzoekEnStatistiek: Story = {
           </Grid.Cell>
         </Grid>
       </PageFooter.Spotlight>,
-      <PageFooter.Menu key={3}>
+      <PageFooter.Menu key={2}>
         <PageFooter.MenuLink href="#">Privacy</PageFooter.MenuLink>
         <PageFooter.MenuLink href="#">Toegankelijkheid</PageFooter.MenuLink>
       </PageFooter.Menu>,
