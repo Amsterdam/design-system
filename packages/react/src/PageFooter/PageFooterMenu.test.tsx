@@ -37,6 +37,14 @@ describe('Page Footer Menu', () => {
     expect(menu).toHaveClass('ams-page-footer__menu')
   })
 
+  it('renders an extra class name', () => {
+    render(<PageFooter.Menu className="intro" />)
+
+    const menu = screen.getByRole('list')
+
+    expect(menu).toHaveClass('ams-page-footer__menu intro')
+  })
+
   it('is able to pass a React ref', () => {
     const ref = createRef<HTMLUListElement>()
 
@@ -51,13 +59,5 @@ describe('Page Footer Menu', () => {
     const menu = screen.getByRole('list')
 
     expect(ref.current).toBe(menu)
-  })
-
-  it('renders an extra class name', () => {
-    render(<PageFooter.Menu className="intro" />)
-
-    const menu = screen.getByRole('list')
-
-    expect(menu).toHaveClass('ams-page-footer__menu intro')
   })
 })
