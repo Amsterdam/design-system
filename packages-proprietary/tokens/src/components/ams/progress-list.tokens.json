@@ -10,7 +10,7 @@
           "connector": {
             "background-color": { "value": "{ams.color.feedback.success}" },
             "border": { "value": "none" },
-            "inline-size": { "value": "{ams.border.width.m}" }
+            "inline-size": { "value": "2px" }
           },
           "marker": {
             "background-color": { "value": "{ams.color.feedback.success}" },
@@ -59,8 +59,8 @@
             }
           },
           "shape": {
-            "block-size": { "value": "calc({ams.typography.heading.3.font-size} - ({ams.border.width.m} * 2))" },
-            "inline-size": { "value": "calc({ams.typography.heading.3.font-size} - ({ams.border.width.m} * 2))" }
+            "block-size": { "value": "{ams.typography.heading.3.font-size}" },
+            "inline-size": { "value": "{ams.typography.heading.3.font-size}" }
           }
         },
         "heading-4": {
