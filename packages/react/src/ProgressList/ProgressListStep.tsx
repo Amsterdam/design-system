@@ -17,12 +17,6 @@ export type ProgressListStepProps = {
   status?: 'current' | 'completed'
 } & PropsWithChildren<HTMLAttributes<HTMLElement>>
 
-const iconSizes = {
-  2: 'heading-3',
-  3: 'heading-5',
-  4: 'heading-5',
-} as const
-
 export const ProgressListStep = forwardRef(
   ({ children, className, heading, status, ...restProps }: ProgressListStepProps, ref: ForwardedRef<HTMLLIElement>) => {
     const { headingLevel } = useContext(ProgressListContext)
@@ -38,12 +32,7 @@ export const ProgressListStep = forwardRef(
           <div className="ams-progress-list__marker">
             <span className="ams-progress-list__marker-shape">
               {status === 'current' ? (
-                <Icon
-                  className="ams-progress-list__marker-icon"
-                  size={iconSizes[headingLevel]}
-                  square
-                  svg={ArrowForwardIcon}
-                />
+                <Icon className="ams-progress-list__marker-icon" square svg={ArrowForwardIcon} />
               ) : null}
             </span>
           </div>
