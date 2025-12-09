@@ -127,9 +127,9 @@
 .ams-progress-list__connector {
   align-self: stretch;
   block-size: 100%;
-  border-color: var(--ams-progress-list-step-connector-border-color);
-  border-inline: var(--ams-progress-list-step-connector-border-inline);
-  border-style: var(--ams-progress-list-step-connector-border-style);
+  border-inline-color: var(--ams-progress-list-step-connector-border-inline-color);
+  border-inline-style: var(--ams-progress-list-step-connector-border-inline-style);
+  border-inline-width: var(--ams-progress-list-step-connector-border-inline-width);
   grid-area: 1 / 1; // Overlaps the marker and connector.
 
   .ams-progress-list--heading-2 & {
@@ -145,12 +145,12 @@
   }
 
   .ams-progress-list__step--completed & {
-    border-color: var(--ams-progress-list-step-completed-connector-border-color);
-    border-style: var(--ams-progress-list-step-completed-connector-border-style);
+    border-inline-color: var(--ams-progress-list-step-completed-connector-border-inline-color);
+    border-inline-style: var(--ams-progress-list-step-completed-connector-border-inline-style);
   }
 
   .ams-progress-list__step[aria-current] & {
-    border-color: var(--ams-progress-list-step-current-connector-border-color);
+    border-inline-color: var(--ams-progress-list-step-current-connector-border-inline-color);
   }
 
   .ams-progress-list__step:last-child & {
