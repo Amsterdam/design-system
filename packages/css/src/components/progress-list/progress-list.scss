@@ -28,11 +28,10 @@
 // Indicator
 
 .ams-progress-list__indicator {
-  align-items: start;
   display: grid;
   flex: none;
-  justify-items: center;
   padding-inline: var(--ams-progress-list-step-indicator-padding-inline);
+  place-items: start center;
 
   @media screen and (min-width: $ams-breakpoint-medium) {
     padding-inline: var(--ams-progress-list-step-medium-indicator-padding-inline);
@@ -42,21 +41,21 @@
 // Marker
 
 .ams-progress-list__marker {
-  align-items: center;
   display: flex;
   grid-area: 1 / 1; // Overlaps the marker and connector.
+  place-items: center;
   z-index: 1;
 
   .ams-progress-list--heading-2 & {
-    block-size: var(--ams-progress-list-step-heading-2-marker-block-size);
+    block-size: var(--ams-progress-list-heading-2-step-marker-block-size);
   }
 
   .ams-progress-list--heading-3 & {
-    block-size: var(--ams-progress-list-step-heading-3-marker-block-size);
+    block-size: var(--ams-progress-list-heading-3-step-marker-block-size);
   }
 
   .ams-progress-list--heading-4 & {
-    block-size: var(--ams-progress-list-step-heading-4-marker-block-size);
+    block-size: var(--ams-progress-list-heading-4-step-marker-block-size);
   }
 }
 
@@ -77,32 +76,32 @@
   */
   // stylelint-disable plugin/use-baseline
   .ams-progress-list--heading-2 & {
-    block-size: var(--ams-progress-list-step-heading-2-shape-block-size);
-    inline-size: var(--ams-progress-list-step-heading-2-shape-inline-size);
+    block-size: var(--ams-progress-list-heading-2-step-shape-block-size);
+    inline-size: var(--ams-progress-list-heading-2-step-shape-inline-size);
 
     @supports (block-size: round(down, 1px, 1px)) {
-      block-size: round(down, var(--ams-progress-list-step-heading-2-shape-block-size), 2px);
-      inline-size: round(down, var(--ams-progress-list-step-heading-2-shape-inline-size), 2px);
+      block-size: round(down, var(--ams-progress-list-heading-2-step-shape-block-size), 2px);
+      inline-size: round(down, var(--ams-progress-list-heading-2-step-shape-inline-size), 2px);
     }
   }
 
   .ams-progress-list--heading-3 & {
-    block-size: var(--ams-progress-list-step-heading-3-shape-block-size);
-    inline-size: var(--ams-progress-list-step-heading-3-shape-inline-size);
+    block-size: var(--ams-progress-list-heading-3-step-shape-block-size);
+    inline-size: var(--ams-progress-list-heading-3-step-shape-inline-size);
 
     @supports (block-size: round(down, 1px, 1px)) {
-      block-size: round(down, var(--ams-progress-list-step-heading-3-shape-block-size), 2px);
-      inline-size: round(down, var(--ams-progress-list-step-heading-3-shape-inline-size), 2px);
+      block-size: round(down, var(--ams-progress-list-heading-3-step-shape-block-size), 2px);
+      inline-size: round(down, var(--ams-progress-list-heading-3-step-shape-inline-size), 2px);
     }
   }
 
   .ams-progress-list--heading-4 & {
-    block-size: var(--ams-progress-list-step-heading-4-shape-block-size);
-    inline-size: var(--ams-progress-list-step-heading-4-shape-inline-size);
+    block-size: var(--ams-progress-list-heading-4-step-shape-block-size);
+    inline-size: var(--ams-progress-list-heading-4-step-shape-inline-size);
 
     @supports (block-size: round(down, 1px, 1px)) {
-      block-size: round(down, var(--ams-progress-list-step-heading-4-shape-block-size), 2px);
-      inline-size: round(down, var(--ams-progress-list-step-heading-4-shape-inline-size), 2px);
+      block-size: round(down, var(--ams-progress-list-heading-4-step-shape-block-size), 2px);
+      inline-size: round(down, var(--ams-progress-list-heading-4-step-shape-inline-size), 2px);
     }
   }
   // stylelint-enable plugin/use-baseline
@@ -127,7 +126,6 @@
 
 .ams-progress-list__connector {
   align-self: stretch;
-  background-color: var(--ams-progress-list-step-connector-background-color);
   block-size: 100%;
   border-color: var(--ams-progress-list-step-connector-border-color);
   border-style: var(--ams-progress-list-step-connector-border-style);
@@ -135,21 +133,20 @@
   grid-area: 1 / 1; // Overlaps the marker and connector.
 
   .ams-progress-list--heading-2 & {
-    margin-block-start: var(--ams-progress-list-step-heading-2-marker-margin-block-start);
+    margin-block-start: var(--ams-progress-list-heading-2-step-marker-margin-block-start);
   }
 
   .ams-progress-list--heading-3 & {
-    margin-block-start: var(--ams-progress-list-step-heading-3-marker-margin-block-start);
+    margin-block-start: var(--ams-progress-list-heading-3-step-marker-margin-block-start);
   }
 
   .ams-progress-list--heading-4 & {
-    margin-block-start: var(--ams-progress-list-step-heading-4-marker-margin-block-start);
+    margin-block-start: var(--ams-progress-list-heading-4-step-marker-margin-block-start);
   }
 
   .ams-progress-list__step--completed & {
-    background-color: var(--ams-progress-list-step-completed-connector-background-color);
-    border: var(--ams-progress-list-step-completed-connector-border);
-    inline-size: var(--ams-progress-list-step-completed-connector-inline-size);
+    border-color: var(--ams-progress-list-step-completed-connector-border-color);
+    border-style: var(--ams-progress-list-step-completed-connector-border-style);
   }
 
   .ams-progress-list__step[aria-current] & {

@@ -1,41 +1,8 @@
 {
   "ams": {
     "progress-list": {
-      "step": {
-        "body": {
-          "padding-block-end": { "value": "{ams.space.l}" },
-          "padding-block-start": { "value": "{ams.space.s}" }
-        },
-        "completed": {
-          "connector": {
-            "background-color": { "value": "{ams.color.feedback.success}" },
-            "border": { "value": "none" },
-            "inline-size": { "value": "2px" }
-          },
-          "marker": {
-            "background-color": { "value": "{ams.color.feedback.success}" },
-            "border": { "value": "none" }
-          }
-        },
-        "connector": {
-          "background-color": { "value": "{ams.color.background}" },
-          "border-color": { "value": "{ams.color.separator}" },
-          "border-style": { "value": "dashed" },
-          "border-width": { "value": "calc({ams.border.width.m} / 2)" }
-        },
-        "current": {
-          "connector": {
-            "border-color": { "value": "{ams.color.feedback.success}" }
-          },
-          "indicator": {
-            "background-color": { "value": "{ams.color.feedback.success}" }
-          },
-          "marker": {
-            "background-color": { "value": "{ams.color.background}" },
-            "border-color": { "value": "{ams.color.feedback.success}" }
-          }
-        },
-        "heading-2": {
+      "heading-2": {
+        "step": {
           "marker": {
             "block-size": {
               "value": "calc({ams.typography.heading.2.font-size} * {ams.typography.heading.2.line-height})"
@@ -48,8 +15,10 @@
             "block-size": { "value": "calc({ams.typography.heading.2.font-size} / 1.25)" },
             "inline-size": { "value": "calc({ams.typography.heading.2.font-size} / 1.25)" }
           }
-        },
-        "heading-3": {
+        }
+      },
+      "heading-3": {
+        "step": {
           "marker": {
             "block-size": {
               "value": "calc({ams.typography.heading.3.font-size} * {ams.typography.heading.3.line-height})"
@@ -62,8 +31,10 @@
             "block-size": { "value": "{ams.typography.heading.3.font-size}" },
             "inline-size": { "value": "{ams.typography.heading.3.font-size}" }
           }
-        },
-        "heading-4": {
+        }
+      },
+      "heading-4": {
+        "step": {
           "marker": {
             "block-size": {
               "value": "calc({ams.typography.heading.4.font-size} * {ams.typography.heading.4.line-height})"
@@ -76,6 +47,39 @@
             "block-size": { "value": "calc({ams.typography.heading.4.font-size} * 1.25)" },
             "inline-size": { "value": "calc({ams.typography.heading.4.font-size} * 1.25)" }
           }
+        }
+      },
+      "step": {
+        "body": {
+          "padding-block-end": { "value": "{ams.space.l}" },
+          "padding-block-start": { "value": "{ams.space.s}" }
+        },
+        "completed": {
+          "connector": {
+            "border-color": { "value": "{ams.color.progress.completed}" },
+            "border-style": { "value": "solid" }
+          },
+          "marker": {
+            "background-color": { "value": "{ams.color.progress.completed}" },
+            "border": { "value": "none" }
+          }
+        },
+        "connector": {
+          "border-color": { "value": "{ams.color.progress.upcoming}" },
+          "border-style": { "value": "dashed" },
+          "border-width": { "value": "calc({ams.border.width.m} / 2)" }
+        },
+        "current": {
+          "connector": {
+            "border-color": { "value": "{ams.color.progress.current}" }
+          },
+          "indicator": {
+            "background-color": { "value": "{ams.color.progress.current}" }
+          },
+          "marker": {
+            "background-color": { "value": "{ams.color.background}" },
+            "border-color": { "value": "{ams.color.progress.current}" }
+          }
         },
         "indicator": {
           "padding-inline": {
@@ -84,7 +88,7 @@
         },
         "marker": {
           "background-color": { "value": "{ams.color.background}" },
-          "border-color": { "value": "{ams.color.separator}" },
+          "border-color": { "value": "{ams.color.progress.upcoming}" },
           "border-style": { "value": "solid" },
           "border-width": { "value": "{ams.border.width.m}" }
         },

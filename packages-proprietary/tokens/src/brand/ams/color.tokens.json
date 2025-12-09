@@ -28,6 +28,11 @@
         },
         "inverse": { "value": "#ffffff" }
       },
+      "progress": {
+        "current": { "value": "#00A03C" },
+        "completed": { "value": "#00A03C" },
+        "upcoming": { "value": "#767676" }
+      },
       "separator": { "value": "#d1d1d1" },
       "text": {
         "default": { "value": "#181818" },
