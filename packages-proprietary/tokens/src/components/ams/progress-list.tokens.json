@@ -67,7 +67,7 @@
         "connector": {
           "border-color": { "value": "{ams.color.progress.upcoming}" },
           "border-style": { "value": "dashed" },
-          "border-width": { "value": "calc({ams.border.width.m} / 2)" }
+          "border-inline": { "value": "calc({ams.border.width.m} / 2)" }
         },
         "current": {
           "connector": {

@@ -128,8 +128,8 @@
   align-self: stretch;
   block-size: 100%;
   border-color: var(--ams-progress-list-step-connector-border-color);
+  border-inline: var(--ams-progress-list-step-connector-border-inline);
   border-style: var(--ams-progress-list-step-connector-border-style);
-  border-width: var(--ams-progress-list-step-connector-border-width);
   grid-area: 1 / 1; // Overlaps the marker and connector.
 
   .ams-progress-list--heading-2 & {
