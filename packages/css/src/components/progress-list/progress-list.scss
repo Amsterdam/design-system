@@ -154,8 +154,7 @@
   }
 
   .ams-progress-list__step:last-child & {
-    border: none;
-    inline-size: 0;
+    display: none;
   }
 }
 
