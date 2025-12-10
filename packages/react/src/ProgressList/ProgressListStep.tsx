@@ -24,7 +24,7 @@ export const ProgressListStep = forwardRef(
     return (
       <li
         aria-current={status === 'current' ? 'step' : undefined}
-        className={clsx('ams-progress-list__step', `ams-progress-list__step--${status}`, className)}
+        className={clsx('ams-progress-list__step', status && `ams-progress-list__step--${status}`, className)}
         ref={ref}
         {...restProps}
       >
