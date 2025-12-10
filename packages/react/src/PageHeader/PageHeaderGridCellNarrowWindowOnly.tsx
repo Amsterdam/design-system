@@ -14,7 +14,12 @@ import { Grid } from '../Grid'
 
 export const PageHeaderGridCellNarrowWindowOnly = forwardRef(
   ({ children, className, ...restProps }: GridCellProps, ref: ForwardedRef<HTMLElement>) => (
-    <Grid.Cell {...restProps} className={clsx('ams-page-header__grid-cell-narrow-window-only', className)} ref={ref}>
+    <Grid.Cell
+      {...restProps}
+      className={clsx('ams-page-header__grid-cell-narrow-window-only', className)}
+      hidden // Hide until its CSS loads; this cell duplicates the non-fixed links in the Page Header Menu.
+      ref={ref}
+    >
       {children}
     </Grid.Cell>
   ),
