@@ -40,6 +40,143 @@
   }
 }
 
+.ams-progress-list-sub-step__indicator {
+  display: grid;
+  flex: none;
+  padding-inline-end: var(--ams-progress-list-step-indicator-padding-inline);
+  place-items: start center;
+
+  /*
+  * round() eliminates sub-pixel rendering issues, caused by the sizing of the marker.
+  * In unsupported browsers it will still be centered, but the circle can be distorted.
+  */
+  // stylelint-disable plugin/use-baseline
+  .ams-progress-list--heading-2 & {
+    margin-inline-start: calc(
+      -1 *
+        var(--ams-progress-list-step-indicator-padding-inline) - var(
+          --ams-progress-list-heading-2-step-shape-inline-size
+        )
+    );
+
+    @supports (block-size: round(down, 1px, 1px)) {
+      margin-inline-start: calc(
+        -1 *
+          var(--ams-progress-list-step-indicator-padding-inline) - round(
+            down,
+            var(--ams-progress-list-heading-2-step-shape-inline-size),
+            2px
+          )
+      );
+    }
+  }
+
+  .ams-progress-list--heading-3 & {
+    margin-inline-start: calc(
+      -1 *
+        var(--ams-progress-list-step-indicator-padding-inline) - var(
+          --ams-progress-list-heading-3-step-shape-inline-size
+        )
+    );
+
+    @supports (block-size: round(down, 1px, 1px)) {
+      margin-inline-start: calc(
+        -1 *
+          var(--ams-progress-list-step-indicator-padding-inline) - round(
+            down,
+            var(--ams-progress-list-heading-3-step-shape-inline-size),
+            2px
+          )
+      );
+    }
+  }
+
+  .ams-progress-list--heading-4 & {
+    margin-inline-start: calc(
+      -1 *
+        var(--ams-progress-list-step-indicator-padding-inline) - var(
+          --ams-progress-list-heading-4-step-shape-inline-size
+        )
+    );
+
+    @supports (block-size: round(down, 1px, 1px)) {
+      margin-inline-start: calc(
+        -1 *
+          var(--ams-progress-list-step-indicator-padding-inline) - round(
+            down,
+            var(--ams-progress-list-heading-4-step-shape-inline-size),
+            2px
+          )
+      );
+    }
+  }
+
+  @media screen and (min-width: $ams-breakpoint-medium) {
+    padding-inline-end: var(--ams-progress-list-step-indicator-medium-padding-inline);
+
+    .ams-progress-list--heading-2 & {
+      margin-inline-start: calc(
+        -1 *
+          var(--ams-progress-list-step-indicator-medium-padding-inline) - var(
+            --ams-progress-list-heading-2-step-shape-inline-size
+          )
+      );
+
+      @supports (block-size: round(down, 1px, 1px)) {
+        margin-inline-start: calc(
+          -1 *
+            var(--ams-progress-list-step-indicator-medium-padding-inline) - round(
+              down,
+              var(--ams-progress-list-heading-2-step-shape-inline-size),
+              2px
+            )
+        );
+      }
+    }
+
+    .ams-progress-list--heading-3 & {
+      margin-inline-start: calc(
+        -1 *
+          var(--ams-progress-list-step-indicator-medium-padding-inline) - var(
+            --ams-progress-list-heading-3-step-shape-inline-size
+          )
+      );
+
+      @supports (block-size: round(down, 1px, 1px)) {
+        margin-inline-start: calc(
+          -1 *
+            var(--ams-progress-list-step-indicator-medium-padding-inline) - round(
+              down,
+              var(--ams-progress-list-heading-3-step-shape-inline-size),
+              2px
+            )
+        );
+      }
+    }
+
+    .ams-progress-list--heading-4 & {
+      margin-inline-start: calc(
+        -1 *
+          var(--ams-progress-list-step-indicator-medium-padding-inline) - var(
+            --ams-progress-list-heading-4-step-shape-inline-size
+          )
+      );
+
+      @supports (block-size: round(down, 1px, 1px)) {
+        margin-inline-start: calc(
+          -1 *
+            var(--ams-progress-list-step-indicator-medium-padding-inline) - round(
+              down,
+              var(--ams-progress-list-heading-4-step-shape-inline-size),
+              2px
+            )
+        );
+      }
+    }
+  }
+  // stylelint-enable plugin/use-baseline
+}
+
 // Marker
 
 .ams-progress-list__marker {
