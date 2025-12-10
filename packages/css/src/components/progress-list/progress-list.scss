@@ -34,7 +34,7 @@
   place-items: start center;
 
   @media screen and (min-width: $ams-breakpoint-medium) {
-    padding-inline: var(--ams-progress-list-step-medium-indicator-padding-inline);
+    padding-inline: var(--ams-progress-list-step-indicator-medium-padding-inline);
   }
 }
 

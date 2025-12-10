@@ -83,7 +83,12 @@
         },
         "indicator": {
           "padding-inline": {
-            "value": "{ams.space.l}"
+            "value": "{ams.space.m}"
+          },
+          "medium": {
+            "padding-inline": {
+              "value": "{ams.space.l}"
+            }
           }
         },
         "marker": {
@@ -91,13 +96,6 @@
           "border-color": { "value": "{ams.color.progress.upcoming}" },
           "border-style": { "value": "solid" },
           "border-width": { "value": "{ams.border.width.m}" }
-        },
-        "medium": {
-          "indicator": {
-            "padding-inline": {
-              "value": "{ams.space.m}"
-            }
-          }
         }
       }
     }
