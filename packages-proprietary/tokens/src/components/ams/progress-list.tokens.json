@@ -97,6 +97,26 @@
             "border-inline-color": { "value": "{ams.color.progress.current}" }
           }
         }
+      },
+      "sub-step": {
+        "marker": {
+          "background-color": { "value": "{ams.color.background}" },
+          "border-color": { "value": "{ams.color.progress.upcoming}" },
+          "border-style": { "value": "solid" },
+          "border-width": { "value": "{ams.border.width.m}" }
+        },
+        "completed": {
+          "marker": {
+            "background-color": { "value": "{ams.color.progress.completed}" },
+            "border": { "value": "none" }
+          }
+        },
+        "current": {
+          "marker": {
+            "background-color": { "value": "{ams.color.background}" },
+            "border-color": { "value": "{ams.color.progress.current}" }
+          }
+        }
       }
     }
   }

@@ -297,6 +297,12 @@
   }
 }
 
+.ams-progress-list-sub-step__connector {
+  z-index: 1;
+
+  // TODO: It doesn't overlap perfectly and the background will not always be white.
+}
+
 // Content
 
 .ams-progress-list__content {
@@ -311,5 +317,58 @@
 
   .ams-progress-list__step:not(:last-child) & {
     padding-block-end: var(--ams-progress-list-step-body-padding-block-end);
+  }
+}
+
+.ams-progress-list-sub-step__marker {
+  grid-area: 1/1;
+  z-index: 2;
+
+  // stylelint-disable plugin/use-baseline
+  .ams-progress-list--heading-2 & {
+    inline-size: var(--ams-progress-list-heading-2-step-shape-inline-size);
+
+    @supports (block-size: round(down, 1px, 1px)) {
+      inline-size: round(down, var(--ams-progress-list-heading-2-step-shape-inline-size), 2px);
+    }
+  }
+
+  .ams-progress-list--heading-3 & {
+    inline-size: var(--ams-progress-list-heading-3-step-shape-inline-size);
+
+    @supports (block-size: round(down, 1px, 1px)) {
+      inline-size: round(down, var(--ams-progress-list-heading-3-step-shape-inline-size), 2px);
+    }
+  }
+
+  .ams-progress-list--heading-4 & {
+    inline-size: var(--ams-progress-list-heading-4-step-shape-inline-size);
+
+    @supports (block-size: round(down, 1px, 1px)) {
+      inline-size: round(down, var(--ams-progress-list-heading-4-step-shape-inline-size), 2px);
+    }
+  }
+  // stylelint-enable plugin/use-baseline
+}
+
+.ams-progress-list-sub-step__marker-shape {
+  background-color: var(--ams-progress-list-sub-step-marker-background-color);
+  border-color: var(--ams-progress-list-sub-step-marker-border-color);
+  border-style: var(--ams-progress-list-sub-step-marker-border-style);
+  border-width: var(--ams-progress-list-sub-step-marker-border-width);
+  box-sizing: border-box;
+  display: flex;
+  inline-size: 100%;
+  justify-content: center;
+  z-index: 2;
+
+  .ams-progress-list__step--completed & {
+    background-color: var(--ams-progress-list-sub-step-completed-marker-background-color);
+    border: var(--ams-progress-list-sub-step-completed-marker-border);
+  }
+
+  .ams-progress-list__step[aria-current] & {
+    background-color: var(--ams-progress-list-sub-step-current-marker-background-color);
+    border-color: var(--ams-progress-list-sub-step-current-marker-border-color);
   }
 }
