@@ -13,7 +13,8 @@
   padding-inline-start: 0;
 }
 
-.ams-progress-list {
+.ams-progress-list,
+.ams-progress-list__sub-steps {
   @include hyphenation;
   @include text-rendering;
   @include reset-ol;
@@ -21,7 +22,8 @@
 
 // Step
 
-.ams-progress-list__step {
+.ams-progress-list__step,
+.ams-progress-list__sub-step {
   display: flex;
 }
 
