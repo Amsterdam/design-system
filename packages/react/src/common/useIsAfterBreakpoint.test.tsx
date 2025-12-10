@@ -47,19 +47,19 @@ describe('useIsAfterBreakpoint', () => {
     changeListeners.forEach((listener) => listener())
   }
 
-  test('returns false when the breakpoint does not match initially', () => {
+  it('returns false when the breakpoint does not match initially', () => {
     const { result } = renderHook(() => useIsAfterBreakpoint('medium'))
     expect(result.current).toBe(false)
   })
 
-  test('returns true when the breakpoint matches initially', () => {
+  it('returns true when the breakpoint matches initially', () => {
     currentMatches = [`(min-width: ${BREAKPOINTS.medium})`]
 
     const { result } = renderHook(() => useIsAfterBreakpoint('medium'))
     expect(result.current).toBe(true)
   })
 
-  test('updates from false to true when the media query changes to match', () => {
+  it('updates from false to true when the media query changes to match', () => {
     currentMatches = []
 
     const { result } = renderHook(() => useIsAfterBreakpoint('wide'))
@@ -73,7 +73,7 @@ describe('useIsAfterBreakpoint', () => {
     expect(result.current).toBe(true)
   })
 
-  test('updates from true to false when the media query changes to not match', () => {
+  it('updates from true to false when the media query changes to not match', () => {
     currentMatches = [`(min-width: ${BREAKPOINTS.medium})`]
 
     const { result } = renderHook(() => useIsAfterBreakpoint('medium'))
@@ -87,7 +87,7 @@ describe('useIsAfterBreakpoint', () => {
     expect(result.current).toBe(false)
   })
 
-  test('removes the media query listener on unmount', () => {
+  it('removes the media query listener on unmount', () => {
     const { unmount } = renderHook(() => useIsAfterBreakpoint('medium'))
 
     expect(changeListeners.length).toBe(1)
@@ -97,7 +97,7 @@ describe('useIsAfterBreakpoint', () => {
     expect(changeListeners.length).toBe(0)
   })
 
-  test('is safe during SSR when window is undefined', () => {
+  it('is safe during SSR when window is undefined', () => {
     // eslint-disable-next-line no-undef
     const originalWindow = global.window
 
