@@ -7,8 +7,6 @@
 Icon names are part of the public API, so they must be stable, predictable, and easy to interpret.
 Use the guidelines below to name icons consistently.
 
-Here is the revised version with the two additional clarifying sentences integrated:
-
 ### General and functional icons
 
 We reserve well-known icons for the functions users naturally associate with them.
@@ -16,7 +14,7 @@ This reduces ambiguity and makes the interface more intuitive.
 
 - **Use the function** when the icon has a single, widely recognised UI purpose.
   These names are typically **verbs** (e.g., Save, Close, Print).
-  Designate an icon as functional only when its meaning is universally clear and consistently used across interfaces.
+  Designate an icon as functional only when its meaning is clear and consistently used across interfaces.
 - **Describe the pictogram** when the icon is generic or not tied to a specific interaction.
   These names are usually **nouns** and remain reusable across contexts.
   Broader concepts such as ‘justice’, ‘sustainability’, or ‘transport’ use generic pictograms for now, as no dedicated symbol has been defined for universal use.
@@ -29,8 +27,7 @@ This reduces ambiguity and makes the interface more intuitive.
   For example: DocumentEdit, not EditDocument.
   This improves grouping and sorting in lists.
 - **Do not change natural two-word terms** such as BankCard or IdentityCard.
-- **Distinguish variants** using forms or overlays added after the concept:
-  Plus, PlusCircle, Person, PersonAdd, PersonEdit.
+- Name **variations with shapes** after the concept: Plus and PlusCircle.
 
 ### Specific conventions
 
