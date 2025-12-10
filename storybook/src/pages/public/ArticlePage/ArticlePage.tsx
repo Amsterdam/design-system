@@ -49,35 +49,33 @@ export const ArticlePage = ({
         </Breadcrumb>
       </Grid.Cell>
     </Grid>
-    <main id="inhoud">
-      <Grid paddingBottom="x-large">
-        <Grid.Cell span={{ narrow: 4, medium: 7, wide: 9 }} start={{ narrow: 1, medium: 1, wide: 2 }}>
-          <Heading className="ams-mb-s" level={1}>
-            {heading}
-          </Heading>
-          <Paragraph className="ams-mb-xl">{formatDate(published)}</Paragraph>
-          <Paragraph size="large">{lead}</Paragraph>
-        </Grid.Cell>
-      </Grid>
-      <Image alt={alt} aspectRatio="16:5" loading="lazy" src={src} srcSet={srcSet} />
-      <Grid paddingVertical="x-large">
-        <Grid.Cell span={{ narrow: 4, medium: 6, wide: 7 }} start={{ narrow: 1, medium: 2, wide: 3 }}>
-          {sections.map((props) => (
-            <Section key={props.id} {...props} />
+    <Grid as="main" id="inhoud" paddingBottom="x-large">
+      <Grid.Cell span={{ narrow: 4, medium: 7, wide: 9 }} start={{ narrow: 1, medium: 1, wide: 2 }}>
+        <Heading className="ams-mb-s" level={1}>
+          {heading}
+        </Heading>
+        <Paragraph className="ams-mb-xl">{formatDate(published)}</Paragraph>
+        <Paragraph size="large">{lead}</Paragraph>
+      </Grid.Cell>
+    </Grid>
+    <Image alt={alt} aspectRatio="16:5" loading="lazy" src={src} srcSet={srcSet} />
+    <Grid paddingVertical="x-large">
+      <Grid.Cell span={{ narrow: 4, medium: 6, wide: 7 }} start={{ narrow: 1, medium: 2, wide: 3 }}>
+        {sections.map((props) => (
+          <Section key={props.id} {...props} />
+        ))}
+        <Heading className="ams-mb-s" level={2}>
+          Lees ook
+        </Heading>
+        <LinkList>
+          {relatedArticles?.map(({ heading, url }) => (
+            <LinkList.Link href={url} key={url}>
+              {heading}
+            </LinkList.Link>
           ))}
-          <Heading className="ams-mb-s" level={2}>
-            Lees ook
-          </Heading>
-          <LinkList>
-            {relatedArticles?.map(({ heading, url }) => (
-              <LinkList.Link href={url} key={url}>
-                {heading}
-              </LinkList.Link>
-            ))}
-          </LinkList>
-        </Grid.Cell>
-      </Grid>
-    </main>
+        </LinkList>
+      </Grid.Cell>
+    </Grid>
     <Spotlight as="aside" color="green">
       <Grid paddingVertical="x-large">
         <Grid.Cell span={{ narrow: 4, medium: 6, wide: 7 }} start={{ narrow: 1, medium: 2, wide: 3 }}>
