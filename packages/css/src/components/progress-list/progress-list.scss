@@ -315,8 +315,14 @@
 .ams-progress-list__body {
   padding-block-start: var(--ams-progress-list-step-body-padding-block-start);
 
-  .ams-progress-list__step:not(:last-child) & {
+  .ams-progress-list__step:not(:last-child) &:not(.ams-progress-list__body--has-sub-steps-list) {
     padding-block-end: var(--ams-progress-list-step-body-padding-block-end);
+  }
+
+  @supports selector(:has(*)) {
+    .ams-progress-list__step:has(.ams-progress-list__sub-steps) {
+      padding-block-end: 0;
+    }
   }
 }
 
