@@ -1,35 +1,101 @@
 {
   "ams": {
     "progress-list": {
-      "body": {
-        "padding-block-start": { "value": "{ams.space.s}" },
-        "padding-block-end": { "value": "{ams.space.l}" }
-      },
-      "connector": {
-        "background-color": { "value": "{ams.color.separator}" },
-        "inline-size": { "value": "{ams.border.width.m}" }
-      },
-      "indicator": {
-        "padding-inline": { "value": "{ams.space.m}" }
-      },
-      "marker": {
-        "background-color": { "value": "{ams.color.separator}" },
-        "heading-2": {
-          "font-size": { "value": "{ams.typography.heading.2.font-size}" },
-          "line-height": { "value": "{ams.typography.heading.2.line-height}" }
-        },
-        "heading-3": {
-          "font-size": { "value": "{ams.typography.heading.3.font-size}" },
-          "line-height": { "value": "{ams.typography.heading.3.line-height}" }
-        },
-        "heading-4": {
-          "font-size": { "value": "{ams.typography.heading.4.font-size}" },
-          "line-height": { "value": "{ams.typography.heading.4.line-height}" }
+      "heading-2": {
+        "step": {
+          "marker": {
+            "block-size": {
+              "value": "calc({ams.typography.heading.2.font-size} * {ams.typography.heading.2.line-height})"
+            },
+            "margin-block-start": {
+              "value": "calc(({ams.typography.heading.2.line-height} * {ams.typography.heading.2.font-size}) / 2)"
+            }
+          },
+          "shape": {
+            "block-size": { "value": "calc({ams.typography.heading.2.font-size} / 1.25)" },
+            "inline-size": { "value": "calc({ams.typography.heading.2.font-size} / 1.25)" }
+          }
         }
       },
-      "medium": {
+      "heading-3": {
+        "step": {
+          "marker": {
+            "block-size": {
+              "value": "calc({ams.typography.heading.3.font-size} * {ams.typography.heading.3.line-height})"
+            },
+            "margin-block-start": {
+              "value": "calc(({ams.typography.heading.3.line-height} * {ams.typography.heading.3.font-size}) / 2)"
+            }
+          },
+          "shape": {
+            "block-size": { "value": "{ams.typography.heading.3.font-size}" },
+            "inline-size": { "value": "{ams.typography.heading.3.font-size}" }
+          }
+        }
+      },
+      "heading-4": {
+        "step": {
+          "marker": {
+            "block-size": {
+              "value": "calc({ams.typography.heading.4.font-size} * {ams.typography.heading.4.line-height})"
+            },
+            "margin-block-start": {
+              "value": "calc(({ams.typography.heading.4.line-height} * {ams.typography.heading.4.font-size}) / 2)"
+            }
+          },
+          "shape": {
+            "block-size": { "value": "calc({ams.typography.heading.4.font-size} * 1.25)" },
+            "inline-size": { "value": "calc({ams.typography.heading.4.font-size} * 1.25)" }
+          }
+        }
+      },
+      "step": {
         "indicator": {
-          "padding-inline": { "value": "{ams.space.l}" }
+          "padding-inline": {
+            "value": "{ams.space.m}"
+          },
+          "medium": {
+            "padding-inline": {
+              "value": "{ams.space.l}"
+            }
+          }
+        },
+        "marker": {
+          "background-color": { "value": "{ams.color.background}" },
+          "border-color": { "value": "{ams.color.progress.upcoming}" },
+          "border-style": { "value": "solid" },
+          "border-width": { "value": "{ams.border.width.m}" }
+        },
+        "connector": {
+          "border-inline-color": { "value": "{ams.color.progress.upcoming}" },
+          "border-inline-style": { "value": "dashed" },
+          "border-inline-width": { "value": "calc({ams.border.width.m} / 2)" }
+        },
+        "body": {
+          "padding-block-end": { "value": "{ams.space.l}" },
+          "padding-block-start": { "value": "{ams.space.s}" }
+        },
+        "completed": {
+          "marker": {
+            "background-color": { "value": "{ams.color.progress.completed}" },
+            "border": { "value": "none" }
+          },
+          "connector": {
+            "border-inline-color": { "value": "{ams.color.progress.completed}" },
+            "border-inline-style": { "value": "solid" }
+          }
+        },
+        "current": {
+          "indicator": {
+            "background-color": { "value": "{ams.color.progress.current}" }
+          },
+          "marker": {
+            "background-color": { "value": "{ams.color.background}" },
+            "border-color": { "value": "{ams.color.progress.current}" }
+          },
+          "connector": {
+            "border-inline-color": { "value": "{ams.color.progress.current}" }
+          }
         }
       }
     }

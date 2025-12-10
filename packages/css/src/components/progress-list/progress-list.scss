@@ -28,80 +28,133 @@
 // Indicator
 
 .ams-progress-list__indicator {
-  align-items: start;
   display: grid;
   flex: none;
-  justify-items: center;
-  padding-inline: var(--ams-progress-list-indicator-padding-inline);
+  padding-inline: var(--ams-progress-list-step-indicator-padding-inline);
+  place-items: start center;
 
   @media screen and (min-width: $ams-breakpoint-medium) {
-    padding-inline: var(--ams-progress-list-medium-indicator-padding-inline);
+    padding-inline: var(--ams-progress-list-step-indicator-medium-padding-inline);
   }
 }
 
 // Marker
 
 .ams-progress-list__marker {
-  align-items: center;
   display: flex;
   grid-area: 1 / 1; // Overlaps the marker and connector.
-
-  &::after {
-    content: "\00200B"; // This zero width space enables baseline alignment.
-  }
+  place-items: center;
+  z-index: 1;
 
   .ams-progress-list--heading-2 & {
-    font-size: var(--ams-progress-list-marker-heading-2-font-size);
-    line-height: var(--ams-progress-list-marker-heading-2-line-height);
+    block-size: var(--ams-progress-list-heading-2-step-marker-block-size);
   }
 
   .ams-progress-list--heading-3 & {
-    font-size: var(--ams-progress-list-marker-heading-3-font-size);
-    line-height: var(--ams-progress-list-marker-heading-3-line-height);
+    block-size: var(--ams-progress-list-heading-3-step-marker-block-size);
   }
 
   .ams-progress-list--heading-4 & {
-    font-size: var(--ams-progress-list-marker-heading-4-font-size);
-    line-height: var(--ams-progress-list-marker-heading-4-line-height);
+    block-size: var(--ams-progress-list-heading-4-step-marker-block-size);
   }
 }
 
 .ams-progress-list__marker-shape {
   aspect-ratio: 1;
-  background-color: var(--ams-progress-list-marker-background-color);
+  background-color: var(--ams-progress-list-step-marker-background-color);
+  border-color: var(--ams-progress-list-step-marker-border-color);
   border-radius: 50%;
-  inline-size: 1em;
+  border-style: var(--ams-progress-list-step-marker-border-style);
+  border-width: var(--ams-progress-list-step-marker-border-width);
+  box-sizing: border-box;
+  display: flex;
+  justify-content: center;
+
+  /*
+  * round() eliminates sub-pixel rendering issues that distort circular markers.
+  * Minor degradation in unsupported browsers is visually unnoticeable.
+  */
+  // stylelint-disable plugin/use-baseline
+  .ams-progress-list--heading-2 & {
+    block-size: var(--ams-progress-list-heading-2-step-shape-block-size);
+    inline-size: var(--ams-progress-list-heading-2-step-shape-inline-size);
+
+    @supports (block-size: round(down, 1px, 1px)) {
+      block-size: round(down, var(--ams-progress-list-heading-2-step-shape-block-size), 2px);
+      inline-size: round(down, var(--ams-progress-list-heading-2-step-shape-inline-size), 2px);
+    }
+  }
+
+  .ams-progress-list--heading-3 & {
+    block-size: var(--ams-progress-list-heading-3-step-shape-block-size);
+    inline-size: var(--ams-progress-list-heading-3-step-shape-inline-size);
+
+    @supports (block-size: round(down, 1px, 1px)) {
+      block-size: round(down, var(--ams-progress-list-heading-3-step-shape-block-size), 2px);
+      inline-size: round(down, var(--ams-progress-list-heading-3-step-shape-inline-size), 2px);
+    }
+  }
+
+  .ams-progress-list--heading-4 & {
+    block-size: var(--ams-progress-list-heading-4-step-shape-block-size);
+    inline-size: var(--ams-progress-list-heading-4-step-shape-inline-size);
+
+    @supports (block-size: round(down, 1px, 1px)) {
+      block-size: round(down, var(--ams-progress-list-heading-4-step-shape-block-size), 2px);
+      inline-size: round(down, var(--ams-progress-list-heading-4-step-shape-inline-size), 2px);
+    }
+  }
+  // stylelint-enable plugin/use-baseline
+
+  .ams-progress-list__step--completed & {
+    background-color: var(--ams-progress-list-step-completed-marker-background-color);
+    border: var(--ams-progress-list-step-completed-marker-border);
+  }
+
+  .ams-progress-list__step[aria-current] & {
+    background-color: var(--ams-progress-list-step-current-marker-background-color);
+    border-color: var(--ams-progress-list-step-current-marker-border-color);
+  }
+}
+
+.ams-progress-list__marker-icon {
+  align-self: center;
+  inline-size: 100%;
 }
 
 // Connector
 
 .ams-progress-list__connector {
   align-self: stretch;
-  background-color: var(--ams-progress-list-connector-background-color);
   block-size: 100%;
+  border-inline-color: var(--ams-progress-list-step-connector-border-inline-color);
+  border-inline-style: var(--ams-progress-list-step-connector-border-inline-style);
+  border-inline-width: var(--ams-progress-list-step-connector-border-inline-width);
   grid-area: 1 / 1; // Overlaps the marker and connector.
-  inline-size: var(--ams-progress-list-connector-inline-size);
 
   .ams-progress-list--heading-2 & {
-    margin-block-start: calc(
-      (var(--ams-progress-list-marker-heading-2-line-height) * var(--ams-progress-list-marker-heading-2-font-size)) / 2
-    );
+    margin-block-start: var(--ams-progress-list-heading-2-step-marker-margin-block-start);
   }
 
   .ams-progress-list--heading-3 & {
-    margin-block-start: calc(
-      (var(--ams-progress-list-marker-heading-3-line-height) * var(--ams-progress-list-marker-heading-3-font-size)) / 2
-    );
+    margin-block-start: var(--ams-progress-list-heading-3-step-marker-margin-block-start);
   }
 
   .ams-progress-list--heading-4 & {
-    margin-block-start: calc(
-      (var(--ams-progress-list-marker-heading-4-line-height) * var(--ams-progress-list-marker-heading-4-font-size)) / 2
-    );
+    margin-block-start: var(--ams-progress-list-heading-4-step-marker-margin-block-start);
+  }
+
+  .ams-progress-list__step--completed & {
+    border-inline-color: var(--ams-progress-list-step-completed-connector-border-inline-color);
+    border-inline-style: var(--ams-progress-list-step-completed-connector-border-inline-style);
+  }
+
+  .ams-progress-list__step[aria-current] & {
+    border-inline-color: var(--ams-progress-list-step-current-connector-border-inline-color);
   }
 
   .ams-progress-list__step:last-child & {
-    inline-size: 0;
+    display: none;
   }
 }
 
@@ -115,9 +168,9 @@
 // Body
 
 .ams-progress-list__body {
-  padding-block-start: var(--ams-progress-list-body-padding-block-start);
+  padding-block-start: var(--ams-progress-list-step-body-padding-block-start);
 
   .ams-progress-list__step:not(:last-child) & {
-    padding-block-end: var(--ams-progress-list-body-padding-block-end);
+    padding-block-end: var(--ams-progress-list-step-body-padding-block-end);
   }
 }
