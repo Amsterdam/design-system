@@ -69,7 +69,10 @@
         "connector": {
           "border-inline-color": { "value": "{ams.color.progress.upcoming}" },
           "border-inline-style": { "value": "dashed" },
-          "border-inline-width": { "value": "calc({ams.border.width.m} / 2)" }
+          "border-inline-width": { "value": "1px" },
+          "has-sub-steps": {
+            "border-inline-style": { "value": "solid" }
+          }
         },
         "body": {
           "padding-block-end": { "value": "{ams.space.l}" },
@@ -105,10 +108,19 @@
           "border-style": { "value": "solid" },
           "border-width": { "value": "{ams.border.width.m}" }
         },
+        "connector": {
+          "border-inline-color": { "value": "{ams.color.progress.upcoming}" },
+          "border-inline-style": { "value": "dashed" },
+          "border-inline-width": { "value": "1px" }
+        },
         "completed": {
           "marker": {
             "background-color": { "value": "{ams.color.progress.completed}" },
             "border": { "value": "none" }
+          },
+          "connector": {
+            "border-inline-color": { "value": "{ams.color.progress.completed}" },
+            "border-inline-style": { "value": "solid" }
           }
         },
         "current": {

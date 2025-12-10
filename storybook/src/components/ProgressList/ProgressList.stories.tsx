@@ -34,10 +34,10 @@ const meta = {
         <Paragraph className="ams-mb-m">{paragraph1}</Paragraph>
         <UnorderedList>{unorderedList2}</UnorderedList>
         <ProgressList.SubSteps>
-          <ProgressList.SubStep>
+          <ProgressList.SubStep status="completed">
             <Paragraph>{paragraph3}</Paragraph>
           </ProgressList.SubStep>
-          <ProgressList.SubStep>
+          <ProgressList.SubStep status="current">
             <Paragraph>{paragraph4}</Paragraph>
           </ProgressList.SubStep>
         </ProgressList.SubSteps>

@@ -297,8 +297,23 @@
   }
 }
 
+.ams-progress-list__connector--has-sub-steps {
+  border-style: var(--ams-progress-list-step-connector-has-sub-steps-border-inline-style);
+}
+
 .ams-progress-list-sub-step__connector {
-  z-index: 1;
+  align-self: stretch;
+  block-size: 100%;
+  border-inline-color: var(--ams-progress-list-sub-step-connector-border-inline-color);
+  border-inline-style: var(--ams-progress-list-sub-step-connector-border-inline-style);
+  border-inline-width: var(--ams-progress-list-sub-step-connector-border-inline-width);
+  grid-area: 1 / 1; // Overlaps the marker and connector.
+  z-index: 2;
+
+  .ams-progress-list__sub-step--completed & {
+    border-inline-color: var(--ams-progress-list-sub-step-completed-connector-border-inline-color);
+    border-inline-style: var(--ams-progress-list-sub-step-completed-connector-border-inline-style);
+  }
 
   // TODO: It doesn't overlap perfectly and the background will not always be white.
 }

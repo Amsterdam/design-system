@@ -43,7 +43,12 @@ export const ProgressListStep = forwardRef(
               )}
             </span>
           </div>
-          <span className="ams-progress-list__connector" />
+          <span
+            className={clsx(
+              'ams-progress-list__connector',
+              hasSubSteps && 'ams-progress-list__connector--has-sub-steps',
+            )}
+          />
         </div>
         <div className="ams-progress-list__content">
           <Heading level={headingLevel}>{heading}</Heading>
