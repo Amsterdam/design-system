@@ -28,10 +28,11 @@ export const ProductPage = () => (
         <Heading className="ams-mb-xl" level={1}>
           Gratis laptop of tablet voor de basisschool aanvragen
         </Heading>
-        <Paragraph className="ams-mb-2xl" size="large">
+        <Paragraph size="large">
           U krijgt per huishouden 1 keer per 5 schooljaren een gratis laptop of tablet op de basisschool.
         </Paragraph>
-
+      </Grid.Cell>
+      <Grid.Cell span={{ narrow: 4, medium: 6, wide: 7 }} start={{ narrow: 1, medium: 2, wide: 3 }}>
         <Heading className="ams-mb-s" level={2}>
           Voorwaarden
         </Heading>
