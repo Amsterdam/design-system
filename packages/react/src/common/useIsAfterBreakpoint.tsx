@@ -13,15 +13,12 @@ export const BREAKPOINTS = {
 
 type Breakpoint = keyof typeof BREAKPOINTS
 
-const useIsAfterBreakpoint = (breakpoint: Breakpoint): boolean => {
+const useIsAfterBreakpoint = (breakpoint: Breakpoint) => {
   const [matches, setMatches] = useState(false)
 
   useEffect(() => {
     // Check for window object to avoid SSR issues
-    if (typeof window === 'undefined') {
-      // Return stable no-op cleanup to satisfy consistent-return
-      return () => {}
-    }
+    if (typeof window === 'undefined') return undefined
 
     const query = `(min-width: ${BREAKPOINTS[breakpoint]})`
     const media = window.matchMedia(query)
@@ -32,9 +29,7 @@ const useIsAfterBreakpoint = (breakpoint: Breakpoint): boolean => {
 
     media.addEventListener('change', listener)
 
-    return () => {
-      media.removeEventListener('change', listener)
-    }
+    return () => media.removeEventListener('change', listener)
   }, [breakpoint])
 
   return matches
