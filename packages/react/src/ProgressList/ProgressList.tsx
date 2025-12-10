@@ -12,6 +12,8 @@ import type { HeadingProps } from '../Heading'
 
 import ProgressListContext from './ProgressListContext'
 import { ProgressListStep } from './ProgressListStep'
+import { ProgressListSubStep } from './ProgressListSubStep'
+import { ProgressListSubSteps } from './ProgressListSubSteps'
 
 export type ProgressListProps = {
   headingLevel: Exclude<HeadingProps['level'], 1>
@@ -34,5 +36,9 @@ const ProgressListRoot = forwardRef(
   ),
 )
 
-export const ProgressList = Object.assign(ProgressListRoot, { Step: ProgressListStep })
+export const ProgressList = Object.assign(ProgressListRoot, {
+  Step: ProgressListStep,
+  SubStep: ProgressListSubStep,
+  SubSteps: ProgressListSubSteps,
+})
 ProgressListRoot.displayName = 'ProgressList'
