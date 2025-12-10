@@ -12,6 +12,9 @@ import { exampleParagraph, exampleUnorderedList } from '../shared/exampleContent
 
 const paragraph1 = exampleParagraph()
 const paragraph2 = exampleParagraph()
+const paragraph3 = exampleParagraph()
+const paragraph4 = exampleParagraph()
+
 const unorderedList1 = exampleUnorderedList()
   .slice(0, 3)
   .map((text) => <UnorderedList.Item key={text}>{text}</UnorderedList.Item>)
@@ -30,6 +33,14 @@ const meta = {
       <ProgressList.Step heading="2026" key={1} status="current">
         <Paragraph className="ams-mb-m">{paragraph1}</Paragraph>
         <UnorderedList>{unorderedList2}</UnorderedList>
+        <ProgressList.SubSteps>
+          <ProgressList.SubStep>
+            <Paragraph>{paragraph3}</Paragraph>
+          </ProgressList.SubStep>
+          <ProgressList.SubStep>
+            <Paragraph>{paragraph4}</Paragraph>
+          </ProgressList.SubStep>
+        </ProgressList.SubSteps>
       </ProgressList.Step>,
       <ProgressList.Step heading="2027" key={2}>
         <Paragraph>{paragraph2}</Paragraph>
