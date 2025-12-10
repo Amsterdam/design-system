@@ -27,7 +27,7 @@ This reduces ambiguity and makes the interface more intuitive.
   For example: DocumentEdit, not EditDocument.
   This improves grouping and sorting in lists.
 - **Do not change natural two-word terms** such as BankCard or IdentityCard.
-- Name **variations with shapes** after the concept: Plus and PlusCircle.
+- For **variations with added shapes**, add the shape name after the concept: Plus and PlusCircle.
 
 ### Specific conventions
 
