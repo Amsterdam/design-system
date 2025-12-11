@@ -84,6 +84,7 @@
             "border": { "value": "none" }
           },
           "connector": {
+            "background-color": { "value": "{ams.color.progress.completed}" },
             "border-inline-color": { "value": "{ams.color.progress.completed}" },
             "border-inline-style": { "value": "solid" }
           }
@@ -119,6 +120,7 @@
             "border": { "value": "none" }
           },
           "connector": {
+            "background-color": { "value": "{ams.color.progress.completed}" },
             "border-inline-color": { "value": "{ams.color.progress.completed}" },
             "border-inline-style": { "value": "solid" }
           }

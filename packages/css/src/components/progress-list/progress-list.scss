@@ -284,6 +284,7 @@
   }
 
   .ams-progress-list__step--completed & {
+    background-color: var(--ams-progress-list-step-completed-connector-background-color);
     border-inline-color: var(--ams-progress-list-step-completed-connector-border-inline-color);
     border-inline-style: var(--ams-progress-list-step-completed-connector-border-inline-style);
   }
@@ -311,11 +312,10 @@
   z-index: 2;
 
   .ams-progress-list__sub-step--completed & {
+    background-color: var(--ams-progress-list-sub-step-completed-connector-background-color);
     border-inline-color: var(--ams-progress-list-sub-step-completed-connector-border-inline-color);
     border-inline-style: var(--ams-progress-list-sub-step-completed-connector-border-inline-style);
   }
-
-  // TODO: It doesn't overlap perfectly and the background will not always be white.
 }
 
 // Content
