@@ -133,6 +133,9 @@
           "marker": {
             "background-color": { "value": "{ams.color.background}" },
             "border-color": { "value": "{ams.color.progress.current}" }
+          },
+          "connector": {
+            "border-inline-color": { "value": "{ams.color.progress.current}" }
           }
         }
       }

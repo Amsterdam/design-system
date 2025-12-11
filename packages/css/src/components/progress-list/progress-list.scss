@@ -313,6 +313,10 @@
   border-inline-width: var(--ams-progress-list-sub-step-connector-border-inline-width);
   grid-area: 1 / 1; // Overlaps the marker and connector.
 
+  .ams-progress-list__sub-step--current & {
+    border-color: var(--ams-progress-list-sub-step-current-connector-border-inline-color);
+  }
+
   .ams-progress-list__sub-step--completed & {
     background-color: var(--ams-progress-list-sub-step-completed-connector-background-color);
     border-inline-color: var(--ams-progress-list-sub-step-completed-connector-border-inline-color);
@@ -398,13 +402,13 @@
   position: relative;
   z-index: 2;
 
-  .ams-progress-list__step--completed & {
-    background-color: var(--ams-progress-list-sub-step-completed-marker-background-color);
-    border: var(--ams-progress-list-sub-step-completed-marker-border);
-  }
-
-  .ams-progress-list__step[aria-current] & {
+  .ams-progress-list__sub-step--current & {
     background-color: var(--ams-progress-list-sub-step-current-marker-background-color);
     border-color: var(--ams-progress-list-sub-step-current-marker-border-color);
+  }
+
+  .ams-progress-list__sub-step--completed & {
+    background-color: var(--ams-progress-list-sub-step-completed-marker-background-color);
+    border: var(--ams-progress-list-sub-step-completed-marker-border);
   }
 }
