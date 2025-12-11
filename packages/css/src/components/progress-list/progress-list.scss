@@ -264,7 +264,7 @@
 
 // Connector
 
-// TODO: Resolve issue were the last sub-step connector does not reach the next step marker.
+// TODO: Make sure the sub-connector doesn't show when there is no next parent step.
 
 .ams-progress-list__connector {
   align-self: stretch;
@@ -308,7 +308,6 @@
 .ams-progress-list-sub-step__connector {
   align-self: stretch;
   background-color: var(--ams-progress-list-sub-step-connector-background-color);
-  block-size: 100%;
   border-inline-color: var(--ams-progress-list-sub-step-connector-border-inline-color);
   border-inline-style: var(--ams-progress-list-sub-step-connector-border-inline-style);
   border-inline-width: var(--ams-progress-list-sub-step-connector-border-inline-width);
@@ -318,6 +317,18 @@
     background-color: var(--ams-progress-list-sub-step-completed-connector-background-color);
     border-inline-color: var(--ams-progress-list-sub-step-completed-connector-border-inline-color);
     border-inline-style: var(--ams-progress-list-sub-step-completed-connector-border-inline-style);
+  }
+
+  .ams-progress-list--heading-2 & {
+    block-size: calc(100% + var(--ams-progress-list-heading-2-step-marker-block-size) / 2);
+  }
+
+  .ams-progress-list--heading-3 & {
+    block-size: calc(100% + var(--ams-progress-list-heading-3-step-marker-block-size) / 2);
+  }
+
+  .ams-progress-list--heading-4 & {
+    block-size: calc(100% + var(--ams-progress-list-heading-4-step-marker-block-size) / 2);
   }
 }
 
