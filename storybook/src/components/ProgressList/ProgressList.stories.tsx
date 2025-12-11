@@ -14,6 +14,7 @@ const paragraph1 = exampleParagraph()
 const paragraph2 = exampleParagraph()
 const paragraph3 = exampleParagraph()
 const paragraph4 = exampleParagraph()
+const paragraph5 = exampleParagraph()
 
 const unorderedList1 = exampleUnorderedList()
   .slice(0, 3)
@@ -39,6 +40,9 @@ const meta = {
           </ProgressList.SubStep>
           <ProgressList.SubStep status="current">
             <Paragraph>{paragraph4}</Paragraph>
+          </ProgressList.SubStep>
+          <ProgressList.SubStep>
+            <Paragraph>{paragraph5}</Paragraph>
           </ProgressList.SubStep>
         </ProgressList.SubSteps>
       </ProgressList.Step>,
