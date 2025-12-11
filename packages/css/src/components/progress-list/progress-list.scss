@@ -310,7 +310,6 @@
   border-inline-style: var(--ams-progress-list-sub-step-connector-border-inline-style);
   border-inline-width: var(--ams-progress-list-sub-step-connector-border-inline-width);
   grid-area: 1 / 1; // Overlaps the marker and connector.
-  z-index: 2;
 
   .ams-progress-list__sub-step--completed & {
     background-color: var(--ams-progress-list-sub-step-completed-connector-background-color);
@@ -382,6 +381,7 @@
   display: flex;
   inline-size: 100%;
   justify-content: center;
+  position: relative;
   z-index: 2;
 
   .ams-progress-list__step--completed & {
