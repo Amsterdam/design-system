@@ -304,6 +304,7 @@
 
 .ams-progress-list-sub-step__connector {
   align-self: stretch;
+  background-color: var(--ams-progress-list-sub-step-connector-background-color);
   block-size: 100%;
   border-inline-color: var(--ams-progress-list-sub-step-connector-border-inline-color);
   border-inline-style: var(--ams-progress-list-sub-step-connector-border-inline-style);
