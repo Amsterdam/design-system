@@ -103,6 +103,9 @@
         }
       },
       "sub-step": {
+        "indicator": {
+          "background-color": { "value": "{ams.color.background}" }
+        },
         "marker": {
           "background-color": { "value": "{ams.color.background}" },
           "border-color": { "value": "{ams.color.progress.upcoming}" },

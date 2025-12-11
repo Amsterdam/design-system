@@ -41,6 +41,7 @@
 }
 
 .ams-progress-list-sub-step__indicator {
+  background-color: var(--ams-progress-list-sub-step-indicator-background-color);
   display: grid;
   flex: none;
   padding-inline-end: var(--ams-progress-list-step-indicator-padding-inline);
@@ -262,6 +263,8 @@
 }
 
 // Connector
+
+// TODO: Resolve issue were the last sub-step connector does not reach the next step marker.
 
 .ams-progress-list__connector {
   align-self: stretch;
