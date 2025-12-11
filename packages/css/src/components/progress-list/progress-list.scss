@@ -403,8 +403,7 @@
   z-index: 2;
 
   .ams-progress-list__sub-step--current & {
-    background-color: var(--ams-progress-list-sub-step-current-marker-background-color);
-    border-color: var(--ams-progress-list-sub-step-current-marker-border-color);
+    border: none;
   }
 
   .ams-progress-list__sub-step--completed & {
