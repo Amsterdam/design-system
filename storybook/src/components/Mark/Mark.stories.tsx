@@ -104,7 +104,7 @@ export const SearchResults = {
 
     return (
       <Grid>
-        <Grid.Cell span={{ narrow: 4, medium: 6, wide: 8 }}>
+        <Grid.Cell span={{ narrow: 4, medium: 6, wide: 7 }} start={{ narrow: 1, medium: 2, wide: 3 }}>
           <SearchField className="ams-mb-m">
             <SearchField.Input label="Zoeken" onChange={(e) => setQuery(e.target.value)} value={query} />
             <SearchField.Button />
