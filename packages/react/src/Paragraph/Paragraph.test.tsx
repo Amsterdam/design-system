@@ -3,7 +3,7 @@
  * Copyright Gemeente Amsterdam
  */
 
-import { render, screen } from '@testing-library/react'
+import { render } from '@testing-library/react'
 import { createRef } from 'react'
 
 import { Paragraph } from './Paragraph'
@@ -13,7 +13,7 @@ describe('Paragraph', () => {
   it('renders an HTML p element', () => {
     const { container } = render(<Paragraph />)
 
-    const paragraph = container.querySelector('p:only-child')
+    const paragraph = container.querySelector(':only-child')
 
     expect(paragraph).toBeInTheDocument()
   })
@@ -42,10 +42,9 @@ describe('Paragraph', () => {
     )
 
     const paragraph = container.querySelector(':only-child')
+    const strong = paragraph?.querySelector('strong')
 
-    const richText = paragraph?.querySelector('strong')
-
-    expect(richText).toBeInTheDocument()
+    expect(strong).toBeInTheDocument()
   })
 
   it('is a default paragraph without specifying props', () => {
@@ -57,25 +56,46 @@ describe('Paragraph', () => {
     expect(paragraph).not.toHaveClass('ams-paragraph--small')
   })
 
-  it('renders the right size classes', () => {
-    render(
-      <>
-        <Paragraph size="small">Small paragraph</Paragraph>
-        <Paragraph size="large">Large paragraph</Paragraph>
-      </>,
-    )
+  it('renders the large size class', () => {
+    const { container } = render(<Paragraph size="large">Large paragraph</Paragraph>)
 
-    const smallParagraph = screen.getByText('Small paragraph')
-    const largeParagraph = screen.getByText('Large paragraph')
+    const paragraph = container.querySelector(':only-child')
 
-    expect(smallParagraph).toHaveClass('ams-paragraph--small')
-    expect(largeParagraph).toHaveClass('ams-paragraph--large')
+    expect(paragraph).toHaveClass('ams-paragraph--large')
+  })
+
+  it('renders a <b> element for a large paragraph', () => {
+    const { container } = render(<Paragraph size="large">Large text</Paragraph>)
+
+    const paragraph = container.querySelector(':only-child')
+    const bold = paragraph?.querySelector('b')
+
+    expect(bold).toBeInTheDocument()
+    expect(bold).toHaveClass('ams-paragraph__b')
+  })
+
+  it('renders the small size class', () => {
+    const { container } = render(<Paragraph size="small">Small paragraph</Paragraph>)
+
+    const paragraph = container.querySelector(':only-child')
+
+    expect(paragraph).toHaveClass('ams-paragraph--small')
+  })
+
+  it('renders a <small> element for a small paragraph', () => {
+    const { container } = render(<Paragraph size="small">Small text</Paragraph>)
+
+    const paragraph = container.querySelector(':only-child')
+    const small = paragraph?.querySelector('small')
+
+    expect(small).toBeInTheDocument()
+    expect(small).toHaveClass('ams-paragraph__small')
   })
 
   it('renders the class name for inverse color', () => {
-    render(<Paragraph color="inverse">Paragraph</Paragraph>)
+    const { container } = render(<Paragraph color="inverse">Paragraph</Paragraph>)
 
-    const paragraph = screen.getByText('Paragraph')
+    const paragraph = container.querySelector(':only-child')
 
     expect(paragraph).toHaveClass('ams-paragraph--inverse')
   })
@@ -93,7 +113,6 @@ describe('Paragraph', () => {
     const ref = createRef<HTMLParagraphElement>()
 
     const { container } = render(<Paragraph ref={ref} />)
-
     const paragraph = container.querySelector(':only-child')
 
     expect(ref.current).toBe(paragraph)
