@@ -78,6 +78,9 @@
           "padding-block-end": { "value": "{ams.space.l}" },
           "padding-block-start": { "value": "{ams.space.s}" }
         },
+        "sub-steps": {
+          "gap": { "value": "{ams.space.m}" }
+        },
         "completed": {
           "marker": {
             "background-color": { "value": "{ams.color.progress.completed}" },
@@ -120,8 +123,7 @@
         },
         "completed": {
           "marker": {
-            "background-color": { "value": "{ams.color.progress.completed}" },
-            "border": { "value": "none" }
+            "border-color": { "value": "{ams.color.progress.completed}" }
           },
           "connector": {
             "background-color": { "value": "{ams.color.progress.completed}" },

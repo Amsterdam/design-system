@@ -20,6 +20,12 @@
   @include reset-ol;
 }
 
+.ams-progress-list__sub-steps {
+  display: flex;
+  flex-direction: column;
+  gap: var(--ams-progress-list-step-sub-steps-gap);
+}
+
 // Step
 
 .ams-progress-list__step,
@@ -407,7 +413,6 @@
   }
 
   .ams-progress-list__sub-step--completed & {
-    background-color: var(--ams-progress-list-sub-step-completed-marker-background-color);
-    border: var(--ams-progress-list-sub-step-completed-marker-border);
+    border-color: var(--ams-progress-list-sub-step-completed-marker-border-color);
   }
 }
