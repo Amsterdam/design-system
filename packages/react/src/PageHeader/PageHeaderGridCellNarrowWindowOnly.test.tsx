@@ -16,7 +16,7 @@ describe('Page Header Grid Cell Narrow Window Only', () => {
     const component = container.querySelector(':only-child')
 
     expect(component).toBeInTheDocument()
-    expect(component).toBeVisible()
+    expect(component).not.toBeVisible() // The component is hidden by default, and only shown when the CSS loads.
   })
 
   it('renders a Grid.Cell', () => {
