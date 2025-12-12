@@ -1,0 +1,9 @@
+{
+  "ams": {
+    "field-set": {
+      "legend": {
+        "margin-block-end": { "value": "{ams.space.s}" }
+      }
+    }
+  }
+}
