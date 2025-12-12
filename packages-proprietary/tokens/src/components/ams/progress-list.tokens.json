@@ -98,6 +98,9 @@
               "border-inline-style": { "value": "dashed" },
               "border-inline-width": { "value": "1px" }
             },
+            "body": {
+              "padding-inline-start": { "value": "{ams.space.m}" }
+            },
             "completed": {
               "marker": {
                 "border-color": { "value": "{ams.color.progress.completed}" }

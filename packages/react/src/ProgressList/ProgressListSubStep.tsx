@@ -44,7 +44,7 @@ export const ProgressListSubStep = forwardRef(
           </div>
           <span className="ams-progress-list-sub-step__connector" />
         </div>
-        <div>{children}</div>
+        <div className="ams-progress-list-sub-step__body">{children}</div>
       </li>
     )
   },

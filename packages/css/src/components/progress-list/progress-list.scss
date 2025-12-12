@@ -382,6 +382,10 @@
   }
 }
 
+.ams-progress-list-sub-step__body {
+  padding-inline-start: var(--ams-progress-list-step-sub-steps-sub-step-body-padding-inline-start);
+}
+
 .ams-progress-list-sub-step__marker {
   grid-area: 1/1;
   z-index: 2;
