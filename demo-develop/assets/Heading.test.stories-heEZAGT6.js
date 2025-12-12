@@ -1,0 +1,9 @@
+import{r as t}from"./renderComponentVariants-DOUZ7AXT.js";import{m as a}from"./Heading.stories-DEDPhTud.js";import{H as o}from"./Heading-B8EV_c53.js";import"./iframe-BRoHT6Q2.js";import"./preload-helper-PPVm8Dsz.js";import"./exampleContent-Du2yH2Fl.js";const c={...a,title:"Components/Text/Heading"},e={args:{children:"Amsterdam Light Festival maakt de stad ook deze winter een beetje mooier"},render:r=>t(o,{args:r}),tags:["!dev","!autodocs"]};e.parameters={...e.parameters,docs:{...e.parameters?.docs,source:{originalSource:`{
+  args: {
+    children: 'Amsterdam Light Festival maakt de stad ook deze winter een beetje mooier'
+  },
+  render: args => renderComponentVariants(Heading, {
+    args
+  }),
+  tags: ['!dev', '!autodocs']
+}`,...e.parameters?.docs?.source}}};const g=["Test"];export{e as Test,g as __namedExportsOrder,c as default};
