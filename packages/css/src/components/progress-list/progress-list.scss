@@ -33,6 +33,14 @@
   display: flex;
 }
 
+.ams-progress-list__sub-step:first-child {
+  padding-block-start: var(--ams-progress-list-step-sub-steps-sub-step-padding-block-start);
+}
+
+.ams-progress-list__sub-step:last-child {
+  padding-block-end: var(--ams-progress-list-step-sub-steps-sub-step-padding-block-end);
+}
+
 // Indicator
 
 .ams-progress-list__indicator {
@@ -330,15 +338,24 @@
   }
 
   .ams-progress-list--heading-2 & {
-    block-size: calc(100% + var(--ams-progress-list-heading-2-step-marker-block-size) / 2);
+    block-size: calc(
+      100% + var(--ams-progress-list-heading-2-step-marker-block-size) / 2 +
+        var(--ams-progress-list-step-sub-steps-sub-step-padding-block-end)
+    );
   }
 
   .ams-progress-list--heading-3 & {
-    block-size: calc(100% + var(--ams-progress-list-heading-3-step-marker-block-size) / 2);
+    block-size: calc(
+      100% + var(--ams-progress-list-heading-3-step-marker-block-size) / 2 +
+        var(--ams-progress-list-step-sub-steps-sub-step-padding-block-end)
+    );
   }
 
   .ams-progress-list--heading-4 & {
-    block-size: calc(100% + var(--ams-progress-list-heading-4-step-marker-block-size) / 2);
+    block-size: calc(
+      100% + var(--ams-progress-list-heading-4-step-marker-block-size) / 2 +
+        var(--ams-progress-list-step-sub-steps-sub-step-padding-block-end)
+    );
   }
 }
 

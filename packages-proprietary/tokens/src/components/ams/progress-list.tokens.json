@@ -81,6 +81,8 @@
         "sub-steps": {
           "gap": { "value": "{ams.space.m}" },
           "sub-step": {
+            "padding-block-start": { "value": "{ams.space.m}" },
+            "padding-block-end": { "value": "{ams.space.l}" },
             "indicator": {
               "background-color": { "value": "{ams.color.background}" }
             },
