@@ -1,5 +1,5 @@
 {
-  "buildCommand": "pnpm run build",
+  "buildCommand": "pnpm run build:chromatic",
   "outputDir": "dist/",
   "projectId": "68db9df886b46f139748c074",
   "onlyStoryNames": ["Components/**/**/Test"],
