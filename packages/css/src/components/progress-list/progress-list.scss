@@ -271,7 +271,8 @@
   }
 }
 
-.ams-progress-list__marker-icon {
+.ams-progress-list__marker-icon,
+.ams-progress-list-sub-step__marker-icon {
   align-self: center;
   inline-size: 100%;
 }
@@ -388,13 +389,13 @@
 
 .ams-progress-list-sub-step__marker {
   background-color: var(--ams-progress-list-step-sub-steps-sub-step-marker-background-color);
+  block-size: var(--ams-progress-list-step-sub-steps-sub-step-marker-block-size);
   grid-area: 1/1;
   place-content: center;
   z-index: 2;
 
   // stylelint-disable plugin/use-baseline
   .ams-progress-list--heading-2 & {
-    block-size: var(--ams-progress-list-heading-2-step-sub-steps-sub-step-marker-block-size);
     inline-size: var(--ams-progress-list-heading-2-step-sub-steps-sub-step-marker-inline-size);
 
     @supports (block-size: round(down, 1px, 1px)) {
@@ -403,7 +404,6 @@
   }
 
   .ams-progress-list--heading-3 & {
-    block-size: var(--ams-progress-list-heading-3-step-sub-steps-sub-step-marker-block-size);
     inline-size: var(--ams-progress-list-heading-3-step-sub-steps-sub-step-marker-inline-size);
 
     @supports (block-size: round(down, 1px, 1px)) {
@@ -412,7 +412,6 @@
   }
 
   .ams-progress-list--heading-4 & {
-    block-size: var(--ams-progress-list-heading-4-step-sub-steps-sub-step-marker-block-size);
     inline-size: var(--ams-progress-list-heading-4-step-sub-steps-sub-step-marker-inline-size);
 
     @supports (block-size: round(down, 1px, 1px)) {
@@ -431,10 +430,12 @@
   display: flex;
   inline-size: 100%;
   justify-content: center;
+  margin-inline-start: calc(50% - var(--ams-progress-list-step-connector-border-inline-width));
   position: relative;
   z-index: 2;
 
   .ams-progress-list__sub-step--current & {
+    block-size: inherit;
     border: none;
   }
 
