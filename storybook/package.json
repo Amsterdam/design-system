@@ -14,6 +14,7 @@
   },
   "scripts": {
     "build": "storybook build --output-dir dist/ --config-dir config/ --quiet && touch dist/.nojekyll",
+    "build:chromatic": "IS_CHROMATIC=true npm run build",
     "chromatic": "chromatic",
     "clean": "rimraf dist/",
     "lint": "tsc --noEmit --project ./tsconfig.json",
