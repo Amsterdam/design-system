@@ -10,14 +10,15 @@ import { Layout } from '../common/Layout'
 export const LandingPage = () => (
   <Layout>
     <Grid as="main" id="inhoud" paddingBottom="2x-large" paddingTop="large">
-      <Grid.Cell span={{ narrow: 4, medium: 5, wide: 7 }} start={{ narrow: 1, medium: 2, wide: 3 }}>
+      <Grid.Cell span={{ narrow: 4, medium: 7, wide: 9 }} start={{ narrow: 1, medium: 1, wide: 2 }}>
         <Heading className="ams-mb-m" level={1}>
           Waar u dit formulier voor gebruikt
         </Heading>
-        <Paragraph className="ams-mb-xl" size="large">
+        <Paragraph size="large">
           Met dit formulier maakt u een afspraak bij een Stadsloket in Amsterdam of Weesp.
         </Paragraph>
-
+      </Grid.Cell>
+      <Grid.Cell span={{ narrow: 4, medium: 6, wide: 7 }} start={{ narrow: 1, medium: 2, wide: 3 }}>
         <Heading className="ams-mb-s" level={2}>
           De stappen in dit formulier
         </Heading>

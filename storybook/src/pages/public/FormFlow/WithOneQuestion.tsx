@@ -25,7 +25,7 @@ export const WithOneQuestion = () => (
     <PageHeader className="ams-mb-xl" />
     {/* The back link is in its own Grid, because it should be outside of the main section. */}
     <Grid className="ams-mb-s">
-      <Grid.Cell span={{ narrow: 4, medium: 6, wide: 6 }} start={{ narrow: 1, medium: 2, wide: 3 }}>
+      <Grid.Cell span={{ narrow: 4, medium: 6, wide: 7 }} start={{ narrow: 1, medium: 2, wide: 3 }}>
         {/*
          * We add a back link to allow users to navigate between form pages, without having to worry about losing their progress.
          * Using the browser back button should also work without losing progress, but users do not always trust it (for some applications, rightfully so).
@@ -40,7 +40,7 @@ export const WithOneQuestion = () => (
       </Grid.Cell>
     </Grid>
     <Grid as="main" paddingBottom="2x-large">
-      <Grid.Cell span={{ narrow: 4, medium: 6, wide: 6 }} start={{ narrow: 1, medium: 2, wide: 3 }}>
+      <Grid.Cell span={{ narrow: 4, medium: 6, wide: 7 }} start={{ narrow: 1, medium: 2, wide: 3 }}>
         {/*
          * We use a header here that is labelled by an aria-hidden heading, so that we communicate a labelled
          * section to screen readers, without adding an unnecessary heading to the heading hierarchy.
