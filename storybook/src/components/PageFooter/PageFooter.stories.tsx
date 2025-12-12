@@ -68,7 +68,7 @@ export const Default: Story = {
               Werken bij Amsterdam
             </StandaloneLink>
           </Grid.Cell>
-          <Grid.Cell span={4} start={{ narrow: 1, medium: 5, wide: 5 }}>
+          <Grid.Cell span={4}>
             <Heading className="ams-mb-s" color="inverse" level={2} size="level-3">
               Volg ons
             </Heading>
@@ -80,7 +80,7 @@ export const Default: Story = {
               ))}
             </LinkList>
           </Grid.Cell>
-          <Grid.Cell span={4} start={{ narrow: 1, medium: 1, wide: 9 }}>
+          <Grid.Cell span={4}>
             <Heading className="ams-mb-s" color="inverse" level={2} size="level-3">
               Doen in de stad
             </Heading>
@@ -116,7 +116,7 @@ export const OnderzoekEnStatistiek: Story = {
     children: [
       <PageFooter.Spotlight key={1}>
         <Grid paddingVertical="x-large">
-          <Grid.Cell span={3}>
+          <Grid.Cell span={4}>
             <Heading className="ams-mb-s" color="inverse" level={2} size="level-3">
               Contact
             </Heading>
@@ -132,7 +132,7 @@ export const OnderzoekEnStatistiek: Story = {
               </LinkList.Link>
             </LinkList>
           </Grid.Cell>
-          <Grid.Cell span={3} start={{ narrow: 1, medium: 5, wide: 5 }}>
+          <Grid.Cell span={4}>
             <Heading className="ams-mb-s" color="inverse" level={2} size="level-3">
               Panels en enquêtes
             </Heading>
@@ -151,7 +151,7 @@ export const OnderzoekEnStatistiek: Story = {
               </LinkList.Link>
             </LinkList>
           </Grid.Cell>
-          <Grid.Cell span={3} start={{ narrow: 1, medium: 1, wide: 9 }}>
+          <Grid.Cell span={4}>
             <Heading className="ams-mb-s" color="inverse" level={2} size="level-3">
               Onderzoek en Statistiek
             </Heading>

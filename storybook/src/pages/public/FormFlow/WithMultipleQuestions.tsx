@@ -5,29 +5,27 @@
 
 import {
   Button,
-  Column,
-  ErrorMessage,
-  FieldSet,
+  Field,
   Grid,
   Heading,
-  InvalidFormAlert,
+  Label,
   Page,
   PageHeader,
   Paragraph,
-  Radio,
   StandaloneLink,
+  TextInput,
 } from '@amsterdam/design-system-react'
 import { ChevronBackwardIcon } from '@amsterdam/design-system-react-icons'
 
 import { FormFooter } from './components/FormFooter'
 
-export const WithValidationError = () => (
+export const WithMultipleQuestions = () => (
   <Page>
     {/* Keep the Page Header as simple as possible, to avoid distractions and to prevent users from accidentally navigating away from the form flow. */}
     <PageHeader className="ams-mb-xl" />
     {/* The back link is in its own Grid, because it should be outside of the main section. */}
     <Grid className="ams-mb-s">
-      <Grid.Cell span={{ narrow: 4, medium: 6, wide: 6 }} start={{ narrow: 1, medium: 2, wide: 3 }}>
+      <Grid.Cell span={{ narrow: 4, medium: 6, wide: 7 }} start={{ narrow: 1, medium: 2, wide: 3 }}>
         {/*
          * We add a back link to allow users to navigate between form pages, without having to worry about losing their progress.
          * Using the browser back button should also work without losing progress, but users do not always trust it (for some applications, rightfully so).
@@ -42,19 +40,7 @@ export const WithValidationError = () => (
       </Grid.Cell>
     </Grid>
     <Grid as="main" paddingBottom="2x-large">
-      <Grid.Cell span={{ narrow: 4, medium: 6, wide: 6 }} start={{ narrow: 1, medium: 2, wide: 3 }}>
-        {/*
-         * Notifying a user of errors is threefold:
-         * - We add the error count to the document title, so it is the first thing a screen reader user hears.
-         * - We show the Invalid Form Alert at the top of the main container.
-         * - We add error messages next to the relevant form fields.
-         * For more info, see: https://designsystem.amsterdam/?path=/docs/components-forms-invalid-form-alert--docs
-         */}
-        <InvalidFormAlert
-          className="ams-mb-m"
-          errors={[{ id: '#passport-id-driving-license', label: 'Geef aan waar u voor wilt langskomen.' }]}
-          headingLevel={2}
-        />
+      <Grid.Cell span={{ narrow: 4, medium: 6, wide: 7 }} start={{ narrow: 1, medium: 2, wide: 3 }}>
         {/*
          * We use a header here that is labelled by an aria-hidden heading, so that we communicate a labelled
          * section to screen readers, without adding an unnecessary heading to the heading hierarchy.
@@ -69,8 +55,11 @@ export const WithValidationError = () => (
            * If you do, use a simple one like this one.
            * For more info, see: https://design-system.service.gov.uk/patterns/question-pages/#using-progress-indicators
            */}
-          <Paragraph>Stap 1 van 3: Afspraak</Paragraph>
+          <Paragraph>Stap 2 van 3: Uw gegevens</Paragraph>
         </header>
+        <Heading className="ams-mb-m" level={1} size="level-3">
+          Contactgegevens
+        </Heading>
         {/*
          * Do not use HTML5 form validation, because it is not consistent across browsers and devices,
          * and often gives the user too little information.
@@ -80,42 +69,34 @@ export const WithValidationError = () => (
          */}
         <form noValidate onSubmit={(e) => e.preventDefault()}>
           {/* See the docs on specific form components on https://designsystem.amsterdam for more information on how to use them */}
-          <FieldSet
-            // Make sure you only link the error message to the field set when the error message is in the DOM.
-            // Referencing a non-existent element can cause errors in accessibility evaluation tools.
-            aria-describedby="error"
-            aria-required="true"
-            className="ams-mb-l"
-            invalid
-            legend="Kies waar u voor wilt langskomen op het Stadsloket"
-            // When a page consists of a single question, its label or legend should be treated as the main page heading (`h1`).
-            legendIsPageHeading
-            role="radiogroup"
-          >
-            <ErrorMessage className="ams-mb-s" id="error">
-              Geef aan waar u voor wilt langskomen.
-            </ErrorMessage>
-            <Column gap="x-small">
-              <Radio
-                aria-required="true"
-                id="passport-id-driving-license"
-                invalid
-                name="reasonForVisit"
-                value="passport-id-driving-license"
-              >
-                Paspoort / ID / Rijbewijs
-              </Radio>
-              <Radio aria-required="true" invalid name="reasonForVisit" value="permits">
-                Vergunningen
-              </Radio>
-              <Radio aria-required="true" invalid name="reasonForVisit" value="social-counter">
-                Sociaal loket
-              </Radio>
-              <Radio aria-required="true" invalid name="reasonForVisit" value="other">
-                Overig
-              </Radio>
-            </Column>
-          </FieldSet>
+          <Field>
+            <Label htmlFor="email-input" optional>
+              E-mailadres
+            </Label>
+            <TextInput
+              autoComplete="email"
+              autoCorrect="off"
+              className="ams-mb-m"
+              id="email-input"
+              name="email"
+              size={30} // Based on this recommendation: https://design-system.service.gov.uk/patterns/email-addresses/#help-users-to-enter-a-valid-email-address
+              spellCheck="false"
+              type="email"
+            />
+          </Field>
+          <Field className="ams-mb-l">
+            <Label htmlFor="tel-input" optional>
+              Telefoonnummer
+            </Label>
+            <TextInput
+              autoComplete="tel"
+              className="ams-mb-m"
+              id="tel-input"
+              name="phone"
+              size={15} // Phone numbers have a maximum length of 15 characters, as per E.164 standard: https://en.wikipedia.org/wiki/E.164
+              type="tel"
+            />
+          </Field>
           <Button type="submit">Volgende vraag</Button>
         </form>
       </Grid.Cell>

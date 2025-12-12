@@ -29,7 +29,6 @@
     "@amsterdam/design-system-react": "workspace:*",
     "@amsterdam/design-system-react-icons": "workspace:*",
     "@amsterdam/design-system-tokens": "workspace:*",
-    "@babel/core": "7.28.5",
     "@linus_janns/storybook-addon-html": "7.0.2",
     "@mdx-js/react": "3.1.1",
     "@storybook/addon-a11y": "9.1.16",
@@ -38,15 +37,14 @@
     "@storybook/addon-themes": "9.1.16",
     "@storybook/mdx2-csf": "1.1.0",
     "@storybook/react-vite": "9.1.16",
-    "@types/react": "18.3.26",
-    "@vitejs/plugin-react": "5.1.1",
-    "chromatic": "13.3.3",
+    "@types/react": "18.3.27",
+    "@vitejs/plugin-react": "5.1.2",
+    "chromatic": "13.3.4",
     "react": "18.3.1",
     "react-dom": "18.3.1",
     "remark-gfm": "4.0.1",
-    "require-from-string": "2.0.2",
     "storybook": "9.1.16",
     "storybook-addon-pseudo-states": "9.1.16",
-    "vite": "7.2.2"
+    "vite": "7.2.7"
   }
 }

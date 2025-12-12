@@ -1,0 +1,123 @@
+{/* @license CC0-1.0 */}
+
+import { Meta } from "@storybook/addon-docs/blocks";
+
+<Meta title="Pages/Public/Introduction" />
+
+# Public websites
+
+The City maintains numerous websites for various target audiences: citizens, entrepreneurs and visitors.
+This section presents a number of page types for websites of which Amsterdam is the primary sender, and the intended audience is the general public or a specific part of it.
+
+## Spacious Mode
+
+Public websites must use the default Spacious Mode, which applies generous
+[typography](/docs/brand-design-tokens-typography--docs) and [spacing](/docs/brand-design-tokens-space--docs).
+This appearance keeps the focus on the content.
+It makes information easy to read and helps users find what they need without distractions.
+
+## Page structure
+
+The general structure for a page is:
+
+```tsx
+<Page>
+  <SkipLink href="#inhoud">Direct naar inhoud</SkipLink>
+  <PageHeader>
+    <Grid />
+  </PageHeader>
+  <Grid>
+    <Breadcrumb />
+  </Grid>
+  <Grid as="main" id="inhoud">
+    …
+  </Grid>
+  <PageFooter>
+    <PageFooter.Spotlight>
+      <Grid />
+    </PageFooter.Spotlight>
+    <PageFooter.Menu />
+  </PageFooter>
+</Page>
+```
+
+### No Menu
+
+Public websites cannot use the [Menu](/docs/components-navigation-menu--docs) component.
+They should offer navigation using the Page Header only.
+
+## How to size the Grid Cells
+
+Everything on the page is wrapped in a [Grid Cell](/docs/components-layout-grid--docs).
+Its `span` and `start` props let you define where all sections go on the page.
+Do so for all variants of the Grid (narrow, medium, and wide: 4, 8, and 12 columns).
+
+Some typical page sections always use the same values:
+
+### Content page header
+
+The header section contains the page title, publication date, optional metadata, and the lead paragraph.
+It is a bit **wider** than the body section and is positioned slightly further **to the left**.
+
+```tsx
+<Grid.Cell span={{ narrow: 4, medium: 7, wide: 9 }} start={{ narrow: 1, medium: 1, wide: 2 }} />
+```
+
+Breadcrumbs use their own Grid placed directly above the header, using the same cell configuration.
+
+### Content page body
+
+The body section contains the main textual content of the page.
+It spans **7 columns** on the wide grid and **6 columns** on the medium-wide grid to maintain an optimal line length for readability.
+This also applies to forms.
+
+```tsx
+<Grid.Cell span={{ narrow: 4, medium: 6, wide: 7 }} start={{ narrow: 1, medium: 2, wide: 3 }} />
+```
+
+### Side-by-side blocks
+
+Link Blocks (a section with a header, paragraph, and standalone link) can be displayed **side by side**, for example within a Spotlight.
+To achieve this, use the following configuration.
+The `start` prop is not needed here.
+
+```tsx
+<Grid.Cell span={{ narrow: 4, medium: 4, wide: 6 }} />
+```
+
+On navigation pages, similar sections use Link Lists and are 1 column **narrower** on wide screens.
+When rendering them in a loop, the `start` position is only necessary for the odd cells:
+
+```tsx
+<Grid.Cell span={{ narrow: 4, medium: 4, wide: 5 }} start={index % 2 ? undefined : { narrow: 1, medium: 1, wide: 2 }} />
+```
+
+### Top tasks
+
+Top-task overviews use Cards that contain only a heading and a paragraph, without an image.
+On the wide grid, each Card spans 3 columns, fitting **4 per row**.
+On the narrow and medium-wide grids, each Card spans 4 columns.
+The `start` prop is not needed here.
+
+```tsx
+<Grid.Cell span={{ narrow: 4, medium: 4, wide: 3 }} />
+```
+
+### Preview cards
+
+Index pages such as news overviews or search results use Cards as well for navigation.
+They usually do include the image of the target content.
+These layouts require **4 columns** for each Card, which can be achieved with a single spanning value:
+
+```tsx
+<Grid.Cell span={4} />
+```
+
+## Related components
+
+- [Breadcrumb](/docs/components-navigation-breadcrumb--docs)
+- [Grid](/docs/components-layout-grid--docs)
+- [Page Footer](/docs/components-containers-page-footer--docs)
+- [Page Header](/docs/components-containers-page-header--docs)
+- [Page](/docs/components-containers-page--docs)
+- [Skip Link](/docs/components-navigation-skip-link--docs)
