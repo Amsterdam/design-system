@@ -18,7 +18,6 @@
           "sub-steps": {
             "sub-step": {
               "marker": {
-                "block-size": { "value": "calc({ams.typography.heading.2.font-size} / 1.25)" },
                 "inline-size": { "value": "calc({ams.typography.heading.2.font-size} / 1.25)" }
               }
             }
@@ -42,7 +41,6 @@
           "sub-steps": {
             "sub-step": {
               "marker": {
-                "block-size": { "value": "{ams.typography.heading.3.font-size}" },
                 "inline-size": { "value": "{ams.typography.heading.3.font-size}" }
               }
             }
@@ -66,7 +64,6 @@
           "sub-steps": {
             "sub-step": {
               "marker": {
-                "block-size": { "value": "calc({ams.typography.heading.4.font-size} * 1.25)" },
                 "inline-size": { "value": "calc({ams.typography.heading.4.font-size} * 1.25)" }
               }
             }
@@ -112,6 +109,9 @@
             },
             "marker": {
               "background-color": { "value": "{ams.color.background}" },
+              "block-size": {
+                "value": "calc({ams.typography.body-text.font-size} * {ams.typography.body-text.line-height})"
+              },
               "border-color": { "value": "{ams.color.progress.upcoming}" },
               "border-style": { "value": "solid" },
               "border-width": { "value": "{ams.border.width.m}" }
