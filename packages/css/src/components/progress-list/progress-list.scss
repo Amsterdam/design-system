@@ -279,8 +279,6 @@
 
 // Connector
 
-// TODO: Make sure the sub-connector doesn't show when there is no next parent step.
-
 .ams-progress-list__connector {
   align-self: stretch;
   block-size: 100%;
@@ -311,13 +309,9 @@
     border-inline-color: var(--ams-progress-list-step-current-connector-border-inline-color);
   }
 
-  .ams-progress-list__step:last-child & {
+  .ams-progress-list__step:last-child &:not(.ams-progress-list__connector--has-sub-steps) {
     display: none;
   }
-}
-
-.ams-progress-list__connector--has-sub-steps {
-  border-style: var(--ams-progress-list-step-connector-has-sub-steps-border-inline-style);
 }
 
 .ams-progress-list-sub-step__connector {
@@ -329,7 +323,7 @@
   grid-area: 1 / 1; // Overlaps the marker and connector.
 
   .ams-progress-list__sub-step--current & {
-    border-color: var(--ams-progress-list-step-sub-steps-sub-step-current-connector-border-inline-color);
+    border-inline-color: var(--ams-progress-list-step-sub-steps-sub-step-current-connector-border-inline-color);
   }
 
   .ams-progress-list__sub-step--completed & {
@@ -357,6 +351,18 @@
       100% + var(--ams-progress-list-heading-4-step-marker-block-size) / 2 +
         var(--ams-progress-list-step-sub-steps-sub-step-padding-block-end)
     );
+  }
+
+  // Style the connector when it belongs to the last sub-step of the last main step
+  // .ams-progress-list > .ams-progress-list__step:last-child → last main step
+  // .ams-progress-list__sub-steps → the sub-steps container within that step
+  // .ams-progress-list__sub-step:last-child → the last sub-step in that container
+  .ams-progress-list
+    > .ams-progress-list__step:last-child
+    .ams-progress-list__sub-steps
+    .ams-progress-list__sub-step:last-child
+    & {
+    border-inline-color: var(--ams-progress-list-step-sub-steps-sub-step-connector-last-child-border-inline-color);
   }
 }
 

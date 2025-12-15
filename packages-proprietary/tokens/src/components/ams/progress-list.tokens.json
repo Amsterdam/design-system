@@ -120,7 +120,10 @@
               "background-color": { "value": "{ams.color.background}" },
               "border-inline-color": { "value": "{ams.color.progress.upcoming}" },
               "border-inline-style": { "value": "dashed" },
-              "border-inline-width": { "value": "1px" }
+              "border-inline-width": { "value": "1px" },
+              "last-child": {
+                "border-inline-color": { "value": "{ams.color.background}" }
+              }
             },
             "body": {
               "padding-inline-start": { "value": "{ams.space.m}" }
