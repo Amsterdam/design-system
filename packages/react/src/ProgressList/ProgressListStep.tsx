@@ -6,32 +6,34 @@ import type { ForwardedRef, HTMLAttributes, PropsWithChildren } from 'react'
 
 import { ArrowForwardIcon } from '@amsterdam/design-system-react-icons'
 import { clsx } from 'clsx'
-import { Children, forwardRef, isValidElement, useContext } from 'react'
+import { forwardRef, useContext } from 'react'
 
 import { Heading } from '../Heading'
 import { Icon } from '../Icon'
 import ProgressListContext from './ProgressListContext'
-import { ProgressListSubSteps } from './ProgressListSubSteps'
 
 export type ProgressListStepProps = {
+  hasSubSteps?: boolean
   heading: string
   status?: 'current' | 'completed'
 } & PropsWithChildren<HTMLAttributes<HTMLElement>>
 
 export const ProgressListStep = forwardRef(
-  ({ children, className, heading, status, ...restProps }: ProgressListStepProps, ref: ForwardedRef<HTMLLIElement>) => {
+  (
+    { children, className, hasSubSteps, heading, status, ...restProps }: ProgressListStepProps,
+    ref: ForwardedRef<HTMLLIElement>,
+  ) => {
     const { headingLevel } = useContext(ProgressListContext)
-
-    const hasSubSteps = Children.toArray(children).some((child) => {
-      if (!isValidElement(child)) return false
-
-      return child.type === ProgressListSubSteps
-    })
 
     return (
       <li
         aria-current={status === 'current' ? 'step' : undefined}
-        className={clsx('ams-progress-list__step', status && `ams-progress-list__step--${status}`, className)}
+        className={clsx(
+          className,
+          'ams-progress-list__step',
+          hasSubSteps && 'ams-progress-list__step--has-sub-steps',
+          status && `ams-progress-list__step--${status}`,
+        )}
         ref={ref}
         {...restProps}
       >
@@ -43,12 +45,7 @@ export const ProgressListStep = forwardRef(
               )}
             </span>
           </div>
-          <span
-            className={clsx(
-              'ams-progress-list__connector',
-              hasSubSteps && 'ams-progress-list__connector--has-sub-steps',
-            )}
-          />
+          <span className="ams-progress-list__connector" />
         </div>
         <div className="ams-progress-list__content">
           <Heading level={headingLevel}>{heading}</Heading>
