@@ -118,7 +118,7 @@
               "border-inline-color": { "value": "{ams.color.progress.upcoming}" },
               "border-inline-style": { "value": "dashed" },
               "border-inline-width": { "value": "1px" },
-              "last-child": {
+              "last-step": {
                 "border-inline-color": { "value": "{ams.color.background}" }
               }
             },
