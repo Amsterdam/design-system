@@ -26,7 +26,7 @@
   gap: var(--ams-progress-list-step-sub-steps-gap);
 }
 
-// Step
+// Step and sub-step
 
 .ams-progress-list__step,
 .ams-progress-list__sub-step {
@@ -277,6 +277,63 @@
   inline-size: 100%;
 }
 
+.ams-progress-list-sub-step__marker {
+  background-color: var(--ams-progress-list-step-sub-steps-sub-step-marker-background-color);
+  block-size: var(--ams-progress-list-step-sub-steps-sub-step-marker-block-size);
+  grid-area: 1/1;
+  place-content: center;
+  z-index: 2;
+
+  // stylelint-disable plugin/use-baseline
+  .ams-progress-list--heading-2 & {
+    inline-size: var(--ams-progress-list-heading-2-step-sub-steps-sub-step-marker-inline-size);
+
+    @supports (block-size: round(down, 1px, 1px)) {
+      inline-size: round(down, var(--ams-progress-list-heading-2-step-shape-inline-size), 2px);
+    }
+  }
+
+  .ams-progress-list--heading-3 & {
+    inline-size: var(--ams-progress-list-heading-3-step-sub-steps-sub-step-marker-inline-size);
+
+    @supports (block-size: round(down, 1px, 1px)) {
+      inline-size: round(down, var(--ams-progress-list-heading-3-step-shape-inline-size), 2px);
+    }
+  }
+
+  .ams-progress-list--heading-4 & {
+    inline-size: var(--ams-progress-list-heading-4-step-sub-steps-sub-step-marker-inline-size);
+
+    @supports (block-size: round(down, 1px, 1px)) {
+      inline-size: round(down, var(--ams-progress-list-heading-4-step-shape-inline-size), 2px);
+    }
+  }
+  // stylelint-enable plugin/use-baseline
+}
+
+.ams-progress-list-sub-step__marker-shape {
+  background-color: var(--ams-progress-list-step-sub-steps-sub-step-marker-background-color);
+  border-color: var(--ams-progress-list-step-sub-steps-sub-step-marker-border-color);
+  border-style: var(--ams-progress-list-step-sub-steps-sub-step-marker-border-style);
+  border-width: var(--ams-progress-list-step-sub-steps-sub-step-marker-border-width);
+  box-sizing: border-box;
+  display: flex;
+  inline-size: 100%;
+  justify-content: center;
+  margin-inline-start: calc(50% - var(--ams-progress-list-step-connector-border-inline-width));
+  position: relative;
+  z-index: 2;
+
+  .ams-progress-list__sub-step--current & {
+    block-size: inherit;
+    border: none;
+  }
+
+  .ams-progress-list__sub-step--completed & {
+    border-color: var(--ams-progress-list-step-sub-steps-sub-step-completed-marker-border-color);
+  }
+}
+
 // Connector
 
 .ams-progress-list__connector {
@@ -397,61 +454,4 @@
 
 .ams-progress-list-sub-step__body {
   padding-inline-start: var(--ams-progress-list-step-sub-steps-sub-step-body-padding-inline-start);
-}
-
-.ams-progress-list-sub-step__marker {
-  background-color: var(--ams-progress-list-step-sub-steps-sub-step-marker-background-color);
-  block-size: var(--ams-progress-list-step-sub-steps-sub-step-marker-block-size);
-  grid-area: 1/1;
-  place-content: center;
-  z-index: 2;
-
-  // stylelint-disable plugin/use-baseline
-  .ams-progress-list--heading-2 & {
-    inline-size: var(--ams-progress-list-heading-2-step-sub-steps-sub-step-marker-inline-size);
-
-    @supports (block-size: round(down, 1px, 1px)) {
-      inline-size: round(down, var(--ams-progress-list-heading-2-step-shape-inline-size), 2px);
-    }
-  }
-
-  .ams-progress-list--heading-3 & {
-    inline-size: var(--ams-progress-list-heading-3-step-sub-steps-sub-step-marker-inline-size);
-
-    @supports (block-size: round(down, 1px, 1px)) {
-      inline-size: round(down, var(--ams-progress-list-heading-3-step-shape-inline-size), 2px);
-    }
-  }
-
-  .ams-progress-list--heading-4 & {
-    inline-size: var(--ams-progress-list-heading-4-step-sub-steps-sub-step-marker-inline-size);
-
-    @supports (block-size: round(down, 1px, 1px)) {
-      inline-size: round(down, var(--ams-progress-list-heading-4-step-shape-inline-size), 2px);
-    }
-  }
-  // stylelint-enable plugin/use-baseline
-}
-
-.ams-progress-list-sub-step__marker-shape {
-  background-color: var(--ams-progress-list-step-sub-steps-sub-step-marker-background-color);
-  border-color: var(--ams-progress-list-step-sub-steps-sub-step-marker-border-color);
-  border-style: var(--ams-progress-list-step-sub-steps-sub-step-marker-border-style);
-  border-width: var(--ams-progress-list-step-sub-steps-sub-step-marker-border-width);
-  box-sizing: border-box;
-  display: flex;
-  inline-size: 100%;
-  justify-content: center;
-  margin-inline-start: calc(50% - var(--ams-progress-list-step-connector-border-inline-width));
-  position: relative;
-  z-index: 2;
-
-  .ams-progress-list__sub-step--current & {
-    block-size: inherit;
-    border: none;
-  }
-
-  .ams-progress-list__sub-step--completed & {
-    border-color: var(--ams-progress-list-step-sub-steps-sub-step-completed-marker-border-color);
-  }
 }
