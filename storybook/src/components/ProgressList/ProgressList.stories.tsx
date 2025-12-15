@@ -31,9 +31,32 @@ const meta = {
       <ProgressList.Step heading="2025" key={0} status="completed">
         <UnorderedList>{unorderedList1}</UnorderedList>
       </ProgressList.Step>,
-      <ProgressList.Step hasSubSteps heading="2026" key={1} status="current">
+      <ProgressList.Step heading="2026" key={1} status="current">
         <Paragraph className="ams-mb-m">{paragraph1}</Paragraph>
         <UnorderedList>{unorderedList2}</UnorderedList>
+      </ProgressList.Step>,
+      <ProgressList.Step heading="2027" key={2}>
+        <Paragraph>{paragraph3}</Paragraph>
+      </ProgressList.Step>,
+    ],
+    headingLevel: 3,
+  },
+} satisfies Meta<typeof ProgressList>
+
+export default meta
+
+type Story = StoryObj<typeof meta>
+
+export const Default: Story = {}
+
+export const WithSubSteps: Story = {
+  args: {
+    children: [
+      <ProgressList.Step heading="2025" key={0} status="completed">
+        <UnorderedList>{unorderedList1}</UnorderedList>
+      </ProgressList.Step>,
+      <ProgressList.Step hasSubSteps heading="2026" key={1} status="current">
+        <Paragraph className="ams-mb-m">{paragraph1}</Paragraph>
         <ProgressList.SubSteps>
           <ProgressList.SubStep status="completed">
             <Paragraph>{paragraph2}</Paragraph>
@@ -50,12 +73,5 @@ const meta = {
         <Paragraph>{paragraph5}</Paragraph>
       </ProgressList.Step>,
     ],
-    headingLevel: 3,
   },
-} satisfies Meta<typeof ProgressList>
-
-export default meta
-
-type Story = StoryObj<typeof meta>
-
-export const Default: Story = {}
+}
