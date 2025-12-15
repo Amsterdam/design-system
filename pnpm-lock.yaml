@@ -293,8 +293,8 @@ importers:
         specifier: 3.1.1
         version: 3.1.1(@types/react@18.3.27)(react@18.3.1)
       '@storybook/addon-a11y':
-        specifier: 9.1.16
-        version: 9.1.16(storybook@9.1.16(@testing-library/dom@10.4.1)(prettier@3.7.4)(vite@7.2.7(@types/node@24.10.1)(sass@1.96.0)(terser@5.37.0)(yaml@2.8.1)))
+        specifier: 10.1.8
+        version: 10.1.8(storybook@9.1.16(@testing-library/dom@10.4.1)(prettier@3.7.4)(vite@7.2.7(@types/node@24.10.1)(sass@1.96.0)(terser@5.37.0)(yaml@2.8.1)))
       '@storybook/addon-docs':
         specifier: 9.1.16
         version: 9.1.16(@types/react@18.3.27)(storybook@9.1.16(@testing-library/dom@10.4.1)(prettier@3.7.4)(vite@7.2.7(@types/node@24.10.1)(sass@1.96.0)(terser@5.37.0)(yaml@2.8.1)))
@@ -2088,10 +2088,10 @@ packages:
   '@sinonjs/fake-timers@13.0.5':
     resolution: {integrity: sha512-36/hTbH2uaWuGVERyC6da9YwGWnzUZXuPro/F2LfsdOsLnCojz/iSH8MxUt/FD2S5XBSVPhmArFUXcpCQ2Hkiw==}
 
-  '@storybook/addon-a11y@9.1.16':
-    resolution: {integrity: sha512-DpUqAMOgkC/K/DgB9osqbBYmiWWj7V444HeYLHcx7GdPtg2guq1jAcalsOnQeU3wXgUE+wNuyMm6qZKm7of11g==}
+  '@storybook/addon-a11y@10.1.8':
+    resolution: {integrity: sha512-n1u3qCe/91sVjZxmextqnCwpi22YtvOg8SbqZmu5AH1vY8OfhFsLim0kIXBV/qxqf76sRqaGKa89902egMd9Pw==}
     peerDependencies:
-      storybook: ^9.1.16
+      storybook: ^10.1.8
 
   '@storybook/addon-docs@9.1.16':
     resolution: {integrity: sha512-JfaUD6fC7ySLg5duRdaWZ0FUUXrgUvqbZe/agCbSyOaIHOtJdhGaPjOC3vuXTAcV8/8/wWmbu0iXFMD08iKvdw==}
@@ -2928,8 +2928,8 @@ packages:
     resolution: {integrity: sha512-wvUjBtSGN7+7SjNpq/9M2Tg350UZD3q62IFZLbRAR1bSMlCo1ZaeW+BJ+D090e4hIIZLBcTDWe4Mh4jvUDajzQ==}
     engines: {node: '>= 0.4'}
 
-  axe-core@4.10.3:
-    resolution: {integrity: sha512-Xm7bpRXnDSX2YE2YFfBk2FnF0ep6tmG7xPh8iHee8MIcrgq762Nkce856dYtJYLkuIoYZvGfTs/PbZhideTcEg==}
+  axe-core@4.11.0:
+    resolution: {integrity: sha512-ilYanEU8vxxBexpJd8cWM4ElSQq4QctCLKih0TSfjIfCQTeyH/6zVrmIJfLPrKTKJRbiG+cfnZbQIjAlJmF1jQ==}
     engines: {node: '>=4'}
 
   babel-jest@30.2.0:
@@ -8825,10 +8825,10 @@ snapshots:
     dependencies:
       '@sinonjs/commons': 3.0.1
 
-  '@storybook/addon-a11y@9.1.16(storybook@9.1.16(@testing-library/dom@10.4.1)(prettier@3.7.4)(vite@7.2.7(@types/node@24.10.1)(sass@1.96.0)(terser@5.37.0)(yaml@2.8.1)))':
+  '@storybook/addon-a11y@10.1.8(storybook@9.1.16(@testing-library/dom@10.4.1)(prettier@3.7.4)(vite@7.2.7(@types/node@24.10.1)(sass@1.96.0)(terser@5.37.0)(yaml@2.8.1)))':
     dependencies:
       '@storybook/global': 5.0.0
-      axe-core: 4.10.3
+      axe-core: 4.11.0
       storybook: 9.1.16(@testing-library/dom@10.4.1)(prettier@3.7.4)(vite@7.2.7(@types/node@24.10.1)(sass@1.96.0)(terser@5.37.0)(yaml@2.8.1))
 
   '@storybook/addon-docs@9.1.16(@types/react@18.3.27)(storybook@9.1.16(@testing-library/dom@10.4.1)(prettier@3.7.4)(vite@7.2.7(@types/node@24.10.1)(sass@1.96.0)(terser@5.37.0)(yaml@2.8.1)))':
@@ -9765,7 +9765,7 @@ snapshots:
     dependencies:
       possible-typed-array-names: 1.1.0
 
-  axe-core@4.10.3: {}
+  axe-core@4.11.0: {}
 
   babel-jest@30.2.0(@babel/core@7.28.5):
     dependencies:
