@@ -24,6 +24,7 @@ export const ProgressListSubStep = forwardRef(
         {...restProps}
       >
         <div className="ams-progress-list-sub-step__indicator">
+          <span className="ams-progress-list-sub-step__connector--before" />
           <div className="ams-progress-list-sub-step__marker">
             <span className="ams-progress-list-sub-step__marker-shape">
               {status === 'current' && (

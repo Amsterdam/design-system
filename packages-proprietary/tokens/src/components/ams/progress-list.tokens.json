@@ -164,6 +164,12 @@
               "border-width": { "value": "{ams.border.width.m}" }
             },
             "connector": {
+              "before": {
+                "background-color": { "value": "{ams.color.background}" },
+                "border-inline-color": { "value": "{ams.color.progress.upcoming}" },
+                "border-inline-style": { "value": "dashed" },
+                "border-inline-width": { "value": "1px" }
+              },
               "background-color": { "value": "{ams.color.background}" },
               "border-inline-color": { "value": "{ams.color.progress.upcoming}" },
               "border-inline-style": { "value": "dashed" },
@@ -182,7 +188,12 @@
               "connector": {
                 "background-color": { "value": "{ams.color.progress.completed}" },
                 "border-inline-color": { "value": "{ams.color.progress.completed}" },
-                "border-inline-style": { "value": "solid" }
+                "border-inline-style": { "value": "solid" },
+                "before": {
+                  "background-color": { "value": "{ams.color.progress.completed}" },
+                  "border-inline-color": { "value": "{ams.color.progress.completed}" },
+                  "border-inline-style": { "value": "solid" }
+                }
               }
             },
             "current": {
@@ -191,7 +202,12 @@
                 "border-color": { "value": "{ams.color.progress.current}" }
               },
               "connector": {
-                "border-inline-color": { "value": "{ams.color.progress.current}" }
+                "border-inline-color": { "value": "{ams.color.progress.current}" },
+                "before": {
+                  "background-color": { "value": "{ams.color.progress.completed}" },
+                  "border-inline-color": { "value": "{ams.color.progress.completed}" },
+                  "border-inline-style": { "value": "solid" }
+                }
               }
             }
           }
