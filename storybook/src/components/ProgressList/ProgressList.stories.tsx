@@ -36,7 +36,7 @@ const meta = {
         <UnorderedList>{unorderedList2}</UnorderedList>
       </ProgressList.Step>,
       <ProgressList.Step heading="2027" key={2}>
-        <Paragraph>{paragraph3}</Paragraph>
+        <Paragraph>{paragraph2}</Paragraph>
       </ProgressList.Step>,
     ],
     headingLevel: 3,
