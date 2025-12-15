@@ -17,7 +17,20 @@
           },
           "sub-steps": {
             "sub-step": {
+              "indicator": {
+                "margin-inline-start": {
+                  "value": "calc(-1 * var(--ams-progress-list-step-indicator-padding-inline) - var(--ams-progress-list-heading-2-step-shape-inline-size))"
+                },
+                "medium": {
+                  "margin-inline-start": {
+                    "value": "calc(-1 * var(--ams-progress-list-step-sub-steps-sub-step-indicator-medium-padding-inline) - var(--ams-progress-list-heading-2-step-shape-inline-size))"
+                  }
+                }
+              },
               "marker": {
+                "block-size": {
+                  "value": "calc(100% + var(--ams-progress-list-heading-2-step-marker-block-size) / 2 +var(--ams-progress-list-step-sub-steps-sub-step-padding-block-end))"
+                },
                 "inline-size": { "value": "calc({ams.typography.heading.2.font-size} / 1.25)" }
               }
             }
@@ -40,7 +53,20 @@
           },
           "sub-steps": {
             "sub-step": {
+              "indicator": {
+                "margin-inline-start": {
+                  "value": "-1 * var(--ams-progress-list-step-indicator-padding-inline) - var(--ams-progress-list-heading-3-step-shape-inline-size)"
+                },
+                "medium": {
+                  "margin-inline-start": {
+                    "value": "calc(-1 *var(--ams-progress-list-step-sub-steps-sub-step-indicator-medium-padding-inline) - var(--ams-progress-list-heading-3-step-shape-inline-size))"
+                  }
+                }
+              },
               "marker": {
+                "block-size": {
+                  "value": "calc(100% + var(--ams-progress-list-heading-3-step-marker-block-size) / 2 +var(--ams-progress-list-step-sub-steps-sub-step-padding-block-end))"
+                },
                 "inline-size": { "value": "{ams.typography.heading.3.font-size}" }
               }
             }
@@ -63,7 +89,20 @@
           },
           "sub-steps": {
             "sub-step": {
+              "indicator": {
+                "margin-inline-start": {
+                  "value": "-1 * var(--ams-progress-list-step-indicator-padding-inline) - var(--ams-progress-list-heading-4-step-shape-inline-size))"
+                },
+                "medium": {
+                  "margin-inline-start": {
+                    "value": "calc(-1 * var(--ams-progress-list-step-sub-steps-sub-step-indicator-medium-padding-inline) - var(--ams-progress-list-heading-4-step-shape-inline-size))"
+                  }
+                }
+              },
               "marker": {
+                "block-size": {
+                  "value": "calc(100% + var(--ams-progress-list-heading-4-step-marker-block-size) / 2 + var(--ams-progress-list-step-sub-steps-sub-step-padding-block-end))"
+                },
                 "inline-size": { "value": "calc({ams.typography.heading.4.font-size} * 1.25)" }
               }
             }
@@ -99,10 +138,21 @@
         "sub-steps": {
           "gap": { "value": "{ams.space.m}" },
           "sub-step": {
+            "margin-inline-start": {
+              "value": "calc(50% - var(--ams-progress-list-step-connector-border-inline-width))"
+            },
             "padding-block-start": { "value": "{ams.space.m}" },
             "padding-block-end": { "value": "{ams.space.l}" },
             "indicator": {
-              "background-color": { "value": "{ams.color.background}" }
+              "background-color": { "value": "{ams.color.background}" },
+              "padding-inline-end": {
+                "value": "{ams.space.m}"
+              },
+              "medium": {
+                "padding-inline": {
+                  "value": "{ams.space.l}"
+                }
+              }
             },
             "marker": {
               "background-color": { "value": "{ams.color.background}" },
