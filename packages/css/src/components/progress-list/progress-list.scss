@@ -406,9 +406,54 @@
   border-inline-color: var(--ams-progress-list-step-sub-steps-sub-step-connector-before-border-inline-color);
   border-inline-style: var(--ams-progress-list-step-sub-steps-sub-step-connector-before-border-inline-style);
   border-inline-width: var(--ams-progress-list-step-sub-steps-sub-step-connector-before-border-inline-width);
-  grid-area: 1 / 1; // Overlaps the marker and connector.
   inset-block-start: 0;
   position: absolute;
+
+  // stylelint-disable plugin/use-baseline
+  @supports (-webkit-hyphens: none) {
+    .ams-progress-list--heading-2 & {
+      margin-inline-start: var(
+        --ams-progress-list-heading-2-step-sub-steps-sub-step-connector-before-margin-inline-start
+      );
+
+      @supports (block-size: round(down, 1px, 1px)) {
+        margin-inline-start: round(
+          down,
+          var(--ams-progress-list-heading-2-step-sub-steps-sub-step-connector-before-margin-inline-start),
+          1px
+        );
+      }
+    }
+
+    .ams-progress-list--heading-3 & {
+      margin-inline-start: var(
+        --ams-progress-list-heading-3-step-sub-steps-sub-step-connector-before-margin-inline-start
+      );
+
+      @supports (block-size: round(down, 1px, 1px)) {
+        margin-inline-start: round(
+          down,
+          var(--ams-progress-list-heading-3-step-sub-steps-sub-step-connector-before-margin-inline-start),
+          1px
+        );
+      }
+    }
+
+    .ams-progress-list--heading-4 & {
+      margin-inline-start: var(
+        --ams-progress-list-heading-4-step-sub-steps-sub-step-connector-before-margin-inline-start
+      );
+
+      @supports (block-size: round(down, 1px, 1px)) {
+        margin-inline-start: round(
+          down,
+          var(--ams-progress-list-heading-4-step-sub-steps-sub-step-connector-before-margin-inline-start),
+          1px
+        );
+      }
+    }
+  }
+  // stylelint-enable plugin/use-baseline
 
   .ams-progress-list__sub-step--current & {
     background-color: var(--ams-progress-list-step-sub-steps-sub-step-completed-connector-before-background-color);

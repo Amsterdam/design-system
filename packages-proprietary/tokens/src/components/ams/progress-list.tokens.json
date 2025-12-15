@@ -32,6 +32,13 @@
                   "value": "calc(100% + var(--ams-progress-list-heading-2-step-marker-block-size) / 2 + var(--ams-progress-list-step-sub-steps-sub-step-padding-block-end))"
                 },
                 "inline-size": { "value": "calc({ams.typography.heading.2.font-size} / 1.25)" }
+              },
+              "connector": {
+                "before": {
+                  "margin-inline-start": {
+                    "value": "calc(var(--ams-progress-list-heading-2-step-shape-inline-size) / 2 - var(--ams-progress-list-step-connector-border-inline-width))"
+                  }
+                }
               }
             }
           }
@@ -68,6 +75,13 @@
                   "value": "calc(100% + var(--ams-progress-list-heading-3-step-marker-block-size) / 2 + var(--ams-progress-list-step-sub-steps-sub-step-padding-block-end))"
                 },
                 "inline-size": { "value": "{ams.typography.heading.3.font-size}" }
+              },
+              "connector": {
+                "before": {
+                  "margin-inline-start": {
+                    "value": "calc(var(--ams-progress-list-heading-3-step-shape-inline-size) / 2 - var(--ams-progress-list-step-connector-border-inline-width))"
+                  }
+                }
               }
             }
           }
@@ -104,6 +118,13 @@
                   "value": "calc(100% + var(--ams-progress-list-heading-4-step-marker-block-size) / 2 + var(--ams-progress-list-step-sub-steps-sub-step-padding-block-end))"
                 },
                 "inline-size": { "value": "calc({ams.typography.heading.4.font-size} * 1.25)" }
+              },
+              "connector": {
+                "before": {
+                  "margin-inline-start": {
+                    "value": "calc(var(--ams-progress-list-heading-4-step-shape-inline-size) / 2 - var(--ams-progress-list-step-connector-border-inline-width))"
+                  }
+                }
               }
             }
           }
