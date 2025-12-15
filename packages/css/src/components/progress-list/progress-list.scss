@@ -67,13 +67,21 @@
   */
   // stylelint-disable plugin/use-baseline
   .ams-progress-list--heading-2 & {
-    margin-inline-start: var(--ams-progress-list-heading-2-step-sub-steps-sub-step-indicator-margin-inline-start);
+    margin-inline-start: calc(
+      -1 *
+        var(--ams-progress-list-step-indicator-padding-inline) - var(
+          --ams-progress-list-heading-2-step-shape-inline-size
+        )
+    );
 
     @supports (block-size: round(down, 1px, 1px)) {
-      margin-inline-start: round(
-        down,
-        var(--ams-progress-list-heading-2-step-sub-steps-sub-step-indicator-margin-inline-start),
-        2px
+      margin-inline-start: calc(
+        -1 *
+          var(--ams-progress-list-step-indicator-padding-inline) - round(
+            down,
+            var(--ams-progress-list-heading-2-step-shape-inline-size),
+            2px
+          )
       );
     }
   }
@@ -111,10 +119,13 @@
       );
 
       @supports (block-size: round(down, 1px, 1px)) {
-        margin-inline-start: round(
-          down,
-          var(--ams-progress-list-heading-2-step-sub-steps-sub-step-indicator-medium-margin-inline-start),
-          2px
+        margin-inline-start: calc(
+          -1 *
+            var(--ams-progress-list-step-indicator-medium-padding-inline) - round(
+              down,
+              var(--ams-progress-list-heading-2-step-shape-inline-size),
+              2px
+            )
         );
       }
     }
@@ -125,10 +136,13 @@
       );
 
       @supports (block-size: round(down, 1px, 1px)) {
-        margin-inline-start: round(
-          down,
-          var(--ams-progress-list-heading-3-step-sub-steps-sub-step-indicator-medium-margin-inline-start),
-          2px
+        margin-inline-start: calc(
+          -1 *
+            var(--ams-progress-list-step-indicator-medium-padding-inline) - round(
+              down,
+              var(--ams-progress-list-heading-3-step-shape-inline-size),
+              2px
+            )
         );
       }
     }
@@ -139,10 +153,13 @@
       );
 
       @supports (block-size: round(down, 1px, 1px)) {
-        margin-inline-start: round(
-          down,
-          var(--ams-progress-list-heading-4-step-sub-steps-sub-step-indicator-medium-margin-inline-start),
-          2px
+        margin-inline-start: calc(
+          -1 *
+            var(--ams-progress-list-step-indicator-medium-padding-inline) - round(
+              down,
+              var(--ams-progress-list-heading-4-step-shape-inline-size),
+              2px
+            )
         );
       }
     }

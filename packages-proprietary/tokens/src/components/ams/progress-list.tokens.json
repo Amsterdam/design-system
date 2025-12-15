@@ -23,13 +23,13 @@
                 },
                 "medium": {
                   "margin-inline-start": {
-                    "value": "calc(-1 * var(--ams-progress-list-step-sub-steps-sub-step-indicator-medium-padding-inline) - var(--ams-progress-list-heading-2-step-shape-inline-size))"
+                    "value": "calc(-1 * var(--ams-progress-list-step-indicator-medium-padding-inline) - var(--ams-progress-list-heading-2-step-shape-inline-size))"
                   }
                 }
               },
               "marker": {
                 "block-size": {
-                  "value": "calc(100% + var(--ams-progress-list-heading-2-step-marker-block-size) / 2 +var(--ams-progress-list-step-sub-steps-sub-step-padding-block-end))"
+                  "value": "calc(100% + var(--ams-progress-list-heading-2-step-marker-block-size) / 2 + var(--ams-progress-list-step-sub-steps-sub-step-padding-block-end))"
                 },
                 "inline-size": { "value": "calc({ams.typography.heading.2.font-size} / 1.25)" }
               }
@@ -55,17 +55,17 @@
             "sub-step": {
               "indicator": {
                 "margin-inline-start": {
-                  "value": "-1 * var(--ams-progress-list-step-indicator-padding-inline) - var(--ams-progress-list-heading-3-step-shape-inline-size)"
+                  "value": "calc(-1 * var(--ams-progress-list-step-indicator-padding-inline) - var(--ams-progress-list-heading-3-step-shape-inline-size))"
                 },
                 "medium": {
                   "margin-inline-start": {
-                    "value": "calc(-1 *var(--ams-progress-list-step-sub-steps-sub-step-indicator-medium-padding-inline) - var(--ams-progress-list-heading-3-step-shape-inline-size))"
+                    "value": "calc(-1 * var(--ams-progress-list-step-sub-steps-sub-step-indicator-medium-padding-inline) - var(--ams-progress-list-heading-3-step-shape-inline-size))"
                   }
                 }
               },
               "marker": {
                 "block-size": {
-                  "value": "calc(100% + var(--ams-progress-list-heading-3-step-marker-block-size) / 2 +var(--ams-progress-list-step-sub-steps-sub-step-padding-block-end))"
+                  "value": "calc(100% + var(--ams-progress-list-heading-3-step-marker-block-size) / 2 + var(--ams-progress-list-step-sub-steps-sub-step-padding-block-end))"
                 },
                 "inline-size": { "value": "{ams.typography.heading.3.font-size}" }
               }
@@ -91,7 +91,7 @@
             "sub-step": {
               "indicator": {
                 "margin-inline-start": {
-                  "value": "-1 * var(--ams-progress-list-step-indicator-padding-inline) - var(--ams-progress-list-heading-4-step-shape-inline-size))"
+                  "value": "calc(-1 * var(--ams-progress-list-step-indicator-padding-inline) - var(--ams-progress-list-heading-4-step-shape-inline-size))"
                 },
                 "medium": {
                   "margin-inline-start": {
