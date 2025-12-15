@@ -37,7 +37,7 @@
     "@storybook/addon-links": "9.1.16",
     "@storybook/addon-themes": "9.1.16",
     "@storybook/mdx2-csf": "1.1.0",
-    "@storybook/react-vite": "9.1.16",
+    "@storybook/react-vite": "10.1.8",
     "@types/react": "18.3.27",
     "@vitejs/plugin-react": "5.1.2",
     "chromatic": "13.3.4",
