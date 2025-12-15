@@ -90,10 +90,7 @@
         "connector": {
           "border-inline-color": { "value": "{ams.color.progress.upcoming}" },
           "border-inline-style": { "value": "dashed" },
-          "border-inline-width": { "value": "1px" },
-          "has-sub-steps": {
-            "border-inline-style": { "value": "solid" }
-          }
+          "border-inline-width": { "value": "1px" }
         },
         "body": {
           "padding-block-end": { "value": "{ams.space.l}" },

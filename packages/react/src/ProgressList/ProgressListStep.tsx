@@ -49,11 +49,7 @@ export const ProgressListStep = forwardRef(
         </div>
         <div className="ams-progress-list__content">
           <Heading level={headingLevel}>{heading}</Heading>
-          <div
-            className={clsx('ams-progress-list__body', hasSubSteps && 'ams-progress-list__body--has-sub-steps-list')}
-          >
-            {children}
-          </div>
+          <div className="ams-progress-list__body">{children}</div>
         </div>
       </li>
     )
