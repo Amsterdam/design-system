@@ -223,12 +223,7 @@
                 "border-color": { "value": "{ams.color.progress.current}" }
               },
               "connector": {
-                "border-inline-color": { "value": "{ams.color.progress.current}" },
-                "before": {
-                  "background-color": { "value": "{ams.color.progress.completed}" },
-                  "border-inline-color": { "value": "{ams.color.progress.completed}" },
-                  "border-inline-style": { "value": "solid" }
-                }
+                "border-inline-color": { "value": "{ams.color.progress.current}" }
               }
             }
           }
