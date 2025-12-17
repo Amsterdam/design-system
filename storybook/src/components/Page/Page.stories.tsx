@@ -115,9 +115,12 @@ export const WithMenu: Story = {
   ),
 }
 
+const InteralHomePage = () => <Paragraph>Internal home page</Paragraph>
+
 const template: Record<string, () => ReactNode> = {
   form: WithMultipleQuestionsBody,
   home: HomePage,
+  internal: InteralHomePage,
   navigation: DefaultNavigationPage,
   product: ProductPage,
 }
@@ -146,6 +149,38 @@ export const WithBackgroundColour: Story = {
   render: ({ content, ...args }) => {
     const Content = typeof content === 'string' ? template[content] : content
 
+    if (content === 'internal') {
+      return (
+        <Page {...args}>
+          <SkipLink className="ams-page__area--skip-link" href="#inhoud">
+            Direct naar inhoud
+          </SkipLink>
+          <PageHeader brandName="Page Header" className="ams-page__area--header" noMenuButtonOnWideWindow>
+            <Menu>
+              <Menu.Link href="#" icon={<SettingsFillIcon />}>
+                Menu item
+              </Menu.Link>
+            </Menu>
+          </PageHeader>
+          <Menu className="ams-page__area--menu" inWideWindow>
+            <Menu.Link href="#" icon={<SettingsFillIcon />}>
+              Menu item
+            </Menu.Link>
+          </Menu>
+          <main className="ams-page__area--body" id="inhoud">
+            {typeof Content === 'function' ? <Content /> : Content}
+          </main>
+          <PageFooter className="ams-page__area--footer">
+            <Heading className="ams-visually-hidden" level={2}>
+              Over deze website
+            </Heading>
+            <PageFooter.Menu>
+              <PageFooter.MenuLink href="/">Page Footer Menu</PageFooter.MenuLink>
+            </PageFooter.Menu>
+          </PageFooter>
+        </Page>
+      )
+    }
     return (
       <Page {...args}>
         <PageHeader brandName="Page Header" key="header" noMenuButtonOnWideWindow />
