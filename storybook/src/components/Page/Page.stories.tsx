@@ -4,10 +4,16 @@
  */
 
 import type { Meta, StoryObj } from '@storybook/react-vite'
+import type { ReactNode } from 'react'
 
 import { Grid, Heading, Menu, PageFooter, PageHeader, Paragraph, SkipLink } from '@amsterdam/design-system-react'
 import { SettingsFillIcon } from '@amsterdam/design-system-react-icons'
 import { Page } from '@amsterdam/design-system-react/src'
+
+import { WithMultipleQuestionsBody } from '../../pages/public/FormFlow/WithMultipleQuestions'
+import { HomePage } from '../../pages/public/HomePage/HomePage'
+import { DefaultNavigationPage } from '../../pages/public/NavigationPage/NavigationPage.stories'
+import { ProductPage } from '../../pages/public/ProductPage/ProductPage'
 
 const meta = {
   title: 'Components/Containers/Page',
@@ -107,4 +113,61 @@ export const WithMenu: Story = {
       </PageFooter>
     </Page>
   ),
+}
+
+const template: Record<string, () => ReactNode> = {
+  form: WithMultipleQuestionsBody,
+  home: HomePage,
+  navigation: DefaultNavigationPage,
+  product: ProductPage,
+}
+
+export const WithBackgroundColour: Story = {
+  args: {
+    backgroundColor: '#f8f8f8',
+    content: 'home',
+    style: {
+      backgroundColor: '#f8f8f8',
+    },
+  },
+  argTypes: {
+    backgroundColor: {
+      control: 'color',
+      type: 'string',
+    },
+    content: {
+      control: { type: 'radio' },
+      label: 'template',
+      mapping: template,
+      options: ['home', ...Object.keys(template).filter((item) => item !== 'home')],
+      table: { disable: false },
+    },
+  },
+  render: ({ content, ...args }) => {
+    const Content = typeof content === 'string' ? template[content] : content
+
+    return (
+      <Page {...args}>
+        <PageHeader brandName="Page Header" key="header" noMenuButtonOnWideWindow />
+        <main id="inhoud" key="main">
+          {typeof Content === 'function' ? <Content /> : Content}
+        </main>
+        <PageFooter key="footer">
+          <Heading className="ams-visually-hidden" level={2}>
+            Over deze website
+          </Heading>
+          <PageFooter.Spotlight>
+            <Grid paddingVertical="x-large">
+              <Grid.Cell span="all">
+                <Paragraph color="inverse">Page Footer</Paragraph>
+              </Grid.Cell>
+            </Grid>
+          </PageFooter.Spotlight>
+          <PageFooter.Menu>
+            <PageFooter.MenuLink href="/">Page Footer Menu</PageFooter.MenuLink>
+          </PageFooter.Menu>
+        </PageFooter>
+      </Page>
+    )
+  },
 }

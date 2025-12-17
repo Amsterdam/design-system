@@ -3,12 +3,13 @@
  * Copyright Gemeente Amsterdam
  */
 
-import type { ForwardedRef, HTMLAttributes, PropsWithChildren } from 'react'
+import type { CSSProperties, ForwardedRef, HTMLAttributes, PropsWithChildren } from 'react'
 
 import { clsx } from 'clsx'
 import { forwardRef } from 'react'
 
 export type PageProps = {
+  backgroundColor?: CSSProperties['backgroundColor']
   /*
    * Whether the page contains a Menu component.
    * This requires the following class names on the appropriate children:
@@ -25,8 +26,13 @@ export type PageProps = {
  * @see {@link https://designsystem.amsterdam/?path=/docs/components-containers-page--docs Page docs at Amsterdam Design System}
  */
 export const Page = forwardRef(
-  ({ children, className, withMenu, ...restProps }: PageProps, ref: ForwardedRef<HTMLDivElement>) => (
-    <div {...restProps} className={clsx('ams-page', withMenu && 'ams-page--with-menu', className)} ref={ref}>
+  ({ backgroundColor, children, className, withMenu, ...restProps }: PageProps, ref: ForwardedRef<HTMLDivElement>) => (
+    <div
+      {...restProps}
+      className={clsx('ams-page', withMenu && 'ams-page--with-menu', className)}
+      ref={ref}
+      style={{ backgroundColor, boxShadow: `0 0 0 50vw ${backgroundColor}` }}
+    >
       {children}
     </div>
   ),
