@@ -1,0 +1,1 @@
+import{r as t,j as c,c as e}from"./iframe-DB7oF2nf.js";const o=t.forwardRef(({children:r,className:a,...s},p)=>c.jsx("div",{...s,className:e("ams-action-group",a),ref:p,role:"group",children:r}));o.displayName="ActionGroup";try{o.displayName="ActionGroup",o.__docgenInfo={description:"",displayName:"ActionGroup",props:{}}}catch{}export{o as A};
