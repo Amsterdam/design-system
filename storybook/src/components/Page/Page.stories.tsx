@@ -127,10 +127,10 @@ const template: Record<string, () => ReactNode> = {
 
 export const WithBackgroundColour: Story = {
   args: {
-    backgroundColor: '#f8f8f8',
+    backgroundColor: '#fcfcfc',
     content: 'home',
     style: {
-      backgroundColor: '#f8f8f8',
+      backgroundColor: '#fcfcfc',
     },
   },
   argTypes: {
