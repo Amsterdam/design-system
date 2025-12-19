@@ -20,7 +20,7 @@
       "interactive": {
         "contrast": { "value": "#181818" },
         "default": { "value": "#004699" },
-        "disabled": { "value": "#767676" },
+        "disabled": { "value": "#747474" },
         "hover": { "value": "#003677" },
         "invalid": {
           "default": { "value": "#ec0000" },
@@ -32,7 +32,7 @@
       "text": {
         "default": { "value": "#181818" },
         "inverse": { "value": "#fcfcfc" },
-        "secondary": { "value": "#767676" }
+        "secondary": { "value": "#747474" }
       }
     }
   }
