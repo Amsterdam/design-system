@@ -37,29 +37,33 @@ const meta = {
 
 export default meta
 
+export const DefaultNavigationPage = () => (
+  <>
+    <Grid key={1} paddingTop="large">
+      <Grid.Cell span={{ narrow: 4, medium: 7, wide: 9 }} start={{ narrow: 1, medium: 1, wide: 2 }}>
+        <Breadcrumb>
+          <Breadcrumb.Link href="#">Home</Breadcrumb.Link>
+        </Breadcrumb>
+      </Grid.Cell>
+    </Grid>
+    <Grid as="main" id="inhoud" key={2} paddingBottom="x-large">
+      <Grid.Cell span={{ narrow: 4, medium: 7, wide: 9 }} start={{ narrow: 1, medium: 1, wide: 2 }}>
+        <Heading className="ams-mb-m" level={1}>
+          Burgerzaken
+        </Heading>
+        <Paragraph size="large">
+          Heeft u een paspoort, rijbewijs of uittreksel nodig? Of wilt u een verhuizing doorgeven of een geboorte
+          aangeven? Op deze pagina vindt u alle informatie en regelzaken rondom Burgerzaken.
+        </Paragraph>
+      </Grid.Cell>
+      <LinkBlockGridCells headingLevel={2} linkGroups={burgerzakenLinks} />
+    </Grid>
+  </>
+)
+
 export const Default: StoryObj = {
   args: {
-    children: [
-      <Grid key={1} paddingTop="large">
-        <Grid.Cell span={{ narrow: 4, medium: 7, wide: 9 }} start={{ narrow: 1, medium: 1, wide: 2 }}>
-          <Breadcrumb>
-            <Breadcrumb.Link href="#">Home</Breadcrumb.Link>
-          </Breadcrumb>
-        </Grid.Cell>
-      </Grid>,
-      <Grid as="main" id="inhoud" key={2} paddingBottom="x-large">
-        <Grid.Cell span={{ narrow: 4, medium: 7, wide: 9 }} start={{ narrow: 1, medium: 1, wide: 2 }}>
-          <Heading className="ams-mb-m" level={1}>
-            Burgerzaken
-          </Heading>
-          <Paragraph size="large">
-            Heeft u een paspoort, rijbewijs of uittreksel nodig? Of wilt u een verhuizing doorgeven of een geboorte
-            aangeven? Op deze pagina vindt u alle informatie en regelzaken rondom Burgerzaken.
-          </Paragraph>
-        </Grid.Cell>
-        <LinkBlockGridCells headingLevel={2} linkGroups={burgerzakenLinks} />
-      </Grid>,
-    ],
+    children: DefaultNavigationPage,
   },
 }
 

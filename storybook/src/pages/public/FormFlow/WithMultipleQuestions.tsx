@@ -19,10 +19,8 @@ import { ChevronBackwardIcon } from '@amsterdam/design-system-react-icons'
 
 import { FormFooter } from './components/FormFooter'
 
-export const WithMultipleQuestions = () => (
-  <Page>
-    {/* Keep the Page Header as simple as possible, to avoid distractions and to prevent users from accidentally navigating away from the form flow. */}
-    <PageHeader className="ams-mb-xl" />
+export const WithMultipleQuestionsBody = () => (
+  <>
     {/* The back link is in its own Grid, because it should be outside of the main section. */}
     <Grid className="ams-mb-s">
       <Grid.Cell span={{ narrow: 4, medium: 6, wide: 7 }} start={{ narrow: 1, medium: 2, wide: 3 }}>
@@ -101,6 +99,13 @@ export const WithMultipleQuestions = () => (
         </form>
       </Grid.Cell>
     </Grid>
+  </>
+)
+export const WithMultipleQuestions = () => (
+  <Page>
+    {/* Keep the Page Header as simple as possible, to avoid distractions and to prevent users from accidentally navigating away from the form flow. */}
+    <PageHeader className="ams-mb-xl" />
+    <WithMultipleQuestionsBody />
     <FormFooter />
   </Page>
 )

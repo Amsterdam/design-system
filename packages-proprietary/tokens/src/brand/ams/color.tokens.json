@@ -20,19 +20,19 @@
       "interactive": {
         "contrast": { "value": "#181818" },
         "default": { "value": "#004699" },
-        "disabled": { "value": "#767676" },
+        "disabled": { "value": "#747474" },
         "hover": { "value": "#003677" },
         "invalid": {
           "default": { "value": "#ec0000" },
           "hover": { "value": "#b70000" }
         },
-        "inverse": { "value": "#ffffff" }
+        "inverse": { "value": "#fcfcfc" }
       },
       "separator": { "value": "#d1d1d1" },
       "text": {
         "default": { "value": "#181818" },
-        "inverse": { "value": "#ffffff" },
-        "secondary": { "value": "#767676" }
+        "inverse": { "value": "#fcfcfc" },
+        "secondary": { "value": "#747474" }
       }
     }
   }
