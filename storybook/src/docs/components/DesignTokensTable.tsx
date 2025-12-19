@@ -23,6 +23,20 @@ const flattenTokens = (tokens: IDesignTokensTable, parentPath: string[] = []): T
   })
 }
 
+type DesignTokensTableRowProps = {
+  token: string
+  value: string
+}
+
+const DesignTokensTableRow = ({ token, value }: DesignTokensTableRowProps) => (
+  <tr>
+    <td>{token}</td>
+    <td>{value}</td>
+  </tr>
+)
+
+DesignTokensTableRow.displayName = 'DesignTokensTable.Row'
+
 const DesignTokensTableRoot = ({ tokens }: IDesignTokensTable) => {
   const flatTokens = flattenTokens(tokens)
 
@@ -36,10 +50,7 @@ const DesignTokensTableRoot = ({ tokens }: IDesignTokensTable) => {
       </thead>
       <tbody>
         {flatTokens.map(({ path, value }) => (
-          <tr key={path}>
-            <td>{path}</td>
-            <td>{value}</td>
-          </tr>
+          <DesignTokensTableRow key={path} token={path} value={value} />
         ))}
       </tbody>
     </table>
@@ -48,4 +59,6 @@ const DesignTokensTableRoot = ({ tokens }: IDesignTokensTable) => {
 
 DesignTokensTableRoot.displayName = 'DesignTokensTable'
 
-export const DesignTokensTable = Object.assign(DesignTokensTableRoot, {})
+export const DesignTokensTable = Object.assign(DesignTokensTableRoot, {
+  Row: DesignTokensTableRow,
+})
