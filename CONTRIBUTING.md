@@ -105,6 +105,8 @@ If there is no design, or if you have questions about an existing design, please
 
 - **[Follow our Definition of Done](https://github.com/Amsterdam/design-system/blob/main/documentation/definition-of-done.md)**.
 
+- **[Follow our code review guidelines](https://github.com/Amsterdam/design-system/blob/main/documentation/code-reviews.md)**
+
 - **[Resolve any merge conflicts](https://help.github.com/en/github/collaborating-with-issues-and-pull-requests/resolving-a-merge-conflict-on-github)** that occur.
 
 - **Promptly address any CI failures**.
