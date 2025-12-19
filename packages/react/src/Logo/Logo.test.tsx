@@ -48,13 +48,8 @@ describe('Logo', () => {
 
     const component = container.querySelector(':only-child')
 
-    // The custom SVG is rendered
     expect(component).toBeInTheDocument()
-
-    // The BEM class is still applied via Logo component
     expect(component).toHaveClass('ams-logo')
-
-    // The aria-label comes from the custom config
     expect(component).toHaveAttribute('aria-label', 'Custom logo')
   })
 
