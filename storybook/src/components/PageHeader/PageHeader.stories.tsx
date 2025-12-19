@@ -8,8 +8,9 @@ import type { CSSProperties } from 'react'
 
 import { Grid, Heading, LinkList } from '@amsterdam/design-system-react'
 import { LogInIcon, SearchIcon } from '@amsterdam/design-system-react-icons'
-import LogoCustom from '@amsterdam/design-system-react/dist/Logo/brand/LogoCustom'
 import { PageHeader } from '@amsterdam/design-system-react/src'
+
+import LogoCustom from '../Logo/assets/LogoCustom'
 
 const meta = {
   title: 'Components/Containers/Page Header',
