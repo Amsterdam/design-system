@@ -179,3 +179,16 @@ export const OnderzoekEnStatistiek: Story = {
     ],
   },
 }
+
+export const CustomMenuHeading: Story = {
+  args: {
+    children: (
+      <PageFooter.Menu heading="Support links">
+        <PageFooter.MenuLink href="#">About this website</PageFooter.MenuLink>
+        <PageFooter.MenuLink href="#">Privacy</PageFooter.MenuLink>
+        <PageFooter.MenuLink href="#">Cookies</PageFooter.MenuLink>
+        <PageFooter.MenuLink href="#">Web archive</PageFooter.MenuLink>
+      </PageFooter.Menu>
+    ),
+  },
+}
