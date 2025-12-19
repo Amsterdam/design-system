@@ -8,7 +8,7 @@ import type { CSSProperties } from 'react'
 
 import { Logo } from '@amsterdam/design-system-react/src'
 
-import LogoCustom from './assets/LogoCustom'
+import LogoCustom from './LogoCustom'
 
 const meta = {
   title: 'Components/Media/Logo',

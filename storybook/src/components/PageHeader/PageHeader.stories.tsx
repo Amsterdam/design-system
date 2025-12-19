@@ -10,7 +10,7 @@ import { Grid, Heading, LinkList } from '@amsterdam/design-system-react'
 import { LogInIcon, SearchIcon } from '@amsterdam/design-system-react-icons'
 import { PageHeader } from '@amsterdam/design-system-react/src'
 
-import LogoCustom from '../Logo/assets/LogoCustom'
+import LogoCustom from '../Logo/LogoCustom'
 
 const meta = {
   title: 'Components/Containers/Page Header',
