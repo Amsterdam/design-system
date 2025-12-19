@@ -51,8 +51,12 @@ export type PageHeaderProps = {
   logoLinkComponent?: ComponentType<AnchorHTMLAttributes<HTMLAnchorElement>>
   /** The accessible text for the link on the logo. */
   logoLinkTitle?: string
-  /** The text for the menu button. */
+  /** The visible text for the menu button. */
   menuButtonText?: string
+  /** The text for screen readers when the button closes the menu. */
+  menuButtonTextForClose?: string
+  /** The text for screen readers when the button shows the menu. */
+  menuButtonTextForShow?: string
   /** A slot for the menu items. Use PageHeader.MenuLink here. */
   menuItems?: ReactNode
   /** The accessible label for the navigation section. */
@@ -73,6 +77,8 @@ const PageHeaderRoot = forwardRef(
       logoLinkComponent = (props: AnchorHTMLAttributes<HTMLAnchorElement>) => <a {...props} />,
       logoLinkTitle = `Ga naar de homepage${brandName ? ` van ${brandName}` : ''}`,
       menuButtonText = 'Menu',
+      menuButtonTextForClose = 'Sluit navigatie menu',
+      menuButtonTextForShow = 'Toon navigatie menu',
       menuItems,
       navigationLabel = 'Hoofdnavigatie',
       noMenuButtonOnWideWindow,
@@ -125,7 +131,10 @@ const PageHeaderRoot = forwardRef(
                     onClick={() => setOpen(!open)}
                     type="button"
                   >
-                    <span className="ams-page-header__mega-menu-button-label">{menuButtonText}</span>
+                    <span aria-hidden="true" className="ams-page-header__mega-menu-button-label">
+                      {menuButtonText}
+                    </span>
+                    <span className="ams-visually-hidden">{open ? menuButtonTextForClose : menuButtonTextForShow}</span>
                     <span aria-hidden="true" className="ams-page-header__mega-menu-button-hidden-label">
                       {menuButtonText}
                     </span>
