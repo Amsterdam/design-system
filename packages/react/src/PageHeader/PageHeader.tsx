@@ -8,7 +8,8 @@ import type { AnchorHTMLAttributes, ComponentType, ForwardedRef, HTMLAttributes,
 import { clsx } from 'clsx'
 import { forwardRef, useEffect, useState } from 'react'
 
-import type { LogoBrand, LogoBrandConfig } from '../Logo'
+import type { LogoBrand } from '../Logo'
+import type { LogoBrandConfig } from '../Logo/Logo'
 
 import useIsAfterBreakpoint from '../common/useIsAfterBreakpoint'
 import { Icon } from '../Icon'

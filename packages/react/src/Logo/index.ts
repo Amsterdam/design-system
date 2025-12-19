@@ -4,4 +4,4 @@
  */
 
 export { Logo } from './Logo'
-export type { LogoBrand, LogoBrandConfig, LogoProps } from './Logo'
+export type { LogoBrand, LogoProps } from './Logo'
