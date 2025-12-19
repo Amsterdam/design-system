@@ -23,14 +23,29 @@
   @include reset-p;
 }
 
+.ams-paragraph--large {
+  font-size: var(--ams-paragraph-large-font-size);
+  line-height: var(--ams-paragraph-large-line-height);
+
+  /*
+   * If text-wrap is not supported, it is ignored.
+   * This means the wrapped text will look less balanced, which is fine.
+   */
+  /* stylelint-disable-next-line plugin/use-baseline */
+  text-wrap: var(--ams-paragraph-large-text-wrap);
+}
+
+.ams-paragraph__b {
+  font-weight: inherit;
+}
+
 .ams-paragraph--small {
   font-size: var(--ams-paragraph-small-font-size);
   line-height: var(--ams-paragraph-small-line-height);
 }
 
-.ams-paragraph--large {
-  font-size: var(--ams-paragraph-large-font-size);
-  line-height: var(--ams-paragraph-large-line-height);
+.ams-paragraph__small {
+  font-size: inherit;
 }
 
 .ams-paragraph--inverse {

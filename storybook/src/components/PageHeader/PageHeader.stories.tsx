@@ -43,7 +43,7 @@ export const Default: Story = {
   args: {
     brandName: 'Data Amsterdam',
     children: (
-      <Grid paddingVertical="large">
+      <Grid>
         <PageHeader.GridCellNarrowWindowOnly span="all">
           <LinkList>
             <LinkList.Link href="#" lang="en">
@@ -103,7 +103,7 @@ export const Default: Story = {
 export const WithMovingLinks: Story = {
   args: {
     children: (
-      <Grid gapVertical="large" paddingVertical="large">
+      <Grid>
         <PageHeader.GridCellNarrowWindowOnly span="all">
           <LinkList>
             <LinkList.Link href="#" lang="en">
@@ -140,7 +140,7 @@ export const WithoutMenuButtonOnWideWindow: Story = {
   args: {
     brandName: 'Aan de Amsterdamse grachten',
     children: (
-      <Grid paddingVertical="large">
+      <Grid>
         <Grid.Cell span="all">
           <LinkList>
             {WithoutMenuButtonOnWideWindowStoryLinks.map(({ href, label }) => (
@@ -203,7 +203,7 @@ export const WithCustomLogo: Story = {
 export const WithCustomTexts: Story = {
   args: {
     children: (
-      <Grid paddingVertical="large">
+      <Grid>
         <Grid.Cell span="all">
           <LinkList>
             <LinkList.Link href="#" lang="en">

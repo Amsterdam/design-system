@@ -4,10 +4,16 @@
  * Copyright Gemeente Amsterdam
  */
 
-import type { ForwardedRef, HTMLAttributes, PropsWithChildren } from 'react'
+import type { ForwardedRef, HTMLAttributes, PropsWithChildren, ReactNode } from 'react'
 
 import { clsx } from 'clsx'
 import { forwardRef } from 'react'
+
+const wrapChildren = (size: ParagraphProps['size'], children: ReactNode) => {
+  if (size === 'large') return <b className="ams-paragraph__b">{children}</b>
+  if (size === 'small') return <small className="ams-paragraph__small">{children}</small>
+  return children
+}
 
 export type ParagraphProps = {
   /** Changes the text colour for readability on a dark background. */
@@ -26,7 +32,7 @@ export const Paragraph = forwardRef(
       ref={ref}
       {...restProps}
     >
-      {children}
+      {wrapChildren(size, children)}
     </p>
   ),
 )
