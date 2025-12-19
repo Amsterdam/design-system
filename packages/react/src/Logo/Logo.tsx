@@ -3,7 +3,7 @@
  * Copyright Gemeente Amsterdam
  */
 
-import type { ForwardedRef, ForwardRefExoticComponent, RefAttributes, SVGProps } from 'react'
+import type { ComponentType, ForwardedRef, SVGProps } from 'react'
 
 import { clsx } from 'clsx'
 import { forwardRef } from 'react'
@@ -32,7 +32,7 @@ export type LogoProps = {
 
 export type LogoBrandConfig = {
   label: string
-  svg: ForwardRefExoticComponent<RefAttributes<SVGSVGElement> & SVGProps<SVGSVGElement>>
+  svg: ComponentType<SVGProps<SVGSVGElement>>
 }
 
 const logoConfig: Record<LogoBrand, LogoBrandConfig> = {

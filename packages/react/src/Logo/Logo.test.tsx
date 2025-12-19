@@ -3,17 +3,16 @@
  * Copyright Gemeente Amsterdam
  */
 
-import type { ForwardedRef, SVGProps } from 'react'
+import type { SVGProps } from 'react'
 
 import { render } from '@testing-library/react'
-import { createRef, forwardRef } from 'react'
+import { createRef } from 'react'
 
 import type { LogoBrandConfig } from './Logo'
 
-// eslint-disable-next-line react/display-name
-const TestLogo = forwardRef((props: SVGProps<SVGSVGElement>, ref: ForwardedRef<SVGSVGElement>) => (
-  <svg ref={ref} viewBox="0 0 128 32" xmlns="http://www.w3.org/2000/svg" {...props} />
-))
+const TestLogo = (props: SVGProps<SVGSVGElement>) => (
+  <svg viewBox="0 0 128 32" xmlns="http://www.w3.org/2000/svg" {...props} />
+)
 
 import { Logo } from './Logo'
 import '@testing-library/jest-dom'
