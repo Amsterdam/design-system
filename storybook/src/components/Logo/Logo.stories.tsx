@@ -53,7 +53,7 @@ export const MuseumWeesp: Story = {
 export const Custom: Story = {
   args: {
     brand: {
-      label: 'Custom logo',
+      label: 'Gemeente logo',
       logo: LogoCustom,
     },
     style: {
