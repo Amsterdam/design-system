@@ -13,6 +13,9 @@ Provides service information at the bottom of every page.
 - Set [the inverse colour](?path=/docs/brand-design-tokens-colour--docs#pairing-foreground-with-background-colours) on all text and links in the Spotlight area.
 - If the Page Footer contains [Headings](https://designsystem.amsterdam/?path=/docs/components-text-heading--docs), give them level 2 and a size of ‘level-3’.
   A visually hidden heading to group them is not necessary – the footer’s landmark provides enough guidance.
+- The Page Footer Menu includes a visually hidden heading to provide structural context for screen reader users.
+  The default heading text is ‘Over deze website.’
+  Use the `header` prop to override this value when the menu serves a different purpose, or the interface language is not Dutch.
 
 ## Content
 
