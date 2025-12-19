@@ -21,7 +21,7 @@ export const LinkBlockGridCells = ({ headingLevel, linkGroups }: LinkBlockGridCe
     <Grid.Cell
       key={heading}
       span={{ narrow: 4, medium: 4, wide: 5 }}
-      start={{ narrow: 1, medium: index % 2 === 0 ? 1 : 5, wide: index % 2 === 0 ? 2 : 7 }}
+      start={index % 2 ? undefined : { narrow: 1, medium: 1, wide: 2 }}
     >
       <LinkBlock heading={heading} headingLevel={headingLevel} links={links} />
     </Grid.Cell>

@@ -30,7 +30,7 @@ The general structure for a page is:
     <Breadcrumb />
   </Grid>
   <Grid as="main" id="inhoud">
-    … … …
+    …
   </Grid>
   <PageFooter>
     <PageFooter.Spotlight>
@@ -46,50 +46,72 @@ The general structure for a page is:
 Public websites cannot use the [Menu](/docs/components-navigation-menu--docs) component.
 They should offer navigation using the Page Header only.
 
-## Patterns for the Grid
+## How to size the Grid Cells
 
-Everything on the page is wrapped in a Grid Cell.
-Its `span` and `start` props let you define where all sections go on the page; in all three variants of the Grid (4, 8, and 12 columns).
+Everything on the page is wrapped in a [Grid Cell](/docs/components-layout-grid--docs).
+Its `span` and `start` props let you define where all sections go on the page.
+Do so for all variants of the Grid (narrow, medium, and wide: 4, 8, and 12 columns).
 
 Some typical page sections always use the same values:
 
 ### Content page header
 
-The header of a content page contains the Heading, date, and lead paragraph.
-It has 8 columns in the wide Grid.
+The header section contains the page title, publication date, optional metadata, and the lead paragraph.
+It is a bit **wider** than the body section and is positioned slightly further **to the left**.
 
-Breadcrumbs have their own Grid above this section, with the same Cell configuration.
+```tsx
+<Grid.Cell span={{ narrow: 4, medium: 7, wide: 9 }} start={{ narrow: 1, medium: 1, wide: 2 }} />
+```
 
-- `span={{ narrow: 4, medium: 6, wide: 8 }}`
-- `start={{ narrow: 1, medium: 1, wide: 2 }}`
+Breadcrumbs use their own Grid placed directly above the header, using the same cell configuration.
 
 ### Content page body
 
-The body of a content page contains the main text.
-It has 7 columns in the wide Grid to limit the length of running text.
+The body section contains the main textual content of the page.
+It spans **7 columns** on the wide grid and **6 columns** on the medium-wide grid to maintain an optimal line length for readability.
+This also applies to forms.
 
-- `span={{ narrow: 4, medium: 5, wide: 7 }}`
-- `start={{ narrow: 1, medium: 2, wide: 3 }}`
+```tsx
+<Grid.Cell span={{ narrow: 4, medium: 6, wide: 7 }} start={{ narrow: 1, medium: 2, wide: 3 }} />
+```
 
-### Two-column layout
+### Side-by-side blocks
 
-Two sections, each with a Header, a Paragraph, and a Standalone Link, can be placed side by side, e.g. in a Spotlight.
+Link Blocks (a section with a header, paragraph, and standalone link) can be displayed **side by side**, for example within a Spotlight.
+To achieve this, use the following configuration.
+The `start` prop is not needed here.
 
-- `span={{ narrow: 4, medium: 4, wide: 6 }}`
+```tsx
+<Grid.Cell span={{ narrow: 4, medium: 4, wide: 6 }} />
+```
 
-On a navigation page, these sections contain Link Lists and are a bit narrower.
-In a loop, this requires some extra calculations to get the `start` value right.
+On navigation pages, similar sections use Link Lists and are 1 column **narrower** on wide screens.
+When rendering them in a loop, the `start` position is only necessary for the odd cells:
 
-- `span={{ narrow: 4, medium: 4, wide: 5 }}`
-- `start={{ narrow: 1, medium: index % 2 === 0 ? 1 : 5, wide: index % 2 === 0 ? 2 : 7 }}`
+```tsx
+<Grid.Cell span={{ narrow: 4, medium: 4, wide: 5 }} start={index % 2 ? undefined : { narrow: 1, medium: 1, wide: 2 }} />
+```
 
-### Card grids
+### Top tasks
 
-A set of cards can be displayed in a grid, in either three or four columns.
-As the `spans` fit all variants of the Grid, a `start` value can be omitted.
+Top-task overviews use Cards that contain only a heading and a paragraph, without an image.
+On the wide grid, each Card spans 3 columns, fitting **4 per row**.
+On the narrow and medium-wide grids, each Card spans 4 columns.
+The `start` prop is not needed here.
 
-- `span={4}`
-- `span={{ narrow: 4, medium: 4, wide: 3 }}`
+```tsx
+<Grid.Cell span={{ narrow: 4, medium: 4, wide: 3 }} />
+```
+
+### Preview cards
+
+Index pages such as news overviews or search results use Cards as well for navigation.
+They usually do include the image of the target content.
+These layouts require **4 columns** for each Card, which can be achieved with a single spanning value:
+
+```tsx
+<Grid.Cell span={4} />
+```
 
 ## Related components
 
