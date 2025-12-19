@@ -186,20 +186,6 @@ export const WithCustomLogoLink: Story = {
   },
 }
 
-export const WithCustomLogo: Story = {
-  args: {
-    brandName: 'Voorbeeld',
-    logoBrand: {
-      label: 'Gemeente logo',
-      svg: LogoCustom,
-    },
-    style: {
-      '--ams-logo-block-size': 'clamp(1.125rem, 1.0536rem + 0.3571vw, 1.375rem)',
-      '--ams-logo-min-block-size': '1.125rem',
-    } as CSSProperties,
-  },
-}
-
 export const WithCustomTexts: Story = {
   args: {
     children: (
@@ -215,5 +201,19 @@ export const WithCustomTexts: Story = {
     ),
     menuButtonText: 'Alle onderwerpen',
     navigationLabel: 'Navigatie',
+  },
+}
+
+export const WithCustomLogo: Story = {
+  args: {
+    brandName: 'Voorbeeld',
+    logoBrand: {
+      label: 'Gemeente logo',
+      svg: LogoCustom,
+    },
+    style: {
+      '--ams-logo-block-size': 'clamp(1.125rem, 1.0536rem + 0.3571vw, 1.375rem)',
+      '--ams-logo-min-block-size': '1.125rem',
+    } as CSSProperties,
   },
 }
