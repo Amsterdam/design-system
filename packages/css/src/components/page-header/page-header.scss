@@ -151,6 +151,10 @@
   }
 }
 
+.ams-page-header__mega-menu-button-item {
+  display: initial; // Override the `hidden` attribute; the mega menu list item is only shown when CSS loads.
+}
+
 .ams-page-header__mega-menu-button-item--hide-on-wide-window {
   @media screen and (min-width: $ams-breakpoint-wide) {
     display: none;
@@ -165,10 +169,6 @@
   padding-inline: 0;
 
   // [1] Remove the margin in older Safari.
-}
-
-.ams-page-header__mega-menu-list-item {
-  display: initial; // Override the `hidden` attribute; the mega menu list item is only shown when CSS loads.
 }
 
 .ams-page-header__mega-menu-button {
