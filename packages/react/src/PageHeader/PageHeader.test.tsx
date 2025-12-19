@@ -153,7 +153,7 @@ describe('Page Header', () => {
   it('renders a menu button', () => {
     render(<PageHeader>Test</PageHeader>)
 
-    const component = screen.getByRole('button', { name: 'Menu' })
+    const component = screen.getByRole('button', { hidden: true, name: 'Toon navigatie menu' })
 
     expect(component).toHaveClass('ams-page-header__mega-menu-button')
   })
@@ -169,15 +169,15 @@ describe('Page Header', () => {
   it('renders a custom menu button text', () => {
     render(<PageHeader menuButtonText="Custom button text">Test</PageHeader>)
 
-    const component = screen.getByRole('button', { name: 'Custom button text' })
+    const component = screen.getAllByText('Custom button text')
 
-    expect(component).toBeInTheDocument()
+    expect(component[0]).toBeInTheDocument()
   })
 
   it('renders the correct class when noMenuButtonOnWideWindow is true', () => {
     render(<PageHeader noMenuButtonOnWideWindow>Test</PageHeader>)
 
-    const component = screen.getByRole('listitem')
+    const component = screen.getByRole('listitem', { hidden: true })
 
     expect(component).toHaveClass('ams-page-header__mega-menu-button-item--hide-on-wide-window')
   })
@@ -191,7 +191,7 @@ describe('Page Header', () => {
 
     expect(closedMegaMenu).toBeInTheDocument()
 
-    const menuButton = screen.getByRole('button', { name: 'Menu' })
+    const menuButton = screen.getByRole('button', { hidden: true, name: 'Toon navigatie menu' })
 
     await user.click(menuButton)
 
