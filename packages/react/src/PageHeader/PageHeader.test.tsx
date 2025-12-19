@@ -201,6 +201,42 @@ describe('Page Header', () => {
     expect(openMegaMenu).not.toHaveClass('ams-page-header__mega-menu--closed')
   })
 
+  it('updates the menu button text for screen readers when the menu is opened and closed', async () => {
+    const user = userEvent.setup()
+
+    render(<PageHeader>Test</PageHeader>)
+
+    const menuButton = screen.getByRole('button', { hidden: true })
+
+    expect(menuButton).toHaveTextContent('Toon navigatie menu')
+
+    await user.click(menuButton)
+
+    expect(menuButton).toHaveTextContent('Sluit navigatie menu')
+
+    await user.click(menuButton)
+
+    expect(menuButton).toHaveTextContent('Toon navigatie menu')
+  })
+
+  it('renders custom texts for screen readers on the menu button', async () => {
+    const user = userEvent.setup()
+
+    render(
+      <PageHeader menuButtonTextForClose="Custom close text" menuButtonTextForShow="Custom show text">
+        Test
+      </PageHeader>,
+    )
+
+    const menuButton = screen.getByRole('button', { hidden: true })
+
+    expect(menuButton).toHaveTextContent('Custom show text')
+
+    await user.click(menuButton)
+
+    expect(menuButton).toHaveTextContent('Custom close text')
+  })
+
   it.skip('closes the mega menu when it is open and the screen width passes the breakpoint', () => {
     // TODO: Add this test
   })
