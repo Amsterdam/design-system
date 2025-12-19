@@ -167,6 +167,10 @@
   // [1] Remove the margin in older Safari.
 }
 
+.ams-page-header__mega-menu-list-item {
+  display: initial; // Override the `hidden` attribute; the mega menu list item is only shows when CSS loads.
+}
+
 .ams-page-header__mega-menu-button {
   column-gap: var(--ams-page-header-menu-item-column-gap);
   cursor: var(--ams-page-header-mega-menu-button-cursor);

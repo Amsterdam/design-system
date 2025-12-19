@@ -121,8 +121,10 @@ const PageHeaderRoot = forwardRef(
               {hasMegaMenu && (
                 <li
                   className={clsx(
+                    'ams-page-header__mega-menu-list-item',
                     noMenuButtonOnWideWindow && 'ams-page-header__mega-menu-button-item--hide-on-wide-window',
                   )}
+                  hidden // Hide the list item containing the menu button until its CSS loads. If it doesn't load, the menu will always be visible.
                 >
                   <button
                     aria-controls="ams-page-header-mega-menu"
