@@ -6,7 +6,7 @@
 import { render } from '@testing-library/react'
 import { createRef } from 'react'
 
-import type { LogoConfig } from './Logo'
+import type { LogoBrandConfig } from './Logo'
 
 import LogoCustom from './brand/LogoCustom'
 import { Logo } from './Logo'
@@ -39,7 +39,7 @@ describe('Logo', () => {
   })
 
   it('renders a custom logo through the brand prop', () => {
-    const customLogo: LogoConfig = {
+    const customLogo: LogoBrandConfig = {
       label: 'Custom logo',
       svg: LogoCustom,
     }
