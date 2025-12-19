@@ -1,6 +1,6 @@
 import type { SVGProps } from 'react'
 
-const SvgTrashBin = (props: SVGProps<SVGSVGElement>) => (
+const SvgDelete = (props: SVGProps<SVGSVGElement>) => (
   <svg aria-hidden="true" focusable="false" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" {...props}>
     <path d="M9 17.5v-9h2v9zM13 8.5v9h2v-9z" />
     <path
@@ -10,9 +10,4 @@ const SvgTrashBin = (props: SVGProps<SVGSVGElement>) => (
     />
   </svg>
 )
-
-/**
- * @deprecated The ‘TrashBin’ icon will be removed in release 5.0.0.
- * Use ‘Delete’ instead.
- */
-export default SvgTrashBin
+export default SvgDelete
