@@ -1,3 +1,5 @@
+import { Code } from './Code'
+
 type TokenEntry = {
   path: string
   value: string
@@ -30,8 +32,12 @@ type DesignTokensTableRowProps = {
 
 const DesignTokensTableRow = ({ token, value }: DesignTokensTableRowProps) => (
   <tr>
-    <td>{token}</td>
-    <td>{value}</td>
+    <td>
+      <Code>var({token})</Code>
+    </td>
+    <td>
+      <Code>{value}</Code>
+    </td>
   </tr>
 )
 
