@@ -191,7 +191,7 @@ export const WithCustomLogo: Story = {
     brandName: 'Voorbeeld',
     logoBrand: {
       label: 'Gemeente logo',
-      logo: LogoCustom,
+      svg: LogoCustom,
     },
     style: {
       '--ams-logo-block-size': 'clamp(1.125rem, 1.0536rem + 0.3571vw, 1.375rem)',

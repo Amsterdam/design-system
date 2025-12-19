@@ -32,33 +32,33 @@ export type LogoProps = {
 
 export type LogoConfig = {
   label: string
-  logo: ForwardRefExoticComponent<RefAttributes<SVGSVGElement> & SVGProps<SVGSVGElement>>
+  svg: ForwardRefExoticComponent<RefAttributes<SVGSVGElement> & SVGProps<SVGSVGElement>>
 }
 
 const logoConfig: Record<LogoBrand, LogoConfig> = {
   amsterdam: {
     label: 'Gemeente Amsterdam logo',
-    logo: LogoAmsterdam,
+    svg: LogoAmsterdam,
   },
   'ggd-amsterdam': {
     label: 'GGD Amsterdam logo',
-    logo: LogoGgdAmsterdam,
+    svg: LogoGgdAmsterdam,
   },
   'museum-weesp': {
     label: 'Gemeente Amsterdam Museum Weesp logo',
-    logo: LogoMuseumWeesp,
+    svg: LogoMuseumWeesp,
   },
   stadsarchief: {
     label: 'Gemeente Amsterdam Stadsarchief logo',
-    logo: LogoStadsarchief,
+    svg: LogoStadsarchief,
   },
   'stadsbank-van-lening': {
     label: 'Gemeente Amsterdam Stadsbank van Lening logo',
-    logo: LogoStadsbankVanLening,
+    svg: LogoStadsbankVanLening,
   },
   'vga-verzekeringen': {
     label: 'Gemeente Amsterdam VGA Verzekeringen logo',
-    logo: LogoVgaVerzekeringen,
+    svg: LogoVgaVerzekeringen,
   },
 }
 
@@ -72,7 +72,7 @@ export const Logo = forwardRef(
   ) => {
     const config: LogoConfig = typeof brand === 'string' ? logoConfig[brand] : brand
 
-    const { label, logo: LogoComponent } = config
+    const { label, svg: LogoComponent } = config
 
     return (
       <LogoComponent {...restProps} aria-label={ariaLabel || label} className={clsx('ams-logo', className)} ref={ref} />

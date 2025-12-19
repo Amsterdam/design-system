@@ -41,7 +41,7 @@ describe('Logo', () => {
   it('renders a custom logo through the brand prop', () => {
     const customLogo: LogoConfig = {
       label: 'Custom logo',
-      logo: LogoCustom,
+      svg: LogoCustom,
     }
 
     const { container } = render(<Logo brand={customLogo} />)

@@ -54,7 +54,7 @@ export const Custom: Story = {
   args: {
     brand: {
       label: 'Gemeente logo',
-      logo: LogoCustom,
+      svg: LogoCustom,
     },
     style: {
       '--ams-logo-block-size': '1.5rem',
