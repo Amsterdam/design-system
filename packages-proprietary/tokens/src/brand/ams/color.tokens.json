@@ -26,12 +26,12 @@
           "default": { "value": "#ec0000" },
           "hover": { "value": "#b70000" }
         },
-        "inverse": { "value": "#ffffff" }
+        "inverse": { "value": "#fcfcfc" }
       },
       "separator": { "value": "#d1d1d1" },
       "text": {
         "default": { "value": "#181818" },
-        "inverse": { "value": "#ffffff" },
+        "inverse": { "value": "#fcfcfc" },
         "secondary": { "value": "#767676" }
       }
     }
