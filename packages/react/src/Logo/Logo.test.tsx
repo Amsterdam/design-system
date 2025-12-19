@@ -3,12 +3,18 @@
  * Copyright Gemeente Amsterdam
  */
 
+import type { ForwardedRef, SVGProps } from 'react'
+
 import { render } from '@testing-library/react'
-import { createRef } from 'react'
+import { createRef, forwardRef } from 'react'
 
 import type { LogoBrandConfig } from './Logo'
 
-import LogoCustom from './brand/LogoCustom'
+// eslint-disable-next-line react/display-name
+const TestLogo = forwardRef((props: SVGProps<SVGSVGElement>, ref: ForwardedRef<SVGSVGElement>) => (
+  <svg ref={ref} viewBox="0 0 128 32" xmlns="http://www.w3.org/2000/svg" {...props} />
+))
+
 import { Logo } from './Logo'
 import '@testing-library/jest-dom'
 
@@ -39,18 +45,18 @@ describe('Logo', () => {
   })
 
   it('renders a custom logo through the brand prop', () => {
-    const customLogo: LogoBrandConfig = {
-      label: 'Custom logo',
-      svg: LogoCustom,
+    const testLogo: LogoBrandConfig = {
+      label: 'Test logo',
+      svg: TestLogo,
     }
 
-    const { container } = render(<Logo brand={customLogo} />)
+    const { container } = render(<Logo brand={testLogo} />)
 
     const component = container.querySelector(':only-child')
 
     expect(component).toBeInTheDocument()
     expect(component).toHaveClass('ams-logo')
-    expect(component).toHaveAttribute('aria-label', 'Custom logo')
+    expect(component).toHaveAttribute('aria-label', 'Test logo')
   })
 
   it('supports ForwardRef in React', () => {
