@@ -8,7 +8,7 @@ import type { CSSProperties } from 'react'
 
 import { Logo } from '@amsterdam/design-system-react/src'
 
-import LogoCustom from './LogoCustom'
+import ExampleLogo from './ExampleLogo'
 
 const meta = {
   title: 'Components/Media/Logo',
@@ -55,7 +55,7 @@ export const Custom: Story = {
   args: {
     brand: {
       label: 'Gemeente logo',
-      svg: LogoCustom,
+      svg: ExampleLogo,
     },
     style: {
       '--ams-logo-block-size': '1.5rem',

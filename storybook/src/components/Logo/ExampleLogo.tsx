@@ -7,7 +7,7 @@ import type { ForwardedRef, SVGProps } from 'react'
 
 import { forwardRef } from 'react'
 
-const LogoCustom = forwardRef((props: SVGProps<SVGSVGElement>, ref: ForwardedRef<SVGSVGElement>) => (
+const ExampleLogo = forwardRef((props: SVGProps<SVGSVGElement>, ref: ForwardedRef<SVGSVGElement>) => (
   <svg
     focusable="false"
     height="1rem" // Height for when CSS does not load, gets overridden when it does
@@ -24,6 +24,6 @@ const LogoCustom = forwardRef((props: SVGProps<SVGSVGElement>, ref: ForwardedRef
   </svg>
 ))
 
-LogoCustom.displayName = 'LogoCustom'
+ExampleLogo.displayName = 'LogoCustom'
 
-export default LogoCustom
+export default ExampleLogo

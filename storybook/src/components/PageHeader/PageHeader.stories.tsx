@@ -10,7 +10,7 @@ import { Grid, Heading, LinkList } from '@amsterdam/design-system-react'
 import { LogInIcon, SearchIcon } from '@amsterdam/design-system-react-icons'
 import { PageHeader } from '@amsterdam/design-system-react/src'
 
-import LogoCustom from '../Logo/LogoCustom'
+import ExampleLogo from '../Logo/ExampleLogo'
 
 const meta = {
   title: 'Components/Containers/Page Header',
@@ -210,7 +210,7 @@ export const WithCustomLogo: Story = {
     brandName: 'Voorbeeld',
     logoBrand: {
       label: 'Gemeente logo',
-      svg: LogoCustom,
+      svg: ExampleLogo,
     },
     style: {
       '--ams-logo-block-size': 'clamp(1.125rem, 1.0536rem + 0.3571vw, 1.375rem)',
