@@ -1,8 +1,12 @@
 {/* @license CC0-1.0 */}
 
 import { Canvas, Controls, Markdown, Meta, Primary } from "@storybook/addon-docs/blocks";
+
 import * as PageStories from "./Page.stories.tsx";
 import README from "../../../../packages/css/src/components/page/README.md?raw";
+import tokens from "../../../../packages-proprietary/tokens/src/components/ams/page.tokens.json";
+
+import { DesignTokensTable } from "../../docs/components/DesignTokensTable";
 
 <Meta of={PageStories} />
 
@@ -24,3 +28,7 @@ This is an alternative to the approach using Link Lists, which is appropriate fo
 <Canvas of={PageStories.WithMenu} />
 
 See the [Home Page](/story/pages-internal-home-page--default) template for internal websites for a full-page example.
+
+## Tokens
+
+<DesignTokensTable tokens={tokens} />

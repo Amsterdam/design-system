@@ -1,8 +1,12 @@
 {/* @license CC0-1.0 */}
 
 import { Canvas, Markdown, Meta, Primary } from "@storybook/addon-docs/blocks";
+
 import * as TableStories from "./Table.stories.tsx";
 import README from "../../../../packages/css/src/components/table/README.md?raw";
+import tokens from "../../../../packages-proprietary/tokens/src/components/ams/table.tokens.json";
+
+import { DesignTokensTable } from "../../docs/components/DesignTokensTable";
 
 <Meta of={TableStories} />
 
@@ -19,3 +23,7 @@ Use the scope attribute to help users of assistive technology distinguish betwee
 Use `Table.Footer` for a summary row.
 
 <Canvas of={TableStories.WithFooterAndRowHeaders} />
+
+## Tokens
+
+<DesignTokensTable tokens={tokens} />

@@ -1,8 +1,12 @@
 {/* @license CC0-1.0 */}
 
 import { Canvas, Controls, Markdown, Meta, Primary } from "@storybook/addon-docs/blocks";
+
 import * as PageHeaderStories from "./PageHeader.stories.tsx";
 import README from "../../../../packages/css/src/components/page-header/README.md?raw";
+import tokens from "../../../../packages-proprietary/tokens/src/components/ams/page-header.tokens.json";
+
+import { DesignTokensTable } from "../../docs/components/DesignTokensTable";
 
 <Meta of={PageHeaderStories} />
 
@@ -70,3 +74,7 @@ const LinkComponent = (props) => <NextLink {...props} />
 
 return <PageHeader logoLinkComponent={LinkComponent} />
 ```
+
+## Tokens
+
+<DesignTokensTable tokens={tokens} />

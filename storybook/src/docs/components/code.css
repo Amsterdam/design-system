@@ -1,0 +1,21 @@
+/*  Replicates the styles of the Code preview in Storybook Docs */
+.ams-storybook-code {
+  background-color: #f7fafc;
+  border: var(--ams-border-width-s) solid #ecf4f9;
+  border-radius: 3px;
+  color: var(--ams-color-text);
+  display: inline-block;
+
+  /* ui-monospace is not yet widely supported, fallbacks are provided */
+  /* stylelint-disable-next-line plugin/use-baseline */
+  font-family:
+    ui-monospace, "Menlo", "Monaco", "Roboto Mono", "Oxygen Mono", "Ubuntu Monospace", "Source Code Pro",
+    "Droid Sans Mono", "Courier New", monospace;
+  font-size: 0.8125rem;
+  -webkit-font-smoothing: antialiased;
+  line-height: 1;
+  padding-block: var(--ams-space-xs);
+  padding-inline: var(--ams-space-xs);
+  vertical-align: baseline;
+  white-space: nowrap;
+}

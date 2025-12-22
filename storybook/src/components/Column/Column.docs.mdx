@@ -1,8 +1,12 @@
 {/* @license CC0-1.0 */}
 
 import { Canvas, Controls, Markdown, Meta, Primary } from "@storybook/addon-docs/blocks";
+
 import * as ColumnStories from "./Column.stories.tsx";
 import README from "../../../../packages/css/src/components/column/README.md?raw";
+import tokens from "../../../../packages-proprietary/tokens/src/components/ams/column.tokens.json";
+
+import { DesignTokensTable } from "../../docs/components/DesignTokensTable";
 
 <Meta of={ColumnStories} />
 
@@ -58,3 +62,7 @@ Use the `as` prop to make your markup more semantic.
 In this example, the Column uses a `<section>` element to group the heading and the cards.
 
 <Canvas of={ColumnStories.ImproveSemantics} />
+
+## Tokens
+
+<DesignTokensTable tokens={tokens} />

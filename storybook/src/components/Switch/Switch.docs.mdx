@@ -1,8 +1,12 @@
 {/* @license CC0-1.0 */}
 
 import { Canvas, Controls, Markdown, Meta, Primary } from "@storybook/addon-docs/blocks";
+
 import * as SwitchStories from "./Switch.stories.tsx";
 import README from "../../../../packages/css/src/components/switch/README.md?raw";
+import tokens from "../../../../packages-proprietary/tokens/src/components/ams/switch.tokens.json";
+
+import { DesignTokensTable } from "../../docs/components/DesignTokensTable";
 
 <Meta of={SwitchStories} />
 
@@ -17,3 +21,7 @@ import README from "../../../../packages/css/src/components/switch/README.md?raw
 ### With Label
 
 <Canvas of={SwitchStories.WithLabel} />
+
+## Tokens
+
+<DesignTokensTable tokens={tokens} />

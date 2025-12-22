@@ -1,8 +1,12 @@
 {/* @license CC0-1.0 */}
 
-import { Canvas, Markdown, Meta, Primary } from "@storybook/addon-docs/blocks";
+import { Canvas, Controls, Markdown, Meta, Primary } from "@storybook/addon-docs/blocks";
+
 import * as PageFooterStories from "./PageFooter.stories.tsx";
 import README from "../../../../packages/css/src/components/page-footer/README.md?raw";
+import tokens from "../../../../packages-proprietary/tokens/src/components/ams/page-footer.tokens.json";
+
+import { DesignTokensTable } from "../../docs/components/DesignTokensTable";
 
 <Meta of={PageFooterStories} />
 
@@ -18,3 +22,7 @@ The Page Footer for a specific website can be a bit different.
 Here’s an example for the ‘Onderzoek en Statistiek’ department.
 
 <Canvas of={PageFooterStories.OnderzoekEnStatistiek} />
+
+## Tokens
+
+<DesignTokensTable tokens={tokens} />

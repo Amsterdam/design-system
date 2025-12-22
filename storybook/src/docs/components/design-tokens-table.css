@@ -1,0 +1,9 @@
+.ams-storybook-design-tokens-table {
+  overflow-x: auto;
+}
+
+.ams-storybook-design-tokens-table--header {
+  th {
+    text-align: start;
+  }
+}
