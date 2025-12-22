@@ -1,3 +1,4 @@
+import './design-tokens-table.css'
 import { Code } from './Code'
 
 type TokenEntry = {
@@ -47,19 +48,21 @@ const DesignTokensTableRoot = ({ tokens }: IDesignTokensTable) => {
   const flatTokens = flattenTokens(tokens)
 
   return (
-    <table>
-      <thead>
-        <tr>
-          <th>Token</th>
-          <th>Value</th>
-        </tr>
-      </thead>
-      <tbody>
-        {flatTokens.map(({ path, value }) => (
-          <DesignTokensTableRow key={path} token={path} value={value} />
-        ))}
-      </tbody>
-    </table>
+    <div className="ams-storybook-design-tokens-table">
+      <table>
+        <thead>
+          <tr>
+            <th>CSS variable</th>
+            <th>Value</th>
+          </tr>
+        </thead>
+        <tbody>
+          {flatTokens.map(({ path, value }) => (
+            <DesignTokensTableRow key={path} token={path} value={value} />
+          ))}
+        </tbody>
+      </table>
+    </div>
   )
 }
 
