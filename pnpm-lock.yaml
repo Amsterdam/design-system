@@ -268,8 +268,8 @@ importers:
         specifier: 2.1.1
         version: 2.1.1
       html-react-parser:
-        specifier: 5.2.10
-        version: 5.2.10(@types/react@18.3.27)(react@18.3.1)
+        specifier: 5.2.11
+        version: 5.2.11(@types/react@18.3.27)(react@18.3.1)
     devDependencies:
       '@amsterdam/design-system-assets':
         specifier: workspace:*
@@ -4133,8 +4133,8 @@ packages:
   html-escaper@2.0.2:
     resolution: {integrity: sha512-H2iMtd0I4Mt5eYiapRdIDjp+XzelXQ0tFE4JS7YFwFevXXMmOp9myNrUvCg0D6ws8iqkRPBfKHgbwig1SmlLfg==}
 
-  html-react-parser@5.2.10:
-    resolution: {integrity: sha512-DjOLloguuDA+Ed7Q7PKhvMQmCl2+Yk/pfvvca68fvn15QFBbL4uHGxXwoXQ4sqS0UyuRH2lJb0S8yZCL3lvehQ==}
+  html-react-parser@5.2.11:
+    resolution: {integrity: sha512-WnSQVn/D1UTj64nSz5y8MriL+MrbsZH80Ytr1oqKqs8DGZnphWY1R1pl3t7TY3rpqTSu+FHA21P80lrsmrdNBA==}
     peerDependencies:
       '@types/react': 0.14 || 15 || 16 || 17 || 18 || 19
       react: 0.14 || 15 || 16 || 17 || 18 || 19
@@ -11116,7 +11116,7 @@ snapshots:
 
   html-escaper@2.0.2: {}
 
-  html-react-parser@5.2.10(@types/react@18.3.27)(react@18.3.1):
+  html-react-parser@5.2.11(@types/react@18.3.27)(react@18.3.1):
     dependencies:
       domhandler: 5.0.3
       html-dom-parser: 5.1.2
