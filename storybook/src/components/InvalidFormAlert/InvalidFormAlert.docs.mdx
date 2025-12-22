@@ -1,8 +1,12 @@
 {/* @license CC0-1.0 */}
 
 import { Controls, Markdown, Meta, Primary } from "@storybook/addon-docs/blocks";
+
 import * as InvalidFormAlertStories from "./InvalidFormAlert.stories.tsx";
 import README from "../../../../packages/css/src/components/invalid-form-alert/README.md?raw";
+import tokens from "../../../../packages-proprietary/tokens/src/components/ams/invalid-form-alert.tokens.json";
+
+import { DesignTokensTable } from "../../docs/components/DesignTokensTable";
 
 <Meta of={InvalidFormAlertStories} />
 
@@ -11,3 +15,7 @@ import README from "../../../../packages/css/src/components/invalid-form-alert/R
 <Primary />
 
 <Controls />
+
+## Tokens
+
+<DesignTokensTable tokens={tokens} />

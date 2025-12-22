@@ -1,8 +1,12 @@
 {/* @license CC0-1.0 */}
 
 import { Canvas, Controls, Markdown, Meta, Primary } from "@storybook/addon-docs/blocks";
+
 import * as LogoStories from "./Logo.stories.tsx";
 import README from "../../../../packages/css/src/components/logo/README.md?raw";
+import tokens from "../../../../packages-proprietary/tokens/src/components/ams/logo.tokens.json";
+
+import { DesignTokensTable } from "../../docs/components/DesignTokensTable";
 
 <Meta of={LogoStories} />
 
@@ -33,3 +37,7 @@ import README from "../../../../packages/css/src/components/logo/README.md?raw";
 ### Museum Weesp
 
 <Canvas of={LogoStories.MuseumWeesp} />
+
+## Tokens
+
+<DesignTokensTable tokens={tokens} />

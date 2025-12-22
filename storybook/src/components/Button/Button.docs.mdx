@@ -1,8 +1,12 @@
 {/* @license CC0-1.0 */}
 
 import { Canvas, Controls, Markdown, Meta, Primary } from "@storybook/addon-docs/blocks";
+
 import * as ButtonStories from "./Button.stories.tsx";
 import README from "../../../../packages/css/src/components/button/README.md?raw";
+import tokens from "../../../../packages-proprietary/tokens/src/components/ams/button.tokens.json";
+
+import { DesignTokensTable } from "../../docs/components/DesignTokensTable";
 
 <Meta of={ButtonStories} />
 
@@ -60,3 +64,7 @@ The label may occasionally wrap over multiple lines.
 This can happen if no shorter text is available, two buttons sit next to each other on a narrow screen, or the user has configured a large font on their device.
 
 <Canvas of={ButtonStories.TextWrapping} />
+
+## Tokens
+
+<DesignTokensTable tokens={tokens} />

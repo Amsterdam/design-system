@@ -1,8 +1,12 @@
 {/* @license CC0-1.0 */}
 
 import { Canvas, Controls, Markdown, Meta, Primary } from "@storybook/addon-docs/blocks";
+
 import * as RadioStories from "./Radio.stories.tsx";
 import README from "../../../../packages/css/src/components/radio/README.md?raw";
+import tokens from "../../../../packages-proprietary/tokens/src/components/ams/radio.tokens.json";
+
+import { DesignTokensTable } from "../../docs/components/DesignTokensTable";
 
 <Meta of={RadioStories} />
 
@@ -47,3 +51,7 @@ Use `ams-radio__circle`, `ams-radio__hover-indicator` and `ams-radio__checked-in
 Websites for the City of Amsterdam must use the default icon.
 
 <Canvas of={RadioStories.WithCustomIcon} />
+
+## Tokens
+
+<DesignTokensTable tokens={tokens} />

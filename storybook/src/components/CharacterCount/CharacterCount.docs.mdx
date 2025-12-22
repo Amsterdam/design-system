@@ -1,8 +1,12 @@
 {/* @license CC0-1.0 */}
 
 import { Canvas, Controls, Markdown, Meta, Primary } from "@storybook/addon-docs/blocks";
+
 import * as CharacterCountStories from "./CharacterCount.stories.tsx";
 import README from "../../../../packages/css/src/components/character-count/README.md?raw";
+import tokens from "../../../../packages-proprietary/tokens/src/components/ams/character-count.tokens.json";
+
+import { DesignTokensTable } from "../../docs/components/DesignTokensTable";
 
 <Meta of={CharacterCountStories} />
 
@@ -19,3 +23,7 @@ import README from "../../../../packages/css/src/components/character-count/READ
 When the length exceeds the maximum length, the colour of the text changes to red.
 
 <Canvas of={CharacterCountStories.Error} />
+
+## Tokens
+
+<DesignTokensTable tokens={tokens} />

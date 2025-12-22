@@ -1,8 +1,12 @@
 {/* @license CC0-1.0 */}
 
 import { Controls, Markdown, Meta, Primary } from "@storybook/addon-docs/blocks";
+
 import * as PaginationStories from "./Pagination.stories.tsx";
 import README from "../../../../packages/css/src/components/pagination/README.md?raw";
+import tokens from "../../../../packages-proprietary/tokens/src/components/ams/pagination.tokens.json";
+
+import { DesignTokensTable } from "../../docs/components/DesignTokensTable";
 
 <Meta of={PaginationStories} />
 
@@ -41,3 +45,7 @@ const LinkComponent = (props) => <NextLink {...props} />
 
 return <Pagination linkComponent={LinkComponent} />
 ```
+
+## Tokens
+
+<DesignTokensTable tokens={tokens} />

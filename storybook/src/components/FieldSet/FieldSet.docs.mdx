@@ -1,8 +1,12 @@
 {/* @license CC0-1.0 */}
 
 import { Canvas, Controls, Markdown, Meta, Primary } from "@storybook/addon-docs/blocks";
+
 import * as FieldSetStories from "./FieldSet.stories.tsx";
 import README from "../../../../packages/css/src/components/field-set/README.md?raw";
+import tokens from "../../../../packages-proprietary/tokens/src/components/ams/field-set.tokens.json";
+
+import { DesignTokensTable } from "../../docs/components/DesignTokensTable";
 
 <Meta of={FieldSetStories} />
 
@@ -58,3 +62,7 @@ A Field Set can be nested inside another Field Set.
 Use the `inFieldSet` prop to show the legend in a lighter style.
 
 <Canvas of={FieldSetStories.WithANestedFieldSet} />
+
+## Tokens
+
+<DesignTokensTable tokens={tokens} />

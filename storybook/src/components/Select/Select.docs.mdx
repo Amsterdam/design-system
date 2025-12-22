@@ -1,8 +1,12 @@
 {/* @license CC0-1.0 */}
 
 import { Canvas, Controls, Markdown, Meta, Primary } from "@storybook/addon-docs/blocks";
+
 import * as SelectStories from "./Select.stories.tsx";
 import README from "../../../../packages/css/src/components/select/README.md?raw";
+import tokens from "../../../../packages-proprietary/tokens/src/components/ams/select.tokens.json";
+
+import { DesignTokensTable } from "../../docs/components/DesignTokensTable";
 
 <Meta of={SelectStories} />
 
@@ -52,3 +56,7 @@ If the Select can become invalid, add an Error Message and its `id` to the `aria
 Check [the Field docs](/docs/components-forms-field--docs) for more information on configuring it.
 
 <Canvas of={SelectStories.InAFieldWithValidation} />
+
+## Tokens
+
+<DesignTokensTable tokens={tokens} />

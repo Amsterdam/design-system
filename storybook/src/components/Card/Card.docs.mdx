@@ -1,8 +1,12 @@
 {/* @license CC0-1.0 */}
 
 import { Canvas, Markdown, Meta, Primary } from "@storybook/addon-docs/blocks";
+
 import * as CardStories from "./Card.stories.tsx";
 import README from "../../../../packages/css/src/components/card/README.md?raw";
+import tokens from "../../../../packages-proprietary/tokens/src/components/ams/card.tokens.json";
+
+import { DesignTokensTable } from "../../docs/components/DesignTokensTable";
 
 <Meta of={CardStories} />
 
@@ -36,3 +40,7 @@ Position 4 to 8 tasks on a [Grid](/docs/components-layout-grid--docs); left-alig
 For a group of links without a description, use a [Link List](/docs/components-navigation-link--docs) instead.
 
 <Canvas of={CardStories.TopTasks} />
+
+## Tokens
+
+<DesignTokensTable tokens={tokens} />

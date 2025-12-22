@@ -1,8 +1,12 @@
 {/* @license CC0-1.0 */}
 
 import { Canvas, Controls, Markdown, Meta, Primary } from "@storybook/addon-docs/blocks";
+
 import * as IconButtonStories from "./IconButton.stories.tsx";
 import README from "../../../../packages/css/src/components/icon-button/README.md?raw";
+import tokens from "../../../../packages-proprietary/tokens/src/components/ams/icon-button.tokens.json";
+
+import { DesignTokensTable } from "../../docs/components/DesignTokensTable";
 
 <Meta of={IconButtonStories} />
 
@@ -32,3 +36,7 @@ Use the inverse colour on an azure, blue, green, magenta or purple background.
 It will make the icon white.
 
 <Canvas of={IconButtonStories.InverseColour} />
+
+## Tokens
+
+<DesignTokensTable tokens={tokens} />

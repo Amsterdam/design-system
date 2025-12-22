@@ -1,8 +1,12 @@
 {/* @license CC0-1.0 */}
 
 import { Canvas, Controls, Markdown, Meta, Primary } from "@storybook/addon-docs/blocks";
+
 import * as BlockquoteStories from "./Blockquote.stories.tsx";
 import README from "../../../../packages/css/src/components/blockquote/README.md?raw";
+import tokens from "../../../../packages-proprietary/tokens/src/components/ams/blockquote.tokens.json";
+
+import { DesignTokensTable } from "../../docs/components/DesignTokensTable";
 
 <Meta of={BlockquoteStories} />
 
@@ -20,3 +24,7 @@ Use the inverse colour if the Blockquote sits on a dark background.
 This ensures the colour of the text provides enough contrast.
 
 <Canvas of={BlockquoteStories.InverseColour} />
+
+## Tokens
+
+<DesignTokensTable tokens={tokens} />
