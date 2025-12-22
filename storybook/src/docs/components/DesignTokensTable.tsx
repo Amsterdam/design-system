@@ -1,16 +1,20 @@
 import './design-tokens-table.css'
 import { Code } from './Code'
 
+type TokenValue = {
+  value: string
+}
+
+type DesignTokens = {
+  [key: string]: TokenValue | DesignTokens
+}
+
 type TokenEntry = {
   path: string
   value: string
 }
 
-type IDesignTokensTable = {
-  tokens: IDesignTokensTable
-}
-
-const flattenTokens = (tokens: IDesignTokensTable, parentPath: string[] = []): TokenEntry[] => {
+const flattenTokens = (tokens: DesignTokens, parentPath: string[] = []): TokenEntry[] => {
   return Object.entries(tokens).flatMap(([key, value]) => {
     const currentToken = [...parentPath, key]
 
@@ -44,13 +48,13 @@ const DesignTokensTableRow = ({ name, value }: DesignTokensTableRowProps) => (
 
 DesignTokensTableRow.displayName = 'DesignTokensTable.Row'
 
-const DesignTokensTableRoot = ({ tokens }: IDesignTokensTable) => {
+const DesignTokensTableRoot = ({ tokens }: { tokens: DesignTokens }) => {
   const flatTokens = flattenTokens(tokens)
 
   return (
     <div className="ams-storybook-design-tokens-table">
       <table>
-        <thead>
+        <thead className="ams-storybook-design-tokens-table--header">
           <tr>
             <th>CSS variable</th>
             <th>Value</th>
