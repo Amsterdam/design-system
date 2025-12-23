@@ -1,29 +1,29 @@
 {
   "ams": {
     "link": {
-      "color": { "value": "{ams.links.color}" },
-      "font-family": { "value": "inherit" },
-      "font-size": { "value": "inherit" },
-      "font-weight": { "value": "{ams.typography.body-text.font-weight}" },
-      "line-height": { "value": "inherit" },
-      "outline-offset": { "value": "{ams.focus.outline-offset}" },
-      "text-decoration-thickness": { "value": "{ams.links.text-decoration-thickness}" },
-      "text-underline-offset": { "value": "{ams.links.text-underline-offset}" },
+      "color": { "$value": "{ams.links.color}" },
+      "font-family": { "$value": "inherit" },
+      "font-size": { "$value": "inherit" },
+      "font-weight": { "$value": "{ams.typography.body-text.font-weight}" },
+      "line-height": { "$value": "inherit" },
+      "outline-offset": { "$value": "{ams.focus.outline-offset}" },
+      "text-decoration-thickness": { "$value": "{ams.links.text-decoration-thickness}" },
+      "text-underline-offset": { "$value": "{ams.links.text-underline-offset}" },
       "hover": {
-        "color": { "value": "{ams.links.hover.color}" },
-        "text-decoration-thickness": { "value": "{ams.links.hover.text-decoration-thickness}" },
-        "text-underline-offset": { "value": "{ams.links.hover.text-underline-offset}" }
+        "color": { "$value": "{ams.links.hover.color}" },
+        "text-decoration-thickness": { "$value": "{ams.links.hover.text-decoration-thickness}" },
+        "text-underline-offset": { "$value": "{ams.links.hover.text-underline-offset}" }
       },
       "contrast": {
-        "color": { "value": "{ams.links.contrast.color}" },
+        "color": { "$value": "{ams.links.contrast.color}" },
         "hover": {
-          "color": { "value": "{ams.links.contrast.hover.color}" }
+          "color": { "$value": "{ams.links.contrast.hover.color}" }
         }
       },
       "inverse": {
-        "color": { "value": "{ams.links.inverse.color}" },
+        "color": { "$value": "{ams.links.inverse.color}" },
         "hover": {
-          "color": { "value": "{ams.links.inverse.hover.color}" }
+          "color": { "$value": "{ams.links.inverse.hover.color}" }
         }
       }
     }

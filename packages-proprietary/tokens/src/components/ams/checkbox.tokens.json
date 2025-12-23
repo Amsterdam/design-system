@@ -1,87 +1,87 @@
 {
   "ams": {
     "checkbox": {
-      "color": { "value": "{ams.color.text.default}" },
-      "cursor": { "value": "{ams.cursor.interactive}" },
-      "font-family": { "value": "{ams.typography.font-family}" },
-      "font-size": { "value": "{ams.typography.body-text.font-size}" },
-      "font-weight": { "value": "{ams.typography.body-text.font-weight}" },
-      "gap": { "value": "{ams.space.s}" },
-      "line-height": { "value": "{ams.typography.body-text.line-height}" },
-      "outline-offset": { "value": "{ams.focus.outline-offset}" },
-      "text-decoration-thickness": { "value": "{ams.links.text-decoration-thickness}" },
-      "text-underline-offset": { "value": "{ams.links.text-underline-offset}" },
+      "color": { "$value": "{ams.color.text.default}" },
+      "cursor": { "$value": "{ams.cursor.interactive}" },
+      "font-family": { "$value": "{ams.typography.font-family}" },
+      "font-size": { "$value": "{ams.typography.body-text.font-size}" },
+      "font-weight": { "$value": "{ams.typography.body-text.font-weight}" },
+      "gap": { "$value": "{ams.space.s}" },
+      "line-height": { "$value": "{ams.typography.body-text.line-height}" },
+      "outline-offset": { "$value": "{ams.focus.outline-offset}" },
+      "text-decoration-thickness": { "$value": "{ams.links.text-decoration-thickness}" },
+      "text-underline-offset": { "$value": "{ams.links.text-underline-offset}" },
       "disabled": {
-        "cursor": { "value": "{ams.cursor.disabled}" },
-        "color": { "value": "{ams.color.interactive.disabled}" }
+        "cursor": { "$value": "{ams.cursor.disabled}" },
+        "color": { "$value": "{ams.color.interactive.disabled}" }
       },
       "hover": {
-        "color": { "value": "{ams.color.interactive.hover}" },
-        "text-decoration-line": { "value": "{ams.links.subtle.hover.text-decoration-line}" }
+        "color": { "$value": "{ams.color.interactive.hover}" },
+        "text-decoration-line": { "$value": "{ams.links.subtle.hover.text-decoration-line}" }
       },
       "checked-indicator": {
-        "stroke": { "value": "{ams.color.interactive.inverse}" }
+        "stroke": { "$value": "{ams.color.interactive.inverse}" }
       },
       "hover-indicator": {
         "hover": {
-          "stroke": { "value": "{ams.color.interactive.hover}" }
+          "stroke": { "$value": "{ams.color.interactive.hover}" }
         },
         "invalid": {
           "hover": {
-            "stroke": { "value": "{ams.color.interactive.invalid.hover}" }
+            "stroke": { "$value": "{ams.color.interactive.invalid.hover}" }
           }
         }
       },
       "icon-container": {
-        "block-size": { "value": "calc({ams.checkbox.font-size} * {ams.checkbox.line-height})" },
-        "inline-size": { "value": "{ams.checkbox.font-size}" }
+        "block-size": { "$value": "calc({ams.checkbox.font-size} * {ams.checkbox.line-height})" },
+        "inline-size": { "$value": "{ams.checkbox.font-size}" }
       },
       "indeterminate-indicator": {
-        "stroke": { "value": "{ams.color.interactive.inverse}" }
+        "stroke": { "$value": "{ams.color.interactive.inverse}" }
       },
       "rectangle": {
-        "fill": { "value": "{ams.color.background}" },
-        "stroke": { "value": "{ams.color.interactive.default}" },
+        "fill": { "$value": "{ams.color.background}" },
+        "stroke": { "$value": "{ams.color.interactive.default}" },
         "checked": {
-          "fill": { "value": "{ams.color.interactive.default}" },
+          "fill": { "$value": "{ams.color.interactive.default}" },
           "disabled": {
-            "fill": { "value": "{ams.color.interactive.disabled}" }
+            "fill": { "$value": "{ams.color.interactive.disabled}" }
           },
           "hover": {
-            "fill": { "value": "{ams.color.interactive.hover}" }
+            "fill": { "$value": "{ams.color.interactive.hover}" }
           },
           "invalid": {
-            "fill": { "value": "{ams.color.interactive.invalid.default}" },
+            "fill": { "$value": "{ams.color.interactive.invalid.default}" },
             "hover": {
-              "fill": { "value": "{ams.color.interactive.invalid.hover}" }
+              "fill": { "$value": "{ams.color.interactive.invalid.hover}" }
             }
           }
         },
         "disabled": {
-          "stroke": { "value": "{ams.color.interactive.disabled}" }
+          "stroke": { "$value": "{ams.color.interactive.disabled}" }
         },
         "hover": {
-          "stroke": { "value": "{ams.color.interactive.hover}" }
+          "stroke": { "$value": "{ams.color.interactive.hover}" }
         },
         "indeterminate": {
-          "fill": { "value": "{ams.color.interactive.default}" },
+          "fill": { "$value": "{ams.color.interactive.default}" },
           "disabled": {
-            "fill": { "value": "{ams.color.interactive.disabled}" }
+            "fill": { "$value": "{ams.color.interactive.disabled}" }
           },
           "hover": {
-            "fill": { "value": "{ams.color.interactive.hover}" }
+            "fill": { "$value": "{ams.color.interactive.hover}" }
           },
           "invalid": {
-            "fill": { "value": "{ams.color.interactive.invalid.default}" },
+            "fill": { "$value": "{ams.color.interactive.invalid.default}" },
             "hover": {
-              "fill": { "value": "{ams.color.interactive.invalid.hover}" }
+              "fill": { "$value": "{ams.color.interactive.invalid.hover}" }
             }
           }
         },
         "invalid": {
-          "stroke": { "value": "{ams.color.interactive.invalid.default}" },
+          "stroke": { "$value": "{ams.color.interactive.invalid.default}" },
           "hover": {
-            "stroke": { "value": "{ams.color.interactive.invalid.hover}" }
+            "stroke": { "$value": "{ams.color.interactive.invalid.hover}" }
           }
         }
       }

@@ -1,34 +1,34 @@
 {
   "ams": {
     "text-input": {
-      "background-color": { "value": "{ams.inputs.background-color}" },
-      "border-color": { "value": "{ams.inputs.border-color}" },
-      "border-style": { "value": "{ams.inputs.border-style}" },
-      "border-width": { "value": "{ams.inputs.border-width}" },
-      "color": { "value": "{ams.inputs.color}" },
-      "font-family": { "value": "{ams.inputs.font-family}" },
-      "font-size": { "value": "{ams.inputs.font-size}" },
-      "font-weight": { "value": "{ams.inputs.font-weight}" },
-      "line-height": { "value": "{ams.inputs.line-height}" },
-      "outline-offset": { "value": "{ams.inputs.outline-offset}" },
-      "padding-block": { "value": "{ams.inputs.padding-block}" },
-      "padding-inline": { "value": "{ams.inputs.padding-inline}" },
+      "background-color": { "$value": "{ams.inputs.background-color}" },
+      "border-color": { "$value": "{ams.inputs.border-color}" },
+      "border-style": { "$value": "{ams.inputs.border-style}" },
+      "border-width": { "$value": "{ams.inputs.border-width}" },
+      "color": { "$value": "{ams.inputs.color}" },
+      "font-family": { "$value": "{ams.inputs.font-family}" },
+      "font-size": { "$value": "{ams.inputs.font-size}" },
+      "font-weight": { "$value": "{ams.inputs.font-weight}" },
+      "line-height": { "$value": "{ams.inputs.line-height}" },
+      "outline-offset": { "$value": "{ams.inputs.outline-offset}" },
+      "padding-block": { "$value": "{ams.inputs.padding-block}" },
+      "padding-inline": { "$value": "{ams.inputs.padding-inline}" },
       "disabled": {
-        "color": { "value": "{ams.inputs.disabled.color}" },
-        "cursor": { "value": "{ams.cursor.disabled}" }
+        "color": { "$value": "{ams.inputs.disabled.color}" },
+        "cursor": { "$value": "{ams.cursor.disabled}" }
       },
       "hover": {
-        "box-shadow": { "value": "{ams.inputs.hover.box-shadow}" }
+        "box-shadow": { "$value": "{ams.inputs.hover.box-shadow}" }
       },
       "invalid": {
-        "border-color": { "value": "{ams.inputs.invalid.border-color}" },
+        "border-color": { "$value": "{ams.inputs.invalid.border-color}" },
         "hover": {
-          "border-color": { "value": "{ams.inputs.invalid.hover.border-color}" },
-          "box-shadow": { "value": "{ams.inputs.invalid.hover.box-shadow}" }
+          "border-color": { "$value": "{ams.inputs.invalid.hover.border-color}" },
+          "box-shadow": { "$value": "{ams.inputs.invalid.hover.box-shadow}" }
         }
       },
       "placeholder": {
-        "color": { "value": "{ams.inputs.placeholder.color}" }
+        "color": { "$value": "{ams.inputs.placeholder.color}" }
       }
     }
   }

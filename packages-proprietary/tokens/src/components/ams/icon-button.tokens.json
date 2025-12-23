@@ -1,37 +1,37 @@
 {
   "ams": {
     "icon-button": {
-      "color": { "value": "{ams.color.interactive.default}" },
-      "cursor": { "value": "{ams.cursor.interactive}" },
-      "outline-offset": { "value": "{ams.focus.outline-offset}" },
+      "color": { "$value": "{ams.color.interactive.default}" },
+      "cursor": { "$value": "{ams.cursor.interactive}" },
+      "outline-offset": { "$value": "{ams.focus.outline-offset}" },
       "hover": {
-        "background-color": { "value": "rgb(0 70 153 / 12.5%)" },
-        "color": { "value": "{ams.color.interactive.hover}" }
+        "background-color": { "$value": "rgb(0 70 153 / 12.5%)" },
+        "color": { "$value": "{ams.color.interactive.hover}" }
       },
       "disabled": {
-        "color": { "value": "{ams.color.interactive.disabled}" },
-        "cursor": { "value": "{ams.cursor.disabled}" }
+        "color": { "$value": "{ams.color.interactive.disabled}" },
+        "cursor": { "$value": "{ams.cursor.disabled}" }
       },
       "contrast": {
-        "color": { "value": "{ams.color.interactive.contrast}" },
+        "color": { "$value": "{ams.color.interactive.contrast}" },
         "hover": {
-          "background-color": { "value": "rgb(0 0 0 / 12.5%)" },
-          "color": { "value": "{ams.color.interactive.contrast}" }
+          "background-color": { "$value": "rgb(0 0 0 / 12.5%)" },
+          "color": { "$value": "{ams.color.interactive.contrast}" }
         },
         "disabled": {
-          "color": { "value": "{ams.color.interactive.disabled}" }
+          "color": { "$value": "{ams.color.interactive.disabled}" }
         }
       },
       "inverse": {
-        "background-color": { "value": "{ams.color.interactive.default}" },
-        "color": { "value": "{ams.color.interactive.inverse}" },
+        "background-color": { "$value": "{ams.color.interactive.default}" },
+        "color": { "$value": "{ams.color.interactive.inverse}" },
         "hover": {
-          "background-color": { "value": "{ams.color.interactive.hover}" },
-          "color": { "value": "{ams.color.interactive.inverse}" }
+          "background-color": { "$value": "{ams.color.interactive.hover}" },
+          "color": { "$value": "{ams.color.interactive.inverse}" }
         },
         "disabled": {
-          "color": { "value": "{ams.color.interactive.inverse}" },
-          "background-color": { "value": "{ams.color.interactive.disabled}" }
+          "color": { "$value": "{ams.color.interactive.inverse}" },
+          "background-color": { "$value": "{ams.color.interactive.disabled}" }
         }
       }
     }

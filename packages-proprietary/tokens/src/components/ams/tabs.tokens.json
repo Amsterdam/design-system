@@ -1,31 +1,31 @@
 {
   "ams": {
     "tabs": {
-      "gap": { "value": "{ams.space.m}" },
+      "gap": { "$value": "{ams.space.m}" },
       "list": {
-        "box-shadow": { "value": "inset 0 calc({ams.border.width.m} * -1) {ams.color.separator}" }
+        "box-shadow": { "$value": "inset 0 calc({ams.border.width.m} * -1) {ams.color.separator}" }
       },
       "button": {
-        "color": { "value": "{ams.color.interactive.default}" },
-        "cursor": { "value": "{ams.cursor.interactive}" },
-        "font-family": { "value": "{ams.typography.font-family}" },
-        "font-size": { "value": "{ams.typography.body-text.font-size}" },
-        "font-weight": { "value": "{ams.typography.body-text.font-weight}" },
-        "line-height": { "value": "{ams.typography.body-text.line-height}" },
-        "outline-offset": { "value": "calc({ams.focus.outline-offset} * -1)" },
-        "padding-block": { "value": "{ams.space.s}" },
-        "padding-inline": { "value": "{ams.space.m}" },
+        "color": { "$value": "{ams.color.interactive.default}" },
+        "cursor": { "$value": "{ams.cursor.interactive}" },
+        "font-family": { "$value": "{ams.typography.font-family}" },
+        "font-size": { "$value": "{ams.typography.body-text.font-size}" },
+        "font-weight": { "$value": "{ams.typography.body-text.font-weight}" },
+        "line-height": { "$value": "{ams.typography.body-text.line-height}" },
+        "outline-offset": { "$value": "calc({ams.focus.outline-offset} * -1)" },
+        "padding-block": { "$value": "{ams.space.s}" },
+        "padding-inline": { "$value": "{ams.space.m}" },
         "hover": {
-          "box-shadow": { "value": "inset 0 calc({ams.border.width.m} * -1)" },
-          "color": { "value": "{ams.color.interactive.hover}" }
+          "box-shadow": { "$value": "inset 0 calc({ams.border.width.m} * -1)" },
+          "color": { "$value": "{ams.color.interactive.hover}" }
         },
         "selected": {
-          "box-shadow": { "value": "inset 0 calc({ams.border.width.xl} * -1)" },
-          "font-weight": { "value": "{ams.typography.body-text.bold.font-weight}" }
+          "box-shadow": { "$value": "inset 0 calc({ams.border.width.xl} * -1)" },
+          "font-weight": { "$value": "{ams.typography.body-text.bold.font-weight}" }
         },
         "disabled": {
-          "color": { "value": "{ams.color.interactive.disabled}" },
-          "cursor": { "value": "{ams.cursor.disabled}" }
+          "color": { "$value": "{ams.color.interactive.disabled}" },
+          "cursor": { "$value": "{ams.cursor.disabled}" }
         }
       }
     }

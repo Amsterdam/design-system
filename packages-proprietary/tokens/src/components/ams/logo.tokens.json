@@ -1,16 +1,16 @@
 {
   "ams": {
     "logo": {
-      "block-size": { "value": "{ams.space.xl}" },
-      "min-block-size": { "value": "2.5rem" },
+      "block-size": { "$value": "{ams.space.xl}" },
+      "min-block-size": { "$value": "2.5rem" },
       "emblem": {
-        "color": { "value": "#ec0000" }
+        "color": { "$value": "#ec0000" }
       },
       "subsite": {
-        "color": { "value": "{ams.color.text.default}" }
+        "color": { "$value": "{ams.color.text.default}" }
       },
       "title": {
-        "color": { "value": "#ec0000" }
+        "color": { "$value": "#ec0000" }
       }
     }
   }

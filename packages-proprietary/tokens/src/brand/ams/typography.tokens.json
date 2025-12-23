@@ -1,50 +1,50 @@
 {
   "ams": {
     "typography": {
-      "font-family": { "value": "'Amsterdam Sans', Arial, sans-serif" },
-      "hyphenate-limit-chars": { "value": "12 8 4" },
+      "font-family": { "$value": "'Amsterdam Sans', Arial, sans-serif" },
+      "hyphenate-limit-chars": { "$value": "12 8 4" },
       "body-text": {
-        "font-size": { "value": "clamp(1.125rem, 1.0893rem + 0.1786vw, 1.25rem)" },
-        "font-weight": { "value": "400" },
-        "line-height": { "value": "1.8" },
+        "font-size": { "$value": "clamp(1.125rem, 1.0893rem + 0.1786vw, 1.25rem)" },
+        "font-weight": { "$value": "400" },
+        "line-height": { "$value": "1.8" },
         "bold": {
-          "font-weight": { "value": "800" }
+          "font-weight": { "$value": "800" }
         },
         "small": {
-          "font-size": { "value": "1rem" },
-          "line-height": { "value": "1.6" }
+          "font-size": { "$value": "1rem" },
+          "line-height": { "$value": "1.6" }
         },
         "large": {
-          "font-size": { "value": "clamp(1.3125rem, 1.2411rem + 0.3571vw, 1.5625rem)" },
-          "line-height": { "value": "1.6" }
+          "font-size": { "$value": "clamp(1.3125rem, 1.2411rem + 0.3571vw, 1.5625rem)" },
+          "line-height": { "$value": "1.6" }
         },
         "x-large": {
-          "font-size": { "value": "clamp(1.5rem, 1.3571rem + 0.7143vw, 2rem)" },
-          "line-height": { "value": "1.4" }
+          "font-size": { "$value": "clamp(1.5rem, 1.3571rem + 0.7143vw, 2rem)" },
+          "line-height": { "$value": "1.4" }
         }
       },
       "heading": {
-        "font-weight": { "value": "800" },
-        "text-wrap": { "value": "balance" },
+        "font-weight": { "$value": "800" },
+        "text-wrap": { "$value": "balance" },
         "1": {
-          "font-size": { "value": "clamp(2rem, 1.7143rem + 1.4286vw, 3rem)" },
-          "line-height": { "value": "1.2" }
+          "font-size": { "$value": "clamp(2rem, 1.7143rem + 1.4286vw, 3rem)" },
+          "line-height": { "$value": "1.2" }
         },
         "2": {
-          "font-size": { "value": "{ams.typography.body-text.x-large.font-size}" },
-          "line-height": { "value": "1.3" }
+          "font-size": { "$value": "{ams.typography.body-text.x-large.font-size}" },
+          "line-height": { "$value": "1.3" }
         },
         "3": {
-          "font-size": { "value": "{ams.typography.body-text.large.font-size}" },
-          "line-height": { "value": "1.3" }
+          "font-size": { "$value": "{ams.typography.body-text.large.font-size}" },
+          "line-height": { "$value": "1.3" }
         },
         "4": {
-          "font-size": { "value": "{ams.typography.body-text.font-size}" },
-          "line-height": { "value": "1.4" }
+          "font-size": { "$value": "{ams.typography.body-text.font-size}" },
+          "line-height": { "$value": "1.4" }
         },
         "5": {
-          "font-size": { "value": "{ams.typography.body-text.small.font-size}" },
-          "line-height": { "value": "1.4" }
+          "font-size": { "$value": "{ams.typography.body-text.small.font-size}" },
+          "line-height": { "$value": "1.4" }
         }
       }
     }

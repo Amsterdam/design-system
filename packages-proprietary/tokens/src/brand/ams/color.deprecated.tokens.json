@@ -4,7 +4,7 @@
       "interactive": {
         "secondary": {
           "comment": "Use `currentColor` instead",
-          "value": "#181818"
+          "$value": "#181818"
         }
       }
     }

@@ -1,26 +1,26 @@
 {
   "ams": {
     "grid": {
-      "column-count": { "value": "4" },
-      "column-gap": { "value": "{ams.space.xl}" },
+      "column-count": { "$value": "4" },
+      "column-gap": { "$value": "{ams.space.xl}" },
       "padding-block": {
-        "l": { "value": "{ams.space.l}" },
-        "xl": { "value": "{ams.space.xl}" },
-        "2xl": { "value": "{ams.space.2xl}" }
+        "l": { "$value": "{ams.space.l}" },
+        "xl": { "$value": "{ams.space.xl}" },
+        "2xl": { "$value": "{ams.space.2xl}" }
       },
-      "padding-inline": { "value": "{ams.space.l}" },
+      "padding-inline": { "$value": "{ams.space.l}" },
       "row-gap": {
-        "l": { "value": "{ams.space.l}" },
-        "xl": { "value": "{ams.space.xl}" },
-        "2xl": { "value": "{ams.space.2xl}" }
+        "l": { "$value": "{ams.space.l}" },
+        "xl": { "$value": "{ams.space.xl}" },
+        "2xl": { "$value": "{ams.space.2xl}" }
       },
       "medium": {
-        "column-count": { "value": "8" },
-        "padding-inline": { "value": "{ams.space.xl}" }
+        "column-count": { "$value": "8" },
+        "padding-inline": { "$value": "{ams.space.xl}" }
       },
       "wide": {
-        "column-count": { "value": "12" },
-        "padding-inline": { "value": "{ams.space.2xl}" }
+        "column-count": { "$value": "12" },
+        "padding-inline": { "$value": "{ams.space.2xl}" }
       }
     }
   }

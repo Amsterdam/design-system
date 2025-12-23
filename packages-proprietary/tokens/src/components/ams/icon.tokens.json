@@ -1,42 +1,42 @@
 {
   "ams": {
     "icon": {
-      "font-size": { "value": "{ams.typography.body-text.font-size}" },
-      "line-height": { "value": "{ams.typography.body-text.line-height}" },
+      "font-size": { "$value": "{ams.typography.body-text.font-size}" },
+      "line-height": { "$value": "{ams.typography.body-text.line-height}" },
       "small": {
-        "font-size": { "value": "{ams.typography.body-text.small.font-size}" },
-        "line-height": { "value": "{ams.typography.body-text.small.line-height}" }
+        "font-size": { "$value": "{ams.typography.body-text.small.font-size}" },
+        "line-height": { "$value": "{ams.typography.body-text.small.line-height}" }
       },
       "large": {
-        "font-size": { "value": "{ams.typography.body-text.large.font-size}" },
-        "line-height": { "value": "{ams.typography.body-text.large.line-height}" }
+        "font-size": { "$value": "{ams.typography.body-text.large.font-size}" },
+        "line-height": { "$value": "{ams.typography.body-text.large.line-height}" }
       },
       "heading-1": {
-        "font-size": { "value": "{ams.typography.heading.1.font-size}" },
-        "line-height": { "value": "{ams.typography.heading.1.line-height}" }
+        "font-size": { "$value": "{ams.typography.heading.1.font-size}" },
+        "line-height": { "$value": "{ams.typography.heading.1.line-height}" }
       },
       "heading-2": {
-        "font-size": { "value": "{ams.typography.heading.2.font-size}" },
-        "line-height": { "value": "{ams.typography.heading.2.line-height}" }
+        "font-size": { "$value": "{ams.typography.heading.2.font-size}" },
+        "line-height": { "$value": "{ams.typography.heading.2.line-height}" }
       },
       "heading-3": {
-        "font-size": { "value": "{ams.typography.heading.3.font-size}" },
-        "line-height": { "value": "{ams.typography.heading.3.line-height}" }
+        "font-size": { "$value": "{ams.typography.heading.3.font-size}" },
+        "line-height": { "$value": "{ams.typography.heading.3.line-height}" }
       },
       "heading-4": {
-        "font-size": { "value": "{ams.typography.heading.4.font-size}" },
-        "line-height": { "value": "{ams.typography.heading.4.line-height}" }
+        "font-size": { "$value": "{ams.typography.heading.4.font-size}" },
+        "line-height": { "$value": "{ams.typography.heading.4.line-height}" }
       },
       "heading-5": {
-        "font-size": { "value": "{ams.typography.heading.5.font-size}" },
-        "line-height": { "value": "{ams.typography.heading.5.line-height}" }
+        "font-size": { "$value": "{ams.typography.heading.5.font-size}" },
+        "line-height": { "$value": "{ams.typography.heading.5.line-height}" }
       },
       "heading-6": {
-        "font-size": { "value": "{ams.typography.heading.6.font-size}" },
-        "line-height": { "value": "{ams.typography.heading.6.line-height}" }
+        "font-size": { "$value": "{ams.typography.heading.6.font-size}" },
+        "line-height": { "$value": "{ams.typography.heading.6.line-height}" }
       },
       "inverse": {
-        "color": { "value": "{ams.color.text.inverse}" }
+        "color": { "$value": "{ams.color.text.inverse}" }
       }
     }
   }
