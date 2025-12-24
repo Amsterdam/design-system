@@ -1,7 +1,12 @@
 {
   "ams": {
     "grid": {
-      "padding-inline": { "$value": "{ams.space.xl}" }
+      "padding-inline": {
+        "$value": "{ams.space.xl}",
+        "$extensions": {
+          "ams.type": "paddingInline"
+        }
+      }
     }
   }
 }

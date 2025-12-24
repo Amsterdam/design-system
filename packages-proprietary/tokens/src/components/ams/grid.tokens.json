@@ -1,26 +1,85 @@
 {
   "ams": {
     "grid": {
-      "column-count": { "$value": "4" },
-      "column-gap": { "$value": "{ams.space.xl}" },
-      "padding-block": {
-        "l": { "$value": "{ams.space.l}" },
-        "xl": { "$value": "{ams.space.xl}" },
-        "2xl": { "$value": "{ams.space.2xl}" }
+      "column-count": {
+        "$value": "4",
+        "$type": "number"
       },
-      "padding-inline": { "$value": "{ams.space.l}" },
+      "column-gap": {
+        "$value": "{ams.space.xl}",
+        "$extensions": {
+          "ams.type": "columnGap"
+        }
+      },
+      "padding-block": {
+        "l": {
+          "$value": "{ams.space.l}",
+          "$extensions": {
+            "ams.type": "paddingBlock"
+          }
+        },
+        "xl": {
+          "$value": "{ams.space.xl}",
+          "$extensions": {
+            "ams.type": "paddingBlock"
+          }
+        },
+        "2xl": {
+          "$value": "{ams.space.2xl}",
+          "$extensions": {
+            "ams.type": "paddingBlock"
+          }
+        }
+      },
+      "padding-inline": {
+        "$value": "{ams.space.l}",
+        "$extensions": {
+          "ams.type": "paddingInline"
+        }
+      },
       "row-gap": {
-        "l": { "$value": "{ams.space.l}" },
-        "xl": { "$value": "{ams.space.xl}" },
-        "2xl": { "$value": "{ams.space.2xl}" }
+        "l": {
+          "$value": "{ams.space.l}",
+          "$extensions": {
+            "ams.type": "rowGap"
+          }
+        },
+        "xl": {
+          "$value": "{ams.space.xl}",
+          "$extensions": {
+            "ams.type": "rowGap"
+          }
+        },
+        "2xl": {
+          "$value": "{ams.space.2xl}",
+          "$extensions": {
+            "ams.type": "rowGap"
+          }
+        }
       },
       "medium": {
-        "column-count": { "$value": "8" },
-        "padding-inline": { "$value": "{ams.space.xl}" }
+        "column-count": {
+          "$value": "8",
+          "$type": "number"
+        },
+        "padding-inline": {
+          "$value": "{ams.space.xl}",
+          "$extensions": {
+            "ams.type": "paddingInline"
+          }
+        }
       },
       "wide": {
-        "column-count": { "$value": "12" },
-        "padding-inline": { "$value": "{ams.space.2xl}" }
+        "column-count": {
+          "$value": "12",
+          "$type": "number"
+        },
+        "padding-inline": {
+          "$value": "{ams.space.2xl}",
+          "$extensions": {
+            "ams.type": "paddingInline"
+          }
+        }
       }
     }
   }

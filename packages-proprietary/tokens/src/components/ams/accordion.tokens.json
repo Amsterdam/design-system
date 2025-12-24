@@ -1,16 +1,50 @@
 {
   "ams": {
     "accordion": {
-      "gap": { "$value": "{ams.space.s}" },
+      "gap": {
+        "$value": "{ams.space.s}",
+        "$extensions": {
+          "ams.type": "gap"
+        }
+      },
       "button": {
-        "color": { "$value": "{ams.color.interactive.default}" },
-        "cursor": { "$value": "{ams.cursor.interactive}" },
-        "gap": { "$value": "{ams.space.s}" },
-        "outline-offset": { "$value": "{ams.focus.outline-offset}" },
-        "padding-block": { "$value": "{ams.space.s}" },
-        "padding-inline": { "$value": "0" },
+        "color": {
+          "$value": "{ams.color.interactive.default}",
+          "$type": "color"
+        },
+        "cursor": {
+          "$value": "{ams.cursor.interactive}",
+          "$extensions": {
+            "ams.type": "cursor"
+          }
+        },
+        "gap": {
+          "$value": "{ams.space.s}",
+          "$extensions": {
+            "ams.type": "gap"
+          }
+        },
+        "outline-offset": {
+          "$value": "{ams.focus.outline-offset}",
+          "$extensions": {
+            "ams.type": "outlineOffset"
+          }
+        },
+        "padding-block": {
+          "$value": "{ams.space.s}",
+          "$extensions": {
+            "ams.type": "paddingBlock"
+          }
+        },
+        "padding-inline": {
+          "$value": "0",
+          "$type": "number"
+        },
         "hover": {
-          "color": { "$value": "{ams.color.interactive.hover}" }
+          "color": {
+            "$value": "{ams.color.interactive.hover}",
+            "$type": "color"
+          }
         }
       }
     }

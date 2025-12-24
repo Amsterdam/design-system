@@ -1,7 +1,10 @@
 {
   "ams": {
     "mark": {
-      "background-color": { "$value": "{ams.color.highlight.yellow}" }
+      "background-color": {
+        "$value": "{ams.color.highlight.yellow}",
+        "$type": "color"
+      }
     }
   }
 }

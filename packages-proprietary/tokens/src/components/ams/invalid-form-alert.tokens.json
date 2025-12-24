@@ -1,7 +1,12 @@
 {
   "ams": {
     "invalid-form-alert": {
-      "outline-offset": { "$value": "{ams.focus.outline-offset}" }
+      "outline-offset": {
+        "$value": "{ams.focus.outline-offset}",
+        "$extensions": {
+          "ams.type": "outlineOffset"
+        }
+      }
     }
   }
 }

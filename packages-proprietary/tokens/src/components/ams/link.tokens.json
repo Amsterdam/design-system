@@ -1,29 +1,84 @@
 {
   "ams": {
     "link": {
-      "color": { "$value": "{ams.links.color}" },
-      "font-family": { "$value": "inherit" },
-      "font-size": { "$value": "inherit" },
-      "font-weight": { "$value": "{ams.typography.body-text.font-weight}" },
-      "line-height": { "$value": "inherit" },
-      "outline-offset": { "$value": "{ams.focus.outline-offset}" },
-      "text-decoration-thickness": { "$value": "{ams.links.text-decoration-thickness}" },
-      "text-underline-offset": { "$value": "{ams.links.text-underline-offset}" },
+      "color": {
+        "$value": "{ams.links.color}",
+        "$type": "color"
+      },
+      "font-family": {
+        "$value": "inherit",
+        "$type": "color"
+      },
+      "font-size": {
+        "$value": "inherit",
+        "$type": "color"
+      },
+      "font-weight": {
+        "$value": "{ams.typography.body-text.font-weight}",
+        "$type": "fontWeight"
+      },
+      "line-height": {
+        "$value": "inherit",
+        "$type": "color"
+      },
+      "outline-offset": {
+        "$value": "{ams.focus.outline-offset}",
+        "$extensions": {
+          "ams.type": "outlineOffset"
+        }
+      },
+      "text-decoration-thickness": {
+        "$value": "{ams.links.text-decoration-thickness}",
+        "$extensions": {
+          "ams.type": "textDecorationThickness"
+        }
+      },
+      "text-underline-offset": {
+        "$value": "{ams.links.text-underline-offset}",
+        "$extensions": {
+          "ams.type": "textUnderlineOffset"
+        }
+      },
       "hover": {
-        "color": { "$value": "{ams.links.hover.color}" },
-        "text-decoration-thickness": { "$value": "{ams.links.hover.text-decoration-thickness}" },
-        "text-underline-offset": { "$value": "{ams.links.hover.text-underline-offset}" }
+        "color": {
+          "$value": "{ams.links.hover.color}",
+          "$type": "color"
+        },
+        "text-decoration-thickness": {
+          "$value": "{ams.links.hover.text-decoration-thickness}",
+          "$extensions": {
+            "ams.type": "textDecorationThickness"
+          }
+        },
+        "text-underline-offset": {
+          "$value": "{ams.links.hover.text-underline-offset}",
+          "$extensions": {
+            "ams.type": "textUnderlineOffset"
+          }
+        }
       },
       "contrast": {
-        "color": { "$value": "{ams.links.contrast.color}" },
+        "color": {
+          "$value": "{ams.links.contrast.color}",
+          "$type": "color"
+        },
         "hover": {
-          "color": { "$value": "{ams.links.contrast.hover.color}" }
+          "color": {
+            "$value": "{ams.links.contrast.hover.color}",
+            "$type": "color"
+          }
         }
       },
       "inverse": {
-        "color": { "$value": "{ams.links.inverse.color}" },
+        "color": {
+          "$value": "{ams.links.inverse.color}",
+          "$type": "color"
+        },
         "hover": {
-          "color": { "$value": "{ams.links.inverse.hover.color}" }
+          "color": {
+            "$value": "{ams.links.inverse.hover.color}",
+            "$type": "color"
+          }
         }
       }
     }

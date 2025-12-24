@@ -2,26 +2,77 @@
   "ams": {
     "card": {
       "heading": {
-        "margin-block-end": { "$value": "{ams.space.xs}" }
-      },
-      "heading-group": {
-        "gap": { "$value": "{ams.space.xs}" },
-        "margin-block-end": { "$value": "{ams.space.xs}" }
-      },
-      "image": {
-        "margin-block-end": { "$value": "{ams.space.s}" }
-      },
-      "link": {
-        "color": { "$value": "{ams.links.color}" },
-        "text-decoration-line": { "$value": "{ams.links.subtle.text-decoration-line}" },
-        "text-decoration-thickness": { "$value": "{ams.links.text-decoration-thickness}" },
-        "text-underline-offset": { "$value": "{ams.links.text-underline-offset}" },
-        "hover": {
-          "color": { "$value": "{ams.links.hover.color}" },
-          "text-decoration-line": { "$value": "{ams.links.subtle.hover.text-decoration-line}" }
+        "margin-block-end": {
+          "$value": "{ams.space.xs}",
+          "$extensions": {
+            "ams.type": "marginBlock"
+          }
         }
       },
-      "outline-offset": { "$value": "{ams.focus.outline-offset}" }
+      "heading-group": {
+        "gap": {
+          "$value": "{ams.space.xs}",
+          "$extensions": {
+            "ams.type": "gap"
+          }
+        },
+        "margin-block-end": {
+          "$value": "{ams.space.xs}",
+          "$extensions": {
+            "ams.type": "marginBlock"
+          }
+        }
+      },
+      "image": {
+        "margin-block-end": {
+          "$value": "{ams.space.s}",
+          "$extensions": {
+            "ams.type": "marginBlock"
+          }
+        }
+      },
+      "link": {
+        "color": {
+          "$value": "{ams.links.color}",
+          "$type": "color"
+        },
+        "text-decoration-line": {
+          "$value": "{ams.links.subtle.text-decoration-line}",
+          "$extensions": {
+            "ams.type": "textDecorationLine"
+          }
+        },
+        "text-decoration-thickness": {
+          "$value": "{ams.links.text-decoration-thickness}",
+          "$extensions": {
+            "ams.type": "textDecorationThickness"
+          }
+        },
+        "text-underline-offset": {
+          "$value": "{ams.links.text-underline-offset}",
+          "$extensions": {
+            "ams.type": "textUnderlineOffset"
+          }
+        },
+        "hover": {
+          "color": {
+            "$value": "{ams.links.hover.color}",
+            "$type": "color"
+          },
+          "text-decoration-line": {
+            "$value": "{ams.links.subtle.hover.text-decoration-line}",
+            "$extensions": {
+              "ams.type": "textDecorationLine"
+            }
+          }
+        }
+      },
+      "outline-offset": {
+        "$value": "{ams.focus.outline-offset}",
+        "$extensions": {
+          "ams.type": "outlineOffset"
+        }
+      }
     }
   }
 }

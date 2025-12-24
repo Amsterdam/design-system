@@ -1,43 +1,153 @@
 {
   "ams": {
     "dialog": {
-      "background-color": { "$value": "{ams.color.background}" },
-      "border-color": { "$value": "{ams.dialog.background-color}" },
-      "border-style": { "$value": "solid" },
-      "border-width": { "$value": "{ams.border.width.m}" },
-      "gap": { "$value": "{ams.space.m}" },
-      "inline-size": { "$value": "calc(100% - 2 * {ams.space.l})" },
-      "max-block-size": { "$value": "calc(100dvh - 2 * {ams.space.l})" },
-      "max-inline-size": { "$value": "48rem" },
+      "background-color": {
+        "$value": "{ams.color.background}",
+        "$type": "color"
+      },
+      "border-color": {
+        "$value": "{ams.dialog.background-color}",
+        "$type": "color"
+      },
+      "border-style": {
+        "$value": "solid",
+        "$extensions": {
+          "ams.type": "borderStyle"
+        }
+      },
+      "border-width": {
+        "$value": "{ams.border.width.m}",
+        "$extensions": {
+          "ams.type": "borderWidth"
+        }
+      },
+      "gap": {
+        "$value": "{ams.space.m}",
+        "$extensions": {
+          "ams.type": "gap"
+        }
+      },
+      "inline-size": {
+        "$value": "calc(100% - 2 * {ams.space.l})",
+        "$extensions": {
+          "ams.type": "inlineSize"
+        }
+      },
+      "max-block-size": {
+        "$value": "calc(100dvh - 2 * {ams.space.l})",
+        "$extensions": {
+          "ams.type": "blockSize"
+        }
+      },
+      "max-inline-size": {
+        "$value": {
+          "value": 48,
+          "unit": "rem"
+        },
+        "$type": "dimension"
+      },
       "medium": {
-        "inline-size": { "$value": "calc(100% - 2 * {ams.space.xl})" },
-        "max-block-size": { "$value": "calc(100dvh - 2 * {ams.space.xl})" }
+        "inline-size": {
+          "$value": "calc(100% - 2 * {ams.space.xl})",
+          "$extensions": {
+            "ams.type": "inlineSize"
+          }
+        },
+        "max-block-size": {
+          "$value": "calc(100dvh - 2 * {ams.space.xl})",
+          "$extensions": {
+            "ams.type": "blockSize"
+          }
+        }
       },
       "backdrop": {
-        "background-color": { "$value": "rgb(24 24 24 / 62.5%)" }
+        "background-color": {
+          "$value": "rgb(24 24 24 / 62.5%)",
+          "$extensions": {
+            "ams.type": "backgroundColor"
+          }
+        }
       },
       "header": {
-        "gap": { "$value": "{ams.space.m}" },
-        "padding-block": { "$value": "{ams.space.l} 0" },
-        "padding-inline": { "$value": "{ams.space.l}" },
+        "gap": {
+          "$value": "{ams.space.m}",
+          "$extensions": {
+            "ams.type": "gap"
+          }
+        },
+        "padding-block": {
+          "$value": "{ams.space.l} 0",
+          "$extensions": {
+            "ams.type": "paddingBlock"
+          }
+        },
+        "padding-inline": {
+          "$value": "{ams.space.l}",
+          "$extensions": {
+            "ams.type": "paddingInline"
+          }
+        },
         "medium": {
-          "padding-block": { "$value": "{ams.space.xl} 0" },
-          "padding-inline": { "$value": "{ams.space.xl}" }
+          "padding-block": {
+            "$value": "{ams.space.xl} 0",
+            "$extensions": {
+              "ams.type": "paddingBlock"
+            }
+          },
+          "padding-inline": {
+            "$value": "{ams.space.xl}",
+            "$extensions": {
+              "ams.type": "paddingInline"
+            }
+          }
         }
       },
       "body": {
-        "padding-block": { "$value": "0" },
-        "padding-inline": { "$value": "{ams.space.l}" },
+        "padding-block": {
+          "$value": "0",
+          "$type": "number"
+        },
+        "padding-inline": {
+          "$value": "{ams.space.l}",
+          "$extensions": {
+            "ams.type": "paddingInline"
+          }
+        },
         "medium": {
-          "padding-inline": { "$value": "{ams.space.xl}" }
+          "padding-inline": {
+            "$value": "{ams.space.xl}",
+            "$extensions": {
+              "ams.type": "paddingInline"
+            }
+          }
         }
       },
       "footer": {
-        "padding-block": { "$value": "0 {ams.space.l}" },
-        "padding-inline": { "$value": "{ams.space.l}" },
+        "padding-block": {
+          "$value": "0 {ams.space.l}",
+          "$extensions": {
+            "ams.type": "paddingBlock"
+          }
+        },
+        "padding-inline": {
+          "$value": "{ams.space.l}",
+          "$extensions": {
+            "ams.type": "paddingInline"
+          }
+        },
         "medium": {
-          "padding-block": { "$value": "0 {ams.space.xl}" },
-          "padding-inline": { "$value": "{ams.space.xl}" }
+          "padding-block": {
+            "$value": "0 {ams.space.xl}",
+            "$extensions": {
+              "ams.type": "paddingBlock"
+            }
+          },
+          "padding-inline": {
+            "$value": "{ams.space.xl}",
+            "$extensions": {
+              "ams.type": "paddingInline"
+            }
+          }
         }
       }
     }

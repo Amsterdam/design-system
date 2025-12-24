@@ -1,24 +1,45 @@
 {
   "ams": {
     "spotlight": {
-      "background-color": { "$value": "{ams.color.highlight.purple}" },
+      "background-color": {
+        "$value": "{ams.color.highlight.purple}",
+        "$type": "color"
+      },
       "azure": {
-        "background-color": { "$value": "{ams.color.highlight.azure}" }
+        "background-color": {
+          "$value": "{ams.color.highlight.azure}",
+          "$type": "color"
+        }
       },
       "green": {
-        "background-color": { "$value": "{ams.color.highlight.green}" }
+        "background-color": {
+          "$value": "{ams.color.highlight.green}",
+          "$type": "color"
+        }
       },
       "lime": {
-        "background-color": { "$value": "{ams.color.highlight.lime}" }
+        "background-color": {
+          "$value": "{ams.color.highlight.lime}",
+          "$type": "color"
+        }
       },
       "magenta": {
-        "background-color": { "$value": "{ams.color.highlight.magenta}" }
+        "background-color": {
+          "$value": "{ams.color.highlight.magenta}",
+          "$type": "color"
+        }
       },
       "orange": {
-        "background-color": { "$value": "{ams.color.highlight.orange}" }
+        "background-color": {
+          "$value": "{ams.color.highlight.orange}",
+          "$type": "color"
+        }
       },
       "yellow": {
-        "background-color": { "$value": "{ams.color.highlight.yellow}" }
+        "background-color": {
+          "$value": "{ams.color.highlight.yellow}",
+          "$type": "color"
+        }
       }
     }
   }

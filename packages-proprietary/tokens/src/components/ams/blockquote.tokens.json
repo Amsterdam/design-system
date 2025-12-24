@@ -1,13 +1,33 @@
 {
   "ams": {
     "blockquote": {
-      "color": { "$value": "{ams.color.text.default}" },
-      "font-family": { "$value": "{ams.typography.font-family}" },
-      "font-size": { "$value": "{ams.typography.body-text.x-large.font-size}" },
-      "font-weight": { "$value": "{ams.typography.body-text.bold.font-weight}" },
-      "line-height": { "$value": "{ams.typography.body-text.x-large.line-height}" },
+      "color": {
+        "$value": "{ams.color.text.default}",
+        "$type": "color"
+      },
+      "font-family": {
+        "$value": "{ams.typography.font-family}",
+        "$type": "fontFamily"
+      },
+      "font-size": {
+        "$value": "{ams.typography.body-text.x-large.font-size}",
+        "$extensions": {
+          "ams.type": "fontSize"
+        }
+      },
+      "font-weight": {
+        "$value": "{ams.typography.body-text.bold.font-weight}",
+        "$type": "fontWeight"
+      },
+      "line-height": {
+        "$value": "{ams.typography.body-text.x-large.line-height}",
+        "$type": "number"
+      },
       "inverse": {
-        "color": { "$value": "{ams.color.text.inverse}" }
+        "color": {
+          "$value": "{ams.color.text.inverse}",
+          "$type": "color"
+        }
       }
     }
   }

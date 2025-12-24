@@ -1,23 +1,71 @@
 {
   "ams": {
     "image-slider": {
-      "gap": { "$value": "{ams.space.xs}" },
+      "gap": {
+        "$value": "{ams.space.xs}",
+        "$extensions": {
+          "ams.type": "gap"
+        }
+      },
       "scroller": {
-        "gap": { "$value": "{ams.space.xs}" },
-        "outline-offset": { "$value": "{ams.focus.outline-offset}" }
+        "gap": {
+          "$value": "{ams.space.xs}",
+          "$extensions": {
+            "ams.type": "gap"
+          }
+        },
+        "outline-offset": {
+          "$value": "{ams.focus.outline-offset}",
+          "$extensions": {
+            "ams.type": "outlineOffset"
+          }
+        }
       },
       "thumbnails": {
-        "gap": { "$value": "{ams.space.xs}" },
+        "gap": {
+          "$value": "{ams.space.xs}",
+          "$extensions": {
+            "ams.type": "gap"
+          }
+        },
         "thumbnail": {
-          "background-color": { "$value": "transparent" },
-          "cursor": { "$value": "{ams.cursor.interactive}" },
-          "opacity": { "$value": "40%" },
-          "outline-offset": { "$value": "{ams.focus.outline-offset}" },
+          "background-color": {
+            "$value": "transparent",
+            "$type": "color"
+          },
+          "cursor": {
+            "$value": "{ams.cursor.interactive}",
+            "$extensions": {
+              "ams.type": "cursor"
+            }
+          },
+          "opacity": {
+            "$value": "40%",
+            "$extensions": {
+              "ams.type": "opacity"
+            }
+          },
+          "outline-offset": {
+            "$value": "{ams.focus.outline-offset}",
+            "$extensions": {
+              "ams.type": "outlineOffset"
+            }
+          },
           "in-view": {
-            "opacity": { "$value": "100%" }
+            "opacity": {
+              "$value": "100%",
+              "$extensions": {
+                "ams.type": "opacity"
+              }
+            }
           },
           "hover": {
-            "opacity": { "$value": "100%" }
+            "opacity": {
+              "$value": "100%",
+              "$extensions": {
+                "ams.type": "opacity"
+              }
+            }
           }
         }
       }
