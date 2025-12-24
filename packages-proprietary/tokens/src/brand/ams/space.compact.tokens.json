@@ -1,12 +1,44 @@
 {
   "ams": {
     "space": {
-      "xs": { "$value": "0.25rem" },
-      "s": { "$value": "0.5rem" },
-      "m": { "$value": "clamp(0.75rem, 0.6786rem + 0.3571vw, 1rem)" },
-      "l": { "$value": "clamp(1rem, 0.8571rem + 0.7143vw, 1.5rem)" },
-      "xl": { "$value": "clamp(1.5rem, 1.2857rem + 1.0714vw, 2.25rem)" },
-      "2xl": { "$value": "clamp(2rem, 1.7143rem + 1.4286vw, 3rem)" }
+      "xs": {
+        "$value": {
+          "value": 0.25,
+          "unit": "rem"
+        },
+        "$type": "dimension"
+      },
+      "s": {
+        "$value": {
+          "value": 0.5,
+          "unit": "rem"
+        },
+        "$type": "dimension"
+      },
+      "m": {
+        "$value": "clamp(0.75rem, 0.6786rem + 0.3571vw, 1rem)",
+        "$extensions": {
+          "ams.type": "spacing"
+        }
+      },
+      "l": {
+        "$value": "clamp(1rem, 0.8571rem + 0.7143vw, 1.5rem)",
+        "$extensions": {
+          "ams.type": "spacing"
+        }
+      },
+      "xl": {
+        "$value": "clamp(1.5rem, 1.2857rem + 1.0714vw, 2.25rem)",
+        "$extensions": {
+          "ams.type": "spacing"
+        }
+      },
+      "2xl": {
+        "$value": "clamp(2rem, 1.7143rem + 1.4286vw, 3rem)",
+        "$extensions": {
+          "ams.type": "spacing"
+        }
+      }
     }
   }
 }

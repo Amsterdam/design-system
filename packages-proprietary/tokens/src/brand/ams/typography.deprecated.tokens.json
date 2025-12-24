@@ -5,21 +5,29 @@
         "0": {
           "font-size": {
             "comment": "Use Heading size 1 instead.",
-            "$value": "clamp(2.435rem, 2.0409rem + 1.9709vw, 3.8147rem)"
+            "$value": "clamp(2.435rem, 2.0409rem + 1.9709vw, 3.8147rem)",
+            "$extensions": {
+              "ams.type": "fontSize"
+            }
           },
           "line-height": {
             "comment": "Use Heading size 1 instead.",
-            "$value": "1.1"
+            "$value": "1.1",
+            "$type": "number"
           }
         },
         "6": {
           "font-size": {
             "comment": "Use Heading size 5 instead.",
-            "$value": "{ams.typography.body-text.small.font-size}"
+            "$value": "{ams.typography.body-text.small.font-size}",
+            "$extensions": {
+              "ams.type": "fontSize"
+            }
           },
           "line-height": {
             "comment": "Use Heading size 5 instead.",
-            "$value": "1.4"
+            "$value": "1.4",
+            "$type": "number"
           }
         }
       }

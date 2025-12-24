@@ -5,13 +5,19 @@
         "0": {
           "font-size": {
             "comment": "Use Heading size 1 instead.",
-            "$value": "clamp(2.1645rem, 2.072rem + 0.4626vw, 2.4883rem)"
+            "$value": "clamp(2.1645rem, 2.072rem + 0.4626vw, 2.4883rem)",
+            "$extensions": {
+              "ams.type": "fontSize"
+            }
           }
         },
         "6": {
           "font-size": {
             "comment": "Use Heading size 5 instead.",
-            "$value": "{ams.typography.body-text.small.font-size}"
+            "$value": "{ams.typography.body-text.small.font-size}",
+            "$extensions": {
+              "ams.type": "fontSize"
+            }
           }
         }
       }
