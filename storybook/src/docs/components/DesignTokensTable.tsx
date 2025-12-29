@@ -25,19 +25,31 @@ const isTokenValue = (value: unknown): value is TokenValue => {
   return typeof value === 'object' && value !== null && '$value' in value
 }
 
-const flattenTokens = (tokens: DesignTokens, parentPath: string[] = []): TokenEntry[] => {
-  return Object.entries(tokens).flatMap(([key, value]) => {
-    const currentToken = [...parentPath, key]
+const flattenTokens = (tokens: DesignTokens, scope: string[] = []): TokenEntry[] => {
+  return Object.entries(tokens).flatMap(([key, node]) => {
+    const currentPath = [...scope, key]
 
-    if (isTokenValue(value)) {
-      const type = value.$type || value.$extensions?.['ams.type']
-      return [{ path: '--' + currentToken.join('-'), type, value: value.$value }]
+    // Case 1: It is a valid token
+    if (isTokenValue(node)) {
+      const { $extensions, $type, $value } = node
+
+      const normalizedValue = typeof $value === 'string' ? $value : JSON.stringify($value)
+
+      return [
+        {
+          path: `--${currentPath.join('-')}`,
+          type: $type ?? $extensions?.['ams.type'],
+          value: normalizedValue,
+        },
+      ]
     }
 
-    if (typeof value === 'object' && value !== null && !Array.isArray(value)) {
-      return flattenTokens(value as DesignTokens, currentToken)
+    // Case 2: It is a nested group of tokens
+    if (typeof node === 'object' && node !== null && !Array.isArray(node)) {
+      return flattenTokens(node as DesignTokens, currentPath)
     }
 
+    // Case 3: Invalid or empty group
     return []
   })
 }
