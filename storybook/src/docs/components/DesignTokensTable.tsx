@@ -1,5 +1,6 @@
 import { BorderSample } from './BorderSample'
 import { Code } from './Code'
+import { ColorSample } from './ColorSample'
 
 type Token = {
   $extensions?: {
@@ -74,6 +75,7 @@ const DesignTokensTableRow = ({ name, type, value }: DesignTokensTableRowProps) 
     <td>
       {type === 'borderStyle' && <BorderSample style={value} />}
       {type === 'borderWidth' && <BorderSample width={value} />}
+	  {name.includes('color') && <ColorSample color={value} />}
     </td>
   </tr>
 )
