@@ -3,6 +3,10 @@ import { Code } from './Code'
 import { ColorSample } from './ColorSample'
 
 type TokenValue = {
+  $extensions?: {
+    'ams.type'?: string
+  }
+  $type?: string
   $value: string
 }
 
@@ -12,39 +16,38 @@ type DesignTokens = {
 
 type TokenEntry = {
   path: string
+  type?: string
   value: string
 }
 
-const flattenTokens = (tokens: DesignTokens | TokenValue, parentPath: string[] = []): TokenEntry[] => {
-  if ('$value' in tokens) {
-    return []
-  }
+const isTokenValue = (value: unknown): value is TokenValue => {
+  return typeof value === 'object' && value !== null && '$value' in value
+}
 
+const flattenTokens = (tokens: DesignTokens, parentPath: string[] = []): TokenEntry[] => {
   return Object.entries(tokens).flatMap(([key, value]) => {
     const currentToken = [...parentPath, key]
 
-    // Check if the value is a token object with a $value property
-    if ('$value' in value && typeof value.$value === 'string') {
-      // Return a flat token with CSS variable format (--ams-)
-      return [{ path: '--' + currentToken.join('-'), value: value.$value }]
+    if (isTokenValue(value)) {
+      const type = value.$type || value.$extensions?.['ams.type']
+      return [{ path: '--' + currentToken.join('-'), type, value: value.$value }]
     }
 
-    // Flatten nested objects
     if (typeof value === 'object' && value !== null && !Array.isArray(value)) {
-      return flattenTokens(value, currentToken)
+      return flattenTokens(value as DesignTokens, currentToken)
     }
 
-    // Return empty when there are no more nested objects left
     return []
   })
 }
 
 type DesignTokensTableRowProps = {
   name: string
+  type?: string
   value: string
 }
 
-const DesignTokensTableRow = ({ name, value }: DesignTokensTableRowProps) => (
+const DesignTokensTableRow = ({ name, type, value }: DesignTokensTableRowProps) => (
   <tr>
     <td>
       <Code>var({name})</Code>
@@ -52,7 +55,7 @@ const DesignTokensTableRow = ({ name, value }: DesignTokensTableRowProps) => (
     <td>
       <Code>{value}</Code>
     </td>
-    <td>{name.includes('color') && value !== 'currentColor' && <ColorSample color={value} />}</td>
+    <td>{type === 'color' && value !== 'currentColor' && <ColorSample color={value} />}</td>
   </tr>
 )
 
@@ -72,8 +75,8 @@ const DesignTokensTableRoot = ({ tokens }: { tokens: DesignTokens }) => {
           </tr>
         </thead>
         <tbody>
-          {flatTokens.map(({ path, value }) => (
-            <DesignTokensTableRow key={path} name={path} value={value} />
+          {flatTokens.map(({ path, type, value }) => (
+            <DesignTokensTableRow key={path} name={path} type={type} value={value} />
           ))}
         </tbody>
       </table>
