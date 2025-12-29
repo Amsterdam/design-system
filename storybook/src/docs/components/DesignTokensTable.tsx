@@ -52,7 +52,7 @@ const DesignTokensTableRow = ({ name, value }: DesignTokensTableRowProps) => (
     <td>
       <Code>{value}</Code>
     </td>
-    <td>{name.includes('color') && <ColorSample color={value} />}</td>
+    <td>{name.includes('color') && value !== 'currentColor' && <ColorSample color={value} />}</td>
   </tr>
 )
 
