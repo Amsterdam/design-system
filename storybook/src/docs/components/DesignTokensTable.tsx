@@ -1,6 +1,7 @@
 import './design-tokens-table.css'
 import { Code } from './Code'
 import { ColorSample } from './ColorSample'
+import { SpacingSample } from './SpacingSample'
 
 type TokenValue = {
   $extensions?: {
@@ -55,7 +56,12 @@ const DesignTokensTableRow = ({ name, type, value }: DesignTokensTableRowProps) 
     <td>
       <Code>{value}</Code>
     </td>
-    <td>{type === 'color' && value !== 'currentColor' && <ColorSample color={value} />}</td>
+    <td>
+      {type === 'color' && value !== 'currentColor' && <ColorSample color={value} />}
+      {(type === 'spacing' || type === 'gap' || type?.includes('padding') || type?.includes('offset')) && (
+        <SpacingSample spacing={value} />
+      )}
+    </td>
   </tr>
 )
 
