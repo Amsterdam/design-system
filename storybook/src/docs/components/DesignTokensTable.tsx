@@ -1,6 +1,7 @@
 import { BorderSample } from './BorderSample'
 import { Code } from './Code'
 import { ColorSample } from './ColorSample'
+import { SpacingSample } from './SpacingSample'
 
 type Token = {
   $extensions?: {
@@ -76,6 +77,8 @@ const DesignTokensTableRow = ({ name, type, value }: DesignTokensTableRowProps) 
       {type === 'borderStyle' && <BorderSample style={value} />}
       {type === 'borderWidth' && <BorderSample width={value} />}
       {type === 'color' && value !== 'currentColor' && <ColorSample color={value} />}
+      {type === 'color' && value !== 'currentColor' && <ColorSample color={value} />}
+      {type === 'dimension' && <SpacingSample spacing={value} />}
     </td>
   </tr>
 )
