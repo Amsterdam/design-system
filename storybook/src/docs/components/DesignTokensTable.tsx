@@ -1,5 +1,6 @@
 import './design-tokens-table.css'
 import { Code } from './Code'
+import { ColorSample } from './ColorSample'
 
 type TokenValue = {
   $value: string
@@ -51,6 +52,7 @@ const DesignTokensTableRow = ({ name, value }: DesignTokensTableRowProps) => (
     <td>
       <Code>{value}</Code>
     </td>
+    <td>{name.includes('color') && <ColorSample color={value} />}</td>
   </tr>
 )
 
@@ -66,6 +68,7 @@ const DesignTokensTableRoot = ({ tokens }: { tokens: DesignTokens }) => {
           <tr>
             <th>CSS variable</th>
             <th>Value</th>
+            <th>Example</th>
           </tr>
         </thead>
         <tbody>
