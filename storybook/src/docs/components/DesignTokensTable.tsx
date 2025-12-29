@@ -1,4 +1,4 @@
-import './design-tokens-table.css'
+import { BorderSample } from './BorderSample'
 import { Code } from './Code'
 
 type TokenValue = {
@@ -11,45 +11,59 @@ type DesignTokens = {
 
 type TokenEntry = {
   path: string
+  type?: string
   value: string
 }
 
-const flattenTokens = (tokens: DesignTokens | TokenValue, parentPath: string[] = []): TokenEntry[] => {
-  if ('$value' in tokens) {
-    return []
-  }
+const isTokenValue = (value: unknown): value is TokenValue => {
+  return typeof value === 'object' && value !== null && '$value' in value
+}
 
-  return Object.entries(tokens).flatMap(([key, value]) => {
-    const currentToken = [...parentPath, key]
+const flattenTokens = (tokens: DesignTokens, scope: string[] = []): TokenEntry[] => {
+  return Object.entries(tokens).flatMap(([key, node]) => {
+    const currentPath = [...scope, key]
 
-    // Check if the value is a token object with a $value property
-    if ('$value' in value && typeof value.$value === 'string') {
-      // Return a flat token with CSS variable format (--ams-)
-      return [{ path: '--' + currentToken.join('-'), value: value.$value }]
+    // Case 1: It is a valid token
+    if (isTokenValue(node)) {
+      const { $extensions, $type, $value } = node
+      const normalizedValue = typeof $value === 'string' ? $value : JSON.stringify($value)
+
+      return [
+        {
+          path: `--${currentPath.join('-')}`,
+          type: $type ?? $extensions?.['ams.type'],
+          value: normalizedValue,
+        },
+      ]
     }
 
-    // Flatten nested objects
-    if (typeof value === 'object' && value !== null && !Array.isArray(value)) {
-      return flattenTokens(value, currentToken)
+    // Case 2: It is a nested group of tokens
+    if (typeof node === 'object' && node !== null && !Array.isArray(node)) {
+      return flattenTokens(node as DesignTokens, currentPath)
     }
 
-    // Return empty when there are no more nested objects left
+    // Case 3: Invalid or empty group
     return []
   })
 }
 
 type DesignTokensTableRowProps = {
   name: string
+  type?: string
   value: string
 }
 
-const DesignTokensTableRow = ({ name, value }: DesignTokensTableRowProps) => (
+const DesignTokensTableRow = ({ name, type, value }: DesignTokensTableRowProps) => (
   <tr>
     <td>
       <Code>var({name})</Code>
     </td>
     <td>
       <Code>{value}</Code>
+    </td>
+    <td>
+      {type === 'borderStyle' && <BorderSample borderStyle={value} />}
+      {type === 'borderWidth' && <BorderSample borderWidth={value} />}
     </td>
   </tr>
 )
@@ -66,11 +80,12 @@ const DesignTokensTableRoot = ({ tokens }: { tokens: DesignTokens }) => {
           <tr>
             <th>CSS variable</th>
             <th>Value</th>
+            <th>Example</th>
           </tr>
         </thead>
         <tbody>
-          {flatTokens.map(({ path, value }) => (
-            <DesignTokensTableRow key={path} name={path} value={value} />
+          {flatTokens.map(({ path, type, value }) => (
+            <DesignTokensTableRow key={path} name={path} type={type} value={value} />
           ))}
         </tbody>
       </table>
