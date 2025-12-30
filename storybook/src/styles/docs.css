@@ -166,10 +166,6 @@
   block-size: 1rem;
 }
 
-[class*="ams-docs-token-example--border"] {
-  border-inline-start-style: solid;
-}
-
 [class*="ams-docs-token-example--color"] {
   /* We allow non-baseline CSS in Storybook. */
   /* stylelint-disable-next-line plugin/use-baseline */
