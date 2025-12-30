@@ -1,4 +1,5 @@
 import './design-tokens-table.css'
+import { BorderSample } from './BorderSample'
 import { Code } from './Code'
 import { ColorSample } from './ColorSample'
 
@@ -67,7 +68,10 @@ const DesignTokensTableRow = ({ name, type, value }: DesignTokensTableRowProps) 
     <td>
       <Code>{value}</Code>
     </td>
-    <td>{type === 'color' && value !== 'currentColor' && <ColorSample color={value} />}</td>
+    <td>
+      {type === 'color' && value !== 'currentColor' && <ColorSample color={value} />}
+      {type?.includes('border') && <BorderSample borderSize={value} />}
+    </td>
   </tr>
 )
 
