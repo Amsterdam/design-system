@@ -2,6 +2,10 @@ import { BorderSample } from './BorderSample'
 import { Code } from './Code'
 
 type TokenValue = {
+  $extensions?: {
+    'amsterdam.designsystem.type'?: string
+  }
+  $type?: string
   $value: string
 }
 
@@ -31,7 +35,7 @@ const flattenTokens = (tokens: DesignTokens, scope: string[] = []): TokenEntry[]
       return [
         {
           path: `--${currentPath.join('-')}`,
-          type: $type ?? $extensions?.['ams.type'],
+          type: $type ?? $extensions?.['amsterdam.designsystem.type'],
           value: normalizedValue,
         },
       ]
