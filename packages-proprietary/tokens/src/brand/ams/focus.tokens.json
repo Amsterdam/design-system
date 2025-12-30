@@ -1,7 +1,13 @@
 {
   "ams": {
     "focus": {
-      "outline-offset": { "value": "0.25rem" }
+      "outline-offset": {
+        "$value": {
+          "value": 0.25,
+          "unit": "rem"
+        },
+        "$type": "dimension"
+      }
     }
   }
 }
