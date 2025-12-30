@@ -28,7 +28,9 @@
         },
         "line-height": {
           "$value": "{ams.typography.body-text.small.line-height}",
-          "$type": "number"
+          "$extensions": {
+            "ams.type": "lineHeight"
+          }
         },
         "inverse": {
           "color": {

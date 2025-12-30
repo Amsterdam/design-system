@@ -17,7 +17,9 @@
       },
       "line-height": {
         "$value": "{ams.typography.body-text.line-height}",
-        "$type": "number"
+        "$extensions": {
+          "ams.type": "lineHeight"
+        }
       },
       "link": {
         "color": {

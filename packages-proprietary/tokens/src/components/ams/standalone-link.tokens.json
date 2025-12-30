@@ -27,7 +27,9 @@
       },
       "line-height": {
         "$value": "{ams.typography.body-text.line-height}",
-        "$type": "number"
+        "$extensions": {
+          "ams.type": "lineHeight"
+        }
       },
       "outline-offset": {
         "$value": "{ams.focus.outline-offset}",

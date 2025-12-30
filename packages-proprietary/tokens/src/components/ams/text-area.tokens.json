@@ -41,7 +41,9 @@
       },
       "line-height": {
         "$value": "{ams.inputs.line-height}",
-        "$type": "number"
+        "$extensions": {
+          "ams.type": "lineHeight"
+        }
       },
       "min-block-size": {
         "$value": "calc({ams.typography.body-text.line-height} * 1em + 2 * {ams.text-area.padding-block})",

@@ -41,7 +41,9 @@
       },
       "line-height": {
         "$value": "1.4",
-        "$type": "number"
+        "$extensions": {
+          "ams.type": "lineHeight"
+        }
       },
       "outline-offset": {
         "$value": "{ams.focus.outline-offset}",

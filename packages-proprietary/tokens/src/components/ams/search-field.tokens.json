@@ -42,7 +42,9 @@
         },
         "line-height": {
           "$value": "{ams.inputs.line-height}",
-          "$type": "number"
+          "$extensions": {
+            "ams.type": "lineHeight"
+          }
         },
         "outline-offset": {
           "$value": "{ams.inputs.outline-offset}",

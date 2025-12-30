@@ -19,7 +19,9 @@
       },
       "line-height": {
         "$value": "inherit",
-        "$type": "color"
+        "$extensions": {
+          "ams.type": "lineHeight"
+        }
       },
       "outline-offset": {
         "$value": "{ams.focus.outline-offset}",

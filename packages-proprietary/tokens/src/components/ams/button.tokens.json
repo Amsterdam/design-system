@@ -35,7 +35,9 @@
       },
       "line-height": {
         "$value": "{ams.inputs.line-height}",
-        "$type": "number"
+        "$extensions": {
+          "ams.type": "lineHeight"
+        }
       },
       "gap": {
         "$value": "{ams.space.s}",

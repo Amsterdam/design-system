@@ -34,7 +34,9 @@
         },
         "line-height": {
           "$value": "{ams.typography.heading.1.line-height}",
-          "$type": "number"
+          "$extensions": {
+            "ams.type": "lineHeight"
+          }
         }
       },
       "2": {
@@ -46,7 +48,9 @@
         },
         "line-height": {
           "$value": "{ams.typography.heading.2.line-height}",
-          "$type": "number"
+          "$extensions": {
+            "ams.type": "lineHeight"
+          }
         }
       },
       "3": {
@@ -58,7 +62,9 @@
         },
         "line-height": {
           "$value": "{ams.typography.heading.3.line-height}",
-          "$type": "number"
+          "$extensions": {
+            "ams.type": "lineHeight"
+          }
         }
       },
       "4": {
@@ -70,7 +76,9 @@
         },
         "line-height": {
           "$value": "{ams.typography.heading.4.line-height}",
-          "$type": "number"
+          "$extensions": {
+            "ams.type": "lineHeight"
+          }
         }
       },
       "5": {
@@ -82,7 +90,9 @@
         },
         "line-height": {
           "$value": "{ams.typography.heading.5.line-height}",
-          "$type": "number"
+          "$extensions": {
+            "ams.type": "lineHeight"
+          }
         }
       },
       "6": {
@@ -94,7 +104,9 @@
         },
         "line-height": {
           "$value": "{ams.typography.heading.6.line-height}",
-          "$type": "number"
+          "$extensions": {
+            "ams.type": "lineHeight"
+          }
         }
       }
     }

@@ -18,7 +18,9 @@
         },
         "line-height": {
           "$value": "{ams.typography.heading.3.line-height}",
-          "$type": "number"
+          "$extensions": {
+            "ams.type": "lineHeight"
+          }
         },
         "text-wrap": {
           "$value": "{ams.typography.heading.text-wrap}",

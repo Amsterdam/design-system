@@ -3,16 +3,18 @@
     "icon": {
       "heading-0": {
         "font-size": {
-          "comment": "Deprecated. Use ‘heading 1’ instead.",
+          "comment": "Deprecated. Use \u2018heading 1\u2019 instead.",
           "$value": "{ams.typography.heading.0.font-size}",
           "$extensions": {
             "ams.type": "fontSize"
           }
         },
         "line-height": {
-          "comment": "Deprecated. Use ‘heading 1’ instead.",
+          "comment": "Deprecated. Use \u2018heading 1\u2019 instead.",
           "$value": "{ams.typography.heading.0.line-height}",
-          "$type": "number"
+          "$extensions": {
+            "ams.type": "lineHeight"
+          }
         }
       }
     }

@@ -24,7 +24,9 @@
         },
         "line-height": {
           "$value": "1.8",
-          "$type": "number"
+          "$extensions": {
+            "ams.type": "lineHeight"
+          }
         },
         "bold": {
           "font-weight": {
@@ -42,7 +44,9 @@
           },
           "line-height": {
             "$value": "1.6",
-            "$type": "number"
+            "$extensions": {
+              "ams.type": "lineHeight"
+            }
           }
         },
         "large": {
@@ -54,7 +58,9 @@
           },
           "line-height": {
             "$value": "1.6",
-            "$type": "number"
+            "$extensions": {
+              "ams.type": "lineHeight"
+            }
           }
         },
         "x-large": {
@@ -66,7 +72,9 @@
           },
           "line-height": {
             "$value": "1.4",
-            "$type": "number"
+            "$extensions": {
+              "ams.type": "lineHeight"
+            }
           }
         }
       },
@@ -90,7 +98,9 @@
           },
           "line-height": {
             "$value": "1.2",
-            "$type": "number"
+            "$extensions": {
+              "ams.type": "lineHeight"
+            }
           }
         },
         "2": {
@@ -102,7 +112,9 @@
           },
           "line-height": {
             "$value": "1.3",
-            "$type": "number"
+            "$extensions": {
+              "ams.type": "lineHeight"
+            }
           }
         },
         "3": {
@@ -114,7 +126,9 @@
           },
           "line-height": {
             "$value": "1.3",
-            "$type": "number"
+            "$extensions": {
+              "ams.type": "lineHeight"
+            }
           }
         },
         "4": {
@@ -126,7 +140,9 @@
           },
           "line-height": {
             "$value": "1.4",
-            "$type": "number"
+            "$extensions": {
+              "ams.type": "lineHeight"
+            }
           }
         },
         "5": {
@@ -138,7 +154,9 @@
           },
           "line-height": {
             "$value": "1.4",
-            "$type": "number"
+            "$extensions": {
+              "ams.type": "lineHeight"
+            }
           }
         }
       }

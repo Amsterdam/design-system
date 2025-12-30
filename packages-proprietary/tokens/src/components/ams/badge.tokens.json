@@ -25,7 +25,9 @@
       },
       "line-height": {
         "$value": "{ams.typography.body-text.line-height}",
-        "$type": "number"
+        "$extensions": {
+          "ams.type": "lineHeight"
+        }
       },
       "padding-inline": {
         "$value": "{ams.space.xs}",

@@ -34,7 +34,9 @@
         },
         "line-height": {
           "$value": "{ams.typography.heading.3.line-height}",
-          "$type": "number"
+          "$extensions": {
+            "ams.type": "lineHeight"
+          }
         },
         "margin-block-end": {
           "$value": "{ams.space.s}",

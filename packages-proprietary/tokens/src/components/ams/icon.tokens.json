@@ -9,7 +9,9 @@
       },
       "line-height": {
         "$value": "{ams.typography.body-text.line-height}",
-        "$type": "number"
+        "$extensions": {
+          "ams.type": "lineHeight"
+        }
       },
       "small": {
         "font-size": {
@@ -20,7 +22,9 @@
         },
         "line-height": {
           "$value": "{ams.typography.body-text.small.line-height}",
-          "$type": "number"
+          "$extensions": {
+            "ams.type": "lineHeight"
+          }
         }
       },
       "large": {
@@ -32,7 +36,9 @@
         },
         "line-height": {
           "$value": "{ams.typography.body-text.large.line-height}",
-          "$type": "number"
+          "$extensions": {
+            "ams.type": "lineHeight"
+          }
         }
       },
       "heading-1": {
@@ -44,7 +50,9 @@
         },
         "line-height": {
           "$value": "{ams.typography.heading.1.line-height}",
-          "$type": "number"
+          "$extensions": {
+            "ams.type": "lineHeight"
+          }
         }
       },
       "heading-2": {
@@ -56,7 +64,9 @@
         },
         "line-height": {
           "$value": "{ams.typography.heading.2.line-height}",
-          "$type": "number"
+          "$extensions": {
+            "ams.type": "lineHeight"
+          }
         }
       },
       "heading-3": {
@@ -68,7 +78,9 @@
         },
         "line-height": {
           "$value": "{ams.typography.heading.3.line-height}",
-          "$type": "number"
+          "$extensions": {
+            "ams.type": "lineHeight"
+          }
         }
       },
       "heading-4": {
@@ -80,7 +92,9 @@
         },
         "line-height": {
           "$value": "{ams.typography.heading.4.line-height}",
-          "$type": "number"
+          "$extensions": {
+            "ams.type": "lineHeight"
+          }
         }
       },
       "heading-5": {
@@ -92,7 +106,9 @@
         },
         "line-height": {
           "$value": "{ams.typography.heading.5.line-height}",
-          "$type": "number"
+          "$extensions": {
+            "ams.type": "lineHeight"
+          }
         }
       },
       "heading-6": {
@@ -104,7 +120,9 @@
         },
         "line-height": {
           "$value": "{ams.typography.heading.6.line-height}",
-          "$type": "number"
+          "$extensions": {
+            "ams.type": "lineHeight"
+          }
         }
       },
       "inverse": {

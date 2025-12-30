@@ -13,7 +13,9 @@
           "line-height": {
             "comment": "Use Heading size 1 instead.",
             "$value": "1.1",
-            "$type": "number"
+            "$extensions": {
+              "ams.type": "lineHeight"
+            }
           }
         },
         "6": {
@@ -27,7 +29,9 @@
           "line-height": {
             "comment": "Use Heading size 5 instead.",
             "$value": "1.4",
-            "$type": "number"
+            "$extensions": {
+              "ams.type": "lineHeight"
+            }
           }
         }
       }
