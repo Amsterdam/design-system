@@ -1,6 +1,7 @@
 import './design-tokens-table.css'
 import { Code } from './Code'
 import { ColorSample } from './ColorSample'
+import { TypographySample } from './TypographySample'
 
 type TokenValue = {
   $extensions?: {
@@ -67,7 +68,13 @@ const DesignTokensTableRow = ({ name, type, value }: DesignTokensTableRowProps) 
     <td>
       <Code>{value}</Code>
     </td>
-    <td>{type === 'color' && value !== 'currentColor' && <ColorSample color={value} />}</td>
+    <td>
+      {type === 'color' && value !== 'currentColor' && <ColorSample color={value} />}
+      {type === 'fontSize' && <TypographySample fontSize={value} />}
+      {type === 'fontFamily' && <TypographySample fontFamily={value} />}
+      {type === 'fontWeight' && <TypographySample fontWeight={value} />}
+      {type === 'lineHeight' && <TypographySample lineHeight={value} />}
+    </td>
   </tr>
 )
 
