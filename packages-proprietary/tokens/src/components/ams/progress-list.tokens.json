@@ -12,31 +12,24 @@
             }
           },
           "shape": {
-            "block-size": { "value": "calc({ams.typography.heading.2.font-size} / 1.25)" },
-            "inline-size": { "value": "calc({ams.typography.heading.2.font-size} / 1.25)" }
+            "block-size": {
+              "value": "calc({ams.typography.heading.2.font-size} / 1.25)"
+            },
+            "inline-size": {
+              "value": "calc({ams.typography.heading.2.font-size} / 1.25)"
+            }
           },
           "sub-steps": {
             "sub-step": {
-              "indicator": {
-                "margin-inline-start": {
-                  "value": "calc(-1 * var(--ams-progress-list-step-indicator-padding-inline) - var(--ams-progress-list-heading-2-step-shape-inline-size))"
-                },
-                "medium": {
-                  "margin-inline-start": {
-                    "value": "calc(-1 * var(--ams-progress-list-step-indicator-medium-padding-inline) - var(--ams-progress-list-heading-2-step-shape-inline-size))"
-                  }
-                }
-              },
               "marker": {
                 "block-size": {
                   "value": "calc(100% + var(--ams-progress-list-heading-2-step-marker-block-size) / 2 + var(--ams-progress-list-step-sub-steps-sub-step-padding-block-end))"
-                },
-                "inline-size": { "value": "calc({ams.typography.heading.2.font-size} / 1.25)" }
+                }
               },
-              "connector": {
-                "before": {
+              "indicator": {
+                "medium": {
                   "margin-inline-start": {
-                    "value": "calc(var(--ams-progress-list-heading-2-step-shape-inline-size) / 2 - var(--ams-progress-list-step-connector-border-inline-width))"
+                    "value": "calc(-1 * var(--ams-progress-list-step-indicator-medium-padding-inline) - var(--ams-progress-list-heading-2-step-shape-inline-size))"
                   }
                 }
               }
@@ -55,8 +48,12 @@
             }
           },
           "shape": {
-            "block-size": { "value": "{ams.typography.heading.3.font-size}" },
-            "inline-size": { "value": "{ams.typography.heading.3.font-size}" }
+            "block-size": {
+              "value": "{ams.typography.heading.3.font-size}"
+            },
+            "inline-size": {
+              "value": "{ams.typography.heading.3.font-size}"
+            }
           },
           "sub-steps": {
             "sub-step": {
@@ -73,14 +70,6 @@
               "marker": {
                 "block-size": {
                   "value": "calc(100% + var(--ams-progress-list-heading-3-step-marker-block-size) / 2 + var(--ams-progress-list-step-sub-steps-sub-step-padding-block-end))"
-                },
-                "inline-size": { "value": "{ams.typography.heading.3.font-size}" }
-              },
-              "connector": {
-                "before": {
-                  "margin-inline-start": {
-                    "value": "calc(var(--ams-progress-list-heading-3-step-shape-inline-size) / 2 - var(--ams-progress-list-step-connector-border-inline-width))"
-                  }
                 }
               }
             }
@@ -98,8 +87,12 @@
             }
           },
           "shape": {
-            "block-size": { "value": "calc({ams.typography.heading.4.font-size} * 1.25)" },
-            "inline-size": { "value": "calc({ams.typography.heading.4.font-size} * 1.25)" }
+            "block-size": {
+              "value": "calc({ams.typography.heading.4.font-size} * 1.25)"
+            },
+            "inline-size": {
+              "value": "calc({ams.typography.heading.4.font-size} * 1.25)"
+            }
           },
           "sub-steps": {
             "sub-step": {
@@ -116,14 +109,6 @@
               "marker": {
                 "block-size": {
                   "value": "calc(100% + var(--ams-progress-list-heading-4-step-marker-block-size) / 2 + var(--ams-progress-list-step-sub-steps-sub-step-padding-block-end))"
-                },
-                "inline-size": { "value": "calc({ams.typography.heading.4.font-size} * 1.25)" }
-              },
-              "connector": {
-                "before": {
-                  "margin-inline-start": {
-                    "value": "calc(var(--ams-progress-list-heading-4-step-shape-inline-size) / 2 - var(--ams-progress-list-step-connector-border-inline-width))"
-                  }
                 }
               }
             }
@@ -142,10 +127,18 @@
           }
         },
         "marker": {
-          "background-color": { "value": "{ams.color.background}" },
-          "border-color": { "value": "{ams.color.progress.upcoming}" },
-          "border-style": { "value": "solid" },
-          "border-width": { "value": "{ams.border.width.m}" }
+          "background-color": {
+            "value": "{ams.color.background}"
+          },
+          "border-color": {
+            "value": "{ams.color.progress.upcoming}"
+          },
+          "border-style": {
+            "value": "solid"
+          },
+          "border-width": {
+            "value": "{ams.border.width.m}"
+          }
         },
         "icon": {
           "color": {
@@ -181,13 +174,21 @@
               }
             },
             "marker": {
-              "background-color": { "value": "{ams.color.background}" },
+              "background-color": {
+                "value": "{ams.color.background}"
+              },
               "block-size": {
                 "value": "calc({ams.typography.body-text.font-size} * {ams.typography.body-text.line-height})"
               },
-              "border-color": { "value": "{ams.color.progress.upcoming}" },
-              "border-style": { "value": "solid" },
-              "border-width": { "value": "{ams.border.width.m}" }
+              "border-color": {
+                "value": "{ams.color.progress.upcoming}"
+              },
+              "border-style": {
+                "value": "solid"
+              },
+              "border-width": {
+                "value": "{ams.border.width.m}"
+              }
             },
             "connector": {
               "before": {
@@ -201,15 +202,24 @@
               "border-inline-style": { "value": "dashed" },
               "border-inline-width": { "value": "1px" },
               "last-step": {
-                "border-inline-color": { "value": "{ams.color.background}" }
+                "border-inline-color": {
+                  "value": "{ams.color.background}"
+                }
               }
             },
             "body": {
-              "padding-inline-start": { "value": "{ams.space.m}" }
+              "padding-inline-start": {
+                "value": "{ams.space.m}"
+              }
             },
             "completed": {
               "marker": {
-                "border-color": { "value": "{ams.color.progress.completed}" }
+                "background-color": {
+                  "value": "{ams.color.progress.completed}"
+                },
+                "border": {
+                  "value": "none"
+                }
               },
               "connector": {
                 "background-color": { "value": "{ams.color.progress.completed}" },
@@ -224,19 +234,24 @@
             },
             "current": {
               "marker": {
-                "background-color": { "value": "{ams.color.background}" },
-                "border-color": { "value": "{ams.color.progress.current}" }
-              },
-              "connector": {
-                "border-inline-color": { "value": "{ams.color.progress.current}" }
+                "background-color": {
+                  "value": "{ams.color.progress.completed}"
+                },
+                "border-color": {
+                  "value": "{ams.color.progress.current}"
+                }
               }
             }
           }
         },
         "completed": {
           "marker": {
-            "background-color": { "value": "{ams.color.progress.completed}" },
-            "border": { "value": "none" }
+            "background-color": {
+              "value": "{ams.color.progress.completed}"
+            },
+            "border": {
+              "value": "none"
+            }
           },
           "connector": {
             "background-color": { "value": "{ams.color.progress.completed}" },
@@ -245,12 +260,13 @@
           }
         },
         "current": {
-          "indicator": {
-            "background-color": { "value": "{ams.color.progress.current}" }
-          },
           "marker": {
-            "background-color": { "value": "{ams.color.background}" },
-            "border-color": { "value": "{ams.color.progress.current}" }
+            "background-color": {
+              "value": "{ams.color.progress.completed}"
+            },
+            "border-color": {
+              "value": "{ams.color.progress.current}"
+            }
           },
           "connector": {
             "border-inline-color": { "value": "{ams.color.progress.current}" }

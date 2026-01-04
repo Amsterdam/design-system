@@ -259,56 +259,62 @@
 .ams-progress-list-sub-step__marker {
   background-color: var(--ams-progress-list-step-sub-steps-sub-step-marker-background-color);
   block-size: var(--ams-progress-list-step-sub-steps-sub-step-marker-block-size);
+  display: grid;
   grid-area: 1/1;
-  place-content: center;
+  place-items: center;
   position: relative;
-  z-index: 2;
 
+  /*
+  * round() eliminates sub-pixel rendering issues that distort circular markers.
+  * Minor degradation in unsupported browsers is visually unnoticeable.
+  */
   // stylelint-disable plugin/use-baseline
   .ams-progress-list--heading-2 & {
-    inline-size: var(--ams-progress-list-heading-2-step-sub-steps-sub-step-marker-inline-size);
+    inline-size: var(--ams-progress-list-heading-2-step-shape-inline-size);
 
     @supports (block-size: round(down, 1px, 1px)) {
-      inline-size: round(down, var(--ams-progress-list-heading-2-step-sub-steps-sub-step-marker-inline-size), 2px);
+      inline-size: round(down, var(--ams-progress-list-heading-2-step-shape-inline-size), 2px);
     }
   }
 
   .ams-progress-list--heading-3 & {
-    inline-size: var(--ams-progress-list-heading-3-step-sub-steps-sub-step-marker-inline-size);
+    inline-size: var(--ams-progress-list-heading-3-step-shape-inline-size);
 
     @supports (block-size: round(down, 1px, 1px)) {
-      inline-size: round(down, var(--ams-progress-list-heading-3-step-sub-steps-sub-step-marker-inline-size), 2px);
+      inline-size: round(down, var(--ams-progress-list-heading-3-step-shape-inline-size), 2px);
     }
   }
 
   .ams-progress-list--heading-4 & {
-    inline-size: var(--ams-progress-list-heading-4-step-sub-steps-sub-step-marker-inline-size);
+    inline-size: var(--ams-progress-list-heading-4-step-shape-inline-size);
 
     @supports (block-size: round(down, 1px, 1px)) {
-      inline-size: round(down, var(--ams-progress-list-heading-4-step-sub-steps-sub-step-marker-inline-size), 2px);
+      inline-size: round(down, var(--ams-progress-list-heading-4-step-shape-inline-size), 2px);
     }
   }
   // stylelint-enable plugin/use-baseline
 }
 
 .ams-progress-list-sub-step__marker-shape {
+  aspect-ratio: 1;
   background-color: var(--ams-progress-list-step-sub-steps-sub-step-marker-background-color);
+  block-size: 0.75rem;
   border-color: var(--ams-progress-list-step-sub-steps-sub-step-marker-border-color);
+  border-radius: 50%;
   border-style: var(--ams-progress-list-step-sub-steps-sub-step-marker-border-style);
   border-width: var(--ams-progress-list-step-sub-steps-sub-step-marker-border-width);
   box-sizing: border-box;
   display: flex;
-  inline-size: 100%;
   justify-content: center;
-  margin-inline-start: var(--ams-progress-list-step-sub-steps-sub-step-margin-inline-start);
-
-  .ams-progress-list__sub-step--current & {
-    block-size: inherit;
-    border: none;
-  }
 
   .ams-progress-list__sub-step--completed & {
-    border-color: var(--ams-progress-list-step-sub-steps-sub-step-completed-marker-border-color);
+    background-color: var(--ams-progress-list-step-sub-steps-sub-step-completed-marker-background-color);
+    border: var(--ams-progress-list-step-sub-steps-sub-step-completed-marker-border);
+  }
+
+  .ams-progress-list__sub-step[aria-current] & {
+    background-color: var(--ams-progress-list-step-sub-steps-sub-step-current-marker-background-color);
+    border-color: var(--ams-progress-list-step-sub-steps-sub-step-current-marker-border-color);
   }
 }
 
@@ -363,10 +369,6 @@
   border-inline-width: var(--ams-progress-list-step-sub-steps-sub-step-connector-border-inline-width);
   grid-area: 1 / 1; // Overlaps the marker and connector.
   z-index: 1;
-
-  .ams-progress-list__sub-step--current & {
-    border-inline-color: var(--ams-progress-list-step-sub-steps-sub-step-current-connector-border-inline-color);
-  }
 
   .ams-progress-list__sub-step--completed & {
     background-color: var(--ams-progress-list-step-sub-steps-sub-step-completed-connector-background-color);
