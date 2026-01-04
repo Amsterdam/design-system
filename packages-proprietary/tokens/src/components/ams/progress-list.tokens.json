@@ -147,6 +147,11 @@
           "border-style": { "value": "solid" },
           "border-width": { "value": "{ams.border.width.m}" }
         },
+        "icon": {
+          "color": {
+            "value": "{ams.color.background}"
+          }
+        },
         "connector": {
           "border-inline-color": { "value": "{ams.color.progress.upcoming}" },
           "border-inline-style": { "value": "dashed" },

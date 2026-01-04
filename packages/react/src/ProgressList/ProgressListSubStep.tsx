@@ -4,11 +4,8 @@
  */
 import type { ForwardedRef, HTMLAttributes, PropsWithChildren } from 'react'
 
-import { ArrowForwardIcon } from '@amsterdam/design-system-react-icons'
 import { clsx } from 'clsx'
 import { forwardRef } from 'react'
-
-import { Icon } from '../Icon'
 
 export type ProgressListSubStepProps = {
   status?: 'current' | 'completed'
@@ -24,13 +21,8 @@ export const ProgressListSubStep = forwardRef(
         {...restProps}
       >
         <div className="ams-progress-list-sub-step__indicator">
-          <span className="ams-progress-list-sub-step__connector--before" />
           <div className="ams-progress-list-sub-step__marker">
-            <span className="ams-progress-list-sub-step__marker-shape">
-              {status === 'current' && (
-                <Icon className="ams-progress-list-sub-step__marker-icon" svg={ArrowForwardIcon} />
-              )}
-            </span>
+            <span className="ams-progress-list-sub-step__marker-shape" />
           </div>
           <span className="ams-progress-list-sub-step__connector" />
         </div>

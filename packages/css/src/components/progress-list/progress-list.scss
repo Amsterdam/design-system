@@ -250,9 +250,9 @@
   }
 }
 
-.ams-progress-list__marker-icon,
-.ams-progress-list-sub-step__marker-icon {
+.ams-progress-list__marker-icon {
   align-self: center;
+  color: var(--ams-progress-list-step-icon-color);
   inline-size: 100%;
 }
 
