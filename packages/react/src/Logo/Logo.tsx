@@ -17,13 +17,16 @@ import {
   LogoVgaVerzekeringen,
 } from './brand'
 
-export type LogoBrand =
-  | 'amsterdam'
-  | 'ggd-amsterdam'
-  | 'museum-weesp'
-  | 'stadsarchief'
-  | 'stadsbank-van-lening'
-  | 'vga-verzekeringen'
+export const logoBrands = [
+  'amsterdam',
+  'ggd-amsterdam',
+  'museum-weesp',
+  'stadsarchief',
+  'stadsbank-van-lening',
+  'vga-verzekeringen',
+] as const
+
+export type LogoBrand = (typeof logoBrands)[number]
 
 export type LogoProps = {
   /** The name of the brand for which to display the logo, or configuration for a custom logo. */
