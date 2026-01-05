@@ -15,8 +15,6 @@ import type { PageHeaderStory } from './PageHeader.stories'
 import { default as pageHeaderMeta } from './PageHeader.stories'
 import * as PageHeaderStories from './PageHeader.stories'
 
-const pageHeaderStories = PageHeaderStories as Record<string, PageHeaderStory>
-
 const meta = {
   ...pageHeaderMeta,
   title: 'Components/Containers/Page Header',
@@ -25,6 +23,19 @@ const meta = {
 export default meta
 
 type Story = StoryObj<typeof meta>
+
+const pageHeaderStories = PageHeaderStories as Record<string, PageHeaderStory>
+
+// Maintain a list to ensure deterministic visual regression test
+const orderedStoryKeys = [
+  'Default',
+  'WithMovingLinks',
+  'WithoutMenuButtonOnWideWindow',
+  'WithoutMenuButton',
+  'WithCustomLogoLink',
+  'WithCustomTexts',
+  'WithCustomLogo',
+]
 
 export const Test: Story = {
   args: {
@@ -61,9 +72,10 @@ export const Test: Story = {
       </PageHeader>
 
       {/* All existing public stories */}
-      {Object.entries(pageHeaderStories).map(([key, { args }]) => (
-        <PageHeader key={key} {...args} />
-      ))}
+      {orderedStoryKeys.map((key) => {
+        const story = pageHeaderStories[key]
+        return story ? <PageHeader key={key} {...story.args} /> : null
+      })}
 
       {/* All logo brands */}
       {logoBrands.map((brand) => (
