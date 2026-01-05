@@ -26,11 +26,6 @@
           },
           "sub-steps": {
             "step": {
-              "marker": {
-                "block-size": {
-                  "value": "calc(100% + var(--ams-progress-list-heading-2-step-marker-block-size) / 2 + var(--ams-progress-list-step-sub-steps-step-padding-block-end))"
-                }
-              },
               "indicator": {
                 "medium": {
                   "margin-inline-start": {
@@ -77,9 +72,9 @@
                   }
                 }
               },
-              "marker": {
-                "block-size": {
-                  "value": "calc(100% + var(--ams-progress-list-heading-3-step-marker-block-size) / 2 + var(--ams-progress-list-step-sub-steps-step-padding-block-end))"
+              "connector": {
+                "margin-block-start": {
+                  "value": "calc(var(--ams-progress-list-heading-3-step-sub-steps-step-marker-block-size) - (var(--ams-border-width-m) * 2))"
                 }
               }
             }
@@ -121,9 +116,9 @@
                   }
                 }
               },
-              "marker": {
-                "block-size": {
-                  "value": "calc(100% + var(--ams-progress-list-heading-4-step-marker-block-size) / 2 + var(--ams-progress-list-step-sub-steps-step-padding-block-end))"
+              "connector": {
+                "margin-block-start": {
+                  "value": "calc(var(--ams-progress-list-heading-4-step-sub-steps-step-marker-block-size) - (var(--ams-border-width-m) * 2))"
                 }
               }
             }
@@ -204,7 +199,7 @@
                 "value": "{ams.color.background}"
               },
               "block-size": {
-                "value": "calc({ams.typography.body-text.font-size} * {ams.typography.body-text.line-height})"
+                "value": "0.75rem"
               },
               "border-color": {
                 "value": "{ams.color.progress.upcoming}"
@@ -236,6 +231,12 @@
                 "border-inline-color": {
                   "value": "{ams.color.background}"
                 }
+              },
+              "margin-block-start": {
+                "value": "calc((var(--ams-progress-list-step-sub-steps-step-marker-block-size) + var(--ams-progress-list-step-sub-steps-step-marker-block-size)) / 2 + var(--ams-border-width-m))"
+              },
+              "block-size": {
+                "value": "calc(100% - var(--ams-progress-list-step-sub-steps-step-marker-block-size) - (var(--ams-border-width-m) * 2))"
               }
             },
             "body": {

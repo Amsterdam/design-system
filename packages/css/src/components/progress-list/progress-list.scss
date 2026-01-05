@@ -287,7 +287,7 @@
 .ams-progress-list-sub-step__marker-shape {
   aspect-ratio: 1;
   background-color: var(--ams-progress-list-step-sub-steps-step-marker-background-color);
-  block-size: 0.75rem;
+  block-size: var(--ams-progress-list-step-sub-steps-step-marker-block-size);
   border-color: var(--ams-progress-list-step-sub-steps-step-marker-border-color);
   border-radius: 50%;
   border-style: var(--ams-progress-list-step-sub-steps-step-marker-border-style);
@@ -316,6 +316,7 @@
   border-inline-style: var(--ams-progress-list-step-connector-border-inline-style);
   border-inline-width: var(--ams-progress-list-step-connector-border-inline-width);
   grid-area: 1 / 1; // Overlaps the marker and connector.
+  z-index: 0;
 
   .ams-progress-list--heading-2 & {
     block-size: var(--ams-progress-list-heading-2-step-connector-block-size);
@@ -357,27 +358,18 @@
 .ams-progress-list-sub-step__connector {
   align-self: stretch;
   background-color: var(--ams-progress-list-step-sub-steps-step-connector-background-color);
+  block-size: var(--ams-progress-list-step-sub-steps-step-connector-block-size);
   border-inline-color: var(--ams-progress-list-step-sub-steps-step-connector-border-inline-color);
   border-inline-style: var(--ams-progress-list-step-sub-steps-step-connector-border-inline-style);
   border-inline-width: var(--ams-progress-list-step-sub-steps-step-connector-border-inline-width);
   grid-area: 1 / 1; // Overlaps the marker and connector.
+  margin-block-start: var(--ams-progress-list-step-sub-steps-step-connector-margin-block-start);
+  z-index: 1;
 
   .ams-progress-list__sub-step--completed & {
     background-color: var(--ams-progress-list-step-sub-steps-step-completed-connector-background-color);
     border-inline-color: var(--ams-progress-list-step-sub-steps-step-completed-connector-border-inline-color);
     border-inline-style: var(--ams-progress-list-step-sub-steps-step-completed-connector-border-inline-style);
-  }
-
-  .ams-progress-list--heading-2 & {
-    block-size: var(--ams-progress-list-heading-2-step-sub-steps-step-marker-block-size);
-  }
-
-  .ams-progress-list--heading-3 & {
-    block-size: var(--ams-progress-list-heading-3-step-sub-steps-step-marker-block-size);
-  }
-
-  .ams-progress-list--heading-4 & {
-    block-size: var(--ams-progress-list-heading-4-step-sub-steps-step-marker-block-size);
   }
 
   // Style the connector when it belongs to the last sub-step of the last main step
