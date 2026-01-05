@@ -24,7 +24,6 @@
 
   display: flex;
   flex-direction: column;
-  gap: var(--ams-progress-list-step-sub-steps-gap);
 }
 
 // Step and sub-step
@@ -423,5 +422,10 @@
 }
 
 .ams-progress-list-sub-step__body {
+  padding-block-end: var(--ams-progress-list-step-sub-steps-step-body-padding-block-end);
   padding-inline-start: var(--ams-progress-list-step-sub-steps-step-body-padding-inline-start);
+
+  .ams-progress-list__sub-step:last-of-type & {
+    padding-block-end: 0;
+  }
 }
