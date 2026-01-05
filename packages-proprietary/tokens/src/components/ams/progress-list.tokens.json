@@ -8,7 +8,7 @@
               "value": "calc({ams.typography.heading.2.font-size} * {ams.typography.heading.2.line-height})"
             },
             "margin-block-start": {
-              "value": "calc(({ams.typography.heading.2.line-height} * {ams.typography.heading.2.font-size}) / 2)"
+              "value": "calc((var(--ams-progress-list-heading-2-step-marker-block-size) + var(--ams-progress-list-heading-2-step-shape-block-size)) / 2 + var(--ams-border-width-m))"
             }
           },
           "shape": {
@@ -44,7 +44,7 @@
               "value": "calc({ams.typography.heading.3.font-size} * {ams.typography.heading.3.line-height})"
             },
             "margin-block-start": {
-              "value": "calc(({ams.typography.heading.3.line-height} * {ams.typography.heading.3.font-size}) / 2)"
+              "value": "calc((var(--ams-progress-list-heading-3-step-marker-block-size) + var(--ams-progress-list-heading-3-step-shape-block-size)) / 2 + var(--ams-border-width-m))"
             }
           },
           "shape": {
@@ -83,7 +83,7 @@
               "value": "calc({ams.typography.heading.4.font-size} * {ams.typography.heading.4.line-height})"
             },
             "margin-block-start": {
-              "value": "calc(({ams.typography.heading.4.line-height} * {ams.typography.heading.4.font-size}) / 2)"
+              "value": "calc((var(--ams-progress-list-heading-4-step-marker-block-size) + var(--ams-progress-list-heading-4-step-shape-block-size)) / 2 + var(--ams-border-width-m))"
             }
           },
           "shape": {
