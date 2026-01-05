@@ -20,10 +20,10 @@
             }
           },
           "sub-steps": {
-            "sub-step": {
+            "step": {
               "marker": {
                 "block-size": {
-                  "value": "calc(100% + var(--ams-progress-list-heading-2-step-marker-block-size) / 2 + var(--ams-progress-list-step-sub-steps-sub-step-padding-block-end))"
+                  "value": "calc(100% + var(--ams-progress-list-heading-2-step-marker-block-size) / 2 + var(--ams-progress-list-step-sub-steps-step-padding-block-end))"
                 }
               },
               "indicator": {
@@ -56,20 +56,20 @@
             }
           },
           "sub-steps": {
-            "sub-step": {
+            "step": {
               "indicator": {
                 "margin-inline-start": {
                   "value": "calc(-1 * var(--ams-progress-list-step-indicator-padding-inline) - var(--ams-progress-list-heading-3-step-shape-inline-size))"
                 },
                 "medium": {
                   "margin-inline-start": {
-                    "value": "calc(-1 * var(--ams-progress-list-step-sub-steps-sub-step-indicator-medium-padding-inline) - var(--ams-progress-list-heading-3-step-shape-inline-size))"
+                    "value": "calc(-1 * var(--ams-progress-list-step-sub-steps-step-indicator-medium-padding-inline) - var(--ams-progress-list-heading-3-step-shape-inline-size))"
                   }
                 }
               },
               "marker": {
                 "block-size": {
-                  "value": "calc(100% + var(--ams-progress-list-heading-3-step-marker-block-size) / 2 + var(--ams-progress-list-step-sub-steps-sub-step-padding-block-end))"
+                  "value": "calc(100% + var(--ams-progress-list-heading-3-step-marker-block-size) / 2 + var(--ams-progress-list-step-sub-steps-step-padding-block-end))"
                 }
               }
             }
@@ -95,20 +95,20 @@
             }
           },
           "sub-steps": {
-            "sub-step": {
+            "step": {
               "indicator": {
                 "margin-inline-start": {
                   "value": "calc(-1 * var(--ams-progress-list-step-indicator-padding-inline) - var(--ams-progress-list-heading-4-step-shape-inline-size))"
                 },
                 "medium": {
                   "margin-inline-start": {
-                    "value": "calc(-1 * var(--ams-progress-list-step-sub-steps-sub-step-indicator-medium-padding-inline) - var(--ams-progress-list-heading-4-step-shape-inline-size))"
+                    "value": "calc(-1 * var(--ams-progress-list-step-sub-steps-step-indicator-medium-padding-inline) - var(--ams-progress-list-heading-4-step-shape-inline-size))"
                   }
                 }
               },
               "marker": {
                 "block-size": {
-                  "value": "calc(100% + var(--ams-progress-list-heading-4-step-marker-block-size) / 2 + var(--ams-progress-list-step-sub-steps-sub-step-padding-block-end))"
+                  "value": "calc(100% + var(--ams-progress-list-heading-4-step-marker-block-size) / 2 + var(--ams-progress-list-step-sub-steps-step-padding-block-end))"
                 }
               }
             }
@@ -168,7 +168,7 @@
           "gap": {
             "value": "{ams.space.m}"
           },
-          "sub-step": {
+          "step": {
             "padding-block-start": {
               "value": "{ams.space.m}"
             },
