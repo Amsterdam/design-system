@@ -48,7 +48,9 @@ export const ProgressListStep = forwardRef(
           <span className="ams-progress-list__connector" />
         </div>
         <div className="ams-progress-list__content">
-          <Heading level={headingLevel}>{heading}</Heading>
+          <Heading className="ams-progress-list__heading" level={headingLevel}>
+            {heading}
+          </Heading>
           <div className="ams-progress-list__body">{children}</div>
         </div>
       </li>

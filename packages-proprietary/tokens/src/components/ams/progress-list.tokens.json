@@ -156,12 +156,14 @@
             "value": "1px"
           }
         },
+        "heading": {
+          "padding-block-end": {
+            "value": "{ams.space.s}"
+          }
+        },
         "body": {
           "padding-block-end": {
             "value": "{ams.space.l}"
-          },
-          "padding-block-start": {
-            "value": "{ams.space.s}"
           }
         },
         "sub-steps": {
@@ -169,9 +171,6 @@
             "value": "{ams.space.m}"
           },
           "step": {
-            "padding-block-start": {
-              "value": "{ams.space.m}"
-            },
             "padding-block-end": {
               "value": "{ams.space.l}"
             },

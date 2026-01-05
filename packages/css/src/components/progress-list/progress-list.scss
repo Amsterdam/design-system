@@ -38,10 +38,6 @@
   display: flex;
 }
 
-.ams-progress-list__sub-step:first-child {
-  padding-block-start: var(--ams-progress-list-step-sub-steps-step-padding-block-start);
-}
-
 .ams-progress-list__sub-step:last-child {
   padding-block-end: var(--ams-progress-list-step-sub-steps-step-padding-block-end);
 }
@@ -406,11 +402,15 @@
   min-inline-size: 0;
 }
 
+// Heading
+
+.ams-progress-list__heading {
+  padding-block-end: var(--ams-progress-list-step-heading-padding-block-end);
+}
+
 // Body
 
 .ams-progress-list__body {
-  padding-block-start: var(--ams-progress-list-step-body-padding-block-start);
-
   .ams-progress-list__step:not(:last-child, .ams-progress-list__step--has-sub-steps) & {
     padding-block-end: var(--ams-progress-list-step-body-padding-block-end);
   }
