@@ -11,6 +11,7 @@ import { LogInIcon, SearchIcon } from '@amsterdam/design-system-react-icons'
 import { PageHeader } from '@amsterdam/design-system-react/src'
 
 import ExampleLogo from '../Logo/ExampleLogo'
+import { collapsibleMenuItems, headerMenuItems } from './content'
 
 const meta = {
   title: 'Components/Containers/Page Header',
@@ -20,25 +21,6 @@ const meta = {
 export default meta
 
 type Story = StoryObj<typeof meta>
-
-const defaultStoryLinks = [
-  [
-    { href: '#', label: 'Kaart' },
-    { href: '#', label: 'Panoramabeelden' },
-    { href: '#', label: 'Tabellen' },
-    { href: '#', label: 'Catalogus (Beta)' },
-    { href: '#', label: 'Kaarten' },
-    { href: '#', label: 'Datacatalogus' },
-  ],
-  [
-    { href: '#', label: 'Over de organisatie' },
-    { href: '#', label: 'Over het dataplatform' },
-  ],
-  [
-    { href: '#', label: 'Help' },
-    { href: '#', label: 'Contact' },
-  ],
-]
 
 export const Default: Story = {
   args: {
@@ -57,7 +39,7 @@ export const Default: Story = {
             Onderdelen
           </Heading>
           <LinkList>
-            {defaultStoryLinks[0].map(({ href, label }) => (
+            {collapsibleMenuItems[0].map(({ href, label }) => (
               <LinkList.Link href={href} key={label}>
                 {label}
               </LinkList.Link>
@@ -69,7 +51,7 @@ export const Default: Story = {
             Over ons
           </Heading>
           <LinkList>
-            {defaultStoryLinks[1].map(({ href, label }) => (
+            {collapsibleMenuItems[1].map(({ href, label }) => (
               <LinkList.Link href={href} key={label}>
                 {label}
               </LinkList.Link>
@@ -81,7 +63,7 @@ export const Default: Story = {
             Help
           </Heading>
           <LinkList>
-            {defaultStoryLinks[2].map(({ href, label }) => (
+            {collapsibleMenuItems[2].map(({ href, label }) => (
               <LinkList.Link href={href} key={label}>
                 {label}
               </LinkList.Link>
@@ -130,13 +112,6 @@ export const WithMovingLinks: Story = {
   },
 }
 
-const WithoutMenuButtonOnWideWindowStoryLinks = [
-  { href: '#', label: 'Stad' },
-  { href: '#', label: 'Techniek' },
-  { href: '#', label: 'Historie' },
-  { href: '#', label: 'Duurzaamheid' },
-]
-
 export const WithoutMenuButtonOnWideWindow: Story = {
   args: {
     brandName: 'Aan de Amsterdamse grachten',
@@ -144,7 +119,7 @@ export const WithoutMenuButtonOnWideWindow: Story = {
       <Grid>
         <Grid.Cell span="all">
           <LinkList>
-            {WithoutMenuButtonOnWideWindowStoryLinks.map(({ href, label }) => (
+            {headerMenuItems.map(({ href, label }) => (
               <LinkList.Link href={href} key={label}>
                 {label}
               </LinkList.Link>
@@ -154,7 +129,7 @@ export const WithoutMenuButtonOnWideWindow: Story = {
       </Grid>
     ),
     menuItems: [
-      ...WithoutMenuButtonOnWideWindowStoryLinks.map(({ href, label }) => (
+      ...headerMenuItems.map(({ href, label }) => (
         <PageHeader.MenuLink href={href} key={label}>
           {label}
         </PageHeader.MenuLink>

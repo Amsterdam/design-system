@@ -13,6 +13,7 @@ import { logoBrands } from '@amsterdam/design-system-react/src/Logo/Logo'
 import { expect } from 'storybook/test'
 
 import ExampleLogo from '../Logo/ExampleLogo'
+import { collapsibleMenuItems, headerMenuItems } from './content'
 import { default as pageHeaderMeta } from './PageHeader.stories'
 
 const meta = {
@@ -23,32 +24,6 @@ const meta = {
 export default meta
 
 type Story = StoryObj<typeof meta>
-
-const defaultStoryLinks = [
-  [
-    { href: '#', label: 'Kaart' },
-    { href: '#', label: 'Panoramabeelden' },
-    { href: '#', label: 'Tabellen' },
-    { href: '#', label: 'Catalogus (Beta)' },
-    { href: '#', label: 'Kaarten' },
-    { href: '#', label: 'Datacatalogus' },
-  ],
-  [
-    { href: '#', label: 'Over de organisatie' },
-    { href: '#', label: 'Over het dataplatform' },
-  ],
-  [
-    { href: '#', label: 'Help' },
-    { href: '#', label: 'Contact' },
-  ],
-]
-
-const WithoutMenuButtonOnWideWindowStoryLinks = [
-  { href: '#', label: 'Stad' },
-  { href: '#', label: 'Techniek' },
-  { href: '#', label: 'Historie' },
-  { href: '#', label: 'Duurzaamheid' },
-]
 
 export const Test: Story = {
   args: {
@@ -99,7 +74,7 @@ export const Test: Story = {
               Onderdelen
             </Heading>
             <LinkList>
-              {defaultStoryLinks[0].map(({ href, label }) => (
+              {collapsibleMenuItems[0].map(({ href, label }) => (
                 <LinkList.Link href={href} key={label}>
                   {label}
                 </LinkList.Link>
@@ -111,7 +86,7 @@ export const Test: Story = {
               Over ons
             </Heading>
             <LinkList>
-              {defaultStoryLinks[1].map(({ href, label }) => (
+              {collapsibleMenuItems[1].map(({ href, label }) => (
                 <LinkList.Link href={href} key={label}>
                   {label}
                 </LinkList.Link>
@@ -123,7 +98,7 @@ export const Test: Story = {
               Help
             </Heading>
             <LinkList>
-              {defaultStoryLinks[2].map(({ href, label }) => (
+              {collapsibleMenuItems[2].map(({ href, label }) => (
                 <LinkList.Link href={href} key={label}>
                   {label}
                 </LinkList.Link>
@@ -155,7 +130,7 @@ export const Test: Story = {
       <PageHeader
         brandName="Aan de Amsterdamse grachten"
         menuItems={[
-          ...WithoutMenuButtonOnWideWindowStoryLinks.map(({ href, label }) => (
+          ...headerMenuItems.map(({ href, label }) => (
             <PageHeader.MenuLink href={href} key={label}>
               {label}
             </PageHeader.MenuLink>
@@ -169,7 +144,7 @@ export const Test: Story = {
         <Grid>
           <Grid.Cell span="all">
             <LinkList>
-              {WithoutMenuButtonOnWideWindowStoryLinks.map(({ href, label }) => (
+              {headerMenuItems.map(({ href, label }) => (
                 <LinkList.Link href={href} key={label}>
                   {label}
                 </LinkList.Link>
