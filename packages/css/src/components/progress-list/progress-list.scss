@@ -247,7 +247,6 @@
 }
 
 .ams-progress-list-sub-step__marker {
-  background-color: var(--ams-progress-list-step-sub-steps-step-marker-background-color);
   block-size: var(--ams-progress-list-step-sub-steps-step-marker-block-size);
   display: grid;
   grid-area: 1/1;
@@ -296,6 +295,7 @@
   box-sizing: border-box;
   display: flex;
   justify-content: center;
+  outline: var(--ams-progress-list-step-sub-steps-step-marker-outline);
 
   .ams-progress-list__sub-step--completed & {
     background-color: var(--ams-progress-list-step-sub-steps-step-completed-marker-background-color);

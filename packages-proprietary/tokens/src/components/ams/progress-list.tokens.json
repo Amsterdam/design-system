@@ -214,6 +214,9 @@
               },
               "border-width": {
                 "value": "{ams.border.width.m}"
+              },
+              "outline": {
+                "value": "{ams.border.width.m} solid {ams.color.background}"
               }
             },
             "connector": {
