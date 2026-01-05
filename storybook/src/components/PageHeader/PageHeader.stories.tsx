@@ -20,9 +20,9 @@ const meta = {
 
 export default meta
 
-type Story = StoryObj<typeof meta>
+export type PageHeaderStory = StoryObj<typeof meta>
 
-export const Default: Story = {
+export const Default: PageHeaderStory = {
   args: {
     brandName: 'Data Amsterdam',
     children: (
@@ -83,7 +83,7 @@ export const Default: Story = {
   },
 }
 
-export const WithMovingLinks: Story = {
+export const WithMovingLinks: PageHeaderStory = {
   args: {
     children: (
       <Grid>
@@ -112,7 +112,7 @@ export const WithMovingLinks: Story = {
   },
 }
 
-export const WithoutMenuButtonOnWideWindow: Story = {
+export const WithoutMenuButtonOnWideWindow: PageHeaderStory = {
   args: {
     brandName: 'Aan de Amsterdamse grachten',
     children: (
@@ -142,7 +142,7 @@ export const WithoutMenuButtonOnWideWindow: Story = {
   },
 }
 
-export const WithoutMenuButton: Story = {
+export const WithoutMenuButton: PageHeaderStory = {
   args: {
     brandName: 'Mijn Amsterdam',
     menuItems: (
@@ -153,7 +153,7 @@ export const WithoutMenuButton: Story = {
   },
 }
 
-export const WithCustomLogoLink: Story = {
+export const WithCustomLogoLink: PageHeaderStory = {
   args: {
     logoAccessibleName: 'Gemeentelijke Gezondheidsdienst Amsterdam logo',
     logoBrand: 'ggd-amsterdam',
@@ -162,7 +162,7 @@ export const WithCustomLogoLink: Story = {
   },
 }
 
-export const WithCustomTexts: Story = {
+export const WithCustomTexts: PageHeaderStory = {
   args: {
     children: (
       <Grid>
@@ -180,7 +180,7 @@ export const WithCustomTexts: Story = {
   },
 }
 
-export const WithCustomLogo: Story = {
+export const WithCustomLogo: PageHeaderStory = {
   args: {
     brandName: 'Voorbeeld',
     logoBrand: {

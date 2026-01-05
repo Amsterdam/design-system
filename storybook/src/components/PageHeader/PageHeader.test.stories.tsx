@@ -4,17 +4,18 @@
  */
 
 import type { Meta, StoryObj } from '@storybook/react-vite'
-import type { CSSProperties } from 'react'
 
-import { Grid, Heading, LinkList } from '@amsterdam/design-system-react'
-import { LogInIcon, SearchIcon } from '@amsterdam/design-system-react-icons'
+import { LogInIcon } from '@amsterdam/design-system-react-icons'
 import { PageHeader } from '@amsterdam/design-system-react/src'
 import { logoBrands } from '@amsterdam/design-system-react/src/Logo/Logo'
 import { expect } from 'storybook/test'
 
-import ExampleLogo from '../Logo/ExampleLogo'
-import { collapsibleMenuItems, headerMenuItems } from './content'
+import type { PageHeaderStory } from './PageHeader.stories'
+
 import { default as pageHeaderMeta } from './PageHeader.stories'
+import * as PageHeaderStories from './PageHeader.stories'
+
+const pageHeaderStories = PageHeaderStories as Record<string, PageHeaderStory>
 
 const meta = {
   ...pageHeaderMeta,
@@ -59,146 +60,10 @@ export const Test: Story = {
         </ul>
       </PageHeader>
 
-      {/* Default */}
-      <PageHeader {...args}>
-        <Grid>
-          <PageHeader.GridCellNarrowWindowOnly span="all">
-            <LinkList>
-              <LinkList.Link href="#" lang="en">
-                English
-              </LinkList.Link>
-            </LinkList>
-          </PageHeader.GridCellNarrowWindowOnly>
-          <Grid.Cell span={4}>
-            <Heading className="ams-mb-s" level={2} size="level-3">
-              Onderdelen
-            </Heading>
-            <LinkList>
-              {collapsibleMenuItems[0].map(({ href, label }) => (
-                <LinkList.Link href={href} key={label}>
-                  {label}
-                </LinkList.Link>
-              ))}
-            </LinkList>
-          </Grid.Cell>
-          <Grid.Cell span={4}>
-            <Heading className="ams-mb-s" level={2} size="level-3">
-              Over ons
-            </Heading>
-            <LinkList>
-              {collapsibleMenuItems[1].map(({ href, label }) => (
-                <LinkList.Link href={href} key={label}>
-                  {label}
-                </LinkList.Link>
-              ))}
-            </LinkList>
-          </Grid.Cell>
-          <Grid.Cell span={4}>
-            <Heading className="ams-mb-s" level={2} size="level-3">
-              Help
-            </Heading>
-            <LinkList>
-              {collapsibleMenuItems[2].map(({ href, label }) => (
-                <LinkList.Link href={href} key={label}>
-                  {label}
-                </LinkList.Link>
-              ))}
-            </LinkList>
-          </Grid.Cell>
-        </Grid>
-      </PageHeader>
-
-      {/* With moving links */}
-      <PageHeader {...args}>
-        <Grid>
-          <PageHeader.GridCellNarrowWindowOnly span="all">
-            <LinkList>
-              <LinkList.Link href="#" lang="en">
-                English
-              </LinkList.Link>
-            </LinkList>
-          </PageHeader.GridCellNarrowWindowOnly>
-          <Grid.Cell span="all">
-            <LinkList>
-              <LinkList.Link href="#">Regular collapsible menu link</LinkList.Link>
-            </LinkList>
-          </Grid.Cell>
-        </Grid>
-      </PageHeader>
-
-      {/* Without menu button on wide window */}
-      <PageHeader
-        brandName="Aan de Amsterdamse grachten"
-        menuItems={[
-          ...headerMenuItems.map(({ href, label }) => (
-            <PageHeader.MenuLink href={href} key={label}>
-              {label}
-            </PageHeader.MenuLink>
-          )),
-          <PageHeader.MenuLink fixed href="#" icon={SearchIcon} key="Zoeken">
-            Zoeken
-          </PageHeader.MenuLink>,
-        ]}
-        noMenuButtonOnWideWindow
-      >
-        <Grid>
-          <Grid.Cell span="all">
-            <LinkList>
-              {headerMenuItems.map(({ href, label }) => (
-                <LinkList.Link href={href} key={label}>
-                  {label}
-                </LinkList.Link>
-              ))}
-            </LinkList>
-          </Grid.Cell>
-        </Grid>
-      </PageHeader>
-
-      {/* Without menu button */}
-      <PageHeader
-        brandName="Mijn Amsterdam"
-        menuItems={
-          <PageHeader.MenuLink fixed href="#" icon={LogInIcon}>
-            Inloggen
-          </PageHeader.MenuLink>
-        }
-      />
-
-      {/* With custom logo link */}
-      <PageHeader
-        logoAccessibleName="Gemeentelijke Gezondheidsdienst Amsterdam logo"
-        logoBrand="ggd-amsterdam"
-        logoLink="https://www.ggd.amsterdam.nl/"
-        logoLinkTitle="Naar de voorpagina van de GGD Amsterdam"
-      />
-
-      {/* With custom texts */}
-      <PageHeader menuButtonText="Alle onderwerpen" navigationLabel="Navigatie">
-        <Grid>
-          <Grid.Cell span="all">
-            <LinkList>
-              <LinkList.Link href="#" lang="en">
-                English
-              </LinkList.Link>
-            </LinkList>
-          </Grid.Cell>
-        </Grid>
-      </PageHeader>
-
-      {/* With custom logo */}
-      <PageHeader
-        brandName="Voorbeeld"
-        logoBrand={{
-          label: 'Gemeente logo',
-          svg: ExampleLogo,
-        }}
-        style={
-          {
-            '--ams-logo-block-size': 'clamp(1.125rem, 1.0536rem + 0.3571vw, 1.375rem)',
-            '--ams-logo-min-block-size': '1.125rem',
-          } as CSSProperties
-        }
-      />
+      {/* All existing public stories */}
+      {Object.entries(pageHeaderStories).map(([key, { args }]) => (
+        <PageHeader key={key} {...args} />
+      ))}
 
       {/* All logo brands */}
       {logoBrands.map((brand) => (
@@ -215,5 +80,4 @@ export const Test: Story = {
       ))}
     </>
   ),
-  tags: ['!dev', '!autodocs'],
 }
