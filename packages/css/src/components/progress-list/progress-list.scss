@@ -337,11 +337,8 @@
   }
 
   .ams-progress-list__step--has-sub-steps & {
-    border-inline-style: solid;
-  }
-
-  .ams-progress-list__step[aria-current] & {
     border-inline-color: var(--ams-progress-list-step-current-connector-border-inline-color);
+    border-inline-style: solid;
   }
 
   .ams-progress-list > .ams-progress-list__step:last-child:not(.ams-progress-list__step--has-sub-steps) & {
