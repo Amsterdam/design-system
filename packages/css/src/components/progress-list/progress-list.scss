@@ -86,10 +86,13 @@
     margin-inline-start: var(--ams-progress-list-heading-3-step-sub-steps-step-indicator-margin-inline-start);
 
     @supports (block-size: round(down, 1px, 1px)) {
-      margin-inline-start: round(
-        down,
-        var(--ams-progress-list-heading-3-step-sub-steps-step-indicator-margin-inline-start),
-        2px
+      margin-inline-start: calc(
+        -1 *
+          var(--ams-progress-list-step-indicator-padding-inline) - round(
+            down,
+            var(--ams-progress-list-heading-3-step-shape-inline-size),
+            2px
+          )
       );
     }
   }
@@ -98,10 +101,13 @@
     margin-inline-start: var(--ams-progress-list-heading-4-step-sub-steps-step-indicator-margin-inline-start);
 
     @supports (block-size: round(down, 1px, 1px)) {
-      margin-inline-start: round(
-        down,
-        var(--ams-progress-list-heading-4-step-sub-steps-step-indicator-margin-inline-start),
-        2px
+      margin-inline-start: calc(
+        -1 *
+          var(--ams-progress-list-step-indicator-padding-inline) - round(
+            down,
+            var(--ams-progress-list-heading-4-step-shape-inline-size),
+            2px
+          )
       );
     }
   }
