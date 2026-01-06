@@ -32,6 +32,11 @@
                     "value": "calc(-1 * var(--ams-progress-list-step-indicator-medium-padding-inline) - var(--ams-progress-list-heading-2-step-shape-inline-size))"
                   }
                 }
+              },
+              "connector": {
+                "block-size": {
+                  "value": "calc(var(--ams-progress-list-heading-2-step-connector-block-size) + var(--ams-progress-list-heading-2-step-marker-margin-block-start) - var(--ams-progress-list-step-sub-steps-step-connector-margin-block-start))"
+                }
               }
             }
           }
@@ -73,8 +78,8 @@
                 }
               },
               "connector": {
-                "margin-block-start": {
-                  "value": "calc(var(--ams-progress-list-heading-3-step-sub-steps-step-marker-block-size) - (var(--ams-border-width-m) * 2))"
+                "block-size": {
+                  "value": "calc(var(--ams-progress-list-heading-3-step-connector-block-size) + var(--ams-progress-list-heading-3-step-marker-margin-block-start) - var(--ams-progress-list-step-sub-steps-step-connector-margin-block-start))"
                 }
               }
             }
@@ -117,8 +122,8 @@
                 }
               },
               "connector": {
-                "margin-block-start": {
-                  "value": "calc(var(--ams-progress-list-heading-4-step-sub-steps-step-marker-block-size) - (var(--ams-border-width-m) * 2))"
+                "block-size": {
+                  "value": "calc(var(--ams-progress-list-heading-3-step-connector-block-size) + var(--ams-progress-list-heading-3-step-marker-margin-block-start) - var(--ams-progress-list-step-sub-steps-step-connector-margin-block-start))"
                 }
               }
             }

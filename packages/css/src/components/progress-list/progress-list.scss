@@ -37,10 +37,6 @@
   display: flex;
 }
 
-.ams-progress-list__sub-step:last-child {
-  padding-block-end: var(--ams-progress-list-step-sub-steps-step-padding-block-end);
-}
-
 // Indicator
 
 .ams-progress-list__indicator {
@@ -372,6 +368,18 @@
     border-inline-style: var(--ams-progress-list-step-sub-steps-step-completed-connector-border-inline-style);
   }
 
+  .ams-progress-list--heading-2 .ams-progress-list__sub-step:last-child & {
+    block-size: var(--ams-progress-list-heading-2-step-sub-steps-step-connector-block-size);
+  }
+
+  .ams-progress-list--heading-3 .ams-progress-list__sub-step:last-child & {
+    block-size: var(--ams-progress-list-heading-3-step-sub-steps-step-connector-block-size);
+  }
+
+  .ams-progress-list--heading-4 .ams-progress-list__sub-step:last-child & {
+    block-size: var(--ams-progress-list-heading-4-step-sub-steps-step-connector-block-size);
+  }
+
   // Style the connector when it belongs to the last sub-step of the last main step
   // .ams-progress-list > .ams-progress-list__step:last-child → last main step
   // .ams-progress-list__sub-steps → the sub-steps container within that step
@@ -418,5 +426,6 @@
 
   .ams-progress-list__sub-step:last-of-type & {
     padding-block-end: 0;
+    padding-block-end: var(--ams-progress-list-step-sub-steps-step-body-padding-block-end);
   }
 }
