@@ -123,7 +123,7 @@
               },
               "connector": {
                 "block-size": {
-                  "value": "calc(var(--ams-progress-list-heading-3-step-connector-block-size) + var(--ams-progress-list-heading-3-step-marker-margin-block-start) - var(--ams-progress-list-step-sub-steps-step-connector-margin-block-start))"
+                  "value": "calc(var(--ams-progress-list-heading-4-step-connector-block-size) + var(--ams-progress-list-heading-4-step-marker-margin-block-start) - var(--ams-progress-list-step-sub-steps-step-connector-margin-block-start))"
                 }
               }
             }
@@ -204,7 +204,7 @@
                 "value": "{ams.color.background}"
               },
               "block-size": {
-                "value": "0.75rem"
+                "value": "calc({ams.typography.body-text.font-size} * {ams.typography.body-text.line-height})"
               },
               "border-color": {
                 "value": "{ams.color.progress.upcoming}"
@@ -217,6 +217,11 @@
               },
               "outline": {
                 "value": "{ams.border.width.m} solid {ams.color.background}"
+              }
+            },
+            "shape": {
+              "block-size": {
+                "value": "0.75rem"
               }
             },
             "connector": {
@@ -238,10 +243,10 @@
                 }
               },
               "margin-block-start": {
-                "value": "calc((var(--ams-progress-list-step-sub-steps-step-marker-block-size) + var(--ams-progress-list-step-sub-steps-step-marker-block-size)) / 2 + var(--ams-border-width-m))"
+                "value": "calc((var(--ams-progress-list-step-sub-steps-step-marker-block-size) + var(--ams-progress-list-step-sub-steps-step-shape-block-size)) / 2 + var(--ams-border-width-m))"
               },
               "block-size": {
-                "value": "calc(100% - var(--ams-progress-list-step-sub-steps-step-marker-block-size) - (var(--ams-border-width-m) * 2))"
+                "value": "calc(100% - var(--ams-progress-list-step-sub-steps-step-shape-block-size) - (var(--ams-border-width-m) * 2))"
               }
             },
             "body": {
