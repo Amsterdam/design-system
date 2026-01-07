@@ -26,17 +26,6 @@ type Story = StoryObj<typeof meta>
 
 const pageHeaderStories = PageHeaderStories as Record<string, PageHeaderStory>
 
-// Maintain a list to ensure deterministic visual regression test
-const orderedStoryKeys = [
-  'Default',
-  'WithMovingLinks',
-  'WithoutMenuButtonOnWideWindow',
-  'WithoutMenuButton',
-  'WithCustomLogoLink',
-  'WithCustomTexts',
-  'WithCustomLogo',
-]
-
 export const Test: Story = {
   args: {
     brandName: 'Data Amsterdam',
@@ -71,11 +60,14 @@ export const Test: Story = {
         </ul>
       </PageHeader>
 
-      {/* All existing public stories */}
-      {orderedStoryKeys.map((key) => {
-        const story = pageHeaderStories[key]
-        return story ? <PageHeader key={key} {...story.args} /> : null
-      })}
+      {/* All public stories, sorted by key for deterministic order */}
+      {Object.keys(pageHeaderStories)
+        .filter((key) => key !== '__namedExportsOrder') // This gets added by babel-plugin-named-exports-order
+        .sort()
+        .map((key) => {
+          const story = pageHeaderStories[key]
+          return story ? <PageHeader key={key} {...story.args} /> : null
+        })}
 
       {/* All logo brands */}
       {logoBrands.map((brand) => (
