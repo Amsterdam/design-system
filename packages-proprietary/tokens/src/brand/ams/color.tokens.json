@@ -18,7 +18,7 @@
         "yellow": { "value": "#ffe600" }
       },
       "interactive": {
-        "contrast": { "value": "#181818" },
+        "contrast": { "value": "#202020" },
         "default": { "value": "#004699" },
         "disabled": { "value": "#767676" },
         "hover": { "value": "#003677" },
@@ -30,7 +30,7 @@
       },
       "separator": { "value": "#d1d1d1" },
       "text": {
-        "default": { "value": "#181818" },
+        "default": { "value": "#202020" },
         "inverse": { "value": "#ffffff" },
         "secondary": { "value": "#767676" }
       }

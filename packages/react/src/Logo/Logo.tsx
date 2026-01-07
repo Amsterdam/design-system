@@ -3,7 +3,7 @@
  * Copyright Gemeente Amsterdam
  */
 
-import type { ForwardedRef, ForwardRefExoticComponent, RefAttributes, SVGProps } from 'react'
+import type { ComponentType, ForwardedRef, SVGProps } from 'react'
 
 import { clsx } from 'clsx'
 import { forwardRef } from 'react'
@@ -17,48 +17,51 @@ import {
   LogoVgaVerzekeringen,
 } from './brand'
 
-export type LogoBrand =
-  | 'amsterdam'
-  | 'ggd-amsterdam'
-  | 'museum-weesp'
-  | 'stadsarchief'
-  | 'stadsbank-van-lening'
-  | 'vga-verzekeringen'
+export const logoBrands = [
+  'amsterdam',
+  'ggd-amsterdam',
+  'museum-weesp',
+  'stadsarchief',
+  'stadsbank-van-lening',
+  'vga-verzekeringen',
+] as const
+
+export type LogoBrand = (typeof logoBrands)[number]
 
 export type LogoProps = {
-  /** The name of the brand for which to display the logo. */
-  brand?: LogoBrand
+  /** The name of the brand for which to display the logo, or configuration for a custom logo. */
+  brand?: LogoBrand | LogoBrandConfig
 } & SVGProps<SVGSVGElement>
 
-type LogoConfigItem = {
+export type LogoBrandConfig = {
   label: string
-  logo: ForwardRefExoticComponent<RefAttributes<SVGSVGElement> & SVGProps<SVGSVGElement>>
+  svg: ComponentType<SVGProps<SVGSVGElement>>
 }
 
-const logoConfig: Record<LogoBrand, LogoConfigItem> = {
+const logoConfig: Record<LogoBrand, LogoBrandConfig> = {
   amsterdam: {
     label: 'Gemeente Amsterdam logo',
-    logo: LogoAmsterdam,
+    svg: LogoAmsterdam,
   },
   'ggd-amsterdam': {
     label: 'GGD Amsterdam logo',
-    logo: LogoGgdAmsterdam,
+    svg: LogoGgdAmsterdam,
   },
   'museum-weesp': {
     label: 'Gemeente Amsterdam Museum Weesp logo',
-    logo: LogoMuseumWeesp,
+    svg: LogoMuseumWeesp,
   },
   stadsarchief: {
     label: 'Gemeente Amsterdam Stadsarchief logo',
-    logo: LogoStadsarchief,
+    svg: LogoStadsarchief,
   },
   'stadsbank-van-lening': {
     label: 'Gemeente Amsterdam Stadsbank van Lening logo',
-    logo: LogoStadsbankVanLening,
+    svg: LogoStadsbankVanLening,
   },
   'vga-verzekeringen': {
     label: 'Gemeente Amsterdam VGA Verzekeringen logo',
-    logo: LogoVgaVerzekeringen,
+    svg: LogoVgaVerzekeringen,
   },
 }
 
@@ -70,16 +73,12 @@ export const Logo = forwardRef(
     { 'aria-label': ariaLabel, brand = 'amsterdam', className, ...restProps }: LogoProps,
     ref: ForwardedRef<SVGSVGElement>,
   ) => {
-    const LogoComponent = logoConfig[brand].logo
-    const logoLabel = logoConfig[brand].label
+    const config: LogoBrandConfig = typeof brand === 'string' ? logoConfig[brand] : brand
+
+    const { label, svg: LogoComponent } = config
 
     return (
-      <LogoComponent
-        {...restProps}
-        aria-label={ariaLabel || logoLabel}
-        className={clsx('ams-logo', className)}
-        ref={ref}
-      />
+      <LogoComponent {...restProps} aria-label={ariaLabel || label} className={clsx('ams-logo', className)} ref={ref} />
     )
   },
 )

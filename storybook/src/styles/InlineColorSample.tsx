@@ -2,7 +2,7 @@ import './inline-color-sample.css'
 
 const colors = {
   azure: '#009de6',
-  black: '#181818',
+  black: '#202020',
   blue: '#004699',
   'blue-80': '#003677',
   green: '#00893c',
