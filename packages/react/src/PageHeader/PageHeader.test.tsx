@@ -153,7 +153,7 @@ describe('Page Header', () => {
   it('renders a menu button', () => {
     render(<PageHeader>Test</PageHeader>)
 
-    const component = screen.getByRole('button', { hidden: true, name: 'Toon navigatiemenu' })
+    const component = screen.getByRole('button', { hidden: true, name: 'Laat navigatiemenu zien' })
 
     expect(component).toHaveClass('ams-page-header__mega-menu-button')
   })
@@ -191,7 +191,7 @@ describe('Page Header', () => {
 
     expect(closedMegaMenu).toBeInTheDocument()
 
-    const menuButton = screen.getByRole('button', { hidden: true, name: 'Toon navigatiemenu' })
+    const menuButton = screen.getByRole('button', { hidden: true, name: 'Laat navigatiemenu zien' })
 
     await user.click(menuButton)
 
@@ -208,15 +208,15 @@ describe('Page Header', () => {
 
     const menuButton = screen.getByRole('button', { hidden: true })
 
-    expect(menuButton).toHaveTextContent('Toon navigatiemenu')
+    expect(menuButton).toHaveTextContent('Laat navigatiemenu zien')
 
     await user.click(menuButton)
 
-    expect(menuButton).toHaveTextContent('Sluit navigatiemenu')
+    expect(menuButton).toHaveTextContent('Verberg navigatiemenu')
 
     await user.click(menuButton)
 
-    expect(menuButton).toHaveTextContent('Toon navigatiemenu')
+    expect(menuButton).toHaveTextContent('Laat navigatiemenu zien')
   })
 
   it('renders custom texts for screen readers on the menu button', async () => {
