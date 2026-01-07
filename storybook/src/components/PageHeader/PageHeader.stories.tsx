@@ -198,8 +198,8 @@ export const WithCustomTexts: Story = {
       </Grid>
     ),
     menuButtonText: 'Alle onderwerpen',
-    menuButtonTextForHide: 'Sluit onderwerpen menu',
-    menuButtonTextForShow: 'Toon onderwerpen menu',
+    menuButtonTextForHide: 'Verberg onderwerpen menu',
+    menuButtonTextForShow: 'Laat onderwerpen menu zien',
     navigationLabel: 'Navigatie',
   },
 }
