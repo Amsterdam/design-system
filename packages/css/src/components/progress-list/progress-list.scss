@@ -42,18 +42,14 @@
 
 .ams-progress-list__sub-steps {
   @include reset-ol;
-
-  display: flex;
-  flex-direction: column;
 }
 
 // Step and sub-step
 
 .ams-progress-list__step {
-  position: relative;
+  display: flex;
 }
 
-.ams-progress-list__step,
 .ams-progress-list__sub-step {
   display: flex;
 }
@@ -142,13 +138,13 @@
 }
 
 // Sub-step Marker
+
 .ams-progress-list-sub-step__marker {
   block-size: var(--ams-progress-list-step-sub-steps-step-marker-block-size);
   display: grid;
   grid-area: 1/1;
   inline-size: var(--ams-progress-list-step-shape-inline-size);
   place-items: center;
-  position: relative;
 }
 
 .ams-progress-list-sub-step__marker-shape {
