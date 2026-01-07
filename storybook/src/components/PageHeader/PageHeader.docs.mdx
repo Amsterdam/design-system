@@ -52,11 +52,11 @@ as well as the logo itself and its accessible name.
 
 ### With custom texts
 
-The text of the menu button and the accessible navigation description can be customized.
+The visible text of the menu button, its accessible texts and the accessible navigation description can be customized.
 
 <Canvas of={PageHeaderStories.WithCustomTexts} />
 
-### With a custom link component
+### With custom link component
 
 Pass a custom link component to the `logoLinkComponent` prop to use your routing library for the logo link.
 Here’s an example with the Link component of Next.js:
@@ -70,3 +70,14 @@ const LinkComponent = (props) => <NextLink {...props} />
 
 return <PageHeader logoLinkComponent={LinkComponent} />
 ```
+
+### With custom logo
+
+Websites for the City of Amsterdam **must** use one of our own logos.
+
+Other organisations using this component can display their own brand by providing a label and a custom image.
+The label should be ‘name of the organisation + logo’.
+The image must be an svg.
+Set the appropriate values for the sizing tokens of [Logo](/docs/components-media-logo--docs).
+
+<Canvas of={PageHeaderStories.WithCustomLogo} />
