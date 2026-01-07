@@ -59,6 +59,7 @@
 }
 
 // Indicator
+// The indicator acts as the layout container for the marker and connector.
 
 .ams-progress-list__indicator {
   @include layout-indicator;
@@ -85,6 +86,7 @@
 }
 
 // Marker
+// Marker acts as the layout container for the shape.
 
 .ams-progress-list__marker {
   display: flex;
@@ -104,6 +106,8 @@
   }
 }
 
+// Shape
+// Shape is the visual circle inside marker which is used to center the shape with the heading.
 .ams-progress-list__marker-shape {
   @include circular-marker;
 
@@ -133,6 +137,7 @@
   inline-size: 100%;
 }
 
+// Sub-step Marker
 .ams-progress-list-sub-step__marker {
   block-size: var(--ams-progress-list-step-sub-steps-step-marker-block-size);
   display: grid;
