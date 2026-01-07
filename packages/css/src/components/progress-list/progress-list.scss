@@ -13,6 +13,27 @@
   padding-inline-start: 0;
 }
 
+@mixin circular-marker {
+  aspect-ratio: 1;
+  border-radius: 50%;
+  box-sizing: border-box;
+  display: flex;
+  justify-content: center;
+}
+
+@mixin connector {
+  align-self: stretch;
+  block-size: 100%;
+  grid-area: 1 / 1;
+  z-index: 1;
+}
+
+@mixin layout-indicator {
+  display: grid;
+  flex: none;
+  place-items: start center;
+}
+
 .ams-progress-list {
   @include hyphenation;
   @include text-rendering;
@@ -40,10 +61,9 @@
 // Indicator
 
 .ams-progress-list__indicator {
-  display: grid;
-  flex: none;
+  @include layout-indicator;
+
   padding-inline: var(--ams-progress-list-step-indicator-padding-inline);
-  place-items: start center;
 
   @media screen and (min-width: $ams-breakpoint-medium) {
     padding-inline: var(--ams-progress-list-step-indicator-medium-padding-inline);
@@ -51,14 +71,12 @@
 }
 
 .ams-progress-list-sub-step__indicator {
-  background-color: var(--ams-progress-list-step-sub-steps-step-indicator-background-color);
-  display: grid;
-  flex: none;
+  @include layout-indicator;
+
   margin-inline-start: calc(
     -1 * var(--ams-progress-list-step-indicator-padding-inline) - var(--ams-progress-list-step-shape-inline-size)
   );
   padding-inline-end: var(--ams-progress-list-step-sub-steps-step-indicator-padding-inline-end);
-  place-items: start center;
 
   @media screen and (min-width: $ams-breakpoint-medium) {
     margin-inline-start: var(--ams-progress-list-step-sub-steps-step-indicator-medium-margin-inline-start);
@@ -87,17 +105,14 @@
 }
 
 .ams-progress-list__marker-shape {
-  aspect-ratio: 1;
+  @include circular-marker;
+
   background-color: var(--ams-progress-list-step-marker-background-color);
   block-size: var(--ams-progress-list-step-shape-block-size);
   border-color: var(--ams-progress-list-step-marker-border-color);
-  border-radius: 50%;
   border-style: var(--ams-progress-list-step-marker-border-style);
   border-width: var(--ams-progress-list-step-marker-border-width);
-  box-sizing: border-box;
-  display: flex;
   inline-size: var(--ams-progress-list-step-shape-inline-size);
-  justify-content: center;
   outline: var(--ams-progress-list-step-sub-steps-step-marker-outline);
   z-index: 2;
 
@@ -128,16 +143,13 @@
 }
 
 .ams-progress-list-sub-step__marker-shape {
-  aspect-ratio: 1;
+  @include circular-marker;
+
   background-color: var(--ams-progress-list-step-sub-steps-step-marker-background-color);
   block-size: var(--ams-progress-list-step-sub-steps-step-shape-block-size);
   border-color: var(--ams-progress-list-step-sub-steps-step-marker-border-color);
-  border-radius: 50%;
   border-style: var(--ams-progress-list-step-sub-steps-step-marker-border-style);
   border-width: var(--ams-progress-list-step-sub-steps-step-marker-border-width);
-  box-sizing: border-box;
-  display: flex;
-  justify-content: center;
   outline: var(--ams-progress-list-step-sub-steps-step-marker-outline);
   z-index: 2;
 
@@ -155,13 +167,11 @@
 // Connector
 
 .ams-progress-list__connector {
-  align-self: stretch;
-  block-size: 100%;
+  @include connector;
+
   border-inline-color: var(--ams-progress-list-step-connector-border-inline-color);
   border-inline-style: var(--ams-progress-list-step-connector-border-inline-style);
   border-inline-width: var(--ams-progress-list-step-connector-border-inline-width);
-  grid-area: 1 / 1; // Overlaps the marker and connector.
-  z-index: 1;
 
   .ams-progress-list--heading-2 & {
     margin-block-start: var(--ams-progress-list-heading-2-step-marker-margin-block-start);
@@ -198,15 +208,13 @@
 }
 
 .ams-progress-list-sub-step__connector {
-  align-self: stretch;
+  @include connector;
+
   background-color: var(--ams-progress-list-step-sub-steps-step-connector-background-color);
-  block-size: 100%;
   border-inline-color: var(--ams-progress-list-step-sub-steps-step-connector-border-inline-color);
   border-inline-style: var(--ams-progress-list-step-sub-steps-step-connector-border-inline-style);
   border-inline-width: var(--ams-progress-list-step-sub-steps-step-connector-border-inline-width);
-  grid-area: 1 / 1; // Overlaps the marker and connector.
   margin-block-start: var(--ams-progress-list-step-sub-steps-step-connector-margin-block-start);
-  z-index: 1;
 
   .ams-progress-list__sub-step--completed & {
     background-color: var(--ams-progress-list-step-sub-steps-step-completed-connector-background-color);
