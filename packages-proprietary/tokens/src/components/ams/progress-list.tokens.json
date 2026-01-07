@@ -48,7 +48,13 @@
             }
           }
         },
-        "marker": {
+        "shape": {
+          "block-size": {
+            "value": "1.5rem"
+          },
+          "inline-size": {
+            "value": "1.5rem"
+          },
           "background-color": {
             "value": "{ams.color.background}"
           },
@@ -60,14 +66,15 @@
           },
           "border-width": {
             "value": "{ams.border.width.m}"
-          }
-        },
-        "shape": {
-          "block-size": {
-            "value": "1.5rem"
           },
-          "inline-size": {
-            "value": "1.5rem"
+          "outline-color": {
+            "value": "{ams.color.background}"
+          },
+          "outline-style": {
+            "value": "solid"
+          },
+          "outline-width": {
+            "value": "{ams.border.width.m}"
           }
         },
         "icon": {
@@ -99,9 +106,6 @@
         "sub-steps": {
           "step": {
             "indicator": {
-              "background-color": {
-                "value": "{ams.color.background}"
-              },
               "padding-inline-end": {
                 "value": "{ams.space.m}"
               },
@@ -115,11 +119,16 @@
               }
             },
             "marker": {
-              "background-color": {
-                "value": "{ams.color.background}"
-              },
               "block-size": {
                 "value": "calc({ams.typography.body-text.font-size} * {ams.typography.body-text.line-height})"
+              }
+            },
+            "shape": {
+              "block-size": {
+                "value": "0.75rem"
+              },
+              "background-color": {
+                "value": "{ams.color.background}"
               },
               "border-color": {
                 "value": "{ams.color.progress.upcoming}"
@@ -130,13 +139,14 @@
               "border-width": {
                 "value": "{ams.border.width.m}"
               },
-              "outline": {
-                "value": "{ams.border.width.m} solid {ams.color.background}"
-              }
-            },
-            "shape": {
-              "block-size": {
-                "value": "0.75rem"
+              "outline-color": {
+                "value": "{ams.color.background}"
+              },
+              "outline-style": {
+                "value": "solid"
+              },
+              "outline-width": {
+                "value": "{ams.border.width.m}"
               }
             },
             "connector": {
@@ -170,7 +180,7 @@
               }
             },
             "completed": {
-              "marker": {
+              "shape": {
                 "background-color": {
                   "value": "{ams.color.progress.completed}"
                 },
@@ -191,7 +201,7 @@
               }
             },
             "current": {
-              "marker": {
+              "shape": {
                 "background-color": {
                   "value": "{ams.color.progress.completed}"
                 },
@@ -203,7 +213,7 @@
           }
         },
         "completed": {
-          "marker": {
+          "shape": {
             "background-color": {
               "value": "{ams.color.progress.completed}"
             },
@@ -224,7 +234,7 @@
           }
         },
         "current": {
-          "marker": {
+          "shape": {
             "background-color": {
               "value": "{ams.color.progress.completed}"
             },

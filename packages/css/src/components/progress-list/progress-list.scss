@@ -108,26 +108,30 @@
 
 // Shape
 // Shape is the visual circle inside marker which is used to center the shape with the heading.
+
 .ams-progress-list__marker-shape {
   @include circular-marker;
 
-  background-color: var(--ams-progress-list-step-marker-background-color);
+  background-color: var(--ams-progress-list-step-shape-background-color);
   block-size: var(--ams-progress-list-step-shape-block-size);
-  border-color: var(--ams-progress-list-step-marker-border-color);
-  border-style: var(--ams-progress-list-step-marker-border-style);
-  border-width: var(--ams-progress-list-step-marker-border-width);
-  inline-size: var(--ams-progress-list-step-shape-inline-size);
-  outline: var(--ams-progress-list-step-sub-steps-step-marker-outline);
+  border-color: var(--ams-progress-list-step-shape-border-color);
+  border-style: var(--ams-progress-list-step-shape-border-style);
+  border-width: var(--ams-progress-list-step-shape-border-width);
+
+  // Outline is used to create space between the shape and the connector.
+  outline-color: var(--ams-progress-list-step-shape-outline-color);
+  outline-style: var(--ams-progress-list-step-shape-outline-style);
+  outline-width: var(--ams-progress-list-step-shape-outline-width);
   z-index: 2;
 
   .ams-progress-list__step--completed & {
-    background-color: var(--ams-progress-list-step-completed-marker-background-color);
-    border: var(--ams-progress-list-step-completed-marker-border);
+    background-color: var(--ams-progress-list-step-completed-shape-background-color);
+    border: var(--ams-progress-list-step-completed-shape-border);
   }
 
   .ams-progress-list__step[aria-current] & {
-    background-color: var(--ams-progress-list-step-current-marker-background-color);
-    border-color: var(--ams-progress-list-step-current-marker-border-color);
+    background-color: var(--ams-progress-list-step-current-shape-background-color);
+    border-color: var(--ams-progress-list-step-current-shape-border-color);
   }
 }
 
@@ -150,22 +154,26 @@
 .ams-progress-list-sub-step__marker-shape {
   @include circular-marker;
 
-  background-color: var(--ams-progress-list-step-sub-steps-step-marker-background-color);
+  background-color: var(--ams-progress-list-step-sub-steps-step-shape-background-color);
   block-size: var(--ams-progress-list-step-sub-steps-step-shape-block-size);
-  border-color: var(--ams-progress-list-step-sub-steps-step-marker-border-color);
-  border-style: var(--ams-progress-list-step-sub-steps-step-marker-border-style);
-  border-width: var(--ams-progress-list-step-sub-steps-step-marker-border-width);
-  outline: var(--ams-progress-list-step-sub-steps-step-marker-outline);
+  border-color: var(--ams-progress-list-step-sub-steps-step-shape-border-color);
+  border-style: var(--ams-progress-list-step-sub-steps-step-shape-border-style);
+  border-width: var(--ams-progress-list-step-sub-steps-step-shape-border-width);
+
+  // Outline is used to create space between the shape and the connector.
+  outline-color: var(--ams-progress-list-step-sub-steps-step-shape-outline-color);
+  outline-style: var(--ams-progress-list-step-sub-steps-step-shape-outline-style);
+  outline-width: var(--ams-progress-list-step-sub-steps-step-shape-outline-width);
   z-index: 2;
 
   .ams-progress-list__sub-step--completed & {
-    background-color: var(--ams-progress-list-step-sub-steps-step-completed-marker-background-color);
-    border: var(--ams-progress-list-step-sub-steps-step-completed-marker-border);
+    background-color: var(--ams-progress-list-step-sub-steps-step-completed-shape-background-color);
+    border: var(--ams-progress-list-step-sub-steps-step-completed-shape-border);
   }
 
   .ams-progress-list__sub-step[aria-current] & {
-    background-color: var(--ams-progress-list-step-sub-steps-step-current-marker-background-color);
-    border-color: var(--ams-progress-list-step-sub-steps-step-current-marker-border-color);
+    background-color: var(--ams-progress-list-step-sub-steps-step-current-shape-background-color);
+    border-color: var(--ams-progress-list-step-sub-steps-step-current-shape-border-color);
   }
 }
 
