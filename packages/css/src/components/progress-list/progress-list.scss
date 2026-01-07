@@ -42,6 +42,10 @@
 
 .ams-progress-list__sub-steps {
   @include reset-ol;
+
+  * + & {
+    margin-block-start: var(--ams-progress-list-step-sub-steps-margin-block-start);
+  }
 }
 
 // Step and sub-step

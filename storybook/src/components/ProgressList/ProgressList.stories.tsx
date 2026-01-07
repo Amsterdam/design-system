@@ -56,7 +56,7 @@ export const WithSubSteps: Story = {
         <UnorderedList>{unorderedList1}</UnorderedList>
       </ProgressList.Step>,
       <ProgressList.Step hasSubSteps heading="2026" key={1} status="current">
-        <Paragraph className="ams-mb-m">{paragraph1}</Paragraph>
+        <Paragraph>{paragraph1}</Paragraph>
         <ProgressList.SubSteps>
           <ProgressList.SubStep status="completed">
             <Paragraph>{paragraph2}</Paragraph>

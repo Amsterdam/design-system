@@ -104,6 +104,9 @@
           }
         },
         "sub-steps": {
+          "margin-block-start": {
+            "value": "{ams.space.s}"
+          },
           "step": {
             "indicator": {
               "padding-inline-end": {
