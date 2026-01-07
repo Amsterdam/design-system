@@ -5,7 +5,7 @@ const colors = {
   black: '#202020',
   blue: '#004699',
   'blue-80': '#003677',
-  green: '#00a03c',
+  green: '#00893c',
   lime: '#bed200',
   magenta: '#e50082',
   neutral: '#767676',

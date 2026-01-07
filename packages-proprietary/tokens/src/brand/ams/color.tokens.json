@@ -5,12 +5,12 @@
       "feedback": {
         "error": { "value": "#ec0000" },
         "info": { "value": "#009de6" },
-        "success": { "value": "#00a03c" },
+        "success": { "value": "#00893c" },
         "warning": { "value": "#ff9100" }
       },
       "highlight": {
         "azure": { "value": "#009de6" },
-        "green": { "value": "#00a03c" },
+        "green": { "value": "#00893c" },
         "lime": { "value": "#bed200" },
         "magenta": { "value": "#e50082" },
         "orange": { "value": "#ff9100" },
