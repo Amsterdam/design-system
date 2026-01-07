@@ -27,11 +27,6 @@
                     "value": "calc(-1 * var(--ams-progress-list-step-indicator-medium-padding-inline) - var(--ams-progress-list-heading-2-step-shape-inline-size))"
                   }
                 }
-              },
-              "connector": {
-                "block-size": {
-                  "value": "calc(var(--ams-progress-list-heading-2-step-connector-block-size) + var(--ams-progress-list-heading-2-step-marker-margin-block-start) - var(--ams-progress-list-step-sub-steps-step-connector-margin-block-start))"
-                }
               }
             }
           }
@@ -66,11 +61,6 @@
                     "value": "calc(-1 * var(--ams-progress-list-step-sub-steps-step-indicator-medium-padding-inline) - var(--ams-progress-list-heading-3-step-shape-inline-size))"
                   }
                 }
-              },
-              "connector": {
-                "block-size": {
-                  "value": "calc(var(--ams-progress-list-heading-3-step-connector-block-size) + var(--ams-progress-list-heading-3-step-marker-margin-block-start) - var(--ams-progress-list-step-sub-steps-step-connector-margin-block-start))"
-                }
               }
             }
           }
@@ -104,11 +94,6 @@
                   "margin-inline-start": {
                     "value": "calc(-1 * var(--ams-progress-list-step-sub-steps-step-indicator-medium-padding-inline) - var(--ams-progress-list-heading-4-step-shape-inline-size))"
                   }
-                }
-              },
-              "connector": {
-                "block-size": {
-                  "value": "calc(var(--ams-progress-list-heading-4-step-connector-block-size) + var(--ams-progress-list-heading-4-step-marker-margin-block-start) - var(--ams-progress-list-step-sub-steps-step-connector-margin-block-start))"
                 }
               }
             }
@@ -228,10 +213,7 @@
                 }
               },
               "margin-block-start": {
-                "value": "calc((var(--ams-progress-list-step-sub-steps-step-marker-block-size) + var(--ams-progress-list-step-sub-steps-step-shape-block-size)) / 2 + var(--ams-border-width-m))"
-              },
-              "block-size": {
-                "value": "calc(100% - var(--ams-progress-list-step-sub-steps-step-shape-block-size) - (var(--ams-border-width-m) * 2))"
+                "value": "calc({ams.typography.body-text.font-size} * {ams.typography.body-text.line-height} / 2)"
               }
             },
             "body": {

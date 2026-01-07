@@ -169,7 +169,6 @@
   display: flex;
   grid-area: 1 / 1; // Overlaps the marker and connector.
   place-items: center;
-  z-index: 1;
 
   .ams-progress-list--heading-2 & {
     block-size: var(--ams-progress-list-heading-2-step-marker-block-size);
@@ -194,6 +193,8 @@
   box-sizing: border-box;
   display: flex;
   justify-content: center;
+  outline: var(--ams-progress-list-step-sub-steps-step-marker-outline);
+  z-index: 2;
 
   /*
   * round() eliminates sub-pixel rendering issues that distort circular markers.
@@ -298,6 +299,7 @@
   display: flex;
   justify-content: center;
   outline: var(--ams-progress-list-step-sub-steps-step-marker-outline);
+  z-index: 2;
 
   .ams-progress-list__sub-step--completed & {
     background-color: var(--ams-progress-list-step-sub-steps-step-completed-marker-background-color);
@@ -319,7 +321,7 @@
   border-inline-style: var(--ams-progress-list-step-connector-border-inline-style);
   border-inline-width: var(--ams-progress-list-step-connector-border-inline-width);
   grid-area: 1 / 1; // Overlaps the marker and connector.
-  z-index: 0;
+  z-index: 1;
 
   .ams-progress-list--heading-2 & {
     margin-block-start: var(--ams-progress-list-heading-2-step-marker-margin-block-start);
@@ -358,7 +360,7 @@
 .ams-progress-list-sub-step__connector {
   align-self: stretch;
   background-color: var(--ams-progress-list-step-sub-steps-step-connector-background-color);
-  block-size: var(--ams-progress-list-step-sub-steps-step-connector-block-size);
+  block-size: 100%;
   border-inline-color: var(--ams-progress-list-step-sub-steps-step-connector-border-inline-color);
   border-inline-style: var(--ams-progress-list-step-sub-steps-step-connector-border-inline-style);
   border-inline-width: var(--ams-progress-list-step-sub-steps-step-connector-border-inline-width);
@@ -370,18 +372,6 @@
     background-color: var(--ams-progress-list-step-sub-steps-step-completed-connector-background-color);
     border-inline-color: var(--ams-progress-list-step-sub-steps-step-completed-connector-border-inline-color);
     border-inline-style: var(--ams-progress-list-step-sub-steps-step-completed-connector-border-inline-style);
-  }
-
-  .ams-progress-list--heading-2 .ams-progress-list__sub-step:last-child & {
-    block-size: var(--ams-progress-list-heading-2-step-sub-steps-step-connector-block-size);
-  }
-
-  .ams-progress-list--heading-3 .ams-progress-list__sub-step:last-child & {
-    block-size: var(--ams-progress-list-heading-3-step-sub-steps-step-connector-block-size);
-  }
-
-  .ams-progress-list--heading-4 .ams-progress-list__sub-step:last-child & {
-    block-size: var(--ams-progress-list-heading-4-step-sub-steps-step-connector-block-size);
   }
 
   // Style the connector when it belongs to the last sub-step of the last main step
