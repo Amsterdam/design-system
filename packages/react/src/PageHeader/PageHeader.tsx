@@ -9,6 +9,7 @@ import { clsx } from 'clsx'
 import { forwardRef, useEffect, useState } from 'react'
 
 import type { LogoBrand } from '../Logo'
+import type { LogoBrandConfig } from '../Logo/Logo'
 
 import useIsAfterBreakpoint from '../common/useIsAfterBreakpoint'
 import { Icon } from '../Icon'
@@ -24,7 +25,7 @@ const LogoLinkContent = ({
 }: {
   brandName?: string
   logoAccessibleName?: string
-  logoBrand: LogoBrand
+  logoBrand: LogoBrand | LogoBrandConfig
 }) => (
   <>
     <span className={clsx(logoBrand === 'amsterdam' && Boolean(brandName) && 'ams-page-header__logo-container')}>
@@ -44,7 +45,7 @@ export type PageHeaderProps = {
   /** The accessible name of the logo. */
   logoAccessibleName?: string
   /** The name of the brand for which to display the logo. */
-  logoBrand?: LogoBrand
+  logoBrand?: LogoBrand | LogoBrandConfig
   /** The url for the link on the logo. */
   logoLink?: string
   /** The React component to use for the logo link. */
