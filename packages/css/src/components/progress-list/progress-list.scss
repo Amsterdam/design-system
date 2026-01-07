@@ -314,6 +314,7 @@
 
 .ams-progress-list__connector {
   align-self: stretch;
+  block-size: 100%;
   border-inline-color: var(--ams-progress-list-step-connector-border-inline-color);
   border-inline-style: var(--ams-progress-list-step-connector-border-inline-style);
   border-inline-width: var(--ams-progress-list-step-connector-border-inline-width);
@@ -321,17 +322,14 @@
   z-index: 0;
 
   .ams-progress-list--heading-2 & {
-    block-size: var(--ams-progress-list-heading-2-step-connector-block-size);
     margin-block-start: var(--ams-progress-list-heading-2-step-marker-margin-block-start);
   }
 
   .ams-progress-list--heading-3 & {
-    block-size: var(--ams-progress-list-heading-3-step-connector-block-size);
     margin-block-start: var(--ams-progress-list-heading-3-step-marker-margin-block-start);
   }
 
   .ams-progress-list--heading-4 & {
-    block-size: var(--ams-progress-list-heading-4-step-connector-block-size);
     margin-block-start: var(--ams-progress-list-heading-4-step-marker-margin-block-start);
   }
 

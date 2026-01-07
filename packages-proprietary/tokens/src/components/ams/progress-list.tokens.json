@@ -19,11 +19,6 @@
               "value": "calc({ams.typography.heading.2.font-size} / 1.25)"
             }
           },
-          "connector": {
-            "block-size": {
-              "value": "calc(100% - var(--ams-progress-list-heading-2-step-shape-block-size) - (var(--ams-border-width-m) * 2))"
-            }
-          },
           "sub-steps": {
             "step": {
               "indicator": {
@@ -58,11 +53,6 @@
             },
             "inline-size": {
               "value": "{ams.typography.heading.3.font-size}"
-            }
-          },
-          "connector": {
-            "block-size": {
-              "value": "calc(100% - var(--ams-progress-list-heading-3-step-shape-block-size) - (var(--ams-border-width-m) * 2))"
             }
           },
           "sub-steps": {
@@ -102,11 +92,6 @@
             },
             "inline-size": {
               "value": "calc({ams.typography.heading.4.font-size} * 1.25)"
-            }
-          },
-          "connector": {
-            "block-size": {
-              "value": "calc(100% - var(--ams-progress-list-heading-4-step-shape-block-size) - (var(--ams-border-width-m) * 2))"
             }
           },
           "sub-steps": {
