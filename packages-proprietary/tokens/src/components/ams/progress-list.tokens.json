@@ -10,25 +10,6 @@
             "margin-block-start": {
               "value": "calc(({ams.typography.heading.2.line-height} * {ams.typography.heading.2.font-size}) / 2)"
             }
-          },
-          "shape": {
-            "block-size": {
-              "value": "calc({ams.typography.heading.2.font-size} / 1.25)"
-            },
-            "inline-size": {
-              "value": "calc({ams.typography.heading.2.font-size} / 1.25)"
-            }
-          },
-          "sub-steps": {
-            "step": {
-              "indicator": {
-                "medium": {
-                  "margin-inline-start": {
-                    "value": "calc(-1 * var(--ams-progress-list-step-indicator-medium-padding-inline) - var(--ams-progress-list-heading-2-step-shape-inline-size))"
-                  }
-                }
-              }
-            }
           }
         }
       },
@@ -41,28 +22,6 @@
             "margin-block-start": {
               "value": "calc(({ams.typography.heading.3.line-height} * {ams.typography.heading.3.font-size}) / 2)"
             }
-          },
-          "shape": {
-            "block-size": {
-              "value": "{ams.typography.heading.3.font-size}"
-            },
-            "inline-size": {
-              "value": "{ams.typography.heading.3.font-size}"
-            }
-          },
-          "sub-steps": {
-            "step": {
-              "indicator": {
-                "margin-inline-start": {
-                  "value": "calc(-1 * var(--ams-progress-list-step-indicator-padding-inline) - var(--ams-progress-list-heading-3-step-shape-inline-size))"
-                },
-                "medium": {
-                  "margin-inline-start": {
-                    "value": "calc(-1 * var(--ams-progress-list-step-sub-steps-step-indicator-medium-padding-inline) - var(--ams-progress-list-heading-3-step-shape-inline-size))"
-                  }
-                }
-              }
-            }
           }
         }
       },
@@ -74,28 +33,6 @@
             },
             "margin-block-start": {
               "value": "calc(({ams.typography.heading.4.line-height} * {ams.typography.heading.4.font-size}) / 2)"
-            }
-          },
-          "shape": {
-            "block-size": {
-              "value": "calc({ams.typography.heading.4.font-size} * 1.25)"
-            },
-            "inline-size": {
-              "value": "calc({ams.typography.heading.4.font-size} * 1.25)"
-            }
-          },
-          "sub-steps": {
-            "step": {
-              "indicator": {
-                "margin-inline-start": {
-                  "value": "calc(-1 * var(--ams-progress-list-step-indicator-padding-inline) - var(--ams-progress-list-heading-4-step-shape-inline-size))"
-                },
-                "medium": {
-                  "margin-inline-start": {
-                    "value": "calc(-1 * var(--ams-progress-list-step-sub-steps-step-indicator-medium-padding-inline) - var(--ams-progress-list-heading-4-step-shape-inline-size))"
-                  }
-                }
-              }
             }
           }
         }
@@ -123,6 +60,14 @@
           },
           "border-width": {
             "value": "{ams.border.width.m}"
+          }
+        },
+        "shape": {
+          "block-size": {
+            "value": "1.5rem"
+          },
+          "inline-size": {
+            "value": "1.5rem"
           }
         },
         "icon": {
@@ -153,9 +98,6 @@
         },
         "sub-steps": {
           "step": {
-            "padding-block-end": {
-              "value": "{ams.space.l}"
-            },
             "indicator": {
               "background-color": {
                 "value": "{ams.color.background}"
@@ -166,6 +108,9 @@
               "medium": {
                 "padding-inline": {
                   "value": "{ams.space.l}"
+                },
+                "margin-inline-start": {
+                  "value": "calc(-1 * var(--ams-progress-list-step-indicator-medium-padding-inline) - var(--ams-progress-list-step-shape-inline-size))"
                 }
               }
             },

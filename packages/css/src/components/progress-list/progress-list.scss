@@ -54,113 +54,16 @@
   background-color: var(--ams-progress-list-step-sub-steps-step-indicator-background-color);
   display: grid;
   flex: none;
+  margin-inline-start: calc(
+    -1 * var(--ams-progress-list-step-indicator-padding-inline) - var(--ams-progress-list-step-shape-inline-size)
+  );
   padding-inline-end: var(--ams-progress-list-step-sub-steps-step-indicator-padding-inline-end);
   place-items: start center;
 
-  /*
-  * round() eliminates sub-pixel rendering issues, caused by the sizing of the marker.
-  * In unsupported browsers it will still be centered, but the circle can be distorted.
-  */
-  // stylelint-disable plugin/use-baseline
-  .ams-progress-list--heading-2 & {
-    margin-inline-start: calc(
-      -1 *
-        var(--ams-progress-list-step-indicator-padding-inline) - var(
-          --ams-progress-list-heading-2-step-shape-inline-size
-        )
-    );
-
-    @supports (block-size: round(down, 1px, 1px)) {
-      margin-inline-start: calc(
-        -1 *
-          var(--ams-progress-list-step-indicator-padding-inline) - round(
-            down,
-            var(--ams-progress-list-heading-2-step-shape-inline-size),
-            2px
-          )
-      );
-    }
-  }
-
-  .ams-progress-list--heading-3 & {
-    margin-inline-start: var(--ams-progress-list-heading-3-step-sub-steps-step-indicator-margin-inline-start);
-
-    @supports (block-size: round(down, 1px, 1px)) {
-      margin-inline-start: calc(
-        -1 *
-          var(--ams-progress-list-step-indicator-padding-inline) - round(
-            down,
-            var(--ams-progress-list-heading-3-step-shape-inline-size),
-            2px
-          )
-      );
-    }
-  }
-
-  .ams-progress-list--heading-4 & {
-    margin-inline-start: var(--ams-progress-list-heading-4-step-sub-steps-step-indicator-margin-inline-start);
-
-    @supports (block-size: round(down, 1px, 1px)) {
-      margin-inline-start: calc(
-        -1 *
-          var(--ams-progress-list-step-indicator-padding-inline) - round(
-            down,
-            var(--ams-progress-list-heading-4-step-shape-inline-size),
-            2px
-          )
-      );
-    }
-  }
-
   @media screen and (min-width: $ams-breakpoint-medium) {
+    margin-inline-start: var(--ams-progress-list-step-sub-steps-step-indicator-medium-margin-inline-start);
     padding-inline-end: var(--ams-progress-list-step-sub-steps-step-indicator-medium-padding-inline);
-
-    .ams-progress-list--heading-2 & {
-      margin-inline-start: var(--ams-progress-list-heading-2-step-sub-steps-step-indicator-medium-margin-inline-start);
-
-      @supports (block-size: round(down, 1px, 1px)) {
-        margin-inline-start: calc(
-          -1 *
-            var(--ams-progress-list-step-indicator-medium-padding-inline) - round(
-              down,
-              var(--ams-progress-list-heading-2-step-shape-inline-size),
-              2px
-            )
-        );
-      }
-    }
-
-    .ams-progress-list--heading-3 & {
-      margin-inline-start: var(--ams-progress-list-heading-3-step-sub-steps-step-indicator-medium-margin-inline-start);
-
-      @supports (block-size: round(down, 1px, 1px)) {
-        margin-inline-start: calc(
-          -1 *
-            var(--ams-progress-list-step-indicator-medium-padding-inline) - round(
-              down,
-              var(--ams-progress-list-heading-3-step-shape-inline-size),
-              2px
-            )
-        );
-      }
-    }
-
-    .ams-progress-list--heading-4 & {
-      margin-inline-start: var(--ams-progress-list-heading-4-step-sub-steps-step-indicator-medium-margin-inline-start);
-
-      @supports (block-size: round(down, 1px, 1px)) {
-        margin-inline-start: calc(
-          -1 *
-            var(--ams-progress-list-step-indicator-medium-padding-inline) - round(
-              down,
-              var(--ams-progress-list-heading-4-step-shape-inline-size),
-              2px
-            )
-        );
-      }
-    }
   }
-  // stylelint-enable plugin/use-baseline
 }
 
 // Marker
@@ -186,51 +89,17 @@
 .ams-progress-list__marker-shape {
   aspect-ratio: 1;
   background-color: var(--ams-progress-list-step-marker-background-color);
+  block-size: var(--ams-progress-list-step-shape-block-size);
   border-color: var(--ams-progress-list-step-marker-border-color);
   border-radius: 50%;
   border-style: var(--ams-progress-list-step-marker-border-style);
   border-width: var(--ams-progress-list-step-marker-border-width);
   box-sizing: border-box;
   display: flex;
+  inline-size: var(--ams-progress-list-step-shape-inline-size);
   justify-content: center;
   outline: var(--ams-progress-list-step-sub-steps-step-marker-outline);
   z-index: 2;
-
-  /*
-  * round() eliminates sub-pixel rendering issues that distort circular markers.
-  * Minor degradation in unsupported browsers is visually unnoticeable.
-  */
-  // stylelint-disable plugin/use-baseline
-  .ams-progress-list--heading-2 & {
-    block-size: var(--ams-progress-list-heading-2-step-shape-block-size);
-    inline-size: var(--ams-progress-list-heading-2-step-shape-inline-size);
-
-    @supports (block-size: round(down, 1px, 1px)) {
-      block-size: round(down, var(--ams-progress-list-heading-2-step-shape-block-size), 2px);
-      inline-size: round(down, var(--ams-progress-list-heading-2-step-shape-inline-size), 2px);
-    }
-  }
-
-  .ams-progress-list--heading-3 & {
-    block-size: var(--ams-progress-list-heading-3-step-shape-block-size);
-    inline-size: var(--ams-progress-list-heading-3-step-shape-inline-size);
-
-    @supports (block-size: round(down, 1px, 1px)) {
-      block-size: round(down, var(--ams-progress-list-heading-3-step-shape-block-size), 2px);
-      inline-size: round(down, var(--ams-progress-list-heading-3-step-shape-inline-size), 2px);
-    }
-  }
-
-  .ams-progress-list--heading-4 & {
-    block-size: var(--ams-progress-list-heading-4-step-shape-block-size);
-    inline-size: var(--ams-progress-list-heading-4-step-shape-inline-size);
-
-    @supports (block-size: round(down, 1px, 1px)) {
-      block-size: round(down, var(--ams-progress-list-heading-4-step-shape-block-size), 2px);
-      inline-size: round(down, var(--ams-progress-list-heading-4-step-shape-inline-size), 2px);
-    }
-  }
-  // stylelint-enable plugin/use-baseline
 
   .ams-progress-list__step--completed & {
     background-color: var(--ams-progress-list-step-completed-marker-background-color);
@@ -253,38 +122,9 @@
   block-size: var(--ams-progress-list-step-sub-steps-step-marker-block-size);
   display: grid;
   grid-area: 1/1;
+  inline-size: var(--ams-progress-list-step-shape-inline-size);
   place-items: center;
   position: relative;
-
-  /*
-  * round() eliminates sub-pixel rendering issues that distort circular markers.
-  * Minor degradation in unsupported browsers is visually unnoticeable.
-  */
-  // stylelint-disable plugin/use-baseline
-  .ams-progress-list--heading-2 & {
-    inline-size: var(--ams-progress-list-heading-2-step-shape-inline-size);
-
-    @supports (block-size: round(down, 1px, 1px)) {
-      inline-size: round(down, var(--ams-progress-list-heading-2-step-shape-inline-size), 2px);
-    }
-  }
-
-  .ams-progress-list--heading-3 & {
-    inline-size: var(--ams-progress-list-heading-3-step-shape-inline-size);
-
-    @supports (block-size: round(down, 1px, 1px)) {
-      inline-size: round(down, var(--ams-progress-list-heading-3-step-shape-inline-size), 2px);
-    }
-  }
-
-  .ams-progress-list--heading-4 & {
-    inline-size: var(--ams-progress-list-heading-4-step-shape-inline-size);
-
-    @supports (block-size: round(down, 1px, 1px)) {
-      inline-size: round(down, var(--ams-progress-list-heading-4-step-shape-inline-size), 2px);
-    }
-  }
-  // stylelint-enable plugin/use-baseline
 }
 
 .ams-progress-list-sub-step__marker-shape {
@@ -419,7 +259,6 @@
   padding-inline-start: var(--ams-progress-list-step-sub-steps-step-body-padding-inline-start);
 
   .ams-progress-list__sub-step:last-of-type & {
-    padding-block-end: 0;
     padding-block-end: var(--ams-progress-list-step-sub-steps-step-body-padding-block-end);
   }
 }
