@@ -19,8 +19,8 @@ addons.setConfig({
     inputBg: '#ffffff',
     inputBorder: '#767676',
     inputBorderRadius: 0,
-    inputTextColor: '#181818',
-    textColor: '#181818',
+    inputTextColor: '#202020',
+    textColor: '#202020',
     textInverseColor: '#ffffff',
   }),
 })
