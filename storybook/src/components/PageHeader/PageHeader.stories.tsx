@@ -176,6 +176,8 @@ export const WithCustomTexts: PageHeaderStory = {
       </Grid>
     ),
     menuButtonText: 'Alle onderwerpen',
+    menuButtonTextForHide: 'Verberg onderwerpen menu',
+    menuButtonTextForShow: 'Laat onderwerpen menu zien',
     navigationLabel: 'Navigatie',
   },
 }

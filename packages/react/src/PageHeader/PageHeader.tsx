@@ -52,8 +52,12 @@ export type PageHeaderProps = {
   logoLinkComponent?: ComponentType<AnchorHTMLAttributes<HTMLAnchorElement>>
   /** The accessible text for the link on the logo. */
   logoLinkTitle?: string
-  /** The text for the menu button. */
+  /** The visible text for the menu button. */
   menuButtonText?: string
+  /** The text for screen readers when the button hides the menu. */
+  menuButtonTextForHide?: string
+  /** The text for screen readers when the button shows the menu. */
+  menuButtonTextForShow?: string
   /** A slot for the menu items. Use PageHeader.MenuLink here. */
   menuItems?: ReactNode
   /** The accessible label for the navigation section. */
@@ -74,6 +78,8 @@ const PageHeaderRoot = forwardRef(
       logoLinkComponent = (props: AnchorHTMLAttributes<HTMLAnchorElement>) => <a {...props} />,
       logoLinkTitle = `Ga naar de homepage${brandName ? ` van ${brandName}` : ''}`,
       menuButtonText = 'Menu',
+      menuButtonTextForHide = 'Verberg navigatiemenu',
+      menuButtonTextForShow = 'Laat navigatiemenu zien',
       menuItems,
       navigationLabel = 'Hoofdnavigatie',
       noMenuButtonOnWideWindow,
@@ -116,8 +122,10 @@ const PageHeaderRoot = forwardRef(
               {hasMegaMenu && (
                 <li
                   className={clsx(
+                    'ams-page-header__mega-menu-button-item',
                     noMenuButtonOnWideWindow && 'ams-page-header__mega-menu-button-item--hide-on-wide-window',
                   )}
+                  hidden // Hide the list item containing the menu button until its CSS loads. If it doesn't load, the menu will always be visible.
                 >
                   <button
                     aria-controls="ams-page-header-mega-menu"
@@ -126,7 +134,10 @@ const PageHeaderRoot = forwardRef(
                     onClick={() => setOpen(!open)}
                     type="button"
                   >
-                    <span className="ams-page-header__mega-menu-button-label">{menuButtonText}</span>
+                    <span aria-hidden="true" className="ams-page-header__mega-menu-button-label">
+                      {menuButtonText}
+                    </span>
+                    <span className="ams-visually-hidden">{open ? menuButtonTextForHide : menuButtonTextForShow}</span>
                     <span aria-hidden="true" className="ams-page-header__mega-menu-button-hidden-label">
                       {menuButtonText}
                     </span>
