@@ -223,7 +223,7 @@ describe('Page Header', () => {
     const user = userEvent.setup()
 
     render(
-      <PageHeader menuButtonTextForClose="Custom close text" menuButtonTextForShow="Custom show text">
+      <PageHeader menuButtonTextForHide="Custom hide text" menuButtonTextForShow="Custom show text">
         Test
       </PageHeader>,
     )
@@ -234,7 +234,7 @@ describe('Page Header', () => {
 
     await user.click(menuButton)
 
-    expect(menuButton).toHaveTextContent('Custom close text')
+    expect(menuButton).toHaveTextContent('Custom hide text')
   })
 
   it.skip('closes the mega menu when it is open and the screen width passes the breakpoint', () => {
