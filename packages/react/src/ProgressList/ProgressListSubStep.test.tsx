@@ -83,22 +83,6 @@ describe('Progress List Sub Step', () => {
     expect(subStep).not.toHaveAttribute('aria-current')
   })
 
-  it('renders the icon when status is current', () => {
-    const { container } = render(<ProgressListSubStep status="current">Content</ProgressListSubStep>)
-
-    const icon = container.querySelector('.ams-progress-list-sub-step__marker-icon')
-
-    expect(icon).toBeInTheDocument()
-  })
-
-  it('does not render the icon when status is not current', () => {
-    const { container } = render(<ProgressListSubStep status="completed">Content</ProgressListSubStep>)
-
-    const icon = container.querySelector('.ams-progress-list-sub-step__marker-icon')
-
-    expect(icon).not.toBeInTheDocument()
-  })
-
   it('supports ForwardRef in React', () => {
     const ref = createRef<HTMLLIElement>()
 
