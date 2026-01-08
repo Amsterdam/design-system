@@ -3,7 +3,7 @@
     "checkbox": {
       "hover": {
         "text-decoration-thickness": {
-          "comment": "Use `ams.checkbox.text-decoration-thickness` instead",
+          "$deprecated": "Use `ams.checkbox.text-decoration-thickness` instead",
           "$value": "{ams.border.width.m}",
           "$type": "dimension"
         }

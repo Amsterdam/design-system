@@ -4,14 +4,14 @@
       "heading": {
         "0": {
           "font-size": {
-            "comment": "Use Heading size 1 instead.",
+            "$deprecated": "Use Heading size 1 instead.",
             "$value": "clamp(2.435rem, 2.0409rem + 1.9709vw, 3.8147rem)",
             "$extensions": {
               "amsterdam.designsystem.type": "fontSize"
             }
           },
           "line-height": {
-            "comment": "Use Heading size 1 instead.",
+            "$deprecated": "Use Heading size 1 instead.",
             "$value": "1.1",
             "$extensions": {
               "amsterdam.designsystem.type": "lineHeight"
@@ -20,14 +20,14 @@
         },
         "6": {
           "font-size": {
-            "comment": "Use Heading size 5 instead.",
+            "$deprecated": "Use Heading size 5 instead.",
             "$value": "{ams.typography.body-text.small.font-size}",
             "$extensions": {
               "amsterdam.designsystem.type": "fontSize"
             }
           },
           "line-height": {
-            "comment": "Use Heading size 5 instead.",
+            "$deprecated": "Use Heading size 5 instead.",
             "$value": "1.4",
             "$extensions": {
               "amsterdam.designsystem.type": "lineHeight"

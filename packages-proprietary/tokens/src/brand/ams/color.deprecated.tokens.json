@@ -3,7 +3,7 @@
     "color": {
       "interactive": {
         "secondary": {
-          "comment": "Use `currentColor` instead",
+          "$deprecated": "Use `currentColor` instead",
           "$value": "#181818",
           "$type": "color"
         }
