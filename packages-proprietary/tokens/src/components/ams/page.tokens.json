@@ -23,8 +23,10 @@
         "area-skip-link": {
           "margin-inline-end": {
             "$value": "{ams.grid.padding-inline}",
-            "comment": "Must be the Grid inline padding, to make sure Skip Link and Grid line up",
-            "$type": "dimension"
+            "$type": "dimension",
+            "$extension": {
+              "amsterdam.designsystem.hint": "Must be the Grid inline padding, to make sure Skip Link and Grid line up."
+            }
           }
         }
       }

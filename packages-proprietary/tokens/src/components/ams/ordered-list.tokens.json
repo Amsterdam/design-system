@@ -58,7 +58,9 @@
             "value": 2.25,
             "unit": "rem"
           },
-          "comment": "Divide your total indentation width over margin and padding to position the marker.",
+          "$extension": {
+            "amsterdam.designsystem.hint": "Divide your total indentation width over margin and padding to position the marker."
+          },
           "$type": "dimension"
         },
         "padding-inline-start": {
@@ -66,7 +68,9 @@
             "value": 0.25,
             "unit": "rem"
           },
-          "comment": "The total level 1 indentation for Amsterdam is 40 pixels, or 2.5rem.",
+          "$extension": {
+            "amsterdam.designsystem.hint": "The total level 1 indentation for Amsterdam is 40 pixels, or 2.5rem."
+          },
           "$type": "dimension"
         }
       },
@@ -92,7 +96,9 @@
               "value": 1.5,
               "unit": "rem"
             },
-            "comment": "Indent less than the parent to start-align the child\u2019s marker with the parent text.",
+            "$extension": {
+              "amsterdam.designsystem.hint": "Indent less than the parent to start-align the child\u2019s marker with the parent text."
+            },
             "$type": "dimension"
           },
           "padding-inline-start": {
@@ -100,7 +106,9 @@
               "value": 0.25,
               "unit": "rem"
             },
-            "comment": "The total level >=2 indentation for Amsterdam is 28 pixels, or 1.75rem.",
+            "$extension": {
+              "amsterdam.designsystem.hint": "The total level >=2 indentation for Amsterdam is 28 pixels, or 1.75rem."
+            },
             "$type": "dimension"
           }
         }

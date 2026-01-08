@@ -6,20 +6,24 @@
         "$type": "color"
       },
       "text-decoration-thickness": {
-        "comment": "2px",
         "$value": {
           "value": 0.125,
           "unit": "rem"
         },
-        "$type": "dimension"
+        "$type": "dimension",
+        "$extension": {
+          "amsterdam.designsystem.hint": "2px"
+        }
       },
       "text-underline-offset": {
-        "comment": "2.5px",
         "$value": {
           "value": 0.15625,
           "unit": "rem"
         },
-        "$type": "dimension"
+        "$type": "dimension",
+        "$extension": {
+          "amsterdam.designsystem.hint": "2.5px"
+        }
       },
       "hover": {
         "color": {
@@ -27,20 +31,24 @@
           "$type": "color"
         },
         "text-decoration-thickness": {
-          "comment": "3px",
           "$value": {
             "value": 0.1875,
             "unit": "rem"
           },
-          "$type": "dimension"
+          "$type": "dimension",
+          "$extension": {
+            "amsterdam.designsystem.hint": "3px"
+          }
         },
         "text-underline-offset": {
-          "comment": "1.5px",
           "$value": {
             "value": 0.09375,
             "unit": "rem"
           },
-          "$type": "dimension"
+          "$type": "dimension",
+          "$extension": {
+            "amsterdam.designsystem.hint": "1.5px"
+          }
         }
       },
       "subtle": {

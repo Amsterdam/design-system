@@ -11,8 +11,10 @@
       },
       "padding-inline": {
         "$value": "{ams.grid.padding-inline}",
-        "comment": "Must be the Grid inline padding, to make sure Header and Grid line up",
-        "$type": "dimension"
+        "$type": "dimension",
+        "$extension": {
+          "amsterdam.designsystem.hint": "Must be the Grid inline padding, to make sure Header and Grid line up."
+        }
       },
       "medium": {
         "padding-inline": {
