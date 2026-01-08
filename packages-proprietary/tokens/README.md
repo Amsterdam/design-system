@@ -162,6 +162,35 @@ At the same time, we are aware that adopting a design system can pose challenges
 If there is a good reason to (temporarily) adapt a component, do so by overriding the values of its appropriate tokens in a separate stylesheet.
 Note that redefining the value of a token is a much better approach than redeclaring styles, adding class names or even inline styles.
 
+## Token types
+
+Tokens have a type or extension that we use to generate visual previews in our documentation.
+When adding new tokens, define a type from the W3C specification or add one of our custom extensions when needed.
+Do not add an type or extension if the token cannot be previewed.
+
+### W3C standard types
+
+The following types come from the [Design Tokens Community Group (DTCG) specification](https://www.designtokens.org/tr/2025.10/format/):
+
+| Type         | Description               |
+| ------------ | ------------------------- |
+| `color`      | Any colour value          |
+| `dimension`  | Any dimension with a unit |
+| `fontFamily` | Font family definitions   |
+| `fontWeight` | Font weight values        |
+
+### Custom extensions
+
+For more specific previews, we use custom extensions under `$extensions.ams.type`:
+
+| Extension     | Description                      |
+| ------------- | -------------------------------- |
+| `fontSize`    | Font size values                 |
+| `lineHeight`  | Unitless line height multipliers |
+| `borderWidth` | Border thickness values          |
+
+Tokens without a type have values that we currently do not preview.
+
 ## Usage in Sass
 
 The tokens can be imported as Sass variables as well.
