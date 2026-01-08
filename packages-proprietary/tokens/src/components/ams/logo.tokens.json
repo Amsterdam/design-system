@@ -4,7 +4,7 @@
       "block-size": {
         "$value": "{ams.space.xl}",
         "$extensions": {
-          "ams.type": "blockSize"
+          "amsterdam.designsystem.type": "blockSize"
         }
       },
       "min-block-size": {

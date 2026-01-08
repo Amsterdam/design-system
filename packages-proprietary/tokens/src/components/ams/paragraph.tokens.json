@@ -12,7 +12,7 @@
       "font-size": {
         "$value": "{ams.typography.body-text.font-size}",
         "$extensions": {
-          "ams.type": "fontSize"
+          "amsterdam.designsystem.type": "fontSize"
         }
       },
       "font-weight": {
@@ -22,7 +22,7 @@
       "line-height": {
         "$value": "{ams.typography.body-text.line-height}",
         "$extensions": {
-          "ams.type": "lineHeight"
+          "amsterdam.designsystem.type": "lineHeight"
         }
       },
       "inverse": {
@@ -35,13 +35,13 @@
         "font-size": {
           "$value": "{ams.typography.body-text.small.font-size}",
           "$extensions": {
-            "ams.type": "fontSize"
+            "amsterdam.designsystem.type": "fontSize"
           }
         },
         "line-height": {
           "$value": "{ams.typography.body-text.small.line-height}",
           "$extensions": {
-            "ams.type": "lineHeight"
+            "amsterdam.designsystem.type": "lineHeight"
           }
         }
       },
@@ -49,13 +49,13 @@
         "font-size": {
           "$value": "{ams.typography.body-text.large.font-size}",
           "$extensions": {
-            "ams.type": "fontSize"
+            "amsterdam.designsystem.type": "fontSize"
           }
         },
         "line-height": {
           "$value": "{ams.typography.body-text.large.line-height}",
           "$extensions": {
-            "ams.type": "lineHeight"
+            "amsterdam.designsystem.type": "lineHeight"
           }
         },
         "text-wrap": {

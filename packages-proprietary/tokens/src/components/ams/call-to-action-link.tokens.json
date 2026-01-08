@@ -16,7 +16,7 @@
       "font-size": {
         "$value": "{ams.typography.body-text.font-size}",
         "$extensions": {
-          "ams.type": "fontSize"
+          "amsterdam.designsystem.type": "fontSize"
         }
       },
       "font-weight": {
@@ -26,7 +26,7 @@
       "line-height": {
         "$value": "{ams.typography.body-text.line-height}",
         "$extensions": {
-          "ams.type": "lineHeight"
+          "amsterdam.designsystem.type": "lineHeight"
         }
       },
       "outline-offset": {

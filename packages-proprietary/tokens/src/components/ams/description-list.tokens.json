@@ -16,13 +16,13 @@
       "font-size": {
         "$value": "{ams.typography.body-text.font-size}",
         "$extensions": {
-          "ams.type": "fontSize"
+          "amsterdam.designsystem.type": "fontSize"
         }
       },
       "line-height": {
         "$value": "{ams.typography.body-text.line-height}",
         "$extensions": {
-          "ams.type": "lineHeight"
+          "amsterdam.designsystem.type": "lineHeight"
         }
       },
       "row-gap": {

@@ -23,7 +23,7 @@
         "font-size": {
           "$value": "{ams.typography.heading.3.font-size}",
           "$extensions": {
-            "ams.type": "fontSize"
+            "amsterdam.designsystem.type": "fontSize"
           }
         },
         "font-weight": {
@@ -33,7 +33,7 @@
         "line-height": {
           "$value": "{ams.typography.heading.3.line-height}",
           "$extensions": {
-            "ams.type": "lineHeight"
+            "amsterdam.designsystem.type": "lineHeight"
           }
         },
         "margin-block-end": {

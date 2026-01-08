@@ -5,13 +5,13 @@
         "font-size": {
           "$value": "{ams.typography.heading.2.font-size}",
           "$extensions": {
-            "ams.type": "fontSize"
+            "amsterdam.designsystem.type": "fontSize"
           }
         },
         "line-height": {
           "$value": "{ams.typography.heading.2.line-height}",
           "$extensions": {
-            "ams.type": "lineHeight"
+            "amsterdam.designsystem.type": "lineHeight"
           }
         }
       },

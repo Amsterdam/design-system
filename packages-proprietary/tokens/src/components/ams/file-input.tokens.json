@@ -15,7 +15,7 @@
       "border-width": {
         "$value": "{ams.inputs.border-width}",
         "$extensions": {
-          "ams.type": "borderWidth"
+          "amsterdam.designsystem.type": "borderWidth"
         }
       },
       "color": {
@@ -32,7 +32,7 @@
       "font-size": {
         "$value": "{ams.inputs.font-size}",
         "$extensions": {
-          "ams.type": "fontSize"
+          "amsterdam.designsystem.type": "fontSize"
         }
       },
       "font-weight": {
@@ -42,7 +42,7 @@
       "line-height": {
         "$value": "{ams.inputs.line-height}",
         "$extensions": {
-          "ams.type": "lineHeight"
+          "amsterdam.designsystem.type": "lineHeight"
         }
       },
       "outline-offset": {
@@ -81,7 +81,7 @@
         "border-width": {
           "$value": "{ams.button.border-width}",
           "$extensions": {
-            "ams.type": "borderWidth"
+            "amsterdam.designsystem.type": "borderWidth"
           }
         },
         "color": {
@@ -94,7 +94,7 @@
         "line-height": {
           "$value": "{ams.button.line-height}",
           "$extensions": {
-            "ams.type": "lineHeight"
+            "amsterdam.designsystem.type": "lineHeight"
           }
         },
         "margin-inline-end": {

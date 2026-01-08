@@ -12,7 +12,7 @@
         "font-size": {
           "$value": "clamp(1.125rem, 1.0893rem + 0.1786vw, 1.25rem)",
           "$extensions": {
-            "ams.type": "fontSize"
+            "amsterdam.designsystem.type": "fontSize"
           }
         },
         "font-weight": {
@@ -22,7 +22,7 @@
         "line-height": {
           "$value": "1.8",
           "$extensions": {
-            "ams.type": "lineHeight"
+            "amsterdam.designsystem.type": "lineHeight"
           }
         },
         "bold": {
@@ -42,7 +42,7 @@
           "line-height": {
             "$value": "1.6",
             "$extensions": {
-              "ams.type": "lineHeight"
+              "amsterdam.designsystem.type": "lineHeight"
             }
           }
         },
@@ -50,13 +50,13 @@
           "font-size": {
             "$value": "clamp(1.3125rem, 1.2411rem + 0.3571vw, 1.5625rem)",
             "$extensions": {
-              "ams.type": "fontSize"
+              "amsterdam.designsystem.type": "fontSize"
             }
           },
           "line-height": {
             "$value": "1.6",
             "$extensions": {
-              "ams.type": "lineHeight"
+              "amsterdam.designsystem.type": "lineHeight"
             }
           }
         },
@@ -64,13 +64,13 @@
           "font-size": {
             "$value": "clamp(1.5rem, 1.3571rem + 0.7143vw, 2rem)",
             "$extensions": {
-              "ams.type": "fontSize"
+              "amsterdam.designsystem.type": "fontSize"
             }
           },
           "line-height": {
             "$value": "1.4",
             "$extensions": {
-              "ams.type": "lineHeight"
+              "amsterdam.designsystem.type": "lineHeight"
             }
           }
         }
@@ -87,13 +87,13 @@
           "font-size": {
             "$value": "clamp(2rem, 1.7143rem + 1.4286vw, 3rem)",
             "$extensions": {
-              "ams.type": "fontSize"
+              "amsterdam.designsystem.type": "fontSize"
             }
           },
           "line-height": {
             "$value": "1.2",
             "$extensions": {
-              "ams.type": "lineHeight"
+              "amsterdam.designsystem.type": "lineHeight"
             }
           }
         },
@@ -101,13 +101,13 @@
           "font-size": {
             "$value": "{ams.typography.body-text.x-large.font-size}",
             "$extensions": {
-              "ams.type": "fontSize"
+              "amsterdam.designsystem.type": "fontSize"
             }
           },
           "line-height": {
             "$value": "1.3",
             "$extensions": {
-              "ams.type": "lineHeight"
+              "amsterdam.designsystem.type": "lineHeight"
             }
           }
         },
@@ -115,13 +115,13 @@
           "font-size": {
             "$value": "{ams.typography.body-text.large.font-size}",
             "$extensions": {
-              "ams.type": "fontSize"
+              "amsterdam.designsystem.type": "fontSize"
             }
           },
           "line-height": {
             "$value": "1.3",
             "$extensions": {
-              "ams.type": "lineHeight"
+              "amsterdam.designsystem.type": "lineHeight"
             }
           }
         },
@@ -129,13 +129,13 @@
           "font-size": {
             "$value": "{ams.typography.body-text.font-size}",
             "$extensions": {
-              "ams.type": "fontSize"
+              "amsterdam.designsystem.type": "fontSize"
             }
           },
           "line-height": {
             "$value": "1.4",
             "$extensions": {
-              "ams.type": "lineHeight"
+              "amsterdam.designsystem.type": "lineHeight"
             }
           }
         },
@@ -143,13 +143,13 @@
           "font-size": {
             "$value": "{ams.typography.body-text.small.font-size}",
             "$extensions": {
-              "ams.type": "fontSize"
+              "amsterdam.designsystem.type": "fontSize"
             }
           },
           "line-height": {
             "$value": "1.4",
             "$extensions": {
-              "ams.type": "lineHeight"
+              "amsterdam.designsystem.type": "lineHeight"
             }
           }
         }

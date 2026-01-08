@@ -20,7 +20,7 @@
       "line-height": {
         "$value": "inherit",
         "$extensions": {
-          "ams.type": "lineHeight"
+          "amsterdam.designsystem.type": "lineHeight"
         }
       },
       "outline-offset": {

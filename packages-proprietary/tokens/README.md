@@ -181,7 +181,7 @@ The following types come from the [Design Tokens Community Group (DTCG) specific
 
 ### Custom extensions
 
-For more specific previews, we use custom extensions under `$extensions.ams.type`:
+For more specific previews, we use custom extensions under `$extensions.amsterdam.designsystem.type`:
 
 | Extension     | Description                      |
 | ------------- | -------------------------------- |

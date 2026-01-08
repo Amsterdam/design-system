@@ -4,26 +4,26 @@
       "font-size": {
         "$value": "{ams.typography.body-text.font-size}",
         "$extensions": {
-          "ams.type": "fontSize"
+          "amsterdam.designsystem.type": "fontSize"
         }
       },
       "line-height": {
         "$value": "{ams.typography.body-text.line-height}",
         "$extensions": {
-          "ams.type": "lineHeight"
+          "amsterdam.designsystem.type": "lineHeight"
         }
       },
       "small": {
         "font-size": {
           "$value": "{ams.typography.body-text.small.font-size}",
           "$extensions": {
-            "ams.type": "fontSize"
+            "amsterdam.designsystem.type": "fontSize"
           }
         },
         "line-height": {
           "$value": "{ams.typography.body-text.small.line-height}",
           "$extensions": {
-            "ams.type": "lineHeight"
+            "amsterdam.designsystem.type": "lineHeight"
           }
         }
       },
@@ -31,13 +31,13 @@
         "font-size": {
           "$value": "{ams.typography.body-text.large.font-size}",
           "$extensions": {
-            "ams.type": "fontSize"
+            "amsterdam.designsystem.type": "fontSize"
           }
         },
         "line-height": {
           "$value": "{ams.typography.body-text.large.line-height}",
           "$extensions": {
-            "ams.type": "lineHeight"
+            "amsterdam.designsystem.type": "lineHeight"
           }
         }
       },
@@ -45,13 +45,13 @@
         "font-size": {
           "$value": "{ams.typography.heading.1.font-size}",
           "$extensions": {
-            "ams.type": "fontSize"
+            "amsterdam.designsystem.type": "fontSize"
           }
         },
         "line-height": {
           "$value": "{ams.typography.heading.1.line-height}",
           "$extensions": {
-            "ams.type": "lineHeight"
+            "amsterdam.designsystem.type": "lineHeight"
           }
         }
       },
@@ -59,13 +59,13 @@
         "font-size": {
           "$value": "{ams.typography.heading.2.font-size}",
           "$extensions": {
-            "ams.type": "fontSize"
+            "amsterdam.designsystem.type": "fontSize"
           }
         },
         "line-height": {
           "$value": "{ams.typography.heading.2.line-height}",
           "$extensions": {
-            "ams.type": "lineHeight"
+            "amsterdam.designsystem.type": "lineHeight"
           }
         }
       },
@@ -73,13 +73,13 @@
         "font-size": {
           "$value": "{ams.typography.heading.3.font-size}",
           "$extensions": {
-            "ams.type": "fontSize"
+            "amsterdam.designsystem.type": "fontSize"
           }
         },
         "line-height": {
           "$value": "{ams.typography.heading.3.line-height}",
           "$extensions": {
-            "ams.type": "lineHeight"
+            "amsterdam.designsystem.type": "lineHeight"
           }
         }
       },
@@ -87,13 +87,13 @@
         "font-size": {
           "$value": "{ams.typography.heading.4.font-size}",
           "$extensions": {
-            "ams.type": "fontSize"
+            "amsterdam.designsystem.type": "fontSize"
           }
         },
         "line-height": {
           "$value": "{ams.typography.heading.4.line-height}",
           "$extensions": {
-            "ams.type": "lineHeight"
+            "amsterdam.designsystem.type": "lineHeight"
           }
         }
       },
@@ -101,13 +101,13 @@
         "font-size": {
           "$value": "{ams.typography.heading.5.font-size}",
           "$extensions": {
-            "ams.type": "fontSize"
+            "amsterdam.designsystem.type": "fontSize"
           }
         },
         "line-height": {
           "$value": "{ams.typography.heading.5.line-height}",
           "$extensions": {
-            "ams.type": "lineHeight"
+            "amsterdam.designsystem.type": "lineHeight"
           }
         }
       },
@@ -115,13 +115,13 @@
         "font-size": {
           "$value": "{ams.typography.heading.6.font-size}",
           "$extensions": {
-            "ams.type": "fontSize"
+            "amsterdam.designsystem.type": "fontSize"
           }
         },
         "line-height": {
           "$value": "{ams.typography.heading.6.line-height}",
           "$extensions": {
-            "ams.type": "lineHeight"
+            "amsterdam.designsystem.type": "lineHeight"
           }
         }
       },
