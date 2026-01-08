@@ -21,9 +21,7 @@
       },
       "gap": {
         "$value": "{ams.space.xs}",
-        "$extensions": {
-          "ams.type": "gap"
-        }
+        "$type": "dimension"
       },
       "line-height": {
         "$value": "{ams.typography.body-text.line-height}",

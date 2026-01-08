@@ -6,10 +6,7 @@
         "$type": "fontFamily"
       },
       "hyphenate-limit-chars": {
-        "$value": "12 8 4",
-        "$extensions": {
-          "ams.type": "hyphenateLimitChars"
-        }
+        "$value": "12 8 4"
       },
       "body-text": {
         "font-size": {
@@ -84,10 +81,7 @@
           "$type": "fontWeight"
         },
         "text-wrap": {
-          "$value": "balance",
-          "$extensions": {
-            "ams.type": "textWrap"
-          }
+          "$value": "balance"
         },
         "1": {
           "font-size": {

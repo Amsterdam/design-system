@@ -4,33 +4,23 @@
       "gap": {
         "x-small": {
           "$value": "{ams.space.xs}",
-          "$extensions": {
-            "ams.type": "gap"
-          }
+          "$type": "dimension"
         },
         "small": {
           "$value": "{ams.space.s}",
-          "$extensions": {
-            "ams.type": "gap"
-          }
+          "$type": "dimension"
         },
         "medium": {
           "$value": "{ams.space.m}",
-          "$extensions": {
-            "ams.type": "gap"
-          }
+          "$type": "dimension"
         },
         "large": {
           "$value": "{ams.space.l}",
-          "$extensions": {
-            "ams.type": "gap"
-          }
+          "$type": "dimension"
         },
         "x-large": {
           "$value": "{ams.space.xl}",
-          "$extensions": {
-            "ams.type": "gap"
-          }
+          "$type": "dimension"
         }
       }
     }

@@ -45,17 +45,11 @@
       },
       "subtle": {
         "text-decoration-line": {
-          "$value": "none",
-          "$extensions": {
-            "ams.type": "textDecorationLine"
-          }
+          "$value": "none"
         },
         "hover": {
           "text-decoration-line": {
-            "$value": "underline",
-            "$extensions": {
-              "ams.type": "textDecorationLine"
-            }
+            "$value": "underline"
           }
         }
       },

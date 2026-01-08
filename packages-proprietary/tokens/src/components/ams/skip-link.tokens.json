@@ -31,21 +31,15 @@
       },
       "outline-offset": {
         "$value": "{ams.focus.outline-offset}",
-        "$extensions": {
-          "ams.type": "outlineOffset"
-        }
+        "$type": "dimension"
       },
       "padding-block": {
         "$value": "{ams.space.s}",
-        "$extensions": {
-          "ams.type": "paddingBlock"
-        }
+        "$type": "dimension"
       },
       "padding-inline": {
         "$value": "{ams.space.m}",
-        "$extensions": {
-          "ams.type": "paddingInline"
-        }
+        "$type": "dimension"
       },
       "hover": {
         "background-color": {

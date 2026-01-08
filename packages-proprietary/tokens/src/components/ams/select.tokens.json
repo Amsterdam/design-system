@@ -6,26 +6,17 @@
         "$type": "color"
       },
       "background-image": {
-        "$value": "url(\"data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><path fill='%23004699' fill-rule='evenodd' d='m16 25.757-16-16 2.91-2.9L16 19.937l13.09-13.08 2.91 2.9z'/></svg>\")",
-        "$extensions": {
-          "ams.type": "background"
-        }
+        "$value": "url(\"data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><path fill='%23004699' fill-rule='evenodd' d='m16 25.757-16-16 2.91-2.9L16 19.937l13.09-13.08 2.91 2.9z'/></svg>\")"
       },
       "background-position": {
-        "$value": "right {ams.space.m} center",
-        "$extensions": {
-          "ams.type": "background"
-        }
+        "$value": "right {ams.space.m} center"
       },
       "border-color": {
         "$value": "{ams.inputs.border-color}",
         "$type": "color"
       },
       "border-style": {
-        "$value": "{ams.inputs.border-style}",
-        "$extensions": {
-          "ams.type": "borderStyle"
-        }
+        "$value": "{ams.inputs.border-style}"
       },
       "border-width": {
         "$value": "{ams.inputs.border-width}",
@@ -59,52 +50,34 @@
       },
       "outline-offset": {
         "$value": "{ams.inputs.outline-offset}",
-        "$extensions": {
-          "ams.type": "outlineOffset"
-        }
+        "$type": "dimension"
       },
       "padding-block": {
         "$value": "{ams.inputs.padding-block}",
-        "$extensions": {
-          "ams.type": "paddingBlock"
-        }
+        "$type": "dimension"
       },
       "padding-inline": {
         "$value": "{ams.inputs.padding-inline} calc(2 * {ams.inputs.padding-inline} + 1em)",
-        "$extensions": {
-          "ams.type": "paddingInline"
-        }
+        "$type": "dimension"
       },
       "disabled": {
         "background-image": {
-          "$value": "url(\"data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><path fill='%23767676' fill-rule='evenodd' d='m16 25.757-16-16 2.91-2.9L16 19.937l13.09-13.08 2.91 2.9z'/></svg>\")",
-          "$extensions": {
-            "ams.type": "background"
-          }
+          "$value": "url(\"data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><path fill='%23767676' fill-rule='evenodd' d='m16 25.757-16-16 2.91-2.9L16 19.937l13.09-13.08 2.91 2.9z'/></svg>\")"
         },
         "color": {
           "$value": "{ams.inputs.disabled.color}",
           "$type": "color"
         },
         "cursor": {
-          "$value": "{ams.cursor.disabled}",
-          "$extensions": {
-            "ams.type": "cursor"
-          }
+          "$value": "{ams.cursor.disabled}"
         }
       },
       "hover": {
         "box-shadow": {
-          "$value": "{ams.inputs.hover.box-shadow}",
-          "$extensions": {
-            "ams.type": "boxShadow"
-          }
+          "$value": "{ams.inputs.hover.box-shadow}"
         },
         "background-image": {
-          "$value": "url(\"data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><path fill='%23003677' fill-rule='evenodd' d='m16 25.757-16-16 2.91-2.9L16 19.937l13.09-13.08 2.91 2.9z'/></svg>\")",
-          "$extensions": {
-            "ams.type": "background"
-          }
+          "$value": "url(\"data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><path fill='%23003677' fill-rule='evenodd' d='m16 25.757-16-16 2.91-2.9L16 19.937l13.09-13.08 2.91 2.9z'/></svg>\")"
         }
       },
       "invalid": {
@@ -118,10 +91,7 @@
             "$type": "color"
           },
           "box-shadow": {
-            "$value": "{ams.inputs.invalid.hover.box-shadow}",
-            "$extensions": {
-              "ams.type": "boxShadow"
-            }
+            "$value": "{ams.inputs.invalid.hover.box-shadow}"
           }
         }
       },

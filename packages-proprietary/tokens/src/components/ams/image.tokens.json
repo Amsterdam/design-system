@@ -2,10 +2,7 @@
   "ams": {
     "image": {
       "aspect-ratio": {
-        "$value": "{ams.aspect-ratio.16-9}",
-        "$extensions": {
-          "ams.type": "aspectRatio"
-        }
+        "$value": "{ams.aspect-ratio.16-9}"
       }
     }
   }

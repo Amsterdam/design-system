@@ -10,10 +10,7 @@
         "$type": "color"
       },
       "border-style": {
-        "$value": "{ams.inputs.border-style}",
-        "$extensions": {
-          "ams.type": "borderStyle"
-        }
+        "$value": "{ams.inputs.border-style}"
       },
       "border-width": {
         "$value": "{ams.inputs.border-width}",
@@ -47,21 +44,15 @@
       },
       "outline-offset": {
         "$value": "{ams.inputs.outline-offset}",
-        "$extensions": {
-          "ams.type": "outlineOffset"
-        }
+        "$type": "dimension"
       },
       "padding-block": {
         "$value": "{ams.inputs.padding-block}",
-        "$extensions": {
-          "ams.type": "paddingBlock"
-        }
+        "$type": "dimension"
       },
       "padding-inline": {
         "$value": "{ams.inputs.padding-inline}",
-        "$extensions": {
-          "ams.type": "paddingInline"
-        }
+        "$type": "dimension"
       },
       "disabled": {
         "color": {
@@ -69,18 +60,12 @@
           "$type": "color"
         },
         "cursor": {
-          "$value": "{ams.cursor.disabled}",
-          "$extensions": {
-            "ams.type": "cursor"
-          }
+          "$value": "{ams.cursor.disabled}"
         }
       },
       "hover": {
         "box-shadow": {
-          "$value": "{ams.inputs.hover.box-shadow}",
-          "$extensions": {
-            "ams.type": "boxShadow"
-          }
+          "$value": "{ams.inputs.hover.box-shadow}"
         }
       },
       "invalid": {
@@ -94,10 +79,7 @@
             "$type": "color"
           },
           "box-shadow": {
-            "$value": "{ams.inputs.invalid.hover.box-shadow}",
-            "$extensions": {
-              "ams.type": "boxShadow"
-            }
+            "$value": "{ams.inputs.invalid.hover.box-shadow}"
           }
         }
       },

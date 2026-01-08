@@ -21,9 +21,7 @@
       },
       "gap": {
         "$value": "{ams.space.s}",
-        "$extensions": {
-          "ams.type": "gap"
-        }
+        "$type": "dimension"
       },
       "line-height": {
         "$value": "{ams.typography.body-text.line-height}",
@@ -32,10 +30,7 @@
         }
       },
       "list-style-type": {
-        "$value": "decimal",
-        "$extensions": {
-          "ams.type": "listStyleType"
-        }
+        "$value": "decimal"
       },
       "small": {
         "font-size": {
@@ -78,27 +73,18 @@
       "ordered-list": {
         "gap": {
           "$value": "{ams.space.s}",
-          "$extensions": {
-            "ams.type": "gap"
-          }
+          "$type": "dimension"
         },
         "list-style-type": {
-          "$value": "lower-alpha",
-          "$extensions": {
-            "ams.type": "listStyleType"
-          }
+          "$value": "lower-alpha"
         },
         "padding-block-end": {
           "$value": "{ams.space.s}",
-          "$extensions": {
-            "ams.type": "paddingBlock"
-          }
+          "$type": "dimension"
         },
         "padding-block-start": {
           "$value": "{ams.space.s}",
-          "$extensions": {
-            "ams.type": "paddingBlock"
-          }
+          "$type": "dimension"
         },
         "item": {
           "margin-inline-start": {

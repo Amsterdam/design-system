@@ -2,16 +2,10 @@
   "ams": {
     "cursor": {
       "disabled": {
-        "$value": "not-allowed",
-        "$extensions": {
-          "ams.type": "cursor"
-        }
+        "$value": "not-allowed"
       },
       "interactive": {
-        "$value": "pointer",
-        "$extensions": {
-          "ams.type": "cursor"
-        }
+        "$value": "pointer"
       }
     }
   }

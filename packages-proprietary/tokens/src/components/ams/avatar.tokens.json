@@ -2,10 +2,7 @@
   "ams": {
     "avatar": {
       "aspect-ratio": {
-        "$value": "{ams.aspect-ratio.1-1}",
-        "$extensions": {
-          "ams.type": "aspectRatio"
-        }
+        "$value": "{ams.aspect-ratio.1-1}"
       },
       "background-color": {
         "$value": "{ams.color.highlight.purple}",
@@ -16,10 +13,7 @@
         "$type": "color"
       },
       "border-style": {
-        "$value": "solid",
-        "$extensions": {
-          "ams.type": "borderStyle"
-        }
+        "$value": "solid"
       },
       "border-width": {
         "$value": "{ams.border.width.m}",
@@ -53,15 +47,11 @@
       },
       "padding-block": {
         "$value": "{ams.space.xs}",
-        "$extensions": {
-          "ams.type": "paddingBlock"
-        }
+        "$type": "dimension"
       },
       "padding-inline": {
         "$value": "{ams.space.xs}",
-        "$extensions": {
-          "ams.type": "paddingInline"
-        }
+        "$type": "dimension"
       },
       "forced-colors": {
         "border-width": {

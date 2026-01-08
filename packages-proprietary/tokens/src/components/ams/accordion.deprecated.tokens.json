@@ -23,20 +23,15 @@
           }
         },
         "text-wrap": {
-          "$value": "{ams.typography.heading.text-wrap}",
-          "$extensions": {
-            "ams.type": "textWrap"
-          }
+          "$value": "{ams.typography.heading.text-wrap}"
         }
       },
       "panel": {
         "padding-block": {
-          "$value": "0",
-          "$type": "number"
+          "$value": "0"
         },
         "padding-inline": {
-          "$value": "0",
-          "$type": "number"
+          "$value": "0"
         }
       }
     }

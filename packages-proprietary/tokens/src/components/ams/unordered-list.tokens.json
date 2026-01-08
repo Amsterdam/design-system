@@ -21,9 +21,7 @@
       },
       "gap": {
         "$value": "{ams.space.s}",
-        "$extensions": {
-          "ams.type": "gap"
-        }
+        "$type": "dimension"
       },
       "line-height": {
         "$value": "{ams.typography.body-text.line-height}",
@@ -76,9 +74,7 @@
       "unordered-list": {
         "gap": {
           "$value": "{ams.space.s}",
-          "$extensions": {
-            "ams.type": "gap"
-          }
+          "$type": "dimension"
         },
         "list-style-type": {
           "$value": "'\\2013'",
@@ -86,15 +82,11 @@
         },
         "padding-block-end": {
           "$value": "{ams.space.s}",
-          "$extensions": {
-            "ams.type": "paddingBlock"
-          }
+          "$type": "dimension"
         },
         "padding-block-start": {
           "$value": "{ams.space.s}",
-          "$extensions": {
-            "ams.type": "paddingBlock"
-          }
+          "$type": "dimension"
         },
         "item": {
           "margin-inline-start": {

@@ -3,9 +3,7 @@
     "figure": {
       "gap": {
         "$value": "{ams.space.s}",
-        "$extensions": {
-          "ams.type": "gap"
-        }
+        "$type": "dimension"
       },
       "caption": {
         "color": {

@@ -10,10 +10,7 @@
         "$type": "color"
       },
       "border-style": {
-        "$value": "dashed",
-        "$extensions": {
-          "ams.type": "borderStyle"
-        }
+        "$value": "dashed"
       },
       "border-width": {
         "$value": "{ams.inputs.border-width}",
@@ -26,10 +23,7 @@
         "$type": "color"
       },
       "cursor": {
-        "$value": "{ams.cursor.interactive}",
-        "$extensions": {
-          "ams.type": "cursor"
-        }
+        "$value": "{ams.cursor.interactive}"
       },
       "font-family": {
         "$value": "{ams.inputs.font-family}",
@@ -53,21 +47,15 @@
       },
       "outline-offset": {
         "$value": "{ams.inputs.outline-offset}",
-        "$extensions": {
-          "ams.type": "outlineOffset"
-        }
+        "$type": "dimension"
       },
       "padding-block": {
         "$value": "{ams.space.m}",
-        "$extensions": {
-          "ams.type": "paddingBlock"
-        }
+        "$type": "dimension"
       },
       "padding-inline": {
         "$value": "{ams.space.m}",
-        "$extensions": {
-          "ams.type": "paddingInline"
-        }
+        "$type": "dimension"
       },
       "disabled": {
         "color": {
@@ -75,10 +63,7 @@
           "$type": "color"
         },
         "cursor": {
-          "$value": "{ams.cursor.disabled}",
-          "$extensions": {
-            "ams.type": "cursor"
-          }
+          "$value": "{ams.cursor.disabled}"
         }
       },
       "file-selector-button": {
@@ -91,10 +76,7 @@
           "$type": "color"
         },
         "border-style": {
-          "$value": "{ams.button.border-style}",
-          "$extensions": {
-            "ams.type": "borderStyle"
-          }
+          "$value": "{ams.button.border-style}"
         },
         "border-width": {
           "$value": "{ams.button.border-width}",
@@ -107,10 +89,7 @@
           "$type": "color"
         },
         "cursor": {
-          "$value": "{ams.button.cursor}",
-          "$extensions": {
-            "ams.type": "cursor"
-          }
+          "$value": "{ams.button.cursor}"
         },
         "line-height": {
           "$value": "{ams.button.line-height}",
@@ -120,21 +99,15 @@
         },
         "margin-inline-end": {
           "$value": "{ams.space.m}",
-          "$extensions": {
-            "ams.type": "marginInline"
-          }
+          "$type": "dimension"
         },
         "padding-block": {
           "$value": "{ams.button.padding-block}",
-          "$extensions": {
-            "ams.type": "paddingBlock"
-          }
+          "$type": "dimension"
         },
         "padding-inline": {
           "$value": "{ams.button.padding-inline}",
-          "$extensions": {
-            "ams.type": "paddingInline"
-          }
+          "$type": "dimension"
         },
         "disabled": {
           "color": {
@@ -142,18 +115,12 @@
             "$type": "color"
           },
           "cursor": {
-            "$value": "{ams.button.disabled.cursor}",
-            "$extensions": {
-              "ams.type": "cursor"
-            }
+            "$value": "{ams.button.disabled.cursor}"
           }
         },
         "hover": {
           "box-shadow": {
-            "$value": "{ams.button.secondary.hover.box-shadow}",
-            "$extensions": {
-              "ams.type": "boxShadow"
-            }
+            "$value": "{ams.button.secondary.hover.box-shadow}"
           },
           "color": {
             "$value": "{ams.button.secondary.hover.color}",

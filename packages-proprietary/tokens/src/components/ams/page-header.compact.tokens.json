@@ -17,8 +17,7 @@
       },
       "mega-menu": {
         "padding-block": {
-          "$value": "0",
-          "$type": "number"
+          "$value": "0"
         }
       }
     }

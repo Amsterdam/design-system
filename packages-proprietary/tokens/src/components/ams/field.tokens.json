@@ -3,9 +3,7 @@
     "field": {
       "gap": {
         "$value": "{ams.space.s}",
-        "$extensions": {
-          "ams.type": "gap"
-        }
+        "$type": "dimension"
       },
       "invalid": {
         "border-inline-start": {
@@ -14,9 +12,7 @@
         },
         "padding-inline-start": {
           "$value": "{ams.space.m}",
-          "$extensions": {
-            "ams.type": "paddingInline"
-          }
+          "$type": "dimension"
         }
       }
     }

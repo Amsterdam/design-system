@@ -4,42 +4,30 @@
       "menu": {
         "column-gap": {
           "$value": "{ams.space.l}",
-          "$extensions": {
-            "ams.type": "columnGap"
-          }
+          "$type": "dimension"
         },
         "padding-block": {
           "$value": "{ams.space.l}",
-          "$extensions": {
-            "ams.type": "paddingBlock"
-          }
+          "$type": "dimension"
         },
         "padding-inline": {
           "$value": "{ams.grid.padding-inline}",
-          "$extensions": {
-            "ams.type": "paddingInline"
-          }
+          "$type": "dimension"
         },
         "row-gap": {
           "$value": "{ams.space.xs}",
-          "$extensions": {
-            "ams.type": "rowGap"
-          }
+          "$type": "dimension"
         },
         "medium": {
           "padding-inline": {
             "$value": "{ams.grid.medium.padding-inline}",
-            "$extensions": {
-              "ams.type": "paddingInline"
-            }
+            "$type": "dimension"
           }
         },
         "wide": {
           "padding-inline": {
             "$value": "{ams.grid.wide.padding-inline}",
-            "$extensions": {
-              "ams.type": "paddingInline"
-            }
+            "$type": "dimension"
           }
         },
         "link": {
@@ -69,27 +57,18 @@
           },
           "outline-offset": {
             "$value": "{ams.focus.outline-offset}",
-            "$extensions": {
-              "ams.type": "outlineOffset"
-            }
+            "$type": "dimension"
           },
           "text-decoration-line": {
-            "$value": "{ams.links.subtle.text-decoration-line}",
-            "$extensions": {
-              "ams.type": "textDecorationLine"
-            }
+            "$value": "{ams.links.subtle.text-decoration-line}"
           },
           "text-decoration-thickness": {
             "$value": "{ams.links.text-decoration-thickness}",
-            "$extensions": {
-              "ams.type": "textDecorationThickness"
-            }
+            "$type": "dimension"
           },
           "text-underline-offset": {
             "$value": "{ams.links.text-underline-offset}",
-            "$extensions": {
-              "ams.type": "textUnderlineOffset"
-            }
+            "$type": "dimension"
           },
           "hover": {
             "color": {
@@ -97,10 +76,7 @@
               "$type": "color"
             },
             "text-decoration-line": {
-              "$value": "{ams.links.subtle.hover.text-decoration-line}",
-              "$extensions": {
-                "ams.type": "textDecorationLine"
-              }
+              "$value": "{ams.links.subtle.hover.text-decoration-line}"
             }
           }
         }

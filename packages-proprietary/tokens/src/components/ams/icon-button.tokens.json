@@ -6,23 +6,16 @@
         "$type": "color"
       },
       "cursor": {
-        "$value": "{ams.cursor.interactive}",
-        "$extensions": {
-          "ams.type": "cursor"
-        }
+        "$value": "{ams.cursor.interactive}"
       },
       "outline-offset": {
         "$value": "{ams.focus.outline-offset}",
-        "$extensions": {
-          "ams.type": "outlineOffset"
-        }
+        "$type": "dimension"
       },
       "hover": {
         "background-color": {
           "$value": "rgb(0 70 153 / 12.5%)",
-          "$extensions": {
-            "ams.type": "backgroundColor"
-          }
+          "$type": "color"
         },
         "color": {
           "$value": "{ams.color.interactive.hover}",
@@ -35,10 +28,7 @@
           "$type": "color"
         },
         "cursor": {
-          "$value": "{ams.cursor.disabled}",
-          "$extensions": {
-            "ams.type": "cursor"
-          }
+          "$value": "{ams.cursor.disabled}"
         }
       },
       "contrast": {
@@ -49,9 +39,7 @@
         "hover": {
           "background-color": {
             "$value": "rgb(0 0 0 / 12.5%)",
-            "$extensions": {
-              "ams.type": "backgroundColor"
-            }
+            "$type": "color"
           },
           "color": {
             "$value": "{ams.color.interactive.contrast}",

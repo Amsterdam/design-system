@@ -31,33 +31,23 @@
       },
       "outline-offset": {
         "$value": "{ams.focus.outline-offset}",
-        "$extensions": {
-          "ams.type": "outlineOffset"
-        }
+        "$type": "dimension"
       },
       "padding-block": {
         "$value": "{ams.space.xs}",
-        "$extensions": {
-          "ams.type": "paddingBlock"
-        }
+        "$type": "dimension"
       },
       "padding-inline": {
         "$value": "{ams.space.m}",
-        "$extensions": {
-          "ams.type": "paddingInline"
-        }
+        "$type": "dimension"
       },
       "text-decoration-thickness": {
         "$value": "{ams.links.text-decoration-thickness}",
-        "$extensions": {
-          "ams.type": "textDecorationThickness"
-        }
+        "$type": "dimension"
       },
       "text-underline-offset": {
         "$value": "{ams.links.text-underline-offset}",
-        "$extensions": {
-          "ams.type": "textUnderlineOffset"
-        }
+        "$type": "dimension"
       },
       "hover": {
         "background-color": {
@@ -66,15 +56,11 @@
         },
         "text-decoration-thickness": {
           "$value": "{ams.links.hover.text-decoration-thickness}",
-          "$extensions": {
-            "ams.type": "textDecorationThickness"
-          }
+          "$type": "dimension"
         },
         "text-underline-offset": {
           "$value": "{ams.links.hover.text-underline-offset}",
-          "$extensions": {
-            "ams.type": "textUnderlineOffset"
-          }
+          "$type": "dimension"
         }
       }
     }

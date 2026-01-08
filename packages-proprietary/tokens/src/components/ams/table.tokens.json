@@ -38,15 +38,11 @@
         },
         "padding-block": {
           "$value": "{ams.space.s}",
-          "$extensions": {
-            "ams.type": "paddingBlock"
-          }
+          "$type": "dimension"
         },
         "padding-inline": {
           "$value": "{ams.space.m}",
-          "$extensions": {
-            "ams.type": "paddingInline"
-          }
+          "$type": "dimension"
         }
       },
       "header-cell": {

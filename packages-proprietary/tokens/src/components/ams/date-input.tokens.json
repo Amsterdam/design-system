@@ -10,10 +10,7 @@
         "$type": "color"
       },
       "border-style": {
-        "$value": "{ams.inputs.border-style}",
-        "$extensions": {
-          "ams.type": "borderStyle"
-        }
+        "$value": "{ams.inputs.border-style}"
       },
       "border-width": {
         "$value": "{ams.inputs.border-width}",
@@ -47,21 +44,15 @@
       },
       "outline-offset": {
         "$value": "{ams.inputs.outline-offset}",
-        "$extensions": {
-          "ams.type": "outlineOffset"
-        }
+        "$type": "dimension"
       },
       "padding-block": {
         "$value": "{ams.inputs.padding-block}",
-        "$extensions": {
-          "ams.type": "paddingBlock"
-        }
+        "$type": "dimension"
       },
       "padding-inline": {
         "$value": "{ams.inputs.padding-inline}",
-        "$extensions": {
-          "ams.type": "paddingInline"
-        }
+        "$type": "dimension"
       },
       "disabled": {
         "color": {
@@ -69,33 +60,21 @@
           "$type": "color"
         },
         "cursor": {
-          "$value": "{ams.cursor.disabled}",
-          "$extensions": {
-            "ams.type": "cursor"
-          }
+          "$value": "{ams.cursor.disabled}"
         },
         "calendar-picker-indicator": {
           "background-image": {
-            "$value": "url(\"data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 36 36' fill='%23767676'><path d='M28 6V2h-4v4H12V2H8v4H2v28h32V6zm2 24H6V14h24z'/><path d='M10 17h4v4h-4zm6 0h4v4h-4zm6 0h4v4h-4zm-12 6h4v4h-4zm6 0h4v4h-4z'/></svg>\")",
-            "$extensions": {
-              "ams.type": "background"
-            }
+            "$value": "url(\"data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 36 36' fill='%23767676'><path d='M28 6V2h-4v4H12V2H8v4H2v28h32V6zm2 24H6V14h24z'/><path d='M10 17h4v4h-4zm6 0h4v4h-4zm6 0h4v4h-4zm-12 6h4v4h-4zm6 0h4v4h-4z'/></svg>\")"
           }
         }
       },
       "hover": {
         "box-shadow": {
-          "$value": "{ams.inputs.hover.box-shadow}",
-          "$extensions": {
-            "ams.type": "boxShadow"
-          }
+          "$value": "{ams.inputs.hover.box-shadow}"
         },
         "calendar-picker-indicator": {
           "background-image": {
-            "$value": "url(\"data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 36 36' fill='%23003677'><path d='M28 6V2h-4v4H12V2H8v4H2v28h32V6zm2 24H6V14h24z'/><path d='M10 17h4v4h-4zm6 0h4v4h-4zm6 0h4v4h-4zm-12 6h4v4h-4zm6 0h4v4h-4z'/></svg>\")",
-            "$extensions": {
-              "ams.type": "background"
-            }
+            "$value": "url(\"data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 36 36' fill='%23003677'><path d='M28 6V2h-4v4H12V2H8v4H2v28h32V6zm2 24H6V14h24z'/><path d='M10 17h4v4h-4zm6 0h4v4h-4zm6 0h4v4h-4zm-12 6h4v4h-4zm6 0h4v4h-4z'/></svg>\")"
           }
         }
       },
@@ -110,25 +89,16 @@
             "$type": "color"
           },
           "box-shadow": {
-            "$value": "{ams.inputs.invalid.hover.box-shadow}",
-            "$extensions": {
-              "ams.type": "boxShadow"
-            }
+            "$value": "{ams.inputs.invalid.hover.box-shadow}"
           }
         }
       },
       "calendar-picker-indicator": {
         "background-image": {
-          "$value": "url(\"data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 36 36' fill='%23004699'><path d='M28 6V2h-4v4H12V2H8v4H2v28h32V6zm2 24H6V14h24z'/><path d='M10 17h4v4h-4zm6 0h4v4h-4zm6 0h4v4h-4zm-12 6h4v4h-4zm6 0h4v4h-4z'/></svg>\")",
-          "$extensions": {
-            "ams.type": "background"
-          }
+          "$value": "url(\"data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 36 36' fill='%23004699'><path d='M28 6V2h-4v4H12V2H8v4H2v28h32V6zm2 24H6V14h24z'/><path d='M10 17h4v4h-4zm6 0h4v4h-4zm6 0h4v4h-4zm-12 6h4v4h-4zm6 0h4v4h-4z'/></svg>\")"
         },
         "cursor": {
-          "$value": "{ams.cursor.interactive}",
-          "$extensions": {
-            "ams.type": "cursor"
-          }
+          "$value": "{ams.cursor.interactive}"
         }
       }
     }

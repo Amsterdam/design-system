@@ -3,9 +3,7 @@
     "accordion": {
       "gap": {
         "$value": "{ams.space.s}",
-        "$extensions": {
-          "ams.type": "gap"
-        }
+        "$type": "dimension"
       },
       "button": {
         "color": {
@@ -13,32 +11,22 @@
           "$type": "color"
         },
         "cursor": {
-          "$value": "{ams.cursor.interactive}",
-          "$extensions": {
-            "ams.type": "cursor"
-          }
+          "$value": "{ams.cursor.interactive}"
         },
         "gap": {
           "$value": "{ams.space.s}",
-          "$extensions": {
-            "ams.type": "gap"
-          }
+          "$type": "dimension"
         },
         "outline-offset": {
           "$value": "{ams.focus.outline-offset}",
-          "$extensions": {
-            "ams.type": "outlineOffset"
-          }
+          "$type": "dimension"
         },
         "padding-block": {
           "$value": "{ams.space.s}",
-          "$extensions": {
-            "ams.type": "paddingBlock"
-          }
+          "$type": "dimension"
         },
         "padding-inline": {
-          "$value": "0",
-          "$type": "number"
+          "$value": "0"
         },
         "hover": {
           "color": {

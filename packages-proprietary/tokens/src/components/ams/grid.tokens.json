@@ -2,83 +2,60 @@
   "ams": {
     "grid": {
       "column-count": {
-        "$value": "4",
-        "$type": "number"
+        "$value": "4"
       },
       "column-gap": {
         "$value": "{ams.space.xl}",
-        "$extensions": {
-          "ams.type": "columnGap"
-        }
+        "$type": "dimension"
       },
       "padding-block": {
         "l": {
           "$value": "{ams.space.l}",
-          "$extensions": {
-            "ams.type": "paddingBlock"
-          }
+          "$type": "dimension"
         },
         "xl": {
           "$value": "{ams.space.xl}",
-          "$extensions": {
-            "ams.type": "paddingBlock"
-          }
+          "$type": "dimension"
         },
         "2xl": {
           "$value": "{ams.space.2xl}",
-          "$extensions": {
-            "ams.type": "paddingBlock"
-          }
+          "$type": "dimension"
         }
       },
       "padding-inline": {
         "$value": "{ams.space.l}",
-        "$extensions": {
-          "ams.type": "paddingInline"
-        }
+        "$type": "dimension"
       },
       "row-gap": {
         "l": {
           "$value": "{ams.space.l}",
-          "$extensions": {
-            "ams.type": "rowGap"
-          }
+          "$type": "dimension"
         },
         "xl": {
           "$value": "{ams.space.xl}",
-          "$extensions": {
-            "ams.type": "rowGap"
-          }
+          "$type": "dimension"
         },
         "2xl": {
           "$value": "{ams.space.2xl}",
-          "$extensions": {
-            "ams.type": "rowGap"
-          }
+          "$type": "dimension"
         }
       },
       "medium": {
         "column-count": {
-          "$value": "8",
-          "$type": "number"
+          "$value": "8"
         },
         "padding-inline": {
           "$value": "{ams.space.xl}",
-          "$extensions": {
-            "ams.type": "paddingInline"
-          }
+          "$type": "dimension"
         }
       },
       "wide": {
         "column-count": {
-          "$value": "12",
-          "$type": "number"
+          "$value": "12"
         },
         "padding-inline": {
           "$value": "{ams.space.2xl}",
-          "$extensions": {
-            "ams.type": "paddingInline"
-          }
+          "$type": "dimension"
         }
       }
     }

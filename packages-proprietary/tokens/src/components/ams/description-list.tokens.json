@@ -7,9 +7,7 @@
       },
       "column-gap": {
         "$value": "{ams.space.l}",
-        "$extensions": {
-          "ams.type": "columnGap"
-        }
+        "$type": "dimension"
       },
       "font-family": {
         "$value": "{ams.typography.font-family}",
@@ -29,9 +27,7 @@
       },
       "row-gap": {
         "$value": "{ams.space.s}",
-        "$extensions": {
-          "ams.type": "rowGap"
-        }
+        "$type": "dimension"
       },
       "inverse": {
         "color": {
@@ -52,33 +48,22 @@
         },
         "padding-inline-start": {
           "$value": "{ams.space.l}",
-          "$extensions": {
-            "ams.type": "paddingInline"
-          }
+          "$type": "dimension"
         }
       },
       "narrow": {
         "grid-template-columns": {
-          "$value": "1fr 4fr",
-          "$extensions": {
-            "ams.type": "gridTemplateColumns"
-          }
+          "$value": "1fr 4fr"
         }
       },
       "medium": {
         "grid-template-columns": {
-          "$value": "1fr 2fr",
-          "$extensions": {
-            "ams.type": "gridTemplateColumns"
-          }
+          "$value": "1fr 2fr"
         }
       },
       "wide": {
         "grid-template-columns": {
-          "$value": "1fr 1fr",
-          "$extensions": {
-            "ams.type": "gridTemplateColumns"
-          }
+          "$value": "1fr 1fr"
         }
       }
     }

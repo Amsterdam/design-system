@@ -25,21 +25,15 @@
       },
       "outline-offset": {
         "$value": "{ams.focus.outline-offset}",
-        "$extensions": {
-          "ams.type": "outlineOffset"
-        }
+        "$type": "dimension"
       },
       "text-decoration-thickness": {
         "$value": "{ams.links.text-decoration-thickness}",
-        "$extensions": {
-          "ams.type": "textDecorationThickness"
-        }
+        "$type": "dimension"
       },
       "text-underline-offset": {
         "$value": "{ams.links.text-underline-offset}",
-        "$extensions": {
-          "ams.type": "textUnderlineOffset"
-        }
+        "$type": "dimension"
       },
       "hover": {
         "color": {
@@ -48,15 +42,11 @@
         },
         "text-decoration-thickness": {
           "$value": "{ams.links.hover.text-decoration-thickness}",
-          "$extensions": {
-            "ams.type": "textDecorationThickness"
-          }
+          "$type": "dimension"
         },
         "text-underline-offset": {
           "$value": "{ams.links.hover.text-underline-offset}",
-          "$extensions": {
-            "ams.type": "textUnderlineOffset"
-          }
+          "$type": "dimension"
         }
       },
       "contrast": {

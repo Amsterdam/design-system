@@ -3,15 +3,11 @@
     "file-list": {
       "gap": {
         "$value": "{ams.space.m}",
-        "$extensions": {
-          "ams.type": "gap"
-        }
+        "$type": "dimension"
       },
       "padding-block": {
         "$value": "{ams.space.m}",
-        "$extensions": {
-          "ams.type": "paddingBlock"
-        }
+        "$type": "dimension"
       },
       "file": {
         "font-family": {
@@ -30,9 +26,7 @@
         },
         "gap": {
           "$value": "{ams.space.s}",
-          "$extensions": {
-            "ams.type": "gap"
-          }
+          "$type": "dimension"
         },
         "line-height": {
           "$value": "{ams.typography.body-text.small.line-height}",
@@ -49,9 +43,7 @@
         "preview": {
           "width": {
             "$value": "clamp(2.5rem, 10vw, 5rem)",
-            "$extensions": {
-              "ams.type": "width"
-            }
+            "$type": "dimension"
           }
         }
       }

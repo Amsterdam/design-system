@@ -3,9 +3,7 @@
     "grid": {
       "padding-inline": {
         "$value": "{ams.space.xl}",
-        "$extensions": {
-          "ams.type": "paddingInline"
-        }
+        "$type": "dimension"
       }
     }
   }

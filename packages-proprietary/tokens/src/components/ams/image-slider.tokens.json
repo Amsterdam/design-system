@@ -3,30 +3,22 @@
     "image-slider": {
       "gap": {
         "$value": "{ams.space.xs}",
-        "$extensions": {
-          "ams.type": "gap"
-        }
+        "$type": "dimension"
       },
       "scroller": {
         "gap": {
           "$value": "{ams.space.xs}",
-          "$extensions": {
-            "ams.type": "gap"
-          }
+          "$type": "dimension"
         },
         "outline-offset": {
           "$value": "{ams.focus.outline-offset}",
-          "$extensions": {
-            "ams.type": "outlineOffset"
-          }
+          "$type": "dimension"
         }
       },
       "thumbnails": {
         "gap": {
           "$value": "{ams.space.xs}",
-          "$extensions": {
-            "ams.type": "gap"
-          }
+          "$type": "dimension"
         },
         "thumbnail": {
           "background-color": {
@@ -34,37 +26,23 @@
             "$type": "color"
           },
           "cursor": {
-            "$value": "{ams.cursor.interactive}",
-            "$extensions": {
-              "ams.type": "cursor"
-            }
+            "$value": "{ams.cursor.interactive}"
           },
           "opacity": {
-            "$value": "40%",
-            "$extensions": {
-              "ams.type": "opacity"
-            }
+            "$value": "40%"
           },
           "outline-offset": {
             "$value": "{ams.focus.outline-offset}",
-            "$extensions": {
-              "ams.type": "outlineOffset"
-            }
+            "$type": "dimension"
           },
           "in-view": {
             "opacity": {
-              "$value": "100%",
-              "$extensions": {
-                "ams.type": "opacity"
-              }
+              "$value": "100%"
             }
           },
           "hover": {
             "opacity": {
-              "$value": "100%",
-              "$extensions": {
-                "ams.type": "opacity"
-              }
+              "$value": "100%"
             }
           }
         }

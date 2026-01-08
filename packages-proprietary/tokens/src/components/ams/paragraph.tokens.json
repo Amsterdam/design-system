@@ -59,10 +59,7 @@
           }
         },
         "text-wrap": {
-          "$value": "balance",
-          "$extensions": {
-            "ams.type": "textWrap"
-          }
+          "$value": "balance"
         }
       }
     }

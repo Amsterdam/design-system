@@ -10,10 +10,7 @@
         "$type": "color"
       },
       "border-style": {
-        "$value": "solid",
-        "$extensions": {
-          "ams.type": "borderStyle"
-        }
+        "$value": "solid"
       },
       "border-width": {
         "$value": "{ams.border.width.m}",
@@ -47,21 +44,15 @@
       },
       "outline-offset": {
         "$value": "{ams.focus.outline-offset}",
-        "$extensions": {
-          "ams.type": "outlineOffset"
-        }
+        "$type": "dimension"
       },
       "padding-block": {
         "$value": "{ams.space.s}",
-        "$extensions": {
-          "ams.type": "paddingBlock"
-        }
+        "$type": "dimension"
       },
       "padding-inline": {
         "$value": "{ams.space.m}",
-        "$extensions": {
-          "ams.type": "paddingInline"
-        }
+        "$type": "dimension"
       },
       "disabled": {
         "color": {
@@ -71,10 +62,7 @@
       },
       "hover": {
         "box-shadow": {
-          "$value": "inset 0 0 0 {ams.border.width.s}",
-          "$extensions": {
-            "ams.type": "boxShadow"
-          }
+          "$value": "inset 0 0 0 {ams.border.width.s}"
         }
       },
       "invalid": {
@@ -88,10 +76,7 @@
             "$type": "color"
           },
           "box-shadow": {
-            "$value": "inset 0 0 0 {ams.border.width.s} {ams.color.interactive.invalid.hover}",
-            "$extensions": {
-              "ams.type": "boxShadow"
-            }
+            "$value": "inset 0 0 0 {ams.border.width.s} {ams.color.interactive.invalid.hover}"
           }
         }
       },

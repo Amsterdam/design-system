@@ -31,9 +31,7 @@
       },
       "padding-inline": {
         "$value": "{ams.space.xs}",
-        "$extensions": {
-          "ams.type": "paddingInline"
-        }
+        "$type": "dimension"
       },
       "azure": {
         "background-color": {

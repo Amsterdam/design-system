@@ -14,10 +14,7 @@
         "$type": "fontWeight"
       },
       "text-wrap": {
-        "$value": "{ams.typography.heading.text-wrap}",
-        "$extensions": {
-          "ams.type": "textWrap"
-        }
+        "$value": "{ams.typography.heading.text-wrap}"
       },
       "inverse": {
         "color": {

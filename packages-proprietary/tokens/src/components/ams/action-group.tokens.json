@@ -3,9 +3,7 @@
     "action-group": {
       "gap": {
         "$value": "{ams.space.m}",
-        "$extensions": {
-          "ams.type": "gap"
-        }
+        "$type": "dimension"
       }
     }
   }

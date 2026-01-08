@@ -8,9 +8,7 @@
         },
         "padding-inline-start": {
           "$value": "{ams.space.m}",
-          "$extensions": {
-            "ams.type": "paddingInline"
-          }
+          "$type": "dimension"
         }
       },
       "legend": {
@@ -40,15 +38,10 @@
         },
         "margin-block-end": {
           "$value": "{ams.space.s}",
-          "$extensions": {
-            "ams.type": "marginBlock"
-          }
+          "$type": "dimension"
         },
         "text-wrap": {
-          "$value": "{ams.typography.heading.text-wrap}",
-          "$extensions": {
-            "ams.type": "textWrap"
-          }
+          "$value": "{ams.typography.heading.text-wrap}"
         },
         "in-fieldset": {
           "font-weight": {

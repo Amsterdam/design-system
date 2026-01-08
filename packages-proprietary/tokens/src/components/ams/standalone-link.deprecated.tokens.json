@@ -5,40 +5,28 @@
         "text-decoration-thickness": {
           "comment": "Use `ams.standalone-link.text-decoration-thickness` instead",
           "$value": "{ams.links.hover.text-decoration-thickness}",
-          "$extensions": {
-            "ams.type": "textDecorationThickness"
-          }
+          "$type": "dimension"
         },
         "text-underline-offset": {
           "comment": "Use `ams.standalone-link.text-underline-offset` instead",
           "$value": "{ams.links.hover.text-underline-offset}",
-          "$extensions": {
-            "ams.type": "textUnderlineOffset"
-          }
+          "$type": "dimension"
         }
       },
       "with-icon": {
         "text-decoration-line": {
           "comment": "Use `ams.standalone-link.text-decoration-line` instead",
-          "$value": "{ams.links.subtle.text-decoration-line}",
-          "$extensions": {
-            "ams.type": "textDecorationLine"
-          }
+          "$value": "{ams.links.subtle.text-decoration-line}"
         },
         "text-decoration-thickness": {
           "comment": "Use `ams.standalone-link.text-decoration-thickness` instead",
           "$value": "{ams.links.text-decoration-thickness}",
-          "$extensions": {
-            "ams.type": "textDecorationThickness"
-          }
+          "$type": "dimension"
         },
         "hover": {
           "text-decoration-line": {
             "comment": "Use `ams.standalone-link.hover.text-decoration-line` instead",
-            "$value": "{ams.links.subtle.hover.text-decoration-line}",
-            "$extensions": {
-              "ams.type": "textDecorationLine"
-            }
+            "$value": "{ams.links.subtle.hover.text-decoration-line}"
           }
         }
       }

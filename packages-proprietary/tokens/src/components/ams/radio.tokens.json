@@ -6,10 +6,7 @@
         "$type": "color"
       },
       "cursor": {
-        "$value": "{ams.cursor.interactive}",
-        "$extensions": {
-          "ams.type": "cursor"
-        }
+        "$value": "{ams.cursor.interactive}"
       },
       "font-family": {
         "$value": "{ams.typography.font-family}",
@@ -27,9 +24,7 @@
       },
       "gap": {
         "$value": "{ams.space.s}",
-        "$extensions": {
-          "ams.type": "gap"
-        }
+        "$type": "dimension"
       },
       "line-height": {
         "$value": "{ams.typography.body-text.line-height}",
@@ -39,21 +34,15 @@
       },
       "outline-offset": {
         "$value": "{ams.focus.outline-offset}",
-        "$extensions": {
-          "ams.type": "outlineOffset"
-        }
+        "$type": "dimension"
       },
       "text-decoration-thickness": {
         "$value": "{ams.links.text-decoration-thickness}",
-        "$extensions": {
-          "ams.type": "textDecorationThickness"
-        }
+        "$type": "dimension"
       },
       "text-underline-offset": {
         "$value": "{ams.links.text-underline-offset}",
-        "$extensions": {
-          "ams.type": "textUnderlineOffset"
-        }
+        "$type": "dimension"
       },
       "checked-indicator": {
         "fill": {
@@ -165,10 +154,7 @@
           "$type": "color"
         },
         "cursor": {
-          "$value": "{ams.cursor.disabled}",
-          "$extensions": {
-            "ams.type": "cursor"
-          }
+          "$value": "{ams.cursor.disabled}"
         }
       },
       "hover": {
@@ -177,24 +163,17 @@
           "$type": "color"
         },
         "text-decoration-line": {
-          "$value": "{ams.links.subtle.hover.text-decoration-line}",
-          "$extensions": {
-            "ams.type": "textDecorationLine"
-          }
+          "$value": "{ams.links.subtle.hover.text-decoration-line}"
         }
       },
       "icon-container": {
         "block-size": {
           "$value": "calc({ams.radio.font-size} * {ams.radio.line-height})",
-          "$extensions": {
-            "ams.type": "blockSize"
-          }
+          "$type": "dimension"
         },
         "inline-size": {
           "$value": "{ams.radio.font-size}",
-          "$extensions": {
-            "ams.type": "inlineSize"
-          }
+          "$type": "dimension"
         }
       }
     }
