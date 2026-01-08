@@ -117,7 +117,7 @@ function generateSharedConfig(mode) {
           format: 'typescript/module-declarations',
         },
       ],
-      transforms: ['name/camel', ...sharedTransforms],
+      transforms: ['name/customCamel', ...sharedTransforms],
     },
   }
 }
