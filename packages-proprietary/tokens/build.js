@@ -59,7 +59,7 @@ function generateSharedConfig(mode) {
           },
         },
       ],
-      transforms: ['attribute/cti', 'name/customKebab', 'color/hsl-4', 'dtcg/dimension'],
+      transforms: ['name/customKebab', 'dtcg/dimension'],
     },
     cssTheme: {
       buildPath: 'dist/',
@@ -73,7 +73,7 @@ function generateSharedConfig(mode) {
           },
         },
       ],
-      transforms: ['attribute/cti', 'name/customKebab', 'color/hsl-4', 'dtcg/dimension'],
+      transforms: ['name/customKebab', 'dtcg/dimension'],
     },
     js: {
       buildPath: 'dist/',
@@ -83,7 +83,7 @@ function generateSharedConfig(mode) {
           format: 'javascript/es6',
         },
       ],
-      transforms: ['attribute/cti', 'name/customCamel', 'color/hsl-4', 'dtcg/dimension'],
+      transforms: ['name/customCamel', 'dtcg/dimension'],
     },
     json: {
       buildPath: 'dist/',
@@ -93,7 +93,7 @@ function generateSharedConfig(mode) {
           format: 'json/nested',
         },
       ],
-      transforms: ['attribute/cti', 'name/camel', 'color/hsl-4', 'dtcg/dimension'],
+      transforms: ['name/camel', 'dtcg/dimension'],
     },
     scss: {
       buildPath: 'dist/',
@@ -106,7 +106,7 @@ function generateSharedConfig(mode) {
           },
         },
       ],
-      transforms: ['attribute/cti', 'name/customKebab', 'color/hsl-4', 'dtcg/dimension'],
+      transforms: ['name/customKebab', 'dtcg/dimension'],
     },
     typescript: {
       buildPath: 'dist/',
@@ -116,7 +116,7 @@ function generateSharedConfig(mode) {
           format: 'typescript/module-declarations',
         },
       ],
-      transforms: ['attribute/cti', 'name/camel', 'color/hsl-4', 'dtcg/dimension'],
+      transforms: ['name/camel', 'dtcg/dimension'],
     },
   }
 }
