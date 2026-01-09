@@ -7,8 +7,10 @@ import type { ForwardedRef, HTMLAttributes, PropsWithChildren } from 'react'
 import { clsx } from 'clsx'
 import { forwardRef } from 'react'
 
+import type { ProgressListStepProps } from './ProgressListStep'
+
 export type ProgressListSubStepProps = {
-  status?: 'current' | 'completed'
+  status?: ProgressListStepProps['status']
 } & PropsWithChildren<HTMLAttributes<HTMLElement>>
 
 export const ProgressListSubStep = forwardRef(
