@@ -11,7 +11,6 @@ import { forwardRef, useCallback, useEffect, useMemo, useRef, useState } from 'r
 import type { ImageProps } from '../Image/Image'
 
 import { Image } from '../Image/Image'
-import { ImageSliderContext } from './ImageSliderContext'
 import { ImageSliderControls } from './ImageSliderControls'
 import { ImageSliderScroller } from './ImageSliderScroller'
 import { ImageSliderThumbnails } from './ImageSliderThumbnails'
@@ -154,51 +153,47 @@ export const ImageSlider = forwardRef(
     }, [currentSlideId, goToSlide])
 
     return (
-      <ImageSliderContext.Provider
-        value={{ currentSlideId, goToNextSlide, goToPreviousSlide, goToSlideId, isAtEnd, isAtStart }}
+      <div
+        {...restProps}
+        aria-roledescription="carousel"
+        className={clsx('ams-image-slider', controls && 'ams-image-slider--controls', className)}
+        ref={ref}
+        tabIndex={-1}
       >
-        <div
-          {...restProps}
-          aria-roledescription="carousel"
-          className={clsx('ams-image-slider', controls && 'ams-image-slider--controls', className)}
-          ref={ref}
-          tabIndex={-1}
-        >
-          {controls && (
-            <ImageSliderControls
-              goToNextSlide={goToNextSlide}
-              goToPreviousSlide={goToPreviousSlide}
-              isAtEnd={isAtEnd}
-              isAtStart={isAtStart}
-              nextLabel={nextLabel}
-              previousLabel={previousLabel}
-            />
-          )}
-          <ImageSliderScroller aria-live="polite" ref={targetRef} role="group" tabIndex={0}>
-            {images.map(({ alt, aspectRatio, sizes, src, srcSet }, index) => (
-              <div
-                aria-hidden={index !== currentSlideId ? true : undefined}
-                className={clsx(
-                  'ams-image-slider__item',
-                  // The 'ams-image-slider__item--in-view' class is @deprecated and will be removed in a future release.
-                  index === currentSlideId && 'ams-image-slider__item--in-view',
-                )}
-                key={`${alt}-${index}`}
-              >
-                <Image alt={alt} aspectRatio={aspectRatio} sizes={sizes} src={src} srcSet={srcSet} />
-              </div>
-            ))}
-          </ImageSliderScroller>
-          <ImageSliderThumbnails
-            currentSlideId={currentSlideId}
+        {controls && (
+          <ImageSliderControls
             goToNextSlide={goToNextSlide}
             goToPreviousSlide={goToPreviousSlide}
-            goToSlideId={goToSlideId}
-            imageLabel={imageLabel}
-            thumbnails={images}
+            isAtEnd={isAtEnd}
+            isAtStart={isAtStart}
+            nextLabel={nextLabel}
+            previousLabel={previousLabel}
           />
-        </div>
-      </ImageSliderContext.Provider>
+        )}
+        <ImageSliderScroller aria-live="polite" ref={targetRef} role="group" tabIndex={0}>
+          {images.map(({ alt, aspectRatio, sizes, src, srcSet }, index) => (
+            <div
+              aria-hidden={index !== currentSlideId ? true : undefined}
+              className={clsx(
+                'ams-image-slider__item',
+                // The 'ams-image-slider__item--in-view' class is @deprecated and will be removed in a future release.
+                index === currentSlideId && 'ams-image-slider__item--in-view',
+              )}
+              key={`${alt}-${index}`}
+            >
+              <Image alt={alt} aspectRatio={aspectRatio} sizes={sizes} src={src} srcSet={srcSet} />
+            </div>
+          ))}
+        </ImageSliderScroller>
+        <ImageSliderThumbnails
+          currentSlideId={currentSlideId}
+          goToNextSlide={goToNextSlide}
+          goToPreviousSlide={goToPreviousSlide}
+          goToSlideId={goToSlideId}
+          imageLabel={imageLabel}
+          thumbnails={images}
+        />
+      </div>
     )
   },
 )
