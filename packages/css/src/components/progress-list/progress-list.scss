@@ -11,7 +11,7 @@
   padding-inline-start: 0;
 }
 
-@mixin circular-marker {
+@mixin marker {
   aspect-ratio: 1;
   border-radius: 50%;
   box-sizing: border-box;
@@ -26,7 +26,7 @@
   z-index: 1;
 }
 
-@mixin layout-indicator {
+@mixin indicator {
   display: grid;
   flex: none;
   place-items: start center;
@@ -63,11 +63,11 @@
 // Indicator: Layout container for the marker and connector.
 
 .ams-progress-list__indicator {
-  @include layout-indicator;
+  @include indicator;
 }
 
 .ams-progress-list-sub-step__indicator {
-  @include layout-indicator;
+  @include indicator;
 
   margin-inline-end: var(--ams-progress-list-step-sub-steps-step-indicator-margin-inline-end);
   margin-inline-start: calc(-1 * var(--ams-progress-list-step-gap) - var(--ams-progress-list-step-shape-block-size));
@@ -101,7 +101,7 @@
 // Shape: Visual circle inside marker.
 
 .ams-progress-list__marker-shape {
-  @include circular-marker;
+  @include marker;
 
   background-color: var(--ams-progress-list-step-shape-background-color);
   block-size: var(--ams-progress-list-step-shape-block-size);
@@ -137,7 +137,7 @@
 }
 
 .ams-progress-list-sub-step__marker-shape {
-  @include circular-marker;
+  @include marker;
 
   background-color: var(--ams-progress-list-step-sub-steps-step-shape-background-color);
   block-size: var(--ams-progress-list-step-sub-steps-step-shape-block-size);
