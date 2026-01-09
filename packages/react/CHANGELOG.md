@@ -9,6 +9,8 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 ### ⚠ BREAKING CHANGES
 
 * **Page Footer:** Automatically render visually hidden heading before menu ([#2359](https://github.com/Amsterdam/design-system/issues/2359))
+  * Although this does not change the technical API, it may make the semantics of your website incorrect.
+**How to update**: Remove the explicit visually hidden Heading before the Page Footer Menu. This now gets rendered by the component.
 
 ### Features
 
