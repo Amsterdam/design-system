@@ -9,8 +9,12 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 ### ⚠ BREAKING CHANGES
 
 * **Field, Field Set:** Change spacing between elements ([#2358](https://github.com/Amsterdam/design-system/issues/2358))
-* **Page Footer:** Automatically render visually hidden heading before menu ([#2359](https://github.com/Amsterdam/design-system/issues/2359))
+  * Although his change does not change the technical API, it may make spacing in your website incorrect.
+**How to update**: Remove the utility classes (`ams-mb-*`) from children of Field and Field Set that we previously recommended. This now gets handled by the components.
+
 * **Page Header:** Add vertical space to Mega Menu in Spacious Mode ([#2298](https://github.com/Amsterdam/design-system/issues/2298))
+  * Although his change does not change the technical API, it may make spacing in your website incorrect.
+**How to update**: Remove vertical white space from the children of Page Header.
 
 ### Features
 
