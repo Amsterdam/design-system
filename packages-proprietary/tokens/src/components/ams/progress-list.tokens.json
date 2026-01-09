@@ -103,7 +103,7 @@
         },
         "sub-steps": {
           "margin-block-start": {
-            "value": "{ams.space.s}"
+            "value": "{ams.space.m}"
           },
           "step": {
             "indicator": {

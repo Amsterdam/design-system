@@ -40,6 +40,7 @@
   @include reset-ol;
 
   * + & {
+    // Add white space if there is content preceding the sub steps
     margin-block-start: var(--ams-progress-list-step-sub-steps-margin-block-start);
   }
 }
