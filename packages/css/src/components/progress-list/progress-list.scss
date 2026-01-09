@@ -17,6 +17,7 @@
   box-sizing: border-box;
   display: grid;
   place-content: center;
+  z-index: 2;
 }
 
 @mixin connector {
@@ -111,7 +112,6 @@
   // Outline is used to create space between the shape and the connector.
   outline: var(--ams-progress-list-step-shape-outline-width) var(--ams-progress-list-step-shape-outline-style)
     var(--ams-progress-list-step-shape-outline-color);
-  z-index: 2;
 
   .ams-progress-list__step--completed & {
     background-color: var(--ams-progress-list-step-completed-shape-background-color);
@@ -147,7 +147,6 @@
   outline: var(--ams-progress-list-step-sub-steps-step-shape-outline-width)
     var(--ams-progress-list-step-sub-steps-step-shape-outline-style)
     var(--ams-progress-list-step-sub-steps-step-shape-outline-color);
-  z-index: 2;
 
   .ams-progress-list__sub-step--completed & {
     background-color: var(--ams-progress-list-step-sub-steps-step-completed-shape-background-color);
