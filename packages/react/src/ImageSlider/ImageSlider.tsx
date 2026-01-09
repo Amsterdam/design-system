@@ -12,7 +12,6 @@ import type { ImageProps } from '../Image/Image'
 
 import { Image } from '../Image/Image'
 import { ImageSliderControls } from './ImageSliderControls'
-import { ImageSliderScroller } from './ImageSliderScroller'
 import { ImageSliderThumbnails } from './ImageSliderThumbnails'
 
 export type ImageSliderImageProps = ImageProps
@@ -170,7 +169,7 @@ export const ImageSlider = forwardRef(
             previousLabel={previousLabel}
           />
         )}
-        <ImageSliderScroller aria-live="polite" ref={targetRef} role="group" tabIndex={0}>
+        <div aria-live="polite" className="ams-image-slider__scroller" ref={targetRef} role="group" tabIndex={0}>
           {images.map(({ alt, aspectRatio, sizes, src, srcSet }, index) => (
             <div
               aria-hidden={index !== currentSlideId ? true : undefined}
@@ -184,7 +183,7 @@ export const ImageSlider = forwardRef(
               <Image alt={alt} aspectRatio={aspectRatio} sizes={sizes} src={src} srcSet={srcSet} />
             </div>
           ))}
-        </ImageSliderScroller>
+        </div>
         <ImageSliderThumbnails
           currentSlideId={currentSlideId}
           goToNextSlide={goToNextSlide}
