@@ -105,7 +105,7 @@
         },
         "sub-steps": {
           "margin-block-start": {
-            "value": "{ams.space.s}"
+            "value": "{ams.space.m}"
           },
           "step": {
             "indicator": {
@@ -117,7 +117,7 @@
                   "value": "{ams.space.l}"
                 },
                 "margin-inline-start": {
-                  "value": "calc(-1 * var(--ams-progress-list-step-indicator-medium-padding-inline) - var(--ams-progress-list-step-shape-inline-size))"
+                  "value": "calc(-1 * {ams.progress-list.step.indicator.medium.padding-inline} - {ams.progress-list.step.shape.inline-size})"
                 }
               }
             },

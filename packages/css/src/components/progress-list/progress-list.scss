@@ -43,7 +43,7 @@
 .ams-progress-list__sub-steps {
   @include reset-ol;
 
-  * + & {
+  * + & { // Add white space if there is content preceding the sub steps
     margin-block-start: var(--ams-progress-list-step-sub-steps-margin-block-start);
   }
 }
@@ -76,7 +76,7 @@
 
   margin-inline-start: calc(
     -1 * var(--ams-progress-list-step-indicator-padding-inline) - var(--ams-progress-list-step-shape-inline-size)
-  );
+  ); // Overlap the indicator of the parent step.
   padding-inline-end: var(--ams-progress-list-step-sub-steps-step-indicator-padding-inline-end);
 
   @media screen and (min-width: $ams-breakpoint-medium) {
