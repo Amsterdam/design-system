@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.0.0](https://github.com/Amsterdam/design-system/compare/design-system-assets-v1.1.0...design-system-assets-v2.0.0) (2026-01-09)
+
+
+### ⚠ BREAKING CHANGES
+
+* Use correct spelling for LinkedIn icon SVG ([#2357](https://github.com/Amsterdam/design-system/issues/2357))
+
+### Features
+
+* Rename ‘Bell’, ‘PersonCircle’ and ‘TrashBin’ icons to ‘Notification’, ‘UserAccount’ and ‘Delete’ ([#2319](https://github.com/Amsterdam/design-system/issues/2319)) ([909f1d6](https://github.com/Amsterdam/design-system/commit/909f1d622c65f151f3936ea200ec6fe421ae1909))
+
+
+### Bug Fixes
+
+* Use correct spelling for LinkedIn icon SVG ([#2357](https://github.com/Amsterdam/design-system/issues/2357)) ([7fd5d6f](https://github.com/Amsterdam/design-system/commit/7fd5d6f377907ab7503d8cfbdf9825ae8460d6c6))
+
 ## [1.1.0](https://github.com/Amsterdam/design-system/compare/design-system-assets-v1.0.1...design-system-assets-v1.1.0) (2025-09-26)
 
 
