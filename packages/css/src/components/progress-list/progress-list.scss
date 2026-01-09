@@ -223,15 +223,8 @@
     border-inline-style: var(--ams-progress-list-step-sub-steps-step-completed-connector-border-inline-style);
   }
 
-  // Style the connector when it belongs to the last sub-step of the last main step
-  // .ams-progress-list > .ams-progress-list__step:last-child → last main step
-  // .ams-progress-list__sub-steps → the sub-steps container within that step
-  // .ams-progress-list__sub-step:last-child → the last sub-step in that container
-  .ams-progress-list
-    > .ams-progress-list__step:last-child
-    .ams-progress-list__sub-steps
-    .ams-progress-list__sub-step:last-child
-    & {
+  // Hide the connector when it belongs to the last sub-step of the last main step
+  .ams-progress-list__step:last-child .ams-progress-list__sub-step:last-child & {
     border-inline-color: var(--ams-progress-list-step-sub-steps-step-connector-last-step-border-inline-color);
   }
 }
