@@ -3,57 +3,57 @@
  * Copyright Gemeente Amsterdam
  */
 
-import type { ForwardedRef, HTMLAttributes } from 'react'
+import type { HTMLAttributes } from 'react'
 
 import { ChevronBackwardIcon, ChevronForwardIcon } from '@amsterdam/design-system-react-icons'
-import { clsx } from 'clsx'
-import { forwardRef, useCallback, useContext } from 'react'
 
 import { Button } from '../Button'
-import { ImageSliderContext } from './ImageSliderContext'
 
 export type ImageSliderControlsProps = {
+  /** Function to go to the next slide */
+  goToNextSlide: () => void
+  /** Function to go to the previous slide */
+  goToPreviousSlide: () => void
+  /** Whether the slider is at the last image */
+  isAtEnd: boolean
+  /** Whether the slider is at the first image */
+  isAtStart: boolean
   /** The label for the ‘next’ button */
   nextLabel: string
   /** The label for the ‘previous’ button */
   previousLabel: string
 } & HTMLAttributes<HTMLDivElement>
 
-export const ImageSliderControls = forwardRef(
-  (
-    { className, nextLabel, previousLabel, ...restProps }: ImageSliderControlsProps,
-    ref: ForwardedRef<HTMLDivElement>,
-  ) => {
-    const { goToNextSlide, goToPreviousSlide, isAtEnd, isAtStart } = useContext(ImageSliderContext)
-
-    const handleClickPrevious = useCallback(() => goToPreviousSlide(), [goToPreviousSlide])
-    const handleClickNext = useCallback(() => goToNextSlide(), [goToNextSlide])
-
-    return (
-      <div {...restProps} className={clsx('ams-image-slider__controls', className)} ref={ref}>
-        <Button
-          className="ams-image-slider__control ams-image-slider__control--previous"
-          color="inverse"
-          disabled={isAtStart}
-          icon={ChevronBackwardIcon}
-          iconOnly
-          onClick={handleClickPrevious}
-        >
-          {previousLabel}
-        </Button>
-        <Button
-          className="ams-image-slider__control ams-image-slider__control--next"
-          color="inverse"
-          disabled={isAtEnd}
-          icon={ChevronForwardIcon}
-          iconOnly
-          onClick={handleClickNext}
-        >
-          {nextLabel}
-        </Button>
-      </div>
-    )
-  },
-)
-
-ImageSliderControls.displayName = 'ImageSliderControls'
+export const ImageSliderControls = ({
+  goToNextSlide,
+  goToPreviousSlide,
+  isAtEnd,
+  isAtStart,
+  nextLabel,
+  previousLabel,
+}: ImageSliderControlsProps) => {
+  return (
+    <div className="ams-image-slider__controls">
+      <Button
+        className="ams-image-slider__control"
+        color="inverse"
+        disabled={isAtStart}
+        icon={ChevronBackwardIcon}
+        iconOnly
+        onClick={goToPreviousSlide}
+      >
+        {previousLabel}
+      </Button>
+      <Button
+        className="ams-image-slider__control"
+        color="inverse"
+        disabled={isAtEnd}
+        icon={ChevronForwardIcon}
+        iconOnly
+        onClick={goToNextSlide}
+      >
+        {nextLabel}
+      </Button>
+    </div>
+  )
+}
