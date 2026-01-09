@@ -105,9 +105,7 @@ export const ImageSlider = forwardRef(
       const slides = Array.from(scrollerRef.current.children)
       slides.forEach((slide) => observer.observe(slide))
 
-      return () => {
-        slides.forEach((slide) => observer.unobserve(slide))
-      }
+      return () => observer.disconnect()
     }, [])
 
     const handleWindowResize = () => {
