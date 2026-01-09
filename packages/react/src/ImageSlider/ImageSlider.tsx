@@ -32,7 +32,10 @@ export type ImageSliderProps = {
   previousLabel?: string
 } & HTMLAttributes<HTMLDivElement>
 
-export const ImageSliderRoot = forwardRef(
+/**
+ * @see {@link https://designsystem.amsterdam/?path=/docs/components-media-image-slider--docs Image Slider docs at Amsterdam Design System}
+ */
+export const ImageSlider = forwardRef(
   (
     {
       className,
@@ -177,9 +180,4 @@ export const ImageSliderRoot = forwardRef(
   },
 )
 
-ImageSliderRoot.displayName = 'ImageSlider'
-
-/**
- * @see {@link https://designsystem.amsterdam/?path=/docs/components-media-image-slider--docs Image Slider docs at Amsterdam Design System}
- */
-export const ImageSlider = Object.assign(ImageSliderRoot, { Item: ImageSliderItem })
+ImageSlider.displayName = 'ImageSlider'
