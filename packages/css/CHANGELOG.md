@@ -3,6 +3,29 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.0.0](https://github.com/Amsterdam/design-system/compare/design-system-css-v2.2.0...design-system-css-v3.0.0) (2026-01-09)
+
+
+### ⚠ BREAKING CHANGES
+
+* **Field, Field Set:** Change spacing between elements ([#2358](https://github.com/Amsterdam/design-system/issues/2358))
+  * Although his change does not change the technical API, it may make spacing in your website incorrect.
+**How to update**: Remove the utility classes (`ams-mb-*`) from children of Field and Field Set that we previously recommended. This now gets handled by the components.
+
+* **Page Header:** Add vertical space to Mega Menu in Spacious Mode ([#2298](https://github.com/Amsterdam/design-system/issues/2298))
+  * Although his change does not change the technical API, it may make spacing in your website incorrect.
+**How to update**: Remove vertical white space from the children of Page Header.
+
+### Features
+
+* **Field, Field Set:** Change spacing between elements ([#2358](https://github.com/Amsterdam/design-system/issues/2358)) ([6bcace7](https://github.com/Amsterdam/design-system/commit/6bcace7930b1e1247601380a4e5bff1c318bbbcf))
+* **Page Footer:** Automatically render visually hidden heading before menu ([#2359](https://github.com/Amsterdam/design-system/issues/2359)) ([9019a78](https://github.com/Amsterdam/design-system/commit/9019a7891b7b2e31d9faab238317c34753bf7870))
+* **Page Header:** Add vertical space to Mega Menu in Spacious Mode ([#2298](https://github.com/Amsterdam/design-system/issues/2298)) ([3ae1729](https://github.com/Amsterdam/design-system/commit/3ae17299853fc6f35e639dfc8d9f7f97476bdbac))
+* **Page Header:** Add visually hidden description to menu button, hide menu button when CSS does not load ([#2340](https://github.com/Amsterdam/design-system/issues/2340)) ([f19ef3a](https://github.com/Amsterdam/design-system/commit/f19ef3a646ce18447a5f34382acd1eab5f7b82bb))
+* **Page Header:** Hide duplicate content of ‘narrow window only Grid Cell’ until CSS loads ([#2305](https://github.com/Amsterdam/design-system/issues/2305)) ([991252d](https://github.com/Amsterdam/design-system/commit/991252dc02e98012e278bae8c9376d2c8060c948))
+* **Paragraph:** Balance line lengths of lead paragraphs ([#2309](https://github.com/Amsterdam/design-system/issues/2309)) ([afeab6e](https://github.com/Amsterdam/design-system/commit/afeab6ebe7da883fb984e23cd9d0661f3524bb60))
+* **Paragraph:** Distinguish large and small variants without CSS ([#2315](https://github.com/Amsterdam/design-system/issues/2315)) ([c3bb5f7](https://github.com/Amsterdam/design-system/commit/c3bb5f74b1ffb8895b825a64f2fef704129b5e12))
+
 ## [2.2.0](https://github.com/Amsterdam/design-system/compare/design-system-css-v2.1.0...design-system-css-v2.2.0) (2025-11-21)
 
 
