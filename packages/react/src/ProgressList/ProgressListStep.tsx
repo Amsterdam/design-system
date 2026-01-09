@@ -40,9 +40,7 @@ export const ProgressListStep = forwardRef(
         <div className="ams-progress-list__indicator">
           <div className="ams-progress-list__marker">
             <span className="ams-progress-list__marker-shape">
-              {status === 'current' && (
-                <Icon className="ams-progress-list__marker-icon" square svg={ArrowForwardIcon} />
-              )}
+              {status === 'current' && <Icon color="inverse" svg={ArrowForwardIcon} />}
             </span>
           </div>
           <span className="ams-progress-list__connector" />

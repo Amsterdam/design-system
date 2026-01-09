@@ -15,8 +15,8 @@
   aspect-ratio: 1;
   border-radius: 50%;
   box-sizing: border-box;
-  display: flex;
-  justify-content: center;
+  display: grid;
+  place-content: center;
 }
 
 @mixin connector {
@@ -127,12 +127,6 @@
     background-color: var(--ams-progress-list-step-current-shape-background-color);
     border-color: var(--ams-progress-list-step-current-shape-border-color);
   }
-}
-
-.ams-progress-list__marker-icon {
-  align-self: center;
-  color: var(--ams-progress-list-step-icon-color);
-  inline-size: 100%;
 }
 
 // Sub-step Marker
