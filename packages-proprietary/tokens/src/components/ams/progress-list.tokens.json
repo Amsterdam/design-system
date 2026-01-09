@@ -175,9 +175,6 @@
             "body": {
               "padding-block-end": {
                 "value": "{ams.space.m}"
-              },
-              "padding-inline-start": {
-                "value": "{ams.space.m}"
               }
             },
             "completed": {
