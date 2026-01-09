@@ -10,11 +10,7 @@ import { ProgressList } from '@amsterdam/design-system-react/src'
 
 import { exampleParagraph, exampleUnorderedList } from '../shared/exampleContent'
 
-const paragraph1 = exampleParagraph()
-const paragraph2 = exampleParagraph()
-const paragraph3 = exampleParagraph()
-const paragraph4 = exampleParagraph()
-const paragraph5 = exampleParagraph()
+const paragraphs = Array.from({ length: 5 }, () => exampleParagraph())
 
 const unorderedList1 = exampleUnorderedList()
   .slice(0, 3)
@@ -32,11 +28,11 @@ const meta = {
         <UnorderedList>{unorderedList1}</UnorderedList>
       </ProgressList.Step>,
       <ProgressList.Step heading="2026" key={1} status="current">
-        <Paragraph className="ams-mb-m">{paragraph1}</Paragraph>
+        <Paragraph className="ams-mb-m">{paragraphs[1]}</Paragraph>
         <UnorderedList>{unorderedList2}</UnorderedList>
       </ProgressList.Step>,
       <ProgressList.Step heading="2027" key={2}>
-        <Paragraph>{paragraph2}</Paragraph>
+        <Paragraph>{paragraphs[2]}</Paragraph>
       </ProgressList.Step>,
     ],
     headingLevel: 3,
@@ -56,21 +52,21 @@ export const WithSubSteps: Story = {
         <UnorderedList>{unorderedList1}</UnorderedList>
       </ProgressList.Step>,
       <ProgressList.Step hasSubSteps heading="2026" key={1} status="current">
-        <Paragraph>{paragraph1}</Paragraph>
+        <Paragraph>{paragraphs[1]}</Paragraph>
         <ProgressList.SubSteps>
           <ProgressList.SubStep status="completed">
-            <Paragraph>{paragraph2}</Paragraph>
+            <Paragraph>{paragraphs[2]}</Paragraph>
           </ProgressList.SubStep>
           <ProgressList.SubStep status="current">
-            <Paragraph>{paragraph3}</Paragraph>
+            <Paragraph>{paragraphs[3]}</Paragraph>
           </ProgressList.SubStep>
           <ProgressList.SubStep>
-            <Paragraph>{paragraph4}</Paragraph>
+            <Paragraph>{paragraphs[4]}</Paragraph>
           </ProgressList.SubStep>
         </ProgressList.SubSteps>
       </ProgressList.Step>,
       <ProgressList.Step heading="2027" key={2}>
-        <Paragraph>{paragraph5}</Paragraph>
+        <Paragraph>{paragraphs[5]}</Paragraph>
       </ProgressList.Step>,
     ],
   },
