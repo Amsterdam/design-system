@@ -10,6 +10,14 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 * Use correct spelling for LinkedIn icon SVG ([#2357](https://github.com/Amsterdam/design-system/issues/2357))
 
+### Deprecations
+
+The following icons will be removed in release 4.0.0:
+
+- `Bell` and `BellFill`, use `Notification` and `NotificationFill` instead.
+- `PersonCircle` and `PersonCircleFill`, use `UserAccount` and `UserAccountFill` instead.
+- `TrashBin` and `TrashBinFill`, use `Delete` and `DeleteFill` instead.
+
 ### Features
 
 * Rename ‘Bell’, ‘PersonCircle’ and ‘TrashBin’ icons to ‘Notification’, ‘UserAccount’ and ‘Delete’ ([#2319](https://github.com/Amsterdam/design-system/issues/2319)) ([909f1d6](https://github.com/Amsterdam/design-system/commit/909f1d622c65f151f3936ea200ec6fe421ae1909))
