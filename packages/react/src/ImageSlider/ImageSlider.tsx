@@ -5,13 +5,14 @@
 
 import type { ForwardedRef, HTMLAttributes } from 'react'
 
+import { ChevronBackwardIcon, ChevronForwardIcon } from '@amsterdam/design-system-react-icons'
 import { clsx } from 'clsx'
 import { forwardRef, useCallback, useEffect, useMemo, useRef, useState } from 'react'
 
 import type { ImageProps } from '../Image/Image'
 
 import { Image } from '../Image/Image'
-import { ImageSliderControls } from './ImageSliderControls'
+import { ImageSliderControl } from './ImageSliderControl'
 import { ImageSliderThumbnails } from './ImageSliderThumbnails'
 
 export type ImageSliderImageProps = ImageProps
@@ -159,14 +160,14 @@ export const ImageSlider = forwardRef(
         ref={ref}
       >
         {controls && (
-          <ImageSliderControls
-            goToNextSlide={goToNextSlide}
-            goToPreviousSlide={goToPreviousSlide}
-            isAtEnd={isAtEnd}
-            isAtStart={isAtStart}
-            nextLabel={nextLabel}
-            previousLabel={previousLabel}
-          />
+          <div className="ams-image-slider__controls">
+            <ImageSliderControl disabled={isAtStart} icon={ChevronBackwardIcon} iconOnly onClick={goToPreviousSlide}>
+              {previousLabel}
+            </ImageSliderControl>
+            <ImageSliderControl disabled={isAtEnd} icon={ChevronForwardIcon} iconOnly onClick={goToNextSlide}>
+              {nextLabel}
+            </ImageSliderControl>
+          </div>
         )}
         <div aria-live="polite" className="ams-image-slider__scroller" ref={targetRef} role="group" tabIndex={0}>
           {images.map(({ alt, aspectRatio, sizes, src, srcSet }, index) => (
