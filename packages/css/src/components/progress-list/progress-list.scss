@@ -69,12 +69,12 @@
 .ams-progress-list-sub-step__indicator {
   @include layout-indicator;
 
+  margin-inline-end: var(--ams-progress-list-step-sub-steps-step-indicator-margin-inline-end);
   margin-inline-start: calc(-1 * var(--ams-progress-list-step-gap) - var(--ams-progress-list-step-shape-inline-size));
-  padding-inline-end: var(--ams-progress-list-step-sub-steps-step-indicator-padding-inline-end);
 
   @media screen and (min-width: $ams-breakpoint-medium) {
+    margin-inline-end: var(--ams-progress-list-step-sub-steps-step-indicator-medium-margin-inline-end);
     margin-inline-start: var(--ams-progress-list-step-sub-steps-step-indicator-medium-margin-inline-start);
-    padding-inline-end: var(--ams-progress-list-step-sub-steps-step-indicator-medium-padding-inline);
   }
 }
 
@@ -245,21 +245,21 @@
 // Heading
 
 .ams-progress-list__heading {
-  padding-block-end: var(--ams-progress-list-step-heading-padding-block-end);
+  margin-block-end: var(--ams-progress-list-step-heading-margin-block-end);
 }
 
 // Body
 
 .ams-progress-list__body {
   .ams-progress-list__step:not(:last-child, .ams-progress-list__step--has-sub-steps) & {
-    padding-block-end: var(--ams-progress-list-step-body-padding-block-end);
+    margin-block-end: var(--ams-progress-list-step-body-margin-block-end);
   }
 }
 
 .ams-progress-list-sub-step__body {
-  padding-block-end: var(--ams-progress-list-step-sub-steps-step-body-padding-block-end);
+  margin-block-end: var(--ams-progress-list-step-sub-steps-step-body-margin-block-end);
 
   .ams-progress-list__sub-step:last-of-type & {
-    padding-block-end: var(--ams-progress-list-step-sub-steps-step-body-padding-block-end);
+    margin-block-end: var(--ams-progress-list-step-sub-steps-step-body-margin-block-end);
   }
 }

@@ -92,12 +92,12 @@
           }
         },
         "heading": {
-          "padding-block-end": {
+          "margin-block-end": {
             "value": "{ams.space.s}"
           }
         },
         "body": {
-          "padding-block-end": {
+          "margin-block-end": {
             "value": "{ams.space.l}"
           }
         },
@@ -107,11 +107,11 @@
           },
           "step": {
             "indicator": {
-              "padding-inline-end": {
+              "margin-inline-end": {
                 "value": "{ams.space.m}"
               },
               "medium": {
-                "padding-inline": {
+                "margin-inline-end": {
                   "value": "{ams.space.l}"
                 },
                 "margin-inline-start": {
@@ -173,7 +173,7 @@
               }
             },
             "body": {
-              "padding-block-end": {
+              "margin-block-end": {
                 "value": "{ams.space.m}"
               }
             },
