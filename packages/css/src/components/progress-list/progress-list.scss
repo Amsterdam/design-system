@@ -239,6 +239,7 @@
 // Content
 
 .ams-progress-list__content {
+  /* Ensure content can shrink to fit the container */
   flex: auto;
   min-inline-size: 0;
 }
